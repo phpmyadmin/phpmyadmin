@@ -238,7 +238,7 @@ function PMA_isSelect()
  *
  * @see     PMA_displayTableNavigation()
  */
-function PMA_displayTableNavigationOneButton($caption, $title, $pos, $html_sql_query,
+function PMA_displayTableNavigationButton($caption, $title, $pos, $html_sql_query,
     $onsubmit = '', $input_for_real_end = '', $onclick = ''
 ) {
     global $db, $table, $goto;
@@ -271,7 +271,7 @@ function PMA_displayTableNavigationOneButton($caption, $title, $pos, $html_sql_q
     </form>
 </td>
 <?php
-} // end function PMA_displayTableNavigationOneButton()
+} // end function PMA_displayTableNavigationButton()
 
 /**
  * Displays a navigation bar to browse among the results of a SQL query
@@ -326,10 +326,10 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query,
     if ($_SESSION['tmp_user_values']['pos']
         && $_SESSION['tmp_user_values']['max_rows'] != 'all'
     ) {
-        PMA_displayTableNavigationOneButton(
+        PMA_displayTableNavigationButton(
             '&lt;&lt;', _pgettext('First page', 'Begin'), 0, $html_sql_query
         );
-        PMA_displayTableNavigationOneButton(
+        PMA_displayTableNavigationButton(
             '&lt;', _pgettext('Previous page', 'Previous'), $pos_prev,
             $html_sql_query
         );
@@ -408,7 +408,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query,
         && $_SESSION['tmp_user_values']['max_rows'] != 'all'
     ) {
         // display the Next button
-        PMA_displayTableNavigationOneButton(
+        PMA_displayTableNavigationButton(
             '&gt;',
             _pgettext('Next page', 'Next'),
             $pos_next,
@@ -432,7 +432,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query,
             ? 'true'
             : 'false' . '"';
         // display the End button
-        PMA_displayTableNavigationOneButton(
+        PMA_displayTableNavigationButton(
             '&gt;&gt;',
             _pgettext('Last page', 'End'),
             @((ceil($unlim_num_rows / $_SESSION['tmp_user_values']['max_rows'])- 1)
@@ -1385,10 +1385,11 @@ function PMA_buildValueDisplay($class, $condition_field, $value)
 function PMA_buildNullDisplay($class, $condition_field, $meta, $align = '')
 {
     // the null class is needed for grid editing
-    return '<td ' . $align . ' class="' . PMA_addClass(
-        $class, $condition_field, $meta, ''
-    )
-    . ' null"><i>NULL</i></td>';
+    return '<td ' . $align . ' class="'
+        . PMA_addClass(
+            $class, $condition_field, $meta, ''
+        )
+        . ' null"><i>NULL</i></td>';
 }
 
 /**
@@ -1404,10 +1405,11 @@ function PMA_buildNullDisplay($class, $condition_field, $meta, $align = '')
 function PMA_buildEmptyDisplay($class, $condition_field, $meta, $align = '')
 {
     $nowrap = ' nowrap';
-    return '<td ' . $align . ' class="' . PMA_addClass(
-        $class, $condition_field, $meta, $nowrap
-    )
-    . '"></td>';
+    return '<td ' . $align . ' class="'
+        . PMA_addClass(
+            $class, $condition_field, $meta, $nowrap
+        )
+        . '"></td>';
 }
 
 /**
@@ -1447,12 +1449,10 @@ function PMA_addClass($class, $condition_field, $meta, $nowrap,
         $mime_type_class = ' ' . preg_replace('/\//', '_', $meta->mimetype);
     }
 
-    $result = $class . ($condition_field ? ' condition' : '') . $nowrap
-    . ' ' . ($is_field_truncated ? ' truncated' : '')
-    . ($transform_function != $default_function ? ' transformed' : '')
-    . $enum_class . $set_class . $bit_class . $mime_type_class;
-
-    return $result;
+    return $class . ($condition_field ? ' condition' : '') . $nowrap
+        . ' ' . ($is_field_truncated ? ' truncated' : '')
+        . ($transform_function != $default_function ? ' transformed' : '')
+        . $enum_class . $set_class . $bit_class . $mime_type_class;
 }
 /**
  * Displays the body of the results table
@@ -1489,7 +1489,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
     global $row; // mostly because of browser transformations,
                  // to make the row-data accessible in a plugin
 
-    $url_sql_query          = $sql_query;
+    $url_sql_query = $sql_query;
 
     // query without conditions to shorten URLs when needed, 200 is just
     // guess, it should depend on remaining URL length
@@ -2233,6 +2233,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
 function PMA_displayVerticalTable()
 {
     global $vertical_display;
+    
+    $vertical_table_html = '';
 
     // Displays "multi row delete" link at top if required
     if ($GLOBALS['cfg']['RowActionLinks'] != 'right'
@@ -2240,29 +2242,29 @@ function PMA_displayVerticalTable()
         && (count($vertical_display['row_delete']) > 0
         || !empty($vertical_display['textbtn']))
     ) {
-        echo '<tr>' . "\n";
+        $vertical_table_html .= '<tr>' . "\n";
         if ($GLOBALS['cfg']['RowActionLinks'] == 'none') {
             // if we are not showing the RowActionLinks, then we need to show
             // the Multi-Row-Action checkboxes
-            echo '<th></th>' . "\n";
+            $vertical_table_html .= '<th></th>' . "\n";
         }
-        echo $vertical_display['textbtn'];
+        $vertical_table_html .= $vertical_display['textbtn'];
         $cell_displayed = 0;
         foreach ($vertical_display['row_delete'] as $val) {
             if (($cell_displayed != 0)
                 && ($_SESSION['tmp_user_values']['repeat_cells'] != 0)
                 && !($cell_displayed % $_SESSION['tmp_user_values']['repeat_cells'])
             ) {
-                echo '<th' .
-                    (($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn')
+                $vertical_table_html .= '<th'
+                    . (($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn')
                         ? ' rowspan="4"'
                         : '')
                     . '></th>' . "\n";
             }
-            echo str_replace('[%_PMA_CHECKBOX_DIR_%]', '_left', $val);
+            $vertical_table_html .= str_replace('[%_PMA_CHECKBOX_DIR_%]', '_left', $val);
             $cell_displayed++;
         } // end while
-        echo '</tr>' . "\n";
+        $vertical_table_html .= '</tr>' . "\n";
     } // end if
 
     // Displays "edit" link at top if required
@@ -2272,14 +2274,14 @@ function PMA_displayVerticalTable()
         && (count($vertical_display['edit']) > 0
         || !empty($vertical_display['textbtn']))
     ) {
-        echo '<tr>' . "\n";
+        $vertical_table_html .= '<tr>' . "\n";
         if (! is_array($vertical_display['row_delete'])) {
-            echo $vertical_display['textbtn'];
+            $vertical_table_html .= $vertical_display['textbtn'];
         }
         foreach ($vertical_display['edit'] as $val) {
-            echo $val;
+            $vertical_table_html .= $val;
         } // end while
-        echo '</tr>' . "\n";
+        $vertical_table_html .= '</tr>' . "\n";
     } // end if
 
     // Displays "copy" link at top if required
@@ -2289,14 +2291,14 @@ function PMA_displayVerticalTable()
         && (count($vertical_display['copy']) > 0
         || !empty($vertical_display['textbtn']))
     ) {
-        echo '<tr>' . "\n";
+        $vertical_table_html .= '<tr>' . "\n";
         if (! is_array($vertical_display['row_delete'])) {
-            echo $vertical_display['textbtn'];
+            $vertical_table_html .= $vertical_display['textbtn'];
         }
         foreach ($vertical_display['copy'] as $val) {
-            echo $val;
+            $vertical_table_html .= $val;
         } // end while
-        echo '</tr>' . "\n";
+        $vertical_table_html .= '</tr>' . "\n";
     } // end if
 
     // Displays "delete" link at top if required
@@ -2306,16 +2308,16 @@ function PMA_displayVerticalTable()
         && (count($vertical_display['delete']) > 0
         || !empty($vertical_display['textbtn']))
     ) {
-        echo '<tr>' . "\n";
+        $vertical_table_html .= '<tr>' . "\n";
         if (! is_array($vertical_display['edit'])
             && ! is_array($vertical_display['row_delete'])
         ) {
-            echo $vertical_display['textbtn'];
+            $vertical_table_html .= $vertical_display['textbtn'];
         }
         foreach ($vertical_display['delete'] as $val) {
-            echo $val;
+            $vertical_table_html .= $val;
         } // end while
-        echo '</tr>' . "\n";
+        $vertical_table_html .= '</tr>' . "\n";
     } // end if
 
     if (PMA_isSelect()) {
@@ -2333,9 +2335,9 @@ function PMA_displayVerticalTable()
         // assign appropriate key with current column order
         $key = $col_order ? $col_order[$j] : $j;
 
-        echo '<tr' . (($col_visib && !$col_visib[$j]) ? ' class="hide"' : '')
-            . '>' . "\n";
-        echo $val;
+        $vertical_table_html .= '<tr' . (($col_visib && !$col_visib[$j]) ? ' class="hide"' : '')
+            . '>' . "\n"
+            . $val;
 
         $cell_displayed = 0;
         foreach ($vertical_display['rowdata'][$key] as $subval) {
@@ -2343,14 +2345,14 @@ function PMA_displayVerticalTable()
                 && ($_SESSION['tmp_user_values']['repeat_cells'] != 0)
                 && !($cell_displayed % $_SESSION['tmp_user_values']['repeat_cells'])
             ) {
-                echo $val;
+                $vertical_table_html .= $val;
             }
 
-            echo $subval;
+            $vertical_table_html .= $subval;
             $cell_displayed++;
         } // end while
 
-        echo '</tr>' . "\n";
+        $vertical_table_html .= '</tr>' . "\n";
     } // end while
 
     // Displays "multi row delete" link at bottom if required
@@ -2360,24 +2362,24 @@ function PMA_displayVerticalTable()
         && (count($vertical_display['row_delete']) > 0
         || !empty($vertical_display['textbtn']))
     ) {
-        echo '<tr>' . "\n";
-        echo $vertical_display['textbtn'];
+        $vertical_table_html .= '<tr>' . "\n" . $vertical_display['textbtn'];
         $cell_displayed = 0;
         foreach ($vertical_display['row_delete'] as $val) {
             if (($cell_displayed != 0)
                 && ($_SESSION['tmp_user_values']['repeat_cells'] != 0)
                 && !($cell_displayed % $_SESSION['tmp_user_values']['repeat_cells'])
             ) {
-                echo '<th' .
-                    (($is_display['edit_lnk'] != 'nn'
-                        && $is_display['del_lnk'] != 'nn') ? ' rowspan="4"' : '')
+                $vertical_table_html .= '<th'
+                    . (($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn')
+                        ? ' rowspan="4"'
+                        : '')
                     . '></th>' . "\n";
             }
 
-            echo str_replace('[%_PMA_CHECKBOX_DIR_%]', '_right', $val);
+            $vertical_table_html .= str_replace('[%_PMA_CHECKBOX_DIR_%]', '_right', $val);
             $cell_displayed++;
         } // end while
-        echo '</tr>' . "\n";
+        $vertical_table_html .= '</tr>' . "\n";
     } // end if
 
     // Displays "edit" link at bottom if required
@@ -2387,14 +2389,14 @@ function PMA_displayVerticalTable()
         && (count($vertical_display['edit']) > 0
         || !empty($vertical_display['textbtn']))
     ) {
-        echo '<tr>' . "\n";
+        $vertical_table_html .= '<tr>' . "\n";
         if (! is_array($vertical_display['row_delete'])) {
-            echo $vertical_display['textbtn'];
+            $vertical_table_html .= $vertical_display['textbtn'];
         }
         foreach ($vertical_display['edit'] as $val) {
-            echo $val;
+            $vertical_table_html .= $val;
         } // end while
-        echo '</tr>' . "\n";
+        $vertical_table_html .= '</tr>' . "\n";
     } // end if
 
     // Displays "copy" link at bottom if required
@@ -2404,14 +2406,14 @@ function PMA_displayVerticalTable()
         && (count($vertical_display['copy']) > 0
         || !empty($vertical_display['textbtn']))
     ) {
-        echo '<tr>' . "\n";
+        $vertical_table_html .= '<tr>' . "\n";
         if (! is_array($vertical_display['row_delete'])) {
-            echo $vertical_display['textbtn'];
+            $vertical_table_html .= $vertical_display['textbtn'];
         }
         foreach ($vertical_display['copy'] as $val) {
-            echo $val;
+            $vertical_table_html .= $val;
         } // end while
-        echo '</tr>' . "\n";
+        $vertical_table_html .= '</tr>' . "\n";
     } // end if
 
     // Displays "delete" link at bottom if required
@@ -2421,17 +2423,20 @@ function PMA_displayVerticalTable()
         && (count($vertical_display['delete']) > 0
         || !empty($vertical_display['textbtn']))
     ) {
-        echo '<tr>' . "\n";
+        $vertical_table_html .= '<tr>' . "\n";
         if (! is_array($vertical_display['edit'])
             && ! is_array($vertical_display['row_delete'])
         ) {
-            echo $vertical_display['textbtn'];
+            $vertical_table_html .= $vertical_display['textbtn'];
         }
         foreach ($vertical_display['delete'] as $val) {
-            echo $val;
+            $vertical_table_html .= $val;
         } // end while
-        echo '</tr>' . "\n";
+        $vertical_table_html .= '</tr>' . "\n";
     }
+    
+    // render HTML content of verticle table
+    echo $vertical_table_html;
 
     return true;
 } // end of the 'PMA_displayVerticalTable' function
@@ -3308,10 +3313,12 @@ function PMA_prepare_row_data($class, $condition_field, $analyzed_sql, $meta, $m
 ) {
     global $db;
 
-    $result = ' class="' . PMA_addClass(
-        $class, $condition_field, $meta, $nowrap,
-        $is_field_truncated, $transform_function, $default_function
-    ) . '">';
+    $result = ' class="'
+        . PMA_addClass(
+            $class, $condition_field, $meta, $nowrap,
+            $is_field_truncated, $transform_function, $default_function
+        )
+        . '">';
 
     if (isset($analyzed_sql[0]['select_expr'])
         && is_array($analyzed_sql[0]['select_expr'])
@@ -3453,16 +3460,17 @@ function PMA_generateCheckboxForMulti($del_url, $is_display, $row_no,
             $ret .= 'class="' . $class . '"';
         }
         $ret .= ' class="center">'
-           . '<input type="checkbox" id="id_rows_to_delete' . $row_no . $id_suffix
-           . '" name="rows_to_delete[' . $row_no . ']"'
-           . ' class="multi_checkbox"'
-           . ' value="' . $where_clause_html . '" '
-           . (isset($GLOBALS['checkall'])
-               ? 'checked="checked"'
-               : '') . ' />'
-           . '<input type="hidden" class="condition_array" value="'
-           . htmlspecialchars(json_encode($condition_array)) . '" />'
-           . '    </td>';
+            . '<input type="checkbox" id="id_rows_to_delete' . $row_no . $id_suffix
+            . '" name="rows_to_delete[' . $row_no . ']"'
+            . ' class="multi_checkbox"'
+            . ' value="' . $where_clause_html . '" '
+            . (isset($GLOBALS['checkall'])
+                ? 'checked="checked"'
+                : '')
+            . ' />'
+            . '<input type="hidden" class="condition_array" value="'
+            . htmlspecialchars(json_encode($condition_array)) . '" />'
+            . '    </td>';
     }
     return $ret;
 }
@@ -3589,17 +3597,17 @@ function PMA_generateCheckboxAndLinks($position, $del_url, $is_display, $row_no,
 
     if ($position == 'left') {
         $ret .= PMA_generateCheckboxForMulti(
-            $del_url, $is_display, $row_no, $where_clause_html, $condition_array,
-            $del_query, $id_suffix = '_left', '', '', ''
-        );
+                $del_url, $is_display, $row_no, $where_clause_html, $condition_array,
+                $del_query, $id_suffix = '_left', '', '', ''
+            );
 
         $ret .= PMA_generateEditLink(
-            $edit_url, $class, $edit_str, $where_clause, $where_clause_html, ''
-        );
+                $edit_url, $class, $edit_str, $where_clause, $where_clause_html, ''
+            );
 
         $ret .= PMA_generateCopyLink(
-            $copy_url, $copy_str, $where_clause, $where_clause_html, ''
-        );
+                $copy_url, $copy_str, $where_clause, $where_clause_html, ''
+            );
 
         $ret .= PMA_generateDeleteLink($del_url, $del_str, $js_conf, '', '');
 
@@ -3607,22 +3615,22 @@ function PMA_generateCheckboxAndLinks($position, $del_url, $is_display, $row_no,
         $ret .= PMA_generateDeleteLink($del_url, $del_str, $js_conf, '', '');
 
         $ret .= PMA_generateCopyLink(
-            $copy_url, $copy_str, $where_clause, $where_clause_html, ''
-        );
+                $copy_url, $copy_str, $where_clause, $where_clause_html, ''
+            );
 
         $ret .= PMA_generateEditLink(
-            $edit_url, $class, $edit_str, $where_clause, $where_clause_html, ''
-        );
+                $edit_url, $class, $edit_str, $where_clause, $where_clause_html, ''
+            );
 
         $ret .= PMA_generateCheckboxForMulti(
-            $del_url, $is_display, $row_no, $where_clause_html, $condition_array,
-            $del_query, $id_suffix = '_right', '', '', ''
-        );
+                $del_url, $is_display, $row_no, $where_clause_html, $condition_array,
+                $del_query, $id_suffix = '_right', '', '', ''
+            );
     } else { // $position == 'none'
         $ret .= PMA_generateCheckboxForMulti(
-            $del_url, $is_display, $row_no, $where_clause_html, $condition_array,
-            $del_query, $id_suffix = '_left', '', '', ''
-        );
+                $del_url, $is_display, $row_no, $where_clause_html, $condition_array,
+                $del_query, $id_suffix = '_left', '', '', ''
+            );
     }
     return $ret;
 }
