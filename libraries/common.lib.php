@@ -3655,7 +3655,7 @@ function PMA_getGISFunctions($geom_type = null, $binary = true, $display = false
 }
 
 /**
- * Creates a dropdown box with MySQL functions for a particular column.
+ * Returns default function for a particular column.
  *
  * @param array $field       Data about the column for which
  *                           to generate the dropdown
@@ -3669,15 +3669,11 @@ function PMA_getGISFunctions($geom_type = null, $binary = true, $display = false
  * @return string   An HTML snippet of a dropdown list with function
  *                    names appropriate for the requested column.
  */
-function PMA_getFunctionsForField($field, $insert_mode)
+function PMA_getDefaultFunctionForField($field, $insert_mode)
 {
     global $cfg, $analyzed_sql, $data;
 
-    $selected = '';
-    $dropdown = array();
     $default_function   = '';
-
-    $dropdown = $GLOBALS['PMA_Types']->getFunctions($field['True_Type']);
 
     // Can we get field class based values?
     $current_class = $GLOBALS['PMA_Types']->getTypeClass($field['True_Type']);
@@ -3686,8 +3682,6 @@ function PMA_getFunctionsForField($field, $insert_mode)
             $default_function   = $cfg['DefaultFunctions']['FUNC_' . $current_class];
         }
     }
-    $dropdown_built = array();
-    $op_spacing_needed = false;
     // what function defined as default?
     // for the first timestamp we don't set the default function
     // if there is a default value for the timestamp
@@ -3700,6 +3694,10 @@ function PMA_getFunctionsForField($field, $insert_mode)
         && ! isset($analyzed_sql[0]['create_table_fields'][$field['Field']]['on_update_current_timestamp'])
         && $analyzed_sql[0]['create_table_fields'][$field['Field']]['default_value'] != 'NULL'
     ) {
+        $default_function = $cfg['DefaultFunctions']['first_timestamp'];
+    }
+    // Default for first timestamp field
+    if ($field['first_timestamp']) {
         $default_function = $cfg['DefaultFunctions']['first_timestamp'];
     }
     // For primary keys of type char(36) or varchar(36) UUID if the default
@@ -3716,44 +3714,57 @@ function PMA_getFunctionsForField($field, $insert_mode)
         $default_function = 'UNHEX';
     }
 
+    return $default_function;
+}
+
+/**
+ * Creates a dropdown box with MySQL functions for a particular column.
+ *
+ * @param array $field       Data about the column for which
+ *                           to generate the dropdown
+ * @param bool  $insert_mode Whether the operation is 'insert'
+ *
+ * @return string   An HTML snippet of a dropdown list with function
+ *                    names appropriate for the requested column.
+ */
+function PMA_getFunctionsForField($field, $insert_mode)
+{
+    $default_function = PMA_getDefaultFunctionForField($field, $insert_mode);
+    $dropdown_built = array();
+
     // Create the output
-    $retval = '                <option></option>' . "\n";
+    $retval = '<option></option>' . "\n";
     // loop on the dropdown array and print all available options for that
     // field.
-    foreach ($dropdown as $each_dropdown) {
-        $retval .= '                ';
+    $functions = $GLOBALS['PMA_Types']->getFunctions($field['True_Type']);
+    foreach ($functions as $function) {
         $retval .= '<option';
-        if ($default_function === $each_dropdown) {
+        if ($default_function === $function) {
             $retval .= ' selected="selected"';
         }
-        $retval .= '>' . $each_dropdown . '</option>' . "\n";
-        $dropdown_built[$each_dropdown] = 'true';
-        $op_spacing_needed = true;
+        $retval .= '>' . $function . '</option>' . "\n";
+        $dropdown_built[$function] = true;
     }
+
+    // Create separator before all functions list
+    if (count($functions) > 0) {
+        $retval .= '<option value="" disabled="disabled">--------</option>' . "\n";
+    }
+
     // For compatibility's sake, do not let out all other functions. Instead
     // print a separator (blank) and then show ALL functions which weren't
     // shown yet.
     $functions = $GLOBALS['PMA_Types']->getAllFunctions();
-    $cnt_functions = count($functions);
-    for ($j = 0; $j < $cnt_functions; $j++) {
-        if (! isset($dropdown_built[$functions[$j]])
-            || $dropdown_built[$functions[$j]] != 'true'
-        ) {
-            // Is current function defined as default?
-            $selected = ($field['first_timestamp'] && $functions[$j] == $cfg['DefaultFunctions']['first_timestamp'])
-                || (! $field['first_timestamp'] && $functions[$j] == $default_function)
-                    ? ' selected="selected"'
-                    : '';
-            if ($op_spacing_needed == true) {
-                $retval .= '                ';
-                $retval .= '<option value="">--------</option>' . "\n";
-                $op_spacing_needed = false;
-            }
-
-            $retval .= '                ';
-            $retval .= '<option' . $selected . '>' . $functions[$j]
-                . '</option>' . "\n";
+    foreach ($functions as $function) {
+        // Skip already included functions
+        if (isset($dropdown_built[$function])) {
+            continue;
         }
+        $retval .= '<option';
+        if ($default_function === $function) {
+            $retval .= ' selected="selected"';
+        }
+        $retval .= '>' . $function . '</option>' . "\n";
     } // end for
 
     return $retval;

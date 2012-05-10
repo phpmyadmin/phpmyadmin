@@ -987,7 +987,6 @@ function PMA_RTN_getQueryFromRequest()
     global $_REQUEST, $errors, $param_sqldataaccess, $param_directions;
 
     $_REQUEST['item_type'] = isset($_REQUEST['item_type']) ? $_REQUEST['item_type'] : '';
-    $column_types = $GLOBALS['PMA_Types']->getColumns();
 
     $query = 'CREATE ';
     if (! empty($_REQUEST['item_definer'])) {
@@ -1053,12 +1052,12 @@ function PMA_RTN_getQueryFromRequest()
                     }
                 }
                 if (! empty($_REQUEST['item_param_opts_text'][$i])) {
-                    if (in_array($_REQUEST['item_param_type'][$i], $column_types['STRING'])) {
+                    if ($GLOBALS['PMA_Types']->getTypeClass($_REQUEST['item_param_type'][$i]) == 'CHAR') {
                         $params .= ' CHARSET ' . strtolower($_REQUEST['item_param_opts_text'][$i]);
                     }
                 }
                 if (! empty($_REQUEST['item_param_opts_num'][$i])) {
-                    if (in_array($_REQUEST['item_param_type'][$i], $column_types['NUMERIC'])) {
+                    if ($GLOBALS['PMA_Types']->getTypeClass($_REQUEST['item_param_type'][$i]) == 'NUMBER') {
                         $params .= ' ' . strtoupper($_REQUEST['item_param_opts_num'][$i]);
                     }
                 }
@@ -1093,12 +1092,12 @@ function PMA_RTN_getQueryFromRequest()
             }
         }
         if (! empty($_REQUEST['item_returnopts_text'])) {
-            if (in_array($_REQUEST['item_returntype'], $column_types['STRING'])) {
+            if ($GLOBALS['PMA_Types']->getTypeClass($_REQUEST['item_returntype']) == 'CHAR') {
                 $query .= ' CHARSET ' . strtolower($_REQUEST['item_returnopts_text']);
             }
         }
         if (! empty($_REQUEST['item_returnopts_num'])) {
-            if (in_array($_REQUEST['item_returntype'], $column_types['NUMERIC'])) {
+            if ($GLOBALS['PMA_Types']->getTypeClass($_REQUEST['item_returntype']) == 'NUMBER') {
                 $query .= ' ' . strtoupper($_REQUEST['item_returnopts_num']);
             }
         }
