@@ -3656,7 +3656,7 @@ function PMA_getGISFunctions($geom_type = null, $binary = true, $display = false
  * @return string   An HTML snippet of a dropdown list with function
  *                    names appropriate for the requested column.
  */
-function PMA_geDefaulttFunctionForField($field, $insert_mode)
+function PMA_getDefaultFunctionForField($field, $insert_mode)
 {
     global $cfg, $analyzed_sql, $data;
 
@@ -3716,7 +3716,7 @@ function PMA_geDefaulttFunctionForField($field, $insert_mode)
  */
 function PMA_getFunctionsForField($field, $insert_mode)
 {
-    $default_function = PMA_geDefaulttFunctionForField($field, $insert_mode);
+    $default_function = PMA_getDefaultFunctionForField($field, $insert_mode);
     $dropdown_built = array();
 
     // Create the output
