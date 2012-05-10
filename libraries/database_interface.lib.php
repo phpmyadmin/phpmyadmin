@@ -517,22 +517,19 @@ function PMA_DBI_get_tables_full($database, $table = false,
 
             $useStatusCache = false;
 
-            if (isset($GLOBALS['cfg']['Server']['StatusCacheDatabases'])) {
-                if (!empty($GLOBALS['cfg']['Server']['StatusCacheLifetime'])) {
-                    if (extension_loaded('apc')) {
-                        $statusCacheDatabases = (array) $GLOBALS['cfg']['Server']['StatusCacheDatabases'];
-
-                        if (in_array($each_database, $statusCacheDatabases)) {
-                            $useStatusCache = true;
-                        }
-                    }
+            if (extension_loaded('apc')
+                && isset($GLOBALS['cfg']['Server']['StatusCacheDatabases'])
+                && ! empty($GLOBALS['cfg']['Server']['StatusCacheLifetime'])) {
+                $statusCacheDatabases = (array) $GLOBALS['cfg']['Server']['StatusCacheDatabases'];
+                if (in_array($each_database, $statusCacheDatabases)) {
+                    $useStatusCache = true;
                 }
             }
 
             $each_tables = null;
 
             if ($useStatusCache) {
-                $cacheKey = 'phpMyAdmin_tableStatus_' . md5($GLOBALS['cfg']['Server']['host'] . '_' . $sql);
+                $cacheKey = 'phpMyAdmin_tableStatus_' . sha1($GLOBALS['cfg']['Server']['host'] . '_' . $sql);
 
                 $each_tables = apc_fetch($cacheKey);
             }
