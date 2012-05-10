@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-09 13:14+0200\n"
-"PO-Revision-Date: 2012-05-10 11:55+0200\n"
+"PO-Revision-Date: 2012-05-10 12:37+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -847,7 +847,7 @@ msgstr "空間参照識別子"
 #: gis_data_editor.php:151 js/messages.php:330
 #: libraries/display_tbl.lib.php:825
 msgid "Geometry"
-msgstr "空間データ"
+msgstr "幾何データ"
 
 #: gis_data_editor.php:171 js/messages.php:326
 msgid "Point"
@@ -904,7 +904,7 @@ msgstr "ポリゴンを追加する"
 
 #: gis_data_editor.php:309
 msgid "Add geometry"
-msgstr "空間データを追加する"
+msgstr "幾何データを追加する"
 
 #: gis_data_editor.php:316
 msgid "Output"
@@ -2819,6 +2819,7 @@ msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
 msgstr ""
+"固定小数 (M, D) - 整数部の最大桁数 (M) は 65 (デフォルトは 10)、小数部のの最大桁数 (D) は 30 (デフォルトは 0)"
 
 #: libraries/Types.class.php:301
 msgid ""
@@ -2947,13 +2948,13 @@ msgstr ""
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
-msgstr ""
+msgstr "CHAR 型と似ていますが、非バイナリ文字列ではなくバイナリ文字列で保存されます"
 
 #: libraries/Types.class.php:337
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
-msgstr ""
+msgstr "VARCHAR 型と似ていますが、非バイナリ文字列ではなくバイナリ文字列で保存されます"
 
 #: libraries/Types.class.php:339
 msgid ""
@@ -2999,7 +3000,7 @@ msgstr ""
 
 #: libraries/Types.class.php:351
 msgid "A type that can store a geometry of any type"
-msgstr ""
+msgstr "任意の型の幾何データが保存できるデータ型"
 
 #: libraries/Types.class.php:353
 msgid "A point in 2-dimensional space"
@@ -3027,7 +3028,7 @@ msgstr "ポリゴンの集合"
 
 #: libraries/Types.class.php:365
 msgid "A collection of geometry objects of any type"
-msgstr ""
+msgstr "任意の型の幾何物体の集合"
 
 #: libraries/Types.class.php:619 libraries/Types.class.php:971
 msgctxt "numeric types"
@@ -7259,7 +7260,7 @@ msgstr "ESRI シェープファイル"
 #: libraries/import/shp.php:199
 #, php-format
 msgid "Geometry type '%s' is not supported by MySQL."
-msgstr ""
+msgstr "幾何データ型「%s」は、この MySQL でサポートされていません。"
 
 #: libraries/import/shp.php:360
 #, php-format
