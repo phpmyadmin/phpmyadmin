@@ -154,12 +154,10 @@ unset($show_create_table);
  */
 PMA_DBI_select_db($db);
 $table_fields = array_values(PMA_DBI_get_columns($db, $table));
-$rows               = array();
 
-$found_unique_key   = false;
-$paramArray = array($rows, $table, $db);
+$paramArray = array($table, $db);
 list($insert_mode, $where_clauses, $result, $rows, $where_clause_array, $found_unique_key) 
-        = PMA_getValuesForEditMode($paramArray, $found_unique_key);
+        = PMA_getValuesForEditMode($paramArray);
 
 // Copying a row - fetched data will be inserted as a new row, therefore the where clause is needless.
 if (isset($default_action) && $default_action === 'insert') {
@@ -241,11 +239,11 @@ if (! $cfg['ShowFunctionFields'] || ! $cfg['ShowFieldTypesInDataEditView']) {
 }
 
 if (! $cfg['ShowFunctionFields']) {
-    echo PMA_showFunctionFieldsInEditMode($url_params, true);
+    echo PMA_showFunctionFieldsInEditMode($url_params, false);
 }
 
 if (! $cfg['ShowFieldTypesInDataEditView']) {
-    echo PMA_showFieldTypesInDataEditView($url_params, true);
+    echo PMA_showColumnTypesInDataEditView($url_params, false);
 }
 
 foreach ($rows as $row_id => $vrow) {
@@ -270,10 +268,10 @@ foreach ($rows as $row_id => $vrow) {
 
             <?php
             if ($cfg['ShowFieldTypesInDataEditView']) {
-                echo PMA_showFieldTypesInDataEditView($url_params, false);
+                echo PMA_showColumnTypesInDataEditView($url_params, true);
             }
             if ($cfg['ShowFunctionFields']) {
-                echo PMA_showFunctionFieldsInEditMode($url_params, false);
+                echo PMA_showFunctionFieldsInEditMode($url_params, true);
             }
             ?>
             <th><?php echo __('Null'); ?></th>
