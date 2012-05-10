@@ -398,8 +398,8 @@ class FormDisplay
         $js_default[] = $js_line;
 
         display_input(
-            $translated_path, $name, $description, $type,
-            $value, $value_is_default, $opts
+            $translated_path, $name, $type, $value,
+            $description, $value_is_default, $opts
         );
     }
 
