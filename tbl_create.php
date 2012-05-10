@@ -109,7 +109,6 @@ if (isset($_REQUEST['do_save_data'])) {
                 ? $_REQUEST['field_comments'][$i]
                 : '',
             $field_primary,
-            '',
             ''
         );
 
