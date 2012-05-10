@@ -3671,7 +3671,6 @@ function PMA_getFunctionsForField($field, $insert_mode)
         }
     }
     $dropdown_built = array();
-    $op_spacing_needed = false;
     // what function defined as default?
     // for the first timestamp we don't set the default function
     // if there is a default value for the timestamp
@@ -3712,11 +3711,10 @@ function PMA_getFunctionsForField($field, $insert_mode)
         }
         $retval .= '>' . $function . '</option>' . "\n";
         $dropdown_built[$function] = true;
-        $op_spacing_needed = true;
     }
 
     // Create separator before all functions list
-    if ($op_spacing_needed) {
+    if (count($functions) > 0) {
         $retval .= '<option value="">--------</option>' . "\n";
     }
 
