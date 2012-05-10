@@ -3735,7 +3735,7 @@ function PMA_getFunctionsForField($field, $insert_mode)
 
     // Create separator before all functions list
     if (count($functions) > 0) {
-        $retval .= '<option value="">--------</option>' . "\n";
+        $retval .= '<option value="" disabled="disabled">--------</option>' . "\n";
     }
 
     // For compatibility's sake, do not let out all other functions. Instead
