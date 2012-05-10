@@ -1489,6 +1489,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
     global $row; // mostly because of browser transformations,
                  // to make the row-data accessible in a plugin
 
+    $table_body_html = '';
     $url_sql_query = $sql_query;
 
     // query without conditions to shorten URLs when needed, 200 is just
@@ -1553,23 +1554,23 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             && ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
             || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped')
         ) {
-            echo '<tr>' . "\n";
+            $table_body_html .= '<tr>' . "\n";
             if ($vertical_display['emptypre'] > 0) {
-                echo '    <th colspan="' . $vertical_display['emptypre'] . '">'
-                     . "\n".'        &nbsp;</th>' . "\n";
+                $table_body_html .= '    <th colspan="' . $vertical_display['emptypre'] . '">'
+                    . "\n".'        &nbsp;</th>' . "\n";
             } else if ($GLOBALS['cfg']['RowActionLinks'] == 'none') {
-                echo '    <th></th>' . "\n";
+                $table_body_html .= '    <th></th>' . "\n";
             }
 
             foreach ($vertical_display['desc'] as $val) {
-                echo $val;
+                $table_body_html .= $val;
             }
 
             if ($vertical_display['emptyafter'] > 0) {
-                echo '    <th colspan="' . $vertical_display['emptyafter'] . '">'
-                     . "\n" . '        &nbsp;</th>' . "\n";
+                $table_body_html .= '    <th colspan="' . $vertical_display['emptyafter'] . '">'
+                    . "\n" . '        &nbsp;</th>' . "\n";
             }
-            echo '</tr>' . "\n";
+            $table_body_html .= '</tr>' . "\n";
         } // end if
 
         $alternating_color_class = ($odd_row ? 'odd' : 'even');
@@ -1579,7 +1580,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped'
         ) {
             // pointer code part
-            echo '<tr class="' . $alternating_color_class . '">';
+            $table_body_html .= '<tr class="' . $alternating_color_class . '">';
         }
 
 
@@ -1617,12 +1618,16 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                     'sql_query'        => $url_sql_query,
                     'goto'             => 'sql.php',
                 );
-                $edit_url = 'tbl_change.php' . PMA_generate_common_url(
-                    $_url_params + array('default_action' => 'update')
-                );
-                $copy_url = 'tbl_change.php' . PMA_generate_common_url(
-                    $_url_params + array('default_action' => 'insert')
-                );
+                
+                $edit_url = 'tbl_change.php'
+                    . PMA_generate_common_url(
+                        $_url_params + array('default_action' => 'update')
+                    );
+                
+                $copy_url = 'tbl_change.php'
+                    . PMA_generate_common_url(
+                        $_url_params + array('default_action' => 'insert')
+                    );
 
                 $edit_str = PMA_getIcon('b_edit.png', __('Edit'));
                 $copy_str = PMA_getIcon('b_insrow.png', __('Copy'));
@@ -1662,9 +1667,9 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 $del_url  = 'sql.php' . PMA_generate_common_url($_url_params);
 
                 $js_conf  = 'DELETE FROM ' . PMA_jsFormat($db) . '.'
-                          . PMA_jsFormat($table)
-                          . ' WHERE ' . PMA_jsFormat($where_clause, false)
-                          . ($clause_is_unique ? '' : ' LIMIT 1');
+                    . PMA_jsFormat($table)
+                    . ' WHERE ' . PMA_jsFormat($where_clause, false)
+                    . ($clause_is_unique ? '' : ' LIMIT 1');
                 $del_str = PMA_getIcon('b_drop.png', __('Delete'));
             } elseif ($is_display['del_lnk'] == 'kp') { // kill process case
 
@@ -1674,9 +1679,10 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                     'sql_query' => $url_sql_query,
                     'goto'      => 'main.php',
                 );
-                $lnk_goto = 'sql.php' . PMA_generate_common_url(
-                    $_url_params, 'text'
-                );
+                $lnk_goto = 'sql.php'
+                    . PMA_generate_common_url(
+                        $_url_params, 'text'
+                    );
 
                 $_url_params = array(
                     'db'        => 'mysql',
@@ -1698,12 +1704,12 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 if (! isset($js_conf)) {
                     $js_conf = '';
                 }
-                echo PMA_generateCheckboxAndLinks(
-                    'left', $del_url, $is_display,
-                    $row_no, $where_clause, $where_clause_html, $condition_array,
-                    $del_query, 'l', $edit_url, $copy_url, $edit_anchor_class,
-                    $edit_str, $copy_str, $del_str, $js_conf
-                );
+                $table_body_html .= PMA_generateCheckboxAndLinks(
+                        'left', $del_url, $is_display,
+                        $row_no, $where_clause, $where_clause_html, $condition_array,
+                        $del_query, 'l', $edit_url, $copy_url, $edit_anchor_class,
+                        $edit_str, $copy_str, $del_str, $js_conf
+                    );
             } elseif (($GLOBALS['cfg']['RowActionLinks'] == 'none')
                 && ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
                 || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped')
@@ -1711,12 +1717,12 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 if (! isset($js_conf)) {
                     $js_conf = '';
                 }
-                echo PMA_generateCheckboxAndLinks(
-                    'none', $del_url, $is_display,
-                    $row_no, $where_clause, $where_clause_html, $condition_array,
-                    $del_query, 'l', $edit_url, $copy_url, $edit_anchor_class,
-                    $edit_str, $copy_str, $del_str, $js_conf
-                );
+                $table_body_html .= PMA_generateCheckboxAndLinks(
+                        'none', $del_url, $is_display,
+                        $row_no, $where_clause, $where_clause_html, $condition_array,
+                        $del_query, 'l', $edit_url, $copy_url, $edit_anchor_class,
+                        $edit_str, $copy_str, $del_str, $js_conf
+                    );
             } // end if (1.3)
         } // end if (1)
 
@@ -1789,13 +1795,13 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                     && !empty($GLOBALS['mime_map'][$meta->name]['transformation'])
                 ) {
                     $include_file = PMA_securePath(
-                        $GLOBALS['mime_map'][$meta->name]['transformation']
-                    );
-                    if (file_exists('./libraries/transformations/' . $include_file)) {
-                        $transformfunction_name = str_replace(
-                            '.inc.php', '',
                             $GLOBALS['mime_map'][$meta->name]['transformation']
                         );
+                    if (file_exists('./libraries/transformations/' . $include_file)) {
+                        $transformfunction_name = str_replace(
+                                '.inc.php', '',
+                                $GLOBALS['mime_map'][$meta->name]['transformation']
+                            );
 
                         include_once './libraries/transformations/' . $include_file;
 
@@ -1803,14 +1809,14 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                             $transform_function = 'PMA_transformation_'
                                 . $transformfunction_name;
                             $transform_options  = PMA_transformation_getOptions(
-                                isset($GLOBALS['mime_map'][$meta->name]['transformation_options'])
-                                ? $GLOBALS['mime_map'][$meta->name]['transformation_options']
-                                : ''
-                            );
+                                    isset($GLOBALS['mime_map'][$meta->name]['transformation_options'])
+                                    ? $GLOBALS['mime_map'][$meta->name]['transformation_options']
+                                    : ''
+                                );
                             $meta->mimetype = str_replace(
-                                '_', '/',
-                                $GLOBALS['mime_map'][$meta->name]['mimetype']
-                            );
+                                    '_', '/',
+                                    $GLOBALS['mime_map'][$meta->name]['mimetype']
+                                );
                         }
                     } // end if file_exists
                 } // end if transformation is set
@@ -1827,8 +1833,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 $_url_params['sql_query'] = $url_sql_query;
             }
 
-            $transform_options['wrapper_link']
-                = PMA_generate_common_url($_url_params);
+            $transform_options['wrapper_link'] = PMA_generate_common_url($_url_params);
 
             // n u m e r i c
             if ($meta->numeric == 1) {
@@ -1840,8 +1845,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
 
                 if (! isset($row[$i]) || is_null($row[$i])) {
                     $vertical_display['data'][$row_no][$i] = PMA_buildNullDisplay(
-                        'right '.$class, $condition_field, $meta, ''
-                    );
+                            'right '.$class, $condition_field, $meta, ''
+                        );
                 } elseif ($row[$i] != '') {
 
                     $nowrap = ' nowrap';
@@ -1857,8 +1862,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                         );
                 } else {
                     $vertical_display['data'][$row_no][$i] = PMA_buildEmptyDisplay(
-                        'right '.$class, $condition_field, $meta, ''
-                    );
+                            'right '.$class, $condition_field, $meta, ''
+                        );
                 }
 
             //  b l o b
@@ -1876,14 +1881,14 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                             = PMA_buildNullDisplay($class, $condition_field, $meta);
                     } else {
                         $blobtext = PMA_handle_non_printable_contents(
-                            'BLOB', (isset($row[$i]) ? $row[$i] : ''),
-                            $transform_function, $transform_options,
-                            $default_function, $meta, $_url_params
-                        );
+                                'BLOB', (isset($row[$i]) ? $row[$i] : ''),
+                                $transform_function, $transform_options,
+                                $default_function, $meta, $_url_params
+                            );
 
                         $vertical_display['data'][$row_no][$i] = PMA_buildValueDisplay(
-                            $class, $condition_field, $blobtext
-                        );
+                                $class, $condition_field, $blobtext
+                            );
                         unset($blobtext);
                     }
                 // not binary:
@@ -1897,14 +1902,13 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                         if (PMA_strlen($row[$i]) > $GLOBALS['cfg']['LimitChars']
                             && $_SESSION['tmp_user_values']['display_text'] == 'P'
                         ) {
-                            $row[$i] = PMA_substr(
-                                $row[$i], 0, $GLOBALS['cfg']['LimitChars']
-                            ) . '...';
+                            $row[$i] = PMA_substr($row[$i], 0, $GLOBALS['cfg']['LimitChars'])
+                                . '...';
                             $is_field_truncated = true;
                         }
                         // displays all space characters, 4 space
                         // characters for tabulations and <cr>/<lf>
-                        $row[$i] = $default_function != $transform_function
+                        $row[$i] = ($default_function != $transform_function)
                             ? $transform_function($row[$i], $transform_options, $meta)
                             : $default_function($row[$i], array(), $meta);
 
@@ -1913,8 +1917,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                         }
 
                         $vertical_display['data'][$row_no][$i] = PMA_buildValueDisplay(
-                            $class, $condition_field, $row[$i]
-                        );
+                                $class, $condition_field, $row[$i]
+                            );
                     } else {
                         $vertical_display['data'][$row_no][$i]
                             = PMA_buildEmptyDisplay($class, $condition_field, $meta);
@@ -1934,13 +1938,13 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                     // Display as [GEOMETRY - (size)]
                     if ('GEOM' == $_SESSION['tmp_user_values']['geometry_display']) {
                         $geometry_text = PMA_handle_non_printable_contents(
-                            'GEOMETRY', (isset($row[$i]) ? $row[$i] : ''),
-                            $transform_function, $transform_options,
-                            $default_function, $meta
-                        );
+                                'GEOMETRY', (isset($row[$i]) ? $row[$i] : ''),
+                                $transform_function, $transform_options,
+                                $default_function, $meta
+                            );
                         $vertical_display['data'][$row_no][$i] = PMA_buildValueDisplay(
-                            $class, $condition_field, $geometry_text
-                        );
+                                $class, $condition_field, $geometry_text
+                            );
 
                     // Display in Well Known Text(WKT) format.
                     } elseif ('WKT' == $_SESSION['tmp_user_values']['geometry_display']) {
@@ -1952,9 +1956,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                         if (PMA_strlen($wktval) > $GLOBALS['cfg']['LimitChars']
                             && $_SESSION['tmp_user_values']['display_text'] == 'P'
                         ) {
-                            $wktval = PMA_substr(
-                                $wktval, 0, $GLOBALS['cfg']['LimitChars']
-                            ) . '...';
+                            $wktval = PMA_substr($wktval, 0, $GLOBALS['cfg']['LimitChars'])
+                                . '...';
                             $is_field_truncated = true;
                         }
 
@@ -1977,16 +1980,15 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                                 $wkbval = PMA_substr(bin2hex($row[$i]), 8);
                             } else {
                                 $wkbval = htmlspecialchars(
-                                    PMA_replace_binary_contents($row[$i])
-                                );
+                                        PMA_replace_binary_contents($row[$i])
+                                    );
                             }
 
                             if (PMA_strlen($wkbval) > $GLOBALS['cfg']['LimitChars']
                                 && $_SESSION['tmp_user_values']['display_text'] == 'P'
                             ) {
-                                $wkbval = PMA_substr(
-                                    $wkbval, 0, $GLOBALS['cfg']['LimitChars']
-                                ) . '...';
+                                $wkbval = PMA_substr($wkbval, 0, $GLOBALS['cfg']['LimitChars'])
+                                    . '...';
                                 $is_field_truncated = true;
                             }
 
@@ -2000,10 +2002,10 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                                 );
                         } else {
                             $wkbval = PMA_handle_non_printable_contents(
-                                'BINARY', $row[$i], $transform_function,
-                                $transform_options, $default_function, $meta,
-                                $_url_params
-                            );
+                                    'BINARY', $row[$i], $transform_function,
+                                    $transform_options, $default_function, $meta,
+                                    $_url_params
+                                );
                             $vertical_display['data'][$row_no][$i]
                                 = PMA_buildValueDisplay($class, $condition_field, $wkbval);
                         }
@@ -2028,9 +2030,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                         && $_SESSION['tmp_user_values']['display_text'] == 'P'
                         && !strpos($transform_function, 'link') === true
                     ) {
-                        $row[$i] = PMA_substr(
-                            $row[$i], 0, $GLOBALS['cfg']['LimitChars']
-                        ) . '...';
+                        $row[$i] = PMA_substr($row[$i], 0, $GLOBALS['cfg']['LimitChars'])
+                            . '...';
                         $is_field_truncated = true;
                     }
 
@@ -2039,8 +2040,8 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                     $formatted = false;
                     if (isset($meta->_type) && $meta->_type === MYSQLI_TYPE_BIT) {
                         $row[$i] = PMA_printable_bit_value(
-                            $row[$i], $meta->length
-                        );
+                                $row[$i], $meta->length
+                            );
                         // some results of PROCEDURE ANALYSE() are reported as
                         // being BINARY but they are quite readable,
                         // so don't treat them as BINARY
@@ -2057,36 +2058,36 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                                 $row[$i] = bin2hex($row[$i]);
                             } else {
                                 $row[$i] = htmlspecialchars(
-                                    PMA_replace_binary_contents($row[$i])
-                                );
+                                        PMA_replace_binary_contents($row[$i])
+                                    );
                             }
                         } else {
                             // we show the BINARY message and field's size
                             // (or maybe use a transformation)
                             $row[$i] = PMA_handle_non_printable_contents(
-                                'BINARY', $row[$i], $transform_function,
-                                $transform_options, $default_function,
-                                $meta, $_url_params
-                            );
+                                    'BINARY', $row[$i], $transform_function,
+                                    $transform_options, $default_function,
+                                    $meta, $_url_params
+                                );
                             $formatted = true;
                         }
                     }
 
                     if ($formatted) {
                         $vertical_display['data'][$row_no][$i] = PMA_buildValueDisplay(
-                            $class, $condition_field, $row[$i]
-                        );
+                                $class, $condition_field, $row[$i]
+                            );
                     } else {
                         // transform functions may enable no-wrapping:
                         $function_nowrap = $transform_function . '_nowrap';
                         $bool_nowrap = (($default_function != $transform_function
-                                && function_exists($function_nowrap))
+                            && function_exists($function_nowrap))
                             ? $function_nowrap($transform_options)
                             : false);
 
                         // do not wrap if date field type
                         $nowrap = ((preg_match('@DATE|TIME@i', $meta->type)
-                                || $bool_nowrap)
+                            || $bool_nowrap)
                             ? ' nowrap'
                             : '');
                         $where_comparison = ' = \'' . PMA_sqlAddSlashes($row[$i])
@@ -2110,7 +2111,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
                 || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped'
             ) {
-                echo $vertical_display['data'][$row_no][$i];
+                $table_body_html .= $vertical_display['data'][$row_no][$i];
             }
 
             if (isset($vertical_display['rowdata'][$i][$row_no])) {
@@ -2131,20 +2132,18 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             if (! isset($js_conf)) {
                 $js_conf = '';
             }
-            echo PMA_generateCheckboxAndLinks(
-                'right', $del_url, $is_display,
-                $row_no, $where_clause, $where_clause_html, $condition_array,
-                $del_query, 'r', $edit_url, $copy_url, $edit_anchor_class, $edit_str,
-                $copy_str, $del_str, $js_conf
-            );
+            $table_body_html .= PMA_generateCheckboxAndLinks(
+                    'right', $del_url, $is_display,
+                    $row_no, $where_clause, $where_clause_html, $condition_array,
+                    $del_query, 'r', $edit_url, $copy_url, $edit_anchor_class, $edit_str,
+                    $copy_str, $del_str, $js_conf
+                );
         } // end if (3)
 
         if ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
             || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped'
         ) {
-            ?>
-</tr>
-            <?php
+            $table_body_html .= '</tr>';
         } // end if
 
         // 4. Gather links of del_urls and edit_urls in an array for later
@@ -2165,31 +2164,31 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
 
         if (!empty($del_url) && $is_display['del_lnk'] != 'kp') {
             $vertical_display['row_delete'][$row_no] .= PMA_generateCheckboxForMulti(
-                $del_url, $is_display, $row_no, $where_clause_html, $condition_array,
-                $del_query, '[%_PMA_CHECKBOX_DIR_%]',
-                $alternating_color_class . $vertical_class
-            );
+                    $del_url, $is_display, $row_no, $where_clause_html, $condition_array,
+                    $del_query, '[%_PMA_CHECKBOX_DIR_%]',
+                    $alternating_color_class . $vertical_class
+                );
         } else {
             unset($vertical_display['row_delete'][$row_no]);
         }
 
         if (isset($edit_url)) {
             $vertical_display['edit'][$row_no] .= PMA_generateEditLink(
-                $edit_url,
-                $alternating_color_class . ' ' . $edit_anchor_class
-                . $vertical_class, $edit_str,
-                $where_clause,
-                $where_clause_html
-            );
+                    $edit_url,
+                    $alternating_color_class . ' ' . $edit_anchor_class
+                    . $vertical_class, $edit_str,
+                    $where_clause,
+                    $where_clause_html
+                );
         } else {
             unset($vertical_display['edit'][$row_no]);
         }
 
         if (isset($copy_url)) {
             $vertical_display['copy'][$row_no] .= PMA_generateCopyLink(
-                $copy_url, $copy_str, $where_clause, $where_clause_html,
-                $alternating_color_class . $vertical_class
-            );
+                    $copy_url, $copy_str, $where_clause, $where_clause_html,
+                    $alternating_color_class . $vertical_class
+                );
         } else {
             unset($vertical_display['copy'][$row_no]);
         }
@@ -2199,20 +2198,23 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 $js_conf = '';
             }
             $vertical_display['delete'][$row_no] .= PMA_generateDeleteLink(
-                $del_url, $del_str, $js_conf,
-                $alternating_color_class . $vertical_class
-            );
+                    $del_url, $del_str, $js_conf,
+                    $alternating_color_class . $vertical_class
+                );
         } else {
             unset($vertical_display['delete'][$row_no]);
         }
 
-        echo (($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
+        $table_body_html .= (($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal'
             || $_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped')
             ? "\n"
             : '');
         $row_no++;
     } // end while
 
+    // render the html content of table body
+    echo $table_body_html;
+    
     // this is needed by PMA_displayTable() to generate the proper param
     // in the multi-edit and multi-delete form
     return $clause_is_unique;
