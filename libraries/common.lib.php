@@ -3642,7 +3642,7 @@ function PMA_getGISFunctions($geom_type = null, $binary = true, $display = false
 }
 
 /**
- * Creates a dropdown box with MySQL functions for a particular column.
+ * Returns default function for a particular column.
  *
  * @param array $field       Data about the column for which
  *                           to generate the dropdown
@@ -3656,13 +3656,11 @@ function PMA_getGISFunctions($geom_type = null, $binary = true, $display = false
  * @return string   An HTML snippet of a dropdown list with function
  *                    names appropriate for the requested column.
  */
-function PMA_getFunctionsForField($field, $insert_mode)
+function PMA_geDefaulttFunctionForField($field, $insert_mode)
 {
     global $cfg, $analyzed_sql, $data;
 
-    $selected = '';
     $default_function   = '';
-    $dropdown_built = array();
 
     // Can we get field class based values?
     $current_class = $GLOBALS['PMA_Types']->getTypeClass($field['True_Type']);
@@ -3702,6 +3700,25 @@ function PMA_getFunctionsForField($field, $insert_mode)
     if (isset($field['display_binary_as_hex'])) {
         $default_function = 'UNHEX';
     }
+
+    return $default_function;
+}
+
+/**
+ * Creates a dropdown box with MySQL functions for a particular column.
+ *
+ * @param array $field       Data about the column for which
+ *                           to generate the dropdown
+ * @param bool  $insert_mode Whether the operation is 'insert'
+ *
+ * @return string   An HTML snippet of a dropdown list with function
+ *                    names appropriate for the requested column.
+ */
+function PMA_getFunctionsForField($field, $insert_mode)
+{
+    $selected = '';
+    $default_function = PMA_geDefaulttFunctionForField($field, $insert_mode);
+    $dropdown_built = array();
 
     // Create the output
     $retval = '<option></option>' . "\n";
