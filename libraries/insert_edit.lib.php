@@ -11,6 +11,34 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
+ * Retrieve form parameters for insert/edit form
+ * 
+ * @param array $where_clauses
+ * @param array $where_clause_array
+ * @return array $_form_params
+ */
+function PMA_getFormParametersForInsertForm($paramArray, $where_clauses, $where_clause_array, $err_url)
+{
+    list($table, $db) = $paramArray;
+    $_form_params = array(
+    'db'        => $db,
+    'table'     => $table,
+    'goto'      => $GLOBALS['goto'],
+    'err_url'   => $err_url,
+    'sql_query' => $_REQUEST['sql_query'],
+    );
+    if (isset($where_clauses)) {
+        foreach ($where_clause_array as $key_id => $where_clause) {
+            $_form_params['where_clause[' . $key_id . ']'] = trim($where_clause);
+        }
+    }
+    if (isset($_REQUEST['clause_is_unique'])) {
+        $_form_params['clause_is_unique'] = $_REQUEST['clause_is_unique'];
+    }
+    return $_form_params;
+}
+
+/**
  * Retrieve the values for pma edit mode
  * 
  * @param array $paramArray
@@ -189,8 +217,8 @@ function PMA_showColumnTypesInDataEditView($url_params, $showColumnType )
  * 
  * @param array $table_fields 
  */
- function PMA_getDefaultForDatetime($table_fields)
- {
+function PMA_getDefaultForDatetime($field)
+{
     // d a t e t i m e
     //
     // Current date should not be set as default if the field is NULL
@@ -206,13 +234,151 @@ function PMA_showColumnTypesInDataEditView($url_params, $showColumnType )
     // so I force a NULL into it (I don't think it's possible
     // to have an empty default value for DATETIME)
     // then, the "if" after this one will work
-    if ($table_fields['Type'] == 'datetime'
-        && ! isset($table_fields['Default'])
-        && isset($table_fields['Null'])
-        && $table_fields['Null'] == 'YES'
+    if ($field['Type'] == 'datetime'
+        && ! isset($field['Default'])
+        && isset($field['Null'])
+        && $field['Null'] == 'YES'
     ) {
-        $table_fields['Default'] = null;
+        $field['Default'] = null;
       }
- }
+}
  
+ /**
+  * Analyze the table fields array
+  * 
+  * @param array $field
+  * @param array $comments_map
+  * @return type 
+  */
+function PMA_analyzeTableFieldsArray($field, $comments_map, $timestamp_seen)
+{
+    $field['Field_html']    = htmlspecialchars($field['Field']);
+    $field['Field_md5']     = md5($field['Field']);
+    // True_Type contains only the type (stops at first bracket)
+    $field['True_Type']     = preg_replace('@\(.*@s', '', $field['Type']);
+    PMA_getDefaultForDatetime($field);
+    $field['len']           = preg_match('@float|double@', $field['Type']) ? 100 : -1;
+    $field['Field_title']   = PMA_getFieldTitle($field, $comments_map);
+    $field['is_binary']     = PMA_isTableFieldBinary($field);
+    $field['is_blob']       = PMA_istableFieldBlob($field);
+    $field['is_char']       = PMA_isTablefieldChar($field);
+    list($field['pma_type'], $field['wrap'], $field['first_timestamp']) = 
+            PMA_getEnumSetAndTimestampTableFields($field, $timestamp_seen);
+    
+    return $field;
+}
+ 
+ /**
+  * Retrieve the field title
+  * 
+  * @param array $field
+  * @param array $comments_map
+  * @return string 
+  */
+function PMA_getFieldTitle($field, $comments_map)
+{
+    if (isset($comments_map[$field['Field']])) {
+        return '<span style="border-bottom: 1px dashed black;" title="'
+            . htmlspecialchars($comments_map[$field['Field']]) . '">'
+            . $field['Field_html'] . '</span>';
+    } else {
+            return $field['Field_html'];
+    }
+}
+ 
+ /**
+  * check is table field bainary
+  * 
+  * @param array $field
+  * @return boolean 
+  */
+function PMA_isTableFieldBinary($field)
+{
+    // The type column.
+    // Fix for bug #3152931 'ENUM and SET cannot have "Binary" option'
+    // If check to ensure types such as "enum('one','two','binary',..)" or
+    // "enum('one','two','varbinary',..)" are not categorized as binary.
+    if (stripos($field['Type'], 'binary') === 0
+        || stripos($field['Type'], 'varbinary') === 0
+    ) {
+        return stristr($field['Type'], 'binary');
+    } else {
+        return false;
+    }
+     
+}
+ 
+ /**
+  * check is table field blob
+  * 
+  * @param array $field
+  * @return boolean 
+  */
+function PMA_istableFieldBlob($field)
+{
+    // If check to ensure types such as "enum('one','two','blob',..)" or
+    // "enum('one','two','tinyblob',..)" etc. are not categorized as blob.
+    if (stripos($field['Type'], 'blob') === 0
+        || stripos($field['Type'], 'tinyblob') === 0
+        || stripos($field['Type'], 'mediumblob') === 0
+        || stripos($field['Type'], 'longblob') === 0
+    ) {
+        return stristr($field['Type'], 'blob');
+    } else {
+        return false;
+    }
+}
+
+/**
+ * check is table field char
+ * 
+ * @param array $field
+ * @return boolean 
+ */
+function PMA_isTablefieldChar($field)
+{
+    // If check to ensure types such as "enum('one','two','char',..)" or
+    // "enum('one','two','varchar',..)" are not categorized as char.
+    if (stripos($field['Type'], 'char') === 0
+        || stripos($field['Type'], 'varchar') === 0
+    ) {
+        return stristr($field['Type'], 'char');
+    } else {
+        return false;
+    }
+}
+/**
+ * Retieve set, enum, timestamp tbale fields
+ * 
+ * @param array $field
+ * @param int $timestamp_seen 
+ */
+function PMA_getEnumSetAndTimestampTableFields($field, $timestamp_seen)
+{
+    $field['first_timestamp'] = false;
+    switch ($field['True_Type']) {
+    case 'set':
+        $field['pma_type'] = 'set';
+        $field['wrap']  = '';
+        break;
+    case 'enum':
+        $field['pma_type'] = 'enum';
+        $field['wrap']  = '';
+        break;
+    case 'timestamp':
+        if (!$timestamp_seen) {   // can only occur once per table
+            $timestamp_seen  = 1;
+            $field['first_timestamp'] = true;
+        }
+        $field['pma_type'] = $field['Type'];
+        $field['wrap']  = ' nowrap';
+        break;
+
+    default:
+        $field['pma_type'] = $field['Type'];
+        $field['wrap']  = ' nowrap';
+        break;
+    }
+    return array($field['pma_type'], $field['wrap'], $field['first_timestamp']);
+}
 ?>

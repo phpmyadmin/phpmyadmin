@@ -32,9 +32,6 @@ require_once 'libraries/insert_edit.lib.php';
 if (isset($_REQUEST['where_clause'])) {
     $where_clause = $_REQUEST['where_clause'];
 }
-if (isset($_REQUEST['clause_is_unique'])) {
-    $clause_is_unique = $_REQUEST['clause_is_unique'];
-}
 if (isset($_SESSION['edit_next'])) {
     $where_clause = $_SESSION['edit_next'];
     unset($_SESSION['edit_next']);
@@ -167,6 +164,9 @@ if (isset($default_action) && $default_action === 'insert') {
 // retrieve keys into foreign fields, if any
 $foreigners  = PMA_getForeigners($db, $table);
 
+// Retrieve form parameters for insert/edit form
+$_form_params = PMA_getFormParametersForInsertForm($paramArray, $where_clauses, $where_clause_array, $err_url);
+
 /**
  * Displays the form
  */
@@ -187,25 +187,6 @@ var switch_movement = 0;
 document.onkeydown = onKeyDownArrowsHandler;
 //]]>
 </script>
-    <?php
-
-$_form_params = array(
-    'db'        => $db,
-    'table'     => $table,
-    'goto'      => $GLOBALS['goto'],
-    'err_url'   => $err_url,
-    'sql_query' => $_REQUEST['sql_query'],
-);
-if (isset($where_clauses)) {
-    foreach ($where_clause_array as $key_id => $where_clause) {
-        $_form_params['where_clause[' . $key_id . ']'] = trim($where_clause);
-    }
-}
-if (isset($clause_is_unique)) {
-    $_form_params['clause_is_unique'] = $clause_is_unique;
-}
-
-?>
 
 <!-- Insert/Edit form -->
 <form id="insertForm" method="post" action="tbl_replace.php" name="insertForm" <?php
@@ -265,7 +246,6 @@ foreach ($rows as $row_id => $vrow) {
     <thead>
         <tr>
             <th><?php echo __('Column'); ?></th>
-
             <?php
             if ($cfg['ShowFieldTypesInDataEditView']) {
                 echo PMA_showColumnTypesInDataEditView($url_params, true);
@@ -295,84 +275,10 @@ foreach ($rows as $row_id => $vrow) {
     $odd_row = true;
     for ($i = 0; $i < $fields_cnt; $i++) {
         if (! isset($table_fields[$i]['processed'])) {
-            $table_fields[$i]['Field_html'] = htmlspecialchars($table_fields[$i]['Field']);
-            $table_fields[$i]['Field_md5']  = md5($table_fields[$i]['Field']);
-            // True_Type contains only the type (stops at first bracket)
-            $table_fields[$i]['True_Type']  = preg_replace('@\(.*@s', '', $table_fields[$i]['Type']);
-            
-            PMA_getDefaultForDatetime($table_fields[$i]);
-
-            $table_fields[$i]['len'] = preg_match('@float|double@', $table_fields[$i]['Type']) ? 100 : -1;
-
-
-            if (isset($comments_map[$table_fields[$i]['Field']])) {
-                $table_fields[$i]['Field_title'] = '<span style="border-bottom: 1px dashed black;" title="'
-                    . htmlspecialchars($comments_map[$table_fields[$i]['Field']]) . '">'
-                    . $table_fields[$i]['Field_html'] . '</span>';
-            } else {
-                $table_fields[$i]['Field_title'] = $table_fields[$i]['Field_html'];
-            }
-
-            // The type column.
-            // Fix for bug #3152931 'ENUM and SET cannot have "Binary" option'
-            // If check to ensure types such as "enum('one','two','binary',..)" or
-            // "enum('one','two','varbinary',..)" are not categorized as binary.
-            if (stripos($table_fields[$i]['Type'], 'binary') === 0
-                || stripos($table_fields[$i]['Type'], 'varbinary') === 0
-            ) {
-                $table_fields[$i]['is_binary'] = stristr($table_fields[$i]['Type'], 'binary');
-            } else {
-                $table_fields[$i]['is_binary'] = false;
-            }
-
-            // If check to ensure types such as "enum('one','two','blob',..)" or
-            // "enum('one','two','tinyblob',..)" etc. are not categorized as blob.
-            if (stripos($table_fields[$i]['Type'], 'blob') === 0
-                || stripos($table_fields[$i]['Type'], 'tinyblob') === 0
-                || stripos($table_fields[$i]['Type'], 'mediumblob') === 0
-                || stripos($table_fields[$i]['Type'], 'longblob') === 0
-            ) {
-                $table_fields[$i]['is_blob']   = stristr($table_fields[$i]['Type'], 'blob');
-            } else {
-                $table_fields[$i]['is_blob'] = false;
-            }
-
-            // If check to ensure types such as "enum('one','two','char',..)" or
-            // "enum('one','two','varchar',..)" are not categorized as char.
-            if (stripos($table_fields[$i]['Type'], 'char') === 0
-                || stripos($table_fields[$i]['Type'], 'varchar') === 0
-            ) {
-                $table_fields[$i]['is_char']   = stristr($table_fields[$i]['Type'], 'char');
-            } else {
-                $table_fields[$i]['is_char'] = false;
-            }
-
-            $table_fields[$i]['first_timestamp'] = false;
-            switch ($table_fields[$i]['True_Type']) {
-            case 'set':
-                $table_fields[$i]['pma_type'] = 'set';
-                $table_fields[$i]['wrap']  = '';
-                break;
-            case 'enum':
-                $table_fields[$i]['pma_type'] = 'enum';
-                $table_fields[$i]['wrap']  = '';
-                break;
-            case 'timestamp':
-                if (!$timestamp_seen) {   // can only occur once per table
-                    $timestamp_seen  = 1;
-                    $table_fields[$i]['first_timestamp'] = true;
-                }
-                $table_fields[$i]['pma_type'] = $table_fields[$i]['Type'];
-                $table_fields[$i]['wrap']  = ' nowrap';
-                break;
-
-            default:
-                $table_fields[$i]['pma_type'] = $table_fields[$i]['Type'];
-                $table_fields[$i]['wrap']  = ' nowrap';
-                break;
-            }
+            $field = $table_fields[$i];
+            $field = PMA_analyzeTableFieldsArray($field, $comments_map, $timestamp_seen);
         }
-        $field = $table_fields[$i];
+        
         $extracted_columnspec = PMA_extractColumnSpec($field['Type']);
 
         if (-1 === $field['len']) {
