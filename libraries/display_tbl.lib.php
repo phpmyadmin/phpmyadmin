@@ -3102,6 +3102,7 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql)
 {
     global $db, $table, $sql_query, $unlim_num_rows, $fields_meta;
 
+    $results_operations_html = '';
     $header_shown = false;
     $header = '<fieldset><legend>' . __('Query results operations') . '</legend>';
 
@@ -3110,7 +3111,7 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql)
         if ($the_disp_mode[9] == '1') {
 
             if (!$header_shown) {
-                echo $header;
+                $results_operations_html .= $header;
                 $header_shown = true;
             }
 
@@ -3122,21 +3123,23 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql)
             );
             $url_query = PMA_generate_common_url($_url_params);
 
-            echo PMA_linkOrButton(
-                'sql.php' . $url_query,
-                PMA_getIcon('b_print.png', __('Print view'), true),
-                '', true, true, 'print_view'
-            ) . "\n";
+            $results_operations_html .= PMA_linkOrButton(
+                    'sql.php' . $url_query,
+                    PMA_getIcon('b_print.png', __('Print view'), true),
+                    '', true, true, 'print_view'
+                )
+                . "\n";
 
             if ($_SESSION['tmp_user_values']['display_text']) {
                 $_url_params['display_text'] = 'F';
-                echo PMA_linkOrButton(
-                    'sql.php' . PMA_generate_common_url($_url_params),
-                    PMA_getIcon(
-                        'b_print.png', __('Print view (with full texts)'), true
-                    ),
-                    '', true, true, 'print_view'
-                ) . "\n";
+                $results_operations_html .= PMA_linkOrButton(
+                        'sql.php' . PMA_generate_common_url($_url_params),
+                        PMA_getIcon(
+                            'b_print.png', __('Print view (with full texts)'), true
+                        ),
+                        '', true, true, 'print_view'
+                    )
+                    . "\n";
                 unset($_url_params['display_text']);
             }
         } // end displays "printable view"
@@ -3160,7 +3163,7 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql)
             $_url_params['single_table'] = 'true';
         }
         if (!$header_shown) {
-            echo $header;
+            $results_operations_html .= $header;
             $header_shown = true;
         }
         $_url_params['unlim_num_rows'] = $unlim_num_rows;
@@ -3181,18 +3184,20 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql)
             }
         }
 
-        echo PMA_linkOrButton(
-            'tbl_export.php' . PMA_generate_common_url($_url_params),
-            PMA_getIcon('b_tblexport.png', __('Export'), true),
-            '', true, true, ''
-        ) . "\n";
+        $results_operations_html .= PMA_linkOrButton(
+                'tbl_export.php' . PMA_generate_common_url($_url_params),
+                PMA_getIcon('b_tblexport.png', __('Export'), true),
+                '', true, true, ''
+            )
+            . "\n";
 
         // show chart
-        echo PMA_linkOrButton(
-            'tbl_chart.php' . PMA_generate_common_url($_url_params),
-            PMA_getIcon('b_chart.png', __('Display chart'), true),
-            '', true, true, ''
-        ) . "\n";
+        $results_operations_html .= PMA_linkOrButton(
+                'tbl_chart.php' . PMA_generate_common_url($_url_params),
+                PMA_getIcon('b_chart.png', __('Display chart'), true),
+                '', true, true, ''
+            )
+            . "\n";
 
         // show GIS chart
         $geometry_found = false;
@@ -3204,11 +3209,12 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql)
             }
         }
         if ($geometry_found) {
-            echo PMA_linkOrButton(
-                'tbl_gis_visualization.php' . PMA_generate_common_url($_url_params),
-                PMA_getIcon('b_globe.gif', __('Visualize GIS data'), true),
-                '', true, true, ''
-            ) . "\n";
+            $results_operations_html .= PMA_linkOrButton(
+                    'tbl_gis_visualization.php' . PMA_generate_common_url($_url_params),
+                    PMA_getIcon('b_globe.gif', __('Visualize GIS data'), true),
+                    '', true, true, ''
+                )
+                . "\n";
         }
     }
 
@@ -3221,21 +3227,26 @@ function PMA_displayResultsOperations($the_disp_mode, $analyzed_sql)
      * Note: we don't display a Create view link if we found a PROCEDURE clause
      */
     if (!$header_shown) {
-        echo $header;
+        $results_operations_html .= $header;
         $header_shown = true;
     }
     if (!PMA_DRIZZLE && !isset($analyzed_sql[0]['queryflags']['procedure'])) {
         $ajax_class = $GLOBALS['cfg']['AjaxEnable'] ? ' ajax' : '';
-        echo "<span class='create_view$ajax_class'>";
-        echo PMA_linkOrButton(
-            'view_create.php' . $url_query,
-            PMA_getIcon('b_views.png', __('Create view'), true),
-            '', true, true, ''
-        ) . "</span>\n";
+        $results_operations_html .= '<span class="create_view' . $ajax_class . '">'
+            . PMA_linkOrButton(
+                'view_create.php' . $url_query,
+                PMA_getIcon('b_views.png', __('Create view'), true),
+                '', true, true, ''
+            )
+            . '</span>' . "\n";
     }
     if ($header_shown) {
-        echo '</fieldset><br />';
+        $results_operations_html .= '</fieldset><br />';
     }
+    
+    // render HTML content of results operations
+    echo $results_operations_html;
+    
 }
 
 /**
