@@ -76,7 +76,7 @@ class PMA_Tracker
      *
      * @var array
      */
-    static private $tracking_set_flags = array(
+    static private $_tracking_set_flags = array(
         'UPDATE','REPLACE','INSERT','DELETE','TRUNCATE','CREATE DATABASE',
         'ALTER DATABASE','DROP DATABASE','CREATE TABLE','ALTER TABLE',
         'RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX',
@@ -320,7 +320,7 @@ class PMA_Tracker
         '" . PMA_sqlAddSlashes($snapshot) . "',
         '" . PMA_sqlAddSlashes($create_sql) . "',
         '" . PMA_sqlAddSlashes("\n") . "',
-        '" . PMA_sqlAddSlashes(self::transformTrackingSet($tracking_set)) . "' )";
+        '" . PMA_sqlAddSlashes(self::_transformTrackingSet($tracking_set)) . "' )";
 
         $result = PMA_query_as_controluser($sql_query);
 
@@ -409,7 +409,7 @@ class PMA_Tracker
         '" . PMA_sqlAddSlashes('') . "',
         '" . PMA_sqlAddSlashes($create_sql) . "',
         '" . PMA_sqlAddSlashes("\n") . "',
-        '" . PMA_sqlAddSlashes(self::transformTrackingSet($tracking_set)) . "' )";
+        '" . PMA_sqlAddSlashes(self::_transformTrackingSet($tracking_set)) . "' )";
 
         $result = PMA_query_as_controluser($sql_query);
 
@@ -544,7 +544,7 @@ class PMA_Tracker
 
         if ($statement != "") {
             $sql_query .= PMA_DRIZZLE
-                ? ' AND tracking & ' . self::transformTrackingSet($statement) . ' <> 0'
+                ? ' AND tracking & ' . self::_transformTrackingSet($statement) . ' <> 0'
                 : " AND FIND_IN_SET('" . $statement . "',tracking) > 0" ;
         }
         $row = PMA_DBI_fetch_array(PMA_query_as_controluser($sql_query));
@@ -649,7 +649,7 @@ class PMA_Tracker
         }
         $data['ddlog']           = $ddlog;
         $data['dmlog']           = $dmlog;
-        $data['tracking']        = self::transformTrackingSet($mixed['tracking']);
+        $data['tracking']        = self::_transformTrackingSet($mixed['tracking']);
         $data['schema_snapshot'] = $mixed['schema_snapshot'];
 
         return $data;
@@ -1015,23 +1015,23 @@ class PMA_Tracker
      *
      * @return int|string
      */
-    static private function transformTrackingSet($tracking_set)
+    static private function _transformTrackingSet($tracking_set)
     {
         if (!PMA_DRIZZLE) {
             return $tracking_set;
         }
 
         // init conversion array (key 3 doesn't exist in calculated array)
-        if (isset(self::$tracking_set_flags[3])) {
+        if (isset(self::$_tracking_set_flags[3])) {
             // initialize flags
-            $set = self::$tracking_set_flags;
+            $set = self::$_tracking_set_flags;
             $array = array();
             for ($i = 0; $i < count($set); $i++) {
                 $flag = 1 << $i;
                 $array[$flag] = $set[$i];
                 $array[$set[$i]] = $flag;
             }
-            self::$tracking_set_flags = $array;
+            self::$_tracking_set_flags = $array;
         }
 
         if (is_numeric($tracking_set)) {
@@ -1039,10 +1039,10 @@ class PMA_Tracker
             $aflags = array();
             // count/2 - conversion table has both int > string
             // and string > int values
-            for ($i = 0; $i < count(self::$tracking_set_flags)/2; $i++) {
+            for ($i = 0; $i < count(self::$_tracking_set_flags)/2; $i++) {
                 $flag = 1 << $i;
                 if ($tracking_set & $flag) {
-                    $aflags[] = self::$tracking_set_flags[$flag];
+                    $aflags[] = self::$_tracking_set_flags[$flag];
                 }
             }
             $flags = implode(',', $aflags);
@@ -1053,7 +1053,7 @@ class PMA_Tracker
                 if ($strflag == '') {
                     continue;
                 }
-                $flags |= self::$tracking_set_flags[$strflag];
+                $flags |= self::$_tracking_set_flags[$strflag];
             }
         }
 
