@@ -3714,7 +3714,7 @@ function PMA_getFunctionsForField($field, $insert_mode)
             $retval .= ' selected="selected"';
         }
         $retval .= '>' . $each_dropdown . '</option>' . "\n";
-        $dropdown_built[$each_dropdown] = 'true';
+        $dropdown_built[$each_dropdown] = true;
         $op_spacing_needed = true;
     }
     // For compatibility's sake, do not let out all other functions. Instead
