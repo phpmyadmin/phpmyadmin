@@ -81,6 +81,7 @@ if (isset($_REQUEST['do_save_data'])) {
         $definition = ' ADD ' . PMA_Table::generateFieldSpec(
             $_REQUEST['field_name'][$i],
             $_REQUEST['field_type'][$i],
+            $i,
             $_REQUEST['field_length'][$i],
             $_REQUEST['field_attribute'][$i],
             isset($_REQUEST['field_collation'][$i])
@@ -98,7 +99,6 @@ if (isset($_REQUEST['do_save_data'])) {
                 ? $_REQUEST['field_comments'][$i]
                 : '',
             $field_primary,
-            $i
         );
 
         if ($_REQUEST['field_where'] != 'last') {

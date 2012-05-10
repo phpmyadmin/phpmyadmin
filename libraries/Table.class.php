@@ -365,6 +365,7 @@ class PMA_Table
      *
      * @param string      $name           name
      * @param string      $type           type ('INT', 'VARCHAR', 'BIT', ...)
+     * @param string      $index
      * @param string      $length         length ('2', '5,2', '', ...)
      * @param string      $attribute      attribute
      * @param string      $collation      collation
@@ -376,7 +377,6 @@ class PMA_Table
      * @param string      $extra          'AUTO_INCREMENT'
      * @param string      $comment        field comment
      * @param array       &$field_primary list of fields for PRIMARY KEY
-     * @param string      $index
      * @param mixed       $default_orig
      * @param string      $move_to        new position for column
      *
@@ -386,10 +386,10 @@ class PMA_Table
      *
      * @return string  field specification
      */
-    static function generateFieldSpec($name, $type, $length = '', $attribute = '',
+    static function generateFieldSpec($name, $type, $index, $length = '', $attribute = '',
         $collation = '', $null = false, $default_type = 'USER_DEFINED',
         $default_value = '', $extra = '', $comment = '',
-        &$field_primary = null, $index, $default_orig, $move_to
+        &$field_primary = null, $default_orig = '', $move_to = ''
     ) {
         $is_timestamp = strpos(strtoupper($type), 'TIMESTAMP') !== false;
 
@@ -616,9 +616,9 @@ class PMA_Table
     ) {
         return PMA_backquote($oldcol) . ' '
             . PMA_Table::generateFieldSpec(
-                $newcol, $type, $length, $attribute,
+                $newcol, $type, $index, $length, $attribute,
                 $collation, $null, $default_type, $default_value, $extra,
-                $comment, $field_primary, $index, $default_orig, $move_to
+                $comment, $field_primary, $default_orig, $move_to
             );
     } // end function
 
