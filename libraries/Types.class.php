@@ -413,11 +413,9 @@ class PMA_Types_MySQL extends PMA_Types
         case 'MEDIUMBLOB':
         case 'BLOB':
         case 'LONGBLOB':
-            return 'CHAR';
-
         case 'ENUM':
         case 'SET':
-            return '';
+            return 'CHAR';
 
         case 'GEOMETRY':
         case 'POINT':
@@ -766,13 +764,11 @@ class PMA_Types_Drizzle extends PMA_Types
         case 'TEXT':
         case 'VARBINARY':
         case 'BLOB':
+        case 'ENUM':
             return 'CHAR';
 
         case 'UUID':
             return 'UUID';
-
-        case 'ENUM':
-            return '';
         }
         return '';
     }

@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-09 13:14+0200\n"
-"PO-Revision-Date: 2012-05-09 13:01+0200\n"
+"PO-Revision-Date: 2012-05-09 13:27+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -2961,7 +2961,7 @@ msgstr ""
 
 #: libraries/Types.class.php:349
 msgid "A single value chosen from a set of up to 64 members"
-msgstr ""
+msgstr "Jedna hodnota vybraná z množiny až 64 možností"
 
 #: libraries/Types.class.php:351
 msgid "A type that can store a geometry of any type"
@@ -2996,32 +2996,28 @@ msgid "A collection of geometry objects of any type"
 msgstr ""
 
 #: libraries/Types.class.php:619 libraries/Types.class.php:971
-#, fuzzy
 #| msgid "Numeric"
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Čísla"
 
 #: libraries/Types.class.php:638 libraries/Types.class.php:974
-#, fuzzy
 #| msgid "Date and time"
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Datum a čas"
 
 #: libraries/Types.class.php:647 libraries/Types.class.php:977
-#, fuzzy
 #| msgid "String"
 msgctxt "string types"
 msgid "String"
 msgstr "Řetězce"
 
 #: libraries/Types.class.php:668
-#, fuzzy
 #| msgid "Spatial"
 msgctxt "spatial types"
 msgid "Spatial"
-msgstr "Prostorový"
+msgstr "Prostorové"
 
 #: libraries/Types.class.php:703
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
@@ -3043,7 +3039,7 @@ msgstr "True nebo false"
 
 #: libraries/Types.class.php:713
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "Zkratka pro BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/Types.class.php:715
 msgid "Stores a Universally Unique Identifier (UUID)"

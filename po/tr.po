@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-09 13:14+0200\n"
-"PO-Revision-Date: 2012-05-04 06:54+0200\n"
+"PO-Revision-Date: 2012-05-09 14:48+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -3046,24 +3046,21 @@ msgstr "Herhangi bir türün geometri nesneleri topluluğu"
 #: libraries/Types.class.php:619 libraries/Types.class.php:971
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "Sayısal"
 
 #: libraries/Types.class.php:638 libraries/Types.class.php:974
-#, fuzzy
 #| msgid "Both date and time."
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "Her iki tarih ve saat de."
+msgstr "Tarih ve saat"
 
 #: libraries/Types.class.php:647 libraries/Types.class.php:977
-#, fuzzy
 #| msgid "Linestring"
 msgctxt "string types"
 msgid "String"
-msgstr "Satır dizgisi"
+msgstr "Dizgi"
 
 #: libraries/Types.class.php:668
-#, fuzzy
 #| msgid "Spatial"
 msgctxt "spatial types"
 msgid "Spatial"
@@ -7344,7 +7341,7 @@ msgstr "ESRI Şekil Dosyası"
 #: libraries/import/shp.php:199
 #, php-format
 msgid "Geometry type '%s' is not supported by MySQL."
-msgstr ""
+msgstr "Geometri türü '%s' MySQL tarafından desteklenmiyor."
 
 #: libraries/import/shp.php:360
 #, php-format
