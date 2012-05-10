@@ -3716,7 +3716,6 @@ function PMA_geDefaulttFunctionForField($field, $insert_mode)
  */
 function PMA_getFunctionsForField($field, $insert_mode)
 {
-    $selected = '';
     $default_function = PMA_geDefaulttFunctionForField($field, $insert_mode);
     $dropdown_built = array();
 
