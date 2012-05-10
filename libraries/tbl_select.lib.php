@@ -59,12 +59,19 @@ function PMA_tbl_getFields($db, $table)
         }
         $fields_null[] = $row['Null'];
         $fields_type[] = $type;
-        $fields_collation[] = ! empty($row['Collation']) && $row['Collation'] != 'NULL'
+        $fields_collation[]
+            = ! empty($row['Collation']) && $row['Collation'] != 'NULL'
             ? $row['Collation']
             : '';
     } // end while
 
-    return array($fields_list, $fields_type, $fields_collation, $fields_null, $geom_column_present);
+    return array(
+         $fields_list,
+         $fields_type,
+         $fields_collation,
+         $fields_null,
+         $geom_column_present
+    );
 }
 
 /**
@@ -121,28 +128,33 @@ function PMA_tbl_getSubTabs()
  * 1) Browsing foreign data for a field.
  * 2) Creating elements for search criteria input on fields.
  *
- * @param array  $foreigners      Array of foreign keys
- * @param array  $foreignData     Foreign keys data
- * @param string $field           Column name
- * @param string $tbl_fields_type Column type
- * @param int    $i               Column index
- * @param string $db              Selected database
- * @param string $table           Selected table
- * @param array  $titles          Selected title
- * @param int    $foreignMaxLimit Max limit of displaying foreign elements
- * @param array  $fields          Array of search criteria inputs
- * @param bool   $in_fbs          Whether we are in 'function based search'
- * @param bool   $in_zoom_search_edit  Whether we are in zoom search edit
+ * @param array  $foreigners          Array of foreign keys
+ * @param array  $foreignData         Foreign keys data
+ * @param string $field               Column name
+ * @param string $tbl_fields_type     Column type
+ * @param int    $i                   Column index
+ * @param string $db                  Selected database
+ * @param string $table               Selected table
+ * @param array  $titles              Selected title
+ * @param int    $foreignMaxLimit     Max limit of displaying foreign elements
+ * @param array  $fields              Array of search criteria inputs
+ * @param bool   $in_fbs              Whether we are in 'function based search'
+ * @param bool   $in_zoom_search_edit Whether we are in zoom search edit
  *
  * @return string HTML content for viewing foreing data and elements
  * for search criteria input.
  */
-function PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fields_type, $i, $db, $table, $titles, $foreignMaxLimit, $fields, $in_fbs = false, $in_zoom_search_edit = false)
-{
+function PMA_getForeignFields_Values($foreigners, $foreignData, $field,
+    $tbl_fields_type, $i, $db, $table, $titles, $foreignMaxLimit, $fields,
+    $in_fbs = false, $in_zoom_search_edit = false
+) {
     $str = '';
-    if ($foreigners && isset($foreigners[$field]) && is_array($foreignData['disp_row'])) {
+    if ($foreigners
+        && isset($foreigners[$field])
+        && is_array($foreignData['disp_row'])
+    ) {
         // f o r e i g n    k e y s
-        $str .=  '<select name="fields[' . $i . ']" id="fieldID_' . $i .'">' . "\n";
+        $str .=  '<select name="fields[' . $i . ']" id="fieldID_' . $i .'">';
         // go back to first row
         // here, the 4th parameter is empty because there is no current
         // value of data for the dropdown (the search page initial values
@@ -151,18 +163,23 @@ function PMA_getForeignFields_Values($foreigners, $foreignData, $field, $tbl_fie
             $foreignData['disp_row'], $foreignData['foreign_field'],
             $foreignData['foreign_display'], '', $foreignMaxLimit
         );
-        $str .= '</select>' . "\n";
+        $str .= '</select>';
 
     } elseif ($foreignData['foreign_link'] == true) {
         if (isset($fields[$i]) && is_string($fields[$i])) {
-            $str .= '<input type="text" id="fieldID_' . $i . '" name="fields[' . $i . ']" value="' . $fields[$i] . '" id="field_' . md5($field) . '[' . $i .']" class="textfield" />' ;
+            $str .= '<input type="text" id="fieldID_' . $i . '"'
+                . ' name="fields[' . $i . ']" value="' . $fields[$i] . '"'
+                . ' id="field_' . md5($field) . '[' . $i .']" class="textfield" />';
         } else {
-            $str .= '<input type="text" id="fieldID_' . $i . '" name="fields[' . $i . ']" id="field_' . md5($field) . '[' . $i .']" class="textfield" />' ;
+            $str .= '<input type="text" id="fieldID_' . $i . '"'
+                . ' name="fields[' . $i . ']"'
+                . ' id="field_' . md5($field) . '[' . $i .']" class="textfield" />';
         }
         $str .=  <<<EOT
 <a target="_blank" onclick="window.open(this.href, 'foreigners', 'width=640,height=240,scrollbars=yes'); return false" href="browse_foreigners.php?
 EOT;
-        $str .= '' . PMA_generate_common_url($db, $table) .  '&amp;field=' . urlencode($field) . '&amp;fieldkey=' . $i . '"';
+        $str .= '' . PMA_generate_common_url($db, $table)
+            . '&amp;field=' . urlencode($field) . '&amp;fieldkey=' . $i . '"';
         if ($in_zoom_search_edit) {
             $str .= ' class="browse_foreign"';
         }
@@ -171,13 +188,15 @@ EOT;
     } elseif (in_array($tbl_fields_type[$i], PMA_getGISDatatypes())) {
         // g e o m e t r y
         $str .= '<input type="text" name="fields[' . $i . ']"'
-        .' size="40" class="textfield" id="field_' . $i . '" />' .  "\n";
+            . ' size="40" class="textfield" id="field_' . $i . '" />';
 
         if ($in_fbs) {
             $edit_url = 'gis_data_editor.php?' . PMA_generate_common_url();
             $edit_str = PMA_getIcon('b_edit.png', __('Edit/Insert'));
             $str .= '<span class="open_search_gis_editor">';
-            $str .= PMA_linkOrButton($edit_url, $edit_str, array(), false, false, '_blank');
+            $str .= PMA_linkOrButton(
+                $edit_url, $edit_str, array(), false, false, '_blank'
+            );
             $str .= '</span>';
         }
 
@@ -192,16 +211,19 @@ EOT;
         // Set in search mode  --> input (skipped here, so the 'else'
         //                                 section would handle it)
 
-        $value = explode(', ', str_replace("'", '', substr($tbl_fields_type[$i], 5, -1)));
+        $value = explode(
+            ', ',
+            str_replace("'", '', substr($tbl_fields_type[$i], 5, -1))
+        );
         $cnt_value = count($value);
 
         if ((strncasecmp($tbl_fields_type[$i], 'enum', 4) && ! $in_zoom_search_edit)
             || (strncasecmp($tbl_fields_type[$i], 'set', 3) && $in_zoom_search_edit)
         ) {
-            $str .= '<select name="fields[' . ($i) . '][]" id="fieldID_' . $i .'">' . "\n";
+            $str .= '<select name="fields[' . ($i) . '][]" id="fieldID_' . $i .'">';
         } else {
             $str .= '<select name="fields[' . ($i) . '][]" id="fieldID_' . $i .'"'
-                . ' multiple="multiple" size="' . min(3, $cnt_value) . '">' . "\n";
+                . ' multiple="multiple" size="' . min(3, $cnt_value) . '">';
         }
 
         for ($j = 0; $j < $cnt_value; $j++) {
@@ -216,7 +238,7 @@ EOT;
                     . $value[$j] . '</option>';
             }
         } // end for
-        $str .= '</select>' . "\n";
+        $str .= '</select>';
 
     } else {
         // o t h e r   c a s e s
@@ -234,11 +256,11 @@ EOT;
         if (isset($fields[$i]) && is_string($fields[$i])) {
             $str .= '<input type="text" name="fields[' . $i . ']"'
                 .' size="40" class="' . $the_class . '" id="fieldID_'
-                . $i .'" value = "' . $fields[$i] . '"/>' .  "\n";
+                . $i .'" value = "' . $fields[$i] . '"/>';
         } else {
             $str .= '<input type="text" name="fields[' . $i . ']"'
                 .' size="40" class="' . $the_class . '" id="fieldID_'
-                . $i .'" />' .  "\n";
+                . $i .'" />';
         }
     }
     return $str;
@@ -258,8 +280,9 @@ EOT;
  * @return string HTML content for viewing foreing data and elements
  * for search criteria input.
  */
-function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations, $func_type, $unaryFlag, $geom_func = null)
-{
+function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations,
+    $func_type, $unaryFlag, $geom_func = null
+) {
     /**
      * @todo move this to a more apropriate place
      */
@@ -334,7 +357,8 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations, $fu
                 $enum_where .= ', \'' . PMA_sqlAddslashes($fields[$e]) . '\'';
             }
 
-            $w = $backquoted_name . ' ' . $func_type . ' ' . $parens_open . $enum_where . $parens_close;
+            $w = $backquoted_name . ' ' . $func_type . ' ' . $parens_open
+                . $enum_where . $parens_close;
         }
 
     } elseif ($fields != '') {
@@ -373,13 +397,16 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations, $fu
             }
 
             if ($func_type == 'BETWEEN' || $func_type == 'NOT BETWEEN') {
-                $w = $backquoted_name . ' ' . $func_type . ' ' . (isset($values[0]) ? $values[0] : '')
+                $w = $backquoted_name . ' ' . $func_type . ' '
+                    . (isset($values[0]) ? $values[0] : '')
                     . ' AND ' . (isset($values[1]) ? $values[1] : '');
             } else {
-                $w = $backquoted_name . ' ' . $func_type . ' (' . implode(',', $values) . ')';
+                $w = $backquoted_name . ' ' . $func_type
+                    . ' (' . implode(',', $values) . ')';
             }
         } else {
-            $w = $backquoted_name . ' ' . $func_type . ' ' . $quot . PMA_sqlAddslashes($fields) . $quot;;
+            $w = $backquoted_name . ' ' . $func_type . ' '
+                . $quot . PMA_sqlAddslashes($fields) . $quot;;
         }
     } // end if
 

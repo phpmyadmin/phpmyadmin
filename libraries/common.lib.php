@@ -776,9 +776,6 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0,
 
     $table_groups = array();
 
-    // load PMA configuration
-    $PMA_Config = $GLOBALS['PMA_Config'];
-
     foreach ($tables as $table_name => $table) {
         // check for correct row count
         if (null === $table['Rows']) {
@@ -1034,7 +1031,6 @@ function PMA_showMessage(
             PMA_DBI_try_query('REPAIR TABLE ' . PMA_backquote($GLOBALS['table']));
         }
     }
-    unset($tbl_status);
 
     // In an Ajax request, $GLOBALS['cell_align_left'] may not be defined. Hence,
     // check for it's presence before using it
@@ -1222,8 +1218,6 @@ function PMA_showMessage(
         } else {
             $edit_link = '';
         }
-
-        $url_qpart = PMA_generate_common_url($url_params);
 
         // Also we would like to get the SQL formed in some nice
         // php-code
@@ -1702,13 +1696,12 @@ function PMA_localisedDate($timestamp = -1, $format = '')
  *
  * @param array  $tab        array with all options
  * @param array  $url_params
- * @param string $base_dir
  *
  * @return string  html code for one tab, a link if valid otherwise a span
  *
  * @access  public
  */
-function PMA_generate_html_tab($tab, $url_params = array(), $base_dir = '')
+function PMA_generate_html_tab($tab, $url_params = array())
 {
     // default values
     $defaults = array(
@@ -1806,20 +1799,17 @@ function PMA_generate_html_tab($tab, $url_params = array(), $base_dir = '')
  *
  * @param array  $tabs       one element per tab
  * @param string $url_params
- * @param string $base_dir
  * @param string $menu_id
  *
  * @return string  html-code for tab-navigation
  */
-function PMA_generate_html_tabs($tabs, $url_params, $base_dir = '',
-    $menu_id = 'topmenu'
-) {
+function PMA_generate_html_tabs($tabs, $url_params, $menu_id = 'topmenu') {
     $tab_navigation = '<div id="' . htmlentities($menu_id)
         . 'container" class="menucontainer">'
         .'<ul id="' . htmlentities($menu_id) . '">';
 
     foreach ($tabs as $tab) {
-        $tab_navigation .= PMA_generate_html_tab($tab, $url_params, $base_dir);
+        $tab_navigation .= PMA_generate_html_tab($tab, $url_params);
     }
 
     $tab_navigation .=
@@ -3236,7 +3226,7 @@ function PMA_expandUserString($string, $escape = null, $updates = array())
             if (! is_null($escape)) {
                 $column_names[] = $escape($column['Field']);
             } else {
-                $column_names[] = $field['Field'];
+                $column_names[] = $column['Field'];
             }
         }
 
@@ -3344,7 +3334,7 @@ function PMA_selectUploadFile($import_list, $uploaddir)
         )
         . '</label>';
     $extensions = '';
-    foreach ($import_list as $key => $val) {
+    foreach ($import_list as $val) {
         if (! empty($extensions)) {
             $extensions .= '|';
         }
@@ -3353,7 +3343,7 @@ function PMA_selectUploadFile($import_list, $uploaddir)
     $matcher = '@\.(' . $extensions . ')(\.('
         . PMA_supportedDecompressions() . '))?$@';
 
-    $active = (isset($timeout_passed) && $timeout_passed && isset($local_import_file))
+    $active = (isset($GLOBALS['timeout_passed']) && $GLOBALS['timeout_passed'] && isset($local_import_file))
         ? $local_import_file
         : '';
     $files = PMA_getFileSelectOptions(
@@ -3418,8 +3408,6 @@ function PMA_buildActionTitles()
  */
 function PMA_getSupportedDatatypes($html = false, $selected = '')
 {
-    global $cfg;
-
     if ($html) {
         // NOTE: the SELECT tag in not included in this snippet.
         $retval = '';
@@ -3654,7 +3642,7 @@ function PMA_getGISFunctions($geom_type = null, $binary = true, $display = false
 }
 
 /**
- * Creates a dropdown box with MySQL functions for a particular column.
+ * Returns default function for a particular column.
  *
  * @param array $field       Data about the column for which
  *                           to generate the dropdown
@@ -3668,15 +3656,11 @@ function PMA_getGISFunctions($geom_type = null, $binary = true, $display = false
  * @return string   An HTML snippet of a dropdown list with function
  *                    names appropriate for the requested column.
  */
-function PMA_getFunctionsForField($field, $insert_mode)
+function PMA_getDefaultFunctionForField($field, $insert_mode)
 {
     global $cfg, $analyzed_sql, $data;
 
-    $selected = '';
-    $dropdown = array();
     $default_function   = '';
-
-    $dropdown = $GLOBALS['PMA_Types']->getFunctions($field['True_Type']);
 
     // Can we get field class based values?
     $current_class = $GLOBALS['PMA_Types']->getTypeClass($field['True_Type']);
@@ -3685,8 +3669,6 @@ function PMA_getFunctionsForField($field, $insert_mode)
             $default_function   = $cfg['DefaultFunctions']['FUNC_' . $current_class];
         }
     }
-    $dropdown_built = array();
-    $op_spacing_needed = false;
     // what function defined as default?
     // for the first timestamp we don't set the default function
     // if there is a default value for the timestamp
@@ -3699,6 +3681,10 @@ function PMA_getFunctionsForField($field, $insert_mode)
         && ! isset($analyzed_sql[0]['create_table_fields'][$field['Field']]['on_update_current_timestamp'])
         && $analyzed_sql[0]['create_table_fields'][$field['Field']]['default_value'] != 'NULL'
     ) {
+        $default_function = $cfg['DefaultFunctions']['first_timestamp'];
+    }
+    // Default for first timestamp field
+    if ($field['first_timestamp']) {
         $default_function = $cfg['DefaultFunctions']['first_timestamp'];
     }
     // For primary keys of type char(36) or varchar(36) UUID if the default
@@ -3715,44 +3701,57 @@ function PMA_getFunctionsForField($field, $insert_mode)
         $default_function = 'UNHEX';
     }
 
+    return $default_function;
+}
+
+/**
+ * Creates a dropdown box with MySQL functions for a particular column.
+ *
+ * @param array $field       Data about the column for which
+ *                           to generate the dropdown
+ * @param bool  $insert_mode Whether the operation is 'insert'
+ *
+ * @return string   An HTML snippet of a dropdown list with function
+ *                    names appropriate for the requested column.
+ */
+function PMA_getFunctionsForField($field, $insert_mode)
+{
+    $default_function = PMA_getDefaultFunctionForField($field, $insert_mode);
+    $dropdown_built = array();
+
     // Create the output
-    $retval = '                <option></option>' . "\n";
+    $retval = '<option></option>' . "\n";
     // loop on the dropdown array and print all available options for that
     // field.
-    foreach ($dropdown as $each_dropdown) {
-        $retval .= '                ';
+    $functions = $GLOBALS['PMA_Types']->getFunctions($field['True_Type']);
+    foreach ($functions as $function) {
         $retval .= '<option';
-        if ($default_function === $each_dropdown) {
+        if ($default_function === $function) {
             $retval .= ' selected="selected"';
         }
-        $retval .= '>' . $each_dropdown . '</option>' . "\n";
-        $dropdown_built[$each_dropdown] = 'true';
-        $op_spacing_needed = true;
+        $retval .= '>' . $function . '</option>' . "\n";
+        $dropdown_built[$function] = true;
     }
+
+    // Create separator before all functions list
+    if (count($functions) > 0) {
+        $retval .= '<option value="" disabled="disabled">--------</option>' . "\n";
+    }
+
     // For compatibility's sake, do not let out all other functions. Instead
     // print a separator (blank) and then show ALL functions which weren't
     // shown yet.
     $functions = $GLOBALS['PMA_Types']->getAllFunctions();
-    $cnt_functions = count($functions);
-    for ($j = 0; $j < $cnt_functions; $j++) {
-        if (! isset($dropdown_built[$functions[$j]])
-            || $dropdown_built[$functions[$j]] != 'true'
-        ) {
-            // Is current function defined as default?
-            $selected = ($field['first_timestamp'] && $functions[$j] == $cfg['DefaultFunctions']['first_timestamp'])
-                || (! $field['first_timestamp'] && $functions[$j] == $default_function)
-                    ? ' selected="selected"'
-                    : '';
-            if ($op_spacing_needed == true) {
-                $retval .= '                ';
-                $retval .= '<option value="">--------</option>' . "\n";
-                $op_spacing_needed = false;
-            }
-
-            $retval .= '                ';
-            $retval .= '<option' . $selected . '>' . $functions[$j]
-                . '</option>' . "\n";
+    foreach ($functions as $function) {
+        // Skip already included functions
+        if (isset($dropdown_built[$function])) {
+            continue;
         }
+        $retval .= '<option';
+        if ($default_function === $function) {
+            $retval .= ' selected="selected"';
+        }
+        $retval .= '>' . $function . '</option>' . "\n";
     } // end for
 
     return $retval;
@@ -3835,7 +3834,7 @@ function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
         // need to escape wildcards in db and table names, see bug #3518484
         $tbl = str_replace(array('%', '_'), array('\%', '\_'), $tbl);
         $query .= " AND TABLE_NAME='%s'";
-        if ($retval = PMA_DBI_fetch_value(
+        if (PMA_DBI_fetch_value(
             sprintf(
                 $query,
                 'TABLE_PRIVILEGES',

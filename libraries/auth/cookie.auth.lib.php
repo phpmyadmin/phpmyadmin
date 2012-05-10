@@ -43,7 +43,7 @@ if (function_exists('mcrypt_encrypt')) {
         srand((double) microtime() * 1000000);
         $td = mcrypt_module_open(MCRYPT_BLOWFISH, '', MCRYPT_MODE_CBC, '');
         if ($td === false) {
-            die(__('Failed to use Blowfish from mcrypt!'));
+            PMA_fatalError(__('Failed to use Blowfish from mcrypt!'));
         }
         $iv = mcrypt_create_iv(mcrypt_enc_get_iv_size($td), MCRYPT_RAND);
         $GLOBALS['PMA_Config']->setCookie('pma_mcrypt_iv', base64_encode($iv));
