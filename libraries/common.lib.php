@@ -3661,10 +3661,7 @@ function PMA_getFunctionsForField($field, $insert_mode)
     global $cfg, $analyzed_sql, $data;
 
     $selected = '';
-    $dropdown = array();
     $default_function   = '';
-
-    $dropdown = $GLOBALS['PMA_Types']->getFunctions($field['True_Type']);
 
     // Can we get field class based values?
     $current_class = $GLOBALS['PMA_Types']->getTypeClass($field['True_Type']);
@@ -3707,13 +3704,14 @@ function PMA_getFunctionsForField($field, $insert_mode)
     $retval = '<option></option>' . "\n";
     // loop on the dropdown array and print all available options for that
     // field.
-    foreach ($dropdown as $each_dropdown) {
+    $functions = $GLOBALS['PMA_Types']->getFunctions($field['True_Type']);
+    foreach ($functions as $function) {
         $retval .= '<option';
-        if ($default_function === $each_dropdown) {
+        if ($default_function === $function) {
             $retval .= ' selected="selected"';
         }
-        $retval .= '>' . $each_dropdown . '</option>' . "\n";
-        $dropdown_built[$each_dropdown] = true;
+        $retval .= '>' . $function . '</option>' . "\n";
+        $dropdown_built[$function] = true;
         $op_spacing_needed = true;
     }
 
