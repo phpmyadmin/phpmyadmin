@@ -3723,9 +3723,7 @@ function PMA_getFunctionsForField($field, $insert_mode)
     $functions = $GLOBALS['PMA_Types']->getAllFunctions();
     $cnt_functions = count($functions);
     for ($j = 0; $j < $cnt_functions; $j++) {
-        if (! isset($dropdown_built[$functions[$j]])
-            || $dropdown_built[$functions[$j]] != 'true'
-        ) {
+        if (! isset($dropdown_built[$functions[$j]])) {
             // Is current function defined as default?
             $selected = ($field['first_timestamp'] && $functions[$j] == $cfg['DefaultFunctions']['first_timestamp'])
                 || (! $field['first_timestamp'] && $functions[$j] == $default_function)
