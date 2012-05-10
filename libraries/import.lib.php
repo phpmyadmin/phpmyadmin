@@ -316,7 +316,9 @@ function PMA_importGetNextChunk($size = 32768)
             if (strncmp($result, "\xEF\xBB\xBF", 3) == 0) {
                 $result = substr($result, 3);
                 // UTF-16 BE, LE
-            } elseif (strncmp($result, "\xFE\xFF", 2) == 0 || strncmp($result, "\xFF\xFE", 2) == 0) {
+            } elseif (strncmp($result, "\xFE\xFF", 2) == 0
+                || strncmp($result, "\xFF\xFE", 2) == 0
+            ) {
                 $result = substr($result, 2);
             }
         }

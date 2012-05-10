@@ -3337,16 +3337,19 @@ function PMA_selectUploadFile($import_list, $uploaddir)
         )
         . '</label>';
     $extensions = '';
-    foreach ($import_list as $val) {
+    foreach ($import_list as $plugin) {
+        $properties = $plugin->getProperties();
         if (! empty($extensions)) {
             $extensions .= '|';
         }
-        $extensions .= $val['extension'];
+        $extensions .= $properties['extension'];
     }
     $matcher = '@\.(' . $extensions . ')(\.('
         . PMA_supportedDecompressions() . '))?$@';
 
-    $active = (isset($GLOBALS['timeout_passed']) && $GLOBALS['timeout_passed'] && isset($local_import_file))
+    $active = (isset($GLOBALS['timeout_passed']) 
+        && $GLOBALS['timeout_passed'] 
+        && isset($local_import_file))
         ? $local_import_file
         : '';
     $files = PMA_getFileSelectOptions(

@@ -16,11 +16,17 @@ require_once './libraries/plugin_interface.lib.php';
 require_once './libraries/display_import_ajax.lib.php';
 
 /* Scan for plugins */
-$import_list = PMA_getPlugins('./libraries/import/', $import_type);
+$import_list = PMA_getPlugins(
+    "import",
+    'libraries/plugins/import/',
+    $import_type
+);
 
 /* Fail if we didn't find any plugin */
 if (empty($import_list)) {
-    PMA_Message::error(__('Could not load import plugins, please check your installation!'))->display();
+    PMA_Message::error(__(
+        'Could not load import plugins, please check your installation!'
+    ))->display();
     include './libraries/footer.inc.php';
 }
 ?>

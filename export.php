@@ -22,9 +22,11 @@ foreach ($_POST as $one_post_param => $one_post_value) {
 
 PMA_checkParameters(array('what', 'export_type'));
 
-// Scan plugins
-$export_list = PMA_getPlugins(
-    'libraries/export/',
+// export class instance, not array of properties, as before
+$export_plugin = PMA_getPlugin(
+    "export",
+    $what,    
+    'libraries/plugins/export/',
     array(
         'export_type' => $export_type,
         'single_table' => isset($single_table)
@@ -35,8 +37,10 @@ $export_list = PMA_getPlugins(
 $type = $what;
 
 // Check export type
-if (! isset($export_list[$type])) {
+if (! isset($export_plugin)) {
     PMA_fatalError(__('Bad type!'));
+} else {
+    $export_plugin_properties = $export_plugin->getProperties();
 }
 
 /**
@@ -83,7 +87,8 @@ if ($_REQUEST['output_format'] == 'astext') {
 }
 
 // Does export require to be into file?
-if (isset($export_list[$type]['force_file']) && ! $asfile) {
+if (isset($export_plugin_properties['force_file']) && ! $asfile) {
+    
     $message = PMA_Message::error(__('Selected export type has to be saved in file!'));
     include_once 'libraries/header.inc.php';
     if ($export_type == 'server') {
@@ -297,13 +302,13 @@ if ($asfile) {
 
     // Grab basic dump extension and mime type
     // Check if the user already added extension; get the substring where the extension would be if it was included
-    $extension_start_pos = strlen($filename) - strlen($export_list[$type]['extension']) - 1;
+    $extension_start_pos = strlen($filename) - strlen($export_plugin_properties['extension']) - 1;
     $user_extension = substr($filename, $extension_start_pos, strlen($filename));
-    $required_extension = "." . $export_list[$type]['extension'];
+    $required_extension = "." . $export_plugin_properties['extension'];
     if (strtolower($user_extension) != $required_extension) {
         $filename  .= $required_extension;
     }
-    $mime_type  = $export_list[$type]['mime_type'];
+    $mime_type  = $export_plugin_properties['mime_type'];
 
     // If dump is going to be compressed, set correct mime_type and add
     // compression to extension
@@ -424,7 +429,7 @@ if (!$save_on_server) {
 do {
 
     // Add possibly some comments to export
-    if (!PMA_exportHeader()) {
+    if (! $export_plugin->exportHeader($db)) {
         break;
     }
 
@@ -456,10 +461,10 @@ do {
             if ((isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $current_db . '|'))
                 || ! isset($tmp_select)
             ) {
-                if (!PMA_exportDBHeader($current_db)) {
+                if (! $export_plugin->exportDBHeader($current_db)) {
                     break 2;
                 }
-                if (!PMA_exportDBCreate($current_db)) {
+                if (! $export_plugin->exportDBCreate($current_db)) {
                     break 2;
                 }
                 if (function_exists('PMA_exportRoutines') && strpos($GLOBALS['sql_structure_or_data'], 'structure') !== false && isset($GLOBALS['sql_procedure_function'])) {
@@ -489,7 +494,7 @@ do {
                     // if this is a view or a merge table, don't export data
                     if (($GLOBALS[$what . '_structure_or_data'] == 'data' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') && !($is_view || PMA_Table::isMerge($current_db, $table))) {
                         $local_query  = 'SELECT * FROM ' . PMA_backquote($current_db) . '.' . PMA_backquote($table);
-                        if (!PMA_exportData($current_db, $table, $crlf, $err_url, $local_query)) {
+                        if (! $export_plugin->exportData($current_db, $table, $crlf, $err_url, $local_query)) {
                             break 3;
                         }
                     }
@@ -555,7 +560,7 @@ do {
             // if this is a view or a merge table, don't export data
             if (($GLOBALS[$what . '_structure_or_data'] == 'data' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') && !($is_view || PMA_Table::isMerge($db, $table))) {
                 $local_query  = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
-                if (!PMA_exportData($db, $table, $crlf, $err_url, $local_query)) {
+                if (! $export_plugin->exportData($db, $table, $crlf, $err_url, $local_query)) {
                     break 2;
                 }
             }
@@ -626,7 +631,7 @@ do {
             } else {
                 $local_query  = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
             }
-            if (!PMA_exportData($db, $table, $crlf, $err_url, $local_query)) {
+            if (! $export_plugin->exportData($db, $table, $crlf, $err_url, $local_query)) {
                 break;
             }
         }
@@ -641,11 +646,11 @@ do {
                 break 2;
             }
         }
-        if (!PMA_exportDBFooter($db)) {
+        if (! $export_plugin->exportDBFooter($db)) {
             break;
         }
     }
-    if (!PMA_exportFooter()) {
+    if (! $export_plugin->exportFooter()) {
         break;
     }
 
