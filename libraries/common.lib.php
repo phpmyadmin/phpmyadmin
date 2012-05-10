@@ -3727,6 +3727,7 @@ function PMA_getFunctionsForField($field, $insert_mode)
     // shown yet.
     $functions = $GLOBALS['PMA_Types']->getAllFunctions();
     foreach ($functions as $function) {
+        // Skip already included functions
         if (isset($dropdown_built[$function])) {
             continue;
         }
