@@ -348,7 +348,7 @@ function PMA_isTablefieldChar($field)
     }
 }
 /**
- * Retieve set, enum, timestamp tbale fields
+ * Retieve set, enum, timestamp table fields
  * 
  * @param array $field
  * @param int $timestamp_seen 
@@ -380,5 +380,112 @@ function PMA_getEnumSetAndTimestampTableFields($field, $timestamp_seen)
         break;
     }
     return array($field['pma_type'], $field['wrap'], $field['first_timestamp']);
+}
+
+/**
+ * The function column
+ * We don't want binary data to be destroyed
+ * Note: from the MySQL manual: "BINARY doesn't affect how the column is
+ *       stored or retrieved" so it does not mean that the contents is binary
+ * 
+ * @param array $params_for_function_column
+ * @return string $html_output
+ */
+function PMA_getFunctionColumn($params_for_function_column)
+{
+    list($field, $is_upload, $field_name_appendix, $unnullify_trigger,
+            $no_support_types, $tabindex, $tabindex_for_function,
+            $idindex, $insert_mode) = $params_for_function_column;
+                
+    $html_output = '';
+    if (($GLOBALS['cfg']['ProtectBinary'] && $field['is_blob'] && !$is_upload)
+        || ($GLOBALS['cfg']['ProtectBinary'] == 'all' && $field['is_binary'])
+        || ($GLOBALS['cfg']['ProtectBinary'] == 'noblob' && !$field['is_blob'])
+    ) {
+        $html_output .= '        <td class="center">' . __('Binary') . '</td>' . "\n";
+    } elseif (strstr($field['True_Type'], 'enum')
+        || strstr($field['True_Type'], 'set')
+        || in_array($field['pma_type'], $no_support_types)
+    ) {
+        $html_output .= '        <td class="center">--</td>' . "\n";
+    } else {
+        $html_output .= '<td>' . "\n";
+        $html_output .= '<select name="funcs' . $field_name_appendix . '"' . $unnullify_trigger 
+            . 'tabindex="' . ($tabindex + $tabindex_for_function) . '" id="field_' . $idindex . '_1"';
+        $html_output .= PMA_getFunctionsForField($field, $insert_mode);
+        $html_output .= '</select>' .  "\n";
+        $html_output .= '</td>' .  "\n";
+    }
+    return $html_output;
+}
+
+/**
+ * The null column
+ * 
+ * @param array $params_for_null_column
+ * @return string $html_output
+ */
+function PMA_getNullColumn($params_for_null_column)
+{
+    list($field, $field_name_appendix, $real_null_value, $tabindex, $tabindex_for_null,
+        $idindex, $vkey, $foreigners, $foreignData) = $params_for_null_column;
+    $html_output .= '        <td>' . "\n";
+    if ($field['Null'] == 'YES') {
+        $html_output .= '            <input type="hidden" name="fields_null_prev' . $field_name_appendix . '"';
+        if ($real_null_value && !$field['first_timestamp']) {
+            $html_output .= ' value="on"';
+        }
+        $html_output .= ' />' . "\n";
+
+        $html_output .= '            <input type="checkbox" class="checkbox_null" tabindex="' . ($tabindex + $tabindex_for_null) . '"'
+             . ' name="fields_null' . $field_name_appendix . '"';
+        if ($real_null_value && !$field['first_timestamp']) {
+            $html_output .= ' checked="checked"';
+        }
+        $html_output .= ' id="field_' . ($idindex) . '_2" />';
+
+        // nullify_code is needed by the js nullify() function
+        $nullify_code = PMA_getNullifyCodeForNullColumn($field, $foreigners, $foreignData);
+        // to be able to generate calls to nullify() in jQuery
+        $html_output .= '<input type="hidden" class="nullify_code" name="nullify_code'
+            . $field_name_appendix . '" value="' . $nullify_code . '" />';
+        $html_output .= '<input type="hidden" class="hashed_field" name="hashed_field'
+            . $field_name_appendix . '" value="' .  $field['Field_md5'] . '" />';
+        $html_output .= '<input type="hidden" class="multi_edit" name="multi_edit'
+            . $field_name_appendix . '" value="' . PMA_escapeJsString($vkey) . '" />';
+    }
+    $html_output .= '        </td>' . "\n";
+
+    return $html_output;
+}
+
+/**
+ * Retrieve the nullify code for the null column
+ * 
+ * @param array $field
+ * @param array $foreigners
+ * @param array $foreignData
+ * @return integer 
+ */
+function PMA_getNullifyCodeForNullColumn($field, $foreigners, $foreignData)
+{
+    if (strstr($field['True_Type'], 'enum')) {
+        if (strlen($field['Type']) > 20) {
+            $nullify_code = '1';
+        } else {
+            $nullify_code = '2';
+        }
+    } elseif (strstr($field['True_Type'], 'set')) {
+        $nullify_code = '3';
+    } elseif ($foreigners && isset($foreigners[$field['Field']]) && $foreignData['foreign_link'] == false) {
+        // foreign key in a drop-down
+        $nullify_code = '4';
+    } elseif ($foreigners && isset($foreigners[$field['Field']]) && $foreignData['foreign_link'] == true) {
+        // foreign key with a browsing icon
+        $nullify_code = '6';
+    } else {
+        $nullify_code = '5';
+    }
+    return $nullify_code;
 }
 ?>

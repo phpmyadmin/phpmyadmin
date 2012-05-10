@@ -311,8 +311,9 @@ foreach ($rows as $row_id => $vrow) {
                 <?php echo $field['Field_title']; ?>
                 <input type="hidden" name="fields_name<?php echo $field_name_appendix; ?>" value="<?php echo $field['Field_html']; ?>"/>
             </td>
-<?php if ($cfg['ShowFieldTypesInDataEditView']) { ?>
-             <td class="center<?php echo $field['wrap']; ?>"><span class="column_type"><?php echo $field['pma_type']; ?></span>
+        <?php if ($cfg['ShowFieldTypesInDataEditView']) { ?>
+             <td class="center<?php echo $field['wrap']; ?>">
+                 <span class="column_type"><?php echo $field['pma_type']; ?></span>
              </td>
 
          <?php } //End if
@@ -403,82 +404,23 @@ foreach ($rows as $row_id => $vrow) {
         // Get a list of data types that are not yet supported.
         $no_support_types = PMA_unsupportedDatatypes();
 
+        $params_for_function_column = array(
+            $field, $is_upload, $field_name_appendix, $unnullify_trigger,
+            $no_support_types, $tabindex, $tabindex_for_function,
+            $idindex, $insert_mode);
         // The function column
         // -------------------
-        // We don't want binary data to be destroyed
-        // Note: from the MySQL manual: "BINARY doesn't affect how the column is
-        //       stored or retrieved" so it does not mean that the contents is
-        //       binary
         if ($cfg['ShowFunctionFields']) {
-            if (($cfg['ProtectBinary'] && $field['is_blob'] && !$is_upload)
-                || ($cfg['ProtectBinary'] == 'all' && $field['is_binary'])
-                || ($cfg['ProtectBinary'] == 'noblob' && !$field['is_blob'])
-            ) {
-                echo '        <td class="center">' . __('Binary') . '</td>' . "\n";
-            } elseif (strstr($field['True_Type'], 'enum')
-                || strstr($field['True_Type'], 'set')
-                || in_array($field['pma_type'], $no_support_types)
-            ) {
-                echo '        <td class="center">--</td>' . "\n";
-            } else {
-                ?>
-                <td>
-                    <select name="funcs<?php echo $field_name_appendix; ?>" <?php echo $unnullify_trigger; ?> tabindex="<?php echo ($tabindex + $tabindex_for_function); ?>" id="field_<?php echo $idindex; ?>_1">
-                <?php
-                echo PMA_getFunctionsForField($field, $insert_mode);
-                ?>
-                    </select>
-                </td>
-                <?php
-            }
-        } // end if ($cfg['ShowFunctionFields'])
-
+            echo PMA_getFunctionColumn($params_for_function_column);
+        }
 
         // The null column
         // ---------------
         $foreignData = PMA_getForeignData($foreigners, $field['Field'], false, '', '');
-        echo '        <td>' . "\n";
-        if ($field['Null'] == 'YES') {
-            echo '            <input type="hidden" name="fields_null_prev' . $field_name_appendix . '"';
-            if ($real_null_value && !$field['first_timestamp']) {
-                echo ' value="on"';
-            }
-            echo ' />' . "\n";
-
-            echo '            <input type="checkbox" class="checkbox_null" tabindex="' . ($tabindex + $tabindex_for_null) . '"'
-                 . ' name="fields_null' . $field_name_appendix . '"';
-            if ($real_null_value && !$field['first_timestamp']) {
-                echo ' checked="checked"';
-            }
-            echo ' id="field_' . ($idindex) . '_2" />';
-
-            // nullify_code is needed by the js nullify() function
-            if (strstr($field['True_Type'], 'enum')) {
-                if (strlen($field['Type']) > 20) {
-                    $nullify_code = '1';
-                } else {
-                    $nullify_code = '2';
-                }
-            } elseif (strstr($field['True_Type'], 'set')) {
-                $nullify_code = '3';
-            } elseif ($foreigners && isset($foreigners[$field['Field']]) && $foreignData['foreign_link'] == false) {
-                // foreign key in a drop-down
-                $nullify_code = '4';
-            } elseif ($foreigners && isset($foreigners[$field['Field']]) && $foreignData['foreign_link'] == true) {
-                // foreign key with a browsing icon
-                $nullify_code = '6';
-            } else {
-                $nullify_code = '5';
-            }
-            // to be able to generate calls to nullify() in jQuery
-            echo '<input type="hidden" class="nullify_code" name="nullify_code'
-                . $field_name_appendix . '" value="' . $nullify_code . '" />';
-            echo '<input type="hidden" class="hashed_field" name="hashed_field'
-                . $field_name_appendix . '" value="' .  $field['Field_md5'] . '" />';
-            echo '<input type="hidden" class="multi_edit" name="multi_edit'
-                . $field_name_appendix . '" value="' . PMA_escapeJsString($vkey) . '" />';
-        }
-        echo '        </td>' . "\n";
+        $params_for_null_column = array(
+            $field, $field_name_appendix, $real_null_value, $tabindex, $tabindex_for_null,
+            $idindex, $vkey, $foreigners, $foreignData);
+        echo PMA_getNullColumn($params_for_null_column);
 
         // The value column (depends on type)
         // ----------------
