@@ -612,7 +612,7 @@ class PMA_Table
      */
     static public function generateAlter($oldcol, $newcol, $type, $length,
         $attribute, $collation, $null, $default_type, $default_value,
-        $extra, $comment = '', &$field_primary, $index, $default_orig, $move_to
+        $extra, $comment, &$field_primary, $index, $default_orig, $move_to
     ) {
         return PMA_backquote($oldcol) . ' '
             . PMA_Table::generateFieldSpec(
