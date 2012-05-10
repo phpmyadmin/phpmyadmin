@@ -3726,17 +3726,15 @@ function PMA_getFunctionsForField($field, $insert_mode)
     // print a separator (blank) and then show ALL functions which weren't
     // shown yet.
     $functions = $GLOBALS['PMA_Types']->getAllFunctions();
-    $cnt_functions = count($functions);
-    for ($j = 0; $j < $cnt_functions; $j++) {
-        if (! isset($dropdown_built[$functions[$j]])) {
-            // Is current function defined as default?
-            $selected = ($functions[$j] == $default_function)
-                    ? ' selected="selected"'
-                    : '';
-
-            $retval .= '<option' . $selected . '>' . $functions[$j]
-                . '</option>' . "\n";
+    foreach ($functions as $function) {
+        if (isset($dropdown_built[$function])) {
+            continue;
         }
+        $retval .= '<option';
+        if ($default_function === $function) {
+            $retval .= ' selected="selected"';
+        }
+        $retval .= '>' . $function . '</option>' . "\n";
     } // end for
 
     return $retval;
