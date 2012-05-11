@@ -531,7 +531,7 @@ function PMA_showPHPDocu($target)
  * returns HTML for a footnote marker and add the messsage to the footnotes
  *
  * @param string $message the error message
- * @param bool   $bbcode
+ * @param bool   $bbcode  whether to interpret BB code
  * @param string $type    message types
  *
  * @return string html code for a footnote marker
@@ -600,7 +600,7 @@ function PMA_mysqlDie(
      */
     include_once './libraries/header.inc.php';
 
-    $error_msg_output = '';
+    $error_msg = '';
 
     if (! $error_message) {
         $error_message = PMA_DBI_getError();
@@ -625,8 +625,8 @@ function PMA_mysqlDie(
         }
     }
     // ---
-    $error_msg_output .= "\n" . '<!-- PMA-SQL-ERROR -->' . "\n";
-    $error_msg_output .= '    <div class="error"><h1>' . __('Error')
+    $error_msg .= "\n" . '<!-- PMA-SQL-ERROR -->' . "\n";
+    $error_msg .= '    <div class="error"><h1>' . __('Error')
         . '</h1>' . "\n";
     // if the config password is wrong, or the MySQL server does not
     // respond, do not show the query that would reveal the
@@ -634,15 +634,15 @@ function PMA_mysqlDie(
     if (! empty($the_query) && ! strstr($the_query, 'connect')) {
         // --- Added to solve bug #641765
         if (function_exists('PMA_SQP_isError') && PMA_SQP_isError()) {
-            $error_msg_output .= PMA_SQP_getErrorString() . "\n";
-            $error_msg_output .= '<br />' . "\n";
+            $error_msg .= PMA_SQP_getErrorString() . "\n";
+            $error_msg .= '<br />' . "\n";
         }
         // ---
         // modified to show the help on sql errors
-        $error_msg_output .= '    <p><strong>' . __('SQL query') . ':</strong>' . "\n";
+        $error_msg .= '<p><strong>' . __('SQL query') . ':</strong>' . "\n";
         if (strstr(strtolower($formatted_sql), 'select')) {
             // please show me help to the error on select
-            $error_msg_output .= PMA_showMySQLDocu('SQL-Syntax', 'SELECT');
+            $error_msg .= PMA_showMySQLDocu('SQL-Syntax', 'SELECT');
         }
         if ($is_modify_link) {
             $_url_params = array(
@@ -663,14 +663,14 @@ function PMA_mysqlDie(
                     . PMA_generate_common_url($_url_params) . '">';
             }
 
-            $error_msg_output .= $doedit_goto
+            $error_msg .= $doedit_goto
                . PMA_getIcon('b_edit.png', __('Edit'))
                . '</a>';
         } // end if
-        $error_msg_output .= '    </p>' . "\n"
-            .'    <p>' . "\n"
-            .'        ' . $formatted_sql . "\n"
-            .'    </p>' . "\n";
+        $error_msg .= '    </p>' . "\n"
+            .'<p>' . "\n"
+            . $formatted_sql . "\n"
+            . '</p>' . "\n";
     } // end if
 
     if (! empty($error_message)) {
@@ -682,7 +682,7 @@ function PMA_mysqlDie(
     }
     // modified to show the help on error-returns
     // (now error-messages-server)
-    $error_msg_output .= '<p>' . "\n"
+    $error_msg .= '<p>' . "\n"
             . '    <strong>' . __('MySQL said: ') . '</strong>'
             . PMA_showMySQLDocu('Error-messages-server', 'Error-messages-server')
             . "\n"
@@ -699,12 +699,12 @@ function PMA_mysqlDie(
     // Replace linebreaks
     $error_message = nl2br($error_message);
 
-    $error_msg_output .= '<code>' . "\n"
+    $error_msg .= '<code>' . "\n"
         . $error_message . "\n"
         . '</code><br />' . "\n";
-    $error_msg_output .= '</div>';
+    $error_msg .= '</div>';
 
-    $_SESSION['Import_message']['message'] = $error_msg_output;
+    $_SESSION['Import_message']['message'] = $error_msg;
 
     if ($exit) {
         /**
@@ -713,7 +713,7 @@ function PMA_mysqlDie(
          * - use PMA_ajaxResponse() to transmit the message and exit
          */
         if ($GLOBALS['is_ajax_request'] == true) {
-            PMA_ajaxResponse($error_msg_output, false);
+            PMA_ajaxResponse($error_msg, false);
         }
         if (! empty($back_url)) {
             if (strstr($back_url, '?')) {
@@ -724,18 +724,18 @@ function PMA_mysqlDie(
 
             $_SESSION['Import_message']['go_back_url'] = $back_url;
 
-            $error_msg_output .= '<fieldset class="tblFooters">';
-            $error_msg_output .= '[ <a href="' . $back_url . '">' . __('Back') . '</a> ]';
-            $error_msg_output .= '</fieldset>' . "\n\n";
+            $error_msg .= '<fieldset class="tblFooters">';
+            $error_msg .= '[ <a href="' . $back_url . '">' . __('Back') . '</a> ]';
+            $error_msg .= '</fieldset>' . "\n\n";
         }
 
-        echo $error_msg_output;
+        echo $error_msg;
         /**
          * display footer and exit
          */
         include './libraries/footer.inc.php';
     } else {
-        echo $error_msg_output;
+        echo $error_msg;
     }
 } // end of the 'PMA_mysqlDie()' function
 
@@ -791,7 +791,12 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0,
             $tbl_is_view = $table['TABLE_TYPE'] == 'VIEW';
 
             if ($tbl_is_view || PMA_is_system_schema($db)) {
-                $table['Rows'] = PMA_Table::countRecords($db, $table['Name'], false, true);
+                $table['Rows'] = PMA_Table::countRecords(
+                    $db,
+                    $table['Name'],
+                    false,
+                    true
+                );
             }
         }
 
@@ -933,7 +938,7 @@ function PMA_whichCrlf()
  *
  * @access  public
  */
-function PMA_reloadNavigation($jsonly=false)
+function PMA_reloadNavigation($jsonly = false)
 {
     // Reloads the navigation frame via JavaScript if required
     if (isset($GLOBALS['reload']) && $GLOBALS['reload']) {
@@ -943,19 +948,21 @@ function PMA_reloadNavigation($jsonly=false)
         // and the offset becomes greater than the total number of tables
         unset($_SESSION['tmp_user_values']['table_limit_offset']);
         echo "\n";
-        $reload_url = './navigation.php?' . PMA_generate_common_url($GLOBALS['db'], '', '&');
+        $reload_url = './navigation.php?' . PMA_generate_common_url(
+            $GLOBALS['db'],
+            '',
+            '&'
+        );
         if (!$jsonly) {
             echo '<script type="text/javascript">' . PHP_EOL;
         }
-    ?>
-//<![CDATA[
-if (typeof(window.parent) != 'undefined'
-    && typeof(window.parent.frame_navigation) != 'undefined'
-    && window.parent.goTo) {
-    window.parent.goTo('<?php echo $reload_url; ?>');
-}
-//]]>
-<?php
+        echo '//<![CDATA[' . PHP_EOL;
+        echo 'if (typeof(window.parent) != "undefined"' . PHP_EOL;
+        echo '    && typeof(window.parent.frame_navigation) != "undefined"' . PHP_EOL;
+        echo '    && window.parent.goTo) {' . PHP_EOL;
+        echo '    window.parent.goTo("' . $reload_url . '");' . PHP_EOL;
+        echo '}' . PHP_EOL;
+        echo '//]]>' . PHP_EOL;
         if (!$jsonly) {
             echo '</script>' . PHP_EOL;
         }
@@ -1013,8 +1020,10 @@ function PMA_showMessage(
         $retval .= "\n";
         $retval .= '<script type="text/javascript">' . "\n";
         $retval .= '//<![CDATA[' . "\n";
-        $retval .= "if (window.parent.updateTableTitle) window.parent.updateTableTitle('"
+        $retval .= 'if (window.parent.updateTableTitle) {' . "\n";
+        $retval .= "    window.parent.updateTableTitle('";
             . $uni_tbl . "', '" . PMA_jsFormat($tooltip, false) . "');" . "\n";
+        $retval .= '}' . "\n";
         $retval .= '//]]>' . "\n";
         $retval .= '</script>' . "\n";
     } // end if ... elseif
@@ -1507,7 +1516,7 @@ function PMA_formatNumber(
     $value, $digits_left = 3, $digits_right = 0,
     $only_down = false, $noTrailingZero = true
 ) {
-    if ($value==0) {
+    if ($value == 0) {
         return '0';
     }
 
@@ -1565,11 +1574,11 @@ function PMA_formatNumber(
      */
     $cur_digits = floor(log10($value / PMA_pow(1000, $d, 'pow'))+1);
     if ($digits_left > $cur_digits) {
-        $d-= floor(($digits_left - $cur_digits)/3);
+        $d -= floor(($digits_left - $cur_digits)/3);
     }
 
-    if ($d<0 && $only_down) {
-        $d=0;
+    if ($d < 0 && $only_down) {
+        $d = 0;
     }
 
     $value = round($value / (PMA_pow(1000, $d, 'pow') / $dh)) /$dh;
@@ -1585,7 +1594,7 @@ function PMA_formatNumber(
         $value = PMA_localizeNumber(number_format($value, $digits_right));
     }
 
-    if ($originalValue!=0 && floatval($value) == 0) {
+    if ($originalValue != 0 && floatval($value) == 0) {
         return ' <' . (1 / PMA_pow(10, $digits_right)) . ' ' . $unit;
     }
 
