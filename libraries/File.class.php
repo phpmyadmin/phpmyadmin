@@ -239,7 +239,7 @@ class PMA_File
     }
 
     /**
-     *
+     * Loads uploaded file from table change request.
      *
      * @param string $key       the md5 hash of the column name
      * @param string $rownumber
@@ -351,6 +351,8 @@ class PMA_File
     }
 
     /**
+     * Returns possible error message.
+     *
      * @access  public
      * @return string  error message
      */
@@ -360,6 +362,8 @@ class PMA_File
     }
 
     /**
+     * Checks whether there was any error.
+     *
      * @access  public
      * @return boolean whether an error occured or not
      */
@@ -395,6 +399,7 @@ class PMA_File
     }
 
     /**
+     * Sets named file to be read from UploadDir.
      *
      * @param string $name
      *
@@ -418,6 +423,8 @@ class PMA_File
     }
 
     /**
+     * Checks whether file can be read.
+     *
      * @access  public
      * @return boolean whether the file is readable or not
      */
@@ -559,6 +566,8 @@ class PMA_File
     }
 
     /**
+     * Attempts to open the file.
+     *
      * @return bool
      */
     function open()
@@ -625,6 +634,8 @@ class PMA_File
     }
 
     /**
+     * Returns compression used by file.
+     *
      * @return string MIME type of compression, none for none
      * @access  public
      */
