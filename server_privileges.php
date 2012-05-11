@@ -1580,7 +1580,7 @@ $link_export_all = '<a class="export_user_anchor ' . $conditional_class . '" hre
 if ($GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_REQUEST['submit_mult']) || $_REQUEST['submit_mult'] != 'export') && (! isset($_REQUEST['adduser']) || $_add_user_error) && (! isset($_REQUEST['initial']) || empty($_REQUEST['initial'])) && ! isset($_REQUEST['showall']) && ! isset($_REQUEST['edit_user_dialog']) && ! isset($_REQUEST['db_specific'])) {
 
     if (isset($sql_query)) {
-        $extra_data['sql_query'] = PMA_showMessage(null, $sql_query);
+        $extra_data['sql_query'] = PMA_getMessage(null, $sql_query);
     }
 
     if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
@@ -1657,7 +1657,7 @@ if (isset($viewing_mode) && $viewing_mode == 'db') {
     echo "\n";
 } else {
     if (! empty($GLOBALS['message'])) {
-        PMA_showMessage($GLOBALS['message']);
+        echo PMA_getMessage($GLOBALS['message']);
         unset($GLOBALS['message']);
     }
 }
@@ -1927,10 +1927,10 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                    . __('Uncheck All') . '</a>' . "\n"
                    .'<i>' . __('With selected:') . '</i>' . "\n";
 
-                PMA_buttonOrImage(
-                    'submit_mult', 'mult_submit', 'submit_mult_export',
-                    __('Export'), 'b_tblexport.png', 'export'
-                );
+                echo PMA_getButtonOrImage(
+                        'submit_mult', 'mult_submit', 'submit_mult_export',
+                        __('Export'), 'b_tblexport.png', 'export'
+                    );
                 echo '<input type="hidden" name="initial" value="' . (isset($initial) ? $initial : '') . '" />';
                 echo '</div>'
                    . '<div class="clear_both" style="clear:both"></div>'

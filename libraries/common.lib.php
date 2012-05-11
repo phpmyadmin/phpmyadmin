@@ -965,7 +965,7 @@ if (typeof(window.parent) != 'undefined'
 }
 
 /**
- * displays the message and the query
+ * Prepare the message and the query
  * usually the message is the result of the query executed
  *
  * @param string  $message   the message to display
@@ -977,7 +977,7 @@ if (typeof(window.parent) != 'undefined'
  *
  * @access  public
  */
-function PMA_showMessage(
+function PMA_getMessage(
     $message,
     $sql_query = null,
     $type = 'notice',
@@ -1337,7 +1337,7 @@ function PMA_showMessage(
 
     return $retval;
     
-} // end of the 'PMA_showMessage()' function
+} // end of the 'PMA_getMessage()' function
 
 /**
  * Verifies if current MySQL server supports profiling

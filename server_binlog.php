@@ -106,7 +106,7 @@ if (count($binary_logs) > 1) {
     echo '</form>';
 }
 
-PMA_showMessage(PMA_Message::success());
+echo PMA_getMessage(PMA_Message::success());
 
 /**
  * Displays the page

@@ -181,7 +181,7 @@ if (isset($destination) && $cfgRelation['relwork']) {
 // (for now, one index name only; we keep the definitions if the
 // foreign db is not the same)
 // I use $sql_query to be able to display directly the query via
-// PMA_showMessage()
+// PMA_getMessage()
 
 if (isset($_REQUEST['destination_foreign'])) {
     $display_query = '';
@@ -285,9 +285,9 @@ if (isset($_REQUEST['destination_foreign'])) {
     } // end foreach
     if (!empty($display_query)) {
         if ($seen_error) {
-            PMA_showMessage(__('Error'), null, 'error');
+            echo PMA_getMessage(__('Error'), null, 'error');
         } else {
-            PMA_showMessage(__('Your SQL query has been executed successfully'), null, 'success');
+            echo PMA_getMessage(__('Your SQL query has been executed successfully'), null, 'success');
         }
     }
 } // end if isset($destination_foreign)

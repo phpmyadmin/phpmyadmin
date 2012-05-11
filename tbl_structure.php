@@ -568,37 +568,37 @@ $checkall_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
 <i><?php echo __('With selected:'); ?></i>
 
 <?php
-PMA_buttonOrImage(
-    'submit_mult', 'mult_submit', 'submit_mult_browse',
-    __('Browse'), 'b_browse.png', 'browse'
-);
+echo PMA_getButtonOrImage(
+        'submit_mult', 'mult_submit', 'submit_mult_browse',
+        __('Browse'), 'b_browse.png', 'browse'
+    );
 
 if (! $tbl_is_view && ! $db_is_information_schema) {
-    PMA_buttonOrImage(
-        'submit_mult', 'mult_submit', 'submit_mult_change',
-        __('Change'), 'b_edit.png', 'change'
-    );
-    PMA_buttonOrImage(
-        'submit_mult', 'mult_submit', 'submit_mult_drop',
-        __('Drop'), 'b_drop.png', 'drop'
-    );
+    echo PMA_getButtonOrImage(
+            'submit_mult', 'mult_submit', 'submit_mult_change',
+            __('Change'), 'b_edit.png', 'change'
+        );
+    echo PMA_getButtonOrImage(
+            'submit_mult', 'mult_submit', 'submit_mult_drop',
+            __('Drop'), 'b_drop.png', 'drop'
+        );
     if ('ARCHIVE' != $tbl_storage_engine) {
-        PMA_buttonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_primary',
-            __('Primary'), 'b_primary.png', 'primary'
-        );
-        PMA_buttonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_unique',
-            __('Unique'), 'b_unique.png', 'unique'
-        );
-        PMA_buttonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_index',
-            __('Index'), 'b_index.png', 'index'
-        );
+        echo PMA_getButtonOrImage(
+                'submit_mult', 'mult_submit', 'submit_mult_primary',
+                __('Primary'), 'b_primary.png', 'primary'
+            );
+        echo PMA_getButtonOrImage(
+                'submit_mult', 'mult_submit', 'submit_mult_unique',
+                __('Unique'), 'b_unique.png', 'unique'
+            );
+        echo PMA_getButtonOrImage(
+                'submit_mult', 'mult_submit', 'submit_mult_index',
+                __('Index'), 'b_index.png', 'index'
+            );
     }
 
     if (! empty($tbl_storage_engine) && $tbl_storage_engine == 'MYISAM') {
-        PMA_buttonOrImage(
+        echo PMA_getButtonOrImage(
             'submit_mult', 'mult_submit', 'submit_mult_spatial',
             __('Spatial'), 'b_spatial.png', 'spatial'
         );
@@ -608,10 +608,10 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
         || $tbl_storage_engine == 'ARIA'
         || $tbl_storage_engine == 'MARIA')
     ) {
-        PMA_buttonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_fulltext',
-            __('Fulltext'), 'b_ftext.png', 'ftext'
-        );
+        echo PMA_getButtonOrImage(
+                'submit_mult', 'mult_submit', 'submit_mult_fulltext',
+                __('Fulltext'), 'b_ftext.png', 'ftext'
+            );
     }
 }
 ?>

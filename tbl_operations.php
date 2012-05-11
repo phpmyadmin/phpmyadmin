@@ -232,7 +232,7 @@ if (isset($result) && empty($message_to_show)) {
         // $result should exist, regardless of $_message
         $_type = $result ? 'success' : 'error';
         if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
-            $extra_data['sql_query'] = PMA_showMessage(null, $sql_query);
+            $extra_data['sql_query'] = PMA_getMessage(null, $sql_query);
             PMA_ajaxResponse($_message, $_message->isSuccess(), $extra_data);
         }
     }
@@ -246,7 +246,7 @@ if (isset($result) && empty($message_to_show)) {
         unset($warning_messages);
     }
 
-    PMA_showMessage($_message, $sql_query, $_type);
+    echo PMA_getMessage($_message, $sql_query, $_type);
     unset($_message, $_type);
 }
 
@@ -520,7 +520,7 @@ if (isset($possible_row_formats[$tbl_storage_engine])) {
     $current_row_format = strtoupper($showtable['Row_format']);
     echo '<tr><td><label for="new_row_format">ROW_FORMAT</label></td>';
     echo '<td>';
-    echo PMA_generate_html_dropdown('new_row_format', $possible_row_formats[$tbl_storage_engine], $current_row_format, 'new_row_format');
+    echo PMA_getDropdown('new_row_format', $possible_row_formats[$tbl_storage_engine], $current_row_format, 'new_row_format');
     unset($possible_row_formats, $current_row_format);
     echo '</td>';
     echo '</tr>';

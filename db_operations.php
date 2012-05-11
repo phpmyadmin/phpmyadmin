@@ -341,7 +341,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
      */
     if ( $GLOBALS['is_ajax_request'] == true) {
         $extra_data['newname'] = $newname;
-        $extra_data['sql_query'] = PMA_showMessage(null, $sql_query);
+        $extra_data['sql_query'] = PMA_getMessage(null, $sql_query);
         PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
     };
 }
@@ -375,7 +375,7 @@ if (empty($is_info)) {
     echo "\n";
 
     if (isset($message)) {
-        PMA_showMessage($message, $sql_query);
+        echo PMA_getMessage($message, $sql_query);
         unset($message);
     }
 }

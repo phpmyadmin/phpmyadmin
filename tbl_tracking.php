@@ -289,7 +289,7 @@ if (isset($_REQUEST['snapshot'])) {
         $drop_create_statements .= $data['ddlog'][1]['statement'];
     }
     // Print SQL code
-    PMA_showMessage(sprintf(__('Version %s snapshot (SQL code)'), htmlspecialchars($_REQUEST['version'])), $drop_create_statements);
+    echo PMA_getMessage(sprintf(__('Version %s snapshot (SQL code)'), htmlspecialchars($_REQUEST['version'])), $drop_create_statements);
 
     // Unserialize snapshot
     $temp = unserialize($data['schema_snapshot']);

@@ -133,7 +133,7 @@ if (! empty($disp_message)) {
     if (! isset($disp_query)) {
         $disp_query     = null;
     }
-    PMA_showMessage($disp_message, $disp_query);
+    echo PMA_getMessage($disp_message, $disp_query);
 }
 
 /**
@@ -176,7 +176,7 @@ if (isset($where_clause)) {
         // No row returned
         if (! $rows[$key_id]) {
             unset($rows[$key_id], $where_clause_array[$key_id]);
-            PMA_showMessage(__('MySQL returned an empty result set (i.e. zero rows).'), $local_query);
+            echo PMA_getMessage(__('MySQL returned an empty result set (i.e. zero rows).'), $local_query);
             echo "\n";
             include 'libraries/footer.inc.php';
         } else { // end if (no row returned)
