@@ -223,7 +223,7 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params, 'topmenu2');
         'ASC'  => __('Ascending'),
         'DESC' => __('Descending')
     );
-    PMA_display_html_radio('order', $choices, 'ASC', false, true, "formelement");
+    PMA_displayHtmlRadio('order', $choices, 'ASC', false, true, "formelement");
     unset($choices);
 ?>
 </fieldset>

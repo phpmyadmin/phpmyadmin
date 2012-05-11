@@ -742,7 +742,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
             'P'   => __('Partial texts'),
             'F'   => __('Full texts')
         );
-        PMA_display_html_radio(
+        PMA_displayHtmlRadio(
             'display_text', $choices,
             $_SESSION['tmp_user_values']['display_text']
         );
@@ -784,7 +784,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
                 'K'   => __('Relational key'),
                 'D'   => __('Relational display column')
             );
-            PMA_display_html_radio(
+            PMA_displayHtmlRadio(
                 'relational_display', $choices,
                 $_SESSION['tmp_user_values']['relational_display']
             );
@@ -826,7 +826,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
                 'WKT'   => __('Well Known Text'),
                 'WKB'   => __('Well Known Binary')
             );
-            PMA_display_html_radio(
+            PMA_displayHtmlRadio(
                 'geometry_display', $choices,
                 $_SESSION['tmp_user_values']['geometry_display']
             );

@@ -2629,7 +2629,7 @@ function PMA_getCheckbox($html_field_name, $label, $checked, $onclick)
  *
  * @return void
  */
-function PMA_display_html_radio($html_field_name, $choices, $checked_choice = '',
+function PMA_displayHtmlRadio($html_field_name, $choices, $checked_choice = '',
     $line_break = true, $escape_label = true, $class=''
 ) {
     foreach ($choices as $choice_value => $choice_label) {

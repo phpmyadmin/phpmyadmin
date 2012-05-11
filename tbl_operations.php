@@ -561,7 +561,7 @@ if (isset($possible_row_formats[$tbl_storage_engine])) {
             'structure' => __('Structure only'),
             'data'      => __('Structure and data'),
             'dataonly'  => __('Data only'));
-        PMA_display_html_radio('what', $choices, 'data', true);
+        PMA_displayHtmlRadio('what', $choices, 'data', true);
         unset($choices);
 ?>
 
@@ -779,7 +779,7 @@ if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
             'OPTIMIZE' => __('Optimize'),
             'REBUILD' => __('Rebuild'),
             'REPAIR' => __('Repair'));
-        PMA_display_html_radio('partition_operation', $choices, '', false);
+        PMA_displayHtmlRadio('partition_operation', $choices, '', false);
         unset($choices);
         echo PMA_showMySQLDocu('partitioning_maintenance', 'partitioning_maintenance');
         // I'm not sure of the best way to display that; this link does

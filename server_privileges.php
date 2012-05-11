@@ -2364,7 +2364,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                 '1' => __('... delete the old one from the user tables.'),
                 '2' => __('... revoke all active privileges from the old one and delete it afterwards.'),
                 '3' => __('... delete the old one from the user tables and reload the privileges afterwards.'));
-            PMA_display_html_radio('mode', $choices, '4', true);
+            PMA_displayHtmlRadio('mode', $choices, '4', true);
             unset($choices);
 
             echo '    </fieldset>' . "\n"

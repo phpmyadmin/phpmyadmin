@@ -710,7 +710,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
         'first' => __('At Beginning of Table'),
         'after' => sprintf(__('After %s'), '')
     );
-    PMA_display_html_radio('field_where', $choices, 'last', false);
+    PMA_displayHtmlRadio('field_where', $choices, 'last', false);
     echo $column_selector;
     unset($column_selector, $choices);
     ?>
