@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-25 19:23+0200\n"
-"Last-Translator: Lucas David <lucasolivdavid@gmail.com>\n"
+"PO-Revision-Date: 2012-05-10 11:01+0200\n"
+"Last-Translator: Pedro Travassos <ptravassos@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Weblate 0.10\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -1589,7 +1589,7 @@ msgstr "Ir para a tabela de Log"
 
 #: js/messages.php:183
 msgid "Log analysed, but no data found in this time span."
-msgstr "Log analizado, nenhum dado encontrado neste intervalo de tempo"
+msgstr "Log analisado, mas nenhum dado encontrado neste intervalo de tempo."
 
 #: js/messages.php:185
 msgid "Analyzing..."
@@ -1619,7 +1619,7 @@ msgstr "Tabela"
 
 #: js/messages.php:192
 msgid "Chart"
-msgstr "Conjunto de caracteres"
+msgstr "Grafico"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
@@ -1654,7 +1654,7 @@ msgstr "Carregando relatorios"
 
 #: js/messages.php:204
 msgid "Monitor refresh failed"
-msgstr "Atualização do monitor falhou."
+msgstr "Atualização do monitor falhou"
 
 #: js/messages.php:205
 msgid ""
@@ -1686,7 +1686,7 @@ msgid ""
 "config..."
 msgstr ""
 "Falha ao construir a grade do gráfico com a configuração importada. "
-"Restaurando a configuração padrão "
+"Restaurando a configuração padrão ..."
 
 #: js/messages.php:212 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
