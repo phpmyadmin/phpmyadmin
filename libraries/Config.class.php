@@ -1620,9 +1620,9 @@ class PMA_Config
             // set cookie with new value
             /* Calculate cookie validity */
             if ($validity == 0) {
-                $v = 0;
+                $validity = 0;
             } else {
-                $v = time() + $validity;
+                $validity = time() + $validity;
             }
             if (defined('TESTSUITE')) {
                 $_COOKIE[$cookie] = $value;
@@ -1631,7 +1631,7 @@ class PMA_Config
             return setcookie(
                 $cookie,
                 $value,
-                $v,
+                $validity,
                 $this->getCookiePath(),
                 '',
                 $this->isHttps(),
