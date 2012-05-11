@@ -1972,7 +1972,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                                 $wkbval = PMA_substr(bin2hex($row[$i]), 8);
                             } else {
                                 $wkbval = htmlspecialchars(
-                                    PMA_replace_binary_contents($row[$i])
+                                    PMA_replaceBinaryContents($row[$i])
                                 );
                             }
 
@@ -2052,7 +2052,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                                 $row[$i] = bin2hex($row[$i]);
                             } else {
                                 $row[$i] = htmlspecialchars(
-                                    PMA_replace_binary_contents($row[$i])
+                                    PMA_replaceBinaryContents($row[$i])
                                 );
                             }
                         } else {
@@ -3266,7 +3266,7 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
                 && $_SESSION['tmp_user_values']['display_blob']
             ) {
                 // in this case, restart from the original $content
-                $result = htmlspecialchars(PMA_replace_binary_contents($content));
+                $result = htmlspecialchars(PMA_replaceBinaryContents($content));
             }
             /* Create link to download */
             if (count($url_params) > 0) {

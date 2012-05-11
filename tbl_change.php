@@ -540,7 +540,7 @@ foreach ($rows as $row_id => $vrow) {
                         $vrow[$field['Field']] = bin2hex($vrow[$field['Field']]);
                         $field['display_binary_as_hex'] = true;
                     } else {
-                        $vrow[$field['Field']] = PMA_replace_binary_contents($vrow[$field['Field']]);
+                        $vrow[$field['Field']] = PMA_replaceBinaryContents($vrow[$field['Field']]);
                     }
                 } // end if
                 $special_chars   = htmlspecialchars($vrow[$field['Field']]);

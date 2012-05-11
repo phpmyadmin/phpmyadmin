@@ -3071,7 +3071,7 @@ function PMA_isForeignKeySupported($engine)
  *
  * @return string the content with characters replaced
  */
-function PMA_replace_binary_contents($content)
+function PMA_replaceBinaryContents($content)
 {
     $result = str_replace("\x00", '\0', $content);
     $result = str_replace("\x08", '\b', $result);
