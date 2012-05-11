@@ -1686,7 +1686,7 @@ function PMA_createChart(passedSettings)
 
 
 /*
- * Creates a Profiling Chart. Used in server_status.js
+ * Creates a Profiling Chart. Used in server_status_monitor.js
  */
 function PMA_createProfilingChart(data, options)
 {
@@ -1725,9 +1725,9 @@ function PMA_createProfilingChart(data, options)
 /*
  * Creates a Profiling Chart with jqplot. Used in sql.js
  */
-function PMA_createProfilingChartJqplot(data, options)
+function PMA_createProfilingChartJqplot(target, data)
 {
-    return $.jqplot('profilingchart', [data],
+    return $.jqplot(target, [data],
         {
             seriesDefaults: {
                 renderer: $.jqplot.PieRenderer,

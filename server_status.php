@@ -430,6 +430,9 @@ if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
     $GLOBALS['js_include'][] = 'canvg/flashcanvas.js';
 }
 $GLOBALS['js_include'][] = 'canvg/canvg.js';
+// for profiling chart
+$GLOBALS['js_include'][] = 'jqplot/jquery.jqplot.js';
+$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.pieRenderer.js';
 
 /**
  * flush status variables if requested

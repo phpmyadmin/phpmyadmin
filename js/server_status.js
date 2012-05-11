@@ -452,40 +452,10 @@ $(function() {
                     cdata.push([key, parseInt(value)]);
                 });
 
-                queryPieChart = PMA_createChart({
-                    chart: {
-                        renderTo: 'serverstatusquerieschart'
-                    },
-                    title: {
-                        text: '',
-                        margin: 0
-                    },
-                    series: [{
-                        type: 'pie',
-                        name: PMA_messages['strChartQueryPie'],
-                        data: cdata
-                    }],
-                    plotOptions: {
-                        pie: {
-                            allowPointSelect: true,
-                            cursor: 'pointer',
-                            dataLabels: {
-                                enabled: true,
-                                formatter: function() {
-                                    return '<b>' + this.point.name +'</b><br/> ' + 
-                                            Highcharts.numberFormat(this.percentage, 2) + ' %';
-                               }
-                            }
-                        }
-                    },
-                    tooltip: {
-                        formatter: function() {
-                            return '<b>' + this.point.name + '</b><br/>' + 
-                                    Highcharts.numberFormat(this.y, 2) + '<br/>(' + 
-                                    Highcharts.numberFormat(this.percentage, 2) + ' %)';
-                        }
-                    }
-                });
+                queryPieChart = PMA_createProfilingChartJqplot(
+                    'serverstatusquerieschart', 
+                    cdata
+                );
                 initTableSorter(tab.attr('id'));
                 break;
 
