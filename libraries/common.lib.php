@@ -2882,7 +2882,7 @@ function PMA_printableBitValue($value, $length)
  *
  * @return boolean
  */
-function PMA_containsNonprintableAscii($value)
+function PMA_containsNonPrintableAscii($value)
 {
     return preg_match('@[^[:print:]]@', $value);
 }
