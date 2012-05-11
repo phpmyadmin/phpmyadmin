@@ -40,13 +40,13 @@ class PMA_escapeMySqlWildcardsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * PMA_unescape_mysql_wildcards tests
+     * PMA_unescapeMysqlWildcards tests
      * @dataProvider escapeDataProvider
      */
 
     public function testUnEscape($a, $b)
     {
-        $this->assertEquals($b, PMA_unescape_mysql_wildcards($a));
+        $this->assertEquals($b, PMA_unescapeMysqlWildcards($a));
     }
 }
 ?>

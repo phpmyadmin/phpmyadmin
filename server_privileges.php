@@ -149,7 +149,7 @@ if (PMA_isValid($_REQUEST['pred_dbname'])) {
 }
 
 if (isset($dbname)) {
-    $db_and_table = PMA_backquote(PMA_unescape_mysql_wildcards($dbname)) . '.';
+    $db_and_table = PMA_backquote(PMA_unescapeMysqlWildcards($dbname)) . '.';
     if (isset($tablename)) {
         $db_and_table .= PMA_backquote($tablename);
     } else {
@@ -208,7 +208,7 @@ function PMA_wildcardEscapeForGrant($dbname, $tablename)
     } else {
         if (strlen($tablename)) {
             $db_and_table
-                = PMA_backquote(PMA_unescape_mysql_wildcards($dbname)) . '.'
+                = PMA_backquote(PMA_unescapeMysqlWildcards($dbname)) . '.'
                 . PMA_backquote($tablename);
         } else {
             $db_and_table = PMA_backquote($dbname) . '.*';
@@ -524,14 +524,14 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
             $sql_query = "SELECT * FROM `mysql`.`db`"
                 ." WHERE `User` = '" . PMA_sqlAddSlashes($username) . "'"
                 ." AND `Host` = '" . PMA_sqlAddSlashes($hostname) . "'"
-                ." AND '" . PMA_unescape_mysql_wildcards($db) . "'"
+                ." AND '" . PMA_unescapeMysqlWildcards($db) . "'"
                 ." LIKE `Db`;";
         } else {
             $sql_query = "SELECT `Table_priv`"
                 ." FROM `mysql`.`tables_priv`"
                 ." WHERE `User` = '" . PMA_sqlAddSlashes($username) . "'"
                 ." AND `Host` = '" . PMA_sqlAddSlashes($hostname) . "'"
-                ." AND `Db` = '" . PMA_unescape_mysql_wildcards($db) . "'"
+                ." AND `Db` = '" . PMA_unescapeMysqlWildcards($db) . "'"
                 ." AND `Table_name` = '" . PMA_sqlAddSlashes($table) . "';";
         }
         $row = PMA_DBI_fetch_single_row($sql_query);
@@ -586,7 +586,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
         // get collumns
         $res = PMA_DBI_try_query(
             'SHOW COLUMNS FROM '
-            . PMA_backquote(PMA_unescape_mysql_wildcards($db))
+            . PMA_backquote(PMA_unescapeMysqlWildcards($db))
             . '.' . PMA_backquote($table) . ';'
         );
         $columns = array();
@@ -613,7 +613,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
             .' AND `Host`'
             .' = \'' . PMA_sqlAddSlashes($hostname) . "'"
             .' AND `Db`'
-            .' = \'' . PMA_sqlAddSlashes(PMA_unescape_mysql_wildcards($db)) . "'"
+            .' = \'' . PMA_sqlAddSlashes(PMA_unescapeMysqlWildcards($db)) . "'"
             .' AND `Table_name`'
             .' = \'' . PMA_sqlAddSlashes($table) . '\';'
         );
@@ -2299,7 +2299,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             } else {
                 echo '    <input type="hidden" name="dbname" value="' . htmlspecialchars($dbname) . '"/>' . "\n"
                    . '    <label for="text_tablename">' . __('Add privileges on the following table') . ':</label>' . "\n";
-                if ($res = @PMA_DBI_try_query('SHOW TABLES FROM ' . PMA_backquote(PMA_unescape_mysql_wildcards($dbname)) . ';', null, PMA_DBI_QUERY_STORE)) {
+                if ($res = @PMA_DBI_try_query('SHOW TABLES FROM ' . PMA_backquote(PMA_unescapeMysqlWildcards($dbname)) . ';', null, PMA_DBI_QUERY_STORE)) {
                     $pred_tbl_array = array();
                     while ($row = PMA_DBI_fetch_row($res)) {
                         if (! isset($found_rows) || ! in_array($row[0], $found_rows)) {

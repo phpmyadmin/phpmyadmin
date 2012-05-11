@@ -278,10 +278,10 @@ function PMA_escapeMysqlWildcards($name)
  *
  * @access  public
  */
-function PMA_unescape_mysql_wildcards($name)
+function PMA_unescapeMysqlWildcards($name)
 {
     return strtr($name, array('\\_' => '_', '\\%' => '%'));
-} // end of the 'PMA_unescape_mysql_wildcards()' function
+} // end of the 'PMA_unescapeMysqlWildcards()' function
 
 /**
  * removes quotes (',",`) from a quoted string
@@ -2562,7 +2562,7 @@ function PMA_getDbLink($database = null)
         }
         $database = $GLOBALS['db'];
     } else {
-        $database = PMA_unescape_mysql_wildcards($database);
+        $database = PMA_unescapeMysqlWildcards($database);
     }
 
     return '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?'
