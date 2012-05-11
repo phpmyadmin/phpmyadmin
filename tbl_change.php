@@ -576,7 +576,7 @@ foreach ($rows as $row_id => $vrow) {
                 $data                     = $field['Default'];
             }
             if ($field['True_Type'] == 'bit') {
-                $special_chars = PMA_convert_bit_default_value($field['Default']);
+                $special_chars = PMA_convertBitDefaultValue($field['Default']);
             } else {
                 $special_chars = htmlspecialchars($field['Default']);
             }

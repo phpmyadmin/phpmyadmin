@@ -346,7 +346,7 @@ foreach ($fields as $row) {
     if (isset($row['Default'])) {
         if ($extracted_columnspec['type'] == 'bit') {
             // here, $row['Default'] contains something like b'010'
-            echo PMA_convert_bit_default_value($row['Default']);
+            echo PMA_convertBitDefaultValue($row['Default']);
         } else {
             echo $row['Default'];
         }

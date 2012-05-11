@@ -2895,7 +2895,7 @@ function PMA_containsNonprintableAscii($value)
  *
  * @return string the converted value
  */
-function PMA_convert_bit_default_value($bit_default_value)
+function PMA_convertBitDefaultValue($bit_default_value)
 {
     return strtr($bit_default_value, array("b" => "", "'" => ""));
 }
