@@ -12,6 +12,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Common initialization for user preferences modification pages
  *
+ * @return void
  */
 function PMA_userprefs_pageinit()
 {
@@ -54,7 +55,8 @@ function PMA_load_userprefs()
             'type' => 'session');
     }
     // load configuration from pmadb
-    $query_table = PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['userconfig']);
+    $query_table = PMA_backquote($cfgRelation['db']) . '.'
+        . PMA_backquote($cfgRelation['userconfig']);
     $query = '
         SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts
         FROM ' . $query_table . '
@@ -93,7 +95,8 @@ function PMA_save_userprefs(array $config_array)
     }
 
     // save configuration to pmadb
-    $query_table = PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['userconfig']);
+    $query_table = PMA_backquote($cfgRelation['db']) . '.'
+        . PMA_backquote($cfgRelation['userconfig']);
     $query = '
         SELECT `username`
         FROM ' . $query_table . '
@@ -118,7 +121,9 @@ function PMA_save_userprefs(array $config_array)
     if (!PMA_DBI_try_query($query, $GLOBALS['controllink'])) {
         $message = PMA_Message::error(__('Could not save configuration'));
         $message->addMessage('<br /><br />');
-        $message->addMessage(PMA_Message::rawError(PMA_DBI_getError($GLOBALS['controllink'])));
+        $message->addMessage(
+            PMA_Message::rawError(PMA_DBI_getError($GLOBALS['controllink']))
+        );
         return $message;
     }
     return true;
@@ -224,8 +229,9 @@ function PMA_persist_option($path, $value, $default_value)
  * @param array  $params
  * @param string $hash
  */
-function PMA_userprefs_redirect(array $forms, array $old_settings, $file_name, $params = null, $hash = null)
-{
+function PMA_userprefs_redirect(array $forms, array $old_settings, $file_name,
+    $params = null, $hash = null
+) {
     $reload_left_frame = isset($params['reload_left_frame']) && $params['reload_left_frame'];
     if (!$reload_left_frame) {
         // compute differences and check whether left frame should be refreshed

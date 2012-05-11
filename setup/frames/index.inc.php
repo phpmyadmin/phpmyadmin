@@ -193,8 +193,8 @@ foreach ($all_languages as $each_lang_key => $each_lang) {
     $opts['values'][$each_lang_key] = $lang_name;
 }
 display_input(
-    'DefaultLang', __('Default language'), '', 'select',
-    $cf->getValue('DefaultLang'), true, $opts
+    'DefaultLang', __('Default language'), 'select',
+    $cf->getValue('DefaultLang'), '', true, $opts
 );
 
 // Display server list
@@ -219,8 +219,8 @@ if ($cf->getServerCount() > 0) {
     $opts['values_escaped'] = true;
 }
 display_input(
-    'ServerDefault', __('Default server'), '', 'select',
-    $cf->getValue('ServerDefault'), true, $opts
+    'ServerDefault', __('Default server'), 'select',
+    $cf->getValue('ServerDefault'), '', true, $opts
 );
 
 // Display EOL list
@@ -231,8 +231,8 @@ $opts = array(
     'values_escaped' => true);
 $eol = PMA_ifSetOr($_SESSION['eol'], (PMA_IS_WINDOWS ? 'win' : 'unix'));
 display_input(
-    'eol', __('End of line'), '', 'select',
-    $eol, true, $opts
+    'eol', __('End of line'), 'select',
+    $eol, '', true, $opts
 );
 ?>
 <tr>

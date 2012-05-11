@@ -365,6 +365,7 @@ class PMA_Table
      *
      * @param string      $name           name
      * @param string      $type           type ('INT', 'VARCHAR', 'BIT', ...)
+     * @param string      $index
      * @param string      $length         length ('2', '5,2', '', ...)
      * @param string      $attribute      attribute
      * @param string      $collation      collation
@@ -376,8 +377,6 @@ class PMA_Table
      * @param string      $extra          'AUTO_INCREMENT'
      * @param string      $comment        field comment
      * @param array       &$field_primary list of fields for PRIMARY KEY
-     * @param string      $index
-     * @param mixed       $default_orig
      * @param string      $move_to        new position for column
      *
      * @todo    move into class PMA_Column
@@ -386,10 +385,10 @@ class PMA_Table
      *
      * @return string  field specification
      */
-    static function generateFieldSpec($name, $type, $length = '', $attribute = '',
+    static function generateFieldSpec($name, $type, $index, $length = '', $attribute = '',
         $collation = '', $null = false, $default_type = 'USER_DEFINED',
         $default_value = '', $extra = '', $comment = '',
-        &$field_primary = null, $index, $default_orig, $move_to
+        &$field_primary = null, $move_to = ''
     ) {
         $is_timestamp = strpos(strtoupper($type), 'TIMESTAMP') !== false;
 
@@ -603,7 +602,6 @@ class PMA_Table
      * @param string      $comment        field comment
      * @param array       &$field_primary list of fields for PRIMARY KEY
      * @param string      $index
-     * @param mixed       $default_orig
      * @param string      $move_to        new position for column
      *
      * @see PMA_Table::generateFieldSpec()
@@ -612,13 +610,13 @@ class PMA_Table
      */
     static public function generateAlter($oldcol, $newcol, $type, $length,
         $attribute, $collation, $null, $default_type, $default_value,
-        $extra, $comment = '', &$field_primary, $index, $default_orig, $move_to
+        $extra, $comment, &$field_primary, $index, $move_to
     ) {
         return PMA_backquote($oldcol) . ' '
             . PMA_Table::generateFieldSpec(
-                $newcol, $type, $length, $attribute,
+                $newcol, $type, $index, $length, $attribute,
                 $collation, $null, $default_type, $default_value, $extra,
-                $comment, $field_primary, $index, $default_orig, $move_to
+                $comment, $field_primary, $move_to
             );
     } // end function
 
@@ -1496,15 +1494,11 @@ class PMA_Table
     {
         $server_id = $GLOBALS['server'];
         // set session variable if it's still undefined
-        if (! isset($_SESSION['tmp_user_values']['table_uiprefs'][$server_id]
-            [$this->db_name][$this->name])
-            ) {
-            $_SESSION['tmp_user_values']['table_uiprefs']
-                [$server_id][$this->db_name][$this->name]
-                =
-                // check whether we can get from pmadb
-                (strlen($GLOBALS['cfg']['Server']['pmadb'])
-                && strlen($GLOBALS['cfg']['Server']['table_uiprefs']))
+        if (! isset($_SESSION['tmp_user_values']['table_uiprefs'][$server_id][$this->db_name][$this->name])) {
+            // check whether we can get from pmadb
+            $_SESSION['tmp_user_values']['table_uiprefs'][$server_id][$this->db_name][$this->name]
+                = (strlen($GLOBALS['cfg']['Server']['pmadb'])
+                    && strlen($GLOBALS['cfg']['Server']['table_uiprefs']))
                     ?  $this->getUiPrefsFromDb()
                     : array();
         }

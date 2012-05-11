@@ -1299,8 +1299,8 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
         && ($is_display['edit_lnk'] != 'nn' || $is_display['del_lnk'] != 'nn')
         && $is_display['text_btn'] == '1'
     ) {
-        $vertical_display['emptyafter'] =
-            ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn')
+        $vertical_display['emptyafter']
+            = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn')
             ? 4
             : 1;
         if ($direction == 'horizontal'
@@ -1326,8 +1326,8 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
         && ($is_display['edit_lnk'] == 'nn' && $is_display['del_lnk'] == 'nn')
         && (! isset($GLOBALS['is_header_sent']) || ! $GLOBALS['is_header_sent'])
     ) {
-        $vertical_display['emptyafter'] =
-            ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn')
+        $vertical_display['emptyafter']
+            = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn')
             ? 4
             : 1;
         if ($direction == 'horizontal'
