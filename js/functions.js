@@ -1686,7 +1686,7 @@ function PMA_createChart(passedSettings)
 
 
 /*
- * Creates a Profiling Chart. Used in sql.php and server_status.js
+ * Creates a Profiling Chart. Used in server_status.js
  */
 function PMA_createProfilingChart(data, options)
 {
@@ -1720,6 +1720,27 @@ function PMA_createProfilingChart(data, options)
             }
         }
     },options));
+}
+
+/*
+ * Creates a Profiling Chart with jqplot. Used in sql.js
+ */
+function PMA_createProfilingChartJqplot(data, options)
+{
+    return $.jqplot('profilingchart', [data],
+        {
+            seriesDefaults: {
+                renderer: $.jqplot.PieRenderer,
+                rendererOptions: {
+                    showDataLabels:  true 
+                }
+            },
+            legend: {
+                show: true,
+                location: 'e'
+            }
+        }
+    );
 }
 
 /**
