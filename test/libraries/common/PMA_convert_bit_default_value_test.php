@@ -12,7 +12,7 @@
  */
 require_once 'libraries/common.lib.php';
 
-class PMA_convertBitDefaultValueTest extends PHPUnit_Framework_TestCase
+class PMA_ConvertBitDefaultValueTest extends PHPUnit_Framework_TestCase
 {
 
     function dataProvider()

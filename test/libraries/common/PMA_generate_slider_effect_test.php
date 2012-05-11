@@ -12,7 +12,7 @@
  */
 require_once 'libraries/common.lib.php';
 
-class PMA_generateSliderEffectTest extends PHPUnit_Framework_TestCase
+class PMA_GenerateSliderEffectTest extends PHPUnit_Framework_TestCase
 {
     function testGenerateSliderEffectTest()
     {

@@ -12,7 +12,7 @@
  */
 require_once 'libraries/common.lib.php';
 
-class PMA_escapeMySqlWildcardsTest extends PHPUnit_Framework_TestCase
+class PMA_EscapeMySqlWildcardsTest extends PHPUnit_Framework_TestCase
 {
 
     public function escapeDataProvider()

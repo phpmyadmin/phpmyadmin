@@ -12,7 +12,7 @@
  */
 require_once 'libraries/common.lib.php';
 
-class PMA_isForeignKeySupportedTest extends PHPUnit_Framework_TestCase
+class PMA_IsForeignKeySupportedTest extends PHPUnit_Framework_TestCase
 {
     /**
      * data provider for foreign key supported test

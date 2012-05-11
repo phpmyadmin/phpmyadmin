@@ -12,7 +12,7 @@
  */
 require_once 'libraries/common.lib.php';
 
-class PMA_printableBitValueTest extends PHPUnit_Framework_TestCase
+class PMA_PrintableBitValueTest extends PHPUnit_Framework_TestCase
 {
 
     /**
