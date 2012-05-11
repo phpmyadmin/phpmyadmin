@@ -1021,7 +1021,7 @@ function PMA_showMessage(
         $retval .= '<script type="text/javascript">' . "\n";
         $retval .= '//<![CDATA[' . "\n";
         $retval .= 'if (window.parent.updateTableTitle) {' . "\n";
-        $retval .= "    window.parent.updateTableTitle('";
+        $retval .= "    window.parent.updateTableTitle('"
             . $uni_tbl . "', '" . PMA_jsFormat($tooltip, false) . "');" . "\n";
         $retval .= '}' . "\n";
         $retval .= '//]]>' . "\n";
