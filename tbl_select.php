@@ -173,7 +173,7 @@ echo PMA_generateHtmlTabs(PMA_tbl_getSubTabs(), $url_params, 'topmenu2');
 <div id="gis_editor"></div><div id="popup_background"></div>
 </fieldset>
 <?php
-    PMA_generate_slider_effect('searchoptions', __('Options'));
+    PMA_generateSliderEffect('searchoptions', __('Options'));
 ?>
 <fieldset id="fieldset_select_fields">
     <legend><?php echo __('Select columns (at least one):'); ?></legend>

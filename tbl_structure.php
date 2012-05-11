@@ -730,7 +730,7 @@ if (! $tbl_is_view
     && ! $db_is_information_schema
     && 'ARCHIVE' !=  $tbl_storage_engine
 ) {
-    PMA_generate_slider_effect('indexes', __('Indexes'));
+    PMA_generateSliderEffect('indexes', __('Indexes'));
     /**
      * Display indexes
      */

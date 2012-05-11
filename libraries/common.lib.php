@@ -2694,7 +2694,7 @@ function PMA_generateHtmlDropdown($select_name, $choices, $active_choice, $id)
  * @param string $id      the id of the <div> on which to apply the effect
  * @param string $message the message to show as a link
  */
-function PMA_generate_slider_effect($id, $message)
+function PMA_generateSliderEffect($id, $message)
 {
     if ($GLOBALS['cfg']['InitialSlidersState'] == 'disabled') {
         echo '<div id="' . $id . '">';

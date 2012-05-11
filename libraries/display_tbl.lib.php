@@ -734,7 +734,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
         );
         echo PMA_generate_common_hidden_inputs($url_params);
         echo '<br />';
-        PMA_generate_slider_effect('displayoptions', __('Options'));
+        PMA_generateSliderEffect('displayoptions', __('Options'));
         echo '<fieldset>';
 
         echo '<div class="formelement">';

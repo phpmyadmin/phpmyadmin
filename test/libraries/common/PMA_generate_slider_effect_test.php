@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_generate_slider_effect from common.lib.php
+ * Test for PMA_generateSliderEffect from common.lib.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -12,7 +12,7 @@
  */
 require_once 'libraries/common.lib.php';
 
-class PMA_generate_slider_effect_test extends PHPUnit_Framework_TestCase
+class PMA_generateSliderEffectTest extends PHPUnit_Framework_TestCase
 {
     function testGenerateSliderEffectTest()
     {
@@ -23,7 +23,7 @@ class PMA_generate_slider_effect_test extends PHPUnit_Framework_TestCase
         $message = "test_message";
 
         $this->expectOutputString('<div id="' . $id . '"  class="pma_auto_slider" title="' . htmlspecialchars($message) . '">' . "\n" . '    ');
-        PMA_generate_slider_effect($id, $message);
+        PMA_generateSliderEffect($id, $message);
     }
 
     function testGenerateSliderEffectTestClosed()
@@ -35,7 +35,7 @@ class PMA_generate_slider_effect_test extends PHPUnit_Framework_TestCase
         $message = "test_message";
 
         $this->expectOutputString('<div id="' . $id . '"  style="display: none; overflow:auto;" class="pma_auto_slider" title="' . htmlspecialchars($message) . '">' . "\n" . '    ');
-        PMA_generate_slider_effect($id, $message);
+        PMA_generateSliderEffect($id, $message);
     }
 
     function testGenerateSliderEffectTestDisabled()
@@ -47,6 +47,6 @@ class PMA_generate_slider_effect_test extends PHPUnit_Framework_TestCase
         $message = "test_message";
 
         $this->expectOutputString('<div id="' . $id . '">');
-        PMA_generate_slider_effect($id, $message);
+        PMA_generateSliderEffect($id, $message);
     }
 }
