@@ -1967,7 +1967,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                             $where_comparison = ' = ' . $row[$i];
 
                             if ($_SESSION['tmp_user_values']['display_binary_as_hex']
-                                && PMA_contains_nonprintable_ascii($row[$i])
+                                && PMA_containsNonprintableAscii($row[$i])
                             ) {
                                 $wkbval = PMA_substr(bin2hex($row[$i]), 8);
                             } else {
@@ -2047,7 +2047,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                             // user asked to see the real contents of BINARY
                             // fields
                             if ($_SESSION['tmp_user_values']['display_binary_as_hex']
-                                && PMA_contains_nonprintable_ascii($row[$i])
+                                && PMA_containsNonprintableAscii($row[$i])
                             ) {
                                 $row[$i] = bin2hex($row[$i]);
                             } else {
