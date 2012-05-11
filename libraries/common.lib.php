@@ -1028,19 +1028,6 @@ function PMA_showMessage(
         $retval .= '</script>' . "\n";
     } // end if ... elseif
 
-    // Checks if the table needs to be repaired after a TRUNCATE query.
-    // @todo what about $GLOBALS['display_query']???
-    // @todo this is REALLY the wrong place to do this - very unexpected here
-    if (strlen($GLOBALS['table'])
-        && $GLOBALS['sql_query'] == 'TRUNCATE TABLE ' . PMA_backquote($GLOBALS['table'])
-    ) {
-        if (PMA_Table::sGetStatusInfo($GLOBALS['db'], $GLOBALS['table'], 'Index_length') > 1024
-            && ! PMA_DRIZZLE
-        ) {
-            PMA_DBI_try_query('REPAIR TABLE ' . PMA_backquote($GLOBALS['table']));
-        }
-    }
-
     // In an Ajax request, $GLOBALS['cell_align_left'] may not be defined. Hence,
     // check for it's presence before using it
     $retval .= '<div id="result_query"'
