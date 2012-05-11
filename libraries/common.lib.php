@@ -2670,7 +2670,7 @@ function PMA_displayHtmlRadio($html_field_name, $choices, $checked_choice = '',
  *
  * @todo    support titles
  */
-function PMA_generate_html_dropdown($select_name, $choices, $active_choice, $id)
+function PMA_generateHtmlDropdown($select_name, $choices, $active_choice, $id)
 {
     $result = '<select name="' . htmlspecialchars($select_name) . '" id="'
         . htmlspecialchars($id) . '">';

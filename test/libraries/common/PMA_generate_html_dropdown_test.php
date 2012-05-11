@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_generate_html_dropdown_test from common.lib.php
+ * Test for PMA_generateHtmlDropdown from common.lib.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -12,7 +12,7 @@
  */
 require_once 'libraries/common.lib.php';
 
-class PMA_generate_html_dropdown_test extends PHPUnit_Framework_TestCase
+class PMA_generateHtmlDropdownTest extends PHPUnit_Framework_TestCase
 {
     function testGenerateHtmlDropdownEmpty()
     {
@@ -23,7 +23,7 @@ class PMA_generate_html_dropdown_test extends PHPUnit_Framework_TestCase
 
         $result = '<select name="' . htmlspecialchars($name) . '" id="' . htmlspecialchars($id) . '"></select>';
 
-        $this->assertEquals($result, PMA_generate_html_dropdown($name, $choices, $active_choice, $id));
+        $this->assertEquals($result, PMA_generateHtmlDropdown($name, $choices, $active_choice, $id));
     }
 
     function testGenerateHtmlDropdown()
@@ -43,7 +43,7 @@ class PMA_generate_html_dropdown_test extends PHPUnit_Framework_TestCase
         }
         $result .= '</select>';
 
-        $this->assertEquals($result, PMA_generate_html_dropdown($name, $choices, $active_choice, $id));
+        $this->assertEquals($result, PMA_generateHtmlDropdown($name, $choices, $active_choice, $id));
     }
 
     function testGenerateHtmlDropdownWithActive()
@@ -63,6 +63,6 @@ class PMA_generate_html_dropdown_test extends PHPUnit_Framework_TestCase
         }
         $result .= '</select>';
 
-        $this->assertEquals($result, PMA_generate_html_dropdown($name, $choices, $active_choice, $id));
+        $this->assertEquals($result, PMA_generateHtmlDropdown($name, $choices, $active_choice, $id));
     }
 }

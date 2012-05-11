@@ -499,7 +499,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query,
                 'horizontalflipped' => __('horizontal (rotated headers)'),
                 'vertical'          => __('vertical')
             );
-            echo PMA_generate_html_dropdown(
+            echo PMA_generateHtmlDropdown(
                 'disp_direction', $choices,
                 $_SESSION['tmp_user_values']['disp_direction'],
                 $id_for_direction_dropdown

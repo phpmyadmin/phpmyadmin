@@ -520,7 +520,7 @@ if (isset($possible_row_formats[$tbl_storage_engine])) {
     $current_row_format = strtoupper($showtable['Row_format']);
     echo '<tr><td><label for="new_row_format">ROW_FORMAT</label></td>';
     echo '<td>';
-    echo PMA_generate_html_dropdown('new_row_format', $possible_row_formats[$tbl_storage_engine], $current_row_format, 'new_row_format');
+    echo PMA_generateHtmlDropdown('new_row_format', $possible_row_formats[$tbl_storage_engine], $current_row_format, 'new_row_format');
     unset($possible_row_formats, $current_row_format);
     echo '</td>';
     echo '</tr>';
