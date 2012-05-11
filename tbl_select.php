@@ -89,7 +89,7 @@ $url_params = array();
 $url_params['db']    = $db;
 $url_params['table'] = $table;
 
-echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params, 'topmenu2');
+echo PMA_generateHtmlTabs(PMA_tbl_getSubTabs(), $url_params, 'topmenu2');
 
 ?>
 

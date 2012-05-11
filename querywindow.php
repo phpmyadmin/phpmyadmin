@@ -155,7 +155,7 @@ require_once 'libraries/header_scripts.inc.php';
 <?php
 
 if ($tabs) {
-    echo PMA_generate_html_tabs($tabs, array());
+    echo PMA_generateHtmlTabs($tabs, array());
     unset($tabs);
 }
 
