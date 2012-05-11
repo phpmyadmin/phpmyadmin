@@ -98,7 +98,7 @@ if (isset($_REQUEST['do_save_data'])) {
             isset($_REQUEST['field_comments'][$i])
                 ? $_REQUEST['field_comments'][$i]
                 : '',
-            $field_primary,
+            $field_primary
         );
 
         if ($_REQUEST['field_where'] != 'last') {
