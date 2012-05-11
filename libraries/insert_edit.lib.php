@@ -86,6 +86,7 @@ function PMA_getWhereClauseArray()
 function PMA_analyzeWhereClauses($where_clause_array, $paramArray, $found_unique_key)
 {
     list($table, $db) = $paramArray;
+    var_dump($paramArray);
     $rows               = array();
     $result             = array();
     $where_clauses      = array();
@@ -173,16 +174,16 @@ function PMA_urlParamsInEditMode($url_params)
  */
 function PMA_showFunctionFieldsInEditMode($url_params, $showFuncFields)
 {
-    if(!$showFuncFields) {
-        $params = array('ShowFunctionFields' => 1);
+    $params = array();
+    if(! $showFuncFields) {
+        $params['ShowFunctionFields'] = 1;
     } else {
-        $params = array('ShowFunctionFields' => 0);
+        $params['ShowFunctionFields'] = 0;
     }
-    $params = array(
-            'ShowFieldTypesInDataEditView' => $GLOBALS['cfg']['ShowFieldTypesInDataEditView'],
-            'goto' => 'sql.php');
+    $params['ShowFieldTypesInDataEditView'] = $GLOBALS['cfg']['ShowFieldTypesInDataEditView'];
+    $params['goto'] = 'sql.php';
     $this_url_params = array_merge($url_params, $params);
-    if(!$showFuncFields) {
+    if(! $showFuncFields) {
         return ' : <a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '">' . __('Function') . '</a>' . "\n";
     }
     return '          <th><a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '" title="' . __('Hide') . '">' . __('Function') . '</a></th>' . "\n";
@@ -196,16 +197,16 @@ function PMA_showFunctionFieldsInEditMode($url_params, $showFuncFields)
  */
 function PMA_showColumnTypesInDataEditView($url_params, $showColumnType )
 {
-    if(!$showColumnType) {
-        $params = array('ShowFieldTypesInDataEditView' => 1);
+    $params = array();
+    if(! $showColumnType) {
+        $params['ShowFieldTypesInDataEditView'] = 1;
     } else {
-        $params = array('ShowFieldTypesInDataEditView' => 0);
+        $params['ShowFieldTypesInDataEditView'] = 0;
     }
-    $params = array(
-            'ShowFunctionFields' => $GLOBALS['cfg']['ShowFunctionFields'],
-            'goto' => 'sql.php');
+    $params['ShowFunctionFields'] = $GLOBALS['cfg']['ShowFunctionFields'];
+    $params['goto'] = 'sql.php';
     $this_other_url_params = array_merge($url_params, $params);
-    if(!$showColumnType) {
+    if(! $showColumnType) {
         return ' : <a href="tbl_change.php' . PMA_generate_common_url($this_other_url_params) . '">' . __('Type') . '</a>' . "\n";
     }
     return '          <th><a href="tbl_change.php' . PMA_generate_common_url($this_other_url_params) . '" title="' . __('Hide') . '">' . __('Type') . '</a></th>' . "\n";
@@ -244,13 +245,13 @@ function PMA_getDefaultForDatetime($field)
 }
  
  /**
-  * Analyze the table fields array
+  * Analyze the table column array
   * 
   * @param array $field
   * @param array $comments_map
   * @return type 
   */
-function PMA_analyzeTableFieldsArray($field, $comments_map, $timestamp_seen)
+function PMA_analyzeTableColumnsArray($field, $comments_map, $timestamp_seen)
 {
     $field['Field_html']    = htmlspecialchars($field['Field']);
     $field['Field_md5']     = md5($field['Field']);
@@ -258,24 +259,24 @@ function PMA_analyzeTableFieldsArray($field, $comments_map, $timestamp_seen)
     $field['True_Type']     = preg_replace('@\(.*@s', '', $field['Type']);
     PMA_getDefaultForDatetime($field);
     $field['len']           = preg_match('@float|double@', $field['Type']) ? 100 : -1;
-    $field['Field_title']   = PMA_getFieldTitle($field, $comments_map);
-    $field['is_binary']     = PMA_isTableFieldBinary($field);
-    $field['is_blob']       = PMA_istableFieldBlob($field);
-    $field['is_char']       = PMA_isTablefieldChar($field);
+    $field['Field_title']   = PMA_getColumnTitle($field, $comments_map);
+    $field['is_binary']     = PMA_isTableColumnBinary($field);
+    $field['is_blob']       = PMA_istableColumnBlob($field);
+    $field['is_char']       = PMA_isTableColumnChar($field);
     list($field['pma_type'], $field['wrap'], $field['first_timestamp']) = 
-            PMA_getEnumSetAndTimestampTableFields($field, $timestamp_seen);
+            PMA_getEnumSetAndTimestampTableColumns($field, $timestamp_seen);
     
     return $field;
 }
  
  /**
-  * Retrieve the field title
+  * Retrieve the column title
   * 
   * @param array $field
   * @param array $comments_map
   * @return string 
   */
-function PMA_getFieldTitle($field, $comments_map)
+function PMA_getColumnTitle($field, $comments_map)
 {
     if (isset($comments_map[$field['Field']])) {
         return '<span style="border-bottom: 1px dashed black;" title="'
@@ -287,12 +288,12 @@ function PMA_getFieldTitle($field, $comments_map)
 }
  
  /**
-  * check is table field bainary
+  * check is table column bainary
   * 
   * @param array $field
   * @return boolean 
   */
-function PMA_isTableFieldBinary($field)
+function PMA_isTableColumnBinary($field)
 {
     // The type column.
     // Fix for bug #3152931 'ENUM and SET cannot have "Binary" option'
@@ -309,12 +310,12 @@ function PMA_isTableFieldBinary($field)
 }
  
  /**
-  * check is table field blob
+  * check is table column blob
   * 
   * @param array $field
   * @return boolean 
   */
-function PMA_istableFieldBlob($field)
+function PMA_istableColumnBlob($field)
 {
     // If check to ensure types such as "enum('one','two','blob',..)" or
     // "enum('one','two','tinyblob',..)" etc. are not categorized as blob.
@@ -330,12 +331,12 @@ function PMA_istableFieldBlob($field)
 }
 
 /**
- * check is table field char
+ * check is table column char
  * 
  * @param array $field
  * @return boolean 
  */
-function PMA_isTablefieldChar($field)
+function PMA_isTableColumnChar($field)
 {
     // If check to ensure types such as "enum('one','two','char',..)" or
     // "enum('one','two','varchar',..)" are not categorized as char.
@@ -348,12 +349,12 @@ function PMA_isTablefieldChar($field)
     }
 }
 /**
- * Retieve set, enum, timestamp table fields
+ * Retieve set, enum, timestamp table columns
  * 
  * @param array $field
  * @param int $timestamp_seen 
  */
-function PMA_getEnumSetAndTimestampTableFields($field, $timestamp_seen)
+function PMA_getEnumSetAndTimestampTableColumns($field, $timestamp_seen)
 {
     $field['first_timestamp'] = false;
     switch ($field['True_Type']) {
@@ -411,8 +412,8 @@ function PMA_getFunctionColumn($params_for_function_column)
     } else {
         $html_output .= '<td>' . "\n";
         $html_output .= '<select name="funcs' . $field_name_appendix . '"' . $unnullify_trigger 
-            . 'tabindex="' . ($tabindex + $tabindex_for_function) . '" id="field_' . $idindex . '_1"';
-        $html_output .= PMA_getFunctionsForField($field, $insert_mode);
+            . 'tabindex="' . ($tabindex + $tabindex_for_function) . '" id="field_' . $idindex . '_1">';
+        $html_output .= PMA_getFunctionsForField($field, $insert_mode) . "\n";
         $html_output .= '</select>' .  "\n";
         $html_output .= '</td>' .  "\n";
     }
@@ -429,6 +430,7 @@ function PMA_getNullColumn($params_for_null_column)
 {
     list($field, $field_name_appendix, $real_null_value, $tabindex, $tabindex_for_null,
         $idindex, $vkey, $foreigners, $foreignData) = $params_for_null_column;
+    $html_output = '';
     $html_output .= '        <td>' . "\n";
     if ($field['Null'] == 'YES') {
         $html_output .= '            <input type="hidden" name="fields_null_prev' . $field_name_appendix . '"';

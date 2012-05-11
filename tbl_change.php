@@ -152,9 +152,10 @@ unset($show_create_table);
 PMA_DBI_select_db($db);
 $table_fields = array_values(PMA_DBI_get_columns($db, $table));
 
-$paramArray = array($table, $db);
+$paramTableDbArray = array($table, $db);
+//Retrieve values for data edit view
 list($insert_mode, $where_clauses, $result, $rows, $where_clause_array, $found_unique_key) 
-        = PMA_getValuesForEditMode($paramArray);
+        = PMA_getValuesForEditMode($paramTableDbArray);
 
 // Copying a row - fetched data will be inserted as a new row, therefore the where clause is needless.
 if (isset($default_action) && $default_action === 'insert') {
@@ -165,7 +166,7 @@ if (isset($default_action) && $default_action === 'insert') {
 $foreigners  = PMA_getForeigners($db, $table);
 
 // Retrieve form parameters for insert/edit form
-$_form_params = PMA_getFormParametersForInsertForm($paramArray, $where_clauses, $where_clause_array, $err_url);
+$_form_params = PMA_getFormParametersForInsertForm($paramTableDbArray, $where_clauses, $where_clause_array, $err_url);
 
 /**
  * Displays the form
@@ -276,7 +277,7 @@ foreach ($rows as $row_id => $vrow) {
     for ($i = 0; $i < $fields_cnt; $i++) {
         if (! isset($table_fields[$i]['processed'])) {
             $field = $table_fields[$i];
-            $field = PMA_analyzeTableFieldsArray($field, $comments_map, $timestamp_seen);
+            $field = PMA_analyzeTableColumnsArray($field, $comments_map, $timestamp_seen);
         }
         
         $extracted_columnspec = PMA_extractColumnSpec($field['Type']);
