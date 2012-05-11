@@ -2213,7 +2213,7 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row,
                     $condition = '';
                 }
             } elseif ($meta->type == 'bit') {
-                $con_val = "= b'" . PMA_printable_bit_value($row[$i], $meta->length) . "'";
+                $con_val = "= b'" . PMA_printableBitValue($row[$i], $meta->length) . "'";
             } else {
                 $con_val = '= \'' . PMA_sqlAddSlashes($row[$i], false, true) . '\'';
             }
@@ -2865,7 +2865,7 @@ function PMA_cacheUnset($var, $server = 0)
  *
  * @return string  the printable value
  */
-function PMA_printable_bit_value($value, $length)
+function PMA_printableBitValue($value, $length)
 {
     $printable = '';
     for ($i = 0, $len_ceiled = ceil($length / 8); $i < $len_ceiled; $i++) {

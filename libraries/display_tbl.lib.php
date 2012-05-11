@@ -2033,7 +2033,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                     $field_flags = PMA_DBI_field_flags($dt_result, $i);
                     $formatted = false;
                     if (isset($meta->_type) && $meta->_type === MYSQLI_TYPE_BIT) {
-                        $row[$i] = PMA_printable_bit_value(
+                        $row[$i] = PMA_printableBitValue(
                             $row[$i], $meta->length
                         );
                         // some results of PROCEDURE ANALYSE() are reported as

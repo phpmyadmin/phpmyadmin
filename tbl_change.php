@@ -526,7 +526,7 @@ foreach ($rows as $row_id => $vrow) {
                 $special_chars   = '';
                 $data            = $vrow[$field['Field']];
             } elseif ($field['True_Type'] == 'bit') {
-                $special_chars = PMA_printable_bit_value(
+                $special_chars = PMA_printableBitValue(
                     $vrow[$field['Field']], $extracted_columnspec['spec_in_brackets']
                 );
             } elseif (in_array($field['True_Type'], $gis_data_types)) {
