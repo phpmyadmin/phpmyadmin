@@ -39,7 +39,10 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     public function testCheckImgPathIncorrect()
     {
         $this->object->setPath('./test/classes/_data/incorrect_theme');
-        $this->assertFalse($this->object->loadInfo(), 'Theme name is not properly set');
+        $this->assertFalse(
+            $this->object->loadInfo(),
+            'Theme name is not properly set'
+        );
     }
 
     public function testCheckImgPathFull()
@@ -53,12 +56,16 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     public function testLoadInfo()
     {
         $this->object->setPath('./themes/original');
+        $infofile = $this->object->getPath().'/info.inc.php';
         $this->assertTrue($this->object->loadInfo());
 
-        $this->assertEquals(filemtime($this->object->getPath().'/info.inc.php'), $this->object->mtime_info);
+        $this->assertEquals(
+            filemtime($infofile),
+            $this->object->mtime_info
+        );
 
         $this->object->setPath('./themes/original');
-        $this->object->mtime_info = filemtime($this->object->getPath().'/info.inc.php');
+        $this->object->mtime_info = filemtime($infofile);
         $this->assertTrue($this->object->loadInfo());
         $this->assertEquals('Original', $this->object->getName());
     }
@@ -139,7 +146,11 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
      */
     public function testGetSetCheckVersion()
     {
-        $this->assertEquals('0.0.0.0', $this->object->getVersion(), 'Version 0.0.0.0 by default');
+        $this->assertEquals(
+            '0.0.0.0',
+            $this->object->getVersion(),
+            'Version 0.0.0.0 by default'
+        );
 
         $this->object->setVersion("1.2.3.4");
         $this->assertEquals('1.2.3.4', $this->object->getVersion());
@@ -181,7 +192,10 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
      */
     public function testGetSetImgPath()
     {
-        $this->assertEmpty($this->object->getImgPath(), 'ImgPath is empty by default');
+        $this->assertEmpty(
+            $this->object->getImgPath(),
+            'ImgPath is empty by default'
+        );
         $this->object->setImgPath('/new/path');
 
         $this->assertEquals('/new/path', $this->object->getImgPath());
