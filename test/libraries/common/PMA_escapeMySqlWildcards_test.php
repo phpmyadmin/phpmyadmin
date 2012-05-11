@@ -12,7 +12,7 @@
  */
 require_once 'libraries/common.lib.php';
 
-class PMA_escapeMySqlWildcards_test extends PHPUnit_Framework_TestCase
+class PMA_escapeMySqlWildcardsTest extends PHPUnit_Framework_TestCase
 {
 
     public function escapeDataProvider()
@@ -30,13 +30,13 @@ class PMA_escapeMySqlWildcards_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * PMA_escape_mysql_wildcards tests
+     * PMA_escapeMysqlWildcards tests
      * @dataProvider escapeDataProvider
      */
 
     public function testEscape($a, $b)
     {
-        $this->assertEquals($a, PMA_escape_mysql_wildcards($b));
+        $this->assertEquals($a, PMA_escapeMysqlWildcards($b));
     }
 
     /**

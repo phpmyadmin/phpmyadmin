@@ -372,10 +372,10 @@ function PMA_DBI_get_tables_full($database, $table = false,
         if ($table) {
             if (true === $tbl_is_group) {
                 $sql_where_table = 'AND t.`TABLE_NAME` LIKE \''
-                  . PMA_escape_mysql_wildcards(PMA_sqlAddSlashes($table)) . '%\'';
+                  . PMA_escapeMysqlWildcards(PMA_sqlAddSlashes($table)) . '%\'';
             } elseif ('comment' === $tbl_is_group) {
                 $sql_where_table = 'AND t.`TABLE_COMMENT` LIKE \''
-                  . PMA_escape_mysql_wildcards(PMA_sqlAddSlashes($table)) . '%\'';
+                  . PMA_escapeMysqlWildcards(PMA_sqlAddSlashes($table)) . '%\'';
             } else {
                 $sql_where_table = 'AND t.`TABLE_NAME` = \'' . PMA_sqlAddSlashes($table) . '\'';
             }
@@ -509,7 +509,7 @@ function PMA_DBI_get_tables_full($database, $table = false,
             if ($table || (true === $tbl_is_group)) {
                 $sql = 'SHOW TABLE STATUS FROM '
                     . PMA_backquote($each_database)
-                    .' LIKE \'' . PMA_escape_mysql_wildcards(PMA_sqlAddSlashes($table, true)) . '%\'';
+                    .' LIKE \'' . PMA_escapeMysqlWildcards(PMA_sqlAddSlashes($table, true)) . '%\'';
             } else {
                 $sql = 'SHOW TABLE STATUS FROM '
                     . PMA_backquote($each_database);

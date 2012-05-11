@@ -263,10 +263,10 @@ function PMA_sqlAddSlashes($a_string = '', $is_like = false, $crlf = false,
  *
  * @access  public
  */
-function PMA_escape_mysql_wildcards($name)
+function PMA_escapeMysqlWildcards($name)
 {
     return strtr($name, array('_' => '\\_', '%' => '\\%'));
-} // end of the 'PMA_escape_mysql_wildcards()' function
+} // end of the 'PMA_escapeMysqlWildcards()' function
 
 /**
  * removes slashes before "_" and "%" characters

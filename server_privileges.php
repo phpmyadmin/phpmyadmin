@@ -1186,7 +1186,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
                 }
 
                 $q = 'GRANT ALL PRIVILEGES ON '
-                    . PMA_backquote(PMA_escape_mysql_wildcards(PMA_sqlAddSlashes($username))) . '.* TO \''
+                    . PMA_backquote(PMA_escapeMysqlWildcards(PMA_sqlAddSlashes($username))) . '.* TO \''
                     . PMA_sqlAddSlashes($username) . '\'@\'' . PMA_sqlAddSlashes($hostname) . '\';';
                 $sql_query .= $q;
                 if (! PMA_DBI_try_query($q)) {
@@ -2125,7 +2125,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                     // only Db names in the table `mysql`.`db` uses wildcards
                     // as we are in the db specific rights display we want
                     // all db names escaped, also from other sources
-                    $db_rights_row['Db'] = PMA_escape_mysql_wildcards(
+                    $db_rights_row['Db'] = PMA_escapeMysqlWildcards(
                         $db_rights_row['Db']
                     );
                     $db_rights[$db_rights_row['Db']] = $db_rights_row;
@@ -2282,7 +2282,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                     echo '    <select name="pred_dbname" class="autosubmit">' . "\n"
                        . '        <option value="" selected="selected">' . __('Use text field') . ':</option>' . "\n";
                     foreach ($pred_db_array as $current_db) {
-                        $current_db = PMA_escape_mysql_wildcards($current_db);
+                        $current_db = PMA_escapeMysqlWildcards($current_db);
                         // cannot use array_diff() once, outside of the loop,
                         // because the list of databases has special characters
                         // already escaped in $found_rows,
@@ -2520,7 +2520,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                    . '            ';
                 if (! isset($current['Db']) || $current['Db'] == '*') {
                     $user_form .= __('global');
-                } elseif ($current['Db'] == PMA_escape_mysql_wildcards($checkprivs)) {
+                } elseif ($current['Db'] == PMA_escapeMysqlWildcards($checkprivs)) {
                     $user_form .= __('database-specific');
                 } else {
                     $user_form .= __('wildcard'). ': <code>' . htmlspecialchars($current['Db']) . '</code>';
