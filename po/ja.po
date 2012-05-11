@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-05-09 12:08+0200\n"
+"PO-Revision-Date: 2012-05-10 12:06+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 0.10\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -879,7 +879,7 @@ msgstr "空間参照識別子"
 #: gis_data_editor.php:151 js/messages.php:323
 #: libraries/display_tbl.lib.php:693
 msgid "Geometry"
-msgstr "空間データ"
+msgstr "幾何データ"
 
 #: gis_data_editor.php:172 js/messages.php:319
 msgid "Point"
@@ -936,7 +936,7 @@ msgstr "ポリゴンを追加する"
 
 #: gis_data_editor.php:310
 msgid "Add geometry"
-msgstr "空間データを追加する"
+msgstr "幾何データを追加する"
 
 #: gis_data_editor.php:318
 msgid ""
