@@ -1697,7 +1697,7 @@ function PMA_localisedDate($timestamp = -1, $format = '')
  *
  * @access  public
  */
-function PMA_generate_html_tab($tab, $url_params = array())
+function PMA_generateHtmlTab($tab, $url_params = array())
 {
     // default values
     $defaults = array(
@@ -1788,7 +1788,7 @@ function PMA_generate_html_tab($tab, $url_params = array())
 
     $out .= '</li>';
     return $out;
-} // end of the 'PMA_generate_html_tab()' function
+} // end of the 'PMA_generateHtmlTab()' function
 
 /**
  * returns html-code for a tab navigation
@@ -1806,7 +1806,7 @@ function PMA_generateHtmlTabs($tabs, $url_params, $menu_id = 'topmenu')
         .'<ul id="' . htmlentities($menu_id) . '">';
 
     foreach ($tabs as $tab) {
-        $tab_navigation .= PMA_generate_html_tab($tab, $url_params);
+        $tab_navigation .= PMA_generateHtmlTab($tab, $url_params);
     }
 
     $tab_navigation .=
