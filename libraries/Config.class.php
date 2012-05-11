@@ -1599,9 +1599,6 @@ class PMA_Config
     function setCookie($cookie, $value, $default = null, $validity = null,
         $httponly = true
     ) {
-        if ($validity == null) {
-            $validity = 2592000;
-        }
         if (strlen($value) && null !== $default && $value === $default) {
             // default value is used
             if (isset($_COOKIE[$cookie])) {
@@ -1619,7 +1616,9 @@ class PMA_Config
         if (! isset($_COOKIE[$cookie]) || $_COOKIE[$cookie] !== $value) {
             // set cookie with new value
             /* Calculate cookie validity */
-            if ($validity == 0) {
+            if ($validity == null) {
+                $validity = time() + 2592000;
+            } elseif ($validity == 0) {
                 $validity = 0;
             } else {
                 $validity = time() + $validity;
