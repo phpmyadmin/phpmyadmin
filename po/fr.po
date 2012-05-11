@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-09 13:14+0200\n"
-"PO-Revision-Date: 2012-05-03 13:43+0200\n"
+"PO-Revision-Date: 2012-05-11 18:22+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Weblate 0.10\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:59 js/messages.php:358
 #: libraries/display_tbl.lib.php:399 server_privileges.php:1828
@@ -3073,24 +3073,21 @@ msgstr "Une collection d'objets de géométrie de tout type"
 #: libraries/Types.class.php:619 libraries/Types.class.php:971
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "Numérique"
 
 #: libraries/Types.class.php:638 libraries/Types.class.php:974
-#, fuzzy
 #| msgid "Both date and time."
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "À la fois la date et l'heure."
+msgstr "Contient la date et l'heure"
 
 #: libraries/Types.class.php:647 libraries/Types.class.php:977
-#, fuzzy
 #| msgid "Linestring"
 msgctxt "string types"
 msgid "String"
-msgstr "Ligne"
+msgstr "Chaîne de caractères"
 
 #: libraries/Types.class.php:668
-#, fuzzy
 #| msgid "Spatial"
 msgctxt "spatial types"
 msgid "Spatial"
@@ -7378,7 +7375,7 @@ msgstr "Fichier de formes ESRI"
 #: libraries/import/shp.php:199
 #, php-format
 msgid "Geometry type '%s' is not supported by MySQL."
-msgstr ""
+msgstr "Le type géométrique '%s' n'est pas supporté par MySQL."
 
 #: libraries/import/shp.php:360
 #, php-format
