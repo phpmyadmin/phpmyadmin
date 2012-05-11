@@ -11,7 +11,7 @@
  *
  * @return string Function name.
  */
-function PMA_detect_pow()
+function PMA_detectPow()
 {
     if (function_exists('bcpow')) {
         // BCMath Arbitrary Precision Mathematics Function
@@ -39,7 +39,7 @@ function PMA_pow($base, $exp, $use_function = false)
     static $pow_function = null;
 
     if (null == $pow_function) {
-        $pow_function = PMA_detect_pow();
+        $pow_function = PMA_detectPow();
     }
 
     if (! $use_function) {
