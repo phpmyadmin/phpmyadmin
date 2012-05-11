@@ -1335,16 +1335,8 @@ function PMA_showMessage(
         $retval .= '<br class="clearfloat" />';
     }
 
-    // If we are in an Ajax request, we have most probably been called in
-    // PMA_ajaxResponse().  Hence, collect the buffer contents and return it
-    // to PMA_ajaxResponse(), which will encode it for JSON.
-    if ($GLOBALS['is_ajax_request'] == true
-        && ! isset($GLOBALS['buffer_message'])
-    ) {
-        return $retval;
-    } else {
-        echo $retval;
-    }
+    return $retval;
+    
 } // end of the 'PMA_showMessage()' function
 
 /**
@@ -2267,33 +2259,32 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row,
  * @param string $image        image to display
  * @param string $value        value
  *
- * @return void
+ * @return string              html content
  *
  * @access  public
  */
-function PMA_buttonOrImage($button_name, $button_class, $image_name, $text,
+function PMA_getButtonOrImage($button_name, $button_class, $image_name, $text,
     $image, $value = ''
 ) {
     if ($value == '') {
         $value = $text;
     }
     if (false === $GLOBALS['cfg']['PropertiesIconic']) {
-        echo ' <input type="submit" name="' . $button_name . '"'
-                .' value="' . htmlspecialchars($value) . '"'
-                .' title="' . htmlspecialchars($text) . '" />' . "\n";
-        return;
+        return ' <input type="submit" name="' . $button_name . '"'
+            .' value="' . htmlspecialchars($value) . '"'
+            .' title="' . htmlspecialchars($text) . '" />' . "\n";
     }
 
     /* Opera has trouble with <input type="image"> */
     /* IE has trouble with <button> */
     if (PMA_USR_BROWSER_AGENT != 'IE') {
-        echo '<button class="' . $button_class . '" type="submit"'
+        return '<button class="' . $button_class . '" type="submit"'
             .' name="' . $button_name . '" value="' . htmlspecialchars($value) . '"'
             .' title="' . htmlspecialchars($text) . '">' . "\n"
             . PMA_getIcon($image, $text)
             .'</button>' . "\n";
     } else {
-        echo '<input type="image" name="' . $image_name
+        return '<input type="image" name="' . $image_name
             . '" value="' . htmlspecialchars($value)
             . '" title="' . htmlspecialchars($text)
             . '" src="' . $GLOBALS['pmaThemeImage']. $image . '" />'
@@ -2678,11 +2669,11 @@ function PMA_getRadioFields($html_field_name, $choices, $checked_choice = '',
  *                              case the dropdown is present more than once
  *                              on the page
  *
- * @return string
+ * @return string               html content
  *
  * @todo    support titles
  */
-function PMA_generate_html_dropdown($select_name, $choices, $active_choice, $id)
+function PMA_getDropdown($select_name, $choices, $active_choice, $id)
 {
     $result = '<select name="' . htmlspecialchars($select_name) . '" id="'
         . htmlspecialchars($id) . '">';
