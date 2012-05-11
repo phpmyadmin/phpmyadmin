@@ -3,7 +3,6 @@
 /**
  * Test for PMA_Config class
  *
- *
  * @package PhpMyAdmin-test
  * @group current
  */
@@ -272,8 +271,10 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
      * @covers PMA_Config::get
      * @covers PMA_Config::set
+     *
      * @return void
      */
     public function testGetAndSet()
@@ -308,6 +309,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
      * @depends testCheckPmaAbsoluteUriEmpty
      */
     public function testCheckPmaAbsoluteUriNormal()
@@ -323,6 +325,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
      * @depends testCheckPmaAbsoluteUriNormal
      */
     public function testCheckPmaAbsoluteUriScheme()
@@ -339,6 +342,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
      * @depends testCheckPmaAbsoluteUriScheme
      */
     public function testCheckPmaAbsoluteUriUser()
@@ -398,6 +402,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
      * @depends testDetectHttps
      */
     public function testCheckCookiePath()
@@ -408,6 +413,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
      * @depends testCheckSystem
      * @depends testCheckWebServer
      * @depends testLoadDefaults
@@ -438,6 +444,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
      * @todo Implement testSave().
      */
     public function testSave()
@@ -449,6 +456,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
      * @todo Implement testGetFontsizeForm().
      */
     public function testGetFontsizeForm()
@@ -460,6 +468,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
      * @todo Implement testRemoveCookie().
      */
     public function testRemoveCookie()
@@ -469,7 +478,8 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
             'This test has not been implemented yet.'
         );
     }
-        /**
+    /**
+     *
      * @todo Implement testCheckFontsize().
      */
     public function testCheckFontsize()
@@ -481,6 +491,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
      * @todo Implement testCheckUpload().
      */
     public function testCheckUpload()
@@ -492,6 +503,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
      * @todo Implement testCheckUploadSize().
      */
     public function testCheckUploadSize()
@@ -503,6 +515,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
      * @todo Implement testCheckIsHttps().
      */
     public function testCheckIsHttps()
@@ -514,6 +527,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
      * @todo Implement testGetCookiePath().
      */
     public function testGetCookiePath()
@@ -525,6 +539,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
      * @todo finish implementing test + dependencies
      */
     public function testLoad()
@@ -535,6 +550,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
      * @todo Implement testLoadUserPreferences().
      */
     public function testLoadUserPreferences()
@@ -545,6 +561,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
      * @todo Implement testSetUserValue().
      */
     public function testSetUserValue()
@@ -555,6 +572,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
      * @todo Implement testGetUserValue().
      */
     public function testGetUserValue()
@@ -563,6 +581,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
      * @todo Implement testGetThemeUniqueValue().
      */
     public function testGetThemeUniqueValue()
@@ -574,6 +593,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
      * @todo Implement testCheckPermissions().
      */
     public function testCheckPermissions()
@@ -586,6 +606,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
 
     /**
+     *
      * @todo Implement testSetCookie().
      */
     public function testSetCookie()
@@ -602,6 +623,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
      * @dataProvider sslUris
      */
     public function testSSLUri($original, $expected)
