@@ -3054,7 +3054,7 @@ function PMA_extractColumnSpec($columnspec)
  *
  * @return boolean
  */
-function PMA_foreignkey_supported($engine)
+function PMA_isForeignKeySupported($engine)
 {
     $engine = strtoupper($engine);
     if ('INNODB' == $engine || 'PBXT' == $engine) {
