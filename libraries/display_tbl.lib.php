@@ -1460,7 +1460,7 @@ function PMA_addClass($class, $condition_field, $meta, $nowrap,
  * @param array   $map          the list of relations
  * @param array   $analyzed_sql the analyzed query
  *
- * @return array    ($table_body_html, $clause_is_unique)
+ * @return string                      html content
  *
  * @global string   $db                the database name
  * @global string   $table             the table name
@@ -1478,7 +1478,7 @@ function PMA_addClass($class, $condition_field, $meta, $nowrap,
  *
  * @see     PMA_getTable()
  */
-function PMA_getTableBodyParams(&$dt_result, &$is_display, $map, $analyzed_sql)
+function PMA_getTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
 {
     global $db, $table, $goto;
     global $sql_query, $fields_meta, $fields_cnt;
@@ -2208,11 +2208,9 @@ function PMA_getTableBodyParams(&$dt_result, &$is_display, $map, $analyzed_sql)
             : '');
         $row_no++;
     } // end while
-
-    // $clause_is_unique is needed by PMA_getTable() to generate the proper param
-    // in the multi-edit and multi-delete form
-    return array($table_body_html, $clause_is_unique);
-} // end of the 'PMA_getTableBodyParams()' function
+    
+    return $table_body_html;
+} // end of the 'PMA_getTableBody()' function
 
 
 /**
@@ -2648,7 +2646,7 @@ function PMA_setConfigParamsForDisplayTable()
  *
  * @see     PMA_getMessage(), PMA_setDisplayMode(),
  *          PMA_getTableNavigation(), PMA_getTableHeaders(),
- *          PMA_getTableBodyParams(), PMA_getResultsOperations()
+ *          PMA_getTableBody(), PMA_getResultsOperations()
  *
  * @return void
  */
@@ -2777,6 +2775,12 @@ function PMA_getTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
             // fetch last row of the result set
             PMA_DBI_data_seek($dt_result, $num_rows - 1);
             $row = PMA_DBI_fetch_row($dt_result);
+            
+            // $clause_is_unique is needed by PMA_getTable() to generate the proper param
+            // in the multi-edit and multi-delete form
+            list($where_clause, $clause_is_unique, $condition_array)
+                = PMA_getUniqueCondition($dt_result, $fields_cnt, $fields_meta, $row);          
+            
             // check for non printable sorted row data
             $meta = $fields_meta[$sorted_column_index];
             if (stristr($meta->type, 'BLOB') || $meta->type == 'geometry') {
@@ -2790,7 +2794,7 @@ function PMA_getTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
             $column_for_last_row = strtoupper(
                     substr($column_for_last_row, 0, $GLOBALS['cfg']['LimitChars'])
                 );
-            // reset to first row for the loop in PMA_getTableBodyParams()
+            // reset to first row for the loop in PMA_getTableBody()
             PMA_DBI_data_seek($dt_result, 0);
             // we could also use here $sort_expression_nodirection
             $sorted_column_message = ' [' . htmlspecialchars($sort_column)
@@ -2952,12 +2956,10 @@ function PMA_getTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
         . '<tbody>' . "\n";
     
     $url_query = '';    
-    list($table_body_html, $clause_is_unique) = PMA_getTableBodyParams(
+    $table_html .= PMA_getTableBody(
             $dt_result, $is_display, $map, $analyzed_sql
         );        
         
-    $table_html .= $table_body_html;
-    
     // vertical output case
     if ($_SESSION['tmp_user_values']['disp_direction'] == 'vertical') {
         $table_html .= PMA_getVerticalTable();
@@ -3096,7 +3098,7 @@ function PMA_mimeDefaultFunction($buffer)
  *
  * @see     PMA_getMessage(), PMA_setDisplayMode(),
  *          PMA_getTableNavigation(), PMA_getTableHeaders(),
- *          PMA_getTableBodyParams(), PMA_getResultsOperations()
+ *          PMA_getTableBody(), PMA_getResultsOperations()
  *
  * @return void
  */
