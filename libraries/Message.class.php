@@ -54,6 +54,7 @@
  * // strSomeLocaleMessage <sup>1</sup> strSomeMoreLocale<br />
  * // strSomeEvenMoreLocale - some final words
  * </code>
+ *
  * @package PhpMyAdmin
  */
 class PMA_Message
@@ -116,7 +117,7 @@ class PMA_Message
      * @access  protected
      * @var string
      */
-    protected $_hash = null;
+    protected $hash = null;
 
     /**
      * holds parameters
@@ -137,10 +138,11 @@ class PMA_Message
     /**
      * Constructor
      *
-     * @param string  $string
-     * @param integer $number
-     * @param array   $params
-     * @param integer $sanitize
+     * @param string  $string   The message to be displayed
+     * @param integer $number   A numeric representation of the type of message
+     * @param array   $params   An array of parameters to use in the message
+     * @param integer $sanitize A flag to indicate what to sanitize, see
+     *                          constant definitions above
      */
     public function __construct($string = '', $number = PMA_Message::NOTICE,
         $params = array(), $sanitize = PMA_Message::SANITIZE_NONE
@@ -165,8 +167,9 @@ class PMA_Message
      *
      * shorthand for getting a simple success message
      *
-     * @param string $string a localized string
-     *                       e.g. __('Your SQL query has been executed successfully')
+     * @param string $string A localized string
+     *                       e.g. __('Your SQL query has been
+     *                       executed successfully')
      *
      * @return PMA_Message
      * @static
@@ -185,7 +188,7 @@ class PMA_Message
      *
      * shorthand for getting a simple error message
      *
-     * @param string $string a localized string e.g. __('Error')
+     * @param string $string A localized string e.g. __('Error')
      *
      * @return PMA_Message
      * @static
@@ -204,9 +207,10 @@ class PMA_Message
      *
      * shorthand for getting a simple notice message
      *
-     * @param string $string a localized string
-     *                       e.g. __('The additional features for working with linked
-     *                       tables have been deactivated. To find out why click %shere%s.')
+     * @param string $string A localized string
+     *                       e.g. __('The additional features for working with
+     *                       linked tables have been deactivated. To find out
+     *                       why click %shere%s.')
      *
      * @return PMA_Message
      * @static
@@ -221,8 +225,8 @@ class PMA_Message
      *
      * shorthand for getting a customized message
      *
-     * @param string  $message
-     * @param integer $type
+     * @param string  $message A localized string
+     * @param integer $type    A numeric representation of the type of message
      *
      * @return PMA_Message
      * @static
@@ -246,7 +250,9 @@ class PMA_Message
      */
     static public function affected_rows($rows)
     {
-        $message = PMA_Message::success(_ngettext('%1$d row affected.', '%1$d rows affected.', $rows));
+        $message = PMA_Message::success(
+            _ngettext('%1$d row affected.', '%1$d rows affected.', $rows)
+        );
         $message->addParam($rows);
         return $message;
     }
@@ -263,7 +269,9 @@ class PMA_Message
      */
     static public function deleted_rows($rows)
     {
-        $message = PMA_Message::success(_ngettext('%1$d row deleted.', '%1$d rows deleted.', $rows));
+        $message = PMA_Message::success(
+            _ngettext('%1$d row deleted.', '%1$d rows deleted.', $rows)
+        );
         $message->addParam($rows);
         return $message;
     }
@@ -280,7 +288,9 @@ class PMA_Message
      */
     static public function inserted_rows($rows)
     {
-        $message = PMA_Message::success(_ngettext('%1$d row inserted.', '%1$d rows inserted.', $rows));
+        $message = PMA_Message::success(
+            _ngettext('%1$d row inserted.', '%1$d rows inserted.', $rows)
+        );
         $message->addParam($rows);
         return $message;
     }
@@ -290,7 +300,7 @@ class PMA_Message
      *
      * shorthand for getting a customized error message
      *
-     * @param string $message
+     * @param string $message A localized string
      *
      * @return PMA_Message
      * @static
@@ -305,7 +315,7 @@ class PMA_Message
      *
      * shorthand for getting a customized notice message
      *
-     * @param string $message
+     * @param string $message A localized string
      *
      * @return PMA_Message
      * @static
@@ -320,7 +330,7 @@ class PMA_Message
      *
      * shorthand for getting a customized success message
      *
-     * @param string $message
+     * @param string $message A localized string
      *
      * @return PMA_Message
      * @static
@@ -334,7 +344,7 @@ class PMA_Message
      * returns whether this message is a success message or not
      * and optionaly makes this message a success message
      *
-     * @param boolean $set
+     * @param boolean $set Whether to make this message of SUCCESS type
      *
      * @return boolean whether this is a success message or not
      */
@@ -351,7 +361,7 @@ class PMA_Message
      * returns whether this message is a notice message or not
      * and optionally makes this message a notice message
      *
-     * @param boolean $set
+     * @param boolean $set Whether to make this message of NOTICE type
      *
      * @return boolean whether this is a notice message or not
      */
@@ -368,9 +378,9 @@ class PMA_Message
      * returns whether this message is an error message or not
      * and optionally makes this message an error message
      *
-     * @param boolean $set
+     * @param boolean $set Whether to make this message of ERROR type
      *
-     * @return boolean whether this is an error message or not
+     * @return boolean Whether this is an error message or not
      */
     public function isError($set = false)
     {
@@ -384,8 +394,10 @@ class PMA_Message
     /**
      * set raw message (overrides string)
      *
-     * @param string  $message
-     * @param boolean $sanitize whether to sanitize $message or not
+     * @param string  $message  A localized string
+     * @param boolean $sanitize Whether to sanitize $message or not
+     *
+     * @return void
      */
     public function setMessage($message, $sanitize = false)
     {
@@ -398,9 +410,11 @@ class PMA_Message
     /**
      * set string (does not take effect if raw message is set)
      *
-     * @param string  $_string
+     * @param string $_string
      *
      * @param boolean $sanitize whether to sanitize $string or not
+     *
+     * @return void
      */
     public function setString($_string, $sanitize = true)
     {
@@ -588,21 +602,21 @@ class PMA_Message
     }
 
     /**
-     * returns unique PMA_Message::$_hash, if not exists it will be created
+     * returns unique PMA_Message::$hash, if not exists it will be created
      *
-     * @return string PMA_Message::$_hash
+     * @return string PMA_Message::$hash
      */
     public function getHash()
     {
-        if (null === $this->_hash) {
-            $this->_hash = md5(
+        if (null === $this->hash) {
+            $this->hash = md5(
                 $this->getNumber() .
                 $this->_string .
                 $this->_message
             );
         }
 
-        return $this->_hash;
+        return $this->hash;
     }
 
     /**
@@ -671,6 +685,7 @@ class PMA_Message
     /**
      * Displays the message in HTML
      *
+     * @return void
      */
     public function display()
     {
