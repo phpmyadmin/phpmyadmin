@@ -10,9 +10,9 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * @since phpMyAdmin 3.0.0
  *
  * @package PhpMyAdmin
+ * @since   phpMyAdmin 3.0.0
  */
 class PMA_Index
 {
