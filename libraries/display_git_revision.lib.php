@@ -11,6 +11,8 @@ if (! defined('PHPMYADMIN')) {
 
 /**
 * Prints details about the current Git commit revision
+*
+* @return void
 */
 function PMA_printGitRevision()
 {
@@ -22,10 +24,14 @@ function PMA_printGitRevision()
     $GLOBALS['PMA_Config']->checkGitRevision();
 
     // if using a remote commit fast-forwarded, link to Github
-    $commit_hash = substr($GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_COMMITHASH'), 0, 7);
+    $commit_hash = substr(
+        $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_COMMITHASH'),
+        0,
+        7
+    );
     $commit_hash = '<strong title="'
-        . htmlspecialchars($GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_MESSAGE')) . '">'
-        . $commit_hash . '</strong>';
+        . htmlspecialchars($GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_MESSAGE'))
+        . '">' . $commit_hash . '</strong>';
     if ($GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_ISREMOTECOMMIT')) {
         $commit_hash = '<a href="'
             . PMA_linkURL(
