@@ -329,8 +329,9 @@ class PMA_Table
      *
      * @return mixed
      */
-    static public function sGetStatusInfo($db, $table, $info = null, $force_read = false, $disable_error = false)
-    {
+    static public function sGetStatusInfo($db, $table, $info = null,
+        $force_read = false, $disable_error = false
+    ) {
         if (! isset(PMA_Table::$cache[$db][$table]) || $force_read) {
             PMA_DBI_get_tables_full($db, $table);
         }
@@ -385,10 +386,10 @@ class PMA_Table
      *
      * @return string  field specification
      */
-    static function generateFieldSpec($name, $type, $index, $length = '', $attribute = '',
-        $collation = '', $null = false, $default_type = 'USER_DEFINED',
-        $default_value = '', $extra = '', $comment = '',
-        &$field_primary = null, $move_to = ''
+    static function generateFieldSpec($name, $type, $index, $length = '',
+        $attribute = '', $collation = '', $null = false,
+        $default_type = 'USER_DEFINED', $default_value = '',  $extra = '',
+        $comment = '', &$field_primary = null, $move_to = ''
     ) {
         $is_timestamp = strpos(strtoupper($type), 'TIMESTAMP') !== false;
 
@@ -397,7 +398,8 @@ class PMA_Table
         if ($length != ''
             && ! preg_match(
                 '@^(DATE|DATETIME|TIME|TINYBLOB|TINYTEXT|BLOB|TEXT|'
-                . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN|UUID)$@i', $type
+                . 'MEDIUMBLOB|MEDIUMTEXT|LONGBLOB|LONGTEXT|SERIAL|BOOLEAN|UUID)$@i',
+                $type
             )
         ) {
             $query .= '(' . $length . ')';
@@ -407,9 +409,11 @@ class PMA_Table
             $query .= ' ' . $attribute;
         }
 
-        if (! empty($collation) && $collation != 'NULL'
-            && preg_match('@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR|ENUM|SET)$@i', $type)
-        ) {
+        $matches = preg_match(
+            '@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR|ENUM|SET)$@i',
+            $type
+        );
+        if (! empty($collation) && $collation != 'NULL' && $matches) {
             $query .= PMA_generateCharsetQueryPart($collation);
         }
 
@@ -438,7 +442,8 @@ class PMA_Table
                     $query .= ' DEFAULT FALSE';
                 } else {
                     // Invalid BOOLEAN value
-                    $query .= ' DEFAULT \'' . PMA_sqlAddSlashes($default_value) . '\'';
+                    $query .= ' DEFAULT \''
+                        . PMA_sqlAddSlashes($default_value) . '\'';
                 }
             } else {
                 $query .= ' DEFAULT \'' . PMA_sqlAddSlashes($default_value) . '\'';
@@ -517,8 +522,9 @@ class PMA_Table
      * @return mixed the number of records if "retain" param is true,
      *               otherwise true
      */
-    static public function countRecords($db, $table, $force_exact = false, $is_view = null)
-    {
+    static public function countRecords($db, $table, $force_exact = false,
+        $is_view = null
+    ) {
         if (isset(PMA_Table::$cache[$db][$table]['ExactRows'])) {
             $row_count = PMA_Table::$cache[$db][$table]['ExactRows'];
         } else {
@@ -543,7 +549,9 @@ class PMA_Table
             }
 
             // for a VIEW, $row_count is always false at this point
-            if (false === $row_count || $row_count < $GLOBALS['cfg']['MaxExactCount']) {
+            if (false === $row_count
+                || $row_count < $GLOBALS['cfg']['MaxExactCount']
+            ) {
                 // Make an exception for views in I_S and D_D schema in
                 // Drizzle, as these map to in-memory data and should execute
                 // fast enough
@@ -640,8 +648,9 @@ class PMA_Table
      *
      * @return int|true
      */
-    static public function duplicateInfo($work, $pma_table, $get_fields, $where_fields, $new_fields)
-    {
+    static public function duplicateInfo($work, $pma_table, $get_fields,
+        $where_fields, $new_fields
+    ) {
         $last_id = -1;
 
         if (isset($GLOBALS['cfgRelation']) && $GLOBALS['cfgRelation'][$work]) {
@@ -720,8 +729,9 @@ class PMA_Table
      *
      * @return bool true if success, false otherwise
      */
-    static public function moveCopy($source_db, $source_table, $target_db, $target_table, $what, $move, $mode)
-    {
+    static public function moveCopy($source_db, $source_table, $target_db,
+        $target_table, $what, $move, $mode
+    ) {
         global $err_url;
 
         /* Try moving table directly */
@@ -744,16 +754,20 @@ class PMA_Table
         // Ensure the target is valid
         if (! $GLOBALS['pma']->databases->exists($source_db, $target_db)) {
             if (! $GLOBALS['pma']->databases->exists($source_db)) {
-                $GLOBALS['message'] = PMA_Message::rawError(sprintf(
-                    __('Source database `%s` was not found!'),
-                    htmlspecialchars($source_db)
-                ));
+                $GLOBALS['message'] = PMA_Message::rawError(
+                    sprintf(
+                        __('Source database `%s` was not found!'),
+                        htmlspecialchars($source_db)
+                    )
+                );
             }
             if (! $GLOBALS['pma']->databases->exists($target_db)) {
-                $GLOBALS['message'] = PMA_Message::rawError(sprintf(
-                    __('Target database `%s` was not found!'),
-                    htmlspecialchars($target_db)
-                ));
+                $GLOBALS['message'] = PMA_Message::rawError(
+                    sprintf(
+                        __('Target database `%s` was not found!'),
+                        htmlspecialchars($target_db)
+                    )
+                );
             }
             return false;
         }
@@ -799,7 +813,11 @@ class PMA_Table
             if (PMA_DRIZZLE) {
                 $table_delimiter = 'quote_backtick';
             } else {
-                $server_sql_mode = PMA_DBI_fetch_value("SHOW VARIABLES LIKE 'sql_mode'", 0, 1);
+                $server_sql_mode = PMA_DBI_fetch_value(
+                    "SHOW VARIABLES LIKE 'sql_mode'",
+                    0,
+                    1
+                );
                 // ANSI_QUOTES might be a subset of sql_mode, for example
                 // REAL_AS_FLOAT,PIPES_AS_CONCAT,ANSI_QUOTES,IGNORE_SPACE,ANSI
                 if (false !== strpos($server_sql_mode, 'ANSI_QUOTES')) {
@@ -1073,30 +1091,88 @@ class PMA_Table
                 // just once per db
 
                 $get_fields = array('display_field');
-                $where_fields = array('db_name' => $source_db, 'table_name' => $source_table);
-                $new_fields = array('db_name' => $target_db, 'table_name' => $target_table);
-                PMA_Table::duplicateInfo('displaywork', 'table_info', $get_fields, $where_fields, $new_fields);
+                $where_fields = array(
+                    'db_name' => $source_db,
+                    'table_name' => $source_table
+                );
+                $new_fields = array(
+                    'db_name' => $target_db,
+                    'table_name' => $target_table
+                );
+                PMA_Table::duplicateInfo(
+                    'displaywork',
+                    'table_info',
+                    $get_fields,
+                    $where_fields,
+                    $new_fields
+                );
 
 
                 /**
                  * @todo revise this code when we support cross-db relations
                  */
-                $get_fields = array('master_field', 'foreign_table', 'foreign_field');
-                $where_fields = array('master_db' => $source_db, 'master_table' => $source_table);
-                $new_fields = array('master_db' => $target_db, 'foreign_db' => $target_db, 'master_table' => $target_table);
-                PMA_Table::duplicateInfo('relwork', 'relation', $get_fields, $where_fields, $new_fields);
+                $get_fields = array(
+                    'master_field',
+                    'foreign_table',
+                    'foreign_field'
+                );
+                $where_fields = array(
+                    'master_db' => $source_db,
+                    'master_table' => $source_table
+                );
+                $new_fields = array(
+                    'master_db' => $target_db,
+                    'foreign_db' => $target_db,
+                    'master_table' => $target_table
+                );
+                PMA_Table::duplicateInfo(
+                    'relwork',
+                    'relation',
+                    $get_fields,
+                    $where_fields,
+                    $new_fields
+                );
 
 
-                $get_fields = array('foreign_field', 'master_table', 'master_field');
-                $where_fields = array('foreign_db' => $source_db, 'foreign_table' => $source_table);
-                $new_fields = array('master_db' => $target_db, 'foreign_db' => $target_db, 'foreign_table' => $target_table);
-                PMA_Table::duplicateInfo('relwork', 'relation', $get_fields, $where_fields, $new_fields);
+                $get_fields = array(
+                    'foreign_field',
+                    'master_table',
+                    'master_field'
+                );
+                $where_fields = array(
+                    'foreign_db' => $source_db,
+                    'foreign_table' => $source_table
+                );
+                $new_fields = array(
+                    'master_db' => $target_db,
+                    'foreign_db' => $target_db,
+                    'foreign_table' => $target_table
+                );
+                PMA_Table::duplicateInfo(
+                    'relwork',
+                    'relation',
+                    $get_fields,
+                    $where_fields,
+                    $new_fields
+                );
 
 
                 $get_fields = array('x', 'y', 'v', 'h');
-                $where_fields = array('db_name' => $source_db, 'table_name' => $source_table);
-                $new_fields = array('db_name' => $target_db, 'table_name' => $target_table);
-                PMA_Table::duplicateInfo('designerwork', 'designer_coords', $get_fields, $where_fields, $new_fields);
+                $where_fields = array(
+                    'db_name' => $source_db,
+                    'table_name' => $source_table
+                );
+                $new_fields = array(
+                    'db_name' => $target_db,
+                    'table_name' => $target_table
+                );
+                PMA_Table::duplicateInfo(
+                    'designerwork',
+                    'designer_coords',
+                    $get_fields,
+                    $where_fields,
+                    $new_fields
+                );
 
                 /**
                  * @todo Can't get duplicating PDFs the right way. The
@@ -1108,13 +1184,32 @@ class PMA_Table
                 $get_fields = array('page_descr');
                 $where_fields = array('db_name' => $source_db);
                 $new_fields = array('db_name' => $target_db);
-                $last_id = PMA_Table::duplicateInfo('pdfwork', 'pdf_pages', $get_fields, $where_fields, $new_fields);
+                $last_id = PMA_Table::duplicateInfo(
+                    'pdfwork',
+                    'pdf_pages',
+                    $get_fields,
+                    $where_fields,
+                    $new_fields
+                );
 
                 if (isset($last_id) && $last_id >= 0) {
                     $get_fields = array('x', 'y');
-                    $where_fields = array('db_name' => $source_db, 'table_name' => $source_table);
-                    $new_fields = array('db_name' => $target_db, 'table_name' => $target_table, 'pdf_page_number' => $last_id);
-                    PMA_Table::duplicateInfo('pdfwork', 'table_coords', $get_fields, $where_fields, $new_fields);
+                    $where_fields = array(
+                        'db_name' => $source_db,
+                        'table_name' => $source_table
+                    );
+                    $new_fields = array(
+                        'db_name' => $target_db,
+                        'table_name' => $target_table,
+                        'pdf_page_number' => $last_id
+                    );
+                    PMA_Table::duplicateInfo(
+                        'pdfwork',
+                        'table_coords',
+                        $get_fields,
+                        $where_fields,
+                        $new_fields
+                    );
                 }
                  */
             }
@@ -1183,7 +1278,8 @@ class PMA_Table
         }
 
         if (! PMA_Table::isValidName($new_name)) {
-            $this->errors[] = __('Invalid table name') . ': ' . $new_table->getFullName();
+            $this->errors[] = __('Invalid table name') . ': '
+                . $new_table->getFullName();
             return false;
         }
 
@@ -1192,8 +1288,8 @@ class PMA_Table
         $handle_triggers = $this->getDbName() != $new_db && $triggers;
         if ($handle_triggers) {
             foreach ($triggers as $trigger) {
-                $sql = 'DROP TRIGGER IF EXISTS ' . PMA_backquote($this->getDbName()) . '.'
-                    . PMA_backquote($trigger['name']) . ';';
+                $sql = 'DROP TRIGGER IF EXISTS ' . PMA_backquote($this->getDbName())
+                    . '.' . PMA_backquote($trigger['name']) . ';';
                 PMA_DBI_query($sql);
             }
         }
@@ -1227,7 +1323,8 @@ class PMA_Table
         $this->setDbName($new_db);
 
         /**
-         * @todo move into extra function PMA_Relation::renameTable($new_name, $old_name, $new_db, $old_db)
+         * @todo move into extra function
+         * PMA_Relation::renameTable($new_name, $old_name, $new_db, $old_db)
          */
         // Move old entries from comments to new table
         $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
@@ -1474,7 +1571,9 @@ class PMA_Table
                     )
                 );
                 $message->addMessage('<br /><br />');
-                $message->addMessage(PMA_Message::rawError(PMA_DBI_getError($GLOBALS['controllink'])));
+                $message->addMessage(
+                    PMA_Message::rawError(PMA_DBI_getError($GLOBALS['controllink']))
+                );
                 print_r($message);
                 return $message;
             }
@@ -1545,7 +1644,9 @@ class PMA_Table
         } elseif ($property == self::PROP_COLUMN_ORDER
             || $property == self::PROP_COLUMN_VISIB
         ) {
-            if (! PMA_Table::isView($this->db_name, $this->name) && isset($this->uiprefs[$property])) {
+            if (! PMA_Table::isView($this->db_name, $this->name)
+                && isset($this->uiprefs[$property])
+            ) {
                 // check if the table has not been modified
                 if (self::sGetStatusInfo($this->db_name, $this->name, 'Create_time') == $this->uiprefs['CREATE_TIME']) {
                     return $this->uiprefs[$property];
@@ -1573,7 +1674,8 @@ class PMA_Table
      *
      * @param string $property          Property
      * @param mixed  $value             Value for the property
-     * @param string $table_create_time Needed for PROP_COLUMN_ORDER and PROP_COLUMN_VISIB
+     * @param string $table_create_time Needed for PROP_COLUMN_ORDER
+     *                                  and PROP_COLUMN_VISIB
      *
      * @return boolean|PMA_Message
      */
@@ -1584,9 +1686,14 @@ class PMA_Table
         }
         // we want to save the create time if the property is PROP_COLUMN_ORDER
         if (! PMA_Table::isView($this->db_name, $this->name)
-            && ($property == self::PROP_COLUMN_ORDER || $property == self::PROP_COLUMN_VISIB)
+            && ($property == self::PROP_COLUMN_ORDER
+            || $property == self::PROP_COLUMN_VISIB)
         ) {
-            $curr_create_time = self::sGetStatusInfo($this->db_name, $this->name, 'CREATE_TIME');
+            $curr_create_time = self::sGetStatusInfo(
+                $this->db_name,
+                $this->name,
+                'CREATE_TIME'
+            );
             if (isset($table_create_time)
                 && $table_create_time == $curr_create_time
             ) {
