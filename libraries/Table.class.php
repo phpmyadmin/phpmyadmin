@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Holds the PMA_Table class
  *
  * @package PhpMyAdmin
  */
@@ -9,6 +10,8 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
+ * Handles everything related to tables
+ *
  * @todo make use of PMA_Message and PMA_Error
  * @package PhpMyAdmin
  */
@@ -307,6 +310,15 @@ class PMA_Table
         return in_array(strtoupper($engine), array('MERGE', 'MRG_MYISAM'));
     }
 
+    /**
+     * Returns tooltip for the table
+     * Format : <table_comment> (<number_of_rows>)
+     *
+     * @param string $db    database name
+     * @param string $table table name
+     *
+     * @return string tooltip fot the table
+     */
     static public function sGetToolTip($db, $table)
     {
         return PMA_Table::sGetStatusInfo($db, $table, 'Comment')
@@ -320,7 +332,7 @@ class PMA_Table
      *
      * @param string  $db            database name
      * @param string  $table         table name
-     * @param string  $info
+     * @param string  $info          specific information to be fetched
      * @param boolean $force_read    read new rather than serving from cache
      * @param boolean $disable_error if true, disables error message
      *
@@ -366,7 +378,7 @@ class PMA_Table
      *
      * @param string      $name           name
      * @param string      $type           type ('INT', 'VARCHAR', 'BIT', ...)
-     * @param string      $index
+     * @param string      $index          index
      * @param string      $length         length ('2', '5,2', '', ...)
      * @param string      $attribute      attribute
      * @param string      $collation      collation
@@ -609,7 +621,7 @@ class PMA_Table
      * @param string      $extra          'AUTO_INCREMENT'
      * @param string      $comment        field comment
      * @param array       &$field_primary list of fields for PRIMARY KEY
-     * @param string      $index
+     * @param string      $index          index
      * @param string      $move_to        new position for column
      *
      * @see PMA_Table::generateFieldSpec()
