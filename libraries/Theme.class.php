@@ -57,7 +57,7 @@ class PMA_Theme
      * @var array   valid css types
      * @access  protected
      */
-    var $types = array('left', 'right', 'print');
+    var $types = array('left', 'right');
 
     /**
      * @var integer last modification time for info file
