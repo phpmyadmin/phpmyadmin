@@ -152,8 +152,8 @@ class PMA_Error_Handler
      *
      * @param string  $errorInfo   error message
      * @param integer $errorNumber error number
-     * @param string  $file
-     * @param integer $line
+     * @param string  $file        the file
+     * @param integer $line        the line number
      *
      * @return void
      */
