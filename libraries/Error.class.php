@@ -67,28 +67,28 @@ class PMA_Error extends PMA_Message
      *
      * @var string
      */
-    protected $_file = '';
+    protected $file = '';
 
     /**
      * The line in which the error occured
      *
      * @var integer
      */
-    protected $_line = 0;
+    protected $line = 0;
 
     /**
      * Holds the backtrace for this error
      *
      * @var array
      */
-    protected $_backtrace = array();
+    protected $backtrace = array();
 
     /**
      * Unique id
      *
      * @var string
      */
-    protected $_hash = null;
+    protected $hash = null;
 
     /**
      * Constructor
@@ -122,7 +122,7 @@ class PMA_Error extends PMA_Message
      */
     public function setBacktrace($backtrace)
     {
-        $this->_backtrace = $backtrace;
+        $this->backtrace = $backtrace;
     }
 
     /**
@@ -134,7 +134,7 @@ class PMA_Error extends PMA_Message
      */
     public function setLine($line)
     {
-        $this->_line = $line;
+        $this->line = $line;
     }
 
     /**
@@ -146,14 +146,14 @@ class PMA_Error extends PMA_Message
      */
     public function setFile($file)
     {
-        $this->_file = PMA_Error::relPath($file);
+        $this->file = PMA_Error::relPath($file);
     }
 
 
     /**
-     * returns unique PMA_Error::$_hash, if not exists it will be created
+     * returns unique PMA_Error::$hash, if not exists it will be created
      *
-     * @return string PMA_Error::$_hash
+     * @return string PMA_Error::$hash
      */
     public function getHash()
     {
@@ -162,8 +162,8 @@ class PMA_Error extends PMA_Message
         } catch(Exception $e){
             $backtrace = '';
         }
-        if ($this->_hash === null) {
-            $this->_hash = md5(
+        if ($this->hash === null) {
+            $this->hash = md5(
                 $this->getNumber() .
                 $this->getMessage() .
                 $this->getFile() .
@@ -172,7 +172,7 @@ class PMA_Error extends PMA_Message
             );
         }
 
-        return $this->_hash;
+        return $this->hash;
     }
 
     /**
@@ -182,27 +182,27 @@ class PMA_Error extends PMA_Message
      */
     public function getBacktrace()
     {
-        return $this->_backtrace;
+        return $this->backtrace;
     }
 
     /**
-     * returns PMA_Error::$_file
+     * returns PMA_Error::$file
      *
-     * @return string PMA_Error::$_file
+     * @return string PMA_Error::$file
      */
     public function getFile()
     {
-        return $this->_file;
+        return $this->file;
     }
 
     /**
-     * returns PMA_Error::$_line
+     * returns PMA_Error::$line
      *
-     * @return integer PMA_Error::$_line
+     * @return integer PMA_Error::$line
      */
     public function getLine()
     {
-        return $this->_line;
+        return $this->line;
     }
 
     /**
@@ -313,7 +313,7 @@ class PMA_Error extends PMA_Message
     /**
      * Gets the error as string of HTML
      *
-     * return string
+     * @return string
      */
     public function getDisplay()
     {
@@ -367,7 +367,10 @@ class PMA_Error extends PMA_Message
             $path_separator = '/';
         }
 
-        $Ahere = explode($path_separator, realpath(dirname(__FILE__) . $path_separator . '..'));
+        $Ahere = explode(
+            $path_separator,
+            realpath(dirname(__FILE__) . $path_separator . '..')
+        );
         $Adest = explode($path_separator, $dest);
 
         $result = '.';
@@ -381,7 +384,11 @@ class PMA_Error extends PMA_Message
             }
         }
         $path = $result . str_replace(implode($path_separator, $Adest), '', $dest);
-        return str_replace($path_separator . $path_separator, $path_separator, $path);
+        return str_replace(
+            $path_separator . $path_separator,
+            $path_separator,
+            $path
+        );
     }
 }
 ?>
