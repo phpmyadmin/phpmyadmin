@@ -49,13 +49,16 @@ class PMA_Error_Handler
 
             if ($GLOBALS['cfg']['Error_Handler']['gather']) {
                 // remember all errors
-                $_SESSION['errors'] = array_merge($_SESSION['errors'], $this->errors);
+                $_SESSION['errors'] = array_merge(
+                    $_SESSION['errors'],
+                    $this->errors
+                );
             } else {
                 // remember only not displayed errors
                 foreach ($this->errors as $key => $error) {
                     /**
-                     * We don't want to store all errors here as it would explode user
-                     * session. In case  you want them all set
+                     * We don't want to store all errors here as it would
+                     * explode user session. In case  you want them all set
                      * $GLOBALS['cfg']['Error_Handler']['gather'] to true
                      */
                     if (count($_SESSION['errors']) >= 20) {
@@ -102,7 +105,12 @@ class PMA_Error_Handler
     public function handleError($errno, $errstr, $errfile, $errline)
     {
         // create error object
-        $error = new PMA_Error($errno, htmlspecialchars($errstr), $errfile, $errline);
+        $error = new PMA_Error(
+            $errno,
+            htmlspecialchars($errstr),
+            $errfile,
+            $errline
+        );
 
         // do not repeat errors
         $this->errors[$error->getHash()] = $error;
@@ -152,14 +160,16 @@ class PMA_Error_Handler
      *
      * @param string  $errorInfo   error message
      * @param integer $errorNumber error number
-     * @param string  $file        the file
-     * @param integer $line        the line number
+     * @param string  $file        file name
+     * @param integer $line        line number
      *
      * @return void
      */
-    public function triggerError($errorInfo, $errorNumber = null, $file = null, $line = null)
-    {
-        // we could also extract file and line from backtrace and call handleError() directly
+    public function triggerError($errorInfo, $errorNumber = null,
+        $file = null, $line = null
+    ) {
+        // we could also extract file and line from backtrace
+        // and call handleError() directly
         trigger_error($errorInfo, $errorNumber);
     }
 
