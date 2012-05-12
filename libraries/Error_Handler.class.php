@@ -23,7 +23,7 @@ class PMA_Error_Handler
      *
      * @var array of PMA_Error
      */
-    protected $_errors = array();
+    protected $errors = array();
 
     /**
      * Constructor - set PHP error handler
@@ -49,10 +49,10 @@ class PMA_Error_Handler
 
             if ($GLOBALS['cfg']['Error_Handler']['gather']) {
                 // remember all errors
-                $_SESSION['errors'] = array_merge($_SESSION['errors'], $this->_errors);
+                $_SESSION['errors'] = array_merge($_SESSION['errors'], $this->errors);
             } else {
                 // remember only not displayed errors
-                foreach ($this->_errors as $key => $error) {
+                foreach ($this->errors as $key => $error) {
                     /**
                      * We don't want to store all errors here as it would explode user
                      * session. In case  you want them all set
@@ -77,8 +77,8 @@ class PMA_Error_Handler
      */
     protected function getErrors()
     {
-        $this->_checkSavedErrors();
-        return $this->_errors;
+        $this->checkSavedErrors();
+        return $this->errors;
     }
 
     /**
@@ -105,7 +105,7 @@ class PMA_Error_Handler
         $error = new PMA_Error($errno, htmlspecialchars($errstr), $errfile, $errline);
 
         // do not repeat errors
-        $this->_errors[$error->getHash()] = $error;
+        $this->errors[$error->getHash()] = $error;
 
         switch ($error->getNumber()) {
         case E_USER_NOTICE:
@@ -127,7 +127,7 @@ class PMA_Error_Handler
         case E_COMPILE_ERROR:
         default:
             // FATAL error, dislay it and exit
-            $this->_dispFatalError($error);
+            $this->dispFatalError($error);
             exit;
             break;
         }
@@ -142,7 +142,7 @@ class PMA_Error_Handler
      *
      * @todo finish!
      */
-    protected function _logError($error)
+    protected function logError($error)
     {
         return error_log($error->getMessage());
     }
@@ -170,13 +170,13 @@ class PMA_Error_Handler
      *
      * @return void
      */
-    protected function _dispFatalError($error)
+    protected function dispFatalError($error)
     {
         if (! headers_sent()) {
-            $this->_dispPageStart($error);
+            $this->dispPageStart($error);
         }
         $error->display();
-        $this->_dispPageEnd();
+        $this->dispPageEnd();
         exit;
     }
 
@@ -188,10 +188,10 @@ class PMA_Error_Handler
     public function dispErrorPage()
     {
         if (! headers_sent()) {
-            $this->_dispPageStart();
+            $this->dispPageStart();
         }
         $this->dispAllErrors();
-        $this->_dispPageEnd();
+        $this->dispPageEnd();
     }
 
     /**
@@ -215,7 +215,7 @@ class PMA_Error_Handler
      *
      * @return void
      */
-    protected function _dispPageStart($error = null)
+    protected function dispPageStart($error = null)
     {
         echo '<html><head><title>';
         if ($error) {
@@ -231,7 +231,7 @@ class PMA_Error_Handler
      *
      * @return void
      */
-    protected function _dispPageEnd()
+    protected function dispPageEnd()
     {
         echo '</body></html>';
     }
@@ -275,17 +275,17 @@ class PMA_Error_Handler
      *
      * @return void
      */
-    protected function _checkSavedErrors()
+    protected function checkSavedErrors()
     {
         if (isset($_SESSION['errors'])) {
 
             // restore saved errors
             foreach ($_SESSION['errors'] as $hash => $error) {
-                if ($error instanceof PMA_Error && ! isset($this->_errors[$hash])) {
-                    $this->_errors[$hash] = $error;
+                if ($error instanceof PMA_Error && ! isset($this->errors[$hash])) {
+                    $this->errors[$hash] = $error;
                 }
             }
-            //$this->_errors = array_merge($_SESSION['errors'], $this->_errors);
+            //$this->errors = array_merge($_SESSION['errors'], $this->errors);
 
             // delet stored errors
             $_SESSION['errors'] = array();
