@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+* Handles plugins that show the upload progress
 *
 * @package PhpMyAdmin
 */
@@ -25,13 +26,16 @@ $upload_id = uniqid("");
 
 /**
   * list of available plugins
+  *
+  * Each plugin has own checkfunction in display_import_ajax.lib.php
+  * and own file with functions in upload_#KEY#.php
   */
 $plugins = array(
-       "session",
-       "uploadprogress",
-       "apc",
-       "noplugin"
-       ); // available plugins. Each plugin has own checkfunction in display_import_ajax.lib.php and own file with functions in upload_#KEY#.php
+   "session",
+   "uploadprogress",
+   "apc",
+   "noplugin"
+);
 
 // select available plugin
 foreach ($plugins as $plugin) {
@@ -47,11 +51,15 @@ foreach ($plugins as $plugin) {
 /**
   * Checks if APC bar extension is available and configured correctly.
   *
-  * @return true if APC extension is available and if rfc1867 is enabled, false if it is not
+  * @return boolean true if APC extension is available and if rfc1867 is enabled,
+  *                      false if it is not
   */
 function PMA_import_apcCheck()
 {
-    if (! extension_loaded('apc') || ! function_exists('apc_fetch') || ! function_exists('getallheaders')) {
+    if (! extension_loaded('apc')
+        || ! function_exists('apc_fetch')
+        || ! function_exists('getallheaders')
+    ) {
         return false;
     }
     return (ini_get('apc.enabled') && ini_get('apc.rfc1867'));
@@ -60,11 +68,14 @@ function PMA_import_apcCheck()
 /**
   * Checks if UploadProgress bar extension is available.
   *
-  * @return true if UploadProgress extension is available, false if it is not
+  * @return boolean true if UploadProgress extension is available,
+  *                 false if it is not
   */
 function PMA_import_uploadprogressCheck()
 {
-    if (! function_exists("uploadprogress_get_info") || ! function_exists('getallheaders')) {
+    if (! function_exists("uploadprogress_get_info")
+        || ! function_exists('getallheaders')
+    ) {
         return false;
     }
     return true;
@@ -75,7 +86,8 @@ function PMA_import_uploadprogressCheck()
   * Due to a bug in PHP 5.4's session upload feature (see /import_status.php),
   * we need to check for cURL support.
   *
-  * @return true if PHP 5.4 session upload-progress is available, false if it is not
+  * @return boolean true if PHP 5.4 session upload-progress is available,
+  *                 false if it is not
   */
 function PMA_import_sessionCheck()
 {
@@ -89,9 +101,10 @@ function PMA_import_sessionCheck()
 }
 
 /**
-  * Default plugin for handling import. If no other plugin is available, noplugin is used.
+  * Default plugin for handling import.
+  * If no other plugin is available, noplugin is used.
   *
-  * @return true
+  * @return boolean true
   */
 function PMA_import_nopluginCheck()
 {
@@ -99,9 +112,13 @@ function PMA_import_nopluginCheck()
 }
 
 /**
-  * The function outputs json encoded status of uploaded. It uses PMA_getUploadStatus, which is defined in plugin's file.
+  * The function outputs json encoded status of uploaded.
+  * It uses PMA_getUploadStatus, which is defined in plugin's file.
   *
-  * @param $id - ID of transfer, usually $upload_id from display_import_ajax.lib.php
+  * @param string $id ID of transfer, usually $upload_id
+  *                   from display_import_ajax.lib.php
+  *
+  * @return void
   */
 function PMA_importAjaxStatus($id)
 {
