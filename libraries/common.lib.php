@@ -2710,9 +2710,11 @@ function PMA_generateSliderEffect($id, $message)
      * method maybe by using an additional param, the id of the div to
      * append to
      */
-    ?>
-<div id="<?php echo $id; ?>" <?php echo $GLOBALS['cfg']['InitialSlidersState'] == 'closed' ? ' style="display: none; overflow:auto;"' : ''; ?> class="pma_auto_slider" title="<?php echo htmlspecialchars($message); ?>">
-    <?php
+    echo '<div id="' . $id . '"';
+    echo $GLOBALS['cfg']['InitialSlidersState'] == 'closed'
+        ? ' style="display: none; overflow:auto;"'
+        : '';
+    echo ' class="pma_auto_slider" title="' . htmlspecialchars($message) . '">';
 }
 
 /**
