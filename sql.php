@@ -909,6 +909,8 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         unset($show_query);
     }
     if (isset($printview) && $printview == '1') {
+        PMA_checkParameters(array('db', 'full_sql_query'));
+
         include_once 'libraries/header_printview.inc.php';
 
         $hostname = '';
