@@ -25,6 +25,7 @@ $GLOBALS['js_include'][] = 'jqplot/jquery.jqplot.js';
 $GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.canvasTextRenderer.js';
 $GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.canvasAxisLabelRenderer.js';
 $GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.highlighter.js';
+$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.cursor.js';
 $GLOBALS['js_include'][] = 'canvg/canvg.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.16.custom.js';
 $GLOBALS['js_include'][] = 'jquery/timepicker.js';

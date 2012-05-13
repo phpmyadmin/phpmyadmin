@@ -514,6 +514,11 @@ $(document).ready(function() {
                 yvalues: 2,
                 // hide the first y value
                 formatString: '<span class="hide">%s</span>%s'
+            },
+            cursor: {
+                show: true,
+                zoom: true,
+                showTooltip: false
             }
         }
 
