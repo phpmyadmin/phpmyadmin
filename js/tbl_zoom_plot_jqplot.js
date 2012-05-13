@@ -496,23 +496,35 @@ $(document).ready(function() {
         var options = {
             series: [
                 // for a scatter plot
-                { showline: false }
-            ]
+                { showLine: false }
+            ],
+            axes: {
+                xaxis: {
+                    label: $('#tableid_0').val(),
+                    labelRenderer: $.jqplot.CanvasAxisLabelRenderer 
+                },
+                yaxis: {
+                    label: $('#tableid_1').val(),
+                    labelRenderer: $.jqplot.CanvasAxisLabelRenderer 
+                },
+            }
         }
 
         // Classify types as either numeric,time,text
         xType = getType(xType);
         yType = getType(yType);
 
+        // could have multiple series but we'll have just one
+        series[0] = new Array();
+
         if (xType == 'numeric' && yType == 'numeric') {
             $.each(data, function(key, value) {
-                var xVal = value[xLabel];
-                var yVal = value[yLabel];
-                series.push([xVal,yVal]);
+                var xVal = parseFloat(value[xLabel]);
+                var yVal = parseFloat(value[yLabel]);
+                series[0].push([xVal,yVal]);
             });
         }
 
         currentChart = $.jqplot('querychart', series, options);
-
     }
 });
