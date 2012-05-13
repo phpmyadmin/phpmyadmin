@@ -526,7 +526,7 @@ foreach ($rows as $row_id => $vrow) {
                 $special_chars   = '';
                 $data            = $vrow[$field['Field']];
             } elseif ($field['True_Type'] == 'bit') {
-                $special_chars = PMA_printable_bit_value(
+                $special_chars = PMA_printableBitValue(
                     $vrow[$field['Field']], $extracted_columnspec['spec_in_brackets']
                 );
             } elseif (in_array($field['True_Type'], $gis_data_types)) {
@@ -540,7 +540,7 @@ foreach ($rows as $row_id => $vrow) {
                         $vrow[$field['Field']] = bin2hex($vrow[$field['Field']]);
                         $field['display_binary_as_hex'] = true;
                     } else {
-                        $vrow[$field['Field']] = PMA_replace_binary_contents($vrow[$field['Field']]);
+                        $vrow[$field['Field']] = PMA_replaceBinaryContents($vrow[$field['Field']]);
                     }
                 } // end if
                 $special_chars   = htmlspecialchars($vrow[$field['Field']]);
@@ -576,7 +576,7 @@ foreach ($rows as $row_id => $vrow) {
                 $data                     = $field['Default'];
             }
             if ($field['True_Type'] == 'bit') {
-                $special_chars = PMA_convert_bit_default_value($field['Default']);
+                $special_chars = PMA_convertBitDefaultValue($field['Default']);
             } else {
                 $special_chars = htmlspecialchars($field['Default']);
             }

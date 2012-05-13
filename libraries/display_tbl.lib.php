@@ -474,7 +474,7 @@ function PMA_getTableNavigation($pos_next, $pos_prev, $sql_query,
         .'">';
     
     $table_navigation_html .= PMA_generate_common_hidden_inputs($db, $table);
-    
+
     $table_navigation_html .= '<input type="hidden" name="sql_query" '
         . 'value="' . $html_sql_query . '" />'
         . '<input type="hidden" name="goto" value="' . $goto . '" />'
@@ -491,7 +491,7 @@ function PMA_getTableNavigation($pos_next, $pos_prev, $sql_query,
             ? $_SESSION['tmp_user_values']['max_rows']
             : $GLOBALS['cfg']['MaxRows'])
         . '" class="textfield" onfocus="this.select()" />';
-        
+    
     if ($GLOBALS['cfg']['ShowDisplayDirection']) {
         // Display mode (horizontal/vertical and repeat headers)
         $table_navigation_html .= __('Mode') . ': ' . "\n";
@@ -737,6 +737,7 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
             'goto' => $goto,
             'display_options_form' => 1
         );
+
         $table_headers_html .= PMA_generate_common_hidden_inputs($url_params)
             . '<br />'
             . PMA_getDivForSliderEffect('displayoptions', __('Options'))
@@ -747,6 +748,7 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
             'P'   => __('Partial texts'),
             'F'   => __('Full texts')
         );
+
         $table_headers_html .= PMA_getRadioFields(
                 'display_text', $choices,
                 $_SESSION['tmp_user_values']['display_text']
@@ -789,6 +791,7 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
                 'K'   => __('Relational key'),
                 'D'   => __('Relational display column')
             );
+
             $table_headers_html .= PMA_getRadioFields(
                     'relational_display', $choices,
                     $_SESSION['tmp_user_values']['relational_display']
@@ -831,6 +834,7 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
                 'WKT'   => __('Well Known Text'),
                 'WKB'   => __('Well Known Binary')
             );
+
             $table_headers_html .= PMA_getRadioFields(
                     'geometry_display', $choices,
                     $_SESSION['tmp_user_values']['geometry_display']
@@ -1972,12 +1976,12 @@ function PMA_getTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                             $where_comparison = ' = ' . $row[$i];
 
                             if ($_SESSION['tmp_user_values']['display_binary_as_hex']
-                                && PMA_contains_nonprintable_ascii($row[$i])
+                                && PMA_containsNonPrintableAscii($row[$i])
                             ) {
                                 $wkbval = PMA_substr(bin2hex($row[$i]), 8);
                             } else {
                                 $wkbval = htmlspecialchars(
-                                        PMA_replace_binary_contents($row[$i])
+                                        PMA_replaceBinaryContents($row[$i])
                                     );
                             }
 
@@ -2036,9 +2040,11 @@ function PMA_getTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                     $field_flags = PMA_DBI_field_flags($dt_result, $i);
                     $formatted = false;
                     if (isset($meta->_type) && $meta->_type === MYSQLI_TYPE_BIT) {
-                        $row[$i] = PMA_printable_bit_value(
+
+                        $row[$i] = PMA_printableBitValue(
                                 $row[$i], $meta->length
                             );
+                        
                         // some results of PROCEDURE ANALYSE() are reported as
                         // being BINARY but they are quite readable,
                         // so don't treat them as BINARY
@@ -2050,12 +2056,12 @@ function PMA_getTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                             // user asked to see the real contents of BINARY
                             // fields
                             if ($_SESSION['tmp_user_values']['display_binary_as_hex']
-                                && PMA_contains_nonprintable_ascii($row[$i])
+                                && PMA_containsNonPrintableAscii($row[$i])
                             ) {
                                 $row[$i] = bin2hex($row[$i]);
                             } else {
                                 $row[$i] = htmlspecialchars(
-                                        PMA_replace_binary_contents($row[$i])
+                                        PMA_replaceBinaryContents($row[$i])
                                     );
                             }
                         } else {
@@ -2776,11 +2782,6 @@ function PMA_getTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
             PMA_DBI_data_seek($dt_result, $num_rows - 1);
             $row = PMA_DBI_fetch_row($dt_result);
             
-            // $clause_is_unique is needed by PMA_getTable() to generate the proper param
-            // in the multi-edit and multi-delete form
-            list($where_clause, $clause_is_unique, $condition_array)
-                = PMA_getUniqueCondition($dt_result, $fields_cnt, $fields_meta, $row);          
-            
             // check for non printable sorted row data
             $meta = $fields_meta[$sorted_column_index];
             if (stristr($meta->type, 'BLOB') || $meta->type == 'geometry') {
@@ -3036,6 +3037,18 @@ function PMA_getTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
             $table_html .= '<input type="hidden" name="url_query"'
                 .' value="' . $GLOBALS['url_query'] . '" />' . "\n";
         }
+        
+        // fetch last row of the result set
+        PMA_DBI_data_seek($dt_result, $num_rows - 1);
+        $row = PMA_DBI_fetch_row($dt_result);
+
+        // $clause_is_unique is needed by PMA_getTable() to generate the proper param
+        // in the multi-edit and multi-delete form
+        list($where_clause, $clause_is_unique, $condition_array)
+            = PMA_getUniqueCondition($dt_result, $fields_cnt, $fields_meta, $row);
+        
+        // reset to first row for the loop in PMA_getTableBody()
+        PMA_DBI_data_seek($dt_result, 0);
 
         $table_html .= '<input type="hidden" name="clause_is_unique"'
             .' value="' . $clause_is_unique . '" />' . "\n";
@@ -3291,7 +3304,7 @@ function PMA_handleNonPrintableContents($category, $content, $transform_function
                 && $_SESSION['tmp_user_values']['display_blob']
             ) {
                 // in this case, restart from the original $content
-                $result = htmlspecialchars(PMA_replace_binary_contents($content));
+                $result = htmlspecialchars(PMA_replaceBinaryContents($content));
             }
             /* Create link to download */
             if (count($url_params) > 0) {

@@ -12,9 +12,9 @@
  */
 require_once 'libraries/common.lib.php';
 
-class PMA_generate_slider_effect_test extends PHPUnit_Framework_TestCase
+class PMA_GetDivForSliderEffectTest extends PHPUnit_Framework_TestCase
 {
-    function testGenerateSliderEffectTest()
+    function testGetDivForSliderEffectTest()
     {
         global $cfg;
         $cfg['InitialSlidersState'] = 'undefined';
@@ -26,7 +26,7 @@ class PMA_generate_slider_effect_test extends PHPUnit_Framework_TestCase
         PMA_getDivForSliderEffect($id, $message);
     }
 
-    function testGenerateSliderEffectTestClosed()
+    function testGetDivForSliderEffectTestClosed()
     {
         global $cfg;
         $cfg['InitialSlidersState'] = 'closed';
@@ -38,7 +38,7 @@ class PMA_generate_slider_effect_test extends PHPUnit_Framework_TestCase
         PMA_getDivForSliderEffect($id, $message);
     }
 
-    function testGenerateSliderEffectTestDisabled()
+    function testGetDivForSliderEffectTestDisabled()
     {
         global $cfg;
         $cfg['InitialSlidersState'] = 'disabled';

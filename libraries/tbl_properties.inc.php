@@ -285,7 +285,7 @@ for ($i = 0; $i < $num_fields; $i++) {
     if (isset($row['Type'])) {
         $extracted_columnspec = PMA_extractColumnSpec($row['Type']);
         if ($extracted_columnspec['type'] == 'bit') {
-            $row['Default'] = PMA_convert_bit_default_value($row['Default']);
+            $row['Default'] = PMA_convertBitDefaultValue($row['Default']);
         }
     }
     // Cell index: If certain fields get left out, the counter shouldn't change.
@@ -399,7 +399,7 @@ for ($i = 0; $i < $num_fields; $i++) {
     }
 
     if ($type_upper == 'BIT') {
-        $row['DefaultValue'] = PMA_convert_bit_default_value($row['DefaultValue']);
+        $row['DefaultValue'] = PMA_convertBitDefaultValue($row['DefaultValue']);
     }
 
     $content_cells[$i][$ci] = '<select name="field_default_type[' . $i

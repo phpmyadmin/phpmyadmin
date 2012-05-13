@@ -330,7 +330,7 @@ if (isset($_REQUEST['snapshot'])) {
                 $extracted_columnspec = PMA_extractColumnSpec($field['Type']);
                 if ($extracted_columnspec['type'] == 'bit') {
                     // here, $field['Default'] contains something like b'010'
-                    echo PMA_convert_bit_default_value($field['Default']);
+                    echo PMA_convertBitDefaultValue($field['Default']);
                 } else {
                     echo htmlspecialchars($field['Default']);
                 }

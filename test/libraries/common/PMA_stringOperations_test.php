@@ -107,7 +107,7 @@ class PMA_stringOperations_test extends PHPUnit_Framework_TestCase
 
     public function testReplaceBinaryContents($a, $e)
     {
-        $this->assertEquals($e, PMA_replace_binary_contents($a));
+        $this->assertEquals($e, PMA_replaceBinaryContents($a));
     }
 
     /**

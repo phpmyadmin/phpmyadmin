@@ -24,7 +24,7 @@ $type_T2 = strtoupper($tables[$T2]['ENGINE']);
 
 $try_to_delete_internal_relation = false;
 
-if (PMA_foreignkey_supported($type_T1) && PMA_foreignkey_supported($type_T2) && $type_T1 == $type_T2) {
+if (PMA_isForeignKeySupported($type_T1) && PMA_isForeignKeySupported($type_T2) && $type_T1 == $type_T2) {
     // InnoDB
     $existrel_foreign = PMA_getForeigners($DB2, $T2, '', 'foreign');
 

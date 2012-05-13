@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-09 13:14+0200\n"
-"PO-Revision-Date: 2012-03-27 16:56+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-05-11 14:59+0200\n"
+"Last-Translator: Vítor Martins <vjmartins@sapo.pt>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.8\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:59 js/messages.php:358
 #: libraries/display_tbl.lib.php:399 server_privileges.php:1828
@@ -239,7 +239,7 @@ msgstr "Ver o esquema da base de dados"
 #: db_export.php:30 db_printview.php:95 db_qbe.php:104 db_tracking.php:47
 #: export.php:374 navigation.php:287
 msgid "No tables found in database."
-msgstr "Nenhuma tabela encontrada na base de dados"
+msgstr "Nenhuma tabela encontrada na base de dados."
 
 #: db_export.php:40 db_search.php:334 server_export.php:22
 msgid "Select All"
@@ -472,7 +472,7 @@ msgstr "Adicionar/Remover Colunas"
 
 #: db_qbe.php:634 db_qbe.php:657
 msgid "Update Query"
-msgstr "Actualiza Comando SQL"
+msgstr "Atualizar consulta"
 
 #: db_qbe.php:640
 msgid "Use Tables"
@@ -481,11 +481,11 @@ msgstr "Usar Tabelas"
 #: db_qbe.php:663
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "Comando SQL na base de dados <b>%s</b>:"
+msgstr "Consulta SQL na base de dados <b>%s</b>:"
 
 #: db_qbe.php:956 libraries/common.lib.php:1239
 msgid "Submit Query"
-msgstr "Executar Comando SQL"
+msgstr "Executar Consulta"
 
 #: db_search.php:31 libraries/auth/config.auth.lib.php:78
 #: libraries/auth/config.auth.lib.php:99
@@ -504,7 +504,7 @@ msgstr "todas as palavras"
 
 #: db_search.php:45 db_search.php:303
 msgid "the exact phrase"
-msgstr "a frase exacta"
+msgstr "a frase exata"
 
 #: db_search.php:46 db_search.php:304
 msgid "as regular expression"
@@ -528,7 +528,7 @@ msgstr[1] "%s resultados na tabela <i>%s</i>"
 #: libraries/common.lib.php:3148 libraries/common.lib.php:3378
 #: libraries/common.lib.php:3379 tbl_structure.php:573
 msgid "Browse"
-msgstr "Visualizar"
+msgstr "Procurar"
 
 #: db_search.php:252
 #, php-format
@@ -1403,7 +1403,7 @@ msgstr "slow_query_log está ativo"
 
 #: js/messages.php:146
 msgid "slow_query_log and general_log are disabled."
-msgstr "slow_query_log e general_log estão inativos"
+msgstr "slow_query_log e general_log estão desativados."
 
 #: js/messages.php:147
 msgid "log_output is not set to TABLE."
@@ -1494,7 +1494,7 @@ msgstr "Dividido por %s:"
 
 #: js/messages.php:168
 msgid "Unit"
-msgstr ""
+msgstr "Unidade"
 
 #: js/messages.php:170
 msgid "From slow log"
@@ -1557,14 +1557,13 @@ msgstr "Sem bases de dados"
 #: js/messages.php:181
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
-"Registo analisado, mas nenhuns dados encontrados neste período de tempo"
+"Registo analisado, mas não foram encontrados dados neste período de tempo"
 
 #: js/messages.php:183
 msgid "Analyzing..."
 msgstr "Em análise..."
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
 msgstr "Explicar SQL"
@@ -1584,7 +1583,6 @@ msgid "Profiling results"
 msgstr "Resultado(s) da(s) consulta(s)"
 
 #: js/messages.php:189
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
@@ -1657,12 +1655,11 @@ msgid "Affected rows:"
 msgstr "Linhas afetadas:"
 
 #: js/messages.php:210
-#, fuzzy
 #| msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 "Falha ao processar ficheiro de configuração. Não parece ser código JSON "
-"válido"
+"válido."
 
 #: js/messages.php:211
 msgid ""
@@ -1844,7 +1841,7 @@ msgid "ENUM/SET editor"
 msgstr "Editor ENUM/SET"
 
 #: js/messages.php:273
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
 msgstr "Valores para a coluna \"%s\""
@@ -1854,7 +1851,6 @@ msgid "Values for a new column"
 msgstr "Valores para a nova coluna"
 
 #: js/messages.php:275
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
 msgstr "Introduza cada valor num campo separado."
@@ -1879,7 +1875,7 @@ msgstr "Mostrar Caixa do query"
 
 #: js/messages.php:285 tbl_row_action.php:21
 msgid "No rows selected"
-msgstr "Nenhum registo (linha) seleccionado."
+msgstr "Nenhum registo(linha) seleccionado."
 
 #: js/messages.php:286 libraries/display_tbl.lib.php:3007 querywindow.php:88
 #: tbl_structure.php:145 tbl_structure.php:579
@@ -1918,25 +1914,23 @@ msgstr "Pesquisa Avançada"
 
 #: js/messages.php:300
 msgid "Each point represents a data row."
-msgstr "Cada ponto representa um registo (linha) de dados"
+msgstr "Cada ponto representa um registo (linha) de dados."
 
 #: js/messages.php:302
-#, fuzzy
 msgid "Hovering over a point will show its label."
-msgstr "Colocar o cursor por cima de um ponto irá mostrar a sua etiqueta"
+msgstr "Colocar o cursor por cima de um ponto irá mostrar a sua legenda."
 
 #: js/messages.php:304
 msgid "Use mousewheel to zoom in or out of the plot."
-msgstr "Use a roda do rato para ampliar ou reduzir a imagem no plano"
+msgstr "Use a roda do rato para ampliar ou reduzir a imagem no plano."
 
 #: js/messages.php:306
 msgid "Click and drag the mouse to navigate the plot."
-msgstr "Clique e arraste com o rato para navegar no mapa"
+msgstr "Clique e arraste com o rato para navegar no mapa."
 
 #: js/messages.php:308
-#, fuzzy
 msgid "Click reset zoom link to come back to original state."
-msgstr "Clique no link \"Reset Zoom\" para voltar ao estado original"
+msgstr "Clique no link \"Reset Zoom\" para voltar ao estado original."
 
 #: js/messages.php:310
 msgid "Click a data point to view and possibly edit the data row."
@@ -1966,9 +1960,8 @@ msgid "Query results"
 msgstr "Resultado(s) das(s) consulta(s)"
 
 #: js/messages.php:319
-#, fuzzy
 msgid "Data point content"
-msgstr "Tipo de Exportação"
+msgstr "Conteúdo do ponto de dados"
 
 #: js/messages.php:322 tbl_change.php:323 tbl_indexes.php:237
 #: tbl_indexes.php:272
@@ -2044,20 +2037,20 @@ msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr "Clique na seta<br />para alternar a visibilidade da coluna"
 
 #: js/messages.php:359
-#, fuzzy
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
-"Esta tabela não contem uma única coluna. Opções relacionadas aos links "
-"'Editar', 'Marcar', 'Editar', 'Copiar' e 'Apagar' podem não funcionar mais "
-"após esta ser salva"
+"Esta tabela não contém uma coluna exclusiva. Funções relacionados com a "
+"edição da tabela, checkbox, Editar, Copiar e Eliminar links podem não "
+"funcionar depois de guardar."
 
 #: js/messages.php:360
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
-"Também pode editar algumas colunas<br/>clicando directamente no seu conteúdo"
+"Também pode editar algumas colunas<br/>clicando directamente no seu "
+"conteúdo."
 
 #: js/messages.php:361
 msgid "Go to link"
@@ -2088,16 +2081,14 @@ msgid "Generate"
 msgstr "Gerar"
 
 #: js/messages.php:369
-#, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "Alterar a palavra-passe"
 
 #: js/messages.php:372 tbl_structure.php:467
-#, fuzzy
 #| msgid "Mon"
 msgid "More"
-msgstr "Seg"
+msgstr "Mais"
 
 #: js/messages.php:375 setup/lib/index.lib.php:176
 #, php-format
@@ -2123,18 +2114,16 @@ msgid "Done"
 msgstr "Concluído"
 
 #: js/messages.php:401
-#, fuzzy
 #| msgid "Previous"
 msgctxt "Previous month"
 msgid "Prev"
-msgstr "Anterior"
+msgstr "Ant"
 
 #: js/messages.php:406
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
-msgstr "Próximo"
+msgstr "Próx"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:409
@@ -2315,52 +2304,45 @@ msgstr "Sab"
 
 #. l10n: Minimal week day name
 #: js/messages.php:491
-#, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "Dom"
 
 #. l10n: Minimal week day name
 #: js/messages.php:493
-#, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "Seg"
 
 #. l10n: Minimal week day name
 #: js/messages.php:495
-#, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "Ter"
 
 #. l10n: Minimal week day name
 #: js/messages.php:497
-#, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "Qua"
 
 #. l10n: Minimal week day name
 #: js/messages.php:499
-#, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "Qui"
 
 #. l10n: Minimal week day name
 #: js/messages.php:501
-#, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "Sex"
 
 #. l10n: Minimal week day name
 #: js/messages.php:503
-#, fuzzy
 #| msgid "Sat"
 msgid "Sa"
-msgstr "Sab"
+msgstr "Sáb"
 
 #. l10n: Column header for week of the year in calendar
 #: js/messages.php:507
@@ -2374,7 +2356,6 @@ msgstr ""
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:512
-#, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
@@ -2745,12 +2726,11 @@ msgid "There are no recent tables"
 msgstr "Não existem tabelas recentes"
 
 #: libraries/StorageEngine.class.php:207
-#, fuzzy
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
-"Não existe nenhuma informação detalhada disponível do estado desta "
-"ferramenta de armazenamento"
+"Não está disponível nenhuma informação detalhada para este mecanismo de "
+"armazenamento."
 
 #: libraries/StorageEngine.class.php:347
 #, php-format
@@ -2763,9 +2743,9 @@ msgid "%s has been disabled for this MySQL server."
 msgstr "%s está desactivado neste servidor MySQL."
 
 #: libraries/StorageEngine.class.php:354
-#, fuzzy, php-format
+#, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr "Este servidor MySQL não suporta o stored engine %s."
+msgstr "Este servidor MySQL não suporta o mecanismo de armazenamento %s."
 
 #: libraries/Table.class.php:353
 msgid "unknown table status: "
@@ -2835,9 +2815,8 @@ msgid "No preview available."
 msgstr "Nenhuma pré-visualização disponível."
 
 #: libraries/Theme.class.php:362
-#, fuzzy
 msgid "take it"
-msgstr "tome"
+msgstr "seleccionar"
 
 #: libraries/Theme_Manager.class.php:114
 #, php-format
@@ -3197,8 +3176,7 @@ msgstr "Entrada"
 #: libraries/auth/cookie.auth.lib.php:230
 #: libraries/auth/cookie.auth.lib.php:231
 msgid "You can enter hostname/IP address and port separated by space."
-msgstr ""
-"Pode digitar a hiperligação/endereço de IP e a porta separados por um espaço"
+msgstr "Pode digitar a nome/Endereço IP e a porta separados por um espaço."
 
 #: libraries/auth/cookie.auth.lib.php:230
 msgid "Server:"
@@ -3317,7 +3295,6 @@ msgid "Check Privileges"
 msgstr "Verificar Privilégios"
 
 #: libraries/common.inc.php:156
-#, fuzzy
 msgid "possible exploit"
 msgstr "possível 'exploit'"
 
@@ -3487,9 +3464,8 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dias, %s horas, %s minutos e %s segundos"
 
 #: libraries/common.lib.php:2092
-#, fuzzy
 msgid "Missing parameter:"
-msgstr "Parâmetros perdidos:"
+msgstr "Parâmetros em falta:"
 
 #: libraries/common.lib.php:2472 libraries/common.lib.php:2475
 #: libraries/display_tbl.lib.php:330
@@ -3500,7 +3476,6 @@ msgstr "Início"
 #: libraries/common.lib.php:2473 libraries/common.lib.php:2476
 #: libraries/display_tbl.lib.php:333 server_binlog.php:130
 #: server_binlog.php:132
-#, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
@@ -3509,7 +3484,6 @@ msgstr "Anterior"
 #: libraries/common.lib.php:2503 libraries/common.lib.php:2506
 #: libraries/display_tbl.lib.php:413 server_binlog.php:165
 #: server_binlog.php:167
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
@@ -3517,7 +3491,6 @@ msgstr "Seguinte"
 
 #: libraries/common.lib.php:2504 libraries/common.lib.php:2507
 #: libraries/display_tbl.lib.php:437
-#, fuzzy
 #| msgid "End"
 msgctxt "Last page"
 msgid "End"
@@ -3570,9 +3543,8 @@ msgid "Both"
 msgstr "Ambos"
 
 #: libraries/config.values.php:57
-#, fuzzy
 msgid "Nowhere"
-msgstr "Lugar nenhum"
+msgstr "Em nenhum lugar"
 
 #: libraries/config.values.php:58
 msgid "Left"
@@ -3600,9 +3572,8 @@ msgstr "Desactidado"
 #: libraries/export/latex.php:58 libraries/export/mediawiki.php:40
 #: libraries/export/odt.php:42 libraries/export/sql.php:153
 #: libraries/export/texytext.php:36
-#, fuzzy
 msgid "structure"
-msgstr "Estrutura"
+msgstr "estrutura"
 
 #: libraries/config.values.php:130 libraries/export/htmlword.php:38
 #: libraries/export/latex.php:59 libraries/export/mediawiki.php:41
@@ -3615,10 +3586,9 @@ msgstr "dados"
 #: libraries/export/latex.php:60 libraries/export/mediawiki.php:42
 #: libraries/export/odt.php:44 libraries/export/sql.php:155
 #: libraries/export/texytext.php:38
-#, fuzzy
 #| msgid "Structure and data"
 msgid "structure and data"
-msgstr "Estrutura e dados"
+msgstr "estrutura e dados"
 
 #: libraries/config.values.php:134
 msgid "Quick - display only the minimal options to configure"
@@ -3636,7 +3606,7 @@ msgstr "Personalizada - como acima, mas sem a escolha rápida/personalizada"
 #, fuzzy
 #| msgid "Complete inserts"
 msgid "complete inserts"
-msgstr "Instrucções de inserção completas"
+msgstr "Instruções de introdução completas"
 
 #: libraries/config.values.php:165
 #, fuzzy
@@ -3777,9 +3747,8 @@ msgstr ""
 "falha de segurança [/strong], que permite ataques de script cross-frame"
 
 #: libraries/config/messages.inc.php:22
-#, fuzzy
 msgid "Allow third party framing"
-msgstr "Permitir framing de terceiros"
+msgstr "Permitir elaboração de terceiros"
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
@@ -3975,17 +3944,16 @@ msgid "Show binary contents as HEX"
 msgstr "Mostrar conteúdo binário como HEX"
 
 #: libraries/config/messages.inc.php:62
-#, fuzzy
 msgid "Show database listing as a list instead of a drop down"
 msgstr ""
-"Mostrar listagem de bases de dados como uma lista em vez de um menu drop bown"
+"Mostrar listagem de bases de dados como uma lista em vez de um menu drop "
+"down"
 
 #: libraries/config/messages.inc.php:63
 msgid "Display databases as a list"
 msgstr "Mostrar bases de dados como uma lista"
 
 #: libraries/config/messages.inc.php:64
-#, fuzzy
 msgid "Show server listing as a list instead of a drop down"
 msgstr ""
 "Mostrar lista de servidores como uma lista ao invés de um menu drop down"
@@ -3999,8 +3967,8 @@ msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
 msgstr ""
-"Desactivar operações em massa de manutenção de tabelas, como optimizar ou "
-"reparar as tabelas seleccionadas de uma base de dados"
+"Desativar operações em massa de manutenção de tabelas, como optimizar ou "
+"reparar as tabelas seleccionadas de uma base de dados."
 
 #: libraries/config/messages.inc.php:67
 msgid "Disable multi table maintenance"
@@ -4039,9 +4007,8 @@ msgid "Save as file"
 msgstr "envia"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:247
-#, fuzzy
 msgid "Character set of the file"
-msgstr "Configurar o Mapa de Caracteres do ficheiro:"
+msgstr "Configurar o Mapa de Caracteres do ficheiro"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:92
 #: tbl_gis_visualization.php:174 tbl_printview.php:360 tbl_structure.php:908
@@ -8505,8 +8472,9 @@ msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem"
 msgstr ""
-"Parece haver um erro no seu query SQL. A saída do servidor MySQL abaixo, "
-"isto se existir alguma, também o poderá ajudar a diagnosticar o problema."
+"Parece haver um erro na sua consulta SQL. A mensagem de erro do servidor "
+"MySQL abaixo, isto se existir alguma, também o poderá ajudar a diagnosticar "
+"o problema."
 
 #: libraries/sqlparser.lib.php:176
 msgid ""
@@ -8745,8 +8713,8 @@ msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
-"Mostra uma miniatura clicável; opções: largura,altura em pixeis (mantém a "
-"proporção original)"
+"Mostra uma miniatura clicável. As opções são largura e altura máximas em "
+"pixeis. A proporção original é preservada."
 
 #: libraries/transformations/image_jpeg__link.inc.php:13
 msgid "Displays a link to download this image."
@@ -11939,8 +11907,9 @@ msgid "dynamic"
 msgstr "dinâmico"
 
 #: tbl_printview.php:389 tbl_structure.php:956
+#, fuzzy
 msgid "Row length"
-msgstr "Comprim. dos reg."
+msgstr "Comprimento de linha"
 
 #: tbl_printview.php:402 tbl_structure.php:964
 msgid "Row size"

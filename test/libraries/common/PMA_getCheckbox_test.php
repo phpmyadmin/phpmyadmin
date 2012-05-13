@@ -12,7 +12,7 @@
  */
 require_once 'libraries/common.lib.php';
 
-class PMA_display_html_checkbox_test extends PHPUnit_Framework_TestCase
+class PMA_GetCheckboxTest extends PHPUnit_Framework_TestCase
 {
     function testGetCheckbox()
     {

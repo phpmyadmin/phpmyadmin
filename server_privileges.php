@@ -149,7 +149,7 @@ if (PMA_isValid($_REQUEST['pred_dbname'])) {
 }
 
 if (isset($dbname)) {
-    $db_and_table = PMA_backquote(PMA_unescape_mysql_wildcards($dbname)) . '.';
+    $db_and_table = PMA_backquote(PMA_unescapeMysqlWildcards($dbname)) . '.';
     if (isset($tablename)) {
         $db_and_table .= PMA_backquote($tablename);
     } else {
@@ -208,7 +208,7 @@ function PMA_wildcardEscapeForGrant($dbname, $tablename)
     } else {
         if (strlen($tablename)) {
             $db_and_table
-                = PMA_backquote(PMA_unescape_mysql_wildcards($dbname)) . '.'
+                = PMA_backquote(PMA_unescapeMysqlWildcards($dbname)) . '.'
                 . PMA_backquote($tablename);
         } else {
             $db_and_table = PMA_backquote($dbname) . '.*';
@@ -524,14 +524,14 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
             $sql_query = "SELECT * FROM `mysql`.`db`"
                 ." WHERE `User` = '" . PMA_sqlAddSlashes($username) . "'"
                 ." AND `Host` = '" . PMA_sqlAddSlashes($hostname) . "'"
-                ." AND '" . PMA_unescape_mysql_wildcards($db) . "'"
+                ." AND '" . PMA_unescapeMysqlWildcards($db) . "'"
                 ." LIKE `Db`;";
         } else {
             $sql_query = "SELECT `Table_priv`"
                 ." FROM `mysql`.`tables_priv`"
                 ." WHERE `User` = '" . PMA_sqlAddSlashes($username) . "'"
                 ." AND `Host` = '" . PMA_sqlAddSlashes($hostname) . "'"
-                ." AND `Db` = '" . PMA_unescape_mysql_wildcards($db) . "'"
+                ." AND `Db` = '" . PMA_unescapeMysqlWildcards($db) . "'"
                 ." AND `Table_name` = '" . PMA_sqlAddSlashes($table) . "';";
         }
         $row = PMA_DBI_fetch_single_row($sql_query);
@@ -586,7 +586,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
         // get collumns
         $res = PMA_DBI_try_query(
             'SHOW COLUMNS FROM '
-            . PMA_backquote(PMA_unescape_mysql_wildcards($db))
+            . PMA_backquote(PMA_unescapeMysqlWildcards($db))
             . '.' . PMA_backquote($table) . ';'
         );
         $columns = array();
@@ -613,7 +613,7 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
             .' AND `Host`'
             .' = \'' . PMA_sqlAddSlashes($hostname) . "'"
             .' AND `Db`'
-            .' = \'' . PMA_sqlAddSlashes(PMA_unescape_mysql_wildcards($db)) . "'"
+            .' = \'' . PMA_sqlAddSlashes(PMA_unescapeMysqlWildcards($db)) . "'"
             .' AND `Table_name`'
             .' = \'' . PMA_sqlAddSlashes($table) . '\';'
         );
@@ -1186,7 +1186,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
                 }
 
                 $q = 'GRANT ALL PRIVILEGES ON '
-                    . PMA_backquote(PMA_escape_mysql_wildcards(PMA_sqlAddSlashes($username))) . '.* TO \''
+                    . PMA_backquote(PMA_escapeMysqlWildcards(PMA_sqlAddSlashes($username))) . '.* TO \''
                     . PMA_sqlAddSlashes($username) . '\'@\'' . PMA_sqlAddSlashes($hostname) . '\';';
                 $sql_query .= $q;
                 if (! PMA_DBI_try_query($q)) {
@@ -2125,7 +2125,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                     // only Db names in the table `mysql`.`db` uses wildcards
                     // as we are in the db specific rights display we want
                     // all db names escaped, also from other sources
-                    $db_rights_row['Db'] = PMA_escape_mysql_wildcards(
+                    $db_rights_row['Db'] = PMA_escapeMysqlWildcards(
                         $db_rights_row['Db']
                     );
                     $db_rights[$db_rights_row['Db']] = $db_rights_row;
@@ -2282,7 +2282,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                     echo '    <select name="pred_dbname" class="autosubmit">' . "\n"
                        . '        <option value="" selected="selected">' . __('Use text field') . ':</option>' . "\n";
                     foreach ($pred_db_array as $current_db) {
-                        $current_db = PMA_escape_mysql_wildcards($current_db);
+                        $current_db = PMA_escapeMysqlWildcards($current_db);
                         // cannot use array_diff() once, outside of the loop,
                         // because the list of databases has special characters
                         // already escaped in $found_rows,
@@ -2299,7 +2299,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             } else {
                 echo '    <input type="hidden" name="dbname" value="' . htmlspecialchars($dbname) . '"/>' . "\n"
                    . '    <label for="text_tablename">' . __('Add privileges on the following table') . ':</label>' . "\n";
-                if ($res = @PMA_DBI_try_query('SHOW TABLES FROM ' . PMA_backquote(PMA_unescape_mysql_wildcards($dbname)) . ';', null, PMA_DBI_QUERY_STORE)) {
+                if ($res = @PMA_DBI_try_query('SHOW TABLES FROM ' . PMA_backquote(PMA_unescapeMysqlWildcards($dbname)) . ';', null, PMA_DBI_QUERY_STORE)) {
                     $pred_tbl_array = array();
                     while ($row = PMA_DBI_fetch_row($res)) {
                         if (! isset($found_rows) || ! in_array($row[0], $found_rows)) {
@@ -2520,7 +2520,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                    . '            ';
                 if (! isset($current['Db']) || $current['Db'] == '*') {
                     $user_form .= __('global');
-                } elseif ($current['Db'] == PMA_escape_mysql_wildcards($checkprivs)) {
+                } elseif ($current['Db'] == PMA_escapeMysqlWildcards($checkprivs)) {
                     $user_form .= __('database-specific');
                 } else {
                     $user_form .= __('wildcard'). ': <code>' . htmlspecialchars($current['Db']) . '</code>';
