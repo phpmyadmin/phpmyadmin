@@ -19,15 +19,14 @@ require_once './libraries/tbl_info.inc.php';
 $GLOBALS['js_include'][] = 'makegrid.js';
 $GLOBALS['js_include'][] = 'sql.js';
 $GLOBALS['js_include'][] = 'functions.js';
-$GLOBALS['js_include'][] = 'tbl_zoom_plot.js';
 $GLOBALS['js_include'][] = 'date.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.mousewheel.js';
-$GLOBALS['js_include'][] = 'highcharts/highcharts.js';
-/* Files required for chart exporting */
-$GLOBALS['js_include'][] = 'highcharts/exporting.js';
+$GLOBALS['js_include'][] = 'jqplot/jquery.jqplot.js';
+$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.canvasTextRenderer.js';
 $GLOBALS['js_include'][] = 'canvg/canvg.js';
 $GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.16.custom.js';
 $GLOBALS['js_include'][] = 'jquery/timepicker.js';
+$GLOBALS['js_include'][] = 'tbl_zoom_plot_jqplot.js';
 
 
 /**
