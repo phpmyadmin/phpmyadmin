@@ -507,7 +507,19 @@ $(document).ready(function() {
                     label: $('#tableid_1').val(),
                     labelRenderer: $.jqplot.CanvasAxisLabelRenderer 
                 },
+            },
+            highlighter: {
+                show: true,
+                tooltipAxes: 'y',
+                yvalues: 2,
+                // hide the first y value
+                formatString: '<span class="hide">%s</span>%s'
             }
+        }
+
+        // If data label is not set, do not show tooltips
+        if (dataLabel == '') {
+            options.highlighter.show = false;
         }
 
         // Classify types as either numeric,time,text
@@ -521,7 +533,10 @@ $(document).ready(function() {
             $.each(data, function(key, value) {
                 var xVal = parseFloat(value[xLabel]);
                 var yVal = parseFloat(value[yLabel]);
-                series[0].push([xVal,yVal]);
+                // The extra Y value is for the highlighter (tooltip)
+                // may set an undefined value
+                var extraYVal = value[dataLabel];
+                series[0].push([xVal, yVal, extraYVal]);
             });
         }
 
