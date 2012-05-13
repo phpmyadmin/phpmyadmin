@@ -1142,9 +1142,9 @@ function PMA_DBI_get_columns($database, $table, $column = null, $full = false, $
 /**
  * Returns all column names in given table
  *
- * @param string  $database name of database
- * @param string  $table    name of table to retrieve columns from
- * @param mixed   $link     mysql link resource
+ * @param string $database name of database
+ * @param string $table    name of table to retrieve columns from
+ * @param mixed  $link     mysql link resource
  *
  * @return null|array
  */
@@ -1263,6 +1263,8 @@ function PMA_DBI_get_variable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null
  *
  * @param mixed   $link           mysql link resource|object
  * @param boolean $is_controluser whether link is for control user
+ *
+ * @return void
  */
 function PMA_DBI_postConnect($link, $is_controluser = false)
 {
@@ -1511,13 +1513,13 @@ function PMA_DBI_fetch_single_row($result, $type = 'ASSOC', $link = null)
  * // $users['admin']['John Doe'] = '123'
  * </code>
  *
- * @param string|mysql_result $result query or mysql result
- * @param string|integer      $key    field-name or offset
- *                                    used as key for array
- * @param string|integer      $value  value-name or offset
- *                                    used as value for array
- * @param resource            $link   mysql link
- * @param mixed               $options
+ * @param string|mysql_result $result  query or mysql result
+ * @param string|integer      $key     field-name or offset
+ *                                     used as key for array
+ * @param string|integer      $value   value-name or offset
+ *                                     used as value for array
+ * @param resource            $link    mysql link
+ * @param mixed               $options query options
  *
  * @return array resultrows or values indexed by $key
  */

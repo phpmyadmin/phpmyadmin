@@ -1684,8 +1684,8 @@ function PMA_localisedDate($timestamp = -1, $format = '')
  * returns a tab for tabbed navigation.
  * If the variables $link and $args ar left empty, an inactive tab is created
  *
- * @param array  $tab        array with all options
- * @param array  $url_params
+ * @param array $tab        array with all options
+ * @param array $url_params tab specific URL parameters
  *
  * @return string  html code for one tab, a link if valid otherwise a span
  *
@@ -1788,8 +1788,8 @@ function PMA_generateHtmlTab($tab, $url_params = array())
  * returns html-code for a tab navigation
  *
  * @param array  $tabs       one element per tab
- * @param string $url_params
- * @param string $menu_id
+ * @param string $url_params additional URL parameters
+ * @param string $menu_id    HTML id attribute for the menu container
  *
  * @return string  html-code for tab-navigation
  */
@@ -2712,9 +2712,11 @@ function PMA_getDivForSliderEffect($id, $message)
      */
     
     return '<div id="' . $id . '"'
-        . (($GLOBALS['cfg']['InitialSlidersState'] == 'closed') ? ' style="display: none; overflow:auto;"' : '')
+        . (($GLOBALS['cfg']['InitialSlidersState'] == 'closed')
+            ? ' style="display: none; overflow:auto;"'
+            : '')
         . ' class="pma_auto_slider" title="' . htmlspecialchars($message) . '">';
-    
+
 }
 
 /**

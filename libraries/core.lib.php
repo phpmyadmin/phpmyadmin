@@ -506,7 +506,7 @@ function PMA_getenv($var_name)
 /**
  * Send HTTP header, taking IIS limits into account (600 seems ok)
  *
- * @param string $uri the     header to send
+ * @param string $uri         the header to send
  * @param bool   $use_refresh whether to use Refresh: header when running on IIS
  *
  * @return boolean  always true
@@ -744,9 +744,9 @@ function PMA_linkURL($url)
 /**
  * Returns HTML code to include javascript file.
  *
- * @param string $url Location of javascript, relative to js/ folder.
- * @param optional string $ie_conditional true - wrap with IE conditional comment
- *                                        'lt 9' etc. - wrap for specific IE version
+ * @param string $url            Location of javascript, relative to js/ folder.
+ * @param string $ie_conditional true - wrap with IE conditional comment
+ *                               'lt 9' etc. - wrap for specific IE version
  *
  * @return string HTML code for javascript inclusion.
  */

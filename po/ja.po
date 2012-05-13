@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-09 13:14+0200\n"
-"PO-Revision-Date: 2012-05-10 12:37+0200\n"
+"PO-Revision-Date: 2012-05-12 00:58+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2818,8 +2818,7 @@ msgstr ""
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
-msgstr ""
-"固定小数 (M, D) - 整数部の最大桁数 (M) は 65 (デフォルトは 10)、小数部のの最大桁数 (D) は 30 (デフォルトは 0)"
+msgstr "固定小数 (M, D) - 整数部の最大桁数 M は 65 (デフォルトは 10)、小数部のの最大桁数 D は 30 (デフォルトは 0)"
 
 #: libraries/Types.class.php:301
 msgid ""
@@ -3076,6 +3075,8 @@ msgstr "TRUE または FALSE"
 #: libraries/Types.class.php:713
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr ""
+"BIGINT NOT NULL AUTO_INCREMENT UNIQUE の別名 "
+"(BIGINT、NULLなし、AUTO_INCREMENT、ユニークキー)"
 
 #: libraries/Types.class.php:715
 msgid "Stores a Universally Unique Identifier (UUID)"
@@ -3086,6 +3087,8 @@ msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
 msgstr ""
+"タイムスタンプ、範囲は 0001-01-01 00:00:00 UTC から 9999-12-31 23:59:59、TIMESTAMP(6) "
+"でマイクロ秒まで保存できるようになります"
 
 #: libraries/Types.class.php:729
 msgid ""
