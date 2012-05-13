@@ -423,6 +423,7 @@ if (isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null' 
         ?>
           </div>
           <div id="querychart" style="float:right"></div>
+          <button class="button-reset"><?php echo __('Reset zoom'); ?></button>
         </div>
         <?php
     }

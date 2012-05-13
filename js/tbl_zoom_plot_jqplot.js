@@ -546,5 +546,10 @@ $(document).ready(function() {
         }
 
         currentChart = $.jqplot('querychart', series, options);
+
+        $('button.button-reset').click(function(event) {
+            event.preventDefault();
+            currentChart.resetZoom();
+        });
     }
 });
