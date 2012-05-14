@@ -86,7 +86,6 @@ function PMA_getWhereClauseArray()
 function PMA_analyzeWhereClauses($where_clause_array, $paramArray, $found_unique_key)
 {
     list($table, $db) = $paramArray;
-    var_dump($paramArray);
     $rows               = array();
     $result             = array();
     $where_clauses      = array();
@@ -218,7 +217,7 @@ function PMA_showColumnTypesInDataEditView($url_params, $showColumnType )
  * 
  * @param array $table_fields 
  */
-function PMA_getDefaultForDatetime($field)
+function PMA_getDefaultForDatetime($column)
 {
     // d a t e t i m e
     //
@@ -228,81 +227,81 @@ function PMA_getDefaultForDatetime($field)
     // in the Default value logic below)
 
     // Note: (tested in MySQL 4.0.16): when lang is some UTF-8,
-    // $field['Default'] is not set if it contains NULL:
+    // $column['Default'] is not set if it contains NULL:
     // Array ([Field] => d [Type] => datetime [Null] => YES [Key] => [Extra] => [True_Type] => datetime)
     // but, look what we get if we switch to iso: (Default is NULL)
     // Array ([Field] => d [Type] => datetime [Null] => YES [Key] => [Default] => [Extra] => [True_Type] => datetime)
     // so I force a NULL into it (I don't think it's possible
     // to have an empty default value for DATETIME)
     // then, the "if" after this one will work
-    if ($field['Type'] == 'datetime'
-        && ! isset($field['Default'])
-        && isset($field['Null'])
-        && $field['Null'] == 'YES'
+    if ($column['Type'] == 'datetime'
+        && ! isset($column['Default'])
+        && isset($column['Null'])
+        && $column['Null'] == 'YES'
     ) {
-        $field['Default'] = null;
+        $column['Default'] = null;
       }
 }
  
  /**
   * Analyze the table column array
   * 
-  * @param array $field
+  * @param array $column
   * @param array $comments_map
   * @return type 
   */
-function PMA_analyzeTableColumnsArray($field, $comments_map, $timestamp_seen)
+function PMA_analyzeTableColumnsArray($column, $comments_map, $timestamp_seen)
 {
-    $field['Field_html']    = htmlspecialchars($field['Field']);
-    $field['Field_md5']     = md5($field['Field']);
+    $column['Field_html']    = htmlspecialchars($column['Field']);
+    $column['Field_md5']     = md5($column['Field']);
     // True_Type contains only the type (stops at first bracket)
-    $field['True_Type']     = preg_replace('@\(.*@s', '', $field['Type']);
-    PMA_getDefaultForDatetime($field);
-    $field['len']           = preg_match('@float|double@', $field['Type']) ? 100 : -1;
-    $field['Field_title']   = PMA_getColumnTitle($field, $comments_map);
-    $field['is_binary']     = PMA_isTableColumnBinary($field);
-    $field['is_blob']       = PMA_istableColumnBlob($field);
-    $field['is_char']       = PMA_isTableColumnChar($field);
-    list($field['pma_type'], $field['wrap'], $field['first_timestamp']) = 
-            PMA_getEnumSetAndTimestampTableColumns($field, $timestamp_seen);
+    $column['True_Type']     = preg_replace('@\(.*@s', '', $column['Type']);
+    PMA_getDefaultForDatetime($column);
+    $column['len']           = preg_match('@float|double@', $column['Type']) ? 100 : -1;
+    $column['Field_title']   = PMA_getColumnTitle($column, $comments_map);
+    $column['is_binary']     = PMA_isColumnBinary($column);
+    $column['is_blob']       = PMA_isColumnBlob($column);
+    $column['is_char']       = PMA_isColumnChar($column);
+    list($column['pma_type'], $column['wrap'], $column['first_timestamp']) = 
+            PMA_getEnumSetAndTimestampColumns($column, $timestamp_seen);
     
-    return $field;
+    return $column;
 }
  
  /**
   * Retrieve the column title
   * 
-  * @param array $field
+  * @param array $column
   * @param array $comments_map
   * @return string 
   */
-function PMA_getColumnTitle($field, $comments_map)
+function PMA_getColumnTitle($column, $comments_map)
 {
-    if (isset($comments_map[$field['Field']])) {
+    if (isset($comments_map[$column['Field']])) {
         return '<span style="border-bottom: 1px dashed black;" title="'
-            . htmlspecialchars($comments_map[$field['Field']]) . '">'
-            . $field['Field_html'] . '</span>';
+            . htmlspecialchars($comments_map[$column['Field']]) . '">'
+            . $column['Field_html'] . '</span>';
     } else {
-            return $field['Field_html'];
+            return $column['Field_html'];
     }
 }
  
  /**
   * check is table column bainary
   * 
-  * @param array $field
+  * @param array $column
   * @return boolean 
   */
-function PMA_isTableColumnBinary($field)
+function PMA_isColumnBinary($column)
 {
     // The type column.
     // Fix for bug #3152931 'ENUM and SET cannot have "Binary" option'
     // If check to ensure types such as "enum('one','two','binary',..)" or
     // "enum('one','two','varbinary',..)" are not categorized as binary.
-    if (stripos($field['Type'], 'binary') === 0
-        || stripos($field['Type'], 'varbinary') === 0
+    if (stripos($column['Type'], 'binary') === 0
+        || stripos($column['Type'], 'varbinary') === 0
     ) {
-        return stristr($field['Type'], 'binary');
+        return stristr($column['Type'], 'binary');
     } else {
         return false;
     }
@@ -312,19 +311,19 @@ function PMA_isTableColumnBinary($field)
  /**
   * check is table column blob
   * 
-  * @param array $field
+  * @param array $column
   * @return boolean 
   */
-function PMA_istableColumnBlob($field)
+function PMA_isColumnBlob($column)
 {
     // If check to ensure types such as "enum('one','two','blob',..)" or
     // "enum('one','two','tinyblob',..)" etc. are not categorized as blob.
-    if (stripos($field['Type'], 'blob') === 0
-        || stripos($field['Type'], 'tinyblob') === 0
-        || stripos($field['Type'], 'mediumblob') === 0
-        || stripos($field['Type'], 'longblob') === 0
+    if (stripos($column['Type'], 'blob') === 0
+        || stripos($column['Type'], 'tinyblob') === 0
+        || stripos($column['Type'], 'mediumblob') === 0
+        || stripos($column['Type'], 'longblob') === 0
     ) {
-        return stristr($field['Type'], 'blob');
+        return stristr($column['Type'], 'blob');
     } else {
         return false;
     }
@@ -333,17 +332,17 @@ function PMA_istableColumnBlob($field)
 /**
  * check is table column char
  * 
- * @param array $field
+ * @param array $column
  * @return boolean 
  */
-function PMA_isTableColumnChar($field)
+function PMA_isColumnChar($column)
 {
     // If check to ensure types such as "enum('one','two','char',..)" or
     // "enum('one','two','varchar',..)" are not categorized as char.
-    if (stripos($field['Type'], 'char') === 0
-        || stripos($field['Type'], 'varchar') === 0
+    if (stripos($column['Type'], 'char') === 0
+        || stripos($column['Type'], 'varchar') === 0
     ) {
-        return stristr($field['Type'], 'char');
+        return stristr($column['Type'], 'char');
     } else {
         return false;
     }
@@ -351,36 +350,36 @@ function PMA_isTableColumnChar($field)
 /**
  * Retieve set, enum, timestamp table columns
  * 
- * @param array $field
+ * @param array $column
  * @param int $timestamp_seen 
  */
-function PMA_getEnumSetAndTimestampTableColumns($field, $timestamp_seen)
+function PMA_getEnumSetAndTimestampColumns($column, $timestamp_seen)
 {
-    $field['first_timestamp'] = false;
-    switch ($field['True_Type']) {
+    $column['first_timestamp'] = false;
+    switch ($column['True_Type']) {
     case 'set':
-        $field['pma_type'] = 'set';
-        $field['wrap']  = '';
+        $column['pma_type'] = 'set';
+        $column['wrap']  = '';
         break;
     case 'enum':
-        $field['pma_type'] = 'enum';
-        $field['wrap']  = '';
+        $column['pma_type'] = 'enum';
+        $column['wrap']  = '';
         break;
     case 'timestamp':
         if (!$timestamp_seen) {   // can only occur once per table
             $timestamp_seen  = 1;
-            $field['first_timestamp'] = true;
+            $column['first_timestamp'] = true;
         }
-        $field['pma_type'] = $field['Type'];
-        $field['wrap']  = ' nowrap';
+        $column['pma_type'] = $column['Type'];
+        $column['wrap']  = ' nowrap';
         break;
 
     default:
-        $field['pma_type'] = $field['Type'];
-        $field['wrap']  = ' nowrap';
+        $column['pma_type'] = $column['Type'];
+        $column['wrap']  = ' nowrap';
         break;
     }
-    return array($field['pma_type'], $field['wrap'], $field['first_timestamp']);
+    return array($column['pma_type'], $column['wrap'], $column['first_timestamp']);
 }
 
 /**
@@ -389,31 +388,37 @@ function PMA_getEnumSetAndTimestampTableColumns($field, $timestamp_seen)
  * Note: from the MySQL manual: "BINARY doesn't affect how the column is
  *       stored or retrieved" so it does not mean that the contents is binary
  * 
- * @param array $params_for_function_column
- * @return string $html_output
+ * @param array $column
+ * @param boolean $is_upload
+ * @param string $column_name_appendix
+ * @param string $unnullify_trigger
+ * @param array $no_support_types
+ * @param integer $tabindex_for_function
+ * @param integer $tabindex
+ * @param integer $idindex
+ * @param boolean $insert_mode
+ * @return string 
  */
-function PMA_getFunctionColumn($params_for_function_column)
-{
-    list($field, $is_upload, $field_name_appendix, $unnullify_trigger,
-            $no_support_types, $tabindex, $tabindex_for_function,
-            $idindex, $insert_mode) = $params_for_function_column;
-                
+function PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
+    $unnullify_trigger, $no_support_types, $tabindex_for_function,
+    $tabindex, $idindex, $insert_mode
+) {                
     $html_output = '';
-    if (($GLOBALS['cfg']['ProtectBinary'] && $field['is_blob'] && !$is_upload)
-        || ($GLOBALS['cfg']['ProtectBinary'] == 'all' && $field['is_binary'])
-        || ($GLOBALS['cfg']['ProtectBinary'] == 'noblob' && !$field['is_blob'])
+    if (($GLOBALS['cfg']['ProtectBinary'] && $column['is_blob'] && !$is_upload)
+        || ($GLOBALS['cfg']['ProtectBinary'] == 'all' && $column['is_binary'])
+        || ($GLOBALS['cfg']['ProtectBinary'] == 'noblob' && !$column['is_blob'])
     ) {
         $html_output .= '        <td class="center">' . __('Binary') . '</td>' . "\n";
-    } elseif (strstr($field['True_Type'], 'enum')
-        || strstr($field['True_Type'], 'set')
-        || in_array($field['pma_type'], $no_support_types)
+    } elseif (strstr($column['True_Type'], 'enum')
+        || strstr($column['True_Type'], 'set')
+        || in_array($column['pma_type'], $no_support_types)
     ) {
         $html_output .= '        <td class="center">--</td>' . "\n";
     } else {
         $html_output .= '<td>' . "\n";
-        $html_output .= '<select name="funcs' . $field_name_appendix . '"' . $unnullify_trigger 
+        $html_output .= '<select name="funcs' . $column_name_appendix . '"' . $unnullify_trigger 
             . 'tabindex="' . ($tabindex + $tabindex_for_function) . '" id="field_' . $idindex . '_1">';
-        $html_output .= PMA_getFunctionsForField($field, $insert_mode) . "\n";
+        $html_output .= PMA_getFunctionsForField($column, $insert_mode) . "\n";
         $html_output .= '</select>' .  "\n";
         $html_output .= '</td>' .  "\n";
     }
@@ -423,38 +428,45 @@ function PMA_getFunctionColumn($params_for_function_column)
 /**
  * The null column
  * 
- * @param array $params_for_null_column
- * @return string $html_output
+ * @param array $column
+ * @param string $column_name_appendix
+ * @param array $real_null_value
+ * @param integer $tabindex
+ * @param integer $tabindex_for_null
+ * @param integer $idindex
+ * @param array $vkey
+ * @param array $foreigners
+ * @param array $foreignData
+ * @return string 
  */
-function PMA_getNullColumn($params_for_null_column)
-{
-    list($field, $field_name_appendix, $real_null_value, $tabindex, $tabindex_for_null,
-        $idindex, $vkey, $foreigners, $foreignData) = $params_for_null_column;
+function PMA_getNullColumn($column, $column_name_appendix, $real_null_value,
+    $tabindex, $tabindex_for_null, $idindex, $vkey, $foreigners, $foreignData
+) {
     $html_output = '';
     $html_output .= '        <td>' . "\n";
-    if ($field['Null'] == 'YES') {
-        $html_output .= '            <input type="hidden" name="fields_null_prev' . $field_name_appendix . '"';
-        if ($real_null_value && !$field['first_timestamp']) {
+    if ($column['Null'] == 'YES') {
+        $html_output .= '            <input type="hidden" name="fields_null_prev' . $column_name_appendix . '"';
+        if ($real_null_value && !$column['first_timestamp']) {
             $html_output .= ' value="on"';
         }
         $html_output .= ' />' . "\n";
 
         $html_output .= '            <input type="checkbox" class="checkbox_null" tabindex="' . ($tabindex + $tabindex_for_null) . '"'
-             . ' name="fields_null' . $field_name_appendix . '"';
-        if ($real_null_value && !$field['first_timestamp']) {
+             . ' name="fields_null' . $column_name_appendix . '"';
+        if ($real_null_value && !$column['first_timestamp']) {
             $html_output .= ' checked="checked"';
         }
         $html_output .= ' id="field_' . ($idindex) . '_2" />';
 
         // nullify_code is needed by the js nullify() function
-        $nullify_code = PMA_getNullifyCodeForNullColumn($field, $foreigners, $foreignData);
+        $nullify_code = PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData);
         // to be able to generate calls to nullify() in jQuery
         $html_output .= '<input type="hidden" class="nullify_code" name="nullify_code'
-            . $field_name_appendix . '" value="' . $nullify_code . '" />';
+            . $column_name_appendix . '" value="' . $nullify_code . '" />';
         $html_output .= '<input type="hidden" class="hashed_field" name="hashed_field'
-            . $field_name_appendix . '" value="' .  $field['Field_md5'] . '" />';
+            . $column_name_appendix . '" value="' .  $column['Field_md5'] . '" />';
         $html_output .= '<input type="hidden" class="multi_edit" name="multi_edit'
-            . $field_name_appendix . '" value="' . PMA_escapeJsString($vkey) . '" />';
+            . $column_name_appendix . '" value="' . PMA_escapeJsString($vkey) . '" />';
     }
     $html_output .= '        </td>' . "\n";
 
@@ -464,30 +476,669 @@ function PMA_getNullColumn($params_for_null_column)
 /**
  * Retrieve the nullify code for the null column
  * 
- * @param array $field
+ * @param array $column
  * @param array $foreigners
  * @param array $foreignData
  * @return integer 
  */
-function PMA_getNullifyCodeForNullColumn($field, $foreigners, $foreignData)
+function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
 {
-    if (strstr($field['True_Type'], 'enum')) {
-        if (strlen($field['Type']) > 20) {
+    if (strstr($column['True_Type'], 'enum')) {
+        if (strlen($column['Type']) > 20) {
             $nullify_code = '1';
         } else {
             $nullify_code = '2';
         }
-    } elseif (strstr($field['True_Type'], 'set')) {
+    } elseif (strstr($column['True_Type'], 'set')) {
         $nullify_code = '3';
-    } elseif ($foreigners && isset($foreigners[$field['Field']]) && $foreignData['foreign_link'] == false) {
+    } elseif ($foreigners && isset($foreigners[$column['Field']]) && $foreignData['foreign_link'] == false) {
         // foreign key in a drop-down
         $nullify_code = '4';
-    } elseif ($foreigners && isset($foreigners[$field['Field']]) && $foreignData['foreign_link'] == true) {
+    } elseif ($foreigners && isset($foreigners[$column['Field']]) && $foreignData['foreign_link'] == true) {
         // foreign key with a browsing icon
         $nullify_code = '6';
     } else {
         $nullify_code = '5';
     }
     return $nullify_code;
+}
+
+/**
+ * Get the HTML elements for value column in inert form
+ * 
+ * @param array $column
+ * @param string $backup_field
+ * @param string $column_name_appendix
+ * @param string $unnullify_trigger
+ * @param integer $tabindex
+ * @param integer $tabindex_for_value
+ * @param integer $idindex
+ * @param array $data
+ * @param array $special_chars
+ * @param array $foreignData
+ * @param array $paramTableDbArray
+ * @param array $rownumber_param
+ * @param array $titles
+ * @param array $text_dir
+ * @param array $special_chars_encoded
+ * @param integer $biggest_max_file_size
+ * @param string $default_char_editing
+ * @param array $no_support_types
+ * @param array $gis_data_types
+ * @return type 
+ */
+function PMA_getValueColumn($column, $backup_field, $column_name_appendix, $unnullify_trigger,
+    $tabindex, $tabindex_for_value, $idindex, $data,$special_chars, $foreignData, $odd_row,
+    $paramTableDbArray,$rownumber_param, $titles, $text_dir, $special_chars_encoded, $vkey,$is_upload,
+    $biggest_max_file_size, $default_char_editing, $no_support_types, $gis_data_types
+) {
+    $html_output = '';
+    
+    if ($foreignData['foreign_link'] == true) {
+        $html_output .= PMA_getForeignLink($column, $backup_field, $column_name_appendix,
+            $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex, $data,
+            $paramTableDbArray, $rownumber_param, $titles
+            );
+        
+    } elseif (is_array($foreignData['disp_row'])) {
+        $html_output .= PMA_dispRawForeignData($backup_field, $column_name_appendix,
+            $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex, $data, $foreignData
+            );
+        
+    } elseif ($GLOBALS['cfg']['LongtextDoubleTextarea'] && strstr($column['pma_type'], 'longtext')) {
+        $html_output = '&nbsp;</td>';
+        $html_output .= '</tr>';
+        $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">'
+            . '<td colspan="5" class="right">';
+        $html_output .= PMA_getTextarea($backup_field, $column_name_appendix, $unnullify_trigger,
+            $tabindex, $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded
+            );
+        
+    } elseif (strstr($column['pma_type'], 'text')) {
+        $html_output .= PMA_getTextarea($backup_field, $column_name_appendix, $unnullify_trigger,
+            $tabindex, $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded
+            );
+        $html_output .= "\n";
+        if (strlen($special_chars) > 32000) {
+            $html_output .= "        </td>\n";
+            $html_output .= '        <td>' . __('Because of its length,<br /> this column might not be editable');
+        }
+        
+    } elseif ($column['pma_type'] == 'enum') {
+        $html_output .= PMA_getPmaTypeEnum($paramsArrayForColumns, $column,$extracted_columnspec);
+        
+    } elseif ($column['pma_type'] == 'set') {
+        $html_output .= PMA_getPmaTypeSet($column,$extracted_columnspec, $backup_field,
+            $column_name_appendix, $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex);
+        
+    } elseif ($column['is_binary'] || $column['is_blob']) {
+        $html_output .= PMA_getBinaryAndBlobColumn($column, $data, $special_chars,$biggest_max_file_size,
+             $backup_field,$column_name_appendix, $unnullify_trigger, $tabindex, $tabindex_for_value,
+            $idindex, $text_dir, $special_chars_encoded, $vkey, $is_upload);
+        
+    } elseif (! in_array($column['pma_type'], $no_support_types)) {
+        $html_output .= PMA_getNoSupportTypes($column, $default_char_editing,$backup_field,
+            $column_name_appendix, $unnullify_trigger,$tabindex,$special_chars,
+            $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded);
+        
+    } if (in_array($column['pma_type'], $gis_data_types)) {
+        $html_output .= PMA_getHTMLforGisDataTypes($vrow, $column);
+    }
+    
+    return $html_output;
+}
+
+/**
+ * Get HTML for foreign link in insert form
+ * 
+ * @param array $column
+ * @param string $backup_field
+ * @param string $column_name_appendix
+ * @param string $unnullify_trigger
+ * @param integer $tabindex
+ * @param integer $tabindex_for_value
+ * @param integer $idindex
+ * @param array $data
+ * @param array $paramTableDbArray
+ * @param array $rownumber_param
+ * @param array $titles
+ * @return string 
+ */
+function PMA_getForeignLink($column, $backup_field, $column_name_appendix,
+    $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex, $data,
+    $paramTableDbArray, $rownumber_param, $titles
+) {
+    list($db, $table) = $paramTableDbArray;
+    $html_output = '';
+    $html_output .= $backup_field . "\n";
+    $html_output .= '<input type="hidden" name="fields_type' . $column_name_appendix . '" value="foreign" />';
+    $html_output .= '<input type="text" name="fields' . $column_name_appendix . '"'
+        . 'class="textfield" ' . $unnullify_trigger
+        . 'tabindex="' . ($tabindex + $tabindex_for_value) . '"'
+        . 'id="field_' . ($idindex) . '_3"'
+        . 'value="' . htmlspecialchars($data) . '" />'
+        . '<a class="hide foreign_values_anchor" target="_blank" onclick="window.open(this.href,'
+        . '\'foreigners\', \'width=640,height=240,scrollbars=yes,resizable=yes\'); return false;" href="browse_foreigners.php?'
+        . PMA_generate_common_url($db, $table) . '&amp;field='
+        . PMA_escapeJsString(urlencode($column['Field']) . $rownumber_param) . '">'
+        . str_replace("'", "\'", $titles['Browse']) . '</a>';
+    return $html_output;
+}
+
+/**
+ * Get HTML to display foreign data
+ * 
+ * @param string $backup_field
+ * @param string $column_name_appendix
+ * @param string $unnullify_trigger
+ * @param integer $tabindex
+ * @param integer $tabindex_for_value
+ * @param integer $idindex
+ * @param array $data
+ * @param array $foreignData
+ * @return string 
+ */
+function PMA_dispRawForeignData($backup_field, $column_name_appendix,
+    $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex, $data, $foreignData
+) {
+    $html_output = '';
+    $html_output .= $backup_field . "\n";
+    $html_output .= '<input type="hidden" name="fields_type' . $column_name_appendix . '" value="foreign" />'
+        . '<select name="fields' . $column_name_appendix . '"'
+        . $unnullify_trigger
+        . 'class="textfield"' . ($tabindex + $tabindex_for_value). '"'
+        . 'id="field_' . $idindex . '_3"'
+        . PMA_foreignDropdown($foreignData['disp_row'], $foreignData['foreign_field'],
+                $foreignData['foreign_display'], $data, $GLOBALS['cfg']['ForeignKeyMaxLimit'])
+        . '</select>';
+    
+    return $html_output;
+}
+
+/**
+ * Get HTML textarea for insert form
+ * 
+ * @param string $backup_field
+ * @param string $column_name_appendix
+ * @param string $unnullify_trigger
+ * @param integer $tabindex
+ * @param integer $tabindex_for_value
+ * @param integer $idindex
+ * @param array $text_dir
+ * @param array $special_chars_encoded
+ * @return string 
+ */
+function PMA_getTextarea($backup_field, $column_name_appendix, $unnullify_trigger,
+    $tabindex, $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded, $isChar = false
+) {
+    $html_output = $backup_field . "\n"
+        . '<textarea name="fields' . $column_name_appendix . '"'
+        . 'rows="' . ($isChar ? ($GLOBALS['cfg']['CharTextareaRows']) : ($GLOBALS['cfg']['TextareaRows']*2)) . '"'
+        . 'cols="' . ($isChar ? ($GLOBALS['cfg']['CharTextareaCols']) : ($GLOBALS['cfg']['TextareaCols']*2)) . '"'
+        . 'dir="' . $text_dir . '"'
+        . 'id="field_' . ($idindex) . '_3"'
+        . $unnullify_trigger
+        . 'tabindex="' . ($tabindex + $tabindex_for_value) . '">'
+        . $special_chars_encoded
+        . '</textarea>';
+    
+    return $html_output;
+}
+
+/**
+ * Get HTML for enum type
+ * 
+ * @param array $column
+ * @param string $backup_field
+ * @param string $column_name_appendix
+ * @param array $extracted_columnspec
+ * @return string 
+ */
+function PMA_getPmaTypeEnum($column, $backup_field, $column_name_appendix, $extracted_columnspec)
+{
+    $html_output = ''; 
+    if (! isset($column['values'])) {
+         $column['values'] = PMA_getColumnEnumValues($column, $extracted_columnspec);         
+     }
+     $column_enum_values = $column['values'];
+     $html_output .= '<input type="hidden" name="fields_type' . $column_name_appendix. '" value="enum" />';
+     $html_output .= '<input type="hidden" name="fields' . $column_name_appendix . '" value="" />';
+     $html_output .= "\n" . '            ' . $backup_field . "\n";
+     if (strlen($column['Type']) > 20) {
+         $html_output .= PMA_showDropDownDependOnLength($column, $column_name_appendix, $unnullify_trigger,
+            $tabindex, $tabindex_for_value, $idindex, $data, $column_enum_values
+            );
+     } else {
+         $html_output .= PMA_showRadioButtonDependOnLength($column_name_appendix, $unnullify_trigger,
+            $tabindex, $column, $tabindex_for_value, $idindex, $data, $column_enum_values
+            );
+     }
+     return $html_output;
+}
+
+/**
+ * Get column values
+ * 
+ * @param array $column
+ * @param array $extracted_columnspec
+ * @return array 
+ */
+function PMA_getColumnEnumValues($column, $extracted_columnspec)
+{
+    $column['values'] = array();
+    foreach ($extracted_columnspec['enum_set_values'] as $val) {
+        // Removes automatic MySQL escape format
+        $val = str_replace('\'\'', '\'', str_replace('\\\\', '\\', $val));
+        $column['values'][] = array(
+                            'plain' => $val,
+                            'html'  => htmlspecialchars($val),
+                            );
+    }
+    return $column['values'];
+}
+
+/**
+ * Get HTML drop down for more than 20 string length
+ * 
+ * @param array $column
+ * @param string $column_name_appendix
+ * @param string $unnullify_trigger
+ * @param integer $tabindex
+ * @param integer $tabindex_for_value
+ * @param integer $idindex
+ * @param array $data
+ * @param array $column_enum_values
+ * @return string 
+ */
+function PMA_showDropDownDependOnLength($column, $column_name_appendix, $unnullify_trigger,
+    $tabindex, $tabindex_for_value, $idindex, $data, $column_enum_values
+) {
+    $html_output = '<select name="fields' . $column_name_appendix . '"'
+        . $unnullify_trigger
+        . 'class="textfield"'
+        . 'tabindex="' . ($tabindex + $tabindex_for_value) . '"'
+        . 'id="field_' . ($idindex) . '_3">'
+        . '<option value="">&nbsp;</option>' . "\n";
+    
+    foreach ($column_enum_values as $enum_value) {
+        $html_output .= '                ';
+        $html_output .= '<option value="' . $enum_value['html'] . '"';
+        if ($data == $enum_value['plain']
+            || ($data == ''
+                && (! isset($_REQUEST['where_clause']) || $column['Null'] != 'YES')
+                && isset($column['Default'])
+                && $enum_value['plain'] == $column['Default'])
+        ) {
+            $html_output .= ' selected="selected"';
+        }
+        $html_output .= '>' . $enum_value['html'] . '</option>' . "\n";
+    }
+    $html_output .= '</select>';
+    return $html_output;
+}
+
+/**
+ * Get HTML radio button for less than 20 string length
+ * 
+ * @param string $column_name_appendix
+ * @param string $unnullify_trigger
+ * @param integer $tabindex
+ * @param array $column
+ * @param integer $tabindex_for_value
+ * @param integer $idindex
+ * @param array $data
+ * @param array $column_enum_values
+ * @return string 
+ */
+function PMA_showRadioButtonDependOnLength($column_name_appendix, $unnullify_trigger,
+    $tabindex, $column, $tabindex_for_value, $idindex, $data, $column_enum_values
+) {
+    $j = 0;
+    foreach ($column_enum_values as $enum_value) {
+        $html_output = '            '
+            . '<input type="radio" name="fields' . $column_name_appendix . '"'
+            . ' class="textfield"'
+            . ' value="' . $enum_value['html'] . '"'
+            . ' id="field_' . ($idindex) . '_3_'  . $j . '"'
+            . $unnullify_trigger;
+        if ($data == $enum_value['plain']
+            || ($data == ''
+                && (! isset($_REQUEST['where_clause']) || $column['Null'] != 'YES')
+                && isset($column['Default'])
+                && $enum_value['plain'] == $column['Default'])
+        ) {
+            $html_output .= ' checked="checked"';
+        }
+        $html_output .= ' tabindex="' . ($tabindex + $tabindex_for_value) . '" />';
+        $html_output .= '<label for="field_' . $idindex . '_3_' . $j . '">'
+            . $enum_value['html'] . '</label>' . "\n";
+        $j++;
+    }
+    return $html_output;
+}
+
+/**
+ * Get the HTML for 'set' pma type
+ * 
+ * @param array $column
+ * @param array $extracted_columnspec
+ * @param string $backup_field
+ * @param string $column_name_appendix
+ * @param string $unnullify_trigger
+ * @param integer $tabindex
+ * @param integer $tabindex_for_value
+ * @param integer $idindex
+ * @return string 
+ */
+function PMA_getPmaTypeSet($column,$extracted_columnspec, $backup_field,
+    $column_name_appendix, $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex
+) {
+    list($column_set_values, $select_size) = PMA_getColumnSetValueAndSelectSize($column, $extracted_columnspec);
+    $vset = array_flip(explode(',', $data));
+    $html_output = $backup_field . "\n";
+    $html_output .= '<input type="hidden" name="fields_type' . $column_name_appendix . '" value="set" />';
+    $html_output .= '<select name="fields' . $column_name_appendix . '[]' . '"'
+        . 'class="textfield"'
+        . 'size="' . $select_size . '"'
+        . 'multiple="multiple"' . $unnullify_trigger
+        . 'tabindex="' . ($tabindex + $tabindex_for_value) . '"'
+        . 'id="field_' . ($idindex) . '_3">';
+    foreach ($column_set_values as $column_set_value) {
+        $html_output .= '                ';
+        $html_output .= '<option value="' . $column_set_value['html'] . '"';
+        if (isset($vset[$column_set_value['plain']])) {
+            $html_output .= ' selected="selected"';
+        }
+        $html_output .= '>' . $column_set_value['html'] . '</option>' . "\n";
+    }
+    $html_output .= '</select>';
+    return $html_output;
+}
+
+/**
+ * Retrieve column 'set' value and select size
+ *  
+ * @param array $column
+ * @param array $extracted_columnspec
+ * @return type 
+ */
+function PMA_getColumnSetValueAndSelectSize($column, $extracted_columnspec)
+{
+    if (! isset($column['values'])) {
+        $column['values'] = array();
+        foreach ($extracted_columnspec['enum_set_values'] as $val) {
+            $column['values'][] = array(
+                'plain' => $val,
+                'html'  => htmlspecialchars($val),
+            );
+        }
+        $column['select_size'] = min(4, count($column['values']));
+    }
+    return array($column['values'], $column['select_size']);
+}
+
+/**
+ * Get HTML for binary and blob column
+ * 
+ * @param array $column
+ * @param array $data
+ * @param array $special_chars
+ * @param integer $biggest_max_file_size
+ * @param string $backup_field
+ * @param string $column_name_appendix
+ * @param string $unnullify_trigger
+ * @param integer $tabindex
+ * @param integer $tabindex_for_value
+ * @param integer $idindex
+ * @param string $text_dir
+ * @param string $special_chars_encoded
+ * @param string $vkey
+ * @param boolean $is_upload
+ * @return string 
+ */
+function PMA_getBinaryAndBlobColumn($column, $data, $special_chars,$biggest_max_file_size,
+    $backup_field, $column_name_appendix, $unnullify_trigger, $tabindex,
+    $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded,$vkey, $is_upload
+) {
+    $html_output = '';
+    if (($GLOBALS['cfg']['ProtectBinary'] && $column['is_blob'])
+        || ($GLOBALS['cfg']['ProtectBinary'] == 'all' && $column['is_binary'])
+        || ($GLOBALS['cfg']['ProtectBinary'] == 'noblob' && !$column['is_blob'])
+    ) {
+        $html_output .= __('Binary - do not edit');
+        if (isset($data)) {
+            $data_size = PMA_formatByteDown(strlen(stripslashes($data)), 3, 1);
+            $html_output .= ' ('. $data_size [0] . ' ' . $data_size[1] . ')';
+            unset($data_size);
+        }
+
+        $html_output .= '<input type="hidden" name="fields_type' . $column_name_appendix . '" value="protected" />'
+            . '<input type="hidden" name="fields' . $column_name_appendix . '" value="" />';
+    } elseif ($column['is_blob']) {
+        $html_output .= "\n";
+        $html_output .= PMA_getTextarea($backup_field, $column_name_appendix, $unnullify_trigger,
+            $tabindex, $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded);
+    } else {
+        // field size should be at least 4 and max $GLOBALS['cfg']['LimitChars']
+        $columnsize = min(max($column['len'], 4), $GLOBALS['cfg']['LimitChars']);
+        $html_output .= "\n";
+        $html_output .= $backup_field . "\n";
+        $html_output .= PMA_getHTMLinput($column, $column_name_appendix, $special_chars, $columnsize,
+            $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex);
+    }
+    
+    if ($is_upload && $column['is_blob']) {
+        $html_output .= '<br />';
+        $html_output .= '<input type="file" name="fields_upload' . $vkey . '[' . $column['Field_md5'] 
+            . ']" class="textfield" id="field_' . $idindex . '_3" size="10" ' . $unnullify_trigger . '/>&nbsp;';
+        list($html_out, $biggest_max_file_size) = PMA_getMaxUploadSize($column,$biggest_max_file_size);
+        $html_output .= $html_out;
+    }
+    
+    if (!empty($cfg['UploadDir'])) {
+        $html_output .= PMA_GetSelectOptionForUpload($vkey, $column);
+    }
+    
+    return $html_output;
+}
+
+/**
+ * Get HTML input type
+ * 
+ * @param array $column
+ * @param string $column_name_appendix
+ * @param array $special_chars
+ * @param integer $columnsize
+ * @param string $unnullify_trigger
+ * @param integer $tabindex
+ * @param integer $tabindex_for_value
+ * @param integer $idindex
+ * @return string 
+ */
+function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
+    $columnsize, $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex
+) {
+    $the_class = 'textfield';
+    if ($column['pma_type'] == 'date') {
+        $the_class .= ' datefield';
+    } elseif ($column['pma_type'] == 'datetime'
+        || substr($column['pma_type'], 0, 9) == 'timestamp'
+    ) {
+        $the_class .= ' datetimefield';
+    }
+    return '<input type="text" name="fields' . $column_name_appendix . '"'
+        . 'value="' . $special_chars . '" size="' . $columnsize . '"'
+        . 'class="' . $the_class . '"' . $unnullify_trigger
+        . 'tabindex="' . ($tabindex + $tabindex_for_value). '"'
+        . 'id="field_' . ($idindex) . '_3" />';
+}
+
+/**
+ * Get HTML select option for upload
+ * 
+ * @param string $vkey
+ * @param array $column
+ * @return string 
+ */
+function PMA_GetSelectOptionForUpload($vkey, $column)
+{
+    $files = PMA_getFileSelectOptions(PMA_userDir($GLOBALS['cfg']['UploadDir']));
+    if ($files === false) {
+        return '        <font color="red">' . __('Error') . '</font><br />' . "\n"
+            . '        ' . __('The directory you set for upload work cannot be reached') . "\n";
+    } elseif (!empty($files)) {
+        return "<br />\n"
+            . '    <i>' . __('Or') . '</i>' . ' ' . __('web server upload directory') . ':<br />' . "\n"
+            . '        <select size="1" name="fields_uploadlocal' . $vkey . '[' . $column['Field_md5'] . ']">' . "\n"
+            . '            <option value="" selected="selected"></option>' . "\n"
+            . $files
+            . '        </select>' . "\n";
+    }
+}
+
+/**
+ * Retrieve the maximum upload file size
+ * 
+ * @param array $column
+ * @param integer $biggest_max_file_size
+ * @return array 
+ */
+function PMA_getMaxUploadSize($column, $biggest_max_file_size)
+{
+    // find maximum upload size, based on field type
+    /**
+     * @todo with functions this is not so easy, as you can basically
+     * process any data with function like MD5
+     */
+    $max_field_sizes = array(
+        'tinyblob'   =>        '256',
+        'blob'       =>      '65536',
+        'mediumblob' =>   '16777216',
+        'longblob'   => '4294967296'); // yeah, really
+
+    $this_field_max_size = $max_upload_size; // from PHP max
+    if ($this_field_max_size > $max_field_sizes[$column['pma_type']]) {
+        $this_field_max_size = $max_field_sizes[$column['pma_type']];
+    }
+    $html_output = PMA_displayMaximumUploadSize($this_field_max_size) . "\n";
+    // do not generate here the MAX_FILE_SIZE, because we should
+    // put only one in the form to accommodate the biggest field
+    if ($this_field_max_size > $biggest_max_file_size) {
+        $biggest_max_file_size = $this_field_max_size;
+    }
+    return array($html_output, $biggest_max_file_size);
+}
+
+/**
+ * Get HTML for pma no support types 
+ * 
+ * @param array $column
+ * @param string $default_char_editing
+ * @param string $backup_field
+ * @param string $column_name_appendix
+ * @param string $unnullify_trigger
+ * @param integer $tabindex
+ * @param array $special_chars
+ * @param integer $tabindex_for_value
+ * @param integer $idindex
+ * @param string $text_dir
+ * @param array $special_chars_encoded
+ * @return string 
+ */
+function PMA_getNoSupportTypes($column, $default_char_editing,$backup_field,
+    $column_name_appendix, $unnullify_trigger,$tabindex,$special_chars,
+    $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded
+) {
+    $columnSize = PMA_getColumnSize($column);
+    $html_output = $backup_field . "\n";
+    if ($column['is_char']
+        && ($GLOBALS['cfg']['CharEditing'] == 'textarea'
+        || strpos($data, "\n") !== false)
+    ) {
+        $html_output .= "\n";
+        $GLOBALS['cfg']['CharEditing'] = $default_char_editing;
+        $html_output .= PMA_getTextarea($backup_field, $column_name_appendix, $unnullify_trigger,
+            $tabindex, $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded, true);
+    } else {
+        $html_output .= PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
+            $columnSize, $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex);
+        
+        if ($column['Extra'] == 'auto_increment') {
+            $html_output .= '<input type="hidden" name="auto_increment' . $column_name_appendix . '" value="1" />';
+
+        }
+        if (substr($column['pma_type'], 0, 9) == 'timestamp') {
+            $html_output .= '<input type="hidden" name="fields_type' . $column_name_appendix . '" value="timestamp" />';
+
+        }
+        if (substr($column['pma_type'], 0, 8) == 'datetime') {
+            $html_output .= '<input type="hidden" name="fields_type' . $column_name_appendix . '" value="datetime" />';
+
+        }
+        if ($column['True_Type'] == 'bit') {
+            $html_output .= '<input type="hidden" name="fields_type' . $column_name_appendix . '" value="bit" />';
+
+        }
+        if ($column['pma_type'] == 'date'
+            || $column['pma_type'] == 'datetime'
+            || substr($column['pma_type'], 0, 9) == 'timestamp'
+        ) {
+            // the _3 suffix points to the date field
+            // the _2 suffix points to the corresponding NULL checkbox
+            // in dateFormat, 'yy' means the year with 4 digits
+        }
+    }
+    return $html_output;
+}
+
+/**
+ * Get the column size
+ * 
+ * @param array $column
+ * @return integer 
+ */
+function PMA_getColumnSize($column)
+{
+    if ($column['is_char']) {
+        $columnSize = $extracted_columnspec['spec_in_brackets'];
+        if ($columnSize > $GLOBALS['cfg']['MaxSizeForInputField']) {
+            /**
+             * This case happens for CHAR or VARCHAR columns which have
+             * a size larger than the maximum size for input field.
+             */
+            $GLOBALS['cfg']['CharEditing'] = 'textarea';
+        }
+    } else {
+        /**
+         * This case happens for example for INT or DATE columns;
+         * in these situations, the value returned in $column['len']
+         * seems appropriate.
+         */
+        $columnsize = $column['len'];
+    }
+    return min(max($columnsize, $GLOBALS['cfg']['MinSizeForInputField']), $GLOBALS['cfg']['MaxSizeForInputField']);
+}
+
+/**
+ * Get HTML for gis data types
+ * 
+ * @param string $vrow
+ * @param array $column
+ * @return string 
+ */
+function PMA_getHTMLforGisDataTypes($vrow, $column)
+{
+    $data_val = isset($vrow[$column['Field']]) ? $vrow[$column['Field']] : '';
+    $_url_params = array(
+        'field' => $column['Field_title'],
+        'value' => $data_val,
+     );
+    if ($column['pma_type'] != 'geometry') {
+        $_url_params = $_url_params + array('gis_data[gis_type]' => strtoupper($column['pma_type']));
+    }
+    $edit_str = PMA_getIcon('b_edit.png', __('Edit/Insert'));
+    return '<span class="open_gis_editor">'
+        . PMA_linkOrButton('#', $edit_str, array(), false, false, '_blank')
+        . '</span>';
 }
 ?>

@@ -201,7 +201,7 @@ $titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
 
 // Set if we passed the first timestamp field
 $timestamp_seen = 0;
-$fields_cnt     = count($table_fields);
+$columns_cnt     = count($table_fields);
 
 $tabindex = 0;
 $tabindex_for_function = +3000;
@@ -274,47 +274,47 @@ foreach ($rows as $row_id => $vrow) {
     $default_char_editing  = $cfg['CharEditing'];
 
     $odd_row = true;
-    for ($i = 0; $i < $fields_cnt; $i++) {
+    for ($i = 0; $i < $columns_cnt; $i++) {
         if (! isset($table_fields[$i]['processed'])) {
-            $field = $table_fields[$i];
-            $field = PMA_analyzeTableColumnsArray($field, $comments_map, $timestamp_seen);
+            $column = $table_fields[$i];
+            $column = PMA_analyzeTableColumnsArray($column, $comments_map, $timestamp_seen);
         }
         
-        $extracted_columnspec = PMA_extractColumnSpec($field['Type']);
+        $extracted_columnspec = PMA_extractColumnSpec($column['Type']);
 
-        if (-1 === $field['len']) {
-            $field['len'] = PMA_DBI_field_len($vresult, $i);
+        if (-1 === $column['len']) {
+            $column['len'] = PMA_DBI_field_len($vresult, $i);
             // length is unknown for geometry fields, make enough space to edit very simple WKTs
-            if (-1 === $field['len']) {
-                $field['len'] = 30;
+            if (-1 === $column['len']) {
+                $column['len'] = 30;
             }
         }
         //Call validation when the form submited...
         $unnullify_trigger = $chg_evt_handler . "=\"return verificationsAfterFieldChange('"
-            . PMA_escapeJsString($field['Field_md5']) . "', '"
-            . PMA_escapeJsString($jsvkey) . "','".$field['pma_type']."')\"";
+            . PMA_escapeJsString($column['Field_md5']) . "', '"
+            . PMA_escapeJsString($jsvkey) . "','".$column['pma_type']."')\"";
 
         // Use an MD5 as an array index to avoid having special characters in the name atttibute (see bug #1746964 )
-        $field_name_appendix =  $vkey . '[' . $field['Field_md5'] . ']';
+        $column_name_appendix =  $vkey . '[' . $column['Field_md5'] . ']';
 
-        if ($field['Type'] == 'datetime'
-            && ! isset($field['Default'])
-            && ! is_null($field['Default'])
-            && ($insert_mode || ! isset($vrow[$field['Field']]))
+        if ($column['Type'] == 'datetime'
+            && ! isset($column['Default'])
+            && ! is_null($column['Default'])
+            && ($insert_mode || ! isset($vrow[$column['Field']]))
         ) {
             // INSERT case or
             // UPDATE case with an NULL value
-            $vrow[$field['Field']] = date('Y-m-d H:i:s', time());
+            $vrow[$column['Field']] = date('Y-m-d H:i:s', time());
         }
         ?>
         <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
-            <td <?php echo ($cfg['LongtextDoubleTextarea'] && strstr($field['True_Type'], 'longtext') ? 'rowspan="2"' : ''); ?> class="center">
-                <?php echo $field['Field_title']; ?>
-                <input type="hidden" name="fields_name<?php echo $field_name_appendix; ?>" value="<?php echo $field['Field_html']; ?>"/>
+            <td <?php echo ($cfg['LongtextDoubleTextarea'] && strstr($column['True_Type'], 'longtext') ? 'rowspan="2"' : ''); ?> class="center">
+                <?php echo $column['Field_title']; ?>
+                <input type="hidden" name="fields_name<?php echo $column_name_appendix; ?>" value="<?php echo $column['Field_html']; ?>"/>
             </td>
         <?php if ($cfg['ShowFieldTypesInDataEditView']) { ?>
-             <td class="center<?php echo $field['wrap']; ?>">
-                 <span class="column_type"><?php echo $field['pma_type']; ?></span>
+             <td class="center<?php echo $column['wrap']; ?>">
+                 <span class="column_type"><?php echo $column['pma_type']; ?></span>
              </td>
 
          <?php } //End if
@@ -327,41 +327,41 @@ foreach ($rows as $row_id => $vrow) {
         $special_chars_encoded = '';
         if (isset($vrow)) {
             // (we are editing)
-            if (is_null($vrow[$field['Field']])) {
+            if (is_null($vrow[$column['Field']])) {
                 $real_null_value = true;
-                $vrow[$field['Field']]    = '';
+                $vrow[$column['Field']]    = '';
                 $special_chars   = '';
-                $data            = $vrow[$field['Field']];
-            } elseif ($field['True_Type'] == 'bit') {
+                $data            = $vrow[$column['Field']];
+            } elseif ($column['True_Type'] == 'bit') {
                 $special_chars = PMA_printable_bit_value(
-                    $vrow[$field['Field']], $extracted_columnspec['spec_in_brackets']
+                    $vrow[$column['Field']], $extracted_columnspec['spec_in_brackets']
                 );
-            } elseif (in_array($field['True_Type'], $gis_data_types)) {
+            } elseif (in_array($column['True_Type'], $gis_data_types)) {
                 // Convert gis data to Well Know Text format
-                $vrow[$field['Field']] = PMA_asWKT($vrow[$field['Field']], true);
-                $special_chars = htmlspecialchars($vrow[$field['Field']]);
+                $vrow[$column['Field']] = PMA_asWKT($vrow[$column['Field']], true);
+                $special_chars = htmlspecialchars($vrow[$column['Field']]);
             } else {
                 // special binary "characters"
-                if ($field['is_binary'] || ($field['is_blob'] && ! $cfg['ProtectBinary'])) {
+                if ($column['is_binary'] || ($column['is_blob'] && ! $cfg['ProtectBinary'])) {
                     if ($_SESSION['tmp_user_values']['display_binary_as_hex'] && $cfg['ShowFunctionFields']) {
-                        $vrow[$field['Field']] = bin2hex($vrow[$field['Field']]);
-                        $field['display_binary_as_hex'] = true;
+                        $vrow[$column['Field']] = bin2hex($vrow[$column['Field']]);
+                        $column['display_binary_as_hex'] = true;
                     } else {
-                        $vrow[$field['Field']] = PMA_replace_binary_contents($vrow[$field['Field']]);
+                        $vrow[$column['Field']] = PMA_replace_binary_contents($vrow[$column['Field']]);
                     }
                 } // end if
-                $special_chars   = htmlspecialchars($vrow[$field['Field']]);
+                $special_chars   = htmlspecialchars($vrow[$column['Field']]);
 
                 //We need to duplicate the first \n or otherwise we will lose
                 //the first newline entered in a VARCHAR or TEXT column
                 $special_chars_encoded = PMA_duplicateFirstNewline($special_chars);
 
-                $data            = $vrow[$field['Field']];
+                $data            = $vrow[$column['Field']];
             } // end if... else...
 
             //when copying row, it is useful to empty auto-increment column to prevent duplicate key error
             if (isset($default_action) && $default_action === 'insert') {
-                if ($field['Key'] === 'PRI' && strpos($field['Extra'], 'auto_increment') !== false) {
+                if ($column['Key'] === 'PRI' && strpos($column['Extra'], 'auto_increment') !== false) {
                     $data = $special_chars_encoded = $special_chars = null;
                 }
             }
@@ -370,64 +370,59 @@ foreach ($rows as $row_id => $vrow) {
             // however, things have changed since MySQL 4.1, so
             // it's better to set a fields_prev in this situation
             $backup_field  = '<input type="hidden" name="fields_prev'
-                . $field_name_appendix . '" value="'
-                . htmlspecialchars($vrow[$field['Field']]) . '" />';
+                . $column_name_appendix . '" value="'
+                . htmlspecialchars($vrow[$column['Field']]) . '" />';
         } else {
             // (we are inserting)
             // display default values
-            if (! isset($field['Default'])) {
-                $field['Default'] = '';
+            if (! isset($column['Default'])) {
+                $column['Default'] = '';
                 $real_null_value          = true;
                 $data                     = '';
             } else {
-                $data                     = $field['Default'];
+                $data                     = $column['Default'];
             }
-            if ($field['True_Type'] == 'bit') {
-                $special_chars = PMA_convert_bit_default_value($field['Default']);
+            if ($column['True_Type'] == 'bit') {
+                $special_chars = PMA_convert_bit_default_value($column['Default']);
             } else {
-                $special_chars = htmlspecialchars($field['Default']);
+                $special_chars = htmlspecialchars($column['Default']);
             }
             $backup_field  = '';
             $special_chars_encoded = PMA_duplicateFirstNewline($special_chars);
             // this will select the UNHEX function while inserting
-            if (($field['is_binary'] || ($field['is_blob'] && ! $cfg['ProtectBinary']))
+            if (($column['is_binary'] || ($column['is_blob'] && ! $cfg['ProtectBinary']))
                 && (isset($_SESSION['tmp_user_values']['display_binary_as_hex'])
                     && $_SESSION['tmp_user_values']['display_binary_as_hex'])
                 && $cfg['ShowFunctionFields']
             ) {
-                $field['display_binary_as_hex'] = true;
+                $column['display_binary_as_hex'] = true;
             }
         }
 
-        $idindex  = ($o_rows * $fields_cnt) + $i + 1;
+        $idindex  = ($o_rows * $columns_cnt) + $i + 1;
         $tabindex = $idindex;
 
         // Get a list of data types that are not yet supported.
         $no_support_types = PMA_unsupportedDatatypes();
 
-        $params_for_function_column = array(
-            $field, $is_upload, $field_name_appendix, $unnullify_trigger,
-            $no_support_types, $tabindex, $tabindex_for_function,
-            $idindex, $insert_mode);
         // The function column
         // -------------------
         if ($cfg['ShowFunctionFields']) {
-            echo PMA_getFunctionColumn($params_for_function_column);
+            echo PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
+                $unnullify_trigger, $no_support_types, $tabindex_for_function,
+                $tabindex, $idindex, $insert_mode);
         }
 
         // The null column
         // ---------------
-        $foreignData = PMA_getForeignData($foreigners, $field['Field'], false, '', '');
-        $params_for_null_column = array(
-            $field, $field_name_appendix, $real_null_value, $tabindex, $tabindex_for_null,
-            $idindex, $vkey, $foreigners, $foreignData);
-        echo PMA_getNullColumn($params_for_null_column);
+        $foreignData = PMA_getForeignData($foreigners, $column['Field'], false, '', '');
+        echo PMA_getNullColumn($column, $column_name_appendix, $real_null_value,
+            $tabindex, $tabindex_for_null, $idindex, $vkey, $foreigners, $foreignData);
 
         // The value column (depends on type)
         // ----------------
         // See bug #1667887 for the reason why we don't use the maxlength
         // HTML attribute
-
         echo '        <td>' . "\n";
         // Will be used by js/tbl_change.js to set the default value
         // for the "Continue insertion" feature
@@ -435,21 +430,21 @@ foreach ($rows as $row_id => $vrow) {
         if ($foreignData['foreign_link'] == true) {
             echo $backup_field . "\n";
             ?>
-            <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>"
+            <input type="hidden" name="fields_type<?php echo $column_name_appendix; ?>"
                 value="foreign" />
-            <input type="text" name="fields<?php echo $field_name_appendix; ?>"
+            <input type="text" name="fields<?php echo $column_name_appendix; ?>"
                 class="textfield" <?php echo $unnullify_trigger; ?>
                 tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
                 id="field_<?php echo ($idindex); ?>_3"
                 value="<?php echo htmlspecialchars($data); ?>" />
-                <a class="hide foreign_values_anchor" target="_blank" onclick="window.open(this.href, 'foreigners', 'width=640,height=240,scrollbars=yes,resizable=yes'); return false;" href="browse_foreigners.php?<?php echo PMA_generate_common_url($db, $table); ?>&amp;field=<?php echo PMA_escapeJsString(urlencode($field['Field']) . $rownumber_param); ?>"><?php echo str_replace("'", "\'", $titles['Browse']); ?></a>
+                <a class="hide foreign_values_anchor" target="_blank" onclick="window.open(this.href, 'foreigners', 'width=640,height=240,scrollbars=yes,resizable=yes'); return false;" href="browse_foreigners.php?<?php echo PMA_generate_common_url($db, $table); ?>&amp;field=<?php echo PMA_escapeJsString(urlencode($column['Field']) . $rownumber_param); ?>"><?php echo str_replace("'", "\'", $titles['Browse']); ?></a>
             <?php
         } elseif (is_array($foreignData['disp_row'])) {
             echo $backup_field . "\n";
             ?>
-            <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>"
+            <input type="hidden" name="fields_type<?php echo $column_name_appendix; ?>"
                 value="foreign" />
-            <select name="fields<?php echo $field_name_appendix; ?>"
+            <select name="fields<?php echo $column_name_appendix; ?>"
                 <?php echo $unnullify_trigger; ?>
                 class="textfield"
                 tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
@@ -459,40 +454,42 @@ foreach ($rows as $row_id => $vrow) {
             <?php
                 // still needed? :
             unset($foreignData['disp_row']);
-        } elseif ($cfg['LongtextDoubleTextarea'] && strstr($field['pma_type'], 'longtext')) {
+        } elseif ($cfg['LongtextDoubleTextarea'] && strstr($column['pma_type'], 'longtext')) {
             ?>
             &nbsp;</td>
         </tr>
         <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
             <td colspan="5" class="right">
                 <?php echo $backup_field . "\n"; ?>
-                <textarea name="fields<?php echo $field_name_appendix; ?>"
+                <textarea name="fields<?php echo $column_name_appendix; ?>"
                     rows="<?php echo ($cfg['TextareaRows']*2); ?>"
                     cols="<?php echo ($cfg['TextareaCols']*2); ?>"
                     dir="<?php echo $text_dir; ?>"
                     id="field_<?php echo ($idindex); ?>_3"
                     <?php echo $unnullify_trigger; ?>
                     tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
-                    ><?php echo $special_chars_encoded; ?></textarea>
+                    ><?php echo $special_chars_encoded; ?>
+                </textarea>
           <?php
-        } elseif (strstr($field['pma_type'], 'text')) {
+        } elseif (strstr($column['pma_type'], 'text')) {
             echo $backup_field . "\n";
             ?>
-                <textarea name="fields<?php echo $field_name_appendix; ?>"
+                <textarea name="fields<?php echo $column_name_appendix; ?>"
                     rows="<?php echo $cfg['TextareaRows']; ?>"
                     cols="<?php echo $cfg['TextareaCols']; ?>"
                     dir="<?php echo $text_dir; ?>"
                     id="field_<?php echo ($idindex); ?>_3"
                     <?php echo $unnullify_trigger; ?>
                     tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
-                    ><?php echo $special_chars_encoded; ?></textarea>
+                    ><?php echo $special_chars_encoded; ?>
+                </textarea>
             <?php
             echo "\n";
             if (strlen($special_chars) > 32000) {
                 echo "        </td>\n";
                 echo '        <td>' . __('Because of its length,<br /> this column might not be editable');
             }
-        } elseif ($field['pma_type'] == 'enum') {
+        } elseif ($column['pma_type'] == 'enum') {
             if (! isset($table_fields[$i]['values'])) {
                 $table_fields[$i]['values'] = array();
                 foreach ($extracted_columnspec['enum_set_values'] as $val) {
@@ -504,17 +501,17 @@ foreach ($rows as $row_id => $vrow) {
                     );
                 }
             }
-            $field_enum_values = $table_fields[$i]['values'];
+            $column_enum_values = $table_fields[$i]['values'];
             ?>
-                <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>" value="enum" />
-                <input type="hidden" name="fields<?php echo $field_name_appendix; ?>" value="" />
+                <input type="hidden" name="fields_type<?php echo $column_name_appendix; ?>" value="enum" />
+                <input type="hidden" name="fields<?php echo $column_name_appendix; ?>" value="" />
             <?php
             echo "\n" . '            ' . $backup_field . "\n";
 
             // show dropdown or radio depend on length
-            if (strlen($field['Type']) > 20) {
+            if (strlen($column['Type']) > 20) {
                 ?>
-                <select name="fields<?php echo $field_name_appendix; ?>"
+                <select name="fields<?php echo $column_name_appendix; ?>"
                     <?php echo $unnullify_trigger; ?>
                     class="textfield"
                     tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
@@ -523,14 +520,14 @@ foreach ($rows as $row_id => $vrow) {
                 <?php
                 echo "\n";
 
-                foreach ($field_enum_values as $enum_value) {
+                foreach ($column_enum_values as $enum_value) {
                     echo '                ';
                     echo '<option value="' . $enum_value['html'] . '"';
                     if ($data == $enum_value['plain']
                         || ($data == ''
-                            && (! isset($where_clause) || $field['Null'] != 'YES')
-                            && isset($field['Default'])
-                            && $enum_value['plain'] == $field['Default'])
+                            && (! isset($where_clause) || $column['Null'] != 'YES')
+                            && isset($column['Default'])
+                            && $enum_value['plain'] == $column['Default'])
                     ) {
                         echo ' selected="selected"';
                     }
@@ -542,18 +539,18 @@ foreach ($rows as $row_id => $vrow) {
                 <?php
             } else {
                 $j = 0;
-                foreach ($field_enum_values as $enum_value) {
+                foreach ($column_enum_values as $enum_value) {
                     echo '            ';
-                    echo '<input type="radio" name="fields' . $field_name_appendix . '"';
+                    echo '<input type="radio" name="fields' . $column_name_appendix . '"';
                     echo ' class="textfield"';
                     echo ' value="' . $enum_value['html'] . '"';
                     echo ' id="field_' . ($idindex) . '_3_'  . $j . '"';
                     echo $unnullify_trigger;
                     if ($data == $enum_value['plain']
                         || ($data == ''
-                            && (! isset($where_clause) || $field['Null'] != 'YES')
-                            && isset($field['Default'])
-                            && $enum_value['plain'] == $field['Default'])
+                            && (! isset($where_clause) || $column['Null'] != 'YES')
+                            && isset($column['Default'])
+                            && $enum_value['plain'] == $column['Default'])
                     ) {
                         echo ' checked="checked"';
                     }
@@ -563,7 +560,7 @@ foreach ($rows as $row_id => $vrow) {
                     $j++;
                 } // end for
             } // end else
-        } elseif ($field['pma_type'] == 'set') {
+        } elseif ($column['pma_type'] == 'set') {
             if (! isset($table_fields[$i]['values'])) {
                 $table_fields[$i]['values'] = array();
                 foreach ($extracted_columnspec['enum_set_values'] as $val) {
@@ -574,36 +571,36 @@ foreach ($rows as $row_id => $vrow) {
                 }
                 $table_fields[$i]['select_size'] = min(4, count($table_fields[$i]['values']));
             }
-            $field_set_values = $table_fields[$i]['values'];
+            $column_set_values = $table_fields[$i]['values'];
             $select_size = $table_fields[$i]['select_size'];
 
             $vset = array_flip(explode(',', $data));
             echo $backup_field . "\n";
             ?>
-                <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>" value="set" />
-                <select name="fields<?php echo $field_name_appendix . '[]'; ?>"
+                <input type="hidden" name="fields_type<?php echo $column_name_appendix; ?>" value="set" />
+                <select name="fields<?php echo $column_name_appendix . '[]'; ?>"
                     class="textfield"
                     size="<?php echo $select_size; ?>"
                     multiple="multiple" <?php echo $unnullify_trigger; ?>
                     tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
                     id="field_<?php echo ($idindex); ?>_3">
             <?php
-            foreach ($field_set_values as $field_set_value) {
+            foreach ($column_set_values as $column_set_value) {
                 echo '                ';
-                echo '<option value="' . $field_set_value['html'] . '"';
-                if (isset($vset[$field_set_value['plain']])) {
+                echo '<option value="' . $column_set_value['html'] . '"';
+                if (isset($vset[$column_set_value['plain']])) {
                     echo ' selected="selected"';
                 }
-                echo '>' . $field_set_value['html'] . '</option>' . "\n";
+                echo '>' . $column_set_value['html'] . '</option>' . "\n";
             } // end for
             ?>
                 </select>
             <?php
         // We don't want binary data destroyed
-        } elseif ($field['is_binary'] || $field['is_blob']) {
-            if (($cfg['ProtectBinary'] && $field['is_blob'])
-                || ($cfg['ProtectBinary'] == 'all' && $field['is_binary'])
-                || ($cfg['ProtectBinary'] == 'noblob' && !$field['is_blob'])
+        } elseif ($column['is_binary'] || $column['is_blob']) {
+            if (($cfg['ProtectBinary'] && $column['is_blob'])
+                || ($cfg['ProtectBinary'] == 'all' && $column['is_binary'])
+                || ($cfg['ProtectBinary'] == 'noblob' && !$column['is_blob'])
             ) {
                 echo __('Binary - do not edit');
                 if (isset($data)) {
@@ -612,14 +609,14 @@ foreach ($rows as $row_id => $vrow) {
                     unset($data_size);
                 }
                 ?>
-                <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>" value="protected" />
-                <input type="hidden" name="fields<?php echo $field_name_appendix; ?>" value="" />
+                <input type="hidden" name="fields_type<?php echo $column_name_appendix; ?>" value="protected" />
+                <input type="hidden" name="fields<?php echo $column_name_appendix; ?>" value="" />
                 <?php
-            } elseif ($field['is_blob']) {
+            } elseif ($column['is_blob']) {
                 echo "\n";
                 echo $backup_field . "\n";
                 ?>
-                <textarea name="fields<?php echo $field_name_appendix; ?>"
+                <textarea name="fields<?php echo $column_name_appendix; ?>"
                     rows="<?php echo $cfg['TextareaRows']; ?>"
                     cols="<?php echo $cfg['TextareaCols']; ?>"
                     dir="<?php echo $text_dir; ?>"
@@ -631,12 +628,12 @@ foreach ($rows as $row_id => $vrow) {
 
             } else {
                 // field size should be at least 4 and max $cfg['LimitChars']
-                $fieldsize = min(max($field['len'], 4), $cfg['LimitChars']);
+                $columnsize = min(max($column['len'], 4), $cfg['LimitChars']);
                 echo "\n";
                 echo $backup_field . "\n";
                 ?>
-                <input type="text" name="fields<?php echo $field_name_appendix; ?>"
-                    value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>"
+                <input type="text" name="fields<?php echo $column_name_appendix; ?>"
+                    value="<?php echo $special_chars; ?>" size="<?php echo $columnsize; ?>"
                     class="textfield" <?php echo $unnullify_trigger; ?>
                     tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
                     id="field_<?php echo ($idindex); ?>_3" />
@@ -647,9 +644,9 @@ foreach ($rows as $row_id => $vrow) {
             // attribute does not imply binary contents)
             // (displayed whatever value the ProtectBinary has)
 
-            if ($is_upload && $field['is_blob']) {
+            if ($is_upload && $column['is_blob']) {
                 echo '<br />';
-                echo '<input type="file" name="fields_upload' . $vkey . '[' . $field['Field_md5'] . ']" class="textfield" id="field_' . $idindex . '_3" size="10" ' . $unnullify_trigger . '/>&nbsp;';
+                echo '<input type="file" name="fields_upload' . $vkey . '[' . $column['Field_md5'] . ']" class="textfield" id="field_' . $idindex . '_3" size="10" ' . $unnullify_trigger . '/>&nbsp;';
 
                 // find maximum upload size, based on field type
                 /**
@@ -663,8 +660,8 @@ foreach ($rows as $row_id => $vrow) {
                     'longblob'   => '4294967296'); // yeah, really
 
                 $this_field_max_size = $max_upload_size; // from PHP max
-                if ($this_field_max_size > $max_field_sizes[$field['pma_type']]) {
-                    $this_field_max_size = $max_field_sizes[$field['pma_type']];
+                if ($this_field_max_size > $max_field_sizes[$column['pma_type']]) {
+                    $this_field_max_size = $max_field_sizes[$column['pma_type']];
                 }
                 echo PMA_displayMaximumUploadSize($this_field_max_size) . "\n";
                 // do not generate here the MAX_FILE_SIZE, because we should
@@ -682,18 +679,18 @@ foreach ($rows as $row_id => $vrow) {
                 } elseif (!empty($files)) {
                     echo "<br />\n";
                     echo '    <i>' . __('Or') . '</i>' . ' ' . __('web server upload directory') . ':<br />' . "\n";
-                    echo '        <select size="1" name="fields_uploadlocal' . $vkey . '[' . $field['Field_md5'] . ']">' . "\n";
+                    echo '        <select size="1" name="fields_uploadlocal' . $vkey . '[' . $column['Field_md5'] . ']">' . "\n";
                     echo '            <option value="" selected="selected"></option>' . "\n";
                     echo $files;
                     echo '        </select>' . "\n";
                 }
             } // end if (web-server upload directory)
         // end elseif (binary or blob)
-        } elseif (! in_array($field['pma_type'], $no_support_types)) {
+        } elseif (! in_array($column['pma_type'], $no_support_types)) {
             // ignore this column to avoid changing it
-            if ($field['is_char']) {
-                $fieldsize = $extracted_columnspec['spec_in_brackets'];
-                if ($fieldsize > $cfg['MaxSizeForInputField']) {
+            if ($column['is_char']) {
+                $columnsize = $extracted_columnspec['spec_in_brackets'];
+                if ($columnsize > $cfg['MaxSizeForInputField']) {
                     /**
                      * This case happens for CHAR or VARCHAR columns which have
                      * a size larger than the maximum size for input field.
@@ -703,21 +700,21 @@ foreach ($rows as $row_id => $vrow) {
             } else {
                 /**
                  * This case happens for example for INT or DATE columns;
-                 * in these situations, the value returned in $field['len']
+                 * in these situations, the value returned in $column['len']
                  * seems appropriate.
                  */
-                $fieldsize = $field['len'];
+                $columnsize = $column['len'];
             }
-            $fieldsize = min(max($fieldsize, $cfg['MinSizeForInputField']), $cfg['MaxSizeForInputField']);
+            $columnsize = min(max($columnsize, $cfg['MinSizeForInputField']), $cfg['MaxSizeForInputField']);
             echo $backup_field . "\n";
-            if ($field['is_char']
+            if ($column['is_char']
                 && ($cfg['CharEditing'] == 'textarea'
                 || strpos($data, "\n") !== false)
             ) {
                 echo "\n";
                 $cfg['CharEditing'] = $default_char_editing;
                 ?>
-                <textarea class="char" name="fields<?php echo $field_name_appendix; ?>"
+                <textarea class="char" name="fields<?php echo $column_name_appendix; ?>"
                     rows="<?php echo $cfg['CharTextareaRows']; ?>"
                     cols="<?php echo $cfg['CharTextareaCols']; ?>"
                     dir="<?php echo $text_dir; ?>"
@@ -728,43 +725,43 @@ foreach ($rows as $row_id => $vrow) {
                 <?php
             } else {
                 $the_class = 'textfield';
-                if ($field['pma_type'] == 'date') {
+                if ($column['pma_type'] == 'date') {
                     $the_class .= ' datefield';
-                } elseif ($field['pma_type'] == 'datetime'
-                    || substr($field['pma_type'], 0, 9) == 'timestamp'
+                } elseif ($column['pma_type'] == 'datetime'
+                    || substr($column['pma_type'], 0, 9) == 'timestamp'
                 ) {
                     $the_class .= ' datetimefield';
                 }
                 ?>
-                <input type="text" name="fields<?php echo $field_name_appendix; ?>"
-                    value="<?php echo $special_chars; ?>" size="<?php echo $fieldsize; ?>"
+                <input type="text" name="fields<?php echo $column_name_appendix; ?>"
+                    value="<?php echo $special_chars; ?>" size="<?php echo $columnsize; ?>"
                     class="<?php echo $the_class; ?>" <?php echo $unnullify_trigger; ?>
                     tabindex="<?php echo ($tabindex + $tabindex_for_value); ?>"
                     id="field_<?php echo ($idindex); ?>_3" />
                 <?php
-                if ($field['Extra'] == 'auto_increment') {
+                if ($column['Extra'] == 'auto_increment') {
                     ?>
-                    <input type="hidden" name="auto_increment<?php echo $field_name_appendix; ?>" value="1" />
+                    <input type="hidden" name="auto_increment<?php echo $column_name_appendix; ?>" value="1" />
                     <?php
                 } // end if
-                if (substr($field['pma_type'], 0, 9) == 'timestamp') {
+                if (substr($column['pma_type'], 0, 9) == 'timestamp') {
                     ?>
-                    <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>" value="timestamp" />
+                    <input type="hidden" name="fields_type<?php echo $column_name_appendix; ?>" value="timestamp" />
                     <?php
                 }
-                if (substr($field['pma_type'], 0, 8) == 'datetime') {
+                if (substr($column['pma_type'], 0, 8) == 'datetime') {
                     ?>
-                    <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>" value="datetime" />
+                    <input type="hidden" name="fields_type<?php echo $column_name_appendix; ?>" value="datetime" />
                     <?php
                 }
-                if ($field['True_Type'] == 'bit') {
+                if ($column['True_Type'] == 'bit') {
                     ?>
-                    <input type="hidden" name="fields_type<?php echo $field_name_appendix; ?>" value="bit" />
+                    <input type="hidden" name="fields_type<?php echo $column_name_appendix; ?>" value="bit" />
                     <?php
                 }
-                if ($field['pma_type'] == 'date'
-                    || $field['pma_type'] == 'datetime'
-                    || substr($field['pma_type'], 0, 9) == 'timestamp'
+                if ($column['pma_type'] == 'date'
+                    || $column['pma_type'] == 'datetime'
+                    || substr($column['pma_type'], 0, 9) == 'timestamp'
                 ) {
                     // the _3 suffix points to the date field
                     // the _2 suffix points to the corresponding NULL checkbox
@@ -772,14 +769,14 @@ foreach ($rows as $row_id => $vrow) {
                 }
             }
         }
-        if (in_array($field['pma_type'], $gis_data_types)) {
-            $data_val = isset($vrow[$field['Field']]) ? $vrow[$field['Field']] : '';
+        if (in_array($column['pma_type'], $gis_data_types)) {
+            $data_val = isset($vrow[$column['Field']]) ? $vrow[$column['Field']] : '';
             $_url_params = array(
-                'field' => $field['Field_title'],
+                'field' => $column['Field_title'],
                 'value' => $data_val,
              );
-            if ($field['pma_type'] != 'geometry') {
-                $_url_params = $_url_params + array('gis_data[gis_type]' => strtoupper($field['pma_type']));
+            if ($column['pma_type'] != 'geometry') {
+                $_url_params = $_url_params + array('gis_data[gis_type]' => strtoupper($column['pma_type']));
             }
             $edit_str = PMA_getIcon('b_edit.png', __('Edit/Insert'));
             echo '<span class="open_gis_editor">';
