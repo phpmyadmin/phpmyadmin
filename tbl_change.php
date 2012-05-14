@@ -286,8 +286,8 @@ foreach ($rows as $row_id => $vrow) {
         }
         //Call validation when the form submited...
         $unnullify_trigger = $chg_evt_handler . "=\"return verificationsAfterFieldChange('"
-                . PMA_escapeJsString($column['Field_md5']) . "', '"
-                . PMA_escapeJsString($jsvkey) . "','" . $column['pma_type'] . "')\"";
+            . PMA_escapeJsString($column['Field_md5']) . "', '"
+            . PMA_escapeJsString($jsvkey) . "','" . $column['pma_type'] . "')\"";
 
         // Use an MD5 as an array index to avoid having special characters in the name atttibute (see bug #1746964 )
         $column_name_appendix = $vkey . '[' . $column['Field_md5'] . ']';
@@ -302,14 +302,14 @@ foreach ($rows as $row_id => $vrow) {
             $vrow[$column['Field']] = date('Y-m-d H:i:s', time());
         }
         $html_output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">'
-                . '<td' . ($cfg['LongtextDoubleTextarea'] && strstr($column['True_Type'], 'longtext') ? 'rowspan="2"' : '') . 'class="center">'
-                . $column['Field_title']
-                . '<input type="hidden" name="fields_name' . $column_name_appendix . '" value="' . $column['Field_html'] . '"/>'
-                . '</td>';
+            . '<td' . ($cfg['LongtextDoubleTextarea'] && strstr($column['True_Type'], 'longtext') ? 'rowspan="2"' : '') . 'class="center">'
+            . $column['Field_title']
+            . '<input type="hidden" name="fields_name' . $column_name_appendix . '" value="' . $column['Field_html'] . '"/>'
+            . '</td>';
         if ($cfg['ShowFieldTypesInDataEditView']) {
             $html_output .= '<td class="center' . $column['wrap'] . '">'
-                    . '<span class="column_type">' . $column['pma_type'] . '</span>'
-                    . '</td>';
+                . '<span class="column_type">' . $column['pma_type'] . '</span>'
+                . '</td>';
         } //End if
         // Get a list of GIS data types.
         $gis_data_types = PMA_getGISDatatypes();
@@ -361,8 +361,8 @@ foreach ($rows as $row_id => $vrow) {
             // however, things have changed since MySQL 4.1, so
             // it's better to set a fields_prev in this situation
             $backup_field = '<input type="hidden" name="fields_prev'
-                    . $column_name_appendix . '" value="'
-                    . htmlspecialchars($vrow[$column['Field']]) . '" />';
+                . $column_name_appendix . '" value="'
+                . htmlspecialchars($vrow[$column['Field']]) . '" />';
         } else {
             // (we are inserting)
             // display default values
@@ -383,9 +383,9 @@ foreach ($rows as $row_id => $vrow) {
             $special_chars_encoded = PMA_duplicateFirstNewline($special_chars);
             // this will select the UNHEX function while inserting
             if (($column['is_binary'] || ($column['is_blob'] && !$cfg['ProtectBinary']))
-                    && (isset($_SESSION['tmp_user_values']['display_binary_as_hex'])
-                    && $_SESSION['tmp_user_values']['display_binary_as_hex'])
-                    && $cfg['ShowFunctionFields']
+                && (isset($_SESSION['tmp_user_values']['display_binary_as_hex'])
+                && $_SESSION['tmp_user_values']['display_binary_as_hex'])
+                && $cfg['ShowFunctionFields']
             ) {
                 $column['display_binary_as_hex'] = true;
             }
