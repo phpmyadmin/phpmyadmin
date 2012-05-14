@@ -145,6 +145,21 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
                 'MOZILLA',
                 '5.0',
             ),
+            /**
+             * @todo Is this version really expected?
+             */
+            array(
+                'Mozilla/5.0 (X11; Linux x86_64; rv:12.0) Gecko/20100101 Firefox/12.0',
+                'Linux',
+                'MOZILLA',
+                '5.0',
+            ),
+            array(
+                'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.4+ (KHTML, like Gecko) Version/5.0 Safari/535.4+ SUSE/12.1 (3.2.1) Epiphany/3.2.1',
+                'Linux',
+                'SAFARI',
+                '5.0.535',
+            ),
         );
 
     }
