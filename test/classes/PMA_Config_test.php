@@ -609,14 +609,37 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
     /**
      * Tests loading of config file
+     *
+     * @param string  $source File name of config to load
+     * @param boolean $result Expected result of loading
+     *
+     * @dataProvider configPaths
      */
-    public function testLoad()
+    public function testLoad($source, $result)
     {
-        $this->assertFalse($this->object->load());
+        if ($result) {
+            $this->assertTrue($this->object->load($source));
+        } else {
+            $this->assertFalse($this->object->load($source));
+        }
+    }
 
-        $this->assertTrue($this->object->load('./test/test_data/config.inc.php'));
-
-        $this->assertTrue($this->object->load('./libraries/config.default.php'));
+    public function configPaths()
+    {
+        return array(
+            array(
+                './test/test_data/config.inc.php',
+                true,
+            ),
+            array(
+                './test/test_data/config-nonexisting.inc.php',
+                false,
+            ),
+            array(
+                './libraries/config.default.php',
+                true,
+            ),
+        );
     }
 
     /**
