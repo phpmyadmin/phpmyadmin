@@ -449,7 +449,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     *
+     * Test for checking cookie path
      *
      * @depends testDetectHttps
      */
@@ -461,7 +461,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     *
+     * Test for backward compatibility globals
      *
      * @depends testCheckSystem
      * @depends testCheckWebServer
@@ -498,70 +498,6 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      * @todo Implement testSave().
      */
     public function testSave()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
-
-    /**
-     *
-     *
-     * @todo Implement testGetFontsizeForm().
-     */
-    public function testGetFontsizeForm()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
-
-    /**
-     *
-     *
-     * @todo Implement testRemoveCookie().
-     */
-    public function testRemoveCookie()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
-    /**
-     *
-     *
-     * @todo Implement testCheckFontsize().
-     */
-    public function testCheckFontsize()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
-
-    /**
-     *
-     *
-     * @todo Implement testCheckUpload().
-     */
-    public function testCheckUpload()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
-
-    /**
-     *
-     *
-     * @todo Implement testCheckUploadSize().
-     */
-    public function testCheckUploadSize()
     {
         // Remove the following lines when you implement this test.
         $this->markTestIncomplete(
@@ -651,7 +587,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     *
+     * Should test getting unique value for theme
      *
      * @todo Implement testGetThemeUniqueValue().
      */
@@ -664,7 +600,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     *
+     * Should test checking of config permissions
      *
      * @todo Implement testCheckPermissions().
      */
