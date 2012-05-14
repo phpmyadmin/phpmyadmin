@@ -226,17 +226,34 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         }
     }
 
-    public function testCheckWebServer()
+    /**
+     * Web server detection test
+     *
+     * @param string  $server Server indentification
+     * @param boolean $iis    Whether server should be detected as IIS
+     *
+     * @dataProvider serverNames
+     */
+    public function testCheckWebServer($server, $iis)
     {
-        $_SERVER['SERVER_SOFTWARE'] = "Microsoft-IIS 7.0";
+        $_SERVER['SERVER_SOFTWARE'] = $server;
         $this->object->checkWebServer();
-        $this->assertEquals(1, $this->object->get('PMA_IS_IIS'));
-
-        $_SERVER['SERVER_SOFTWARE'] = "Apache/2.2.17";
-        $this->object->checkWebServer();
-        $this->assertEquals(0, $this->object->get('PMA_IS_IIS'));
-
+        $this->assertEquals($iis, $this->object->get('PMA_IS_IIS'));
         unset($_SERVER['SERVER_SOFTWARE']);
+    }
+
+    public function serverNames()
+    {
+        return array(
+            array(
+                "Microsoft-IIS 7.0",
+                1,
+            ),
+            array(
+                "Apache/2.2.17",
+                0,
+            ),
+        );
     }
 
     public function testCheckWebServerOs()
