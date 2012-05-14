@@ -625,8 +625,6 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     public function testLoadUserPreferences()
     {
         $this->assertNull($this->object->loadUserPreferences());
-
-//        echo $GLOBALS['cfg']['ServerDefault'];
     }
 
     /**
