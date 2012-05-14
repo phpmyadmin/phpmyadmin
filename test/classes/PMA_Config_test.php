@@ -33,6 +33,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->object = new PMA_Config;
+        $GLOBALS['server'] = 0;
     }
 
     /**
@@ -538,7 +539,6 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      * @depends testCheckSystem
      * @depends testCheckWebServer
      * @depends testLoadDefaults
-     * @depends testLoad
      *
      * @group large
      */
@@ -613,6 +613,8 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     public function testLoad()
     {
         $this->assertFalse($this->object->load());
+
+        $this->assertTrue($this->object->load('./test/test_data/config.inc.php'));
 
         $this->assertTrue($this->object->load('./libraries/config.default.php'));
     }
