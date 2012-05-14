@@ -495,19 +495,6 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     /**
      *
      *
-     * @todo Implement testSave().
-     */
-    public function testSave()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
-
-    /**
-     *
-     *
      * @todo Implement testCheckIsHttps().
      */
     public function testCheckIsHttps()

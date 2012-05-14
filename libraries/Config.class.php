@@ -1436,17 +1436,6 @@ class PMA_Config
     }
 
     /**
-     * Saves config file.
-     *
-     * @todo finish
-     *
-     * @return void
-     */
-    function save()
-    {
-    }
-
-    /**
      * returns options for font size selection
      *
      * @param string $current_size current selected font size with unit
