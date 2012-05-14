@@ -13,15 +13,19 @@ if (!defined('PMA_MINIMUM_COMMON') && !defined('TESTSUITE')) {
 }
 ?>
 /******************************************************************************/
+
 /* general tags */
 html {
     font-size: <?php echo (null !== $GLOBALS['PMA_Config']->get('fontsize') ? $GLOBALS['PMA_Config']->get('fontsize') : (
         isset($_COOKIE['pma_fontsize']) ? $_COOKIE['pma_fontsize'] : '82%'));?>;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
     font-size: 1em;
 }
+
 
 body {
 <?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
@@ -2265,8 +2269,8 @@ fieldset .disabled-field td {
 .CodeMirror {
   font-size: 140%;
   font-family: monospace;
-  background: white;
-  border: 1px solid black;
+  background: #fff;
+  border: 1px solid #000;
 }
 
 .CodeMirror-scroll {
@@ -2327,6 +2331,7 @@ fieldset .disabled-field td {
   visibility: hidden;
   border-left: 1px solid black !important;
 }
+
 .CodeMirror-focused .CodeMirror-cursor {
   visibility: visible;
 }
@@ -2335,12 +2340,18 @@ span.CodeMirror-selected {
   background: #ccc !important;
   color: HighlightText !important;
 }
+
 .CodeMirror-focused span.CodeMirror-selected {
   background: Highlight !important;
 }
 
-.CodeMirror-matchingbracket {color: #0f0 !important;}
-.CodeMirror-nonmatchingbracket {color: #f22 !important;}
+.CodeMirror-matchingbracket {
+    color: #0f0 !important;
+}
+
+.CodeMirror-nonmatchingbracket {
+    color: #f22 !important;
+}
 
 <?php echo $_SESSION['PMA_Theme']->getCssCodeMirror(); ?>
 
