@@ -11,9 +11,9 @@ if (! defined('PHPMYADMIN')) {
 
 /**
  * @todo add caching
- * @since phpMyAdmin 2.9.10
  * @abstract
  * @package PhpMyAdmin
+ * @since   phpMyAdmin 2.9.10
  */
 abstract class PMA_List extends ArrayObject
 {

@@ -239,7 +239,7 @@ class PMA_File
     }
 
     /**
-     *
+     * Loads uploaded file from table change request.
      *
      * @param string $key       the md5 hash of the column name
      * @param string $rownumber
@@ -252,7 +252,11 @@ class PMA_File
         if (! isset($_FILES['fields_upload'])  || empty($_FILES['fields_upload']['name']['multi_edit'][$rownumber][$key])) {
             return false;
         }
-        $file = PMA_File::fetchUploadedFromTblChangeRequestMultiple($_FILES['fields_upload'], $rownumber, $key);
+        $file = PMA_File::fetchUploadedFromTblChangeRequestMultiple(
+            $_FILES['fields_upload'],
+            $rownumber,
+            $key
+        );
 
         // check for file upload errors
         switch ($file['error']) {
@@ -344,13 +348,17 @@ class PMA_File
             && is_string($_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key])
         ) {
             // ... whether with multiple rows ...
-            return $this->setLocalSelectedFile($_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key]);
+            return $this->setLocalSelectedFile(
+                $_REQUEST['fields_uploadlocal']['multi_edit'][$rownumber][$key]
+            );
         } else {
             return false;
         }
     }
 
     /**
+     * Returns possible error message.
+     *
      * @access  public
      * @return string  error message
      */
@@ -360,6 +368,8 @@ class PMA_File
     }
 
     /**
+     * Checks whether there was any error.
+     *
      * @access  public
      * @return boolean whether an error occured or not
      */
@@ -395,6 +405,7 @@ class PMA_File
     }
 
     /**
+     * Sets named file to be read from UploadDir.
      *
      * @param string $name
      *
@@ -407,7 +418,9 @@ class PMA_File
             return false;
         }
 
-        $this->setName(PMA_userDir($GLOBALS['cfg']['UploadDir']) . PMA_securePath($name));
+        $this->setName(
+            PMA_userDir($GLOBALS['cfg']['UploadDir']) . PMA_securePath($name)
+        );
         if (! $this->isReadable()) {
             $this->_error_message = __('File could not be read');
             $this->setName(null);
@@ -418,6 +431,8 @@ class PMA_File
     }
 
     /**
+     * Checks whether file can be read.
+     *
      * @access  public
      * @return boolean whether the file is readable or not
      */
@@ -452,12 +467,18 @@ class PMA_File
             return false;
         }
 
-        $new_file_to_upload = tempnam(realpath($GLOBALS['cfg']['TempDir']), basename($this->getName()));
+        $new_file_to_upload = tempnam(
+            realpath($GLOBALS['cfg']['TempDir']),
+            basename($this->getName())
+        );
 
         // suppress warnings from being displayed, but not from being logged
         // any file access outside of open_basedir will issue a warning
         ob_start();
-        $move_uploaded_file_result = move_uploaded_file($this->getName(), $new_file_to_upload);
+        $move_uploaded_file_result = move_uploaded_file(
+            $this->getName(),
+            $new_file_to_upload
+        );
         ob_end_clean();
         if (! $move_uploaded_file_result) {
             $this->_error_message = __('Error while moving uploaded file.');
@@ -559,6 +580,8 @@ class PMA_File
     }
 
     /**
+     * Attempts to open the file.
+     *
      * @return bool
      */
     function open()
@@ -625,6 +648,8 @@ class PMA_File
     }
 
     /**
+     * Returns compression used by file.
+     *
      * @return string MIME type of compression, none for none
      * @access  public
      */

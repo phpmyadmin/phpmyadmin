@@ -12,6 +12,8 @@ if (!defined('PHPMYADMIN')) {
 
 /**
  * Initializes message list
+ *
+ * @return void
  */
 function messages_begin()
 {
@@ -31,10 +33,12 @@ function messages_begin()
 /**
  * Adds a new message to message list
  *
- * @param string $type one of: notice, error
- * @param string $id unique message identifier
- * @param string $title language string id (in $str array)
+ * @param string $type    one of: notice, error
+ * @param string $id      unique message identifier
+ * @param string $title   language string id (in $str array)
  * @param string $message message text
+ *
+ * @return void
  */
 function messages_set($type, $id, $title, $message)
 {
@@ -48,6 +52,8 @@ function messages_set($type, $id, $title, $message)
 
 /**
  * Cleans up message list
+ *
+ * @return void
  */
 function messages_end()
 {
@@ -66,13 +72,17 @@ function messages_end()
 
 /**
  * Prints message list, must be called after messages_end()
+ *
+ * @return void
  */
 function messages_show_html()
 {
     $old_ids = array();
     foreach ($_SESSION['messages'] as $type => $messages) {
         foreach ($messages as $id => $msg) {
-            echo '<div class="' . $type . '" id="' . $id . '">' . '<h4>' . $msg['title'] . '</h4>' . $msg['message'] . '</div>';
+            echo '<div class="' . $type . '" id="' . $id . '">'
+                . '<h4>' . $msg['title'] . '</h4>'
+                . $msg['message'] . '</div>';
             if (!$msg['fresh'] && $type != 'error') {
                 $old_ids[] = $id;
             }
@@ -88,6 +98,8 @@ function messages_show_html()
 
 /**
  * Checks for newest phpMyAdmin version and sets result as a new notice
+ *
+ * @return void
  */
 function PMA_version_check()
 {
@@ -197,9 +209,9 @@ function PMA_version_check()
 /**
  * Calculates numerical equivalent of phpMyAdmin version string
  *
- * @param string  $version
+ * @param string $version version
  *
- * @return mixed  false on failure, integer on success
+ * @return mixed false on failure, integer on success
  */
 function version_to_int($version)
 {
@@ -209,30 +221,30 @@ function version_to_int($version)
     }
     if (!empty($matches[6])) {
         switch ($matches[6]) {
-            case 'pl':
-                $added = 60;
-                break;
-            case 'rc':
-                $added = 30;
-                break;
-            case 'beta':
-                $added = 20;
-                break;
-            case 'alpha':
-                $added = 10;
-                break;
-            case 'dev':
-                $added = 0;
-                break;
-            default:
-                messages_set(
-                    'notice',
-                    'version_match',
-                    __('Version check'),
-                    'Unknown version part: ' . htmlspecialchars($matches[6])
-                );
-                $added = 0;
-                break;
+        case 'pl':
+            $added = 60;
+            break;
+        case 'rc':
+            $added = 30;
+            break;
+        case 'beta':
+            $added = 20;
+            break;
+        case 'alpha':
+            $added = 10;
+            break;
+        case 'dev':
+            $added = 0;
+            break;
+        default:
+            messages_set(
+                'notice',
+                'version_match',
+                __('Version check'),
+                'Unknown version part: ' . htmlspecialchars($matches[6])
+            );
+            $added = 0;
+            break;
         }
     } else {
         $added = 50; // for final
@@ -338,7 +350,8 @@ function perform_config_checks()
         // warn about using 'mysql'
         //
         if ($cf->getValue("Servers/$i/extension") == 'mysql') {
-            $title = PMA_lang(PMA_lang_name('Servers/1/extension')) . " ($server_name)";
+            $title = PMA_lang(PMA_lang_name('Servers/1/extension'))
+                . " ($server_name)";
             messages_set(
                 'notice',
                 "Servers/$i/extension",
@@ -355,7 +368,8 @@ function perform_config_checks()
             && $cf->getValue("Servers/$i/user") != ''
             && $cf->getValue("Servers/$i/password") != ''
         ) {
-            $title = PMA_lang(PMA_lang_name('Servers/1/auth_type')) . " ($server_name)";
+            $title = PMA_lang(PMA_lang_name('Servers/1/auth_type'))
+                . " ($server_name)";
             messages_set(
                 'notice',
                 "Servers/$i/auth_type",
@@ -373,7 +387,8 @@ function perform_config_checks()
         if ($cf->getValue("Servers/$i/AllowRoot")
             && $cf->getValue("Servers/$i/AllowNoPassword")
         ) {
-            $title = PMA_lang(PMA_lang_name('Servers/1/AllowNoPassword')) . " ($server_name)";
+            $title = PMA_lang(PMA_lang_name('Servers/1/AllowNoPassword'))
+                . " ($server_name)";
             messages_set(
                 'notice',
                 "Servers/$i/AllowNoPassword",
@@ -450,8 +465,8 @@ function perform_config_checks()
 
     //
     // $cfg['LoginCookieValidity']
-    // value greater than session.gc_maxlifetime will cause random session invalidation after that time
-    //
+    // value greater than session.gc_maxlifetime will cause
+    // random session invalidation after that time
     if ($cf->getValue('LoginCookieValidity') > 1440
         || $cf->getValue('LoginCookieValidity') > ini_get('session.gc_maxlifetime')
     ) {
@@ -484,7 +499,9 @@ function perform_config_checks()
     // $cfg['LoginCookieStore']
     // LoginCookieValidity must be less or equal to LoginCookieStore
     //
-    if ($cf->getValue('LoginCookieStore') != 0 && $cf->getValue('LoginCookieValidity') > $cf->getValue('LoginCookieStore')) {
+    if ($cf->getValue('LoginCookieStore') != 0
+        && $cf->getValue('LoginCookieValidity') > $cf->getValue('LoginCookieStore')
+    ) {
         messages_set(
             'error',
             'LoginCookieValidity',

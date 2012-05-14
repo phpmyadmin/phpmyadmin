@@ -199,7 +199,7 @@ class PMA_User_Schema
                  '0' => __('Edit'),
                  '1' => __('Delete')
             );
-            PMA_display_html_radio('action_choose', $choices, '0', false);
+            PMA_displayHtmlRadio('action_choose', $choices, '0', false);
             unset($choices);
             ?>
             </fieldset>
@@ -690,7 +690,7 @@ class PMA_User_Schema
             $tables = PMA_DBI_get_tables_full($db);
             $foreignkey_tables = array();
             foreach ($tables as $table_name => $table_properties) {
-                if (PMA_foreignkey_supported($table_properties['ENGINE'])) {
+                if (PMA_isForeignKeySupported($table_properties['ENGINE'])) {
                     $foreignkey_tables[] = $table_name;
                 }
             }

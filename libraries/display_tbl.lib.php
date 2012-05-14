@@ -499,7 +499,7 @@ function PMA_displayTableNavigation($pos_next, $pos_prev, $sql_query,
                 'horizontalflipped' => __('horizontal (rotated headers)'),
                 'vertical'          => __('vertical')
             );
-            echo PMA_generate_html_dropdown(
+            echo PMA_generateHtmlDropdown(
                 'disp_direction', $choices,
                 $_SESSION['tmp_user_values']['disp_direction'],
                 $id_for_direction_dropdown
@@ -734,7 +734,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
         );
         echo PMA_generate_common_hidden_inputs($url_params);
         echo '<br />';
-        PMA_generate_slider_effect('displayoptions', __('Options'));
+        PMA_generateSliderEffect('displayoptions', __('Options'));
         echo '<fieldset>';
 
         echo '<div class="formelement">';
@@ -742,7 +742,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
             'P'   => __('Partial texts'),
             'F'   => __('Full texts')
         );
-        PMA_display_html_radio(
+        PMA_displayHtmlRadio(
             'display_text', $choices,
             $_SESSION['tmp_user_values']['display_text']
         );
@@ -784,7 +784,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
                 'K'   => __('Relational key'),
                 'D'   => __('Relational display column')
             );
-            PMA_display_html_radio(
+            PMA_displayHtmlRadio(
                 'relational_display', $choices,
                 $_SESSION['tmp_user_values']['relational_display']
             );
@@ -826,7 +826,7 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
                 'WKT'   => __('Well Known Text'),
                 'WKB'   => __('Well Known Binary')
             );
-            PMA_display_html_radio(
+            PMA_displayHtmlRadio(
                 'geometry_display', $choices,
                 $_SESSION['tmp_user_values']['geometry_display']
             );
@@ -1294,8 +1294,8 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
         && ($is_display['edit_lnk'] != 'nn' || $is_display['del_lnk'] != 'nn')
         && $is_display['text_btn'] == '1'
     ) {
-        $vertical_display['emptyafter'] =
-            ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn')
+        $vertical_display['emptyafter']
+            = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn')
             ? 4
             : 1;
         if ($direction == 'horizontal'
@@ -1322,8 +1322,8 @@ function PMA_displayTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
         && ($is_display['edit_lnk'] == 'nn' && $is_display['del_lnk'] == 'nn')
         && (! isset($GLOBALS['is_header_sent']) || ! $GLOBALS['is_header_sent'])
     ) {
-        $vertical_display['emptyafter'] =
-            ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn')
+        $vertical_display['emptyafter']
+            = ($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn')
             ? 4
             : 1;
         if ($direction == 'horizontal'
@@ -1967,12 +1967,12 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                             $where_comparison = ' = ' . $row[$i];
 
                             if ($_SESSION['tmp_user_values']['display_binary_as_hex']
-                                && PMA_contains_nonprintable_ascii($row[$i])
+                                && PMA_containsNonPrintableAscii($row[$i])
                             ) {
                                 $wkbval = PMA_substr(bin2hex($row[$i]), 8);
                             } else {
                                 $wkbval = htmlspecialchars(
-                                    PMA_replace_binary_contents($row[$i])
+                                    PMA_replaceBinaryContents($row[$i])
                                 );
                             }
 
@@ -2033,7 +2033,7 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                     $field_flags = PMA_DBI_field_flags($dt_result, $i);
                     $formatted = false;
                     if (isset($meta->_type) && $meta->_type === MYSQLI_TYPE_BIT) {
-                        $row[$i] = PMA_printable_bit_value(
+                        $row[$i] = PMA_printableBitValue(
                             $row[$i], $meta->length
                         );
                         // some results of PROCEDURE ANALYSE() are reported as
@@ -2047,12 +2047,12 @@ function PMA_displayTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                             // user asked to see the real contents of BINARY
                             // fields
                             if ($_SESSION['tmp_user_values']['display_binary_as_hex']
-                                && PMA_contains_nonprintable_ascii($row[$i])
+                                && PMA_containsNonPrintableAscii($row[$i])
                             ) {
                                 $row[$i] = bin2hex($row[$i]);
                             } else {
                                 $row[$i] = htmlspecialchars(
-                                    PMA_replace_binary_contents($row[$i])
+                                    PMA_replaceBinaryContents($row[$i])
                                 );
                             }
                         } else {
@@ -3266,7 +3266,7 @@ function PMA_handle_non_printable_contents($category, $content, $transform_funct
                 && $_SESSION['tmp_user_values']['display_blob']
             ) {
                 // in this case, restart from the original $content
-                $result = htmlspecialchars(PMA_replace_binary_contents($content));
+                $result = htmlspecialchars(PMA_replaceBinaryContents($content));
             }
             /* Create link to download */
             if (count($url_params) > 0) {

@@ -67,28 +67,28 @@ class PMA_Error extends PMA_Message
      *
      * @var string
      */
-    protected $_file = '';
+    protected $file = '';
 
     /**
      * The line in which the error occured
      *
      * @var integer
      */
-    protected $_line = 0;
+    protected $line = 0;
 
     /**
      * Holds the backtrace for this error
      *
      * @var array
      */
-    protected $_backtrace = array();
+    protected $backtrace = array();
 
     /**
      * Unique id
      *
      * @var string
      */
-    protected $_hash = null;
+    protected $hash = null;
 
     /**
      * Constructor
@@ -122,7 +122,7 @@ class PMA_Error extends PMA_Message
      */
     public function setBacktrace($backtrace)
     {
-        $this->_backtrace = $backtrace;
+        $this->backtrace = $backtrace;
     }
 
     /**
@@ -134,7 +134,7 @@ class PMA_Error extends PMA_Message
      */
     public function setLine($line)
     {
-        $this->_line = $line;
+        $this->line = $line;
     }
 
     /**
@@ -146,14 +146,14 @@ class PMA_Error extends PMA_Message
      */
     public function setFile($file)
     {
-        $this->_file = PMA_Error::relPath($file);
+        $this->file = PMA_Error::relPath($file);
     }
 
 
     /**
-     * returns unique PMA_Error::$_hash, if not exists it will be created
+     * returns unique PMA_Error::$hash, if not exists it will be created
      *
-     * @return string PMA_Error::$_hash
+     * @return string PMA_Error::$hash
      */
     public function getHash()
     {
@@ -162,8 +162,8 @@ class PMA_Error extends PMA_Message
         } catch(Exception $e){
             $backtrace = '';
         }
-        if (null === $this->_hash) {
-            $this->_hash = md5(
+        if ($this->hash === null) {
+            $this->hash = md5(
                 $this->getNumber() .
                 $this->getMessage() .
                 $this->getFile() .
@@ -172,7 +172,7 @@ class PMA_Error extends PMA_Message
             );
         }
 
-        return $this->_hash;
+        return $this->hash;
     }
 
     /**
@@ -182,27 +182,27 @@ class PMA_Error extends PMA_Message
      */
     public function getBacktrace()
     {
-        return $this->_backtrace;
+        return $this->backtrace;
     }
 
     /**
-     * returns PMA_Error::$_file
+     * returns PMA_Error::$file
      *
-     * @return string PMA_Error::$_file
+     * @return string PMA_Error::$file
      */
     public function getFile()
     {
-        return $this->_file;
+        return $this->file;
     }
 
     /**
-     * returns PMA_Error::$_line
+     * returns PMA_Error::$line
      *
-     * @return integer PMA_Error::$_line
+     * @return integer PMA_Error::$line
      */
     public function getLine()
     {
-        return $this->_line;
+        return $this->line;
     }
 
     /**
@@ -246,45 +246,52 @@ class PMA_Error extends PMA_Message
     }
 
     /**
-     * Display HTML backtrace
+     * Get HTML backtrace
      *
      * @return void
      */
-    public function displayBacktrace()
+    public function getBacktraceDisplay()
     {
+        $retval = '';
+
         foreach ($this->getBacktrace() as $step) {
-            echo PMA_Error::relPath($step['file']) . '#' . $step['line'] . ': ';
+            $retval .= PMA_Error::relPath($step['file']) . '#' . $step['line'] . ': ';
             if (isset($step['class'])) {
-                echo $step['class'] . $step['type'];
+                $retval .= $step['class'] . $step['type'];
             }
-            echo $step['function'] . '(';
+            $retval .= $step['function'] . '(';
             if (isset($step['args']) && (count($step['args']) > 1)) {
-                echo "<br />\n";
+                $retval .= "<br />\n";
                 foreach ($step['args'] as $arg) {
-                    echo "\t";
-                    $this->displayArg($arg, $step['function']);
-                    echo ',' . "<br />\n";
+                    $retval .= "\t";
+                    $retval .= $this->getArg($arg, $step['function']);
+                    $retval .= ',' . "<br />\n";
                 }
             } elseif (isset($step['args']) && (count($step['args']) > 0)) {
                 foreach ($step['args'] as $arg) {
-                    $this->displayArg($arg, $step['function']);
+                    $retval .= $this->getArg($arg, $step['function']);
                 }
             }
-            echo ')' . "<br />\n";
+            $retval .= ')' . "<br />\n";
         }
+
+        return $retval;
     }
 
     /**
-     * Display a single function argument
-     * if $function is one of include/require the $arg is converted te relative path
+     * Get a single function argument
+     *
+     * if $function is one of include/require
+     * the $arg is converted to a relative path
      *
      * @param string $arg
      * @param string $function
      *
-     * @return void
+     * @return string
      */
-    protected function displayArg($arg, $function)
+    protected function getArg($arg, $function)
     {
+        $retval = '';
         $include_functions = array(
             'include',
             'include_once',
@@ -293,37 +300,40 @@ class PMA_Error extends PMA_Message
         );
 
         if (in_array($function, $include_functions)) {
-            echo PMA_Error::relPath($arg);
+            $retval .= PMA_Error::relPath($arg);
         } elseif (is_scalar($arg)) {
-            echo gettype($arg) . ' ' . htmlspecialchars($arg);
+            $retval .= getType($arg) . ' ' . htmlspecialchars($arg);
         } else {
-            echo gettype($arg);
+            $retval .= getType($arg);
         }
+
+        return $retval;
     }
 
     /**
-     * Displays the error in HTML
+     * Gets the error as string of HTML
      *
-     * @return void
+     * @return string
      */
-    public function display()
+    public function getDisplay()
     {
-        echo '<div class="' . $this->getLevel() . '">';
+        $retval = '<div class="' . $this->getLevel() . '">';
         if (! $this->isUserError()) {
-            echo '<strong>' . $this->getType() . '</strong>';
-            echo ' in ' . $this->getFile() . '#' . $this->getLine();
-            echo "<br />\n";
+            $retval .= '<strong>' . $this->getType() . '</strong>';
+            $retval .= ' in ' . $this->getFile() . '#' . $this->getLine();
+            $retval .= "<br />\n";
         }
-        echo $this->getMessage();
+        $retval .= $this->getMessage();
         if (! $this->isUserError()) {
-            echo "<br />\n";
-            echo "<br />\n";
-            echo "<strong>Backtrace</strong><br />\n";
-            echo "<br />\n";
-            echo $this->displayBacktrace();
+            $retval .= "<br />\n";
+            $retval .= "<br />\n";
+            $retval .= "<strong>Backtrace</strong><br />\n";
+            $retval .= "<br />\n";
+            $retval .= $this->getBacktraceDisplay();
         }
-        echo '</div>';
-        $this->isDisplayed(true);
+        $retval .= '</div>';
+
+        return $retval;
     }
 
     /**
@@ -357,7 +367,10 @@ class PMA_Error extends PMA_Message
             $path_separator = '/';
         }
 
-        $Ahere = explode($path_separator, realpath(dirname(__FILE__) . $path_separator . '..'));
+        $Ahere = explode(
+            $path_separator,
+            realpath(dirname(__FILE__) . $path_separator . '..')
+        );
         $Adest = explode($path_separator, $dest);
 
         $result = '.';
@@ -371,7 +384,11 @@ class PMA_Error extends PMA_Message
             }
         }
         $path = $result . str_replace(implode($path_separator, $Adest), '', $dest);
-        return str_replace($path_separator . $path_separator, $path_separator, $path);
+        return str_replace(
+            $path_separator . $path_separator,
+            $path_separator,
+            $path
+        );
     }
 }
 ?>

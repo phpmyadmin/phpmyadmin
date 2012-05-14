@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_display_html_radio from common.lib.php
+ * Test for PMA_displayHtmlRadio from common.lib.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -12,7 +12,7 @@
  */
 require_once 'libraries/common.lib.php';
 
-class PMA_display_html_radio_test extends PHPUnit_Framework_TestCase
+class PMA_DisplayHtmlRadioTest extends PHPUnit_Framework_TestCase
 {
     function testDisplayHtmlRadioEmpty()
     {
@@ -20,7 +20,7 @@ class PMA_display_html_radio_test extends PHPUnit_Framework_TestCase
         $choices = array();
 
         $this->expectOutputString("");
-        PMA_display_html_radio($name, $choices);
+        PMA_displayHtmlRadio($name, $choices);
     }
 
     function testDisplayHtmlRadio()
@@ -39,7 +39,7 @@ class PMA_display_html_radio_test extends PHPUnit_Framework_TestCase
         }
 
         $this->expectOutputString($out);
-        PMA_display_html_radio($name, $choices);
+        PMA_displayHtmlRadio($name, $choices);
     }
 
     function testDisplayHtmlRadioWithChecked()
@@ -62,7 +62,7 @@ class PMA_display_html_radio_test extends PHPUnit_Framework_TestCase
         }
 
         $this->expectOutputString($out);
-        PMA_display_html_radio($name, $choices, $checked_choice);
+        PMA_displayHtmlRadio($name, $choices, $checked_choice);
     }
 
     function testDisplayHtmlRadioWithCheckedWithClass()
@@ -88,7 +88,7 @@ class PMA_display_html_radio_test extends PHPUnit_Framework_TestCase
         }
 
         $this->expectOutputString($out);
-        PMA_display_html_radio($name, $choices, $checked_choice, true, false, $class);
+        PMA_displayHtmlRadio($name, $choices, $checked_choice, true, false, $class);
     }
 
     function testDisplayHtmlRadioWithoutBR()
@@ -110,7 +110,7 @@ class PMA_display_html_radio_test extends PHPUnit_Framework_TestCase
         }
 
         $this->expectOutputString($out);
-        PMA_display_html_radio($name, $choices, $checked_choice, false);
+        PMA_displayHtmlRadio($name, $choices, $checked_choice, false);
     }
 
     function testDisplayHtmlRadioEscapeLabelEscapeLabel()
@@ -133,7 +133,7 @@ class PMA_display_html_radio_test extends PHPUnit_Framework_TestCase
         }
 
         $this->expectOutputString($out);
-        PMA_display_html_radio($name, $choices, $checked_choice, true, true);
+        PMA_displayHtmlRadio($name, $choices, $checked_choice, true, true);
     }
 
     function testDisplayHtmlRadioEscapeLabelNotEscapeLabel()
@@ -156,7 +156,7 @@ class PMA_display_html_radio_test extends PHPUnit_Framework_TestCase
         }
 
         $this->expectOutputString($out);
-        PMA_display_html_radio($name, $choices, $checked_choice, true, false);
+        PMA_displayHtmlRadio($name, $choices, $checked_choice, true, false);
     }
 
     function testDisplayHtmlRadioEscapeLabelEscapeLabelWithClass()
@@ -182,6 +182,6 @@ class PMA_display_html_radio_test extends PHPUnit_Framework_TestCase
         }
 
         $this->expectOutputString($out);
-        PMA_display_html_radio($name, $choices, $checked_choice, true, true, $class);
+        PMA_displayHtmlRadio($name, $choices, $checked_choice, true, true, $class);
     }
 }

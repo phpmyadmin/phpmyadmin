@@ -530,7 +530,7 @@ function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
 function PMA_getValueColumn($column, $backup_field, $column_name_appendix, $unnullify_trigger,
     $tabindex, $tabindex_for_value, $idindex, $data,$special_chars, $foreignData, $odd_row,
     $paramTableDbArray,$rownumber_param, $titles, $text_dir, $special_chars_encoded, $vkey,$is_upload,
-    $biggest_max_file_size, $default_char_editing, $no_support_types, $gis_data_types
+    $biggest_max_file_size, $default_char_editing, $no_support_types, $gis_data_types, $extracted_columnspec
 ) {
     $html_output = '';
     
@@ -550,12 +550,12 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix, $unnu
         $html_output .= '</tr>';
         $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">'
             . '<td colspan="5" class="right">';
-        $html_output .= PMA_getTextarea($backup_field, $column_name_appendix, $unnullify_trigger,
+        $html_output .= PMA_getTextarea($column,$backup_field, $column_name_appendix, $unnullify_trigger,
             $tabindex, $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded
             );
         
     } elseif (strstr($column['pma_type'], 'text')) {
-        $html_output .= PMA_getTextarea($backup_field, $column_name_appendix, $unnullify_trigger,
+        $html_output .= PMA_getTextarea($column,$backup_field, $column_name_appendix, $unnullify_trigger,
             $tabindex, $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded
             );
         $html_output .= "\n";
@@ -579,7 +579,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix, $unnu
     } elseif (! in_array($column['pma_type'], $no_support_types)) {
         $html_output .= PMA_getNoSupportTypes($column, $default_char_editing,$backup_field,
             $column_name_appendix, $unnullify_trigger,$tabindex,$special_chars,
-            $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded);
+            $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded, $data, $extracted_columnspec);
         
     } if (in_array($column['pma_type'], $gis_data_types)) {
         $html_output .= PMA_getHTMLforGisDataTypes($vrow, $column);
@@ -668,13 +668,26 @@ function PMA_dispRawForeignData($backup_field, $column_name_appendix,
  * @param array $special_chars_encoded
  * @return string 
  */
-function PMA_getTextarea($backup_field, $column_name_appendix, $unnullify_trigger,
-    $tabindex, $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded, $isChar = false
+function PMA_getTextarea($column, $backup_field, $column_name_appendix, $unnullify_trigger,
+    $tabindex, $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded
 ) {
+    $the_class = '';
+    $textAreaRows = $GLOBALS['cfg']['TextareaRows'];
+    $textareaCols = $GLOBALS['cfg']['TextareaCols'];
+    
+    if($column['is_char']) {
+        $the_class = 'char';
+        $textAreaRows = $GLOBALS['cfg']['CharTextareaRows'];
+        $textareaCols = $GLOBALS['cfg']['CharTextareaCols'];
+    } elseif(($GLOBALS['cfg']['LongtextDoubleTextarea'] && strstr($column['pma_type'], 'longtext'))) {
+        $textAreaRows = $GLOBALS['cfg']['TextareaRows']*2;
+        $textareaCols = $GLOBALS['cfg']['TextareaCols']*2;
+    }
     $html_output = $backup_field . "\n"
         . '<textarea name="fields' . $column_name_appendix . '"'
-        . 'rows="' . ($isChar ? ($GLOBALS['cfg']['CharTextareaRows']) : ($GLOBALS['cfg']['TextareaRows']*2)) . '"'
-        . 'cols="' . ($isChar ? ($GLOBALS['cfg']['CharTextareaCols']) : ($GLOBALS['cfg']['TextareaCols']*2)) . '"'
+        . 'class="' . $the_class . '"'
+        . 'rows="' . $textAreaRows . '"'
+        . 'cols="' . $textareaCols . '"'
         . 'dir="' . $text_dir . '"'
         . 'id="field_' . ($idindex) . '_3"'
         . $unnullify_trigger
@@ -915,21 +928,21 @@ function PMA_getBinaryAndBlobColumn($column, $data, $special_chars,$biggest_max_
         $html_output .= '<input type="hidden" name="fields_type' . $column_name_appendix . '" value="protected" />'
             . '<input type="hidden" name="fields' . $column_name_appendix . '" value="" />';
     } elseif ($column['is_blob']) {
-        $html_output .= "\n";
-        $html_output .= PMA_getTextarea($backup_field, $column_name_appendix, $unnullify_trigger,
+        $html_output .= "\n"
+            . PMA_getTextarea($column,$backup_field, $column_name_appendix, $unnullify_trigger,
             $tabindex, $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded);
     } else {
         // field size should be at least 4 and max $GLOBALS['cfg']['LimitChars']
         $columnsize = min(max($column['len'], 4), $GLOBALS['cfg']['LimitChars']);
-        $html_output .= "\n";
-        $html_output .= $backup_field . "\n";
-        $html_output .= PMA_getHTMLinput($column, $column_name_appendix, $special_chars, $columnsize,
+        $html_output .= "\n"
+            . $backup_field . "\n"
+            . PMA_getHTMLinput($column, $column_name_appendix, $special_chars, $columnsize,
             $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex);
     }
     
     if ($is_upload && $column['is_blob']) {
-        $html_output .= '<br />';
-        $html_output .= '<input type="file" name="fields_upload' . $vkey . '[' . $column['Field_md5'] 
+        $html_output .= '<br />'
+            . '<input type="file" name="fields_upload' . $vkey . '[' . $column['Field_md5'] 
             . ']" class="textfield" id="field_' . $idindex . '_3" size="10" ' . $unnullify_trigger . '/>&nbsp;';
         list($html_out, $biggest_max_file_size) = PMA_getMaxUploadSize($column,$biggest_max_file_size);
         $html_output .= $html_out;
@@ -1047,9 +1060,9 @@ function PMA_getMaxUploadSize($column, $biggest_max_file_size)
  */
 function PMA_getNoSupportTypes($column, $default_char_editing,$backup_field,
     $column_name_appendix, $unnullify_trigger,$tabindex,$special_chars,
-    $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded
+    $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded,$data, $extracted_columnspec
 ) {
-    $columnSize = PMA_getColumnSize($column);
+    $columnSize = PMA_getColumnSize($column, $extracted_columnspec);
     $html_output = $backup_field . "\n";
     if ($column['is_char']
         && ($GLOBALS['cfg']['CharEditing'] == 'textarea'
@@ -1057,8 +1070,8 @@ function PMA_getNoSupportTypes($column, $default_char_editing,$backup_field,
     ) {
         $html_output .= "\n";
         $GLOBALS['cfg']['CharEditing'] = $default_char_editing;
-        $html_output .= PMA_getTextarea($backup_field, $column_name_appendix, $unnullify_trigger,
-            $tabindex, $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded, true);
+        $html_output .= PMA_getTextarea($column, $backup_field, $column_name_appendix, $unnullify_trigger,
+            $tabindex, $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded);
     } else {
         $html_output .= PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
             $columnSize, $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex);
@@ -1097,7 +1110,7 @@ function PMA_getNoSupportTypes($column, $default_char_editing,$backup_field,
  * @param array $column
  * @return integer 
  */
-function PMA_getColumnSize($column)
+function PMA_getColumnSize($column, $extracted_columnspec)
 {
     if ($column['is_char']) {
         $columnSize = $extracted_columnspec['spec_in_brackets'];
@@ -1114,9 +1127,9 @@ function PMA_getColumnSize($column)
          * in these situations, the value returned in $column['len']
          * seems appropriate.
          */
-        $columnsize = $column['len'];
+        $columnSize = $column['len'];
     }
-    return min(max($columnsize, $GLOBALS['cfg']['MinSizeForInputField']), $GLOBALS['cfg']['MaxSizeForInputField']);
+    return min(max($columnSize, $GLOBALS['cfg']['MinSizeForInputField']), $GLOBALS['cfg']['MaxSizeForInputField']);
 }
 
 /**

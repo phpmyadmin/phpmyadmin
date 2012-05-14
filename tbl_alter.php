@@ -102,7 +102,6 @@ if (isset($_REQUEST['move_columns'])
                 : false,
             $we_dont_change_keys,
             $i,
-            $data['Default'],
             $i === 0
                 ? '-first'
                 : $column_names[$i - 1]
@@ -168,7 +167,6 @@ if (isset($_REQUEST['do_save_data'])) {
                 : '',
             $key_fields,
             $i,
-            $_REQUEST['field_default_orig'][$i],
             isset($_REQUEST['field_move_to'][$i])
                 ? $_REQUEST['field_move_to'][$i]
                 : ''

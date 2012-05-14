@@ -346,7 +346,7 @@ foreach ($fields as $row) {
     if (isset($row['Default'])) {
         if ($extracted_columnspec['type'] == 'bit') {
             // here, $row['Default'] contains something like b'010'
-            echo PMA_convert_bit_default_value($row['Default']);
+            echo PMA_convertBitDefaultValue($row['Default']);
         } else {
             echo $row['Default'];
         }
@@ -659,7 +659,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
 
     // if internal relations are available, or foreign keys are supported
     // ($tbl_storage_engine comes from libraries/tbl_info.inc.php)
-    if ($cfgRelation['relwork'] || PMA_foreignkey_supported($tbl_storage_engine)) {
+    if ($cfgRelation['relwork'] || PMA_isForeignKeySupported($tbl_storage_engine)) {
         ?>
 <a href="tbl_relation.php?<?php echo $url_query; ?>"><?php
         echo PMA_getIcon('b_relations.png', __('Relation view'), true);
@@ -710,7 +710,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
         'first' => __('At Beginning of Table'),
         'after' => sprintf(__('After %s'), '')
     );
-    PMA_display_html_radio('field_where', $choices, 'last', false);
+    PMA_displayHtmlRadio('field_where', $choices, 'last', false);
     echo $column_selector;
     unset($column_selector, $choices);
     ?>
@@ -730,7 +730,7 @@ if (! $tbl_is_view
     && ! $db_is_information_schema
     && 'ARCHIVE' !=  $tbl_storage_engine
 ) {
-    PMA_generate_slider_effect('indexes', __('Indexes'));
+    PMA_generateSliderEffect('indexes', __('Indexes'));
     /**
      * Display indexes
      */

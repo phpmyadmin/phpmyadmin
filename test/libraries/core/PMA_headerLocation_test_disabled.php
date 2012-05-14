@@ -196,7 +196,6 @@ class PMA_headerLocation_test extends PHPUnit_Framework_TestCase
         if ($this->runkitExt && $this->apdExt) {
 
             runkit_constant_redefine('PMA_IS_IIS', true);
-            runkit_constant_add('PMA_COMING_FROM_COOKIE_LOGIN', true);
 
             $testUri = 'http://testurl.com/test.php';
             $separator = PMA_get_arg_separator();
@@ -204,9 +203,6 @@ class PMA_headerLocation_test extends PHPUnit_Framework_TestCase
             $header = 'Refresh: 0; ' . $testUri;
 
             PMA_sendHeaderLocation($testUri);            // sets $GLOBALS['header']
-
-            // cleaning constant
-            runkit_constant_remove('PMA_COMING_FROM_COOKIE_LOGIN');
 
             $this->assertEquals($header, $GLOBALS['header']);
 

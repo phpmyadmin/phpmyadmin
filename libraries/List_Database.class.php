@@ -24,8 +24,9 @@ require_once './libraries/List.class.php';
  * @todo this object should be attached to the PMA_Server object
  * @todo ? make use of INFORMATION_SCHEMA
  * @todo ? support --skip-showdatabases and user has only global rights
- * @since phpMyAdmin 2.9.10
+ *
  * @package PhpMyAdmin
+ * @since   phpMyAdmin 2.9.10
  */
 class PMA_List_Database extends PMA_List
 {
@@ -204,7 +205,7 @@ class PMA_List_Database extends PMA_List
             // thus containing not escaped _ or %
             if (! preg_match('/(^|[^\\\\])(_|%)/', $each_only_db)) {
                 // ... not contains wildcard
-                $items[] = PMA_unescape_mysql_wildcards($each_only_db);
+                $items[] = PMA_unescapeMysqlWildcards($each_only_db);
                 continue;
             }
 

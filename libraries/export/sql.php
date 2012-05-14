@@ -1576,7 +1576,7 @@ if (isset($plugin_list)) {
                     } elseif ($fields_meta[$j]->type == 'bit') {
                         // detection of 'bit' works only on mysqli extension
                         $values[] = "b'" . PMA_sqlAddSlashes(
-                            PMA_printable_bit_value(
+                            PMA_printableBitValue(
                                 $row[$j], $fields_meta[$j]->length
                             )
                         )

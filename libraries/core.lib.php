@@ -506,11 +506,12 @@ function PMA_getenv($var_name)
 /**
  * Send HTTP header, taking IIS limits into account (600 seems ok)
  *
- * @param string $uri the header to send
+ * @param string $uri         the header to send
+ * @param bool   $use_refresh whether to use Refresh: header when running on IIS
  *
  * @return boolean  always true
  */
-function PMA_sendHeaderLocation($uri)
+function PMA_sendHeaderLocation($uri, $use_refresh = false)
 {
     if (PMA_IS_IIS && strlen($uri) > 600) {
         include_once './libraries/js_escape.lib.php';
@@ -557,7 +558,7 @@ function PMA_sendHeaderLocation($uri)
             // bug #1523784: IE6 does not like 'Refresh: 0', it
             // results in a blank page
             // but we need it when coming from the cookie login panel)
-            if (PMA_IS_IIS && defined('PMA_COMING_FROM_COOKIE_LOGIN')) {
+            if (PMA_IS_IIS && $use_refresh) {
                 header('Refresh: 0; ' . $uri);
             } else {
                 header('Location: ' . $uri);
@@ -743,9 +744,9 @@ function PMA_linkURL($url)
 /**
  * Returns HTML code to include javascript file.
  *
- * @param string $url Location of javascript, relative to js/ folder.
- * @param optional string $ie_conditional true - wrap with IE conditional comment
- *                                        'lt 9' etc. - wrap for specific IE version
+ * @param string $url            Location of javascript, relative to js/ folder.
+ * @param string $ie_conditional true - wrap with IE conditional comment
+ *                               'lt 9' etc. - wrap for specific IE version
  *
  * @return string HTML code for javascript inclusion.
  */

@@ -20,7 +20,7 @@ $tables = PMA_DBI_get_tables_full($db, $T2);
 $type_T2 = strtoupper($tables[$T2]['ENGINE']);
 
 // native foreign key
-if (PMA_foreignkey_supported($type_T1) && PMA_foreignkey_supported($type_T2) && $type_T1 == $type_T2) {
+if (PMA_isForeignKeySupported($type_T1) && PMA_isForeignKeySupported($type_T2) && $type_T1 == $type_T2) {
     // relation exists?
     $existrel_foreign = PMA_getForeigners($db, $T2, '', 'foreign');
     if (isset($existrel_foreign[$F2])

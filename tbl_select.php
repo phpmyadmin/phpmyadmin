@@ -89,7 +89,7 @@ $url_params = array();
 $url_params['db']    = $db;
 $url_params['table'] = $table;
 
-echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params, 'topmenu2');
+echo PMA_generateHtmlTabs(PMA_tbl_getSubTabs(), $url_params, 'topmenu2');
 
 ?>
 
@@ -173,7 +173,7 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params, 'topmenu2');
 <div id="gis_editor"></div><div id="popup_background"></div>
 </fieldset>
 <?php
-    PMA_generate_slider_effect('searchoptions', __('Options'));
+    PMA_generateSliderEffect('searchoptions', __('Options'));
 ?>
 <fieldset id="fieldset_select_fields">
     <legend><?php echo __('Select columns (at least one):'); ?></legend>
@@ -223,7 +223,7 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params, 'topmenu2');
         'ASC'  => __('Ascending'),
         'DESC' => __('Descending')
     );
-    PMA_display_html_radio('order', $choices, 'ASC', false, true, "formelement");
+    PMA_displayHtmlRadio('order', $choices, 'ASC', false, true, "formelement");
     unset($choices);
 ?>
 </fieldset>

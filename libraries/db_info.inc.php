@@ -113,7 +113,7 @@ $tables = array();
 // When used in Nested table group mode,
 // only show tables matching the given groupname
 if (PMA_isValid($tbl_group) && !$cfg['ShowTooltipAliasTB']) {
-    $tbl_group_sql = ' LIKE "' . PMA_escape_mysql_wildcards($tbl_group) . '%"';
+    $tbl_group_sql = ' LIKE "' . PMA_escapeMysqlWildcards($tbl_group) . '%"';
 } else {
     $tbl_group_sql = '';
 }
