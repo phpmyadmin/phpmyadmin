@@ -13,9 +13,7 @@ require_once 'libraries/common.inc.php';
 /**
  * Gets the variables sent or posted to this script, then displays headers
  */
-$print_view = true;
-define('PMA_DISPLAY_HEADING', 0);
-require_once 'libraries/header.inc.php';
+require_once 'libraries/header_printview.inc.php';
 
 PMA_checkParameters(array('db'));
 
