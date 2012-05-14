@@ -1,11 +1,14 @@
-.print_ignore {
+.nowrap {
+    white-space: nowrap;
+}
+
+.hide {
     display: none;
 }
 
 body, table, th, td {
-    color:             #000000;
-    background-color:  #ffffff;
-    font-size:         8pt;
+    color:             #000;
+    background-color:  #fff;
 }
 
 img {
@@ -13,9 +16,7 @@ img {
 }
 
 table, th, td {
-    border-width:      0.1em;
-    border-color:      #000000;
-    border-style:      solid;
+    border: .1em solid #000;
 }
 
 table {
@@ -32,15 +33,30 @@ th {
     background-color:  #e5e5e5;
 }
 
+th.vtop, td.vtop {
+    vertical-align: top;
+}
+
+th.vbottom, td.vbottom {
+    vertical-align: bottom;
+}
+
 @media print {
     .print_ignore {
         display: none;
     }
 
+    .nowrap {
+        white-space: nowrap;
+    }
+
+    .hide {
+        display: none;
+    }
+
     body, table, th, td {
-        color:             #000000;
-        background-color:  #ffffff;
-        font-size:         8pt;
+        color:             #000;
+        background-color:  #fff;
     }
 
     img {
@@ -48,9 +64,7 @@ th {
     }
 
     table, th, td {
-        border-width:      1px;
-        border-color:      #000000;
-        border-style:      solid;
+        border: .1em solid #000;
     }
 
     table {
@@ -66,4 +80,13 @@ th {
         font-weight:       bold;
         background-color:  #e5e5e5;
     }
+
+    th.vtop, td.vtop {
+        vertical-align: top;
+    }
+
+    th.vbottom, td.vbottom {
+        vertical-align: bottom;
+    }
 }
+
