@@ -417,7 +417,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      * @depends testCheckPmaAbsoluteUriEmpty
      * @dataProvider absoluteUris
      */
-    public function testCheckPmaAbsoluteUriNormal($real, $expected)
+    public function testCheckPmaAbsoluteUri($real, $expected)
     {
         $this->object->set('PmaAbsoluteUri', $real);
         $this->object->checkPmaAbsoluteUri();
@@ -439,13 +439,21 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
                 'localhost/phpmyadmin/',
                 'http://localhost/phpmyadmin/',
             ),
+            array(
+                'http://user:pwd@localhost/phpmyadmin/index.php',
+                "http://user:pwd@localhost/phpmyadmin/index.php/",
+            ),
+            array(
+                'https://user:pwd@localhost/phpmyadmin/index.php',
+                "https://user:pwd@localhost/phpmyadmin/index.php/",
+            ),
         );
     }
 
     /**
+     * Test for absolute URI composition
      *
-     *
-     * @depends testCheckPmaAbsoluteUriNormal
+     * @depends testCheckPmaAbsoluteUri
      */
     public function testCheckPmaAbsoluteUriScheme()
     {
@@ -458,24 +466,6 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
         $this->object->checkPmaAbsoluteUri();
         $this->assertEquals("http://localhost/", $this->object->get('PmaAbsoluteUri'));
-    }
-
-    /**
-     *
-     *
-     * @depends testCheckPmaAbsoluteUriScheme
-     */
-    public function testCheckPmaAbsoluteUriUser()
-    {
-        $this->object->set('PmaAbsoluteUri', 'http://user:pwd@localhost/phpmyadmin/index.php');
-
-        $this->object->checkPmaAbsoluteUri();
-        $this->assertEquals("http://user:pwd@localhost/phpmyadmin/index.php/", $this->object->get('PmaAbsoluteUri'));
-
-        $this->object->set('PmaAbsoluteUri', 'https://user:pwd@localhost/phpmyadmin/index.php');
-
-        $this->object->checkPmaAbsoluteUri();
-        $this->assertEquals("https://user:pwd@localhost/phpmyadmin/index.php/", $this->object->get('PmaAbsoluteUri'));
     }
 
     public function testCheckCollationConnection()
