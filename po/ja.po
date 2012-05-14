@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-09 13:14+0200\n"
-"PO-Revision-Date: 2012-05-12 00:58+0200\n"
+"PO-Revision-Date: 2012-05-13 09:01+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2695,16 +2695,16 @@ msgid "unknown table status: "
 msgstr "不明なテーブルステータス: "
 
 #: libraries/Table.class.php:750
-#, fuzzy, php-format
+#, php-format
 #| msgid "Source database"
 msgid "Source database `%s` was not found!"
-msgstr "元にするデータベース"
+msgstr "元にするデータベース `%s` が見つかりません！"
 
 #: libraries/Table.class.php:756
-#, fuzzy, php-format
+#, php-format
 #| msgid "Theme %s not found!"
 msgid "Target database `%s` was not found!"
-msgstr "テーマ %s が見つかりません!"
+msgstr "対象先のデータベース `%s` が見つかりません！"
 
 #: libraries/Table.class.php:1174
 msgid "Invalid database"
@@ -2860,8 +2860,8 @@ msgstr "TINYINT(1) と同義、0 が FALSE と見なされ、0 以外が TRUE �
 #: libraries/Types.class.php:311
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr ""
-"BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE の別名 "
-"(BIGINT、符号なし、NULLなし、AUTO_INCREMENT、ユニークキー)"
+"BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE の別名 (BIGINT、符号なし、NULL "
+"なし、AUTO_INCREMENT、ユニークキー)"
 
 #: libraries/Types.class.php:313 libraries/Types.class.php:717
 #, php-format
@@ -2914,25 +2914,19 @@ msgstr ""
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
-msgstr ""
-"TEXT カラム、最大長 255 (2^8 - 1)、この長さは単位がバイトで、1 バイト値で表現"
-"できる範囲です"
+msgstr "TEXT カラム、最大長 255 (2^8 - 1)、これの長さは単位がバイトで、1 バイト値で表現できる範囲です"
 
 #: libraries/Types.class.php:329 libraries/Types.class.php:727
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
-msgstr ""
-"TEXT カラム、最大長 65,535 (2^16 - 1)、この長さは単位がバイトで、2 バイト値で"
-"表現できる範囲です"
+msgstr "TEXT カラム、最大長 65,535 (2^16 - 1)、これの長さは単位がバイトで、2 バイト値で表現できる範囲です"
 
 #: libraries/Types.class.php:331
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
-msgstr ""
-"TEXT カラム、最大長 16,777,215 (2^24 - 1)、この長さは単位がバイトで、3 バイト"
-"値で表現できる範囲です"
+msgstr "TEXT カラム、最大長 16,777,215 (2^24 - 1)、これの長さは単位がバイトで、3 バイト値で表現できる範囲です"
 
 #: libraries/Types.class.php:333
 msgid ""
@@ -2940,8 +2934,8 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
-"TEXT カラム、最大長 4,294,967,295 または 4GiB (2^32 - 1)、この長さは単位がバ"
-"イトで、4 バイト値で表現できる範囲です"
+"TEXT カラム、最大長 4,294,967,295 または 4GiB (2^32 - 1)、これの長さは単位がバイトで、4 "
+"バイト値で表現できる範囲です"
 
 #: libraries/Types.class.php:335
 msgid ""
@@ -2959,43 +2953,36 @@ msgstr "VARCHAR 型と似ていますが、非バイナリ文字列ではなく�
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
-msgstr ""
-"BLOB カラム、最大 255 (2^8 - 1) バイト、この長さは 1 バイト値で表現できる範囲"
-"です"
+msgstr "BLOB カラム、最大 255 (2^8 - 1) バイト、これの長さは 1 バイト値で表現できる範囲です"
 
 #: libraries/Types.class.php:341
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
-msgstr ""
-"BLOB カラム、最大 16,777,215 (2^24 - 1) バイト、この長さは 3 バイト値で表現で"
-"きる範囲です"
+msgstr "BLOB カラム、最大 16,777,215 (2^24 - 1) バイト、これの長さは 3 バイト値で表現できる範囲です"
 
 #: libraries/Types.class.php:343
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
-msgstr ""
-"BLOB カラム、最大 65,535 (2^16 - 1) バイト、この長さは 2 バイト値で表現できる"
-"範囲です"
+msgstr "BLOB カラム、最大 65,535 (2^16 - 1) バイト、これの長さは 2 バイト値で表現できる範囲です"
 
 #: libraries/Types.class.php:345
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
-"BLOB カラム、最大 4,294,967,295 バイトまたは 4GiB (2^32 - 1)、この長さは 4 バ"
-"イト値で表現できる範囲です"
+"BLOB カラム、最大 4,294,967,295 バイトまたは 4GiB (2^32 - 1)、これの長さは 4 バイト値で表現できる範囲です"
 
 #: libraries/Types.class.php:347
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
-msgstr ""
+msgstr "﻿列挙型、最大 65,535 個の列挙値または特殊な値 (エラー値 '') を取ることができます"
 
 #: libraries/Types.class.php:349
 msgid "A single value chosen from a set of up to 64 members"
-msgstr ""
+msgstr "最大 64 メンバに対しての有無を一括で扱う単一の値"
 
 #: libraries/Types.class.php:351
 msgid "A type that can store a geometry of any type"
@@ -3066,7 +3053,7 @@ msgstr ""
 
 #: libraries/Types.class.php:709
 msgid "A system's default double-precision floating-point number"
-msgstr ""
+msgstr "システムでデフォルトの倍精度浮動小数"
 
 #: libraries/Types.class.php:711
 msgid "True or false"
@@ -3075,12 +3062,12 @@ msgstr "TRUE または FALSE"
 #: libraries/Types.class.php:713
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr ""
-"BIGINT NOT NULL AUTO_INCREMENT UNIQUE の別名 "
-"(BIGINT、NULLなし、AUTO_INCREMENT、ユニークキー)"
+"BIGINT NOT NULL AUTO_INCREMENT UNIQUE の別名 (BIGINT、NULL "
+"なし、AUTO_INCREMENT、ユニークキー)"
 
 #: libraries/Types.class.php:715
 msgid "Stores a Universally Unique Identifier (UUID)"
-msgstr ""
+msgstr "汎用一意識別子 (UUID) 保存用"
 
 #: libraries/Types.class.php:721
 msgid ""
@@ -3094,7 +3081,7 @@ msgstr ""
 msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
-msgstr ""
+msgstr "可変長文字列 (長さは 0-65,535)、文字列の比較はバイナリで行われます"
 
 #: libraries/Types.class.php:731
 msgid ""
@@ -3104,7 +3091,7 @@ msgstr ""
 
 #: libraries/Types.class.php:733
 msgid "An enumeration, chosen from the list of defined values"
-msgstr ""
+msgstr "列挙型、定義しておいた列挙リストより値を取ることができます"
 
 #: libraries/auth/config.auth.lib.php:72
 msgid "Cannot connect: invalid settings."
