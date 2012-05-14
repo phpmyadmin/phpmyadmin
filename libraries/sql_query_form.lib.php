@@ -442,7 +442,7 @@ function PMA_sqlQueryFormUpload()
     echo __('Browse your computer:') . '</legend>';
     echo '<div class="formelement">';
     echo '<input type="file" name="sql_file" class="textfield" /> ';
-    echo PMA_displayMaximumUploadSize($GLOBALS['max_upload_size']);
+    echo PMA_getFormattedMaximumUploadSize($GLOBALS['max_upload_size']);
     // some browsers should respect this :)
     echo PMA_generateHiddenMaxFileSize($GLOBALS['max_upload_size']) . "\n";
     echo '</div>';
