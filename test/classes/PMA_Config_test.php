@@ -583,15 +583,30 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for getting cookie path
      *
+     * @param string $absolute The absolute URL used for phpMyAdmin
+     * @param string $expected Expected cookie path
      *
-     * @todo Implement testGetCookiePath().
+     * @dataProvider cookieUris
      */
-    public function testGetCookiePath()
+    public function testGetCookiePath($absolute, $expected)
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
+        $this->object->set('PmaAbsoluteUri', $absolute);
+        $this->assertEquals($expected, $this->object->getCookiePath());
+    }
+
+    public function cookieUris()
+    {
+        return array(
+            array(
+                'http://example.net/phpmyadmin/',
+                '/phpmyadmin/',
+            ),
+            array(
+                'http://example.net/',
+                '/',
+            ),
         );
     }
 
