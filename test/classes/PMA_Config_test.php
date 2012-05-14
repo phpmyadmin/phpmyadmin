@@ -261,6 +261,11 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($php_int_ver, $this->object->get('PMA_PHP_INT_VERSION'));
     }
 
+    /**
+     * Tests loading of default values
+     *
+     * @group large
+     */
     public function testLoadDefaults()
     {
         $prevDefaultSource = $this->object->default_source;
