@@ -579,9 +579,10 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix, $unnu
     } elseif (! in_array($column['pma_type'], $no_support_types)) {
         $html_output .= PMA_getNoSupportTypes($column, $default_char_editing,$backup_field,
             $column_name_appendix, $unnullify_trigger,$tabindex,$special_chars,
-            $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded, $data, $extracted_columnspec);
-        
-    } if (in_array($column['pma_type'], $gis_data_types)) {
+            $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded, $data, $extracted_columnspec);  
+    }
+    
+    if (in_array($column['pma_type'], $gis_data_types)) {
         $html_output .= PMA_getHTMLforGisDataTypes($vrow, $column);
     }
     
@@ -1153,5 +1154,44 @@ function PMA_getHTMLforGisDataTypes($vrow, $column)
     return '<span class="open_gis_editor">'
         . PMA_linkOrButton('#', $edit_str, array(), false, false, '_blank')
         . '</span>';
+}
+
+/**
+ * get html for continue insertion form
+ * 
+ * @param array $paramArray
+ * @param array $where_clause_array
+ * @return string 
+ */
+function PMA_getContinueForm($paramArray, $where_clause_array)
+{
+    list($table, $db) = $paramArray;
+    $html_output = '<form id="continueForm" method="post" action="tbl_replace.php" name="continueForm" >'
+        . PMA_generate_common_hidden_inputs($db, $table)
+        . '<input type="hidden" name="goto" value="' . htmlspecialchars($GLOBALS['goto']) . '" />'
+        . '<input type="hidden" name="err_url" value="' . htmlspecialchars($err_url) . '" />'
+        . '<input type="hidden" name="sql_query" value="' . htmlspecialchars($_REQUEST['sql_query']) . '" />';
+    
+    if (isset($_REQUEST['where_clause'])) {
+        foreach ($where_clause_array as $key_id => $where_clause) {
+            $html_output .= '<input type="hidden" name="where_clause[' . $key_id . ']" value="' . htmlspecialchars(trim($where_clause)) . '" />'. "\n";
+        }
+    }
+    $tmp = '<select name="insert_rows" id="insert_rows">' . "\n";
+    $option_values = array(1,2,5,10,15,20,30,40);
+    
+    foreach ($option_values as $value) {
+        $tmp .= '<option value="' . $value . '"';
+        if ($value == $GLOBALS['cfg']['InsertRows']) {
+            $tmp .= ' selected="selected"';
+        }
+        $tmp .= '>' . $value . '</option>' . "\n";
+    }
+    
+    $tmp .= '</select>' . "\n";
+    $html_output .= "\n" . sprintf(__('Continue insertion with %s rows'), $tmp);
+    unset($tmp);
+    $html_output .= '</form>' . "\n";
+    return $html_output;
 }
 ?>

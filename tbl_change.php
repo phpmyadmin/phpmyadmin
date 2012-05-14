@@ -272,7 +272,7 @@ foreach ($rows as $row_id => $vrow) {
     $m_rows = $o_rows + 1;
     //store the default value for CharEditing
     $default_char_editing  = $cfg['CharEditing'];
-
+    $html_output = '';
     $odd_row = true;
     for ($i = 0; $i < $columns_cnt; $i++) {
         if (! isset($table_fields[$i]['processed'])) {
@@ -306,18 +306,16 @@ foreach ($rows as $row_id => $vrow) {
             // UPDATE case with an NULL value
             $vrow[$column['Field']] = date('Y-m-d H:i:s', time());
         }
-        ?>
-        <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; ?>">
-            <td <?php echo ($cfg['LongtextDoubleTextarea'] && strstr($column['True_Type'], 'longtext') ? 'rowspan="2"' : ''); ?> class="center">
-                <?php echo $column['Field_title']; ?>
-                <input type="hidden" name="fields_name<?php echo $column_name_appendix; ?>" value="<?php echo $column['Field_html']; ?>"/>
-            </td>
-        <?php if ($cfg['ShowFieldTypesInDataEditView']) { ?>
-             <td class="center<?php echo $column['wrap']; ?>">
-                 <span class="column_type"><?php echo $column['pma_type']; ?></span>
-             </td>
-
-         <?php } //End if
+        $html_output .= '<tr class="noclick '. ($odd_row ? 'odd' : 'even') . '">'
+            . '<td' . ($cfg['LongtextDoubleTextarea'] && strstr($column['True_Type'], 'longtext') ? 'rowspan="2"' : '') . 'class="center">'
+            . $column['Field_title']
+            . '<input type="hidden" name="fields_name' . $column_name_appendix . '" value="' . $column['Field_html'] . '"/>'
+            . '</td>';
+        if ($cfg['ShowFieldTypesInDataEditView']) {
+            $html_output .= '<td class="center' . $column['wrap'] . '">'
+                . '<span class="column_type">' . $column['pma_type'] . '</span>'
+                . '</td>';
+        } //End if
 
         // Get a list of GIS data types.
         $gis_data_types = PMA_getGISDatatypes();
@@ -409,7 +407,7 @@ foreach ($rows as $row_id => $vrow) {
         // The function column
         // -------------------
         if ($cfg['ShowFunctionFields']) {
-            echo PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
+            $html_output .= PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
                 $unnullify_trigger, $no_support_types, $tabindex_for_function,
                 $tabindex, $idindex, $insert_mode);
         }
@@ -417,46 +415,47 @@ foreach ($rows as $row_id => $vrow) {
         // The null column
         // ---------------
         $foreignData = PMA_getForeignData($foreigners, $column['Field'], false, '', '');
-        echo PMA_getNullColumn($column, $column_name_appendix, $real_null_value,
+        $html_output .= PMA_getNullColumn($column, $column_name_appendix, $real_null_value,
             $tabindex, $tabindex_for_null, $idindex, $vkey, $foreigners, $foreignData);
 
         // The value column (depends on type)
         // ----------------
         // See bug #1667887 for the reason why we don't use the maxlength
         // HTML attribute
-        echo '        <td>' . "\n";
+        $html_output .= '        <td>' . "\n";
         // Will be used by js/tbl_change.js to set the default value
         // for the "Continue insertion" feature
-        echo '<span class="default_value hide">' . $special_chars . '</span>';
+        $html_output .= '<span class="default_value hide">' . $special_chars . '</span>';
         
-        echo PMA_getValueColumn($column, $backup_field, $column_name_appendix, $unnullify_trigger,
+        $html_output .= PMA_getValueColumn($column, $backup_field, $column_name_appendix, $unnullify_trigger,
             $tabindex, $tabindex_for_value, $idindex, $data,$special_chars, $foreignData, $odd_row,
             $paramTableDbArray,$rownumber_param, $titles, $text_dir, $special_chars_encoded, $vkey,$is_upload,
             $biggest_max_file_size, $default_char_editing, $no_support_types, $gis_data_types, $extracted_columnspec);
-        ?>
-            </td>
-        </tr>
-        <?php
+
+        $html_output .= '</td>'
+            . '</tr>';
+
         $odd_row = !$odd_row;
     } // end for
     $o_rows++;
-    echo '  </tbody></table><br />';
+    $html_output .= '  </tbody></table><br />';
+    
+    echo $html_output;
 } // end foreach on multi-edit
 ?>
-    <div id="gis_editor"></div><div id="popup_background"></div>
+    <div id="gis_editor"></div>
+    <div id="popup_background"></div>
     <br />
     <fieldset id="actions_panel">
     <table cellpadding="5" cellspacing="0">
     <tr>
         <td class="nowrap vmiddle">
             <select name="submit_type" class="control_at_footer" tabindex="<?php echo ($tabindex + $tabindex_for_value + 1); ?>">
-<?php
-if (isset($where_clause)) {
-    ?>
+            <?php
+            if (isset($_REQUEST['where_clause'])) {
+            ?>
                 <option value="save"><?php echo __('Save'); ?></option>
-    <?php
-}
-    ?>
+            <?php } ?>
                 <option value="insert"><?php echo __('Insert as new row'); ?></option>
                 <option value="insertignore"><?php echo __('Insert as new row and ignore errors'); ?></option>
                 <option value="showinsert"><?php echo __('Show insert query'); ?></option>
@@ -512,33 +511,10 @@ if (isset($where_clause)) {
           } ?>
 </form>
 <?php
+
+//Continue insertion form
 if ($insert_mode) {
-?>
-<!-- Continue insertion form -->
-<form id="continueForm" method="post" action="tbl_replace.php" name="continueForm" >
-    <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-    <input type="hidden" name="goto" value="<?php echo htmlspecialchars($GLOBALS['goto']); ?>" />
-    <input type="hidden" name="err_url" value="<?php echo htmlspecialchars($err_url); ?>" />
-    <input type="hidden" name="sql_query" value="<?php echo htmlspecialchars($_REQUEST['sql_query']); ?>" />
-<?php
-    if (isset($where_clauses)) {
-        foreach ($where_clause_array as $key_id => $where_clause) {
-            echo '<input type="hidden" name="where_clause[' . $key_id . ']" value="' . htmlspecialchars(trim($where_clause)) . '" />'. "\n";
-        }
-    }
-    $tmp = '<select name="insert_rows" id="insert_rows">' . "\n";
-    $option_values = array(1,2,5,10,15,20,30,40);
-    foreach ($option_values as $value) {
-        $tmp .= '<option value="' . $value . '"';
-        if ($value == $cfg['InsertRows']) {
-            $tmp .= ' selected="selected"';
-        }
-        $tmp .= '>' . $value . '</option>' . "\n";
-    }
-    $tmp .= '</select>' . "\n";
-    echo "\n" . sprintf(__('Continue insertion with %s rows'), $tmp);
-    unset($tmp);
-    echo '</form>' . "\n";
+    echo PMA_getContinueForm($paramTableDbArray, $where_clause_array);
 }
 
 /**
