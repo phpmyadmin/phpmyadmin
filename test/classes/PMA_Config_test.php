@@ -682,7 +682,10 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Tests for rewriting URL to SSL variant
      *
+     * @param string $original Original URL
+     * @param string $expected Expected URL rewritten to SSL
      *
      * @dataProvider sslUris
      */
@@ -695,10 +698,22 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     public function sslUris()
     {
         return array(
-            array('http://server.foo/path/', 'https://server.foo:443/path/'),
-            array('http://server.foo:80/path/', 'https://server.foo:443/path/'),
-            array('http://server.foo.bar:123/path/', 'https://server.foo.bar:443/path/'),
-            array('http://[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210]:80/', 'https://[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210]:443/'),
+            array(
+                'http://server.foo/path/',
+                'https://server.foo:443/path/'
+            ),
+            array(
+                'http://server.foo:80/path/',
+                'https://server.foo:443/path/'
+            ),
+            array(
+                'http://server.foo.bar:123/path/',
+                'https://server.foo.bar:443/path/'
+            ),
+            array(
+                'http://[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210]:80/',
+                'https://[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210]:443/'
+            ),
             );
     }
 }
