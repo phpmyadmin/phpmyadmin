@@ -22,8 +22,10 @@ class PMA_GetDivForSliderEffectTest extends PHPUnit_Framework_TestCase
         $id = "test_id";
         $message = "test_message";
 
-        $this->expectOutputString('<div id="' . $id . '" class="pma_auto_slider" title="' . htmlspecialchars($message) . '">');
-        PMA_getDivForSliderEffect($id, $message);
+        $this->assertEquals(
+            PMA_getDivForSliderEffect($id, $message),
+            '<div id="' . $id . '" class="pma_auto_slider" title="' . htmlspecialchars($message) . '">'
+        );
     }
 
     function testGetDivForSliderEffectTestClosed()
@@ -34,8 +36,11 @@ class PMA_GetDivForSliderEffectTest extends PHPUnit_Framework_TestCase
         $id = "test_id";
         $message = "test_message";
 
-        $this->expectOutputString('<div id="' . $id . '" style="display: none; overflow:auto;" class="pma_auto_slider" title="' . htmlspecialchars($message) . '">');
-        PMA_getDivForSliderEffect($id, $message);
+        $this->assertEquals(
+            PMA_getDivForSliderEffect($id, $message),
+            '<div id="' . $id . '" style="display: none; overflow:auto;" class="pma_auto_slider" title="' . htmlspecialchars($message) . '">'
+        );
+        
     }
 
     function testGetDivForSliderEffectTestDisabled()
@@ -46,7 +51,9 @@ class PMA_GetDivForSliderEffectTest extends PHPUnit_Framework_TestCase
         $id = "test_id";
         $message = "test_message";
 
-        $this->expectOutputString('<div id="' . $id . '">');
-        PMA_getDivForSliderEffect($id, $message);
+        $this->assertEquals(
+            PMA_getDivForSliderEffect($id, $message),
+            '<div id="' . $id . '">'
+        );
     }
 }
