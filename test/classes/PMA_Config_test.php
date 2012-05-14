@@ -358,7 +358,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     *
+     * Test getting and setting config values
      *
      * @covers PMA_Config::get
      * @covers PMA_Config::set
@@ -375,7 +375,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     *
+     * Tests setting configuration source
      *
      * @covers PMA_Config::getSource
      * @covers PMA_Config::setSource
