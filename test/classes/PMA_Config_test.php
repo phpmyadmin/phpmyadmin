@@ -348,9 +348,6 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         $this->assertFalse($this->object->checkConfigSource());
         $this->assertEquals(0, $this->object->source_mtime);
 
-//        if(! is_readable($this->object->getSource()))
-//           $this->markTestSkipped('Configuration file is read only');
-
         $this->object->setSource('libraries/config.default.php');
 
         $this->assertNotEmpty($this->object->getSource());
