@@ -1145,31 +1145,31 @@ div#logTable table {
 
 a.editLink {
     float: <?php echo $left; ?>;
-    font-family:sans-serif;
+    font-family: sans-serif;
 }
 
 table.serverVariableEditTable {
-    border:0;
-    margin:0;
-    padding:0;
-    width:100%;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
 table.serverVariableEditTable td {
-    border:0;
-    margin:0;
-    padding:0;
+    border: 0;
+    margin: 0;
+    padding: 0;
 }
 table.serverVariableEditTable td:first-child {
-    white-space:nowrap;
-    vertical-align:middle;
+    white-space: nowrap;
+    vertical-align: middle;
 }
 
 table.serverVariableEditTable input {
-    width:95%;
+    width: 95%;
 }
 
 table#serverVariables td {
-    height:18px;
+    height: 18px;
 }
 
 /* end server variables */
@@ -1196,9 +1196,9 @@ div#querywindowcontainer fieldset {
 /* profiling */
 
 div#profilingchart {
-    width:550px;
-    height:370px;
-    float:left;
+    width: 550px;
+    height: 370px;
+    float: left;
 }
 
 /* END profiling */
@@ -1226,13 +1226,13 @@ textarea#sqlquery {
     width: 100%;
     /* height: 100%; */
 }
-textarea#sql_query_edit{
-    height:7em;
+textarea#sql_query_edit {
+    height: 7em;
     width: 95%;
-    display:block;
+    display: block;
 }
 div#queryboxcontainer div#bookmarkoptions {
-    margin-top: 0.5em;
+    margin-top: .5em;
 }
 /* end querybox */
 
@@ -1273,31 +1273,31 @@ li#li_select_mysql_collation {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_asci.png);
 }
 
-li#li_select_theme{
+li#li_select_theme {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_theme.png);
 }
 
-li#li_user_info{
+li#li_user_info {
     /* list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_rights.png); */
 }
 
-li#li_mysql_status{
+li#li_mysql_status {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_status.png);
 }
 
-li#li_mysql_variables{
+li#li_mysql_variables {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_vars.png);
 }
 
-li#li_mysql_processes{
+li#li_mysql_processes {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_process.png);
 }
 
-li#li_mysql_collations{
+li#li_mysql_collations {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_asci.png);
 }
 
-li#li_mysql_engines{
+li#li_mysql_engines {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_engine.png);
 }
 
@@ -1325,7 +1325,7 @@ li#li_log_out {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_loggoff.png);
 }
 
-li#li_mysql_privilegs{
+li#li_mysql_privilegs {
     list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_rights.png);
 }
 
@@ -1345,7 +1345,7 @@ li#li_user_preferences {
 
 #body_browse_foreigners {
     background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
-    margin:             0.5em 0.5em 0 0.5em;
+    margin: .5em .5em 0 .5em;
 }
 
 #bodyquerywindow {
@@ -1359,11 +1359,11 @@ li#li_user_preferences {
 }
 
 #bodythemes img {
-    border: 0.1em solid black;
+    border: .1em solid #000;
 }
 
 #bodythemes a:hover img {
-    border: 0.1em solid red;
+    border: .1em solid red;
 }
 
 #fieldset_select_fields {
@@ -1376,7 +1376,7 @@ li#li_user_preferences {
     margin-top: 1em;
     margin-bottom: 1em;
     width: 100%;
-    border-top: 0.1em solid silver;
+    border-top: .1em solid silver;
     text-align: <?php echo $right; ?>;
 }
 
@@ -1416,7 +1416,8 @@ label.desc sup {
     position: absolute;
 }
 
-code.sql, div.sqlvalidate {
+code.sql,
+div.sqlvalidate {
     display:            block;
     padding:            0.3em;
     margin-top:         0;
@@ -1528,13 +1529,15 @@ table#serverconnection_src_remote,
 table#serverconnection_trg_remote,
 table#serverconnection_src_local,
 table#serverconnection_trg_local  {
-  float:left;
+  float: left;
 }
 /**
   *  Validation error message styles
   */
-.invalid_value
-{background:#F00;}
+input[type=text].invalid_value,
+.invalid_value {
+    background: #FFCCCC;
+}
 
 /**
   *  Ajax notification styling
@@ -1601,7 +1604,7 @@ table#serverconnection_trg_local  {
 }
 
 .format_specific_options {
-    border: 1px solid #999999;
+    border: 1px solid #999;
     margin: 7px 0;
     padding: 3px;
 }
@@ -1613,7 +1616,8 @@ p.desc {
 /**
   * Export styles only
   */
-select#db_select, select#table_select {
+select#db_select,
+select#table_select {
     width: 400px;
 }
 
@@ -1622,7 +1626,7 @@ select#db_select, select#table_select {
 }
 
 .export_sub_options h4 {
-    border-bottom: 1px #999999 solid;
+    border-bottom: 1px #999 solid;
 }
 
 .export_sub_options li.subgroup {
@@ -1634,7 +1638,8 @@ select#db_select, select#table_select {
     margin-bottom: 0;
 }
 
-#quick_or_custom, #output_quick_export {
+#quick_or_custom,
+#output_quick_export {
     display: none;
 }
 /**
@@ -1825,7 +1830,7 @@ td.more_opts {
 
 #index_frm .slider {
     width: 10em;
-    margin: 0.6em;
+    margin: .6em;
     float: <?php echo $left; ?>;
 }
 
@@ -1865,11 +1870,13 @@ iframe.IE_hack {
 #move_columns_dialog div {
     padding: 1em;
 }
+
 #move_columns_dialog ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
+
 #move_columns_dialog li {
     background: <?php echo $GLOBALS['cfg']['ThBackground']; ?>;
     border: 1px solid #aaa;
@@ -1934,7 +1941,7 @@ iframe.IE_hack {
 
 .config-form fieldset .errors { /* form error list */
     margin:       0 -2px 1em -2px;
-    padding:      0.5em 1.5em;
+    padding: .5em 1.5em;
     background:   #FBEAD9;
     border:       0 #C83838 solid;
     border-width: 1px 0;
@@ -1944,7 +1951,7 @@ iframe.IE_hack {
 }
 
 .config-form fieldset .inline_errors { /* field error list */
-    margin:     0.3em 0.3em 0.3em 0;
+    margin: .3em .3em .3em 0;
     padding:    0;
     list-style: none;
     color:      #9A0000;
@@ -1952,14 +1959,15 @@ iframe.IE_hack {
 }
 
 .config-form fieldset th {
-    padding:        0.3em 0.3em 0.3em 0.5em;
+    padding: .3em .3em .3em .5em;
     text-align:     left;
     vertical-align: top;
     width:          40%;
     background:     transparent;
 }
 
-.config-form fieldset .doc, .config-form fieldset .disabled-notice {
+.config-form fieldset .doc,
+.config-form fieldset .disabled-notice {
     margin-left: 1em;
 }
 
@@ -1971,8 +1979,8 @@ iframe.IE_hack {
 }
 
 .config-form fieldset td {
-    padding-top:    0.3em;
-    padding-bottom: 0.3em;
+    padding-top: .3em;
+    padding-bottom: .3em;
     vertical-align: top;
 }
 
@@ -1984,7 +1992,8 @@ iframe.IE_hack {
     color:       #444;
 }
 
-.config-form fieldset th, .config-form fieldset td {
+.config-form fieldset th,
+.config-form fieldset td {
     border-top: 1px <?php echo $GLOBALS['cfg']['BgTwo']; ?> solid;
 }
 
@@ -1993,14 +2002,16 @@ fieldset .group-header th {
 }
 
 fieldset .group-header + tr th {
-    padding-top: 0.6em;
+    padding-top: .6em;
 }
 
-fieldset .group-field-1 th, fieldset .group-header-2 th {
+fieldset .group-field-1 th,
+fieldset .group-header-2 th {
     padding-left: 1.5em;
 }
 
-fieldset .group-field-2 th, fieldset .group-header-3 th {
+fieldset .group-field-2 th,
+fieldset .group-header-3 th {
     padding-left: 3em;
 }
 
@@ -2021,7 +2032,7 @@ fieldset .disabled-field td {
 
 .config-form .lastrow {
     background: <?php echo $GLOBALS['cfg']['ThBackground']; ?>;;
-    padding:    0.5em;
+    padding: .5em;
     text-align: center;
 }
 
@@ -2079,7 +2090,7 @@ fieldset .disabled-field td {
 
 /* error list */
 .config-form dd {
-    margin-left: 0.5em;
+    margin-left: .5em;
 }
 
 .config-form dd:before {
@@ -2095,7 +2106,7 @@ fieldset .disabled-field td {
 }
 
 #prefs_autoload {
-    margin-bottom: 0.5em;
+    margin-bottom: .5em;
 }
 
 .rte_table {
@@ -2111,7 +2122,9 @@ fieldset .disabled-field td {
     font-weight:        bold;
 }
 
-.rte_table input, .rte_table select, .rte_table textarea {
+.rte_table input,
+.rte_table select,
+.rte_table textarea {
     width:              100%;
     margin:             0;
     box-sizing:         border-box;
@@ -2143,13 +2156,13 @@ fieldset .disabled-field td {
 .toggleButton {
     position: relative;
     cursor: pointer;
-    font-size: 0.8em;
+    font-size: .8em;
     text-align: center;
     line-height: 1.4em;
     height: 1.55em;
     overflow: hidden;
-    border-right: 0.1em solid #888;
-    border-left: 0.1em solid #888;
+    border-right: .1em solid #888;
+    border-left: .1em solid #888;
 }
 .toggleButton table,
 .toggleButton td,
@@ -2161,7 +2174,7 @@ fieldset .disabled-field td {
     position: absolute;
 }
 .toggleButton .toggleOn {
-    color: white;
+    color: #fff;
     padding: 0 1em;
 }
 .toggleButton .toggleOff {
@@ -2186,7 +2199,8 @@ fieldset .disabled-field td {
     padding: 0.5em;
 }
 
-#table_columns input[type="text"], #table_columns select {
+#table_columns input[type="text"],
+#table_columns select {
     width:              10em;
     box-sizing:         border-box;
     -ms-box-sizing:     border-box;
@@ -2210,38 +2224,38 @@ fieldset .disabled-field td {
 }
 
 #left_arrow {
-    left:8px;
-    top:26px;
+    left: 8px;
+    top: 26px;
 }
 
 #right_arrow {
-    left:26px;
-    top:26px;
+    left: 26px;
+    top: 26px;
 }
 
 #up_arrow {
-    left:17px;
-    top:8px;
+    left: 17px;
+    top: 8px;
 }
 
 #down_arrow {
-    left:17px;
-    top:44px;
+    left: 17px;
+    top: 44px;
 }
 
 #zoom_in {
-    left:17px;
-    top:67px;
+    left: 17px;
+    top: 67px;
 }
 
 #zoom_world {
-    left:17px;
-    top:85px;
+    left: 17px;
+    top: 85px;
 }
 
 #zoom_out {
-    left:17px;
-    top:103px;
+    left: 17px;
+    top: 103px;
 }
 
 .gis_table td {
@@ -2284,7 +2298,8 @@ fieldset .disabled-field td {
     position: static;
 }
 
-.pma_table th.draggable span, .pma_table tbody td span {
+.pma_table th.draggable span,
+.pma_table tbody td span {
     display: block;
     overflow: hidden;
 }
@@ -2324,13 +2339,13 @@ fieldset .disabled-field td {
 
 .normalqTip {
     background: #333 !important;
-    opacity: 0.8 !important;
-    border:1px solid #000 !important;
-    -moz-border-radius: 0.3em !important;
-    -webkit-border-radius: 0.3em !important;
-    border-radius: 0.3em !important;
+    opacity: .8 !important;
+    border: 1px solid #000 !important;
+    -moz-border-radius: .3em !important;
+    -webkit-border-radius: .3em !important;
+    border-radius: .3em !important;
     text-shadow: -1px -1px #000 !important;
-    font-size: 0.8em !important;
+    font-size: .8em !important;
     font-weight: bold !important;
 }
 
@@ -2378,7 +2393,8 @@ fieldset .disabled-field td {
     width: 16px;
 }
 
-.coldrop:hover, .coldrop-hover {
+.coldrop:hover,
+.coldrop-hover {
     background-color: #999;
 }
 
@@ -2389,7 +2405,7 @@ fieldset .disabled-field td {
 }
 
 .cList .lDiv div {
-    padding: 0.2em 0.5em 0.2em 0.2em;
+    padding: .2em .5em .2em .2em;
 }
 
 .cList .lDiv div:hover {
@@ -2405,9 +2421,9 @@ fieldset .disabled-field td {
     border-bottom: solid 1px #999;
     border-top: solid 1px #999;
     cursor: pointer;
-    font-size: 0.9em;
+    font-size: .9em;
     font-weight: bold;
-    padding: 0.35em 1em;
+    padding: .35em 1em;
     text-align: center;
 }
 
@@ -2452,7 +2468,7 @@ fieldset .disabled-field td {
 }
 
 .navigation select {
-    margin: 0 0.8em;
+    margin: 0 .8em;
 }
 
 .cEdit {
@@ -2472,17 +2488,18 @@ fieldset .disabled-field td {
     background: #FFF;
     border: 1px solid #999;
     min-width: 10em;
-    padding: 0.3em 0.5em;
+    padding: .3em .5em;
 }
 
-.cEdit .edit_area select, .cEdit .edit_area textarea {
+.cEdit .edit_area select,
+.cEdit .edit_area textarea {
     width: 97%;
 }
 
 .cEdit .cell_edit_hint {
     color: #555;
-    font-size: 0.8em;
-    margin: 0.3em 0.2em;
+    font-size: .8em;
+    margin: .3em .2em;
 }
 
 .cEdit .edit_box {
@@ -2503,7 +2520,7 @@ fieldset .disabled-field td {
 .cEdit .goto_link {
     background: #EEE;
     color: #555;
-    padding: 0.2em 0.3em;
+    padding: .2em .3em;
 }
 
 .saving_edited_data {
@@ -2521,12 +2538,12 @@ fieldset .disabled-field td {
 /* Designer */
 .input_tab {
     background-color: #A6C7E1;
-    color: #000000;
+    color: #000;
 }
 
 #canvas {
-    background-color: #FFFFFF;
-    color: #000000;
+    background-color: #fff;
+    color: #000;
 }
 
 canvas.pmd {
@@ -2540,10 +2557,10 @@ canvas.pmd * {
 }
 
 .pmd_tab {
-    background-color: #FFFFFF;
-    color: #000000;
+    background-color: #fff;
+    color: #000;
     border-collapse: collapse;
-    border: 1px solid #AAAAAA;
+    border: 1px solid #aaa;
     z-index: 1;
     -moz-user-select: none;
 }
@@ -2567,21 +2584,21 @@ canvas.pmd * {
 }
 
 .tab_field {
-    background: #FFFFFF;
-    color: #000000;
+    background: #fff;
+    color: #000;
     cursor: default;
 }
 
 .tab_field_2 {
     background-color: #CCFFCC;
-    color: #000000;
+    color: #000;
     background-repeat: repeat-x;
     cursor: default;
 }
 
 .tab_field_3 {
     background-color: #FFE6E6; /*#DDEEFF*/
-    color: #000000;
+    color: #000;
     cursor: default;
 }
 
@@ -2589,7 +2606,7 @@ canvas.pmd * {
     white-space: nowrap;
     position: absolute;
     background-color: #99FF99;
-    color: #000000;
+    color: #000;
     left: 200px;
     top: 50px;
     z-index: 3;
@@ -2612,9 +2629,9 @@ canvas.pmd * {
     font-weight: bold;
     margin-left: 2px;
     text-align: left;
-    background-color: #FFFFFF;
+    background-color: #fff;
     background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/left_panel_butt.png);
-    border: #CCCCCC solid 1px;
+    border: #ccc solid 1px;
 }
 
 .pmd_Tabs2 {
@@ -2631,7 +2648,7 @@ canvas.pmd * {
 
 .owner {
     font-weight: normal;
-    color: #888888;
+    color: #888;
 }
 
 .option_tab {
@@ -2646,7 +2663,7 @@ canvas.pmd * {
     padding-right: 2px;
     cursor: default;
     width: 1px;
-    color: #000000;
+    color: #000;
     background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/Header.png);
     background-repeat: repeat-x;
 }
@@ -2654,7 +2671,7 @@ canvas.pmd * {
 .small_tab {
     vertical-align: top;
     background-color: #0064ea;
-    color: #FFFFFF;
+    color: #fff;
     background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/small_tab.png);
     cursor: default;
     text-align: center;
@@ -2667,7 +2684,7 @@ canvas.pmd * {
 
 .small_tab2 {
     vertical-align: top;
-    color: #FFFFFF;
+    color: #fff;
     background-color: #FF9966;
     cursor: default;
     padding-left: 2px;
@@ -2687,7 +2704,7 @@ canvas.pmd * {
 
 .small_tab_pref2 {
     vertical-align: top;
-    color: #FFFFFF;
+    color: #fff;
     background-color: #FF9966;
     cursor: default;
     text-align: center;
@@ -2701,16 +2718,16 @@ canvas.pmd * {
     font-weight: bold;
     height: 19px;
     width: 70px;
-    background-color: #FFFFFF;
-    color: #000000;
+    background-color: #fff;
+    color: #000;
     vertical-align: baseline;
 }
 
 .L_butt2_1 {
     padding: 1px;
     text-decoration: none;
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #fff;
+    color: #000;
     vertical-align: middle;
     cursor: default;
 }
@@ -2720,7 +2737,7 @@ canvas.pmd * {
     border: #0099CC solid 1px;
     background: #FFEE99;
     text-decoration: none;
-    color: #000000;
+    color: #000;
     cursor: default;
 }
 
@@ -2763,14 +2780,14 @@ canvas.pmd * {
 }
 
 #osn_tab {
-    background-color: #FFFFFF;
-    color: #000000;
+    background-color: #fff;
+    color: #000;
     border: #A9A9A9 solid 1px;
 }
 
 .pmd_header {
     background-color: #EAEEF0;
-    color: #000000;
+    color: #000;
     text-align: center;
     font-weight: bold;
     margin: 0;
@@ -2778,8 +2795,8 @@ canvas.pmd * {
     background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/top_panel.png);
     background-position: top;
     background-repeat: repeat-x;
-    border-right: #999999 solid 1px;
-    border-left: #999999 solid 1px;
+    border-right: #999 solid 1px;
+    border-left: #999 solid 1px;
     height: 28px;
 }
 
@@ -2788,7 +2805,7 @@ canvas.pmd * {
     float: left;
     margin: 3px 1px 4px 1px;
     height: 20px;
-    border: 1px dotted #ffffff;
+    border: 1px dotted #fff;
 }
 
 .pmd_header .M_bord {
@@ -2811,7 +2828,7 @@ a.M_butt_Selected_down_IE,
 a.M_butt_Selected_down {
     border: 1px solid #C0C0BB;
     background-color: #99FF99;
-    color: #000000;
+    color: #000;
 }
 
 a.M_butt_Selected_down_IE:hover,
@@ -2819,7 +2836,7 @@ a.M_butt_Selected_down:hover,
 a.M_butt:hover {
     border: 1px solid #0099CC;
     background-color: #FFEE99;
-    color: #000000;
+    color: #000;
 }
 
 #layer_menu {
@@ -2827,7 +2844,7 @@ a.M_butt:hover {
     position: absolute;
     left: 0;
     background-color: #EAEEF0;
-    border: #999999 solid 1px;
+    border: #999 solid 1px;
 }
 
 #layer_upd_relation {
@@ -2866,47 +2883,47 @@ a.M_butt:hover {
     right: 0;
     display: none;
     background: #FFF;
-    border:1px solid #F5F5F5;
+    border: 1px solid #F5F5F5;
     width: 350 px;
     height: auto;
     padding: 30px 170px 30px 30px;
-    color:#FFF;
-    z-index:99;
+    color: #FFF;
+    z-index: 99;
 }
 
-a.trigger{
+a.trigger {
     position: fixed;
     text-decoration: none;
     top: 60px; right: 0;
-    color:#fff;
+    color: #fff;
     padding: 10px 40px 10px 15px;
-    background:#333333 url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/plus.png) 85% 55% no-repeat;
-    border:1px solid #444444;
+    background: #333 url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/plus.png) 85% 55% no-repeat;
+    border: 1px solid #444;
     display: block;
 }
 
-a.trigger:hover{
+a.trigger:hover {
     position: fixed;
     text-decoration: none;
     top: 60px; right: 0;
-    color:#080808;
+    color: #080808;
     padding: 10px 40px 10px 15px;
-    background:#fff696 url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/plus.png) 85% 55% no-repeat;
-    border:1px solid #999;
+    background: #fff696 url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/plus.png) 85% 55% no-repeat;
+    border: 1px solid #999;
     display: block;
 }
 
 a.active.trigger {
-    background:#222222 url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/minus.png) 85% 55% no-repeat;
-    z-index:999;
+    background: #222 url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/minus.png) 85% 55% no-repeat;
+    z-index: 999;
 }
 
 a.active.trigger:hover {
-    background:#fff696 url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/minus.png) 85% 55% no-repeat;
-    z-index:999;
+    background: #fff696 url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/minus.png) 85% 55% no-repeat;
+    z-index: 999;
 }
 
-h2.tiger{
+h2.tiger {
     background-repeat: repeat-x;
     padding: 1px;
     font-weight: bold;
@@ -2951,9 +2968,9 @@ h2.active {
 
 .toggle_container .block {
     background-color: #DBE4E8;
-    padding:40 15 40 15px; /*--Padding of Container--*/
+    padding: 40 15 40 15px; /*--Padding of Container--*/
     border:1px solid #999;
-    color:#000;
+    color: #000;
 }
 
 .history_table {
@@ -2974,8 +2991,8 @@ h2.active {
     width: 100%;
     height: 100%;
     background-color: #CCA;
-    z-index:10;
-    opacity:0.5;
+    z-index: 10;
+    opacity: .5;
     filter: alpha(opacity=50);
 }
 
@@ -2987,36 +3004,36 @@ h2.active {
     width: 500px;
     height: 220px;
     padding: 48px;
-    margin:0;
-    border: 1px solid black;
-    background-color: white;
-    z-index:101;
+    margin: 0;
+    border: 1px solid #000;
+    background-color: #fff;
+    z-index: 101;
     overflow: visible;
 }
 
 #boxtitle {
-    position:absolute;
-    float:center;
-    top:0;
-    left:0;
-    width:593px;
-    height:20px;
-    padding:0;
-    padding-top:4px;
-    left-padding:8px;
-    margin:0;
-    border-bottom:4px solid #3CF;
+    position: absolute;
+    float: center;
+    top: 0;
+    left: 0;
+    width: 593px;
+    height: 20px;
+    padding: 0;
+    padding-top: 4px;
+    left-padding: 8px;
+    margin: 0;
+    border-bottom: 4px solid #3CF;
     background-color: #D0DCE0;
-    color:black;
-    font-weight:bold;
+    color: black;
+    font-weight: bold;
     padding-left: 2px;
-    text-align:left;
+    text-align: left;
 }
 
 #tblfooter {
     background-color: #D3DCE3;
     float: right;
-    padding-top:10px;
+    padding-top: 10px;
     color: black;
     font-weight: normal;
 }
@@ -3028,7 +3045,7 @@ h2.active {
 }
 
 input.btn {
-    color:#333;
+    color: #333;
     background-color: #D0DCE0;
 }
 

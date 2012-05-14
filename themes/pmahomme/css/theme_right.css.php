@@ -1422,7 +1422,6 @@ div#queryAnalyzerDialog table.queryNums {
     padding-left: 7px;
 }
 
-
 /* end serverstatus */
 
 /* server variables */
@@ -1761,8 +1760,6 @@ li#li_user_preferences {
     width: 100%;
     border-top: .1em solid silver;
     text-align: <?php echo $right; ?>;
-
-
 }
 
 #table_innodb_bufferpool_usage,
@@ -1863,6 +1860,7 @@ textarea#partitiondefinition {
     height: 3em;
 }
 
+
 /* for elements that should be revealed only via js */
 .hide {
     display: none;
@@ -1879,7 +1877,6 @@ textarea#partitiondefinition {
 /**
   *  Progress bar styles
   */
-
 div.upload_progress
 {
     width: 400px;
