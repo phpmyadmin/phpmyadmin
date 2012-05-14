@@ -181,7 +181,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
             $this->assertEquals(
                 0,
                 $this->object->get('PMA_IS_GD2'),
-                'Function imagecreatetruecolor does not exist, PMA_IS_GD2 should be 0'
+                'imagecreatetruecolor does not exist, PMA_IS_GD2 should be 0'
             );
         }
 
@@ -271,7 +271,11 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         $php_str_ver = phpversion();
 
         $match = array();
-        preg_match('@([0-9]{1,2}).([0-9]{1,2}).([0-9]{1,2})@', phpversion(), $match);
+        preg_match(
+            '@([0-9]{1,2}).([0-9]{1,2}).([0-9]{1,2})@',
+            phpversion(),
+            $match
+        );
         if (isset($match) && ! empty($match[1])) {
             if (! isset($match[2])) {
                 $match[2] = 0;
@@ -279,7 +283,12 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
             if (! isset($match[3])) {
                 $match[3] = 0;
             }
-            $php_int_ver = (int) sprintf('%d%02d%02d', $match[1], $match[2], $match[3]);
+            $php_int_ver = (int) sprintf(
+                '%d%02d%02d',
+                $match[1],
+                $match[2],
+                $match[3]
+            );
         } else {
             $php_int_ver = 0;
         }
@@ -462,7 +471,10 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         $this->object->set('PmaAbsoluteUri', '');
 
         $this->object->checkPmaAbsoluteUri();
-        $this->assertEquals("http://localhost/", $this->object->get('PmaAbsoluteUri'));
+        $this->assertEquals(
+            "http://localhost/",
+            $this->object->get('PmaAbsoluteUri')
+        );
     }
 
     public function testCheckCollationConnection()
@@ -470,7 +482,10 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         $_REQUEST['collation_connection'] = 'utf-8';
         $this->object->checkCollationConnection();
 
-        $this->assertEquals($_REQUEST['collation_connection'], $this->object->get('collation_connection'));
+        $this->assertEquals(
+            $_REQUEST['collation_connection'],
+            $this->object->get('collation_connection')
+        );
     }
 
     public function testIsHttps()
@@ -646,7 +661,10 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     {
         $this->object->setUserValue(null, 'lang', 'cs', 'en');
         $this->object->setUserValue("TEST_COOKIE_USER_VAL", '', 'cfg_val_1');
-        $this->assertEquals($this->object->getUserValue("TEST_COOKIE_USER_VAL", 'fail'), 'cfg_val_1');
+        $this->assertEquals(
+            $this->object->getUserValue("TEST_COOKIE_USER_VAL", 'fail'),
+            'cfg_val_1'
+        );
     }
 
     /**
@@ -689,14 +707,39 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      */
     public function testSetCookie()
     {
-        $this->assertFalse($this->object->setCookie('TEST_DEF_COOKIE', 'test_def_123', 'test_def_123'));
+        $this->assertFalse(
+            $this->object->setCookie(
+                'TEST_DEF_COOKIE',
+                'test_def_123',
+                'test_def_123'
+            )
+        );
 
-        $this->assertTrue($this->object->setCookie('TEST_CONFIG_COOKIE', 'test_val_123', null, 3600));
+        $this->assertTrue(
+            $this->object->setCookie(
+                'TEST_CONFIG_COOKIE',
+                'test_val_123',
+                null,
+                3600
+            )
+        );
 
-        $this->assertTrue($this->object->setCookie('TEST_CONFIG_COOKIE', '', 'default_val'));
+        $this->assertTrue(
+            $this->object->setCookie(
+                'TEST_CONFIG_COOKIE',
+                '',
+                'default_val'
+            )
+        );
 
         $_COOKIE['TEST_MANUAL_COOKIE'] = 'some_test_val';
-        $this->assertTrue($this->object->setCookie('TEST_MANUAL_COOKIE', 'other', 'other'));
+        $this->assertTrue(
+            $this->object->setCookie(
+                'TEST_MANUAL_COOKIE',
+                'other',
+                'other'
+            )
+        );
 
     }
 
