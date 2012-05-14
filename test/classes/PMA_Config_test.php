@@ -408,20 +408,33 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Checks correcting of absolute URI
      *
+     * @param string $real     Real URI received
+     * @param string $expected Expected corrected URI
      *
      * @depends testCheckPmaAbsoluteUriEmpty
+     * @dataProvider absoluteUris
      */
-    public function testCheckPmaAbsoluteUriNormal()
+    public function testCheckPmaAbsoluteUriNormal($real, $expected)
     {
-        $this->object->set('PmaAbsoluteUri', 'http://localhost/phpmyadmin/');
+        $this->object->set('PmaAbsoluteUri', $real);
         $this->object->checkPmaAbsoluteUri();
-        $this->assertEquals("http://localhost/phpmyadmin/", $this->object->get('PmaAbsoluteUri'));
+        $this->assertEquals($expected, $this->object->get('PmaAbsoluteUri'));
+    }
 
-        $this->object->set('PmaAbsoluteUri', 'http://localhost/phpmyadmin');
-        $this->object->checkPmaAbsoluteUri();
-        $this->assertEquals("http://localhost/phpmyadmin/", $this->object->get('PmaAbsoluteUri'), 'Expected trailing slash at the end of the phpMyAdmin uri');
-
+    public function absoluteUris()
+    {
+        return array(
+            array(
+                'http://localhost/phpmyadmin/',
+                'http://localhost/phpmyadmin/',
+            ),
+            array(
+                'http://localhost/phpmyadmin',
+                'http://localhost/phpmyadmin/',
+            ),
+        );
     }
 
     /**
