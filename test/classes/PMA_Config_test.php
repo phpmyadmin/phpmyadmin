@@ -591,9 +591,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     *
-     *
-     * @todo finish implementing test + dependencies
+     * Tests loading of config file
      */
     public function testLoad()
     {
@@ -603,9 +601,9 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for loading user preferences
      *
-     *
-     * @todo Implement testLoadUserPreferences().
+     * @todo Test actualy preferences loading
      */
     public function testLoadUserPreferences()
     {
@@ -615,9 +613,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     *
-     *
-     * @todo Implement testSetUserValue().
+     * Test for setting user config value
      */
     public function testSetUserValue()
     {
@@ -627,9 +623,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     *
-     *
-     * @todo Implement testGetUserValue().
+     * Test for getting user config value
      */
     public function testGetUserValue()
     {
@@ -664,9 +658,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
 
     /**
-     *
-     *
-     * @todo Implement testSetCookie().
+     * Test for setting cookies
      */
     public function testSetCookie()
     {
