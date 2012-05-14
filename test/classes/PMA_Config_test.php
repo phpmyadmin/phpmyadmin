@@ -434,6 +434,10 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
                 'http://localhost/phpmyadmin',
                 'http://localhost/phpmyadmin/',
             ),
+            array(
+                'localhost/phpmyadmin/',
+                'http://localhost/phpmyadmin/',
+            ),
         );
     }
 
