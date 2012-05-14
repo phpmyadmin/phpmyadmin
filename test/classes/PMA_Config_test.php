@@ -554,7 +554,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     *
+     * Should check for https detection
      *
      * @todo Implement testCheckIsHttps().
      */
