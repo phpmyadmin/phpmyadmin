@@ -85,10 +85,16 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         $this->object->checkClient();
         $this->assertEquals($os, $this->object->get('PMA_USR_OS'));
         if ($os != null) {
-            $this->assertEquals($browser, $this->object->get('PMA_USR_BROWSER_AGENT'));
+            $this->assertEquals(
+                $browser,
+                $this->object->get('PMA_USR_BROWSER_AGENT')
+            );
         }
         if ($version != null) {
-            $this->assertEquals($version, $this->object->get('PMA_USR_BROWSER_VER'));
+            $this->assertEquals(
+                $version,
+                $this->object->get('PMA_USR_BROWSER_VER')
+            );
         }
     }
 
@@ -171,16 +177,28 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
         if (!@function_exists('imagecreatetruecolor')) {
             $this->object->checkGd2();
-            $this->assertEquals(0, $this->object->get('PMA_IS_GD2'), 'Function imagecreatetruecolor does not exist, PMA_IS_GD2 should be 0');
+            $this->assertEquals(
+                0,
+                $this->object->get('PMA_IS_GD2'),
+                'Function imagecreatetruecolor does not exist, PMA_IS_GD2 should be 0'
+            );
         }
 
         if (@function_exists('gd_info')) {
             $this->object->checkGd2();
             $gd_nfo = gd_info();
             if (strstr($gd_nfo["GD Version"], '2.')) {
-                $this->assertEquals(1, $this->object->get('PMA_IS_GD2'), 'GD Version >= 2, PMA_IS_GD2 should be 1');
+                $this->assertEquals(
+                    1,
+                    $this->object->get('PMA_IS_GD2'),
+                    'GD Version >= 2, PMA_IS_GD2 should be 1'
+                );
             } else {
-                $this->assertEquals(0, $this->object->get('PMA_IS_GD2'), 'GD Version < 2, PMA_IS_GD2 should be 0');
+                $this->assertEquals(
+                    0,
+                    $this->object->get('PMA_IS_GD2'),
+                    'GD Version < 2, PMA_IS_GD2 should be 0'
+                );
             }
         }
 
@@ -192,9 +210,17 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
         if (preg_match('@GD Version[[:space:]]*\(.*\)@', $a, $v)) {
             if (strstr($v, '2.')) {
-                $this->assertEquals(1, $this->object->get('PMA_IS_GD2'), 'PMA_IS_GD2 should be 1');
+                $this->assertEquals(
+                    1,
+                    $this->object->get('PMA_IS_GD2'),
+                    'PMA_IS_GD2 should be 1'
+                );
             } else {
-                $this->assertEquals(0, $this->object->get('PMA_IS_GD2'), 'PMA_IS_GD2 should be 0');
+                $this->assertEquals(
+                    0,
+                    $this->object->get('PMA_IS_GD2'),
+                    'PMA_IS_GD2 should be 0'
+                );
             }
         }
     }
@@ -219,20 +245,20 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         if (defined('PHP_OS')) {
             switch (PHP_OS) {
             case stristr(PHP_OS, 'win'):
-                $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'), 'PHP_OS equals: ' . PHP_OS . ' PMA_IS_WINDOWS should be 1');
+                $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'));
                 break;
             case stristr(PHP_OS, 'OS/2'):
-                $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'), 'PHP_OS is OS/2 PMA_IS_WINDOWS should be 1 (No file permissions like Windows)');
+                $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'));
                 break;
             case stristr(PHP_OS, 'Linux'):
                 $this->assertEquals(0, $this->object->get('PMA_IS_WINDOWS'));
                 break;
             }
         } else {
-            $this->assertEquals(0, $this->object->get('PMA_IS_WINDOWS'), 'PMA_IS_WINDOWS Default to Unix or Equiv');
+            $this->assertEquals(0, $this->object->get('PMA_IS_WINDOWS'));
 
             define('PHP_OS', 'Windows');
-            $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'), 'PMA_IS_WINDOWS must be 1');
+            $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'));
         }
     }
 
@@ -257,8 +283,14 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
             $php_int_ver = 0;
         }
 
-        $this->assertEquals($php_str_ver, $this->object->get('PMA_PHP_STR_VERSION'));
-        $this->assertEquals($php_int_ver, $this->object->get('PMA_PHP_INT_VERSION'));
+        $this->assertEquals(
+            $php_str_ver,
+            $this->object->get('PMA_PHP_STR_VERSION')
+        );
+        $this->assertEquals(
+            $php_int_ver,
+            $this->object->get('PMA_PHP_INT_VERSION')
+        );
     }
 
     /**
@@ -282,16 +314,29 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
         $this->assertTrue($this->object->loadDefaults());
 
-        $this->assertEquals($this->object->default_source_mtime, filemtime($prevDefaultSource));
-        $this->assertEquals($loadedConf['Servers'][1], $this->object->default_server);
+        $this->assertEquals(
+            $this->object->default_source_mtime,
+            filemtime($prevDefaultSource)
+        );
+        $this->assertEquals(
+            $loadedConf['Servers'][1],
+            $this->object->default_server
+        );
 
         unset($loadedConf['Servers']);
 
         $this->assertEquals($loadedConf, $this->object->default);
 
-        $expectedSettings = PMA_array_merge_recursive($this->object->settings, $loadedConf);
+        $expectedSettings = PMA_array_merge_recursive(
+            $this->object->settings,
+            $loadedConf
+        );
 
-        $this->assertEquals($expectedSettings, $this->object->settings, 'Settings loaded wrong');
+        $this->assertEquals(
+            $expectedSettings,
+            $this->object->settings,
+            'Settings loaded wrong'
+        );
 
         $this->assertFalse($this->object->error_config_default_file);
     }
@@ -342,14 +387,24 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
         $this->object->setSource("config.sample.inc.php");
 
-        $this->assertEquals("config.sample.inc.php", $this->object->getSource(), "Cant set new source");
+        $this->assertEquals(
+            "config.sample.inc.php",
+            $this->object->getSource(),
+            "Cant set new source"
+        );
     }
 
     public function testCheckPmaAbsoluteUriEmpty()
     {
         $this->object->set('PmaAbsoluteUri', '');
-        $this->assertFalse($this->object->checkPmaAbsoluteUri(), 'PmaAbsoluteUri is not set and should be error');
-        $this->assertTrue($this->object->error_pma_uri, 'PmaAbsoluteUri is not set and should be error');
+        $this->assertFalse(
+            $this->object->checkPmaAbsoluteUri(),
+            'PmaAbsoluteUri is not set and should be error'
+        );
+        $this->assertTrue(
+            $this->object->error_pma_uri,
+            'PmaAbsoluteUri is not set and should be error'
+        );
     }
 
     /**
