@@ -539,6 +539,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
      * @depends testCheckWebServer
      * @depends testLoadDefaults
      * @depends testLoad
+     * @group large
      */
     public function testEnableBc()
     {
