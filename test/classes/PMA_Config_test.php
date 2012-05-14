@@ -78,44 +78,74 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
  */
     }
 
-    public function testCheckClient()
+    /**
+     * Tests client parsing code.
+     *
+     * @param string $agent   User agent string
+     * @param string $os      Expected parsed OS (or null if none)
+     * @param string $browser Expected parsed browser (or null if none)
+     * @param string $version Expected browser version (or null if none)
+     *
+     * @dataProvider userAgentProvider
+     */
+    public function testCheckClient($agent, $os, $browser = null, $version = null)
     {
-        $_SERVER['HTTP_USER_AGENT'] = 'Opera/9.80 (X11; Linux x86_64; U; pl) Presto/2.7.62 Version/11.00';
+        $_SERVER['HTTP_USER_AGENT'] = $agent;
         $this->object->checkClient();
-        $this->assertEquals("Linux", $this->object->get('PMA_USR_OS'), "User OS expected to be Linux");
-        $this->assertEquals("OPERA", $this->object->get('PMA_USR_BROWSER_AGENT'), "Browser expected to be Opera");
-        $this->assertEquals("9.80", $this->object->get('PMA_USR_BROWSER_VER'), "Browser ver expected to be 9.80");
+        $this->assertEquals($os, $this->object->get('PMA_USR_OS'));
+        if ($os != null) {
+            $this->assertEquals($browser, $this->object->get('PMA_USR_BROWSER_AGENT'));
+        }
+        if ($version != null) {
+            $this->assertEquals($version, $this->object->get('PMA_USR_BROWSER_VER'));
+        }
+    }
 
-        $_SERVER['HTTP_USER_AGENT'] = 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-US) AppleWebKit/528.16 OmniWeb/622.8.0.112941';
-        $this->object->checkClient();
-        $this->assertEquals("Mac", $this->object->get('PMA_USR_OS'), "User OS expected to be Mac");
-        $this->assertEquals("OMNIWEB", $this->object->get('PMA_USR_BROWSER_AGENT'), "Browser expected to be OmniWeb");
-
-        $_SERVER['HTTP_USER_AGENT'] = 'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1)';
-        $this->object->checkClient();
-        $this->assertEquals("Win", $this->object->get('PMA_USR_OS'), "User OS expected to be Windows");
-        $this->assertEquals("IE", $this->object->get('PMA_USR_BROWSER_AGENT'), "Browser expected to be IE");
-
-        $_SERVER['HTTP_USER_AGENT'] = 'Mozilla/5.0 (Unknown; U; Unix BSD/SYSV system; C -) AppleWebKit/527+ (KHTML, like Gecko, Safari/419.3) Arora/0.10.2';
-        $this->object->checkClient();
-        $this->assertEquals("Unix", $this->object->get('PMA_USR_OS'), "User OS expected to be Unix");
-
-        $_SERVER['HTTP_USER_AGENT'] = 'Mozilla/4.0 (compatible; OS/2 Webexplorer)';
-        $this->object->checkClient();
-        $this->assertEquals("OS/2", $this->object->get('PMA_USR_OS'), "User OS expected to be OS/2");
-
-        $_SERVER['HTTP_USER_AGENT'] = 'Mozilla/5.0 (Windows; U; Win95; en-US; rv:1.9b) Gecko/20031208';
-        $this->object->checkClient();
-        $this->assertEquals("GECKO", $this->object->get('PMA_USR_BROWSER_AGENT'), "Browser expected to be Gecko");
-
-        $_SERVER['HTTP_USER_AGENT'] = 'Mozilla/5.0 (compatible; Konqueror/4.5; NetBSD 5.0.2; X11; amd64; en_US) KHTML/4.5.4 (like Gecko)';
-        $this->object->checkClient();
-        $this->assertEquals("KONQUEROR", $this->object->get('PMA_USR_BROWSER_AGENT'), "Browser expected to be Konqueror");
-
-        $_SERVER['HTTP_USER_AGENT'] = 'Mozilla/5.0 (X11; Linux x86_64; rv:5.0) Gecko/20100101 Firefox/5.0';
-        $this->object->checkClient();
-        $this->assertEquals("MOZILLA", $this->object->get('PMA_USR_BROWSER_AGENT'), "Browser expected to be Mozilla");
-        $this->assertEquals("Linux", $this->object->get('PMA_USR_OS'), "User OS expected to be Linux");
+    public function userAgentProvider()
+    {
+        return array(
+            array(
+                'Opera/9.80 (X11; Linux x86_64; U; pl) Presto/2.7.62 Version/11.00',
+                'Linux',
+                'OPERA',
+                '9.80',
+            ),
+            array(
+                'Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-US) AppleWebKit/528.16 OmniWeb/622.8.0.112941',
+                'Mac',
+                'OMNIWEB',
+                '622',
+            ),
+            array(
+                'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1)',
+                'Win',
+                'IE',
+                '8.0',
+            ),
+            array(
+                'Mozilla/5.0 (Unknown; U; Unix BSD/SYSV system; C -) AppleWebKit/527+ (KHTML, like Gecko, Safari/419.3) Arora/0.10.2',
+                'Unix',
+                'SAFARI',
+                '5.0.419',
+            ),
+            array(
+                'Mozilla/5.0 (Windows; U; Win95; en-US; rv:1.9b) Gecko/20031208',
+                'Win',
+                'GECKO',
+                '1.9',
+            ),
+            array(
+                'Mozilla/5.0 (compatible; Konqueror/4.5; NetBSD 5.0.2; X11; amd64; en_US) KHTML/4.5.4 (like Gecko)',
+                'Other',
+                'KONQUEROR',
+            ),
+            array(
+                'Mozilla/5.0 (X11; Linux x86_64; rv:5.0) Gecko/20100101 Firefox/5.0',
+                'Linux',
+                'MOZILLA',
+                '5.0',
+            ),
+        );
 
     }
 
@@ -272,6 +302,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
     /**
      *
+     *
      * @covers PMA_Config::get
      * @covers PMA_Config::set
      *
@@ -287,6 +318,8 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
+     *
      * @covers PMA_Config::getSource
      * @covers PMA_Config::setSource
      */
@@ -310,6 +343,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
     /**
      *
+     *
      * @depends testCheckPmaAbsoluteUriEmpty
      */
     public function testCheckPmaAbsoluteUriNormal()
@@ -325,6 +359,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
      *
      * @depends testCheckPmaAbsoluteUriNormal
      */
@@ -342,6 +377,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
      *
      * @depends testCheckPmaAbsoluteUriScheme
      */
@@ -403,6 +439,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
     /**
      *
+     *
      * @depends testDetectHttps
      */
     public function testCheckCookiePath()
@@ -413,6 +450,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
      *
      * @depends testCheckSystem
      * @depends testCheckWebServer
@@ -445,6 +483,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
     /**
      *
+     *
      * @todo Implement testSave().
      */
     public function testSave()
@@ -456,6 +495,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
      *
      * @todo Implement testGetFontsizeForm().
      */
@@ -469,6 +509,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
     /**
      *
+     *
      * @todo Implement testRemoveCookie().
      */
     public function testRemoveCookie()
@@ -479,6 +520,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         );
     }
     /**
+     *
      *
      * @todo Implement testCheckFontsize().
      */
@@ -492,6 +534,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
     /**
      *
+     *
      * @todo Implement testCheckUpload().
      */
     public function testCheckUpload()
@@ -503,6 +546,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
      *
      * @todo Implement testCheckUploadSize().
      */
@@ -516,6 +560,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
     /**
      *
+     *
      * @todo Implement testCheckIsHttps().
      */
     public function testCheckIsHttps()
@@ -527,6 +572,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
      *
      * @todo Implement testGetCookiePath().
      */
@@ -540,6 +586,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
     /**
      *
+     *
      * @todo finish implementing test + dependencies
      */
     public function testLoad()
@@ -550,6 +597,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
      *
      * @todo Implement testLoadUserPreferences().
      */
@@ -562,6 +610,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
     /**
      *
+     *
      * @todo Implement testSetUserValue().
      */
     public function testSetUserValue()
@@ -573,6 +622,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
     /**
      *
+     *
      * @todo Implement testGetUserValue().
      */
     public function testGetUserValue()
@@ -581,6 +631,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
      *
      * @todo Implement testGetThemeUniqueValue().
      */
@@ -594,6 +645,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
     /**
      *
+     *
      * @todo Implement testCheckPermissions().
      */
     public function testCheckPermissions()
@@ -606,6 +658,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
 
     /**
+     *
      *
      * @todo Implement testSetCookie().
      */
@@ -623,6 +676,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     *
      *
      * @dataProvider sslUris
      */
