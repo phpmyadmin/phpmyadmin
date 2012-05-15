@@ -278,6 +278,7 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['lang'] = 'en';
         $_SESSION[' PMA_token '] = 'token';
+        unset($GLOBALS['server']);
         $this->assertEquals($expected, PMA_Message::decodeBB($actual));
     }
 
