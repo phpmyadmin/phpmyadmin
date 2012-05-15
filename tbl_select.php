@@ -153,7 +153,7 @@ if (! isset($param) || $param[0] == '') {
  * @param array   $fields_type         array containing types of all columns
  *                                     in the table
  * @param array   $geom_types          array of GIS data types
- * @param array   $i                   column index
+ * @param integer $i                   column index
  *
  * @return string the generated HTML
  */
