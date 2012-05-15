@@ -202,7 +202,12 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
         );
         $this->object->addString('test', '');
         $this->assertEquals(
-            array('*', PMA_Message::notice('test'), '', PMA_Message::notice('test')),
+            array(
+                '*',
+                PMA_Message::notice('test'),
+                '',
+                PMA_Message::notice('test')
+            ),
             $this->object->getAddedMessages()
         );
     }
@@ -266,8 +271,14 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     public function testSanitize()
     {
         $this->object->setString('test&string<>', false);
-        $this->assertEquals('test&amp;string&lt;&gt;', PMA_Message::sanitize($this->object));
-        $this->assertEquals(array('test&amp;string&lt;&gt;', 'test&amp;string&lt;&gt;'), PMA_Message::sanitize(array($this->object, $this->object)));
+        $this->assertEquals(
+            'test&amp;string&lt;&gt;',
+            PMA_Message::sanitize($this->object)
+        );
+        $this->assertEquals(
+            array('test&amp;string&lt;&gt;', 'test&amp;string&lt;&gt;'),
+            PMA_Message::sanitize(array($this->object, $this->object))
+        );
     }
 
     public function decodeBBDataProvider()
