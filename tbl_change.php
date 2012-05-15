@@ -7,6 +7,7 @@
  *
  * @package PhpMyAdmin
  */
+
 /**
  * Gets the variables sent or posted to this script and displays the header
  */
@@ -41,9 +42,6 @@ if (isset($_REQUEST['ShowFunctionFields'])) {
 }
 if (isset($_REQUEST['ShowFieldTypesInDataEditView'])) {
     $cfg['ShowFieldTypesInDataEditView'] = $_REQUEST['ShowFieldTypesInDataEditView'];
-}
-if (isset($_REQUEST['default_action'])) {
-    $default_action = $_REQUEST['default_action'];
 }
 if (isset($_REQUEST['after_insert'])) {
     $after_insert = $_REQUEST['after_insert'];
@@ -108,6 +106,7 @@ if ($GLOBALS['cfg']['ShowPropertyComments']) {
 /**
  * START REGULAR OUTPUT
  */
+
 /**
  * used in ./libraries/header.inc.php to load JavaScript library file
  */
@@ -126,9 +125,9 @@ require_once 'libraries/header.inc.php';
  *
  * @todo where does $disp_message and $disp_query come from???
  */
-if (!empty($disp_message)) {
-    if (!isset($disp_query)) {
-        $disp_query = null;
+if (! empty($disp_message)) {
+    if (! isset($disp_query)) {
+        $disp_query     = null;
     }
     PMA_showMessage($disp_message, $disp_query);
 }
@@ -138,7 +137,8 @@ if (!empty($disp_message)) {
  * @todo should be handled by class Table
  */
 $show_create_table = PMA_DBI_fetch_value(
-        'SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table), 0, 1
+    'SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table),
+    0, 1
 );
 $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
 unset($show_create_table);
@@ -152,10 +152,10 @@ $table_fields = array_values(PMA_DBI_get_columns($db, $table));
 $paramTableDbArray = array($table, $db);
 //Retrieve values for data edit view
 list($insert_mode, $where_clauses, $result, $rows, $where_clause_array, $found_unique_key)
-        = PMA_getValuesForEditMode($paramTableDbArray);
+    = PMA_getValuesForEditMode($paramTableDbArray);
 
 // Copying a row - fetched data will be inserted as a new row, therefore the where clause is needless.
-if (isset($default_action) && $default_action === 'insert') {
+if (isset($_REQUEST['default_action']) && $_REQUEST['default_action'] === 'insert') {
     unset($where_clause, $where_clauses);
 }
 
@@ -163,28 +163,36 @@ if (isset($default_action) && $default_action === 'insert') {
 $foreigners = PMA_getForeigners($db, $table);
 
 // Retrieve form parameters for insert/edit form
-$_form_params = PMA_getFormParametersForInsertForm($paramTableDbArray, $where_clauses, $where_clause_array, $err_url);
+$_form_params = PMA_getFormParametersForInsertForm(
+    $paramTableDbArray, $where_clauses, $where_clause_array, $err_url);
 
 /**
  * Displays the form
  */
 // autocomplete feature of IE kills the "onchange" event handler and it
 //        must be replaced by the "onpropertychange" one in this case
-$chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5 && PMA_USR_BROWSER_VER < 7) ? 'onpropertychange' : 'onchange';
+$chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5 && PMA_USR_BROWSER_VER < 7)
+     ? 'onpropertychange'
+     : 'onchange';
 // Had to put the URI because when hosted on an https server,
 // some browsers send wrongly this form to the http server.
 
-$titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
-
+$html_output = '';
+//Set on key handler for moving using by Ctrl+arrows
+$html_output .= '<script src="js/keyhandler.js" type="text/javascript"></script>'
+    . '<script type="text/javascript">'
+    . 'var switch_movement = 0;'
+    . 'document.onkeydown = onKeyDownArrowsHandler;'
+    . '</script>';
 // Set if we passed the first timestamp field
 $timestamp_seen = 0;
-$columns_cnt = count($table_fields);
+$columns_cnt     = count($table_fields);
 
 $tabindex = 0;
 $tabindex_for_function = +3000;
-$tabindex_for_null = +6000;
-$tabindex_for_value = 0;
-$o_rows = 0;
+$tabindex_for_null     = +6000;
+$tabindex_for_value    = 0;
+$o_rows   = 0;
 $biggest_max_file_size = 0;
 
 // user can toggle the display of Function column
@@ -192,35 +200,29 @@ $biggest_max_file_size = 0;
 $url_params['db'] = $db;
 $url_params['table'] = $table;
 $url_params = PMA_urlParamsInEditMode($url_params);
-?>
-<!-- Set on key handler for moving using by Ctrl+arrows -->
-<script src="js/keyhandler.js" type="text/javascript"></script>
-<script type="text/javascript">
-    //<![CDATA[
-    var switch_movement = 0;
-    document.onkeydown = onKeyDownArrowsHandler;
-    //]]>
-</script>
 
-<!-- Insert/Edit form -->
-<form id="insertForm" method="post" action="tbl_replace.php" name="insertForm" <?php
+//Insert/Edit form
+$html_output .= '<form id="insertForm" method="post" action="tbl_replace.php" name="insertForm" ';
 if ($is_upload) {
-    echo ' enctype="multipart/form-data"';
+    $html_output .= ' enctype="multipart/form-data"';
 }
-?>>
-<?php
-echo PMA_generate_common_hidden_inputs($_form_params);
+$html_output .= '>';
+    
 
-if (!$cfg['ShowFunctionFields'] || !$cfg['ShowFieldTypesInDataEditView']) {
-    echo __('Show');
+$html_output .= PMA_generate_common_hidden_inputs($_form_params);
+
+$titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
+
+if (! $cfg['ShowFunctionFields'] || ! $cfg['ShowFieldTypesInDataEditView']) {
+    $html_output .= __('Show');
 }
 
-if (!$cfg['ShowFunctionFields']) {
-    echo PMA_showFunctionFieldsInEditMode($url_params, false);
+if (! $cfg['ShowFunctionFields']) {
+    $html_output .= PMA_showFunctionFieldsInEditMode($url_params, false);
 }
 
-if (!$cfg['ShowFieldTypesInDataEditView']) {
-    echo PMA_showColumnTypesInDataEditView($url_params, false);
+if (! $cfg['ShowFieldTypesInDataEditView']) {
+    $html_output .= PMA_showColumnTypesInDataEditView($url_params, false);
 }
 
 foreach ($rows as $row_id => $vrow) {
@@ -234,47 +236,25 @@ foreach ($rows as $row_id => $vrow) {
 
     $vresult = (isset($result) && is_array($result) && isset($result[$row_id]) ? $result[$row_id] : $result);
     if ($insert_mode && $row_id > 0) {
-        echo '<input type="checkbox" checked="checked" name="insert_ignore_' . $row_id . '" id="insert_ignore_' . $row_id . '" />';
-        echo '<label for="insert_ignore_' . $row_id . '">' . __('Ignore') . '</label><br />' . "\n";
+        $html_output .= '<input type="checkbox" checked="checked" name="insert_ignore_' . $row_id . '" id="insert_ignore_' . $row_id . '" />'
+            .'<label for="insert_ignore_' . $row_id . '">' . __('Ignore') . '</label><br />' . "\n";
     }
-    ?>
-        <table class="insertRowTable">
-            <thead>
-                <tr>
-                    <th><?php echo __('Column'); ?></th>
-              <?php
-              if ($cfg['ShowFieldTypesInDataEditView']) {
-                  echo PMA_showColumnTypesInDataEditView($url_params, true);
-              }
-              if ($cfg['ShowFunctionFields']) {
-                  echo PMA_showFunctionFieldsInEditMode($url_params, true);
-              }
-              ?>
-                    <th><?php echo __('Null'); ?></th>
-                    <th><?php echo __('Value'); ?></th>
-                </tr>
-            </thead>
-            <tfoot>
-                <tr>
-                    <th colspan="5" class="tblFooters right">
-                        <input type="submit" value="<?php echo __('Go'); ?>" />
-                    </th>
-                </tr>
-            </tfoot>
-            <tbody>
-    <?php
+    
+    $html_output .= PMA_getHeadAndFootOfInsertRowTable($url_params)
+        . '<tbody>';
+
     // Sets a multiplier used for input-field counts (as zero cannot be used, advance the counter plus one)
     $m_rows = $o_rows + 1;
     //store the default value for CharEditing
-    $default_char_editing = $cfg['CharEditing'];
-    $html_output = '';
+    $default_char_editing  = $cfg['CharEditing'];
+
     $odd_row = true;
     for ($i = 0; $i < $columns_cnt; $i++) {
-        if (!isset($table_fields[$i]['processed'])) {
+        if (! isset($table_fields[$i]['processed'])) {
             $column = $table_fields[$i];
             $column = PMA_analyzeTableColumnsArray($column, $comments_map, $timestamp_seen);
         }
-
+        
         $extracted_columnspec = PMA_extractColumnSpec($column['Type']);
 
         if (-1 === $column['len']) {
@@ -287,30 +267,32 @@ foreach ($rows as $row_id => $vrow) {
         //Call validation when the form submited...
         $unnullify_trigger = $chg_evt_handler . "=\"return verificationsAfterFieldChange('"
             . PMA_escapeJsString($column['Field_md5']) . "', '"
-            . PMA_escapeJsString($jsvkey) . "','" . $column['pma_type'] . "')\"";
+            . PMA_escapeJsString($jsvkey) . "','".$column['pma_type'] . "')\"";
 
         // Use an MD5 as an array index to avoid having special characters in the name atttibute (see bug #1746964 )
         $column_name_appendix = $vkey . '[' . $column['Field_md5'] . ']';
 
         if ($column['Type'] == 'datetime'
-                && !isset($column['Default'])
-                && !is_null($column['Default'])
-                && ($insert_mode || !isset($vrow[$column['Field']]))
+            && ! isset($column['Default'])
+            && ! is_null($column['Default'])
+            && ($insert_mode || ! isset($vrow[$column['Field']]))
         ) {
             // INSERT case or
             // UPDATE case with an NULL value
             $vrow[$column['Field']] = date('Y-m-d H:i:s', time());
         }
-        $html_output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">'
-            . '<td' . ($cfg['LongtextDoubleTextarea'] && strstr($column['True_Type'], 'longtext') ? 'rowspan="2"' : '') . 'class="center">'
+        
+        $html_output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even' ) . '">'
+            . '<td ' . ($cfg['LongtextDoubleTextarea'] && strstr($column['True_Type'], 'longtext') ? 'rowspan="2"' : '') . 'class="center">'
             . $column['Field_title']
             . '<input type="hidden" name="fields_name' . $column_name_appendix . '" value="' . $column['Field_html'] . '"/>'
             . '</td>';
         if ($cfg['ShowFieldTypesInDataEditView']) {
-            $html_output .= '<td class="center' . $column['wrap'] . '">'
+             $html_output .= '<td class="center' . $column['wrap'] . '">'
                 . '<span class="column_type">' . $column['pma_type'] . '</span>'
                 . '</td>';
         } //End if
+
         // Get a list of GIS data types.
         $gis_data_types = PMA_getGISDatatypes();
 
@@ -326,7 +308,7 @@ foreach ($rows as $row_id => $vrow) {
                 $data = $vrow[$column['Field']];
             } elseif ($column['True_Type'] == 'bit') {
                 $special_chars = PMA_printable_bit_value(
-                        $vrow[$column['Field']], $extracted_columnspec['spec_in_brackets']
+                    $vrow[$column['Field']], $extracted_columnspec['spec_in_brackets']
                 );
             } elseif (in_array($column['True_Type'], $gis_data_types)) {
                 // Convert gis data to Well Know Text format
@@ -334,7 +316,7 @@ foreach ($rows as $row_id => $vrow) {
                 $special_chars = htmlspecialchars($vrow[$column['Field']]);
             } else {
                 // special binary "characters"
-                if ($column['is_binary'] || ($column['is_blob'] && !$cfg['ProtectBinary'])) {
+                if ($column['is_binary'] || ($column['is_blob'] && ! $cfg['ProtectBinary'])) {
                     if ($_SESSION['tmp_user_values']['display_binary_as_hex'] && $cfg['ShowFunctionFields']) {
                         $vrow[$column['Field']] = bin2hex($vrow[$column['Field']]);
                         $column['display_binary_as_hex'] = true;
@@ -350,8 +332,9 @@ foreach ($rows as $row_id => $vrow) {
 
                 $data = $vrow[$column['Field']];
             } // end if... else...
+
             //when copying row, it is useful to empty auto-increment column to prevent duplicate key error
-            if (isset($default_action) && $default_action === 'insert') {
+            if (isset($_REQUEST['default_action']) && $_REQUEST['default_action'] === 'insert') {
                 if ($column['Key'] === 'PRI' && strpos($column['Extra'], 'auto_increment') !== false) {
                     $data = $special_chars_encoded = $special_chars = null;
                 }
@@ -366,12 +349,12 @@ foreach ($rows as $row_id => $vrow) {
         } else {
             // (we are inserting)
             // display default values
-            if (!isset($column['Default'])) {
-                $column['Default'] = '';
-                $real_null_value = true;
-                $data = '';
+            if (! isset($column['Default'])) {
+                $column['Default'] 		  = '';
+                $real_null_value          = true;
+                $data                     = '';
             } else {
-                $data = $column['Default'];
+                $data                     = $column['Default'];
             }
 
             if ($column['True_Type'] == 'bit') {
@@ -382,7 +365,7 @@ foreach ($rows as $row_id => $vrow) {
             $backup_field = '';
             $special_chars_encoded = PMA_duplicateFirstNewline($special_chars);
             // this will select the UNHEX function while inserting
-            if (($column['is_binary'] || ($column['is_blob'] && !$cfg['ProtectBinary']))
+            if (($column['is_binary'] || ($column['is_blob'] && ! $cfg['ProtectBinary']))
                 && (isset($_SESSION['tmp_user_values']['display_binary_as_hex'])
                 && $_SESSION['tmp_user_values']['display_binary_as_hex'])
                 && $cfg['ShowFunctionFields']
@@ -401,7 +384,8 @@ foreach ($rows as $row_id => $vrow) {
         // -------------------
         if ($cfg['ShowFunctionFields']) {
             $html_output .= PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
-            $unnullify_trigger, $no_support_types, $tabindex_for_function, $tabindex, $idindex, $insert_mode);
+                $unnullify_trigger, $no_support_types, $tabindex_for_function,
+                $tabindex, $idindex, $insert_mode);
         }
 
         // The null column
@@ -418,102 +402,43 @@ foreach ($rows as $row_id => $vrow) {
         // Will be used by js/tbl_change.js to set the default value
         // for the "Continue insertion" feature
         $html_output .= '<span class="default_value hide">' . $special_chars . '</span>';
-
-        $html_output .= PMA_getValueColumn($column, $backup_field, $column_name_appendix, $unnullify_trigger,
-            $tabindex, $tabindex_for_value, $idindex, $data, $special_chars, $foreignData, $odd_row,
-            $paramTableDbArray, $rownumber_param, $titles, $text_dir, $special_chars_encoded, $vkey,
-            $is_upload, $biggest_max_file_size, $default_char_editing, $no_support_types, $gis_data_types, $extracted_columnspec);
-
-        $html_output .= '</td>'
-                . '</tr>';
+        
+        $html_output .= PMA_getValueColumn(
+            $column, $backup_field, $column_name_appendix, $unnullify_trigger,$tabindex,
+            $tabindex_for_value, $idindex, $data,$special_chars, $foreignData, $odd_row,
+            $paramTableDbArray,$rownumber_param, $titles, $text_dir, $special_chars_encoded,
+            $vkey,$is_upload, $biggest_max_file_size, $default_char_editing,
+            $no_support_types, $gis_data_types, $extracted_columnspec);
+        
+       $html_output .= '</td>'
+        . '</tr>';
 
         $odd_row = !$odd_row;
     } // end for
     $o_rows++;
-    $html_output .= '  </tbody></table><br />';
-
-    echo $html_output;
+    $html_output .= '  </tbody>'
+        . '</table><br />';
 } // end foreach on multi-edit
-?>
-        <div id="gis_editor"></div>
-        <div id="popup_background"></div>
-        <br />
-        <fieldset id="actions_panel">
-            <table cellpadding="5" cellspacing="0">
-                <tr>
-                    <td class="nowrap vmiddle">
-                        <select name="submit_type" class="control_at_footer" tabindex="<?php echo ($tabindex + $tabindex_for_value + 1); ?>">
-                        
-                    <?php if (isset($_REQUEST['where_clause'])) { ?>
-                            <option value="save"><?php echo __('Save'); ?></option>
-                    <?php } ?>
-                            <option value="insert"><?php echo __('Insert as new row'); ?></option>
-                            <option value="insertignore"><?php echo __('Insert as new row and ignore errors'); ?></option>
-                            <option value="showinsert"><?php echo __('Show insert query'); ?></option>
-                        </select>
-                    <?php
-                    echo "\n";
 
-                    if (!isset($after_insert)) {
-                        $after_insert = 'back';
-                    }
-                    ?>
-                    </td>
-                    <td class="vmiddle">
-                        &nbsp;&nbsp;&nbsp;<strong><?php echo __('and then'); ?></strong>&nbsp;&nbsp;&nbsp;
-                    </td>
-                    <td class="nowrap vmiddle">
-                        <select name="after_insert">
-                            <option value="back" <?php echo ($after_insert == 'back' ? 'selected="selected"' : ''); ?>>
-                                <?php echo __('Go back to previous page'); ?></option>
-                            <option value="new_insert" <?php echo ($after_insert == 'new_insert' ? 'selected="selected"' : ''); ?>>
-                                <?php echo __('Insert another new row'); ?></option>
-                    <?php if (isset($where_clause)) { ?>
-                            <option value="same_insert" <?php echo ($after_insert == 'same_insert' ? 'selected="selected"' : ''); ?>>
-                                <?php echo __('Go back to this page'); ?></option>
-                    <?php
-                            // If we have just numeric primary key, we can also edit next
-                            // in 2.8.2, we were looking for `field_name` = numeric_value
-                            //if (preg_match('@^[\s]*`[^`]*` = [0-9]+@', $where_clause)) {
-                            // in 2.9.0, we are looking for `table_name`.`field_name` = numeric_value
-                            if ($found_unique_key && preg_match('@^[\s]*`[^`]*`[\.]`[^`]*` = [0-9]+@', $where_clause)) { ?>
-                                <option value="edit_next" <?php echo ($after_insert == 'edit_next' ? 'selected="selected"' : ''); ?>>
-                                    <?php echo __('Edit next row'); ?></option>
-                            <?php
-                            }
-                        }
-                            ?>
-                        </select>
-                    </td>
-                </tr>
+$html_output .='<div id="gis_editor"></div>'
+    . '<div id="popup_background"></div>'
+    . '<br />';
 
-                <tr>
-                    <td>
-                            <?php echo PMA_showHint(__('Use TAB key to move from value to value, or CTRL+arrows to move anywhere')); ?>
-                    </td>
-                    <td colspan="3" class="right vmiddle">
-                        <input type="submit" class="control_at_footer" value="<?php echo __('Go'); ?>"
-                               tabindex="<?php echo ($tabindex + $tabindex_for_value + 6); ?>" id="buttonYes" />
-                        <input type="reset" class="control_at_footer" value="<?php echo __('Reset'); ?>"
-                               tabindex="<?php echo ($tabindex + $tabindex_for_value + 7); ?>" />
-                    </td>
-                </tr>
-            </table>
-        </fieldset>
-    <?php
-    if ($biggest_max_file_size > 0) {
-        echo '        ' . PMA_generateHiddenMaxFileSize($biggest_max_file_size) . "\n";
-    }
-    ?>
-</form>
-<?php
-//Continue insertion form
-if ($insert_mode) {
-    echo PMA_getContinueForm($paramTableDbArray, $where_clause_array);
+//action panel
+$html_output .= PMA_getActionsPanel($tabindex, $tabindex_for_value, $after_insert, $found_unique_key);
+if ($biggest_max_file_size > 0) {
+    $html_output .= '        ' . PMA_generateHiddenMaxFileSize($biggest_max_file_size) . "\n";
 }
-
+$html_output .= '</form>';
+    
+if ($insert_mode) {
+    //Continue insertion form
+    $html_output .= PMA_getContinueForm($paramTableDbArray, $where_clause_array, $err_url);
+}
+echo $html_output;
 /**
  * Displays the footer
  */
 require 'libraries/footer.inc.php';
+
 ?>

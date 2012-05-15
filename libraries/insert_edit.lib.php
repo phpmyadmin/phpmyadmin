@@ -527,10 +527,11 @@ function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
  * @param array $gis_data_types
  * @return type 
  */
-function PMA_getValueColumn($column, $backup_field, $column_name_appendix, $unnullify_trigger,
-    $tabindex, $tabindex_for_value, $idindex, $data,$special_chars, $foreignData, $odd_row,
-    $paramTableDbArray,$rownumber_param, $titles, $text_dir, $special_chars_encoded, $vkey,$is_upload,
-    $biggest_max_file_size, $default_char_editing, $no_support_types, $gis_data_types, $extracted_columnspec
+function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
+    $unnullify_trigger,$tabindex, $tabindex_for_value, $idindex, $data,
+    $special_chars, $foreignData, $odd_row, $paramTableDbArray,$rownumber_param,
+    $titles, $text_dir, $special_chars_encoded, $vkey,$is_upload,$biggest_max_file_size,
+    $default_char_editing, $no_support_types, $gis_data_types, $extracted_columnspec
 ) {
     $html_output = '';
     
@@ -541,7 +542,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix, $unnu
             );
         
     } elseif (is_array($foreignData['disp_row'])) {
-        $html_output .= PMA_dispRawForeignData($backup_field, $column_name_appendix,
+        $html_output .= PMA_dispRowForeignData($backup_field, $column_name_appendix,
             $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex, $data, $foreignData
             );
         
@@ -639,7 +640,7 @@ function PMA_getForeignLink($column, $backup_field, $column_name_appendix,
  * @param array $foreignData
  * @return string 
  */
-function PMA_dispRawForeignData($backup_field, $column_name_appendix,
+function PMA_dispRowForeignData($backup_field, $column_name_appendix,
     $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex, $data, $foreignData
 ) {
     $html_output = '';
@@ -808,8 +809,9 @@ function PMA_showRadioButtonDependOnLength($column_name_appendix, $unnullify_tri
     $tabindex, $column, $tabindex_for_value, $idindex, $data, $column_enum_values
 ) {
     $j = 0;
+    $html_output = '';
     foreach ($column_enum_values as $enum_value) {
-        $html_output = '            '
+        $html_output .= '            '
             . '<input type="radio" name="fields' . $column_name_appendix . '"'
             . ' class="textfield"'
             . ' value="' . $enum_value['html'] . '"'
@@ -950,7 +952,7 @@ function PMA_getBinaryAndBlobColumn($column, $data, $special_chars,$biggest_max_
     }
     
     if (!empty($cfg['UploadDir'])) {
-        $html_output .= PMA_GetSelectOptionForUpload($vkey, $column);
+        $html_output .= PMA_getSelectOptionForUpload($vkey, $column);
     }
     
     return $html_output;
@@ -994,7 +996,7 @@ function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
  * @param array $column
  * @return string 
  */
-function PMA_GetSelectOptionForUpload($vkey, $column)
+function PMA_getSelectOptionForUpload($vkey, $column)
 {
     $files = PMA_getFileSelectOptions(PMA_userDir($GLOBALS['cfg']['UploadDir']));
     if ($files === false) {
@@ -1163,7 +1165,7 @@ function PMA_getHTMLforGisDataTypes($vrow, $column)
  * @param array $where_clause_array
  * @return string 
  */
-function PMA_getContinueForm($paramArray, $where_clause_array)
+function PMA_getContinueForm($paramArray, $where_clause_array, $err_url)
 {
     list($table, $db) = $paramArray;
     $html_output = '<form id="continueForm" method="post" action="tbl_replace.php" name="continueForm" >'
@@ -1194,4 +1196,149 @@ function PMA_getContinueForm($paramArray, $where_clause_array)
     $html_output .= '</form>' . "\n";
     return $html_output;
 }
+
+/**
+ * Get action panel
+ * 
+ * @param integer $tabindex
+ * @param integer $tabindex_for_value
+ * @param string $after_insert
+ * @param boolean $found_unique_key
+ * @return string 
+ */
+function PMA_getActionsPanel($tabindex, $tabindex_for_value, $after_insert, $found_unique_key)
+{
+    $html_output = '<fieldset id="actions_panel">'
+        . '<table cellpadding="5" cellspacing="0">'
+        . '<tr>'
+        . '<td class="nowrap vmiddle">'
+        . PMA_getSubmitTypeDropDown($tabindex, $tabindex_for_value)
+        . "\n";
+    if (!isset($after_insert)) {
+        $after_insert = 'back';
+    }
+    $html_output .= '</td>'
+        . '<td class="vmiddle">'
+        . '&nbsp;&nbsp;&nbsp;<strong>' . __('and then') . '</strong>&nbsp;&nbsp;&nbsp;'
+        . '</td>'
+        . '<td class="nowrap vmiddle">'
+        . PMA_getAfterInsertDropDown($after_insert, $found_unique_key)
+        . '</td>'
+        . '</tr>';
+    $html_output .='<tr>'
+        . PMA_getSumbitAndREsetButtonForActionsPanel($tabindex, $tabindex_for_value)
+        . '</tr>'
+        . '</table>'
+        . '</fieldset>';
+    return $html_output;
+}
+
+/**
+ * Get a HTML drop down for submit types
+ * 
+ * @param integer $tabindex
+ * @param integer $tabindex_for_value
+ * @return string 
+ */
+function PMA_getSubmitTypeDropDown($tabindex, $tabindex_for_value)
+{
+    $html_output = '<select name="submit_type" class="control_at_footer" tabindex="' . ($tabindex + $tabindex_for_value + 1) . '">';
+    if (isset($_REQUEST['where_clause'])) {
+        $html_output .= '<option value="save">' . __('Save') . '</option>';
+    }
+    $html_output .= '<option value="insert">' . __('Insert as new row') . '</option>'
+        . '<option value="insertignore">' . __('Insert as new row and ignore errors') . '</option>'
+        . '<option value="showinsert">' . __('Show insert query') . '</option>'
+        . '</select>';
+    return $html_output;
+}
+
+/**
+ * Get HTML drop down for after insert
+ * 
+ * @param string $after_insert
+ * @param boolean $found_unique_key
+ * @return string 
+ */
+function PMA_getAfterInsertDropDown($after_insert, $found_unique_key)
+{
+    $html_output = '<select name="after_insert">'
+        . '<option value="back" ' . ($after_insert == 'back' ? 'selected="selected"' : '') . '>'
+        . __('Go back to previous page') . '</option>'
+        . '<option value="new_insert" ' . ($after_insert == 'new_insert' ? 'selected="selected"' : '') . '>'
+        . __('Insert another new row') . '</option>';
+    
+    if (isset($_REQUEST['where_clause'])) {
+        $html_output .= '<option value="same_insert" ' . ($after_insert == 'same_insert' ? 'selected="selected"' : '') . '>'
+            . __('Go back to this page') . '</option>';
+        
+        // If we have just numeric primary key, we can also edit next
+        // in 2.8.2, we were looking for `field_name` = numeric_value
+        //if (preg_match('@^[\s]*`[^`]*` = [0-9]+@', $where_clause)) {
+        // in 2.9.0, we are looking for `table_name`.`field_name` = numeric_value
+        if ($found_unique_key && preg_match('@^[\s]*`[^`]*`[\.]`[^`]*` = [0-9]+@', $_REQUEST['where_clause'])) {
+            $html_output .= '<option value="edit_next" '. ($after_insert == 'edit_next' ? 'selected="selected"' : '') . '>'
+                . __('Edit next row') . '</option>';
+ 
+        }
+    }
+    $html_output .= '</select>';
+    return $html_output;
+    
+}
+
+/**
+ * get Submit button and Reset button for action panel
+ * 
+ * @param integer $tabindex
+ * @param integer $tabindex_for_value
+ * @return string 
+ */
+function PMA_getSumbitAndResetButtonForActionsPanel($tabindex, $tabindex_for_value)
+{
+    return '<td>'
+    . PMA_showHint(__('Use TAB key to move from value to value, or CTRL+arrows to move anywhere'))
+    . '</td>'
+    . '<td colspan="3" class="right vmiddle">'
+    . '<input type="submit" class="control_at_footer" value="' . __('Go') . '"'
+    . 'tabindex="' . ($tabindex + $tabindex_for_value + 6) . '" id="buttonYes" />'
+    . '<input type="reset" class="control_at_footer" value="' . __('Reset') . '"'
+    . 'tabindex="' . ($tabindex + $tabindex_for_value + 7) . '" />'
+    . '</td>';
+}
+
+/**
+ * Get table head and table foot for insert row table
+ * 
+ * @param array $url_params
+ * @return string 
+ */
+function PMA_getHeadAndFootOfInsertRowTable($url_params)
+{
+    $html_output = '<table class="insertRowTable">'
+        . '<thead>'
+        . '<tr>'
+        . '<th>' . __('Column') . '</th>';
+    
+    if ($GLOBALS['cfg']['ShowFieldTypesInDataEditView']) {
+        $html_output .= PMA_showColumnTypesInDataEditView($url_params, true);
+    }
+    if ($GLOBALS['cfg']['ShowFunctionFields']) {
+        $html_output .= PMA_showFunctionFieldsInEditMode($url_params, true);
+    }
+    
+    $html_output .= '<th>'. __('Null') . '</th>'
+        . '<th>' . __('Value') . '</th>'
+        . '</tr>'
+        . '</thead>'
+        . ' <tfoot>'
+        . '<tr>'
+        . '<th colspan="5" class="tblFooters right">'
+        . '<input type="submit" value="' . __('Go') . '" />'
+        . '</th>'
+        . '</tr>'
+        . '</tfoot>';
+    return $html_output;
+}
+
 ?>
