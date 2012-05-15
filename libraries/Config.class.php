@@ -1387,7 +1387,7 @@ class PMA_Config
     {
         static $cookie_path = null;
 
-        if (null !== $cookie_path) {
+        if (null !== $cookie_path && !defined('TESTSUITE')) {
             return $cookie_path;
         }
 
@@ -1433,17 +1433,6 @@ class PMA_Config
                 define($define, $this->get($define));
             }
         }
-    }
-
-    /**
-     * Saves config file.
-     *
-     * @todo finish
-     *
-     * @return void
-     */
-    function save()
-    {
     }
 
     /**
