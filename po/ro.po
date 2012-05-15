@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-09 13:14+0200\n"
-"PO-Revision-Date: 2012-04-24 14:18+0200\n"
+"PO-Revision-Date: 2012-05-15 00:52+0200\n"
 "Last-Translator: Alex Marin <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2);;\n"
-"X-Generator: Weblate 0.10\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:59 js/messages.php:358
 #: libraries/display_tbl.lib.php:399 server_privileges.php:1828
@@ -10291,40 +10291,41 @@ msgstr "Vizualizarea %s a fost eliminată"
 
 #: server_replication.php:79
 msgid "Unknown error"
-msgstr ""
+msgstr "Eroare necunoscută"
 
 #: server_replication.php:86
 #, php-format
 msgid "Unable to connect to master %s."
-msgstr ""
+msgstr "Nu s-a putut realiza conexiunea la master %s."
 
 #: server_replication.php:93
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr ""
+"Nu s-a putut citi poziția jurnalului master. Posibilă eroare de permisiuni "
+"pe master."
 
 #: server_replication.php:99
 msgid "Unable to change master"
-msgstr ""
+msgstr "Nu s-a putut schimba master-ul"
 
 #: server_replication.php:102
-#, fuzzy, php-format
+#, php-format
 #| msgid "The privileges were reloaded successfully."
 msgid "Master server changed successfully to %s"
-msgstr "Drepturile au fost reîncarcate cu succes."
+msgstr "Server master schimbat cu succes în %s"
 
 #: server_replication.php:207
 msgid "This server is configured as master in a replication process."
-msgstr ""
+msgstr "Acest server este configurat ca master într-un proces de replicare."
 
 #: server_replication.php:209 server_status.php:635
-#, fuzzy
 msgid "Show master status"
-msgstr "Afișează stare sclav"
+msgstr "Afișați status master"
 
 #: server_replication.php:213
 msgid "Show connected slaves"
-msgstr ""
+msgstr "Afișați sclavi conectați"
 
 #: server_replication.php:237
 #, php-format
@@ -10332,10 +10333,12 @@ msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
+"Acest server nu este configurat ca master într-un proces de replicare. "
+"Doriți să îl <a href=\"%s\">configurați</a>? "
 
 #: server_replication.php:244
 msgid "Master configuration"
-msgstr ""
+msgstr "Configurare master"
 
 #: server_replication.php:245
 msgid ""
@@ -10345,6 +10348,11 @@ msgid ""
 "ignore all databases by default and allow only certain databases to be "
 "replicated. Please select the mode:"
 msgstr ""
+"Acest server nu este configurat ca master într-un proces de duplicare. "
+"Puteți alege dintre fie a duplica toate bazele de date și a ignora doar "
+"unele (util în cazul în care doriți să duplicați majoritatea bazelor de "
+"date), fie a ignora toate bazele de date implicit și a permite doar "
+"anumitora să fie duplicate. Va rugăm sa selectați modul:"
 
 #: server_replication.php:248
 msgid "Replicate all databases; Ignore:"
@@ -10757,6 +10765,8 @@ msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
 msgstr ""
+"Numărul de tabele temporare create automat în memorie de căter server în "
+"timpul execuției de interogări."
 
 #: server_status.php:1325
 msgid ""

@@ -217,6 +217,8 @@ function PMA_langDetails($lang)
         return array('br|breton', 'br', 'Brezhoneg');
     case 'ca':
         return array('ca|catalan', 'ca', 'Catal&agrave;');
+    case 'ckb':
+        return array('ckb', 'ckb', 'سۆرانی');
     case 'cs':
         return array('cs|czech', 'cs', 'Čeština');
     case 'cy':

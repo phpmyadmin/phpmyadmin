@@ -66,9 +66,10 @@ function PMA_config_get_validators()
  *   cleanup in HTML documen
  * o false - when no validators match name(s) given by $validator_id
  *
- * @param string|array  $validator_id
- * @param array         $values
- * @param bool          $isPostSource  tells whether $values are directly from POST request
+ * @param string|array $validator_id ID of validator(s) to run
+ * @param array        $values       Values to validate
+ * @param bool         $isPostSource tells whether $values are directly from
+ *                                   POST request
  *
  * @return bool|array
  */
@@ -150,7 +151,7 @@ function PMA_null_error_handler()
  * Called with $start = false disables output buffering end restores
  * html_errors and track_errors.
  *
- * @param boolean $start
+ * @param boolean $start Whether to start buffering
  */
 function test_php_errormsg($start = true)
 {
@@ -179,8 +180,8 @@ function test_php_errormsg($start = true)
 /**
  * Test database connection
  *
- * @param string $extension     'drizzle', 'mysql' or 'mysqli'
- * @param string $connect_type  'tcp' or 'socket'
+ * @param string $extension    'drizzle', 'mysql' or 'mysqli'
+ * @param string $connect_type 'tcp' or 'socket'
  * @param string $host
  * @param string $port
  * @param string $socket
