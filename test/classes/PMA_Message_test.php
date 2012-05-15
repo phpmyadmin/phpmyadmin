@@ -461,9 +461,11 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     public function providerAffectedRows()
     {
-        return array(array(1, '<div class="notice"> 1 row affected.</div>'));
-        return array(array(2, '<div class="notice"> 2 rows affected.</div>'));
-        return array(array(50000000000000, '<div class="notice"> 50000000000000 rows affected.</div>'));
+        return array(
+            array(1, '<div class="notice"> 1 row affected.</div>'),
+            array(2, '<div class="notice"> 2 rows affected.</div>'),
+            array(50000000000000, '<div class="notice"> 50000000000000 rows affected.</div>'),
+        );
     }
 
     /**
@@ -482,9 +484,11 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     public function providerInsertedRows()
     {
-        return array(array(1, '<div class="notice"> 1 row inserted.</div>'));
-        return array(array(2, '<div class="notice"> 2 rows inserted.</div>'));
-        return array(array(50000000000000, '<div class="notice"> 50000000000000 rows inserted.</div>'));
+        return array(
+            array(1, '<div class="notice"> 1 row inserted.</div>'),
+            array(2, '<div class="notice"> 2 rows inserted.</div>'),
+            array(50000000000000, '<div class="notice"> 50000000000000 rows inserted.</div>'),
+        );
     }
 
     /**
@@ -503,9 +507,11 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     public function providerDeletedRows()
     {
-        return array(array(1, '<div class="notice"> 1 row deleted.</div>'));
-        return array(array(2, '<div class="notice"> 2 rows deleted.</div>'));
-        return array(array(50000000000000, '<div class="notice"> 50000000000000 rows deleted.</div>'));
+        return array(
+            array(1, '<div class="notice"> 1 row deleted.</div>'),
+            array(2, '<div class="notice"> 2 rows deleted.</div>'),
+            array(50000000000000, '<div class="notice"> 50000000000000 rows deleted.</div>'),
+        );
     }
 
     /**
