@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-09 13:14+0200\n"
-"PO-Revision-Date: 2012-05-15 10:52+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-05-15 13:06+0200\n"
+"Last-Translator: Aso Naderi <aso.naderi@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ckb\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr ""
 #: browse_foreigners.php:35 browse_foreigners.php:59 js/messages.php:358
 #: libraries/display_tbl.lib.php:399 server_privileges.php:1828
 msgid "Show all"
-msgstr ""
+msgstr "پیشاندانی هەموو"
 
 #: browse_foreigners.php:76 libraries/PDF.class.php:50
 #: libraries/common.lib.php:2463
@@ -30,7 +30,7 @@ msgstr ""
 #: libraries/schema/User_Schema.class.php:399
 #: libraries/select_lang.lib.php:506
 msgid "Page number:"
-msgstr ""
+msgstr "ژمارەی پەڕە:"
 
 #: browse_foreigners.php:159
 msgid ""
@@ -44,7 +44,7 @@ msgstr ""
 #: libraries/common.lib.php:3153 libraries/common.lib.php:3380
 #: libraries/common.lib.php:3381
 msgid "Search"
-msgstr ""
+msgstr "گەڕان"
 
 #: browse_foreigners.php:184 db_operations.php:409 db_operations.php:449
 #: db_operations.php:562 db_operations.php:591 db_search.php:352
@@ -76,23 +76,23 @@ msgstr ""
 #: tbl_tracking.php:489 tbl_tracking.php:631 tbl_zoom_select.php:304
 #: view_create.php:177 view_operations.php:94
 msgid "Go"
-msgstr ""
+msgstr "بڕۆ"
 
 #: browse_foreigners.php:199 browse_foreigners.php:203
 #: libraries/Index.class.php:457 tbl_tracking.php:365
 msgid "Keyname"
-msgstr ""
+msgstr "کلیلەناو"
 
 #: browse_foreigners.php:200 browse_foreigners.php:202
 #: server_collations.php:39 server_collations.php:51 server_engines.php:42
 #: server_plugins.php:128 server_status.php:1496
 msgid "Description"
-msgstr ""
+msgstr "پێناسە"
 
 #: browse_foreigners.php:287 browse_foreigners.php:297
 #: browse_foreigners.php:313 browse_foreigners.php:325
 msgid "Use this value"
-msgstr ""
+msgstr "ئەم نرخە هەڵبژێرە"
 
 #: changelog.php:32 license.php:28
 #, php-format
@@ -100,21 +100,23 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"پەڕگەی %s بوونی نییە لەسەر ئەم سیستەمە, تکایە سەردانی www.phpmyadmin.net بۆ "
+"زانیاری زۆرتر."
 
 #: db_create.php:74
 #, php-format
 msgid "Database %1$s has been created."
-msgstr ""
+msgstr "بنکەی دراوەی %1$s درووستکرا."
 
 #: db_datadict.php:49 db_operations.php:401
 msgid "Database comment: "
-msgstr ""
+msgstr ":تێبینی بنکەی دراوە"
 
 #: db_datadict.php:154 libraries/schema/Pdf_Relation_Schema.class.php:1282
 #: libraries/tbl_properties.inc.php:786 tbl_operations.php:369
 #: tbl_printview.php:126
 msgid "Table comments"
-msgstr ""
+msgstr "تێبینی خشتە"
 
 #: db_datadict.php:163 db_qbe.php:199 libraries/Index.class.php:461
 #: libraries/export/htmlword.php:245 libraries/export/htmlword.php:357
@@ -128,7 +130,7 @@ msgstr ""
 #: tbl_relation.php:401 tbl_tracking.php:303 tbl_tracking.php:369
 #: tbl_zoom_select.php:428
 msgid "Column"
-msgstr ""
+msgstr "خانە"
 
 #: db_datadict.php:164 db_printview.php:104 libraries/Index.class.php:458
 #: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:248
@@ -146,7 +148,7 @@ msgstr ""
 #: tbl_printview.php:139 tbl_printview.php:297 tbl_structure.php:201
 #: tbl_structure.php:833 tbl_tracking.php:304 tbl_tracking.php:366
 msgid "Type"
-msgstr ""
+msgstr "جۆر"
 
 #: db_datadict.php:166 libraries/Index.class.php:464
 #: libraries/export/htmlword.php:251 libraries/export/htmlword.php:363
@@ -159,7 +161,7 @@ msgstr ""
 #: tbl_printview.php:140 tbl_structure.php:204 tbl_tracking.php:306
 #: tbl_tracking.php:372 tbl_zoom_select.php:429
 msgid "Null"
-msgstr ""
+msgstr "بەتاڵ"
 
 #: db_datadict.php:167 db_structure.php:637 libraries/export/htmlword.php:254
 #: libraries/export/htmlword.php:366 libraries/export/latex.php:484
@@ -170,7 +172,7 @@ msgstr ""
 #: libraries/tbl_properties.inc.php:88 tbl_printview.php:141
 #: tbl_structure.php:205 tbl_tracking.php:307
 msgid "Default"
-msgstr ""
+msgstr "بنەڕەت"
 
 #: db_datadict.php:171 libraries/export/htmlword.php:370
 #: libraries/export/latex.php:486 libraries/export/odt.php:439
@@ -178,7 +180,7 @@ msgstr ""
 #: libraries/schema/Pdf_Relation_Schema.class.php:1314
 #: libraries/schema/Pdf_Relation_Schema.class.php:1335 tbl_printview.php:144
 msgid "Links to"
-msgstr ""
+msgstr "بەستەر دەکات بۆ"
 
 #: db_datadict.php:173 db_printview.php:110
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:113
@@ -189,7 +191,7 @@ msgstr ""
 #: libraries/schema/Pdf_Relation_Schema.class.php:1336
 #: libraries/tbl_properties.inc.php:111 tbl_printview.php:146
 msgid "Comments"
-msgstr ""
+msgstr "بۆچوون"
 
 #: db_datadict.php:235 js/messages.php:251 libraries/Index.class.php:359
 #: libraries/Index.class.php:386 libraries/Index.class.php:704
@@ -206,7 +208,7 @@ msgstr ""
 #: tbl_structure.php:344 tbl_tracking.php:327 tbl_tracking.php:382
 #: tbl_tracking.php:387
 msgid "No"
-msgstr ""
+msgstr "نەخێر"
 
 #: db_datadict.php:235 js/messages.php:250 libraries/Index.class.php:360
 #: libraries/Index.class.php:385 libraries/Index.class.php:704
@@ -229,7 +231,7 @@ msgstr ""
 #: tbl_structure.php:41 tbl_structure.php:344 tbl_tracking.php:327
 #: tbl_tracking.php:380 tbl_tracking.php:385
 msgid "Yes"
-msgstr ""
+msgstr "بەڵێ"
 
 #: db_export.php:26
 msgid "View dump (schema) of database"
@@ -238,29 +240,29 @@ msgstr ""
 #: db_export.php:30 db_printview.php:95 db_qbe.php:104 db_tracking.php:47
 #: export.php:374 navigation.php:287
 msgid "No tables found in database."
-msgstr ""
+msgstr ".هیج خشتەیەک بوونی نیە لە نێو بنکەی دراوە"
 
 #: db_export.php:40 db_search.php:334 server_export.php:22
 msgid "Select All"
-msgstr ""
+msgstr "هەڵبژاردنی هەموو"
 
 #: db_export.php:42 db_search.php:337 server_export.php:24
 msgid "Unselect All"
-msgstr ""
+msgstr "هەلنەبژاردنی هەموو"
 
 #: db_operations.php:59 tbl_create.php:22
 msgid "The database name is empty!"
-msgstr ""
+msgstr "ناوی بنکەی دراوە بەتاڵە!"
 
 #: db_operations.php:311
 #, php-format
 msgid "Database %1$s has been renamed to %2$s"
-msgstr ""
+msgstr "ناوی بنکەی دراوەی %1$s گۆڕدرا بۆ %2$s"
 
 #: db_operations.php:315
 #, php-format
 msgid "Database %1$s has been copied to %2$s"
-msgstr ""
+msgstr "بنکەی دراوەی %1$s ڕوونووس کرا بۆ بنکەی دراوەی %2$s"
 
 #: db_operations.php:443
 msgid "Rename database to"
