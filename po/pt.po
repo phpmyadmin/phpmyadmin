@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-09 13:14+0200\n"
-"PO-Revision-Date: 2012-05-14 13:56+0200\n"
+"PO-Revision-Date: 2012-05-15 14:21+0200\n"
 "Last-Translator: Vítor Martins <vjmartins@sapo.pt>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -254,7 +254,7 @@ msgid "The database name is empty!"
 msgstr "O nome da base de dados está vazia!"
 
 #: db_operations.php:311
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
 msgstr "O nome da base de dados %s foi alterado para %s"
@@ -449,6 +449,7 @@ msgid "And"
 msgstr "E"
 
 #: db_qbe.php:393 db_qbe.php:474 db_qbe.php:556 db_qbe.php:587
+#, fuzzy
 msgid "Del"
 msgstr "Elim."
 
