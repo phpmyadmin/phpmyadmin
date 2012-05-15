@@ -46,7 +46,7 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     /**
      * to String casting test
      */
-    public function test__toString()
+    public function testToString()
     {
         $this->object->setMessage('test<&>', true);
         $this->assertEquals('test&lt;&amp;&gt;', (string)$this->object);
@@ -59,7 +59,10 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     {
         $this->object = new PMA_Message('test<&>', PMA_Message::SUCCESS);
         $this->assertEquals($this->object, PMA_Message::success('test<&>'));
-        $this->assertEquals('Your SQL query has been executed successfully', PMA_Message::success()->getString());
+        $this->assertEquals(
+            'Your SQL query has been executed successfully',
+            PMA_Message::success()->getString()
+        );
     }
 
     /**
@@ -171,11 +174,20 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     public function testAddParam()
     {
         $this->object->addParam(PMA_Message::notice('test'));
-        $this->assertEquals(array(PMA_Message::notice('test')), $this->object->getParams());
+        $this->assertEquals(
+            array(PMA_Message::notice('test')),
+            $this->object->getParams()
+        );
         $this->object->addParam('test', true);
-        $this->assertEquals(array(PMA_Message::notice('test'), 'test'), $this->object->getParams());
+        $this->assertEquals(
+            array(PMA_Message::notice('test'), 'test'),
+            $this->object->getParams()
+        );
         $this->object->addParam('test', false);
-        $this->assertEquals(array(PMA_Message::notice('test'), 'test', PMA_Message::notice('test')), $this->object->getParams());
+        $this->assertEquals(
+            array(PMA_Message::notice('test'), 'test', PMA_Message::notice('test')),
+            $this->object->getParams()
+        );
     }
 
     /**
@@ -184,9 +196,15 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     public function testAddString()
     {
         $this->object->addString('test', '*');
-        $this->assertEquals(array('*', PMA_Message::notice('test')), $this->object->getAddedMessages());
+        $this->assertEquals(
+            array('*', PMA_Message::notice('test')),
+            $this->object->getAddedMessages()
+        );
         $this->object->addString('test', '');
-        $this->assertEquals(array('*', PMA_Message::notice('test'), '', PMA_Message::notice('test')), $this->object->getAddedMessages());
+        $this->assertEquals(
+            array('*', PMA_Message::notice('test'), '', PMA_Message::notice('test')),
+            $this->object->getAddedMessages()
+        );
     }
 
     /**
@@ -195,9 +213,19 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     public function testAddMessage()
     {
         $this->object->addMessage('test', '');
-        $this->assertEquals(array(PMA_Message::rawNotice('test')), $this->object->getAddedMessages());
+        $this->assertEquals(
+            array(PMA_Message::rawNotice('test')),
+            $this->object->getAddedMessages()
+        );
         $this->object->addMessage('test');
-        $this->assertEquals(array(PMA_Message::rawNotice('test'), ' ', PMA_Message::rawNotice('test')), $this->object->getAddedMessages());
+        $this->assertEquals(
+            array(
+                PMA_Message::rawNotice('test'),
+                ' ',
+                PMA_Message::rawNotice('test')
+            ),
+            $this->object->getAddedMessages()
+        );
     }
 
     /**
@@ -211,7 +239,14 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
         $messages[] = "Test3";
         $this->object->addMessages($messages, '');
 
-        $this->assertEquals(array(PMA_Message::rawNotice('Test1'), PMA_Message::error("PMA_Test2"), PMA_Message::rawNotice('Test3')), $this->object->getAddedMessages());
+        $this->assertEquals(
+            array(
+                PMA_Message::rawNotice('Test1'),
+                PMA_Message::error("PMA_Test2"),
+                PMA_Message::rawNotice('Test3')
+            ),
+            $this->object->getAddedMessages()
+        );
     }
 
     /**
@@ -287,10 +322,22 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
      */
     public function testFormat()
     {
-        $this->assertEquals('test string', PMA_Message::format('test string'));
-        $this->assertEquals('test string', PMA_Message::format('test string', 'a'));
-        $this->assertEquals('test string', PMA_Message::format('test string', array()));
-        $this->assertEquals('test string', PMA_Message::format('%s string', array('test')));
+        $this->assertEquals(
+            'test string',
+            PMA_Message::format('test string')
+        );
+        $this->assertEquals(
+            'test string',
+            PMA_Message::format('test string', 'a')
+        );
+        $this->assertEquals(
+            'test string',
+            PMA_Message::format('test string', array())
+        );
+        $this->assertEquals(
+            'test string',
+            PMA_Message::format('%s string', array('test'))
+        );
 
     }
 
@@ -301,12 +348,15 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     {
         $this->object->setString('<&>test', false);
         $this->object->setMessage('<&>test', false);
-        $this->assertEquals(md5(PMA_Message::NOTICE . '<&>test<&>test'), $this->object->getHash());
+        $this->assertEquals(
+            md5(PMA_Message::NOTICE . '<&>test<&>test'),
+            $this->object->getHash()
+        );
     }
 
     /**
-     * getMessage test - with empty message and with non-empty string - not key in globals
-     * additional params are defined
+     * getMessage test - with empty message and with non-empty string -
+     * not key in globals additional params are defined
      */
     public function testGetMessageWithoutMessageWithStringWithParams()
     {
@@ -314,7 +364,10 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
         $this->object->setString('test string %s %s');
         $this->object->addParam('test param 1');
         $this->object->addParam('test param 2');
-        $this->assertEquals('test string test param 1 test param 2', $this->object->getMessage());
+        $this->assertEquals(
+            'test string test param 1 test param 2',
+            $this->object->getMessage()
+        );
     }
 
     /**
@@ -338,7 +391,10 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
         $this->object->setString('key');
         $this->object->addMessage('test message 2', ' - ');
         $this->object->addMessage('test message 3', '&');
-        $this->assertEquals('test message - test message 2&test message 3', $this->object->getMessage());
+        $this->assertEquals(
+            'test message - test message 2&test message 3',
+            $this->object->getMessage()
+        );
         unset($GLOBALS['key']);
     }
 
@@ -349,7 +405,10 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     public function testGetMessageWithMessageWithBBCode()
     {
         $this->object->setMessage('[kbd]test[/kbd] [a@./Documentation.html#cfg_Example@_blank]test[/a]');
-        $this->assertEquals('<kbd>test</kbd> <a href="./Documentation.html#cfg_Example" target="_blank">test</a>', $this->object->getMessage());
+        $this->assertEquals(
+            '<kbd>test</kbd> <a href="./Documentation.html#cfg_Example" target="_blank">test</a>',
+            $this->object->getMessage()
+        );
     }
 
     /**
@@ -384,7 +443,10 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     public function testGetDisplay()
     {
         $this->object->setMessage('Test Message');
-        $this->assertEquals('<div class="notice">Test Message</div>', $this->object->getDisplay());
+        $this->assertEquals(
+            '<div class="notice">Test Message</div>',
+            $this->object->getDisplay()
+        );
     }
 
     /**
