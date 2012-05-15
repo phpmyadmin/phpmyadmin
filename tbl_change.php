@@ -918,7 +918,7 @@ foreach ($rows as $row_id => $vrow) {
                 if ($this_field_max_size > $max_field_sizes[$field['pma_type']]) {
                     $this_field_max_size = $max_field_sizes[$field['pma_type']];
                 }
-                echo PMA_displayMaximumUploadSize($this_field_max_size) . "\n";
+                echo PMA_getFormattedMaximumUploadSize($this_field_max_size) . "\n";
                 // do not generate here the MAX_FILE_SIZE, because we should
                 // put only one in the form to accommodate the biggest field
                 if ($this_field_max_size > $biggest_max_file_size) {

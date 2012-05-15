@@ -179,7 +179,7 @@ function PMA_getImage($image, $alternate = '', $attributes = array())
 }
 
 /**
- * Displays the maximum size for an upload
+ * Returns the formatted maximum size for an upload
  *
  * @param integer $max_upload_size the size
  *
@@ -187,7 +187,7 @@ function PMA_getImage($image, $alternate = '', $attributes = array())
  *
  * @access  public
  */
-function PMA_displayMaximumUploadSize($max_upload_size)
+function PMA_getFormattedMaximumUploadSize($max_upload_size)
 {
     // I have to reduce the second parameter (sensitiveness) from 6 to 4
     // to avoid weird results like 512 kKib
@@ -3314,7 +3314,7 @@ function PMA_browseUploadFile($max_upload_size)
     echo '<div id="upload_form_status" style="display: none;"></div>';
     echo '<div id="upload_form_status_info" style="display: none;"></div>';
     echo '<input type="file" name="import_file" id="input_import_file" />';
-    echo PMA_displayMaximumUploadSize($max_upload_size) . "\n";
+    echo PMA_getFormattedMaximumUploadSize($max_upload_size) . "\n";
     // some browsers should respect this :)
     echo PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";
 }

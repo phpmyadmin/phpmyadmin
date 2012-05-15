@@ -33,6 +33,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->object = new PMA_Config;
+        $GLOBALS['server'] = 0;
     }
 
     /**
@@ -67,55 +68,97 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         $this->object->set('PMA_USR_BROWSER_VER', 5);
         $this->object->checkOutputCompression();
         $this->assertEquals('auto', $this->object->get("OBGzip"));
-
-/*
-    Disabled as ini_set is quite often not allowed
-        @ini_set('zlib.output_compression', 'Off');
-        $this->object->checkOutputCompression();
-        $this->assertFalse($this->object->get("OBGzip"));
-
-        @ini_set('zlib.output_compression', 'On');
- */
     }
 
-    public function testCheckClient()
+    /**
+     * Tests client parsing code.
+     *
+     * @param string $agent   User agent string
+     * @param string $os      Expected parsed OS (or null if none)
+     * @param string $browser Expected parsed browser (or null if none)
+     * @param string $version Expected browser version (or null if none)
+     *
+     * @dataProvider userAgentProvider
+     */
+    public function testCheckClient($agent, $os, $browser = null, $version = null)
     {
-        $_SERVER['HTTP_USER_AGENT'] = 'Opera/9.80 (X11; Linux x86_64; U; pl) Presto/2.7.62 Version/11.00';
+        $_SERVER['HTTP_USER_AGENT'] = $agent;
         $this->object->checkClient();
-        $this->assertEquals("Linux", $this->object->get('PMA_USR_OS'), "User OS expected to be Linux");
-        $this->assertEquals("OPERA", $this->object->get('PMA_USR_BROWSER_AGENT'), "Browser expected to be Opera");
-        $this->assertEquals("9.80", $this->object->get('PMA_USR_BROWSER_VER'), "Browser ver expected to be 9.80");
+        $this->assertEquals($os, $this->object->get('PMA_USR_OS'));
+        if ($os != null) {
+            $this->assertEquals(
+                $browser,
+                $this->object->get('PMA_USR_BROWSER_AGENT')
+            );
+        }
+        if ($version != null) {
+            $this->assertEquals(
+                $version,
+                $this->object->get('PMA_USR_BROWSER_VER')
+            );
+        }
+    }
 
-        $_SERVER['HTTP_USER_AGENT'] = 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-US) AppleWebKit/528.16 OmniWeb/622.8.0.112941';
-        $this->object->checkClient();
-        $this->assertEquals("Mac", $this->object->get('PMA_USR_OS'), "User OS expected to be Mac");
-        $this->assertEquals("OMNIWEB", $this->object->get('PMA_USR_BROWSER_AGENT'), "Browser expected to be OmniWeb");
-
-        $_SERVER['HTTP_USER_AGENT'] = 'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1)';
-        $this->object->checkClient();
-        $this->assertEquals("Win", $this->object->get('PMA_USR_OS'), "User OS expected to be Windows");
-        $this->assertEquals("IE", $this->object->get('PMA_USR_BROWSER_AGENT'), "Browser expected to be IE");
-
-        $_SERVER['HTTP_USER_AGENT'] = 'Mozilla/5.0 (Unknown; U; Unix BSD/SYSV system; C -) AppleWebKit/527+ (KHTML, like Gecko, Safari/419.3) Arora/0.10.2';
-        $this->object->checkClient();
-        $this->assertEquals("Unix", $this->object->get('PMA_USR_OS'), "User OS expected to be Unix");
-
-        $_SERVER['HTTP_USER_AGENT'] = 'Mozilla/4.0 (compatible; OS/2 Webexplorer)';
-        $this->object->checkClient();
-        $this->assertEquals("OS/2", $this->object->get('PMA_USR_OS'), "User OS expected to be OS/2");
-
-        $_SERVER['HTTP_USER_AGENT'] = 'Mozilla/5.0 (Windows; U; Win95; en-US; rv:1.9b) Gecko/20031208';
-        $this->object->checkClient();
-        $this->assertEquals("GECKO", $this->object->get('PMA_USR_BROWSER_AGENT'), "Browser expected to be Gecko");
-
-        $_SERVER['HTTP_USER_AGENT'] = 'Mozilla/5.0 (compatible; Konqueror/4.5; NetBSD 5.0.2; X11; amd64; en_US) KHTML/4.5.4 (like Gecko)';
-        $this->object->checkClient();
-        $this->assertEquals("KONQUEROR", $this->object->get('PMA_USR_BROWSER_AGENT'), "Browser expected to be Konqueror");
-
-        $_SERVER['HTTP_USER_AGENT'] = 'Mozilla/5.0 (X11; Linux x86_64; rv:5.0) Gecko/20100101 Firefox/5.0';
-        $this->object->checkClient();
-        $this->assertEquals("MOZILLA", $this->object->get('PMA_USR_BROWSER_AGENT'), "Browser expected to be Mozilla");
-        $this->assertEquals("Linux", $this->object->get('PMA_USR_OS'), "User OS expected to be Linux");
+    public function userAgentProvider()
+    {
+        return array(
+            array(
+                'Opera/9.80 (X11; Linux x86_64; U; pl) Presto/2.7.62 Version/11.00',
+                'Linux',
+                'OPERA',
+                '9.80',
+            ),
+            array(
+                'Mozilla/5.0 (Macintosh; U; Intel Mac OS X; en-US) AppleWebKit/528.16 OmniWeb/622.8.0.112941',
+                'Mac',
+                'OMNIWEB',
+                '622',
+            ),
+            array(
+                'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1)',
+                'Win',
+                'IE',
+                '8.0',
+            ),
+            array(
+                'Mozilla/5.0 (Unknown; U; Unix BSD/SYSV system; C -) AppleWebKit/527+ (KHTML, like Gecko, Safari/419.3) Arora/0.10.2',
+                'Unix',
+                'SAFARI',
+                '5.0.419',
+            ),
+            array(
+                'Mozilla/5.0 (Windows; U; Win95; en-US; rv:1.9b) Gecko/20031208',
+                'Win',
+                'GECKO',
+                '1.9',
+            ),
+            array(
+                'Mozilla/5.0 (compatible; Konqueror/4.5; NetBSD 5.0.2; X11; amd64; en_US) KHTML/4.5.4 (like Gecko)',
+                'Other',
+                'KONQUEROR',
+            ),
+            array(
+                'Mozilla/5.0 (X11; Linux x86_64; rv:5.0) Gecko/20100101 Firefox/5.0',
+                'Linux',
+                'MOZILLA',
+                '5.0',
+            ),
+            /**
+             * @todo Is this version really expected?
+             */
+            array(
+                'Mozilla/5.0 (X11; Linux x86_64; rv:12.0) Gecko/20100101 Firefox/12.0',
+                'Linux',
+                'MOZILLA',
+                '5.0',
+            ),
+            array(
+                'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.4+ (KHTML, like Gecko) Version/5.0 Safari/535.4+ SUSE/12.1 (3.2.1) Epiphany/3.2.1',
+                'Linux',
+                'SAFARI',
+                '5.0.535',
+            ),
+        );
 
     }
 
@@ -135,16 +178,28 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
         if (!@function_exists('imagecreatetruecolor')) {
             $this->object->checkGd2();
-            $this->assertEquals(0, $this->object->get('PMA_IS_GD2'), 'Function imagecreatetruecolor does not exist, PMA_IS_GD2 should be 0');
+            $this->assertEquals(
+                0,
+                $this->object->get('PMA_IS_GD2'),
+                'imagecreatetruecolor does not exist, PMA_IS_GD2 should be 0'
+            );
         }
 
         if (@function_exists('gd_info')) {
             $this->object->checkGd2();
             $gd_nfo = gd_info();
             if (strstr($gd_nfo["GD Version"], '2.')) {
-                $this->assertEquals(1, $this->object->get('PMA_IS_GD2'), 'GD Version >= 2, PMA_IS_GD2 should be 1');
+                $this->assertEquals(
+                    1,
+                    $this->object->get('PMA_IS_GD2'),
+                    'GD Version >= 2, PMA_IS_GD2 should be 1'
+                );
             } else {
-                $this->assertEquals(0, $this->object->get('PMA_IS_GD2'), 'GD Version < 2, PMA_IS_GD2 should be 0');
+                $this->assertEquals(
+                    0,
+                    $this->object->get('PMA_IS_GD2'),
+                    'GD Version < 2, PMA_IS_GD2 should be 0'
+                );
             }
         }
 
@@ -156,24 +211,49 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
         if (preg_match('@GD Version[[:space:]]*\(.*\)@', $a, $v)) {
             if (strstr($v, '2.')) {
-                $this->assertEquals(1, $this->object->get('PMA_IS_GD2'), 'PMA_IS_GD2 should be 1');
+                $this->assertEquals(
+                    1,
+                    $this->object->get('PMA_IS_GD2'),
+                    'PMA_IS_GD2 should be 1'
+                );
             } else {
-                $this->assertEquals(0, $this->object->get('PMA_IS_GD2'), 'PMA_IS_GD2 should be 0');
+                $this->assertEquals(
+                    0,
+                    $this->object->get('PMA_IS_GD2'),
+                    'PMA_IS_GD2 should be 0'
+                );
             }
         }
     }
 
-    public function testCheckWebServer()
+    /**
+     * Web server detection test
+     *
+     * @param string  $server Server indentification
+     * @param boolean $iis    Whether server should be detected as IIS
+     *
+     * @dataProvider serverNames
+     */
+    public function testCheckWebServer($server, $iis)
     {
-        $_SERVER['SERVER_SOFTWARE'] = "Microsoft-IIS 7.0";
+        $_SERVER['SERVER_SOFTWARE'] = $server;
         $this->object->checkWebServer();
-        $this->assertEquals(1, $this->object->get('PMA_IS_IIS'));
-
-        $_SERVER['SERVER_SOFTWARE'] = "Apache/2.2.17";
-        $this->object->checkWebServer();
-        $this->assertEquals(0, $this->object->get('PMA_IS_IIS'));
-
+        $this->assertEquals($iis, $this->object->get('PMA_IS_IIS'));
         unset($_SERVER['SERVER_SOFTWARE']);
+    }
+
+    public function serverNames()
+    {
+        return array(
+            array(
+                "Microsoft-IIS 7.0",
+                1,
+            ),
+            array(
+                "Apache/2.2.17",
+                0,
+            ),
+        );
     }
 
     public function testCheckWebServerOs()
@@ -183,20 +263,20 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         if (defined('PHP_OS')) {
             switch (PHP_OS) {
             case stristr(PHP_OS, 'win'):
-                $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'), 'PHP_OS equals: ' . PHP_OS . ' PMA_IS_WINDOWS should be 1');
+                $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'));
                 break;
             case stristr(PHP_OS, 'OS/2'):
-                $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'), 'PHP_OS is OS/2 PMA_IS_WINDOWS should be 1 (No file permissions like Windows)');
+                $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'));
                 break;
             case stristr(PHP_OS, 'Linux'):
                 $this->assertEquals(0, $this->object->get('PMA_IS_WINDOWS'));
                 break;
             }
         } else {
-            $this->assertEquals(0, $this->object->get('PMA_IS_WINDOWS'), 'PMA_IS_WINDOWS Default to Unix or Equiv');
+            $this->assertEquals(0, $this->object->get('PMA_IS_WINDOWS'));
 
             define('PHP_OS', 'Windows');
-            $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'), 'PMA_IS_WINDOWS must be 1');
+            $this->assertEquals(1, $this->object->get('PMA_IS_WINDOWS'));
         }
     }
 
@@ -208,7 +288,11 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         $php_str_ver = phpversion();
 
         $match = array();
-        preg_match('@([0-9]{1,2}).([0-9]{1,2}).([0-9]{1,2})@', phpversion(), $match);
+        preg_match(
+            '@([0-9]{1,2}).([0-9]{1,2}).([0-9]{1,2})@',
+            phpversion(),
+            $match
+        );
         if (isset($match) && ! empty($match[1])) {
             if (! isset($match[2])) {
                 $match[2] = 0;
@@ -216,15 +300,31 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
             if (! isset($match[3])) {
                 $match[3] = 0;
             }
-            $php_int_ver = (int) sprintf('%d%02d%02d', $match[1], $match[2], $match[3]);
+            $php_int_ver = (int) sprintf(
+                '%d%02d%02d',
+                $match[1],
+                $match[2],
+                $match[3]
+            );
         } else {
             $php_int_ver = 0;
         }
 
-        $this->assertEquals($php_str_ver, $this->object->get('PMA_PHP_STR_VERSION'));
-        $this->assertEquals($php_int_ver, $this->object->get('PMA_PHP_INT_VERSION'));
+        $this->assertEquals(
+            $php_str_ver,
+            $this->object->get('PMA_PHP_STR_VERSION')
+        );
+        $this->assertEquals(
+            $php_int_ver,
+            $this->object->get('PMA_PHP_INT_VERSION')
+        );
     }
 
+    /**
+     * Tests loading of default values
+     *
+     * @group large
+     */
     public function testLoadDefaults()
     {
         $prevDefaultSource = $this->object->default_source;
@@ -241,16 +341,29 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
         $this->assertTrue($this->object->loadDefaults());
 
-        $this->assertEquals($this->object->default_source_mtime, filemtime($prevDefaultSource));
-        $this->assertEquals($loadedConf['Servers'][1], $this->object->default_server);
+        $this->assertEquals(
+            $this->object->default_source_mtime,
+            filemtime($prevDefaultSource)
+        );
+        $this->assertEquals(
+            $loadedConf['Servers'][1],
+            $this->object->default_server
+        );
 
         unset($loadedConf['Servers']);
 
         $this->assertEquals($loadedConf, $this->object->default);
 
-        $expectedSettings = PMA_array_merge_recursive($this->object->settings, $loadedConf);
+        $expectedSettings = PMA_array_merge_recursive(
+            $this->object->settings,
+            $loadedConf
+        );
 
-        $this->assertEquals($expectedSettings, $this->object->settings, 'Settings loaded wrong');
+        $this->assertEquals(
+            $expectedSettings,
+            $this->object->settings,
+            'Settings loaded wrong'
+        );
 
         $this->assertFalse($this->object->error_config_default_file);
     }
@@ -261,9 +374,6 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         $this->assertFalse($this->object->checkConfigSource());
         $this->assertEquals(0, $this->object->source_mtime);
 
-//        if(! is_readable($this->object->getSource()))
-//           $this->markTestSkipped('Configuration file is read only');
-
         $this->object->setSource('libraries/config.default.php');
 
         $this->assertNotEmpty($this->object->getSource());
@@ -271,6 +381,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test getting and setting config values
      *
      * @covers PMA_Config::get
      * @covers PMA_Config::set
@@ -287,6 +398,8 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Tests setting configuration source
+     *
      * @covers PMA_Config::getSource
      * @covers PMA_Config::setSource
      */
@@ -298,35 +411,72 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
         $this->object->setSource("config.sample.inc.php");
 
-        $this->assertEquals("config.sample.inc.php", $this->object->getSource(), "Cant set new source");
+        $this->assertEquals(
+            "config.sample.inc.php",
+            $this->object->getSource(),
+            "Cant set new source"
+        );
     }
 
     public function testCheckPmaAbsoluteUriEmpty()
     {
         $this->object->set('PmaAbsoluteUri', '');
-        $this->assertFalse($this->object->checkPmaAbsoluteUri(), 'PmaAbsoluteUri is not set and should be error');
-        $this->assertTrue($this->object->error_pma_uri, 'PmaAbsoluteUri is not set and should be error');
+        $this->assertFalse(
+            $this->object->checkPmaAbsoluteUri(),
+            'PmaAbsoluteUri is not set and should be error'
+        );
+        $this->assertTrue(
+            $this->object->error_pma_uri,
+            'PmaAbsoluteUri is not set and should be error'
+        );
     }
 
     /**
+     * Checks correcting of absolute URI
+     *
+     * @param string $real     Real URI received
+     * @param string $expected Expected corrected URI
      *
      * @depends testCheckPmaAbsoluteUriEmpty
+     * @dataProvider absoluteUris
      */
-    public function testCheckPmaAbsoluteUriNormal()
+    public function testCheckPmaAbsoluteUri($real, $expected)
     {
-        $this->object->set('PmaAbsoluteUri', 'http://localhost/phpmyadmin/');
+        $this->object->set('PmaAbsoluteUri', $real);
         $this->object->checkPmaAbsoluteUri();
-        $this->assertEquals("http://localhost/phpmyadmin/", $this->object->get('PmaAbsoluteUri'));
+        $this->assertEquals($expected, $this->object->get('PmaAbsoluteUri'));
+    }
 
-        $this->object->set('PmaAbsoluteUri', 'http://localhost/phpmyadmin');
-        $this->object->checkPmaAbsoluteUri();
-        $this->assertEquals("http://localhost/phpmyadmin/", $this->object->get('PmaAbsoluteUri'), 'Expected trailing slash at the end of the phpMyAdmin uri');
-
+    public function absoluteUris()
+    {
+        return array(
+            array(
+                'http://localhost/phpmyadmin/',
+                'http://localhost/phpmyadmin/',
+            ),
+            array(
+                'http://localhost/phpmyadmin',
+                'http://localhost/phpmyadmin/',
+            ),
+            array(
+                'localhost/phpmyadmin/',
+                'http://localhost/phpmyadmin/',
+            ),
+            array(
+                'http://user:pwd@localhost/phpmyadmin/index.php',
+                "http://user:pwd@localhost/phpmyadmin/index.php/",
+            ),
+            array(
+                'https://user:pwd@localhost/phpmyadmin/index.php',
+                "https://user:pwd@localhost/phpmyadmin/index.php/",
+            ),
+        );
     }
 
     /**
+     * Test for absolute URI composition
      *
-     * @depends testCheckPmaAbsoluteUriNormal
+     * @depends testCheckPmaAbsoluteUri
      */
     public function testCheckPmaAbsoluteUriScheme()
     {
@@ -338,24 +488,10 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         $this->object->set('PmaAbsoluteUri', '');
 
         $this->object->checkPmaAbsoluteUri();
-        $this->assertEquals("http://localhost/", $this->object->get('PmaAbsoluteUri'));
-    }
-
-    /**
-     *
-     * @depends testCheckPmaAbsoluteUriScheme
-     */
-    public function testCheckPmaAbsoluteUriUser()
-    {
-        $this->object->set('PmaAbsoluteUri', 'http://user:pwd@localhost/phpmyadmin/index.php');
-
-        $this->object->checkPmaAbsoluteUri();
-        $this->assertEquals("http://user:pwd@localhost/phpmyadmin/index.php/", $this->object->get('PmaAbsoluteUri'));
-
-        $this->object->set('PmaAbsoluteUri', 'https://user:pwd@localhost/phpmyadmin/index.php');
-
-        $this->object->checkPmaAbsoluteUri();
-        $this->assertEquals("https://user:pwd@localhost/phpmyadmin/index.php/", $this->object->get('PmaAbsoluteUri'));
+        $this->assertEquals(
+            "http://localhost/",
+            $this->object->get('PmaAbsoluteUri')
+        );
     }
 
     public function testCheckCollationConnection()
@@ -363,7 +499,10 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
         $_REQUEST['collation_connection'] = 'utf-8';
         $this->object->checkCollationConnection();
 
-        $this->assertEquals($_REQUEST['collation_connection'], $this->object->get('collation_connection'));
+        $this->assertEquals(
+            $_REQUEST['collation_connection'],
+            $this->object->get('collation_connection')
+        );
     }
 
     public function testIsHttps()
@@ -402,6 +541,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for checking cookie path
      *
      * @depends testDetectHttps
      */
@@ -413,11 +553,13 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for backward compatibility globals
      *
      * @depends testCheckSystem
      * @depends testCheckWebServer
      * @depends testLoadDefaults
-     * @depends testLoad
+     *
+     * @group large
      */
     public function testEnableBc()
     {
@@ -444,77 +586,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     *
-     * @todo Implement testSave().
-     */
-    public function testSave()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
-
-    /**
-     *
-     * @todo Implement testGetFontsizeForm().
-     */
-    public function testGetFontsizeForm()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
-
-    /**
-     *
-     * @todo Implement testRemoveCookie().
-     */
-    public function testRemoveCookie()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
-    /**
-     *
-     * @todo Implement testCheckFontsize().
-     */
-    public function testCheckFontsize()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
-
-    /**
-     *
-     * @todo Implement testCheckUpload().
-     */
-    public function testCheckUpload()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
-
-    /**
-     *
-     * @todo Implement testCheckUploadSize().
-     */
-    public function testCheckUploadSize()
-    {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
-        );
-    }
-
-    /**
+     * Should check for https detection
      *
      * @todo Implement testCheckIsHttps().
      */
@@ -527,53 +599,93 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for getting cookie path
      *
-     * @todo Implement testGetCookiePath().
+     * @param string $absolute The absolute URL used for phpMyAdmin
+     * @param string $expected Expected cookie path
+     *
+     * @dataProvider cookieUris
      */
-    public function testGetCookiePath()
+    public function testGetCookiePath($absolute, $expected)
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
+        $this->object->set('PmaAbsoluteUri', $absolute);
+        $this->assertEquals($expected, $this->object->getCookiePath());
+    }
+
+    public function cookieUris()
+    {
+        return array(
+            array(
+                'http://example.net/phpmyadmin/',
+                '/phpmyadmin/',
+            ),
+            array(
+                'http://example.net/',
+                '/',
+            ),
         );
     }
 
     /**
+     * Tests loading of config file
      *
-     * @todo finish implementing test + dependencies
+     * @param string  $source File name of config to load
+     * @param boolean $result Expected result of loading
+     *
+     * @dataProvider configPaths
      */
-    public function testLoad()
+    public function testLoad($source, $result)
     {
-        $this->assertFalse($this->object->load());
+        if ($result) {
+            $this->assertTrue($this->object->load($source));
+        } else {
+            $this->assertFalse($this->object->load($source));
+        }
+    }
 
-        $this->assertTrue($this->object->load('./libraries/config.default.php'));
+    public function configPaths()
+    {
+        return array(
+            array(
+                './test/test_data/config.inc.php',
+                true,
+            ),
+            array(
+                './test/test_data/config-nonexisting.inc.php',
+                false,
+            ),
+            array(
+                './libraries/config.default.php',
+                true,
+            ),
+        );
     }
 
     /**
+     * Test for loading user preferences
      *
-     * @todo Implement testLoadUserPreferences().
+     * @todo Test actualy preferences loading
      */
     public function testLoadUserPreferences()
     {
         $this->assertNull($this->object->loadUserPreferences());
-
-//        echo $GLOBALS['cfg']['ServerDefault'];
     }
 
     /**
-     *
-     * @todo Implement testSetUserValue().
+     * Test for setting user config value
      */
     public function testSetUserValue()
     {
         $this->object->setUserValue(null, 'lang', 'cs', 'en');
         $this->object->setUserValue("TEST_COOKIE_USER_VAL", '', 'cfg_val_1');
-        $this->assertEquals($this->object->getUserValue("TEST_COOKIE_USER_VAL", 'fail'), 'cfg_val_1');
+        $this->assertEquals(
+            $this->object->getUserValue("TEST_COOKIE_USER_VAL", 'fail'),
+            'cfg_val_1'
+        );
     }
 
     /**
-     *
-     * @todo Implement testGetUserValue().
+     * Test for getting user config value
      */
     public function testGetUserValue()
     {
@@ -581,6 +693,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Should test getting unique value for theme
      *
      * @todo Implement testGetThemeUniqueValue().
      */
@@ -593,6 +706,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Should test checking of config permissions
      *
      * @todo Implement testCheckPermissions().
      */
@@ -606,23 +720,51 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
 
     /**
-     *
-     * @todo Implement testSetCookie().
+     * Test for setting cookies
      */
     public function testSetCookie()
     {
-        $this->assertFalse($this->object->setCookie('TEST_DEF_COOKIE', 'test_def_123', 'test_def_123'));
+        $this->assertFalse(
+            $this->object->setCookie(
+                'TEST_DEF_COOKIE',
+                'test_def_123',
+                'test_def_123'
+            )
+        );
 
-        $this->assertTrue($this->object->setCookie('TEST_CONFIG_COOKIE', 'test_val_123', null, 3600));
+        $this->assertTrue(
+            $this->object->setCookie(
+                'TEST_CONFIG_COOKIE',
+                'test_val_123',
+                null,
+                3600
+            )
+        );
 
-        $this->assertTrue($this->object->setCookie('TEST_CONFIG_COOKIE', '', 'default_val'));
+        $this->assertTrue(
+            $this->object->setCookie(
+                'TEST_CONFIG_COOKIE',
+                '',
+                'default_val'
+            )
+        );
 
         $_COOKIE['TEST_MANUAL_COOKIE'] = 'some_test_val';
-        $this->assertTrue($this->object->setCookie('TEST_MANUAL_COOKIE', 'other', 'other'));
+        $this->assertTrue(
+            $this->object->setCookie(
+                'TEST_MANUAL_COOKIE',
+                'other',
+                'other'
+            )
+        );
 
     }
 
     /**
+     * Tests for rewriting URL to SSL variant
+     *
+     * @param string $original Original URL
+     * @param string $expected Expected URL rewritten to SSL
      *
      * @dataProvider sslUris
      */
@@ -635,10 +777,22 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
     public function sslUris()
     {
         return array(
-            array('http://server.foo/path/', 'https://server.foo:443/path/'),
-            array('http://server.foo:80/path/', 'https://server.foo:443/path/'),
-            array('http://server.foo.bar:123/path/', 'https://server.foo.bar:443/path/'),
-            array('http://[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210]:80/', 'https://[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210]:443/'),
+            array(
+                'http://server.foo/path/',
+                'https://server.foo:443/path/'
+            ),
+            array(
+                'http://server.foo:80/path/',
+                'https://server.foo:443/path/'
+            ),
+            array(
+                'http://server.foo.bar:123/path/',
+                'https://server.foo.bar:443/path/'
+            ),
+            array(
+                'http://[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210]:80/',
+                'https://[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210]:443/'
+            ),
             );
     }
 }
