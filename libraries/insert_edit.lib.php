@@ -1036,7 +1036,7 @@ function PMA_getMaxUploadSize($column, $biggest_max_file_size)
     if ($this_field_max_size > $max_field_sizes[$column['pma_type']]) {
         $this_field_max_size = $max_field_sizes[$column['pma_type']];
     }
-    $html_output = PMA_displayMaximumUploadSize($this_field_max_size) . "\n";
+    $html_output = PMA_getFormattedMaximumUploadSize($this_field_max_size) . "\n";
     // do not generate here the MAX_FILE_SIZE, because we should
     // put only one in the form to accommodate the biggest field
     if ($this_field_max_size > $biggest_max_file_size) {
