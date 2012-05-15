@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-09 13:14+0200\n"
-"PO-Revision-Date: 2012-05-11 14:59+0200\n"
+"PO-Revision-Date: 2012-05-14 13:56+0200\n"
 "Last-Translator: Vítor Martins <vjmartins@sapo.pt>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -1487,7 +1487,7 @@ msgid "Differential"
 msgstr "Diferencial"
 
 #: js/messages.php:167
-#, fuzzy, php-format
+#, php-format
 #| msgid "Divided by %s:"
 msgid "Divided by %s"
 msgstr "Dividido por %s:"
@@ -2352,7 +2352,7 @@ msgstr "Sem"
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: js/messages.php:510
 msgid "calendar-month-year"
-msgstr ""
+msgstr "Calendário-mês-ano"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:512
@@ -2438,7 +2438,7 @@ msgstr "por hora"
 
 #: libraries/Advisor.class.php:434
 msgid "per day"
-msgstr ""
+msgstr "por dia"
 
 #: libraries/Config.class.php:915
 #, php-format
@@ -2457,7 +2457,7 @@ msgstr "Tamanho da fonte"
 
 #: libraries/Error_Handler.class.php:62
 msgid "Too many error messages, some are not displayed."
-msgstr ""
+msgstr "Excesso de mensagens de erro, algumas não serão mostradas."
 
 #: libraries/File.class.php:234
 msgid "File was not an uploaded file."
