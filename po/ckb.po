@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-09 13:14+0200\n"
-"PO-Revision-Date: 2012-05-15 13:06+0200\n"
+"PO-Revision-Date: 2012-05-15 13:43+0200\n"
 "Last-Translator: Aso Naderi <aso.naderi@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ckb\n"
@@ -266,36 +266,36 @@ msgstr "بنکەی دراوەی %1$s ڕوونووس کرا بۆ بنکەی در�
 
 #: db_operations.php:443
 msgid "Rename database to"
-msgstr ""
+msgstr "ناوی بنکەی دراوە بگۆڕە بۆ"
 
 #: db_operations.php:470
 msgid "Remove database"
-msgstr ""
+msgstr "سڕینەوەی بنکەی دراوە"
 
 #: db_operations.php:482
 #, php-format
 msgid "Database %s has been dropped."
-msgstr ""
+msgstr "بنکەی دراوەی %s سڕایەوە."
 
 #: db_operations.php:487
 msgid "Drop the database (DROP)"
-msgstr ""
+msgstr "سڕینەوەی بنکەی دراوە (DROP)"
 
 #: db_operations.php:516
 msgid "Copy database to"
-msgstr ""
+msgstr "لە ڕوونووسینەوەی بنکەی دراوە بۆ"
 
 #: db_operations.php:523 tbl_operations.php:561 tbl_tracking.php:482
 msgid "Structure only"
-msgstr ""
+msgstr "تەنیا بنچینە"
 
 #: db_operations.php:524 tbl_operations.php:562 tbl_tracking.php:484
 msgid "Structure and data"
-msgstr ""
+msgstr "بنچینە و زانیاری"
 
 #: db_operations.php:525 tbl_operations.php:563 tbl_tracking.php:483
 msgid "Data only"
-msgstr ""
+msgstr "تەنیا زانیاری"
 
 #: db_operations.php:533
 msgid "CREATE DATABASE before copying"
