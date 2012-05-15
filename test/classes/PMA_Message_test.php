@@ -317,6 +317,10 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     /**
      * testing decodeBB method
+     *
+     * @param string $actual   BB code string
+     * @param string $expected Expected decoded string
+     *
      * @dataProvider decodeBBDataProvider
      */
 
@@ -482,6 +486,9 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     /**
      * affected_rows test
      *
+     * @param int    $rows   Number of rows
+     * @param string $output Expected string
+     *
      * @dataProvider providerAffectedRows
      */
     public function testAffectedRows($rows, $output)
@@ -505,6 +512,9 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     /**
      * inserted_rows test
      *
+     * @param int    $rows   Number of rows
+     * @param string $output Expected string
+     *
      * @dataProvider providerInsertedRows
      */
     public function testInsertedRows($rows, $output)
@@ -527,6 +537,9 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
 
     /**
      * deleted_rows test
+     *
+     * @param int    $rows   Number of rows
+     * @param string $output Expected string
      *
      * @dataProvider providerDeletedRows
      */
