@@ -32,19 +32,16 @@ require_once 'libraries/insert_edit.lib.php';
 if (isset($_REQUEST['where_clause'])) {
     $where_clause = $_REQUEST['where_clause'];
 }
+
 if (isset($_SESSION['edit_next'])) {
     $where_clause = $_SESSION['edit_next'];
     unset($_SESSION['edit_next']);
-    $after_insert = 'edit_next';
 }
 if (isset($_REQUEST['ShowFunctionFields'])) {
     $cfg['ShowFunctionFields'] = $_REQUEST['ShowFunctionFields'];
 }
 if (isset($_REQUEST['ShowFieldTypesInDataEditView'])) {
     $cfg['ShowFieldTypesInDataEditView'] = $_REQUEST['ShowFieldTypesInDataEditView'];
-}
-if (isset($_REQUEST['after_insert'])) {
-    $after_insert = $_REQUEST['after_insert'];
 }
 
 /**
@@ -195,8 +192,6 @@ $tabindex_for_value    = 0;
 $o_rows   = 0;
 $biggest_max_file_size = 0;
 
-// user can toggle the display of Function column
-// (currently does not work for multi-edits)
 $url_params['db'] = $db;
 $url_params['table'] = $table;
 $url_params = PMA_urlParamsInEditMode($url_params);
@@ -213,6 +208,8 @@ $html_output .= PMA_generate_common_hidden_inputs($_form_params);
 
 $titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
 
+// user can toggle the display of Function column
+// (currently does not work for multi-edits)
 if (! $cfg['ShowFunctionFields'] || ! $cfg['ShowFieldTypesInDataEditView']) {
     $html_output .= __('Show');
 }
@@ -425,15 +422,16 @@ $html_output .='<div id="gis_editor"></div>'
     . '<br />';
 
 //action panel
-$html_output .= PMA_getActionsPanel($tabindex, $tabindex_for_value, $after_insert, $found_unique_key);
+$html_output .= PMA_getActionsPanel($tabindex, $tabindex_for_value, $found_unique_key);
 if ($biggest_max_file_size > 0) {
     $html_output .= '        ' . PMA_generateHiddenMaxFileSize($biggest_max_file_size) . "\n";
 }
-$html_output .= '</form>';
-    
+$html_output .= '</form>'; 
+// end Insert/Edit form
+
 if ($insert_mode) {
     //Continue insertion form
-    $html_output .= PMA_getContinueForm($paramTableDbArray, $where_clause_array, $err_url);
+    $html_output .= PMA_getContinueInsertionForm($paramTableDbArray, $where_clause_array, $err_url);
 }
 echo $html_output;
 /**

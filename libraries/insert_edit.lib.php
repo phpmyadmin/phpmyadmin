@@ -936,10 +936,10 @@ function PMA_getBinaryAndBlobColumn($column, $data, $special_chars,$biggest_max_
             $tabindex, $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded);
     } else {
         // field size should be at least 4 and max $GLOBALS['cfg']['LimitChars']
-        $columnsize = min(max($column['len'], 4), $GLOBALS['cfg']['LimitChars']);
+        $fieldsize = min(max($column['len'], 4), $GLOBALS['cfg']['LimitChars']);
         $html_output .= "\n"
             . $backup_field . "\n"
-            . PMA_getHTMLinput($column, $column_name_appendix, $special_chars, $columnsize,
+            . PMA_getHTMLinput($column, $column_name_appendix, $special_chars, $fieldsize,
             $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex);
     }
     
@@ -964,7 +964,7 @@ function PMA_getBinaryAndBlobColumn($column, $data, $special_chars,$biggest_max_
  * @param array $column
  * @param string $column_name_appendix
  * @param array $special_chars
- * @param integer $columnsize
+ * @param integer $fieldsize
  * @param string $unnullify_trigger
  * @param integer $tabindex
  * @param integer $tabindex_for_value
@@ -972,7 +972,7 @@ function PMA_getBinaryAndBlobColumn($column, $data, $special_chars,$biggest_max_
  * @return string 
  */
 function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
-    $columnsize, $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex
+    $fieldsize, $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex
 ) {
     $the_class = 'textfield';
     if ($column['pma_type'] == 'date') {
@@ -1026,6 +1026,7 @@ function PMA_getMaxUploadSize($column, $biggest_max_file_size)
      * @todo with functions this is not so easy, as you can basically
      * process any data with function like MD5
      */
+    global $max_upload_size;
     $max_field_sizes = array(
         'tinyblob'   =>        '256',
         'blob'       =>      '65536',
@@ -1065,7 +1066,7 @@ function PMA_getNoSupportTypes($column, $default_char_editing,$backup_field,
     $column_name_appendix, $unnullify_trigger,$tabindex,$special_chars,
     $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded,$data, $extracted_columnspec
 ) {
-    $columnSize = PMA_getColumnSize($column, $extracted_columnspec);
+    $fieldsize = PMA_getColumnSize($column, $extracted_columnspec);
     $html_output = $backup_field . "\n";
     if ($column['is_char']
         && ($GLOBALS['cfg']['CharEditing'] == 'textarea'
@@ -1077,7 +1078,7 @@ function PMA_getNoSupportTypes($column, $default_char_editing,$backup_field,
             $tabindex, $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded);
     } else {
         $html_output .= PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
-            $columnSize, $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex);
+            $fieldsize, $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex);
         
         if ($column['Extra'] == 'auto_increment') {
             $html_output .= '<input type="hidden" name="auto_increment' . $column_name_appendix . '" value="1" />';
@@ -1108,7 +1109,7 @@ function PMA_getNoSupportTypes($column, $default_char_editing,$backup_field,
 }
 
 /**
- * Get the column size
+ * Get the field size
  * 
  * @param array $column
  * @return integer 
@@ -1116,8 +1117,8 @@ function PMA_getNoSupportTypes($column, $default_char_editing,$backup_field,
 function PMA_getColumnSize($column, $extracted_columnspec)
 {
     if ($column['is_char']) {
-        $columnSize = $extracted_columnspec['spec_in_brackets'];
-        if ($columnSize > $GLOBALS['cfg']['MaxSizeForInputField']) {
+        $fieldsize = $extracted_columnspec['spec_in_brackets'];
+        if ($fieldsize > $GLOBALS['cfg']['MaxSizeForInputField']) {
             /**
              * This case happens for CHAR or VARCHAR columns which have
              * a size larger than the maximum size for input field.
@@ -1130,9 +1131,9 @@ function PMA_getColumnSize($column, $extracted_columnspec)
          * in these situations, the value returned in $column['len']
          * seems appropriate.
          */
-        $columnSize = $column['len'];
+        $fieldsize = $column['len'];
     }
-    return min(max($columnSize, $GLOBALS['cfg']['MinSizeForInputField']), $GLOBALS['cfg']['MaxSizeForInputField']);
+    return min(max($fieldsize, $GLOBALS['cfg']['MinSizeForInputField']), $GLOBALS['cfg']['MaxSizeForInputField']);
 }
 
 /**
@@ -1165,7 +1166,7 @@ function PMA_getHTMLforGisDataTypes($vrow, $column)
  * @param array $where_clause_array
  * @return string 
  */
-function PMA_getContinueForm($paramArray, $where_clause_array, $err_url)
+function PMA_getContinueInsertionForm($paramArray, $where_clause_array, $err_url)
 {
     list($table, $db) = $paramArray;
     $html_output = '<form id="continueForm" method="post" action="tbl_replace.php" name="continueForm" >'
@@ -1206,7 +1207,7 @@ function PMA_getContinueForm($paramArray, $where_clause_array, $err_url)
  * @param boolean $found_unique_key
  * @return string 
  */
-function PMA_getActionsPanel($tabindex, $tabindex_for_value, $after_insert, $found_unique_key)
+function PMA_getActionsPanel($tabindex, $tabindex_for_value, $found_unique_key)
 {
     $html_output = '<fieldset id="actions_panel">'
         . '<table cellpadding="5" cellspacing="0">'
@@ -1214,7 +1215,14 @@ function PMA_getActionsPanel($tabindex, $tabindex_for_value, $after_insert, $fou
         . '<td class="nowrap vmiddle">'
         . PMA_getSubmitTypeDropDown($tabindex, $tabindex_for_value)
         . "\n";
-    if (!isset($after_insert)) {
+    if (isset($_SESSION['edit_next'])) {
+        unset($_SESSION['edit_next']);
+        $after_insert = 'edit_next';
+    }
+    if (isset($_REQUEST['after_insert'])) { 
+        $after_insert = $_REQUEST['after_insert'];  
+    }
+    if (! isset($after_insert)) {
         $after_insert = 'back';
     }
     $html_output .= '</td>'
@@ -1226,7 +1234,7 @@ function PMA_getActionsPanel($tabindex, $tabindex_for_value, $after_insert, $fou
         . '</td>'
         . '</tr>';
     $html_output .='<tr>'
-        . PMA_getSumbitAndREsetButtonForActionsPanel($tabindex, $tabindex_for_value)
+        . PMA_getSumbitAndResetButtonForActionsPanel($tabindex, $tabindex_for_value)
         . '</tr>'
         . '</table>'
         . '</fieldset>';
