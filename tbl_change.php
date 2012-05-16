@@ -29,6 +29,7 @@ require_once 'libraries/insert_edit.lib.php';
  * Here it's better to use a if, instead of the '?' operator
  * to avoid setting a variable to '' when it's not present in $_REQUEST
  */
+
 if (isset($_REQUEST['where_clause'])) {
     $where_clause = $_REQUEST['where_clause'];
 }
@@ -297,77 +298,14 @@ foreach ($rows as $row_id => $vrow) {
         $special_chars_encoded = '';
         if (isset($vrow)) {
             // (we are editing)
-            if (is_null($vrow[$column['Field']])) {
-                $real_null_value = true;
-                $vrow[$column['Field']] = '';
-                $special_chars = '';
-                $data = $vrow[$column['Field']];
-            } elseif ($column['True_Type'] == 'bit') {
-                $special_chars = PMA_printable_bit_value(
-                    $vrow[$column['Field']], $extracted_columnspec['spec_in_brackets']
-                );
-            } elseif (in_array($column['True_Type'], $gis_data_types)) {
-                // Convert gis data to Well Know Text format
-                $vrow[$column['Field']] = PMA_asWKT($vrow[$column['Field']], true);
-                $special_chars = htmlspecialchars($vrow[$column['Field']]);
-            } else {
-                // special binary "characters"
-                if ($column['is_binary'] || ($column['is_blob'] && ! $cfg['ProtectBinary'])) {
-                    if ($_SESSION['tmp_user_values']['display_binary_as_hex'] && $cfg['ShowFunctionFields']) {
-                        $vrow[$column['Field']] = bin2hex($vrow[$column['Field']]);
-                        $column['display_binary_as_hex'] = true;
-                    } else {
-                        $vrow[$column['Field']] = PMA_replace_binary_contents($vrow[$column['Field']]);
-                    }
-                } // end if
-                $special_chars = htmlspecialchars($vrow[$column['Field']]);
-
-                //We need to duplicate the first \n or otherwise we will lose
-                //the first newline entered in a VARCHAR or TEXT column
-                $special_chars_encoded = PMA_duplicateFirstNewline($special_chars);
-
-                $data = $vrow[$column['Field']];
-            } // end if... else...
-
-            //when copying row, it is useful to empty auto-increment column to prevent duplicate key error
-            if (isset($_REQUEST['default_action']) && $_REQUEST['default_action'] === 'insert') {
-                if ($column['Key'] === 'PRI' && strpos($column['Extra'], 'auto_increment') !== false) {
-                    $data = $special_chars_encoded = $special_chars = null;
-                }
-            }
-            // If a timestamp field value is not included in an update
-            // statement MySQL auto-update it to the current timestamp;
-            // however, things have changed since MySQL 4.1, so
-            // it's better to set a fields_prev in this situation
-            $backup_field = '<input type="hidden" name="fields_prev'
-                . $column_name_appendix . '" value="'
-                . htmlspecialchars($vrow[$column['Field']]) . '" />';
+           list($real_null_value, $special_chars_encoded, $special_chars, $data, $backup_field)
+               = PMA_getSpecialCharsAndBackupField($vrow, $column, $extracted_columnspec,
+                    $real_null_value, $gis_data_types, $column_name_appendix);
         } else {
             // (we are inserting)
             // display default values
-            if (! isset($column['Default'])) {
-                $column['Default'] 		  = '';
-                $real_null_value          = true;
-                $data                     = '';
-            } else {
-                $data                     = $column['Default'];
-            }
-
-            if ($column['True_Type'] == 'bit') {
-                $special_chars = PMA_convert_bit_default_value($column['Default']);
-            } else {
-                $special_chars = htmlspecialchars($column['Default']);
-            }
-            $backup_field = '';
-            $special_chars_encoded = PMA_duplicateFirstNewline($special_chars);
-            // this will select the UNHEX function while inserting
-            if (($column['is_binary'] || ($column['is_blob'] && ! $cfg['ProtectBinary']))
-                && (isset($_SESSION['tmp_user_values']['display_binary_as_hex'])
-                && $_SESSION['tmp_user_values']['display_binary_as_hex'])
-                && $cfg['ShowFunctionFields']
-            ) {
-                $column['display_binary_as_hex'] = true;
-            }
+            list($real_null_value, $data, $special_chars, $backup_field, $special_chars_encoded)
+                = PMA_displayDefaultValues($column, $real_null_value);
         }
 
         $idindex = ($o_rows * $columns_cnt) + $i + 1;
