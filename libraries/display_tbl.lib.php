@@ -1430,6 +1430,7 @@ function PMA_buildValueDisplay($class, $condition_field, $value)
         . '">' . $value . '</td>';
 }
 
+
 /**
  * Prepares the display for a null value
  *
@@ -1450,6 +1451,7 @@ function PMA_buildNullDisplay($class, $condition_field, $meta, $align = '')
         . ' null"><i>NULL</i></td>';
 }
 
+
 /**
  * Prepares the display for an empty value
  *
@@ -1468,6 +1470,7 @@ function PMA_buildEmptyDisplay($class, $condition_field, $meta, $align = '')
         )
         . '"></td>';
 }
+
 
 /**
  * Adds the relavant classes.
@@ -1513,6 +1516,7 @@ function PMA_addClass($class, $condition_field, $meta, $nowrap,
         . $enum_class . $set_class . $bit_class . $mime_type_class;
     
 }
+
 
 /**
  * Prepare the body of the results table
@@ -2382,27 +2386,9 @@ function PMA_getVerticalTable()
             $vertical_table_html .= '<th></th>' . "\n";
         }
         
-        $vertical_table_html .= $vertical_display['textbtn'];
-        $cell_displayed = 0;
-        
-        foreach ($vertical_display['row_delete'] as $val) {
-            
-            if (($cell_displayed != 0)
-                && ($_SESSION['tmp_user_values']['repeat_cells'] != 0)
-                && !($cell_displayed % $_SESSION['tmp_user_values']['repeat_cells'])
-            ) {
-                $vertical_table_html .= '<th'
-                    . (($is_display['edit_lnk'] != 'nn' && $is_display['del_lnk'] != 'nn')
-                        ? ' rowspan="4"'
-                        : '')
-                    . '></th>' . "\n";
-            }
-            
-            $vertical_table_html .= str_replace('[%_PMA_CHECKBOX_DIR_%]', '_left', $val);
-            $cell_displayed++;
-        } // end while
-        
-        $vertical_table_html .= '</tr>' . "\n";
+        $vertical_table_html .= $vertical_display['textbtn']
+                             . PMA_getCheckBoxesForMultipleRowOperations('_left')
+                             . '</tr>' . "\n";
     } // end if
 
     // Prepares "edit" link at top if required
@@ -2412,17 +2398,7 @@ function PMA_getVerticalTable()
         && ((count($vertical_display['edit']) > 0)
         || !empty($vertical_display['textbtn']))
     ) {
-        
-        $vertical_table_html .= '<tr>' . "\n";
-        if (! is_array($vertical_display['row_delete'])) {
-            $vertical_table_html .= $vertical_display['textbtn'];
-        }
-        
-        foreach ($vertical_display['edit'] as $val) {
-            $vertical_table_html .= $val;
-        } // end while
-        
-        $vertical_table_html .= '</tr>' . "\n";
+        $vertical_table_html .= PMA_getOperationLinksForVerticleTable('edit');
     } // end if
 
     // Prepares "copy" link at top if required
@@ -2432,17 +2408,7 @@ function PMA_getVerticalTable()
         && ((count($vertical_display['copy']) > 0)
         || !empty($vertical_display['textbtn']))
     ) {
-        
-        $vertical_table_html .= '<tr>' . "\n";
-        if (! is_array($vertical_display['row_delete'])) {
-            $vertical_table_html .= $vertical_display['textbtn'];
-        }
-        
-        foreach ($vertical_display['copy'] as $val) {
-            $vertical_table_html .= $val;
-        } // end while
-        
-        $vertical_table_html .= '</tr>' . "\n";
+        $vertical_table_html .= PMA_getOperationLinksForVerticleTable('copy');
     } // end if
 
     // Prepares "delete" link at top if required
@@ -2452,18 +2418,7 @@ function PMA_getVerticalTable()
         && ((count($vertical_display['delete']) > 0)
         || !empty($vertical_display['textbtn']))
     ) {
-        
-        $vertical_table_html .= '<tr>' . "\n";
-        if (! is_array($vertical_display['edit'])
-            && ! is_array($vertical_display['row_delete'])
-        ) {
-            $vertical_table_html .= $vertical_display['textbtn'];
-        }
-        
-        foreach ($vertical_display['delete'] as $val) {
-            $vertical_table_html .= $val;
-        } // end while
-        $vertical_table_html .= '</tr>' . "\n";
+        $vertical_table_html .= PMA_getOperationLinksForVerticleTable('delete');
     } // end if
 
     if (PMA_isSelect()) {
@@ -2512,29 +2467,9 @@ function PMA_getVerticalTable()
         || !empty($vertical_display['textbtn']))
     ) {
         
-        $vertical_table_html .= '<tr>' . "\n" . $vertical_display['textbtn'];
-        $cell_displayed = 0;
-        
-        foreach ($vertical_display['row_delete'] as $val) {
-            
-            if (($cell_displayed != 0)
-                && ($_SESSION['tmp_user_values']['repeat_cells'] != 0)
-                && !($cell_displayed % $_SESSION['tmp_user_values']['repeat_cells'])
-            ) {
-                
-                $vertical_table_html .= '<th'
-                    . (($is_display['edit_lnk'] != 'nn')
-                        && ($is_display['del_lnk'] != 'nn'))
-                        ? ' rowspan="4"'
-                        : ''
-                    . '></th>' . "\n";
-                
-            }
-
-            $vertical_table_html .= str_replace('[%_PMA_CHECKBOX_DIR_%]', '_right', $val);
-            $cell_displayed++;
-        } // end while
-        $vertical_table_html .= '</tr>' . "\n";
+        $vertical_table_html .= '<tr>' . "\n" . $vertical_display['textbtn']
+                             . PMA_getCheckBoxesForMultipleRowOperations('_right')
+                             . '</tr>' . "\n";
     } // end if
 
     // Prepares "edit" link at bottom if required
@@ -2544,17 +2479,7 @@ function PMA_getVerticalTable()
         && ((count($vertical_display['edit']) > 0)
         || !empty($vertical_display['textbtn']))
     ) {
-        
-        $vertical_table_html .= '<tr>' . "\n";
-        if (! is_array($vertical_display['row_delete'])) {
-            $vertical_table_html .= $vertical_display['textbtn'];
-        }
-        
-        foreach ($vertical_display['edit'] as $val) {
-            $vertical_table_html .= $val;
-        } // end while
-        $vertical_table_html .= '</tr>' . "\n";
-        
+        $vertical_table_html .= PMA_getOperationLinksForVerticleTable('edit');        
     } // end if
 
     // Prepares "copy" link at bottom if required
@@ -2564,17 +2489,7 @@ function PMA_getVerticalTable()
         && ((count($vertical_display['copy']) > 0)
         || !empty($vertical_display['textbtn']))
     ) {
-        
-        $vertical_table_html .= '<tr>' . "\n";
-        if (! is_array($vertical_display['row_delete'])) {
-            $vertical_table_html .= $vertical_display['textbtn'];
-        }
-        
-        foreach ($vertical_display['copy'] as $val) {
-            $vertical_table_html .= $val;
-        } // end while
-        $vertical_table_html .= '</tr>' . "\n";
-        
+        $vertical_table_html .= PMA_getOperationLinksForVerticleTable('copy');
     } // end if
 
     // Prepares "delete" link at bottom if required
@@ -2584,24 +2499,98 @@ function PMA_getVerticalTable()
         && ((count($vertical_display['delete']) > 0)
         || !empty($vertical_display['textbtn']))
     ) {
-        
-        $vertical_table_html .= '<tr>' . "\n";
-        if (! is_array($vertical_display['edit'])
-            && ! is_array($vertical_display['row_delete'])
-        ) {
-            $vertical_table_html .= $vertical_display['textbtn'];
-        }
-        
-        foreach ($vertical_display['delete'] as $val) {
-            $vertical_table_html .= $val;
-        } // end while
-        $vertical_table_html .= '</tr>' . "\n";
-        
+        $vertical_table_html .= PMA_getOperationLinksForVerticleTable('delete');
     }
 
     return $vertical_table_html;
     
 } // end of the 'PMA_getVerticalTable' function
+
+
+/**
+ * Prepare edit, copy and delete links for verticle table
+ * 
+ * @param   string  $operation          edit/copy/delete
+ * 
+ * @return  string  $links_html         html content
+ * 
+ * @global  array   $vertical_display   the information to display
+ * 
+ * @see     PMA_getVerticalTable()
+ */
+function PMA_getOperationLinksForVerticleTable($operation)
+{
+    
+    global $vertical_display;
+    
+    $link_html = '<tr>' . "\n";
+    
+    if (! is_array($vertical_display['row_delete'])) {
+        
+        if (($operation == 'edit') || ($operation == 'copy')) {            
+            $link_html .= $vertical_display['textbtn'];
+            
+        } elseif ($operation == 'delete') {
+            
+            if (! is_array($vertical_display['edit'])) {
+                $link_html .= $vertical_display['textbtn'];
+            }
+        }        
+    }
+
+    foreach ($vertical_display[$operation] as $val) {
+        $link_html .= $val;
+    } // end while
+    
+    $link_html .= '</tr>' . "\n";
+    
+    return $link_html;
+    
+}
+
+
+/**
+ * Get checkboxes for multiple row data operations
+ * 
+ * @param   $dir                _left / _right
+ * 
+ * @return  $checkBoxes_html    html content
+ * 
+ * @global  array   $vertical_display   the information to display
+ * 
+ * @see     PMA_getVerticalTable()
+ */
+function PMA_getCheckBoxesForMultipleRowOperations($dir) {
+    
+    global $vertical_display;
+    
+    $checkBoxes_html = '';
+    $cell_displayed = 0;
+    
+    foreach ($vertical_display['row_delete'] as $val) {
+
+        if (($cell_displayed != 0)
+            && ($_SESSION['tmp_user_values']['repeat_cells'] != 0)
+            && !($cell_displayed % $_SESSION['tmp_user_values']['repeat_cells'])
+        ) {
+
+            $checkBoxes_html .= '<th'
+                . (($is_display['edit_lnk'] != 'nn')
+                    && ($is_display['del_lnk'] != 'nn'))
+                    ? ' rowspan="4"'
+                    : ''
+                . '></th>' . "\n";
+
+        }
+
+        $checkBoxes_html .= str_replace('[%_PMA_CHECKBOX_DIR_%]', $dir, $val);
+        $cell_displayed++;
+    } // end while
+    
+    return $checkBoxes_html;
+    
+}
+
 
 /**
  * Checks the posted options for viewing query resutls
@@ -2786,6 +2775,7 @@ function PMA_setConfigParamsForDisplayTable()
         = $_SESSION['tmp_user_values']['query'][$sql_md5]['disp_direction'];
     
 }
+
 
 /**
  * Prepare a table of results returned by a SQL query.
@@ -3320,6 +3310,7 @@ function PMA_getTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     
 } // end of the 'PMA_getTable()' function
 
+
 /**
  * replace some html-unfriendly stuff
  */
@@ -3335,6 +3326,7 @@ function PMA_mimeDefaultFunction($buffer)
 
     return $buffer;
 }
+
 
 /**
  * Get operations that are available on results.
@@ -3520,6 +3512,7 @@ function PMA_getResultsOperations($the_disp_mode, $analyzed_sql)
     
 }
 
+
 /**
  * Verifies what to do with non-printable contents (binary or BLOB)
  * in Browse mode.
@@ -3584,6 +3577,7 @@ function PMA_handleNonPrintableContents($category, $content, $transform_function
     return($result);
     
 }
+
 
 /**
  * Prepares the displayable content of a data cell in Browse mode,
@@ -3753,6 +3747,7 @@ function PMA_getRowData($class, $condition_field, $analyzed_sql, $meta, $map,
     
 }
 
+
 /**
  * Prepares a checkbox for multi-row submits
  *
@@ -3799,6 +3794,7 @@ function PMA_getCheckboxForMultiRowSubmissions($del_url, $is_display, $row_no,
     
 }
 
+
 /**
  * Prepares an Edit link
  *
@@ -3833,6 +3829,7 @@ function PMA_getEditLink($edit_url, $class, $edit_str, $where_clause,
     return $ret;
     
 }
+
 
 /**
  * Prepares an Copy link
@@ -3875,6 +3872,7 @@ function PMA_getCopyLink($copy_url, $copy_str, $where_clause,
     
 }
 
+
 /**
  * Prepares a Delete link
  *
@@ -3904,6 +3902,7 @@ function PMA_getDeleteLink($del_url, $del_str, $js_conf, $class)
     return $ret;
     
 }
+
 
 /**
  * Prepare checkbox and links at some position (left or right)
