@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-05-15 14:18+0200\n"
+"PO-Revision-Date: 2012-05-15 14:21+0200\n"
 "Last-Translator: Vítor Martins <vjmartins@sapo.pt>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -456,9 +456,8 @@ msgid "And"
 msgstr "E"
 
 #: db_qbe.php:388 db_qbe.php:469 db_qbe.php:551 db_qbe.php:582
-#, fuzzy
 msgid "Del"
-msgstr "Elim."
+msgstr "Elim"
 
 #: db_qbe.php:392 db_qbe.php:473 db_qbe.php:544 db_qbe.php:575
 #: server_privileges.php:400 tbl_change.php:907 tbl_indexes.php:283
