@@ -22,6 +22,8 @@ require_once './libraries/js_escape.lib.php';
 
 /**
  * Form management class, displays and processes forms
+ *
+ * @package PhpMyAdmin
  */
 class FormDisplay
 {
@@ -77,6 +79,9 @@ class FormDisplay
      */
     private $_userprefs_disallow;
 
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         $this->_js_lang_strings = array(
@@ -95,6 +100,8 @@ class FormDisplay
      * @param string $form_name
      * @param array  $form
      * @param int    $server_id 0 if new server, validation; >= 1 if editing a server
+     *
+     * @return void
      */
     public function registerForm($form_name, array $form, $server_id = null)
     {
@@ -539,7 +546,9 @@ class FormDisplay
                 }
 
                 // user preferences allow/disallow
-                if ($is_setup_script && isset($this->_userprefs_keys[$system_path])) {
+                if ($is_setup_script
+                    && isset($this->_userprefs_keys[$system_path])
+                ) {
                     if (isset($this->_userprefs_disallow[$system_path])
                         && isset($_POST[$key . '-userprefs-allow'])
                     ) {
@@ -637,7 +646,10 @@ class FormDisplay
                 $cf->set($work_path, $values[$path], $path);
             }
             if ($is_setup_script) {
-                $cf->set('UserprefsDisallow', array_keys($this->_userprefs_disallow));
+                $cf->set(
+                    'UserprefsDisallow',
+                    array_keys($this->_userprefs_disallow)
+                );
             }
         }
 
