@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-09 13:14+0200\n"
-"PO-Revision-Date: 2012-05-15 17:19+0200\n"
-"Last-Translator: Aso Naderi <aso.naderi@gmail.com>\n"
+"PO-Revision-Date: 2012-05-16 11:44+0200\n"
+"Last-Translator: gailan abdulla xdr <gailannet@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ckb\n"
 "MIME-Version: 1.0\n"
@@ -116,7 +116,7 @@ msgstr ":تێبینی بنکەی دراوە"
 #: libraries/tbl_properties.inc.php:786 tbl_operations.php:369
 #: tbl_printview.php:126
 msgid "Table comments"
-msgstr "تێبینی خشتە"
+msgstr "تێبینیەکانی خشتە"
 
 #: db_datadict.php:163 db_qbe.php:199 libraries/Index.class.php:461
 #: libraries/export/htmlword.php:245 libraries/export/htmlword.php:357
@@ -389,14 +389,14 @@ msgstr "دواترین نوێکردنەوە"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1297 tbl_printview.php:445
 #: tbl_structure.php:996
 msgid "Last check"
-msgstr "دواترین چێک"
+msgstr "دواترین پشکنین"
 
 #: db_printview.php:222 db_structure.php:613
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] "%s خشتە"
-msgstr[1] "%s خشتە"
+msgstr[1] "%s خشتەکان"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
@@ -497,7 +497,7 @@ msgstr ""
 
 #: db_search.php:44 db_search.php:302
 msgid "all words"
-msgstr ""
+msgstr "هەموو وشەکان"
 
 #: db_search.php:45 db_search.php:303
 msgid "the exact phrase"
@@ -540,7 +540,7 @@ msgstr ""
 #: setup/frames/index.inc.php:148 setup/frames/index.inc.php:251
 #: tbl_tracking.php:499 tbl_tracking.php:520 tbl_tracking.php:579
 msgid "Delete"
-msgstr ""
+msgstr "سڕینەوە"
 
 #: db_search.php:266
 #, php-format
@@ -551,7 +551,7 @@ msgstr[1] ""
 
 #: db_search.php:289
 msgid "Search in database"
-msgstr ""
+msgstr "گەڕان لە بنکەی دراو"
 
 #: db_search.php:292
 msgid "Words or values to search for (wildcard: \"%\"):"
@@ -559,7 +559,7 @@ msgstr ""
 
 #: db_search.php:297
 msgid "Find:"
-msgstr ""
+msgstr "دۆزنەوە:"
 
 #: db_search.php:301 db_search.php:302
 msgid "Words are separated by a space character (\" \")."
@@ -575,7 +575,7 @@ msgstr ""
 
 #: db_structure.php:84
 msgid "No tables found in database"
-msgstr ""
+msgstr "هیچ خشتەیەک نەدۆزرایەوە لە بنکەی دراو"
 
 #: db_structure.php:242 libraries/mysql_charsets.lib.php:411
 #: libraries/mysql_charsets.lib.php:418
@@ -615,7 +615,7 @@ msgstr ""
 #: db_structure.php:543 db_structure.php:577 libraries/Menu.class.php:194
 #: libraries/tbl_info.inc.php:55 tbl_structure.php:208
 msgid "View"
-msgstr ""
+msgstr "نیشاندان"
 
 #: db_structure.php:620 libraries/Menu.class.php:504
 #: libraries/db_structure.lib.php:35 server_replication.php:31
@@ -644,13 +644,13 @@ msgstr ""
 #: server_databases.php:292 server_privileges.php:781
 #: server_privileges.php:1923 tbl_structure.php:562
 msgid "Check All"
-msgstr ""
+msgstr "پشکنینی هەموو"
 
 #: db_structure.php:686 libraries/display_tbl.lib.php:2992
 #: libraries/replication_gui.lib.php:35 server_databases.php:294
 #: server_privileges.php:784 server_privileges.php:1927 tbl_structure.php:566
 msgid "Uncheck All"
-msgstr ""
+msgstr "نەپشکنینی هەموو"
 
 #: db_structure.php:691
 msgid "Check tables having overhead"
