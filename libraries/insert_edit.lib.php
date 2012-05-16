@@ -100,7 +100,8 @@ function PMA_analyzeWhereClauses($where_clause_array, $paramArray, $found_unique
         $result[$key_id]       = PMA_DBI_query($local_query, null, PMA_DBI_QUERY_STORE);
         $rows[$key_id]         = PMA_DBI_fetch_assoc($result[$key_id]);
         $where_clauses[$key_id] = str_replace('\\', '\\\\', $where_clause);
-        $found_unique_key = PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id, $where_clause_array, $local_query, $result, $found_unique_key);
+        $found_unique_key = PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id,
+            $where_clause_array, $local_query, $result, $found_unique_key);
     }
     return array($where_clauses, $result, $rows, $found_unique_key);
 }
@@ -115,8 +116,9 @@ function PMA_analyzeWhereClauses($where_clause_array, $paramArray, $found_unique
  * @param array $result
  * @param boolean $found_unique_key 
  */
-function PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id, $where_clause_array, $local_query, $result, $found_unique_key)
-{
+function PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id,
+    $where_clause_array, $local_query, $result, $found_unique_key
+) {
     // No row returned
     if (! $rows[$key_id]) {
         unset($rows[$key_id], $where_clause_array[$key_id]);
@@ -1023,7 +1025,7 @@ function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
         $the_class .= ' datetimefield';
     }
     return '<input type="text" name="fields' . $column_name_appendix . '"'
-        . 'value="' . $special_chars . '" size="' . $columnsize . '"'
+        . 'value="' . $special_chars . '" size="' . $fieldsize . '"'
         . 'class="' . $the_class . '"' . $unnullify_trigger
         . 'tabindex="' . ($tabindex + $tabindex_for_value). '"'
         . 'id="field_' . ($idindex) . '_3" />';
