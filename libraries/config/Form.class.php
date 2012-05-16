@@ -42,7 +42,7 @@ class Form
      * Caches field types, indexed by field names
      * @var array
      */
-    private $fieldsTypes;
+    private $_fieldsTypes;
 
     /**
      * Constructor, reads default config values
@@ -67,8 +67,8 @@ class Form
     public function getOptionType($option_name)
     {
         $key = ltrim(substr($option_name, strrpos($option_name, '/')), '/');
-        return isset($this->fieldsTypes[$key])
-            ? $this->fieldsTypes[$key]
+        return isset($this->_fieldsTypes[$key])
+            ? $this->_fieldsTypes[$key]
             : null;
     }
 
@@ -169,7 +169,7 @@ class Form
     }
 
     /**
-     * Reads fields' types to $this->fieldsTypes
+     * Reads fields' types to $this->_fieldsTypes
      *
      * @return void
      */
@@ -178,7 +178,7 @@ class Form
         $cf = ConfigFile::getInstance();
         foreach ($this->fields as $name => $path) {
             if (strpos($name, ':group:') === 0) {
-                $this->fieldsTypes[$name] = 'group';
+                $this->_fieldsTypes[$name] = 'group';
                 continue;
             }
             $v = $cf->getDbEntry($path);
@@ -187,7 +187,7 @@ class Form
             } else {
                 $type = gettype($cf->getDefault($path));
             }
-            $this->fieldsTypes[$name] = $type;
+            $this->_fieldsTypes[$name] = $type;
         }
     }
 
