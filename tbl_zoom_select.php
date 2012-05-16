@@ -5,6 +5,7 @@
  *
  * display table zoom search form, create SQL queries from form data
  *
+ * @package PhpMyAdmin
  */
 
 /**
