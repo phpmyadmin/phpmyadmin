@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-09 13:14+0200\n"
-"PO-Revision-Date: 2012-05-15 14:21+0200\n"
+"PO-Revision-Date: 2012-05-15 14:27+0200\n"
 "Last-Translator: Vítor Martins <vjmartins@sapo.pt>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
@@ -257,13 +257,13 @@ msgstr "O nome da base de dados está vazia!"
 #, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "O nome da base de dados %s foi alterado para %s"
+msgstr "O nome da base de dados %1$s foi alterado para %2$s"
 
 #: db_operations.php:315
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "A base de dados %s foi copiada para %s."
+msgstr "A base de dados %1$s foi copiada para %2$s"
 
 #: db_operations.php:443
 msgid "Rename database to"
@@ -449,9 +449,8 @@ msgid "And"
 msgstr "E"
 
 #: db_qbe.php:393 db_qbe.php:474 db_qbe.php:556 db_qbe.php:587
-#, fuzzy
 msgid "Del"
-msgstr "Elim."
+msgstr "Elim"
 
 #: db_qbe.php:397 db_qbe.php:478 db_qbe.php:549 db_qbe.php:580
 #: server_privileges.php:484 tbl_change.php:936 tbl_indexes.php:301
@@ -517,13 +516,13 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Procurar resultados para \"<i>%s</i>\" %s:"
 
 #: db_search.php:239
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match inside table <i>%s</i>"
 #| msgid_plural "%s matches inside table <i>%s</i>"
 msgid "%1$s match inside table <i>%2$s</i>"
 msgid_plural "%1$s matches inside table <i>%2$s</i>"
-msgstr[0] "%s resultado na tabela <i>%s</i>"
-msgstr[1] "%s resultados na tabela <i>%s</i>"
+msgstr[0] "%1$s resultado na tabela <i>%2$s</i>"
+msgstr[1] "%1$s resultados na tabela <i>%2$s</i>"
 
 #: db_search.php:247 libraries/Menu.class.php:263
 #: libraries/common.lib.php:3148 libraries/common.lib.php:3378
@@ -1036,10 +1035,10 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Os comandos \"DROP DATABASE\" estão inibidos."
 
 #: js/messages.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to "
 msgid "Do you really want to execute \"%s\"?"
-msgstr "Confirma : "
+msgstr "Você realmente deseja executar \"%s\"?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:307 sql.php:390
 msgid "You are about to DESTROY a complete database!"
@@ -1506,10 +1505,9 @@ msgid "From general log"
 msgstr "Do registo geral"
 
 #: js/messages.php:172
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "Carregando registos"
+msgstr "Analisando os registos"
 
 #: js/messages.php:173
 msgid "Analysing & loading logs. This may take a while."
@@ -1550,10 +1548,9 @@ msgid "Jump to Log table"
 msgstr "Saltar para a tabela de registos"
 
 #: js/messages.php:180
-#, fuzzy
 #| msgid "No databases"
 msgid "No data found"
-msgstr "Sem bases de dados"
+msgstr "Sem dados"
 
 #: js/messages.php:181
 msgid "Log analysed, but no data found in this time span."
@@ -1594,14 +1591,13 @@ msgid "Chart"
 msgstr "Mapa de Resultados"
 
 #: js/messages.php:191
-#, fuzzy
 msgid "Edit chart"
-msgstr "Adiciona novo campo"
+msgstr "Editar gráfico"
 
 #: js/messages.php:192
 #, fuzzy
 msgid "Series"
-msgstr "Comando SQL"
+msgstr "Series"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
@@ -1678,16 +1674,14 @@ msgid "Import"
 msgstr "Importar"
 
 #: js/messages.php:213
-#, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Import monitor configuration"
-msgstr "Configuração incompatível do monitor local"
+msgstr "Importar configuração do monitor"
 
 #: js/messages.php:214
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "Por favor seleccione a chave primária ou a chave única "
+msgstr "Por favor, selecione o ficheiro que deseja importar"
 
 #: js/messages.php:216
 msgid "Analyse Query"
@@ -1802,16 +1796,14 @@ msgid "Foreign key check:"
 msgstr ""
 
 #: js/messages.php:258 libraries/mult_submits.inc.php:321
-#, fuzzy
 #| msgid "Enabled"
 msgid "(Enabled)"
-msgstr "Activado"
+msgstr "(Ativado)"
 
 #: js/messages.php:259 libraries/mult_submits.inc.php:321
-#, fuzzy
 #| msgid "Disabled"
 msgid "(Disabled)"
-msgstr "Desactidado"
+msgstr "(Desativado)"
 
 #: js/messages.php:262
 msgid "Searching"
@@ -2058,20 +2050,18 @@ msgid "Go to link"
 msgstr "Ir para a hiperligação"
 
 #: js/messages.php:362
-#, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
-msgstr "Nome dos Campos"
+msgstr "Copiar nome da coluna"
 
 #: js/messages.php:363
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
 #: js/messages.php:364
-#, fuzzy
 #| msgid "Showing rows"
 msgid "Show data row(s)"
-msgstr "Mostrando registos "
+msgstr "Mostrar registo(s)"
 
 #: js/messages.php:367
 msgid "Generate password"
