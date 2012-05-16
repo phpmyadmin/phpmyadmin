@@ -3091,7 +3091,7 @@ function PMA_replaceBinaryContents($content)
  * @param binary $data        GIS data
  * @param bool   $includeSRID Add SRID to the WKT
  *
- * @return GIS data in Well Know Text format
+ * @return string GIS data in Well Know Text format
  */
 function PMA_asWKT($data, $includeSRID = false)
 {
@@ -3516,7 +3516,7 @@ function PMA_getGISDatatypes($upper_case = false)
  *
  * @param string $gis_string GIS string
  *
- * @return GIS data enclosed in 'GeomFromText' function
+ * @return string GIS data enclosed in 'GeomFromText' function
  */
 function PMA_createGISData($gis_string)
 {
