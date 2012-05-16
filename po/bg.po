@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-05-12 23:40+0200\n"
+"PO-Revision-Date: 2012-05-15 20:20+0200\n"
 "Last-Translator: Стоян Димитров <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -5056,11 +5056,13 @@ msgstr ""
 #: libraries/config/messages.inc.php:474 libraries/sql_query_form.lib.php:352
 #| msgid "Hide query box"
 msgid "Retain query box"
-msgstr "Запазване на прозореца за заявки"
+msgstr "Запазване отворен прозореца за заявки"
 
 #: libraries/config/messages.inc.php:475
 msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
+"Разрешаване показването на статистика за таблици и БД (напр. заемано "
+"пространство)"
 
 #: libraries/config/messages.inc.php:476
 msgid "Show statistics"
