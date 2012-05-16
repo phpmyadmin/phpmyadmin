@@ -129,6 +129,8 @@ class ConfigFile
      * they are set to their default values (use only full paths)
      *
      * @param array $keys
+     *
+     * @return void
      */
     public function setPersistKeys($keys)
     {
@@ -152,6 +154,8 @@ class ConfigFile
      * this method to set up a filter on {@link set()} method
      *
      * @param array|null $keys array of allowed keys or null to remove filter
+     *
+     * @return void
      */
     public function setAllowedKeys($keys)
     {
@@ -168,7 +172,10 @@ class ConfigFile
      * Sets path mapping for updating config in
      * {@link updateWithGlobalConfig()} or reading
      * by {@link getConfig()} or {@link getConfigArray()}
-     * @var array
+     *
+     * @param array
+     *
+     * @return void
      */
     public function setCfgUpdateReadMapping(array $mapping)
     {
@@ -177,6 +184,8 @@ class ConfigFile
 
     /**
      * Resets configuration data
+     *
+     * @return void
      */
     public function resetConfigData()
     {
@@ -187,6 +196,8 @@ class ConfigFile
      * Sets configuration data (overrides old data)
      *
      * @param array $cfg
+     *
+     * @return void
      */
     public function setConfigData(array $cfg)
     {
@@ -199,6 +210,8 @@ class ConfigFile
      * @param string $path
      * @param mixed  $value
      * @param string $canonical_path
+     *
+     * @return void
      */
     public function set($path, $value, $canonical_path = null)
     {
@@ -240,6 +253,8 @@ class ConfigFile
      * @param mixed $value
      * @param mixed $key
      * @param mixed $prefix
+     *
+     * @return void
      */
     private function _flattenArray($value, $key, $prefix)
     {
@@ -271,6 +286,8 @@ class ConfigFile
      * (config will contain differences to defaults from config.defaults.php).
      *
      * @param array $cfg
+     *
+     * @return void
      */
     public function updateWithGlobalConfig(array $cfg)
     {
@@ -445,6 +462,8 @@ class ConfigFile
      * Removes server
      *
      * @param int $server
+     *
+     * @return void
      */
     public function removeServer($server)
     {
