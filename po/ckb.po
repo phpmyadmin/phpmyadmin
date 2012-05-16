@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-09 13:14+0200\n"
-"PO-Revision-Date: 2012-05-15 13:43+0200\n"
+"PO-Revision-Date: 2012-05-15 17:19+0200\n"
 "Last-Translator: Aso Naderi <aso.naderi@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ckb\n"
@@ -299,19 +299,19 @@ msgstr "تەنیا زانیاری"
 
 #: db_operations.php:533
 msgid "CREATE DATABASE before copying"
-msgstr ""
+msgstr "بنکەی دراوە درووست بکە پێش ڕوونووسکردن"
 
 #: db_operations.php:536 libraries/config/messages.inc.php:130
 #: libraries/config/messages.inc.php:131 libraries/config/messages.inc.php:133
 #: libraries/config/messages.inc.php:139 tbl_operations.php:569
 #, php-format
 msgid "Add %s"
-msgstr ""
+msgstr "زۆرکردن %s"
 
 #: db_operations.php:540 libraries/config/messages.inc.php:123
 #: tbl_operations.php:321 tbl_operations.php:571
 msgid "Add AUTO_INCREMENT value"
-msgstr ""
+msgstr "زۆرکردنی نرخی زۆربوونی خۆکارانە"
 
 #: db_operations.php:544 tbl_operations.php:578
 msgid "Add constraints"
@@ -319,7 +319,7 @@ msgstr ""
 
 #: db_operations.php:559
 msgid "Switch to copied database"
-msgstr ""
+msgstr "بڕۆ بۆ بنکەی دراوەی ڕوونووس کراو"
 
 #: db_operations.php:582 libraries/Index.class.php:463
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
@@ -351,7 +351,7 @@ msgstr ""
 #: server_privileges.php:2071 server_privileges.php:2340
 #: server_synchronize.php:519 server_synchronize.php:1039 tbl_tracking.php:711
 msgid "Table"
-msgstr ""
+msgstr "خشتە"
 
 #: db_printview.php:103 db_tables_search.php:24 db_tables_search.php:53
 #: libraries/Table.class.php:314 libraries/build_html_for_db.lib.php:31
@@ -360,47 +360,47 @@ msgstr ""
 #: tbl_printview.php:378 tbl_structure.php:462 tbl_structure.php:536
 #: tbl_structure.php:948
 msgid "Rows"
-msgstr ""
+msgstr "خانە"
 
 #: db_printview.php:107 libraries/db_structure.lib.php:53 tbl_indexes.php:223
 msgid "Size"
-msgstr ""
+msgstr "قەبارە"
 
 #: db_printview.php:161 db_structure.php:592 libraries/export/sql.php:977
 msgid "in use"
-msgstr ""
+msgstr "بەکار دەبرێت"
 
 #: db_printview.php:187 libraries/db_info.inc.php:76
 #: libraries/db_structure.lib.php:60 libraries/export/sql.php:911
 #: libraries/schema/Pdf_Relation_Schema.class.php:1287 tbl_printview.php:423
 #: tbl_structure.php:980
 msgid "Creation"
-msgstr ""
+msgstr "درووستکردن"
 
 #: db_printview.php:196 libraries/db_info.inc.php:81
 #: libraries/db_structure.lib.php:65 libraries/export/sql.php:922
 #: libraries/schema/Pdf_Relation_Schema.class.php:1292 tbl_printview.php:434
 #: tbl_structure.php:988
 msgid "Last update"
-msgstr ""
+msgstr "دواترین نوێکردنەوە"
 
 #: db_printview.php:205 libraries/db_info.inc.php:86
 #: libraries/db_structure.lib.php:70 libraries/export/sql.php:933
 #: libraries/schema/Pdf_Relation_Schema.class.php:1297 tbl_printview.php:445
 #: tbl_structure.php:996
 msgid "Last check"
-msgstr ""
+msgstr "دواترین چێک"
 
 #: db_printview.php:222 db_structure.php:613
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s خشتە"
+msgstr[1] "%s خشتە"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
-msgstr ""
+msgstr "دەبێت لانیکەم ١ خانە هەڵبژێریت بۆ پیشاندان"
 
 #: db_qbe.php:189
 #, php-format
@@ -410,7 +410,7 @@ msgstr ""
 #: db_qbe.php:225 libraries/db_structure.lib.php:106
 #: libraries/display_tbl.lib.php:1196
 msgid "Sort"
-msgstr ""
+msgstr "ڕیزکردن"
 
 #: db_qbe.php:234 db_qbe.php:269 libraries/db_structure.lib.php:113
 #: libraries/db_structure.lib.php:122 libraries/display_tbl.lib.php:663
@@ -418,7 +418,7 @@ msgstr ""
 #: server_databases.php:187 server_databases.php:204 tbl_operations.php:282
 #: tbl_select.php:223
 msgid "Ascending"
-msgstr ""
+msgstr "لە سەرەتاوە بۆ کۆتایی"
 
 #: db_qbe.php:235 db_qbe.php:277 libraries/db_structure.lib.php:114
 #: libraries/db_structure.lib.php:123 libraries/display_tbl.lib.php:674
@@ -426,12 +426,12 @@ msgstr ""
 #: server_databases.php:187 server_databases.php:204 tbl_operations.php:283
 #: tbl_select.php:224
 msgid "Descending"
-msgstr ""
+msgstr "لە کۆتایی بۆ سەرەتا"
 
 #: db_qbe.php:290 db_tracking.php:86 libraries/display_tbl.lib.php:482
 #: tbl_change.php:286 tbl_tracking.php:716
 msgid "Show"
-msgstr ""
+msgstr "پیشاندان"
 
 #: db_qbe.php:326
 msgid "Criteria"
@@ -443,21 +443,21 @@ msgstr ""
 
 #: db_qbe.php:384 db_qbe.php:466 db_qbe.php:551 db_qbe.php:582
 msgid "And"
-msgstr ""
+msgstr "و"
 
 #: db_qbe.php:393 db_qbe.php:474 db_qbe.php:556 db_qbe.php:587
 msgid "Del"
-msgstr ""
+msgstr "سڕینەوە"
 
 #: db_qbe.php:397 db_qbe.php:478 db_qbe.php:549 db_qbe.php:580
 #: server_privileges.php:484 tbl_change.php:936 tbl_indexes.php:301
 #: tbl_select.php:197
 msgid "Or"
-msgstr ""
+msgstr "یان"
 
 #: db_qbe.php:534
 msgid "Modify"
-msgstr ""
+msgstr "دەستکاری"
 
 #: db_qbe.php:609
 msgid "Add/Delete criteria rows"
