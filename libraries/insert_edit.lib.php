@@ -44,17 +44,17 @@ function PMA_getFormParametersForInsertForm($paramArray, $where_clauses, $where_
  * Retrieve the values for pma edit mode
  * 
  * @param array $paramArray         array containing $db and $table
- * @param boolean $found_unique_key boolean variable for unique key
+ * @param array $where_clause       where clauses
  * 
  * @return array                    containing insert_mode,whereClauses, result array
  *                                  where_clauses_array and found_unique_key boolean value 
  */
-function PMA_getValuesForEditMode($paramArray)
+function PMA_getValuesForEditMode($paramArray, $where_clause)
 {
     $found_unique_key = false;
     list($table, $db) = $paramArray;
-    if (isset($_REQUEST['where_clause'])) {
-        $where_clause_array = PMA_getWhereClauseArray();
+    if (isset($where_clause)) {
+        $where_clause_array = PMA_getWhereClauseArray($where_clause);
         list($whereClauses, $resultArray, $rowsArray, $found_unique_key) 
                 = PMA_analyzeWhereClauses($where_clause_array, $paramArray, $found_unique_key);
         return array(false, $whereClauses, $resultArray, $rowsArray, $where_clause_array, $found_unique_key);
@@ -68,13 +68,13 @@ function PMA_getValuesForEditMode($paramArray)
  *
  * @return whereClauseArray array of where clauses 
  */
-function PMA_getWhereClauseArray()
+function PMA_getWhereClauseArray($where_clause)
 {
-    if(isset ($_REQUEST['where_clause'])) {
-        if (is_array($_REQUEST['where_clause'])) {
-            return $_REQUEST['where_clause'];
+    if(isset ($where_clause)) {
+        if (is_array($where_clause)) {
+            return $where_clause;
         } else {
-            return array(0 => $_REQUEST['where_clause']);
+            return array(0 => $where_clause);
         }
     }
 }

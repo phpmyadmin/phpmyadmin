@@ -32,10 +32,10 @@ require_once 'libraries/insert_edit.lib.php';
 if (isset($_REQUEST['where_clause'])) {
     $where_clause = $_REQUEST['where_clause'];
 }
-
 if (isset($_SESSION['edit_next'])) {
     $where_clause = $_SESSION['edit_next'];
     unset($_SESSION['edit_next']);
+    $after_insert = 'edit_next';
 }
 if (isset($_REQUEST['ShowFunctionFields'])) {
     $cfg['ShowFunctionFields'] = $_REQUEST['ShowFunctionFields'];
@@ -43,7 +43,6 @@ if (isset($_REQUEST['ShowFunctionFields'])) {
 if (isset($_REQUEST['ShowFieldTypesInDataEditView'])) {
     $cfg['ShowFieldTypesInDataEditView'] = $_REQUEST['ShowFieldTypesInDataEditView'];
 }
-
 /**
  * file listing
  */
@@ -149,7 +148,7 @@ $table_fields = array_values(PMA_DBI_get_columns($db, $table));
 $paramTableDbArray = array($table, $db);
 //Retrieve values for data edit view
 list($insert_mode, $where_clauses, $result, $rows, $where_clause_array, $found_unique_key)
-    = PMA_getValuesForEditMode($paramTableDbArray);
+    = PMA_getValuesForEditMode($paramTableDbArray, $where_clause);
 
 // Copying a row - fetched data will be inserted as a new row, therefore the where clause is needless.
 if (isset($_REQUEST['default_action']) && $_REQUEST['default_action'] === 'insert') {
