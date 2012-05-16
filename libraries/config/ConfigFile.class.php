@@ -173,7 +173,7 @@ class ConfigFile
      * {@link updateWithGlobalConfig()} or reading
      * by {@link getConfig()} or {@link getConfigArray()}
      *
-     * @param array
+     * @param array $mapping
      *
      * @return void
      */
