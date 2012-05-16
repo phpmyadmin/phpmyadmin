@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-09 13:14+0200\n"
-"PO-Revision-Date: 2012-05-16 11:44+0200\n"
-"Last-Translator: gailan abdulla xdr <gailannet@gmail.com>\n"
+"PO-Revision-Date: 2012-05-16 12:10+0200\n"
+"Last-Translator: Aso Naderi <aso.naderi@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ckb\n"
 "MIME-Version: 1.0\n"
@@ -435,7 +435,7 @@ msgstr "پیشاندان"
 
 #: db_qbe.php:326
 msgid "Criteria"
-msgstr ""
+msgstr "مەرج"
 
 #: db_qbe.php:380 db_qbe.php:462 db_qbe.php:554 db_qbe.php:585
 msgid "Ins"
@@ -461,39 +461,39 @@ msgstr "دەستکاری"
 
 #: db_qbe.php:609
 msgid "Add/Delete criteria rows"
-msgstr ""
+msgstr "زۆرکردن/سڕینەوەی خانەی مەرج"
 
 #: db_qbe.php:621
 msgid "Add/Delete columns"
-msgstr ""
+msgstr "زۆرکردن/سڕینەوەی خانە"
 
 #: db_qbe.php:634 db_qbe.php:657
 msgid "Update Query"
-msgstr ""
+msgstr "نوێکردنەوەی پرس"
 
 #: db_qbe.php:640
 msgid "Use Tables"
-msgstr ""
+msgstr "خشتە بەکار ببە"
 
 #: db_qbe.php:663
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr ""
+msgstr "پرسی SQL لەسەر بنکەی دراوەی <b>%s</b>:"
 
 #: db_qbe.php:956 libraries/common.lib.php:1239
 msgid "Submit Query"
-msgstr ""
+msgstr "ناردنی پرس"
 
 #: db_search.php:31 libraries/auth/config.auth.lib.php:78
 #: libraries/auth/config.auth.lib.php:99
 #: libraries/auth/cookie.auth.lib.php:620 libraries/auth/http.auth.lib.php:54
 #: libraries/auth/signon.auth.lib.php:247
 msgid "Access denied"
-msgstr ""
+msgstr "ڕێگەنەدرا بە بینین"
 
 #: db_search.php:43 db_search.php:301
 msgid "at least one of the words"
-msgstr ""
+msgstr "لانیکەم یەکێک لە وشەکان"
 
 #: db_search.php:44 db_search.php:302
 msgid "all words"
@@ -501,7 +501,7 @@ msgstr "هەموو وشەکان"
 
 #: db_search.php:45 db_search.php:303
 msgid "the exact phrase"
-msgstr ""
+msgstr "دەقاودەقی ڕستە"
 
 #: db_search.php:46 db_search.php:304
 msgid "as regular expression"
