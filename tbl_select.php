@@ -80,8 +80,8 @@ if (! isset($param) || $param[0] == '') {
     // foreign keys from innodb)
     $foreigners = PMA_getForeigners($db, $table);
 
-    PMA_tbl_search_displaySelectionForm(
-        $fields_list, $fields_type, $fields_collation, $fields_null,
+    PMA_tblSearchDisplaySelectionForm(
+        $goto, $fields_list, $fields_type, $fields_collation, $fields_null,
         $geom_column_present, $geom_types, $fields_cnt, $foreigners, $db, $table
     );
 
@@ -153,42 +153,42 @@ if (! isset($param) || $param[0] == '') {
  * @param array   $fields_type         array containing types of all columns
  *                                     in the table
  * @param array   $geom_types          array of GIS data types
- * @param integer $i                   column index
+ * @param integer $column_index        index of current column in $fields_type array
  *
  * @return string the generated HTML
  */
-function PMA_tbl_search_getGeomFuncHtml($geom_column_present, $fields_type,
-$geom_types, $i)
+function PMA_tblSearchGetGeomFuncHtml($geom_column_present, $fields_type,
+$geom_types, $column_index)
 {    
-    $retval = '';
+    $html_output = '';
     // return if geometrical column is not present
     if (!$geom_column_present) {
-        return $retval;
+        return $html_output;
     }
 
     /**
      * Displays 'Function' column if it is present
      */    
-    $retval .= '<td>';
+    $html_output .= '<td>';
     // if a geometry column is present
-    if (in_array($fields_type[$i], $geom_types)) {
-        $retval .= '<select class="geom_func" name="geom_func[' . $i . ']">';
+    if (in_array($fields_type[$column_index], $geom_types)) {
+        $html_output .= '<select class="geom_func" name="geom_func[' . $column_index . ']">';
         // get the relevant list of GIS functions
-        $funcs = PMA_getGISFunctions($fields_type[$i], true, true);
+        $funcs = PMA_getGISFunctions($fields_type[$column_index], true, true);
         /**
          * For each function in the list of functions, add an option to select list
          */
         foreach ($funcs as $func_name => $func) {
             $name = isset($func['display']) ? $func['display'] : $func_name;
-            $retval .= '<option value="' . htmlspecialchars($name) . '">'
+            $html_output .= '<option value="' . htmlspecialchars($name) . '">'
                     . htmlspecialchars($name) . '</option>';
         }
-        $retval .= '</select>';
+        $html_output .= '</select>';
     } else {
-        $retval .= '&nbsp;';
+        $html_output .= '&nbsp;';
     }
-    $retval .= '</td>';
-    return $retval;
+    $html_output .= '</td>';
+    return $html_output;
 }
 
 /**
@@ -200,42 +200,42 @@ $geom_types, $i)
  *
  * @return void
  */
-function PMA_tbl_search_displaySliderOptions($fields_list, $fields_cnt)
+function PMA_tblSearchDisplaySliderOptions($fields_list, $fields_cnt)
 {
     PMA_generateSliderEffect('searchoptions', __('Options'));
-    $output_html = '';
+    $html_output = '';
 
     /**
      * Displays columns select list for selecting distinct columns in the search
      */
-    $output_html = '<fieldset id="fieldset_select_fields">
+    $html_output = '<fieldset id="fieldset_select_fields">
         <legend>' . __('Select columns (at least one):') . '</legend>
         <select name="param[]" size="' . min($fields_cnt, 10) . '" multiple="multiple">';
     // Displays the list of the fields
     foreach ($fields_list as $each_field) {
-        $output_html .= '        '
+        $html_output .= '        '
             . '<option value="' . htmlspecialchars($each_field) . '"'
             . ' selected="selected">' . htmlspecialchars($each_field)
             . '</option>' . "\n";
     } // end for
-    $output_html .= '</select>
+    $html_output .= '</select>
         <input type="checkbox" name="distinct" value="DISTINCT" id="oDistinct" />
         <label for="oDistinct">DISTINCT</label></fieldset>';
 
     /**
      * Displays input box for custom 'Where' clause to be used in the search
      */
-    $output_html .= '<fieldset id="fieldset_search_conditions">
+    $html_output .= '<fieldset id="fieldset_search_conditions">
         <legend>' . '<em>' . __('Or') . '</em> ' .
         __('Add search conditions (body of the "where" clause):') . '</legend>';
-    $output_html .= PMA_showMySQLDocu('SQL-Syntax', 'Functions');
-    $output_html .= '<input type="text" name="where" class="textfield" size="64" />
+    $html_output .= PMA_showMySQLDocu('SQL-Syntax', 'Functions');
+    $html_output .= '<input type="text" name="where" class="textfield" size="64" />
         </fieldset>';
 
     /**
      * Displays option of changing default number of rows displayed per page
      */
-    $output_html .= '<fieldset id="fieldset_limit_rows">
+    $html_output .= '<fieldset id="fieldset_limit_rows">
         <legend>' . __('Number of rows per page') . '</legend>
         <input type="text" size="4" name="session_max_rows"
         value="' . $GLOBALS['cfg']['MaxRows'] . '" class="textfield" />
@@ -244,20 +244,20 @@ function PMA_tbl_search_displaySliderOptions($fields_list, $fields_cnt)
     /**
      * Displays option for ordering search results by a column value (Asc or Desc)
      */
-    $output_html .= '<fieldset id="fieldset_display_order">
+    $html_output .= '<fieldset id="fieldset_display_order">
         <legend>' . __('Display order:') . '</legend>
         <select name="orderField"><option value="--nil--"></option>';
     foreach ($fields_list as $each_field) {
-        $output_html .= '        '
+        $html_output .= '        '
             . '<option value="' . htmlspecialchars($each_field) . '">'
             . htmlspecialchars($each_field) . '</option>' . "\n";
     } // end for
-    $output_html .= '</select>';
+    $html_output .= '</select>';
     $choices = array(
         'ASC' => __('Ascending'),
         'DESC' => __('Descending')
     );
-    echo $output_html;
+    echo $html_output;
     PMA_displayHtmlRadio('order', $choices, 'ASC', false, true, "formelement");
     unset($choices);    
 }
@@ -278,65 +278,66 @@ function PMA_tbl_search_displaySliderOptions($fields_list, $fields_cnt)
  *
  * @return string the generated HTML
  */
-function PMA_tbl_search_getFieldsTableHtml($fields_list, $fields_type,
+function PMA_tblSearchGetFieldsTableHtml($fields_list, $fields_type,
 $fields_collation, $fields_null, $geom_column_present, $geom_types, $fields_cnt,
 $foreigners, $db, $table)
 {
-    $retval = '';
-    $retval .= '<table class="data">';
-    $retval .= PMA_tbl_setTableHeader($geom_column_present) . '<tbody>';
+    $html_output = '';
+    $html_output .= '<table class="data">';
+    $html_output .= PMA_tbl_setTableHeader($geom_column_present) . '<tbody>';
     $odd_row = true;
     $titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
 
     // for every column present in table
     for ($i = 0; $i < $fields_cnt; $i++) {
-        $retval .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
+        $html_output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
         $odd_row = !$odd_row;
 
         /**
          * If 'Function' column is present
          */
-        $retval .= PMA_tbl_search_getGeomFuncHtml(
+        $html_output .= PMA_tblSearchGetGeomFuncHtml(
             $geom_column_present, $fields_type, $geom_types, $i
         );
         /**
          * Displays column's name, type, collation
          */
-        $retval .= '<th>' . htmlspecialchars($fields_list[$i]) . '</th>';
-        $retval .= '<td>' . htmlspecialchars($fields_type[$i]) . '</td>';
-        $retval .= '<td>' . $fields_collation[$i] . '</td>';
+        $html_output .= '<th>' . htmlspecialchars($fields_list[$i]) . '</th>';
+        $html_output .= '<td>' . htmlspecialchars($fields_type[$i]) . '</td>';
+        $html_output .= '<td>' . $fields_collation[$i] . '</td>';
         /**
          * Displays column's comparison operators depending on column type
          */
-        $retval .= '<td><select name="func[]">';
-        $retval .= $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
+        $html_output .= '<td><select name="func[]">';
+        $html_output .= $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
             $fields_type[$i], $fields_null[$i]
         );
-        $retval .= '</select></td><td>';
+        $html_output .= '</select></td><td>';
         /**
          * Displays column's foreign relations if any
          */
         $field = $fields_list[$i];
         $foreignData = PMA_getForeignData($foreigners, $field, false, '', '');
-        $retval .= PMA_getForeignFields_Values(
+        $html_output .= PMA_getForeignFields_Values(
             $foreigners, $foreignData, $field, $fields_type, $i, $db, $table,
             $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], '', true
         );
 
-        $retval .= '<input type="hidden" name="names[' . $i . ']" value="' 
+        $html_output .= '<input type="hidden" name="names[' . $i . ']" value="' 
             . htmlspecialchars($fields_list[$i]) . '" /><input type="hidden" '
             . 'name="types[' . $i . ']" value="' . $fields_type[$i] . '" />'
             . '<input type="hidden" name="collations[' . $i . ']" value="'
             . $fields_collation[$i] . '" /></td></tr>';
     } // end for
 
-    $retval .= '</tbody></table>';
-    return $retval;
+    $html_output .= '</tbody></table>';
+    return $html_output;
 }
 
 /**
  * Displays the table search form under table search tab
  *
+ * @param string  $goto                
  * @param array   $fields_list         Names of columns in the table
  * @param array   $fields_type         Types of columns in the table
  * @param array   $fields_collation    Collation of all columns
@@ -350,51 +351,51 @@ $foreigners, $db, $table)
  *
  * @return void
  */
-function PMA_tbl_search_displaySelectionForm($fields_list, $fields_type,
+function PMA_tblSearchDisplaySelectionForm($goto, $fields_list, $fields_type,
 $fields_collation, $fields_null, $geom_column_present, $geom_types, $fields_cnt,
 $foreigners, $db, $table)
 {
-    $output_html = '';
-    $output_html .= '<fieldset id="fieldset_subtab">';
+    $html_output = '';
+    $html_output .= '<fieldset id="fieldset_subtab">';
     $url_params = array();
     $url_params['db'] = $db;
     $url_params['table'] = $table;
 
-    $output_html .= PMA_generateHtmlTabs(PMA_tbl_getSubTabs(), $url_params, 'topmenu2');
-    $output_html .= '<form method="post" action="tbl_select.php" name="insertForm"'
+    $html_output .= PMA_generateHtmlTabs(PMA_tbl_getSubTabs(), $url_params, 'topmenu2');
+    $html_output .= '<form method="post" action="tbl_select.php" name="insertForm"'
         . ' id="tbl_search_form" ' . ($GLOBALS['cfg']['AjaxEnable'] ? 'class="ajax"' : '')
         . '>';
-    $output_html .= PMA_generate_common_hidden_inputs($db, $table);
-    $output_html .= '<input type="hidden" name="goto" value="' . $goto . '" />';
-    $output_html .= '<input type="hidden" name="back" value="tbl_select.php" />'
+    $html_output .= PMA_generate_common_hidden_inputs($db, $table);
+    $html_output .= '<input type="hidden" name="goto" value="' . $goto . '" />';
+    $html_output .= '<input type="hidden" name="back" value="tbl_select.php" />'
         . '<fieldset id="fieldset_table_search"><fieldset id="fieldset_table_qbe">'
         . '<legend>' . __('Do a "query by example" (wildcard: "%")') . '</legend>';
 
     /**
      * Displays table fields
      */
-    $output_html .= PMA_tbl_search_getFieldsTableHtml(
+    $html_output .= PMA_tblSearchGetFieldsTableHtml(
         $fields_list, $fields_type, $fields_collation, $fields_null,
         $geom_column_present, $geom_types, $fields_cnt, $foreigners, $db, $table    
     );
 
-    $output_html .= '<div id="gis_editor"></div><div id="popup_background"></div>'
+    $html_output .= '<div id="gis_editor"></div><div id="popup_background"></div>'
         . '</fieldset>';
-    echo $output_html;
+    echo $html_output;
 
     /**
      * Displays slider options form
      */
-    PMA_tbl_search_displaySliderOptions($fields_list, $fields_cnt);
-    $output_html = '</fieldset><br style="clear: both;"/></div></fieldset>';
+    PMA_tblSearchDisplaySliderOptions($fields_list, $fields_cnt);
+    $html_output = '</fieldset><br style="clear: both;"/></div></fieldset>';
 
     /**
      * Displays selection form's footer elements
      */
-    $output_html .= '<fieldset class="tblFooters"><input type="hidden" '
+    $html_output .= '<fieldset class="tblFooters"><input type="hidden" '
         . 'name="max_number_of_fields" value="' . $fields_cnt . '" />'
         . '<input type="submit" name="submit" value="' . __('Go') . '" />'
         . '</fieldset></form><div id="sqlqueryresults"></div></fieldset>';
-    echo $output_html;
+    echo $html_output;
 }
 ?>
