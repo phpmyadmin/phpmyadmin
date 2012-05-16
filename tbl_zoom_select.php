@@ -65,7 +65,7 @@ if (isset($_REQUEST['get_data_row']) && $_REQUEST['get_data_row'] == true) {
         $i = 0;
         foreach ($row as $col => $val) {
             if ($fields_meta[$i]->type == 'bit') {
-                $row[$col] = PMA_printable_bit_value($val, $fields_meta[$i]->length);
+                $row[$col] = PMA_printableBitValue($val, $fields_meta[$i]->length);
             }
             $i++;
         }
@@ -175,7 +175,7 @@ if (! isset($zoom_submit) && ! isset($inputs)) {
 $url_params = array();
 $url_params['db']    = $db;
 $url_params['table'] = $table;
-echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params, 'topmenu2');
+echo PMA_generateHtmlTabs(PMA_tbl_getSubTabs(), $url_params, 'topmenu2');
 
 /**
  *  Set the field name,type,collation and whether null on select of a coulmn
