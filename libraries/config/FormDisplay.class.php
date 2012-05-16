@@ -29,7 +29,7 @@ class FormDisplay
      * Form list
      * @var Form[]
      */
-    private $forms = array();
+    private $_forms = array();
 
     /**
      * Stores validation errors, indexed by paths
@@ -37,49 +37,49 @@ class FormDisplay
      * [path] is a string storing error associated with single field
      * @var array
      */
-    private $errors = array();
+    private $_errors = array();
 
     /**
      * Paths changed so that they can be used as HTML ids, indexed by paths
      * @var array
      */
-    private $translated_paths = array();
+    private $_translated_paths = array();
 
     /**
      * Server paths change indexes so we define maps from current server
      * path to the first one, indexed by work path
      * @var array
      */
-    private $system_paths = array();
+    private $_system_paths = array();
 
     /**
      * Language strings which will be sent to PMA_messages JS variable
      * Will be looked up in $GLOBALS: str{value} or strSetup{value}
      * @var array
      */
-    private $js_lang_strings = array();
+    private $_js_lang_strings = array();
 
     /**
      * Tells whether forms have been validated
      * @var bool
      */
-    private $is_validated = true;
+    private $_is_validated = true;
 
     /**
      * Dictionary with user preferences keys
      * @var array
      */
-    private $userprefs_keys;
+    private $_userprefs_keys;
 
     /**
      * Dictionary with disallowed user preferences keys
      * @var array
      */
-    private $userprefs_disallow;
+    private $_userprefs_disallow;
 
     public function __construct()
     {
-        $this->js_lang_strings = array(
+        $this->_js_lang_strings = array(
             'error_nan_p' => __('Not a positive number'),
             'error_nan_nneg' => __('Not a non-negative number'),
             'error_incorrect_port' => __('Not a valid port number'),
@@ -98,14 +98,14 @@ class FormDisplay
      */
     public function registerForm($form_name, array $form, $server_id = null)
     {
-        $this->forms[$form_name] = new Form($form_name, $form, $server_id);
-        $this->is_validated = false;
-        foreach ($this->forms[$form_name]->fields as $path) {
+        $this->_forms[$form_name] = new Form($form_name, $form, $server_id);
+        $this->_is_validated = false;
+        foreach ($this->_forms[$form_name]->fields as $path) {
             $work_path = $server_id === null
                 ? $path
                 : str_replace('Servers/1/', "Servers/$server_id/", $path);
-            $this->system_paths[$work_path] = $path;
-            $this->translated_paths[$work_path] = str_replace('/', '-', $work_path);
+            $this->_system_paths[$work_path] = $path;
+            $this->_translated_paths[$work_path] = str_replace('/', '-', $work_path);
         }
     }
 
@@ -125,8 +125,8 @@ class FormDisplay
         }
 
         // save forms
-        if (count($this->forms) > 0) {
-            return $this->save(array_keys($this->forms), $allow_partial_save);
+        if (count($this->_forms) > 0) {
+            return $this->save(array_keys($this->_forms), $allow_partial_save);
         }
         return false;
     }
@@ -138,19 +138,19 @@ class FormDisplay
      */
     private function _validate()
     {
-        if ($this->is_validated) {
+        if ($this->_is_validated) {
             return;
         }
 
         $cf = ConfigFile::getInstance();
         $paths = array();
         $values = array();
-        foreach ($this->forms as $form) {
+        foreach ($this->_forms as $form) {
             /* @var $form Form */
             $paths[] = $form->name;
             // collect values and paths
             foreach ($form->fields as $path) {
-                $work_path = array_search($path, $this->system_paths);
+                $work_path = array_search($path, $this->_system_paths);
                 $values[$path] = $cf->getValue($work_path);
                 $paths[] = $path;
             }
@@ -161,18 +161,18 @@ class FormDisplay
 
         // change error keys from canonical paths to work paths
         if (is_array($errors) && count($errors) > 0) {
-            $this->errors = array();
+            $this->_errors = array();
             foreach ($errors as $path => $error_list) {
-                $work_path = array_search($path, $this->system_paths);
+                $work_path = array_search($path, $this->_system_paths);
                 // field error
                 if (!$work_path) {
                     // form error, fix path
                     $work_path = $path;
                 }
-                $this->errors[$work_path] = $error_list;
+                $this->_errors[$work_path] = $error_list;
             }
         }
-        $this->is_validated = true;
+        $this->_is_validated = true;
     }
 
     /**
@@ -189,14 +189,14 @@ class FormDisplay
 
         $js = array();
         $js_default = array();
-        $tabbed_form = $tabbed_form && (count($this->forms) > 1);
+        $tabbed_form = $tabbed_form && (count($this->_forms) > 1);
         $validators = PMA_config_get_validators();
 
         display_form_top();
 
         if ($tabbed_form) {
             $tabs = array();
-            foreach ($this->forms as $form) {
+            foreach ($this->_forms as $form) {
                 $tabs[$form->name] = PMA_lang("Form_$form->name");
             }
             display_tabs_top($tabs);
@@ -204,7 +204,7 @@ class FormDisplay
 
         // valdiate only when we aren't displaying a "new server" form
         $is_new_server = false;
-        foreach ($this->forms as $form) {
+        foreach ($this->_forms as $form) {
             /* @var $form Form */
             if ($form->index === 0) {
                 $is_new_server = true;
@@ -219,13 +219,13 @@ class FormDisplay
         $this->_loadUserprefsInfo();
 
         // display forms
-        foreach ($this->forms as $form) {
+        foreach ($this->_forms as $form) {
             /* @var $form Form */
             $form_desc = isset($GLOBALS["strConfigForm_{$form->name}_desc"])
                 ? PMA_lang("Form_{$form->name}_desc")
                 : '';
-            $form_errors = isset($this->errors[$form->name])
-                ? $this->errors[$form->name] : null;
+            $form_errors = isset($this->_errors[$form->name])
+                ? $this->_errors[$form->name] : null;
             display_fieldset_top(
                 PMA_lang("Form_$form->name"),
                 $form_desc,
@@ -234,12 +234,12 @@ class FormDisplay
             );
 
             foreach ($form->fields as $field => $path) {
-                $work_path = array_search($path, $this->system_paths);
-                $translated_path = $this->translated_paths[$work_path];
+                $work_path = array_search($path, $this->_system_paths);
+                $translated_path = $this->_translated_paths[$work_path];
                 // always true/false for user preferences display
                 // otherwise null
-                $userprefs_allow = isset($this->userprefs_keys[$path])
-                    ? !isset($this->userprefs_disallow[$path])
+                $userprefs_allow = isset($this->_userprefs_keys[$path])
+                    ? !isset($this->_userprefs_disallow[$path])
                     : null;
                 // display input
                 $this->_displayFieldInput(
@@ -269,7 +269,7 @@ class FormDisplay
         if (!$js_lang_sent) {
             $js_lang_sent = true;
             $js_lang = array();
-            foreach ($this->js_lang_strings as $strName => $strValue) {
+            foreach ($this->_js_lang_strings as $strName => $strValue) {
                 $js_lang[] = "'$strName': '" . PMA_jsFormat($strValue, false) . '\'';
             }
             $js[] = "$.extend(PMA_messages, {\n\t" . implode(",\n\t", $js_lang) . '})';
@@ -324,8 +324,8 @@ class FormDisplay
             $opts['setvalue'] = $form->default[$system_path];
         }
 
-        if (isset($this->errors[$work_path])) {
-            $opts['errors'] = $this->errors[$work_path];
+        if (isset($this->_errors[$work_path])) {
+            $opts['errors'] = $this->_errors[$work_path];
         }
         switch ($form->getOptionType($field)) {
         case 'string':
@@ -411,13 +411,13 @@ class FormDisplay
     public function displayErrors()
     {
         $this->_validate();
-        if (count($this->errors) == 0) {
+        if (count($this->_errors) == 0) {
             return;
         }
 
-        foreach ($this->errors as $system_path => $error_list) {
-            if (isset($this->system_paths[$system_path])) {
-                $path = $this->system_paths[$system_path];
+        foreach ($this->_errors as $system_path => $error_list) {
+            if (isset($this->_system_paths[$system_path])) {
+                $path = $this->_system_paths[$system_path];
                 $name = PMA_lang_name($path);
             } else {
                 $name = $GLOBALS["strConfigForm_$system_path"];
@@ -434,16 +434,16 @@ class FormDisplay
     public function fixErrors()
     {
         $this->_validate();
-        if (count($this->errors) == 0) {
+        if (count($this->_errors) == 0) {
             return;
         }
 
         $cf = ConfigFile::getInstance();
-        foreach (array_keys($this->errors) as $work_path) {
-            if (!isset($this->system_paths[$work_path])) {
+        foreach (array_keys($this->_errors) as $work_path) {
+            if (!isset($this->_system_paths[$work_path])) {
                 continue;
             }
-            $canonical_path = $this->system_paths[$work_path];
+            $canonical_path = $this->_system_paths[$work_path];
             $cf->set($work_path, $cf->getDefault($canonical_path));
         }
     }
@@ -500,11 +500,11 @@ class FormDisplay
             $this->_loadUserprefsInfo();
         }
 
-        $this->errors = array();
+        $this->_errors = array();
         foreach ($forms as $form_name) {
             /* @var $form Form */
-            if (isset($this->forms[$form_name])) {
-                $form = $this->forms[$form_name];
+            if (isset($this->_forms[$form_name])) {
+                $form = $this->_forms[$form_name];
             } else {
                 continue;
             }
@@ -514,8 +514,8 @@ class FormDisplay
                 : false;
             // grab POST values
             foreach ($form->fields as $field => $system_path) {
-                $work_path = array_search($system_path, $this->system_paths);
-                $key = $this->translated_paths[$work_path];
+                $work_path = array_search($system_path, $this->_system_paths);
+                $key = $this->_translated_paths[$work_path];
                 $type = $form->getOptionType($field);
 
                 // skip groups
@@ -529,7 +529,7 @@ class FormDisplay
                     if ($type == 'boolean') {
                         $_POST[$key] = false;
                     } else {
-                        $this->errors[$form->name][] = sprintf(
+                        $this->_errors[$form->name][] = sprintf(
                             __('Missing data for %s'),
                             '<i>' . PMA_lang_name($system_path) . '</i>'
                         );
@@ -539,13 +539,13 @@ class FormDisplay
                 }
 
                 // user preferences allow/disallow
-                if ($is_setup_script && isset($this->userprefs_keys[$system_path])) {
-                    if (isset($this->userprefs_disallow[$system_path])
+                if ($is_setup_script && isset($this->_userprefs_keys[$system_path])) {
+                    if (isset($this->_userprefs_disallow[$system_path])
                         && isset($_POST[$key . '-userprefs-allow'])
                     ) {
-                        unset($this->userprefs_disallow[$system_path]);
+                        unset($this->_userprefs_disallow[$system_path]);
                     } else if (!isset($_POST[$key . '-userprefs-allow'])) {
-                        $this->userprefs_disallow[$system_path] = true;
+                        $this->_userprefs_disallow[$system_path] = true;
                     }
                 }
 
@@ -574,7 +574,7 @@ class FormDisplay
                         $form->getOptionValueList($system_path)
                     );
                     if (! $successfully_validated) {
-                        $this->errors[$work_path][] = __('Incorrect value');
+                        $this->_errors[$work_path][] = __('Incorrect value');
                         $result = false;
                         continue;
                     }
@@ -611,7 +611,7 @@ class FormDisplay
         }
 
         // save forms
-        if ($allow_partial_save || empty($this->errors)) {
+        if ($allow_partial_save || empty($this->_errors)) {
             foreach ($to_save as $work_path => $path) {
                 // TrustedProxies requires changes before saving
                 if ($path == 'TrustedProxies') {
@@ -637,7 +637,7 @@ class FormDisplay
                 $cf->set($work_path, $values[$path], $path);
             }
             if ($is_setup_script) {
-                $cf->set('UserprefsDisallow', array_keys($this->userprefs_disallow));
+                $cf->set('UserprefsDisallow', array_keys($this->_userprefs_disallow));
             }
         }
 
@@ -654,7 +654,7 @@ class FormDisplay
      */
     public function hasErrors()
     {
-        return count($this->errors) > 0;
+        return count($this->_errors) > 0;
     }
 
 
@@ -722,13 +722,13 @@ class FormDisplay
      */
     private function _loadUserprefsInfo()
     {
-        if ($this->userprefs_keys === null) {
-            $this->userprefs_keys = array_flip(PMA_read_userprefs_fieldnames());
+        if ($this->_userprefs_keys === null) {
+            $this->_userprefs_keys = array_flip(PMA_read_userprefs_fieldnames());
             // read real config for user preferences display
             $userprefs_disallow = defined('PMA_SETUP')
                 ? ConfigFile::getInstance()->get('UserprefsDisallow', array())
                 : $GLOBALS['cfg']['UserprefsDisallow'];
-            $this->userprefs_disallow = array_flip($userprefs_disallow);
+            $this->_userprefs_disallow = array_flip($userprefs_disallow);
         }
     }
 
