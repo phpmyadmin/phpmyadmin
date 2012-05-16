@@ -215,9 +215,9 @@ function PMA_isSelect()
     global $analyzed_sql;
 
     return ! ($is_count || $is_export || $is_func || $is_analyse)
-        && count($analyzed_sql[0]['select_expr']) == 0
+        && (count($analyzed_sql[0]['select_expr']) == 0)
         && isset($analyzed_sql[0]['queryflags']['select_from'])
-        && count($analyzed_sql[0]['table_ref']) == 1;
+        && (count($analyzed_sql[0]['table_ref']) == 1);
 }
 
 
@@ -276,6 +276,7 @@ function PMA_getTableNavigationButton($caption, $title, $pos, $html_sql_query,
         . '</td>';
     
 } // end function PMA_getTableNavigationButton()
+
 
 /**
  * Get a navigation bar to browse among the results of a SQL query
@@ -507,10 +508,11 @@ function PMA_getTableNavigation($pos_next, $pos_prev, $sql_query,
         // Display mode (horizontal/vertical and repeat headers)
         $table_navigation_html .= __('Mode') . ': ' . "\n";
         $choices = array(
-            'horizontal'        => __('horizontal'),
-            'horizontalflipped' => __('horizontal (rotated headers)'),
-            'vertical'          => __('vertical')
-        );
+                'horizontal'        => __('horizontal'),
+                'horizontalflipped' => __('horizontal (rotated headers)'),
+                'vertical'          => __('vertical')
+            );
+        
         $table_navigation_html .= PMA_getDropdown(
                 'disp_direction', $choices,
                 $_SESSION['tmp_user_values']['disp_direction'],
@@ -587,6 +589,9 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
     if ($analyzed_sql == '') {
         $analyzed_sql = array();
     }
+    
+    $directionCondition = ($direction == 'horizontal')
+        || ($direction == 'horizontalflipped');
 
     // can the result be sorted?
     if ($is_display['sort_lnk'] == '1') {
@@ -616,21 +621,23 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
             // do we have any index?
             if ($indexes) {
 
-                if (($direction == 'horizontal')
-                    || ($direction == 'horizontalflipped')
-                ) {
+                if ($directionCondition) {
+                    
                     $span = $fields_cnt;
                     if ($is_display['edit_lnk'] != 'nn') {
                         $span++;
                     }
+                    
                     if ($is_display['del_lnk'] != 'nn') {
                         $span++;
                     }
-                    if ($is_display['del_lnk'] != 'kp'
-                        && $is_display['del_lnk'] != 'nn'
+                    
+                    if (($is_display['del_lnk'] != 'kp')
+                        && ($is_display['del_lnk'] != 'nn')
                     ) {
                         $span++;
                     }
+                    
                 } else {
                     $span = $num_rows + floor(
                             $num_rows / $_SESSION['tmp_user_values']['repeat_cells']
@@ -879,7 +886,7 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
 
     // Start of form for multi-rows edit/delete/export
 
-    if ($is_display['del_lnk'] == 'dr' || $is_display['del_lnk'] == 'kp') {
+    if (($is_display['del_lnk'] == 'dr') || ($is_display['del_lnk'] == 'kp')) {
         
         $table_headers_html .= '<form method="post" action="tbl_row_action.php" name="resultsForm" '
             . 'id="resultsForm"';
@@ -899,23 +906,19 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
     }
     $table_headers_html .= '">' . "\n";
     
-    if ($direction == 'horizontal'
-        || $direction == 'horizontalflipped'
-    ) {
-        $table_headers_html .= '<thead><tr>' . "\n";
-    }
-
     // 1. Displays the full/partial text button (part 1)...
-    if (($direction == 'horizontal')
-        || ($direction == 'horizontalflipped')
-    ) {
-        $colspan  = ($is_display['edit_lnk'] != 'nn'
-            && $is_display['del_lnk'] != 'nn')
-                  ? ' colspan="4"'
-                  : '';
+    if ($directionCondition) {
+        
+        $table_headers_html .= '<thead><tr>' . "\n";
+        
+        $colspan  = (($is_display['edit_lnk'] != 'nn')
+            && ($is_display['del_lnk'] != 'nn'))
+            ? ' colspan="4"'
+            : '';
+        
     } else {
-        $rowspan  = ($is_display['edit_lnk'] != 'nn'
-            && $is_display['del_lnk'] != 'nn')
+        $rowspan  = (($is_display['edit_lnk'] != 'nn')
+            && ($is_display['del_lnk'] != 'nn'))
                   ? ' rowspan="4"'
                   : '';
     }
@@ -925,12 +928,10 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
         && ($is_display['text_btn'] == '1')
     ) {
         
-        $vertical_display['emptypre'] = ($is_display['edit_lnk'] != 'nn'
-            && $is_display['del_lnk'] != 'nn') ? 4 : 0;
+        $vertical_display['emptypre'] = (($is_display['edit_lnk'] != 'nn')
+            && ($is_display['del_lnk'] != 'nn')) ? 4 : 0;
         
-        if (($direction == 'horizontal')
-            || ($direction == 'horizontalflipped')
-        ) {
+        if ($directionCondition) {
             
             $table_headers_html .= '<th colspan="' . $fields_cnt . '"></th>'
                 . '</tr>'
@@ -953,18 +954,17 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
         //     ... at the left column of the result table header if possible
         //     and required
 
-        $vertical_display['emptypre'] = ($is_display['edit_lnk'] != 'nn'
-            && $is_display['del_lnk'] != 'nn') ? 4 : 0;
+        $vertical_display['emptypre'] = (($is_display['edit_lnk'] != 'nn')
+            && ($is_display['del_lnk'] != 'nn')) ? 4 : 0;
         
-        if (($direction == 'horizontal')
-            || ($direction == 'horizontalflipped')
-        ) {
+        if ($directionCondition) {
             
             $table_headers_html .= '<th ' . $colspan . '>'
-                . $full_or_partial_text_link . '</th>';
-            
+                . $full_or_partial_text_link . '</th>';            
             // end horizontal/horizontalflipped mode
+            
         } else {
+            
             $vertical_display['textbtn']
                 = '    <th ' . $rowspan . ' class="vmiddle">' . "\n"
                 . '        ' . "\n"
@@ -980,9 +980,7 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
         $vertical_display['emptypre'] = (($is_display['edit_lnk'] != 'nn')
             && ($is_display['del_lnk'] != 'nn')) ? 4 : 0;
         
-        if (($direction == 'horizontal')
-            || ($direction == 'horizontalflipped')
-        ) {
+        if ($directionCondition) {
             
             $table_headers_html .= '<td ' . $colspan . '></td>';
             
@@ -992,8 +990,7 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
         } // end vertical mode
 
     } elseif (($GLOBALS['cfg']['RowActionLinks'] == 'none')
-        && (($direction == 'horizontal')
-            || ($direction == 'horizontalflipped'))
+        && ($directionCondition)
     ) {
         //     ... elseif display an empty column if the actions links are disabled to
         //         match the rest of the table
@@ -1134,8 +1131,8 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
                 // SELECT p.*, FROM_UNIXTIME(p.temps) FROM mytable AS p
                 // (and try clicking on each column's header twice)
                 if (! empty($sort_tbl)
-                    && strpos($sort_expression_nodirection, $sort_tbl) === false
-                    && strpos($sort_expression_nodirection, '(') === false
+                    && (strpos($sort_expression_nodirection, $sort_tbl) === false)
+                    && (strpos($sort_expression_nodirection, '(') === false)
                 ) {
                     $new_sort_expression_nodirection = $sort_tbl
                         . $sort_expression_nodirection;
@@ -1146,8 +1143,8 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
                 $is_in_sort = false;
                 $sort_name = str_replace('`', '', $sort_tbl) . $name_to_use_in_sort;
                 
-                if ($sort_name == str_replace('`', '', $new_sort_expression_nodirection)
-                    || $sort_name == str_replace('`', '', $sort_expression_nodirection)
+                if (($sort_name == str_replace('`', '', $new_sort_expression_nodirection))
+                    || ($sort_name == str_replace('`', '', $sort_expression_nodirection))
                 ) {
                     $is_in_sort = true;
                 }
@@ -1183,7 +1180,7 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
                 }
                 $order_img   = '';
                 
-            } elseif ('DESC' == $sort_direction) {
+            } elseif ($sort_direction == 'DESC') {
                 
                 $sort_order .= ' ASC';
                 $order_img   = ' ' . PMA_getImage(
@@ -1267,9 +1264,7 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
                 $order_link_params, false, true
             );
 
-            if (($direction == 'horizontal')
-                || ($direction == 'horizontalflipped')
-            ) {
+            if ($directionCondition) {
                 
                 $table_headers_html .= '<th';
                 $th_class = array();
@@ -1311,9 +1306,7 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
 
         // 2.2 Results can't be sorted
         else {
-            if (($direction == 'horizontal')
-                || ($direction == 'horizontalflipped')
-            ) {
+            if ($directionCondition) {
                 
                 $table_headers_html .= '<th';
                 $th_class = array();
@@ -1377,9 +1370,7 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
         $vertical_display['emptyafter'] = (($is_display['edit_lnk'] != 'nn')
             && ($is_display['del_lnk'] != 'nn')) ? 4 : 1;
         
-        if (($direction == 'horizontal')
-            || ($direction == 'horizontalflipped')
-        ) {
+        if ($directionCondition) {
             $table_headers_html .= "\n"            
                 . '<th ' . $colspan . '>' . $full_or_partial_text_link
                 . '</th>';
@@ -1404,9 +1395,7 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
         $vertical_display['emptyafter'] = (($is_display['edit_lnk'] != 'nn')
             && ($is_display['del_lnk'] != 'nn')) ? 4 : 1;
         
-        if (($direction == 'horizontal')
-            || ($direction == 'horizontalflipped')
-        ) {
+        if ($directionCondition) {
             $table_headers_html .= "\n"            
                 . '<td ' . $colspan . '></td>';
             
@@ -1416,14 +1405,13 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
         } // end vertical mode
     }
 
-    if (($direction == 'horizontal')
-        || ($direction == 'horizontalflipped')
-    ) {        
+    if ($directionCondition) {        
         $table_headers_html .= '</tr>'
             . '</thead>';        
     }
     
     return $table_headers_html;
+    
 } // end of the 'PMA_getTableHeaders()' function
 
 
@@ -1622,13 +1610,15 @@ function PMA_getTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
     // delete/edit options correctly for tables without keys.
 
     $odd_row = true;
+    $directionCondition = ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal')
+        || ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped');
+    
     while ($row = PMA_DBI_fetch_row($dt_result)) {
         
         // "vertical display" mode stuff
         if (($row_no != 0 && $_SESSION['tmp_user_values']['repeat_cells'] != 0)
             && !($row_no % $_SESSION['tmp_user_values']['repeat_cells'])
-            && (($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal')
-            || ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped'))
+            && $directionCondition
         ) {
             
             $table_body_html .= '<tr>' . "\n";
@@ -1657,9 +1647,7 @@ function PMA_getTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
         $alternating_color_class = ($odd_row ? 'odd' : 'even');
         $odd_row = ! $odd_row;
 
-        if (($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal')
-            || ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped')
-        ) {
+        if ($directionCondition) {
             // pointer code part
             $table_body_html .= '<tr class="' . $alternating_color_class . '">';
         }
@@ -1783,8 +1771,7 @@ function PMA_getTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             // 1.3 Displays the links at left if required
             if ((($GLOBALS['cfg']['RowActionLinks'] == 'left')
                 || ($GLOBALS['cfg']['RowActionLinks'] == 'both'))
-                && (($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal')
-                || ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped'))
+                && $directionCondition
             ) {
                 
                 if (! isset($js_conf)) {
@@ -1799,8 +1786,7 @@ function PMA_getTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                     );
                 
             } elseif (($GLOBALS['cfg']['RowActionLinks'] == 'none')
-                && (($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal')
-                || ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped'))
+                && $directionCondition
             ) {
                 
                 if (! isset($js_conf)) {
@@ -2012,7 +1998,7 @@ function PMA_getTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                         
                         // if a transform function for blob is set, none of these
                         // replacements will be made
-                        if (PMA_strlen($row[$i]) > $GLOBALS['cfg']['LimitChars']
+                        if ((PMA_strlen($row[$i]) > $GLOBALS['cfg']['LimitChars'])
                             && ($_SESSION['tmp_user_values']['display_text'] == 'P')
                         ) {
                             $row[$i] = PMA_substr($row[$i], 0, $GLOBALS['cfg']['LimitChars'])
@@ -2055,7 +2041,7 @@ function PMA_getTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 } elseif ($row[$i] != '') {
                     
                     // Display as [GEOMETRY - (size)]
-                    if ('GEOM' == $_SESSION['tmp_user_values']['geometry_display']) {
+                    if ($_SESSION['tmp_user_values']['geometry_display'] == 'GEOM') {
                         
                         $geometry_text = PMA_handleNonPrintableContents(
                                 'GEOMETRY', (isset($row[$i]) ? $row[$i] : ''),
@@ -2075,7 +2061,7 @@ function PMA_getTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                         // Convert to WKT format
                         $wktval = PMA_asWKT($row[$i]);
 
-                        if (PMA_strlen($wktval) > $GLOBALS['cfg']['LimitChars']
+                        if ((PMA_strlen($wktval) > $GLOBALS['cfg']['LimitChars'])
                             && ($_SESSION['tmp_user_values']['display_text'] == 'P')
                         ) {
                             $wktval = PMA_substr($wktval, 0, $GLOBALS['cfg']['LimitChars'])
@@ -2108,8 +2094,8 @@ function PMA_getTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                                     );
                             }
 
-                            if (PMA_strlen($wkbval) > $GLOBALS['cfg']['LimitChars']
-                                && $_SESSION['tmp_user_values']['display_text'] == 'P'
+                            if ((PMA_strlen($wkbval) > $GLOBALS['cfg']['LimitChars'])
+                                && ($_SESSION['tmp_user_values']['display_text'] == 'P')
                             ) {
                                 $wkbval = PMA_substr($wkbval, 0, $GLOBALS['cfg']['LimitChars'])
                                     . '...';
@@ -2220,10 +2206,10 @@ function PMA_getTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                         // transform functions may enable no-wrapping:
                         $function_nowrap = $transform_function . '_nowrap';
                         
-                        $bool_nowrap = (($default_function != $transform_function
+                        $bool_nowrap = (($default_function != $transform_function)
                             && function_exists($function_nowrap))
                             ? $function_nowrap($transform_options)
-                            : false);
+                            : false;
 
                         // do not wrap if date field type
                         $nowrap = (preg_match('@DATE|TIME@i', $meta->type)
@@ -2249,9 +2235,7 @@ function PMA_getTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             }
 
             // output stored cell
-            if (($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal')
-                || ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped')
-            ) {
+            if ($directionCondition) {
                 $table_body_html .= $vertical_display['data'][$row_no][$i];
             }
 
@@ -2267,8 +2251,7 @@ function PMA_getTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
         // 3. Displays the modify/delete links on the right if required
         if ((($GLOBALS['cfg']['RowActionLinks'] == 'right')
             || ($GLOBALS['cfg']['RowActionLinks'] == 'both'))
-            && (($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal')
-            || ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped'))
+            && $directionCondition
         ) {
             
             if (! isset($js_conf)) {
@@ -2283,9 +2266,7 @@ function PMA_getTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                 );
         } // end if (3)
 
-        if (($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal')
-            || ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped')
-        ) {
+        if ($directionCondition) {
             $table_body_html .= '</tr>';
         } // end if
 
@@ -2359,11 +2340,7 @@ function PMA_getTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
             unset($vertical_display['delete'][$row_no]);
         }
 
-        $table_body_html .= (($_SESSION['tmp_user_values']['disp_direction'] == 'horizontal')
-            || ($_SESSION['tmp_user_values']['disp_direction'] == 'horizontalflipped'))
-            ? "\n"
-            : '';
-        
+        $table_body_html .= $directionCondition ? "\n" : '';        
         $row_no++;
         
     } // end while
@@ -2371,6 +2348,7 @@ function PMA_getTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
     return $table_body_html;
     
 } // end of the 'PMA_getTableBody()' function
+
 
 /**
  * Get the resulted table with the vertical direction mode.
@@ -2385,6 +2363,7 @@ function PMA_getTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
  */
 function PMA_getVerticalTable()
 {
+    
     global $vertical_display;
     
     $vertical_table_html = '';
