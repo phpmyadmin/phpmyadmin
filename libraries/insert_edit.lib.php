@@ -257,7 +257,7 @@ function PMA_getDefaultForDatetime($column)
   * Analyze the table column array
   * 
   * @param array $column            description of column in given table
-  * @param array $comments_map      comments for table fileds/columns
+  * @param array $comments_map      comments for every column that has a comment
   * @param integer $timestamp_seen  0 interger  
   * 
   * @return array                   description of column in given table
@@ -284,7 +284,7 @@ function PMA_analyzeTableColumnsArray($column, $comments_map, $timestamp_seen)
   * Retrieve the column title
   * 
   * @param array $column        description of column in given table
-  * @param array $comments_map  comments for table fileds/columns
+  * @param array $comments_map  comments for every column that has a comment
   * 
   * @return string              column title
   */
@@ -300,7 +300,7 @@ function PMA_getColumnTitle($column, $comments_map)
 }
  
  /**
-  * check is table column bainary
+  * check whether the column is a bainary
   * 
   * @param array $column    description of column in given table
   * 
@@ -322,7 +322,7 @@ function PMA_isColumnBinary($column)
 }
  
  /**
-  * check is table column blob
+  * check whether the column is a blob
   * 
   * @param array $column    description of column in given table
   * 
@@ -529,7 +529,7 @@ function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
  * @param string $column_name_appendix      the name atttibute
  * @param string $unnullify_trigger         validation string
  * @param integer $tabindex                 tab index
- * @param integer $tabindex_for_value       0 integer
+ * @param integer $tabindex_for_value       offset for the values tabindex
  * @param integer $idindex                  id index
  * @param array $data                       description of the column field
  * @param array $special_chars              special characters
@@ -620,7 +620,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
  * @param string $column_name_appendix  the name atttibute
  * @param string $unnullify_trigger     validation string
  * @param integer $tabindex             tab index
- * @param integer $tabindex_for_value   0 integer
+ * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
  * @param array $data
  * @param array $paramTableDbArray      array containing $db and $table
@@ -658,7 +658,7 @@ function PMA_getForeignLink($column, $backup_field, $column_name_appendix,
  * @param string $column_name_appendix  the name atttibute
  * @param string $unnullify_trigger     validation string
  * @param integer $tabindex             tab index
- * @param integer $tabindex_for_value   0 integer
+ * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
  * @param array $data
  * @param array $foreignData            data about the foreign keys
@@ -689,7 +689,7 @@ function PMA_dispRowForeignData($backup_field, $column_name_appendix,
  * @param string $column_name_appendix  the name atttibute
  * @param string $unnullify_trigger     validation string
  * @param integer $tabindex             tab index
- * @param integer $tabindex_for_value   0 integer
+ * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
  * @param array $text_dir
  * @param array $special_chars_encoded  replaced char if the string starts
@@ -749,11 +749,11 @@ function PMA_getPmaTypeEnum($column, $backup_field, $column_name_appendix, $extr
      $html_output .= '<input type="hidden" name="fields' . $column_name_appendix . '" value="" />';
      $html_output .= "\n" . '            ' . $backup_field . "\n";
      if (strlen($column['Type']) > 20) {
-         $html_output .= PMA_showDropDownDependOnLength($column, $column_name_appendix, $unnullify_trigger,
+         $html_output .= PMA_getDropDownDependingOnLength($column, $column_name_appendix, $unnullify_trigger,
             $tabindex, $tabindex_for_value, $idindex, $data, $column_enum_values
             );
      } else {
-         $html_output .= PMA_showRadioButtonDependOnLength($column_name_appendix, $unnullify_trigger,
+         $html_output .= PMA_getRadioButtonDependingOnLength($column_name_appendix, $unnullify_trigger,
             $tabindex, $column, $tabindex_for_value, $idindex, $data, $column_enum_values
             );
      }
@@ -790,14 +790,14 @@ function PMA_getColumnEnumValues($column, $extracted_columnspec)
  * @param string $column_name_appendix  the name atttibute
  * @param string $unnullify_trigger     validation string
  * @param integer $tabindex             tab index
- * @param integer $tabindex_for_value   0 integer
+ * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
  * @param array $data
  * @param array $column_enum_values     $column['values']
  * 
  * @return string                       an html snippet
  */
-function PMA_showDropDownDependOnLength($column, $column_name_appendix, $unnullify_trigger,
+function PMA_getDropDownDependingOnLength($column, $column_name_appendix, $unnullify_trigger,
     $tabindex, $tabindex_for_value, $idindex, $data, $column_enum_values
 ) {
     $html_output = '<select name="fields' . $column_name_appendix . '"'
@@ -831,14 +831,14 @@ function PMA_showDropDownDependOnLength($column, $column_name_appendix, $unnulli
  * @param string $unnullify_trigger     validation string
  * @param integer $tabindex             tab index
  * @param array $column                 description of column in given table
- * @param integer $tabindex_for_value   0 integer
+ * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
  * @param array $data
  * @param array $column_enum_values     $column['values']
  * 
  * @return string                       an html snippet
  */
-function PMA_showRadioButtonDependOnLength($column_name_appendix, $unnullify_trigger,
+function PMA_getRadioButtonDependingOnLength($column_name_appendix, $unnullify_trigger,
     $tabindex, $column, $tabindex_for_value, $idindex, $data, $column_enum_values
 ) {
     $j = 0;
@@ -876,7 +876,7 @@ function PMA_showRadioButtonDependOnLength($column_name_appendix, $unnullify_tri
  * @param string $column_name_appendix  the name atttibute
  * @param string $unnullify_trigger     validation string
  * @param integer $tabindex             tab index
- * @param integer $tabindex_for_value   0 integer
+ * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
  * 
  * @return string                       an html snippet
@@ -941,7 +941,7 @@ function PMA_getColumnSetValueAndSelectSize($column, $extracted_columnspec)
  * @param string $column_name_appendix      the name atttibute
  * @param string $unnullify_trigger         validation string
  * @param integer $tabindex                 tab index
- * @param integer $tabindex_for_value       0
+ * @param integer $tabindex_for_value       offset for the values tabindex
  * @param integer $idindex                  id index
  * @param string $text_dir  
  * @param string $special_chars_encoded     replaced char if the string starts
@@ -1006,7 +1006,7 @@ function PMA_getBinaryAndBlobColumn($column, $data, $special_chars,$biggest_max_
  * @param integer $fieldsize            html field size
  * @param string $unnullify_trigger     validation string
  * @param integer $tabindex             tab index
- * @param integer $tabindex_for_value   0
+ * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
  * 
  * @return string                       an html snippet
@@ -1099,7 +1099,7 @@ function PMA_getMaxUploadSize($column, $biggest_max_file_size)
  * @param string $unnullify_trigger     validation string
  * @param integer $tabindex             tab index
  * @param array $special_chars          apecial characters
- * @param integer $tabindex_for_value   0
+ * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
  * @param string $text_dir
  * @param array $special_chars_encoded  replaced char if the string starts
@@ -1250,7 +1250,7 @@ function PMA_getContinueInsertionForm($paramArray, $where_clause_array, $err_url
  * Get action panel
  * 
  * @param integer $tabindex             tab index
- * @param integer $tabindex_for_value   0
+ * @param integer $tabindex_for_value   offset for the values tabindex
  * @param boolean $found_unique_key     boolean variable for unique key
  * 
  * @return string                       an html snippet
@@ -1293,7 +1293,7 @@ function PMA_getActionsPanel($tabindex, $tabindex_for_value, $found_unique_key)
  * Get a HTML drop down for submit types
  * 
  * @param integer $tabindex             tab index
- * @param integer $tabindex_for_value   0
+ * @param integer $tabindex_for_value   offset for the values tabindex
  * 
  * @return string                       an html snippet
  */
@@ -1349,7 +1349,7 @@ function PMA_getAfterInsertDropDown($after_insert, $found_unique_key)
  * get Submit button and Reset button for action panel
  * 
  * @param integer $tabindex             tab index
- * @param integer $tabindex_for_value   0
+ * @param integer $tabindex_for_value   offset for the values tabindex
  * 
  * @return string                       an html snippet
  */

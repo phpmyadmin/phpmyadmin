@@ -208,7 +208,7 @@ $html_output .= PMA_generate_common_hidden_inputs($_form_params);
 
 $titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
 
-// user can toggle the display of Function column
+// user can toggle the display of Function column and column types
 // (currently does not work for multi-edits)
 if (! $cfg['ShowFunctionFields'] || ! $cfg['ShowFieldTypesInDataEditView']) {
     $html_output .= __('Show');
