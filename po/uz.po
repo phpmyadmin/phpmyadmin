@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-17 10:53+0200\n"
-"PO-Revision-Date: 2010-07-22 02:31+0200\n"
-"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"PO-Revision-Date: 2012-05-17 15:09+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: uzbek_cyrillic <uz@li.org>\n"
 "Language: uz\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:59 js/messages.php:358
 #: libraries/display_tbl.lib.php:399 server_privileges.php:1828
@@ -26,7 +26,7 @@ msgstr "Барчасини кўрсатиш"
 #: libraries/schema/User_Schema.class.php:399
 #: libraries/select_lang.lib.php:508
 msgid "Page number:"
-msgstr "Саҳифа рақами: "
+msgstr "Саҳифа рақами:"
 
 #: browse_foreigners.php:159
 msgid ""
@@ -106,7 +106,7 @@ msgstr "%1$s маълумотлар базаси тузилди."
 
 #: db_datadict.php:49 db_operations.php:401
 msgid "Database comment: "
-msgstr "Маълумотлар базасига изоҳ:"
+msgstr "Маълумотлар базасига изоҳ: "
 
 #: db_datadict.php:154 libraries/schema/Pdf_Relation_Schema.class.php:1282
 #: libraries/tbl_properties.inc.php:818 tbl_operations.php:369
@@ -362,7 +362,7 @@ msgstr "Алоқалар схемаси"
 #: server_privileges.php:2071 server_privileges.php:2340
 #: server_synchronize.php:519 server_synchronize.php:1039 tbl_tracking.php:711
 msgid "Table"
-msgstr "Жадвал "
+msgstr "Жадвал"
 
 #: db_printview.php:101 db_tables_search.php:24 db_tables_search.php:53
 #: libraries/Table.class.php:326 libraries/build_html_for_db.lib.php:31
@@ -494,7 +494,7 @@ msgstr "Жадвалларни ишлатиш"
 #: db_qbe.php:663
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "<b>\"%s\"</b> маълумотлар базасига SQL-сўров: "
+msgstr "<b>\"%s\"</b> маълумотлар базасига SQL-сўров:"
 
 #: db_qbe.php:956 libraries/common.lib.php:1235
 msgid "Submit Query"
@@ -667,7 +667,7 @@ msgstr "\"%s\" - MySQL серверидаги андозавий маълумо�
 #: server_databases.php:295 server_privileges.php:1920
 #: server_privileges.php:1928 tbl_structure.php:559 tbl_structure.php:568
 msgid "With selected:"
-msgstr "Белгиланганларни: "
+msgstr "Белгиланганларни:"
 
 #: db_structure.php:682 libraries/display_tbl.lib.php:2989
 #: server_databases.php:292 server_privileges.php:781
@@ -848,7 +848,7 @@ msgstr "Индекс(лар)ни сақлаш"
 #: export.php:177 export.php:202 export.php:705
 #, php-format
 msgid "Insufficient space to save the file %s."
-msgstr "\"%s\" файлини сақлаш учун дискда етарли жой мавжуд эмас. "
+msgstr "\"%s\" файлини сақлаш учун дискда етарли жой мавжуд эмас."
 
 #: export.php:327
 #, php-format
@@ -1109,7 +1109,7 @@ msgstr ""
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "Ушбу операцияни бажариш узоқ вақт талаб қилиши мумкин. Давом этсинми? "
+msgstr "Ушбу операцияни бажариш узоқ вақт талаб қилиши мумкин. Давом этсинми?"
 
 #: js/messages.php:40
 msgid "Missing value in the form!"
@@ -2023,7 +2023,7 @@ msgstr "SQL сўровлари қутиси"
 
 #: js/messages.php:285 tbl_row_action.php:21
 msgid "No rows selected"
-msgstr "Амални амалга ошириш учун битта ёки бир нечта қаторни танлаш керак. "
+msgstr "Амални амалга ошириш учун битта ёки бир нечта қаторни танлаш керак."
 
 #: js/messages.php:286 libraries/display_tbl.lib.php:3007 querywindow.php:88
 #: tbl_structure.php:145 tbl_structure.php:579
@@ -2946,7 +2946,7 @@ msgstr "Биронта ҳам конфигурацияланган сервер 
 #: libraries/StorageEngine.class.php:207
 msgid ""
 "There is no detailed status information available for this storage engine."
-msgstr "Ушбу турдаги жадваллар ҳақида қўшимча маълумот мавжуд эмас. "
+msgstr "Ушбу турдаги жадваллар ҳақида қўшимча маълумот мавжуд эмас."
 
 #: libraries/StorageEngine.class.php:347
 #, php-format
@@ -3424,8 +3424,7 @@ msgstr ""
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
-"\"%s\" сония давомида фаоллик кузатилмади, илтимос, қайта авторизациядан "
-"ўтинг. "
+"\"%s\" сония давомида фаоллик кузатилмади, илтимос, қайта авторизациядан ўтинг"
 
 #: libraries/auth/cookie.auth.lib.php:629
 #: libraries/auth/cookie.auth.lib.php:631
@@ -6615,7 +6614,7 @@ msgstr ""
 #: libraries/display_export.lib.php:291 libraries/display_import.lib.php:239
 #: libraries/display_import.lib.php:253 libraries/sql_query_form.lib.php:467
 msgid "Character set of the file:"
-msgstr "Файл кодировкаси: "
+msgstr "Файл кодировкаси:"
 
 #: libraries/display_export.lib.php:321
 #, fuzzy
@@ -7019,7 +7018,7 @@ msgid ""
 "when it becomes full."
 msgstr ""
 "Жадвалда жой тугаганда маълумотлар файли ҳажмини автоматик ошириш "
-"(мегабайтларда) "
+"(мегабайтларда)."
 
 #: libraries/engines/innodb.lib.php:35
 msgid "Buffer pool size"
@@ -7047,11 +7046,11 @@ msgstr "Ишлатилиш"
 
 #: libraries/engines/innodb.lib.php:163
 msgid "pages"
-msgstr "саҳифалар сони "
+msgstr "саҳифалар сони"
 
 #: libraries/engines/innodb.lib.php:174
 msgid "Free pages"
-msgstr "Бўш саҳифалар сони "
+msgstr "Бўш саҳифалар сони"
 
 #: libraries/engines/innodb.lib.php:180
 msgid "Dirty pages"
@@ -7063,7 +7062,7 @@ msgstr "Маълумотлар мавжуд саҳифалар"
 
 #: libraries/engines/innodb.lib.php:192
 msgid "Pages to be flushed"
-msgstr "Тозалаш керак бўлган саҳифалар сони: "
+msgstr "Тозалаш керак бўлган саҳифалар сони"
 
 #: libraries/engines/innodb.lib.php:198
 msgid "Busy pages"
@@ -7071,7 +7070,7 @@ msgstr "Банд саҳифалар"
 
 #: libraries/engines/innodb.lib.php:207
 msgid "Latched pages"
-msgstr "Блокировка қилинган саҳифалар сони: "
+msgstr "Блокировка қилинган саҳифалар сони"
 
 #: libraries/engines/innodb.lib.php:218
 msgid "Buffer Pool Activity"
@@ -7095,7 +7094,7 @@ msgstr "Буфернинг тозаланиши кутилмоқда"
 
 #: libraries/engines/innodb.lib.php:246
 msgid "Read misses in %"
-msgstr "Буферни ўқишда % қолдиришлар мавжуд "
+msgstr "Буферни ўқишда % қолдиришлар мавжуд"
 
 #: libraries/engines/innodb.lib.php:254
 msgid "Write waits in %"
@@ -7204,7 +7203,7 @@ msgid ""
 msgstr ""
 "Жадвал маълумотларини кешлаш учун ажратилган хотира ҳажми. Асл қиймати – 32 "
 "Мб. Ушбу хотира маълумотларни сақлаш файллари(.xtd)даги ва қатор "
-"кўрсатгичлари(.xtr)даги ўзгаришларни кешлашда ишлатилади. "
+"кўрсатгичлари(.xtr)даги ўзгаришларни кешлашда ишлатилади."
 
 #: libraries/engines/pbxt.lib.php:35
 msgid "Log cache size"
@@ -7490,7 +7489,7 @@ msgstr "Хост"
 #: libraries/export/latex.php:209 libraries/export/sql.php:591
 #: libraries/export/xml.php:148 sql.php:934
 msgid "Generation Time"
-msgstr "Тузилган сана "
+msgstr "Тузилган сана"
 
 #: libraries/export/latex.php:210 libraries/export/sql.php:593
 #: libraries/export/xml.php:149
@@ -9042,7 +9041,7 @@ msgstr "Танлаш учун сичқонча тугмасини босинг"
 #: libraries/sql_query_form.lib.php:192
 #, php-format
 msgid "Run SQL query/queries on server %s"
-msgstr "\"%s\" серверида SQL-сўров(лар)ни бажариш "
+msgstr "\"%s\" серверида SQL-сўров(лар)ни бажариш"
 
 #: libraries/sql_query_form.lib.php:213 libraries/sql_query_form.lib.php:235
 #, php-format
@@ -9317,7 +9316,7 @@ msgid ""
 "author what %s does."
 msgstr ""
 "Ҳозирги ватқда тавсиф мавжуд эмас. <br /> Ишлатилаётган \"%s\" ўгиришлар "
-"намойиши функцияларининг иши яқин орада тавсифланади. "
+"намойиши функцияларининг иши яқин орада тавсифланади."
 
 #: libraries/transformations/application_octetstream__download.inc.php:13
 #, fuzzy
@@ -9842,7 +9841,7 @@ msgstr "Яшириш"
 
 #: pmd_general.php:185
 msgid "Number of tables"
-msgstr "Жадваллар сони "
+msgstr "Жадваллар сони"
 
 #: pmd_general.php:436
 msgid "Delete relation"
@@ -10068,7 +10067,7 @@ msgstr "Кўриш учун бинар журнални танланг"
 
 #: server_binlog.php:98 server_status.php:614
 msgid "Files"
-msgstr "Файллар сони "
+msgstr "Файллар сони"
 
 #: server_binlog.php:145 server_binlog.php:147 server_status.php:1263
 #: server_status.php:1265
@@ -11075,11 +11074,11 @@ msgstr "Юборилди"
 
 #: server_status.php:1162
 msgid "max. concurrent connections"
-msgstr "Максимал уланишлар сони "
+msgstr "Максимал уланишлар сони"
 
 #: server_status.php:1169
 msgid "Failed attempts"
-msgstr "Муваффақиятсиз уринишлар сони: "
+msgstr "Муваффақиятсиз уринишлар сони"
 
 #: server_status.php:1185
 msgid "Aborted"
@@ -12802,7 +12801,7 @@ msgstr "Таҳрирлаш усули"
 
 #: tbl_indexes.php:194
 msgid "Index name:"
-msgstr "Индекс номи: "
+msgstr "Индекс номи:"
 
 #: tbl_indexes.php:196
 msgid ""
@@ -12811,7 +12810,7 @@ msgstr "(\"PRIMARY\" номи <b>фақат</b> бирламчи индексг�
 
 #: tbl_indexes.php:208
 msgid "Index type:"
-msgstr "Индекс тури: "
+msgstr "Индекс тури:"
 
 #: tbl_indexes.php:303
 #, php-format
@@ -13025,7 +13024,7 @@ msgstr "Қидириш шартини кўшиш (яъни \"where\" жумла�
 
 #: tbl_select.php:204
 msgid "Number of rows per page"
-msgstr "Саҳифадаги қаторлар сони "
+msgstr "Саҳифадаги қаторлар сони"
 
 #: tbl_select.php:210
 msgid "Display order:"
@@ -13350,7 +13349,7 @@ msgstr "Мавжуд MIME турлари"
 msgid ""
 "MIME types printed in italics do not have a separate transformation function"
 msgstr ""
-"Курсив билан белгиланган MIME турлари алоҳида ўгириш функцияларига эга эмас. "
+"Курсив билан белгиланган MIME турлари алоҳида ўгириш функцияларига эга эмас"
 
 #: transformation_overview.php:42
 msgid "Available transformations"
