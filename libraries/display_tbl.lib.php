@@ -332,13 +332,11 @@ function PMA_getTableNavigation($pos_next, $pos_prev, $sql_query,
     if ($_SESSION['tmp_user_values']['pos']
         && ($_SESSION['tmp_user_values']['max_rows'] != 'all')
     ) {
-        $table_navigation_html .= PMA_getTableNavigationButton(
-                '&lt;&lt;', _pgettext('First page', 'Begin'), 0, $html_sql_query
+        
+        $table_navigation_html .= PMA_getMoveBackwardButtonsForTableNavigation(
+                $html_sql_query, $pos_prev
             );
-        $table_navigation_html .= PMA_getTableNavigationButton(
-                '&lt;', _pgettext('Previous page', 'Previous'), $pos_prev,
-                $html_sql_query
-            );
+
     } // end move back
 
     $nbTotalPage = 1;
@@ -388,17 +386,9 @@ function PMA_getTableNavigation($pos_next, $pos_prev, $sql_query,
         || ($GLOBALS['cfg']['MaxRows'] * 5 >= $unlim_num_rows))
     ) {
         
-        $table_navigation_html .= "\n";        
-        $table_navigation_html .= '<td>'
-            . '<form action="sql.php" method="post">'
-            . PMA_generate_common_hidden_inputs($db, $table)
-            . '<input type="hidden" name="sql_query" value="' . $html_sql_query . '" />'
-            . '<input type="hidden" name="pos" value="0" />'
-            . '<input type="hidden" name="session_max_rows" value="all" />'
-            . '<input type="hidden" name="goto" value="' . $goto . '" />'
-            . '<input type="submit" name="navig" value="' . __('Show all') . '" />'
-            . '</form>'
-            . '</td>';
+        $table_navigation_html .= PMA_getShowAllButtonForTableNavigation(
+                $db, $table, $html_sql_query, $goto
+            );
         
     } // end show all
 
@@ -409,39 +399,11 @@ function PMA_getTableNavigation($pos_next, $pos_prev, $sql_query,
         && ($_SESSION['tmp_user_values']['max_rows'] != 'all')
     ) {
         
-        // display the Next button
-        $table_navigation_html .= PMA_getTableNavigationButton(
-                '&gt;',
-                _pgettext('Next page', 'Next'),
-                $pos_next,
-                $html_sql_query
+        $table_navigation_html .= PMA_getMoveFarwardButtonsForTableNavigation(
+                $html_sql_query, $pos_next, $is_innodb,
+                $unlim_num_rows, $num_rows
             );
 
-        // prepare some options for the End button
-        if ($is_innodb && $unlim_num_rows > $GLOBALS['cfg']['MaxExactCount']) {
-            $input_for_real_end = '<input id="real_end_input" type="hidden" '
-                . 'name="find_real_end" value="1" />';
-            // no backquote around this message
-            $onclick = '';
-        } else {
-            $input_for_real_end = $onclick = '';
-        }
-
-        $onsubmit = 'onsubmit="return '
-            . ($_SESSION['tmp_user_values']['pos']
-                    + $_SESSION['tmp_user_values']['max_rows'] < $unlim_num_rows
-                && $num_rows >= $_SESSION['tmp_user_values']['max_rows'])
-            ? 'true'
-            : 'false' . '"';
-        
-        // display the End button
-        $table_navigation_html .= PMA_getTableNavigationButton(
-                '&gt;&gt;',
-                _pgettext('Last page', 'End'),
-                @((ceil($unlim_num_rows / $_SESSION['tmp_user_values']['max_rows'])- 1)
-                * $_SESSION['tmp_user_values']['max_rows']),
-                $html_sql_query, $onsubmit, $input_for_real_end, $onclick
-            );
     } // end move toward
 
     // show separator if pagination happen
@@ -486,8 +448,151 @@ function PMA_getTableNavigation($pos_next, $pos_prev, $sql_query,
         .'">';
     
     $table_navigation_html .= PMA_generate_common_hidden_inputs($db, $table);
+    
+    $table_navigation_html .= PMA_getAdditionalFieldsForTableNavigation(
+            $html_sql_query, $goto, $pos_next,
+            $unlim_num_rows, $id_for_direction_dropdown
+        );
 
-    $table_navigation_html .= '<input type="hidden" name="sql_query" '
+    $table_navigation_html .= '</form>'
+        . '</td>'
+        . '<td class="navigation_separator"></td>'
+        . '</tr>'
+        . '</table>';
+        
+    return $table_navigation_html;
+
+} // end of the 'PMA_getTableNavigation()' function
+
+
+/**
+ * Prepare move backward buttons - previous and first
+ * 
+ * @param   string  $html_sql_query the sql encoded by html special characters
+ * @param   integer $pos_prev       the offset for the "previous" page
+ * 
+ * @return  string                  html content
+ * 
+ * @see     PMA_getTableNavigation()
+ */
+function PMA_getMoveBackwardButtonsForTableNavigation($html_sql_query, $pos_prev)
+{    
+    return PMA_getTableNavigationButton(
+            '&lt;&lt;', _pgettext('First page', 'Begin'), 0, $html_sql_query
+        )
+        . PMA_getTableNavigationButton(
+            '&lt;', _pgettext('Previous page', 'Previous'), $pos_prev,
+            $html_sql_query
+        );   
+}
+
+
+/**
+ * Prepare Show All button for table navigation
+ * 
+ * @param   string  $db             the database name
+ * @param   string  $table          the table name
+ * @param   string  $html_sql_query the sql encoded by html special characters
+ * @param   string  $goto           the URL to go back in case of errors
+ * 
+ * @return  string                          html content
+ * 
+ * @see     PMA_getTableNavigation()
+ */
+function PMA_getShowAllButtonForTableNavigation($db, $table, $html_sql_query, $goto)
+{    
+    return "\n"
+        . '<td>'
+        . '<form action="sql.php" method="post">'
+        . PMA_generate_common_hidden_inputs($db, $table)
+        . '<input type="hidden" name="sql_query" value="' . $html_sql_query . '" />'
+        . '<input type="hidden" name="pos" value="0" />'
+        . '<input type="hidden" name="session_max_rows" value="all" />'
+        . '<input type="hidden" name="goto" value="' . $goto . '" />'
+        . '<input type="submit" name="navig" value="' . __('Show all') . '" />'
+        . '</form>'
+        . '</td>';    
+}
+
+
+/**
+ * Prepare move farward buttons - next and last
+ * 
+ * @param   string  $html_sql_query the sql encoded by html special characters
+ * @param   integer $pos_prev       the offset for the "previous" page
+ * @param   boolean $is_innodb      whether its InnoDB or not
+ * @param   integer $unlim_num_rows the total number of rows returned by the
+ * @param   integer $num_rows       the total number of rows returned by the
+ * 
+ * @return  string  $buttons_html   html content
+ * 
+ * @see     PMA_getTableNavigation()
+ */
+function PMA_getMoveFarwardButtonsForTableNavigation(
+    $html_sql_query, $pos_next, $is_innodb, $unlim_num_rows, $num_rows
+) {
+    
+    // display the Next button
+    $buttons_html = PMA_getTableNavigationButton(
+            '&gt;',
+            _pgettext('Next page', 'Next'),
+            $pos_next,
+            $html_sql_query
+        );
+
+    // prepare some options for the End button
+    if ($is_innodb && $unlim_num_rows > $GLOBALS['cfg']['MaxExactCount']) {
+        $input_for_real_end = '<input id="real_end_input" type="hidden" '
+            . 'name="find_real_end" value="1" />';
+        // no backquote around this message
+        $onclick = '';
+    } else {
+        $input_for_real_end = $onclick = '';
+    }
+
+    $onsubmit = 'onsubmit="return '
+        . ($_SESSION['tmp_user_values']['pos']
+                + $_SESSION['tmp_user_values']['max_rows'] < $unlim_num_rows
+            && $num_rows >= $_SESSION['tmp_user_values']['max_rows'])
+        ? 'true'
+        : 'false' . '"';
+
+    // display the End button
+    $buttons_html .= PMA_getTableNavigationButton(
+            '&gt;&gt;',
+            _pgettext('Last page', 'End'),
+            @((ceil($unlim_num_rows / $_SESSION['tmp_user_values']['max_rows'])- 1)
+            * $_SESSION['tmp_user_values']['max_rows']),
+            $html_sql_query, $onsubmit, $input_for_real_end, $onclick
+        );
+    
+    return $buttons_html;
+    
+}
+
+
+/**
+ * Prepare feilds followed by Show button
+ * for table navigation
+ * 
+ * @param   string  $html_sql_query             the sql encoded by html special characters
+ * @param   string  $goto                       the URL to go back in case of errors
+ * @param   integer $pos_next                   the offset for the "next" page
+ * @param   integer $unlim_num_rows             the total number of rows returned by the
+ * @param   string  $id_for_direction_dropdown  the id for the direction dropdown
+ * 
+ * @return  string  $additional_fields_html html content
+ * 
+ * @see     PMA_getTableNavigation()
+ */
+function PMA_getAdditionalFieldsForTableNavigation(
+    $html_sql_query, $goto, $pos_next,
+    $unlim_num_rows, $id_for_direction_dropdown
+) {
+    
+    $additional_fields_html = '';
+    
+    $additional_fields_html .= '<input type="hidden" name="sql_query" '
         . 'value="' . $html_sql_query . '" />'
         . '<input type="hidden" name="goto" value="' . $goto . '" />'
         . '<input type="submit" name="navig"'
@@ -506,14 +611,14 @@ function PMA_getTableNavigation($pos_next, $pos_prev, $sql_query,
     
     if ($GLOBALS['cfg']['ShowDisplayDirection']) {
         // Display mode (horizontal/vertical and repeat headers)
-        $table_navigation_html .= __('Mode') . ': ' . "\n";
+        $additional_fields_html .= __('Mode') . ': ' . "\n";
         $choices = array(
                 'horizontal'        => __('horizontal'),
                 'horizontalflipped' => __('horizontal (rotated headers)'),
                 'vertical'          => __('vertical')
             );
         
-        $table_navigation_html .= PMA_getDropdown(
+        $additional_fields_html .= PMA_getDropdown(
                 'disp_direction', $choices,
                 $_SESSION['tmp_user_values']['disp_direction'],
                 $id_for_direction_dropdown
@@ -521,22 +626,16 @@ function PMA_getTableNavigation($pos_next, $pos_prev, $sql_query,
         unset($choices);
     }
 
-    $table_navigation_html .= __('Headers every')
+    $additional_fields_html .= __('Headers every')
         . ' <input type="text" size="3" name="repeat_cells" value="'
         . $_SESSION['tmp_user_values']['repeat_cells']
         . '" class="textfield" /> '
         . __('rows')
         . "\n";
-
-    $table_navigation_html .= '</form>'
-        . '</td>'
-        . '<td class="navigation_separator"></td>'
-        . '</tr>'
-        . '</table>';
-        
-    return $table_navigation_html;
-
-} // end of the 'PMA_getTableNavigation()' function
+    
+    return $additional_fields_html;
+    
+}
 
 
 /**
