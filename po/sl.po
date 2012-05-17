@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-17 10:53+0200\n"
-"PO-Revision-Date: 2012-05-10 17:02+0200\n"
+"PO-Revision-Date: 2012-05-17 19:01+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:59 js/messages.php:358
@@ -4651,11 +4651,11 @@ msgstr ""
 "Najmanjše število tabel, potrebnih za prikaz polja za filtriranje tabel"
 
 #: libraries/config/messages.inc.php:281
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of databases to display the database filter box"
 msgstr ""
-"Najmanjše število tabel, potrebnih za prikaz polja za filtriranje tabel"
+"Najmanjše število zbirk podatkov, potrebnih za prikaz polja za filtriranje "
+"zbirk podatkov"
 
 #: libraries/config/messages.inc.php:282
 msgid "String that separates databases into different tree levels"
@@ -8991,10 +8991,9 @@ msgid "No databases"
 msgstr "Brez zbirk podatkov"
 
 #: navigation.php:209
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "Filter databases by name"
-msgstr "Filtriraj tabele po imenu"
+msgstr "Filtriraj zbirke podatkov po imenu"
 
 #: navigation.php:272
 msgid "Filter tables by name"
