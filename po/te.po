@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-17 10:53+0200\n"
-"PO-Revision-Date: 2012-03-09 02:43+0200\n"
-"Last-Translator: వీవెన్ <veeven@gmail.com>\n"
+"PO-Revision-Date: 2012-05-17 15:16+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Telugu <te@li.org>\n"
 "Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.4\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:59 js/messages.php:358
 #: libraries/display_tbl.lib.php:399 server_privileges.php:1828
@@ -108,7 +108,7 @@ msgstr ""
 
 #: db_datadict.php:49 db_operations.php:401
 msgid "Database comment: "
-msgstr "డేటాబేస్ వ్యాఖ్య:"
+msgstr "డేటాబేస్ వ్యాఖ్య: "
 
 #: db_datadict.php:154 libraries/schema/Pdf_Relation_Schema.class.php:1282
 #: libraries/tbl_properties.inc.php:818 tbl_operations.php:369
@@ -8968,7 +8968,7 @@ msgstr "పుటని సృష్టించు"
 
 #: pmd_pdf.php:129
 msgid "New page name: "
-msgstr "కొత్త పుట పేరు:"
+msgstr "కొత్త పుట పేరు: "
 
 #: pmd_pdf.php:132
 msgid "Export/Import to scale"
