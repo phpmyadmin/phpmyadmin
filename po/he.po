@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-17 10:53+0200\n"
-"PO-Revision-Date: 2012-04-19 14:33+0200\n"
-"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"PO-Revision-Date: 2012-05-17 15:18+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: hebrew <he@li.org>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.9\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:59 js/messages.php:358
 #: libraries/display_tbl.lib.php:399 server_privileges.php:1828
@@ -8494,7 +8494,7 @@ msgstr ""
 
 #: libraries/sql_query_form.lib.php:350
 msgid "Show this query here again"
-msgstr "הראה את שאילתה כאן שוב "
+msgstr "הראה את שאילתה כאן שוב"
 
 #: libraries/sql_query_form.lib.php:406
 msgid "View only"
@@ -9658,7 +9658,7 @@ msgstr "הרשאות ספציפיות-לטבלאות"
 #: server_privileges.php:634 server_privileges.php:786
 #: server_privileges.php:1855
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "הערה: שמות הרשאות MySQL מובטאות באנגלית "
+msgstr "הערה: שמות הרשאות MySQL מובטאות באנגלית"
 
 #: server_privileges.php:711
 msgid "Administration"
@@ -11938,7 +11938,7 @@ msgstr "אורך שורה"
 
 #: tbl_printview.php:400 tbl_structure.php:964
 msgid "Row size"
-msgstr "גודל שורה "
+msgstr "גודל שורה"
 
 #: tbl_printview.php:410 tbl_structure.php:972
 msgid "Next autoindex"
