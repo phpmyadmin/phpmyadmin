@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-03-27 16:55+0200\n"
+"PO-Revision-Date: 2012-05-17 15:18+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: azerbaijani <az@li.org>\n"
 "Language: az\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.8\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -8208,7 +8208,7 @@ msgstr ""
 
 #: libraries/sql_query_form.lib.php:344
 msgid "Show this query here again"
-msgstr "Bu sorğunu burada yene göster "
+msgstr "Bu sorğunu burada yene göster"
 
 #: libraries/sql_query_form.lib.php:407
 msgid "View only"
@@ -9402,7 +9402,7 @@ msgstr "Cedvelexas selahiyyetler"
 #: server_privileges.php:537 server_privileges.php:689
 #: server_privileges.php:1704
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "Qeyd: MySQL selahiyyet adları ingilis dilinde ifade edilmişdir "
+msgstr "Qeyd: MySQL selahiyyet adları ingilis dilinde ifade edilmişdir"
 
 #: server_privileges.php:614
 msgid "Administration"
@@ -11647,7 +11647,7 @@ msgstr "Sıra uzunluğu"
 
 #: tbl_printview.php:373 tbl_structure.php:898
 msgid "Row size"
-msgstr "Sıra boyu "
+msgstr "Sıra boyu"
 
 #: tbl_printview.php:383 tbl_structure.php:906
 msgid "Next autoindex"
