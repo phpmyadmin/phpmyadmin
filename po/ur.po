@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-17 10:53+0200\n"
-"PO-Revision-Date: 2012-03-27 16:34+0200\n"
+"PO-Revision-Date: 2012-05-17 15:19+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.8\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:59 js/messages.php:358
 #: libraries/display_tbl.lib.php:399 server_privileges.php:1828
@@ -112,7 +112,7 @@ msgstr "کوائفیہ $1%s بن گئی ہے۔"
 
 #: db_datadict.php:49 db_operations.php:401
 msgid "Database comment: "
-msgstr "کوائفیہ تبصرہ:"
+msgstr "کوائفیہ تبصرہ: "
 
 #: db_datadict.php:154 libraries/schema/Pdf_Relation_Schema.class.php:1282
 #: libraries/tbl_properties.inc.php:818 tbl_operations.php:369
@@ -2095,7 +2095,7 @@ msgstr ""
 
 #: js/messages.php:348
 msgid "Add an option for column "
-msgstr "کالم کے لیے ایک اختیار اضافہ کریں"
+msgstr "کالم کے لیے ایک اختیار اضافہ کریں "
 
 #: js/messages.php:351
 msgid "Press escape to cancel editing"
