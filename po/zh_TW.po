@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-17 10:53+0200\n"
-"PO-Revision-Date: 2012-04-19 03:18+0200\n"
-"Last-Translator: MoA Chung <honomoa@gmail.com>\n"
+"PO-Revision-Date: 2012-05-17 15:06+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 0.9\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:59 js/messages.php:358
 #: libraries/display_tbl.lib.php:399 server_privileges.php:1828
@@ -106,7 +106,7 @@ msgstr "建立資料庫 %1$s 成功"
 
 #: db_datadict.php:49 db_operations.php:401
 msgid "Database comment: "
-msgstr "資料庫註釋："
+msgstr "資料庫註釋： "
 
 #: db_datadict.php:154 libraries/schema/Pdf_Relation_Schema.class.php:1282
 #: libraries/tbl_properties.inc.php:818 tbl_operations.php:369
@@ -273,7 +273,7 @@ msgstr "刪除資料庫"
 #: db_operations.php:482
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "已被刪除資料庫 %s "
+msgstr "已被刪除資料庫 %s"
 
 #: db_operations.php:487
 msgid "Drop the database (DROP)"
@@ -583,7 +583,7 @@ msgstr "未知"
 #: db_structure.php:367 tbl_operations.php:717
 #, php-format
 msgid "Table %s has been emptied"
-msgstr "已清空表 %s "
+msgstr "已清空表 %s"
 
 #: db_structure.php:384 tbl_operations.php:736
 #, php-format
@@ -593,7 +593,7 @@ msgstr "已刪除 view %s"
 #: db_structure.php:384 tbl_operations.php:736
 #, php-format
 msgid "Table %s has been dropped"
-msgstr "已刪除表 %s "
+msgstr "已刪除表 %s"
 
 #: db_structure.php:394 tbl_create.php:286
 msgid "Tracking is active."
@@ -2138,7 +2138,7 @@ msgstr "有新的 phpMyAdmin 可用，請考慮升級。最新的版本是 %s，
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:377
 msgid ", latest stable version:"
-msgstr "，最新穩定版本: "
+msgstr "，最新穩定版本:"
 
 #: js/messages.php:378
 msgid "up to date"
@@ -2578,7 +2578,7 @@ msgstr "已刪除主鍵"
 #: libraries/Index.class.php:495
 #, php-format
 msgid "Index %s has been dropped"
-msgstr "已刪除索引 %s "
+msgstr "已刪除索引 %s"
 
 #: libraries/Index.class.php:598
 #, php-format
@@ -3408,7 +3408,7 @@ msgstr "SQL 查詢"
 #: libraries/rte/rte_triggers.lib.php:91
 #: libraries/rte/rte_triggers.lib.php:104
 msgid "MySQL said: "
-msgstr "MySQL 返回："
+msgstr "MySQL 返回： "
 
 #: libraries/common.lib.php:1142
 msgid "Failed to connect to SQL validator!"
@@ -3416,11 +3416,11 @@ msgstr "連線到 SQL 檢驗器失敗！"
 
 #: libraries/common.lib.php:1183 libraries/config/messages.inc.php:491
 msgid "Explain SQL"
-msgstr "SQL說明 "
+msgstr "SQL說明"
 
 #: libraries/common.lib.php:1187
 msgid "Skip Explain SQL"
-msgstr "略過SQL說明 "
+msgstr "略過SQL說明"
 
 #: libraries/common.lib.php:1224
 msgid "Without PHP Code"
@@ -3705,7 +3705,7 @@ msgstr "最大 %s"
 
 #: libraries/config/FormDisplay.tpl.php:148 main.php:247
 msgid "Wiki"
-msgstr "維基 (Wiki) "
+msgstr "維基 (Wiki)"
 
 #: libraries/config/FormDisplay.tpl.php:219
 msgid "This setting is disabled, it will not be applied to your configuration"
@@ -6177,8 +6177,8 @@ msgid ""
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
 "browsers."
 msgstr ""
-"上傳的檔案可能超過了最大大小，也可能是一個基於 webkit 瀏覽器 (Safari, Google "
-"Chrome, Arora 等) 的已知缺陷 (bug) "
+"上傳的檔案可能超過了最大大小，也可能是一個基於 webkit 瀏覽器 (Safari, Google Chrome, Arora 等) 的已知缺陷 "
+"(bug)."
 
 #: libraries/display_import.lib.php:69
 #, php-format
@@ -7172,7 +7172,7 @@ msgstr ""
 
 #: libraries/import/csv.php:94
 msgid "Column names: "
-msgstr "欄位名稱："
+msgstr "欄位名稱： "
 
 #: libraries/import/csv.php:116 libraries/import/csv.php:129
 #: libraries/import/csv.php:134 libraries/import/csv.php:139
@@ -8421,7 +8421,7 @@ msgstr "指令定界符"
 
 #: libraries/sql_query_form.lib.php:350
 msgid "Show this query here again"
-msgstr "在此再次顯示此查詢 "
+msgstr "在此再次顯示此查詢"
 
 #: libraries/sql_query_form.lib.php:406
 msgid "View only"
@@ -9375,7 +9375,7 @@ msgstr "允許建立新資料庫和資料表"
 #: server_privileges.php:96 server_privileges.php:360
 #: server_privileges.php:732
 msgid "Allows creating stored routines."
-msgstr "允許建立 stored routines "
+msgstr "允許建立 stored routines."
 
 #: server_privileges.php:97 server_privileges.php:726
 msgid "Allows creating new tables."
@@ -9395,7 +9395,7 @@ msgstr "允許建立、刪除和重命名使用者帳號"
 #: server_privileges.php:347 server_privileges.php:738
 #: server_privileges.php:742
 msgid "Allows creating new views."
-msgstr "允許建立 views "
+msgstr "允許建立 views."
 
 #: server_privileges.php:101 server_privileges.php:270
 #: server_privileges.php:718
@@ -9550,7 +9550,7 @@ msgstr "按表指定權限"
 #: server_privileges.php:634 server_privileges.php:786
 #: server_privileges.php:1855
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "注意：MySQL 權限名稱會以英文顯示 "
+msgstr "注意：MySQL 權限名稱會以英文顯示"
 
 #: server_privileges.php:711
 msgid "Administration"
@@ -9790,7 +9790,7 @@ msgstr "未知錯誤"
 #: server_replication.php:86
 #, php-format
 msgid "Unable to connect to master %s."
-msgstr "無法連線到主伺服器 %s "
+msgstr "無法連線到主伺服器 %s"
 
 #: server_replication.php:93
 msgid ""
@@ -9955,7 +9955,7 @@ msgstr ""
 #: server_status.php:468
 #, php-format
 msgid "Thread %s was successfully killed."
-msgstr "已中止程序 %s "
+msgstr "已中止程序 %s"
 
 #: server_status.php:470
 #, php-format
@@ -10257,8 +10257,7 @@ msgstr "伺服器執行指令時自動在記憶體中建立的臨時表的數量
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
-msgstr ""
-"發生錯誤的延遲插入 (INSERT DELAYED) 行數 (可能是因爲在唯一欄位中存在重複值) "
+msgstr "發生錯誤的延遲插入 (INSERT DELAYED) 行數 (可能是因爲在唯一欄位中存在重複值)"
 
 #: server_status.php:1326
 msgid ""
@@ -10297,8 +10296,8 @@ msgid ""
 "it suggests that the server is doing a lot of full index scans; for example, "
 "SELECT col1 FROM foo, assuming that col1 is indexed."
 msgstr ""
-"讀取一個索引入口點的次數。如果該值很大，說明您的伺服器執行了很多完整索引掃"
-"描。例如，假設欄位 col1 已經建立了索引，然後執行 SELECT col1 FROM foo "
+"讀取一個索引入口點的次數。如果該值很大，說明您的伺服器執行了很多完整索引掃描。例如，假設欄位 col1 已經建立了索引，然後執行 SELECT col1 "
+"FROM foo"
 
 #: server_status.php:1333
 msgid ""
@@ -10358,7 +10357,7 @@ msgstr "資料表中插入行的請求數"
 
 #: server_status.php:1341
 msgid "The number of pages containing data (dirty or clean)."
-msgstr "非空頁數 (含髒頁) "
+msgstr "非空頁數 (含髒頁)"
 
 #: server_status.php:1342
 msgid "The number of pages currently dirty."
@@ -10388,9 +10387,8 @@ msgid ""
 "be calculated as Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 msgstr ""
-"負載頁的數量，像鎖定行或適應性的散列索引這樣的管理操作時分配的頁。該值可用此"
-"公式計算： Innodb_buffer_pool_pages_total - Innodb_buffer_pool_pages_free - "
-"Innodb_buffer_pool_pages_data "
+"負載頁的數量，像鎖定行或適應性的散列索引這樣的管理操作時分配的頁。該值可用此公式計算： Innodb_buffer_pool_pages_total - "
+"Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data"
 
 #: server_status.php:1347
 msgid "Total size of buffer pool, in pages."
@@ -10566,8 +10564,7 @@ msgstr "InnoDB 中更新的行數"
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
-msgstr ""
-"鍵快取中還沒有被寫入到硬碟的鍵塊數。該值過去名爲 Not_flushed_key_blocks "
+msgstr "鍵快取中還沒有被寫入到硬碟的鍵塊數。該值過去名爲 Not_flushed_key_blocks"
 
 #: server_status.php:1385
 msgid ""
@@ -11528,7 +11525,7 @@ msgstr "標籤"
 #: tbl_addfield.php:190 tbl_alter.php:213 tbl_indexes.php:105
 #, php-format
 msgid "Table %1$s has been altered successfully"
-msgstr "已成功修改表 %1$s "
+msgstr "已成功修改表 %1$s"
 
 #: tbl_alter.php:130
 #, fuzzy
@@ -11538,7 +11535,7 @@ msgstr "已成功刪除選中的使用者"
 
 #: tbl_change.php:745
 msgid "Because of its length,<br /> this column might not be editable"
-msgstr "因長度問題，<br /> 該欄位可能無法編輯 "
+msgstr "因長度問題，<br /> 該欄位可能無法編輯"
 
 #: tbl_change.php:860
 msgid "Binary - do not edit"
@@ -11828,7 +11825,7 @@ msgstr "排序規則表碎片"
 #: tbl_operations.php:688
 #, php-format
 msgid "Table %s has been flushed"
-msgstr "已強制更新表 %s "
+msgstr "已強制更新表 %s"
 
 #: tbl_operations.php:696
 msgid "Flush the table (FLUSH)"
@@ -11919,7 +11916,7 @@ msgstr "行長度"
 
 #: tbl_printview.php:400 tbl_structure.php:964
 msgid "Row size"
-msgstr "行大小 "
+msgstr "行大小"
 
 #: tbl_printview.php:410 tbl_structure.php:972
 msgid "Next autoindex"
@@ -12000,7 +11997,7 @@ msgstr "無"
 #: tbl_structure.php:363
 #, php-format
 msgid "Column %s has been dropped"
-msgstr "已刪除欄位 %s "
+msgstr "已刪除欄位 %s"
 
 #: tbl_structure.php:376 tbl_structure.php:473
 #, php-format
