@@ -4,7 +4,7 @@ set -e
 
 for file in `find js -name '*.js' -not -name '*min.js'` ; do
     mkdir -p sources/`dirname $file`
-    java -jar ./scripts/google-javascript-compiler/compiler.jar --js $file --js_output_file $file.tmp
+    yui-compressor $file > $file.tmp
     cp -a $file sources/$file
     mv $file.tmp $file
 done
