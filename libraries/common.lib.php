@@ -1370,11 +1370,11 @@ function PMA_profilingSupported()
 }
 
 /**
- * Displays a form with the Profiling checkbox
+ * Returns HTML for the form with the Profiling checkbox
  *
  * @param string $sql_query sql query
  *
- * @return void
+ * @return string HTML for the form with the Profiling checkbox
  *
  * @access  public
  */
@@ -2599,14 +2599,14 @@ function PMA_externalBug($functionality, $component, $minimum_version, $bugref)
 }
 
 /**
- * Generates and echoes an HTML checkbox
+ * Returns an HTML checkbox
  *
  * @param string  $html_field_name the checkbox HTML field
  * @param string  $label           label for checkbox
  * @param boolean $checked         is it initially checked?
  * @param boolean $onclick         should it submit the form on click?
  *
- * @return void
+ * @return string HTML for the checkbox
  */
 function PMA_getCheckbox($html_field_name, $label, $checked, $onclick)
 {
