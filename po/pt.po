@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-05-15 14:21+0200\n"
-"Last-Translator: Vítor Martins <vjmartins@sapo.pt>\n"
+"PO-Revision-Date: 2012-05-17 15:05+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: portuguese <pt@li.org>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
@@ -922,7 +922,7 @@ msgstr "Adicionar um ponto"
 
 #: gis_data_editor.php:220 js/messages.php:321
 msgid "Linestring"
-msgstr "Segmento de Reta "
+msgstr "Segmento de Reta"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:325
 msgid "Outer Ring"
@@ -942,7 +942,7 @@ msgstr "Adicionar um anel interior"
 
 #: gis_data_editor.php:266 js/messages.php:322
 msgid "Polygon"
-msgstr "Polígono "
+msgstr "Polígono"
 
 #: gis_data_editor.php:306 js/messages.php:328
 msgid "Add a polygon"
@@ -1011,7 +1011,7 @@ msgid ""
 "Cannot convert file's character set without character set conversion library"
 msgstr ""
 "Impossível converter o conjunto de caracteres do ficheiro sem a biblioteca "
-"de conversão "
+"de conversão"
 
 #: import.php:390 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -1435,7 +1435,7 @@ msgstr "Pausar o monitor"
 
 #: js/messages.php:147
 msgid "general_log and slow_query_log are enabled."
-msgstr "general_log e slow_query estão ativos "
+msgstr "general_log e slow_query estão ativos."
 
 #: js/messages.php:148
 msgid "general_log is enabled."
@@ -1795,7 +1795,7 @@ msgstr "Inserir Tabela"
 
 #: js/messages.php:252
 msgid "Hide indexes"
-msgstr "Esconder índices "
+msgstr "Esconder índices"
 
 #: js/messages.php:253
 msgid "Show indexes"
@@ -1951,7 +1951,7 @@ msgstr "Seleccione Foreign Key"
 
 #: js/messages.php:336
 msgid "Please select the primary key or a unique key"
-msgstr "Por favor seleccione a chave primária ou a chave única "
+msgstr "Por favor seleccione a chave primária ou a chave única"
 
 #: js/messages.php:337 pmd_general.php:77 tbl_relation.php:541
 msgid "Choose column to display"
@@ -1967,7 +1967,7 @@ msgstr ""
 
 #: js/messages.php:341
 msgid "Add an option for column "
-msgstr "Adicionar uma opção para a coluna"
+msgstr "Adicionar uma opção para a coluna "
 
 #: js/messages.php:344
 msgid "Press escape to cancel editing"
@@ -2542,7 +2542,7 @@ msgstr "Este servidor MySQL não suporta o mecanismo de armazenamento %s."
 
 #: libraries/Table.class.php:329
 msgid "unknown table status: "
-msgstr "Estado da tabela desconhecido:"
+msgstr "Estado da tabela desconhecido: "
 
 #: libraries/Table.class.php:1120
 msgid "Invalid database"
@@ -3296,7 +3296,7 @@ msgid ""
 "If enabled user can enter any MySQL server in login form for cookie auth"
 msgstr ""
 "Se o utilizador habilitador pode entrar em qualquer servidor MySQL num "
-"formulário de login para cookie de autenticação "
+"formulário de login para cookie de autenticação"
 
 #: libraries/config/messages.inc.php:20
 msgid "Allow login to any MySQL server"
@@ -5992,7 +5992,7 @@ msgstr "na pesquisa"
 
 #: libraries/display_tbl.lib.php:2364
 msgid "Showing rows"
-msgstr "Mostrando registos "
+msgstr "Mostrando registos"
 
 #: libraries/display_tbl.lib.php:2374
 msgid "total"
@@ -6959,7 +6959,7 @@ msgstr "Mapa de Caractere"
 #: libraries/mysql_charsets.lib.php:212 libraries/mysql_charsets.lib.php:413
 #: tbl_change.php:572
 msgid "Binary"
-msgstr "Binário "
+msgstr "Binário"
 
 #: libraries/mysql_charsets.lib.php:224
 msgid "Bulgarian"
@@ -8083,7 +8083,7 @@ msgstr ""
 
 #: libraries/sql_query_form.lib.php:344
 msgid "Show this query here again"
-msgstr "Mostrar de novo aqui este comando "
+msgstr "Mostrar de novo aqui este comando"
 
 #: libraries/sql_query_form.lib.php:407
 msgid "View only"
@@ -9248,7 +9248,7 @@ msgstr "Privilégios específicos da tabela"
 #: server_privileges.php:537 server_privileges.php:689
 #: server_privileges.php:1704
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "Nota: os nomes dos privilégios do MySQL são em Inglês "
+msgstr "Nota: os nomes dos privilégios do MySQL são em Inglês"
 
 #: server_privileges.php:614
 msgid "Administration"
@@ -9272,11 +9272,11 @@ msgstr "Nota: Configurar estas opções para 0 (zero) remove o limite."
 
 #: server_privileges.php:791
 msgid "Login Information"
-msgstr "Informação de Login "
+msgstr "Informação de Login"
 
 #: server_privileges.php:885
 msgid "Do not change the password"
-msgstr "Mantendo a palavra-passe "
+msgstr "Mantendo a palavra-passe"
 
 #: server_privileges.php:917 server_privileges.php:2397
 #, fuzzy
@@ -11111,7 +11111,7 @@ msgstr ""
 
 #: tbl_change.php:821
 msgid "Binary - do not edit"
-msgstr "Binário - não editar "
+msgstr "Binário - não editar"
 
 #: tbl_change.php:871
 msgid "Upload to BLOB repository"
@@ -11375,7 +11375,7 @@ msgstr "Opções da tabela"
 
 #: tbl_operations.php:359
 msgid "Rename table to"
-msgstr "Renomeia a tabela para "
+msgstr "Renomeia a tabela para"
 
 #: tbl_operations.php:537
 msgid "Copy table to (database<b>.</b>table):"
