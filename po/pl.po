@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-17 10:53+0200\n"
-"PO-Revision-Date: 2012-05-14 15:30+0200\n"
-"Last-Translator: Marcin Kozioł <lord_dark@wp.pl>\n"
+"PO-Revision-Date: 2012-05-17 14:07+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: iMutrix\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -2890,7 +2890,7 @@ msgstr "Datę, obsługiwany jest zakres %1$s do %2$s"
 #: libraries/Types.class.php:315 libraries/Types.class.php:717
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
-msgstr "Data i godzina kombinacja zakresu obsługiwanych jest %1$ s %2$ s"
+msgstr "Data i godzina kombinacja zakresu obsługiwanych jest %1$s %2$s"
 
 #: libraries/Types.class.php:317
 msgid ""
@@ -2928,7 +2928,7 @@ msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr ""
-"Ciąg znaków o zmiennej długości (% s) efektywna długość maksymalna jest z "
+"Ciąg znaków o zmiennej długości (%s) efektywna długość maksymalna jest z "
 "zastrzeżeniem maksymalny rozmiar wiersza"
 
 #: libraries/Types.class.php:327
@@ -7342,7 +7342,7 @@ msgstr "Plik kształtu ESRI"
 #: libraries/import/shp.php:199
 #, php-format
 msgid "Geometry type '%s' is not supported by MySQL."
-msgstr "Geometria typ '% s' nie jest obsługiwany przez MySQL."
+msgstr "Geometria typ '%s' nie jest obsługiwany przez MySQL."
 
 #: libraries/import/shp.php:360
 #, php-format
