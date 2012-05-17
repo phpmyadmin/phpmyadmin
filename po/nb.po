@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-04-08 05:59+0200\n"
-"Last-Translator: Asle Ommundsen <aommundsen@gmail.com>\n"
+"PO-Revision-Date: 2012-05-17 15:22+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.8\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:350
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -1993,7 +1993,7 @@ msgstr ""
 
 #: js/messages.php:341
 msgid "Add an option for column "
-msgstr "Legg til valg for kolonne"
+msgstr "Legg til valg for kolonne "
 
 #: js/messages.php:344
 msgid "Press escape to cancel editing"
@@ -6097,7 +6097,7 @@ msgstr "i spørring"
 
 #: libraries/display_tbl.lib.php:2364
 msgid "Showing rows"
-msgstr "Viser rader "
+msgstr "Viser rader"
 
 #: libraries/display_tbl.lib.php:2374
 msgid "total"
@@ -6982,7 +6982,7 @@ msgstr ""
 
 #: libraries/import/csv.php:42
 msgid "Column names: "
-msgstr "Kolonnenavn:"
+msgstr "Kolonnenavn: "
 
 #: libraries/import/csv.php:62 libraries/import/csv.php:75
 #: libraries/import/csv.php:80 libraries/import/csv.php:85
@@ -7130,7 +7130,7 @@ msgstr "Tegnsett"
 #: libraries/mysql_charsets.lib.php:212 libraries/mysql_charsets.lib.php:413
 #: tbl_change.php:572
 msgid "Binary"
-msgstr "Binær "
+msgstr "Binær"
 
 #: libraries/mysql_charsets.lib.php:224
 msgid "Bulgarian"
@@ -8276,7 +8276,7 @@ msgstr "Skilletegn"
 
 #: libraries/sql_query_form.lib.php:344
 msgid "Show this query here again"
-msgstr "Vis denne spørring her igjen "
+msgstr "Vis denne spørring her igjen"
 
 #: libraries/sql_query_form.lib.php:407
 msgid "View only"
@@ -11603,7 +11603,7 @@ msgstr "Fjern BLOB lager referanse"
 
 #: tbl_change.php:821
 msgid "Binary - do not edit"
-msgstr "Binær - må ikke redigeres "
+msgstr "Binær - må ikke redigeres"
 
 #: tbl_change.php:871
 msgid "Upload to BLOB repository"
@@ -11996,7 +11996,7 @@ msgstr "Radlengde"
 
 #: tbl_printview.php:373 tbl_structure.php:898
 msgid "Row size"
-msgstr "Radstørrelse "
+msgstr "Radstørrelse"
 
 #: tbl_printview.php:383 tbl_structure.php:906
 msgid "Next autoindex"
