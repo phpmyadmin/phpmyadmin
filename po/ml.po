@@ -7869,7 +7869,7 @@ msgstr ""
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/select_lang.lib.php:497
 msgid "ltr"
-msgstr ""
+msgstr "ltr"
 
 #: libraries/select_lang.lib.php:515 libraries/select_lang.lib.php:524
 #: libraries/select_lang.lib.php:533
