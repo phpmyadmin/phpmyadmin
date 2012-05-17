@@ -232,7 +232,8 @@ div#left_tableList ul ul {
     display: none;
 }
 
-#clear_fast_filter {
+#clear_fast_filter,
+#clear_fast_db_filter {
     background: white;
     color: black;
     cursor: pointer;
@@ -242,13 +243,16 @@ div#left_tableList ul ul {
     float: right;
 }
 
-#fast_filter {
+#fast_filter,
+#fast_db_filter {
     width: 100%;
     padding: 2px 0;
     margin: 0;
     border: 0;
 }
 
-#fast_filter.gray {
+#fast_filter.gray,
+#fast_db_fiter.gray {
     color: gray;
 }
+

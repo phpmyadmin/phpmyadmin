@@ -884,6 +884,14 @@ $cfg['DisplayServersList'] = false;
 $cfg['DisplayDatabasesList'] = 'auto';
 
 /**
+ * display a JavaScript database filter in the left frame
+ * when more then x databases are present
+ *
+ * @global boolean $cfg['LeftDisplayDatabaseFilterMinimum']
+ */
+$cfg['LeftDisplayDatabaseFilterMinimum'] = 30;
+
+/**
  * target of the navigation panel quick access icon
  *
  * Possible values:
