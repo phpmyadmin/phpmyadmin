@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-17 10:53+0200\n"
-"PO-Revision-Date: 2012-03-14 16:33+0200\n"
+"PO-Revision-Date: 2012-05-17 14:55+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: br\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 0.6\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:59 js/messages.php:358
 #: libraries/display_tbl.lib.php:399 server_privileges.php:1828
@@ -30,7 +30,7 @@ msgstr "Diskouez pep tra"
 #: libraries/schema/User_Schema.class.php:399
 #: libraries/select_lang.lib.php:508
 msgid "Page number:"
-msgstr "Pajenn niv. :"
+msgstr "Pajenn niv. : "
 
 #: browse_foreigners.php:159
 msgid ""
@@ -484,7 +484,7 @@ msgstr "Implijout taolennoù"
 #: db_qbe.php:663
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr "Reked SQL ouzh an diaz roadennoù <b>%s</b>:"
+msgstr "Reked SQL ouzh an diaz roadennoù <b>%s</b>: "
 
 #: db_qbe.php:956 libraries/common.lib.php:1235
 msgid "Submit Query"
@@ -516,7 +516,7 @@ msgstr "evel un droienn reoliek"
 #: db_search.php:216
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr "Disoc'hoù ar c'hlask evit \"<i>%s</i>\" %s :"
+msgstr "Disoc'hoù ar c'hlask evit \"<i>%s</i>\" %s : "
 
 #: db_search.php:239
 #, fuzzy, php-format
