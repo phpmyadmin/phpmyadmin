@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-17 10:53+0200\n"
-"PO-Revision-Date: 2012-03-29 16:39+0200\n"
+"PO-Revision-Date: 2012-05-17 15:00+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.8\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:59 js/messages.php:358
 #: libraries/display_tbl.lib.php:399 server_privileges.php:1828
@@ -2028,7 +2028,7 @@ msgstr ""
 
 #: js/messages.php:348
 msgid "Add an option for column "
-msgstr "Tilføj mulighed for kolonne"
+msgstr "Tilføj mulighed for kolonne "
 
 #: js/messages.php:351
 msgid "Press escape to cancel editing"
@@ -2069,7 +2069,7 @@ msgid ""
 msgstr ""
 "Denne tabel indeholder ikke en unik kolonne. Funktioner relateret til "
 "redigering af gitter, afkrydsningsboks og links til redigering, kopiering og "
-"sletning fungerer måske ikke, efter at data er gemt. "
+"sletning fungerer måske ikke, efter at data er gemt."
 
 #: js/messages.php:360
 msgid ""
@@ -2760,7 +2760,7 @@ msgstr "Denne MySQL-server understøtter ikke %s datalager."
 
 #: libraries/Table.class.php:366
 msgid "unknown table status: "
-msgstr "ukendt tabelstatus:"
+msgstr "ukendt tabelstatus: "
 
 #: libraries/Table.class.php:771
 #, fuzzy, php-format
@@ -4788,7 +4788,7 @@ msgid ""
 "authentication mode"
 msgstr ""
 "Definer om den foregående login skal gentages eller ej i cookie "
-"autentifikationstilstand "
+"autentifikationstilstand"
 
 #: libraries/config/messages.inc.php:304
 msgid "Recall user name"
@@ -6136,7 +6136,7 @@ msgstr "Output:"
 #: libraries/display_export.lib.php:186 libraries/display_export.lib.php:212
 #, php-format
 msgid "Save on server in the directory <b>%s</b>"
-msgstr "Gem på serveren i mappen <b>%s</b> "
+msgstr "Gem på serveren i mappen <b>%s</b>"
 
 #: libraries/display_export.lib.php:204
 msgid "Save output to a file"
@@ -6252,7 +6252,7 @@ msgid ""
 msgstr ""
 "Filen som uploades er sandsynligvis større enn den maksimalt tilladte "
 "størrelse, eller dette er en kendt fejl i webkit-baserede browsere (Safari, "
-"Google Chrome, Arora etc.) "
+"Google Chrome, Arora etc.)."
 
 #: libraries/display_import.lib.php:69
 #, php-format
@@ -7203,7 +7203,7 @@ msgstr "MySQL returnerede ingen data (fx ingen rækker)."
 #: libraries/import.lib.php:1118
 msgid ""
 "The following structures have either been created or altered. Here you can:"
-msgstr "De følgende strukturer er enten oprettet eller ændret. Her kan du: "
+msgstr "De følgende strukturer er enten oprettet eller ændret. Her kan du:"
 
 #: libraries/import.lib.php:1119
 msgid "View a structure's contents by clicking on its name"
@@ -7267,7 +7267,7 @@ msgstr ""
 
 #: libraries/import/csv.php:94
 msgid "Column names: "
-msgstr "Kolonnenavne:"
+msgstr "Kolonnenavne: "
 
 #: libraries/import/csv.php:116 libraries/import/csv.php:129
 #: libraries/import/csv.php:134 libraries/import/csv.php:139
@@ -7333,7 +7333,7 @@ msgid ""
 "the issue and try again."
 msgstr ""
 "Den angivne XML-fil var enten forkert udformet eller ukomplet. Ret fejlen og "
-"prøv igen. "
+"prøv igen."
 
 #: libraries/import/shp.php:20
 msgid "ESRI Shape File"
@@ -7422,7 +7422,7 @@ msgstr "Tegnsæt"
 #: libraries/mysql_charsets.lib.php:214 libraries/mysql_charsets.lib.php:415
 #: tbl_change.php:612
 msgid "Binary"
-msgstr "Binært "
+msgstr "Binært"
 
 #: libraries/mysql_charsets.lib.php:226
 msgid "Bulgarian"
@@ -7917,7 +7917,7 @@ msgstr "Opretter"
 #: libraries/rte/rte_events.lib.php:518 libraries/rte/rte_routines.lib.php:998
 #: libraries/rte/rte_triggers.lib.php:398
 msgid "The definer must be in the \"username@hostname\" format"
-msgstr "Opretter skal være i formatet \"brugernavn@værtsnavn\" "
+msgstr "Opretter skal være i formatet \"brugernavn@værtsnavn\""
 
 #: libraries/rte/rte_events.lib.php:525
 msgid "You must provide an event name"
@@ -8458,7 +8458,7 @@ msgstr "Adskiller"
 
 #: libraries/sql_query_form.lib.php:350
 msgid "Show this query here again"
-msgstr "Vis forespørgslen her igen "
+msgstr "Vis forespørgslen her igen"
 
 #: libraries/sql_query_form.lib.php:406
 msgid "View only"
@@ -8916,7 +8916,7 @@ msgstr "Vis PHP-information"
 
 #: main.php:250
 msgid "Official Homepage"
-msgstr "Officiel phpMyAdmin hjemmeside "
+msgstr "Officiel phpMyAdmin hjemmeside"
 
 #: main.php:251
 msgid "Contribute"
@@ -9624,7 +9624,7 @@ msgstr "Tabel-specifikke privilegier"
 #: server_privileges.php:634 server_privileges.php:786
 #: server_privileges.php:1855
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "NB: Navne på MySQL privilegier er på engelsk "
+msgstr "NB: Navne på MySQL privilegier er på engelsk"
 
 #: server_privileges.php:711
 msgid "Administration"
@@ -10125,7 +10125,7 @@ msgstr "Rådgiver"
 
 #: server_status.php:802 server_status.php:824
 msgid "Refresh rate: "
-msgstr "Opdateringsrate:"
+msgstr "Opdateringsrate: "
 
 #: server_status.php:837 server_variables.php:119
 msgid "Filters"
@@ -11103,7 +11103,7 @@ msgstr ""
 "Aktivering af general_log kan forøge server load med 5-15%. Vær også "
 "opmærksom på, at statistikgenerering fra logs er en krævende opgave, så det "
 "tilrådes at vælge kun en lille tidsinterval og at deaktivere general_log og "
-"tømme dens tabel, når der ikke er behov for den længere. "
+"tømme dens tabel, når der ikke er behov for den længere."
 
 #: server_status.php:1673
 msgid "Preset chart"
@@ -11715,7 +11715,7 @@ msgstr "De valgte brugere er blevet korrekt slettet."
 
 #: tbl_change.php:745
 msgid "Because of its length,<br /> this column might not be editable"
-msgstr "På grund af feltets længde,<br /> kan det muligvis ikke ændres "
+msgstr "På grund af feltets længde,<br /> kan det muligvis ikke ændres"
 
 #: tbl_change.php:860
 msgid "Binary - do not edit"
@@ -12075,7 +12075,7 @@ msgstr "Rækkelængde"
 
 #: tbl_printview.php:400 tbl_structure.php:964
 msgid "Row size"
-msgstr "Rækkestørrelse "
+msgstr "Rækkestørrelse"
 
 #: tbl_printview.php:410 tbl_structure.php:972
 msgid "Next autoindex"
@@ -12792,7 +12792,7 @@ msgid ""
 "%%. It should be above 80%%"
 msgstr ""
 "Det aktuelle forhold mellem ledig og total forespørgselsmellemlager er %s%%. "
-"Det bør være over 80%% "
+"Det bør være over 80%%"
 
 #: libraries/advisory_rules.txt:174
 msgid "Query cache fragmentation"
@@ -13345,8 +13345,7 @@ msgstr "Frekvensen af filåbninger er høj."
 #: libraries/advisory_rules.txt:339
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr ""
-"Frekvens af filåbninger: %s. Denne værdi bør være mindre end 5 pr time "
+msgstr "Frekvens af filåbninger: %s. Denne værdi bør være mindre end 5 pr time"
 
 #: libraries/advisory_rules.txt:341
 #, php-format
