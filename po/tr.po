@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-17 10:53+0200\n"
-"PO-Revision-Date: 2012-05-09 14:48+0200\n"
+"PO-Revision-Date: 2012-05-17 11:19+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 0.10\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:59 js/messages.php:358
 #: libraries/display_tbl.lib.php:399 server_privileges.php:1828
@@ -4647,10 +4647,10 @@ msgid "Minimum number of tables to display the table filter box"
 msgstr "Tablo süzgeci kutusunu görüntülemek için en az tablo sayısıdır"
 
 #: libraries/config/messages.inc.php:281
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of databases to display the database filter box"
-msgstr "Tablo süzgeci kutusunu görüntülemek için en az tablo sayısıdır"
+msgstr ""
+"Veritabanı süzgeci kutusunu görüntülemek için en az veritabanı sayısıdır"
 
 #: libraries/config/messages.inc.php:282
 msgid "String that separates databases into different tree levels"
@@ -9015,10 +9015,9 @@ msgid "No databases"
 msgstr "Veritabanı yok"
 
 #: navigation.php:209
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "Filter databases by name"
-msgstr "Tabloları adına göre süz"
+msgstr "Veritabanlarını adına göre süz"
 
 #: navigation.php:272
 msgid "Filter tables by name"
