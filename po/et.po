@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-17 10:53+0200\n"
-"PO-Revision-Date: 2012-05-12 21:12+0200\n"
+"PO-Revision-Date: 2012-05-17 23:33+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
 "Language: et\n"
@@ -4622,10 +4622,9 @@ msgid "Minimum number of tables to display the table filter box"
 msgstr "Tabeli filtri kastis näidatavate tabelite minimaalne hulk"
 
 #: libraries/config/messages.inc.php:281
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of databases to display the database filter box"
-msgstr "Tabeli filtri kastis näidatavate tabelite minimaalne hulk"
+msgstr "Andmebaasi filtri kastis näidatavate andmebaaside minimaalne hulk"
 
 #: libraries/config/messages.inc.php:282
 msgid "String that separates databases into different tree levels"
@@ -8929,10 +8928,9 @@ msgid "No databases"
 msgstr "Andmebaasid puuduvad"
 
 #: navigation.php:209
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "Filter databases by name"
-msgstr "Filtreeri tabeleid nime alusel"
+msgstr "Filtreeri andmebaase nime alusel"
 
 #: navigation.php:272
 msgid "Filter tables by name"
