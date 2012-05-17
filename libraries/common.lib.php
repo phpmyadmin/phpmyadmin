@@ -953,7 +953,7 @@ function PMA_reloadNavigation($jsonly = false)
             '',
             '&'
         );
-        if (!$jsonly) {
+        if (! $jsonly) {
             echo '<script type="text/javascript">' . PHP_EOL;
         }
         echo '//<![CDATA[' . PHP_EOL;
@@ -963,7 +963,7 @@ function PMA_reloadNavigation($jsonly = false)
         echo '    window.parent.goTo("' . $reload_url . '");' . PHP_EOL;
         echo '}' . PHP_EOL;
         echo '//]]>' . PHP_EOL;
-        if (!$jsonly) {
+        if (! $jsonly) {
             echo '</script>' . PHP_EOL;
         }
 
@@ -1869,7 +1869,7 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
     $displayed_message = '';
     // Add text if not already added
     if (stristr($message, '<img')
-        && (!$strip_img || $GLOBALS['cfg']['PropertiesIconic'] === true)
+        && (! $strip_img || $GLOBALS['cfg']['PropertiesIconic'] === true)
         && strip_tags($message)==$message
     ) {
         $displayed_message = '<span>'
@@ -3281,7 +3281,7 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
     // At this point, other headers might have been sent;
     // even if $GLOBALS['is_header_sent'] is true,
     // we have to send these additional headers.
-    if (!defined('TESTSUITE')) {
+    if (! defined('TESTSUITE')) {
         header('Cache-Control: no-cache');
         header("Content-Type: application/json");
     }
@@ -3303,7 +3303,7 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
  */
 function PMA_browseUploadFile($max_upload_size)
 {
-    if ($GLOBALS['is_upload'] && !empty($GLOBALS['cfg']['UploadDir'])) {
+    if ($GLOBALS['is_upload'] && ! empty($GLOBALS['cfg']['UploadDir'])) {
         echo '<label for="radio_import_file">';
     } else {
         echo '<label for="input_import_file">';
