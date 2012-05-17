@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-17 10:53+0200\n"
-"PO-Revision-Date: 2012-04-08 05:59+0200\n"
-"Last-Translator: Asle Ommundsen <aommundsen@gmail.com>\n"
+"PO-Revision-Date: 2012-05-17 15:22+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.8\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:59 js/messages.php:358
 #: libraries/display_tbl.lib.php:399 server_privileges.php:1828
@@ -2031,7 +2031,7 @@ msgstr ""
 
 #: js/messages.php:348
 msgid "Add an option for column "
-msgstr "Legg til valg for kolonne"
+msgstr "Legg til valg for kolonne "
 
 #: js/messages.php:351
 msgid "Press escape to cancel editing"
@@ -6545,7 +6545,7 @@ msgstr "i spørring"
 
 #: libraries/display_tbl.lib.php:2838
 msgid "Showing rows"
-msgstr "Viser rader "
+msgstr "Viser rader"
 
 #: libraries/display_tbl.lib.php:2848
 msgid "total"
@@ -7354,7 +7354,7 @@ msgstr ""
 
 #: libraries/import/csv.php:94
 msgid "Column names: "
-msgstr "Kolonnenavn:"
+msgstr "Kolonnenavn: "
 
 #: libraries/import/csv.php:116 libraries/import/csv.php:129
 #: libraries/import/csv.php:134 libraries/import/csv.php:139
@@ -7519,7 +7519,7 @@ msgstr "Tegnsett"
 #: libraries/mysql_charsets.lib.php:214 libraries/mysql_charsets.lib.php:415
 #: tbl_change.php:612
 msgid "Binary"
-msgstr "Binær "
+msgstr "Binær"
 
 #: libraries/mysql_charsets.lib.php:226
 msgid "Bulgarian"
@@ -8634,7 +8634,7 @@ msgstr "Skilletegn"
 
 #: libraries/sql_query_form.lib.php:350
 msgid "Show this query here again"
-msgstr "Vis denne spørring her igjen "
+msgstr "Vis denne spørring her igjen"
 
 #: libraries/sql_query_form.lib.php:406
 msgid "View only"
@@ -12028,7 +12028,7 @@ msgstr ""
 
 #: tbl_change.php:860
 msgid "Binary - do not edit"
-msgstr "Binær - må ikke redigeres "
+msgstr "Binær - må ikke redigeres"
 
 #: tbl_change.php:1065
 msgid "Insert as new row"
@@ -12411,7 +12411,7 @@ msgstr "Radlengde"
 
 #: tbl_printview.php:400 tbl_structure.php:964
 msgid "Row size"
-msgstr "Radstørrelse "
+msgstr "Radstørrelse"
 
 #: tbl_printview.php:410 tbl_structure.php:972
 msgid "Next autoindex"
