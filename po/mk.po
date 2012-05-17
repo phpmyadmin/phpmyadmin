@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-17 10:53+0200\n"
-"PO-Revision-Date: 2011-05-19 17:04+0200\n"
-"Last-Translator: <sjanevski@gmail.com>\n"
+"PO-Revision-Date: 2012-05-17 15:21+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: macedonian_cyrillic <mk@li.org>\n"
 "Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:59 js/messages.php:358
 #: libraries/display_tbl.lib.php:399 server_privileges.php:1828
@@ -107,7 +107,7 @@ msgstr "Базата на податоци %1$s е креирана"
 
 #: db_datadict.php:49 db_operations.php:401
 msgid "Database comment: "
-msgstr "Коментар на базата на податоци:"
+msgstr "Коментар на базата на податоци: "
 
 #: db_datadict.php:154 libraries/schema/Pdf_Relation_Schema.class.php:1282
 #: libraries/tbl_properties.inc.php:818 tbl_operations.php:369
@@ -6580,7 +6580,7 @@ msgstr "во упитот"
 
 #: libraries/display_tbl.lib.php:2838
 msgid "Showing rows"
-msgstr "Приказ на записи од "
+msgstr "Приказ на записи од"
 
 #: libraries/display_tbl.lib.php:2848
 msgid "total"
@@ -8632,7 +8632,7 @@ msgstr "Види само"
 
 #: libraries/sql_query_form.lib.php:454 tbl_change.php:936
 msgid "web server upload directory"
-msgstr "директориум за праќање на веб серверот "
+msgstr "директориум за праќање на веб серверот"
 
 #: libraries/sqlparser.lib.php:136
 msgid ""
@@ -9888,8 +9888,7 @@ msgstr "Привилегии поврзани со табелата"
 #: server_privileges.php:634 server_privileges.php:786
 #: server_privileges.php:1855
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr ""
-" Напомена: MySQL имињата на привилегите мора да бидат со латинични букви "
+msgstr "Напомена: MySQL имињата на привилегите мора да бидат со латинични букви"
 
 #: server_privileges.php:711
 msgid "Administration"
@@ -12065,7 +12064,7 @@ msgstr "Опции на табелата"
 
 #: tbl_operations.php:362
 msgid "Rename table to"
-msgstr "Промени го името на табелата во "
+msgstr "Промени го името на табелата во"
 
 #: tbl_operations.php:544
 msgid "Copy table to (database<b>.</b>table):"
