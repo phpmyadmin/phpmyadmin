@@ -953,7 +953,7 @@ function PMA_reloadNavigation($jsonly = false)
             '',
             '&'
         );
-        if (!$jsonly) {
+        if (! $jsonly) {
             echo '<script type="text/javascript">' . PHP_EOL;
         }
         echo '//<![CDATA[' . PHP_EOL;
@@ -963,7 +963,7 @@ function PMA_reloadNavigation($jsonly = false)
         echo '    window.parent.goTo("' . $reload_url . '");' . PHP_EOL;
         echo '}' . PHP_EOL;
         echo '//]]>' . PHP_EOL;
-        if (!$jsonly) {
+        if (! $jsonly) {
             echo '</script>' . PHP_EOL;
         }
 
@@ -1362,11 +1362,11 @@ function PMA_profilingSupported()
 }
 
 /**
- * Displays a form with the Profiling checkbox
+ * Returns HTML for the form with the Profiling checkbox
  *
  * @param string $sql_query sql query
  *
- * @return void
+ * @return string HTML for the form with the Profiling checkbox
  *
  * @access  public
  */
@@ -1863,7 +1863,7 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
     $displayed_message = '';
     // Add text if not already added
     if (stristr($message, '<img')
-        && (!$strip_img || $GLOBALS['cfg']['PropertiesIconic'] === true)
+        && (! $strip_img || $GLOBALS['cfg']['PropertiesIconic'] === true)
         && strip_tags($message)==$message
     ) {
         $displayed_message = '<span>'
@@ -2592,14 +2592,14 @@ function PMA_externalBug($functionality, $component, $minimum_version, $bugref)
 }
 
 /**
- * Generates a HTML checkbox
+ * Returns a HTML checkbox
  *
  * @param string  $html_field_name the checkbox HTML field
  * @param string  $label           label for checkbox
  * @param boolean $checked         is it initially checked?
  * @param boolean $onclick         should it submit the form on click?
  *
- * @return string                  html check box
+ * @return string                  HTML for the checkbox
  */
 function PMA_getCheckbox($html_field_name, $label, $checked, $onclick)
 {
@@ -3093,7 +3093,7 @@ function PMA_replaceBinaryContents($content)
  * @param binary $data        GIS data
  * @param bool   $includeSRID Add SRID to the WKT
  *
- * @return GIS data in Well Know Text format
+ * @return string GIS data in Well Know Text format
  */
 function PMA_asWKT($data, $includeSRID = false)
 {
@@ -3283,7 +3283,7 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
     // At this point, other headers might have been sent;
     // even if $GLOBALS['is_header_sent'] is true,
     // we have to send these additional headers.
-    if (!defined('TESTSUITE')) {
+    if (! defined('TESTSUITE')) {
         header('Cache-Control: no-cache');
         header("Content-Type: application/json");
     }
@@ -3305,7 +3305,7 @@ function PMA_ajaxResponse($message, $success = true, $extra_data = array())
  */
 function PMA_browseUploadFile($max_upload_size)
 {
-    if ($GLOBALS['is_upload'] && !empty($GLOBALS['cfg']['UploadDir'])) {
+    if ($GLOBALS['is_upload'] && ! empty($GLOBALS['cfg']['UploadDir'])) {
         echo '<label for="radio_import_file">';
     } else {
         echo '<label for="input_import_file">';
@@ -3518,7 +3518,7 @@ function PMA_getGISDatatypes($upper_case = false)
  *
  * @param string $gis_string GIS string
  *
- * @return GIS data enclosed in 'GeomFromText' function
+ * @return string GIS data enclosed in 'GeomFromText' function
  */
 function PMA_createGISData($gis_string)
 {

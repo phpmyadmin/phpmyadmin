@@ -203,6 +203,37 @@ function clear_fast_filter()
 }
 
 /**
+ * hide all LI elements with second A tag which doesn`t contain requested value
+ *
+ * @param string  value    requested value
+ *
+ */
+function fast_db_filter(value)
+{
+    var lowercase_value = value.toLowerCase();
+ 
+    $('#databaseList li a').each(function(idx, elem) {
+        var $elem = $(elem);
+        if (value && $elem.html().toLowerCase().indexOf(lowercase_value) == -1) {
+            $elem.parent().hide();
+        } else {
+            $elem.parents('li').show();
+        }
+    });
+
+}
+
+/**
+ * Clears fast database filter.
+ */
+function clear_fast_db_filter()
+{
+    var $elm = $('#fast_db_filter');
+    $elm.val('');
+    fast_db_filter('');
+}
+
+/**
  * Reloads the recent tables list.
  */
 function PMA_reloadRecentTable()
@@ -249,6 +280,32 @@ $(function(){
         if ($(this).val() == '') { //Hides added tables by search
           $('li.ajax_table').hide();
         }
+    });
+
+    /* Fast database filter */
+    var txtDb = $('#fast_db_filter').val();
+
+    $('#fast_db_filter.gray').live('focus', function() {
+        $(this).removeClass('gray');
+        clear_fast_db_filter();
+    });
+
+    $('#fast_db_filter:not(.gray)').live('focusout', function() {
+        var $input = $(this);
+        if ($input.val() == '') {
+            $input
+                .addClass('gray')
+                .val(txtDb);
+        }
+    });
+
+    $('#clear_fast_db_filter').click(function() {
+        clear_fast_db_filter();
+        $('#fast_db_filter').focus();
+    });
+
+    $('#fast_db_filter').keyup(function(evt) {        
+        fast_db_filter($(this).val());
     });
 
     /* Jump to recent table */
