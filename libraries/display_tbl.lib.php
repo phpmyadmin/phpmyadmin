@@ -572,8 +572,8 @@ function PMA_getMoveFarwardButtonsForTableNavigation(
 
 
 /**
- * Prepare feilds followed by Show button
- * for table navigation
+ * Prepare feilds followed by Show button for table navigation
+ * Start row, Number of rows, Headers every
  * 
  * @param   string  $html_sql_query             the sql encoded by html special characters
  * @param   string  $goto                       the URL to go back in case of errors
@@ -2486,7 +2486,9 @@ function PMA_getVerticalTable()
         }
         
         $vertical_table_html .= $vertical_display['textbtn']
-                             . PMA_getCheckBoxesForMultipleRowOperations('_left')
+                             . PMA_getCheckBoxesForMultipleRowOperations(
+                                 $vertical_display, '_left'
+                             )
                              . '</tr>' . "\n";
     } // end if
 
@@ -2497,7 +2499,9 @@ function PMA_getVerticalTable()
         && ((count($vertical_display['edit']) > 0)
         || !empty($vertical_display['textbtn']))
     ) {
-        $vertical_table_html .= PMA_getOperationLinksForVerticleTable('edit');
+        $vertical_table_html .= PMA_getOperationLinksForVerticleTable(
+                $vertical_display ,'edit'
+            );
     } // end if
 
     // Prepares "copy" link at top if required
@@ -2507,7 +2511,9 @@ function PMA_getVerticalTable()
         && ((count($vertical_display['copy']) > 0)
         || !empty($vertical_display['textbtn']))
     ) {
-        $vertical_table_html .= PMA_getOperationLinksForVerticleTable('copy');
+        $vertical_table_html .= PMA_getOperationLinksForVerticleTable(
+                $vertical_display ,'copy'
+            );
     } // end if
 
     // Prepares "delete" link at top if required
@@ -2517,7 +2523,9 @@ function PMA_getVerticalTable()
         && ((count($vertical_display['delete']) > 0)
         || !empty($vertical_display['textbtn']))
     ) {
-        $vertical_table_html .= PMA_getOperationLinksForVerticleTable('delete');
+        $vertical_table_html .= PMA_getOperationLinksForVerticleTable(
+                $vertical_display, 'delete'
+            );
     } // end if
 
     if (PMA_isSelect()) {
@@ -2567,7 +2575,9 @@ function PMA_getVerticalTable()
     ) {
         
         $vertical_table_html .= '<tr>' . "\n" . $vertical_display['textbtn']
-                             . PMA_getCheckBoxesForMultipleRowOperations('_right')
+                             . PMA_getCheckBoxesForMultipleRowOperations(
+                                 $vertical_display, '_right'
+                             )
                              . '</tr>' . "\n";
     } // end if
 
@@ -2578,7 +2588,9 @@ function PMA_getVerticalTable()
         && ((count($vertical_display['edit']) > 0)
         || !empty($vertical_display['textbtn']))
     ) {
-        $vertical_table_html .= PMA_getOperationLinksForVerticleTable('edit');        
+        $vertical_table_html .= PMA_getOperationLinksForVerticleTable(
+                $vertical_display, 'edit'
+            );        
     } // end if
 
     // Prepares "copy" link at bottom if required
@@ -2588,7 +2600,9 @@ function PMA_getVerticalTable()
         && ((count($vertical_display['copy']) > 0)
         || !empty($vertical_display['textbtn']))
     ) {
-        $vertical_table_html .= PMA_getOperationLinksForVerticleTable('copy');
+        $vertical_table_html .= PMA_getOperationLinksForVerticleTable(
+                $vertical_display, 'copy'
+            );
     } // end if
 
     // Prepares "delete" link at bottom if required
@@ -2598,7 +2612,9 @@ function PMA_getVerticalTable()
         && ((count($vertical_display['delete']) > 0)
         || !empty($vertical_display['textbtn']))
     ) {
-        $vertical_table_html .= PMA_getOperationLinksForVerticleTable('delete');
+        $vertical_table_html .= PMA_getOperationLinksForVerticleTable(
+                $vertical_display, 'delete'
+            );
     }
 
     return $vertical_table_html;
@@ -2609,18 +2625,15 @@ function PMA_getVerticalTable()
 /**
  * Prepare edit, copy and delete links for verticle table
  * 
+ * @param   array   $vertical_display   the information to display
  * @param   string  $operation          edit/copy/delete
  * 
  * @return  string  $links_html         html content
  * 
- * @global  array   $vertical_display   the information to display
- * 
  * @see     PMA_getVerticalTable()
  */
-function PMA_getOperationLinksForVerticleTable($operation)
+function PMA_getOperationLinksForVerticleTable($vertical_display, $operation)
 {
-    
-    global $vertical_display;
     
     $link_html = '<tr>' . "\n";
     
@@ -2651,17 +2664,14 @@ function PMA_getOperationLinksForVerticleTable($operation)
 /**
  * Get checkboxes for multiple row data operations
  * 
- * @param   $dir                _left / _right
+ * @param   array   $vertical_display   the information to display
+ * @param   string  $dir                _left / _right
  * 
- * @return  $checkBoxes_html    html content
- * 
- * @global  array   $vertical_display   the information to display
+ * @return  $checkBoxes_html            html content
  * 
  * @see     PMA_getVerticalTable()
  */
-function PMA_getCheckBoxesForMultipleRowOperations($dir) {
-    
-    global $vertical_display;
+function PMA_getCheckBoxesForMultipleRowOperations($vertical_display, $dir) {
     
     $checkBoxes_html = '';
     $cell_displayed = 0;
@@ -2960,223 +2970,34 @@ function PMA_getTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 
     // 1.2 Defines offsets for the next and previous pages
     if ($is_display['nav_bar'] == '1') {
-        
-        if ($_SESSION['tmp_user_values']['max_rows'] == 'all') {
-            $pos_next     = 0;
-            $pos_prev     = 0;
-        } else {
-            
-            $pos_next     = $_SESSION['tmp_user_values']['pos']
-                            + $_SESSION['tmp_user_values']['max_rows'];
-            
-            $pos_prev     = $_SESSION['tmp_user_values']['pos']
-                            - $_SESSION['tmp_user_values']['max_rows'];
-            
-            if ($pos_prev < 0) {
-                $pos_prev = 0;
-            }
-        }        
+        list($pos_next, $pos_prev) = PMA_getOffsets();
     } // end if
 
     // 1.3 Find the sort expression
-
     // we need $sort_expression and $sort_expression_nodirection
-    // even if there are many table references
-    if (! empty($analyzed_sql[0]['order_by_clause'])) {
-        
-        $sort_expression = trim(
-                str_replace('  ', ' ', $analyzed_sql[0]['order_by_clause'])
-            );
-        /**
-         * Get rid of ASC|DESC
-         */
-        preg_match('@(.*)([[:space:]]*(ASC|DESC))@si', $sort_expression, $matches);
-        
-        $sort_expression_nodirection = isset($matches[1])
-            ? trim($matches[1])
-            : $sort_expression;
-        
-        $sort_direction = isset($matches[2]) ? trim($matches[2]) : '';
-        unset($matches);
-        
-    } else {
-        $sort_expression = $sort_expression_nodirection = $sort_direction = '';
-    }
-
+    // even if there are many table references    
+    list($sort_expression, $sort_expression_nodirection, $sort_direction)
+        = PMA_getSortParams($analyzed_sql[0]['order_by_clause']);
+    
+    
     // 1.4 Prepares display of first and last value of the sorted column
 
-    if (! empty($sort_expression_nodirection)) {
-        
-        if (strpos($sort_expression_nodirection, '.') === false) {
-            $sort_table = $table;
-            $sort_column = $sort_expression_nodirection;
-        } else {
-            list($sort_table, $sort_column)
-                = explode('.', $sort_expression_nodirection);
-        }
-        
-        $sort_table = PMA_unQuote($sort_table);
-        $sort_column = PMA_unQuote($sort_column);
-        
-        // find the sorted column index in row result
-        // (this might be a multi-table query)
-        $sorted_column_index = false;
-        
-        foreach ($fields_meta as $key => $meta) {
-            if (($meta->table == $sort_table) && ($meta->name == $sort_column)) {
-                $sorted_column_index = $key;
-                break;
-            }
-        }
-        
-        if ($sorted_column_index !== false) {
-            
-            // fetch first row of the result set
-            $row = PMA_DBI_fetch_row($dt_result);
-            
-            // initializing default arguments
-            $default_function = 'PMA_mimeDefaultFunction';
-            $transform_function = $default_function;
-            $transform_options = array();
-            
-            // check for non printable sorted row data
-            $meta = $fields_meta[$sorted_column_index];
-            
-            if (stristr($meta->type, 'BLOB') || ($meta->type == 'geometry')) {
-                
-                $column_for_first_row = PMA_handleNonPrintableContents(
-                        $meta->type, $row[$sorted_column_index], $transform_function,
-                        $transform_options, $default_function, $meta, null
-                    );
-                
-            } else {
-                $column_for_first_row = $row[$sorted_column_index];
-            }
-            
-            $column_for_first_row = strtoupper(
-                    substr($column_for_first_row, 0, $GLOBALS['cfg']['LimitChars'])
-                );
-            
-            // fetch last row of the result set
-            PMA_DBI_data_seek($dt_result, $num_rows - 1);
-            $row = PMA_DBI_fetch_row($dt_result);
-            
-            // check for non printable sorted row data
-            $meta = $fields_meta[$sorted_column_index];
-            if (stristr($meta->type, 'BLOB') || ($meta->type == 'geometry')) {
-                
-                $column_for_last_row = PMA_handleNonPrintableContents(
-                        $meta->type, $row[$sorted_column_index], $transform_function,
-                        $transform_options, $default_function, $meta, null
-                    );
-                
-            } else {
-                $column_for_last_row = $row[$sorted_column_index];
-            }
-            
-            $column_for_last_row = strtoupper(
-                    substr($column_for_last_row, 0, $GLOBALS['cfg']['LimitChars'])
-                );
-            
-            // reset to first row for the loop in PMA_getTableBody()
-            PMA_DBI_data_seek($dt_result, 0);
-            
-            // we could also use here $sort_expression_nodirection
-            $sorted_column_message = ' [' . htmlspecialchars($sort_column)
-                . ': <strong>' . htmlspecialchars($column_for_first_row) . ' - '
-                . htmlspecialchars($column_for_last_row) . '</strong>]';
-            
-            unset($row, $column_for_first_row, $column_for_last_row, $meta,
-                $default_function, $transform_function, $transform_options);
-            
-        }
-        unset($sorted_column_index, $sort_table, $sort_column);
-    }
+    $sorted_column_message = PMA_getSortedColumnMessage(
+            $dt_result, $fields_meta, $num_rows,
+            $sort_expression_nodirection, $table
+        );
+    
 
     // 2. ----- Prepare to display the top of the page -----
 
     // 2.1 Prepares a messages with position informations
-    if (($is_display['nav_bar'] == '1') && isset($pos_next)) {
-        
-        if (isset($unlim_num_rows) && $unlim_num_rows != $total) {
-            $selectstring = ', ' . $unlim_num_rows . ' ' . __('in query');
-        } else {
-            $selectstring = '';
-        }
+    if (($is_display['nav_bar'] == '1') && isset($pos_next)) { 
 
-        if (! empty($analyzed_sql[0]['limit_clause'])) {
-            
-            $limit_data = PMA_analyzeLimitClause($analyzed_sql[0]['limit_clause']);
-            $first_shown_rec = $limit_data['start'];
-            
-            if ($limit_data['length'] < $total) {
-                $last_shown_rec = $limit_data['start'] + $limit_data['length'] - 1;
-            } else {
-                $last_shown_rec = $limit_data['start'] + $total - 1;
-            }
-            
-        } elseif (($_SESSION['tmp_user_values']['max_rows'] == 'all')
-            || ($pos_next > $total)
-        ) {
-            
-            $first_shown_rec = $_SESSION['tmp_user_values']['pos'];
-            $last_shown_rec  = $total - 1;
-            
-        } else {
-            
-            $first_shown_rec = $_SESSION['tmp_user_values']['pos'];
-            $last_shown_rec  = $pos_next - 1;
-            
-        }
-
-        if (PMA_Table::isView($db, $table)
-            && ($total == $GLOBALS['cfg']['MaxExactCountViews'])
-        ) {
-            
-            $message = PMA_Message::notice(
-                    __('This view has at least this number of rows. Please refer to %sdocumentation%s.')
-                );
-            
-            $message->addParam('[a@./Documentation.html#cfg_MaxExactCount@_blank]');
-            $message->addParam('[/a]');
-            $message_view_warning = PMA_showHint($message);
-            
-        } else {
-            $message_view_warning = false;
-        }
-
-        $message = PMA_Message::success(__('Showing rows'));
-        $message->addMessage($first_shown_rec);
-        
-        if ($message_view_warning) {
-            
-            $message->addMessage('...', ' - ');
-            $message->addMessage($message_view_warning);
-            $message->addMessage('(');
-            
-        } else {
-            
-            $message->addMessage($last_shown_rec, ' - ');
-            $message->addMessage(' (');
-            $message->addMessage($pre_count  . PMA_formatNumber($total, 0));
-            $message->addString(__('total'));
-            
-            if (!empty($after_count)) {
-                $message->addMessage($after_count);
-            }
-            
-            $message->addMessage($selectstring, '');
-            $message->addMessage(', ', '');
-            
-        }
-
-        $messagge_qt = PMA_Message::notice(__('Query took %01.4f sec') . ')');
-        $messagge_qt->addParam($GLOBALS['querytime']);
-
-        $message->addMessage($messagge_qt, '');
-        if (isset($sorted_column_message)) {
-            $message->addMessage($sorted_column_message, '');
-        }
+        $message = PMA_setMessageInformation(
+                $db, $table, $sorted_column_message, 
+                $analyzed_sql[0]['limit_clause'], $unlim_num_rows,
+                $total, $pos_next, $pre_count, $after_count
+            );
 
         $table_html .= PMA_getMessage($message, $sql_query, 'success');
 
@@ -3292,99 +3113,11 @@ function PMA_getTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
 
     if ($is_display['del_lnk'] == 'dr' && $is_display['del_lnk'] != 'kp') {
 
-        $delete_text = $is_display['del_lnk'] == 'dr' ? __('Delete') : __('Kill');
-
-        $_url_params = array(
-            'db'        => $db,
-            'table'     => $table,
-            'sql_query' => $sql_query,
-            'goto'      => $goto,
-        );
-        $uncheckall_url = 'sql.php' . PMA_generate_common_url($_url_params);
-
-        $_url_params['checkall'] = '1';
-        $checkall_url = 'sql.php' . PMA_generate_common_url($_url_params);
-
-        if ($_SESSION['tmp_user_values']['disp_direction'] == 'vertical') {
-            
-            $checkall_params['onclick']
-                = 'if (setCheckboxes(\'resultsForm\', true)) return false;';
-            $uncheckall_params['onclick']
-                = 'if (setCheckboxes(\'resultsForm\', false)) return false;';
-            
-        } else {
-            
-            $checkall_params['onclick']
-                = 'if (markAllRows(\'resultsForm\')) return false;';
-            $uncheckall_params['onclick']
-                = 'if (unMarkAllRows(\'resultsForm\')) return false;';
-            
-        }
-        
-        $checkall_link = PMA_linkOrButton(
-                $checkall_url, __('Check All'), $checkall_params, false
+        $table_html .= PMA_getMultiRowOperationLinks(
+                $dt_result, $fields_cnt, $fields_meta, $num_rows, $analyzed_sql,
+                $db, $table, $sql_query, $goto, $is_display['del_lnk']
             );
-        
-        $uncheckall_link = PMA_linkOrButton(
-                $uncheckall_url, __('Uncheck All'), $uncheckall_params, false
-            );
-        
-        if ($_SESSION['tmp_user_values']['disp_direction'] != 'vertical') {
-            
-            $table_html .= '<img class="selectallarrow" width="38" height="22"'
-                . ' src="' . $GLOBALS['pmaThemeImage'] . 'arrow_'
-                . $GLOBALS['text_dir'] . '.png' . '"'
-                . ' alt="' . __('With selected:') . '" />';
-        }
-        
-        $table_html .= $checkall_link . "\n"
-            . ' / ' . "\n"
-            . $uncheckall_link . "\n"
-            . '<i>' . __('With selected:') . '</i>' . "\n";
 
-        $table_html .= PMA_getButtonOrImage(
-                'submit_mult', 'mult_submit', 'submit_mult_change',
-                __('Change'), 'b_edit.png', 'edit'
-            );
-        
-        $table_html .= PMA_getButtonOrImage(
-                'submit_mult', 'mult_submit', 'submit_mult_delete',
-                $delete_text, 'b_drop.png', 'delete'
-            );
-        
-        if (isset($analyzed_sql[0]) && $analyzed_sql[0]['querytype'] == 'SELECT') {
-            $table_html .= PMA_getButtonOrImage(
-                    'submit_mult', 'mult_submit', 'submit_mult_export',
-                    __('Export'), 'b_tblexport.png', 'export'
-                );
-        }
-        
-        $table_html .= "\n";
-
-        $table_html .= '<input type="hidden" name="sql_query"'
-            .' value="' . htmlspecialchars($sql_query) . '" />' . "\n";
-
-        if (! empty($GLOBALS['url_query'])) {
-            $table_html .= '<input type="hidden" name="url_query"'
-                .' value="' . $GLOBALS['url_query'] . '" />' . "\n";
-        }
-        
-        // fetch last row of the result set
-        PMA_DBI_data_seek($dt_result, $num_rows - 1);
-        $row = PMA_DBI_fetch_row($dt_result);
-
-        // $clause_is_unique is needed by PMA_getTable() to generate the proper param
-        // in the multi-edit and multi-delete form
-        list($where_clause, $clause_is_unique, $condition_array)
-            = PMA_getUniqueCondition($dt_result, $fields_cnt, $fields_meta, $row);
-        
-        // reset to first row for the loop in PMA_getTableBody()
-        PMA_DBI_data_seek($dt_result, 0);
-
-        $table_html .= '<input type="hidden" name="clause_is_unique"'
-            .' value="' . $clause_is_unique . '" />' . "\n";
-
-        $table_html .= '</form>' . "\n";
     }
 
     // 5. ----- Get the navigation bar at the bottom if required -----
@@ -3408,6 +3141,421 @@ function PMA_getTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     return $table_html;
     
 } // end of the 'PMA_getTable()' function
+
+
+/**
+ * Get offsets for next page and previous page
+ * 
+ * @return  array           array with two elements - $pos_next, $pos_prev
+ * 
+ * @see     PMA_getTable()
+ */
+function PMA_getOffsets()
+{
+    
+    if ($_SESSION['tmp_user_values']['max_rows'] == 'all') {
+        $pos_next     = 0;
+        $pos_prev     = 0;
+    } else {
+
+        $pos_next     = $_SESSION['tmp_user_values']['pos']
+                        + $_SESSION['tmp_user_values']['max_rows'];
+
+        $pos_prev     = $_SESSION['tmp_user_values']['pos']
+                        - $_SESSION['tmp_user_values']['max_rows'];
+
+        if ($pos_prev < 0) {
+            $pos_prev = 0;
+        }
+    }
+    
+    return array($pos_next, $pos_prev);
+    
+}
+
+
+/**
+ * Get sort parameters
+ * 
+ * @param   string  $order_by_clause    
+ * 
+ * @return  array                   3 element array: $sort_expression,
+ *                                  $sort_expression_nodirection, $sort_direction
+ * 
+ * @see     PMA_getTable()
+ */
+function PMA_getSortParams($order_by_clause)
+{
+    
+    if (! empty($order_by_clause)) {
+        
+        $sort_expression = trim(
+                str_replace('  ', ' ', $order_by_clause)
+            );
+        /**
+         * Get rid of ASC|DESC
+         */
+        preg_match('@(.*)([[:space:]]*(ASC|DESC))@si', $sort_expression, $matches);
+        
+        $sort_expression_nodirection = isset($matches[1])
+            ? trim($matches[1])
+            : $sort_expression;
+        
+        $sort_direction = isset($matches[2]) ? trim($matches[2]) : '';
+        unset($matches);
+        
+    } else {
+        $sort_expression = $sort_expression_nodirection = $sort_direction = '';
+    }
+    
+    return array($sort_expression, $sort_expression_nodirection, $sort_direction);
+    
+}
+
+
+/**
+ * Prepare sorted column message
+ * 
+ * @param  integer &$dt_result                  the link id associated to the query
+ *                                              which results have to be displayed
+ * @param  array   $fields_meta                 the list of fields properties
+ * @param  integer $num_rows                    the total number of rows returned
+ *                                              by the SQL query
+ * @param  string  $sort_expression_nodirection sort expression without direction
+ * @param  string  $table                       the table name
+ * 
+ * @return  string                              html content
+ *          null                                if not found sorted column
+ * 
+ * @see     PMA_getTable()
+ */
+function PMA_getSortedColumnMessage(&$dt_result, $fields_meta,
+    $num_rows, $sort_expression_nodirection, $table
+) {
+    
+    if (! empty($sort_expression_nodirection)) {
+        
+        if (strpos($sort_expression_nodirection, '.') === false) {
+            $sort_table = $table;
+            $sort_column = $sort_expression_nodirection;
+        } else {
+            list($sort_table, $sort_column)
+                = explode('.', $sort_expression_nodirection);
+        }
+        
+        $sort_table = PMA_unQuote($sort_table);
+        $sort_column = PMA_unQuote($sort_column);
+        
+        // find the sorted column index in row result
+        // (this might be a multi-table query)
+        $sorted_column_index = false;
+        
+        foreach ($fields_meta as $key => $meta) {
+            if (($meta->table == $sort_table) && ($meta->name == $sort_column)) {
+                $sorted_column_index = $key;
+                break;
+            }
+        }
+        
+        if ($sorted_column_index !== false) {
+            
+            // fetch first row of the result set
+            $row = PMA_DBI_fetch_row($dt_result);
+            
+            // initializing default arguments
+            $default_function = 'PMA_mimeDefaultFunction';
+            $transform_function = $default_function;
+            $transform_options = array();
+            
+            // check for non printable sorted row data
+            $meta = $fields_meta[$sorted_column_index];
+            
+            if (stristr($meta->type, 'BLOB') || ($meta->type == 'geometry')) {
+                
+                $column_for_first_row = PMA_handleNonPrintableContents(
+                        $meta->type, $row[$sorted_column_index], $transform_function,
+                        $transform_options, $default_function, $meta, null
+                    );
+                
+            } else {
+                $column_for_first_row = $row[$sorted_column_index];
+            }
+            
+            $column_for_first_row = strtoupper(
+                    substr($column_for_first_row, 0, $GLOBALS['cfg']['LimitChars'])
+                );
+            
+            // fetch last row of the result set
+            PMA_DBI_data_seek($dt_result, $num_rows - 1);
+            $row = PMA_DBI_fetch_row($dt_result);
+            
+            // check for non printable sorted row data
+            $meta = $fields_meta[$sorted_column_index];
+            if (stristr($meta->type, 'BLOB') || ($meta->type == 'geometry')) {
+                
+                $column_for_last_row = PMA_handleNonPrintableContents(
+                        $meta->type, $row[$sorted_column_index], $transform_function,
+                        $transform_options, $default_function, $meta, null
+                    );
+                
+            } else {
+                $column_for_last_row = $row[$sorted_column_index];
+            }
+            
+            $column_for_last_row = strtoupper(
+                    substr($column_for_last_row, 0, $GLOBALS['cfg']['LimitChars'])
+                );
+            
+            // reset to first row for the loop in PMA_getTableBody()
+            PMA_DBI_data_seek($dt_result, 0);
+            
+            // we could also use here $sort_expression_nodirection
+            return ' [' . htmlspecialchars($sort_column)
+                . ': <strong>' . htmlspecialchars($column_for_first_row) . ' - '
+                . htmlspecialchars($column_for_last_row) . '</strong>]';
+        }
+    }
+    
+    return null;
+    
+}
+
+
+/**
+ * Set the content need to be show in message
+ * 
+ * @param   string  $db                     the database name
+ * @param   string  $table                  the table name
+ * @param   string  $sorted_column_message  the message for sorted column
+ * @param   string  $limit_clause           the limit clause of analyzed query
+ * @param   integer $unlim_num_rows         the total number of rows returned by
+ *                                          the SQL query without any appended
+ *                                          "LIMIT" clause programmatically
+ * @param   integer $total                  the total number of rows returned by
+ *                                          the SQL query without any 
+ *                                          programmatically appended LIMIT clause
+ * @param   integer $pos_next               the offset for next page
+ * @param   string  $pre_count              the string renders before row count
+ * @param   string  $after_count            the string renders after row count
+ * 
+ * @return  PMA_Message $message            an object of PMA_Message
+ * 
+ * @see     PMA_getTable()
+ */
+function PMA_setMessageInformation(
+    $db, $table, $sorted_column_message, $limit_clause, $unlim_num_rows,
+    $total, $pos_next, $pre_count, $after_count
+) {
+    
+    if (isset($unlim_num_rows) && ($unlim_num_rows != $total)) {
+        $selectstring = ', ' . $unlim_num_rows . ' ' . __('in query');
+    } else {
+        $selectstring = '';
+    }
+
+    if (! empty($limit_clause)) {
+
+        $limit_data = PMA_analyzeLimitClause($limit_clause);
+        $first_shown_rec = $limit_data['start'];
+
+        if ($limit_data['length'] < $total) {
+            $last_shown_rec = $limit_data['start'] + $limit_data['length'] - 1;
+        } else {
+            $last_shown_rec = $limit_data['start'] + $total - 1;
+        }
+
+    } elseif (($_SESSION['tmp_user_values']['max_rows'] == 'all')
+        || ($pos_next > $total)
+    ) {
+
+        $first_shown_rec = $_SESSION['tmp_user_values']['pos'];
+        $last_shown_rec  = $total - 1;
+
+    } else {
+
+        $first_shown_rec = $_SESSION['tmp_user_values']['pos'];
+        $last_shown_rec  = $pos_next - 1;
+
+    }
+
+    if (PMA_Table::isView($db, $table)
+        && ($total == $GLOBALS['cfg']['MaxExactCountViews'])
+    ) {
+
+        $message = PMA_Message::notice(
+                __('This view has at least this number of rows. Please refer to %sdocumentation%s.')
+            );
+
+        $message->addParam('[a@./Documentation.html#cfg_MaxExactCount@_blank]');
+        $message->addParam('[/a]');
+        $message_view_warning = PMA_showHint($message);
+
+    } else {
+        $message_view_warning = false;
+    }
+
+    $message = PMA_Message::success(__('Showing rows'));
+    $message->addMessage($first_shown_rec);
+
+    if ($message_view_warning) {
+
+        $message->addMessage('...', ' - ');
+        $message->addMessage($message_view_warning);
+        $message->addMessage('(');
+
+    } else {
+
+        $message->addMessage($last_shown_rec, ' - ');
+        $message->addMessage(' (');
+        $message->addMessage($pre_count  . PMA_formatNumber($total, 0));
+        $message->addString(__('total'));
+
+        if (!empty($after_count)) {
+            $message->addMessage($after_count);
+        }
+
+        $message->addMessage($selectstring, '');
+        $message->addMessage(', ', '');
+
+    }
+
+    $messagge_qt = PMA_Message::notice(__('Query took %01.4f sec') . ')');
+    $messagge_qt->addParam($GLOBALS['querytime']);
+
+    $message->addMessage($messagge_qt, '');
+    if (! is_null($sorted_column_message)) {
+        $message->addMessage($sorted_column_message, '');
+    }
+    
+    return $message;
+    
+}
+
+
+/**
+ * Prepare multi field edit/delete links
+ * 
+ * @param   integer &$dt_result         the link id associated to the query
+ *                                      which results have to be displayed
+ * @param   integer $fields_cnt         the total number of fields returned by
+ *                                      the SQL query
+ * @param   array   $fields_meta        the list of fields properties
+ * @param   integer $num_rows           the total number of rows returned
+ *                                      by the SQL query
+ * @param   array   $analyzed_sql       the analyzed query
+ * @param   string  $db                 the database name
+ * @param   string  $table              the table name
+ * @param   string  $sql_query          the current SQL query
+ * @param   string  $goto               the URL to go back in case of errors
+ * @param   string  $del_link           the display element - 'del_link'
+ * 
+ * @return  string  $links_html         html content
+ * 
+ * @see     PMA_getTable()
+ */
+function PMA_getMultiRowOperationLinks(
+    &$dt_result, $fields_cnt, $fields_meta, $num_rows, $analyzed_sql,
+    $db, $table, $sql_query, $goto, $del_link
+) {
+    
+    $links_html = '';
+    $delete_text = ($del_link == 'dr') ? __('Delete') : __('Kill');
+
+    $_url_params = array(
+        'db'        => $db,
+        'table'     => $table,
+        'sql_query' => $sql_query,
+        'goto'      => $goto,
+    );
+    $uncheckall_url = 'sql.php' . PMA_generate_common_url($_url_params);
+
+    $_url_params['checkall'] = '1';
+    $checkall_url = 'sql.php' . PMA_generate_common_url($_url_params);
+
+    if ($_SESSION['tmp_user_values']['disp_direction'] == 'vertical') {
+
+        $checkall_params['onclick']
+            = 'if (setCheckboxes(\'resultsForm\', true)) return false;';
+        $uncheckall_params['onclick']
+            = 'if (setCheckboxes(\'resultsForm\', false)) return false;';
+
+    } else {
+
+        $checkall_params['onclick']
+            = 'if (markAllRows(\'resultsForm\')) return false;';
+        $uncheckall_params['onclick']
+            = 'if (unMarkAllRows(\'resultsForm\')) return false;';
+
+    }
+
+    $checkall_link = PMA_linkOrButton(
+            $checkall_url, __('Check All'), $checkall_params, false
+        );
+
+    $uncheckall_link = PMA_linkOrButton(
+            $uncheckall_url, __('Uncheck All'), $uncheckall_params, false
+        );
+
+    if ($_SESSION['tmp_user_values']['disp_direction'] != 'vertical') {
+
+        $links_html .= '<img class="selectallarrow" width="38" height="22"'
+            . ' src="' . $GLOBALS['pmaThemeImage'] . 'arrow_'
+            . $GLOBALS['text_dir'] . '.png' . '"'
+            . ' alt="' . __('With selected:') . '" />';
+    }
+
+    $links_html .= $checkall_link . "\n"
+        . ' / ' . "\n"
+        . $uncheckall_link . "\n"
+        . '<i>' . __('With selected:') . '</i>' . "\n";
+
+    $links_html .= PMA_getButtonOrImage(
+            'submit_mult', 'mult_submit', 'submit_mult_change',
+            __('Change'), 'b_edit.png', 'edit'
+        );
+
+    $links_html .= PMA_getButtonOrImage(
+            'submit_mult', 'mult_submit', 'submit_mult_delete',
+            $delete_text, 'b_drop.png', 'delete'
+        );
+
+    if (isset($analyzed_sql[0]) && $analyzed_sql[0]['querytype'] == 'SELECT') {
+        $links_html .= PMA_getButtonOrImage(
+                'submit_mult', 'mult_submit', 'submit_mult_export',
+                __('Export'), 'b_tblexport.png', 'export'
+            );
+    }
+
+    $links_html .= "\n";
+
+    $links_html .= '<input type="hidden" name="sql_query"'
+        .' value="' . htmlspecialchars($sql_query) . '" />' . "\n";
+
+    if (! empty($GLOBALS['url_query'])) {
+        $links_html .= '<input type="hidden" name="url_query"'
+            .' value="' . $GLOBALS['url_query'] . '" />' . "\n";
+    }
+
+    // fetch last row of the result set
+    PMA_DBI_data_seek($dt_result, $num_rows - 1);
+    $row = PMA_DBI_fetch_row($dt_result);
+
+    // $clause_is_unique is needed by PMA_getTable() to generate the proper param
+    // in the multi-edit and multi-delete form
+    list($where_clause, $clause_is_unique, $condition_array)
+        = PMA_getUniqueCondition($dt_result, $fields_cnt, $fields_meta, $row);
+
+    // reset to first row for the loop in PMA_getTableBody()
+    PMA_DBI_data_seek($dt_result, 0);
+
+    $links_html .= '<input type="hidden" name="clause_is_unique"'
+        .' value="' . $clause_is_unique . '" />' . "\n";
+
+    $links_html .= '</form>' . "\n";
+    
+    return $links_html;
+    
+}
 
 
 /**
