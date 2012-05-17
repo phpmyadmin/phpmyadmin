@@ -114,7 +114,7 @@ messages_show_html();
 
 <a href="#" id="show_hidden_messages" style="display:none"><?php echo __('Show hidden messages (#MSG_COUNT)') ?></a>
 
-<h3><?php echo __('Servers') ?></h3>
+<fieldset class="simple"><legend><?php echo __('Servers') ?></legend>
 <?php
 //
 // Display server list
@@ -171,8 +171,9 @@ display_form_top(
 <?php
 display_form_bottom();
 ?>
+</fieldset>
 
-<h3><?php echo __('Configuration file') ?></h3>
+<fieldset class="simple"><legend><?php echo __('Configuration file') ?></legend>
 <?php
 //
 // Display config file settings and load/save form
@@ -180,7 +181,9 @@ display_form_bottom();
 $form_display = new FormDisplay();
 
 display_form_top('config.php');
-display_fieldset_top('', '', null, array('class' => 'simple'));
+?>
+<table width="100%" cellspacing="0">
+<?php
 
 // Display language list
 $opts = array(
@@ -258,10 +261,11 @@ if (!$config_exists || !$config_writable) {
         ?>" class="red" />
     </td>
 </tr>
+</table>
 <?php
-display_fieldset_bottom_simple();
 display_form_bottom();
 ?>
+</fieldset>
 <div id="footer">
     <a href="http://phpmyadmin.net"><?php echo __('phpMyAdmin homepage') ?></a>
     <a href="http://sourceforge.net/donate/index.php?group_id=23067"><?php

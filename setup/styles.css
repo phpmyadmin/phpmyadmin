@@ -111,7 +111,7 @@ h1 {
 .success h4,
 .notice h4,
 div.error h4 {
-    border-bottom: 2px solid;
+    border-bottom: 1px solid;
     font-weight: bold;
     margin: 0 0 .2em 0;
 }
@@ -123,7 +123,7 @@ div.footnotes {
     margin: .5em 0 1.3em 0;
     border: 1px solid;
     background-repeat: no-repeat;
-    background-position: 10px 50%;
+    background-position: 10px 10px;
     padding: 10px 10px 10px 25px;
 
     -moz-border-radius: 5px;
@@ -152,7 +152,7 @@ div.success {
     border-color: #a2d246;
     background-image: url(../themes/pmahomme/img/s_success.png);
     background-repeat: no-repeat;
-    background-position: 5px 50%;
+    background-position: 5px 10px;
 }
 .success h4 {
     border-color: #00FF00;
@@ -170,7 +170,7 @@ div.footnotes {
     border-color: #3a6c7e;
     background-image: url(../themes/pmahomme/img/s_notice.png);
     background-repeat: no-repeat;
-    background-position: 5px 50%;
+    background-position: 5px 10px;
 }
 
 .notice h4 {
@@ -188,7 +188,7 @@ div.error {
     border-color: #333;
     background-image: url(../themes/pmahomme/img/s_error.png);
     background-repeat: no-repeat;
-    background-position: 5px 50%;
+    background-position: 5px 10px;
 }
 
 div.error h4 {
@@ -361,6 +361,11 @@ fieldset th {
     vertical-align: top;
 }
 
+fieldset.simple th {
+    width: auto;
+    min-width: 0;
+}
+
 fieldset .doc {
     margin-left: 1em;
 }
@@ -531,16 +536,6 @@ select {
     background: white;
 }
 
-/* simple form, without header and legend */
-
-fieldset.simple {
-    border-top-color: #DEE1FF;
-}
-
-fieldset.simple legend {
-    display: none;
-}
-
 fieldset.simple th, fieldset.simple td {
     border-top: none;
     border-bottom: 1px #555 dotted;
@@ -596,7 +591,7 @@ table.datatable {
 
 table.datatable th {
     padding: 0 1em 0 0.5em;
-    border-bottom: 2px #66F solid;
+    border-bottom: 1px #999 solid;
     text-align: left;
 }
 
