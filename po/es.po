@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-17 10:53+0200\n"
-"PO-Revision-Date: 2012-05-10 16:50+0200\n"
+"PO-Revision-Date: 2012-05-17 16:58+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -4707,10 +4707,11 @@ msgid "Minimum number of tables to display the table filter box"
 msgstr "Número mínimo de tablas a mostrar en la ventana de filtro de tabla"
 
 #: libraries/config/messages.inc.php:281
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of databases to display the database filter box"
-msgstr "Número mínimo de tablas a mostrar en la ventana de filtro de tabla"
+msgstr ""
+"Número mínimo de bases de datos a mostrar en la ventana de filtro de bases "
+"de datos"
 
 #: libraries/config/messages.inc.php:282
 msgid "String that separates databases into different tree levels"
@@ -9125,10 +9126,9 @@ msgid "No databases"
 msgstr "No hay bases de datos"
 
 #: navigation.php:209
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "Filter databases by name"
-msgstr "Filtrar tablas por nombre"
+msgstr "Filtrar bases de datos por nombre"
 
 #: navigation.php:272
 msgid "Filter tables by name"
