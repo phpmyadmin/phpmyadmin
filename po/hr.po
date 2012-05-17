@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-17 10:53+0200\n"
-"PO-Revision-Date: 2012-03-03 09:52+0100\n"
-"Last-Translator: Nikola Vojković <vojka@xnet.hr>\n"
+"PO-Revision-Date: 2012-05-17 15:21+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: croatian <hr@li.org>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.0.1\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:59 js/messages.php:358
 #: libraries/display_tbl.lib.php:399 server_privileges.php:1828
@@ -1863,7 +1863,7 @@ msgstr "Dodavanje primarnog ključa"
 #: pmd_general.php:609 pmd_general.php:685 pmd_general.php:739
 #: pmd_general.php:802
 msgid "OK"
-msgstr "U redu  "
+msgstr "U redu"
 
 #: js/messages.php:242
 msgid "Click to dismiss this notification"
@@ -2143,7 +2143,7 @@ msgstr ""
 
 #: js/messages.php:348
 msgid "Add an option for column "
-msgstr "Dodaj opciju stupcu"
+msgstr "Dodaj opciju stupcu "
 
 #: js/messages.php:351
 msgid "Press escape to cancel editing"
@@ -10039,7 +10039,7 @@ msgstr "Privilegije specifične za tablicu"
 #: server_privileges.php:634 server_privileges.php:786
 #: server_privileges.php:1855
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "Napomena: Nazivi MySQL privilegija navedeni su na engleskom jeziku "
+msgstr "Napomena: Nazivi MySQL privilegija navedeni su na engleskom jeziku"
 
 #: server_privileges.php:711
 msgid "Administration"
@@ -11151,7 +11151,7 @@ msgstr "Broj zahtjeva za zapisivanje ključnog bloka u pohranu."
 
 #: server_status.php:1392
 msgid "The number of physical writes of a key block to disk."
-msgstr "Broj fizičkih zapisivanja ključnih blokova na disk. "
+msgstr "Broj fizičkih zapisivanja ključnih blokova na disk."
 
 #: server_status.php:1393
 msgid ""
@@ -12468,7 +12468,7 @@ msgstr "Duljina retka"
 
 #: tbl_printview.php:400 tbl_structure.php:964
 msgid "Row size"
-msgstr "Veličina retka "
+msgstr "Veličina retka"
 
 #: tbl_printview.php:410 tbl_structure.php:972
 msgid "Next autoindex"
