@@ -60,7 +60,7 @@ if (! isset($param) || $param[0] == '') {
     $url_query .= '&amp;goto=tbl_select.php&amp;back=tbl_select.php';
 
     /**
-     * Gets tables informations
+     * Gets table's information
      */
     include_once 'libraries/tbl_info.inc.php';
 
@@ -80,6 +80,7 @@ if (! isset($param) || $param[0] == '') {
     // foreign keys from innodb)
     $foreigners = PMA_getForeigners($db, $table);
 
+    // Display the table search form
     PMA_tblSearchDisplaySelectionForm(
         $goto, $fields_list, $fields_type, $fields_collation, $fields_null,
         $geom_column_present, $geom_types, $fields_cnt, $foreigners, $db, $table
@@ -90,15 +91,45 @@ if (! isset($param) || $param[0] == '') {
     /**
      * Selection criteria have been submitted -> do the work
      */
+    $is_distinct = (isset($distinct)) ? 'true' : 'false';
+    $sql_query = PMA_tblSearchBuildSqlQuery(
+        $table, $fields, $names, $types, $param, $max_number_of_fields, $is_distinct,
+        $where, $collations, $func, $orderField, $order
+    );
+    unset($is_distinct);
+    include 'sql.php';
+}
 
-    // Builds the query
-
-    $sql_query = 'SELECT ' . (isset($distinct) ? 'DISTINCT ' : '');
+/**
+ * Builds the sql search query from the post parameters
+ *
+ * @param string  $table                Selected table
+ * @param array   $fields               Entered values of the columns
+ * @param array   $names                Names of all columns
+ * @param array   $types                Types of all columns
+ * @param array   $param                Columns to be displayed in search results
+ * @param integer $max_number_of_fields Total number of columns in the table
+ * @param bool    $is_distinct          If only distinct values are needed
+ * @param string  $where                The custom where clause
+ * @param array   $collations           Collations of all columns
+ * @param array   $func                 Operators for given column type
+ * @param string  $orderField           Column by which results are to be ordered
+ * @param string  $order                Whether ASC or DESC
+ *
+ * @return string the generated SQL query
+ */
+function PMA_tblSearchBuildSqlQuery($table, $fields, $names, $types, $param,
+    $max_number_of_fields, $is_distinct, $where, $collations, $func, $orderField,
+    $order)
+{
+    $sql_query = 'SELECT ';
+    if($is_distinct) {
+        $sql_query .= 'DISTINCT ';
+    }
 
     // if all fields were selected to display, we do a SELECT *
     // (more efficient and this helps prevent a problem in IE
     // if one of the rows is edited and we come back to the Select results)
-
     if (count($param) == $max_number_of_fields) {
         $sql_query .= '* ';
     } else {
@@ -111,38 +142,60 @@ if (! isset($param) || $param[0] == '') {
     unset($param);
 
     $sql_query .= ' FROM ' . PMA_backquote($table);
-
-    // The where clause
-    if (trim($where) != '') {
-        $sql_query .= ' WHERE ' . $where;
-    } else {
-        $w = $charsets = array();
-        $cnt_func = count($func);
-        reset($func);
-        while (list($i, $func_type) = each($func)) {
-
-            list($charsets[$i]) = explode('_', $collations[$i]);
-            $unaryFlag =  $GLOBALS['PMA_Types']->isUnaryOperator($func_type);
-
-            $tmp_geom_func = isset($geom_func[$i]) ? $geom_func[$i] : null;
-            $whereClause = PMA_tbl_search_getWhereClause(
-                $fields[$i], $names[$i], $types[$i], $collations[$i],
-                $func_type, $unaryFlag, $tmp_geom_func
-            );
-
-            if ($whereClause) {
-                $w[] = $whereClause;
-            }
-        } // end while
-        if ($w) {
-            $sql_query .= ' WHERE ' . implode(' AND ', $w);
-        }
-    } // end if
-
+    $whereClause = PMA_tblSearchGenerateWhereClause(
+        $fields, $names, $types, $where, $collations, $func
+    );
+    $sql_query .= $whereClause;
+ 
+    // if the search results are to be ordered
     if ($orderField != '--nil--') {
         $sql_query .= ' ORDER BY ' . PMA_backquote($orderField) . ' ' . $order;
     } // end if
-    include 'sql.php';
+    return $sql_query;
+}
+
+/**
+ * Generates the where clause for the sql search query to be executed
+ *
+ * @param array  $fields     Entered values of the columns
+ * @param array  $names      Names of all columns
+ * @param array  $types      Types of all columns
+ * @param string $where      The custom where clause
+ * @param array  $collations Collations of all columns
+ * @param array  $func       Operators for given column type
+ *
+ * @return string the generated where clause
+ */
+function PMA_tblSearchGenerateWhereClause($fields, $names, $types, $where,
+    $collations, $func)
+{
+    // If the custom where clause is set
+    if (trim($where) != '') {
+        $fullWhereClause .= ' WHERE ' . $where;
+        return $fullWhereClause;
+    }
+
+    $fullWhereClause = $charsets = array();
+    reset($func);
+    while (list($i, $func_type) = each($func)) {
+        list($charsets[$i]) = explode('_', $collations[$i]);
+        $unaryFlag =  $GLOBALS['PMA_Types']->isUnaryOperator($func_type);
+        $tmp_geom_func = isset($geom_func[$i]) ? $geom_func[$i] : null;
+
+        $whereClause = PMA_tbl_search_getWhereClause(
+            $fields[$i], $names[$i], $types[$i], $collations[$i],
+            $func_type, $unaryFlag, $tmp_geom_func
+        );
+
+        if ($whereClause) {
+            $fullWhereClause[] = $whereClause;
+        }
+    } // end while
+
+    if ($fullWhereClause) {
+        $fullWhereClause = ' WHERE ' . implode(' AND ', $fullWhereClause);
+    }
+    return $fullWhereClause;
 }
 
 /**
@@ -159,7 +212,7 @@ if (! isset($param) || $param[0] == '') {
  */
 function PMA_tblSearchGetGeomFuncHtml($geom_column_present, $fields_type,
 $geom_types, $column_index)
-{    
+{
     $html_output = '';
     // return if geometrical column is not present
     if (!$geom_column_present) {
@@ -208,9 +261,10 @@ function PMA_tblSearchDisplaySliderOptions($fields_list, $fields_cnt)
     /**
      * Displays columns select list for selecting distinct columns in the search
      */
-    $html_output = '<fieldset id="fieldset_select_fields">
-        <legend>' . __('Select columns (at least one):') . '</legend>
-        <select name="param[]" size="' . min($fields_cnt, 10) . '" multiple="multiple">';
+    $html_output = '<fieldset id="fieldset_select_fields">'
+        . '<legend>' . __('Select columns (at least one):') . '</legend>'
+        . '<select name="param[]" size="' . min($fields_cnt, 10)
+        . '" multiple="multiple">';
     // Displays the list of the fields
     foreach ($fields_list as $each_field) {
         $html_output .= '        '
@@ -218,35 +272,35 @@ function PMA_tblSearchDisplaySliderOptions($fields_list, $fields_cnt)
             . ' selected="selected">' . htmlspecialchars($each_field)
             . '</option>' . "\n";
     } // end for
-    $html_output .= '</select>
-        <input type="checkbox" name="distinct" value="DISTINCT" id="oDistinct" />
-        <label for="oDistinct">DISTINCT</label></fieldset>';
+    $html_output .= '</select>'
+        . '<input type="checkbox" name="distinct" value="DISTINCT" id="oDistinct" />'
+        . '<label for="oDistinct">DISTINCT</label></fieldset>';
 
     /**
      * Displays input box for custom 'Where' clause to be used in the search
      */
-    $html_output .= '<fieldset id="fieldset_search_conditions">
-        <legend>' . '<em>' . __('Or') . '</em> ' .
-        __('Add search conditions (body of the "where" clause):') . '</legend>';
+    $html_output .= '<fieldset id="fieldset_search_conditions">'
+        . '<legend>' . '<em>' . __('Or') . '</em> '
+        . __('Add search conditions (body of the "where" clause):') . '</legend>';
     $html_output .= PMA_showMySQLDocu('SQL-Syntax', 'Functions');
-    $html_output .= '<input type="text" name="where" class="textfield" size="64" />
-        </fieldset>';
+    $html_output .= '<input type="text" name="where" class="textfield" size="64" />'
+        . '</fieldset>';
 
     /**
      * Displays option of changing default number of rows displayed per page
      */
-    $html_output .= '<fieldset id="fieldset_limit_rows">
-        <legend>' . __('Number of rows per page') . '</legend>
-        <input type="text" size="4" name="session_max_rows"
-        value="' . $GLOBALS['cfg']['MaxRows'] . '" class="textfield" />
-        </fieldset>';
+    $html_output .= '<fieldset id="fieldset_limit_rows">'
+        . '<legend>' . __('Number of rows per page') . '</legend>'
+        . '<input type="text" size="4" name="session_max_rows" '
+        . 'value="' . $GLOBALS['cfg']['MaxRows'] . '" class="textfield" />'
+        . '</fieldset>';
 
     /**
      * Displays option for ordering search results by a column value (Asc or Desc)
      */
-    $html_output .= '<fieldset id="fieldset_display_order">
-        <legend>' . __('Display order:') . '</legend>
-        <select name="orderField"><option value="--nil--"></option>';
+    $html_output .= '<fieldset id="fieldset_display_order">'
+        . '<legend>' . __('Display order:') . '</legend>'
+        . '<select name="orderField"><option value="--nil--"></option>';
     foreach ($fields_list as $each_field) {
         $html_output .= '        '
             . '<option value="' . htmlspecialchars($each_field) . '">'
