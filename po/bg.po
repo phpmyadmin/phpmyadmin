@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-05-15 20:20+0200\n"
+"PO-Revision-Date: 2012-05-17 20:44+0200\n"
 "Last-Translator: Стоян Димитров <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "Language: bg\n"
@@ -6995,6 +6995,7 @@ msgstr "Позволено"
 
 #: libraries/relation.lib.php:88 libraries/relation.lib.php:100
 #: pmd_relation_new.php:66
+#, fuzzy
 msgid "General relation features"
 msgstr "Общи свойства на релациите"
 
@@ -8386,6 +8387,7 @@ msgid "Save position"
 msgstr "Запазване на позицията"
 
 #: pmd_general.php:74 pmd_general.php:346
+#, fuzzy
 msgid "Create relation"
 msgstr "Създаване отношение"
 
@@ -8418,6 +8420,7 @@ msgid "Toggle small/big"
 msgstr ""
 
 #: pmd_general.php:99
+#, fuzzy
 #| msgid "To select relation, click :"
 msgid "Toggle relation lines"
 msgstr "Превключване на редовете с релации"
@@ -8439,6 +8442,7 @@ msgid "Hide/Show all"
 msgstr "Показване/скриване всички"
 
 #: pmd_general.php:130
+#, fuzzy
 msgid "Hide/Show Tables with no relation"
 msgstr "Показване/скриване таблици без релации"
 
@@ -8451,10 +8455,12 @@ msgid "Number of tables"
 msgstr "Брой таблици"
 
 #: pmd_general.php:412
+#, fuzzy
 msgid "Delete relation"
 msgstr "Изтриване на отношение"
 
 #: pmd_general.php:454 pmd_general.php:513
+#, fuzzy
 msgid "Relation operator"
 msgstr "Оператор на отношение"
 
@@ -8521,22 +8527,27 @@ msgid "recommended"
 msgstr "препоръчително"
 
 #: pmd_relation_new.php:27
+#, fuzzy
 msgid "Error: relation already exists."
 msgstr "Грешка: Зависимостта вече съществува."
 
 #: pmd_relation_new.php:59 pmd_relation_new.php:84
+#, fuzzy
 msgid "Error: Relation not added."
 msgstr "Грешка: Зависимостта не е добавена."
 
 #: pmd_relation_new.php:60
+#, fuzzy
 msgid "FOREIGN KEY relation added"
 msgstr "FOREIGN KEY зависимост е добавена"
 
 #: pmd_relation_new.php:82
+#, fuzzy
 msgid "Internal relation added"
 msgstr "Вътрешна зависимост е добавена"
 
 #: pmd_relation_upd.php:58
+#, fuzzy
 msgid "Relation deleted"
 msgstr "Зависимостта изтрита"
 
@@ -11144,10 +11155,12 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Грешка при създаването на външен ключ върху %1$s (проверете типа данни)"
 
 #: tbl_relation.php:398
+#, fuzzy
 msgid "Internal relation"
 msgstr "Вътрешна релация"
 
 #: tbl_relation.php:400
+#, fuzzy
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
@@ -11233,6 +11246,7 @@ msgid "Edit view"
 msgstr "Изглед за редакция"
 
 #: tbl_structure.php:624
+#, fuzzy
 msgid "Relation view"
 msgstr "Преглед на релациите"
 
