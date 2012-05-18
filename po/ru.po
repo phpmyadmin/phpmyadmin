@@ -3077,11 +3077,10 @@ msgid "Date and time"
 msgstr "Дата и время"
 
 #: libraries/Types.class.php:645 libraries/Types.class.php:973
-#, fuzzy
 #| msgid "Linestring"
 msgctxt "string types"
 msgid "String"
-msgstr "Линия"
+msgstr "Символьные"
 
 #: libraries/Types.class.php:666
 #, fuzzy
