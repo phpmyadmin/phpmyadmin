@@ -1349,7 +1349,15 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     redirected after logout (doesn't affect config authentication method).
     Should be absolute including protocol.
     </dd>
-
+    <dt><span id="cfg_Servers_StatusCacheDatabases">$cfg['Servers'][$i]['StatusCacheDatabases']</span> array of strings</dt>
+    <dd>Enables caching of <code>TABLE STATUS</code> outputs for specific databases on this server (in some cases <code>TABLE STATUS</code> can be very slow, so you may want to cache it). APC is used (if the PHP extension is available, if not, this setting is ignored silently). You have to provide <a href="#cfg_Servers_StatusCacheLifetime" class="configrule">StatusCacheLifetime</a>.<br />
+    Takes effect only if
+    <a href="#cfg_Servers_DisableIS" class="configrule">DisableIS</a>
+    is <code>true</code>.
+    </dd>
+    <dt><span id="cfg_Servers_StatusCacheLifetime">$cfg['Servers'][$i]['StatusCacheLifetime']</span> integer</dt>
+    <dd>Lifetime in seconds of the <code>TABLE STATUS</code> cache if <a href="#cfg_Servers_StatusCacheDatabases" class="configrule">StatusCacheDatabases</a> is used.
+    </dd>
     <dt id="cfg_ServerDefault">$cfg['ServerDefault'] integer</dt>
     <dd>If you have more than one server configured, you can set
         <code>$cfg['ServerDefault']</code> to any one of them to autoconnect to

@@ -515,7 +515,32 @@ function PMA_DBI_get_tables_full($database, $table = false,
                     . PMA_backquote($each_database);
             }
 
-            $each_tables = PMA_DBI_fetch_result($sql, 'Name', null, $link);
+            $useStatusCache = false;
+
+            if (extension_loaded('apc')
+                && isset($GLOBALS['cfg']['Server']['StatusCacheDatabases'])
+                && ! empty($GLOBALS['cfg']['Server']['StatusCacheLifetime'])) {
+                $statusCacheDatabases = (array) $GLOBALS['cfg']['Server']['StatusCacheDatabases'];
+                if (in_array($each_database, $statusCacheDatabases)) {
+                    $useStatusCache = true;
+                }
+            }
+
+            $each_tables = null;
+
+            if ($useStatusCache) {
+                $cacheKey = 'phpMyAdmin_tableStatus_' . sha1($GLOBALS['cfg']['Server']['host'] . '_' . $sql);
+
+                $each_tables = apc_fetch($cacheKey);
+            }
+
+            if (!$each_tables) {
+                $each_tables = PMA_DBI_fetch_result($sql, 'Name', null, $link);
+            }
+
+            if ($useStatusCache) {
+                apc_store($cacheKey, $each_tables, $GLOBALS['cfg']['Server']['StatusCacheLifetime']);
+            }
 
             // Sort naturally if the config allows it and we're sorting
             // the Name column.
