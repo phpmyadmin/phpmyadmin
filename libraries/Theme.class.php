@@ -15,9 +15,6 @@ if (! defined('PHPMYADMIN')) {
  * @todo add the possibility to make a theme depend on another theme
  * and by default on original
  * @todo make all components optional - get missing components from 'parent' theme
- * @todo make css optionally replacing 'parent' css or extending it
- * (by appending at the end)
- * @todo add an optional global css file - which will be used for both frames
  *
  * @package PhpMyAdmin
  */
@@ -68,9 +65,22 @@ class PMA_Theme
     var $filesize_info = 0;
 
     /**
+     * @var array List of css files to load
+     * @access private
+     */
+    private $css_files = array(
+        'common',
+        'enum_editor',
+        'gis',
+        'navigation',
+        'pmd',
+        'rte'
+    );
+
+    /**
      * Loads theme information
      *
-     * @return boolean whether loading them info was successful or not     *
+     * @return boolean whether loading them info was successful or not
      * @access  public
      */
     function loadInfo()
@@ -307,13 +317,9 @@ class PMA_Theme
      */
     function loadCss()
     {
+        $success = true;
+
         echo PMA_SQP_buildCssData();
-
-        $_css_file = $this->getPath() . '/css/style.css.php';
-
-        if (! is_readable($_css_file)) {
-            return false;
-        }
 
         if ($GLOBALS['text_dir'] === 'ltr') {
             $right = 'right';
@@ -323,7 +329,20 @@ class PMA_Theme
             $left = 'right';
         }
 
-        include $_css_file;
+        foreach ($this->css_files as $file) {
+            $path = $this->getPath() . "/css/$file.css.php";
+            $fallback = PMA_Theme_Manager::FALLBACK_THEME .  "/css/$file.css.php";
+
+            if (is_readable($path)) {
+                echo "\n/* FILE: $file.css.php */\n";
+                include $path;
+            } else if (is_readable($fallback)) {
+                echo "\n/* FILE: $file.css.php */\n";
+                include $fallback;
+            } else {
+                $success = false;
+            }
+        }
 
         $_sprites_data_file = $this->getPath() . '/sprites.lib.php';
         $_sprites_css_file = './themes/sprites.css.php';
@@ -332,7 +351,7 @@ class PMA_Theme
             include $_sprites_css_file;
         }
 
-        return true;
+        return $success;
     }
 
     /**
