@@ -11,7 +11,6 @@ if (! defined('PHPMYADMIN')) {
 $request_params = array(
     'clause_is_unique',
     'goto',
-    'js_frame',
     'mult_btn',
     'original_sql_query',
     'query_type',
