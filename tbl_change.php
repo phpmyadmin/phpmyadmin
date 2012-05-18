@@ -147,9 +147,21 @@ PMA_DBI_select_db($db);
 $table_fields = array_values(PMA_DBI_get_columns($db, $table));
 
 $paramTableDbArray = array($table, $db);
+
 //Retrieve values for data edit view
-list($insert_mode, $where_clauses, $result, $rows, $where_clause_array, $found_unique_key)
-    = PMA_getValuesForEditMode($paramTableDbArray, $where_clause);
+$found_unique_key   = false;
+$where_clause_array = array();
+$where_clauses      = array();
+
+if (isset($where_clause)) {
+    $where_clause_array = PMA_getWhereClauseArray($where_clause);
+    list($where_clauses, $result, $rows, $found_unique_key) 
+        = PMA_analyzeWhereClauses($where_clause_array, $table, $db, $found_unique_key);
+    $insert_mode = false;
+} else {
+    list($result, $rows) = PMA_loadFirstRowInEditMode($table, $db);
+    $insert_mode = true;
+}
 
 // Copying a row - fetched data will be inserted as a new row, therefore the where clause is needless.
 if (isset($_REQUEST['default_action']) && $_REQUEST['default_action'] === 'insert') {
@@ -161,7 +173,7 @@ $foreigners = PMA_getForeigners($db, $table);
 
 // Retrieve form parameters for insert/edit form
 $_form_params = PMA_getFormParametersForInsertForm(
-    $paramTableDbArray, $where_clauses, $where_clause_array, $err_url);
+    $db, $table, $where_clauses, $where_clause_array, $err_url);
 
 /**
  * Displays the form
@@ -299,13 +311,13 @@ foreach ($rows as $row_id => $vrow) {
         if (isset($vrow)) {
             // (we are editing)
            list($real_null_value, $special_chars_encoded, $special_chars, $data, $backup_field)
-               = PMA_getSpecialCharsAndBackupField($vrow, $column, $extracted_columnspec,
+               = PMA_getSpecialCharsAndBackupFieldForExistingRow($vrow, $column, $extracted_columnspec,
                     $real_null_value, $gis_data_types, $column_name_appendix);
         } else {
             // (we are inserting)
             // display default values
             list($real_null_value, $data, $special_chars, $backup_field, $special_chars_encoded)
-                = PMA_displayDefaultValues($column, $real_null_value);
+                = PMA_getSpecialCharsAndBackupFieldForInsetingMode($column, $real_null_value);
         }
 
         $idindex = ($o_rows * $columns_cnt) + $i + 1;
@@ -368,7 +380,7 @@ $html_output .= '</form>';
 
 if ($insert_mode) {
     //Continue insertion form
-    $html_output .= PMA_getContinueInsertionForm($paramTableDbArray, $where_clause_array, $err_url);
+    $html_output .= PMA_getContinueInsertionForm($table, $db, $where_clause_array, $err_url);
 }
 echo $html_output;
 /**

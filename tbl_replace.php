@@ -16,6 +16,11 @@
  */
 require_once 'libraries/common.inc.php';
 
+/**
+ * functions implementation for this script
+ */
+require_once 'libraries/insert_edit.lib.php';
+
 // Check parameters
 PMA_checkParameters(array('db', 'table', 'goto'));
 
@@ -102,24 +107,7 @@ if (isset($_REQUEST['err_url'])) {
 /**
  * Prepares the update/insert of a row
  */
-if (isset($_REQUEST['where_clause'])) {
-    // we were editing something => use the WHERE clause
-    $loop_array = (is_array($_REQUEST['where_clause']) ? $_REQUEST['where_clause'] : array($_REQUEST['where_clause']));
-    $using_key  = true;
-    $is_insert  = $_REQUEST['submit_type'] == 'insert'
-                  || $_REQUEST['submit_type'] == 'showinsert'
-                  || $_REQUEST['submit_type'] == 'insertignore';
-    $is_insertignore  = $_REQUEST['submit_type'] == 'insertignore';
-} else {
-    // new row => use indexes
-    $loop_array = array();
-    foreach ($_REQUEST['fields']['multi_edit'] as $key => $dummy) {
-        $loop_array[] = $key;
-    }
-    $using_key  = false;
-    $is_insert  = true;
-    $is_insertignore = false;
-}
+list($loop_array, $using_key, $is_insert, $is_insertignore) = PMA_getParamsForUpdateOrInsert();
 
 $query = array();
 $value_sets = array();

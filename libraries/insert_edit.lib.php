@@ -13,15 +13,16 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Retrieve form parameters for insert/edit form
  * 
+ * @param string $db                name of the database
+ * @param string $table             name of the table
  * @param array $where_clauses      where clauses
  * @param array $where_clause_array array of where clauses
  * @param string $err_url           error url
  * 
  * @return array $_form_params      array of insert/edit form parameters
  */
-function PMA_getFormParametersForInsertForm($paramArray, $where_clauses, $where_clause_array, $err_url)
+function PMA_getFormParametersForInsertForm($db, $table, $where_clauses, $where_clause_array, $err_url)
 {
-    list($table, $db) = $paramArray;
     $_form_params = array(
     'db'        => $db,
     'table'     => $table,
@@ -38,30 +39,6 @@ function PMA_getFormParametersForInsertForm($paramArray, $where_clauses, $where_
         $_form_params['clause_is_unique'] = $_REQUEST['clause_is_unique'];
     }
     return $_form_params;
-}
-
-/**
- * Retrieve the values for pma edit mode
- * 
- * @param array $paramArray         array containing $db and $table
- * @param array $where_clause       where clauses
- * 
- * @return array                    containing insert_mode,whereClauses, result array
- *                                  where_clauses_array and found_unique_key boolean value 
- */
-function PMA_getValuesForEditMode($paramArray, $where_clause)
-{
-    $found_unique_key = false;
-    list($table, $db) = $paramArray;
-    if (isset($where_clause)) {
-        $where_clause_array = PMA_getWhereClauseArray($where_clause);
-        list($whereClauses, $resultArray, $rowsArray, $found_unique_key) 
-                = PMA_analyzeWhereClauses($where_clause_array, $paramArray, $found_unique_key);
-        return array(false, $whereClauses, $resultArray, $rowsArray, $where_clause_array, $found_unique_key);
-    } else {
-        list($results, $row) = PMA_loadFirstRowInEditMode($paramArray);
-        return array(true, null, $results, $row, null, $found_unique_key);
-    }
 }
 
 /**
@@ -83,14 +60,14 @@ function PMA_getWhereClauseArray($where_clause)
  * Analysing where cluases array
  * 
  * @param array $where_clause_array     array of where clauses
- * @param array $paramArray             array containing $db and $table
+ * @param string $table                 name of the table
+ * @param string $db                    name of the database
  * @param boolean $found_unique_key     boolean variable for unique key
  * 
  * @return array $where_clauses, $result, $rows
  */
-function PMA_analyzeWhereClauses($where_clause_array, $paramArray, $found_unique_key)
+function PMA_analyzeWhereClauses($where_clause_array, $table, $db, $found_unique_key)
 {
-    list($table, $db) = $paramArray;
     $rows               = array();
     $result             = array();
     $where_clauses      = array();
@@ -114,7 +91,9 @@ function PMA_analyzeWhereClauses($where_clause_array, $paramArray, $found_unique
  * @param array $where_clause_array
  * @param string $local_query
  * @param array $result
- * @param boolean $found_unique_key 
+ * @param boolean $found_unique_key
+ * 
+ * @return boolean $found_unique_key
  */
 function PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id,
     $where_clause_array, $local_query, $result, $found_unique_key
@@ -140,13 +119,13 @@ function PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id,
 /**
  * No primary key given, just load first row
  * 
- * @param array $paramArray     array containing $db and $table
+ * @param string $table         name of the table
+ * @param string $db            name of the database
  * 
  * @return array                containing $result and $rows arrays
  */
-function PMA_loadFirstRowInEditMode($paramArray )
+function PMA_loadFirstRowInEditMode($table, $db)
 {
-    list($table, $db) = $paramArray;
     $result = PMA_DBI_query(
         'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' LIMIT 1;',
         null,
@@ -608,7 +587,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
     }
     
     if (in_array($column['pma_type'], $gis_data_types)) {
-        $html_output .= PMA_getHTMLforGisDataTypes($vrow, $column);
+        $html_output .= PMA_getHTMLforGisDataTypes($current_row, $column);
     }
     
     return $html_output;
@@ -992,7 +971,7 @@ function PMA_getBinaryAndBlobColumn($column, $data, $special_chars,$biggest_max_
         $html_output .= $html_out;
     }
     
-    if (!empty($cfg['UploadDir'])) {
+    if (!empty($GLOBALS['cfg']['UploadDir'])) {
         $html_output .= PMA_getSelectOptionForUpload($vkey, $column);
     }
     
@@ -1187,14 +1166,14 @@ function PMA_getColumnSize($column, $extracted_columnspec)
 /**
  * Get HTML for gis data types
  * 
- * @param string $vrow  row description
+ * @param string $current_row  row description
  * @param array $column description of column in given table
  * 
  * @return string       an html snippet
  */
-function PMA_getHTMLforGisDataTypes($vrow, $column)
+function PMA_getHTMLforGisDataTypes($current_row, $column)
 {
-    $data_val = isset($vrow[$column['Field']]) ? $vrow[$column['Field']] : '';
+    $data_val = isset($current_row[$column['Field']]) ? $current_row[$column['Field']] : '';
     $_url_params = array(
         'field' => $column['Field_title'],
         'value' => $data_val,
@@ -1211,14 +1190,15 @@ function PMA_getHTMLforGisDataTypes($vrow, $column)
 /**
  * get html for continue insertion form
  * 
- * @param array $paramArray         array containing $db and $table
+ * @param string $table             name of the table
+ * @param string $db                name of the database
  * @param array $where_clause_array array of where clauses
+ * @param string $err_url           error url
  * 
  * @return string                   an html snippet
  */
-function PMA_getContinueInsertionForm($paramArray, $where_clause_array, $err_url)
+function PMA_getContinueInsertionForm($table, $db, $where_clause_array, $err_url)
 {
-    list($table, $db) = $paramArray;
     $html_output = '<form id="continueForm" method="post" action="tbl_replace.php" name="continueForm" >'
         . PMA_generate_common_hidden_inputs($db, $table)
         . '<input type="hidden" name="goto" value="' . htmlspecialchars($GLOBALS['goto']) . '" />'
@@ -1406,7 +1386,7 @@ function PMA_getHeadAndFootOfInsertRowTable($url_params)
 /**
  * Prepares the field value and retrieve special chars, backup field and data array
  * 
- * @param array $vrow                   a row of the table
+ * @param array $current_row            a row of the table
  * @param array $column                 description of column in given table
  * @param array $extracted_columnspec   associative array containing type, spec_in_brackets
  *                                      and possibly enum_set_values (another array)
@@ -1414,41 +1394,41 @@ function PMA_getHeadAndFootOfInsertRowTable($url_params)
  * 
  * @return array                        $real_null_value, $data, $special_chars, $backup_field, $special_chars_encoded              
  */
-function PMA_getSpecialCharsAndBackupField($vrow, $column, $extracted_columnspec,
+function PMA_getSpecialCharsAndBackupFieldForExistingRow($current_row, $column, $extracted_columnspec,
     $real_null_value, $gis_data_types, $column_name_appendix)
 {
     $special_chars_encoded = '';
     // (we are editing)
-    if (is_null($vrow[$column['Field']])) {
+    if (is_null($current_row[$column['Field']])) {
         $real_null_value = true;
-        $vrow[$column['Field']] = '';
+        $current_row[$column['Field']] = '';
         $special_chars = '';
-        $data = $vrow[$column['Field']];
+        $data = $current_row[$column['Field']];
     } elseif ($column['True_Type'] == 'bit') {
         $special_chars = PMA_printable_bit_value(
-            $vrow[$column['Field']], $extracted_columnspec['spec_in_brackets']
+            $current_row[$column['Field']], $extracted_columnspec['spec_in_brackets']
         );
     } elseif (in_array($column['True_Type'], $gis_data_types)) {
         // Convert gis data to Well Know Text format
-        $vrow[$column['Field']] = PMA_asWKT($vrow[$column['Field']], true);
-        $special_chars = htmlspecialchars($vrow[$column['Field']]);
+        $current_row[$column['Field']] = PMA_asWKT($current_row[$column['Field']], true);
+        $special_chars = htmlspecialchars($current_row[$column['Field']]);
     } else {
         // special binary "characters"
         if ($column['is_binary'] || ($column['is_blob'] && ! $GLOBALS['cfg']['ProtectBinary'])) {
             if ($_SESSION['tmp_user_values']['display_binary_as_hex'] && $GLOBALS['cfg']['ShowFunctionFields']) {
-                $vrow[$column['Field']] = bin2hex($vrow[$column['Field']]);
+                $current_row[$column['Field']] = bin2hex($current_row[$column['Field']]);
                 $column['display_binary_as_hex'] = true;
             } else {
-                $vrow[$column['Field']] = PMA_replaceBinaryContents($vrow[$column['Field']]);
+                $current_row[$column['Field']] = PMA_replaceBinaryContents($current_row[$column['Field']]);
             }
         } // end if
-        $special_chars = htmlspecialchars($vrow[$column['Field']]);
+        $special_chars = htmlspecialchars($current_row[$column['Field']]);
 
         //We need to duplicate the first \n or otherwise we will lose
         //the first newline entered in a VARCHAR or TEXT column
         $special_chars_encoded = PMA_duplicateFirstNewline($special_chars);
 
-        $data = $vrow[$column['Field']];
+        $data = $current_row[$column['Field']];
     } // end if... else...
 
     //when copying row, it is useful to empty auto-increment column to prevent duplicate key error
@@ -1463,7 +1443,7 @@ function PMA_getSpecialCharsAndBackupField($vrow, $column, $extracted_columnspec
     // it's better to set a fields_prev in this situation
     $backup_field = '<input type="hidden" name="fields_prev'
         . $column_name_appendix . '" value="'
-        . htmlspecialchars($vrow[$column['Field']]) . '" />';
+        . htmlspecialchars($current_row[$column['Field']]) . '" />';
     
     return array($real_null_value, $special_chars_encoded, $special_chars, $data, $backup_field);
 }
@@ -1476,7 +1456,7 @@ function PMA_getSpecialCharsAndBackupField($vrow, $column, $extracted_columnspec
  *  
  * @return array                    $real_null_value, $data, $special_chars, $backup_field, $special_chars_encoded
  */
-function PMA_displayDefaultValues($column, $real_null_value)
+function PMA_getSpecialCharsAndBackupFieldForInsetingMode($column, $real_null_value)
 {
     if (! isset($column['Default'])) {
         $column['Default'] 	  = '';
@@ -1503,5 +1483,35 @@ function PMA_displayDefaultValues($column, $real_null_value)
     }
     return array($real_null_value, $data, $special_chars, $backup_field, $special_chars_encoded);
 }
+
+/**
+ * Prepares the update/insert of a row
+ * 
+ * @return array     $loop_array, $using_key, $is_insert, $is_insertignore
+ */
+function PMA_getParamsForUpdateOrInsert()
+{
+    if (isset($_REQUEST['where_clause'])) {
+        // we were editing something => use the WHERE clause
+        $loop_array = (is_array($_REQUEST['where_clause']) ? $_REQUEST['where_clause'] : array($_REQUEST['where_clause']));
+        $using_key  = true;
+        $is_insert  = $_REQUEST['submit_type'] == 'insert'
+                      || $_REQUEST['submit_type'] == 'showinsert'
+                      || $_REQUEST['submit_type'] == 'insertignore';
+        $is_insertignore  = $_REQUEST['submit_type'] == 'insertignore';
+    } else {
+        // new row => use indexes
+        $loop_array = array();
+        foreach ($_REQUEST['fields']['multi_edit'] as $key => $dummy) {
+            $loop_array[] = $key;
+        }
+        $using_key  = false;
+        $is_insert  = true;
+        $is_insertignore = false;
+    }
+    return array($loop_array, $using_key, $is_insert, $is_insertignore);
+}
+
+
 
 ?>
