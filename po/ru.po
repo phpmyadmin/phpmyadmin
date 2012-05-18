@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-17 10:53+0200\n"
-"PO-Revision-Date: 2012-05-18 09:54+0200\n"
+"PO-Revision-Date: 2012-05-18 09:55+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -3083,11 +3083,10 @@ msgid "String"
 msgstr "Символьные"
 
 #: libraries/Types.class.php:666
-#, fuzzy
 #| msgid "Spatial"
 msgctxt "spatial types"
 msgid "Spatial"
-msgstr "Пространственный"
+msgstr "Пространственные"
 
 #: libraries/Types.class.php:701
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
