@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-17 10:53+0200\n"
-"PO-Revision-Date: 2012-05-18 09:55+0200\n"
+"PO-Revision-Date: 2012-05-18 09:57+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
@@ -4675,10 +4675,9 @@ msgid "Minimum number of tables to display the table filter box"
 msgstr "Минимальное количество таблиц для отображения поля фильтра"
 
 #: libraries/config/messages.inc.php:281
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of databases to display the database filter box"
-msgstr "Минимальное количество таблиц для отображения поля фильтра"
+msgstr "Минимальное количество баз данных для отображения поля фильтра"
 
 #: libraries/config/messages.inc.php:282
 msgid "String that separates databases into different tree levels"
@@ -7369,7 +7368,7 @@ msgstr "Файл ESRI"
 #: libraries/import/shp.php:199
 #, php-format
 msgid "Geometry type '%s' is not supported by MySQL."
-msgstr ""
+msgstr "Геометрический тип '%s' не поддерживается MySQL."
 
 #: libraries/import/shp.php:360
 #, php-format
@@ -9050,10 +9049,9 @@ msgid "No databases"
 msgstr "Базы данных отсутствуют"
 
 #: navigation.php:209
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "Filter databases by name"
-msgstr "Фильтровать таблицы по имени"
+msgstr "Фильтровать базы данных по имени"
 
 #: navigation.php:272
 msgid "Filter tables by name"
