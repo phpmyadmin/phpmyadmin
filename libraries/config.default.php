@@ -518,6 +518,24 @@ $cfg['Servers'][$i]['tracking_add_drop_table'] = true;
 $cfg['Servers'][$i]['tracking_add_drop_database'] = true;
 
 /**
+ * Enables caching of TABLE STATUS outputs for specific databases on this server 
+ * (in some cases TABLE STATUS can be very slow, so you may want to cache it). 
+ * APC is used (if the PHP extension is available, if not, this setting is ignored 
+ * silently). You have to provide StatusCacheLifetime.
+ * Takes effect only if DisableIS is true.
+ *
+ * @global array $cfg['Servers'][$i]['StatusCacheDatabases']
+ */
+$cfg['Servers'][$i]['StatusCacheDatabases'] = array();
+
+/**
+ * Lifetime in seconds of the TABLE STATUS cache if StatusCacheDatabases is used
+ *
+ * @global integer $cfg['Servers'][$i]['StatusCacheLifetime']
+ */
+$cfg['Servers'][$i]['StatusCacheLifetime'] = 0;
+
+/**
  * Default server (0 = no default server)
  *
  * If you have more than one server configured, you can set $cfg['ServerDefault']
@@ -882,6 +900,14 @@ $cfg['DisplayServersList'] = false;
  * @global boolean $cfg['DisplayDatabasesList']
  */
 $cfg['DisplayDatabasesList'] = 'auto';
+
+/**
+ * display a JavaScript database filter in the left frame
+ * when more then x databases are present
+ *
+ * @global boolean $cfg['LeftDisplayDatabaseFilterMinimum']
+ */
+$cfg['LeftDisplayDatabaseFilterMinimum'] = 30;
 
 /**
  * target of the navigation panel quick access icon

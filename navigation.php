@@ -201,8 +201,19 @@ if (! $GLOBALS['server']) {
             .'</form>' . "\n"
             . '</div>' . "\n";
     } else {
+
+        if (count($GLOBALS['pma']->databases) >= $GLOBALS['cfg']['LeftDisplayDatabaseFilterMinimum']) {
+            ?>
+            <span id="NavDbFilter">
+            <span id="clear_fast_db_filter" title="<?php echo __('Clear'); ?>">X</span>
+                <input type="text" class="gray" name="fast_db_filter" id="fast_db_filter" title="<?php echo __('Filter databases by name'); ?>" value="<?php echo __('Filter databases by name'); ?>" />
+            </span>
+            <?php
+        }
+
         echo $GLOBALS['pma']->databases->getHtmlListGrouped(true, $_SESSION['tmp_user_values']['navi_limit_offset'], $GLOBALS['cfg']['MaxDbList']) . "\n";
     }
+
     $_url_params = array('pos' => $pos);
     PMA_listNavigator(count($GLOBALS['pma']->databases), $pos, $_url_params, 'navigation.php', 'frame_navigation', $GLOBALS['cfg']['MaxDbList']);
 }
