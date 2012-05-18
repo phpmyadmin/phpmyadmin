@@ -129,7 +129,7 @@ class PMA_Theme
     }
 
     /**
-     * checks image path for existance - if not found use img from original theme
+     * checks image path for existance - if not found use img from fallback theme
      *
      * @access  public
      * @return bool
@@ -139,8 +139,8 @@ class PMA_Theme
         if (is_dir($this->getPath() . '/img/')) {
             $this->setImgPath($this->getPath() . '/img/');
             return true;
-        } elseif (is_dir($GLOBALS['cfg']['ThemePath'] . '/original/img/')) {
-            $this->setImgPath($GLOBALS['cfg']['ThemePath'] . '/original/img/');
+        } elseif (is_dir($GLOBALS['cfg']['ThemePath'] . '/' . PMA_Theme_Manager::FALLBACK_THEME . '/img/')) {
+            $this->setImgPath($GLOBALS['cfg']['ThemePath'] . '/' . PMA_Theme_Manager::FALLBACK_THEME . '/img/');
             return true;
         } else {
             trigger_error(

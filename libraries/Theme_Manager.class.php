@@ -48,7 +48,12 @@ class PMA_Theme_Manager
     /**
      * @var string
      */
-    var $theme_default = 'original';
+    var $theme_default;
+
+    /**
+     * @const string The name of the fallback theme
+     */
+    const FALLBACK_THEME = 'pmahomme';
 
     function __construct()
     {
@@ -94,7 +99,7 @@ class PMA_Theme_Manager
     function init()
     {
         $this->themes = array();
-        $this->theme_default = 'original';
+        $this->theme_default = self::FALLBACK_THEME;
         $this->active_theme = '';
 
         if (! $this->setThemesPath($GLOBALS['cfg']['ThemePath'])) {
@@ -125,12 +130,12 @@ class PMA_Theme_Manager
         if (! $this->getThemeCookie()
             || ! $this->setActiveTheme($this->getThemeCookie())
         ) {
-            // otherwise use default theme
             if ($GLOBALS['cfg']['ThemeDefault']) {
-                $this->setActiveTheme($GLOBALS['cfg']['ThemeDefault']);
+                // otherwise use default theme
+                $this->setActiveTheme($this->theme_default);
             } else {
-                // or original theme
-                $this->setActiveTheme('original');
+                // or fallback theme
+                $this->setActiveTheme(self::FALLBACK_THEME);
             }
         }
     }
@@ -365,8 +370,8 @@ class PMA_Theme_Manager
      */
     function getFallBackTheme()
     {
-        if (isset($this->themes['original'])) {
-            return $this->themes['original'];
+        if (isset($this->themes[self::FALLBACK_THEME])) {
+            return $this->themes[self::FALLBACK_THEME];
         }
 
         return false;
