@@ -1,25 +1,27 @@
 # phpMyAdmin translation.
-# Copyright (C) 2003 - 2011 phpMyAdmin devel team
+# Copyright (C) 2003 - 2012 phpMyAdmin devel team
 # This file is distributed under the same license as the phpMyAdmin package.
+# Automatically generated, 2012.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-17 10:53+0200\n"
-"PO-Revision-Date: 2011-09-27 08:42+0200\n"
-"Last-Translator: <sadik.khalid@gmail.com>\n"
-"Language-Team: Malayalam <ml@li.org>\n"
-"Language: ml\n"
+"PO-Revision-Date: 2012-05-18 00:00+0200\n"
+"Last-Translator: Darya Said <daryashapol@gmail.com>\n"
+"Language-Team: none\n"
+"Language: ckb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:59 js/messages.php:358
 #: libraries/display_tbl.lib.php:399 server_privileges.php:1828
 msgid "Show all"
-msgstr "എല്ലാം കാണിക്കൂ"
+msgstr "پیشاندانی هەموو"
 
 #: browse_foreigners.php:76 libraries/PDF.class.php:50
 #: libraries/common.lib.php:2460
@@ -28,7 +30,7 @@ msgstr "എല്ലാം കാണിക്കൂ"
 #: libraries/schema/User_Schema.class.php:399
 #: libraries/select_lang.lib.php:508
 msgid "Page number:"
-msgstr "താൾ:"
+msgstr "ژمارەی پەڕە:"
 
 #: browse_foreigners.php:159
 msgid ""
@@ -42,7 +44,7 @@ msgstr ""
 #: libraries/common.lib.php:3154 libraries/common.lib.php:3381
 #: libraries/common.lib.php:3382
 msgid "Search"
-msgstr "തിരയൂ"
+msgstr "گەڕان"
 
 #: browse_foreigners.php:184 db_operations.php:409 db_operations.php:449
 #: db_operations.php:562 db_operations.php:591 db_search.php:352
@@ -74,23 +76,23 @@ msgstr "തിരയൂ"
 #: tbl_tracking.php:489 tbl_tracking.php:631 tbl_zoom_select.php:305
 #: view_create.php:177 view_operations.php:94
 msgid "Go"
-msgstr "പോകൂ"
+msgstr "بڕۆ"
 
 #: browse_foreigners.php:199 browse_foreigners.php:203
 #: libraries/Index.class.php:457 tbl_tracking.php:365
 msgid "Keyname"
-msgstr "കീനാമം"
+msgstr "کلیلەناو"
 
 #: browse_foreigners.php:200 browse_foreigners.php:202
 #: server_collations.php:39 server_collations.php:51 server_engines.php:42
 #: server_plugins.php:128 server_status.php:1496
 msgid "Description"
-msgstr "വിവരണം"
+msgstr "پێناسە"
 
 #: browse_foreigners.php:287 browse_foreigners.php:297
 #: browse_foreigners.php:313 browse_foreigners.php:325
 msgid "Use this value"
-msgstr "ഈ വില ഉപയോഗിക്കൂ"
+msgstr "ئەم نرخە هەڵبژێرە"
 
 #: changelog.php:32 license.php:28
 #, php-format
@@ -98,21 +100,23 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"پەڕگەی %s بوونی نییە لەسەر ئەم سیستەمە, تکایە سەردانی www.phpmyadmin.net بۆ "
+"زانیاری زۆرتر."
 
 #: db_create.php:74
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "വിവരശേഖരം(ങ്ങൾ) %1$s സൃഷ്ടിച്ചിരിക്കുന്നു."
+msgstr "بنکەی دراوەی %1$s درووستکرا."
 
 #: db_datadict.php:49 db_operations.php:401
 msgid "Database comment: "
-msgstr "വിവരശേഖര അഭിപ്രായം: "
+msgstr ":تێبینی بنکەی دراوە"
 
 #: db_datadict.php:154 libraries/schema/Pdf_Relation_Schema.class.php:1282
 #: libraries/tbl_properties.inc.php:818 tbl_operations.php:369
 #: tbl_printview.php:124
 msgid "Table comments"
-msgstr "പട്ടിക അഭിപ്രയങ്ങൾ"
+msgstr "تێبینیەکانی خشتە"
 
 #: db_datadict.php:163 db_qbe.php:199 libraries/Index.class.php:461
 #: libraries/export/htmlword.php:245 libraries/export/htmlword.php:357
@@ -126,7 +130,7 @@ msgstr "പട്ടിക അഭിപ്രയങ്ങൾ"
 #: tbl_relation.php:401 tbl_tracking.php:303 tbl_tracking.php:369
 #: tbl_zoom_select.php:429
 msgid "Column"
-msgstr "നിര"
+msgstr "ستون"
 
 #: db_datadict.php:164 db_printview.php:102 libraries/Index.class.php:458
 #: libraries/db_structure.lib.php:46 libraries/export/htmlword.php:248
@@ -144,7 +148,7 @@ msgstr "നിര"
 #: tbl_printview.php:137 tbl_printview.php:295 tbl_structure.php:201
 #: tbl_structure.php:833 tbl_tracking.php:304 tbl_tracking.php:366
 msgid "Type"
-msgstr "തരം"
+msgstr "جۆر"
 
 #: db_datadict.php:166 libraries/Index.class.php:464
 #: libraries/export/htmlword.php:251 libraries/export/htmlword.php:363
@@ -157,7 +161,7 @@ msgstr "തരം"
 #: tbl_printview.php:138 tbl_structure.php:204 tbl_tracking.php:306
 #: tbl_tracking.php:372 tbl_zoom_select.php:430
 msgid "Null"
-msgstr "ശൂന്യം"
+msgstr "بەتاڵ"
 
 #: db_datadict.php:167 db_structure.php:637 libraries/export/htmlword.php:254
 #: libraries/export/htmlword.php:366 libraries/export/latex.php:484
@@ -168,7 +172,7 @@ msgstr "ശൂന്യം"
 #: libraries/tbl_properties.inc.php:89 tbl_printview.php:139
 #: tbl_structure.php:205 tbl_tracking.php:307
 msgid "Default"
-msgstr "സ്വതേ"
+msgstr "بنەڕەت"
 
 #: db_datadict.php:171 libraries/export/htmlword.php:370
 #: libraries/export/latex.php:486 libraries/export/odt.php:439
@@ -176,7 +180,7 @@ msgstr "സ്വതേ"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1314
 #: libraries/schema/Pdf_Relation_Schema.class.php:1335 tbl_printview.php:142
 msgid "Links to"
-msgstr "കണ്ണികൾ"
+msgstr "بەستەر دەکات بۆ"
 
 #: db_datadict.php:173 db_printview.php:108
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:113
@@ -187,7 +191,7 @@ msgstr "കണ്ണികൾ"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1336
 #: libraries/tbl_properties.inc.php:112 tbl_printview.php:144
 msgid "Comments"
-msgstr "അഭിപ്രായങ്ങൾ"
+msgstr "بۆچوون"
 
 #: db_datadict.php:235 js/messages.php:251 libraries/Index.class.php:359
 #: libraries/Index.class.php:386 libraries/Index.class.php:704
@@ -204,7 +208,7 @@ msgstr "അഭിപ്രായങ്ങൾ"
 #: tbl_structure.php:344 tbl_tracking.php:327 tbl_tracking.php:382
 #: tbl_tracking.php:387
 msgid "No"
-msgstr "ഇല്ല"
+msgstr "نەخێر"
 
 #: db_datadict.php:235 js/messages.php:250 libraries/Index.class.php:360
 #: libraries/Index.class.php:385 libraries/Index.class.php:704
@@ -227,89 +231,87 @@ msgstr "ഇല്ല"
 #: tbl_structure.php:41 tbl_structure.php:344 tbl_tracking.php:327
 #: tbl_tracking.php:380 tbl_tracking.php:385
 msgid "Yes"
-msgstr "അതേ"
+msgstr "بەڵێ"
 
 #: db_export.php:26
 msgid "View dump (schema) of database"
-msgstr ""
+msgstr "نیشاندانى بۆشایى (هێڵکارى) لە بنکەى دراوە"
 
 #: db_export.php:30 db_printview.php:93 db_qbe.php:104 db_tracking.php:47
 #: export.php:374 navigation.php:298
 msgid "No tables found in database."
-msgstr "വിവരശേഖരത്തിൽ ഒരു പട്ടികയും കണ്ടെത്താനായില്ല."
+msgstr ".هیج خشتەیەک بوونی نیە لە نێو بنکەی دراوە"
 
 #: db_export.php:40 db_search.php:334 server_export.php:22
 msgid "Select All"
-msgstr "എല്ലാം തിരഞ്ഞെടുക്കുക"
+msgstr "هەڵبژاردنی هەموو"
 
 #: db_export.php:42 db_search.php:337 server_export.php:24
 msgid "Unselect All"
-msgstr "ഒന്നും തിരഞ്ഞെടുക്കാതിരിക്കുക"
+msgstr "هەلنەبژاردنی هەموو"
 
 #: db_operations.php:59 tbl_create.php:22
 msgid "The database name is empty!"
-msgstr "വിവരശേഖരത്തിനു പേര് നൽകിയിട്ടില്ല!"
+msgstr "ناوی بنکەی دراوە بەتاڵە!"
 
 #: db_operations.php:311
-#, fuzzy, php-format
-#| msgid "Database %s has been renamed to %s"
+#, php-format
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "%s എന്ന വിവരശേഖരം %s എന്ന പേരിലേക്ക് മാറ്റിയിരിക്കുന്നു"
+msgstr "ناوی بنکەی دراوەی %1$s گۆڕدرا بۆ %2$s"
 
 #: db_operations.php:315
-#, fuzzy, php-format
-#| msgid "Database %s has been copied to %s"
+#, php-format
 msgid "Database %1$s has been copied to %2$s"
-msgstr "%s എന്ന വിവരശേഖരം %s എന്ന പേരിലേക്ക് പകർത്തിയിരിക്കുന്നു"
+msgstr "بنکەی دراوەی %1$s ڕوونووس کرا بۆ بنکەی دراوەی %2$s"
 
 #: db_operations.php:443
 msgid "Rename database to"
-msgstr "വിവരശേഖരത്തിന്റ്റ പേര് മാറ്റുക"
+msgstr "ناوی بنکەی دراوە بگۆڕە بۆ"
 
 #: db_operations.php:470
 msgid "Remove database"
-msgstr "വിവരശേഖരം നീക്കുക"
+msgstr "سڕینەوەی بنکەی دراوە"
 
 #: db_operations.php:482
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "%s എന്ന വിവരശേഖരം ഉപേക്ഷിച്ചിരിക്കുന്നു."
+msgstr "بنکەی دراوەی %s سڕایەوە."
 
 #: db_operations.php:487
 msgid "Drop the database (DROP)"
-msgstr "വിവരശേഖരം ഉപേക്ഷിക്കുക (DROP)"
+msgstr "سڕینەوەی بنکەی دراوە (DROP)"
 
 #: db_operations.php:516
 msgid "Copy database to"
-msgstr "വിവരശേഖരം പകർത്തുക"
+msgstr "لە ڕوونووسینەوەی بنکەی دراوە بۆ"
 
 #: db_operations.php:523 tbl_operations.php:561 tbl_tracking.php:482
 msgid "Structure only"
-msgstr "ഘടന മാത്രം"
+msgstr "تەنیا بنچینە"
 
 #: db_operations.php:524 tbl_operations.php:562 tbl_tracking.php:484
 msgid "Structure and data"
-msgstr "ഘടനയും വിവരവും"
+msgstr "بنچینە و زانیاری"
 
 #: db_operations.php:525 tbl_operations.php:563 tbl_tracking.php:483
 msgid "Data only"
-msgstr "വിവരം മാത്രം"
+msgstr "تەنیا زانیاری"
 
 #: db_operations.php:533
 msgid "CREATE DATABASE before copying"
-msgstr ""
+msgstr "بنکەی دراوە درووست بکە پێش ڕوونووسکردن"
 
 #: db_operations.php:536 libraries/config/messages.inc.php:130
 #: libraries/config/messages.inc.php:131 libraries/config/messages.inc.php:133
 #: libraries/config/messages.inc.php:139 tbl_operations.php:569
 #, php-format
 msgid "Add %s"
-msgstr "%s ചേർക്കുക"
+msgstr "زۆرکردن %s"
 
 #: db_operations.php:540 libraries/config/messages.inc.php:123
 #: tbl_operations.php:321 tbl_operations.php:571
 msgid "Add AUTO_INCREMENT value"
-msgstr ""
+msgstr "زۆرکردنی نرخی زۆربوونی خۆکارانە"
 
 #: db_operations.php:544 tbl_operations.php:578
 msgid "Add constraints"
@@ -317,7 +319,7 @@ msgstr ""
 
 #: db_operations.php:559
 msgid "Switch to copied database"
-msgstr ""
+msgstr "بڕۆ بۆ بنکەی دراوەی ڕوونووس کراو"
 
 #: db_operations.php:582 libraries/Index.class.php:463
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
@@ -327,7 +329,7 @@ msgstr ""
 #: tbl_structure.php:202 tbl_structure.php:938 tbl_tracking.php:305
 #: tbl_tracking.php:371
 msgid "Collation"
-msgstr "നിബന്ധന"
+msgstr ""
 
 #: db_operations.php:599
 #, php-format
@@ -349,7 +351,7 @@ msgstr ""
 #: server_privileges.php:2071 server_privileges.php:2340
 #: server_synchronize.php:519 server_synchronize.php:1039 tbl_tracking.php:711
 msgid "Table"
-msgstr "പട്ടിക"
+msgstr "خشتە"
 
 #: db_printview.php:101 db_tables_search.php:24 db_tables_search.php:53
 #: libraries/Table.class.php:326 libraries/build_html_for_db.lib.php:31
@@ -357,47 +359,47 @@ msgstr "പട്ടിക"
 #: navigation.php:605 navigation.php:627 sql.php:939 tbl_printview.php:376
 #: tbl_structure.php:462 tbl_structure.php:536 tbl_structure.php:948
 msgid "Rows"
-msgstr "വരികൾ"
+msgstr "خانە"
 
 #: db_printview.php:105 libraries/db_structure.lib.php:53 tbl_indexes.php:223
 msgid "Size"
-msgstr "വലിപ്പം"
+msgstr "قەبارە"
 
 #: db_printview.php:159 db_structure.php:592 libraries/export/sql.php:977
 msgid "in use"
-msgstr "ഉപയോഗത്തിൽ"
+msgstr "بەکار دەبرێت"
 
 #: db_printview.php:185 libraries/db_info.inc.php:76
 #: libraries/db_structure.lib.php:60 libraries/export/sql.php:911
 #: libraries/schema/Pdf_Relation_Schema.class.php:1287 tbl_printview.php:421
 #: tbl_structure.php:980
 msgid "Creation"
-msgstr "സൃഷ്‌ടി"
+msgstr "درووستکردن"
 
 #: db_printview.php:194 libraries/db_info.inc.php:81
 #: libraries/db_structure.lib.php:65 libraries/export/sql.php:922
 #: libraries/schema/Pdf_Relation_Schema.class.php:1292 tbl_printview.php:432
 #: tbl_structure.php:988
 msgid "Last update"
-msgstr "അവസാനം നവീകരിച്ചത്"
+msgstr "دواترین نوێکردنەوە"
 
 #: db_printview.php:203 libraries/db_info.inc.php:86
 #: libraries/db_structure.lib.php:70 libraries/export/sql.php:933
 #: libraries/schema/Pdf_Relation_Schema.class.php:1297 tbl_printview.php:443
 #: tbl_structure.php:996
 msgid "Last check"
-msgstr "അന്തിമ പരിശോധന"
+msgstr "دواترین پشکنین"
 
 #: db_printview.php:220 db_structure.php:613
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s പട്ടിക"
-msgstr[1] "%s പട്ടികകൾ"
+msgstr[0] "%s خشتە"
+msgstr[1] "%s خشتەکان"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
-msgstr ""
+msgstr "دەبێت لانیکەم ١ خانە هەڵبژێریت بۆ پیشاندان"
 
 #: db_qbe.php:189
 #, php-format
@@ -407,7 +409,7 @@ msgstr ""
 #: db_qbe.php:225 libraries/db_structure.lib.php:106
 #: libraries/display_tbl.lib.php:1196
 msgid "Sort"
-msgstr "തരംതിരിക്കുക"
+msgstr "ڕیزکردن"
 
 #: db_qbe.php:234 db_qbe.php:269 libraries/db_structure.lib.php:113
 #: libraries/db_structure.lib.php:122 libraries/display_tbl.lib.php:663
@@ -415,7 +417,7 @@ msgstr "തരംതിരിക്കുക"
 #: server_databases.php:187 server_databases.php:204 tbl_operations.php:282
 #: tbl_select.php:223
 msgid "Ascending"
-msgstr "ആരോഹണം"
+msgstr "لە سەرەتاوە بۆ کۆتایی"
 
 #: db_qbe.php:235 db_qbe.php:277 libraries/db_structure.lib.php:114
 #: libraries/db_structure.lib.php:123 libraries/display_tbl.lib.php:674
@@ -423,82 +425,82 @@ msgstr "ആരോഹണം"
 #: server_databases.php:187 server_databases.php:204 tbl_operations.php:283
 #: tbl_select.php:224
 msgid "Descending"
-msgstr "അവരോഹണം"
+msgstr "لە کۆتایی بۆ سەرەتا"
 
 #: db_qbe.php:290 db_tracking.php:86 libraries/display_tbl.lib.php:482
 #: tbl_change.php:286 tbl_tracking.php:716
 msgid "Show"
-msgstr "പ്രദർശിപ്പിക്കുക"
+msgstr "پیشاندان"
 
 #: db_qbe.php:326
 msgid "Criteria"
-msgstr "മാനദണ്ഡം"
+msgstr "مەرج"
 
 #: db_qbe.php:380 db_qbe.php:462 db_qbe.php:554 db_qbe.php:585
 msgid "Ins"
-msgstr "ചേര്‍ക്കുക"
+msgstr ""
 
 #: db_qbe.php:384 db_qbe.php:466 db_qbe.php:551 db_qbe.php:582
 msgid "And"
-msgstr "ഉം"
+msgstr "و"
 
 #: db_qbe.php:393 db_qbe.php:474 db_qbe.php:556 db_qbe.php:587
 msgid "Del"
-msgstr "മായ്ക്കുക"
+msgstr "سڕینەوە"
 
 #: db_qbe.php:397 db_qbe.php:478 db_qbe.php:549 db_qbe.php:580
 #: server_privileges.php:484 tbl_change.php:936 tbl_indexes.php:301
 #: tbl_select.php:197
 msgid "Or"
-msgstr "അല്ലെനങ്കിൽ"
+msgstr "یان"
 
 #: db_qbe.php:534
 msgid "Modify"
-msgstr "തിരുത്തുക"
+msgstr "دەستکاری"
 
 #: db_qbe.php:609
 msgid "Add/Delete criteria rows"
-msgstr "മാനദണ്ഡ വരികൾ ചേർക്കുക/മായക്കുക"
+msgstr "زۆرکردن/سڕینەوەی خانەی مەرج"
 
 #: db_qbe.php:621
 msgid "Add/Delete columns"
-msgstr "നിരകൾ ചേർക്കുക/മായക്കുക"
+msgstr "زۆرکردن/سڕینەوەی خانە"
 
 #: db_qbe.php:634 db_qbe.php:657
 msgid "Update Query"
-msgstr "അഭ്യര്‍ത്ഥന നവീകറിക്കുക"
+msgstr "نوێکردنەوەی پرس"
 
 #: db_qbe.php:640
 msgid "Use Tables"
-msgstr "പട്ടികകൾ ഉപയോഗിക്കുക"
+msgstr "خشتە بەکار ببە"
 
 #: db_qbe.php:663
 #, php-format
 msgid "SQL query on database <b>%s</b>:"
-msgstr ""
+msgstr "پرسی SQL لەسەر بنکەی دراوەی <b>%s</b>:"
 
 #: db_qbe.php:956 libraries/common.lib.php:1235
 msgid "Submit Query"
-msgstr "അഭ്യർത്ഥന സമർപ്പിക്കുക"
+msgstr "ناردنی پرس"
 
 #: db_search.php:31 libraries/auth/config.auth.lib.php:78
 #: libraries/auth/config.auth.lib.php:99
 #: libraries/auth/cookie.auth.lib.php:616 libraries/auth/http.auth.lib.php:54
 #: libraries/auth/signon.auth.lib.php:247
 msgid "Access denied"
-msgstr ""
+msgstr "ڕێگەنەدرا بە بینین"
 
 #: db_search.php:43 db_search.php:301
 msgid "at least one of the words"
-msgstr ""
+msgstr "لانیکەم یەکێک لە وشەکان"
 
 #: db_search.php:44 db_search.php:302
 msgid "all words"
-msgstr ""
+msgstr "هەموو وشەکان"
 
 #: db_search.php:45 db_search.php:303
 msgid "the exact phrase"
-msgstr ""
+msgstr "دەقاودەقی ڕستە"
 
 #: db_search.php:46 db_search.php:304
 msgid "as regular expression"
@@ -537,7 +539,7 @@ msgstr ""
 #: setup/frames/index.inc.php:148 setup/frames/index.inc.php:251
 #: tbl_tracking.php:499 tbl_tracking.php:520 tbl_tracking.php:579
 msgid "Delete"
-msgstr ""
+msgstr "سڕینەوە"
 
 #: db_search.php:266
 #, php-format
@@ -548,7 +550,7 @@ msgstr[1] ""
 
 #: db_search.php:289
 msgid "Search in database"
-msgstr ""
+msgstr "گەڕان لە بنکەی دراو"
 
 #: db_search.php:292
 msgid "Words or values to search for (wildcard: \"%\"):"
@@ -556,7 +558,7 @@ msgstr ""
 
 #: db_search.php:297
 msgid "Find:"
-msgstr ""
+msgstr "دۆزنەوە:"
 
 #: db_search.php:301 db_search.php:302
 msgid "Words are separated by a space character (\" \")."
@@ -572,7 +574,7 @@ msgstr ""
 
 #: db_structure.php:84
 msgid "No tables found in database"
-msgstr ""
+msgstr "هیچ خشتەیەک نەدۆزرایەوە لە بنکەی دراو"
 
 #: db_structure.php:242 libraries/mysql_charsets.lib.php:411
 #: libraries/mysql_charsets.lib.php:418
@@ -612,7 +614,7 @@ msgstr ""
 #: db_structure.php:543 db_structure.php:577 libraries/Menu.class.php:194
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:208
 msgid "View"
-msgstr ""
+msgstr "نیشاندان"
 
 #: db_structure.php:620 libraries/Menu.class.php:504
 #: libraries/db_structure.lib.php:35 server_replication.php:31
@@ -641,13 +643,13 @@ msgstr ""
 #: server_databases.php:292 server_privileges.php:781
 #: server_privileges.php:1923 tbl_structure.php:562
 msgid "Check All"
-msgstr ""
+msgstr "پشکنینی هەموو"
 
 #: db_structure.php:686 libraries/display_tbl.lib.php:2992
 #: libraries/replication_gui.lib.php:35 server_databases.php:294
 #: server_privileges.php:784 server_privileges.php:1927 tbl_structure.php:566
 msgid "Uncheck All"
-msgstr ""
+msgstr "نەپشکنینی هەموو"
 
 #: db_structure.php:691
 msgid "Check tables having overhead"
@@ -1299,11 +1301,9 @@ msgid "EiB"
 msgstr ""
 
 #: js/messages.php:128
-#, fuzzy, php-format
-#| msgid "%s table"
-#| msgid_plural "%s tables"
+#, php-format
 msgid "%d table(s)"
-msgstr "%s പട്ടിക"
+msgstr ""
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:131
@@ -1522,11 +1522,9 @@ msgid "Profiling results"
 msgstr ""
 
 #: js/messages.php:189
-#, fuzzy
-#| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
-msgstr "പട്ടിക"
+msgstr ""
 
 #: js/messages.php:190
 msgid "Chart"
@@ -2646,10 +2644,9 @@ msgid "Error renaming table %1$s to %2$s"
 msgstr ""
 
 #: libraries/Table.class.php:1413
-#, fuzzy, php-format
-#| msgid "Database %s has been renamed to %s"
+#, php-format
 msgid "Table %1$s has been renamed to %2$s."
-msgstr "%s എന്ന വിവരശേഖരം %s എന്ന പേരിലേക്ക് മാറ്റിയിരിക്കുന്നു"
+msgstr ""
 
 #: libraries/Table.class.php:1557
 msgid "Could not save table UI preferences"
@@ -3202,19 +3199,19 @@ msgstr ""
 #: libraries/common.lib.php:469
 msgctxt "MySQL 5.5 documentation language"
 msgid "en"
-msgstr ""
+msgstr "en"
 
 #. l10n: Please check that translation actually exists.
 #: libraries/common.lib.php:473
 msgctxt "MySQL 5.1 documentation language"
 msgid "en"
-msgstr ""
+msgstr "en"
 
 #. l10n: Please check that translation actually exists.
 #: libraries/common.lib.php:477
 msgctxt "MySQL 5.0 documentation language"
 msgid "en"
-msgstr ""
+msgstr "en"
 
 #: libraries/common.lib.php:642 server_status.php:599 server_status.php:1259
 #: sql.php:936
@@ -3366,7 +3363,7 @@ msgstr ""
 
 #: libraries/common.lib.php:3902
 msgid "Print"
-msgstr "അച്ചടിക്കുക"
+msgstr ""
 
 #: libraries/config.values.php:53 libraries/config.values.php:60
 #: libraries/config.values.php:68
@@ -3733,10 +3730,8 @@ msgid "Whether the table structure actions should be hidden"
 msgstr ""
 
 #: libraries/config/messages.inc.php:59
-#, fuzzy
-#| msgid "Database comment: "
 msgid "Hide table structure actions"
-msgstr "വിവരശേഖര അഭിപ്രായം: "
+msgstr ""
 
 #: libraries/config/messages.inc.php:60
 msgid "Show binary contents as HEX by default"
@@ -4268,20 +4263,16 @@ msgid "Customize startup page"
 msgstr ""
 
 #: libraries/config/messages.inc.php:228
-#, fuzzy
-#| msgid "Database comment: "
 msgid "Database structure"
-msgstr "വിവരശേഖര അഭിപ്രായം: "
+msgstr ""
 
 #: libraries/config/messages.inc.php:229
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:230
-#, fuzzy
-#| msgid "Database comment: "
 msgid "Table structure"
-msgstr "വിവരശേഖര അഭിപ്രായം: "
+msgstr ""
 
 #: libraries/config/messages.inc.php:231
 msgid "Settings for the table structure (list of columns)"
@@ -5605,7 +5596,7 @@ msgstr ""
 #: libraries/core.lib.php:255
 msgctxt "PHP documentation language"
 msgid "en"
-msgstr ""
+msgstr "en"
 
 #: libraries/core.lib.php:276
 #, php-format
@@ -6754,10 +6745,9 @@ msgid "Edit structure by following the \"Structure\" link"
 msgstr ""
 
 #: libraries/import.lib.php:1125
-#, fuzzy, php-format
-#| msgid "Copy database to"
+#, php-format
 msgid "Go to database: %s"
-msgstr "വിവരശേഖരം പകർത്തുക"
+msgstr ""
 
 #: libraries/import.lib.php:1128 libraries/import.lib.php:1153
 #, php-format
@@ -7869,7 +7859,7 @@ msgstr ""
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/select_lang.lib.php:497
 msgid "ltr"
-msgstr "ltr"
+msgstr ""
 
 #: libraries/select_lang.lib.php:515 libraries/select_lang.lib.php:524
 #: libraries/select_lang.lib.php:533
@@ -8726,12 +8716,11 @@ msgid "Character Sets and Collations"
 msgstr ""
 
 #: server_databases.php:114
-#, fuzzy, php-format
-#| msgid "Database %s has been dropped."
+#, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%s എന്ന വിവരശേഖരം ഉപേക്ഷിച്ചിരിക്കുന്നു."
-msgstr[1] "%s എന്ന വിവരശേഖരം ഉപേക്ഷിച്ചിരിക്കുന്നു."
+msgstr[0] ""
+msgstr[1] ""
 
 #: server_databases.php:128
 msgid "Databases statistics"
@@ -10813,10 +10802,8 @@ msgid "Table %1$s has been altered successfully"
 msgstr ""
 
 #: tbl_alter.php:130
-#, fuzzy
-#| msgid "Database %s has been dropped."
 msgid "The columns have been moved successfully."
-msgstr "%s എന്ന വിവരശേഖരം ഉപേക്ഷിച്ചിരിക്കുന്നു."
+msgstr ""
 
 #: tbl_change.php:745
 msgid "Because of its length,<br /> this column might not be editable"
@@ -10874,11 +10861,9 @@ msgid "Bar"
 msgstr ""
 
 #: tbl_chart.php:82
-#, fuzzy
-#| msgid "Column"
 msgctxt "Chart type"
 msgid "Column"
-msgstr "നിര"
+msgstr ""
 
 #: tbl_chart.php:84
 msgctxt "Chart type"
@@ -11132,10 +11117,8 @@ msgid "Check referential integrity:"
 msgstr ""
 
 #: tbl_printview.php:71
-#, fuzzy
-#| msgid "Show all"
 msgid "Showing tables"
-msgstr "എല്ലാം കാണിക്കൂ"
+msgstr ""
 
 #: tbl_printview.php:292 tbl_structure.php:830
 msgid "Space usage"
@@ -11217,10 +11200,8 @@ msgid "Spatial"
 msgstr ""
 
 #: tbl_structure.php:158 tbl_structure.php:162
-#, fuzzy
-#| msgid "Use this value"
 msgid "Distinct values"
-msgstr "ഈ വില ഉപയോഗിക്കൂ"
+msgstr ""
 
 #: tbl_structure.php:163 tbl_structure.php:164
 msgid "Add primary key"
@@ -11265,10 +11246,8 @@ msgid "Show more actions"
 msgstr ""
 
 #: tbl_structure.php:621 tbl_structure.php:686
-#, fuzzy
-#| msgid "Add/Delete columns"
 msgid "Move columns"
-msgstr "നിരകൾ ചേർക്കുക/മായക്കുക"
+msgstr ""
 
 #: tbl_structure.php:622
 msgid "Move the columns by dragging them up and down."
@@ -11500,7 +11479,7 @@ msgstr ""
 #: transformation_overview.php:47
 msgctxt "for MIME transformation"
 msgid "Description"
-msgstr "വിവരണം"
+msgstr ""
 
 #: user_password.php:26
 msgid "You don't have sufficient privileges to be here right now!"
@@ -11677,10 +11656,8 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:114 libraries/advisory_rules.txt:121
 #: libraries/advisory_rules.txt:128
-#, fuzzy
-#| msgid "Description"
 msgid "Distribution"
-msgstr "വിവരണം"
+msgstr ""
 
 #: libraries/advisory_rules.txt:117
 msgid "Version is compiled from source, not a MySQL official binary."
@@ -11951,10 +11928,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:218
-#, fuzzy
-#| msgid "Sort"
 msgid "Sort rows"
-msgstr "തരംതിരിക്കുക"
+msgstr ""
 
 #: libraries/advisory_rules.txt:221
 msgid "There are lots of rows being sorted."
@@ -12441,6 +12416,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:425
 msgid "You do not have InnoDB enabled."
 msgstr ""
+"InnoDB\n"
+" که ت چالاک نه کردوه\n"
+" "
 
 #: libraries/advisory_rules.txt:426
 msgid "InnoDB is usually the better choice for table engines."
@@ -12558,11 +12536,3 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Data only"
-#~ msgid "Dates only."
-#~ msgstr "വിവരം മാത്രം"
-
-#~ msgid "Failed to open remote URL"
-#~ msgstr "വിദൂര യു ആർ എൽ (URL) തുറക്കുന്നതിൽ പരാജയപ്പെട്ടിരിക്കുന്നു"

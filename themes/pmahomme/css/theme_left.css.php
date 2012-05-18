@@ -292,7 +292,8 @@ div#left_tableList ul ul {
     display: none;
 }
 
-#clear_fast_filter {
+#clear_fast_filter,
+#clear_fast_db_filter {
     background: white;
     color: black;
     cursor: pointer;
@@ -302,11 +303,13 @@ div#left_tableList ul ul {
     right: 3ex;
 }
 
-#fast_filter {
+#fast_filter,
+#fast_db_filter {
     width: 85%;
     padding: .1em;
 }
 
-#fast_filter.gray {
+#fast_filter.gray,
+#fast_db_filter.gray {
     color: gray;
 }
