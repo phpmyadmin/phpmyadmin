@@ -375,19 +375,17 @@ class PMA_Theme_Manager
     /**
      * prints css data
      *
-     * @param string $type
-     *
      * @return bool
      */
-    function printCss($type)
+    function printCss()
     {
-        if ($this->theme->loadCss($type)) {
+        if ($this->theme->loadCss()) {
             return true;
         }
 
         // if loading css for this theme failed, try default theme css
         $fallback_theme = $this->getFallBackTheme();
-        if ($fallback_theme && $fallback_theme->loadCss($type)) {
+        if ($fallback_theme && $fallback_theme->loadCss()) {
             return true;
         }
 

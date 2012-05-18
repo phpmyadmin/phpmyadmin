@@ -54,12 +54,6 @@ class PMA_Theme
     var $img_path = '';
 
     /**
-     * @var array   valid css types
-     * @access  protected
-     */
-    var $types = array('left', 'right');
-
-    /**
      * @var integer last modification time for info file
      * @access  protected
      */
@@ -308,25 +302,16 @@ class PMA_Theme
     /**
      * load css (send to stdout, normally the browser)
      *
-     * @param string &$type left, right or print
-     *
      * @return bool
      * @access  public
      */
-    function loadCss(&$type)
+    function loadCss()
     {
-        if (empty($type) || ! in_array($type, $this->types)) {
-            $type = 'left';
-        }
+        echo PMA_SQP_buildCssData();
 
-        if ($type == 'right') {
-            echo PMA_SQP_buildCssData();
-        }
+        $_css_file = $this->getPath() . '/css/style.css.php';
 
-        $_css_file = $this->getPath()
-                   . '/css/theme_' . $type . '.css.php';
-
-        if (! file_exists($_css_file)) {
+        if (! is_readable($_css_file)) {
             return false;
         }
 
@@ -340,17 +325,11 @@ class PMA_Theme
 
         include $_css_file;
 
-        if ($type != 'print') {
-            $_sprites_data_file = $this->getPath() . '/sprites.lib.php';
-            $_sprites_css_file = './themes/sprites.css.php';
-            if (file_exists($_sprites_data_file)
-                && is_readable($_sprites_data_file)
-                && file_exists($_sprites_css_file)
-                && is_readable($_sprites_css_file)
-            ) {
-                include $_sprites_data_file;
-                include $_sprites_css_file;
-            }
+        $_sprites_data_file = $this->getPath() . '/sprites.lib.php';
+        $_sprites_css_file = './themes/sprites.css.php';
+        if (is_readable($_sprites_data_file)) {
+            include $_sprites_data_file;
+            include $_sprites_css_file;
         }
 
         return true;
