@@ -331,7 +331,7 @@ class PMA_Theme
 
         foreach ($this->_cssFiles as $file) {
             $path = $this->getPath() . "/css/$file.css.php";
-            $fallback = PMA_Theme_Manager::FALLBACK_THEME .  "/css/$file.css.php";
+            $fallback = "./themes/" . PMA_Theme_Manager::FALLBACK_THEME .  "/css/$file.css.php";
 
             if (is_readable($path)) {
                 echo "\n/* FILE: $file.css.php */\n";
