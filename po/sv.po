@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-17 10:53+0200\n"
-"PO-Revision-Date: 2012-05-17 20:50+0200\n"
+"PO-Revision-Date: 2012-05-19 02:32+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -2907,24 +2907,32 @@ msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr ""
+"En variabel-längd (%s) sträng, den effektiva maximala längden är "
+"förutsättningen för den maximala radstorleken"
 
 #: libraries/Types.class.php:327
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"En TEXT kolumn med en maximal längd av 255 (2^8-1) tecken, lagrat med en en-"
+"bytes prefix vilken anger längden av värdet i bytes"
 
 #: libraries/Types.class.php:329 libraries/Types.class.php:725
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"En TEXT kolumn med en maximal längd av 65.535 (2^16-1) tecken, lagrat med en "
+"två-bytes prefix viken anger längden av värdet i bytes"
 
 #: libraries/Types.class.php:331
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"En TEXT kolumn med en maximal längd av 16.777.215 (2^24-1) tecken, lagrat "
+"med en tre-bytes prefix vilken anger längden av värdet i bytes"
 
 #: libraries/Types.class.php:333
 msgid ""
@@ -2932,30 +2940,41 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
+"En TEXT kolumn med en maximal längd av 4,294,967,295 eller 4GB (2^32-1) "
+"tecken, lagrat med en fyra-bytes prefix vilken anger längden av värdet i "
+"bytes"
 
 #: libraries/Types.class.php:335
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Liknande en CHAR typ, men lagrar binära byte strängar snarare än icke-binära "
+"teckensträngar"
 
 #: libraries/Types.class.php:337
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Liknande en VARCHAR typ, men lagrar binära strängar byte snarare än icke-"
+"binära teckensträngar"
 
 #: libraries/Types.class.php:339
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
+"En BLOB kolumn med en maximal längd av 255 (2^8-1) bytes, lagrat med en en-"
+"sbyte prefix vilken anger längden av värdet"
 
 #: libraries/Types.class.php:341
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
+"En BLOB kolumn med en maximal längd av 16.777.215 (2^24-1) bytes, lagrat med "
+"en tre-bytes prefix vilken anger längden av värdet"
 
 #: libraries/Types.class.php:343
 msgid ""
