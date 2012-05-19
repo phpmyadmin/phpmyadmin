@@ -344,12 +344,7 @@ class PMA_Theme
             }
         }
 
-        $_sprites_data_file = $this->getPath() . '/sprites.lib.php';
-        $_sprites_css_file = './themes/sprites.css.php';
-        if (is_readable($_sprites_data_file)) {
-            include $_sprites_data_file;
-            include $_sprites_css_file;
-        }
+        include './themes/sprites.css.php';
 
         return $success;
     }
