@@ -141,10 +141,10 @@ class PMA_Theme
     /**
      * checks image path for existance - if not found use img from fallback theme
      *
-     * @access  public
+     * @access public
      * @return bool
      */
-    function checkImgPath()
+    public function checkImgPath()
     {
         if (is_dir($this->getPath() . '/img/')) {
             $this->setImgPath($this->getPath() . '/img/');
@@ -167,10 +167,10 @@ class PMA_Theme
     /**
      * returns path to theme
      *
-     * @access  public
-     * @return string  $path   path to theme
+     * @access public
+     * @return string path to theme
      */
-    function getPath()
+    public function getPath()
     {
         return $this->path;
     }
@@ -178,10 +178,10 @@ class PMA_Theme
     /**
      * returns layout file
      *
-     * @access  public
-     * @return string  layout file
+     * @access public
+     * @return string layout file
      */
-    function getLayoutFile()
+    public function getLayoutFile()
     {
         return $this->getPath() . '/layout.inc.php';
     }
@@ -194,7 +194,7 @@ class PMA_Theme
      * @return void
      * @access public
      */
-    function setPath($path)
+    public function setPath($path)
     {
         $this->path = trim($path);
     }
@@ -207,7 +207,7 @@ class PMA_Theme
      * @return void
      * @access public
      */
-    function setVersion($version)
+    public function setVersion($version)
     {
         $this->version = trim($version);
     }
@@ -216,9 +216,9 @@ class PMA_Theme
      * returns version
      *
      * @return string version
-     * @access  public
+     * @access public
      */
-    function getVersion()
+    public function getVersion()
     {
         return $this->version;
     }
@@ -232,7 +232,7 @@ class PMA_Theme
      * @return boolean true if theme version is equal or higher to $version
      * @access public
      */
-    function checkVersion($version)
+    public function checkVersion($version)
     {
         return version_compare($this->getVersion(), $version, 'lt');
     }
@@ -245,7 +245,7 @@ class PMA_Theme
      * @return void
      * @access public
      */
-    function setName($name)
+    public function setName($name)
     {
         $this->name = trim($name);
     }
@@ -256,7 +256,7 @@ class PMA_Theme
      * @access  public
      * @return string name
      */
-    function getName()
+    public function getName()
     {
         return $this->name;
     }
@@ -269,7 +269,7 @@ class PMA_Theme
      * @return void
      * @access public
      */
-    function setId($id)
+    public function setId($id)
     {
         $this->id = trim($id);
     }
@@ -280,7 +280,7 @@ class PMA_Theme
      * @return string id
      * @access public
      */
-    function getId()
+    public function getId()
     {
         return $this->id;
     }
@@ -293,7 +293,7 @@ class PMA_Theme
      * @return void
      * @access public
      */
-    function setImgPath($path)
+    public function setImgPath($path)
     {
         $this->img_path = $path;
     }
@@ -304,7 +304,7 @@ class PMA_Theme
      * @access public
      * @return string image path for this theme
      */
-    function getImgPath()
+    public function getImgPath()
     {
         return $this->img_path;
     }
@@ -315,7 +315,7 @@ class PMA_Theme
      * @return bool
      * @access  public
      */
-    function loadCss()
+    public function loadCss()
     {
         $success = true;
 
@@ -360,7 +360,7 @@ class PMA_Theme
      * @return void
      * @access public
      */
-    function printPreview()
+    public function printPreview()
     {
         echo '<div class="theme_preview">';
         echo '<h2>' . htmlspecialchars($this->getName())
