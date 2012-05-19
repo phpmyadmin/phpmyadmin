@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-17 10:53+0200\n"
-"PO-Revision-Date: 2012-05-11 20:42+0200\n"
+"PO-Revision-Date: 2012-05-17 20:50+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -2898,6 +2898,8 @@ msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
 msgstr ""
+"En fast längd (0-255, default 1) sträng som alltid är högerfylld med "
+"blankslag till den angivna längden vid lagring"
 
 #: libraries/Types.class.php:325 libraries/Types.class.php:723
 #, php-format
@@ -4594,10 +4596,9 @@ msgid "Minimum number of tables to display the table filter box"
 msgstr "Minsta antal tabeller för att visa tabellen filter box"
 
 #: libraries/config/messages.inc.php:281
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of databases to display the database filter box"
-msgstr "Minsta antal tabeller för att visa tabellen filter box"
+msgstr "Minsta antal databaser för att visa databasens filter box"
 
 #: libraries/config/messages.inc.php:282
 msgid "String that separates databases into different tree levels"
@@ -8924,10 +8925,9 @@ msgid "No databases"
 msgstr "Inga databaser"
 
 #: navigation.php:209
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "Filter databases by name"
-msgstr "Filtrera tabeller efter namn"
+msgstr "Filtrera databaser efter namn"
 
 #: navigation.php:272
 msgid "Filter tables by name"
