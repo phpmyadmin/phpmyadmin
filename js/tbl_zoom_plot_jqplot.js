@@ -55,23 +55,6 @@ function isEmpty(obj) {
 }
 
 /**
- ** Converts a timestamp into the format of its field type
- ** @param val  Integer Timestamp
- ** @param type String  Field type(datetime/timestamp/time/date)
- **/
-function getDate(val, type) {
-    if (type.toString().search(/datetime/i) != -1 || type.toString().search(/timestamp/i) != -1) {
-        //return Highcharts.dateFormat('%Y-%m-%e %H:%M:%S', val);
-    }
-    else if (type.toString().search(/time/i) != -1) {
-        //return Highcharts.dateFormat('%H:%M:%S', val);
-    }
-    else if (type.toString().search(/date/i) != -1) {
-        //return Highcharts.dateFormat('%Y-%m-%e', val);
-    }
-}
-
-/**
  ** Converts a date/time into timestamp
  ** @param val  String Date
  ** @param type Sring  Field type(datetime/timestamp/time/date)
@@ -283,36 +266,34 @@ $(document).ready(function() {
             //Code includes a lot of checks so as to replot only when necessary
             if (xChange) {
                 xCord[searchedDataKey] = selectedRow[xLabel];
+                // [searchedDataKey][0] contains the x value
                 if (xType == 'numeric') {
-                    // here, [searchedDataKey][0] contains the x value
                     series[0][searchedDataKey][0] = selectedRow[xLabel];
-                    currentChart.series[0].data = series[0];
-                    // todo: axis changing
-                    currentChart.replot();
                 } else if (xType == 'time') {
-                    currentChart.series[0].data[searchedDataKey].update({ 
-                        x : getTimeStamp(selectedRow[xLabel], $('#types_0').val())
-                    });
+                    series[0][searchedDataKey][0] = 
+                        getTimeStamp(selectedRow[xLabel], $('#types_0').val());
                 } else {
                     // todo: text values
                 }
+                currentChart.series[0].data = series[0];
+                // todo: axis changing
+                currentChart.replot();
 
             }
             if (yChange) {
                 yCord[searchedDataKey] = selectedRow[yLabel];
+                // [searchedDataKey][1] contains the y value
                 if (yType == 'numeric') {
-                    // here, [searchedDataKey][1] contains the y value
                     series[0][searchedDataKey][1] = selectedRow[yLabel];
-                    currentChart.series[0].data = series[0];
-                    // todo: axis changing
-                    currentChart.replot();
                 } else if (yType == 'time') {
-                    currentChart.series[0].data[searchedDataKey].update({ 
-                        y : getTimeStamp(selectedRow[yLabel], $('#types_1').val())
-                    });
+                    series[0][searchedDataKey][1] = 
+                        getTimeStamp(selectedRow[yLabel], $('#types_1').val());
                 } else {
                     // todo: text values
                 }
+                currentChart.series[0].data = series[0];
+                // todo: axis changing
+                currentChart.replot();
             }
         } //End plot update
 
@@ -461,21 +442,60 @@ $(document).ready(function() {
         // could have multiple series but we'll have just one
         series[0] = new Array();
 
-        if (xType == 'numeric' && yType == 'numeric') {
-            $.each(searchedData, function(key, value) {
-                var xVal = parseFloat(value[xLabel]);
-                var yVal = parseFloat(value[yLabel]);
-                series[0].push([
-                    xVal, 
-                    yVal, 
-                    // extra Y values
-                    value[dataLabel], // for highlighter
-                                      // (may set an undefined value)
-                    value['where_clause'], // for click on point
-                    key               // key from searchedData
-                ]);
+        if (xType == 'time') {
+            originalXType = $('#types_0').val();
+            if (originalXType == 'date') {
+                format = '%Y-%m-%d';
+            } 
+            // todo: does not seem to work
+            //else if (originalXType == 'time') {
+              //  format = '%H:%M';
+            //} else {
+            //    format = '%Y-%m-%d %H:%M';
+            //}
+            $.extend(options.axes.xaxis, {
+                renderer:$.jqplot.DateAxisRenderer,
+                tickOptions: {
+                    formatString: format 
+                }
             });
         }
+        if (yType == 'time') {
+            originalYType = $('#types_1').val();
+            if (originalYType == 'date') {
+                format = '%Y-%m-%d';
+            } 
+            $.extend(options.axes.yaxis, {
+                renderer:$.jqplot.DateAxisRenderer,
+                tickOptions: {
+                    formatString: format 
+                }
+            });
+        }
+        
+        $.each(searchedData, function(key, value) {
+            if (xType == 'numeric') {
+                var xVal = parseFloat(value[xLabel]);
+            }
+            if (xType == 'time') {
+                var xVal = getTimeStamp(value[xLabel], originalXType);
+            }
+            if (yType == 'numeric') {
+                var yVal = parseFloat(value[yLabel]);
+            }
+            if (yType == 'time') {
+                var yVal = getTimeStamp(value[yLabel], originalYType);
+            }
+            series[0].push([
+                xVal, 
+                yVal, 
+                // extra Y values
+                value[dataLabel], // for highlighter
+                                  // (may set an undefined value)
+                value['where_clause'], // for click on point
+                key               // key from searchedData
+            ]);
+        });
 
         currentChart = $.jqplot('querychart', series, options);
 
