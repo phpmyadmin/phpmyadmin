@@ -538,10 +538,13 @@ $(document).ready(function() {
             $.each(data, function(key, value) {
                 var xVal = parseFloat(value[xLabel]);
                 var yVal = parseFloat(value[yLabel]);
-                // The extra Y value is for the highlighter (tooltip)
-                // may set an undefined value
-                var extraYVal = value[dataLabel];
-                series[0].push([xVal, yVal, extraYVal]);
+                series[0].push([
+                    xVal, 
+                    yVal, 
+                    value[dataLabel], // extra Y value for highlighter
+                                      // (may set an undefined value)
+                    value['where_clause'] // extra Y value for click on point
+                ]);
             });
         }
 
@@ -551,5 +554,10 @@ $(document).ready(function() {
             event.preventDefault();
             currentChart.resetZoom();
         });
+
+        $('div#querychart').bind('jqplotDataClick',
+            function(event, seriesIndex, pointIndex, data) {
+            }
+        );
     }
 });
