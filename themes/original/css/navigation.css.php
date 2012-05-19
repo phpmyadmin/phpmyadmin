@@ -1,67 +1,41 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * navigation css file from theme Original
+ * Navigation styles for the original theme
  *
  * @package    PhpMyAdmin-theme
  * @subpackage Original
  */
 
 // unplanned execution path
-if (!defined('PMA_MINIMUM_COMMON') && !defined('TESTSUITE')) {
+if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     exit();
 }
 ?>
+
 /******************************************************************************/
-/* general tags */
-html {
-    font-size: <?php echo (null !== $GLOBALS['PMA_Config']->get('fontsize') ? $GLOBALS['PMA_Config']->get('fontsize') : $_COOKIE['pma_fontsize']); ?>;
-}
+/* Navigation */
 
-input, select, textarea {
-    font-size: 1em;
-}
-
-body {
-<?php if (! empty($GLOBALS['cfg']['FontFamily'])) { ?>
-    font-family:        <?php echo $GLOBALS['cfg']['FontFamily']; ?>;
-<?php } ?>
+body#body_leftFrame {
     background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
     color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     margin:             0;
-    padding:            0.2em 0.2em 0.2em 0.2em;
+    padding:            0.2em;
 }
 
-a img {
-    border: 0;
+#body_leftFrame ul {
+    margin: 0;
 }
 
-a:link,
-a:visited,
-a:active {
-    text-decoration:    none;
-    color:              #0000FF;
+#body_leftFrame form {
+    margin: 0;
+    padding: 0;
+    display: inline;
 }
 
-ul {
-    margin:0;
-}
-
-form {
-    margin:             0;
-    padding:            0;
-    display:            inline;
-}
-
-select#select_server,
-select#lightm_db {
-    width:              100%;
-}
-
-/* buttons in some browsers (eg. Konqueror) are block elements,
-   this breaks design */
-button {
-    display:            inline;
+#body_leftFrame select#select_server,
+#body_leftFrame select#lightm_db {
+    width: 100%;
 }
 
 /******************************************************************************/
@@ -70,74 +44,74 @@ button {
 /******************************************************************************/
 /* specific elements */
 
-div#pmalogo {
+#body_leftFrame div#pmalogo {
     <?php //better echo $GLOBALS['cfg']['logoBGC']; ?>
     background-color: <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
     padding:.3em;
 }
 
-div#recentTableList {
+#body_leftFrame div#recentTableList {
     text-align: center;
     margin-bottom: 0.5em;
 }
 
-div#recentTableList select {
+#body_leftFrame div#recentTableList select {
     width: 100%;
 }
 
-div#pmalogo,
-div#leftframelinks,
-div#databaseList {
+#body_leftFrame div#pmalogo,
+#body_leftFrame div#leftframelinks,
+#body_leftFrame div#databaseList {
     text-align:         center;
     margin-bottom:      0.5em;
     padding-bottom:     0.5em;
 }
 
-ul#databaseList {
+#body_leftFrame ul#databaseList {
     margin-bottom:      0.5em;
     padding-bottom:     0.5em;
     padding-<?php echo $left; ?>:     1.5em;
     font-style: italic;
 }
 
-ul#databaseList a {
+#body_leftFrame ul#databaseList a {
     display: block;
     font-style: normal;
 }
 
-div#navidbpageselector a,
-ul#databaseList a {
+#body_leftFrame div#navidbpageselector a,
+#body_leftFrame ul#databaseList a {
     background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
     color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
 }
 
-ul#databaseList ul {
+#body_leftFrame ul#databaseList ul {
     padding-left: 1em;
     padding-right: 0;
 }
 
-ul#databaseList a:hover {
+#body_leftFrame ul#databaseList a:hover {
     background:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
     color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
 }
 
-ul#databaseList li.selected a {
+#body_leftFrame ul#databaseList li.selected a {
     background: <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
     color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
 }
 
-div#leftframelinks .icon {
+#body_leftFrame div#leftframelinks .icon {
     padding:            0;
     margin:             0;
 }
 
-div#leftframelinks a img.icon {
+#body_leftFrame div#leftframelinks a img.icon {
     margin:             2px;
     border:             0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     padding:            0;
 }
 
-div#leftframelinks a:hover img {
+#body_leftFrame div#leftframelinks a:hover img {
     background-color:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
     color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
 }
@@ -157,7 +131,7 @@ div#leftframelinks a:hover img {
     font-size:          80%;
 }
 
-div#left_tableList ul {
+#body_leftFrame div#left_tableList ul {
     list-style-type:    none;
     list-style-position: outside;
     margin:             0;
@@ -166,23 +140,23 @@ div#left_tableList ul {
     background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
 }
 
-div#left_tableList ul ul {
+#body_leftFrame div#left_tableList ul ul {
     font-size:          100%;
 }
 
-div#left_tableList a {
+#body_leftFrame div#left_tableList a {
     background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
     color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     text-decoration:    none;
 }
 
-div#left_tableList a:hover {
+#body_leftFrame div#left_tableList a:hover {
     background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
     color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
     text-decoration:    underline;
 }
 
-div#left_tableList li {
+#body_leftFrame div#left_tableList li {
     margin:             0;
     padding:            0;
     white-space:        nowrap;
@@ -190,50 +164,50 @@ div#left_tableList li {
 
 <?php if ($GLOBALS['cfg']['BrowseMarkerColor']) { ?>
 /* marked items */
-div#left_tableList > ul li.marked > a,
-div#left_tableList > ul li.marked {
+#body_leftFrame div#left_tableList > ul li.marked > a,
+#body_leftFrame div#left_tableList > ul li.marked {
     background: <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
     color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
 }
 <?php } ?>
 
 <?php if ($GLOBALS['cfg']['LeftPointerEnable']) { ?>
-div#left_tableList > ul li:hover > a,
-div#left_tableList > ul li:hover {
+#body_leftFrame div#left_tableList > ul li:hover > a,
+#body_leftFrame div#left_tableList > ul li:hover {
     background:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
     color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
 }
 <?php } ?>
 
-div#left_tableList img {
-    padding:            0;
-    vertical-align:     middle;
+#body_leftFrame div#left_tableList img {
+    padding: 0;
+    vertical-align: middle;
 }
 
-div#left_tableList ul ul {
-    margin-<?php echo $left; ?>:        0;
-    padding-<?php echo $left; ?>:       0.1em;
-    border-<?php echo $left; ?>:        0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
-    padding-bottom:     0.1em;
-    border-bottom:      0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+#body_leftFrame div#left_tableList ul ul {
+    margin-<?php echo $left; ?>: 0;
+    padding-<?php echo $left; ?>: .1em;
+    border-<?php echo $left; ?>: .1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    padding-bottom: .1em;
+    border-bottom: .1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
 }
 
 /* for the servers list in navi panel */
-#serverinfo .item {
+#body_leftFrame #serverinfo .item {
     white-space:        nowrap;
     color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
 }
-#serverinfo a:hover {
+#body_leftFrame #serverinfo a:hover {
     background:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
     color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
 }
 
-#NavFilter {
+#body_leftFrame #NavFilter {
     display: none;
 }
 
-#clear_fast_filter,
-#clear_fast_db_filter {
+#body_leftFrame #clear_fast_filter,
+#body_leftFrame #clear_fast_db_filter {
     background: white;
     color: black;
     cursor: pointer;
@@ -243,16 +217,15 @@ div#left_tableList ul ul {
     float: right;
 }
 
-#fast_filter,
-#fast_db_filter {
+#body_leftFrame #fast_filter,
+#body_leftFrame #fast_db_filter {
     width: 100%;
     padding: 2px 0;
     margin: 0;
     border: 0;
 }
 
-#fast_filter.gray,
-#fast_db_fiter.gray {
+#body_leftFrame #fast_filter.gray,
+#body_leftFrame #fast_db_fiter.gray {
     color: gray;
 }
-

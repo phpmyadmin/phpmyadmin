@@ -343,7 +343,7 @@ class PMA_List_Database extends PMA_List
         $return = '<ul id="databaseList" lang="en" dir="ltr">' . "\n";
         foreach ($this->getGroupedDetails($offset, $count) as $group => $dbs) {
             if (count($dbs) > 1) {
-                $return .= '<li class="group"><span>' . htmlspecialchars($group)
+                $return .= '<li class="dbgroup"><span>' . htmlspecialchars($group)
                     . '</span><ul>' . "\n";
                 // whether display db_name cut by the group part
                 $cut = true;

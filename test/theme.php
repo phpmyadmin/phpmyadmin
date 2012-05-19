@@ -25,10 +25,10 @@ header('Content-Type: text/html; charset=utf-8');
 <html lang="<?php echo $lang_iso_code; ?>" dir="<?php echo $GLOBALS['text_dir']; ?>">
 <head>
     <title>phpMyAdmin <?php echo PMA_VERSION; ?> -
-        <?php echo htmlspecialchars($HTTP_HOST); ?> - Theme Test</title>
+        <?php echo htmlspecialchars($_SERVER['HTTP_HOST']); ?> - Theme Test</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css"
-        href="../phpmyadmin.css.php?<?php echo PMA_generate_common_url(); ?>&amp;js_frame=right&amp;nocache=<?php echo $GLOBALS['PMA_Config']->getThemeUniqueValue(); ?>" />
+        href="../phpmyadmin.css.php?<?php echo PMA_generate_common_url(); ?>&amp;nocache=<?php echo $GLOBALS['PMA_Config']->getThemeUniqueValue(); ?>" />
     <link rel="stylesheet" type="text/css" media="print"
         href="../print.css" />
     <script src="../js/jquery/jquery-1.6.2.js" type="text/javascript"></script>
