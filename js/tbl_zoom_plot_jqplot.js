@@ -1,3 +1,4 @@
+// todo: change the axis
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  ** @fileoverview JavaScript functions used on tbl_select.php
@@ -169,7 +170,7 @@ function includePan(currentChart) {
 $(document).ready(function() {
     var cursorMode = ($("input[name='mode']:checked").val() == 'edit') ? 'crosshair' : 'pointer';
     var currentChart = null;
-    var currentData = null;
+    var searchedDataKey = null;
     var xLabel = $('#tableid_0').val();
     var yLabel = $('#tableid_1').val();
     var xType = $('#types_0').val();
@@ -181,7 +182,7 @@ $(document).ready(function() {
 
 
     // Get query result
-    var data = jQuery.parseJSON($('#querydata').html());
+    var searchedData = jQuery.parseJSON($('#querydata').html());
 
     /**
      ** Input form submit on field change
@@ -263,10 +264,10 @@ $(document).ready(function() {
                 newValues[key] = newVal;
                 if (key == xLabel) {
                     xChange = true;
-                    data[currentData][xLabel] = newVal;
+                    searchedData[searchedDataKey][xLabel] = newVal;
                 } else if (key == yLabel) {
                     yChange = true;
-                    data[currentData][yLabel] = newVal;
+                    searchedData[searchedDataKey][yLabel] = newVal;
                 }
             }
             var $input = $('#fieldID_' + it);
@@ -286,12 +287,14 @@ $(document).ready(function() {
             //Logic similar to plot generation, replot only if xAxis changes or yAxis changes. 
             //Code includes a lot of checks so as to replot only when necessary
             if (xChange) {
-                xCord[currentData] = selectedRow[xLabel];
+                xCord[searchedDataKey] = selectedRow[xLabel];
                 if (xType == 'numeric') {
-                    currentChart.series[0].data[currentData].update({ x : selectedRow[xLabel] });
-                    currentChart.xAxis[0].setExtremes(Array.min(xCord) - 6, Array.max(xCord) + 6);
+                    series[0][searchedDataKey][0] = selectedRow[xLabel];
+                    currentChart.series[0].data = series[0];
+                    // todo: axis changing
+                    currentChart.replot();
                 } else if (xType == 'time') {
-                    currentChart.series[0].data[currentData].update({ 
+                    currentChart.series[0].data[searchedDataKey].update({ 
                         x : getTimeStamp(selectedRow[xLabel], $('#types_0').val())
                     });
                 } else {
@@ -337,12 +340,12 @@ $(document).ready(function() {
 
             }
             if (yChange) {
-                yCord[currentData] = selectedRow[yLabel];
+                yCord[searchedDataKey] = selectedRow[yLabel];
                 if (yType == 'numeric') {
-                    currentChart.series[0].data[currentData].update({ y : selectedRow[yLabel] });
+                    currentChart.series[0].data[searchedDataKey].update({ y : selectedRow[yLabel] });
                     currentChart.yAxis[0].setExtremes(Array.min(yCord) - 6, Array.max(yCord) + 6);
                 } else if (yType == 'time') {
-                    currentChart.series[0].data[currentData].update({ 
+                    currentChart.series[0].data[searchedDataKey].update({ 
                         y : getTimeStamp(selectedRow[yLabel], $('#types_1').val())
                     });
                 } else {
@@ -386,7 +389,6 @@ $(document).ready(function() {
                      currentChart = PMA_createChart(currentSettings);
                 }
             }
-            currentChart.series[0].data[currentData].select();
         } //End plot update
 
         //Generate SQL query for update
@@ -422,7 +424,7 @@ $(document).ready(function() {
                 }
             }
             sql_query = sql_query.substring(0, sql_query.length - 2);
-            sql_query += ' WHERE ' + PMA_urldecode(data[currentData]['where_clause']);
+            sql_query += ' WHERE ' + PMA_urldecode(searchedData[searchedDataKey]['where_clause']);
 
             //Post SQL query to sql.php
             $.post('sql.php', {
@@ -474,7 +476,7 @@ $(document).ready(function() {
      * Generate plot using jqplot 
      */
 
-    if (data != null) {
+    if (searchedData != null) {
         $('#zoom_search_form')
          .slideToggle()
          .hide();
@@ -535,15 +537,17 @@ $(document).ready(function() {
         series[0] = new Array();
 
         if (xType == 'numeric' && yType == 'numeric') {
-            $.each(data, function(key, value) {
+            $.each(searchedData, function(key, value) {
                 var xVal = parseFloat(value[xLabel]);
                 var yVal = parseFloat(value[yLabel]);
                 series[0].push([
                     xVal, 
                     yVal, 
-                    value[dataLabel], // extra Y value for highlighter
+                    // extra Y values
+                    value[dataLabel], // for highlighter
                                       // (may set an undefined value)
-                    value['where_clause'] // extra Y value for click on point
+                    value['where_clause'], // for click on point
+                    key               // key from searchedData
                 ]);
             });
         }
@@ -557,6 +561,41 @@ $(document).ready(function() {
 
         $('div#querychart').bind('jqplotDataClick',
             function(event, seriesIndex, pointIndex, data) {
+                searchedDataKey = data[4]; // key from searchedData (global)
+                var field_id = 4;
+                var post_params = {
+                    'ajax_request' : true,
+                    'get_data_row' : true,
+                    'db' : window.parent.db,
+                    'table' : window.parent.table,
+                    'where_clause' : data[3],
+                    'token' : window.parent.token
+                };
+
+                $.post('tbl_zoom_select.php', post_params, function(data) {
+                    // Row is contained in data.row_info, 
+                    // now fill the displayResultForm with row values
+                    for (key in data.row_info) {
+                        $field = $('#fieldID_' + field_id);
+                        $field_null = $('#fields_null_id_' + field_id);
+                        if (data.row_info[key] == null) {
+                            $field_null.attr('checked', true);
+                            $field.val('');
+                        } else {
+                            $field_null.attr('checked', false);
+                            if ($field.attr('multiple')) { // when the column is of type SET
+                                $field.val(data.row_info[key].split(','));
+                            } else {
+                                $field.val(data.row_info[key]);
+                            }
+                        }
+                        field_id++;
+                    }
+                    selectedRow = new Object();
+                    selectedRow = data.row_info;
+                });
+
+                $("#dataDisplay").dialog("open");
             }
         );
     }
