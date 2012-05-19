@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-17 10:53+0200\n"
-"PO-Revision-Date: 2012-05-18 23:43+0200\n"
+"PO-Revision-Date: 2012-05-19 13:18+0200\n"
 "Last-Translator: Jukka Penttinen <tikkakalja@hotmail.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -1021,10 +1021,10 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" -kyselyjen käyttö on estetty."
 
 #: js/messages.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to "
 msgid "Do you really want to execute \"%s\"?"
-msgstr "Haluatko varmasti "
+msgstr "Haluatko varmasti suorittaa \"%s\"?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:307 sql.php:390
 msgid "You are about to DESTROY a complete database!"
@@ -1489,10 +1489,9 @@ msgid "From general log"
 msgstr "Yleisestä lokista"
 
 #: js/messages.php:172
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "Lokien lataus"
+msgstr "Analyysilokit"
 
 #: js/messages.php:173
 msgid "Analysing & loading logs. This may take a while."
@@ -1530,10 +1529,9 @@ msgid "Jump to Log table"
 msgstr "Siirry lokitauluun"
 
 #: js/messages.php:180
-#, fuzzy
 #| msgid "No databases"
 msgid "No data found"
-msgstr "Ei tietokantoja"
+msgstr "Tieotoa ei löytynyt"
 
 #: js/messages.php:181
 msgid "Log analysed, but no data found in this time span."
@@ -1571,16 +1569,14 @@ msgid "Chart"
 msgstr "Kaavio"
 
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Edit chart"
-msgstr "Käytä indeksiä/indeksejä"
+msgstr "Muokkaa kaaviota"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Series"
-msgstr "SQL-kyselyt"
+msgstr "Sarjat"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
@@ -1656,16 +1652,14 @@ msgid "Import"
 msgstr "Tuonti"
 
 #: js/messages.php:213
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Import monitor configuration"
-msgstr "Oletusasetuksia ei voitu ladata kohteesta: \"%1$s\""
+msgstr "Tuo seurantamääritys"
 
 #: js/messages.php:214
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "Valitse perusavain tai uniikki avain"
+msgstr "Valitse tiedosto jonka haluat tuoda"
 
 #: js/messages.php:216
 msgid "Analyse Query"
@@ -1776,22 +1770,19 @@ msgid "Show indexes"
 msgstr "Näytä indeksit"
 
 #: js/messages.php:257 libraries/mult_submits.inc.php:317
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Foreign key check:"
-msgstr "Älä tarkista viiteavaimia"
+msgstr "Viiteavaimen tarkastus:"
 
 #: js/messages.php:258 libraries/mult_submits.inc.php:321
-#, fuzzy
 #| msgid "Enabled"
 msgid "(Enabled)"
-msgstr "Päällä"
+msgstr "(Päällä)"
 
 #: js/messages.php:259 libraries/mult_submits.inc.php:321
-#, fuzzy
 #| msgid "Disabled"
 msgid "(Disabled)"
-msgstr "Pois päältä"
+msgstr "(Pois päältä)"
 
 #: js/messages.php:262
 msgid "Searching"
@@ -2007,7 +1998,7 @@ msgstr "Valitse tai poista valinta painamalla"
 
 #: js/messages.php:356
 msgid "Double-click to copy column name"
-msgstr ""
+msgstr "Kopoio kentän nimi kaksoisnäpäyksellä"
 
 #: js/messages.php:357
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
@@ -2034,20 +2025,18 @@ msgid "Go to link"
 msgstr "Siirry linkkiin"
 
 #: js/messages.php:362
-#, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
-msgstr "Sarakkeiden nimet"
+msgstr "Kopioi kenttän nimi"
 
 #: js/messages.php:363
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
 #: js/messages.php:364
-#, fuzzy
 #| msgid "Update row(s)"
 msgid "Show data row(s)"
-msgstr "Päivitä rivi(t)"
+msgstr "Näytä rivi(t)"
 
 #: js/messages.php:367
 msgid "Generate password"
@@ -2359,13 +2348,11 @@ msgid "Failed running test for rule '%s'"
 msgstr ""
 
 #: libraries/Advisor.class.php:207
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgid "Failed formatting string for rule '%s'."
-msgstr ""
-"Säännön '%s' merkkijonon muotoilu epäonnistui. PHP antoi seuraavan virheen: "
-"%s"
+msgstr "Merkkijonon muotoilu epäonnistui '%s' säännöllä."
 
 #: libraries/Advisor.class.php:361
 #, php-format
@@ -2374,10 +2361,10 @@ msgid ""
 msgstr ""
 
 #: libraries/Advisor.class.php:378
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid rule declaration on line %s"
-msgstr "Virheellinen muoto CSV-syötteessä rivillä %d."
+msgstr "Virheellinen säännön määrittely rivillä %s"
 
 #: libraries/Advisor.class.php:386
 #, php-format
@@ -2614,10 +2601,9 @@ msgid "Designer"
 msgstr "Suunnittelija"
 
 #: libraries/Menu.class.php:472
-#, fuzzy
 #| msgid "User"
 msgid "Users"
-msgstr "Käyttäjä"
+msgstr "Käyttäjät"
 
 #: libraries/Menu.class.php:493 server_synchronize.php:1317
 #: server_synchronize.php:1324
@@ -2714,16 +2700,16 @@ msgid "unknown table status: "
 msgstr "tuntematon taulun tila: "
 
 #: libraries/Table.class.php:771
-#, fuzzy, php-format
+#, php-format
 #| msgid "Source database"
 msgid "Source database `%s` was not found!"
-msgstr "Lähdetietokanta"
+msgstr "Lähdetietokanta '%s' ei löytynyt!"
 
 #: libraries/Table.class.php:779
-#, fuzzy, php-format
+#, php-format
 #| msgid "Theme %s not found!"
 msgid "Target database `%s` was not found!"
-msgstr "Teemaa %s ei löydy!"
+msgstr "Kohde tietokantaa '%s' ei löydy!"
 
 #: libraries/Table.class.php:1279
 msgid "Invalid database"
@@ -2739,10 +2725,10 @@ msgid "Error renaming table %1$s to %2$s"
 msgstr "Virhe annettaessa taululle %1$s nimeä %2$s"
 
 #: libraries/Table.class.php:1413
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been renamed to %s"
 msgid "Table %1$s has been renamed to %2$s."
-msgstr "Taulun %s nimi on nyt %s"
+msgstr "Taulu %1$s on nimeltään %2$s."
 
 #: libraries/Table.class.php:1557
 msgid "Could not save table UI preferences"
@@ -2871,10 +2857,10 @@ msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr ""
 
 #: libraries/Types.class.php:313 libraries/Types.class.php:715
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "Luo versio %s kohteesta %s.%s"
+msgstr "Päiväys, pitää olla välillä %1$s - %2$s"
 
 #: libraries/Types.class.php:315 libraries/Types.class.php:717
 #, php-format
@@ -2888,10 +2874,10 @@ msgid ""
 msgstr ""
 
 #: libraries/Types.class.php:319 libraries/Types.class.php:721
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "A time, range is %1$s to %2$s"
-msgstr "Virhe annettaessa taululle %1$s nimeä %2$s"
+msgstr "Aika, mahdollinen välillä %1$s - %2$s"
 
 #: libraries/Types.class.php:321
 msgid ""
@@ -2996,10 +2982,9 @@ msgid "A curve with linear interpolation between points"
 msgstr ""
 
 #: libraries/Types.class.php:357
-#, fuzzy
 #| msgid "Add a polygon"
 msgid "A polygon"
-msgstr "Lisää monikulmio"
+msgstr "Monikulmio"
 
 #: libraries/Types.class.php:359
 msgid "A collection of points"
@@ -3023,25 +3008,22 @@ msgid "Numeric"
 msgstr ""
 
 #: libraries/Types.class.php:636 libraries/Types.class.php:970
-#, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "Luo uusi indeksi"
+msgstr "Päiväys ja aika"
 
 #: libraries/Types.class.php:645 libraries/Types.class.php:973
-#, fuzzy
 #| msgid "Linestring"
 msgctxt "string types"
 msgid "String"
-msgstr "Rivimerkkijono"
+msgstr "Merkkijono"
 
 #: libraries/Types.class.php:666
-#, fuzzy
 #| msgid "Log file count"
 msgctxt "spatial types"
 msgid "Spatial"
-msgstr "Lokitiedostojen määrä"
+msgstr "Geometrinen"
 
 #: libraries/Types.class.php:701
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
@@ -3127,10 +3109,9 @@ msgid "Failed to use Blowfish from mcrypt!"
 msgstr "Mcrypt-laajennuksen Blowfish-toiminnon käyttö epäonnistui!"
 
 #: libraries/auth/cookie.auth.lib.php:204 libraries/header.inc.php:90
-#, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point"
-msgstr "Selaimessa on oltava evästeet päällä tästä lähtien."
+msgstr "Javaskripti on oltava päällä tämän jälkeen"
 
 #: libraries/auth/cookie.auth.lib.php:223
 msgid "Log in"
@@ -3285,7 +3266,6 @@ msgid "Could not load default configuration from: %1$s"
 msgstr "Oletusasetuksia ei voitu ladata kohteesta: \"%1$s\""
 
 #: libraries/common.inc.php:630
-#, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 #| "configuration file!"
@@ -3293,7 +3273,7 @@ msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"<code>$cfg['PmaAbsoluteUri']</code> täytyy määritellä asetustiedostossa!"
+"[code]$cfg['PmaAbsoluteUri'][/code] täytyy määritellä asetustiedostossa!"
 
 #: libraries/common.inc.php:663
 #, php-format
@@ -3885,10 +3865,9 @@ msgid "Whether the table structure actions should be hidden"
 msgstr ""
 
 #: libraries/config/messages.inc.php:59
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Hide table structure actions"
-msgstr "Esitä taulun rakenne"
+msgstr "Esitä taulun rakennetoimet"
 
 #: libraries/config/messages.inc.php:60
 msgid "Show binary contents as HEX by default"
@@ -4362,7 +4341,6 @@ msgid "Configuration storage"
 msgstr "Asetusmuisti"
 
 #: libraries/config/messages.inc.php:209
-#, fuzzy
 #| msgid ""
 #| "ure phpMyAdmin database to gain access to additional features, see "
 #| "Documentation.html#linked-tables]linked-tables infrastructure[/a] "
@@ -4372,9 +4350,9 @@ msgid ""
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
-"Määritä phpMyAdmin-tietokannan asetukset käyttääksesi lisäasetuksia; katso "
-"ohjeista [a@../Documentation.html#linked-tables]linkitettyjen taulujen "
-"infrastruktuuri[/a]."
+"Määritä phpMyAdmin määritysten tallennus käyttääksesi lisäasetuksia, katso "
+"ohjeista [a@Documentation.html#linked-tables]phpMyAdmin määritysten "
+"tallennus[/a]"
 
 #: libraries/config/messages.inc.php:210
 msgid "Changes tracking"
@@ -4440,20 +4418,18 @@ msgid "Customize startup page"
 msgstr "Mukauta käynnistyssivua"
 
 #: libraries/config/messages.inc.php:228
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database structure"
-msgstr "Tietokanta käyttäjälle"
+msgstr "Tietokannan rakenne"
 
 #: libraries/config/messages.inc.php:229
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:230
-#, fuzzy
 #| msgid "Database for user"
 msgid "Table structure"
-msgstr "Tietokanta käyttäjälle"
+msgstr "Taulun rakenne"
 
 #: libraries/config/messages.inc.php:231
 msgid "Settings for the table structure (list of columns)"
@@ -4623,10 +4599,9 @@ msgid "Minimum number of tables to display the table filter box"
 msgstr "Taululuettelossa näkyvien taulujen minimimäärä"
 
 #: libraries/config/messages.inc.php:281
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Minimum number of databases to display the database filter box"
-msgstr "Taululuettelossa näkyvien taulujen enimmäismäärä"
+msgstr "Taululuettelossa näkyvien taulujen minimimäärä"
 
 #: libraries/config/messages.inc.php:282
 msgid "String that separates databases into different tree levels"
@@ -4915,10 +4890,9 @@ msgid "Iconic table operations"
 msgstr "Kuvakkeellisen taulun toiminnot"
 
 #: libraries/config/messages.inc.php:341
-#, fuzzy
 #| msgid "Disallow BLOB and BINARY fields from editing"
 msgid "Disallow BLOB and BINARY columns from editing"
-msgstr "Estä BLOB- ja BINARY-kenttien muokkaus"
+msgstr "Poista BLOB ja BINARY kentät muokkauksesta"
 
 #: libraries/config/messages.inc.php:342
 #| msgid "Protect binary fields"
@@ -4926,7 +4900,6 @@ msgid "Protect binary columns"
 msgstr "Suojaa binäärisarakkeet"
 
 #: libraries/config/messages.inc.php:343
-#, fuzzy
 #| msgid ""
 #| " if you want DB-based query history (requires pmadb). If disabled, s "
 #| "lizes JS-routines to display query history (lost by window close)."
@@ -4935,8 +4908,8 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
-"Ota käyttöön, jos haluat tietokantapohjaisen kyselyhistorian (pmadb-kanta "
-"tarvitaan). Jos poistettu käytöstä, tämä käyttää JavaScript-rutiineja "
+"Ota käyttöön, jos haluat tietokantapohjaisen kyselyhistorian (phpMyAdmin "
+"määritykset). Jos poistettu käytöstä, tämä käyttää JavaScript-rutiineja "
 "kyselyhistorian näyttämisessä (katoaa, kun ikkuna suljetaan)."
 
 #: libraries/config/messages.inc.php:344
@@ -5018,7 +4991,6 @@ msgid "Leave blank if not used"
 msgstr "Jätä tyhjäksi, jos tätä ei käytetä"
 
 #: libraries/config/messages.inc.php:365
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "Host authorization order"
 msgstr "Palvelintodennuksen järjestys"
@@ -5028,7 +5000,6 @@ msgid "Leave blank for defaults"
 msgstr "Käytä oletusarvoja jättämällä tyhjäksi"
 
 #: libraries/config/messages.inc.php:367
-#, fuzzy
 #| msgid "Host authentication rules"
 msgid "Host authorization rules"
 msgstr "Palvelintodennuksen säännöt"
