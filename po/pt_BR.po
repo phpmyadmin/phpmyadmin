@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-05-10 11:01+0200\n"
-"Last-Translator: Pedro Travassos <ptravassos@gmail.com>\n"
+"PO-Revision-Date: 2012-05-17 15:15+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -1966,7 +1966,7 @@ msgstr ""
 
 #: js/messages.php:341
 msgid "Add an option for column "
-msgstr "Adicionar uma opção para a coluna"
+msgstr "Adicionar uma opção para a coluna "
 
 #: js/messages.php:344
 msgid "Press escape to cancel editing"
@@ -2530,7 +2530,7 @@ msgstr "Esse servidor MySQL não suporta o stored engine %s."
 
 #: libraries/Table.class.php:329
 msgid "unknown table status: "
-msgstr "Status da tabela desconhecida"
+msgstr "Status da tabela desconhecida: "
 
 #: libraries/Table.class.php:1120
 msgid "Invalid database"
@@ -2651,7 +2651,7 @@ msgstr "Autenticação"
 #: libraries/navigation_header.inc.php:94
 #: libraries/navigation_header.inc.php:96
 msgid "phpMyAdmin documentation"
-msgstr "Documentação do phpMyAdmin "
+msgstr "Documentação do phpMyAdmin"
 
 #: libraries/auth/cookie.auth.lib.php:211
 #: libraries/auth/cookie.auth.lib.php:212
@@ -3208,7 +3208,7 @@ msgstr "indisponível"
 #: libraries/config/FormDisplay.class.php:713
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr "\"%s\" requer a extenção %s "
+msgstr "\"%s\" requer a extenção %s"
 
 #: libraries/config/FormDisplay.class.php:727
 #, php-format
@@ -4737,7 +4737,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:392
 msgid "Disable use of INFORMATION_SCHEMA"
-msgstr "Desabilitar o uso do INFORMATION_SCHEMA "
+msgstr "Desabilitar o uso do INFORMATION_SCHEMA"
 
 #: libraries/config/messages.inc.php:393
 msgid "What PHP extension to use; you should use mysqli if supported"
@@ -5068,8 +5068,8 @@ msgstr "Nome completo deste servidor"
 #: libraries/config/messages.inc.php:455
 msgid "Whether a user should be displayed a &quot;show all (rows)&quot; button"
 msgstr ""
-"Quando precisa ser exibido a um usuário o botão &quot;exiba todas(colunas)"
-"&quot; "
+"Quando precisa ser exibido a um usuário o botão &quot;exiba "
+"todas(colunas)&quot;"
 
 #: libraries/config/messages.inc.php:456
 msgid "Allow to display all the rows"
@@ -5138,8 +5138,8 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
-"Exibe link para saída de [a@http://php.net/manual/function.phpinfo.php]"
-"phpinfo()[/a] "
+"Exibe link para saída de "
+"[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a]"
 
 #: libraries/config/messages.inc.php:469
 msgid "Show phpinfo() link"
@@ -6047,7 +6047,7 @@ msgstr "na consulta"
 
 #: libraries/display_tbl.lib.php:2364
 msgid "Showing rows"
-msgstr "Mostrando registros "
+msgstr "Mostrando registros"
 
 #: libraries/display_tbl.lib.php:2374
 msgid "total"
@@ -8174,7 +8174,7 @@ msgstr "Delimitadores"
 
 #: libraries/sql_query_form.lib.php:344
 msgid "Show this query here again"
-msgstr "Mostrar esta consulta SQL novamente "
+msgstr "Mostrar esta consulta SQL novamente"
 
 #: libraries/sql_query_form.lib.php:407
 msgid "View only"
@@ -9400,7 +9400,7 @@ msgstr "Privilégios específicos da tabela"
 #: server_privileges.php:537 server_privileges.php:689
 #: server_privileges.php:1704
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "Nota: nomes de privilégios do MySQL são expressos em inglês "
+msgstr "Nota: nomes de privilégios do MySQL são expressos em inglês"
 
 #: server_privileges.php:614
 msgid "Administration"
@@ -11807,7 +11807,7 @@ msgstr "Tamanho do registro"
 
 #: tbl_printview.php:373 tbl_structure.php:898
 msgid "Row size"
-msgstr "Tamanho do registro "
+msgstr "Tamanho do registro"
 
 #: tbl_printview.php:383 tbl_structure.php:906
 msgid "Next autoindex"
@@ -12181,7 +12181,7 @@ msgstr "Nome da VISÃO"
 
 #: view_operations.php:91
 msgid "Rename view to"
-msgstr "Renomear a visão para "
+msgstr "Renomear a visão para"
 
 #: po/advisory_rules.php:5
 msgid "Uptime below one day"

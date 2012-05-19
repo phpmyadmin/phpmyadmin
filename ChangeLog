@@ -8,6 +8,7 @@ phpMyAdmin - ChangeLog
 - bug [GUI] Invalid HTML code on transformation_overview.php
 - bug #3522930 [browse] Missing validation in Ajax mode
 - bug Fix popup message on build SQL of import
+- bug #3523499 [core] Make X-WebKit-CSP work better
 
 3.5.1.0 (2012-05-03)
 - bug #3510784 [edit] Limit clause ignored when sort order is remembered
