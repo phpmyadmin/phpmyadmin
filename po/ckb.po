@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-17 10:53+0200\n"
-"PO-Revision-Date: 2012-05-18 00:00+0200\n"
-"Last-Translator: Darya Said <daryashapol@gmail.com>\n"
+"PO-Revision-Date: 2012-05-19 10:44+0200\n"
+"Last-Translator: dilan kurdistani <dilan.gilli@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ckb\n"
 "MIME-Version: 1.0\n"
@@ -315,7 +315,7 @@ msgstr "زۆرکردنی نرخی زۆربوونی خۆکارانە"
 
 #: db_operations.php:544 tbl_operations.php:578
 msgid "Add constraints"
-msgstr ""
+msgstr "زیادکردنی مەرج"
 
 #: db_operations.php:559
 msgid "Switch to copied database"
@@ -329,7 +329,7 @@ msgstr "بڕۆ بۆ بنکەی دراوەی ڕوونووس کراو"
 #: tbl_structure.php:202 tbl_structure.php:938 tbl_tracking.php:305
 #: tbl_tracking.php:371
 msgid "Collation"
-msgstr ""
+msgstr "ڕێکخستن"
 
 #: db_operations.php:599
 #, php-format
@@ -438,7 +438,7 @@ msgstr "مەرج"
 
 #: db_qbe.php:380 db_qbe.php:462 db_qbe.php:554 db_qbe.php:585
 msgid "Ins"
-msgstr ""
+msgstr "Ins"
 
 #: db_qbe.php:384 db_qbe.php:466 db_qbe.php:551 db_qbe.php:582
 msgid "And"
@@ -509,7 +509,7 @@ msgstr ""
 #: db_search.php:216
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr ""
+msgstr "ئەنجامی گەڕان بۆ \"<i>%s</i>\" %s:"
 
 #: db_search.php:239
 #, php-format
@@ -522,7 +522,7 @@ msgstr[1] ""
 #: libraries/common.lib.php:3149 libraries/common.lib.php:3379
 #: libraries/common.lib.php:3380 tbl_structure.php:573
 msgid "Browse"
-msgstr ""
+msgstr "گەڕۆک"
 
 #: db_search.php:252
 #, php-format
@@ -558,15 +558,16 @@ msgstr ""
 
 #: db_search.php:297
 msgid "Find:"
-msgstr "دۆزنەوە:"
+msgstr "دۆزینەوە:"
 
 #: db_search.php:301 db_search.php:302
 msgid "Words are separated by a space character (\" \")."
 msgstr ""
 
 #: db_search.php:315
+#, fuzzy
 msgid "Inside tables:"
-msgstr ""
+msgstr "لەناو خشتە:\n"
 
 #: db_search.php:345
 msgid "Inside column:"
@@ -579,7 +580,7 @@ msgstr "هیچ خشتەیەک نەدۆزرایەوە لە بنکەی دراو"
 #: db_structure.php:242 libraries/mysql_charsets.lib.php:411
 #: libraries/mysql_charsets.lib.php:418
 msgid "unknown"
-msgstr ""
+msgstr "نەناسراوە"
 
 #: db_structure.php:367 tbl_operations.php:717
 #, php-format
@@ -637,7 +638,7 @@ msgstr ""
 #: server_databases.php:295 server_privileges.php:1920
 #: server_privileges.php:1928 tbl_structure.php:559 tbl_structure.php:568
 msgid "With selected:"
-msgstr ""
+msgstr "لەگەڵ پەڕگەی دەستنیشانکراو:"
 
 #: db_structure.php:682 libraries/display_tbl.lib.php:2989
 #: server_databases.php:292 server_privileges.php:781
@@ -663,18 +664,18 @@ msgstr ""
 #: prefs_manage.php:294 server_privileges.php:1565 server_privileges.php:1932
 #: server_status.php:1625 setup/frames/menu.inc.php:22
 msgid "Export"
-msgstr ""
+msgstr "هەناردن"
 
 #: db_structure.php:701 db_structure.php:749
 #: libraries/display_tbl.lib.php:3115 libraries/header_printview.inc.php:42
 #: tbl_structure.php:654
 msgid "Print view"
-msgstr ""
+msgstr "پارچەیەک بۆ چاپکردن"
 
 #: db_structure.php:705 libraries/common.lib.php:3388
 #: libraries/common.lib.php:3389
 msgid "Empty"
-msgstr ""
+msgstr "بەتاڵ"
 
 #: db_structure.php:707 db_tracking.php:101 libraries/Index.class.php:507
 #: libraries/common.lib.php:3386 libraries/common.lib.php:3387
@@ -685,7 +686,7 @@ msgstr ""
 
 #: db_structure.php:709 tbl_operations.php:620
 msgid "Check table"
-msgstr ""
+msgstr "پشکنینی خشتە"
 
 #: db_structure.php:712 tbl_operations.php:677 tbl_structure.php:882
 msgid "Optimize table"
@@ -693,7 +694,7 @@ msgstr ""
 
 #: db_structure.php:714 tbl_operations.php:662
 msgid "Repair table"
-msgstr ""
+msgstr "چاکردنی خشتە"
 
 #: db_structure.php:717 tbl_operations.php:647
 msgid "Analyze table"
@@ -713,7 +714,7 @@ msgstr ""
 
 #: db_structure.php:752 libraries/schema/User_Schema.class.php:426
 msgid "Data Dictionary"
-msgstr ""
+msgstr "فەرهەنگی زانیاریەکان"
 
 #: db_tracking.php:74
 msgid "Tracked tables"
@@ -729,25 +730,25 @@ msgstr ""
 #: server_status.php:1254 server_synchronize.php:1448
 #: server_synchronize.php:1452 sql.php:933 tbl_tracking.php:710
 msgid "Database"
-msgstr ""
+msgstr "بنکەی دراو"
 
 #: db_tracking.php:81
 msgid "Last version"
-msgstr ""
+msgstr "وەشانی کۆتا"
 
 #: db_tracking.php:82 tbl_tracking.php:713
 msgid "Created"
-msgstr ""
+msgstr "دروستکراوە"
 
 #: db_tracking.php:83 tbl_tracking.php:714
 msgid "Updated"
-msgstr ""
+msgstr "بارکراوە"
 
 #: db_tracking.php:84 js/messages.php:185 libraries/Menu.class.php:467
 #: libraries/rte/rte_events.lib.php:380 libraries/rte/rte_list.lib.php:78
 #: server_status.php:1257 sql.php:1006 tbl_tracking.php:715
 msgid "Status"
-msgstr ""
+msgstr "ڕەوش"
 
 #: db_tracking.php:85 libraries/Index.class.php:455
 #: libraries/db_structure.lib.php:39 libraries/rte/rte_list.lib.php:53
@@ -755,7 +756,7 @@ msgstr ""
 #: server_databases.php:221 server_privileges.php:1857
 #: server_privileges.php:2075 server_privileges.php:2422 tbl_structure.php:218
 msgid "Action"
-msgstr ""
+msgstr "کردار"
 
 #: db_tracking.php:96 js/messages.php:34
 msgid "Delete tracking data for this table"
@@ -763,15 +764,15 @@ msgstr ""
 
 #: db_tracking.php:118 tbl_tracking.php:667 tbl_tracking.php:725
 msgid "active"
-msgstr ""
+msgstr "چالاک"
 
 #: db_tracking.php:120 tbl_tracking.php:669 tbl_tracking.php:727
 msgid "not active"
-msgstr ""
+msgstr "ناچالاکە"
 
 #: db_tracking.php:135
 msgid "Versions"
-msgstr ""
+msgstr "وەشانەکان"
 
 #: db_tracking.php:136 tbl_tracking.php:473 tbl_tracking.php:745
 msgid "Tracking report"
@@ -799,7 +800,7 @@ msgstr ""
 
 #: export.php:87
 msgid "Selected export type has to be saved in file!"
-msgstr ""
+msgstr "دەستنیشانکردنی جۆری پەڕگە بۆ پاشەکەوتکردن!\n"
 
 #: export.php:116
 msgid "Bad parameters!"
@@ -850,7 +851,7 @@ msgstr ""
 
 #: gis_data_editor.php:171 js/messages.php:326
 msgid "Point"
-msgstr ""
+msgstr "خاڵ"
 
 #: gis_data_editor.php:172 gis_data_editor.php:196 gis_data_editor.php:244
 #: gis_data_editor.php:296 js/messages.php:324
@@ -871,7 +872,7 @@ msgstr ""
 #: gis_data_editor.php:203 gis_data_editor.php:249 gis_data_editor.php:301
 #: js/messages.php:333
 msgid "Add a point"
-msgstr ""
+msgstr "زیادکردنی خاڵ"
 
 #: gis_data_editor.php:219 js/messages.php:328
 msgid "Linestring"
