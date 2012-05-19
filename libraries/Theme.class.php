@@ -68,7 +68,7 @@ class PMA_Theme
      * @var array List of css files to load
      * @access private
      */
-    private $css_files = array(
+    private $_cssFiles = array(
         'common',
         'enum_editor',
         'gis',
@@ -329,7 +329,7 @@ class PMA_Theme
             $left = 'right';
         }
 
-        foreach ($this->css_files as $file) {
+        foreach ($this->_cssFiles as $file) {
             $path = $this->getPath() . "/css/$file.css.php";
             $fallback = PMA_Theme_Manager::FALLBACK_THEME .  "/css/$file.css.php";
 
