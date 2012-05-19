@@ -504,6 +504,12 @@ $(document).ready(function() {
             currentChart.resetZoom();
         });
 
+        $('div#querychart').resizable({
+            resize: function(event, ui) {
+                currentChart.replot( {resetAxes: true})
+            }
+        });
+
         $('div#querychart').bind('jqplotDataClick',
             function(event, seriesIndex, pointIndex, data) {
                 searchedDataKey = data[4]; // key from searchedData (global)
