@@ -279,16 +279,12 @@ $(document).ready(function() {
 
         //Update the chart series and replot
         if (xChange || yChange) {
-            var newSeries = new Array();
-            newSeries[0] = new Object();
-            newSeries[0].marker = {
-                symbol: 'circle'
-            };
             //Logic similar to plot generation, replot only if xAxis changes or yAxis changes. 
             //Code includes a lot of checks so as to replot only when necessary
             if (xChange) {
                 xCord[searchedDataKey] = selectedRow[xLabel];
                 if (xType == 'numeric') {
+                    // here, [searchedDataKey][0] contains the x value
                     series[0][searchedDataKey][0] = selectedRow[xLabel];
                     currentChart.series[0].data = series[0];
                     // todo: axis changing
@@ -298,95 +294,24 @@ $(document).ready(function() {
                         x : getTimeStamp(selectedRow[xLabel], $('#types_0').val())
                     });
                 } else {
-                    var tempX = getCord(xCord);
-                    var tempY = getCord(yCord);
-                    var i = 0;
-                    newSeries[0].data = new Array();
-                    xCord = tempX[2];
-                    yCord = tempY[2];
-
-                    $.each(data, function(key, value) {
-                        if (yType != 'text') {
-                            newSeries[0].data.push({ 
-                                name: value[dataLabel], 
-                                x: tempX[0][i], 
-                                y: value[yLabel], 
-                                marker: {fillColor: colorCodes[i % 8]}, 
-                                id: i 
-                            });
-                        } else {
-                            newSeries[0].data.push({ 
-                                name: value[dataLabel], 
-                                x: tempX[0][i], 
-                                y: tempY[0][i], 
-                                marker: {fillColor: colorCodes[i % 8]}, 
-                                id: i 
-                            });
-                        }
-                        i++;
-                    });
-                    currentSettings.xAxis.labels = {
-                        formatter : function() {
-                            if (tempX[1][this.value] && tempX[1][this.value].length > 10) {
-                                return tempX[1][this.value].substring(0, 10);
-                            } else {
-                                return tempX[1][this.value];
-                            }
-                        }
-                     };
-                     currentSettings.series = newSeries;
-                     currentChart = PMA_createChart(currentSettings);
-                 }
+                    // todo: text values
+                }
 
             }
             if (yChange) {
                 yCord[searchedDataKey] = selectedRow[yLabel];
                 if (yType == 'numeric') {
-                    currentChart.series[0].data[searchedDataKey].update({ y : selectedRow[yLabel] });
-                    currentChart.yAxis[0].setExtremes(Array.min(yCord) - 6, Array.max(yCord) + 6);
+                    // here, [searchedDataKey][1] contains the y value
+                    series[0][searchedDataKey][1] = selectedRow[yLabel];
+                    currentChart.series[0].data = series[0];
+                    // todo: axis changing
+                    currentChart.replot();
                 } else if (yType == 'time') {
                     currentChart.series[0].data[searchedDataKey].update({ 
                         y : getTimeStamp(selectedRow[yLabel], $('#types_1').val())
                     });
                 } else {
-                    var tempX = getCord(xCord);
-                    var tempY = getCord(yCord);
-                    var i = 0;
-                    newSeries[0].data = new Array();
-                    xCord = tempX[2];
-                    yCord = tempY[2];
-
-                    $.each(data, function(key, value) {
-                        if (xType != 'text' ) {
-                            newSeries[0].data.push({ 
-                                name: value[dataLabel], 
-                                x: value[xLabel], 
-                                y: tempY[0][i], 
-                                marker: {fillColor: colorCodes[i % 8]}, 
-                                id: i 
-                            });
-                        } else {
-                            newSeries[0].data.push({ 
-                                name: value[dataLabel], 
-                                x: tempX[0][i], 
-                                y: tempY[0][i], 
-                                marker: {fillColor: colorCodes[i % 8]}, 
-                                id: i 
-                            });
-                        }
-                        i++;
-                    });
-                    currentSettings.yAxis.labels = {
-                        formatter : function() {
-                            if (tempY[1][this.value] && tempY[1][this.value].length > 10) {
-                                return tempY[1][this.value].substring(0, 10);
-                            } else {
-                                return tempY[1][this.value];
-                            }
-                        }
-                     };
-                     currentSettings.series = newSeries;
-                     currentChart = PMA_createChart(currentSettings);
+                    // todo: text values
                 }
             }
         } //End plot update
