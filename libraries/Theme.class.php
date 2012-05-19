@@ -331,7 +331,7 @@ class PMA_Theme
 
         foreach ($this->_cssFiles as $file) {
             $path = $this->getPath() . "/css/$file.css.php";
-            $fallback = PMA_Theme_Manager::FALLBACK_THEME .  "/css/$file.css.php";
+            $fallback = "./themes/" . PMA_Theme_Manager::FALLBACK_THEME .  "/css/$file.css.php";
 
             if (is_readable($path)) {
                 echo "\n/* FILE: $file.css.php */\n";
@@ -344,12 +344,7 @@ class PMA_Theme
             }
         }
 
-        $_sprites_data_file = $this->getPath() . '/sprites.lib.php';
-        $_sprites_css_file = './themes/sprites.css.php';
-        if (is_readable($_sprites_data_file)) {
-            include $_sprites_data_file;
-            include $_sprites_css_file;
-        }
+        include './themes/sprites.css.php';
 
         return $success;
     }
