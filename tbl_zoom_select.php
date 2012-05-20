@@ -416,14 +416,14 @@ if (isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null' 
     //JSON encode the data(query result)
     if (isset($zoom_submit) && ! empty($data)) {
         ?>
-        <div id='resizer' style="width:600px;height:400px">
+        <div id="resizer">
           <center><a href="#" onclick="displayHelp();"><?php echo __('How to use'); ?></a></center>
           <div id="querydata" style="display:none">
         <?php
         echo json_encode($data);
         ?>
           </div>
-          <div id="querychart" style="float:right"></div>
+          <div id="querychart"></div>
           <button class="button-reset"><?php echo __('Reset zoom'); ?></button>
         </div>
         <?php

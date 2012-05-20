@@ -780,6 +780,18 @@ td.disabled {
 }
 
 /**
+ * zoom search
+ */
+div#resizer {
+    width:              600px;
+    height:             400px;
+}
+div#querychart {
+    float:              left;
+    width:              600px;
+}
+
+/**
  * login form
  */
 body.loginform h1,
@@ -3485,7 +3497,7 @@ body .ui-widget {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     font-size: 1em;
 /*    height: 300px;
-    width: 400px;*/
+    width: 590px;*/
 }
 
 /*rules applied to all axes*/

@@ -599,6 +599,18 @@ td.disabled {
 }
 
 /**
+ * zoom search
+ */
+div#resizer {
+    width:              600px;
+    height:             400px;
+}
+div#querychart {
+    float:              left;
+    width:              600px;
+}
+
+/**
  * login form
  */
 body.loginform h1,
