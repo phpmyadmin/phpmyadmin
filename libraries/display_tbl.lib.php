@@ -674,7 +674,7 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
     global $sql_query, $num_rows;
     global $vertical_display, $highlight_columns;
 
-    $table_headers_html = "";
+    $table_headers_html = '';
 
     // required to generate sort links that will remember whether the
     // "Show all" button has been clicked
@@ -719,94 +719,10 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
 
             // do we have any index?
             if ($indexes) {
-
-                if ($directionCondition) {
-                    
-                    $span = $fields_cnt;
-                    if ($is_display['edit_lnk'] != 'nn') {
-                        $span++;
-                    }
-                    
-                    if ($is_display['del_lnk'] != 'nn') {
-                        $span++;
-                    }
-                    
-                    if (($is_display['del_lnk'] != 'kp')
-                        && ($is_display['del_lnk'] != 'nn')
-                    ) {
-                        $span++;
-                    }
-                    
-                } else {
-                    $span = $num_rows + floor(
-                            $num_rows / $_SESSION['tmp_user_values']['repeat_cells']
-                        ) + 1;
-                }
-
-                $table_headers_html .= '<form action="sql.php" method="post">' . "\n"
-                    . PMA_generate_common_hidden_inputs($db, $table)
-                    . __('Sort by key')
-                    . ': <select name="sql_query" class="autosubmit">' . "\n";
-                
-                $used_index = false;
-                $local_order = (isset($sort_expression) ? $sort_expression : '');
-                
-                foreach ($indexes as $index) {
-                    
-                    $asc_sort = '`'
-                        . implode('` ASC, `', array_keys($index->getColumns()))
-                        . '` ASC';
-                    
-                    $desc_sort = '`'
-                        . implode('` DESC, `', array_keys($index->getColumns()))
-                        . '` DESC';
-                    
-                    $used_index = $used_index
-                        || ($local_order == $asc_sort)
-                        || ($local_order == $desc_sort);
-                    
-                    if (preg_match(
-                        '@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|'
-                        . 'FOR UPDATE|LOCK IN SHARE MODE))@is',
-                        $unsorted_sql_query, $my_reg)
-                    ) {
-                        $unsorted_sql_query_first_part = $my_reg[1];
-                        $unsorted_sql_query_second_part = $my_reg[2];
-                    } else {
-                        $unsorted_sql_query_first_part = $unsorted_sql_query;
-                        $unsorted_sql_query_second_part = '';
-                    }
-                    
-                    $table_headers_html .= '<option value="'
-                        . htmlspecialchars(
-                            $unsorted_sql_query_first_part  . "\n"
-                            . ' ORDER BY ' . $asc_sort
-                            . $unsorted_sql_query_second_part
-                        )
-                        . '"' . ($local_order == $asc_sort
-                            ? ' selected="selected"'
-                            : '')
-                        . '>' . htmlspecialchars($index->getName()) . ' ('
-                        . __('Ascending') . ')</option>';
-                    
-                    $table_headers_html .= '<option value="'
-                        . htmlspecialchars(
-                            $unsorted_sql_query_first_part . "\n"
-                            . ' ORDER BY ' . $desc_sort
-                            . $unsorted_sql_query_second_part
-                        )
-                        . '"' . ($local_order == $desc_sort
-                            ? ' selected="selected"'
-                            : '')
-                        . '>' . htmlspecialchars($index->getName()) . ' ('
-                        . __('Descending') . ')</option>';
-                }
-                
-                $table_headers_html .= '<option value="' . htmlspecialchars($unsorted_sql_query) . '"'
-                    . ($used_index ? '' : ' selected="selected"') . '>' . __('None')
-                    . '</option>'
-                    . '</select>' . "\n"
-                    . '</form>' . "\n";
+                $table_headers_html .= PMA_getSortByKeyDropDown(
+                        $db, $table, $indexes, $sort_expression,
+                        $unsorted_sql_query
+                    );                
             }
         }
     }
@@ -819,31 +735,8 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
         . '</div>';
     
     // Output data needed for column reordering and show/hide column
-    if (PMA_isSelect()) {
-        
-        // generate the column order, if it is set
-        $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
-        $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
-        
-        if ($col_order) {
-            $table_headers_html .= '<input id="col_order" type="hidden" value="'
-                . implode(',', $col_order) . '" />';
-        }
-        
-        $col_visib = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_VISIB);
-        
-        if ($col_visib) {
-            $table_headers_html .= '<input id="col_visib" type="hidden" value="'
-                . implode(',', $col_visib) . '" />';
-        }
-        
-        // generate table create time
-        if (! PMA_Table::isView($GLOBALS['table'], $GLOBALS['db'])) {
-            $table_headers_html .= '<input id="table_create_time" type="hidden" value="'
-                . PMA_Table::sGetStatusInfo(
-                    $GLOBALS['db'], $GLOBALS['table'], 'Create_time'
-                ) . '" />';
-        }
+    if (PMA_isSelect()) {        
+        $table_headers_html .= PMA_getDataForResettingColumnOrder();        
     }
 
     $vertical_display['emptypre']   = 0;
@@ -851,175 +744,36 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
     $vertical_display['textbtn']    = '';
 
     // Display options (if we are not in print view)
-    if (! (isset($GLOBALS['printview']) && $GLOBALS['printview'] == '1')) {
+    if (! (isset($GLOBALS['printview']) && ($GLOBALS['printview'] == '1'))) {
         
-        $table_headers_html .= '<form method="post" action="sql.php" name="displayOptionsForm" '
-            . 'id="displayOptionsForm"';
+        $table_headers_html .= PMA_getOptionsBlock($db, $table, $sql_query, $goto);
         
-        if ($GLOBALS['cfg']['AjaxEnable']) {
-            $table_headers_html .= ' class="ajax" ';
-        }
-        
-        $table_headers_html .= '>';
-        $url_params = array(
-            'db' => $db,
-            'table' => $table,
-            'sql_query' => $sql_query,
-            'goto' => $goto,
-            'display_options_form' => 1
-        );
-
-        $table_headers_html .= PMA_generate_common_hidden_inputs($url_params)
-            . '<br />'
-            . PMA_getDivForSliderEffect('displayoptions', __('Options'))
-            . '<fieldset>';
-
-        $table_headers_html .= '<div class="formelement">';
-        $choices = array(
-            'P'   => __('Partial texts'),
-            'F'   => __('Full texts')
-        );
-
-        $table_headers_html .= PMA_getRadioFields(
-                'display_text', $choices,
-                $_SESSION['tmp_user_values']['display_text']
-            )
-            . '</div>';
-
         // prepare full/partial text button or link
-        $url_params_full_text = array(
-            'db' => $db,
-            'table' => $table,
-            'sql_query' => $sql_query,
-            'goto' => $goto,
-            'full_text_button' => 1
-        );
-
-        if ($_SESSION['tmp_user_values']['display_text'] == 'F') {
-            // currently in fulltext mode so show the opposite link
-            $tmp_image_file = $GLOBALS['pmaThemeImage'] . 's_partialtext.png';
-            $tmp_txt = __('Partial texts');
-            $url_params_full_text['display_text'] = 'P';
-        } else {
-            $tmp_image_file = $GLOBALS['pmaThemeImage'] . 's_fulltext.png';
-            $tmp_txt = __('Full texts');
-            $url_params_full_text['display_text'] = 'F';
-        }
-
-        $tmp_image = '<img class="fulltext" src="' . $tmp_image_file . '" alt="'
-                     . $tmp_txt . '" title="' . $tmp_txt . '" />';
-        $tmp_url = 'sql.php' . PMA_generate_common_url($url_params_full_text);
-        $full_or_partial_text_link
-            = PMA_linkOrButton($tmp_url, $tmp_image, array(), false);
-        unset($tmp_image_file, $tmp_txt, $tmp_url, $tmp_image);
-
-
-        if ($GLOBALS['cfgRelation']['relwork']
-            && $GLOBALS['cfgRelation']['displaywork']
-        ) {
-            $table_headers_html .= '<div class="formelement">';
-            $choices = array(
-                'K'   => __('Relational key'),
-                'D'   => __('Relational display column')
-            );
-            
-            $table_headers_html .= PMA_getRadioFields(
-                    'relational_display', $choices,
-                    $_SESSION['tmp_user_values']['relational_display']
-                )
-                . '</div>';
-        }
-
-        $table_headers_html .= '<div class="formelement">'
-            . PMA_getCheckbox(
-                'display_binary', __('Show binary contents'),
-                ! empty($_SESSION['tmp_user_values']['display_binary']), false
-            )
-            . '<br />'
-            . PMA_getCheckbox(
-                'display_blob', __('Show BLOB contents'),
-                ! empty($_SESSION['tmp_user_values']['display_blob']), false
-            )
-            . '<br />'
-            . PMA_getCheckbox(
-                'display_binary_as_hex', __('Show binary contents as HEX'),
-                ! empty($_SESSION['tmp_user_values']['display_binary_as_hex']), false
-              )
-            . '</div>';
-
-        // I would have preferred to name this "display_transformation".
-        // This is the only way I found to be able to keep this setting sticky
-        // per SQL query, and at the same time have a default that displays
-        // the transformations.
-        $table_headers_html .= '<div class="formelement">'
-            . PMA_getCheckbox(
-                'hide_transformation', __('Hide browser transformation'),
-                ! empty($_SESSION['tmp_user_values']['hide_transformation']), false
-            )
-            . '</div>';
-
-        if (! PMA_DRIZZLE) {
-            $table_headers_html .= '<div class="formelement">';
-            $choices = array(
-                'GEOM'  => __('Geometry'),
-                'WKT'   => __('Well Known Text'),
-                'WKB'   => __('Well Known Binary')
-            );
-
-            $table_headers_html .= PMA_getRadioFields(
-                    'geometry_display', $choices,
-                    $_SESSION['tmp_user_values']['geometry_display']
-                )
-                . '</div>';
-        }
-
-        $table_headers_html .= '<div class="clearfloat"></div>'
-            . '</fieldset>';
-
-        $table_headers_html .= '<fieldset class="tblFooters">'
-            . '<input type="submit" value="' . __('Go') . '" />'
-            . '</fieldset>'
-            . '</div>'
-            . '</form>';
+        $full_or_partial_text_link = PMA_getFullOrPartialTextButtonOrLink(
+                $db, $table, $sql_query, $goto
+            );        
     }
 
     // Start of form for multi-rows edit/delete/export
-
-    if (($is_display['del_lnk'] == 'dr') || ($is_display['del_lnk'] == 'kp')) {
+    $table_headers_html .= PMA_getFormForMultiRowOperations(
+            $db, $table, $is_display['del_lnk']
+        );
         
-        $table_headers_html .= '<form method="post" action="tbl_row_action.php" name="resultsForm" '
-            . 'id="resultsForm"';
-        
-        if ($GLOBALS['cfg']['AjaxEnable']) {
-            $table_headers_html .= ' class="ajax" ';
-        }
-        
-        $table_headers_html .= '>' . "\n"
-            . PMA_generate_common_hidden_inputs($db, $table, 1)
-            . '<input type="hidden" name="goto" value="sql.php" />' . "\n";
-    }
-
-    $table_headers_html .= '<table id="table_results" class="data';
-    if ($GLOBALS['cfg']['AjaxEnable']) {
-        $table_headers_html .= ' ajax';
-    }
-    $table_headers_html .= '">' . "\n";
-    
     // 1. Displays the full/partial text button (part 1)...
     if ($directionCondition) {
         
         $table_headers_html .= '<thead><tr>' . "\n";
         
-        $colspan  = (($is_display['edit_lnk'] != 'nn')
+        $colspan = (($is_display['edit_lnk'] != 'nn')
             && ($is_display['del_lnk'] != 'nn'))
             ? ' colspan="4"'
             : '';
         
     } else {
-        $rowspan  = (($is_display['edit_lnk'] != 'nn')
+        $rowspan = (($is_display['edit_lnk'] != 'nn')
             && ($is_display['del_lnk'] != 'nn'))
-                  ? ' rowspan="4"'
-                  : '';
+            ? ' rowspan="4"'
+            : '';
     }
 
     //     ... before the result table
@@ -1145,16 +899,8 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
         }
     }
 
-    if (PMA_isSelect()) {
-        // prepare to get the column order, if available
-        $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
-        $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
-        $col_visib = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_VISIB);
-    } else {
-        $col_order = false;
-        $col_visib = false;
-    }
-
+    list($col_order, $col_visib) = PMA_getColumnParams();
+    
     for ($j = 0; $j < $fields_cnt; $j++) {
         
         // assign $i with appropriate column order
@@ -1162,28 +908,14 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
         
         //  See if this column should get highlight because it's used in the
         //  where-query.
-        if (isset($highlight_columns[$fields_meta[$i]->name])
-            || isset($highlight_columns[PMA_backquote($fields_meta[$i]->name)])
-        ) {
-            $condition_field = true;
-        } else {
-            $condition_field = false;
-        }
-
+        $condition_field = (isset($highlight_columns[$fields_meta[$i]->name])
+            || isset($highlight_columns[PMA_backquote($fields_meta[$i]->name)]))
+            ? true
+            : false;
+        
         // 2.0 Prepare comment-HTML-wrappers for each row, if defined/enabled.
-        if (isset($comments_map)
-            && isset($comments_map[$fields_meta[$i]->table])
-            && isset($comments_map[$fields_meta[$i]->table][$fields_meta[$i]->name])
-        ) {
-            $comments = '<span class="tblcomment">'
-                . htmlspecialchars(
-                    $comments_map[$fields_meta[$i]->table][$fields_meta[$i]->name]
-                )
-                . '</span>';
-        } else {
-            $comments = '';
-        }
-
+        $comments = PMA_getCommentForRow($comments_map, $fields_meta[$i]);
+        
         // 2.1 Results can be sorted
         if ($is_display['sort_lnk'] == '1') {
 
@@ -1192,12 +924,11 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
             //       isn't aliased, or in queries like
             //       SELECT `1`.`master_field` , `2`.`master_field`
             //       FROM `PMA_relation` AS `1` , `PMA_relation` AS `2`
-
-            if (isset($fields_meta[$i]->table) && strlen($fields_meta[$i]->table)) {
-                $sort_tbl = PMA_backquote($fields_meta[$i]->table) . '.';
-            } else {
-                $sort_tbl = '';
-            }
+            
+            $sort_tbl = (isset($fields_meta[$i]->table)
+                && strlen($fields_meta[$i]->table))
+                ? PMA_backquote($fields_meta[$i]->table) . '.'
+                : '';
 
             // 2.1.2 Checks if the current column is used to sort the
             //       results
@@ -1217,38 +948,11 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
             // so we remove the space in this situation
             $name_to_use_in_sort = str_replace(' )', ')', $name_to_use_in_sort);
 
-            if (empty($sort_expression)) {
-                $is_in_sort = false;
-            } else {
-                // Field name may be preceded by a space, or any number
-                // of characters followed by a dot (tablename.fieldname)
-                // so do a direct comparison for the sort expression;
-                // this avoids problems with queries like
-                // "SELECT id, count(id)..." and clicking to sort
-                // on id or on count(id).
-                // Another query to test this:
-                // SELECT p.*, FROM_UNIXTIME(p.temps) FROM mytable AS p
-                // (and try clicking on each column's header twice)
-                if (! empty($sort_tbl)
-                    && (strpos($sort_expression_nodirection, $sort_tbl) === false)
-                    && (strpos($sort_expression_nodirection, '(') === false)
-                ) {
-                    $new_sort_expression_nodirection = $sort_tbl
-                        . $sort_expression_nodirection;
-                } else {
-                    $new_sort_expression_nodirection = $sort_expression_nodirection;
-                }
-
-                $is_in_sort = false;
-                $sort_name = str_replace('`', '', $sort_tbl) . $name_to_use_in_sort;
-                
-                if (($sort_name == str_replace('`', '', $new_sort_expression_nodirection))
-                    || ($sort_name == str_replace('`', '', $sort_expression_nodirection))
-                ) {
-                    $is_in_sort = true;
-                }
-            }
-            
+            $is_in_sort = PMA_isInSorted(
+                    $sort_expression, $sort_expression_nodirection,
+                    $sort_tbl, $name_to_use_in_sort
+                );
+                        
             // 2.1.3 Check the field name for a bracket.
             //       If it contains one, it's probably a function column
             //       like 'COUNT(`field`)'
@@ -1264,48 +968,12 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
             unset($is_orgname);
 
             // 2.1.4 Do define the sorting URL
-            if (! $is_in_sort) {
-                
-                // patch #455484 ("Smart" order)
-                $GLOBALS['cfg']['Order'] = strtoupper($GLOBALS['cfg']['Order']);
-                
-                if ($GLOBALS['cfg']['Order'] === 'SMART') {
-                    $sort_order .= (preg_match(
-                            '@time|date@i',
-                            $fields_meta[$i]->type
-                        )) ? 'DESC' : 'ASC';
-                } else {
-                    $sort_order .= $GLOBALS['cfg']['Order'];
-                }
-                $order_img   = '';
-                
-            } elseif ($sort_direction == 'DESC') {
-                
-                $sort_order .= ' ASC';
-                $order_img   = ' ' . PMA_getImage(
-                        's_desc.png', __('Descending'),
-                        array('class' => "soimg$i", 'title' => '')
-                    );
-                
-                $order_img  .= ' ' . PMA_getImage(
-                        's_asc.png', __('Ascending'),
-                        array('class' => "soimg$i hide", 'title' => '')
-                    );
-                
-            } else {
-                
-                $sort_order .= ' DESC';
-                $order_img   = ' ' . PMA_getImage(
-                        's_asc.png', __('Ascending'),
-                        array('class' => "soimg$i", 'title' => '')
-                    );
-                
-                $order_img  .= ' ' . PMA_getImage(
-                        's_desc.png', __('Descending'),
-                        array('class' => "soimg$i hide", 'title' => '')
-                    );
-            }
-
+            
+            list($sort_order, $order_img) = PMA_getSortingUrlParams(
+                    $is_in_sort, $sort_direction, $fields_meta[$i],
+                    $sort_order, $i
+                );
+            
             if (preg_match('@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|'
                     . 'LOCK IN SHARE MODE))@is', $unsorted_sql_query, $regs3)
             ) {
@@ -1323,77 +991,16 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
             $order_url  = 'sql.php' . PMA_generate_common_url($_url_params);
 
             // 2.1.5 Displays the sorting URL
-            // enable sort order swapping for image
-            $order_link_params = array();
-            if (isset($order_img) && $order_img!='') {
-                if (strstr($order_img, 'asc')) {
-                    $order_link_params['onmouseover'] = "$('.soimg$i').toggle()";
-                    $order_link_params['onmouseout']  = "$('.soimg$i').toggle()";
-                } elseif (strstr($order_img, 'desc')) {
-                    $order_link_params['onmouseover'] = "$('.soimg$i').toggle()";
-                    $order_link_params['onmouseout']  = "$('.soimg$i').toggle()";
-                }
-            }
-            
-            if ($GLOBALS['cfg']['HeaderFlipType'] == 'auto') {
-                if (PMA_USR_BROWSER_AGENT == 'IE') {
-                    $GLOBALS['cfg']['HeaderFlipType'] = 'css';
-                } else {
-                    $GLOBALS['cfg']['HeaderFlipType'] = 'fake';
-                }
-            }
-            
-            if ($direction == 'horizontalflipped'
-                && $GLOBALS['cfg']['HeaderFlipType'] == 'css'
-            ) {
-                $order_link_params['style'] = 'direction: ltr; writing-mode: tb-rl;';
-            }
-            
-            $order_link_params['title'] = __('Sort');
-            $order_link_content = (($direction == 'horizontalflipped')
-                && ($GLOBALS['cfg']['HeaderFlipType'] == 'fake'))
-                ? PMA_flipstring(
-                    htmlspecialchars($fields_meta[$i]->name),
-                    "<br />\n"
-                )
-                : htmlspecialchars($fields_meta[$i]->name);
-            
-            $order_link = PMA_linkOrButton(
-                $order_url, $order_link_content . $order_img,
-                $order_link_params, false, true
-            );
+            // enable sort order swapping for image                       
+            $order_link = PMA_getSortOrderLink(
+                    $order_img, $i, $direction, $fields_meta[$i], $order_url
+                );
 
-            if ($directionCondition) {
-                
-                $table_headers_html .= '<th';
-                $th_class = array();
-                $th_class[] = 'draggable';
-                
-                if ($col_visib && !$col_visib[$j]) {
-                    $th_class[] = 'hide';
-                }
-                
-                if ($condition_field) {
-                    $th_class[] = 'condition';
-                }
-                
-                $th_class[] = 'column_heading';
-                if ($GLOBALS['cfg']['BrowsePointerEnable'] == true) {
-                    $th_class[] = 'pointer';
-                }
-                
-                if ($GLOBALS['cfg']['BrowseMarkerEnable'] == true) {
-                    $th_class[] = 'marker';
-                }
-                
-                $table_headers_html .= ' class="' . implode(' ', $th_class);
-
-                if ($direction == 'horizontalflipped') {
-                    $table_headers_html .= ' vbottom';
-                }
-                
-                $table_headers_html .= '" data-column="' . htmlspecialchars($fields_meta[$i]->name)
-                    . '">' . $order_link . $comments . '</th>';
+            if ($directionCondition) {                
+                $table_headers_html .= PMA_getDraggableClassForSortableColumns(
+                        $col_visib, $col_visib[$j], $condition_field,
+                        $direction, $fields_meta[$i], $order_link, $comments
+                    );                
             }
             
             $vertical_display['desc'][] = '    <th '
@@ -1405,48 +1012,12 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
 
         // 2.2 Results can't be sorted
         else {
-            if ($directionCondition) {
-                
-                $table_headers_html .= '<th';
-                $th_class = array();
-                $th_class[] = 'draggable';
-                
-                if ($col_visib && !$col_visib[$j]) {
-                    $th_class[] = 'hide';
-                }
-                
-                if ($condition_field) {
-                    $th_class[] = 'condition';
-                }
-                
-                $table_headers_html .= ' class="' . implode(' ', $th_class);
-                if ($direction == 'horizontalflipped') {
-                    $table_headers_html .= ' vbottom';
-                }
-                
-                $table_headers_html .= '"';
-                if (($direction == 'horizontalflipped')
-                    && ($GLOBALS['cfg']['HeaderFlipType'] == 'css')
-                ) {
-                    $table_headers_html .= ' style="direction: ltr; writing-mode: tb-rl;"';
-                }
-                
-                $table_headers_html .= ' data-column="'
-                    . htmlspecialchars($fields_meta[$i]->name) . '">';
-                
-                if (($direction == 'horizontalflipped')
-                    && ($GLOBALS['cfg']['HeaderFlipType'] == 'fake')
-                ) {
-                    
-                    $table_headers_html .= PMA_flipstring(
-                            htmlspecialchars($fields_meta[$i]->name), '<br />'
-                        );
-                    
-                } else {
-                    $table_headers_html .= htmlspecialchars($fields_meta[$i]->name);
-                }
-                
-                $table_headers_html .= "\n" . $comments . '</th>';
+            
+            if ($directionCondition) {                
+                $table_headers_html .= PMA_getDraggableClassForNonSortableColumns(
+                        $col_visib, $col_visib[$j], $condition_field,
+                        $direction, $fields_meta[$i], $comments
+                    );                
             }
             
             $vertical_display['desc'][] = '    <th '
@@ -1512,6 +1083,669 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
     return $table_headers_html;
     
 } // end of the 'PMA_getTableHeaders()' function
+
+
+/**
+ * Prepare sort by key dropdown - html code segment
+ * 
+ * @param   string  $db                 the database name
+ * @param   string  $table              the table name
+ * @param   array   $indexes            the indexes of the table for sort criteria
+ * @param   string  $sort_expression    the sort expression
+ * @param   string  $unsorted_sql_query the unsorted sql query
+ * 
+ * @return  string  $drop_down_html         html content
+ * 
+ * @see     PMA_getTableHeaders()
+ */
+function PMA_getSortByKeyDropDown(
+    $db, $table, $indexes, $sort_expression, $unsorted_sql_query
+) {
+    
+    $drop_down_html = '';
+    
+    $drop_down_html .= '<form action="sql.php" method="post">' . "\n"
+        . PMA_generate_common_hidden_inputs($db, $table)
+        . __('Sort by key')
+        . ': <select name="sql_query" class="autosubmit">' . "\n";
+
+    $used_index = false;
+    $local_order = (isset($sort_expression) ? $sort_expression : '');
+
+    foreach ($indexes as $index) {
+
+        $asc_sort = '`'
+            . implode('` ASC, `', array_keys($index->getColumns()))
+            . '` ASC';
+
+        $desc_sort = '`'
+            . implode('` DESC, `', array_keys($index->getColumns()))
+            . '` DESC';
+
+        $used_index = $used_index
+            || ($local_order == $asc_sort)
+            || ($local_order == $desc_sort);
+
+        if (preg_match(
+            '@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|'
+            . 'FOR UPDATE|LOCK IN SHARE MODE))@is',
+            $unsorted_sql_query, $my_reg)
+        ) {
+            $unsorted_sql_query_first_part = $my_reg[1];
+            $unsorted_sql_query_second_part = $my_reg[2];
+        } else {
+            $unsorted_sql_query_first_part = $unsorted_sql_query;
+            $unsorted_sql_query_second_part = '';
+        }
+
+        $drop_down_html .= '<option value="'
+            . htmlspecialchars(
+                $unsorted_sql_query_first_part  . "\n"
+                . ' ORDER BY ' . $asc_sort
+                . $unsorted_sql_query_second_part
+            )
+            . '"' . ($local_order == $asc_sort
+                ? ' selected="selected"'
+                : '')
+            . '>' . htmlspecialchars($index->getName()) . ' ('
+            . __('Ascending') . ')</option>';
+
+        $drop_down_html .= '<option value="'
+            . htmlspecialchars(
+                $unsorted_sql_query_first_part . "\n"
+                . ' ORDER BY ' . $desc_sort
+                . $unsorted_sql_query_second_part
+            )
+            . '"' . ($local_order == $desc_sort
+                ? ' selected="selected"'
+                : '')
+            . '>' . htmlspecialchars($index->getName()) . ' ('
+            . __('Descending') . ')</option>';
+    }
+
+    $drop_down_html .= '<option value="' . htmlspecialchars($unsorted_sql_query) . '"'
+        . ($used_index ? '' : ' selected="selected"') . '>' . __('None')
+        . '</option>'
+        . '</select>' . "\n"
+        . '</form>' . "\n";
+    
+    return $drop_down_html;
+    
+}
+
+
+/**
+ * Prepare data for column restoring and show/hide
+ * 
+ * @return  string  $data_html      html content
+ * 
+ * @see     PMA_getTableHeaders()
+ */
+function PMA_getDataForResettingColumnOrder()
+{
+    
+    $data_html = '';
+    
+    // generate the column order, if it is set
+    $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+    $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
+
+    if ($col_order) {
+        $data_html .= '<input id="col_order" type="hidden" value="'
+            . implode(',', $col_order) . '" />';
+    }
+
+    $col_visib = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_VISIB);
+
+    if ($col_visib) {
+        $data_html .= '<input id="col_visib" type="hidden" value="'
+            . implode(',', $col_visib) . '" />';
+    }
+
+    // generate table create time
+    if (! PMA_Table::isView($GLOBALS['table'], $GLOBALS['db'])) {
+        $data_html .= '<input id="table_create_time" type="hidden" value="'
+            . PMA_Table::sGetStatusInfo(
+                $GLOBALS['db'], $GLOBALS['table'], 'Create_time'
+            ) . '" />';
+    }
+    
+    return $data_html;
+    
+}
+
+
+/**
+ * Prepare option fields block
+ * 
+ * @param   string  $db             the database name
+ * @param   string  $table          the table name
+ * @param   string  $sql_query      the SQL query
+ * @param   string  $goto           the URL to go back in case of errors
+ * 
+ * @return  string  $options_html   html content
+ * 
+ * @see     PMA_getTableHeaders()
+ */
+function PMA_getOptionsBlock($db, $table, $sql_query, $goto)
+{
+    
+    $options_html = '';
+    
+    $options_html .= '<form method="post" action="sql.php" name="displayOptionsForm" '
+        . 'id="displayOptionsForm"';
+
+    if ($GLOBALS['cfg']['AjaxEnable']) {
+        $options_html .= ' class="ajax" ';
+    }
+
+    $options_html .= '>';
+    $url_params = array(
+        'db' => $db,
+        'table' => $table,
+        'sql_query' => $sql_query,
+        'goto' => $goto,
+        'display_options_form' => 1
+    );
+
+    $options_html .= PMA_generate_common_hidden_inputs($url_params)
+        . '<br />'
+        . PMA_getDivForSliderEffect('displayoptions', __('Options'))
+        . '<fieldset>';
+
+    $options_html .= '<div class="formelement">';
+    $choices = array(
+        'P'   => __('Partial texts'),
+        'F'   => __('Full texts')
+    );
+
+    $options_html .= PMA_getRadioFields(
+            'display_text', $choices,
+            $_SESSION['tmp_user_values']['display_text']
+        )
+        . '</div>';
+    
+    if ($GLOBALS['cfgRelation']['relwork']
+        && $GLOBALS['cfgRelation']['displaywork']
+    ) {
+        $options_html .= '<div class="formelement">';
+        $choices = array(
+            'K'   => __('Relational key'),
+            'D'   => __('Relational display column')
+        );
+
+        $options_html .= PMA_getRadioFields(
+                'relational_display', $choices,
+                $_SESSION['tmp_user_values']['relational_display']
+            )
+            . '</div>';
+    }
+
+    $options_html .= '<div class="formelement">'
+        . PMA_getCheckbox(
+            'display_binary', __('Show binary contents'),
+            ! empty($_SESSION['tmp_user_values']['display_binary']), false
+        )
+        . '<br />'
+        . PMA_getCheckbox(
+            'display_blob', __('Show BLOB contents'),
+            ! empty($_SESSION['tmp_user_values']['display_blob']), false
+        )
+        . '<br />'
+        . PMA_getCheckbox(
+            'display_binary_as_hex', __('Show binary contents as HEX'),
+            ! empty($_SESSION['tmp_user_values']['display_binary_as_hex']), false
+          )
+        . '</div>';
+
+    // I would have preferred to name this "display_transformation".
+    // This is the only way I found to be able to keep this setting sticky
+    // per SQL query, and at the same time have a default that displays
+    // the transformations.
+    $options_html .= '<div class="formelement">'
+        . PMA_getCheckbox(
+            'hide_transformation', __('Hide browser transformation'),
+            ! empty($_SESSION['tmp_user_values']['hide_transformation']), false
+        )
+        . '</div>';
+
+    if (! PMA_DRIZZLE) {
+        $options_html .= '<div class="formelement">';
+        $choices = array(
+            'GEOM'  => __('Geometry'),
+            'WKT'   => __('Well Known Text'),
+            'WKB'   => __('Well Known Binary')
+        );
+
+        $options_html .= PMA_getRadioFields(
+                'geometry_display', $choices,
+                $_SESSION['tmp_user_values']['geometry_display']
+            )
+            . '</div>';
+    }
+
+    $options_html .= '<div class="clearfloat"></div>'
+        . '</fieldset>';
+
+    $options_html .= '<fieldset class="tblFooters">'
+        . '<input type="submit" value="' . __('Go') . '" />'
+        . '</fieldset>'
+        . '</div>'
+        . '</form>';
+    
+    return $options_html;
+    
+}
+
+
+/**
+ * Get full/partial text button or link
+ * 
+ * @param   string  $db             the database name
+ * @param   string  $table          the table name
+ * @param   string  $sql_query      the SQL query
+ * @param   string  $goto           the URL to go back in case of errors
+ * 
+ * @return  string                  html content
+ * 
+ * @see     PMA_getTableHeaders()
+ */
+function PMA_getFullOrPartialTextButtonOrLink($db, $table, $sql_query, $goto)
+{
+    
+    $url_params_full_text = array(
+        'db' => $db,
+        'table' => $table,
+        'sql_query' => $sql_query,
+        'goto' => $goto,
+        'full_text_button' => 1
+    );
+
+    if ($_SESSION['tmp_user_values']['display_text'] == 'F') {
+        // currently in fulltext mode so show the opposite link
+        $tmp_image_file = $GLOBALS['pmaThemeImage'] . 's_partialtext.png';
+        $tmp_txt = __('Partial texts');
+        $url_params_full_text['display_text'] = 'P';
+    } else {
+        $tmp_image_file = $GLOBALS['pmaThemeImage'] . 's_fulltext.png';
+        $tmp_txt = __('Full texts');
+        $url_params_full_text['display_text'] = 'F';
+    }
+
+    $tmp_image = '<img class="fulltext" src="' . $tmp_image_file . '" alt="'
+                 . $tmp_txt . '" title="' . $tmp_txt . '" />';
+    $tmp_url = 'sql.php' . PMA_generate_common_url($url_params_full_text);
+    
+    return PMA_linkOrButton($tmp_url, $tmp_image, array(), false);
+    
+}
+
+
+/**
+ * Prepare html form for multi row operations
+ * 
+ * @param   string  $db                 the database name
+ * @param   string  $table              the table name
+ * @param   string  $del_lnk            the delete link of current row
+ * 
+ * @return  string  $form_html          html content
+ * 
+ * @see     PMA_getTableHeaders()
+ */
+function PMA_getFormForMultiRowOperations($db, $table, $del_lnk)
+{
+    
+    $form_html = '';
+    
+    if (($del_lnk == 'dr') || ($del_lnk == 'kp')) {
+        
+        $form_html .= '<form method="post" action="tbl_row_action.php" '
+            . 'name="resultsForm" id="resultsForm"';
+        
+        if ($GLOBALS['cfg']['AjaxEnable']) {
+            $form_html .= ' class="ajax" ';
+        }
+        
+        $form_html .= '>' . "\n"
+            . PMA_generate_common_hidden_inputs($db, $table, 1)
+            . '<input type="hidden" name="goto" value="sql.php" />' . "\n";
+    }
+
+    $form_html .= '<table id="table_results" class="data';
+    if ($GLOBALS['cfg']['AjaxEnable']) {
+        $form_html .= ' ajax';
+    }
+    $form_html .= '">' . "\n";
+    
+    return $form_html;
+    
+}
+
+
+/**
+ * Get comment for row
+ * 
+ * @param   array   $comments_map   comments array
+ * @param   array   $fields_meta    set of field properties
+ * 
+ * @return  string  $comment        html content
+ * 
+ * @see     PMA_getTableHeaders()
+ */
+function PMA_getCommentForRow($comments_map, $fields_meta)
+{
+    $comments = '';
+    if (isset($comments_map)
+        && isset($comments_map[$fields_meta->table])
+        && isset($comments_map[$fields_meta->table][$fields_meta->name])
+    ) {
+        $comments = '<span class="tblcomment">'
+            . htmlspecialchars(
+                $comments_map[$fields_meta->table][$fields_meta->name]
+            )
+            . '</span>';
+    }
+    return $comments;    
+}
+
+
+/**
+ * Check whether the column is sorted
+ * 
+ * @param  string  $sort_expression              sort expression
+ * @param  string  $sort_expression_nodirection  sort expression without direction
+ * @param  string  $sort_tbl                     the table name
+ * @param  string  $name_to_use_in_sort          the sorting column name
+ * 
+ * @return boolean $is_in_sort                   the column sorted or not
+ * 
+ * @see    PMA_getTableHeaders()
+ */
+function PMA_isInSorted(
+    $sort_expression, $sort_expression_nodirection, $sort_tbl,
+    $name_to_use_in_sort
+) {
+    
+    if (empty($sort_expression)) {
+        $is_in_sort = false;
+    } else {
+        // Field name may be preceded by a space, or any number
+        // of characters followed by a dot (tablename.fieldname)
+        // so do a direct comparison for the sort expression;
+        // this avoids problems with queries like
+        // "SELECT id, count(id)..." and clicking to sort
+        // on id or on count(id).
+        // Another query to test this:
+        // SELECT p.*, FROM_UNIXTIME(p.temps) FROM mytable AS p
+        // (and try clicking on each column's header twice)
+        if (! empty($sort_tbl)
+            && (strpos($sort_expression_nodirection, $sort_tbl) === false)
+            && (strpos($sort_expression_nodirection, '(') === false)
+        ) {
+            $new_sort_expression_nodirection = $sort_tbl
+                . $sort_expression_nodirection;
+        } else {
+            $new_sort_expression_nodirection = $sort_expression_nodirection;
+        }
+
+        $is_in_sort = false;
+        $sort_name = str_replace('`', '', $sort_tbl) . $name_to_use_in_sort;
+
+        if (($sort_name == str_replace('`', '', $new_sort_expression_nodirection))
+            || ($sort_name == str_replace('`', '', $sort_expression_nodirection))
+        ) {
+            $is_in_sort = true;
+        }
+    }
+    
+    return $is_in_sort;
+    
+}
+
+
+/**
+ * Get sort url paramaeters - sort order and order image
+ * 
+ * @param   boolean $is_in_sort         the column sorted or not
+ * @param   string  $sort_direction     the sort direction
+ * @param   array   $fields_meta        set of field properties
+ * @param   string  $sort_order         the sorting order
+ * @param   integer $column_index       the index of the column
+ * 
+ * @return  array                       2 element array - $sort_order, $order_img
+ * 
+ * @see     PMA_getTableHeaders()
+ */
+function PMA_getSortingUrlParams(
+    $is_in_sort, $sort_direction, $fields_meta, $sort_order, $column_index
+) {
+    
+    if (! $is_in_sort) {
+
+        // patch #455484 ("Smart" order)
+        $GLOBALS['cfg']['Order'] = strtoupper($GLOBALS['cfg']['Order']);
+
+        if ($GLOBALS['cfg']['Order'] === 'SMART') {
+            $sort_order .= (preg_match(
+                    '@time|date@i',
+                    $fields_meta->type
+                )) ? 'DESC' : 'ASC';
+        } else {
+            $sort_order .= $GLOBALS['cfg']['Order'];
+        }
+        $order_img   = '';
+
+    } elseif ($sort_direction == 'DESC') {
+
+        $sort_order .= ' ASC';
+        $order_img   = ' ' . PMA_getImage(
+                's_desc.png', __('Descending'),
+                array('class' => "soimg$column_index", 'title' => '')
+            );
+
+        $order_img  .= ' ' . PMA_getImage(
+                's_asc.png', __('Ascending'),
+                array('class' => "soimg$column_index hide", 'title' => '')
+            );
+
+    } else {
+
+        $sort_order .= ' DESC';
+        $order_img   = ' ' . PMA_getImage(
+                's_asc.png', __('Ascending'),
+                array('class' => "soimg$column_index", 'title' => '')
+            );
+
+        $order_img  .= ' ' . PMA_getImage(
+                's_desc.png', __('Descending'),
+                array('class' => "soimg$column_index hide", 'title' => '')
+            );
+    }
+    
+    return array($sort_order, $order_img);
+    
+}
+
+
+/**
+ * Get sort order link
+ * 
+ * @param   string  $order_img          the sort order image
+ * @param   integer $col_index          the index of the column
+ * @param   string  $direction          the display direction
+ * @param   array   $fields_meta        set of field properties
+ * @param   string  $order_url          the url for sort
+ * 
+ * @return  string                      the sort order link
+ * 
+ * @see     PMA_getTableHeaders()
+ */
+function PMA_getSortOrderLink(
+    $order_img, $col_index, $direction, $fields_meta, $order_url
+) {
+    
+    $order_link_params = array();
+    
+    if (isset($order_img) && ($order_img != '')) {
+        if (strstr($order_img, 'asc')) {
+            $order_link_params['onmouseover'] = "$('.soimg$col_index').toggle()";
+            $order_link_params['onmouseout']  = "$('.soimg$col_index').toggle()";
+        } elseif (strstr($order_img, 'desc')) {
+            $order_link_params['onmouseover'] = "$('.soimg$col_index').toggle()";
+            $order_link_params['onmouseout']  = "$('.soimg$col_index').toggle()";
+        }
+    }
+    
+    if ($GLOBALS['cfg']['HeaderFlipType'] == 'auto') {
+
+        $GLOBALS['cfg']['HeaderFlipType']
+            = (PMA_USR_BROWSER_AGENT == 'IE') ? 'css' : 'fake';                
+    }
+
+    if ($direction == 'horizontalflipped'
+        && $GLOBALS['cfg']['HeaderFlipType'] == 'css'
+    ) {
+        $order_link_params['style'] = 'direction: ltr; writing-mode: tb-rl;';
+    }
+
+    $order_link_params['title'] = __('Sort');
+
+    $order_link_content = (($direction == 'horizontalflipped')
+        && ($GLOBALS['cfg']['HeaderFlipType'] == 'fake'))
+        ? PMA_flipstring(
+            htmlspecialchars($fields_meta->name),
+            "<br />\n"
+        )
+        : htmlspecialchars($fields_meta->name);
+
+    return PMA_linkOrButton(
+            $order_url, $order_link_content . $order_img,
+            $order_link_params, false, true
+        );
+    
+}
+
+
+/**
+ * Prepare columns to draggable effect for sortable columns
+ * 
+ * @param   boolean $col_visib          the column is visible (false)
+ *          array                       the column is not visible (string array)
+ * @param   string  $col_visib_j        element of $col_visib array
+ * @param   boolean $condition_field    whether to add CSS class condition
+ * @param   string  $direction          the display direction
+ * @param   array   $fields_meta        set of field properties
+ * @param   string  $order_link         the order link
+ * @param   string  $comments           the comment for the column
+ * 
+ * @return  string  $draggable_html     html content
+ * 
+ * @see     PMA_getTableHeaders()
+ */
+function PMA_getDraggableClassForSortableColumns(
+    $col_visib, $col_visib_j, $condition_field, $direction, $fields_meta,
+    $order_link, $comments
+) {
+    
+    $draggable_html = '<th';
+    $th_class = array();
+    $th_class[] = 'draggable';
+
+    if ($col_visib && !$col_visib_j) {
+        $th_class[] = 'hide';
+    }
+
+    if ($condition_field) {
+        $th_class[] = 'condition';
+    }
+
+    $th_class[] = 'column_heading';
+    if ($GLOBALS['cfg']['BrowsePointerEnable'] == true) {
+        $th_class[] = 'pointer';
+    }
+
+    if ($GLOBALS['cfg']['BrowseMarkerEnable'] == true) {
+        $th_class[] = 'marker';
+    }
+
+    $draggable_html .= ' class="' . implode(' ', $th_class);
+
+    if ($direction == 'horizontalflipped') {
+        $draggable_html .= ' vbottom';
+    }
+
+    $draggable_html .= '" data-column="' . htmlspecialchars($fields_meta->name)
+        . '">' . $order_link . $comments . '</th>';
+    
+    return $draggable_html;
+    
+}
+
+
+/**
+ * Prepare columns to draggable effect for non sortable columns
+ * 
+ * @param   boolean $col_visib          the column is visible (false)
+ *          array                       the column is not visible (string array)
+ * @param   string  $col_visib_j        element of $col_visib array
+ * @param   boolean $condition_field    whether to add CSS class condition
+ * @param   string  $direction          the display direction
+ * @param   array   $fields_meta        set of field properties
+ * @param   string  $comments           the comment for the column
+ * 
+ * @return  string  $draggable_html         html content
+ * 
+ * @see     PMA_getTableHeaders()
+ */
+function PMA_getDraggableClassForNonSortableColumns(
+    $col_visib, $col_visib_j, $condition_field,
+    $direction, $fields_meta, $comments
+) {
+    
+    $draggable_html = '<th';
+    $th_class = array();
+    $th_class[] = 'draggable';
+
+    if ($col_visib && !$col_visib_j) {
+        $th_class[] = 'hide';
+    }
+
+    if ($condition_field) {
+        $th_class[] = 'condition';
+    }
+
+    $draggable_html .= ' class="' . implode(' ', $th_class);
+    if ($direction == 'horizontalflipped') {
+        $draggable_html .= ' vbottom';
+    }
+
+    $draggable_html .= '"';
+    if (($direction == 'horizontalflipped')
+        && ($GLOBALS['cfg']['HeaderFlipType'] == 'css')
+    ) {
+        $draggable_html .= ' style="direction: ltr; writing-mode: tb-rl;"';
+    }
+
+    $draggable_html .= ' data-column="'
+        . htmlspecialchars($fields_meta->name) . '">';
+
+    if (($direction == 'horizontalflipped')
+        && ($GLOBALS['cfg']['HeaderFlipType'] == 'fake')
+    ) {
+
+        $draggable_html .= PMA_flipstring(
+                htmlspecialchars($fields_meta->name), '<br />'
+            );
+
+    } else {
+        $draggable_html .= htmlspecialchars($fields_meta->name);
+    }
+
+    $draggable_html .= "\n" . $comments . '</th>';
+    
+    return $draggable_html;
+    
+}
 
 
 /**
@@ -2864,15 +3098,17 @@ function PMA_getVerticalTable()
             );
     } // end if
 
-    if (PMA_isSelect()) {
-        // prepare to get the column order, if available
-        $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
-        $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
-        $col_visib = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_VISIB);
-    } else {
-        $col_order = false;
-        $col_visib = false;
-    }
+    list($col_order, $col_visib) = PMA_getColumnParams();
+    
+//    if (PMA_isSelect()) {
+//        // prepare to get the column order, if available
+//        $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+//        $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
+//        $col_visib = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_VISIB);
+//    } else {
+//        $col_order = false;
+//        $col_visib = false;
+//    }
 
     // Prepares data
     foreach ($vertical_display['desc'] AS $j => $val) {
