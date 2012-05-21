@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-17 10:53+0200\n"
-"PO-Revision-Date: 2012-05-19 22:48+0200\n"
-"Last-Translator: renwar kurd <renwarkurd@yahoo.com>\n"
+"PO-Revision-Date: 2012-05-20 00:56+0200\n"
+"Last-Translator: dilan kurdistani <dilan.gilli@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ckb\n"
 "MIME-Version: 1.0\n"
@@ -240,7 +240,7 @@ msgstr "نیشاندانى بۆشایى (هێڵکارى) لە بنکەى درا�
 #: db_export.php:30 db_printview.php:93 db_qbe.php:104 db_tracking.php:47
 #: export.php:374 navigation.php:298
 msgid "No tables found in database."
-msgstr ".هیج خشتەیەک بوونی نیە لە نێو بنکەی دراوە"
+msgstr ".هیج خشتەیەک بوونی نیە لە نێو بنکەی دراو"
 
 #: db_export.php:40 db_search.php:334 server_export.php:22
 msgid "Select All"
@@ -622,11 +622,11 @@ msgstr "نیشاندان"
 #: libraries/db_structure.lib.php:35 server_replication.php:31
 #: server_replication.php:189 server_status.php:610
 msgid "Replication"
-msgstr ""
+msgstr "دووپاتکاری"
 
 #: db_structure.php:624
 msgid "Sum"
-msgstr ""
+msgstr "سەرجەم"
 
 #: db_structure.php:631 libraries/StorageEngine.class.php:344
 #, php-format
@@ -699,19 +699,19 @@ msgstr "چاکردنی خشتە"
 
 #: db_structure.php:717 tbl_operations.php:647
 msgid "Analyze table"
-msgstr ""
+msgstr "شیکردنەوەى خشتە"
 
 #: db_structure.php:719
 msgid "Add prefix to table"
-msgstr ""
+msgstr "زیادکردنی پێشگر بۆ خشتە"
 
 #: db_structure.php:721 libraries/mult_submits.inc.php:276
 msgid "Replace table prefix"
-msgstr ""
+msgstr "گۆڕینی پێشگری خشتە"
 
 #: db_structure.php:723 libraries/mult_submits.inc.php:276
 msgid "Copy table with prefix"
-msgstr ""
+msgstr "لەبەرگرتنەوەی خشتە لەگەڵ پێشگر"
 
 #: db_structure.php:752 libraries/schema/User_Schema.class.php:426
 msgid "Data Dictionary"
@@ -801,7 +801,7 @@ msgstr ""
 
 #: export.php:87
 msgid "Selected export type has to be saved in file!"
-msgstr "دەستنیشانکردنی جۆری پەڕگە بۆ پاشەکەوتکردن!\n"
+msgstr "دەستنیشانکردنی جۆری هەناردن بۆ پاشەکەوتکردنی لە پەڕگە!\n"
 
 #: export.php:116
 msgid "Bad parameters!"
@@ -843,7 +843,7 @@ msgstr ""
 
 #: gis_data_editor.php:134
 msgid "SRID"
-msgstr ""
+msgstr "SRID"
 
 #: gis_data_editor.php:151 js/messages.php:330
 #: libraries/display_tbl.lib.php:825
@@ -905,11 +905,11 @@ msgstr ""
 
 #: gis_data_editor.php:309
 msgid "Add geometry"
-msgstr ""
+msgstr "زیادکردنی ئەندازەگەری"
 
 #: gis_data_editor.php:316
 msgid "Output"
-msgstr ""
+msgstr "بەرهەم"
 
 #: gis_data_editor.php:317
 msgid ""
@@ -935,7 +935,7 @@ msgstr ""
 #: import.php:315 import.php:368 libraries/File.class.php:425
 #: libraries/File.class.php:516
 msgid "File could not be read"
-msgstr ""
+msgstr "ناتوانیت پەڕگە بخوێنیتەوە"
 
 #: import.php:323 import.php:332 import.php:351 import.php:360
 #: libraries/File.class.php:577
@@ -993,7 +993,7 @@ msgstr ""
 #: import_status.php:117 libraries/common.lib.php:728
 #: libraries/schema/Export_Relation_Schema.class.php:239 user_password.php:210
 msgid "Back"
-msgstr ""
+msgstr "گەڕانەوە"
 
 #: index.php:162
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
@@ -1042,11 +1042,11 @@ msgstr ""
 
 #: js/messages.php:42
 msgid "Add Index"
-msgstr ""
+msgstr "زیادکردنی نیشاندەر"
 
 #: js/messages.php:43
 msgid "Edit Index"
-msgstr ""
+msgstr "چاکردنی نیشاندەر"
 
 #: js/messages.php:44 tbl_indexes.php:311
 #, php-format
@@ -1060,15 +1060,15 @@ msgstr ""
 
 #: js/messages.php:51
 msgid "The host name is empty!"
-msgstr ""
+msgstr "ناوی خانەخوێ بەتاڵە!"
 
 #: js/messages.php:52
 msgid "The user name is empty!"
-msgstr ""
+msgstr "ناوی بەکارهێنانی خانەخوێ بەتاڵە!"
 
 #: js/messages.php:53 server_privileges.php:1432 user_password.php:103
 msgid "The password is empty!"
-msgstr ""
+msgstr "وشەی نهێنی بەتاڵە!"
 
 #: js/messages.php:54 server_privileges.php:1430 user_password.php:106
 msgid "The passwords aren't the same!"
@@ -1077,7 +1077,7 @@ msgstr ""
 #: js/messages.php:55 server_privileges.php:1947 server_privileges.php:1971
 #: server_privileges.php:2383 server_privileges.php:2577
 msgid "Add user"
-msgstr ""
+msgstr "زیادکردنی بەکارهێنەر"
 
 #: js/messages.php:56
 msgid "Reloading Privileges"
@@ -1090,7 +1090,7 @@ msgstr ""
 #: js/messages.php:58 js/messages.php:137 tbl_tracking.php:281
 #: tbl_tracking.php:473
 msgid "Close"
-msgstr ""
+msgstr "داخستن"
 
 #: js/messages.php:61 js/messages.php:284 libraries/Index.class.php:485
 #: libraries/common.lib.php:667 libraries/common.lib.php:1211
@@ -1098,7 +1098,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:490 libraries/display_tbl.lib.php:1622
 #: libraries/schema/User_Schema.class.php:199 setup/frames/index.inc.php:147
 msgid "Edit"
-msgstr ""
+msgstr "چاکردن"
 
 #: js/messages.php:62 server_status.php:807
 msgid "Live traffic chart"
@@ -1122,7 +1122,7 @@ msgstr ""
 #: server_status.php:1132 server_status.php:1201 tbl_printview.php:333
 #: tbl_structure.php:870
 msgid "Total"
-msgstr ""
+msgstr "سەرجەم"
 
 #. l10n: Other, small valued, queries
 #: js/messages.php:70 server_status.php:616 server_status.php:1026
@@ -1132,12 +1132,12 @@ msgstr ""
 #. l10n: Thousands separator
 #: js/messages.php:72 libraries/common.lib.php:1468
 msgid ","
-msgstr ""
+msgstr ","
 
 #. l10n: Decimal separator
 #: js/messages.php:74 libraries/common.lib.php:1470
 msgid "."
-msgstr ""
+msgstr "."
 
 #: js/messages.php:76
 msgid "KiB sent since last refresh"
@@ -1342,7 +1342,7 @@ msgstr ""
 #: server_privileges.php:2224 server_status.php:1283 server_status.php:1722
 #: tbl_zoom_select.php:226 tbl_zoom_select.php:270
 msgid "None"
-msgstr ""
+msgstr "هیچ"
 
 #: js/messages.php:140
 msgid "Resume monitor"
@@ -1405,13 +1405,13 @@ msgstr ""
 #: js/messages.php:155
 #, php-format
 msgid "Enable %s"
-msgstr ""
+msgstr "چالاکردن %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:157
 #, php-format
 msgid "Disable %s"
-msgstr ""
+msgstr "ناچالاکردن %s"
 
 #. l10n: %d seconds
 #: js/messages.php:159
@@ -1431,7 +1431,7 @@ msgstr ""
 
 #: js/messages.php:162
 msgid "Current settings"
-msgstr ""
+msgstr "ڕێکخستنەکانی هەنووکە"
 
 #: js/messages.php:164 server_status.php:1670
 msgid "Chart Title"
@@ -1445,11 +1445,11 @@ msgstr ""
 #: js/messages.php:167
 #, php-format
 msgid "Divided by %s"
-msgstr ""
+msgstr "دابەشکراوە لەلایەن %s\n"
 
 #: js/messages.php:168
 msgid "Unit"
-msgstr ""
+msgstr "یەکە"
 
 #: js/messages.php:170
 msgid "From slow log"
@@ -1469,7 +1469,7 @@ msgstr ""
 
 #: js/messages.php:174
 msgid "Cancel request"
-msgstr ""
+msgstr "لابردنی داواکاریی"
 
 #: js/messages.php:175
 msgid ""
@@ -1513,11 +1513,11 @@ msgstr ""
 #: libraries/export/odt.php:534 libraries/export/texytext.php:408
 #: libraries/rte/rte_list.lib.php:68 server_status.php:1256 sql.php:1007
 msgid "Time"
-msgstr ""
+msgstr "کات"
 
 #: js/messages.php:187
 msgid "Total time:"
-msgstr ""
+msgstr "هەموو کاتەکان:"
 
 #: js/messages.php:188
 msgid "Profiling results"
@@ -1526,7 +1526,7 @@ msgstr ""
 #: js/messages.php:189
 msgctxt "Display format"
 msgid "Table"
-msgstr ""
+msgstr "خشتە"
 
 #: js/messages.php:190
 msgid "Chart"
@@ -1538,7 +1538,7 @@ msgstr ""
 
 #: js/messages.php:192
 msgid "Series"
-msgstr ""
+msgstr "زنجیرە"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
@@ -1548,7 +1548,7 @@ msgstr ""
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:197
 msgid "Filter"
-msgstr ""
+msgstr "پاڵێو"
 
 #: js/messages.php:198
 msgid "Filter queries by word/regexp:"
@@ -1564,7 +1564,7 @@ msgstr ""
 
 #: js/messages.php:201
 msgid "Total:"
-msgstr ""
+msgstr "سەرجەم:\n"
 
 #: js/messages.php:203
 msgid "Loading logs"
@@ -1583,7 +1583,7 @@ msgstr ""
 
 #: js/messages.php:206
 msgid "Reload page"
-msgstr ""
+msgstr "بارکردنەوەى پەڕە"
 
 #: js/messages.php:208
 msgid "Affected rows:"
@@ -1604,7 +1604,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:174 libraries/display_import.lib.php:175
 #: prefs_manage.php:237 server_status.php:1625 setup/frames/menu.inc.php:21
 msgid "Import"
-msgstr ""
+msgstr "هێنان"
 
 #: js/messages.php:213
 msgid "Import monitor configuration"
@@ -1628,7 +1628,7 @@ msgstr ""
 
 #: js/messages.php:222
 msgid "Issue"
-msgstr ""
+msgstr "ئەنجام"
 
 #: js/messages.php:223
 msgid "Recommendation"
@@ -1654,11 +1654,11 @@ msgstr ""
 #: pmd_general.php:563 pmd_general.php:611 pmd_general.php:687
 #: pmd_general.php:741 pmd_general.php:804 pmd_general.php:835
 msgid "Cancel"
-msgstr ""
+msgstr "لابردن"
 
 #: js/messages.php:235
 msgid "Loading"
-msgstr ""
+msgstr "ئامادەکردن"
 
 #: js/messages.php:236
 msgid "Processing Request"
@@ -1684,7 +1684,7 @@ msgstr ""
 #: pmd_general.php:609 pmd_general.php:685 pmd_general.php:739
 #: pmd_general.php:802
 msgid "OK"
-msgstr ""
+msgstr "باشە"
 
 #: js/messages.php:242
 msgid "Click to dismiss this notification"
@@ -1696,11 +1696,11 @@ msgstr ""
 
 #: js/messages.php:246
 msgid "Reload Database"
-msgstr ""
+msgstr "بارکردنەوەى بنکەی دراو"
 
 #: js/messages.php:247
 msgid "Copying Database"
-msgstr ""
+msgstr "لەبەرگرتنەوەی بنکەی دراو"
 
 #: js/messages.php:248
 msgid "Changing Charset"
@@ -1728,11 +1728,11 @@ msgstr ""
 
 #: js/messages.php:258 libraries/mult_submits.inc.php:321
 msgid "(Enabled)"
-msgstr ""
+msgstr "(چالاکە)"
 
 #: js/messages.php:259 libraries/mult_submits.inc.php:321
 msgid "(Disabled)"
-msgstr ""
+msgstr "(ناچالاکە)"
 
 #: js/messages.php:262
 msgid "Searching"
@@ -1800,7 +1800,7 @@ msgstr ""
 #: js/messages.php:286 libraries/display_tbl.lib.php:3007 querywindow.php:88
 #: tbl_structure.php:145 tbl_structure.php:579
 msgid "Change"
-msgstr ""
+msgstr "گۆڕین"
 
 #: js/messages.php:287
 msgid "Query execution time"
@@ -1818,7 +1818,7 @@ msgstr ""
 #: setup/frames/index.inc.php:243 tbl_change.php:1061
 #: tbl_gis_visualization.php:186 tbl_indexes.php:298 tbl_relation.php:569
 msgid "Save"
-msgstr ""
+msgstr "پاشەکەوتکردن"
 
 #: js/messages.php:294
 msgid "Hide search criteria"
