@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-17 10:53+0200\n"
-"PO-Revision-Date: 2012-05-17 20:50+0200\n"
+"PO-Revision-Date: 2012-05-20 21:47+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -2907,24 +2907,32 @@ msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr ""
+"En variabel-längd (%s) sträng, den effektiva maximala längden är "
+"förutsättningen för den maximala radstorleken"
 
 #: libraries/Types.class.php:327
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"En TEXT kolumn med en maximal längd av 255 (2^8-1) tecken, lagrat med en en-"
+"bytes prefix vilken anger längden av värdet i bytes"
 
 #: libraries/Types.class.php:329 libraries/Types.class.php:725
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"En TEXT kolumn med en maximal längd av 65.535 (2^16-1) tecken, lagrat med en "
+"två-bytes prefix viken anger längden av värdet i bytes"
 
 #: libraries/Types.class.php:331
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"En TEXT kolumn med en maximal längd av 16.777.215 (2^24-1) tecken, lagrat "
+"med en tre-bytes prefix vilken anger längden av värdet i bytes"
 
 #: libraries/Types.class.php:333
 msgid ""
@@ -2932,64 +2940,81 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
+"En TEXT kolumn med en maximal längd av 4,294,967,295 eller 4GB (2^32-1) "
+"tecken, lagrat med en fyra-bytes prefix vilken anger längden av värdet i "
+"bytes"
 
 #: libraries/Types.class.php:335
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Liknande en CHAR typ, men lagrar binära byte strängar snarare än icke-binära "
+"teckensträngar"
 
 #: libraries/Types.class.php:337
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Liknande en VARCHAR typ, men lagrar binära strängar byte snarare än icke-"
+"binära teckensträngar"
 
 #: libraries/Types.class.php:339
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
+"En BLOB kolumn med en maximal längd av 255 (2^8-1) bytes, lagrat med en en-"
+"sbyte prefix vilken anger längden av värdet"
 
 #: libraries/Types.class.php:341
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
+"En BLOB kolumn med en maximal längd av 16.777.215 (2^24-1) bytes, lagrat med "
+"en tre-bytes prefix vilken anger längden av värdet"
 
 #: libraries/Types.class.php:343
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
 msgstr ""
+"En BLOB kolumn med en maximal längd av 65.535 (2^16-1) bytes, lagrad med ett "
+"två bytes prefix vilken anger längden på värdet"
 
 #: libraries/Types.class.php:345
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
+"En BLOB kolumn med en maximal längd av 4,294,967,295 och 4GB (2^32-1) byte, "
+"lagras med en fyra-bytes prefix som anger längden på värdet"
 
 #: libraries/Types.class.php:347
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr ""
+"En uppräkning, vald från listan med upp till 65.535 värden eller det "
+"speciella'' felvärdet"
 
 #: libraries/Types.class.php:349
 msgid "A single value chosen from a set of up to 64 members"
-msgstr ""
+msgstr "En enstaka värde valt från en uppsättning av upp till 64 stycken"
 
 #: libraries/Types.class.php:351
 msgid "A type that can store a geometry of any type"
-msgstr ""
+msgstr "En typ som kan lagra en geometri av alla typer"
 
 #: libraries/Types.class.php:353
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "En punkt det i 2-dimensionella rummet"
 
 #: libraries/Types.class.php:355
 msgid "A curve with linear interpolation between points"
-msgstr ""
+msgstr "En kurva med linjär interpolering mellan punkter"
 
 #: libraries/Types.class.php:357
 msgid "A polygon"
@@ -2997,24 +3022,24 @@ msgstr "En polygon"
 
 #: libraries/Types.class.php:359
 msgid "A collection of points"
-msgstr ""
+msgstr "En samling punkter"
 
 #: libraries/Types.class.php:361
 msgid "A collection of curves with linear interpolation between points"
-msgstr ""
+msgstr "En samling kurvor med linjär interpolering mellan punkterna"
 
 #: libraries/Types.class.php:363
 msgid "A collection of polygons"
-msgstr ""
+msgstr "En samling polygoner"
 
 #: libraries/Types.class.php:365
 msgid "A collection of geometry objects of any type"
-msgstr ""
+msgstr "En samling geometriobjekt av valfri typ"
 
 #: libraries/Types.class.php:617 libraries/Types.class.php:967
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "Numeriska"
 
 #: libraries/Types.class.php:636 libraries/Types.class.php:970
 msgctxt "date and time types"
@@ -3033,51 +3058,59 @@ msgstr "Spatial"
 
 #: libraries/Types.class.php:701
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
-msgstr ""
+msgstr "Ett 4-bytes heltal, intervall -2147483648 till 2147483647"
 
 #: libraries/Types.class.php:703
 msgid ""
 "An 8-byte integer, range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807"
 msgstr ""
+"Ett 8-bytes heltal, intervallet -9.223.372.036.854.775.808 till "
+"9.223.372.036.854.775.807"
 
 #: libraries/Types.class.php:707
 msgid "A system's default double-precision floating-point number"
-msgstr ""
+msgstr "Ett systems förvalda dubbelprecision flyttal"
 
 #: libraries/Types.class.php:709
 msgid "True or false"
-msgstr ""
+msgstr "Sant eller falskt"
 
 #: libraries/Types.class.php:711
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "Ett alias för BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/Types.class.php:713
 msgid "Stores a Universally Unique Identifier (UUID)"
-msgstr ""
+msgstr "Lagrar en universiellt unik identifierare (UUID)"
 
 #: libraries/Types.class.php:719
 msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
 msgstr ""
+"En tidsstämpel området är 0001-01-01 00:00:00 'UTC till '9999-12-31 "
+"23:59:59' UTC, TIMESTAMP(6) kan lagra mikrosekunder"
 
 #: libraries/Types.class.php:727
 msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
 msgstr ""
+"En variabel längd (0-65,535) sträng, använder binär kollationering för alla "
+"jämförelser"
 
 #: libraries/Types.class.php:729
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a four-byte prefix indicating the length of the value"
 msgstr ""
+"En BLOB kolumn med en maximal längd av 65.535 (2^16-1) bytes, lagrat med en "
+"fyra-bytes prefix som anger längden av värdet"
 
 #: libraries/Types.class.php:731
 msgid "An enumeration, chosen from the list of defined values"
-msgstr ""
+msgstr "En uppräkning, vald från listan av definierade värden"
 
 #: libraries/auth/config.auth.lib.php:72
 msgid "Cannot connect: invalid settings."
@@ -7248,7 +7281,7 @@ msgstr "ESRI Shape-fil"
 #: libraries/import/shp.php:199
 #, php-format
 msgid "Geometry type '%s' is not supported by MySQL."
-msgstr ""
+msgstr "Geometri typ '%s' stöds inte av MySQL."
 
 #: libraries/import/shp.php:360
 #, php-format
@@ -8528,7 +8561,7 @@ msgstr "Fulltext"
 
 #: libraries/tbl_properties.inc.php:589
 msgid "first"
-msgstr ""
+msgstr "först"
 
 #: libraries/tbl_properties.inc.php:599
 #, php-format
@@ -12028,7 +12061,7 @@ msgstr "Flytta kolumner"
 
 #: tbl_structure.php:622
 msgid "Move the columns by dragging them up and down."
-msgstr ""
+msgstr "Flytta kolumner genom att dra dem uppåt och nedåt."
 
 #: tbl_structure.php:648
 msgid "Edit view"

@@ -554,12 +554,6 @@ if (PMA_isValid($_REQUEST['sql_query'])) {
     $GLOBALS['sql_query'] = $_REQUEST['sql_query'];
 }
 
-/**
- * avoid problems in phpmyadmin.css.php in some cases
- * @global string $js_frame
- */
-$_REQUEST['js_frame'] = PMA_ifSetOr($_REQUEST['js_frame'], '');
-
 //$_REQUEST['set_theme'] // checked later in this file LABEL_theme_setup
 //$_REQUEST['server']; // checked later in this file
 //$_REQUEST['lang'];   // checked by LABEL_loading_language_file
