@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-05-17 15:15+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-05-18 11:20+0200\n"
+"Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -4051,7 +4051,7 @@ msgstr "サーバ選択を表示する"
 
 #: libraries/config/messages.inc.php:274
 msgid "Minimum number of tables to display the table filter box"
-msgstr "テーブルフィルタボックスを表示する最小のテーブル数"
+msgstr "テーブルフィルタボックスを表示させる最小のテーブル数"
 
 #: libraries/config/messages.inc.php:275
 msgid "String that separates databases into different tree levels"
