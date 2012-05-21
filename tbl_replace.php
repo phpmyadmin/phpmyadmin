@@ -35,16 +35,8 @@ $GLOBALS['js_include'][] = 'makegrid.js';
 // Needed for generation of Inline Edit anchors
 $GLOBALS['js_include'][] = 'sql.js';
 
-if (isset($_REQUEST['insert_rows'])
-    && is_numeric($_REQUEST['insert_rows'])
-    && $_REQUEST['insert_rows'] != $cfg['InsertRows']
-) {
-    $cfg['InsertRows'] = $_REQUEST['insert_rows'];
-    $GLOBALS['js_include'][] = 'tbl_change.js';
-    include_once 'libraries/header.inc.php';
-    include 'tbl_change.php';
-    exit;
-}
+// check whether insert row moode, if so include tbl_change.php
+PMA_isInsertRow();
 
 if (isset($_REQUEST['after_insert'])
     && in_array($_REQUEST['after_insert'], array('new_insert', 'same_insert', 'edit_next'))
@@ -167,35 +159,35 @@ foreach ($loop_array as $rownumber => $where_clause) {
     $query_values = array();
 
     // Map multi-edit keys to single-level arrays, dependent on how we got the fields
-    $me_fields
+    $multi_edit_colummns
         = isset($_REQUEST['fields']['multi_edit'][$rownumber])
         ? $_REQUEST['fields']['multi_edit'][$rownumber]
         : array();
-    $me_fields_name
+    $multi_edit_colummns_name
         = isset($_REQUEST['fields_name']['multi_edit'][$rownumber])
         ? $_REQUEST['fields_name']['multi_edit'][$rownumber]
         : null;
-    $me_fields_prev
+    $multi_edit_colummns_prev
         = isset($_REQUEST['fields_prev']['multi_edit'][$rownumber])
         ? $_REQUEST['fields_prev']['multi_edit'][$rownumber]
         : null;
-    $me_funcs
+    $multi_edit_funcs
         = isset($_REQUEST['funcs']['multi_edit'][$rownumber])
         ? $_REQUEST['funcs']['multi_edit'][$rownumber]
         : null;
-    $me_fields_type
+    $multi_edit_colummns_type
         = isset($_REQUEST['fields_type']['multi_edit'][$rownumber])
         ? $_REQUEST['fields_type']['multi_edit'][$rownumber]
         : null;
-    $me_fields_null
+    $multi_edit_colummns_null
         = isset($_REQUEST['fields_null']['multi_edit'][$rownumber])
         ? $_REQUEST['fields_null']['multi_edit'][$rownumber]
         : null;
-    $me_fields_null_prev
+    $multi_edit_colummns_null_prev
         = isset($_REQUEST['fields_null_prev']['multi_edit'][$rownumber])
         ? $_REQUEST['fields_null_prev']['multi_edit'][$rownumber]
         : null;
-    $me_auto_increment
+    $multi_edit_auto_increment
         = isset($_REQUEST['auto_increment']['multi_edit'][$rownumber])
         ? $_REQUEST['auto_increment']['multi_edit'][$rownumber]
         : null;
@@ -203,49 +195,49 @@ foreach ($loop_array as $rownumber => $where_clause) {
     // Fetch the current values of a row to use in case we have a protected field
     // @todo possibly move to ./libraries/tbl_replace_fields.inc.php
     if ($is_insert
-        && $using_key && isset($me_fields_type)
-        && is_array($me_fields_type) && isset($where_clause)
+        && $using_key && isset($multi_edit_colummns_type)
+        && is_array($multi_edit_colummns_type) && isset($where_clause)
     ) {
         $prot_row = PMA_DBI_fetch_single_row('SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $where_clause . ';');
     }
 
     // When a select field is nullified, it's not present in $_REQUEST
-    // so initialize it; this way, the foreach($me_fields) will process it
-    foreach ($me_fields_name as $key => $val) {
-        if (! isset($me_fields[$key])) {
-            $me_fields[$key] = '';
+    // so initialize it; this way, the foreach($multi_edit_colummns) will process it
+    foreach ($multi_edit_colummns_name as $key => $val) {
+        if (! isset($multi_edit_colummns[$key])) {
+            $multi_edit_colummns[$key] = '';
         }
     }
 
-    // Iterate in the order of $me_fields_name, not $me_fields, to avoid problems
+    // Iterate in the order of $multi_edit_colummns_name, not $multi_edit_colummns, to avoid problems
     // when inserting multiple entries
-    foreach ($me_fields_name as $key => $field_name) {
-        $val = $me_fields[$key];
+    foreach ($multi_edit_colummns_name as $key => $colummn_name) {
+        $val = $multi_edit_colummns[$key];
 
-        // Note: $key is an md5 of the fieldname. The actual fieldname is available in $me_fields_name[$key]
+        // Note: $key is an md5 of the fieldname. The actual fieldname is available in $multi_edit_colummns_name[$key]
 
         include 'libraries/tbl_replace_fields.inc.php';
 
-        if (empty($me_funcs[$key])) {
+        if (empty($multi_edit_funcs[$key])) {
             $cur_value = $val;
-        } elseif ('UUID' === $me_funcs[$key]) {
+        } elseif ('UUID' === $multi_edit_funcs[$key]) {
             /* This way user will know what UUID new row has */
             $uuid = PMA_DBI_fetch_value('SELECT UUID()');
             $cur_value = "'" . $uuid . "'";
-        } elseif ((in_array($me_funcs[$key], $gis_from_text_functions)
+        } elseif ((in_array($multi_edit_funcs[$key], $gis_from_text_functions)
             && substr($val, 0, 3) == "'''")
-            || in_array($me_funcs[$key], $gis_from_wkb_functions)
+            || in_array($multi_edit_funcs[$key], $gis_from_wkb_functions)
         ) {
             // Remove enclosing apostrophes
             $val = substr($val, 1, strlen($val) - 2);
             // Remove escaping apostrophes
             $val = str_replace("''", "'", $val);
-            $cur_value = $me_funcs[$key] . '(' . $val . ')';
-        } elseif (! in_array($me_funcs[$key], $func_no_param)
-                  || ($val != "''" && in_array($me_funcs[$key], $func_optional_param))) {
-            $cur_value = $me_funcs[$key] . '(' . $val . ')';
+            $cur_value = $multi_edit_funcs[$key] . '(' . $val . ')';
+        } elseif (! in_array($multi_edit_funcs[$key], $func_no_param)
+                  || ($val != "''" && in_array($multi_edit_funcs[$key], $func_optional_param))) {
+            $cur_value = $multi_edit_funcs[$key] . '(' . $val . ')';
         } else {
-            $cur_value = $me_funcs[$key] . '()';
+            $cur_value = $multi_edit_funcs[$key] . '()';
         }
 
         //  i n s e r t
@@ -255,32 +247,32 @@ foreach ($loop_array as $rownumber => $where_clause) {
                 $query_values[] = $cur_value;
                 // first inserted row so prepare the list of fields
                 if (empty($value_sets)) {
-                    $query_fields[] = PMA_backquote($me_fields_name[$key]);
+                    $query_fields[] = PMA_backquote($multi_edit_colummns_name[$key]);
                 }
             }
 
         //  u p d a t e
-        } elseif (!empty($me_fields_null_prev[$key])
-         && ! isset($me_fields_null[$key])) {
+        } elseif (!empty($multi_edit_colummns_null_prev[$key])
+         && ! isset($multi_edit_colummns_null[$key])) {
             // field had the null checkbox before the update
             // field no longer has the null checkbox
-            $query_values[] = PMA_backquote($me_fields_name[$key]) . ' = ' . $cur_value;
-        } elseif (empty($me_funcs[$key])
-         && isset($me_fields_prev[$key])
-         && ("'" . PMA_sqlAddSlashes($me_fields_prev[$key]) . "'" == $val)) {
+            $query_values[] = PMA_backquote($multi_edit_colummns_name[$key]) . ' = ' . $cur_value;
+        } elseif (empty($multi_edit_funcs[$key])
+         && isset($multi_edit_colummns_prev[$key])
+         && ("'" . PMA_sqlAddSlashes($multi_edit_colummns_prev[$key]) . "'" == $val)) {
             // No change for this column and no MySQL function is used -> next column
             continue;
         } elseif (! empty($val)) {
             // avoid setting a field to NULL when it's already NULL
             // (field had the null checkbox before the update
             //  field still has the null checkbox)
-            if (empty($me_fields_null_prev[$key])
-                || empty($me_fields_null[$key])
+            if (empty($multi_edit_colummns_null_prev[$key])
+                || empty($multi_edit_colummns_null[$key])
             ) {
-                 $query_values[] = PMA_backquote($me_fields_name[$key]) . ' = ' . $cur_value;
+                 $query_values[] = PMA_backquote($multi_edit_colummns_name[$key]) . ' = ' . $cur_value;
             }
         }
-    } // end foreach ($me_fields as $key => $val)
+    } // end foreach ($multi_edit_colummns as $key => $val)
 
     if (count($query_values) > 0) {
         if ($is_insert) {
@@ -294,8 +286,8 @@ foreach ($loop_array as $rownumber => $where_clause) {
         }
     }
 } // end foreach ($loop_array as $where_clause)
-unset($me_fields_name, $me_fields_prev, $me_funcs, $me_fields_type, $me_fields_null, $me_fields_null_prev,
-    $me_auto_increment, $cur_value, $key, $val, $loop_array, $where_clause, $using_key,
+unset($multi_edit_colummns_name, $multi_edit_colummns_prev, $multi_edit_funcs, $multi_edit_colummns_type, $multi_edit_colummns_null, $multi_edit_colummns_null_prev,
+    $multi_edit_auto_increment, $cur_value, $key, $val, $loop_array, $where_clause, $using_key,
     $func_no_param);
 
 
@@ -323,7 +315,7 @@ if ($is_insert && count($value_sets) > 0) {
     include '' . PMA_securePath($goto_include);
     exit;
 }
-unset($me_fields, $is_insertignore);
+unset($multi_edit_colummns, $is_insertignore);
 
 /**
  * Executes the sql query and get the result, then move back to the calling

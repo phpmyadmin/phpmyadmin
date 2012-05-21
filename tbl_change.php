@@ -234,16 +234,16 @@ if (! $cfg['ShowFieldTypesInDataEditView']) {
     $html_output .= PMA_showColumnTypesInDataEditView($url_params, false);
 }
 
-foreach ($rows as $row_id => $vrow) {
-    if ($vrow === false) {
-        unset($vrow);
+foreach ($rows as $row_id => $current_row) {
+    if ($current_row === false) {
+        unset($current_row);
     }
 
     $jsvkey = $row_id;
     $rownumber_param = '&amp;rownumber=' . $row_id;
     $vkey = '[multi_edit][' . $jsvkey . ']';
 
-    $vresult = (isset($result) && is_array($result) && isset($result[$row_id]) ? $result[$row_id] : $result);
+    $current_result = (isset($result) && is_array($result) && isset($result[$row_id]) ? $result[$row_id] : $result);
     if ($insert_mode && $row_id > 0) {
         $html_output .= '<input type="checkbox" checked="checked" name="insert_ignore_' . $row_id . '" id="insert_ignore_' . $row_id . '" />'
             .'<label for="insert_ignore_' . $row_id . '">' . __('Ignore') . '</label><br />' . "\n";
@@ -267,7 +267,7 @@ foreach ($rows as $row_id => $vrow) {
         $extracted_columnspec = PMA_extractColumnSpec($column['Type']);
 
         if (-1 === $column['len']) {
-            $column['len'] = PMA_DBI_field_len($vresult, $i);
+            $column['len'] = PMA_DBI_field_len($current_result, $i);
             // length is unknown for geometry fields, make enough space to edit very simple WKTs
             if (-1 === $column['len']) {
                 $column['len'] = 30;
@@ -284,11 +284,11 @@ foreach ($rows as $row_id => $vrow) {
         if ($column['Type'] == 'datetime'
             && ! isset($column['Default'])
             && ! is_null($column['Default'])
-            && ($insert_mode || ! isset($vrow[$column['Field']]))
+            && ($insert_mode || ! isset($current_row[$column['Field']]))
         ) {
             // INSERT case or
             // UPDATE case with an NULL value
-            $vrow[$column['Field']] = date('Y-m-d H:i:s', time());
+            $current_row[$column['Field']] = date('Y-m-d H:i:s', time());
         }
         
         $html_output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even' ) . '">'
@@ -308,16 +308,16 @@ foreach ($rows as $row_id => $vrow) {
         // Prepares the field value
         $real_null_value = false;
         $special_chars_encoded = '';
-        if (isset($vrow)) {
+        if (isset($current_row)) {
             // (we are editing)
            list($real_null_value, $special_chars_encoded, $special_chars, $data, $backup_field)
-               = PMA_getSpecialCharsAndBackupFieldForExistingRow($vrow, $column, $extracted_columnspec,
+               = PMA_getSpecialCharsAndBackupFieldForExistingRow($current_row, $column, $extracted_columnspec,
                     $real_null_value, $gis_data_types, $column_name_appendix);
         } else {
             // (we are inserting)
             // display default values
             list($real_null_value, $data, $special_chars, $backup_field, $special_chars_encoded)
-                = PMA_getSpecialCharsAndBackupFieldForInsetingMode($column, $real_null_value);
+                = PMA_getSpecialCharsAndBackupFieldForInsertingMode($column, $real_null_value);
         }
 
         $idindex = ($o_rows * $columns_cnt) + $i + 1;

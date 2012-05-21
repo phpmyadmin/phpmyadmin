@@ -1456,7 +1456,7 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow($current_row, $column, 
  *  
  * @return array                    $real_null_value, $data, $special_chars, $backup_field, $special_chars_encoded
  */
-function PMA_getSpecialCharsAndBackupFieldForInsetingMode($column, $real_null_value)
+function PMA_getSpecialCharsAndBackupFieldForInsertingMode($column, $real_null_value)
 {
     if (! isset($column['Default'])) {
         $column['Default'] 	  = '';
@@ -1511,6 +1511,27 @@ function PMA_getParamsForUpdateOrInsert()
     }
     return array($loop_array, $using_key, $is_insert, $is_insertignore);
 }
+
+/**
+ * check wether insert row mode and if so include tbl_changen script and set global variables.
+ * 
+ * @return void
+ */
+function PMA_isInsertRow()
+{
+    if (isset($_REQUEST['insert_rows'])
+        && is_numeric($_REQUEST['insert_rows'])
+        && $_REQUEST['insert_rows'] != $GLOBALS['cfg']['InsertRows']
+    ) {
+        $GLOBALS['cfg']['InsertRows'] = $_REQUEST['insert_rows'];
+        $GLOBALS['js_include'][] = 'tbl_change.js';
+        include_once 'libraries/header.inc.php';
+        include 'tbl_change.php';
+        exit;
+    }
+}
+
+
 
 
 
