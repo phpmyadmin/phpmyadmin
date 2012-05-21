@@ -801,7 +801,7 @@ msgstr ""
 
 #: export.php:87
 msgid "Selected export type has to be saved in file!"
-msgstr "دەستنیشانکردنی جۆری هەناردن بۆ پاشەکەوتکردنی لە پەڕگە!\n"
+msgstr "دەستنیشانکردنی جۆری هەناردن بۆ پاشەکەوتکردنی لە پەڕگە!"
 
 #: export.php:116
 msgid "Bad parameters!"
@@ -1445,7 +1445,7 @@ msgstr ""
 #: js/messages.php:167
 #, php-format
 msgid "Divided by %s"
-msgstr "دابەشکراوە لەلایەن %s\n"
+msgstr "دابەشکراوە لەلایەن %s"
 
 #: js/messages.php:168
 msgid "Unit"
@@ -1564,7 +1564,7 @@ msgstr ""
 
 #: js/messages.php:201
 msgid "Total:"
-msgstr "سەرجەم:\n"
+msgstr "سەرجەم:"
 
 #: js/messages.php:203
 msgid "Loading logs"
