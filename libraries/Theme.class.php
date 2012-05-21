@@ -15,9 +15,6 @@ if (! defined('PHPMYADMIN')) {
  * @todo add the possibility to make a theme depend on another theme
  * and by default on original
  * @todo make all components optional - get missing components from 'parent' theme
- * @todo make css optionally replacing 'parent' css or extending it
- * (by appending at the end)
- * @todo add an optional global css file - which will be used for both frames
  *
  * @package PhpMyAdmin
  */
@@ -54,12 +51,6 @@ class PMA_Theme
     var $img_path = '';
 
     /**
-     * @var array   valid css types
-     * @access  protected
-     */
-    var $types = array('left', 'right');
-
-    /**
      * @var integer last modification time for info file
      * @access  protected
      */
@@ -74,9 +65,22 @@ class PMA_Theme
     var $filesize_info = 0;
 
     /**
+     * @var array List of css files to load
+     * @access private
+     */
+    private $_cssFiles = array(
+        'common',
+        'enum_editor',
+        'gis',
+        'navigation',
+        'pmd',
+        'rte'
+    );
+
+    /**
      * Loads theme information
      *
-     * @return boolean whether loading them info was successful or not     *
+     * @return boolean whether loading them info was successful or not
      * @access  public
      */
     function loadInfo()
@@ -135,18 +139,18 @@ class PMA_Theme
     }
 
     /**
-     * checks image path for existance - if not found use img from original theme
+     * checks image path for existance - if not found use img from fallback theme
      *
-     * @access  public
+     * @access public
      * @return bool
      */
-    function checkImgPath()
+    public function checkImgPath()
     {
         if (is_dir($this->getPath() . '/img/')) {
             $this->setImgPath($this->getPath() . '/img/');
             return true;
-        } elseif (is_dir($GLOBALS['cfg']['ThemePath'] . '/original/img/')) {
-            $this->setImgPath($GLOBALS['cfg']['ThemePath'] . '/original/img/');
+        } elseif (is_dir($GLOBALS['cfg']['ThemePath'] . '/' . PMA_Theme_Manager::FALLBACK_THEME . '/img/')) {
+            $this->setImgPath($GLOBALS['cfg']['ThemePath'] . '/' . PMA_Theme_Manager::FALLBACK_THEME . '/img/');
             return true;
         } else {
             trigger_error(
@@ -163,10 +167,10 @@ class PMA_Theme
     /**
      * returns path to theme
      *
-     * @access  public
-     * @return string  $path   path to theme
+     * @access public
+     * @return string path to theme
      */
-    function getPath()
+    public function getPath()
     {
         return $this->path;
     }
@@ -174,10 +178,10 @@ class PMA_Theme
     /**
      * returns layout file
      *
-     * @access  public
-     * @return string  layout file
+     * @access public
+     * @return string layout file
      */
-    function getLayoutFile()
+    public function getLayoutFile()
     {
         return $this->getPath() . '/layout.inc.php';
     }
@@ -190,7 +194,7 @@ class PMA_Theme
      * @return void
      * @access public
      */
-    function setPath($path)
+    public function setPath($path)
     {
         $this->path = trim($path);
     }
@@ -203,7 +207,7 @@ class PMA_Theme
      * @return void
      * @access public
      */
-    function setVersion($version)
+    public function setVersion($version)
     {
         $this->version = trim($version);
     }
@@ -212,9 +216,9 @@ class PMA_Theme
      * returns version
      *
      * @return string version
-     * @access  public
+     * @access public
      */
-    function getVersion()
+    public function getVersion()
     {
         return $this->version;
     }
@@ -228,7 +232,7 @@ class PMA_Theme
      * @return boolean true if theme version is equal or higher to $version
      * @access public
      */
-    function checkVersion($version)
+    public function checkVersion($version)
     {
         return version_compare($this->getVersion(), $version, 'lt');
     }
@@ -241,7 +245,7 @@ class PMA_Theme
      * @return void
      * @access public
      */
-    function setName($name)
+    public function setName($name)
     {
         $this->name = trim($name);
     }
@@ -252,7 +256,7 @@ class PMA_Theme
      * @access  public
      * @return string name
      */
-    function getName()
+    public function getName()
     {
         return $this->name;
     }
@@ -265,7 +269,7 @@ class PMA_Theme
      * @return void
      * @access public
      */
-    function setId($id)
+    public function setId($id)
     {
         $this->id = trim($id);
     }
@@ -276,7 +280,7 @@ class PMA_Theme
      * @return string id
      * @access public
      */
-    function getId()
+    public function getId()
     {
         return $this->id;
     }
@@ -289,7 +293,7 @@ class PMA_Theme
      * @return void
      * @access public
      */
-    function setImgPath($path)
+    public function setImgPath($path)
     {
         $this->img_path = $path;
     }
@@ -300,7 +304,7 @@ class PMA_Theme
      * @access public
      * @return string image path for this theme
      */
-    function getImgPath()
+    public function getImgPath()
     {
         return $this->img_path;
     }
@@ -308,27 +312,14 @@ class PMA_Theme
     /**
      * load css (send to stdout, normally the browser)
      *
-     * @param string &$type left, right or print
-     *
      * @return bool
      * @access  public
      */
-    function loadCss(&$type)
+    public function loadCss()
     {
-        if (empty($type) || ! in_array($type, $this->types)) {
-            $type = 'left';
-        }
+        $success = true;
 
-        if ($type == 'right') {
-            echo PMA_SQP_buildCssData();
-        }
-
-        $_css_file = $this->getPath()
-                   . '/css/theme_' . $type . '.css.php';
-
-        if (! file_exists($_css_file)) {
-            return false;
-        }
+        echo PMA_SQP_buildCssData();
 
         if ($GLOBALS['text_dir'] === 'ltr') {
             $right = 'right';
@@ -338,22 +329,24 @@ class PMA_Theme
             $left = 'right';
         }
 
-        include $_css_file;
+        foreach ($this->_cssFiles as $file) {
+            $path = $this->getPath() . "/css/$file.css.php";
+            $fallback = "./themes/" . PMA_Theme_Manager::FALLBACK_THEME .  "/css/$file.css.php";
 
-        if ($type != 'print') {
-            $_sprites_data_file = $this->getPath() . '/sprites.lib.php';
-            $_sprites_css_file = './themes/sprites.css.php';
-            if (file_exists($_sprites_data_file)
-                && is_readable($_sprites_data_file)
-                && file_exists($_sprites_css_file)
-                && is_readable($_sprites_css_file)
-            ) {
-                include $_sprites_data_file;
-                include $_sprites_css_file;
+            if (is_readable($path)) {
+                echo "\n/* FILE: $file.css.php */\n";
+                include $path;
+            } else if (is_readable($fallback)) {
+                echo "\n/* FILE: $file.css.php */\n";
+                include $fallback;
+            } else {
+                $success = false;
             }
         }
 
-        return true;
+        include './themes/sprites.css.php';
+
+        return $success;
     }
 
     /**
@@ -362,7 +355,7 @@ class PMA_Theme
      * @return void
      * @access public
      */
-    function printPreview()
+    public function printPreview()
     {
         echo '<div class="theme_preview">';
         echo '<h2>' . htmlspecialchars($this->getName())

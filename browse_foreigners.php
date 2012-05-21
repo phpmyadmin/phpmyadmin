@@ -88,7 +88,7 @@ $current_language = $available_languages[$lang][1];
     <title>phpMyAdmin</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css"
-        href="phpmyadmin.css.php?<?php echo PMA_generate_common_url('', ''); ?>&amp;js_frame=right&amp;nocache=<?php echo $GLOBALS['PMA_Config']->getThemeUniqueValue(); ?>" />
+        href="phpmyadmin.css.php?<?php echo PMA_generate_common_url('', ''); ?>&amp;nocache=<?php echo $GLOBALS['PMA_Config']->getThemeUniqueValue(); ?>" />
 <?php
 // includes everything asked for by libraries/common.inc.php
 require_once 'libraries/header_scripts.inc.php';

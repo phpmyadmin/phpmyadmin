@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-17 10:53+0200\n"
-"PO-Revision-Date: 2012-05-03 21:52+0200\n"
+"PO-Revision-Date: 2012-05-18 09:57+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 0.10\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:59 js/messages.php:358
 #: libraries/display_tbl.lib.php:399 server_privileges.php:1828
@@ -3068,28 +3068,25 @@ msgstr "Набор геометрических объектов любого т
 #: libraries/Types.class.php:617 libraries/Types.class.php:967
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "Числовые"
 
 #: libraries/Types.class.php:636 libraries/Types.class.php:970
-#, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "Создать индекс"
+msgstr "Дата и время"
 
 #: libraries/Types.class.php:645 libraries/Types.class.php:973
-#, fuzzy
 #| msgid "Linestring"
 msgctxt "string types"
 msgid "String"
-msgstr "Линия"
+msgstr "Символьные"
 
 #: libraries/Types.class.php:666
-#, fuzzy
 #| msgid "Spatial"
 msgctxt "spatial types"
 msgid "Spatial"
-msgstr "Пространственный"
+msgstr "Пространственные"
 
 #: libraries/Types.class.php:701
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
@@ -4678,10 +4675,9 @@ msgid "Minimum number of tables to display the table filter box"
 msgstr "Минимальное количество таблиц для отображения поля фильтра"
 
 #: libraries/config/messages.inc.php:281
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of databases to display the database filter box"
-msgstr "Минимальное количество таблиц для отображения поля фильтра"
+msgstr "Минимальное количество баз данных для отображения поля фильтра"
 
 #: libraries/config/messages.inc.php:282
 msgid "String that separates databases into different tree levels"
@@ -7372,7 +7368,7 @@ msgstr "Файл ESRI"
 #: libraries/import/shp.php:199
 #, php-format
 msgid "Geometry type '%s' is not supported by MySQL."
-msgstr ""
+msgstr "Геометрический тип '%s' не поддерживается MySQL."
 
 #: libraries/import/shp.php:360
 #, php-format
@@ -9053,10 +9049,9 @@ msgid "No databases"
 msgstr "Базы данных отсутствуют"
 
 #: navigation.php:209
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "Filter databases by name"
-msgstr "Фильтровать таблицы по имени"
+msgstr "Фильтровать базы данных по имени"
 
 #: navigation.php:272
 msgid "Filter tables by name"
