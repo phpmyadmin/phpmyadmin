@@ -21,6 +21,11 @@ $GLOBALS['js_include'][] = 'sql.js';
 $GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'date.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.mousewheel.js';
+/* < IE 9 doesn't support canvas natively */
+if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
+    $GLOBALS['js_include'][] = 'canvg/flashcanvas.js';
+}
+
 $GLOBALS['js_include'][] = 'jqplot/jquery.jqplot.js';
 $GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.canvasTextRenderer.js';
 $GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.canvasAxisLabelRenderer.js';

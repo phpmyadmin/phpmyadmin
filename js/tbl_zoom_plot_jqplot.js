@@ -414,7 +414,7 @@ $(document).ready(function() {
                 yaxis: {
                     label: $('#tableid_1').val(),
                     labelRenderer: $.jqplot.CanvasAxisLabelRenderer 
-                },
+                }
             },
             highlighter: {
                 show: true,
