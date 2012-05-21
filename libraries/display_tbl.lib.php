@@ -3099,16 +3099,6 @@ function PMA_getVerticalTable()
     } // end if
 
     list($col_order, $col_visib) = PMA_getColumnParams();
-    
-//    if (PMA_isSelect()) {
-//        // prepare to get the column order, if available
-//        $pmatable = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
-//        $col_order = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_ORDER);
-//        $col_visib = $pmatable->getUiProp(PMA_Table::PROP_COLUMN_VISIB);
-//    } else {
-//        $col_order = false;
-//        $col_visib = false;
-//    }
 
     // Prepares data
     foreach ($vertical_display['desc'] AS $j => $val) {
