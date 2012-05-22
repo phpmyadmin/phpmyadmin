@@ -95,7 +95,7 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
         // offer to load user preferences from localStorage
         if ($userprefs_offer_import) {
             include_once './libraries/user_preferences.lib.php';
-            PMA_userprefs_autoload_header();
+            echo PMA_userprefs_autoload_header();
         }
 
         // add recently used table and reload the navigation
