@@ -497,6 +497,9 @@ $(document).ready(function() {
             ]);
         });
 
+        // under IE 8, the initial display is mangled; after a manual 
+        // resizing, it's ok
+        // under IE 9, everything is fine
         currentChart = $.jqplot('querychart', series, options);
 
         $('button.button-reset').click(function(event) {
