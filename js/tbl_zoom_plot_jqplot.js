@@ -107,49 +107,6 @@ function scrollToChart() {
    $('html,body').animate({scrollTop: x}, 500);
 }
 
-/**
- ** Handlers for panning feature
- **/
-function includePan(currentChart) {
-    var mouseDown;
-    var lastX;
-    var lastY;
-    var chartWidth = $('#resizer').width() - 3;
-    var chartHeight = $('#resizer').height() - 20;
-    $('#querychart').mousedown(function() {
-        mouseDown = 1;
-    });
-
-    $('#querychart').mouseup(function() {
-        mouseDown = 0;
-    });
-    $('#querychart').mousemove(function(e) {
-        if (mouseDown == 1) {
-            if (e.pageX > lastX) {
-                var xExtremes = currentChart.xAxis[0].getExtremes();
-                var diff = (e.pageX - lastX) * (xExtremes.max - xExtremes.min) / chartWidth;
-                currentChart.xAxis[0].setExtremes(xExtremes.min - diff, xExtremes.max - diff);
-            } else if (e.pageX < lastX) {
-                var xExtremes = currentChart.xAxis[0].getExtremes();
-                var diff = (lastX - e.pageX) * (xExtremes.max - xExtremes.min) / chartWidth;
-                currentChart.xAxis[0].setExtremes(xExtremes.min + diff, xExtremes.max + diff);
-            }
-
-            if (e.pageY > lastY) {
-                var yExtremes = currentChart.yAxis[0].getExtremes();
-                var ydiff = 1.0 * (e.pageY - lastY) * (yExtremes.max - yExtremes.min) / chartHeight;
-                currentChart.yAxis[0].setExtremes(yExtremes.min + ydiff, yExtremes.max + ydiff);
-            } else if (e.pageY < lastY) {
-                var yExtremes = currentChart.yAxis[0].getExtremes();
-                var ydiff = 1.0 * (lastY - e.pageY) * (yExtremes.max - yExtremes.min) / chartHeight;
-                currentChart.yAxis[0].setExtremes(yExtremes.min - ydiff, yExtremes.max - ydiff);
-            }
-        }
-        lastX = e.pageX;
-        lastY = e.pageY;
-    });
-}
-
 $(document).ready(function() {
     var cursorMode = ($("input[name='mode']:checked").val() == 'edit') ? 'crosshair' : 'pointer';
     var currentChart = null;
