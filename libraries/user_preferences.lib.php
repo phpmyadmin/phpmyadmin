@@ -275,7 +275,7 @@ function PMA_userprefs_redirect(array $forms, array $old_settings, $file_name,
  *
  * @return string
  */
-function PMA_userprefs_autoload_header()
+function PMA_userprefsAutoloadGetHeader()
 {
     $retval = '';
 
