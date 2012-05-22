@@ -301,17 +301,13 @@ $js_messages['strDisplayHelp'] = '<ul><li>'
     . '</li><li>'
     . __('Hovering over a point will show its label.')
     . '</li><li>'
-    . __('Use mousewheel to zoom in or out of the plot.')
-    . '</li><li>'
-    . __('Click and drag the mouse to navigate the plot.')
+    . __('To zoom in, select a section of the plot with the mouse.')
     . '</li><li>'
     . __('Click reset zoom link to come back to original state.')
     . '</li><li>'
     . __('Click a data point to view and possibly edit the data row.')
     . '</li><li>'
     . __('The plot can be resized by dragging it along the bottom right corner.')
-    . '</li><li>'
-    . __('Strings are converted into integer for plotting')
     . '</li></ul>';
 $js_messages['strInputNull'] = '<strong>' . __('Select two columns') . '</strong>';
 $js_messages['strSameInputs'] = '<strong>' . __('Select two different columns') . '</strong>';
