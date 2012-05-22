@@ -941,6 +941,7 @@ function PMA_whichCrlf()
  */
 function PMA_reloadNavigation($jsonly = false)
 {
+    $retval = '';
     // Reloads the navigation frame via JavaScript if required
     if (isset($GLOBALS['reload']) && $GLOBALS['reload']) {
         // one of the reasons for a reload is when a table is dropped
@@ -948,29 +949,29 @@ function PMA_reloadNavigation($jsonly = false)
         // we have a problem when dropping a table on the last page
         // and the offset becomes greater than the total number of tables
         unset($_SESSION['tmp_user_values']['table_limit_offset']);
-        echo "\n";
         $reload_url = './navigation.php?' . PMA_generate_common_url(
             $GLOBALS['db'],
             '',
             '&'
         );
         if (! $jsonly) {
-            echo '<script type="text/javascript">' . PHP_EOL;
+            $retval .= '<script type="text/javascript">' . PHP_EOL;
         }
-        echo '//<![CDATA[' . PHP_EOL;
-        echo 'if (typeof(window.parent) != "undefined"' . PHP_EOL;
-        echo '    && typeof(window.parent.frame_navigation) != "undefined"'
-            . PHP_EOL;
-        echo '    && window.parent.goTo) {' . PHP_EOL;
-        echo '    window.parent.goTo("' . $reload_url . '");' . PHP_EOL;
-        echo '}' . PHP_EOL;
-        echo '//]]>' . PHP_EOL;
+        $retval .= '//<![CDATA[' . PHP_EOL;
+        $retval .= 'if (typeof(window.parent) != "undefined"' . PHP_EOL;
+        $retval .= '    && typeof(window.parent.frame_navigation) != "undefined"'
+             . PHP_EOL;
+        $retval .= '    && window.parent.goTo) {' . PHP_EOL;
+        $retval .= '    window.parent.goTo("' . $reload_url . '");' . PHP_EOL;
+        $retval .= '}' . PHP_EOL;
+        $retval .= '//]]>' . PHP_EOL;
         if (! $jsonly) {
-            echo '</script>' . PHP_EOL;
+            $retval .= '</script>' . PHP_EOL;
         }
 
         unset($GLOBALS['reload']);
     }
+    return $retval;
 }
 
 /**
