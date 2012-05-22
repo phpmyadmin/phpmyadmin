@@ -130,7 +130,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
                             <?php
                             // reload the left sidebar when the import is finished
                             $GLOBALS['reload'] = true;
-                            PMA_reloadNavigation(true);
+                            echo PMA_getReloadNavigationScript(true);
                             ?>
 
                         } // if finished

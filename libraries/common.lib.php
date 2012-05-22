@@ -939,7 +939,7 @@ function PMA_whichCrlf()
  *
  * @access  public
  */
-function PMA_reloadNavigation($jsonly = false)
+function PMA_getReloadNavigationScript($jsonly = false)
 {
     $retval = '';
     // Reloads the navigation frame via JavaScript if required

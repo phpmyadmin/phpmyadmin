@@ -90,6 +90,6 @@ foreach ($GLOBALS['js_events'] as $js_event) {
 </script>
 <?php
 // Reloads the navigation frame via JavaScript if required
-PMA_reloadNavigation();
+echo PMA_getReloadNavigationScript();
 
 ?>

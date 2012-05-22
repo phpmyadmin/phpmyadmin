@@ -1184,7 +1184,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
                     // this is needed in case tracking is on:
                     $GLOBALS['db'] = $username;
                     $GLOBALS['reload'] = true;
-                    PMA_reloadNavigation();
+                    echo PMA_getReloadNavigationScript();
                 }
 
                 $q = 'GRANT ALL PRIVILEGES ON '
@@ -1474,7 +1474,7 @@ if (isset($_REQUEST['delete']) || (isset($_REQUEST['change_copy']) && $_REQUEST[
             $GLOBALS['reload'] = true;
 
             if ($GLOBALS['is_ajax_request'] != true) {
-                PMA_reloadNavigation();
+                echo PMA_getReloadNavigationScript();
             }
         }
     }
