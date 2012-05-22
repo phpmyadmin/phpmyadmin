@@ -294,7 +294,7 @@ $js_messages['strSave'] = __('Save');
 $js_messages['strHideSearchCriteria'] = __('Hide search criteria');
 $js_messages['strShowSearchCriteria'] = __('Show search criteria');
 
-/* For tbl_zoom_plot.js */
+/* For tbl_zoom_plot_jqplot.js */
 $js_messages['strZoomSearch'] = __('Zoom Search');
 $js_messages['strDisplayHelp'] = '<ul><li>'
     . __('Each point represents a data row.')
