@@ -22,13 +22,17 @@ require_once 'libraries/Menu.class.php';
  */
 function PMA_addRecentTable($db, $table)
 {
-    $tmp_result = PMA_RecentTable::getInstance()->add($db, $table);
-    if ($tmp_result === true) {
-        echo '<span class="hide" id="update_recent_tables"></span>';
-    } else {
-        $error = $tmp_result;
-        $error->display();
+    $retval = '';
+    if (strlen($table) && $GLOBALS['cfg']['LeftRecentTable'] > 0) {
+        $tmp_result = PMA_RecentTable::getInstance()->add($db, $table);
+        if ($tmp_result === true) {
+            $retval = '<span class="hide" id="update_recent_tables"></span>';
+        } else {
+            $error = $tmp_result;
+            $retval = $error->getDisplay();
+        }
     }
+    return $retval;
 }
 
 /**
@@ -99,9 +103,7 @@ if (isset($GLOBALS['is_ajax_request']) && !$GLOBALS['is_ajax_request']) {
         }
 
         // add recently used table and reload the navigation
-        if (strlen($GLOBALS['table']) && $GLOBALS['cfg']['LeftRecentTable'] > 0) {
-            PMA_addRecentTable($GLOBALS['db'], $GLOBALS['table']);
-        }
+        echo PMA_addRecentTable($GLOBALS['db'], $GLOBALS['table']);
 
         if (! defined('PMA_DISPLAY_HEADING')) {
             define('PMA_DISPLAY_HEADING', 1);
