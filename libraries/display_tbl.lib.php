@@ -2070,17 +2070,16 @@ function PMA_getTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
 
                     if (file_exists($include_file)) {
 
-                        $transformfunction_name = str_replace(
+                        $transformfunction_name = 'PMA_transformation_' . str_replace(
                             '.inc.php', '',
                             $GLOBALS['mime_map'][$meta->name]['transformation']
                         );
 
                         include_once $include_file;
 
-                        if (function_exists('PMA_transformation_' . $transformfunction_name)) {
+                        if (function_exists($transformfunction_name)) {
 
-                            $transform_function = 'PMA_transformation_'
-                                . $transformfunction_name;
+                            $transform_function = $transformfunction_name;
 
                             $transform_options  = PMA_transformation_getOptions(
                                 isset($GLOBALS['mime_map'][$meta->name]['transformation_options'])
