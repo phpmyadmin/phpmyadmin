@@ -199,7 +199,8 @@ function PMA_showColumnTypesInDataEditView($url_params, $showColumnType )
     if(! $showColumnType) {
         return ' : <a href="tbl_change.php' . PMA_generate_common_url($this_other_url_params) . '">' . __('Type') . '</a>' . "\n";
     }
-    return '          <th><a href="tbl_change.php' . PMA_generate_common_url($this_other_url_params) . '" title="' . __('Hide') . '">' . __('Type') . '</a></th>' . "\n";
+    return '          <th><a href="tbl_change.php' . PMA_generate_common_url($this_other_url_params)
+        . '" title="' . __('Hide') . '">' . __('Type') . '</a></th>' . "\n";
     
 }
 
@@ -1531,8 +1532,180 @@ function PMA_isInsertRow()
     }
 }
 
+/**
+ * set $_SESSION for edit_next
+ * 
+ * @param string $one_where_clause  one where clause from where clauses array
+ * 
+ * @return void
+ */
+function PMA_setSessionForEditNext($one_where_clause)
+{
+    $local_query    = 'SELECT * FROM ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($GLOBALS['table'])
+        . ' WHERE ' . str_replace('` =', '` >', $one_where_clause)
+        . ' LIMIT 1;';
+    $res            = PMA_DBI_query($local_query);
+    $row            = PMA_DBI_fetch_row($res);
+    $meta           = PMA_DBI_get_fields_meta($res);
+    // must find a unique condition based on unique key,
+    // not a combination of all fields
+    list($unique_condition, $clause_is_unique)
+        = PMA_getUniqueCondition($res, count($meta), $meta, $row, true);
+    if (! empty($unique_condition)) {
+        $_SESSION['edit_next'] = $unique_condition;
+    }
+    unset($unique_condition, $clause_is_unique);
+}
 
+/**
+ * set $goto_include varible for different cases and retrieve like,
+ * if $GLOBALS['goto'] empty, if $goto_include previously not defined
+ * and new_insert, same_insert, same_insert
+ * 
+ * @param string $goto_include  store some script for include, otherwise it is boolean false
+ * @return string               $goto_include
+ */
+function PMA_getGotoInclude($goto_include)
+{
+    if (isset($_REQUEST['after_insert'])
+    && in_array($_REQUEST['after_insert'], array('new_insert', 'same_insert', 'same_insert'))
+    ) {
+        $goto_include = 'tbl_change.php';
+    } elseif (! empty($GLOBALS['goto'])) {
+        if (! preg_match('@^[a-z_]+\.php$@', $GLOBALS['goto'])) {
+            // this should NOT happen
+            //$GLOBALS['goto'] = false;
+            $goto_include = false;
+        } else {
+            $goto_include = $GLOBALS['goto'];
+        }
+        if ($GLOBALS['goto'] == 'db_sql.php' && strlen($GLOBALS['table'])) {
+            $GLOBALS['table'] = '';
+        }
+    }
+    if (! $goto_include) {
+        if (! strlen($GLOBALS['table'])) {
+            $goto_include = 'db_sql.php';
+        } else {
+            $goto_include = 'tbl_sql.php';
+        }
+    }
+    return $goto_include;
+}
 
+/**
+ * Defines the url to return in case of failure of the query
+ * 
+ * @param array $url_params url parameters
+ * @return string           error url for query failure
+ */
+function PMA_getErrorUrl($url_params)
+{
+    if (isset($_REQUEST['err_url'])) {
+        return $_REQUEST['err_url'];
+    } else {
+        return 'tbl_change.php' . PMA_generate_common_url($url_params);
+    }
+}
 
+/**
+ * Builds the sql query
+ * 
+ * @param boolean $is_insertignore  $_REQUEST['submit_type'] == 'insertignore'
+ * @param array $query_fields       column names array            
+ * @param array $value_sets         array of query values
+ * @return string                   a query
+ */
+function PMA_buildSqlQuery($is_insertignore, $query_fields, $value_sets)
+{
+    if ($is_insertignore) {
+        $insert_command = 'INSERT IGNORE ';
+    } else {
+        $insert_command = 'INSERT ';
+    }
+    $query[] = $insert_command . 'INTO ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($GLOBALS['table'])
+        . ' (' . implode(', ', $query_fields) . ') VALUES (' . implode('), (', $value_sets) . ')';
+    unset($insert_command, $query_fields);
+    return $query;
+}
 
+/**
+ * Executes the sql query and get the result, then move back to the calling page
+ * 
+ * @param array $url_params url paramters array
+ * @param string $query     built query from PMA_buildSqlQuery()
+ * @return array            $url_params, $total_affected_rows, $last_messages
+ *                          $warning_messages, $error_messages
+ */
+function PMA_executeSqlQuery($url_params, $query)
+{
+    if (! empty($GLOBALS['sql_query'])) {
+        $url_params['sql_query'] = $GLOBALS['sql_query'];
+        $return_to_sql_query = $GLOBALS['sql_query'];
+    }
+    $GLOBALS['sql_query'] = implode('; ', $query) . ';';
+    // to ensure that the query is displayed in case of
+    // "insert as new row" and then "insert another new row"
+    $GLOBALS['display_query'] = $GLOBALS['sql_query'];
+    
+    $total_affected_rows = 0;
+    $last_messages = array();
+    $warning_messages = array();
+    $error_messages = array();
+    
+    foreach ($query as $single_query) {
+        if ($_REQUEST['submit_type'] == 'showinsert') {
+            $last_messages[] = PMA_Message::notice(__('Showing SQL query'));
+            continue;
+        }
+        if ($GLOBALS['cfg']['IgnoreMultiSubmitErrors']) {
+            $result = PMA_DBI_try_query($single_query);
+        } else {
+            $result = PMA_DBI_query($single_query);
+        }
+        if (! $result) {
+            $error_messages[] = PMA_Message::sanitize(PMA_DBI_getError());
+        } else {
+            // The next line contains a real assignment, it's not a typo
+            if ($tmp = @PMA_DBI_affected_rows()) {
+                $total_affected_rows += $tmp;
+            }
+            unset($tmp);
+
+            $insert_id = PMA_DBI_insert_id();
+            if ($insert_id != 0) {
+                // insert_id is id of FIRST record inserted in one insert, so if we
+                // inserted multiple rows, we had to increment this
+
+                if ($total_affected_rows > 0) {
+                    $insert_id = $insert_id + $total_affected_rows - 1;
+                }
+                $last_message = PMA_Message::notice(__('Inserted row id: %1$d'));
+                $last_message->addParam($insert_id);
+                $last_messages[] = $last_message;
+            }
+            PMA_DBI_free_result($result);
+        }
+        $warning_messages = PMA_getWarningMessages();
+    }
+    unset($result, $single_query, $last_message, $query);
+    return array($url_params, $total_affected_rows, $last_messages, $warning_messages, $error_messages);
+}
+
+/**
+ * get the warning messages array
+ * 
+ * @return array  $warning_essages
+ */
+function PMA_getWarningMessages()
+{
+    $warning_essages = array();
+    foreach (PMA_DBI_get_warnings() as $warning) {
+        $warning_essages[]
+            = PMA_Message::sanitize(
+                $warning['Level'] . ': #' . $warning['Code'] . ' ' . $warning['Message']
+            );
+    }
+    return $warning_essages;
+}
 ?>
