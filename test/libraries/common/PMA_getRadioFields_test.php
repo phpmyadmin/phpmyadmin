@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_displayHtmlRadio from common.lib.php
+ * Test for PMA_getRadioFields from common.lib.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -12,18 +12,20 @@
  */
 require_once 'libraries/common.lib.php';
 
-class PMA_DisplayHtmlRadioTest extends PHPUnit_Framework_TestCase
+class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
 {
-    function testDisplayHtmlRadioEmpty()
+    function testGetRadioFieldsEmpty()
     {
         $name = "test_display_radio";
         $choices = array();
 
-        $this->expectOutputString("");
-        PMA_displayHtmlRadio($name, $choices);
+        $this->assertEquals(
+            PMA_getRadioFields($name, $choices),
+            ""
+        );
     }
 
-    function testDisplayHtmlRadio()
+    function testGetRadioFields()
     {
         $name = "test_display_radio";
         $choices = array('value_1'=>'choice_1', 'value_2'=>'choice_2');
@@ -38,11 +40,13 @@ class PMA_DisplayHtmlRadioTest extends PHPUnit_Framework_TestCase
             $out .= "\n";
         }
 
-        $this->expectOutputString($out);
-        PMA_displayHtmlRadio($name, $choices);
+        $this->assertEquals(
+            PMA_getRadioFields($name, $choices),
+            $out
+        );
     }
 
-    function testDisplayHtmlRadioWithChecked()
+    function testGetRadioFieldsWithChecked()
     {
         $name = "test_display_radio";
         $choices = array('value_1'=>'choice_1', 'value_2'=>'choice_2');
@@ -61,11 +65,13 @@ class PMA_DisplayHtmlRadioTest extends PHPUnit_Framework_TestCase
             $out .= "\n";
         }
 
-        $this->expectOutputString($out);
-        PMA_displayHtmlRadio($name, $choices, $checked_choice);
+        $this->assertEquals(
+            PMA_getRadioFields($name, $choices, $checked_choice),
+            $out
+        );
     }
 
-    function testDisplayHtmlRadioWithCheckedWithClass()
+    function testGetRadioFieldsWithCheckedWithClass()
     {
         $name = "test_display_radio";
         $choices = array('value_1'=>'choice_1', 'value_2'=>'choice_2');
@@ -87,11 +93,13 @@ class PMA_DisplayHtmlRadioTest extends PHPUnit_Framework_TestCase
             $out .= "\n";
         }
 
-        $this->expectOutputString($out);
-        PMA_displayHtmlRadio($name, $choices, $checked_choice, true, false, $class);
+        $this->assertEquals(
+            PMA_getRadioFields($name, $choices, $checked_choice, true, false, $class),
+            $out
+        );
     }
 
-    function testDisplayHtmlRadioWithoutBR()
+    function testGetRadioFieldsWithoutBR()
     {
         $name = "test_display_radio";
         $choices = array('value_1'=>'choice_1', 'value&_&lt;2&gt;'=>'choice_2');
@@ -109,11 +117,13 @@ class PMA_DisplayHtmlRadioTest extends PHPUnit_Framework_TestCase
             $out .= "\n";
         }
 
-        $this->expectOutputString($out);
-        PMA_displayHtmlRadio($name, $choices, $checked_choice, false);
+        $this->assertEquals(
+            PMA_getRadioFields($name, $choices, $checked_choice, false),
+            $out
+        );
     }
 
-    function testDisplayHtmlRadioEscapeLabelEscapeLabel()
+    function testGetRadioFieldsEscapeLabelEscapeLabel()
     {
         $name = "test_display_radio";
         $choices = array('value_1'=>'choice_1', 'value_&2'=>'choice&_&lt;2&gt;');
@@ -132,11 +142,13 @@ class PMA_DisplayHtmlRadioTest extends PHPUnit_Framework_TestCase
             $out .= "\n";
         }
 
-        $this->expectOutputString($out);
-        PMA_displayHtmlRadio($name, $choices, $checked_choice, true, true);
+        $this->assertEquals(
+            PMA_getRadioFields($name, $choices, $checked_choice, true, true),
+            $out
+        );
     }
 
-    function testDisplayHtmlRadioEscapeLabelNotEscapeLabel()
+    function testGetRadioFieldsEscapeLabelNotEscapeLabel()
     {
         $name = "test_display_radio";
         $choices = array('value_1'=>'choice_1', 'value_&2'=>'choice&_&lt;2&gt;');
@@ -155,11 +167,13 @@ class PMA_DisplayHtmlRadioTest extends PHPUnit_Framework_TestCase
             $out .= "\n";
         }
 
-        $this->expectOutputString($out);
-        PMA_displayHtmlRadio($name, $choices, $checked_choice, true, false);
+        $this->assertEquals(
+            PMA_getRadioFields($name, $choices, $checked_choice, true, false),
+            $out
+        );
     }
 
-    function testDisplayHtmlRadioEscapeLabelEscapeLabelWithClass()
+    function testGetRadioFieldsEscapeLabelEscapeLabelWithClass()
     {
         $name = "test_display_radio";
         $choices = array('value_1'=>'choice_1', 'value_&2'=>'choice&_&lt;2&gt;');
@@ -181,7 +195,9 @@ class PMA_DisplayHtmlRadioTest extends PHPUnit_Framework_TestCase
             $out .= "\n";
         }
 
-        $this->expectOutputString($out);
-        PMA_displayHtmlRadio($name, $choices, $checked_choice, true, true, $class);
+        $this->assertEquals(
+            PMA_getRadioFields($name, $choices, $checked_choice, true, true, $class),
+            $out
+        );
     }
 }

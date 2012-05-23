@@ -85,7 +85,7 @@ if (! $result) {
          * @global array $GLOBALS['extra_data']
          * @name $extra_data
          */
-        $extra_data['sql_query'] = PMA_showMessage(null, $sql_query, 'success');
+        $extra_data['sql_query'] = PMA_getMessage(null, $sql_query, 'success');
 
         //Construct the html for the new database, so that it can be appended to
         // the list of databases on server_databases.php

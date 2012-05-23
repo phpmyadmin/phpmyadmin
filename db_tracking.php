@@ -225,7 +225,7 @@ if (count($data['ddlog']) > 0) {
     foreach ($data['ddlog'] as $entry) {
         $log .= '# ' . $entry['date'] . ' ' . $entry['username'] . "\n" . $entry['statement'] . "\n";
     }
-    PMA_showMessage(__('Database Log'), $log);
+    echo PMA_getMessage(__('Database Log'), $log);
 }
 
 /**

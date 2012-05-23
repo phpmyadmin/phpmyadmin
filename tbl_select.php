@@ -173,7 +173,7 @@ echo PMA_generateHtmlTabs(PMA_tbl_getSubTabs(), $url_params, 'topmenu2');
 <div id="gis_editor"></div><div id="popup_background"></div>
 </fieldset>
 <?php
-    PMA_generateSliderEffect('searchoptions', __('Options'));
+    echo PMA_getDivForSliderEffect('searchoptions', __('Options'));
 ?>
 <fieldset id="fieldset_select_fields">
     <legend><?php echo __('Select columns (at least one):'); ?></legend>
@@ -223,7 +223,7 @@ echo PMA_generateHtmlTabs(PMA_tbl_getSubTabs(), $url_params, 'topmenu2');
         'ASC'  => __('Ascending'),
         'DESC' => __('Descending')
     );
-    PMA_displayHtmlRadio('order', $choices, 'ASC', false, true, "formelement");
+    echo PMA_getRadioFields('order', $choices, 'ASC', false, true, "formelement");
     unset($choices);
 ?>
 </fieldset>

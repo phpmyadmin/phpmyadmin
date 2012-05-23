@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_display_html_checkbox from common.lib.php
+ * Test for PMA_getCheckbox from common.lib.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -12,7 +12,7 @@
  */
 require_once 'libraries/common.lib.php';
 
-class PMA_display_html_checkbox_test extends PHPUnit_Framework_TestCase
+class PMA_GetCheckboxTest extends PHPUnit_Framework_TestCase
 {
     function testGetCheckbox()
     {
@@ -59,4 +59,4 @@ class PMA_display_html_checkbox_test extends PHPUnit_Framework_TestCase
     }
 }
 
-//PMA_display_html_checkbox
+//PMA_getCheckbox

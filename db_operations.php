@@ -341,7 +341,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
      */
     if ( $GLOBALS['is_ajax_request'] == true) {
         $extra_data['newname'] = $newname;
-        $extra_data['sql_query'] = PMA_showMessage(null, $sql_query);
+        $extra_data['sql_query'] = PMA_getMessage(null, $sql_query);
         PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
     };
 }
@@ -375,7 +375,7 @@ if (empty($is_info)) {
     echo "\n";
 
     if (isset($message)) {
-        PMA_showMessage($message, $sql_query);
+        echo PMA_getMessage($message, $sql_query);
         unset($message);
     }
 }
@@ -523,7 +523,7 @@ echo __('Remove database');
             'structure' => __('Structure only'),
             'data'      => __('Structure and data'),
             'dataonly'  => __('Data only'));
-        PMA_displayHtmlRadio('what', $choices, 'data', true);
+        echo PMA_getRadioFields('what', $choices, 'data', true);
         unset($choices);
 ?>
         <input type="checkbox" name="create_database_before_copying" value="1"

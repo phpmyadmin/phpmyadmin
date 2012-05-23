@@ -30,7 +30,7 @@ require_once 'libraries/header.inc.php';
 
 // Any message to display?
 if (! empty($message)) {
-    PMA_showMessage($message);
+    echo PMA_getMessage($message);
     unset($message);
 }
 

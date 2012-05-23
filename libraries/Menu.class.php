@@ -89,7 +89,7 @@ class PMA_Menu
         echo $this->_getBreadcrumbs();
         echo $this->_getMenu();
         if (! empty($GLOBALS['message'])) {
-            PMA_showMessage($GLOBALS['message']);
+            echo PMA_getMessage($GLOBALS['message']);
             unset($GLOBALS['message']);
         }
     }

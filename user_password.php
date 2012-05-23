@@ -82,7 +82,7 @@ function PMA_getChangePassMessage($change_password_message, $sql_query = '')
         if ($change_password_message['error']) {
             PMA_ajaxResponse($change_password_message['msg'], false);
         } else {
-            $extra_data['sql_query'] = PMA_showMessage($change_password_message['msg'], $sql_query, 'success');
+            $extra_data['sql_query'] = PMA_getMessage($change_password_message['msg'], $sql_query, 'success');
             PMA_ajaxResponse($change_password_message['msg'], true, $extra_data);
         }
     }
@@ -205,7 +205,7 @@ function PMA_changePassDisplayPage($message, $sql_query, $_url_params)
 {
     include_once './libraries/header.inc.php';
     echo '<h1>' . __('Change password') . '</h1>' . "\n\n";
-    PMA_showMessage($message, $sql_query, 'success');
+    echo PMA_getMessage($message, $sql_query, 'success');
     echo '<a href="index.php'.PMA_generate_common_url($_url_params).' target="_parent">'. "\n"
             .'<strong>'.__('Back').'</strong></a>';
     include './libraries/footer.inc.php';
