@@ -151,9 +151,12 @@ $table_fields = array_values(PMA_DBI_get_columns($db, $table));
 
 $paramTableDbArray = array($table, $db);
 
+if (! isset($where_clause)) {
+    $where_clause = null;
+}
 //Retrieve values for data edit view
 list($insert_mode, $where_clauses, $result, $rows, $where_clause_array, $found_unique_key)  	
-    = PMA_getValuesForEditMode($where_clause, $table, $db, $where_clause);
+    = PMA_getValuesForEditMode($where_clause, $table, $db);
 
 // Copying a row - fetched data will be inserted as a new row, therefore the where clause is needless.
 if (isset($_REQUEST['default_action']) && $_REQUEST['default_action'] === 'insert') {
@@ -206,8 +209,6 @@ if ($is_upload) {
     $html_output .= ' enctype="multipart/form-data"';
 }
 $html_output .= '>';
-    
-
 $html_output .= PMA_generate_common_hidden_inputs($_form_params);
 
 $titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
@@ -368,9 +369,7 @@ $html_output .='<div id="gis_editor"></div>'
 if (! isset($after_insert)) {
     $after_insert = 'back';
 }
-if (! isset($where_clause)) {
-    $where_clause = null;
-}
+
 //action panel
 $html_output .= PMA_getActionsPanel($where_clause, $after_insert, $tabindex,
     $tabindex_for_value, $found_unique_key);

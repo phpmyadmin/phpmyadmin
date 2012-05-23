@@ -42,6 +42,30 @@ function PMA_getFormParametersForInsertForm($db, $table, $where_clauses, $where_
 }
 
 /**
+ * Retrieve the values for pma edit mode
+ * 
+ * @param type $where_clause    where clauses
+ * @param type $table           name of the table
+ * @param type $db              name of the database
+ * 
+ * @return type                 containing insert_mode,whereClauses, result array
+ *                              where_clauses_array and found_unique_key boolean value 
+ */
+function PMA_getValuesForEditMode($where_clause, $table, $db)
+{
+    $found_unique_key = false;
+    if (isset($where_clause)) {
+        $where_clause_array = PMA_getWhereClauseArray($where_clause);
+        list($whereClauses, $resultArray, $rowsArray, $found_unique_key)
+            = PMA_analyzeWhereClauses($where_clause_array, $table, $db, $found_unique_key);
+        return array(false, $whereClauses, $resultArray, $rowsArray, $where_clause_array, $found_unique_key);
+    } else {
+        list($results, $row) = PMA_loadFirstRowInEditMode($table, $db);
+        return array(true, null, $results, $row, null, $found_unique_key);
+    }
+}
+
+/**
  *
  * @return whereClauseArray array of where clauses 
  */
@@ -1238,30 +1262,22 @@ function PMA_getContinueInsertionForm($table, $db, $where_clause_array, $err_url
  * 
  * @return string                       an html snippet
  */
-function PMA_getActionsPanel($tabindex, $tabindex_for_value, $found_unique_key)
-{
+function PMA_getActionsPanel($where_clause, $after_insert, $tabindex,
+    $tabindex_for_value, $found_unique_key
+) {
     $html_output = '<fieldset id="actions_panel">'
         . '<table cellpadding="5" cellspacing="0">'
         . '<tr>'
         . '<td class="nowrap vmiddle">'
-        . PMA_getSubmitTypeDropDown($tabindex, $tabindex_for_value)
+        . PMA_getSubmitTypeDropDown($where_clause, $tabindex, $tabindex_for_value)
         . "\n";
-    if (isset($_SESSION['edit_next'])) {
-        unset($_SESSION['edit_next']);
-        $after_insert = 'edit_next';
-    }
-    if (isset($_REQUEST['after_insert'])) { 
-        $after_insert = $_REQUEST['after_insert'];  
-    }
-    if (! isset($after_insert)) {
-        $after_insert = 'back';
-    }
+
     $html_output .= '</td>'
         . '<td class="vmiddle">'
         . '&nbsp;&nbsp;&nbsp;<strong>' . __('and then') . '</strong>&nbsp;&nbsp;&nbsp;'
         . '</td>'
         . '<td class="nowrap vmiddle">'
-        . PMA_getAfterInsertDropDown($after_insert, $found_unique_key)
+        . PMA_getAfterInsertDropDown($where_clause, $after_insert, $found_unique_key)
         . '</td>'
         . '</tr>';
     $html_output .='<tr>'
@@ -1275,15 +1291,16 @@ function PMA_getActionsPanel($tabindex, $tabindex_for_value, $found_unique_key)
 /**
  * Get a HTML drop down for submit types
  * 
+ * @param array $where_clause           where clause
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_value   offset for the values tabindex
  * 
  * @return string                       an html snippet
  */
-function PMA_getSubmitTypeDropDown($tabindex, $tabindex_for_value)
+function PMA_getSubmitTypeDropDown($where_clause, $tabindex, $tabindex_for_value)
 {
     $html_output = '<select name="submit_type" class="control_at_footer" tabindex="' . ($tabindex + $tabindex_for_value + 1) . '">';
-    if (isset($_REQUEST['where_clause'])) {
+    if (isset($where_clause)) {
         $html_output .= '<option value="save">' . __('Save') . '</option>';
     }
     $html_output .= '<option value="insert">' . __('Insert as new row') . '</option>'
@@ -1296,12 +1313,14 @@ function PMA_getSubmitTypeDropDown($tabindex, $tabindex_for_value)
 /**
  * Get HTML drop down for after insert
  * 
+ * @param array $where_clause       where clause
+ * @param string $after_insert      insert mode, e.g. new_insert, same_insert
  * @param string $after_insert      a request parameter it can be 'edit_text', 'back'
  * @param boolean $found_unique_key boolean variable for unique key
  * 
  * @return string                   an html snippet
  */
-function PMA_getAfterInsertDropDown($after_insert, $found_unique_key)
+function PMA_getAfterInsertDropDown($where_clause, $after_insert, $found_unique_key)
 {
     $html_output = '<select name="after_insert">'
         . '<option value="back" ' . ($after_insert == 'back' ? 'selected="selected"' : '') . '>'
@@ -1309,7 +1328,7 @@ function PMA_getAfterInsertDropDown($after_insert, $found_unique_key)
         . '<option value="new_insert" ' . ($after_insert == 'new_insert' ? 'selected="selected"' : '') . '>'
         . __('Insert another new row') . '</option>';
     
-    if (isset($_REQUEST['where_clause'])) {
+    if (isset($where_clause)) {
         $html_output .= '<option value="same_insert" ' . ($after_insert == 'same_insert' ? 'selected="selected"' : '') . '>'
             . __('Go back to this page') . '</option>';
         
@@ -1317,7 +1336,14 @@ function PMA_getAfterInsertDropDown($after_insert, $found_unique_key)
         // in 2.8.2, we were looking for `field_name` = numeric_value
         //if (preg_match('@^[\s]*`[^`]*` = [0-9]+@', $where_clause)) {
         // in 2.9.0, we are looking for `table_name`.`field_name` = numeric_value
-        if ($found_unique_key && preg_match('@^[\s]*`[^`]*`[\.]`[^`]*` = [0-9]+@', $_REQUEST['where_clause'])) {
+        $is_numeric = false;
+        for($i = 0; $i < count($where_clause); $i++) {
+            $is_numeric = preg_match('@^[\s]*`[^`]*`[\.]`[^`]*` = [0-9]+@', $where_clause[$i]);
+            if ($is_numeric == true) {
+                break;
+            }
+        }
+        if ($found_unique_key && $is_numeric) {
             $html_output .= '<option value="edit_next" '. ($after_insert == 'edit_next' ? 'selected="selected"' : '') . '>'
                 . __('Edit next row') . '</option>';
  
