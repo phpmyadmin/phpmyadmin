@@ -62,7 +62,7 @@ if (isset($result)) {
         $_message->isError(true);
         unset($warning_messages);
     }
-    PMA_showMessage($_message, $sql_query, $_type, $is_view = true);
+    echo PMA_getMessage($_message, $sql_query, $_type, $is_view = true);
     unset($_message, $_type);
 }
 

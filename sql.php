@@ -293,7 +293,7 @@ if (! defined('PMA_CHK_DROP')
 } // end if
 
 require_once 'libraries/display_tbl.lib.php';
-PMA_displayTable_checkConfigParams();
+PMA_setConfigParamsForDisplayTable();
 
 /**
  * Need to find the real end of rows?
@@ -817,7 +817,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
 
     if ($GLOBALS['is_ajax_request'] == true) {
         if ($cfg['ShowSQL']) {
-            $extra_data['sql_query'] = PMA_showMessage($message, $GLOBALS['sql_query'], 'success');
+            $extra_data['sql_query'] = PMA_getMessage($message, $GLOBALS['sql_query'], 'success');
         }
         if (isset($GLOBALS['reload']) && $GLOBALS['reload'] == 1) {
             $extra_data['reload'] = 1;
@@ -898,9 +898,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
 
         if (isset($message)) {
             $message = PMA_Message::success($message);
-            echo PMA_showMessage($message, $GLOBALS['sql_query'], 'success');
+            echo PMA_getMessage($message, $GLOBALS['sql_query'], 'success');
         }
-        PMA_displayTable($result, $disp_mode, $analyzed_sql);
+        echo PMA_getTable($result, $disp_mode, $analyzed_sql);
         exit();
     }
 
@@ -960,7 +960,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
             }
         } else {
             include_once 'libraries/header.inc.php';
-            //we don't need to buffer the output in PMA_showMessage here.
+            //we don't need to buffer the output in PMA_getMessage here.
             //set a global variable and check against it in the function
             $GLOBALS['buffer_message'] = false;
         }
@@ -987,7 +987,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
 
     // Display previous update query (from tbl_replace)
     if (isset($disp_query) && $cfg['ShowSQL'] == true) {
-        PMA_showMessage($disp_message, $disp_query, 'success');
+        echo PMA_getMessage($disp_message, $disp_query, 'success');
     }
 
     if (isset($profiling_results)) {
@@ -1047,7 +1047,7 @@ $(makeProfilingChart);
         $message->display();
     }
 
-    PMA_displayTable($result, $disp_mode, $analyzed_sql);
+    echo PMA_getTable($result, $disp_mode, $analyzed_sql);
     PMA_DBI_free_result($result);
 
     // BEGIN INDEX CHECK See if indexes should be checked.

@@ -299,7 +299,7 @@ function PMA_RTN_handleEditor()
             $message->addString('</ul>');
         }
 
-        $output = PMA_showMessage($message, $sql_query);
+        $output = PMA_getMessage($message, $sql_query);
         if ($GLOBALS['is_ajax_request']) {
             $extra_data = array();
             if ($message->isSuccess()) {

@@ -68,7 +68,7 @@ if (isset($_REQUEST['createview'])) {
             include './' . $cfg['DefaultTabDatabase'];
             exit();
         } else {
-            PMA_ajaxResponse(PMA_showMessage(PMA_Message::success(), $sql_query), 1);
+            PMA_ajaxResponse(PMA_getMessage(PMA_Message::success(), $sql_query), 1);
         }
     } else {
         if ($GLOBALS['is_ajax_request'] != true) {
