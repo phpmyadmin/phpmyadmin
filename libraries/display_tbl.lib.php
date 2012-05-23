@@ -2665,7 +2665,7 @@ function PMA_getDataCellForNumericFeilds(
         $nowrap = ' nowrap';
         $where_comparison = ' = ' . $column;
 
-        $cell = '<td ' . PMA_getRowData(
+        $cell = PMA_getRowData(
             'right '.$class, $condition_field,
             $analyzed_sql, $meta, $map, $column,
             $transform_function, $default_function, $nowrap,
@@ -2830,7 +2830,7 @@ function PMA_getDataCellForGeometryFields(
                 $is_field_truncated = true;
             }
 
-            $cell = '<td ' . PMA_getRowData(
+            $cell = PMA_getRowData(
                 $class, $condition_field, $analyzed_sql, $meta, $map,
                 $wktval, $transform_function, $default_function, '',
                 $where_comparison, $transform_options,
@@ -2862,7 +2862,7 @@ function PMA_getDataCellForGeometryFields(
                     $is_field_truncated = true;
                 }
 
-                $cell = '<td ' . PMA_getRowData(
+                $cell = PMA_getRowData(
                     $class, $condition_field,
                     $analyzed_sql, $meta, $map, $wkbval,
                     $transform_function, $default_function, '',
@@ -3001,14 +3001,13 @@ function PMA_getDataCellForNonNumericAndNonBlobFields(
             $where_comparison = ' = \'' . PMA_sqlAddSlashes($column)
                 . '\'';
 
-            $cell = '<td '
-                . PMA_getRowData(
-                    $class, $condition_field,
-                    $analyzed_sql, $meta, $map, $column,
-                    $transform_function, $default_function, $nowrap,
-                    $where_comparison, $transform_options,
-                    $is_field_truncated
-                );
+            $cell = PMA_getRowData(
+                $class, $condition_field,
+                $analyzed_sql, $meta, $map, $column,
+                $transform_function, $default_function, $nowrap,
+                $where_comparison, $transform_options,
+                $is_field_truncated
+            );
         }
 
     } else {
@@ -4416,7 +4415,7 @@ function PMA_getRowData($class, $condition_field, $analyzed_sql, $meta, $map,
 
     global $db;
 
-    $result = ' class="'
+    $result = '<td class="'
         . PMA_addClass(
             $class, $condition_field, $meta, $nowrap,
             $is_field_truncated, $transform_function, $default_function
