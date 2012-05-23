@@ -42,8 +42,8 @@ if (false !== $possibly_uploaded_val) {
 
     // f i e l d    v a l u e    i n    t h e    f o r m
 
-    if (isset($me_fields_type[$key])) {
-        $type = $me_fields_type[$key];
+    if (isset($multi_edit_columns_type[$key])) {
+        $type = $multi_edit_columns_type[$key];
     } else {
         $type = '';
     }
@@ -51,7 +51,7 @@ if (false !== $possibly_uploaded_val) {
     // $key contains the md5() of the fieldname
     if ($type != 'protected' && $type != 'set' && 0 === strlen($val)) {
         // best way to avoid problems in strict mode (works also in non-strict mode)
-        if (isset($me_auto_increment)  && isset($me_auto_increment[$key])) {
+        if (isset($multi_edit_auto_increment)  && isset($multi_edit_auto_increment[$key])) {
             $val = 'NULL';
         } else {
             $val = "''";
@@ -72,8 +72,8 @@ if (false !== $possibly_uploaded_val) {
         // when in UPDATE mode, do not alter field's contents. When in INSERT
         // mode, insert empty field because no values were submitted. If protected
         // blobs where set, insert original fields content.
-        if (! empty($prot_row[$me_fields_name[$key]])) {
-            $val = '0x' . bin2hex($prot_row[$me_fields_name[$key]]);
+        if (! empty($prot_row[$multi_edit_columns_name[$key]])) {
+            $val = '0x' . bin2hex($prot_row[$multi_edit_columns_name[$key]]);
         } else {
             $val = '';
         }
@@ -89,14 +89,14 @@ if (false !== $possibly_uploaded_val) {
     // Was the Null checkbox checked for this field?
     // (if there is a value, we ignore the Null checkbox: this could
     // be possible if Javascript is disabled in the browser)
-    if (! empty($me_fields_null[$key]) && ($val == "''" || $val == '')) {
+    if (! empty($multi_edit_columns_null[$key]) && ($val == "''" || $val == '')) {
         $val = 'NULL';
     }
 
     // The Null checkbox was unchecked for this field
     if (empty($val)
-        && ! empty($me_fields_null_prev[$key])
-        && ! isset($me_fields_null[$key])
+        && ! empty($multi_edit_columns_null_prev[$key])
+        && ! isset($multi_edit_columns_null[$key])
     ) {
         $val = "''";
     }

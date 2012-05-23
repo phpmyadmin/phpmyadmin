@@ -130,7 +130,7 @@ if ($cfgRelation['displaywork']) {
 }
 
 // will be used in the logic for internal relations and foreign keys:
-$me_fields_name = isset($_REQUEST['fields_name'])
+$multi_edit_columns_name = isset($_REQUEST['fields_name'])
     ? $_REQUEST['fields_name']
     : null;
 
@@ -141,7 +141,7 @@ if (isset($destination) && $cfgRelation['relwork']) {
         $upd_query = false;
 
         // Map the fieldname's md5 back to its real name
-        $master_field = $me_fields_name[$master_field_md5];
+        $master_field = $multi_edit_columns_name[$master_field_md5];
 
         if (! empty($foreign_string)) {
             $foreign_string = trim($foreign_string, '`');
@@ -189,7 +189,7 @@ if (isset($_REQUEST['destination_foreign'])) {
     foreach ($_REQUEST['destination_foreign'] as $master_field_md5 => $foreign_string) {
 
         // Map the fieldname's md5 back to it's real name
-        $master_field = $me_fields_name[$master_field_md5];
+        $master_field = $multi_edit_columns_name[$master_field_md5];
 
         if (! empty($foreign_string)) {
             list($foreign_db, $foreign_table, $foreign_field) = PMA_backquote_split($foreign_string);
