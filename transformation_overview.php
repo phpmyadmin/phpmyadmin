@@ -6,18 +6,14 @@
  */
 
 /**
- * Don't display the page heading
- * @ignore
- */
-define('PMA_DISPLAY_HEADING', 0);
-
-/**
  * Gets some core libraries and displays a top message if required
  */
 require_once './libraries/common.inc.php';
 require_once './libraries/transformations.lib.php';
 
-PMA_Header::getInstance()->display();
+$header = PMA_Header::getInstance();
+$header->disableMenu();
+$header->display();
 
 $types = PMA_getAvailableMIMEtypes();
 ?>

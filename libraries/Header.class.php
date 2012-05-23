@@ -119,10 +119,7 @@ class PMA_Header {
                     $retval .= '<span id="no_hint" class="hide"></span>';
                 }
                 $retval .= $this->_getWarnings();
-                if (! defined('PMA_DISPLAY_HEADING')) {
-                    define('PMA_DISPLAY_HEADING', 1);
-                }
-                if (PMA_DISPLAY_HEADING && $GLOBALS['server'] > 0 && $this->_menuEnabled) {
+                if ($this->_menuEnabled && $GLOBALS['server'] > 0) {
                     $retval .= $this->_menu->getDisplay();
                 }
                 $retval .= $this->_addRecentTable(
