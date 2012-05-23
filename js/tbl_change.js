@@ -345,7 +345,7 @@ $(function() {
                     .end()
                     .after(data.sql_query);
 
-                    //Remove the empty notice div generated due to a NULL query passed to PMA_showMessage()
+                    //Remove the empty notice div generated due to a NULL query passed to PMA_getMessage()
                     var $notice_class = $("#floating_menubar").next("div").find('.notice');
                     if ($notice_class.text() == '') {
                         $notice_class.remove();

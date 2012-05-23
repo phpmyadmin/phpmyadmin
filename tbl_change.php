@@ -44,6 +44,9 @@ if (isset($_REQUEST['ShowFunctionFields'])) {
 if (isset($_REQUEST['ShowFieldTypesInDataEditView'])) {
     $cfg['ShowFieldTypesInDataEditView'] = $_REQUEST['ShowFieldTypesInDataEditView'];
 }
+if (isset($_REQUEST['after_insert'])) {
+    $after_insert = $_REQUEST['after_insert'];
+}
 /**
  * file listing
  */
@@ -149,19 +152,8 @@ $table_fields = array_values(PMA_DBI_get_columns($db, $table));
 $paramTableDbArray = array($table, $db);
 
 //Retrieve values for data edit view
-$found_unique_key   = false;
-$where_clause_array = array();
-$where_clauses      = array();
-
-if (isset($where_clause)) {
-    $where_clause_array = PMA_getWhereClauseArray($where_clause);
-    list($where_clauses, $result, $rows, $found_unique_key) 
-        = PMA_analyzeWhereClauses($where_clause_array, $table, $db, $found_unique_key);
-    $insert_mode = false;
-} else {
-    list($result, $rows) = PMA_loadFirstRowInEditMode($table, $db);
-    $insert_mode = true;
-}
+list($insert_mode, $where_clauses, $result, $rows, $where_clause_array, $found_unique_key)  	
+    = PMA_getValuesForEditMode($where_clause, $table, $db, $where_clause);
 
 // Copying a row - fetched data will be inserted as a new row, therefore the where clause is needless.
 if (isset($_REQUEST['default_action']) && $_REQUEST['default_action'] === 'insert') {
@@ -243,9 +235,12 @@ foreach ($rows as $row_id => $current_row) {
     $rownumber_param = '&amp;rownumber=' . $row_id;
     $vkey = '[multi_edit][' . $jsvkey . ']';
 
-    $current_result = (isset($result) && is_array($result) && isset($result[$row_id]) ? $result[$row_id] : $result);
+    $current_result = (isset($result) && is_array($result) && isset($result[$row_id])
+        ? $result[$row_id]
+        : $result);
     if ($insert_mode && $row_id > 0) {
-        $html_output .= '<input type="checkbox" checked="checked" name="insert_ignore_' . $row_id . '" id="insert_ignore_' . $row_id . '" />'
+        $html_output .= '<input type="checkbox" checked="checked" name="insert_ignore_'. $row_id
+            . '" id="insert_ignore_' . $row_id . '" />'
             .'<label for="insert_ignore_' . $row_id . '">' . __('Ignore') . '</label><br />' . "\n";
     }
     
@@ -370,8 +365,16 @@ $html_output .='<div id="gis_editor"></div>'
     . '<div id="popup_background"></div>'
     . '<br />';
 
+if (! isset($after_insert)) {
+    $after_insert = 'back';
+}
+if (! isset($where_clause)) {
+    $where_clause = null;
+}
 //action panel
-$html_output .= PMA_getActionsPanel($tabindex, $tabindex_for_value, $found_unique_key);
+$html_output .= PMA_getActionsPanel($where_clause, $after_insert, $tabindex,
+    $tabindex_for_value, $found_unique_key);
+
 if ($biggest_max_file_size > 0) {
     $html_output .= '        ' . PMA_generateHiddenMaxFileSize($biggest_max_file_size) . "\n";
 }

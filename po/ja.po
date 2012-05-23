@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-17 10:53+0200\n"
-"PO-Revision-Date: 2012-05-18 11:20+0200\n"
+"PO-Revision-Date: 2012-05-23 11:54+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -4617,12 +4617,12 @@ msgstr "サーバ選択を表示する"
 
 #: libraries/config/messages.inc.php:280
 msgid "Minimum number of tables to display the table filter box"
-msgstr "テーブルフィルタボックスを表示させる最小のテーブル数"
+msgstr "テーブル表示数を絞るための入力欄が現れる最小のテーブル数"
 
 #: libraries/config/messages.inc.php:281
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of databases to display the database filter box"
-msgstr "データベースフィルタボックスを表示させる最小のテーブル数"
+msgstr "データベース表示数を絞るための入力欄が現れる最小のデータベース数"
 
 #: libraries/config/messages.inc.php:282
 msgid "String that separates databases into different tree levels"
@@ -8928,11 +8928,11 @@ msgstr "データベースが存在しません"
 #: navigation.php:209
 #| msgid "Filter tables by name"
 msgid "Filter databases by name"
-msgstr "名前でデータベースをフィルタする"
+msgstr "データベース名を絞る"
 
 #: navigation.php:272
 msgid "Filter tables by name"
-msgstr "名前でテーブルをフィルタする"
+msgstr "テーブル名を絞る"
 
 #: navigation.php:305 navigation.php:306
 msgctxt "short form"

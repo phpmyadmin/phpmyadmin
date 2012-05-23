@@ -293,7 +293,7 @@ if ($databases_count > 0) {
            . '<a href="server_databases.php' . $common_url_query . '" onclick="if (unMarkAllRows(\'tabledatabases\')) return false;">' . "\n"
            . '    ' . __('Uncheck All') . '</a>' . "\n"
            . '<i>' . __('With selected:') . '</i>' . "\n";
-        PMA_buttonOrImage('drop_selected_dbs', 'mult_submit' . ($cfg['AjaxEnable'] ? ' ajax' : ''), 'drop_selected_dbs', __('Drop'), 'b_deltbl.png');
+        echo PMA_getButtonOrImage('drop_selected_dbs', 'mult_submit' . ($cfg['AjaxEnable'] ? ' ajax' : ''), 'drop_selected_dbs', __('Drop'), 'b_deltbl.png');
     }
 
     if (empty($dbstats)) {
