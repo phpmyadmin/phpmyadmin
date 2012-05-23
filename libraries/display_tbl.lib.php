@@ -393,8 +393,8 @@ function PMA_getTableNavigation($pos_next, $pos_prev, $sql_query,
     } // end show all
 
     // Move to the next page or to the last one
-    if ((($_SESSION['tmp_user_values']['pos'] + $_SESSION['tmp_user_values']['max_rows'])
-        < $unlim_num_rows)
+    $endpos = $_SESSION['tmp_user_values']['pos'] + $_SESSION['tmp_user_values']['max_rows'];
+    if (($endpos < $unlim_num_rows)
         && ($num_rows >= $_SESSION['tmp_user_values']['max_rows'])
         && ($_SESSION['tmp_user_values']['max_rows'] != 'all')
     ) {
@@ -916,8 +916,8 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
         // 2.0 Prepare comment-HTML-wrappers for each row, if defined/enabled.
         $comments = PMA_getCommentForRow($comments_map, $fields_meta[$i]);
 
-        // 2.1 Results can be sorted
         if ($is_display['sort_lnk'] == '1') {
+            // 2.1 Results can be sorted
 
             // 2.1.1 Checks if the table name is required; it's the case
             //       for a query with a "JOIN" statement and if the column
@@ -974,8 +974,10 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
                 $sort_order, $i
             );
 
-            if (preg_match('@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|'
-                . 'LOCK IN SHARE MODE))@is', $unsorted_sql_query, $regs3
+            if (preg_match(
+                '@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|'
+                . 'LOCK IN SHARE MODE))@is',
+                $unsorted_sql_query, $regs3
             )) {
                 $sorted_sql_query = $regs3[1] . $sort_order . $regs3[2];
             } else {
@@ -1008,10 +1010,8 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
                 . ($condition_field ? ' condition' : '')
                 . '" data-column="' . htmlspecialchars($fields_meta[$i]->name)
                 . '">' . "\n" . $order_link . $comments . '    </th>' . "\n";
-        } // end if (2.1)
-
-        // 2.2 Results can't be sorted
-        else {
+        } else {
+            // 2.2 Results can't be sorted
 
             if ($directionCondition) {
                 $table_headers_html .= PMA_getDraggableClassForNonSortableColumns(
@@ -1052,15 +1052,13 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
                 . '        ' . "\n"
                 . '    </th>' . "\n";
         } // end vertical mode
-    }
-
-    //     ... elseif no button, displays empty columns if required
-    // (unless coming from Browse mode print view)
-    elseif ((($GLOBALS['cfg']['RowActionLinks'] == 'left')
+    } elseif ((($GLOBALS['cfg']['RowActionLinks'] == 'left')
         || ($GLOBALS['cfg']['RowActionLinks'] == 'both'))
         && (($is_display['edit_lnk'] == 'nn') && ($is_display['del_lnk'] == 'nn'))
         && (! isset($GLOBALS['is_header_sent']) || ! $GLOBALS['is_header_sent'])
     ) {
+        //     ... elseif no button, displays empty columns if required
+        // (unless coming from Browse mode print view)
 
         $vertical_display['emptyafter'] = (($is_display['edit_lnk'] != 'nn')
             && ($is_display['del_lnk'] != 'nn')) ? 4 : 1;
