@@ -34,7 +34,11 @@ class PMA_Header {
     {
         $this->_bodyId = '';
         $this->_title = 'phpMyAdmin';
-        $this->_menu = PMA_Menu::getInstance();
+        $this->_menu = new PMA_Menu(
+            $GLOBALS['server'],
+            $GLOBALS['db'],
+            $GLOBALS['table']
+        );
         $this->_menuEnabled = true;
         $this->_scripts = new PMA_Scripts();
         $this->headerIsSent = false;

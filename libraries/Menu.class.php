@@ -37,17 +37,9 @@ class PMA_Menu
      * @var string
      */
     private $_table;
-    /**
-     * PMA_Menu instance
-     *
-     * @access private
-     * @static
-     * @var object
-     */
-    private static $_instance;
 
     /**
-     * Private constructor disables direct object creation
+     * Creates a new instance of PMA_Menu
      *
      * @param int    $server Server id
      * @param string $db     Database name
@@ -55,28 +47,11 @@ class PMA_Menu
      *
      * @return New PMA_Table
      */
-    private function __construct($server, $db, $table)
+    public function __construct($server, $db, $table)
     {
         $this->_server = $server;
         $this->_db = $db;
         $this->_table = $table;
-    }
-
-    /**
-     * Prints the menu and the breadcrumbs
-     *
-     * @return void
-     */
-    public static function getInstance()
-    {
-        if (empty(self::$_instance)) {
-            self::$_instance = new PMA_Menu(
-                $GLOBALS['server'],
-                $GLOBALS['db'],
-                $GLOBALS['table']
-            );
-        }
-        return self::$_instance;
     }
 
     /**
