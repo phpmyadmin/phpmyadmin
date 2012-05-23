@@ -2064,18 +2064,18 @@ function PMA_getTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
                     && !empty($GLOBALS['mime_map'][$meta->name]['transformation'])
                 ) {
 
-                    $include_file = PMA_securePath(
+                    $include_file = './libraries/transformations/' . PMA_securePath(
                         $GLOBALS['mime_map'][$meta->name]['transformation']
                     );
 
-                    if (file_exists('./libraries/transformations/' . $include_file)) {
+                    if (file_exists($include_file)) {
 
                         $transformfunction_name = str_replace(
                             '.inc.php', '',
                             $GLOBALS['mime_map'][$meta->name]['transformation']
                         );
 
-                        include_once './libraries/transformations/' . $include_file;
+                        include_once $include_file;
 
                         if (function_exists('PMA_transformation_' . $transformfunction_name)) {
 
