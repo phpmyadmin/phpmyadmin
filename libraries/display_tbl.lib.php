@@ -4120,6 +4120,10 @@ function PMA_getMultiRowOperationLinks(
 
 /**
  * replace some html-unfriendly stuff
+ *
+ * @param string $buffer String to process
+ *
+ * @return Escaped and cleaned up text suitable for html.
  */
 function PMA_mimeDefaultFunction($buffer)
 {
