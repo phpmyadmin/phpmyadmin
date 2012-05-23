@@ -1106,4 +1106,9 @@ if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {
     include $__redirect;
     exit();
 }
+
+/**
+ * Used to generate the header of the page
+ */
+include_once 'libraries/Header.class.php';
 ?>

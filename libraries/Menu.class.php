@@ -86,12 +86,29 @@ class PMA_Menu
      */
     public function display()
     {
-        echo $this->_getBreadcrumbs();
-        echo $this->_getMenu();
+        echo $this->getDisplay();
+    }
+
+    /**
+     * Returns the menu and the breadcrumbs as a string
+     *
+     * @return string
+     */
+    public function getDisplay()
+    {
+        $retval  = $this->_getBreadcrumbs();
+        $retval .= $this->_getMenu();
         if (! empty($GLOBALS['message'])) {
-            echo PMA_getMessage($GLOBALS['message']);
+            if (isset($GLOBALS['buffer_message'])) {
+                $buffer_message = $GLOBALS['buffer_message'];
+            }
+            $retval .= PMA_getMessage($GLOBALS['message']);
             unset($GLOBALS['message']);
+            if (isset($buffer_message)) {
+                $GLOBALS['buffer_message'] = $buffer_message;
+            }
         }
+        return $retval;
     }
 
     /**
