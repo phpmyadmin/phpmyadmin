@@ -107,7 +107,7 @@ if ($GLOBALS['cfg']['ShowPropertyComments']) {
  */
 
 /**
- * used in ./libraries/header.inc.php to load JavaScript library file
+ * Load JavaScript files
  */
 $scripts = PMA_Header::getInstance()->getScripts();
 $scripts->addFile('functions.js');

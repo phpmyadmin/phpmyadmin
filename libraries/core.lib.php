@@ -774,8 +774,8 @@ function PMA_includeJS($url, $ie_conditional = false)
 }
 
 /**
- * Adds JS code snippets to be displayed by header.inc.php. Adds a
- * newline to each snippet.
+ * Adds JS code snippets to be displayed by the PMA_Header class.
+ * Adds a newline to each snippet.
  *
  * @param string $str Js code to be added (e.g. "token=1234;")
  *
@@ -787,7 +787,8 @@ function PMA_addJSCode($str)
 }
 
 /**
- * Adds JS code snippet for variable assignment to be displayed by header.inc.php.
+ * Adds JS code snippet for variable assignment
+ * to be displayed by the PMA_Header class.
  *
  * @param string $key    Name of value to set
  * @param mixed  $value  Value to set, can be either string or array of strings
