@@ -793,10 +793,10 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
             // end horizontal/horizontalflipped mode
         } else {
 
-            $table_headers_html .= '<tr>'
-                . '<th colspan="' . $num_rows + floor($num_rows
-                / $_SESSION['tmp_user_values']['repeat_cells']) + 1 . '"></th>'
-                . '</tr>';
+            $span = $num_rows + 1 + floor(
+                $num_rows / $_SESSION['tmp_user_values']['repeat_cells']
+            );
+            $table_headers_html .= '<tr><th colspan="' . $span . '"></th></tr>';
 
         } // end vertical mode
 
