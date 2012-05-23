@@ -76,7 +76,7 @@ if (! empty($sql_query)) {
         // Just crop LIMIT clause
         $sql_query = $analyzed_sql[0]['section_before_limit'] . $analyzed_sql[0]['section_after_limit'];
     }
-    PMA_showMessage(PMA_Message::success());
+    echo PMA_getMessage(PMA_Message::success());
 }
 
 $export_type = 'table';

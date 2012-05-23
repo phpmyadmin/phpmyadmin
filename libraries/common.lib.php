@@ -972,7 +972,7 @@ function PMA_reloadNavigation($jsonly = false)
 }
 
 /**
- * displays the message and the query
+ * Prepare the message and the query
  * usually the message is the result of the query executed
  *
  * @param string  $message   the message to display
@@ -984,7 +984,7 @@ function PMA_reloadNavigation($jsonly = false)
  *
  * @access  public
  */
-function PMA_showMessage(
+function PMA_getMessage(
     $message,
     $sql_query = null,
     $type = 'notice',
@@ -1331,17 +1331,9 @@ function PMA_showMessage(
         $retval .= '<br class="clearfloat" />';
     }
 
-    // If we are in an Ajax request, we have most probably been called in
-    // PMA_ajaxResponse().  Hence, collect the buffer contents and return it
-    // to PMA_ajaxResponse(), which will encode it for JSON.
-    if ($GLOBALS['is_ajax_request'] == true
-        && ! isset($GLOBALS['buffer_message'])
-    ) {
-        return $retval;
-    } else {
-        echo $retval;
-    }
-} // end of the 'PMA_showMessage()' function
+    return $retval;
+    
+} // end of the 'PMA_getMessage()' function
 
 /**
  * Verifies if current MySQL server supports profiling
@@ -1382,12 +1374,14 @@ function PMA_getProfilingForm($sql_query)
 {
     $retval = '';
     if (PMA_profilingSupported()) {
+
         $retval .= '<form action="sql.php" method="post">' . "\n";
         $retval .= PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']);
         $retval .= '<input type="hidden" name="sql_query" value="' . htmlspecialchars($sql_query) . '" />' . "\n";
         $retval .= '<input type="hidden" name="profiling_form" value="1" />' . "\n";
         $retval .= PMA_getCheckbox('profiling', __('Profiling'), isset($_SESSION['profiling']), true);
         $retval .= ' </form>' . "\n";
+
     }
     return $retval;
 }
@@ -2262,33 +2256,32 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row,
  * @param string $image        image to display
  * @param string $value        value
  *
- * @return void
+ * @return string              html content
  *
  * @access  public
  */
-function PMA_buttonOrImage($button_name, $button_class, $image_name, $text,
+function PMA_getButtonOrImage($button_name, $button_class, $image_name, $text,
     $image, $value = ''
 ) {
     if ($value == '') {
         $value = $text;
     }
     if (false === $GLOBALS['cfg']['PropertiesIconic']) {
-        echo ' <input type="submit" name="' . $button_name . '"'
-                .' value="' . htmlspecialchars($value) . '"'
-                .' title="' . htmlspecialchars($text) . '" />' . "\n";
-        return;
+        return ' <input type="submit" name="' . $button_name . '"'
+            .' value="' . htmlspecialchars($value) . '"'
+            .' title="' . htmlspecialchars($text) . '" />' . "\n";
     }
 
     /* Opera has trouble with <input type="image"> */
     /* IE has trouble with <button> */
     if (PMA_USR_BROWSER_AGENT != 'IE') {
-        echo '<button class="' . $button_class . '" type="submit"'
+        return '<button class="' . $button_class . '" type="submit"'
             .' name="' . $button_name . '" value="' . htmlspecialchars($value) . '"'
             .' title="' . htmlspecialchars($text) . '">' . "\n"
             . PMA_getIcon($image, $text)
             .'</button>' . "\n";
     } else {
-        echo '<input type="image" name="' . $image_name
+        return '<input type="image" name="' . $image_name
             . '" value="' . htmlspecialchars($value)
             . '" title="' . htmlspecialchars($text)
             . '" src="' . $GLOBALS['pmaThemeImage']. $image . '" />'
@@ -2599,14 +2592,14 @@ function PMA_externalBug($functionality, $component, $minimum_version, $bugref)
 }
 
 /**
- * Returns an HTML checkbox
+ * Returns a HTML checkbox
  *
  * @param string  $html_field_name the checkbox HTML field
  * @param string  $label           label for checkbox
  * @param boolean $checked         is it initially checked?
  * @param boolean $onclick         should it submit the form on click?
  *
- * @return string HTML for the checkbox
+ * @return string                  HTML for the checkbox
  */
 function PMA_getCheckbox($html_field_name, $label, $checked, $onclick)
 {
@@ -2615,10 +2608,11 @@ function PMA_getCheckbox($html_field_name, $label, $checked, $onclick)
         . $html_field_name . '"' . ($checked ? ' checked="checked"' : '')
         . ($onclick ? ' class="autosubmit"' : '') . ' /><label for="'
         . $html_field_name . '">' . $label . '</label>';
+
 }
 
 /**
- * Generates and echoes a set of radio HTML fields
+ * Generates a set of radio HTML fields
  *
  * @param string  $html_field_name the radio HTML field
  * @param array   $choices         the choices values and labels
@@ -2627,33 +2621,39 @@ function PMA_getCheckbox($html_field_name, $label, $checked, $onclick)
  * @param boolean $escape_label    whether to use htmlspecialchars() on label
  * @param string  $class           enclose each choice with a div of this class
  *
- * @return void
+ * @return string                  set of html radio fiels
  */
-function PMA_displayHtmlRadio($html_field_name, $choices, $checked_choice = '',
+function PMA_getRadioFields($html_field_name, $choices, $checked_choice = '',
     $line_break = true, $escape_label = true, $class=''
 ) {
+    
+    $radio_html = '';
+    
     foreach ($choices as $choice_value => $choice_label) {
         if (! empty($class)) {
-            echo '<div class="' . $class . '">';
+            $radio_html .= '<div class="' . $class . '">';
         }
         $html_field_id = $html_field_name . '_' . $choice_value;
-        echo '<input type="radio" name="' . $html_field_name . '" id="'
-            . $html_field_id . '" value="' . htmlspecialchars($choice_value) . '"';
+        $radio_html .= '<input type="radio" name="' . $html_field_name . '" id="'
+                    . $html_field_id . '" value="' . htmlspecialchars($choice_value) . '"';
         if ($choice_value == $checked_choice) {
-            echo ' checked="checked"';
+            $radio_html .= ' checked="checked"';
         }
-        echo ' />' . "\n";
-        echo '<label for="' . $html_field_id . '">'
-            . ($escape_label ? htmlspecialchars($choice_label)  : $choice_label)
-            . '</label>';
+        $radio_html .= ' />' . "\n"
+                    . '<label for="' . $html_field_id . '">'
+                    . ($escape_label ? htmlspecialchars($choice_label)  : $choice_label)
+                    . '</label>';
         if ($line_break) {
-            echo '<br />';
+            $radio_html .= '<br />';
         }
         if (! empty($class)) {
-            echo '</div>';
+            $radio_html .= '</div>';
         }
-        echo "\n";
+        $radio_html .= "\n";
     }
+    
+    return $radio_html;
+    
 }
 
 /**
@@ -2666,11 +2666,11 @@ function PMA_displayHtmlRadio($html_field_name, $choices, $checked_choice = '',
  *                              case the dropdown is present more than once
  *                              on the page
  *
- * @return string
+ * @return string               html content
  *
  * @todo    support titles
  */
-function PMA_generateHtmlDropdown($select_name, $choices, $active_choice, $id)
+function PMA_getDropdown($select_name, $choices, $active_choice, $id)
 {
     $result = '<select name="' . htmlspecialchars($select_name) . '" id="'
         . htmlspecialchars($id) . '">';
@@ -2693,14 +2693,14 @@ function PMA_generateHtmlDropdown($select_name, $choices, $active_choice, $id)
  *
  * @param string $id      the id of the <div> on which to apply the effect
  * @param string $message the message to show as a link
- *
- * @return void
+ * 
+ * @return string         html div element
+ * 
  */
-function PMA_generateSliderEffect($id, $message)
+function PMA_getDivForSliderEffect($id, $message)
 {
     if ($GLOBALS['cfg']['InitialSlidersState'] == 'disabled') {
-        echo '<div id="' . $id . '">';
-        return;
+        return '<div id="' . $id . '">';
     }
     /**
      * Bad hack on the next line. document.write() conflicts with jQuery,
@@ -2710,11 +2710,13 @@ function PMA_generateSliderEffect($id, $message)
      * method maybe by using an additional param, the id of the div to
      * append to
      */
-    echo '<div id="' . $id . '"';
-    echo $GLOBALS['cfg']['InitialSlidersState'] == 'closed'
-        ? ' style="display: none; overflow:auto;"'
-        : '';
-    echo ' class="pma_auto_slider" title="' . htmlspecialchars($message) . '">';
+    
+    return '<div id="' . $id . '"'
+        . (($GLOBALS['cfg']['InitialSlidersState'] == 'closed')
+            ? ' style="display: none; overflow:auto;"'
+            : '')
+        . ' class="pma_auto_slider" title="' . htmlspecialchars($message) . '">';
+
 }
 
 /**

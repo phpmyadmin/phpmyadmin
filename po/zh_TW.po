@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-17 10:53+0200\n"
-"PO-Revision-Date: 2012-05-17 15:06+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-05-23 10:16+0200\n"
+"Last-Translator: MoA Chung <honomoa@gmail.com>\n"
 "Language-Team: chinese_traditional <zh_TW@li.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
@@ -1294,7 +1294,7 @@ msgstr "快取Swap"
 
 #: js/messages.php:112
 msgid "Used Swap"
-msgstr ""
+msgstr "已用Swap"
 
 #: js/messages.php:113
 #, fuzzy
@@ -1310,7 +1310,7 @@ msgstr "Bytes 送出"
 #, fuzzy
 #| msgid "Received"
 msgid "Bytes received"
-msgstr "已接收"
+msgstr "Bytes 已接收"
 
 #: js/messages.php:117 server_status.php:1155
 msgid "Connections"
@@ -1525,10 +1525,9 @@ msgid "Analysing & loading logs. This may take a while."
 msgstr ""
 
 #: js/messages.php:174
-#, fuzzy
 #| msgid "Read requests"
 msgid "Cancel request"
-msgstr "讀請求"
+msgstr "取消請求"
 
 #: js/messages.php:175
 msgid ""
@@ -2309,7 +2308,6 @@ msgstr "星期六"
 
 #. l10n: Short week day name
 #: js/messages.php:472
-#, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
 msgid "Sun"

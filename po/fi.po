@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-17 10:53+0200\n"
-"PO-Revision-Date: 2012-05-20 23:58+0200\n"
+"PO-Revision-Date: 2012-05-21 20:39+0200\n"
 "Last-Translator: Jukka Penttinen <tikkakalja@hotmail.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -75,7 +75,7 @@ msgstr "Etsi"
 #: tbl_tracking.php:489 tbl_tracking.php:631 tbl_zoom_select.php:305
 #: view_create.php:177 view_operations.php:94
 msgid "Go"
-msgstr "Siirry"
+msgstr "Suorita"
 
 #: browse_foreigners.php:199 browse_foreigners.php:203
 #: libraries/Index.class.php:457 tbl_tracking.php:365
@@ -3674,7 +3674,7 @@ msgstr "Anna käyttäjien mukauttaa tätä arvoa"
 #: libraries/schema/User_Schema.class.php:510 prefs_manage.php:326
 #: prefs_manage.php:331 tbl_change.php:1110
 msgid "Reset"
-msgstr "Nollaa"
+msgstr "Palauta"
 
 #: libraries/config/messages.inc.php:17
 msgid "Improves efficiency of screen refresh"
@@ -11343,10 +11343,9 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1625
-#, fuzzy
 #| msgid "Restore default value"
 msgid "Reset to default"
-msgstr "Palauta oletusarvo"
+msgstr "Palauta oletusarvoon"
 
 #: server_status.php:1629
 #, fuzzy
