@@ -1232,7 +1232,8 @@ function PMA_getOptionsBlock($db, $table, $sql_query, $goto)
 
     $options_html = '';
 
-    $options_html .= '<form method="post" action="sql.php" name="displayOptionsForm" '
+    $options_html .= '<form method="post" action="sql.php" '
+        . 'name="displayOptionsForm" '
         . 'id="displayOptionsForm"';
 
     if ($GLOBALS['cfg']['AjaxEnable']) {
