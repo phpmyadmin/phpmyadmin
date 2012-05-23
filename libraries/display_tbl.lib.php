@@ -3067,7 +3067,7 @@ function PMA_getVerticalTable()
         || !empty($vertical_display['textbtn']))
     ) {
         $vertical_table_html .= PMA_getOperationLinksForVerticleTable(
-            $vertical_display ,'edit'
+            $vertical_display, 'edit'
         );
     } // end if
 
@@ -3079,7 +3079,7 @@ function PMA_getVerticalTable()
         || !empty($vertical_display['textbtn']))
     ) {
         $vertical_table_html .= PMA_getOperationLinksForVerticleTable(
-            $vertical_display ,'copy'
+            $vertical_display, 'copy'
         );
     } // end if
 
@@ -3230,7 +3230,8 @@ function PMA_getOperationLinksForVerticleTable($vertical_display, $operation)
  *
  * @see     PMA_getVerticalTable()
  */
-function PMA_getCheckBoxesForMultipleRowOperations($vertical_display, $dir) {
+function PMA_getCheckBoxesForMultipleRowOperations($vertical_display, $dir)
+{
 
     $checkBoxes_html = '';
     $cell_displayed = 0;
