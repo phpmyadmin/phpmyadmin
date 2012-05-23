@@ -24,24 +24,20 @@ $GLOBALS['js_include'][] = 'tbl_change.js';
 $GLOBALS['js_include'][] = 'jquery/timepicker.js';
 $GLOBALS['js_include'][] = 'gis_data_editor.js';
 
-$geom_types = PMA_getGISDatatypes();
-
 $post_params = array(
     'ajax_request',
-    'collations',
+    'criteriaColumnCollations',
     'db',
-    'distinct',
     'fields',
-    'func',
-    'max_number_of_fields',
-    'names',
+    'criteriaColumnOperators',
+    'criteriaColumnNames',
     'order',
-    'orderField',
-    'param',
+    'orderByColumn',
+    'columnsToDisplay',
     'session_max_rows',
     'table',
-    'types',
-    'where',
+    'criteriaColumnTypes',
+    'customWhereClause',
 );
 foreach ($post_params as $one_post_param) {
     if (isset($_POST[$one_post_param])) {
@@ -53,7 +49,7 @@ foreach ($post_params as $one_post_param) {
 /**
  * Not selection yet required -> displays the selection form
  */
-if (! isset($param) || $param[0] == '') {
+if (! isset($columnsToDisplay) || $columnsToDisplay[0] == '') {
     // Gets some core libraries
     include_once 'libraries/tbl_common.inc.php';
     //$err_url   = 'tbl_select.php' . $err_url;
@@ -71,30 +67,32 @@ if (! isset($param) || $param[0] == '') {
     $err_url   = $goto . '?' . PMA_generate_common_url($db, $table);
 
     // Gets the list and number of fields
-    list($fields_list, $fields_type, $fields_collation, $fields_null, $geom_column_present)
+    list($columnNames, $columnTypes, $columnCollations, $columnNullFlags, $geomColumnFlag)
         = PMA_tbl_getFields($db, $table);
-    $fields_cnt = count($fields_list);
+    $columnCount = count($columnNames);
 
     // retrieve keys into foreign fields, if any
     // check also foreigners even if relwork is FALSE (to get
     // foreign keys from innodb)
     $foreigners = PMA_getForeigners($db, $table);
 
-    // Display the table search form
-    PMA_tblSearchDisplaySelectionForm(
-        $goto, $fields_list, $fields_type, $fields_collation, $fields_null,
-        $geom_column_present, $geom_types, $fields_cnt, $foreigners, $db, $table
+    // Displays the table search form
+    $table_search_form = PMA_tblSearchGetSelectionForm(
+        $goto, $columnNames, $columnTypes, $columnCollations, $columnNullFlags,
+        $geomColumnFlag, $columnCount, $foreigners, $db, $table
     );
+    echo $table_search_form;
 
     include 'libraries/footer.inc.php';
 } else {
     /**
      * Selection criteria have been submitted -> do the work
      */
-    $is_distinct = (isset($distinct)) ? 'true' : 'false';
+    $is_distinct = (isset($_POST['distinct'])) ? 'true' : 'false';
     $sql_query = PMA_tblSearchBuildSqlQuery(
-        $table, $fields, $names, $types, $param, $max_number_of_fields, $is_distinct,
-        $where, $collations, $func, $orderField, $order
+        $table, $fields, $criteriaColumnNames, $criteriaColumnTypes,
+        $columnsToDisplay, $is_distinct, $customWhereClause,
+        $criteriaColumnCollations, $criteriaColumnOperators, $orderByColumn, $order
     );
     unset($is_distinct);
     include 'sql.php';
@@ -103,88 +101,94 @@ if (! isset($param) || $param[0] == '') {
 /**
  * Builds the sql search query from the post parameters
  *
- * @param string  $table                Selected table
- * @param array   $fields               Entered values of the columns
- * @param array   $names                Names of all columns
- * @param array   $types                Types of all columns
- * @param array   $param                Columns to be displayed in search results
- * @param integer $max_number_of_fields Total number of columns in the table
- * @param bool    $is_distinct          If only distinct values are needed
- * @param string  $where                The custom where clause
- * @param array   $collations           Collations of all columns
- * @param array   $func                 Operators for given column type
- * @param string  $orderField           Column by which results are to be ordered
- * @param string  $order                Whether ASC or DESC
+ * @param string  $table                    Selected table
+ * @param array   $fields                   Entered values of the columns
+ * @param array   $criteriaColumnNames      Names of all columns
+ * @param array   $criteriaColumnTypes      Types of all columns
+ * @param array   $columnsToDisplay         Columns to be displayed in search results
+ * @param bool    $is_distinct              If only distinct values are needed
+ * @param string  $customWhereClause        The custom where clause
+ * @param array   $criteriaColumnCollations Collations of all columns
+ * @param array   $criteriaColumnOperators  Operators for given column type
+ * @param string  $orderByColumn            Column by which results are to be ordered
+ * @param string  $order                    Whether ASC or DESC
  *
  * @return string the generated SQL query
  */
-function PMA_tblSearchBuildSqlQuery($table, $fields, $names, $types, $param,
-    $max_number_of_fields, $is_distinct, $where, $collations, $func, $orderField,
-    $order)
+function PMA_tblSearchBuildSqlQuery($table, $fields, $criteriaColumnNames,
+    $criteriaColumnTypes, $columnsToDisplay, $is_distinct, $customWhereClause,
+    $criteriaColumnCollations, $criteriaColumnOperators, $orderByColumn, $order)
 {
     $sql_query = 'SELECT ';
-    if($is_distinct == 'true') {
+    if ($is_distinct == 'true') {
         $sql_query .= 'DISTINCT ';
     }
 
-    // if all fields were selected to display, we do a SELECT *
+    // if all column names were selected to display, we do a 'SELECT *'
     // (more efficient and this helps prevent a problem in IE
     // if one of the rows is edited and we come back to the Select results)
-    if (count($param) == $max_number_of_fields) {
+    if (count($columnsToDisplay) == count($criteriaColumnNames)) {
         $sql_query .= '* ';
     } else {
-        $param = PMA_backquote($param);
-        $sql_query .= implode(', ', $param);
+        $columnsToDisplay = PMA_backquote($columnsToDisplay);
+        $sql_query .= implode(', ', $columnsToDisplay);
     } // end if
 
     // avoid a loop, for example when $cfg['DefaultTabTable'] is set
     // to 'tbl_select.php'
-    unset($param);
+    unset($columnsToDisplay);
 
     $sql_query .= ' FROM ' . PMA_backquote($table);
     $whereClause = PMA_tblSearchGenerateWhereClause(
-        $fields, $names, $types, $where, $collations, $func
+        $fields, $criteriaColumnNames, $criteriaColumnTypes, $customWhereClause,
+        $criteriaColumnCollations, $criteriaColumnOperators
     );
     $sql_query .= $whereClause;
  
     // if the search results are to be ordered
-    if ($orderField != '--nil--') {
-        $sql_query .= ' ORDER BY ' . PMA_backquote($orderField) . ' ' . $order;
+    if ($orderByColumn != '--nil--') {
+        $sql_query .= ' ORDER BY ' . PMA_backquote($orderByColumn) . ' ' . $order;
     } // end if
     return $sql_query;
 }
 
 /**
- * Generates the where clause for the sql search query to be executed
+ * Generates the where clause for the SQL search query to be executed
  *
- * @param array  $fields     Entered values of the columns
- * @param array  $names      Names of all columns
- * @param array  $types      Types of all columns
- * @param string $where      The custom where clause
- * @param array  $collations Collations of all columns
- * @param array  $func       Operators for given column type
+ * @param array  $fields                   Entered values of the columns
+ * @param array  $criteriaColumnNames      Names of all columns
+ * @param array  $criteriaColumnTypes      Types of all columns
+ * @param string $customWhereClause        The custom where clause
+ * @param array  $criteriaColumnCollations Collations of all columns
+ * @param array  $criteriaColumnOperators  Operators for given column type
  *
  * @return string the generated where clause
  */
-function PMA_tblSearchGenerateWhereClause($fields, $names, $types, $where,
-    $collations, $func)
+function PMA_tblSearchGenerateWhereClause($fields, $criteriaColumnNames,
+    $criteriaColumnTypes, $customWhereClause, $criteriaColumnCollations,
+    $criteriaColumnOperators)
 {
-    // If the custom where clause is set
-    if (trim($where) != '') {
-        $fullWhereClause .= ' WHERE ' . $where;
+    $fullWhereClause = '';
+
+    if (trim($customWhereClause) != '') {
+        $fullWhereClause .= ' WHERE ' . $customWhereClause;
         return $fullWhereClause;
     }
-
+    // If there are no search criterias set, return
+    if (!array_filter($fields)) {
+        return $fullWhereClause;
+    }
+    // else continue to form the where clause from column criteria values
     $fullWhereClause = $charsets = array();
-    reset($func);
-    while (list($i, $func_type) = each($func)) {
-        list($charsets[$i]) = explode('_', $collations[$i]);
-        $unaryFlag =  $GLOBALS['PMA_Types']->isUnaryOperator($func_type);
+    reset($criteriaColumnOperators);
+    while (list($i, $operator) = each($criteriaColumnOperators)) {
+        list($charsets[$i]) = explode('_', $criteriaColumnCollations[$i]);
+        $unaryFlag =  $GLOBALS['PMA_Types']->isUnaryOperator($operator);
         $tmp_geom_func = isset($geom_func[$i]) ? $geom_func[$i] : null;
 
         $whereClause = PMA_tbl_search_getWhereClause(
-            $fields[$i], $names[$i], $types[$i], $collations[$i],
-            $func_type, $unaryFlag, $tmp_geom_func
+            $fields[$i], $criteriaColumnNames[$i], $criteriaColumnTypes[$i],
+            $criteriaColumnCollations[$i], $operator, $unaryFlag, $tmp_geom_func
         );
 
         if ($whereClause) {
@@ -202,20 +206,19 @@ function PMA_tblSearchGenerateWhereClause($fields, $names, $types, $where,
  * Generates HTML for a geometrical function column to be displayed in table
  * search selection form
  *
- * @param boolean $geom_column_present whether a geometry column is present
- * @param array   $fields_type         array containing types of all columns
- *                                     in the table
- * @param array   $geom_types          array of GIS data types
- * @param integer $column_index        index of current column in $fields_type array
+ * @param boolean $geomColumnFlag whether a geometry column is present
+ * @param array   $columnTypes    array containing types of all columns in the table
+ * @param array   $geom_types     array of GIS data types
+ * @param integer $column_index   index of current column in $columnTypes array
  *
  * @return string the generated HTML
  */
-function PMA_tblSearchGetGeomFuncHtml($geom_column_present, $fields_type,
+function PMA_tblSearchGetGeomFuncHtml($geomColumnFlag, $columnTypes,
 $geom_types, $column_index)
 {
     $html_output = '';
     // return if geometrical column is not present
-    if (!$geom_column_present) {
+    if (!$geomColumnFlag) {
         return $html_output;
     }
 
@@ -224,10 +227,11 @@ $geom_types, $column_index)
      */    
     $html_output .= '<td>';
     // if a geometry column is present
-    if (in_array($fields_type[$column_index], $geom_types)) {
-        $html_output .= '<select class="geom_func" name="geom_func[' . $column_index . ']">';
+    if (in_array($columnTypes[$column_index], $geom_types)) {
+        $html_output .= '<select class="geom_func" name="geom_func['
+            . $column_index . ']">';
         // get the relevant list of GIS functions
-        $funcs = PMA_getGISFunctions($fields_type[$column_index], true, true);
+        $funcs = PMA_getGISFunctions($columnTypes[$column_index], true, true);
         /**
          * For each function in the list of functions, add an option to select list
          */
@@ -247,13 +251,12 @@ $geom_types, $column_index)
 /**
  * Generates formatted HTML for extra search options (slider) in table search form
  *
- * @param array   $fields_list array containing types of all columns
- *                             in the table
- * @param integer $fields_cnt  number of fields in the table
+ * @param array   $columnNames Array containing types of all columns in the table
+ * @param integer $columnCount Number of columns in the table
  *
  * @return string the generated HTML
  */
-function PMA_tblSearchGetSliderOptions($fields_list, $fields_cnt)
+function PMA_tblSearchGetSliderOptions($columnNames, $columnCount)
 {    
     $html_output = '';
     $html_output .= PMA_getDivForSliderEffect('searchoptions', __('Options'));
@@ -262,10 +265,10 @@ function PMA_tblSearchGetSliderOptions($fields_list, $fields_cnt)
      */
     $html_output .= '<fieldset id="fieldset_select_fields">'
         . '<legend>' . __('Select columns (at least one):') . '</legend>'
-        . '<select name="param[]" size="' . min($fields_cnt, 10)
+        . '<select name="columnsToDisplay[]" size="' . min($columnCount, 10)
         . '" multiple="multiple">';
     // Displays the list of the fields
-    foreach ($fields_list as $each_field) {
+    foreach ($columnNames as $each_field) {
         $html_output .= '        '
             . '<option value="' . htmlspecialchars($each_field) . '"'
             . ' selected="selected">' . htmlspecialchars($each_field)
@@ -282,7 +285,7 @@ function PMA_tblSearchGetSliderOptions($fields_list, $fields_cnt)
         . '<legend>' . '<em>' . __('Or') . '</em> '
         . __('Add search conditions (body of the "where" clause):') . '</legend>';
     $html_output .= PMA_showMySQLDocu('SQL-Syntax', 'Functions');
-    $html_output .= '<input type="text" name="where" class="textfield" size="64" />'
+    $html_output .= '<input type="text" name="customWhereClause" class="textfield" size="64" />'
         . '</fieldset>';
 
     /**
@@ -299,8 +302,8 @@ function PMA_tblSearchGetSliderOptions($fields_list, $fields_cnt)
      */
     $html_output .= '<fieldset id="fieldset_display_order">'
         . '<legend>' . __('Display order:') . '</legend>'
-        . '<select name="orderField"><option value="--nil--"></option>';
-    foreach ($fields_list as $each_field) {
+        . '<select name="orderByColumn"><option value="--nil--"></option>';
+    foreach ($columnNames as $each_field) {
         $html_output .= '        '
             . '<option value="' . htmlspecialchars($each_field) . '">'
             . htmlspecialchars($each_field) . '</option>' . "\n";
@@ -320,31 +323,31 @@ function PMA_tblSearchGetSliderOptions($fields_list, $fields_cnt)
 /**
  * Generates HTML for displaying fields table in search form
  *
- * @param array   $fields_list         Names of columns in the table
- * @param array   $fields_type         Types of columns in the table
- * @param array   $fields_collation    Collation of all columns
- * @param array   $fields_null         Null information of columns
- * @param boolean $geom_column_present Whether a geometry column is present
- * @param array   $geom_types          array of GIS data types
- * @param integer $fields_cnt          Number of columns in the table
- * @param array   $foreigners          Array of foreign keys
- * @param string  $db                  Selected database
- * @param string  $table               Selected table
+ * @param array   $columnNames      Names of columns in the table
+ * @param array   $columnTypes      Types of columns in the table
+ * @param array   $columnCollations Collation of all columns
+ * @param array   $columnNullFlags  Null information of columns
+ * @param boolean $geomColumnFlag   Whether a geometry column is present
+ * @param integer $columnCount      Number of columns in the table
+ * @param array   $foreigners       Array of foreign keys
+ * @param string  $db               Selected database
+ * @param string  $table            Selected table
  *
  * @return string the generated HTML
  */
-function PMA_tblSearchGetFieldsTableHtml($fields_list, $fields_type,
-$fields_collation, $fields_null, $geom_column_present, $geom_types, $fields_cnt,
+function PMA_tblSearchGetFieldsTableHtml($columnNames, $columnTypes,
+$columnCollations, $columnNullFlags, $geomColumnFlag, $columnCount,
 $foreigners, $db, $table)
 {
     $html_output = '';
     $html_output .= '<table class="data">';
-    $html_output .= PMA_tbl_setTableHeader($geom_column_present) . '<tbody>';
+    $html_output .= PMA_tbl_setTableHeader($geomColumnFlag) . '<tbody>';
     $odd_row = true;
     $titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
+    $geom_types = PMA_getGISDatatypes();
 
     // for every column present in table
-    for ($i = 0; $i < $fields_cnt; $i++) {
+    for ($i = 0; $i < $columnCount; $i++) {
         $html_output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
         $odd_row = !$odd_row;
 
@@ -352,37 +355,37 @@ $foreigners, $db, $table)
          * If 'Function' column is present
          */
         $html_output .= PMA_tblSearchGetGeomFuncHtml(
-            $geom_column_present, $fields_type, $geom_types, $i
+            $geomColumnFlag, $columnTypes, $geom_types, $i
         );
         /**
          * Displays column's name, type, collation
          */
-        $html_output .= '<th>' . htmlspecialchars($fields_list[$i]) . '</th>';
-        $html_output .= '<td>' . htmlspecialchars($fields_type[$i]) . '</td>';
-        $html_output .= '<td>' . $fields_collation[$i] . '</td>';
+        $html_output .= '<th>' . htmlspecialchars($columnNames[$i]) . '</th>';
+        $html_output .= '<td>' . htmlspecialchars($columnTypes[$i]) . '</td>';
+        $html_output .= '<td>' . $columnCollations[$i] . '</td>';
         /**
          * Displays column's comparison operators depending on column type
          */
-        $html_output .= '<td><select name="func[]">';
+        $html_output .= '<td><select name="criteriaColumnOperators[]">';
         $html_output .= $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
-            $fields_type[$i], $fields_null[$i]
+            $columnTypes[$i], $columnNullFlags[$i]
         );
         $html_output .= '</select></td><td>';
         /**
          * Displays column's foreign relations if any
          */
-        $field = $fields_list[$i];
+        $field = $columnNames[$i];
         $foreignData = PMA_getForeignData($foreigners, $field, false, '', '');
         $html_output .= PMA_getForeignFields_Values(
-            $foreigners, $foreignData, $field, $fields_type, $i, $db, $table,
+            $foreigners, $foreignData, $field, $columnTypes, $i, $db, $table,
             $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], '', true
         );
 
-        $html_output .= '<input type="hidden" name="names[' . $i . ']" value="' 
-            . htmlspecialchars($fields_list[$i]) . '" /><input type="hidden" '
-            . 'name="types[' . $i . ']" value="' . $fields_type[$i] . '" />'
-            . '<input type="hidden" name="collations[' . $i . ']" value="'
-            . $fields_collation[$i] . '" /></td></tr>';
+        $html_output .= '<input type="hidden" name="criteriaColumnNames[' . $i . ']" value="' 
+            . htmlspecialchars($columnNames[$i]) . '" /><input type="hidden" '
+            . 'name="criteriaColumnTypes[' . $i . ']" value="' . $columnTypes[$i] . '" />'
+            . '<input type="hidden" name="criteriaColumnCollations[' . $i . ']" value="'
+            . $columnCollations[$i] . '" /></td></tr>';
     } // end for
 
     $html_output .= '</tbody></table>';
@@ -390,24 +393,23 @@ $foreigners, $db, $table)
 }
 
 /**
- * Displays the table search form under table search tab
+ * Generates the table search form under table search tab
  *
- * @param string  $goto                
- * @param array   $fields_list         Names of columns in the table
- * @param array   $fields_type         Types of columns in the table
- * @param array   $fields_collation    Collation of all columns
- * @param array   $fields_null         Null information of columns
- * @param boolean $geom_column_present Whether a geometry column is present
- * @param array   $geom_types          array of GIS data types
- * @param integer $fields_cnt          Number of columns in the table
- * @param array   $foreigners          Array of foreign keys
- * @param string  $db                  Selected database
- * @param string  $table               Selected table
+ * @param string  $goto             Goto URL   
+ * @param array   $columnNames      Names of columns in the table
+ * @param array   $columnTypes      Types of columns in the table
+ * @param array   $columnCollations Collation of all columns
+ * @param array   $columnNullFlags  Null information of columns
+ * @param boolean $geomColumnFlag   Whether a geometry column is present
+ * @param integer $columnCount      Number of columns in the table
+ * @param array   $foreigners       Array of foreign keys
+ * @param string  $db               Selected database
+ * @param string  $table            Selected table
  *
- * @return void
+ * @return string the generated HTML for table search form
  */
-function PMA_tblSearchDisplaySelectionForm($goto, $fields_list, $fields_type,
-$fields_collation, $fields_null, $geom_column_present, $geom_types, $fields_cnt,
+function PMA_tblSearchGetSelectionForm($goto, $columnNames, $columnTypes,
+$columnCollations, $columnNullFlags, $geomColumnFlag, $columnCount,
 $foreigners, $db, $table)
 {
     $html_output = '';
@@ -430,8 +432,8 @@ $foreigners, $db, $table)
      * Displays table fields
      */
     $html_output .= PMA_tblSearchGetFieldsTableHtml(
-        $fields_list, $fields_type, $fields_collation, $fields_null,
-        $geom_column_present, $geom_types, $fields_cnt, $foreigners, $db, $table    
+        $columnNames, $columnTypes, $columnCollations, $columnNullFlags,
+        $geomColumnFlag, $columnCount, $foreigners, $db, $table    
     );
 
     $html_output .= '<div id="gis_editor"></div><div id="popup_background"></div>'
@@ -440,15 +442,14 @@ $foreigners, $db, $table)
     /**
      * Displays slider options form
      */
-    $html_output .= PMA_tblSearchGetSliderOptions($fields_list, $fields_cnt);
+    $html_output .= PMA_tblSearchGetSliderOptions($columnNames, $columnCount);
 
     /**
      * Displays selection form's footer elements
      */
-    $html_output .= '<fieldset class="tblFooters"><input type="hidden" '
-        . 'name="max_number_of_fields" value="' . $fields_cnt . '" />'
+    $html_output .= '<fieldset class="tblFooters">'
         . '<input type="submit" name="submit" value="' . __('Go') . '" />'
         . '</fieldset></form><div id="sqlqueryresults"></div></fieldset>';
-    echo $html_output;
+    return $html_output;
 }
 ?>
