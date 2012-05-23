@@ -123,7 +123,7 @@ function PMA_tblSearchBuildSqlQuery($table, $fields, $names, $types, $param,
     $order)
 {
     $sql_query = 'SELECT ';
-    if($is_distinct) {
+    if($is_distinct == 'true') {
         $sql_query .= 'DISTINCT ';
     }
 
@@ -245,23 +245,22 @@ $geom_types, $column_index)
 }
 
 /**
- * Displays formatted HTML for extra search options (slider) in table search form
+ * Generates formatted HTML for extra search options (slider) in table search form
  *
  * @param array   $fields_list array containing types of all columns
  *                             in the table
  * @param integer $fields_cnt  number of fields in the table
  *
- * @return void
+ * @return string the generated HTML
  */
-function PMA_tblSearchDisplaySliderOptions($fields_list, $fields_cnt)
-{
-    PMA_generateSliderEffect('searchoptions', __('Options'));
+function PMA_tblSearchGetSliderOptions($fields_list, $fields_cnt)
+{    
     $html_output = '';
-
+    $html_output .= PMA_getDivForSliderEffect('searchoptions', __('Options'));
     /**
      * Displays columns select list for selecting distinct columns in the search
      */
-    $html_output = '<fieldset id="fieldset_select_fields">'
+    $html_output .= '<fieldset id="fieldset_select_fields">'
         . '<legend>' . __('Select columns (at least one):') . '</legend>'
         . '<select name="param[]" size="' . min($fields_cnt, 10)
         . '" multiple="multiple">';
@@ -311,9 +310,11 @@ function PMA_tblSearchDisplaySliderOptions($fields_list, $fields_cnt)
         'ASC' => __('Ascending'),
         'DESC' => __('Descending')
     );
-    echo $html_output;
-    PMA_displayHtmlRadio('order', $choices, 'ASC', false, true, "formelement");
-    unset($choices);    
+    $html_output .= PMA_getRadioFields('order', $choices, 'ASC', false, true, "formelement");
+    unset($choices);
+
+    $html_output .= '</fieldset><br style="clear: both;"/></div></fieldset>';
+    return $html_output;
 }
 
 /**
@@ -435,13 +436,11 @@ $foreigners, $db, $table)
 
     $html_output .= '<div id="gis_editor"></div><div id="popup_background"></div>'
         . '</fieldset>';
-    echo $html_output;
 
     /**
      * Displays slider options form
      */
-    PMA_tblSearchDisplaySliderOptions($fields_list, $fields_cnt);
-    $html_output = '</fieldset><br style="clear: both;"/></div></fieldset>';
+    $html_output .= PMA_tblSearchGetSliderOptions($fields_list, $fields_cnt);
 
     /**
      * Displays selection form's footer elements
