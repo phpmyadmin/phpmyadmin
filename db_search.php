@@ -13,10 +13,11 @@
  */
 require_once 'libraries/common.inc.php';
 
-$GLOBALS['js_include'][] = 'db_search.js';
-$GLOBALS['js_include'][] = 'sql.js';
-$GLOBALS['js_include'][] = 'makegrid.js';
-$GLOBALS['js_include'][] = 'jquery/timepicker.js';
+$scripts = PMA_Header::getInstance()->getScripts();
+$scripts->addFile('db_search.js');
+$scripts->addFile('sql.js');
+$scripts->addFile('makegrid.js');
+$scripts->addFile('jquery/timepicker.js');
 
 /**
  * Gets some core libraries and send headers

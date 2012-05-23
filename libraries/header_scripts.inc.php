@@ -32,7 +32,7 @@ if (! isset($page_title)) {
 // here, the function does not exist with this configuration:
 // $cfg['ServerDefault'] = 0;
 $is_superuser = function_exists('PMA_isSuperuser') && PMA_isSuperuser();
-
+$GLOBALS['js_include'][] = 'jquery/jquery-1.6.2.js';
 $GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'jquery/jquery.qtip-1.0.0-rc3.js';
 if ($GLOBALS['cfg']['CodemirrorEnable']) {

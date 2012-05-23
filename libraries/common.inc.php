@@ -149,6 +149,10 @@ if (!defined('PMA_MINIMUM_COMMON')) {
 /******************************************************************************/
 /* start procedural code                       label_start_procedural         */
 
+if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
+    PMA_fatalError(__("GLOBALS overwrite attempt"));
+}
+
 /**
  * protect against possible exploits - there is no need to have so much variables
  */
@@ -558,34 +562,6 @@ if (PMA_isValid($_REQUEST['sql_query'])) {
 //$_REQUEST['server']; // checked later in this file
 //$_REQUEST['lang'];   // checked by LABEL_loading_language_file
 
-
-/**
- * holds name of JavaScript files to be included in HTML header
- * @global array $js_include
- */
-$GLOBALS['js_include'] = array();
-$GLOBALS['js_include'][] = 'jquery/jquery-1.6.2.js';
-$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.16.custom.js';
-$GLOBALS['js_include'][] = 'jquery/jquery.sprintf.js';
-$GLOBALS['js_include'][] = 'update-location.js';
-
-/**
- * holds an array of javascript code snippets to be included in the HTML header
- * Can be used with PMA_addJSCode() to pass on js variables to the browser.
- * @global array $js_script
- */
-$GLOBALS['js_script'] = array();
-
-/**
- * Add common jQuery functions script here if necessary.
- */
-
-/**
- * JavaScript events that will be registered
- * @global array $js_events
- */
-$GLOBALS['js_events'] = array();
-
 /**
  * footnotes to be displayed ot the page bottom
  * @global array $footnotes
@@ -599,6 +575,15 @@ $GLOBALS['footnotes'] = array();
  * lang detection is done here
  */
 require './libraries/select_lang.lib.php';
+
+// Defines the cell alignment values depending on text direction
+if ($GLOBALS['text_dir'] == 'ltr') {
+    $GLOBALS['cell_align_left']  = 'left';
+    $GLOBALS['cell_align_right'] = 'right';
+} else {
+    $GLOBALS['cell_align_left']  = 'right';
+    $GLOBALS['cell_align_right'] = 'left';
+}
 
 /**
  * check for errors occurred while loading configuration

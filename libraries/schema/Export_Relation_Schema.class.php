@@ -226,7 +226,7 @@ class PMA_Export_Relation_Schema
     {
         global $db;
 
-        include_once './libraries/header.inc.php';
+        PMA_Header::getInstance()->display();
         echo "<p><strong>" . __("SCHEMA ERROR: ") .  $type . "</strong></p>" . "\n";
         if (!empty($error_message)) {
             $error_message = htmlspecialchars($error_message);

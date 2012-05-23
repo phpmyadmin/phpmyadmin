@@ -8,12 +8,13 @@
 
 require_once 'libraries/common.inc.php';
 
-$GLOBALS['js_include'][] = 'openlayers/OpenLayers.js';
-$GLOBALS['js_include'][] = 'jquery/jquery.svg.js';
-$GLOBALS['js_include'][] = 'jquery/jquery.mousewheel.js';
-$GLOBALS['js_include'][] = 'jquery/jquery.event.drag-2.0.js';
-$GLOBALS['js_include'][] = 'tbl_gis_visualization.js';
-$GLOBALS['js_include'][] = 'OpenStreetMap.js';
+$scripts = PMA_Header::getInstance()->getScripts();
+$scripts->addFile('openlayers/OpenLayers.js');
+$scripts->addFile('jquery/jquery.svg.js');
+$scripts->addFile('jquery/jquery.mousewheel.js');
+$scripts->addFile('jquery/jquery.event.drag-2.0.js');
+$scripts->addFile('tbl_gis_visualization.js');
+$scripts->addFile('OpenStreetMap.js');
 
 // Allows for resending headers even after sending some data
 ob_start();

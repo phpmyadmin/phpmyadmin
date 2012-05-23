@@ -11,15 +11,16 @@
  */
 require_once 'libraries/common.inc.php';
 
-$GLOBALS['js_include'][] = 'tbl_chart.js';
-$GLOBALS['js_include'][] = 'highcharts/highcharts.js';
+$scripts = PMA_Header::getInstance()->getScripts();
+$scripts->addFile('tbl_chart.js');
+$scripts->addFile('highcharts/highcharts.js');
 /* Files required for chart exporting */
-$GLOBALS['js_include'][] = 'highcharts/exporting.js';
+$scripts->addFile('highcharts/exporting.js');
 /* < IE 9 doesn't support canvas natively */
 if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
-    $GLOBALS['js_include'][] = 'canvg/flashcanvas.js';
+    $scripts->addFile('canvg/flashcanvas.js');
 }
-$GLOBALS['js_include'][] = 'canvg/canvg.js';
+$scripts->addFile('canvg/canvg.js');
 
 /**
  * Runs common work

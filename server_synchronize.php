@@ -14,7 +14,8 @@ require_once 'libraries/common.inc.php';
 /**
  * Does the common work
  */
-$GLOBALS['js_include'][] = 'server_synchronize.js';
+$scripts = PMA_Header::getInstance()->getScripts();
+$scripts->addFile('server_synchronize.js');
 require_once 'libraries/server_common.inc.php';
 
 /**

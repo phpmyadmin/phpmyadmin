@@ -48,7 +48,7 @@ require_once './libraries/db_table_exists.lib.php';
 /**
  * Displays headers
  */
-require_once './libraries/header.inc.php';
+PMA_Header::getInstance()->display();
 
 if (PMA_Tracker::isActive()
     && PMA_Tracker::isTracked($GLOBALS["db"], $GLOBALS["table"])

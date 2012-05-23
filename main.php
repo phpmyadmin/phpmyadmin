@@ -26,7 +26,7 @@ if ($GLOBALS['PMA_Config']->isGitRevision()) {
 $GLOBALS['db'] = '';
 $GLOBALS['table'] = '';
 $show_query = '1';
-require_once 'libraries/header.inc.php';
+PMA_Header::getInstance()->display();
 
 // Any message to display?
 if (! empty($message)) {

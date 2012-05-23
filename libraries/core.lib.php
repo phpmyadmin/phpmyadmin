@@ -783,7 +783,7 @@ function PMA_includeJS($url, $ie_conditional = false)
  */
 function PMA_addJSCode($str)
 {
-    $GLOBALS['js_script'][] = $str;
+    PMA_Header::getInstance()->getScripts()->addCode($str);
 }
 
 /**

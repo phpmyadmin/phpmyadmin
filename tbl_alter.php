@@ -14,8 +14,6 @@
  */
 require_once 'libraries/common.inc.php';
 
-require_once 'libraries/header.inc.php';
-
 if (isset($_REQUEST['field'])) {
     $GLOBALS['field'] = $_REQUEST['field'];
 }

@@ -28,9 +28,9 @@ $url_query = PMA_generate_common_url($db);
 $err_url = 'main.php' . $url_query;
 
 /**
- * Displays the headers
+ * Displays headers
  */
-require_once './libraries/header.inc.php';
+PMA_Header::getInstance()->display();
 
 /**
  * @global boolean Checks for superuser privileges

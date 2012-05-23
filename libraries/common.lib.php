@@ -598,7 +598,7 @@ function PMA_mysqlDie(
     /**
      * start http output, display html headers
      */
-    include_once './libraries/header.inc.php';
+    PMA_Header::getInstance()->display();
 
     $error_msg = '';
 

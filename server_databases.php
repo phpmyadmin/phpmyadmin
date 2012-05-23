@@ -10,8 +10,8 @@
  */
 require_once 'libraries/common.inc.php';
 
-$GLOBALS['js_include'][] = 'server_databases.js';
-$GLOBALS['js_include'][] = 'functions.js';
+$scripts = PMA_Header::getInstance()->getScripts();
+$scripts->addFile('server_databases.js');
 
 require 'libraries/server_common.inc.php';
 if (! PMA_DRIZZLE) {

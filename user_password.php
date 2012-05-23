@@ -12,7 +12,9 @@
  */
 require_once './libraries/common.inc.php';
 
-$GLOBALS['js_include'][] = 'server_privileges.js';
+$header = PMA_Header::getInstance();
+$scripts = $header->getScripts();
+$scripts->addFile('server_privileges.js');
 
 /**
  * Displays an error message and exits if the user isn't allowed to use this
@@ -22,7 +24,7 @@ if (! $cfg['ShowChgPassword']) {
     $cfg['ShowChgPassword'] = PMA_DBI_select_db('mysql');
 }
 if ($cfg['Server']['auth_type'] == 'config' || ! $cfg['ShowChgPassword']) {
-    include_once './libraries/header.inc.php';
+    $header->display();
     PMA_Message::error(__('You don\'t have sufficient privileges to be here right now!'))->display();
     include './libraries/footer.inc.php';
 } // end if
@@ -50,8 +52,7 @@ if (isset($_REQUEST['nopass'])) {
  * If the "change password" form hasn't been submitted or the values submitted
  * aren't valid -> displays the form
  */
-// Loads the headers
-require_once './libraries/header.inc.php';
+$header->display();
 
 // Displays an error message if required
 if (isset($message)) {
@@ -203,7 +204,7 @@ function PMA_changePassAuthType($_url_params, $password)
  */
 function PMA_changePassDisplayPage($message, $sql_query, $_url_params)
 {
-    include_once './libraries/header.inc.php';
+    PMA_Header::getInstance()->display();
     echo '<h1>' . __('Change password') . '</h1>' . "\n\n";
     echo PMA_getMessage($message, $sql_query, 'success');
     echo '<a href="index.php'.PMA_generate_common_url($_url_params).' target="_parent">'. "\n"

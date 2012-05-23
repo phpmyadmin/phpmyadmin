@@ -13,8 +13,8 @@ require_once 'libraries/common.inc.php';
 /**
  * Does the common work
  */
-$GLOBALS['js_include'][] = 'server_privileges.js';
-$GLOBALS['js_include'][] = 'functions.js';
+$scripts = PMA_Header::getInstance()->getScripts();
+$scripts->addFile('server_privileges.js');
 
 $_add_user_error = false;
 
@@ -175,7 +175,6 @@ if (isset($dbname)) {
  * Checks if the user is allowed to do what he tries to...
  */
 if (! $is_superuser) {
-    include 'libraries/header.inc.php';
     echo '<h2>' . "\n"
        . PMA_getIcon('b_usrlist.png')
        . __('Privileges') . "\n"

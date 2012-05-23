@@ -17,24 +17,23 @@ require_once './libraries/tbl_select.lib.php';
 require_once './libraries/relation.lib.php';
 require_once './libraries/tbl_info.inc.php';
 
-$GLOBALS['js_include'][] = 'makegrid.js';
-$GLOBALS['js_include'][] = 'sql.js';
-$GLOBALS['js_include'][] = 'functions.js';
-$GLOBALS['js_include'][] = 'date.js';
+$scripts = PMA_Header::getInstance()->getScripts();
+$scripts->addFile('makegrid.js');
+$scripts->addFile('sql.js');
+$scripts->addFile('date.js');
 /* < IE 9 doesn't support canvas natively */
 if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
-    $GLOBALS['js_include'][] = 'canvg/flashcanvas.js';
+    $scripts->addFile('canvg/flashcanvas.js');
 }
-
-$GLOBALS['js_include'][] = 'jqplot/jquery.jqplot.js';
-$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.canvasTextRenderer.js';
-$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.canvasAxisLabelRenderer.js';
-$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.dateAxisRenderer.js';
-$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.highlighter.js';
-$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.cursor.js';
-$GLOBALS['js_include'][] = 'canvg/canvg.js';
-$GLOBALS['js_include'][] = 'jquery/timepicker.js';
-$GLOBALS['js_include'][] = 'tbl_zoom_plot_jqplot.js';
+$scripts->addFile('jqplot/jquery.jqplot.js');
+$scripts->addFile('jqplot/plugins/jqplot.canvasTextRenderer.js');
+$scripts->addFile('jqplot/plugins/jqplot.canvasAxisLabelRenderer.js');
+$scripts->addFile('jqplot/plugins/jqplot.dateAxisRenderer.js');
+$scripts->addFile('jqplot/plugins/jqplot.highlighter.js');
+$scripts->addFile('jqplot/plugins/jqplot.cursor.js');
+$scripts->addFile('canvg/canvg.js');
+$scripts->addFile('jquery/timepicker.js');
+$scripts->addFile('tbl_zoom_plot_jqplot.js');
 
 /**
  * Sets globals from $_POST

@@ -93,7 +93,7 @@ function PMA_auth_fails()
         <td>
 
     <?php
-    $GLOBALS['is_header_sent'] = true;
+    PMA_Header::getInstance()->isHeaderSent = true;
 
     if (isset($GLOBALS['allowDeny_forbidden']) && $GLOBALS['allowDeny_forbidden']) {
         trigger_error(__('Access denied'), E_USER_NOTICE);

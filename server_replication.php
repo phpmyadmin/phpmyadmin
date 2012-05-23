@@ -13,8 +13,9 @@ require_once 'libraries/common.inc.php';
 /**
  * Does the common work
  */
-$GLOBALS['js_include'][] = 'server_privileges.js';
-$GLOBALS['js_include'][] = 'replication.js';
+$scripts = PMA_Header::getInstance()->getScripts();
+$scripts->addFile('server_privileges.js');
+$scripts->addFile('replication.js');
 
 require 'libraries/server_common.inc.php';
 require 'libraries/replication.inc.php';
@@ -25,7 +26,6 @@ require_once 'libraries/server_synchronize.lib.php';
  * Checks if the user is allowed to do what he tries to...
  */
 if (! $is_superuser) {
-    include 'libraries/header.inc.php';
     echo '<h2>' . "\n"
         . PMA_getIcon('s_replication.png')
         . __('Replication') . "\n"

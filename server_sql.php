@@ -13,9 +13,9 @@ require_once 'libraries/common.inc.php';
 /**
  * Does the common work
  */
-$GLOBALS['js_include'][] = 'functions.js';
-$GLOBALS['js_include'][] = 'makegrid.js';
-$GLOBALS['js_include'][] = 'sql.js';
+$scripts = PMA_Header::getInstance()->getScripts();
+$scripts->addFile('makegrid.js');
+$scripts->addFile('sql.js');
 
 require_once 'libraries/server_common.inc.php';
 require_once 'libraries/sql_query_form.lib.php';

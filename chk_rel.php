@@ -10,7 +10,7 @@
  * Gets some core libraries
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/header.inc.php';
+PMA_Header::getInstance()->display();
 
 
 /**

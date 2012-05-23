@@ -11,7 +11,8 @@
  */
 require_once 'libraries/common.inc.php';
 
-$GLOBALS['js_include'][] = 'export.js';
+$scripts = PMA_Header::getInstance()->getScripts();
+$scripts->addFile('export.js');
 
 // $sub_part is also used in db_info.inc.php to see if we are coming from
 // db_export.php, in which case we don't obey $cfg['MaxTableList']

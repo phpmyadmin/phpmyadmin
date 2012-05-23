@@ -129,7 +129,8 @@ if (isset($_REQUEST['do_save_data'])) {
  */
 
 // Displays headers (if needed)
-$GLOBALS['js_include'][] = 'indexes.js';
+$scripts = PMA_Header::getInstance()->getScripts();
+$scripts->addFile('indexes.js');
 require_once 'libraries/tbl_info.inc.php';
 
 if (isset($_REQUEST['index']) && is_array($_REQUEST['index'])) {

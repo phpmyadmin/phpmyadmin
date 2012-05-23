@@ -12,7 +12,6 @@
  * Gets the variables sent or posted to this script and displays the header
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/common.lib.php';
 
 /**
  * Ensures db and table are valid, else moves to the "parent" script
@@ -110,15 +109,16 @@ if ($GLOBALS['cfg']['ShowPropertyComments']) {
 /**
  * used in ./libraries/header.inc.php to load JavaScript library file
  */
-$GLOBALS['js_include'][] = 'functions.js';
-$GLOBALS['js_include'][] = 'tbl_change.js';
-$GLOBALS['js_include'][] = 'jquery/timepicker.js';
-$GLOBALS['js_include'][] = 'gis_data_editor.js';
+$scripts = PMA_Header::getInstance()->getScripts();
+$scripts->addFile('functions.js');
+$scripts->addFile('tbl_change.js');
+$scripts->addFile('jquery/timepicker.js');
+$scripts->addFile('gis_data_editor.js');
 
 /**
  * HTTP and HTML headers
  */
-require_once 'libraries/header.inc.php';
+PMA_Header::getInstance()->display();
 
 /**
  * Displays the query submitted and its result

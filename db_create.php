@@ -9,7 +9,6 @@
  * Gets some core libraries
  */
 require_once 'libraries/common.inc.php';
-$GLOBALS['js_include'][] = 'functions.js';
 
 require_once 'libraries/mysql_charsets.lib.php';
 if (! PMA_DRIZZLE) {
@@ -67,8 +66,6 @@ if (! $result) {
     if ($GLOBALS['is_ajax_request'] == true) {
         PMA_ajaxResponse($message, false);
     }
-
-    include_once 'libraries/header.inc.php';
     include_once 'main.php';
 } else {
     $message = PMA_Message::success(__('Database %1$s has been created.'));
@@ -145,7 +142,6 @@ if (! $result) {
         PMA_ajaxResponse($message, true, $extra_data);
     }
 
-    include_once 'libraries/header.inc.php';
     include_once '' . $cfg['DefaultTabDatabase'];
 }
 ?>

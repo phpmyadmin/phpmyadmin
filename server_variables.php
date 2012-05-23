@@ -7,7 +7,8 @@
 
 require_once 'libraries/common.inc.php';
 
-$GLOBALS['js_include'][] = 'server_variables.js';
+$scripts = PMA_Header::getInstance()->getScripts();
+$scripts->addFile('server_variables.js');
 
 PMA_addJSVar('pma_token', $_SESSION[' PMA_token ']);
 PMA_addJSVar('url_query', str_replace('&amp;', '&', PMA_generate_common_url($db)));

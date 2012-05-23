@@ -109,7 +109,7 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
         }
         if (!$all_ok) {
             // mimic original form and post json in a hidden field
-            include 'libraries/header.inc.php';
+            PMA_Header::getInstance()->display();
             include 'libraries/user_preferences.inc.php';
             $msg = PMA_Message::error(__('Configuration contains incorrect data for some fields.'));
             $msg->display();
@@ -216,8 +216,9 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
     exit;
 }
 
-$GLOBALS['js_include'][] = 'config.js';
-require 'libraries/header.inc.php';
+$scripts = PMA_Header::getInstance()->getScripts();
+$scripts->addFile('config.js');
+PMA_Header::getInstance()->display();
 require 'libraries/user_preferences.inc.php';
 if ($error) {
     if (!$error instanceof PMA_Message) {

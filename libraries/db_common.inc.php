@@ -76,7 +76,10 @@ if (isset($submitcollation) && !empty($db_collation)) {
     };
 }
 
-require_once './libraries/header.inc.php';
+/**
+ * Displays headers
+ */
+PMA_Header::getInstance()->display();
 
 /**
  * Set parameters for links

@@ -19,7 +19,8 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/mysql_charsets.lib.php';
 
 // add a javascript file for jQuery functions to handle Ajax actions
-$GLOBALS['js_include'][] = 'db_operations.js';
+$scripts = PMA_Header::getInstance()->getScripts();
+$scripts->addFile('db_operations.js');
 
 /**
  * Sets globals from $_REQUEST (we're using GET on ajax, POST otherwise)

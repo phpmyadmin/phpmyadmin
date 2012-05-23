@@ -142,7 +142,6 @@ if (! empty($submit_mult)
 if (!empty($submit_mult) && !empty($what)) {
     unset($message);
 
-    include_once './libraries/header.inc.php';
     if (strlen($table)) {
         include './libraries/tbl_common.inc.php';
         $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';

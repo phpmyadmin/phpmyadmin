@@ -11,15 +11,17 @@
  */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/Table.class.php';
+require_once 'libraries/Header.class.php';
 require_once 'libraries/check_user_privileges.lib.php';
 require_once 'libraries/bookmark.lib.php';
 
-$GLOBALS['js_include'][] = 'jquery/timepicker.js';
-$GLOBALS['js_include'][] = 'tbl_change.js';
+$scripts = PMA_Header::getInstance()->getScripts();
+$scripts->addFile('jquery/timepicker.js');
+$scripts->addFile('tbl_change.js');
 // the next one needed because sql.php may do a "goto" to tbl_structure.php
-$GLOBALS['js_include'][] = 'tbl_structure.js';
-$GLOBALS['js_include'][] = 'indexes.js';
-$GLOBALS['js_include'][] = 'gis_data_editor.js';
+$scripts->addFile('tbl_structure.js');
+$scripts->addFile('indexes.js');
+$scripts->addFile('gis_data_editor.js');
 
 /**
  * Sets globals from $_POST
@@ -55,12 +57,14 @@ if (isset($_REQUEST['printview'])) {
 }
 
 if (isset($_SESSION['profiling'])) {
+    $scripts = PMA_Header::getInstance()->getScripts();
     /* < IE 9 doesn't support canvas natively */
     if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
-        $GLOBALS['js_include'][] = 'canvg/flashcanvas.js';
+        $scripts->addFile('canvg/flashcanvas.js');
     }
-    $GLOBALS['js_include'][] = 'jqplot/jquery.jqplot.js';
-    $GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.pieRenderer.js';
+    $scripts->addFile('jqplot/jquery.jqplot.js');
+    $scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
+    $scripts->addFile('canvg/canvg.js');
 }
 
 /**
@@ -283,7 +287,7 @@ if (! defined('PMA_CHK_DROP')
     && $is_drop_database
     && ! $is_superuser
 ) {
-    include_once 'libraries/header.inc.php';
+    PMA_Header::getInstance()->display();
     PMA_mysqlDie(__('"DROP DATABASE" statements are disabled.'), '', '', $err_url);
 } // end if
 
@@ -379,7 +383,7 @@ if (! $cfg['Confirm']
 
 if ($do_confirm) {
     $stripped_sql_query = $sql_query;
-    include_once 'libraries/header.inc.php';
+    PMA_Header::getInstance()->display();
     if ($is_drop_database) {
         echo '<h1 class="error">' . __(
                 'You are about to DESTROY a complete database!'
@@ -844,9 +848,6 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
             $goto = 'main.php';
         }
         // Loads to target script
-        if ($goto != 'main.php') {
-            include_once 'libraries/header.inc.php';
-        }
         $active_page = $goto;
         include '' . $goto;
     } else {
@@ -870,9 +871,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     }
 
     if (isset($_REQUEST['ajax_request']) && isset($_REQUEST['table_maintenance'])) {
-        $GLOBALS['js_include'][] = 'functions.js';
-        $GLOBALS['js_include'][] = 'makegrid.js';
-        $GLOBALS['js_include'][] = 'sql.js';
+        $scripts = PMA_Header::getInstance()->getScripts();
+        $scripts->addFile('makegrid.js');
+        $scripts->addFile('sql.js');
 
         // Gets the list of fields properties
         if (isset($result) && $result) {
@@ -936,9 +937,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         echo "</p>";
     } else {
 
-        $GLOBALS['js_include'][] = 'functions.js';
-        $GLOBALS['js_include'][] = 'makegrid.js';
-        $GLOBALS['js_include'][] = 'sql.js';
+        $scripts = PMA_Header::getInstance()->getScripts();
+        $scripts->addFile('makegrid.js');
+        $scripts->addFile('sql.js');
 
         unset($message);
 
@@ -954,7 +955,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
                 include 'libraries/server_common.inc.php';
             }
         } else {
-            include_once 'libraries/header.inc.php';
+            PMA_Header::getInstance()->display();
             //we don't need to buffer the output in PMA_getMessage here.
             //set a global variable and check against it in the function
             $GLOBALS['buffer_message'] = false;

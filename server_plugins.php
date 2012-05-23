@@ -13,9 +13,10 @@ require_once 'libraries/common.inc.php';
 /**
  * JS includes
  */
-$GLOBALS['js_include'][] = 'jquery/jquery.cookie.js';
-$GLOBALS['js_include'][] = 'jquery/jquery.tablesorter.js';
-$GLOBALS['js_include'][] = 'server_plugins.js';
+$scripts = PMA_Header::getInstance()->getScripts();
+$scripts->addFile('jquery/jquery.cookie.js');
+$scripts->addFile('jquery/jquery.tablesorter.js');
+$scripts->addFile('server_plugins.js');
 
 /**
  * Does the common work

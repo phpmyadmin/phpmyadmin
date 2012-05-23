@@ -10,7 +10,8 @@
  */
 require_once 'libraries/common.inc.php';
 
-$GLOBALS['js_include'][] = 'export.js';
+$scripts = PMA_Header::getInstance()->getScripts();
+$scripts->addFile('export.js');
 
 /**
  * Gets tables informations and displays top links

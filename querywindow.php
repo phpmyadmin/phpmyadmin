@@ -118,27 +118,19 @@ $sql_query = '';
 /**
  * prepare JavaScript functionality
  */
-$js_include[] = 'common.js';
-$js_include[] = 'querywindow.js';
+$scripts = PMA_Header::getInstance()->getScripts();
+$scripts->addFile('common.js');
+$scripts->addFile('querywindow.js');
 
 if (PMA_isValid($_REQUEST['auto_commit'], 'identical', 'true')) {
-    $js_events[] = array(
-        'event'     => 'load',
-        'function'  => 'PMA_queryAutoCommit',
-    );
+    $scripts->addEvent('load','PMA_queryAutoCommit');
 }
 if (PMA_isValid($_REQUEST['init'])) {
-    $js_events[] = array(
-        'event'     => 'load',
-        'function'  => 'PMA_querywindowResize',
-    );
+    $scripts->addEvent('load','PMA_querywindowResize');
 }
 // always set focus to the textarea
 if ($querydisplay_tab == 'sql' || $querydisplay_tab == 'full') {
-    $js_events[] = array(
-        'event'     => 'load',
-        'function'  => 'PMA_querywindowSetFocus',
-    );
+    $scripts->addEvent('load','PMA_querywindowSetFocus');
 }
 
 /**

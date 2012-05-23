@@ -10,7 +10,8 @@
 require_once 'libraries/common.inc.php';
 
 //Get some js files needed for Ajax requests
-$GLOBALS['js_include'][] = 'db_structure.js';
+$scripts = PMA_Header::getInstance()->getScripts();
+$scripts->addFile('db_structure.js');
 
 /**
  * If we are not in an Ajax request, then do the common work and show the links etc.

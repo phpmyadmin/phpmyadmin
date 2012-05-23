@@ -52,5 +52,5 @@ require_once './libraries/header_scripts.inc.php';
 /**
  * Sets a variable to remember headers have been sent
  */
-$is_header_sent = true;
+PMA_Header::getInstance()->isHeaderSent = true;
 ?>

@@ -10,9 +10,10 @@
  */
 require_once 'libraries/common.inc.php';
 
-$GLOBALS['js_include'][] = 'db_structure.js';
-$GLOBALS['js_include'][] = 'tbl_change.js';
-$GLOBALS['js_include'][] = 'jquery/timepicker.js';
+$scripts = PMA_Header::getInstance()->getScripts();
+$scripts->addFile('db_structure.js');
+$scripts->addFile('tbl_change.js');
+$scripts->addFile('jquery/timepicker.js');
 
 /**
  * Sets globals from $_POST

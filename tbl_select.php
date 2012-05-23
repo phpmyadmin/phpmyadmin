@@ -16,12 +16,13 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/mysql_charsets.lib.php';
 require_once 'libraries/tbl_select.lib.php';
 
-$GLOBALS['js_include'][] = 'makegrid.js';
-$GLOBALS['js_include'][] = 'sql.js';
-$GLOBALS['js_include'][] = 'tbl_select.js';
-$GLOBALS['js_include'][] = 'tbl_change.js';
-$GLOBALS['js_include'][] = 'jquery/timepicker.js';
-$GLOBALS['js_include'][] = 'gis_data_editor.js';
+$scripts = PMA_Header::getInstance()->getScripts();
+$scripts->addFile('makegrid.js');
+$scripts->addFile('sql.js');
+$scripts->addFile('tbl_select.js');
+$scripts->addFile('tbl_change.js');
+$scripts->addFile('jquery/timepicker.js');
+$scripts->addFile('gis_data_editor.js');
 
 $post_params = array(
     'ajax_request',

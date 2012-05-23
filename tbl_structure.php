@@ -12,8 +12,9 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/mysql_charsets.lib.php';
 
-$GLOBALS['js_include'][] = 'tbl_structure.js';
-$GLOBALS['js_include'][] = 'indexes.js';
+$scripts = PMA_Header::getInstance()->getScripts();
+$scripts->addFile('tbl_structure.js');
+$scripts->addFile('indexes.js');
 
 /**
  * handle multiple field commands if required
@@ -69,7 +70,6 @@ if (! empty($submit_mult) && isset($_REQUEST['selected_fld'])) {
         // handle confirmation of deleting multiple fields/columns
         $action = 'tbl_structure.php';
         include 'libraries/mult_submits.inc.php';
-        //require_once 'libraries/header.inc.php';
 
         if (empty($message)) {
             $message = PMA_Message::success();

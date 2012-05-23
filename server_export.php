@@ -9,9 +9,11 @@
  * Does the common work
  */
 require_once 'libraries/common.inc.php';
-require 'libraries/server_common.inc.php';
 
-$GLOBALS['js_include'][] = 'export.js';
+$scripts = PMA_Header::getInstance()->getScripts();
+$scripts->addFile('export.js');
+
+require 'libraries/server_common.inc.php';
 
 $export_page_title = __('View dump (schema) of databases') . "\n";
 $checkall_url = 'server_export.php?'
