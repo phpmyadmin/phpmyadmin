@@ -468,8 +468,8 @@ function PMA_getTableNavigation($pos_next, $pos_prev, $sql_query,
 /**
  * Prepare move backward buttons - previous and first
  *
- * @param   string  $html_sql_query the sql encoded by html special characters
- * @param   integer $pos_prev       the offset for the "previous" page
+ * @param string  $html_sql_query the sql encoded by html special characters
+ * @param integer $pos_prev       the offset for the "previous" page
  *
  * @return  string                  html content
  *
@@ -490,10 +490,10 @@ function PMA_getMoveBackwardButtonsForTableNavigation($html_sql_query, $pos_prev
 /**
  * Prepare Show All button for table navigation
  *
- * @param   string  $db             the database name
- * @param   string  $table          the table name
- * @param   string  $html_sql_query the sql encoded by html special characters
- * @param   string  $goto           the URL to go back in case of errors
+ * @param string  $db             the database name
+ * @param string  $table          the table name
+ * @param string  $html_sql_query the sql encoded by html special characters
+ * @param string  $goto           the URL to go back in case of errors
  *
  * @return  string                          html content
  *
@@ -518,11 +518,11 @@ function PMA_getShowAllButtonForTableNavigation($db, $table, $html_sql_query, $g
 /**
  * Prepare move farward buttons - next and last
  *
- * @param   string  $html_sql_query the sql encoded by html special characters
- * @param   integer $pos_prev       the offset for the "previous" page
- * @param   boolean $is_innodb      whether its InnoDB or not
- * @param   integer $unlim_num_rows the total number of rows returned by the
- * @param   integer $num_rows       the total number of rows returned by the
+ * @param string  $html_sql_query the sql encoded by html special characters
+ * @param integer $pos_prev       the offset for the "previous" page
+ * @param boolean $is_innodb      whether its InnoDB or not
+ * @param integer $unlim_num_rows the total number of rows returned by the
+ * @param integer $num_rows       the total number of rows returned by the
  *
  * @return  string  $buttons_html   html content
  *
@@ -575,11 +575,11 @@ function PMA_getMoveFarwardButtonsForTableNavigation(
  * Prepare feilds followed by Show button for table navigation
  * Start row, Number of rows, Headers every
  *
- * @param   string  $html_sql_query             the sql encoded by html special characters
- * @param   string  $goto                       the URL to go back in case of errors
- * @param   integer $pos_next                   the offset for the "next" page
- * @param   integer $unlim_num_rows             the total number of rows returned by the
- * @param   string  $id_for_direction_dropdown  the id for the direction dropdown
+ * @param string  $html_sql_query             the sql encoded by html special characters
+ * @param string  $goto                       the URL to go back in case of errors
+ * @param integer $pos_next                   the offset for the "next" page
+ * @param integer $unlim_num_rows             the total number of rows returned by the
+ * @param string  $id_for_direction_dropdown  the id for the direction dropdown
  *
  * @return  string  $additional_fields_html html content
  *
@@ -1088,11 +1088,11 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
 /**
  * Prepare sort by key dropdown - html code segment
  *
- * @param   string  $db                 the database name
- * @param   string  $table              the table name
- * @param   array   $indexes            the indexes of the table for sort criteria
- * @param   string  $sort_expression    the sort expression
- * @param   string  $unsorted_sql_query the unsorted sql query
+ * @param string  $db                 the database name
+ * @param string  $table              the table name
+ * @param array   $indexes            the indexes of the table for sort criteria
+ * @param string  $sort_expression    the sort expression
+ * @param string  $unsorted_sql_query the unsorted sql query
  *
  * @return  string  $drop_down_html         html content
  *
@@ -1218,10 +1218,10 @@ function PMA_getDataForResettingColumnOrder()
 /**
  * Prepare option fields block
  *
- * @param   string  $db             the database name
- * @param   string  $table          the table name
- * @param   string  $sql_query      the SQL query
- * @param   string  $goto           the URL to go back in case of errors
+ * @param string  $db             the database name
+ * @param string  $table          the table name
+ * @param string  $sql_query      the SQL query
+ * @param string  $goto           the URL to go back in case of errors
  *
  * @return  string  $options_html   html content
  *
@@ -1341,10 +1341,10 @@ function PMA_getOptionsBlock($db, $table, $sql_query, $goto)
 /**
  * Get full/partial text button or link
  *
- * @param   string  $db             the database name
- * @param   string  $table          the table name
- * @param   string  $sql_query      the SQL query
- * @param   string  $goto           the URL to go back in case of errors
+ * @param string  $db             the database name
+ * @param string  $table          the table name
+ * @param string  $sql_query      the SQL query
+ * @param string  $goto           the URL to go back in case of errors
  *
  * @return  string                  html content
  *
@@ -1384,9 +1384,9 @@ function PMA_getFullOrPartialTextButtonOrLink($db, $table, $sql_query, $goto)
 /**
  * Prepare html form for multi row operations
  *
- * @param   string  $db                 the database name
- * @param   string  $table              the table name
- * @param   string  $del_lnk            the delete link of current row
+ * @param string  $db                 the database name
+ * @param string  $table              the table name
+ * @param string  $del_lnk            the delete link of current row
  *
  * @return  string  $form_html          html content
  *
@@ -1425,8 +1425,8 @@ function PMA_getFormForMultiRowOperations($db, $table, $del_lnk)
 /**
  * Get comment for row
  *
- * @param   array   $comments_map   comments array
- * @param   array   $fields_meta    set of field properties
+ * @param array   $comments_map   comments array
+ * @param array   $fields_meta    set of field properties
  *
  * @return  string  $comment        html content
  *
@@ -1452,10 +1452,10 @@ function PMA_getCommentForRow($comments_map, $fields_meta)
 /**
  * Check whether the column is sorted
  *
- * @param  string  $sort_expression              sort expression
- * @param  string  $sort_expression_nodirection  sort expression without direction
- * @param  string  $sort_tbl                     the table name
- * @param  string  $name_to_use_in_sort          the sorting column name
+ * @param string  $sort_expression              sort expression
+ * @param string  $sort_expression_nodirection  sort expression without direction
+ * @param string  $sort_tbl                     the table name
+ * @param string  $name_to_use_in_sort          the sorting column name
  *
  * @return boolean $is_in_sort                   the column sorted or not
  *
@@ -1506,11 +1506,11 @@ function PMA_isInSorted(
 /**
  * Get sort url paramaeters - sort order and order image
  *
- * @param   boolean $is_in_sort         the column sorted or not
- * @param   string  $sort_direction     the sort direction
- * @param   array   $fields_meta        set of field properties
- * @param   string  $sort_order         the sorting order
- * @param   integer $column_index       the index of the column
+ * @param boolean $is_in_sort         the column sorted or not
+ * @param string  $sort_direction     the sort direction
+ * @param array   $fields_meta        set of field properties
+ * @param string  $sort_order         the sorting order
+ * @param integer $column_index       the index of the column
  *
  * @return  array                       2 element array - $sort_order, $order_img
  *
@@ -1570,11 +1570,11 @@ function PMA_getSortingUrlParams(
 /**
  * Get sort order link
  *
- * @param   string  $order_img          the sort order image
- * @param   integer $col_index          the index of the column
- * @param   string  $direction          the display direction
- * @param   array   $fields_meta        set of field properties
- * @param   string  $order_url          the url for sort
+ * @param string  $order_img          the sort order image
+ * @param integer $col_index          the index of the column
+ * @param string  $direction          the display direction
+ * @param array   $fields_meta        set of field properties
+ * @param string  $order_url          the url for sort
  *
  * @return  string                      the sort order link
  *
@@ -1629,14 +1629,14 @@ function PMA_getSortOrderLink(
 /**
  * Prepare columns to draggable effect for sortable columns
  *
- * @param   boolean $col_visib          the column is visible (false)
+ * @param boolean $col_visib          the column is visible (false)
  *          array                       the column is not visible (string array)
- * @param   string  $col_visib_j        element of $col_visib array
- * @param   boolean $condition_field    whether to add CSS class condition
- * @param   string  $direction          the display direction
- * @param   array   $fields_meta        set of field properties
- * @param   string  $order_link         the order link
- * @param   string  $comments           the comment for the column
+ * @param string  $col_visib_j        element of $col_visib array
+ * @param boolean $condition_field    whether to add CSS class condition
+ * @param string  $direction          the display direction
+ * @param array   $fields_meta        set of field properties
+ * @param string  $order_link         the order link
+ * @param string  $comments           the comment for the column
  *
  * @return  string  $draggable_html     html content
  *
@@ -1685,13 +1685,13 @@ function PMA_getDraggableClassForSortableColumns(
 /**
  * Prepare columns to draggable effect for non sortable columns
  *
- * @param   boolean $col_visib          the column is visible (false)
+ * @param boolean $col_visib          the column is visible (false)
  *          array                       the column is not visible (string array)
- * @param   string  $col_visib_j        element of $col_visib array
- * @param   boolean $condition_field    whether to add CSS class condition
- * @param   string  $direction          the display direction
- * @param   array   $fields_meta        set of field properties
- * @param   string  $comments           the comment for the column
+ * @param string  $col_visib_j        element of $col_visib array
+ * @param boolean $condition_field    whether to add CSS class condition
+ * @param string  $direction          the display direction
+ * @param array   $fields_meta        set of field properties
+ * @param string  $comments           the comment for the column
  *
  * @return  string  $draggable_html         html content
  *
@@ -2281,8 +2281,8 @@ function PMA_getTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
 /**
  * Get url sql query without conditions to shorten URLs
  *
- * @param   array   $analyzed_sql   analyzed query
- * @param   string  $sql_query      the SQL query
+ * @param array   $analyzed_sql   analyzed query
+ * @param string  $sql_query      the SQL query
  *
  * @return  string  $url_sql        analyzed sql query
  *
@@ -2341,10 +2341,10 @@ function PMA_getColumnParams()
 /**
  * Prepare vertical display mode necessay HTML stuff
  *
- * @param   array   $vertical_display       informations used with vertical
+ * @param array   $vertical_display       informations used with vertical
  *                                          display mode
- * @param   integer $row_no                 the index of current row
- * @param   boolean $directionCondition     the directional condition
+ * @param integer $row_no                 the index of current row
+ * @param boolean $directionCondition     the directional condition
  *
  * @return  string  $vertical_disp_html     html content
  *
@@ -2392,11 +2392,11 @@ function PMA_getVerticalDisplaySupportSegments(
 /**
  * Get modified links
  *
- * @param   string  $db                 the database name
- * @param   string  $table              the table name
- * @param   string  $where_clause       the where clause of the sql
- * @param   boolean $clause_is_unique   the unique condition of clause
- * @param   string  $url_sql_query      the analyzed sql query
+ * @param string  $db                 the database name
+ * @param string  $table              the table name
+ * @param string  $where_clause       the where clause of the sql
+ * @param boolean $clause_is_unique   the unique condition of clause
+ * @param string  $url_sql_query      the analyzed sql query
  *
  * @return  array                       5 element array - $edit_url, $copy_url,
  *                                      $edit_str, $copy_str, $edit_anchor_class
@@ -2443,13 +2443,13 @@ function PMA_getModifiedLinks(
 /**
  * Get delete and kill links
  *
- * @param   string  $db                 the database name
- * @param   string  $table              the table name
- * @param   string  $where_clause       the where clause of the sql
- * @param   boolean $clause_is_unique   the unique condition of clause
- * @param   string  $url_sql_query      the analyzed sql query
- * @param   string  $goto               the URL to go back in case of errors
- * @param   string  $del_lnk            the delete link of current row
+ * @param string  $db                 the database name
+ * @param string  $table              the table name
+ * @param string  $where_clause       the where clause of the sql
+ * @param boolean $clause_is_unique   the unique condition of clause
+ * @param string  $url_sql_query      the analyzed sql query
+ * @param string  $goto               the URL to go back in case of errors
+ * @param string  $del_lnk            the delete link of current row
  *
  * @return  array                       4 element array - $del_query,
  *                                      $del_url, $del_str, $js_conf
@@ -2527,22 +2527,22 @@ function PMA_getDeleteAndKillLinks(
 /**
  * Prepare placed links
  *
- * @param   string  $dir                the direction of links should place
- * @param   string  $del_url            the url for delete row
- * @param   array   $is_display         which elements to display
- * @param   integer $row_no             the index of current row
- * @param   string  $where_clause       the where clause of the sql
- * @param   string  $where_clause_html  the html encoded where clause
- * @param   array   $condition_array    array of keys (primary, unique, condition)
- * @param   string  $del_query          the query for delete row
- * @param   string  $dir_letter         the letter denoted the direction
- * @param   string  $edit_url           the url for edit row
- * @param   string  $copy_url           the url for copy row
- * @param   string  $edit_anchor_class  the class for html element for edit
- * @param   string  $edit_str           the label for edit row
- * @param   string  $copy_str           the label for copy row
- * @param   string  $del_str            the label for delete row
- * @param   string  $js_conf            text for the JS confirmation
+ * @param string  $dir                the direction of links should place
+ * @param string  $del_url            the url for delete row
+ * @param array   $is_display         which elements to display
+ * @param integer $row_no             the index of current row
+ * @param string  $where_clause       the where clause of the sql
+ * @param string  $where_clause_html  the html encoded where clause
+ * @param array   $condition_array    array of keys (primary, unique, condition)
+ * @param string  $del_query          the query for delete row
+ * @param string  $dir_letter         the letter denoted the direction
+ * @param string  $edit_url           the url for edit row
+ * @param string  $copy_url           the url for copy row
+ * @param string  $edit_anchor_class  the class for html element for edit
+ * @param string  $edit_str           the label for edit row
+ * @param string  $copy_str           the label for copy row
+ * @param string  $del_str            the label for delete row
+ * @param string  $js_conf            text for the JS confirmation
  *
  * @return  string                      html content
  *
@@ -2571,12 +2571,12 @@ function PMA_getPlacedLinks(
 /**
  * Get resetted class for inline edit columns
  *
- * @param   string  $grid_edit_class    the class for all editable columns
- * @param   string  $not_null_class     the class for not null columns
- * @param   string  $relation_class     the class for relations in a column
- * @param   string  $hide_class         the class for visibility of a column
- * @param   string  $field_type_class   the class related to type of the field
- * @param   integer $row_no             the row index
+ * @param string  $grid_edit_class    the class for all editable columns
+ * @param string  $not_null_class     the class for not null columns
+ * @param string  $relation_class     the class for relations in a column
+ * @param string  $hide_class         the class for visibility of a column
+ * @param string  $field_type_class   the class related to type of the field
+ * @param integer $row_no             the row index
  *
  * @return  string  $class              the resetted class
  *
@@ -2612,7 +2612,7 @@ function PMA_getResettedClassForInlineEdit(
 /**
  * Get class for datetime related fields
  *
- * @param   string  $type               the type of the column field
+ * @param string  $type               the type of the column field
  *
  * @return  string  $field_type_class   the class for the column
  *
@@ -2634,16 +2634,16 @@ function PMA_getClassForDateTimeRelatedFields($type)
 /**
  * Prepare data cell for numeric type fields
  *
- * @param   string  $column             the relavent column in data row
- * @param   string  $class              the html class for column
- * @param   boolean $condition_field    the column should highlighted or not
- * @param   object  $meta               the meta-information about this field
- * @param   array   $map                the list of relations
- * @param   boolean $is_field_truncated the condition for blob data replacements
- * @param   array   $analyzed_sql       the analyzed query
- * @param   string  $transform_function the name of transformation function
- * @param   string  $default_function   the default transformation function
- * @param   string  $transform_options  the transformation parameters
+ * @param string  $column             the relavent column in data row
+ * @param string  $class              the html class for column
+ * @param boolean $condition_field    the column should highlighted or not
+ * @param object  $meta               the meta-information about this field
+ * @param array   $map                the list of relations
+ * @param boolean $is_field_truncated the condition for blob data replacements
+ * @param array   $analyzed_sql       the analyzed query
+ * @param string  $transform_function the name of transformation function
+ * @param string  $default_function   the default transformation function
+ * @param string  $transform_options  the transformation parameters
  *
  * @return  string  $cell               the prepared cell, html content
  *
@@ -2688,16 +2688,16 @@ function PMA_getDataCellForNumericFeilds(
 /**
  * Get data cell for blob type fields
  *
- * @param   string  $column             the relavent column in data row
- * @param   string  $class              the html class for column
- * @param   object  $meta               the meta-information about this field
- * @param   array   $_url_params        the parameters for generate url
- * @param   string  $field_flags        field flags for column(blob, primary etc)
- * @param   string  $transform_function the name of transformation function
- * @param   string  $default_function   the default transformation function
- * @param   string  $transform_options  the transformation parameters
- * @param   boolean $condition_field    the column should highlighted or not
- * @param   boolean $is_field_truncated the condition for blob data replacements
+ * @param string  $column             the relavent column in data row
+ * @param string  $class              the html class for column
+ * @param object  $meta               the meta-information about this field
+ * @param array   $_url_params        the parameters for generate url
+ * @param string  $field_flags        field flags for column(blob, primary etc)
+ * @param string  $transform_function the name of transformation function
+ * @param string  $default_function   the default transformation function
+ * @param string  $transform_options  the transformation parameters
+ * @param boolean $condition_field    the column should highlighted or not
+ * @param boolean $is_field_truncated the condition for blob data replacements
  *
  * @return  string  $cell                   the prepared cell, html content
  *
@@ -2774,17 +2774,17 @@ function PMA_getDataCellForBlobField(
 /**
  * Get data cell for geometry type fields
  *
- * @param   string  $column             the relavent column in data row
- * @param   string  $class              the html class for column
- * @param   object  $meta               the meta-information about this field
- * @param   array   $map                the list of relations
- * @param   array   $_url_params        the parameters for generate url
- * @param   boolean $condition_field    the column should highlighted or not
- * @param   string  $transform_function the name of transformation function
- * @param   string  $default_function   the default transformation function
- * @param   string  $transform_options  the transformation parameters
- * @param   boolean $is_field_truncated the condition for blob data replacements
- * @param   array   $analyzed_sql       the analyzed query
+ * @param string  $column             the relavent column in data row
+ * @param string  $class              the html class for column
+ * @param object  $meta               the meta-information about this field
+ * @param array   $map                the list of relations
+ * @param array   $_url_params        the parameters for generate url
+ * @param boolean $condition_field    the column should highlighted or not
+ * @param string  $transform_function the name of transformation function
+ * @param string  $default_function   the default transformation function
+ * @param string  $transform_options  the transformation parameters
+ * @param boolean $is_field_truncated the condition for blob data replacements
+ * @param array   $analyzed_sql       the analyzed query
  *
  * @return  string  $cell               the prepared data cell, html content
  *
@@ -2895,20 +2895,20 @@ function PMA_getDataCellForGeometryFields(
 /**
  * Get data cell for non numeric and non blob type fields
  *
- * @param   string  $column             the relavent column in data row
- * @param   string  $class              the html class for column
- * @param   object  $meta               the meta-information about this field
- * @param   array   $map                the list of relations
- * @param   array   $_url_params        the parameters for generate url
- * @param   boolean $condition_field    the column should highlighted or not
- * @param   string  $transform_function the name of transformation function
- * @param   string  $default_function   the default transformation function
- * @param   string  $transform_options  the transformation parameters
- * @param   boolean $is_field_truncated the condition for blob data replacements
- * @param   array   $analyzed_sql       the analyzed query
- * @param   integer &$dt_result         the link id associated to the query
+ * @param string  $column             the relavent column in data row
+ * @param string  $class              the html class for column
+ * @param object  $meta               the meta-information about this field
+ * @param array   $map                the list of relations
+ * @param array   $_url_params        the parameters for generate url
+ * @param boolean $condition_field    the column should highlighted or not
+ * @param string  $transform_function the name of transformation function
+ * @param string  $default_function   the default transformation function
+ * @param string  $transform_options  the transformation parameters
+ * @param boolean $is_field_truncated the condition for blob data replacements
+ * @param array   $analyzed_sql       the analyzed query
+ * @param integer &$dt_result         the link id associated to the query
  *                                      which results have to be displayed
- * @param   integer $col_index          the column index
+ * @param integer $col_index          the column index
  *
  * @return  string  $cell               the prepared data cell, html content
  *
@@ -3187,8 +3187,8 @@ function PMA_getVerticalTable()
 /**
  * Prepare edit, copy and delete links for verticle table
  *
- * @param   array   $vertical_display   the information to display
- * @param   string  $operation          edit/copy/delete
+ * @param array   $vertical_display   the information to display
+ * @param string  $operation          edit/copy/delete
  *
  * @return  string  $links_html         html content
  *
@@ -3226,8 +3226,8 @@ function PMA_getOperationLinksForVerticleTable($vertical_display, $operation)
 /**
  * Get checkboxes for multiple row data operations
  *
- * @param   array   $vertical_display   the information to display
- * @param   string  $dir                _left / _right
+ * @param array   $vertical_display   the information to display
+ * @param string  $dir                _left / _right
  *
  * @return  $checkBoxes_html            html content
  *
@@ -3739,7 +3739,7 @@ function PMA_getOffsets()
 /**
  * Get sort parameters
  *
- * @param   string  $order_by_clause
+ * @param string  $order_by_clause
  *
  * @return  array                   3 element array: $sort_expression,
  *                                  $sort_expression_nodirection, $sort_direction
@@ -3778,13 +3778,13 @@ function PMA_getSortParams($order_by_clause)
 /**
  * Prepare sorted column message
  *
- * @param  integer &$dt_result                  the link id associated to the query
+ * @param integer &$dt_result                  the link id associated to the query
  *                                              which results have to be displayed
- * @param  array   $fields_meta                 the list of fields properties
- * @param  integer $num_rows                    the total number of rows returned
+ * @param array   $fields_meta                 the list of fields properties
+ * @param integer $num_rows                    the total number of rows returned
  *                                              by the SQL query
- * @param  string  $sort_expression_nodirection sort expression without direction
- * @param  string  $table                       the table name
+ * @param string  $sort_expression_nodirection sort expression without direction
+ * @param string  $table                       the table name
  *
  * @return  string                              html content
  *          null                                if not found sorted column
@@ -3886,19 +3886,19 @@ function PMA_getSortedColumnMessage(&$dt_result, $fields_meta,
 /**
  * Set the content need to be show in message
  *
- * @param   string  $db                     the database name
- * @param   string  $table                  the table name
- * @param   string  $sorted_column_message  the message for sorted column
- * @param   string  $limit_clause           the limit clause of analyzed query
- * @param   integer $unlim_num_rows         the total number of rows returned by
+ * @param string  $db                     the database name
+ * @param string  $table                  the table name
+ * @param string  $sorted_column_message  the message for sorted column
+ * @param string  $limit_clause           the limit clause of analyzed query
+ * @param integer $unlim_num_rows         the total number of rows returned by
  *                                          the SQL query without any appended
  *                                          "LIMIT" clause programmatically
- * @param   integer $total                  the total number of rows returned by
+ * @param integer $total                  the total number of rows returned by
  *                                          the SQL query without any
  *                                          programmatically appended LIMIT clause
- * @param   integer $pos_next               the offset for next page
- * @param   string  $pre_count              the string renders before row count
- * @param   string  $after_count            the string renders after row count
+ * @param integer $pos_next               the offset for next page
+ * @param string  $pre_count              the string renders before row count
+ * @param string  $after_count            the string renders after row count
  *
  * @return  PMA_Message $message            an object of PMA_Message
  *
@@ -3997,19 +3997,19 @@ function PMA_setMessageInformation(
 /**
  * Prepare multi field edit/delete links
  *
- * @param   integer &$dt_result         the link id associated to the query
+ * @param integer &$dt_result         the link id associated to the query
  *                                      which results have to be displayed
- * @param   integer $fields_cnt         the total number of fields returned by
+ * @param integer $fields_cnt         the total number of fields returned by
  *                                      the SQL query
- * @param   array   $fields_meta        the list of fields properties
- * @param   integer $num_rows           the total number of rows returned
+ * @param array   $fields_meta        the list of fields properties
+ * @param integer $num_rows           the total number of rows returned
  *                                      by the SQL query
- * @param   array   $analyzed_sql       the analyzed query
- * @param   string  $db                 the database name
- * @param   string  $table              the table name
- * @param   string  $sql_query          the current SQL query
- * @param   string  $goto               the URL to go back in case of errors
- * @param   string  $del_link           the display element - 'del_link'
+ * @param array   $analyzed_sql       the analyzed query
+ * @param string  $db                 the database name
+ * @param string  $table              the table name
+ * @param string  $sql_query          the current SQL query
+ * @param string  $goto               the URL to go back in case of errors
+ * @param string  $del_link           the display element - 'del_link'
  *
  * @return  string  $links_html         html content
  *
