@@ -25,11 +25,17 @@ class PMA_Header {
     private $_scripts;
     private $_menu;
     private $_userprefs_offer_import;
+    private $_title;
+    private $_bodyId;
+    private $_menuEnabled;
     public $headerIsSent;
 
     private function __construct()
     {
+        $this->_bodyId = '';
+        $this->_title = 'phpMyAdmin';
         $this->_menu = PMA_Menu::getInstance();
+        $this->_menuEnabled = true;
         $this->_scripts = new PMA_Scripts();
         $this->headerIsSent = false;
         // if database storage for user preferences is transient,
@@ -54,6 +60,21 @@ class PMA_Header {
     public function getScripts()
     {
         return $this->_scripts;
+    }
+
+    public function setBodyId($id)
+    {
+        $this->_bodyId = htmlspecialchars($id);
+    }
+
+    public function setTitle($title)
+    {
+        $this->_title = htmlspecialchars($title);
+    }
+
+    public function disableMenu()
+    {
+        $this->_menuEnabled = false;
     }
 
     public function display()
@@ -97,7 +118,7 @@ class PMA_Header {
                 if (! defined('PMA_DISPLAY_HEADING')) {
                     define('PMA_DISPLAY_HEADING', 1);
                 }
-                if (PMA_DISPLAY_HEADING && $GLOBALS['server'] > 0) {
+                if (PMA_DISPLAY_HEADING && $GLOBALS['server'] > 0 && $this->_menuEnabled) {
                     $retval .= $this->_menu->getDisplay();
                 }
                 $retval .= $this->_addRecentTable(
@@ -177,10 +198,10 @@ class PMA_Header {
     private function _getTitleTag()
     {
         $retval = "<title>";
-        if (empty($GLOBALS['page_title'])) {
-            $retval .= 'phpMyAdmin';
-        } else {
+        if (! empty($GLOBALS['page_title'])) {
             $retval .= htmlspecialchars($GLOBALS['page_title']);
+        } else {
+            $retval .= $this->_title;
         }
         $retval .= "</title>";
         return $retval;
@@ -188,7 +209,12 @@ class PMA_Header {
 
     private function _getBodyStart()
     {
-        return "</head><body>";
+        $retval = "</head><body";
+        if (! empty($this->_bodyId)) {
+            $retval .= " id='" . $this->_bodyId . "'";
+        }
+        $retval .= ">";
+        return $retval;
     }
 
     private function _getWarnings()
