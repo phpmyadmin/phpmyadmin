@@ -975,8 +975,8 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
             );
 
             if (preg_match('@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|'
-                . 'LOCK IN SHARE MODE))@is', $unsorted_sql_query, $regs3)
-            ) {
+                . 'LOCK IN SHARE MODE))@is', $unsorted_sql_query, $regs3
+            )) {
                 $sorted_sql_query = $regs3[1] . $sort_order . $regs3[2];
             } else {
                 $sorted_sql_query = $unsorted_sql_query . $sort_order;
@@ -1129,8 +1129,8 @@ function PMA_getSortByKeyDropDown(
         if (preg_match(
             '@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|'
             . 'FOR UPDATE|LOCK IN SHARE MODE))@is',
-            $unsorted_sql_query, $my_reg)
-        ) {
+            $unsorted_sql_query, $my_reg
+        )) {
             $unsorted_sql_query_first_part = $my_reg[1];
             $unsorted_sql_query_second_part = $my_reg[2];
         } else {
@@ -1295,7 +1295,7 @@ function PMA_getOptionsBlock($db, $table, $sql_query, $goto)
         . PMA_getCheckbox(
             'display_binary_as_hex', __('Show binary contents as HEX'),
             ! empty($_SESSION['tmp_user_values']['display_binary_as_hex']), false
-          )
+        )
         . '</div>';
 
     // I would have preferred to name this "display_transformation".
