@@ -399,7 +399,7 @@ function PMA_getTableNavigation($pos_next, $pos_prev, $sql_query,
         && ($_SESSION['tmp_user_values']['max_rows'] != 'all')
     ) {
 
-        $table_navigation_html .= PMA_getMoveFarwardButtonsForTableNavigation(
+        $table_navigation_html .= PMA_getMoveForwardButtonsForTableNavigation(
             $html_sql_query, $pos_next, $is_innodb,
             $unlim_num_rows, $num_rows
         );
@@ -528,7 +528,7 @@ function PMA_getShowAllButtonForTableNavigation($db, $table, $html_sql_query, $g
  *
  * @see     PMA_getTableNavigation()
  */
-function PMA_getMoveFarwardButtonsForTableNavigation(
+function PMA_getMoveForwardButtonsForTableNavigation(
     $html_sql_query, $pos_next, $is_innodb, $unlim_num_rows, $num_rows
 ) {
 
