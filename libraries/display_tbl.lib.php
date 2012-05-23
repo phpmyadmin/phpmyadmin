@@ -41,12 +41,12 @@ require_once './libraries/Index.class.php';
  * @return array    an array with explicit indexes for all the display
  *                   elements
  *
- * @global  string   the database name
- * @global  string   the table name
- * @global  integer  the total number of rows returned by the SQL query
+ * @global string   the database name
+ * @global string   the table name
+ * @global integer  the total number of rows returned by the SQL query
  *                   without any programmatically appended "LIMIT" clause
- * @global  array    the properties of the fields returned by the query
- * @global  string   the URL to return to in case of error in a SQL
+ * @global array    the properties of the fields returned by the query
+ * @global string   the URL to return to in case of error in a SQL
  *                   statement
  *
  * @access  private
@@ -288,15 +288,15 @@ function PMA_getTableNavigationButton($caption, $title, $pos, $html_sql_query,
  *
  * @return string                            html content
  *
- * @global  string   $db             the database name
- * @global  string   $table          the table name
- * @global  string   $goto           the URL to go back in case of errors
- * @global  integer  $num_rows       the total number of rows returned by the
+ * @global string   $db             the database name
+ * @global string   $table          the table name
+ * @global string   $goto           the URL to go back in case of errors
+ * @global integer  $num_rows       the total number of rows returned by the
  *                                   SQL query
- * @global  integer  $unlim_num_rows the total number of rows returned by the
+ * @global integer  $unlim_num_rows the total number of rows returned by the
  *                                   SQL any programmatically appended "LIMIT" clause
- * @global  boolean  $is_innodb      whether its InnoDB or not
- * @global  array    $showtable      table definitions
+ * @global boolean  $is_innodb      whether its InnoDB or not
+ * @global array    $showtable      table definitions
  *
  * @access  private
  *
@@ -490,10 +490,10 @@ function PMA_getMoveBackwardButtonsForTableNavigation($html_sql_query, $pos_prev
 /**
  * Prepare Show All button for table navigation
  *
- * @param string  $db             the database name
- * @param string  $table          the table name
- * @param string  $html_sql_query the sql encoded by html special characters
- * @param string  $goto           the URL to go back in case of errors
+ * @param string $db             the database name
+ * @param string $table          the table name
+ * @param string $html_sql_query the sql encoded by html special characters
+ * @param string $goto           the URL to go back in case of errors
  *
  * @return  string                          html content
  *
@@ -575,11 +575,11 @@ function PMA_getMoveFarwardButtonsForTableNavigation(
  * Prepare feilds followed by Show button for table navigation
  * Start row, Number of rows, Headers every
  *
- * @param string  $html_sql_query             the sql encoded by html special characters
- * @param string  $goto                       the URL to go back in case of errors
- * @param integer $pos_next                   the offset for the "next" page
- * @param integer $unlim_num_rows             the total number of rows returned by the
- * @param string  $id_for_direction_dropdown  the id for the direction dropdown
+ * @param string  $html_sql_query            the sql encoded by html special characters
+ * @param string  $goto                      the URL to go back in case of errors
+ * @param integer $pos_next                  the offset for the "next" page
+ * @param integer $unlim_num_rows            the total number of rows returned by the
+ * @param string  $id_for_direction_dropdown the id for the direction dropdown
  *
  * @return  string  $additional_fields_html html content
  *
@@ -652,13 +652,13 @@ function PMA_getAdditionalFieldsForTableNavigation(
  *
  * @return string                      html content
  *
- * @global  string   $db               the database name
- * @global  string   $table            the table name
- * @global  string   $goto             the URL to go back in case of errors
- * @global  string   $sql_query        the SQL query
- * @global  integer  $num_rows         the total number of rows returned by the
+ * @global string   $db               the database name
+ * @global string   $table            the table name
+ * @global string   $goto             the URL to go back in case of errors
+ * @global string   $sql_query        the SQL query
+ * @global integer  $num_rows         the total number of rows returned by the
  *                                     SQL query
- * @global  array    $vertical_display informations used with vertical display
+ * @global array    $vertical_display informations used with vertical display
  *                                     mode
  *
  * @access  private
@@ -1088,11 +1088,11 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
 /**
  * Prepare sort by key dropdown - html code segment
  *
- * @param string  $db                 the database name
- * @param string  $table              the table name
- * @param array   $indexes            the indexes of the table for sort criteria
- * @param string  $sort_expression    the sort expression
- * @param string  $unsorted_sql_query the unsorted sql query
+ * @param string $db                 the database name
+ * @param string $table              the table name
+ * @param array  $indexes            the indexes of the table for sort criteria
+ * @param string $sort_expression    the sort expression
+ * @param string $unsorted_sql_query the unsorted sql query
  *
  * @return  string  $drop_down_html         html content
  *
@@ -1218,10 +1218,10 @@ function PMA_getDataForResettingColumnOrder()
 /**
  * Prepare option fields block
  *
- * @param string  $db             the database name
- * @param string  $table          the table name
- * @param string  $sql_query      the SQL query
- * @param string  $goto           the URL to go back in case of errors
+ * @param string $db        the database name
+ * @param string $table     the table name
+ * @param string $sql_query the SQL query
+ * @param string $goto      the URL to go back in case of errors
  *
  * @return  string  $options_html   html content
  *
@@ -1341,12 +1341,12 @@ function PMA_getOptionsBlock($db, $table, $sql_query, $goto)
 /**
  * Get full/partial text button or link
  *
- * @param string  $db             the database name
- * @param string  $table          the table name
- * @param string  $sql_query      the SQL query
- * @param string  $goto           the URL to go back in case of errors
+ * @param string $db        the database name
+ * @param string $table     the table name
+ * @param string $sql_query the SQL query
+ * @param string $goto      the URL to go back in case of errors
  *
- * @return  string                  html content
+ * @return string html content
  *
  * @see     PMA_getTableHeaders()
  */
@@ -1384,9 +1384,9 @@ function PMA_getFullOrPartialTextButtonOrLink($db, $table, $sql_query, $goto)
 /**
  * Prepare html form for multi row operations
  *
- * @param string  $db                 the database name
- * @param string  $table              the table name
- * @param string  $del_lnk            the delete link of current row
+ * @param string $db      the database name
+ * @param string $table   the table name
+ * @param string $del_lnk the delete link of current row
  *
  * @return  string  $form_html          html content
  *
@@ -1425,8 +1425,8 @@ function PMA_getFormForMultiRowOperations($db, $table, $del_lnk)
 /**
  * Get comment for row
  *
- * @param array   $comments_map   comments array
- * @param array   $fields_meta    set of field properties
+ * @param array $comments_map comments array
+ * @param array $fields_meta  set of field properties
  *
  * @return  string  $comment        html content
  *
@@ -1452,10 +1452,10 @@ function PMA_getCommentForRow($comments_map, $fields_meta)
 /**
  * Check whether the column is sorted
  *
- * @param string  $sort_expression              sort expression
- * @param string  $sort_expression_nodirection  sort expression without direction
- * @param string  $sort_tbl                     the table name
- * @param string  $name_to_use_in_sort          the sorting column name
+ * @param string $sort_expression             sort expression
+ * @param string $sort_expression_nodirection sort expression without direction
+ * @param string $sort_tbl                    the table name
+ * @param string $name_to_use_in_sort         the sorting column name
  *
  * @return boolean $is_in_sort                   the column sorted or not
  *
@@ -1506,11 +1506,11 @@ function PMA_isInSorted(
 /**
  * Get sort url paramaeters - sort order and order image
  *
- * @param boolean $is_in_sort         the column sorted or not
- * @param string  $sort_direction     the sort direction
- * @param array   $fields_meta        set of field properties
- * @param string  $sort_order         the sorting order
- * @param integer $column_index       the index of the column
+ * @param boolean $is_in_sort     the column sorted or not
+ * @param string  $sort_direction the sort direction
+ * @param array   $fields_meta    set of field properties
+ * @param string  $sort_order     the sorting order
+ * @param integer $column_index   the index of the column
  *
  * @return  array                       2 element array - $sort_order, $order_img
  *
@@ -1570,11 +1570,11 @@ function PMA_getSortingUrlParams(
 /**
  * Get sort order link
  *
- * @param string  $order_img          the sort order image
- * @param integer $col_index          the index of the column
- * @param string  $direction          the display direction
- * @param array   $fields_meta        set of field properties
- * @param string  $order_url          the url for sort
+ * @param string  $order_img   the sort order image
+ * @param integer $col_index   the index of the column
+ * @param string  $direction   the display direction
+ * @param array   $fields_meta set of field properties
+ * @param string  $order_url   the url for sort
  *
  * @return  string                      the sort order link
  *
@@ -1629,14 +1629,14 @@ function PMA_getSortOrderLink(
 /**
  * Prepare columns to draggable effect for sortable columns
  *
- * @param boolean $col_visib          the column is visible (false)
- *          array                       the column is not visible (string array)
- * @param string  $col_visib_j        element of $col_visib array
- * @param boolean $condition_field    whether to add CSS class condition
- * @param string  $direction          the display direction
- * @param array   $fields_meta        set of field properties
- * @param string  $order_link         the order link
- * @param string  $comments           the comment for the column
+ * @param boolean $col_visib       the column is visible (false)
+ *        array                    the column is not visible (string array)
+ * @param string  $col_visib_j     element of $col_visib array
+ * @param boolean $condition_field whether to add CSS class condition
+ * @param string  $direction       the display direction
+ * @param array   $fields_meta     set of field properties
+ * @param string  $order_link      the order link
+ * @param string  $comments        the comment for the column
  *
  * @return  string  $draggable_html     html content
  *
@@ -1685,13 +1685,13 @@ function PMA_getDraggableClassForSortableColumns(
 /**
  * Prepare columns to draggable effect for non sortable columns
  *
- * @param boolean $col_visib          the column is visible (false)
- *          array                       the column is not visible (string array)
- * @param string  $col_visib_j        element of $col_visib array
- * @param boolean $condition_field    whether to add CSS class condition
- * @param string  $direction          the display direction
- * @param array   $fields_meta        set of field properties
- * @param string  $comments           the comment for the column
+ * @param boolean $col_visib       the column is visible (false)
+ *        array                    the column is not visible (string array)
+ * @param string  $col_visib_j     element of $col_visib array
+ * @param boolean $condition_field whether to add CSS class condition
+ * @param string  $direction       the display direction
+ * @param array   $fields_meta     set of field properties
+ * @param string  $comments        the comment for the column
  *
  * @return  string  $draggable_html         html content
  *
@@ -1854,25 +1854,25 @@ function PMA_addClass($class, $condition_field, $meta, $nowrap,
 /**
  * Prepare the body of the results table
  *
- * @param integer   &$dt_result        the link id associated to the query
- *                                     which results have to be displayed
- * @param array     &$is_display       which elements to display
- * @param array     $map               the list of relations
- * @param array     $analyzed_sql the  analyzed query
+ * @param integer &$dt_result   the link id associated to the query
+ *                              which results have to be displayed
+ * @param array   &$is_display  which elements to display
+ * @param array   $map          the list of relations
+ * @param array   $analyzed_sql the analyzed query
  *
- * @return string   $table_body_html   html content
+ * @return string $table_body_html   html content
  *
- * @global string   $db                the database name
- * @global string   $table             the table name
- * @global string   $goto              the URL to go back in case of errors
- * @global string   $sql_query         the SQL query
- * @global array    $fields_meta       the list of fields properties
- * @global integer  $fields_cnt        the total number of fields returned by
- *                                     the SQL query
- * @global array    $vertical_display  informations used with vertical display
- *                                     mode
- * @global array    $highlight_columns column names to highlight
- * @global array    $row               current row data
+ * @global string  $db                the database name
+ * @global string  $table             the table name
+ * @global string  $goto              the URL to go back in case of errors
+ * @global string  $sql_query         the SQL query
+ * @global array   $fields_meta       the list of fields properties
+ * @global integer $fields_cnt        the total number of fields returned by
+ *                                    the SQL query
+ * @global array   $vertical_display  informations used with vertical display
+ *                                    mode
+ * @global array   $highlight_columns column names to highlight
+ * @global array   $row               current row data
  *
  * @access private
  *
@@ -2281,8 +2281,8 @@ function PMA_getTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
 /**
  * Get url sql query without conditions to shorten URLs
  *
- * @param array   $analyzed_sql   analyzed query
- * @param string  $sql_query      the SQL query
+ * @param array  $analyzed_sql analyzed query
+ * @param string $sql_query    the SQL query
  *
  * @return  string  $url_sql        analyzed sql query
  *
@@ -2341,10 +2341,10 @@ function PMA_getColumnParams()
 /**
  * Prepare vertical display mode necessay HTML stuff
  *
- * @param array   $vertical_display       informations used with vertical
- *                                          display mode
- * @param integer $row_no                 the index of current row
- * @param boolean $directionCondition     the directional condition
+ * @param array   $vertical_display   informations used with vertical
+ *                                    display mode
+ * @param integer $row_no             the index of current row
+ * @param boolean $directionCondition the directional condition
  *
  * @return  string  $vertical_disp_html     html content
  *
@@ -2392,11 +2392,11 @@ function PMA_getVerticalDisplaySupportSegments(
 /**
  * Get modified links
  *
- * @param string  $db                 the database name
- * @param string  $table              the table name
- * @param string  $where_clause       the where clause of the sql
- * @param boolean $clause_is_unique   the unique condition of clause
- * @param string  $url_sql_query      the analyzed sql query
+ * @param string  $db               the database name
+ * @param string  $table            the table name
+ * @param string  $where_clause     the where clause of the sql
+ * @param boolean $clause_is_unique the unique condition of clause
+ * @param string  $url_sql_query    the analyzed sql query
  *
  * @return  array                       5 element array - $edit_url, $copy_url,
  *                                      $edit_str, $copy_str, $edit_anchor_class
@@ -2443,13 +2443,13 @@ function PMA_getModifiedLinks(
 /**
  * Get delete and kill links
  *
- * @param string  $db                 the database name
- * @param string  $table              the table name
- * @param string  $where_clause       the where clause of the sql
- * @param boolean $clause_is_unique   the unique condition of clause
- * @param string  $url_sql_query      the analyzed sql query
- * @param string  $goto               the URL to go back in case of errors
- * @param string  $del_lnk            the delete link of current row
+ * @param string  $db               the database name
+ * @param string  $table            the table name
+ * @param string  $where_clause     the where clause of the sql
+ * @param boolean $clause_is_unique the unique condition of clause
+ * @param string  $url_sql_query    the analyzed sql query
+ * @param string  $goto             the URL to go back in case of errors
+ * @param string  $del_lnk          the delete link of current row
  *
  * @return  array                       4 element array - $del_query,
  *                                      $del_url, $del_str, $js_conf
@@ -2527,22 +2527,22 @@ function PMA_getDeleteAndKillLinks(
 /**
  * Prepare placed links
  *
- * @param string  $dir                the direction of links should place
- * @param string  $del_url            the url for delete row
- * @param array   $is_display         which elements to display
- * @param integer $row_no             the index of current row
- * @param string  $where_clause       the where clause of the sql
- * @param string  $where_clause_html  the html encoded where clause
- * @param array   $condition_array    array of keys (primary, unique, condition)
- * @param string  $del_query          the query for delete row
- * @param string  $dir_letter         the letter denoted the direction
- * @param string  $edit_url           the url for edit row
- * @param string  $copy_url           the url for copy row
- * @param string  $edit_anchor_class  the class for html element for edit
- * @param string  $edit_str           the label for edit row
- * @param string  $copy_str           the label for copy row
- * @param string  $del_str            the label for delete row
- * @param string  $js_conf            text for the JS confirmation
+ * @param string  $dir               the direction of links should place
+ * @param string  $del_url           the url for delete row
+ * @param array   $is_display        which elements to display
+ * @param integer $row_no            the index of current row
+ * @param string  $where_clause      the where clause of the sql
+ * @param string  $where_clause_html the html encoded where clause
+ * @param array   $condition_array   array of keys (primary, unique, condition)
+ * @param string  $del_query         the query for delete row
+ * @param string  $dir_letter        the letter denoted the direction
+ * @param string  $edit_url          the url for edit row
+ * @param string  $copy_url          the url for copy row
+ * @param string  $edit_anchor_class the class for html element for edit
+ * @param string  $edit_str          the label for edit row
+ * @param string  $copy_str          the label for copy row
+ * @param string  $del_str           the label for delete row
+ * @param string  $js_conf           text for the JS confirmation
  *
  * @return  string                      html content
  *
@@ -2571,14 +2571,14 @@ function PMA_getPlacedLinks(
 /**
  * Get resetted class for inline edit columns
  *
- * @param string  $grid_edit_class    the class for all editable columns
- * @param string  $not_null_class     the class for not null columns
- * @param string  $relation_class     the class for relations in a column
- * @param string  $hide_class         the class for visibility of a column
- * @param string  $field_type_class   the class related to type of the field
- * @param integer $row_no             the row index
+ * @param string  $grid_edit_class  the class for all editable columns
+ * @param string  $not_null_class   the class for not null columns
+ * @param string  $relation_class   the class for relations in a column
+ * @param string  $hide_class       the class for visibility of a column
+ * @param string  $field_type_class the class related to type of the field
+ * @param integer $row_no           the row index
  *
- * @return  string  $class              the resetted class
+ * @return string $class the resetted class
  *
  * @see     PMA_getTableBody()
  */
@@ -2612,7 +2612,7 @@ function PMA_getResettedClassForInlineEdit(
 /**
  * Get class for datetime related fields
  *
- * @param string  $type               the type of the column field
+ * @param string $type the type of the column field
  *
  * @return  string  $field_type_class   the class for the column
  *
@@ -3025,7 +3025,7 @@ function PMA_getDataCellForNonNumericAndNonBlobFields(
  *
  * @return string       html content
  *
- * @global  array    $vertical_display the information to display
+ * @global array    $vertical_display the information to display
  *
  * @access  private
  *
@@ -3184,8 +3184,8 @@ function PMA_getVerticalTable()
 /**
  * Prepare edit, copy and delete links for verticle table
  *
- * @param array   $vertical_display   the information to display
- * @param string  $operation          edit/copy/delete
+ * @param array  $vertical_display the information to display
+ * @param string $operation        edit/copy/delete
  *
  * @return  string  $links_html         html content
  *
@@ -3223,10 +3223,10 @@ function PMA_getOperationLinksForVerticleTable($vertical_display, $operation)
 /**
  * Get checkboxes for multiple row data operations
  *
- * @param array   $vertical_display   the information to display
- * @param string  $dir                _left / _right
+ * @param array  $vertical_display the information to display
+ * @param string $dir              _left / _right
  *
- * @return  $checkBoxes_html            html content
+ * @return $checkBoxes_html html content
  *
  * @see     PMA_getVerticalTable()
  */
@@ -3456,23 +3456,23 @@ function PMA_setConfigParamsForDisplayTable()
  *
  * @return sting                        Generated HTML content for resulted table
  *
- * @global  string   $db                the database name
- * @global  string   $table             the table name
- * @global  string   $goto              the URL to go back in case of errors
- * @global  string   $sql_query         the current SQL query
- * @global  integer  $num_rows          the total number of rows returned by the
+ * @global string   $db                the database name
+ * @global string   $table             the table name
+ * @global string   $goto              the URL to go back in case of errors
+ * @global string   $sql_query         the current SQL query
+ * @global integer  $num_rows          the total number of rows returned by the
  *                                      SQL query
- * @global  integer  $unlim_num_rows    the total number of rows returned by the
+ * @global integer  $unlim_num_rows    the total number of rows returned by the
  *                                      SQL query without any programmatically
  *                                      appended "LIMIT" clause
- * @global  array    $fields_meta       the list of fields properties
- * @global  integer  $fields_cnt        the total number of fields returned by
+ * @global array    $fields_meta       the list of fields properties
+ * @global integer  $fields_cnt        the total number of fields returned by
  *                                      the SQL query
- * @global  array    $vertical_display  informations used with vertical display
+ * @global array    $vertical_display  informations used with vertical display
  *                                      mode
- * @global  array    $highlight_columns column names to highlight
- * @global  array    $cfgRelation       the relation settings
- * @global  array    $showtable         table definitions
+ * @global array    $highlight_columns column names to highlight
+ * @global array    $cfgRelation       the relation settings
+ * @global array    $showtable         table definitions
  *
  * @access  private
  *
@@ -3883,21 +3883,21 @@ function PMA_getSortedColumnMessage(&$dt_result, $fields_meta,
 /**
  * Set the content need to be show in message
  *
- * @param string  $db                     the database name
- * @param string  $table                  the table name
- * @param string  $sorted_column_message  the message for sorted column
- * @param string  $limit_clause           the limit clause of analyzed query
- * @param integer $unlim_num_rows         the total number of rows returned by
- *                                          the SQL query without any appended
- *                                          "LIMIT" clause programmatically
- * @param integer $total                  the total number of rows returned by
- *                                          the SQL query without any
- *                                          programmatically appended LIMIT clause
- * @param integer $pos_next               the offset for next page
- * @param string  $pre_count              the string renders before row count
- * @param string  $after_count            the string renders after row count
+ * @param string  $db                    the database name
+ * @param string  $table                 the table name
+ * @param string  $sorted_column_message the message for sorted column
+ * @param string  $limit_clause          the limit clause of analyzed query
+ * @param integer $unlim_num_rows        the total number of rows returned by
+ *                                       the SQL query without any appended
+ *                                       "LIMIT" clause programmatically
+ * @param integer $total                 the total number of rows returned by
+ *                                       the SQL query without any
+ *                                       programmatically appended LIMIT clause
+ * @param integer $pos_next              the offset for next page
+ * @param string  $pre_count             the string renders before row count
+ * @param string  $after_count           the string renders after row count
  *
- * @return  PMA_Message $message            an object of PMA_Message
+ * @return PMA_Message $message an object of PMA_Message
  *
  * @see     PMA_getTable()
  */
@@ -3994,21 +3994,21 @@ function PMA_setMessageInformation(
 /**
  * Prepare multi field edit/delete links
  *
- * @param integer &$dt_result         the link id associated to the query
- *                                      which results have to be displayed
- * @param integer $fields_cnt         the total number of fields returned by
- *                                      the SQL query
- * @param array   $fields_meta        the list of fields properties
- * @param integer $num_rows           the total number of rows returned
- *                                      by the SQL query
- * @param array   $analyzed_sql       the analyzed query
- * @param string  $db                 the database name
- * @param string  $table              the table name
- * @param string  $sql_query          the current SQL query
- * @param string  $goto               the URL to go back in case of errors
- * @param string  $del_link           the display element - 'del_link'
+ * @param integer &$dt_result   the link id associated to the query
+ *                              which results have to be displayed
+ * @param integer $fields_cnt   the total number of fields returned by
+ *                              the SQL query
+ * @param array   $fields_meta  the list of fields properties
+ * @param integer $num_rows     the total number of rows returned
+ *                              by the SQL query
+ * @param array   $analyzed_sql the analyzed query
+ * @param string  $db           the database name
+ * @param string  $table        the table name
+ * @param string  $sql_query    the current SQL query
+ * @param string  $goto         the URL to go back in case of errors
+ * @param string  $del_link     the display element - 'del_link'
  *
- * @return  string  $links_html         html content
+ * @return string $links_html html content
  *
  * @see     PMA_getTable()
  */
@@ -4137,17 +4137,17 @@ function PMA_mimeDefaultFunction($buffer)
 /**
  * Get operations that are available on results.
  *
- * @param array $the_disp_mode          the display mode
- * @param array $analyzed_sql           the analyzed query
+ * @param array $the_disp_mode the display mode
+ * @param array $analyzed_sql  the analyzed query
  *
  * @return string                       html content
  *
- * @global  string   $db                the database name
- * @global  string   $table             the table name
- * @global  string   $sql_query         the current SQL query
- * @global  integer  $unlim_num_rows    the total number of rows returned by the
- *                                      SQL query without any programmatically
- *                                      appended "LIMIT" clause
+ * @global string   $db             the database name
+ * @global string   $table          the table name
+ * @global string   $sql_query      the current SQL query
+ * @global integer  $unlim_num_rows the total number of rows returned by the
+ *                                   SQL query without any programmatically
+ *                                   appended "LIMIT" clause
  *
  * @access  private
  *
