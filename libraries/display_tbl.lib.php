@@ -519,7 +519,7 @@ function PMA_getShowAllButtonForTableNavigation($db, $table, $html_sql_query, $g
  * Prepare move farward buttons - next and last
  *
  * @param string  $html_sql_query the sql encoded by html special characters
- * @param integer $pos_prev       the offset for the "previous" page
+ * @param integer $pos_next       the offset for the "next" page
  * @param boolean $is_innodb      whether its InnoDB or not
  * @param integer $unlim_num_rows the total number of rows returned by the
  * @param integer $num_rows       the total number of rows returned by the
