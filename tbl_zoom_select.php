@@ -20,14 +20,21 @@ require_once './libraries/tbl_info.inc.php';
 $GLOBALS['js_include'][] = 'makegrid.js';
 $GLOBALS['js_include'][] = 'sql.js';
 $GLOBALS['js_include'][] = 'functions.js';
-$GLOBALS['js_include'][] = 'tbl_zoom_plot.js';
 $GLOBALS['js_include'][] = 'date.js';
-$GLOBALS['js_include'][] = 'jquery/jquery.mousewheel.js';
-$GLOBALS['js_include'][] = 'highcharts/highcharts.js';
-/* Files required for chart exporting */
-$GLOBALS['js_include'][] = 'highcharts/exporting.js';
+/* < IE 9 doesn't support canvas natively */
+if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
+    $GLOBALS['js_include'][] = 'canvg/flashcanvas.js';
+}
+
+$GLOBALS['js_include'][] = 'jqplot/jquery.jqplot.js';
+$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.canvasTextRenderer.js';
+$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.canvasAxisLabelRenderer.js';
+$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.dateAxisRenderer.js';
+$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.highlighter.js';
+$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.cursor.js';
 $GLOBALS['js_include'][] = 'canvg/canvg.js';
 $GLOBALS['js_include'][] = 'jquery/timepicker.js';
+$GLOBALS['js_include'][] = 'tbl_zoom_plot_jqplot.js';
 
 /**
  * Sets globals from $_POST
@@ -409,14 +416,15 @@ if (isset($zoom_submit)
     //JSON encode the data(query result)
     if (isset($zoom_submit) && ! empty($data)) {
         ?>
-        <div id='resizer' style="width:600px;height:400px">
+        <div id="resizer">
           <center><a href="#" onclick="displayHelp();"><?php echo __('How to use'); ?></a></center>
           <div id="querydata" style="display:none">
         <?php
         echo json_encode($data);
         ?>
           </div>
-          <div id="querychart" style="float:right"></div>
+          <div id="querychart"></div>
+          <button class="button-reset"><?php echo __('Reset zoom'); ?></button>
         </div>
         <?php
     }
