@@ -20,7 +20,6 @@ $GLOBALS['js_include'][] = 'makegrid.js';
 $GLOBALS['js_include'][] = 'sql.js';
 $GLOBALS['js_include'][] = 'functions.js';
 $GLOBALS['js_include'][] = 'date.js';
-$GLOBALS['js_include'][] = 'jquery/jquery.mousewheel.js';
 /* < IE 9 doesn't support canvas natively */
 if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
     $GLOBALS['js_include'][] = 'canvg/flashcanvas.js';
