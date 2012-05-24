@@ -250,7 +250,12 @@ for ($i = 0; $i < 4; $i++) {
         <td></td>
     </tr>
     <tr><td>
-      <input type="hidden" name="types[<?php echo $i; ?>]" id="types_<?php echo $i; ?>" />
+    <input type="hidden" name="types[<?php echo $i; ?>]" id="types_<?php echo $i; ?>"
+    <?php 
+    if (isset($_POST['types'][$i])) {
+        echo 'value="' . $_POST['types'][$i] . '"';
+    }
+    ?> />
       <input type="hidden" name="collations[<?php echo $i;?>]" id="collations_<?php echo $i; ?>" />
     </td></tr>
     <?php
