@@ -113,6 +113,7 @@ $(document).ready(function() {
     var searchedDataKey = null;
     var xLabel = $('#tableid_0').val();
     var yLabel = $('#tableid_1').val();
+    // will be updated via Ajax
     var xType = $('#types_0').val();
     var yType = $('#types_1').val();
     var dataLabel = $('#dataLabel').val();
@@ -127,6 +128,8 @@ $(document).ready(function() {
     /**
      ** Input form submit on field change
      **/
+
+    // first column choice corresponds to the X axis
     $('#tableid_0').change(function() {
         //AJAX request for field type, collation, operators, and value field
         $.post('tbl_zoom_select.php',{
@@ -144,10 +147,12 @@ $(document).ready(function() {
             $('#tableFieldsId tr:eq(1) td:eq(3)').html(data.field_value);
 	    xLabel = $('#tableid_0').val();
 	    $('#types_0').val(data.field_type);
+        xType = data.field_type;
 	    $('#collations_0').val(data.field_collations);
         });
     });
 
+    // second column choice corresponds to the Y axis
     $('#tableid_1').change(function() {
         //AJAX request for field type, collation, operators, and value field
 	$.post('tbl_zoom_select.php',{
@@ -165,6 +170,7 @@ $(document).ready(function() {
             $('#tableFieldsId tr:eq(3) td:eq(3)').html(data.field_value);
 	    yLabel = $('#tableid_1').val();
 	    $('#types_1').val(data.field_type);
+        yType = data.field_type;
 	    $('#collations_1').val(data.field_collations);
         });
     });
