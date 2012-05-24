@@ -10984,7 +10984,7 @@ msgid ""
 "so a key was automatically generated for you. It is used to encrypt cookies; "
 "you don't need to remember it."
 msgstr ""
-"Něměl jste nastavený tajný klíč pro šifru blowfish (blowfish_secret) a "
+"Neměl jste nastavený tajný klíč pro šifru blowfish (blowfish_secret) a "
 "povolené přihlašování pomocí cookie, takže byl Váš tajný klíč vygenerován. "
 "Klíč bude použit pro zašifrování cookies."
 

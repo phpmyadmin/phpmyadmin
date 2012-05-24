@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-04-09 19:51+0200\n"
-"PO-Revision-Date: 2012-05-17 15:15+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-05-23 10:38+0200\n"
+"Last-Translator: Sebastiao Rocha <rocha@abracops.info>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -5490,6 +5490,8 @@ msgstr "Falha ao conectar com o servidor MySQL"
 #: libraries/config/validate.lib.php:254
 msgid "Empty username while using config authentication method"
 msgstr ""
+"O nome de usuário vazio quando a configuração utilizada e do método de "
+"autenticação"
 
 #: libraries/config/validate.lib.php:258
 msgid "Empty signon session name while using signon authentication method"
@@ -5526,7 +5528,7 @@ msgstr ""
 
 #: libraries/core.lib.php:414
 msgid "possible deep recursion attack"
-msgstr ""
+msgstr "possível ataque de recursão profunda"
 
 #: libraries/database_interface.lib.php:1813
 #, fuzzy
@@ -5782,10 +5784,9 @@ msgid "Compression:"
 msgstr "Compressão:"
 
 #: libraries/display_export.lib.php:310
-#, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
-msgstr "\"compactado com zip\""
+msgstr "compactado"
 
 #: libraries/display_export.lib.php:312
 #, fuzzy
@@ -5848,20 +5849,19 @@ msgstr ""
 "upload não estão disponíveis."
 
 #: libraries/display_import.lib.php:129
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
-msgstr "Não foi possível se logar no servidor MySQL"
+msgstr "Importar para o servidor atual"
 
 #: libraries/display_import.lib.php:131
-#, fuzzy, php-format
+#, php-format
 msgid "Importing into the database \"%s\""
-msgstr "Sem bases"
+msgstr "Importando para o banco de dados \"%s\""
 
 #: libraries/display_import.lib.php:133
-#, fuzzy, php-format
+#, php-format
 msgid "Importing into the table \"%s\""
-msgstr "Sem bases"
+msgstr "Importando para a tabela \"%s\""
 
 #: libraries/display_import.lib.php:139
 msgid "File to Import:"
@@ -5933,9 +5933,8 @@ msgid "%d is not valid row number."
 msgstr "%d não é um número de linha válido."
 
 #: libraries/display_tbl.lib.php:428
-#, fuzzy
 msgid "Start row"
-msgstr "Iniciar linha"
+msgstr "Linha inicial"
 
 #: libraries/display_tbl.lib.php:430
 #, fuzzy
@@ -5964,7 +5963,7 @@ msgstr "vertical"
 #: libraries/display_tbl.lib.php:445
 #, php-format
 msgid "Headers every %s rows"
-msgstr ""
+msgstr "Cabeçalho a cada %s linhas"
 
 #: libraries/display_tbl.lib.php:548
 msgid "Sort by key"
@@ -6004,10 +6003,9 @@ msgid "Relational key"
 msgstr "Chave de relação"
 
 #: libraries/display_tbl.lib.php:668
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Relational display column"
-msgstr "Esquema relacional"
+msgstr "Exibir coluna relacional"
 
 #: libraries/display_tbl.lib.php:675
 msgid "Show binary contents"
@@ -6019,18 +6017,17 @@ msgid "Show BLOB contents"
 msgstr "Exibir conteúdo BLOB"
 
 #: libraries/display_tbl.lib.php:687
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
-msgstr "Transformações do navegador"
+msgstr "Ocultar transformações do navegador"
 
 #: libraries/display_tbl.lib.php:694
 msgid "Well Known Text"
-msgstr ""
+msgstr "Texto bem conhecido"
 
 #: libraries/display_tbl.lib.php:695
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Binario bem conhecido"
 
 #: libraries/display_tbl.lib.php:1406 libraries/display_tbl.lib.php:1418
 msgid "The row has been deleted"
@@ -6075,10 +6072,9 @@ msgid "Visualize GIS data"
 msgstr "Visualisar dados GIS"
 
 #: libraries/display_tbl.lib.php:2701
-#, fuzzy
 #| msgid "Create User"
 msgid "Create view"
-msgstr "Criar usuário"
+msgstr "Criar visualização"
 
 #: libraries/display_tbl.lib.php:2808
 msgid "Link not found"
@@ -6278,6 +6274,7 @@ msgstr ""
 #: libraries/engines/pbms.lib.php:31
 msgid "The percentage of garbage in a repository file before it is compacted."
 msgstr ""
+"A percentual de lixo em um arquivo de repositório antes de ser compactado."
 
 #: libraries/engines/pbms.lib.php:35 libraries/replication_gui.lib.php:70
 #: server_synchronize.php:1261
@@ -6300,6 +6297,9 @@ msgid ""
 "indicate the unit of the value. A value in bytes is assumed when no unit is "
 "specified."
 msgstr ""
+"O tamanho máximo de um arquivo repositório BLOB. Pode usar Kb, MB ou GB para "
+"indicar a unidade do valor. Um valor em bytes é assumida quando nenhuma "
+"unidade é especificada."
 
 #: libraries/engines/pbms.lib.php:45
 msgid "Temp Blob Timeout"
