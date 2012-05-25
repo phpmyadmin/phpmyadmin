@@ -796,7 +796,7 @@ function PMA_AddJSCode($str)
  *
  * @return void
  */
-function PMA_AddJSVar($key, $value, $escape = true)
+function PMA_addJSVar($key, $value, $escape = true)
 {
     PMA_AddJsCode(PMA_getJsValue($key, $value, $escape));
 }
