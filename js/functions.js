@@ -1830,7 +1830,7 @@ function PMA_createChart(passedSettings)
 
 
 /*
- * Creates a Profiling Chart. Used in sql.php and server_status.js
+ * Creates a Profiling Chart. Used in server_status_monitor.js
  */
 function PMA_createProfilingChart(data, options)
 {
@@ -1864,6 +1864,48 @@ function PMA_createProfilingChart(data, options)
             }
         }
     }, options));
+}
+
+/*
+ * Creates a Profiling Chart with jqplot. Used in sql.js
+ */
+function PMA_createProfilingChartJqplot(target, data)
+{
+    return $.jqplot(target, [data],
+        {
+            seriesDefaults: {
+                renderer: $.jqplot.PieRenderer,
+                rendererOptions: {
+                    showDataLabels:  true 
+                }
+            },
+            legend: {
+                show: true,
+                location: 'e'
+            },
+            // from http://tango.freedesktop.org/Tango_Icon_Theme_Guidelines#Color_Palette
+            seriesColors: [
+             '#fce94f',
+             '#fcaf3e',
+             '#e9b96e',
+             '#8ae234',
+             '#729fcf',
+             '#ad7fa8',
+             '#ef2929',
+             '#eeeeec',
+             '#888a85',
+             '#c4a000',
+             '#ce5c00',
+             '#8f5902',
+             '#4e9a06',
+             '#204a87',
+             '#5c3566',
+             '#a40000',
+             '#babdb6',
+             '#2e3436'
+            ]
+        }
+    );
 }
 
 /**
