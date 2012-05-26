@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-24 17:03-0400\n"
-"PO-Revision-Date: 2012-05-17 16:58+0200\n"
+"PO-Revision-Date: 2012-05-26 18:46+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.0\n"
 
@@ -1906,7 +1906,7 @@ msgstr "Ubicar el cursor sobre un punto mostrará su etiqueta."
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "Para ampliar, seleccione una sección del gráfico."
 
 #: js/messages.php:306
 msgid "Click reset zoom link to come back to original state."
@@ -6460,10 +6460,9 @@ msgid "vertical"
 msgstr "vertical"
 
 #: libraries/display_tbl.lib.php:629
-#, fuzzy
 #| msgid "Headers every %s rows"
 msgid "Headers every"
-msgstr "Cabeceras cada %s filas"
+msgstr "Cabeceras cada"
 
 #: libraries/display_tbl.lib.php:633
 msgid "rows"
@@ -12523,10 +12522,9 @@ msgid "How to use"
 msgstr "Forma de utilización"
 
 #: tbl_zoom_select.php:432
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Reiniciar"
+msgstr "Reiniciar ampliación"
 
 #: themes.php:28
 msgid "Get more themes!"
