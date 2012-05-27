@@ -55,14 +55,12 @@ if (isset($_REQUEST['printview'])) {
 }
 
 if (isset($_SESSION['profiling'])) {
-    $GLOBALS['js_include'][] = 'highcharts/highcharts.js';
-    /* Files required for chart exporting */
-    $GLOBALS['js_include'][] = 'highcharts/exporting.js';
     /* < IE 9 doesn't support canvas natively */
     if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
         $GLOBALS['js_include'][] = 'canvg/flashcanvas.js';
     }
-    $GLOBALS['js_include'][] = 'canvg/canvg.js';
+    $GLOBALS['js_include'][] = 'jqplot/jquery.jqplot.js';
+    $GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.pieRenderer.js';
 }
 
 /**
@@ -1023,7 +1021,6 @@ $(makeProfilingChart);
         echo '</div>';
         //require_once 'libraries/chart.lib.php';
         echo '<div id="profilingchart" style="display:none;">';
-        //PMA_chart_profiling($profiling_results);
         echo json_encode($chart_json);
         echo '</div>';
         echo '</fieldset>' . "\n";
