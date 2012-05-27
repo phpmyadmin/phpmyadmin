@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-24 17:03-0400\n"
-"PO-Revision-Date: 2012-05-11 18:22+0200\n"
+"PO-Revision-Date: 2012-05-25 18:45+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: none\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Weblate 1.0\n"
 
@@ -1895,7 +1895,7 @@ msgstr "Survoler un point montrera sa description."
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "Pour faire un zoom avant, sélectionnez une section avec la souris."
 
 #: js/messages.php:306
 msgid "Click reset zoom link to come back to original state."
@@ -4669,10 +4669,9 @@ msgid "Minimum number of tables to display the table filter box"
 msgstr "Nombre minimum de tables pour afficher la boîte de filtre de table"
 
 #: libraries/config/messages.inc.php:281
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of databases to display the database filter box"
-msgstr "Nombre minimum de tables pour afficher la boîte de filtre de table"
+msgstr "Nombre minimum de bases de données pour activer le filtre"
 
 #: libraries/config/messages.inc.php:282
 msgid "String that separates databases into different tree levels"
@@ -6405,10 +6404,9 @@ msgid "vertical"
 msgstr "vertical"
 
 #: libraries/display_tbl.lib.php:629
-#, fuzzy
 #| msgid "Headers every %s rows"
 msgid "Headers every"
-msgstr "En-têtes à intervalle de %s lignes"
+msgstr "En-têtes à chaque"
 
 #: libraries/display_tbl.lib.php:633
 msgid "rows"
@@ -9124,10 +9122,9 @@ msgid "No databases"
 msgstr "Aucune base de données"
 
 #: navigation.php:209
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "Filter databases by name"
-msgstr "Filtrer par nom de table"
+msgstr "Filtrer par nom de base de données"
 
 #: navigation.php:272
 msgid "Filter tables by name"
@@ -12422,10 +12419,9 @@ msgid "How to use"
 msgstr "Consignes d'utilisation"
 
 #: tbl_zoom_select.php:432
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Réinitialiser"
+msgstr "Réinitialiser le zoom"
 
 #: themes.php:28
 msgid "Get more themes!"
