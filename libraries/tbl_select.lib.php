@@ -46,7 +46,7 @@ function PMA_tbl_getFields($db, $table)
         } else {
             // strip the "BINARY" attribute, except if we find "BINARY(" because
             // this would be a BINARY or VARBINARY field type
-            if (!preg_match('@BINARY[\(]@i', $type)) {
+            if (! preg_match('@BINARY[\(]@i', $type)) {
                 $type = preg_replace('@BINARY@i', '', $type);
             }
             $type = preg_replace('@ZEROFILL@i', '', $type);
@@ -333,7 +333,7 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations,
         $w = $backquoted_name . ' ' . $func_type . ' ' . $gis_data;
 
     } elseif (strncasecmp($types, 'enum', 4) == 0) {
-        if (!empty($fields)) {
+        if (! empty($fields)) {
             if (! is_array($fields)) {
                 $fields = explode(',', $fields);
             }
@@ -490,7 +490,7 @@ function PMA_tblSearchGenerateWhereClause($fields, $criteriaColumnNames,
         return $fullWhereClause;
     }
     // If there are no search criterias set, return
-    if (!array_filter($fields)) {
+    if (! array_filter($fields)) {
         return $fullWhereClause;
     }
     // else continue to form the where clause from column criteria values
@@ -533,7 +533,7 @@ $geom_types, $column_index)
 {
     $html_output = '';
     // return if geometrical column is not present
-    if (!$geomColumnFlag) {
+    if (! $geomColumnFlag) {
         return $html_output;
     }
 
