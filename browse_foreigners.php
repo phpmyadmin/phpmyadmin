@@ -11,6 +11,8 @@
  */
 require_once 'libraries/common.inc.php';
 
+$field = $_REQUEST['field'];
+
 PMA_checkParameters(array('db', 'table', 'field'));
 
 require_once 'libraries/ob.lib.php';

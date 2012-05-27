@@ -74,7 +74,8 @@ class PMA_Theme
         'gis',
         'navigation',
         'pmd',
-        'rte'
+        'rte',
+        'jqplot'
     );
 
     /**

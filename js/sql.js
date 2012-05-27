@@ -609,7 +609,7 @@ function makeProfilingChart()
     // Prevent the user from seeing the JSON code
     $('div#profilingchart').html('').show();
 
-    PMA_createProfilingChart(data);
+    PMA_createProfilingChartJqplot('profilingchart', data);
 }
 
 
