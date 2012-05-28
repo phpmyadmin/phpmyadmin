@@ -9,8 +9,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once 'url_generating.lib.php';
-
 /**
  * Gets all the fields of a table along with their types, collations
  * and whether null or not.
