@@ -420,21 +420,18 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations,
  * @param array   $fields                   Entered values of the columns
  * @param array   $criteriaColumnNames      Names of all columns
  * @param array   $criteriaColumnTypes      Types of all columns
- * @param array   $columnsToDisplay         Columns to be displayed in search results
- * @param bool    $is_distinct              If only distinct values are needed
- * @param string  $customWhereClause        The custom where clause
  * @param array   $criteriaColumnCollations Collations of all columns
  * @param array   $criteriaColumnOperators  Operators for given column type
- * @param string  $orderByColumn            Column by which results are to be ordered
- * @param string  $order                    Whether ASC or DESC
  *
  * @return string the generated SQL query
  */
 function PMA_tblSearchBuildSqlQuery($table, $fields, $criteriaColumnNames,
-    $criteriaColumnTypes, $columnsToDisplay, $is_distinct, $customWhereClause,
-    $criteriaColumnCollations, $criteriaColumnOperators, $orderByColumn, $order)
+    $criteriaColumnTypes, $criteriaColumnCollations, $criteriaColumnOperators)
 {
     $sql_query = 'SELECT ';
+
+    // If only distinct values are needed
+    $is_distinct = (isset($_POST['distinct'])) ? 'true' : 'false';
     if ($is_distinct == 'true') {
         $sql_query .= 'DISTINCT ';
     }
@@ -442,6 +439,7 @@ function PMA_tblSearchBuildSqlQuery($table, $fields, $criteriaColumnNames,
     // if all column names were selected to display, we do a 'SELECT *'
     // (more efficient and this helps prevent a problem in IE
     // if one of the rows is edited and we come back to the Select results)
+    $columnsToDisplay = $_POST['columnsToDisplay'];
     if (count($columnsToDisplay) == count($criteriaColumnNames)) {
         $sql_query .= '* ';
     } else {
@@ -449,20 +447,17 @@ function PMA_tblSearchBuildSqlQuery($table, $fields, $criteriaColumnNames,
         $sql_query .= implode(', ', $columnsToDisplay);
     } // end if
 
-    // avoid a loop, for example when $cfg['DefaultTabTable'] is set
-    // to 'tbl_select.php'
-    unset($columnsToDisplay);
-
     $sql_query .= ' FROM ' . PMA_backquote($table);
     $whereClause = PMA_tblSearchGenerateWhereClause(
-        $fields, $criteriaColumnNames, $criteriaColumnTypes, $customWhereClause,
+        $fields, $criteriaColumnNames, $criteriaColumnTypes,
         $criteriaColumnCollations, $criteriaColumnOperators
     );
     $sql_query .= $whereClause;
  
     // if the search results are to be ordered
-    if ($orderByColumn != '--nil--') {
-        $sql_query .= ' ORDER BY ' . PMA_backquote($orderByColumn) . ' ' . $order;
+    if ($_POST['orderByColumn'] != '--nil--') {
+        $sql_query .= ' ORDER BY ' . PMA_backquote($_POST['orderByColumn'])
+            . ' ' . $_POST['order'];
     } // end if
     return $sql_query;
 }
@@ -473,26 +468,26 @@ function PMA_tblSearchBuildSqlQuery($table, $fields, $criteriaColumnNames,
  * @param array  $fields                   Entered values of the columns
  * @param array  $criteriaColumnNames      Names of all columns
  * @param array  $criteriaColumnTypes      Types of all columns
- * @param string $customWhereClause        The custom where clause
  * @param array  $criteriaColumnCollations Collations of all columns
  * @param array  $criteriaColumnOperators  Operators for given column type
  *
  * @return string the generated where clause
  */
 function PMA_tblSearchGenerateWhereClause($fields, $criteriaColumnNames,
-    $criteriaColumnTypes, $customWhereClause, $criteriaColumnCollations,
-    $criteriaColumnOperators)
+    $criteriaColumnTypes, $criteriaColumnCollations, $criteriaColumnOperators)
 {
     $fullWhereClause = '';
 
-    if (trim($customWhereClause) != '') {
-        $fullWhereClause .= ' WHERE ' . $customWhereClause;
+    if (trim($_POST['customWhereClause']) != '') {
+        $fullWhereClause .= ' WHERE ' . $_POST['customWhereClause'];
         return $fullWhereClause;
     }
+
     // If there are no search criterias set, return
     if (! array_filter($fields)) {
         return $fullWhereClause;
     }
+
     // else continue to form the where clause from column criteria values
     $fullWhereClause = $charsets = array();
     reset($criteriaColumnOperators);

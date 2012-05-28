@@ -31,13 +31,9 @@ $post_params = array(
     'fields',
     'criteriaColumnOperators',
     'criteriaColumnNames',
-    'order',
-    'orderByColumn',
-    'columnsToDisplay',
     'session_max_rows',
     'table',
     'criteriaColumnTypes',
-    'customWhereClause',
 );
 foreach ($post_params as $one_post_param) {
     if (isset($_POST[$one_post_param])) {
@@ -49,7 +45,7 @@ foreach ($post_params as $one_post_param) {
 /**
  * Not selection yet required -> displays the selection form
  */
-if (! isset($columnsToDisplay) || $columnsToDisplay[0] == '') {
+if (! isset($_POST['columnsToDisplay']) || $_POST['columnsToDisplay'][0] == '') {
     // Gets some core libraries
     include_once 'libraries/tbl_common.inc.php';
     //$err_url   = 'tbl_select.php' . $err_url;
@@ -77,24 +73,20 @@ if (! isset($columnsToDisplay) || $columnsToDisplay[0] == '') {
     $foreigners = PMA_getForeigners($db, $table);
 
     // Displays the table search form
-    $table_search_form = PMA_tblSearchGetSelectionForm(
+    echo PMA_tblSearchGetSelectionForm(
         $goto, $columnNames, $columnTypes, $columnCollations, $columnNullFlags,
         $geomColumnFlag, $columnCount, $foreigners, $db, $table
     );
-    echo $table_search_form;
 
     include 'libraries/footer.inc.php';
 } else {
     /**
      * Selection criteria have been submitted -> do the work
      */
-    $is_distinct = (isset($_POST['distinct'])) ? 'true' : 'false';
     $sql_query = PMA_tblSearchBuildSqlQuery(
         $table, $fields, $criteriaColumnNames, $criteriaColumnTypes,
-        $columnsToDisplay, $is_distinct, $customWhereClause,
-        $criteriaColumnCollations, $criteriaColumnOperators, $orderByColumn, $order
+        $criteriaColumnCollations, $criteriaColumnOperators
     );
-    unset($is_distinct);
     include 'sql.php';
 }
 ?>
