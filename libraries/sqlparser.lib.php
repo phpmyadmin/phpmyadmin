@@ -51,37 +51,16 @@ if (! isset($mysql_charsets)) {
     $mysql_collations_flat = array();
 }
 
-if (!defined('DEBUG_TIMING')) {
-    /**
-     * currently we don't need the $pos (token position in query)
-     * for other purposes than LIMIT clause verification,
-     * so many calls to this function do not include the 4th parameter
-     */
-    function PMA_SQP_arrayAdd(&$arr, $type, $data, &$arrsize, $pos = 0)
-    {
-        $arr[] = array('type' => $type, 'data' => $data, 'pos' => $pos);
-        $arrsize++;
-    } // end of the "PMA_SQP_arrayAdd()" function
-} else {
-    /**
-     * This is debug variant of above.
-     * @ignore
-     */
-    function PMA_SQP_arrayAdd(&$arr, $type, $data, &$arrsize, $pos = 0)
-    {
-        global $timer;
-
-        $t     = $timer;
-        $arr[] = array(
-            'type' => $type,
-            'data' => $data,
-            'pos' => $pos,
-            'time' => $t);
-        $timer = microtime();
-        $arrsize++;
-    } // end of the "PMA_SQP_arrayAdd()" function
-} // end if... else...
-
+/**
+ * currently we don't need the $pos (token position in query)
+ * for other purposes than LIMIT clause verification,
+ * so many calls to this function do not include the 4th parameter
+ */
+function PMA_SQP_arrayAdd(&$arr, $type, $data, &$arrsize, $pos = 0)
+{
+    $arr[] = array('type' => $type, 'data' => $data, 'pos' => $pos);
+    $arrsize++;
+} // end of the "PMA_SQP_arrayAdd()" function
 
 /**
  * Reset the error variable for the SQL parser
