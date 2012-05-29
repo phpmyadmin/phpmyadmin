@@ -2705,9 +2705,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 /**
  * Builds a CSS rule used for html formatted SQL queries
  *
- * @param string  The class name
- * @param string  The property name
- * @param string  The property value
+ * @param string $classname The class name
+ * @param string $property  The property name
+ * @param string $value     The property value
  *
  * @return string  The CSS rule
  *
@@ -2761,7 +2761,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * Gets SQL queries with no format
      *
-     * @param array   The SQL queries list
+     * @param array $arr The SQL queries list
      *
      * @return string  The SQL queries with no format
      *
