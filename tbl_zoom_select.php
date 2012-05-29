@@ -112,7 +112,7 @@ if (isset($_REQUEST['change_tbl_info']) && $_REQUEST['change_tbl_info'] == true)
     // HTML for operators
     $html = '<select name="zoomFunc[]">';
     $html .= $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
-        $fields_type[$key],
+        preg_replace('@\(.*@s', '', $fields_type[$i]),
         $fields_null[$key]
     );
     $html .= '</select>';
@@ -251,7 +251,7 @@ for ($i = 0; $i < 4; $i++) {
     </tr>
     <tr><td>
     <input type="hidden" name="types[<?php echo $i; ?>]" id="types_<?php echo $i; ?>"
-    <?php 
+    <?php
     if (isset($_POST['types'][$i])) {
         echo 'value="' . $_POST['types'][$i] . '"';
     }

@@ -9,8 +9,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once 'url_generating.lib.php';
-
 /**
  * Gets all the fields of a table along with their types, collations
  * and whether null or not.
@@ -678,7 +676,8 @@ $foreigners, $db, $table)
          */
         $html_output .= '<td><select name="criteriaColumnOperators[]">';
         $html_output .= $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
-            $columnTypes[$i], $columnNullFlags[$i]
+            preg_replace('@\(.*@s', '', $columnTypes[$i]),
+            $columnNullFlags[$i]
         );
         $html_output .= '</select></td><td>';
         /**

@@ -16,8 +16,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 
 /* general tags */
 html {
-    font-size: <?php echo (null !== $GLOBALS['PMA_Config']->get('fontsize') ? $GLOBALS['PMA_Config']->get('fontsize') : (
-        isset($_COOKIE['pma_fontsize']) ? $_COOKIE['pma_fontsize'] : '82%'));?>;
+    font-size: <?php echo $_SESSION['PMA_Theme']->getFontSize(); ?>
 }
 
 input,
@@ -2587,8 +2586,6 @@ fieldset .disabled-field td {
     left: 17px;
     top: 103px;
 }
-
-<?php echo $_SESSION['PMA_Theme']->getCssCodeMirror(true); ?>
 
 .colborder {
     cursor: col-resize;
