@@ -30,10 +30,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/**
- * Minimum inclusion? (i.e. for the stylesheet builder)
- */
-if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * Include the string library as we use it heavily
      */
@@ -2700,9 +2696,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         return $str;
     } // end of the "PMA_SQP_formatHtml()" function
-}
 
-if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * Gets SQL queries with no format
      *
@@ -2723,7 +2717,5 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         return $formatted_sql;
     } // end of the "PMA_SQP_formatNone()" function
-
-} // end if: minimal common.lib needed?
 
 ?>
