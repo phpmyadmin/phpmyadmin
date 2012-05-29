@@ -2076,7 +2076,7 @@ function PMA_SQP_analyze($arr)
  * @todo check why adding a "\n" after the </span> would cause extra blanks
  * to be displayed: SELECT p . person_name
  *
- * @param array $arr  The SQL queries html formatted
+ * @param array $arr The SQL queries html formatted
  *
  * @return array   The colorized SQL queries
  *
