@@ -76,50 +76,55 @@ echo $script_tabs . $script_contr . $script_display_field;
 <body onload="Main()" class="general_body" id="pmd_body">
 
 <div class="pmd_header" id="top_menu">
-        <a href="#"
-            onclick="Show_left_menu(document.getElementById('key_Show_left_menu')); return false" class="M_butt first" target="_self">
-            <img id='key_Show_left_menu' title="<?php echo __('Show/Hide left menu'); ?>"
-                alt="v" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/downarrow2_m.png" /></a>
-        <a href="#" onclick="Save2(); return false"
-            class="M_butt" target="_self"
-        ><img title="<?php echo __('Save position') ?>" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/save.png" alt=""
-        /></a><a href="#" onclick="Start_table_new(); return false"
-            class="M_butt" target="_self"
-        ><img title="<?php echo __('Create table')?>" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/table.png" alt=""
-        /></a><a href="#" onclick="Start_relation(); return false"
-            class="M_butt" id="rel_button" target="_self"
-        ><img title="<?php echo __('Create relation') ?>" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/relation.png" alt=""
-        /></a><a href="#" onclick="Start_display_field(); return false"
-            class="M_butt" id="display_field_button" target="_self"
-        ><img title="<?php echo __('Choose column to display') ?>" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/display_field.png" alt=""
-        /></a><a href="#" onclick="location.reload(); return false"
-            class="M_butt" target="_self"
-        ><img title="<?php echo __('Reload'); ?>" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/reload.png" alt=""
-        /></a><a href="Documentation.html#faq6_31" target="documentation"
-            class="M_butt" target="_self"
-        ><img title="<?php echo __('Help'); ?>" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/help.png" alt=""
-        /></a><img class="M_bord" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/bord.png" alt=""
-        /><a href="#" onclick="Angular_direct(); return false"
-            class="M_butt" id="angular_direct_button" target="_self"
-        ><img title="<?php echo __('Angular links') . ' / ' . __('Direct links'); ?>"
-                src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/ang_direct.png" alt=""
-        /></a><a href="#" onclick="Grid(); return false"
-            class="M_butt" id="grid_button" target="_self"
-        ><img title="<?php echo __('Snap to grid') ?>" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/grid.png" alt=""
-        /></a><img class="M_bord" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/bord.png" alt=""
-        /><a href="#"
-            onclick="Small_tab_all(document.getElementById('key_SB_all')); return false" class="M_butt" target="_self"
-        ><img id='key_SB_all' title="<?php echo __('Small/Big All'); ?>" alt="v"
-                src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/downarrow1.png"
-        /></a>
-<a href="#" onclick="Small_tab_invert(); return false" class="M_butt" target="_self" ><img title="<?php echo __('Toggle small/big'); ?>" alt="key" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/bottom.png" /></a>
-<a href="#" onclick="Relation_lines_invert(); return false" class="M_butt" target="_self" ><img title="<?php echo __('Toggle relation lines'); ?>" alt="key" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/toggle_lines.png" /></a>
-<img class="M_bord" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/bord.png" alt="" />
-<a href="#" onclick="PDF_save(); return false"
-            class="M_butt" target="_self"
-        ><img src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/pdf.png" alt="key" width="20" height="20"
-                title="<?php echo __('Import/Export coordinates for PDF schema'); ?>" /></a
-         >
+    <a href="#"
+        onclick="Show_left_menu(document.getElementById('key_Show_left_menu')); return false" class="M_butt first" target="_self">
+        <img id='key_Show_left_menu' title="<?php echo __('Show/Hide left menu'); ?>"
+            alt="v" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/downarrow2_m.png" /></a>
+    <a href="#" onclick="Save2(); return false"
+        class="M_butt" target="_self"
+    ><img title="<?php echo __('Save position') ?>"
+        src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/save.png" alt=""
+    /></a><a href="#" onclick="Start_table_new(); return false"
+        class="M_butt" target="_self"
+    ><img title="<?php echo __('Create table')?>" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/table.png" alt=""
+    /></a><a href="#" onclick="Start_relation(); return false"
+        class="M_butt" id="rel_button" target="_self"
+    ><img title="<?php echo __('Create relation') ?>" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/relation.png" alt=""
+    /></a><a href="#" onclick="Start_display_field(); return false"
+        class="M_butt" id="display_field_button" target="_self"
+    ><img title="<?php echo __('Choose column to display') ?>" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/display_field.png" alt=""
+    /></a><a href="#" onclick="location.reload(); return false"
+        class="M_butt" target="_self"
+    ><img title="<?php echo __('Reload'); ?>" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/reload.png" alt=""
+    /></a><a href="Documentation.html#faq6_31" target="documentation"
+        class="M_butt" target="_self"
+    ><img title="<?php echo __('Help'); ?>" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/help.png" alt=""
+    /></a><img class="M_bord" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/bord.png" alt=""
+    /><a href="#" onclick="Angular_direct(); return false"
+        class="M_butt" id="angular_direct_button" target="_self"
+    ><img title="<?php echo __('Angular links') . ' / ' . __('Direct links'); ?>"
+            src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/ang_direct.png" alt=""
+    /></a><a href="#" onclick="Grid(); return false"
+        class="M_butt" id="grid_button" target="_self"
+    ><img title="<?php echo __('Snap to grid') ?>" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/grid.png" alt=""
+    /></a><img class="M_bord" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/bord.png" alt=""
+    /><a href="#"
+        onclick="Small_tab_all(document.getElementById('key_SB_all')); return false" class="M_butt" target="_self"
+    ><img id='key_SB_all' title="<?php echo __('Small/Big All'); ?>" alt="v"
+            src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/downarrow1.png"
+    /></a>
+    <a href="#" onclick="Small_tab_invert(); return false" class="M_butt" target="_self" >
+    <img title="<?php echo __('Toggle small/big'); ?>" alt="key" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/bottom.png" />
+    </a>
+    <a href="#" onclick="Relation_lines_invert(); return false" class="M_butt" target="_self" >
+    <img title="<?php echo __('Toggle relation lines'); ?>" alt="key" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/toggle_lines.png" />
+    </a>
+    <img class="M_bord" src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/bord.png" alt="" />
+    <a href="#" onclick="PDF_save(); return false"
+        class="M_butt" target="_self"
+    ><img src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/pdf.png" alt="key" width="20" height="20"
+            title="<?php echo __('Import/Export coordinates for PDF schema'); ?>" /></a
+     >
 <?php
 if (isset($_REQUEST['query'])) {
     echo '<a href="#" onclick="build_query(\'SQL Query on Database\', 0)" onmousedown="return false;"
@@ -129,10 +134,10 @@ if (isset($_REQUEST['query'])) {
     echo '"/></a>';
 }
 ?>
-         <a href="#"
-            onclick="Top_menu_right(document.getElementById('key_Left_Right')); return false" class="M_butt last" target="_self">
-            <img src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/2rightarrow_m.png" id="key_Left_Right" alt=">"
-                title="<?php echo __('Move Menu'); ?>" /></a>
+    <a href="#"
+        onclick="Top_menu_right(document.getElementById('key_Left_Right')); return false" class="M_butt last" target="_self">
+        <img src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/2rightarrow_m.png" id="key_Left_Right" alt=">"
+            title="<?php echo __('Move Menu'); ?>" /></a>
 </div>
 
 <form action="" method="post" name="form1">
