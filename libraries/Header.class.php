@@ -28,6 +28,7 @@ class PMA_Header {
     private $_title;
     private $_bodyId;
     private $_menuEnabled;
+    private $_isPrintView;
     public static $headerIsSent;
 
     private function __construct()
@@ -39,7 +40,9 @@ class PMA_Header {
             $GLOBALS['db'],
             $GLOBALS['table']
         );
+        $_isPrintView = false;
         $this->_menuEnabled = true;
+        $this->_isPrintView = false;
         $this->_scripts = new PMA_Scripts();
         self::$headerIsSent = false;
         // if database storage for user preferences is transient,
@@ -79,6 +82,13 @@ class PMA_Header {
     public function disableMenu()
     {
         $this->_menuEnabled = false;
+    }
+
+    public function enablePrintView()
+    {
+        $this->disableMenu();
+        $this->setTitle(__('Print view') . ' - phpMyAdmin ' . PMA_VERSION);
+        $this->_isPrintView = true;
     }
 
     public function display()
@@ -184,14 +194,17 @@ class PMA_Header {
         $theme_id = $GLOBALS['PMA_Config']->getThemeUniqueValue();
         $theme_path = $GLOBALS['pmaThemePath'];
 
-        $retval .= '<link rel="stylesheet" type="text/css" href="'
-            . $basedir . 'phpmyadmin.css.php'
-            . $common_url . '&amp;nocache='
-            . $theme_id . '" />';
-        $retval .= '<link rel="stylesheet" type="text/css" href="'
-            . $basedir . 'print.css" media="print" />';
-        $retval .= '<link rel="stylesheet" type="text/css" href="'
-            . $theme_path . '/jquery/jquery-ui-1.8.16.custom.css" />';
+        if ($this->_isPrintView) {
+            $retval .= '<link rel="stylesheet" type="text/css" href="'
+                . $basedir . 'print.css" media="print" />';
+        } else {
+            $retval .= '<link rel="stylesheet" type="text/css" href="'
+                . $basedir . 'phpmyadmin.css.php'
+                . $common_url . '&amp;nocache='
+                . $theme_id . '" />';
+            $retval .= '<link rel="stylesheet" type="text/css" href="'
+                . $theme_path . '/jquery/jquery-ui-1.8.16.custom.css" />';
+        }
 
         return $retval;
     }
