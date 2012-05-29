@@ -52,9 +52,19 @@ if (! isset($mysql_charsets)) {
 }
 
 /**
- * currently we don't need the $pos (token position in query)
+ * Stores parsed elemented of query to array.
+ *
+ * Currently we don't need the $pos (token position in query)
  * for other purposes than LIMIT clause verification,
  * so many calls to this function do not include the 4th parameter
+ *
+ * @param array  &$arr     Array to store element
+ * @param string $type     Type of element
+ * @param string $data     Data (text) of element
+ * @param int    &$arrsize Size of array
+ * @param int    $pos      Position of an element
+ *
+ * @return nothing
  */
 function PMA_SQP_arrayAdd(&$arr, $type, $data, &$arrsize, $pos = 0)
 {
