@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-24 17:02-0400\n"
-"PO-Revision-Date: 2012-05-02 15:29+0200\n"
+"PO-Revision-Date: 2012-05-29 15:43+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.10\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -117,8 +117,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"El archivo %s no está disponible en este sistema, por favor visite www."
-"phpmyadmin.net para más información."
+"El archivo %s no está disponible en este sistema, visite www.phpmyadmin.net "
+"para más información."
 
 #: db_create.php:60
 #, php-format
@@ -1552,10 +1552,9 @@ msgid "From general log"
 msgstr "Del registro general"
 
 #: js/messages.php:176
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "Cargando registros"
+msgstr "Analizando registros"
 
 #: js/messages.php:177
 msgid "Analysing & loading logs. This may take a while."
@@ -1596,10 +1595,9 @@ msgid "Jump to Log table"
 msgstr "Saltar a la tabla de registros"
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "No data"
 msgid "No data found"
-msgstr "No hay datos"
+msgstr "No se encontraron datos"
 
 #: js/messages.php:185
 msgid "Log analysed, but no data found in this time span."
@@ -1637,16 +1635,14 @@ msgid "Chart"
 msgstr "Gráfico"
 
 #: js/messages.php:195
-#, fuzzy
 #| msgid "Add chart"
 msgid "Edit chart"
-msgstr "Agregar gráfico"
+msgstr "Editar gráfico"
 
 #: js/messages.php:196
-#, fuzzy
 #| msgid "Series:"
 msgid "Series"
-msgstr "Series:"
+msgstr "Series"
 
 #. l10n: A collection of available filters
 #: js/messages.php:199
@@ -1722,16 +1718,14 @@ msgid "Import"
 msgstr "Importar"
 
 #: js/messages.php:217
-#, fuzzy
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
-msgstr "No se pudo importar la configuración"
+msgstr "Importar configuración"
 
 #: js/messages.php:218
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "Por favor seleccione la clave primaria o una clave única"
+msgstr "Seleccione el archivo que desea importar"
 
 #: js/messages.php:220
 msgid "Analyse Query"
@@ -1930,7 +1924,7 @@ msgstr "Ubicar el cursor sobre un punto mostrará su etiqueta."
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "Para ampliar, seleccione el gráfico."
 
 #: js/messages.php:306
 msgid "Click reset zoom link to come back to original state."
@@ -12128,10 +12122,9 @@ msgid "How to use"
 msgstr "Forma de utilización"
 
 #: tbl_zoom_select.php:431
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Reiniciar"
+msgstr "Reiniciar ampliación"
 
 #: themes.php:28
 msgid "Get more themes!"
