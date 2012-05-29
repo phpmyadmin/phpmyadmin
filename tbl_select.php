@@ -6,7 +6,6 @@
  * display table search form, create SQL query from form data
  * and include sql.php to execute it
  *
- * @todo display search form again if no results from previous search
  * @package PhpMyAdmin
  */
 
@@ -138,7 +137,7 @@ echo PMA_generateHtmlTabs(PMA_tbl_getSubTabs(), $url_params, 'topmenu2');
             <td><select name="func[]">
         <?php
         echo $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
-            $fields_type[$i],
+            preg_replace('@\(.*@s', '', $fields_type[$i]),
             $fields_null[$i]
         );
         ?>
