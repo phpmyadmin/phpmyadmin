@@ -2448,7 +2448,7 @@ function PMA_SQP_formatHtml(
 
             if ((($typearr[1] != 'alpha_reservedWord')
                 || (($typearr[1] == 'alpha_reservedWord')
-                    && isset($keywords_no_newline[strtoupper($arr[$i - 1]['data'])])))
+                && isset($keywords_no_newline[strtoupper($arr[$i - 1]['data'])])))
                 && ($typearr[1] != 'punct_level_plus')
                 && (!isset($keywords_no_newline[$arr[$i]['data']]))
             ) {
