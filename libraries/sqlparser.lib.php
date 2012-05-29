@@ -1119,9 +1119,7 @@ function PMA_SQP_analyze($arr)
         }
 
         // ==============================================================
-        if ($arr[$i]['type'] == 'alpha_reservedWord'
-            //&& $arr[$i]['forbidden'] == false) {
-            ) {
+        if ($arr[$i]['type'] == 'alpha_reservedWord') {
             // We don't know what type of query yet, so run this
             if ($subresult['querytype'] == '') {
                 $subresult['querytype'] = strtoupper($arr[$i]['data']);
