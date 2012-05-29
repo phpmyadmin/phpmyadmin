@@ -118,7 +118,10 @@ $sql_query = '';
 /**
  * prepare JavaScript functionality
  */
-$scripts = PMA_Header::getInstance()->getScripts();
+$header = PMA_Header::getInstance();
+$header->disableMenu();
+$header->setBodyId('bodyquerywindow');
+$scripts = $header->getScripts();
 $scripts->addFile('common.js');
 $scripts->addFile('querywindow.js');
 
@@ -133,18 +136,9 @@ if ($querydisplay_tab == 'sql' || $querydisplay_tab == 'full') {
     $scripts->addEvent('load','PMA_querywindowSetFocus');
 }
 
-/**
- * start HTTP/HTML output
- */
-require_once 'libraries/header_http.inc.php';
-require_once 'libraries/header_meta_style.inc.php';
-require_once 'libraries/header_scripts.inc.php';
-?>
-</head>
+$header->display();
 
-<body id="bodyquerywindow">
-<div id="querywindowcontainer">
-<?php
+echo '<div id="querywindowcontainer">';
 
 if ($tabs) {
     echo PMA_generateHtmlTabs($tabs, array());
