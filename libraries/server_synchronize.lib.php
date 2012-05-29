@@ -413,7 +413,7 @@ function PMA_dataDiffInUncommonTables($source_tables_uncommon, $src_db, $src_lin
  * @param mixed   $trg_link             Connection established with target server
  * @param int     $matching_table_index index of matching table in matching_table_array
  * @param array   $matching_table_keys
- * @param boolean $display
+ * @param bool    $display              whether to display query
  *
  * @return nothing
  */
@@ -491,7 +491,7 @@ function PMA_updateTargetTables(
  * @param array  &$alter_indexes_array    column names whose indexes are to be altered. Only index name and uniqueness of an index can be changed
  * @param array  &$delete_array           rows that are to be deleted
  * @param array  &$update_array           rows that are to be updated in target
- * @param bool   $display
+ * @param bool   $display                 whether to display query
  *
  * @return nothing
  */
@@ -631,7 +631,7 @@ function PMA_insertIntoTargetTable($matching_table, $src_db, $trg_db, $src_link,
  * @param array  &$uncommon_tables        names of tables present in source but not in target
  * @param int    $table_index             index of table in $uncommon_tables array
  * @param array  &$uncommon_tables_fields field names of the uncommon table
- * @param bool   $display
+ * @param bool   $display                 whether to display query
  *
  * @return nothing
  */
@@ -687,7 +687,7 @@ function PMA_createTargetTables($src_db, $trg_db, $src_link, $trg_link,
  * @param array  $uncommon_tables        uncommon table names (table names that are present in source but not in target db)
  * @param int    $table_index            index of table in matching_table_array
  * @param array  $uncommon_tables_fields field names of the uncommon table
- * @param bool   $display
+ * @param bool   $display                whether to display query
  *
  * @return nothing
  *
@@ -729,7 +729,9 @@ function PMA_populateTargetTables($src_db, $trg_db, $src_link, $trg_link,
  * @param int    $table_index        index of table in matching_table_array
  * @param array  $target_tables_keys primary key names of the target tables
  * @param array  $delete_array       key values of rows that are to be deleted
- * @param bool   $display
+ * @param bool   $display            whether to display query
+ *
+ * @return nothing
  */
 function PMA_deleteFromTargetTable($trg_db, $trg_link, $matching_tables, $table_index,
     $target_tables_keys, $delete_array, $display
@@ -860,7 +862,9 @@ function PMA_structureDiffInTables($src_db, $trg_db, $src_link, $trg_link,
  * @param array  &$uncommon_tables_fields names of the fields of the uncommon tables
  * @param int    $table_counter           number of the matching table
  * @param array  $uncommon_cols
- * @param bool   $display
+ * @param bool   $display                 whether to display query
+ *
+ * @return nothing
  */
 function PMA_addColumnsInTargetTable($src_db, $trg_db, $src_link, $trg_link,
     $matching_tables, $source_columns, &$add_column_array, $matching_tables_fields,
@@ -952,7 +956,9 @@ function PMA_addColumnsInTargetTable($src_db, $trg_db, $src_link, $trg_link,
  * @param string $referenced_table        table whose column is a foreign key in another table
  * @param array  &$uncommon_tables        names that are uncommon
  * @param array  &$uncommon_tables_fields field names of the uncommon table
- * @param bool   $display
+ * @param bool   $display                 whether to display query
+ *
+ * @return nothing
  */
 function PMA_checkForeignKeys($src_db, $src_link, $trg_db, $trg_link,
     $referenced_table, &$uncommon_tables, &$uncommon_tables_fields, $display
@@ -989,7 +995,7 @@ function PMA_checkForeignKeys($src_db, $src_link, $trg_db, $trg_link,
  * @param array  &$matching_tables_keys  field names which is key in the source table
  * @param array  &$target_tables_keys    field names which is key in the target table
  * @param int    $matching_table_index   number of the matching table
- * @param bool   $display
+ * @param bool   $display                whether to display query
  *
  * @return nothing
  */
@@ -1122,7 +1128,7 @@ function PMA_alterTargetTableStructure($trg_db, $trg_link, $matching_tables,
  * @param array  $matching_tables  names of matching tables
  * @param array  $uncommon_columns array containing the names of the column which are to be dropped from the target table
  * @param int    $table_counter    index of the matching table as in $matchiing_tables array
- * @param bool   $display
+ * @param bool   $display          whether to display query
  *
  * @return nothing
  */
@@ -1251,7 +1257,7 @@ function PMA_indexesDiffInTables($src_db, $trg_db, $src_link, $trg_link,
  * @param array  $alter_indexes_array  column names for which indexes are to be altered
  * @param array  $remove_indexes_array key name of the indexes which are to be removed from the target table
  * @param int    $table_counter        number of the matching table
- * @param $display
+ * @param bool   $display              whether to display query
  *
  * @return nothing
  */
