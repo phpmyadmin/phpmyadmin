@@ -469,10 +469,10 @@ function PMA_SQP_parse($sql)
 
         // Checks for identifier (alpha or numeric)
         if (PMA_STR_isSqlIdentifier($c, false)
-         || $c == '@'
-         || ($c == '.'
-          && PMA_STR_isDigit(PMA_substr($sql, $count2 + 1, 1))
-          && ($previous_was_space || $previous_was_bracket || $previous_was_listsep))
+            || $c == '@'
+            || ($c == '.'
+            && PMA_STR_isDigit(PMA_substr($sql, $count2 + 1, 1))
+            && ($previous_was_space || $previous_was_bracket || $previous_was_listsep))
         ) {
             /* DEBUG
             echo PMA_substr($sql, $count2);
@@ -773,12 +773,12 @@ function PMA_SQP_parse($sql)
                     $t_suffix = '_reservedWord';
                 }
                 // Binary as character set
-                if ($d_cur_upper == 'BINARY' && (
-                  ($d_bef_prev_upper == 'CHARACTER' && $d_prev_upper == 'SET')
-                  || ($d_bef_prev_upper == 'SET' && $d_prev_upper == '=')
-                  || ($d_bef_prev_upper == 'CHARSET' && $d_prev_upper == '=')
-                  || $d_prev_upper == 'CHARSET'
-                  ) && in_array($d_cur, $mysql_charsets)
+                if ($d_cur_upper == 'BINARY'
+                    && (($d_bef_prev_upper == 'CHARACTER' && $d_prev_upper == 'SET')
+                    || ($d_bef_prev_upper == 'SET' && $d_prev_upper == '=')
+                    || ($d_bef_prev_upper == 'CHARSET' && $d_prev_upper == '=')
+                    || $d_prev_upper == 'CHARSET')
+                    && in_array($d_cur, $mysql_charsets)
                 ) {
                     $t_suffix = '_charset';
                 }
