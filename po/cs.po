@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-29 09:46+0200\n"
-"PO-Revision-Date: 2012-05-17 15:35+0200\n"
+"PO-Revision-Date: 2012-05-29 09:55+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1888,7 +1888,7 @@ msgstr "Najetí myší nad bod ukáže jeho název."
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "Pro přiblížení označte oblast grafu myší."
 
 #: js/messages.php:306
 msgid "Click reset zoom link to come back to original state."
@@ -12198,10 +12198,9 @@ msgid "How to use"
 msgstr "Návod k použití"
 
 #: tbl_zoom_select.php:432
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Původní"
+msgstr "Obnovit zvětšení"
 
 #: themes.php:28
 msgid "Get more themes!"
