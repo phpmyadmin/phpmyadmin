@@ -148,22 +148,30 @@ class PMA_Theme
      */
     public function checkImgPath()
     {
+        // try current theme first
         if (is_dir($this->getPath() . '/img/')) {
             $this->setImgPath($this->getPath() . '/img/');
             return true;
-        } elseif (is_dir($GLOBALS['cfg']['ThemePath'] . '/' . PMA_Theme_Manager::FALLBACK_THEME . '/img/')) {
-            $this->setImgPath($GLOBALS['cfg']['ThemePath'] . '/' . PMA_Theme_Manager::FALLBACK_THEME . '/img/');
-            return true;
-        } else {
-            trigger_error(
-                sprintf(
-                    __('No valid image path for theme %s found!'),
-                    $this->getName()
-                ),
-                E_USER_ERROR
-            );
-            return false;
         }
+
+        // try fallback theme
+        $fallback = $GLOBALS['cfg']['ThemePath'] . '/'
+            . PMA_Theme_Manager::FALLBACK_THEME
+            . '/img/';
+        if (is_dir($fallback)) {
+            $this->setImgPath($fallback);
+            return true;
+        }
+
+        // we failed
+        trigger_error(
+            sprintf(
+                __('No valid image path for theme %s found!'),
+                $this->getName()
+            ),
+            E_USER_ERROR
+        );
+        return false;
     }
 
     /**
