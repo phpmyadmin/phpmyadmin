@@ -503,21 +503,33 @@ class PMA_Theme
     {
         $result = array();
         // Opera 9.5+, IE 9
-        $result[] = 'background-image: url(./themes/svg_gradient.php?from=' . $start_color . '&to=' . $end_color . ');';
+        $result[] = 'background-image: url(./themes/svg_gradient.php?from='
+            . $start_color . '&to=' . $end_color . ');';
         $result[] = 'background-size: 100% 100%;';
         // Safari 4-5, Chrome 1-9
-        $result[] = 'background: -webkit-gradient(linear, left top, left bottom, from(#' . $start_color . '), to(#' . $end_color . '));';
+        $result[] = 'background: '
+            . '-webkit-gradient(linear, left top, left bottom, from(#'
+            . $start_color . '), to(#' . $end_color . '));';
         // Safari 5.1, Chrome 10+
-        $result[] = 'background: -webkit-linear-gradient(top, #' . $start_color . ', #' . $end_color . ');';
+        $result[] = 'background: -webkit-linear-gradient(top, #'
+            . $start_color . ', #' . $end_color . ');';
         // Firefox 3.6+
-        $result[] = 'background: -moz-linear-gradient(top, #' . $start_color . ', #' . $end_color . ');';
+        $result[] = 'background: -moz-linear-gradient(top, #'
+            . $start_color . ', #' . $end_color . ');';
         // IE 10
-        $result[] = 'background: -ms-linear-gradient(top, #' . $start_color . ', #' . $end_color . ');';
+        $result[] = 'background: -ms-linear-gradient(top, #'
+            . $start_color . ', #' . $end_color . ');';
         // Opera 11.10
-        $result[] = 'background: -o-linear-gradient(top, #' . $start_color . ', #' . $end_color . ');';
+        $result[] = 'background: -o-linear-gradient(top, #'
+            . $start_color . ', #' . $end_color . ');';
         // IE 6-8
-        if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 6 && PMA_USR_BROWSER_VER <= 8) {
-            $result[] = 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#' . $start_color . '", endColorstr="#' . $end_color . '");';
+        if (PMA_USR_BROWSER_AGENT == 'IE'
+            && PMA_USR_BROWSER_VER >= 6
+            && PMA_USR_BROWSER_VER <= 8
+        ) {
+            $result[] = 'filter: '
+                . 'progid:DXImageTransform.Microsoft.gradient(startColorstr="#'
+                . $start_color . '", endColorstr="#' . $end_color . '");';
         }
         return implode("\n", $result);
     }
@@ -534,37 +546,48 @@ class PMA_Theme
         }
 
         $result[] = 'span.cm-keyword, span.cm-statement-verb {';
-        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_reservedWord'] . ';';
+        $result[] = '    color: '
+            . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_reservedWord'] . ';';
         $result[] = '}';
         $result[] = 'span.cm-variable {';
-        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_identifier'] . ';';
+        $result[] = '    color: '
+            . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_identifier'] . ';';
         $result[] = '}';
         $result[] = 'span.cm-comment {';
-        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['comment'] . ';';
+        $result[] = '    color: '
+            . $GLOBALS['cfg']['SQP']['fmtColor']['comment'] . ';';
         $result[] = '}';
         $result[] = 'span.cm-mysql-string {';
-        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['quote'] . ';';
+        $result[] = '    color: '
+            . $GLOBALS['cfg']['SQP']['fmtColor']['quote'] . ';';
         $result[] = '}';
         $result[] = 'span.cm-operator {';
-        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['punct'] . ';';
+        $result[] = '    color: '
+            . $GLOBALS['cfg']['SQP']['fmtColor']['punct'] . ';';
         $result[] = '}';
         $result[] = 'span.cm-mysql-word {';
-        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_identifier'] . ';';
+        $result[] = '    color: '
+            . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_identifier'] . ';';
         $result[] = '}';
         $result[] = 'span.cm-builtin {';
-        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_functionName'] . ';';
+        $result[] = '    color: '
+            . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_functionName'] . ';';
         $result[] = '}';
         $result[] = 'span.cm-variable-2 {';
-        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_columnType'] . ';';
+        $result[] = '    color: '
+            . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_columnType'] . ';';
         $result[] = '}';
         $result[] = 'span.cm-variable-3 {';
-        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_columnAttrib'] . ';';
+        $result[] = '    color: '
+            . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_columnAttrib'] . ';';
         $result[] = '}';
         $result[] = 'span.cm-separator {';
-        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['punct'] . ';';
+        $result[] = '    color: '
+            . $GLOBALS['cfg']['SQP']['fmtColor']['punct'] . ';';
         $result[] = '}';
         $result[] = 'span.cm-number {';
-        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['digit_integer'] . ';';
+        $result[] = '    color: '
+            . $GLOBALS['cfg']['SQP']['fmtColor']['digit_integer'] . ';';
         $result[] = '}';
 
         return implode("\n", $result);
