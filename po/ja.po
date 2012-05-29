@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-24 17:02-0400\n"
-"PO-Revision-Date: 2012-05-23 11:54+0200\n"
+"PO-Revision-Date: 2012-05-27 02:43+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.0\n"
 
@@ -1017,7 +1017,7 @@ msgstr "ブックマーク %s を作成しました"
 #: import.php:427 import.php:433
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr "インポートは正常終了しました。%d 個のクエリを実行しました。"
+msgstr "インポートは正常に終了しました。%d 個のクエリを実行しました。"
 
 #: import.php:442
 msgid ""
@@ -3317,7 +3317,7 @@ msgstr "Blowfish 暗号"
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight selected rows"
-msgstr "選択されている行を目立たせます"
+msgstr "選択されている行を目立たせます。"
 
 #: libraries/config/messages.inc.php:27
 msgid "Row marker"
@@ -3477,7 +3477,7 @@ msgstr "データベースをリストで表示する"
 
 #: libraries/config/messages.inc.php:60
 msgid "Show server listing as a list instead of a drop down"
-msgstr "サーバの一覧をドロップダウンの代わりにリストで表示します"
+msgstr "サーバの一覧をドロップダウンの代わりにリストで表示します。"
 
 #: libraries/config/messages.inc.php:61
 msgid "Display servers as a list"
@@ -4169,7 +4169,7 @@ msgstr "ロゴを表示する"
 
 #: libraries/config/messages.inc.php:272
 msgid "Display server choice at the top of the left frame"
-msgstr "左フレームの上部にサーバ選択を表示します"
+msgstr "左フレームの上部にサーバ選択を表示します。"
 
 #: libraries/config/messages.inc.php:273
 msgid "Display servers selection"
@@ -4732,7 +4732,7 @@ msgstr "使用する PHP 拡張"
 
 #: libraries/config/messages.inc.php:395
 msgid "Hide databases matching regular expression (PCRE)"
-msgstr "正規表現 (PCRE) で一致するデータベースを非表示にします"
+msgstr "正規表現 (PCRE) で一致するデータベースを非表示にします。"
 
 #: libraries/config/messages.inc.php:396
 msgid "Hide databases"
@@ -5067,9 +5067,8 @@ msgid ""
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly"
 msgstr ""
-"これを有効にしても、[kbd]config[/kbd] 認証モードでは効果がないことに注意して"
-"ください。なぜならパスワードが設定ファイルに直接書き込まれているからです。こ"
-"れは同じコマンドを直接実行する機能を制限するものではありません。"
+"これを有効にしても、[kbd]config[/kbd] 認証モードでは効果がないことに注意してください。なぜならパスワードが設定ファイルに直接書き込まれ"
+"ているからです。これはパスワード変更コマンドに対して直接実行する機能を制限するものではありません。"
 
 #: libraries/config/messages.inc.php:458
 msgid "Show password change form"
@@ -5122,8 +5121,7 @@ msgid ""
 "Shows link to [a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] "
 "output"
 msgstr ""
-"[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] の結果へのリンク"
-"を表示します"
+"[a@http://php.net/manual/function.phpinfo.php]phpinfo()[/a] の結果へのリンクを表示します。"
 
 #: libraries/config/messages.inc.php:469
 msgid "Show phpinfo() link"
@@ -9263,7 +9261,7 @@ msgstr "特権を再読み込みしています"
 
 #: server_privileges.php:1386
 msgid "The selected users have been deleted successfully."
-msgstr "選択したユーザを正しく削除しました。"
+msgstr "選択されたユーザは正常に削除されました。"
 
 #: server_privileges.php:1421
 msgid "The privileges were reloaded successfully."
@@ -10492,7 +10490,7 @@ msgstr "使用方法／セットアップ"
 
 #: server_status.php:1574
 msgid "Done rearranging/editing charts"
-msgstr "グラフの再配置／変更完了"
+msgstr "グラフの再配置／編集完了"
 
 #: server_status.php:1581 server_status.php:1652
 msgid "Add chart"
@@ -10500,7 +10498,7 @@ msgstr "グラフの追加"
 
 #: server_status.php:1583
 msgid "Rearrange/edit charts"
-msgstr "グラフの再配置／変更"
+msgstr "グラフの再配置／編集"
 
 #: server_status.php:1587
 msgid "Refresh rate"
@@ -11182,7 +11180,7 @@ msgstr "ラベル"
 #: tbl_addfield.php:185 tbl_alter.php:99 tbl_indexes.php:98
 #, php-format
 msgid "Table %1$s has been altered successfully"
-msgstr "テーブル %1$s を変更しました"
+msgstr "テーブル %1$s は正常に変更されました"
 
 #: tbl_change.php:699
 msgid "Because of its length,<br /> this column might not be editable"
@@ -11732,7 +11730,7 @@ msgstr "世代 %s のスナップショット (SQL コード)"
 
 #: tbl_tracking.php:388
 msgid "Tracking data definition successfully deleted"
-msgstr "追跡データ定義コマンドの削除に成功しました"
+msgstr "追跡データ定義コマンドは正常に削除されました"
 
 #: tbl_tracking.php:390 tbl_tracking.php:407
 msgid "Query error"
@@ -11740,7 +11738,7 @@ msgstr "クエリエラー"
 
 #: tbl_tracking.php:405
 msgid "Tracking data manipulation successfully deleted"
-msgstr "追跡データ操作コマンドの削除に成功しました"
+msgstr "追跡データ操作コマンドは正常に削除されました"
 
 #: tbl_tracking.php:417
 msgid "Tracking statements"
