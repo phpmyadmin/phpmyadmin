@@ -6,15 +6,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-24 17:02-0400\n"
-"PO-Revision-Date: 2012-05-02 10:15+0200\n"
+"PO-Revision-Date: 2012-05-29 09:55+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 0.10\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -1535,10 +1535,9 @@ msgid "From general log"
 msgstr "Z obecného záznamu dotazů"
 
 #: js/messages.php:176
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "Nahrávám záznamy"
+msgstr "Zkoumám záznamy"
 
 #: js/messages.php:177
 msgid "Analysing & loading logs. This may take a while."
@@ -1578,10 +1577,9 @@ msgid "Jump to Log table"
 msgstr "Přejít na tabulku se záznamem"
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "No data"
 msgid "No data found"
-msgstr "Nejsou k dispozici žádná data"
+msgstr "Nebyla nalezena žádná data"
 
 #: js/messages.php:185
 msgid "Log analysed, but no data found in this time span."
@@ -1620,16 +1618,14 @@ msgid "Chart"
 msgstr "Graf"
 
 #: js/messages.php:195
-#, fuzzy
 #| msgid "Add chart"
 msgid "Edit chart"
-msgstr "Přidat graf"
+msgstr "Upravit graf"
 
 #: js/messages.php:196
-#, fuzzy
 #| msgid "Series:"
 msgid "Series"
-msgstr "Série:"
+msgstr "Série"
 
 #. l10n: A collection of available filters
 #: js/messages.php:199
@@ -1704,16 +1700,14 @@ msgid "Import"
 msgstr "Import"
 
 #: js/messages.php:217
-#, fuzzy
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
-msgstr "Nepodařilo se nahrát konfiguraci"
+msgstr "Nahrát nastavení monitoru"
 
 #: js/messages.php:218
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "Zvolte, prosím, primární nebo unikátní klíč"
+msgstr "Zvolte, prosím, soubor, který chcete nahrát"
 
 #: js/messages.php:220
 msgid "Analyse Query"
@@ -1910,7 +1904,7 @@ msgstr "Najetí myší nad bod ukáže jeho název."
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "Pro přiblížení označte oblast grafu myší."
 
 #: js/messages.php:306
 msgid "Click reset zoom link to come back to original state."
@@ -11855,10 +11849,9 @@ msgid "How to use"
 msgstr "Návod k použití"
 
 #: tbl_zoom_select.php:431
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Původní"
+msgstr "Obnovit zvětšení"
 
 #: themes.php:28
 msgid "Get more themes!"
