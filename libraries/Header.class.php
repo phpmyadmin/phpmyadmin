@@ -158,11 +158,11 @@ class PMA_Header {
             header("X-Content-Security-Policy: allow 'self'; options inline-script eval-script; frame-ancestors 'self'; img-src 'self' data:; script-src 'self' http://www.phpmyadmin.net");
             header("X-WebKit-CSP: allow 'self' http://www.phpmyadmin.net; options inline-script eval-script");
         }
+        PMA_noCacheHeader();
         if (! defined('IS_TRANSFORMATION_WRAPPER')) {
             // Define the charset to be used
             header('Content-Type: text/html; charset=utf-8');
         }
-        PMA_no_cache_header();
     }
 
     private function _getHtmlStart()
