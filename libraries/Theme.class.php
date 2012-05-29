@@ -336,7 +336,7 @@ class PMA_Theme
      *
      * @see    PMA_SQP_buildCssData()
      */
-    public function SQP_buildCssRule($classname, $property, $value)
+    public function buildSQPCssRule($classname, $property, $value)
     {
         $str     = '.' . $classname . ' {';
         if ($value != '') {
@@ -359,17 +359,17 @@ class PMA_Theme
      *
      * @see    PMA_SQP_buildCssRule()
      */
-    public function SQP_buildCssData()
+    public function buildSQPCssData()
     {
         global $cfg;
 
         $css_string     = '';
         foreach ($cfg['SQP']['fmtColor'] AS $key => $col) {
-            $css_string .= $this->SQP_buildCssRule('syntax_' . $key, 'color', $col);
+            $css_string .= $this->buildSQPCssRule('syntax_' . $key, 'color', $col);
         }
 
         for ($i = 0; $i < 8; $i++) {
-            $css_string .= $this->SQP_buildCssRule(
+            $css_string .= $this->buildSQPCssRule(
                 'syntax_indent' . $i, 'margin-left',
                 ($i * $cfg['SQP']['fmtInd']) . $cfg['SQP']['fmtIndUnit']
             );
@@ -388,7 +388,7 @@ class PMA_Theme
     {
         $success = true;
 
-        echo $this->SQP_buildCssData();
+        echo $this->buildSQPCssData();
 
         if ($GLOBALS['text_dir'] === 'ltr') {
             $right = 'right';
