@@ -69,7 +69,8 @@ if ($multi_tables) {
         $tbl_list .= (empty($tbl_list) ? '' : ', ')
                   . PMA_backquote($table);
     }
-    echo '<strong>'.  __('Showing tables') . ': ' . htmlspecialchars($tbl_list) . '</strong>' . "\n";
+    echo '<strong>'.  __('Showing tables') . ': '
+        . htmlspecialchars($tbl_list) . '</strong>' . "\n";
     echo '<hr />' . "\n";
 } // end if
 
@@ -122,7 +123,8 @@ foreach ($the_tables as $key => $table) {
      * Displays the comments of the table if MySQL >= 3.23
      */
     if (!empty($show_comment)) {
-        echo __('Table comments') . ': ' . htmlspecialchars($show_comment) . '<br /><br />';
+        echo __('Table comments') . ': '
+            . htmlspecialchars($show_comment) . '<br /><br />';
     }
 
     /**
@@ -174,7 +176,10 @@ foreach ($the_tables as $key => $table) {
          * but based on SHOW CREATE TABLE because information_schema
          * cannot be trusted in this case (MySQL bug)
          */
-        if (!empty($analyzed_sql[0]['create_table_fields'][$field_name]['type']) && $analyzed_sql[0]['create_table_fields'][$field_name]['type'] == 'TIMESTAMP' && $analyzed_sql[0]['create_table_fields'][$field_name]['timestamp_not_null']) {
+        if (!empty($analyzed_sql[0]['create_table_fields'][$field_name]['type'])
+            && $analyzed_sql[0]['create_table_fields'][$field_name]['type'] == 'TIMESTAMP'
+            && $analyzed_sql[0]['create_table_fields'][$field_name]['timestamp_not_null']
+        ) {
             $row['Null'] = '';
         }
 
@@ -192,10 +197,12 @@ foreach ($the_tables as $key => $table) {
     echo (($row['Null'] == '' || $row['Null'] == 'NO')
         ? __('No')
         : __('Yes')); ?>&nbsp;</td>
-    <td><?php
+    <td>
+    <?php
     if (isset($row['Default'])) {
         echo $row['Default'];
-    } ?>&nbsp;</td>
+    }
+    ?>&nbsp;</td>
     <?php
         if ($have_rel) {
             echo '    <td>';
