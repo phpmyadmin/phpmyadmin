@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-29 09:46+0200\n"
-"PO-Revision-Date: 2012-05-26 18:46+0200\n"
+"PO-Revision-Date: 2012-05-29 15:44+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -99,8 +99,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"El archivo %s no está disponible en este sistema, por favor visite www."
-"phpmyadmin.net para más información."
+"El archivo %s no está disponible en este sistema, visite www.phpmyadmin.net "
+"para más información."
 
 #: db_create.php:74
 #, php-format
@@ -616,8 +616,8 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr ""
-"Esta vista tiene al menos este número de filas. Por favor refiérase a la "
-"%sdocumentation%s."
+"Esta vista tiene al menos este número de filas. Refiérase a la %"
+"sdocumentation%s."
 
 #: db_structure.php:543 db_structure.php:577 libraries/Menu.class.php:194
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:208
@@ -936,9 +936,8 @@ msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
 "%s for ways to workaround this limit."
 msgstr ""
-"Usted probablemente intentó cargar un archivo demasiado grande. Por favor, "
-"refiérase a %sla documentation%s para hallar modos de superar esta "
-"limitación."
+"Usted probablemente intentó cargar un archivo demasiado grande. Refiérase a "
+"%sla documentation%s para hallar modos de superar esta limitación."
 
 #: import.php:216 import.php:443
 msgid "Showing bookmark"
@@ -1669,7 +1668,7 @@ msgstr "Importar"
 
 #: js/messages.php:213
 msgid "Import monitor configuration"
-msgstr "Importar configuración de monitorización"
+msgstr "Importar configuración"
 
 #: js/messages.php:214
 msgid "Please select the file you want to import"
@@ -1906,7 +1905,7 @@ msgstr "Ubicar el cursor sobre un punto mostrará su etiqueta."
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr "Para ampliar, seleccione una sección del gráfico."
+msgstr "Para ampliar, seleccione el gráfico."
 
 #: js/messages.php:306
 msgid "Click reset zoom link to come back to original state."
