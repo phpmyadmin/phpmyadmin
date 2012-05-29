@@ -84,3 +84,5 @@ span.CodeMirror-selected {
 .CodeMirror-nonmatchingbracket {
     color: #f22 !important;
 }
+
+<?php echo $_SESSION['PMA_Theme']->getCssCodeMirror(); ?>

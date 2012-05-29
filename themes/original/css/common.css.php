@@ -2123,8 +2123,6 @@ fieldset .disabled-field td {
     top: 103px;
 }
 
-<?php echo $_SESSION['PMA_Theme']->getCssCodeMirror(); ?>
-
 .colborder {
     cursor: col-resize;
     height: 100%;
