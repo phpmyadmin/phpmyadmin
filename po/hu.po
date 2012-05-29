@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-24 17:02-0400\n"
-"PO-Revision-Date: 2012-04-20 00:10+0200\n"
-"Last-Translator: Gergely Nagy <gerrrike@yahoo.com>\n"
+"PO-Revision-Date: 2012-05-28 00:57+0200\n"
+"Last-Translator: Róbert Nagy <vrnagy@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.9\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -1111,7 +1111,6 @@ msgid "This is not a number!"
 msgstr "Ez nem szám!"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid "Add index"
 msgid "Add Index"
 msgstr "Index hozzáadása"
@@ -1127,7 +1126,6 @@ msgstr "%d oszlop hozzáadása az indexhez"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:52
-#, fuzzy
 #| msgid "Log file count"
 msgid "Total count"
 msgstr "Naplófájlok száma"
@@ -1175,10 +1173,9 @@ msgid "Edit"
 msgstr "Módosítás"
 
 #: js/messages.php:66 server_status.php:806
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Szerver választása"
+msgstr "Élő forgalomgrafikon"
 
 #: js/messages.php:67 server_status.php:809
 msgid "Live conn./process chart"
@@ -1582,7 +1579,6 @@ msgid "Jump to Log table"
 msgstr "Ugrás a naplótáblához"
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "No data"
 msgid "No data found"
 msgstr "Nincs adat"
@@ -1615,7 +1611,6 @@ msgid "Profiling results"
 msgstr "Adatgyűjtés"
 
 #: js/messages.php:193
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
@@ -2341,7 +2336,7 @@ msgstr "óránként"
 
 #: libraries/Advisor.class.php:335
 msgid "per day"
-msgstr ""
+msgstr "naponta"
 
 #: libraries/Config.class.php:703
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
@@ -3379,10 +3374,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
 #| msgid "Customize text input fields"
 msgid "Minimum size for input field"
-msgstr "Szöveges beviteli mezők testreszabása"
+msgstr "A beviteli mező minimum mérete"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
@@ -3391,10 +3385,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:37
-#, fuzzy
 #| msgid "Maximum size for temporary sort files"
 msgid "Maximum size for input field"
-msgstr "Az ideiglenes rendezőfájlok mérete legfeljebb"
+msgstr "A beviteli mező maximum mérete"
 
 #: libraries/config/messages.inc.php:38
 msgid "Number of columns for CHAR/VARCHAR textareas"
