@@ -1,6 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * phpMyAdmin designer general code
+ *
  * @package PhpMyAdmin-Designer
  */
 
@@ -46,8 +48,8 @@ echo '
     var server = "' . PMA_escapeJsString($server) . '";
     var db = "' . PMA_escapeJsString($db) . '";
     var token = "' . PMA_escapeJsString($token) . '";';
-    echo "\n";
-    if (isset($_REQUEST['query'])) {
+echo "\n";
+if (isset($_REQUEST['query'])) {
     echo '
      $(function() {
         $(".trigger").click(function() {
@@ -56,7 +58,7 @@ echo '
         return false;
         });
     });';
-    }
+}
 ?>
     // ]]>
     </script>
@@ -118,12 +120,15 @@ echo $script_tabs . $script_contr . $script_display_field;
         ><img src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/pdf.png" alt="key" width="20" height="20"
                 title="<?php echo __('Import/Export coordinates for PDF schema'); ?>" /></a
          >
-        <?php if (isset($_REQUEST['query'])) {
-            echo '<a href="#" onclick="build_query(\'SQL Query on Database\', 0)" onmousedown="return false;"
-            class="M_butt" target="_self">';
-            echo '<img src="'. $GLOBALS['pmaThemeImage'] . 'pmd/query_builder.png" alt="key" width="20" height="20" title="';
-            echo __('Build Query');
-            echo '"/></a>'; }?>
+<?php
+if (isset($_REQUEST['query'])) {
+    echo '<a href="#" onclick="build_query(\'SQL Query on Database\', 0)" onmousedown="return false;"
+    class="M_butt" target="_self">';
+    echo '<img src="'. $GLOBALS['pmaThemeImage'] . 'pmd/query_builder.png" alt="key" width="20" height="20" title="';
+    echo __('Build Query');
+    echo '"/></a>';
+}
+?>
          <a href="#"
             onclick="Top_menu_right(document.getElementById('key_Left_Right')); return false" class="M_butt last" target="_self">
             <img src="<?php echo $GLOBALS['pmaThemeImage'] ?>pmd/2rightarrow_m.png" id="key_Left_Right" alt=">"
@@ -333,14 +338,15 @@ for ($j = 0, $id_cnt = count($tab_column[$t_n]["COLUMN_ID"]); $j < $id_cnt; $j++
         ?>
         </div>
    </td>
-   <?php
-   if (isset($_REQUEST['query'])) {
+    <?php
+    if (isset($_REQUEST['query'])) {
        //$temp = $GLOBALS['PMD_OUT']["OWNER"][$i].'.'.$GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i];
        echo '<td class="small_tab_pref" onmouseover="this.className=\'small_tab_pref2\';"';
        echo 'onmouseout="this.className=\'small_tab_pref\';"';
        echo 'onclick="Click_option(\'pmd_optionse\',\''.urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'\',\''.$GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i].'\')" >';
        echo  '<img src="' . $GLOBALS['pmaThemeImage'] . 'pmd/exec_small.png" title="options" alt="" /></td> ';
-    } ?>
+    }
+    ?>
 </tr>
         <?php
 }
