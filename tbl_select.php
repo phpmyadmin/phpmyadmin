@@ -137,7 +137,7 @@ echo PMA_generateHtmlTabs(PMA_tbl_getSubTabs(), $url_params, 'topmenu2');
             <td><select name="func[]">
         <?php
         echo $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
-            $fields_type[$i],
+            preg_replace('@\(.*@s', '', $fields_type[$i]),
             $fields_null[$i]
         );
         ?>
