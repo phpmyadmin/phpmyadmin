@@ -1004,15 +1004,16 @@ function PMA_addColumnsInTargetTable($src_db, $trg_db, $src_link, $trg_link,
             }
             PMA_DBI_try_query($query, $trg_link, 0);
 
-            //Checks if column to be added is a foreign key or not
+            // Checks if column to be added is a foreign key or not
             $is_fk_query = "SELECT * FROM  information_schema.KEY_COLUMN_USAGE WHERE TABLE_SCHEMA = '" . $trg_db . "' AND TABLE_NAME = '"
             . $matching_tables[$table_counter] . "' AND COLUMN_NAME ='" . $add_column_array[$table_counter][$matching_tables_fields[$table_counter][$i]] .
             "' AND TABLE_NAME <> REFERENCED_TABLE_NAME;";
 
             $is_fk_result = PMA_DBI_fetch_result($is_fk_query, null, null, $src_link);
 
-            //If column is a foreign key then it is checked that referenced table exist in target db. If referenced table does not exist in target db then
-            //it is created first.
+            // If column is a foreign key then it is checked that referenced table
+            // exist in target db. If referenced table does not exist in target
+            // db then it is created first.
             if (isset($is_fk_result)) {
                 if (in_array($is_fk_result[0]['REFERENCED_TABLE_NAME'], $uncommon_tables)) {
                     $table_index = array_keys($uncommon_tables, $is_fk_result[0]['REFERENCED_TABLE_NAME']);
