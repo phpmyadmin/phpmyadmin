@@ -1164,10 +1164,10 @@ function PMA_SQP_analyze($arr)
 
         // ==============================
         if ($arr[$i]['type'] == 'quote_backtick'
-         || $arr[$i]['type'] == 'quote_double'
-         || $arr[$i]['type'] == 'quote_single'
-         || $arr[$i]['type'] == 'alpha_identifier'
-         || ($arr[$i]['type'] == 'alpha_reservedWord'
+            || $arr[$i]['type'] == 'quote_double'
+            || $arr[$i]['type'] == 'quote_single'
+            || $arr[$i]['type'] == 'alpha_identifier'
+            || ($arr[$i]['type'] == 'alpha_reservedWord'
             && $arr[$i]['forbidden'] == false)
         ) {
             switch ($arr[$i]['type']) {
