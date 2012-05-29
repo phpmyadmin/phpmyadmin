@@ -310,7 +310,7 @@ class PMA_Theme
      */
     public function getImgPath($file = null)
     {
-        if (is_null($file) {
+        if (is_null($file)) {
             return $this->img_path;
         } else {
             if (is_readable($this->img_path . $file)) {
