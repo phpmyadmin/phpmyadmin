@@ -303,12 +303,18 @@ class PMA_Theme
     /**
      * Returns the path to images for the theme
      *
+     * @param string $file file name for image
+     *
      * @access public
      * @return string image path for this theme
      */
-    public function getImgPath()
+    public function getImgPath($file = null)
     {
-        return $this->img_path;
+        if (is_null($file) {
+            return $this->img_path;
+        } else {
+            return $this->img_path . $file;
+        }
     }
 
     /**
