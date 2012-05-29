@@ -76,6 +76,8 @@ function PMA_SQP_arrayAdd(&$arr, $type, $data, &$arrsize, $pos = 0)
  * Reset the error variable for the SQL parser
  *
  * @access public
+ *
+ * @return nothing
  */
 function PMA_SQP_resetError()
 {
@@ -113,8 +115,8 @@ function PMA_SQP_isError()
 /**
  * Set an error message for the system
  *
- * @param string  The error message
- * @param string  The failing SQL query
+ * @param string $message The error message
+ * @param string $sql     The failing SQL query
  *
  * @access private
  * @scope SQL Parser internal
@@ -134,8 +136,10 @@ function PMA_SQP_throwError($message, $sql)
 /**
  * Do display the bug report
  *
- * @param string  The error message
- * @param string  The failing SQL query
+ * @param string $message The error message
+ * @param string $sql     The failing SQL query
+ *
+ * @return nothing
  *
  * @access public
  */
@@ -180,9 +184,9 @@ function PMA_SQP_bug($message, $sql)
 /**
  * Parses the SQL queries
  *
- * @param string   The SQL query list
+ * @param string $sql The SQL query list
  *
- * @return mixed    Most of times, nothing...
+ * @return mixed Most of times, nothing...
  *
  * @global array    The current PMA configuration
  * @global array    MySQL column attributes
@@ -805,8 +809,8 @@ function PMA_SQP_parse($sql)
 /**
  * Checks for token types being what we want...
  *
- * @param string String of type that we have
- * @param string String of type that we want
+ * @param string $toCheck    String of type that we have
+ * @param string $whatWeWant String of type that we want
  *
  * @return boolean result of check
  *
@@ -830,7 +834,7 @@ function PMA_SQP_typeCheck($toCheck, $whatWeWant)
 /**
  * Analyzes SQL queries
  *
- * @param array   The SQL queries
+ * @param array $arr The SQL queries
  *
  * @return array   The analyzed SQL queries
  *
@@ -2071,7 +2075,8 @@ function PMA_SQP_analyze($arr)
  *
  * @todo check why adding a "\n" after the </span> would cause extra blanks
  * to be displayed: SELECT p . person_name
- * @param array   The SQL queries html formatted
+ *
+ * @param array $arr  The SQL queries html formatted
  *
  * @return array   The colorized SQL queries
  *
@@ -2094,10 +2099,10 @@ function PMA_SQP_formatHtml_colorize($arr)
 /**
  * Formats SQL queries to html
  *
- * @param array   The SQL queries
- * @param string  mode
- * @param integer starting token
- * @param integer number of tokens to format, -1 = all
+ * @param array   $arr             The SQL queries
+ * @param string  $mode            mode of printing
+ * @param integer $start_token     starting token
+ * @param integer $numbr_of_tokens number of tokens to format, -1 = all
  *
  * @return string  The formatted SQL queries
  *
