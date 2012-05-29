@@ -781,7 +781,7 @@ function PMA_includeJS($url, $ie_conditional = false)
  *
  * @return void
  */
-function PMA_AddJSCode($str)
+function PMA_addJSCode($str)
 {
     $GLOBALS['js_script'][] = $str;
 }
@@ -796,9 +796,9 @@ function PMA_AddJSCode($str)
  *
  * @return void
  */
-function PMA_AddJSVar($key, $value, $escape = true)
+function PMA_addJSVar($key, $value, $escape = true)
 {
-    PMA_AddJsCode(PMA_getJsValue($key, $value, $escape));
+    PMA_addJSCode(PMA_getJsValue($key, $value, $escape));
 }
 
 ?>

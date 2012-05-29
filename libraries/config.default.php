@@ -518,9 +518,9 @@ $cfg['Servers'][$i]['tracking_add_drop_table'] = true;
 $cfg['Servers'][$i]['tracking_add_drop_database'] = true;
 
 /**
- * Enables caching of TABLE STATUS outputs for specific databases on this server 
- * (in some cases TABLE STATUS can be very slow, so you may want to cache it). 
- * APC is used (if the PHP extension is available, if not, this setting is ignored 
+ * Enables caching of TABLE STATUS outputs for specific databases on this server
+ * (in some cases TABLE STATUS can be very slow, so you may want to cache it).
+ * APC is used (if the PHP extension is available, if not, this setting is ignored
  * silently). You have to provide StatusCacheLifetime.
  * Takes effect only if DisableIS is true.
  *
