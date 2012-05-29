@@ -2099,10 +2099,10 @@ function PMA_SQP_formatHtml_colorize($arr)
 /**
  * Formats SQL queries to html
  *
- * @param array   $arr             The SQL queries
- * @param string  $mode            mode of printing
- * @param integer $start_token     starting token
- * @param integer $numbr_of_tokens number of tokens to format, -1 = all
+ * @param array   $arr              The SQL queries
+ * @param string  $mode             mode of printing
+ * @param integer $start_token      starting token
+ * @param integer $number_of_tokens number of tokens to format, -1 = all
  *
  * @return string  The formatted SQL queries
  *
