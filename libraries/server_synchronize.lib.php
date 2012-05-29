@@ -1543,7 +1543,7 @@ function PMA_syncDisplayDataCompare($rows)
 function PMA_getColumnValues($database, $table, $column, $link = null)
 {
     $query = 'SELECT ';
-    for ($i=0; $i< count($column); $i++) {
+    for ($i = 0; $i < count($column); $i++) {
         $query.= PMA_backquote($column[$i]);
         if ($i < (count($column)-1)) {
             $query.= ', ';
