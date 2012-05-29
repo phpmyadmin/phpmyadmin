@@ -1029,8 +1029,10 @@ function PMA_checkForeignKeys($src_db, $src_link, $trg_db, $trg_link,
  *                                       altered for the targert table
  * @param array  $matching_tables_fields name of the fields for the matching table
  * @param array  $criteria               criteria
- * @param array  &$matching_tables_keys  field names which is key in the source table
- * @param array  &$target_tables_keys    field names which is key in the target table
+ * @param array  &$matching_tables_keys  field names which is key in the source
+ *                                       table
+ * @param array  &$target_tables_keys    field names which is key in the target
+ *                                       table
  * @param int    $matching_table_index   number of the matching table
  * @param bool   $display                whether to display query
  *
@@ -1163,8 +1165,10 @@ function PMA_alterTargetTableStructure($trg_db, $trg_link, $matching_tables,
  * @param string $trg_db           name of target database
  * @param mixed  $trg_link         connection established with target server
  * @param array  $matching_tables  names of matching tables
- * @param array  $uncommon_columns array containing the names of the column which are to be dropped from the target table
- * @param int    $table_counter    index of the matching table as in $matchiing_tables array
+ * @param array  $uncommon_columns array containing the names of the column which
+ *                                 are to be dropped from the target table
+ * @param int    $table_counter    index of the matching table as in
+ *                                 $matchiing_tables array
  * @param bool   $display          whether to display query
  *
  * @return nothing
@@ -1214,9 +1218,11 @@ function PMA_removeColumnsFromTargetTable($trg_db, $trg_link, $matching_tables,
 }
 
 /**
- * PMA_indexesDiffInTables() compares the source table indexes with target table indexes and keep the indexes to be added in target table in $add_indexes_array
- * indexes to be altered in $alter_indexes_array and indexes to be removed from target table in $remove_indexes_array.
- * Only keyname and uniqueness characteristic of the indexes are altered.
+ * PMA_indexesDiffInTables() compares the source table indexes with target
+ * table indexes and keep the indexes to be added in target table in
+ * $add_indexes_array indexes to be altered in $alter_indexes_array and indexes
+ * to be removed from target table in $remove_indexes_array.  Only keyname and
+ * uniqueness characteristic of the indexes are altered.
  *
  * @param string $src_db                name of source database
  * @param string $trg_db                name of target database
@@ -1290,9 +1296,12 @@ function PMA_indexesDiffInTables($src_db, $trg_db, $src_link, $trg_link,
  * @param array  $matching_tables      matching tables name
  * @param array  $source_indexes       indexes of the source table
  * @param array  $target_indexes       indexes of the target table
- * @param array  $add_indexes_array    column names on which indexes are to be created in target table
- * @param array  $alter_indexes_array  column names for which indexes are to be altered
- * @param array  $remove_indexes_array key name of the indexes which are to be removed from the target table
+ * @param array  $add_indexes_array    column names on which indexes are to be
+ *                                     created in target table
+ * @param array  $alter_indexes_array  column names for which indexes are to be
+ *                                     altered
+ * @param array  $remove_indexes_array key name of the indexes which are to be
+ *                                     removed from the target table
  * @param int    $table_counter        number of the matching table
  * @param bool   $display              whether to display query
  *
