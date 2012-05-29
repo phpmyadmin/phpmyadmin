@@ -2702,61 +2702,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     } // end of the "PMA_SQP_formatHtml()" function
 }
 
-/**
- * Builds a CSS rule used for html formatted SQL queries
- *
- * @param string $classname The class name
- * @param string $property  The property name
- * @param string $value     The property value
- *
- * @return string  The CSS rule
- *
- * @access public
- *
- * @see    PMA_SQP_buildCssData()
- */
-function PMA_SQP_buildCssRule($classname, $property, $value)
-{
-    $str     = '.' . $classname . ' {';
-    if ($value != '') {
-        $str .= $property . ': ' . $value . ';';
-    }
-    $str     .= '}' . "\n";
-
-    return $str;
-} // end of the "PMA_SQP_buildCssRule()" function
-
-
-/**
- * Builds CSS rules used for html formatted SQL queries
- *
- * @return string  The CSS rules set
- *
- * @access public
- *
- * @global array   The current PMA configuration
- *
- * @see    PMA_SQP_buildCssRule()
- */
-function PMA_SQP_buildCssData()
-{
-    global $cfg;
-
-    $css_string     = '';
-    foreach ($cfg['SQP']['fmtColor'] AS $key => $col) {
-        $css_string .= PMA_SQP_buildCssRule('syntax_' . $key, 'color', $col);
-    }
-
-    for ($i = 0; $i < 8; $i++) {
-        $css_string .= PMA_SQP_buildCssRule(
-            'syntax_indent' . $i, 'margin-left',
-            ($i * $cfg['SQP']['fmtInd']) . $cfg['SQP']['fmtIndUnit']
-        );
-    }
-
-    return $css_string;
-} // end of the "PMA_SQP_buildCssData()" function
-
 if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * Gets SQL queries with no format
