@@ -33,12 +33,16 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Include the string library as we use it heavily
  */
-include_once './libraries/string.lib.php';
+require_once './libraries/string.lib.php';
 
 /**
  * Include data for the SQL Parser
  */
-include_once './libraries/sqlparser.data.php';
+require_once './libraries/sqlparser.data.php';
+
+/**
+ * Charset information
+ */
 if (!defined('TESTSUITE')) {
     include_once './libraries/mysql_charsets.lib.php';
 }
