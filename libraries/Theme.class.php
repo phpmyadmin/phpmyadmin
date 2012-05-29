@@ -301,7 +301,9 @@ class PMA_Theme
     }
 
     /**
-     * Returns the path to images for the theme
+     * Returns the path to image for the theme.
+     * If filename is given, it possibly fallbacks to fallback
+     * theme for it if image does not exist.
      *
      * @param string $file file name for image
      *
