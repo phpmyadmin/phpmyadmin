@@ -118,6 +118,8 @@ function PMA_SQP_isError()
  * @param string $message The error message
  * @param string $sql     The failing SQL query
  *
+ * @return nothing
+ *
  * @access private
  * @scope SQL Parser internal
  */
@@ -2073,12 +2075,12 @@ function PMA_SQP_analyze($arr)
 /**
  * Colorizes SQL queries html formatted
  *
- * @todo check why adding a "\n" after the </span> would cause extra blanks
- * to be displayed: SELECT p . person_name
- *
  * @param array $arr The SQL queries html formatted
  *
  * @return array   The colorized SQL queries
+ *
+ * @todo check why adding a "\n" after the </span> would cause extra blanks
+ * to be displayed: SELECT p . person_name
  *
  * @access public
  */
