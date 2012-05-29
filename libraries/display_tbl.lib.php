@@ -395,7 +395,7 @@ function PMA_getTableNavigation($pos_next, $pos_prev, $sql_query,
     // Move to the next page or to the last one
     $endpos = $_SESSION['tmp_user_values']['pos']
         + $_SESSION['tmp_user_values']['max_rows'];
-    
+
     if (($endpos < $unlim_num_rows)
         && ($num_rows >= $_SESSION['tmp_user_values']['max_rows'])
         && ($_SESSION['tmp_user_values']['max_rows'] != 'all')
@@ -3545,10 +3545,7 @@ function PMA_getTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
         $pre_count = '~';
         $after_count = PMA_showHint(
             PMA_sanitize(
-                __(
-                    'May be approximate. 
-                    See [a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a]'
-                )
+                __('May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a]')
             )
         );
     } else {
@@ -3979,10 +3976,7 @@ function PMA_setMessageInformation(
     ) {
 
         $message = PMA_Message::notice(
-            __(
-                'This view has at least this number of rows. 
-                Please refer to %sdocumentation%s.'
-            )
+            __('This view has at least this number of rows. Please refer to %sdocumentation%s.')
         );
 
         $message->addParam('[a@./Documentation.html#cfg_MaxExactCount@_blank]');
