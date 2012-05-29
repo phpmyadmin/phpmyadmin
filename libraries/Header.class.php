@@ -28,7 +28,7 @@ class PMA_Header {
     private $_title;
     private $_bodyId;
     private $_menuEnabled;
-    public $headerIsSent;
+    public static $headerIsSent;
 
     private function __construct()
     {
@@ -41,7 +41,7 @@ class PMA_Header {
         );
         $this->_menuEnabled = true;
         $this->_scripts = new PMA_Scripts();
-        $this->headerIsSent = false;
+        self::$headerIsSent = false;
         // if database storage for user preferences is transient,
         // offer to load exported settings from localStorage
         // (detection will be done in JavaScript)
@@ -89,8 +89,8 @@ class PMA_Header {
     public function getDisplay()
     {
         $retval = '';
-        if (! $this->headerIsSent) {
-            $this->headerIsSent = true;
+        if (! self::$headerIsSent) {
+            self::$headerIsSent = true;
             $this->sendHttpHeaders();
             if ($GLOBALS['is_ajax_request'] === false) {
                 $retval .= $this->_getHtmlStart();
@@ -133,7 +133,7 @@ class PMA_Header {
 
     public function sendHttpHeaders()
     {
-        $this->headerIsSent = true;
+        self::$headerIsSent = true;
         /**
          * Starts output buffering work
          */
