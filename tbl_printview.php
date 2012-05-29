@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Print view for table
  *
  * @package PhpMyAdmin
  */
@@ -187,9 +188,9 @@ foreach ($the_tables as $key => $table) {
     ?>
     </td>
     <td><?php echo $type; ?><bdo dir="ltr"></bdo></td>
-    <td><?php 
-    echo (($row['Null'] == '' || $row['Null'] == 'NO') 
-        ? __('No') 
+    <td><?php
+    echo (($row['Null'] == '' || $row['Null'] == 'NO')
+        ? __('No')
         : __('Yes')); ?>&nbsp;</td>
     <td><?php
     if (isset($row['Default'])) {
@@ -199,7 +200,7 @@ foreach ($the_tables as $key => $table) {
         if ($have_rel) {
             echo '    <td>';
             if (isset($res_rel[$field_name])) {
-                echo htmlspecialchars($res_rel[$field_name]['foreign_table'] 
+                echo htmlspecialchars($res_rel[$field_name]['foreign_table']
                     . ' -> ' . $res_rel[$field_name]['foreign_field']);
             }
             echo '&nbsp;</td>' . "\n";
@@ -215,7 +216,7 @@ foreach ($the_tables as $key => $table) {
 
             echo '    <td>';
             if (isset($mime_map[$field_name])) {
-                echo htmlspecialchars(str_replace('_', '/', 
+                echo htmlspecialchars(str_replace('_', '/',
                     $mime_map[$field_name]['mimetype']));
             }
             echo '&nbsp;</td>' . "\n";
@@ -240,7 +241,7 @@ foreach ($the_tables as $key => $table) {
          */
         if ($cfg['ShowStats']) {
             $nonisam     = false;
-            if (isset($showtable['Type']) 
+            if (isset($showtable['Type'])
                 && !preg_match('@ISAM|HEAP@i', $showtable['Type'])) {
                 $nonisam = true;
             }
@@ -249,34 +250,34 @@ foreach ($the_tables as $key => $table) {
 
                 $mergetable = PMA_Table::isMerge($db, $table);
 
-                list($data_size, $data_unit) 
+                list($data_size, $data_unit)
                     = PMA_formatByteDown($showtable['Data_length']);
                 if ($mergetable == false) {
-                    list($index_size, $index_unit) 
+                    list($index_size, $index_unit)
                         = PMA_formatByteDown($showtable['Index_length']);
                 }
                 if (isset($showtable['Data_free']) && $showtable['Data_free'] > 0) {
-                    list($free_size, $free_unit) 
+                    list($free_size, $free_unit)
                         = PMA_formatByteDown($showtable['Data_free']);
-                    list($effect_size, $effect_unit) 
+                    list($effect_size, $effect_unit)
                         = PMA_formatByteDown(
-                            $showtable['Data_length'] 
-                            + $showtable['Index_length'] 
+                            $showtable['Data_length']
+                            + $showtable['Index_length']
                             - $showtable['Data_free']);
                 } else {
                     unset($free_size);
                     unset($free_unit);
-                    list($effect_size, $effect_unit) 
-                        = PMA_formatByteDown($showtable['Data_length'] 
+                    list($effect_size, $effect_unit)
+                        = PMA_formatByteDown($showtable['Data_length']
                             + $showtable['Index_length']);
                 }
-                list($tot_size, $tot_unit) 
-                    = PMA_formatByteDown($showtable['Data_length'] 
+                list($tot_size, $tot_unit)
+                    = PMA_formatByteDown($showtable['Data_length']
                         + $showtable['Index_length']);
                 if ($num_rows > 0) {
-                    list($avg_size, $avg_unit) 
-                        = PMA_formatByteDown(($showtable['Data_length'] 
-                                + $showtable['Index_length']) 
+                    list($avg_size, $avg_unit)
+                        = PMA_formatByteDown(($showtable['Data_length']
+                                + $showtable['Index_length'])
                             / $showtable['Rows'], 6, 1);
                 }
 
@@ -380,19 +381,19 @@ foreach ($the_tables as $key => $table) {
             </tr>
                     <?php
                 }
-                if (isset($showtable['Avg_row_length']) 
+                if (isset($showtable['Avg_row_length'])
                     && $showtable['Avg_row_length'] > 0) {
                     ?>
             <tr>
                 <td><?php echo __('Row length'); ?>&nbsp;&oslash;</td>
                 <td>
-                    <?php echo PMA_formatNumber($showtable['Avg_row_length'], 0) 
+                    <?php echo PMA_formatNumber($showtable['Avg_row_length'], 0)
                         . "\n"; ?>
                 </td>
             </tr>
                     <?php
                 }
-                if (isset($showtable['Data_length']) 
+                if (isset($showtable['Data_length'])
                     && $showtable['Rows'] > 0
                     && $mergetable == false) {
                     ?>
@@ -409,7 +410,7 @@ foreach ($the_tables as $key => $table) {
             <tr>
                 <td><?php echo __('Next autoindex'); ?></td>
                 <td class="right">
-                    <?php echo PMA_formatNumber($showtable['Auto_increment'], 0) 
+                    <?php echo PMA_formatNumber($showtable['Auto_increment'], 0)
                     . "\n"; ?>
                 </td>
             </tr>
