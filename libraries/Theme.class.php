@@ -326,7 +326,8 @@ class PMA_Theme
             if (is_readable($this->img_path . $file)) {
                 return $this->img_path . $file;
             } else {
-                return $GLOBALS['cfg']['ThemePath'] . '/' . PMA_Theme_Manager::FALLBACK_THEME . '/img/' . $file;
+                return $GLOBALS['cfg']['ThemePath'] . '/'
+                    . PMA_Theme_Manager::FALLBACK_THEME . '/img/' . $file;
             }
         }
     }
