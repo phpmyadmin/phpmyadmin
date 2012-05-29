@@ -119,7 +119,7 @@ function PMA_dataDiffInTables($src_db, $trg_db, $src_link, $trg_link,
         $fields_num[$matching_table_index] = sizeof($fld);
         $matching_tables_keys[$matching_table_index] = $is_key;
 
-        $source_result_set = PMA_get_column_values(
+        $source_result_set = PMA_getColumnValues(
             $src_db, $matching_table[$matching_table_index], $is_key, $src_link
         );
         $source_size = sizeof($source_result_set);
@@ -326,10 +326,10 @@ function PMA_findDeleteRowsFromTargetTables(&$delete_array, $matching_table,
     $matching_table_index, $trg_keys, $src_keys, $trg_db, $trg_link, $src_db, $src_link
 ) {
     if (isset($trg_keys[$matching_table_index])) {
-        $target_key_values = PMA_get_column_values($trg_db, $matching_table[$matching_table_index], $trg_keys[$matching_table_index], $trg_link);
+        $target_key_values = PMA_getColumnValues($trg_db, $matching_table[$matching_table_index], $trg_keys[$matching_table_index], $trg_link);
     }
     if (isset($src_keys[$matching_table_index])) {
-        $source_key_values = PMA_get_column_values($src_db, $matching_table[$matching_table_index], $src_keys[$matching_table_index], $src_link);
+        $source_key_values = PMA_getColumnValues($src_db, $matching_table[$matching_table_index], $src_keys[$matching_table_index], $src_link);
     }
     $all_keys_match = 1;
     for ($a = 0; $a < sizeof($trg_keys[$matching_table_index]); $a++) {
@@ -1423,7 +1423,7 @@ function PMA_syncDisplayDataCompare($rows)
 }
 
 /**
- * array PMA_get_column_values (string $database, string $table, string $column , mysql db link $link = null)
+ * array PMA_getColumnValues (string $database, string $table, string $column , mysql db link $link = null)
  *
  * @param string $database name of database
  * @param string $table    name of table to retrieve columns from
@@ -1432,7 +1432,7 @@ function PMA_syncDisplayDataCompare($rows)
  *
  * @return array $field_values
  */
-function PMA_get_column_values($database, $table, $column, $link = null)
+function PMA_getColumnValues($database, $table, $column, $link = null)
 {
     $query = 'SELECT ';
     for ($i=0; $i< sizeof($column); $i++) {
