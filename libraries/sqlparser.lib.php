@@ -1313,10 +1313,10 @@ function PMA_SQP_analyze($arr)
          */
 
         if (isset($chain) && $seen_from && $save_table_ref
-         && ($arr[$i]['type'] == 'punct_listsep'
-           || ($arr[$i]['type'] == 'alpha_reservedWord' && $upper_data!="AS")
-           || $seen_end_of_table_ref
-           || $i==$size-1)
+            && ($arr[$i]['type'] == 'punct_listsep'
+            || ($arr[$i]['type'] == 'alpha_reservedWord' && $upper_data != "AS")
+            || $seen_end_of_table_ref
+            || $i == $size - 1)
         ) {
 
             $size_chain = count($chain);
