@@ -26,7 +26,8 @@ if (! defined('PHPMYADMIN')) {
  * @return nothing
  */
 function PMA_getMatchingTables($trg_tables, $src_tables, &$matching_tables,
-&$uncommon_source_tables) {
+    &$uncommon_source_tables
+) {
     for ($k=0; $k< sizeof($src_tables); $k++) {
         $present_in_target = false;
         for ($l=0; $l < sizeof($trg_tables); $l++) {
@@ -54,7 +55,8 @@ function PMA_getMatchingTables($trg_tables, $src_tables, &$matching_tables,
  * @return nothing
  */
 function PMA_getNonMatchingTargetTables($trg_tables, $matching_tables,
-&$uncommon_target_tables) {
+    &$uncommon_target_tables
+) {
     for ($c=0; $c<sizeof($trg_tables); $c++) {
         $match = false;
         for ($d=0; $d < sizeof($matching_tables); $d++) {
@@ -423,17 +425,17 @@ function PMA_dataDiffInUncommonTables($source_tables_uncommon, $src_db, $src_lin
  * PMA_updateTargetTables() sets the updated field values to
  * target table rows using $update_array[$matching_table_index]
  *
- * @param array   $table                Matching tables' names
- * @param array   $update_array         A three dimensional array containing field
- *                                      value updates required for each matching
- *                                      table
- * @param string  $src_db               Name of source database
- * @param string  $trg_db               Name of target database
- * @param mixed   $trg_link             Connection established with target server
- * @param int     $matching_table_index index of matching table in
- *                                      matching_table_array
- * @param array   $matching_table_keys  matching keys for table
- * @param bool    $display              whether to display query
+ * @param array  $table                Matching tables' names
+ * @param array  $update_array         A three dimensional array containing field
+ *                                     value updates required for each matching
+ *                                     table
+ * @param string $src_db               Name of source database
+ * @param string $trg_db               Name of target database
+ * @param mixed  $trg_link             Connection established with target server
+ * @param int    $matching_table_index index of matching table in
+ *                                     matching_table_array
+ * @param array  $matching_table_keys  matching keys for table
+ * @param bool   $display              whether to display query
  *
  * @return nothing
  */
@@ -779,7 +781,8 @@ function PMA_populateTargetTables($src_db, $trg_db, $src_link, $trg_link,
  * @return nothing
  */
 function PMA_deleteFromTargetTable($trg_db, $trg_link, $matching_tables,
-$table_index, $target_tables_keys, $delete_array, $display) {
+    $table_index, $target_tables_keys, $delete_array, $display
+) {
     for ($i = 0; $i < sizeof($delete_array[$table_index]); $i++) {
         if (isset($target_tables_keys[$table_index])) {
             $delete_query = 'DELETE FROM ' . PMA_backquote($trg_db) . '.' .PMA_backquote($matching_tables[$table_index]) . ' WHERE ';
@@ -862,6 +865,8 @@ $table_index, $target_tables_keys, $delete_array, $display) {
  *                                     target table
  * @param array  &$target_tables_keys  field names which is key in the target table
  * @param int    $matching_table_index number of the matching table
+ *
+ * @return nothing
  */
 function PMA_structureDiffInTables($src_db, $trg_db, $src_link, $trg_link,
     $matching_tables, &$source_columns, &$target_columns, &$alter_str_array,
@@ -869,11 +874,22 @@ function PMA_structureDiffInTables($src_db, $trg_db, $src_link, $trg_link,
     $matching_table_index
 ) {
     //Gets column information for source and target table
-    $source_columns[$matching_table_index] = PMA_DBI_get_columns_full($src_db, $matching_tables[$matching_table_index], null, $src_link);
-    $target_columns[$matching_table_index] = PMA_DBI_get_columns_full($trg_db, $matching_tables[$matching_table_index], null, $trg_link);
+    $source_columns[$matching_table_index] = PMA_DBI_get_columns_full(
+        $src_db,
+        $matching_tables[$matching_table_index],
+        null,
+        $src_link
+    );
+    $target_columns[$matching_table_index] = PMA_DBI_get_columns_full(
+        $trg_db,
+        $matching_tables[$matching_table_index],
+        null,
+        $trg_link
+    );
     foreach ($source_columns[$matching_table_index] as $column_name => $each_column) {
         if (isset($target_columns[$matching_table_index][$column_name]['Field'])) {
-            //If column exists in target table then matches criteria like type, null, collation, key, default, comment of the column
+            //If column exists in target table then matches criteria like type,
+            // null, collation, key, default, comment of the column
             for ($i = 0; $i < sizeof($criteria); $i++) {
                 if ($source_columns[$matching_table_index][$column_name][$criteria[$i]] != $target_columns[$matching_table_index][$column_name][$criteria[$i]]) {
                     if (($criteria[$i] == 'Default') && ($source_columns[$matching_table_index][$column_name][$criteria[$i]] == '' )) {
