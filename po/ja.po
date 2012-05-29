@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-29 09:46+0200\n"
-"PO-Revision-Date: 2012-05-27 02:43+0200\n"
+"PO-Revision-Date: 2012-05-29 11:41+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -2311,31 +2311,29 @@ msgstr "秒"
 #: libraries/Advisor.class.php:67
 #, php-format
 msgid "PHP threw following error: %s"
-msgstr ""
+msgstr "PHP は以下のエラーを返しました: %s"
 
 #: libraries/Advisor.class.php:89
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'"
-msgstr ""
+msgstr "事象名「%s」において、前提条件の評価に失敗しました。"
 
 #: libraries/Advisor.class.php:106
 #, php-format
 msgid "Failed calculating value for rule '%s'"
-msgstr ""
+msgstr "事象名「%s」において、判断値の算出に失敗しました。"
 
 #: libraries/Advisor.class.php:125
 #, php-format
 msgid "Failed running test for rule '%s'"
-msgstr ""
+msgstr "事象名「%s」において、判断の判定に失敗しました。"
 
 #: libraries/Advisor.class.php:207
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgid "Failed formatting string for rule '%s'."
-msgstr ""
-"事象「%s」に対する書式文字列が正しくありません。PHP は以下のエラーを返しまし"
-"た: %s"
+msgstr "事象名「%s」において、表示書式の形成に失敗しました。"
 
 #: libraries/Advisor.class.php:361
 #, php-format
@@ -2344,20 +2342,20 @@ msgid ""
 msgstr ""
 
 #: libraries/Advisor.class.php:378
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid rule declaration on line %s"
-msgstr "CSV 入力の書式が不正です (行: %d)。"
+msgstr "無効な事象定義がありました (行: %s)"
 
 #: libraries/Advisor.class.php:386
 #, php-format
 msgid "Unexpected characters on line %s"
-msgstr ""
+msgstr "予期しない文字 (行: %s)"
 
 #: libraries/Advisor.class.php:400
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
-msgstr ""
+msgstr "予期しない文字 (行: %1$s)。タブ文字があるべきところに \"%2$s\" がありました。"
 
 #: libraries/Advisor.class.php:425 server_status.php:959
 msgid "per second"
