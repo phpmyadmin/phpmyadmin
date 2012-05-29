@@ -118,6 +118,8 @@ function PMA_SQP_isError()
  * @param string $message The error message
  * @param string $sql     The failing SQL query
  *
+ * @return nothing
+ *
  * @access private
  * @scope SQL Parser internal
  */
@@ -467,10 +469,10 @@ function PMA_SQP_parse($sql)
 
         // Checks for identifier (alpha or numeric)
         if (PMA_STR_isSqlIdentifier($c, false)
-         || $c == '@'
-         || ($c == '.'
-          && PMA_STR_isDigit(PMA_substr($sql, $count2 + 1, 1))
-          && ($previous_was_space || $previous_was_bracket || $previous_was_listsep))
+            || $c == '@'
+            || ($c == '.'
+            && PMA_STR_isDigit(PMA_substr($sql, $count2 + 1, 1))
+            && ($previous_was_space || $previous_was_bracket || $previous_was_listsep))
         ) {
             /* DEBUG
             echo PMA_substr($sql, $count2);
@@ -771,12 +773,12 @@ function PMA_SQP_parse($sql)
                     $t_suffix = '_reservedWord';
                 }
                 // Binary as character set
-                if ($d_cur_upper == 'BINARY' && (
-                  ($d_bef_prev_upper == 'CHARACTER' && $d_prev_upper == 'SET')
-                  || ($d_bef_prev_upper == 'SET' && $d_prev_upper == '=')
-                  || ($d_bef_prev_upper == 'CHARSET' && $d_prev_upper == '=')
-                  || $d_prev_upper == 'CHARSET'
-                  ) && in_array($d_cur, $mysql_charsets)
+                if ($d_cur_upper == 'BINARY'
+                    && (($d_bef_prev_upper == 'CHARACTER' && $d_prev_upper == 'SET')
+                    || ($d_bef_prev_upper == 'SET' && $d_prev_upper == '=')
+                    || ($d_bef_prev_upper == 'CHARSET' && $d_prev_upper == '=')
+                    || $d_prev_upper == 'CHARSET')
+                    && in_array($d_cur, $mysql_charsets)
                 ) {
                     $t_suffix = '_charset';
                 }
@@ -1117,9 +1119,7 @@ function PMA_SQP_analyze($arr)
         }
 
         // ==============================================================
-        if ($arr[$i]['type'] == 'alpha_reservedWord'
-            //&& $arr[$i]['forbidden'] == false) {
-            ) {
+        if ($arr[$i]['type'] == 'alpha_reservedWord') {
             // We don't know what type of query yet, so run this
             if ($subresult['querytype'] == '') {
                 $subresult['querytype'] = strtoupper($arr[$i]['data']);
@@ -1164,10 +1164,10 @@ function PMA_SQP_analyze($arr)
 
         // ==============================
         if ($arr[$i]['type'] == 'quote_backtick'
-         || $arr[$i]['type'] == 'quote_double'
-         || $arr[$i]['type'] == 'quote_single'
-         || $arr[$i]['type'] == 'alpha_identifier'
-         || ($arr[$i]['type'] == 'alpha_reservedWord'
+            || $arr[$i]['type'] == 'quote_double'
+            || $arr[$i]['type'] == 'quote_single'
+            || $arr[$i]['type'] == 'alpha_identifier'
+            || ($arr[$i]['type'] == 'alpha_reservedWord'
             && $arr[$i]['forbidden'] == false)
         ) {
             switch ($arr[$i]['type']) {
@@ -1313,10 +1313,10 @@ function PMA_SQP_analyze($arr)
          */
 
         if (isset($chain) && $seen_from && $save_table_ref
-         && ($arr[$i]['type'] == 'punct_listsep'
-           || ($arr[$i]['type'] == 'alpha_reservedWord' && $upper_data!="AS")
-           || $seen_end_of_table_ref
-           || $i==$size-1)
+            && ($arr[$i]['type'] == 'punct_listsep'
+            || ($arr[$i]['type'] == 'alpha_reservedWord' && $upper_data != "AS")
+            || $seen_end_of_table_ref
+            || $i == $size - 1)
         ) {
 
             $size_chain = count($chain);
@@ -2073,12 +2073,12 @@ function PMA_SQP_analyze($arr)
 /**
  * Colorizes SQL queries html formatted
  *
- * @todo check why adding a "\n" after the </span> would cause extra blanks
- * to be displayed: SELECT p . person_name
- *
- * @param array $arr  The SQL queries html formatted
+ * @param array $arr The SQL queries html formatted
  *
  * @return array   The colorized SQL queries
+ *
+ * @todo check why adding a "\n" after the </span> would cause extra blanks
+ * to be displayed: SELECT p . person_name
  *
  * @access public
  */
@@ -2099,10 +2099,10 @@ function PMA_SQP_formatHtml_colorize($arr)
 /**
  * Formats SQL queries to html
  *
- * @param array   $arr             The SQL queries
- * @param string  $mode            mode of printing
- * @param integer $start_token     starting token
- * @param integer $numbr_of_tokens number of tokens to format, -1 = all
+ * @param array   $arr              The SQL queries
+ * @param string  $mode             mode of printing
+ * @param integer $start_token      starting token
+ * @param integer $number_of_tokens number of tokens to format, -1 = all
  *
  * @return string  The formatted SQL queries
  *
