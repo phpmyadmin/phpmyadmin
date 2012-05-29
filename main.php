@@ -19,7 +19,7 @@ if ($GLOBALS['PMA_Config']->isGitRevision()) {
     if (isset($_REQUEST['git_revision']) && $GLOBALS['is_ajax_request'] == true) {
         PMA_printGitRevision();
     }
-    PMA_AddJSVar('is_git_revision', true);
+    PMA_addJSVar('is_git_revision', true);
 }
 
 // Handles some variables that may have been sent by the calling script

@@ -361,7 +361,7 @@ function PMA_formatSql($parsed_sql, $unparsed_sql = '')
         return $formatted_sql;
     }
 
-    $formatted_sql        = '';
+    $formatted_sql = '';
 
     switch ($cfg['SQP']['fmtType']) {
     case 'none':
@@ -683,10 +683,10 @@ function PMA_mysqlDie(
     // modified to show the help on error-returns
     // (now error-messages-server)
     $error_msg .= '<p>' . "\n"
-            . '    <strong>' . __('MySQL said: ') . '</strong>'
-            . PMA_showMySQLDocu('Error-messages-server', 'Error-messages-server')
-            . "\n"
-            . '</p>' . "\n";
+        . '    <strong>' . __('MySQL said: ') . '</strong>'
+        . PMA_showMySQLDocu('Error-messages-server', 'Error-messages-server')
+        . "\n"
+        . '</p>' . "\n";
 
     // The error message will be displayed within a CODE segment.
     // To preserve original formatting, but allow wordwrapping,
@@ -812,7 +812,8 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0,
             $group_name_full = '';
             $parts_cnt = count($parts) - 1;
             while ($i < $parts_cnt
-                    && $i < $GLOBALS['cfg']['LeftFrameTableLevel']) {
+                && $i < $GLOBALS['cfg']['LeftFrameTableLevel']
+            ) {
                 $group_name = $parts[$i] . $sep;
                 $group_name_full .= $group_name;
 
@@ -1349,7 +1350,7 @@ function PMA_getMessage(
     }
 
     return $retval;
-    
+
 } // end of the 'PMA_getMessage()' function
 
 /**
@@ -1977,17 +1978,17 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
 function PMA_splitURLQuery($url)
 {
     // decode encoded url separators
-    $separator   = PMA_get_arg_separator();
+    $separator = PMA_get_arg_separator();
     // on most places separator is still hard coded ...
     if ($separator !== '&') {
         // ... so always replace & with $separator
-        $url         = str_replace(htmlentities('&'), $separator, $url);
-        $url         = str_replace('&', $separator, $url);
+        $url = str_replace(htmlentities('&'), $separator, $url);
+        $url = str_replace('&', $separator, $url);
     }
-    $url         = str_replace(htmlentities($separator), $separator, $url);
+    $url = str_replace(htmlentities($separator), $separator, $url);
     // end decode
 
-    $url_parts   = parse_url($url);
+    $url_parts = parse_url($url);
     return explode($separator, $url_parts['query']);
 }
 
@@ -2653,9 +2654,9 @@ function PMA_getCheckbox($html_field_name, $label, $checked, $onclick)
 function PMA_getRadioFields($html_field_name, $choices, $checked_choice = '',
     $line_break = true, $escape_label = true, $class=''
 ) {
-    
+
     $radio_html = '';
-    
+
     foreach ($choices as $choice_value => $choice_label) {
         if (! empty($class)) {
             $radio_html .= '<div class="' . $class . '">';
@@ -2681,9 +2682,9 @@ function PMA_getRadioFields($html_field_name, $choices, $checked_choice = '',
         }
         $radio_html .= "\n";
     }
-    
+
     return $radio_html;
-    
+
 }
 
 /**
@@ -2723,9 +2724,9 @@ function PMA_getDropdown($select_name, $choices, $active_choice, $id)
  *
  * @param string $id      the id of the <div> on which to apply the effect
  * @param string $message the message to show as a link
- * 
+ *
  * @return string         html div element
- * 
+ *
  */
 function PMA_getDivForSliderEffect($id, $message)
 {
@@ -2740,7 +2741,7 @@ function PMA_getDivForSliderEffect($id, $message)
      * method maybe by using an additional param, the id of the div to
      * append to
      */
-    
+
     return '<div id="' . $id . '"'
         . (($GLOBALS['cfg']['InitialSlidersState'] == 'closed')
             ? ' style="display: none; overflow:auto;"'
@@ -3162,7 +3163,7 @@ function PMA_duplicateFirstNewline($string)
 {
     $first_occurence = strpos($string, "\r\n");
     if ($first_occurence === 0) {
-        $string = "\n".$string;
+        $string = "\n" . $string;
     }
     return $string;
 }
@@ -3547,7 +3548,6 @@ function PMA_getGISDatatypes($upper_case = false)
             $gis_data_types[$i] = strtoupper($gis_data_types[$i]);
         }
     }
-
     return $gis_data_types;
 }
 
@@ -3560,7 +3560,7 @@ function PMA_getGISDatatypes($upper_case = false)
  */
 function PMA_createGISData($gis_string)
 {
-    $gis_string =  trim($gis_string);
+    $gis_string = trim($gis_string);
     $geom_types = '(POINT|MULTIPOINT|LINESTRING|MULTILINESTRING|'
         . 'POLYGON|MULTIPOLYGON|GEOMETRYCOLLECTION)';
     if (preg_match("/^'" . $geom_types . "\(.*\)',[0-9]*$/i", $gis_string)) {
@@ -3838,15 +3838,15 @@ function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
     $query = "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`%s` "
            . "WHERE GRANTEE='%s' AND PRIVILEGE_TYPE='%s'";
     // Check global privileges first.
-    if (PMA_DBI_fetch_value(
+    $user_privileges = PMA_DBI_fetch_value(
         sprintf(
             $query,
             'USER_PRIVILEGES',
             $username,
             $priv
         )
-    )
-    ) {
+    );
+    if ($user_privileges) {
         return true;
     }
     // If a database name was provided and user does not have the
@@ -3855,7 +3855,7 @@ function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
         // need to escape wildcards in db and table names, see bug #3518484
         $db = str_replace(array('%', '_'), array('\%', '\_'), $db);
         $query .= " AND TABLE_SCHEMA='%s'";
-        if (PMA_DBI_fetch_value(
+        $schema_privileges = PMA_DBI_fetch_value(
             sprintf(
                 $query,
                 'SCHEMA_PRIVILEGES',
@@ -3863,8 +3863,8 @@ function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
                 $priv,
                 PMA_sqlAddSlashes($db)
             )
-        )
-        ) {
+        );
+        if ($schema_privileges) {
             return true;
         }
     } else {
@@ -3878,7 +3878,7 @@ function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
         // need to escape wildcards in db and table names, see bug #3518484
         $tbl = str_replace(array('%', '_'), array('\%', '\_'), $tbl);
         $query .= " AND TABLE_NAME='%s'";
-        if (PMA_DBI_fetch_value(
+        $table_privileges = PMA_DBI_fetch_value(
             sprintf(
                 $query,
                 'TABLE_PRIVILEGES',
@@ -3887,8 +3887,8 @@ function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
                 PMA_sqlAddSlashes($db),
                 PMA_sqlAddSlashes($tbl)
             )
-        )
-        ) {
+        );
+        if ($table_privileges) {
             return true;
         }
     }
