@@ -389,7 +389,8 @@ foreach ($the_tables as $key => $table) {
                     <?php
                 }
                 if (isset($showtable['Avg_row_length'])
-                    && $showtable['Avg_row_length'] > 0) {
+                    && $showtable['Avg_row_length'] > 0
+                ) {
                     ?>
             <tr>
                 <td><?php echo __('Row length'); ?>&nbsp;&oslash;</td>
@@ -402,7 +403,8 @@ foreach ($the_tables as $key => $table) {
                 }
                 if (isset($showtable['Data_length'])
                     && $showtable['Rows'] > 0
-                    && $mergetable == false) {
+                    && $mergetable == false
+                ) {
                     ?>
             <tr>
                 <td><?php echo __('Row size'); ?>&nbsp;&oslash;</td>
@@ -417,8 +419,9 @@ foreach ($the_tables as $key => $table) {
             <tr>
                 <td><?php echo __('Next autoindex'); ?></td>
                 <td class="right">
-                    <?php echo PMA_formatNumber($showtable['Auto_increment'], 0)
-                    . "\n"; ?>
+                    <?php
+                    echo PMA_formatNumber($showtable['Auto_increment'], 0);
+                    ?>
                 </td>
             </tr>
                     <?php
@@ -428,8 +431,9 @@ foreach ($the_tables as $key => $table) {
             <tr>
                 <td><?php echo __('Creation'); ?></td>
                 <td class="right">
-                    <?php echo PMA_localisedDate(strtotime(
-                        $showtable['Create_time'])) . "\n"; ?>
+                    <?php
+                    echo PMA_localisedDate(strtotime($showtable['Create_time']));
+                    ?>
                 </td>
             </tr>
                     <?php
@@ -439,8 +443,9 @@ foreach ($the_tables as $key => $table) {
             <tr>
                 <td><?php echo __('Last update'); ?></td>
                 <td class="right">
-                    <?php echo PMA_localisedDate(strtotime(
-                        $showtable['Update_time'])) . "\n"; ?>
+                    <?php
+                    echo PMA_localisedDate(strtotime($showtable['Update_time']));
+                    ?>
                 </td>
             </tr>
                     <?php
@@ -450,8 +455,9 @@ foreach ($the_tables as $key => $table) {
             <tr>
                 <td><?php echo __('Last check'); ?></td>
                 <td class="right">
-                    <?php echo PMA_localisedDate(strtotime(
-                        $showtable['Check_time'])) . "\n"; ?>
+                    <?php
+                    echo PMA_localisedDate(strtotime($showtable['Check_time']));
+                    ?>
                 </td>
             </tr>
                     <?php
