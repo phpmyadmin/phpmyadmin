@@ -24,7 +24,7 @@ class PMA_Header {
     private static $_instance;
     private $_scripts;
     private $_menu;
-    private $_userprefs_offer_import;
+    private $_userprefsOfferImport;
     private $_title;
     private $_bodyId;
     private $_menuEnabled;
@@ -48,11 +48,11 @@ class PMA_Header {
         // if database storage for user preferences is transient,
         // offer to load exported settings from localStorage
         // (detection will be done in JavaScript)
-        $this->_userprefs_offer_import = false;
+        $this->_userprefsOfferImport = false;
         if ($GLOBALS['PMA_Config']->get('user_preferences') == 'session'
             && ! isset($_SESSION['userprefs_autoload'])
         ) {
-            $this->_userprefs_offer_import = true;
+            $this->_userprefsOfferImport = true;
         }
     }
 
@@ -100,14 +100,13 @@ class PMA_Header {
     {
         $retval = '';
         if (! self::$headerIsSent) {
-            self::$headerIsSent = true;
             $this->sendHttpHeaders();
             if ($GLOBALS['is_ajax_request'] === false) {
                 $retval .= $this->_getHtmlStart();
                 $retval .= $this->_getMetaTags();
                 $retval .= $this->_getLinkTags();
                 $retval .= $this->_getTitleTag();
-                if ($this->_userprefs_offer_import) {
+                if ($this->_userprefsOfferImport) {
                     $this->_scripts->addFile('config.js');
                 }
                 $retval .= $this->_scripts->getDisplay();
@@ -119,7 +118,7 @@ class PMA_Header {
                     $retval .= ob_end_clean();
                 }
                 // offer to load user preferences from localStorage
-                if ($this->_userprefs_offer_import) {
+                if ($this->_userprefsOfferImport) {
                     include_once './libraries/user_preferences.lib.php';
                     $retval .= PMA_userprefsAutoloadGetHeader();
                 }
@@ -143,7 +142,6 @@ class PMA_Header {
 
     public function sendHttpHeaders()
     {
-        self::$headerIsSent = true;
         /**
          * Starts output buffering work
          */
@@ -163,6 +161,7 @@ class PMA_Header {
             // Define the charset to be used
             header('Content-Type: text/html; charset=utf-8');
         }
+        self::$headerIsSent = true;
     }
 
     private function _getHtmlStart()

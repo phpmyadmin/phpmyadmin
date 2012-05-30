@@ -101,7 +101,7 @@ if (! isset($fieldkey) || ! is_numeric($fieldkey)) {
     $fieldkey = 0;
 }
 
-$code = <<<HERE
+$code = <<<EOC
 self.focus();
 function formupdate(fieldmd5, key) {
     var \$inline = window.opener.jQuery('.browse_foreign_clicked');
@@ -144,7 +144,7 @@ function formupdate(fieldmd5, key) {
 
     alert('$error');
 }
-HERE;
+EOC;
 
 $header->getScripts()->addCode($code);
 $header->display();
