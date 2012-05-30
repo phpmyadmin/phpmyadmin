@@ -365,8 +365,6 @@ function PMA_auth_check()
 
         // according to the PHP manual we should do this before the destroy:
         //$_SESSION = array();
-        // but we still need some parts of the session information
-        // in libraries/header_meta_style.inc.php
 
         session_destroy();
         // -> delete password cookie(s)

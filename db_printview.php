@@ -10,10 +10,9 @@
  */
 require_once 'libraries/common.inc.php';
 
-/**
- * Gets the variables sent or posted to this script, then displays headers
- */
-require_once 'libraries/header_printview.inc.php';
+$header = PMA_Header::getInstance();
+$header->enablePrintView();
+$header->display();
 
 PMA_checkParameters(array('db'));
 

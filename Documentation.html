@@ -2700,9 +2700,8 @@ setfacl -d -m "g:www-data:rwx" tmp
 
 <p> This seems to be a PWS bug. Filippo Simoncini found a workaround (at this
     time there is no better fix): remove or comment the <code>DOCTYPE</code>
-    declarations (2 lines) from the scripts <em>libraries/Header.class.php</em>,
-    <em>libraries/header_printview.inc.php</em>, <em>index.php</em>,
-    <em>navigation.php</em> and <em>libraries/common.lib.php</em>.</p>
+    declarations (2 lines) from the scripts <em>libraries/Header.class.php</em>
+    and <em>index.php</em>.</p>
 
 <h4 id="faq1_7">
     <a href="#faq1_7">1.7 How can I GZip or Bzip a dump or a

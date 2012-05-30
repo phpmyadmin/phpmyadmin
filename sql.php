@@ -907,7 +907,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     if (isset($printview) && $printview == '1') {
         PMA_checkParameters(array('db', 'full_sql_query'));
 
-        include_once 'libraries/header_printview.inc.php';
+        $header = PMA_Header::getInstance();
+        $header->enablePrintView();
+        $header->display();
 
         $hostname = '';
         if ($cfg['Server']['verbose']) {

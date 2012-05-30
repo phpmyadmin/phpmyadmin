@@ -11,12 +11,7 @@
  */
 require_once 'libraries/common.inc.php';
 
-/**
- * Gets the variables sent or posted to this script, then displays headers
- */
-if (! isset($selected_tbl)) {
-    include_once 'libraries/header_printview.inc.php';
-}
+PMA_Header::getInstance()->enablePrintView();
 
 require 'libraries/tbl_common.inc.php';
 
@@ -61,7 +56,6 @@ if (isset($selected_tbl) && is_array($selected_tbl)) {
 $multi_tables     = (count($the_tables) > 1);
 
 if ($multi_tables) {
-    PMA_Header::getInstance()->display();
     $tbl_list     = '';
     foreach ($the_tables as $key => $table) {
         $tbl_list .= (empty($tbl_list) ? '' : ', ')
