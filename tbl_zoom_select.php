@@ -195,7 +195,25 @@ if (isset($inputs) && ($inputs[0] != 'pma_null' || $inputs[1] != 'pma_null')) {
             $key = array_search($inputs[$i], $fields_list);
             $tbl_fields_type[$i] = $fields_type[$key];
             $tbl_fields_collation[$i] = $fields_collation[$key];
-            $tbl_fields_null[$i] = $fields_null[$key];
+            $tbl_fields_func[$i] = '<select name="zoomFunc[]">';
+            $tbl_fields_func[$i] .= $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
+                preg_replace('@\(.*@s', '', $fields_type[$key]),
+                $fields_null[$key], $zoomFunc[$i]
+            );
+            $tbl_fields_func[$i] .= '</select>';
+            $foreignData = PMA_getForeignData($foreigners, $inputs[$i], false, '', '');
+            $tbl_fields_value[$i] =  PMA_getForeignFields_Values(
+                $foreigners,
+                $foreignData,
+                $inputs[$i],
+                $tbl_fields_type,
+                $i,
+                $db,
+                $table,
+                $titles,
+                $GLOBALS['cfg']['ForeignKeyMaxLimit'],
+                $fields
+            );
         }
     }
 }
@@ -244,10 +262,10 @@ for ($i = 0; $i < 4; $i++) {
         }
     } ?>
         </select></th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td><?php if (isset($tbl_fields_type[$i])) echo $tbl_fields_type[$i]; ?></td>
+        <td><?php if (isset($tbl_fields_collation[$i])) echo $tbl_fields_collation[$i]; ?></td>
+        <td><?php if (isset($tbl_fields_func[$i])) echo $tbl_fields_func[$i]; ?></td>
+        <td><?php if (isset($tbl_fields_value[$i])) echo $tbl_fields_value[$i]; ?></td>
     </tr>
     <tr><td>
     <input type="hidden" name="types[<?php echo $i; ?>]" id="types_<?php echo $i; ?>"
