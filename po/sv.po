@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-29 09:46+0200\n"
-"PO-Revision-Date: 2012-05-20 21:47+0200\n"
+"PO-Revision-Date: 2012-05-29 20:47+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1884,7 +1884,7 @@ msgstr "Hovra över en punkt kommer visa etiketten."
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "För att zooma in, välja en del av grafen med musen."
 
 #: js/messages.php:306
 msgid "Click reset zoom link to come back to original state."
@@ -6335,10 +6335,9 @@ msgid "vertical"
 msgstr "vertikal"
 
 #: libraries/display_tbl.lib.php:635
-#, fuzzy
 #| msgid "Headers every %s rows"
 msgid "Headers every"
-msgstr "Sidhuvud var %s rad"
+msgstr "Rubriker varje"
 
 #: libraries/display_tbl.lib.php:639
 msgid "rows"
@@ -12272,10 +12271,9 @@ msgid "How to use"
 msgstr "Hur du använder"
 
 #: tbl_zoom_select.php:432
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Återställ"
+msgstr "Återställ zoom"
 
 #: themes.php:28
 msgid "Get more themes!"

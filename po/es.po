@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-29 09:46+0200\n"
-"PO-Revision-Date: 2012-05-26 18:46+0200\n"
+"PO-Revision-Date: 2012-05-29 16:04+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -99,8 +99,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"El archivo %s no está disponible en este sistema, por favor visite www."
-"phpmyadmin.net para más información."
+"El archivo %s no está disponible en este sistema, visite www.phpmyadmin.net "
+"para más información."
 
 #: db_create.php:74
 #, php-format
@@ -616,8 +616,8 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr ""
-"Esta vista tiene al menos este número de filas. Por favor refiérase a la "
-"%sdocumentation%s."
+"Esta vista tiene al menos este número de filas. Refiérase a la %"
+"sdocumentation%s."
 
 #: db_structure.php:543 db_structure.php:577 libraries/Menu.class.php:194
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:208
@@ -936,9 +936,8 @@ msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
 "%s for ways to workaround this limit."
 msgstr ""
-"Usted probablemente intentó cargar un archivo demasiado grande. Por favor, "
-"refiérase a %sla documentation%s para hallar modos de superar esta "
-"limitación."
+"Usted probablemente intentó cargar un archivo demasiado grande. Refiérase a "
+"%sla documentation%s para hallar modos de superar esta limitación."
 
 #: import.php:216 import.php:443
 msgid "Showing bookmark"
@@ -1002,7 +1001,7 @@ msgid ""
 "file and import will resume."
 msgstr ""
 "Se ha agotado el tiempo de ejecución del script; si desea completar la "
-"importación por favor reenvíe el mismo archivo y la importación continuará."
+"importación reenvíe el mismo archivo y la importación continuará."
 
 #: import.php:468
 msgid ""
@@ -1220,9 +1219,8 @@ msgid ""
 msgstr ""
 "La configuración de distribución de gráficos en el almacenamiento local del "
 "navegador no es compatible con la nueva versión del sistema de "
-"monitorización. Es probable que la configuración no funcione. Porfavor, "
-"reinicie la configuración a la predeterminada en el menú <i>Configuración</"
-"i>."
+"monitorización. Es probable que la configuración no funcione. Reinicie la "
+"configuración a la predeterminada en el menú <i>Configuración</i>."
 
 #: js/messages.php:93
 msgid "Query cache efficiency"
@@ -1372,7 +1370,7 @@ msgstr "Agregar gráfico a la grilla"
 
 #: js/messages.php:138
 msgid "Please add at least one variable to the series"
-msgstr "Por favor agregue al menos una variable a la serie"
+msgstr "Agregue al menos una variable a la serie"
 
 #: js/messages.php:139 libraries/display_export.lib.php:323
 #: libraries/display_tbl.lib.php:1171 libraries/export/sql.php:1395
@@ -1467,8 +1465,8 @@ msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
-"No posee permisos para cambiar estas variables. Por favor inicie sesión con "
-"la cuenta root o contacte a su administrador de base de datos."
+"No posee permisos para cambiar estas variables. Inicie sesión con la cuenta "
+"root o contacte a su administrador de base de datos."
 
 #: js/messages.php:161
 msgid "Change settings"
@@ -1669,7 +1667,7 @@ msgstr "Importar"
 
 #: js/messages.php:213
 msgid "Import monitor configuration"
-msgstr "Importar configuración de monitorización"
+msgstr "Importar configuración"
 
 #: js/messages.php:214
 msgid "Please select the file you want to import"
@@ -1906,7 +1904,7 @@ msgstr "Ubicar el cursor sobre un punto mostrará su etiqueta."
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr "Para ampliar, seleccione una sección del gráfico."
+msgstr "Para ampliar, seleccione el gráfico."
 
 #: js/messages.php:306
 msgid "Click reset zoom link to come back to original state."
@@ -1962,7 +1960,7 @@ msgstr "Seleccione la clave foránea"
 
 #: js/messages.php:339
 msgid "Please select the primary key or a unique key"
-msgstr "Por favor seleccione la clave primaria o una clave única"
+msgstr "Seleccione la clave primaria o una clave única"
 
 #: js/messages.php:340 pmd_general.php:92 tbl_relation.php:551
 msgid "Choose column to display"
@@ -3238,8 +3236,8 @@ msgstr ""
 #, php-format
 msgid "No activity within %s seconds; please log in again"
 msgstr ""
-"No ha habido actividad desde hace %s o más segundos, por favor reingrese al "
-"sitio"
+"No ha habido actividad desde hace %s o más segundos; inicie sesión "
+"nuevamente"
 
 #: libraries/auth/cookie.auth.lib.php:629
 #: libraries/auth/cookie.auth.lib.php:631
@@ -3340,8 +3338,8 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
-"Esto generalmente significa que tiene un error de sintáxis, por favor revisa "
-"los errores que se muestran a continuación."
+"Esto generalmente significa que tiene un error de sintáxis, revisa los "
+"errores que se muestran a continuación."
 
 #: libraries/common.inc.php:617
 #, php-format
@@ -3365,7 +3363,7 @@ msgstr "Índice de servidor inválido: %s"
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr ""
-"El nombre del host no es válido para el servidor %1$s. Por favor revise su "
+"El nombre del host no es válido para el servidor %1$s. Revise su "
 "configuración."
 
 #: libraries/common.inc.php:877
@@ -4406,8 +4404,8 @@ msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
 msgstr ""
-"Por favor tome en cuenta que phpMyAdmin es solamente una interfaz y sus "
-"opciones no limitan a MySQL"
+"Tenga en cuenta que phpMyAdmin es solamente una interfaz y sus opciones no "
+"limitan a MySQL"
 
 #: libraries/config/messages.inc.php:202
 msgid "Basic settings"
@@ -6042,7 +6040,7 @@ msgstr "es"
 #: libraries/core.lib.php:276
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr "No se encontró la extensión %s. Por favor revisa la configuración PHP."
+msgstr "No se encontró la extensión %s. Revisa la configuración PHP."
 
 #: libraries/core.lib.php:430
 msgid "possible deep recursion attack"
@@ -6345,15 +6343,15 @@ msgstr "Alrededor de %SEC seg. restantes."
 
 #: libraries/display_import.lib.php:127
 msgid "The file is being processed, please be patient."
-msgstr "El archivo está siendo procesado, por favor sea paciente."
+msgstr "El archivo está siendo procesado, sea paciente."
 
 #: libraries/display_import.lib.php:147
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr ""
-"Por favor sea paciente, el archivo está siendo cargado. Los detalles de la "
-"carga no están disponibles."
+"Sea paciente, el archivo está siendo cargado. Los detalles de la carga no "
+"están disponibles."
 
 #: libraries/display_import.lib.php:178
 msgid "Importing into the current server"
@@ -7416,8 +7414,8 @@ msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
 msgstr ""
-"El archivo XML especificado estaba incompleto o mal formado. Por favor "
-"corrija el problema e intente nuevamente."
+"El archivo XML especificado estaba incompleto o mal formado. Corrija el "
+"problema e intente nuevamente."
 
 #: libraries/import/shp.php:20
 msgid "ESRI Shape File"
@@ -7836,8 +7834,7 @@ msgstr "Transformación del navegador"
 #: libraries/relation.lib.php:183
 msgid ""
 "Please see the documentation on how to update your column_comments table"
-msgstr ""
-"Para actualizar su tabla column_comments, por favor revise la documentación"
+msgstr "Para actualizar su tabla column_comments, revise la documentación"
 
 #: libraries/relation.lib.php:195 libraries/sql_query_form.lib.php:382
 msgid "Bookmarked SQL query"
@@ -8640,16 +8637,16 @@ msgid ""
 "and submit a bug report with the data chunk in the CUT section below:"
 msgstr ""
 "Existe la posibilidad que usted haya encontrado un error en el intérprete de "
-"SQL. Por favor examine cuidadosamente su consulta y verifique que las "
-"comillas están siendo usadas adecuadamente y hacen juego. Otra posible causa "
-"del fallo es que esté subiendo un archivo con datos binarios por fuera del "
-"área de texto delimitado con comillas. Intente su consulta en la interfaz de "
-"comandos de MySQL. La salida generada por el servidor de MySQL, de existir, "
-"aparece abajo y puede ayudar a diagnosticar el problema. Si aún tiene "
-"problemas o el intérprete falla en tanto que en la interfaz de comandos "
-"funciona, por favor reduzca la salida de su consulta de SQL a la consulta "
-"que genera el problema y envíe un reporte de error con la cadena de datos en "
-"la sección de CORTE indicada abajo:"
+"SQL. Examine cuidadosamente su consulta y verifique que las comillas están "
+"siendo usadas adecuadamente y hacen juego. Otra posible causa del fallo es "
+"que esté subiendo un archivo con datos binarios por fuera del área de texto "
+"delimitado con comillas. Intente su consulta en la interfaz de comandos de "
+"MySQL. La salida generada por el servidor de MySQL, de existir, aparece "
+"abajo y puede ayudar a diagnosticar el problema. Si aún tiene problemas o el "
+"intérprete falla en tanto que en la interfaz de órdenes funciona,  reduzca "
+"la salida de su consulta de SQL a la consulta que genera el problema y envíe "
+"un reporte de error con la cadena de datos en la sección de CORTE indicada "
+"abajo:"
 
 #: libraries/sqlparser.lib.php:178
 msgid "BEGIN CUT"
@@ -8689,8 +8686,8 @@ msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
-"El validador de SQL no pudo inicializarse. Por favor revise si ha instalado "
-"las extensiones php necesarias, como están descritas en la %sdocumentación%s."
+"El validador de SQL no pudo inicializarse. Revise si ha instalado las "
+"extensiones PHP necesarias, como indica la %sdocumentación%s."
 
 #: libraries/tbl_common.inc.php:58
 #, php-format
@@ -8825,8 +8822,8 @@ msgid ""
 "No description is available for this transformation.<br />Please ask the "
 "author what %s does."
 msgstr ""
-"No hay una descripción disponible para esta transformación.<br />Por favor "
-"pregunte al autor lo que %s hace."
+"No hay una descripción disponible para esta transformación.<br />Pregunte al "
+"autor lo que hace «%s»."
 
 #: libraries/transformations/application_octetstream__download.inc.php:13
 msgid ""
@@ -9181,8 +9178,8 @@ msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
-"El servidor está utilizando Suhosin. Por favor refiérase a la %sdocumentación"
-"%s para posibles ajustes."
+"El servidor está utilizando Suhosin. Refiérase a la %sdocumentación%s por "
+"posibles inconvenientes."
 
 #: navigation.php:175 server_databases.php:311 server_synchronize.php:1465
 msgid "No databases"
@@ -10091,7 +10088,7 @@ msgstr ""
 "Se pede seleccionar replicar todas las bases de datos e ignorar algunas "
 "(útil cuando se quiere replicar la mayoría de las bases de datos) o bien "
 "ignorar todas las bases de datos y sólo permitir que ciertas bases de datos "
-"sean replicadas. Por favor elija el modo:"
+"sean replicadas. Elija el modo:"
 
 #: server_replication.php:248
 msgid "Replicate all databases; Ignore:"
@@ -10419,8 +10416,8 @@ msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=\"#replication\">replication section</a>."
 msgstr ""
-"Para más información sobre el estado de replicación en el servidor, por "
-"favor visita la <a href=\"#replication\">sección sobre replicación</a>."
+"Para más información sobre el estado de replicación en el servidor, revise "
+"la <a href=\"#replication\">sección sobre replicación</a>."
 
 #: server_status.php:1092
 msgid "Replication status"
@@ -11537,9 +11534,9 @@ msgid ""
 "level directory as described in [a@Documentation.html#setup_script]"
 "documentation[/a]. Otherwise you will be only able to download or display it."
 msgstr ""
-"Por favor cree una carpeta [em]config[/em] que pueda ser modificada por el "
-"servidor web en el nivel más alto del directorio phpMyAdmin como se describe "
-"en [a@Documentation.html#setup_script]la documentación[/a]. De lo contrario, "
+"Cree una carpeta [em]config[/em] que pueda ser modificada por el servidor "
+"web en el nivel más alto del directorio phpMyAdmin como se describe en "
+"[a@Documentation.html#setup_script]la documentación[/a]. De lo contrario, "
 "sólamente podrá descargar o mostrar la configuración."
 
 #: setup/frames/index.inc.php:60
@@ -12378,8 +12375,8 @@ msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
 msgstr ""
-"Puedes ejecutar el volcado creando y utilizando una base de datos temporal. "
-"Por favor asegúrate de tener los privilegios para poder hacerlo."
+"Puede ejecutar el volcado creando y utilizando una base de datos temporal. "
+"Asegúrese de tener los privilegios para poder hacerlo."
 
 #: tbl_tracking.php:252
 msgid "Comment out these two lines if you do not need them."
@@ -12387,7 +12384,7 @@ msgstr "Comenta estas dos líneas si no las necesitas."
 
 #: tbl_tracking.php:261
 msgid "SQL statements exported. Please copy the dump or execute it."
-msgstr "Sentencias SQL exportadas. Por favor copia el volcado o ejecútalo."
+msgstr "Sentencias SQL exportadas. Copia el volcado o ejecútalo."
 
 #: tbl_tracking.php:292
 #, php-format

@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-29 09:46+0200\n"
-"PO-Revision-Date: 2012-05-23 10:36+0200\n"
-"Last-Translator: Sebastiao Rocha <rocha@abracops.info>\n"
+"PO-Revision-Date: 2012-05-29 15:01+0200\n"
+"Last-Translator: Thales Carpi <thales.carpi@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -440,7 +440,7 @@ msgstr "Critério"
 
 #: db_qbe.php:380 db_qbe.php:462 db_qbe.php:554 db_qbe.php:585
 msgid "Ins"
-msgstr "Ins"
+msgstr "Inserir"
 
 #: db_qbe.php:384 db_qbe.php:466 db_qbe.php:551 db_qbe.php:582
 msgid "And"
@@ -448,7 +448,7 @@ msgstr "E"
 
 #: db_qbe.php:393 db_qbe.php:474 db_qbe.php:556 db_qbe.php:587
 msgid "Del"
-msgstr "Del"
+msgstr "Deletar"
 
 #: db_qbe.php:397 db_qbe.php:478 db_qbe.php:549 db_qbe.php:580
 #: libraries/insert_edit.lib.php:1054 server_privileges.php:484
@@ -1505,7 +1505,7 @@ msgstr "Do relatório geral"
 
 #: js/messages.php:172
 msgid "Analysing logs"
-msgstr "Analisando relatorios"
+msgstr "Analisando relatórios"
 
 #: js/messages.php:173
 msgid "Analysing & loading logs. This may take a while."
@@ -1546,7 +1546,7 @@ msgstr "Ir para a tabela de Log"
 
 #: js/messages.php:180
 msgid "No data found"
-msgstr "Não existem dados"
+msgstr "Dados não encontrados"
 
 #: js/messages.php:181
 msgid "Log analysed, but no data found in this time span."
@@ -2638,7 +2638,7 @@ msgstr ""
 
 #: libraries/Menu.class.php:522
 msgid "Engines"
-msgstr "Engines"
+msgstr "Motores"
 
 #: libraries/Message.class.php:199 libraries/common.lib.php:629
 #: libraries/core.lib.php:217 libraries/import.lib.php:141
@@ -3318,19 +3318,19 @@ msgstr "Documentação"
 #: libraries/common.lib.php:469
 msgctxt "MySQL 5.5 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "ing"
 
 #. l10n: Please check that translation actually exists.
 #: libraries/common.lib.php:473
 msgctxt "MySQL 5.1 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "ing"
 
 #. l10n: Please check that translation actually exists.
 #: libraries/common.lib.php:477
 msgctxt "MySQL 5.0 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "ing"
 
 #: libraries/common.lib.php:642 server_status.php:602 server_status.php:1262
 #: sql.php:934
@@ -4052,7 +4052,7 @@ msgstr "Rótulo da chave"
 #: libraries/config/messages.inc.php:138 libraries/export/odt.php:450
 #: libraries/tbl_properties.inc.php:137
 msgid "MIME type"
-msgstr "MIME type"
+msgstr "MIME"
 
 #: libraries/config/messages.inc.php:104 libraries/config/messages.inc.php:116
 #: libraries/config/messages.inc.php:140 tbl_relation.php:398
@@ -6524,7 +6524,7 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:133
 msgid "Buffer Pool"
-msgstr "Buffer Pool"
+msgstr "\"Buffer Pool\""
 
 #: libraries/engines/innodb.lib.php:134 server_status.php:663
 msgid "InnoDB Status"
@@ -8486,7 +8486,7 @@ msgstr "mudar o estado do Scratchboard"
 #. l10n: Text direction, use either ltr or rtl
 #: libraries/select_lang.lib.php:497
 msgid "ltr"
-msgstr "ltr"
+msgstr "esquerda pra direita"
 
 #: libraries/select_lang.lib.php:515 libraries/select_lang.lib.php:524
 #: libraries/select_lang.lib.php:533
@@ -8773,7 +8773,7 @@ msgstr "Você deve adicionar pelo menos um campo."
 #: libraries/tbl_properties.inc.php:820 server_engines.php:41
 #: tbl_operations.php:377
 msgid "Storage Engine"
-msgstr "Storage Engine"
+msgstr ""
 
 #: libraries/tbl_properties.inc.php:861
 msgid "PARTITION definition"
@@ -9550,7 +9550,7 @@ msgstr ""
 
 #: server_engines.php:32
 msgid "Storage Engines"
-msgstr "Storage Engines"
+msgstr ""
 
 #: server_export.php:16
 msgid "View dump (schema) of databases"
@@ -10024,6 +10024,7 @@ msgid "Users having access to &quot;%s&quot;"
 msgstr "Usuários que têm acesso à &quot;%s&quot;"
 
 #: server_privileges.php:2522
+#, fuzzy
 msgid "global"
 msgstr "global"
 
