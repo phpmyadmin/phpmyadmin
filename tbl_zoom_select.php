@@ -112,7 +112,7 @@ if (isset($_REQUEST['change_tbl_info']) && $_REQUEST['change_tbl_info'] == true)
     // HTML for operators
     $html = '<select name="zoomFunc[]">';
     $html .= $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
-        preg_replace('@\(.*@s', '', $fields_type[$i]),
+        preg_replace('@\(.*@s', '', $fields_type[$key]),
         $fields_null[$key]
     );
     $html .= '</select>';
