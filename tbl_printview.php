@@ -269,10 +269,6 @@ foreach ($the_tables as $key => $table) {
             <big><?php echo __('Space usage') . ':'; ?></big>
             <table width="100%">
             <tr>
-                <th><?php echo __('Type'); ?></th>
-                <th colspan="2" align="center"><?php echo __('Usage'); ?></th>
-            </tr>
-            <tr>
                 <td style="padding-right: 10px"><?php echo __('Data'); ?></td>
                 <td align="right"><?php echo $data_size; ?></td>
                 <td><?php echo $data_unit; ?></td>
@@ -324,10 +320,6 @@ foreach ($the_tables as $key => $table) {
         <td valign="top">
             <big><?php echo __('Row Statistics') . ':'; ?></big>
             <table width="100%">
-            <tr>
-                <th><?php echo __('Statements'); ?></th>
-                <th align="center"><?php echo __('Value'); ?></th>
-            </tr>
                 <?php
                 if (isset($showtable['Row_format'])) {
                     ?>

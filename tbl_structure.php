@@ -778,12 +778,6 @@ if ($cfg['ShowStats']) {
     <?php if (! $tbl_is_view && ! $db_is_information_schema) { ?>
     <table id="tablespaceusage" class="data">
     <caption class="tblHeaders"><?php echo __('Space usage'); ?></caption>
-    <thead>
-    <tr>
-        <th><?php echo __('Type'); ?></th>
-        <th colspan="2"><?php echo __('Usage'); ?></th>
-    </tr>
-    </thead>
     <tbody>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
         <th class="name"><?php echo __('Data'); ?></th>
@@ -844,12 +838,6 @@ if ($cfg['ShowStats']) {
     ?>
     <table id="tablerowstats" class="data">
     <caption class="tblHeaders"><?php echo __('Row Statistics'); ?></caption>
-    <thead>
-    <tr>
-        <th><?php echo __('Statements'); ?></th>
-        <th><?php echo __('Value'); ?></th>
-    </tr>
-    </thead>
     <tbody>
     <?php
     if (isset($showtable['Row_format'])) {
