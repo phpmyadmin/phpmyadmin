@@ -437,12 +437,10 @@ function PMA_tblSearchBuildSqlQuery($table, $fields, $criteriaColumnNames,
     // if all column names were selected to display, we do a 'SELECT *'
     // (more efficient and this helps prevent a problem in IE
     // if one of the rows is edited and we come back to the Select results)
-    $columnsToDisplay = $_POST['columnsToDisplay'];
-    if (count($columnsToDisplay) == count($criteriaColumnNames)) {
+    if (count($_POST['columnsToDisplay']) == count($criteriaColumnNames)) {
         $sql_query .= '* ';
     } else {
-        $columnsToDisplay = PMA_backquote($columnsToDisplay);
-        $sql_query .= implode(', ', $columnsToDisplay);
+        $sql_query .= implode(', ', PMA_backquote($_POST['columnsToDisplay']));
     } // end if
 
     $sql_query .= ' FROM ' . PMA_backquote($table);
