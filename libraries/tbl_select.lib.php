@@ -555,14 +555,14 @@ $geom_types, $column_index)
 }
 
 /**
- * Generates formatted HTML for extra search options (slider) in table search form
+ * Generates formatted HTML for extra search options in table search form
  *
  * @param array   $columnNames Array containing types of all columns in the table
  * @param integer $columnCount Number of columns in the table
  *
  * @return string the generated HTML
  */
-function PMA_tblSearchGetSliderOptions($columnNames, $columnCount)
+function PMA_tblSearchGetOptions($columnNames, $columnCount)
 {    
     $html_output = '';
     $html_output .= PMA_getDivForSliderEffect('searchoptions', __('Options'));
@@ -664,7 +664,7 @@ $foreigners, $db, $table)
             $geomColumnFlag, $columnTypes, $geom_types, $i
         );
         /**
-         * Displays column's name, type, collation
+         * Displays column's name, type and collation
          */
         $html_output .= '<th>' . htmlspecialchars($columnNames[$i]) . '</th>';
         $html_output .= '<td>' . htmlspecialchars($columnTypes[$i]) . '</td>';
@@ -677,10 +677,11 @@ $foreigners, $db, $table)
             preg_replace('@\(.*@s', '', $columnTypes[$i]),
             $columnNullFlags[$i]
         );
-        $html_output .= '</select></td><td>';
+        $html_output .= '</select></td>';
         /**
          * Displays column's foreign relations if any
          */
+        $html_output .= '<td>';
         $field = $columnNames[$i];
         $foreignData = PMA_getForeignData($foreigners, $field, false, '', '');
         $html_output .= PMA_getForeignFields_Values(
@@ -688,9 +689,10 @@ $foreigners, $db, $table)
             $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], '', true
         );
 
-        $html_output .= '<input type="hidden" name="criteriaColumnNames[' . $i . ']" value="' 
-            . htmlspecialchars($columnNames[$i]) . '" /><input type="hidden" '
-            . 'name="criteriaColumnTypes[' . $i . ']" value="' . $columnTypes[$i] . '" />'
+        $html_output .= '<input type="hidden" name="criteriaColumnNames[' . $i . ']" value="'
+            . htmlspecialchars($columnNames[$i]) . '" />'
+            . '<input type="hidden" name="criteriaColumnTypes[' . $i . ']" value="'
+            . $columnTypes[$i] . '" />'
             . '<input type="hidden" name="criteriaColumnCollations[' . $i . ']" value="'
             . $columnCollations[$i] . '" /></td></tr>';
     } // end for
@@ -743,13 +745,14 @@ $foreigners, $db, $table)
         $geomColumnFlag, $columnCount, $foreigners, $db, $table    
     );
 
-    $html_output .= '<div id="gis_editor"></div><div id="popup_background"></div>'
+    $html_output .= '<div id="gis_editor"></div>'
+        . '<div id="popup_background"></div>'
         . '</fieldset>';
 
     /**
      * Displays slider options form
      */
-    $html_output .= PMA_tblSearchGetSliderOptions($columnNames, $columnCount);
+    $html_output .= PMA_tblSearchGetOptions($columnNames, $columnCount);
 
     /**
      * Displays selection form's footer elements
