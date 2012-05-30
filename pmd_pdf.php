@@ -77,11 +77,11 @@ if (isset($mode)) {
     }
 }
 
-// no need to use pmd/styles
-require_once 'libraries/header_meta_style.inc.php';
+$header = PMA_Header::getInstance();
+$header->disableMenu();
+$header->display();
+
 ?>
-</head>
-<body>
 <br>
 <div>
 <?php

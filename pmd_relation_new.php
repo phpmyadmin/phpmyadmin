@@ -31,14 +31,20 @@ if (PMA_isForeignKeySupported($type_T1) && PMA_isForeignKeySupported($type_T2) &
 // note: in InnoDB, the index does not requires to be on a PRIMARY
 // or UNIQUE key
 // improve: check all other requirements for InnoDB relations
-    $result      = PMA_DBI_query('SHOW INDEX FROM ' . PMA_backquote($T1) . ';');
+    $result = PMA_DBI_query(
+        'SHOW INDEX FROM ' . PMA_backquote($db)
+        . '.' . PMA_backquote($T1) . ';'
+    );
     $index_array1   = array(); // will be use to emphasis prim. keys in the table view
     while ($row = PMA_DBI_fetch_assoc($result)) {
         $index_array1[$row['Column_name']] = 1;
     }
     PMA_DBI_free_result($result);
 
-    $result     = PMA_DBI_query('SHOW INDEX FROM ' . PMA_backquote($T2) . ';');
+    $result = PMA_DBI_query(
+        'SHOW INDEX FROM ' . PMA_backquote($db)
+        . '.' . PMA_backquote($T2) . ';'
+    );
     $index_array2  = array(); // will be used to emphasis prim. keys in the table view
     while ($row = PMA_DBI_fetch_assoc($result)) {
         $index_array2[$row['Column_name']] = 1;
@@ -46,13 +52,14 @@ if (PMA_isForeignKeySupported($type_T1) && PMA_isForeignKeySupported($type_T2) &
     PMA_DBI_free_result($result);
 
     if (! empty($index_array1[$F1]) && ! empty($index_array2[$F2])) {
-        $upd_query  = 'ALTER TABLE ' . PMA_backquote($T2)
-                 . ' ADD FOREIGN KEY ('
-                 . PMA_backquote($F2) . ')'
-                 . ' REFERENCES '
-                 . PMA_backquote($db) . '.'
-                 . PMA_backquote($T1) . '('
-                 . PMA_backquote($F1) . ')';
+        $upd_query  = 'ALTER TABLE ' . PMA_backquote($db)
+            . '.' . PMA_backquote($T2)
+            . ' ADD FOREIGN KEY ('
+            . PMA_backquote($F2) . ')'
+            . ' REFERENCES '
+            . PMA_backquote($db) . '.'
+            . PMA_backquote($T1) . '('
+            . PMA_backquote($F1) . ')';
 
         if ($on_delete != 'nix') {
             $upd_query   .= ' ON DELETE ' . $on_delete;

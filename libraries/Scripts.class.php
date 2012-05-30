@@ -23,10 +23,10 @@ class PMA_Scripts {
 
     }
 
-    public function addFile($filename)
+    public function addFile($filename, $conditional_ie = false)
     {
         if (! in_array($filename, $this->_files)) {
-            $this->_files[] = $filename;
+            $this->_files[] = PMA_includeJS($filename, $conditional_ie);
         }
     }
 
@@ -114,7 +114,7 @@ class PMA_Scripts {
         $retval = '';
 
         foreach ($this->_files as $file) {
-            $retval .= PMA_includeJS($file);
+            $retval .= $file;
         }
         $retval .= '<script type="text/javascript">';
         $retval .= "// <![CDATA[\n";
