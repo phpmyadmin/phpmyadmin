@@ -641,17 +641,18 @@ div#querychart {
 /**
  * login form
  */
-body.loginform h1,
-body.loginform a.logo {
+body#loginform h1,
+body#loginform a.logo {
     display: block;
     text-align: center;
 }
 
-body.loginform {
+body#loginform {
+    margin-top: 1em;
     text-align: center;
 }
 
-body.loginform div.container {
+body#loginform div.container {
     text-align: <?php echo $left; ?>;
     width: 30em;
     margin: 0 auto;

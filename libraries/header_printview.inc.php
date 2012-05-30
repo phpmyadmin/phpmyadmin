@@ -8,12 +8,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/**
- * Starts output buffering work
- */
-require_once './libraries/ob.lib.php';
-PMA_outBufferPre();
-
 $header = PMA_Header::getInstance();
 $header->enablePrintView();
 $header->display();

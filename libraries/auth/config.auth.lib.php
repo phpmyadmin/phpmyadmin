@@ -68,21 +68,18 @@ function PMA_auth_set_user()
 function PMA_auth_fails()
 {
     $conn_error = PMA_DBI_getError();
-    if (!$conn_error) {
+    if (! $conn_error) {
         $conn_error = __('Cannot connect: invalid settings.');
     }
 
-    // Defines the charset to be used
-    header('Content-Type: text/html; charset=utf-8');
     /* HTML header */
-    $page_title = __('Access denied');
-    include './libraries/header_meta_style.inc.php';
-    include './libraries/header_scripts.inc.php';
-    ?>
+    $GLOBALS['page_title'] = __('Access denied');
+    $header = PMA_Header::getInstance();
+    $header->setTitle(__('Access denied'));
+    $header->disableMenu();
+    $header->display();
 
-</head>
-
-<body>
+?>
 <br /><br />
 <center>
     <h1><?php echo sprintf(__('Welcome to %s'), ' phpMyAdmin '); ?></h1>

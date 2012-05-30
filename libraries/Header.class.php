@@ -29,10 +29,15 @@ class PMA_Header {
     private $_bodyId;
     private $_menuEnabled;
     private $_isPrintView;
+    private $_isAjax;
     public static $headerIsSent;
 
     private function __construct()
     {
+        $this->_isAjax = false;
+        if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
+            $this->_isAjax = true;
+        }
         $this->_bodyId = '';
         $this->_title = 'phpMyAdmin';
         $this->_menu = new PMA_Menu(
@@ -101,7 +106,7 @@ class PMA_Header {
         $retval = '';
         if (! self::$headerIsSent) {
             $this->sendHttpHeaders();
-            if ($GLOBALS['is_ajax_request'] === false) {
+            if ($this->_isAjax === false) {
                 $retval .= $this->_getHtmlStart();
                 $retval .= $this->_getMetaTags();
                 $retval .= $this->_getLinkTags();

@@ -85,6 +85,11 @@ if (version_compare(phpversion(), '5.4', 'lt')) {
 define('PHPMYADMIN', true);
 
 /**
+ * Used to generate the header of the page
+ */
+include_once 'libraries/Header.class.php';
+
+/**
  * core functions
  */
 require './libraries/core.lib.php';
@@ -1092,8 +1097,4 @@ if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {
     exit();
 }
 
-/**
- * Used to generate the header of the page
- */
-include_once 'libraries/Header.class.php';
 ?>

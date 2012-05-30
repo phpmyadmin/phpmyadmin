@@ -154,20 +154,12 @@ function PMA_auth()
 
     $cell_align = ($GLOBALS['text_dir'] == 'ltr') ? 'left' : 'right';
 
-    // Defines the charset to be used
-    header('Content-Type: text/html; charset=utf-8');
+    $GLOBALS['page_title'] = 'phpMyAdmin';
+    $header = PMA_Header::getInstance();
+    $header->setBodyId('loginform');
+    $header->disableMenu();
+    $header->display();
 
-    /* HTML header; do not show here the PMA version to improve security */
-    $page_title = 'phpMyAdmin ';
-    include './libraries/header_meta_style.inc.php';
-    // if $page_title is set, this script uses it as the title:
-    include './libraries/header_scripts.inc.php';
-    ?>
-</head>
-
-<body class="loginform">
-
-    <?php
     if (file_exists(CUSTOM_HEADER_FILE)) {
         include CUSTOM_HEADER_FILE;
     }
@@ -189,7 +181,7 @@ function PMA_auth()
     <?php
     echo sprintf(
         __('Welcome to %s'),
-        '<bdo dir="ltr" lang="en">' . $page_title . '</bdo>'
+        '<bdo dir="ltr" lang="en">phpMyAdmin</bdo>'
     );
     ?>
 </h1>
@@ -306,7 +298,7 @@ function PMA_auth()
 <script type="text/javascript">
 //<![CDATA[
 // show login form in top frame.
-if (top != self || document.body.className != 'loginform') {
+if (top != self || ! $('body#loginform').length) {
     window.top.location.href=location;
 }
 //]]>
