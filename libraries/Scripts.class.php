@@ -50,7 +50,6 @@ class PMA_Scripts {
         $this->addFile('jquery/jquery.sprintf.js');
         $this->addFile('update-location.js');
 
-        $this->addFile('functions.js');
         $this->addFile('jquery/jquery.qtip-1.0.0-rc3.js');
         if ($GLOBALS['cfg']['CodemirrorEnable']) {
             $this->addFile('codemirror/lib/codemirror.js');
@@ -72,6 +71,7 @@ class PMA_Scripts {
             'get_image.js.php?theme='
             . urlencode($_SESSION['PMA_Theme']->getId())
         );
+        $this->addFile('functions.js');
 
         // generate title (unless we already have
         // $GLOBALS['page_title'], from cookie auth)

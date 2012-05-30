@@ -6,9 +6,6 @@
 // default values for fields
 var defaultValues = {};
 
-// language strings
-var PMA_messages = {};
-
 /**
  * Returns field type
  *
