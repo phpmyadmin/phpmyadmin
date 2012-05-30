@@ -10,7 +10,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-PMA_Header::sendHttpHeaders();
+PMA_Header::getInstance()->sendHttpHeaders();
 
 $GLOBALS['PMD']['STYLE']          = 'default';
 

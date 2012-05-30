@@ -27,7 +27,7 @@ $action_done = filter_input(INPUT_GET, 'action_done');
 $action_done = preg_replace('/[^a-z_]/', '', $action_done);
 
 // send no-cache headers
-PMA_Header::sendHttpHeaders();
+PMA_Header::getInstance()->sendHttpHeaders();
 ?>
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml">
