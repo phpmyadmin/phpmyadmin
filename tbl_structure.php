@@ -193,7 +193,7 @@ $i = 0;
          echo '"table" />';
     } ?>
 
-<table id="tablestructure" class="data<?php 
+<table id="tablestructure" class="data<?php
     if ($GLOBALS['cfg']['PropertiesIconic'] === true) echo ' PropertiesIconic'; ?>">
 <thead>
 <tr>
@@ -209,7 +209,7 @@ $i = 0;
 <?php if ($db_is_information_schema || $tbl_is_view) { ?>
     <th id="th<?php echo ++$i; ?>" class="view"><?php echo __('View'); ?></th>
 <?php } else { ?>
-    <th colspan="<?php 
+    <th colspan="<?php
     $colspan = 9;
     if (PMA_DRIZZLE) {
         $colspan -= 2;
@@ -217,7 +217,7 @@ $i = 0;
     if ($GLOBALS['cfg']['PropertiesIconic']) {
         $colspan--;
     }
-    echo $colspan; ?>" 
+    echo $colspan; ?>"
         id="th<?php echo ++$i; ?>" class="action"><?php echo __('Action'); ?></th>
 <?php } ?>
 </tr>
@@ -430,7 +430,7 @@ foreach ($fields as $row) {
         echo "\n";
         ?>
     </td>
-        <?php 
+        <?php
         if (!PMA_DRIZZLE) { ?>
     <td align="center" class="spatial replaced_by_more">
         <?php
