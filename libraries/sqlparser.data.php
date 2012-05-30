@@ -34,18 +34,18 @@ $PMA_SQPdata_function_name = array (
     'ADDTIME',
     'AES_DECRYPT',
     'AES_ENCRYPT',
-    'AREA',                     // Area() polygon-property-functions.html
-    'ASBINARY',                 // AsBinary()
+    'AREA',                     // polygon-property-functions.html
+    'ASBINARY',
     'ASCII',
     'ASIN',
-    'ASTEXT',                   // AsText()
+    'ASTEXT',
     'ATAN',
     'ATAN2',
     'AVG',
-    'BDMPOLYFROMTEXT',          // BdMPolyFromText()
-    'BDMPOLYFROMWKB',           // BdMPolyFromWKB()
-    'BDPOLYFROMTEXT',           // BdPolyFromText()
-    'BDPOLYFROMWKB',            // BdPolyFromWKB()
+    'BDMPOLYFROMTEXT',
+    'BDMPOLYFROMWKB',
+    'BDPOLYFROMTEXT',
+    'BDPOLYFROMWKB',
     'BENCHMARK',
     'BIN',
     'BIT_AND',
@@ -53,12 +53,12 @@ $PMA_SQPdata_function_name = array (
     'BIT_LENGTH',
     'BIT_OR',
     'BIT_XOR',                  // group-by-functions.html
-    'BOUNDARY',                 // Boundary() general-geometry-property-functions.html
-    'BUFFER',                   // Buffer()
+    'BOUNDARY',                 // general-geometry-property-functions.html
+    'BUFFER',
     'CAST',
     'CEIL',
     'CEILING',
-    'CENTROID',                 // Centroid() multipolygon-property-functions.html
+    'CENTROID',                 // multipolygon-property-functions.html
     'CHAR',                     // string-functions.html
     'CHARACTER_LENGTH',
     'CHARSET',                  // information-functions.html
@@ -70,16 +70,16 @@ $PMA_SQPdata_function_name = array (
     'CONCAT',
     'CONCAT_WS',
     'CONNECTION_ID',
-    'CONTAINS',                 // Contains()
+    'CONTAINS',
     'CONV',
     'CONVERT',
     'CONVERT_TZ',
-    'CONVEXHULL',               // ConvexHull()
+    'CONVEXHULL',
     'COS',
     'COT',
     'COUNT',
     'CRC32',                    // mathematical-functions.html
-    'CROSSES',                  // Crosses()
+    'CROSSES',
     'CURDATE',
     'CURRENT_DATE',
     'CURRENT_TIME',
@@ -103,21 +103,21 @@ $PMA_SQPdata_function_name = array (
     'DEGREES',
     'DES_DECRYPT',
     'DES_ENCRYPT',
-    'DIFFERENCE',               // Difference()
-    'DIMENSION',                // Dimension() general-geometry-property-functions.html
-    'DISJOINT',                 // Disjoint()
-    'DISTANCE',                 // Distance()
+    'DIFFERENCE',
+    'DIMENSION',                // general-geometry-property-functions.html
+    'DISJOINT',
+    'DISTANCE',
     'ELT',
     'ENCODE',
     'ENCRYPT',
-    'ENDPOINT',                 // EndPoint() linestring-property-functions.html
-    'ENVELOPE',                 // Envelope() general-geometry-property-functions.html
-    'EQUALS',                   // Equals()
+    'ENDPOINT',                 // linestring-property-functions.html
+    'ENVELOPE',                 // general-geometry-property-functions.html
+    'EQUALS',
     'EXP',
     'EXPORT_SET',
-    'EXTERIORRING',             // ExteriorRing() polygon-property-functions.html
+    'EXTERIORRING',             // polygon-property-functions.html
     'EXTRACT',
-    'EXTRACTVALUE',             // ExtractValue() xml-functions.html
+    'EXTRACTVALUE',             // xml-functions.html
     'FIELD',
     'FIND_IN_SET',
     'FLOOR',
@@ -125,20 +125,20 @@ $PMA_SQPdata_function_name = array (
     'FOUND_ROWS',
     'FROM_DAYS',
     'FROM_UNIXTIME',
-    'GEOMCOLLFROMTEXT',         // GeomCollFromText()
-    'GEOMCOLLFROMWKB',          // GeomCollFromWKB()
-    'GEOMETRYCOLLECTION',       // GeometryCollection()
-    'GEOMETRYCOLLECTIONFROMTEXT',   // GeometryCollectionFromText()
-    'GEOMETRYCOLLECTIONFROMWKB',    // GeometryCollectionFromWKB()
-    'GEOMETRYFROMTEXT',         // GeometryFromText()
-    'GEOMETRYFROMWKB',          // GeometryFromWKB()
-    'GEOMETRYN',                // GeometryN() geometrycollection-property-functions.html
-    'GEOMETRYTYPE',             // GeometryType() general-geometry-property-functions.html
-    'GEOMFROMTEXT',             // GeomFromText()
-    'GEOMFROMWKB',              // GeomFromWKB()
+    'GEOMCOLLFROMTEXT',
+    'GEOMCOLLFROMWKB',
+    'GEOMETRYCOLLECTION',
+    'GEOMETRYCOLLECTIONFROMTEXT',
+    'GEOMETRYCOLLECTIONFROMWKB',
+    'GEOMETRYFROMTEXT',
+    'GEOMETRYFROMWKB',
+    'GEOMETRYN',                // geometrycollection-property-functions.html
+    'GEOMETRYTYPE',             // general-geometry-property-functions.html
+    'GEOMFROMTEXT',
+    'GEOMFROMWKB',
     'GET_FORMAT',
     'GET_LOCK',
-    'GLENGTH',                  // GLength() linestring-property-functions.html
+    'GLENGTH',                  // linestring-property-functions.html
     'GREATEST',
     'GROUP_CONCAT',
     'GROUP_UNIQUE_USERS',
@@ -150,15 +150,15 @@ $PMA_SQPdata_function_name = array (
     'INET_NTOA',
     'INSERT',                   // string-functions.html
     'INSTR',
-    'INTERIORRINGN',            // InteriorRingN() polygon-property-functions.html
-    'INTERSECTION',             // Intersection()
-    'INTERSECTS',               // Intersects()
+    'INTERIORRINGN',            // polygon-property-functions.html
+    'INTERSECTION',
+    'INTERSECTS',
     'INTERVAL',
-    'ISCLOSED',                 // IsClosed() multilinestring-property-functions.html
-    'ISEMPTY',                  // IsEmpty() general-geometry-property-functions.html
+    'ISCLOSED',                 // multilinestring-property-functions.html
+    'ISEMPTY',                  // general-geometry-property-functions.html
     'ISNULL',
-    'ISRING',                   // IsRing() linestring-property-functions.html
-    'ISSIMPLE',                 // IsSimple() general-geometry-property-functions.html
+    'ISRING',                   // linestring-property-functions.html
+    'ISSIMPLE',                 // general-geometry-property-functions.html
     'IS_FREE_LOCK',
     'IS_USED_LOCK',             // miscellaneous-functions.html
     'LAST_DAY',
@@ -167,11 +167,11 @@ $PMA_SQPdata_function_name = array (
     'LEAST',
     'LEFT',
     'LENGTH',
-    'LINEFROMTEXT',             // LineFromText()
-    'LINEFROMWKB',              // LineFromWKB()
-    'LINESTRING',               // LineString()
-    'LINESTRINGFROMTEXT',       // LineStringFromText()
-    'LINESTRINGFROMWKB',        // LineStringFromWKB()
+    'LINEFROMTEXT',
+    'LINEFROMWKB',
+    'LINESTRING',
+    'LINESTRINGFROMTEXT',
+    'LINESTRINGFROMWKB',
     'LN',
     'LOAD_FILE',
     'LOCALTIME',
@@ -188,61 +188,61 @@ $PMA_SQPdata_function_name = array (
     'MAKE_SET',
     'MASTER_POS_WAIT',
     'MAX',
-    'MBRCONTAINS',              // MBRContains()
-    'MBRDISJOINT',              // MBRDisjoint()
-    'MBREQUAL',                 // MBREqual()
-    'MBRINTERSECTS',            // MBRIntersects()
-    'MBROVERLAPS',              // MBROverlaps()
-    'MBRTOUCHES',               // MBRTouches()
-    'MBRWITHIN',                // MBRWithin()
+    'MBRCONTAINS',
+    'MBRDISJOINT',
+    'MBREQUAL',
+    'MBRINTERSECTS',
+    'MBROVERLAPS',
+    'MBRTOUCHES',
+    'MBRWITHIN',
     'MD5',
     'MICROSECOND',
     'MID',
     'MIN',
     'MINUTE',
-    'MLINEFROMTEXT',            // MLineFromText()
-    'MLINEFROMWKB',             // MLineFromWKB()
+    'MLINEFROMTEXT',
+    'MLINEFROMWKB',
     'MOD',
     'MONTH',
     'MONTHNAME',
-    'MPOINTFROMTEXT',           // MPointFromText()
-    'MPOINTFROMWKB',            // MPointFromWKB()
-    'MPOLYFROMTEXT',            // MPolyFromText()
-    'MPOLYFROMWKB',             // MPolyFromWKB()
-    'MULTILINESTRING',          // MultiLineString()
-    'MULTILINESTRINGFROMTEXT',  // MultiLineStringFromText()
-    'MULTILINESTRINGFROMWKB',   // MultiLineStringFromWKB()
-    'MULTIPOINT',               // MultiPoint()
-    'MULTIPOINTFROMTEXT',       // MultiPointFromText()
-    'MULTIPOINTFROMWKB',        // MultiPointFromWKB()
-    'MULTIPOLYGON',             // MultiPolygon()
-    'MULTIPOLYGONFROMTEXT',     // MultiPolygonFromText()
-    'MULTIPOLYGONFROMWKB',      // MultiPolygonFromWKB()
+    'MPOINTFROMTEXT',
+    'MPOINTFROMWKB',
+    'MPOLYFROMTEXT',
+    'MPOLYFROMWKB',
+    'MULTILINESTRING',
+    'MULTILINESTRINGFROMTEXT',
+    'MULTILINESTRINGFROMWKB',
+    'MULTIPOINT',
+    'MULTIPOINTFROMTEXT',
+    'MULTIPOINTFROMWKB',
+    'MULTIPOLYGON',
+    'MULTIPOLYGONFROMTEXT',
+    'MULTIPOLYGONFROMWKB',
     'NAME_CONST',               // NAME_CONST()
-    'NOW',                      // NOW()
+    'NOW',
     'NULLIF',
-    'NUMGEOMETRIES',            // NumGeometries() geometrycollection-property-functions.html
-    'NUMINTERIORRINGS',         // NumInteriorRings() polygon-property-functions.html
-    'NUMPOINTS',                // NumPoints() linestring-property-functions.html
+    'NUMGEOMETRIES',            // geometrycollection-property-functions.html
+    'NUMINTERIORRINGS',         // polygon-property-functions.html
+    'NUMPOINTS',                // linestring-property-functions.html
     'OCT',
     'OCTET_LENGTH',
     'OLD_PASSWORD',
     'ORD',
-    'OVERLAPS',                 // Overlaps()
+    'OVERLAPS',
     'PASSWORD',
     'PERIOD_ADD',
     'PERIOD_DIFF',
     'PI',
-    'POINT',                    // Point()
-    'POINTFROMTEXT',            // PointFromText()
-    'POINTFROMWKB',             // PointFromWKB()
-    'POINTN',                   // PointN() inestring-property-functions.html
-    'POINTONSURFACE',           // PointOnSurface() multipolygon-property-functions.html
-    'POLYFROMTEXT',             // PolyFromText()
-    'POLYFROMWKB',              // PolyFromWKB()
-    'POLYGON',                  // Polygon()
-    'POLYGONFROMTEXT',          // PolygonFromText()
-    'POLYGONFROMWKB',           // PolygonFromWKB()
+    'POINT',
+    'POINTFROMTEXT',
+    'POINTFROMWKB',
+    'POINTN',                   // inestring-property-functions.html
+    'POINTONSURFACE',           // multipolygon-property-functions.html
+    'POLYFROMTEXT',
+    'POLYFROMWKB',
+    'POLYGON',
+    'POLYGONFROMTEXT',
+    'POLYGONFROMWKB',
     'POSITION',
     'POW',
     'POWER',
@@ -250,7 +250,7 @@ $PMA_SQPdata_function_name = array (
     'QUOTE',
     'RADIANS',
     'RAND',
-    'RELATED',                  // Related()
+    'RELATED',
     'RELEASE_LOCK',
     'REPEAT',
     'REPLACE',                  // string-functions.html
@@ -273,7 +273,7 @@ $PMA_SQPdata_function_name = array (
     'SPACE',
     'SQRT',
     'SRID',                     // general-geometry-property-functions.html
-    'STARTPOINT',               // StartPoint() linestring-property-functions.html
+    'STARTPOINT',               // linestring-property-functions.html
     'STD',
     'STDDEV',
     'STDDEV_POP',               // group-by-functions.html
@@ -286,7 +286,7 @@ $PMA_SQPdata_function_name = array (
     'SUBSTRING_INDEX',
     'SUBTIME',
     'SUM',
-    'SYMDIFFERENCE',            // SymDifference()
+    'SYMDIFFERENCE',
     'SYSDATE',
     'SYSTEM_USER',
     'TAN',
@@ -297,7 +297,7 @@ $PMA_SQPdata_function_name = array (
     'TIMESTAMPDIFF',
     'TIME_FORMAT',
     'TIME_TO_SEC',
-    'TOUCHES',                  // Touches()
+    'TOUCHES',
     'TO_DAYS',
     'TRIM',
     'TRUNCATE',                 // mathematical-functions.html
@@ -307,7 +307,7 @@ $PMA_SQPdata_function_name = array (
     'UNHEX',                    // string-functions.html
     'UNIQUE_USERS',
     'UNIX_TIMESTAMP',
-    'UPDATEXML',                // UpdateXML() xml-functions.html
+    'UPDATEXML',                // xml-functions.html
     'UPPER',
     'USER',
     'UTC_DATE',
@@ -321,7 +321,7 @@ $PMA_SQPdata_function_name = array (
     'WEEK',
     'WEEKDAY',
     'WEEKOFYEAR',
-    'WITHIN',                   // Within()
+    'WITHIN',
     'X',                        // point-property-functions.html
     'Y',                        // point-property-functions.html
     'YEAR',
@@ -365,7 +365,8 @@ $PMA_SQPdata_column_attrib = array (
 );
 
 /**
- * words that are reserved by MySQL and may not be used as identifiers without quotes
+ * words that are reserved by MySQL and may not be used as identifiers without
+ * quotes
  *
  * @see http://dev.mysql.com/doc/refman/5.5/en/reserved-words.html
  *
@@ -1215,7 +1216,7 @@ $PMA_SQPdata_column_type = array (
     'POINT',                // spatial
     'POLYGON',              // spatial
     'REAL',
-    'SERIAL',               // alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY
+    'SERIAL',               // alias
     'SET',
     'SMALLINT',
     'TEXT',
