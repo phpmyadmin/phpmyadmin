@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-24 17:02-0400\n"
-"PO-Revision-Date: 2012-04-27 21:01+0200\n"
+"PO-Revision-Date: 2012-05-30 15:42+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 0.10\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -1544,10 +1544,9 @@ msgid "From general log"
 msgstr "Из основного журнала"
 
 #: js/messages.php:176
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "Загрузка журналов"
+msgstr "Анализ журналов"
 
 #: js/messages.php:177
 msgid "Analysing & loading logs. This may take a while."
@@ -1588,10 +1587,9 @@ msgid "Jump to Log table"
 msgstr "Перейти к таблице журнала"
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "No data"
 msgid "No data found"
-msgstr "Нет данных"
+msgstr "Данные не найдены"
 
 #: js/messages.php:185
 msgid "Log analysed, but no data found in this time span."
@@ -1629,16 +1627,14 @@ msgid "Chart"
 msgstr "График"
 
 #: js/messages.php:195
-#, fuzzy
 #| msgid "Add chart"
 msgid "Edit chart"
-msgstr "Добавить график"
+msgstr "Редактировать график"
 
 #: js/messages.php:196
-#, fuzzy
 #| msgid "Series:"
 msgid "Series"
-msgstr "Серии:"
+msgstr "Серии"
 
 #. l10n: A collection of available filters
 #: js/messages.php:199
@@ -1713,18 +1709,14 @@ msgid "Import"
 msgstr "Импорт"
 
 #: js/messages.php:217
-#, fuzzy
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
-msgstr "Не получилось импортировать настройки"
+msgstr "Импорт настроек монитора"
 
 #: js/messages.php:218
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr ""
-"Выберите поле являющееся первичным (PRIMARY), или уникальным (UNIQUE) "
-"индексом"
+msgstr "Пожалуйста, выберите файл, который хотите импортировать"
 
 #: js/messages.php:220
 msgid "Analyse Query"
@@ -1922,7 +1914,7 @@ msgstr "Задержание курсора над точкой отобрази
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "Для увеличения, выберите часть диаграммы мышкой."
 
 #: js/messages.php:306
 msgid "Click reset zoom link to come back to original state."
@@ -12036,10 +12028,9 @@ msgid "How to use"
 msgstr "Как использовать"
 
 #: tbl_zoom_select.php:431
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Сбросить"
+msgstr "Сбросить увеличение"
 
 #: themes.php:28
 msgid "Get more themes!"
