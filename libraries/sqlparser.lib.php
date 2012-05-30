@@ -765,7 +765,10 @@ function PMA_SQP_parse($sql)
                 $t_suffix = '_columnAttrib';
                 // INNODB is a MySQL table type, but in "SHOW INNODB STATUS",
                 // it should be regarded as a reserved word.
-                if ($d_cur_upper == 'INNODB' && $d_prev_upper == 'SHOW' && $d_next_upper == 'STATUS') {
+                if ($d_cur_upper == 'INNODB'
+                    && $d_prev_upper == 'SHOW'
+                    && $d_next_upper == 'STATUS'
+                ) {
                     $t_suffix = '_reservedWord';
                 }
 
@@ -790,7 +793,9 @@ function PMA_SQP_parse($sql)
                 // Do nothing
             }
             // check if present in the list of forbidden words
-            if ($t_suffix == '_reservedWord' && isset($PMA_SQPdata_forbidden_word[$d_cur_upper])) {
+            if ($t_suffix == '_reservedWord'
+                && isset($PMA_SQPdata_forbidden_word[$d_cur_upper])
+            ) {
                 $sql_array[$i]['forbidden'] = true;
             } else {
                 $sql_array[$i]['forbidden'] = false;
@@ -825,7 +830,10 @@ function PMA_SQP_typeCheck($toCheck, $whatWeWant)
         return true;
     } else {
         if (strpos($whatWeWant, $typeSeparator) === false) {
-            return strncmp($whatWeWant, $toCheck, strpos($toCheck, $typeSeparator)) == 0;
+            return strncmp(
+                $whatWeWant, $toCheck,
+                strpos($toCheck, $typeSeparator)
+            ) == 0;
         } else {
             return false;
         }
@@ -891,7 +899,8 @@ function PMA_SQP_analyze($arr)
      * db, table, column, alias
      * ------------------------
      *
-     * Inside the $subresult array, we create ['select_expr'] and ['table_ref'] arrays.
+     * Inside the $subresult array, we create ['select_expr'] and ['table_ref']
+     * arrays.
      *
      * The SELECT syntax (simplified) is
      *
@@ -1043,7 +1052,8 @@ function PMA_SQP_analyze($arr)
     // loop #1 for each token: select_expr, table_ref for SELECT
 
     for ($i = 0; $i < $size; $i++) {
-        //DEBUG echo "Loop1 <strong>"  . $arr[$i]['data'] . "</strong> (" . $arr[$i]['type'] . ")<br />";
+        //DEBUG echo "Loop1 <strong>"  . $arr[$i]['data']
+        //. "</strong> (" . $arr[$i]['type'] . ")<br />";
 
         // High speed seek for locating the end of the current query
         if ($seek_queryend == true) {
@@ -1055,7 +1065,8 @@ function PMA_SQP_analyze($arr)
         } // end if ($seek_queryend)
 
         /**
-         * Note: do not split if this is a punct_queryend for the first and only query
+         * Note: do not split if this is a punct_queryend for the first and only
+         * query
          * @todo when we find a UNION, should we split in another subresult?
          */
         if ($arr[$i]['type'] == 'punct_queryend' && ($i + 1 != $size)) {
@@ -1360,7 +1371,10 @@ function PMA_SQP_analyze($arr)
         // for each table_ref alias, put the true name of the table
         // in the corresponding select expressions
 
-        if (isset($current_table_ref) && ($seen_end_of_table_ref || $i == $size-1) && $subresult != $subresult_empty) {
+        if (isset($current_table_ref)
+            && ($seen_end_of_table_ref || $i == $size-1)
+            && $subresult != $subresult_empty
+        ) {
             for ($tr=0; $tr <= $current_table_ref; $tr++) {
                 $alias = $subresult['table_ref'][$tr]['table_alias'];
                 $truename = $subresult['table_ref'][$tr]['table_true_name'];
@@ -1502,7 +1516,8 @@ function PMA_SQP_analyze($arr)
     $in_subquery = false;
 
     for ($i = 0; $i < $size; $i++) {
-        //DEBUG echo "Loop2 <strong>"  . $arr[$i]['data'] . "</strong> (" . $arr[$i]['type'] . ")<br />";
+        //DEBUG echo "Loop2 <strong>"  . $arr[$i]['data']
+        //. "</strong> (" . $arr[$i]['type'] . ")<br />";
 
         // need_confirm
         //
@@ -1595,7 +1610,10 @@ function PMA_SQP_analyze($arr)
             }
 
             // if this is a real SELECT...FROM
-            if ($upper_data == 'FROM' && isset($subresult['queryflags']['select_from']) && $subresult['queryflags']['select_from'] == 1) {
+            if ($upper_data == 'FROM'
+                && isset($subresult['queryflags']['select_from'])
+                && $subresult['queryflags']['select_from'] == 1
+            ) {
                 $in_from = true;
                 $from_clause = '';
                 $in_select_expr = false;
@@ -1663,7 +1681,9 @@ function PMA_SQP_analyze($arr)
                     // We use PMA_substr() to be charset-safe; otherwise
                     // if the table name contains accents, the unsorted
                     // query would be missing some characters.
-                    $unsorted_query = PMA_substr($arr['raw'], 0, $arr[$i]['pos'] - 8);
+                    $unsorted_query = PMA_substr(
+                        $arr['raw'], 0, $arr[$i]['pos'] - 8
+                    );
                     $in_order_by = true;
                     $order_by_clause = '';
                 }
@@ -1713,16 +1733,22 @@ function PMA_SQP_analyze($arr)
         }
 
         // do not add a space after an identifier if followed by a dot
-        if ($arr[$i]['type'] == 'alpha_identifier' && $i < $size - 1 && $arr[$i + 1]['data'] == '.') {
+        if ($arr[$i]['type'] == 'alpha_identifier'
+            && $i < $size - 1 && $arr[$i + 1]['data'] == '.'
+        ) {
             $sep = '';
         }
 
         // do not add a space after a dot if followed by an identifier
-        if ($arr[$i]['data'] == '.' && $i < $size - 1 && $arr[$i + 1]['type'] == 'alpha_identifier') {
+        if ($arr[$i]['data'] == '.' && $i < $size - 1
+            && $arr[$i + 1]['type'] == 'alpha_identifier'
+        ) {
             $sep = '';
         }
 
-        if ($in_select_expr && $upper_data != 'SELECT' && $upper_data != 'DISTINCT') {
+        if ($in_select_expr && $upper_data != 'SELECT'
+            && $upper_data != 'DISTINCT'
+        ) {
             $select_expr_clause .= $arr[$i]['data'] . $sep;
         }
         if ($in_from && $upper_data != 'FROM') {
@@ -1954,9 +1980,13 @@ function PMA_SQP_analyze($arr)
         /**
          * @see @todo 2005-10-16 note: the "or" part here is a workaround for a bug
          */
-        if (($arr[$i]['type'] == 'alpha_columnType') || ($arr[$i]['type'] == 'alpha_functionName' && $seen_create_table)) {
+        if (($arr[$i]['type'] == 'alpha_columnType')
+            || ($arr[$i]['type'] == 'alpha_functionName' && $seen_create_table)
+        ) {
             $upper_data = strtoupper($arr[$i]['data']);
-            if ($seen_create_table && $in_create_table_fields && isset($current_identifier)) {
+            if ($seen_create_table && $in_create_table_fields
+                && isset($current_identifier)
+            ) {
                 $create_table_fields[$current_identifier]['type'] = $upper_data;
                 if ($upper_data == 'TIMESTAMP') {
                     $arr[$i]['type'] = 'alpha_columnType';
@@ -1971,7 +2001,9 @@ function PMA_SQP_analyze($arr)
         }
 
 
-        if ($arr[$i]['type'] == 'quote_backtick' || $arr[$i]['type'] == 'alpha_identifier') {
+        if ($arr[$i]['type'] == 'quote_backtick'
+            || $arr[$i]['type'] == 'alpha_identifier'
+        ) {
 
             if ($arr[$i]['type'] == 'quote_backtick') {
                 // remove backquotes
@@ -2092,7 +2124,8 @@ function PMA_SQP_formatHtml_colorize($arr)
 
     $class     .= 'syntax_' . $arr['type'];
 
-    return '<span class="' . $class . '">' . htmlspecialchars($arr['data']) . '</span>';
+    return '<span class="' . $class . '">'
+        . htmlspecialchars($arr['data']) . '</span>';
 } // end of the "PMA_SQP_formatHtml_colorize()" function
 
 
@@ -2211,7 +2244,8 @@ function PMA_SQP_formatHtml(
 
     $in_priv_list = false;
     for ($i = $start_token; $i < $number_of_tokens; $i++) {
-        // DEBUG echo "Loop format <strong>" . $arr[$i]['data'] . "</strong> " . $arr[$i]['type'] . "<br />";
+        // DEBUG echo "Loop format <strong>" . $arr[$i]['data']
+        // . "</strong> " . $arr[$i]['type'] . "<br />";
         $before = '';
         $after  = '';
         // array_shift($typearr);
@@ -2243,8 +2277,10 @@ function PMA_SQP_formatHtml(
             $bracketlevel++;
             $infunction = false;
             // Make sure this array is sorted!
-            if (($typearr[1] == 'alpha_functionName') || ($typearr[1] == 'alpha_columnType') || ($typearr[1] == 'punct')
-                || ($typearr[3] == 'digit_integer') || ($typearr[3] == 'digit_hex') || ($typearr[3] == 'digit_float')
+            if (($typearr[1] == 'alpha_functionName')
+                || ($typearr[1] == 'alpha_columnType') || ($typearr[1] == 'punct')
+                || ($typearr[3] == 'digit_integer') || ($typearr[3] == 'digit_hex')
+                || ($typearr[3] == 'digit_float')
                 || (($typearr[0] == 'alpha_reservedWord')
                     && isset($keywords_with_brackets_2before[strtoupper($arr[$i - 2]['data'])]))
                 || (($typearr[1] == 'alpha_reservedWord')
@@ -2255,11 +2291,17 @@ function PMA_SQP_formatHtml(
                 $after      .= ' ';
             } else {
                 $indent++;
-                $after      .= ($mode != 'query_only' ? '<div class="syntax_indent' . $indent . '">' : ' ');
+                if ($mode != 'query_only') {
+                    $after .= '<div class="syntax_indent' . $indent . '">';
+                } else {
+                    $after .= ' ';
+                }
             }
             break;
         case 'alpha_identifier':
-            if (($typearr[1] == 'punct_qualifier') || ($typearr[3] == 'punct_qualifier')) {
+            if (($typearr[1] == 'punct_qualifier')
+                || ($typearr[3] == 'punct_qualifier')
+            ) {
                 $after      = '';
                 $before     = '';
             }
@@ -2267,7 +2309,9 @@ function PMA_SQP_formatHtml(
             if ($typearr[1] == 'digit_integer') {
                 $before     = ' ';
             }
-            if (($typearr[3] == 'alpha_columnType') || ($typearr[3] == 'alpha_identifier')) {
+            if (($typearr[3] == 'alpha_columnType')
+                || ($typearr[3] == 'alpha_identifier')
+            ) {
                 $after      .= ' ';
             }
             break;
@@ -2284,7 +2328,10 @@ function PMA_SQP_formatHtml(
             }
             break;
         case 'punct_queryend':
-            if (($typearr[3] != 'comment_mysql') && ($typearr[3] != 'comment_ansi') && $typearr[3] != 'comment_c') {
+            if (($typearr[3] != 'comment_mysql')
+                && ($typearr[3] != 'comment_ansi')
+                && $typearr[3] != 'comment_c'
+            ) {
                 $after     .= $html_line_break;
                 $after     .= $html_line_break;
             }
@@ -2353,7 +2400,13 @@ function PMA_SQP_formatHtml(
                 case 'bit':
                 case 'boolean':
                 case 'serial':
-                    $before .= PMA_showMySQLDocu('data-types', 'numeric-types', false, '', true);
+                    $before .= PMA_showMySQLDocu(
+                        'data-types',
+                        'numeric-types',
+                        false,
+                        '',
+                        true
+                    );
                     $after = '</a>' . $after;
                     break;
                 case 'date':
@@ -2361,7 +2414,13 @@ function PMA_SQP_formatHtml(
                 case 'timestamp':
                 case 'time':
                 case 'year':
-                    $before .= PMA_showMySQLDocu('data-types', 'date-and-time-types', false, '', true);
+                    $before .= PMA_showMySQLDocu(
+                        'data-types',
+                        'date-and-time-types',
+                        false,
+                        '',
+                        true
+                    );
                     $after = '</a>' . $after;
                     break;
                 case 'char':
@@ -2378,7 +2437,13 @@ function PMA_SQP_formatHtml(
                 case 'longblob':
                 case 'enum':
                 case 'set':
-                    $before .= PMA_showMySQLDocu('data-types', 'string-types', false, '', true);
+                    $before .= PMA_showMySQLDocu(
+                        'data-types',
+                        'string-types',
+                        false,
+                        '',
+                        true
+                    );
                     $after = '</a>' . $after;
                     break;
                 }
@@ -2394,16 +2459,23 @@ function PMA_SQP_formatHtml(
 
             // ALTER TABLE tbl_name AUTO_INCREMENT = 1
             // COLLATE LATIN1_GENERAL_CI DEFAULT
-            if ($typearr[1] == 'alpha_identifier' || $typearr[1] == 'alpha_charset') {
+            if ($typearr[1] == 'alpha_identifier'
+                || $typearr[1] == 'alpha_charset'
+            ) {
                 $before .= ' ';
             }
-            if (($typearr[3] == 'alpha_columnAttrib') || ($typearr[3] == 'quote_single') || ($typearr[3] == 'digit_integer')) {
+            if (($typearr[3] == 'alpha_columnAttrib')
+                || ($typearr[3] == 'quote_single')
+                || ($typearr[3] == 'digit_integer')
+            ) {
                 $after     .= ' ';
             }
             // workaround for
             // AUTO_INCREMENT = 31DEFAULT_CHARSET = utf-8
 
-            if ($typearr[2] == 'alpha_columnAttrib' && $typearr[3] == 'alpha_reservedWord') {
+            if ($typearr[2] == 'alpha_columnAttrib'
+                && $typearr[3] == 'alpha_reservedWord'
+            ) {
                 $before .= ' ';
             }
             // workaround for
@@ -2465,7 +2537,11 @@ function PMA_SQP_formatHtml(
                      * @todo fix all cases and find why this happens
                      */
 
-                    if (!$in_priv_list || $typearr[1] == 'alpha_identifier' || $typearr[1] == 'quote_single' || $typearr[1] == 'white_newline') {
+                    if (!$in_priv_list
+                        || $typearr[1] == 'alpha_identifier'
+                        || $typearr[1] == 'quote_single'
+                        || $typearr[1] == 'white_newline'
+                    ) {
                         $before    .= $space_alpha_reserved_word;
                     }
                 } else {
@@ -2500,12 +2576,26 @@ function PMA_SQP_formatHtml(
                     case 'SERVER':
                     case 'DATABASE':
                     case 'VIEW':
-                        $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'] . '_' . $arr[$i + 1]['data'], false, '', true);
+                        $before .= PMA_showMySQLDocu(
+                            'SQL-Syntax',
+                            $arr[$i]['data'] . '_' . $arr[$i + 1]['data'],
+                            false,
+                            '',
+                            true
+                        );
                         $close_docu_link = true;
                         break;
                     }
-                    if ($arr[$i + 1]['data'] == 'LOGFILE' && $arr[$i + 2]['data'] == 'GROUP') {
-                        $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'] . '_LOGFILE_GROUP', false, '', true);
+                    if ($arr[$i + 1]['data'] == 'LOGFILE'
+                        && $arr[$i + 2]['data'] == 'GROUP'
+                    ) {
+                        $before .= PMA_showMySQLDocu(
+                            'SQL-Syntax',
+                            $arr[$i]['data'] . '_LOGFILE_GROUP',
+                            false,
+                            '',
+                            true
+                        );
                         $close_docu_link = true;
                     }
                 }
@@ -2532,7 +2622,13 @@ function PMA_SQP_formatHtml(
                 break;
             case 'SET':
                 if ($docu && ($i == 0 || $arr[$i - 1]['data'] != 'CHARACTER')) {
-                    $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'], false, '', true);
+                    $before .= PMA_showMySQLDocu(
+                        'SQL-Syntax',
+                        $arr[$i]['data'],
+                        false,
+                        '',
+                        true
+                    );
                     $after = '</a>' . $after;
                 }
                 if (!$in_priv_list) {
@@ -2546,7 +2642,13 @@ function PMA_SQP_formatHtml(
             case 'SHOW':
             case 'UPDATE':
                 if ($docu) {
-                    $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'], false, '', true);
+                    $before .= PMA_showMySQLDocu(
+                        'SQL-Syntax',
+                        $arr[$i]['data'],
+                        false,
+                        '',
+                        true
+                    );
                     $after = '</a>' . $after;
                 }
                 if (!$in_priv_list) {
@@ -2557,7 +2659,13 @@ function PMA_SQP_formatHtml(
             case 'INSERT':
             case 'REPLACE':
                 if ($docu) {
-                    $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'], false, '', true);
+                    $before .= PMA_showMySQLDocu(
+                        'SQL-Syntax',
+                        $arr[$i]['data'],
+                        false,
+                        '',
+                        true
+                    );
                     $after = '</a>' . $after;
                 }
                 if (!$in_priv_list) {
@@ -2571,7 +2679,13 @@ function PMA_SQP_formatHtml(
                 break;
             case 'SELECT':
                 if ($docu) {
-                    $before .= PMA_showMySQLDocu('SQL-Syntax', 'SELECT', false, '', true);
+                    $before .= PMA_showMySQLDocu(
+                        'SQL-Syntax',
+                        'SELECT',
+                        false,
+                        '',
+                        true
+                    );
                     $after = '</a>' . $after;
                 }
                 $space_punct_listsep       = ' ';
@@ -2581,26 +2695,76 @@ function PMA_SQP_formatHtml(
             case 'DO':
             case 'HANDLER':
                 if ($docu) {
-                    $before .= PMA_showMySQLDocu('SQL-Syntax', $arr[$i]['data'], false, '', true);
+                    $before .= PMA_showMySQLDocu(
+                        'SQL-Syntax',
+                        $arr[$i]['data'],
+                        false,
+                        '',
+                        true
+                    );
                     $after = '</a>' . $after;
                 }
                 break;
             default:
-                if ($close_docu_link && in_array($arr[$i]['data'], array('LIKE', 'NOT', 'IN', 'REGEXP', 'NULL'))) {
+                if ($close_docu_link
+                    && in_array(
+                        $arr[$i]['data'],
+                        array('LIKE', 'NOT', 'IN', 'REGEXP', 'NULL')
+                    )
+                ) {
                     $after .= '</a>';
                     $close_docu_link = false;
-                } else if ($docu && isset($PMA_SQPdata_functions_docs[$arr[$i]['data']])) {
+                } else if ($docu
+                    && isset($PMA_SQPdata_functions_docs[$arr[$i]['data']])
+                ) {
                     /* Handle multi word statements first */
-                    if (isset($typearr[4]) && $typearr[4] == 'alpha_reservedWord' && $typearr[3] == 'alpha_reservedWord' && isset($PMA_SQPdata_functions_docs[strtoupper($arr[$i]['data'] . '_' . $arr[$i + 1]['data'] . '_' . $arr[$i + 2]['data'])])) {
-                        $tempname = strtoupper($arr[$i]['data'] . '_' . $arr[$i + 1]['data'] . '_' . $arr[$i + 2]['data']);
-                        $before .= PMA_showMySQLDocu('functions', $PMA_SQPdata_functions_docs[$tempname]['link'], false, $PMA_SQPdata_functions_docs[$tempname]['anchor'], true);
+                    if (isset($typearr[4])
+                        && $typearr[4] == 'alpha_reservedWord'
+                        && $typearr[3] == 'alpha_reservedWord'
+                        && isset($PMA_SQPdata_functions_docs[strtoupper(
+                            $arr[$i]['data'] . '_'
+                            . $arr[$i + 1]['data'] . '_'
+                            . $arr[$i + 2]['data']
+                        )])
+                    ) {
+                        $tempname = strtoupper(
+                            $arr[$i]['data'] . '_'
+                            . $arr[$i + 1]['data'] . '_'
+                            . $arr[$i + 2]['data']
+                        );
+                        $before .= PMA_showMySQLDocu(
+                            'functions',
+                            $PMA_SQPdata_functions_docs[$tempname]['link'],
+                            false,
+                            $PMA_SQPdata_functions_docs[$tempname]['anchor'],
+                            true
+                        );
                         $close_docu_link = true;
-                    } else if (isset($typearr[3]) && $typearr[3] == 'alpha_reservedWord' && isset($PMA_SQPdata_functions_docs[strtoupper($arr[$i]['data'] . '_' . $arr[$i + 1]['data'])])) {
-                        $tempname = strtoupper($arr[$i]['data'] . '_' . $arr[$i + 1]['data']);
-                        $before .= PMA_showMySQLDocu('functions', $PMA_SQPdata_functions_docs[$tempname]['link'], false, $PMA_SQPdata_functions_docs[$tempname]['anchor'], true);
+                    } else if (isset($typearr[3])
+                        && $typearr[3] == 'alpha_reservedWord'
+                        && isset($PMA_SQPdata_functions_docs[strtoupper(
+                            $arr[$i]['data'] . '_' . $arr[$i + 1]['data']
+                        )])
+                    ) {
+                        $tempname = strtoupper(
+                            $arr[$i]['data'] . '_' . $arr[$i + 1]['data']
+                        );
+                        $before .= PMA_showMySQLDocu(
+                            'functions',
+                            $PMA_SQPdata_functions_docs[$tempname]['link'],
+                            false,
+                            $PMA_SQPdata_functions_docs[$tempname]['anchor'],
+                            true
+                        );
                         $close_docu_link = true;
                     } else {
-                        $before .= PMA_showMySQLDocu('functions', $PMA_SQPdata_functions_docs[$arr[$i]['data']]['link'], false, $PMA_SQPdata_functions_docs[$arr[$i]['data']]['anchor'], true);
+                        $before .= PMA_showMySQLDocu(
+                            'functions',
+                            $PMA_SQPdata_functions_docs[$arr[$i]['data']]['link'],
+                            false,
+                            $PMA_SQPdata_functions_docs[$arr[$i]['data']]['anchor'],
+                            true
+                        );
                         $after .= '</a>';
                     }
                 }
@@ -2635,7 +2799,9 @@ function PMA_SQP_formatHtml(
             // the @ is incorrectly marked as alpha_variable
             // in the parser, and here, the '%' gets a blank before,
             // which is a syntax error
-            if ($typearr[1] != 'punct_user' && $typearr[1] != 'alpha_bitfield_constant_introducer') {
+            if ($typearr[1] != 'punct_user'
+                && $typearr[1] != 'alpha_bitfield_constant_introducer'
+            ) {
                 $before        .= ' ';
             }
             if ($infunction && $typearr[3] == 'punct_bracket_close_round') {
@@ -2646,10 +2812,16 @@ function PMA_SQP_formatHtml(
             // here we check for punct_user to handle correctly
             // DEFINER = `username`@`%`
             // where @ is the punct_user and `%` is the quote_backtick
-            if ($typearr[3] != 'punct_qualifier' && $typearr[3] != 'alpha_variable' && $typearr[3] != 'punct_user') {
+            if ($typearr[3] != 'punct_qualifier'
+                && $typearr[3] != 'alpha_variable'
+                && $typearr[3] != 'punct_user'
+            ) {
                 $after     .= ' ';
             }
-            if ($typearr[1] != 'punct_qualifier' && $typearr[1] != 'alpha_variable' && $typearr[1] != 'punct_user') {
+            if ($typearr[1] != 'punct_qualifier'
+                && $typearr[1] != 'alpha_variable'
+                && $typearr[1] != 'punct_user'
+            ) {
                 $before    .= ' ';
             }
             break;
