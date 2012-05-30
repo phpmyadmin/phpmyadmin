@@ -45,7 +45,6 @@ $post_params = array(
     'fields',
     'fields_null',
     'inputs',
-    'max_number_of_fields',
     'maxPlotLimit',
     'types',
     'zoom_submit',
@@ -170,7 +169,6 @@ $fields_cnt = count($fields_list);
 // check also foreigners even if relwork is FALSE (to get
 // foreign keys from innodb)
 $foreigners = PMA_getForeigners($db, $table);
-$flag = 1;
 $tbl_fields_type = $tbl_fields_collation = $tbl_fields_null = array();
 
 if (! isset($zoom_submit) && ! isset($inputs)) {
@@ -189,7 +187,6 @@ echo PMA_generateHtmlTabs(PMA_tbl_getSubTabs(), $url_params, 'topmenu2');
  *  Set the field name,type,collation and whether null on select of a coulmn
  */
 if (isset($inputs) && ($inputs[0] != 'pma_null' || $inputs[1] != 'pma_null')) {
-    $flag = 2;
     for ($i = 0 ; $i < 4 ; $i++) {
         if ($inputs[$i] != 'pma_null') {
             $key = array_search($inputs[$i], $fields_list);
@@ -228,7 +225,6 @@ if (isset($inputs) && ($inputs[0] != 'pma_null' || $inputs[1] != 'pma_null')) {
 <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
 <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
 <input type="hidden" name="back" value="tbl_zoom_select.php" />
-<input type="hidden" name="flag" id="id_flag" value="<?php echo $flag; ?>" />
 
 <fieldset id="inputSection">
 
@@ -330,8 +326,6 @@ echo '" /></td></tr>';
 
 </fieldset>
 <fieldset class="tblFooters">
-    <input type="hidden" name="max_number_of_fields"
-        value="<?php echo $fields_cnt; ?>" />
     <input type="submit" name="zoom_submit" id="inputFormSubmitId" value="<?php echo __('Go'); ?>" />
 </fieldset>
 </form>
