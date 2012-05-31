@@ -149,6 +149,7 @@ $(document).ready(function() {
 	    $('#types_0').val(data.field_type);
         xType = data.field_type;
 	    $('#collations_0').val(data.field_collations);
+        addDateTimePicker();
         });
     });
 
@@ -172,6 +173,7 @@ $(document).ready(function() {
 	    $('#types_1').val(data.field_type);
         yType = data.field_type;
 	    $('#collations_1').val(data.field_collations);
+        addDateTimePicker();
         });
     });
 
@@ -192,6 +194,7 @@ $(document).ready(function() {
             $('#tableFieldsId tr:eq(6) td:eq(3)').html(data.field_value);
 	    $('#types_2').val(data.field_type);
 	    $('#collations_2').val(data.field_collations);
+        addDateTimePicker();
         });
     });
 
@@ -212,6 +215,7 @@ $(document).ready(function() {
             $('#tableFieldsId tr:eq(8) td:eq(3)').html(data.field_value);
 	    $('#types_3').val(data.field_type);
 	    $('#collations_3').val(data.field_collations);
+        addDateTimePicker();
         });
     });
 
