@@ -39,14 +39,7 @@ if ($GLOBALS['error_handler']->hasDisplayErrors()) {
     echo '</div>';
 }
 
-if (count($GLOBALS['footnotes'])) {
-    echo '<div class="footnotes">';
-    foreach ($GLOBALS['footnotes'] as $footnote) {
-        echo '<span id="footnote_' . $footnote['nr'] . '"><sup>'
-            . $footnote['nr'] . '</sup> ' . $footnote['note'] . '</span><br />';
-    }
-    echo '</div>';
-}
+$footer = PMA_Footer::getInstance()->display();
 
 if (! empty($_SESSION['debug'])) {
     $sum_time = 0;

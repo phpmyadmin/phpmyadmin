@@ -90,6 +90,11 @@ define('PHPMYADMIN', true);
 include_once 'libraries/Header.class.php';
 
 /**
+ * Used to generate the header of the page
+ */
+include_once 'libraries/Footer.class.php';
+
+/**
  * core functions
  */
 require './libraries/core.lib.php';

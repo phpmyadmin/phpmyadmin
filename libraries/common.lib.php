@@ -538,39 +538,10 @@ function PMA_showPHPDocu($target)
  *
  * @access  public
  */
-function PMA_showHint($message, $bbcode = false, $type = 'notice')
+function PMA_showHint($message, $bbcode = false)
 {
-    if ($message instanceof PMA_Message) {
-        $key = $message->getHash();
-        $type = $message->getLevel();
-    } else {
-        $key = md5($message);
-    }
-
-    if (! isset($GLOBALS['footnotes'][$key])) {
-        if (empty($GLOBALS['footnotes']) || ! is_array($GLOBALS['footnotes'])) {
-            $GLOBALS['footnotes'] = array();
-        }
-        $nr = count($GLOBALS['footnotes']) + 1;
-        $GLOBALS['footnotes'][$key] = array(
-            'note'      => $message,
-            'type'      => $type,
-            'nr'        => $nr,
-        );
-    } else {
-        $nr = $GLOBALS['footnotes'][$key]['nr'];
-    }
-
-    if ($bbcode) {
-        return '[sup]' . $nr . '[/sup]';
-    }
-
-    // footnotemarker used in js/tooltip.js
-    return '<sup class="footnotemarker">' . $nr . '</sup>'
-        . PMA_getImage(
-            'b_help.png', '',
-            array('class' => 'footnotemarker footnote_' . $nr)
-        );
+    $footnotes = PMA_Footer::getInstance()->getFootnotes();
+    return $footnotes->add($message, $bbcode);
 }
 
 /**
