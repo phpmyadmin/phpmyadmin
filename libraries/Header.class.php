@@ -19,19 +19,94 @@ require_once 'libraries/Menu.class.php';
 // $cfg['ServerDefault'] = 0;
 $is_superuser = function_exists('PMA_isSuperuser') && PMA_isSuperuser();
 
-
-class PMA_Header {
+/**
+ * Singleton class used to output the HTTP and HTML headers
+ *
+ * @package PhpMyAdmin
+ */
+class PMA_Header
+{
+    /**
+     * PMA_Header instance
+     *
+     * @access private
+     * @static
+     * @var object
+     */
     private static $_instance;
+    /**
+     * PMA_Scripts instance
+     *
+     * @access private
+     * @var object
+     */
     private $_scripts;
+    /**
+     * PMA_Menu instance
+     *
+     * @access private
+     * @var object
+     */
     private $_menu;
+    /**
+     * Whether to offer the option of importing user settings
+     *
+     * @access private
+     * @var bool
+     */
     private $_userprefsOfferImport;
+    /**
+     * The page title
+     *
+     * @access private
+     * @var string
+     */
     private $_title;
+    /**
+     * The value for the id attribute for the body tag
+     *
+     * @access private
+     * @var string
+     */
     private $_bodyId;
+    /**
+     * Whether to show the top menu
+     *
+     * @access private
+     * @var bool
+     */
     private $_menuEnabled;
+    /**
+     * Whether the page is in 'print view' mode
+     *
+     * @access private
+     * @var bool
+     */
     private $_isPrintView;
+    /**
+     * Whether we are servicing an ajax request.
+     * We can't simply use $GLOBALS['is_ajax_request']
+     * here since it may have not been initialised yet.
+     *
+     * @access private
+     * @var bool
+     */
     private $_isAjax;
+    /**
+     * Whether the HTTP headers (and possibly some HTML)
+     * have already been sent to the browser
+     *
+     * @access public
+     * @static
+     * @var bool
+     */
     public static $headerIsSent;
 
+    /**
+     * Cretes a new class instance
+     *
+     * @return new PMA_Header object
+     */
     private function __construct()
     {
         $this->_isAjax = false;
@@ -39,16 +114,15 @@ class PMA_Header {
             $this->_isAjax = true;
         }
         $this->_bodyId = '';
-        $this->_title = 'phpMyAdmin';
-        $this->_menu = new PMA_Menu(
+        $this->_title  = 'phpMyAdmin';
+        $this->_menu   = new PMA_Menu(
             $GLOBALS['server'],
             $GLOBALS['db'],
             $GLOBALS['table']
         );
-        $_isPrintView = false;
         $this->_menuEnabled = true;
         $this->_isPrintView = false;
-        $this->_scripts = new PMA_Scripts();
+        $this->_scripts     = new PMA_Scripts();
         self::$headerIsSent = false;
         // if database storage for user preferences is transient,
         // offer to load exported settings from localStorage
@@ -61,6 +135,11 @@ class PMA_Header {
         }
     }
 
+    /**
+     * Returns the singleton PMA_Header object
+     *
+     * @return PMA_Header object
+     */
     public static function getInstance()
     {
         if (empty(self::$_instance)) {
@@ -69,26 +148,55 @@ class PMA_Header {
         return self::$_instance;
     }
 
+    /**
+     * Returns the PMA_Scripts object
+     *
+     * @return PMA_Scripts object
+     */
     public function getScripts()
     {
         return $this->_scripts;
     }
 
+    /**
+     * Setter for the ID attribute in the BODY tag
+     *
+     * @param string $id Value for the ID attribute
+     *
+     * @return void
+     */
     public function setBodyId($id)
     {
         $this->_bodyId = htmlspecialchars($id);
     }
 
+    /**
+     * Setter for the title of the page
+     *
+     * @param string $title New title
+     *
+     * @return void
+     */
     public function setTitle($title)
     {
         $this->_title = htmlspecialchars($title);
     }
 
+    /**
+     * Disables the display of the top menu
+     *
+     * @return void
+     */
     public function disableMenu()
     {
         $this->_menuEnabled = false;
     }
 
+    /**
+     * Turns on 'print view' mode
+     *
+     * @return void
+     */
     public function enablePrintView()
     {
         $this->disableMenu();
@@ -96,11 +204,21 @@ class PMA_Header {
         $this->_isPrintView = true;
     }
 
+    /**
+     * Generates and outputs the header
+     *
+     * @return void
+     */
     public function display()
     {
         echo $this->getDisplay();
     }
 
+    /**
+     * Generates the header
+     *
+     * @return string The header
+     */
     public function getDisplay()
     {
         $retval = '';
@@ -145,6 +263,11 @@ class PMA_Header {
         return $retval;
     }
 
+    /**
+     * Sends out the HTTP headers
+     *
+     * @return void
+     */
     public function sendHttpHeaders()
     {
         /**
@@ -157,9 +280,19 @@ class PMA_Header {
         $GLOBALS['now'] = gmdate('D, d M Y H:i:s') . ' GMT';
         /* Prevent against ClickJacking by allowing frames only from same origin */
         if (! $GLOBALS['cfg']['AllowThirdPartyFraming']) {
-            header('X-Frame-Options: SAMEORIGIN');
-            header("X-Content-Security-Policy: allow 'self'; options inline-script eval-script; frame-ancestors 'self'; img-src 'self' data:; script-src 'self' http://www.phpmyadmin.net");
-            header("X-WebKit-CSP: allow 'self' http://www.phpmyadmin.net; options inline-script eval-script");
+            header(
+                'X-Frame-Options: SAMEORIGIN'
+            );
+            header(
+                "X-Content-Security-Policy: allow 'self'; "
+                . "options inline-script eval-script; "
+                . "frame-ancestors 'self'; img-src 'self' data:; "
+                . "script-src 'self' http://www.phpmyadmin.net"
+            );
+            header(
+                "X-WebKit-CSP: allow 'self' http://www.phpmyadmin.net; "
+                . "options inline-script eval-script"
+            );
         }
         PMA_noCacheHeader();
         if (! defined('IS_TRANSFORMATION_WRAPPER')) {
@@ -169,10 +302,15 @@ class PMA_Header {
         self::$headerIsSent = true;
     }
 
+    /**
+     * Returns the DOCTYPE and the start HTML tag
+     *
+     * @return string DOCTYPE and HTML tags
+     */
     private function _getHtmlStart()
     {
         $lang = $GLOBALS['available_languages'][$GLOBALS['lang']][1];
-        $dir = $GLOBALS['text_dir'];
+        $dir  = $GLOBALS['text_dir'];
 
         $retval  = "<!DOCTYPE HTML>";
         $retval .= "<html lang='$lang' dir='$dir'>";
@@ -180,6 +318,11 @@ class PMA_Header {
         return $retval;
     }
 
+    /**
+     * Returns the META tags
+     *
+     * @return string the META tags
+     */
     private function _getMetaTags()
     {
         $retval  = '<meta charset="utf-8" />';
@@ -187,15 +330,21 @@ class PMA_Header {
         return $retval;
     }
 
+    /**
+     * Returns the LINK tags for the favicon and the stylesheets
+     *
+     * @return string the LINK tags
+     */
     private function _getLinkTags()
     {
-        $retval  = '<link rel="icon" href="favicon.ico" type="image/x-icon" />';
-        $retval .= '<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />';
-
+        $retval = '<link rel="icon" href="favicon.ico" '
+            . 'type="image/x-icon" />'
+            . '<link rel="shortcut icon" href="favicon.ico" '
+            . 'type="image/x-icon" />';
         // stylesheets
-        $basedir = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
+        $basedir    = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
         $common_url = PMA_generate_common_url(array('server' => $GLOBALS['server']));
-        $theme_id = $GLOBALS['PMA_Config']->getThemeUniqueValue();
+        $theme_id   = $GLOBALS['PMA_Config']->getThemeUniqueValue();
         $theme_path = $GLOBALS['pmaThemePath'];
 
         if ($this->_isPrintView) {
@@ -213,6 +362,11 @@ class PMA_Header {
         return $retval;
     }
 
+    /**
+     * Returns the TITLE tag
+     *
+     * @return string the TITLE tag
+     */
     private function _getTitleTag()
     {
         $retval = "<title>";
@@ -225,6 +379,12 @@ class PMA_Header {
         return $retval;
     }
 
+    /**
+     * Returns the close tag to the HEAD
+     * and the start tag for the BODY
+     *
+     * @return string HEAD and BODY tags
+     */
     private function _getBodyStart()
     {
         $retval = "</head><body";
@@ -235,6 +395,11 @@ class PMA_Header {
         return $retval;
     }
 
+    /**
+     * Returns some warnings to be displayed at the top of the page
+     *
+     * @return string The warnings
+     */
     private function _getWarnings()
     {
         $retval = '';
@@ -257,8 +422,10 @@ class PMA_Header {
     /**
      * Add recently used table and reload the navigation.
      *
-     * @param string $db Database name where the table is located.
+     * @param string $db    Database name where the table is located.
      * @param string $table The table name
+     *
+     * @return string
      */
     private function _addRecentTable($db, $table)
     {
@@ -268,7 +435,7 @@ class PMA_Header {
             if ($tmp_result === true) {
                 $retval = '<span class="hide" id="update_recent_tables"></span>';
             } else {
-                $error = $tmp_result;
+                $error  = $tmp_result;
                 $retval = $error->getDisplay();
             }
         }

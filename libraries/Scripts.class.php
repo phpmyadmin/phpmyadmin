@@ -8,33 +8,93 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-class PMA_Scripts {
+/**
+ * Collects information about which JavaScript
+ * files and objects are necessary to render
+ * the page and generates the relevant code.
+ *
+ * @package PhpMyAdmin
+ */
+class PMA_Scripts
+{
+    /**
+     * An array of SCRIPT tags
+     *
+     * @access private
+     * @var array of strings
+     */
     private $_files;
+    /**
+     * An array of discrete javascript code snippets
+     *
+     * @access private
+     * @var array of strings
+     */
     private $_code;
+    /**
+     * An array of event names to bind and javascript code
+     * snippets to fire for the corresponding events
+     *
+     * @access private
+     * @var array
+     */
     private $_events;
 
+
+    /**
+     * Generates new PMA_Scripts objects
+     *
+     * @return PMA_Scripts object
+     */
     public function __construct()
     {
-        $this->_files = array();
-        $this->_code = '';
+        $this->_files  = array();
+        $this->_code   = '';
         $this->_events = array();
         // Include default scripts
         $this->_addDefaults();
 
     }
 
+    /**
+     * Adds a new file to the list of scripts
+     *
+     * @param string $filename       The name of the file to include
+     * @param bool   $conditional_ie Whether to wrap the script tag in
+     *                               conditional comments for IE
+     *
+     * @return void
+     */
     public function addFile($filename, $conditional_ie = false)
     {
-        if (! in_array($filename, $this->_files)) {
-            $this->_files[] = PMA_includeJS($filename, $conditional_ie);
+        $link = PMA_includeJS($filename, $conditional_ie);
+        if (! in_array($link, $this->_files)) {
+            $this->_files[] = $link;
         }
     }
 
+    /**
+     * Adds a new code snippet to the code to be executed
+     *
+     * @param string $code The JS code to be added
+     *
+     * @return void
+     */
     public function addCode($code)
     {
         $this->_code .= "$code\n";
     }
 
+    /**
+     * Adds a new event to the list of events
+     *
+     * @param string $event    The name of the event to register
+     * @param string $function The code to execute when the event fires
+     *                         E.g: 'function () { doSomething(); }'
+     *                         or 'doSomething'
+     *
+     * @return void
+     */
     public function addEvent($event, $function)
     {
         $this->_events[] = array(
@@ -43,6 +103,11 @@ class PMA_Scripts {
         );
     }
 
+    /**
+     * Loads common scripts
+     *
+     * @return void
+     */
     private function _addDefaults()
     {
         $this->addFile('jquery/jquery-1.6.2.js');
@@ -109,6 +174,11 @@ class PMA_Scripts {
         $this->addCode(PMA_getReloadNavigationScript(true));
     }
 
+    /**
+     * Renders all the JavaScript file inclusions, code and events
+     *
+     * @return string
+     */
     public function getDisplay()
     {
         $retval = '';

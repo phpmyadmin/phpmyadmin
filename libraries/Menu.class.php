@@ -10,7 +10,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * Singleton class for generating the top menu
+ * Class for generating the top menu
  *
  * @package PhpMyAdmin
  */
