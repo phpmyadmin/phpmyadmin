@@ -617,15 +617,8 @@ $(function() {
         }
     });
 
-    /**
-     * Add a date/time picker to each element that needs it
-     * (only when timepicker.js is loaded)
-     */
-    if ($.timepicker != undefined) {
-        $('input.datefield, input.datetimefield').each(function() {
-            PMA_addDatepicker($(this));
-        });
-    }
+    addDateTimePicker();
+   
     /**
      * Add attribute to text boxes for iOS devices (based on bugID: 3508912)
      */
@@ -831,6 +824,18 @@ function insertValueQuery()
             myQuery.value += chaineAj;
         }
         sql_box_locked = false;
+    }
+}
+
+/**
+ * Add a date/time picker to each element that needs it
+ * (only when timepicker.js is loaded)
+ */
+function addDateTimePicker() {
+    if ($.timepicker != undefined) {
+        $('input.datefield, input.datetimefield').each(function() {
+            PMA_addDatepicker($(this));
+        });
     }
 }
 
