@@ -123,6 +123,7 @@ class PMA_Header
         $this->_menuEnabled = true;
         $this->_isPrintView = false;
         $this->_scripts     = new PMA_Scripts();
+        $this->_addDefaultScripts();
         self::$headerIsSent = false;
         // if database storage for user preferences is transient,
         // offer to load exported settings from localStorage
@@ -133,6 +134,77 @@ class PMA_Header
         ) {
             $this->_userprefsOfferImport = true;
         }
+    }
+
+    /**
+     * Loads common scripts
+     *
+     * @return void
+     */
+    private function _addDefaultScripts()
+    {
+        $this->_scripts->addFile('jquery/jquery-1.6.2.js');
+        $this->_scripts->addFile('jquery/jquery-ui-1.8.16.custom.js');
+        $this->_scripts->addFile('jquery/jquery.sprintf.js');
+        $this->_scripts->addFile('update-location.js');
+
+        $this->_scripts->addFile('jquery/jquery.qtip-1.0.0-rc3.js');
+        if ($GLOBALS['cfg']['CodemirrorEnable']) {
+            $this->_scripts->addFile('codemirror/lib/codemirror.js');
+            $this->_scripts->addFile('codemirror/mode/mysql/mysql.js');
+        }
+        // Cross-framing protection
+        if ($GLOBALS['cfg']['AllowThirdPartyFraming'] === false) {
+            $this->_scripts->addFile('cross_framing_protection.js');
+        }
+        // Localised strings
+        $params = array('lang' => $GLOBALS['lang']);
+        if (isset($GLOBALS['db'])) {
+            $params['db'] = $GLOBALS['db'];
+        }
+        $this->_scripts->addFile('messages.php' . PMA_generate_common_url($params));
+        // Append the theme id to this url to invalidate
+        // the cache on a theme change
+        $this->_scripts->addFile(
+            'get_image.js.php?theme='
+            . urlencode($_SESSION['PMA_Theme']->getId())
+        );
+        $this->_scripts->addFile('functions.js');
+
+        // generate title (unless we already have
+        // $GLOBALS['page_title'], from cookie auth)
+        if (! isset($GLOBALS['page_title'])) {
+            if ($GLOBALS['server'] > 0) {
+                if (! empty($GLOBALS['table'])) {
+                    $temp_title = $GLOBALS['cfg']['TitleTable'];
+                } else if (! empty($GLOBALS['db'])) {
+                    $temp_title = $GLOBALS['cfg']['TitleDatabase'];
+                } elseif (! empty($GLOBALS['cfg']['Server']['host'])) {
+                    $temp_title = $GLOBALS['cfg']['TitleServer'];
+                } else {
+                    $temp_title = $GLOBALS['cfg']['TitleDefault'];
+                }
+                $title = PMA_expandUserString($temp_title);
+            }
+        } else {
+            $title = $GLOBALS['page_title'];
+        }
+        if (isset($title)) {
+            $title = PMA_sanitize(
+                PMA_escapeJsString($title),
+                false,
+                true
+            );
+            $this->_scripts->addCode(
+                "if (typeof(parent.document) != 'undefined'"
+                . " && typeof(parent.document) != 'unknown'"
+                . " && typeof(parent.document.title) == 'string')"
+                . "{"
+                . "parent.document.title = '$title'"
+                . "}"
+            );
+        }
+        $this->_scripts->addCode(PMA_getReloadNavigationScript(true));
     }
 
     /**
