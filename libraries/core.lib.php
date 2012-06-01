@@ -686,7 +686,7 @@ function PMA_array_write($path, &$array, $value)
  *
  * @return void
  */
-function PMA_array_remove($path, &$array)
+function PMA_arrayRemove($path, &$array)
 {
     $keys = explode('/', $path);
     $keys_last = array_pop($keys);

@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_array_read(), PMA_array_write(), PMA_array_remove(), PMA_array_merge_recursive(),
+ * Test for PMA_array_read(), PMA_array_write(), PMA_arrayRemove(), PMA_array_merge_recursive(),
  * PMA_arrayWalkRecursive() from libraries/core.lib.php
  *
  * @package PhpMyAdmin-test
@@ -98,7 +98,7 @@ class PMA_array_test extends PHPUnit_Framework_TestCase
         $this->assertNull($arr['sarr'][0][2]);
     }
 
-    function testPMA_array_remove()
+    function testPMA_arrayRemove()
     {
         $arr = array(
             "int" => 1,
@@ -107,47 +107,47 @@ class PMA_array_test extends PHPUnit_Framework_TestCase
             "sarr" => array('arr1' => array(1, 2, 3), array(3, array('a', 'b', 'c'), 4))
         );
 
-        PMA_array_remove('int', $arr);
+        PMA_arrayRemove('int', $arr);
         $this->assertArrayNotHasKey('int', $arr);
 
-        PMA_array_remove('str', $arr);
+        PMA_arrayRemove('str', $arr);
         $this->assertArrayNotHasKey('str', $arr);
 
-        PMA_array_remove('arr/0', $arr);
+        PMA_arrayRemove('arr/0', $arr);
         $this->assertArrayNotHasKey(0, $arr['arr']);
 
-        PMA_array_remove('arr/1', $arr);
+        PMA_arrayRemove('arr/1', $arr);
         $this->assertArrayNotHasKey(1, $arr['arr']);
 
-        PMA_array_remove('arr/2', $arr);
+        PMA_arrayRemove('arr/2', $arr);
         $this->assertArrayNotHasKey('arr', $arr);
 
         $tmp_arr = $arr;
-        PMA_array_remove('sarr/not_existing/1', $arr);
+        PMA_arrayRemove('sarr/not_existing/1', $arr);
         $this->assertEquals($tmp_arr, $arr);
 
-        PMA_array_remove('sarr/arr1/0', $arr);
+        PMA_arrayRemove('sarr/arr1/0', $arr);
         $this->assertArrayNotHasKey(0, $arr['sarr']['arr1']);
 
-        PMA_array_remove('sarr/arr1/1', $arr);
+        PMA_arrayRemove('sarr/arr1/1', $arr);
         $this->assertArrayNotHasKey(1, $arr['sarr']['arr1']);
 
-        PMA_array_remove('sarr/arr1/2', $arr);
+        PMA_arrayRemove('sarr/arr1/2', $arr);
         $this->assertArrayNotHasKey('arr1', $arr['sarr']);
 
-        PMA_array_remove('sarr/0/0', $arr);
+        PMA_arrayRemove('sarr/0/0', $arr);
         $this->assertArrayNotHasKey(0, $arr['sarr'][0]);
 
-        PMA_array_remove('sarr/0/1/0', $arr);
+        PMA_arrayRemove('sarr/0/1/0', $arr);
         $this->assertArrayNotHasKey(0, $arr['sarr'][0][1]);
 
-        PMA_array_remove('sarr/0/1/1', $arr);
+        PMA_arrayRemove('sarr/0/1/1', $arr);
         $this->assertArrayNotHasKey(1, $arr['sarr'][0][1]);
 
-        PMA_array_remove('sarr/0/1/2', $arr);
+        PMA_arrayRemove('sarr/0/1/2', $arr);
         $this->assertArrayNotHasKey(1, $arr['sarr'][0]);
 
-        PMA_array_remove('sarr/0/2', $arr);
+        PMA_arrayRemove('sarr/0/2', $arr);
 
         $this->assertEmpty($arr);
     }

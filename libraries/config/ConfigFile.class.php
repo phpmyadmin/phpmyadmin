@@ -240,7 +240,7 @@ class ConfigFile
                 || (empty($value) && empty($default_value) && (defined('PMA_SETUP')
                 || empty($current_global)))
             ) {
-                PMA_array_remove($path, $_SESSION[$this->_id]);
+                PMA_arrayRemove($path, $_SESSION[$this->_id]);
                 return;
             }
         }
@@ -512,7 +512,7 @@ class ConfigFile
         $c = $_SESSION[$this->_id];
         foreach ($this->_cfgUpdateReadMapping as $map_to => $map_from) {
             PMA_array_write($map_to, $c, PMA_array_read($map_from, $c));
-            PMA_array_remove($map_from, $c);
+            PMA_arrayRemove($map_from, $c);
         }
         return $c;
     }
