@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-05-29 09:46+0200\n"
+"POT-Creation-Date: 2012-06-01 14:44+0200\n"
 "PO-Revision-Date: 2012-05-11 19:33+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
@@ -20,7 +20,7 @@ msgid "Show all"
 msgstr "සියල්ල පෙන්වන්න"
 
 #: browse_foreigners.php:78 libraries/PDF.class.php:50
-#: libraries/common.lib.php:2478
+#: libraries/common.lib.php:2479
 #: libraries/schema/Pdf_Relation_Schema.class.php:1145
 #: libraries/schema/Pdf_Relation_Schema.class.php:1169
 #: libraries/schema/User_Schema.class.php:399
@@ -38,9 +38,9 @@ msgstr ""
 "ආරක්ෂක සැකසුම් අන්තර් කවුළු යාවත්කාලීන කිරීම් අවහිර කරන ලෙස සකසා තිබීම මීට හේතු විය හැක."
 
 #: browse_foreigners.php:183 libraries/Menu.class.php:276
-#: libraries/Menu.class.php:370 libraries/common.lib.php:3185
-#: libraries/common.lib.php:3192 libraries/common.lib.php:3421
-#: libraries/common.lib.php:3422
+#: libraries/Menu.class.php:370 libraries/common.lib.php:3186
+#: libraries/common.lib.php:3193 libraries/common.lib.php:3422
+#: libraries/common.lib.php:3423
 msgid "Search"
 msgstr "සෙවීම"
 
@@ -62,17 +62,17 @@ msgstr "සෙවීම"
 #: libraries/schema/User_Schema.class.php:449
 #: libraries/schema/User_Schema.class.php:489
 #: libraries/sql_query_form.lib.php:362 libraries/sql_query_form.lib.php:417
-#: libraries/sql_query_form.lib.php:472 libraries/tbl_properties.inc.php:724
-#: pmd_pdf.php:142 prefs_manage.php:271 prefs_manage.php:322
-#: server_binlog.php:104 server_privileges.php:843 server_privileges.php:1962
-#: server_privileges.php:2326 server_privileges.php:2373
-#: server_privileges.php:2405 server_replication.php:262
-#: server_replication.php:346 server_replication.php:377
-#: server_synchronize.php:1480 tbl_indexes.php:306 tbl_operations.php:287
-#: tbl_operations.php:324 tbl_operations.php:532 tbl_operations.php:595
-#: tbl_operations.php:798 tbl_select.php:235 tbl_structure.php:717
+#: libraries/sql_query_form.lib.php:472 libraries/tbl_properties.inc.php:720
+#: libraries/tbl_select.lib.php:761 pmd_pdf.php:142 prefs_manage.php:271
+#: prefs_manage.php:322 server_binlog.php:104 server_privileges.php:843
+#: server_privileges.php:1962 server_privileges.php:2326
+#: server_privileges.php:2373 server_privileges.php:2405
+#: server_replication.php:262 server_replication.php:346
+#: server_replication.php:377 server_synchronize.php:1480 tbl_indexes.php:306
+#: tbl_operations.php:287 tbl_operations.php:324 tbl_operations.php:532
+#: tbl_operations.php:595 tbl_operations.php:798 tbl_structure.php:717
 #: tbl_structure.php:749 tbl_tracking.php:489 tbl_tracking.php:631
-#: tbl_zoom_select.php:317 view_create.php:177 view_operations.php:94
+#: tbl_zoom_select.php:329 view_create.php:177 view_operations.php:94
 msgid "Go"
 msgstr "යන්න"
 
@@ -109,8 +109,8 @@ msgid "Database comment: "
 msgstr "දත්තගබඩා විස්තර: "
 
 #: db_datadict.php:154 libraries/schema/Pdf_Relation_Schema.class.php:1282
-#: libraries/tbl_properties.inc.php:818 tbl_operations.php:369
-#: tbl_printview.php:124
+#: libraries/tbl_properties.inc.php:814 tbl_operations.php:369
+#: tbl_printview.php:126
 msgid "Table comments"
 msgstr "වගු විස්තර"
 
@@ -123,8 +123,8 @@ msgstr "වගු විස්තර"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1308
 #: libraries/schema/Pdf_Relation_Schema.class.php:1329
 #: libraries/tbl_properties.inc.php:311 libraries/tbl_select.lib.php:91
-#: tbl_indexes.php:222 tbl_printview.php:136 tbl_relation.php:401
-#: tbl_tracking.php:303 tbl_tracking.php:369 tbl_zoom_select.php:442
+#: tbl_indexes.php:222 tbl_printview.php:139 tbl_relation.php:401
+#: tbl_tracking.php:303 tbl_tracking.php:369 tbl_zoom_select.php:454
 msgid "Column"
 msgstr "තීර"
 
@@ -141,9 +141,8 @@ msgstr "තීර"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1309
 #: libraries/schema/Pdf_Relation_Schema.class.php:1330
 #: libraries/tbl_properties.inc.php:85 libraries/tbl_select.lib.php:92
-#: server_privileges.php:2419 tbl_printview.php:137 tbl_printview.php:295
-#: tbl_structure.php:201 tbl_structure.php:833 tbl_tracking.php:304
-#: tbl_tracking.php:366
+#: server_privileges.php:2419 tbl_printview.php:140 tbl_structure.php:201
+#: tbl_tracking.php:304 tbl_tracking.php:366
 msgid "Type"
 msgstr "වර්ගය"
 
@@ -154,9 +153,9 @@ msgstr "වර්ගය"
 #: libraries/export/texytext.php:342 libraries/insert_edit.lib.php:1399
 #: libraries/schema/Pdf_Relation_Schema.class.php:1311
 #: libraries/schema/Pdf_Relation_Schema.class.php:1332
-#: libraries/tbl_properties.inc.php:92 tbl_printview.php:138
+#: libraries/tbl_properties.inc.php:92 tbl_printview.php:141
 #: tbl_structure.php:204 tbl_tracking.php:306 tbl_tracking.php:372
-#: tbl_zoom_select.php:443
+#: tbl_zoom_select.php:455
 msgid "Null"
 msgstr "Null"
 
@@ -166,7 +165,7 @@ msgstr "Null"
 #: libraries/export/texytext.php:241 libraries/export/texytext.php:343
 #: libraries/schema/Pdf_Relation_Schema.class.php:1312
 #: libraries/schema/Pdf_Relation_Schema.class.php:1333
-#: libraries/tbl_properties.inc.php:89 tbl_printview.php:139
+#: libraries/tbl_properties.inc.php:89 tbl_printview.php:142
 #: tbl_structure.php:205 tbl_tracking.php:307
 msgid "Default"
 msgstr "පෙරනිමි"
@@ -175,7 +174,7 @@ msgstr "පෙරනිමි"
 #: libraries/export/latex.php:486 libraries/export/odt.php:439
 #: libraries/export/texytext.php:345
 #: libraries/schema/Pdf_Relation_Schema.class.php:1314
-#: libraries/schema/Pdf_Relation_Schema.class.php:1335 tbl_printview.php:142
+#: libraries/schema/Pdf_Relation_Schema.class.php:1335 tbl_printview.php:145
 msgid "Links to"
 msgstr "සම්බන්ද වන්නේ"
 
@@ -186,7 +185,7 @@ msgstr "සම්බන්ද වන්නේ"
 #: libraries/export/texytext.php:348
 #: libraries/schema/Pdf_Relation_Schema.class.php:1325
 #: libraries/schema/Pdf_Relation_Schema.class.php:1336
-#: libraries/tbl_properties.inc.php:112 tbl_printview.php:144
+#: libraries/tbl_properties.inc.php:112 tbl_printview.php:147
 msgid "Comments"
 msgstr "විස්තරය"
 
@@ -201,7 +200,7 @@ msgstr "විස්තරය"
 #: server_privileges.php:1599 server_privileges.php:1609
 #: server_privileges.php:1886 server_privileges.php:1897
 #: server_privileges.php:2238 server_privileges.php:2243
-#: server_privileges.php:2536 sql.php:342 sql.php:410 tbl_printview.php:192
+#: server_privileges.php:2536 sql.php:342 sql.php:410 tbl_printview.php:198
 #: tbl_structure.php:344 tbl_tracking.php:327 tbl_tracking.php:382
 #: tbl_tracking.php:387
 msgid "No"
@@ -224,7 +223,7 @@ msgstr "නැත"
 #: server_privileges.php:1597 server_privileges.php:1607
 #: server_privileges.php:1883 server_privileges.php:1897
 #: server_privileges.php:2238 server_privileges.php:2241
-#: server_privileges.php:2536 sql.php:409 tbl_printview.php:193
+#: server_privileges.php:2536 sql.php:409 tbl_printview.php:199
 #: tbl_structure.php:41 tbl_structure.php:344 tbl_tracking.php:327
 #: tbl_tracking.php:380 tbl_tracking.php:385
 msgid "Yes"
@@ -321,9 +320,9 @@ msgstr "පිටපත් කරන ලද දත්තගබඩාව වෙ�
 #: db_operations.php:582 libraries/Index.class.php:463
 #: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:48
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:90
-#: libraries/tbl_properties.inc.php:824 libraries/tbl_select.lib.php:93
+#: libraries/tbl_properties.inc.php:820 libraries/tbl_select.lib.php:93
 #: server_collations.php:38 server_collations.php:50 tbl_operations.php:385
-#: tbl_structure.php:202 tbl_structure.php:938 tbl_tracking.php:305
+#: tbl_structure.php:202 tbl_structure.php:926 tbl_tracking.php:305
 #: tbl_tracking.php:371
 msgid "Collation"
 msgstr "Collation"
@@ -356,7 +355,7 @@ msgstr "වගුව"
 #: libraries/Table.class.php:326 libraries/build_html_for_db.lib.php:31
 #: libraries/db_structure.lib.php:42 libraries/import.lib.php:151
 #: navigation.php:605 navigation.php:627 sql.php:937 tbl_printview.php:376
-#: tbl_structure.php:462 tbl_structure.php:536 tbl_structure.php:948
+#: tbl_structure.php:462 tbl_structure.php:536 tbl_structure.php:936
 msgid "Rows"
 msgstr "පේළි"
 
@@ -370,22 +369,22 @@ msgstr "භාවිතා වෙමින් පවතී"
 
 #: db_printview.php:185 libraries/db_info.inc.php:76
 #: libraries/db_structure.lib.php:60 libraries/export/sql.php:911
-#: libraries/schema/Pdf_Relation_Schema.class.php:1287 tbl_printview.php:421
-#: tbl_structure.php:980
+#: libraries/schema/Pdf_Relation_Schema.class.php:1287 tbl_printview.php:424
+#: tbl_structure.php:968
 msgid "Creation"
 msgstr "සෑදීම"
 
 #: db_printview.php:194 libraries/db_info.inc.php:81
 #: libraries/db_structure.lib.php:65 libraries/export/sql.php:922
-#: libraries/schema/Pdf_Relation_Schema.class.php:1292 tbl_printview.php:432
-#: tbl_structure.php:988
+#: libraries/schema/Pdf_Relation_Schema.class.php:1292 tbl_printview.php:436
+#: tbl_structure.php:976
 msgid "Last update"
 msgstr "අවසන් යාවත්කාලීන කිරීම"
 
 #: db_printview.php:203 libraries/db_info.inc.php:86
 #: libraries/db_structure.lib.php:70 libraries/export/sql.php:933
-#: libraries/schema/Pdf_Relation_Schema.class.php:1297 tbl_printview.php:443
-#: tbl_structure.php:996
+#: libraries/schema/Pdf_Relation_Schema.class.php:1297 tbl_printview.php:448
+#: tbl_structure.php:984
 msgid "Last check"
 msgstr "අවසන් පරීක්ෂාව"
 
@@ -413,16 +412,16 @@ msgstr "සුබෙදන්න"
 #: db_qbe.php:234 db_qbe.php:269 libraries/db_structure.lib.php:113
 #: libraries/db_structure.lib.php:122 libraries/display_tbl.lib.php:1155
 #: libraries/display_tbl.lib.php:1552 libraries/display_tbl.lib.php:1560
-#: server_databases.php:187 server_databases.php:204 tbl_operations.php:282
-#: tbl_select.php:222
+#: libraries/tbl_select.lib.php:619 server_databases.php:187
+#: server_databases.php:204 tbl_operations.php:282
 msgid "Ascending"
 msgstr "ආරෝහන"
 
 #: db_qbe.php:235 db_qbe.php:277 libraries/db_structure.lib.php:114
 #: libraries/db_structure.lib.php:123 libraries/display_tbl.lib.php:1167
 #: libraries/display_tbl.lib.php:1547 libraries/display_tbl.lib.php:1565
-#: server_databases.php:187 server_databases.php:204 tbl_operations.php:283
-#: tbl_select.php:223
+#: libraries/tbl_select.lib.php:620 server_databases.php:187
+#: server_databases.php:204 tbl_operations.php:283
 msgid "Descending"
 msgstr "අවරෝහන"
 
@@ -448,8 +447,8 @@ msgid "Del"
 msgstr "ඉවත්"
 
 #: db_qbe.php:397 db_qbe.php:478 db_qbe.php:549 db_qbe.php:580
-#: libraries/insert_edit.lib.php:1054 server_privileges.php:484
-#: tbl_indexes.php:301 tbl_select.php:196
+#: libraries/insert_edit.lib.php:1054 libraries/tbl_select.lib.php:591
+#: server_privileges.php:484 tbl_indexes.php:301
 msgid "Or"
 msgstr "හෝ"
 
@@ -478,7 +477,7 @@ msgstr "වගු භාවිතා කරන්න"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "<b>%s</b> දත්තගබඩාව මත SQL විමසුම:"
 
-#: db_qbe.php:956 libraries/common.lib.php:1246
+#: db_qbe.php:956 libraries/common.lib.php:1247
 msgid "Submit Query"
 msgstr "විමසුම ඉදිරිපත් කරන්න"
 
@@ -518,8 +517,8 @@ msgstr[0] "<i>%2$s</i> වගුව තුල ගැලපීම් %1$s කි"
 msgstr[1] "<i>%2$s</i> වගුව තුල ගැලපීම් %1$s කි"
 
 #: db_search.php:247 libraries/Menu.class.php:263
-#: libraries/common.lib.php:3187 libraries/common.lib.php:3419
-#: libraries/common.lib.php:3420 tbl_structure.php:573
+#: libraries/common.lib.php:3188 libraries/common.lib.php:3420
+#: libraries/common.lib.php:3421 tbl_structure.php:573
 msgid "Browse"
 msgstr "පිරික්සන්න"
 
@@ -534,7 +533,7 @@ msgstr "%s වගුව තුල ගැලපීම් ඉවත් කරන�
 #: libraries/schema/User_Schema.class.php:276
 #: libraries/schema/User_Schema.class.php:311
 #: libraries/schema/User_Schema.class.php:341
-#: libraries/sql_query_form.lib.php:410 pmd_general.php:441
+#: libraries/sql_query_form.lib.php:410 pmd_general.php:452
 #: setup/frames/index.inc.php:148 setup/frames/index.inc.php:254
 #: tbl_tracking.php:499 tbl_tracking.php:520 tbl_tracking.php:579
 msgid "Delete"
@@ -657,7 +656,7 @@ msgstr "පිරිවැයක් සහිත වගු පරීක්ෂා
 
 #: db_structure.php:699 libraries/Menu.class.php:288
 #: libraries/Menu.class.php:378 libraries/Menu.class.php:477
-#: libraries/common.lib.php:3432 libraries/common.lib.php:3433
+#: libraries/common.lib.php:3433 libraries/common.lib.php:3434
 #: libraries/config/messages.inc.php:168 libraries/display_export.lib.php:82
 #: libraries/display_tbl.lib.php:4118 libraries/display_tbl.lib.php:4292
 #: prefs_manage.php:294 server_privileges.php:1565 server_privileges.php:1932
@@ -671,13 +670,13 @@ msgstr "අපනයනය"
 msgid "Print view"
 msgstr "මුද්‍රණ දර්ශනය"
 
-#: db_structure.php:705 libraries/common.lib.php:3428
-#: libraries/common.lib.php:3429
+#: db_structure.php:705 libraries/common.lib.php:3429
+#: libraries/common.lib.php:3430
 msgid "Empty"
 msgstr "හිස් කරන්න"
 
 #: db_structure.php:707 db_tracking.php:101 libraries/Index.class.php:507
-#: libraries/common.lib.php:3426 libraries/common.lib.php:3427
+#: libraries/common.lib.php:3427 libraries/common.lib.php:3428
 #: server_databases.php:296 tbl_structure.php:146 tbl_structure.php:147
 #: tbl_structure.php:583
 msgid "Drop"
@@ -687,7 +686,7 @@ msgstr "හලන්න"
 msgid "Check table"
 msgstr "වගුව පරීක්ෂා කරන්න"
 
-#: db_structure.php:712 tbl_operations.php:677 tbl_structure.php:882
+#: db_structure.php:712 tbl_operations.php:677 tbl_structure.php:876
 msgid "Optimize table"
 msgstr "වගුව ප්‍රශස්තගත කරන්න"
 
@@ -1105,8 +1104,8 @@ msgid "Close"
 msgstr "වසන්න"
 
 #: js/messages.php:61 js/messages.php:284 libraries/Index.class.php:485
-#: libraries/common.lib.php:667 libraries/common.lib.php:1221
-#: libraries/common.lib.php:3430 libraries/common.lib.php:3431
+#: libraries/common.lib.php:667 libraries/common.lib.php:1222
+#: libraries/common.lib.php:3431 libraries/common.lib.php:3432
 #: libraries/config/messages.inc.php:490 libraries/display_tbl.lib.php:2443
 #: libraries/schema/User_Schema.class.php:199 setup/frames/index.inc.php:147
 msgid "Edit"
@@ -1131,8 +1130,8 @@ msgstr "ස්ථිතික දත්ත"
 #. l10n: Total number of queries
 #: js/messages.php:68 libraries/build_html_for_db.lib.php:46
 #: libraries/engines/innodb.lib.php:161 server_databases.php:249
-#: server_status.php:1135 server_status.php:1204 tbl_printview.php:333
-#: tbl_structure.php:870
+#: server_status.php:1135 server_status.php:1204 tbl_printview.php:337
+#: tbl_structure.php:864
 msgid "Total"
 msgstr "මුළු එකතුව"
 
@@ -1142,12 +1141,12 @@ msgid "Other"
 msgstr "අනෙකුත්"
 
 #. l10n: Thousands separator
-#: js/messages.php:72 libraries/common.lib.php:1484
+#: js/messages.php:72 libraries/common.lib.php:1485
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:74 libraries/common.lib.php:1486
+#: js/messages.php:74 libraries/common.lib.php:1487
 msgid "."
 msgstr "."
 
@@ -1226,13 +1225,13 @@ msgid "System swap"
 msgstr "පද්ධතියේ swap"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:100 js/messages.php:123 libraries/common.lib.php:1434
+#: js/messages.php:100 js/messages.php:123 libraries/common.lib.php:1435
 #: server_status.php:1708
 msgid "MiB"
 msgstr "MiB"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:101 js/messages.php:122 libraries/common.lib.php:1432
+#: js/messages.php:101 js/messages.php:122 libraries/common.lib.php:1433
 #: server_status.php:1708
 msgid "KiB"
 msgstr "KiB"
@@ -1290,27 +1289,27 @@ msgid "Connections"
 msgstr "සම්බන්ධතා"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:121 libraries/common.lib.php:1430
+#: js/messages.php:121 libraries/common.lib.php:1431
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:124 libraries/common.lib.php:1436
+#: js/messages.php:124 libraries/common.lib.php:1437
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:125 libraries/common.lib.php:1438
+#: js/messages.php:125 libraries/common.lib.php:1439
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:126 libraries/common.lib.php:1440
+#: js/messages.php:126 libraries/common.lib.php:1441
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:127 libraries/common.lib.php:1442
+#: js/messages.php:127 libraries/common.lib.php:1443
 msgid "EiB"
 msgstr "EiB"
 
@@ -1350,9 +1349,9 @@ msgstr "කරුණාකර ශ්‍රේණියට අවම වශයෙ
 
 #: js/messages.php:139 libraries/display_export.lib.php:323
 #: libraries/display_tbl.lib.php:1171 libraries/export/sql.php:1395
-#: libraries/tbl_properties.inc.php:638 pmd_general.php:528
+#: libraries/tbl_properties.inc.php:638 pmd_general.php:539
 #: server_privileges.php:2224 server_status.php:1286 server_status.php:1725
-#: tbl_zoom_select.php:233 tbl_zoom_select.php:282
+#: tbl_zoom_select.php:247 tbl_zoom_select.php:296
 msgid "None"
 msgstr "කිසිවක් නැත"
 
@@ -1674,9 +1673,9 @@ msgstr "භාවිතා කරන ලද විචල්‍යයන් / ස
 msgid "Test"
 msgstr "ඇගයීම"
 
-#: js/messages.php:232 pmd_general.php:406 pmd_general.php:443
-#: pmd_general.php:563 pmd_general.php:611 pmd_general.php:687
-#: pmd_general.php:741 pmd_general.php:804 pmd_general.php:835
+#: js/messages.php:232 pmd_general.php:417 pmd_general.php:454
+#: pmd_general.php:574 pmd_general.php:622 pmd_general.php:698
+#: pmd_general.php:752 pmd_general.php:815 pmd_general.php:846
 msgid "Cancel"
 msgstr "අවලංගු කරන්න"
 
@@ -1706,9 +1705,9 @@ msgstr "තීරුව හලමින්"
 msgid "Adding Primary Key"
 msgstr "ප්‍රාථමික මූලය එක් කරමින්"
 
-#: js/messages.php:241 pmd_general.php:404 pmd_general.php:561
-#: pmd_general.php:609 pmd_general.php:685 pmd_general.php:739
-#: pmd_general.php:802
+#: js/messages.php:241 pmd_general.php:415 pmd_general.php:572
+#: pmd_general.php:620 pmd_general.php:696 pmd_general.php:750
+#: pmd_general.php:813
 msgid "OK"
 msgstr "OK"
 
@@ -1841,7 +1840,7 @@ msgstr "%d වලංගු පේළි අංකයක් නොවේ."
 #: js/messages.php:291 libraries/config/FormDisplay.tpl.php:385
 #: libraries/insert_edit.lib.php:1304
 #: libraries/schema/User_Schema.class.php:355
-#: libraries/tbl_properties.inc.php:886 setup/frames/config.inc.php:39
+#: libraries/tbl_properties.inc.php:882 setup/frames/config.inc.php:39
 #: setup/frames/index.inc.php:246 tbl_gis_visualization.php:186
 #: tbl_indexes.php:298 tbl_relation.php:569
 msgid "Save"
@@ -1926,7 +1925,7 @@ msgstr "අන්‍ය මූලය තෝරන්න"
 msgid "Please select the primary key or a unique key"
 msgstr "කරුණාකර ප්‍රාථමික මූලය හෝ අනුපම මූලයක් තෝරන්න"
 
-#: js/messages.php:340 pmd_general.php:92 tbl_relation.php:551
+#: js/messages.php:340 pmd_general.php:95 tbl_relation.php:551
 msgid "Choose column to display"
 msgstr "පෙන්වීම සඳහා තීරය ‍තෝරාගන්න"
 
@@ -2105,63 +2104,63 @@ msgid "December"
 msgstr "දෙසැම්බර්"
 
 #. l10n: Short month name
-#: js/messages.php:427 libraries/common.lib.php:1642
+#: js/messages.php:427 libraries/common.lib.php:1643
 msgid "Jan"
 msgstr "ජනවාරි"
 
 #. l10n: Short month name
-#: js/messages.php:429 libraries/common.lib.php:1644
+#: js/messages.php:429 libraries/common.lib.php:1645
 msgid "Feb"
 msgstr "පෙබරවාරි"
 
 #. l10n: Short month name
-#: js/messages.php:431 libraries/common.lib.php:1646
+#: js/messages.php:431 libraries/common.lib.php:1647
 msgid "Mar"
 msgstr "මාර්තු"
 
 #. l10n: Short month name
-#: js/messages.php:433 libraries/common.lib.php:1648
+#: js/messages.php:433 libraries/common.lib.php:1649
 msgid "Apr"
 msgstr "අ‍ප්‍රේල්"
 
 #. l10n: Short month name
-#: js/messages.php:435 libraries/common.lib.php:1650
+#: js/messages.php:435 libraries/common.lib.php:1651
 msgctxt "Short month name"
 msgid "May"
 msgstr "මැයි"
 
 #. l10n: Short month name
-#: js/messages.php:437 libraries/common.lib.php:1652
+#: js/messages.php:437 libraries/common.lib.php:1653
 msgid "Jun"
 msgstr "ජුනි"
 
 #. l10n: Short month name
-#: js/messages.php:439 libraries/common.lib.php:1654
+#: js/messages.php:439 libraries/common.lib.php:1655
 msgid "Jul"
 msgstr "ජූලි"
 
 #. l10n: Short month name
-#: js/messages.php:441 libraries/common.lib.php:1656
+#: js/messages.php:441 libraries/common.lib.php:1657
 msgid "Aug"
 msgstr "අගෝස්තු"
 
 #. l10n: Short month name
-#: js/messages.php:443 libraries/common.lib.php:1658
+#: js/messages.php:443 libraries/common.lib.php:1659
 msgid "Sep"
 msgstr "සැප්තැම්බර්"
 
 #. l10n: Short month name
-#: js/messages.php:445 libraries/common.lib.php:1660
+#: js/messages.php:445 libraries/common.lib.php:1661
 msgid "Oct"
 msgstr "ඔක්තෝම්බර්"
 
 #. l10n: Short month name
-#: js/messages.php:447 libraries/common.lib.php:1662
+#: js/messages.php:447 libraries/common.lib.php:1663
 msgid "Nov"
 msgstr "නොවැම්බර්"
 
 #. l10n: Short month name
-#: js/messages.php:449 libraries/common.lib.php:1664
+#: js/messages.php:449 libraries/common.lib.php:1665
 msgid "Dec"
 msgstr "දෙසැම්බර්"
 
@@ -2199,32 +2198,32 @@ msgid "Sun"
 msgstr "ඉරිදා"
 
 #. l10n: Short week day name
-#: js/messages.php:470 libraries/common.lib.php:1669
+#: js/messages.php:470 libraries/common.lib.php:1670
 msgid "Mon"
 msgstr "සඳුදා"
 
 #. l10n: Short week day name
-#: js/messages.php:472 libraries/common.lib.php:1671
+#: js/messages.php:472 libraries/common.lib.php:1672
 msgid "Tue"
 msgstr "අඟහ"
 
 #. l10n: Short week day name
-#: js/messages.php:474 libraries/common.lib.php:1673
+#: js/messages.php:474 libraries/common.lib.php:1674
 msgid "Wed"
 msgstr "බදාදා"
 
 #. l10n: Short week day name
-#: js/messages.php:476 libraries/common.lib.php:1675
+#: js/messages.php:476 libraries/common.lib.php:1676
 msgid "Thu"
 msgstr "බ්‍රහස්"
 
 #. l10n: Short week day name
-#: js/messages.php:478 libraries/common.lib.php:1677
+#: js/messages.php:478 libraries/common.lib.php:1678
 msgid "Fri"
 msgstr "සිකුරා"
 
 #. l10n: Short week day name
-#: js/messages.php:480 libraries/common.lib.php:1679
+#: js/messages.php:480 libraries/common.lib.php:1680
 msgid "Sat"
 msgstr "සෙනසු"
 
@@ -2481,33 +2480,33 @@ msgid "Server"
 msgstr "සේවාදායකය"
 
 #: libraries/Menu.class.php:269 libraries/Menu.class.php:362
-#: libraries/common.lib.php:3183 libraries/common.lib.php:3190
-#: libraries/common.lib.php:3425 libraries/config/setup.forms.php:295
+#: libraries/common.lib.php:3184 libraries/common.lib.php:3191
+#: libraries/common.lib.php:3426 libraries/config/setup.forms.php:295
 #: libraries/config/setup.forms.php:332 libraries/config/setup.forms.php:358
 #: libraries/config/user_preferences.forms.php:196
 #: libraries/config/user_preferences.forms.php:233
 #: libraries/config/user_preferences.forms.php:259
 #: libraries/export/latex.php:458 libraries/import.lib.php:1146
-#: libraries/tbl_properties.inc.php:746 pmd_general.php:155
+#: libraries/tbl_properties.inc.php:742 pmd_general.php:165
 #: server_privileges.php:711 server_replication.php:343 tbl_tracking.php:299
 msgid "Structure"
 msgstr "සැකිල්ල"
 
 #: libraries/Menu.class.php:273 libraries/Menu.class.php:367
-#: libraries/Menu.class.php:463 libraries/common.lib.php:3184
-#: libraries/common.lib.php:3191 libraries/config/messages.inc.php:218
+#: libraries/Menu.class.php:463 libraries/common.lib.php:3185
+#: libraries/common.lib.php:3192 libraries/config/messages.inc.php:218
 #: libraries/export/sql.php:27 libraries/import/sql.php:18 querywindow.php:65
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/Menu.class.php:282 libraries/common.lib.php:3186
-#: libraries/common.lib.php:3423 libraries/common.lib.php:3424
+#: libraries/Menu.class.php:282 libraries/common.lib.php:3187
+#: libraries/common.lib.php:3424 libraries/common.lib.php:3425
 #: libraries/sql_query_form.lib.php:289 libraries/sql_query_form.lib.php:292
 msgid "Insert"
 msgstr "ඇතුල් කරන්න"
 
 #: libraries/Menu.class.php:301 libraries/Menu.class.php:324
-#: libraries/Menu.class.php:388 libraries/common.lib.php:3193
+#: libraries/Menu.class.php:388 libraries/common.lib.php:3194
 #: view_operations.php:82
 msgid "Operations"
 msgstr "මෙහෙයුම්"
@@ -2705,16 +2704,16 @@ msgstr ""
 "අතුරුමුහුණත් විචල්‍යය \"%s\" සුරැකිය නොහැක. මෙම පිටුව ප්‍රතිපූර්ණයෙන් පසු සිදුකල වෙනස්කම් අහිමි වනු "
 "ඇත. අදාල වගුවේ සැකිල්ල වෙනස් වී ඇත්දැයි පරීක්ෂාකර බලන්න."
 
-#: libraries/Theme.class.php:159
+#: libraries/Theme.class.php:169
 #, php-format
 msgid "No valid image path for theme %s found!"
 msgstr ""
 
-#: libraries/Theme.class.php:377
+#: libraries/Theme.class.php:455
 msgid "No preview available."
 msgstr "පූර්වදර්ශනයක් නොමැත."
 
-#: libraries/Theme.class.php:380
+#: libraries/Theme.class.php:458
 msgid "take it"
 msgstr "ලබාගන්න"
 
@@ -2737,19 +2736,19 @@ msgstr "%s තේමාව සඳහා තේමාව ඇති තැන හ�
 msgid "Theme"
 msgstr "තේමාව"
 
-#: libraries/Types.class.php:289
+#: libraries/Types.class.php:295
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr "තනි බයිටයේ නිඛිලයකි, සලකුණ සහිත පරාසය -128 සිට 127, සලකුණ රහිත පරාසය 0 සිට 255"
 
-#: libraries/Types.class.php:291
+#: libraries/Types.class.php:297
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
 "ද්වී බයිට නිඛිලයකි, සලකුණ සහිත පරාසය -32,768 සිට 32,767, සලකුණ රහිත පරාසය 0 සිට 65,535"
 
-#: libraries/Types.class.php:293
+#: libraries/Types.class.php:299
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
@@ -2757,7 +2756,7 @@ msgstr ""
 "ත්‍රිත්ව බයිට නිඛිලයකි, සලකුණ සහිත පරාසය -8,388,608 සිට 8,388,607, සලකුණ රහිත පරාසය 0 සිට "
 "16,777,215"
 
-#: libraries/Types.class.php:295
+#: libraries/Types.class.php:301
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295."
@@ -2765,7 +2764,7 @@ msgstr ""
 "සිවු බයිට නිඛිලයකි, සලකුණ සහිත පරාසය -2,147,483,648 සිට 2,147,483,647, සලකුණ රහිත පරාසය "
 "0 සිට 4,294,967,295."
 
-#: libraries/Types.class.php:297
+#: libraries/Types.class.php:303
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
@@ -2773,7 +2772,7 @@ msgstr ""
 "අෂ්ට බයිට නිඛිලයකි, සලකුණ සහිත පරාසය -9,223,372,036,854,775,808 සිට "
 "9,223,372,036,854,775,807, සලකුණ රහිත පරාසය 0 සිට 18,446,744,073,709,551,615"
 
-#: libraries/Types.class.php:299 libraries/Types.class.php:705
+#: libraries/Types.class.php:305 libraries/Types.class.php:711
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
@@ -2781,7 +2780,7 @@ msgstr ""
 "ස්ථිර ලෙස දැක්වූ දශම සංඛ්‍යාවකි (M, D) - උපරිම පූර්නස්ථාන ගණන (M) 65 කි (පෙරනිමි 10), උපරිම "
 "දශමස්ථාන (D) ගණන 30 කි (පෙරනිමි 0)"
 
-#: libraries/Types.class.php:301
+#: libraries/Types.class.php:307
 msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to "
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
@@ -2789,7 +2788,7 @@ msgstr ""
 "කුඩා දශම සංඛ්‍යාවකි, ලබා දිය හැකි අගයන් වන්නේ -3.402823466E+38 සිට -1.175494351E-38, "
 "0, හා 1.175494351E-38 සිට 3.402823466E+38"
 
-#: libraries/Types.class.php:303
+#: libraries/Types.class.php:309
 msgid ""
 "A double-precision floating-point number, allowable values are "
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
@@ -2799,7 +2798,7 @@ msgstr ""
 "-2.2250738585072014E-308, 0, හා 2.2250738585072014E-308 සිට "
 "1.7976931348623157E+308"
 
-#: libraries/Types.class.php:305
+#: libraries/Types.class.php:311
 msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
@@ -2807,7 +2806,7 @@ msgstr ""
 "DOUBLE සඳහා සමානාර්ථ පදයකි (REAL_AS_FLOAT SQL ප්‍රකාරයේදී හැර, එහිදී එය FLOAT සඳහා "
 "සමානාර්ථ පදයකි)"
 
-#: libraries/Types.class.php:307
+#: libraries/Types.class.php:313
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
@@ -2815,7 +2814,7 @@ msgstr ""
 "බිටු (M) ක්ෂේත්‍ර වර්ගයකි, අගයක් සඳහා බිටු M ගණනක් ගබඩා කරයි (පෙරනිමි බිටු ගණන 1 කි, උපරිම 64 "
 "කි)"
 
-#: libraries/Types.class.php:309
+#: libraries/Types.class.php:315
 msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
@@ -2823,21 +2822,21 @@ msgstr ""
 "TINYINT(1) සඳහා සමානාර්ථ පදයකි, ශුන්‍ය අගය false ලෙස සැලකෙන අතර ශුන්‍ය නොවන අගයන් "
 "true ලෙස සැලකේ"
 
-#: libraries/Types.class.php:311
+#: libraries/Types.class.php:317
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr "BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE සඳහා අන්වර්ථ නාමයකි"
 
-#: libraries/Types.class.php:313 libraries/Types.class.php:715
+#: libraries/Types.class.php:319 libraries/Types.class.php:721
 #, php-format
 msgid "A date, supported range is %1$s to %2$s"
 msgstr "දිනයකි, සහයැති පරාසය %1$s සිට %2$s"
 
-#: libraries/Types.class.php:315 libraries/Types.class.php:717
+#: libraries/Types.class.php:321 libraries/Types.class.php:723
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "දිනය සහ වේලාවේ සංයුක්තයකි, සහයැති පරාසය %1$s සිට %2$s"
 
-#: libraries/Types.class.php:317
+#: libraries/Types.class.php:323
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
@@ -2845,12 +2844,12 @@ msgstr ""
 "කාල මුද්‍රාවකි, පරාසය 1970-01-01 00:00:01 UTC සිට 2038-01-09 03:14:07 UTC, "
 "කාලරම්භයේ (1970-01-01 00:00:00 UTC) සිට ගත වූ තත්පර ගණන ලෙස ගබඩා කර ඇත"
 
-#: libraries/Types.class.php:319 libraries/Types.class.php:721
+#: libraries/Types.class.php:325 libraries/Types.class.php:727
 #, php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr "වේලාවකි, පරාසය %1$s සිට %2$s"
 
-#: libraries/Types.class.php:321
+#: libraries/Types.class.php:327
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
@@ -2858,7 +2857,7 @@ msgstr ""
 "අංක හතරකින් (4, පෙරනිමි) හෝ අංක දෙකකින් (2) දැක්වෙන වර්ෂයකි, ගත හැකි අගයන් වන්නේ 70 "
 "(1970) සිට 69 (2069) හෝ 1901 සිට 2155 සහ 0000"
 
-#: libraries/Types.class.php:323
+#: libraries/Types.class.php:329
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
@@ -2866,14 +2865,14 @@ msgstr ""
 "ස්ථිර-දිගැති පෙළකි (0-255, පෙරනිමි 1), සෑම විටම නියමිත දිග ලැබෙන තුරු දකුණු පසින් හිස් අවකාශ එක් "
 "කෙරේ"
 
-#: libraries/Types.class.php:325 libraries/Types.class.php:723
+#: libraries/Types.class.php:331 libraries/Types.class.php:729
 #, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr "විචල්‍ය-දිගැති පෙළකි (%s), පෙළෙහි උපරිම දිග, පේළියේ උපරිම ප්‍රමාණය මත තීරණය වේ"
 
-#: libraries/Types.class.php:327
+#: libraries/Types.class.php:333
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
@@ -2881,7 +2880,7 @@ msgstr ""
 "සලකුණු 255 (2^8 - 1) ක උපරිම දිගක් සහිත පෙළ තීරුවකි, ඉදිරියෙන් යෙදු, අන්තර්ගතයේ දිග සඳහන් "
 "කෙරෙන එක් බයිටයක් සමඟ ගබඩා කෙරේ"
 
-#: libraries/Types.class.php:329 libraries/Types.class.php:725
+#: libraries/Types.class.php:335 libraries/Types.class.php:731
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
@@ -2889,7 +2888,7 @@ msgstr ""
 "සලකුණු 65,535 (2^16 - 1) ක උපරිම දිගක් සහිත පෙළ තීරුවකි, ඉදිරියෙන් යෙදු, අන්තර්ගතයේ දිග සඳහන් "
 "කෙරෙන බයිට දෙකක් සමඟ ගබඩා කෙරේ"
 
-#: libraries/Types.class.php:331
+#: libraries/Types.class.php:337
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
@@ -2897,7 +2896,7 @@ msgstr ""
 "සලකුණු 16,777,215 (2^24 - 1) ක උපරිම දිගක් සහිත පෙළ තීරුවකි, ඉදිරියෙන් යෙදු, අන්තර්ගතයේ දිග "
 "සඳහන් කෙරෙන බයිට තුනක් සමඟ ගබඩා කෙරේ"
 
-#: libraries/Types.class.php:333
+#: libraries/Types.class.php:339
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
@@ -2906,19 +2905,19 @@ msgstr ""
 "සලකුණු 4,294,967,295 නැතිනම් 4GiB (2^32 - 1) ක උපරිම දිගක් සහිත පෙළ තීරුවකි, ඉදිරියෙන් "
 "යෙදු, අන්තර්ගතයේ දිග සඳහන් කෙරෙන බයිට හතරක් සමඟ ගබඩා කෙරේ"
 
-#: libraries/Types.class.php:335
+#: libraries/Types.class.php:341
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr "CHAR වර්ගයට සමාන මුත් ද්වීමය නොවන සලකුණු පෙළක් වෙනුවට ද්වීමය බයිට පෙළක් ගබඩා කරයි"
 
-#: libraries/Types.class.php:337
+#: libraries/Types.class.php:343
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr "VARCHAR වර්ගයට සමාන මුත් ද්වීමය නොවන සලකුණු පෙළක් වෙනුවට ද්වීමය බයිට පෙළක් ගබඩා කරයි"
 
-#: libraries/Types.class.php:339
+#: libraries/Types.class.php:345
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
@@ -2926,7 +2925,7 @@ msgstr ""
 "බයිට 255(2^8 - 1) ක උපරිම දිගක් සහිත බ්ලොබ් තීරුවකි, ඉදිරියෙන් යෙදු, අන්තර්ගතයේ දිග සඳහන් "
 "කෙරෙන එක් බයිටයක් සමඟ ගබඩා කෙරේ"
 
-#: libraries/Types.class.php:341
+#: libraries/Types.class.php:347
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
@@ -2934,7 +2933,7 @@ msgstr ""
 "බයිට 16,777,215 (2^24 - 1) ක උපරිම දිගක් සහිත බ්ලොබ් තීරුවකි, ඉදිරියෙන් යෙදු, අන්තර්ගතයේ දිග "
 "සඳහන් කෙරෙන බයිට තුනක් සමඟ ගබඩා කෙරේ"
 
-#: libraries/Types.class.php:343
+#: libraries/Types.class.php:349
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
@@ -2942,7 +2941,7 @@ msgstr ""
 "බයිට 65,535 (2^16 - 1) ක උපරිම දිගක් සහිත බ්ලොබ් තීරුවකි, ඉදිරියෙන් යෙදු, අන්තර්ගතයේ දිග සඳහන් "
 "කෙරෙන බයිට දෙකක් සමඟ ගබඩා කෙරේ"
 
-#: libraries/Types.class.php:345
+#: libraries/Types.class.php:351
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
@@ -2950,7 +2949,7 @@ msgstr ""
 "බයිට 4,294,967,295 නැතිනම් 4GiB (2^32 - 1) ක උපරිම දිගක් සහිත බ්ලොබ් තීරුවකි, ඉදිරියෙන් "
 "යෙදු, අන්තර්ගතයේ දිග සඳහන් කෙරෙන බයිට හතරක් සමඟ ගබඩා කෙරේ"
 
-#: libraries/Types.class.php:347
+#: libraries/Types.class.php:353
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
@@ -2958,96 +2957,96 @@ msgstr ""
 "අගයන් 65535 ක් දක්වා ඇතුලත් කල හැකි ලැයිස්තුවකින් තෝරාගන්නා අගයක් හෝ විශේෂ දෝෂ අගය වන '' "
 "හෝ වේ"
 
-#: libraries/Types.class.php:349
+#: libraries/Types.class.php:355
 msgid "A single value chosen from a set of up to 64 members"
 msgstr "අගයන් 64 ක් දක්වා අඩංගු විය හැකි කුලකයකින් තෝරාගන්නා අගයකි"
 
-#: libraries/Types.class.php:351
+#: libraries/Types.class.php:357
 msgid "A type that can store a geometry of any type"
 msgstr "ඕනෑම වර්ගයක ජ්‍යාමිතියක් ගබඩා කල හැකි වර්ගයකි"
 
-#: libraries/Types.class.php:353
+#: libraries/Types.class.php:359
 msgid "A point in 2-dimensional space"
 msgstr "ද්වීමාන අවකාශයේ ලක්ෂ්‍යයකි"
 
-#: libraries/Types.class.php:355
+#: libraries/Types.class.php:361
 msgid "A curve with linear interpolation between points"
 msgstr "ලක්ෂ්‍ය අතර සරල රේඛා අඩංගු වක්‍රයකි"
 
-#: libraries/Types.class.php:357
+#: libraries/Types.class.php:363
 msgid "A polygon"
 msgstr "බහු අස්‍රයකි"
 
-#: libraries/Types.class.php:359
+#: libraries/Types.class.php:365
 msgid "A collection of points"
 msgstr "ලක්ෂ්‍ය එකතුවකි"
 
-#: libraries/Types.class.php:361
+#: libraries/Types.class.php:367
 msgid "A collection of curves with linear interpolation between points"
 msgstr "ලක්ෂ්‍ය අතර සරල රේඛා අඩංගු වක්‍ර එකතුවකි"
 
-#: libraries/Types.class.php:363
+#: libraries/Types.class.php:369
 msgid "A collection of polygons"
 msgstr "බහු අස්‍ර එකතුවකි"
 
-#: libraries/Types.class.php:365
+#: libraries/Types.class.php:371
 msgid "A collection of geometry objects of any type"
 msgstr "ඕනෑම වර්ගයක ජ්‍යාමිතීන් එකතුවකි"
 
-#: libraries/Types.class.php:617 libraries/Types.class.php:967
+#: libraries/Types.class.php:623 libraries/Types.class.php:973
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr ""
 
-#: libraries/Types.class.php:636 libraries/Types.class.php:970
+#: libraries/Types.class.php:642 libraries/Types.class.php:976
 #, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "නව සූචියක් සාදන්න"
 
-#: libraries/Types.class.php:645 libraries/Types.class.php:973
+#: libraries/Types.class.php:651 libraries/Types.class.php:979
 #, fuzzy
 #| msgid "Linestring"
 msgctxt "string types"
 msgid "String"
 msgstr "රේඛාව"
 
-#: libraries/Types.class.php:666
+#: libraries/Types.class.php:672
 #, fuzzy
 #| msgid "Spatial"
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "ජ්‍යාමිතික"
 
-#: libraries/Types.class.php:701
+#: libraries/Types.class.php:707
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
 msgstr "සිවු බයිට නිඛිලයකි, පරාසය -2,147,483,648 සිට 2,147,483,647"
 
-#: libraries/Types.class.php:703
+#: libraries/Types.class.php:709
 msgid ""
 "An 8-byte integer, range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807"
 msgstr ""
 "අෂ්ට බයිට නිඛිලයකි, පරාසය -9,223,372,036,854,775,808 සිට 9,223,372,036,854,775,807"
 
-#: libraries/Types.class.php:707
+#: libraries/Types.class.php:713
 msgid "A system's default double-precision floating-point number"
 msgstr "පද්ධතියේ පෙරනිමි ද්වී-නියත දශම සංඛ්‍යාවකි"
 
-#: libraries/Types.class.php:709
+#: libraries/Types.class.php:715
 msgid "True or false"
 msgstr "සත්‍ය හෝ අසත්‍ය"
 
-#: libraries/Types.class.php:711
+#: libraries/Types.class.php:717
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr "BIGINT NOT NULL AUTO_INCREMENT UNIQUE සඳහා අන්වර්ථ නාමයකි"
 
-#: libraries/Types.class.php:713
+#: libraries/Types.class.php:719
 msgid "Stores a Universally Unique Identifier (UUID)"
 msgstr "විශ්වීය අනන්‍ය හැඳුනුමක් (UUID) ගබඩා කරයි"
 
-#: libraries/Types.class.php:719
+#: libraries/Types.class.php:725
 msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
@@ -3055,13 +3054,13 @@ msgstr ""
 "කාල මුද්‍රාවකි, පරාසය '0001-01-01 00:00:00' UTC සිට '9999-12-31 23:59:59' UTC; "
 "TIMESTAMP(6) හට මයික්‍රෝ තත්පර ගබඩා කල හැක"
 
-#: libraries/Types.class.php:727
+#: libraries/Types.class.php:733
 msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
 msgstr ""
 
-#: libraries/Types.class.php:729
+#: libraries/Types.class.php:735
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a four-byte prefix indicating the length of the value"
@@ -3069,7 +3068,7 @@ msgstr ""
 "බයිට 65,535 (2^16 - 1) ක උපරිම දිගක් සහිත බ්ලොබ් තීරුවකි, ඉදිරියෙන් යෙදු, අන්තර්ගතයේ දිග සඳහන් "
 "කෙරෙන බයිට හතරක් සමඟ ගබඩා කෙරේ"
 
-#: libraries/Types.class.php:731
+#: libraries/Types.class.php:737
 msgid "An enumeration, chosen from the list of defined values"
 msgstr "අර්ථදක්වන ලද අගයන් අඩංගු ලැයිස්තුවකින් තෝරාගන්නා අගයකි"
 
@@ -3202,13 +3201,13 @@ msgstr "වගු"
 #: libraries/config/user_preferences.forms.php:264
 #: libraries/config/user_preferences.forms.php:269
 #: libraries/export/latex.php:284 libraries/export/sql.php:1395
-#: server_privileges.php:711 server_replication.php:344 tbl_printview.php:299
-#: tbl_structure.php:839
+#: server_privileges.php:711 server_replication.php:344 tbl_printview.php:303
+#: tbl_structure.php:833
 msgid "Data"
 msgstr "දත්ත"
 
 #: libraries/build_html_for_db.lib.php:51 libraries/db_structure.lib.php:55
-#: tbl_printview.php:318 tbl_structure.php:856
+#: tbl_printview.php:322 tbl_structure.php:850
 msgid "Overhead"
 msgstr "පිරිවැය"
 
@@ -3331,133 +3330,133 @@ msgstr "SQL විමසුම"
 msgid "MySQL said: "
 msgstr "MySQL පවසන ලදි: "
 
-#: libraries/common.lib.php:1147
+#: libraries/common.lib.php:1148
 msgid "Failed to connect to SQL validator!"
 msgstr "SQL වලංගු කරණයට සම්බන්ද වීම අසමත් විය!"
 
-#: libraries/common.lib.php:1189 libraries/config/messages.inc.php:491
+#: libraries/common.lib.php:1190 libraries/config/messages.inc.php:491
 msgid "Explain SQL"
 msgstr "SQL ය පහදන්න"
 
-#: libraries/common.lib.php:1195
+#: libraries/common.lib.php:1196
 msgid "Skip Explain SQL"
 msgstr "SQL ය පහදා දීමෙන් ඉවත් වන්න"
 
-#: libraries/common.lib.php:1234
+#: libraries/common.lib.php:1235
 msgid "Without PHP Code"
 msgstr "PHP කේත නොමැතිව"
 
-#: libraries/common.lib.php:1237 libraries/config/messages.inc.php:493
+#: libraries/common.lib.php:1238 libraries/config/messages.inc.php:493
 msgid "Create PHP Code"
 msgstr "PHP කේත සාදන්න"
 
-#: libraries/common.lib.php:1259 libraries/config/messages.inc.php:492
+#: libraries/common.lib.php:1260 libraries/config/messages.inc.php:492
 #: server_status.php:802 server_status.php:824 server_status.php:844
 msgid "Refresh"
 msgstr "අලුත් කරන්න"
 
-#: libraries/common.lib.php:1269
+#: libraries/common.lib.php:1270
 msgid "Skip Validate SQL"
 msgstr "SQL සත්‍යාපනයෙන් ඉවත් වන්න"
 
-#: libraries/common.lib.php:1272 libraries/config/messages.inc.php:495
+#: libraries/common.lib.php:1273 libraries/config/messages.inc.php:495
 msgid "Validate SQL"
 msgstr "SQL සත්‍යාපනය"
 
-#: libraries/common.lib.php:1335
+#: libraries/common.lib.php:1336
 msgid "Inline edit of this query"
 msgstr "මෙම විමසුමේ පේළිගත සංස්කරණය"
 
-#: libraries/common.lib.php:1337
+#: libraries/common.lib.php:1338
 msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "පේළිගත"
 
-#: libraries/common.lib.php:1403 sql.php:1000
+#: libraries/common.lib.php:1404 sql.php:1000
 msgid "Profiling"
 msgstr ""
 
 #. l10n: Short week day name
-#: libraries/common.lib.php:1667
+#: libraries/common.lib.php:1668
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "ඉරිදා"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
-#: libraries/common.lib.php:1683
+#: libraries/common.lib.php:1684
 #: libraries/transformations/text_plain__dateformat.inc.php:37
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%B %d, %Y දින %I:%M %p ට"
 
-#: libraries/common.lib.php:2016
+#: libraries/common.lib.php:2017
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "දින %s, පැය %s, මිනිත්තු %s සහ තප්පර %s"
 
-#: libraries/common.lib.php:2105
+#: libraries/common.lib.php:2106
 msgid "Missing parameter:"
 msgstr "නොමැති පරාමිතිය:"
 
-#: libraries/common.lib.php:2487 libraries/common.lib.php:2491
+#: libraries/common.lib.php:2488 libraries/common.lib.php:2492
 #: libraries/display_tbl.lib.php:486
 msgctxt "First page"
 msgid "Begin"
 msgstr "ඇරඹුම"
 
-#: libraries/common.lib.php:2489 libraries/common.lib.php:2492
+#: libraries/common.lib.php:2490 libraries/common.lib.php:2493
 #: libraries/display_tbl.lib.php:489 server_binlog.php:130
 #: server_binlog.php:132
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "පෙර"
 
-#: libraries/common.lib.php:2520 libraries/common.lib.php:2523
+#: libraries/common.lib.php:2521 libraries/common.lib.php:2524
 #: libraries/display_tbl.lib.php:543 server_binlog.php:165
 #: server_binlog.php:167
 msgctxt "Next page"
 msgid "Next"
 msgstr "මීලඟ"
 
-#: libraries/common.lib.php:2521 libraries/common.lib.php:2524
+#: libraries/common.lib.php:2522 libraries/common.lib.php:2525
 #: libraries/display_tbl.lib.php:568
 msgctxt "Last page"
 msgid "End"
 msgstr "අවසන"
 
-#: libraries/common.lib.php:2591
+#: libraries/common.lib.php:2592
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "&quot;%s&quot; දත්තගබඩාව වෙත යන්න."
 
-#: libraries/common.lib.php:2613
+#: libraries/common.lib.php:2614
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "%s විශේෂාංගයෙහි හඳුනාගත් දෝෂයක් ඇත, %s බලන්න"
 
-#: libraries/common.lib.php:2781
+#: libraries/common.lib.php:2782
 msgid "Click to toggle"
 msgstr "මාරු කිරීමට ක්ලික් කරන්න"
 
-#: libraries/common.lib.php:3349 libraries/sql_query_form.lib.php:442
+#: libraries/common.lib.php:3350 libraries/sql_query_form.lib.php:442
 #: prefs_manage.php:247
 msgid "Browse your computer:"
 msgstr "පරිගණකය තුළ පිරික්සන්න:"
 
-#: libraries/common.lib.php:3371
+#: libraries/common.lib.php:3372
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "වෙබ් සේවාදායකයේ <b>%s</b> උඩුගත කිරීම් ඩිරෙක්ටරියෙන් තෝරන්න:"
 
-#: libraries/common.lib.php:3396 libraries/insert_edit.lib.php:1051
+#: libraries/common.lib.php:3397 libraries/insert_edit.lib.php:1051
 #: libraries/sql_query_form.lib.php:451
 msgid "The directory you set for upload work cannot be reached"
 msgstr "අප්ලෝඩ් කිරීම් සඳහා සැකසූ ඩිරෙක්ටරිය වෙත පිවිසිය නොහැක"
 
-#: libraries/common.lib.php:3406
+#: libraries/common.lib.php:3407
 msgid "There are no files to upload"
 msgstr "උඩුගත කිරීම සඳහා ගොනු නොමැත"
 
-#: libraries/common.lib.php:3434 libraries/common.lib.php:3435
+#: libraries/common.lib.php:3435 libraries/common.lib.php:3436
 msgid "Execute"
 msgstr "ක්‍රියාත්මක කරන්න"
 
@@ -3920,7 +3919,7 @@ msgid "Character set of the file"
 msgstr "ගොනුවේ අක්ෂර කට්ටලය"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:92
-#: tbl_gis_visualization.php:174 tbl_printview.php:358 tbl_structure.php:908
+#: tbl_gis_visualization.php:174 tbl_printview.php:358 tbl_structure.php:896
 msgid "Format"
 msgstr "ආකෘතිය"
 
@@ -5879,7 +5878,7 @@ msgstr "සාදන්න"
 msgid "No Privileges"
 msgstr "වරප්‍රසාද නොමැත"
 
-#: libraries/display_create_table.lib.php:46 pmd_general.php:86
+#: libraries/display_create_table.lib.php:46 pmd_general.php:89
 #: server_synchronize.php:525 server_synchronize.php:1045
 msgid "Create table"
 msgstr "වගුව සාදන්න"
@@ -6214,15 +6213,11 @@ msgstr "තිරස් (rotated headers)"
 msgid "vertical"
 msgstr "සිරස්"
 
-#: libraries/display_tbl.lib.php:635
-#, fuzzy
+#: libraries/display_tbl.lib.php:636
+#, fuzzy, php-format
 #| msgid "Headers every %s rows"
-msgid "Headers every"
+msgid "Headers every %s rows"
 msgstr "ශීර්ෂක, පේළි %s කට වරක්"
-
-#: libraries/display_tbl.lib.php:639
-msgid "rows"
-msgstr "පිරික්සන්න"
 
 #: libraries/display_tbl.lib.php:1113
 msgid "Sort by key"
@@ -6241,8 +6236,8 @@ msgstr "යතුර අනුව තෝරන්න"
 #: libraries/import/ldi.php:94 libraries/import/mediawiki.php:24
 #: libraries/import/ods.php:58 libraries/import/shp.php:23
 #: libraries/import/sql.php:20 libraries/import/xml.php:32
-#: libraries/rte/rte_routines.lib.php:864 tbl_select.php:175
-#: tbl_structure.php:924
+#: libraries/rte/rte_routines.lib.php:864 libraries/tbl_select.lib.php:568
+#: tbl_structure.php:912
 msgid "Options"
 msgstr "විකල්ප"
 
@@ -7064,7 +7059,7 @@ msgstr "CSV අදානයේ %d පේළියේ වැරදි තීර �
 msgid "DocSQL"
 msgstr "DocSQL"
 
-#: libraries/import/docsql.php:33 libraries/tbl_properties.inc.php:705
+#: libraries/import/docsql.php:33 libraries/tbl_properties.inc.php:701
 #: server_synchronize.php:524 server_synchronize.php:1044
 msgid "Table name"
 msgstr "වගුවේ නම"
@@ -7144,7 +7139,7 @@ msgid "Function"
 msgstr "ශ්‍රිතය"
 
 #: libraries/insert_edit.lib.php:202 libraries/insert_edit.lib.php:227
-#: pmd_general.php:162
+#: pmd_general.php:172
 msgid "Hide"
 msgstr "සඟවන්න"
 
@@ -7213,9 +7208,8 @@ msgstr ""
 
 #: libraries/insert_edit.lib.php:1400 libraries/replication_gui.lib.php:119
 #: libraries/rte/rte_routines.lib.php:1383 libraries/tbl_select.lib.php:95
-#: pmd_general.php:494 pmd_general.php:553 pmd_general.php:676
-#: pmd_general.php:793 server_status.php:1498 tbl_printview.php:352
-#: tbl_structure.php:900 tbl_zoom_select.php:444
+#: pmd_general.php:505 pmd_general.php:564 pmd_general.php:687
+#: pmd_general.php:804 server_status.php:1498 tbl_zoom_select.php:456
 msgid "Value"
 msgstr "අගය"
 
@@ -8203,30 +8197,30 @@ msgstr "%1$s නොදන්නා භාෂාවකි."
 msgid "Current Server"
 msgstr "වත්මන් සේවාදායකය"
 
-#: libraries/server_synchronize.lib.php:1338 server_synchronize.php:1350
+#: libraries/server_synchronize.lib.php:1517 server_synchronize.php:1350
 msgid "Source database"
 msgstr "මූලාශ්‍ර දත්ත ගබඩාව"
 
-#: libraries/server_synchronize.lib.php:1340
-#: libraries/server_synchronize.lib.php:1348
+#: libraries/server_synchronize.lib.php:1520
+#: libraries/server_synchronize.lib.php:1530
 msgid "Current server"
 msgstr "වත්මන් සේවාදායකය"
 
-#: libraries/server_synchronize.lib.php:1342
-#: libraries/server_synchronize.lib.php:1350
+#: libraries/server_synchronize.lib.php:1522
+#: libraries/server_synchronize.lib.php:1532
 msgid "Remote server"
 msgstr "දුරස්ථ සේවාදායකය"
 
-#: libraries/server_synchronize.lib.php:1345
+#: libraries/server_synchronize.lib.php:1526
 msgid "Difference"
 msgstr "වෙනස"
 
-#: libraries/server_synchronize.lib.php:1346 server_synchronize.php:1352
+#: libraries/server_synchronize.lib.php:1527 server_synchronize.php:1352
 msgid "Target database"
 msgstr "ඉලක්කගත දත්තගබඩාව"
 
-#: libraries/server_synchronize.lib.php:1381
-#: libraries/server_synchronize.lib.php:1390
+#: libraries/server_synchronize.lib.php:1567
+#: libraries/server_synchronize.lib.php:1576
 msgid "Click to select"
 msgstr "තේරීමට ක්ලික් කරන්න"
 
@@ -8277,13 +8271,13 @@ msgstr "මෙම විමසුම මෙහි නැවත පෙන්ව�
 msgid "View only"
 msgstr "දර්ශනය කිරීම පමණි"
 
-#: libraries/sqlparser.lib.php:136
+#: libraries/sqlparser.lib.php:129
 msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem"
 msgstr ""
 
-#: libraries/sqlparser.lib.php:176
+#: libraries/sqlparser.lib.php:171
 msgid ""
 "There is a chance that you may have found a bug in the SQL parser. Please "
 "examine your query closely, and check that the quotes are correct and not "
@@ -8296,35 +8290,35 @@ msgid ""
 "and submit a bug report with the data chunk in the CUT section below:"
 msgstr ""
 
-#: libraries/sqlparser.lib.php:178
+#: libraries/sqlparser.lib.php:173
 msgid "BEGIN CUT"
 msgstr "BEGIN CUT"
 
-#: libraries/sqlparser.lib.php:180
+#: libraries/sqlparser.lib.php:175
 msgid "END CUT"
 msgstr "END CUT"
 
-#: libraries/sqlparser.lib.php:182
+#: libraries/sqlparser.lib.php:177
 msgid "BEGIN RAW"
 msgstr "BEGIN RAW"
 
-#: libraries/sqlparser.lib.php:186
+#: libraries/sqlparser.lib.php:181
 msgid "END RAW"
 msgstr "END RAW"
 
-#: libraries/sqlparser.lib.php:384
+#: libraries/sqlparser.lib.php:379
 msgid "Automatically appended backtick to the end of query!"
 msgstr ""
 
-#: libraries/sqlparser.lib.php:387
+#: libraries/sqlparser.lib.php:382
 msgid "Unclosed quote"
 msgstr "නොවසන ලද උද්ධරනය"
 
-#: libraries/sqlparser.lib.php:539
+#: libraries/sqlparser.lib.php:534
 msgid "Invalid Identifer"
 msgstr "වලංගු නොවන හඳුන්වනය"
 
-#: libraries/sqlparser.lib.php:655
+#: libraries/sqlparser.lib.php:650
 msgid "Unknown Punctuation String"
 msgstr "නොදන්නා විරාම අකුරු වැල"
 
@@ -8365,8 +8359,8 @@ msgid ""
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:99 libraries/tbl_properties.inc.php:531
-#: tbl_printview.php:308 tbl_structure.php:149 tbl_structure.php:154
-#: tbl_structure.php:596 tbl_structure.php:847
+#: tbl_printview.php:312 tbl_structure.php:149 tbl_structure.php:154
+#: tbl_structure.php:596 tbl_structure.php:841
 msgid "Index"
 msgstr "සූචිය"
 
@@ -8432,33 +8426,58 @@ msgstr ""
 msgid "after %s"
 msgstr "%s ට පසු"
 
-#: libraries/tbl_properties.inc.php:719 tbl_structure.php:697
+#: libraries/tbl_properties.inc.php:715 tbl_structure.php:697
 #, php-format
 msgid "Add %s column(s)"
 msgstr "%s ක්ෂේත්‍ර(ය) එක් කරන්න"
 
-#: libraries/tbl_properties.inc.php:727 tbl_structure.php:691
+#: libraries/tbl_properties.inc.php:723 tbl_structure.php:691
 msgid "You have to add at least one column."
 msgstr "ඔබ අවම වශයෙන් එක් ක්ෂේත්‍රයක්වත් එක් කල යුතුයි."
 
-#: libraries/tbl_properties.inc.php:820 server_engines.php:41
+#: libraries/tbl_properties.inc.php:816 server_engines.php:41
 #: tbl_operations.php:377
 msgid "Storage Engine"
 msgstr "ගබඩා යන්ත්‍ර‍"
 
-#: libraries/tbl_properties.inc.php:861
+#: libraries/tbl_properties.inc.php:857
 msgid "PARTITION definition"
 msgstr ""
 
-#: libraries/tbl_select.lib.php:94 pmd_general.php:505 pmd_general.php:525
-#: pmd_general.php:647 pmd_general.php:660 pmd_general.php:723
-#: pmd_general.php:777
+#: libraries/tbl_select.lib.php:94 pmd_general.php:516 pmd_general.php:536
+#: pmd_general.php:658 pmd_general.php:671 pmd_general.php:734
+#: pmd_general.php:788
 msgid "Operator"
 msgstr "මෙහෙයවනය"
 
 #: libraries/tbl_select.lib.php:111
 msgid "Table Search"
 msgstr "වගුව තුල සෙවීම"
+
+#: libraries/tbl_select.lib.php:573
+msgid "Select columns (at least one):"
+msgstr "පේළි තෝරන්න (අවම වශයෙන් එකක්):"
+
+#: libraries/tbl_select.lib.php:592
+msgid "Add search conditions (body of the \"where\" clause):"
+msgstr "සෙවීම් කොන්දේසි එක් කරන්න (\"where\" වාක්‍යාංශය යටතේ):"
+
+#: libraries/tbl_select.lib.php:601
+msgid "Number of rows per page"
+msgstr "පිටුවකට පේළි ගණන"
+
+#: libraries/tbl_select.lib.php:610
+msgid "Display order:"
+msgstr "දර්ශනය කිරීමේ අනුපිළිවෙල:"
+
+#: libraries/tbl_select.lib.php:652 sql.php:136 tbl_change.php:214
+#: tbl_zoom_select.php:106 tbl_zoom_select.php:142
+msgid "Browse foreign values"
+msgstr "අන්‍ය අගයන් පිරික්සන්න"
+
+#: libraries/tbl_select.lib.php:738
+msgid "Do a \"query by example\" (wildcard: \"%\")"
+msgstr "\"උදාහරණයෙන් විමසුම\" ක් සිදු කරන්න (wildcard: \"%\")"
 
 #: libraries/transformations.lib.php:145
 #, php-format
@@ -8805,106 +8824,106 @@ msgstr "වගුවක් සාදන්න"
 msgid "Please select a database"
 msgstr "කරුණාකර දත්තගබඩාවක් තෝරන්න"
 
-#: pmd_general.php:79
+#: pmd_general.php:81
 msgid "Show/Hide left menu"
 msgstr "වම් මෙනුව පෙන්වන්න/සඟවන්න"
 
-#: pmd_general.php:83
+#: pmd_general.php:85
 msgid "Save position"
 msgstr "ස්ථාපිතය සුරකින්න"
 
-#: pmd_general.php:89 pmd_general.php:370
+#: pmd_general.php:92 pmd_general.php:381
 msgid "Create relation"
 msgstr "සම්බන්දතාවයක් සාදන්න"
 
-#: pmd_general.php:95
+#: pmd_general.php:98
 msgid "Reload"
 msgstr "ප්‍රතිපූරණය"
 
-#: pmd_general.php:98
+#: pmd_general.php:101
 msgid "Help"
 msgstr "උදවු"
 
-#: pmd_general.php:102
+#: pmd_general.php:105
 msgid "Angular links"
 msgstr "ආංශික සබැඳුම"
 
-#: pmd_general.php:102
+#: pmd_general.php:105
 msgid "Direct links"
 msgstr "ඍජු සබැඳුම"
 
-#: pmd_general.php:106
+#: pmd_general.php:109
 msgid "Snap to grid"
 msgstr ""
 
-#: pmd_general.php:110
+#: pmd_general.php:113
 msgid "Small/Big All"
 msgstr ""
 
-#: pmd_general.php:113
+#: pmd_general.php:117
 msgid "Toggle small/big"
 msgstr ""
 
-#: pmd_general.php:114
+#: pmd_general.php:120
 msgid "Toggle relation lines"
 msgstr "සබඳතා දක්වන ඉරි පෙන්වන්න/සඟවන්න"
 
-#: pmd_general.php:119 pmd_pdf.php:96
+#: pmd_general.php:126 pmd_pdf.php:96
 msgid "Import/Export coordinates for PDF schema"
 msgstr ""
 
-#: pmd_general.php:125
+#: pmd_general.php:133
 msgid "Build Query"
 msgstr "විමසුම ගොඩ නඟන්න"
 
-#: pmd_general.php:130
+#: pmd_general.php:140
 msgid "Move Menu"
 msgstr ""
 
-#: pmd_general.php:141
+#: pmd_general.php:151
 msgid "Hide/Show all"
 msgstr "සියල්ල පෙන්වන්න/සඟවන්න"
 
-#: pmd_general.php:145
+#: pmd_general.php:155
 msgid "Hide/Show Tables with no relation"
 msgstr ""
 
-#: pmd_general.php:185
+#: pmd_general.php:195
 msgid "Number of tables"
 msgstr "වගු ගණන"
 
-#: pmd_general.php:436
+#: pmd_general.php:447
 msgid "Delete relation"
 msgstr ""
 
-#: pmd_general.php:478 pmd_general.php:537
+#: pmd_general.php:489 pmd_general.php:548
 #, fuzzy
 msgid "Relation operator"
 msgstr "Relation view"
 
-#: pmd_general.php:488 pmd_general.php:547 pmd_general.php:670
-#: pmd_general.php:787
+#: pmd_general.php:499 pmd_general.php:558 pmd_general.php:681
+#: pmd_general.php:798
 msgid "Except"
 msgstr "හැර"
 
-#: pmd_general.php:494 pmd_general.php:553 pmd_general.php:676
-#: pmd_general.php:793
+#: pmd_general.php:505 pmd_general.php:564 pmd_general.php:687
+#: pmd_general.php:804
 msgid "subquery"
 msgstr "උප විමසුම"
 
-#: pmd_general.php:498 pmd_general.php:594
+#: pmd_general.php:509 pmd_general.php:605
 msgid "Rename to"
 msgstr "නව නාමය"
 
-#: pmd_general.php:500 pmd_general.php:599
+#: pmd_general.php:511 pmd_general.php:610
 msgid "New name"
 msgstr "නව නාමය"
 
-#: pmd_general.php:503 pmd_general.php:718
+#: pmd_general.php:514 pmd_general.php:729
 msgid "Aggregate"
 msgstr "එකතු කරන්න"
 
-#: pmd_general.php:828
+#: pmd_general.php:839
 msgid "Active options"
 msgstr "සක්‍රිය විකල්ප"
 
@@ -9921,7 +9940,7 @@ msgstr ""
 msgid "Questions since startup: %s"
 msgstr "ආරම්භයේ සිට සේවාදායකය වෙත යැවුණු ප්‍රශ්න ගණන: %s"
 
-#: server_status.php:980 tbl_printview.php:351 tbl_structure.php:899
+#: server_status.php:980
 msgid "Statements"
 msgstr "ප්‍රකාශය"
 
@@ -11203,11 +11222,6 @@ msgstr "මූලයේ අක්ෂර, ඉලක්කම් [em]සහ[/em] �
 msgid "Wrong data"
 msgstr "වැරදි දත්ත"
 
-#: sql.php:136 tbl_change.php:214 tbl_select.php:26 tbl_zoom_select.php:107
-#: tbl_zoom_select.php:143
-msgid "Browse foreign values"
-msgstr "අන්‍ය අගයන් පිරික්සන්න"
-
 #: sql.php:253
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
@@ -11516,43 +11530,39 @@ msgstr "කොටස් කිරීම ඉවත් කරන්න"
 msgid "Check referential integrity:"
 msgstr ""
 
-#: tbl_printview.php:71
+#: tbl_printview.php:72
 msgid "Showing tables"
 msgstr "වගු පෙන්වමින්"
 
-#: tbl_printview.php:292 tbl_structure.php:830
+#: tbl_printview.php:300 tbl_structure.php:830
 msgid "Space usage"
 msgstr "අවකාශ භාවිතය"
 
-#: tbl_printview.php:296 tbl_structure.php:834
-msgid "Usage"
-msgstr "භාවිතය"
-
-#: tbl_printview.php:323 tbl_structure.php:861
+#: tbl_printview.php:327 tbl_structure.php:855
 msgid "Effective"
 msgstr "එලදායී"
 
-#: tbl_printview.php:348 tbl_structure.php:896
+#: tbl_printview.php:352 tbl_structure.php:890
 msgid "Row Statistics"
 msgstr "පේළි සංඛ්‍ය ලේඛන"
 
-#: tbl_printview.php:362 tbl_structure.php:911
+#: tbl_printview.php:362 tbl_structure.php:899
 msgid "static"
 msgstr "ස්ථිතික"
 
-#: tbl_printview.php:364 tbl_structure.php:913
+#: tbl_printview.php:364 tbl_structure.php:901
 msgid "dynamic"
 msgstr "ගතික"
 
-#: tbl_printview.php:387 tbl_structure.php:956
+#: tbl_printview.php:388 tbl_structure.php:944
 msgid "Row length"
 msgstr "පේළියේ දිග"
 
-#: tbl_printview.php:400 tbl_structure.php:964
+#: tbl_printview.php:402 tbl_structure.php:952
 msgid "Row size"
 msgstr "පේළියේ ප්‍රමාණය"
 
-#: tbl_printview.php:410 tbl_structure.php:972
+#: tbl_printview.php:412 tbl_structure.php:960
 msgid "Next autoindex"
 msgstr "මීළඟ ක්‍රමාංකය"
 
@@ -11574,26 +11584,6 @@ msgstr "අදාල අන්‍ය මූලය ඇති විට අභ්�
 #: tbl_relation.php:412
 msgid "Foreign key constraint"
 msgstr "අන්‍ය මූල නිරෝධය"
-
-#: tbl_select.php:103
-msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr "\"උදාහරණයෙන් විමසුම\" ක් සිදු කරන්න (wildcard: \"%\")"
-
-#: tbl_select.php:178
-msgid "Select columns (at least one):"
-msgstr "පේළි තෝරන්න (අවම වශයෙන් එකක්):"
-
-#: tbl_select.php:196
-msgid "Add search conditions (body of the \"where\" clause):"
-msgstr "සෙවීම් කොන්දේසි එක් කරන්න (\"where\" වාක්‍යාංශය යටතේ):"
-
-#: tbl_select.php:203
-msgid "Number of rows per page"
-msgstr "පිටුවකට පේළි ගණන"
-
-#: tbl_select.php:209
-msgid "Display order:"
-msgstr "දර්ශනය කිරීමේ අනුපිළිවෙල:"
 
 #: tbl_structure.php:151 tbl_structure.php:156 tbl_structure.php:603
 msgid "Spatial"
@@ -11687,7 +11677,7 @@ msgstr "%s ට පසු"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "පේළි&nbsp;%s&nbsp;මත සුචියක් සාදන්න"
 
-#: tbl_structure.php:927
+#: tbl_structure.php:915
 msgid "partitioned"
 msgstr "කොටස් කරන ලද"
 
@@ -11835,31 +11825,31 @@ msgstr ""
 msgid "Create version"
 msgstr "අනුවාදය සාදන්න"
 
-#: tbl_zoom_select.php:217
+#: tbl_zoom_select.php:231
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr "තීර දෙකක් සඳහා \"උදාහරණයෙන් විමසුම\" ක් සිදු කරන්න (wildcard: \"%\")"
 
-#: tbl_zoom_select.php:227
+#: tbl_zoom_select.php:241
 msgid "Additional search criteria"
 msgstr "අමතර සෙවීම් නිර්ණායක"
 
-#: tbl_zoom_select.php:280
+#: tbl_zoom_select.php:294
 msgid "Use this column to label each point"
 msgstr "ලක්ෂ්‍ය ලේබල ගත කිරීමට මෙම තීරය භාවිත කරන්න"
 
-#: tbl_zoom_select.php:300
+#: tbl_zoom_select.php:314
 msgid "Maximum rows to plot"
 msgstr "උපරිම තීර ගණන"
 
-#: tbl_zoom_select.php:418
+#: tbl_zoom_select.php:430
 msgid "Browse/Edit the points"
 msgstr "ලක්ෂ්‍ය පිරික්සීම/සංස්කරණය"
 
-#: tbl_zoom_select.php:425
+#: tbl_zoom_select.php:437
 msgid "How to use"
 msgstr "භාවිතා කරන අයුරු"
 
-#: tbl_zoom_select.php:432
+#: tbl_zoom_select.php:444
 #, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
@@ -13050,6 +13040,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert ශුන්‍යයට සිටුවා ඇත"
+
+#~ msgid "rows"
+#~ msgstr "පිරික්සන්න"
+
+#~ msgid "Usage"
+#~ msgstr "භාවිතය"
 
 #~ msgid "Use mousewheel to zoom in or out of the plot."
 #~ msgstr "ප්‍රස්ථාරය ලොකු/කුඩා කර බැලීමට මූසිකයේ රෝදය භාවිතා කරන්න."
