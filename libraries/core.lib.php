@@ -642,7 +642,7 @@ function PMA_download_header($filename, $mimetype, $length = 0, $no_cache = true
  *
  * @return mixed    array element or $default
  */
-function PMA_array_read($path, $array, $default = null)
+function PMA_arrayRead($path, $array, $default = null)
 {
     $keys = explode('/', $path);
     $value =& $array;

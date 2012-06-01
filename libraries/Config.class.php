@@ -829,14 +829,14 @@ class PMA_Config
         if ($prefs_type) {
             include_once './libraries/user_preferences.lib.php';
             if ($default_value === null) {
-                $default_value = PMA_array_read($cfg_path, $this->default);
+                $default_value = PMA_arrayRead($cfg_path, $this->default);
             }
             PMA_persist_option($cfg_path, $new_cfg_value, $default_value);
         }
         if ($prefs_type != 'db' && $cookie_name) {
             // fall back to cookies
             if ($default_value === null) {
-                $default_value = PMA_array_read($cfg_path, $this->settings);
+                $default_value = PMA_arrayRead($cfg_path, $this->settings);
             }
             $this->setCookie($cookie_name, $new_cfg_value, $default_value);
         }
