@@ -50,7 +50,8 @@ function PMA_auth()
 
     /* HTML header */
     $GLOBALS['page_title'] = __('Access denied');
-    $header = PMA_Header::getInstance();
+    $response = PMA_Response::getInstance();
+    $header = $response->getHeader();
     $header->setTitle(__('Access denied'));
     $header->disableMenu();
     $header->display();

@@ -85,7 +85,8 @@ class PMA_PDF extends TCPDF
      */
     function Error($error_message = '')
     {
-        PMA_Header::getInstance()->display();
+        $response = PMA_Response::getInstance();
+        $response->getHeader()->display();
         PMA_Message::error(__('Error while creating PDF:') . ' ' . $error_message)->display();
         include './libraries/footer.inc.php';
     }

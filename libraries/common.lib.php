@@ -540,7 +540,8 @@ function PMA_showPHPDocu($target)
  */
 function PMA_showHint($message, $bbcode = false)
 {
-    $footnotes = PMA_Footer::getInstance()->getFootnotes();
+    $response = PMA_Response::getInstance();
+    $footnotes = $response->getFooter()->getFootnotes();
     return $footnotes->add($message, $bbcode);
 }
 
@@ -569,7 +570,8 @@ function PMA_mysqlDie(
     /**
      * start http output, display html headers
      */
-    PMA_Header::getInstance()->display();
+    $response = PMA_Response::getInstance();
+    $response->getHeader()->display();
 
     $error_msg = '';
 

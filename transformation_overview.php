@@ -11,7 +11,8 @@
 require_once './libraries/common.inc.php';
 require_once './libraries/transformations.lib.php';
 
-$header = PMA_Header::getInstance();
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
 $header->disableMenu();
 $header->display();
 

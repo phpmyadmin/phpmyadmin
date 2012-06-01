@@ -12,8 +12,9 @@
  */
 require_once './libraries/common.inc.php';
 
-$header = PMA_Header::getInstance();
-$scripts = $header->getScripts();
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
 
 /**
@@ -204,7 +205,8 @@ function PMA_changePassAuthType($_url_params, $password)
  */
 function PMA_changePassDisplayPage($message, $sql_query, $_url_params)
 {
-    PMA_Header::getInstance()->display();
+    $response = PMA_Response::getInstance();
+    $response->getHeader()->display();
     echo '<h1>' . __('Change password') . '</h1>' . "\n\n";
     echo PMA_getMessage($message, $sql_query, 'success');
     echo '<a href="index.php'.PMA_generate_common_url($_url_params).' target="_parent">'. "\n"

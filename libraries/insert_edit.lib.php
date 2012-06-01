@@ -1551,7 +1551,9 @@ function PMA_isInsertRow()
         && $_REQUEST['insert_rows'] != $GLOBALS['cfg']['InsertRows']
     ) {
         $GLOBALS['cfg']['InsertRows'] = $_REQUEST['insert_rows'];
-        $scripts = PMA_Header::getInstance()->getScripts();
+        $response = PMA_Response::getInstance();
+        $header = $response->getHeader();
+        $scripts = $header->getScripts();
         $scripts->addFile('tbl_change.js');
         include 'tbl_change.php';
         exit;

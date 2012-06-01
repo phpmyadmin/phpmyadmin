@@ -10,7 +10,8 @@
  */
 require_once 'libraries/common.inc.php';
 
-$header = PMA_Header::getInstance();
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
 $header->enablePrintView();
 $header->display();
 

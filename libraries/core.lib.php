@@ -774,7 +774,7 @@ function PMA_includeJS($url, $ie_conditional = false)
 }
 
 /**
- * Adds JS code snippets to be displayed by the PMA_Header class.
+ * Adds JS code snippets to be displayed by the PMA_Response class.
  * Adds a newline to each snippet.
  *
  * @param string $str Js code to be added (e.g. "token=1234;")
@@ -783,12 +783,15 @@ function PMA_includeJS($url, $ie_conditional = false)
  */
 function PMA_addJSCode($str)
 {
-    PMA_Header::getInstance()->getScripts()->addCode($str);
+    $response = PMA_Response::getInstance();
+    $header   = $response->getHeader();
+    $scripts  = $header->getScripts();
+    $scripts->addCode($str);
 }
 
 /**
  * Adds JS code snippet for variable assignment
- * to be displayed by the PMA_Header class.
+ * to be displayed by the PMA_Response class.
  *
  * @param string $key    Name of value to set
  * @param mixed  $value  Value to set, can be either string or array of strings

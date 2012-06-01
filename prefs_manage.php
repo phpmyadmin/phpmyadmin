@@ -109,7 +109,8 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
         }
         if (!$all_ok) {
             // mimic original form and post json in a hidden field
-            PMA_Header::getInstance()->display();
+            $response = PMA_Response::getInstance();
+            $response->getHeader()->display();
             include 'libraries/user_preferences.inc.php';
             $msg = PMA_Message::error(__('Configuration contains incorrect data for some fields.'));
             $msg->display();
@@ -216,9 +217,11 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
     exit;
 }
 
-$scripts = PMA_Header::getInstance()->getScripts();
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts = $header->getScripts();
 $scripts->addFile('config.js');
-PMA_Header::getInstance()->display();
+$header->display();
 require 'libraries/user_preferences.inc.php';
 if ($error) {
     if (!$error instanceof PMA_Message) {

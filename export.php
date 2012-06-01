@@ -407,7 +407,8 @@ if (! $save_on_server) {
             }
         }
         $backup_cfgServer = $cfg['Server'];
-        PMA_Header::getInstance()->display();
+        $response = PMA_Response::getInstance();
+        $response->getHeader()->display();
         $cfg['Server'] = $backup_cfgServer;
         unset($backup_cfgServer);
         echo "\n" . '<div style="text-align: ' . $cell_align_left . '">' . "\n";

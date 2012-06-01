@@ -12,7 +12,9 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/mysql_charsets.lib.php';
 
-$scripts = PMA_Header::getInstance()->getScripts();
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
 $scripts->addFile('tbl_structure.js');
 $scripts->addFile('indexes.js');
 

@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * 
+ * Manages the rendering of pages in PMA
  *
  * @package PhpMyAdmin
  */
@@ -13,7 +13,7 @@ require_once 'libraries/Header.class.php';
 require_once 'libraries/Footer.class.php';
 
 /**
- * 
+ * Singleton class used to manage the rendering of pages in PMA
  *
  * @package PhpMyAdmin
  */
@@ -40,9 +40,9 @@ class PMA_Response
     private function __construct()
     {
         $this->_data    = array();
-        $this->_header  = PMA_Header::getInstance();
+        $this->_header  = new PMA_Header();
         $this->_content = '';
-        $this->_footer  = PMA_Footer::getInstance();
+        $this->_footer  = new PMA_Footer();
     }
 
     /**

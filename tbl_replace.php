@@ -31,7 +31,9 @@ PMA_DBI_select_db($GLOBALS['db']);
  */
 $goto_include = false;
 
-$scripts = PMA_Header::getInstance()->getScripts();
+$response = PMA_Response::getInstance();
+$header = $response->getHeader();
+$scripts = $header->getScripts();
 $scripts->addFile('makegrid.js');
 // Needed for generation of Inline Edit anchors
 $scripts->addFile('sql.js');

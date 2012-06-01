@@ -20,20 +20,12 @@ require_once 'libraries/Menu.class.php';
 $is_superuser = function_exists('PMA_isSuperuser') && PMA_isSuperuser();
 
 /**
- * Singleton class used to output the HTTP and HTML headers
+ * Class used to output the HTTP and HTML headers
  *
  * @package PhpMyAdmin
  */
 class PMA_Header
 {
-    /**
-     * PMA_Header instance
-     *
-     * @access private
-     * @static
-     * @var object
-     */
-    private static $_instance;
     /**
      * PMA_Scripts instance
      *
@@ -107,7 +99,7 @@ class PMA_Header
      *
      * @return new PMA_Header object
      */
-    private function __construct()
+    public function __construct()
     {
         $this->_isAjax = false;
         if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
@@ -205,19 +197,6 @@ class PMA_Header
             );
         }
         $this->_scripts->addCode(PMA_getReloadNavigationScript(true));
-    }
-
-    /**
-     * Returns the singleton PMA_Header object
-     *
-     * @return PMA_Header object
-     */
-    public static function getInstance()
-    {
-        if (empty(self::$_instance)) {
-            self::$_instance = new PMA_Header();
-        }
-        return self::$_instance;
     }
 
     /**

@@ -8,7 +8,9 @@
 
 require_once 'libraries/common.inc.php';
 
-$scripts = PMA_Header::getInstance()->getScripts();
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
 $scripts->addFile('openlayers/OpenLayers.js');
 $scripts->addFile('jquery/jquery.svg.js');
 $scripts->addFile('jquery/jquery.mousewheel.js');

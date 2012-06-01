@@ -11,7 +11,9 @@
  */
 require_once 'libraries/common.inc.php';
 
-$scripts = PMA_Header::getInstance()->getScripts();
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
 $scripts->addFile('tbl_chart.js');
 $scripts->addFile('highcharts/highcharts.js');
 /* Files required for chart exporting */

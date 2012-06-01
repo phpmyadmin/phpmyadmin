@@ -15,7 +15,9 @@ require_once 'libraries/Header.class.php';
 require_once 'libraries/check_user_privileges.lib.php';
 require_once 'libraries/bookmark.lib.php';
 
-$scripts = PMA_Header::getInstance()->getScripts();
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
 $scripts->addFile('jquery/timepicker.js');
 $scripts->addFile('tbl_change.js');
 // the next one needed because sql.php may do a "goto" to tbl_structure.php
@@ -57,7 +59,9 @@ if (isset($_REQUEST['printview'])) {
 }
 
 if (isset($_SESSION['profiling'])) {
-    $scripts = PMA_Header::getInstance()->getScripts();
+    $response = PMA_Response::getInstance();
+    $header   = $response->getHeader();
+    $scripts  = $header->getScripts();
     /* < IE 9 doesn't support canvas natively */
     if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
         $scripts->addFile('canvg/flashcanvas.js');
@@ -287,7 +291,8 @@ if (! defined('PMA_CHK_DROP')
     && $is_drop_database
     && ! $is_superuser
 ) {
-    PMA_Header::getInstance()->display();
+    $response = PMA_Response::getInstance();
+    $response->getHeader()->display();
     PMA_mysqlDie(__('"DROP DATABASE" statements are disabled.'), '', '', $err_url);
 } // end if
 
@@ -383,7 +388,8 @@ if (! $cfg['Confirm']
 
 if ($do_confirm) {
     $stripped_sql_query = $sql_query;
-    PMA_Header::getInstance()->display();
+    $response = PMA_Response::getInstance();
+    $response->getHeader()->display();
     if ($is_drop_database) {
         echo '<h1 class="error">' . __(
                 'You are about to DESTROY a complete database!'
@@ -871,7 +877,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     }
 
     if (isset($_REQUEST['ajax_request']) && isset($_REQUEST['table_maintenance'])) {
-        $scripts = PMA_Header::getInstance()->getScripts();
+        $response = PMA_Response::getInstance();
+        $header   = $response->getHeader();
+        $scripts  = $header->getScripts();
         $scripts->addFile('makegrid.js');
         $scripts->addFile('sql.js');
 
@@ -907,7 +915,8 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     if (isset($printview) && $printview == '1') {
         PMA_checkParameters(array('db', 'full_sql_query'));
 
-        $header = PMA_Header::getInstance();
+        $response = PMA_Response::getInstance();
+        $header = $response->getHeader();
         $header->enablePrintView();
         $header->display();
 
@@ -939,7 +948,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         echo "</p>";
     } else {
 
-        $scripts = PMA_Header::getInstance()->getScripts();
+        $response = PMA_Response::getInstance();
+        $header = $response->getHeader();
+        $scripts = $header->getScripts();
         $scripts->addFile('makegrid.js');
         $scripts->addFile('sql.js');
 
@@ -957,7 +968,8 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
                 include 'libraries/server_common.inc.php';
             }
         } else {
-            PMA_Header::getInstance()->display();
+            $response = PMA_Response::getInstance();
+            $response->getHeader()->display();
             //we don't need to buffer the output in PMA_getMessage here.
             //set a global variable and check against it in the function
             $GLOBALS['buffer_message'] = false;

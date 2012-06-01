@@ -12,21 +12,12 @@ if (! defined('PHPMYADMIN')) {
 require_once 'libraries/Footnotes.class.php';
 
 /**
- * Singleton class used to output the footer
+ * Class used to output the footer
  *
  * @package PhpMyAdmin
  */
 class PMA_Footer
 {
-    /**
-     * PMA_Footer instance
-     *
-     * @access private
-     * @static
-     * @var object
-     */
-    private static $_instance;
-
     /**
      * PMA_Footnotes instance
      *
@@ -48,7 +39,7 @@ class PMA_Footer
      *
      * @return new PMA_Footer object
      */
-    private function __construct()
+    public function __construct()
     {
         $this->_footnotes = new PMA_Footnotes();
         $this->_scripts   = new PMA_Scripts();
@@ -233,19 +224,6 @@ class PMA_Footer
                 $GLOBALS['sql_query']
             );
         }
-    }
-
-    /**
-     * Returns the singleton PMA_Footer object
-     *
-     * @return PMA_Footer object
-     */
-    public static function getInstance()
-    {
-        if (empty(self::$_instance)) {
-            self::$_instance = new PMA_Footer();
-        }
-        return self::$_instance;
     }
 
     /**

@@ -83,7 +83,8 @@ $db_start = $GLOBALS['db'];
  */
 $cfgRelation = PMA_getRelationsParam();
 
-$header = PMA_Header::getInstance();
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
 $header->disableMenu();
 $header->setBodyId('body_leftFrame');
 $scripts = $header->getScripts();

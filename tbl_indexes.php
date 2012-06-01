@@ -129,7 +129,9 @@ if (isset($_REQUEST['do_save_data'])) {
  */
 
 // Displays headers (if needed)
-$scripts = PMA_Header::getInstance()->getScripts();
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
 $scripts->addFile('indexes.js');
 require_once 'libraries/tbl_info.inc.php';
 

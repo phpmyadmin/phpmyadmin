@@ -11,7 +11,8 @@
  */
 require_once 'libraries/common.inc.php';
 
-PMA_Header::getInstance()->enablePrintView();
+$response = PMA_Response::getInstance();
+$response->getHeader()->enablePrintView();
 
 require 'libraries/tbl_common.inc.php';
 

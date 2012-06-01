@@ -11,7 +11,9 @@
  */
 require_once 'libraries/common.inc.php';
 
-$scripts = PMA_Header::getInstance()->getScripts();
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
 $scripts->addFile('export.js');
 
 // $sub_part is also used in db_info.inc.php to see if we are coming from

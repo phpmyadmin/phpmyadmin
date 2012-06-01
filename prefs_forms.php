@@ -69,9 +69,12 @@ if ($form_display->process(false) && !$form_display->hasErrors()) {
 }
 
 // display forms
-$scripts = PMA_Header::getInstance()->getScripts();
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
 $scripts->addFile('config.js');
-PMA_Header::getInstance()->display();
+$header->display();
+
 require 'libraries/user_preferences.inc.php';
 if ($error) {
     $error->display();

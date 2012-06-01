@@ -118,7 +118,8 @@ $sql_query = '';
 /**
  * prepare JavaScript functionality
  */
-$header = PMA_Header::getInstance();
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
 $header->disableMenu();
 $header->setBodyId('bodyquerywindow');
 $scripts = $header->getScripts();

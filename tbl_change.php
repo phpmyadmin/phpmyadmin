@@ -109,7 +109,9 @@ if ($GLOBALS['cfg']['ShowPropertyComments']) {
 /**
  * Load JavaScript files
  */
-$scripts = PMA_Header::getInstance()->getScripts();
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
 $scripts->addFile('functions.js');
 $scripts->addFile('tbl_change.js');
 $scripts->addFile('jquery/timepicker.js');
@@ -118,7 +120,7 @@ $scripts->addFile('gis_data_editor.js');
 /**
  * HTTP and HTML headers
  */
-PMA_Header::getInstance()->display();
+$header->display();
 
 /**
  * Displays the query submitted and its result

@@ -155,7 +155,8 @@ function PMA_auth()
     $cell_align = ($GLOBALS['text_dir'] == 'ltr') ? 'left' : 'right';
 
     $GLOBALS['page_title'] = 'phpMyAdmin';
-    $header = PMA_Header::getInstance();
+    $response = PMA_Response::getInstance();
+    $header = $response->getHeader();
     $header->setBodyId('loginform');
     $header->disableMenu();
     $header->display();

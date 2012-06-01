@@ -17,7 +17,9 @@
  * Gets some core libraries
  */
 require_once 'libraries/common.inc.php';
-$scripts = PMA_Header::getInstance()->getScripts();
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
 $scripts->addFile('tbl_relation.js');
 
 require_once 'libraries/tbl_common.inc.php';

@@ -13,7 +13,8 @@ $field = $_REQUEST['field'];
 
 PMA_checkParameters(array('db', 'table', 'field'));
 
-$header = PMA_Header::getInstance();
+$response = PMA_Response::getInstance();
+$header = $response->getHeader();
 $header->disableMenu();
 $header->setBodyId('body_browse_foreigners');
 

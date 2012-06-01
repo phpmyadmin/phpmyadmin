@@ -10,7 +10,7 @@
 require_once 'libraries/common.inc.php';
 
 if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
-    PMA_Header::getInstance()->isHeaderSent = true;
+    PMA_Header::$headerIsSent = true;
 }
 
 /**
@@ -429,8 +429,9 @@ if (PMA_DRIZZLE) {
 /**
  * JS Includes
  */
-
-$scripts = PMA_Header::getInstance()->getScripts();
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
 $scripts->addFile('server_status.js');
 
 $scripts->addFile('jquery/jquery.tablesorter.js');

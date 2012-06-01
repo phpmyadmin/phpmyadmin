@@ -39,8 +39,8 @@ if (isset($GLOBALS['db'])) {
     $params['db'] = $GLOBALS['db'];
 }
 
-
-$header = PMA_Header::getInstance();
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
 $header->setBodyId('pmd_body');
 $scripts = $header->getScripts();
 $scripts->addFile('pmd/ajax.js');

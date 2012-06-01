@@ -9,8 +9,8 @@
  * get some globals
  */
 require './libraries/common.inc.php';
-
-$header = PMA_Header::getInstance();
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
 $header->setBodyId('bodythemes');
 $header->setTitle('phpMyAdmin - ' . __('Theme'));
 $header->disableMenu();

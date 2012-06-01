@@ -17,7 +17,9 @@ require_once './libraries/tbl_select.lib.php';
 require_once './libraries/relation.lib.php';
 require_once './libraries/tbl_info.inc.php';
 
-$scripts = PMA_Header::getInstance()->getScripts();
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
 $scripts->addFile('makegrid.js');
 $scripts->addFile('sql.js');
 $scripts->addFile('date.js');

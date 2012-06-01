@@ -10,7 +10,8 @@
  */
 require_once 'libraries/common.inc.php';
 
-PMA_Header::getInstance()->display();
+$response = PMA_Response::getInstance();
+$response->getHeader()->display();
 
 // Check parameters
 PMA_checkParameters(array('db', 'table'));

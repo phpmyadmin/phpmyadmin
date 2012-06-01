@@ -7,7 +7,9 @@
 
 require_once 'libraries/common.inc.php';
 
-$scripts = PMA_Header::getInstance()->getScripts();
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
 $scripts->addFile('server_variables.js');
 
 PMA_addJSVar('pma_token', $_SESSION[' PMA_token ']);

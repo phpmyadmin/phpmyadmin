@@ -74,7 +74,8 @@ function PMA_auth_fails()
 
     /* HTML header */
     $GLOBALS['page_title'] = __('Access denied');
-    $header = PMA_Header::getInstance();
+    $response = PMA_Response::getInstance();
+    $header = $response->getHeader();
     $header->setTitle(__('Access denied'));
     $header->disableMenu();
     $header->display();
@@ -90,7 +91,7 @@ function PMA_auth_fails()
         <td>
 
     <?php
-    PMA_Header::getInstance()->isHeaderSent = true;
+    PMA_Header::$headerIsSent = true;
 
     if (isset($GLOBALS['allowDeny_forbidden']) && $GLOBALS['allowDeny_forbidden']) {
         trigger_error(__('Access denied'), E_USER_NOTICE);

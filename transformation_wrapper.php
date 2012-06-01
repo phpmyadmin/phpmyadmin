@@ -85,7 +85,8 @@ if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
 }
 
 // Only output the http headers
-PMA_Header::getInstance()->sendHttpHeaders();
+$response = PMA_Response::getInstance();
+$response->getHeader()->sendHttpHeaders();
 
 // [MIME]
 if (isset($ct) && !empty($ct)) {

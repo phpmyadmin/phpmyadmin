@@ -77,7 +77,8 @@ if (isset($mode)) {
     }
 }
 
-$header = PMA_Header::getInstance();
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
 $header->disableMenu();
 $header->display();
 

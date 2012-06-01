@@ -15,7 +15,9 @@ require_once 'libraries/common.lib.php';
 /**
  * Include JavaScript libraries
  */
-$scripts = PMA_Header::getInstance()->getScripts();
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
 $scripts->addFile('jquery/timepicker.js');
 $scripts->addFile('rte/common.js');
 $scripts->addFile('rte/events.js');

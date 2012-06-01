@@ -13,7 +13,9 @@ require_once 'libraries/common.inc.php';
 /**
  * JS includes
  */
-$scripts = PMA_Header::getInstance()->getScripts();
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
 $scripts->addFile('jquery/jquery.cookie.js');
 $scripts->addFile('jquery/jquery.tablesorter.js');
 $scripts->addFile('server_plugins.js');

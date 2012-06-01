@@ -30,7 +30,8 @@ $err_url = 'main.php' . $url_query;
 /**
  * Displays headers
  */
-PMA_Header::getInstance()->display();
+$response = PMA_Response::getInstance();
+$response->getHeader()->display();
 
 /**
  * @global boolean Checks for superuser privileges
