@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-29 09:46+0200\n"
-"PO-Revision-Date: 2012-05-29 09:55+0200\n"
+"PO-Revision-Date: 2012-06-01 14:41+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -2884,12 +2884,16 @@ msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
 msgstr ""
+"Rok buď ve čtyřciferném (4, výchozí) nebo dvouciferném (2) formátu, povolené "
+"hodnoty jsou 70 (1970) až 69 (2069) nebo 1901 až 2155 a 0000"
 
 #: libraries/Types.class.php:323
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
 msgstr ""
+"Řetězec s pevnou délkou (0-255, výchozí je 1), který je vždy při ukládání "
+"zprava doplněn mezerami do požadované délky"
 
 #: libraries/Types.class.php:325 libraries/Types.class.php:723
 #, php-format
@@ -2897,6 +2901,8 @@ msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr ""
+"Řetězec s proměnlivou délkou (%s), skutečná maximální velikost může být "
+"ovlivněna maximální velikostí řádku"
 
 #: libraries/Types.class.php:327
 msgid ""
