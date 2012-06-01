@@ -298,8 +298,8 @@ class PMA_Header
     {
         $retval = '';
         if (! self::$headerIsSent) {
-            $this->sendHttpHeaders();
             if (! $this->_isAjax && $this->_isEnabled) {
+                $this->sendHttpHeaders();
                 $retval .= $this->_getHtmlStart();
                 $retval .= $this->_getMetaTags();
                 $retval .= $this->_getLinkTags();

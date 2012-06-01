@@ -324,7 +324,7 @@ class PMA_Error_Handler
             }
             //$this->errors = array_merge($_SESSION['errors'], $this->errors);
 
-            // delet stored errors
+            // delete stored errors
             $_SESSION['errors'] = array();
             unset($_SESSION['errors']);
         }
