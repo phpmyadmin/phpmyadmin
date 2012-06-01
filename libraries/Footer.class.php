@@ -144,6 +144,59 @@ class PMA_Footer
     }
 
     /**
+     * Renders the debug messages
+     *
+     * @return string
+     */
+    private function _getDebugMessage()
+    {
+        $retval = '';
+        if (! empty($_SESSION['debug'])) {
+            $sum_time = 0;
+            $sum_exec = 0;
+            foreach ($_SESSION['debug']['queries'] as $query) {
+                $sum_time += $query['count'] * $query['time'];
+                $sum_exec += $query['count'];
+            }
+
+            $retval .= '<div>';
+            $retval .= count($_SESSION['debug']['queries']) . ' queries executed ';
+            $retval .= $sum_exec . ' times in ' . $sum_time . ' seconds';
+            $retval .= '<pre>';
+
+            ob_start();
+            print_r($_SESSION['debug']);
+            $retval .= ob_end_clean();
+
+            $retval .= '</pre>';
+            $retval .= '</div>';
+            $_SESSION['debug'] = array();
+        }
+        return $retval;
+    }
+
+    /**
+     * Renders the link to open a new page
+     *
+     * @return string
+     */
+    private function _getSelfLink($url_params)
+    {
+        $retval = '';
+        $retval .= '<div id="selflink" class="print_ignore">';
+        $retval .= '<a href="index.php' . PMA_generate_common_url($url_params) . '"'
+            . ' title="' . __('Open new phpMyAdmin window') . '" target="_blank">';
+        if ($GLOBALS['cfg']['NavigationBarIconic']) {
+            $retval .= PMA_getImage('window-new.png', __('Open new phpMyAdmin window'));
+        } else {
+            $retval .=  __('Open new phpMyAdmin window');
+        }
+        $retval .= '</a>';
+        $retval .= '</div>';
+        return $retval;
+    }
+
+    /**
      * Returns the singleton PMA_Footer object
      *
      * @return PMA_Footer object
@@ -175,8 +228,6 @@ class PMA_Footer
     {
         $retval = '';
         if ($GLOBALS['is_ajax_request'] != true) {
-            $retval .= $this->_footnotes->getDisplay();
-
             // Link to itself to replicate windows including frameset
             if (! isset($GLOBALS['checked_special'])) {
                 $GLOBALS['checked_special'] = false;
@@ -191,19 +242,10 @@ class PMA_Footer
                     // of URL to allow direct bookmarking
                     setURLHash('" . PMA_generate_common_url($url_params, 'text', '') . "');
                 ");
-                $retval .= '<div id="selflink" class="print_ignore">';
-                $retval .= '<a href="index.php' . PMA_generate_common_url($url_params) . '"'
-                    . ' title="' . __('Open new phpMyAdmin window') . '" target="_blank">';
-                if ($GLOBALS['cfg']['NavigationBarIconic']) {
-                    $retval .= PMA_getImage('window-new.png', __('Open new phpMyAdmin window'));
-                }
-                if ($GLOBALS['cfg']['NavigationBarIconic'] !== true) {
-                    $retval .=  __('Open new phpMyAdmin window');
-                }
-                $retval .= '</a>';
-                $retval .= '</div>';
+                $retval .= $this->_getSelfLink($url_params);
             }
-
+            $retval .= $this->_getDebugMessage();
+            $retval .= $this->_footnotes->getDisplay();
             $retval .= $this->_scripts->getDisplay();
             // Include possible custom footers
             if (file_exists(CUSTOM_FOOTER_FILE)) {
@@ -215,6 +257,7 @@ class PMA_Footer
         }
         return $retval;
     }
+
     /**
      * Renders and displays the footer
      *
