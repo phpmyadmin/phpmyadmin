@@ -324,7 +324,7 @@ function PMA_getTableCount($db)
  *
  * @return integer $size
  */
-function PMA_get_real_size($size = 0)
+function PMA_getRealSize($size = 0)
 {
     if (! $size) {
         return 0;
@@ -347,13 +347,13 @@ function PMA_get_real_size($size = 0)
     }
 
     return $size;
-} // end function PMA_get_real_size()
+} // end function PMA_getRealSize()
 
 /**
  * merges array recursive like array_merge_recursive() but keyed-values are
  * always overwritten.
  *
- * array PMA_array_merge_recursive(array $array1[, array $array2[, array ...]])
+ * array PMA_arrayMergeRecursive(array $array1[, array $array2[, array ...]])
  *
  * @param array   array to merge
  * @param array   array to merge
@@ -364,7 +364,7 @@ function PMA_get_real_size($size = 0)
  * @see     http://php.net/array_merge
  * @see     http://php.net/array_merge_recursive
  */
-function PMA_array_merge_recursive()
+function PMA_arrayMergeRecursive()
 {
     switch(func_num_args()) {
     case 0 :
@@ -381,7 +381,7 @@ function PMA_array_merge_recursive()
         }
         foreach ($args[1] as $key2 => $value2) {
             if (isset($args[0][$key2]) && !is_int($key2)) {
-                $args[0][$key2] = PMA_array_merge_recursive(
+                $args[0][$key2] = PMA_arrayMergeRecursive(
                     $args[0][$key2], $value2
                 );
             } else {
@@ -401,9 +401,9 @@ function PMA_array_merge_recursive()
         break;
     default :
         $args = func_get_args();
-        $args[1] = PMA_array_merge_recursive($args[0], $args[1]);
+        $args[1] = PMA_arrayMergeRecursive($args[0], $args[1]);
         array_shift($args);
-        return call_user_func_array('PMA_array_merge_recursive', $args);
+        return call_user_func_array('PMA_arrayMergeRecursive', $args);
         break;
     }
 }
@@ -572,7 +572,7 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
  *
  * @return void
  */
-function PMA_no_cache_header()
+function PMA_noCacheHeader()
 {
     // rfc2616 - Section 14.21
     header('Expires: ' . date(DATE_RFC1123));
@@ -612,10 +612,10 @@ function PMA_no_cache_header()
  *
  * @return void
  */
-function PMA_download_header($filename, $mimetype, $length = 0, $no_cache = true)
+function PMA_downloadHeader($filename, $mimetype, $length = 0, $no_cache = true)
 {
     if ($no_cache) {
-        PMA_no_cache_header();
+        PMA_noCacheHeader();
     }
     /* Replace all possibly dangerous chars in filename */
     $filename = str_replace(array(';', '"', "\n", "\r"), '-', $filename);
@@ -642,7 +642,7 @@ function PMA_download_header($filename, $mimetype, $length = 0, $no_cache = true
  *
  * @return mixed    array element or $default
  */
-function PMA_array_read($path, $array, $default = null)
+function PMA_arrayRead($path, $array, $default = null)
 {
     $keys = explode('/', $path);
     $value =& $array;
@@ -664,7 +664,7 @@ function PMA_array_read($path, $array, $default = null)
  *
  * @return void
  */
-function PMA_array_write($path, &$array, $value)
+function PMA_arrayWrite($path, &$array, $value)
 {
     $keys = explode('/', $path);
     $last_key = array_pop($keys);
@@ -686,7 +686,7 @@ function PMA_array_write($path, &$array, $value)
  *
  * @return void
  */
-function PMA_array_remove($path, &$array)
+function PMA_arrayRemove($path, &$array)
 {
     $keys = explode('/', $path);
     $keys_last = array_pop($keys);

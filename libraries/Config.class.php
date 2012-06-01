@@ -560,7 +560,7 @@ class PMA_Config
         unset($cfg['Servers']);
 
         $this->default = $cfg;
-        $this->settings = PMA_array_merge_recursive($this->settings, $cfg);
+        $this->settings = PMA_arrayMergeRecursive($this->settings, $cfg);
 
         $this->error_config_default_file = false;
 
@@ -630,7 +630,7 @@ class PMA_Config
             );
         }
 
-        $this->settings = PMA_array_merge_recursive($this->settings, $cfg);
+        $this->settings = PMA_arrayMergeRecursive($this->settings, $cfg);
         $this->checkPmaAbsoluteUri();
         $this->checkFontsize();
 
@@ -716,8 +716,8 @@ class PMA_Config
         // backup some settings
         $org_fontsize = $this->settings['fontsize'];
         // load config array
-        $this->settings = PMA_array_merge_recursive($this->settings, $config_data);
-        $GLOBALS['cfg'] = PMA_array_merge_recursive($GLOBALS['cfg'], $config_data);
+        $this->settings = PMA_arrayMergeRecursive($this->settings, $config_data);
+        $GLOBALS['cfg'] = PMA_arrayMergeRecursive($GLOBALS['cfg'], $config_data);
         if (defined('PMA_MINIMUM_COMMON')) {
             return;
         }
@@ -829,19 +829,19 @@ class PMA_Config
         if ($prefs_type) {
             include_once './libraries/user_preferences.lib.php';
             if ($default_value === null) {
-                $default_value = PMA_array_read($cfg_path, $this->default);
+                $default_value = PMA_arrayRead($cfg_path, $this->default);
             }
             PMA_persist_option($cfg_path, $new_cfg_value, $default_value);
         }
         if ($prefs_type != 'db' && $cookie_name) {
             // fall back to cookies
             if ($default_value === null) {
-                $default_value = PMA_array_read($cfg_path, $this->settings);
+                $default_value = PMA_arrayRead($cfg_path, $this->settings);
             }
             $this->setCookie($cookie_name, $new_cfg_value, $default_value);
         }
-        PMA_array_write($cfg_path, $GLOBALS['cfg'], $new_cfg_value);
-        PMA_array_write($cfg_path, $this->settings, $new_cfg_value);
+        PMA_arrayWrite($cfg_path, $GLOBALS['cfg'], $new_cfg_value);
+        PMA_arrayWrite($cfg_path, $this->settings, $new_cfg_value);
     }
 
     /**
@@ -1268,10 +1268,10 @@ class PMA_Config
         if ($postsize = ini_get('post_max_size')) {
             $this->set(
                 'max_upload_size',
-                min(PMA_get_real_size($filesize), PMA_get_real_size($postsize))
+                min(PMA_getRealSize($filesize), PMA_getRealSize($postsize))
             );
         } else {
-            $this->set('max_upload_size', PMA_get_real_size($filesize));
+            $this->set('max_upload_size', PMA_getRealSize($filesize));
         }
     }
 

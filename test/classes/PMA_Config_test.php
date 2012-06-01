@@ -354,7 +354,7 @@ class PMA_ConfigTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals($loadedConf, $this->object->default);
 
-        $expectedSettings = PMA_array_merge_recursive(
+        $expectedSettings = PMA_arrayMergeRecursive(
             $this->object->settings,
             $loadedConf
         );
