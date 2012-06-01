@@ -572,7 +572,7 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
  *
  * @return void
  */
-function PMA_no_cache_header()
+function PMA_noCacheHeader()
 {
     // rfc2616 - Section 14.21
     header('Expires: ' . date(DATE_RFC1123));
@@ -615,7 +615,7 @@ function PMA_no_cache_header()
 function PMA_downloadHeader($filename, $mimetype, $length = 0, $no_cache = true)
 {
     if ($no_cache) {
-        PMA_no_cache_header();
+        PMA_noCacheHeader();
     }
     /* Replace all possibly dangerous chars in filename */
     $filename = str_replace(array(';', '"', "\n", "\r"), '-', $filename);
