@@ -130,7 +130,7 @@ function PMA_tbl_getSubTabs()
  * @param array  $foreignData         Foreign keys data
  * @param string $field               Column name
  * @param string $tbl_fields_type     Column type
- * @param int    $i                   Column index
+ * @param int    $column_index         Column index
  * @param string $db                  Selected database
  * @param string $table               Selected table
  * @param array  $titles              Selected title
@@ -143,7 +143,7 @@ function PMA_tbl_getSubTabs()
  * for search criteria input.
  */
 function PMA_getForeignFields_Values($foreigners, $foreignData, $field,
-    $tbl_fields_type, $i, $db, $table, $titles, $foreignMaxLimit, $fields,
+    $tbl_fields_type, $column_index, $db, $table, $titles, $foreignMaxLimit, $fields,
     $in_fbs = false, $in_zoom_search_edit = false
 ) {
     $str = '';
@@ -152,7 +152,8 @@ function PMA_getForeignFields_Values($foreigners, $foreignData, $field,
         && is_array($foreignData['disp_row'])
     ) {
         // f o r e i g n    k e y s
-        $str .=  '<select name="fields[' . $i . ']" id="fieldID_' . $i .'">';
+        $str .=  '<select name="fields[' . $column_index . ']" id="fieldID_'
+            . $column_index .'">';
         // go back to first row
         // here, the 4th parameter is empty because there is no current
         // value of data for the dropdown (the search page initial values
@@ -164,29 +165,30 @@ function PMA_getForeignFields_Values($foreigners, $foreignData, $field,
         $str .= '</select>';
 
     } elseif ($foreignData['foreign_link'] == true) {
-        if (isset($fields[$i]) && is_string($fields[$i])) {
-            $str .= '<input type="text" id="fieldID_' . $i . '"'
-                . ' name="fields[' . $i . ']" value="' . $fields[$i] . '"'
-                . ' id="field_' . md5($field) . '[' . $i .']" class="textfield" />';
+        if (isset($fields[$column_index]) && is_string($fields[$column_index])) {
+            $str .= '<input type="text" id="fieldID_' . $column_index . '"'
+                . ' name="fields[' . $column_index . ']" value="' 
+                . $fields[$column_index] . '" id="field_' . md5($field)
+                . '[' . $column_index .']" class="textfield" />';
         } else {
-            $str .= '<input type="text" id="fieldID_' . $i . '"'
-                . ' name="fields[' . $i . ']"'
-                . ' id="field_' . md5($field) . '[' . $i .']" class="textfield" />';
+            $str .= '<input type="text" id="fieldID_' . $column_index . '"'
+                . ' name="fields[' . $column_index . ']"'
+                . ' id="field_' . md5($field) . '[' . $column_index .']" class="textfield" />';
         }
         $str .=  <<<EOT
 <a target="_blank" onclick="window.open(this.href, 'foreigners', 'width=640,height=240,scrollbars=yes'); return false" href="browse_foreigners.php?
 EOT;
         $str .= '' . PMA_generate_common_url($db, $table)
-            . '&amp;field=' . urlencode($field) . '&amp;fieldkey=' . $i . '"';
+            . '&amp;field=' . urlencode($field) . '&amp;fieldkey=' . $column_index . '"';
         if ($in_zoom_search_edit) {
             $str .= ' class="browse_foreign"';
         }
         $str .= '>' . str_replace("'", "\'", $titles['Browse']) . '</a>';
 
-    } elseif (in_array($tbl_fields_type[$i], PMA_getGISDatatypes())) {
+    } elseif (in_array($tbl_fields_type[$column_index], PMA_getGISDatatypes())) {
         // g e o m e t r y
-        $str .= '<input type="text" name="fields[' . $i . ']"'
-            . ' size="40" class="textfield" id="field_' . $i . '" />';
+        $str .= '<input type="text" name="fields[' . $column_index . ']"'
+            . ' size="40" class="textfield" id="field_' . $column_index . '" />';
 
         if ($in_fbs) {
             $edit_url = 'gis_data_editor.php?' . PMA_generate_common_url();
@@ -198,8 +200,8 @@ EOT;
             $str .= '</span>';
         }
 
-    } elseif (strncasecmp($tbl_fields_type[$i], 'enum', 4) == 0
-        || (strncasecmp($tbl_fields_type[$i], 'set', 3) == 0 && $in_zoom_search_edit)
+    } elseif (strncasecmp($tbl_fields_type[$column_index], 'enum', 4) == 0
+        || (strncasecmp($tbl_fields_type[$column_index], 'set', 3) == 0 && $in_zoom_search_edit)
     ) {
         // e n u m s   a n d   s e t s
 
@@ -211,23 +213,25 @@ EOT;
 
         $value = explode(
             ', ',
-            str_replace("'", '', substr($tbl_fields_type[$i], 5, -1))
+            str_replace("'", '', substr($tbl_fields_type[$column_index], 5, -1))
         );
         $cnt_value = count($value);
 
-        if ((strncasecmp($tbl_fields_type[$i], 'enum', 4) && ! $in_zoom_search_edit)
-            || (strncasecmp($tbl_fields_type[$i], 'set', 3) && $in_zoom_search_edit)
+        if ((strncasecmp($tbl_fields_type[$column_index], 'enum', 4) && ! $in_zoom_search_edit)
+            || (strncasecmp($tbl_fields_type[$column_index], 'set', 3) && $in_zoom_search_edit)
         ) {
-            $str .= '<select name="fields[' . ($i) . '][]" id="fieldID_' . $i .'">';
+            $str .= '<select name="fields[' . ($column_index) . '][]" id="fieldID_'
+                . $column_index .'">';
         } else {
-            $str .= '<select name="fields[' . ($i) . '][]" id="fieldID_' . $i .'"'
-                . ' multiple="multiple" size="' . min(3, $cnt_value) . '">';
+            $str .= '<select name="fields[' . ($column_index) . '][]" id="fieldID_'
+                . $column_index .'" multiple="multiple" size="'
+                . min(3, $cnt_value) . '">';
         }
 
         for ($j = 0; $j < $cnt_value; $j++) {
-            if (isset($fields[$i])
-                && is_array($fields[$i])
-                && in_array($value[$j], $fields[$i])
+            if (isset($fields[$column_index])
+                && is_array($fields[$column_index])
+                && in_array($value[$j], $fields[$column_index])
             ) {
                 $str .= '<option value="' . $value[$j] . '" Selected>'
                     . $value[$j] . '</option>';
@@ -241,7 +245,7 @@ EOT;
     } else {
         // o t h e r   c a s e s
         $the_class = 'textfield';
-        $type = $tbl_fields_type[$i];
+        $type = $tbl_fields_type[$column_index];
 
         if ($type == 'date') {
             $the_class .= ' datefield';
@@ -251,14 +255,14 @@ EOT;
             $the_class .= ' bit';
         }
 
-        if (isset($fields[$i]) && is_string($fields[$i])) {
-            $str .= '<input type="text" name="fields[' . $i . ']"'
+        if (isset($fields[$column_index]) && is_string($fields[$column_index])) {
+            $str .= '<input type="text" name="fields[' . $column_index . ']"'
                 .' size="40" class="' . $the_class . '" id="fieldID_'
-                . $i .'" value = "' . $fields[$i] . '"/>';
+                . $column_index .'" value = "' . $fields[$column_index] . '"/>';
         } else {
-            $str .= '<input type="text" name="fields[' . $i . ']"'
+            $str .= '<input type="text" name="fields[' . $column_index . ']"'
                 .' size="40" class="' . $the_class . '" id="fieldID_'
-                . $i .'" />';
+                . $column_index .'" />';
         }
     }
     return $str;
@@ -469,14 +473,19 @@ function PMA_tblSearchGenerateWhereClause()
     // else continue to form the where clause from column criteria values
     $fullWhereClause = $charsets = array();
     reset($_POST['criteriaColumnOperators']);
-    while (list($i, $operator) = each($_POST['criteriaColumnOperators'])) {
-        list($charsets[$i]) = explode('_', $_POST['criteriaColumnCollations'][$i]);
+    while (list($column_index, $operator) = each($_POST['criteriaColumnOperators'])) {
+        list($charsets[$column_index]) = explode(
+            '_', $_POST['criteriaColumnCollations'][$column_index]
+        );
         $unaryFlag =  $GLOBALS['PMA_Types']->isUnaryOperator($operator);
-        $tmp_geom_func = isset($geom_func[$i]) ? $geom_func[$i] : null;
+        $tmp_geom_func = isset($geom_func[$column_index]) ? $geom_func[$column_index] : null;
 
         $whereClause = PMA_tbl_search_getWhereClause(
-            $_POST['fields'][$i], $_POST['criteriaColumnNames'][$i], $_POST['criteriaColumnTypes'][$i],
-            $_POST['criteriaColumnCollations'][$i], $operator, $unaryFlag, $tmp_geom_func
+            $_POST['fields'][$column_index],
+            $_POST['criteriaColumnNames'][$column_index],
+            $_POST['criteriaColumnTypes'][$column_index],
+            $_POST['criteriaColumnCollations'][$column_index], $operator, $unaryFlag,
+            $tmp_geom_func
         );
 
         if ($whereClause) {
@@ -634,7 +643,7 @@ function PMA_tblSearchGetFieldsTableHtml($db, $table, $columnNames, $columnTypes
     $geom_types = PMA_getGISDatatypes();
 
     // for every column present in table
-    for ($i = 0; $i < $columnCount; $i++) {
+    for ($column_index = 0; $column_index < $columnCount; $column_index++) {
         $html_output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
         $odd_row = !$odd_row;
 
@@ -642,40 +651,40 @@ function PMA_tblSearchGetFieldsTableHtml($db, $table, $columnNames, $columnTypes
          * If 'Function' column is present
          */
         $html_output .= PMA_tblSearchGetGeomFuncHtml(
-            $geomColumnFlag, $columnTypes, $geom_types, $i
+            $geomColumnFlag, $columnTypes, $geom_types, $column_index
         );
         /**
          * Displays column's name, type and collation
          */
-        $html_output .= '<th>' . htmlspecialchars($columnNames[$i]) . '</th>';
-        $html_output .= '<td>' . htmlspecialchars($columnTypes[$i]) . '</td>';
-        $html_output .= '<td>' . $columnCollations[$i] . '</td>';
+        $html_output .= '<th>' . htmlspecialchars($columnNames[$column_index]) . '</th>';
+        $html_output .= '<td>' . htmlspecialchars($columnTypes[$column_index]) . '</td>';
+        $html_output .= '<td>' . $columnCollations[$column_index] . '</td>';
         /**
          * Displays column's comparison operators depending on column type
          */
         $html_output .= '<td><select name="criteriaColumnOperators[]">';
         $html_output .= $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
-            preg_replace('@\(.*@s', '', $columnTypes[$i]),
-            $columnNullFlags[$i]
+            preg_replace('@\(.*@s', '', $columnTypes[$column_index]),
+            $columnNullFlags[$column_index]
         );
         $html_output .= '</select></td>';
         /**
          * Displays column's foreign relations if any
          */
         $html_output .= '<td>';
-        $field = $columnNames[$i];
+        $field = $columnNames[$column_index];
         $foreignData = PMA_getForeignData($foreigners, $field, false, '', '');
         $html_output .= PMA_getForeignFields_Values(
-            $foreigners, $foreignData, $field, $columnTypes, $i, $db, $table,
+            $foreigners, $foreignData, $field, $columnTypes, $column_index, $db, $table,
             $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], '', true
         );
 
-        $html_output .= '<input type="hidden" name="criteriaColumnNames[' . $i . ']" value="'
-            . htmlspecialchars($columnNames[$i]) . '" />'
-            . '<input type="hidden" name="criteriaColumnTypes[' . $i . ']" value="'
-            . $columnTypes[$i] . '" />'
-            . '<input type="hidden" name="criteriaColumnCollations[' . $i . ']" value="'
-            . $columnCollations[$i] . '" /></td></tr>';
+        $html_output .= '<input type="hidden" name="criteriaColumnNames[' . $column_index . ']" value="'
+            . htmlspecialchars($columnNames[$column_index]) . '" />'
+            . '<input type="hidden" name="criteriaColumnTypes[' . $column_index . ']" value="'
+            . $columnTypes[$column_index] . '" />'
+            . '<input type="hidden" name="criteriaColumnCollations[' . $column_index . ']" value="'
+            . $columnCollations[$column_index] . '" /></td></tr>';
     } // end for
 
     $html_output .= '</tbody></table>';
