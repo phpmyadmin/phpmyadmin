@@ -324,7 +324,7 @@ function PMA_getTableCount($db)
  *
  * @return integer $size
  */
-function PMA_get_real_size($size = 0)
+function PMA_getRealSize($size = 0)
 {
     if (! $size) {
         return 0;
@@ -347,7 +347,7 @@ function PMA_get_real_size($size = 0)
     }
 
     return $size;
-} // end function PMA_get_real_size()
+} // end function PMA_getRealSize()
 
 /**
  * merges array recursive like array_merge_recursive() but keyed-values are

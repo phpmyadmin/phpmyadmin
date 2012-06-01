@@ -1268,10 +1268,10 @@ class PMA_Config
         if ($postsize = ini_get('post_max_size')) {
             $this->set(
                 'max_upload_size',
-                min(PMA_get_real_size($filesize), PMA_get_real_size($postsize))
+                min(PMA_getRealSize($filesize), PMA_getRealSize($postsize))
             );
         } else {
-            $this->set('max_upload_size', PMA_get_real_size($filesize));
+            $this->set('max_upload_size', PMA_getRealSize($filesize));
         }
     }
 
