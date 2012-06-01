@@ -346,33 +346,7 @@ if (isset($zoom_submit)
     /*
      * Query generation part
      */
-    $w = $data = array();
-    $sql_query = 'SELECT *';
-
-    //Add the table
-    $sql_query .= ' FROM ' . PMA_backquote($table);
-    for ($i = 0; $i < 4; $i++) {
-        if ($criteriaColumnNames[$i] == 'pma_null') {
-            continue;
-        }
-        $tmp = array();
-        // The where clause
-        $charsets = array();
-        $cnt_func = count($criteriaColumnOperators[$i]);
-        $func_type = $criteriaColumnOperators[$i];
-        list($charsets[$i]) = explode('_', $criteriaColumnCollations[$i]);
-        $unaryFlag = $GLOBALS['PMA_Types']->isUnaryOperator($func_type);
-        $whereClause = PMA_tbl_search_getWhereClause(
-            $criteriaValues[$i], $criteriaColumnNames[$i], $criteriaColumnTypes[$i],
-            $criteriaColumnCollations[$i], $func_type, $unaryFlag
-        );
-        if ($whereClause) {
-            $w[] = $whereClause;
-        }
-    } // end for
-    if ($w) {
-        $sql_query .= ' WHERE ' . implode(' AND ', $w);
-    }
+    $sql_query = PMA_tblSearchBuildSqlQuery();
     $sql_query .= ' LIMIT ' . $maxPlotLimit;
 
     /*

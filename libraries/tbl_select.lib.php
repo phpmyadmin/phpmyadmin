@@ -437,7 +437,9 @@ function PMA_tblSearchBuildSqlQuery()
     // if all column names were selected to display, we do a 'SELECT *'
     // (more efficient and this helps prevent a problem in IE
     // if one of the rows is edited and we come back to the Select results)
-    if (count($_POST['columnsToDisplay']) == count($_POST['criteriaColumnNames'])) {
+    if (count($_POST['columnsToDisplay']) == count($_POST['criteriaColumnNames'])
+        || isset($_POST['zoom_submit'])
+    ) {
         $sql_query .= '* ';
     } else {
         $sql_query .= implode(', ', PMA_backquote($_POST['columnsToDisplay']));
@@ -448,7 +450,7 @@ function PMA_tblSearchBuildSqlQuery()
     $sql_query .= $whereClause;
  
     // if the search results are to be ordered
-    if ($_POST['orderByColumn'] != '--nil--') {
+    if (isset($_POST['orderByColumn']) && $_POST['orderByColumn'] != '--nil--') {
         $sql_query .= ' ORDER BY ' . PMA_backquote($_POST['orderByColumn'])
             . ' ' . $_POST['order'];
     } // end if
