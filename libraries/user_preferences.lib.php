@@ -159,7 +159,7 @@ function PMA_apply_userprefs(array $config_data)
         if (! isset($whitelist[$path]) || isset($blacklist[$path])) {
             continue;
         }
-        PMA_array_write($path, $cfg, $value);
+        PMA_arrayWrite($path, $cfg, $value);
     }
     return $cfg;
 }

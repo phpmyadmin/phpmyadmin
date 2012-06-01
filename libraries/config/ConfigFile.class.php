@@ -91,7 +91,7 @@ class ConfigFile
         // apply default values overrides
         if (count($cfg_db['_overrides'])) {
             foreach ($cfg_db['_overrides'] as $path => $value) {
-                PMA_array_write($path, $cfg, $value);
+                PMA_arrayWrite($path, $cfg, $value);
             }
         }
 
@@ -244,7 +244,7 @@ class ConfigFile
                 return;
             }
         }
-        PMA_array_write($path, $_SESSION[$this->_id], $value);
+        PMA_arrayWrite($path, $_SESSION[$this->_id], $value);
     }
 
     /**
@@ -511,7 +511,7 @@ class ConfigFile
     {
         $c = $_SESSION[$this->_id];
         foreach ($this->_cfgUpdateReadMapping as $map_to => $map_from) {
-            PMA_array_write($map_to, $c, PMA_array_read($map_from, $c));
+            PMA_arrayWrite($map_to, $c, PMA_array_read($map_from, $c));
             PMA_arrayRemove($map_from, $c);
         }
         return $c;

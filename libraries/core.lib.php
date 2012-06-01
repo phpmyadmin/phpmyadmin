@@ -664,7 +664,7 @@ function PMA_array_read($path, $array, $default = null)
  *
  * @return void
  */
-function PMA_array_write($path, &$array, $value)
+function PMA_arrayWrite($path, &$array, $value)
 {
     $keys = explode('/', $path);
     $last_key = array_pop($keys);

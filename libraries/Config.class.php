@@ -840,8 +840,8 @@ class PMA_Config
             }
             $this->setCookie($cookie_name, $new_cfg_value, $default_value);
         }
-        PMA_array_write($cfg_path, $GLOBALS['cfg'], $new_cfg_value);
-        PMA_array_write($cfg_path, $this->settings, $new_cfg_value);
+        PMA_arrayWrite($cfg_path, $GLOBALS['cfg'], $new_cfg_value);
+        PMA_arrayWrite($cfg_path, $this->settings, $new_cfg_value);
     }
 
     /**
