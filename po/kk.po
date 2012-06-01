@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-29 09:46+0200\n"
-"PO-Revision-Date: 2012-05-17 15:15+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-06-01 09:41+0200\n"
+"Last-Translator: Berikbol Zharylkassyn <berikbolbeko@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kk\n"
 "MIME-Version: 1.0\n"
@@ -294,9 +294,8 @@ msgid "Structure only"
 msgstr "Тек құрылымы ғана"
 
 #: db_operations.php:524 tbl_operations.php:562 tbl_tracking.php:484
-#, fuzzy
 msgid "Structure and data"
-msgstr "Құрылым және мәліметтер"
+msgstr "Құрылымы және мәліметтері"
 
 #: db_operations.php:525 tbl_operations.php:563 tbl_tracking.php:483
 msgid "Data only"
@@ -766,7 +765,7 @@ msgstr "Әрекет"
 
 #: db_tracking.php:96 js/messages.php:34
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "Кесте үшін мәліметтерді бақылауды тоқтату"
 
 #: db_tracking.php:118 tbl_tracking.php:667 tbl_tracking.php:725
 msgid "active"
