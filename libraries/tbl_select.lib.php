@@ -22,18 +22,18 @@ if (! defined('PHPMYADMIN')) {
 function PMA_tbl_getFields($db, $table)
 {
     // Gets the list and number of fields
-    $fields = PMA_DBI_get_columns($db, $table, null, true);
-    $fields_list = $fields_null = $fields_type = $fields_collation = array();
-    $geom_column_present = false;
+    $columns = PMA_DBI_get_columns($db, $table, null, true);
+    $columnNames = $columnNullFlags = $columnTypes = $columnCollations = array();
+    $geomColumnFlag = false;
     $geom_types = PMA_getGISDatatypes();
 
-    foreach ($fields as $key => $row) {
-        $fields_list[] = $row['Field'];
+    foreach ($columns as $key => $row) {
+        $columnNames[] = $row['Field'];
         $type          = $row['Type'];
 
         // check whether table contains geometric columns
         if (in_array($type, $geom_types)) {
-            $geom_column_present = true;
+            $geomColumnFlag = true;
         }
 
         // reformat mysql query output
@@ -55,35 +55,35 @@ function PMA_tbl_getFields($db, $table)
         if (empty($type)) {
             $type = '&nbsp;';
         }
-        $fields_null[] = $row['Null'];
-        $fields_type[] = $type;
-        $fields_collation[]
+        $columnNullFlags[] = $row['Null'];
+        $columnTypes[] = $type;
+        $columnCollations[]
             = ! empty($row['Collation']) && $row['Collation'] != 'NULL'
             ? $row['Collation']
             : '';
     } // end while
 
     return array(
-         $fields_list,
-         $fields_type,
-         $fields_collation,
-         $fields_null,
-         $geom_column_present
+         $columnNames,
+         $columnTypes,
+         $columnCollations,
+         $columnNullFlags,
+         $geomColumnFlag
     );
 }
 
 /**
  * Sets the table header for displaying a table in query-by-example format.
  *
- * @param bool $geom_column_present whether a geometry column is present
+ * @param bool $geomColumnFlag whether a geometry column is present
  *
  * @return HTML content, the tags and content for table header
  */
-function PMA_tbl_setTableHeader($geom_column_present = false)
+function PMA_tbl_setTableHeader($geomColumnFlag = false)
 {
     // Display the Function column only if there is alteast one geomety colum
     $func = '';
-    if ($geom_column_present) {
+    if ($geomColumnFlag) {
         $func = '<th>' . __('Function') . '</th>';
     }
 
@@ -135,7 +135,7 @@ function PMA_tbl_getSubTabs()
  * @param string $table               Selected table
  * @param array  $titles              Selected title
  * @param int    $foreignMaxLimit     Max limit of displaying foreign elements
- * @param array  $fields              Array of search criteria inputs
+ * @param array  $criteriaValues      Array of search criteria inputs
  * @param bool   $in_fbs              Whether we are in 'function based search'
  * @param bool   $in_zoom_search_edit Whether we are in zoom search edit
  *
@@ -143,8 +143,8 @@ function PMA_tbl_getSubTabs()
  * for search criteria input.
  */
 function PMA_getForeignFields_Values($foreigners, $foreignData, $field,
-    $tbl_fields_type, $column_index, $db, $table, $titles, $foreignMaxLimit, $fields,
-    $in_fbs = false, $in_zoom_search_edit = false
+    $tbl_fields_type, $column_index, $db, $table, $titles, $foreignMaxLimit,
+    $criteriaValues, $in_fbs = false, $in_zoom_search_edit = false
 ) {
     $str = '';
     if ($foreigners
@@ -152,7 +152,7 @@ function PMA_getForeignFields_Values($foreigners, $foreignData, $field,
         && is_array($foreignData['disp_row'])
     ) {
         // f o r e i g n    k e y s
-        $str .=  '<select name="fields[' . $column_index . ']" id="fieldID_'
+        $str .=  '<select name="criteriaValues[' . $column_index . ']" id="fieldID_'
             . $column_index .'">';
         // go back to first row
         // here, the 4th parameter is empty because there is no current
@@ -165,14 +165,16 @@ function PMA_getForeignFields_Values($foreigners, $foreignData, $field,
         $str .= '</select>';
 
     } elseif ($foreignData['foreign_link'] == true) {
-        if (isset($fields[$column_index]) && is_string($fields[$column_index])) {
+        if (isset($criteriaValues[$column_index])
+            && is_string($criteriaValues[$column_index])
+        ) {
             $str .= '<input type="text" id="fieldID_' . $column_index . '"'
-                . ' name="fields[' . $column_index . ']" value="' 
-                . $fields[$column_index] . '" id="field_' . md5($field)
+                . ' name="criteriaValues[' . $column_index . ']" value="' 
+                . $criteriaValues[$column_index] . '" id="field_' . md5($field)
                 . '[' . $column_index .']" class="textfield" />';
         } else {
             $str .= '<input type="text" id="fieldID_' . $column_index . '"'
-                . ' name="fields[' . $column_index . ']"'
+                . ' name="criteriaValues[' . $column_index . ']"'
                 . ' id="field_' . md5($field) . '[' . $column_index .']" class="textfield" />';
         }
         $str .=  <<<EOT
@@ -187,7 +189,7 @@ EOT;
 
     } elseif (in_array($tbl_fields_type[$column_index], PMA_getGISDatatypes())) {
         // g e o m e t r y
-        $str .= '<input type="text" name="fields[' . $column_index . ']"'
+        $str .= '<input type="text" name="criteriaValues[' . $column_index . ']"'
             . ' size="40" class="textfield" id="field_' . $column_index . '" />';
 
         if ($in_fbs) {
@@ -220,18 +222,18 @@ EOT;
         if ((strncasecmp($tbl_fields_type[$column_index], 'enum', 4) && ! $in_zoom_search_edit)
             || (strncasecmp($tbl_fields_type[$column_index], 'set', 3) && $in_zoom_search_edit)
         ) {
-            $str .= '<select name="fields[' . ($column_index) . '][]" id="fieldID_'
+            $str .= '<select name="criteriaValues[' . ($column_index) . '][]" id="fieldID_'
                 . $column_index .'">';
         } else {
-            $str .= '<select name="fields[' . ($column_index) . '][]" id="fieldID_'
+            $str .= '<select name="criteriaValues[' . ($column_index) . '][]" id="fieldID_'
                 . $column_index .'" multiple="multiple" size="'
                 . min(3, $cnt_value) . '">';
         }
 
         for ($j = 0; $j < $cnt_value; $j++) {
-            if (isset($fields[$column_index])
-                && is_array($fields[$column_index])
-                && in_array($value[$j], $fields[$column_index])
+            if (isset($criteriaValues[$column_index])
+                && is_array($criteriaValues[$column_index])
+                && in_array($value[$j], $criteriaValues[$column_index])
             ) {
                 $str .= '<option value="' . $value[$j] . '" Selected>'
                     . $value[$j] . '</option>';
@@ -255,12 +257,14 @@ EOT;
             $the_class .= ' bit';
         }
 
-        if (isset($fields[$column_index]) && is_string($fields[$column_index])) {
-            $str .= '<input type="text" name="fields[' . $column_index . ']"'
+        if (isset($criteriaValues[$column_index])
+            && is_string($criteriaValues[$column_index])
+        ) {
+            $str .= '<input type="text" name="criteriaValues[' . $column_index . ']"'
                 .' size="40" class="' . $the_class . '" id="fieldID_'
-                . $column_index .'" value = "' . $fields[$column_index] . '"/>';
+                . $column_index .'" value = "' . $criteriaValues[$column_index] . '"/>';
         } else {
-            $str .= '<input type="text" name="fields[' . $column_index . ']"'
+            $str .= '<input type="text" name="criteriaValues[' . $column_index . ']"'
                 .' size="40" class="' . $the_class . '" id="fieldID_'
                 . $column_index .'" />';
         }
@@ -271,18 +275,18 @@ EOT;
 /**
  * Return the where clause for query generation based on the inputs provided.
  *
- * @param mixed  $fields     Search criteria input
- * @param string $names      Name of the column on which search is submitted
- * @param string $types      Type of the field
- * @param string $collations Field collation
- * @param string $func_type  Search fucntion/operator
- * @param bool   $unaryFlag  Whether operator unary or not
- * @param bool   $geom_func  Whether geometry functions should be applied
+ * @param mixed  $criteriaValues Search criteria input
+ * @param string $names          Name of the column on which search is submitted
+ * @param string $types          Type of the field
+ * @param string $collations     Field collation
+ * @param string $func_type      Search fucntion/operator
+ * @param bool   $unaryFlag      Whether operator unary or not
+ * @param bool   $geom_func      Whether geometry functions should be applied
  *
  * @return string HTML content for viewing foreing data and elements
  * for search criteria input.
  */
-function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations,
+function PMA_tbl_search_getWhereClause($criteriaValues, $names, $types, $collations,
     $func_type, $unaryFlag, $geom_func = null
 ) {
     /**
@@ -307,7 +311,7 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations,
         } else {
             // If the function takes two parameters
             // create gis data from the string
-            $gis_data = PMA_createGISData($fields);
+            $gis_data = PMA_createGISData($criteriaValues);
 
             $w = $geom_func . '(' . PMA_backquote($names) . ',' . $gis_data . ')';
             return $w;
@@ -317,7 +321,7 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations,
         $types = $geom_funcs[$geom_func]['type'];
 
         // If the where clause is something like 'IsEmpty(`spatial_col_name`)'
-        if (isset($geom_unary_functions[$geom_func]) && trim($fields) == '') {
+        if (isset($geom_unary_functions[$geom_func]) && trim($criteriaValues) == '') {
             $w = $backquoted_name;
             return $w;
         }
@@ -326,20 +330,20 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations,
     }
 
     if ($unaryFlag) {
-        $fields = '';
+        $criteriaValues = '';
         $w = $backquoted_name . ' ' . $func_type;
 
-    } elseif (in_array($types, PMA_getGISDatatypes()) && ! empty($fields)) {
+    } elseif (in_array($types, PMA_getGISDatatypes()) && ! empty($criteriaValues)) {
         // create gis data from the string
-        $gis_data = PMA_createGISData($fields);
+        $gis_data = PMA_createGISData($criteriaValues);
         $w = $backquoted_name . ' ' . $func_type . ' ' . $gis_data;
 
     } elseif (strncasecmp($types, 'enum', 4) == 0) {
-        if (! empty($fields)) {
-            if (! is_array($fields)) {
-                $fields = explode(',', $fields);
+        if (! empty($criteriaValues)) {
+            if (! is_array($criteriaValues)) {
+                $criteriaValues = explode(',', $criteriaValues);
             }
-            $enum_selected_count = count($fields);
+            $enum_selected_count = count($criteriaValues);
             if ($func_type == '=' && $enum_selected_count > 1) {
                 $func_type    = 'IN';
                 $parens_open  = '(';
@@ -354,16 +358,16 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations,
                 $parens_open  = '';
                 $parens_close = '';
             }
-            $enum_where = '\'' . PMA_sqlAddslashes($fields[0]) . '\'';
+            $enum_where = '\'' . PMA_sqlAddslashes($criteriaValues[0]) . '\'';
             for ($e = 1; $e < $enum_selected_count; $e++) {
-                $enum_where .= ', \'' . PMA_sqlAddslashes($fields[$e]) . '\'';
+                $enum_where .= ', \'' . PMA_sqlAddslashes($criteriaValues[$e]) . '\'';
             }
 
             $w = $backquoted_name . ' ' . $func_type . ' ' . $parens_open
                 . $enum_where . $parens_close;
         }
 
-    } elseif ($fields != '') {
+    } elseif ($criteriaValues != '') {
         // For these types we quote the value. Even if it's another type (like INT),
         // for a LIKE we always quote the value. MySQL converts strings to numbers
         // and numbers to strings as necessary during the comparison
@@ -378,11 +382,11 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations,
         // LIKE %...%
         if ($func_type == 'LIKE %...%') {
             $func_type = 'LIKE';
-            $fields = '%' . $fields . '%';
+            $criteriaValues = '%' . $criteriaValues . '%';
         }
         if ($func_type == 'REGEXP ^...$') {
             $func_type = 'REGEXP';
-            $fields = '^' . $fields . '$';
+            $criteriaValues = '^' . $criteriaValues . '$';
         }
 
         if ($func_type == 'IN (...)'
@@ -393,7 +397,7 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations,
             $func_type = str_replace(' (...)', '', $func_type);
 
             // quote values one by one
-            $values = explode(',', $fields);
+            $values = explode(',', $criteriaValues);
             foreach ($values as &$value) {
                 $value = $quot . PMA_sqlAddslashes(trim($value)) . $quot;
             }
@@ -408,7 +412,7 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations,
             }
         } else {
             $w = $backquoted_name . ' ' . $func_type . ' '
-                . $quot . PMA_sqlAddslashes($fields) . $quot;;
+                . $quot . PMA_sqlAddslashes($criteriaValues) . $quot;;
         }
     } // end if
 
@@ -466,7 +470,7 @@ function PMA_tblSearchGenerateWhereClause()
     }
 
     // If there are no search criterias set, return
-    if (! array_filter($_POST['fields'])) {
+    if (! array_filter($_POST['criteriaValues'])) {
         return $fullWhereClause;
     }
 
@@ -481,7 +485,7 @@ function PMA_tblSearchGenerateWhereClause()
         $tmp_geom_func = isset($geom_func[$column_index]) ? $geom_func[$column_index] : null;
 
         $whereClause = PMA_tbl_search_getWhereClause(
-            $_POST['fields'][$column_index],
+            $_POST['criteriaValues'][$column_index],
             $_POST['criteriaColumnNames'][$column_index],
             $_POST['criteriaColumnTypes'][$column_index],
             $_POST['criteriaColumnCollations'][$column_index], $operator, $unaryFlag,

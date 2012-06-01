@@ -40,15 +40,15 @@ $GLOBALS['js_include'][] = 'tbl_zoom_plot_jqplot.js';
  * Sets globals from $_POST
  */
 $post_params = array(
-    'collations',
+    'criteriaColumnCollations',
     'dataLabel',
-    'fields',
-    'fields_null',
-    'inputs',
+    'criteriaValues',
+    'criteriaColumnNullFlags',
+    'criteriaColumnNames',
     'maxPlotLimit',
-    'types',
+    'criteriaColumnTypes',
     'zoom_submit',
-    'zoomFunc'
+    'criteriaColumnOperators'
 );
 foreach ($post_params as $one_post_param) {
     if (isset($_POST[$one_post_param])) {
@@ -99,20 +99,20 @@ if (isset($_REQUEST['change_tbl_info']) && $_REQUEST['change_tbl_info'] == true)
 
 
     // Gets the list and number of fields
-    list($fields_list, $fields_type, $fields_collation, $fields_null)
+    list($columnNames, $columnTypes, $columnCollations, $columnNullFlags)
         = PMA_tbl_getFields($_REQUEST['db'], $_REQUEST['table']);
 
     $foreigners = PMA_getForeigners($db, $table);
     $titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
-    $key = array_search($field, $fields_list);
-    $extra_data['field_type'] = $fields_type[$key];
-    $extra_data['field_collation'] = $fields_collation[$key];
+    $key = array_search($field, $columnNames);
+    $extra_data['field_type'] = $columnTypes[$key];
+    $extra_data['field_collation'] = $columnCollations[$key];
 
     // HTML for operators
-    $html = '<select name="zoomFunc[]">';
+    $html = '<select name="criteriaColumnOperators[]">';
     $html .= $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
-        preg_replace('@\(.*@s', '', $fields_type[$key]),
-        $fields_null[$key]
+        preg_replace('@\(.*@s', '', $columnTypes[$key]),
+        $columnNullFlags[$key]
     );
     $html .= '</select>';
     $extra_data['field_operators'] = $html;
@@ -127,7 +127,7 @@ if (isset($_REQUEST['change_tbl_info']) && $_REQUEST['change_tbl_info'] == true)
         $foreigners,
         $foreignData,
         $field,
-        array($_REQUEST['it'] => $fields_type[$key]),
+        array($_REQUEST['it'] => $columnTypes[$key]),
         $_REQUEST['it'],
         $_REQUEST['db'],
         $_REQUEST['table'],
@@ -161,17 +161,17 @@ $err_url   = $goto . '?' . PMA_generate_common_url($db, $table);
 
 // Gets the list and number of fields
 
-list($fields_list, $fields_type, $fields_collation, $fields_null)
+list($columnNames, $columnTypes, $columnCollations, $columnNullFlags)
     = PMA_tbl_getFields($db, $table);
-$fields_cnt = count($fields_list);
+$columnCount = count($columnNames);
 
 // retrieve keys into foreign fields, if any
 // check also foreigners even if relwork is FALSE (to get
 // foreign keys from innodb)
 $foreigners = PMA_getForeigners($db, $table);
-$tbl_fields_type = $tbl_fields_collation = $tbl_fields_null = array();
+$tbl_fields_type = $tbl_fields_collation = $tbl_criteriaColumnNullFlags = array();
 
-if (! isset($zoom_submit) && ! isset($inputs)) {
+if (! isset($zoom_submit) && ! isset($criteriaColumnNames)) {
     $dataLabel = PMA_getDisplayField($db, $table);
 }
 ?>
@@ -186,30 +186,30 @@ echo PMA_generateHtmlTabs(PMA_tbl_getSubTabs(), $url_params, 'topmenu2');
 /**
  *  Set the field name,type,collation and whether null on select of a coulmn
  */
-if (isset($inputs) && ($inputs[0] != 'pma_null' || $inputs[1] != 'pma_null')) {
+if (isset($criteriaColumnNames) && ($criteriaColumnNames[0] != 'pma_null' || $criteriaColumnNames[1] != 'pma_null')) {
     for ($i = 0 ; $i < 4 ; $i++) {
-        if ($inputs[$i] != 'pma_null') {
-            $key = array_search($inputs[$i], $fields_list);
-            $tbl_fields_type[$i] = $fields_type[$key];
-            $tbl_fields_collation[$i] = $fields_collation[$key];
-            $tbl_fields_func[$i] = '<select name="zoomFunc[]">';
+        if ($criteriaColumnNames[$i] != 'pma_null') {
+            $key = array_search($criteriaColumnNames[$i], $columnNames);
+            $tbl_fields_type[$i] = $columnTypes[$key];
+            $tbl_fields_collation[$i] = $columnCollations[$key];
+            $tbl_fields_func[$i] = '<select name="criteriaColumnOperators[]">';
             $tbl_fields_func[$i] .= $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
-                preg_replace('@\(.*@s', '', $fields_type[$key]),
-                $fields_null[$key], $zoomFunc[$i]
+                preg_replace('@\(.*@s', '', $columnTypes[$key]),
+                $columnNullFlags[$key], $criteriaColumnOperators[$i]
             );
             $tbl_fields_func[$i] .= '</select>';
-            $foreignData = PMA_getForeignData($foreigners, $inputs[$i], false, '', '');
+            $foreignData = PMA_getForeignData($foreigners, $criteriaColumnNames[$i], false, '', '');
             $tbl_fields_value[$i] =  PMA_getForeignFields_Values(
                 $foreigners,
                 $foreignData,
-                $inputs[$i],
+                $criteriaColumnNames[$i],
                 $tbl_fields_type,
                 $i,
                 $db,
                 $table,
                 $titles,
                 $GLOBALS['cfg']['ForeignKeyMaxLimit'],
-                $fields
+                $criteriaValues
             );
         }
     }
@@ -243,17 +243,17 @@ for ($i = 0; $i < 4; $i++) {
     }
     ?>
     <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
-        <th><select name="inputs[]" id="<?php echo 'tableid_' . $i; ?>" >
+        <th><select name="criteriaColumnNames[]" id="<?php echo 'tableid_' . $i; ?>" >
         <option value="<?php echo 'pma_null'; ?>"><?php echo __('None');  ?></option>
     <?php
-    for ($j = 0 ; $j < $fields_cnt ; $j++) {
-        if (isset($inputs[$i]) && $inputs[$i] == htmlspecialchars($fields_list[$j])) {?>
-            <option value="<?php echo htmlspecialchars($fields_list[$j]);?>" selected="selected">
-                <?php echo htmlspecialchars($fields_list[$j]);?></option>
+    for ($j = 0 ; $j < $columnCount ; $j++) {
+        if (isset($criteriaColumnNames[$i]) && $criteriaColumnNames[$i] == htmlspecialchars($columnNames[$j])) {?>
+            <option value="<?php echo htmlspecialchars($columnNames[$j]);?>" selected="selected">
+                <?php echo htmlspecialchars($columnNames[$j]);?></option>
         <?php
         } else { ?>
-            <option value="<?php echo htmlspecialchars($fields_list[$j]);?>">
-                <?php echo htmlspecialchars($fields_list[$j]);?></option>
+            <option value="<?php echo htmlspecialchars($columnNames[$j]);?>">
+                <?php echo htmlspecialchars($columnNames[$j]);?></option>
         <?php
         }
     } ?>
@@ -264,13 +264,13 @@ for ($i = 0; $i < 4; $i++) {
         <td><?php if (isset($tbl_fields_value[$i])) echo $tbl_fields_value[$i]; ?></td>
     </tr>
     <tr><td>
-    <input type="hidden" name="types[<?php echo $i; ?>]" id="types_<?php echo $i; ?>"
+    <input type="hidden" name="criteriaColumnTypes[<?php echo $i; ?>]" id="types_<?php echo $i; ?>"
     <?php
-    if (isset($_POST['types'][$i])) {
-        echo 'value="' . $_POST['types'][$i] . '"';
+    if (isset($_POST['criteriaColumnTypes'][$i])) {
+        echo 'value="' . $_POST['criteriaColumnTypes'][$i] . '"';
     }
     ?> />
-      <input type="hidden" name="collations[<?php echo $i;?>]" id="collations_<?php echo $i; ?>" />
+      <input type="hidden" name="criteriaColumnCollations[<?php echo $i;?>]" id="collations_<?php echo $i; ?>" />
     </td></tr>
     <?php
 }//end for
@@ -284,7 +284,7 @@ for ($i = 0; $i < 4; $i++) {
  */
 
 //Set default datalabel if not selected
-if (isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null') {
+if (isset($zoom_submit) && $criteriaColumnNames[0] != 'pma_null' && $criteriaColumnNames[1] != 'pma_null') {
     if ($dataLabel == '') {
         $dataLabel = PMA_getDisplayField($db, $table);
     }
@@ -295,16 +295,16 @@ if (isset($zoom_submit) && $inputs[0] != 'pma_null' && $inputs[1] != 'pma_null')
     <td><select name="dataLabel" id='dataLabel' >
         <option value = ''> <?php echo __('None');  ?> </option>
 <?php
-for ($j = 0; $j < $fields_cnt; $j++) {
-    if (isset($dataLabel) && $dataLabel == htmlspecialchars($fields_list[$j])) {
+for ($j = 0; $j < $columnCount; $j++) {
+    if (isset($dataLabel) && $dataLabel == htmlspecialchars($columnNames[$j])) {
         ?>
-        <option value="<?php echo htmlspecialchars($fields_list[$j]);?>" selected="selected">
-            <?php echo htmlspecialchars($fields_list[$j]);?></option>
+        <option value="<?php echo htmlspecialchars($columnNames[$j]);?>" selected="selected">
+            <?php echo htmlspecialchars($columnNames[$j]);?></option>
         <?php
     } else {
         ?>
-        <option value="<?php echo htmlspecialchars($fields_list[$j]);?>" >
-            <?php echo htmlspecialchars($fields_list[$j]);?></option>
+        <option value="<?php echo htmlspecialchars($columnNames[$j]);?>" >
+            <?php echo htmlspecialchars($columnNames[$j]);?></option>
         <?php
     }
 }
@@ -338,9 +338,9 @@ echo '" /></td></tr>';
  * Form for displaying query results
  */
 if (isset($zoom_submit)
-    && $inputs[0] != 'pma_null'
-    && $inputs[1] != 'pma_null'
-    && $inputs[0] != $inputs[1]
+    && $criteriaColumnNames[0] != 'pma_null'
+    && $criteriaColumnNames[1] != 'pma_null'
+    && $criteriaColumnNames[0] != $criteriaColumnNames[1]
 ) {
 
     /*
@@ -352,19 +352,19 @@ if (isset($zoom_submit)
     //Add the table
     $sql_query .= ' FROM ' . PMA_backquote($table);
     for ($i = 0; $i < 4; $i++) {
-        if ($inputs[$i] == 'pma_null') {
+        if ($criteriaColumnNames[$i] == 'pma_null') {
             continue;
         }
         $tmp = array();
         // The where clause
         $charsets = array();
-        $cnt_func = count($zoomFunc[$i]);
-        $func_type = $zoomFunc[$i];
-        list($charsets[$i]) = explode('_', $collations[$i]);
+        $cnt_func = count($criteriaColumnOperators[$i]);
+        $func_type = $criteriaColumnOperators[$i];
+        list($charsets[$i]) = explode('_', $criteriaColumnCollations[$i]);
         $unaryFlag = $GLOBALS['PMA_Types']->isUnaryOperator($func_type);
         $whereClause = PMA_tbl_search_getWhereClause(
-            $fields[$i], $inputs[$i], $types[$i],
-            $collations[$i], $func_type, $unaryFlag
+            $criteriaValues[$i], $criteriaColumnNames[$i], $criteriaColumnTypes[$i],
+            $criteriaColumnCollations[$i], $func_type, $unaryFlag
         );
         if ($whereClause) {
             $w[] = $whereClause;
@@ -389,28 +389,28 @@ if (isset($zoom_submit)
         }
         //Get unique conditon on each row (will be needed for row update)
         $uniqueCondition = PMA_getUniqueCondition(
-            $result, $fields_cnt, $fields_meta, $tmpRow, true
+            $result, $columnCount, $fields_meta, $tmpRow, true
         );
 
         //Append it to row array as where_clause
         $row['where_clause'] = $uniqueCondition[0];
-        if ($dataLabel == $inputs[0] || $dataLabel == $inputs[1]) {
+        if ($dataLabel == $criteriaColumnNames[0] || $dataLabel == $criteriaColumnNames[1]) {
             $data[] = array(
-                $inputs[0]     => $row[$inputs[0]],
-                $inputs[1]     => $row[$inputs[1]],
+                $criteriaColumnNames[0]     => $row[$criteriaColumnNames[0]],
+                $criteriaColumnNames[1]     => $row[$criteriaColumnNames[1]],
                 'where_clause' => $uniqueCondition[0]
             );
         } elseif ($dataLabel) {
             $data[] = array(
-                $inputs[0]     => $row[$inputs[0]],
-                $inputs[1]     => $row[$inputs[1]],
+                $criteriaColumnNames[0]     => $row[$criteriaColumnNames[0]],
+                $criteriaColumnNames[1]     => $row[$criteriaColumnNames[1]],
                 $dataLabel     => $row[$dataLabel],
                 'where_clause' => $uniqueCondition[0]
             );
         } else {
             $data[] = array(
-                $inputs[0]     => $row[$inputs[0]],
-                $inputs[1]     => $row[$inputs[1]],
+                $criteriaColumnNames[0]     => $row[$criteriaColumnNames[0]],
+                $criteriaColumnNames[1]     => $row[$criteriaColumnNames[1]],
                 $dataLabel     => '',
                 'where_clause' => $uniqueCondition[0]
             );
@@ -459,15 +459,15 @@ if (isset($zoom_submit)
           <tbody>
     <?php
     $odd_row = true;
-    for ($i = 4; $i < $fields_cnt + 4; $i++) {
-        $tbl_fields_type[$i] = $fields_type[$i - 4];
-        $fieldpopup = $fields_list[$i - 4];
+    for ($i = 4; $i < $columnCount + 4; $i++) {
+        $tbl_fields_type[$i] = $columnTypes[$i - 4];
+        $fieldpopup = $columnNames[$i - 4];
         $foreignData = PMA_getForeignData($foreigners, $fieldpopup, false, '', '');
         ?>
             <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
-              <th><?php echo htmlspecialchars($fields_list[$i - 4]); ?></th>
-              <th><?php echo ($fields_null[$i - 4] == 'YES')
-                  ? '<input type="checkbox" class="checkbox_null" name="fields_null[ '
+              <th><?php echo htmlspecialchars($columnNames[$i - 4]); ?></th>
+              <th><?php echo ($columnNullFlags[$i - 4] == 'YES')
+                  ? '<input type="checkbox" class="checkbox_null" name="criteriaColumnNullFlags[ '
                       . $i . ' ]" id="fields_null_id_' . $i . '" />'
                   : ''; ?>
               </th>
