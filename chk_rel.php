@@ -6,21 +6,11 @@
  * @package PhpMyAdmin
  */
 
-/**
- * Gets some core libraries
- */
 require_once 'libraries/common.inc.php';
-PMA_Header::getInstance()->display();
+$response = PMA_Response::getInstance();
+$response->addHTML(
+    PMA_getRelationsParamDiagnostic(PMA_getRelationsParam())
+);
+$response->response();
 
-
-/**
- * Gets the relation settings
- */
-$cfgRelation = PMA_getRelationsParam(true);
-
-
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
 ?>
