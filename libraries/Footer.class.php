@@ -290,12 +290,14 @@ class PMA_Footer
             $retval .= $this->_getDebugMessage();
             $retval .= $this->_footnotes->getDisplay();
             $retval .= $this->_getErrorMessages();
-            $retval .= $this->_scripts->getDisplay();
-            // Include possible custom footers
-            if (file_exists(CUSTOM_FOOTER_FILE)) {
-                ob_start();
-                include CUSTOM_FOOTER_FILE;
-                $retval .= ob_end_clean();
+            if (! $GLOBALS['is_ajax_request']) {
+                $retval .= $this->_scripts->getDisplay();
+                // Include possible custom footers
+                if (file_exists(CUSTOM_FOOTER_FILE)) {
+                    ob_start();
+                    include CUSTOM_FOOTER_FILE;
+                    $retval .= ob_end_clean();
+                }
             }
             $retval .= "</body></html>";
         }
@@ -310,6 +312,5 @@ class PMA_Footer
     public function display()
     {
         echo $this->getDisplay();
-        exit;
     }
 }

@@ -85,14 +85,9 @@ if (version_compare(phpversion(), '5.4', 'lt')) {
 define('PHPMYADMIN', true);
 
 /**
- * Used to generate the header of the page
+ * Used to generate the page
  */
-include_once 'libraries/Header.class.php';
-
-/**
- * Used to generate the header of the page
- */
-include_once 'libraries/Footer.class.php';
+include_once 'libraries/Response.class.php';
 
 /**
  * core functions

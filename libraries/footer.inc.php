@@ -19,5 +19,9 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-$footer = PMA_Footer::getInstance()->display();
+$footer = PMA_Response::getInstance()->getFooter();
+$footer->display();
+
+exit;
+
 ?>
