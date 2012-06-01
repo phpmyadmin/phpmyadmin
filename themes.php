@@ -10,17 +10,22 @@
  */
 require './libraries/common.inc.php';
 $response = PMA_Response::getInstance();
-$header   = $response->getHeader();
+$response->getFooter()->setMinimal();
+$header = $response->getHeader();
 $header->setBodyId('bodythemes');
 $header->setTitle('phpMyAdmin - ' . __('Theme'));
 $header->disableMenu();
-$header->display();
+
+$hash    = '#pma_' . preg_replace('/([0-9]*)\.([0-9]*)\..*/', '\1_\2', PMA_VERSION);
+$url     = PMA_linkURL('http://www.phpmyadmin.net/home_page/themes.php') . $hash;
+$output  = '<h1>phpMyAdmin - ' . __('Theme') . '</h1>';
+$output .= '<p>';
+$output .= '<a href="' . $url . '" class="_blank">';
+$output .= __('Get more themes!');
+$output .= '</a>';
+$output .= '</p>';
+$output .= $_SESSION['PMA_Theme_Manager']->getPrintPreviews();
+
+$response->addHTML($output);
 
 ?>
-<h1>phpMyAdmin - <?php echo __('Theme'); ?></h1>
-<p><a href="<?php echo PMA_linkURL('http://www.phpmyadmin.net/home_page/themes.php'); ?>#pma_<?php echo preg_replace('/([0-9]*)\.([0-9]*)\..*/', '\1_\2', PMA_VERSION); ?>" class="_blank"><?php echo __('Get more themes!'); ?></a></p>
-<?php
-$_SESSION['PMA_Theme_Manager']->printPreviews();
-?>
-</body>
-</html>
