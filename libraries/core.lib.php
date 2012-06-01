@@ -353,7 +353,7 @@ function PMA_get_real_size($size = 0)
  * merges array recursive like array_merge_recursive() but keyed-values are
  * always overwritten.
  *
- * array PMA_array_merge_recursive(array $array1[, array $array2[, array ...]])
+ * array PMA_arrayMergeRecursive(array $array1[, array $array2[, array ...]])
  *
  * @param array   array to merge
  * @param array   array to merge
@@ -364,7 +364,7 @@ function PMA_get_real_size($size = 0)
  * @see     http://php.net/array_merge
  * @see     http://php.net/array_merge_recursive
  */
-function PMA_array_merge_recursive()
+function PMA_arrayMergeRecursive()
 {
     switch(func_num_args()) {
     case 0 :
@@ -381,7 +381,7 @@ function PMA_array_merge_recursive()
         }
         foreach ($args[1] as $key2 => $value2) {
             if (isset($args[0][$key2]) && !is_int($key2)) {
-                $args[0][$key2] = PMA_array_merge_recursive(
+                $args[0][$key2] = PMA_arrayMergeRecursive(
                     $args[0][$key2], $value2
                 );
             } else {
@@ -401,9 +401,9 @@ function PMA_array_merge_recursive()
         break;
     default :
         $args = func_get_args();
-        $args[1] = PMA_array_merge_recursive($args[0], $args[1]);
+        $args[1] = PMA_arrayMergeRecursive($args[0], $args[1]);
         array_shift($args);
-        return call_user_func_array('PMA_array_merge_recursive', $args);
+        return call_user_func_array('PMA_arrayMergeRecursive', $args);
         break;
     }
 }

@@ -560,7 +560,7 @@ class PMA_Config
         unset($cfg['Servers']);
 
         $this->default = $cfg;
-        $this->settings = PMA_array_merge_recursive($this->settings, $cfg);
+        $this->settings = PMA_arrayMergeRecursive($this->settings, $cfg);
 
         $this->error_config_default_file = false;
 
@@ -630,7 +630,7 @@ class PMA_Config
             );
         }
 
-        $this->settings = PMA_array_merge_recursive($this->settings, $cfg);
+        $this->settings = PMA_arrayMergeRecursive($this->settings, $cfg);
         $this->checkPmaAbsoluteUri();
         $this->checkFontsize();
 
@@ -716,8 +716,8 @@ class PMA_Config
         // backup some settings
         $org_fontsize = $this->settings['fontsize'];
         // load config array
-        $this->settings = PMA_array_merge_recursive($this->settings, $config_data);
-        $GLOBALS['cfg'] = PMA_array_merge_recursive($GLOBALS['cfg'], $config_data);
+        $this->settings = PMA_arrayMergeRecursive($this->settings, $config_data);
+        $GLOBALS['cfg'] = PMA_arrayMergeRecursive($GLOBALS['cfg'], $config_data);
         if (defined('PMA_MINIMUM_COMMON')) {
             return;
         }
