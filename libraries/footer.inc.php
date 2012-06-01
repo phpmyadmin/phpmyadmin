@@ -19,19 +19,5 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/**
- * for PMA_setHistory()
- */
-if (! PMA_isValid($_REQUEST['no_history']) && empty($GLOBALS['error_message'])
-    && ! empty($GLOBALS['sql_query'])
-) {
-    PMA_setHistory(
-        PMA_ifSetOr($GLOBALS['db'], ''),
-        PMA_ifSetOr($GLOBALS['table'], ''),
-        $GLOBALS['cfg']['Server']['user'],
-        $GLOBALS['sql_query']
-    );
-}
-
 $footer = PMA_Footer::getInstance()->display();
 ?>

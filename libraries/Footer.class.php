@@ -216,6 +216,26 @@ class PMA_Footer
     }
 
     /**
+     * Saves query in history
+     *
+     * @return void
+     */
+    private function _setHistory()
+    {
+        if (! PMA_isValid($_REQUEST['no_history'])
+            && empty($GLOBALS['error_message'])
+            && ! empty($GLOBALS['sql_query'])
+        ) {
+            PMA_setHistory(
+                PMA_ifSetOr($GLOBALS['db'], ''),
+                PMA_ifSetOr($GLOBALS['table'], ''),
+                $GLOBALS['cfg']['Server']['user'],
+                $GLOBALS['sql_query']
+            );
+        }
+    }
+
+    /**
      * Returns the singleton PMA_Footer object
      *
      * @return PMA_Footer object
@@ -246,12 +266,15 @@ class PMA_Footer
     public function getDisplay()
     {
         $retval = '';
+
+        $this->_setHistory();
         if ($GLOBALS['is_ajax_request'] != true) {
             // Link to itself to replicate windows including frameset
             if (! isset($GLOBALS['checked_special'])) {
                 $GLOBALS['checked_special'] = false;
             }
-            if (PMA_getenv('SCRIPT_NAME') && empty($_POST)
+            if (PMA_getenv('SCRIPT_NAME')
+                && empty($_POST)
                 && ! $GLOBALS['checked_special']
                 && ! $GLOBALS['is_ajax_request']
             ) {
