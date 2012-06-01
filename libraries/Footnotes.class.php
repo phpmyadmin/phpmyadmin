@@ -71,11 +71,14 @@ class PMA_Footnotes
      */
     public function getDisplay()
     {
-        $retval = '<div class="footnotes">';
-        foreach ($this->_footnotes as $footnote) {
-            $retval .= $footnote->getDisplay();
+        $retval = '';
+        if (count($this->_footnotes)) {
+            $retval .= '<div class="footnotes">';
+            foreach ($this->_footnotes as $footnote) {
+                $retval .= $footnote->getDisplay();
+            }
+            $retval .= '</div>';
         }
-        $retval .= '</div>';
         return $retval;
     }
 }
