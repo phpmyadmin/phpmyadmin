@@ -632,12 +632,12 @@ function PMA_getAdditionalFieldsForTableNavigation(
         unset($choices);
     }
 
-    $additional_fields_html .= __('Headers every')
-        . ' <input type="text" size="3" name="repeat_cells" value="'
+    $additional_fields_html .= sprintf(
+        __('Headers every %s rows'),
+        '<input type="text" size="3" name="repeat_cells" value="'
         . $_SESSION['tmp_user_values']['repeat_cells']
         . '" class="textfield" /> '
-        . __('rows')
-        . "\n";
+    );
 
     return $additional_fields_html;
 
