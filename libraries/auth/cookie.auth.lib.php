@@ -156,6 +156,7 @@ function PMA_auth()
 
     $GLOBALS['page_title'] = 'phpMyAdmin';
     $response = PMA_Response::getInstance();
+    $response->getFooter()->setMinimal();
     $header = $response->getHeader();
     $header->setBodyId('loginform');
     $header->disableMenu();
@@ -304,8 +305,6 @@ if (top != self || ! $('body#loginform').length) {
 }
 //]]>
 </script>
-</body>
-</html>
     <?php
     exit;
 } // end of the 'PMA_auth()' function

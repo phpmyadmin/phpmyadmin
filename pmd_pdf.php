@@ -78,6 +78,7 @@ if (isset($mode)) {
 }
 
 $response = PMA_Response::getInstance();
+$response->getFooter()->setMinimal();
 $header   = $response->getHeader();
 $header->disableMenu();
 $header->display();
@@ -145,6 +146,4 @@ echo '<p>' . __('Export/Import to scale') . ':';
     </div>
   </form>
 </div>
-</body>
-</html>
 

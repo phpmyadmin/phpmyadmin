@@ -113,6 +113,7 @@ $sql_query = '';
  * prepare JavaScript functionality
  */
 $response = PMA_Response::getInstance();
+$response->getFooter()->setMinimal();
 $header   = $response->getHeader();
 $header->disableMenu();
 $header->setBodyId('bodyquerywindow');
@@ -201,5 +202,3 @@ if (! empty($_sql_history)
     <input type="hidden" name="querydisplay_tab" value="<?php echo $querydisplay_tab; ?>" />
 </form>
 </div>
-</body>
-</html>

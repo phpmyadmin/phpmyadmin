@@ -515,6 +515,7 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
 {
     if (PMA_IS_IIS && strlen($uri) > 600) {
         include_once './libraries/js_escape.lib.php';
+        PMA_Response::getInstance()->disable();
 
         echo '<html><head><title>- - -</title>' . "\n";
         echo '<meta http-equiv="expires" content="0">' . "\n";

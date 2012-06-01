@@ -84,6 +84,13 @@ class PMA_Header
      */
     private $_isAjax;
     /**
+     * Whether to display anything
+     *
+     * @access private
+     * @var bool
+     */
+    private $_isEnabled;
+    /**
      * Whether the HTTP headers (and possibly some HTML)
      * have already been sent to the browser
      *
@@ -100,6 +107,7 @@ class PMA_Header
      */
     public function __construct()
     {
+        $this->_isEnabled = true;
         $this->_isAjax = false;
         $this->_bodyId = '';
         $this->_title  = 'phpMyAdmin';
@@ -200,6 +208,16 @@ class PMA_Header
      *
      * @return 
      */
+    public function disable()
+    {
+        $this->_isEnabled = false;
+    }
+
+    /**
+     * 
+     *
+     * @return 
+     */
     public function isAjax($isAjax)
     {
         $this->_isAjax = $isAjax;
@@ -281,7 +299,7 @@ class PMA_Header
         $retval = '';
         if (! self::$headerIsSent) {
             $this->sendHttpHeaders();
-            if (! $this->_isAjax) {
+            if (! $this->_isAjax && $this->_isEnabled) {
                 $retval .= $this->_getHtmlStart();
                 $retval .= $this->_getMetaTags();
                 $retval .= $this->_getLinkTags();

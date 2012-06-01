@@ -75,6 +75,7 @@ function PMA_auth_fails()
     /* HTML header */
     $GLOBALS['page_title'] = __('Access denied');
     $response = PMA_Response::getInstance();
+    $response->getFooter()->setMinimal();
     $header = $response->getHeader();
     $header->setTitle(__('Access denied'));
     $header->disableMenu();
@@ -129,7 +130,7 @@ function PMA_auth_fails()
         echo '</tr>' . "\n";
     }
     echo '</table>' . "\n";
-    include './libraries/footer.inc.php';
+    exit;
     return true;
 } // end of the 'PMA_auth_fails()' function
 

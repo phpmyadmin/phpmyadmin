@@ -19,7 +19,6 @@ require_once 'libraries/common.inc.php';
  */
 function PMA_exitNavigationFrame()
 {
-    echo '</body></html>';
     exit;
 }
 
@@ -77,6 +76,7 @@ $db_start = $GLOBALS['db'];
 $cfgRelation = PMA_getRelationsParam();
 
 $response = PMA_Response::getInstance();
+$response->getFooter()->setMinimal();
 $header   = $response->getHeader();
 $header->disableMenu();
 $header->setBodyId('body_leftFrame');

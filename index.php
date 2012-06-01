@@ -73,7 +73,10 @@ $lang_iso_code = $GLOBALS['available_languages'][$GLOBALS['lang']][1];
 
 // start output
 $response = PMA_Response::getInstance();
-$response->getHeader()->sendHttpHeaders();
+$header = $response->getHeader();
+$header->sendHttpHeaders();
+$response->disable();
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">

@@ -10,9 +10,12 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-if (!defined('TESTSUITE')) {
+if (! defined('TESTSUITE')) {
     header('Content-Type: text/html; charset=utf-8');
 }
+
+PMA_Response::getInstance()->disable();
+
 ?>
 <!DOCTYPE HTML>
 <html lang="<?php echo $lang; ?>" dir="<?php echo $dir; ?>">

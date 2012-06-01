@@ -51,6 +51,7 @@ function PMA_auth()
     /* HTML header */
     $GLOBALS['page_title'] = __('Access denied');
     $response = PMA_Response::getInstance();
+    $response->getFooter()->setMinimal();
     $header = $response->getHeader();
     $header->setTitle(__('Access denied'));
     $header->disableMenu();
@@ -69,12 +70,8 @@ function PMA_auth()
     if (file_exists(CUSTOM_FOOTER_FILE)) {
         include CUSTOM_FOOTER_FILE;
     }
-    ?>
 
-</body>
-</html>
-    <?php
-    exit();
+    exit;
 } // end of the 'PMA_auth()' function
 
 

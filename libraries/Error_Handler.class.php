@@ -239,6 +239,7 @@ class PMA_Error_Handler
      */
     protected function dispPageStart($error = null)
     {
+        PMA_Response::getInstance()->disable();
         echo '<html><head><title>';
         if ($error) {
             echo $error->getTitle();

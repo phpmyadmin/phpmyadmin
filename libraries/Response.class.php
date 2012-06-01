@@ -77,6 +77,12 @@ class PMA_Response
         return self::$_instance;
     }
 
+    public function disable()
+    {
+        $this->_header->disable();
+        $this->_footer->disable();
+    }
+
     public function getHeader()
     {
         return $this->_header;

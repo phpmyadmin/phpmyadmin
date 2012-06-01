@@ -322,6 +322,3 @@ if (is_array($foreignData['disp_row'])) {
 ?>
 </tbody>
 </table>
-
-</body>
-</html>
