@@ -50,8 +50,8 @@ class PMA_Menu
     public function __construct($server, $db, $table)
     {
         $this->_server = $server;
-        $this->_db = $db;
-        $this->_table = $table;
+        $this->_db     = $db;
+        $this->_table  = $table;
     }
 
     /**
@@ -345,7 +345,7 @@ class PMA_Menu
          * export, search and qbe links if there is at least one table
          */
         if ($num_tables == 0) {
-            $tabs['qbe']['warning'] = __('Database seems to be empty!');
+            $tabs['qbe']['warning']    = __('Database seems to be empty!');
             $tabs['search']['warning'] = __('Database seems to be empty!');
             $tabs['export']['warning'] = __('Database seems to be empty!');
         }
@@ -472,9 +472,9 @@ class PMA_Menu
         $tabs['import']['link'] = 'server_import.php';
         $tabs['import']['text'] = __('Import');
 
-        $tabs['settings']['icon'] = 'b_tblops.png';
-        $tabs['settings']['link'] = 'prefs_manage.php';
-        $tabs['settings']['text'] = __('Settings');
+        $tabs['settings']['icon']   = 'b_tblops.png';
+        $tabs['settings']['link']   = 'prefs_manage.php';
+        $tabs['settings']['text']   = __('Settings');
         $tabs['settings']['active'] = in_array(
             basename($GLOBALS['PMA_PHP_SELF']),
             array('prefs_forms.php', 'prefs_manage.php')

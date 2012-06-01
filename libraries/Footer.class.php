@@ -62,8 +62,6 @@ class PMA_Footer
      */
     private function _addDefaultScripts()
     {
-       // $this->_scripts->addFile();
-
         if (empty($GLOBALS['error_message'])) {
             $this->_scripts->addCode("
                 $(function() {
@@ -78,8 +76,8 @@ class PMA_Footer
                         '" . PMA_escapeJsString($_SESSION[' PMA_token ']) . "'
                     );
                 }
-                });"
-            );
+                });
+            ");
             if (! empty($GLOBALS['reload'])) {
                 $this->_scripts->addCode("
                     // refresh navigation frame content
@@ -178,16 +176,21 @@ class PMA_Footer
     /**
      * Renders the link to open a new page
      *
+     * @param string $url_params URL paramater string
+     *
      * @return string
      */
     private function _getSelfLink($url_params)
     {
-        $retval = '';
+        $retval  = '';
         $retval .= '<div id="selflink" class="print_ignore">';
         $retval .= '<a href="index.php' . PMA_generate_common_url($url_params) . '"'
             . ' title="' . __('Open new phpMyAdmin window') . '" target="_blank">';
         if ($GLOBALS['cfg']['NavigationBarIconic']) {
-            $retval .= PMA_getImage('window-new.png', __('Open new phpMyAdmin window'));
+            $retval .= PMA_getImage(
+                'window-new.png',
+                __('Open new phpMyAdmin window')
+            );
         } else {
             $retval .=  __('Open new phpMyAdmin window');
         }
