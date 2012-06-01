@@ -414,17 +414,9 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations,
 /**
  * Builds the sql search query from the post parameters
  *
- * @param string  $table                    Selected table
- * @param array   $fields                   Entered values of the columns
- * @param array   $criteriaColumnNames      Names of all columns
- * @param array   $criteriaColumnTypes      Types of all columns
- * @param array   $criteriaColumnCollations Collations of all columns
- * @param array   $criteriaColumnOperators  Operators for given column type
- *
  * @return string the generated SQL query
  */
-function PMA_tblSearchBuildSqlQuery($table, $fields, $criteriaColumnNames,
-    $criteriaColumnTypes, $criteriaColumnCollations, $criteriaColumnOperators)
+function PMA_tblSearchBuildSqlQuery()
 {
     $sql_query = 'SELECT ';
 
@@ -437,17 +429,14 @@ function PMA_tblSearchBuildSqlQuery($table, $fields, $criteriaColumnNames,
     // if all column names were selected to display, we do a 'SELECT *'
     // (more efficient and this helps prevent a problem in IE
     // if one of the rows is edited and we come back to the Select results)
-    if (count($_POST['columnsToDisplay']) == count($criteriaColumnNames)) {
+    if (count($_POST['columnsToDisplay']) == count($_POST['criteriaColumnNames'])) {
         $sql_query .= '* ';
     } else {
         $sql_query .= implode(', ', PMA_backquote($_POST['columnsToDisplay']));
     } // end if
 
-    $sql_query .= ' FROM ' . PMA_backquote($table);
-    $whereClause = PMA_tblSearchGenerateWhereClause(
-        $fields, $criteriaColumnNames, $criteriaColumnTypes,
-        $criteriaColumnCollations, $criteriaColumnOperators
-    );
+    $sql_query .= ' FROM ' . PMA_backquote($_POST['table']);
+    $whereClause = PMA_tblSearchGenerateWhereClause();
     $sql_query .= $whereClause;
  
     // if the search results are to be ordered
@@ -461,16 +450,9 @@ function PMA_tblSearchBuildSqlQuery($table, $fields, $criteriaColumnNames,
 /**
  * Generates the where clause for the SQL search query to be executed
  *
- * @param array  $fields                   Entered values of the columns
- * @param array  $criteriaColumnNames      Names of all columns
- * @param array  $criteriaColumnTypes      Types of all columns
- * @param array  $criteriaColumnCollations Collations of all columns
- * @param array  $criteriaColumnOperators  Operators for given column type
- *
  * @return string the generated where clause
  */
-function PMA_tblSearchGenerateWhereClause($fields, $criteriaColumnNames,
-    $criteriaColumnTypes, $criteriaColumnCollations, $criteriaColumnOperators)
+function PMA_tblSearchGenerateWhereClause()
 {
     $fullWhereClause = '';
 
@@ -480,21 +462,21 @@ function PMA_tblSearchGenerateWhereClause($fields, $criteriaColumnNames,
     }
 
     // If there are no search criterias set, return
-    if (! array_filter($fields)) {
+    if (! array_filter($_POST['fields'])) {
         return $fullWhereClause;
     }
 
     // else continue to form the where clause from column criteria values
     $fullWhereClause = $charsets = array();
-    reset($criteriaColumnOperators);
-    while (list($i, $operator) = each($criteriaColumnOperators)) {
-        list($charsets[$i]) = explode('_', $criteriaColumnCollations[$i]);
+    reset($_POST['criteriaColumnOperators']);
+    while (list($i, $operator) = each($_POST['criteriaColumnOperators'])) {
+        list($charsets[$i]) = explode('_', $_POST['criteriaColumnCollations'][$i]);
         $unaryFlag =  $GLOBALS['PMA_Types']->isUnaryOperator($operator);
         $tmp_geom_func = isset($geom_func[$i]) ? $geom_func[$i] : null;
 
         $whereClause = PMA_tbl_search_getWhereClause(
-            $fields[$i], $criteriaColumnNames[$i], $criteriaColumnTypes[$i],
-            $criteriaColumnCollations[$i], $operator, $unaryFlag, $tmp_geom_func
+            $_POST['fields'][$i], $_POST['criteriaColumnNames'][$i], $_POST['criteriaColumnTypes'][$i],
+            $_POST['criteriaColumnCollations'][$i], $operator, $unaryFlag, $tmp_geom_func
         );
 
         if ($whereClause) {
@@ -629,6 +611,8 @@ function PMA_tblSearchGetOptions($columnNames, $columnCount)
 /**
  * Generates HTML for displaying fields table in search form
  *
+ * @param string  $db               Selected Database
+ * @param string  $table            Selected Table   
  * @param array   $columnNames      Names of columns in the table
  * @param array   $columnTypes      Types of columns in the table
  * @param array   $columnCollations Collation of all columns
@@ -636,14 +620,11 @@ function PMA_tblSearchGetOptions($columnNames, $columnCount)
  * @param boolean $geomColumnFlag   Whether a geometry column is present
  * @param integer $columnCount      Number of columns in the table
  * @param array   $foreigners       Array of foreign keys
- * @param string  $db               Selected database
- * @param string  $table            Selected table
  *
  * @return string the generated HTML
  */
-function PMA_tblSearchGetFieldsTableHtml($columnNames, $columnTypes,
-$columnCollations, $columnNullFlags, $geomColumnFlag, $columnCount,
-$foreigners, $db, $table)
+function PMA_tblSearchGetFieldsTableHtml($db, $table, $columnNames, $columnTypes,
+    $columnCollations, $columnNullFlags, $geomColumnFlag, $columnCount, $foreigners)
 {
     $html_output = '';
     $html_output .= '<table class="data">';
@@ -704,7 +685,9 @@ $foreigners, $db, $table)
 /**
  * Generates the table search form under table search tab
  *
- * @param string  $goto             Goto URL   
+ * @param string  $goto             Goto URL
+ * @param string  $db               Selected Database
+ * @param string  $table            Selected Table   
  * @param array   $columnNames      Names of columns in the table
  * @param array   $columnTypes      Types of columns in the table
  * @param array   $columnCollations Collation of all columns
@@ -712,14 +695,11 @@ $foreigners, $db, $table)
  * @param boolean $geomColumnFlag   Whether a geometry column is present
  * @param integer $columnCount      Number of columns in the table
  * @param array   $foreigners       Array of foreign keys
- * @param string  $db               Selected database
- * @param string  $table            Selected table
  *
  * @return string the generated HTML for table search form
  */
-function PMA_tblSearchGetSelectionForm($goto, $columnNames, $columnTypes,
-$columnCollations, $columnNullFlags, $geomColumnFlag, $columnCount,
-$foreigners, $db, $table)
+function PMA_tblSearchGetSelectionForm($goto, $db, $table, $columnNames, $columnTypes,
+    $columnCollations, $columnNullFlags, $geomColumnFlag, $columnCount, $foreigners)
 {
     $html_output = '';
     $html_output .= '<fieldset id="fieldset_subtab">';
@@ -741,8 +721,8 @@ $foreigners, $db, $table)
      * Displays table fields
      */
     $html_output .= PMA_tblSearchGetFieldsTableHtml(
-        $columnNames, $columnTypes, $columnCollations, $columnNullFlags,
-        $geomColumnFlag, $columnCount, $foreigners, $db, $table    
+        $db, $table, $columnNames, $columnTypes, $columnCollations, $columnNullFlags,
+        $geomColumnFlag, $columnCount, $foreigners
     );
 
     $html_output .= '<div id="gis_editor"></div>'
