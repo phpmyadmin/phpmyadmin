@@ -206,10 +206,6 @@ class PMA_Menu
                 } // end if
             } else {
                 // no table selected, display database comment if present
-                /**
-                 * Settings for relations stuff
-                 */
-                include_once './libraries/relation.lib.php';
                 $cfgRelation = PMA_getRelationsParam();
 
                 // Get additional information about tables for tooltip is done

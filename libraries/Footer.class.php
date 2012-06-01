@@ -35,6 +35,16 @@ class PMA_Footer
     private $_scripts;
 
     /**
+     * Whether we are servicing an ajax request.
+     * We can't simply use $GLOBALS['is_ajax_request']
+     * here since it may have not been initialised yet.
+     *
+     * @access private
+     * @var bool
+     */
+    private $_isAjax;
+
+    /**
      * Cretes a new class instance
      *
      * @return new PMA_Footer object
@@ -227,6 +237,16 @@ class PMA_Footer
     }
 
     /**
+     * 
+     *
+     * @return 
+     */
+    public function isAjax($isAjax)
+    {
+        $this->_isAjax = $isAjax;
+    }
+
+    /**
      * Returns the PMA_Footnotes object
      *
      * @return PMA_Footnotes object
@@ -246,7 +266,7 @@ class PMA_Footer
         $retval = '';
 
         $this->_setHistory();
-        if ($GLOBALS['is_ajax_request'] != true) {
+        if (! $this->_isAjax) {
             // Link to itself to replicate windows including frameset
             if (! isset($GLOBALS['checked_special'])) {
                 $GLOBALS['checked_special'] = false;
@@ -254,7 +274,7 @@ class PMA_Footer
             if (PMA_getenv('SCRIPT_NAME')
                 && empty($_POST)
                 && ! $GLOBALS['checked_special']
-                && ! $GLOBALS['is_ajax_request']
+                && ! $this->_isAjax
             ) {
                 $url_params['target'] = basename(PMA_getenv('SCRIPT_NAME'));
                 $url = PMA_generate_common_url($url_params, 'text', '');
@@ -268,7 +288,7 @@ class PMA_Footer
             $retval .= $this->_getDebugMessage();
             $retval .= $this->_footnotes->getDisplay();
             $retval .= $this->_getErrorMessages();
-            if (! $GLOBALS['is_ajax_request']) {
+            if (! $this->_isAjax) {
                 $retval .= $this->_scripts->getDisplay();
                 // Include possible custom footers
                 if (file_exists(CUSTOM_FOOTER_FILE)) {

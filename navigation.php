@@ -62,13 +62,6 @@ if (empty($_SESSION['debug'])) {
     session_write_close();
 }
 
-/**
- * the output compression library
- */
-require_once 'libraries/ob.lib.php';
-
-PMA_outBufferPre();
-
 /*
  * selects the database if there is only one on current server
  */

@@ -9,6 +9,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once 'libraries/OutputBuffering.class.php';
 require_once 'libraries/Header.class.php';
 require_once 'libraries/Footer.class.php';
 
@@ -33,16 +34,34 @@ class PMA_Response
     private $_footer;
 
     /**
+     * Whether we are servicing an ajax request.
+     * We can't simply use $GLOBALS['is_ajax_request']
+     * here since it may have not been initialised yet.
+     *
+     * @access private
+     * @var bool
+     */
+    private $_isAjax;
+
+    /**
      * Cretes a new class instance
      *
      * @return new PMA_Response object
      */
     private function __construct()
     {
+        $this->_isAjax = false;
+        if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
+            $this->_isAjax = true;
+        }
+        $buffer = PMA_OutputBuffering::getInstance();
+        $buffer->start();
         $this->_data    = array();
         $this->_header  = new PMA_Header();
+        $this->_header->isAjax($this->_isAjax);
         $this->_content = '';
         $this->_footer  = new PMA_Footer();
+        $this->_footer->isAjax($this->_isAjax);
     }
 
     /**
@@ -83,14 +102,32 @@ class PMA_Response
         return $retval;
     }
 
-    public function response()
+    public function simpleResponse()
     {
-        if (! $GLOBALS['is_ajax_request']) {
-            echo $this->getDisplay();
-        } else {
-            // FIXME
-        }
+        echo $this->getDisplay();
         exit;
+    }
+
+    public function ajaxResponse()
+    {
+        echo $this->getDisplay();
+        //PMA_ajaxResponse($this->getDisplay()); // FIXME
+        exit;
+    }
+
+    public static function response()
+    {
+        $response = self::$_instance;
+        $buffer = PMA_OutputBuffering::getInstance();
+        if (empty($response->_content)) {
+            $response->_content = $buffer->getContents();
+        }
+        if ($response->_isAjax) {
+            $response->ajaxResponse();
+        } else {
+            $response->simpleResponse();
+        }
+        $buffer->flush();
     }
 }
 

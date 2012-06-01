@@ -20,12 +20,6 @@ $is_superuser = PMA_isSuperuser();
 require_once 'libraries/sql_query_form.lib.php';
 
 /**
- * starts output buffering if requested and supported
- */
-require_once 'libraries/ob.lib.php';
-PMA_outBufferPre();
-
-/**
  * load relation params
  */
 $cfgRelation = PMA_getRelationsParam();

@@ -8,7 +8,6 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-require_once 'libraries/ob.lib.php';
 require_once 'libraries/Scripts.class.php';
 require_once 'libraries/RecentTable.class.php';
 require_once 'libraries/Menu.class.php';
@@ -102,9 +101,6 @@ class PMA_Header
     public function __construct()
     {
         $this->_isAjax = false;
-        if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
-            $this->_isAjax = true;
-        }
         $this->_bodyId = '';
         $this->_title  = 'phpMyAdmin';
         $this->_menu   = new PMA_Menu(
@@ -200,6 +196,16 @@ class PMA_Header
     }
 
     /**
+     * 
+     *
+     * @return 
+     */
+    public function isAjax($isAjax)
+    {
+        $this->_isAjax = $isAjax;
+    }
+
+    /**
      * Returns the PMA_Scripts object
      *
      * @return PMA_Scripts object
@@ -275,7 +281,7 @@ class PMA_Header
         $retval = '';
         if (! self::$headerIsSent) {
             $this->sendHttpHeaders();
-            if ($this->_isAjax === false) {
+            if (! $this->_isAjax) {
                 $retval .= $this->_getHtmlStart();
                 $retval .= $this->_getMetaTags();
                 $retval .= $this->_getLinkTags();
@@ -321,10 +327,6 @@ class PMA_Header
      */
     public function sendHttpHeaders()
     {
-        /**
-         * Starts output buffering work
-         */
-        PMA_outBufferPre();
         /**
          * Sends http headers
          */
