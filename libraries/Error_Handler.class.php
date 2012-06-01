@@ -205,17 +205,29 @@ class PMA_Error_Handler
     }
 
     /**
-     * display user errors not displayed
+     * Displays user errors not displayed
      *
      * @return void
      */
     public function dispUserErrors()
     {
+        echo $this->getDispUserErrors();
+    }
+
+    /**
+     * Renders user errors not displayed
+     *
+     * @return string
+     */
+    public function getDispUserErrors()
+    {
+        $retval = '';
         foreach ($this->getErrors() as $error) {
             if ($error->isUserError() && ! $error->isDisplayed()) {
-                $error->display();
+                $retval .= $error->getDisplay();
             }
         }
+        return $retval;
     }
 
     /**
@@ -259,25 +271,39 @@ class PMA_Error_Handler
     }
 
     /**
-     * display errors not displayed
+     * renders errors not displayed
+     *
+     * @return void
+     */
+    public function getDispErrors()
+    {
+        $retval = '';
+        if ($GLOBALS['cfg']['Error_Handler']['display']) {
+            foreach ($this->getErrors() as $error) {
+                if ($error instanceof PMA_Error) {
+                    if (! $error->isDisplayed()) {
+                        $retval = $error->getDisplay();
+                    }
+                } else {
+                    ob_start();
+                    var_dump($error);
+                    $retval .= ob_end_clean();
+                }
+            }
+        } else {
+            $retval .= $this->getDispUserErrors();
+        }
+        return $retval;
+    }
+
+    /**
+     * displays errors not displayed
      *
      * @return void
      */
     public function dispErrors()
     {
-        if ($GLOBALS['cfg']['Error_Handler']['display']) {
-            foreach ($this->getErrors() as $error) {
-                if ($error instanceof PMA_Error) {
-                    if (! $error->isDisplayed()) {
-                        $error->display();
-                    }
-                } else {
-                    var_dump($error);
-                }
-            }
-        } else {
-            $this->dispUserErrors();
-        }
+        echo $this->getDispErrors();
     }
 
     /**

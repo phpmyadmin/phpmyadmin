@@ -197,6 +197,22 @@ class PMA_Footer
     }
 
     /**
+     * Renders the link to open a new page
+     *
+     * @return string
+     */
+    private function _getErrorMessages()
+    {
+        $retval = '';
+        if ($GLOBALS['error_handler']->hasDisplayErrors()) {
+            $retval .= '<div class="clearfloat">';
+            $retval .= $GLOBALS['error_handler']->getDispErrors();
+            $retval .= '</div>';
+        }
+        return $retval;
+    }
+
+    /**
      * Returns the singleton PMA_Footer object
      *
      * @return PMA_Footer object
@@ -237,15 +253,17 @@ class PMA_Footer
                 && ! $GLOBALS['is_ajax_request']
             ) {
                 $url_params['target'] = basename(PMA_getenv('SCRIPT_NAME'));
+                $url = PMA_generate_common_url($url_params, 'text', '');
                 $this->_scripts->addCode("
                     // Store current location in hash part
                     // of URL to allow direct bookmarking
-                    setURLHash('" . PMA_generate_common_url($url_params, 'text', '') . "');
+                    setURLHash('$url');
                 ");
                 $retval .= $this->_getSelfLink($url_params);
             }
             $retval .= $this->_getDebugMessage();
             $retval .= $this->_footnotes->getDisplay();
+            $retval .= $this->_getErrorMessages();
             $retval .= $this->_scripts->getDisplay();
             // Include possible custom footers
             if (file_exists(CUSTOM_FOOTER_FILE)) {

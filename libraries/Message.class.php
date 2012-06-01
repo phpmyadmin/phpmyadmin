@@ -700,6 +700,7 @@ class PMA_Message
      */
     public function getDisplay()
     {
+        $this->isDisplayed(true);
         return '<div class="' . $this->getLevel() . '">'
             . $this->getMessage() . '</div>';
     }

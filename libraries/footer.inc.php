@@ -33,11 +33,5 @@ if (! PMA_isValid($_REQUEST['no_history']) && empty($GLOBALS['error_message'])
     );
 }
 
-if ($GLOBALS['error_handler']->hasDisplayErrors()) {
-    echo '<div class="clearfloat">';
-    $GLOBALS['error_handler']->dispErrors();
-    echo '</div>';
-}
-
 $footer = PMA_Footer::getInstance()->display();
 ?>

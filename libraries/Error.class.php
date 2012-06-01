@@ -317,6 +317,7 @@ class PMA_Error extends PMA_Message
      */
     public function getDisplay()
     {
+        $this->isDisplayed(true);
         $retval = '<div class="' . $this->getLevel() . '">';
         if (! $this->isUserError()) {
             $retval .= '<strong>' . $this->getType() . '</strong>';
