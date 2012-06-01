@@ -85,11 +85,6 @@ if (version_compare(phpversion(), '5.4', 'lt')) {
 define('PHPMYADMIN', true);
 
 /**
- * Used to generate the page
- */
-include_once 'libraries/Response.class.php';
-
-/**
  * core functions
  */
 require './libraries/core.lib.php';
@@ -134,7 +129,12 @@ require './libraries/Table.class.php';
  */
 require './libraries/Types.class.php';
 
-if (!defined('PMA_MINIMUM_COMMON')) {
+if (! defined('PMA_MINIMUM_COMMON')) {
+    /**
+     * Used to generate the page
+     */
+    include_once 'libraries/Response.class.php';
+
     /**
      * common functions
      */

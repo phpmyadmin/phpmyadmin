@@ -117,7 +117,7 @@ class PMA_Response
 
     public static function response()
     {
-        $response = self::$_instance;
+        $response = PMA_Response::getInstance();
         $buffer = PMA_OutputBuffering::getInstance();
         if (empty($response->_content)) {
             $response->_content = $buffer->getContents();

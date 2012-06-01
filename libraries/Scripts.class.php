@@ -66,9 +66,12 @@ class PMA_Scripts
      */
     public function addFile($filename, $conditional_ie = false)
     {
-        $link = PMA_includeJS($filename, $conditional_ie);
-        if (! in_array($link, $this->_files)) {
-            $this->_files[] = $link;
+        $hash = md5($filename);
+        if (empty($this->_files[$hash])) {
+            $this->_files[$hash] = array(
+                'filename' => $filename,
+                'conditional_ie' => $conditional_ie
+            );
         }
     }
 
@@ -112,7 +115,10 @@ class PMA_Scripts
         $retval = '';
 
         foreach ($this->_files as $file) {
-            $retval .= $file;
+            $retval .= PMA_includeJS(
+                $file['filename'],
+                $file['conditional_ie']
+            );
         }
         $retval .= '<script type="text/javascript">';
         $retval .= "// <![CDATA[\n";

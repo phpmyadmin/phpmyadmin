@@ -25,7 +25,6 @@ class PMA_Footer
      * @var object
      */
     private $_footnotes;
-
     /**
      * PMA_Scripts instance
      *
@@ -33,7 +32,6 @@ class PMA_Footer
      * @var object
      */
     private $_scripts;
-
     /**
      * Whether we are servicing an ajax request.
      * We can't simply use $GLOBALS['is_ajax_request']
@@ -43,6 +41,21 @@ class PMA_Footer
      * @var bool
      */
     private $_isAjax;
+    /**
+     * Whether to only close the BODY and HTML tags
+     * or also include scripts, footnotes, errors and links
+     *
+     * @access private
+     * @var bool
+     */
+    private $_isMinimal;
+    /**
+     * Whether to display anything
+     *
+     * @access private
+     * @var bool
+     */
+    private $_isEnabled;
 
     /**
      * Cretes a new class instance
@@ -51,8 +64,10 @@ class PMA_Footer
      */
     public function __construct()
     {
+        $this->_isEnabled = true;
         $this->_footnotes = new PMA_Footnotes();
         $this->_scripts   = new PMA_Scripts();
+        $this->_isMinimal = false;
         $this->_addDefaultScripts();
     }
 
@@ -241,9 +256,29 @@ class PMA_Footer
      *
      * @return 
      */
+    public function disable()
+    {
+        $this->_isEnabled = false;
+    }
+
+    /**
+     * 
+     *
+     * @return void
+     */
     public function isAjax($isAjax)
     {
         $this->_isAjax = $isAjax;
+    }
+
+    /**
+     * Turn on minimal display mode
+     *
+     * @return void
+     */
+    public function setMinimal()
+    {
+        $this->_isMinimal = true;
     }
 
     /**
@@ -264,31 +299,36 @@ class PMA_Footer
     public function getDisplay()
     {
         $retval = '';
-
         $this->_setHistory();
-        if (! $this->_isAjax) {
-            // Link to itself to replicate windows including frameset
-            if (! isset($GLOBALS['checked_special'])) {
-                $GLOBALS['checked_special'] = false;
+        if ($this->_isEnabled) {
+            if (! $this->_isAjax && ! $this->_isMinimal) {
+                // Link to itself to replicate windows including frameset
+                if (! isset($GLOBALS['checked_special'])) {
+                    $GLOBALS['checked_special'] = false;
+                }
+                if (PMA_getenv('SCRIPT_NAME')
+                    && empty($_POST)
+                    && ! $GLOBALS['checked_special']
+                    && ! $this->_isAjax
+                ) {
+                    $url_params['target'] = basename(PMA_getenv('SCRIPT_NAME'));
+                    $url = PMA_generate_common_url($url_params, 'text', '');
+                    $this->_scripts->addCode("
+                        // Store current location in hash part
+                        // of URL to allow direct bookmarking
+                        setURLHash('$url');
+                    ");
+                    $retval .= $this->_getSelfLink($url_params);
+                }
+                $retval .= $this->_getDebugMessage();
             }
-            if (PMA_getenv('SCRIPT_NAME')
-                && empty($_POST)
-                && ! $GLOBALS['checked_special']
-                && ! $this->_isAjax
-            ) {
-                $url_params['target'] = basename(PMA_getenv('SCRIPT_NAME'));
-                $url = PMA_generate_common_url($url_params, 'text', '');
-                $this->_scripts->addCode("
-                    // Store current location in hash part
-                    // of URL to allow direct bookmarking
-                    setURLHash('$url');
-                ");
-                $retval .= $this->_getSelfLink($url_params);
+            if (! $this->_isMinimal) {
+                // display Footnotes and error messages even in ajax reqests
+                // FIXME: nootnotes should be sent as JSON
+                $retval .= $this->_footnotes->getDisplay();
+                $retval .= $this->_getErrorMessages();
             }
-            $retval .= $this->_getDebugMessage();
-            $retval .= $this->_footnotes->getDisplay();
-            $retval .= $this->_getErrorMessages();
-            if (! $this->_isAjax) {
+            if (! $this->_isAjax && ! $this->_isMinimal) {
                 $retval .= $this->_scripts->getDisplay();
                 // Include possible custom footers
                 if (file_exists(CUSTOM_FOOTER_FILE)) {
@@ -297,8 +337,11 @@ class PMA_Footer
                     $retval .= ob_end_clean();
                 }
             }
-            $retval .= "</body></html>";
+            if (! $this->_isAjax) {
+                $retval .= "</body></html>";
+            }
         }
+
         return $retval;
     }
 
