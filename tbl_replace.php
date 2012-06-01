@@ -307,8 +307,6 @@ if ($GLOBALS['is_ajax_request'] == true) {
      */
 
     if (isset($_REQUEST['rel_fields_list']) && $_REQUEST['rel_fields_list'] != '') {
-        //handle relations work here for updated row.
-        include_once 'libraries/relation.lib.php';
 
         $map = PMA_getForeigners($db, $table, '', 'both');
 

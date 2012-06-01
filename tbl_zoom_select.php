@@ -14,7 +14,6 @@
 require_once './libraries/common.inc.php';
 require_once './libraries/mysql_charsets.lib.php';
 require_once './libraries/tbl_select.lib.php';
-require_once './libraries/relation.lib.php';
 require_once './libraries/tbl_info.inc.php';
 
 $response = PMA_Response::getInstance();

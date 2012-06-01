@@ -112,7 +112,6 @@ if (isset($fields['dbase'])) {
  * better place either.
  */
 if (isset($_REQUEST['get_relational_values']) && $_REQUEST['get_relational_values'] == true) {
-    include_once 'libraries/relation.lib.php';
 
     $column = $_REQUEST['column'];
     $foreigners = PMA_getForeigners($db, $table, $column);

@@ -19,11 +19,9 @@ $url_query .= '&amp;goto=schema_edit.php';
 require_once 'libraries/db_info.inc.php';
 
 /**
- * Includ settings for relation stuff
  * get all variables needed for exporting relational schema
  * in $cfgRelation
  */
-require_once 'libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 /**
