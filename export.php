@@ -365,7 +365,7 @@ if (!$save_on_server) {
         @ini_set('url_rewriter.tags', '');
         $filename = PMA_sanitize_filename($filename);
 
-        PMA_download_header($filename, $mime_type);
+        PMA_downloadHeader($filename, $mime_type);
     } else {
         // HTML
         if ($export_type == 'database') {

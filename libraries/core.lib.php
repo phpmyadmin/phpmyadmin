@@ -612,7 +612,7 @@ function PMA_no_cache_header()
  *
  * @return void
  */
-function PMA_download_header($filename, $mimetype, $length = 0, $no_cache = true)
+function PMA_downloadHeader($filename, $mimetype, $length = 0, $no_cache = true)
 {
     if ($no_cache) {
         PMA_no_cache_header();

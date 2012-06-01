@@ -39,7 +39,7 @@ if ($result === false) {
 /* Avoid corrupting data */
 @ini_set('url_rewriter.tags', '');
 
-PMA_download_header(
+PMA_downloadHeader(
     $table . '-' .  $transform_key . '.bin',
     PMA_detectMIME($result),
     strlen($result)
