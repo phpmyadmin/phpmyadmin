@@ -81,7 +81,7 @@ function PMA_tbl_getFields($db, $table)
  */
 function PMA_tbl_getTableHeader($geomColumnFlag = false)
 {
-    // Display the Function column only if there is alteast one geomety colum
+    // Display the Function column only if there is at least one geometry column
     $func = '';
     if ($geomColumnFlag) {
         $func = '<th>' . __('Function') . '</th>';
