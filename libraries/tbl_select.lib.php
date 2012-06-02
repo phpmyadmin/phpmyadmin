@@ -471,7 +471,7 @@ function PMA_tblSearchGenerateWhereClause()
         return $fullWhereClause;
     }
 
-    // If there are no search criterias set, return
+    // If there are no search criteria set, return
     if (! array_filter($_POST['criteriaValues'])) {
         return $fullWhereClause;
     }
@@ -675,7 +675,7 @@ function PMA_tblSearchGetFieldsTableHtml($db, $table, $columnNames, $columnTypes
         );
         $html_output .= '</select></td>';
         /**
-         * Displays column's foreign relations if any
+         * Displays link to browse foreign data(if any) and criteria inputbox
          */
         $html_output .= '<td>';
         $field = $columnNames[$column_index];
@@ -733,7 +733,7 @@ function PMA_tblSearchGetSelectionForm($goto, $db, $table, $columnNames, $column
         . '<legend>' . __('Do a "query by example" (wildcard: "%")') . '</legend>';
 
     /**
-     * Displays table fields
+     * Displays fields table in search form
      */
     $html_output .= PMA_tblSearchGetFieldsTableHtml(
         $db, $table, $columnNames, $columnTypes, $columnCollations, $columnNullFlags,
@@ -745,7 +745,7 @@ function PMA_tblSearchGetSelectionForm($goto, $db, $table, $columnNames, $column
         . '</fieldset>';
 
     /**
-     * Displays slider options form
+     * Displays more search options
      */
     $html_output .= PMA_tblSearchGetOptions($columnNames, $columnCount);
 
