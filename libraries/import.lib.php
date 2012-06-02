@@ -333,16 +333,20 @@ function PMA_importGetNextChunk($size = 32768)
  *
  * This functions uses recursion to build the Excel column name.
  *
- * The column number (1-26) is converted to the responding ASCII character (A-Z) and returned.
+ * The column number (1-26) is converted to the responding
+ * ASCII character (A-Z) and returned.
  *
  * If the column number is bigger than 26 (= num of letters in alfabet),
- * an extra character needs to be added. To find this extra character, the number is divided by 26
- * and this value is passed to another instance of the same function (hence recursion).
- * In that new instance the number is evaluated again, and if it is still bigger than 26, it is divided again
- * and passed to another instance of the same function. This continues until the number is smaller than 26.
- * Then the last called function returns the corresponding ASCII character to the function that called it.
+ * an extra character needs to be added. To find this extra character,
+ * the number is divided by 26 and this value is passed to another instance
+ * of the same function (hence recursion). In that new instance the number is
+ * evaluated again, and if it is still bigger than 26, it is divided again
+ * and passed to another instance of the same function. This continues until
+ * the number is smaller than 26. Then the last called function returns
+ * the corresponding ASCII character to the function that called it.
  * Each time a called function ends an extra character is added to the column name.
- * When the first function is reached, the last character is addded and the complete column name is returned.
+ * When the first function is reached, the last character is addded and the complete
+ * column name is returned.
  *
  * @access  public
  *
@@ -1098,7 +1102,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
      */
 
     /* Add the viewable structures from $additional_sql
-     * to $tables so they are also displayed 
+     * to $tables so they are also displayed
      */
     $view_pattern = '@VIEW `[^`]+`\.`([^`]+)@';
     $table_pattern = '@CREATE TABLE IF NOT EXISTS `([^`]+)`@';
