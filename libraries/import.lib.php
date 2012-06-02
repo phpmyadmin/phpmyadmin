@@ -348,11 +348,10 @@ function PMA_importGetNextChunk($size = 32768)
  * When the first function is reached, the last character is addded and the complete
  * column name is returned.
  *
- * @access  public
- *
- * @param int $num
+ * @param int $num the column number
  *
  * @return string The column's "Excel" name
+ * @access  public
  */
 function PMA_getColumnAlphaName($num)
 {
