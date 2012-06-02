@@ -67,7 +67,7 @@ if (! isset($_POST['columnsToDisplay']) || $_POST['columnsToDisplay'][0] == '') 
     // Displays the table search form
     echo PMA_tblSearchGetSelectionForm(
         $goto, $db, $table, $columnNames, $columnTypes, $columnCollations,
-        $columnNullFlags, $geomColumnFlag, $columnCount, $foreigners
+        $columnNullFlags, $geomColumnFlag, $columnCount, $foreigners, "normal"
     );
 
     include 'libraries/footer.inc.php';

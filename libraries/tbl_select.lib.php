@@ -623,8 +623,10 @@ function PMA_tblSearchGetOptions($columnNames, $columnCount)
     return $html_output;
 }
 
+
 /**
- * Generates HTML for displaying fields table in search form
+ * Provides the search form's table row in case of Normal Search
+ * (for tbl_select.php)
  *
  * @param string  $db               Selected Database
  * @param string  $table            Selected Table   
@@ -636,18 +638,15 @@ function PMA_tblSearchGetOptions($columnNames, $columnCount)
  * @param integer $columnCount      Number of columns in the table
  * @param array   $foreigners       Array of foreign keys
  *
- * @return string the generated HTML
+ * @return string the generated table row
  */
-function PMA_tblSearchGetFieldsTableHtml($db, $table, $columnNames, $columnTypes,
+function PMA_tblSearchGetRowsNormal($db, $table, $columnNames, $columnTypes,
     $columnCollations, $columnNullFlags, $geomColumnFlag, $columnCount, $foreigners)
 {
-    $html_output = '';
-    $html_output .= '<table class="data">';
-    $html_output .= PMA_tbl_setTableHeader($geomColumnFlag) . '<tbody>';
-    $odd_row = true;
     $titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
     $geom_types = PMA_getGISDatatypes();
-
+    $odd_row = true;
+    $html_output = '';
     // for every column present in table
     for ($column_index = 0; $column_index < $columnCount; $column_index++) {
         $html_output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
@@ -692,15 +691,13 @@ function PMA_tblSearchGetFieldsTableHtml($db, $table, $columnNames, $columnTypes
             . '<input type="hidden" name="criteriaColumnCollations[' . $column_index . ']" value="'
             . $columnCollations[$column_index] . '" /></td></tr>';
     } // end for
-
-    $html_output .= '</tbody></table>';
+    
     return $html_output;
 }
 
 /**
- * Generates the table search form under table search tab
+ * Generates HTML for displaying fields table in search form
  *
- * @param string  $goto             Goto URL
  * @param string  $db               Selected Database
  * @param string  $table            Selected Table   
  * @param array   $columnNames      Names of columns in the table
@@ -710,11 +707,78 @@ function PMA_tblSearchGetFieldsTableHtml($db, $table, $columnNames, $columnTypes
  * @param boolean $geomColumnFlag   Whether a geometry column is present
  * @param integer $columnCount      Number of columns in the table
  * @param array   $foreigners       Array of foreign keys
+ * @param string  $searchType       Whether normal search or zoom search
+ *
+ * @return string the generated HTML
+ */
+function PMA_tblSearchGetFieldsTableHtml($db, $table, $columnNames, $columnTypes,
+    $columnCollations, $columnNullFlags, $geomColumnFlag, $columnCount, $foreigners,
+    $searchType)
+{
+    $html_output = '';
+    $html_output .= '<table class="data">';
+    $html_output .= PMA_tbl_setTableHeader($geomColumnFlag);
+    $html_output .= '<tbody>';
+
+    if($searchType == 'zoom') {
+    } else {
+        $html_output .= PMA_tblSearchGetRowsNormal(
+            $db, $table, $columnNames, $columnTypes, $columnCollations,
+            $columnNullFlags, $geomColumnFlag, $columnCount, $foreigners
+        );
+    }
+
+    $html_output .= '</tbody></table>';
+    return $html_output;
+}
+
+/**
+ * Provides the form tag for table search form
+ * (normal search or zoom search)
+ *
+ * @param string  $goto             Goto URL
+ * @param string  $db               Selected Database
+ * @param string  $table            Selected Table
+ * @param string  $searchType       Whether normal search or zoom search
+ *
+ * @return string the HTML for form tag
+ */
+function PMA_tblSearchGetFormTag($goto, $db, $table, $searchType) {
+    $html_output = '';
+    $scriptName = ($searchType == 'zoom' ? 'tbl_zoom_select.php' : 'tbl_select.php');
+    $formId = ($searchType == 'zoom' ? 'zoom_search_form' : 'tbl_search_form');
+
+    $html_output .= '<form method="post" action="' . $scriptName . '" '
+        . 'name="insertForm" id="' . $formId . '" '
+        . ($GLOBALS['cfg']['AjaxEnable'] ? 'class="ajax"' : '') . '>';
+
+    $html_output .= PMA_generate_common_hidden_inputs($db, $table);
+    $html_output .= '<input type="hidden" name="goto" value="' . $goto . '" />';
+    $html_output .= '<input type="hidden" name="back" value="' . $scriptName . '" />';
+
+    return $html_output;
+}
+
+/**
+ * Generates the table search form under table search tab
+ *
+ * @param string  $goto             Goto URL
+ * @param string  $db               Selected Database
+ * @param string  $table            Selected Table
+ * @param array   $columnNames      Names of columns in the table
+ * @param array   $columnTypes      Types of columns in the table
+ * @param array   $columnCollations Collation of all columns
+ * @param array   $columnNullFlags  Null information of columns
+ * @param boolean $geomColumnFlag   Whether a geometry column is present
+ * @param integer $columnCount      Number of columns in the table
+ * @param array   $foreigners       Array of foreign keys
+ * @param string  $searchType       Whether normal search or zoom search
  *
  * @return string the generated HTML for table search form
  */
 function PMA_tblSearchGetSelectionForm($goto, $db, $table, $columnNames, $columnTypes,
-    $columnCollations, $columnNullFlags, $geomColumnFlag, $columnCount, $foreigners)
+    $columnCollations, $columnNullFlags, $geomColumnFlag, $columnCount, $foreigners,
+    $searchType)
 {
     $html_output = '';
     $html_output .= '<fieldset id="fieldset_subtab">';
@@ -723,38 +787,51 @@ function PMA_tblSearchGetSelectionForm($goto, $db, $table, $columnNames, $column
     $url_params['table'] = $table;
 
     $html_output .= PMA_generateHtmlTabs(PMA_tbl_getSubTabs(), $url_params, 'topmenu2');
-    $html_output .= '<form method="post" action="tbl_select.php" name="insertForm"'
-        . ' id="tbl_search_form" ' . ($GLOBALS['cfg']['AjaxEnable'] ? 'class="ajax"' : '')
-        . '>';
-    $html_output .= PMA_generate_common_hidden_inputs($db, $table);
-    $html_output .= '<input type="hidden" name="goto" value="' . $goto . '" />';
-    $html_output .= '<input type="hidden" name="back" value="tbl_select.php" />'
-        . '<fieldset id="fieldset_table_search"><fieldset id="fieldset_table_qbe">'
-        . '<legend>' . __('Do a "query by example" (wildcard: "%")') . '</legend>';
+    $html_output .= PMA_tblSearchGetFormTag($goto, $db, $table, $searchType);
+
+    $html_output .= '<fieldset id="'
+        . ($searchType == 'zoom' ? 'inputSection' : 'fieldset_table_search') . '">';
+    $html_output .= ($searchType == 'zoom' ? '' : '<fieldset id="fieldset_table_qbe">');
+
+    // Set caption for fieldset
+    if($searchType == 'zoom') {
+        $html_output .= '<legend>'
+            . __('Do a "query by example" (wildcard: "%") for two different columns')
+            . '</legend>';
+    } else {
+        $html_output .= '<legend>'
+            . __('Do a "query by example" (wildcard: "%")')
+            . '</legend>';
+    }
 
     /**
      * Displays fields table in search form
      */
     $html_output .= PMA_tblSearchGetFieldsTableHtml(
         $db, $table, $columnNames, $columnTypes, $columnCollations, $columnNullFlags,
-        $geomColumnFlag, $columnCount, $foreigners
+        $geomColumnFlag, $columnCount, $foreigners, $searchType
     );
 
-    $html_output .= '<div id="gis_editor"></div>'
-        . '<div id="popup_background"></div>'
-        . '</fieldset>';
-
-    /**
-     * Displays more search options
-     */
-    $html_output .= PMA_tblSearchGetOptions($columnNames, $columnCount);
+    if($searchType == 'zoom') {
+    } else {
+        $html_output .= '<div id="gis_editor"></div>'
+            . '<div id="popup_background"></div>'
+            . '</fieldset>';
+        /**
+         * Displays more search options for normal table search
+         */
+        $html_output .= PMA_tblSearchGetOptions($columnNames, $columnCount);
+    }
 
     /**
      * Displays selection form's footer elements
      */
-    $html_output .= '<fieldset class="tblFooters">'
-        . '<input type="submit" name="submit" value="' . __('Go') . '" />'
-        . '</fieldset></form><div id="sqlqueryresults"></div></fieldset>';
+    $html_output .= '<fieldset class="tblFooters">';
+    $html_output .= '<input type="submit" name="'
+        . ($searchType == 'zoom' ? 'zoom_submit' : 'submit')
+        . ($searchType == 'zoom' ? '" id="inputFormSubmitId"' : '" ')
+        . 'value="' . __('Go') . '" />';
+    $html_output .= '</fieldset></form><div id="sqlqueryresults"></div></fieldset>';
     return $html_output;
 }
 ?>
