@@ -66,6 +66,14 @@ class PMA_Response
      * @var bool
      */
     private $_isAjax;
+    /**
+     * Whether there were any errors druing the processing of the request
+     * Only used for ajax responses
+     *
+     * @access private
+     * @var bool
+     */
+    private $_isSuccess;
 
     /**
      * Cretes a new class instance
@@ -81,6 +89,7 @@ class PMA_Response
         $this->_JSON   = array();
         $this->_footer = new PMA_Footer();
 
+        $this->_isSuccess = true;
         $this->_isAjax = false;
         if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $this->_isAjax = true;
@@ -100,6 +109,20 @@ class PMA_Response
             self::$_instance = new PMA_Response();
         }
         return self::$_instance;
+    }
+
+    /**
+     * FIXME
+     *
+     * @return void
+     */
+    public function isSuccess($state)
+    {
+        if ($state) {
+            $this->_isSuccess = true;
+        } else {
+            $this->_isSuccess = false;
+        }
     }
 
     /**
@@ -144,8 +167,10 @@ class PMA_Response
      */
     public function addHTML($content)
     {
-        if (is_string($content)) {
-            $this->_HTML .= $content;
+        if ($value instanceof PMA_Message) {
+            $this->_HTML = $value->getDisplay();
+        } else {
+            $this->_HTML = $value;
         }
     }
 
@@ -166,7 +191,11 @@ class PMA_Response
                 $this->addJSON($key, $value);
             }
         } else {
-            $this->_JSON[$json] .= $value;
+            if ($value instanceof PMA_Message) {
+                $this->_JSON[$json] = $value->getDisplay();
+            } else {
+                $this->_JSON[$json] = $value;
+            }
         }
 
     }
@@ -209,13 +238,12 @@ class PMA_Response
             // header('Content-Type: text/html; charset=utf-8');
             echo $this->_getDisplay();
         } else {
-            if (isset($this->_JSON['message'])) {
-                $message = $this->_JSON['message'];
-                unset($this->_JSON['message']);
-            } else {
-                $message = $this->_getDisplay();
+            if (! isset($this->_JSON['message'])) {
+                $this->_JSON['message'] = $this->_getDisplay();
             }
-            PMA_ajaxResponse($message, true, $this->_JSON);
+            $message = $this->_JSON['message'];
+            unset($this->_JSON['message']);
+            PMA_ajaxResponse($message, $this->_isSuccess, $this->_JSON);
         }
     }
 

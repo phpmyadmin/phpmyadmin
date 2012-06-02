@@ -2631,7 +2631,7 @@ $(function() {
 
             $.post($the_form.attr('action'), $the_form.serialize() + '&change_pw='+ this_value, function(data) {
                 if (data.success == true) {
-                    $("#floating_menubar").after(data.sql_query);
+                    $("#floating_menubar").after(data.message);
                     $("#change_password_dialog").hide().remove();
                     $("#edit_user_dialog").dialog("close").remove();
                     $('#change_password_anchor.dialog_active').removeClass('dialog_active').addClass('ajax');

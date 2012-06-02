@@ -77,12 +77,19 @@ function PMA_getChangePassMessage($change_password_message, $sql_query = '')
         /**
          * If in an Ajax request, we don't need to show the rest of the page
          */
+        $response = PMA_Response::getInstance();
         if ($change_password_message['error']) {
-            PMA_ajaxResponse($change_password_message['msg'], false);
+            $response->addJSON('message', $change_password_message['msg']);
+            $response->isSuccess(false);
         } else {
-            $extra_data['sql_query'] = PMA_getMessage($change_password_message['msg'], $sql_query, 'success');
-            PMA_ajaxResponse($change_password_message['msg'], true, $extra_data);
+            $sql_query = PMA_getMessage(
+                $change_password_message['msg'],
+                $sql_query,
+                'success'
+            );
+            $response->addJSON('message', $sql_query);
         }
+        exit;
     }
 }
 
