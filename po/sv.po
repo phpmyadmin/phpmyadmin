@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-24 17:02-0400\n"
-"PO-Revision-Date: 2012-05-29 20:47+0200\n"
+"PO-Revision-Date: 2012-06-02 14:19+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -1533,10 +1533,9 @@ msgid "From general log"
 msgstr "Från allmän logg"
 
 #: js/messages.php:176
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "Läser in loggar"
+msgstr "Analyserar loggar"
 
 #: js/messages.php:177
 msgid "Analysing & loading logs. This may take a while."
@@ -1574,10 +1573,9 @@ msgid "Jump to Log table"
 msgstr "Gå till tabellogg"
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "No data"
 msgid "No data found"
-msgstr "Inget data"
+msgstr "Inga data hittades"
 
 #: js/messages.php:185
 msgid "Log analysed, but no data found in this time span."
@@ -1614,16 +1612,14 @@ msgid "Chart"
 msgstr "Diagram"
 
 #: js/messages.php:195
-#, fuzzy
 #| msgid "Add chart"
 msgid "Edit chart"
-msgstr "Lägg till diagram"
+msgstr "Redigera diagram"
 
 #: js/messages.php:196
-#, fuzzy
 #| msgid "Series:"
 msgid "Series"
-msgstr "Serie:"
+msgstr "Serier"
 
 #. l10n: A collection of available filters
 #: js/messages.php:199
@@ -1698,16 +1694,14 @@ msgid "Import"
 msgstr "Importera"
 
 #: js/messages.php:217
-#, fuzzy
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
-msgstr "Kan inte importera konfiguration"
+msgstr "Importera monitorkonfigurationen"
 
 #: js/messages.php:218
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "Välj den primära nyckeln eller en unik nyckel"
+msgstr "Välj den fil du vill läsa in"
 
 #: js/messages.php:220
 msgid "Analyse Query"
