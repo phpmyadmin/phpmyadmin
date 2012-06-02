@@ -69,20 +69,20 @@ function PMA_aix_iconv_wrapper($in_charset, $out_charset, $str)
         : $out_charset);
 
     // Transform name of input character set (if found)
-    if (array_key_exists(
-            strtolower($in_charset),
-            $gnu_iconv_to_aix_iconv_codepage_map
-        )
-        ) {
+    $in_charset_exisits = array_key_exists(
+        strtolower($in_charset),
+        $gnu_iconv_to_aix_iconv_codepage_map
+    );
+    if ($in_charset_exisits) {
         $in_charset = $gnu_iconv_to_aix_iconv_codepage_map[strtolower($in_charset)];
     }
 
     // Transform name of "plain" output character set (if found)
-    if (array_key_exists(
-            strtolower($out_charset_plain),
-            $gnu_iconv_to_aix_iconv_codepage_map
-        )
-        ) {
+    $out_charset_plain_exists = array_key_exists(
+        strtolower($out_charset_plain),
+        $gnu_iconv_to_aix_iconv_codepage_map
+    );
+    if ($out_charset_plain_exists) {
         $out_charset_plain = $gnu_iconv_to_aix_iconv_codepage_map[
             strtolower($out_charset_plain)];
     }

@@ -20,7 +20,7 @@ require_once './libraries/check_user_privileges.lib.php';
 define('PMA_CHK_DROP', 1);
 
 /**
- *  Check whether timeout is getting close
+ * Checks whether timeout is getting close
  *
  * @return boolean true if timeout is close
  * @access public
@@ -42,7 +42,7 @@ function PMA_checkTimeout()
 }
 
 /**
- *  Detects what compression filse uses
+ * Detects what compression filse uses
  *
  * @param string $filepath filename to check
  *
@@ -78,6 +78,7 @@ function PMA_detectCompression($filepath)
  * @param string $full        query to display, this might be commented
  * @param bool   $controluser whether to use control user for queries
  *
+ * @return void
  * @access public
  */
 function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
@@ -268,7 +269,8 @@ function PMA_importGetNextChunk($size = 32768)
     }
 
     if ($GLOBALS['import_file'] == 'none') {
-        // Well this is not yet supported and tested, but should return content of textarea
+        // Well this is not yet supported and tested,
+        // but should return content of textarea
         if (strlen($GLOBALS['import_text']) < $size) {
             $GLOBALS['finished'] = true;
             return $GLOBALS['import_text'];
@@ -316,7 +318,9 @@ function PMA_importGetNextChunk($size = 32768)
             if (strncmp($result, "\xEF\xBB\xBF", 3) == 0) {
                 $result = substr($result, 3);
                 // UTF-16 BE, LE
-            } elseif (strncmp($result, "\xFE\xFF", 2) == 0 || strncmp($result, "\xFF\xFE", 2) == 0) {
+            } elseif (strncmp($result, "\xFE\xFF", 2) == 0
+                || strncmp($result, "\xFF\xFE", 2) == 0
+            ) {
                 $result = substr($result, 2);
             }
         }
@@ -792,7 +796,12 @@ function PMA_analyzeTable(&$table)
                 /* Determine type of the current cell */
                 $curr_type = PMA_detectType($types[$i], $table[ROWS][$j][$i]);
                 /* Determine size of the current cell */
-                $sizes[$i] = PMA_detectSize($sizes[$i], $types[$i], $curr_type, $table[ROWS][$j][$i]);
+                $sizes[$i] = PMA_detectSize(
+                    $sizes[$i],
+                    $types[$i],
+                    $curr_type,
+                    $table[ROWS][$j][$i]
+                );
 
                 /**
                  * If a type for this column has already been declared,
@@ -810,7 +819,10 @@ function PMA_analyzeTable(&$table)
                             $types[$i] = BIGINT;
                         }
                     } else if ($curr_type == INT) {
-                        if ($types[$i] != VARCHAR && $types[$i] != DECIMAL && $types[$i] != BIGINT) {
+                        if ($types[$i] != VARCHAR
+                            && $types[$i] != DECIMAL
+                            && $types[$i] != BIGINT
+                        ) {
                             $types[$i] = INT;
                         }
                     }
@@ -855,8 +867,9 @@ $import_notice = null;
  *
  * @link http://wiki.phpmyadmin.net/pma/Import
  */
-function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = null, $options = null)
-{
+function PMA_buildSQL($db_name, &$tables, &$analyses = null,
+    &$additional_sql = null, $options = null
+) {
     /* Take care of the options */
     if (isset($options['db_collation'])&& ! is_null($options['db_collation'])) {
         $collation = $options['db_collation'];
@@ -881,9 +894,11 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
 
     if ($create_db) {
         if (PMA_DRIZZLE) {
-            $sql[] = "CREATE DATABASE IF NOT EXISTS " . PMA_backquote($db_name) . " COLLATE " . $collation;
+            $sql[] = "CREATE DATABASE IF NOT EXISTS " . PMA_backquote($db_name)
+                . " COLLATE " . $collation;
         } else {
-            $sql[] = "CREATE DATABASE IF NOT EXISTS " . PMA_backquote($db_name) . " DEFAULT CHARACTER SET " . $charset . " COLLATE " . $collation;
+            $sql[] = "CREATE DATABASE IF NOT EXISTS " . PMA_backquote($db_name)
+                . " DEFAULT CHARACTER SET " . $charset . " COLLATE " . $collation;
         }
     }
 
@@ -922,9 +937,15 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
         $pattern = '/CREATE [^`]*(TABLE)/';
         $replacement = 'CREATE \\1 IF NOT EXISTS';
 
-        /* Change CREATE statements to CREATE IF NOT EXISTS to support inserting into existing structures */
+        /* Change CREATE statements to CREATE IF NOT EXISTS to support
+         * inserting into existing structures
+         */
         for ($i = 0; $i < $additional_sql_len; ++$i) {
-            $additional_sql[$i] = preg_replace($pattern, $replacement, $additional_sql[$i]);
+            $additional_sql[$i] = preg_replace(
+                $pattern,
+                $replacement,
+                $additional_sql[$i]
+            );
             /* Execute the resulting statements */
             PMA_importRunQuery($additional_sql[$i], $additional_sql[$i]);
         }
@@ -993,7 +1014,8 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
         $num_cols = count($tables[$i][COL_NAMES]);
         $num_rows = count($tables[$i][ROWS]);
 
-        $tempSQLStr = "INSERT INTO " . PMA_backquote($db_name) . '.' . PMA_backquote($tables[$i][TBL_NAME]) . " (";
+        $tempSQLStr = "INSERT INTO " . PMA_backquote($db_name) . '.'
+            . PMA_backquote($tables[$i][TBL_NAME]) . " (";
 
         for ($m = 0; $m < $num_cols; ++$m) {
             $tempSQLStr .= PMA_backquote($tables[$i][COL_NAMES][$m]);
@@ -1009,7 +1031,8 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
             $tempSQLStr .= "(";
 
             for ($k = 0; $k < $num_cols; ++$k) {
-                // If fully formatted SQL, no need to enclose with aphostrophes, add shalshes etc.
+                // If fully formatted SQL, no need to enclose
+                // with aphostrophes, add shalshes etc.
                 if ($analyses != null
                     && isset($analyses[$i][FORMATTEDSQL][$col_count])
                     && $analyses[$i][FORMATTEDSQL][$col_count] == true
@@ -1074,8 +1097,9 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
      * A work in progress
      */
 
-    /* Add the viewable structures from $additional_sql to $tables so they are also displayed */
-
+    /* Add the viewable structures from $additional_sql
+     * to $tables so they are also displayed 
+     */
     $view_pattern = '@VIEW `[^`]+`\.`([^`]+)@';
     $table_pattern = '@CREATE TABLE IF NOT EXISTS `([^`]+)`@';
     /* Check a third pattern to make sure its not a "USE `db_name`;" statement */
