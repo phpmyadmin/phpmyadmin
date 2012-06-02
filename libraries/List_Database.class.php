@@ -83,7 +83,7 @@ class PMA_List_Database extends PMA_List
      *
      * @return void
      */
-    protected function _checkHideDatabase()
+    protected function checkHideDatabase()
     {
         if (empty($GLOBALS['cfg']['Server']['hide_db'])) {
             return;
@@ -104,7 +104,7 @@ class PMA_List_Database extends PMA_List
      * @return array
      * @todo   we could also search mysql tables if all fail?
      */
-    protected function _retrieve($like_db_name = null)
+    protected function retrieve($like_db_name = null)
     {
         if ($this->show_databases_disabled) {
             return array();
@@ -162,12 +162,12 @@ class PMA_List_Database extends PMA_List
      */
     public function build()
     {
-        if (! $this->_checkOnlyDatabase()) {
-            $items = $this->_retrieve();
+        if (! $this->checkOnlyDatabase()) {
+            $items = $this->retrieve();
             $this->exchangeArray($items);
         }
 
-        $this->_checkHideDatabase();
+        $this->checkHideDatabase();
     }
 
     /**
@@ -175,7 +175,7 @@ class PMA_List_Database extends PMA_List
      *
      * @return boolean false if there is no only_db, otherwise true
      */
-    protected function _checkOnlyDatabase()
+    protected function checkOnlyDatabase()
     {
         if (is_string($GLOBALS['cfg']['Server']['only_db'])
             && strlen($GLOBALS['cfg']['Server']['only_db'])
@@ -195,7 +195,7 @@ class PMA_List_Database extends PMA_List
             if ($each_only_db === '*' && ! $this->show_databases_disabled) {
                 // append all not already listed dbs to the list
                 $items = array_merge(
-                    $items, array_diff($this->_retrieve(), $items)
+                    $items, array_diff($this->retrieve(), $items)
                 );
                 // there can only be one '*', and this can only be last
                 break;
@@ -210,7 +210,7 @@ class PMA_List_Database extends PMA_List
             }
 
             if (! $this->show_databases_disabled) {
-                $items = array_merge($items, $this->_retrieve($each_only_db));
+                $items = array_merge($items, $this->retrieve($each_only_db));
                 continue;
             }
 
@@ -441,7 +441,7 @@ class PMA_List_Database extends PMA_List
      * @deprecated
      * @return void
      */
-    protected function _checkAgainstPrivTables()
+    protected function checkAgainstPrivTables()
     {
         // 1. get allowed dbs from the "mysql.db" table
         // User can be blank (anonymous user)
