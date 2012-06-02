@@ -52,7 +52,7 @@ function PMA_checkTimeout()
 function PMA_detectCompression($filepath)
 {
     $file = @fopen($filepath, 'rb');
-    if (!$file) {
+    if (! $file) {
         return false;
     }
     $test = fread($file, 4);
@@ -94,15 +94,15 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
         if ($skip_queries > 0) {
             $skip_queries--;
         } else {
-            if (!empty($import_run_buffer['sql'])
+            if (! empty($import_run_buffer['sql'])
                 && trim($import_run_buffer['sql']) != ''
             ) {
                 $max_sql_len = max($max_sql_len, strlen($import_run_buffer['sql']));
-                if (!$sql_query_disabled) {
+                if (! $sql_query_disabled) {
                     $sql_query .= $import_run_buffer['full'];
                 }
-                if (!$cfg['AllowUserDropDatabase']
-                    && !$is_superuser
+                if (! $cfg['AllowUserDropDatabase']
+                    && ! $is_superuser
                     && preg_match('@^[[:space:]]*DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE @i', $import_run_buffer['sql'])
                 ) {
                     $GLOBALS['message'] = PMA_Message::error(__('"DROP DATABASE" statements are disabled.'));
@@ -112,13 +112,13 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                     if ($run_query
                         && $GLOBALS['finished']
                         && empty($sql)
-                        && !$error
-                        && ((!empty($import_run_buffer['sql'])
+                        && ! $error
+                        && ((! empty($import_run_buffer['sql'])
                         && preg_match('/^[\s]*(SELECT|SHOW|HANDLER)/i', $import_run_buffer['sql']))
                         || ($executed_queries == 1))
                     ) {
                         $go_sql = true;
-                        if (!$sql_query_disabled) {
+                        if (! $sql_query_disabled) {
                             $complete_query = $sql_query;
                             $display_query = $sql_query;
                         } else {
@@ -153,7 +153,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
 
                             $msg .= __('Error');
 
-                            if (!$cfg['IgnoreMultiSubmitErrors']) {
+                            if (! $cfg['IgnoreMultiSubmitErrors']) {
                                 $error = true;
                                 return;
                             }
@@ -170,7 +170,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                                 $msg .= __('MySQL returned an empty result set (i.e. zero rows).');
                             }
                         }
-                        if (!$sql_query_disabled) {
+                        if (! $sql_query_disabled) {
                             $sql_query .= $msg . "\n";
                         }
 
@@ -192,12 +192,12 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                     } // end run query
                 } // end if not DROP DATABASE
                 // end non empty query
-            } elseif (!empty($import_run_buffer['full'])) {
+            } elseif (! empty($import_run_buffer['full'])) {
                 if ($go_sql) {
                     $complete_query .= $import_run_buffer['full'];
                     $display_query .= $import_run_buffer['full'];
                 } else {
-                    if (!$sql_query_disabled) {
+                    if (! $sql_query_disabled) {
                         $sql_query .= $import_run_buffer['full'];
                     }
                 }
@@ -220,7 +220,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
     } // end buffer exists
 
     // Do we have something to push into buffer?
-    if (!empty($sql) || !empty($full)) {
+    if (! empty($sql) || ! empty($full)) {
         $import_run_buffer = array('sql' => $sql, 'full' => $full);
     } else {
         unset($GLOBALS['import_run_buffer']);
@@ -422,7 +422,7 @@ function PMA_getColumnAlphaName($num)
  */
 function PMA_getColumnNumberFromName($name)
 {
-    if (!empty($name)) {
+    if (! empty($name)) {
         $name = strtoupper($name);
         $num_chars = strlen($name);
         $column_number = 0;
@@ -1066,7 +1066,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
                     if ($analyses != null) {
                         $is_varchar = ($analyses[$i][TYPES][$col_count] === VARCHAR);
                     } else {
-                        $is_varchar = !is_numeric($tables[$i][ROWS][$j][$k]);
+                        $is_varchar = ! is_numeric($tables[$i][ROWS][$j][$k]);
                     }
 
                     /* Don't put quotes around NULL fields */
@@ -1144,13 +1144,13 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
 
         if (count($regs)) {
             for ($n = 0; $n < $num_tables; ++$n) {
-                if (!strcmp($regs[1], $tables[$n][TBL_NAME])) {
+                if (! strcmp($regs[1], $tables[$n][TBL_NAME])) {
                     $inTables = true;
                     break;
                 }
             }
 
-            if (!$inTables) {
+            if (! $inTables) {
                 $tables[] = array(TBL_NAME => $regs[1]);
             }
         }
