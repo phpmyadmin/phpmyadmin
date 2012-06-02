@@ -720,7 +720,7 @@ function PMA_tblSearchGetFieldsTableHtml($db, $table, $columnNames, $columnTypes
     $html_output .= PMA_tbl_getTableHeader($geomColumnFlag);
     $html_output .= '<tbody>';
 
-    if($searchType == 'zoom') {
+    if ($searchType == 'zoom') {
     } else {
         $html_output .= PMA_tblSearchGetRowsNormal(
             $db, $table, $columnNames, $columnTypes, $columnCollations,
@@ -794,7 +794,7 @@ function PMA_tblSearchGetSelectionForm($goto, $db, $table, $columnNames, $column
     $html_output .= ($searchType == 'zoom' ? '' : '<fieldset id="fieldset_table_qbe">');
 
     // Set caption for fieldset
-    if($searchType == 'zoom') {
+    if ($searchType == 'zoom') {
         $html_output .= '<legend>'
             . __('Do a "query by example" (wildcard: "%") for two different columns')
             . '</legend>';
@@ -812,7 +812,7 @@ function PMA_tblSearchGetSelectionForm($goto, $db, $table, $columnNames, $column
         $geomColumnFlag, $columnCount, $foreigners, $searchType
     );
 
-    if($searchType == 'zoom') {
+    if ($searchType == 'zoom') {
     } else {
         $html_output .= '<div id="gis_editor"></div>'
             . '<div id="popup_background"></div>'
