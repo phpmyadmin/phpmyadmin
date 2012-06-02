@@ -79,7 +79,7 @@ function PMA_tbl_getFields($db, $table)
  *
  * @return HTML content, the tags and content for table header
  */
-function PMA_tbl_setTableHeader($geomColumnFlag = false)
+function PMA_tbl_getTableHeader($geomColumnFlag = false)
 {
     // Display the Function column only if there is alteast one geomety colum
     $func = '';
@@ -717,7 +717,7 @@ function PMA_tblSearchGetFieldsTableHtml($db, $table, $columnNames, $columnTypes
 {
     $html_output = '';
     $html_output .= '<table class="data">';
-    $html_output .= PMA_tbl_setTableHeader($geomColumnFlag);
+    $html_output .= PMA_tbl_getTableHeader($geomColumnFlag);
     $html_output .= '<tbody>';
 
     if($searchType == 'zoom') {

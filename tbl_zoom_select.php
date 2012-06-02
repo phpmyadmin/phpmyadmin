@@ -230,7 +230,7 @@ if (isset($criteriaColumnNames) && ($criteriaColumnNames[0] != 'pma_null' || $cr
 
 <legend><?php echo __('Do a "query by example" (wildcard: "%") for two different columns') ?></legend>
 <table class="data" id="tableFieldsId">
-<?php echo PMA_tbl_setTableHeader();?>
+<?php echo PMA_tbl_getTableHeader();?>
 <tbody>
 <?php
     $odd_row = true;
