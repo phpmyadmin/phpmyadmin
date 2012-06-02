@@ -293,13 +293,18 @@ class PMA_Theme_Manager
             // check for themes directory
             while (false !== ($PMA_Theme = readdir($handleThemes))) {
                 // Skip non dirs, . and ..
-                if ($PMA_Theme == '.' || $PMA_Theme == '..' || ! is_dir($this->getThemesPath() . '/' . $PMA_Theme)) {
+                if ($PMA_Theme == '.'
+                    || $PMA_Theme == '..'
+                    || ! is_dir($this->getThemesPath() . '/' . $PMA_Theme)
+                ) {
                     continue;
                 }
                 if (array_key_exists($PMA_Theme, $this->themes)) {
                     continue;
                 }
-                $new_theme = PMA_Theme::load($this->getThemesPath() . '/' . $PMA_Theme);
+                $new_theme = PMA_Theme::load(
+                    $this->getThemesPath() . '/' . $PMA_Theme
+                );
                 if ($new_theme) {
                     $new_theme->setId($PMA_Theme);
                     $this->themes[$PMA_Theme] = $new_theme;
