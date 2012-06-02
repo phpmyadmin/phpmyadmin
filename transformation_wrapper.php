@@ -99,7 +99,7 @@ if (isset($ct) && !empty($ct)) {
     . (isset($mime_options['charset']) ? $mime_options['charset'] : '');
 }
 
-PMA_download_header($cn, $mime_type);
+PMA_downloadHeader($cn, $mime_type);
 
 if (! isset($resize)) {
     echo $row[$transform_key];

@@ -155,7 +155,7 @@ class PMA_GIS_Visualization
 
         ob_clean();
 
-        PMA_download_header($file_name, $type);
+        PMA_downloadHeader($file_name, $type);
     }
 
     /**
