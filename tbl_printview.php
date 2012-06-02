@@ -472,6 +472,4 @@ foreach ($the_tables as $key => $table) {
 PMA_printButton();
 
 echo "<div id='PMA_disable_floating_menubar'></div>\n";
-
-require 'libraries/footer.inc.php';
 ?>

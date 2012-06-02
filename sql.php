@@ -418,10 +418,7 @@ if ($do_confirm) {
     echo '</fieldset>' . "\n"
        . '</form>' . "\n";
 
-    /**
-     * Displays the footer and exit
-     */
-    include 'libraries/footer.inc.php';
+    exit;
 } // end if $do_confirm
 
 
@@ -1127,6 +1124,6 @@ $(makeProfilingChart);
  * Displays the footer
  */
 if (! isset($_REQUEST['table_maintenance'])) {
-    include 'libraries/footer.inc.php';
+    exit;
 }
 ?>

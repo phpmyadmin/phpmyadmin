@@ -371,9 +371,3 @@ $alter_select
 <!--  toggle query box link-->
 <a id="togglequerybox"></a>
 
-<?php
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
-?>

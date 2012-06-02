@@ -765,7 +765,7 @@ if (! empty($asfile)) {
         }
     }
 
-    /* If ve saved on server, we have to close file now */
+    /* If we saved on server, we have to close file now */
     if ($save_on_server) {
         $write_result = @fwrite($file_handle, $dump_buffer);
         fclose($file_handle);
@@ -797,6 +797,7 @@ if (! empty($asfile)) {
         }
         exit();
     } else {
+        PMA_Response::getInstance()->disable();
         echo $dump_buffer;
     }
 } else {
@@ -834,6 +835,5 @@ if (! empty($asfile)) {
 //]]>
 </script>
 <?php
-    include 'libraries/footer.inc.php';
 } // end if
 ?>

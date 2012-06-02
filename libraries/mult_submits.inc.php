@@ -324,7 +324,7 @@ if (!empty($submit_mult) && !empty($what)) {
         </fieldset>
     <?php
     }
-    include './libraries/footer.inc.php';
+    exit;
 
 } elseif ($mult_btn == __('Yes')) {
     /**

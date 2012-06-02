@@ -264,5 +264,4 @@ if (isset($zoom_submit)
     </form>
     <?php
 }
-require './libraries/footer.inc.php';
 ?>

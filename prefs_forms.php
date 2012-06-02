@@ -89,9 +89,4 @@ if ($form_display->hasErrors()) {
     <?php
 }
 $form_display->display(true, true);
-
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
 ?>

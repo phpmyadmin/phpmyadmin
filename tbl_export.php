@@ -84,10 +84,4 @@ if (! empty($sql_query)) {
 
 $export_type = 'table';
 require_once 'libraries/display_export.lib.php';
-
-
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
 ?>

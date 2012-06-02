@@ -89,11 +89,6 @@ if ($num_tables == 0) {
     if (empty($db_is_information_schema)) {
         include 'libraries/display_create_table.lib.php';
     } // end if (Create Table dialog)
-
-    /**
-     * Displays the footer
-     */
-    include_once 'libraries/footer.inc.php';
     exit;
 }
 
@@ -759,8 +754,4 @@ if (empty($db_is_information_schema)) {
     include 'libraries/display_create_table.lib.php';
 } // end if (Create Table dialog)
 
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
 ?>

@@ -158,10 +158,3 @@ url_query = '<?php echo $url_query;?>';
     chart_data = <?php echo strtr(json_encode($data), array('<' => '&lt;', '>' => '&gt;')); ?>;
 //]]>
 </script>
-<?php
-/**
- * Displays the footer
- */
-require_once 'libraries/footer.inc.php';
-
-?>

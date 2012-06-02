@@ -1487,8 +1487,4 @@ if (! isset($_REQUEST['submit_connect'])
     <div class="notice">' . __('Target database will be completely synchronized with source database. Source database will remain unchanged.') . '</div>';
 }
 
- /**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
 ?>

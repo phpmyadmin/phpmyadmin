@@ -186,10 +186,3 @@ $url_params['reload'] = 1;
 ?>
 </form>
 </div>
-<?php
-/**
- * Displays the footer
- */
-require './libraries/footer.inc.php';
-
-?>

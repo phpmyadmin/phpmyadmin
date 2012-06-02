@@ -367,8 +367,6 @@ if ($GLOBALS['is_ajax_request'] != true) {
 }
 
 require 'libraries/tbl_properties.inc.php';
-// Displays the footer
-require 'libraries/footer.inc.php';
 
 if ($GLOBALS['is_ajax_request'] != true) {
     echo('</div>');

@@ -24,9 +24,5 @@ require 'libraries/db_info.inc.php';
 $import_type = 'database';
 require 'libraries/display_import.lib.php';
 
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
 ?>
 

@@ -71,8 +71,6 @@ if (! isset($_POST['columnsToDisplay']) || $_POST['columnsToDisplay'][0] == '') 
         $goto, $db, $table, $columnNames, $columnTypes, $columnCollations,
         $columnNullFlags, $geomColumnFlag, $foreigners, "normal"
     );
-
-    include 'libraries/footer.inc.php';
 } else {
     /**
      * Selection criteria have been submitted -> do the work

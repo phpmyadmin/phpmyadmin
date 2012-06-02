@@ -62,9 +62,3 @@ foreach ($types['transformation'] as $key => $transform) {
 </tbody>
 </table>
 
-<?php
-/**
- * Displays the footer
- */
-require './libraries/footer.inc.php';
-?>

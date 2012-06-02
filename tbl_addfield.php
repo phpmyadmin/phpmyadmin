@@ -230,9 +230,6 @@ if ($abort == false) {
      */
     $action = 'tbl_addfield.php';
     include_once 'libraries/tbl_properties.inc.php';
-
-    // Diplays the footer
-    include 'libraries/footer.inc.php';
 }
 
 ?>

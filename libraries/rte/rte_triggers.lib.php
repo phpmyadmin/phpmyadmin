@@ -180,9 +180,8 @@ function PMA_TRI_handleEditor()
             } else {
                 echo "\n\n<h2>$title</h2>\n\n$editor";
                 unset($_POST);
-                include './libraries/footer.inc.php';
             }
-            // exit;
+            exit;
         } else {
             $message  = __('Error in processing request') . ' : ';
             $message .= sprintf(

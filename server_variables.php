@@ -184,9 +184,4 @@ function formatVariable($name, $value)
     return htmlspecialchars($value);
 }
 
-/**
- * Sends the footer
- */
-require 'libraries/footer.inc.php';
-
 ?>

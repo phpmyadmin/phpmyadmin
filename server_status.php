@@ -1839,8 +1839,4 @@ function cleanDeprecated(&$server_status)
     }
 }
 
-/**
- * Sends the footer
- */
-require 'libraries/footer.inc.php';
 ?>

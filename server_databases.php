@@ -313,9 +313,4 @@ if ($databases_count > 0) {
 }
 unset($databases_count);
 
-/**
- * Sends the footer
- */
-require 'libraries/footer.inc.php';
-
 ?>

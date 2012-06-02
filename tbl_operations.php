@@ -860,13 +860,6 @@ if ($cfgRelation['relwork'] && ! $is_innodb) {
 
 } // end  if (!empty($cfg['Server']['relation']))
 
-
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
-
-
 function PMA_set_global_variables_for_engine($tbl_storage_engine)
 {
     global $is_myisam_or_aria, $is_innodb, $is_isam, $is_berkeleydb, $is_aria, $is_pbxt;

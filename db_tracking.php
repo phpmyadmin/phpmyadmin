@@ -52,9 +52,6 @@ if ($num_tables == 0 && count($data['ddlog']) == 0) {
     if (empty($db_is_information_schema)) {
         include 'libraries/display_create_table.lib.php';
     }
-
-    // Display the footer
-    include 'libraries/footer.inc.php';
     exit;
 }
 
@@ -231,8 +228,4 @@ if (count($data['ddlog']) > 0) {
     echo PMA_getMessage(__('Database Log'), $log);
 }
 
-/**
- * Display the footer
- */
-require 'libraries/footer.inc.php';
 ?>

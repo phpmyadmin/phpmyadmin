@@ -387,9 +387,5 @@ if ($insert_mode) {
     $html_output .= PMA_getContinueInsertionForm($table, $db, $where_clause_array, $err_url);
 }
 echo $html_output;
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
 
 ?>

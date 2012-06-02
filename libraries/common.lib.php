@@ -703,10 +703,7 @@ function PMA_mysqlDie(
         }
 
         echo $error_msg;
-        /**
-         * display footer and exit
-         */
-        include './libraries/footer.inc.php';
+        exit;
     } else {
         echo $error_msg;
     }

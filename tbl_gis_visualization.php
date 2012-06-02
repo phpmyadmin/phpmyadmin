@@ -192,10 +192,3 @@ $visualization = PMA_GIS_visualizationResults($data, $visualizationSettings, $fo
 </fieldset>
 </form>
 </div>
-<?php
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
-
-?>

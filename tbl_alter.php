@@ -317,10 +317,4 @@ if ($abort == false) {
      */
     include 'libraries/tbl_properties.inc.php';
 }
-
-
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
 ?>

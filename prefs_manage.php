@@ -133,8 +133,7 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
                 <input type="submit" name="submit_ignore" value="<?php echo __('No') ?>" />
             </form>
             <?php
-            include 'libraries/footer.inc.php';
-            return;
+            exit;
         }
 
         // check for ThemeDefault and fontsize
@@ -339,9 +338,3 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
     </div>
     <br class="clearfloat" />
 </div>
-<?php
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
-?>

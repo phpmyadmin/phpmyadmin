@@ -575,8 +575,4 @@ if (count($columns) > 0) {
     <?php
 } // end if (we have columns in this table)
 
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
 ?>

@@ -239,8 +239,7 @@ class PMA_Export_Relation_Schema
             . '&do=selectpage&chpage=' . $pageNumber . '&action_choose=0'
             . '">' . __('Back') . '</a>';
         echo "\n";
-        include_once './libraries/footer.inc.php';
-        exit();
+        exit;
     }
 }
 ?>

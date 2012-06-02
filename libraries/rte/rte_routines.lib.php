@@ -366,8 +366,7 @@ function PMA_RTN_handleEditor()
                 PMA_ajaxResponse($editor, true, $extra_data);
             }
             echo "\n\n<h2>$title</h2>\n\n$editor";
-            include './libraries/footer.inc.php';
-            // exit;
+            exit;
         } else {
             $message  = __('Error in processing request') . ' : ';
             $message .= sprintf(
@@ -1317,8 +1316,7 @@ function PMA_RTN_handleExecute()
             } else {
                 echo "\n\n<h2>" . __("Execute routine") . "</h2>\n\n";
                 echo $form;
-                include './libraries/footer.inc.php';
-                // exit;
+                exit;
             }
         } else if (($GLOBALS['is_ajax_request'] == true)) {
             $message  = __('Error in processing request') . ' : ';

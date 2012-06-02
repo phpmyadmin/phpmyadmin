@@ -183,10 +183,3 @@ pma_theme_image = '<?php echo $GLOBALS['pmaThemeImage']; ?>';
         </table>
     </div>
 </div>
-<?php
-/**
- * Sends the footer
- */
-require 'libraries/footer.inc.php';
-
-?>

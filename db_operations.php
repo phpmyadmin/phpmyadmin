@@ -636,8 +636,4 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
     echo __('Edit or export relational schema') . '</a></fieldset></div>';
 } // end if
 
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
 ?>

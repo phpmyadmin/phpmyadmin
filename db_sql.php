@@ -62,8 +62,4 @@ PMA_sqlQueryForm(
     isset($_REQUEST['delimiter']) ? htmlspecialchars($_REQUEST['delimiter']) : ';'
 );
 
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
 ?>

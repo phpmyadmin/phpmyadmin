@@ -27,7 +27,7 @@ if (! $cfg['ShowChgPassword']) {
 if ($cfg['Server']['auth_type'] == 'config' || ! $cfg['ShowChgPassword']) {
     $header->display();
     PMA_Message::error(__('You don\'t have sufficient privileges to be here right now!'))->display();
-    include './libraries/footer.inc.php';
+    exit;
 } // end if
 
 /**
@@ -61,11 +61,7 @@ if (isset($message)) {
 }
 
 require_once './libraries/display_change_password.lib.php';
-
-/**
- * Displays the footer
- */
-require './libraries/footer.inc.php';
+exit;
 
 /**
  * Send the message as an ajax request
@@ -211,6 +207,6 @@ function PMA_changePassDisplayPage($message, $sql_query, $_url_params)
     echo PMA_getMessage($message, $sql_query, 'success');
     echo '<a href="index.php'.PMA_generate_common_url($_url_params).' target="_parent">'. "\n"
             .'<strong>'.__('Back').'</strong></a>';
-    include './libraries/footer.inc.php';
+    exit;
 }
 ?>

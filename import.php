@@ -94,7 +94,7 @@ if ($_POST == array() && $_GET == array()) {
     $_SESSION['Import_message']['go_back_url'] = $goto;
 
     $message->display();
-    include 'libraries/footer.inc.php';
+    exit; // the footer is displayed automatically
 }
 
 /**
@@ -524,5 +524,4 @@ if ($go_sql) {
     $active_page = $goto;
     include '' . $goto;
 }
-exit();
 ?>

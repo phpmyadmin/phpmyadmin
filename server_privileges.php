@@ -182,7 +182,7 @@ if (! $is_superuser) {
        . __('Privileges') . "\n"
        . '</h2>' . "\n";
     PMA_Message::error(__('No Privileges'))->display();
-    include 'libraries/footer.inc.php';
+    exit;
 }
 
 // a random number that will be appended to the id of the user forms
@@ -2034,7 +2034,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         if ($user_does_not_exists) {
             PMA_Message::error(__('The selected user was not found in the privilege table.'))->display();
             PMA_displayLoginInformationFields();
-            //require 'libraries/footer.inc.php';
+            //exit;
         }
 
         echo '<form name="usersForm" id="addUsersForm_' . $random_n . '" action="server_privileges.php" method="post">' . "\n";
@@ -2583,12 +2583,5 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
     }
 
 } // end if (empty($_REQUEST['adduser']) && empty($checkprivs)) ... elseif ... else ...
-
-
-/**
- * Displays the footer
- */
-echo "\n\n";
-require 'libraries/footer.inc.php';
 
 ?>

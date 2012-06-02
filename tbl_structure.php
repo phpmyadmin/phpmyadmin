@@ -1001,8 +1001,4 @@ if ($cfg['ShowStats']) {
 
 echo '<div class="clearfloat"></div>' . "\n";
 
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
 ?>

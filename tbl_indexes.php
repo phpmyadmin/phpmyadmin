@@ -320,10 +320,3 @@ echo '<input type="submit" name="add_fields" value="' . __('Go') . '" />' . "\n"
 ?>
 </fieldset>
 </form>
-<?php
-
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
-?>

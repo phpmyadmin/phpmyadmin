@@ -33,7 +33,7 @@ if (! $is_superuser) {
         . __('Replication') . "\n"
         . '</h2>' . "\n";
     PMA_Message::error(__('No Privileges'))->display();
-    include 'libraries/footer.inc.php';
+    exit;
 }
 
 /**
@@ -265,7 +265,6 @@ if (isset($GLOBALS['mr_configure'])) {
     echo ' </form>';
     echo '</fieldset>';
 
-    include 'libraries/footer.inc.php';
     exit;
 }
 
@@ -398,5 +397,4 @@ if (! isset($GLOBALS['repl_clear_scr'])) {
 if (isset($GLOBALS['sl_configure'])) {
     PMA_replication_gui_changemaster("slave_changemaster");
 }
-require 'libraries/footer.inc.php';
 ?>

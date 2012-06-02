@@ -60,9 +60,4 @@ $multi_values .= '</select></div>';
 $export_type = 'server';
 require_once 'libraries/display_export.lib.php';
 
-
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
 ?>
