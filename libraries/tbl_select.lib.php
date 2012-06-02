@@ -414,18 +414,18 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations,
 /**
  * Builds the sql search query from the post parameters
  *
- * @param string  $table                    Selected table
- * @param array   $fields                   Entered values of the columns
- * @param array   $criteriaColumnNames      Names of all columns
- * @param array   $criteriaColumnTypes      Types of all columns
- * @param array   $criteriaColumnCollations Collations of all columns
- * @param array   $criteriaColumnOperators  Operators for given column type
+ * @param string $table                    Selected table
+ * @param array  $fields                   Entered values of the columns
+ * @param array  $criteriaColumnNames      Names of all columns
+ * @param array  $criteriaColumnTypes      Types of all columns
+ * @param array  $criteriaColumnCollations Collations of all columns
+ * @param array  $criteriaColumnOperators  Operators for given column type
  *
  * @return string the generated SQL query
  */
 function PMA_tblSearchBuildSqlQuery($table, $fields, $criteriaColumnNames,
-    $criteriaColumnTypes, $criteriaColumnCollations, $criteriaColumnOperators)
-{
+    $criteriaColumnTypes, $criteriaColumnCollations, $criteriaColumnOperators
+) {
     $sql_query = 'SELECT ';
 
     // If only distinct values are needed
@@ -449,7 +449,7 @@ function PMA_tblSearchBuildSqlQuery($table, $fields, $criteriaColumnNames,
         $criteriaColumnCollations, $criteriaColumnOperators
     );
     $sql_query .= $whereClause;
- 
+
     // if the search results are to be ordered
     if ($_POST['orderByColumn'] != '--nil--') {
         $sql_query .= ' ORDER BY ' . PMA_backquote($_POST['orderByColumn'])
@@ -461,17 +461,17 @@ function PMA_tblSearchBuildSqlQuery($table, $fields, $criteriaColumnNames,
 /**
  * Generates the where clause for the SQL search query to be executed
  *
- * @param array  $fields                   Entered values of the columns
- * @param array  $criteriaColumnNames      Names of all columns
- * @param array  $criteriaColumnTypes      Types of all columns
- * @param array  $criteriaColumnCollations Collations of all columns
- * @param array  $criteriaColumnOperators  Operators for given column type
+ * @param array $fields                   Entered values of the columns
+ * @param array $criteriaColumnNames      Names of all columns
+ * @param array $criteriaColumnTypes      Types of all columns
+ * @param array $criteriaColumnCollations Collations of all columns
+ * @param array $criteriaColumnOperators  Operators for given column type
  *
  * @return string the generated where clause
  */
 function PMA_tblSearchGenerateWhereClause($fields, $criteriaColumnNames,
-    $criteriaColumnTypes, $criteriaColumnCollations, $criteriaColumnOperators)
-{
+    $criteriaColumnTypes, $criteriaColumnCollations, $criteriaColumnOperators
+) {
     $fullWhereClause = '';
 
     if (trim($_POST['customWhereClause']) != '') {
@@ -520,8 +520,8 @@ function PMA_tblSearchGenerateWhereClause($fields, $criteriaColumnNames,
  * @return string the generated HTML
  */
 function PMA_tblSearchGetGeomFuncHtml($geomColumnFlag, $columnTypes,
-$geom_types, $column_index)
-{
+    $geom_types, $column_index
+) {
     $html_output = '';
     // return if geometrical column is not present
     if (! $geomColumnFlag) {
@@ -530,7 +530,7 @@ $geom_types, $column_index)
 
     /**
      * Displays 'Function' column if it is present
-     */    
+     */
     $html_output .= '<td>';
     // if a geometry column is present
     if (in_array($columnTypes[$column_index], $geom_types)) {
@@ -563,7 +563,7 @@ $geom_types, $column_index)
  * @return string the generated HTML
  */
 function PMA_tblSearchGetOptions($columnNames, $columnCount)
-{    
+{
     $html_output = '';
     $html_output .= PMA_getDivForSliderEffect('searchoptions', __('Options'));
     /**
@@ -619,7 +619,9 @@ function PMA_tblSearchGetOptions($columnNames, $columnCount)
         'ASC' => __('Ascending'),
         'DESC' => __('Descending')
     );
-    $html_output .= PMA_getRadioFields('order', $choices, 'ASC', false, true, "formelement");
+    $html_output .= PMA_getRadioFields(
+        'order', $choices, 'ASC', false, true, "formelement"
+    );
     unset($choices);
 
     $html_output .= '</fieldset><br style="clear: both;"/></div></fieldset>';
@@ -642,9 +644,9 @@ function PMA_tblSearchGetOptions($columnNames, $columnCount)
  * @return string the generated HTML
  */
 function PMA_tblSearchGetFieldsTableHtml($columnNames, $columnTypes,
-$columnCollations, $columnNullFlags, $geomColumnFlag, $columnCount,
-$foreigners, $db, $table)
-{
+    $columnCollations, $columnNullFlags, $geomColumnFlag, $columnCount,
+    $foreigners, $db, $table
+) {
     $html_output = '';
     $html_output .= '<table class="data">';
     $html_output .= PMA_tbl_setTableHeader($geomColumnFlag) . '<tbody>';
@@ -704,7 +706,7 @@ $foreigners, $db, $table)
 /**
  * Generates the table search form under table search tab
  *
- * @param string  $goto             Goto URL   
+ * @param string  $goto             Goto URL
  * @param array   $columnNames      Names of columns in the table
  * @param array   $columnTypes      Types of columns in the table
  * @param array   $columnCollations Collation of all columns
@@ -718,9 +720,9 @@ $foreigners, $db, $table)
  * @return string the generated HTML for table search form
  */
 function PMA_tblSearchGetSelectionForm($goto, $columnNames, $columnTypes,
-$columnCollations, $columnNullFlags, $geomColumnFlag, $columnCount,
-$foreigners, $db, $table)
-{
+    $columnCollations, $columnNullFlags, $geomColumnFlag, $columnCount,
+    $foreigners, $db, $table
+) {
     $html_output = '';
     $html_output .= '<fieldset id="fieldset_subtab">';
     $url_params = array();
@@ -742,7 +744,7 @@ $foreigners, $db, $table)
      */
     $html_output .= PMA_tblSearchGetFieldsTableHtml(
         $columnNames, $columnTypes, $columnCollations, $columnNullFlags,
-        $geomColumnFlag, $columnCount, $foreigners, $db, $table    
+        $geomColumnFlag, $columnCount, $foreigners, $db, $table
     );
 
     $html_output .= '<div id="gis_editor"></div>'

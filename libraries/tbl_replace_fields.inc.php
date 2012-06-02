@@ -51,7 +51,9 @@ if (false !== $possibly_uploaded_val) {
     // $key contains the md5() of the fieldname
     if ($type != 'protected' && $type != 'set' && 0 === strlen($val)) {
         // best way to avoid problems in strict mode (works also in non-strict mode)
-        if (isset($multi_edit_auto_increment)  && isset($multi_edit_auto_increment[$key])) {
+        if (isset($multi_edit_auto_increment)
+            && isset($multi_edit_auto_increment[$key])
+        ) {
             $val = 'NULL';
         } else {
             $val = "''";
