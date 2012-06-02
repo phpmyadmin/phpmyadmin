@@ -327,9 +327,9 @@ class PMA_Footer
                 // display Footnotes and error messages even in ajax reqests
                 // FIXME: nootnotes should be sent as JSON
                 $retval .= $this->_footnotes->getDisplay();
-                $retval .= $this->_getErrorMessages();
             }
             if (! $this->_isAjax && ! $this->_isMinimal) {
+                $retval .= $this->_getErrorMessages();
                 $retval .= $this->_scripts->getDisplay();
                 // Include possible custom footers
                 if (file_exists(CUSTOM_FOOTER_FILE)) {
