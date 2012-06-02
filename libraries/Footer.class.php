@@ -9,6 +9,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once 'libraries/Scripts.class.php';
 require_once 'libraries/Footnotes.class.php';
 
 /**
