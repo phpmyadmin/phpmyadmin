@@ -94,7 +94,9 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
         if ($skip_queries > 0) {
             $skip_queries--;
         } else {
-            if (!empty($import_run_buffer['sql']) && trim($import_run_buffer['sql']) != '') {
+            if (!empty($import_run_buffer['sql'])
+                && trim($import_run_buffer['sql']) != ''
+            ) {
                 $max_sql_len = max($max_sql_len, strlen($import_run_buffer['sql']));
                 if (!$sql_query_disabled) {
                     $sql_query .= $import_run_buffer['full'];
@@ -124,11 +126,18 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                             $display_query = '';
                         }
                         $sql_query = $import_run_buffer['sql'];
-                        // If a 'USE <db>' SQL-clause was found, set our current $db to the new one
-                        list($db, $reload) = PMA_lookForUse($import_run_buffer['sql'], $db, $reload);
+                        // If a 'USE <db>' SQL-clause was found,
+                        // set our current $db to the new one
+                        list($db, $reload) = PMA_lookForUse(
+                            $import_run_buffer['sql'],
+                            $db,
+                            $reload
+                        );
                     } elseif ($run_query) {
                         if ($controluser) {
-                            $result = PMA_query_as_controluser($import_run_buffer['sql']);
+                            $result = PMA_query_as_controluser(
+                                $import_run_buffer['sql']
+                            );
                         } else {
                             $result = PMA_DBI_try_query($import_run_buffer['sql']);
                         }
@@ -137,7 +146,10 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                             if (! isset($my_die)) {
                                 $my_die = array();
                             }
-                            $my_die[] = array('sql' => $import_run_buffer['full'], 'error' => PMA_DBI_getError());
+                            $my_die[] = array(
+                                'sql' => $import_run_buffer['full'],
+                                'error' => PMA_DBI_getError()
+                            );
 
                             $msg .= __('Error');
 
@@ -162,9 +174,14 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                             $sql_query .= $msg . "\n";
                         }
 
-                        // If a 'USE <db>' SQL-clause was found and the query succeeded, set our current $db to the new one
+                        // If a 'USE <db>' SQL-clause was found and the query
+                        // succeeded, set our current $db to the new one
                         if ($result != false) {
-                            list($db, $reload) = PMA_lookForUse($import_run_buffer['sql'], $db, $reload);
+                            list($db, $reload) = PMA_lookForUse(
+                                $import_run_buffer['sql'],
+                                $db,
+                                $reload
+                            );
                         }
 
                         if ($result != false
@@ -190,7 +207,10 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
             // the complete query in the textarea)
             if (! $go_sql && $run_query) {
                 if (! empty($sql_query)) {
-                    if (strlen($sql_query) > 50000 || $executed_queries > 50 || $max_sql_len > 1000) {
+                    if (strlen($sql_query) > 50000
+                        || $executed_queries > 50
+                        || $max_sql_len > 1000
+                    ) {
                         $sql_query = '';
                         $sql_query_disabled = true;
                     }
@@ -521,8 +541,9 @@ function PMA_getDecimalSize(&$cell)
  *
  * @todo    Handle the error cases more elegantly
  */
-function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type, &$cell)
-{
+function PMA_detectSize($last_cumulative_size, $last_cumulative_type,
+    $curr_type, &$cell
+) {
     $curr_size = strlen((string)$cell);
 
     /**
@@ -1054,7 +1075,9 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
                     }
 
                     $tempSQLStr .= (($is_varchar) ? "'" : "");
-                    $tempSQLStr .= PMA_sqlAddSlashes((string)$tables[$i][ROWS][$j][$k]);
+                    $tempSQLStr .= PMA_sqlAddSlashes(
+                        (string) $tables[$i][ROWS][$j][$k]
+                    );
                     $tempSQLStr .= (($is_varchar) ? "'" : "");
                 }
 
@@ -1161,7 +1184,10 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null,
 
     $num_tables = count($tables);
     for ($i = 0; $i < $num_tables; ++$i) {
-        $params = array('db' => (string)$db_name, 'table' => (string)$tables[$i][TBL_NAME]);
+        $params = array(
+             'db' => (string) $db_name,
+             'table' => (string) $tables[$i][TBL_NAME]
+        );
         $tbl_url = 'sql.php' . PMA_generate_common_url($params);
         $tbl_struct_url = 'tbl_structure.php' . PMA_generate_common_url($params);
         $tbl_ops_url = 'tbl_operations.php' . PMA_generate_common_url($params);
