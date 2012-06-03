@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-06-03 13:17+0200\n"
-"PO-Revision-Date: 2012-06-01 14:41+0200\n"
+"POT-Creation-Date: 2012-06-01 14:44+0200\n"
+"PO-Revision-Date: 2012-06-01 14:47+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -3052,7 +3052,7 @@ msgstr "Zkratka pro BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/Types.class.php:719
 msgid "Stores a Universally Unique Identifier (UUID)"
-msgstr ""
+msgstr "Univerzální Unikátní Identifikátor (UUID)"
 
 #: libraries/Types.class.php:725
 msgid ""
@@ -6295,7 +6295,7 @@ msgid "vertical"
 msgstr "svislém"
 
 #: libraries/display_tbl.lib.php:636
-#, fuzzy, php-format
+#, php-format
 #| msgid "Headers every %s rows"
 msgid "Headers every %s rows"
 msgstr "Záhlaví opakovat každých %s řádek"

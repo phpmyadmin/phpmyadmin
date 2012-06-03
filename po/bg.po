@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-06-03 13:17+0200\n"
-"PO-Revision-Date: 2012-05-17 20:44+0200\n"
+"POT-Creation-Date: 2012-06-01 14:44+0200\n"
+"PO-Revision-Date: 2012-06-01 22:03+0200\n"
 "Last-Translator: Стоян Димитров <stoyanster@gmail.com>\n"
 "Language-Team: bulgarian <bg@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1570,11 +1570,11 @@ msgstr "Диаграма"
 
 #: js/messages.php:191
 msgid "Edit chart"
-msgstr "Редакция диаграма"
+msgstr "Редактиране диаграма"
 
 #: js/messages.php:192
 msgid "Series"
-msgstr "Серии"
+msgstr "Поредици"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
@@ -1649,11 +1649,11 @@ msgstr "Импорт"
 
 #: js/messages.php:213
 msgid "Import monitor configuration"
-msgstr "Импорт настройки на наблюдателя"
+msgstr "Импорт настройки за наблюдателя"
 
 #: js/messages.php:214
 msgid "Please select the file you want to import"
-msgstr "Изберете файл за импорт"
+msgstr "Изберете файла, който искате да импортирате"
 
 #: js/messages.php:216
 msgid "Analyse Query"
@@ -1884,7 +1884,7 @@ msgstr "Посочване на точка ще покаже етикета ѝ."
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "За да увеличите, изберете част от диаграмата с мишката."
 
 #: js/messages.php:306
 #, fuzzy
@@ -1892,7 +1892,7 @@ msgstr ""
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
 "Щракнете върху връзката за възстановяване на мащабирането, за да се върнете "
-"в първоначално състояние."
+"в състоянието по подразбиране."
 
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."
@@ -2609,7 +2609,7 @@ msgstr "Знакови набори"
 
 #: libraries/Menu.class.php:518 server_plugins.php:30 server_plugins.php:63
 msgid "Plugins"
-msgstr ""
+msgstr "Добавки"
 
 #: libraries/Menu.class.php:522
 msgid "Engines"
@@ -2995,11 +2995,10 @@ msgid "String"
 msgstr "Linestring"
 
 #: libraries/Types.class.php:672
-#, fuzzy
 #| msgid "Spatial column"
 msgctxt "spatial types"
 msgid "Spatial"
-msgstr "Пространствена колона"
+msgstr "Пространствен"
 
 #: libraries/Types.class.php:707
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
@@ -4274,6 +4273,8 @@ msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
 msgstr ""
+"Обърнете внимание, че phpMyAdmin е само потребителски интерфейс и неговите "
+"възможности не ограничават MySQL"
 
 #: libraries/config/messages.inc.php:202
 msgid "Basic settings"
@@ -4305,7 +4306,7 @@ msgstr "Параметри за връзка със сървъра"
 
 #: libraries/config/messages.inc.php:208
 msgid "Configuration storage"
-msgstr "Хранилище за конфигурацията"
+msgstr "Хранилище за конфигурация"
 
 #: libraries/config/messages.inc.php:209
 msgid ""
@@ -4323,6 +4324,8 @@ msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
+"Проследяване на промените, правени в БД. Изисква phpMyAdmin хранилище за "
+"конфигурация."
 
 #: libraries/config/messages.inc.php:212
 msgid "Customize export options"
@@ -4807,7 +4810,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:338
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr ""
+msgstr "Липсват таблици от хранилището за конфигурация на phpMyAdmin"
 
 #: libraries/config/messages.inc.php:340
 msgid "Iconic table operations"
@@ -5907,7 +5910,6 @@ msgid "Rows:"
 msgstr "Редове:"
 
 #: libraries/display_export.lib.php:155
-#, fuzzy
 msgid "Dump some row(s)"
 msgstr "Схема на ред(ове)"
 
@@ -6168,7 +6170,7 @@ msgid "vertical"
 msgstr "вертикален"
 
 #: libraries/display_tbl.lib.php:636
-#, fuzzy, php-format
+#, php-format
 #| msgid "Headers every %s rows"
 msgid "Headers every %s rows"
 msgstr "Заглавки всеки %s реда"
@@ -6676,9 +6678,8 @@ msgstr "Заглавие на таблицата (продължение)"
 
 #: libraries/export/latex.php:97 libraries/export/odt.php:63
 #: libraries/export/sql.php:68
-#, fuzzy
 msgid "Display foreign key relationships"
-msgstr "външен ключ"
+msgstr "Показване връзките на външен ключ"
 
 #: libraries/export/latex.php:103 libraries/export/odt.php:69
 msgid "Display comments"
@@ -7414,7 +7415,6 @@ msgstr "Позволено"
 
 #: libraries/relation.lib.php:100 libraries/relation.lib.php:123
 #: pmd_relation_new.php:71
-#, fuzzy
 msgid "General relation features"
 msgstr "Общи свойства на релациите"
 
@@ -7460,11 +7460,11 @@ msgstr ""
 
 #: libraries/relation.lib.php:273
 msgid "User preferences"
-msgstr ""
+msgstr "Потребителски предпочитания"
 
 #: libraries/relation.lib.php:280
 msgid "Quick steps to setup advanced features:"
-msgstr "Лесни стъпки за настройка на разширените свойства:"
+msgstr "Бързи стъпки за настройка на разширените свойства:"
 
 #: libraries/relation.lib.php:283
 msgid ""
@@ -7491,11 +7491,11 @@ msgstr "няма описание"
 
 #: libraries/replication_gui.lib.php:54
 msgid "Slave configuration"
-msgstr ""
+msgstr "Конфигурация на подчинен"
 
 #: libraries/replication_gui.lib.php:54 server_replication.php:383
 msgid "Change or reconfigure master server"
-msgstr ""
+msgstr "Промяна или преконфигуриране на главен сървъра"
 
 #: libraries/replication_gui.lib.php:55
 msgid ""
@@ -7517,11 +7517,11 @@ msgstr "Порт"
 
 #: libraries/replication_gui.lib.php:107
 msgid "Master status"
-msgstr ""
+msgstr "Състояние на главен"
 
 #: libraries/replication_gui.lib.php:109
 msgid "Slave status"
-msgstr ""
+msgstr "Състояние на подчинен"
 
 #: libraries/replication_gui.lib.php:118 libraries/sql_query_form.lib.php:394
 #: server_status.php:1497 server_variables.php:127
@@ -7530,17 +7530,19 @@ msgstr "Променлива"
 
 #: libraries/replication_gui.lib.php:178 server_binlog.php:178
 msgid "Server ID"
-msgstr "Сървър идентификатор"
+msgstr "Сървърен идентификатор"
 
 #: libraries/replication_gui.lib.php:197
 msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
+"Само подчинени стартирани с опция --report-host=host_name са показани в този "
+"списък."
 
 #: libraries/replication_gui.lib.php:246 server_replication.php:221
 msgid "Add slave replication user"
-msgstr ""
+msgstr "Добавяне на потребител за репликация като подчинен"
 
 #: libraries/replication_gui.lib.php:260 server_privileges.php:898
 msgid "Any user"
@@ -8579,7 +8581,7 @@ msgid ""
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
 "Вашите настройки ще бъдат пазени само за текущата сесия. За да ги използвате "
-"постоянно е необходимо %sконфигурационно хранилище%s."
+"постоянно е необходимо %sхранилище за конфигурация на phpMyAdmin%s."
 
 #: libraries/user_preferences.lib.php:122
 msgid "Could not save configuration"
@@ -8736,8 +8738,8 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"Конфигурация на phpMyAdmin е непълна и някои разширени функции са "
-"деактивирани. За да разберете защо натиснете %sтук%s."
+"Хранилището за конфигурация на phpMyAdmin е недобре настроено и някои "
+"разширени функции са деактивирани. За да разберете защо натиснете %sтук%s."
 
 #: main.php:357
 #, php-format
@@ -8760,7 +8762,6 @@ msgid "No databases"
 msgstr "Няма БД"
 
 #: navigation.php:209
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "Filter databases by name"
 msgstr "филтър по таблица"
@@ -8787,9 +8788,8 @@ msgid "Save position"
 msgstr "Запазване на позицията"
 
 #: pmd_general.php:92 pmd_general.php:381
-#, fuzzy
 msgid "Create relation"
-msgstr "Създаване отношение"
+msgstr "Създаване релация"
 
 #: pmd_general.php:98
 msgid "Reload"
@@ -8801,32 +8801,31 @@ msgstr "Помощ"
 
 #: pmd_general.php:105
 msgid "Angular links"
-msgstr ""
+msgstr "Ъгловати връзки"
 
 #: pmd_general.php:105
 msgid "Direct links"
-msgstr ""
+msgstr "Прави връзки"
 
 #: pmd_general.php:109
 msgid "Snap to grid"
-msgstr ""
+msgstr "Прилепване към мрежата"
 
 #: pmd_general.php:113
 msgid "Small/Big All"
-msgstr ""
+msgstr "Малки/големи всички"
 
 #: pmd_general.php:117
 msgid "Toggle small/big"
-msgstr ""
+msgstr "Превключване на малки/големи"
 
 #: pmd_general.php:120
-#, fuzzy
 msgid "Toggle relation lines"
 msgstr "Превключване на редовете с релации"
 
 #: pmd_general.php:126 pmd_pdf.php:96
 msgid "Import/Export coordinates for PDF schema"
-msgstr ""
+msgstr "Импорт/експорт на координатите за PDF схема"
 
 #: pmd_general.php:133
 msgid "Build Query"
@@ -8834,14 +8833,13 @@ msgstr "Построяване на заявка"
 
 #: pmd_general.php:140
 msgid "Move Menu"
-msgstr ""
+msgstr "Меню Преместване"
 
 #: pmd_general.php:151
 msgid "Hide/Show all"
 msgstr "Показване/скриване всички"
 
 #: pmd_general.php:155
-#, fuzzy
 msgid "Hide/Show Tables with no relation"
 msgstr "Показване/скриване таблици без релации"
 
@@ -8850,12 +8848,10 @@ msgid "Number of tables"
 msgstr "Брой таблици"
 
 #: pmd_general.php:447
-#, fuzzy
 msgid "Delete relation"
-msgstr "Изтриване на отношение"
+msgstr "Изтриване релация"
 
 #: pmd_general.php:489 pmd_general.php:548
-#, fuzzy
 msgid "Relation operator"
 msgstr "Оператор на отношение"
 
@@ -8879,7 +8875,7 @@ msgstr "Ново име"
 
 #: pmd_general.php:514 pmd_general.php:729
 msgid "Aggregate"
-msgstr ""
+msgstr "Агрегиране"
 
 #: pmd_general.php:839
 msgid "Active options"
@@ -8915,36 +8911,31 @@ msgstr "Име: "
 
 #: pmd_pdf.php:132
 msgid "Export/Import to scale"
-msgstr ""
+msgstr "Експорт/импорт в мащаб"
 
 #: pmd_pdf.php:137
 msgid "recommended"
 msgstr "препоръчително"
 
 #: pmd_relation_new.php:29
-#, fuzzy
 msgid "Error: relation already exists."
-msgstr "Грешка: Зависимостта вече съществува."
+msgstr "Грешка: Релацията вече съществува."
 
 #: pmd_relation_new.php:64 pmd_relation_new.php:89
-#, fuzzy
 msgid "Error: Relation not added."
-msgstr "Грешка: Зависимостта не е добавена."
+msgstr "Грешка: Релацията не е добавена."
 
 #: pmd_relation_new.php:65
-#, fuzzy
 msgid "FOREIGN KEY relation added"
-msgstr "FOREIGN KEY зависимост е добавена"
+msgstr "FOREIGN KEY релация е добавена"
 
 #: pmd_relation_new.php:87
-#, fuzzy
 msgid "Internal relation added"
-msgstr "Вътрешна зависимост е добавена"
+msgstr "Добавена е вътрешна релация"
 
 #: pmd_relation_upd.php:60
-#, fuzzy
 msgid "Relation deleted"
-msgstr "Зависимостта изтрита"
+msgstr "Релацията изтрита"
 
 #: pmd_save_pos.php:70
 msgid "Error saving coordinates for Designer."
@@ -9021,8 +9012,7 @@ msgstr "Съществуващи настройки ще бъдат презап
 
 #: prefs_manage.php:329
 msgid "You can reset all your settings and restore them to default values."
-msgstr ""
-"Може да изчистите настройките си до техните стойностите по подразбиране."
+msgstr "Може да изчистите настройките си до стойностите им по подразбиране."
 
 #: querywindow.php:70
 msgid "Import files"
@@ -9061,15 +9051,15 @@ msgstr "Показване на пълните заявки"
 
 #: server_binlog.php:175
 msgid "Log name"
-msgstr ""
+msgstr "Име на дневник"
 
 #: server_binlog.php:176
 msgid "Position"
-msgstr ""
+msgstr "Положение"
 
 #: server_binlog.php:179
 msgid "Original position"
-msgstr ""
+msgstr "Първоначално положение"
 
 #: server_binlog.php:180 tbl_structure.php:826
 msgid "Information"
@@ -9216,7 +9206,7 @@ msgstr "Позволява изтриване на таблици."
 #: server_privileges.php:106 server_privileges.php:340
 #: server_privileges.php:748
 msgid "Allows to set up events for the event scheduler"
-msgstr ""
+msgstr "Позволява създаване на събития за Диспечер на събитията"
 
 #: server_privileges.php:107 server_privileges.php:374
 #: server_privileges.php:736
@@ -9518,7 +9508,7 @@ msgstr "Добавяне на права към следната БД"
 
 #: server_privileges.php:2300
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
-msgstr ""
+msgstr "sdgf"
 
 #: server_privileges.php:2303
 msgid "Add privileges on the following table"
@@ -9563,7 +9553,7 @@ msgstr "Създаване на БД със същото име и даване 
 
 #: server_privileges.php:2395
 msgid "Grant all privileges on wildcard name (username\\_%)"
-msgstr ""
+msgstr "Даване на всички привилегии на име с маска (username\\_%)"
 
 #: server_privileges.php:2399
 #, php-format
@@ -9593,12 +9583,12 @@ msgstr "Потребител беше добавен."
 
 #: server_replication.php:79
 msgid "Unknown error"
-msgstr ""
+msgstr "Неизвестна грешка"
 
 #: server_replication.php:86
 #, php-format
 msgid "Unable to connect to master %s."
-msgstr ""
+msgstr "Не възможност за осъществяване на връзка с главния %s."
 
 #: server_replication.php:93
 msgid ""
@@ -9607,24 +9597,24 @@ msgstr ""
 
 #: server_replication.php:99
 msgid "Unable to change master"
-msgstr ""
+msgstr "Главният не може да бъде сменен"
 
 #: server_replication.php:102
 #, php-format
 msgid "Master server changed successfully to %s"
-msgstr ""
+msgstr "Главният сървър сменен с %s"
 
 #: server_replication.php:207
 msgid "This server is configured as master in a replication process."
-msgstr ""
+msgstr "Този сървър е конфигуриран като главен за репликация."
 
 #: server_replication.php:209 server_status.php:638
 msgid "Show master status"
-msgstr ""
+msgstr "Показване състоянието на главния"
 
 #: server_replication.php:213
 msgid "Show connected slaves"
-msgstr ""
+msgstr "Показване свързаните подчинени"
 
 #: server_replication.php:237
 #, php-format
@@ -9632,12 +9622,12 @@ msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
-"Този сървър не е настроен като главен в репликация. Желаете ли да го <a href="
-"\"%s\">настроите</a>?"
+"Този сървър не е настроен като главен за репликация. Желаете ли да го <a "
+"href=\"%s\">настроите</a>?"
 
 #: server_replication.php:244
 msgid "Master configuration"
-msgstr ""
+msgstr "Конфигурация на главния"
 
 #: server_replication.php:245
 msgid ""
@@ -9650,11 +9640,11 @@ msgstr ""
 
 #: server_replication.php:248
 msgid "Replicate all databases; Ignore:"
-msgstr ""
+msgstr "Реплициране на всички БД; Игнориране на:"
 
 #: server_replication.php:249
 msgid "Ignore all databases; Replicate:"
-msgstr ""
+msgstr "Игнориране на всички БД; Реплициране на:"
 
 #: server_replication.php:252
 msgid "Please select databases:"
@@ -9665,6 +9655,8 @@ msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
+"Сега добавете следните редове в края на секцията [mysqld] на вашия my.cnf и "
+"рестартирайте MySQL сървъра."
 
 #: server_replication.php:257
 msgid ""
@@ -9672,23 +9664,26 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master"
 msgstr ""
+"След като сте рестартирали MySQL сървъра, щракнете върху бутона "
+"\"Изпълнение\". След това би трябвало да видите съобщение, информиращо ви, че "
+"този сървър <b>е</b> конфигуриран като главен"
 
 #: server_replication.php:320
 msgid "Slave SQL Thread not running!"
-msgstr ""
+msgstr "Подчинената SQL нишка не пусната!"
 
 #: server_replication.php:323
 msgid "Slave IO Thread not running!"
-msgstr ""
+msgstr "Подчинената В/И нишка не пусната!"
 
 #: server_replication.php:332
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
-msgstr ""
+msgstr "Сървърът е конфигуриран като подчинен в репликация. Искате ли да:"
 
 #: server_replication.php:335
 msgid "See slave status table"
-msgstr ""
+msgstr "Показване таблицата със състоянието на подчинените"
 
 #: server_replication.php:339
 msgid "Synchronize databases with master"
@@ -9708,7 +9703,7 @@ msgstr "Пълно спиране"
 
 #: server_replication.php:354
 msgid "Reset slave"
-msgstr "Нулиране на подчинения"
+msgstr "Изчистване на подчинения"
 
 #: server_replication.php:356
 msgid "Start SQL Thread only"
@@ -9770,7 +9765,7 @@ msgstr "phpMyAdmin не можа да спре нишка %s. Вероятно �
 
 #: server_status.php:605
 msgid "Handler"
-msgstr ""
+msgstr "Манипулатор"
 
 #: server_status.php:606
 msgid "Query cache"
@@ -9794,7 +9789,7 @@ msgstr "Буфер за ключове"
 
 #: server_status.php:612
 msgid "Joins"
-msgstr ""
+msgstr "Свръзки"
 
 #: server_status.php:614
 msgid "Sorting"
@@ -9806,19 +9801,19 @@ msgstr "Координатор на транзакциите"
 
 #: server_status.php:628
 msgid "Flush (close) all tables"
-msgstr ""
+msgstr "Изчистване от буфера (затваряне) на всички таблици"
 
 #: server_status.php:630
 msgid "Show open tables"
-msgstr "Показване на отворените теблици"
+msgstr "Показване отворените таблици"
 
 #: server_status.php:635
 msgid "Show slave hosts"
-msgstr ""
+msgstr "Показване на подчинените хостове"
 
 #: server_status.php:641
 msgid "Show slave status"
-msgstr ""
+msgstr "Показване статуса на подчинените"
 
 #: server_status.php:646
 msgid "Flush query cache"
@@ -9866,7 +9861,7 @@ msgstr "Неформатирани стойности"
 
 #: server_status.php:875
 msgid "Related links:"
-msgstr ""
+msgstr "Сродни връзки:"
 
 #: server_status.php:908
 msgid "Run analyzer"
@@ -9926,27 +9921,31 @@ msgstr "Мрежови трафик от включването: %s"
 #: server_status.php:1065
 #, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Този MySQL сървър работи от %1$s. Включен е на %2$s."
+msgstr "Този MySQL сървър работи от %1$s. Пуснат е на %2$s."
 
 #: server_status.php:1076
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
 msgstr ""
+"Този MySQL сървър работи като <b>главен</b> и <b>подчинен</b> в "
+"<b>репликация</b>."
 
 #: server_status.php:1078
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
-msgstr ""
+msgstr "Този MySQL сървър работи като <b>главен</b> в <b>репликация</b>."
 
 #: server_status.php:1080
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
-msgstr ""
+msgstr "Този MySQL сървър работи като <b>подчинен</b> в <b>репликация</b>."
 
 #: server_status.php:1083
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=\"#replication\">replication section</a>."
 msgstr ""
+"За повече информация относно статусът на репликация на този сървъра, моля "
+"посетете <a href=\"#replication\">секция репликация</a>."
 
 #: server_status.php:1092
 msgid "Replication status"
@@ -9957,6 +9956,8 @@ msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
 msgstr ""
+"При натоварен сървър байтовите броячи може да превъртат и статистиката "
+"докладвана от MySQL да е невярна."
 
 #: server_status.php:1113
 msgid "Received"
@@ -11501,17 +11502,15 @@ msgstr ""
 "Грешка при създаването на външен ключ върху %1$s (проверете типа данни)"
 
 #: tbl_relation.php:404
-#, fuzzy
 msgid "Internal relation"
 msgstr "Вътрешна релация"
 
 #: tbl_relation.php:406
-#, fuzzy
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
 msgstr ""
-"Вътрешна връзка не е необходима, при наличието на съответен ВЪНШЕН КЛЮЧ."
+"Вътрешна релация не е необходима, при наличието на съответен FOREIGN KEY."
 
 #: tbl_relation.php:412
 msgid "Foreign key constraint"
@@ -11580,9 +11579,8 @@ msgid "Edit view"
 msgstr "Изглед за редакция"
 
 #: tbl_structure.php:665
-#, fuzzy
 msgid "Relation view"
-msgstr "Преглед на релациите"
+msgstr "Преглед релации"
 
 #: tbl_structure.php:673
 msgid "Propose table structure"
@@ -11785,10 +11783,9 @@ msgid "How to use"
 msgstr "Как да бъде използвано"
 
 #: tbl_zoom_select.php:444
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Изчистване"
+msgstr "Възстановяване на мащабирането"
 
 #: themes.php:28
 msgid "Get more themes!"
@@ -11921,46 +11918,65 @@ msgstr "Преименуване на изгледа на"
 #~ msgid "There are too many joins without indexes."
 #~ msgstr "Има твърде много JOIN без индекси."
 
-#~ msgid "Rate of reading next table row"
-#~ msgstr "Стойност на четене на следващ ред от таблица"
+#: libraries/advisory_rules.txt:369
+msgid "Threads that are slow to launch"
+msgstr "Пускащи се бавно нишки"
 
-#~ msgid "Percentage of temp tables on disk"
-#~ msgstr "Процент временни таблици на диск"
+#: libraries/advisory_rules.txt:372
+msgid "There are too many threads that are slow to launch."
+msgstr "Има много пускащи се бавно нишки."
 
 #~ msgid "MyISAM key buffer size"
 #~ msgstr "Размер на буфера за ключове на MyISAM"
 
-#~ msgid "key_buffer_size is 0"
-#~ msgstr "key_buffer_size e 0"
+#: libraries/advisory_rules.txt:374
+#, php-format
+msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
+msgstr "%s нишки(а) отнеха повече от %s секунди да стартират, трябва да бъдат 0"
 
-#~ msgid "Max %% MyISAM key buffer ever used"
-#~ msgstr "Максимално използван %% от буфера за ключове на MyISAM"
+#: libraries/advisory_rules.txt:376
+msgid "Slow launch time"
+msgstr "Показване времето за пускане"
 
-#~ msgid "MyISAM key buffer (index cache) %% used is low."
-#~ msgstr "MyISAM буфер на ключове (индекси) с нисък %% на използване."
+#: libraries/advisory_rules.txt:379
+msgid "Slow_launch_threads is above 2s"
+msgstr "Slow_launch_threads е над 2s"
 
-#~ msgid ""
-#~ "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
-#~ msgstr ""
-#~ "Максимално използван %% от буфера за ключове на MyISAM използван някога: %"
-#~ "s%%, стойността трябва да е над 95%%"
+#: libraries/advisory_rules.txt:380
+msgid ""
+"Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
+"launch"
+msgstr ""
+"Задайте на slow_launch_time 1s или 2s, за да бъдат правилно отчетени бавно "
+"пускащите се нишки"
 
-#~ msgid "Percentage of MyISAM key buffer used"
-#~ msgstr "Процент използван буфер за ключове на MyISAM"
+#: libraries/advisory_rules.txt:381
+#, php-format
+msgid "slow_launch_time is set to %s"
+msgstr "slow_launch_time е настроено на %s"
 
 #~ msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 #~ msgstr ""
 #~ "Използван %% от буфера за ключове на MyISAM: %s%%, стойността трябва да е "
 #~ "над 95%%"
 
-#~ msgid "Percentage of index reads from memory"
-#~ msgstr "Процент прочетени от паметта индекси"
+#: libraries/advisory_rules.txt:388
+msgid ""
+"The maximum amount of used connections is getting close to the value of "
+"max_connections."
+msgstr ""
+"Максималният брой използвани връзки се доближава до стойността на "
+"max_connections."
 
 #~ msgid "Index reads from memory: %s%%, this value should be above 95%%"
 #~ msgstr "Прочетени от паметта индекси: %s%%, стойността трябва да е над 95%%"
 
-#~ msgid "Rate of table open"
-#~ msgstr "Стойност отваряне на таблици"
+#: libraries/advisory_rules.txt:390
+#, php-format
+msgid ""
+"Max_used_connections is at %s%% of max_connections, it should be below 80%%"
+msgstr ""
+"Max_used_connections е на %s%% от max_connections, трябва да бъде под 80%%"
 
 #~ msgid "Percentage of used open files limit"
 #~ msgstr "Процент от лимита на отворени файлове"
@@ -11979,19 +11995,6 @@ msgstr "Преименуване на изгледа на"
 
 #~ msgid "Thread cache is not efficient."
 #~ msgstr "Буферът за нишки е неефективен."
-
-#~ msgid "Threads that are slow to launch"
-#~ msgstr "Бавни за пускане нишки"
-
-#~ msgid "There are too many threads that are slow to launch."
-#~ msgstr "Има много бавни за пускане нишки."
-
-#~ msgid ""
-#~ "Set slow_launch_time to 1s or 2s to correctly count threads that are slow "
-#~ "to launch"
-#~ msgstr ""
-#~ "Задайте на slow_launch_time 1s или 2s, за да бъдат отчетени правилно "
-#~ "бавните за пускане нишки"
 
 #~ msgid "Percentage of used connections"
 #~ msgstr "Процент използвни връзки"

@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-06-03 13:17+0200\n"
-"PO-Revision-Date: 2012-05-25 16:54+0200\n"
+"POT-Creation-Date: 2012-06-01 14:44+0200\n"
+"PO-Revision-Date: 2012-06-01 19:33+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -2797,7 +2797,7 @@ msgid ""
 "range is 0 to 4,294,967,295."
 msgstr ""
 "4-bayt'lık bir tamsayı, işaretli aralığı -2,147,483,648'den 2,147,483,647'ye "
-"kadardır, işaretsiz aralığı 0'dan 4,294,967,295'e kadardır"
+"kadardır, işaretsiz aralığı 0'dan 4,294,967,295'e kadardır."
 
 #: libraries/Types.class.php:303
 msgid ""
@@ -6385,10 +6385,10 @@ msgid "vertical"
 msgstr "dikey"
 
 #: libraries/display_tbl.lib.php:636
-#, fuzzy, php-format
+#, php-format
 #| msgid "Headers every"
 msgid "Headers every %s rows"
-msgstr "Her"
+msgstr "Her %s satırda bir başlıklar"
 
 #: libraries/display_tbl.lib.php:1113
 msgid "Sort by key"
