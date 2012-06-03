@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-06-03 13:17+0200\n"
-"PO-Revision-Date: 2012-05-29 11:41+0200\n"
+"POT-Creation-Date: 2012-06-01 14:44+0200\n"
+"PO-Revision-Date: 2012-06-02 11:09+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1583,7 +1583,7 @@ msgstr "フィルタ"
 
 #: js/messages.php:198
 msgid "Filter queries by word/regexp:"
-msgstr "単語／正規表現でクエリをフィルタ："
+msgstr "単語／正規表現でクエリを絞る:"
 
 #: js/messages.php:199
 msgid "Group queries, ignoring variable data in WHERE clauses"
@@ -1883,7 +1883,7 @@ msgstr "プロット点にマウスカーソルを重ねると、そのラベル
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "拡大するには、マウスでグラフ内を範囲選択してください。"
 
 #: js/messages.php:306
 #, fuzzy
@@ -1913,7 +1913,7 @@ msgstr "クエリの結果"
 
 #: js/messages.php:315
 msgid "Data point content"
-msgstr "データポインタの内容"
+msgstr "プロット点におけるデータ内容"
 
 #: js/messages.php:318 tbl_change.php:245 tbl_indexes.php:237
 #: tbl_indexes.php:272
@@ -10095,7 +10095,7 @@ msgstr "警告値のみ表示する"
 
 #: server_status.php:857
 msgid "Filter by category..."
-msgstr "種別によるフィルタ..."
+msgstr "種別による絞り込み..."
 
 #: server_status.php:871
 msgid "Show unformatted values"
@@ -12206,10 +12206,9 @@ msgid "How to use"
 msgstr "使い方"
 
 #: tbl_zoom_select.php:444
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "リセット"
+msgstr "ズームを戻す"
 
 #: themes.php:28
 msgid "Get more themes!"

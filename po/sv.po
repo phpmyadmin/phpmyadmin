@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-06-03 13:17+0200\n"
-"PO-Revision-Date: 2012-05-29 20:47+0200\n"
+"POT-Creation-Date: 2012-06-01 14:44+0200\n"
+"PO-Revision-Date: 2012-06-02 14:19+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1527,7 +1527,7 @@ msgstr "Gå till tabellogg"
 
 #: js/messages.php:180
 msgid "No data found"
-msgstr "Inga data finns"
+msgstr "Inga data hittades"
 
 #: js/messages.php:181
 msgid "Log analysed, but no data found in this time span."
@@ -1646,11 +1646,11 @@ msgstr "Importera"
 
 #: js/messages.php:213
 msgid "Import monitor configuration"
-msgstr "Importera monitorkonfiguration"
+msgstr "Importera monitorkonfigurationen"
 
 #: js/messages.php:214
 msgid "Please select the file you want to import"
-msgstr "Välj fil att importera"
+msgstr "Välj den fil du vill läsa in"
 
 #: js/messages.php:216
 msgid "Analyse Query"
