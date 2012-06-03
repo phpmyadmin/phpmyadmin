@@ -125,7 +125,6 @@ $(document).ready(function() {
             var $form = $(this).find("form[name=usersForm]").last();
 
             if (! checkAddUser($form.get(0))) {
-                PMA_ajaxShowMessage(PMA_messages['strFormEmpty']);
                 return false;
             }
 
@@ -221,6 +220,15 @@ $(document).ready(function() {
             displayPasswordGenerateButton();
             PMA_convertFootnotesToTooltips($div);
             PMA_ajaxRemoveMessage($msgbox);
+
+            $div.find('form[name=usersForm]').bind('submit', function (e) {
+                e.preventDefault();
+                $(this)
+                    .closest('.ui-dialog')
+                    .find('.ui-dialog-buttonpane .ui-button')
+                    .first()
+                    .click();
+            });
         }); // end $.get()
 
     });//end of Add New User AJAX event handler
