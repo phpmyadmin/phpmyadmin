@@ -2176,7 +2176,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         if (! isset($dbname) && ! $user_does_not_exists) {
             include_once './libraries/display_change_password.lib.php';
 
-            echo '<form action="server_privileges.php" method="post" onsubmit="return checkPassword(this);">' . "\n"
+            echo '<form action="server_privileges.php" method="post" class="copyUserForm">' . "\n"
                . PMA_generate_common_hidden_inputs('', '')
                . '<input type="hidden" name="old_username" value="' . htmlspecialchars($username) . '" />' . "\n"
                . '<input type="hidden" name="old_hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n"
