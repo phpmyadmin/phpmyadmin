@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-24 17:02-0400\n"
-"PO-Revision-Date: 2012-05-27 02:43+0200\n"
+"PO-Revision-Date: 2012-06-02 11:09+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1639,7 +1639,7 @@ msgstr "フィルタ"
 
 #: js/messages.php:202
 msgid "Filter queries by word/regexp:"
-msgstr "単語／正規表現でクエリをフィルタ："
+msgstr "単語／正規表現でクエリを絞る:"
 
 #: js/messages.php:203
 msgid "Group queries, ignoring variable data in WHERE clauses"
@@ -1937,7 +1937,7 @@ msgstr "クエリの結果"
 
 #: js/messages.php:315
 msgid "Data point content"
-msgstr "データポインタの内容"
+msgstr "プロット点におけるデータ内容"
 
 #: js/messages.php:318 tbl_change.php:312 tbl_indexes.php:228
 #: tbl_indexes.php:255
@@ -9688,7 +9688,7 @@ msgstr "警告値のみ表示する"
 
 #: server_status.php:853
 msgid "Filter by category..."
-msgstr "種別によるフィルタ..."
+msgstr "種別による絞り込み..."
 
 #: server_status.php:867
 msgid "Show unformatted values"
