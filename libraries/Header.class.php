@@ -101,7 +101,7 @@ class PMA_Header
     public static $headerIsSent;
 
     /**
-     * Cretes a new class instance
+     * Creates a new class instance
      *
      * @return new PMA_Header object
      */

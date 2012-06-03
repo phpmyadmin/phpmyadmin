@@ -76,7 +76,7 @@ class PMA_Response
     private $_isSuccess;
 
     /**
-     * Cretes a new class instance
+     * Creates a new class instance
      *
      * @return new PMA_Response object
      */

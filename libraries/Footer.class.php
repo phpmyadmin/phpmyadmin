@@ -59,7 +59,7 @@ class PMA_Footer
     private $_isEnabled;
 
     /**
-     * Cretes a new class instance
+     * Creates a new class instance
      *
      * @return new PMA_Footer object
      */
