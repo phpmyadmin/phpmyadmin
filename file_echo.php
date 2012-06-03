@@ -54,13 +54,13 @@ if (isset($_REQUEST['filename']) && isset($_REQUEST['image'])) {
     /* Send data */
     echo $data;
 
-/* For monitor chart config export */
 } else if (isset($_REQUEST['monitorconfig'])) {
+    /* For monitor chart config export */
     PMA_download_header('monitor.cfg', 'application/force-download');
     echo urldecode($_REQUEST['monitorconfig']);
 
-/* For monitor chart config import */
 } else if (isset($_REQUEST['import'])) {
+    /* For monitor chart config import */
     header('Content-type: text/plain');
     if (!file_exists($_FILES['file']['tmp_name'])) {
         exit();
