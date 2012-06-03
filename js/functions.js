@@ -2546,43 +2546,42 @@ $(function() {
 /**
  * Validates the password field in a form
  *
- * @see     PMA_messages['strPasswordEmpty']
- * @see     PMA_messages['strPasswordNotSame']
- * @param   object   the form
- * @return  boolean  whether the field value is valid or not
+ * @see    PMA_messages['strPasswordEmpty']
+ * @see    PMA_messages['strPasswordNotSame']
+ * @param  object $the_form The form to be validated
+ * @return bool
  */
-function checkPassword(the_form)
+function PMA_checkPassword($the_form)
 {
     // Did the user select 'no password'?
-    if (typeof(the_form.elements['nopass']) != 'undefined'
-     && the_form.elements['nopass'][0].checked) {
+    if ($the_form.find('#nopass_1').is(':checked')) {
         return true;
-    } else if (typeof(the_form.elements['pred_password']) != 'undefined'
-     && (the_form.elements['pred_password'].value == 'none'
-      || the_form.elements['pred_password'].value == 'keep')) {
-        return true;
+    } else {
+        var $pred = $the_form.find('#select_pred_password');
+        if ($pred.length && ($pred.val() == 'none' || $pred.val() == 'keep')) {
+            return true;
+        }
     }
 
-    var password = the_form.elements['pma_pw'];
-    var password_repeat = the_form.elements['pma_pw2'];
+    var $password = $the_form.find('input[name=pma_pw]');
+    var $password_repeat = $the_form.find('input[name=pma_pw2]');
     var alert_msg = false;
 
-    if (password.value == '') {
+    if ($password.val() == '') {
         alert_msg = PMA_messages['strPasswordEmpty'];
-    } else if (password.value != password_repeat.value) {
+    } else if ($password.val() != $password_repeat.val()) {
         alert_msg = PMA_messages['strPasswordNotSame'];
     }
 
     if (alert_msg) {
         alert(alert_msg);
-        password.value  = '';
-        password_repeat.value = '';
-        password.focus();
-        return false;
+        $password.val('');
+        $password_repeat.val('');
+        $password.focus();
+         return false;
     }
-
     return true;
-} // end of the 'checkPassword()' function
+}
 
 /**
  * Attach Ajax event handlers for 'Change Password' on main.php
@@ -2616,7 +2615,7 @@ $(function() {
              */
             var $the_form = $("#change_password_form");
 
-            if (! checkPassword($the_form[0])) {
+            if (! PMA_checkPassword($the_form)) {
                 return false;
             }
 
