@@ -3,19 +3,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-06-01 14:44+0200\n"
+"POT-Creation-Date: 2012-06-03 13:17+0200\n"
 "PO-Revision-Date: 2012-05-17 15:17+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: afrikaans <af@li.org>\n"
-"Language: af\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: af\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:37 browse_foreigners.php:61 js/messages.php:354
-#: libraries/display_tbl.lib.php:517 server_privileges.php:1828
+#: libraries/display_tbl.lib.php:517 server_privileges.php:1830
 msgid "Show all"
 msgstr "Wys alles"
 
@@ -61,10 +61,10 @@ msgstr "Soek"
 #: libraries/schema/User_Schema.class.php:489
 #: libraries/sql_query_form.lib.php:362 libraries/sql_query_form.lib.php:417
 #: libraries/sql_query_form.lib.php:472 libraries/tbl_properties.inc.php:720
-#: libraries/tbl_select.lib.php:761 pmd_pdf.php:142 prefs_manage.php:271
-#: prefs_manage.php:322 server_binlog.php:104 server_privileges.php:843
-#: server_privileges.php:1962 server_privileges.php:2326
-#: server_privileges.php:2373 server_privileges.php:2405
+#: libraries/tbl_select.lib.php:763 pmd_pdf.php:142 prefs_manage.php:271
+#: prefs_manage.php:322 server_binlog.php:104 server_privileges.php:845
+#: server_privileges.php:1964 server_privileges.php:2328
+#: server_privileges.php:2375 server_privileges.php:2407
 #: server_replication.php:262 server_replication.php:346
 #: server_replication.php:377 server_synchronize.php:1480 tbl_indexes.php:306
 #: tbl_operations.php:287 tbl_operations.php:324 tbl_operations.php:532
@@ -143,7 +143,7 @@ msgstr "Kolom name"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1309
 #: libraries/schema/Pdf_Relation_Schema.class.php:1330
 #: libraries/tbl_properties.inc.php:85 libraries/tbl_select.lib.php:92
-#: server_privileges.php:2419 tbl_printview.php:140 tbl_structure.php:201
+#: server_privileges.php:2421 tbl_printview.php:140 tbl_structure.php:201
 #: tbl_tracking.php:304 tbl_tracking.php:366
 msgid "Type"
 msgstr "Tipe"
@@ -199,10 +199,10 @@ msgstr "Kommentaar"
 #: libraries/export/texytext.php:542 libraries/mult_submits.inc.php:324
 #: libraries/schema/Pdf_Relation_Schema.class.php:1360
 #: libraries/user_preferences.lib.php:293 prefs_manage.php:132
-#: server_privileges.php:1599 server_privileges.php:1609
-#: server_privileges.php:1886 server_privileges.php:1897
-#: server_privileges.php:2238 server_privileges.php:2243
-#: server_privileges.php:2536 sql.php:342 sql.php:410 tbl_printview.php:198
+#: server_privileges.php:1601 server_privileges.php:1611
+#: server_privileges.php:1888 server_privileges.php:1899
+#: server_privileges.php:2240 server_privileges.php:2245
+#: server_privileges.php:2538 sql.php:342 sql.php:410 tbl_printview.php:198
 #: tbl_structure.php:344 tbl_tracking.php:327 tbl_tracking.php:382
 #: tbl_tracking.php:387
 msgid "No"
@@ -222,10 +222,10 @@ msgstr "Nee"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1360
 #: libraries/user_preferences.lib.php:293 prefs_manage.php:131
 #: server_databases.php:102 server_databases.php:109
-#: server_privileges.php:1597 server_privileges.php:1607
-#: server_privileges.php:1883 server_privileges.php:1897
-#: server_privileges.php:2238 server_privileges.php:2241
-#: server_privileges.php:2536 sql.php:409 tbl_printview.php:199
+#: server_privileges.php:1599 server_privileges.php:1609
+#: server_privileges.php:1885 server_privileges.php:1899
+#: server_privileges.php:2240 server_privileges.php:2243
+#: server_privileges.php:2538 sql.php:409 tbl_printview.php:199
 #: tbl_structure.php:41 tbl_structure.php:344 tbl_tracking.php:327
 #: tbl_tracking.php:380 tbl_tracking.php:385
 msgid "Yes"
@@ -357,15 +357,15 @@ msgstr "Vertoon PDF skema"
 #: libraries/db_structure.lib.php:32 libraries/export/pdf.php:135
 #: libraries/export/xml.php:403 libraries/rte/rte_list.lib.php:65
 #: libraries/rte/rte_triggers.lib.php:310
-#: libraries/schema/User_Schema.class.php:275 server_privileges.php:2013
-#: server_privileges.php:2071 server_privileges.php:2340
+#: libraries/schema/User_Schema.class.php:275 server_privileges.php:2015
+#: server_privileges.php:2073 server_privileges.php:2342
 #: server_synchronize.php:519 server_synchronize.php:1039 tbl_tracking.php:711
 msgid "Table"
 msgstr "Tabel"
 
 #: db_printview.php:101 db_tables_search.php:24 db_tables_search.php:53
 #: libraries/Table.class.php:326 libraries/build_html_for_db.lib.php:31
-#: libraries/db_structure.lib.php:42 libraries/import.lib.php:151
+#: libraries/db_structure.lib.php:42 libraries/import.lib.php:164
 #: navigation.php:605 navigation.php:627 sql.php:937 tbl_printview.php:376
 #: tbl_structure.php:462 tbl_structure.php:536 tbl_structure.php:936
 msgid "Rows"
@@ -462,7 +462,7 @@ msgstr "Del"
 
 #: db_qbe.php:397 db_qbe.php:478 db_qbe.php:549 db_qbe.php:580
 #: libraries/insert_edit.lib.php:1054 libraries/tbl_select.lib.php:591
-#: server_privileges.php:484 tbl_indexes.php:301
+#: server_privileges.php:486 tbl_indexes.php:301
 msgid "Or"
 msgstr "Of"
 
@@ -634,8 +634,8 @@ msgstr ""
 #: db_structure.php:525 libraries/display_tbl.lib.php:3979
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
 
 #: db_structure.php:543 db_structure.php:577 libraries/Menu.class.php:194
@@ -653,7 +653,7 @@ msgstr ""
 msgid "Sum"
 msgstr "Som"
 
-#: db_structure.php:631 libraries/StorageEngine.class.php:344
+#: db_structure.php:631 libraries/StorageEngine.class.php:345
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr ""
@@ -661,20 +661,20 @@ msgstr ""
 #: db_structure.php:679 db_structure.php:696 db_structure.php:697
 #: libraries/display_tbl.lib.php:4097 libraries/display_tbl.lib.php:4103
 #: libraries/mult_submits.inc.php:38 server_databases.php:290
-#: server_databases.php:295 server_privileges.php:1920
-#: server_privileges.php:1928 tbl_structure.php:559 tbl_structure.php:568
+#: server_databases.php:295 server_privileges.php:1922
+#: server_privileges.php:1930 tbl_structure.php:559 tbl_structure.php:568
 msgid "With selected:"
 msgstr "Met gekose:"
 
 #: db_structure.php:682 libraries/display_tbl.lib.php:4085
-#: server_databases.php:292 server_privileges.php:781
-#: server_privileges.php:1923 tbl_structure.php:562
+#: server_databases.php:292 server_privileges.php:783
+#: server_privileges.php:1925 tbl_structure.php:562
 msgid "Check All"
 msgstr "Kies Alles"
 
 #: db_structure.php:686 libraries/display_tbl.lib.php:4089
 #: libraries/replication_gui.lib.php:35 server_databases.php:294
-#: server_privileges.php:784 server_privileges.php:1927 tbl_structure.php:566
+#: server_privileges.php:786 server_privileges.php:1929 tbl_structure.php:566
 msgid "Uncheck All"
 msgstr "Kies Niks"
 
@@ -687,7 +687,7 @@ msgstr ""
 #: libraries/common.lib.php:3433 libraries/common.lib.php:3434
 #: libraries/config/messages.inc.php:168 libraries/display_export.lib.php:82
 #: libraries/display_tbl.lib.php:4118 libraries/display_tbl.lib.php:4292
-#: prefs_manage.php:294 server_privileges.php:1565 server_privileges.php:1932
+#: prefs_manage.php:294 server_privileges.php:1567 server_privileges.php:1934
 #: server_status.php:1628 setup/frames/menu.inc.php:22
 msgid "Export"
 msgstr "Export"
@@ -755,8 +755,8 @@ msgstr ""
 #: libraries/export/latex.php:228 libraries/export/odt.php:162
 #: libraries/export/pdf.php:134 libraries/export/sql.php:731
 #: libraries/export/texytext.php:102 libraries/export/xml.php:330
-#: server_databases.php:186 server_privileges.php:2008
-#: server_privileges.php:2071 server_privileges.php:2334
+#: server_databases.php:186 server_privileges.php:2010
+#: server_privileges.php:2073 server_privileges.php:2336
 #: server_status.php:1257 server_synchronize.php:1448
 #: server_synchronize.php:1452 sql.php:931 tbl_tracking.php:710
 msgid "Database"
@@ -784,8 +784,8 @@ msgstr ""
 #: db_tracking.php:85 libraries/Index.class.php:455
 #: libraries/db_structure.lib.php:39 libraries/rte/rte_list.lib.php:53
 #: libraries/rte/rte_list.lib.php:67 libraries/rte/rte_list.lib.php:79
-#: server_databases.php:221 server_privileges.php:1857
-#: server_privileges.php:2075 server_privileges.php:2422 tbl_structure.php:218
+#: server_databases.php:221 server_privileges.php:1859
+#: server_privileges.php:2077 server_privileges.php:2424 tbl_structure.php:218
 msgid "Action"
 msgstr "Aksie"
 
@@ -967,8 +967,8 @@ msgstr ""
 #: import.php:86
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
 
 #: import.php:216 import.php:443
@@ -1046,7 +1046,7 @@ msgstr "Terug"
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr "phpMyAdmin verkies 'n <b>frames-kapabele</b> blaaier."
 
-#: js/messages.php:27 libraries/import.lib.php:105 sql.php:290
+#: js/messages.php:27 libraries/import.lib.php:108 sql.php:290
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" stellings word nie toegelaat nie."
 
@@ -1119,16 +1119,16 @@ msgstr "Die gasheer naam is leeg!"
 msgid "The user name is empty!"
 msgstr "Die gebruiker naam ontbreek!"
 
-#: js/messages.php:53 server_privileges.php:1432 user_password.php:103
+#: js/messages.php:53 server_privileges.php:1434 user_password.php:103
 msgid "The password is empty!"
 msgstr "Die wagwoord is leeg!"
 
-#: js/messages.php:54 server_privileges.php:1430 user_password.php:106
+#: js/messages.php:54 server_privileges.php:1432 user_password.php:106
 msgid "The passwords aren't the same!"
 msgstr "Die wagwoorde is verskillend!"
 
-#: js/messages.php:55 server_privileges.php:1947 server_privileges.php:1971
-#: server_privileges.php:2383 server_privileges.php:2577
+#: js/messages.php:55 server_privileges.php:1949 server_privileges.php:1973
+#: server_privileges.php:2385 server_privileges.php:2579
 #, fuzzy
 #| msgid "Any user"
 msgid "Add user"
@@ -1415,7 +1415,7 @@ msgstr ""
 #: js/messages.php:139 libraries/display_export.lib.php:323
 #: libraries/display_tbl.lib.php:1171 libraries/export/sql.php:1395
 #: libraries/tbl_properties.inc.php:638 pmd_general.php:539
-#: server_privileges.php:2224 server_status.php:1286 server_status.php:1725
+#: server_privileges.php:2226 server_status.php:1286 server_status.php:1725
 #: tbl_zoom_select.php:247 tbl_zoom_select.php:296
 msgid "None"
 msgstr "Geen"
@@ -1988,7 +1988,7 @@ msgid "To zoom in, select a section of the plot with the mouse."
 msgstr ""
 
 #: js/messages.php:306
-msgid "Click reset zoom link to come back to original state."
+msgid "Click reset zoom button to come back to original state."
 msgstr ""
 
 #: js/messages.php:308
@@ -2649,7 +2649,7 @@ msgstr ""
 
 #: libraries/List_Database.class.php:403 libraries/Menu.class.php:459
 #: libraries/config/messages.inc.php:181 server_databases.php:128
-#: server_privileges.php:2008
+#: server_privileges.php:2010
 msgid "Databases"
 msgstr "databasisse"
 
@@ -2666,9 +2666,9 @@ msgstr ""
 #: libraries/config/user_preferences.forms.php:196
 #: libraries/config/user_preferences.forms.php:233
 #: libraries/config/user_preferences.forms.php:259
-#: libraries/export/latex.php:458 libraries/import.lib.php:1146
+#: libraries/export/latex.php:458 libraries/import.lib.php:1199
 #: libraries/tbl_properties.inc.php:742 pmd_general.php:165
-#: server_privileges.php:711 server_replication.php:343 tbl_tracking.php:299
+#: server_privileges.php:713 server_replication.php:343 tbl_tracking.php:299
 msgid "Structure"
 msgstr "Struktuur"
 
@@ -2716,9 +2716,9 @@ msgstr ""
 msgid "Query"
 msgstr "Navraag dmv Voorbeeld"
 
-#: libraries/Menu.class.php:396 server_privileges.php:179
-#: server_privileges.php:1682 server_privileges.php:2072
-#: server_privileges.php:2420
+#: libraries/Menu.class.php:396 server_privileges.php:181
+#: server_privileges.php:1684 server_privileges.php:2074
+#: server_privileges.php:2422
 msgid "Privileges"
 msgstr "Regte"
 
@@ -2769,7 +2769,7 @@ msgid "Engines"
 msgstr ""
 
 #: libraries/Message.class.php:199 libraries/common.lib.php:629
-#: libraries/core.lib.php:217 libraries/import.lib.php:141
+#: libraries/core.lib.php:217 libraries/import.lib.php:154
 #: libraries/insert_edit.lib.php:1050 tbl_operations.php:231
 #: tbl_relation.php:288 view_operations.php:55
 msgid "Error"
@@ -2818,17 +2818,17 @@ msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
 
-#: libraries/StorageEngine.class.php:347
+#: libraries/StorageEngine.class.php:348
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr ""
 
-#: libraries/StorageEngine.class.php:350
+#: libraries/StorageEngine.class.php:351
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr ""
 
-#: libraries/StorageEngine.class.php:354
+#: libraries/StorageEngine.class.php:355
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr ""
@@ -2913,7 +2913,7 @@ msgstr ""
 msgid "Theme path not found for theme %s!"
 msgstr ""
 
-#: libraries/Theme_Manager.class.php:358 themes.php:20 themes.php:27
+#: libraries/Theme_Manager.class.php:363 themes.php:20 themes.php:27
 msgid "Theme"
 msgstr ""
 
@@ -2954,14 +2954,14 @@ msgstr ""
 
 #: libraries/Types.class.php:307
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to "
-"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to -"
+"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:309
 msgid ""
-"A double-precision floating-point number, allowable values are "
-"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are -"
+"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -3217,8 +3217,8 @@ msgstr "Welkom by %s"
 #: libraries/auth/config.auth.lib.php:103
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
 
 #: libraries/auth/config.auth.lib.php:115
@@ -3233,7 +3233,7 @@ msgstr ""
 msgid "Failed to use Blowfish from mcrypt!"
 msgstr ""
 
-#: libraries/auth/cookie.auth.lib.php:204 libraries/header.inc.php:90
+#: libraries/auth/cookie.auth.lib.php:204 libraries/header.inc.php:92
 #, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point"
@@ -3264,7 +3264,7 @@ msgstr "Wagwoord:"
 msgid "Server Choice"
 msgstr "Bediener Keuse"
 
-#: libraries/auth/cookie.auth.lib.php:292 libraries/header.inc.php:86
+#: libraries/auth/cookie.auth.lib.php:292 libraries/header.inc.php:88
 msgid "Cookies must be enabled past this point."
 msgstr "HTTP Koekies moet van nou af geaktifeer wees."
 
@@ -3331,7 +3331,7 @@ msgstr "Tabel"
 #: libraries/config/user_preferences.forms.php:264
 #: libraries/config/user_preferences.forms.php:269
 #: libraries/export/latex.php:284 libraries/export/sql.php:1395
-#: server_privileges.php:711 server_replication.php:344 tbl_printview.php:303
+#: server_privileges.php:713 server_replication.php:344 tbl_printview.php:303
 #: tbl_structure.php:833
 msgid "Data"
 msgstr "Data"
@@ -5691,9 +5691,9 @@ msgstr ""
 #: libraries/display_change_password.lib.php:40
 #: libraries/replication_gui.lib.php:62 libraries/replication_gui.lib.php:63
 #: libraries/replication_gui.lib.php:341 libraries/replication_gui.lib.php:345
-#: libraries/replication_gui.lib.php:355 server_privileges.php:979
-#: server_privileges.php:983 server_privileges.php:994
-#: server_privileges.php:1853 server_synchronize.php:1444
+#: libraries/replication_gui.lib.php:355 server_privileges.php:981
+#: server_privileges.php:985 server_privileges.php:996
+#: server_privileges.php:1855 server_synchronize.php:1444
 msgid "Password"
 msgstr "Wagwoord"
 
@@ -5983,13 +5983,13 @@ msgid "Change password"
 msgstr "Verander wagwoord"
 
 #: libraries/display_change_password.lib.php:34
-#: libraries/replication_gui.lib.php:351 server_privileges.php:990
+#: libraries/replication_gui.lib.php:351 server_privileges.php:992
 msgid "No Password"
 msgstr "Geen Wagwoord"
 
 #: libraries/display_change_password.lib.php:45
 #: libraries/replication_gui.lib.php:359 libraries/replication_gui.lib.php:362
-#: server_privileges.php:998 server_privileges.php:1001
+#: server_privileges.php:1000 server_privileges.php:1003
 msgid "Re-type"
 msgstr "Tik weer"
 
@@ -6012,8 +6012,8 @@ msgstr "Skep 'n nuwe databasis"
 msgid "Create"
 msgstr "Skep"
 
-#: libraries/display_create_database.lib.php:43 server_privileges.php:181
-#: server_privileges.php:1738 server_replication.php:33
+#: libraries/display_create_database.lib.php:43 server_privileges.php:183
+#: server_privileges.php:1740 server_replication.php:33
 msgid "No Privileges"
 msgstr "Geen Regte"
 
@@ -6144,8 +6144,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:285
@@ -6390,7 +6390,7 @@ msgstr ""
 #: libraries/export/pdf.php:23 libraries/export/php_array.php:22
 #: libraries/export/sql.php:31 libraries/export/texytext.php:22
 #: libraries/export/xml.php:23 libraries/export/yaml.php:23
-#: libraries/import.lib.php:1123 libraries/import.lib.php:1146
+#: libraries/import.lib.php:1173 libraries/import.lib.php:1199
 #: libraries/import/csv.php:25 libraries/import/docsql.php:36
 #: libraries/import/ldi.php:94 libraries/import/mediawiki.php:24
 #: libraries/import/ods.php:58 libraries/import/shp.php:23
@@ -6791,8 +6791,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:128
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:130
@@ -6930,9 +6930,9 @@ msgstr "Vertoon Funksies"
 #: libraries/export/xml.php:143 libraries/replication_gui.lib.php:66
 #: libraries/replication_gui.lib.php:179 libraries/replication_gui.lib.php:275
 #: libraries/replication_gui.lib.php:278 libraries/replication_gui.lib.php:335
-#: server_privileges.php:914 server_privileges.php:917
-#: server_privileges.php:973 server_privileges.php:1852
-#: server_privileges.php:2418 server_status.php:1256 sql.php:930
+#: server_privileges.php:916 server_privileges.php:919
+#: server_privileges.php:975 server_privileges.php:1854
+#: server_privileges.php:2420 server_status.php:1256 sql.php:930
 msgid "Host"
 msgstr "Gasheer (host)"
 
@@ -7144,51 +7144,51 @@ msgstr ""
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/import.lib.php:157 libraries/insert_edit.lib.php:128
+#: libraries/import.lib.php:170 libraries/insert_edit.lib.php:128
 #: libraries/rte/rte_routines.lib.php:1255 sql.php:807 tbl_get_field.php:36
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL het niks teruggegee nie (dus nul rye)."
 
-#: libraries/import.lib.php:1118
+#: libraries/import.lib.php:1168
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: libraries/import.lib.php:1119
+#: libraries/import.lib.php:1169
 msgid "View a structure's contents by clicking on its name"
 msgstr ""
 
-#: libraries/import.lib.php:1120
+#: libraries/import.lib.php:1170
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr ""
 
-#: libraries/import.lib.php:1121
+#: libraries/import.lib.php:1171
 msgid "Edit structure by following the \"Structure\" link"
 msgstr ""
 
-#: libraries/import.lib.php:1125
+#: libraries/import.lib.php:1175
 #, fuzzy, php-format
 msgid "Go to database: %s"
 msgstr "Geen databasisse"
 
-#: libraries/import.lib.php:1128 libraries/import.lib.php:1153
+#: libraries/import.lib.php:1178 libraries/import.lib.php:1206
 #, php-format
 msgid "Edit settings for %s"
 msgstr ""
 
-#: libraries/import.lib.php:1148
+#: libraries/import.lib.php:1201
 #, fuzzy, php-format
 msgid "Go to table: %s"
 msgstr "Geen databasisse"
 
-#: libraries/import.lib.php:1151
+#: libraries/import.lib.php:1204
 #, fuzzy, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
 msgstr "Slegs struktuur"
 
-#: libraries/import.lib.php:1159
+#: libraries/import.lib.php:1212
 #, php-format
 msgid "Go to view: %s"
 msgstr ""
@@ -7761,8 +7761,8 @@ msgstr ""
 
 #: libraries/replication_gui.lib.php:58 libraries/replication_gui.lib.php:59
 #: libraries/replication_gui.lib.php:255 libraries/replication_gui.lib.php:258
-#: libraries/replication_gui.lib.php:265 server_privileges.php:891
-#: server_privileges.php:894 server_privileges.php:901
+#: libraries/replication_gui.lib.php:265 server_privileges.php:893
+#: server_privileges.php:896 server_privileges.php:903
 #: server_synchronize.php:1440
 msgid "User name"
 msgstr "Gebruiker naam"
@@ -7799,34 +7799,34 @@ msgstr ""
 msgid "Add slave replication user"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:260 server_privileges.php:896
+#: libraries/replication_gui.lib.php:260 server_privileges.php:898
 msgid "Any user"
 msgstr "Enige gebruiker"
 
 #: libraries/replication_gui.lib.php:261 libraries/replication_gui.lib.php:329
-#: libraries/replication_gui.lib.php:352 server_privileges.php:897
-#: server_privileges.php:967 server_privileges.php:991
-#: server_privileges.php:2283 server_privileges.php:2313
+#: libraries/replication_gui.lib.php:352 server_privileges.php:899
+#: server_privileges.php:969 server_privileges.php:993
+#: server_privileges.php:2285 server_privileges.php:2315
 msgid "Use text field"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:308 server_privileges.php:947
+#: libraries/replication_gui.lib.php:308 server_privileges.php:949
 msgid "Any host"
 msgstr "Enige gasheer (host)"
 
-#: libraries/replication_gui.lib.php:312 server_privileges.php:951
+#: libraries/replication_gui.lib.php:312 server_privileges.php:953
 msgid "Local"
 msgstr "Local"
 
-#: libraries/replication_gui.lib.php:318 server_privileges.php:956
+#: libraries/replication_gui.lib.php:318 server_privileges.php:958
 msgid "This Host"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:324 server_privileges.php:962
+#: libraries/replication_gui.lib.php:324 server_privileges.php:964
 msgid "Use Host Table"
 msgstr ""
 
-#: libraries/replication_gui.lib.php:337 server_privileges.php:975
+#: libraries/replication_gui.lib.php:337 server_privileges.php:977
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -7963,7 +7963,7 @@ msgstr ""
 msgid "You must provide an event definition."
 msgstr ""
 
-#: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2574
+#: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2576
 msgid "New"
 msgstr ""
 
@@ -8737,16 +8737,16 @@ msgstr "Hoeveelheid rye per bladsy"
 msgid "Display order:"
 msgstr "Vertoon volgorde:"
 
-#: libraries/tbl_select.lib.php:652 sql.php:136 tbl_change.php:214
+#: libraries/tbl_select.lib.php:654 sql.php:136 tbl_change.php:214
 #: tbl_zoom_select.php:106 tbl_zoom_select.php:142
 msgid "Browse foreign values"
 msgstr ""
 
-#: libraries/tbl_select.lib.php:738
+#: libraries/tbl_select.lib.php:740
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Doen 'n \"Navraag dmv Voorbeeld\" (wildcard: \"%\")"
 
-#: libraries/transformations.lib.php:145
+#: libraries/transformations.lib.php:148
 #, php-format
 msgid ""
 "No description is available for this transformation.<br />Please ask the "
@@ -8927,8 +8927,8 @@ msgstr "Bediener weergawe"
 msgid "Protocol version"
 msgstr ""
 
-#: main.php:188 server_privileges.php:1696 server_privileges.php:1851
-#: server_privileges.php:1998 server_privileges.php:2417
+#: main.php:188 server_privileges.php:1698 server_privileges.php:1853
+#: server_privileges.php:2000 server_privileges.php:2419
 #: server_status.php:1255
 msgid "User"
 msgstr "Gebruiker"
@@ -9469,432 +9469,432 @@ msgstr ""
 msgid "disabled"
 msgstr "Onbeskikbaar"
 
-#: server_privileges.php:92 server_privileges.php:441
+#: server_privileges.php:94 server_privileges.php:443
 msgid "Includes all privileges except GRANT."
 msgstr ""
 
-#: server_privileges.php:93 server_privileges.php:306
-#: server_privileges.php:727
+#: server_privileges.php:95 server_privileges.php:308
+#: server_privileges.php:729
 msgid "Allows altering the structure of existing tables."
 msgstr ""
 
-#: server_privileges.php:94 server_privileges.php:364
-#: server_privileges.php:733
+#: server_privileges.php:96 server_privileges.php:366
+#: server_privileges.php:735
 msgid "Allows altering and dropping stored routines."
 msgstr ""
 
-#: server_privileges.php:95 server_privileges.php:274
-#: server_privileges.php:726
+#: server_privileges.php:97 server_privileges.php:276
+#: server_privileges.php:728
 msgid "Allows creating new databases and tables."
 msgstr ""
 
-#: server_privileges.php:96 server_privileges.php:360
-#: server_privileges.php:732
+#: server_privileges.php:98 server_privileges.php:362
+#: server_privileges.php:734
 msgid "Allows creating stored routines."
 msgstr ""
 
-#: server_privileges.php:97 server_privileges.php:726
+#: server_privileges.php:99 server_privileges.php:728
 msgid "Allows creating new tables."
 msgstr ""
 
-#: server_privileges.php:98 server_privileges.php:318
-#: server_privileges.php:730
+#: server_privileges.php:100 server_privileges.php:320
+#: server_privileges.php:732
 msgid "Allows creating temporary tables."
 msgstr ""
 
-#: server_privileges.php:99 server_privileges.php:368
-#: server_privileges.php:766
+#: server_privileges.php:101 server_privileges.php:370
+#: server_privileges.php:768
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr ""
 
-#: server_privileges.php:100 server_privileges.php:334
-#: server_privileges.php:347 server_privileges.php:738
-#: server_privileges.php:742
+#: server_privileges.php:102 server_privileges.php:336
+#: server_privileges.php:349 server_privileges.php:740
+#: server_privileges.php:744
 msgid "Allows creating new views."
 msgstr ""
 
-#: server_privileges.php:101 server_privileges.php:270
-#: server_privileges.php:718
+#: server_privileges.php:103 server_privileges.php:272
+#: server_privileges.php:720
 msgid "Allows deleting data."
 msgstr ""
 
-#: server_privileges.php:102 server_privileges.php:278
-#: server_privileges.php:729
+#: server_privileges.php:104 server_privileges.php:280
+#: server_privileges.php:731
 msgid "Allows dropping databases and tables."
 msgstr ""
 
-#: server_privileges.php:103 server_privileges.php:729
+#: server_privileges.php:105 server_privileges.php:731
 msgid "Allows dropping tables."
 msgstr ""
 
-#: server_privileges.php:104 server_privileges.php:338
-#: server_privileges.php:746
+#: server_privileges.php:106 server_privileges.php:340
+#: server_privileges.php:748
 msgid "Allows to set up events for the event scheduler"
 msgstr ""
 
-#: server_privileges.php:105 server_privileges.php:372
-#: server_privileges.php:734
+#: server_privileges.php:107 server_privileges.php:374
+#: server_privileges.php:736
 msgid "Allows executing stored routines."
 msgstr ""
 
-#: server_privileges.php:106 server_privileges.php:294
-#: server_privileges.php:721
+#: server_privileges.php:108 server_privileges.php:296
+#: server_privileges.php:723
 msgid "Allows importing data from and exporting data into files."
 msgstr ""
 
-#: server_privileges.php:107 server_privileges.php:752
+#: server_privileges.php:109 server_privileges.php:754
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
 
-#: server_privileges.php:108 server_privileges.php:302
-#: server_privileges.php:728
+#: server_privileges.php:110 server_privileges.php:304
+#: server_privileges.php:730
 msgid "Allows creating and dropping indexes."
 msgstr ""
 
-#: server_privileges.php:109 server_privileges.php:262
-#: server_privileges.php:647 server_privileges.php:716
+#: server_privileges.php:111 server_privileges.php:264
+#: server_privileges.php:649 server_privileges.php:718
 msgid "Allows inserting and replacing data."
 msgstr ""
 
-#: server_privileges.php:110 server_privileges.php:322
-#: server_privileges.php:761
+#: server_privileges.php:112 server_privileges.php:324
+#: server_privileges.php:763
 msgid "Allows locking tables for the current thread."
 msgstr ""
 
-#: server_privileges.php:111 server_privileges.php:825
-#: server_privileges.php:827
+#: server_privileges.php:113 server_privileges.php:827
+#: server_privileges.php:829
 msgid "Limits the number of new connections the user may open per hour."
 msgstr ""
 
-#: server_privileges.php:112 server_privileges.php:813
-#: server_privileges.php:815
+#: server_privileges.php:114 server_privileges.php:815
+#: server_privileges.php:817
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
 
-#: server_privileges.php:113 server_privileges.php:819
-#: server_privileges.php:821
+#: server_privileges.php:115 server_privileges.php:821
+#: server_privileges.php:823
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
 msgstr ""
 
-#: server_privileges.php:114 server_privileges.php:831
-#: server_privileges.php:833
+#: server_privileges.php:116 server_privileges.php:833
+#: server_privileges.php:835
 #, fuzzy
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr "Limits the number of new connections the user may open per hour."
 
-#: server_privileges.php:115 server_privileges.php:290
-#: server_privileges.php:756
+#: server_privileges.php:117 server_privileges.php:292
+#: server_privileges.php:758
 msgid "Allows viewing processes of all users"
 msgstr ""
 
-#: server_privileges.php:116 server_privileges.php:298
-#: server_privileges.php:657 server_privileges.php:762
+#: server_privileges.php:118 server_privileges.php:300
+#: server_privileges.php:659 server_privileges.php:764
 msgid "Has no effect in this MySQL version."
 msgstr ""
 
-#: server_privileges.php:117 server_privileges.php:282
-#: server_privileges.php:757
+#: server_privileges.php:119 server_privileges.php:284
+#: server_privileges.php:759
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 
-#: server_privileges.php:118 server_privileges.php:330
-#: server_privileges.php:764
+#: server_privileges.php:120 server_privileges.php:332
+#: server_privileges.php:766
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr ""
 
-#: server_privileges.php:119 server_privileges.php:326
-#: server_privileges.php:765
+#: server_privileges.php:121 server_privileges.php:328
+#: server_privileges.php:767
 msgid "Needed for the replication slaves."
 msgstr ""
 
-#: server_privileges.php:120 server_privileges.php:258
-#: server_privileges.php:642 server_privileges.php:715
+#: server_privileges.php:122 server_privileges.php:260
+#: server_privileges.php:644 server_privileges.php:717
 msgid "Allows reading data."
 msgstr ""
 
-#: server_privileges.php:121 server_privileges.php:310
-#: server_privileges.php:759
+#: server_privileges.php:123 server_privileges.php:312
+#: server_privileges.php:761
 msgid "Gives access to the complete list of databases."
 msgstr ""
 
-#: server_privileges.php:122 server_privileges.php:351
-#: server_privileges.php:356 server_privileges.php:731
+#: server_privileges.php:124 server_privileges.php:353
+#: server_privileges.php:358 server_privileges.php:733
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr ""
 
-#: server_privileges.php:123 server_privileges.php:286
-#: server_privileges.php:758
+#: server_privileges.php:125 server_privileges.php:288
+#: server_privileges.php:760
 msgid "Allows shutting down the server."
 msgstr ""
 
-#: server_privileges.php:124 server_privileges.php:314
-#: server_privileges.php:755
+#: server_privileges.php:126 server_privileges.php:316
+#: server_privileges.php:757
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
 "killing threads of other users."
 msgstr ""
 
-#: server_privileges.php:125 server_privileges.php:342
-#: server_privileges.php:747
+#: server_privileges.php:127 server_privileges.php:344
+#: server_privileges.php:749
 msgid "Allows creating and dropping triggers"
 msgstr ""
 
-#: server_privileges.php:126 server_privileges.php:266
-#: server_privileges.php:652 server_privileges.php:717
+#: server_privileges.php:128 server_privileges.php:268
+#: server_privileges.php:654 server_privileges.php:719
 msgid "Allows changing data."
 msgstr ""
 
-#: server_privileges.php:127 server_privileges.php:431
+#: server_privileges.php:129 server_privileges.php:433
 #, fuzzy
 msgid "No privileges."
 msgstr "Geen Regte"
 
-#: server_privileges.php:490 server_privileges.php:491
+#: server_privileges.php:492 server_privileges.php:493
 #, fuzzy
 #| msgid "None"
 msgctxt "None privileges"
 msgid "None"
 msgstr "Geen"
 
-#: server_privileges.php:633 server_privileges.php:778
-#: server_privileges.php:2068 server_privileges.php:2074
+#: server_privileges.php:635 server_privileges.php:780
+#: server_privileges.php:2070 server_privileges.php:2076
 msgid "Table-specific privileges"
 msgstr ""
 
-#: server_privileges.php:634 server_privileges.php:786
-#: server_privileges.php:1855
+#: server_privileges.php:636 server_privileges.php:788
+#: server_privileges.php:1857
 msgid "Note: MySQL privilege names are expressed in English"
 msgstr "Nota: MySQL regte name word in Engels vertoon"
 
-#: server_privileges.php:711
+#: server_privileges.php:713
 msgid "Administration"
 msgstr ""
 
-#: server_privileges.php:775 server_privileges.php:1854
+#: server_privileges.php:777 server_privileges.php:1856
 #, fuzzy
 msgid "Global privileges"
 msgstr "Geen Regte"
 
-#: server_privileges.php:777 server_privileges.php:2068
+#: server_privileges.php:779 server_privileges.php:2070
 msgid "Database-specific privileges"
 msgstr ""
 
-#: server_privileges.php:809
+#: server_privileges.php:811
 msgid "Resource limits"
 msgstr ""
 
-#: server_privileges.php:810
+#: server_privileges.php:812
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr ""
 
-#: server_privileges.php:888
+#: server_privileges.php:890
 #, fuzzy
 msgid "Login Information"
 msgstr "Wys PHP informasie"
 
-#: server_privileges.php:985
+#: server_privileges.php:987
 msgid "Do not change the password"
 msgstr "Moenie die wagwoord verander nie"
 
-#: server_privileges.php:1037 server_privileges.php:2560
+#: server_privileges.php:1039 server_privileges.php:2562
 #, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
 msgstr "Geen gebruiker(s) gevind nie."
 
-#: server_privileges.php:1081
+#: server_privileges.php:1083
 #, php-format
 msgid "The user %s already exists!"
 msgstr ""
 
-#: server_privileges.php:1165
+#: server_privileges.php:1167
 msgid "You have added a new user."
 msgstr "Jy het 'n nuwe gebruiker bygevoeg."
 
-#: server_privileges.php:1389
+#: server_privileges.php:1391
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Jy het die regte opgedateer vir %s."
 
-#: server_privileges.php:1411
+#: server_privileges.php:1413
 #, php-format
 msgid "You have revoked the privileges for %s"
 msgstr "Jy het die regte herroep vir %s"
 
-#: server_privileges.php:1447
+#: server_privileges.php:1449
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr ""
 
-#: server_privileges.php:1467
+#: server_privileges.php:1469
 #, php-format
 msgid "Deleting %s"
 msgstr ""
 
-#: server_privileges.php:1481
+#: server_privileges.php:1483
 msgid "No users selected for deleting!"
 msgstr ""
 
-#: server_privileges.php:1484
+#: server_privileges.php:1486
 msgid "Reloading the privileges"
 msgstr ""
 
-#: server_privileges.php:1502
+#: server_privileges.php:1504
 msgid "The selected users have been deleted successfully."
 msgstr ""
 
-#: server_privileges.php:1537
+#: server_privileges.php:1539
 msgid "The privileges were reloaded successfully."
 msgstr ""
 
-#: server_privileges.php:1548 server_privileges.php:1997
+#: server_privileges.php:1550 server_privileges.php:1999
 msgid "Edit Privileges"
 msgstr "Verander Regte"
 
-#: server_privileges.php:1557
+#: server_privileges.php:1559
 msgid "Revoke"
 msgstr "Herroep"
 
-#: server_privileges.php:1573
+#: server_privileges.php:1575
 #, fuzzy
 #| msgid "Export"
 msgid "Export all"
 msgstr "Export"
 
-#: server_privileges.php:1592 server_privileges.php:1878
-#: server_privileges.php:2510
+#: server_privileges.php:1594 server_privileges.php:1880
+#: server_privileges.php:2512
 msgid "Any"
 msgstr "Enige"
 
-#: server_privileges.php:1675
+#: server_privileges.php:1677
 #, fuzzy
 #| msgid "Privileges"
 msgid "Privileges for all users"
 msgstr "Regte"
 
-#: server_privileges.php:1688
+#: server_privileges.php:1690
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Regte"
 
-#: server_privileges.php:1716
+#: server_privileges.php:1718
 msgid "Users overview"
 msgstr ""
 
-#: server_privileges.php:1856 server_privileges.php:2073
-#: server_privileges.php:2421
+#: server_privileges.php:1858 server_privileges.php:2075
+#: server_privileges.php:2423
 msgid "Grant"
 msgstr ""
 
-#: server_privileges.php:1952
+#: server_privileges.php:1954
 msgid "Remove selected users"
 msgstr ""
 
-#: server_privileges.php:1955
+#: server_privileges.php:1957
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr ""
 
-#: server_privileges.php:1956 server_privileges.php:1957
-#: server_privileges.php:1958
+#: server_privileges.php:1958 server_privileges.php:1959
+#: server_privileges.php:1960
 msgid "Drop the databases that have the same names as the users."
 msgstr ""
 
-#: server_privileges.php:1979
+#: server_privileges.php:1981
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 
-#: server_privileges.php:2032
+#: server_privileges.php:2034
 msgid "The selected user was not found in the privilege table."
 msgstr ""
 
-#: server_privileges.php:2074
+#: server_privileges.php:2076
 msgid "Column-specific privileges"
 msgstr ""
 
-#: server_privileges.php:2280
+#: server_privileges.php:2282
 msgid "Add privileges on the following database"
 msgstr ""
 
-#: server_privileges.php:2298
+#: server_privileges.php:2300
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 
-#: server_privileges.php:2301
+#: server_privileges.php:2303
 msgid "Add privileges on the following table"
 msgstr ""
 
-#: server_privileges.php:2358
+#: server_privileges.php:2360
 msgid "Change Login Information / Copy User"
 msgstr ""
 
-#: server_privileges.php:2361
+#: server_privileges.php:2363
 msgid "Create a new user with the same privileges and ..."
 msgstr ""
 
-#: server_privileges.php:2363
+#: server_privileges.php:2365
 msgid "... keep the old one."
 msgstr ""
 
-#: server_privileges.php:2364
+#: server_privileges.php:2366
 msgid "... delete the old one from the user tables."
 msgstr ""
 
-#: server_privileges.php:2365
+#: server_privileges.php:2367
 msgid ""
 "... revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
 
-#: server_privileges.php:2366
+#: server_privileges.php:2368
 msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 
-#: server_privileges.php:2389
+#: server_privileges.php:2391
 msgid "Database for user"
 msgstr ""
 
-#: server_privileges.php:2391
+#: server_privileges.php:2393
 msgid "Create database with same name and grant all privileges"
 msgstr ""
 
-#: server_privileges.php:2393
+#: server_privileges.php:2395
 msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr ""
 
-#: server_privileges.php:2397
+#: server_privileges.php:2399
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr ""
 
-#: server_privileges.php:2413
+#: server_privileges.php:2415
 #, php-format
 msgid "Users having access to &quot;%s&quot;"
 msgstr ""
 
-#: server_privileges.php:2522
+#: server_privileges.php:2524
 msgid "global"
 msgstr ""
 
-#: server_privileges.php:2524
+#: server_privileges.php:2526
 msgid "database-specific"
 msgstr ""
 
-#: server_privileges.php:2526
+#: server_privileges.php:2528
 msgid "wildcard"
 msgstr ""
 
-#: server_privileges.php:2569
+#: server_privileges.php:2571
 #, fuzzy
 msgid "User has been added."
 msgstr "Veld %s is verwyder"
@@ -12216,1090 +12216,178 @@ msgstr ""
 msgid "Rename view to"
 msgstr "Hernoem tabel na"
 
-#: libraries/advisory_rules.txt:49
-msgid "Uptime below one day"
-msgstr ""
-
-#: libraries/advisory_rules.txt:52
-msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr ""
-
-#: libraries/advisory_rules.txt:53
-msgid ""
-"To have more accurate averages it is recommended to let the server run for "
-"longer than a day before running this analyzer"
-msgstr ""
-
-#: libraries/advisory_rules.txt:54
-#, php-format
-msgid "The uptime is only %s"
-msgstr ""
-
-#: libraries/advisory_rules.txt:56
 #, fuzzy
-msgid "Questions below 1,000"
-msgstr "Operasies"
+#~ msgid "Questions below 1,000"
+#~ msgstr "Operasies"
 
-#: libraries/advisory_rules.txt:59
-msgid ""
-"Fewer than 1,000 questions have been run against this server. The "
-"recommendations may not be accurate."
-msgstr ""
-
-#: libraries/advisory_rules.txt:60
-msgid ""
-"Let the server run for a longer time until it has executed a greater amount "
-"of queries."
-msgstr ""
-
-#: libraries/advisory_rules.txt:61
-#, fuzzy, php-format
-msgid "Current amount of Questions: %s"
-msgstr "Bediener weergawe"
-
-#: libraries/advisory_rules.txt:63
 #, fuzzy
-msgid "Percentage of slow queries"
-msgstr "SQL-stelling"
+#~ msgid "Current amount of Questions: %s"
+#~ msgstr "Bediener weergawe"
 
-#: libraries/advisory_rules.txt:66
-msgid ""
-"There is a lot of slow queries compared to the overall amount of Queries."
-msgstr ""
-
-#: libraries/advisory_rules.txt:67 libraries/advisory_rules.txt:74
-msgid ""
-"You might want to increase {long_query_time} or optimize the queries listed "
-"in the slow query log"
-msgstr ""
-
-#: libraries/advisory_rules.txt:68
-#, php-format
-msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr ""
-
-#: libraries/advisory_rules.txt:70
 #, fuzzy
-msgid "Slow query rate"
-msgstr "SQL-stelling"
+#~ msgid "Percentage of slow queries"
+#~ msgstr "SQL-stelling"
 
-#: libraries/advisory_rules.txt:73
-msgid ""
-"There is a high percentage of slow queries compared to the server uptime."
-msgstr ""
-
-#: libraries/advisory_rules.txt:75
-#, php-format
-msgid ""
-"You have a slow query rate of %s per hour, you should have less than 1%% per "
-"hour."
-msgstr ""
-
-#: libraries/advisory_rules.txt:77
 #, fuzzy
-msgid "Long query time"
-msgstr "SQL-stelling"
+#~ msgid "Slow query rate"
+#~ msgstr "SQL-stelling"
 
-#: libraries/advisory_rules.txt:80
-msgid ""
-"long_query_time is set to 10 seconds or more, thus only slow queries that "
-"take above 10 seconds are logged."
-msgstr ""
-
-#: libraries/advisory_rules.txt:81
-msgid ""
-"It is suggested to set {long_query_time} to a lower value, depending on your "
-"environment. Usually a value of 1-5 seconds is suggested."
-msgstr ""
-
-#: libraries/advisory_rules.txt:82
-#, php-format
-msgid "long_query_time is currently set to %ds."
-msgstr ""
-
-#: libraries/advisory_rules.txt:84
 #, fuzzy
-msgid "Slow query logging"
-msgstr "SQL-stelling"
+#~ msgid "Long query time"
+#~ msgstr "SQL-stelling"
 
-#: libraries/advisory_rules.txt:87
-msgid "The slow query log is disabled."
-msgstr ""
-
-#: libraries/advisory_rules.txt:88
-msgid ""
-"Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
-"help troubleshooting badly performing queries."
-msgstr ""
-
-#: libraries/advisory_rules.txt:89
-msgid "log_slow_queries is set to 'OFF'"
-msgstr ""
-
-#: libraries/advisory_rules.txt:93
 #, fuzzy
-#| msgid "Select Tables"
-msgid "Release Series"
-msgstr "Kies Tabelle"
+#~ msgid "Slow query logging"
+#~ msgstr "SQL-stelling"
 
-#: libraries/advisory_rules.txt:96
-msgid "The MySQL server version less than 5.1."
-msgstr ""
-
-#: libraries/advisory_rules.txt:97
-msgid ""
-"You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
-"even more so."
-msgstr ""
-
-#: libraries/advisory_rules.txt:98 libraries/advisory_rules.txt:105
-#: libraries/advisory_rules.txt:112
-#, fuzzy, php-format
-msgid "Current version: %s"
-msgstr "Bediener weergawe"
-
-#: libraries/advisory_rules.txt:100 libraries/advisory_rules.txt:107
 #, fuzzy
-msgid "Minor Version"
-msgstr "PHP Version"
+#~| msgid "Select Tables"
+#~ msgid "Release Series"
+#~ msgstr "Kies Tabelle"
 
-#: libraries/advisory_rules.txt:103
-msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
-
-#: libraries/advisory_rules.txt:104
-msgid ""
-"You should upgrade, as recent versions of MySQL 5.1 have improved "
-"performance and MySQL 5.5 even more so."
-msgstr ""
-
-#: libraries/advisory_rules.txt:110
-msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr ""
-
-#: libraries/advisory_rules.txt:111
-msgid "You should upgrade, to a stable version of MySQL 5.5"
-msgstr ""
-
-#: libraries/advisory_rules.txt:114 libraries/advisory_rules.txt:121
-#: libraries/advisory_rules.txt:128
 #, fuzzy
-msgid "Distribution"
-msgstr "geen Beskrywing"
+#~ msgid "Current version: %s"
+#~ msgstr "Bediener weergawe"
 
-#: libraries/advisory_rules.txt:117
-msgid "Version is compiled from source, not a MySQL official binary."
-msgstr ""
-
-#: libraries/advisory_rules.txt:118
-msgid ""
-"If you did not compile from source, you may be using a package modified by a "
-"distribution. The MySQL manual only is accurate for official MySQL binaries, "
-"not any package distributions (such as RedHat, Debian/Ubuntu etc)."
-msgstr ""
-
-#: libraries/advisory_rules.txt:119
-msgid "'source' found in version_comment"
-msgstr ""
-
-#: libraries/advisory_rules.txt:124 libraries/advisory_rules.txt:131
-msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr ""
-
-#: libraries/advisory_rules.txt:125
-msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
-msgstr ""
-
-#: libraries/advisory_rules.txt:126
-msgid "'percona' found in version_comment"
-msgstr ""
-
-#: libraries/advisory_rules.txt:132
-msgid "Drizzle documentation is at http://docs.drizzle.org/"
-msgstr ""
-
-#: libraries/advisory_rules.txt:133
-#, php-format
-msgid "Version string (%s) matches Drizzle versioning scheme"
-msgstr ""
-
-#: libraries/advisory_rules.txt:135
 #, fuzzy
-#| msgid "MySQL charset"
-msgid "MySQL Architecture"
-msgstr "MySQL Karakterstel"
+#~ msgid "Minor Version"
+#~ msgstr "PHP Version"
 
-#: libraries/advisory_rules.txt:138
-msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
-
-#: libraries/advisory_rules.txt:139
-msgid ""
-"Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
-"so MySQL might not be able to access all of your memory. You might want to "
-"consider installing the 64-bit version of MySQL."
-msgstr ""
-
-#: libraries/advisory_rules.txt:140
-#, php-format
-msgid "Available memory on this host: %s"
-msgstr ""
-
-#: libraries/advisory_rules.txt:146
 #, fuzzy
-#| msgid "Space usage"
-msgid "Query cache disabled"
-msgstr "Spasie verbruik"
+#~ msgid "Distribution"
+#~ msgstr "geen Beskrywing"
 
-#: libraries/advisory_rules.txt:149
-msgid "The query cache is not enabled."
-msgstr ""
-
-#: libraries/advisory_rules.txt:150
-msgid ""
-"The query cache is known to greatly improve performance if configured "
-"correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value "
-"and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
-"memcached, ignore this recommendation."
-msgstr ""
-
-#: libraries/advisory_rules.txt:151
-msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
-msgstr ""
-
-#: libraries/advisory_rules.txt:153
 #, fuzzy
-#| msgid "Space usage"
-msgid "Query caching method"
-msgstr "Spasie verbruik"
+#~| msgid "MySQL charset"
+#~ msgid "MySQL Architecture"
+#~ msgstr "MySQL Karakterstel"
 
-#: libraries/advisory_rules.txt:156
 #, fuzzy
-#| msgid "Space usage"
-msgid "Suboptimal caching method."
-msgstr "Spasie verbruik"
+#~| msgid "Space usage"
+#~ msgid "Query cache disabled"
+#~ msgstr "Spasie verbruik"
 
-#: libraries/advisory_rules.txt:157
-msgid ""
-"You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"http://dev.mysql.com/doc/"
-"refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple slaves."
-msgstr ""
-
-#: libraries/advisory_rules.txt:158
-#, php-format
-msgid ""
-"The query cache is enabled and the server receives %d queries per second. "
-"This rule fires if there is more than 100 queries per second."
-msgstr ""
-
-#: libraries/advisory_rules.txt:160
-#, fuzzy, php-format
-#| msgid "Space usage"
-msgid "Query cache efficiency (%%)"
-msgstr "Spasie verbruik"
-
-#: libraries/advisory_rules.txt:163
-msgid "Query cache not running efficiently, it has a low hit rate."
-msgstr ""
-
-#: libraries/advisory_rules.txt:164
-msgid "Consider increasing {query_cache_limit}."
-msgstr ""
-
-#: libraries/advisory_rules.txt:165
-#, php-format
-msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr ""
-
-#: libraries/advisory_rules.txt:167
 #, fuzzy
-msgid "Query Cache usage"
-msgstr "Spasie verbruik"
+#~| msgid "Space usage"
+#~ msgid "Query caching method"
+#~ msgstr "Spasie verbruik"
 
-#: libraries/advisory_rules.txt:170
-#, php-format
-msgid "Less than 80%% of the query cache is being utilized."
-msgstr ""
-
-#: libraries/advisory_rules.txt:171
-msgid ""
-"This might be caused by {query_cache_limit} being too low. Flushing the "
-"query cache might help as well."
-msgstr ""
-
-#: libraries/advisory_rules.txt:172
-#, php-format
-msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
-msgstr ""
-
-#: libraries/advisory_rules.txt:174
 #, fuzzy
-#| msgid "Space usage"
-msgid "Query cache fragmentation"
-msgstr "Spasie verbruik"
+#~| msgid "Space usage"
+#~ msgid "Suboptimal caching method."
+#~ msgstr "Spasie verbruik"
 
-#: libraries/advisory_rules.txt:177
-msgid "The query cache is considerably fragmented."
-msgstr ""
-
-#: libraries/advisory_rules.txt:178
-msgid ""
-"Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
-"This might be caused by many Query cache low memory prunes due to "
-"{query_cache_size} being too small. For a immediate but short lived fix you "
-"can flush the query cache (might lock the query cache for a long time). "
-"Carefully adjusting {query_cache_min_res_unit} to a lower value might help "
-"too, e.g. you can set it to the average size of your queries in the cache "
-"using this formula: (query_cache_size - qcache_free_memory) / "
-"qcache_queries_in_cache"
-msgstr ""
-
-#: libraries/advisory_rules.txt:179
-#, php-format
-msgid ""
-"The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
-"that the query cache is an alternating pattern of free and used blocks. This "
-"value should be below 20%%."
-msgstr ""
-
-#: libraries/advisory_rules.txt:181
 #, fuzzy
-#| msgid "Space usage"
-msgid "Query cache low memory prunes"
-msgstr "Spasie verbruik"
+#~| msgid "Space usage"
+#~ msgid "Query cache efficiency (%%)"
+#~ msgstr "Spasie verbruik"
 
-#: libraries/advisory_rules.txt:184
-msgid ""
-"Cached queries are removed due to low query cache memory from the query "
-"cache."
-msgstr ""
-
-#: libraries/advisory_rules.txt:185
-msgid ""
-"You might want to increase {query_cache_size}, however keep in mind that the "
-"overhead of maintaining the cache is likely to increase with its size, so do "
-"this in small increments and monitor the results."
-msgstr ""
-
-#: libraries/advisory_rules.txt:186
-#, php-format
-msgid ""
-"The ratio of removed queries to inserted queries is %s%%. The lower this "
-"value is, the better (This rules firing limit: 0.1%%)"
-msgstr ""
-
-#: libraries/advisory_rules.txt:188
 #, fuzzy
-#| msgid "Space usage"
-msgid "Query cache max size"
-msgstr "Spasie verbruik"
+#~ msgid "Query Cache usage"
+#~ msgstr "Spasie verbruik"
 
-#: libraries/advisory_rules.txt:191
-msgid ""
-"The query cache size is above 128 MiB. Big query caches may cause "
-"significant overhead that is required to maintain the cache."
-msgstr ""
-
-#: libraries/advisory_rules.txt:192
-msgid ""
-"Depending on your environment, it might be performance increasing to reduce "
-"this value."
-msgstr ""
-
-#: libraries/advisory_rules.txt:193
-#, fuzzy, php-format
-msgid "Current query cache size: %s"
-msgstr "Bediener weergawe"
-
-#: libraries/advisory_rules.txt:195
 #, fuzzy
-msgid "Query cache min result size"
-msgstr "SQL resultaat"
+#~| msgid "Space usage"
+#~ msgid "Query cache fragmentation"
+#~ msgstr "Spasie verbruik"
 
-#: libraries/advisory_rules.txt:198
-msgid ""
-"The max size of the result set in the query cache is the default of 1 MiB."
-msgstr ""
-
-#: libraries/advisory_rules.txt:199
-msgid ""
-"Changing {query_cache_limit} (usually by increasing) may increase "
-"efficiency. This variable determines the maximum size a query result may "
-"have to be inserted into the query cache. If there are many query results "
-"above 1 MiB that are well cacheable (many reads, little writes) then "
-"increasing {query_cache_limit} will increase efficiency. Whereas in the case "
-"of many query results being above 1 MiB that are not very well cacheable "
-"(often invalidated due to table updates) increasing {query_cache_limit} "
-"might reduce efficiency."
-msgstr ""
-
-#: libraries/advisory_rules.txt:200
-msgid "query_cache_limit is set to 1 MiB"
-msgstr ""
-
-#: libraries/advisory_rules.txt:204
 #, fuzzy
-msgid "Percentage of sorts that cause temporary tables"
-msgstr "SQL-stelling"
+#~| msgid "Space usage"
+#~ msgid "Query cache low memory prunes"
+#~ msgstr "Spasie verbruik"
 
-#: libraries/advisory_rules.txt:207 libraries/advisory_rules.txt:214
-msgid "Too many sorts are causing temporary tables."
-msgstr ""
-
-#: libraries/advisory_rules.txt:208 libraries/advisory_rules.txt:215
-msgid ""
-"Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending "
-"on your system memory limits"
-msgstr ""
-
-#: libraries/advisory_rules.txt:209
-#, php-format
-msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
-msgstr ""
-
-#: libraries/advisory_rules.txt:211
-msgid "Rate of sorts that cause temporary tables"
-msgstr ""
-
-#: libraries/advisory_rules.txt:216
-#, php-format
-msgid ""
-"Temporary tables average: %s, this value should be less than 1 per hour."
-msgstr ""
-
-#: libraries/advisory_rules.txt:218
 #, fuzzy
-#| msgid "Start"
-msgid "Sort rows"
-msgstr "Sa"
+#~| msgid "Space usage"
+#~ msgid "Query cache max size"
+#~ msgstr "Spasie verbruik"
 
-#: libraries/advisory_rules.txt:221
-msgid "There are lots of rows being sorted."
-msgstr ""
-
-#: libraries/advisory_rules.txt:222
-msgid ""
-"While there is nothing wrong with a high amount of row sorting, you might "
-"want to make sure that the queries which require a lot of sorting use "
-"indexed columns in the ORDER BY clause, as this will result in much faster "
-"sorting"
-msgstr ""
-
-#: libraries/advisory_rules.txt:223
-#, php-format
-msgid "Sorted rows average: %s"
-msgstr ""
-
-#: libraries/advisory_rules.txt:226
-msgid "Rate of joins without indexes"
-msgstr ""
-
-#: libraries/advisory_rules.txt:229
-msgid "There are too many joins without indexes."
-msgstr ""
-
-#: libraries/advisory_rules.txt:230
-msgid ""
-"This means that joins are doing full table scans. Adding indexes for the "
-"columns being used in the join conditions will greatly speed up table joins"
-msgstr ""
-
-#: libraries/advisory_rules.txt:231
-#, php-format
-msgid "Table joins average: %s, this value should be less than 1 per hour"
-msgstr ""
-
-#: libraries/advisory_rules.txt:233
-msgid "Rate of reading first index entry"
-msgstr ""
-
-#: libraries/advisory_rules.txt:236
-msgid "The rate of reading the first index entry is high."
-msgstr ""
-
-#: libraries/advisory_rules.txt:237
-msgid ""
-"This usually indicates frequent full index scans. Full index scans are "
-"faster than table scans but require lots of CPU cycles in big tables, if "
-"those tables that have or had high volumes of UPDATEs and DELETEs, running "
-"'OPTIMIZE TABLE' might reduce the amount of and/or speed up full index "
-"scans. Other than that full index scans can only be reduced by rewriting "
-"queries."
-msgstr ""
-
-#: libraries/advisory_rules.txt:238
-#, php-format
-msgid "Index scans average: %s, this value should be less than 1 per hour"
-msgstr ""
-
-#: libraries/advisory_rules.txt:240
 #, fuzzy
-msgid "Rate of reading fixed position"
-msgstr "Karakterstel van die leer:"
+#~ msgid "Current query cache size: %s"
+#~ msgstr "Bediener weergawe"
 
-#: libraries/advisory_rules.txt:243
-msgid "The rate of reading data from a fixed position is high."
-msgstr ""
-
-#: libraries/advisory_rules.txt:244
-msgid ""
-"This indicates that many queries need to sort results and/or do a full table "
-"scan, including join queries that do not use indexes. Add indexes where "
-"applicable."
-msgstr ""
-
-#: libraries/advisory_rules.txt:245
-#, php-format
-msgid ""
-"Rate of reading fixed position average: %s, this value should be less than 1 "
-"per hour"
-msgstr ""
-
-#: libraries/advisory_rules.txt:247
 #, fuzzy
-msgid "Rate of reading next table row"
-msgstr "Skep 'n nuwe bladsy"
+#~ msgid "Query cache min result size"
+#~ msgstr "SQL resultaat"
 
-#: libraries/advisory_rules.txt:250
-msgid "The rate of reading the next table row is high."
-msgstr ""
-
-#: libraries/advisory_rules.txt:251
-msgid ""
-"This indicates that many queries are doing full table scans. Add indexes "
-"where applicable."
-msgstr ""
-
-#: libraries/advisory_rules.txt:252
-#, php-format
-msgid ""
-"Rate of reading next table row: %s, this value should be less than 1 per hour"
-msgstr ""
-
-#: libraries/advisory_rules.txt:255
-msgid "tmp_table_size vs. max_heap_table_size"
-msgstr ""
-
-#: libraries/advisory_rules.txt:258
-msgid "tmp_table_size and max_heap_table_size are not the same."
-msgstr ""
-
-#: libraries/advisory_rules.txt:259
-msgid ""
-"If you have deliberately changed one of either: The server uses the lower "
-"value of either to determine the maximum size of in-memory tables. So if you "
-"wish to increase the in-memory table limit you will have to increase the "
-"other value as well."
-msgstr ""
-
-#: libraries/advisory_rules.txt:260
-#, php-format
-msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr ""
-
-#: libraries/advisory_rules.txt:262
 #, fuzzy
-msgid "Percentage of temp tables on disk"
-msgstr "Tabel kommentaar"
+#~ msgid "Percentage of sorts that cause temporary tables"
+#~ msgstr "SQL-stelling"
 
-#: libraries/advisory_rules.txt:265 libraries/advisory_rules.txt:272
-msgid ""
-"Many temporary tables are being written to disk instead of being kept in "
-"memory."
-msgstr ""
-
-#: libraries/advisory_rules.txt:266
-msgid ""
-"Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
-"some temporary tables are always being written to disk, independent of the "
-"value of these variables. To eliminate these you will have to rewrite your "
-"queries to avoid those conditions (Within a temporary table: Presence of a "
-"BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
-"mentioned in the beginning of an <a href=\"http://www.facebook.com/note.php?"
-"note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
-msgstr ""
-
-#: libraries/advisory_rules.txt:267
-#, php-format
-msgid ""
-"%s%% of all temporary tables are being written to disk, this value should be "
-"below 25%%"
-msgstr ""
-
-#: libraries/advisory_rules.txt:269
 #, fuzzy
-#| msgid "%s table(s)"
-msgid "Temp disk rate"
-msgstr "%s tabel(le)"
+#~| msgid "Start"
+#~ msgid "Sort rows"
+#~ msgstr "Sa"
 
-#: libraries/advisory_rules.txt:273
-msgid ""
-"Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
-"some temporary tables are always being written to disk, independent of the "
-"value of these variables. To eliminate these you will have to rewrite your "
-"queries to avoid those conditions (Within a temporary table: Presence of a "
-"BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
-"mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
-"temporary-tables.html\">MySQL Documentation</a>"
-msgstr ""
-
-#: libraries/advisory_rules.txt:274
-#, php-format
-msgid ""
-"Rate of temporary tables being written to disk: %s, this value should be "
-"less than 1 per hour"
-msgstr ""
-
-#: libraries/advisory_rules.txt:289
-msgid "MyISAM key buffer size"
-msgstr ""
-
-#: libraries/advisory_rules.txt:292
-msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
-msgstr ""
-
-#: libraries/advisory_rules.txt:293
-msgid ""
-"Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
-"good start."
-msgstr ""
-
-#: libraries/advisory_rules.txt:294
-msgid "key_buffer_size is 0"
-msgstr ""
-
-#: libraries/advisory_rules.txt:296
-#, php-format
-msgid "Max %% MyISAM key buffer ever used"
-msgstr ""
-
-#: libraries/advisory_rules.txt:299 libraries/advisory_rules.txt:307
-#, php-format
-msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr ""
-
-#: libraries/advisory_rules.txt:300 libraries/advisory_rules.txt:308
-msgid ""
-"You may need to decrease the size of {key_buffer_size}, re-examine your "
-"tables to see if indexes have been removed, or examine queries and "
-"expectations about what indexes are being used."
-msgstr ""
-
-#: libraries/advisory_rules.txt:301
-#, php-format
-msgid ""
-"max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
-msgstr ""
-
-#: libraries/advisory_rules.txt:304
 #, fuzzy
-msgid "Percentage of MyISAM key buffer used"
-msgstr "SQL-stelling"
+#~ msgid "Rate of reading fixed position"
+#~ msgstr "Karakterstel van die leer:"
 
-#: libraries/advisory_rules.txt:309
-#, php-format
-msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
-msgstr ""
-
-#: libraries/advisory_rules.txt:311
 #, fuzzy
-msgid "Percentage of index reads from memory"
-msgstr "SQL-stelling"
+#~ msgid "Rate of reading next table row"
+#~ msgstr "Skep 'n nuwe bladsy"
 
-#: libraries/advisory_rules.txt:314
-#, php-format
-msgid "The %% of indexes that use the MyISAM key buffer is low."
-msgstr ""
-
-#: libraries/advisory_rules.txt:315
-msgid "You may need to increase {key_buffer_size}."
-msgstr ""
-
-#: libraries/advisory_rules.txt:316
-#, php-format
-msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr ""
-
-#: libraries/advisory_rules.txt:320
 #, fuzzy
-msgid "Rate of table open"
-msgstr "Skep 'n nuwe bladsy"
+#~ msgid "Percentage of temp tables on disk"
+#~ msgstr "Tabel kommentaar"
 
-#: libraries/advisory_rules.txt:323
-msgid "The rate of opening tables is high."
-msgstr ""
-
-#: libraries/advisory_rules.txt:324
-msgid ""
-"Opening tables requires disk I/O which is costly. Increasing "
-"{table_open_cache} might avoid this."
-msgstr ""
-
-#: libraries/advisory_rules.txt:325
-#, php-format
-msgid "Opened table rate: %s, this value should be less than 10 per hour"
-msgstr ""
-
-#: libraries/advisory_rules.txt:327
 #, fuzzy
-msgid "Percentage of used open files limit"
-msgstr "Karakterstel van die leer:"
+#~| msgid "%s table(s)"
+#~ msgid "Temp disk rate"
+#~ msgstr "%s tabel(le)"
 
-#: libraries/advisory_rules.txt:330
-msgid ""
-"The number of open files is approaching the max number of open files.  You "
-"may get a \"Too many open files\" error."
-msgstr ""
-
-#: libraries/advisory_rules.txt:331 libraries/advisory_rules.txt:338
-msgid ""
-"Consider increasing {open_files_limit}, and check the error log when "
-"restarting after changing open_files_limit."
-msgstr ""
-
-#: libraries/advisory_rules.txt:332
-#, php-format
-msgid ""
-"The number of opened files is at %s%% of the limit. It should be below 85%%"
-msgstr ""
-
-#: libraries/advisory_rules.txt:334
 #, fuzzy
-msgid "Rate of open files"
-msgstr "Karakterstel van die leer:"
+#~ msgid "Percentage of MyISAM key buffer used"
+#~ msgstr "SQL-stelling"
 
-#: libraries/advisory_rules.txt:337
 #, fuzzy
-msgid "The rate of opening files is high."
-msgstr "Karakterstel van die leer:"
+#~ msgid "Percentage of index reads from memory"
+#~ msgstr "SQL-stelling"
 
-#: libraries/advisory_rules.txt:339
-#, php-format
-msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr ""
-
-#: libraries/advisory_rules.txt:341
-#, fuzzy, php-format
-#| msgid "Create table on database %s"
-msgid "Immediate table locks %%"
-msgstr "Skep 'n nuwe tabel op databasis %s"
-
-#: libraries/advisory_rules.txt:344 libraries/advisory_rules.txt:351
-msgid "Too many table locks were not granted immediately."
-msgstr ""
-
-#: libraries/advisory_rules.txt:345 libraries/advisory_rules.txt:352
-msgid "Optimize queries and/or use InnoDB to reduce lock wait."
-msgstr ""
-
-#: libraries/advisory_rules.txt:346
-#, php-format
-msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr ""
-
-#: libraries/advisory_rules.txt:348
-msgid "Table lock wait rate"
-msgstr ""
-
-#: libraries/advisory_rules.txt:353
-#, php-format
-msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
-msgstr ""
-
-#: libraries/advisory_rules.txt:355
-msgid "Thread cache"
-msgstr ""
-
-#: libraries/advisory_rules.txt:358
-msgid ""
-"Thread cache is disabled, resulting in more overhead from new connections to "
-"MySQL."
-msgstr ""
-
-#: libraries/advisory_rules.txt:359
-msgid "Enable the thread cache by setting {thread_cache_size} > 0."
-msgstr ""
-
-#: libraries/advisory_rules.txt:360
-msgid "The thread cache is set to 0"
-msgstr ""
-
-#: libraries/advisory_rules.txt:362
-#, php-format
-msgid "Thread cache hit rate %%"
-msgstr ""
-
-#: libraries/advisory_rules.txt:365
 #, fuzzy
-#| msgid "Space usage"
-msgid "Thread cache is not efficient."
-msgstr "Spasie verbruik"
+#~ msgid "Rate of table open"
+#~ msgstr "Skep 'n nuwe bladsy"
 
-#: libraries/advisory_rules.txt:366
-msgid "Increase {thread_cache_size}."
-msgstr ""
-
-#: libraries/advisory_rules.txt:367
-#, php-format
-msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr ""
-
-#: libraries/advisory_rules.txt:369
-msgid "Threads that are slow to launch"
-msgstr ""
-
-#: libraries/advisory_rules.txt:372
-msgid "There are too many threads that are slow to launch."
-msgstr ""
-
-#: libraries/advisory_rules.txt:373
-msgid ""
-"This generally happens in case of general system overload as it is pretty "
-"simple operations. You might want to monitor your system load carefully."
-msgstr ""
-
-#: libraries/advisory_rules.txt:374
-#, php-format
-msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
-msgstr ""
-
-#: libraries/advisory_rules.txt:376
-msgid "Slow launch time"
-msgstr ""
-
-#: libraries/advisory_rules.txt:379
-msgid "Slow_launch_threads is above 2s"
-msgstr ""
-
-#: libraries/advisory_rules.txt:380
-msgid ""
-"Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
-"launch"
-msgstr ""
-
-#: libraries/advisory_rules.txt:381
-#, php-format
-msgid "slow_launch_time is set to %s"
-msgstr ""
-
-#: libraries/advisory_rules.txt:385
 #, fuzzy
-msgid "Percentage of used connections"
-msgstr "Tabel kommentaar"
+#~ msgid "Percentage of used open files limit"
+#~ msgstr "Karakterstel van die leer:"
 
-#: libraries/advisory_rules.txt:388
-msgid ""
-"The maximum amount of used connections is getting close to the value of "
-"max_connections."
-msgstr ""
-
-#: libraries/advisory_rules.txt:389
-msgid ""
-"Increase max_connections, or decrease wait_timeout so that connections that "
-"do not close database handlers properly get killed sooner. Make sure the "
-"code closes database handlers properly."
-msgstr ""
-
-#: libraries/advisory_rules.txt:390
-#, php-format
-msgid ""
-"Max_used_connections is at %s%% of max_connections, it should be below 80%%"
-msgstr ""
-
-#: libraries/advisory_rules.txt:392
 #, fuzzy
-msgid "Percentage of aborted connections"
-msgstr "Tabel kommentaar"
+#~ msgid "Rate of open files"
+#~ msgstr "Karakterstel van die leer:"
 
-#: libraries/advisory_rules.txt:395 libraries/advisory_rules.txt:402
-msgid "Too many connections are aborted."
-msgstr ""
-
-#: libraries/advisory_rules.txt:396 libraries/advisory_rules.txt:403
-msgid ""
-"Connections are usually aborted when they cannot be authorized. <a href="
-"\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-"source-of-aborted_connects/\">This article</a> might help you track down the "
-"source."
-msgstr ""
-
-#: libraries/advisory_rules.txt:397
-#, php-format
-msgid "%s%% of all connections are aborted. This value should be below 1%%"
-msgstr ""
-
-#: libraries/advisory_rules.txt:399
 #, fuzzy
-msgid "Rate of aborted connections"
-msgstr "Tabel kommentaar"
+#~ msgid "The rate of opening files is high."
+#~ msgstr "Karakterstel van die leer:"
 
-#: libraries/advisory_rules.txt:404
-#, php-format
-msgid ""
-"Aborted connections rate is at %s, this value should be less than 1 per hour"
-msgstr ""
-
-#: libraries/advisory_rules.txt:406
 #, fuzzy
-msgid "Percentage of aborted clients"
-msgstr "Tabel kommentaar"
+#~| msgid "Create table on database %s"
+#~ msgid "Immediate table locks %%"
+#~ msgstr "Skep 'n nuwe tabel op databasis %s"
 
-#: libraries/advisory_rules.txt:409 libraries/advisory_rules.txt:416
-msgid "Too many clients are aborted."
-msgstr ""
-
-#: libraries/advisory_rules.txt:410 libraries/advisory_rules.txt:417
-msgid ""
-"Clients are usually aborted when they did not close their connection to "
-"MySQL properly. This can be due to network issues or code not closing a "
-"database handler properly. Check your network and code."
-msgstr ""
-
-#: libraries/advisory_rules.txt:411
-#, php-format
-msgid "%s%% of all clients are aborted. This value should be below 2%%"
-msgstr ""
-
-#: libraries/advisory_rules.txt:413
 #, fuzzy
-msgid "Rate of aborted clients"
-msgstr "Tabel kommentaar"
+#~| msgid "Space usage"
+#~ msgid "Thread cache is not efficient."
+#~ msgstr "Spasie verbruik"
 
-#: libraries/advisory_rules.txt:418
-#, php-format
-msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
-msgstr ""
+#, fuzzy
+#~ msgid "Percentage of used connections"
+#~ msgstr "Tabel kommentaar"
 
-#: libraries/advisory_rules.txt:422
-msgid "Is InnoDB disabled?"
-msgstr ""
+#, fuzzy
+#~ msgid "Percentage of aborted connections"
+#~ msgstr "Tabel kommentaar"
 
-#: libraries/advisory_rules.txt:425
-msgid "You do not have InnoDB enabled."
-msgstr ""
+#, fuzzy
+#~ msgid "Rate of aborted connections"
+#~ msgstr "Tabel kommentaar"
 
-#: libraries/advisory_rules.txt:426
-msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+#, fuzzy
+#~ msgid "Percentage of aborted clients"
+#~ msgstr "Tabel kommentaar"
 
-#: libraries/advisory_rules.txt:427
-msgid "have_innodb is set to 'value'"
-msgstr ""
-
-#: libraries/advisory_rules.txt:429
-msgid "InnoDB log size"
-msgstr ""
-
-#: libraries/advisory_rules.txt:432
-msgid ""
-"The InnoDB log file size is not an appropriate size, in relation to the "
-"InnoDB buffer pool."
-msgstr ""
-
-#: libraries/advisory_rules.txt:433
-#, php-format
-msgid ""
-"Especially on a system with a lot of writes to InnoDB tables you should set "
-"innodb_log_file_size to 25%% of {innodb_buffer_pool_size}. However the "
-"bigger this value, the longer the recovery time will be when database "
-"crashes, so this value should not be set much higher than 256 MiB. Please "
-"note however that you cannot simply change the value of this variable. You "
-"need to shutdown the server, remove the InnoDB log files, set the new value "
-"in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"http://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
-msgstr ""
-
-#: libraries/advisory_rules.txt:434
-#, php-format
-msgid ""
-"Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
-"it should not be below 20%%"
-msgstr ""
-
-#: libraries/advisory_rules.txt:436
-msgid "Max InnoDB log size"
-msgstr ""
-
-#: libraries/advisory_rules.txt:439
-msgid "The InnoDB log file size is inadequately large."
-msgstr ""
-
-#: libraries/advisory_rules.txt:440
-#, php-format
-msgid ""
-"It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
-"{innodb_buffer_pool_size}. A very big innodb_log_file_size slows down the "
-"recovery time after a database crash considerably. See also <a href=\"http://"
-"www.mysqlperformanceblog.com/2006/07/03/choosing-proper-innodb_log_file_size/"
-"\">this Article</a>. You need to shutdown the server, remove the InnoDB log "
-"files, set the new value in my.cnf, start the server, then check the error "
-"logs if everything went fine. See also <a href=\"http://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">this blog entry</a>"
-msgstr ""
-
-#: libraries/advisory_rules.txt:441
-#, php-format
-msgid "Your absolute InnoDB log size is %s MiB"
-msgstr ""
-
-#: libraries/advisory_rules.txt:443
-msgid "InnoDB buffer pool size"
-msgstr ""
-
-#: libraries/advisory_rules.txt:446
-msgid "Your InnoDB buffer pool is fairly small."
-msgstr ""
-
-#: libraries/advisory_rules.txt:447
-#, php-format
-msgid ""
-"The InnoDB buffer pool has a profound impact on performance for InnoDB "
-"tables. Assign all your remaining memory to this buffer. For database "
-"servers that use solely InnoDB as storage engine and have no other services "
-"(e.g. a web server) running, you may set this as high as 80%% of your "
-"available memory. If that is not the case, you need to carefully assess the "
-"memory consumption of your other services and non-InnoDB-Tables and set this "
-"variable accordingly. If it is set too high, your system will start "
-"swapping, which decreases performance significantly. See also <a href="
-"\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\">this article</a>"
-msgstr ""
-
-#: libraries/advisory_rules.txt:448
-#, php-format
-msgid ""
-"You are currently using %s%% of your memory for the InnoDB buffer pool. This "
-"rule fires if you are assigning less than 60%%, however this might be "
-"perfectly adequate for your system if you don't have much InnoDB tables or "
-"other services running on the same machine."
-msgstr ""
-
-#: libraries/advisory_rules.txt:452
-msgid "MyISAM concurrent inserts"
-msgstr ""
-
-#: libraries/advisory_rules.txt:455
-msgid "Enable concurrent_insert by setting it to 1"
-msgstr ""
-
-#: libraries/advisory_rules.txt:456
-msgid ""
-"Setting {concurrent_insert} to 1 reduces contention between readers and "
-"writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
-"refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
-msgstr ""
-
-#: libraries/advisory_rules.txt:457
-msgid "concurrent_insert is set to 0"
-msgstr ""
+#, fuzzy
+#~ msgid "Rate of aborted clients"
+#~ msgstr "Tabel kommentaar"
 
 #~ msgid "rows"
 #~ msgstr "Beloer Data"
