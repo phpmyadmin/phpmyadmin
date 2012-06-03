@@ -10,48 +10,6 @@
  */
 
 /**
- * Validates the password field in a form
- *
- * @see     PMA_messages['strPasswordEmpty']
- * @see     PMA_messages['strPasswordNotSame']
- * @param   object   the form
- * @return  boolean  whether the field value is valid or not
- */
-function checkPassword(the_form)
-{
-    // Did the user select 'no password'?
-    if (typeof(the_form.elements['nopass']) != 'undefined'
-     && the_form.elements['nopass'][0].checked) {
-        return true;
-    } else if (typeof(the_form.elements['pred_password']) != 'undefined'
-     && (the_form.elements['pred_password'].value == 'none'
-      || the_form.elements['pred_password'].value == 'keep')) {
-        return true;
-    }
-
-    var password = the_form.elements['pma_pw'];
-    var password_repeat = the_form.elements['pma_pw2'];
-    var alert_msg = false;
-
-    if (password.value == '') {
-        alert_msg = PMA_messages['strPasswordEmpty'];
-    } else if (password.value != password_repeat.value) {
-        alert_msg = PMA_messages['strPasswordNotSame'];
-    }
-
-    if (alert_msg) {
-        alert(alert_msg);
-        password.value  = '';
-        password_repeat.value = '';
-        password.focus();
-        return false;
-    }
-
-    return true;
-} // end of the 'checkPassword()' function
-
-
-/**
  * Validates the "add a user" form
  *
  * @return  boolean  whether the form is validated or not
