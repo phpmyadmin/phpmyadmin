@@ -303,7 +303,7 @@ $js_messages['strDisplayHelp'] = '<ul><li>'
     . '</li><li>'
     . __('To zoom in, select a section of the plot with the mouse.')
     . '</li><li>'
-    . __('Click reset zoom link to come back to original state.')
+    . __('Click reset zoom button to come back to original state.')
     . '</li><li>'
     . __('Click a data point to view and possibly edit the data row.')
     . '</li><li>'
