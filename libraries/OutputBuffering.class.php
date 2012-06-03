@@ -60,9 +60,9 @@ class PMA_OutputBuffering
     }
 
     /**
-     * Returns the singleton PMA_Response object
+     * Returns the singleton PMA_OutputBuffering object
      *
-     * @return PMA_Response object
+     * @return PMA_OutputBuffering object
      */
     public static function getInstance()
     {
