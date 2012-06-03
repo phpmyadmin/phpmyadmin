@@ -28,7 +28,7 @@ function checkAddUser(the_form)
         return false;
     }
 
-    return checkPassword(the_form);
+    return PMA_checkPassword($(the_form));
 } // end of the 'checkAddUser()' function
 
 /**
@@ -372,7 +372,7 @@ $(function() {
 
         var $t = $(this);
 
-        if ($t.is('.copyUserForm') && ! checkPassword($t[0])) {
+        if ($t.is('.copyUserForm') && ! PMA_checkPassword($t)) {
             return false;
         }
 
