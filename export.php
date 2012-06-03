@@ -71,7 +71,9 @@ if ($_REQUEST['output_format'] == 'astext') {
         $compression = $_REQUEST['compression'];
         $buffer_needed = true;
     }
-    if (($quick_export && !empty($_REQUEST['quick_export_onserver'])) || (!$quick_export && !empty($_REQUEST['onserver']))) {
+    if (($quick_export && !empty($_REQUEST['quick_export_onserver']))
+        || (!$quick_export && !empty($_REQUEST['onserver']))
+    ) {
         if ($quick_export) {
             $onserver = $_REQUEST['quick_export_onserver'];
         } else {
@@ -149,7 +151,11 @@ function PMA_exportOutputHandler($line)
 
     // Kanji encoding convert feature
     if ($GLOBALS['output_kanji_conversion']) {
-        $line = PMA_kanji_str_conv($line, $GLOBALS['knjenc'], isset($GLOBALS['xkana']) ? $GLOBALS['xkana'] : '');
+        $line = PMA_kanji_str_conv(
+            $line,
+            $GLOBALS['knjenc'],
+            isset($GLOBALS['xkana']) ? $GLOBALS['xkana'] : ''
+        );
     }
     // If we have to buffer data, we will perform everything at once at the end
     if ($GLOBALS['buffer_needed']) {
@@ -161,12 +167,20 @@ function PMA_exportOutputHandler($line)
 
             if ($dump_buffer_len > $GLOBALS['memory_limit']) {
                 if ($GLOBALS['output_charset_conversion']) {
-                    $dump_buffer = PMA_convert_string('utf-8', $GLOBALS['charset_of_file'], $dump_buffer);
+                    $dump_buffer = PMA_convert_string(
+                        'utf-8',
+                        $GLOBALS['charset_of_file'],
+                        $dump_buffer
+                    );
                 }
                 // as bzipped
-                if ($GLOBALS['compression'] == 'bzip2'  && @function_exists('bzcompress')) {
+                if ($GLOBALS['compression'] == 'bzip2'
+                    && @function_exists('bzcompress')
+                ) {
                     $dump_buffer = bzcompress($dump_buffer);
-                } elseif ($GLOBALS['compression'] == 'gzip' && @function_exists('gzencode')) {
+                } elseif ($GLOBALS['compression'] == 'gzip'
+                     && @function_exists('gzencode')
+                ) {
                     // as a gzipped file
                     // without the optional parameter level because it bug
                     $dump_buffer = gzencode($dump_buffer);
@@ -194,7 +208,11 @@ function PMA_exportOutputHandler($line)
     } else {
         if ($GLOBALS['asfile']) {
             if ($GLOBALS['output_charset_conversion']) {
-                $line = PMA_convert_string('utf-8', $GLOBALS['charset_of_file'], $line);
+                $line = PMA_convert_string(
+                    'utf-8',
+                    $GLOBALS['charset_of_file'],
+                    $line
+                );
             }
             if ($GLOBALS['save_on_server'] && strlen($line) > 0) {
                 $write_result = @fwrite($GLOBALS['file_handle'], $line);
@@ -220,7 +238,8 @@ function PMA_exportOutputHandler($line)
     return true;
 } // end of the 'PMA_exportOutputHandler()' function
 
-// Defines the default <CR><LF> format. For SQL always use \n as MySQL wants this on all platforms.
+// Defines the default <CR><LF> format.
+// For SQL always use \n as MySQL wants this on all platforms.
 if ($what == 'sql') {
     $crlf = "\n";
 } else {
@@ -230,12 +249,14 @@ if ($what == 'sql') {
 $output_kanji_conversion = function_exists('PMA_kanji_str_conv') && $type != 'xls';
 
 // Do we need to convert charset?
-$output_charset_conversion = $asfile && $GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE
+$output_charset_conversion = $asfile
+    && $GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE
     && isset($charset_of_file) && $charset_of_file != 'utf-8'
     && $type != 'xls';
 
 // Use on the fly compression?
-$onfly_compression = $GLOBALS['cfg']['CompressOnFly'] && ($compression == 'gzip' || $compression == 'bzip2');
+$onfly_compression = $GLOBALS['cfg']['CompressOnFly']
+    && ($compression == 'gzip' || $compression == 'bzip2');
 if ($onfly_compression) {
     $memory_limit = trim(@ini_get('memory_limit'));
     // 2 MB as default
@@ -296,7 +317,8 @@ if ($asfile) {
     $filename = PMA_sanitize_filename($filename);
 
     // Grab basic dump extension and mime type
-    // Check if the user already added extension; get the substring where the extension would be if it was included
+    // Check if the user already added extension;
+    // get the substring where the extension would be if it was included
     $extension_start_pos = strlen($filename) - strlen($export_list[$type]['extension']) - 1;
     $user_extension = substr($filename, $extension_start_pos, strlen($filename));
     $required_extension = "." . $export_list[$type]['extension'];
@@ -321,9 +343,13 @@ if ($asfile) {
 
 // Open file on server if needed
 if ($save_on_server) {
-    $save_filename = PMA_userDir($cfg['SaveDir']) . preg_replace('@[/\\\\]@', '_', $filename);
+    $save_filename = PMA_userDir($cfg['SaveDir'])
+        . preg_replace('@[/\\\\]@', '_', $filename);
     unset($message);
-    if (file_exists($save_filename) && ((!$quick_export && empty($onserverover)) || ($quick_export && $_REQUEST['quick_export_onserverover'] != 'saveitover'))) {
+    if (file_exists($save_filename)
+        && ((!$quick_export && empty($onserverover))
+        || ($quick_export && $_REQUEST['quick_export_onserverover'] != 'saveitover'))
+    ) {
         $message = PMA_Message::error(__('File %s already exists on server, change filename or check overwrite option.'));
         $message->addParam($save_filename);
     } else {
@@ -386,7 +412,8 @@ if (!$save_on_server) {
         //echo '    <pre>' . "\n";
 
         /**
-         * Displays a back button with all the $_REQUEST data in the URL (store in a variable to also display after the textarea)
+         * Displays a back button with all the $_REQUEST data in the URL
+         * (store in a variable to also display after the textarea)
          */
         $back_button = '<p>[ <a href="';
         if ($export_type == 'server') {
@@ -453,7 +480,8 @@ do {
         }
         // Walk over databases
         foreach ($GLOBALS['pma']->databases as $current_db) {
-            if ((isset($tmp_select) && strpos(' ' . $tmp_select, '|' . $current_db . '|'))
+            if ((isset($tmp_select)
+                && strpos(' ' . $tmp_select, '|' . $current_db . '|'))
                 || ! isset($tmp_select)
             ) {
                 if (!PMA_exportDBHeader($current_db)) {
@@ -462,20 +490,25 @@ do {
                 if (!PMA_exportDBCreate($current_db)) {
                     break 2;
                 }
-                if (function_exists('PMA_exportRoutines') && strpos($GLOBALS['sql_structure_or_data'], 'structure') !== false && isset($GLOBALS['sql_procedure_function'])) {
+                if (function_exists('PMA_exportRoutines')
+                    && strpos($GLOBALS['sql_structure_or_data'], 'structure') !== false
+                    && isset($GLOBALS['sql_procedure_function'])
+                ) {
                     PMA_exportRoutines($current_db);
                 }
 
                 $tables = PMA_DBI_get_tables($current_db);
                 $views = array();
                 foreach ($tables as $table) {
-                    // if this is a view, collect it for later; views must be exported
-                    // after the tables
+                    // if this is a view, collect it for later;
+                    // views must be exported after the tables
                     $is_view = PMA_Table::isView($current_db, $table);
                     if ($is_view) {
                         $views[] = $table;
                     }
-                    if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
+                    if ($GLOBALS[$what . '_structure_or_data'] == 'structure'
+                        || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data'
+                    ) {
                         // for a view, export a stand-in definition of the table
                         // to resolve view dependencies
                         if (! PMA_exportStructure(
@@ -487,15 +520,21 @@ do {
                         }
                     }
                     // if this is a view or a merge table, don't export data
-                    if (($GLOBALS[$what . '_structure_or_data'] == 'data' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') && !($is_view || PMA_Table::isMerge($current_db, $table))) {
-                        $local_query  = 'SELECT * FROM ' . PMA_backquote($current_db) . '.' . PMA_backquote($table);
+                    if (($GLOBALS[$what . '_structure_or_data'] == 'data'
+                        || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data')
+                        && !($is_view || PMA_Table::isMerge($current_db, $table))
+                    ) {
+                        $local_query  = 'SELECT * FROM ' . PMA_backquote($current_db)
+                            . '.' . PMA_backquote($table);
                         if (!PMA_exportData($current_db, $table, $crlf, $err_url, $local_query)) {
                             break 3;
                         }
                     }
-                    // now export the triggers (needs to be done after the data because
-                    // triggers can modify already imported tables)
-                    if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
+                    // now export the triggers (needs to be done after the data
+                    // because triggers can modify already imported tables)
+                    if ($GLOBALS[$what . '_structure_or_data'] == 'structure'
+                        || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data'
+                    ) {
                         if (! PMA_exportStructure(
                             $current_db, $table, $crlf, $err_url,
                             'triggers', $export_type,
@@ -507,7 +546,9 @@ do {
                 }
                 foreach ($views as $view) {
                     // no data export for a view
-                    if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
+                    if ($GLOBALS[$what . '_structure_or_data'] == 'structure'
+                        || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data'
+                    ) {
                         if (! PMA_exportStructure(
                             $current_db, $view, $crlf, $err_url,
                             'create_view', $export_type,
@@ -527,7 +568,10 @@ do {
             break;
         }
 
-        if (function_exists('PMA_exportRoutines') && strpos($GLOBALS['sql_structure_or_data'], 'structure') !== false && isset($GLOBALS['sql_procedure_function'])) {
+        if (function_exists('PMA_exportRoutines')
+            && strpos($GLOBALS['sql_structure_or_data'], 'structure') !== false
+            && isset($GLOBALS['sql_procedure_function'])
+        ) {
             PMA_exportRoutines($db);
         }
 
@@ -541,7 +585,9 @@ do {
             if ($is_view) {
                 $views[] = $table;
             }
-            if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
+            if ($GLOBALS[$what . '_structure_or_data'] == 'structure'
+                || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data'
+            ) {
                 // for a view, export a stand-in definition of the table
                 // to resolve view dependencies
                 if (! PMA_exportStructure(
@@ -553,15 +599,21 @@ do {
                 }
             }
             // if this is a view or a merge table, don't export data
-            if (($GLOBALS[$what . '_structure_or_data'] == 'data' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') && !($is_view || PMA_Table::isMerge($db, $table))) {
-                $local_query  = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
+            if (($GLOBALS[$what . '_structure_or_data'] == 'data'
+                || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data')
+                && !($is_view || PMA_Table::isMerge($db, $table))
+            ) {
+                $local_query  = 'SELECT * FROM ' . PMA_backquote($db)
+                    . '.' . PMA_backquote($table);
                 if (!PMA_exportData($db, $table, $crlf, $err_url, $local_query)) {
                     break 2;
                 }
             }
             // now export the triggers (needs to be done after the data because
             // triggers can modify already imported tables)
-            if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
+            if ($GLOBALS[$what . '_structure_or_data'] == 'structure'
+                || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data'
+            ) {
                 if (! PMA_exportStructure(
                     $db, $table, $crlf, $err_url,
                     'triggers', $export_type,
@@ -573,7 +625,9 @@ do {
         }
         foreach ($views as $view) {
             // no data export for a view
-            if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
+            if ($GLOBALS[$what . '_structure_or_data'] == 'structure'
+                || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data'
+            ) {
                 if (! PMA_exportStructure(
                     $db, $view, $crlf, $err_url,
                     'create_view', $export_type,
@@ -602,7 +656,9 @@ do {
         }
 
         $is_view = PMA_Table::isView($db, $table);
-        if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
+        if ($GLOBALS[$what . '_structure_or_data'] == 'structure'
+            || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data'
+        ) {
             if (! PMA_exportStructure(
                 $db, $table, $crlf, $err_url,
                 $is_view ? 'create_view' : 'create_table', $export_type,
@@ -614,7 +670,10 @@ do {
         // If this is an export of a single view, we have to export data;
         // for example, a PDF report
         // if it is a merge table, no data is exported
-        if (($GLOBALS[$what . '_structure_or_data'] == 'data' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') && ! PMA_Table::isMerge($db, $table)) {
+        if (($GLOBALS[$what . '_structure_or_data'] == 'data'
+            || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data')
+            && ! PMA_Table::isMerge($db, $table)
+        ) {
             if (!empty($sql_query)) {
                 // only preg_replace if needed
                 if (!empty($add_query)) {
@@ -624,7 +683,8 @@ do {
                 $local_query = $sql_query . $add_query;
                 PMA_DBI_select_db($db);
             } else {
-                $local_query  = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
+                $local_query  = 'SELECT * FROM ' . PMA_backquote($db)
+                    . '.' . PMA_backquote($table) . $add_query;
             }
             if (!PMA_exportData($db, $table, $crlf, $err_url, $local_query)) {
                 break;
@@ -632,7 +692,9 @@ do {
         }
         // now export the triggers (needs to be done after the data because
         // triggers can modify already imported tables)
-        if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
+        if ($GLOBALS[$what . '_structure_or_data'] == 'structure'
+            || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data'
+        ) {
             if (! PMA_exportStructure(
                 $db, $table, $crlf, $err_url,
                 'triggers', $export_type,
@@ -673,7 +735,11 @@ if ($save_on_server && isset($message)) {
 if (!empty($asfile)) {
     // Convert the charset if required.
     if ($output_charset_conversion) {
-        $dump_buffer = PMA_convert_string('utf-8', $GLOBALS['charset_of_file'], $dump_buffer);
+        $dump_buffer = PMA_convert_string(
+            'utf-8',
+            $GLOBALS['charset_of_file'],
+            $dump_buffer
+        );
     }
 
     // Do the compression
@@ -701,10 +767,20 @@ if (!empty($asfile)) {
     if ($save_on_server) {
         $write_result = @fwrite($file_handle, $dump_buffer);
         fclose($file_handle);
-        if (strlen($dump_buffer) !=0 && (!$write_result || ($write_result != strlen($dump_buffer)))) {
-            $message = new PMA_Message(__('Insufficient space to save the file %s.'), PMA_Message::ERROR, $save_filename);
+        if (strlen($dump_buffer) !=0
+            && (!$write_result || ($write_result != strlen($dump_buffer)))
+        ) {
+            $message = new PMA_Message(
+                __('Insufficient space to save the file %s.'),
+                PMA_Message::ERROR,
+                $save_filename
+            );
         } else {
-            $message = new PMA_Message(__('Dump has been saved to file %s.'), PMA_Message::SUCCESS, $save_filename);
+            $message = new PMA_Message(
+                __('Dump has been saved to file %s.'),
+                PMA_Message::SUCCESS,
+                $save_filename
+            );
         }
 
         include_once 'libraries/header.inc.php';
