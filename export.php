@@ -71,8 +71,8 @@ if ($_REQUEST['output_format'] == 'astext') {
         $compression = $_REQUEST['compression'];
         $buffer_needed = true;
     }
-    if (($quick_export && !empty($_REQUEST['quick_export_onserver']))
-        || (!$quick_export && !empty($_REQUEST['onserver']))
+    if (($quick_export && ! empty($_REQUEST['quick_export_onserver']))
+        || (! $quick_export && ! empty($_REQUEST['onserver']))
     ) {
         if ($quick_export) {
             $onserver = $_REQUEST['quick_export_onserver'];
@@ -125,7 +125,7 @@ require 'libraries/export/' . PMA_securePath($type) . '.php';
  * Increase time limit for script execution and initializes some variables
  */
 @set_time_limit($cfg['ExecTimeLimit']);
-if (!empty($cfg['MemoryLimit'])) {
+if (! empty($cfg['MemoryLimit'])) {
     @ini_set('memory_limit', $cfg['MemoryLimit']);
 }
 
@@ -187,7 +187,7 @@ function PMA_exportOutputHandler($line)
                 }
                 if ($GLOBALS['save_on_server']) {
                     $write_result = @fwrite($GLOBALS['file_handle'], $dump_buffer);
-                    if (!$write_result || ($write_result != strlen($dump_buffer))) {
+                    if (! $write_result || ($write_result != strlen($dump_buffer))) {
                         $GLOBALS['message'] = PMA_Message::error(
                             __('Insufficient space to save the file %s.')
                         );
@@ -218,7 +218,7 @@ function PMA_exportOutputHandler($line)
             }
             if ($GLOBALS['save_on_server'] && strlen($line) > 0) {
                 $write_result = @fwrite($GLOBALS['file_handle'], $line);
-                if (!$write_result || ($write_result != strlen($line))) {
+                if (! $write_result || ($write_result != strlen($line))) {
                     $GLOBALS['message'] = PMA_Message::error(
                         __('Insufficient space to save the file %s.')
                     );
@@ -351,17 +351,17 @@ if ($save_on_server) {
         . preg_replace('@[/\\\\]@', '_', $filename);
     unset($message);
     if (file_exists($save_filename)
-        && ((!$quick_export && empty($onserverover))
+        && ((! $quick_export && empty($onserverover))
         || ($quick_export && $_REQUEST['quick_export_onserverover'] != 'saveitover'))
     ) {
         $message = PMA_Message::error(__('File %s already exists on server, change filename or check overwrite option.'));
         $message->addParam($save_filename);
     } else {
-        if (is_file($save_filename) && !is_writable($save_filename)) {
+        if (is_file($save_filename) && ! is_writable($save_filename)) {
             $message = PMA_Message::error(__('The web server does not have permission to save the file %s.'));
             $message->addParam($save_filename);
         } else {
-            if (!$file_handle = @fopen($save_filename, 'w')) {
+            if (! $file_handle = @fopen($save_filename, 'w')) {
                 $message = PMA_Message::error(__('The web server does not have permission to save the file %s.'));
                 $message->addParam($save_filename);
             }
@@ -387,7 +387,7 @@ if ($save_on_server) {
  * Send headers depending on whether the user chose to download a dump file
  * or not
  */
-if (!$save_on_server) {
+if (! $save_on_server) {
     if ($asfile) {
         // Download
         // (avoid rewriting data containing HTML with anchors and forms;
@@ -455,7 +455,7 @@ if (!$save_on_server) {
 do {
 
     // Add possibly some comments to export
-    if (!PMA_exportHeader()) {
+    if (! PMA_exportHeader()) {
         break;
     }
 
@@ -488,10 +488,10 @@ do {
                 && strpos(' ' . $tmp_select, '|' . $current_db . '|'))
                 || ! isset($tmp_select)
             ) {
-                if (!PMA_exportDBHeader($current_db)) {
+                if (! PMA_exportDBHeader($current_db)) {
                     break 2;
                 }
-                if (!PMA_exportDBCreate($current_db)) {
+                if (! PMA_exportDBCreate($current_db)) {
                     break 2;
                 }
                 if (function_exists('PMA_exportRoutines')
@@ -526,11 +526,11 @@ do {
                     // if this is a view or a merge table, don't export data
                     if (($GLOBALS[$what . '_structure_or_data'] == 'data'
                         || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data')
-                        && !($is_view || PMA_Table::isMerge($current_db, $table))
+                        && ! ($is_view || PMA_Table::isMerge($current_db, $table))
                     ) {
                         $local_query  = 'SELECT * FROM ' . PMA_backquote($current_db)
                             . '.' . PMA_backquote($table);
-                        if (!PMA_exportData($current_db, $table, $crlf, $err_url, $local_query)) {
+                        if (! PMA_exportData($current_db, $table, $crlf, $err_url, $local_query)) {
                             break 3;
                         }
                     }
@@ -562,13 +562,13 @@ do {
                         }
                     }
                 }
-                if (!PMA_exportDBFooter($current_db)) {
+                if (! PMA_exportDBFooter($current_db)) {
                     break 2;
                 }
             }
         }
     } elseif ($export_type == 'database') {
-        if (!PMA_exportDBHeader($db)) {
+        if (! PMA_exportDBHeader($db)) {
             break;
         }
 
@@ -605,11 +605,11 @@ do {
             // if this is a view or a merge table, don't export data
             if (($GLOBALS[$what . '_structure_or_data'] == 'data'
                 || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data')
-                && !($is_view || PMA_Table::isMerge($db, $table))
+                && ! ($is_view || PMA_Table::isMerge($db, $table))
             ) {
                 $local_query  = 'SELECT * FROM ' . PMA_backquote($db)
                     . '.' . PMA_backquote($table);
-                if (!PMA_exportData($db, $table, $crlf, $err_url, $local_query)) {
+                if (! PMA_exportData($db, $table, $crlf, $err_url, $local_query)) {
                     break 2;
                 }
             }
@@ -642,11 +642,11 @@ do {
             }
         }
 
-        if (!PMA_exportDBFooter($db)) {
+        if (! PMA_exportDBFooter($db)) {
             break;
         }
     } else {
-        if (!PMA_exportDBHeader($db)) {
+        if (! PMA_exportDBHeader($db)) {
             break;
         }
         // We export just one table
@@ -678,9 +678,9 @@ do {
             || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data')
             && ! PMA_Table::isMerge($db, $table)
         ) {
-            if (!empty($sql_query)) {
+            if (! empty($sql_query)) {
                 // only preg_replace if needed
-                if (!empty($add_query)) {
+                if (! empty($add_query)) {
                     // remove trailing semicolon before adding a LIMIT
                     $sql_query = preg_replace('%;\s*$%', '', $sql_query);
                 }
@@ -690,7 +690,7 @@ do {
                 $local_query  = 'SELECT * FROM ' . PMA_backquote($db)
                     . '.' . PMA_backquote($table) . $add_query;
             }
-            if (!PMA_exportData($db, $table, $crlf, $err_url, $local_query)) {
+            if (! PMA_exportData($db, $table, $crlf, $err_url, $local_query)) {
                 break;
             }
         }
@@ -707,11 +707,11 @@ do {
                 break 2;
             }
         }
-        if (!PMA_exportDBFooter($db)) {
+        if (! PMA_exportDBFooter($db)) {
             break;
         }
     }
-    if (!PMA_exportFooter()) {
+    if (! PMA_exportFooter()) {
         break;
     }
 
@@ -736,7 +736,7 @@ if ($save_on_server && isset($message)) {
 /**
  * Send the dump as a file...
  */
-if (!empty($asfile)) {
+if (! empty($asfile)) {
     // Convert the charset if required.
     if ($output_charset_conversion) {
         $dump_buffer = PMA_convert_string(
@@ -761,7 +761,7 @@ if (!empty($asfile)) {
         }
     } elseif ($compression == 'gzip') {
         // 3. as a gzipped file
-        if (@function_exists('gzencode') && !@ini_get('zlib.output_compression')) {
+        if (@function_exists('gzencode') && ! @ini_get('zlib.output_compression')) {
             // without the optional parameter level because it bug
             $dump_buffer = gzencode($dump_buffer);
         }
@@ -772,7 +772,7 @@ if (!empty($asfile)) {
         $write_result = @fwrite($file_handle, $dump_buffer);
         fclose($file_handle);
         if (strlen($dump_buffer) !=0
-            && (!$write_result || ($write_result != strlen($dump_buffer)))
+            && (! $write_result || ($write_result != strlen($dump_buffer)))
         ) {
             $message = new PMA_Message(
                 __('Insufficient space to save the file %s.'),
@@ -822,7 +822,7 @@ if (!empty($asfile)) {
     if (document.getElementById('textSQLDUMP')) {
         bodyWidth  = self.innerWidth;
         bodyHeight = self.innerHeight;
-        if (!bodyWidth && !bodyHeight) {
+        if (! bodyWidth && ! bodyHeight) {
             if (document.compatMode && document.compatMode == "BackCompat") {
                 bodyWidth  = document.body.clientWidth;
                 bodyHeight = document.body.clientHeight;
