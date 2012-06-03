@@ -11,6 +11,7 @@ phpMyAdmin - ChangeLog
 - bug #3523499 [core] Make X-WebKit-CSP work better
 - replace Highcharts with jqplot for query profiling, zoom search
 - bug #3531584 [interface] No form validation in change password dialog
+- bug #3531585 [interface] Broken password validation in copy user form
 
 3.5.1.0 (2012-05-03)
 - bug #3510784 [edit] Limit clause ignored when sort order is remembered

@@ -355,6 +355,10 @@ $(document).ready(function() {
         /** @lends jQuery */
         event.preventDefault();
 
+        if ($(this).is('.copyUserForm') && ! checkPassword($(this)[0])) {
+            return false;
+        }
+
         PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
 
         $(this).append('<input type="hidden" name="ajax_request" value="true" />');
