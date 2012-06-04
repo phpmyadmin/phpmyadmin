@@ -244,12 +244,12 @@ class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
             ),
         );
     }
-    
+
     /**
      *
      * @param type $srid
      * @param type $scale_data
-     * @param type $output 
+     * @param type $output
      * @dataProvider providerForTestGetBoundsForOl
      */
     public function testGetBoundsForOl($srid, $scale_data, $output){
@@ -262,29 +262,29 @@ class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
             $output
         );
     }
-    
+
     public function providerForTestGetBoundsForOl() {
         return array(
             array(
                 4326,
                 array(
-                    'minX' => '0', 
+                    'minX' => '0',
                     'minY' => '0',
-                    'maxX' => '1', 
+                    'maxX' => '1',
                     'maxY' => '1'
                 ),
                 'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.LonLat(0, 0).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject())); bound.extend(new OpenLayers.LonLat(1, 1).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()));'
-            ),          
+            ),
         );
-            
+
     }
-    
+
     /**
      *
      * @param type $polygons
      * @param type $srid
-     * @param type $output 
-     * 
+     * @param type $output
+     *
      *@dataProvider providerForTestGetPolygonArrayForOpenLayers
      */
     public function testGetPolygonArrayForOpenLayers($polygons, $srid, $output){
@@ -296,16 +296,16 @@ class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
             $output
         );
     }
-    
+
     public function providerForTestGetPolygonArrayForOpenLayers(){
-        
+
         return array(
-            
-            
+
+
         );
-        
+
     }
-    
-    
+
+
 }
 ?>
