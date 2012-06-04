@@ -14,7 +14,8 @@ $ID_KEY      = 'noplugin';
 /**
  * Returns upload status.
  *
- * This is implementation when no webserver support exists, so it returns just zeroes.
+ * This is implementation when no webserver support exists,
+ * so it returns just zeroes.
  *
  * @param string $id
  * @return array|null
