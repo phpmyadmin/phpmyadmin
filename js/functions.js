@@ -2544,6 +2544,46 @@ $(function() {
 });  // end $() for Create Database
 
 /**
+ * Validates the password field in a form
+ *
+ * @see    PMA_messages['strPasswordEmpty']
+ * @see    PMA_messages['strPasswordNotSame']
+ * @param  object $the_form The form to be validated
+ * @return bool
+ */
+function PMA_checkPassword($the_form)
+{
+    // Did the user select 'no password'?
+    if ($the_form.find('#nopass_1').is(':checked')) {
+        return true;
+    } else {
+        var $pred = $the_form.find('#select_pred_password');
+        if ($pred.length && ($pred.val() == 'none' || $pred.val() == 'keep')) {
+            return true;
+        }
+    }
+
+    var $password = $the_form.find('input[name=pma_pw]');
+    var $password_repeat = $the_form.find('input[name=pma_pw2]');
+    var alert_msg = false;
+
+    if ($password.val() == '') {
+        alert_msg = PMA_messages['strPasswordEmpty'];
+    } else if ($password.val() != $password_repeat.val()) {
+        alert_msg = PMA_messages['strPasswordNotSame'];
+    }
+
+    if (alert_msg) {
+        alert(alert_msg);
+        $password.val('');
+        $password_repeat.val('');
+        $password.focus();
+         return false;
+    }
+    return true;
+}
+
+/**
  * Attach Ajax event handlers for 'Change Password' on main.php
  */
 $(function() {
@@ -2574,6 +2614,10 @@ $(function() {
              * @var $the_form    Object referring to the change password form
              */
             var $the_form = $("#change_password_form");
+
+            if (! PMA_checkPassword($the_form)) {
+                return false;
+            }
 
             /**
              * @var this_value  String containing the value of the submit button.
@@ -2624,14 +2668,16 @@ $(function() {
             displayPasswordGenerateButton();
             $('#fieldset_change_password_footer').hide();
             PMA_ajaxRemoveMessage($msgbox);
+            $('#change_password_form').bind('submit', function (e) {
+                e.preventDefault();
+                $(this)
+                    .closest('.ui-dialog')
+                    .find('.ui-dialog-buttonpane .ui-button')
+                    .first()
+                    .click();
+            });
         }); // end $.get()
     }); // end handler for change password anchor
-
-    /**
-     * Attach Ajax event handler for Change Password form submission
-     *
-     * @see $cfg['AjaxEnable']
-     */
 }); // end $() for Change Password
 
 /**

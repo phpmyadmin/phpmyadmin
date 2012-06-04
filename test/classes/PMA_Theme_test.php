@@ -2,6 +2,9 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
 require_once 'libraries/Theme.class.php';
+require_once 'libraries/Theme_Manager.class.php';
+require_once 'libraries/php-gettext/gettext.inc';
+require_once 'libraries/sqlparser.lib.php';
 
 /**
  * Test class for PMA_Theme.

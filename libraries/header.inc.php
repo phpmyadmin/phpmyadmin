@@ -15,8 +15,10 @@ require_once 'libraries/Menu.class.php';
 /**
  * Add recently used table and reload the navigation.
  *
- * @param string $db Database name where the table is located.
+ * @param string $db    Database name where the table is located.
  * @param string $table The table name
+ *
+ * @return void
  */
 function PMA_addRecentTable($db, $table)
 {

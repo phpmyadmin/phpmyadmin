@@ -516,9 +516,9 @@ function PMA_tblSearchGenerateWhereClause()
  *
  * @return string the generated HTML
  */
-function PMA_tblSearchGetGeomFuncHtml($geomColumnFlag, $columnTypes,
-$geom_types, $column_index)
-{
+function PMA_tblSearchGetGeomFuncHtml($geomColumnFlag, $columnTypes, $geom_types,
+    $column_index
+) {
     $html_output = '';
     // return if geometrical column is not present
     if (! $geomColumnFlag) {
@@ -527,7 +527,7 @@ $geom_types, $column_index)
 
     /**
      * Displays 'Function' column if it is present
-     */    
+     */
     $html_output .= '<td>';
     // if a geometry column is present
     if (in_array($columnTypes[$column_index], $geom_types)) {
@@ -560,7 +560,7 @@ $geom_types, $column_index)
  * @return string the generated HTML
  */
 function PMA_tblSearchGetOptions($columnNames, $columnCount)
-{    
+{
     $html_output = '';
     $html_output .= PMA_getDivForSliderEffect('searchoptions', __('Options'));
     /**
@@ -616,13 +616,14 @@ function PMA_tblSearchGetOptions($columnNames, $columnCount)
         'ASC' => __('Ascending'),
         'DESC' => __('Descending')
     );
-    $html_output .= PMA_getRadioFields('order', $choices, 'ASC', false, true, "formelement");
+    $html_output .= PMA_getRadioFields(
+        'order', $choices, 'ASC', false, true, "formelement"
+    );
     unset($choices);
 
     $html_output .= '</fieldset><br style="clear: both;"/></div></fieldset>';
     return $html_output;
 }
-
 
 /**
  * Provides the search form's table row in case of Normal Search
@@ -641,8 +642,8 @@ function PMA_tblSearchGetOptions($columnNames, $columnCount)
  * @return string the generated table row
  */
 function PMA_tblSearchGetRowsNormal($db, $table, $columnNames, $columnTypes,
-    $columnCollations, $columnNullFlags, $geomColumnFlag, $columnCount, $foreigners)
-{
+    $columnCollations, $columnNullFlags, $geomColumnFlag, $columnCount, $foreigners
+) {
     $titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
     $geom_types = PMA_getGISDatatypes();
     $odd_row = true;
@@ -713,8 +714,8 @@ function PMA_tblSearchGetRowsNormal($db, $table, $columnNames, $columnTypes,
  */
 function PMA_tblSearchGetFieldsTableHtml($db, $table, $columnNames, $columnTypes,
     $columnCollations, $columnNullFlags, $geomColumnFlag, $columnCount, $foreigners,
-    $searchType)
-{
+    $searchType
+) {
     $html_output = '';
     $html_output .= '<table class="data">';
     $html_output .= PMA_tbl_getTableHeader($geomColumnFlag);
@@ -736,10 +737,10 @@ function PMA_tblSearchGetFieldsTableHtml($db, $table, $columnNames, $columnTypes
  * Provides the form tag for table search form
  * (normal search or zoom search)
  *
- * @param string  $goto             Goto URL
- * @param string  $db               Selected Database
- * @param string  $table            Selected Table
- * @param string  $searchType       Whether normal search or zoom search
+ * @param string  $goto       Goto URL
+ * @param string  $db         Selected Database
+ * @param string  $table      Selected Table
+ * @param string  $searchType Whether normal search or zoom search
  *
  * @return string the HTML for form tag
  */
@@ -776,17 +777,19 @@ function PMA_tblSearchGetFormTag($goto, $db, $table, $searchType) {
  *
  * @return string the generated HTML for table search form
  */
-function PMA_tblSearchGetSelectionForm($goto, $db, $table, $columnNames, $columnTypes,
-    $columnCollations, $columnNullFlags, $geomColumnFlag, $columnCount, $foreigners,
-    $searchType)
-{
+function PMA_tblSearchGetSelectionForm($goto, $db, $table, $columnNames,
+    $columnTypes, $columnCollations, $columnNullFlags, $geomColumnFlag, $columnCount,
+    $foreigners, $searchType
+) {
     $html_output = '';
     $html_output .= '<fieldset id="fieldset_subtab">';
     $url_params = array();
     $url_params['db'] = $db;
     $url_params['table'] = $table;
 
-    $html_output .= PMA_generateHtmlTabs(PMA_tbl_getSubTabs(), $url_params, 'topmenu2');
+    $html_output .= PMA_generateHtmlTabs(
+        PMA_tbl_getSubTabs(), $url_params, 'topmenu2'
+    );
     $html_output .= PMA_tblSearchGetFormTag($goto, $db, $table, $searchType);
 
     $html_output .= '<fieldset id="'

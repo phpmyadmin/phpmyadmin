@@ -252,7 +252,8 @@ class PMA_StorageEngine
             if (isset($variables[$row['Variable_name']])) {
                 $mysql_vars[$row['Variable_name']] = $variables[$row['Variable_name']];
             } elseif (! $like
-             && strpos(strtolower($row['Variable_name']), strtolower($this->engine)) !== 0) {
+                && strpos(strtolower($row['Variable_name']), strtolower($this->engine)) !== 0
+            ) {
                 continue;
             }
             $mysql_vars[$row['Variable_name']]['value'] = $row['Value'];

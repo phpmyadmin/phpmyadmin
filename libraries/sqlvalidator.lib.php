@@ -49,11 +49,11 @@ if ($cfg['SQLValidator']['use'] == true) {
  *
  * <http://developer.mimer.com/validator/index.htm>
  *
- * @param string   SQL query to validate
+ * @param string $sql SQL query to validate
  *
- * @return string   Validator result string
+ * @return string Validator result string
  *
- * @global  array    The PMA configuration array
+ * @global array The PMA configuration array
  */
 function PMA_validateSQL($sql)
 {
@@ -74,7 +74,10 @@ function PMA_validateSQL($sql)
             // The class defaults to anonymous with an empty password
             // automatically
             if ($cfg['SQLValidator']['username'] != '') {
-                $srv->setCredentials($cfg['SQLValidator']['username'], $cfg['SQLValidator']['password']);
+                $srv->setCredentials(
+                    $cfg['SQLValidator']['username'],
+                    $cfg['SQLValidator']['password']
+                );
             }
 
             // Identify ourselves to the server properly...
