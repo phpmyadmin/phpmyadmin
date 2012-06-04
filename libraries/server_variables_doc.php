@@ -12,6 +12,8 @@
  * string $type: type of system variable
  * string $format: if set to 'byte' it will format the variable
  * with PMA_formatByteDown()
+ *
+ * @package PhpMyAdmin
  */
 if (! defined('PHPMYADMIN')) {
     exit;

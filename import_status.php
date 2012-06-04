@@ -97,14 +97,15 @@ foreach ($get_params as $one_get_param) {
 }
 
 // AJAX requests can't be cached!
-PMA_no_cache_header();
+PMA_noCacheHeader();
 
 // $GLOBALS["message"] is used for asking for an import message
 if (isset($GLOBALS["message"]) && $GLOBALS["message"]) {
 
     header('Content-type: text/html');
 
-    // wait 0.3 sec before we check for $_SESSION variable, which is set inside import.php
+    // wait 0.3 sec before we check for $_SESSION variable,
+    // which is set inside import.php
     usleep(300000);
 
     // wait until message is available
@@ -114,7 +115,8 @@ if (isset($GLOBALS["message"]) && $GLOBALS["message"]) {
 
     echo $_SESSION['Import_message']['message'];
     echo '<fieldset class="tblFooters">' . "\n";
-    echo '    [ <a href="' . $_SESSION['Import_message']['go_back_url'] . '">' . __('Back') . '</a> ]' . "\n";
+    echo '    [ <a href="' . $_SESSION['Import_message']['go_back_url']
+        . '">' . __('Back') . '</a> ]' . "\n";
     echo '</fieldset>'."\n";
 
 } else {

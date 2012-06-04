@@ -42,7 +42,7 @@ function PMA_config_get_validators()
                     }
                     for ($i = 1; $i < count($uv); $i++) {
                         if (substr($uv[$i], 0, 6) == 'value:') {
-                            $uv[$i] = PMA_array_read(
+                            $uv[$i] = PMA_arrayRead(
                                 substr($uv[$i], 6), $org_cfg->settings
                             );
                         }

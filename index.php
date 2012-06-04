@@ -52,12 +52,17 @@ if (! strlen($GLOBALS['db'])) {
 } else {
     $_GET['db'] = $GLOBALS['db'];
     $_GET['table'] = $GLOBALS['table'];
-    $main_target = ! empty($GLOBALS['goto']) ? $GLOBALS['goto'] : $GLOBALS['cfg']['DefaultTabTable'];
+    $main_target = ! empty($GLOBALS['goto'])
+        ? $GLOBALS['goto']
+        : $GLOBALS['cfg']['DefaultTabTable'];
 }
 
 $url_query = PMA_generate_common_url($_GET);
 
-if (! empty($_REQUEST['target']) && is_string($_REQUEST['target']) && in_array($_REQUEST['target'], $goto_whitelist)) {
+if (! empty($_REQUEST['target'])
+    && is_string($_REQUEST['target'])
+    && in_array($_REQUEST['target'], $goto_whitelist)
+) {
     $main_target = $_REQUEST['target'];
 }
 

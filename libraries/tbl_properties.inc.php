@@ -639,16 +639,12 @@ for ($i = 0; $i < $num_fields; $i++) {
             . '"></option>';
         if (is_array($available_mime['transformation'])) {
             foreach ($available_mime['transformation'] as $mimekey => $transform) {
-                $match = preg_match(
-                    '@' . preg_quote(
-                        $available_mime['transformation_file'][$mimekey]
-                    )
-                    . '3?@i',
-                    $mime_map[$row['Field']]['transformation']
-                );
                 $checked = isset($row['Field'])
                     && isset($mime_map[$row['Field']]['transformation'])
-                    && $match
+                    && preg_match(
+                        '@' . preg_quote($available_mime['transformation_file'][$mimekey]) . '3?@i',
+                        $mime_map[$row['Field']]['transformation']
+                    )
                     ? 'selected '
                     : '';
                 $tooltip = PMA_getTransformationDescription(

@@ -361,7 +361,7 @@ function PMA_formatSql($parsed_sql, $unparsed_sql = '')
         return $formatted_sql;
     }
 
-    $formatted_sql        = '';
+    $formatted_sql = '';
 
     switch ($cfg['SQP']['fmtType']) {
     case 'none':
@@ -683,10 +683,10 @@ function PMA_mysqlDie(
     // modified to show the help on error-returns
     // (now error-messages-server)
     $error_msg .= '<p>' . "\n"
-            . '    <strong>' . __('MySQL said: ') . '</strong>'
-            . PMA_showMySQLDocu('Error-messages-server', 'Error-messages-server')
-            . "\n"
-            . '</p>' . "\n";
+        . '    <strong>' . __('MySQL said: ') . '</strong>'
+        . PMA_showMySQLDocu('Error-messages-server', 'Error-messages-server')
+        . "\n"
+        . '</p>' . "\n";
 
     // The error message will be displayed within a CODE segment.
     // To preserve original formatting, but allow wordwrapping,
@@ -812,7 +812,8 @@ function PMA_getTableList($db, $tables = null, $limit_offset = 0,
             $group_name_full = '';
             $parts_cnt = count($parts) - 1;
             while ($i < $parts_cnt
-                    && $i < $GLOBALS['cfg']['LeftFrameTableLevel']) {
+                && $i < $GLOBALS['cfg']['LeftFrameTableLevel']
+            ) {
                 $group_name = $parts[$i] . $sep;
                 $group_name_full .= $group_name;
 
@@ -958,7 +959,8 @@ function PMA_reloadNavigation($jsonly = false)
         }
         echo '//<![CDATA[' . PHP_EOL;
         echo 'if (typeof(window.parent) != "undefined"' . PHP_EOL;
-        echo '    && typeof(window.parent.frame_navigation) != "undefined"' . PHP_EOL;
+        echo '    && typeof(window.parent.frame_navigation) != "undefined"'
+            . PHP_EOL;
         echo '    && window.parent.goTo) {' . PHP_EOL;
         echo '    window.parent.goTo("' . $reload_url . '");' . PHP_EOL;
         echo '}' . PHP_EOL;
@@ -1076,7 +1078,8 @@ function PMA_getMessage(
             $query_too_big = true;
             $shortened_query_base = nl2br(
                 htmlspecialchars(
-                    substr($sql_query, 0, $cfg['MaxCharactersInDisplayedSQL']) . '[...]'
+                    substr($sql_query, 0, $cfg['MaxCharactersInDisplayedSQL'])
+                    . '[...]'
                 )
             );
         } elseif (! empty($GLOBALS['parsed_sql'])
@@ -1106,8 +1109,10 @@ function PMA_getMessage(
                 // Need to reparse query
                 $parsed_sql = PMA_SQP_parse($query_base);
                 // update the $analyzed_display_query
-                $analyzed_display_query[0]['section_before_limit'] .= $GLOBALS['sql_order_to_append'];
-                $analyzed_display_query[0]['order_by_clause'] = $GLOBALS['sorted_col'];
+                $analyzed_display_query[0]['section_before_limit']
+                    .= $GLOBALS['sql_order_to_append'];
+                $analyzed_display_query[0]['order_by_clause']
+                    = $GLOBALS['sorted_col'];
             }
 
             // Here we append the LIMIT added for navigation, to
@@ -1139,7 +1144,9 @@ function PMA_getMessage(
             try {
                 $query_base = PMA_validateSQL($query_base);
             } catch (Exception $e) {
-                $retval .= PMA_Message::error(__('Failed to connect to SQL validator!'))->getDisplay();
+                $retval .= PMA_Message::error(
+                    __('Failed to connect to SQL validator!')
+                )->getDisplay();
             }
         } elseif (isset($parsed_sql)) {
             $query_base = PMA_formatSql($parsed_sql, $query_base);
@@ -1182,13 +1189,17 @@ function PMA_getMessage(
                 $explain_params['sql_query'] = 'EXPLAIN ' . $sql_query;
                 $_message = __('Explain SQL');
                 $is_select = true;
-            } elseif (preg_match('@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sql_query)) {
+            } elseif (
+                preg_match('@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sql_query)
+            ) {
                 $explain_params['sql_query'] = substr($sql_query, 8);
                 $_message = __('Skip Explain SQL');
             }
             if (isset($explain_params['sql_query'])) {
-                $explain_link = 'import.php' . PMA_generate_common_url($explain_params);
-                $explain_link = ' [' . PMA_linkOrButton($explain_link, $_message) . ']';
+                $explain_link = 'import.php'
+                    . PMA_generate_common_url($explain_params);
+                $explain_link = ' ['
+                    . PMA_linkOrButton($explain_link, $_message) . ']';
             }
         } //show explain
 
@@ -1232,7 +1243,8 @@ function PMA_getMessage(
 
             if (isset($GLOBALS['show_as_php'])) {
                 $runquery_link = 'import.php' . PMA_generate_common_url($url_params);
-                $php_link .= ' [' . PMA_linkOrButton($runquery_link, __('Submit Query')) . ']';
+                $php_link .= ' ['
+                    . PMA_linkOrButton($runquery_link, __('Submit Query')) . ']';
             }
         } else {
             $php_link = '';
@@ -1244,7 +1256,8 @@ function PMA_getMessage(
             && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sql_query)
         ) {
             $refresh_link = 'import.php' . PMA_generate_common_url($url_params);
-            $refresh_link = ' [' . PMA_linkOrButton($refresh_link, __('Refresh')) . ']';
+            $refresh_link = ' ['
+                . PMA_linkOrButton($refresh_link, __('Refresh')) . ']';
         } else {
             $refresh_link = '';
         } //refresh
@@ -1260,8 +1273,10 @@ function PMA_getMessage(
                 $validate_message = __('Validate SQL');
             }
 
-            $validate_link = 'import.php' . PMA_generate_common_url($validate_params);
-            $validate_link = ' [' . PMA_linkOrButton($validate_link, $validate_message) . ']';
+            $validate_link = 'import.php'
+                . PMA_generate_common_url($validate_params);
+            $validate_link = ' ['
+                . PMA_linkOrButton($validate_link, $validate_message) . ']';
         } else {
             $validate_link = '';
         } //validator
@@ -1298,7 +1313,9 @@ function PMA_getMessage(
         // depend on the profiling support or on the refresh link
         if (empty($refresh_link) || ! PMA_profilingSupported()) {
             $retval .= '<form action="sql.php" method="post">';
-            $retval .= PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']);
+            $retval .= PMA_generate_common_hidden_inputs(
+                $GLOBALS['db'], $GLOBALS['table']
+            );
             $retval .= '<input type="hidden" name="sql_query" value="'
                 . htmlspecialchars($sql_query) . '" />';
             $retval .= '</form>';
@@ -1323,7 +1340,8 @@ function PMA_getMessage(
                 "//]]>\n" .
                 "</script>";
         }
-        $retval .= $edit_link . $explain_link . $php_link . $refresh_link . $validate_link;
+        $retval .= $edit_link . $explain_link . $php_link
+            . $refresh_link . $validate_link;
         $retval .= '</div>';
     }
     $retval .= '</div>';
@@ -1332,7 +1350,7 @@ function PMA_getMessage(
     }
 
     return $retval;
-    
+
 } // end of the 'PMA_getMessage()' function
 
 /**
@@ -1376,10 +1394,15 @@ function PMA_getProfilingForm($sql_query)
     if (PMA_profilingSupported()) {
 
         $retval .= '<form action="sql.php" method="post">' . "\n";
-        $retval .= PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']);
-        $retval .= '<input type="hidden" name="sql_query" value="' . htmlspecialchars($sql_query) . '" />' . "\n";
+        $retval .= PMA_generate_common_hidden_inputs(
+            $GLOBALS['db'], $GLOBALS['table']
+        );
+        $retval .= '<input type="hidden" name="sql_query" value="'
+            . htmlspecialchars($sql_query) . '" />' . "\n";
         $retval .= '<input type="hidden" name="profiling_form" value="1" />' . "\n";
-        $retval .= PMA_getCheckbox('profiling', __('Profiling'), isset($_SESSION['profiling']), true);
+        $retval .= PMA_getCheckbox(
+            'profiling', __('Profiling'), isset($_SESSION['profiling']), true
+        );
         $retval .= ' </form>' . "\n";
 
     }
@@ -1955,17 +1978,17 @@ function PMA_linkOrButton($url, $message, $tag_params = array(),
 function PMA_splitURLQuery($url)
 {
     // decode encoded url separators
-    $separator   = PMA_get_arg_separator();
+    $separator = PMA_get_arg_separator();
     // on most places separator is still hard coded ...
     if ($separator !== '&') {
         // ... so always replace & with $separator
-        $url         = str_replace(htmlentities('&'), $separator, $url);
-        $url         = str_replace('&', $separator, $url);
+        $url = str_replace(htmlentities('&'), $separator, $url);
+        $url = str_replace('&', $separator, $url);
     }
-    $url         = str_replace(htmlentities($separator), $separator, $url);
+    $url = str_replace(htmlentities($separator), $separator, $url);
     // end decode
 
-    $url_parts   = parse_url($url);
+    $url_parts = parse_url($url);
     return explode($separator, $url_parts['query']);
 }
 
@@ -2131,7 +2154,9 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row,
             if (isset($GLOBALS['analyzed_sql'][0]['select_expr'])
                 && is_array($GLOBALS['analyzed_sql'][0]['select_expr'])
             ) {
-                foreach ($GLOBALS['analyzed_sql'][0]['select_expr'] as $select_expr) {
+                foreach (
+                    $GLOBALS['analyzed_sql'][0]['select_expr'] as $select_expr
+                ) {
                     // need (string) === (string)
                     // '' !== 0 but '' == 0
                     if ((string) $select_expr['alias'] === (string) $meta->name) {
@@ -2207,7 +2232,8 @@ function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row,
                     $condition = '';
                 }
             } elseif ($meta->type == 'bit') {
-                $con_val = "= b'" . PMA_printableBitValue($row[$i], $meta->length) . "'";
+                $con_val = "= b'"
+                    . PMA_printableBitValue($row[$i], $meta->length) . "'";
             } else {
                 $con_val = '= \'' . PMA_sqlAddSlashes($row[$i], false, true) . '\'';
             }
@@ -2460,7 +2486,8 @@ function PMA_listNavigator($count, $pos, $_url_params, $script, $frame, $max_cou
                 $caption1 = '&lt;&lt;';
                 $caption2 = ' &lt; ';
                 $title1   = ' title="' . _pgettext('First page', 'Begin') . '"';
-                $title2   = ' title="' . _pgettext('Previous page', 'Previous') . '"';
+                $title2   = ' title="'
+                    . _pgettext('Previous page', 'Previous') . '"';
             } else {
                 $caption1 = _pgettext('First page', 'Begin') . ' &lt;&lt;';
                 $caption2 = _pgettext('Previous page', 'Previous') . ' &lt;';
@@ -2477,7 +2504,8 @@ function PMA_listNavigator($count, $pos, $_url_params, $script, $frame, $max_cou
                 . $frame . '">' . $caption2 . '</a>';
         }
 
-        echo "\n", '<form action="', basename($script), '" method="post" target="', $frame, '">', "\n";
+        echo "\n", '<form action="', basename($script),
+            '" method="post" target="', $frame, '">', "\n";
         echo PMA_generate_common_hidden_inputs($_url_params);
         echo PMA_pageselector(
             $max_count,
@@ -2626,22 +2654,25 @@ function PMA_getCheckbox($html_field_name, $label, $checked, $onclick)
 function PMA_getRadioFields($html_field_name, $choices, $checked_choice = '',
     $line_break = true, $escape_label = true, $class=''
 ) {
-    
+
     $radio_html = '';
-    
+
     foreach ($choices as $choice_value => $choice_label) {
         if (! empty($class)) {
             $radio_html .= '<div class="' . $class . '">';
         }
         $html_field_id = $html_field_name . '_' . $choice_value;
         $radio_html .= '<input type="radio" name="' . $html_field_name . '" id="'
-                    . $html_field_id . '" value="' . htmlspecialchars($choice_value) . '"';
+                    . $html_field_id . '" value="'
+                    . htmlspecialchars($choice_value) . '"';
         if ($choice_value == $checked_choice) {
             $radio_html .= ' checked="checked"';
         }
         $radio_html .= ' />' . "\n"
                     . '<label for="' . $html_field_id . '">'
-                    . ($escape_label ? htmlspecialchars($choice_label)  : $choice_label)
+                    . ($escape_label
+                    ? htmlspecialchars($choice_label)
+                    : $choice_label)
                     . '</label>';
         if ($line_break) {
             $radio_html .= '<br />';
@@ -2651,9 +2682,9 @@ function PMA_getRadioFields($html_field_name, $choices, $checked_choice = '',
         }
         $radio_html .= "\n";
     }
-    
+
     return $radio_html;
-    
+
 }
 
 /**
@@ -2693,9 +2724,9 @@ function PMA_getDropdown($select_name, $choices, $active_choice, $id)
  *
  * @param string $id      the id of the <div> on which to apply the effect
  * @param string $message the message to show as a link
- * 
+ *
  * @return string         html div element
- * 
+ *
  */
 function PMA_getDivForSliderEffect($id, $message)
 {
@@ -2710,7 +2741,7 @@ function PMA_getDivForSliderEffect($id, $message)
      * method maybe by using an additional param, the id of the div to
      * append to
      */
-    
+
     return '<div id="' . $id . '"'
         . (($GLOBALS['cfg']['InitialSlidersState'] == 'closed')
             ? ' style="display: none; overflow:auto;"'
@@ -2748,7 +2779,8 @@ function PMA_toggleButton($action, $select_name, $options, $callback)
     $retval  = "<!-- TOGGLE START -->\n";
     $retval .= "<div class='wrapper toggleAjax hide'>\n";
     $retval .= "    <div class='toggleButton'>\n";
-    $retval .= "        <div title='" . __('Click to toggle') . "' class='container $state'>\n";
+    $retval .= "        <div title='" . __('Click to toggle');
+    $retval .= "' class='container $state'>\n";
     $retval .= "           <img src='" . htmlspecialchars($GLOBALS['pmaThemeImage']);
     $retval .= "toggle-" . htmlspecialchars($GLOBALS['text_dir']) . ".png'\n";
     $retval .= "                 alt='' />\n";
@@ -2758,15 +2790,15 @@ function PMA_toggleButton($action, $select_name, $options, $callback)
     $retval .= "                <td class='toggleOn'>\n";
     $retval .= "                    <span class='hide'>$link_on</span>\n";
     $retval .= "                    <div>";
-    $retval .= str_replace(' ', '&nbsp;', htmlspecialchars($options[1]['label'])) . "\n";
-    $retval .= "                    </div>\n";
+    $retval .= str_replace(' ', '&nbsp;', htmlspecialchars($options[1]['label']));
+    $retval .= "\n" . "                    </div>\n";
     $retval .= "                </td>\n";
     $retval .= "                <td><div>&nbsp;</div></td>\n";
     $retval .= "                <td class='toggleOff'>\n";
     $retval .= "                    <span class='hide'>$link_off</span>\n";
     $retval .= "                    <div>";
-    $retval .= str_replace(' ', '&nbsp;', htmlspecialchars($options[0]['label'])) . "\n";
-    $retval .= "                    </div>\n";
+    $retval .= str_replace(' ', '&nbsp;', htmlspecialchars($options[0]['label']));
+    $retval .= "\n" . "                    </div>\n";
     $retval .= "                </tr>\n";
     $retval .= "                </tbody>\n";
     $retval .= "            </table>\n";
@@ -2985,7 +3017,8 @@ function PMA_extractColumnSpec($columnspec)
             // Increment character index
             $index++;
         } // end while
-        $printtype = $type . '(' .  str_replace("','", "', '", $spec_in_brackets) . ')';
+        $printtype = $type
+            . '(' .  str_replace("','", "', '", $spec_in_brackets) . ')';
         $binary = false;
         $unsigned = false;
         $zerofill = false;
@@ -2999,7 +3032,9 @@ function PMA_extractColumnSpec($columnspec)
         // this would be a BINARY or VARBINARY column type;
         // by the way, a BLOB should not show the BINARY attribute
         // because this is not accepted in MySQL syntax.
-        if (preg_match('@binary@', $printtype) && ! preg_match('@binary[\(]@', $printtype)) {
+        if (preg_match('@binary@', $printtype)
+            && ! preg_match('@binary[\(]@', $printtype)
+        ) {
             $printtype = preg_replace('@binary@', '', $printtype);
             $binary = true;
         } else {
@@ -3026,7 +3061,9 @@ function PMA_extractColumnSpec($columnspec)
 
     $can_contain_collation = false;
     if (! $binary
-        && preg_match("@^(char|varchar|text|tinytext|mediumtext|longtext|set|enum)@", $type)
+        && preg_match(
+            "@^(char|varchar|text|tinytext|mediumtext|longtext|set|enum)@", $type
+        )
     ) {
         $can_contain_collation = true;
     }
@@ -3126,7 +3163,7 @@ function PMA_duplicateFirstNewline($string)
 {
     $first_occurence = strpos($string, "\r\n");
     if ($first_occurence === 0) {
-        $string = "\n".$string;
+        $string = "\n" . $string;
     }
     return $string;
 }
@@ -3363,7 +3400,8 @@ function PMA_selectUploadFile($import_list, $uploaddir)
         )->display();
     } elseif (! empty($files)) {
         echo "\n";
-        echo '    <select style="margin: 5px" size="1" name="local_import_file" id="select_local_import_file">' . "\n";
+        echo '    <select style="margin: 5px" size="1" name="local_import_file" '
+            .'id="select_local_import_file">' . "\n";
         echo '        <option value="">&nbsp;</option>' . "\n";
         echo $files;
         echo '    </select>' . "\n";
@@ -3525,7 +3563,7 @@ function PMA_getGISDatatypes($upper_case = false)
  */
 function PMA_createGISData($gis_string)
 {
-    $gis_string =  trim($gis_string);
+    $gis_string = trim($gis_string);
     $geom_types = '(POINT|MULTIPOINT|LINESTRING|MULTILINESTRING|'
         . 'POLYGON|MULTIPOLYGON|GEOMETRYCOLLECTION)';
     if (preg_match("/^'" . $geom_types . "\(.*\)',[0-9]*$/i", $gis_string)) {
@@ -3675,17 +3713,20 @@ function PMA_getDefaultFunctionForField($field, $insert_mode)
             $default_function   = $cfg['DefaultFunctions']['FUNC_' . $current_class];
         }
     }
+    
+    $analyzed_sql_field_array = $analyzed_sql[0]['create_table_fields']
+        [$field['Field']];
     // what function defined as default?
     // for the first timestamp we don't set the default function
     // if there is a default value for the timestamp
     // (not including CURRENT_TIMESTAMP)
     // and the column does not have the
     // ON UPDATE DEFAULT TIMESTAMP attribute.
-    if ($field['True_Type'] == 'timestamp'
+    if (($field['True_Type'] == 'timestamp')
         && empty($field['Default'])
         && empty($data)
-        && ! isset($analyzed_sql[0]['create_table_fields'][$field['Field']]['on_update_current_timestamp'])
-        && $analyzed_sql[0]['create_table_fields'][$field['Field']]['default_value'] != 'NULL'
+        && ! isset($analyzed_sql_field_array['on_update_current_timestamp'])
+        && ($analyzed_sql_field_array['default_value'] != 'NULL')
     ) {
         $default_function = $cfg['DefaultFunctions']['first_timestamp'];
     }
@@ -3800,15 +3841,15 @@ function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
     $query = "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`%s` "
            . "WHERE GRANTEE='%s' AND PRIVILEGE_TYPE='%s'";
     // Check global privileges first.
-    if (PMA_DBI_fetch_value(
+    $user_privileges = PMA_DBI_fetch_value(
         sprintf(
             $query,
             'USER_PRIVILEGES',
             $username,
             $priv
         )
-    )
-    ) {
+    );
+    if ($user_privileges) {
         return true;
     }
     // If a database name was provided and user does not have the
@@ -3817,7 +3858,7 @@ function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
         // need to escape wildcards in db and table names, see bug #3518484
         $db = str_replace(array('%', '_'), array('\%', '\_'), $db);
         $query .= " AND TABLE_SCHEMA='%s'";
-        if (PMA_DBI_fetch_value(
+        $schema_privileges = PMA_DBI_fetch_value(
             sprintf(
                 $query,
                 'SCHEMA_PRIVILEGES',
@@ -3825,8 +3866,8 @@ function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
                 $priv,
                 PMA_sqlAddSlashes($db)
             )
-        )
-        ) {
+        );
+        if ($schema_privileges) {
             return true;
         }
     } else {
@@ -3840,7 +3881,7 @@ function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
         // need to escape wildcards in db and table names, see bug #3518484
         $tbl = str_replace(array('%', '_'), array('\%', '\_'), $tbl);
         $query .= " AND TABLE_NAME='%s'";
-        if (PMA_DBI_fetch_value(
+        $table_privileges = PMA_DBI_fetch_value(
             sprintf(
                 $query,
                 'TABLE_PRIVILEGES',
@@ -3849,8 +3890,8 @@ function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
                 PMA_sqlAddSlashes($db),
                 PMA_sqlAddSlashes($tbl)
             )
-        )
-        ) {
+        );
+        if ($table_privileges) {
             return true;
         }
     }

@@ -28,13 +28,15 @@ $get_params = array(
     'dbname',
     'hostname',
     'initial',
+    'old_username',
+    'old_hostname',
     'tablename',
     'username',
     'viewing_mode'
 );
 foreach ($get_params as $one_get_param) {
-    if (isset($_GET[$one_get_param])) {
-        $GLOBALS[$one_get_param] = $_GET[$one_get_param];
+    if (isset($_REQUEST[$one_get_param])) {
+        $GLOBALS[$one_get_param] = $_REQUEST[$one_get_param];
     }
 }
 
@@ -1425,7 +1427,7 @@ if (isset($_REQUEST['change_pw'])) {
     // similar logic in user_password.php
     $message = '';
 
-    if ($nopass == 0 && isset($pma_pw) && isset($pma_pw2)) {
+    if (empty($_REQUEST['nopass']) && isset($pma_pw) && isset($pma_pw2)) {
         if ($pma_pw != $pma_pw2) {
             $message = PMA_Message::error(__('The passwords aren\'t the same!'));
         } elseif (empty($pma_pw) || empty($pma_pw2)) {
@@ -2350,7 +2352,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         if (! isset($dbname) && ! $user_does_not_exists) {
             include_once 'libraries/display_change_password.lib.php';
 
-            echo '<form action="server_privileges.php" method="post" onsubmit="return checkPassword(this);">' . "\n"
+            echo '<form action="server_privileges.php" method="post" class="copyUserForm">' . "\n"
                . PMA_generate_common_hidden_inputs('', '')
                . '<input type="hidden" name="old_username" value="' . htmlspecialchars($username) . '" />' . "\n"
                . '<input type="hidden" name="old_hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n"

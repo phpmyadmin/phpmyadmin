@@ -114,6 +114,7 @@ abstract class PMA_List extends ArrayObject
     /**
      * builds up the list
      *
+     * @return void
      */
     abstract public function build();
 }

@@ -732,36 +732,36 @@ $server_db_isLocal = strtolower($cfg['Server']['host']) == 'localhost'
                               || $cfg['Server']['host'] == '127.0.0.1'
                               || $cfg['Server']['host'] == '::1';
 
-PMA_AddJSVar(
+PMA_addJSVar(
     'pma_token',
     $_SESSION[' PMA_token ']
 );
-PMA_AddJSVar(
+PMA_addJSVar(
     'url_query',
     str_replace('&amp;', '&', PMA_generate_common_url($db))
 );
-PMA_AddJSVar(
+PMA_addJSVar(
     'server_time_diff',
     'new Date().getTime() - ' . (microtime(true) * 1000),
     false
 );
-PMA_AddJSVar(
+PMA_addJSVar(
     'server_os',
     PHP_OS
 );
-PMA_AddJSVar(
+PMA_addJSVar(
     'is_superuser',
     PMA_isSuperuser()
 );
-PMA_AddJSVar(
+PMA_addJSVar(
     'server_db_isLocal',
     $server_db_isLocal
 );
-PMA_AddJSVar(
+PMA_addJSVar(
     'profiling_docu',
     PMA_showMySQLDocu('general-thread-states', 'general-thread-states')
 );
-PMA_AddJSVar(
+PMA_addJSVar(
     'explain_docu',
     PMA_showMySQLDocu('explain-output', 'explain-output')
 );

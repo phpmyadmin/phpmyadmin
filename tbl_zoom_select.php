@@ -45,7 +45,6 @@ $post_params = array(
     'fields',
     'fields_null',
     'inputs',
-    'max_number_of_fields',
     'maxPlotLimit',
     'types',
     'zoom_submit',
@@ -112,7 +111,7 @@ if (isset($_REQUEST['change_tbl_info']) && $_REQUEST['change_tbl_info'] == true)
     // HTML for operators
     $html = '<select name="zoomFunc[]">';
     $html .= $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
-        $fields_type[$key],
+        preg_replace('@\(.*@s', '', $fields_type[$key]),
         $fields_null[$key]
     );
     $html .= '</select>';
@@ -170,7 +169,6 @@ $fields_cnt = count($fields_list);
 // check also foreigners even if relwork is FALSE (to get
 // foreign keys from innodb)
 $foreigners = PMA_getForeigners($db, $table);
-$flag = 1;
 $tbl_fields_type = $tbl_fields_collation = $tbl_fields_null = array();
 
 if (! isset($zoom_submit) && ! isset($inputs)) {
@@ -189,13 +187,30 @@ echo PMA_generateHtmlTabs(PMA_tbl_getSubTabs(), $url_params, 'topmenu2');
  *  Set the field name,type,collation and whether null on select of a coulmn
  */
 if (isset($inputs) && ($inputs[0] != 'pma_null' || $inputs[1] != 'pma_null')) {
-    $flag = 2;
     for ($i = 0 ; $i < 4 ; $i++) {
         if ($inputs[$i] != 'pma_null') {
             $key = array_search($inputs[$i], $fields_list);
             $tbl_fields_type[$i] = $fields_type[$key];
             $tbl_fields_collation[$i] = $fields_collation[$key];
-            $tbl_fields_null[$i] = $fields_null[$key];
+            $tbl_fields_func[$i] = '<select name="zoomFunc[]">';
+            $tbl_fields_func[$i] .= $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
+                preg_replace('@\(.*@s', '', $fields_type[$key]),
+                $fields_null[$key], $zoomFunc[$i]
+            );
+            $tbl_fields_func[$i] .= '</select>';
+            $foreignData = PMA_getForeignData($foreigners, $inputs[$i], false, '', '');
+            $tbl_fields_value[$i] =  PMA_getForeignFields_Values(
+                $foreigners,
+                $foreignData,
+                $inputs[$i],
+                $tbl_fields_type,
+                $i,
+                $db,
+                $table,
+                $titles,
+                $GLOBALS['cfg']['ForeignKeyMaxLimit'],
+                $fields
+            );
         }
     }
 }
@@ -210,7 +225,6 @@ if (isset($inputs) && ($inputs[0] != 'pma_null' || $inputs[1] != 'pma_null')) {
 <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
 <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
 <input type="hidden" name="back" value="tbl_zoom_select.php" />
-<input type="hidden" name="flag" id="id_flag" value="<?php echo $flag; ?>" />
 
 <fieldset id="inputSection">
 
@@ -244,14 +258,14 @@ for ($i = 0; $i < 4; $i++) {
         }
     } ?>
         </select></th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td><?php if (isset($tbl_fields_type[$i])) echo $tbl_fields_type[$i]; ?></td>
+        <td><?php if (isset($tbl_fields_collation[$i])) echo $tbl_fields_collation[$i]; ?></td>
+        <td><?php if (isset($tbl_fields_func[$i])) echo $tbl_fields_func[$i]; ?></td>
+        <td><?php if (isset($tbl_fields_value[$i])) echo $tbl_fields_value[$i]; ?></td>
     </tr>
     <tr><td>
     <input type="hidden" name="types[<?php echo $i; ?>]" id="types_<?php echo $i; ?>"
-    <?php 
+    <?php
     if (isset($_POST['types'][$i])) {
         echo 'value="' . $_POST['types'][$i] . '"';
     }
@@ -312,8 +326,6 @@ echo '" /></td></tr>';
 
 </fieldset>
 <fieldset class="tblFooters">
-    <input type="hidden" name="max_number_of_fields"
-        value="<?php echo $fields_cnt; ?>" />
     <input type="submit" name="zoom_submit" id="inputFormSubmitId" value="<?php echo __('Go'); ?>" />
 </fieldset>
 </form>

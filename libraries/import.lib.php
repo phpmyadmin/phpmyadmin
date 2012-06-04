@@ -20,7 +20,7 @@ require_once './libraries/check_user_privileges.lib.php';
 define('PMA_CHK_DROP', 1);
 
 /**
- *  Check whether timeout is getting close
+ * Checks whether timeout is getting close
  *
  * @return boolean true if timeout is close
  * @access public
@@ -42,7 +42,7 @@ function PMA_checkTimeout()
 }
 
 /**
- *  Detects what compression filse uses
+ * Detects what compression filse uses
  *
  * @param string $filepath filename to check
  *
@@ -52,7 +52,7 @@ function PMA_checkTimeout()
 function PMA_detectCompression($filepath)
 {
     $file = @fopen($filepath, 'rb');
-    if (!$file) {
+    if (! $file) {
         return false;
     }
     $test = fread($file, 4);
@@ -78,6 +78,7 @@ function PMA_detectCompression($filepath)
  * @param string $full        query to display, this might be commented
  * @param bool   $controluser whether to use control user for queries
  *
+ * @return void
  * @access public
  */
 function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
@@ -93,13 +94,15 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
         if ($skip_queries > 0) {
             $skip_queries--;
         } else {
-            if (!empty($import_run_buffer['sql']) && trim($import_run_buffer['sql']) != '') {
+            if (! empty($import_run_buffer['sql'])
+                && trim($import_run_buffer['sql']) != ''
+            ) {
                 $max_sql_len = max($max_sql_len, strlen($import_run_buffer['sql']));
-                if (!$sql_query_disabled) {
+                if (! $sql_query_disabled) {
                     $sql_query .= $import_run_buffer['full'];
                 }
-                if (!$cfg['AllowUserDropDatabase']
-                    && !$is_superuser
+                if (! $cfg['AllowUserDropDatabase']
+                    && ! $is_superuser
                     && preg_match('@^[[:space:]]*DROP[[:space:]]+(IF EXISTS[[:space:]]+)?DATABASE @i', $import_run_buffer['sql'])
                 ) {
                     $GLOBALS['message'] = PMA_Message::error(__('"DROP DATABASE" statements are disabled.'));
@@ -109,13 +112,13 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                     if ($run_query
                         && $GLOBALS['finished']
                         && empty($sql)
-                        && !$error
-                        && ((!empty($import_run_buffer['sql'])
+                        && ! $error
+                        && ((! empty($import_run_buffer['sql'])
                         && preg_match('/^[\s]*(SELECT|SHOW|HANDLER)/i', $import_run_buffer['sql']))
                         || ($executed_queries == 1))
                     ) {
                         $go_sql = true;
-                        if (!$sql_query_disabled) {
+                        if (! $sql_query_disabled) {
                             $complete_query = $sql_query;
                             $display_query = $sql_query;
                         } else {
@@ -123,11 +126,18 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                             $display_query = '';
                         }
                         $sql_query = $import_run_buffer['sql'];
-                        // If a 'USE <db>' SQL-clause was found, set our current $db to the new one
-                        list($db, $reload) = PMA_lookForUse($import_run_buffer['sql'], $db, $reload);
+                        // If a 'USE <db>' SQL-clause was found,
+                        // set our current $db to the new one
+                        list($db, $reload) = PMA_lookForUse(
+                            $import_run_buffer['sql'],
+                            $db,
+                            $reload
+                        );
                     } elseif ($run_query) {
                         if ($controluser) {
-                            $result = PMA_query_as_controluser($import_run_buffer['sql']);
+                            $result = PMA_query_as_controluser(
+                                $import_run_buffer['sql']
+                            );
                         } else {
                             $result = PMA_DBI_try_query($import_run_buffer['sql']);
                         }
@@ -136,11 +146,14 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                             if (! isset($my_die)) {
                                 $my_die = array();
                             }
-                            $my_die[] = array('sql' => $import_run_buffer['full'], 'error' => PMA_DBI_getError());
+                            $my_die[] = array(
+                                'sql' => $import_run_buffer['full'],
+                                'error' => PMA_DBI_getError()
+                            );
 
                             $msg .= __('Error');
 
-                            if (!$cfg['IgnoreMultiSubmitErrors']) {
+                            if (! $cfg['IgnoreMultiSubmitErrors']) {
                                 $error = true;
                                 return;
                             }
@@ -157,13 +170,18 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                                 $msg .= __('MySQL returned an empty result set (i.e. zero rows).');
                             }
                         }
-                        if (!$sql_query_disabled) {
+                        if (! $sql_query_disabled) {
                             $sql_query .= $msg . "\n";
                         }
 
-                        // If a 'USE <db>' SQL-clause was found and the query succeeded, set our current $db to the new one
+                        // If a 'USE <db>' SQL-clause was found and the query
+                        // succeeded, set our current $db to the new one
                         if ($result != false) {
-                            list($db, $reload) = PMA_lookForUse($import_run_buffer['sql'], $db, $reload);
+                            list($db, $reload) = PMA_lookForUse(
+                                $import_run_buffer['sql'],
+                                $db,
+                                $reload
+                            );
                         }
 
                         if ($result != false
@@ -174,12 +192,12 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                     } // end run query
                 } // end if not DROP DATABASE
                 // end non empty query
-            } elseif (!empty($import_run_buffer['full'])) {
+            } elseif (! empty($import_run_buffer['full'])) {
                 if ($go_sql) {
                     $complete_query .= $import_run_buffer['full'];
                     $display_query .= $import_run_buffer['full'];
                 } else {
-                    if (!$sql_query_disabled) {
+                    if (! $sql_query_disabled) {
                         $sql_query .= $import_run_buffer['full'];
                     }
                 }
@@ -189,7 +207,10 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
             // the complete query in the textarea)
             if (! $go_sql && $run_query) {
                 if (! empty($sql_query)) {
-                    if (strlen($sql_query) > 50000 || $executed_queries > 50 || $max_sql_len > 1000) {
+                    if (strlen($sql_query) > 50000
+                        || $executed_queries > 50
+                        || $max_sql_len > 1000
+                    ) {
                         $sql_query = '';
                         $sql_query_disabled = true;
                     }
@@ -199,7 +220,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
     } // end buffer exists
 
     // Do we have something to push into buffer?
-    if (!empty($sql) || !empty($full)) {
+    if (! empty($sql) || ! empty($full)) {
         $import_run_buffer = array('sql' => $sql, 'full' => $full);
     } else {
         unset($GLOBALS['import_run_buffer']);
@@ -268,7 +289,8 @@ function PMA_importGetNextChunk($size = 32768)
     }
 
     if ($GLOBALS['import_file'] == 'none') {
-        // Well this is not yet supported and tested, but should return content of textarea
+        // Well this is not yet supported and tested,
+        // but should return content of textarea
         if (strlen($GLOBALS['import_text']) < $size) {
             $GLOBALS['finished'] = true;
             return $GLOBALS['import_text'];
@@ -331,22 +353,25 @@ function PMA_importGetNextChunk($size = 32768)
  *
  * This functions uses recursion to build the Excel column name.
  *
- * The column number (1-26) is converted to the responding ASCII character (A-Z) and returned.
+ * The column number (1-26) is converted to the responding
+ * ASCII character (A-Z) and returned.
  *
  * If the column number is bigger than 26 (= num of letters in alfabet),
- * an extra character needs to be added. To find this extra character, the number is divided by 26
- * and this value is passed to another instance of the same function (hence recursion).
- * In that new instance the number is evaluated again, and if it is still bigger than 26, it is divided again
- * and passed to another instance of the same function. This continues until the number is smaller than 26.
- * Then the last called function returns the corresponding ASCII character to the function that called it.
+ * an extra character needs to be added. To find this extra character,
+ * the number is divided by 26 and this value is passed to another instance
+ * of the same function (hence recursion). In that new instance the number is
+ * evaluated again, and if it is still bigger than 26, it is divided again
+ * and passed to another instance of the same function. This continues until
+ * the number is smaller than 26. Then the last called function returns
+ * the corresponding ASCII character to the function that called it.
  * Each time a called function ends an extra character is added to the column name.
- * When the first function is reached, the last character is addded and the complete column name is returned.
+ * When the first function is reached, the last character is addded and the complete
+ * column name is returned.
  *
- * @access  public
- *
- * @param int $num
+ * @param int $num the column number
  *
  * @return string The column's "Excel" name
+ * @access  public
  */
 function PMA_getColumnAlphaName($num)
 {
@@ -397,7 +422,7 @@ function PMA_getColumnAlphaName($num)
  */
 function PMA_getColumnNumberFromName($name)
 {
-    if (!empty($name)) {
+    if (! empty($name)) {
         $name = strtoupper($name);
         $num_chars = strlen($name);
         $column_number = 0;
@@ -516,8 +541,9 @@ function PMA_getDecimalSize(&$cell)
  *
  * @todo    Handle the error cases more elegantly
  */
-function PMA_detectSize($last_cumulative_size, $last_cumulative_type, $curr_type, &$cell)
-{
+function PMA_detectSize($last_cumulative_size, $last_cumulative_type,
+    $curr_type, &$cell
+) {
     $curr_size = strlen((string)$cell);
 
     /**
@@ -794,7 +820,12 @@ function PMA_analyzeTable(&$table)
                 /* Determine type of the current cell */
                 $curr_type = PMA_detectType($types[$i], $table[ROWS][$j][$i]);
                 /* Determine size of the current cell */
-                $sizes[$i] = PMA_detectSize($sizes[$i], $types[$i], $curr_type, $table[ROWS][$j][$i]);
+                $sizes[$i] = PMA_detectSize(
+                    $sizes[$i],
+                    $types[$i],
+                    $curr_type,
+                    $table[ROWS][$j][$i]
+                );
 
                 /**
                  * If a type for this column has already been declared,
@@ -812,7 +843,10 @@ function PMA_analyzeTable(&$table)
                             $types[$i] = BIGINT;
                         }
                     } else if ($curr_type == INT) {
-                        if ($types[$i] != VARCHAR && $types[$i] != DECIMAL && $types[$i] != BIGINT) {
+                        if ($types[$i] != VARCHAR
+                            && $types[$i] != DECIMAL
+                            && $types[$i] != BIGINT
+                        ) {
                             $types[$i] = INT;
                         }
                     }
@@ -857,8 +891,9 @@ $import_notice = null;
  *
  * @link http://wiki.phpmyadmin.net/pma/Import
  */
-function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = null, $options = null)
-{
+function PMA_buildSQL($db_name, &$tables, &$analyses = null,
+    &$additional_sql = null, $options = null
+) {
     /* Take care of the options */
     if (isset($options['db_collation'])&& ! is_null($options['db_collation'])) {
         $collation = $options['db_collation'];
@@ -883,9 +918,11 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
 
     if ($create_db) {
         if (PMA_DRIZZLE) {
-            $sql[] = "CREATE DATABASE IF NOT EXISTS " . PMA_backquote($db_name) . " COLLATE " . $collation;
+            $sql[] = "CREATE DATABASE IF NOT EXISTS " . PMA_backquote($db_name)
+                . " COLLATE " . $collation;
         } else {
-            $sql[] = "CREATE DATABASE IF NOT EXISTS " . PMA_backquote($db_name) . " DEFAULT CHARACTER SET " . $charset . " COLLATE " . $collation;
+            $sql[] = "CREATE DATABASE IF NOT EXISTS " . PMA_backquote($db_name)
+                . " DEFAULT CHARACTER SET " . $charset . " COLLATE " . $collation;
         }
     }
 
@@ -924,9 +961,15 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
         $pattern = '/CREATE [^`]*(TABLE)/';
         $replacement = 'CREATE \\1 IF NOT EXISTS';
 
-        /* Change CREATE statements to CREATE IF NOT EXISTS to support inserting into existing structures */
+        /* Change CREATE statements to CREATE IF NOT EXISTS to support
+         * inserting into existing structures
+         */
         for ($i = 0; $i < $additional_sql_len; ++$i) {
-            $additional_sql[$i] = preg_replace($pattern, $replacement, $additional_sql[$i]);
+            $additional_sql[$i] = preg_replace(
+                $pattern,
+                $replacement,
+                $additional_sql[$i]
+            );
             /* Execute the resulting statements */
             PMA_importRunQuery($additional_sql[$i], $additional_sql[$i]);
         }
@@ -995,7 +1038,8 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
         $num_cols = count($tables[$i][COL_NAMES]);
         $num_rows = count($tables[$i][ROWS]);
 
-        $tempSQLStr = "INSERT INTO " . PMA_backquote($db_name) . '.' . PMA_backquote($tables[$i][TBL_NAME]) . " (";
+        $tempSQLStr = "INSERT INTO " . PMA_backquote($db_name) . '.'
+            . PMA_backquote($tables[$i][TBL_NAME]) . " (";
 
         for ($m = 0; $m < $num_cols; ++$m) {
             $tempSQLStr .= PMA_backquote($tables[$i][COL_NAMES][$m]);
@@ -1011,7 +1055,8 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
             $tempSQLStr .= "(";
 
             for ($k = 0; $k < $num_cols; ++$k) {
-                // If fully formatted SQL, no need to enclose with aphostrophes, add shalshes etc.
+                // If fully formatted SQL, no need to enclose
+                // with aphostrophes, add shalshes etc.
                 if ($analyses != null
                     && isset($analyses[$i][FORMATTEDSQL][$col_count])
                     && $analyses[$i][FORMATTEDSQL][$col_count] == true
@@ -1021,7 +1066,7 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
                     if ($analyses != null) {
                         $is_varchar = ($analyses[$i][TYPES][$col_count] === VARCHAR);
                     } else {
-                        $is_varchar = !is_numeric($tables[$i][ROWS][$j][$k]);
+                        $is_varchar = ! is_numeric($tables[$i][ROWS][$j][$k]);
                     }
 
                     /* Don't put quotes around NULL fields */
@@ -1030,7 +1075,9 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
                     }
 
                     $tempSQLStr .= (($is_varchar) ? "'" : "");
-                    $tempSQLStr .= PMA_sqlAddSlashes((string)$tables[$i][ROWS][$j][$k]);
+                    $tempSQLStr .= PMA_sqlAddSlashes(
+                        (string) $tables[$i][ROWS][$j][$k]
+                    );
                     $tempSQLStr .= (($is_varchar) ? "'" : "");
                 }
 
@@ -1076,8 +1123,9 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
      * A work in progress
      */
 
-    /* Add the viewable structures from $additional_sql to $tables so they are also displayed */
-
+    /* Add the viewable structures from $additional_sql
+     * to $tables so they are also displayed
+     */
     $view_pattern = '@VIEW `[^`]+`\.`([^`]+)@';
     $table_pattern = '@CREATE TABLE IF NOT EXISTS `([^`]+)`@';
     /* Check a third pattern to make sure its not a "USE `db_name`;" statement */
@@ -1096,13 +1144,13 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
 
         if (count($regs)) {
             for ($n = 0; $n < $num_tables; ++$n) {
-                if (!strcmp($regs[1], $tables[$n][TBL_NAME])) {
+                if (! strcmp($regs[1], $tables[$n][TBL_NAME])) {
                     $inTables = true;
                     break;
                 }
             }
 
-            if (!$inTables) {
+            if (! $inTables) {
                 $tables[] = array(TBL_NAME => $regs[1]);
             }
         }
@@ -1136,7 +1184,10 @@ function PMA_buildSQL($db_name, &$tables, &$analyses = null, &$additional_sql = 
 
     $num_tables = count($tables);
     for ($i = 0; $i < $num_tables; ++$i) {
-        $params = array('db' => (string)$db_name, 'table' => (string)$tables[$i][TBL_NAME]);
+        $params = array(
+             'db' => (string) $db_name,
+             'table' => (string) $tables[$i][TBL_NAME]
+        );
         $tbl_url = 'sql.php' . PMA_generate_common_url($params);
         $tbl_struct_url = 'tbl_structure.php' . PMA_generate_common_url($params);
         $tbl_ops_url = 'tbl_operations.php' . PMA_generate_common_url($params);

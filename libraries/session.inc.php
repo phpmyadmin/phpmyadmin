@@ -5,8 +5,9 @@
  *
  * @todo    add failover or warn if sessions are not configured properly
  * @todo    add an option to use mm-module for session handler
- * @see     http://www.php.net/session
+ *
  * @package PhpMyAdmin
+ * @see     http://www.php.net/session
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -80,7 +81,9 @@ if (! isset($_COOKIE[$session_name])) {
     // f.e. session dir cannot be accessed - session file not created
     $orig_error_count = $GLOBALS['error_handler']->countErrors();
     $r = session_start();
-    if ($r !== true || $orig_error_count != $GLOBALS['error_handler']->countErrors()) {
+    if ($r !== true
+        || $orig_error_count != $GLOBALS['error_handler']->countErrors()
+    ) {
         setcookie($session_name, '', 1);
         /*
          * Session initialization is done before selecting language, so we
@@ -106,6 +109,7 @@ if (! isset($_SESSION[' PMA_token '])) {
  * should be called before login and after successfull login
  * (only required if sensitive information stored in session)
  *
+ * @return void
  */
 function PMA_secureSession()
 {
