@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-05-24 17:02-0400\n"
+"POT-Creation-Date: 2012-06-04 13:42+0200\n"
 "PO-Revision-Date: 2012-05-30 15:42+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
@@ -11,8 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
@@ -159,8 +159,8 @@ msgstr "Поле"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1327
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:84
 #: server_privileges.php:2256 tbl_change.php:297 tbl_change.php:324
-#: tbl_printview.php:137 tbl_printview.php:272 tbl_structure.php:203
-#: tbl_structure.php:783 tbl_tracking.php:258 tbl_tracking.php:320
+#: tbl_printview.php:137 tbl_structure.php:203 tbl_tracking.php:258
+#: tbl_tracking.php:320
 msgid "Type"
 msgstr "Тип"
 
@@ -336,7 +336,7 @@ msgstr "Переключиться на скопированную базу да
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:100
 #: libraries/tbl_properties.inc.php:667 libraries/tbl_select.lib.php:85
 #: server_collations.php:53 server_collations.php:65 tbl_operations.php:382
-#: tbl_structure.php:204 tbl_structure.php:888 tbl_tracking.php:259
+#: tbl_structure.php:204 tbl_structure.php:876 tbl_tracking.php:259
 #: tbl_tracking.php:325
 msgid "Collation"
 msgstr "Сравнение"
@@ -368,8 +368,8 @@ msgstr "Таблица"
 #: db_printview.php:102 libraries/build_html_for_db.lib.php:31
 #: libraries/db_structure.lib.php:42 libraries/header_printview.inc.php:65
 #: libraries/import.lib.php:151 navigation.php:591 navigation.php:612
-#: tbl_printview.php:353 tbl_structure.php:383 tbl_structure.php:484
-#: tbl_structure.php:898
+#: tbl_printview.php:345 tbl_structure.php:383 tbl_structure.php:484
+#: tbl_structure.php:886
 msgid "Rows"
 msgstr "Строки"
 
@@ -383,22 +383,22 @@ msgstr "используется"
 
 #: db_printview.php:184 libraries/db_info.inc.php:74
 #: libraries/export/sql.php:743
-#: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:393
-#: tbl_structure.php:930
+#: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:385
+#: tbl_structure.php:918
 msgid "Creation"
 msgstr "Создание"
 
 #: db_printview.php:193 libraries/db_info.inc.php:79
 #: libraries/export/sql.php:748
-#: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:403
-#: tbl_structure.php:938
+#: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:395
+#: tbl_structure.php:926
 msgid "Last update"
 msgstr "Последнее обновление"
 
 #: db_printview.php:202 libraries/db_info.inc.php:84
 #: libraries/export/sql.php:753
-#: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:413
-#: tbl_structure.php:946
+#: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:405
+#: tbl_structure.php:934
 msgid "Last check"
 msgstr "Последняя проверка"
 
@@ -623,8 +623,8 @@ msgstr "Слежение выключено."
 #: db_structure.php:461 libraries/display_tbl.lib.php:2356
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Данное представление имеет, по меньшей мере, указанное количество строк. "
 "Пожалуйста, обратитесь к %sдокументации%s."
@@ -704,7 +704,7 @@ msgstr "Удалить"
 msgid "Check table"
 msgstr "Проверить таблицу"
 
-#: db_structure.php:604 tbl_operations.php:669 tbl_structure.php:832
+#: db_structure.php:604 tbl_operations.php:669 tbl_structure.php:826
 msgid "Optimize table"
 msgstr "Оптимизировать таблицу"
 
@@ -966,8 +966,8 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Вероятно, размер загружаемого файла слишком велик. Способы обхода данного "
 "ограничения описаны в %sдокументации%s."
@@ -1190,8 +1190,8 @@ msgstr "Статические данные"
 #. l10n: Total number of queries
 #: js/messages.php:72 libraries/build_html_for_db.lib.php:46
 #: libraries/engines/innodb.lib.php:158 server_databases.php:222
-#: server_status.php:1129 server_status.php:1190 tbl_printview.php:310
-#: tbl_structure.php:820
+#: server_status.php:1129 server_status.php:1190 tbl_printview.php:306
+#: tbl_structure.php:814
 msgid "Total"
 msgstr "Всего"
 
@@ -1544,7 +1544,6 @@ msgid "From general log"
 msgstr "Из основного журнала"
 
 #: js/messages.php:176
-#| msgid "Loading logs"
 msgid "Analysing logs"
 msgstr "Анализ журналов"
 
@@ -1587,7 +1586,6 @@ msgid "Jump to Log table"
 msgstr "Перейти к таблице журнала"
 
 #: js/messages.php:184
-#| msgid "No data"
 msgid "No data found"
 msgstr "Данные не найдены"
 
@@ -1627,12 +1625,10 @@ msgid "Chart"
 msgstr "График"
 
 #: js/messages.php:195
-#| msgid "Add chart"
 msgid "Edit chart"
 msgstr "Редактировать график"
 
 #: js/messages.php:196
-#| msgid "Series:"
 msgid "Series"
 msgstr "Серии"
 
@@ -1709,12 +1705,10 @@ msgid "Import"
 msgstr "Импорт"
 
 #: js/messages.php:217
-#| msgid "Could not import configuration"
 msgid "Import monitor configuration"
 msgstr "Импорт настроек монитора"
 
 #: js/messages.php:218
-#| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
 msgstr "Пожалуйста, выберите файл, который хотите импортировать"
 
@@ -2643,8 +2637,8 @@ msgstr "Добро пожаловать в %s"
 #: libraries/auth/config.auth.lib.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Возможная причина - отсутствие файла конфигурации. Для его создания вы "
 "можете воспользоваться %1$sсценарием установки%2$s."
@@ -2802,13 +2796,13 @@ msgstr "Таблицы"
 #: libraries/config/user_preferences.forms.php:262
 #: libraries/config/user_preferences.forms.php:267
 #: libraries/export/latex.php:212 libraries/export/sql.php:1093
-#: server_privileges.php:614 server_replication.php:314 tbl_printview.php:276
-#: tbl_structure.php:789
+#: server_privileges.php:614 server_replication.php:314 tbl_printview.php:272
+#: tbl_structure.php:783
 msgid "Data"
 msgstr "Данные"
 
 #: libraries/build_html_for_db.lib.php:51 libraries/db_structure.lib.php:55
-#: tbl_printview.php:295 tbl_structure.php:806
+#: tbl_printview.php:291 tbl_structure.php:800
 msgid "Overhead"
 msgstr "Фрагментировано"
 
@@ -3569,7 +3563,7 @@ msgid "Character set of the file"
 msgstr "Кодировка файла"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:90
-#: tbl_gis_visualization.php:181 tbl_printview.php:335 tbl_structure.php:858
+#: tbl_gis_visualization.php:181 tbl_printview.php:327 tbl_structure.php:846
 msgid "Format"
 msgstr "Формат"
 
@@ -5793,8 +5787,8 @@ msgstr ", @TABLE@ будет замещено именем таблицы"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Значение обрабатывается функцией %1$sstrftime%2$s, благодаря чему возможна "
 "вставка текущей даты и времени. Дополнительно могут быть использованы "
@@ -5995,7 +5989,7 @@ msgstr "Сортировать по индексу"
 #: libraries/import/ldi.php:49 libraries/import/ods.php:39
 #: libraries/import/shp.php:22 libraries/import/sql.php:20
 #: libraries/import/xml.php:32 libraries/rte/rte_routines.lib.php:863
-#: tbl_select.php:175 tbl_structure.php:874
+#: tbl_select.php:175 tbl_structure.php:862
 msgid "Options"
 msgstr "Параметры"
 
@@ -6535,8 +6529,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "Документацию и дальнейшую информацию по PBXT смотрите на %sдомашней странице "
 "PrimeBase XT%s."
@@ -7409,7 +7403,7 @@ msgstr "Переменная"
 #: libraries/rte/rte_routines.lib.php:1371 libraries/tbl_select.lib.php:87
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769 server_status.php:1479 tbl_change.php:334
-#: tbl_printview.php:329 tbl_structure.php:850 tbl_zoom_select.php:443
+#: tbl_zoom_select.php:443
 msgid "Value"
 msgstr "Значение"
 
@@ -8248,8 +8242,8 @@ msgstr ""
 "формат значений: a"
 
 #: libraries/tbl_properties.inc.php:109 libraries/tbl_properties.inc.php:478
-#: tbl_printview.php:285 tbl_structure.php:153 tbl_structure.php:158
-#: tbl_structure.php:593 tbl_structure.php:797
+#: tbl_printview.php:281 tbl_structure.php:153 tbl_structure.php:158
+#: tbl_structure.php:593 tbl_structure.php:791
 msgid "Index"
 msgstr "Индекс"
 
@@ -9417,8 +9411,8 @@ msgstr "Удалить базы данных, имена которых совп
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Примечание: phpMyAdmin получает информацию о пользовательских привилегиях "
 "непосредственно из таблиц привилегий MySQL. Содержимое этих таблиц может "
@@ -9867,7 +9861,7 @@ msgstr ""
 msgid "Questions since startup: %s"
 msgstr "Вопросов начиная с запуска: %s"
 
-#: server_status.php:976 tbl_printview.php:328 tbl_structure.php:849
+#: server_status.php:976
 msgid "Statements"
 msgstr "Характеристика"
 
@@ -11253,8 +11247,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"При необходимости используйте дополнительные настройки безопасности - %"
-"sидентификация по хосту%s и %sсписок доверенных прокси серверов%s. Однако, "
+"При необходимости используйте дополнительные настройки безопасности - "
+"%sидентификация по хосту%s и %sсписок доверенных прокси серверов%s. Однако, "
 "защита по IP может быть ненадежной, если ваш IP не является выделенным и "
 "кроме вас принадлежит тысячам пользователей того же Интернет Провайдера."
 
@@ -11693,35 +11687,31 @@ msgstr "Отображение таблиц"
 msgid "Space usage"
 msgstr "Используемое пространство"
 
-#: tbl_printview.php:273 tbl_structure.php:784
-msgid "Usage"
-msgstr "Использование"
-
-#: tbl_printview.php:300 tbl_structure.php:811
+#: tbl_printview.php:296 tbl_structure.php:805
 msgid "Effective"
 msgstr "Эффективность"
 
-#: tbl_printview.php:325 tbl_structure.php:846
+#: tbl_printview.php:321 tbl_structure.php:840
 msgid "Row Statistics"
 msgstr "Статистика строк"
 
-#: tbl_printview.php:339 tbl_structure.php:861
+#: tbl_printview.php:331 tbl_structure.php:849
 msgid "static"
 msgstr "статический"
 
-#: tbl_printview.php:341 tbl_structure.php:863
+#: tbl_printview.php:333 tbl_structure.php:851
 msgid "dynamic"
 msgstr "динамический"
 
-#: tbl_printview.php:363 tbl_structure.php:906
+#: tbl_printview.php:355 tbl_structure.php:894
 msgid "Row length"
 msgstr "Длина строки"
 
-#: tbl_printview.php:373 tbl_structure.php:914
+#: tbl_printview.php:365 tbl_structure.php:902
 msgid "Row size"
 msgstr "Размер строки"
 
-#: tbl_printview.php:383 tbl_structure.php:922
+#: tbl_printview.php:375 tbl_structure.php:910
 msgid "Next autoindex"
 msgstr "Следующий автоматический индекс"
 
@@ -11850,7 +11840,7 @@ msgstr "После %s"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "Создать индекс для &nbsp;%s&nbsp;столбца/ов"
 
-#: tbl_structure.php:877
+#: tbl_structure.php:865
 msgid "partitioned"
 msgstr "разделён"
 
@@ -12028,7 +12018,6 @@ msgid "How to use"
 msgstr "Как использовать"
 
 #: tbl_zoom_select.php:431
-#| msgid "Reset"
 msgid "Reset zoom"
 msgstr "Сбросить увеличение"
 
@@ -12071,17 +12060,17 @@ msgstr "VIEW название"
 msgid "Rename view to"
 msgstr "Переименовать представление в"
 
-#: po/advisory_rules.php:9
+#: po/advisory_rules.php:5
 msgid "Uptime below one day"
 msgstr "Сервер работает менее суток"
 
-#: po/advisory_rules.php:12
+#: po/advisory_rules.php:6
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
 "Сервер работает менее одного дня, настройки производительности могут быть не "
 "достаточно точны."
 
-#: po/advisory_rules.php:15
+#: po/advisory_rules.php:7
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
@@ -12089,16 +12078,16 @@ msgstr ""
 "Для получения более точных средних значений, рекомендуется, перед запуском "
 "анализатора, дать проработать серверу более одного дня"
 
-#: po/advisory_rules.php:20
+#: po/advisory_rules.php:8
 #, php-format
 msgid "The uptime is only %s"
 msgstr "Сервер работает только %s"
 
-#: po/advisory_rules.php:24
+#: po/advisory_rules.php:10
 msgid "Questions below 1,000"
 msgstr "Запросов менее 1000"
 
-#: po/advisory_rules.php:27
+#: po/advisory_rules.php:11
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
@@ -12106,7 +12095,7 @@ msgstr ""
 "Данный сервер обработал менее 1000 запросов, в результате чего, рекомендации "
 "могут быть недостаточно точными."
 
-#: po/advisory_rules.php:30
+#: po/advisory_rules.php:12
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
@@ -12114,23 +12103,23 @@ msgstr ""
 "Дайте серверу проработать какое-то время, пока не будет выполнено "
 "достаточное количество запросов."
 
-#: po/advisory_rules.php:35
+#: po/advisory_rules.php:13
 #, php-format
 msgid "Current amount of Questions: %s"
 msgstr "Текущее количество запросов: %s"
 
-#: po/advisory_rules.php:39
+#: po/advisory_rules.php:15
 msgid "Percentage of slow queries"
 msgstr "Процент медленных запросов"
 
-#: po/advisory_rules.php:42
+#: po/advisory_rules.php:16
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr ""
 "Наблюдается большое количество медленных запросов по отношению к общему их "
 "числу."
 
-#: po/advisory_rules.php:45 po/advisory_rules.php:60
+#: po/advisory_rules.php:17 po/advisory_rules.php:22
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
@@ -12138,25 +12127,25 @@ msgstr ""
 "Вы можете увеличить значение {long_query_time} или оптимизировать запросы "
 "выведенные в списке журнала медленных запросов"
 
-#: po/advisory_rules.php:50
+#: po/advisory_rules.php:18
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 "Уровень медленных запросов должен быть менее 5%%, ваше значение составляет %s"
 "%%."
 
-#: po/advisory_rules.php:54
+#: po/advisory_rules.php:20
 msgid "Slow query rate"
 msgstr "Уровень медленных запросов"
 
-#: po/advisory_rules.php:57
+#: po/advisory_rules.php:21
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
 "Наблюдается высокий процент медленных запросов по отношению к времени работы "
 "сервера."
 
-#: po/advisory_rules.php:65
+#: po/advisory_rules.php:23
 #, php-format
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
@@ -12165,11 +12154,11 @@ msgstr ""
 "Уровень медленных запросов составляет %s в час, необходимо придерживаться не "
 "более 1%% в час."
 
-#: po/advisory_rules.php:69
+#: po/advisory_rules.php:25
 msgid "Long query time"
 msgstr "Время выполнения длинных запросов"
 
-#: po/advisory_rules.php:72
+#: po/advisory_rules.php:26
 msgid ""
 "long_query_time is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
@@ -12178,7 +12167,7 @@ msgstr ""
 "только медленные запросы превышающие по времени выполнения 10 секунд будут "
 "записаны в журнал."
 
-#: po/advisory_rules.php:75
+#: po/advisory_rules.php:27
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
@@ -12186,20 +12175,20 @@ msgstr ""
 "Предлагается понизить значение переменной {long_query_time}, в соответствии "
 "с вашим окружением. Рекомендуемым значением является 1-5 секунд."
 
-#: po/advisory_rules.php:80
+#: po/advisory_rules.php:28
 #, php-format
 msgid "long_query_time is currently set to %ds."
 msgstr "Переменная long_query_time установлена в %d секунд."
 
-#: po/advisory_rules.php:84
+#: po/advisory_rules.php:30
 msgid "Slow query logging"
 msgstr "Запись журналов медленных запросов"
 
-#: po/advisory_rules.php:87
+#: po/advisory_rules.php:31
 msgid "The slow query log is disabled."
 msgstr "Отключен журнал медленных запросов."
 
-#: po/advisory_rules.php:90
+#: po/advisory_rules.php:32
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
@@ -12208,19 +12197,19 @@ msgstr ""
 "{log_slow_queries} в 'ON'. Это поможет в поиске медленных, недостаточно "
 "оптимизированных запросов."
 
-#: po/advisory_rules.php:95
+#: po/advisory_rules.php:33
 msgid "log_slow_queries is set to 'OFF'"
 msgstr "Переменная log_slow_queries установлена в 'OFF'"
 
-#: po/advisory_rules.php:99
+#: po/advisory_rules.php:35
 msgid "Release Series"
 msgstr "Серии выпусков"
 
-#: po/advisory_rules.php:102
+#: po/advisory_rules.php:36
 msgid "The MySQL server version less than 5.1."
 msgstr "Версия сервера MySQL ниже 5.1."
 
-#: po/advisory_rules.php:105
+#: po/advisory_rules.php:37
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
@@ -12228,21 +12217,20 @@ msgstr ""
 "В связи с улучшенной производительностью MySQL 5.1 и еще более выдающимися "
 "результатами MySQL 5.5, вам рекомендуется обновить свою версию MySQL."
 
-#: po/advisory_rules.php:110 po/advisory_rules.php:125
-#: po/advisory_rules.php:140
+#: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
 #, php-format
 msgid "Current version: %s"
 msgstr "Текущая версия: %s"
 
-#: po/advisory_rules.php:114 po/advisory_rules.php:129
+#: po/advisory_rules.php:40 po/advisory_rules.php:45
 msgid "Minor Version"
 msgstr "Промежуточная версия"
 
-#: po/advisory_rules.php:117
+#: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
 msgstr "Версия менее 5.1.30 (первый стабильный выпуск 5.1)."
 
-#: po/advisory_rules.php:120
+#: po/advisory_rules.php:42
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
@@ -12251,24 +12239,23 @@ msgstr ""
 "более выдающимися результатами MySQL 5.5, вам рекомендуется обновить свою "
 "версию MySQL."
 
-#: po/advisory_rules.php:132
+#: po/advisory_rules.php:46
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "Версия менее 5.5.8 (первый стабильный выпуск 5.5)."
 
-#: po/advisory_rules.php:135
+#: po/advisory_rules.php:47
 msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgstr "Необходимо обновить MySQL до стабильной версии 5.5"
 
-#: po/advisory_rules.php:144 po/advisory_rules.php:159
-#: po/advisory_rules.php:174
+#: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
 msgid "Distribution"
 msgstr "Дистрибутив"
 
-#: po/advisory_rules.php:147
+#: po/advisory_rules.php:51
 msgid "Version is compiled from source, not a MySQL official binary."
 msgstr "Версия собрана из исходников, не официальная сборка MySQL."
 
-#: po/advisory_rules.php:150
+#: po/advisory_rules.php:52
 msgid ""
 "If you did not compile from source, you may be using a package modified by a "
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
@@ -12279,41 +12266,41 @@ msgstr ""
 "применима только к официальной сборке MySQL, а не к пакетам из дистрибутивов "
 "(таким как RedHat, Debian/Ubuntu и так далее)."
 
-#: po/advisory_rules.php:155
+#: po/advisory_rules.php:53
 msgid "'source' found in version_comment"
 msgstr "В version_comment найдено слово 'source'"
 
-#: po/advisory_rules.php:162 po/advisory_rules.php:177
+#: po/advisory_rules.php:56 po/advisory_rules.php:61
 msgid "The MySQL manual only is accurate for official MySQL binaries."
 msgstr ""
 "Документация MySQL в полной мере применима только к официальной сборке MySQL."
 
-#: po/advisory_rules.php:165
+#: po/advisory_rules.php:57
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgstr "Документация Percona находится на http://www.percona.com/docs/wiki/"
 
-#: po/advisory_rules.php:170
+#: po/advisory_rules.php:58
 msgid "'percona' found in version_comment"
 msgstr "В version_comment найдено слово 'percona'"
 
-#: po/advisory_rules.php:180
+#: po/advisory_rules.php:62
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
 msgstr "Документация Drizzle находится на http://docs.drizzle.org/"
 
-#: po/advisory_rules.php:185
+#: po/advisory_rules.php:63
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr "Строка версии (%s) соответствует схеме версии Drizzle"
 
-#: po/advisory_rules.php:189
+#: po/advisory_rules.php:65
 msgid "MySQL Architecture"
 msgstr "Архитектура MySQL"
 
-#: po/advisory_rules.php:192
+#: po/advisory_rules.php:66
 msgid "MySQL is not compiled as a 64-bit package."
 msgstr "MySQL не был собран, как 64-битная программа."
 
-#: po/advisory_rules.php:195
+#: po/advisory_rules.php:67
 msgid ""
 "Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
 "so MySQL might not be able to access all of your memory. You might want to "
@@ -12324,20 +12311,20 @@ msgstr ""
 "Возможно, вам следует рассмотреть возможность установки 64-битной версии "
 "MySQL."
 
-#: po/advisory_rules.php:200
+#: po/advisory_rules.php:68
 #, php-format
 msgid "Available memory on this host: %s"
 msgstr "Объем памяти доступной на данном хосте: %s"
 
-#: po/advisory_rules.php:204
+#: po/advisory_rules.php:70
 msgid "Query cache disabled"
 msgstr "Кеш запросов отключен"
 
-#: po/advisory_rules.php:207
+#: po/advisory_rules.php:71
 msgid "The query cache is not enabled."
 msgstr "Кеш запросов не был включен."
 
-#: po/advisory_rules.php:210
+#: po/advisory_rules.php:72
 msgid ""
 "The query cache is known to greatly improve performance if configured "
 "correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value "
@@ -12350,21 +12337,21 @@ msgstr ""
 "<b>Примечание:</b> При использовании memcached, игнорируйте данную "
 "рекомендацию."
 
-#: po/advisory_rules.php:215
+#: po/advisory_rules.php:73
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 "Переменная query_cache_size установлена в 0, или переменная query_cache_type "
 "установлена в 'OFF'"
 
-#: po/advisory_rules.php:219
+#: po/advisory_rules.php:75
 msgid "Query caching method"
 msgstr "Метод кеширования запросов"
 
-#: po/advisory_rules.php:222
+#: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
 msgstr "Оптимальный метод кеширования."
 
-#: po/advisory_rules.php:225
+#: po/advisory_rules.php:77
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"http://dev.mysql.com/doc/"
@@ -12377,7 +12364,7 @@ msgstr ""
 "html\">memcached</a> вместо механизма кеширования запросов MySQL, в "
 "особенности при наличии нескольких подчиненных серверов."
 
-#: po/advisory_rules.php:230
+#: po/advisory_rules.php:78
 #, php-format
 msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
@@ -12386,36 +12373,36 @@ msgstr ""
 "Кеширование запросов включено и сервер получает %d запросов в секунду. "
 "Данное правило срабатывает при поступлении более 100 запросов в секунду."
 
-#: po/advisory_rules.php:234
+#: po/advisory_rules.php:80
 #, php-format
 msgid "Query cache efficiency (%%)"
 msgstr "Эффективность кеширования запросов (%%)"
 
-#: po/advisory_rules.php:237
+#: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr ""
 "Кеширование запросов работает недостаточно эффективно из-за низкой частоты "
 "успешных обращений."
 
-#: po/advisory_rules.php:240
+#: po/advisory_rules.php:82
 msgid "Consider increasing {query_cache_limit}."
 msgstr "Рассмотрите возможность увеличения {query_cache_limit}."
 
-#: po/advisory_rules.php:245
+#: po/advisory_rules.php:83
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr "Текущая частота успешных обращений кеширования запросов %s%% ниже 20%%"
 
-#: po/advisory_rules.php:249
+#: po/advisory_rules.php:85
 msgid "Query Cache usage"
 msgstr "Использование кеширования запросов"
 
-#: po/advisory_rules.php:252
+#: po/advisory_rules.php:86
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
 msgstr "Использовано менее 80%% кеша запросов."
 
-#: po/advisory_rules.php:255
+#: po/advisory_rules.php:87
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
@@ -12423,24 +12410,24 @@ msgstr ""
 "Это может быть вызвано низким значением переменной {query_cache_limit}. Так "
 "же, может помочь очистка кеша запросов."
 
-#: po/advisory_rules.php:260
+#: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "Текущее соотношение свободного кеша запросов по отношению к полному кешу "
 "запросов составляет %s%%. Значение должно быть выше 80%%"
 
-#: po/advisory_rules.php:264
+#: po/advisory_rules.php:90
 msgid "Query cache fragmentation"
 msgstr "Фрагментация кеша запросов"
 
-#: po/advisory_rules.php:267
+#: po/advisory_rules.php:91
 msgid "The query cache is considerably fragmented."
 msgstr "Кеш запросов существенно фрагментирован."
 
-#: po/advisory_rules.php:270
+#: po/advisory_rules.php:92
 msgid ""
 "Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
 "This might be caused by many Query cache low memory prunes due to "
@@ -12461,7 +12448,7 @@ msgstr ""
 "кеш по формуле: (query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 
-#: po/advisory_rules.php:275
+#: po/advisory_rules.php:93
 #, php-format
 msgid ""
 "The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
@@ -12472,17 +12459,17 @@ msgstr ""
 "будет означать последовательное чередование свободных и занятых блоков. "
 "Данное значение должно быть ниже 20%%."
 
-#: po/advisory_rules.php:279
+#: po/advisory_rules.php:95
 msgid "Query cache low memory prunes"
 msgstr "Очисток низкой памяти кеша запросов"
 
-#: po/advisory_rules.php:282
+#: po/advisory_rules.php:96
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
 msgstr "Кешированные запросы удалены из-за недостатка памяти кеша запросов."
 
-#: po/advisory_rules.php:285
+#: po/advisory_rules.php:97
 msgid ""
 "You might want to increase {query_cache_size}, however keep in mind that the "
 "overhead of maintaining the cache is likely to increase with its size, so do "
@@ -12492,7 +12479,7 @@ msgstr ""
 "что накладные расходы на кеш увеличатся вместе с его размером, поэтому "
 "изменяйте значение небольшими шагами одновременно наблюдая за результатом."
 
-#: po/advisory_rules.php:290
+#: po/advisory_rules.php:98
 #, php-format
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
@@ -12501,11 +12488,11 @@ msgstr ""
 "Соотношение удаленных запросов к добавленным запросам составляет %s%%. Чем "
 "ниже данное значение, тем лучше (порог срабатывания правила: 0.1%%)"
 
-#: po/advisory_rules.php:294
+#: po/advisory_rules.php:100
 msgid "Query cache max size"
 msgstr "Максимальный размер кеша запросов"
 
-#: po/advisory_rules.php:297
+#: po/advisory_rules.php:101
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
@@ -12514,7 +12501,7 @@ msgstr ""
 "привести к заметной нагрузке, поэтому требуется внимательное поддержание "
 "состояния кеша."
 
-#: po/advisory_rules.php:300
+#: po/advisory_rules.php:102
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
@@ -12522,23 +12509,23 @@ msgstr ""
 "В зависимости от системного окружения, для повышения производительности "
 "может быть полезно уменьшение данного значения."
 
-#: po/advisory_rules.php:305
+#: po/advisory_rules.php:103
 #, php-format
 msgid "Current query cache size: %s"
 msgstr "Текущий размер кеша запросов: %s"
 
-#: po/advisory_rules.php:309
+#: po/advisory_rules.php:105
 msgid "Query cache min result size"
 msgstr "Минимальный размер результата кеша запросов"
 
-#: po/advisory_rules.php:312
+#: po/advisory_rules.php:106
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
 "Максимальный размер результата установленный в кеше запросов, по умолчанию "
 "составляет 1 MiB."
 
-#: po/advisory_rules.php:315
+#: po/advisory_rules.php:107
 msgid ""
 "Changing {query_cache_limit} (usually by increasing) may increase "
 "efficiency. This variable determines the maximum size a query result may "
@@ -12560,20 +12547,20 @@ msgstr ""
 "обновлении таблиц), увеличение {query_cache_limit} может снизить "
 "эффективность."
 
-#: po/advisory_rules.php:320
+#: po/advisory_rules.php:108
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit установлен на 1 MiB"
 
-#: po/advisory_rules.php:324
+#: po/advisory_rules.php:110
 msgid "Percentage of sorts that cause temporary tables"
 msgstr "Процент сортировок вызывающих создание временных таблиц"
 
-#: po/advisory_rules.php:327 po/advisory_rules.php:342
+#: po/advisory_rules.php:111 po/advisory_rules.php:116
 msgid "Too many sorts are causing temporary tables."
 msgstr ""
 "Слишком большое количество сортировок вызывают создание временных таблиц."
 
-#: po/advisory_rules.php:330 po/advisory_rules.php:345
+#: po/advisory_rules.php:112 po/advisory_rules.php:117
 msgid ""
 "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending "
 "on your system memory limits"
@@ -12581,20 +12568,20 @@ msgstr ""
 "Рассмотрите возможность увеличения sort_buffer_size и/или "
 "read_rnd_buffer_size, в зависимости от ограничения памяти вашей системы"
 
-#: po/advisory_rules.php:335
+#: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "%s%% сортировок вызывает создание временных таблиц, данное значение должно "
 "быть ниже 10%%."
 
-#: po/advisory_rules.php:339
+#: po/advisory_rules.php:115
 msgid "Rate of sorts that cause temporary tables"
 msgstr "Процент сортировок вызывающих создание временных таблиц"
 
-#: po/advisory_rules.php:350
+#: po/advisory_rules.php:118
 #, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
@@ -12602,15 +12589,15 @@ msgstr ""
 "Среднее значение создания временных таблиц: %s, данное значение должно быть "
 "менее 1 в час."
 
-#: po/advisory_rules.php:354
+#: po/advisory_rules.php:120
 msgid "Sort rows"
 msgstr "Сортировать строки"
 
-#: po/advisory_rules.php:357
+#: po/advisory_rules.php:121
 msgid "There are lots of rows being sorted."
 msgstr "Было отсортировано большое количество строк."
 
-#: po/advisory_rules.php:360
+#: po/advisory_rules.php:122
 msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
@@ -12622,20 +12609,20 @@ msgstr ""
 "используют поля индексов в выражении ORDER BY, так как это приведет к "
 "значительно более быстрой сортировке"
 
-#: po/advisory_rules.php:365
+#: po/advisory_rules.php:123
 #, php-format
 msgid "Sorted rows average: %s"
 msgstr "Средний показатель отсортированных строк: %s"
 
-#: po/advisory_rules.php:369
+#: po/advisory_rules.php:125
 msgid "Rate of joins without indexes"
 msgstr "Доля объединений не использующих индексы"
 
-#: po/advisory_rules.php:372
+#: po/advisory_rules.php:126
 msgid "There are too many joins without indexes."
 msgstr "Слишком большое количество объединения не использующих индексы."
 
-#: po/advisory_rules.php:375
+#: po/advisory_rules.php:127
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
@@ -12643,22 +12630,22 @@ msgstr ""
 "Это означает сканирование всей таблицы при объединении. Добавление индексов "
 "для полей используемых в условии, значительно увеличит скорость объединения"
 
-#: po/advisory_rules.php:380
+#: po/advisory_rules.php:128
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
 "Среднее значение объединения таблиц: %s, данное значение должно быть менее 1 "
 "в час"
 
-#: po/advisory_rules.php:384
+#: po/advisory_rules.php:130
 msgid "Rate of reading first index entry"
 msgstr "Доля чтения первого вхождения индекса"
 
-#: po/advisory_rules.php:387
+#: po/advisory_rules.php:131
 msgid "The rate of reading the first index entry is high."
 msgstr "Доля чтения первого вхождения индекса высока."
 
-#: po/advisory_rules.php:390
+#: po/advisory_rules.php:132
 msgid ""
 "This usually indicates frequent full index scans. Full index scans are "
 "faster than table scans but require lots of CPU cycles in big tables, if "
@@ -12675,22 +12662,22 @@ msgstr ""
 "сканирования. Другим образом уменьшить полноиндексное сканирование можно "
 "только переписав запросы."
 
-#: po/advisory_rules.php:395
+#: po/advisory_rules.php:133
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
 "Среднее значение сканирования индексов: %s, значение должно быть менее 1 в "
 "час"
 
-#: po/advisory_rules.php:399
+#: po/advisory_rules.php:135
 msgid "Rate of reading fixed position"
 msgstr "Доля чтения фиксированного положения"
 
-#: po/advisory_rules.php:402
+#: po/advisory_rules.php:136
 msgid "The rate of reading data from a fixed position is high."
 msgstr "Доля чтения данных из фиксированного положения высока."
 
-#: po/advisory_rules.php:405
+#: po/advisory_rules.php:137
 msgid ""
 "This indicates that many queries need to sort results and/or do a full table "
 "scan, including join queries that do not use indexes. Add indexes where "
@@ -12700,7 +12687,7 @@ msgstr ""
 "или полном сканировании таблицы, включая запросы объединения не использующие "
 "индексы. Добавьте индексы где это возможно."
 
-#: po/advisory_rules.php:410
+#: po/advisory_rules.php:138
 #, php-format
 msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
@@ -12709,15 +12696,15 @@ msgstr ""
 "Средняя доля чтений из фиксированной позиции: %s, значение должно быть менее "
 "1 в час"
 
-#: po/advisory_rules.php:414
+#: po/advisory_rules.php:140
 msgid "Rate of reading next table row"
 msgstr "Доля чтения следующей строки таблицы"
 
-#: po/advisory_rules.php:417
+#: po/advisory_rules.php:141
 msgid "The rate of reading the next table row is high."
 msgstr "Доля чтения следующей строки таблицы высока."
 
-#: po/advisory_rules.php:420
+#: po/advisory_rules.php:142
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
@@ -12725,7 +12712,7 @@ msgstr ""
 "Указывает на то, что большое количество запросов совершают полное "
 "сканирование таблицы. Добавьте индексы где это возможно."
 
-#: po/advisory_rules.php:425
+#: po/advisory_rules.php:143
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
@@ -12733,15 +12720,15 @@ msgstr ""
 "Доля чтения следующей строки таблицы: %s, данное значение должно быть менее "
 "1 в час"
 
-#: po/advisory_rules.php:429
+#: po/advisory_rules.php:145
 msgid "tmp_table_size vs. max_heap_table_size"
 msgstr "tmp_table_size против max_heap_table_size"
 
-#: po/advisory_rules.php:432
+#: po/advisory_rules.php:146
 msgid "tmp_table_size and max_heap_table_size are not the same."
 msgstr "tmp_table_size и max_heap_table_size не одно и то же."
 
-#: po/advisory_rules.php:435
+#: po/advisory_rules.php:147
 msgid ""
 "If you have deliberately changed one of either: The server uses the lower "
 "value of either to determine the maximum size of in-memory tables. So if you "
@@ -12753,16 +12740,16 @@ msgstr ""
 "Таким образом, если вы хотите увеличить ограничение размера таблиц в памяти, "
 "необходимо изменить второе из них соответственно."
 
-#: po/advisory_rules.php:440
+#: po/advisory_rules.php:148
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr "Текущие значения tmp_table_size: %s, max_heap_table_size: %s"
 
-#: po/advisory_rules.php:444
+#: po/advisory_rules.php:150
 msgid "Percentage of temp tables on disk"
 msgstr "Процентное соотношение временных таблиц на диске"
 
-#: po/advisory_rules.php:447 po/advisory_rules.php:462
+#: po/advisory_rules.php:151 po/advisory_rules.php:156
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
@@ -12770,7 +12757,7 @@ msgstr ""
 "Значительное количество временных таблиц было записано на диск, вместо то "
 "чтобы быть сохранено в памяти."
 
-#: po/advisory_rules.php:450
+#: po/advisory_rules.php:152
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -12789,7 +12776,7 @@ msgstr ""
 "\"http://www.facebook.com/note.php?note_id=10150111255065841&comments"
 "\">Статьи группы Pythian</a>"
 
-#: po/advisory_rules.php:455
+#: po/advisory_rules.php:153
 #, php-format
 msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
@@ -12798,11 +12785,11 @@ msgstr ""
 "%s%% из всех временных таблиц были записаны на диск, данное значение должно "
 "быть ниже 25%%"
 
-#: po/advisory_rules.php:459
+#: po/advisory_rules.php:155
 msgid "Temp disk rate"
 msgstr "Соотношение временных таблиц на диске"
 
-#: po/advisory_rules.php:465
+#: po/advisory_rules.php:157
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -12821,7 +12808,7 @@ msgstr ""
 "dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables.html"
 "\">Документации MySQL</a>"
 
-#: po/advisory_rules.php:470
+#: po/advisory_rules.php:158
 #, php-format
 msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
@@ -12830,15 +12817,15 @@ msgstr ""
 "Соотношение временных таблиц записанных на диск: %s, данное значение должно "
 "быть менее 1 в час"
 
-#: po/advisory_rules.php:474
+#: po/advisory_rules.php:160
 msgid "MyISAM key buffer size"
 msgstr "Размер буфера ключей MyISAM"
 
-#: po/advisory_rules.php:477
+#: po/advisory_rules.php:161
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr "Буфер ключей не установлен. Индексы MyISAM не будут кешироваться."
 
-#: po/advisory_rules.php:480
+#: po/advisory_rules.php:162
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
@@ -12846,21 +12833,21 @@ msgstr ""
 "Установите значение переменной {key_buffer_size} в зависимости от размера "
 "индексов MyISAM. Начните с 64M."
 
-#: po/advisory_rules.php:485
+#: po/advisory_rules.php:163
 msgid "key_buffer_size is 0"
 msgstr "key_buffer_size равен 0"
 
-#: po/advisory_rules.php:489
+#: po/advisory_rules.php:165
 #, php-format
 msgid "Max %% MyISAM key buffer ever used"
 msgstr "Максимальный %% буфера ключей MyISAM, который был использован"
 
-#: po/advisory_rules.php:492 po/advisory_rules.php:507
+#: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, php-format
 msgid "MyISAM key buffer (index cache) %% used is low."
 msgstr "Низкий %% использования буфера ключей MyISAM (кеш индекса)."
 
-#: po/advisory_rules.php:495 po/advisory_rules.php:510
+#: po/advisory_rules.php:167 po/advisory_rules.php:172
 msgid ""
 "You may need to decrease the size of {key_buffer_size}, re-examine your "
 "tables to see if indexes have been removed, or examine queries and "
@@ -12870,7 +12857,7 @@ msgstr ""
 "таблицы, чтобы убедиться в удалении индексов, или просмотрите запросы и "
 "используемые ими индексы."
 
-#: po/advisory_rules.php:500
+#: po/advisory_rules.php:168
 #, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
@@ -12878,44 +12865,44 @@ msgstr ""
 "Максимальный %% буфера ключей MyISAM, который был использован: %s%%, данное "
 "значение должно быть выше 95%%"
 
-#: po/advisory_rules.php:504
+#: po/advisory_rules.php:170
 msgid "Percentage of MyISAM key buffer used"
 msgstr "Процент использованного буфера ключей MyISAM"
 
-#: po/advisory_rules.php:515
+#: po/advisory_rules.php:173
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
 "%% использованного буфера ключей MyISAM: %s%%, данное значение должно быть "
 "выше 95%%"
 
-#: po/advisory_rules.php:519
+#: po/advisory_rules.php:175
 msgid "Percentage of index reads from memory"
 msgstr "Процент чтения индексов из памяти"
 
-#: po/advisory_rules.php:522
+#: po/advisory_rules.php:176
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgstr "Малый %% индексов использует буфер ключей MyISAM."
 
-#: po/advisory_rules.php:525
+#: po/advisory_rules.php:177
 msgid "You may need to increase {key_buffer_size}."
 msgstr "Возможно необходимо увеличить значение переменной {key_buffer_size}."
 
-#: po/advisory_rules.php:530
+#: po/advisory_rules.php:178
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr "Чтений индексов из памяти: %s%%, данное значение должно быть выше 95%%"
 
-#: po/advisory_rules.php:534
+#: po/advisory_rules.php:180
 msgid "Rate of table open"
 msgstr "Соотношение открытых таблиц"
 
-#: po/advisory_rules.php:537
+#: po/advisory_rules.php:181
 msgid "The rate of opening tables is high."
 msgstr "Высокое соотношение открытых таблиц."
 
-#: po/advisory_rules.php:540
+#: po/advisory_rules.php:182
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
@@ -12923,17 +12910,17 @@ msgstr ""
 "Открытые таблицы требуют выполнения затратных операций ввода-вывода. "
 "Избежать этого можно увеличением значения переменной {table_open_cache}."
 
-#: po/advisory_rules.php:545
+#: po/advisory_rules.php:183
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 "Соотношение открытых таблиц: %s, данное значение должно быть менее 10 в час"
 
-#: po/advisory_rules.php:549
+#: po/advisory_rules.php:185
 msgid "Percentage of used open files limit"
 msgstr "Процентное соотношение использованного ограничения открытых файлов"
 
-#: po/advisory_rules.php:552
+#: po/advisory_rules.php:186
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
@@ -12941,7 +12928,7 @@ msgstr ""
 "Количество открытых файлов приближается к максимальному. Возможно появление "
 "ошибки \"Слишком много открытых файлов\"."
 
-#: po/advisory_rules.php:555 po/advisory_rules.php:570
+#: po/advisory_rules.php:187 po/advisory_rules.php:192
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing open_files_limit."
@@ -12949,7 +12936,7 @@ msgstr ""
 "Рассмотрите возможность увеличения значения переменной {open_files_limit}, и "
 "после ее изменения и перезагрузки, проверьте журнал ошибок."
 
-#: po/advisory_rules.php:560
+#: po/advisory_rules.php:188
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
@@ -12957,60 +12944,60 @@ msgstr ""
 "Количество открытых файлов составляет %s%% от лимита. Данное значение должно "
 "быть ниже 85%%"
 
-#: po/advisory_rules.php:564
+#: po/advisory_rules.php:190
 msgid "Rate of open files"
 msgstr "Соотношение открытых файлов"
 
-#: po/advisory_rules.php:567
+#: po/advisory_rules.php:191
 msgid "The rate of opening files is high."
 msgstr "Высокое соотношение открытых файлов."
 
-#: po/advisory_rules.php:575
+#: po/advisory_rules.php:193
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
 "Соотношение открытых файлов: %s, данное значение должно быть менее 5 в час"
 
-#: po/advisory_rules.php:579
+#: po/advisory_rules.php:195
 #, php-format
 msgid "Immediate table locks %%"
 msgstr "%% незамедлительной блокировки таблиц"
 
-#: po/advisory_rules.php:582 po/advisory_rules.php:597
+#: po/advisory_rules.php:196 po/advisory_rules.php:201
 msgid "Too many table locks were not granted immediately."
 msgstr ""
 "Слишком большое количество запросов на блокировку таблицы, которые не были "
 "выполнены немедленно."
 
-#: po/advisory_rules.php:585 po/advisory_rules.php:600
+#: po/advisory_rules.php:197 po/advisory_rules.php:202
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
 "Для уменьшения ожидания блокировки необходима оптимизация запросов и/или "
 "использование таблиц типа InnoDB."
 
-#: po/advisory_rules.php:590
+#: po/advisory_rules.php:198
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr ""
 "Незамедлительная блокировка таблиц: %s%%, данное значение должно быть выше "
 "95%%"
 
-#: po/advisory_rules.php:594
+#: po/advisory_rules.php:200
 msgid "Table lock wait rate"
 msgstr "Соотношение ожидания блокировки таблиц"
 
-#: po/advisory_rules.php:605
+#: po/advisory_rules.php:203
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
 "Соотношение ожидания блокировки таблиц: %s, данное значение должно быть "
 "менее 1 в час"
 
-#: po/advisory_rules.php:609
+#: po/advisory_rules.php:205
 msgid "Thread cache"
 msgstr "Кеш потока"
 
-#: po/advisory_rules.php:612
+#: po/advisory_rules.php:206
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
@@ -13018,44 +13005,44 @@ msgstr ""
 "Кеш потока отключен, что выразится в увеличенной нагрузке от новых "
 "соединений к MySQL."
 
-#: po/advisory_rules.php:615
+#: po/advisory_rules.php:207
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
 "Включите кеширование потока установив переменную {thread_cache_size} > 0."
 
-#: po/advisory_rules.php:620
+#: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
 msgstr "Кеш потока установлен в 0"
 
-#: po/advisory_rules.php:624
+#: po/advisory_rules.php:210
 #, php-format
 msgid "Thread cache hit rate %%"
 msgstr "%% соотношение обращений в кеш потока"
 
-#: po/advisory_rules.php:627
+#: po/advisory_rules.php:211
 msgid "Thread cache is not efficient."
 msgstr "Кеш потока действует не эффективно."
 
-#: po/advisory_rules.php:630
+#: po/advisory_rules.php:212
 msgid "Increase {thread_cache_size}."
 msgstr "Увеличьте {thread_cache_size}."
 
-#: po/advisory_rules.php:635
+#: po/advisory_rules.php:213
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
 "Частота успешных обращений в кеш потока: %s%%, данное значение должно быть "
 "выше 80%%"
 
-#: po/advisory_rules.php:639
+#: po/advisory_rules.php:215
 msgid "Threads that are slow to launch"
 msgstr "Потоки с медленным запуском"
 
-#: po/advisory_rules.php:642
+#: po/advisory_rules.php:216
 msgid "There are too many threads that are slow to launch."
 msgstr "Обнаружено большое количество потоков с медленным запуском."
 
-#: po/advisory_rules.php:645
+#: po/advisory_rules.php:217
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
@@ -13064,20 +13051,20 @@ msgstr ""
 "так как сами операции достаточно просты. Обратите особое внимание на "
 "загрузку вашей системы."
 
-#: po/advisory_rules.php:650
+#: po/advisory_rules.php:218
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr "Запуск %s потока(ов) занял более %s секунд, должно быть 0"
 
-#: po/advisory_rules.php:654
+#: po/advisory_rules.php:220
 msgid "Slow launch time"
 msgstr "Время медленного запуска"
 
-#: po/advisory_rules.php:657
+#: po/advisory_rules.php:221
 msgid "Slow_launch_threads is above 2s"
 msgstr "Slow_launch_threads выше 2 сек."
 
-#: po/advisory_rules.php:660
+#: po/advisory_rules.php:222
 msgid ""
 "Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
 "launch"
@@ -13085,16 +13072,16 @@ msgstr ""
 "Установите переменную slow_launch_time на 1 или 2 сек., чтобы корректно "
 "считать медленно запускаемые потоки"
 
-#: po/advisory_rules.php:665
+#: po/advisory_rules.php:223
 #, php-format
 msgid "slow_launch_time is set to %s"
 msgstr "slow_launch_time установлен на %s"
 
-#: po/advisory_rules.php:669
+#: po/advisory_rules.php:225
 msgid "Percentage of used connections"
 msgstr "Процентное соотношение использованных соединений"
 
-#: po/advisory_rules.php:672
+#: po/advisory_rules.php:226
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "max_connections."
@@ -13102,7 +13089,7 @@ msgstr ""
 "Максимальный размер использованных соединений приближается к значению "
 "max_connections."
 
-#: po/advisory_rules.php:675
+#: po/advisory_rules.php:227
 msgid ""
 "Increase max_connections, or decrease wait_timeout so that connections that "
 "do not close database handlers properly get killed sooner. Make sure the "
@@ -13112,7 +13099,7 @@ msgstr ""
 "незакрытыми операторами базы данных быстрее уничтожались. Убедитесь, что в "
 "коде корректно закрываются операторы базы данных."
 
-#: po/advisory_rules.php:680
+#: po/advisory_rules.php:228
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
@@ -13120,15 +13107,15 @@ msgstr ""
 "Max_used_connections установлен в %s%% от max_connections, данное значение "
 "должно быть ниже 80%%"
 
-#: po/advisory_rules.php:684
+#: po/advisory_rules.php:230
 msgid "Percentage of aborted connections"
 msgstr "Процентное соотношение прерванных соединений"
 
-#: po/advisory_rules.php:687 po/advisory_rules.php:702
+#: po/advisory_rules.php:231 po/advisory_rules.php:236
 msgid "Too many connections are aborted."
 msgstr "Слишком большое количество соединений было прервано."
 
-#: po/advisory_rules.php:690 po/advisory_rules.php:705
+#: po/advisory_rules.php:232 po/advisory_rules.php:237
 msgid ""
 "Connections are usually aborted when they cannot be authorized. <a href="
 "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -13140,17 +13127,17 @@ msgstr ""
 "source-of-aborted_connects/\">Данная статья</a> поможет вам в отслеживании "
 "источника проблемы."
 
-#: po/advisory_rules.php:695
+#: po/advisory_rules.php:233
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 "%s%% от всех соединений были прерваны. Данное значение должно быть ниже 1%%"
 
-#: po/advisory_rules.php:699
+#: po/advisory_rules.php:235
 msgid "Rate of aborted connections"
 msgstr "Соотношение прерванных соединений"
 
-#: po/advisory_rules.php:710
+#: po/advisory_rules.php:238
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
@@ -13158,15 +13145,15 @@ msgstr ""
 "Соотношение прерванных соединений %s, данное значение должно быть менее 1 в "
 "час"
 
-#: po/advisory_rules.php:714
+#: po/advisory_rules.php:240
 msgid "Percentage of aborted clients"
 msgstr "Процентное соотношение прерванных связей клиентов"
 
-#: po/advisory_rules.php:717 po/advisory_rules.php:732
+#: po/advisory_rules.php:241 po/advisory_rules.php:246
 msgid "Too many clients are aborted."
 msgstr "Слишком большое количество прерванных клиентских связей."
 
-#: po/advisory_rules.php:720 po/advisory_rules.php:735
+#: po/advisory_rules.php:242 po/advisory_rules.php:247
 msgid ""
 "Clients are usually aborted when they did not close their connection to "
 "MySQL properly. This can be due to network issues or code not closing a "
@@ -13177,45 +13164,45 @@ msgstr ""
 "в коде правильного закрытия обработчика базы данных. Проверьте вашу сеть и "
 "программный код."
 
-#: po/advisory_rules.php:725
+#: po/advisory_rules.php:243
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 "%s%% от всех клиентских соединений были прерваны. Данное значение должно "
 "быть ниже 2%%"
 
-#: po/advisory_rules.php:729
+#: po/advisory_rules.php:245
 msgid "Rate of aborted clients"
 msgstr "Соотношение прерванных клиентских соединений"
 
-#: po/advisory_rules.php:740
+#: po/advisory_rules.php:248
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 "Соотношение прерванных клиентских соединений %s, данное значение должно быть "
 "менее 1 в час"
 
-#: po/advisory_rules.php:744
+#: po/advisory_rules.php:250
 msgid "Is InnoDB disabled?"
 msgstr "Отключен InnoDB?"
 
-#: po/advisory_rules.php:747
+#: po/advisory_rules.php:251
 msgid "You do not have InnoDB enabled."
 msgstr "У вас не включен InnoDB."
 
-#: po/advisory_rules.php:750
+#: po/advisory_rules.php:252
 msgid "InnoDB is usually the better choice for table engines."
 msgstr "Обычно тип таблиц InnoDB является наилучшим выбором."
 
-#: po/advisory_rules.php:755
+#: po/advisory_rules.php:253
 msgid "have_innodb is set to 'value'"
 msgstr "have_innodb установлен в 'value'"
 
-#: po/advisory_rules.php:759
+#: po/advisory_rules.php:255
 msgid "InnoDB log size"
 msgstr "Размер журнала InnoDB"
 
-#: po/advisory_rules.php:762
+#: po/advisory_rules.php:256
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
@@ -13223,7 +13210,7 @@ msgstr ""
 "Размер файла журнала InnoDB не соответствует выбранному размеру буферного "
 "пула InnoDB."
 
-#: po/advisory_rules.php:765
+#: po/advisory_rules.php:257
 #, php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
@@ -13247,7 +13234,7 @@ msgstr ""
 "смотрите <a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/"
 "increase-innodblogfilesize-proper-way.html\">данную запись блога</a>"
 
-#: po/advisory_rules.php:770
+#: po/advisory_rules.php:258
 #, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
@@ -13256,15 +13243,15 @@ msgstr ""
 "Размер вашего журнала InnoDB составляет %s%% по отношению к размеру "
 "буферного пула InnoDB, данное соотношение не должно быть ниже 20%%"
 
-#: po/advisory_rules.php:774
+#: po/advisory_rules.php:260
 msgid "Max InnoDB log size"
 msgstr "Максимальный размер журнала InnoDB"
 
-#: po/advisory_rules.php:777
+#: po/advisory_rules.php:261
 msgid "The InnoDB log file size is inadequately large."
 msgstr "Размер файла журнала InnoDB неадекватно велик."
 
-#: po/advisory_rules.php:780
+#: po/advisory_rules.php:262
 #, php-format
 msgid ""
 "It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
@@ -13287,20 +13274,20 @@ msgstr ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">данную запись блога</a>"
 
-#: po/advisory_rules.php:785
+#: po/advisory_rules.php:263
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "Абсолютный размер журнала InnoDB %s MiB"
 
-#: po/advisory_rules.php:789
+#: po/advisory_rules.php:265
 msgid "InnoDB buffer pool size"
 msgstr "Размер буферного пула InnoDB"
 
-#: po/advisory_rules.php:792
+#: po/advisory_rules.php:266
 msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Буферный пул InnoDB имеет маленький размер."
 
-#: po/advisory_rules.php:795
+#: po/advisory_rules.php:267
 #, php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
@@ -13326,7 +13313,7 @@ msgstr ""
 "\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">данную статью</a>"
 
-#: po/advisory_rules.php:800
+#: po/advisory_rules.php:268
 #, php-format
 msgid ""
 "You are currently using %s%% of your memory for the InnoDB buffer pool. This "
@@ -13340,15 +13327,15 @@ msgstr ""
 "большого количества таблиц InnoDB или запущенных других служб на текущей "
 "машине."
 
-#: po/advisory_rules.php:804
+#: po/advisory_rules.php:270
 msgid "MyISAM concurrent inserts"
 msgstr "Одновременные вставки MyISAM"
 
-#: po/advisory_rules.php:807
+#: po/advisory_rules.php:271
 msgid "Enable concurrent_insert by setting it to 1"
 msgstr "Включите concurrent_insert установив значение в 1"
 
-#: po/advisory_rules.php:810
+#: po/advisory_rules.php:272
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
@@ -13358,9 +13345,12 @@ msgstr ""
 "записью определенной таблицы. Смотрите так же <a href=\"http://dev.mysql.com/"
 "doc/refman/5.5/en/concurrent-inserts.html\">Документацию MySQL</a>"
 
-#: po/advisory_rules.php:815
+#: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert установлен в 0"
+
+#~ msgid "Usage"
+#~ msgstr "Использование"
 
 #~ msgid "Use mousewheel to zoom in or out of the plot."
 #~ msgstr "Используйте колесо мышки для увеличения или уменьшения участка."

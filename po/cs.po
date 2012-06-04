@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-05-24 17:02-0400\n"
+"POT-Creation-Date: 2012-06-04 13:42+0200\n"
 "PO-Revision-Date: 2012-05-29 09:55+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
@@ -160,8 +160,8 @@ msgstr "Pole"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1327
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:84
 #: server_privileges.php:2256 tbl_change.php:297 tbl_change.php:324
-#: tbl_printview.php:137 tbl_printview.php:272 tbl_structure.php:203
-#: tbl_structure.php:783 tbl_tracking.php:258 tbl_tracking.php:320
+#: tbl_printview.php:137 tbl_structure.php:203 tbl_tracking.php:258
+#: tbl_tracking.php:320
 msgid "Type"
 msgstr "Typ"
 
@@ -337,7 +337,7 @@ msgstr "Přepnout na zkopírovanou databázi"
 #: libraries/mysql_charsets.lib.php:113 libraries/tbl_properties.inc.php:100
 #: libraries/tbl_properties.inc.php:667 libraries/tbl_select.lib.php:85
 #: server_collations.php:53 server_collations.php:65 tbl_operations.php:382
-#: tbl_structure.php:204 tbl_structure.php:888 tbl_tracking.php:259
+#: tbl_structure.php:204 tbl_structure.php:876 tbl_tracking.php:259
 #: tbl_tracking.php:325
 msgid "Collation"
 msgstr "Porovnávání"
@@ -369,8 +369,8 @@ msgstr "Tabulka"
 #: db_printview.php:102 libraries/build_html_for_db.lib.php:31
 #: libraries/db_structure.lib.php:42 libraries/header_printview.inc.php:65
 #: libraries/import.lib.php:151 navigation.php:591 navigation.php:612
-#: tbl_printview.php:353 tbl_structure.php:383 tbl_structure.php:484
-#: tbl_structure.php:898
+#: tbl_printview.php:345 tbl_structure.php:383 tbl_structure.php:484
+#: tbl_structure.php:886
 msgid "Rows"
 msgstr "Řádků"
 
@@ -384,22 +384,22 @@ msgstr "právě se používá"
 
 #: db_printview.php:184 libraries/db_info.inc.php:74
 #: libraries/export/sql.php:743
-#: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:393
-#: tbl_structure.php:930
+#: libraries/schema/Pdf_Relation_Schema.class.php:1284 tbl_printview.php:385
+#: tbl_structure.php:918
 msgid "Creation"
 msgstr "Vytvořeno"
 
 #: db_printview.php:193 libraries/db_info.inc.php:79
 #: libraries/export/sql.php:748
-#: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:403
-#: tbl_structure.php:938
+#: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:395
+#: tbl_structure.php:926
 msgid "Last update"
 msgstr "Poslední změna"
 
 #: db_printview.php:202 libraries/db_info.inc.php:84
 #: libraries/export/sql.php:753
-#: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:413
-#: tbl_structure.php:946
+#: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:405
+#: tbl_structure.php:934
 msgid "Last check"
 msgstr "Poslední kontrola"
 
@@ -623,8 +623,8 @@ msgstr "Sledování není zapnuté."
 #: db_structure.php:461 libraries/display_tbl.lib.php:2356
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Tento pohled má alespoň tolik řádek. Podrobnosti naleznete v %sdokumentaci%s."
 
@@ -703,7 +703,7 @@ msgstr "Odstranit"
 msgid "Check table"
 msgstr "Zkontrolovat tabulku"
 
-#: db_structure.php:604 tbl_operations.php:669 tbl_structure.php:832
+#: db_structure.php:604 tbl_operations.php:669 tbl_structure.php:826
 msgid "Optimize table"
 msgstr "Optimalizovat tabulku"
 
@@ -963,8 +963,8 @@ msgstr "Z funkcí zvolte „GeomFromText“ a vložte níže uvedený text jako 
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "Pravděpodobně jste se pokusili nahrát příliš velký soubor. Přečtěte si "
 "prosím %sdokumentaci%s, jak toto omezení obejít."
@@ -1184,8 +1184,8 @@ msgstr "Statická data"
 #. l10n: Total number of queries
 #: js/messages.php:72 libraries/build_html_for_db.lib.php:46
 #: libraries/engines/innodb.lib.php:158 server_databases.php:222
-#: server_status.php:1129 server_status.php:1190 tbl_printview.php:310
-#: tbl_structure.php:820
+#: server_status.php:1129 server_status.php:1190 tbl_printview.php:306
+#: tbl_structure.php:814
 msgid "Total"
 msgstr "Celkem"
 
@@ -1535,7 +1535,6 @@ msgid "From general log"
 msgstr "Z obecného záznamu dotazů"
 
 #: js/messages.php:176
-#| msgid "Loading logs"
 msgid "Analysing logs"
 msgstr "Zkoumám záznamy"
 
@@ -1577,7 +1576,6 @@ msgid "Jump to Log table"
 msgstr "Přejít na tabulku se záznamem"
 
 #: js/messages.php:184
-#| msgid "No data"
 msgid "No data found"
 msgstr "Nebyla nalezena žádná data"
 
@@ -1618,12 +1616,10 @@ msgid "Chart"
 msgstr "Graf"
 
 #: js/messages.php:195
-#| msgid "Add chart"
 msgid "Edit chart"
 msgstr "Upravit graf"
 
 #: js/messages.php:196
-#| msgid "Series:"
 msgid "Series"
 msgstr "Série"
 
@@ -1700,12 +1696,10 @@ msgid "Import"
 msgstr "Import"
 
 #: js/messages.php:217
-#| msgid "Could not import configuration"
 msgid "Import monitor configuration"
 msgstr "Nahrát nastavení monitoru"
 
 #: js/messages.php:218
-#| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
 msgstr "Zvolte, prosím, soubor, který chcete nahrát"
 
@@ -2623,8 +2617,8 @@ msgstr "Vítejte v %s"
 #: libraries/auth/config.auth.lib.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Pravděpodobná příčina je, že nemáte vytvořený konfigurační soubor. Pro jeho "
 "vytvoření by se vám mohl hodit %1$snastavovací skript%2$s."
@@ -2783,13 +2777,13 @@ msgstr "Tabulky"
 #: libraries/config/user_preferences.forms.php:262
 #: libraries/config/user_preferences.forms.php:267
 #: libraries/export/latex.php:212 libraries/export/sql.php:1093
-#: server_privileges.php:614 server_replication.php:314 tbl_printview.php:276
-#: tbl_structure.php:789
+#: server_privileges.php:614 server_replication.php:314 tbl_printview.php:272
+#: tbl_structure.php:783
 msgid "Data"
 msgstr "Data"
 
 #: libraries/build_html_for_db.lib.php:51 libraries/db_structure.lib.php:55
-#: tbl_printview.php:295 tbl_structure.php:806
+#: tbl_printview.php:291 tbl_structure.php:800
 msgid "Overhead"
 msgstr "Navíc"
 
@@ -3536,7 +3530,7 @@ msgid "Character set of the file"
 msgstr "Znaková sada souboru"
 
 #: libraries/config/messages.inc.php:74 libraries/config/messages.inc.php:90
-#: tbl_gis_visualization.php:181 tbl_printview.php:335 tbl_structure.php:858
+#: tbl_gis_visualization.php:181 tbl_printview.php:327 tbl_structure.php:846
 msgid "Format"
 msgstr "Formát"
 
@@ -5714,8 +5708,8 @@ msgstr ", @TABLE@ bude nahrazen jménem tabulky"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Tato hodnota je interpretována pomocí %1$sstrftime%2$s, takže můžete použít "
 "libovolné řetězce pro formátování data a času. Dále budou provedena "
@@ -5918,7 +5912,7 @@ msgstr "Seřadit podle klíče"
 #: libraries/import/ldi.php:49 libraries/import/ods.php:39
 #: libraries/import/shp.php:22 libraries/import/sql.php:20
 #: libraries/import/xml.php:32 libraries/rte/rte_routines.lib.php:863
-#: tbl_select.php:175 tbl_structure.php:874
+#: tbl_select.php:175 tbl_structure.php:862
 msgid "Options"
 msgstr "Nastavení"
 
@@ -6446,8 +6440,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "Dokumentace a další informace o PBXT můžete nalézt na %sstránkách PrimeBase "
 "XT%s."
@@ -7312,7 +7306,7 @@ msgstr "Proměnná"
 #: libraries/rte/rte_routines.lib.php:1371 libraries/tbl_select.lib.php:87
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769 server_status.php:1479 tbl_change.php:334
-#: tbl_printview.php:329 tbl_structure.php:850 tbl_zoom_select.php:443
+#: tbl_zoom_select.php:443
 msgid "Value"
 msgstr "Hodnota"
 
@@ -8150,8 +8144,8 @@ msgstr ""
 "například: a"
 
 #: libraries/tbl_properties.inc.php:109 libraries/tbl_properties.inc.php:478
-#: tbl_printview.php:285 tbl_structure.php:153 tbl_structure.php:158
-#: tbl_structure.php:593 tbl_structure.php:797
+#: tbl_printview.php:281 tbl_structure.php:153 tbl_structure.php:158
+#: tbl_structure.php:593 tbl_structure.php:791
 msgid "Index"
 msgstr "Klíč"
 
@@ -8161,8 +8155,8 @@ msgid ""
 "For a list of available transformation options and their MIME type "
 "transformations, click on %stransformation descriptions%s"
 msgstr ""
-"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na %"
-"spopisy transformací%s"
+"Pro seznam dostupných parametrů transformací a jejich MIME typů klikněte na "
+"%spopisy transformací%s"
 
 #: libraries/tbl_properties.inc.php:137
 msgid "Transformation options"
@@ -8245,8 +8239,8 @@ msgid ""
 "No description is available for this transformation.<br />Please ask the "
 "author what %s does."
 msgstr ""
-"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co %"
-"s dělá."
+"Pro tuto transformaci není dostupný žádný popis.<br />Zeptejte se autora co "
+"%s dělá."
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
 msgid ""
@@ -8828,8 +8822,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Více věcí můžete nastavit úpravou config.inc.php, např. použitím %"
-"sNastavovacího skriptu%s."
+"Více věcí můžete nastavit úpravou config.inc.php, např. použitím "
+"%sNastavovacího skriptu%s."
 
 #: prefs_manage.php:300
 msgid "Save to browser's storage"
@@ -9304,8 +9298,8 @@ msgstr "Odstranit databáze se stejnými jmény jako uživatelé."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Poznámka: phpMyAdmin získává oprávnění přímo z tabulek MySQL. Obsah těchto "
 "tabulek se může lišit od oprávnění, která server právě používá, pokud byly "
@@ -9745,7 +9739,7 @@ msgstr ""
 msgid "Questions since startup: %s"
 msgstr "Dotazů od spuštění: %s"
 
-#: server_status.php:976 tbl_printview.php:328 tbl_structure.php:849
+#: server_status.php:976
 msgid "Statements"
 msgstr "Údaj"
 
@@ -11069,8 +11063,8 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Při použití přihlašování přes cookies a při %sUkládádání přihlašovaci cookie%"
-"s vyšší než 0 musí být %sPlatnost přihlašovací cookie%s nastavena na vyšší "
+"Při použití přihlašování přes cookies a při %sUkládádání přihlašovaci cookie"
+"%s vyšší než 0 musí být %sPlatnost přihlašovací cookie%s nastavena na vyšší "
 "hodnotu než je tato."
 
 #: setup/lib/index.lib.php:290
@@ -11081,8 +11075,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Pokud to považujete za nutné, použijte další možnosti zabezpečení - %"
-"somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
+"Pokud to považujete za nutné, použijte další možnosti zabezpečení - "
+"%somezení počítačů%s a %sseznam důvěryhodných proxy%s. Nicméně zabezpečení "
 "založené na IP adresách nemusí být spolehlivé, pokud je vaše IP adresa "
 "dynamicky přidělována poskytovatelem spolu s mnoha dalšími uživateli."
 
@@ -11516,35 +11510,31 @@ msgstr "Zobrazuji tabulky"
 msgid "Space usage"
 msgstr "Využití místa"
 
-#: tbl_printview.php:273 tbl_structure.php:784
-msgid "Usage"
-msgstr "Používá"
-
-#: tbl_printview.php:300 tbl_structure.php:811
+#: tbl_printview.php:296 tbl_structure.php:805
 msgid "Effective"
 msgstr "Efektivní"
 
-#: tbl_printview.php:325 tbl_structure.php:846
+#: tbl_printview.php:321 tbl_structure.php:840
 msgid "Row Statistics"
 msgstr "Statistika řádků"
 
-#: tbl_printview.php:339 tbl_structure.php:861
+#: tbl_printview.php:331 tbl_structure.php:849
 msgid "static"
 msgstr "statický"
 
-#: tbl_printview.php:341 tbl_structure.php:863
+#: tbl_printview.php:333 tbl_structure.php:851
 msgid "dynamic"
 msgstr "dynamický"
 
-#: tbl_printview.php:363 tbl_structure.php:906
+#: tbl_printview.php:355 tbl_structure.php:894
 msgid "Row length"
 msgstr "Délka řádku"
 
-#: tbl_printview.php:373 tbl_structure.php:914
+#: tbl_printview.php:365 tbl_structure.php:902
 msgid "Row size"
 msgstr "Velikost řádku"
 
-#: tbl_printview.php:383 tbl_structure.php:922
+#: tbl_printview.php:375 tbl_structure.php:910
 msgid "Next autoindex"
 msgstr "Další automatický klíč"
 
@@ -11672,7 +11662,7 @@ msgstr "Po %s"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "Vytvořit klíč na &nbsp;%s&nbsp;polích"
 
-#: tbl_structure.php:877
+#: tbl_structure.php:865
 msgid "partitioned"
 msgstr "používá oddíly"
 
@@ -11849,7 +11839,6 @@ msgid "How to use"
 msgstr "Návod k použití"
 
 #: tbl_zoom_select.php:431
-#| msgid "Reset"
 msgid "Reset zoom"
 msgstr "Obnovit zvětšení"
 
@@ -11891,30 +11880,30 @@ msgstr "Jméno pohledu"
 msgid "Rename view to"
 msgstr "Přejmenovat pohled na"
 
-#: po/advisory_rules.php:9
+#: po/advisory_rules.php:5
 msgid "Uptime below one day"
 msgstr "Server běží méně než den"
 
-#: po/advisory_rules.php:12
+#: po/advisory_rules.php:6
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr "Server běží méně než 1 den, rady nemusí být přesné."
 
-#: po/advisory_rules.php:15
+#: po/advisory_rules.php:7
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr "Pro přesnější analýzu je doporučeno nechat server běžet delší dobu"
 
-#: po/advisory_rules.php:20
+#: po/advisory_rules.php:8
 #, php-format
 msgid "The uptime is only %s"
 msgstr "Server běží jen %s"
 
-#: po/advisory_rules.php:24
+#: po/advisory_rules.php:10
 msgid "Questions below 1,000"
 msgstr "Méně než 1000 dotazů"
 
-#: po/advisory_rules.php:27
+#: po/advisory_rules.php:11
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
@@ -11922,28 +11911,28 @@ msgstr ""
 "Server provedl méně než 1000 dotazů, některá doporučení proto nemusí být "
 "přesná."
 
-#: po/advisory_rules.php:30
+#: po/advisory_rules.php:12
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr "Nechte server běžet delší dobu dokud nespustí větší množství dotazů."
 
-#: po/advisory_rules.php:35
+#: po/advisory_rules.php:13
 #, php-format
 msgid "Current amount of Questions: %s"
 msgstr "Aktuální počet dotazů: %s"
 
-#: po/advisory_rules.php:39
+#: po/advisory_rules.php:15
 msgid "Percentage of slow queries"
 msgstr "Procento pomalých dotazů"
 
-#: po/advisory_rules.php:42
+#: po/advisory_rules.php:16
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr ""
 "Server provedl hodně pomalých dotazů v porovnání s celkovým počtem dotazů."
 
-#: po/advisory_rules.php:45 po/advisory_rules.php:60
+#: po/advisory_rules.php:17 po/advisory_rules.php:22
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
@@ -11951,35 +11940,35 @@ msgstr ""
 "Můžete chtít zvýšit {long_query_time} nebo optimalizovat dotazy které jsou "
 "zapsány v záznamu pomalých dotazů"
 
-#: po/advisory_rules.php:50
+#: po/advisory_rules.php:18
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 "Četnost pomalých dotazů by měla být pod 5%%, ale na tomto serveru je %s%%."
 
-#: po/advisory_rules.php:54
+#: po/advisory_rules.php:20
 msgid "Slow query rate"
 msgstr "Četnost pomalých dotazů"
 
-#: po/advisory_rules.php:57
+#: po/advisory_rules.php:21
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr "Server provádí mnoho pomalých dotazů v porovnání s dobou běhu."
 
-#: po/advisory_rules.php:65
+#: po/advisory_rules.php:23
 #, php-format
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
-"Četnost pomalých dotazů na tomto serveru je %s za hodinu, měla by být pod 1%"
-"%."
+"Četnost pomalých dotazů na tomto serveru je %s za hodinu, měla by být pod "
+"1%%."
 
-#: po/advisory_rules.php:69
+#: po/advisory_rules.php:25
 msgid "Long query time"
 msgstr "Doba pomalých dotazů"
 
-#: po/advisory_rules.php:72
+#: po/advisory_rules.php:26
 msgid ""
 "long_query_time is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
@@ -11987,7 +11976,7 @@ msgstr ""
 "long_query_time je nastaven na 10 sekund nebo víc, takže budou zaznamenány "
 "dotazy trvající přes 10 sekund."
 
-#: po/advisory_rules.php:75
+#: po/advisory_rules.php:27
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
@@ -11995,20 +11984,20 @@ msgstr ""
 "Je doporučováno nastavit {long_query_time} na nižší hodnotu. Obvykle je "
 "vhodné 1-5 sekund, ale záleží to na vašem prostředí."
 
-#: po/advisory_rules.php:80
+#: po/advisory_rules.php:28
 #, php-format
 msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time je nastaven na %d sekund."
 
-#: po/advisory_rules.php:84
+#: po/advisory_rules.php:30
 msgid "Slow query logging"
 msgstr "Zaznamenávání pomalých dotazů"
 
-#: po/advisory_rules.php:87
+#: po/advisory_rules.php:31
 msgid "The slow query log is disabled."
 msgstr "Zaznamenávání pomalých dotazů je vypnuto."
 
-#: po/advisory_rules.php:90
+#: po/advisory_rules.php:32
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
@@ -12016,39 +12005,38 @@ msgstr ""
 "Povolte záznam pomalých dotazů nastavením {log_slow_queries} na 'ON'. To vám "
 "pomůže prozkoumat tyto zatěžující dotazy."
 
-#: po/advisory_rules.php:95
+#: po/advisory_rules.php:33
 msgid "log_slow_queries is set to 'OFF'"
 msgstr "log_slow_queries je vypnuto"
 
-#: po/advisory_rules.php:99
+#: po/advisory_rules.php:35
 msgid "Release Series"
 msgstr "Vydání"
 
-#: po/advisory_rules.php:102
+#: po/advisory_rules.php:36
 msgid "The MySQL server version less than 5.1."
 msgstr "MySQL server je starší než 5.1."
 
-#: po/advisory_rules.php:105
+#: po/advisory_rules.php:37
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr "Měli byste aktualizovat, MySQL 5.1 i MySQL 5.5 poskytují větší výkon."
 
-#: po/advisory_rules.php:110 po/advisory_rules.php:125
-#: po/advisory_rules.php:140
+#: po/advisory_rules.php:38 po/advisory_rules.php:43 po/advisory_rules.php:48
 #, php-format
 msgid "Current version: %s"
 msgstr "Aktuální verze: %s"
 
-#: po/advisory_rules.php:114 po/advisory_rules.php:129
+#: po/advisory_rules.php:40 po/advisory_rules.php:45
 msgid "Minor Version"
 msgstr "Verze"
 
-#: po/advisory_rules.php:117
+#: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
 msgstr "Verze starší než 5.1.30 (první GA vydání 5.1)."
 
-#: po/advisory_rules.php:120
+#: po/advisory_rules.php:42
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
@@ -12056,26 +12044,25 @@ msgstr ""
 "Měli byste aktualizovat, novější verze MySQL 5.1 zlepšují výkon a MySQL 5.5 "
 "ještě více."
 
-#: po/advisory_rules.php:132
+#: po/advisory_rules.php:46
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr "Verze starší než 5.5.8 (první GA vydání 5.5)."
 
-#: po/advisory_rules.php:135
+#: po/advisory_rules.php:47
 msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgstr "Měli byste aktualizovat na stabilní verzi MySQL 5.5"
 
-#: po/advisory_rules.php:144 po/advisory_rules.php:159
-#: po/advisory_rules.php:174
+#: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
 msgid "Distribution"
 msgstr "Distribuce"
 
-#: po/advisory_rules.php:147
+#: po/advisory_rules.php:51
 msgid "Version is compiled from source, not a MySQL official binary."
 msgstr ""
 "Verze je zkompilovaná ze zdrojových kódu a nejedná se o oficiální binárku "
 "MySQL."
 
-#: po/advisory_rules.php:150
+#: po/advisory_rules.php:52
 msgid ""
 "If you did not compile from source, you may be using a package modified by a "
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
@@ -12086,40 +12073,40 @@ msgstr ""
 "binárky MySQL a to se může lišit od těch dodávaných distribucí (jako RedHat, "
 "Debian/Ubuntu atd)."
 
-#: po/advisory_rules.php:155
+#: po/advisory_rules.php:53
 msgid "'source' found in version_comment"
 msgstr "V komentáři k verzi bylo nalezeno 'source'"
 
-#: po/advisory_rules.php:162 po/advisory_rules.php:177
+#: po/advisory_rules.php:56 po/advisory_rules.php:61
 msgid "The MySQL manual only is accurate for official MySQL binaries."
 msgstr "Dokumentace MySQL je přesná jen pro oficiální sestavení MySQL."
 
-#: po/advisory_rules.php:165
+#: po/advisory_rules.php:57
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
 msgstr "Dokumentaci Percony naleznete na http://www.percona.com/docs/wiki/"
 
-#: po/advisory_rules.php:170
+#: po/advisory_rules.php:58
 msgid "'percona' found in version_comment"
 msgstr "V komentáři k verzi bylo nalezeno 'percona'"
 
-#: po/advisory_rules.php:180
+#: po/advisory_rules.php:62
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
 msgstr "Dokumentaci k Drizzle naleznete na http://docs.drizzle.org/"
 
-#: po/advisory_rules.php:185
+#: po/advisory_rules.php:63
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr "Text verze (%s) odpovídá schématu verzí Drizzle"
 
-#: po/advisory_rules.php:189
+#: po/advisory_rules.php:65
 msgid "MySQL Architecture"
 msgstr "Architektura MySQL"
 
-#: po/advisory_rules.php:192
+#: po/advisory_rules.php:66
 msgid "MySQL is not compiled as a 64-bit package."
 msgstr "MySQL není kompilováno jako 64-bitový program."
 
-#: po/advisory_rules.php:195
+#: po/advisory_rules.php:67
 msgid ""
 "Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
 "so MySQL might not be able to access all of your memory. You might want to "
@@ -12129,20 +12116,20 @@ msgstr ""
 "počítači), takže MySQL není schopné využít veškerou dostupnou paměť. "
 "Přechodem na 64-bitovou verzi MySQL toto omezení odstraníte."
 
-#: po/advisory_rules.php:200
+#: po/advisory_rules.php:68
 #, php-format
 msgid "Available memory on this host: %s"
 msgstr "Dostupná paměť na tomto počítači: %s"
 
-#: po/advisory_rules.php:204
+#: po/advisory_rules.php:70
 msgid "Query cache disabled"
 msgstr "Vyrovnávací paměť dotazů je vypnutá"
 
-#: po/advisory_rules.php:207
+#: po/advisory_rules.php:71
 msgid "The query cache is not enabled."
 msgstr "Vyrovnávací paměť není povolena."
 
-#: po/advisory_rules.php:210
+#: po/advisory_rules.php:72
 msgid ""
 "The query cache is known to greatly improve performance if configured "
 "correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value "
@@ -12154,21 +12141,21 @@ msgstr ""
 "hodnotu v MiB a nastavením {query_cache_type} na 'ON'. <b>Poznámka:</b> Toto "
 "doporučení můžete ignorovat pokud používáte memcached."
 
-#: po/advisory_rules.php:215
+#: po/advisory_rules.php:73
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 "query_cache_size je nastaveno na 0 nebo query_cache_type je nastaveno na "
 "'OFF'"
 
-#: po/advisory_rules.php:219
+#: po/advisory_rules.php:75
 msgid "Query caching method"
 msgstr "Metoda používaná vyrovnávací pamětí dotazů"
 
-#: po/advisory_rules.php:222
+#: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
 msgstr "Neoptimální metoda vyrovnávací paměti."
 
-#: po/advisory_rules.php:225
+#: po/advisory_rules.php:77
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
 "might be worth considering to use <a href=\"http://dev.mysql.com/doc/"
@@ -12179,7 +12166,7 @@ msgstr ""
 "by být výhodnější použít <a href=\"http://dev.mysql.com/doc/refman/5.5/en/ha-"
 "memcached.html\">memcached</a>, obzvlášť pokud máte více podřízených serverů."
 
-#: po/advisory_rules.php:230
+#: po/advisory_rules.php:78
 #, php-format
 msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
@@ -12188,34 +12175,34 @@ msgstr ""
 "Je zapnuta vyrovnávací paměť dotazů a server přijal %d dotazů za sekundu. "
 "Toto pravidlo je aktivní při více než 100 dotazech za sekundu."
 
-#: po/advisory_rules.php:234
+#: po/advisory_rules.php:80
 #, php-format
 msgid "Query cache efficiency (%%)"
 msgstr "Úspěšnost vyrovnávací paměti dotazů (%%)"
 
-#: po/advisory_rules.php:237
+#: po/advisory_rules.php:81
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr "Vyrovnávací paměť dotazů není efektivní, má velmi malou úspěšnost."
 
-#: po/advisory_rules.php:240
+#: po/advisory_rules.php:82
 msgid "Consider increasing {query_cache_limit}."
 msgstr "Zvažte zvýšení {query_cache_limit}."
 
-#: po/advisory_rules.php:245
+#: po/advisory_rules.php:83
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr "Současná úpěšnost vyrovnávací paměti %s%% je pod 20%%"
 
-#: po/advisory_rules.php:249
+#: po/advisory_rules.php:85
 msgid "Query Cache usage"
 msgstr "Využití vyrovnávací paměť dotazů"
 
-#: po/advisory_rules.php:252
+#: po/advisory_rules.php:86
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
 msgstr "Je využíváno méně než 80%% vyrovnávací paměti."
 
-#: po/advisory_rules.php:255
+#: po/advisory_rules.php:87
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
@@ -12223,24 +12210,24 @@ msgstr ""
 "Toto může být způsobeno příliš nízkou hodnotou {query_cache_limit}. Taktéž "
 "může pomoci vyprázdnění vyrovnávací paměti."
 
-#: po/advisory_rules.php:260
+#: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "V současné době je volno %s%% vyrovnávací paměti. Tato hodnota by se měla "
 "držet nad 80%%"
 
-#: po/advisory_rules.php:264
+#: po/advisory_rules.php:90
 msgid "Query cache fragmentation"
 msgstr "Rozdrobení vyrovnávací paměti dotazů"
 
-#: po/advisory_rules.php:267
+#: po/advisory_rules.php:91
 msgid "The query cache is considerably fragmented."
 msgstr "Vyrovnávací paměť dotazů je značně rozdrobena."
 
-#: po/advisory_rules.php:270
+#: po/advisory_rules.php:92
 msgid ""
 "Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
 "This might be caused by many Query cache low memory prunes due to "
@@ -12260,7 +12247,7 @@ msgstr ""
 "velikost vašich dotazů pomocí tohoto vzorce: (query_cache_size - "
 "qcache_free_memory) / qcache_queries_in_cache"
 
-#: po/advisory_rules.php:275
+#: po/advisory_rules.php:93
 #, php-format
 msgid ""
 "The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
@@ -12271,11 +12258,11 @@ msgstr ""
 "vyrovnávací paměti se střídají obsazené a prázdné bloky. Tato hodnota by se "
 "měla držet pod 20%%."
 
-#: po/advisory_rules.php:279
+#: po/advisory_rules.php:95
 msgid "Query cache low memory prunes"
 msgstr "Ořezávání vyrovnávací paměti dotazů"
 
-#: po/advisory_rules.php:282
+#: po/advisory_rules.php:96
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
@@ -12283,7 +12270,7 @@ msgstr ""
 "Z vyrovnávací paměti dotazů jsou odstraňovány dotazy kvůli její malé "
 "velikosti."
 
-#: po/advisory_rules.php:285
+#: po/advisory_rules.php:97
 msgid ""
 "You might want to increase {query_cache_size}, however keep in mind that the "
 "overhead of maintaining the cache is likely to increase with its size, so do "
@@ -12293,7 +12280,7 @@ msgstr ""
 "vyrovnávací pamětí roste i její režie, a proto je lepší zvětšovat ji "
 "postupně a sledovat chování serveru."
 
-#: po/advisory_rules.php:290
+#: po/advisory_rules.php:98
 #, php-format
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
@@ -12302,11 +12289,11 @@ msgstr ""
 "Procento odstraněných dotazů je %s%%. Čím je tato hodnota menší, tím lépe. "
 "(Pravidlo je aktivní od 0.1%%)"
 
-#: po/advisory_rules.php:294
+#: po/advisory_rules.php:100
 msgid "Query cache max size"
 msgstr "Maximální velikost vyrovnávací paměti dotazů"
 
-#: po/advisory_rules.php:297
+#: po/advisory_rules.php:101
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
@@ -12314,29 +12301,29 @@ msgstr ""
 "Vyrovnávací paměť dotazů je nastavena na více než 128 MiB. Příliš velká "
 "vyrovnávací paměť může zvýšit náročnost její údržby."
 
-#: po/advisory_rules.php:300
+#: po/advisory_rules.php:102
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
 msgstr "Zmenšení vyrovnávací paměti může přinést zvýšení výkonu."
 
-#: po/advisory_rules.php:305
+#: po/advisory_rules.php:103
 #, php-format
 msgid "Current query cache size: %s"
 msgstr "Velikost vyrovnávací paměti dotazů: %s"
 
-#: po/advisory_rules.php:309
+#: po/advisory_rules.php:105
 msgid "Query cache min result size"
 msgstr "Minimální velikost výsledku dotazu pro uložení do vyrovnávací paměti"
 
-#: po/advisory_rules.php:312
+#: po/advisory_rules.php:106
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
 "Maximální velikost výsledku uloženého do vyrovnávací paměti je výchozích 1 "
 "MiB."
 
-#: po/advisory_rules.php:315
+#: po/advisory_rules.php:107
 msgid ""
 "Changing {query_cache_limit} (usually by increasing) may increase "
 "efficiency. This variable determines the maximum size a query result may "
@@ -12356,19 +12343,19 @@ msgstr ""
 "tabulka příliš často mění), zvýšením {query_cache_limit} pravděpodobně "
 "úspěšnost snížíte."
 
-#: po/advisory_rules.php:320
+#: po/advisory_rules.php:108
 msgid "query_cache_limit is set to 1 MiB"
 msgstr "query_cache_limit je nastaveno na 1 MiB"
 
-#: po/advisory_rules.php:324
+#: po/advisory_rules.php:110
 msgid "Percentage of sorts that cause temporary tables"
 msgstr "Procento řazení, které vynutilo použití dočasných tabulek"
 
-#: po/advisory_rules.php:327 po/advisory_rules.php:342
+#: po/advisory_rules.php:111 po/advisory_rules.php:116
 msgid "Too many sorts are causing temporary tables."
 msgstr "Příliš mnoho řazení využívá dočasných tabulek."
 
-#: po/advisory_rules.php:330 po/advisory_rules.php:345
+#: po/advisory_rules.php:112 po/advisory_rules.php:117
 msgid ""
 "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending "
 "on your system memory limits"
@@ -12376,20 +12363,20 @@ msgstr ""
 "V závislosti na vaší paměti zvažte zvětšení sort_buffer_size nebo "
 "read_rnd_buffer_size,"
 
-#: po/advisory_rules.php:335
+#: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
-"%s%% všech řazení využilo dočasných tabulek, tato hodnota by měla být pod 10%"
-"%."
+"%s%% všech řazení využilo dočasných tabulek, tato hodnota by měla být pod "
+"10%%."
 
-#: po/advisory_rules.php:339
+#: po/advisory_rules.php:115
 msgid "Rate of sorts that cause temporary tables"
 msgstr "Četnost řazení které vynutily dočasné tabulky"
 
-#: po/advisory_rules.php:350
+#: po/advisory_rules.php:118
 #, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
@@ -12397,15 +12384,15 @@ msgstr ""
 "Průměrně použito dočasných tabulek: %s. Tato hodnota by měla být nižší než 1 "
 "za hodinu."
 
-#: po/advisory_rules.php:354
+#: po/advisory_rules.php:120
 msgid "Sort rows"
 msgstr "Řazení řádek"
 
-#: po/advisory_rules.php:357
+#: po/advisory_rules.php:121
 msgid "There are lots of rows being sorted."
 msgstr "Muselo být řazeno příliš mnoho řádek."
 
-#: po/advisory_rules.php:360
+#: po/advisory_rules.php:122
 msgid ""
 "While there is nothing wrong with a high amount of row sorting, you might "
 "want to make sure that the queries which require a lot of sorting use "
@@ -12416,20 +12403,20 @@ msgstr ""
 "využívají řazení používají klíče ve frázi ORDER BY, protože toto zajistí "
 "rychlejší řazení"
 
-#: po/advisory_rules.php:365
+#: po/advisory_rules.php:123
 #, php-format
 msgid "Sorted rows average: %s"
 msgstr "Průměrně seřazeno řádků: %s"
 
-#: po/advisory_rules.php:369
+#: po/advisory_rules.php:125
 msgid "Rate of joins without indexes"
 msgstr "Četnost spojení bez klíčů"
 
-#: po/advisory_rules.php:372
+#: po/advisory_rules.php:126
 msgid "There are too many joins without indexes."
 msgstr "Probíhá příliš mnoho spojení tabulek bez využití klíčů."
 
-#: po/advisory_rules.php:375
+#: po/advisory_rules.php:127
 msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
@@ -12437,21 +12424,21 @@ msgstr ""
 "To znamená, že spojení tabulek musí často procházet celou tabulku. Přidáním "
 "klíčů na sloupce použité při slučování můžete tuto operaci značně urychlit"
 
-#: po/advisory_rules.php:380
+#: po/advisory_rules.php:128
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
 "Průměrně sloučeno tabulek: %s, tato hodnota by měla být menší než 1 za hodinu"
 
-#: po/advisory_rules.php:384
+#: po/advisory_rules.php:130
 msgid "Rate of reading first index entry"
 msgstr "Četnost čtení prvního záznamu klíče"
 
-#: po/advisory_rules.php:387
+#: po/advisory_rules.php:131
 msgid "The rate of reading the first index entry is high."
 msgstr "Ke čtení prvního záznamu klíče dochází příliš často."
 
-#: po/advisory_rules.php:390
+#: po/advisory_rules.php:132
 msgid ""
 "This usually indicates frequent full index scans. Full index scans are "
 "faster than table scans but require lots of CPU cycles in big tables, if "
@@ -12466,21 +12453,21 @@ msgstr ""
 "UPDATE nebo DELETE, spuštěním „OPTIMIZE TABLE“ můžete situaci vylepšit. "
 "Kromě toho je možné se procházení klíčů vyhnout jen přepsáním dotazů."
 
-#: po/advisory_rules.php:395
+#: po/advisory_rules.php:133
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
 "Průměrně procházeno klíčů: %s, tato hodnota by měla být menší než 1 za hodinu"
 
-#: po/advisory_rules.php:399
+#: po/advisory_rules.php:135
 msgid "Rate of reading fixed position"
 msgstr "Četnost čtení na pevné pozici"
 
-#: po/advisory_rules.php:402
+#: po/advisory_rules.php:136
 msgid "The rate of reading data from a fixed position is high."
 msgstr "Ke čtení dat z pevné pozice dochází příliš často."
 
-#: po/advisory_rules.php:405
+#: po/advisory_rules.php:137
 msgid ""
 "This indicates that many queries need to sort results and/or do a full table "
 "scan, including join queries that do not use indexes. Add indexes where "
@@ -12490,7 +12477,7 @@ msgstr ""
 "řadit výsledky nebo procházet celou tabulku. Přidáním vhodných klíčů můžete "
 "tyto čtení omezit."
 
-#: po/advisory_rules.php:410
+#: po/advisory_rules.php:138
 #, php-format
 msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
@@ -12499,15 +12486,15 @@ msgstr ""
 "Četnost čtení na pevné pozici: %s, tato hodnota by měla být menší než 1 za "
 "hodinu"
 
-#: po/advisory_rules.php:414
+#: po/advisory_rules.php:140
 msgid "Rate of reading next table row"
 msgstr "Četnost čtení dalšího řádku tabulky"
 
-#: po/advisory_rules.php:417
+#: po/advisory_rules.php:141
 msgid "The rate of reading the next table row is high."
 msgstr "Ke čtení dalšího řádku tabulky dochází příliš často."
 
-#: po/advisory_rules.php:420
+#: po/advisory_rules.php:142
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
@@ -12515,7 +12502,7 @@ msgstr ""
 "Příliš mnoho dotazů musí procházet celé tabulky. Tomuto můžete předejít "
 "přidáním klíčů."
 
-#: po/advisory_rules.php:425
+#: po/advisory_rules.php:143
 #, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
@@ -12523,15 +12510,15 @@ msgstr ""
 "Četnost čtení dalšího řádku tabulky: %s, tato hodnota by měla být menší než "
 "1 za hodinu"
 
-#: po/advisory_rules.php:429
+#: po/advisory_rules.php:145
 msgid "tmp_table_size vs. max_heap_table_size"
 msgstr "tmp_table_size a max_heap_table_size"
 
-#: po/advisory_rules.php:432
+#: po/advisory_rules.php:146
 msgid "tmp_table_size and max_heap_table_size are not the same."
 msgstr "tmp_table_size a max_heap_table_size nejsou stejné."
 
-#: po/advisory_rules.php:435
+#: po/advisory_rules.php:147
 msgid ""
 "If you have deliberately changed one of either: The server uses the lower "
 "value of either to determine the maximum size of in-memory tables. So if you "
@@ -12542,16 +12529,16 @@ msgstr ""
 "velikost tabulek v paměti podle nižší hodnoty z těchto proměnných. Pokud "
 "chcete tuto velikost zvýšit, musíte zvýšit obě dvě."
 
-#: po/advisory_rules.php:440
+#: po/advisory_rules.php:148
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr "Současné hodnoty jous tmp_table_size: %s, max_heap_table_size: %s"
 
-#: po/advisory_rules.php:444
+#: po/advisory_rules.php:150
 msgid "Percentage of temp tables on disk"
 msgstr "Procento dočasných souborů na disku"
 
-#: po/advisory_rules.php:447 po/advisory_rules.php:462
+#: po/advisory_rules.php:151 po/advisory_rules.php:156
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
@@ -12559,7 +12546,7 @@ msgstr ""
 "Příliš mnoho dočasných tabulek je ukládáno na disk, místo toho aby byly v "
 "paměti."
 
-#: po/advisory_rules.php:450
+#: po/advisory_rules.php:152
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -12576,7 +12563,7 @@ msgstr ""
 "je tato problematika popsána na začátku <a href=\"http://www.facebook.com/"
 "note.php?note_id=10150111255065841&comments\">článku od Pythian Group</a>"
 
-#: po/advisory_rules.php:455
+#: po/advisory_rules.php:153
 #, php-format
 msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
@@ -12585,11 +12572,11 @@ msgstr ""
 "%s%% všech dočasných tabulek je zapisováno na disk, tato hodnota by měla být "
 "pod 25%%"
 
-#: po/advisory_rules.php:459
+#: po/advisory_rules.php:155
 msgid "Temp disk rate"
 msgstr "Četnost dočasného ukládání na disk"
 
-#: po/advisory_rules.php:465
+#: po/advisory_rules.php:157
 msgid ""
 "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
 "some temporary tables are always being written to disk, independent of the "
@@ -12606,7 +12593,7 @@ msgstr ""
 "můžete dozvědět v <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\">dokumentaci MySQL</a>"
 
-#: po/advisory_rules.php:470
+#: po/advisory_rules.php:158
 #, php-format
 msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
@@ -12615,16 +12602,16 @@ msgstr ""
 "Četnost dočasného ukládání na disk: %s, tato hodnota by měla být menší než 1 "
 "za hodinu"
 
-#: po/advisory_rules.php:474
+#: po/advisory_rules.php:160
 msgid "MyISAM key buffer size"
 msgstr "Velikost vyrovnávací paměti klíčů MyISAM"
 
-#: po/advisory_rules.php:477
+#: po/advisory_rules.php:161
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
 "Vyrovnávací paměť klíčů není nastavena. Žádné klíče MyISAM nebudou cachovány."
 
-#: po/advisory_rules.php:480
+#: po/advisory_rules.php:162
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
@@ -12632,21 +12619,21 @@ msgstr ""
 "Nastavte {key_buffer_size} podle velikosti vašich klíčů v MyISAM tabulkách. "
 "Pro začátek může být třeba 64M dobrá hodnota."
 
-#: po/advisory_rules.php:485
+#: po/advisory_rules.php:163
 msgid "key_buffer_size is 0"
 msgstr "key_buffer_size je 0"
 
-#: po/advisory_rules.php:489
+#: po/advisory_rules.php:165
 #, php-format
 msgid "Max %% MyISAM key buffer ever used"
 msgstr "Nejvyšší využití (%%) vyrovnávací paměti MyISAM pro klíče"
 
-#: po/advisory_rules.php:492 po/advisory_rules.php:507
+#: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, php-format
 msgid "MyISAM key buffer (index cache) %% used is low."
 msgstr "Využití vyrovnávací paměti klíčů MyISAM je příliš nízké %%."
 
-#: po/advisory_rules.php:495 po/advisory_rules.php:510
+#: po/advisory_rules.php:167 po/advisory_rules.php:172
 msgid ""
 "You may need to decrease the size of {key_buffer_size}, re-examine your "
 "tables to see if indexes have been removed, or examine queries and "
@@ -12656,7 +12643,7 @@ msgstr ""
 "nebyly odstraněny nějaké klíče, případně prozkoumat jestli dotazy klíče "
 "správně využívají."
 
-#: po/advisory_rules.php:500
+#: po/advisory_rules.php:168
 #, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
@@ -12664,46 +12651,46 @@ msgstr ""
 "Nejvyšší využití (%%) vyrovnávací paměti MyISAM pro klíče je %s%%, tato "
 "hodnota by měla být nad 95%%"
 
-#: po/advisory_rules.php:504
+#: po/advisory_rules.php:170
 msgid "Percentage of MyISAM key buffer used"
 msgstr "Procento využití vyrovnávací paměti MyISAM pro klíče"
 
-#: po/advisory_rules.php:515
+#: po/advisory_rules.php:173
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
 "Využití vyrovnávací paměti klíčů MyISAM: %s%%, tato hodnota by měla být nad "
 "95%%"
 
-#: po/advisory_rules.php:519
+#: po/advisory_rules.php:175
 msgid "Percentage of index reads from memory"
 msgstr "Procento čtení klíčů z paměti"
 
-#: po/advisory_rules.php:522
+#: po/advisory_rules.php:176
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgstr ""
 "Procento klíčů, které používají vyrovnávací paměť klíčů MyISAM, je příliš "
 "nízké."
 
-#: po/advisory_rules.php:525
+#: po/advisory_rules.php:177
 msgid "You may need to increase {key_buffer_size}."
 msgstr "Mohlo by být potřeba zvýšit {key_buffer_size}."
 
-#: po/advisory_rules.php:530
+#: po/advisory_rules.php:178
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr "Čtení klíčů z paměti: %s%%, tato hodnota by měla být pod 95%%"
 
-#: po/advisory_rules.php:534
+#: po/advisory_rules.php:180
 msgid "Rate of table open"
 msgstr "Četnost otevírání tabulek"
 
-#: po/advisory_rules.php:537
+#: po/advisory_rules.php:181
 msgid "The rate of opening tables is high."
 msgstr "Tabulky jsou otevírány příliš často."
 
-#: po/advisory_rules.php:540
+#: po/advisory_rules.php:182
 msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
@@ -12711,18 +12698,18 @@ msgstr ""
 "Otevírání tabulek vede k přístupům na disk, které jsou obvykle pomalé. "
 "Zvýšením {table_open_cache} můžete toto omezit."
 
-#: po/advisory_rules.php:545
+#: po/advisory_rules.php:183
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 "Četnost otevírání tabulek: %s, tato hodnota by měla být menší než 10 za "
 "hodinu"
 
-#: po/advisory_rules.php:549
+#: po/advisory_rules.php:185
 msgid "Percentage of used open files limit"
 msgstr "Využití limitu na otevřené soubory v procentech"
 
-#: po/advisory_rules.php:552
+#: po/advisory_rules.php:186
 msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
@@ -12730,7 +12717,7 @@ msgstr ""
 "Počet otevřených souborů se blíží maximu možného. V případě jeho dosažení "
 "dostanete chybu „Příliš mnoho otevřených souborů“."
 
-#: po/advisory_rules.php:555 po/advisory_rules.php:570
+#: po/advisory_rules.php:187 po/advisory_rules.php:192
 msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing open_files_limit."
@@ -12738,7 +12725,7 @@ msgstr ""
 "Zvažte zvýšení {open_files_limit}, restartujte a poté zkontrolujte chybové "
 "záznamy."
 
-#: po/advisory_rules.php:560
+#: po/advisory_rules.php:188
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
@@ -12746,54 +12733,54 @@ msgstr ""
 "Počet otevřených souborů je na %s%% maximálně povolených. Mělo by to být pod "
 "85%%"
 
-#: po/advisory_rules.php:564
+#: po/advisory_rules.php:190
 msgid "Rate of open files"
 msgstr "Četnost otevírání souborů"
 
-#: po/advisory_rules.php:567
+#: po/advisory_rules.php:191
 msgid "The rate of opening files is high."
 msgstr "Četnost otevírání souborů je příliš velká."
 
-#: po/advisory_rules.php:575
+#: po/advisory_rules.php:193
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
 "Četnost otevírání souborů: %s, tato hodnota by měla být menší než 5 za hodinu"
 
-#: po/advisory_rules.php:579
+#: po/advisory_rules.php:195
 #, php-format
 msgid "Immediate table locks %%"
 msgstr "Procento okamžitého získání zámku tabulky"
 
-#: po/advisory_rules.php:582 po/advisory_rules.php:597
+#: po/advisory_rules.php:196 po/advisory_rules.php:201
 msgid "Too many table locks were not granted immediately."
 msgstr "Příliš mnoho zamykání tabulek čekalo na přidělení zámku."
 
-#: po/advisory_rules.php:585 po/advisory_rules.php:600
+#: po/advisory_rules.php:197 po/advisory_rules.php:202
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr "Pro omezení čekání na zámky optimalizujte dotazy nebo použijte InnoDB."
 
-#: po/advisory_rules.php:590
+#: po/advisory_rules.php:198
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr "Okamžitých zamčení tabulky: %s%%, tato hodnota by měla být nad 95%%"
 
-#: po/advisory_rules.php:594
+#: po/advisory_rules.php:200
 msgid "Table lock wait rate"
 msgstr "Četnost čekání na zámek tabulky"
 
-#: po/advisory_rules.php:605
+#: po/advisory_rules.php:203
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
 "Četnost čekání na zámek tabulky: %s, tato hodnota by měla být menší než 1 za "
 "hodinu"
 
-#: po/advisory_rules.php:609
+#: po/advisory_rules.php:205
 msgid "Thread cache"
 msgstr "Vyrovnávací paměť vláken"
 
-#: po/advisory_rules.php:612
+#: po/advisory_rules.php:206
 msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
@@ -12801,42 +12788,42 @@ msgstr ""
 "Vyrovnávací paměť vláken je vypnutá, což způsobuje větší zátěž při nových "
 "připojení k MySQL."
 
-#: po/advisory_rules.php:615
+#: po/advisory_rules.php:207
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr "Povolte vyrovnávací paměť vláken nastavením {thread_cache_size} > 0."
 
-#: po/advisory_rules.php:620
+#: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
 msgstr "Velikost vyrovnávací paměti vláken je nastavena na 0"
 
-#: po/advisory_rules.php:624
+#: po/advisory_rules.php:210
 #, php-format
 msgid "Thread cache hit rate %%"
 msgstr "Úspěšnost vyrovnávací paměti vláken %%"
 
-#: po/advisory_rules.php:627
+#: po/advisory_rules.php:211
 msgid "Thread cache is not efficient."
 msgstr "Vyrovnávací paměť vláken není efektivní."
 
-#: po/advisory_rules.php:630
+#: po/advisory_rules.php:212
 msgid "Increase {thread_cache_size}."
 msgstr "Zvyšte {thread_cache_size}."
 
-#: po/advisory_rules.php:635
+#: po/advisory_rules.php:213
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
 "Úspěšnost vyrovnávací paměti vláken: %s%%, tato hodnota by měla být nad 80%%"
 
-#: po/advisory_rules.php:639
+#: po/advisory_rules.php:215
 msgid "Threads that are slow to launch"
 msgstr "Vlákna se spouštějí příliš dlouho"
 
-#: po/advisory_rules.php:642
+#: po/advisory_rules.php:216
 msgid "There are too many threads that are slow to launch."
 msgstr "Je příliš mnoho vláken, která se spouštějí dlouho."
 
-#: po/advisory_rules.php:645
+#: po/advisory_rules.php:217
 msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
@@ -12844,20 +12831,20 @@ msgstr ""
 "K tomuto obvykle dochází v případě přetížení systému, protože se jedná o "
 "velmi jednoduchou operaci. Je vhodné podrobně sledovat zatížení systému."
 
-#: po/advisory_rules.php:650
+#: po/advisory_rules.php:218
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr "%s vláknům trvalo spuštění déle než %s sekund, mělo by to trvat 0"
 
-#: po/advisory_rules.php:654
+#: po/advisory_rules.php:220
 msgid "Slow launch time"
 msgstr "Dlouhá doba spuštění"
 
-#: po/advisory_rules.php:657
+#: po/advisory_rules.php:221
 msgid "Slow_launch_threads is above 2s"
 msgstr "Slow_launch_threads je nad 2s"
 
-#: po/advisory_rules.php:660
+#: po/advisory_rules.php:222
 msgid ""
 "Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
 "launch"
@@ -12865,22 +12852,22 @@ msgstr ""
 "Nastavte slow_launch_time na 1s nebo 2s pro správné počítání vláken, která "
 "pomalu nabíhají"
 
-#: po/advisory_rules.php:665
+#: po/advisory_rules.php:223
 #, php-format
 msgid "slow_launch_time is set to %s"
 msgstr "slow_launch_time je nastaven na %s"
 
-#: po/advisory_rules.php:669
+#: po/advisory_rules.php:225
 msgid "Percentage of used connections"
 msgstr "Procenta použitých připojení"
 
-#: po/advisory_rules.php:672
+#: po/advisory_rules.php:226
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "max_connections."
 msgstr "Nejvýše využitý počet připojení se blíží max_connections."
 
-#: po/advisory_rules.php:675
+#: po/advisory_rules.php:227
 msgid ""
 "Increase max_connections, or decrease wait_timeout so that connections that "
 "do not close database handlers properly get killed sooner. Make sure the "
@@ -12890,21 +12877,21 @@ msgstr ""
 "uzavřena připojení, která nebyla správně ukončena. Ujistěte se, že klienti "
 "správně ukončují připojení k databázi."
 
-#: po/advisory_rules.php:680
+#: po/advisory_rules.php:228
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr "Nejvyšší počet připojení je na %s%% maxima, mělo by to být pod 80%%"
 
-#: po/advisory_rules.php:684
+#: po/advisory_rules.php:230
 msgid "Percentage of aborted connections"
 msgstr "Procenta přerušených spojení"
 
-#: po/advisory_rules.php:687 po/advisory_rules.php:702
+#: po/advisory_rules.php:231 po/advisory_rules.php:236
 msgid "Too many connections are aborted."
 msgstr "Je příliš mnoho přerušených spojení."
 
-#: po/advisory_rules.php:690 po/advisory_rules.php:705
+#: po/advisory_rules.php:232 po/advisory_rules.php:237
 msgid ""
 "Connections are usually aborted when they cannot be authorized. <a href="
 "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
@@ -12915,16 +12902,16 @@ msgstr ""
 "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
 "source-of-aborted_connects/\">Tento článek</a> vám může pomoc najít příčinu."
 
-#: po/advisory_rules.php:695
+#: po/advisory_rules.php:233
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr "%s%% všech připojení bylo přerušeno. Tato hodnota by měla být pod 1%%"
 
-#: po/advisory_rules.php:699
+#: po/advisory_rules.php:235
 msgid "Rate of aborted connections"
 msgstr "Četnost přerušených spojení"
 
-#: po/advisory_rules.php:710
+#: po/advisory_rules.php:238
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
@@ -12932,15 +12919,15 @@ msgstr ""
 "Četnost přerušených spojení je %s, tato hodnota by měla být menší než 1 za "
 "hodinu"
 
-#: po/advisory_rules.php:714
+#: po/advisory_rules.php:240
 msgid "Percentage of aborted clients"
 msgstr "Procento přerušených klientů"
 
-#: po/advisory_rules.php:717 po/advisory_rules.php:732
+#: po/advisory_rules.php:241 po/advisory_rules.php:246
 msgid "Too many clients are aborted."
 msgstr "Příliš mnoho přerušených klientů."
 
-#: po/advisory_rules.php:720 po/advisory_rules.php:735
+#: po/advisory_rules.php:242 po/advisory_rules.php:247
 msgid ""
 "Clients are usually aborted when they did not close their connection to "
 "MySQL properly. This can be due to network issues or code not closing a "
@@ -12950,50 +12937,50 @@ msgstr ""
 "Toto může být způsobeno problémy na síti nebo chybným kódem klienta, který "
 "spojení neukončí. Prosím zkontrolujte obě tyto možnosti."
 
-#: po/advisory_rules.php:725
+#: po/advisory_rules.php:243
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr "%s%% všech klientů bylo přerušeno. Tato hodnota by měla být pod 2%%"
 
-#: po/advisory_rules.php:729
+#: po/advisory_rules.php:245
 msgid "Rate of aborted clients"
 msgstr "Četnost přerušení klientů"
 
-#: po/advisory_rules.php:740
+#: po/advisory_rules.php:248
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 "Četnost přerušených klientů: %s, tato hodnota by měla být menší než 1 za "
 "hodinu"
 
-#: po/advisory_rules.php:744
+#: po/advisory_rules.php:250
 msgid "Is InnoDB disabled?"
 msgstr "InnoDB je vypnuto?"
 
-#: po/advisory_rules.php:747
+#: po/advisory_rules.php:251
 msgid "You do not have InnoDB enabled."
 msgstr "Máte zakázané InnoDB."
 
-#: po/advisory_rules.php:750
+#: po/advisory_rules.php:252
 msgid "InnoDB is usually the better choice for table engines."
 msgstr "InnoDB je obvykle nejlepší volba úložiště tabulky."
 
-#: po/advisory_rules.php:755
+#: po/advisory_rules.php:253
 msgid "have_innodb is set to 'value'"
 msgstr "have_innodb je nastaveno na 'value'"
 
-#: po/advisory_rules.php:759
+#: po/advisory_rules.php:255
 msgid "InnoDB log size"
 msgstr "Velikost záznamu InnoDB"
 
-#: po/advisory_rules.php:762
+#: po/advisory_rules.php:256
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
 msgstr ""
 "Velikost záznamu InnoDB neodpovídá velikosti vyrovnávací paměti InnoDB."
 
-#: po/advisory_rules.php:765
+#: po/advisory_rules.php:257
 #, php-format
 msgid ""
 "Especially on a system with a lot of writes to InnoDB tables you should set "
@@ -13017,7 +13004,7 @@ msgstr ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">zápisek v blogu</a>"
 
-#: po/advisory_rules.php:770
+#: po/advisory_rules.php:258
 #, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
@@ -13026,15 +13013,15 @@ msgstr ""
 "Poměr velikosti záznamu a rezervy vyrovnávací paměti InnoDB je %s%%, ale "
 "neměla by být pod 20%%"
 
-#: po/advisory_rules.php:774
+#: po/advisory_rules.php:260
 msgid "Max InnoDB log size"
 msgstr "Maximální velikost záznamu InnoDB"
 
-#: po/advisory_rules.php:777
+#: po/advisory_rules.php:261
 msgid "The InnoDB log file size is inadequately large."
 msgstr "Velikost záznamového souboru je příliš velká."
 
-#: po/advisory_rules.php:780
+#: po/advisory_rules.php:262
 #, php-format
 msgid ""
 "It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
@@ -13059,20 +13046,20 @@ msgstr ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">zápisek v blogu</a>"
 
-#: po/advisory_rules.php:785
+#: po/advisory_rules.php:263
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "Velikost záznamu InnoDB je %s MiB"
 
-#: po/advisory_rules.php:789
+#: po/advisory_rules.php:265
 msgid "InnoDB buffer pool size"
 msgstr "Velikost vyrovnávací paměti InnoDB"
 
-#: po/advisory_rules.php:792
+#: po/advisory_rules.php:266
 msgid "Your InnoDB buffer pool is fairly small."
 msgstr "Nastavená vyrovnávací paměť InnoDB je poměrně malá."
 
-#: po/advisory_rules.php:795
+#: po/advisory_rules.php:267
 #, php-format
 msgid ""
 "The InnoDB buffer pool has a profound impact on performance for InnoDB "
@@ -13096,7 +13083,7 @@ msgstr ""
 "naleznete v <a href=\"http://www.mysqlperformanceblog.com/2007/11/03/"
 "choosing-innodb_buffer_pool_size/\">tomto článku</a>"
 
-#: po/advisory_rules.php:800
+#: po/advisory_rules.php:268
 #, php-format
 msgid ""
 "You are currently using %s%% of your memory for the InnoDB buffer pool. This "
@@ -13109,15 +13096,15 @@ msgstr ""
 "být přesto správné, pokud nemáte mnoho InnoDB tabulek nebo na tomto počítači "
 "běží i další služby."
 
-#: po/advisory_rules.php:804
+#: po/advisory_rules.php:270
 msgid "MyISAM concurrent inserts"
 msgstr "Současné vkládání do MyISAM"
 
-#: po/advisory_rules.php:807
+#: po/advisory_rules.php:271
 msgid "Enable concurrent_insert by setting it to 1"
 msgstr "Povolte concurrent_insert nastavením na 1"
 
-#: po/advisory_rules.php:810
+#: po/advisory_rules.php:272
 msgid ""
 "Setting {concurrent_insert} to 1 reduces contention between readers and "
 "writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
@@ -13127,9 +13114,12 @@ msgstr ""
 "pro jednotlivé tabulky. Podrobněji je toto popsáno v <a href=\"http://dev."
 "mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">dokumentaci MySQL</a>"
 
-#: po/advisory_rules.php:815
+#: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastaveno na 0"
+
+#~ msgid "Usage"
+#~ msgstr "Používá"
 
 #~ msgid "Use mousewheel to zoom in or out of the plot."
 #~ msgstr "Použijte kolečko myši pro změnu velikosti grafu."
