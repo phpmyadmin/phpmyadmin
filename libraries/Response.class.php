@@ -167,10 +167,10 @@ class PMA_Response
      */
     public function addHTML($content)
     {
-        if ($value instanceof PMA_Message) {
-            $this->_HTML = $value->getDisplay();
+        if ($content instanceof PMA_Message) {
+            $this->_HTML .= $content->getDisplay();
         } else {
-            $this->_HTML = $value;
+            $this->_HTML .= $content;
         }
     }
 
