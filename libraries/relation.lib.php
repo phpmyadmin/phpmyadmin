@@ -1320,23 +1320,6 @@ function PMA_REL_renameTable($source_db, $target_db, $source_table, $target_tabl
             $source_table, $target_table,
             'db_name', 'table_name'
         );
-        /*
-        $pdf_query = 'SELECT pdf_page_number '
-                   . ' FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['table_coords'])
-                   . ' WHERE db_name  = \'' . PMA_sqlAddSlashes($target_db) . '\''
-                   . ' AND table_name = \'' . PMA_sqlAddSlashes($target_table) . '\'';
-        $pdf_rs = PMA_query_as_controluser($pdf_query);
-
-        while ($pdf_copy_row = PMA_DBI_fetch_assoc($pdf_rs)) {
-            $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['pdf_pages'])
-                            . ' SET     db_name = \'' . PMA_sqlAddSlashes($target_db) . '\''
-                            . ' WHERE db_name  = \'' . PMA_sqlAddSlashes($source_db) . '\''
-                            . ' AND page_nr = \'' . PMA_sqlAddSlashes($pdf_copy_row['pdf_page_number']) . '\'';
-            $tb_rs    = PMA_query_as_controluser($table_query);
-            unset($table_query);
-            unset($tb_rs);
-        }
-        */
     }
 
     if ($GLOBALS['cfgRelation']['designerwork']) {
