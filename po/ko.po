@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-05-24 17:02-0400\n"
-"PO-Revision-Date: 2012-02-17 10:54+0200\n"
-"Last-Translator: minsung kang <manyfun7@gmail.com>\n"
+"PO-Revision-Date: 2012-06-04 04:35+0200\n"
+"Last-Translator: S W <ciomfs@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.1.6\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -930,7 +930,6 @@ msgid "Add a linestring"
 msgstr "선 추가"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:330
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
 msgstr "내부 링 추가"
@@ -978,13 +977,11 @@ msgstr "파일을 읽을 수 없습니다"
 #: import.php:299 import.php:308 import.php:327 import.php:336
 #: libraries/File.class.php:610 libraries/File.class.php:618
 #: libraries/File.class.php:634 libraries/File.class.php:642
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
-msgstr ""
-"지원되지 않는 압축(%)형식의 파일을 업로드하려고 시도했습니다. 지원이 구현되"
-"지 않거나 설정에서 사용하지 않게 되어있기 때문에 일 수 있습니다."
+msgstr "지원되지 않는 압축(%)형식의 파일을 업로드하려고 시도했습니다. 지원이 구현되지 않았거나 설정에서 사용하지 않게 되어있습니다."
 
 #: import.php:349
 msgid ""
