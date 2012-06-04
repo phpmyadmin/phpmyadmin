@@ -1267,7 +1267,7 @@ function PMA_REL_renameField($db, $table, $field, $new_name)
  *
  * @return nothing.
  */
-function PMA_REL_renameTable($table,
+function PMA_REL_renameSingleTable($table,
     $source_db, $target_db,
     $source_table, $target_table,
     $db_field, $table_field
@@ -1301,7 +1301,7 @@ function PMA_REL_renameTable($source_db, $target_db, $source_table, $target_tabl
 {
     // Move old entries from PMA-DBs to new table
     if ($GLOBALS['cfgRelation']['commwork']) {
-        PMA_REL_renameTable(
+        PMA_REL_renameSingleTable(
             'column_info',
             $source_db, $target_db,
             $source_table, $target_table,
@@ -1313,7 +1313,7 @@ function PMA_REL_renameTable($source_db, $target_db, $source_table, $target_tabl
     // moved, and not the whole DB.
 
     if ($GLOBALS['cfgRelation']['displaywork']) {
-        PMA_REL_renameTable(
+        PMA_REL_renameSingleTable(
             'table_info',
             $source_db, $target_db,
             $source_table, $target_table,
@@ -1322,14 +1322,14 @@ function PMA_REL_renameTable($source_db, $target_db, $source_table, $target_tabl
     }
 
     if ($GLOBALS['cfgRelation']['relwork']) {
-        PMA_REL_renameTable(
+        PMA_REL_renameSingleTable(
             'relation',
             $source_db, $target_db,
             $source_table, $target_table,
             'foreign_db', 'foreign_table'
         );
 
-        PMA_REL_renameTable(
+        PMA_REL_renameSingleTable(
             'relation',
             $source_db, $target_db,
             $source_table, $target_table,
@@ -1345,7 +1345,7 @@ function PMA_REL_renameTable($source_db, $target_db, $source_table, $target_tabl
      */
 
     if ($GLOBALS['cfgRelation']['pdfwork']) {
-        PMA_REL_renameTable(
+        PMA_REL_renameSingleTable(
             'table_coords',
             $source_db, $target_db,
             $source_table, $target_table,
@@ -1354,7 +1354,7 @@ function PMA_REL_renameTable($source_db, $target_db, $source_table, $target_tabl
     }
 
     if ($GLOBALS['cfgRelation']['designerwork']) {
-        PMA_REL_renameTable(
+        PMA_REL_renameSingleTable(
             'designer_coords',
             $source_db, $target_db,
             $source_table, $target_table,
