@@ -42,7 +42,8 @@ $GLOBALS['cfg']['BrowsePointerColor']       = '#000';
 // background of the pointer in browse mode
 $GLOBALS['cfg']['BrowsePointerBackground']  = '#cfc';
 
-// foreground (text) color of the marker (visually marks row by clicking on it) in browse mode
+// foreground (text) color of the marker (visually marks row by clicking on it)
+// in browse mode
 $GLOBALS['cfg']['BrowseMarkerColor']        = '#000';
 
 // background of the marker (visually marks row by clicking on it) in browse mode

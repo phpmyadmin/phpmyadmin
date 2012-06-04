@@ -6,9 +6,13 @@
  * @package PhpMyAdmin
  */
 
-$GLOBALS['now'] = gmdate('D, d M Y H:i:s') . ' GMT';
-header('Expires: ' . date(DATE_RFC1123)); // rfc2616 - Section 14.21
-header('Cache-Control: no-store, no-cache, must-revalidate, pre-check=0, post-check=0, max-age=0'); // HTTP/1.1
+// rfc2616 - Section 14.21
+header('Expires: ' . date(DATE_RFC1123));
+// HTTP/1.1
+header(
+    'Cache-Control: no-store, no-cache, must-revalidate,'
+    . '  pre-check=0, post-check=0, max-age=0'
+);
 if (isset($_SERVER['HTTP_USER_AGENT'])
     && stristr($_SERVER['HTTP_USER_AGENT'], 'MSIE')
 ) {
