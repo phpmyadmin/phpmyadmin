@@ -1,6 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * The PBXT storage engine
+ *
  * @package PhpMyAdmin-Engines
  */
 if (! defined('PHPMYADMIN')) {
@@ -8,7 +10,8 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * the MyISAM storage engine
+ * The PBXT storage engine
+ *
  * @package PhpMyAdmin-Engines
  */
 class PMA_StorageEngine_pbxt extends PMA_StorageEngine
@@ -88,7 +91,7 @@ class PMA_StorageEngine_pbxt extends PMA_StorageEngine
      * returns the pbxt engine specific handling for
      * PMA_ENGINE_DETAILS_TYPE_SIZE variables.
      *
-     * @param string   $formatted_size   the size expression (for example 8MB)
+     * @param string $formatted_size the size expression (for example 8MB)
      *
      * @return string the formatted value and its unit
      */
