@@ -130,7 +130,7 @@ function PMA_tbl_getSubTabs()
  * @param array  $foreignData         Foreign keys data
  * @param string $field               Column name
  * @param string $tbl_fields_type     Column type
- * @param int    $column_index         Column index
+ * @param int    $column_index        Column index
  * @param string $db                  Selected database
  * @param string $table               Selected table
  * @param array  $titles              Selected title
@@ -175,13 +175,15 @@ function PMA_getForeignFields_Values($foreigners, $foreignData, $field,
         } else {
             $str .= '<input type="text" id="fieldID_' . $column_index . '"'
                 . ' name="criteriaValues[' . $column_index . ']"'
-                . ' id="field_' . md5($field) . '[' . $column_index .']" class="textfield" />';
+                . ' id="field_' . md5($field) . '[' . $column_index .']" '
+                .'class="textfield" />';
         }
         $str .=  <<<EOT
 <a target="_blank" onclick="window.open(this.href, 'foreigners', 'width=640,height=240,scrollbars=yes'); return false" href="browse_foreigners.php?
 EOT;
         $str .= '' . PMA_generate_common_url($db, $table)
-            . '&amp;field=' . urlencode($field) . '&amp;fieldkey=' . $column_index . '"';
+            . '&amp;field=' . urlencode($field) . '&amp;fieldkey=' . $column_index
+            . '"';
         if ($in_zoom_search_edit) {
             $str .= ' class="browse_foreign"';
         }
@@ -222,11 +224,11 @@ EOT;
         if ((strncasecmp($tbl_fields_type[$column_index], 'enum', 4) && ! $in_zoom_search_edit)
             || (strncasecmp($tbl_fields_type[$column_index], 'set', 3) && $in_zoom_search_edit)
         ) {
-            $str .= '<select name="criteriaValues[' . ($column_index) . '][]" id="fieldID_'
-                . $column_index .'">';
+            $str .= '<select name="criteriaValues[' . ($column_index)
+                . '][]" id="fieldID_' . $column_index .'">';
         } else {
-            $str .= '<select name="criteriaValues[' . ($column_index) . '][]" id="fieldID_'
-                . $column_index .'" multiple="multiple" size="'
+            $str .= '<select name="criteriaValues[' . ($column_index)
+                . '][]" id="fieldID_' . $column_index .'" multiple="multiple" size="'
                 . min(3, $cnt_value) . '">';
         }
 
@@ -262,7 +264,8 @@ EOT;
         ) {
             $str .= '<input type="text" name="criteriaValues[' . $column_index . ']"'
                 .' size="40" class="' . $the_class . '" id="fieldID_'
-                . $column_index .'" value = "' . $criteriaValues[$column_index] . '"/>';
+                . $column_index .'" value = "' . $criteriaValues[$column_index]
+                . '"/>';
         } else {
             $str .= '<input type="text" name="criteriaValues[' . $column_index . ']"'
                 .' size="40" class="' . $the_class . '" id="fieldID_'
@@ -360,7 +363,8 @@ function PMA_tbl_search_getWhereClause($criteriaValues, $names, $types, $collati
             }
             $enum_where = '\'' . PMA_sqlAddslashes($criteriaValues[0]) . '\'';
             for ($e = 1; $e < $enum_selected_count; $e++) {
-                $enum_where .= ', \'' . PMA_sqlAddslashes($criteriaValues[$e]) . '\'';
+                $enum_where .= ', \'' . PMA_sqlAddslashes($criteriaValues[$e])
+                    . '\'';
             }
 
             $w = $backquoted_name . ' ' . $func_type . ' ' . $parens_open
@@ -484,7 +488,8 @@ function PMA_tblSearchGenerateWhereClause()
             '_', $_POST['criteriaColumnCollations'][$column_index]
         );
         $unaryFlag =  $GLOBALS['PMA_Types']->isUnaryOperator($operator);
-        $tmp_geom_func = isset($geom_func[$column_index]) ? $geom_func[$column_index] : null;
+        $tmp_geom_func = isset($geom_func[$column_index])
+            ? $geom_func[$column_index] : null;
 
         $whereClause = PMA_tbl_search_getWhereClause(
             $_POST['criteriaValues'][$column_index],
@@ -588,8 +593,9 @@ function PMA_tblSearchGetOptions($columnNames, $columnCount)
         . '<legend>' . '<em>' . __('Or') . '</em> '
         . __('Add search conditions (body of the "where" clause):') . '</legend>';
     $html_output .= PMA_showMySQLDocu('SQL-Syntax', 'Functions');
-    $html_output .= '<input type="text" name="customWhereClause" class="textfield" size="64" />'
-        . '</fieldset>';
+    $html_output .= '<input type="text" name="customWhereClause" class="textfield"'
+        . 'size="64" />';
+    $html_output .= '</fieldset>';
 
     /**
      * Displays option of changing default number of rows displayed per page
@@ -662,8 +668,10 @@ function PMA_tblSearchGetRowsNormal($db, $table, $columnNames, $columnTypes,
         /**
          * Displays column's name, type and collation
          */
-        $html_output .= '<th>' . htmlspecialchars($columnNames[$column_index]) . '</th>';
-        $html_output .= '<td>' . htmlspecialchars($columnTypes[$column_index]) . '</td>';
+        $html_output .= '<th>' . htmlspecialchars($columnNames[$column_index])
+            . '</th>';
+        $html_output .= '<td>' . htmlspecialchars($columnTypes[$column_index])
+            . '</td>';
         $html_output .= '<td>' . $columnCollations[$column_index] . '</td>';
         /**
          * Displays column's comparison operators depending on column type
@@ -681,16 +689,18 @@ function PMA_tblSearchGetRowsNormal($db, $table, $columnNames, $columnTypes,
         $field = $columnNames[$column_index];
         $foreignData = PMA_getForeignData($foreigners, $field, false, '', '');
         $html_output .= PMA_getForeignFields_Values(
-            $foreigners, $foreignData, $field, $columnTypes, $column_index, $db, $table,
-            $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], '', true
+            $foreigners, $foreignData, $field, $columnTypes, $column_index, $db,
+            $table, $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], '', true
         );
 
-        $html_output .= '<input type="hidden" name="criteriaColumnNames[' . $column_index . ']" value="'
-            . htmlspecialchars($columnNames[$column_index]) . '" />'
-            . '<input type="hidden" name="criteriaColumnTypes[' . $column_index . ']" value="'
-            . $columnTypes[$column_index] . '" />'
-            . '<input type="hidden" name="criteriaColumnCollations[' . $column_index . ']" value="'
-            . $columnCollations[$column_index] . '" /></td></tr>';
+        $html_output .= '<input type="hidden" name="criteriaColumnNames['
+            . $column_index . ']" value="'
+            . htmlspecialchars($columnNames[$column_index]) . '" />';
+        $html_output .= '<input type="hidden" name="criteriaColumnTypes['
+            . $column_index . ']" value="' . $columnTypes[$column_index] . '" />';
+        $html_output .= '<input type="hidden" name="criteriaColumnCollations['
+            . $column_index . ']" value="' . $columnCollations[$column_index]
+            . '" /></td></tr>';
     } // end for
     
     return $html_output;
@@ -737,14 +747,15 @@ function PMA_tblSearchGetFieldsTableHtml($db, $table, $columnNames, $columnTypes
  * Provides the form tag for table search form
  * (normal search or zoom search)
  *
- * @param string  $goto       Goto URL
- * @param string  $db         Selected Database
- * @param string  $table      Selected Table
- * @param string  $searchType Whether normal search or zoom search
+ * @param string $goto       Goto URL
+ * @param string $db         Selected Database
+ * @param string $table      Selected Table
+ * @param string $searchType Whether normal search or zoom search
  *
  * @return string the HTML for form tag
  */
-function PMA_tblSearchGetFormTag($goto, $db, $table, $searchType) {
+function PMA_tblSearchGetFormTag($goto, $db, $table, $searchType)
+{
     $html_output = '';
     $scriptName = ($searchType == 'zoom' ? 'tbl_zoom_select.php' : 'tbl_select.php');
     $formId = ($searchType == 'zoom' ? 'zoom_search_form' : 'tbl_search_form');
@@ -755,7 +766,8 @@ function PMA_tblSearchGetFormTag($goto, $db, $table, $searchType) {
 
     $html_output .= PMA_generate_common_hidden_inputs($db, $table);
     $html_output .= '<input type="hidden" name="goto" value="' . $goto . '" />';
-    $html_output .= '<input type="hidden" name="back" value="' . $scriptName . '" />';
+    $html_output .= '<input type="hidden" name="back" value="' . $scriptName
+        . '" />';
 
     return $html_output;
 }
@@ -793,8 +805,9 @@ function PMA_tblSearchGetSelectionForm($goto, $db, $table, $columnNames,
     $html_output .= PMA_tblSearchGetFormTag($goto, $db, $table, $searchType);
 
     $html_output .= '<fieldset id="'
-        . ($searchType == 'zoom' ? 'inputSection' : 'fieldset_table_search') . '">';
-    $html_output .= ($searchType == 'zoom' ? '' : '<fieldset id="fieldset_table_qbe">');
+        . ($searchType == 'zoom' ? 'inputSection' : 'fieldset_table_search' . '">');
+    $html_output .= $searchType == 'zoom'
+        ? '' : '<fieldset id="fieldset_table_qbe">';
 
     // Set caption for fieldset
     if ($searchType == 'zoom') {
