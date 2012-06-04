@@ -1341,7 +1341,7 @@ function PMA_REL_renameTable($source_db, $target_db, $source_table, $target_tabl
  * Create a PDF page
  *
  * @param string $newpage     name of the new PDF page
- * @param array  $cfgRelation
+ * @param array  $cfgRelation Relation configuration
  * @param string $db          database name
  *
  * @return string   $pdf_page_number
