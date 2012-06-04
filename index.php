@@ -139,9 +139,11 @@ $response->disable();
 // ]]>
 </script>
 <?php
-echo PMA_includeJS('jquery/jquery-1.6.2.js');
-echo PMA_includeJS('update-location.js');
-echo PMA_includeJS('common.js');
+$scripts = new PMA_Scripts();
+$scripts->addFile('jquery/jquery-1.6.2.js');
+$scripts->addFile('update-location.js');
+$scripts->addFile('common.js');
+echo $scripts->getDisplay();
 ?>
 </head>
 <frameset cols="<?php

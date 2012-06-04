@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_getPHPDocLink, PMA_linkURL, PMA_includeJS  from libraries/core.lib.php
+ * Test for PMA_getPHPDocLink, PMA_linkURL  from libraries/core.lib.php
  *
  * @package PhpMyAdmin-test
  */
@@ -50,23 +50,4 @@ class PMA_getLinks_test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(PMA_linkURL($link), $url);
     }
-
-    public function testPMA_includeJS()
-    {
-        $filename = "common.js";
-        $mod = 0;
-
-        if (file_exists('./js/'.$filename)) {
-            $mod = filemtime('./js/'.$filename);
-        } else {
-            $this->fail("JS file doesn't exists.");
-        }
-        $this->assertEquals(PMA_includeJS($filename), '<script src="js/'.$filename.'?ts='.$mod.'" type="text/javascript"></script>'. "\n");
-
-        $filename = '?file.js';
-        $this->assertEquals(PMA_includeJS($filename), '<script src="js/'.$filename.'" type="text/javascript"></script>'."\n");
-
-        //$this->assertFalse(PMA_includeJS(null));
-    }
-
 }
