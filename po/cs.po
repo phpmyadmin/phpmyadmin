@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:49+0200\n"
-"PO-Revision-Date: 2012-06-01 14:47+0200\n"
+"PO-Revision-Date: 2012-06-04 14:27+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1890,10 +1890,9 @@ msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "Pro přiblížení označte oblast grafu myší."
 
 #: js/messages.php:306
-#, fuzzy
 #| msgid "Click reset zoom link to come back to original state."
 msgid "Click reset zoom button to come back to original state."
-msgstr "Klikněte na odkaz pro obnovení zvětšení pro návrat do původního stavu."
+msgstr "Klikněte na tlačítko pro návrat do původního stavu."
 
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."
@@ -3006,7 +3005,7 @@ msgstr "Množina mnohoúhelníků"
 
 #: libraries/Types.class.php:371
 msgid "A collection of geometry objects of any type"
-msgstr ""
+msgstr "Množina libovolných geometrických útvarů"
 
 #: libraries/Types.class.php:623 libraries/Types.class.php:973
 msgctxt "numeric types"
