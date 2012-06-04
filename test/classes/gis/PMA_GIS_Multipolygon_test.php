@@ -12,6 +12,8 @@ require_once 'libraries/gis/pma_gis_multipolygon.php';
 
 /**
  * Tests for PMA_GIS_Multipolygon class
+ *
+ * @package PhpMyAdmin-test
  */
 class PMA_GIS_MultipolygonTest extends PMA_GIS_GeomTest
 {

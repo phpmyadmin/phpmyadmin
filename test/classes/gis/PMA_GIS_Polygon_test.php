@@ -12,6 +12,8 @@ require_once 'libraries/gis/pma_gis_polygon.php';
 
 /**
  * Tests for PMA_GIS_Polygon class
+ *
+ * @package PhpMyAdmin-test
  */
 class PMA_GIS_PolygonTest extends PMA_GIS_GeomTest
 {
