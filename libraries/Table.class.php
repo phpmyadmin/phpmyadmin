@@ -780,10 +780,7 @@ class PMA_Table
         /* Try moving table directly */
         if ($move && $what == 'data') {
             $tbl = new PMA_Table($source_table, $source_db);
-            $result = $tbl->rename(
-                $target_table, $target_db,
-                PMA_Table::isView($source_db, $source_table)
-            );
+            $result = $tbl->rename($target_table, $target_db);
             if ($result) {
                 $GLOBALS['message'] = $tbl->getLastMessage();
                 return true;
@@ -1296,13 +1293,10 @@ class PMA_Table
      *
      * @param string $new_name new table name
      * @param string $new_db   new database name
-     * @param bool   $is_view  is this for a VIEW rename?
-     *
-     * @todo    remove the $is_view parameter (also in callers)
      *
      * @return bool success
      */
-    function rename($new_name, $new_db = null, $is_view = false)
+    function rename($new_name, $new_db = null)
     {
         if (null !== $new_db && $new_db !== $this->getDbName()) {
             // Ensure the target is valid
