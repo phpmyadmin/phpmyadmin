@@ -43,7 +43,7 @@ if (isset($mode)) {
     $scale_q = PMA_sqlAddSlashes($scale);
 
     if ('create_export' == $mode) {
-        $pdf_page_number = PMA_REL_create_page($newpage, $cfgRelation, $db);
+        $pdf_page_number = PMA_REL_createPage($newpage, $cfgRelation, $db);
         if ($pdf_page_number > 0) {
             $message = PMA_Message::success(__('Page has been created'));
             $mode = 'export';

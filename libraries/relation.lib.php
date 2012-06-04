@@ -1346,7 +1346,7 @@ function PMA_REL_renameTable($source_db, $target_db, $source_table, $target_tabl
  *
  * @return string   $pdf_page_number
  */
-function PMA_REL_create_page($newpage, $cfgRelation, $db)
+function PMA_REL_createPage($newpage, $cfgRelation, $db)
 {
     if (! isset($newpage) || $newpage == '') {
         $newpage = __('no description');
