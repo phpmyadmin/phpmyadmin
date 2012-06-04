@@ -53,6 +53,8 @@ function PMA_query_as_controluser($sql, $show_error = true, $options = 0)
 } // end of the "PMA_query_as_controluser()" function
 
 /**
+ * Returns current relation parameters
+ *
  * @param bool $verbose whether to print diagnostic info
  *
  * @return array   $cfgRelation
