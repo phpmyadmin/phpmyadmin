@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-06-01 14:44+0200\n"
+"POT-Creation-Date: 2012-06-04 13:43+0200\n"
 "PO-Revision-Date: 2012-06-02 11:09+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.0\n"
 
@@ -237,7 +237,7 @@ msgid "View dump (schema) of database"
 msgstr "データベースのダンプ (スキーマ) 表示"
 
 #: db_export.php:30 db_printview.php:93 db_qbe.php:104 db_tracking.php:47
-#: export.php:374 navigation.php:298
+#: export.php:405 navigation.php:327
 msgid "No tables found in database."
 msgstr "このデータベースにはテーブルがありません。"
 
@@ -357,7 +357,7 @@ msgstr "テーブル"
 #: db_printview.php:101 db_tables_search.php:24 db_tables_search.php:53
 #: libraries/Table.class.php:326 libraries/build_html_for_db.lib.php:31
 #: libraries/db_structure.lib.php:42 libraries/import.lib.php:164
-#: navigation.php:605 navigation.php:627 sql.php:937 tbl_printview.php:376
+#: navigation.php:673 navigation.php:706 sql.php:937 tbl_printview.php:376
 #: tbl_structure.php:462 tbl_structure.php:536 tbl_structure.php:936
 msgid "Rows"
 msgstr "行"
@@ -605,8 +605,8 @@ msgstr "SQL コマンドの追跡は非アクティブです。"
 #: db_structure.php:525 libraries/display_tbl.lib.php:3979
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "このビューの最低行数。詳しくは%sドキュメント%sをご覧ください。"
 
 #: db_structure.php:543 db_structure.php:577 libraries/Menu.class.php:194
@@ -791,24 +791,24 @@ msgstr "テーブルを追跡する"
 msgid "Database Log"
 msgstr "データベースのログです"
 
-#: export.php:39
+#: export.php:40
 msgid "Bad type!"
 msgstr "エクスポート形式が正しくありません！"
 
-#: export.php:87
+#: export.php:90
 msgid "Selected export type has to be saved in file!"
 msgstr "この形式のエクスポートはファイルに保存する必要があります!"
 
-#: export.php:116
+#: export.php:119
 msgid "Bad parameters!"
 msgstr "パラメータが正しくありません！"
 
-#: export.php:177 export.php:202 export.php:705
+#: export.php:193 export.php:224 export.php:779
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "空き容量不足でファイル %s を保存できません。"
 
-#: export.php:327
+#: export.php:358
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -816,12 +816,12 @@ msgstr ""
 "サーバ上に既存のファイル %s があります。ファイル名を変更するか、上書きオプ"
 "ションを有効にしてください。"
 
-#: export.php:331 export.php:335
+#: export.php:362 export.php:366
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "このウェブサーバにはファイル %s を保存する権限がありません。"
 
-#: export.php:707
+#: export.php:785
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "ダンプをファイル %s に保存しました。"
@@ -917,29 +917,29 @@ msgstr ""
 "「関数」の項目で「GeomFromText」を選択して、下の文字列を「値」の項目に貼り付"
 "けてください"
 
-#: import.php:86
+#: import.php:87
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "アップロードしようとしたファイルが大きすぎるようです。対策については %sドキュ"
 "メント%s をご覧ください。"
 
-#: import.php:216 import.php:443
+#: import.php:227 import.php:459
 msgid "Showing bookmark"
 msgstr "表示中のブックマーク"
 
-#: import.php:226 import.php:439
+#: import.php:237 import.php:455
 msgid "The bookmark has been deleted."
 msgstr "ブックマークを削除しました。"
 
-#: import.php:315 import.php:368 libraries/File.class.php:425
+#: import.php:327 import.php:380 libraries/File.class.php:425
 #: libraries/File.class.php:516
 msgid "File could not be read"
 msgstr "ファイルを読み込めませんでした"
 
-#: import.php:323 import.php:332 import.php:351 import.php:360
+#: import.php:335 import.php:344 import.php:363 import.php:372
 #: libraries/File.class.php:577
 #, php-format
 msgid ""
@@ -949,7 +949,7 @@ msgstr ""
 "サポートされていない圧縮形式 (%s) のファイルを読み込もうとしました。この形式"
 "はサポートされていないか設定で無効にされています。"
 
-#: import.php:373
+#: import.php:385
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -959,29 +959,29 @@ msgstr ""
 "ファイルサイズが PHP の設定で許可された最大値を超えています。[a@./"
 "Documentation.html#faq1_16@Documentation]FAQ 1.16[/a] をご覧ください。"
 
-#: import.php:390
+#: import.php:403
 msgid ""
 "Cannot convert file's character set without character set conversion library"
 msgstr ""
 "文字セット変換ライブラリがないので、ファイルの文字セットが変換できません"
 
-#: import.php:414 libraries/display_import.lib.php:23
+#: import.php:428 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "インポートプラグインが読み込めません。正しくインストールされているか確認して"
 "ください！"
 
-#: import.php:445 sql.php:1042
+#: import.php:462 sql.php:1042
 #, php-format
 msgid "Bookmark %s created"
 msgstr "ブックマーク %s を作成しました"
 
-#: import.php:451 import.php:457
+#: import.php:470 import.php:476
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
 msgstr "インポートは正常に終了しました。%d 個のクエリを実行しました。"
 
-#: import.php:466
+#: import.php:485
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
@@ -989,7 +989,7 @@ msgstr ""
 "スクリプトがタイムアウトしました。インポートを完了させたいのであれば同じファ"
 "イルを再送信すればインポートが再開されます。"
 
-#: import.php:468
+#: import.php:487
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -997,19 +997,19 @@ msgstr ""
 "ただし、最後に実行したときはまったくデータを解析できませんでした。通常、PHP "
 "の時間制限を伸ばさない限りこのデータのインポートはできません。"
 
-#: import.php:496 libraries/Message.class.php:180
+#: import.php:515 libraries/Message.class.php:180
 #: libraries/display_tbl.lib.php:3599 libraries/rte/rte_routines.lib.php:1211
 #: libraries/sql_query_form.lib.php:114 tbl_operations.php:231
 #: tbl_relation.php:290 tbl_row_action.php:122 view_operations.php:55
 msgid "Your SQL query has been executed successfully"
 msgstr "SQL は正常に実行されました"
 
-#: import_status.php:117 libraries/common.lib.php:728
+#: import_status.php:119 libraries/common.lib.php:728
 #: libraries/schema/Export_Relation_Schema.class.php:239 user_password.php:210
 msgid "Back"
 msgstr "戻る"
 
-#: index.php:162
+#: index.php:167
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr "phpMyAdmin は<b>フレーム対応</b>ブラウザでの利用をお勧めします。"
 
@@ -2539,7 +2539,7 @@ msgid "Operations"
 msgstr "操作"
 
 #: libraries/Menu.class.php:305 libraries/Menu.class.php:422
-#: libraries/relation.lib.php:260
+#: libraries/relation.lib.php:267
 msgid "Tracking"
 msgstr "SQL コマンドの追跡"
 
@@ -2578,7 +2578,7 @@ msgstr "ルーチン"
 msgid "Events"
 msgstr "イベント"
 
-#: libraries/Menu.class.php:428 libraries/relation.lib.php:221
+#: libraries/Menu.class.php:428 libraries/relation.lib.php:228
 msgid "Designer"
 msgstr "デザイナ"
 
@@ -2677,39 +2677,39 @@ msgstr "この MySQL サーバは %s ストレージエンジンをサポート�
 msgid "unknown table status: "
 msgstr "不明なテーブルステータス: "
 
-#: libraries/Table.class.php:771
+#: libraries/Table.class.php:768
 #, php-format
 msgid "Source database `%s` was not found!"
 msgstr "元にするデータベース `%s` が見つかりません！"
 
-#: libraries/Table.class.php:779
+#: libraries/Table.class.php:776
 #, php-format
 msgid "Target database `%s` was not found!"
 msgstr "対象先のデータベース `%s` が見つかりません！"
 
-#: libraries/Table.class.php:1279
+#: libraries/Table.class.php:1193
 msgid "Invalid database"
 msgstr "不正なデータベースです"
 
-#: libraries/Table.class.php:1293 tbl_get_field.php:27
+#: libraries/Table.class.php:1207 tbl_get_field.php:27
 msgid "Invalid table name"
 msgstr "テーブル名が不正です"
 
-#: libraries/Table.class.php:1325
+#: libraries/Table.class.php:1239
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "テーブル名を %1$s から %2$s に変更するときにエラーが発生しました"
 
-#: libraries/Table.class.php:1413
+#: libraries/Table.class.php:1258
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "テーブル %1$s の名称を %2$s に変更しました。"
 
-#: libraries/Table.class.php:1557
+#: libraries/Table.class.php:1402
 msgid "Could not save table UI preferences"
 msgstr "テーブルに対する環境設定が保存できません"
 
-#: libraries/Table.class.php:1581
+#: libraries/Table.class.php:1426
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -2718,7 +2718,7 @@ msgstr ""
 "テーブルに対する環境設定のクリーンアップに失敗しました (参照 $cfg['Servers']"
 "[$i]['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1719
+#: libraries/Table.class.php:1564
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -2805,20 +2805,20 @@ msgstr ""
 
 #: libraries/Types.class.php:307
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "単精度浮動小数、有効範囲は -3.402823466E+38 から -1.175494351E-38、0、"
 "1.175494351E-38 から 3.402823466E+38"
 
 #: libraries/Types.class.php:309
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"倍精度浮動小数、有効範囲は -1.7976931348623157E+308 から -"
-"2.2250738585072014E-308、0、2.2250738585072014E-308 から 1.7976931348623157E"
+"倍精度浮動小数、有効範囲は -1.7976931348623157E+308 から "
+"-2.2250738585072014E-308、0、2.2250738585072014E-308 から 1.7976931348623157E"
 "+308"
 
 #: libraries/Types.class.php:311
@@ -3105,11 +3105,11 @@ msgstr "%s へようこそ"
 #: libraries/auth/config.auth.lib.php:103
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプト%2"
-"$s を利用して設定ファイルを作成してください。"
+"設定ファイルが作成されていないものと思われます。%1$sセットアップスクリプ"
+"ト%2$s を利用して設定ファイルを作成してください。"
 
 #: libraries/auth/config.auth.lib.php:115
 msgid ""
@@ -3315,7 +3315,7 @@ msgstr "最長: %s%s"
 #: libraries/common.lib.php:403 libraries/common.lib.php:493
 #: libraries/config/FormDisplay.tpl.php:147
 #: libraries/display_export.lib.php:238 libraries/engines/pbxt.lib.php:109
-#: libraries/relation.lib.php:90 main.php:246 server_variables.php:133
+#: libraries/relation.lib.php:94 main.php:246 server_variables.php:133
 msgid "Documentation"
 msgstr "ドキュメント"
 
@@ -3515,7 +3515,7 @@ msgid "Closed"
 msgstr "閉じておく"
 
 #: libraries/config.values.php:100 libraries/config/FormDisplay.tpl.php:220
-#: libraries/relation.lib.php:94 libraries/relation.lib.php:101
+#: libraries/relation.lib.php:101 libraries/relation.lib.php:108
 #: pmd_relation_new.php:71
 msgid "Disabled"
 msgstr "無効"
@@ -5784,8 +5784,8 @@ msgid ""
 "for import and export operations"
 msgstr ""
 "インポートおよびエクスポートの操作に対して [a@http://ja.wikipedia.org/wiki/"
-"ZIP_%28%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%83%95%E3%82%A9%E3%83%BC%E3%83%"
-"9E%E3%83%83%E3%83%88%29]ZIP[/a] 圧縮を有効にします。"
+"ZIP_%28%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%83%95%E3%82%A9%E3%83%BC"
+"%E3%83%9E%E3%83%83%E3%83%88%29]ZIP[/a] 圧縮を有効にします。"
 
 #: libraries/config/messages.inc.php:527
 msgid "ZIP"
@@ -6085,8 +6085,8 @@ msgstr "、@TABLE@ はテーブル名に"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "この値は %1$sstrftime%2$s を使用して解釈されますので、時刻の書式文字列を使用"
 "することができます。また、埋め込み変数変換も行われます（%3$s変換されま"
@@ -6759,8 +6759,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:128
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "PBXT に関するドキュメントおよび詳細な情報は、%sPrimeBase XT オフィシャルサイ"
 "ト%sにあります。"
@@ -7614,80 +7614,80 @@ msgstr "ナビゲーションフレームの再読み込み"
 msgid "This format has no options"
 msgstr "この書式にはオプションはありません"
 
-#: libraries/relation.lib.php:88
+#: libraries/relation.lib.php:91
 msgid "not OK"
 msgstr "NG"
 
-#: libraries/relation.lib.php:92
+#: libraries/relation.lib.php:98
 msgctxt "Correctly working"
 msgid "OK"
 msgstr "OK"
 
-#: libraries/relation.lib.php:93
+#: libraries/relation.lib.php:100
 msgid "Enabled"
 msgstr "有効"
 
-#: libraries/relation.lib.php:100 libraries/relation.lib.php:123
+#: libraries/relation.lib.php:107 libraries/relation.lib.php:130
 #: pmd_relation_new.php:71
 msgid "General relation features"
 msgstr "一般的なリレーション機能"
 
-#: libraries/relation.lib.php:136
+#: libraries/relation.lib.php:143
 msgid "Display Features"
 msgstr "表示機能"
 
-#: libraries/relation.lib.php:156
+#: libraries/relation.lib.php:163
 msgid "Creation of PDFs"
 msgstr "PDF の作成"
 
-#: libraries/relation.lib.php:169
+#: libraries/relation.lib.php:176
 msgid "Displaying Column Comments"
 msgstr "カラムコメント表示機能"
 
-#: libraries/relation.lib.php:176 libraries/tbl_properties.inc.php:138
+#: libraries/relation.lib.php:183 libraries/tbl_properties.inc.php:138
 #: transformation_overview.php:46
 msgid "Browser transformation"
 msgstr "ブラウザ変換機能"
 
-#: libraries/relation.lib.php:183
+#: libraries/relation.lib.php:190
 msgid ""
 "Please see the documentation on how to update your column_comments table"
 msgstr "column_comments テーブルの更新方法についてはドキュメントをご覧ください"
 
-#: libraries/relation.lib.php:195 libraries/sql_query_form.lib.php:382
+#: libraries/relation.lib.php:202 libraries/sql_query_form.lib.php:382
 msgid "Bookmarked SQL query"
 msgstr "ブックマークされている SQL"
 
-#: libraries/relation.lib.php:208 querywindow.php:75 querywindow.php:171
+#: libraries/relation.lib.php:215 querywindow.php:75 querywindow.php:171
 msgid "SQL history"
 msgstr "SQL 履歴"
 
-#: libraries/relation.lib.php:234
+#: libraries/relation.lib.php:241
 msgid "Persistent recently used tables"
 msgstr "永続的な『最近使用したテーブル』"
 
-#: libraries/relation.lib.php:247
+#: libraries/relation.lib.php:254
 msgid "Persistent tables' UI preferences"
 msgstr "永続的な『テーブルに対する環境設定』"
 
-#: libraries/relation.lib.php:273
+#: libraries/relation.lib.php:280
 msgid "User preferences"
 msgstr "ユーザ環境設定"
 
-#: libraries/relation.lib.php:280
+#: libraries/relation.lib.php:287
 msgid "Quick steps to setup advanced features:"
 msgstr "高度な機能の設定する簡単な方法:"
 
-#: libraries/relation.lib.php:283
+#: libraries/relation.lib.php:290
 msgid ""
 "Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgstr "<code>examples/create_tables.sql</code> で必要なテーブルを作成します。"
 
-#: libraries/relation.lib.php:287
+#: libraries/relation.lib.php:294
 msgid "Create a pma user and give access to these tables."
 msgstr "作ったテーブルにアクセスできる pma ユーザを作成します。"
 
-#: libraries/relation.lib.php:291
+#: libraries/relation.lib.php:298
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
@@ -7695,11 +7695,11 @@ msgstr ""
 "設定ファイル (<code>config.inc.php</code>) で高度な機能を有効にします。"
 "<code>config.sample.inc.php</code> にある設定例をコピーするといいでしょう。"
 
-#: libraries/relation.lib.php:295
+#: libraries/relation.lib.php:302
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr "更新した設定ファイルを読み込むために phpMyAdmin にログインし直します。"
 
-#: libraries/relation.lib.php:1242
+#: libraries/relation.lib.php:1378
 msgid "no description"
 msgstr "説明がありません"
 
@@ -8390,7 +8390,7 @@ msgstr "サーバ %s 上でクエリを実行する"
 msgid "Run SQL query/queries on database %s"
 msgstr "データベース %s 上でクエリを実行する"
 
-#: libraries/sql_query_form.lib.php:267 navigation.php:208 navigation.php:271
+#: libraries/sql_query_form.lib.php:267 navigation.php:221 navigation.php:290
 #: setup/frames/index.inc.php:260
 msgid "Clear"
 msgstr "クリア"
@@ -8996,24 +8996,24 @@ msgstr ""
 "Suhosin が稼働しているため問題が発生する可能性があります。詳しくは%sドキュメ"
 "ント%sをご覧ください。"
 
-#: navigation.php:175 server_databases.php:311 server_synchronize.php:1465
+#: navigation.php:186 server_databases.php:311 server_synchronize.php:1465
 msgid "No databases"
 msgstr "データベースが存在しません"
 
-#: navigation.php:209
+#: navigation.php:222
 msgid "Filter databases by name"
 msgstr "データベース名を絞る"
 
-#: navigation.php:272
+#: navigation.php:291
 msgid "Filter tables by name"
 msgstr "テーブル名を絞る"
 
-#: navigation.php:305 navigation.php:306
+#: navigation.php:338 navigation.php:341
 msgctxt "short form"
 msgid "Create table"
 msgstr "テーブルを作成する"
 
-#: navigation.php:311 navigation.php:481
+#: navigation.php:347 navigation.php:541
 msgid "Please select a database"
 msgstr "データベースを選択してください"
 
@@ -9719,8 +9719,8 @@ msgstr "ユーザと同名のデータベースを削除する"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "注意: phpMyAdmin は MySQL の特権テーブルから直接ユーザ特権を取得しますが、手"
 "作業で特権を更新した場合は phpMyAdmin が利用しているテーブルの内容とサーバの"
@@ -11098,13 +11098,13 @@ msgstr "結果はクエリ文でグループ化されます。"
 msgid "Query analyzer"
 msgstr "クエリの解析"
 
-#: server_status.php:1799
+#: server_status.php:1808
 #, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d 秒"
 
-#: server_status.php:1801
+#: server_status.php:1811
 #, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
@@ -11511,10 +11511,11 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"それでも、[kbd]config[/kbd] 認証が必要であると思われる場合、追加の保護設定（%"
-"sホスト認証%s設定および%s信頼されたプロキシのリスト%s）を使用してください。し"
-"かしながら、ユーザが数千人もいるような ISP に所属している、含まれている、接続"
-"されている場合には、IP アドレスを基にした保護は信頼性が高いとはいえません。"
+"それでも、[kbd]config[/kbd] 認証が必要であると思われる場合、追加の保護設定"
+"（%sホスト認証%s設定および%s信頼されたプロキシのリスト%s）を使用してくださ"
+"い。しかしながら、ユーザが数千人もいるような ISP に所属している、含まれてい"
+"る、接続されている場合には、IP アドレスを基にした保護は信頼性が高いとはいえま"
+"せん。"
 
 #: setup/lib/index.lib.php:312
 #, php-format
@@ -12206,7 +12207,6 @@ msgid "How to use"
 msgstr "使い方"
 
 #: tbl_zoom_select.php:444
-#| msgid "Reset"
 msgid "Reset zoom"
 msgstr "ズームを戻す"
 
@@ -12248,1063 +12248,1293 @@ msgstr "ビューの名前"
 msgid "Rename view to"
 msgstr "変更後のビュー名称"
 
-#~ msgid "Uptime below one day"
-#~ msgstr "稼働時間が 1 日未満"
-
-#~ msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-#~ msgstr ""
-#~ "稼働時間が 1 日未満です。パフォーマンスチューニングが正確でない可能性があ"
-#~ "ります。"
-
-#~ msgid ""
-#~ "To have more accurate averages it is recommended to let the server run "
-#~ "for longer than a day before running this analyzer"
-#~ msgstr ""
-#~ "統計データをより正確にするために、サーバを 1 日以上稼動させてから解析する"
-#~ "ことをお勧めします。"
-
-#~ msgid "The uptime is only %s"
-#~ msgstr "%s しか稼動していません。"
-
-#~ msgid "Questions below 1,000"
-#~ msgstr "問い合わせ数が 1,000 未満"
-
-#~ msgid ""
-#~ "Fewer than 1,000 questions have been run against this server. The "
-#~ "recommendations may not be accurate."
-#~ msgstr ""
-#~ "このサーバで実行された問い合わせ数が 1000 未満と、十分といえる量がありませ"
-#~ "ん。推奨事項は正確でない場合があります。"
-
-#~ msgid ""
-#~ "Let the server run for a longer time until it has executed a greater "
-#~ "amount of queries."
-#~ msgstr ""
-#~ "実行されたクエリが十分な量になるまで、長時間サーバを稼動させたほうがいいで"
-#~ "しょう。"
-
-#~ msgid "Current amount of Questions: %s"
-#~ msgstr "現在の問い合わせ総数: %s"
-
-#~ msgid "Percentage of slow queries"
-#~ msgstr "スロークエリの比率"
-
-#~ msgid ""
-#~ "There is a lot of slow queries compared to the overall amount of Queries."
-#~ msgstr ""
-#~ "クエリの全体量に対して長時間処理であるスロークエリが多く存在します。"
-
-#~ msgid ""
-#~ "You might want to increase {long_query_time} or optimize the queries "
-#~ "listed in the slow query log"
-#~ msgstr ""
-#~ "{long_query_time} を増やすか、クエリログからスロークエリを見つけ出し最適化"
-#~ "してみてください。"
-
-#~ msgid "The slow query rate should be below 5%%, your value is %s%%."
-#~ msgstr ""
-#~ "スロークエリの割合は 5%% 未満がいいと言われています。現在は %s%% です。"
-
-#~ msgid "Slow query rate"
-#~ msgstr "スロークエリの割合"
-
-#~ msgid ""
-#~ "There is a high percentage of slow queries compared to the server uptime."
-#~ msgstr ""
-#~ "サーバの稼働時間と比較して長時間処理であるスロークエリの比率が高いです。"
-
-#~ msgid ""
-#~ "You have a slow query rate of %s per hour, you should have less than 1%% "
-#~ "per hour."
-#~ msgstr ""
-#~ "現在のスロークエリの割合は 1 時間当たり %s です。この値は、1 時間当たり 1%"
-#~ "% 未満がいいと言われています。"
-
-#~ msgid "Long query time"
-#~ msgstr "長いクエリ時間"
-
-#~ msgid ""
-#~ "long_query_time is set to 10 seconds or more, thus only slow queries that "
-#~ "take above 10 seconds are logged."
-#~ msgstr ""
-#~ "long_query_time は 10 秒以上に設定されています。従って、10 秒を超えるもの"
-#~ "がスロークエリとしてログに記録されます。"
-
-#~ msgid ""
-#~ "It is suggested to set {long_query_time} to a lower value, depending on "
-#~ "your environment. Usually a value of 1-5 seconds is suggested."
-#~ msgstr ""
-#~ "環境によっては、{long_query_time} を低い値に設定するほうがいいでしょう。通"
-#~ "常、1～5 秒の値が推奨されます。"
-
-#~ msgid "long_query_time is currently set to %ds."
-#~ msgstr "long_query_time は現在 %d 秒に設定されています。"
-
-#~ msgid "Slow query logging"
-#~ msgstr "スロークエリログ"
-
-#~ msgid "The slow query log is disabled."
-#~ msgstr "スロークエリログが無効になっています。"
-
-#~ msgid ""
-#~ "Enable slow query logging by setting {log_slow_queries} to 'ON'. This "
-#~ "will help troubleshooting badly performing queries."
-#~ msgstr ""
-#~ "{log_slow_queries} を「ON」に設定することで、スロークエリログが有効になり"
-#~ "ます。これは、パフォーマンスの悪いクエリの切り分けに役立つでしょう。"
-
-#~ msgid "log_slow_queries is set to 'OFF'"
-#~ msgstr "log_slow_queries が「OFF」に設定されています。"
-
-#~ msgid "Release Series"
-#~ msgstr "バージョン系統"
-
-#~ msgid "The MySQL server version less than 5.1."
-#~ msgstr "MySQL サーバのバージョンが 5.1 未満です。"
-
-#~ msgid ""
-#~ "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
-#~ "even more so."
-#~ msgstr ""
-#~ "アップグレードを推奨します。MySQL 5.1 はパフォーマンスが向上していますし、"
-#~ "MySQL 5.5 であれば更に向上しています。"
-
-#~ msgid "Current version: %s"
-#~ msgstr "現在のバージョン: %s"
-
-#~ msgid "Minor Version"
-#~ msgstr "マイナーバージョン"
-
-#~ msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-#~ msgstr "バージョン 5.1.30 (5.1 の 最初の安定版) 未満です。"
-
-#~ msgid ""
-#~ "You should upgrade, as recent versions of MySQL 5.1 have improved "
-#~ "performance and MySQL 5.5 even more so."
-#~ msgstr ""
-#~ "アップグレードを推奨します。最新バージョンの MySQL 5.1 はパフォーマンスが"
-#~ "向上していますし、MySQL 5.5 であれば更に向上しています。"
-
-#~ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-#~ msgstr "バージョン 5.5.8 (5.5 の 最初の安定版) 未満です。"
-
-#~ msgid "You should upgrade, to a stable version of MySQL 5.5"
-#~ msgstr "安定版 MySQL 5.5 へのアップグレードを推奨します。"
-
-#~ msgid "Distribution"
-#~ msgstr "ディストリビューション"
-
-#~ msgid "Version is compiled from source, not a MySQL official binary."
-#~ msgstr ""
-#~ "ご使用のバージョンはソースからコンパイルされたもので、MySQL オフィッシャル"
-#~ "のバイナリではありません。"
-
-#~ msgid ""
-#~ "If you did not compile from source, you may be using a package modified "
-#~ "by a distribution. The MySQL manual only is accurate for official MySQL "
-#~ "binaries, not any package distributions (such as RedHat, Debian/Ubuntu "
-#~ "etc)."
-#~ msgstr ""
-#~ "ユーザが独自にソースからコンパイルしたのでないのであれば、おそらくディスト"
-#~ "リビューションによるパッケージを使用しているものだと思われます。MySQL のマ"
-#~ "ニュアルは、MySQL オフィッシャルのバイナリに対しては厳格になっていますが、"
-#~ "(RedHat、Debian/Ubuntu などのような) ディストリビューションのパッケージに"
-#~ "対しては多少異なる部分もあります。"
-
-#~ msgid "'source' found in version_comment"
-#~ msgstr ""
-#~ "バージョンコメント (version_comment) に 「source」という文字があります。"
-
-#~ msgid "The MySQL manual only is accurate for official MySQL binaries."
-#~ msgstr ""
-#~ "MySQL のマニュアルは、MySQL オフィッシャルのバイナリに対してだけ厳格になっ"
-#~ "ています。"
-
-#~ msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
-#~ msgstr ""
-#~ "Percona ドキュメントは http://www.percona.com/docs/wiki/ にあります。"
-
-#~ msgid "'percona' found in version_comment"
-#~ msgstr ""
-#~ "バージョンコメント (version_comment) に 「percona」という文字があります。"
-
-#~ msgid "Drizzle documentation is at http://docs.drizzle.org/"
-#~ msgstr "Drizzle ドキュメントは http://docs.drizzle.org/ にあります。"
-
-#~ msgid "Version string (%s) matches Drizzle versioning scheme"
-#~ msgstr ""
-#~ "バージョンの文字列 (%s) が Drizzle のバージョン形態と一致しています。"
-
-#~ msgid "MySQL Architecture"
-#~ msgstr "MySQL 仕様"
-
-#~ msgid "MySQL is not compiled as a 64-bit package."
-#~ msgstr "MySQL が、64 ビットのパッケージとしてコンパイルされていません。"
-
-#~ msgid ""
-#~ "Your memory capacity is above 3 GiB (assuming the Server is on "
-#~ "localhost), so MySQL might not be able to access all of your memory. You "
-#~ "might want to consider installing the 64-bit version of MySQL."
-#~ msgstr ""
-#~ "メモリ上限が (このサーバ上において) 3 GiB になってしまいますので、MySQL は"
-#~ "メモリを十分活用できないでしょう。64 ビット版の MySQL の導入を検討してみて"
-#~ "ください。"
-
-#~ msgid "Available memory on this host: %s"
-#~ msgstr "このホスト上の利用可能メモリ: %s"
-
-#~ msgid "Query cache disabled"
-#~ msgstr "クエリキャッシュが無効"
-
-#~ msgid "The query cache is not enabled."
-#~ msgstr "クエリキャッシュが有効になっていません。"
-
-#~ msgid ""
-#~ "The query cache is known to greatly improve performance if configured "
-#~ "correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value "
-#~ "and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
-#~ "memcached, ignore this recommendation."
-#~ msgstr ""
-#~ "クエリキャッシュは、的確に設定されているとパフォーマンスがとても改善される"
-#~ "ことが知られています。クエリキャッシュを有効にするには、"
-#~ "{query_cache_size} を 2 桁 MiB にして、{query_cache_type} を「ON」に設定し"
-#~ "てください。<b>注：</b>memcached を使用している場合は、この事象に関するこ"
-#~ "とは無視してください。"
-
-#~ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
-#~ msgstr ""
-#~ "query_cache_size が 0 に設定されているか、query_cache_type が「OFF」に設定"
-#~ "されています。"
-
-#~ msgid "Query caching method"
-#~ msgstr "クエリのキャッシュ方式"
-
-#~ msgid "Suboptimal caching method."
-#~ msgstr "準最適キャッシュ方式です。"
-
-#~ msgid ""
-#~ "You are using the MySQL Query cache with a fairly high traffic database. "
-#~ "It might be worth considering to use <a href=\"http://dev.mysql.com/doc/"
-#~ "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL "
-#~ "Query cache, especially if you have multiple slaves."
-#~ msgstr ""
-#~ "MySQL のクエリキャッシュをかなり高いトラフィックのデータベースに対して使用"
-#~ "しています。MySQL のクエリキャッシュの代わりに <a href=\"http://dev.mysql."
-#~ "com/doc/refman/5.5/en/ha-memcached.html\">memcached</a> の使用を検討する価"
-#~ "値があると思われます。これは、マルチスレーブを使用している場合は、特に推奨"
-#~ "されます。"
-
-#~ msgid ""
-#~ "The query cache is enabled and the server receives %d queries per second. "
-#~ "This rule fires if there is more than 100 queries per second."
-#~ msgstr ""
-#~ "クエリキャッシュが有効で、サーバが毎秒 %d 個のクエリを受信しています。毎"
-#~ "秒 100 個を超えるのクエリがある場合、このルールが適用されます。"
-
-#~ msgid "Query cache efficiency (%%)"
-#~ msgstr "クエリキャッシュ効率 (%%)"
-
-#~ msgid "Query cache not running efficiently, it has a low hit rate."
-#~ msgstr ""
-#~ "クエリキャッシュが有効に機能していません。キャッシュのヒット率が低いです。"
-
-#~ msgid "Consider increasing {query_cache_limit}."
-#~ msgstr "{query_cache_limit} の増加を検討してください。"
-
-#~ msgid "The current query cache hit rate of %s%% is below 20%%"
-#~ msgstr "現在のクエリキャッシュのヒット率が %s%% と、20%% を下回っています。"
-
-#~ msgid "Query Cache usage"
-#~ msgstr "クエリキャッシュの使用状況"
-
-#~ msgid "Less than 80%% of the query cache is being utilized."
-#~ msgstr "クエリキャッシュの利用率が 80%% 未満です。"
-
-#~ msgid ""
-#~ "This might be caused by {query_cache_limit} being too low. Flushing the "
-#~ "query cache might help as well."
-#~ msgstr ""
-#~ "これは、{query_cache_limit} が低すぎることが原因であると考えられます。クエ"
-#~ "リキャッシュをフラッシュすることでも改善されるかもしれません。"
-
-#~ msgid ""
-#~ "The current ratio of free query cache memory to total query cache size is "
-#~ "%s%%. It should be above 80%%"
-#~ msgstr ""
-#~ "クエリキャッシュの総量に対するクエリキャッシュの空きメモリの割合は、%s%% "
-#~ "です。この値は、80%% 以上がいいと言われています。"
-
-#~ msgid "Query cache fragmentation"
-#~ msgstr "クエリキャッシュの断片化"
-
-#~ msgid "The query cache is considerably fragmented."
-#~ msgstr "クエリキャッシュが非常に断片化しています。"
-
-#~ msgid ""
-#~ "Severe fragmentation is likely to (further) increase "
-#~ "Qcache_lowmem_prunes. This might be caused by many Query cache low memory "
-#~ "prunes due to {query_cache_size} being too small. For a immediate but "
-#~ "short lived fix you can flush the query cache (might lock the query cache "
-#~ "for a long time). Carefully adjusting {query_cache_min_res_unit} to a "
-#~ "lower value might help too, e.g. you can set it to the average size of "
-#~ "your queries in the cache using this formula: (query_cache_size - "
-#~ "qcache_free_memory) / qcache_queries_in_cache"
-#~ msgstr ""
-#~ "深刻な断片化は Qcache_lowmem_prunes の (大きな) 増加を示唆しています。"
-#~ "{query_cache_size} が小さすぎることが原因で、小さなクエリキャッシュメモリ"
-#~ "の切り詰めが多数発生したことにより、このようになったものと思われます。今す"
-#~ "ぐクエリキャッシュのフラッシュを行えば、しばらくは (長期間クエリキャッシュ"
-#~ "をロックしていたような) 断片化は解消されます。{query_cache_min_res_unit} "
-#~ "を小さめな値に慎重に調整することで、断片化をかなり抑制できるかもしれませ"
-#~ "ん。設定例として、クエリキャッシュの 1 つ当たりの平均使用サイズ ( = "
-#~ "(query_cache_size - qcache_free_memory) / qcache_queries_in_cache ) などが"
-#~ "あります。"
-
-#~ msgid ""
-#~ "The cache is currently fragmented by %s%% , with 100%% fragmentation "
-#~ "meaning that the query cache is an alternating pattern of free and used "
-#~ "blocks. This value should be below 20%%."
-#~ msgstr ""
-#~ "キャッシュは現在 %s%% 断片化しています。100%% の断片化とは、クエリキャッ"
-#~ "シュが空きと使用済みブロックが交互に現れるパターンになっていることを意味し"
-#~ "ています。この値は、20%% 未満がいいと言われています。"
-
-#~ msgid "Query cache low memory prunes"
-#~ msgstr "小さなクエリキャッシュメモリの切り詰め"
-
-#~ msgid ""
-#~ "Cached queries are removed due to low query cache memory from the query "
-#~ "cache."
-#~ msgstr ""
-#~ "キャッシュされたクエリは、クエリキャッシュメモリが小さいためキャッシュから"
-#~ "削除されます。"
-
-#~ msgid ""
-#~ "You might want to increase {query_cache_size}, however keep in mind that "
-#~ "the overhead of maintaining the cache is likely to increase with its "
-#~ "size, so do this in small increments and monitor the results."
-#~ msgstr ""
-#~ "{query_cache_size} を増やす必要があるでしょう。しかしながら、大きくなった"
-#~ "分だけ、キャッシュ維持に対するオーバヘッドも増加したように感じるかもしれま"
-#~ "せん。少しずつ増やして、結果をモニタするようにしてみてください。"
-
-#~ msgid ""
-#~ "The ratio of removed queries to inserted queries is %s%%. The lower this "
-#~ "value is, the better (This rules firing limit: 0.1%%)"
-#~ msgstr ""
-#~ "追加クエリに対する削除クエリの割合は、%s%% です。この値は低いほど良いです "
-#~ "(ここでは 0.1%% を超えたらで判断しています)。"
-
-#~ msgid "Query cache max size"
-#~ msgstr "クエリキャッシュの最大サイズ"
-
-#~ msgid ""
-#~ "The query cache size is above 128 MiB. Big query caches may cause "
-#~ "significant overhead that is required to maintain the cache."
-#~ msgstr ""
-#~ "クエリキャッシュサイズが 128 MiB を超えています。クエリキャッシュが大きい"
-#~ "と、キャッシュ維持に必要となるオーバヘッドがかさむようになります。"
-
-#~ msgid ""
-#~ "Depending on your environment, it might be performance increasing to "
-#~ "reduce this value."
-#~ msgstr ""
-#~ "使用されている環境によりますが、この値を減らすとパフォーマンスがよくなるこ"
-#~ "とがあります。"
-
-#~ msgid "Current query cache size: %s"
-#~ msgstr "現在のクエリキャッシュサイズ: %s"
-
-#~ msgid "Query cache min result size"
-#~ msgstr "クエリキャッシュの最小結果サイズ"
-
-#~ msgid ""
-#~ "The max size of the result set in the query cache is the default of 1 MiB."
-#~ msgstr ""
-#~ "クエリキャッシュにおける結果セットの上限サイズは、デフォルトの 1 MiB で"
-#~ "す。"
-
-#~ msgid ""
-#~ "Changing {query_cache_limit} (usually by increasing) may increase "
-#~ "efficiency. This variable determines the maximum size a query result may "
-#~ "have to be inserted into the query cache. If there are many query results "
-#~ "above 1 MiB that are well cacheable (many reads, little writes) then "
-#~ "increasing {query_cache_limit} will increase efficiency. Whereas in the "
-#~ "case of many query results being above 1 MiB that are not very well "
-#~ "cacheable (often invalidated due to table updates) increasing "
-#~ "{query_cache_limit} might reduce efficiency."
-#~ msgstr ""
-#~ "{query_cache_limit} を変更 (一般的に増加) したほうが、効率がよくなることが"
-#~ "多いです。この変数は、キャッシュされるクエリ結果の上限サイズに直接影響しま"
-#~ "す。(読み込みが多く、書き込みが少しといった) キャッシュに依存しやすく 1 "
-#~ "MiB を超えているクエリの結果が多くあるのであれば、{query_cache_limit} を増"
-#~ "加させることで効率性は増すでしょう。(度々テーブルが更新されることで無効化"
-#~ "され) キャッシュにほとんど依存できない 1 MiB を超えているクエリの結果が多"
-#~ "くあるのであれば、{query_cache_limit} を増加させることで効率が悪くかもしれ"
-#~ "ません。"
-
-#~ msgid "query_cache_limit is set to 1 MiB"
-#~ msgstr "query_cache_limit は 1 MiB に設定されています。"
-
-#~ msgid "Percentage of sorts that cause temporary tables"
-#~ msgstr "ソート時に一時テーブルが使われる比率"
-
-#~ msgid "Too many sorts are causing temporary tables."
-#~ msgstr "一時テーブルが多くのソートで使われています。"
-
-#~ msgid ""
-#~ "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, "
-#~ "depending on your system memory limits"
-#~ msgstr ""
-#~ "ご使用のシステムのメモリ環境に合わせて、sort_buffer_size と "
-#~ "read_rnd_buffer_size のいずれかもしくは両方を増加させることを検討してくだ"
-#~ "さい。"
-
-#~ msgid ""
-#~ "%s%% of all sorts cause temporary tables, this value should be lower than "
-#~ "10%%."
-#~ msgstr ""
-#~ "全ソートの内 %s%% が一時テーブルを使用しています。この値は、10%% 未満がい"
-#~ "いと言われています。"
-
-#~ msgid "Rate of sorts that cause temporary tables"
-#~ msgstr "ソート時に一時テーブルが使われる割合"
-
-#~ msgid ""
-#~ "Temporary tables average: %s, this value should be less than 1 per hour."
-#~ msgstr ""
-#~ "一時テーブル使用率の平均：%s。この値は、1 時間当たり 1 未満がいいと言われ"
-#~ "ています。"
-
-#~ msgid "Sort rows"
-#~ msgstr "行のソート"
-
-#~ msgid "There are lots of rows being sorted."
-#~ msgstr "ソートされている行が多く存在します。"
-
-#~ msgid ""
-#~ "While there is nothing wrong with a high amount of row sorting, you might "
-#~ "want to make sure that the queries which require a lot of sorting use "
-#~ "indexed columns in the ORDER BY clause, as this will result in much "
-#~ "faster sorting"
-#~ msgstr ""
-#~ "多くの行がソートされていても特に問題ないのであれば、多くのソートを必要とす"
-#~ "るクエリに対して、ORDER BY 節にインデックスのあるカラムを使うのを検討する"
-#~ "程度でいいでしょう。そのクエリ結果のソートは、とても速くなるかもしれませ"
-#~ "ん。"
-
-#~ msgid "Sorted rows average: %s"
-#~ msgstr "ソートされている行の平均：%s"
-
-#~ msgid "Rate of joins without indexes"
-#~ msgstr "インデックスを使用しない結合の割合"
-
-#~ msgid "There are too many joins without indexes."
-#~ msgstr "インデックスを使用しない結合が多くあります。"
-
-#~ msgid ""
-#~ "This means that joins are doing full table scans. Adding indexes for the "
-#~ "columns being used in the join conditions will greatly speed up table "
-#~ "joins"
-#~ msgstr ""
-#~ "これは結合において、テーブルが全スキャンされていることを示しています。結合"
-#~ "条件に合ったカラムにインデックスを追加することで、テーブル結合のスピードは"
-#~ "大幅に上がるでしょう。"
-
-#~ msgid "Table joins average: %s, this value should be less than 1 per hour"
-#~ msgstr ""
-#~ "テーブル結合の平均：%s。この値は、1 時間当たり 1 未満がいいと言われていま"
-#~ "す。"
-
-#~ msgid "Rate of reading first index entry"
-#~ msgstr "最初のインデックスエントリを読み込む割合"
-
-#~ msgid "The rate of reading the first index entry is high."
-#~ msgstr "最初のインデックスエントリを読み込む割合が高いです。"
-
-#~ msgid ""
-#~ "This usually indicates frequent full index scans. Full index scans are "
-#~ "faster than table scans but require lots of CPU cycles in big tables, if "
-#~ "those tables that have or had high volumes of UPDATEs and DELETEs, "
-#~ "running 'OPTIMIZE TABLE' might reduce the amount of and/or speed up full "
-#~ "index scans. Other than that full index scans can only be reduced by "
-#~ "rewriting queries."
-#~ msgstr ""
-#~ "これは、通常、インデックスの全スキャンが頻繁に行われていることを示していま"
-#~ "す。インデックスの全スキャンはテーブルのスキャンよりは速いですが、大きな"
-#~ "テーブルでは CPU リソースを多く必要とします。このテーブルに対して UPDATE "
-#~ "や DELETE が多く行われたまたは行われているのであれば、「OPTIMIZE TABLE」を"
-#~ "実行することでインデックスの全スキャンの減少やスキャンスピードの上昇が見込"
-#~ "めるかもしれません。また、インデックスの全スキャンは、クエリを書き直すこと"
-#~ "でも減らすことが可能です。"
-
-#~ msgid "Index scans average: %s, this value should be less than 1 per hour"
-#~ msgstr ""
-#~ "インデックススキャンの平均：%s。この値は、1 時間当たり 1 未満がいいと言わ"
-#~ "れています。"
-
-#~ msgid "Rate of reading fixed position"
-#~ msgstr "決まった位置を読み込む割合"
-
-#~ msgid "The rate of reading data from a fixed position is high."
-#~ msgstr "決まった位置のデータを読み込む割合が高いです。"
-
-#~ msgid ""
-#~ "This indicates that many queries need to sort results and/or do a full "
-#~ "table scan, including join queries that do not use indexes. Add indexes "
-#~ "where applicable."
-#~ msgstr ""
-#~ "多くのクエリがインデックスを使用しない結合クエリを含んでいるために、結果の"
-#~ "ソート、テーブルの全スキャン、のいずれかもしくは両方を必要としていることを"
-#~ "示しています。該当箇所にインデックスを追加してください。"
-
-#~ msgid ""
-#~ "Rate of reading fixed position average: %s, this value should be less "
-#~ "than 1 per hour"
-#~ msgstr ""
-#~ "決まった位置を読み込む割合の平均：%s。この値は、1 時間当たり 1 未満がいい"
-#~ "と言われています。"
-
-#~ msgid "Rate of reading next table row"
-#~ msgstr "テーブルの次行を読み込む割合"
-
-#~ msgid "The rate of reading the next table row is high."
-#~ msgstr "テーブルの次行を読み込む割合が高いです。"
-
-#~ msgid ""
-#~ "This indicates that many queries are doing full table scans. Add indexes "
-#~ "where applicable."
-#~ msgstr ""
-#~ "多くのクエリがテーブルの全スキャンを行っていることを示しています。該当箇所"
-#~ "にインデックスを追加してください。"
-
-#~ msgid ""
-#~ "Rate of reading next table row: %s, this value should be less than 1 per "
-#~ "hour"
-#~ msgstr ""
-#~ "テーブルの次行を読み込む割合：%s。この値は、1 時間当たり 1 未満がいいと言"
-#~ "われています。"
-
-#~ msgid "tmp_table_size vs. max_heap_table_size"
-#~ msgstr "tmp_table_size と max_heap_table_size の関係"
-
-#~ msgid "tmp_table_size and max_heap_table_size are not the same."
-#~ msgstr "tmp_table_size と max_heap_table_size が同じ値ではありません。"
-
-#~ msgid ""
-#~ "If you have deliberately changed one of either: The server uses the lower "
-#~ "value of either to determine the maximum size of in-memory tables. So if "
-#~ "you wish to increase the in-memory table limit you will have to increase "
-#~ "the other value as well."
-#~ msgstr ""
-#~ "いずれか 1 つの変更した場合、メモリ内テーブルのサイズが最大になるように、"
-#~ "サーバはいずれか低いほうの値を使用します。ですから、メモリ内テーブルの制限"
-#~ "を増やしたいのであれば、もう一方の値も増やしたほうがいいでしょう。"
-
-#~ msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-#~ msgstr ""
-#~ "両者の現在の値は、tmp_table_size が %s、max_heap_table_size が %s です。"
-
-#~ msgid "Percentage of temp tables on disk"
-#~ msgstr "一時テーブルがディスク上に展開される比率"
-
-#~ msgid ""
-#~ "Many temporary tables are being written to disk instead of being kept in "
-#~ "memory."
-#~ msgstr "多くの一時テーブルが、メモリではなくディスク上に展開されています。"
-
-#~ msgid ""
-#~ "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
-#~ "some temporary tables are always being written to disk, independent of "
-#~ "the value of these variables. To eliminate these you will have to rewrite "
-#~ "your queries to avoid those conditions (Within a temporary table: "
-#~ "Presence of a BLOB or TEXT column or presence of a column bigger than 512 "
-#~ "bytes) as mentioned in the beginning of an <a href=\"http://www.facebook."
-#~ "com/note.php?note_id=10150111255065841&comments\">Article by the Pythian "
-#~ "Group</a>"
-#~ msgstr ""
-#~ "{max_heap_table_size} と {tmp_table_size} を増加させることで改善されるかも"
-#~ "しれません。しかしながら、これらの変数値に関わりなく、常にディスクに展開さ"
-#~ "れる一時テーブルは存在します。この状況をも改善したいのであれば、BLOB や "
-#~ "TEXT のカラムもしくは 512 バイトを超えるカラムを使わないように、クエリを書"
-#~ "き直す必要があるでしょう。このことは、<a href=\"http://www.facebook.com/"
-#~ "note.php?note_id=10150111255065841&comments\">The Pythian Group の記事 (英"
-#~ "語)</a>に詳しく記載されています。"
-
-#~ msgid ""
-#~ "%s%% of all temporary tables are being written to disk, this value should "
-#~ "be below 25%%"
-#~ msgstr ""
-#~ "全一時テーブルの内 %s%% がディスク上に展開されています。この値は、25%% 未"
-#~ "満がいいと言われています。"
-
-#~ msgid "Temp disk rate"
-#~ msgstr "一時テーブルがディスク上に展開される割合"
-
-#~ msgid ""
-#~ "Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
-#~ "some temporary tables are always being written to disk, independent of "
-#~ "the value of these variables. To eliminate these you will have to rewrite "
-#~ "your queries to avoid those conditions (Within a temporary table: "
-#~ "Presence of a BLOB or TEXT column or presence of a column bigger than 512 "
-#~ "bytes) as mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/"
-#~ "en/internal-temporary-tables.html\">MySQL Documentation</a>"
-#~ msgstr ""
-#~ "{max_heap_table_size} と {tmp_table_size} を増加させることで改善されるかも"
-#~ "しれません。しかしながら、これらの変数値に関わりなく、常にディスクに展開さ"
-#~ "れる一時テーブルは存在します。この状況をも改善したいのであれば、BLOB や "
-#~ "TEXT のカラムもしくは 512 バイトを超えるカラムを使わないように、クエリを書"
-#~ "き直す必要があるでしょう。このことは、<a href=\"http://dev.mysql.com/doc/"
-#~ "refman/5.5/en/internal-temporary-tables.html\">MySQL ドキュメント</a>に詳"
-#~ "しく記載されています。"
-
-#~ msgid ""
-#~ "Rate of temporary tables being written to disk: %s, this value should be "
-#~ "less than 1 per hour"
-#~ msgstr ""
-#~ "ディスク書き込みを伴う一時テーブル割合：%s。この値は、1 時間当たり 1 未満"
-#~ "がいいと言われています。"
-
-#~ msgid "MyISAM key buffer size"
-#~ msgstr "MyISAM キーバッファのサイズ"
-
-#~ msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
-#~ msgstr ""
-#~ "キーバッファが初期化されていません。おそらく、MyISAM インデックスはキャッ"
-#~ "シュされていません。"
-
-#~ msgid ""
-#~ "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M "
-#~ "is a good start."
-#~ msgstr ""
-#~ "お使いの MyISAM インデックスのサイズに合わせた {key_buffer_size} を設定し"
-#~ "てください。最初の設定としては、64M からがいいでしょう。"
-
-#~ msgid "key_buffer_size is 0"
-#~ msgstr "key_buffer_size は 0 です。"
-
-#~ msgid "Max %% MyISAM key buffer ever used"
-#~ msgstr "使われていた MyISAM キーバッファの最大比率"
-
-#~ msgid "MyISAM key buffer (index cache) %% used is low."
-#~ msgstr "MyISAM キーバッファ（インデックスキャッシュ）の使用率が低いです。"
-
-#~ msgid ""
-#~ "You may need to decrease the size of {key_buffer_size}, re-examine your "
-#~ "tables to see if indexes have been removed, or examine queries and "
-#~ "expectations about what indexes are being used."
-#~ msgstr ""
-#~ "{key_buffer_size} の必要とするサイズが減少しているようです。ご使用のテーブ"
-#~ "ルでインデックスが削除されていないかよく確認してください。また、クエリある"
-#~ "いはインデックスの使用が想定されるものがないか確認してみてください。"
-
-#~ msgid ""
-#~ "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
-#~ msgstr ""
-#~ "使われていた MyISAM キーバッファの最大比率: %s%%。この値は、95%% 以上がい"
-#~ "いと言われています。"
-
-#~ msgid "Percentage of MyISAM key buffer used"
-#~ msgstr "MyISAM キーバッファの使用比率"
-
-#~ msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
-#~ msgstr ""
-#~ "MyISAM キーバッファの使用比率: %s%%。この値は、95%% 以上がいいと言われてい"
-#~ "ます。"
-
-#~ msgid "Percentage of index reads from memory"
-#~ msgstr "メモリから読み込まれるインデックスの比率"
-
-#~ msgid "The %% of indexes that use the MyISAM key buffer is low."
-#~ msgstr "MyISAM キーバッファを使用するインデックスの比率が低いです。"
-
-#~ msgid "You may need to increase {key_buffer_size}."
-#~ msgstr "{key_buffer_size} を増やす必要があるかもしれません。"
-
-#~ msgid "Index reads from memory: %s%%, this value should be above 95%%"
-#~ msgstr ""
-#~ "メモリから読み込まれるインデックスの比率: %s%%。この値は、95%% 以上がいい"
-#~ "と言われています。"
-
-#~ msgid "Rate of table open"
-#~ msgstr "テーブルを開く割合"
-
-#~ msgid "The rate of opening tables is high."
-#~ msgstr "テーブルを開く割合が高いです。"
-
-#~ msgid ""
-#~ "Opening tables requires disk I/O which is costly. Increasing "
-#~ "{table_open_cache} might avoid this."
-#~ msgstr ""
-#~ "テーブルを開くというのは、負荷がかかるディスクへの入出力を行うということで"
-#~ "す。{table_open_cache} を大きくすることで、これを緩和できることがありま"
-#~ "す。"
-
-#~ msgid "Opened table rate: %s, this value should be less than 10 per hour"
-#~ msgstr ""
-#~ "テーブルを開く割合：%s。この値は、1 時間当たり 10 未満がいいと言われていま"
-#~ "す。"
-
-#~ msgid "Percentage of used open files limit"
-#~ msgstr "開いているファイルの上限に対する比率"
-
-#~ msgid ""
-#~ "The number of open files is approaching the max number of open files.  "
-#~ "You may get a \"Too many open files\" error."
-#~ msgstr ""
-#~ "開いているファイルの数が最大になりつつあります。エラー「開いているファイル"
-#~ "が多すぎます」になるかもしれません。"
-
-#~ msgid ""
-#~ "Consider increasing {open_files_limit}, and check the error log when "
-#~ "restarting after changing open_files_limit."
-#~ msgstr ""
-#~ "{open_files_limit} 増やすことを検討してください。open_files_limit を変更し"
-#~ "て再起動した場合は、エラーログを確認するようにしてください。"
-
-#~ msgid ""
-#~ "The number of opened files is at %s%% of the limit. It should be below 85%"
-#~ "%"
-#~ msgstr ""
-#~ "開いているファイルの数は上限に対して %s%% です。この値は、85%% 未満がいい"
-#~ "と言われています。"
-
-#~ msgid "Rate of open files"
-#~ msgstr "開いているファイルの割合"
-
-#~ msgid "The rate of opening files is high."
-#~ msgstr "開いているファイルの割合が高いです。"
-
-#~ msgid "Opened files rate: %s, this value should be less than 5 per hour"
-#~ msgstr ""
-#~ "開いているファイルの割合：%s。この値は、1 時間当たり 5 未満がいいと言われ"
-#~ "ています。"
-
-#~ msgid "Immediate table locks %%"
-#~ msgstr "速やかに行われたテーブルロックの比率"
-
-#~ msgid "Too many table locks were not granted immediately."
-#~ msgstr "テーブルロック要求に対して速やかに取得できないことが多いです。"
-
-#~ msgid "Optimize queries and/or use InnoDB to reduce lock wait."
-#~ msgstr ""
-#~ "テーブルの最適化もしくは InnoDB のロック待ち時間の減少、のいずれかもしくは"
-#~ "両方を行ってください。"
-
-#~ msgid "Immediate table locks: %s%%, this value should be above 95%%"
-#~ msgstr ""
-#~ "速やかに行われたテーブルロック: %s%%。この値は、95%% 以上がいいと言われて"
-#~ "います。"
-
-#~ msgid "Table lock wait rate"
-#~ msgstr "テーブルロックの待つ割合"
-
-#~ msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
-#~ msgstr ""
-#~ "テーブルロックの待つ割合: %s。この値は、1 時間当たり 1 未満がいいと言われ"
-#~ "ています。"
-
-#~ msgid "Thread cache"
-#~ msgstr "スレッドキャッシュ"
-
-#~ msgid ""
-#~ "Thread cache is disabled, resulting in more overhead from new connections "
-#~ "to MySQL."
-#~ msgstr ""
-#~ "スレッドキャッシュが無効になっているため、MySQL への新たな接続に対しての"
-#~ "オーバヘッドが大きくなります。"
-
-#~ msgid "Enable the thread cache by setting {thread_cache_size} > 0."
-#~ msgstr ""
-#~ "{thread_cache_size} に 0 より大きな値を設定して、スレッドキャッシュを有効"
-#~ "にしてください。"
-
-#~ msgid "The thread cache is set to 0"
-#~ msgstr "スレッドキャッシュは 0 に設定されています。"
-
-#~ msgid "Thread cache hit rate %%"
-#~ msgstr "スレッドキャッシュのヒット率"
-
-#~ msgid "Thread cache is not efficient."
-#~ msgstr "スレッドキャッシュが効果的に機能していません。"
-
-#~ msgid "Increase {thread_cache_size}."
-#~ msgstr "{thread_cache_size} を増やしてください。"
-
-#~ msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-#~ msgstr ""
-#~ "スレッドキャッシュのヒット率: %s%%。この値は、80%% 以上がいいと言われてい"
-#~ "ます。"
-
-#~ msgid "Threads that are slow to launch"
-#~ msgstr "起動が遅いスレッド"
-
-#~ msgid "There are too many threads that are slow to launch."
-#~ msgstr "起動が遅いスレッドが多く存在します。"
-
-#~ msgid ""
-#~ "This generally happens in case of general system overload as it is pretty "
-#~ "simple operations. You might want to monitor your system load carefully."
-#~ msgstr ""
-#~ "一般的に、比較的単純な操作なわりには、システム全体に負荷がかかっている状態"
-#~ "です。お使いのシステムの負荷を入念にモニタしてみてください。"
-
-#~ msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
-#~ msgstr ""
-#~ "%s スレッドの開始に %s 秒以上かかっています。この値は、0 がいいと言われて"
-#~ "います。"
-
-#~ msgid "Slow launch time"
-#~ msgstr "遅い起動時間"
-
-#~ msgid "Slow_launch_threads is above 2s"
-#~ msgstr "Slow_launch_threads が 2 秒を超えています。"
-
-#~ msgid ""
-#~ "Set slow_launch_time to 1s or 2s to correctly count threads that are slow "
-#~ "to launch"
-#~ msgstr ""
-#~ "起動が遅いスレッドなくなるように、slow_launch_time を 1 秒か 2 秒に設定し"
-#~ "てください。"
-
-#~ msgid "slow_launch_time is set to %s"
-#~ msgstr "slow_launch_time は %s に設定されています。"
-
-#~ msgid "Percentage of used connections"
-#~ msgstr "使用されている接続の比率"
-
-#~ msgid ""
-#~ "The maximum amount of used connections is getting close to the value of "
-#~ "max_connections."
-#~ msgstr ""
-#~ "使用されている接続数が max_connections の値に達すると、閉じられてしまう接"
-#~ "続が発生します。"
-
-#~ msgid ""
-#~ "Increase max_connections, or decrease wait_timeout so that connections "
-#~ "that do not close database handlers properly get killed sooner. Make sure "
-#~ "the code closes database handlers properly."
-#~ msgstr ""
-#~ "max_connections を増やすか wait_timeout を減らしてください。こうすること"
-#~ "で、データベースの処理において接続がすぐに切られることはなくなります。念の"
-#~ "ため、コード上において、データベースが適切に閉じられているかも確認してみて"
-#~ "ください。"
-
-#~ msgid ""
-#~ "Max_used_connections is at %s%% of max_connections, it should be below 80%"
-#~ "%"
-#~ msgstr ""
-#~ "Max_used_connections は max_connections の %s%% になっています。この値は、"
-#~ "80%% 未満がいいと言われています。"
-
-#~ msgid "Percentage of aborted connections"
-#~ msgstr "中断された接続の比率"
-
-#~ msgid "Too many connections are aborted."
-#~ msgstr "中断された接続が多いです。"
-
-#~ msgid ""
-#~ "Connections are usually aborted when they cannot be authorized. <a href="
-#~ "\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
-#~ "source-of-aborted_connects/\">This article</a> might help you track down "
-#~ "the source."
-#~ msgstr ""
-#~ "接続は中断されたというのは、一般的に、認証できなかった場合のことです。<a "
-#~ "href=\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-"
-#~ "the-source-of-aborted_connects/\">この記事 (英語)</a> は、原因を突き止める"
-#~ "のに参考になるかもしれません。"
-
-#~ msgid "%s%% of all connections are aborted. This value should be below 1%%"
-#~ msgstr ""
-#~ "全接続のうち %s%% が中断されています。この値は、1%% 未満がいいと言われてい"
-#~ "ます。"
-
-#~ msgid "Rate of aborted connections"
-#~ msgstr "中断された接続の割合"
-
-#~ msgid ""
-#~ "Aborted connections rate is at %s, this value should be less than 1 per "
-#~ "hour"
-#~ msgstr ""
-#~ "中断された接続の割合は %s です。この値は、1 時間当たり 1 未満がいいと言わ"
-#~ "れています。"
-
-#~ msgid "Percentage of aborted clients"
-#~ msgstr "クライアントによって中断された比率"
-
-#~ msgid "Too many clients are aborted."
-#~ msgstr "中断されたクライアントが多いです。"
-
-#~ msgid ""
-#~ "Clients are usually aborted when they did not close their connection to "
-#~ "MySQL properly. This can be due to network issues or code not closing a "
-#~ "database handler properly. Check your network and code."
-#~ msgstr ""
-#~ "クライアントによって中断されたというのは、一般的に、MySQL への接続が適切に"
-#~ "閉じられなかった場合のことです。ネットワークの問題もしくはデータベースへの"
-#~ "接続を適切に閉じていないコードが原因と考えられます。ネットワークとコードを"
-#~ "確認してください。"
-
-#~ msgid "%s%% of all clients are aborted. This value should be below 2%%"
-#~ msgstr ""
-#~ "全クライアントの内 %s%% が中断されています。この値は、2%% 未満がいいと言わ"
-#~ "れています。"
-
-#~ msgid "Rate of aborted clients"
-#~ msgstr "中断されたクライアントの割合"
-
-#~ msgid ""
-#~ "Aborted client rate is at %s, this value should be less than 1 per hour"
-#~ msgstr ""
-#~ "中断されたクライアントの割合: %s。この値は、1 時間当たり 1 未満がいいと言"
-#~ "われています。"
-
-#~ msgid "Is InnoDB disabled?"
-#~ msgstr "InnoDB が無効？"
-
-#~ msgid "You do not have InnoDB enabled."
-#~ msgstr "InnoDB を有効にできていません。"
-
-#~ msgid "InnoDB is usually the better choice for table engines."
-#~ msgstr ""
-#~ "一般的に、InnoDB はテーブル用のエンジンとして適切な選択となりえます。"
-
-#~ msgid "have_innodb is set to 'value'"
-#~ msgstr "have_innodb は 'value' に設定されています。"
-
-#~ msgid "InnoDB log size"
-#~ msgstr "InnoDB のログサイズ"
-
-#~ msgid ""
-#~ "The InnoDB log file size is not an appropriate size, in relation to the "
-#~ "InnoDB buffer pool."
-#~ msgstr ""
-#~ "InnoDB のログサイズが適切ではありません。この値は InnoDB バッファプールと"
-#~ "関連があります。"
-
-#~ msgid ""
-#~ "Especially on a system with a lot of writes to InnoDB tables you should "
-#~ "set innodb_log_file_size to 25%% of {innodb_buffer_pool_size}. However "
-#~ "the bigger this value, the longer the recovery time will be when database "
-#~ "crashes, so this value should not be set much higher than 256 MiB. Please "
-#~ "note however that you cannot simply change the value of this variable. "
-#~ "You need to shutdown the server, remove the InnoDB log files, set the new "
-#~ "value in my.cnf, start the server, then check the error logs if "
-#~ "everything went fine. See also <a href=\"http://"
-#~ "mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-#~ "innodblogfilesize-proper-way.html\">this blog entry</a>"
-#~ msgstr ""
-#~ "特に、InnoDB のテーブルへの書き込みが多いシステムの場合には、"
-#~ "innodb_log_file_size は {innodb_buffer_pool_size} の 25%% に設定するといい"
-#~ "でしょう。しかしながら、この値が大きくなると、データベースが壊れたときの修"
-#~ "復に時間がかかるようになります。そのため、この値は 256 MiB を超えないほう"
-#~ "がいいと言われています。なお、この変数は簡単には変更できないので注意してく"
-#~ "ださい。サーバを停止させ、InnoDB ログファイルを削除し、my.cnf に新しい値を"
-#~ "設定して、そうした後にサーバは起動し直す必要があります。そして、全ての設定"
-#~ "が正しく設定できているのかを、エラーログで確認しなければなりません。<a "
-#~ "href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-#~ "innodblogfilesize-proper-way.html\">こちらのブログ記事 (英語)</a> もご覧に"
-#~ "なってください。"
-
-#~ msgid ""
-#~ "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool "
-#~ "size, it should not be below 20%%"
-#~ msgstr ""
-#~ "ご使用されている InnoDB のログサイズは、関連のある InnoDB バッファプールの"
-#~ "大きさに対して %s%% です。この値は、20%% 未満にしないほうがいいと言われて"
-#~ "います。"
-
-#~ msgid "Max InnoDB log size"
-#~ msgstr "InnoDB の最大ログサイズ"
-
-#~ msgid "The InnoDB log file size is inadequately large."
-#~ msgstr "InnoDB ログファイルの大きさが、十分にありません。"
-
-#~ msgid ""
-#~ "It is usually sufficient to set innodb_log_file_size to 25%% of the size "
-#~ "of {innodb_buffer_pool_size}. A very big innodb_log_file_size slows down "
-#~ "the recovery time after a database crash considerably. See also <a href="
-#~ "\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
-#~ "innodb_log_file_size/\">this Article</a>. You need to shutdown the "
-#~ "server, remove the InnoDB log files, set the new value in my.cnf, start "
-#~ "the server, then check the error logs if everything went fine. See also "
-#~ "<a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/"
-#~ "increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
-#~ msgstr ""
-#~ "一般的には、innodb_log_file_size に {innodb_buffer_pool_size} の 25%% の値"
-#~ "を設定すれば十分です。innodb_log_file_size の値が非常に大きい場合、データ"
-#~ "ベースが多量に破損した後の修復に時間がかかるようになります。<a href="
-#~ "\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
-#~ "innodb_log_file_size/\">こちらの記事 (英語)</a> も参照してください。なお、"
-#~ "この変数を変更するには、サーバを停止させ、InnoDB ログファイルを削除し、my."
-#~ "cnf に新しい値を設定してから、サーバを起動し直す必要があります。それから、"
-#~ "全ての設定が正しく行えたかを確認するために、エラーログを確認しなければなり"
-#~ "ません。設定に関しては、<a href=\"http://mysqldatabaseadministration."
-#~ "blogspot.com/2007/01/increase-innodblogfilesize-proper-way.html\">こちらの"
-#~ "ブログ記事 (英語)</a> もご覧ください。"
-
-#~ msgid "Your absolute InnoDB log size is %s MiB"
-#~ msgstr "使用されている InnoDB のログサイズの総計は、%s MiB です。"
-
-#~ msgid "InnoDB buffer pool size"
-#~ msgstr "InnoDB のバッファプールの大きさ"
-
-#~ msgid "Your InnoDB buffer pool is fairly small."
-#~ msgstr "ご使用されている InnoDB のバッファプールはかなり小さいです。"
-
-#~ msgid ""
-#~ "The InnoDB buffer pool has a profound impact on performance for InnoDB "
-#~ "tables. Assign all your remaining memory to this buffer. For database "
-#~ "servers that use solely InnoDB as storage engine and have no other "
-#~ "services (e.g. a web server) running, you may set this as high as 80%% of "
-#~ "your available memory. If that is not the case, you need to carefully "
-#~ "assess the memory consumption of your other services and non-InnoDB-"
-#~ "Tables and set this variable accordingly. If it is set too high, your "
-#~ "system will start swapping, which decreases performance significantly. "
-#~ "See also <a href=\"http://www.mysqlperformanceblog.com/2007/11/03/"
-#~ "choosing-innodb_buffer_pool_size/\">this article</a>"
-#~ msgstr ""
-#~ "InnoDB のバッファプールは、InnoDB テーブルのパフォーマンスに対して強い影響"
-#~ "力を持っています。使用されていないメモリを全てこのバッファに割り当ててくだ"
-#~ "さい。ストレージエンジンとして InnoDB のみを使用しており、他のサービス (例"
-#~ "えば、ウェブサーバ) を稼動していないデータベースサーバに対しては、使用可能"
-#~ "なメモリの 80%% 以上にあたる大きな値をバッファプール変数に設定するといいで"
-#~ "しょう。そのような状況以外では、使用されている他のサービスや InnoDB ではな"
-#~ "いテーブルの使用メモリ量を慎重に見極めながら、この変数を設定する必要があり"
-#~ "ます。大きすぎる値を設定されてしまった場合、システムはメモリスワップをする"
-#~ "ようになり、パフォーマンスは著しく低下するようになります。<a href="
-#~ "\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
-#~ "innodb_buffer_pool_size/\">こちらの記事 (英語)</a> も参考にしてください。"
-
-#~ msgid ""
-#~ "You are currently using %s%% of your memory for the InnoDB buffer pool. "
-#~ "This rule fires if you are assigning less than 60%%, however this might "
-#~ "be perfectly adequate for your system if you don't have much InnoDB "
-#~ "tables or other services running on the same machine."
-#~ msgstr ""
-#~ "現在、メモリの %s%% が InnoDB バッファプールに使われています。割り当てが "
-#~ "60%% 未満の時にこの事象が表示されるようになりますが、多くの InnoDB テーブ"
-#~ "ルを使用していない、もしくは同マシン上で他のサービスを稼動させていないので"
-#~ "あれば、ご使用のシステムではこの設定で十分かもしれません。"
-
-#~ msgid "MyISAM concurrent inserts"
-#~ msgstr "MyISAM における同時挿入"
-
-#~ msgid "Enable concurrent_insert by setting it to 1"
-#~ msgstr "concurrent_insert に 1 を設定して、同時挿入を有効にしてください。"
-
-#~ msgid ""
-#~ "Setting {concurrent_insert} to 1 reduces contention between readers and "
-#~ "writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
-#~ "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
-#~ msgstr ""
-#~ "{concurrent_insert} を 1 に設定すると、一つのテーブル内における読み書きの"
-#~ "衝突を減らすことができます。<a href=\"http://dev.mysql.com/doc/refman/5.1/"
-#~ "ja/concurrent-inserts.html\">MySQL ドキュメント</a>もご覧になってくださ"
-#~ "い。"
-
-#~ msgid "concurrent_insert is set to 0"
-#~ msgstr "concurrent_insert は 0 に設定されています。"
+#: libraries/advisory_rules.txt:49
+msgid "Uptime below one day"
+msgstr "稼働時間が 1 日未満"
+
+#: libraries/advisory_rules.txt:52
+msgid "Uptime is less than 1 day, performance tuning may not be accurate."
+msgstr ""
+"稼働時間が 1 日未満です。パフォーマンスチューニングが正確でない可能性がありま"
+"す。"
+
+#: libraries/advisory_rules.txt:53
+msgid ""
+"To have more accurate averages it is recommended to let the server run for "
+"longer than a day before running this analyzer"
+msgstr ""
+"統計データをより正確にするために、サーバを 1 日以上稼動させてから解析すること"
+"をお勧めします。"
+
+#: libraries/advisory_rules.txt:54
+#, php-format
+msgid "The uptime is only %s"
+msgstr "%s しか稼動していません。"
+
+#: libraries/advisory_rules.txt:56
+msgid "Questions below 1,000"
+msgstr "問い合わせ数が 1,000 未満"
+
+#: libraries/advisory_rules.txt:59
+msgid ""
+"Fewer than 1,000 questions have been run against this server. The "
+"recommendations may not be accurate."
+msgstr ""
+"このサーバで実行された問い合わせ数が 1000 未満と、十分といえる量がありませ"
+"ん。推奨事項は正確でない場合があります。"
+
+#: libraries/advisory_rules.txt:60
+msgid ""
+"Let the server run for a longer time until it has executed a greater amount "
+"of queries."
+msgstr ""
+"実行されたクエリが十分な量になるまで、長時間サーバを稼動させたほうがいいで"
+"しょう。"
+
+#: libraries/advisory_rules.txt:61
+#, php-format
+msgid "Current amount of Questions: %s"
+msgstr "現在の問い合わせ総数: %s"
+
+#: libraries/advisory_rules.txt:63
+msgid "Percentage of slow queries"
+msgstr "スロークエリの比率"
+
+#: libraries/advisory_rules.txt:66
+msgid ""
+"There is a lot of slow queries compared to the overall amount of Queries."
+msgstr "クエリの全体量に対して長時間処理であるスロークエリが多く存在します。"
+
+#: libraries/advisory_rules.txt:67 libraries/advisory_rules.txt:74
+msgid ""
+"You might want to increase {long_query_time} or optimize the queries listed "
+"in the slow query log"
+msgstr ""
+"{long_query_time} を増やすか、クエリログからスロークエリを見つけ出し最適化し"
+"てみてください。"
+
+#: libraries/advisory_rules.txt:68
+#, php-format
+msgid "The slow query rate should be below 5%%, your value is %s%%."
+msgstr ""
+"スロークエリの割合は 5%% 未満がいいと言われています。現在は %s%% です。"
+
+#: libraries/advisory_rules.txt:70
+msgid "Slow query rate"
+msgstr "スロークエリの割合"
+
+#: libraries/advisory_rules.txt:73
+msgid ""
+"There is a high percentage of slow queries compared to the server uptime."
+msgstr ""
+"サーバの稼働時間と比較して長時間処理であるスロークエリの比率が高いです。"
+
+#: libraries/advisory_rules.txt:75
+#, php-format
+msgid ""
+"You have a slow query rate of %s per hour, you should have less than 1%% per "
+"hour."
+msgstr ""
+"現在のスロークエリの割合は 1 時間当たり %s です。この値は、1 時間当たり 1%% "
+"未満がいいと言われています。"
+
+#: libraries/advisory_rules.txt:77
+msgid "Long query time"
+msgstr "長いクエリ時間"
+
+#: libraries/advisory_rules.txt:80
+msgid ""
+"long_query_time is set to 10 seconds or more, thus only slow queries that "
+"take above 10 seconds are logged."
+msgstr ""
+"long_query_time は 10 秒以上に設定されています。従って、10 秒を超えるものがス"
+"ロークエリとしてログに記録されます。"
+
+#: libraries/advisory_rules.txt:81
+msgid ""
+"It is suggested to set {long_query_time} to a lower value, depending on your "
+"environment. Usually a value of 1-5 seconds is suggested."
+msgstr ""
+"環境によっては、{long_query_time} を低い値に設定するほうがいいでしょう。通"
+"常、1～5 秒の値が推奨されます。"
+
+#: libraries/advisory_rules.txt:82
+#, php-format
+msgid "long_query_time is currently set to %ds."
+msgstr "long_query_time は現在 %d 秒に設定されています。"
+
+#: libraries/advisory_rules.txt:84
+msgid "Slow query logging"
+msgstr "スロークエリログ"
+
+#: libraries/advisory_rules.txt:87
+msgid "The slow query log is disabled."
+msgstr "スロークエリログが無効になっています。"
+
+#: libraries/advisory_rules.txt:88
+msgid ""
+"Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
+"help troubleshooting badly performing queries."
+msgstr ""
+"{log_slow_queries} を「ON」に設定することで、スロークエリログが有効になりま"
+"す。これは、パフォーマンスの悪いクエリの切り分けに役立つでしょう。"
+
+#: libraries/advisory_rules.txt:89
+msgid "log_slow_queries is set to 'OFF'"
+msgstr "log_slow_queries が「OFF」に設定されています。"
+
+#: libraries/advisory_rules.txt:93
+msgid "Release Series"
+msgstr "バージョン系統"
+
+#: libraries/advisory_rules.txt:96
+msgid "The MySQL server version less than 5.1."
+msgstr "MySQL サーバのバージョンが 5.1 未満です。"
+
+#: libraries/advisory_rules.txt:97
+msgid ""
+"You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
+"even more so."
+msgstr ""
+"アップグレードを推奨します。MySQL 5.1 はパフォーマンスが向上していますし、"
+"MySQL 5.5 であれば更に向上しています。"
+
+#: libraries/advisory_rules.txt:98 libraries/advisory_rules.txt:105
+#: libraries/advisory_rules.txt:112
+#, php-format
+msgid "Current version: %s"
+msgstr "現在のバージョン: %s"
+
+#: libraries/advisory_rules.txt:100 libraries/advisory_rules.txt:107
+msgid "Minor Version"
+msgstr "マイナーバージョン"
+
+#: libraries/advisory_rules.txt:103
+msgid "Version less than 5.1.30 (the first GA release of 5.1)."
+msgstr "バージョン 5.1.30 (5.1 の 最初の安定版) 未満です。"
+
+#: libraries/advisory_rules.txt:104
+msgid ""
+"You should upgrade, as recent versions of MySQL 5.1 have improved "
+"performance and MySQL 5.5 even more so."
+msgstr ""
+"アップグレードを推奨します。最新バージョンの MySQL 5.1 はパフォーマンスが向上"
+"していますし、MySQL 5.5 であれば更に向上しています。"
+
+#: libraries/advisory_rules.txt:110
+msgid "Version less than 5.5.8 (the first GA release of 5.5)."
+msgstr "バージョン 5.5.8 (5.5 の 最初の安定版) 未満です。"
+
+#: libraries/advisory_rules.txt:111
+msgid "You should upgrade, to a stable version of MySQL 5.5"
+msgstr "安定版 MySQL 5.5 へのアップグレードを推奨します。"
+
+#: libraries/advisory_rules.txt:114 libraries/advisory_rules.txt:121
+#: libraries/advisory_rules.txt:128
+msgid "Distribution"
+msgstr "ディストリビューション"
+
+#: libraries/advisory_rules.txt:117
+msgid "Version is compiled from source, not a MySQL official binary."
+msgstr ""
+"ご使用のバージョンはソースからコンパイルされたもので、MySQL オフィッシャルの"
+"バイナリではありません。"
+
+#: libraries/advisory_rules.txt:118
+msgid ""
+"If you did not compile from source, you may be using a package modified by a "
+"distribution. The MySQL manual only is accurate for official MySQL binaries, "
+"not any package distributions (such as RedHat, Debian/Ubuntu etc)."
+msgstr ""
+"ユーザが独自にソースからコンパイルしたのでないのであれば、おそらくディストリ"
+"ビューションによるパッケージを使用しているものだと思われます。MySQL のマニュ"
+"アルは、MySQL オフィッシャルのバイナリに対しては厳格になっていますが、"
+"(RedHat、Debian/Ubuntu などのような) ディストリビューションのパッケージに対し"
+"ては多少異なる部分もあります。"
+
+#: libraries/advisory_rules.txt:119
+msgid "'source' found in version_comment"
+msgstr ""
+"バージョンコメント (version_comment) に 「source」という文字があります。"
+
+#: libraries/advisory_rules.txt:124 libraries/advisory_rules.txt:131
+msgid "The MySQL manual only is accurate for official MySQL binaries."
+msgstr ""
+"MySQL のマニュアルは、MySQL オフィッシャルのバイナリに対してだけ厳格になって"
+"います。"
+
+#: libraries/advisory_rules.txt:125
+msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
+msgstr "Percona ドキュメントは http://www.percona.com/docs/wiki/ にあります。"
+
+#: libraries/advisory_rules.txt:126
+msgid "'percona' found in version_comment"
+msgstr ""
+"バージョンコメント (version_comment) に 「percona」という文字があります。"
+
+#: libraries/advisory_rules.txt:132
+msgid "Drizzle documentation is at http://docs.drizzle.org/"
+msgstr "Drizzle ドキュメントは http://docs.drizzle.org/ にあります。"
+
+#: libraries/advisory_rules.txt:133
+#, php-format
+msgid "Version string (%s) matches Drizzle versioning scheme"
+msgstr "バージョンの文字列 (%s) が Drizzle のバージョン形態と一致しています。"
+
+#: libraries/advisory_rules.txt:135
+msgid "MySQL Architecture"
+msgstr "MySQL 仕様"
+
+#: libraries/advisory_rules.txt:138
+msgid "MySQL is not compiled as a 64-bit package."
+msgstr "MySQL が、64 ビットのパッケージとしてコンパイルされていません。"
+
+#: libraries/advisory_rules.txt:139
+msgid ""
+"Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
+"so MySQL might not be able to access all of your memory. You might want to "
+"consider installing the 64-bit version of MySQL."
+msgstr ""
+"メモリ上限が (このサーバ上において) 3 GiB になってしまいますので、MySQL はメ"
+"モリを十分活用できないでしょう。64 ビット版の MySQL の導入を検討してみてくだ"
+"さい。"
+
+#: libraries/advisory_rules.txt:140
+#, php-format
+msgid "Available memory on this host: %s"
+msgstr "このホスト上の利用可能メモリ: %s"
+
+#: libraries/advisory_rules.txt:146
+msgid "Query cache disabled"
+msgstr "クエリキャッシュが無効"
+
+#: libraries/advisory_rules.txt:149
+msgid "The query cache is not enabled."
+msgstr "クエリキャッシュが有効になっていません。"
+
+#: libraries/advisory_rules.txt:150
+msgid ""
+"The query cache is known to greatly improve performance if configured "
+"correctly. Enable it by setting {query_cache_size} to a 2 digit MiB value "
+"and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
+"memcached, ignore this recommendation."
+msgstr ""
+"クエリキャッシュは、的確に設定されているとパフォーマンスがとても改善されるこ"
+"とが知られています。クエリキャッシュを有効にするには、{query_cache_size} を "
+"2 桁 MiB にして、{query_cache_type} を「ON」に設定してください。<b>注：</"
+"b>memcached を使用している場合は、この事象に関することは無視してください。"
+
+#: libraries/advisory_rules.txt:151
+msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
+msgstr ""
+"query_cache_size が 0 に設定されているか、query_cache_type が「OFF」に設定さ"
+"れています。"
+
+#: libraries/advisory_rules.txt:153
+msgid "Query caching method"
+msgstr "クエリのキャッシュ方式"
+
+#: libraries/advisory_rules.txt:156
+msgid "Suboptimal caching method."
+msgstr "準最適キャッシュ方式です。"
+
+#: libraries/advisory_rules.txt:157
+msgid ""
+"You are using the MySQL Query cache with a fairly high traffic database. It "
+"might be worth considering to use <a href=\"http://dev.mysql.com/doc/"
+"refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
+"cache, especially if you have multiple slaves."
+msgstr ""
+"MySQL のクエリキャッシュをかなり高いトラフィックのデータベースに対して使用し"
+"ています。MySQL のクエリキャッシュの代わりに <a href=\"http://dev.mysql.com/"
+"doc/refman/5.5/en/ha-memcached.html\">memcached</a> の使用を検討する価値があ"
+"ると思われます。これは、マルチスレーブを使用している場合は、特に推奨されま"
+"す。"
+
+#: libraries/advisory_rules.txt:158
+#, php-format
+msgid ""
+"The query cache is enabled and the server receives %d queries per second. "
+"This rule fires if there is more than 100 queries per second."
+msgstr ""
+"クエリキャッシュが有効で、サーバが毎秒 %d 個のクエリを受信しています。毎秒 "
+"100 個を超えるのクエリがある場合、このルールが適用されます。"
+
+#: libraries/advisory_rules.txt:160
+#, php-format
+msgid "Query cache efficiency (%%)"
+msgstr "クエリキャッシュ効率 (%%)"
+
+#: libraries/advisory_rules.txt:163
+msgid "Query cache not running efficiently, it has a low hit rate."
+msgstr ""
+"クエリキャッシュが有効に機能していません。キャッシュのヒット率が低いです。"
+
+#: libraries/advisory_rules.txt:164
+msgid "Consider increasing {query_cache_limit}."
+msgstr "{query_cache_limit} の増加を検討してください。"
+
+#: libraries/advisory_rules.txt:165
+#, php-format
+msgid "The current query cache hit rate of %s%% is below 20%%"
+msgstr "現在のクエリキャッシュのヒット率が %s%% と、20%% を下回っています。"
+
+#: libraries/advisory_rules.txt:167
+msgid "Query Cache usage"
+msgstr "クエリキャッシュの使用状況"
+
+#: libraries/advisory_rules.txt:170
+#, php-format
+msgid "Less than 80%% of the query cache is being utilized."
+msgstr "クエリキャッシュの利用率が 80%% 未満です。"
+
+#: libraries/advisory_rules.txt:171
+msgid ""
+"This might be caused by {query_cache_limit} being too low. Flushing the "
+"query cache might help as well."
+msgstr ""
+"これは、{query_cache_limit} が低すぎることが原因であると考えられます。クエリ"
+"キャッシュをフラッシュすることでも改善されるかもしれません。"
+
+#: libraries/advisory_rules.txt:172
+#, php-format
+msgid ""
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
+msgstr ""
+"クエリキャッシュの総量に対するクエリキャッシュの空きメモリの割合は、%s%% で"
+"す。この値は、80%% 以上がいいと言われています。"
+
+#: libraries/advisory_rules.txt:174
+msgid "Query cache fragmentation"
+msgstr "クエリキャッシュの断片化"
+
+#: libraries/advisory_rules.txt:177
+msgid "The query cache is considerably fragmented."
+msgstr "クエリキャッシュが非常に断片化しています。"
+
+#: libraries/advisory_rules.txt:178
+msgid ""
+"Severe fragmentation is likely to (further) increase Qcache_lowmem_prunes. "
+"This might be caused by many Query cache low memory prunes due to "
+"{query_cache_size} being too small. For a immediate but short lived fix you "
+"can flush the query cache (might lock the query cache for a long time). "
+"Carefully adjusting {query_cache_min_res_unit} to a lower value might help "
+"too, e.g. you can set it to the average size of your queries in the cache "
+"using this formula: (query_cache_size - qcache_free_memory) / "
+"qcache_queries_in_cache"
+msgstr ""
+"深刻な断片化は Qcache_lowmem_prunes の (大きな) 増加を示唆しています。"
+"{query_cache_size} が小さすぎることが原因で、小さなクエリキャッシュメモリの切"
+"り詰めが多数発生したことにより、このようになったものと思われます。今すぐクエ"
+"リキャッシュのフラッシュを行えば、しばらくは (長期間クエリキャッシュをロック"
+"していたような) 断片化は解消されます。{query_cache_min_res_unit} を小さめな値"
+"に慎重に調整することで、断片化をかなり抑制できるかもしれません。設定例とし"
+"て、クエリキャッシュの 1 つ当たりの平均使用サイズ ( = (query_cache_size - "
+"qcache_free_memory) / qcache_queries_in_cache ) などがあります。"
+
+#: libraries/advisory_rules.txt:179
+#, php-format
+msgid ""
+"The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
+"that the query cache is an alternating pattern of free and used blocks. This "
+"value should be below 20%%."
+msgstr ""
+"キャッシュは現在 %s%% 断片化しています。100%% の断片化とは、クエリキャッシュ"
+"が空きと使用済みブロックが交互に現れるパターンになっていることを意味していま"
+"す。この値は、20%% 未満がいいと言われています。"
+
+#: libraries/advisory_rules.txt:181
+msgid "Query cache low memory prunes"
+msgstr "小さなクエリキャッシュメモリの切り詰め"
+
+#: libraries/advisory_rules.txt:184
+msgid ""
+"Cached queries are removed due to low query cache memory from the query "
+"cache."
+msgstr ""
+"キャッシュされたクエリは、クエリキャッシュメモリが小さいためキャッシュから削"
+"除されます。"
+
+#: libraries/advisory_rules.txt:185
+msgid ""
+"You might want to increase {query_cache_size}, however keep in mind that the "
+"overhead of maintaining the cache is likely to increase with its size, so do "
+"this in small increments and monitor the results."
+msgstr ""
+"{query_cache_size} を増やす必要があるでしょう。しかしながら、大きくなった分だ"
+"け、キャッシュ維持に対するオーバヘッドも増加したように感じるかもしれません。"
+"少しずつ増やして、結果をモニタするようにしてみてください。"
+
+#: libraries/advisory_rules.txt:186
+#, php-format
+msgid ""
+"The ratio of removed queries to inserted queries is %s%%. The lower this "
+"value is, the better (This rules firing limit: 0.1%%)"
+msgstr ""
+"追加クエリに対する削除クエリの割合は、%s%% です。この値は低いほど良いです (こ"
+"こでは 0.1%% を超えたらで判断しています)。"
+
+#: libraries/advisory_rules.txt:188
+msgid "Query cache max size"
+msgstr "クエリキャッシュの最大サイズ"
+
+#: libraries/advisory_rules.txt:191
+msgid ""
+"The query cache size is above 128 MiB. Big query caches may cause "
+"significant overhead that is required to maintain the cache."
+msgstr ""
+"クエリキャッシュサイズが 128 MiB を超えています。クエリキャッシュが大きいと、"
+"キャッシュ維持に必要となるオーバヘッドがかさむようになります。"
+
+#: libraries/advisory_rules.txt:192
+msgid ""
+"Depending on your environment, it might be performance increasing to reduce "
+"this value."
+msgstr ""
+"使用されている環境によりますが、この値を減らすとパフォーマンスがよくなること"
+"があります。"
+
+#: libraries/advisory_rules.txt:193
+#, php-format
+msgid "Current query cache size: %s"
+msgstr "現在のクエリキャッシュサイズ: %s"
+
+#: libraries/advisory_rules.txt:195
+msgid "Query cache min result size"
+msgstr "クエリキャッシュの最小結果サイズ"
+
+#: libraries/advisory_rules.txt:198
+msgid ""
+"The max size of the result set in the query cache is the default of 1 MiB."
+msgstr ""
+"クエリキャッシュにおける結果セットの上限サイズは、デフォルトの 1 MiB です。"
+
+#: libraries/advisory_rules.txt:199
+msgid ""
+"Changing {query_cache_limit} (usually by increasing) may increase "
+"efficiency. This variable determines the maximum size a query result may "
+"have to be inserted into the query cache. If there are many query results "
+"above 1 MiB that are well cacheable (many reads, little writes) then "
+"increasing {query_cache_limit} will increase efficiency. Whereas in the case "
+"of many query results being above 1 MiB that are not very well cacheable "
+"(often invalidated due to table updates) increasing {query_cache_limit} "
+"might reduce efficiency."
+msgstr ""
+"{query_cache_limit} を変更 (一般的に増加) したほうが、効率がよくなることが多"
+"いです。この変数は、キャッシュされるクエリ結果の上限サイズに直接影響します。"
+"(読み込みが多く、書き込みが少しといった) キャッシュに依存しやすく 1 MiB を超"
+"えているクエリの結果が多くあるのであれば、{query_cache_limit} を増加させるこ"
+"とで効率性は増すでしょう。(度々テーブルが更新されることで無効化され) キャッ"
+"シュにほとんど依存できない 1 MiB を超えているクエリの結果が多くあるのであれ"
+"ば、{query_cache_limit} を増加させることで効率が悪くかもしれません。"
+
+#: libraries/advisory_rules.txt:200
+msgid "query_cache_limit is set to 1 MiB"
+msgstr "query_cache_limit は 1 MiB に設定されています。"
+
+#: libraries/advisory_rules.txt:204
+msgid "Percentage of sorts that cause temporary tables"
+msgstr "ソート時に一時テーブルが使われる比率"
+
+#: libraries/advisory_rules.txt:207 libraries/advisory_rules.txt:214
+msgid "Too many sorts are causing temporary tables."
+msgstr "一時テーブルが多くのソートで使われています。"
+
+#: libraries/advisory_rules.txt:208 libraries/advisory_rules.txt:215
+msgid ""
+"Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending "
+"on your system memory limits"
+msgstr ""
+"ご使用のシステムのメモリ環境に合わせて、sort_buffer_size と "
+"read_rnd_buffer_size のいずれかもしくは両方を増加させることを検討してくださ"
+"い。"
+
+#: libraries/advisory_rules.txt:209
+#, php-format
+msgid ""
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
+msgstr ""
+"全ソートの内 %s%% が一時テーブルを使用しています。この値は、10%% 未満がいいと"
+"言われています。"
+
+#: libraries/advisory_rules.txt:211
+msgid "Rate of sorts that cause temporary tables"
+msgstr "ソート時に一時テーブルが使われる割合"
+
+#: libraries/advisory_rules.txt:216
+#, php-format
+msgid ""
+"Temporary tables average: %s, this value should be less than 1 per hour."
+msgstr ""
+"一時テーブル使用率の平均：%s。この値は、1 時間当たり 1 未満がいいと言われてい"
+"ます。"
+
+#: libraries/advisory_rules.txt:218
+msgid "Sort rows"
+msgstr "行のソート"
+
+#: libraries/advisory_rules.txt:221
+msgid "There are lots of rows being sorted."
+msgstr "ソートされている行が多く存在します。"
+
+#: libraries/advisory_rules.txt:222
+msgid ""
+"While there is nothing wrong with a high amount of row sorting, you might "
+"want to make sure that the queries which require a lot of sorting use "
+"indexed columns in the ORDER BY clause, as this will result in much faster "
+"sorting"
+msgstr ""
+"多くの行がソートされていても特に問題ないのであれば、多くのソートを必要とする"
+"クエリに対して、ORDER BY 節にインデックスのあるカラムを使うのを検討する程度で"
+"いいでしょう。そのクエリ結果のソートは、とても速くなるかもしれません。"
+
+#: libraries/advisory_rules.txt:223
+#, php-format
+msgid "Sorted rows average: %s"
+msgstr "ソートされている行の平均：%s"
+
+#: libraries/advisory_rules.txt:226
+msgid "Rate of joins without indexes"
+msgstr "インデックスを使用しない結合の割合"
+
+#: libraries/advisory_rules.txt:229
+msgid "There are too many joins without indexes."
+msgstr "インデックスを使用しない結合が多くあります。"
+
+#: libraries/advisory_rules.txt:230
+msgid ""
+"This means that joins are doing full table scans. Adding indexes for the "
+"columns being used in the join conditions will greatly speed up table joins"
+msgstr ""
+"これは結合において、テーブルが全スキャンされていることを示しています。結合条"
+"件に合ったカラムにインデックスを追加することで、テーブル結合のスピードは大幅"
+"に上がるでしょう。"
+
+#: libraries/advisory_rules.txt:231
+#, php-format
+msgid "Table joins average: %s, this value should be less than 1 per hour"
+msgstr ""
+"テーブル結合の平均：%s。この値は、1 時間当たり 1 未満がいいと言われています。"
+
+#: libraries/advisory_rules.txt:233
+msgid "Rate of reading first index entry"
+msgstr "最初のインデックスエントリを読み込む割合"
+
+#: libraries/advisory_rules.txt:236
+msgid "The rate of reading the first index entry is high."
+msgstr "最初のインデックスエントリを読み込む割合が高いです。"
+
+#: libraries/advisory_rules.txt:237
+msgid ""
+"This usually indicates frequent full index scans. Full index scans are "
+"faster than table scans but require lots of CPU cycles in big tables, if "
+"those tables that have or had high volumes of UPDATEs and DELETEs, running "
+"'OPTIMIZE TABLE' might reduce the amount of and/or speed up full index "
+"scans. Other than that full index scans can only be reduced by rewriting "
+"queries."
+msgstr ""
+"これは、通常、インデックスの全スキャンが頻繁に行われていることを示していま"
+"す。インデックスの全スキャンはテーブルのスキャンよりは速いですが、大きなテー"
+"ブルでは CPU リソースを多く必要とします。このテーブルに対して UPDATE や "
+"DELETE が多く行われたまたは行われているのであれば、「OPTIMIZE TABLE」を実行す"
+"ることでインデックスの全スキャンの減少やスキャンスピードの上昇が見込めるかも"
+"しれません。また、インデックスの全スキャンは、クエリを書き直すことでも減らす"
+"ことが可能です。"
+
+#: libraries/advisory_rules.txt:238
+#, php-format
+msgid "Index scans average: %s, this value should be less than 1 per hour"
+msgstr ""
+"インデックススキャンの平均：%s。この値は、1 時間当たり 1 未満がいいと言われて"
+"います。"
+
+#: libraries/advisory_rules.txt:240
+msgid "Rate of reading fixed position"
+msgstr "決まった位置を読み込む割合"
+
+#: libraries/advisory_rules.txt:243
+msgid "The rate of reading data from a fixed position is high."
+msgstr "決まった位置のデータを読み込む割合が高いです。"
+
+#: libraries/advisory_rules.txt:244
+msgid ""
+"This indicates that many queries need to sort results and/or do a full table "
+"scan, including join queries that do not use indexes. Add indexes where "
+"applicable."
+msgstr ""
+"多くのクエリがインデックスを使用しない結合クエリを含んでいるために、結果の"
+"ソート、テーブルの全スキャン、のいずれかもしくは両方を必要としていることを示"
+"しています。該当箇所にインデックスを追加してください。"
+
+#: libraries/advisory_rules.txt:245
+#, php-format
+msgid ""
+"Rate of reading fixed position average: %s, this value should be less than 1 "
+"per hour"
+msgstr ""
+"決まった位置を読み込む割合の平均：%s。この値は、1 時間当たり 1 未満がいいと言"
+"われています。"
+
+#: libraries/advisory_rules.txt:247
+msgid "Rate of reading next table row"
+msgstr "テーブルの次行を読み込む割合"
+
+#: libraries/advisory_rules.txt:250
+msgid "The rate of reading the next table row is high."
+msgstr "テーブルの次行を読み込む割合が高いです。"
+
+#: libraries/advisory_rules.txt:251
+msgid ""
+"This indicates that many queries are doing full table scans. Add indexes "
+"where applicable."
+msgstr ""
+"多くのクエリがテーブルの全スキャンを行っていることを示しています。該当箇所に"
+"インデックスを追加してください。"
+
+#: libraries/advisory_rules.txt:252
+#, php-format
+msgid ""
+"Rate of reading next table row: %s, this value should be less than 1 per hour"
+msgstr ""
+"テーブルの次行を読み込む割合：%s。この値は、1 時間当たり 1 未満がいいと言われ"
+"ています。"
+
+#: libraries/advisory_rules.txt:255
+msgid "tmp_table_size vs. max_heap_table_size"
+msgstr "tmp_table_size と max_heap_table_size の関係"
+
+#: libraries/advisory_rules.txt:258
+msgid "tmp_table_size and max_heap_table_size are not the same."
+msgstr "tmp_table_size と max_heap_table_size が同じ値ではありません。"
+
+#: libraries/advisory_rules.txt:259
+msgid ""
+"If you have deliberately changed one of either: The server uses the lower "
+"value of either to determine the maximum size of in-memory tables. So if you "
+"wish to increase the in-memory table limit you will have to increase the "
+"other value as well."
+msgstr ""
+"いずれか 1 つの変更した場合、メモリ内テーブルのサイズが最大になるように、サー"
+"バはいずれか低いほうの値を使用します。ですから、メモリ内テーブルの制限を増や"
+"したいのであれば、もう一方の値も増やしたほうがいいでしょう。"
+
+#: libraries/advisory_rules.txt:260
+#, php-format
+msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
+msgstr ""
+"両者の現在の値は、tmp_table_size が %s、max_heap_table_size が %s です。"
+
+#: libraries/advisory_rules.txt:262
+msgid "Percentage of temp tables on disk"
+msgstr "一時テーブルがディスク上に展開される比率"
+
+#: libraries/advisory_rules.txt:265 libraries/advisory_rules.txt:272
+msgid ""
+"Many temporary tables are being written to disk instead of being kept in "
+"memory."
+msgstr "多くの一時テーブルが、メモリではなくディスク上に展開されています。"
+
+#: libraries/advisory_rules.txt:266
+msgid ""
+"Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
+"some temporary tables are always being written to disk, independent of the "
+"value of these variables. To eliminate these you will have to rewrite your "
+"queries to avoid those conditions (Within a temporary table: Presence of a "
+"BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
+"mentioned in the beginning of an <a href=\"http://www.facebook.com/note.php?"
+"note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
+msgstr ""
+"{max_heap_table_size} と {tmp_table_size} を増加させることで改善されるかもし"
+"れません。しかしながら、これらの変数値に関わりなく、常にディスクに展開される"
+"一時テーブルは存在します。この状況をも改善したいのであれば、BLOB や TEXT のカ"
+"ラムもしくは 512 バイトを超えるカラムを使わないように、クエリを書き直す必要が"
+"あるでしょう。このことは、<a href=\"http://www.facebook.com/note.php?"
+"note_id=10150111255065841&comments\">The Pythian Group の記事 (英語)</a>に詳"
+"しく記載されています。"
+
+#: libraries/advisory_rules.txt:267
+#, php-format
+msgid ""
+"%s%% of all temporary tables are being written to disk, this value should be "
+"below 25%%"
+msgstr ""
+"全一時テーブルの内 %s%% がディスク上に展開されています。この値は、25%% 未満が"
+"いいと言われています。"
+
+#: libraries/advisory_rules.txt:269
+msgid "Temp disk rate"
+msgstr "一時テーブルがディスク上に展開される割合"
+
+#: libraries/advisory_rules.txt:273
+msgid ""
+"Increasing {max_heap_table_size} and {tmp_table_size} might help. However "
+"some temporary tables are always being written to disk, independent of the "
+"value of these variables. To eliminate these you will have to rewrite your "
+"queries to avoid those conditions (Within a temporary table: Presence of a "
+"BLOB or TEXT column or presence of a column bigger than 512 bytes) as "
+"mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
+"temporary-tables.html\">MySQL Documentation</a>"
+msgstr ""
+"{max_heap_table_size} と {tmp_table_size} を増加させることで改善されるかもし"
+"れません。しかしながら、これらの変数値に関わりなく、常にディスクに展開される"
+"一時テーブルは存在します。この状況をも改善したいのであれば、BLOB や TEXT のカ"
+"ラムもしくは 512 バイトを超えるカラムを使わないように、クエリを書き直す必要が"
+"あるでしょう。このことは、<a href=\"http://dev.mysql.com/doc/refman/5.5/en/"
+"internal-temporary-tables.html\">MySQL ドキュメント</a>に詳しく記載されていま"
+"す。"
+
+#: libraries/advisory_rules.txt:274
+#, php-format
+msgid ""
+"Rate of temporary tables being written to disk: %s, this value should be "
+"less than 1 per hour"
+msgstr ""
+"ディスク書き込みを伴う一時テーブル割合：%s。この値は、1 時間当たり 1 未満がい"
+"いと言われています。"
+
+#: libraries/advisory_rules.txt:289
+msgid "MyISAM key buffer size"
+msgstr "MyISAM キーバッファのサイズ"
+
+#: libraries/advisory_rules.txt:292
+msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
+msgstr ""
+"キーバッファが初期化されていません。おそらく、MyISAM インデックスはキャッシュ"
+"されていません。"
+
+#: libraries/advisory_rules.txt:293
+msgid ""
+"Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
+"good start."
+msgstr ""
+"お使いの MyISAM インデックスのサイズに合わせた {key_buffer_size} を設定してく"
+"ださい。最初の設定としては、64M からがいいでしょう。"
+
+#: libraries/advisory_rules.txt:294
+msgid "key_buffer_size is 0"
+msgstr "key_buffer_size は 0 です。"
+
+#: libraries/advisory_rules.txt:296
+#, php-format
+msgid "Max %% MyISAM key buffer ever used"
+msgstr "使われていた MyISAM キーバッファの最大比率"
+
+#: libraries/advisory_rules.txt:299 libraries/advisory_rules.txt:307
+#, php-format
+msgid "MyISAM key buffer (index cache) %% used is low."
+msgstr "MyISAM キーバッファ（インデックスキャッシュ）の使用率が低いです。"
+
+#: libraries/advisory_rules.txt:300 libraries/advisory_rules.txt:308
+msgid ""
+"You may need to decrease the size of {key_buffer_size}, re-examine your "
+"tables to see if indexes have been removed, or examine queries and "
+"expectations about what indexes are being used."
+msgstr ""
+"{key_buffer_size} の必要とするサイズが減少しているようです。ご使用のテーブル"
+"でインデックスが削除されていないかよく確認してください。また、クエリあるいは"
+"インデックスの使用が想定されるものがないか確認してみてください。"
+
+#: libraries/advisory_rules.txt:301
+#, php-format
+msgid ""
+"max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
+msgstr ""
+"使われていた MyISAM キーバッファの最大比率: %s%%。この値は、95%% 以上がいいと"
+"言われています。"
+
+#: libraries/advisory_rules.txt:304
+msgid "Percentage of MyISAM key buffer used"
+msgstr "MyISAM キーバッファの使用比率"
+
+#: libraries/advisory_rules.txt:309
+#, php-format
+msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
+msgstr ""
+"MyISAM キーバッファの使用比率: %s%%。この値は、95%% 以上がいいと言われていま"
+"す。"
+
+#: libraries/advisory_rules.txt:311
+msgid "Percentage of index reads from memory"
+msgstr "メモリから読み込まれるインデックスの比率"
+
+#: libraries/advisory_rules.txt:314
+#, php-format
+msgid "The %% of indexes that use the MyISAM key buffer is low."
+msgstr "MyISAM キーバッファを使用するインデックスの比率が低いです。"
+
+#: libraries/advisory_rules.txt:315
+msgid "You may need to increase {key_buffer_size}."
+msgstr "{key_buffer_size} を増やす必要があるかもしれません。"
+
+#: libraries/advisory_rules.txt:316
+#, php-format
+msgid "Index reads from memory: %s%%, this value should be above 95%%"
+msgstr ""
+"メモリから読み込まれるインデックスの比率: %s%%。この値は、95%% 以上がいいと言"
+"われています。"
+
+#: libraries/advisory_rules.txt:320
+msgid "Rate of table open"
+msgstr "テーブルを開く割合"
+
+#: libraries/advisory_rules.txt:323
+msgid "The rate of opening tables is high."
+msgstr "テーブルを開く割合が高いです。"
+
+#: libraries/advisory_rules.txt:324
+msgid ""
+"Opening tables requires disk I/O which is costly. Increasing "
+"{table_open_cache} might avoid this."
+msgstr ""
+"テーブルを開くというのは、負荷がかかるディスクへの入出力を行うということで"
+"す。{table_open_cache} を大きくすることで、これを緩和できることがあります。"
+
+#: libraries/advisory_rules.txt:325
+#, php-format
+msgid "Opened table rate: %s, this value should be less than 10 per hour"
+msgstr ""
+"テーブルを開く割合：%s。この値は、1 時間当たり 10 未満がいいと言われていま"
+"す。"
+
+#: libraries/advisory_rules.txt:327
+msgid "Percentage of used open files limit"
+msgstr "開いているファイルの上限に対する比率"
+
+#: libraries/advisory_rules.txt:330
+msgid ""
+"The number of open files is approaching the max number of open files.  You "
+"may get a \"Too many open files\" error."
+msgstr ""
+"開いているファイルの数が最大になりつつあります。エラー「開いているファイルが"
+"多すぎます」になるかもしれません。"
+
+#: libraries/advisory_rules.txt:331 libraries/advisory_rules.txt:338
+msgid ""
+"Consider increasing {open_files_limit}, and check the error log when "
+"restarting after changing open_files_limit."
+msgstr ""
+"{open_files_limit} 増やすことを検討してください。open_files_limit を変更して"
+"再起動した場合は、エラーログを確認するようにしてください。"
+
+#: libraries/advisory_rules.txt:332
+#, php-format
+msgid ""
+"The number of opened files is at %s%% of the limit. It should be below 85%%"
+msgstr ""
+"開いているファイルの数は上限に対して %s%% です。この値は、85%% 未満がいいと言"
+"われています。"
+
+#: libraries/advisory_rules.txt:334
+msgid "Rate of open files"
+msgstr "開いているファイルの割合"
+
+#: libraries/advisory_rules.txt:337
+msgid "The rate of opening files is high."
+msgstr "開いているファイルの割合が高いです。"
+
+#: libraries/advisory_rules.txt:339
+#, php-format
+msgid "Opened files rate: %s, this value should be less than 5 per hour"
+msgstr ""
+"開いているファイルの割合：%s。この値は、1 時間当たり 5 未満がいいと言われてい"
+"ます。"
+
+#: libraries/advisory_rules.txt:341
+#, php-format
+msgid "Immediate table locks %%"
+msgstr "速やかに行われたテーブルロックの比率"
+
+#: libraries/advisory_rules.txt:344 libraries/advisory_rules.txt:351
+msgid "Too many table locks were not granted immediately."
+msgstr "テーブルロック要求に対して速やかに取得できないことが多いです。"
+
+#: libraries/advisory_rules.txt:345 libraries/advisory_rules.txt:352
+msgid "Optimize queries and/or use InnoDB to reduce lock wait."
+msgstr ""
+"テーブルの最適化もしくは InnoDB のロック待ち時間の減少、のいずれかもしくは両"
+"方を行ってください。"
+
+#: libraries/advisory_rules.txt:346
+#, php-format
+msgid "Immediate table locks: %s%%, this value should be above 95%%"
+msgstr ""
+"速やかに行われたテーブルロック: %s%%。この値は、95%% 以上がいいと言われていま"
+"す。"
+
+#: libraries/advisory_rules.txt:348
+msgid "Table lock wait rate"
+msgstr "テーブルロックの待つ割合"
+
+#: libraries/advisory_rules.txt:353
+#, php-format
+msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
+msgstr ""
+"テーブルロックの待つ割合: %s。この値は、1 時間当たり 1 未満がいいと言われてい"
+"ます。"
+
+#: libraries/advisory_rules.txt:355
+msgid "Thread cache"
+msgstr "スレッドキャッシュ"
+
+#: libraries/advisory_rules.txt:358
+msgid ""
+"Thread cache is disabled, resulting in more overhead from new connections to "
+"MySQL."
+msgstr ""
+"スレッドキャッシュが無効になっているため、MySQL への新たな接続に対してのオー"
+"バヘッドが大きくなります。"
+
+#: libraries/advisory_rules.txt:359
+msgid "Enable the thread cache by setting {thread_cache_size} > 0."
+msgstr ""
+"{thread_cache_size} に 0 より大きな値を設定して、スレッドキャッシュを有効にし"
+"てください。"
+
+#: libraries/advisory_rules.txt:360
+msgid "The thread cache is set to 0"
+msgstr "スレッドキャッシュは 0 に設定されています。"
+
+#: libraries/advisory_rules.txt:362
+#, php-format
+msgid "Thread cache hit rate %%"
+msgstr "スレッドキャッシュのヒット率"
+
+#: libraries/advisory_rules.txt:365
+msgid "Thread cache is not efficient."
+msgstr "スレッドキャッシュが効果的に機能していません。"
+
+#: libraries/advisory_rules.txt:366
+msgid "Increase {thread_cache_size}."
+msgstr "{thread_cache_size} を増やしてください。"
+
+#: libraries/advisory_rules.txt:367
+#, php-format
+msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
+msgstr ""
+"スレッドキャッシュのヒット率: %s%%。この値は、80%% 以上がいいと言われていま"
+"す。"
+
+#: libraries/advisory_rules.txt:369
+msgid "Threads that are slow to launch"
+msgstr "起動が遅いスレッド"
+
+#: libraries/advisory_rules.txt:372
+msgid "There are too many threads that are slow to launch."
+msgstr "起動が遅いスレッドが多く存在します。"
+
+#: libraries/advisory_rules.txt:373
+msgid ""
+"This generally happens in case of general system overload as it is pretty "
+"simple operations. You might want to monitor your system load carefully."
+msgstr ""
+"一般的に、比較的単純な操作なわりには、システム全体に負荷がかかっている状態で"
+"す。お使いのシステムの負荷を入念にモニタしてみてください。"
+
+#: libraries/advisory_rules.txt:374
+#, php-format
+msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
+msgstr ""
+"%s スレッドの開始に %s 秒以上かかっています。この値は、0 がいいと言われていま"
+"す。"
+
+#: libraries/advisory_rules.txt:376
+msgid "Slow launch time"
+msgstr "遅い起動時間"
+
+#: libraries/advisory_rules.txt:379
+msgid "Slow_launch_threads is above 2s"
+msgstr "Slow_launch_threads が 2 秒を超えています。"
+
+#: libraries/advisory_rules.txt:380
+msgid ""
+"Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
+"launch"
+msgstr ""
+"起動が遅いスレッドなくなるように、slow_launch_time を 1 秒か 2 秒に設定してく"
+"ださい。"
+
+#: libraries/advisory_rules.txt:381
+#, php-format
+msgid "slow_launch_time is set to %s"
+msgstr "slow_launch_time は %s に設定されています。"
+
+#: libraries/advisory_rules.txt:385
+msgid "Percentage of used connections"
+msgstr "使用されている接続の比率"
+
+#: libraries/advisory_rules.txt:388
+msgid ""
+"The maximum amount of used connections is getting close to the value of "
+"max_connections."
+msgstr ""
+"使用されている接続数が max_connections の値に達すると、閉じられてしまう接続が"
+"発生します。"
+
+#: libraries/advisory_rules.txt:389
+msgid ""
+"Increase max_connections, or decrease wait_timeout so that connections that "
+"do not close database handlers properly get killed sooner. Make sure the "
+"code closes database handlers properly."
+msgstr ""
+"max_connections を増やすか wait_timeout を減らしてください。こうすることで、"
+"データベースの処理において接続がすぐに切られることはなくなります。念のため、"
+"コード上において、データベースが適切に閉じられているかも確認してみてくださ"
+"い。"
+
+#: libraries/advisory_rules.txt:390
+#, php-format
+msgid ""
+"Max_used_connections is at %s%% of max_connections, it should be below 80%%"
+msgstr ""
+"Max_used_connections は max_connections の %s%% になっています。この値は、"
+"80%% 未満がいいと言われています。"
+
+#: libraries/advisory_rules.txt:392
+msgid "Percentage of aborted connections"
+msgstr "中断された接続の比率"
+
+#: libraries/advisory_rules.txt:395 libraries/advisory_rules.txt:402
+msgid "Too many connections are aborted."
+msgstr "中断された接続が多いです。"
+
+#: libraries/advisory_rules.txt:396 libraries/advisory_rules.txt:403
+msgid ""
+"Connections are usually aborted when they cannot be authorized. <a href="
+"\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
+"source-of-aborted_connects/\">This article</a> might help you track down the "
+"source."
+msgstr ""
+"接続は中断されたというのは、一般的に、認証できなかった場合のことです。<a "
+"href=\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
+"source-of-aborted_connects/\">この記事 (英語)</a> は、原因を突き止めるのに参"
+"考になるかもしれません。"
+
+#: libraries/advisory_rules.txt:397
+#, php-format
+msgid "%s%% of all connections are aborted. This value should be below 1%%"
+msgstr ""
+"全接続のうち %s%% が中断されています。この値は、1%% 未満がいいと言われていま"
+"す。"
+
+#: libraries/advisory_rules.txt:399
+msgid "Rate of aborted connections"
+msgstr "中断された接続の割合"
+
+#: libraries/advisory_rules.txt:404
+#, php-format
+msgid ""
+"Aborted connections rate is at %s, this value should be less than 1 per hour"
+msgstr ""
+"中断された接続の割合は %s です。この値は、1 時間当たり 1 未満がいいと言われて"
+"います。"
+
+#: libraries/advisory_rules.txt:406
+msgid "Percentage of aborted clients"
+msgstr "クライアントによって中断された比率"
+
+#: libraries/advisory_rules.txt:409 libraries/advisory_rules.txt:416
+msgid "Too many clients are aborted."
+msgstr "中断されたクライアントが多いです。"
+
+#: libraries/advisory_rules.txt:410 libraries/advisory_rules.txt:417
+msgid ""
+"Clients are usually aborted when they did not close their connection to "
+"MySQL properly. This can be due to network issues or code not closing a "
+"database handler properly. Check your network and code."
+msgstr ""
+"クライアントによって中断されたというのは、一般的に、MySQL への接続が適切に閉"
+"じられなかった場合のことです。ネットワークの問題もしくはデータベースへの接続"
+"を適切に閉じていないコードが原因と考えられます。ネットワークとコードを確認し"
+"てください。"
+
+#: libraries/advisory_rules.txt:411
+#, php-format
+msgid "%s%% of all clients are aborted. This value should be below 2%%"
+msgstr ""
+"全クライアントの内 %s%% が中断されています。この値は、2%% 未満がいいと言われ"
+"ています。"
+
+#: libraries/advisory_rules.txt:413
+msgid "Rate of aborted clients"
+msgstr "中断されたクライアントの割合"
+
+#: libraries/advisory_rules.txt:418
+#, php-format
+msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
+msgstr ""
+"中断されたクライアントの割合: %s。この値は、1 時間当たり 1 未満がいいと言われ"
+"ています。"
+
+#: libraries/advisory_rules.txt:422
+msgid "Is InnoDB disabled?"
+msgstr "InnoDB が無効？"
+
+#: libraries/advisory_rules.txt:425
+msgid "You do not have InnoDB enabled."
+msgstr "InnoDB を有効にできていません。"
+
+#: libraries/advisory_rules.txt:426
+msgid "InnoDB is usually the better choice for table engines."
+msgstr "一般的に、InnoDB はテーブル用のエンジンとして適切な選択となりえます。"
+
+#: libraries/advisory_rules.txt:427
+msgid "have_innodb is set to 'value'"
+msgstr "have_innodb は 'value' に設定されています。"
+
+#: libraries/advisory_rules.txt:429
+msgid "InnoDB log size"
+msgstr "InnoDB のログサイズ"
+
+#: libraries/advisory_rules.txt:432
+msgid ""
+"The InnoDB log file size is not an appropriate size, in relation to the "
+"InnoDB buffer pool."
+msgstr ""
+"InnoDB のログサイズが適切ではありません。この値は InnoDB バッファプールと関連"
+"があります。"
+
+#: libraries/advisory_rules.txt:433
+#, php-format
+msgid ""
+"Especially on a system with a lot of writes to InnoDB tables you should set "
+"innodb_log_file_size to 25%% of {innodb_buffer_pool_size}. However the "
+"bigger this value, the longer the recovery time will be when database "
+"crashes, so this value should not be set much higher than 256 MiB. Please "
+"note however that you cannot simply change the value of this variable. You "
+"need to shutdown the server, remove the InnoDB log files, set the new value "
+"in my.cnf, start the server, then check the error logs if everything went "
+"fine. See also <a href=\"http://mysqldatabaseadministration.blogspot."
+"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+msgstr ""
+"特に、InnoDB のテーブルへの書き込みが多いシステムの場合には、"
+"innodb_log_file_size は {innodb_buffer_pool_size} の 25%% に設定するといいで"
+"しょう。しかしながら、この値が大きくなると、データベースが壊れたときの修復に"
+"時間がかかるようになります。そのため、この値は 256 MiB を超えないほうがいいと"
+"言われています。なお、この変数は簡単には変更できないので注意してください。"
+"サーバを停止させ、InnoDB ログファイルを削除し、my.cnf に新しい値を設定して、"
+"そうした後にサーバは起動し直す必要があります。そして、全ての設定が正しく設定"
+"できているのかを、エラーログで確認しなければなりません。<a href=\"http://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">こちらのブログ記事 (英語)</a> もご覧になってください。"
+
+#: libraries/advisory_rules.txt:434
+#, php-format
+msgid ""
+"Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
+"it should not be below 20%%"
+msgstr ""
+"ご使用されている InnoDB のログサイズは、関連のある InnoDB バッファプールの大"
+"きさに対して %s%% です。この値は、20%% 未満にしないほうがいいと言われていま"
+"す。"
+
+#: libraries/advisory_rules.txt:436
+msgid "Max InnoDB log size"
+msgstr "InnoDB の最大ログサイズ"
+
+#: libraries/advisory_rules.txt:439
+msgid "The InnoDB log file size is inadequately large."
+msgstr "InnoDB ログファイルの大きさが、十分にありません。"
+
+#: libraries/advisory_rules.txt:440
+#, php-format
+msgid ""
+"It is usually sufficient to set innodb_log_file_size to 25%% of the size of "
+"{innodb_buffer_pool_size}. A very big innodb_log_file_size slows down the "
+"recovery time after a database crash considerably. See also <a href=\"http://"
+"www.mysqlperformanceblog.com/2006/07/03/choosing-proper-innodb_log_file_size/"
+"\">this Article</a>. You need to shutdown the server, remove the InnoDB log "
+"files, set the new value in my.cnf, start the server, then check the error "
+"logs if everything went fine. See also <a href=\"http://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">this blog entry</a>"
+msgstr ""
+"一般的には、innodb_log_file_size に {innodb_buffer_pool_size} の 25%% の値を"
+"設定すれば十分です。innodb_log_file_size の値が非常に大きい場合、データベース"
+"が多量に破損した後の修復に時間がかかるようになります。<a href=\"http://www."
+"mysqlperformanceblog.com/2006/07/03/choosing-proper-innodb_log_file_size/\">"
+"こちらの記事 (英語)</a> も参照してください。なお、この変数を変更するには、"
+"サーバを停止させ、InnoDB ログファイルを削除し、my.cnf に新しい値を設定してか"
+"ら、サーバを起動し直す必要があります。それから、全ての設定が正しく行えたかを"
+"確認するために、エラーログを確認しなければなりません。設定に関しては、<a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">こちらのブログ記事 (英語)</a> もご覧くだ"
+"さい。"
+
+#: libraries/advisory_rules.txt:441
+#, php-format
+msgid "Your absolute InnoDB log size is %s MiB"
+msgstr "使用されている InnoDB のログサイズの総計は、%s MiB です。"
+
+#: libraries/advisory_rules.txt:443
+msgid "InnoDB buffer pool size"
+msgstr "InnoDB のバッファプールの大きさ"
+
+#: libraries/advisory_rules.txt:446
+msgid "Your InnoDB buffer pool is fairly small."
+msgstr "ご使用されている InnoDB のバッファプールはかなり小さいです。"
+
+#: libraries/advisory_rules.txt:447
+#, php-format
+msgid ""
+"The InnoDB buffer pool has a profound impact on performance for InnoDB "
+"tables. Assign all your remaining memory to this buffer. For database "
+"servers that use solely InnoDB as storage engine and have no other services "
+"(e.g. a web server) running, you may set this as high as 80%% of your "
+"available memory. If that is not the case, you need to carefully assess the "
+"memory consumption of your other services and non-InnoDB-Tables and set this "
+"variable accordingly. If it is set too high, your system will start "
+"swapping, which decreases performance significantly. See also <a href="
+"\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\">this article</a>"
+msgstr ""
+"InnoDB のバッファプールは、InnoDB テーブルのパフォーマンスに対して強い影響力"
+"を持っています。使用されていないメモリを全てこのバッファに割り当ててくださ"
+"い。ストレージエンジンとして InnoDB のみを使用しており、他のサービス (例え"
+"ば、ウェブサーバ) を稼動していないデータベースサーバに対しては、使用可能なメ"
+"モリの 80%% 以上にあたる大きな値をバッファプール変数に設定するといいでしょ"
+"う。そのような状況以外では、使用されている他のサービスや InnoDB ではないテー"
+"ブルの使用メモリ量を慎重に見極めながら、この変数を設定する必要があります。大"
+"きすぎる値を設定されてしまった場合、システムはメモリスワップをするようにな"
+"り、パフォーマンスは著しく低下するようになります。<a href=\"http://www."
+"mysqlperformanceblog.com/2007/11/03/choosing-innodb_buffer_pool_size/\">こち"
+"らの記事 (英語)</a> も参考にしてください。"
+
+#: libraries/advisory_rules.txt:448
+#, php-format
+msgid ""
+"You are currently using %s%% of your memory for the InnoDB buffer pool. This "
+"rule fires if you are assigning less than 60%%, however this might be "
+"perfectly adequate for your system if you don't have much InnoDB tables or "
+"other services running on the same machine."
+msgstr ""
+"現在、メモリの %s%% が InnoDB バッファプールに使われています。割り当てが "
+"60%% 未満の時にこの事象が表示されるようになりますが、多くの InnoDB テーブルを"
+"使用していない、もしくは同マシン上で他のサービスを稼動させていないのであれ"
+"ば、ご使用のシステムではこの設定で十分かもしれません。"
+
+#: libraries/advisory_rules.txt:452
+msgid "MyISAM concurrent inserts"
+msgstr "MyISAM における同時挿入"
+
+#: libraries/advisory_rules.txt:455
+msgid "Enable concurrent_insert by setting it to 1"
+msgstr "concurrent_insert に 1 を設定して、同時挿入を有効にしてください。"
+
+#: libraries/advisory_rules.txt:456
+msgid ""
+"Setting {concurrent_insert} to 1 reduces contention between readers and "
+"writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
+"refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
+msgstr ""
+"{concurrent_insert} を 1 に設定すると、一つのテーブル内における読み書きの衝突"
+"を減らすことができます。<a href=\"http://dev.mysql.com/doc/refman/5.1/ja/"
+"concurrent-inserts.html\">MySQL ドキュメント</a>もご覧になってください。"
+
+#: libraries/advisory_rules.txt:457
+msgid "concurrent_insert is set to 0"
+msgstr "concurrent_insert は 0 に設定されています。"
 
 #~ msgid "rows"
 #~ msgstr "表示"
