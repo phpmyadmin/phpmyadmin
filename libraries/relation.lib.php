@@ -1222,27 +1222,33 @@ function PMA_REL_renameField($db, $table, $field, $new_name)
     $cfgRelation = PMA_getRelationsParam();
 
     if ($cfgRelation['displaywork']) {
-        $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['table_info'])
-                      . '   SET display_field = \'' . PMA_sqlAddSlashes($new_name) . '\''
-                      . ' WHERE db_name       = \'' . PMA_sqlAddSlashes($db) . '\''
-                      . '   AND table_name    = \'' . PMA_sqlAddSlashes($table) . '\''
-                      . '   AND display_field = \'' . PMA_sqlAddSlashes($field) . '\'';
+        $table_query = 'UPDATE '
+            . PMA_backquote($cfgRelation['db']) . '.'
+            . PMA_backquote($cfgRelation['table_info'])
+            . '   SET display_field = \'' . PMA_sqlAddSlashes($new_name) . '\''
+            . ' WHERE db_name       = \'' . PMA_sqlAddSlashes($db) . '\''
+            . '   AND table_name    = \'' . PMA_sqlAddSlashes($table) . '\''
+            . '   AND display_field = \'' . PMA_sqlAddSlashes($field) . '\'';
         PMA_query_as_controluser($table_query);
     }
 
     if ($cfgRelation['relwork']) {
-        $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['relation'])
-                      . '   SET master_field = \'' . PMA_sqlAddSlashes($new_name) . '\''
-                      . ' WHERE master_db    = \'' . PMA_sqlAddSlashes($db) . '\''
-                      . '   AND master_table = \'' . PMA_sqlAddSlashes($table) . '\''
-                      . '   AND master_field = \'' . PMA_sqlAddSlashes($field) . '\'';
+        $table_query = 'UPDATE '
+            . PMA_backquote($cfgRelation['db']) . '.'
+            . PMA_backquote($cfgRelation['relation'])
+            . '   SET master_field = \'' . PMA_sqlAddSlashes($new_name) . '\''
+            . ' WHERE master_db    = \'' . PMA_sqlAddSlashes($db) . '\''
+            . '   AND master_table = \'' . PMA_sqlAddSlashes($table) . '\''
+            . '   AND master_field = \'' . PMA_sqlAddSlashes($field) . '\'';
         PMA_query_as_controluser($table_query);
 
-        $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['relation'])
-                      . '   SET foreign_field = \'' . PMA_sqlAddSlashes($new_name) . '\''
-                      . ' WHERE foreign_db    = \'' . PMA_sqlAddSlashes($db) . '\''
-                      . '   AND foreign_table = \'' . PMA_sqlAddSlashes($table) . '\''
-                      . '   AND foreign_field = \'' . PMA_sqlAddSlashes($field) . '\'';
+        $table_query = 'UPDATE '
+            . PMA_backquote($cfgRelation['db']) . '.'
+            . PMA_backquote($cfgRelation['relation'])
+            . '   SET foreign_field = \'' . PMA_sqlAddSlashes($new_name) . '\''
+            . ' WHERE foreign_db    = \'' . PMA_sqlAddSlashes($db) . '\''
+            . '   AND foreign_table = \'' . PMA_sqlAddSlashes($table) . '\''
+            . '   AND foreign_field = \'' . PMA_sqlAddSlashes($field) . '\'';
         PMA_query_as_controluser($table_query);
     } // end if relwork
 }
@@ -1371,10 +1377,16 @@ function PMA_REL_createPage($newpage, $cfgRelation, $db)
     if (! isset($newpage) || $newpage == '') {
         $newpage = __('no description');
     }
-    $ins_query   = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
-                 . ' (db_name, page_descr)'
-                 . ' VALUES (\'' . PMA_sqlAddSlashes($db) . '\', \'' . PMA_sqlAddSlashes($newpage) . '\')';
+    $ins_query   = 'INSERT INTO '
+        . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
+        . PMA_backquote($cfgRelation['pdf_pages'])
+        . ' (db_name, page_descr)'
+        . ' VALUES (\''
+        . PMA_sqlAddSlashes($db) . '\', \''
+        . PMA_sqlAddSlashes($newpage) . '\')';
     PMA_query_as_controluser($ins_query, false);
-    return PMA_DBI_insert_id(isset($GLOBALS['controllink']) ? $GLOBALS['controllink'] : '');
+    return PMA_DBI_insert_id(
+        isset($GLOBALS['controllink']) ? $GLOBALS['controllink'] : ''
+    );
 }
 ?>
