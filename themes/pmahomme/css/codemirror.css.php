@@ -1,3 +1,18 @@
+<?php
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Styles for CodeMirror editor
+ * for the pmahomme theme
+ *
+ * @package    PhpMyAdmin-theme
+ * @subpackage PMAHomme
+ */
+
+// unplanned execution path
+if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
+    exit();
+}
+?>
 .CodeMirror {
   font-size: 140%;
   font-family: monospace;
