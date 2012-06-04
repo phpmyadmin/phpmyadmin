@@ -1275,7 +1275,8 @@ function PMA_REL_renameTable($source_db, $target_db, $source_table, $target_tabl
 {
     // Move old entries from PMA-DBs to new table
     if ($GLOBALS['cfgRelation']['commwork']) {
-        PMA_REL_renameTable('column_info',
+        PMA_REL_renameTable(
+            'column_info',
             $source_db, $target_db,
             $source_table, $target_table,
             'db_name', 'table_name'
@@ -1286,7 +1287,8 @@ function PMA_REL_renameTable($source_db, $target_db, $source_table, $target_tabl
     // moved, and not the whole DB.
 
     if ($GLOBALS['cfgRelation']['displaywork']) {
-        PMA_REL_renameTable('table_info',
+        PMA_REL_renameTable(
+            'table_info',
             $source_db, $target_db,
             $source_table, $target_table,
             'db_name', 'table_name'
@@ -1294,13 +1296,15 @@ function PMA_REL_renameTable($source_db, $target_db, $source_table, $target_tabl
     }
 
     if ($GLOBALS['cfgRelation']['relwork']) {
-        PMA_REL_renameTable('relation',
+        PMA_REL_renameTable(
+            'relation',
             $source_db, $target_db,
             $source_table, $target_table,
             'foreign_db', 'foreign_table'
         );
 
-        PMA_REL_renameTable('relation',
+        PMA_REL_renameTable(
+            'relation',
             $source_db, $target_db,
             $source_table, $target_table,
             'master_db', 'master_table'
@@ -1315,7 +1319,8 @@ function PMA_REL_renameTable($source_db, $target_db, $source_table, $target_tabl
      */
 
     if ($GLOBALS['cfgRelation']['pdfwork']) {
-        PMA_REL_renameTable('table_coords',
+        PMA_REL_renameTable(
+            'table_coords',
             $source_db, $target_db,
             $source_table, $target_table,
             'db_name', 'table_name'
@@ -1323,7 +1328,8 @@ function PMA_REL_renameTable($source_db, $target_db, $source_table, $target_tabl
     }
 
     if ($GLOBALS['cfgRelation']['designerwork']) {
-        PMA_REL_renameTable('designer_coords',
+        PMA_REL_renameTable(
+            'designer_coords',
             $source_db, $target_db,
             $source_table, $target_table,
             'db_name', 'table_name'
