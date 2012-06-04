@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:49+0200\n"
-"PO-Revision-Date: 2012-06-01 14:47+0200\n"
+"PO-Revision-Date: 2012-06-04 15:36+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -1890,10 +1890,9 @@ msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "Pro přiblížení označte oblast grafu myší."
 
 #: js/messages.php:306
-#, fuzzy
 #| msgid "Click reset zoom link to come back to original state."
 msgid "Click reset zoom button to come back to original state."
-msgstr "Klikněte na odkaz pro obnovení zvětšení pro návrat do původního stavu."
+msgstr "Klikněte na tlačítko pro návrat do původního stavu."
 
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."
@@ -2910,18 +2909,24 @@ msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"Textový sloupec s maximální délkou 255 (2⁸ - 1) znaků, uložen s "
+"jednobajtovým číslem určujícím jeho délku"
 
 #: libraries/Types.class.php:335 libraries/Types.class.php:731
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"Textový sloupec s maximální délkou 65535 (2¹⁶ - 1) znaků, uložen s "
+"dvoubajtovým číslem určujícím jeho délku"
 
 #: libraries/Types.class.php:337
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"Textový sloupec s maximální délkou 16777215 (2²⁴ - 1) znaků, uložen s "
+"tříbajtovým číslem určující jeho délku"
 
 #: libraries/Types.class.php:339
 msgid ""
@@ -2929,48 +2934,60 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
+"Textový sloupec s maximální délkou 4294967295 nebo 4GiB (2³² - 1) znaků, "
+"uložen s čtyřbajtovým číslem určující jeho délku"
 
 #: libraries/Types.class.php:341
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
-msgstr ""
+msgstr "Podobné jako typ CHAR, jen ukládá binární řetězce"
 
 #: libraries/Types.class.php:343
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
-msgstr ""
+msgstr "Podobné jako typ VARCHAR, jen ukládá binární řetězce"
 
 #: libraries/Types.class.php:345
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
+"Datový sloupec s maximální délkou 255 (2⁸ - 1) znaků, uložen s jednobajtovým "
+"číslem určujícím jeho délku"
 
 #: libraries/Types.class.php:347
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
+"Datový sloupec s maximální délkou 16777215 (2²⁴ - 1) znaků, uložen s "
+"tříbajtovým číslem určující jeho délku"
 
 #: libraries/Types.class.php:349
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
 msgstr ""
+"Datový sloupec s maximální délkou 65535 (2¹⁶ - 1) znaků, uložen s "
+"dvoubajtovým číslem určujícím jeho délku"
 
 #: libraries/Types.class.php:351
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
+"Datový sloupec s maximální délkou 4294967295 nebo 4GiB (2³² - 1) znaků, "
+"uložen s čtyřbajtovým číslem určující jeho délku"
 
 #: libraries/Types.class.php:353
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr ""
+"Výčtový typ, umožňující výběr až z 65535 hodnot nebo speciální chybovou "
+"hodnotou ''"
 
 #: libraries/Types.class.php:355
 msgid "A single value chosen from a set of up to 64 members"
@@ -2978,15 +2995,15 @@ msgstr "Jedna hodnota vybraná z množiny až 64 možností"
 
 #: libraries/Types.class.php:357
 msgid "A type that can store a geometry of any type"
-msgstr ""
+msgstr "Geometrický útvar libovolného typu"
 
 #: libraries/Types.class.php:359
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "Bod v dvourozměrném prostoru"
 
 #: libraries/Types.class.php:361
 msgid "A curve with linear interpolation between points"
-msgstr ""
+msgstr "Křivka s lineární interpolací mezi body"
 
 #: libraries/Types.class.php:363
 msgid "A polygon"
@@ -3006,7 +3023,7 @@ msgstr "Množina mnohoúhelníků"
 
 #: libraries/Types.class.php:371
 msgid "A collection of geometry objects of any type"
-msgstr ""
+msgstr "Množina libovolných geometrických útvarů"
 
 #: libraries/Types.class.php:623 libraries/Types.class.php:973
 msgctxt "numeric types"
@@ -3030,17 +3047,17 @@ msgstr "Prostorové"
 
 #: libraries/Types.class.php:707
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
-msgstr ""
+msgstr "Čtyřbajtové číslo v rozsahu -2147483648 až 2147483647"
 
 #: libraries/Types.class.php:709
 msgid ""
 "An 8-byte integer, range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807"
-msgstr ""
+msgstr "Osmibajtové číslo v rozsahu -9223372036854775808 až 9223372036854775807"
 
 #: libraries/Types.class.php:713
 msgid "A system's default double-precision floating-point number"
-msgstr ""
+msgstr "Číslo s pohyblivou řádovou čárkou s dvojitou přesností"
 
 #: libraries/Types.class.php:715
 msgid "True or false"
@@ -3059,22 +3076,26 @@ msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
 msgstr ""
+"Časová značka v rozsahu '0001-01-01 00:00:00' UTC až '9999-12-31 23:59:59' "
+"UTC; TIMESTAMP(6) může uchovat i mikrosekundy"
 
 #: libraries/Types.class.php:733
 msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
-msgstr ""
+msgstr "Řetězec s proměnnou délkou (0 - 65535), požívá binární porovnávání"
 
 #: libraries/Types.class.php:735
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a four-byte prefix indicating the length of the value"
 msgstr ""
+"Datový sloupec s maximální délkou 65535 (2¹⁶ - 1) znaků, uložen s "
+"čtyřbajtovým číslem určujícím jeho délku"
 
 #: libraries/Types.class.php:737
 msgid "An enumeration, chosen from the list of defined values"
-msgstr ""
+msgstr "Výčtový typ, umožňující výběr ze zadaných hodnot"
 
 #: libraries/auth/config.auth.lib.php:72
 msgid "Cannot connect: invalid settings."
