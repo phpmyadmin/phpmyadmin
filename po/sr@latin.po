@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-06-04 13:43+0200\n"
+"POT-Creation-Date: 2012-06-04 13:49+0200\n"
 "PO-Revision-Date: 2012-05-17 15:19+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: serbian_latin <sr@latin@li.org>\n"
@@ -8692,7 +8692,7 @@ msgstr ""
 msgid "Toggle scratchboard"
 msgstr "Uključi/isključi radnu tablu"
 
-#. l10n: Text direction, use either ltr or rtl
+#. l10n: Text direction for language, use either "ltr" or "rtl"
 #: libraries/select_lang.lib.php:497
 msgid "ltr"
 msgstr "ltr"
