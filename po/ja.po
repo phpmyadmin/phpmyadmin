@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-06-02 11:09+0200\n"
+"PO-Revision-Date: 2012-06-04 15:32+0200\n"
 "Last-Translator: Yuichiro Takahashi <yuichiro@pop07.odn.ne.jp>\n"
 "Language-Team: japanese <jp@li.org>\n"
 "Language: ja\n"
@@ -1533,10 +1533,9 @@ msgid "From general log"
 msgstr "一般クエリログより"
 
 #: js/messages.php:176
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "ログの読み込み"
+msgstr "ログの解析中"
 
 #: js/messages.php:177
 msgid "Analysing & loading logs. This may take a while."
@@ -1576,7 +1575,6 @@ msgid "Jump to Log table"
 msgstr "ログの表に移動する"
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "No data"
 msgid "No data found"
 msgstr "データが存在しません"
@@ -1616,16 +1614,14 @@ msgid "Chart"
 msgstr "グラフ"
 
 #: js/messages.php:195
-#, fuzzy
 #| msgid "Add chart"
 msgid "Edit chart"
-msgstr "グラフの追加"
+msgstr "グラフの編集"
 
 #: js/messages.php:196
-#, fuzzy
 #| msgid "Series:"
 msgid "Series"
-msgstr "系列："
+msgstr "系列"
 
 #. l10n: A collection of available filters
 #: js/messages.php:199
@@ -1701,16 +1697,14 @@ msgid "Import"
 msgstr "インポート"
 
 #: js/messages.php:217
-#, fuzzy
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
-msgstr "設定がインポートできませんでした"
+msgstr "モニタ環境設定のインポート"
 
 #: js/messages.php:218
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "主キーまたはユニークキーを選択してください"
+msgstr "インポートするファイルを選択してください"
 
 #: js/messages.php:220
 msgid "Analyse Query"
@@ -1909,7 +1903,7 @@ msgstr "プロット点にマウスカーソルを重ねると、そのラベル
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "拡大するには、マウスでグラフ内を範囲選択してください。"
 
 #: js/messages.php:306
 msgid "Click reset zoom link to come back to original state."
@@ -11855,10 +11849,9 @@ msgid "How to use"
 msgstr "使い方"
 
 #: tbl_zoom_select.php:431
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "リセット"
+msgstr "ズームを戻す"
 
 #: themes.php:28
 msgid "Get more themes!"
