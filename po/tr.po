@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-06-04 13:43+0200\n"
+"POT-Creation-Date: 2012-06-04 13:49+0200\n"
 "PO-Revision-Date: 2012-06-01 19:33+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
@@ -8427,7 +8427,7 @@ msgstr ""
 msgid "Toggle scratchboard"
 msgstr "Karalama panosunu değiştir"
 
-#. l10n: Text direction, use either ltr or rtl
+#. l10n: Text direction for language, use either "ltr" or "rtl"
 #: libraries/select_lang.lib.php:497
 msgid "ltr"
 msgstr "ltr"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-06-04 13:43+0200\n"
+"POT-Creation-Date: 2012-06-04 13:49+0200\n"
 "PO-Revision-Date: 2012-04-09 07:19+0200\n"
 "Last-Translator: Vian Zhao <brovian@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
@@ -8145,7 +8145,7 @@ msgstr "当前页所引用的表不存在了。您是否想要删除这些引用
 msgid "Toggle scratchboard"
 msgstr "切换草稿板"
 
-#. l10n: Text direction, use either ltr or rtl
+#. l10n: Text direction for language, use either "ltr" or "rtl"
 #: libraries/select_lang.lib.php:497
 msgid "ltr"
 msgstr "ltr"
