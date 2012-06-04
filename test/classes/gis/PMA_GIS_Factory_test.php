@@ -21,6 +21,8 @@ require_once 'libraries/gis/pma_gis_factory.php';
 
 /**
  * Test class for PMA_GIS_Factory
+ *
+ * @package PhpMyAdmin-test
  */
 class PMA_GIS_FactoryTest extends PHPUnit_Framework_TestCase
 {

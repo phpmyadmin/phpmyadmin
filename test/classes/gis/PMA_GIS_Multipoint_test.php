@@ -12,6 +12,8 @@ require_once 'libraries/gis/pma_gis_multipoint.php';
 
 /**
  * Tests for PMA_GIS_Multipoint class
+ *
+ * @package PhpMyAdmin-test
  */
 class PMA_GIS_MultipointTest extends PMA_GIS_GeomTest
 {

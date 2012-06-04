@@ -12,6 +12,8 @@ require_once 'libraries/gis/pma_gis_point.php';
 
 /**
  * Tests for PMA_GIS_Point class.
+ *
+ * @package PhpMyAdmin-test
  */
 class PMA_GIS_PointTest extends PMA_GIS_GeomTest
 {
