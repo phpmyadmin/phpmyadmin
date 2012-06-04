@@ -6459,7 +6459,7 @@ msgstr "vertical"
 #, php-format
 #| msgid "Headers every"
 msgid "Headers every %s rows"
-msgstr "Cabeceras cada %s filas "
+msgstr "Cabeceras cada %s filas"
 
 #: libraries/display_tbl.lib.php:1113
 msgid "Sort by key"
