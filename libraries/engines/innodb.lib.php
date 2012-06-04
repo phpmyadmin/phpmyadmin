@@ -1,6 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * The InnoDB storage engine
+ *
  * @package PhpMyAdmin-Engines
  */
 if (! defined('PHPMYADMIN')) {
@@ -8,6 +10,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
+ * The InnoDB storage engine
  *
  * @package PhpMyAdmin-Engines
  */
