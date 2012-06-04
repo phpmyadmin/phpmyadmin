@@ -345,7 +345,7 @@ function PMA_printDiagMessageForParameter($parameter,
     echo '<tr><th class="left">';
     echo '$cfg[\'Servers\'][$i][\'' . $parameter . '\']  ... ';
     echo '</th><td class="right">';
-    if ($GLOBALS['cfgRelation'][$relation_parameter]) {
+    if ($relation_parameter_set) {
         echo $messages['ok'];
     } else {
         printf($messages['error'], $doc_anchor);
