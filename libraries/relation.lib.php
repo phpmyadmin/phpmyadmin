@@ -87,11 +87,16 @@ function PMA_getRelationsParam($verbose = false)
  */
 function PMA_printRelationsParamDiagnostic($cfgRelation)
 {
-    $messages['error'] = '<font color="red"><strong>' . __('not OK')
-                   . '</strong></font> [ <a href="Documentation.html#%s" target="documentation">'
-                   . __('Documentation') . '</a> ]';
+    $messages['error'] = '<font color="red"><strong>'
+        . __('not OK')
+        . '</strong></font>'
+        . ' [ <a href="Documentation.html#%s" target="documentation">'
+        . __('Documentation')
+        . '</a> ]';
 
-    $messages['ok'] = '<font color="green"><strong>' .  _pgettext('Correctly working', 'OK') . '</strong></font>';
+    $messages['ok'] = '<font color="green"><strong>'
+        .  _pgettext('Correctly working', 'OK')
+        . '</strong></font>';
     $messages['enabled']  = '<font color="green">' . __('Enabled') . '</font>';
     $messages['disabled'] = '<font color="red">'   . __('Disabled') . '</font>';
 
@@ -309,11 +314,16 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
  *
  * @return void
  */
-function PMA_printDiagMessageForFeature($feature_name, $relation_parameter, $messages, $skip_line=true)
-{
-    echo '    <tr><td colspan=2 class="right">' . $feature_name . ': '
-         . ($GLOBALS['cfgRelation'][$relation_parameter] ? $messages['enabled'] : $messages['disabled'])
-         . '</td></tr>' . "\n";
+function PMA_printDiagMessageForFeature($feature_name,
+    $relation_parameter, $messages, $skip_line = true
+) {
+    echo '    <tr><td colspan=2 class="right">' . $feature_name . ': ';
+    if ($GLOBALS['cfgRelation'][$relation_parameter]) {
+        echo $messages['enabled'];
+    } else {
+        echo $messages['disabled'];
+    }
+    echo '</td></tr>' . "\n";
     if ($skip_line) {
         echo '    <tr><td>&nbsp;</td></tr>' . "\n";
     }
@@ -329,11 +339,18 @@ function PMA_printDiagMessageForFeature($feature_name, $relation_parameter, $mes
  *
  * @return void
  */
-function PMA_printDiagMessageForParameter($parameter, $relation_parameter_set, $messages, $doc_anchor)
-{
-    echo '    <tr><th class="left">';
-    echo '$cfg[\'Servers\'][$i][\'' . $parameter . '\']  ... </th><td class="right">';
-    echo ($relation_parameter_set ? $messages['ok'] : sprintf($messages['error'], $doc_anchor)) . '</td></tr>' . "\n";
+function PMA_printDiagMessageForParameter($parameter,
+    $relation_parameter_set, $messages, $doc_anchor
+) {
+    echo '<tr><th class="left">';
+    echo '$cfg[\'Servers\'][$i][\'' . $parameter . '\']  ... ';
+    echo '</th><td class="right">';
+    if ($GLOBALS['cfgRelation'][$relation_parameter]) {
+        echo $messages['ok'];
+    } else {
+        printf($messages['error'], $doc_anchor);
+    }
+    echo '</td></tr>' . "\n";
 }
 
 
@@ -383,7 +400,8 @@ function PMA__getRelationsParam()
     //  I was thinking of checking if they have all required columns but I
     //  fear it might be too slow
 
-    $tab_query = 'SHOW TABLES FROM ' . PMA_backquote($GLOBALS['cfg']['Server']['pmadb']);
+    $tab_query = 'SHOW TABLES FROM '
+        . PMA_backquote($GLOBALS['cfg']['Server']['pmadb']);
     $tab_rs    = PMA_query_as_controluser($tab_query, false, PMA_DBI_QUERY_STORE);
 
     if (! $tab_rs) {
