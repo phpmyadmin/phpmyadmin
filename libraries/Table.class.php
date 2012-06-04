@@ -617,7 +617,8 @@ class PMA_Table
      * @param bool|string $null           with 'NULL' or 'NOT NULL'
      * @param string      $default_type   whether default is CURRENT_TIMESTAMP,
      *                                    NULL, NONE, USER_DEFINED
-     * @param string      $default_value  default value for USER_DEFINED default type
+     * @param string      $default_value  default value for USER_DEFINED default
+     *                                    type
      * @param string      $extra          'AUTO_INCREMENT'
      * @param string      $comment        field comment
      * @param array       &$field_primary list of fields for PRIMARY KEY
@@ -726,6 +727,36 @@ class PMA_Table
 
         return true;
     } // end of 'PMA_Table::duplicateInfo()' function
+
+
+    /**
+     * Generates SQL query used for renaming table.
+     *
+     * @param string $table        Relation table to use
+     * @param string $source_db    Source database name
+     * @param string $target_db    Target database name
+     * @param string $source_table Source table name
+     * @param string $target_table Target table name
+     * @param string $db_field     Name of database field
+     * @param string $table_field  Name of table field
+     *
+     * @return SQL query.
+     */
+    static private function _getRenameSQL($table,
+        $source_db, $target_db,
+        $source_table, $target_table,
+        $db_field, $table_field
+    ) {
+        return 'UPDATE '
+            . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
+            . PMA_backquote($GLOBALS['cfgRelation'][$table])
+            . ' SET ' . $db_field . ' = \'' . PMA_sqlAddSlashes($target_db) . '\', '
+            . ' ' . $table_field . ' = \'' . PMA_sqlAddSlashes($target_table) . '\''
+            . ' WHERE ' . $db_field
+            . '  = \'' . PMA_sqlAddSlashes($source_db) . '\''
+            . ' AND ' . $table_field
+            . ' = \'' . PMA_sqlAddSlashes($source_table) . '\'';
+    }
 
 
     /**
@@ -980,42 +1011,42 @@ class PMA_Table
 
             // Move old entries from PMA-DBs to new table
             if ($GLOBALS['cfgRelation']['commwork']) {
-                $remove_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['column_info'])
-                              . ' SET     table_name = \'' . PMA_sqlAddSlashes($target_table) . '\', '
-                              . '        db_name    = \'' . PMA_sqlAddSlashes($target_db) . '\''
-                              . ' WHERE db_name  = \'' . PMA_sqlAddSlashes($source_db) . '\''
-                              . ' AND table_name = \'' . PMA_sqlAddSlashes($source_table) . '\'';
-                PMA_query_as_controluser($remove_query);
-                unset($remove_query);
+                $table_query = PMA_Table::_getRenameSQL('column_info',
+                    $source_db, $target_db,
+                    $source_table, $target_table,
+                    'db_name', 'table_name'
+                );
+                PMA_query_as_controluser($table_query);
+                unset($table_query);
             }
 
             // updating bookmarks is not possible since only a single table is
             // moved, and not the whole DB.
 
             if ($GLOBALS['cfgRelation']['displaywork']) {
-                $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['table_info'])
-                                . ' SET     db_name = \'' . PMA_sqlAddSlashes($target_db) . '\', '
-                                . '         table_name = \'' . PMA_sqlAddSlashes($target_table) . '\''
-                                . ' WHERE db_name  = \'' . PMA_sqlAddSlashes($source_db) . '\''
-                                . ' AND table_name = \'' . PMA_sqlAddSlashes($source_table) . '\'';
+                $table_query = PMA_Table::_getRenameSQL('table_info',
+                    $source_db, $target_db,
+                    $source_table, $target_table,
+                    'db_name', 'table_name'
+                );
                 PMA_query_as_controluser($table_query);
                 unset($table_query);
             }
 
             if ($GLOBALS['cfgRelation']['relwork']) {
-                $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['relation'])
-                                . ' SET     foreign_table = \'' . PMA_sqlAddSlashes($target_table) . '\','
-                                . '         foreign_db = \'' . PMA_sqlAddSlashes($target_db) . '\''
-                                . ' WHERE foreign_db  = \'' . PMA_sqlAddSlashes($source_db) . '\''
-                                . ' AND foreign_table = \'' . PMA_sqlAddSlashes($source_table) . '\'';
+                $table_query = PMA_Table::_getRenameSQL('relation',
+                    $source_db, $target_db,
+                    $source_table, $target_table,
+                    'foreign_db', 'foreign_table'
+                );
                 PMA_query_as_controluser($table_query);
                 unset($table_query);
 
-                $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['relation'])
-                                . ' SET     master_table = \'' . PMA_sqlAddSlashes($target_table) . '\','
-                                . '         master_db = \'' . PMA_sqlAddSlashes($target_db) . '\''
-                                . ' WHERE master_db  = \'' . PMA_sqlAddSlashes($source_db) . '\''
-                                . ' AND master_table = \'' . PMA_sqlAddSlashes($source_table) . '\'';
+                $table_query = PMA_Table::_getRenameSQL('relation',
+                    $source_db, $target_db,
+                    $source_table, $target_table,
+                    'master_db', 'master_table'
+                );
                 PMA_query_as_controluser($table_query);
                 unset($table_query);
             }
@@ -1028,11 +1059,11 @@ class PMA_Table
              */
 
             if ($GLOBALS['cfgRelation']['pdfwork']) {
-                $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['table_coords'])
-                                . ' SET     table_name = \'' . PMA_sqlAddSlashes($target_table) . '\','
-                                . '         db_name = \'' . PMA_sqlAddSlashes($target_db) . '\''
-                                . ' WHERE db_name  = \'' . PMA_sqlAddSlashes($source_db) . '\''
-                                . ' AND table_name = \'' . PMA_sqlAddSlashes($source_table) . '\'';
+                $table_query = PMA_Table::_getRenameSQL('table_coords',
+                    $source_db, $target_db,
+                    $source_table, $target_table,
+                    'db_name', 'table_name'
+                );
                 PMA_query_as_controluser($table_query);
                 unset($table_query);
                 /*
@@ -1055,11 +1086,11 @@ class PMA_Table
             }
 
             if ($GLOBALS['cfgRelation']['designerwork']) {
-                $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['designer_coords'])
-                                . ' SET     table_name = \'' . PMA_sqlAddSlashes($target_table) . '\','
-                                . '         db_name = \'' . PMA_sqlAddSlashes($target_db) . '\''
-                                . ' WHERE db_name  = \'' . PMA_sqlAddSlashes($source_db) . '\''
-                                . ' AND table_name = \'' . PMA_sqlAddSlashes($source_table) . '\'';
+                $table_query = PMA_Table::_getRenameSQL('designer_coords',
+                    $source_db, $target_db,
+                    $source_table, $target_table,
+                    'db_name', 'table_name'
+                );
                 PMA_query_as_controluser($table_query);
                 unset($table_query);
             }
