@@ -41,6 +41,36 @@ class PMA_Scripts
      */
     private $_events;
 
+    /**
+     * Returns HTML code to include javascript file.
+     *
+     * @param string $url            Location of javascript, relative to js/ folder.
+     * @param int    $timestamp      The date when the file was last modified
+     * @param string $ie_conditional true - wrap with IE conditional comment
+     *                               'lt 9' etc. - wrap for specific IE version
+     *
+     * @return string HTML code for javascript inclusion.
+     */
+    private function _includeFile($url, $timestamp = null, $ie_conditional = false)
+    {
+        $include = '';
+        if ($ie_conditional !== false) {
+            if ($ie_conditional === true) {
+                $include .= '<!--[if IE]>' . "\n    ";
+            } else {
+                $include .= '<!--[if IE ' . $ie_conditional . ']>' . "\n    ";
+            }
+        }
+        $include .= '<script src="' . $url;
+        if (! empty($timestamp)) {
+            $include .= '?ts=' . filemtime($url);
+        }
+        $include .= '" type="text/javascript"></script>' . "\n";
+        if ($ie_conditional !== false) {
+            $include .= '<![endif]-->' . "\n";
+        }
+        return $include;
+    }
 
     /**
      * Generates new PMA_Scripts objects
@@ -66,10 +96,16 @@ class PMA_Scripts
      */
     public function addFile($filename, $conditional_ie = false)
     {
+        $filename = 'js/' . $filename;
         $hash = md5($filename);
         if (empty($this->_files[$hash])) {
+            $timestamp = null;
+            if (strpos($filename, '?') === false) {
+                $timestamp = filemtime($filename);
+            }
             $this->_files[$hash] = array(
                 'filename' => $filename,
+                'timestamp' => $timestamp,
                 'conditional_ie' => $conditional_ie
             );
         }
@@ -115,7 +151,7 @@ class PMA_Scripts
         $retval = '';
 
         foreach ($this->_files as $file) {
-            $retval .= PMA_includeJS(
+            $retval .= $this->_includeFile(
                 $file['filename'],
                 $file['conditional_ie']
             );
