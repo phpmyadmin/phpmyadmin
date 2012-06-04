@@ -79,7 +79,7 @@ function PMA_getRelationsParam($verbose = false)
 /**
  * prints out diagnostic info for pma relation feature
  *
- * @param array $cfgRelation
+ * @param array $cfgRelation Relation configuration
  *
  * @return void
  */
