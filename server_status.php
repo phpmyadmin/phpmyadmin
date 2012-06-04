@@ -1786,9 +1786,19 @@ function printMonitor()
 <?php
 }
 
-/* Builds a <select> list for refresh rates */
-function refreshList($name, $defaultRate=5, $refreshRates=Array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600))
-{
+/**
+ * Builds a <select> list for refresh rates
+ *
+ * @param string $name         Name of select
+ * @param int    $defaultRate  Currently chosen rate
+ * @param array  $refreshRates List of refresh rates
+ *
+ * @return nothing
+ */
+function refreshList($name,
+    $defaultRate = 5,
+    $refreshRates = Array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600)
+) {
 ?>
     <select name="<?php echo $name; ?>" id="id_<?php echo $name; ?>">
         <?php
