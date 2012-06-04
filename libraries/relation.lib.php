@@ -1227,6 +1227,127 @@ function PMA_REL_renameField($db, $table, $field, $new_name)
     } // end if relwork
 }
 
+
+/**
+ * Performs SQL query used for renaming table.
+ *
+ * @param string $table        Relation table to use
+ * @param string $source_db    Source database name
+ * @param string $target_db    Target database name
+ * @param string $source_table Source table name
+ * @param string $target_table Target table name
+ * @param string $db_field     Name of database field
+ * @param string $table_field  Name of table field
+ *
+ * @return nothing.
+ */
+function PMA_REL_renameTable($table,
+    $source_db, $target_db,
+    $source_table, $target_table,
+    $db_field, $table_field
+) {
+    $query = 'UPDATE '
+        . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
+        . PMA_backquote($GLOBALS['cfgRelation'][$table])
+        . ' SET ' . $db_field . ' = \'' . PMA_sqlAddSlashes($target_db) . '\', '
+        . ' ' . $table_field . ' = \'' . PMA_sqlAddSlashes($target_table) . '\''
+        . ' WHERE '
+        . $db_field . '  = \'' . PMA_sqlAddSlashes($source_db) . '\''
+        . ' AND '
+        . $table_field . ' = \'' . PMA_sqlAddSlashes($source_table) . '\'';
+    PMA_query_as_controluser($table_query);
+}
+
+
+/**
+ * Rename a table in relation tables
+ *
+ * usually called after table has been moved
+ *
+ * @param string $source_db    Source database name
+ * @param string $target_db    Target database name
+ * @param string $source_table Source table name
+ * @param string $target_table Target table name
+ *
+ * @return nothing
+ */
+function PMA_REL_renameTable($source_db, $target_db, $source_table, $target_table)
+{
+    // Move old entries from PMA-DBs to new table
+    if ($GLOBALS['cfgRelation']['commwork']) {
+        PMA_REL_renameTable('column_info',
+            $source_db, $target_db,
+            $source_table, $target_table,
+            'db_name', 'table_name'
+        );
+    }
+
+    // updating bookmarks is not possible since only a single table is
+    // moved, and not the whole DB.
+
+    if ($GLOBALS['cfgRelation']['displaywork']) {
+        PMA_REL_renameTable('table_info',
+            $source_db, $target_db,
+            $source_table, $target_table,
+            'db_name', 'table_name'
+        );
+    }
+
+    if ($GLOBALS['cfgRelation']['relwork']) {
+        PMA_REL_renameTable('relation',
+            $source_db, $target_db,
+            $source_table, $target_table,
+            'foreign_db', 'foreign_table'
+        );
+
+        PMA_REL_renameTable('relation',
+            $source_db, $target_db,
+            $source_table, $target_table,
+            'master_db', 'master_table'
+        );
+    }
+
+    /**
+     * @todo Can't get moving PDFs the right way. The page numbers
+     * always get screwed up independently from duplication because the
+     * numbers do not seem to be stored on a per-database basis. Would
+     * the author of pdf support please have a look at it?
+     */
+
+    if ($GLOBALS['cfgRelation']['pdfwork']) {
+        PMA_REL_renameTable('table_coords',
+            $source_db, $target_db,
+            $source_table, $target_table,
+            'db_name', 'table_name'
+        );
+        /*
+        $pdf_query = 'SELECT pdf_page_number '
+                   . ' FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['table_coords'])
+                   . ' WHERE db_name  = \'' . PMA_sqlAddSlashes($target_db) . '\''
+                   . ' AND table_name = \'' . PMA_sqlAddSlashes($target_table) . '\'';
+        $pdf_rs = PMA_query_as_controluser($pdf_query);
+
+        while ($pdf_copy_row = PMA_DBI_fetch_assoc($pdf_rs)) {
+            $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['pdf_pages'])
+                            . ' SET     db_name = \'' . PMA_sqlAddSlashes($target_db) . '\''
+                            . ' WHERE db_name  = \'' . PMA_sqlAddSlashes($source_db) . '\''
+                            . ' AND page_nr = \'' . PMA_sqlAddSlashes($pdf_copy_row['pdf_page_number']) . '\'';
+            $tb_rs    = PMA_query_as_controluser($table_query);
+            unset($table_query);
+            unset($tb_rs);
+        }
+        */
+    }
+
+    if ($GLOBALS['cfgRelation']['designerwork']) {
+        PMA_REL_renameTable('designer_coords',
+            $source_db, $target_db,
+            $source_table, $target_table,
+            'db_name', 'table_name'
+        );
+    }
+}
+
 /**
  * Create a PDF page
  *

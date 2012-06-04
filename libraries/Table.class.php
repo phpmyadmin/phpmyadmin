@@ -728,37 +728,6 @@ class PMA_Table
         return true;
     } // end of 'PMA_Table::duplicateInfo()' function
 
-
-    /**
-     * Generates SQL query used for renaming table.
-     *
-     * @param string $table        Relation table to use
-     * @param string $source_db    Source database name
-     * @param string $target_db    Target database name
-     * @param string $source_table Source table name
-     * @param string $target_table Target table name
-     * @param string $db_field     Name of database field
-     * @param string $table_field  Name of table field
-     *
-     * @return SQL query.
-     */
-    static private function _getRenameSQL($table,
-        $source_db, $target_db,
-        $source_table, $target_table,
-        $db_field, $table_field
-    ) {
-        return 'UPDATE '
-            . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
-            . PMA_backquote($GLOBALS['cfgRelation'][$table])
-            . ' SET ' . $db_field . ' = \'' . PMA_sqlAddSlashes($target_db) . '\', '
-            . ' ' . $table_field . ' = \'' . PMA_sqlAddSlashes($target_table) . '\''
-            . ' WHERE ' . $db_field
-            . '  = \'' . PMA_sqlAddSlashes($source_db) . '\''
-            . ' AND ' . $table_field
-            . ' = \'' . PMA_sqlAddSlashes($source_table) . '\'';
-    }
-
-
     /**
      * Copies or renames table
      *
@@ -1006,91 +975,11 @@ class PMA_Table
             $sql_drop_query .= ' ' . $source;
             PMA_DBI_query($sql_drop_query);
 
-            // Move old entries from PMA-DBs to new table
-            if ($GLOBALS['cfgRelation']['commwork']) {
-                $table_query = PMA_Table::_getRenameSQL('column_info',
-                    $source_db, $target_db,
-                    $source_table, $target_table,
-                    'db_name', 'table_name'
-                );
-                PMA_query_as_controluser($table_query);
-                unset($table_query);
-            }
-
-            // updating bookmarks is not possible since only a single table is
-            // moved, and not the whole DB.
-
-            if ($GLOBALS['cfgRelation']['displaywork']) {
-                $table_query = PMA_Table::_getRenameSQL('table_info',
-                    $source_db, $target_db,
-                    $source_table, $target_table,
-                    'db_name', 'table_name'
-                );
-                PMA_query_as_controluser($table_query);
-                unset($table_query);
-            }
-
-            if ($GLOBALS['cfgRelation']['relwork']) {
-                $table_query = PMA_Table::_getRenameSQL('relation',
-                    $source_db, $target_db,
-                    $source_table, $target_table,
-                    'foreign_db', 'foreign_table'
-                );
-                PMA_query_as_controluser($table_query);
-                unset($table_query);
-
-                $table_query = PMA_Table::_getRenameSQL('relation',
-                    $source_db, $target_db,
-                    $source_table, $target_table,
-                    'master_db', 'master_table'
-                );
-                PMA_query_as_controluser($table_query);
-                unset($table_query);
-            }
-
-            /**
-             * @todo Can't get moving PDFs the right way. The page numbers
-             * always get screwed up independently from duplication because the
-             * numbers do not seem to be stored on a per-database basis. Would
-             * the author of pdf support please have a look at it?
-             */
-
-            if ($GLOBALS['cfgRelation']['pdfwork']) {
-                $table_query = PMA_Table::_getRenameSQL('table_coords',
-                    $source_db, $target_db,
-                    $source_table, $target_table,
-                    'db_name', 'table_name'
-                );
-                PMA_query_as_controluser($table_query);
-                unset($table_query);
-                /*
-                $pdf_query = 'SELECT pdf_page_number '
-                           . ' FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['table_coords'])
-                           . ' WHERE db_name  = \'' . PMA_sqlAddSlashes($target_db) . '\''
-                           . ' AND table_name = \'' . PMA_sqlAddSlashes($target_table) . '\'';
-                $pdf_rs = PMA_query_as_controluser($pdf_query);
-
-                while ($pdf_copy_row = PMA_DBI_fetch_assoc($pdf_rs)) {
-                    $table_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['pdf_pages'])
-                                    . ' SET     db_name = \'' . PMA_sqlAddSlashes($target_db) . '\''
-                                    . ' WHERE db_name  = \'' . PMA_sqlAddSlashes($source_db) . '\''
-                                    . ' AND page_nr = \'' . PMA_sqlAddSlashes($pdf_copy_row['pdf_page_number']) . '\'';
-                    $tb_rs    = PMA_query_as_controluser($table_query);
-                    unset($table_query);
-                    unset($tb_rs);
-                }
-                */
-            }
-
-            if ($GLOBALS['cfgRelation']['designerwork']) {
-                $table_query = PMA_Table::_getRenameSQL('designer_coords',
-                    $source_db, $target_db,
-                    $source_table, $target_table,
-                    'db_name', 'table_name'
-                );
-                PMA_query_as_controluser($table_query);
-                unset($table_query);
-            }
+            // Renable table in configuration storage
+            PMA_REL_renameTable(
+                $source_db, $target_db,
+                $source_table, $target_table
+            );
 
             $GLOBALS['sql_query']      .= "\n\n" . $sql_drop_query . ';';
             // end if ($move)
@@ -1359,80 +1248,11 @@ class PMA_Table
         $this->setName($new_name);
         $this->setDbName($new_db);
 
-        /**
-         * @todo move into extra function
-         * PMA_Relation::renameTable($new_name, $old_name, $new_db, $old_db)
-         */
-        // Move old entries from comments to new table
-        $GLOBALS['cfgRelation'] = PMA_getRelationsParam();
-        if ($GLOBALS['cfgRelation']['commwork']) {
-            $remove_query = '
-                UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
-                    . PMA_backquote($GLOBALS['cfgRelation']['column_info']) . '
-                   SET `db_name`    = \'' . PMA_sqlAddSlashes($new_db) . '\',
-                       `table_name` = \'' . PMA_sqlAddSlashes($new_name) . '\'
-                 WHERE `db_name`    = \'' . PMA_sqlAddSlashes($old_db) . '\'
-                   AND `table_name` = \'' . PMA_sqlAddSlashes($old_name) . '\'';
-            PMA_query_as_controluser($remove_query);
-            unset($remove_query);
-        }
-
-        if ($GLOBALS['cfgRelation']['displaywork']) {
-            $table_query = '
-                UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
-                    . PMA_backquote($GLOBALS['cfgRelation']['table_info']) . '
-                   SET `db_name`    = \'' . PMA_sqlAddSlashes($new_db) . '\',
-                       `table_name` = \'' . PMA_sqlAddSlashes($new_name) . '\'
-                 WHERE `db_name`    = \'' . PMA_sqlAddSlashes($old_db) . '\'
-                   AND `table_name` = \'' . PMA_sqlAddSlashes($old_name) . '\'';
-            PMA_query_as_controluser($table_query);
-            unset($table_query);
-        }
-
-        if ($GLOBALS['cfgRelation']['relwork']) {
-            $table_query = '
-                UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
-                    . PMA_backquote($GLOBALS['cfgRelation']['relation']) . '
-                   SET `foreign_db`    = \'' . PMA_sqlAddSlashes($new_db) . '\',
-                       `foreign_table` = \'' . PMA_sqlAddSlashes($new_name) . '\'
-                 WHERE `foreign_db`    = \'' . PMA_sqlAddSlashes($old_db) . '\'
-                   AND `foreign_table` = \'' . PMA_sqlAddSlashes($old_name) . '\'';
-            PMA_query_as_controluser($table_query);
-
-            $table_query = '
-                UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
-                    . PMA_backquote($GLOBALS['cfgRelation']['relation']) . '
-                   SET `master_db`    = \'' . PMA_sqlAddSlashes($new_db) . '\',
-                       `master_table` = \'' . PMA_sqlAddSlashes($new_name) . '\'
-                 WHERE `master_db`    = \'' . PMA_sqlAddSlashes($old_db) . '\'
-                   AND `master_table` = \'' . PMA_sqlAddSlashes($old_name) . '\'';
-            PMA_query_as_controluser($table_query);
-            unset($table_query);
-        }
-
-        if ($GLOBALS['cfgRelation']['pdfwork']) {
-            $table_query = '
-                UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
-                    . PMA_backquote($GLOBALS['cfgRelation']['table_coords']) . '
-                   SET `db_name`    = \'' . PMA_sqlAddSlashes($new_db) . '\',
-                       `table_name` = \'' . PMA_sqlAddSlashes($new_name) . '\'
-                 WHERE `db_name`    = \'' . PMA_sqlAddSlashes($old_db) . '\'
-                   AND `table_name` = \'' . PMA_sqlAddSlashes($old_name) . '\'';
-            PMA_query_as_controluser($table_query);
-            unset($table_query);
-        }
-
-        if ($GLOBALS['cfgRelation']['designerwork']) {
-            $table_query = '
-                UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
-                    . PMA_backquote($GLOBALS['cfgRelation']['designer_coords']) . '
-                   SET `db_name`    = \'' . PMA_sqlAddSlashes($new_db) . '\',
-                       `table_name` = \'' . PMA_sqlAddSlashes($new_name) . '\'
-                 WHERE `db_name`    = \'' . PMA_sqlAddSlashes($old_db) . '\'
-                   AND `table_name` = \'' . PMA_sqlAddSlashes($old_name) . '\'';
-            PMA_query_as_controluser($table_query);
-            unset($table_query);
-        }
+        // Renable table in configuration storage
+        PMA_REL_renameTable(
+            $old_db, $new_db,
+            $old_table, $new_table
+        );
 
         $this->messages[] = sprintf(
             __('Table %1$s has been renamed to %2$s.'),
