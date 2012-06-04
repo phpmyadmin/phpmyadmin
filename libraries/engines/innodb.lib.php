@@ -119,6 +119,9 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
     }
 
     /**
+     * Returns the pattern to be used in the query for SQL variables
+     * related to InnoDb storage engine
+     *
      * @return string  SQL query LIKE pattern
      */
     function getVariablesLikePattern()

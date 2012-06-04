@@ -30,6 +30,9 @@ class PMA_StorageEngine_ndbcluster extends PMA_StorageEngine
     }
 
     /**
+     * Returns the pattern to be used in the query for SQL variables
+     * related to NDBCLUSTER storage engine
+     *
      * @return string  SQL query LIKE pattern
      */
     function getVariablesLikePattern()
@@ -38,8 +41,8 @@ class PMA_StorageEngine_ndbcluster extends PMA_StorageEngine
     }
 
     /**
-     * returns string with filename for the MySQL helppage
-     * about this storage engne
+     * Returns string with filename for the MySQL help page
+     * about this storage engine
      *
      * @return string  mysql helppage filename
      */
