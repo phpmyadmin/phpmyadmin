@@ -14,7 +14,9 @@ if (! defined('PHPMYADMIN')) {
 class PMA_StorageEngine_innodb extends PMA_StorageEngine
 {
     /**
-     * @return array
+     * Returns array with variable names related to InnoDB storage engine
+     *
+     * @return array   variable names
      */
     function getVariables()
     {
