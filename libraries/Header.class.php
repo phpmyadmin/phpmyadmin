@@ -68,6 +68,13 @@ class PMA_Header
      */
     private $_menuEnabled;
     /**
+     * Whether to show the warnings
+     *
+     * @access private
+     * @var bool
+     */
+    private $_warningsEnabled;
+    /**
      * Whether the page is in 'print view' mode
      *
      * @access private
@@ -117,6 +124,7 @@ class PMA_Header
             $GLOBALS['table']
         );
         $this->_menuEnabled = true;
+        $this->_warningsEnabled = true;
         $this->_isPrintView = false;
         $this->_scripts     = new PMA_Scripts();
         $this->_addDefaultScripts();
@@ -268,6 +276,16 @@ class PMA_Header
     }
 
     /**
+     * Disables the display of the top menu
+     *
+     * @return void
+     */
+    public function disableWarnings()
+    {
+        $this->_warningsEnabled = false;
+    }
+
+    /**
      * Turns on 'print view' mode
      *
      * @return void
@@ -325,7 +343,9 @@ class PMA_Header
                 if (! $GLOBALS['cfg']['ShowHint']) {
                     $retval .= '<span id="no_hint" class="hide"></span>';
                 }
-                $retval .= $this->_getWarnings();
+                if ($this->_warningsEnabled) {
+                    $retval .= $this->_getWarnings();
+                }
                 if ($this->_menuEnabled && $GLOBALS['server'] > 0) {
                     $retval .= $this->_menu->getDisplay();
                 }
