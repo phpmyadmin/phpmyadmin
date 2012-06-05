@@ -1281,7 +1281,7 @@ function PMA_REL_renameSingleTable($table,
         . $db_field . '  = \'' . PMA_sqlAddSlashes($source_db) . '\''
         . ' AND '
         . $table_field . ' = \'' . PMA_sqlAddSlashes($source_table) . '\'';
-    PMA_query_as_controluser($table_query);
+    PMA_query_as_controluser($query);
 }
 
 
