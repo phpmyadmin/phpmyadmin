@@ -39,12 +39,11 @@ class PMA_Footnotes
      *
      * @param mixed $message The message to be used for the footnote.
      *                       Can be a string or a PMA_Message object.
-     * @param bool  $bbc     Whether to generate BBCode or HTML
      *
      * @return string The marker to be displayed near the element
      *                that is being referenced by the footnote
      */
-    public function add($message, $bbc = false)
+    public function add($message)
     {
         if ($message instanceof PMA_Message) {
             $key     = $message->getHash();
@@ -57,8 +56,7 @@ class PMA_Footnotes
             $id = count($this->_footnotes) + 1;
             $this->_footnotes[$key] = new PMA_Footnote(
                 $id,
-                $message,
-                $bbc
+                $message
             );
         }
         return $this->_footnotes[$key]->getMarker();
@@ -105,27 +103,18 @@ class PMA_Footnote
      * @access private
      */
     private $_message;
-    /**
-     * Whether to generate BBCode or HTML
-     *
-     * @var bool
-     * @access private
-     */
-    private $_bbc;
 
     /**
      * Generates new PMA_Footnotes objects
      *
      * @param int    $id      Footnote identifier
      * @param string $message The message to be used for the footnote
-     * @param bool   $bbc     Whether to generate BBCode or HTML
      *
      * @return PMA_Footnote object
      */
-    public function __construct($id, $message, $bbc = false)
+    public function __construct($id, $message)
     {
         $this->_id      = $id;
-        $this->_bbc     = $bbc;
         $this->_message = $message;
     }
 
@@ -137,16 +126,12 @@ class PMA_Footnote
      */
     public function getMarker()
     {
-        if ($this->_bbc) {
-            $retval = '[sup]' . $this->_id . '[/sup]';
-        } else {
-            $retval  = '<sup class="footnotemarker">' . $this->_id . '</sup>';
-            $retval .= PMA_getImage(
-                'b_help.png',
-                '',
-                array('class' => 'footnotemarker footnote_' . $this->_id)
-            );
-        }
+        $retval  = '<sup class="footnotemarker">' . $this->_id . '</sup>';
+        $retval .= PMA_getImage(
+            'b_help.png',
+            '',
+            array('class' => 'footnotemarker footnote_' . $this->_id)
+        );
         return $retval;
     }
 

@@ -538,11 +538,11 @@ function PMA_showPHPDocu($target)
  *
  * @access  public
  */
-function PMA_showHint($message, $bbcode = false)
+function PMA_showHint($message)
 {
     $response = PMA_Response::getInstance();
     $footnotes = $response->getFooter()->getFootnotes();
-    return $footnotes->add($message, $bbcode);
+    return $footnotes->add($message);
 }
 
 /**
