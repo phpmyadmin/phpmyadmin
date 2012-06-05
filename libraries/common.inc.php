@@ -154,28 +154,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 /******************************************************************************/
 /* start procedural code                       label_start_procedural         */
 
-if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
-    PMA_fatalError(__("GLOBALS overwrite attempt"));
-}
-
-/**
- * protect against possible exploits - there is no need to have so much variables
- */
-if (count($_REQUEST) > 1000) {
-    PMA_fatalError(__('possible exploit'));
-}
-
-/**
- * Check for numeric keys
- * (if register_globals is on, numeric key can be found in $GLOBALS)
- */
-foreach ($GLOBALS as $key => $dummy) {
-    if (is_numeric($key)) {
-        PMA_fatalError(__('numeric key detected'));
-    }
-}
-unset($dummy);
-
 /**
  * PATH_INFO could be compromised if set, so remove it from PHP_SELF
  * and provide a clean PHP_SELF here
@@ -1091,6 +1069,28 @@ if (isset($_REQUEST['grid_edit']) && $_REQUEST['grid_edit'] == true) {
 } else {
     $GLOBALS['grid_edit'] = false;
 }
+
+if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
+    PMA_fatalError(__("GLOBALS overwrite attempt"));
+}
+
+/**
+ * protect against possible exploits - there is no need to have so much variables
+ */
+if (count($_REQUEST) > 1000) {
+    PMA_fatalError(__('possible exploit'));
+}
+
+/**
+ * Check for numeric keys
+ * (if register_globals is on, numeric key can be found in $GLOBALS)
+ */
+foreach ($GLOBALS as $key => $dummy) {
+    if (is_numeric($key)) {
+        PMA_fatalError(__('numeric key detected'));
+    }
+}
+unset($dummy);
 
 if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {
     /**
