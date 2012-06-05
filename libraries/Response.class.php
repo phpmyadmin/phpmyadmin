@@ -74,6 +74,13 @@ class PMA_Response
      * @var bool
      */
     private $_isSuccess;
+    /**
+     * Workaround for PHP bug
+     *
+     * @access private
+     * @var bool
+     */
+    private $_CWD;
 
     /**
      * Creates a new class instance
@@ -96,6 +103,7 @@ class PMA_Response
         }
         $this->_header->isAjax($this->_isAjax);
         $this->_footer->isAjax($this->_isAjax);
+        $this->_CWD = getcwd();
     }
 
     /**
@@ -123,6 +131,18 @@ class PMA_Response
         } else {
             $this->_isSuccess = false;
         }
+    }
+
+    /**
+     * Returns the path to the current working directory
+     * Necessary to work around a PHP bug where the CWD is
+     * reset after the initial script exits
+     *
+     * @return string
+     */
+    public function getCWD()
+    {
+        return $this->_CWD;
     }
 
     /**
@@ -256,6 +276,7 @@ class PMA_Response
     public static function response()
     {
         $response = PMA_Response::getInstance();
+        chdir($response->getCWD());
         $buffer   = PMA_OutputBuffering::getInstance();
         if (empty($response->_HTML)) {
             $response->_HTML = $buffer->getContents();
