@@ -117,7 +117,7 @@ class PMA_Header
         $this->_isEnabled = true;
         $this->_isAjax = false;
         $this->_bodyId = '';
-        $this->_title  = 'phpMyAdmin';
+        $this->_title  = '';
         $this->_menu   = new PMA_Menu(
             $GLOBALS['server'],
             $GLOBALS['db'],
@@ -174,40 +174,6 @@ class PMA_Header
             . urlencode($_SESSION['PMA_Theme']->getId())
         );
         $this->_scripts->addFile('functions.js');
-
-        // generate title (unless we already have
-        // $GLOBALS['page_title'], from cookie auth)
-        if (! isset($GLOBALS['page_title'])) {
-            if ($GLOBALS['server'] > 0) {
-                if (! empty($GLOBALS['table'])) {
-                    $temp_title = $GLOBALS['cfg']['TitleTable'];
-                } else if (! empty($GLOBALS['db'])) {
-                    $temp_title = $GLOBALS['cfg']['TitleDatabase'];
-                } elseif (! empty($GLOBALS['cfg']['Server']['host'])) {
-                    $temp_title = $GLOBALS['cfg']['TitleServer'];
-                } else {
-                    $temp_title = $GLOBALS['cfg']['TitleDefault'];
-                }
-                $title = PMA_expandUserString($temp_title);
-            }
-        } else {
-            $title = $GLOBALS['page_title'];
-        }
-        if (isset($title)) {
-            $title = PMA_sanitize(
-                PMA_escapeJsString($title),
-                false,
-                true
-            );
-            $this->_scripts->addCode(
-                "if (typeof(parent.document) != 'undefined'"
-                . " && typeof(parent.document) != 'unknown'"
-                . " && typeof(parent.document.title) == 'string')"
-                . "{"
-                . "parent.document.title = '$title'"
-                . "}"
-            );
-        }
         $this->_scripts->addCode(PMA_getReloadNavigationScript(true));
     }
 
@@ -312,6 +278,19 @@ class PMA_Header
                 $retval .= $this->_getMetaTags();
                 $retval .= $this->_getLinkTags();
                 $retval .= $this->_getTitleTag();
+                $title = PMA_sanitize(
+                    PMA_escapeJsString($this->_getPageTitle()),
+                    false,
+                    true
+                );
+                $this->_scripts->addCode(
+                    "if (typeof(parent.document) != 'undefined'"
+                    . " && typeof(parent.document) != 'unknown'"
+                    . " && typeof(parent.document.title) == 'string')"
+                    . "{"
+                    . "parent.document.title = '$title'"
+                    . "}"
+                );
                 if ($this->_userprefsOfferImport) {
                     $this->_scripts->addFile('config.js');
                 }
@@ -451,13 +430,32 @@ class PMA_Header
     private function _getTitleTag()
     {
         $retval = "<title>";
-        if (! empty($GLOBALS['page_title'])) {
-            $retval .= htmlspecialchars($GLOBALS['page_title']);
-        } else {
-            $retval .= $this->_title;
-        }
+        $retval .= $this->_getPageTitle();
         $retval .= "</title>";
         return $retval;
+    }
+
+    private function _getPageTitle()
+    {
+        if (empty($this->_title)) {
+            if ($GLOBALS['server'] > 0) {
+                if (! empty($GLOBALS['table'])) {
+                    $temp_title = $GLOBALS['cfg']['TitleTable'];
+                } else if (! empty($GLOBALS['db'])) {
+                    $temp_title = $GLOBALS['cfg']['TitleDatabase'];
+                } elseif (! empty($GLOBALS['cfg']['Server']['host'])) {
+                    $temp_title = $GLOBALS['cfg']['TitleServer'];
+                } else {
+                    $temp_title = $GLOBALS['cfg']['TitleDefault'];
+                }
+                $this->_title = htmlspecialchars(
+                    PMA_expandUserString($temp_title)
+                );
+            } else {
+                $this->_title = 'phpMyAdmin';
+            }
+        }
+        return $this->_title;
     }
 
     /**

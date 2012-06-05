@@ -49,7 +49,6 @@ function PMA_auth()
     }
 
     /* HTML header */
-    $GLOBALS['page_title'] = __('Access denied');
     $response = PMA_Response::getInstance();
     $response->getFooter()->setMinimal();
     $header = $response->getHeader();
