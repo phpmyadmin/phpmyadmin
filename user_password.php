@@ -25,7 +25,6 @@ if (! $cfg['ShowChgPassword']) {
     $cfg['ShowChgPassword'] = PMA_DBI_select_db('mysql');
 }
 if ($cfg['Server']['auth_type'] == 'config' || ! $cfg['ShowChgPassword']) {
-    $header->display();
     PMA_Message::error(__('You don\'t have sufficient privileges to be here right now!'))->display();
     exit;
 } // end if
@@ -53,7 +52,6 @@ if (isset($_REQUEST['nopass'])) {
  * If the "change password" form hasn't been submitted or the values submitted
  * aren't valid -> displays the form
  */
-$header->display();
 
 // Displays an error message if required
 if (isset($message)) {
@@ -211,8 +209,6 @@ function PMA_changePassAuthType($_url_params, $password)
  */
 function PMA_changePassDisplayPage($message, $sql_query, $_url_params)
 {
-    $response = PMA_Response::getInstance();
-    $response->getHeader()->display();
     echo '<h1>' . __('Change password') . '</h1>' . "\n\n";
     echo PMA_getMessage($message, $sql_query, 'success');
     echo '<a href="index.php'.PMA_generate_common_url($_url_params).' target="_parent">'. "\n"

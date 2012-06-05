@@ -14,6 +14,7 @@ $field = $_REQUEST['field'];
 PMA_checkParameters(array('db', 'table', 'field'));
 
 $response = PMA_Response::getInstance();
+$response->getFooter()->setMinimal();
 $header = $response->getHeader();
 $header->disableMenu();
 $header->setBodyId('body_browse_foreigners');
@@ -148,7 +149,6 @@ function formupdate(fieldmd5, key) {
 EOC;
 
 $header->getScripts()->addCode($code);
-$header->display();
 
 ?>
 <form action="browse_foreigners.php" method="post">

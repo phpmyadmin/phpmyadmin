@@ -132,8 +132,6 @@ if ($querydisplay_tab == 'sql' || $querydisplay_tab == 'full') {
     $scripts->addEvent('load','PMA_querywindowSetFocus');
 }
 
-$header->display();
-
 echo '<div id="querywindowcontainer">';
 
 if ($tabs) {

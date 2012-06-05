@@ -161,7 +161,6 @@ function PMA_auth()
     $header->setBodyId('loginform');
     $header->disableMenu();
     $header->disableWarnings();
-    $header->display();
 
     if (file_exists(CUSTOM_HEADER_FILE)) {
         include CUSTOM_HEADER_FILE;

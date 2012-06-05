@@ -28,12 +28,6 @@ $url_query = PMA_generate_common_url($db);
 $err_url = 'main.php' . $url_query;
 
 /**
- * Displays headers
- */
-$response = PMA_Response::getInstance();
-$response->getHeader()->display();
-
-/**
  * @global boolean Checks for superuser privileges
  */
 $is_superuser = PMA_isSuperuser();

@@ -290,8 +290,6 @@ if (! defined('PMA_CHK_DROP')
     && $is_drop_database
     && ! $is_superuser
 ) {
-    $response = PMA_Response::getInstance();
-    $response->getHeader()->display();
     PMA_mysqlDie(__('"DROP DATABASE" statements are disabled.'), '', '', $err_url);
 } // end if
 
@@ -387,8 +385,6 @@ if (! $cfg['Confirm']
 
 if ($do_confirm) {
     $stripped_sql_query = $sql_query;
-    $response = PMA_Response::getInstance();
-    $response->getHeader()->display();
     if ($is_drop_database) {
         echo '<h1 class="error">' . __(
                 'You are about to DESTROY a complete database!'
@@ -914,7 +910,6 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $response = PMA_Response::getInstance();
         $header = $response->getHeader();
         $header->enablePrintView();
-        $header->display();
 
         $hostname = '';
         if ($cfg['Server']['verbose']) {
@@ -964,8 +959,6 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
                 include 'libraries/server_common.inc.php';
             }
         } else {
-            $response = PMA_Response::getInstance();
-            $response->getHeader()->display();
             //we don't need to buffer the output in PMA_getMessage here.
             //set a global variable and check against it in the function
             $GLOBALS['buffer_message'] = false;

@@ -73,7 +73,6 @@ $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('config.js');
-$header->display();
 
 require 'libraries/user_preferences.inc.php';
 if ($error) {

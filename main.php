@@ -26,8 +26,6 @@ if ($GLOBALS['PMA_Config']->isGitRevision()) {
 $GLOBALS['db'] = '';
 $GLOBALS['table'] = '';
 $show_query = '1';
-$response = PMA_Response::getInstance();
-$response->getHeader()->display();
 
 // Any message to display?
 if (! empty($message)) {

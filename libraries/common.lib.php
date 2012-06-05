@@ -567,12 +567,6 @@ function PMA_mysqlDie(
 ) {
     global $table, $db;
 
-    /**
-     * start http output, display html headers
-     */
-    $response = PMA_Response::getInstance();
-    $response->getHeader()->display();
-
     $error_msg = '';
 
     if (! $error_message) {

@@ -81,7 +81,6 @@ $response = PMA_Response::getInstance();
 $response->getFooter()->setMinimal();
 $header   = $response->getHeader();
 $header->disableMenu();
-$header->display();
 
 ?>
 <br>

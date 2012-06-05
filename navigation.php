@@ -112,7 +112,6 @@ $scripts->addCode('
         }
     };
 ');
-$header->display();
 
 require 'libraries/navigation_header.inc.php';
 

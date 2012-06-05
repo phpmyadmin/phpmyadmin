@@ -79,7 +79,6 @@ function PMA_auth_fails()
     $header = $response->getHeader();
     $header->setTitle(__('Access denied'));
     $header->disableMenu();
-    $header->display();
 
 ?>
 <br /><br />

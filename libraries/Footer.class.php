@@ -345,14 +345,4 @@ class PMA_Footer
 
         return $retval;
     }
-
-    /**
-     * Renders and displays the footer
-     *
-     * @return void
-     */
-    public function display()
-    {
-        echo $this->getDisplay();
-    }
 }

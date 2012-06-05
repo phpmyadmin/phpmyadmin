@@ -298,16 +298,6 @@ class PMA_Header
     }
 
     /**
-     * Generates and outputs the header
-     *
-     * @return void
-     */
-    public function display()
-    {
-        echo $this->getDisplay();
-    }
-
-    /**
      * Generates the header
      *
      * @return string The header

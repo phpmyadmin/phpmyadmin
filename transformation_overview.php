@@ -14,7 +14,6 @@ require_once './libraries/transformations.lib.php';
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $header->disableMenu();
-$header->display();
 
 $types = PMA_getAvailableMIMEtypes();
 ?>

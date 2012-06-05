@@ -77,12 +77,6 @@ if (isset($submitcollation) && !empty($db_collation)) {
 }
 
 /**
- * Displays headers
- */
-$response = PMA_Response::getInstance();
-$response->getHeader()->display();
-
-/**
  * Set parameters for links
  */
 $url_query = PMA_generate_common_url($db);

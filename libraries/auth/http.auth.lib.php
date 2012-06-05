@@ -55,7 +55,6 @@ function PMA_auth()
     $header = $response->getHeader();
     $header->setTitle(__('Access denied'));
     $header->disableMenu();
-    $header->display();
 
 ?>
 <br /><br />

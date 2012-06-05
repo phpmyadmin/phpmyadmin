@@ -118,11 +118,6 @@ $scripts->addFile('jquery/timepicker.js');
 $scripts->addFile('gis_data_editor.js');
 
 /**
- * HTTP and HTML headers
- */
-$header->display();
-
-/**
  * Displays the query submitted and its result
  *
  * @todo where does $disp_message and $disp_query come from???

@@ -11,9 +11,6 @@ require_once 'libraries/common.inc.php';
 
 $action = 'tbl_create.php';
 
-$response = PMA_Response::getInstance();
-$response->getHeader()->display();
-
 $titles = PMA_buildActionTitles();
 
 // Check parameters
