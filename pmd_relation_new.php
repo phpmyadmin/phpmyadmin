@@ -9,6 +9,9 @@
  *
  */
 require_once './libraries/common.inc.php';
+
+PMA_Response::getInstance()->disable();
+
 require_once 'libraries/pmd_common.php';
 $die_save_pos = 0;
 require_once 'pmd_save_pos.php';
