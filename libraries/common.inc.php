@@ -131,11 +131,6 @@ require './libraries/Types.class.php';
 
 if (! defined('PMA_MINIMUM_COMMON')) {
     /**
-     * Used to generate the page
-     */
-    include_once 'libraries/Response.class.php';
-
-    /**
      * common functions
      */
     include_once './libraries/common.lib.php';
@@ -149,6 +144,11 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * Include URL/hidden inputs generating.
      */
     include_once './libraries/url_generating.lib.php';
+
+    /**
+     * Used to generate the page
+     */
+    include_once 'libraries/Response.class.php';
 }
 
 /******************************************************************************/
@@ -756,6 +756,9 @@ if (@file_exists($_SESSION['PMA_Theme']->getLayoutFile())) {
 }
 
 if (! defined('PMA_MINIMUM_COMMON')) {
+    // get a dummy object to ensure that the class is instanciated
+    PMA_Response::getInstance();
+
     /**
      * Character set conversion.
      */
