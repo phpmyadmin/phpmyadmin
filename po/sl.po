@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:49+0200\n"
-"PO-Revision-Date: 2012-06-01 16:01+0200\n"
+"PO-Revision-Date: 2012-06-05 16:15+0200\n"
 "Last-Translator: Domen <dbc334@gmail.com>\n"
 "Language-Team: slovenian <sl@li.org>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:37 browse_foreigners.php:61 js/messages.php:354
@@ -1895,11 +1895,9 @@ msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "Za povečanje izberite z miško del izrisa."
 
 #: js/messages.php:306
-#, fuzzy
 #| msgid "Click reset zoom link to come back to original state."
 msgid "Click reset zoom button to come back to original state."
-msgstr ""
-"Kliknite povezavo za ponastavitev povečave za vrnitev na prvotno stanje."
+msgstr "Kliknite gumb za ponastavitev povečave za vrnitev na prvotno stanje."
 
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."

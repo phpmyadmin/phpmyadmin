@@ -345,7 +345,7 @@ function PMA_printDiagMessageForParameter($parameter,
     echo '<tr><th class="left">';
     echo '$cfg[\'Servers\'][$i][\'' . $parameter . '\']  ... ';
     echo '</th><td class="right">';
-    if ($GLOBALS['cfgRelation'][$relation_parameter]) {
+    if ($relation_parameter_set) {
         echo $messages['ok'];
     } else {
         printf($messages['error'], $doc_anchor);
@@ -1281,7 +1281,7 @@ function PMA_REL_renameSingleTable($table,
         . $db_field . '  = \'' . PMA_sqlAddSlashes($source_db) . '\''
         . ' AND '
         . $table_field . ' = \'' . PMA_sqlAddSlashes($source_table) . '\'';
-    PMA_query_as_controluser($table_query);
+    PMA_query_as_controluser($query);
 }
 
 
