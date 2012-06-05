@@ -232,18 +232,18 @@ if (isset($_GET['sql_query'])) {
                         }
                     }
 
-                    $message = new PMA_Message(__('This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally the following transformations will happen: %3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details.'));
-                    $message->addParam(
+                    $msg = new PMA_Message(__('This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally the following transformations will happen: %3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details.'));
+                    $msg->addParam(
                         '<a href="' . PMA_linkURL(PMA_getPHPDocLink('function.strftime.php'))
                         . '" target="documentation" title="' . __('Documentation') . '">',
                         false
                     );
-                    $message->addParam('</a>', false);
-                    $message->addParam($trans);
-                    $message->addParam('<a href="Documentation.html#faq6_27" target="documentation">', false);
-                    $message->addParam('</a>', false);
+                    $msg->addParam('</a>', false);
+                    $msg->addParam($trans);
+                    $msg->addParam('<a href="Documentation.html#faq6_27" target="documentation">', false);
+                    $msg->addParam('</a>', false);
 
-                    echo PMA_showHint($message);
+                    echo PMA_showHint($msg);
                     ?>
                     </label>
                     <input type="text" name="filename_template" id="filename_template"
