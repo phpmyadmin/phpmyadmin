@@ -169,7 +169,6 @@ $columnCount = count($columnNames);
 // check also foreigners even if relwork is FALSE (to get
 // foreign keys from innodb)
 $foreigners = PMA_getForeigners($db, $table);
-$tbl_fields_type = $tbl_fields_collation = $tbl_criteriaColumnNullFlags = array();
 
 if (! isset($zoom_submit) && ! isset($criteriaColumnNames)) {
     $dataLabel = PMA_getDisplayField($db, $table);
@@ -182,38 +181,6 @@ $url_params = array();
 $url_params['db']    = $db;
 $url_params['table'] = $table;
 echo PMA_generateHtmlTabs(PMA_tbl_getSubTabs(), $url_params, 'topmenu2');
-
-/**
- *  Set the field name,type,collation and whether null on select of a coulmn
- */
-if (isset($criteriaColumnNames) && ($criteriaColumnNames[0] != 'pma_null' || $criteriaColumnNames[1] != 'pma_null')) {
-    for ($i = 0 ; $i < 4 ; $i++) {
-        if ($criteriaColumnNames[$i] != 'pma_null') {
-            $key = array_search($criteriaColumnNames[$i], $columnNames);
-            $tbl_fields_type[$i] = $columnTypes[$key];
-            $tbl_fields_collation[$i] = $columnCollations[$key];
-            $tbl_fields_func[$i] = '<select name="criteriaColumnOperators[]">';
-            $tbl_fields_func[$i] .= $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
-                preg_replace('@\(.*@s', '', $columnTypes[$key]),
-                $columnNullFlags[$key], $criteriaColumnOperators[$i]
-            );
-            $tbl_fields_func[$i] .= '</select>';
-            $foreignData = PMA_getForeignData($foreigners, $criteriaColumnNames[$i], false, '', '');
-            $tbl_fields_value[$i] =  PMA_getForeignFields_Values(
-                $foreigners,
-                $foreignData,
-                $criteriaColumnNames[$i],
-                $tbl_fields_type,
-                $i,
-                $db,
-                $table,
-                $titles,
-                $GLOBALS['cfg']['ForeignKeyMaxLimit'],
-                $criteriaValues
-            );
-        }
-    }
-}
 
 /*
  * Form for input criteria
@@ -229,54 +196,13 @@ if (isset($criteriaColumnNames) && ($criteriaColumnNames[0] != 'pma_null' || $cr
 <fieldset id="inputSection">
 
 <legend><?php echo __('Do a "query by example" (wildcard: "%") for two different columns') ?></legend>
-<table class="data" id="tableFieldsId">
-<?php echo PMA_tbl_getTableHeader();?>
-<tbody>
-<?php
-    $odd_row = true;
 
-for ($i = 0; $i < 4; $i++) {
-    if ($i == 2) {
-        echo "<tr><td>";
-        echo __("Additional search criteria");
-        echo "</td></tr>";
-    }
-    ?>
-    <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
-        <th><select name="criteriaColumnNames[]" id="<?php echo 'tableid_' . $i; ?>" >
-        <option value="<?php echo 'pma_null'; ?>"><?php echo __('None');  ?></option>
-    <?php
-    for ($j = 0 ; $j < $columnCount ; $j++) {
-        if (isset($criteriaColumnNames[$i]) && $criteriaColumnNames[$i] == htmlspecialchars($columnNames[$j])) {?>
-            <option value="<?php echo htmlspecialchars($columnNames[$j]);?>" selected="selected">
-                <?php echo htmlspecialchars($columnNames[$j]);?></option>
-        <?php
-        } else { ?>
-            <option value="<?php echo htmlspecialchars($columnNames[$j]);?>">
-                <?php echo htmlspecialchars($columnNames[$j]);?></option>
-        <?php
-        }
-    } ?>
-        </select></th>
-        <td><?php if (isset($tbl_fields_type[$i])) echo $tbl_fields_type[$i]; ?></td>
-        <td><?php if (isset($tbl_fields_collation[$i])) echo $tbl_fields_collation[$i]; ?></td>
-        <td><?php if (isset($tbl_fields_func[$i])) echo $tbl_fields_func[$i]; ?></td>
-        <td><?php if (isset($tbl_fields_value[$i])) echo $tbl_fields_value[$i]; ?></td>
-    </tr>
-    <tr><td>
-    <input type="hidden" name="criteriaColumnTypes[<?php echo $i; ?>]" id="types_<?php echo $i; ?>"
-    <?php
-    if (isset($_POST['criteriaColumnTypes'][$i])) {
-        echo 'value="' . $_POST['criteriaColumnTypes'][$i] . '"';
-    }
-    ?> />
-      <input type="hidden" name="criteriaColumnCollations[<?php echo $i;?>]" id="collations_<?php echo $i; ?>" />
-    </td></tr>
-    <?php
-}//end for
+<?php
+echo PMA_tblSearchGetFieldsTableHtml(
+        $db, $table, $columnNames, $columnTypes, $columnCollations, $columnNullFlags,
+        NULL, $columnCount, $foreigners, "zoom"
+    );
 ?>
-    </tbody>
-    </table>
 
 <?php
 /*
