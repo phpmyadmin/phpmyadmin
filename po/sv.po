@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-06-02 14:19+0200\n"
+"PO-Revision-Date: 2012-06-05 20:53+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -5900,7 +5900,7 @@ msgstr "vertikal"
 #: libraries/display_tbl.lib.php:445
 #, php-format
 msgid "Headers every %s rows"
-msgstr "Sidhuvud var %s rad"
+msgstr "Rubriker var %s rad"
 
 #: libraries/display_tbl.lib.php:548
 msgid "Sort by key"
