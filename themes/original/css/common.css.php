@@ -427,14 +427,10 @@ img.lightbulb {
 }
 
 /* leave some space between icons and text */
-.icon, img.footnotemarker {
+.icon {
     vertical-align:     middle;
     margin-right:       0.3em;
     margin-left:        0.3em;
-}
-
-img.footnotemarker {
-    display: none;
 }
 
 /* no extra space in table cells */
@@ -459,8 +455,7 @@ div.error h1 {
 
 div.success,
 div.notice,
-div.error,
-div.footnotes {
+div.error {
     margin:             0.3em 0 0 0;
     border:             2px solid;
     background-repeat:  no-repeat;
@@ -494,13 +489,12 @@ div.success {
     border-color:       #00FF00;
 }
 
-.notice, .footnotes {
+.notice {
     color:              #000000;
     background-color:   #FFFFDD;
 }
 h1.notice,
-div.notice,
-div.footnotes {
+div.notice {
     border-color:       #FFD700;
     background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_notice.png);
     background-repeat:  no-repeat;

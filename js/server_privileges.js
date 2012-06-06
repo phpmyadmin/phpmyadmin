@@ -218,7 +218,7 @@ $(function() {
                 }
             }); //dialog options end
             displayPasswordGenerateButton();
-            PMA_convertFootnotesToTooltips($div);
+            PMA_showHints($div);
             PMA_ajaxRemoveMessage($msgbox);
             $div.find("input[autofocus]").focus();
 
@@ -354,7 +354,7 @@ $(function() {
                 }); //dialog options end
             displayPasswordGenerateButton();
             PMA_ajaxRemoveMessage($msgbox);
-            PMA_convertFootnotesToTooltips($div);
+            PMA_showHints($div);
         }); // end $.get()
     });
 

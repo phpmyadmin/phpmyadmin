@@ -301,7 +301,7 @@ $(function() {
                 });
                 checkIndexType();
                 checkIndexName("index_frm");
-                PMA_convertFootnotesToTooltips($div);
+                PMA_showHints($div);
                 // Add a slider for selecting how many columns to add to the index
                 $div.find('.slider').slider({
                     animate: true,
@@ -542,7 +542,7 @@ $(function() {
                 $div = $("#add_columns");
                 /*changed the z-index of the enum editor to allow the edit*/
                 $("#enum_editor").css("z-index", "1100");
-                PMA_convertFootnotesToTooltips($div);
+                PMA_showHints($div);
                 // set focus on first column name input
                 $div.find("input.textfield").eq(0).focus();
             }
@@ -620,7 +620,7 @@ function changeColumns(action,url)
             /*changed the z-index of the enum editor to allow the edit*/
             $("#enum_editor").css("z-index", "1100");
             $div = $("#change_column_dialog");
-            PMA_convertFootnotesToTooltips($div);
+            PMA_showHints($div);
         }
         PMA_ajaxRemoveMessage($msgbox);
     }); // end $.get()

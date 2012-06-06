@@ -545,12 +545,6 @@ if (PMA_isValid($_REQUEST['sql_query'])) {
 //$_REQUEST['server']; // checked later in this file
 //$_REQUEST['lang'];   // checked by LABEL_loading_language_file
 
-/**
- * footnotes to be displayed ot the page bottom
- * @global array $footnotes
- */
-$GLOBALS['footnotes'] = array();
-
 /******************************************************************************/
 /* loading language file                       LABEL_loading_language_file    */
 

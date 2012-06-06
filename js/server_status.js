@@ -437,7 +437,7 @@ $(function() {
                 if (data != null) {
                     tab.find('.tabInnerContent').html(data);
                 }
-                PMA_convertFootnotesToTooltips();
+                PMA_showHints();
                 break;
             case 'statustabs_queries':
                 if (data != null) {

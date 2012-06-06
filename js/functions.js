@@ -1673,7 +1673,7 @@ function PMA_createTableDialog( $div, url , target)
                  buttons: button_options
              }); // end dialog options
          }
-        PMA_convertFootnotesToTooltips($div);
+        PMA_showHints($div);
         PMA_ajaxRemoveMessage($msgbox);
      }); // end $.get()
 
@@ -2922,10 +2922,6 @@ $(function() {
     });
 });
 
-$(function() {
-    PMA_convertFootnotesToTooltips();
-});
-
 /**
  * Ensures indexes names are valid according to their type and, for a primary
  * key, lock index name to 'PRIMARY'
@@ -2961,61 +2957,32 @@ function checkIndexName(form_id)
 } // end of the 'checkIndexName()' function
 
 /**
- * function to convert the footnotes to tooltips
+ * Function to display tooltips that were
+ * generated on the PHP side by PMA_showHint()
  *
- * @param jquery-Object   $div    a div jquery object which specifies the
- *                                  domain for searching footnootes. If we
- *                                  ommit this parameter the function searches
- *                                  the footnotes in the whole body
+ * @param object $div a div jquery object which specifies the
+ *                    domain for searching for tooltips. If we
+ *                    omit this parameter the function searches
+ *                    in the whole body
  **/
-function PMA_convertFootnotesToTooltips($div)
+function PMA_showHints($div)
 {
-    // Hide the footnotes from the footer (which are displayed for
-    // JavaScript-disabled browsers) since the tooltip is sufficient
-
     if ($div == undefined || ! $div instanceof jQuery || $div.length == 0) {
         $div = $("body");
     }
-
-    $footnotes = $div.find(".footnotes");
-
-    $footnotes.hide();
-    $footnotes.find('span').each(function() {
-        $(this).children("sup").remove();
-    });
-    // The border and padding must be removed otherwise a thin yellow box remains visible
-    $footnotes.css("border", "none");
-    $footnotes.css("padding", "0px");
-
-    // Replace the superscripts with the help icon
-    $div.find("sup.footnotemarker").hide();
-    $div.find("img.footnotemarker").show();
-
-    $div.find("img.footnotemarker").each(function() {
-        var img_class = $(this).attr("class");
-        /** img contains two classes, as example "footnotemarker footnote_1".
-         *  We split it by second class and take it for the id of span
-        */
-        img_class = img_class.split(" ");
-        for (i = 0; i < img_class.length; i++) {
-            if (img_class[i].split("_")[0] == "footnote") {
-                var span_id = img_class[i].split("_")[1];
-            }
-        }
-        /**
-         * Now we get the #id of the span with span_id variable. As an example if we
-         * initially get the img class as "footnotemarker footnote_2", now we get
-         * #2 as the span_id. Using that we can find footnote_2 in footnotes.
-         * */
-        var tooltip_text = $footnotes.find("span#footnote_" + span_id).html();
-        $(this).qtip({
-            content: tooltip_text,
+    $div.find('.pma_hint').each(function () {
+        $(this).children('img').qtip({
+            content: $(this).children('span').html(),
             show: { delay: 0 },
             hide: { delay: 1000 },
             style: { background: '#ffffcc' }
         });
     });
 }
+
+$(function() {
+    PMA_showHints();
+});
 
 /**
  * This function handles the resizing of the content frame

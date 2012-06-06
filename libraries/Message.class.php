@@ -27,15 +27,15 @@
  * $message = PMA_Message::success('strSomeLocaleMessage');
  *
  * // create another message, a hint, with a localized string which expects
- * // two parameters: $strSomeFootnote = 'Read the %smanual%s'
- * $hint = PMA_Message::notice('strSomeFootnote');
+ * // two parameters: $strSomeTooltip = 'Read the %smanual%s'
+ * $hint = PMA_Message::notice('strSomeTooltip');
  * // replace %d with the following params
  * $hint->addParam('[a@./Documentation.html#cfg_Example@_blank]');
  * $hint->addParam('[/a]');
- * // add this hint as a footnote
+ * // add this hint as a tooltip
  * $hint = PMA_showHint($hint);
  *
- * // add the retrieved footnote reference to the original message
+ * // add the retrieved tooltip reference to the original message
  * $message->addMessage($hint);
  *
  * // create another message ...

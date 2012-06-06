@@ -10,7 +10,6 @@ if (! defined('PHPMYADMIN')) {
 }
 
 require_once 'libraries/Scripts.class.php';
-require_once 'libraries/Footnotes.class.php';
 
 /**
  * Class used to output the footer
@@ -19,13 +18,6 @@ require_once 'libraries/Footnotes.class.php';
  */
 class PMA_Footer
 {
-    /**
-     * PMA_Footnotes instance
-     *
-     * @access private
-     * @var object
-     */
-    private $_footnotes;
     /**
      * PMA_Scripts instance
      *
@@ -44,7 +36,7 @@ class PMA_Footer
     private $_isAjax;
     /**
      * Whether to only close the BODY and HTML tags
-     * or also include scripts, footnotes, errors and links
+     * or also include scripts, errors and links
      *
      * @access private
      * @var bool
@@ -66,7 +58,6 @@ class PMA_Footer
     public function __construct()
     {
         $this->_isEnabled = true;
-        $this->_footnotes = new PMA_Footnotes();
         $this->_scripts   = new PMA_Scripts();
         $this->_isMinimal = false;
         $this->_addDefaultScripts();
@@ -283,16 +274,6 @@ class PMA_Footer
     }
 
     /**
-     * Returns the PMA_Footnotes object
-     *
-     * @return PMA_Footnotes object
-     */
-    public function getFootnotes()
-    {
-        return $this->_footnotes;
-    }
-
-    /**
      * Renders the footer
      *
      * @return string
@@ -322,13 +303,6 @@ class PMA_Footer
                     $retval .= $this->_getSelfLink($url_params);
                 }
                 $retval .= $this->_getDebugMessage();
-            }
-            if (! $this->_isMinimal) {
-                // display Footnotes and error messages even in ajax reqests
-                // FIXME: nootnotes should be sent as JSON
-                $retval .= $this->_footnotes->getDisplay();
-            }
-            if (! $this->_isAjax && ! $this->_isMinimal) {
                 $retval .= $this->_getErrorMessages();
                 $retval .= $this->_scripts->getDisplay();
                 // Include possible custom footers
@@ -337,8 +311,7 @@ class PMA_Footer
                     include CUSTOM_FOOTER_FILE;
                     $retval .= ob_end_clean();
                 }
-            }
-            if (! $this->_isAjax) {
+            } else if (! $this->_isAjax) {
                 $retval .= "</body></html>";
             }
         }

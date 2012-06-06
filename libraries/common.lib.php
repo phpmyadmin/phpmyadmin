@@ -528,21 +528,23 @@ function PMA_showPHPDocu($target)
 } // end of the 'PMA_showPHPDocu()' function
 
 /**
- * returns HTML for a footnote marker and add the messsage to the footnotes
+ * Returns HTML code for a tooltip
  *
- * @param string $message the error message
- * @param bool   $bbcode  whether to interpret BB code
- * @param string $type    message types
+ * @param string $message the message for the tooltip
  *
- * @return string html code for a footnote marker
+ * @return string
  *
  * @access  public
  */
 function PMA_showHint($message)
 {
-    $response = PMA_Response::getInstance();
-    $footnotes = $response->getFooter()->getFootnotes();
-    return $footnotes->add($message);
+    $retval  = '<span class="pma_hint">';
+    $retval .= PMA_getImage('b_help.png');
+    $retval .= '<span class="hide">';
+    $retval .= $message;
+    $retval .= '</span>';
+    $retval .= '</span>';
+    return $retval;
 }
 
 /**
