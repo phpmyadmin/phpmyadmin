@@ -14,6 +14,8 @@ if (! defined('PHPMYADMIN')) {
 class PMA_StorageEngine_bdb extends PMA_StorageEngine
 {
     /**
+     * Returns array with variable names related to this storage engine
+     *
      * @return array   variable names
      */
     function getVariables()
@@ -57,7 +59,10 @@ class PMA_StorageEngine_bdb extends PMA_StorageEngine
     }
 
     /**
-     * @return string   LIKE pattern
+     * Returns the pattern to be used in the query for SQL variables
+     * related to this storage engine
+     *
+     * @return string LIKE pattern
      */
     function getVariablesLikePattern()
     {

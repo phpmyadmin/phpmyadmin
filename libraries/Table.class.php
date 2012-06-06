@@ -1251,7 +1251,7 @@ class PMA_Table
         // Renable table in configuration storage
         PMA_REL_renameTable(
             $old_db, $new_db,
-            $old_table, $new_table
+            $old_name, $new_name
         );
 
         $this->messages[] = sprintf(
