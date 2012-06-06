@@ -120,7 +120,8 @@ class PMA_Response
     }
 
     /**
-     * FIXME
+     * Set the status of an ajax response,
+     * whether it is a success or an error
      *
      * @return void
      */

@@ -244,9 +244,9 @@ class PMA_Footer
     }
 
     /**
-     * 
+     * Disables the rendering of the footer
      *
-     * @return 
+     * @return void
      */
     public function disable()
     {

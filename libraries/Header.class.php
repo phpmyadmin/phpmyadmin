@@ -101,6 +101,9 @@ class PMA_Header
      * Whether the HTTP headers (and possibly some HTML)
      * have already been sent to the browser
      *
+     * FIXME: Shouldn't be static or public, but first
+     * need to remove references to it from the code base
+     *
      * @access public
      * @static
      * @var bool
@@ -178,9 +181,9 @@ class PMA_Header
     }
 
     /**
-     * 
+     * Disables the rendering of the header
      *
-     * @return 
+     * @return void
      */
     public function disable()
     {
@@ -435,6 +438,12 @@ class PMA_Header
         return $retval;
     }
 
+    /**
+     * If the page is missing the title, this function
+     * will set it to something reasonable
+     *
+     * @return string
+     */
     private function _getPageTitle()
     {
         if (empty($this->_title)) {
