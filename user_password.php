@@ -56,6 +56,7 @@ if (isset($_REQUEST['nopass'])) {
 // Displays an error message if required
 if (isset($message)) {
     $message->display();
+    unset($message);
 }
 
 require_once './libraries/display_change_password.lib.php';
