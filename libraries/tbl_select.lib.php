@@ -559,7 +559,7 @@ function PMA_tblSearchGetGeomFuncHtml($geomColumnFlag, $columnTypes, $geom_types
 /**
  * Generates formatted HTML for extra search options in table search form
  *
- * @param array   $columnNames Array containing types of all columns in the table
+ * @param array $columnNames Array containing types of all columns in the table
  *
  * @return string the generated HTML
  */
@@ -757,13 +757,13 @@ function PMA_tblSearchGetRowsNormal($db, $table, $columnNames, $columnTypes,
  * Provides the search form's table row in case of Zoom Search
  * (for tbl_zoom_select.php)
  *
- * @param string  $db               Selected Database
- * @param string  $table            Selected Table
- * @param array   $columnNames      Names of columns in the table
- * @param array   $columnTypes      Types of columns in the table
- * @param array   $columnCollations Collation of all columns
- * @param array   $columnNullFlags  Null information of columns
- * @param array   $foreigners       Array of foreign keys
+ * @param string $db               Selected Database
+ * @param string $table            Selected Table
+ * @param array  $columnNames      Names of columns in the table
+ * @param array  $columnTypes      Types of columns in the table
+ * @param array  $columnCollations Collation of all columns
+ * @param array  $columnNullFlags  Null information of columns
+ * @param array  $foreigners       Array of foreign keys
  *
  * @return string the generated table row
  */
@@ -796,10 +796,10 @@ function PMA_tblSearchGetRowsZoom($db, $table, $columnNames, $columnTypes,
             . 'tableid_' . $i . '" >';
         $html_output .= '<option value="' . 'pma_null' . '">' . __('None')
             . '</option>';
-        for ($j = 0 ; $j < count($columnNames) ; $j++) {
+        for ($j = 0 ; $j < count($columnNames); $j++) {
             if (isset($_POST['criteriaColumnNames'][$i])
-                && $_POST['criteriaColumnNames'][$i]
-                    == htmlspecialchars($columnNames[$j])) {
+                && $_POST['criteriaColumnNames'][$i] == htmlspecialchars($columnNames[$j])
+            ) {
                 $html_output .= '<option value="'
                     . htmlspecialchars($columnNames[$j]) . '" selected="selected">'
                     . htmlspecialchars($columnNames[$j]) . '</option>';
@@ -846,13 +846,13 @@ function PMA_tblSearchGetRowsZoom($db, $table, $columnNames, $columnTypes,
  * Set the field name, type, collation and value on select of a coulmn
  * (for tbl_zoom_select.php)
  *
- * @param string  $db               Selected Database
- * @param string  $table            Selected Table
- * @param array   $columnNames      Names of columns in the table
- * @param array   $columnTypes      Types of columns in the table
- * @param array   $columnCollations Collation of all columns
- * @param array   $columnNullFlags  Null information of columns
- * @param array   $foreigners       Array of foreign keys
+ * @param string $db               Selected Database
+ * @param string $table            Selected Table
+ * @param array  $columnNames      Names of columns in the table
+ * @param array  $columnTypes      Types of columns in the table
+ * @param array  $columnCollations Collation of all columns
+ * @param array  $columnNullFlags  Null information of columns
+ * @param array  $foreigners       Array of foreign keys
  *
  * @return array Array of Search criteria input
  */
