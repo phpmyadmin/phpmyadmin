@@ -48,7 +48,7 @@ class ExportXML extends ExportPlugin
     }
 
     /**
-     * Initialize the local variables that are used specific for export SQL
+     * Initialize the local variables that are used specific for export XML
      *
      * @global type $table
      * @global type $tables
@@ -171,7 +171,7 @@ class ExportXML extends ExportPlugin
         // initialize the general export variables
         $this->initExportCommonVariables();
 
-        // initialize the specific export sql variables
+        // initialize the specific export xml variables
         $this->initLocalVariables();
 
         $crlf = $this->getCrlf();
