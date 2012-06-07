@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-04-18 14:56+0200\n"
-"Last-Translator: Jan Erik Zassenhaus <Jan.Zassenhaus@jgerman.de>\n"
+"PO-Revision-Date: 2012-06-06 19:43+0200\n"
+"Last-Translator: J. M. <me@mynetx.net>\n"
 "Language-Team: none\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.9\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -1549,14 +1549,13 @@ msgid "From general log"
 msgstr "Vom allgemeinen Log"
 
 #: js/messages.php:176
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "Lade Protokolle"
+msgstr "Analysiere Protokolle"
 
 #: js/messages.php:177
 msgid "Analysing & loading logs. This may take a while."
-msgstr "Analysiere und Lade Protokolle. Dies kann eine Weile dauern."
+msgstr "Analysiere und lade Protokolle. Dies kann eine Weile dauern."
 
 #: js/messages.php:178
 msgid "Cancel request"
@@ -1592,10 +1591,9 @@ msgid "Jump to Log table"
 msgstr "Springe zur Protokoll-Tabelle"
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "No data"
 msgid "No data found"
-msgstr "Keine Daten"
+msgstr "Keine Daten gefunden"
 
 #: js/messages.php:185
 msgid "Log analysed, but no data found in this time span."
@@ -1634,16 +1632,14 @@ msgid "Chart"
 msgstr "Diagramm"
 
 #: js/messages.php:195
-#, fuzzy
 #| msgid "Add chart"
 msgid "Edit chart"
-msgstr "Schaubild hinzufügen"
+msgstr "Diagramm bearbeiten"
 
 #: js/messages.php:196
-#, fuzzy
 #| msgid "Series:"
 msgid "Series"
-msgstr "Reihe:"
+msgstr "Reihe"
 
 #. l10n: A collection of available filters
 #: js/messages.php:199
@@ -1719,10 +1715,9 @@ msgid "Import"
 msgstr "Importieren"
 
 #: js/messages.php:217
-#, fuzzy
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
-msgstr "Fehler beim Importieren der Konfiguration"
+msgstr "Konfiguration des Importmonitors"
 
 #: js/messages.php:218
 #, fuzzy
@@ -1930,6 +1925,7 @@ msgstr "Das Überfliegen eines Punktes zeigt seine Bezeichnung."
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr ""
+"Zum Hineinzoomen markieren Sie mit der Maus einen Abschnitt des Diagramms."
 
 #: js/messages.php:306
 msgid "Click reset zoom link to come back to original state."
@@ -5983,7 +5979,7 @@ msgstr "nebeneinander"
 #: libraries/display_tbl.lib.php:445
 #, php-format
 msgid "Headers every %s rows"
-msgstr "Kopfzeilen alle %s Datensätze"
+msgstr "Kopfzeilen alle %s Zeilen"
 
 #: libraries/display_tbl.lib.php:548
 msgid "Sort by key"
@@ -12088,10 +12084,9 @@ msgid "How to use"
 msgstr "Anleitung"
 
 #: tbl_zoom_select.php:431
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Zurücksetzen"
+msgstr "Zoom zurücksetzen"
 
 #: themes.php:28
 msgid "Get more themes!"
