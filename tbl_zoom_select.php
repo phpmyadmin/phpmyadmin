@@ -169,9 +169,6 @@ list($columnNames, $columnTypes, $columnCollations, $columnNullFlags)
 // foreign keys from innodb)
 $foreigners = PMA_getForeigners($db, $table);
 
-if (! isset($zoom_submit) && ! isset($criteriaColumnNames)) {
-    $dataLabel = PMA_getDisplayField($db, $table);
-}
 ?>
 <div id="sqlqueryresults"></div>
 <fieldset id="fieldset_subtab">
@@ -201,14 +198,9 @@ echo PMA_tblSearchGetFieldsTableHtml(
         $db, $table, $columnNames, $columnTypes, $columnCollations, $columnNullFlags,
         NULL, $foreigners, "zoom"
     );
-
 //Set default datalabel if not selected
-if (isset($_POST['zoom_submit'])
-    && $_POST['criteriaColumnNames'][0] != 'pma_null'
-    && $_POST['criteriaColumnNames'][1] != 'pma_null') {
-    if ($_POST['dataLabel'] == '') {
-        $dataLabel = PMA_getDisplayField($db, $table);
-    }
+if ( !isset($_POST['zoom_submit']) || $_POST['dataLabel'] == '') {
+    $dataLabel = PMA_getDisplayField($db, $table);
 }
 echo PMA_tblSearchGetOptionsZoom($columnNames, $dataLabel);
 ?>
@@ -231,10 +223,6 @@ if (isset($zoom_submit)
     && $criteriaColumnNames[1] != 'pma_null'
     && $criteriaColumnNames[0] != $criteriaColumnNames[1]
 ) {
-    //Set default datalabel if not selected
-    if ($_POST['dataLabel'] == '') {
-        $dataLabel = PMA_getDisplayField($db, $table);
-    }
     /*
      * Query generation part
      */
