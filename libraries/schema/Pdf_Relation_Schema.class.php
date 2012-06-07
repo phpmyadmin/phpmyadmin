@@ -60,7 +60,7 @@ class PMA_Schema_PDF extends PMA_PDF
      *
      * @return void
      */
-    function PMA_PDF_setScale($scale = 1, $xMin = 0, $yMin = 0,
+    function setScale($scale = 1, $xMin = 0, $yMin = 0,
         $leftMargin = -1, $topMargin = -1
     ) {
         $this->scale = $scale;
@@ -92,7 +92,7 @@ class PMA_Schema_PDF extends PMA_PDF
      *
      * @see TCPDF::Cell()
      */
-    function PMA_PDF_cellScale($w, $h = 0, $txt = '', $border = 0, $ln = 0,
+    function cellScale($w, $h = 0, $txt = '', $border = 0, $ln = 0,
         $align = '', $fill = 0, $link = ''
     ) {
         $h = $h / $this->scale;
@@ -114,7 +114,7 @@ class PMA_Schema_PDF extends PMA_PDF
      *
      * @see TCPDF::Line()
      */
-    function PMA_PDF_lineScale($x1, $y1, $x2, $y2)
+    function lineScale($x1, $y1, $x2, $y2)
     {
         $x1 = ($x1 - $this->_xMin) / $this->scale + $this->leftMargin;
         $y1 = ($y1 - $this->_yMin) / $this->scale + $this->topMargin;
@@ -135,7 +135,7 @@ class PMA_Schema_PDF extends PMA_PDF
      *
      * @see TCPDF::SetXY()
      */
-    function PMA_PDF_setXyScale($x, $y)
+    function setXyScale($x, $y)
     {
         $x = ($x - $this->_xMin) / $this->scale + $this->leftMargin;
         $y = ($y - $this->_yMin) / $this->scale + $this->topMargin;
@@ -153,7 +153,7 @@ class PMA_Schema_PDF extends PMA_PDF
      *
      * @see TCPDF::SetX()
      */
-    function PMA_PDF_setXScale($x)
+    function setXScale($x)
     {
         $x = ($x - $this->_xMin) / $this->scale + $this->leftMargin;
         $this->SetX($x);
@@ -170,7 +170,7 @@ class PMA_Schema_PDF extends PMA_PDF
      *
      * @see TCPDF::SetFontSize()
      */
-    function PMA_PDF_setFontSizeScale($size)
+    function setFontSizeScale($size)
     {
         // Set font size in points
         $size = $size / $this->scale;
@@ -188,7 +188,7 @@ class PMA_Schema_PDF extends PMA_PDF
      *
      * @see TCPDF::SetLineWidth()
      */
-    function PMA_PDF_setLineWidthScale($width)
+    function setLineWidthScale($width)
     {
         $width = $width / $this->scale;
         $this->SetLineWidth($width);
@@ -543,7 +543,7 @@ class Table_Stats
     {
         global $pdf, $withDoc;
 
-        $pdf->PMA_PDF_setXyScale($this->x, $this->y);
+        $pdf->setXyScale($this->x, $this->y);
         $pdf->SetFont($this->_ff, 'B', $fontSize);
         if ($setColor) {
             $pdf->SetTextColor(200);
@@ -555,7 +555,7 @@ class Table_Stats
             $pdf->PMA_links['doc'][$this->_tableName]['-'] = '';
         }
 
-        $pdf->PMA_PDF_cellScale(
+        $pdf->cellScale(
             $this->width,
             $this->heightCell,
             $this->_getTitle(),
@@ -565,7 +565,7 @@ class Table_Stats
             $setColor,
             $pdf->PMA_links['doc'][$this->_tableName]['-']
         );
-        $pdf->PMA_PDF_setXScale($this->x);
+        $pdf->setXScale($this->x);
         $pdf->SetFont($this->_ff, '', $fontSize);
         $pdf->SetTextColor(0);
         $pdf->SetFillColor(255);
@@ -585,7 +585,7 @@ class Table_Stats
                 $pdf->PMA_links['doc'][$this->_tableName][$field] = '';
             }
 
-            $pdf->PMA_PDF_cellScale(
+            $pdf->cellScale(
                 $this->width,
                 $this->heightCell,
                 ' ' . $field,
@@ -595,7 +595,7 @@ class Table_Stats
                 $setColor,
                 $pdf->PMA_links['doc'][$this->_tableName][$field]
             );
-            $pdf->PMA_PDF_setXScale($this->x);
+            $pdf->setXScale($this->x);
             $pdf->SetFillColor(255);
         }
     }
@@ -610,8 +610,8 @@ class Table_Stats
  * in PDF document.
  *
  * @name Relation_Stats
- * @see PMA_Schema_PDF::SetDrawColor, PMA_Schema_PDF::PMA_PDF_setLineWidthScale,
- * PMA_Schema_PDF::PMA_PDF_lineScale
+ * @see PMA_Schema_PDF::SetDrawColor, PMA_Schema_PDF::setLineWidthScale,
+ * PMA_Schema_PDF::lineScale
  */
 class Relation_Stats
 {
@@ -740,21 +740,21 @@ class Relation_Stats
         } else {
             $pdf->SetDrawColor(0);
         }
-        $pdf->PMA_PDF_setLineWidthScale(0.2);
-        $pdf->PMA_PDF_lineScale(
+        $pdf->setLineWidthScale(0.2);
+        $pdf->lineScale(
             $this->xSrc,
             $this->ySrc,
             $this->xSrc + $this->srcDir * $this->wTick,
             $this->ySrc
         );
-        $pdf->PMA_PDF_lineScale(
+        $pdf->lineScale(
             $this->xDest + $this->destDir * $this->wTick,
             $this->yDest,
             $this->xDest,
             $this->yDest
         );
-        $pdf->PMA_PDF_setLineWidthScale(0.1);
-        $pdf->PMA_PDF_lineScale(
+        $pdf->setLineWidthScale(0.1);
+        $pdf->lineScale(
             $this->xSrc + $this->srcDir * $this->wTick,
             $this->ySrc,
             $this->xDest + $this->destDir * $this->wTick,
@@ -764,26 +764,26 @@ class Relation_Stats
          * Draws arrows ->
          */
         $root2 = 2 * sqrt(2);
-        $pdf->PMA_PDF_lineScale(
+        $pdf->lineScale(
             $this->xSrc + $this->srcDir * $this->wTick * 0.75,
             $this->ySrc,
             $this->xSrc + $this->srcDir * (0.75 - 1 / $root2) * $this->wTick,
             $this->ySrc + $this->wTick / $root2
         );
-        $pdf->PMA_PDF_lineScale(
+        $pdf->lineScale(
             $this->xSrc + $this->srcDir * $this->wTick * 0.75,
             $this->ySrc,
             $this->xSrc + $this->srcDir * (0.75 - 1 / $root2) * $this->wTick,
             $this->ySrc - $this->wTick / $root2
         );
 
-        $pdf->PMA_PDF_lineScale(
+        $pdf->lineScale(
             $this->xDest + $this->destDir * $this->wTick / 2,
             $this->yDest,
             $this->xDest + $this->destDir * (0.5 + 1 / $root2) * $this->wTick,
             $this->yDest + $this->wTick / $root2
         );
-        $pdf->PMA_PDF_lineScale(
+        $pdf->lineScale(
             $this->xDest + $this->destDir * $this->wTick / 2,
             $this->yDest,
             $this->xDest + $this->destDir * (0.5 + 1 / $root2) * $this->wTick,
@@ -902,7 +902,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             ) * 100
         ) / 100;
 
-        $pdf->PMA_PDF_setScale(
+        $pdf->setScale(
             $this->scale,
             $this->_xMin,
             $this->_yMin,
@@ -910,13 +910,13 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             $this->topMargin
         );
         // Builds and save the PDF document
-        $pdf->PMA_PDF_setLineWidthScale(0.1);
+        $pdf->setLineWidthScale(0.1);
 
         if ($this->showGrid) {
             $pdf->SetFontSize(10);
             $this->_strokeGrid();
         }
-        $pdf->PMA_PDF_setFontSizeScale(14);
+        $pdf->setFontSizeScale(14);
         // previous logic was checking master tables and foreign tables
         // but I think that looping on every table of the pdf page as a master
         // and finding its foreigns is OK (then we can support innodb)
