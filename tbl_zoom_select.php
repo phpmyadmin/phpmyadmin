@@ -169,51 +169,17 @@ list($columnNames, $columnTypes, $columnCollations, $columnNullFlags)
 // foreign keys from innodb)
 $foreigners = PMA_getForeigners($db, $table);
 
-?>
-<div id="sqlqueryresults"></div>
-<fieldset id="fieldset_subtab">
-<?php
-$url_params = array();
-$url_params['db']    = $db;
-$url_params['table'] = $table;
-echo PMA_generateHtmlTabs(PMA_tbl_getSubTabs(), $url_params, 'topmenu2');
-
-/*
- * Form for input criteria
- */
-
-?>
-<form method="post" action="tbl_zoom_select.php" name="insertForm" id="zoom_search_form"
-    <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?>>
-<?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-<input type="hidden" name="goto" value="<?php echo $goto; ?>" />
-<input type="hidden" name="back" value="tbl_zoom_select.php" />
-
-<fieldset id="inputSection">
-
-<legend><?php echo __('Do a "query by example" (wildcard: "%") for two different columns') ?></legend>
-
-<?php
-echo PMA_tblSearchGetFieldsTableHtml(
-        $db, $table, $columnNames, $columnTypes, $columnCollations, $columnNullFlags,
-        NULL, $foreigners, "zoom"
-    );
 //Set default datalabel if not selected
 if ( !isset($_POST['zoom_submit']) || $_POST['dataLabel'] == '') {
     $dataLabel = PMA_getDisplayField($db, $table);
 }
-echo PMA_tblSearchGetOptionsZoom($columnNames, $dataLabel);
+echo PMA_tblSearchGetSelectionForm(
+    $goto, $db, $table, $columnNames, $columnTypes, $columnCollations,
+    $columnNullFlags, false, $foreigners, "zoom", $dataLabel
+);
 ?>
 
-</fieldset>
-<fieldset class="tblFooters">
-    <input type="submit" name="zoom_submit" id="inputFormSubmitId" value="<?php echo __('Go'); ?>" />
-</fieldset>
-</form>
-</fieldset>
-
 <?php
-
 /*
  * Handle the input criteria and generate the query result
  * Form for displaying query results

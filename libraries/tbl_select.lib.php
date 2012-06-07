@@ -980,12 +980,13 @@ function PMA_tblSearchGetFormTag($goto, $db, $table, $searchType)
  * @param boolean $geomColumnFlag   Whether a geometry column is present
  * @param array   $foreigners       Array of foreign keys
  * @param string  $searchType       Whether normal search or zoom search
+ * @param string  $dataLabel        Label for points in zoom plot
  *
  * @return string the generated HTML for table search form
  */
 function PMA_tblSearchGetSelectionForm($goto, $db, $table, $columnNames,
     $columnTypes, $columnCollations, $columnNullFlags, $geomColumnFlag, $foreigners,
-    $searchType
+    $searchType, $dataLabel = null
 ) {
     $html_output = '';
     $html_output .= '<fieldset id="fieldset_subtab">';
@@ -1022,14 +1023,15 @@ function PMA_tblSearchGetSelectionForm($goto, $db, $table, $columnNames,
         $geomColumnFlag, $foreigners, $searchType
     );
 
+    /**
+     * Displays more search options
+     */
     if ($searchType == 'zoom') {
+        $html_output .= PMA_tblSearchGetOptionsZoom($columnNames, $dataLabel);
     } else {
         $html_output .= '<div id="gis_editor"></div>'
             . '<div id="popup_background"></div>'
             . '</fieldset>';
-        /**
-         * Displays more search options for normal table search
-         */
         $html_output .= PMA_tblSearchGetOptions($columnNames);
     }
 
@@ -1041,7 +1043,13 @@ function PMA_tblSearchGetSelectionForm($goto, $db, $table, $columnNames,
         . ($searchType == 'zoom' ? 'zoom_submit' : 'submit')
         . ($searchType == 'zoom' ? '" id="inputFormSubmitId"' : '" ')
         . 'value="' . __('Go') . '" />';
-    $html_output .= '</fieldset></form><div id="sqlqueryresults"></div></fieldset>';
+    $html_output .= '</fieldset></form>';
+    if ($searchType == 'zoom') {
+        $html_output = '<div id="sqlqueryresults"></div>'
+            . $html_output . '</fieldset>';
+    } else {
+        $html_output .= '<div id="sqlqueryresults"></div></fieldset>';
+    }
     return $html_output;
 }
 ?>
