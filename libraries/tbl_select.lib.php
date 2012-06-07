@@ -441,12 +441,13 @@ function PMA_tblSearchBuildSqlQuery()
     // if all column names were selected to display, we do a 'SELECT *'
     // (more efficient and this helps prevent a problem in IE
     // if one of the rows is edited and we come back to the Select results)
-    if (count($_POST['columnsToDisplay']) == count($_POST['criteriaColumnNames'])
-        || isset($_POST['zoom_submit'])
-    ) {
+    if (isset($_POST['zoom_submit'])) {
         $sql_query .= '* ';
     } else {
-        $sql_query .= implode(', ', PMA_backquote($_POST['columnsToDisplay']));
+        $sql_query .= (count($_POST['columnsToDisplay'])
+            == count($_POST['criteriaColumnNames'])
+            ? '* '
+            : implode(', ', PMA_backquote($_POST['columnsToDisplay'])));
     } // end if
 
     $sql_query .= ' FROM ' . PMA_backquote($_POST['table']);
@@ -470,7 +471,7 @@ function PMA_tblSearchGenerateWhereClause()
 {
     $fullWhereClause = '';
 
-    if (trim($_POST['customWhereClause']) != '') {
+    if (! isset($_POST['zoom_submit']) && trim($_POST['customWhereClause']) != '') {
         $fullWhereClause .= ' WHERE ' . $_POST['customWhereClause'];
         return $fullWhereClause;
     }
