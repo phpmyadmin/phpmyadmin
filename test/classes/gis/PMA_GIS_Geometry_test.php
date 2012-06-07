@@ -10,6 +10,8 @@ require_once 'libraries/gis/pma_gis_geometry.php';
 
 /**
  * Tests for PMA_GIS_Geometry class
+ *
+ * @package PhpMyAdmin-test
  */
 class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
 {

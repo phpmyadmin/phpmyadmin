@@ -53,6 +53,8 @@ function PMA_query_as_controluser($sql, $show_error = true, $options = 0)
 } // end of the "PMA_query_as_controluser()" function
 
 /**
+ * Returns current relation parameters
+ *
  * @param bool $verbose whether to print diagnostic info
  *
  * @return array   $cfgRelation
@@ -79,17 +81,22 @@ function PMA_getRelationsParam($verbose = false)
 /**
  * prints out diagnostic info for pma relation feature
  *
- * @param array $cfgRelation
+ * @param array $cfgRelation Relation configuration
  *
  * @return void
  */
 function PMA_printRelationsParamDiagnostic($cfgRelation)
 {
-    $messages['error'] = '<font color="red"><strong>' . __('not OK')
-                   . '</strong></font> [ <a href="Documentation.html#%s" target="documentation">'
-                   . __('Documentation') . '</a> ]';
+    $messages['error'] = '<font color="red"><strong>'
+        . __('not OK')
+        . '</strong></font>'
+        . ' [ <a href="Documentation.html#%s" target="documentation">'
+        . __('Documentation')
+        . '</a> ]';
 
-    $messages['ok'] = '<font color="green"><strong>' .  _pgettext('Correctly working', 'OK') . '</strong></font>';
+    $messages['ok'] = '<font color="green"><strong>'
+        .  _pgettext('Correctly working', 'OK')
+        . '</strong></font>';
     $messages['enabled']  = '<font color="green">' . __('Enabled') . '</font>';
     $messages['disabled'] = '<font color="red">'   . __('Disabled') . '</font>';
 
@@ -307,11 +314,16 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
  *
  * @return void
  */
-function PMA_printDiagMessageForFeature($feature_name, $relation_parameter, $messages, $skip_line=true)
-{
-    echo '    <tr><td colspan=2 class="right">' . $feature_name . ': '
-         . ($GLOBALS['cfgRelation'][$relation_parameter] ? $messages['enabled'] : $messages['disabled'])
-         . '</td></tr>' . "\n";
+function PMA_printDiagMessageForFeature($feature_name,
+    $relation_parameter, $messages, $skip_line = true
+) {
+    echo '    <tr><td colspan=2 class="right">' . $feature_name . ': ';
+    if ($GLOBALS['cfgRelation'][$relation_parameter]) {
+        echo $messages['enabled'];
+    } else {
+        echo $messages['disabled'];
+    }
+    echo '</td></tr>' . "\n";
     if ($skip_line) {
         echo '    <tr><td>&nbsp;</td></tr>' . "\n";
     }
@@ -327,11 +339,18 @@ function PMA_printDiagMessageForFeature($feature_name, $relation_parameter, $mes
  *
  * @return void
  */
-function PMA_printDiagMessageForParameter($parameter, $relation_parameter_set, $messages, $doc_anchor)
-{
-    echo '    <tr><th class="left">';
-    echo '$cfg[\'Servers\'][$i][\'' . $parameter . '\']  ... </th><td class="right">';
-    echo ($relation_parameter_set ? $messages['ok'] : sprintf($messages['error'], $doc_anchor)) . '</td></tr>' . "\n";
+function PMA_printDiagMessageForParameter($parameter,
+    $relation_parameter_set, $messages, $doc_anchor
+) {
+    echo '<tr><th class="left">';
+    echo '$cfg[\'Servers\'][$i][\'' . $parameter . '\']  ... ';
+    echo '</th><td class="right">';
+    if ($relation_parameter_set) {
+        echo $messages['ok'];
+    } else {
+        printf($messages['error'], $doc_anchor);
+    }
+    echo '</td></tr>' . "\n";
 }
 
 
@@ -381,7 +400,8 @@ function PMA__getRelationsParam()
     //  I was thinking of checking if they have all required columns but I
     //  fear it might be too slow
 
-    $tab_query = 'SHOW TABLES FROM ' . PMA_backquote($GLOBALS['cfg']['Server']['pmadb']);
+    $tab_query = 'SHOW TABLES FROM '
+        . PMA_backquote($GLOBALS['cfg']['Server']['pmadb']);
     $tab_rs    = PMA_query_as_controluser($tab_query, false, PMA_DBI_QUERY_STORE);
 
     if (! $tab_rs) {
@@ -1202,49 +1222,171 @@ function PMA_REL_renameField($db, $table, $field, $new_name)
     $cfgRelation = PMA_getRelationsParam();
 
     if ($cfgRelation['displaywork']) {
-        $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['table_info'])
-                      . '   SET display_field = \'' . PMA_sqlAddSlashes($new_name) . '\''
-                      . ' WHERE db_name       = \'' . PMA_sqlAddSlashes($db) . '\''
-                      . '   AND table_name    = \'' . PMA_sqlAddSlashes($table) . '\''
-                      . '   AND display_field = \'' . PMA_sqlAddSlashes($field) . '\'';
+        $table_query = 'UPDATE '
+            . PMA_backquote($cfgRelation['db']) . '.'
+            . PMA_backquote($cfgRelation['table_info'])
+            . '   SET display_field = \'' . PMA_sqlAddSlashes($new_name) . '\''
+            . ' WHERE db_name       = \'' . PMA_sqlAddSlashes($db) . '\''
+            . '   AND table_name    = \'' . PMA_sqlAddSlashes($table) . '\''
+            . '   AND display_field = \'' . PMA_sqlAddSlashes($field) . '\'';
         PMA_query_as_controluser($table_query);
     }
 
     if ($cfgRelation['relwork']) {
-        $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['relation'])
-                      . '   SET master_field = \'' . PMA_sqlAddSlashes($new_name) . '\''
-                      . ' WHERE master_db    = \'' . PMA_sqlAddSlashes($db) . '\''
-                      . '   AND master_table = \'' . PMA_sqlAddSlashes($table) . '\''
-                      . '   AND master_field = \'' . PMA_sqlAddSlashes($field) . '\'';
+        $table_query = 'UPDATE '
+            . PMA_backquote($cfgRelation['db']) . '.'
+            . PMA_backquote($cfgRelation['relation'])
+            . '   SET master_field = \'' . PMA_sqlAddSlashes($new_name) . '\''
+            . ' WHERE master_db    = \'' . PMA_sqlAddSlashes($db) . '\''
+            . '   AND master_table = \'' . PMA_sqlAddSlashes($table) . '\''
+            . '   AND master_field = \'' . PMA_sqlAddSlashes($field) . '\'';
         PMA_query_as_controluser($table_query);
 
-        $table_query = 'UPDATE ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['relation'])
-                      . '   SET foreign_field = \'' . PMA_sqlAddSlashes($new_name) . '\''
-                      . ' WHERE foreign_db    = \'' . PMA_sqlAddSlashes($db) . '\''
-                      . '   AND foreign_table = \'' . PMA_sqlAddSlashes($table) . '\''
-                      . '   AND foreign_field = \'' . PMA_sqlAddSlashes($field) . '\'';
+        $table_query = 'UPDATE '
+            . PMA_backquote($cfgRelation['db']) . '.'
+            . PMA_backquote($cfgRelation['relation'])
+            . '   SET foreign_field = \'' . PMA_sqlAddSlashes($new_name) . '\''
+            . ' WHERE foreign_db    = \'' . PMA_sqlAddSlashes($db) . '\''
+            . '   AND foreign_table = \'' . PMA_sqlAddSlashes($table) . '\''
+            . '   AND foreign_field = \'' . PMA_sqlAddSlashes($field) . '\'';
         PMA_query_as_controluser($table_query);
     } // end if relwork
+}
+
+
+/**
+ * Performs SQL query used for renaming table.
+ *
+ * @param string $table        Relation table to use
+ * @param string $source_db    Source database name
+ * @param string $target_db    Target database name
+ * @param string $source_table Source table name
+ * @param string $target_table Target table name
+ * @param string $db_field     Name of database field
+ * @param string $table_field  Name of table field
+ *
+ * @return nothing.
+ */
+function PMA_REL_renameSingleTable($table,
+    $source_db, $target_db,
+    $source_table, $target_table,
+    $db_field, $table_field
+) {
+    $query = 'UPDATE '
+        . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
+        . PMA_backquote($GLOBALS['cfgRelation'][$table])
+        . ' SET ' . $db_field . ' = \'' . PMA_sqlAddSlashes($target_db) . '\', '
+        . ' ' . $table_field . ' = \'' . PMA_sqlAddSlashes($target_table) . '\''
+        . ' WHERE '
+        . $db_field . '  = \'' . PMA_sqlAddSlashes($source_db) . '\''
+        . ' AND '
+        . $table_field . ' = \'' . PMA_sqlAddSlashes($source_table) . '\'';
+    PMA_query_as_controluser($query);
+}
+
+
+/**
+ * Rename a table in relation tables
+ *
+ * usually called after table has been moved
+ *
+ * @param string $source_db    Source database name
+ * @param string $target_db    Target database name
+ * @param string $source_table Source table name
+ * @param string $target_table Target table name
+ *
+ * @return nothing
+ */
+function PMA_REL_renameTable($source_db, $target_db, $source_table, $target_table)
+{
+    // Move old entries from PMA-DBs to new table
+    if ($GLOBALS['cfgRelation']['commwork']) {
+        PMA_REL_renameSingleTable(
+            'column_info',
+            $source_db, $target_db,
+            $source_table, $target_table,
+            'db_name', 'table_name'
+        );
+    }
+
+    // updating bookmarks is not possible since only a single table is
+    // moved, and not the whole DB.
+
+    if ($GLOBALS['cfgRelation']['displaywork']) {
+        PMA_REL_renameSingleTable(
+            'table_info',
+            $source_db, $target_db,
+            $source_table, $target_table,
+            'db_name', 'table_name'
+        );
+    }
+
+    if ($GLOBALS['cfgRelation']['relwork']) {
+        PMA_REL_renameSingleTable(
+            'relation',
+            $source_db, $target_db,
+            $source_table, $target_table,
+            'foreign_db', 'foreign_table'
+        );
+
+        PMA_REL_renameSingleTable(
+            'relation',
+            $source_db, $target_db,
+            $source_table, $target_table,
+            'master_db', 'master_table'
+        );
+    }
+
+    /**
+     * @todo Can't get moving PDFs the right way. The page numbers
+     * always get screwed up independently from duplication because the
+     * numbers do not seem to be stored on a per-database basis. Would
+     * the author of pdf support please have a look at it?
+     */
+
+    if ($GLOBALS['cfgRelation']['pdfwork']) {
+        PMA_REL_renameSingleTable(
+            'table_coords',
+            $source_db, $target_db,
+            $source_table, $target_table,
+            'db_name', 'table_name'
+        );
+    }
+
+    if ($GLOBALS['cfgRelation']['designerwork']) {
+        PMA_REL_renameSingleTable(
+            'designer_coords',
+            $source_db, $target_db,
+            $source_table, $target_table,
+            'db_name', 'table_name'
+        );
+    }
 }
 
 /**
  * Create a PDF page
  *
  * @param string $newpage     name of the new PDF page
- * @param array  $cfgRelation
+ * @param array  $cfgRelation Relation configuration
  * @param string $db          database name
  *
  * @return string   $pdf_page_number
  */
-function PMA_REL_create_page($newpage, $cfgRelation, $db)
+function PMA_REL_createPage($newpage, $cfgRelation, $db)
 {
     if (! isset($newpage) || $newpage == '') {
         $newpage = __('no description');
     }
-    $ins_query   = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages'])
-                 . ' (db_name, page_descr)'
-                 . ' VALUES (\'' . PMA_sqlAddSlashes($db) . '\', \'' . PMA_sqlAddSlashes($newpage) . '\')';
+    $ins_query   = 'INSERT INTO '
+        . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
+        . PMA_backquote($cfgRelation['pdf_pages'])
+        . ' (db_name, page_descr)'
+        . ' VALUES (\''
+        . PMA_sqlAddSlashes($db) . '\', \''
+        . PMA_sqlAddSlashes($newpage) . '\')';
     PMA_query_as_controluser($ins_query, false);
-    return PMA_DBI_insert_id(isset($GLOBALS['controllink']) ? $GLOBALS['controllink'] : '');
+    return PMA_DBI_insert_id(
+        isset($GLOBALS['controllink']) ? $GLOBALS['controllink'] : ''
+    );
 }
 ?>
