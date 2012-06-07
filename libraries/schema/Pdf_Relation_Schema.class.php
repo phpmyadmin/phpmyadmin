@@ -1143,6 +1143,13 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
         $pdf->Download($filename);
     }
 
+    /**
+     * Generates data dictionary pages.
+     *
+     * @param bool $alltables Tables to document.
+     *
+     * @return void
+     */
     public function dataDictionaryDoc($alltables)
     {
         global $db, $pdf, $orientation, $paper;
