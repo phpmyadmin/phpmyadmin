@@ -2592,16 +2592,11 @@ $(function() {
      * Attach Ajax event handler on the change password anchor
      * @see $cfg['AjaxEnable']
      */
-    $('#change_password_anchor.dialog_active').live('click', function(event) {
-        event.preventDefault();
-        return false;
-        });
     $('#change_password_anchor.ajax').live('click', function(event) {
         event.preventDefault();
 
         var $msgbox = PMA_ajaxShowMessage();
 
-        $(this).removeClass('ajax').addClass('dialog_active');
         /**
          * @var button_options  Object containing options to be passed to jQueryUI's dialog
          */
@@ -2634,7 +2629,6 @@ $(function() {
                     $("#floating_menubar").after(data.message);
                     $("#change_password_dialog").hide().remove();
                     $("#edit_user_dialog").dialog("close").remove();
-                    $('#change_password_anchor.dialog_active').removeClass('dialog_active').addClass('ajax');
                     PMA_ajaxRemoveMessage($msgbox);
                 }
                 else {
@@ -2655,11 +2649,9 @@ $(function() {
                     $(this).remove();
                 },
                 buttons : button_options,
-                beforeClose: function(ev, ui) {
-                    $('#change_password_anchor.dialog_active').removeClass('dialog_active').addClass('ajax');
-                }
+                modal: true
             })
-            .append(data);
+            .append(data.message);
             // for this dialog, we remove the fieldset wrapping due to double headings
             $("fieldset#fieldset_change_password")
             .find("legend").remove().end()
