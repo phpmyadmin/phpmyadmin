@@ -17,6 +17,7 @@ require_once './libraries/PDF.class.php';
  * in developing the structure of PDF Schema Export
  *
  * @access public
+ * @package PhpMyAdmin
  * @see TCPDF
  */
 class PMA_Schema_PDF extends PMA_PDF
@@ -610,6 +611,7 @@ class Table_Stats
  * in PDF document.
  *
  * @name Relation_Stats
+ * @package PhpMyAdmin
  * @see PMA_Schema_PDF::SetDrawColor, PMA_Schema_PDF::setLineWidthScale,
  * PMA_Schema_PDF::lineScale
  */
@@ -803,6 +805,7 @@ class Relation_Stats
  * to this class
  *
  * @name Pdf_Relation_Schema
+ * @package PhpMyAdmin
  */
 class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
 {
