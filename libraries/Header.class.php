@@ -191,11 +191,12 @@ class PMA_Header
     }
 
     /**
-     * 
+     * Set the ajax flag to indicate whether
+     * we are sevicing an ajax request
      *
-     * @return 
+     * @return void
      */
-    public function isAjax($isAjax)
+    public function setAjax($isAjax)
     {
         $this->_isAjax = $isAjax;
     }

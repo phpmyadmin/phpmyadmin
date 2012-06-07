@@ -101,8 +101,8 @@ class PMA_Response
         if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $this->_isAjax = true;
         }
-        $this->_header->isAjax($this->_isAjax);
-        $this->_footer->isAjax($this->_isAjax);
+        $this->_header->setAjax($this->_isAjax);
+        $this->_footer->setAjax($this->_isAjax);
         $this->_CWD = getcwd();
     }
 
@@ -132,6 +132,17 @@ class PMA_Response
         } else {
             $this->_isSuccess = false;
         }
+    }
+
+    /**
+     * Returns true or false depending on whether
+     * we are servicing an ajax request
+     *
+     * @return void
+     */
+    public function isAjax()
+    {
+        return $this->_isAjax;
     }
 
     /**
@@ -255,17 +266,28 @@ class PMA_Response
      */
     private function _ajaxResponse()
     {
-        if (empty($this->_JSON)) {
-            // header('Content-Type: text/html; charset=utf-8');
-            echo $this->_getDisplay();
-        } else {
-            if (! isset($this->_JSON['message'])) {
-                $this->_JSON['message'] = $this->_getDisplay();
-            }
-            $message = $this->_JSON['message'];
-            unset($this->_JSON['message']);
-            PMA_ajaxResponse($message, $this->_isSuccess, $this->_JSON);
+        if (! isset($this->_JSON['message'])) {
+            $this->_JSON['message'] = $this->_getDisplay();
+        } else if ($this->_JSON['message'] instanceof PMA_Message) {
+            $this->_JSON['message'] = $this->_JSON['message']->getDisplay();
         }
+
+        if ($this->_isSuccess) {
+            $this->_JSON['success'] = true;
+        } else {
+            $this->_JSON['success'] = false;
+            $this->_JSON['error'] = $this->_JSON['message'];
+            unset($this->_JSON['message']);
+        }
+
+        // Set the Content-Type header to JSON so that jQuery parses the
+        // response correctly.
+        if (! defined('TESTSUITE')) {
+            header('Cache-Control: no-cache');
+            header('Content-Type: application/json');
+        }
+
+        echo json_encode($this->_JSON);
     }
 
     /**
@@ -282,7 +304,7 @@ class PMA_Response
         if (empty($response->_HTML)) {
             $response->_HTML = $buffer->getContents();
         }
-        if ($response->_isAjax) {
+        if ($response->isAjax()) {
             $response->_ajaxResponse();
         } else {
             $response->_htmlResponse();

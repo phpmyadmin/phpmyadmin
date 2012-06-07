@@ -130,6 +130,17 @@ function PMA_auth()
 {
     global $conn_error;
 
+    $response = PMA_Response::getInstance();
+    if ($response->isAjax()) {
+        $response->isSuccess(false);
+        if (! empty($conn_error)) {
+            $response->addJSON('message', $conn_error);
+        } else {
+            $response->addJSON('message', __('Session expired'));
+        }
+        exit;
+    }
+
     /* Perform logout to custom URL */
     if (! empty($_REQUEST['old_usr'])
         && ! empty($GLOBALS['cfg']['Server']['LogoutURL'])
@@ -154,7 +165,6 @@ function PMA_auth()
 
     $cell_align = ($GLOBALS['text_dir'] == 'ltr') ? 'left' : 'right';
 
-    $response = PMA_Response::getInstance();
     $response->getFooter()->setMinimal();
     $header = $response->getHeader();
     $header->setBodyId('loginform');
@@ -571,11 +581,13 @@ function PMA_auth_set_user()
          */
         PMA_clearUserCache();
 
+        PMA_Response::getInstance()->disable();
+
         PMA_sendHeaderLocation(
             $redirect_url . PMA_generate_common_url($url_params, '&'),
             true
         );
-        exit();
+        exit;
     } // end if
 
     return true;

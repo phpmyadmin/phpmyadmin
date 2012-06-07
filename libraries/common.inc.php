@@ -476,7 +476,9 @@ if (! PMA_isValid($_REQUEST['token'])
         /* Cookie preferences */
         'pma_lang', 'pma_collation_connection',
         /* Possible login form */
-        'pma_servername', 'pma_username', 'pma_password'
+        'pma_servername', 'pma_username', 'pma_password',
+        /* Needed to send the correct reply */
+        'ajax_request'
     );
     /**
      * Allow changing themes in test/theme.php
@@ -846,7 +848,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
          * the required auth type plugin
          */
         include_once './libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php';
-        if (!PMA_auth_check()) {
+        if (! PMA_auth_check()) {
             /* Force generating of new session on login */
             PMA_secureSession();
             PMA_auth();
@@ -897,7 +899,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 PMA_log_user($cfg['Server']['user'], 'allow-denied');
                 PMA_auth_fails();
             }
-            unset($allowDeny_forbidden); //Clean up after you!
         } // end if
 
         // is root allowed?
@@ -905,7 +906,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             $allowDeny_forbidden = true;
             PMA_log_user($cfg['Server']['user'], 'root-denied');
             PMA_auth_fails();
-            unset($allowDeny_forbidden); //Clean up after you!
         }
 
         // is a login without password allowed?
@@ -913,7 +913,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             $login_without_password_is_forbidden = true;
             PMA_log_user($cfg['Server']['user'], 'empty-denied');
             PMA_auth_fails();
-            unset($login_without_password_is_forbidden); //Clean up after you!
         }
 
         // if using TCP socket is not needed
