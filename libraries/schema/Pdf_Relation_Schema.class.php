@@ -59,8 +59,9 @@ class PMA_Schema_PDF extends PMA_PDF
      *
      * @return void
      */
-    function PMA_PDF_setScale($scale = 1, $xMin = 0, $yMin = 0, $leftMargin = -1, $topMargin = -1)
-    {
+    function PMA_PDF_setScale($scale = 1, $xMin = 0, $yMin = 0,
+        $leftMargin = -1, $topMargin = -1
+    ) {
         $this->scale = $scale;
         $this->_xMin = $xMin;
         $this->_yMin = $yMin;
@@ -90,8 +91,9 @@ class PMA_Schema_PDF extends PMA_PDF
      *
      * @see TCPDF::Cell()
      */
-    function PMA_PDF_cellScale($w, $h = 0, $txt = '', $border = 0, $ln = 0, $align = '', $fill = 0, $link = '')
-    {
+    function PMA_PDF_cellScale($w, $h = 0, $txt = '', $border = 0, $ln = 0,
+        $align = '', $fill = 0, $link = ''
+    ) {
         $h = $h / $this->scale;
         $w = $w / $this->scale;
         $this->Cell($w, $h, $txt, $border, $ln, $align, $fill, $link);
@@ -385,8 +387,9 @@ class Table_Stats
      * @see PMA_Schema_PDF, Table_Stats::Table_Stats_setWidth,
      *     Table_Stats::Table_Stats_setHeight
      */
-    function __construct($tableName, $fontSize, $pageNumber, &$sameWideWidth, $showKeys = false, $showInfo = false)
-    {
+    function __construct($tableName, $fontSize, $pageNumber, &$sameWideWidth,
+        $showKeys = false, $showInfo = false
+    ) {
         global $pdf, $cfgRelation, $db;
 
         $this->_tableName = $tableName;
@@ -632,8 +635,9 @@ class Relation_Stats
      *
      * @see Relation_Stats::_getXy
      */
-    function __construct($master_table, $master_field, $foreign_table, $foreign_field)
-    {
+    function __construct($master_table, $master_field, $foreign_table,
+        $foreign_field
+    ) {
         $src_pos  = $this->_getXy($master_table, $master_field);
         $dest_pos = $this->_getXy($foreign_table, $foreign_field);
         /*
@@ -691,7 +695,11 @@ class Relation_Stats
     {
         $pos = array_search($column, $table->fields);
         // x_left, x_right, y
-        return array($table->x, $table->x + + $table->width, $table->y + ($pos + 1.5) * $table->heightCell);
+        return array(
+            $table->x,
+            $table->x + $table->width,
+            $table->y + ($pos + 1.5) * $table->heightCell
+        );
     }
 
     /**
@@ -974,8 +982,9 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
      *
      * @see _setMinMax
      */
-    private function _addRelation($masterTable, $masterField, $foreignTable, $foreignField, $showInfo)
-    {
+    private function _addRelation($masterTable, $masterField, $foreignTable,
+        $foreignField, $showInfo
+    ) {
         if (! isset($this->tables[$masterTable])) {
             $this->tables[$masterTable] = new Table_Stats(
                 $masterTable, $this->_ff, $this->pageNumber,
@@ -1221,7 +1230,9 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             /**
              * Gets table keys and retains them
              */
-            $result = PMA_DBI_query('SHOW KEYS FROM ' . PMA_backquote($table) . ';');
+            $result = PMA_DBI_query(
+                'SHOW KEYS FROM ' . PMA_backquote($table) . ';'
+            );
             $primary = '';
             $indexes = array();
             $lastIndex = '';
