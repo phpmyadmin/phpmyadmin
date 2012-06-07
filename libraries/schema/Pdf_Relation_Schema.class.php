@@ -469,7 +469,11 @@ class Table_Stats
      */
     private function _getTitle()
     {
-        return ($this->_showInfo ? sprintf('%.0f', $this->width) . 'x' . sprintf('%.0f', $this->height) : '') . ' ' . $this->_tableName;
+        $ret = '';
+        if ($this->_showInfo) {
+            $ret = sprintf('%.0fx%0.f', $this->width, $this->height);
+        }
+        return $ret . ' ' . $this->_tableName;
     }
 
     /**
