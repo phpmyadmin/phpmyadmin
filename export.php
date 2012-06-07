@@ -328,13 +328,13 @@ if ($asfile) {
 
     // Grab basic dump extension and mime type
     // Check if the user already added extension; get the substring where the extension would be if it was included
-    $extension_start_pos = strlen($filename) - strlen($export_list[$type]['extension']) - 1;
+    $extension_start_pos = strlen($filename) - strlen($export_plugin_properties['extension']) - 1;
     $user_extension = substr($filename, $extension_start_pos, strlen($filename));
-    $required_extension = "." . $export_list[$type]['extension'];
+    $required_extension = "." . $export_plugin_properties['extension'];
     if (strtolower($user_extension) != $required_extension) {
         $filename  .= $required_extension;
     }
-    $mime_type  = $export_list[$type]['mime_type'];
+    $mime_type  = $export_plugin_properties['mime_type'];
 
     // If dump is going to be compressed, set correct mime_type and add
     // compression to extension
