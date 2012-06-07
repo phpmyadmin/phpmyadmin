@@ -1387,8 +1387,8 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 );
                 $links[0] = $pdf->PMA_links['RT'][$table][$field_name];
                 if (isset($res_rel[$field_name]['foreign_table'])
-                    AND isset($res_rel[$field_name]['foreign_field'])
-                    AND isset($pdf->PMA_links['doc'][$res_rel[$field_name]['foreign_table']][$res_rel[$field_name]['foreign_field']])
+                    && isset($res_rel[$field_name]['foreign_field'])
+                    && isset($pdf->PMA_links['doc'][$res_rel[$field_name]['foreign_table']][$res_rel[$field_name]['foreign_field']])
                 ) {
                     $links[6] = $pdf->PMA_links['doc'][$res_rel[$field_name]['foreign_table']][$res_rel[$field_name]['foreign_field']];
                 } else {
