@@ -16,9 +16,9 @@ require_once './libraries/PDF.class.php';
  * Extends the "TCPDF" class and helps
  * in developing the structure of PDF Schema Export
  *
- * @access public
+ * @access  public
  * @package PhpMyAdmin
- * @see TCPDF
+ * @see     TCPDF
  */
 class PMA_Schema_PDF extends PMA_PDF
 {
@@ -251,6 +251,14 @@ class PMA_Schema_PDF extends PMA_PDF
         $this->widths = $w;
     }
 
+    /**
+     * Generates table row.
+     *
+     * @param array $data  Data for table
+     * @param array $links Links for table cells
+     *
+     * @return void
+     */
     function Row($data, $links)
     {
         // line height
@@ -349,8 +357,9 @@ class PMA_Schema_PDF extends PMA_PDF
  * This class preserves the table co-ordinates,fields
  * and helps in drawing/generating the Tables in PDF document.
  *
- * @name Table_Stats
- * @see PMA_Schema_PDF
+ * @name    Table_Stats
+ * @package PhpMyAdmin
+ * @see     PMA_Schema_PDF
  */
 class Table_Stats
 {
@@ -529,7 +538,7 @@ class Table_Stats
      * Do draw the table
      *
      * @param integer $fontSize The font size
-     * @param boolean $withDoc
+     * @param boolean $withDoc  Whether to include links to documentation
      * @param boolean $setColor Whether to display color
      *
      * @global object The current PDF document
@@ -610,10 +619,10 @@ class Table_Stats
  * master table's master field to foreign table's foreign key
  * in PDF document.
  *
- * @name Relation_Stats
+ * @name    Relation_Stats
  * @package PhpMyAdmin
- * @see PMA_Schema_PDF::SetDrawColor, PMA_Schema_PDF::setLineWidthScale,
- * PMA_Schema_PDF::lineScale
+ * @see     PMA_Schema_PDF::SetDrawColor, PMA_Schema_PDF::setLineWidthScale,
+ *          PMA_Schema_PDF::lineScale
  */
 class Relation_Stats
 {
