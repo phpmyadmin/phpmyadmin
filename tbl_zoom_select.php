@@ -201,53 +201,17 @@ echo PMA_tblSearchGetFieldsTableHtml(
         $db, $table, $columnNames, $columnTypes, $columnCollations, $columnNullFlags,
         NULL, $foreigners, "zoom"
     );
-?>
-
-<?php
-/*
- * Other inputs like data label and mode go after selection of column criteria
- */
 
 //Set default datalabel if not selected
-if (isset($zoom_submit) && $criteriaColumnNames[0] != 'pma_null' && $criteriaColumnNames[1] != 'pma_null') {
-    if ($dataLabel == '') {
+if (isset($_POST['zoom_submit'])
+    && $_POST['criteriaColumnNames'][0] != 'pma_null'
+    && $_POST['criteriaColumnNames'][1] != 'pma_null') {
+    if ($_POST['dataLabel'] == '') {
         $dataLabel = PMA_getDisplayField($db, $table);
     }
 }
+echo PMA_tblSearchGetOptionsZoom($columnNames, $dataLabel);
 ?>
-    <table class="data">
-    <tr><td><label for="dataLabel"><?php echo __("Use this column to label each point"); ?></label></td>
-    <td><select name="dataLabel" id='dataLabel' >
-        <option value = ''> <?php echo __('None');  ?> </option>
-<?php
-for ($j = 0; $j < count($columnNames); $j++) {
-    if (isset($dataLabel) && $dataLabel == htmlspecialchars($columnNames[$j])) {
-        ?>
-        <option value="<?php echo htmlspecialchars($columnNames[$j]);?>" selected="selected">
-            <?php echo htmlspecialchars($columnNames[$j]);?></option>
-        <?php
-    } else {
-        ?>
-        <option value="<?php echo htmlspecialchars($columnNames[$j]);?>" >
-            <?php echo htmlspecialchars($columnNames[$j]);?></option>
-        <?php
-    }
-}
-?>
-    </select>
-    </td></tr>
-    <tr><td><label for="maxRowPlotLimit"><?php echo __("Maximum rows to plot"); ?></label></td>
-    <td>
-<?php
-echo '<input type="text" name="maxPlotLimit" id="maxRowPlotLimit" value="';
-if (! empty($maxPlotLimit)) {
-    echo htmlspecialchars($maxPlotLimit);
-} else {
-    echo $GLOBALS['cfg']['maxRowPlotLimit'];
-}
-echo '" /></td></tr>';
-?>
-    </table>
 
 </fieldset>
 <fieldset class="tblFooters">
@@ -267,7 +231,10 @@ if (isset($zoom_submit)
     && $criteriaColumnNames[1] != 'pma_null'
     && $criteriaColumnNames[0] != $criteriaColumnNames[1]
 ) {
-
+    //Set default datalabel if not selected
+    if ($_POST['dataLabel'] == '') {
+        $dataLabel = PMA_getDisplayField($db, $table);
+    }
     /*
      * Query generation part
      */

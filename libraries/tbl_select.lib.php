@@ -631,6 +631,55 @@ function PMA_tblSearchGetOptions($columnNames)
 }
 
 /**
+ * Other search criteria like data label
+ * (for tbl_zoom_select.php)
+ *
+ * @param array $columnNames Names of columns in the table
+ * @param array $dataLabel   Label for points in zoom plot
+ *
+ * @return string the generated html
+ */
+function PMA_tblSearchGetOptionsZoom($columnNames, $dataLabel)
+{
+    $html_output = '';
+    $html_output .= '<table class="data">';
+    //Select options for datalabel
+    $html_output .= '<tr>';
+    $html_output .= '<td><label for="dataLabel">'
+        . __("Use this column to label each point") . '</label></td>';
+    $html_output .= '<td><select name="dataLabel" id="dataLabel" >'
+        . '<option value = "">' . __('None') . '</option>';
+    for ($j = 0; $j < count($columnNames); $j++) {
+        if (isset($dataLabel)
+            && $dataLabel == htmlspecialchars($columnNames[$j])
+        ) {
+            $html_output .= '<option value="'
+                . htmlspecialchars($columnNames[$j]) . '" selected="selected">'
+                . htmlspecialchars($columnNames[$j]) . '</option>';
+        } else {
+            $html_output .= '<option value="'
+                . htmlspecialchars($columnNames[$j]) . '" >'
+                . htmlspecialchars($columnNames[$j]) . '</option>';
+        }
+    }
+    $html_output .= '</select></td>';
+    $html_output .= '</tr>';
+    //Inputbox for changing default maximum rows to plot
+    $html_output .= '<tr>';
+    $html_output .= '<td><label for="maxRowPlotLimit">'
+        . __("Maximum rows to plot") . '</label></td>';
+    $html_output .= '<td>';
+    $html_output .= '<input type="text" name="maxPlotLimit" id="maxRowPlotLimit" '
+        . 'value="' . ((! empty($_POST['maxPlotLimit']))
+            ? htmlspecialchars($_POST['maxPlotLimit'])
+            : $GLOBALS['cfg']['maxRowPlotLimit'])
+        . '" />';
+    $html_output .= '</td></tr>';
+    $html_output .= '</table>';
+    return $html_output;
+}
+
+/**
  * Provides the search form's table row in case of Normal Search
  * (for tbl_select.php)
  *
