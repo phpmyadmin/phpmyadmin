@@ -163,7 +163,6 @@ $err_url   = $goto . '?' . PMA_generate_common_url($db, $table);
 
 list($columnNames, $columnTypes, $columnCollations, $columnNullFlags)
     = PMA_tbl_getFields($db, $table);
-$columnCount = count($columnNames);
 
 // retrieve keys into foreign fields, if any
 // check also foreigners even if relwork is FALSE (to get
@@ -200,7 +199,7 @@ echo PMA_generateHtmlTabs(PMA_tbl_getSubTabs(), $url_params, 'topmenu2');
 <?php
 echo PMA_tblSearchGetFieldsTableHtml(
         $db, $table, $columnNames, $columnTypes, $columnCollations, $columnNullFlags,
-        NULL, $columnCount, $foreigners, "zoom"
+        NULL, $foreigners, "zoom"
     );
 ?>
 
@@ -221,7 +220,7 @@ if (isset($zoom_submit) && $criteriaColumnNames[0] != 'pma_null' && $criteriaCol
     <td><select name="dataLabel" id='dataLabel' >
         <option value = ''> <?php echo __('None');  ?> </option>
 <?php
-for ($j = 0; $j < $columnCount; $j++) {
+for ($j = 0; $j < count($columnNames); $j++) {
     if (isset($dataLabel) && $dataLabel == htmlspecialchars($columnNames[$j])) {
         ?>
         <option value="<?php echo htmlspecialchars($columnNames[$j]);?>" selected="selected">
@@ -289,7 +288,7 @@ if (isset($zoom_submit)
         }
         //Get unique conditon on each row (will be needed for row update)
         $uniqueCondition = PMA_getUniqueCondition(
-            $result, $columnCount, $fields_meta, $tmpRow, true
+            $result, count($columnNames), $fields_meta, $tmpRow, true
         );
 
         //Append it to row array as where_clause
@@ -359,7 +358,7 @@ if (isset($zoom_submit)
           <tbody>
     <?php
     $odd_row = true;
-    for ($i = 4; $i < $columnCount + 4; $i++) {
+    for ($i = 4; $i < count($columnNames) + 4; $i++) {
         $tbl_fields_type[$i] = $columnTypes[$i - 4];
         $fieldpopup = $columnNames[$i - 4];
         $foreignData = PMA_getForeignData($foreigners, $fieldpopup, false, '', '');

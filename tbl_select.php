@@ -57,7 +57,6 @@ if (! isset($_POST['columnsToDisplay']) || $_POST['columnsToDisplay'][0] == '') 
     // Gets the list and number of fields
     list($columnNames, $columnTypes, $columnCollations, $columnNullFlags, $geomColumnFlag)
         = PMA_tbl_getFields($db, $table);
-    $columnCount = count($columnNames);
 
     // retrieve keys into foreign fields, if any
     // check also foreigners even if relwork is FALSE (to get
@@ -67,7 +66,7 @@ if (! isset($_POST['columnsToDisplay']) || $_POST['columnsToDisplay'][0] == '') 
     // Displays the table search form
     echo PMA_tblSearchGetSelectionForm(
         $goto, $db, $table, $columnNames, $columnTypes, $columnCollations,
-        $columnNullFlags, $geomColumnFlag, $columnCount, $foreigners, "normal"
+        $columnNullFlags, $geomColumnFlag, $foreigners, "normal"
     );
 
     include 'libraries/footer.inc.php';

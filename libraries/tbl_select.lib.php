@@ -560,11 +560,10 @@ function PMA_tblSearchGetGeomFuncHtml($geomColumnFlag, $columnTypes, $geom_types
  * Generates formatted HTML for extra search options in table search form
  *
  * @param array   $columnNames Array containing types of all columns in the table
- * @param integer $columnCount Number of columns in the table
  *
  * @return string the generated HTML
  */
-function PMA_tblSearchGetOptions($columnNames, $columnCount)
+function PMA_tblSearchGetOptions($columnNames)
 {
     $html_output = '';
     $html_output .= PMA_getDivForSliderEffect('searchoptions', __('Options'));
@@ -573,7 +572,7 @@ function PMA_tblSearchGetOptions($columnNames, $columnCount)
      */
     $html_output .= '<fieldset id="fieldset_select_fields">'
         . '<legend>' . __('Select columns (at least one):') . '</legend>'
-        . '<select name="columnsToDisplay[]" size="' . min($columnCount, 10)
+        . '<select name="columnsToDisplay[]" size="' . min(count($columnNames), 10)
         . '" multiple="multiple">';
     // Displays the list of the fields
     foreach ($columnNames as $each_field) {
@@ -642,20 +641,19 @@ function PMA_tblSearchGetOptions($columnNames, $columnCount)
  * @param array   $columnCollations Collation of all columns
  * @param array   $columnNullFlags  Null information of columns
  * @param boolean $geomColumnFlag   Whether a geometry column is present
- * @param integer $columnCount      Number of columns in the table
  * @param array   $foreigners       Array of foreign keys
  *
  * @return string the generated table row
  */
 function PMA_tblSearchGetRowsNormal($db, $table, $columnNames, $columnTypes,
-    $columnCollations, $columnNullFlags, $geomColumnFlag, $columnCount, $foreigners
+    $columnCollations, $columnNullFlags, $geomColumnFlag, $foreigners
 ) {
     $titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
     $geom_types = PMA_getGISDatatypes();
     $odd_row = true;
     $html_output = '';
     // for every column present in table
-    for ($column_index = 0; $column_index < $columnCount; $column_index++) {
+    for ($column_index = 0; $column_index < count($columnNames); $column_index++) {
         $html_output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
         $odd_row = !$odd_row;
 
@@ -716,13 +714,12 @@ function PMA_tblSearchGetRowsNormal($db, $table, $columnNames, $columnTypes,
  * @param array   $columnTypes      Types of columns in the table
  * @param array   $columnCollations Collation of all columns
  * @param array   $columnNullFlags  Null information of columns
- * @param integer $columnCount      Number of columns in the table
  * @param array   $foreigners       Array of foreign keys
  *
  * @return string the generated table row
  */
 function PMA_tblSearchGetRowsZoom($db, $table, $columnNames, $columnTypes,
-    $columnCollations, $columnNullFlags, $columnCount, $foreigners
+    $columnCollations, $columnNullFlags, $foreigners
 ) {
     $odd_row = true;
     $html_output = '';
@@ -862,15 +859,13 @@ function PMA_tblSearchGetCriteriaInput($db, $table, $columnNames, $columnTypes,
  * @param array   $columnCollations Collation of all columns
  * @param array   $columnNullFlags  Null information of columns
  * @param boolean $geomColumnFlag   Whether a geometry column is present
- * @param integer $columnCount      Number of columns in the table
  * @param array   $foreigners       Array of foreign keys
  * @param string  $searchType       Whether normal search or zoom search
  *
  * @return string the generated HTML
  */
 function PMA_tblSearchGetFieldsTableHtml($db, $table, $columnNames, $columnTypes,
-    $columnCollations, $columnNullFlags, $geomColumnFlag, $columnCount, $foreigners,
-    $searchType
+    $columnCollations, $columnNullFlags, $geomColumnFlag, $foreigners, $searchType
 ) {
     $html_output = '';
     $html_output .= '<table class="data"'
@@ -881,12 +876,12 @@ function PMA_tblSearchGetFieldsTableHtml($db, $table, $columnNames, $columnTypes
     if ($searchType == 'zoom') {
         $html_output .= PMA_tblSearchGetRowsZoom(
             $db, $table, $columnNames, $columnTypes, $columnCollations,
-            $columnNullFlags, $geomColumnFlag, $columnCount, $foreigners
+            $columnNullFlags, $geomColumnFlag, $foreigners
         );
     } else {
         $html_output .= PMA_tblSearchGetRowsNormal(
             $db, $table, $columnNames, $columnTypes, $columnCollations,
-            $columnNullFlags, $geomColumnFlag, $columnCount, $foreigners
+            $columnNullFlags, $geomColumnFlag, $foreigners
         );
     }
 
@@ -934,15 +929,14 @@ function PMA_tblSearchGetFormTag($goto, $db, $table, $searchType)
  * @param array   $columnCollations Collation of all columns
  * @param array   $columnNullFlags  Null information of columns
  * @param boolean $geomColumnFlag   Whether a geometry column is present
- * @param integer $columnCount      Number of columns in the table
  * @param array   $foreigners       Array of foreign keys
  * @param string  $searchType       Whether normal search or zoom search
  *
  * @return string the generated HTML for table search form
  */
 function PMA_tblSearchGetSelectionForm($goto, $db, $table, $columnNames,
-    $columnTypes, $columnCollations, $columnNullFlags, $geomColumnFlag, $columnCount,
-    $foreigners, $searchType
+    $columnTypes, $columnCollations, $columnNullFlags, $geomColumnFlag, $foreigners,
+    $searchType
 ) {
     $html_output = '';
     $html_output .= '<fieldset id="fieldset_subtab">';
@@ -976,7 +970,7 @@ function PMA_tblSearchGetSelectionForm($goto, $db, $table, $columnNames,
      */
     $html_output .= PMA_tblSearchGetFieldsTableHtml(
         $db, $table, $columnNames, $columnTypes, $columnCollations, $columnNullFlags,
-        $geomColumnFlag, $columnCount, $foreigners, $searchType
+        $geomColumnFlag, $foreigners, $searchType
     );
 
     if ($searchType == 'zoom') {
@@ -987,7 +981,7 @@ function PMA_tblSearchGetSelectionForm($goto, $db, $table, $columnNames,
         /**
          * Displays more search options for normal table search
          */
-        $html_output .= PMA_tblSearchGetOptions($columnNames, $columnCount);
+        $html_output .= PMA_tblSearchGetOptions($columnNames);
     }
 
     /**
