@@ -18,6 +18,7 @@ require_once 'libraries/display_git_revision.lib.php';
 if ($GLOBALS['PMA_Config']->isGitRevision()) {
     if (isset($_REQUEST['git_revision']) && $GLOBALS['is_ajax_request'] == true) {
         PMA_printGitRevision();
+        exit;
     }
     PMA_addJSVar('is_git_revision', true);
 }
