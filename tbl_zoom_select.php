@@ -217,6 +217,7 @@ if (isset($zoom_submit)
 
         $data[] = $tmpData;
     }
+    unset($tmpData);
     /*
      * Form for displaying point data and also the scatter plot
      */
