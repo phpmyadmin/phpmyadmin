@@ -1000,10 +1000,10 @@ function PMA_tblSearchGetSelectionForm($goto, $db, $table, $columnNames,
     );
     $html_output .= PMA_tblSearchGetFormTag($goto, $db, $table, $searchType);
 
-    $html_output .= '<fieldset id="'
-        . ($searchType == 'zoom' ? 'inputSection' : 'fieldset_table_search' . '">');
-    $html_output .= $searchType == 'zoom'
-        ? '' : '<fieldset id="fieldset_table_qbe">';
+    $html_output .= '<fieldset id='
+        . ($searchType == 'zoom' ? '"inputSection"' : '"fieldset_table_search"') . '>';
+    $html_output .= ($searchType == 'zoom'
+        ? '' : '<fieldset id="fieldset_table_qbe">');
 
     // Set caption for fieldset
     if ($searchType == 'zoom') {
