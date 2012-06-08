@@ -260,22 +260,21 @@ if (isset($zoom_submit)
           <tbody>
     <?php
     $odd_row = true;
-    for ($i = 4; $i < count($columnNames) + 4; $i++) {
-        $tbl_fields_type[$i] = $columnTypes[$i - 4];
-        $fieldpopup = $columnNames[$i - 4];
+    for ($column_index = 0; $column_index < count($columnNames); $column_index++) {
+        $fieldpopup = $columnNames[$column_index];
         $foreignData = PMA_getForeignData($foreigners, $fieldpopup, false, '', '');
         ?>
             <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
-              <th><?php echo htmlspecialchars($columnNames[$i - 4]); ?></th>
-              <th><?php echo ($columnNullFlags[$i - 4] == 'YES')
+              <th><?php echo htmlspecialchars($columnNames[$column_index]); ?></th>
+              <th><?php echo ($columnNullFlags[$column_index] == 'YES')
                   ? '<input type="checkbox" class="checkbox_null" name="criteriaColumnNullFlags[ '
-                      . $i . ' ]" id="fields_null_id_' . $i . '" />'
+                      . $column_index . ' ]" id="fields_null_id_' . $column_index . '" />'
                   : ''; ?>
               </th>
               <th> <?php
               echo PMA_getForeignFields_Values(
-                  $foreigners, $foreignData, $fieldpopup, $tbl_fields_type,
-                  $i, $db, $table, $titles,
+                  $foreigners, $foreignData, $fieldpopup, $columnTypes,
+                  $column_index, $db, $table, $titles,
                   $GLOBALS['cfg']['ForeignKeyMaxLimit'], '', false, true
               ); ?>
               </th>
