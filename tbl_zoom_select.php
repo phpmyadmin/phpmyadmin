@@ -211,27 +211,14 @@ if (isset($zoom_submit)
 
         //Append it to row array as where_clause
         $row['where_clause'] = $uniqueCondition[0];
-        if ($dataLabel == $criteriaColumnNames[0] || $dataLabel == $criteriaColumnNames[1]) {
-            $data[] = array(
-                $criteriaColumnNames[0]     => $row[$criteriaColumnNames[0]],
-                $criteriaColumnNames[1]     => $row[$criteriaColumnNames[1]],
-                'where_clause' => $uniqueCondition[0]
-            );
-        } elseif ($dataLabel) {
-            $data[] = array(
-                $criteriaColumnNames[0]     => $row[$criteriaColumnNames[0]],
-                $criteriaColumnNames[1]     => $row[$criteriaColumnNames[1]],
-                $dataLabel     => $row[$dataLabel],
-                'where_clause' => $uniqueCondition[0]
-            );
-        } else {
-            $data[] = array(
-                $criteriaColumnNames[0]     => $row[$criteriaColumnNames[0]],
-                $criteriaColumnNames[1]     => $row[$criteriaColumnNames[1]],
-                $dataLabel     => '',
-                'where_clause' => $uniqueCondition[0]
-            );
-        }
+        $tmpData = array(
+            $criteriaColumnNames[0] => $row[$criteriaColumnNames[0]],
+            $criteriaColumnNames[1] => $row[$criteriaColumnNames[1]],
+            'where_clause' => $uniqueCondition[0]
+        );
+        $tmpData[$dataLabel] = ($dataLabel) ? $row[$dataLabel] : '';
+
+        $data[] = $tmpData;
     }
     /*
      * Form for displaying point data and also the scatter plot
