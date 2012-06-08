@@ -290,8 +290,12 @@ if (! defined('PMA_CHK_DROP')
     PMA_mysqlDie(__('"DROP DATABASE" statements are disabled.'), '', '', $err_url);
 } // end if
 
+// Include PMA_Index class for use in PMA_DisplayResults class
+require_once './libraries/Index.class.php';
+
 require_once 'libraries/display_tbl.lib.php';
-PMA_setConfigParamsForDisplayTable();
+$displayResultsObject = new PMA_DisplayResults();
+$displayResultsObject->setConfigParamsForDisplayTable();
 
 /**
  * Need to find the real end of rows?
@@ -898,7 +902,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
             $message = PMA_Message::success($message);
             echo PMA_getMessage($message, $GLOBALS['sql_query'], 'success');
         }
-        echo PMA_getTable($result, $disp_mode, $analyzed_sql);
+        echo $displayResultsObject->getTable($result, $disp_mode, $analyzed_sql);
         exit();
     }
 
@@ -1044,7 +1048,7 @@ $(makeProfilingChart);
         $message->display();
     }
 
-    echo PMA_getTable($result, $disp_mode, $analyzed_sql);
+    echo $displayResultsObject->getTable($result, $disp_mode, $analyzed_sql);
     PMA_DBI_free_result($result);
 
     // BEGIN INDEX CHECK See if indexes should be checked.
