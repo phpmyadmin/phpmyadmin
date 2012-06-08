@@ -19,7 +19,6 @@
  */
 function PMA_getPlugin($plugin_type, $plugin_format, $plugins_dir, $plugin_param = false)
 {
-    // todo replace strtoupper with CamelCaps (ex: HtmlWord)
     $class_name = strtoupper($plugin_type[0])
         . strtolower(substr($plugin_type, 1))
         . strtoupper($plugin_format[0])

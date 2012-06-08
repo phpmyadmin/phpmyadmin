@@ -28,7 +28,7 @@ require_once "libraries/plugins/ImportPlugin.class.php";
  * @todo add descriptions
  * @package PhpMyAdmin-Import
  */
-class ImportXML extends ImportPlugin
+class ImportXml extends ImportPlugin
 {
     /**
      * Database name

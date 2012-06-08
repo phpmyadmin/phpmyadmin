@@ -18,7 +18,7 @@ require_once "libraries/plugins/ImportPlugin.class.php";
  *
  * @package PhpMyAdmin-Import
  */
-class ImportSQL extends ImportPlugin
+class ImportSql extends ImportPlugin
 {
     /**
      * Constructor
