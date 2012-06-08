@@ -1,66 +1,73 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Set of functions used to build XML dumps of tables
+ * Set of functions used to build NHibernate dumps of tables
  *
  * @package    PhpMyAdmin-Export
- * @subpackage XML
+ * @subpackage CodeGen
  */
 if (! defined('PHPMYADMIN')) {
     exit;
 }
-if (! strlen($GLOBALS['db'])) { /* Can't do server export */
-    return;
-}
 
 /* Get the export interface */
 require_once "libraries/plugins/ExportPlugin.class.php";
+/* Get the table property class */
+require_once "libraries/plugins/export/TableProperty.class.php";
 
 /**
- * Handles the export for the XML class
+ * Handles the export for the CodeGen class
  *
  * @todo add descriptions for all vars/methods
  * @package PhpMyAdmin-Export
  */
-class ExportXML extends ExportPlugin
+class ExportCodegen extends ExportPlugin
 {
     /**
-     * Table name
      *
-     * @var type String
+     *
+     * @var type array
      */
-    private $table;
+    private $_CG_FORMATS;
 
     /**
      *
      *
-     * @var type
+     * @var type array
      */
-    private $tables;
+    private $_CG_HANDLERS;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->setProperties();
+        // initialize the specific export codegen variables
+        $this->initLocalVariables();
 
+        $this->setProperties();
     }
 
     /**
-     * Initialize the local variables that are used specific for export SQL
-     *
-     * @global type $table
-     * @global type $tables
+     * Initialize the local variables that are used for export CodeGen
      *
      * @return void
      */
     private function initLocalVariables()
     {
-        global $table;
-        global $tables;
-        $this->setTable($table);
-        $this->setTables($tables);
+        $this->setCG_FORMATS(
+            array(
+                "NHibernate C# DO",
+                "NHibernate XML"
+            )
+        );
+
+        $this->setCG_HANDLERS(
+            array(
+                "handleNHibernateCSBody",
+                "handleNHibernateXMLBody"
+            )
+        );
     }
 
     /**
@@ -71,9 +78,9 @@ class ExportXML extends ExportPlugin
     protected function setProperties()
     {
         $this->properties = array(
-            'text' => __('XML'),
-            'extension' => 'xml',
-            'mime_type' => 'text/xml',
+            'text' => 'CodeGen',
+            'extension' => 'cs',
+            'mime_type' => 'text/cs',
             'options' => array(),
             'options_text' => __('Options')
         );
@@ -88,62 +95,14 @@ class ExportXML extends ExportPlugin
                 'name' => 'structure_or_data'
             ),
             array(
+                'type' => 'select',
+                'name' => 'format',
+                'text' => __('Format:'),
+                'values' => $this->getCG_FORMATS()
+            ),
+            array(
                 'type' => 'end_group'
             )
-        );
-
-        /* Export structure */
-        $this->properties['options'][] = array(
-            'type' => 'begin_group',
-            'name' => 'structure',
-            'text' => __('Object creation options (all are recommended)')
-        );
-        if (! PMA_DRIZZLE) {
-            $this->properties['options'][] = array(
-                'type' => 'bool',
-                'name' => 'export_functions',
-                'text' => __('Functions')
-            );
-            $this->properties['options'][] = array(
-                'type' => 'bool',
-                'name' => 'export_procedures',
-                'text' => __('Procedures')
-            );
-        }
-        $this->properties['options'][] = array(
-            'type' => 'bool',
-            'name' => 'export_tables',
-            'text' => __('Tables')
-        );
-        if (! PMA_DRIZZLE) {
-            $this->properties['options'][] = array(
-                'type' => 'bool',
-                'name' => 'export_triggers',
-                'text' => __('Triggers')
-            );
-            $this->properties['options'][] = array(
-                'type' => 'bool',
-                'name' => 'export_views',
-                'text' => __('Views')
-            );
-        }
-        $this->properties['options'][] = array(
-            'type' => 'end_group'
-        );
-
-        /* Data */
-        $this->properties['options'][] = array(
-            'type' => 'begin_group',
-            'name' => 'data',
-            'text' => __('Data dump options')
-        );
-        $this->properties['options'][] = array(
-            'type' => 'bool',
-            'name' => 'export_contents',
-            'text' => __('Export contents')
-        );
-        $this->properties['options'][] = array(
-            'type' => 'end_group'
         );
     }
 
@@ -161,8 +120,7 @@ class ExportXML extends ExportPlugin
     }
 
     /**
-     * Outputs export header. It is the first method to be called, so all
-     * the required variables are initialized here.
+     * Outputs export header
      *
      * @return bool Whether it succeeded
      */
@@ -171,202 +129,7 @@ class ExportXML extends ExportPlugin
         // initialize the general export variables
         $this->initExportCommonVariables();
 
-        // initialize the specific export sql variables
-        $this->initLocalVariables();
-
-        $crlf = $this->getCrlf();
-        $cfg = $this->getCfg();
-        $db = $this->getDb();
-        $table = $this->getTable();
-        $tables = $this->getTables();
-
-        $export_struct = isset($GLOBALS['xml_export_functions'])
-            || isset($GLOBALS['xml_export_procedures'])
-            || isset($GLOBALS['xml_export_tables'])
-            || isset($GLOBALS['xml_export_triggers'])
-            || isset($GLOBALS['xml_export_views']);
-        $export_data = isset($GLOBALS['xml_export_contents']) ? true : false;
-
-        if ($GLOBALS['output_charset_conversion']) {
-            $charset = $GLOBALS['charset_of_file'];
-        } else {
-            $charset = 'utf-8';
-        }
-
-        $head  =  '<?xml version="1.0" encoding="' . $charset . '"?>' . $crlf
-               .  '<!--' . $crlf
-               .  '- phpMyAdmin XML Dump' . $crlf
-               .  '- version ' . PMA_VERSION . $crlf
-               .  '- http://www.phpmyadmin.net' . $crlf
-               .  '-' . $crlf
-               .  '- ' . __('Host') . ': ' . $cfg['Server']['host'];
-        if (! empty($cfg['Server']['port'])) {
-             $head .= ':' . $cfg['Server']['port'];
-        }
-        $head .= $crlf
-               .  '- ' . __('Generation Time') . ': ' . PMA_localisedDate() . $crlf
-               .  '- ' . __('Server version') . ': ' . PMA_MYSQL_STR_VERSION . $crlf
-               .  '- ' . __('PHP Version') . ': ' . phpversion() . $crlf
-               .  '-->' . $crlf . $crlf;
-
-        $head .= '<pma_xml_export version="1.0"'
-            . (($export_struct)
-            ? ' xmlns:pma="http://www.phpmyadmin.net/some_doc_url/"'
-            : '')
-            . '>' . $crlf;
-
-        if ($export_struct) {
-            if (PMA_DRIZZLE) {
-                $result = PMA_DBI_fetch_result(
-                    "SELECT
-                        'utf8' AS DEFAULT_CHARACTER_SET_NAME,
-                        DEFAULT_COLLATION_NAME
-                    FROM data_dictionary.SCHEMAS
-                    WHERE SCHEMA_NAME = '" . PMA_sqlAddSlashes($db) . "'"
-                );
-            } else {
-                $result = PMA_DBI_fetch_result(
-                    'SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME`'
-                    . ' FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`'
-                    . ' = \''.PMA_sqlAddSlashes($db).'\' LIMIT 1'
-                );
-            }
-            $db_collation = $result[0]['DEFAULT_COLLATION_NAME'];
-            $db_charset = $result[0]['DEFAULT_CHARACTER_SET_NAME'];
-
-            $head .= '    <!--' . $crlf;
-            $head .= '    - Structure schemas' . $crlf;
-            $head .= '    -->' . $crlf;
-            $head .= '    <pma:structure_schemas>' . $crlf;
-            $head .= '        <pma:database name="' . htmlspecialchars($db)
-                . '" collation="' . $db_collation . '" charset="' . $db_charset
-                . '">' . $crlf;
-
-            if (count($tables) == 0) {
-                $tables[] = $table;
-            }
-
-            foreach ($tables as $table) {
-                // Export tables and views
-                $result = PMA_DBI_fetch_result(
-                    'SHOW CREATE TABLE ' . PMA_backquote($db) . '.'
-                    . PMA_backquote($table),
-                    0
-                );
-                $tbl =  $result[$table][1];
-
-                $is_view = PMA_Table::isView($db, $table);
-
-                if ($is_view) {
-                    $type = 'view';
-                } else {
-                    $type = 'table';
-                }
-
-                if ($is_view && ! isset($GLOBALS['xml_export_views'])) {
-                    continue;
-                }
-
-                if (! $is_view && ! isset($GLOBALS['xml_export_tables'])) {
-                    continue;
-                }
-
-                $head .= '            <pma:' . $type . ' name="' . $table . '">'
-                    . $crlf;
-
-                $tbl = "                " . htmlspecialchars($tbl);
-                $tbl = str_replace("\n", "\n                ", $tbl);
-
-                $head .= $tbl . ';' . $crlf;
-                $head .= '            </pma:' . $type . '>' . $crlf;
-
-                if (isset($GLOBALS['xml_export_triggers'])
-                    && $GLOBALS['xml_export_triggers']
-                ) {
-                    // Export triggers
-                    $triggers = PMA_DBI_get_triggers($db, $table);
-                    if ($triggers) {
-                        foreach ($triggers as $trigger) {
-                            $code = $trigger['create'];
-                            $head .= '            <pma:trigger name="'
-                                . $trigger['name'] . '">' . $crlf;
-
-                            // Do some formatting
-                            $code = substr(rtrim($code), 0, -3);
-                            $code = "                " . htmlspecialchars($code);
-                            $code = str_replace("\n", "\n                ", $code);
-
-                            $head .= $code . $crlf;
-                            $head .= '            </pma:trigger>' . $crlf;
-                        }
-
-                        unset($trigger);
-                        unset($triggers);
-                    }
-                }
-            }
-
-            if (isset($GLOBALS['xml_export_functions'])
-                && $GLOBALS['xml_export_functions']
-            ) {
-                // Export functions
-                $functions = PMA_DBI_get_procedures_or_functions($db, 'FUNCTION');
-                if ($functions) {
-                    foreach ($functions as $function) {
-                        $head .= '            <pma:function name="'
-                            . $function . '">' . $crlf;
-
-                        // Do some formatting
-                        $sql = PMA_DBI_get_definition($db, 'FUNCTION', $function);
-                        $sql = rtrim($sql);
-                        $sql = "                " . htmlspecialchars($sql);
-                        $sql = str_replace("\n", "\n                ", $sql);
-
-                        $head .= $sql . $crlf;
-                        $head .= '            </pma:function>' . $crlf;
-                    }
-
-                    unset($function);
-                    unset($functions);
-                }
-            }
-
-            if (isset($GLOBALS['xml_export_procedures'])
-                && $GLOBALS['xml_export_procedures']
-            ) {
-                // Export procedures
-                $procedures = PMA_DBI_get_procedures_or_functions($db, 'PROCEDURE');
-                if ($procedures) {
-                    foreach ($procedures as $procedure) {
-                        $head .= '            <pma:procedure name="'
-                            . $procedure . '">' . $crlf;
-
-                        // Do some formatting
-                        $sql = PMA_DBI_get_definition($db, 'PROCEDURE', $procedure);
-                        $sql = rtrim($sql);
-                        $sql = "                " . htmlspecialchars($sql);
-                        $sql = str_replace("\n", "\n                ", $sql);
-
-                        $head .= $sql . $crlf;
-                        $head .= '            </pma:procedure>' . $crlf;
-                    }
-
-                    unset($procedure);
-                    unset($procedures);
-                }
-            }
-
-            unset($result);
-
-            $head .= '        </pma:database>' . $crlf;
-            $head .= '    </pma:structure_schemas>' . $crlf;
-
-            if ($export_data) {
-                $head .= $crlf;
-            }
-        }
-
-        return PMA_exportOutputHandler($head);
+        return true;
     }
 
     /**
@@ -376,9 +139,7 @@ class ExportXML extends ExportPlugin
      */
     public function exportFooter ()
     {
-        $foot = '</pma_xml_export>';
-
-        return PMA_exportOutputHandler($foot);
+        return true;
     }
 
     /**
@@ -388,22 +149,8 @@ class ExportXML extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader ($db)
-    {
-        $crlf = $this->getCrlf();
-
-        if (isset($GLOBALS['xml_export_contents'])
-            && $GLOBALS['xml_export_contents']
-        ) {
-            $head = '    <!--' . $crlf
-                  . '    - ' . __('Database') . ': ' .  '\'' . $db . '\'' . $crlf
-                  . '    -->' . $crlf
-                  . '    <database name="' . htmlspecialchars($db) . '">' . $crlf;
-
-            return PMA_exportOutputHandler($head);
-        } else {
-            return true;
-        }
+    public function exportDBHeader ($db) {
+        return true;
     }
 
     /**
@@ -415,15 +162,7 @@ class ExportXML extends ExportPlugin
      */
     public function exportDBFooter ($db)
     {
-        $crlf = $this->getCrlf();
-
-        if (isset($GLOBALS['xml_export_contents'])
-            && $GLOBALS['xml_export_contents']
-        ) {
-            return PMA_exportOutputHandler('    </database>' . $crlf);
-        } else {
-            return true;
-        }
+        return true;
     }
 
     /**
@@ -437,9 +176,8 @@ class ExportXML extends ExportPlugin
     {
         return true;
     }
-
     /**
-     * Outputs the content of a table in XML format
+     * Outputs the content of a table in NHibernate format
      *
      * @param string $db        database name
      * @param string $table     table name
@@ -448,74 +186,174 @@ class ExportXML extends ExportPlugin
      * @param string $sql_query SQL query for obtaining data
      *
      * @return bool Whether it succeeded
+     *
+     * @access public
      */
-    public function exportData ($db, $table, $crlf, $error_url, $sql_query)
+    public function exportData($db, $table, $crlf, $error_url, $sql_query)
     {
-        if (isset($GLOBALS['xml_export_contents'])
-            && $GLOBALS['xml_export_contents']
-        ) {
-            $result = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
+        $CG_FORMATS = $this->getCG_FORMATS();
+        $CG_HANDLERS = $this->getCG_HANDLERS();
 
-            $columns_cnt = PMA_DBI_num_fields($result);
-            $columns = array();
-            for ($i = 0; $i < $columns_cnt; $i++) {
-                $columns[$i] = stripslashes(PMA_DBI_field_name($result, $i));
+        $format = $GLOBALS['codegen_format'];
+        if (isset($CG_FORMATS[$format])) {
+            return PMA_exportOutputHandler(
+                $this->$CG_HANDLERS[$format]($db, $table, $crlf)
+            );
+        }
+        return PMA_exportOutputHandler(sprintf("%s is not supported.", $format));
+    }
+
+    public static function cgMakeIdentifier($str, $ucfirst = true)
+    {
+        // remove unsafe characters
+        $str = preg_replace('/[^\p{L}\p{Nl}_]/u', '', $str);
+        // make sure first character is a letter or _
+        if (! preg_match('/^\pL/u', $str)) {
+            $str = '_' . $str;
+        }
+        if ($ucfirst) {
+            $str = ucfirst($str);
+        }
+        return $str;
+    }
+
+    private function handleNHibernateCSBody($db, $table, $crlf)
+    {
+        $lines = array();
+        $result = PMA_DBI_query(
+            sprintf('DESC %s.%s', PMA_backquote($db), PMA_backquote($table))
+        );
+        if ($result) {
+            $tableProperties = array();
+            while ($row = PMA_DBI_fetch_row($result)) {
+                $tableProperties[] = new TableProperty($row);
             }
-            unset($i);
-
-            $buffer = '        <!-- ' . __('Table') . ' ' . $table . ' -->' . $crlf;
-            if (! PMA_exportOutputHandler($buffer)) {
-                return false;
+            PMA_DBI_free_result($result);
+            $lines[] = 'using System;';
+            $lines[] = 'using System.Collections;';
+            $lines[] = 'using System.Collections.Generic;';
+            $lines[] = 'using System.Text;';
+            $lines[] = 'namespace ' . ExportCodegen::cgMakeIdentifier($db);
+            $lines[] = '{';
+            $lines[] = '    #region ' . ExportCodegen::cgMakeIdentifier($table);
+            $lines[] = '    public class ' . ExportCodegen::cgMakeIdentifier($table);
+            $lines[] = '    {';
+            $lines[] = '        #region Member Variables';
+            foreach ($tableProperties as $tableProperty) {
+                $lines[] = $tableProperty->formatCs(
+                    '        protected #dotNetPrimitiveType# _#name#;'
+                );
             }
-
-            while ($record = PMA_DBI_fetch_row($result)) {
-                $buffer = '        <table name="'
-                    . htmlspecialchars($table) . '">' . $crlf;
-                for ($i = 0; $i < $columns_cnt; $i++) {
-                    // If a cell is NULL, still export it to preserve
-                    // the XML structure
-                    if (! isset($record[$i]) || is_null($record[$i])) {
-                        $record[$i] = 'NULL';
-                    }
-                    $buffer .= '            <column name="'
-                        . htmlspecialchars($columns[$i]) . '">'
-                        . htmlspecialchars((string)$record[$i])
-                        .  '</column>' . $crlf;
+            $lines[] = '        #endregion';
+            $lines[] = '        #region Constructors';
+            $lines[] = '        public ' . ExportCodegen::cgMakeIdentifier($table).'() { }';
+            $temp = array();
+            foreach ($tableProperties as $tableProperty) {
+                if (! $tableProperty->isPK()) {
+                    $temp[] = $tableProperty->formatCs(
+                        '#dotNetPrimitiveType# #name#'
+                    );
                 }
-                $buffer     .= '        </table>' . $crlf;
+            }
+            $lines[] = '        public '
+                . ExportCodegen::cgMakeIdentifier($table)
+                . '('
+                . implode(', ', $temp)
+                . ')';
+            $lines[] = '        {';
+            foreach ($tableProperties as $tableProperty) {
+                if (! $tableProperty->isPK()) {
+                    $lines[] = $tableProperty->formatCs(
+                        '            this._#name#=#name#;'
+                    );
+                }
+            }
+            $lines[] = '        }';
+            $lines[] = '        #endregion';
+            $lines[] = '        #region Public Properties';
+            foreach ($tableProperties as $tableProperty) {
+                $lines[] = $tableProperty->formatCs(
+                    '        public virtual #dotNetPrimitiveType# #ucfirstName#'
+                    . "\n"
+                    . '        {' . "\n"
+                    . '            get {return _#name#;}' . "\n"
+                    . '            set {_#name#=value;}' . "\n"
+                    . '        }'
+                );
+            }
+            $lines[] = '        #endregion';
+            $lines[] = '    }';
+            $lines[] = '    #endregion';
+            $lines[] = '}';
+        }
+        return implode("\n", $lines);
+    }
 
-                if (! PMA_exportOutputHandler($buffer)) {
-                    return false;
+    function handleNHibernateXMLBody($db, $table, $crlf)
+    {
+        $lines = array();
+        $lines[] = '<?xml version="1.0" encoding="utf-8" ?' . '>';
+        $lines[] = '<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" '
+            . 'namespace="' . ExportCodegen::cgMakeIdentifier($db) . '" '
+            . 'assembly="' . ExportCodegen::cgMakeIdentifier($db) . '">';
+        $lines[] = '    <class '
+            . 'name="' . ExportCodegen::cgMakeIdentifier($table) . '" '
+            . 'table="' . ExportCodegen::cgMakeIdentifier($table) . '">';
+        $result = PMA_DBI_query(
+            sprintf("DESC %s.%s", PMA_backquote($db), PMA_backquote($table))
+        );
+        if ($result) {
+            while ($row = PMA_DBI_fetch_row($result)) {
+                $tableProperty = new TableProperty($row);
+                if ($tableProperty->isPK()) {
+                    $lines[] = $tableProperty->formatXml(
+                        '        <id name="#ucfirstName#" type="#dotNetObjectType#"'
+                        . ' unsaved-value="0">' . "\n"
+                        . '            <column name="#name#" sql-type="#type#"'
+                        . ' not-null="#notNull#" unique="#unique#"'
+                        . ' index="PRIMARY"/>' . "\n"
+                        . '            <generator class="native" />' . "\n"
+                        . '        </id>'
+                    );
+                } else {
+                    $lines[] = $tableProperty->formatXml(
+                        '        <property name="#ucfirstName#"'
+                        . ' type="#dotNetObjectType#">' . "\n"
+                        . '            <column name="#name#" sql-type="#type#"'
+                        . ' not-null="#notNull#" #indexName#/>' . "\n"
+                        . '        </property>'
+                    );
                 }
             }
             PMA_DBI_free_result($result);
         }
-
-        return true;
+        $lines[] = '    </class>';
+        $lines[] = '</hibernate-mapping>';
+        return implode("\n", $lines);
     }
 
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
 
-    private function getTable()
+    public function getCG_FORMATS()
     {
-        return $this->table;
+        return $this->_CG_FORMATS;
     }
 
-    private function setTable($table)
+    public function setCG_FORMATS($CG_FORMATS)
     {
-        $this->table = $table;
+        $this->_CG_FORMATS = $CG_FORMATS;
     }
 
-    private function getTables()
+    public function getCG_HANDLERS()
     {
-        return $this->tables;
+        return $this->_CG_HANDLERS;
     }
 
-    private function setTables($tables)
+    public function setCG_HANDLERS($CG_HANDLERS)
     {
-        $this->tables = $tables;
+        $this->_CG_HANDLERS = $CG_HANDLERS;
     }
 }
 ?>

@@ -19,7 +19,7 @@ require_once "libraries/plugins/ExportPlugin.class.php";
  * @todo add descriptions for all vars/methods
  * @package PhpMyAdmin-Export
  */
-class ExportSQL extends ExportPlugin
+class ExportSql extends ExportPlugin
 {
     /**
      *
@@ -1428,7 +1428,7 @@ class ExportSQL extends ExportPlugin
                 __('Table structure for table') . ' '. $formatted_table_name
             );
             $dump .= $this->exportComment();
-            $dump .= getTableDef($db, $table, $crlf, $error_url, $dates);
+            $dump .= $this->getTableDef($db, $table, $crlf, $error_url, $dates);
             $dump .= $this->getTableComments($db, $table, $crlf, $relation, $mime);
             break;
         case 'triggers':
@@ -1463,7 +1463,7 @@ class ExportSQL extends ExportPlugin
                 $dump .= 'DROP TABLE IF EXISTS '
                     . PMA_backquote($table) . ';' . $crlf;
             }
-            $dump .= getTableDef(
+            $dump .= $this->getTableDef(
                 $db, $table, $crlf, $error_url, $dates, true, true
             );
             break;

@@ -124,9 +124,6 @@ if ($export_type == 'server') {
     PMA_fatalError(__('Bad parameters!'));
 }
 
-// Get the functions specific to the export type
-require 'libraries/export/' . PMA_securePath($type) . '.php';
-
 /**
  * Increase time limit for script execution and initializes some variables
  */
@@ -499,11 +496,11 @@ do {
                 if (! $export_plugin->exportDBCreate($current_db)) {
                     break 2;
                 }
-                if (function_exists('PMA_exportRoutines')
+                if (function_exists('$export_plugin->exportRoutines')
                     && strpos($GLOBALS['sql_structure_or_data'], 'structure') !== false
                     && isset($GLOBALS['sql_procedure_function'])
                 ) {
-                    PMA_exportRoutines($current_db);
+                    $export_plugin->exportRoutines($current_db);
                 }
 
                 $tables = PMA_DBI_get_tables($current_db);
@@ -520,7 +517,7 @@ do {
                     ) {
                         // for a view, export a stand-in definition of the table
                         // to resolve view dependencies
-                        if (! PMA_exportStructure(
+                        if (! $export_plugin->exportStructure(
                             $current_db, $table, $crlf, $err_url,
                             $is_view ? 'stand_in' : 'create_table', $export_type,
                             $do_relation, $do_comments, $do_mime, $do_dates
@@ -544,7 +541,7 @@ do {
                     if ($GLOBALS[$what . '_structure_or_data'] == 'structure'
                         || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data'
                     ) {
-                        if (! PMA_exportStructure(
+                        if (! $export_plugin->exportStructure(
                             $current_db, $table, $crlf, $err_url,
                             'triggers', $export_type,
                             $do_relation, $do_comments, $do_mime, $do_dates
@@ -558,7 +555,7 @@ do {
                     if ($GLOBALS[$what . '_structure_or_data'] == 'structure'
                         || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data'
                     ) {
-                        if (! PMA_exportStructure(
+                        if (! $export_plugin->exportStructure(
                             $current_db, $view, $crlf, $err_url,
                             'create_view', $export_type,
                             $do_relation, $do_comments, $do_mime, $do_dates
@@ -567,21 +564,21 @@ do {
                         }
                     }
                 }
-                if (! PMA_exportDBFooter($current_db)) {
+                if (! $export_plugin->exportDBFooter($current_db)) {
                     break 2;
                 }
             }
         }
     } elseif ($export_type == 'database') {
-        if (! PMA_exportDBHeader($db)) {
+        if (! $export_plugin->exportDBHeader($db)) {
             break;
         }
 
-        if (function_exists('PMA_exportRoutines')
+        if (function_exists('$export_plugin->exportRoutines')
             && strpos($GLOBALS['sql_structure_or_data'], 'structure') !== false
             && isset($GLOBALS['sql_procedure_function'])
         ) {
-            PMA_exportRoutines($db);
+            $export_plugin->exportRoutines($db);
         }
 
         $i = 0;
@@ -599,7 +596,7 @@ do {
             ) {
                 // for a view, export a stand-in definition of the table
                 // to resolve view dependencies
-                if (! PMA_exportStructure(
+                if (! $export_plugin->exportStructure(
                     $db, $table, $crlf, $err_url,
                     $is_view ? 'stand_in' : 'create_table', $export_type,
                     $do_relation, $do_comments, $do_mime, $do_dates
@@ -621,7 +618,7 @@ do {
             // now export the triggers (needs to be done after the data because
             // triggers can modify already imported tables)
             if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
-                if (! PMA_exportStructure(
+                if (! $export_plugin->exportStructure(
                     $db, $table, $crlf, $err_url,
                     'triggers', $export_type,
                     $do_relation, $do_comments, $do_mime, $do_dates
@@ -633,7 +630,7 @@ do {
         foreach ($views as $view) {
             // no data export for a view
             if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
-                if (! PMA_exportStructure(
+                if (! $export_plugin->exportStructure(
                     $db, $view, $crlf, $err_url,
                     'create_view', $export_type,
                     $do_relation, $do_comments, $do_mime, $do_dates
@@ -643,11 +640,11 @@ do {
             }
         }
 
-        if (!PMA_exportDBFooter($db)) {
+        if (! $export_plugin->exportDBFooter($db)) {
             break;
         }
     } else {
-        if (!PMA_exportDBHeader($db)) {
+        if (! $export_plugin->exportDBHeader($db)) {
             break;
         }
         // We export just one table
@@ -662,7 +659,7 @@ do {
 
         $is_view = PMA_Table::isView($db, $table);
         if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
-            if (! PMA_exportStructure(
+            if (! $export_plugin->exportStructure(
                 $db, $table, $crlf, $err_url,
                 $is_view ? 'create_view' : 'create_table', $export_type,
                 $do_relation, $do_comments, $do_mime, $do_dates
@@ -692,7 +689,7 @@ do {
         // now export the triggers (needs to be done after the data because
         // triggers can modify already imported tables)
         if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
-            if (! PMA_exportStructure(
+            if (! $export_plugin->exportStructure(
                 $db, $table, $crlf, $err_url,
                 'triggers', $export_type,
                 $do_relation, $do_comments, $do_mime, $do_dates

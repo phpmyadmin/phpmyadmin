@@ -22,7 +22,8 @@ function PMA_getPlugin($plugin_type, $plugin_format, $plugins_dir, $plugin_param
     // todo replace strtoupper with CamelCaps (ex: HtmlWord)
     $class_name = strtoupper($plugin_type[0])
         . strtolower(substr($plugin_type, 1))
-        . strtoupper($plugin_format);
+        . strtoupper($plugin_format[0])
+        . strtolower(substr($plugin_format, 1));
     $file = $class_name . ".class.php";
     if (is_file($plugins_dir . $file)) {
         include_once $plugins_dir . $file;
@@ -31,6 +32,7 @@ function PMA_getPlugin($plugin_type, $plugin_format, $plugins_dir, $plugin_param
 
     return null;
 }
+
 /**
  * Reads all plugin information from directory $plugins_dir
  *
