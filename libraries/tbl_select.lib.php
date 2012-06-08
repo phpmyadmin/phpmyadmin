@@ -471,7 +471,7 @@ function PMA_tblSearchGenerateWhereClause()
 {
     $fullWhereClause = '';
 
-    if (! isset($_POST['zoom_submit']) && trim($_POST['customWhereClause']) != '') {
+    if (isset($_POST['customWhereClause']) && trim($_POST['customWhereClause']) != '') {
         $fullWhereClause .= ' WHERE ' . $_POST['customWhereClause'];
         return $fullWhereClause;
     }
