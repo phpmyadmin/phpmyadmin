@@ -40,13 +40,10 @@ $GLOBALS['js_include'][] = 'tbl_zoom_plot_jqplot.js';
  * Sets globals from $_POST
  */
 $post_params = array(
-    'criteriaColumnCollations',
     'dataLabel',
-    'criteriaValues',
     'criteriaColumnNullFlags',
     'criteriaColumnNames',
     'maxPlotLimit',
-    'criteriaColumnTypes',
     'zoom_submit',
     'criteriaColumnOperators'
 );
