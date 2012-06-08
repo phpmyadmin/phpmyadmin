@@ -26,35 +26,35 @@ class ExportCsv extends ExportPlugin
      *
      * @var type String
      */
-    private $_what;
+    protected $_what;
 
     /**
      *
      *
      * @var type String
      */
-    private $_csvTerminated;
+    protected $_csvTerminated;
 
     /**
      *
      *
      * @var type String
      */
-    private $_csvSeparator;
+    protected $_csvSeparator;
 
     /**
      *
      *
      * @var type String
      */
-    private $_csvEnclosed;
+    protected $_csvEnclosed;
 
     /**
      *
      *
      * @var type String
      */
-    private $_csvEscaped;
+    protected $_csvEscaped;
 
     /**
      * Constructor
