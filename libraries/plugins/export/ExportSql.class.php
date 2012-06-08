@@ -26,63 +26,63 @@ class ExportSql extends ExportPlugin
      *
      * @var type
      */
-    private $plugin_param = null;
+    private $_plugin_param = null;
 
     /**
      *
      *
      * @var type
      */
-    private $mysql_charset_map = null;
+    private $_mysql_charset_map = null;
 
     /**
      *
      *
      * @var type
      */
-    private $sql_drop_table;
+    private $_sql_drop_table;
 
     /**
      *
      *
      * @var type
      */
-    private $sql_backquotes;
+    private $_sql_backquotes;
 
     /**
      *
      *
      * @var type
      */
-    private $sql_constraints;
+    private $_sql_constraints;
 
     /**
      * Just the text of the query
      *
      * @var type string
      */
-    private $sql_constraints_query;
+    private $_sql_constraints_query;
 
     /**
      *
      *
      * @var type
      */
-    private $sql_drop_foreign_keys;
+    private $_sql_drop_foreign_keys;
 
     /**
      *
      *
      * @var type
      */
-    private $cfgRelation;
+    private $_cfgRelation;
 
     /**
      *
      *
      * @var type
      */
-    private $current_row;
+    private $_current_row;
 
     /**
      * Constructor
@@ -1796,91 +1796,91 @@ class ExportSql extends ExportPlugin
 
     private function getPlugin_param()
     {
-        return $this->plugin_param;
+        return $this->_plugin_param;
     }
 
     private function setPlugin_param($plugin_param)
     {
-        $this->plugin_param = $plugin_param;
+        $this->_plugin_param = $plugin_param;
     }
 
     private function getMysql_charset_map()
     {
-        return $this->mysql_charset_map;
+        return $this->_mysql_charset_map;
     }
 
     private function setMysql_charset_map($mysql_charset_map)
     {
-        $this->mysql_charset_map = $mysql_charset_map;
+        $this->_mysql_charset_map = $mysql_charset_map;
     }
 
     private function getSql_drop_table()
     {
-        return $this->sql_drop_table;
+        return $this->_sql_drop_table;
     }
 
     private function setSql_drop_table($sql_drop_table)
     {
-        $this->sql_drop_table = $sql_drop_table;
+        $this->_sql_drop_table = $sql_drop_table;
     }
 
     private function getSql_backquotes()
     {
-        return $this->sql_backquotes;
+        return $this->_sql_backquotes;
     }
 
     private function setSql_backquotes($sql_backquotes)
     {
-        $this->sql_backquotes = $sql_backquotes;
+        $this->_sql_backquotes = $sql_backquotes;
     }
 
     private function getSql_constraints()
     {
-        return $this->sql_constraints;
+        return $this->_sql_constraints;
     }
 
     private function setSql_constraints($sql_constraints)
     {
-        $this->sql_constraints = $sql_constraints;
+        $this->_sql_constraints = $sql_constraints;
     }
 
     private function getSql_constraints_query()
     {
-        return $this->sql_constraints_query;
+        return $this->_sql_constraints_query;
     }
 
     private function setSql_constraints_query($sql_constraints_query)
     {
-        $this->sql_constraints_query = $sql_constraints_query;
+        $this->_sql_constraints_query = $sql_constraints_query;
     }
 
     private function getSql_drop_foreign_keys()
     {
-        return $this->sql_drop_foreign_keys;
+        return $this->_sql_drop_foreign_keys;
     }
 
     private function setSql_drop_foreign_keys($sql_drop_foreign_keys)
     {
-        $this->sql_drop_foreign_keys = $sql_drop_foreign_keys;
+        $this->_sql_drop_foreign_keys = $sql_drop_foreign_keys;
     }
 
     private function getCfgRelation()
     {
-        return $this->cfgRelation;
+        return $this->_cfgRelation;
     }
 
     private function setCfgRelation($cfgRelation)
     {
-        $this->cfgRelation = $cfgRelation;
+        $this->_cfgRelation = $cfgRelation;
     }
 
     private function getCurrent_row()
     {
-        return $this->current_row;
+        return $this->_current_row;
     }
 
     private function setCurrent_row($current_row)
     {
-        $this->current_row = $current_row;
+        $this->_current_row = $current_row;
     }
 }

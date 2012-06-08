@@ -35,21 +35,21 @@ class ImportXml extends ImportPlugin
      *
      * @var type String
      */
-    private $db = null;
+    private $_db = null;
 
     /**
      *
      *
      * @var type
      */
-    private $table = null;
+    private $_table = null;
 
     /**
      *
      *
      * @var type
      */
-    private $tables = null;
+    private $_tables = null;
 
     /**
      * Constructor
@@ -421,7 +421,7 @@ class ImportXml extends ImportPlugin
      */
     public function getDb()
     {
-        return $this->db;
+        return $this->_db;
     }
 
     /**
@@ -433,26 +433,26 @@ class ImportXml extends ImportPlugin
      */
     public function setDb($db)
     {
-        $this->db = $db;
+        $this->_db = $db;
     }
 
     private function getTable()
     {
-        return $this->table;
+        return $this->_table;
     }
 
     private function setTable($table)
     {
-        $this->table = $table;
+        $this->_table = $table;
     }
 
     private function getTables()
     {
-        return $this->tables;
+        return $this->_tables;
     }
 
     private function setTables($tables)
     {
-        $this->tables = $tables;
+        $this->_tables = $tables;
     }
 }

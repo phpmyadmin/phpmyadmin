@@ -29,14 +29,14 @@ class ExportXml extends ExportPlugin
      *
      * @var type String
      */
-    private $table;
+    private $_table;
 
     /**
      *
      *
      * @var type
      */
-    private $tables;
+    private $_tables;
 
     /**
      * Constructor
@@ -500,22 +500,22 @@ class ExportXml extends ExportPlugin
 
     private function getTable()
     {
-        return $this->table;
+        return $this->_table;
     }
 
     private function setTable($table)
     {
-        $this->table = $table;
+        $this->_table = $table;
     }
 
     private function getTables()
     {
-        return $this->tables;
+        return $this->_tables;
     }
 
     private function setTables($tables)
     {
-        $this->tables = $tables;
+        $this->_tables = $tables;
     }
 }
 ?>

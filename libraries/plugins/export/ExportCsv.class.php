@@ -26,35 +26,35 @@ class ExportCsv extends ExportPlugin
      *
      * @var type String
      */
-    protected $_what;
+    protected $what;
 
     /**
      *
      *
      * @var type String
      */
-    protected $_csvTerminated;
+    protected $csvTerminated;
 
     /**
      *
      *
      * @var type String
      */
-    protected $_csvSeparator;
+    protected $csvSeparator;
 
     /**
      *
      *
      * @var type String
      */
-    protected $_csvEnclosed;
+    protected $csvEnclosed;
 
     /**
      *
      *
      * @var type String
      */
-    protected $_csvEscaped;
+    protected $csvEscaped;
 
     /**
      * Constructor
@@ -391,52 +391,52 @@ class ExportCsv extends ExportPlugin
 
     public function getWhat()
     {
-        return $this->_what;
+        return $this->what;
     }
 
     public function setWhat($_what)
     {
-        $this->_what = $_what;
+        $this->what = $_what;
     }
 
     public function getCsvTerminated()
     {
-        return $this->_csvTerminated;
+        return $this->csvTerminated;
     }
 
     public function setCsvTerminated($_csvTerminated)
     {
-        $this->_csvTerminated = $_csvTerminated;
+        $this->csvTerminated = $_csvTerminated;
     }
 
     public function getCsvSeparator()
     {
-        return $this->_csvSeparator;
+        return $this->csvSeparator;
     }
 
     public function setCsvSeparator($_csvSeparator)
     {
-        $this->_csvSeparator = $_csvSeparator;
+        $this->csvSeparator = $_csvSeparator;
     }
 
     public function getCsvEnclosed()
     {
-        return $this->_csvEnclosed;
+        return $this->csvEnclosed;
     }
 
     public function setCsvEnclosed($_csvEnclosed)
     {
-        $this->_csvEnclosed = $_csvEnclosed;
+        $this->csvEnclosed = $_csvEnclosed;
     }
 
     public function getCsvEscaped()
     {
-        return $this->_csvEscaped;
+        return $this->csvEscaped;
     }
 
     public function setCsvEscaped($_csvEscaped)
     {
-        $this->_csvEscaped = $_csvEscaped;
+        $this->csvEscaped = $_csvEscaped;
     }
 }
 ?>
