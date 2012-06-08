@@ -41,11 +41,8 @@ $GLOBALS['js_include'][] = 'tbl_zoom_plot_jqplot.js';
  */
 $post_params = array(
     'dataLabel',
-    'criteriaColumnNullFlags',
-    'criteriaColumnNames',
     'maxPlotLimit',
-    'zoom_submit',
-    'criteriaColumnOperators'
+    'zoom_submit'
 );
 foreach ($post_params as $one_post_param) {
     if (isset($_POST[$one_post_param])) {
@@ -182,9 +179,9 @@ echo PMA_tblSearchGetSelectionForm(
  * Form for displaying query results
  */
 if (isset($zoom_submit)
-    && $criteriaColumnNames[0] != 'pma_null'
-    && $criteriaColumnNames[1] != 'pma_null'
-    && $criteriaColumnNames[0] != $criteriaColumnNames[1]
+    && $_POST['criteriaColumnNames'][0] != 'pma_null'
+    && $_POST['criteriaColumnNames'][1] != 'pma_null'
+    && $_POST['criteriaColumnNames'][0] != $_POST['criteriaColumnNames'][1]
 ) {
     /*
      * Query generation part
@@ -212,8 +209,8 @@ if (isset($zoom_submit)
         //Append it to row array as where_clause
         $row['where_clause'] = $uniqueCondition[0];
         $tmpData = array(
-            $criteriaColumnNames[0] => $row[$criteriaColumnNames[0]],
-            $criteriaColumnNames[1] => $row[$criteriaColumnNames[1]],
+            $_POST['criteriaColumnNames'][0] => $row[$_POST['criteriaColumnNames'][0]],
+            $_POST['criteriaColumnNames'][1] => $row[$_POST['criteriaColumnNames'][1]],
             'where_clause' => $uniqueCondition[0]
         );
         $tmpData[$dataLabel] = ($dataLabel) ? $row[$dataLabel] : '';
