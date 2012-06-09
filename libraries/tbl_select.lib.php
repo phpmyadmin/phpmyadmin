@@ -129,7 +129,7 @@ function PMA_tbl_getSubTabs()
  * @param array  $foreigners          Array of foreign keys
  * @param array  $foreignData         Foreign keys data
  * @param string $field               Column name
- * @param string $tbl_fields_type     Column type
+ * @param string $field_type          Column type
  * @param int    $column_index        Column index
  * @param string $db                  Selected database
  * @param string $table               Selected table
@@ -143,10 +143,11 @@ function PMA_tbl_getSubTabs()
  * for search criteria input.
  */
 function PMA_getForeignFields_Values($foreigners, $foreignData, $field,
-    $tbl_fields_type, $column_index, $db, $table, $titles, $foreignMaxLimit,
+    $field_type, $column_index, $db, $table, $titles, $foreignMaxLimit,
     $criteriaValues, $in_fbs = false, $in_zoom_search_edit = false
 ) {
     $str = '';
+    $field_type = (string)$field_type;
     if ($foreigners
         && isset($foreigners[$field])
         && is_array($foreignData['disp_row'])
@@ -189,7 +190,7 @@ EOT;
         }
         $str .= '>' . str_replace("'", "\'", $titles['Browse']) . '</a>';
 
-    } elseif (in_array($tbl_fields_type[$column_index], PMA_getGISDatatypes())) {
+    } elseif (in_array($field_type, PMA_getGISDatatypes())) {
         // g e o m e t r y
         $str .= '<input type="text" name="criteriaValues[' . $column_index . ']"'
             . ' size="40" class="textfield" id="field_' . $column_index . '" />';
@@ -204,8 +205,8 @@ EOT;
             $str .= '</span>';
         }
 
-    } elseif (strncasecmp($tbl_fields_type[$column_index], 'enum', 4) == 0
-        || (strncasecmp($tbl_fields_type[$column_index], 'set', 3) == 0 && $in_zoom_search_edit)
+    } elseif (strncasecmp($field_type, 'enum', 4) == 0
+        || (strncasecmp($field_type, 'set', 3) == 0 && $in_zoom_search_edit)
     ) {
         // e n u m s   a n d   s e t s
 
@@ -217,12 +218,12 @@ EOT;
 
         $value = explode(
             ', ',
-            str_replace("'", '', substr($tbl_fields_type[$column_index], 5, -1))
+            str_replace("'", '', substr($field_type, 5, -1))
         );
         $cnt_value = count($value);
 
-        if ((strncasecmp($tbl_fields_type[$column_index], 'enum', 4) && ! $in_zoom_search_edit)
-            || (strncasecmp($tbl_fields_type[$column_index], 'set', 3) && $in_zoom_search_edit)
+        if ((strncasecmp($field_type, 'enum', 4) && ! $in_zoom_search_edit)
+            || (strncasecmp($field_type, 'set', 3) && $in_zoom_search_edit)
         ) {
             $str .= '<select name="criteriaValues[' . ($column_index)
                 . '][]" id="fieldID_' . $column_index .'">';
@@ -249,13 +250,12 @@ EOT;
     } else {
         // o t h e r   c a s e s
         $the_class = 'textfield';
-        $type = $tbl_fields_type[$column_index];
 
-        if ($type == 'date') {
+        if ($field_type == 'date') {
             $the_class .= ' datefield';
-        } elseif ($type == 'datetime' || substr($type, 0, 9) == 'timestamp') {
+        } elseif ($field_type == 'datetime' || substr($field_type, 0, 9) == 'timestamp') {
             $the_class .= ' datetimefield';
-        } elseif (substr($type, 0, 3) == 'bit') {
+        } elseif (substr($field_type, 0, 3) == 'bit') {
             $the_class .= ' bit';
         }
 
@@ -681,6 +681,54 @@ function PMA_tblSearchGetOptionsZoom($columnNames, $dataLabel)
 }
 
 /**
+ * Provides a column's type, collation, operators list, and crietria value
+ * to display in table search form
+ *
+ * @param string  $db               Selected Database
+ * @param string  $table            Selected Table
+ * @param array   $columnNames      Names of columns in the table
+ * @param array   $columnTypes      Types of columns in the table
+ * @param array   $columnCollations Collation of all columns
+ * @param array   $columnNullFlags  Null information of columns
+ * @param array   $foreigners       Array of foreign keys
+ * @param integer $search_index     Row number in table search form
+ * @param integer $column_index     Column index in ColumnNames array
+ *
+ * @return array Array contaning column's properties
+ */
+function PMA_tblSearchGetColumnProperties($db, $table, $columnNames, $columnTypes,
+    $columnCollations, $columnNullFlags, $foreigners, $search_index, $column_index
+) {
+    $selected_column = isset($_POST['criteriaColumnNames'])
+        ? $_POST['criteriaColumnNames'][$search_index]
+        : (isset($_REQUEST['field']) ? $_REQUEST['field'] : '');
+    $selected_operator = (isset($_POST['criteriaColumnOperators'])
+        ? $_POST['criteriaColumnOperators'][$search_index] : '');
+    $entered_value = (isset($_POST['criteriaValues'])
+        ? $_POST['criteriaValues'] : '');
+    $titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
+    $type = $columnTypes[$column_index];
+    $collation = $columnCollations[$column_index];
+    $func = '<select name="criteriaColumnOperators[]">';
+    $func .= $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
+        preg_replace('@\(.*@s', '', $columnTypes[$column_index]),
+        $columnNullFlags[$column_index], $selected_operator
+    );
+    $func .= '</select>';
+    $foreignData = PMA_getForeignData($foreigners, $selected_column, false, '', '');
+    $value =  PMA_getForeignFields_Values(
+        $foreigners, $foreignData, $selected_column, $type, $search_index,
+        $db, $table, $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], $entered_value
+    );
+    return array(
+        'type' => $type,
+        'collation' => $collation,
+        'func' => $func,
+        'value' => $value
+    );
+}
+
+/**
  * Provides the search form's table row in case of Normal Search
  * (for tbl_select.php)
  *
@@ -737,8 +785,9 @@ function PMA_tblSearchGetRowsNormal($db, $table, $columnNames, $columnTypes,
         $field = $columnNames[$column_index];
         $foreignData = PMA_getForeignData($foreigners, $field, false, '', '');
         $html_output .= PMA_getForeignFields_Values(
-            $foreigners, $foreignData, $field, $columnTypes, $column_index, $db,
-            $table, $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], '', true
+            $foreigners, $foreignData, $field, $columnTypes[$column_index],
+            $column_index, $db, $table, $titles,
+            $GLOBALS['cfg']['ForeignKeyMaxLimit'], '', true
         );
 
         $html_output .= '<input type="hidden" name="criteriaColumnNames['
@@ -776,11 +825,6 @@ function PMA_tblSearchGetRowsZoom($db, $table, $columnNames, $columnTypes,
     /**
      * Get already set search criteria (if any)
      */
-    list ($tbl_fields_type, $tbl_fields_collation, $tbl_fields_func, $tbl_fields_value)
-        = PMA_tblSearchGetCriteriaInput(
-            $db, $table, $columnNames, $columnTypes, $columnCollations,
-            $columnNullFlags, $foreigners
-        );
 
     //Displays column rows for search criteria input
     for ($i = 0; $i < 4; $i++) {
@@ -811,22 +855,28 @@ function PMA_tblSearchGetRowsZoom($db, $table, $columnNames, $columnTypes,
             }
         }
         $html_output .= '</select></th>';
+        if (isset($_POST['criteriaColumnNames'])
+            && $_POST['criteriaColumnNames'][$i] != 'pma_null'
+        ) {
+            $key = array_search($_POST['criteriaColumnNames'][$i], $columnNames);
+            $properties = PMA_tblSearchGetColumnProperties(
+                $db, $table, $columnNames, $columnTypes, $columnCollations,
+                $columnNullFlags, $foreigners, $i, $key
+            );
+            $type[$i] = $properties['type'];
+            $collation[$i] = $properties['collation'];
+            $func[$i] = $properties['func'];
+            $value[$i] = $properties['value'];
+        }
         //Column type
-        $html_output .= '<td>'
-            . (isset($tbl_fields_type[$i]) ? $tbl_fields_type[$i] : '')
-            . '</td>';
+        $html_output .= '<td>' . (isset($type[$i]) ? $type[$i] : '') . '</td>';
         //Column Collation
-        $html_output .= '<td>'
-            . (isset($tbl_fields_collation[$i]) ? $tbl_fields_collation[$i] : '')
+        $html_output .= '<td>' . (isset($collation[$i]) ? $collation[$i] : '')
             . '</td>';
         //Select options for column operators 
-        $html_output .= '<td>'
-            . (isset($tbl_fields_func[$i]) ? $tbl_fields_func[$i] : '')
-            . '</td>';
+        $html_output .= '<td>' . (isset($func[$i]) ? $func[$i] : '') . '</td>';
         //Inputbox for search criteria value
-        $html_output .= '<td>'
-            . (isset($tbl_fields_value[$i]) ? $tbl_fields_value[$i] : '')
-            . '</td>';
+        $html_output .= '<td>' . (isset($value[$i]) ? $value[$i] : '') . '</td>';
         $html_output .= '</tr>';
         //Displays hidden fields
         $html_output .= '<tr><td>';
@@ -841,62 +891,6 @@ function PMA_tblSearchGetRowsZoom($db, $table, $columnNames, $columnTypes,
         $html_output .= '</td></tr>';
     }//end for
     return $html_output;
-}
-
-/**
- * Set the field name, type, collation and value on select of a coulmn
- * (for tbl_zoom_select.php)
- *
- * @param string $db               Selected Database
- * @param string $table            Selected Table
- * @param array  $columnNames      Names of columns in the table
- * @param array  $columnTypes      Types of columns in the table
- * @param array  $columnCollations Collation of all columns
- * @param array  $columnNullFlags  Null information of columns
- * @param array  $foreigners       Array of foreign keys
- *
- * @return array Array of Search criteria input
- */
-function PMA_tblSearchGetCriteriaInput($db, $table, $columnNames, $columnTypes,
-    $columnCollations, $columnNullFlags, $foreigners
-) {
-    $tbl_fields_type = $tbl_fields_collation = $tbl_fields_func = $tbl_fields_value
-        = array();
-    $titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
-    
-    //Return null if no search criteria is already set
-    if (!isset($_POST['criteriaColumnNames'])) {
-        return null;
-    }
-
-    for ($i = 0 ; $i < 4 ; $i++) {
-        if ($_POST['criteriaColumnNames'][$i] == 'pma_null') {
-            continue;
-        }
-        $key = array_search($_POST['criteriaColumnNames'][$i], $columnNames);
-        $tbl_fields_type[$i] = $columnTypes[$key];
-        $tbl_fields_collation[$i] = $columnCollations[$key];
-        $tbl_fields_func[$i] = '<select name="criteriaColumnOperators[]">';
-        $tbl_fields_func[$i] .= $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
-            preg_replace('@\(.*@s', '', $columnTypes[$key]),
-            $columnNullFlags[$key], $_POST['criteriaColumnOperators'][$i]
-        );
-        $tbl_fields_func[$i] .= '</select>';
-        $foreignData = PMA_getForeignData(
-            $foreigners, $_POST['criteriaColumnNames'][$i], false, '', ''
-        );
-        $tbl_fields_value[$i] =  PMA_getForeignFields_Values(
-            $foreigners, $foreignData, $_POST['criteriaColumnNames'][$i],
-            $tbl_fields_type, $i, $db, $table, $titles,
-            $GLOBALS['cfg']['ForeignKeyMaxLimit'], $_POST['criteriaValues']
-        );
-    }
-    return array(
-        $tbl_fields_type,
-        $tbl_fields_collation,
-        $tbl_fields_func,
-        $tbl_fields_value
-    );
 }
 
 /**

@@ -115,13 +115,12 @@ if (isset($_REQUEST['change_tbl_info']) && $_REQUEST['change_tbl_info'] == true)
     // check also foreigners even if relwork is FALSE (to get
     // foreign keys from innodb)
     $foreignData = PMA_getForeignData($foreigners, $field, false, '', '');
-
     // HTML for field values
     $html = PMA_getForeignFields_Values(
         $foreigners,
         $foreignData,
         $field,
-        array($_REQUEST['it'] => $columnTypes[$key]),
+        $columnTypes[$key],
         $_REQUEST['it'],
         $_REQUEST['db'],
         $_REQUEST['table'],
