@@ -699,9 +699,6 @@ function PMA_tblSearchGetOptionsZoom($columnNames, $dataLabel)
 function PMA_tblSearchGetColumnProperties($db, $table, $columnNames, $columnTypes,
     $columnCollations, $columnNullFlags, $foreigners, $search_index, $column_index
 ) {
-    $selected_column = isset($_POST['criteriaColumnNames'])
-        ? $_POST['criteriaColumnNames'][$search_index]
-        : (isset($_REQUEST['field']) ? $_REQUEST['field'] : '');
     $selected_operator = (isset($_POST['criteriaColumnOperators'])
         ? $_POST['criteriaColumnOperators'][$search_index] : '');
     $entered_value = (isset($_POST['criteriaValues'])
@@ -718,9 +715,11 @@ function PMA_tblSearchGetColumnProperties($db, $table, $columnNames, $columnType
     );
     $func .= '</select>';
     //Gets link to browse foreign data(if any) and criteria inputbox
-    $foreignData = PMA_getForeignData($foreigners, $selected_column, false, '', '');
+    $foreignData = PMA_getForeignData(
+        $foreigners, $columnNames[$column_index], false, '', ''
+    );
     $value =  PMA_getForeignFields_Values(
-        $foreigners, $foreignData, $selected_column, $type, $search_index,
+        $foreigners, $foreignData, $columnNames[$column_index], $type, $search_index,
         $db, $table, $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], $entered_value
     );
     return array(
@@ -757,42 +756,24 @@ function PMA_tblSearchGetRowsNormal($db, $table, $columnNames, $columnTypes,
     for ($column_index = 0; $column_index < count($columnNames); $column_index++) {
         $html_output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
         $odd_row = !$odd_row;
-
-        /**
-         * If 'Function' column is present
-         */
+        //If 'Function' column is present
         $html_output .= PMA_tblSearchGetGeomFuncHtml(
             $geomColumnFlag, $columnTypes, $geom_types, $column_index
         );
-        /**
-         * Displays column's name, type and collation
-         */
+        //Displays column's name, type, collation and value
         $html_output .= '<th>' . htmlspecialchars($columnNames[$column_index])
             . '</th>';
-        $html_output .= '<td>' . htmlspecialchars($columnTypes[$column_index])
-            . '</td>';
-        $html_output .= '<td>' . $columnCollations[$column_index] . '</td>';
-        /**
-         * Displays column's comparison operators depending on column type
-         */
-        $html_output .= '<td><select name="criteriaColumnOperators[]">';
-        $html_output .= $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
-            preg_replace('@\(.*@s', '', $columnTypes[$column_index]),
-            $columnNullFlags[$column_index]
+        $properties = PMA_tblSearchGetColumnProperties(
+            $db, $table, $columnNames, $columnTypes, $columnCollations,
+            $columnNullFlags, $foreigners, $column_index, $column_index
         );
-        $html_output .= '</select></td>';
-        /**
-         * Displays link to browse foreign data(if any) and criteria inputbox
-         */
-        $html_output .= '<td>';
-        $field = $columnNames[$column_index];
-        $foreignData = PMA_getForeignData($foreigners, $field, false, '', '');
-        $html_output .= PMA_getForeignFields_Values(
-            $foreigners, $foreignData, $field, $columnTypes[$column_index],
-            $column_index, $db, $table, $titles,
-            $GLOBALS['cfg']['ForeignKeyMaxLimit'], '', true
-        );
-
+        $html_output .= '<td>' . $properties['type'] . '</td>';
+        $html_output .= '<td>' . $properties['collation'] . '</td>';
+        $html_output .= '<td>' . $properties['func'] . '</td>';
+        $html_output .= '<td>' . $properties['value'] . '</td>';
+        $html_output .= '</tr>';
+        //Displays hidden fields
+        $html_output .= '<tr><td>';
         $html_output .= '<input type="hidden" name="criteriaColumnNames['
             . $column_index . ']" value="'
             . htmlspecialchars($columnNames[$column_index]) . '" />';
