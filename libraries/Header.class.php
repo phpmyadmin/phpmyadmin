@@ -316,9 +316,7 @@ class PMA_Header
                 if (! $GLOBALS['cfg']['ShowHint']) {
                     $retval .= '<span id="no_hint" class="hide"></span>';
                 }
-                if ($this->_warningsEnabled) {
-                    $retval .= $this->_getWarnings();
-                }
+                $retval .= $this->_getWarnings();
                 if ($this->_menuEnabled && $GLOBALS['server'] > 0) {
                     $retval .= $this->_menu->getDisplay();
                 }
@@ -492,19 +490,21 @@ class PMA_Header
     private function _getWarnings()
     {
         $retval = '';
-        // message of "Cookies required" displayed for auth_type http or config
-        // note: here, the decoration won't work because without cookies,
-        // our standard CSS is not operational
-        if (empty($_COOKIE)) {
-            $retval .= PMA_Message::notice(
-                __('Cookies must be enabled past this point.')
+        if ($this->_warningsEnabled) {
+            // message of "Cookies required" displayed for auth_type http or config
+            // note: here, the decoration won't work because without cookies,
+            // our standard CSS is not operational
+            if (empty($_COOKIE)) {
+                $retval .= PMA_Message::notice(
+                    __('Cookies must be enabled past this point.')
+                )->getDisplay();
+            }
+            $retval .= "<noscript>";
+            $retval .= PMA_message::error(
+                    __("Javascript must be enabled past this point")
             )->getDisplay();
+            $retval .= "</noscript>";
         }
-        $retval .= "<noscript>";
-        $retval .= PMA_message::error(
-                __("Javascript must be enabled past this point")
-        )->getDisplay();
-        $retval .= "</noscript>";
         return $retval;
     }
 
