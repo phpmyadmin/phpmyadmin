@@ -88,6 +88,7 @@ if (isset($_REQUEST['change_tbl_info']) && $_REQUEST['change_tbl_info'] == true)
         $extra_data['field_type'] = '';
         $extra_data['field_collation'] = '';
         $extra_data['field_operators'] = '';
+        $extra_data['field_value'] = '';
         PMA_ajaxResponse(null, true, $extra_data);
     }
     // Gets the list and number of fields
