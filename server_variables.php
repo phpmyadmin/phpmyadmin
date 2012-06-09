@@ -33,11 +33,10 @@ require 'libraries/server_variables_doc.php';
 
 if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
     // Send with correct charset
-    header('Content-Type: text/html; charset=UTF-8');
-
     if (isset($_REQUEST['type'])) {
         switch($_REQUEST['type']) {
         case 'getval':
+            header('Content-Type: text/html; charset=UTF-8');
             $varValue = PMA_DBI_fetch_single_row(
                 'SHOW GLOBAL VARIABLES WHERE Variable_name="'
                 . PMA_sqlAddslashes($_REQUEST['varName']) . '";', 'NUM'
@@ -67,6 +66,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 $value="'" . $value . "'";
             }
 
+            $response = PMA_Response::getInstance();
             if (! preg_match("/[^a-zA-Z0-9_]+/", $_REQUEST['varName'])
                 && PMA_DBI_query('SET GLOBAL ' . $_REQUEST['varName'] . ' = ' . $value)
             ) {
@@ -75,25 +75,18 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                     'SHOW GLOBAL VARIABLES WHERE Variable_name="'
                     . PMA_sqlAddslashes($_REQUEST['varName']) . '";', 'NUM'
                 );
-
-                exit(
-                    json_encode(
-                        array(
-                            'success' => true,
-                            'variable' => formatVariable($_REQUEST['varName'], $varValue[1])
-                        )
-                    )
+                $response->addJSON(
+                    'variable',
+                    formatVariable($_REQUEST['varName'], $varValue[1])
+                );
+            } else {
+                $response->isSuccess(false);
+                $response->addJSON(
+                    'error',
+                    __('Setting variable failed')
                 );
             }
-
-            exit(
-                json_encode(
-                    array(
-                        'success' => false,
-                        'error' => __('Setting variable failed')
-                    )
-                )
-            );
+            exit;
             break;
         }
     }
