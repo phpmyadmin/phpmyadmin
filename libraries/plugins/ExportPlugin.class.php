@@ -112,8 +112,8 @@ abstract class ExportPlugin extends PluginObserver
 
 
     /**
-     * The following methods are used in export.php, but they are not
-     * implemented by all export plugins
+     * The following methods are used in export.php or in db_operations.php,
+     * but they are not implemented by all export plugins
      */
 
 
@@ -165,6 +165,46 @@ abstract class ExportPlugin extends PluginObserver
         ;
     }
 
+    /**
+     * Returns a stand-in CREATE definition to resolve view dependencies
+     *
+     * @param string $db   the database name
+     * @param string $view the view name
+     * @param string $crlf the end of line sequence
+     *
+     * @return string resulting definition
+     */
+    public function getTableDefStandIn($db, $view, $crlf)
+    {
+        ;
+    }
+
+    /**
+     * Outputs triggers
+     *
+     * @param string $db    database name
+     * @param string $table table name
+     *
+     * @return string Formatted triggers list
+     */
+    protected function getTriggers($db, $table)
+    {
+        ;
+    }
+
+    /**
+     * Formats the definition for one column
+     *
+     * @param array $column      info about this column
+     * @param array $unique_keys unique keys of the table
+     *
+     * @return string Formatted column definition
+     */
+    protected function formatOneColumnDefinition(
+        $column, $unique_keys
+    ) {
+        ;
+    }
 
     /**
      * Initializes the local variables with the global values.
