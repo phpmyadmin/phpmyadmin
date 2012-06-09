@@ -51,7 +51,7 @@ function PMA_getFormParametersForInsertForm($db, $table, $where_clauses, $where_
  * @return type                 containing insert_mode,whereClauses, result array
  *                              where_clauses_array and found_unique_key boolean value
  */
-function PMA_getValuesForEditMode($where_clause, $table, $db)
+function PMA_getStuffForEditMode($where_clause, $table, $db)
 {
     $found_unique_key = false;
     if (isset($where_clause)) {
@@ -1665,6 +1665,7 @@ function PMA_buildSqlQuery($is_insertignore, $query_fields, $value_sets)
  */
 function PMA_executeSqlQuery($url_params, $query)
 {
+    $return_to_sql_query  = null;
     if (! empty($GLOBALS['sql_query'])) {
         $url_params['sql_query'] = $GLOBALS['sql_query'];
         $return_to_sql_query = $GLOBALS['sql_query'];
@@ -1734,4 +1735,128 @@ function PMA_getWarningMessages()
     }
     return $warning_essages;
 }
+
+/**
+ * Field to display from the foreign table?
+ * 
+ * @param string $where_comparison      string that contain relation field value
+ * @param string $relation_field_value  relation field value
+ * @param array $map                    all Relations to foreign tables for a 
+ *                                      given table or optionally a given column in a table
+ * @param string $relation_field        relation field
+ * 
+ * @return string  $dispval             display value from the foriegn table
+ */
+function PMA_displayForiengTableColumn($where_comparison, $relation_field_value, $map, $relation_field)
+{
+    $display_field = PMA_getDisplayField($map[$relation_field]['foreign_db'], $map[$relation_field]['foreign_table']);
+    // Field to display from the foreign table?
+    if (isset($display_field) && strlen($display_field)) {
+        $dispsql     = 'SELECT ' . PMA_backquote($display_field)
+            . ' FROM ' . PMA_backquote($map[$relation_field]['foreign_db'])
+            . '.' . PMA_backquote($map[$relation_field]['foreign_table'])
+            . ' WHERE ' . PMA_backquote($map[$relation_field]['foreign_field'])
+            . $where_comparison;
+        $dispresult  = PMA_DBI_try_query($dispsql, null, PMA_DBI_QUERY_STORE);
+        if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
+            list($dispval) = PMA_DBI_fetch_row($dispresult, 0);
+        }
+        @PMA_DBI_free_result($dispresult);
+        return $dispval;
+    }
+    return '';
+}
+
+/**
+ * Display option in the cell according to user choises
+ * 
+ * @param array $map                    all Relations to foreign tables for a 
+ *                                      given table or optionally a given column in a table
+ * @param string $relation_field        relation field
+ * @param string $where_comparison      string that contain relation field value
+ * @param string $dispval               display value from the foriegn table
+ * @param string $relation_field_value  relation field value
+ * 
+ * @return string $output               HTML <a> tag        
+ */
+function PMA_getLinkForRelationalDisplayField($map, $relation_field, $where_comparison,
+    $dispval, $relation_field_value
+){
+    if ('K' == $_SESSION['tmp_user_values']['relational_display']) {
+        // user chose "relational key" in the display options, so
+        // the title contains the display field
+        $title = (! empty($dispval))? ' title="' . htmlspecialchars($dispval) . '"' : '';
+    } else {
+        $title = ' title="' . htmlspecialchars($relation_field_value) . '"';
+    }
+    $_url_params = array(
+        'db'    => $map[$relation_field]['foreign_db'],
+        'table' => $map[$relation_field]['foreign_table'],
+        'pos'   => '0',
+        'sql_query' => 'SELECT * FROM '
+            . PMA_backquote($map[$relation_field]['foreign_db']) . '.' . PMA_backquote($map[$relation_field]['foreign_table'])
+            . ' WHERE ' . PMA_backquote($map[$relation_field]['foreign_field']) . $where_comparison
+    );
+    $output = '<a href="sql.php' . PMA_generate_common_url($_url_params) . '"' . $title . '>';
+
+    if ('D' == $_SESSION['tmp_user_values']['relational_display']) {
+        // user chose "relational display field" in the
+        // display options, so show display field in the cell
+        $output .= (!empty($dispval)) ? htmlspecialchars($dispval) : '';
+    } else {
+        // otherwise display data in the cell
+        $output .= htmlspecialchars($relation_field_value);
+    }
+    $output .= '</a>';
+    return $output;
+}
+
+/**
+ * Get transformation function and transformation options
+ * 
+ * @param string $db            db name
+ * @param string $table         table name
+ * @param array $transformation mimetypes for all columns of a table
+ *                              [field_name][field_key]
+ * @param array $edited_values  transform fields list
+ * @param array $extra_data     extra data array
+ * 
+ * @return array $extra_data
+ */
+function PMA_getTransformationFunctionAndTransformationOptions($db, $table,
+    $transformation, $edited_values, $extra_data
+) {
+    foreach ($edited_values as $cell_index => $curr_cell_edited_values) {
+        if (isset($curr_cell_edited_values[$column_name])) {
+            $column_data = $curr_cell_edited_values[$column_name];
+
+            $_url_params = array(
+                'db'            => $db,
+                'table'         => $table,
+                'where_clause'  => $_REQUEST['where_clause'],
+                'transform_key' => $column_name,
+            );
+
+            if (file_exists('libraries/transformations/' . $include_file)) {
+                $transformfunction_name = str_replace('.inc.php', '', $transformation['transformation']);
+
+                include_once 'libraries/transformations/' . $include_file;
+
+                if (function_exists('PMA_transformation_' . $transformfunction_name)) {
+                    $transform_function = 'PMA_transformation_' . $transformfunction_name;
+                    $transform_options  = PMA_transformation_getOptions(
+                        isset($transformation['transformation_options'])
+                        ? $transformation['transformation_options']
+                        : ''
+                    );
+                    $transform_options['wrapper_link'] = PMA_generate_common_url($_url_params);
+                }
+            }
+
+            $extra_data['transformations'][$cell_index] = $transform_function($column_data, $transform_options);
+        }
+    }   // end of loop for each transformation cell   
+    return $extra_data;
+}
+
 ?>

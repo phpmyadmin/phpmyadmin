@@ -312,63 +312,18 @@ if ($GLOBALS['is_ajax_request'] == true) {
 
         $map = PMA_getForeigners($db, $table, '', 'both');
 
-        $rel_fields = array();
-        parse_str($_REQUEST['rel_fields_list'], $rel_fields);
+        $relation_fields = array();
+        parse_str($_REQUEST['rel_fields_list'], $relation_fields);
 
         // loop for each relation cell
-        foreach ( $rel_fields as $cell_index => $curr_cell_rel_field) {
+        foreach ( $relation_fields as $cell_index => $curr_cell_rel_field) {
+            foreach ( $curr_cell_rel_field as $relation_field => $relation_field_value) {
+                $where_comparison = "='" . $relation_field_value . "'";
+                $dispval = PMA_displayForiengTableColumn($where_comparison, $relation_field_value, $map, $relation_field);
 
-            foreach ( $curr_cell_rel_field as $rel_field => $rel_field_value) {
-
-                $where_comparison = "='" . $rel_field_value . "'";
-                $display_field = PMA_getDisplayField($map[$rel_field]['foreign_db'], $map[$rel_field]['foreign_table']);
-
-                // Field to display from the foreign table?
-                if (isset($display_field) && strlen($display_field)) {
-                    $dispsql     = 'SELECT ' . PMA_backquote($display_field)
-                        . ' FROM ' . PMA_backquote($map[$rel_field]['foreign_db'])
-                        . '.' . PMA_backquote($map[$rel_field]['foreign_table'])
-                        . ' WHERE ' . PMA_backquote($map[$rel_field]['foreign_field'])
-                        . $where_comparison;
-                    $dispresult  = PMA_DBI_try_query($dispsql, null, PMA_DBI_QUERY_STORE);
-                    if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
-                        list($dispval) = PMA_DBI_fetch_row($dispresult, 0);
-                    } else {
-                        //$dispval = __('Link not found');
-                    }
-                    @PMA_DBI_free_result($dispresult);
-                } else {
-                    $dispval     = '';
-                } // end if... else...
-
-                if ('K' == $_SESSION['tmp_user_values']['relational_display']) {
-                    // user chose "relational key" in the display options, so
-                    // the title contains the display field
-                    $title = (! empty($dispval))? ' title="' . htmlspecialchars($dispval) . '"' : '';
-                } else {
-                    $title = ' title="' . htmlspecialchars($rel_field_value) . '"';
-                }
-
-                $_url_params = array(
-                    'db'    => $map[$rel_field]['foreign_db'],
-                    'table' => $map[$rel_field]['foreign_table'],
-                    'pos'   => '0',
-                    'sql_query' => 'SELECT * FROM '
-                        . PMA_backquote($map[$rel_field]['foreign_db']) . '.' . PMA_backquote($map[$rel_field]['foreign_table'])
-                        . ' WHERE ' . PMA_backquote($map[$rel_field]['foreign_field']) . $where_comparison
-                );
-                $output = '<a href="sql.php' . PMA_generate_common_url($_url_params) . '"' . $title . '>';
-
-                if ('D' == $_SESSION['tmp_user_values']['relational_display']) {
-                    // user chose "relational display field" in the
-                    // display options, so show display field in the cell
-                    $output .= (!empty($dispval)) ? htmlspecialchars($dispval) : '';
-                } else {
-                    // otherwise display data in the cell
-                    $output .= htmlspecialchars($rel_field_value);
-                }
-                $output .= '</a>';
-                $extra_data['relations'][$cell_index] = $output;
+                $extra_data['relations'][$cell_index] = PMA_getLinkForRelationalDisplayField(
+                    $map, $relation_field, $where_comparison, $dispval, $relation_field_value
+                    );
             }
         }   // end of loop for each relation cell
     }
@@ -388,35 +343,8 @@ if ($GLOBALS['is_ajax_request'] == true) {
         foreach ($mime_map as $transformation) {
             $include_file = PMA_securePath($transformation['transformation']);
             $column_name = $transformation['column_name'];
-
-            foreach ($edited_values as $cell_index => $curr_cell_edited_values) {
-                if (isset($curr_cell_edited_values[$column_name])) {
-                    $column_data = $curr_cell_edited_values[$column_name];
-
-                    $_url_params = array(
-                        'db'            => $db,
-                        'table'         => $table,
-                        'where_clause'  => $_REQUEST['where_clause'],
-                        'transform_key' => $column_name,
-                    );
-
-                    if (file_exists('libraries/transformations/' . $include_file)) {
-                        $transformfunction_name = str_replace('.inc.php', '', $transformation['transformation']);
-
-                        include_once 'libraries/transformations/' . $include_file;
-
-                        if (function_exists('PMA_transformation_' . $transformfunction_name)) {
-                            $transform_function = 'PMA_transformation_' . $transformfunction_name;
-                            $transform_options  = PMA_transformation_getOptions(
-                                isset($transformation['transformation_options']) ? $transformation['transformation_options'] : ''
-                            );
-                            $transform_options['wrapper_link'] = PMA_generate_common_url($_url_params);
-                        }
-                    }
-
-                    $extra_data['transformations'][$cell_index] = $transform_function($column_data, $transform_options);
-                }
-            }   // end of loop for each transformation cell
+            $extra_data = PMA_getTransformationFunctionAndTransformationOptions($db, $table,
+                $transformation, $edited_values, $include_file, $column_name, $extra_data);
         }   // end of loop for each $mime_map
     }
 
@@ -443,7 +371,7 @@ $active_page = $goto_include;
  * to the current record
  */
 if (isset($_REQUEST['after_insert']) && 'new_insert' == $_REQUEST['after_insert']) {
-        unset($_REQUEST['where_clause']);
+    unset($_REQUEST['where_clause']);
 }
 
 /**

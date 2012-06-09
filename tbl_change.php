@@ -156,7 +156,7 @@ if (! isset($where_clause)) {
 }
 //Retrieve values for data edit view
 list($insert_mode, $where_clauses, $result, $rows, $where_clause_array, $found_unique_key)  	
-    = PMA_getValuesForEditMode($where_clause, $table, $db);
+    = PMA_getStuffForEditMode($where_clause, $table, $db);
 
 // Copying a row - fetched data will be inserted as a new row, therefore the where clause is needless.
 if (isset($_REQUEST['default_action']) && $_REQUEST['default_action'] === 'insert') {
