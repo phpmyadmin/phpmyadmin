@@ -926,7 +926,7 @@ function PMA_tblSearchGetFieldsTableHtml($db, $table, $columnNames, $columnTypes
     if ($searchType == 'zoom') {
         $html_output .= PMA_tblSearchGetRowsZoom(
             $db, $table, $columnNames, $columnTypes, $columnCollations,
-            $columnNullFlags, $geomColumnFlag, $foreigners
+            $columnNullFlags, $foreigners
         );
     } else {
         $html_output .= PMA_tblSearchGetRowsNormal(
