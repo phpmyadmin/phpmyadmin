@@ -708,7 +708,7 @@ function PMA_tblSearchGetColumnProperties($db, $table, $columnNames, $columnType
     $type = $columnTypes[$column_index];
     $collation = $columnCollations[$column_index];
     //Gets column's comparison operators depending on column type
-    $func = '<select name="criteriaColumnOperators[]">';
+    $func = '<select name="criteriaColumnOperators[' . $search_index . ']">';
     $func .= $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
         preg_replace('@\(.*@s', '', $columnTypes[$column_index]),
         $columnNullFlags[$column_index], $selected_operator
