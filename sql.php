@@ -98,7 +98,7 @@ if (isset($fields['dbase'])) {
 /**
  * During grid edit, if we have a relational field, show the dropdown for it
  *
- * Logic taken from libraries/display_tbl_lib.php
+ * Logic taken from libraries/DisplayResults.class.php
  *
  * This doesn't seem to be the right place to do this, but I can't think of any
  * better place either.
@@ -146,7 +146,7 @@ if (isset($_REQUEST['get_relational_values']) && $_REQUEST['get_relational_value
 /**
  * Just like above, find possible values for enum fields during grid edit.
  *
- * Logic taken from libraries/display_tbl_lib.php
+ * Logic taken from libraries/DisplayResults.class.php
  */
 if (isset($_REQUEST['get_enum_values']) && $_REQUEST['get_enum_values'] == true) {
     $field_info_query = PMA_DBI_get_columns_sql($db, $table, $_REQUEST['column']);
@@ -293,7 +293,7 @@ if (! defined('PMA_CHK_DROP')
 // Include PMA_Index class for use in PMA_DisplayResults class
 require_once './libraries/Index.class.php';
 
-require_once 'libraries/display_tbl.lib.php';
+require_once 'libraries/DisplayResults.class.php';
 $displayResultsObject = new PMA_DisplayResults();
 $displayResultsObject->setConfigParamsForDisplayTable();
 
@@ -889,7 +889,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
 
         if (empty($disp_mode)) {
             // see the "PMA_setDisplayMode()" function in
-            // libraries/display_tbl.lib.php
+            // libraries/DisplayResults.class.php
             $disp_mode = 'urdr111101';
         }
 
@@ -1033,7 +1033,7 @@ $(makeProfilingChart);
     // Displays the results in a table
     if (empty($disp_mode)) {
         // see the "PMA_setDisplayMode()" function in
-        // libraries/display_tbl.lib.php
+        // libraries/DisplayResults.class.php
         $disp_mode = 'urdr111101';
     }
 
