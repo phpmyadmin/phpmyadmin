@@ -240,7 +240,8 @@ class ExportCsv extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBHeader ($db) {
+    public function exportDBHeader ($db)
+    {
         return true;
     }
 
