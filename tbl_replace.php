@@ -277,7 +277,7 @@ unset($multi_edit_colummns, $is_insertignore);
  * page
  */
 list ($url_params, $total_affected_rows, $last_messages, $warning_messages,
-    $error_messages) = PMA_executeSqlQuery($url_params, $query);
+    $error_messages, $return_to_sql_query) = PMA_executeSqlQuery($url_params, $query);
 
 if ($is_insert && count($value_sets) > 0) {
     $message = PMA_Message::inserted_rows($total_affected_rows);

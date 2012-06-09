@@ -1661,7 +1661,7 @@ function PMA_buildSqlQuery($is_insertignore, $query_fields, $value_sets)
  * @param array $url_params url paramters array
  * @param string $query     built query from PMA_buildSqlQuery()
  * @return array            $url_params, $total_affected_rows, $last_messages
- *                          $warning_messages, $error_messages
+ *                          $warning_messages, $error_messages, $return_to_sql_query
  */
 function PMA_executeSqlQuery($url_params, $query)
 {
@@ -1715,7 +1715,7 @@ function PMA_executeSqlQuery($url_params, $query)
         $warning_messages = PMA_getWarningMessages();
     }
     unset($result, $single_query, $last_message, $query);
-    return array($url_params, $total_affected_rows, $last_messages, $warning_messages, $error_messages);
+    return array($url_params, $total_affected_rows, $last_messages, $warning_messages, $error_messages, $return_to_sql_query);
 }
 
 /**
