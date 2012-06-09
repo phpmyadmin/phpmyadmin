@@ -173,7 +173,7 @@ $(function() {
                 }); // end dialog options
             } else {
                 var $dialog = $div
-                    .append(data)
+                    .append(data.message)
                     .dialog({
                         title: PMA_messages['strInsertTable'],
                         height: 600,

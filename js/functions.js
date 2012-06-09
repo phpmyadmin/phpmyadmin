@@ -157,10 +157,9 @@ function PMA_display_git_revision()
     $.get("main.php?token="
         + $("input[type=hidden][name=token]").val()
         + "&git_revision=1&ajax_request=true", function (data) {
-        if (data.error != "undefined" && data.error) {
-            return;
+        if (data.success == true) {
+            $(data.message).insertAfter('#li_pma_version');
         }
-        $(data.message).insertAfter('#li_pma_version');
     });
 }
 
@@ -1612,12 +1611,11 @@ function PMA_createTableDialog( $div, url , target)
              })// end dialog options
              //remove the redundant [Back] link in the error message.
              .find('fieldset').remove();
-         }
-         else {
+         } else {
              var size = getWindowSize();
              var timeout;
              $div
-             .append(data)
+             .append(data.message)
              .dialog({
                  dialogClass: 'create-table',
                  resizable: false,
@@ -1730,7 +1728,7 @@ function PMA_createChart(passedSettings)
                             thisChart.options.realtime.postData,
                             function(data) {
                                 try {
-                                    curValue = jQuery.parseJSON(data);
+                                    curValue = jQuery.parseJSON(data.message);
                                 } catch (err) {
                                     if (thisChart.options.realtime.error) {
                                         thisChart.options.realtime.error(err);
@@ -2335,11 +2333,11 @@ $(function() {
         $.post($form.attr('action'), $form.serialize() + "&submit_num_fields=" + $(this).val(), function(data) {
             // if 'create_table_dialog' exists
             if ($("#create_table_dialog").length > 0) {
-                $("#create_table_dialog").html(data);
+                $("#create_table_dialog").html(data.message);
             }
             // if 'create_table_div' exists
             if ($("#create_table_div").length > 0) {
-                $("#create_table_div").html(data);
+                $("#create_table_div").html(data.message);
             }
             PMA_verifyColumnsProperties();
             PMA_ajaxRemoveMessage($msgbox);
@@ -2375,7 +2373,7 @@ $(function() {
                 $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
                 $("#sqlqueryresults").html(data.sql_query);
                 $("#result_query .notice").remove();
-                $("#result_query").prepend((data.message));
+                $("#result_query").prepend(data.message);
             } else {
                 var $temp_div = $("<div id='temp_div'></div>");
                 $temp_div.html(data.error);
@@ -2411,7 +2409,7 @@ $(function() {
                     $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
                     $("#sqlqueryresults").html(data.sql_query);
                     $("#result_query .notice").remove();
-                    $("#result_query").prepend((data.message));
+                    $("#result_query").prepend(data.message);
                     $("#copyTable").find("select[name='target_db'] option").filterByValue(data.db).prop('selected', true);
 
                     //Refresh navigation frame when the table is coppied
@@ -2444,19 +2442,19 @@ $(function() {
         }
         //variables which stores the common attributes
         $.post(href[0], href[1]+"&ajax_request=true", function(data) {
-            if (data.success == undefined) {
-                var $temp_div = $("<div id='temp_div'></div>");
-                $temp_div.html(data);
-                var $success = $temp_div.find("#result_query .success");
-                PMA_ajaxShowMessage($success);
-                $("<div id='sqlqueryresults' class='ajax'></div>").insertAfter("#floating_menubar");
-                $("#sqlqueryresults").html(data);
-                PMA_init_slider();
-                $("#sqlqueryresults").children("fieldset").remove();
-            } else if (data.success == true ) {
+            if (data.success == true && data.sql_query != undefined) {
                 PMA_ajaxShowMessage(data.message);
                 $("<div id='sqlqueryresults' class='ajax'></div>").insertAfter("#floating_menubar");
                 $("#sqlqueryresults").html(data.sql_query);
+            } else if (data.success == true) {
+                var $temp_div = $("<div id='temp_div'></div>");
+                $temp_div.html(data.message);
+                var $success = $temp_div.find("#result_query .success");
+                PMA_ajaxShowMessage($success);
+                $("<div id='sqlqueryresults' class='ajax'></div>").insertAfter("#floating_menubar");
+                $("#sqlqueryresults").html(data.message);
+                PMA_init_slider();
+                $("#sqlqueryresults").children("fieldset").remove();
             } else {
                 var $temp_div = $("<div id='temp_div'></div>");
                 $temp_div.html(data.error);
@@ -2535,8 +2533,7 @@ $(function() {
                 if (window.parent && window.parent.frame_navigation) {
                     window.parent.frame_navigation.location.reload();
                 }
-            }
-            else {
+            } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
         }); // end $.post()
@@ -3798,13 +3795,13 @@ $(document).ready(function () {
             buttonOptions[PMA_messages['strClose']] = function () {
                 $(this).dialog("close");
             };
-            var $dialog = $('<div/>').attr('id', 'createViewDialog').append(data).dialog({
+            var $dialog = $('<div/>').attr('id', 'createViewDialog').append(data.message).dialog({
                 width: 500,
                 minWidth: 300,
                 maxWidth: 620,
                 modal: true,
                 buttons: buttonOptions,
-                title: $('legend', $(data)).html(),
+                title: $('legend', $(data.message)).html(),
                 close: function () {
                     $(this).remove();
                 }

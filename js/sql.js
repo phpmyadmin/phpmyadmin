@@ -197,6 +197,7 @@ $(function() {
                 //
                 // fade out previous messages, if any
                 $('div.success, div.sqlquery_message').fadeOut();
+
                 // show a message that stays on screen
                 if (typeof data.action_bookmark != 'undefined') {
                     // view only
@@ -209,7 +210,9 @@ $(function() {
                     if ('2' == data.action_bookmark) {
                         $("#id_bookmark option[value='" + data.id_bookmark + "']").remove();
                     }
-                    $('#sqlqueryform').before(data.message);
+                    $sqlqueryresults
+                     .show()
+                     .html(data.message);
                 } else if (typeof data.sql_query != 'undefined') {
                     $('<div class="sqlquery_message"></div>')
                      .html(data.sql_query)
@@ -217,9 +220,18 @@ $(function() {
                     // unnecessary div that came from data.sql_query
                     $('div.notice').remove();
                 } else {
-                    $('#sqlqueryform').before(data.message);
+                    $sqlqueryresults
+                     .show()
+                     .html(data.message);
                 }
-                $sqlqueryresults.show();
+                $sqlqueryresults.show().trigger('makegrid');
+                $('#togglequerybox').show();
+                PMA_init_slider();
+                if( $('#sqlqueryform input[name="retain_query_box"]').is(':checked') != true ) {
+                    if ($("#togglequerybox").siblings(":visible").length > 0) {
+                        $("#togglequerybox").trigger('click');
+                    }
+                }
                 // this happens if a USE command was typed
                 if (typeof data.reload != 'undefined') {
                     // Unbind the submit event before reloading. See bug #3295529
@@ -236,29 +248,6 @@ $(function() {
                 // show an error message that stays on screen
                 $('#sqlqueryform').before(data.error);
                 $sqlqueryresults.hide();
-            }  else {
-                // real results are returned
-                // fade out previous messages, if any
-                $('div.success, div.sqlquery_message').fadeOut();
-                var $received_data = $(data);
-                var $zero_row_results = $received_data.find('textarea[name="sql_query"]');
-                // if zero rows are returned from the query execution
-                if ($zero_row_results.length > 0) {
-                    $('#sqlquery').val($zero_row_results.val());
-                    setQuery($('#sqlquery').val());
-                } else {
-                    $sqlqueryresults
-                     .show()
-                     .html(data)
-                     .trigger('makegrid');
-                    $('#togglequerybox').show();
-                    if( $('#sqlqueryform input[name="retain_query_box"]').is(':checked') != true ) {
-                        if ($("#togglequerybox").siblings(":visible").length > 0) {
-                            $("#togglequerybox").trigger('click');
-                        }
-                    }
-                    PMA_init_slider();
-                }
             }
             PMA_ajaxRemoveMessage($msgbox);
         }); // end $.post()
@@ -302,10 +291,9 @@ $(function() {
 
             $.post($form.attr('action'), $form.serialize(), function(data) {
                 $("#sqlqueryresults")
-                 .html(data)
+                 .html(data.message)
                  .trigger('makegrid');
                 PMA_init_slider();
-
                 PMA_ajaxRemoveMessage($msgbox);
             }); // end $.post()
         }
@@ -327,7 +315,7 @@ $(function() {
 
             $.post($form.attr('action'), $form.serialize() + '&ajax_request=true', function(data) {
                 $("#sqlqueryresults")
-                 .html(data)
+                 .html(data.message)
                  .trigger('makegrid');
                 PMA_init_slider();
                 PMA_ajaxRemoveMessage($msgbox);
@@ -353,7 +341,7 @@ $(function() {
 
         $.get($anchor.attr('href'), $anchor.serialize() + '&ajax_request=true', function(data) {
             $("#sqlqueryresults")
-             .html(data)
+             .html(data.message)
              .trigger('makegrid');
             PMA_ajaxRemoveMessage($msgbox);
         }); // end $.get()
@@ -372,7 +360,7 @@ $(function() {
 
         $.post($form.attr('action'), $form.serialize() + '&ajax_request=true' , function(data) {
             $("#sqlqueryresults")
-             .html(data)
+             .html(data.message)
              .trigger('makegrid');
             PMA_init_slider();
         }); // end $.post()
@@ -422,7 +410,7 @@ $(function() {
                     }); // end dialog options
                 } else {
                     $div
-                    .append(data)
+                    .append(data.message)
                     .dialog({
                         title: PMA_messages['strChangeTbl'],
                         height: 600,

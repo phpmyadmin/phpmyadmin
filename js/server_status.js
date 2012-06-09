@@ -220,7 +220,7 @@ $(function() {
 
         $.get($(this).attr('href'), { ajax_request: 1 }, function(data) {
             $(that).find('img').hide();
-            initTab(tab, data);
+            initTab(tab, data.message);
         });
 
         tabStatus[tab.attr('id')] = 'data';
@@ -646,7 +646,7 @@ $(function() {
         $.get('server_status.php?' + url_query, { ajax_request: true, advisor: true }, function(data) {
             var $tbody, $tr, str, even = true;
 
-            data = $.parseJSON(data);
+            data = $.parseJSON(data.message);
 
             $cnt.html('');
 

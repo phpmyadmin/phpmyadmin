@@ -820,7 +820,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
             $extra_data['reload'] = 1;
             $extra_data['db'] = $GLOBALS['db'];
         }
-        PMA_ajaxResponse($message, $message->isSuccess(), (isset($extra_data) ? $extra_data : ''));
+        PMA_ajaxResponse($message, $message->isSuccess(), (isset($extra_data) ? $extra_data : array()));
     }
 
     if ($is_gotofile) {
