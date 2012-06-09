@@ -90,45 +90,19 @@ if (isset($_REQUEST['change_tbl_info']) && $_REQUEST['change_tbl_info'] == true)
         $extra_data['field_operators'] = '';
         PMA_ajaxResponse(null, true, $extra_data);
     }
-
-
     // Gets the list and number of fields
     list($columnNames, $columnTypes, $columnCollations, $columnNullFlags)
         = PMA_tbl_getFields($_REQUEST['db'], $_REQUEST['table']);
-
     $foreigners = PMA_getForeigners($db, $table);
-    $titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
     $key = array_search($field, $columnNames);
-    $extra_data['field_type'] = $columnTypes[$key];
-    $extra_data['field_collation'] = $columnCollations[$key];
-
-    // HTML for operators
-    $html = '<select name="criteriaColumnOperators[]">';
-    $html .= $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
-        preg_replace('@\(.*@s', '', $columnTypes[$key]),
-        $columnNullFlags[$key]
+    $properties = PMA_tblSearchGetColumnProperties(
+        $db, $table, $columnNames, $columnTypes, $columnCollations,
+        $columnNullFlags, $foreigners, $_REQUEST['it'], $key
     );
-    $html .= '</select>';
-    $extra_data['field_operators'] = $html;
-
-    // retrieve keys into foreign fields, if any
-    // check also foreigners even if relwork is FALSE (to get
-    // foreign keys from innodb)
-    $foreignData = PMA_getForeignData($foreigners, $field, false, '', '');
-    // HTML for field values
-    $html = PMA_getForeignFields_Values(
-        $foreigners,
-        $foreignData,
-        $field,
-        $columnTypes[$key],
-        $_REQUEST['it'],
-        $_REQUEST['db'],
-        $_REQUEST['table'],
-        $titles,
-        $GLOBALS['cfg']['ForeignKeyMaxLimit'],
-        ''
-    );
-    $extra_data['field_value'] = $html;
+    $extra_data['field_type'] = $properties['type'];
+    $extra_data['field_collation'] = $properties['collation'];
+    $extra_data['field_operators'] = $properties['func'];
+    $extra_data['field_value'] = $properties['value'];
     PMA_ajaxResponse(null, true, $extra_data);
 }
 

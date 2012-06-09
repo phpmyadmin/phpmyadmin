@@ -707,14 +707,17 @@ function PMA_tblSearchGetColumnProperties($db, $table, $columnNames, $columnType
     $entered_value = (isset($_POST['criteriaValues'])
         ? $_POST['criteriaValues'] : '');
     $titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
+    //Gets column's type and collation
     $type = $columnTypes[$column_index];
     $collation = $columnCollations[$column_index];
+    //Gets column's comparison operators depending on column type
     $func = '<select name="criteriaColumnOperators[]">';
     $func .= $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
         preg_replace('@\(.*@s', '', $columnTypes[$column_index]),
         $columnNullFlags[$column_index], $selected_operator
     );
     $func .= '</select>';
+    //Gets link to browse foreign data(if any) and criteria inputbox
     $foreignData = PMA_getForeignData($foreigners, $selected_column, false, '', '');
     $value =  PMA_getForeignFields_Values(
         $foreigners, $foreignData, $selected_column, $type, $search_index,
