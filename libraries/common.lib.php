@@ -3259,44 +3259,11 @@ function PMA_expandUserString($string, $escape = null, $updates = array())
  */
 function PMA_ajaxResponse($message, $success = true, $extra_data = array())
 {
-    $response = array();
-    if ( $success == true ) {
-        $response['success'] = true;
-        if ($message instanceof PMA_Message) {
-            $response['message'] = $message->getDisplay();
-        } else {
-            $response['message'] = $message;
-        }
-    } else {
-        $response['success'] = false;
-        if ($message instanceof PMA_Message) {
-            $response['error'] = $message->getDisplay();
-        } else {
-            $response['error'] = $message;
-        }
-    }
-
-    // If extra_data has been provided, append it to the response array
-    if ( ! empty($extra_data) && count($extra_data) > 0 ) {
-        $response = array_merge($response, $extra_data);
-    }
-
-    // Set the Content-Type header to JSON so that jQuery parses the
-    // response correctly.
-    //
-    // At this point, other headers might have been sent;
-    // even if $GLOBALS['is_header_sent'] is true,
-    // we have to send these additional headers.
-    if (! defined('TESTSUITE')) {
-        header('Cache-Control: no-cache');
-        header("Content-Type: application/json");
-    }
-
-    echo json_encode($response);
-
-    if (! defined('TESTSUITE')) {
-        exit;
-    }
+    $response = PMA_Response::getInstance();
+    $response->isSuccess($success);
+    $response->addJSON('message', $message);
+    $response->addJSON($extra_data);
+    exit;
 }
 
 /**

@@ -216,7 +216,7 @@ class PMA_Response
      *
      * @return void
      */
-    public function addJSON($json, $value)
+    public function addJSON($json, $value = null)
     {
         if (is_array($json)) {
             foreach ($json as $key => $value) {
