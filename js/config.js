@@ -690,6 +690,7 @@ function savePrefsToLocalStorage(form)
         cache: false,
         type: 'POST',
         data: {
+            ajax_request: true,
             token: form.find('input[name=token]').val(),
             submit_get_json: true
         },

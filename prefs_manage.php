@@ -23,6 +23,7 @@ PMA_userprefs_pageinit();
 $error = '';
 if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') == 'text_file') {
     // export to JSON file
+    PMA_Response::getInstance()->disable();
     $filename = 'phpMyAdmin-config-' . urlencode(PMA_getenv('HTTP_HOST')) . '.json';
     PMA_downloadHeader($filename, 'application/json');
     $settings = PMA_load_userprefs();
@@ -30,8 +31,9 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
     return;
 } else if (isset($_POST['submit_get_json'])) {
     $settings = PMA_load_userprefs();
-    header('Content-Type: application/json');
-    echo json_encode(
+    PMA_ajaxResponse(
+        '',
+        true,
         array(
             'prefs' => json_encode($settings['config_data']),
             'mtime' => $settings['mtime']
