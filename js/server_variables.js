@@ -174,7 +174,7 @@ function editVariable(link)
             $cell.html('<span class="oldContent" style="display:none;">' + $cell.html() + '</span>');
             // put edit field and save/cancel link
             $cell.prepend('<table class="serverVariableEditTable" border="0"><tr><td></td><td style="width:100%;">' +
-                          '<input type="text" id="variableEditArea" value="' + data + '" /></td></tr</table>');
+                          '<input type="text" id="variableEditArea" value="' + data + '" /></td></tr></table>');
             $cell.find('table td:first').append(mySaveLink);
             $cell.find('table td:first').append(' ');
             $cell.find('table td:first').append(myCancelLink);
