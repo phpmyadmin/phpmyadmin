@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:49+0200\n"
-"PO-Revision-Date: 2012-04-18 18:32+0200\n"
-"Last-Translator: Jan Dittberner <jandd@debian.org>\n"
+"PO-Revision-Date: 2012-06-06 19:43+0200\n"
+"Last-Translator: J. M. <me@mynetx.net>\n"
 "Language-Team: none\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.9\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:37 browse_foreigners.php:61 js/messages.php:354
 #: libraries/display_tbl.lib.php:517 server_privileges.php:1830
@@ -1503,14 +1503,13 @@ msgid "From general log"
 msgstr "Vom allgemeinen Log"
 
 #: js/messages.php:172
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "Lade Protokolle"
+msgstr "Analysiere Protokolle"
 
 #: js/messages.php:173
 msgid "Analysing & loading logs. This may take a while."
-msgstr "Analysiere und Lade Protokolle. Dies kann eine Weile dauern."
+msgstr "Analysiere und lade Protokolle. Dies kann eine Weile dauern."
 
 #: js/messages.php:174
 msgid "Cancel request"
@@ -1546,10 +1545,9 @@ msgid "Jump to Log table"
 msgstr "Springe zur Protokoll-Tabelle"
 
 #: js/messages.php:180
-#, fuzzy
 #| msgid "No data"
 msgid "No data found"
-msgstr "Keine Daten"
+msgstr "Keine Daten gefunden"
 
 #: js/messages.php:181
 msgid "Log analysed, but no data found in this time span."
@@ -1589,16 +1587,14 @@ msgid "Chart"
 msgstr "Diagramm"
 
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Add chart"
 msgid "Edit chart"
-msgstr "Schaubild hinzufügen"
+msgstr "Diagramm bearbeiten"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Series:"
 msgid "Series"
-msgstr "Reihe:"
+msgstr "Reihe"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
@@ -1674,10 +1670,9 @@ msgid "Import"
 msgstr "Importieren"
 
 #: js/messages.php:213
-#, fuzzy
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
-msgstr "Fehler beim Importieren der Konfiguration"
+msgstr "Konfiguration des Importmonitors"
 
 #: js/messages.php:214
 msgid "Please select the file you want to import"
@@ -1917,12 +1912,12 @@ msgstr "Das Überfliegen eines Punktes zeigt seine Bezeichnung."
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr ""
+"Zum Hineinzoomen markieren Sie mit der Maus einen Abschnitt des Diagramms."
 
 #: js/messages.php:306
-#, fuzzy
 #| msgid "Click reset zoom link to come back to original state."
 msgid "Click reset zoom button to come back to original state."
-msgstr "Auf \"Zoom zurücksetzen\" klicken um zum Original zurückzukehren."
+msgstr "Auf \"Zoom zurücksetzen\" klicken, um zum Original zurückzukehren."
 
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."
@@ -2353,52 +2348,53 @@ msgstr "Sekunde"
 #: libraries/Advisor.class.php:67
 #, php-format
 msgid "PHP threw following error: %s"
-msgstr ""
+msgstr "PHP meldet folgenden Fehler: %s"
 
 #: libraries/Advisor.class.php:89
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'"
-msgstr ""
+msgstr "Die Voraussetzung für die Regel '%s' konnte nicht validiert werden"
 
 #: libraries/Advisor.class.php:106
 #, php-format
 msgid "Failed calculating value for rule '%s'"
-msgstr ""
+msgstr "Der Wert für die Regel '%s' konnte nicht errechnet werden"
 
 #: libraries/Advisor.class.php:125
 #, php-format
 msgid "Failed running test for rule '%s'"
-msgstr ""
+msgstr "Ausführung des Tests für die Regel '%s' fehlgeschlagen"
 
 #: libraries/Advisor.class.php:207
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgid "Failed formatting string for rule '%s'."
-msgstr ""
-"Formatieren des Texts für Regel '%s' fehlgeschlagen. PHP Fehlermeldung: %s"
+msgstr "Formatieren des Texts für Regel '%s' fehlgeschlagen."
 
 #: libraries/Advisor.class.php:361
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
 msgstr ""
+"Ungültige Regel-Deklaration in Zeile %1$s, Zeile %2$s der vorherigen Regel "
+"erwartet"
 
 #: libraries/Advisor.class.php:378
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid rule declaration on line %s"
-msgstr "Ungültiges Format in Zeile %d."
+msgstr "Ungültige Regel-Deklaration in Zeile %s"
 
 #: libraries/Advisor.class.php:386
 #, php-format
 msgid "Unexpected characters on line %s"
-msgstr ""
+msgstr "Unerwartete Zeichen in Zeile %s"
 
 #: libraries/Advisor.class.php:400
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
-msgstr ""
+msgstr "Unerwartetes Zeichen in Zeile %1$s. Tab erwartet, aber \"%2$s\" gefunden"
 
 #: libraries/Advisor.class.php:425 server_status.php:959
 msgid "per second"
@@ -2726,16 +2722,16 @@ msgstr "Unbekannter Tabellenstatus: "
 
 # source != search / Source != Suche
 #: libraries/Table.class.php:768
-#, fuzzy, php-format
+#, php-format
 #| msgid "Source database"
 msgid "Source database `%s` was not found!"
-msgstr "Quell-Datenbank"
+msgstr "Quell-Datenbank `%s` nicht gefunden!"
 
 #: libraries/Table.class.php:776
-#, fuzzy, php-format
+#, php-format
 #| msgid "Theme %s not found!"
 msgid "Target database `%s` was not found!"
-msgstr "Oberflächendesign %s nicht gefunden!"
+msgstr "Ziel-Datenbank `%s` nicht gefunden!"
 
 #: libraries/Table.class.php:1193
 msgid "Invalid database"
@@ -2815,42 +2811,57 @@ msgstr "Oberflächendesign"
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
+"Ein 1-Byte-Integer, Bereich mit Vorzeichen ist -128 bis 127, ohne Vorzeichen "
+"0 bis 255"
 
 #: libraries/Types.class.php:297
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
+"Ein 2-Byte-Integer, Bereich mit Vorzeichen ist -32.768 bis 32.767, ohne "
+"Vorzeichen 0 bis 65.535"
 
 #: libraries/Types.class.php:299
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
 msgstr ""
+"Ein 3-Byte-Integer, Bereich mit Vorzeichen ist -8.388.608 bis 8.388.607, "
+"ohne Vorzeichen 0 bis 16.277.215"
 
 #: libraries/Types.class.php:301
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295."
 msgstr ""
+"Ein 4-Byte-Integer, Bereich mit Vorzeichen ist -2.147.483.648 bis "
+"2.147.483.647, ohne Vorzeichen 0 bis 4.294.967.295."
 
 #: libraries/Types.class.php:303
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
 msgstr ""
+"Ein 8-Byte-Integer, Bereich mit Vorzeichen ist -9.223.372.036.854.775.808 "
+"bis 9.223.372.036.854.775.807, ohne Vorzeichen 0 bis "
+"18.446.744.073.709.551.615"
 
 #: libraries/Types.class.php:305 libraries/Types.class.php:711
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
 msgstr ""
+"Eine Fixkommazahl (M, D) - die maximale Anzahl Ziffern (M) ist 65 (Standard "
+"10), die maximale Anzahl Dezimale (D) ist 30 (Standard 0)"
 
 #: libraries/Types.class.php:307
 msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to "
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
+"Eine kleine Fließkommazahl, erlaubte Werte sind -3,402823466E+38 bis "
+"-1,175494351E-38, 0, und 1,175494351E-38 bis 3,402823466E+38"
 
 #: libraries/Types.class.php:309
 msgid ""
@@ -2858,63 +2869,81 @@ msgid ""
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
+"Eine Fließkommazahl mit doppelter Genauigkeit, erlaubte Werte sind "
+"-1,7976931348623157E+308 bis -2,2250738585072014E-308, 0, und "
+"2,2250738585072014E-308 bis 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:311
 msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
 msgstr ""
+"Synonym für DOUBLE (Ausnahme: im SQL-Modus REAL_AS_FLOAT ein Synonym für "
+"FLOAT)"
 
 #: libraries/Types.class.php:313
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
 msgstr ""
+"Ein Bitfeld-Typ (M), der M Bits pro Wert speichert (Standard ist 1, Maximum "
+"ist 64)"
 
 #: libraries/Types.class.php:315
 msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
 msgstr ""
+"Ein Synonym für TINYINT(1), ein Null-Wert wird als falsch angesehen, Nicht-"
+"Null-Werte werden als wahr angesehen"
 
 #: libraries/Types.class.php:317
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "Ein Alias für BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/Types.class.php:319 libraries/Types.class.php:721
-#, fuzzy, php-format
+#, php-format
 #| msgid "authored on %s by %s"
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "geschrieben am %s von %s"
+msgstr "Ein Datum, unterstützter Bereich ist %1$s bis %2$s"
 
 #: libraries/Types.class.php:321 libraries/Types.class.php:723
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr ""
+"Eine Kombination aus Datum und Uhrzeit, unterstützter Bereich ist %1$s bis %"
+"2$s"
 
 #: libraries/Types.class.php:323
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
+"Ein Zeitstempel, Bereich ist 1970-01-01 00:00:01 UTC bis 2038-01-09 03:14:07 "
+"UTC, gespeichert als Anzahl Sekunden seit Beginn der UNIX-Epoche "
+"(1970-01-01 00:00:00 UTC)"
 
 #: libraries/Types.class.php:325 libraries/Types.class.php:727
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "A time, range is %1$s to %2$s"
-msgstr "Fehler beim umbenennen von Tabelle %1$s nach %2$s"
+msgstr "Eine Uhrzeit, Bereich ist %1$s bis %2$s"
 
 #: libraries/Types.class.php:327
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
 msgstr ""
+"Ein Jahr im vier- (4, Standard) oder zweistelligen (2) Format, die erlaubten "
+"Werte sind 70 (1970) bis 69 (2069) oder 1901 bis 2155 und 0000"
 
 #: libraries/Types.class.php:329
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
 msgstr ""
+"Eine Zeichenkette mit fester Länge (0-255, Standard 1), die rechts beim "
+"Speichern immer mit Leerzeichen auf die angegebene Länge aufgefüllt wird"
 
 #: libraries/Types.class.php:331 libraries/Types.class.php:729
 #, php-format
@@ -2922,24 +2951,35 @@ msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr ""
+"Eine Zeichenkette mit variabler Länge (%s), die tatsächliche maximale Länge "
+"hängt von der maximalen Anzahl Zeilen ab"
 
 #: libraries/Types.class.php:333
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"Eine TEXT-Spalte mit einer maximalen Länge von 255 (2^8 - 1) Zeichen, "
+"gespeichert mit einem Ein-Byte-Präfix, der die Länge des Wertes in Bytes "
+"angibt"
 
 #: libraries/Types.class.php:335 libraries/Types.class.php:731
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"Eine TEXT-Spalte mit einer maximalen Länge von 65.535 (2^16 - 1) Zeichen, "
+"gespeichert mit einem Zwei-Byte-Präfix, der die Länge des Wertes in Bytes "
+"angibt"
 
 #: libraries/Types.class.php:337
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"Eine TEXT-Spalte mit einer maximalen Länge von 16.777.215 (2^24 - 1) "
+"Zeichen, gespeichert mit einem Drei-Byte-Präfix, der die Länge des Wertes in "
+"Bytes angibt"
 
 #: libraries/Types.class.php:339
 msgid ""
@@ -2947,108 +2987,122 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
+"Eine TEXT-Spalte mit einer maximalen Länge von 4.294.967.295 oder 4GiB (2^32 "
+"- 1) Zeichen, gespeichert mit einem Vier-Byte-Präfix, der die Länge des "
+"Wertes in Bytes angibt"
 
 #: libraries/Types.class.php:341
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Ähnlich wie der CHAR-Typ, speichert aber binäre Byte-Zeichenketten anstelle "
+"von nicht-binären Buchstaben-Zeichenketten"
 
 #: libraries/Types.class.php:343
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Ähnlich wie der VARCHAR-Typ, speichert aber binäre Byte-Zeichenketten "
+"anstelle von nicht-binären Buchstaben-Zeichenketten"
 
 #: libraries/Types.class.php:345
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
+"Eine BLOB-Spalte mit einer maximalen Länge von 255 (2^8 - 1) Bytes, "
+"gespeichert mit einem Ein-Byte-Präfix, der die Länge des Wertes angibt"
 
 #: libraries/Types.class.php:347
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
+"Eine BLOB-Spalte mit einer maximalen Länge von 16.777.215 (2^24 - 1) Bytes, "
+"gespeichert mit einem Drei-Byte-Präfix, der die Länge des Wertes angibt"
 
 #: libraries/Types.class.php:349
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
 msgstr ""
+"Eine BLOB-Spalte mit einer maximalen Länge von 65.535 (2^16 - 1) Bytes, "
+"gespeichert mit einem Zwei-Byte-Präfix, der die Länge des Wertes angibt"
 
 #: libraries/Types.class.php:351
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
+"Eine BLOB-Spalte mit einer maximalen Länge von 4.294.967.295 oder 4GiB (2^32 "
+"- 1) Bytes, gespeichert mit einem Vier-Byte-Präfix, der die Länge des "
+"Wertes angibt"
 
 #: libraries/Types.class.php:353
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr ""
+"Eine Aufzählung, gewählt aus der Liste von bis zu 65.535 Werten oder dem "
+"besonderen '' Fehler-Wert"
 
 #: libraries/Types.class.php:355
 msgid "A single value chosen from a set of up to 64 members"
-msgstr ""
+msgstr "Ein einzelner Wert gewählt aus einem Satz von bis zu 64 Einträgen"
 
 #: libraries/Types.class.php:357
 msgid "A type that can store a geometry of any type"
-msgstr ""
+msgstr "Ein Typ, der die Geometrie irgendeines Typs speichern kann"
 
 #: libraries/Types.class.php:359
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "Ein Punkt im 2-dimensionalen Raum"
 
 #: libraries/Types.class.php:361
 msgid "A curve with linear interpolation between points"
-msgstr ""
+msgstr "Eine Kurve mit linearer Interpolation zwischen Punkten"
 
 #: libraries/Types.class.php:363
-#, fuzzy
 #| msgid "Add a polygon"
 msgid "A polygon"
-msgstr "Polygon hinzufügen"
+msgstr "Ein Vieleck (Polygon)"
 
 #: libraries/Types.class.php:365
 msgid "A collection of points"
-msgstr ""
+msgstr "Eine Punkte-Sammlung"
 
 #: libraries/Types.class.php:367
 msgid "A collection of curves with linear interpolation between points"
-msgstr ""
+msgstr "Eine Kurven-Sammlung mit linearer Interpolation zwischen Punkten"
 
 #: libraries/Types.class.php:369
 msgid "A collection of polygons"
-msgstr ""
+msgstr "Eine Polygon-Sammlung"
 
 #: libraries/Types.class.php:371
 msgid "A collection of geometry objects of any type"
-msgstr ""
+msgstr "Eine Sammlung von Geometrie-Objekten irgendeines Typs"
 
 #: libraries/Types.class.php:623 libraries/Types.class.php:973
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "Numerisch"
 
 #: libraries/Types.class.php:642 libraries/Types.class.php:976
-#, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "Neuen Index anlegen"
+msgstr "Datum und Uhrzeit"
 
 #: libraries/Types.class.php:651 libraries/Types.class.php:979
-#, fuzzy
 #| msgid "Linestring"
 msgctxt "string types"
 msgid "String"
-msgstr "LineString"
+msgstr "Zeichenkette"
 
 #: libraries/Types.class.php:672
-#, fuzzy
 #| msgid "Spatial"
 msgctxt "spatial types"
 msgid "Spatial"
@@ -3056,51 +3110,59 @@ msgstr "Räumlich"
 
 #: libraries/Types.class.php:707
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
-msgstr ""
+msgstr "Ein 4-Byte-Integer, Bereich ist -2.147.483.648 bis 2.147.483.647"
 
 #: libraries/Types.class.php:709
 msgid ""
 "An 8-byte integer, range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807"
 msgstr ""
+"Ein 8-Byte-Integer, Bereich ist -9.223.372.036.854.775.808 bis "
+"9.223.372.036.854.775.807"
 
 #: libraries/Types.class.php:713
 msgid "A system's default double-precision floating-point number"
-msgstr ""
+msgstr "Eine Systemstandard-Fließkommazahl mit doppelter Genauigkeit"
 
 #: libraries/Types.class.php:715
 msgid "True or false"
-msgstr ""
+msgstr "Wahr oder falsch"
 
 #: libraries/Types.class.php:717
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "Ein Alias für BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/Types.class.php:719
 msgid "Stores a Universally Unique Identifier (UUID)"
-msgstr ""
+msgstr "Speichert einen universell eindeutigen Identifizierer (UUID)"
 
 #: libraries/Types.class.php:725
 msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
 msgstr ""
+"Ein Zeitstempel, Bereich ist '0001-01-01 00:00:00' UTC bis '9999-12-31 "
+"23:59:59' UTC; TIMESTAMP(6) kann Mikrosekunden speichern"
 
 #: libraries/Types.class.php:733
 msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
 msgstr ""
+"Eine Zeichenkette mit variabler Länge (0-65.535), verwendet binäre Kollation "
+"für alle Vergleiche"
 
 #: libraries/Types.class.php:735
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a four-byte prefix indicating the length of the value"
 msgstr ""
+"Eine BLOB-Spalte mit einer maximalen Länge von 65.535 (2^16 - 1) Bytes, "
+"gespeichert mit einem Vier-Byte-Präfix, der die Länge des Werts angibt"
 
 #: libraries/Types.class.php:737
 msgid "An enumeration, chosen from the list of defined values"
-msgstr ""
+msgstr "Eine Aufzählung, gewählt aus der Liste definierter Werte"
 
 #: libraries/auth/config.auth.lib.php:72
 msgid "Cannot connect: invalid settings."
@@ -4460,6 +4522,8 @@ msgstr "Datenbank-Struktur"
 #: libraries/config/messages.inc.php:229
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
+"Wählen Sie aus, welche Details in der Datenbankstrukturansicht (Liste der "
+"Tabellen) angezeigt werden sollen"
 
 #: libraries/config/messages.inc.php:230
 msgid "Table structure"
@@ -4631,10 +4695,11 @@ msgid "Minimum number of tables to display the table filter box"
 msgstr "Minimale Anzahl der in einer Tabellenliste anzuzeigenden Tabellen"
 
 #: libraries/config/messages.inc.php:281
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of databases to display the database filter box"
-msgstr "Minimale Anzahl der in einer Tabellenliste anzuzeigenden Tabellen"
+msgstr ""
+"Minimale Anzahl der Datenbanken, die im Datenbank-Filterfeld angezeigt "
+"werden"
 
 #: libraries/config/messages.inc.php:282
 msgid "String that separates databases into different tree levels"
@@ -6202,10 +6267,10 @@ msgid "Encoding Conversion:"
 msgstr "Zeichensatz Umwandlung:"
 
 #: libraries/display_git_revision.lib.php:54
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s from %s branch"
 msgid "%1$s from %2$s branch"
-msgstr "%s aus dem Zweig %s"
+msgstr "%1$s aus dem Zweig %2$s"
 
 #: libraries/display_git_revision.lib.php:56
 msgid "no branch"
@@ -6216,16 +6281,16 @@ msgid "Git revision"
 msgstr "Git-Revision"
 
 #: libraries/display_git_revision.lib.php:66
-#, fuzzy, php-format
+#, php-format
 #| msgid "authored on %s by %s"
 msgid "committed on %1$s by %2$s"
-msgstr "geschrieben am %s von %s"
+msgstr "eingetragen am %1$s von %2$s"
 
 #: libraries/display_git_revision.lib.php:74
-#, fuzzy, php-format
+#, php-format
 #| msgid "authored on %s by %s"
 msgid "authored on %1$s by %2$s"
-msgstr "geschrieben am %s von %s"
+msgstr "geschrieben am %1$s von %2$s"
 
 # Der Kontext der Fehlermeldung ist mir nicht klar. Daher allgemein
 # formuliert.
@@ -6376,10 +6441,10 @@ msgid "vertical"
 msgstr "nebeneinander"
 
 #: libraries/display_tbl.lib.php:636
-#, fuzzy, php-format
+#, php-format
 #| msgid "Headers every %s rows"
 msgid "Headers every %s rows"
-msgstr "Kopfzeilen alle %s Datensätze"
+msgstr "Kopfzeilen alle %s Zeilen"
 
 #: libraries/display_tbl.lib.php:1113
 msgid "Sort by key"
@@ -6979,10 +7044,9 @@ msgid "Export table names"
 msgstr "Exportiere Tabellennamen"
 
 #: libraries/export/mediawiki.php:60
-#, fuzzy
 #| msgid "horizontal (rotated headers)"
 msgid "Export table headers"
-msgstr "horizontal (gedrehte Kopfzeilen)"
+msgstr "Exportiere Tabellenkopfzeilen"
 
 #: libraries/export/pdf.php:18
 msgid "PDF"
@@ -7302,10 +7366,10 @@ msgid "This plugin does not support compressed imports!"
 msgstr "Dieses Plugin unterstützt keine Kompression!"
 
 #: libraries/import/mediawiki.php:246
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid format of mediawiki input on line: <br />%s."
-msgstr "Ungültiges Format in Zeile %d."
+msgstr "Ungültiges Format des Mediawiki-Inputs in Zeile: <br />%s."
 
 #: libraries/import/ods.php:49
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -7333,7 +7397,7 @@ msgstr "ESRI-Shapedaten"
 #: libraries/import/shp.php:199
 #, php-format
 msgid "Geometry type '%s' is not supported by MySQL."
-msgstr ""
+msgstr "Geometrie-Typ '%s' wird von MySQL nicht unterstützt."
 
 #: libraries/import/shp.php:360
 #, php-format
@@ -8644,10 +8708,9 @@ msgid "Index"
 msgstr "Index"
 
 #: libraries/tbl_properties.inc.php:121
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move column"
-msgstr "Spalte(n) entfernen"
+msgstr "Spalte verschieben"
 
 #: libraries/tbl_properties.inc.php:130
 #, php-format
@@ -8703,13 +8766,13 @@ msgstr "Volltext"
 
 #: libraries/tbl_properties.inc.php:589
 msgid "first"
-msgstr ""
+msgstr "an den Anfang"
 
 #: libraries/tbl_properties.inc.php:599
-#, fuzzy, php-format
+#, php-format
 #| msgid "After %s"
 msgid "after %s"
-msgstr "Nach %s"
+msgstr "nach %s"
 
 #: libraries/tbl_properties.inc.php:715 tbl_structure.php:697
 #, php-format
@@ -9136,10 +9199,9 @@ msgid "No databases"
 msgstr "Keine Datenbanken"
 
 #: navigation.php:222
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "Filter databases by name"
-msgstr "Tabellen nach Namen filtern"
+msgstr "Datenbanken nach Namen filtern"
 
 #: navigation.php:291
 msgid "Filter tables by name"
@@ -11844,10 +11906,9 @@ msgid "Table %1$s has been altered successfully"
 msgstr "Die Tabelle %1$s wurde erfolgreich geändert"
 
 #: tbl_alter.php:130
-#, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
-msgstr "Die gewählten Benutzer wurden gelöscht."
+msgstr "Die Spalten wurden erfolgreich verschoben."
 
 #: tbl_chart.php:80
 msgctxt "Chart type"
@@ -12223,14 +12284,13 @@ msgid "Show more actions"
 msgstr "Weitere Aktionen anzeigen"
 
 #: tbl_structure.php:621 tbl_structure.php:686
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move columns"
-msgstr "Spalte(n) entfernen"
+msgstr "Spalten verschieben"
 
 #: tbl_structure.php:622
 msgid "Move the columns by dragging them up and down."
-msgstr ""
+msgstr "Verschieben Sie die Spalten, indem Sie sie nach oben und unten ziehen."
 
 #: tbl_structure.php:648
 msgid "Edit view"
@@ -12445,10 +12505,9 @@ msgid "How to use"
 msgstr "Anleitung"
 
 #: tbl_zoom_select.php:444
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Zurücksetzen"
+msgstr "Zoom zurücksetzen"
 
 #: themes.php:28
 msgid "Get more themes!"

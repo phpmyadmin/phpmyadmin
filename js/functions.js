@@ -3367,12 +3367,6 @@ $(function() {
     });
 
     /**
-     * Reveal visual builder anchor
-     */
-
-    $('#visual_builder_anchor').show();
-
-    /**
      * Page selector in db Structure (non-AJAX)
      */
     $('#tableslistcontainer').find('#pageselector').live('change', function() {

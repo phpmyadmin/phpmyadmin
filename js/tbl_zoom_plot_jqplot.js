@@ -139,7 +139,7 @@ $(document).ready(function() {
             'table' : window.parent.table,
             'field' : $('#tableid_0').val(),
             'it' : 0,
-            'token' : window.parent.token,
+            'token' : window.parent.token
         },function(data) {
             $('#tableFieldsId tr:eq(1) td:eq(0)').html(data.field_type);
             $('#tableFieldsId tr:eq(1) td:eq(1)').html(data.field_collation);
@@ -163,7 +163,7 @@ $(document).ready(function() {
             'table' : window.parent.table,
             'field' : $('#tableid_1').val(),
             'it' : 1,
-            'token' : window.parent.token,
+            'token' : window.parent.token
         },function(data) {
             $('#tableFieldsId tr:eq(3) td:eq(0)').html(data.field_type);
             $('#tableFieldsId tr:eq(3) td:eq(1)').html(data.field_collation);
@@ -186,7 +186,7 @@ $(document).ready(function() {
             'table' : window.parent.table,
             'field' : $('#tableid_2').val(),
             'it' : 2,
-            'token' : window.parent.token,
+            'token' : window.parent.token
         },function(data) {
             $('#tableFieldsId tr:eq(6) td:eq(0)').html(data.field_type);
             $('#tableFieldsId tr:eq(6) td:eq(1)').html(data.field_collation);
@@ -207,7 +207,7 @@ $(document).ready(function() {
             'table' : window.parent.table,
             'field' : $('#tableid_3').val(),
             'it' : 3,
-            'token' : window.parent.token,
+            'token' : window.parent.token
         },function(data) {
             $('#tableFieldsId tr:eq(8) td:eq(0)').html(data.field_type);
             $('#tableFieldsId tr:eq(8) td:eq(1)').html(data.field_collation);
