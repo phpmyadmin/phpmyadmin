@@ -264,7 +264,7 @@ $(document).ready(function() {
         //Find changed values by comparing form values with selectedRow Object
         var newValues = new Object();//Stores the values changed from original
         var sqlTypes = new Object();
-        var it = 4;
+        var it = 0;
         var xChange = false;
         var yChange = false;
         for (key in selectedRow) {
@@ -550,14 +550,14 @@ $(document).ready(function() {
 
         $('div#querychart').bind('jqplotDataClick',
             function(event, seriesIndex, pointIndex, data) {
-                searchedDataKey = data[4]; // key from searchedData (global)
-                var field_id = 4;
+                searchedDataKey = data[0]; // key from searchedData (global)
+                var field_id = 0;
                 var post_params = {
                     'ajax_request' : true,
                     'get_data_row' : true,
                     'db' : window.parent.db,
                     'table' : window.parent.table,
-                    'where_clause' : data[3],
+                    'where_clause' : data[0],
                     'token' : window.parent.token
                 };
 
