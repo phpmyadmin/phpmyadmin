@@ -62,7 +62,9 @@ if (isset($_REQUEST['generate']) && $_REQUEST['generate'] == true) {
         'visualization' => $visualization,
         'openLayers'    => $open_layers,
     );
-    PMA_ajaxResponse(null, true, $extra_data);
+    $response = PMA_Response::getInstance();
+    $response->addJSON($extra_data);
+    exit;
 }
 
 ob_start();
@@ -311,7 +313,7 @@ ob_start();
     </form>
 <?php
 
-$extra_data['gis_editor'] = ob_get_contents();
-PMA_ajaxResponse(null, ob_end_clean(), $extra_data);
+PMA_Response::getInstance()->addJSON('gis_editor', ob_get_contents());
+ob_end_clean();
 
 ?>

@@ -72,8 +72,11 @@ if (isset($submitcollation) && !empty($db_collation)) {
      * other pages, we might have to move this to a different location.
      */
     if ( $GLOBALS['is_ajax_request'] == true) {
-        PMA_ajaxResponse($message, $message->isSuccess());
-    };
+        $response = PMA_Response::getInstance();
+        $response->isSuccess($message->isSuccess());
+        $response->addJSON('message', $message);
+        exit;
+    }
 }
 
 /**

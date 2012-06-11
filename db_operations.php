@@ -340,13 +340,16 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
 
     /**
      * Database has been successfully renamed/moved.  If in an Ajax request,
-     * generate the output with {@link PMA_ajaxResponse} and exit
+     * generate the output with {@link PMA_Response} and exit
      */
-    if ( $GLOBALS['is_ajax_request'] == true) {
-        $extra_data['newname'] = $newname;
-        $extra_data['sql_query'] = PMA_getMessage(null, $sql_query);
-        PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
-    };
+    if ($GLOBALS['is_ajax_request'] == true) {
+        $response = PMA_Response::getInstance();
+        $response->isSuccess($message->isSuccess());
+        $response->addJSON('message', $message);
+        $response->addJSON('newname', $newname);
+        $response->addJSON('sql_query', PMA_getMessage(null, $sql_query));
+        exit;
+    }
 }
 
 

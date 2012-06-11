@@ -188,9 +188,11 @@ if (isset($_REQUEST['do_save_data'])) {
         $message = PMA_Message::success(__('Table %1$s has been altered successfully'));
         $message->addParam($table);
 
-        if ( $GLOBALS['is_ajax_request'] == true) {
-            $extra_data['sql_query'] = PMA_getMessage(null, $sql_query);
-            PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
+        if ($GLOBALS['is_ajax_request'] == true) {
+            $response = PMA_Response::getInstance();
+            $response->addJSON('message', $message);
+            $response->addJSON('sql_query', PMA_getMessage(null, $sql_query));
+            exit;
         }
 
         $active_page = 'tbl_structure.php';

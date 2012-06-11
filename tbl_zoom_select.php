@@ -72,7 +72,8 @@ if (isset($_REQUEST['get_data_row']) && $_REQUEST['get_data_row'] == true) {
         }
         $extra_data['row_info'] = $row;
     }
-    PMA_ajaxResponse(null, true, $extra_data);
+    PMA_Response::getInstance()->addJSON($extra_data);
+    exit;
 }
 
 /**
@@ -82,14 +83,14 @@ if (isset($_REQUEST['get_data_row']) && $_REQUEST['get_data_row'] == true) {
  */
 
 if (isset($_REQUEST['change_tbl_info']) && $_REQUEST['change_tbl_info'] == true) {
-    $extra_data = array();
+    $response = PMA_Response::getInstance();
     $field = $_REQUEST['field'];
     if ($field == 'pma_null') {
-        $extra_data['field_type'] = '';
-        $extra_data['field_collation'] = '';
-        $extra_data['field_operators'] = '';
-        $extra_data['field_value'] = '';
-        PMA_ajaxResponse(null, true, $extra_data);
+        $response->addJSON('field_type', '');
+        $response->addJSON('field_collation', '');
+        $response->addJSON('field_operators', '');
+        $response->addJSON('field_value', '');
+        exit;
     }
     // Gets the list and number of fields
     list($columnNames, $columnTypes, $columnCollations, $columnNullFlags)
@@ -100,11 +101,11 @@ if (isset($_REQUEST['change_tbl_info']) && $_REQUEST['change_tbl_info'] == true)
         $db, $table, $columnNames, $columnTypes, $columnCollations,
         $columnNullFlags, $foreigners, $_REQUEST['it'], $key
     );
-    $extra_data['field_type'] = $properties['type'];
-    $extra_data['field_collation'] = $properties['collation'];
-    $extra_data['field_operators'] = $properties['func'];
-    $extra_data['field_value'] = $properties['value'];
-    PMA_ajaxResponse(null, true, $extra_data);
+    $response->addJSON('field_type', $properties['type']);
+    $response->addJSON('field_collation', $properties['collation']);
+    $response->addJSON('field_operators', $properties['func']);
+    $response->addJSON('field_value', $properties['value']);
+    exit;
 }
 
 $titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));

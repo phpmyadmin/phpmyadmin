@@ -221,10 +221,13 @@ if (! empty($id_bookmark)) {
     case 1: // bookmarked query that have to be displayed
         $import_text = PMA_Bookmark_get($db, $id_bookmark);
         if ($GLOBALS['is_ajax_request'] == true) {
-            $extra_data['sql_query'] = $import_text;
-            $extra_data['action_bookmark'] = $action_bookmark;
             $message = PMA_Message::success(__('Showing bookmark'));
-            PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
+            $response = PMA_Response::getInstance();
+            $response->isSuccess($message->isSuccess());
+            $response->addJSON('message', $message);
+            $response->addJSON('sql_query', $import_text);
+            $response->addJSON('action_bookmark', $action_bookmark);
+            exit;
         } else {
             $run_query = false;
         }
@@ -234,9 +237,12 @@ if (! empty($id_bookmark)) {
         PMA_Bookmark_delete($db, $id_bookmark);
         if ($GLOBALS['is_ajax_request'] == true) {
             $message = PMA_Message::success(__('The bookmark has been deleted.'));
-            $extra_data['action_bookmark'] = $action_bookmark;
-            $extra_data['id_bookmark'] = $id_bookmark;
-            PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
+            $response = PMA_Response::getInstance();
+            $response->isSuccess($message->isSuccess());
+            $response->addJSON('message', $message);
+            $response->addJSON('action_bookmark', $action_bookmark);
+            $response->addJSON('id_bookmark', $id_bookmark);
+            exit;
         } else {
             $run_query = false;
             $error = true; // this is kind of hack to skip processing the query

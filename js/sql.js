@@ -227,11 +227,15 @@ $(function() {
                 $sqlqueryresults.show().trigger('makegrid');
                 $('#togglequerybox').show();
                 PMA_init_slider();
-                if( $('#sqlqueryform input[name="retain_query_box"]').is(':checked') != true ) {
-                    if ($("#togglequerybox").siblings(":visible").length > 0) {
-                        $("#togglequerybox").trigger('click');
+
+                if (typeof data.action_bookmark == 'undefined') {
+                    if( $('#sqlqueryform input[name="retain_query_box"]').is(':checked') != true ) {
+                        if ($("#togglequerybox").siblings(":visible").length > 0) {
+                            $("#togglequerybox").trigger('click');
+                        }
                     }
                 }
+
                 // this happens if a USE command was typed
                 if (typeof data.reload != 'undefined') {
                     // Unbind the submit event before reloading. See bug #3295529

@@ -113,8 +113,10 @@ if (isset($_REQUEST['move_columns'])
         // insert moved column
         array_splice($column_names, $i, 0, $column);
     }
+    $response = PMA_Response::getInstance();
     if (empty($changes)) { // should never happen
-        PMA_ajaxResponse('', true);
+        $response->isSuccess(false);
+        exit;
     }
     $move_query = 'ALTER TABLE ' . PMA_backquote($table) . ' ';
     $move_query .= implode(', ', $changes);
@@ -122,15 +124,16 @@ if (isset($_REQUEST['move_columns'])
     $result = PMA_DBI_try_query($move_query);
     $tmp_error = PMA_DBI_getError();
     if ($tmp_error) {
-        PMA_ajaxResponse(PMA_Message::error($tmp_error), false);
+        $response->isSuccess(false);
+        $response->addJSON('message', PMA_Message::error($tmp_error));
+    } else {
+        $message = PMA_Message::success(
+            __('The columns have been moved successfully.')
+        );
+        $response->addJSON('message', $message);
+        $response->addJSON('columns', $column_names);
     }
-    PMA_ajaxResponse(
-        PMA_Message::success(__('The columns have been moved successfully.')),
-        true,
-        array(
-            'columns' => $column_names
-        )
-    );
+    exit;
 }
 
 /**
@@ -249,9 +252,12 @@ if (isset($_REQUEST['do_save_data'])) {
             }
         }
 
-        if ( $_REQUEST['ajax_request'] == true) {
-            $extra_data['sql_query'] = PMA_getMessage(null, $sql_query);
-            PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
+        if ($_REQUEST['ajax_request'] == true) {
+            $response = PMA_Response::getInstance();
+            $response->isSuccess($message->isSuccess());
+            $response->addJSON('message', $message);
+            $response->addJSON('sql_query', PMA_getMessage(null, $sql_query));
+            exit;
         }
 
         $active_page = 'tbl_structure.php';

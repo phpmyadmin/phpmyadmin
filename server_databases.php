@@ -117,7 +117,10 @@ if ((isset($_REQUEST['drop_selected_dbs']) || isset($_REQUEST['query_type']))
         }
     }
     if ($GLOBALS['is_ajax_request'] && $message instanceof PMA_Message) {
-        PMA_ajaxResponse($message, $message->isSuccess());
+        $response = PMA_Response::getInstance();
+        $response->isSuccess($message->isSuccess());
+        $response->addJSON('message', $message);
+        exit;
     }
 }
 

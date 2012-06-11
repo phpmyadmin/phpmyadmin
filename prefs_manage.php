@@ -28,18 +28,13 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
     PMA_downloadHeader($filename, 'application/json');
     $settings = PMA_load_userprefs();
     echo json_encode($settings['config_data']);
-    return;
+    exit;
 } else if (isset($_POST['submit_get_json'])) {
     $settings = PMA_load_userprefs();
-    PMA_ajaxResponse(
-        '',
-        true,
-        array(
-            'prefs' => json_encode($settings['config_data']),
-            'mtime' => $settings['mtime']
-        )
-    );
-    return;
+    $response = PMA_Response::getInstance();
+    $response->addJSON('prefs', json_encode($settings['config_data']));
+    $response->addJSON('mtime', $settings['mtime']);
+    exit;
 } else if (isset($_POST['submit_import'])) {
     // load from JSON file
     $json = '';

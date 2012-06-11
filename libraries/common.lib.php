@@ -679,10 +679,13 @@ function PMA_mysqlDie(
         /**
          * If in an Ajax request
          * - avoid displaying a Back link
-         * - use PMA_ajaxResponse() to transmit the message and exit
+         * - use PMA_Response() to transmit the message and exit
          */
         if ($GLOBALS['is_ajax_request'] == true) {
-            PMA_ajaxResponse($error_msg, false);
+            $response = PMA_Response::getInstance();
+            $response->isSuccess(false);
+            $response->addJSON('message', $error_msg);
+            exit;
         }
         if (! empty($back_url)) {
             if (strstr($back_url, '?')) {
@@ -3242,28 +3245,6 @@ function PMA_expandUserString($string, $escape = null, $updates = array())
 
     /* Do the replacement */
     return strtr(strftime($string), $replace);
-}
-
-/**
- * function that generates a json output for an ajax request and ends script
- * execution
- *
- * @param PMA_Message|string $message    message string containing the
- *                                       html of the message
- * @param bool               $success    success whether the ajax request
- *                                       was successfull
- * @param array              $extra_data extra data  optional - any other data
- *                                       as part of the json request
- *
- * @return void
- */
-function PMA_ajaxResponse($message, $success = true, $extra_data = array())
-{
-    $response = PMA_Response::getInstance();
-    $response->isSuccess($success);
-    $response->addJSON('message', $message);
-    $response->addJSON($extra_data);
-    exit;
 }
 
 /**

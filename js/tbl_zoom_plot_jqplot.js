@@ -12,10 +12,7 @@
  **  Display Help/Info
  **/
 function displayHelp() {
-    var msgbox = PMA_ajaxShowMessage(PMA_messages['strDisplayHelp'], 10000);
-    msgbox.click(function() {
-        PMA_ajaxRemoveMessage(msgbox);
-    });
+    PMA_ajaxShowMessage(PMA_messages['strDisplayHelp'], 10000);
 }
 
 /**

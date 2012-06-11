@@ -2417,10 +2417,7 @@ $(function() {
                         window.parent.frame_navigation.location.reload();
                     }
                 } else {
-                    var $temp_div = $("<div id='temp_div'></div>");
-                    $temp_div.html(data.error);
-                    var $error = $temp_div.find("code").addClass("error");
-                    PMA_ajaxShowMessage($error, false);
+                    PMA_ajaxShowMessage(data.error, false);
                 }
             }); // end $.post()
         }

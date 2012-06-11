@@ -320,29 +320,31 @@ if (isset($_REQUEST['do_save_data'])) {
 
             $new_table_string .= '</tr>' . "\n";
 
-            $extra_data['new_table_string'] = $new_table_string;
-
-            PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
-        }
-
-        $display_query = $sql_query;
-        $sql_query = '';
-
-        // read table info on this newly created table, in case
-        // the next page is Structure
-        $reread_info = true;
-        include 'libraries/tbl_info.inc.php';
-
-        // do not switch to sql.php - as there is no row to be displayed on a new table
-        if ($cfg['DefaultTabTable'] === 'sql.php') {
-            include 'tbl_structure.php';
+            $response = PMA_Response::getInstance();
+            $response->addJSON('message', $message);
+            $response->addJSON('new_table_string', $new_table_string);
         } else {
-            include '' . $cfg['DefaultTabTable'];
+
+            $display_query = $sql_query;
+            $sql_query = '';
+
+            // read table info on this newly created table, in case
+            // the next page is Structure
+            $reread_info = true;
+            include 'libraries/tbl_info.inc.php';
+
+            // do not switch to sql.php - as there is no row to be displayed on a new table
+            if ($cfg['DefaultTabTable'] === 'sql.php') {
+                include 'tbl_structure.php';
+            } else {
+                include '' . $cfg['DefaultTabTable'];
+            }
         }
-        exit;
     } else {
         if ($GLOBALS['is_ajax_request'] == true) {
-            PMA_ajaxResponse(PMA_DBI_getError(), false);
+            $response = PMA_Response::getInstance();
+            $response->isSuccess(false);
+            $response->addJSON('message', PMA_DBI_getError());
         } else {
             PMA_mysqlDie('', '', '', $err_url, false);
             // An error happened while inserting/updating a table definition.
@@ -352,6 +354,7 @@ if (isset($_REQUEST['do_save_data'])) {
             $regenerate = true;
         }
     }
+    exit;
 } // end do create table
 
 /**

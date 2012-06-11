@@ -20,8 +20,8 @@ $scripts->addFile('db_structure.js');
  */
 if ($GLOBALS['is_ajax_request'] != true) {
     include 'libraries/db_common.inc.php';
+    $url_query .= '&amp;goto=tbl_tracking.php&amp;back=db_tracking.php';
 }
-$url_query .= '&amp;goto=tbl_tracking.php&amp;back=db_tracking.php';
 
 // Get the database structure
 $sub_part = '_structure';
@@ -34,11 +34,12 @@ if (isset($_REQUEST['delete_tracking']) && isset($_REQUEST['table'])) {
 
     /**
      * If in an Ajax request, generate the success message and use
-     * {@link PMA_ajaxResponse()} to send the output
+     * {@link PMA_Response()} to send the output
      */
     if ($GLOBALS['is_ajax_request'] == true) {
-        $message = PMA_Message::success();
-        PMA_ajaxResponse($message, true);
+        $response = PMA_Response::getInstance();
+        $response->addJSON('message', PMA_Message::success());
+        exit;
     }
 }
 

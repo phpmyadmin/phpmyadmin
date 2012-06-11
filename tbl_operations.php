@@ -231,17 +231,23 @@ if (isset($result) && empty($message_to_show)) {
         $_message = $result ? $message = PMA_Message::success(__('Your SQL query has been executed successfully')) : PMA_Message::error(__('Error'));
         // $result should exist, regardless of $_message
         $_type = $result ? 'success' : 'error';
-        if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
-            $extra_data['sql_query'] = PMA_getMessage(null, $sql_query);
-            PMA_ajaxResponse($_message, $_message->isSuccess(), $extra_data);
+        if ($GLOBALS['ajax_request'] == true) {
+            $response = PMA_Response::getInstance();
+            $response->isSuccess($_message->isSuccess());
+            $response->addJSON('message', $_message);
+            $response->addJSON('sql_query', PMA_getMessage(null, $sql_query));
+            exit;
         }
     }
     if (! empty($warning_messages)) {
         $_message = new PMA_Message;
         $_message->addMessages($warning_messages);
         $_message->isError(true);
-        if ( $_REQUEST['ajax_request'] == true) {
-            PMA_ajaxResponse($_message, false);
+        if ($GLOBALS['ajax_request'] == true) {
+            $response = PMA_Response::getInstance();
+            $response->isSuccess(false);
+            $response->addJSON('message', $_message);
+            exit;
         }
         unset($warning_messages);
     }

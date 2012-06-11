@@ -105,21 +105,25 @@ if (isset($_REQUEST['do_save_data'])) {
             'Table %1$s has been altered successfully'));
         $message->addParam($table);
 
-        if ( $GLOBALS['is_ajax_request'] == true) {
-            $extra_data['index_table'] = PMA_Index::getView($table, $db);
-            $extra_data['sql_query'] = PMA_getMessage(null, $sql_query);
-            PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
+        if ($GLOBALS['is_ajax_request'] == true) {
+            $response = PMA_Response::getInstance();
+            $response->addJSON('message', $message);
+            $response->addJSON('index_table', PMA_Index::getView($table, $db));
+            $response->addJSON('sql_query', PMA_getMessage(null, $sql_query));
+        } else {
+            $active_page = 'tbl_structure.php';
+            include 'tbl_structure.php';
         }
-
-        $active_page = 'tbl_structure.php';
-        include 'tbl_structure.php';
         exit;
     } else {
-        if ( $GLOBALS['is_ajax_request'] == true) {
-            $extra_data['error'] = $error;
-            PMA_ajaxResponse($error, false);
+        if ($GLOBALS['is_ajax_request'] == true) {
+            $response = PMA_Response::getInstance();
+            $response->isSuccess(false);
+            $response->addJSON('message', $error);
+            exit;
+        } else {
+            $error->display();
         }
-        $error->display();
     }
 } // end builds the new index
 

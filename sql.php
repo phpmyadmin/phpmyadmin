@@ -146,8 +146,9 @@ if (isset($_REQUEST['get_relational_values']) && $_REQUEST['get_relational_value
         $dropdown = '<select>' . $dropdown . '</select>';
     }
 
-    $extra_data['dropdown'] = $dropdown;
-    PMA_ajaxResponse(null, true, $extra_data);
+    $response = PMA_Response::getInstance();
+    $response->addJSON('dropdown', $dropdown);
+    exit;
 }
 
 /**
@@ -173,8 +174,9 @@ if (isset($_REQUEST['get_enum_values']) && $_REQUEST['get_enum_values'] == true)
 
     $dropdown = '<select>' . $dropdown . '</select>';
 
-    $extra_data['dropdown'] = $dropdown;
-    PMA_ajaxResponse(null, true, $extra_data);
+    $response = PMA_Response::getInstance();
+    $response->addJSON('dropdown', $dropdown);
+    exit;
 }
 
 /**
@@ -201,8 +203,9 @@ if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
     $select_size = (sizeof($values) > 10) ? 10 : sizeof($values);
     $select = '<select multiple="multiple" size="' . $select_size . '">' . $select . '</select>';
 
-    $extra_data['select'] = $select;
-    PMA_ajaxResponse(null, true, $extra_data);
+    $response = PMA_Response::getInstance();
+    $response->addJSON('select', $select);
+    exit;
 }
 
 /**
@@ -220,7 +223,10 @@ if (isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
             $_REQUEST['table_create_time']
             );
         if (gettype($retval) != 'boolean') {
-            PMA_ajaxResponse($retval->getString(), false);
+            $response = PMA_Response::getInstance();
+            $response->isSuccess(false);
+            $response->addJSON('message', $retval->getString());
+            exit;
         }
     }
 
@@ -232,11 +238,16 @@ if (isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
             $_REQUEST['table_create_time']
             );
         if (gettype($retval) != 'boolean') {
-            PMA_ajaxResponse($retval->getString(), false);
+            $response = PMA_Response::getInstance();
+            $response->isSuccess(false);
+            $response->addJSON('message', $retval->getString());
+            exit;
         }
     }
 
-    PMA_ajaxResponse(null, ($retval == true));
+    $response = PMA_Response::getInstance();
+    $response->isSuccess($retval == true);
+    exit;
 }
 
 // Default to browse if no query set and we have table
@@ -572,7 +583,10 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
             $message = PMA_Message::rawError($error);
 
             if ($GLOBALS['is_ajax_request'] == true) {
-                PMA_ajaxResponse($message, false);
+                $response = PMA_Response::getInstance();
+                $response->isSuccess(false);
+                $response->addJSON('message', $message);
+                exit;
             }
 
             /**
@@ -820,7 +834,11 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
             $extra_data['reload'] = 1;
             $extra_data['db'] = $GLOBALS['db'];
         }
-        PMA_ajaxResponse($message, $message->isSuccess(), (isset($extra_data) ? $extra_data : array()));
+        $response = PMA_Response::getInstance();
+        $response->isSuccess($message->isSuccess());
+        $response->addJSON('message', $message);
+        $response->addJSON(isset($extra_data) ? $extra_data : array());
+        exit;
     }
 
     if ($is_gotofile) {
@@ -863,9 +881,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     // value of a transformed field, show it here and exit
     if ($GLOBALS['grid_edit'] == true && $GLOBALS['cfg']['AjaxEnable']) {
         $row = PMA_DBI_fetch_row($result);
-        $extra_data = array();
-        $extra_data['value'] = $row[0];
-        PMA_ajaxResponse(null, true, $extra_data);
+        $response = PMA_Response::getInstance();
+        $response->addJSON('value', $row[0]);
+        exit;
     }
 
     if (isset($_REQUEST['ajax_request']) && isset($_REQUEST['table_maintenance'])) {

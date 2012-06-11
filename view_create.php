@@ -66,15 +66,27 @@ if (isset($_REQUEST['createview'])) {
         if ($GLOBALS['is_ajax_request'] != true) {
             $message = PMA_Message::success();
             include './' . $cfg['DefaultTabDatabase'];
-            exit();
         } else {
-            PMA_ajaxResponse(PMA_getMessage(PMA_Message::success(), $sql_query), 1);
+            $response = PMA_Response::getInstance();
+            $response->addJSON(
+                'message',
+                PMA_getMessage(PMA_Message::success(), $sql_query)
+            );
         }
+        exit;
     } else {
         if ($GLOBALS['is_ajax_request'] != true) {
             $message = PMA_Message::rawError(PMA_DBI_getError());
         } else {
-            PMA_ajaxResponse(PMA_Message::error("<i>$sql_query</i><br /><br />" . PMA_DBI_getError()), 0);
+            $response = PMA_Response::getInstance();
+            $response->addJSON(
+                'message',
+                PMA_Message::error(
+                    "<i>$sql_query</i><br /><br />" . PMA_DBI_getError()
+                )
+            );
+            $response->isSuccess(false);
+            exit;
         }
     }
 }

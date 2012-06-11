@@ -1643,7 +1643,11 @@ if ($GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_RE
     }
 
     if ($message instanceof PMA_Message) {
-        PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
+        $response = PMA_Response::getInstance();
+        $response->isSuccess($message->isSuccess());
+        $response->addJSON('message', $message);
+        $response->addJSON($extra_data);
+        exit;
     }
 }
 
@@ -1705,7 +1709,10 @@ if (isset($_REQUEST['export']) || (isset($_REQUEST['submit_mult']) && $_REQUEST[
     $response .= '</textarea>';
     unset($username, $hostname, $grants, $one_grant);
     if ($GLOBALS['is_ajax_request']) {
-        PMA_ajaxResponse($response, 1, array('title' => $title));
+        $response = PMA_Response::getInstance();
+        $response->addJSON('message', $response);
+        $response->addJSON('title', $title);
+        exit;
     } else {
         echo "<h2>$title</h2>$response";
     }
@@ -2568,9 +2575,11 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
        . '</table></fieldset></form>' . "\n";
 
     if ($GLOBALS['is_ajax_request'] == true) {
-        $extra_data['user_form'] = $user_form;
         $message = PMA_Message::success(__('User has been added.'));
-        PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
+        $response = PMA_Response::getInstance();
+        $response->addJSON('message', $message);
+        $response->addJSON('user_form', $user_form);
+        exit;
     } else {
         // Offer to create a new user for the current database
         $user_form .= '<fieldset id="fieldset_add_user">' . "\n"

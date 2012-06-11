@@ -136,7 +136,7 @@ function PMA_auth()
         if (! empty($conn_error)) {
             $response->addJSON('message', $conn_error);
         } else {
-            $response->addJSON('message', __('Session expired'));
+            $response->addJSON('message', PMA_Message::error(__('Your session has expired. Please login again.')));
         }
         exit;
     }

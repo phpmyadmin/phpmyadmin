@@ -421,7 +421,12 @@ if ($GLOBALS['is_ajax_request'] == true) {
     /**Get the total row count of the table*/
     $extra_data['row_count'] = PMA_Table::countRecords($_REQUEST['db'], $_REQUEST['table']);
     $extra_data['sql_query'] = PMA_getMessage($message, $GLOBALS['display_query']);
-    PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
+
+    $response = PMA_Response::getInstance();
+    $response->isSuccess($message->isSuccess());
+    $response->addJSON('message', $message);
+    $response->addJSON($extra_data);
+    exit;
 }
 
 if (isset($return_to_sql_query)) {
