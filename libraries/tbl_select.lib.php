@@ -148,13 +148,14 @@ function PMA_getForeignFields_Values($foreigners, $foreignData, $field,
 ) {
     $str = '';
     $field_type = (string)$field_type;
+    $field_id = ($in_zoom_search_edit) ? 'edit_fieldID_' : 'fieldID_';
     if ($foreigners
         && isset($foreigners[$field])
         && is_array($foreignData['disp_row'])
     ) {
         // f o r e i g n    k e y s
-        $str .=  '<select name="criteriaValues[' . $column_index . ']" id="fieldID_'
-            . $column_index .'">';
+        $str .=  '<select name="criteriaValues[' . $column_index . ']" id="'
+            . $field_id . $column_index .'">';
         // go back to first row
         // here, the 4th parameter is empty because there is no current
         // value of data for the dropdown (the search page initial values
@@ -169,12 +170,12 @@ function PMA_getForeignFields_Values($foreigners, $foreignData, $field,
         if (isset($criteriaValues[$column_index])
             && is_string($criteriaValues[$column_index])
         ) {
-            $str .= '<input type="text" id="fieldID_' . $column_index . '"'
+            $str .= '<input type="text" id="' . $field_id . $column_index . '"'
                 . ' name="criteriaValues[' . $column_index . ']" value="' 
                 . $criteriaValues[$column_index] . '" id="field_' . md5($field)
                 . '[' . $column_index .']" class="textfield" />';
         } else {
-            $str .= '<input type="text" id="fieldID_' . $column_index . '"'
+            $str .= '<input type="text" id="' . $field_id . $column_index . '"'
                 . ' name="criteriaValues[' . $column_index . ']"'
                 . ' id="field_' . md5($field) . '[' . $column_index .']" '
                 .'class="textfield" />';
@@ -226,10 +227,10 @@ EOT;
             || (strncasecmp($field_type, 'set', 3) && $in_zoom_search_edit)
         ) {
             $str .= '<select name="criteriaValues[' . ($column_index)
-                . '][]" id="fieldID_' . $column_index .'">';
+                . '][]" id="' . $field_id . $column_index .'">';
         } else {
             $str .= '<select name="criteriaValues[' . ($column_index)
-                . '][]" id="fieldID_' . $column_index .'" multiple="multiple" size="'
+                . '][]" id="' . $field_id . $column_index .'" multiple="multiple" size="'
                 . min(3, $cnt_value) . '">';
         }
 
@@ -263,12 +264,12 @@ EOT;
             && is_string($criteriaValues[$column_index])
         ) {
             $str .= '<input type="text" name="criteriaValues[' . $column_index . ']"'
-                .' size="40" class="' . $the_class . '" id="fieldID_'
+                .' size="40" class="' . $the_class . '" id="' . $field_id
                 . $column_index .'" value = "' . $criteriaValues[$column_index]
                 . '"/>';
         } else {
             $str .= '<input type="text" name="criteriaValues[' . $column_index . ']"'
-                .' size="40" class="' . $the_class . '" id="fieldID_'
+                .' size="40" class="' . $the_class . '" id="' . $field_id
                 . $column_index .'" />';
         }
     }

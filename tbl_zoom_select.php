@@ -243,7 +243,7 @@ if (isset($zoom_submit)
               <th><?php echo htmlspecialchars($columnNames[$column_index]); ?></th>
               <th><?php echo ($columnNullFlags[$column_index] == 'YES')
                   ? '<input type="checkbox" class="checkbox_null" name="criteriaColumnNullFlags[ '
-                      . $column_index . ' ]" id="fields_null_id_' . $column_index . '" />'
+                      . $column_index . ' ]" id="edit_fields_null_id_' . $column_index . '" />'
                   : ''; ?>
               </th>
               <th> <?php
