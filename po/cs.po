@@ -13165,7 +13165,7 @@ msgid ""
 "MySQL."
 msgstr ""
 "Vyrovnávací paměť vláken je vypnutá, což způsobuje větší zátěž při nových "
-"připojení k MySQL."
+"připojeních k MySQL."
 
 #: libraries/advisory_rules.txt:359
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
