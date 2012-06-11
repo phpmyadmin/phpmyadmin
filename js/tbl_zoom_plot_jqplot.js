@@ -534,6 +534,7 @@ $(document).ready(function() {
         // resizing, it's ok
         // under IE 9, everything is fine
         currentChart = $.jqplot('querychart', series, options);
+        currentChart.resetZoom();
 
         $('button.button-reset').click(function(event) {
             event.preventDefault();
