@@ -25,14 +25,7 @@ $GLOBALS['js_include'][] = 'gis_data_editor.js';
 
 $post_params = array(
     'ajax_request',
-    'criteriaColumnCollations',
-    'db',
-    'fields',
-    'criteriaColumnOperators',
-    'criteriaColumnNames',
-    'session_max_rows',
-    'table',
-    'criteriaColumnTypes',
+    'session_max_rows'
 );
 foreach ($post_params as $one_post_param) {
     if (isset($_POST[$one_post_param])) {
@@ -64,7 +57,6 @@ if (! isset($_POST['columnsToDisplay']) || $_POST['columnsToDisplay'][0] == '') 
     // Gets the list and number of fields
     list($columnNames, $columnTypes, $columnCollations, $columnNullFlags, $geomColumnFlag)
         = PMA_tbl_getFields($db, $table);
-    $columnCount = count($columnNames);
 
     // retrieve keys into foreign fields, if any
     // check also foreigners even if relwork is FALSE (to get
@@ -73,8 +65,8 @@ if (! isset($_POST['columnsToDisplay']) || $_POST['columnsToDisplay'][0] == '') 
 
     // Displays the table search form
     echo PMA_tblSearchGetSelectionForm(
-        $goto, $columnNames, $columnTypes, $columnCollations, $columnNullFlags,
-        $geomColumnFlag, $columnCount, $foreigners, $db, $table
+        $goto, $db, $table, $columnNames, $columnTypes, $columnCollations,
+        $columnNullFlags, $geomColumnFlag, $foreigners, "normal"
     );
 
     include 'libraries/footer.inc.php';
@@ -82,10 +74,7 @@ if (! isset($_POST['columnsToDisplay']) || $_POST['columnsToDisplay'][0] == '') 
     /**
      * Selection criteria have been submitted -> do the work
      */
-    $sql_query = PMA_tblSearchBuildSqlQuery(
-        $table, $fields, $criteriaColumnNames, $criteriaColumnTypes,
-        $criteriaColumnCollations, $criteriaColumnOperators
-    );
+    $sql_query = PMA_tblSearchBuildSqlQuery();
     include 'sql.php';
 }
 ?>
