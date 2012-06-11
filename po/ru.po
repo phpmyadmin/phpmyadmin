@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:49+0200\n"
-"PO-Revision-Date: 2012-05-30 15:40+0200\n"
+"PO-Revision-Date: 2012-06-11 19:05+0200\n"
 "Last-Translator: Victor Volkov <hanut@php-myadmin.ru>\n"
 "Language-Team: russian <ru@li.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:37 browse_foreigners.php:61 js/messages.php:354
@@ -1900,7 +1900,6 @@ msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "Для увеличения, выберите часть диаграммы мышкой."
 
 #: js/messages.php:306
-#, fuzzy
 #| msgid "Click reset zoom link to come back to original state."
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
@@ -6412,10 +6411,10 @@ msgid "vertical"
 msgstr "вертикальном"
 
 #: libraries/display_tbl.lib.php:636
-#, fuzzy, php-format
+#, php-format
 #| msgid "Headers every"
 msgid "Headers every %s rows"
-msgstr "Заголовки каждые"
+msgstr "Заголовки каждые %s строк"
 
 #: libraries/display_tbl.lib.php:1113
 msgid "Sort by key"
