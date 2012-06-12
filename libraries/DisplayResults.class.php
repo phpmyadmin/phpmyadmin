@@ -69,6 +69,13 @@ class PMA_DisplayResults
 
     /**
      * Constructor for PMA_DisplayResults class
+     * 
+     * @param string $db        the database name
+     * @param string $table     the table name
+     * @param string $goto      the URL to go back in case of errors
+     * @param string $sql_query the SQL query
+     * 
+     * @access  public
      */
     public function __construct($db, $table, $goto, $sql_query)
     {
@@ -523,7 +530,9 @@ class PMA_DisplayResults
                 . ')'
             .'">';
 
-        $table_navigation_html .= PMA_generate_common_hidden_inputs($this->_db, $this->_table);
+        $table_navigation_html .= PMA_generate_common_hidden_inputs(
+            $this->_db, $this->_table
+        );
 
         $table_navigation_html .= $this->_getAdditionalFieldsForTableNavigation(
             $html_sql_query, $pos_next,

@@ -293,8 +293,7 @@ require_once './libraries/Index.class.php';
 require_once 'libraries/DisplayResults.class.php';
 
 $displayResultsObject = new PMA_DisplayResults(
-    $GLOBALS['db'], $GLOBALS['table'], $GLOBALS['goto'], $GLOBALS['sql_query'],
-    $GLOBALS['cfgRelation']
+    $GLOBALS['db'], $GLOBALS['table'], $GLOBALS['goto'], $GLOBALS['sql_query']
 );
 
 $displayResultsObject->setConfigParamsForDisplayTable();
