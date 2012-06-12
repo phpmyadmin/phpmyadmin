@@ -1085,6 +1085,10 @@ foreach ($GLOBALS as $key => $dummy) {
 }
 unset($dummy);
 
+// here, the function does not exist with this configuration:
+// $cfg['ServerDefault'] = 0;
+$GLOBALS['is_superuser'] = function_exists('PMA_isSuperuser') && PMA_isSuperuser();
+
 if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {
     /**
      * include subform target page

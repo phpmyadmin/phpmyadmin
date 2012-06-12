@@ -13,12 +13,6 @@ require_once 'libraries/Scripts.class.php';
 require_once 'libraries/RecentTable.class.php';
 require_once 'libraries/Menu.class.php';
 
-
-// FIXME: this global got lost :(
-// here, the function does not exist with this configuration:
-// $cfg['ServerDefault'] = 0;
-$is_superuser = function_exists('PMA_isSuperuser') && PMA_isSuperuser();
-
 /**
  * Class used to output the HTTP and HTML headers
  *
