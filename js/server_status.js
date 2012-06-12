@@ -130,10 +130,6 @@ $(function() {
         }
     });
 
-    $.ajaxSetup({
-        cache: false
-    });
-
     // Add tabs
     $('#serverStatusTabs').tabs({
         // Tab persistence
