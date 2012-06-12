@@ -275,6 +275,16 @@ class PMA_Footer
     }
 
     /**
+     * Returns the PMA_Scripts object
+     *
+     * @return PMA_Scripts object
+     */
+    public function getScripts()
+    {
+        return $this->_scripts;
+    }
+
+    /**
      * Renders the footer
      *
      * @return string
