@@ -88,9 +88,7 @@ function PMA_auth_fails()
 <table cellpadding="0" cellspacing="3" style="margin: 0 auto" width="80%">
     <tr>
         <td>
-
     <?php
-    PMA_Header::$headerIsSent = true;
 
     if (isset($GLOBALS['allowDeny_forbidden']) && $GLOBALS['allowDeny_forbidden']) {
         trigger_error(__('Access denied'), E_USER_NOTICE);
