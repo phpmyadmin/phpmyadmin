@@ -64,12 +64,19 @@ class PMA_DisplayResults
     const QUERY_TYPE_SELECT = 'SELECT';
     
     
+    private $_db, $_table, $_goto, $_sql_query, $_cfgRelation;
+
+
     /**
      * Constructor for PMA_DisplayResults class
      */
-    public function __construct()
+    public function __construct($db, $table, $goto, $sql_query, $cfgRelation)
     {
-        
+        $this->_db = $db;
+        $this->_table = $table;
+        $this->_goto = $goto;
+        $this->_sql_query = $sql_query;
+        $this->_cfgRelation = $cfgRelation;        
     }
 
 
@@ -101,7 +108,6 @@ class PMA_DisplayResults
      * @return array    an array with explicit indexes for all the display
      *                   elements
      *
-     * @global string   the database name
      * @global string   the table name
      * @global integer  the total number of rows returned by the SQL query
      *                   without any programmatically appended "LIMIT" clause
@@ -116,7 +122,7 @@ class PMA_DisplayResults
     private function _setDisplayMode(&$the_disp_mode, &$the_total)
     {
 
-        global $db, $table;
+        global $table;
         global $unlim_num_rows, $fields_meta;
         global $err_url;
 
@@ -237,9 +243,9 @@ class PMA_DisplayResults
             $the_total = $unlim_num_rows;
         } elseif ((($do_display['nav_bar'] == '1')
             || ($do_display['sort_lnk'] == '1'))
-            && (strlen($db) && !empty($table))
+            && (strlen($this->_db) && !empty($table))
         ) {
-            $the_total   = PMA_Table::countRecords($db, $table);
+            $the_total   = PMA_Table::countRecords($this->_db, $table);
         }
 
         // 4. If navigation bar or sorting fields names URLs should be
@@ -253,7 +259,7 @@ class PMA_DisplayResults
             //   of sorting VIEW results.
             if (isset($unlim_num_rows)
                 && $unlim_num_rows < 2
-                && ! PMA_Table::isView($db, $table)
+                && ! PMA_Table::isView($this->_db, $table)
             ) {
                 // force display of navbar for vertical/horizontal display-choice.
                 // $do_display['nav_bar']  = (string) '0';
@@ -305,7 +311,6 @@ class PMA_DisplayResults
      *
      * @return string                     html content
      *
-     * @global string   $db             the database name
      * @global string   $table          the table name
      * @global string   $goto           the URL to go back in case of errors
      *
@@ -318,7 +323,7 @@ class PMA_DisplayResults
         $html_sql_query, $onsubmit = '', $input_for_real_end = '', $onclick = ''
     ) {
 
-        global $db, $table, $goto;
+        global $table, $goto;
 
         $caption_output = '';
         // for true or 'both'
@@ -336,7 +341,7 @@ class PMA_DisplayResults
 
         return '<td>'
             . '<form action="sql.php" method="post" ' . $onsubmit . '>'
-            . PMA_generate_common_hidden_inputs($db, $table)
+            . PMA_generate_common_hidden_inputs($this->_db, $table)
             . '<input type="hidden" name="sql_query" value="'
             . $html_sql_query . '" />'
             . '<input type="hidden" name="pos" value="' . $pos . '" />'
@@ -361,7 +366,6 @@ class PMA_DisplayResults
      *
      * @return string                            html content
      *
-     * @global string   $db             the database name
      * @global string   $table          the table name
      * @global string   $goto           the URL to go back in case of errors
      * @global integer  $num_rows       the total number of rows returned by the
@@ -380,7 +384,7 @@ class PMA_DisplayResults
         $id_for_direction_dropdown
     ) {
 
-        global $db, $table, $goto;
+        global $table, $goto;
         global $num_rows, $unlim_num_rows;
         global $is_innodb;
         global $showtable;
@@ -434,7 +438,7 @@ class PMA_DisplayResults
 
                 $table_navigation_html .= '<td>';
                 $_url_params = array(
-                    'db'        => $db,
+                    'db'        => $this->_db,
                     'table'     => $table,
                     'sql_query' => $sql_query,
                     'goto'      => $goto,
@@ -463,7 +467,7 @@ class PMA_DisplayResults
         ) {
 
             $table_navigation_html .= $this->_getShowAllButtonForTableNavigation(
-                $db, $table, $html_sql_query, $goto
+                $table, $html_sql_query, $goto
             );
 
         } // end show all
@@ -531,7 +535,7 @@ class PMA_DisplayResults
                 . ')'
             .'">';
 
-        $table_navigation_html .= PMA_generate_common_hidden_inputs($db, $table);
+        $table_navigation_html .= PMA_generate_common_hidden_inputs($this->_db, $table);
 
         $table_navigation_html .= $this->_getAdditionalFieldsForTableNavigation(
             $html_sql_query, $goto, $pos_next,
@@ -577,7 +581,6 @@ class PMA_DisplayResults
     /**
      * Prepare Show All button for table navigation
      *
-     * @param string $db             the database name
      * @param string $table          the table name
      * @param string $html_sql_query the sql encoded by html special characters
      * @param string $goto           the URL to go back in case of errors
@@ -588,13 +591,13 @@ class PMA_DisplayResults
      *
      * @see     _getTableNavigation()
      */
-    private function _getShowAllButtonForTableNavigation($db, $table,
+    private function _getShowAllButtonForTableNavigation($table,
         $html_sql_query, $goto
     ) {
         return "\n"
             . '<td>'
             . '<form action="sql.php" method="post">'
-            . PMA_generate_common_hidden_inputs($db, $table)
+            . PMA_generate_common_hidden_inputs($this->_db, $table)
             . '<input type="hidden" name="sql_query" value="'
             . $html_sql_query . '" />'
             . '<input type="hidden" name="pos" value="0" />'
@@ -751,7 +754,6 @@ class PMA_DisplayResults
      *
      * @return string                      html content
      *
-     * @global string   $db               the database name
      * @global string   $table            the table name
      * @global string   $goto             the URL to go back in case of errors
      * @global string   $sql_query        the SQL query
@@ -769,7 +771,7 @@ class PMA_DisplayResults
         $sort_direction = ''
     ) {
 
-        global $db, $table, $goto;
+        global $table, $goto;
         global $sql_query, $num_rows;
         global $vertical_display, $highlight_columns;
 
@@ -815,12 +817,12 @@ class PMA_DisplayResults
             ) {
 
                 // grab indexes data:
-                $indexes = PMA_Index::getFromTable($table, $db);
+                $indexes = PMA_Index::getFromTable($table, $this->_db);
 
                 // do we have any index?
                 if ($indexes) {
                     $table_headers_html .= $this->_getSortByKeyDropDown(
-                        $db, $table, $indexes, $sort_expression,
+                        $table, $indexes, $sort_expression,
                         $unsorted_sql_query
                     );
                 }
@@ -831,7 +833,7 @@ class PMA_DisplayResults
         $table_headers_html .= '<input id="save_cells_at_once" type="hidden" value="'
             . $GLOBALS['cfg']['SaveCellsAtOnce'] . '" />'
             . '<div class="common_hidden_inputs">'
-            . PMA_generate_common_hidden_inputs($db, $table)
+            . PMA_generate_common_hidden_inputs($this->_db, $table)
             . '</div>';
 
         // Output data needed for column reordering and show/hide column
@@ -847,17 +849,17 @@ class PMA_DisplayResults
         if (! (isset($GLOBALS['printview']) && ($GLOBALS['printview'] == '1'))) {
 
             $table_headers_html 
-                .= $this->_getOptionsBlock($db, $table, $sql_query, $goto);
+                .= $this->_getOptionsBlock($this->_db, $table, $sql_query, $goto);
 
             // prepare full/partial text button or link
             $full_or_partial_text_link = $this->_getFullOrPartialTextButtonOrLink(
-                $db, $table, $sql_query, $goto
+                $table, $sql_query, $goto
             );
         }
 
         // Start of form for multi-rows edit/delete/export
         $table_headers_html .= $this->_getFormForMultiRowOperations(
-            $db, $table, $is_display['del_lnk']
+            $table, $is_display['del_lnk']
         );
 
         // 1. Displays the full/partial text button (part 1)...
@@ -972,7 +974,7 @@ class PMA_DisplayResults
             if (isset($analyzed_sql[0]) && is_array($analyzed_sql[0])) {
                 foreach ($analyzed_sql[0]['table_ref'] as $tbl) {
                     $tb = $tbl['table_true_name'];
-                    $comments_map[$tb] = PMA_getComments($db, $tb);
+                    $comments_map[$tb] = PMA_getComments($this->_db, $tb);
                     unset($tb);
                 }
             }
@@ -984,7 +986,7 @@ class PMA_DisplayResults
             && ! $_SESSION['tmp_user_values']['hide_transformation']
         ) {
             include_once './libraries/transformations.lib.php';
-            $GLOBALS['mime_map'] = PMA_getMIME($db, $table);
+            $GLOBALS['mime_map'] = PMA_getMIME($this->_db, $table);
         }
 
         // See if we have to highlight any header fields of a WHERE query.
@@ -1092,7 +1094,7 @@ class PMA_DisplayResults
                 }
 
                 $_url_params = array(
-                    'db'                => $db,
+                    'db'                => $this->_db,
                     'table'             => $table,
                     'sql_query'         => $sorted_sql_query,
                     'session_max_rows'  => $session_max_rows
@@ -1201,7 +1203,6 @@ class PMA_DisplayResults
     /**
      * Prepare sort by key dropdown - html code segment
      *
-     * @param string $db                 the database name
      * @param string $table              the table name
      * @param array  $indexes            the indexes of the table for sort criteria
      * @param string $sort_expression    the sort expression
@@ -1214,13 +1215,13 @@ class PMA_DisplayResults
      * @see     _getTableHeaders()
      */
     private function _getSortByKeyDropDown(
-        $db, $table, $indexes, $sort_expression, $unsorted_sql_query
+        $table, $indexes, $sort_expression, $unsorted_sql_query
     ) {
 
         $drop_down_html = '';
 
         $drop_down_html .= '<form action="sql.php" method="post">' . "\n"
-            . PMA_generate_common_hidden_inputs($db, $table)
+            . PMA_generate_common_hidden_inputs($this->_db, $table)
             . __('Sort by key')
             . ': <select name="sql_query" class="autosubmit">' . "\n";
 
@@ -1335,7 +1336,6 @@ class PMA_DisplayResults
     /**
      * Prepare option fields block
      *
-     * @param string $db        the database name
      * @param string $table     the table name
      * @param string $sql_query the SQL query
      * @param string $goto      the URL to go back in case of errors
@@ -1346,7 +1346,7 @@ class PMA_DisplayResults
      *
      * @see     _getTableHeaders()
      */
-    private function  _getOptionsBlock($db, $table, $sql_query, $goto)
+    private function  _getOptionsBlock($table, $sql_query, $goto)
     {
 
         $options_html = '';
@@ -1361,7 +1361,7 @@ class PMA_DisplayResults
 
         $options_html .= '>';
         $url_params = array(
-            'db' => $db,
+            'db' => $this->_db,
             'table' => $table,
             'sql_query' => $sql_query,
             'goto' => $goto,
@@ -1461,7 +1461,6 @@ class PMA_DisplayResults
     /**
      * Get full/partial text button or link
      *
-     * @param string $db        the database name
      * @param string $table     the table name
      * @param string $sql_query the SQL query
      * @param string $goto      the URL to go back in case of errors
@@ -1472,12 +1471,12 @@ class PMA_DisplayResults
      *
      * @see     _getTableHeaders()
      */
-    private function _getFullOrPartialTextButtonOrLink($db, $table,
+    private function _getFullOrPartialTextButtonOrLink($table,
         $sql_query, $goto
     ) {
 
         $url_params_full_text = array(
-            'db' => $db,
+            'db' => $this->_db,
             'table' => $table,
             'sql_query' => $sql_query,
             'goto' => $goto,
@@ -1507,7 +1506,6 @@ class PMA_DisplayResults
     /**
      * Prepare html form for multi row operations
      *
-     * @param string $db      the database name
      * @param string $table   the table name
      * @param string $del_lnk the delete link of current row
      *
@@ -1517,7 +1515,7 @@ class PMA_DisplayResults
      *
      * @see     _getTableHeaders()
      */
-    private function _getFormForMultiRowOperations($db, $table, $del_lnk)
+    private function _getFormForMultiRowOperations($table, $del_lnk)
     {
 
         $form_html = '';
@@ -1532,7 +1530,7 @@ class PMA_DisplayResults
             }
 
             $form_html .= '>' . "\n"
-                . PMA_generate_common_hidden_inputs($db, $table, 1)
+                . PMA_generate_common_hidden_inputs($this->_db, $table, 1)
                 . '<input type="hidden" name="goto" value="sql.php" />' . "\n";
         }
 
@@ -2022,7 +2020,6 @@ class PMA_DisplayResults
      *
      * @return string $table_body_html   html content
      *
-     * @global string  $db                the database name
      * @global string  $table             the table name
      * @global string  $goto              the URL to go back in case of errors
      * @global string  $sql_query         the SQL query
@@ -2041,7 +2038,7 @@ class PMA_DisplayResults
     private function _getTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
     {
 
-        global $db, $table, $goto;
+        global $table, $goto;
         global $sql_query, $fields_meta, $fields_cnt;
         global $vertical_display, $highlight_columns;
         global $row; // mostly because of browser transformations,
@@ -2137,7 +2134,7 @@ class PMA_DisplayResults
                     list($edit_url, $copy_url, $edit_str, $copy_str,
                         $edit_anchor_class)
                             = $this->_getModifiedLinks(
-                                $db, $table, $where_clause,
+                                $table, $where_clause,
                                 $clause_is_unique, $url_sql_query
                             );
 
@@ -2150,7 +2147,7 @@ class PMA_DisplayResults
 
                     list($del_query, $del_url, $del_str, $js_conf)
                         = $this->_getDeleteAndKillLinks(
-                            $db, $table, $where_clause, $clause_is_unique,
+                            $table, $where_clause, $clause_is_unique,
                             $url_sql_query, $goto, $is_display['del_lnk']
                         );
 
@@ -2273,7 +2270,7 @@ class PMA_DisplayResults
                 } // end if mime/transformation works.
 
                 $_url_params = array(
-                    'db'            => $db,
+                    'db'            => $this->_db,
                     'table'         => $table,
                     'where_clause'  => $where_clause,
                     'transform_key' => $meta->name,
@@ -2581,7 +2578,6 @@ class PMA_DisplayResults
     /**
      * Get modified links
      *
-     * @param string  $db               the database name
      * @param string  $table            the table name
      * @param string  $where_clause     the where clause of the sql
      * @param boolean $clause_is_unique the unique condition of clause
@@ -2595,11 +2591,11 @@ class PMA_DisplayResults
      * @see     _getTableBody()
      */
     private function _getModifiedLinks(
-        $db, $table, $where_clause, $clause_is_unique, $url_sql_query
+        $table, $where_clause, $clause_is_unique, $url_sql_query
     ) {
 
         $_url_params = array(
-                'db'               => $db,
+                'db'               => $this->_db,
                 'table'            => $table,
                 'where_clause'     => $where_clause,
                 'clause_is_unique' => $clause_is_unique,
@@ -2634,7 +2630,6 @@ class PMA_DisplayResults
     /**
      * Get delete and kill links
      *
-     * @param string  $db               the database name
      * @param string  $table            the table name
      * @param string  $where_clause     the where clause of the sql
      * @param boolean $clause_is_unique the unique condition of clause
@@ -2649,14 +2644,14 @@ class PMA_DisplayResults
      *
      * @see     _getTableBody()
      */
-    private function _getDeleteAndKillLinks($db, $table, $where_clause,
+    private function _getDeleteAndKillLinks($table, $where_clause,
         $clause_is_unique, $url_sql_query, $goto, $del_lnk
     ) {
 
         if ($del_lnk == self::DELETE_ROW) { // delete row case
 
             $_url_params = array(
-                    'db'        => $db,
+                    'db'        => $this->_db,
                     'table'     => $table,
                     'sql_query' => $url_sql_query,
                     'message_to_show' => __('The row has been deleted'),
@@ -2665,13 +2660,13 @@ class PMA_DisplayResults
 
             $lnk_goto = 'sql.php' . PMA_generate_common_url($_url_params, 'text');
 
-            $del_query = 'DELETE FROM ' . PMA_backquote($db) . '.'
+            $del_query = 'DELETE FROM ' . PMA_backquote($this->_db) . '.'
                 . PMA_backquote($table)
                 . ' WHERE ' . $where_clause .
                 ($clause_is_unique ? '' : ' LIMIT 1');
 
             $_url_params = array(
-                    'db'        => $db,
+                    'db'        => $this->_db,
                     'table'     => $table,
                     'sql_query' => $del_query,
                     'message_to_show' => __('The row has been deleted'),
@@ -2679,7 +2674,7 @@ class PMA_DisplayResults
                 );
             $del_url  = 'sql.php' . PMA_generate_common_url($_url_params);
 
-            $js_conf  = 'DELETE FROM ' . PMA_jsFormat($db) . '.'
+            $js_conf  = 'DELETE FROM ' . PMA_jsFormat($this->_db) . '.'
                 . PMA_jsFormat($table)
                 . ' WHERE ' . PMA_jsFormat($where_clause, false)
                 . ($clause_is_unique ? '' : ' LIMIT 1');
@@ -2689,7 +2684,7 @@ class PMA_DisplayResults
         } elseif ($del_lnk == self::KILL_PROCESS) { // kill process case
 
             $_url_params = array(
-                    'db'        => $db,
+                    'db'        => $this->_db,
                     'table'     => $table,
                     'sql_query' => $url_sql_query,
                     'goto'      => 'main.php',
@@ -3730,7 +3725,6 @@ class PMA_DisplayResults
      *
      * @return sting                        Generated HTML content for resulted table
      *
-     * @global string   $db                the database name
      * @global string   $table             the table name
      * @global string   $goto              the URL to go back in case of errors
      * @global string   $sql_query         the current SQL query
@@ -3757,7 +3751,7 @@ class PMA_DisplayResults
     public function getTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     {
 
-        global $db, $table, $goto;
+        global $table, $goto;
         global $sql_query, $num_rows, $unlim_num_rows, $fields_meta, $fields_cnt;
         global $vertical_display, $highlight_columns;
         global $cfgRelation;
@@ -3829,7 +3823,7 @@ class PMA_DisplayResults
         if (($is_display['nav_bar'] == '1') && isset($pos_next)) {
 
             $message = $this->_setMessageInformation(
-                $db, $table, $sorted_column_message,
+                $table, $sorted_column_message,
                 $analyzed_sql[0]['limit_clause'], $unlim_num_rows,
                 $total, $pos_next, $pre_count, $after_count
             );
@@ -3905,7 +3899,7 @@ class PMA_DisplayResults
             // configuration storage. If no PMA storage, we won't be able
             // to use the "column to display" notion (for example show
             // the name related to a numeric id).
-            $exist_rel = PMA_getForeigners($db, $table, '', self::POSITION_BOTH);
+            $exist_rel = PMA_getForeigners($this->_db, $table, '', self::POSITION_BOTH);
 
             if ($exist_rel) {
 
@@ -3955,7 +3949,7 @@ class PMA_DisplayResults
 
             $table_html .= $this->_getMultiRowOperationLinks(
                 $dt_result, $fields_cnt, $fields_meta, $num_rows, $analyzed_sql,
-                $db, $table, $sql_query, $goto, $is_display['del_lnk']
+                $table, $sql_query, $goto, $is_display['del_lnk']
             );
 
         }
@@ -4183,7 +4177,6 @@ class PMA_DisplayResults
     /**
      * Set the content need to be show in message
      *
-     * @param string  $db                    the database name
      * @param string  $table                 the table name
      * @param string  $sorted_column_message the message for sorted column
      * @param string  $limit_clause          the limit clause of analyzed query
@@ -4204,7 +4197,7 @@ class PMA_DisplayResults
      * @see     getTable()
      */
     private function _setMessageInformation(
-        $db, $table, $sorted_column_message, $limit_clause, $unlim_num_rows,
+        $table, $sorted_column_message, $limit_clause, $unlim_num_rows,
         $total, $pos_next, $pre_count, $after_count
     ) {
 
@@ -4239,7 +4232,7 @@ class PMA_DisplayResults
 
         }
 
-        if (PMA_Table::isView($db, $table)
+        if (PMA_Table::isView($this->_db, $table)
             && ($total == $GLOBALS['cfg']['MaxExactCountViews'])
         ) {
 
@@ -4307,7 +4300,6 @@ class PMA_DisplayResults
      * @param integer $num_rows     the total number of rows returned
      *                              by the SQL query
      * @param array   $analyzed_sql the analyzed query
-     * @param string  $db           the database name
      * @param string  $table        the table name
      * @param string  $sql_query    the current SQL query
      * @param string  $goto         the URL to go back in case of errors
@@ -4321,14 +4313,14 @@ class PMA_DisplayResults
      */
     private function _getMultiRowOperationLinks(
         &$dt_result, $fields_cnt, $fields_meta, $num_rows, $analyzed_sql,
-        $db, $table, $sql_query, $goto, $del_link
+        $table, $sql_query, $goto, $del_link
     ) {
 
         $links_html = '';
         $delete_text = ($del_link == self::DELETE_ROW) ? __('Delete') : __('Kill');
 
         $_url_params = array(
-            'db'        => $db,
+            'db'        => $this->_db,
             'table'     => $table,
             'sql_query' => $sql_query,
             'goto'      => $goto,
@@ -4432,7 +4424,6 @@ class PMA_DisplayResults
      *
      * @return string                       html content
      *
-     * @global string   $db             the database name
      * @global string   $table          the table name
      * @global string   $sql_query      the current SQL query
      * @global integer  $unlim_num_rows the total number of rows returned by the
@@ -4448,7 +4439,7 @@ class PMA_DisplayResults
     private function _getResultsOperations($the_disp_mode, $analyzed_sql)
     {
 
-        global $db, $table, $sql_query, $unlim_num_rows, $fields_meta;
+        global $table, $sql_query, $unlim_num_rows, $fields_meta;
 
         $results_operations_html = '';
         $header_shown = false;
@@ -4465,7 +4456,7 @@ class PMA_DisplayResults
                 }
 
                 $_url_params = array(
-                    'db'        => $db,
+                    'db'        => $this->_db,
                     'table'     => $table,
                     'printview' => '1',
                     'sql_query' => $sql_query,
@@ -4717,8 +4708,6 @@ class PMA_DisplayResults
         $where_comparison, $transform_options, $is_field_truncated
     ) {
 
-        global $db;
-
         $result = '<td class="'
             . $this->_addClass(
                 $class, $condition_field, $meta, $nowrap,
@@ -4842,11 +4831,11 @@ class PMA_DisplayResults
             $where_comparison = " = '" . $data . "'";
 
             $_url_params_for_show_data_row = array(
-                'db'    => $db,
+                'db'    => $this->_db,
                 'table' => $meta->orgtable,
                 'pos'   => '0',
                 'sql_query' => 'SELECT * FROM '
-                                    . PMA_backquote($db) . '.'
+                                    . PMA_backquote($this->_db) . '.'
                                     . PMA_backquote($meta->orgtable)
                                     . ' WHERE '
                                     . PMA_backquote($meta->orgname)

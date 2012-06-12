@@ -294,7 +294,12 @@ if (! defined('PMA_CHK_DROP')
 require_once './libraries/Index.class.php';
 
 require_once 'libraries/DisplayResults.class.php';
-$displayResultsObject = new PMA_DisplayResults();
+
+$displayResultsObject = new PMA_DisplayResults(
+    $GLOBALS['db'], $GLOBALS['table'], $GLOBALS['goto'], $GLOBALS['sql_query'],
+    $GLOBALS['cfgRelation']
+);
+
 $displayResultsObject->setConfigParamsForDisplayTable();
 
 /**
