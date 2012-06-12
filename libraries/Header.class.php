@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Used to render the header of PMA's pages
  *
  * @package PhpMyAdmin
  */
@@ -194,11 +195,13 @@ class PMA_Header
      * Set the ajax flag to indicate whether
      * we are sevicing an ajax request
      *
+     * @param bool $isAjax Whether we are sevicing an ajax request
+     *
      * @return void
      */
     public function setAjax($isAjax)
     {
-        $this->_isAjax = $isAjax;
+        $this->_isAjax = ($isAjax == true);
     }
 
     /**
@@ -431,7 +434,7 @@ class PMA_Header
      */
     private function _getTitleTag()
     {
-        $retval = "<title>";
+        $retval  = "<title>";
         $retval .= $this->_getPageTitle();
         $retval .= "</title>";
         return $retval;

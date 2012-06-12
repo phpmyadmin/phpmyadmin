@@ -257,11 +257,13 @@ class PMA_Footer
      * Set the ajax flag to indicate whether
      * we are sevicing an ajax request
      *
+     * @param bool $isAjax Whether we are sevicing an ajax request
+     *
      * @return void
      */
     public function setAjax($isAjax)
     {
-        $this->_isAjax = $isAjax;
+        $this->_isAjax = ($isAjax == true);
     }
 
     /**

@@ -97,7 +97,7 @@ class PMA_Response
         $this->_footer = new PMA_Footer();
 
         $this->_isSuccess = true;
-        $this->_isAjax = false;
+        $this->_isAjax    = false;
         if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $this->_isAjax = true;
         }
@@ -123,15 +123,13 @@ class PMA_Response
      * Set the status of an ajax response,
      * whether it is a success or an error
      *
+     * @param bool $state Whether the request was successfully processed
+     *
      * @return void
      */
     public function isSuccess($state)
     {
-        if ($state) {
-            $this->_isSuccess = true;
-        } else {
-            $this->_isSuccess = false;
-        }
+        $this->_isSuccess = ($state == true);
     }
 
     /**
@@ -276,7 +274,7 @@ class PMA_Response
             $this->_JSON['success'] = true;
         } else {
             $this->_JSON['success'] = false;
-            $this->_JSON['error'] = $this->_JSON['message'];
+            $this->_JSON['error']   = $this->_JSON['message'];
             unset($this->_JSON['message']);
         }
 
@@ -300,7 +298,7 @@ class PMA_Response
     {
         $response = PMA_Response::getInstance();
         chdir($response->getCWD());
-        $buffer   = PMA_OutputBuffering::getInstance();
+        $buffer = PMA_OutputBuffering::getInstance();
         if (empty($response->_HTML)) {
             $response->_HTML = $buffer->getContents();
         }
