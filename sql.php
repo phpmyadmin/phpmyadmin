@@ -153,13 +153,11 @@ if (isset($_REQUEST['get_enum_values']) && $_REQUEST['get_enum_values'] == true)
 
     $field_info_result = PMA_DBI_fetch_result($field_info_query, null, null, null, PMA_DBI_QUERY_STORE);
 
-    $search = array('enum', '(', ')', "'");
-
-    $values = explode(',', str_replace($search, '', $field_info_result[0]['Type']));
+    $values = PMA_parseEnumSetValues($field_info_result[0]['Type']);
 
     $dropdown = '<option value="">&nbsp;</option>';
     foreach ($values as $value) {
-        $dropdown .= '<option value="' . htmlspecialchars($value) . '"';
+        $dropdown .= '<option value="' . $value . '"';
         if ($value == $_REQUEST['curr_value']) {
             $dropdown .= ' selected="selected"';
         }
@@ -182,12 +180,11 @@ if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
 
     $selected_values = explode(',', $_REQUEST['curr_value']);
 
-    $search = array('set', '(', ')', "'");
-    $values = explode(',', str_replace($search, '', $field_info_result[0]['Type']));
+    $values = PMA_parseEnumSetValues($field_info_result[0]['Type']);
 
     $select = '';
     foreach ($values as $value) {
-        $select .= '<option value="' . htmlspecialchars($value) . '"';
+        $select .= '<option value="' . $value . '"';
         if (in_array($value, $selected_values, true)) {
             $select .= ' selected="selected"';
         }

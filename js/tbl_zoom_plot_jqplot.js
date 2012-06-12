@@ -139,7 +139,7 @@ $(document).ready(function() {
             'table' : window.parent.table,
             'field' : $('#tableid_0').val(),
             'it' : 0,
-            'token' : window.parent.token,
+            'token' : window.parent.token
         },function(data) {
             $('#tableFieldsId tr:eq(1) td:eq(0)').html(data.field_type);
             $('#tableFieldsId tr:eq(1) td:eq(1)').html(data.field_collation);
@@ -163,7 +163,7 @@ $(document).ready(function() {
             'table' : window.parent.table,
             'field' : $('#tableid_1').val(),
             'it' : 1,
-            'token' : window.parent.token,
+            'token' : window.parent.token
         },function(data) {
             $('#tableFieldsId tr:eq(3) td:eq(0)').html(data.field_type);
             $('#tableFieldsId tr:eq(3) td:eq(1)').html(data.field_collation);
@@ -186,7 +186,7 @@ $(document).ready(function() {
             'table' : window.parent.table,
             'field' : $('#tableid_2').val(),
             'it' : 2,
-            'token' : window.parent.token,
+            'token' : window.parent.token
         },function(data) {
             $('#tableFieldsId tr:eq(6) td:eq(0)').html(data.field_type);
             $('#tableFieldsId tr:eq(6) td:eq(1)').html(data.field_collation);
@@ -207,7 +207,7 @@ $(document).ready(function() {
             'table' : window.parent.table,
             'field' : $('#tableid_3').val(),
             'it' : 3,
-            'token' : window.parent.token,
+            'token' : window.parent.token
         },function(data) {
             $('#tableFieldsId tr:eq(8) td:eq(0)').html(data.field_type);
             $('#tableFieldsId tr:eq(8) td:eq(1)').html(data.field_collation);
@@ -264,14 +264,14 @@ $(document).ready(function() {
         //Find changed values by comparing form values with selectedRow Object
         var newValues = new Object();//Stores the values changed from original
         var sqlTypes = new Object();
-        var it = 4;
+        var it = 0;
         var xChange = false;
         var yChange = false;
         for (key in selectedRow) {
             var oldVal = selectedRow[key];
-            var newVal = ($('#fields_null_id_' + it).attr('checked')) ? null : $('#fieldID_' + it).val();
+            var newVal = ($('#edit_fields_null_id_' + it).attr('checked')) ? null : $('#edit_fieldID_' + it).val();
             if (newVal instanceof Array) { // when the column is of type SET
-                newVal =  $('#fieldID_' + it).map(function(){
+                newVal =  $('#edit_fieldID_' + it).map(function(){
                     return $(this).val();
                 }).get().join(",");
             }
@@ -286,7 +286,7 @@ $(document).ready(function() {
                     searchedData[searchedDataKey][yLabel] = newVal;
                 }
             }
-            var $input = $('#fieldID_' + it);
+            var $input = $('#edit_fieldID_' + it);
             if ($input.hasClass('bit')) {
                 sqlTypes[key] = 'bit';
             }
@@ -534,6 +534,7 @@ $(document).ready(function() {
         // resizing, it's ok
         // under IE 9, everything is fine
         currentChart = $.jqplot('querychart', series, options);
+        currentChart.resetZoom();
 
         $('button.button-reset').click(function(event) {
             event.preventDefault();
@@ -551,7 +552,7 @@ $(document).ready(function() {
         $('div#querychart').bind('jqplotDataClick',
             function(event, seriesIndex, pointIndex, data) {
                 searchedDataKey = data[4]; // key from searchedData (global)
-                var field_id = 4;
+                var field_id = 0;
                 var post_params = {
                     'ajax_request' : true,
                     'get_data_row' : true,
@@ -565,8 +566,8 @@ $(document).ready(function() {
                     // Row is contained in data.row_info, 
                     // now fill the displayResultForm with row values
                     for (key in data.row_info) {
-                        $field = $('#fieldID_' + field_id);
-                        $field_null = $('#fields_null_id_' + field_id);
+                        $field = $('#edit_fieldID_' + field_id);
+                        $field_null = $('#edit_fields_null_id_' + field_id);
                         if (data.row_info[key] == null) {
                             $field_null.attr('checked', true);
                             $field.val('');
