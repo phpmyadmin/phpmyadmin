@@ -76,7 +76,7 @@ class PMA_DisplayResults
         $this->_table = $table;
         $this->_goto = $goto;
         $this->_sql_query = $sql_query;
-        $this->_cfgRelation = $cfgRelation;        
+        $this->_cfgRelation = $cfgRelation;
     }
 
 
@@ -354,7 +354,6 @@ class PMA_DisplayResults
      *
      * @param integer $pos_next                  the offset for the "next" page
      * @param integer $pos_prev                  the offset for the "previous" page
-     * @param string  $sql_query                 the URL-encoded query
      * @param string  $id_for_direction_dropdown the id for the direction dropdown
      *
      * @return string                            html content
@@ -371,7 +370,7 @@ class PMA_DisplayResults
      *
      * @see     _getTable()
      */
-    private function _getTableNavigation($pos_next, $pos_prev, $sql_query,
+    private function _getTableNavigation($pos_next, $pos_prev,
         $id_for_direction_dropdown
     ) {
 
@@ -383,7 +382,7 @@ class PMA_DisplayResults
 
         // here, using htmlentities() would cause problems if the query
         // contains accented characters
-        $html_sql_query = htmlspecialchars($sql_query);
+        $html_sql_query = htmlspecialchars($this->_sql_query);
 
         /**
          * @todo move this to a central place
@@ -430,7 +429,7 @@ class PMA_DisplayResults
                 $_url_params = array(
                     'db'        => $this->_db,
                     'table'     => $this->_table,
-                    'sql_query' => $sql_query,
+                    'sql_query' => $this->_sql_query,
                     'goto'      => $this->_goto,
                 );
 
@@ -740,7 +739,6 @@ class PMA_DisplayResults
      *
      * @return string                      html content
      *
-     * @global string   $sql_query        the SQL query
      * @global integer  $num_rows         the total number of rows returned by the
      *                                     SQL query
      * @global array    $vertical_display informations used with vertical display
@@ -755,7 +753,7 @@ class PMA_DisplayResults
         $sort_direction = ''
     ) {
 
-        global $sql_query, $num_rows;
+        global $num_rows;
         global $vertical_display, $highlight_columns;
 
         $table_headers_html = '';
@@ -781,7 +779,7 @@ class PMA_DisplayResults
         if ($is_display['sort_lnk'] == '1') {
 
             // Just as fallback
-            $unsorted_sql_query     = $sql_query;
+            $unsorted_sql_query     = $this->_sql_query;
             if (isset($analyzed_sql[0]['unsorted_query'])) {
                 $unsorted_sql_query = $analyzed_sql[0]['unsorted_query'];
             }
@@ -831,13 +829,10 @@ class PMA_DisplayResults
         // Display options (if we are not in print view)
         if (! (isset($GLOBALS['printview']) && ($GLOBALS['printview'] == '1'))) {
 
-            $table_headers_html 
-                .= $this->_getOptionsBlock($sql_query);
+            $table_headers_html .= $this->_getOptionsBlock();
 
             // prepare full/partial text button or link
-            $full_or_partial_text_link = $this->_getFullOrPartialTextButtonOrLink(
-                $sql_query
-            );
+            $full_or_partial_text_link = $this->_getFullOrPartialTextButtonOrLink();
         }
 
         // Start of form for multi-rows edit/delete/export
@@ -1318,15 +1313,13 @@ class PMA_DisplayResults
     /**
      * Prepare option fields block
      *
-     * @param string $sql_query the SQL query
-     * 
      * @return  string  $options_html   html content
      * 
      * @access  private
      *
      * @see     _getTableHeaders()
      */
-    private function  _getOptionsBlock($sql_query)
+    private function  _getOptionsBlock()
     {
 
         $options_html = '';
@@ -1343,7 +1336,7 @@ class PMA_DisplayResults
         $url_params = array(
             'db' => $this->_db,
             'table' => $this->_table,
-            'sql_query' => $sql_query,
+            'sql_query' => $this->_sql_query,
             'goto' => $this->_goto,
             'display_options_form' => 1
         );
@@ -1441,21 +1434,19 @@ class PMA_DisplayResults
     /**
      * Get full/partial text button or link
      *
-     * @param string $sql_query the SQL query
-     * 
      * @return string html content
      * 
      * @access  private
      *
      * @see     _getTableHeaders()
      */
-    private function _getFullOrPartialTextButtonOrLink($sql_query)
+    private function _getFullOrPartialTextButtonOrLink()
     {
 
         $url_params_full_text = array(
             'db' => $this->_db,
             'table' => $this->_table,
-            'sql_query' => $sql_query,
+            'sql_query' => $this->_sql_query,
             'goto' => $this->_goto,
             'full_text_button' => 1
         );
@@ -1996,7 +1987,6 @@ class PMA_DisplayResults
      *
      * @return string $table_body_html   html content
      *
-     * @global string  $sql_query         the SQL query
      * @global array   $fields_meta       the list of fields properties
      * @global integer $fields_cnt        the total number of fields returned by
      *                                    the SQL query
@@ -2012,7 +2002,7 @@ class PMA_DisplayResults
     private function _getTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
     {
 
-        global $sql_query, $fields_meta, $fields_cnt;
+        global $fields_meta, $fields_cnt;
         global $vertical_display, $highlight_columns;
         global $row; // mostly because of browser transformations,
                      // to make the row-data accessible in a plugin
@@ -2021,7 +2011,7 @@ class PMA_DisplayResults
 
         // query without conditions to shorten URLs when needed, 200 is just
         // guess, it should depend on remaining URL length
-        $url_sql_query = $this->_getUrlSqlQuery($analyzed_sql, $sql_query);
+        $url_sql_query = $this->_getUrlSqlQuery($analyzed_sql);
 
         if (! is_array($map)) {
             $map = array();
@@ -2249,7 +2239,7 @@ class PMA_DisplayResults
                     'transform_key' => $meta->name,
                 );
 
-                if (! empty($sql_query)) {
+                if (! empty($this->_sql_query)) {
                     $_url_params['sql_query'] = $url_sql_query;
                 }
 
@@ -2433,22 +2423,21 @@ class PMA_DisplayResults
      * Get url sql query without conditions to shorten URLs
      *
      * @param array  $analyzed_sql analyzed query
-     * @param string $sql_query    the SQL query
-     *
+     * 
      * @return  string  $url_sql        analyzed sql query
      * 
      * @access  private
      *
      * @see     _getTableBody()
      */
-    private function _getUrlSqlQuery($analyzed_sql, $sql_query)
+    private function _getUrlSqlQuery($analyzed_sql)
     {
 
         if (isset($analyzed_sql)
             && isset($analyzed_sql[0])
             && isset($analyzed_sql[0]['querytype'])
             && ($analyzed_sql[0]['querytype'] == self::QUERY_TYPE_SELECT)
-            && (strlen($sql_query) > 200)
+            && (strlen($this->_sql_query) > 200)
         ) {
 
             $url_sql_query = 'SELECT ';
@@ -2464,7 +2453,7 @@ class PMA_DisplayResults
             return $url_sql_query;
         }
 
-        return $sql_query;
+        return $this->_sql_query;
 
     } // end of the '_getUrlSqlQuery()' function
 
@@ -3695,7 +3684,6 @@ class PMA_DisplayResults
      *
      * @return sting                        Generated HTML content for resulted table
      *
-     * @global string   $sql_query         the current SQL query
      * @global integer  $num_rows          the total number of rows returned by the
      *                                      SQL query
      * @global integer  $unlim_num_rows    the total number of rows returned by the
@@ -3719,7 +3707,7 @@ class PMA_DisplayResults
     public function getTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     {
 
-        global $sql_query, $num_rows, $unlim_num_rows, $fields_meta, $fields_cnt;
+        global $num_rows, $unlim_num_rows, $fields_meta, $fields_cnt;
         global $vertical_display, $highlight_columns;
         global $cfgRelation;
         global $showtable;
@@ -3795,13 +3783,13 @@ class PMA_DisplayResults
                 $total, $pos_next, $pre_count, $after_count
             );
 
-            $table_html .= PMA_getMessage($message, $sql_query, 'success');
+            $table_html .= PMA_getMessage($message, $this->_sql_query, 'success');
 
         } elseif (! isset($GLOBALS['printview']) || ($GLOBALS['printview'] != '1')) {
 
             $table_html .= PMA_getMessage(
                 __('Your SQL query has been executed successfully'),
-                $sql_query, 'success'
+                $this->_sql_query, 'success'
             );
         }
 
@@ -3826,7 +3814,7 @@ class PMA_DisplayResults
         ) {
 
             $table_html .= $this->_getTableNavigation(
-                $pos_next, $pos_prev, $sql_query, 'top_direction_dropdown'
+                $pos_next, $pos_prev, 'top_direction_dropdown'
             )
             . "\n";
 
@@ -3916,7 +3904,7 @@ class PMA_DisplayResults
 
             $table_html .= $this->_getMultiRowOperationLinks(
                 $dt_result, $fields_cnt, $fields_meta, $num_rows, $analyzed_sql,
-                $sql_query, $is_display['del_lnk']
+                $is_display['del_lnk']
             );
 
         }
@@ -3929,7 +3917,7 @@ class PMA_DisplayResults
 
             $table_html .= '<br />' . "\n";
             $table_html .= $this->_getTableNavigation(
-                $pos_next, $pos_prev, $sql_query, 'bottom_direction_dropdown'
+                $pos_next, $pos_prev, 'bottom_direction_dropdown'
             );
 
         } elseif (! isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
@@ -4265,7 +4253,6 @@ class PMA_DisplayResults
      * @param integer $num_rows     the total number of rows returned
      *                              by the SQL query
      * @param array   $analyzed_sql the analyzed query
-     * @param string  $sql_query    the current SQL query
      * @param string  $del_link     the display element - 'del_link'
      *
      * @return string $links_html html content
@@ -4276,7 +4263,7 @@ class PMA_DisplayResults
      */
     private function _getMultiRowOperationLinks(
         &$dt_result, $fields_cnt, $fields_meta, $num_rows, $analyzed_sql,
-        $sql_query, $del_link
+        $del_link
     ) {
 
         $links_html = '';
@@ -4285,7 +4272,7 @@ class PMA_DisplayResults
         $_url_params = array(
             'db'        => $this->_db,
             'table'     => $this->_table,
-            'sql_query' => $sql_query,
+            'sql_query' => $this->_sql_query,
             'goto'      => $this->_goto,
         );
         $uncheckall_url = 'sql.php' . PMA_generate_common_url($_url_params);
@@ -4350,7 +4337,7 @@ class PMA_DisplayResults
         $links_html .= "\n";
 
         $links_html .= '<input type="hidden" name="sql_query"'
-            .' value="' . htmlspecialchars($sql_query) . '" />' . "\n";
+            .' value="' . htmlspecialchars($this->_sql_query) . '" />' . "\n";
 
         if (! empty($GLOBALS['url_query'])) {
             $links_html .= '<input type="hidden" name="url_query"'
@@ -4387,7 +4374,6 @@ class PMA_DisplayResults
      *
      * @return string                       html content
      *
-     * @global string   $sql_query      the current SQL query
      * @global integer  $unlim_num_rows the total number of rows returned by the
      *                                   SQL query without any programmatically
      *                                   appended "LIMIT" clause
@@ -4401,7 +4387,7 @@ class PMA_DisplayResults
     private function _getResultsOperations($the_disp_mode, $analyzed_sql)
     {
 
-        global $sql_query, $unlim_num_rows, $fields_meta;
+        global $unlim_num_rows, $fields_meta;
 
         $results_operations_html = '';
         $header_shown = false;
@@ -4421,7 +4407,7 @@ class PMA_DisplayResults
                     'db'        => $this->_db,
                     'table'     => $this->_table,
                     'printview' => '1',
-                    'sql_query' => $sql_query,
+                    'sql_query' => $this->_sql_query,
                 );
                 $url_query = PMA_generate_common_url($_url_params);
 
