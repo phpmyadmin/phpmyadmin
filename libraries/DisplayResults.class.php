@@ -309,8 +309,6 @@ class PMA_DisplayResults
      *
      * @return string                     html content
      *
-     * @global string   $goto           the URL to go back in case of errors
-     *
      * @access  private
      *
      * @see     _getMoveBackwardButtonsForTableNavigation(),
@@ -319,8 +317,6 @@ class PMA_DisplayResults
     private function _getTableNavigationButton($caption, $title, $pos,
         $html_sql_query, $onsubmit = '', $input_for_real_end = '', $onclick = ''
     ) {
-
-        global $goto;
 
         $caption_output = '';
         // for true or 'both'
@@ -342,7 +338,7 @@ class PMA_DisplayResults
             . '<input type="hidden" name="sql_query" value="'
             . $html_sql_query . '" />'
             . '<input type="hidden" name="pos" value="' . $pos . '" />'
-            . '<input type="hidden" name="goto" value="' . $goto . '" />'
+            . '<input type="hidden" name="goto" value="' . $this->_goto . '" />'
             . $input_for_real_end
             . '<input type="submit" name="navig"'
             . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax" ' : '' )
@@ -363,7 +359,6 @@ class PMA_DisplayResults
      *
      * @return string                            html content
      *
-     * @global string   $goto           the URL to go back in case of errors
      * @global integer  $num_rows       the total number of rows returned by the
      *                                   SQL query
      * @global integer  $unlim_num_rows the total number of rows returned by the
@@ -380,7 +375,6 @@ class PMA_DisplayResults
         $id_for_direction_dropdown
     ) {
 
-        global $goto;
         global $num_rows, $unlim_num_rows;
         global $is_innodb;
         global $showtable;
@@ -437,7 +431,7 @@ class PMA_DisplayResults
                     'db'        => $this->_db,
                     'table'     => $this->_table,
                     'sql_query' => $sql_query,
-                    'goto'      => $goto,
+                    'goto'      => $this->_goto,
                 );
 
                 //<form> to keep the form alignment of button < and <<
@@ -463,7 +457,7 @@ class PMA_DisplayResults
         ) {
 
             $table_navigation_html .= $this->_getShowAllButtonForTableNavigation(
-                $html_sql_query, $goto
+                $html_sql_query
             );
 
         } // end show all
@@ -534,7 +528,7 @@ class PMA_DisplayResults
         $table_navigation_html .= PMA_generate_common_hidden_inputs($this->_db, $this->_table);
 
         $table_navigation_html .= $this->_getAdditionalFieldsForTableNavigation(
-            $html_sql_query, $goto, $pos_next,
+            $html_sql_query, $pos_next,
             $unlim_num_rows, $id_for_direction_dropdown
         );
 
@@ -578,15 +572,14 @@ class PMA_DisplayResults
      * Prepare Show All button for table navigation
      *
      * @param string $html_sql_query the sql encoded by html special characters
-     * @param string $goto           the URL to go back in case of errors
-     *
+     * 
      * @return  string                          html content
      * 
      * @access  private
      *
      * @see     _getTableNavigation()
      */
-    private function _getShowAllButtonForTableNavigation($html_sql_query, $goto)
+    private function _getShowAllButtonForTableNavigation($html_sql_query)
     {
         return "\n"
             . '<td>'
@@ -596,7 +589,7 @@ class PMA_DisplayResults
             . $html_sql_query . '" />'
             . '<input type="hidden" name="pos" value="0" />'
             . '<input type="hidden" name="session_max_rows" value="all" />'
-            . '<input type="hidden" name="goto" value="' . $goto . '" />'
+            . '<input type="hidden" name="goto" value="' . $this->_goto . '" />'
             . '<input type="submit" name="navig" value="' . __('Show all') . '" />'
             . '</form>'
             . '</td>';
@@ -667,7 +660,6 @@ class PMA_DisplayResults
      *
      * @param string  $html_sql_query            the sql encoded by html special
      *                                           characters
-     * @param string  $goto                      the URL to go back in case of errors
      * @param integer $pos_next                  the offset for the "next" page
      * @param integer $unlim_num_rows            the total number of rows returned
      *                                            by the SQL query without any
@@ -682,7 +674,7 @@ class PMA_DisplayResults
      * @see     _getTableNavigation()
      */
     private function _getAdditionalFieldsForTableNavigation(
-        $html_sql_query, $goto, $pos_next,
+        $html_sql_query, $pos_next,
         $unlim_num_rows, $id_for_direction_dropdown
     ) {
 
@@ -690,7 +682,7 @@ class PMA_DisplayResults
 
         $additional_fields_html .= '<input type="hidden" name="sql_query" '
             . 'value="' . $html_sql_query . '" />'
-            . '<input type="hidden" name="goto" value="' . $goto . '" />'
+            . '<input type="hidden" name="goto" value="' . $this->_goto . '" />'
             . '<input type="submit" name="navig"'
             . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '')
             . ' value="' . __('Show') . ' :" />'
@@ -748,7 +740,6 @@ class PMA_DisplayResults
      *
      * @return string                      html content
      *
-     * @global string   $goto             the URL to go back in case of errors
      * @global string   $sql_query        the SQL query
      * @global integer  $num_rows         the total number of rows returned by the
      *                                     SQL query
@@ -764,7 +755,6 @@ class PMA_DisplayResults
         $sort_direction = ''
     ) {
 
-        global $goto;
         global $sql_query, $num_rows;
         global $vertical_display, $highlight_columns;
 
@@ -842,11 +832,11 @@ class PMA_DisplayResults
         if (! (isset($GLOBALS['printview']) && ($GLOBALS['printview'] == '1'))) {
 
             $table_headers_html 
-                .= $this->_getOptionsBlock($sql_query, $goto);
+                .= $this->_getOptionsBlock($sql_query);
 
             // prepare full/partial text button or link
             $full_or_partial_text_link = $this->_getFullOrPartialTextButtonOrLink(
-                $sql_query, $goto
+                $sql_query
             );
         }
 
@@ -1329,15 +1319,14 @@ class PMA_DisplayResults
      * Prepare option fields block
      *
      * @param string $sql_query the SQL query
-     * @param string $goto      the URL to go back in case of errors
-     *
+     * 
      * @return  string  $options_html   html content
      * 
      * @access  private
      *
      * @see     _getTableHeaders()
      */
-    private function  _getOptionsBlock($sql_query, $goto)
+    private function  _getOptionsBlock($sql_query)
     {
 
         $options_html = '';
@@ -1355,7 +1344,7 @@ class PMA_DisplayResults
             'db' => $this->_db,
             'table' => $this->_table,
             'sql_query' => $sql_query,
-            'goto' => $goto,
+            'goto' => $this->_goto,
             'display_options_form' => 1
         );
 
@@ -1453,22 +1442,21 @@ class PMA_DisplayResults
      * Get full/partial text button or link
      *
      * @param string $sql_query the SQL query
-     * @param string $goto      the URL to go back in case of errors
-     *
+     * 
      * @return string html content
      * 
      * @access  private
      *
      * @see     _getTableHeaders()
      */
-    private function _getFullOrPartialTextButtonOrLink($sql_query, $goto)
+    private function _getFullOrPartialTextButtonOrLink($sql_query)
     {
 
         $url_params_full_text = array(
             'db' => $this->_db,
             'table' => $this->_table,
             'sql_query' => $sql_query,
-            'goto' => $goto,
+            'goto' => $this->_goto,
             'full_text_button' => 1
         );
 
@@ -2008,7 +1996,6 @@ class PMA_DisplayResults
      *
      * @return string $table_body_html   html content
      *
-     * @global string  $goto              the URL to go back in case of errors
      * @global string  $sql_query         the SQL query
      * @global array   $fields_meta       the list of fields properties
      * @global integer $fields_cnt        the total number of fields returned by
@@ -2025,7 +2012,6 @@ class PMA_DisplayResults
     private function _getTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
     {
 
-        global $goto;
         global $sql_query, $fields_meta, $fields_cnt;
         global $vertical_display, $highlight_columns;
         global $row; // mostly because of browser transformations,
@@ -2135,7 +2121,7 @@ class PMA_DisplayResults
                     list($del_query, $del_url, $del_str, $js_conf)
                         = $this->_getDeleteAndKillLinks(
                             $where_clause, $clause_is_unique,
-                            $url_sql_query, $goto, $is_display['del_lnk']
+                            $url_sql_query, $is_display['del_lnk']
                         );
 
                 } // end if (1.2.2)
@@ -2619,7 +2605,6 @@ class PMA_DisplayResults
      * @param string  $where_clause     the where clause of the sql
      * @param boolean $clause_is_unique the unique condition of clause
      * @param string  $url_sql_query    the analyzed sql query
-     * @param string  $goto             the URL to go back in case of errors
      * @param string  $del_lnk          the delete link of current row
      *
      * @return  array                       4 element array - $del_query,
@@ -2630,7 +2615,7 @@ class PMA_DisplayResults
      * @see     _getTableBody()
      */
     private function _getDeleteAndKillLinks($where_clause,
-        $clause_is_unique, $url_sql_query, $goto, $del_lnk
+        $clause_is_unique, $url_sql_query, $del_lnk
     ) {
 
         if ($del_lnk == self::DELETE_ROW) { // delete row case
@@ -2640,7 +2625,7 @@ class PMA_DisplayResults
                     'table'     => $this->_table,
                     'sql_query' => $url_sql_query,
                     'message_to_show' => __('The row has been deleted'),
-                    'goto'      => (empty($goto) ? 'tbl_sql.php' : $goto),
+                    'goto'      => (empty($this->_goto) ? 'tbl_sql.php' : $this->_goto),
                 );
 
             $lnk_goto = 'sql.php' . PMA_generate_common_url($_url_params, 'text');
@@ -3710,7 +3695,6 @@ class PMA_DisplayResults
      *
      * @return sting                        Generated HTML content for resulted table
      *
-     * @global string   $goto              the URL to go back in case of errors
      * @global string   $sql_query         the current SQL query
      * @global integer  $num_rows          the total number of rows returned by the
      *                                      SQL query
@@ -3735,7 +3719,6 @@ class PMA_DisplayResults
     public function getTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     {
 
-        global $goto;
         global $sql_query, $num_rows, $unlim_num_rows, $fields_meta, $fields_cnt;
         global $vertical_display, $highlight_columns;
         global $cfgRelation;
@@ -3933,7 +3916,7 @@ class PMA_DisplayResults
 
             $table_html .= $this->_getMultiRowOperationLinks(
                 $dt_result, $fields_cnt, $fields_meta, $num_rows, $analyzed_sql,
-                $sql_query, $goto, $is_display['del_lnk']
+                $sql_query, $is_display['del_lnk']
             );
 
         }
@@ -4283,7 +4266,6 @@ class PMA_DisplayResults
      *                              by the SQL query
      * @param array   $analyzed_sql the analyzed query
      * @param string  $sql_query    the current SQL query
-     * @param string  $goto         the URL to go back in case of errors
      * @param string  $del_link     the display element - 'del_link'
      *
      * @return string $links_html html content
@@ -4294,7 +4276,7 @@ class PMA_DisplayResults
      */
     private function _getMultiRowOperationLinks(
         &$dt_result, $fields_cnt, $fields_meta, $num_rows, $analyzed_sql,
-        $sql_query, $goto, $del_link
+        $sql_query, $del_link
     ) {
 
         $links_html = '';
@@ -4304,7 +4286,7 @@ class PMA_DisplayResults
             'db'        => $this->_db,
             'table'     => $this->_table,
             'sql_query' => $sql_query,
-            'goto'      => $goto,
+            'goto'      => $this->_goto,
         );
         $uncheckall_url = 'sql.php' . PMA_generate_common_url($_url_params);
 
