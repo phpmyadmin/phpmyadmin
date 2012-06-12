@@ -749,7 +749,6 @@ function PMA_tblSearchGetColumnProperties($db, $table, $columnNames, $columnType
 function PMA_tblSearchGetRowsNormal($db, $table, $columnNames, $columnTypes,
     $columnCollations, $columnNullFlags, $geomColumnFlag, $foreigners
 ) {
-    $titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
     $geom_types = PMA_getGISDatatypes();
     $odd_row = true;
     $html_output = '';
@@ -1030,6 +1029,93 @@ function PMA_tblSearchGetSelectionForm($goto, $db, $table, $columnNames,
     } else {
         $html_output .= '<div id="sqlqueryresults"></div></fieldset>';
     }
+    return $html_output;
+}
+
+/**
+ * Provides form for displaying point data and also the scatter plot
+ * (for tbl_zoom_select.php)
+ *
+ * @param string $goto            Goto URL
+ * @param string $db              Selected Database
+ * @param string $table           Selected Table
+ * @param array  $columnNames     Names of columns in the table
+ * @param array  $columnTypes     Types of columns in the table
+ * @param array  $columnNullFlags Null information of columns
+ * @param array  $foreigners      Array of foreign keys
+ * @param array  $data            Array containing SQL query data
+ *
+ * @return string form's html
+ */
+function PMA_tblSearchGetZoomResultsForm($goto, $db, $table, $columnNames,
+    $columnTypes, $columnNullFlags, $foreigners, $data
+) {
+    $html_output = '';
+    $titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
+    $html_output .= '<form method="post" action="tbl_zoom_select.php"'
+        . ' name="displayResultForm" id="zoom_display_form"'
+        . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '') . '>';
+    $html_output .= PMA_generate_common_hidden_inputs($db, $table);
+    $html_output .= '<input type="hidden" name="goto" value="' . $goto . '" />';
+    $html_output .= '<input type="hidden" name="back" value="tbl_zoom_select.php" />';
+
+    $html_output .= '<fieldset id="displaySection">';
+    $html_output .= '<legend>' . __('Browse/Edit the points') . '</legend>';
+
+    //JSON encode the data(query result)
+    $html_output .= '<center>';
+    if (isset($_POST['zoom_submit']) && ! empty($data)) {
+        $html_output .= '<div id="resizer">';
+        $html_output .= '<center><a href="#" onclick="displayHelp();">'
+            . __('How to use') . '</a></center>';
+        $html_output .= '<div id="querydata" style="display:none">'
+            . json_encode($data) . '</div>';
+        $html_output .= '<div id="querychart"></div>';
+        $html_output .= '<button class="button-reset">'
+            . __('Reset zoom') . '</button>';
+        $html_output .= '</div>';
+    }
+    $html_output .= '</center>';
+
+    //Displays rows in point edit form
+    $html_output .= '<div id="dataDisplay" style="display:none">';
+    $html_output .= '<table><thead>';
+    $html_output .= '<tr>';
+    $html_output .= '<th>' . __('Column') . '</th>'
+        . '<th>' . __('Null') . '</th>'
+        . '<th>' . __('Value') . '</th>';
+    $html_output .= '</tr>';
+    $html_output .= '</thead>';
+
+    $html_output .= '<tbody>';
+    $odd_row = true;
+    for ($column_index = 0; $column_index < count($columnNames); $column_index++) {
+        $fieldpopup = $columnNames[$column_index];
+        $foreignData = PMA_getForeignData($foreigners, $fieldpopup, false, '', '');
+        $html_output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
+        $odd_row = ! $odd_row;
+        //Display column Names
+        $html_output .= '<th>' . htmlspecialchars($columnNames[$column_index])
+            . '</th>';
+        //Null checkbox if column can be null
+        $html_output .= '<th>' . (($columnNullFlags[$column_index] == 'YES')
+            ? '<input type="checkbox" class="checkbox_null"'
+                . ' name="criteriaColumnNullFlags[' . $column_index . ']"'
+                . ' id="edit_fields_null_id_' . $column_index . '" />'
+            : '');
+        $html_output .= '</th>';
+        //Column's Input box
+        $html_output .= '<th>';
+        $html_output .= PMA_getForeignFields_Values(
+            $foreigners, $foreignData, $fieldpopup, $columnTypes, $column_index, $db,
+            $table, $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], '', false, true
+        );
+        $html_output .= '</th></tr>';
+    }
+    $html_output .= '</tbody></table>';
+    $html_output .= '</div>';
+    $html_output .= '<input type="hidden" id="queryID" name="sql_query" />';
+    $html_output .= '</form>';
     return $html_output;
 }
 ?>
