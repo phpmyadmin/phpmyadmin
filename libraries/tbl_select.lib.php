@@ -122,6 +122,144 @@ function PMA_tbl_getSubTabs()
 }
 
 /**
+ * Provides html elements for search criteria inputbox
+ * in case the column's type is geometrical
+ *
+ * @param int  $column_index Column's index
+ * @param bool $in_fbs       Whether we are in 'function based search'
+ *
+ * @return HTML elements.
+ */
+function PMA_tblSearchGetGeometricalInputBox($column_index, $in_fbs)
+{
+    $html_output = '<input type="text" name="criteriaValues[' . $column_index . ']"'
+        . ' size="40" class="textfield" id="field_' . $column_index . '" />';
+
+    if ($in_fbs) {
+        $edit_url = 'gis_data_editor.php?' . PMA_generate_common_url();
+        $edit_str = PMA_getIcon('b_edit.png', __('Edit/Insert'));
+        $html_output .= '<span class="open_search_gis_editor">';
+        $html_output .= PMA_linkOrButton(
+            $edit_url, $edit_str, array(), false, false, '_blank'
+        );
+        $html_output .= '</span>';
+    }
+    return $html_output;
+}
+
+/**
+ * Provides html elements for search criteria inputbox
+ * in case the column is a Foreign Key
+ *
+ * @param array  $foreignData         Foreign keys data
+ * @param string $field               Column name
+ * @param int    $column_index        Column index
+ * @param string $db                  Selected database
+ * @param string $table               Selected table
+ * @param array  $titles              Selected title
+ * @param int    $foreignMaxLimit     Max limit of displaying foreign elements
+ * @param array  $criteriaValues      Array of search criteria inputs
+ * @param string $field_id            Column's inputbox's id
+ * @param bool   $in_zoom_search_edit Whether we are in zoom search edit
+ *
+ * @return HTML elements.
+ */
+function PMA_tblSearchGetForeignKeyInputBox($foreignData, $field, $column_index,
+    $db, $table, $titles, $foreignMaxLimit, $criteriaValues,
+    $field_id, $in_zoom_search_edit = false
+) {
+    $html_output = '';    
+    if (is_array($foreignData['disp_row'])) {
+        $html_output .=  '<select name="criteriaValues[' . $column_index . ']" id="'
+            . $field_id . $column_index .'">';
+        $html_output .= PMA_foreignDropdown(
+            $foreignData['disp_row'], $foreignData['foreign_field'],
+            $foreignData['foreign_display'], '', $foreignMaxLimit
+        );
+        $html_output .= '</select>';
+
+    } elseif ($foreignData['foreign_link'] == true) {
+        $html_output .= '<input type="text" id="' . $field_id . $column_index . '"'
+            . ' name="criteriaValues[' . $column_index . ']" id="field_'
+            . md5($field) . '[' . $column_index .']" class="textfield"'
+            . (isset($criteriaValues[$column_index])
+                && is_string($criteriaValues[$column_index])
+                ? (' value="' . $criteriaValues[$column_index] . '"')
+                : '')
+            . ' />';
+
+        $html_output .=  <<<EOT
+<a target="_blank" onclick="window.open(this.href, 'foreigners', 'width=640,height=240,scrollbars=yes'); return false" href="browse_foreigners.php?
+EOT;
+        $html_output .= '' . PMA_generate_common_url($db, $table)
+            . '&amp;field=' . urlencode($field) . '&amp;fieldkey=' . $column_index
+            . '"';
+        if ($in_zoom_search_edit) {
+            $html_output .= ' class="browse_foreign"';
+        }
+        $html_output .= '>' . str_replace("'", "\'", $titles['Browse']) . '</a>';
+    }
+    return $html_output;
+}
+
+/**
+ * Provides html elements for search criteria inputbox
+ * in case the column is of ENUM or SET type
+ *
+ * @param int    $column_index        Column index
+ * @param array  $criteriaValues      Array of search criteria inputs
+ * @param string $field_type          Column type
+ * @param string $field_id            Column's inputbox's id
+ * @param bool   $in_zoom_search_edit Whether we are in zoom search edit
+ *
+ * @return HTML elements.
+ */
+function PMA_tblSearchGetEnumSetInputBox($column_index, $criteriaValues, $field_type,
+    $field_id, $in_zoom_search_edit = false
+) {
+    $html_output = '';
+    $value = explode(
+        ', ',
+        str_replace("'", '', substr($field_type, 5, -1))
+    );
+    $cnt_value = count($value);
+
+    /*
+     * Enum in edit mode   --> dropdown
+     * Enum in search mode --> multiselect
+     * Set in edit mode    --> multiselect
+     * Set in search mode  --> input (skipped here, so the 'else'
+     *                                 section would handle it)
+     */
+    if ((strncasecmp($field_type, 'enum', 4) && ! $in_zoom_search_edit)
+        || (strncasecmp($field_type, 'set', 3) && $in_zoom_search_edit)
+    ) {
+        $html_output .= '<select name="criteriaValues[' . ($column_index)
+            . '][]" id="' . $field_id . $column_index .'">';
+    } else {
+        $html_output .= '<select name="criteriaValues[' . ($column_index)
+            . '][]" id="' . $field_id . $column_index .'" multiple="multiple" size="'
+            . min(3, $cnt_value) . '">';
+    }
+
+    //Add select options
+    for ($j = 0; $j < $cnt_value; $j++) {
+        if (isset($criteriaValues[$column_index])
+            && is_array($criteriaValues[$column_index])
+            && in_array($value[$j], $criteriaValues[$column_index])
+        ) {
+            $html_output .= '<option value="' . $value[$j] . '" Selected>'
+                . $value[$j] . '</option>';
+        } else {
+            $html_output .= '<option value="' . $value[$j] . '">'
+                . $value[$j] . '</option>';
+        }
+    } // end for
+    $html_output .= '</select>';
+    return $html_output;
+}
+
+/**
  * Creates the HTML content for:
  * 1) Browsing foreign data for a field.
  * 2) Creating elements for search criteria input on fields.
@@ -149,107 +287,27 @@ function PMA_getForeignFields_Values($foreigners, $foreignData, $field,
     $str = '';
     $field_type = (string)$field_type;
     $field_id = ($in_zoom_search_edit) ? 'edit_fieldID_' : 'fieldID_';
-    if ($foreigners
-        && isset($foreigners[$field])
-        && is_array($foreignData['disp_row'])
-    ) {
-        // f o r e i g n    k e y s
-        $str .=  '<select name="criteriaValues[' . $column_index . ']" id="'
-            . $field_id . $column_index .'">';
-        // go back to first row
-        // here, the 4th parameter is empty because there is no current
-        // value of data for the dropdown (the search page initial values
-        // are displayed empty)
-        $str .= PMA_foreignDropdown(
-            $foreignData['disp_row'], $foreignData['foreign_field'],
-            $foreignData['foreign_display'], '', $foreignMaxLimit
-        );
-        $str .= '</select>';
 
-    } elseif ($foreignData['foreign_link'] == true) {
-        if (isset($criteriaValues[$column_index])
-            && is_string($criteriaValues[$column_index])
-        ) {
-            $str .= '<input type="text" id="' . $field_id . $column_index . '"'
-                . ' name="criteriaValues[' . $column_index . ']" value="' 
-                . $criteriaValues[$column_index] . '" id="field_' . md5($field)
-                . '[' . $column_index .']" class="textfield" />';
-        } else {
-            $str .= '<input type="text" id="' . $field_id . $column_index . '"'
-                . ' name="criteriaValues[' . $column_index . ']"'
-                . ' id="field_' . md5($field) . '[' . $column_index .']" '
-                .'class="textfield" />';
-        }
-        $str .=  <<<EOT
-<a target="_blank" onclick="window.open(this.href, 'foreigners', 'width=640,height=240,scrollbars=yes'); return false" href="browse_foreigners.php?
-EOT;
-        $str .= '' . PMA_generate_common_url($db, $table)
-            . '&amp;field=' . urlencode($field) . '&amp;fieldkey=' . $column_index
-            . '"';
-        if ($in_zoom_search_edit) {
-            $str .= ' class="browse_foreign"';
-        }
-        $str .= '>' . str_replace("'", "\'", $titles['Browse']) . '</a>';
+    //Get inputbox based on different column types (Foreign key, geometrical, enum)
+    if ($foreigners && isset($foreigners[$field])) {
+        $str .= PMA_tblSearchGetForeignKeyInputBox(
+            $foreignData, $field, $column_index, $db, $table, $titles,
+            $foreignMaxLimit, $criteriaValues, $field_id
+        );
 
     } elseif (in_array($field_type, PMA_getGISDatatypes())) {
-        // g e o m e t r y
-        $str .= '<input type="text" name="criteriaValues[' . $column_index . ']"'
-            . ' size="40" class="textfield" id="field_' . $column_index . '" />';
-
-        if ($in_fbs) {
-            $edit_url = 'gis_data_editor.php?' . PMA_generate_common_url();
-            $edit_str = PMA_getIcon('b_edit.png', __('Edit/Insert'));
-            $str .= '<span class="open_search_gis_editor">';
-            $str .= PMA_linkOrButton(
-                $edit_url, $edit_str, array(), false, false, '_blank'
-            );
-            $str .= '</span>';
-        }
+        $str .= PMA_tblSearchGetGeometricalInputBox($column_index, $in_fbs);
 
     } elseif (strncasecmp($field_type, 'enum', 4) == 0
         || (strncasecmp($field_type, 'set', 3) == 0 && $in_zoom_search_edit)
     ) {
-        // e n u m s   a n d   s e t s
-
-        // Enum in edit mode   --> dropdown
-        // Enum in search mode --> multiselect
-        // Set in edit mode    --> multiselect
-        // Set in search mode  --> input (skipped here, so the 'else'
-        //                                 section would handle it)
-
-        $value = explode(
-            ', ',
-            str_replace("'", '', substr($field_type, 5, -1))
+        $str .= PMA_tblSearchGetEnumSetInputBox(
+            $column_index, $criteriaValues, $field_type, $field_id,
+            $in_zoom_search_edit = false
         );
-        $cnt_value = count($value);
-
-        if ((strncasecmp($field_type, 'enum', 4) && ! $in_zoom_search_edit)
-            || (strncasecmp($field_type, 'set', 3) && $in_zoom_search_edit)
-        ) {
-            $str .= '<select name="criteriaValues[' . ($column_index)
-                . '][]" id="' . $field_id . $column_index .'">';
-        } else {
-            $str .= '<select name="criteriaValues[' . ($column_index)
-                . '][]" id="' . $field_id . $column_index .'" multiple="multiple" size="'
-                . min(3, $cnt_value) . '">';
-        }
-
-        for ($j = 0; $j < $cnt_value; $j++) {
-            if (isset($criteriaValues[$column_index])
-                && is_array($criteriaValues[$column_index])
-                && in_array($value[$j], $criteriaValues[$column_index])
-            ) {
-                $str .= '<option value="' . $value[$j] . '" Selected>'
-                    . $value[$j] . '</option>';
-            } else {
-                $str .= '<option value="' . $value[$j] . '">'
-                    . $value[$j] . '</option>';
-            }
-        } // end for
-        $str .= '</select>';
 
     } else {
-        // o t h e r   c a s e s
+        // other cases
         $the_class = 'textfield';
 
         if ($field_type == 'date') {
@@ -260,18 +318,14 @@ EOT;
             $the_class .= ' bit';
         }
 
-        if (isset($criteriaValues[$column_index])
-            && is_string($criteriaValues[$column_index])
-        ) {
-            $str .= '<input type="text" name="criteriaValues[' . $column_index . ']"'
-                .' size="40" class="' . $the_class . '" id="' . $field_id
-                . $column_index .'" value = "' . $criteriaValues[$column_index]
-                . '"/>';
-        } else {
-            $str .= '<input type="text" name="criteriaValues[' . $column_index . ']"'
-                .' size="40" class="' . $the_class . '" id="' . $field_id
-                . $column_index .'" />';
-        }
+        $str .= '<input type="text" name="criteriaValues[' . $column_index . ']"'
+            .' size="40" class="' . $the_class . '" id="'
+            . $field_id . $column_index . '"'
+            . (isset($criteriaValues[$column_index])
+                && is_string($criteriaValues[$column_index])
+                ? (' value="' . $criteriaValues[$column_index] . '"')
+                : '')
+            . ' />';
     }
     return $str;
 }
