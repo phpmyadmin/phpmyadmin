@@ -96,14 +96,10 @@ class PMA_Header
      * Whether the HTTP headers (and possibly some HTML)
      * have already been sent to the browser
      *
-     * FIXME: Shouldn't be static or public, but first
-     * need to remove references to it from the code base
-     *
-     * @access public
-     * @static
+     * @access private
      * @var bool
      */
-    public static $headerIsSent;
+    private $_headerIsSent;
 
     /**
      * Creates a new class instance
@@ -126,7 +122,7 @@ class PMA_Header
         $this->_isPrintView = false;
         $this->_scripts     = new PMA_Scripts();
         $this->_addDefaultScripts();
-        self::$headerIsSent = false;
+        $this->_headerIsSent = false;
         // if database storage for user preferences is transient,
         // offer to load exported settings from localStorage
         // (detection will be done in JavaScript)
@@ -272,7 +268,7 @@ class PMA_Header
     public function getDisplay()
     {
         $retval = '';
-        if (! self::$headerIsSent) {
+        if (! $this->_headerIsSent) {
             if (! $this->_isAjax && $this->_isEnabled) {
                 $this->sendHttpHeaders();
                 $retval .= $this->_getHtmlStart();
@@ -358,7 +354,7 @@ class PMA_Header
             // Define the charset to be used
             header('Content-Type: text/html; charset=utf-8');
         }
-        self::$headerIsSent = true;
+        $this->_headerIsSent = true;
     }
 
     /**

@@ -9,10 +9,6 @@
 
 require_once 'libraries/common.inc.php';
 
-if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
-    PMA_Header::$headerIsSent = true;
-}
-
 /**
  * Ajax request
  */
