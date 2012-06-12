@@ -70,13 +70,12 @@ class PMA_DisplayResults
     /**
      * Constructor for PMA_DisplayResults class
      */
-    public function __construct($db, $table, $goto, $sql_query, $cfgRelation)
+    public function __construct($db, $table, $goto, $sql_query)
     {
         $this->_db = $db;
         $this->_table = $table;
         $this->_goto = $goto;
         $this->_sql_query = $sql_query;
-        $this->_cfgRelation = $cfgRelation;
     }
 
 
@@ -3695,7 +3694,6 @@ class PMA_DisplayResults
      * @global array    $vertical_display  informations used with vertical display
      *                                      mode
      * @global array    $highlight_columns column names to highlight
-     * @global array    $cfgRelation       the relation settings
      * @global array    $showtable         table definitions
      * 
      * @return void
@@ -3709,7 +3707,6 @@ class PMA_DisplayResults
 
         global $num_rows, $unlim_num_rows, $fields_meta, $fields_cnt;
         global $vertical_display, $highlight_columns;
-        global $cfgRelation;
         global $showtable;
 
         $table_html = '';
