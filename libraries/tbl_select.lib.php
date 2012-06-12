@@ -280,7 +280,7 @@ function PMA_tblSearchGetEnumSetInputBox($column_index, $criteriaValues, $field_
  * @return string HTML content for viewing foreing data and elements
  * for search criteria input.
  */
-function PMA_getForeignFields_Values($foreigners, $foreignData, $field,
+function PMA_tblSearchGetInputbox($foreigners, $foreignData, $field,
     $field_type, $column_index, $db, $table, $titles, $foreignMaxLimit,
     $criteriaValues, $in_fbs = false, $in_zoom_search_edit = false
 ) {
@@ -773,7 +773,7 @@ function PMA_tblSearchGetColumnProperties($db, $table, $columnNames, $columnType
     $foreignData = PMA_getForeignData(
         $foreigners, $columnNames[$column_index], false, '', ''
     );
-    $value =  PMA_getForeignFields_Values(
+    $value =  PMA_tblSearchGetInputbox(
         $foreigners, $foreignData, $columnNames[$column_index], $type, $search_index,
         $db, $table, $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], $entered_value
     );
@@ -1160,7 +1160,7 @@ function PMA_tblSearchGetZoomResultsForm($goto, $db, $table, $columnNames,
         $html_output .= '</th>';
         //Column's Input box
         $html_output .= '<th>';
-        $html_output .= PMA_getForeignFields_Values(
+        $html_output .= PMA_tblSearchGetInputbox(
             $foreigners, $foreignData, $fieldpopup, $columnTypes, $column_index, $db,
             $table, $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], '', false, true
         );
