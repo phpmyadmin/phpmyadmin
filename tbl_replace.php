@@ -112,6 +112,7 @@ $gis_from_wkb_functions = array(
     'MPolyFromWKB',
 );
 
+$query_fields = array();
 foreach ($loop_array as $rownumber => $where_clause) {
     // skip fields to be ignored
     if (! $using_key && isset($_REQUEST['insert_ignore_' . $where_clause])) {
@@ -183,38 +184,10 @@ foreach ($loop_array as $rownumber => $where_clause) {
             $multi_edit_columns_name, $multi_edit_funcs, $gis_from_text_functions, $val,
             $gis_from_wkb_functions, $func_optional_param, $func_no_param, $key);
 
-        //  i n s e r t
-        if ($is_insert) {
-            // no need to add column into the valuelist
-            if (strlen($cur_value)) {
-                $query_values[] = $cur_value;
-                // first inserted row so prepare the list of fields
-                if (empty($value_sets)) {
-                    $query_fields[] = PMA_backquote($multi_edit_columns_name[$key]);
-                }
-            }
-
-        //  u p d a t e
-        } elseif (!empty($multi_edit_columns_null_prev[$key])
-         && ! isset($multi_edit_columns_null[$key])) {
-            // field had the null checkbox before the update
-            // field no longer has the null checkbox
-            $query_values[] = PMA_backquote($multi_edit_columns_name[$key]) . ' = ' . $cur_value;
-        } elseif (empty($multi_edit_funcs[$key])
-         && isset($multi_edit_columns_prev[$key])
-         && ("'" . PMA_sqlAddSlashes($multi_edit_columns_prev[$key]) . "'" == $val)) {
-            // No change for this column and no MySQL function is used -> next column
-            continue;
-        } elseif (! empty($val)) {
-            // avoid setting a field to NULL when it's already NULL
-            // (field had the null checkbox before the update
-            //  field still has the null checkbox)
-            if (empty($multi_edit_columns_null_prev[$key])
-                || empty($multi_edit_columns_null[$key])
-            ) {
-                 $query_values[] = PMA_backquote($multi_edit_columns_name[$key]) . ' = ' . $cur_value;
-            }
-        }
+        list($query_values, $query_fields) = PMA_getQueryValuesForInsertAndUpdateInMultipleEdit(
+            $multi_edit_columns_name,$multi_edit_columns_null, $val, $multi_edit_columns_prev,
+            $multi_edit_funcs,$is_insert,$query_values, $query_fields, $cur_value, $value_sets,
+            $key, $multi_edit_columns_null_prev);    
     } // end foreach ($multi_edit_colummns as $key => $val)
 
     if (count($query_values) > 0) {

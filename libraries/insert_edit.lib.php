@@ -1870,7 +1870,7 @@ function PMA_getTransformationFunctionAndTransformationOptions($db, $table,
  * @param array $gis_from_wkb_functions     initialy $val is $multi_edit_colummns[$key]
  * @param array $func_optional_param        array('RAND','UNIX_TIMESTAMP')
  * @param array $func_no_param              array of set of string
- * @param string $key                       an md5 of the fieldname
+ * @param string $key                       an md5 of the column name
  * 
  * @return array $val, $cur_value
  */
@@ -1899,6 +1899,61 @@ function PMA_getCurrentValueForMultipleEdit($multi_edit_colummns, $multi_edit_co
         $cur_value = $multi_edit_funcs[$key] . '()';
     }   
     return array($val, $cur_value);
+}
+
+/**
+ * Get query values array and query fileds array for insert and update in multi edit
+ * 
+ * @param array $multi_edit_columns_name        multiple edit columns name array
+ * @param array $multi_edit_columns_null        multiple edit columns name array
+ * @param string $val                           
+ * @param array $multi_edit_columns_prev        multiple edit previous columns array
+ * @param array $multi_edit_funcs               multiple edit functions array
+ * @param boolean $is_insert                    boolean value whether insert or not
+ * @param array $query_values                   SET part of the sql query
+ * @param array $query_fields                   array of query fileds
+ * @param string $current_value                 current value in the column in loop
+ * @param array $value_sets                     array of valu sets
+ * @param string $key                           an md5 of the column name
+ * @param array $multi_edit_columns_null_prev   array of multiple edit columnd null previous
+ * 
+ * @return array ($query_values, $query_fields)
+ */
+function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_name,
+    $multi_edit_columns_null, $val, $multi_edit_columns_prev, $multi_edit_funcs,$is_insert,
+    $query_values, $query_fields, $current_value, $value_sets, $key, $multi_edit_columns_null_prev
+) {     
+    //  i n s e r t
+    if ($is_insert) {
+        // no need to add column into the valuelist
+        if (strlen($current_value)) {
+            $query_values[] = $current_value;
+            // first inserted row so prepare the list of fields
+            if (empty($value_sets)) {
+                $query_fields[] = PMA_backquote($multi_edit_columns_name[$key]);
+            }
+        }
+    //  u p d a t e
+    } elseif (!empty($multi_edit_columns_null_prev[$key])
+     && ! isset($multi_edit_columns_null[$key])) {
+        // field had the null checkbox before the update
+        // field no longer has the null checkbox
+        $query_values[] = PMA_backquote($multi_edit_columns_name[$key]) . ' = ' . $current_value;
+    } elseif (empty($multi_edit_funcs[$key])
+     && isset($multi_edit_columns_prev[$key])
+     && ("'" . PMA_sqlAddSlashes($multi_edit_columns_prev[$key]) . "'" == $val)) {
+        // No change for this column and no MySQL function is used -> next column
+    } elseif (! empty($val)) {
+        // avoid setting a field to NULL when it's already NULL
+        // (field had the null checkbox before the update
+        //  field still has the null checkbox)
+        if (empty($multi_edit_columns_null_prev[$key])
+            || empty($multi_edit_columns_null[$key])
+        ) {
+             $query_values[] = PMA_backquote($multi_edit_columns_name[$key]) . ' = ' . $current_value;
+        }
+    }
+    return array($query_values, $query_fields);
 }
 
 ?>
