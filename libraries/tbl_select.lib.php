@@ -331,6 +331,97 @@ function PMA_tblSearchGetInputbox($foreigners, $foreignData, $field,
 }
 
 /**
+ * Return the where clause in case column's type is ENUM.
+ *
+ * @param mixed  $criteriaValues Search criteria input
+ * @param string $func_type      Search fucntion/operator
+ *
+ * @return string part of where clause.
+ */
+function PMA_tblSearchGetEnumWhereClause($criteriaValues, $func_type)
+{
+    $where = '';
+    if (! empty($criteriaValues)) {
+        if (! is_array($criteriaValues)) {
+            $criteriaValues = explode(',', $criteriaValues);
+        }
+        $enum_selected_count = count($criteriaValues);
+        if ($func_type == '=' && $enum_selected_count > 1) {
+            $func_type    = 'IN';
+            $parens_open  = '(';
+            $parens_close = ')';
+
+        } elseif ($func_type == '!=' && $enum_selected_count > 1) {
+            $func_type    = 'NOT IN';
+            $parens_open  = '(';
+            $parens_close = ')';
+
+        } else {
+            $parens_open  = '';
+            $parens_close = '';
+        }
+        $enum_where = '\'' . PMA_sqlAddslashes($criteriaValues[0]) . '\'';
+        for ($e = 1; $e < $enum_selected_count; $e++) {
+            $enum_where .= ', \'' . PMA_sqlAddslashes($criteriaValues[$e])
+                . '\'';
+        }
+
+        $where = ' ' . $func_type . ' ' . $parens_open
+            . $enum_where . $parens_close;
+    }
+    return $where;
+}
+
+/**
+ * Return the where clause for a geometrical column.
+ *
+ * @param mixed  $criteriaValues Search criteria input
+ * @param string $names          Name of the column on which search is submitted
+ * @param string $func_type      Search fucntion/operator
+ * @param bool   $geom_func      Whether geometry functions should be applied
+ *
+ * @return string part of where clause.
+ */
+function PMA_tblSearchGetGeomWhereClause($criteriaValues, $names, $func_type,
+    $geom_func = null
+) {
+    $geom_unary_functions = array(
+        'IsEmpty' => 1,
+        'IsSimple' => 1,
+        'IsRing' => 1,
+        'IsClosed' => 1,
+    );
+    $where = '';
+
+    // Get details about the geometry fucntions
+    $geom_funcs = PMA_getGISFunctions($types, true, false);
+    // New output type is the output type of the function being applied
+    $types = $geom_funcs[$geom_func]['type'];
+
+    // If the function takes a single parameter
+    if ($geom_funcs[$geom_func]['params'] == 1) {
+        $backquoted_name = $geom_func . '(' . PMA_backquote($names) . ')';
+    } else {
+        // If the function takes two parameters
+        // create gis data from the criteria input
+        $gis_data = PMA_createGISData($criteriaValues);
+        $where = $geom_func . '(' . PMA_backquote($names) . ',' . $gis_data . ')';
+        return $where;
+    }
+
+    // If the where clause is something like 'IsEmpty(`spatial_col_name`)'
+    if (isset($geom_unary_functions[$geom_func]) && trim($criteriaValues) == '') {
+        $where = $backquoted_name;
+
+    } elseif (in_array($types, PMA_getGISDatatypes()) && ! empty($criteriaValues)) {
+        // create gis data from the criteria input
+        $gis_data = PMA_createGISData($criteriaValues);
+        $where = $backquoted_name . ' ' . $func_type . ' ' . $gis_data;
+    }
+    return $where;
+}
+
+/**
  * Return the where clause for query generation based on the inputs provided.
  *
  * @param mixed  $criteriaValues Search criteria input
@@ -341,90 +432,27 @@ function PMA_tblSearchGetInputbox($foreigners, $foreignData, $field,
  * @param bool   $unaryFlag      Whether operator unary or not
  * @param bool   $geom_func      Whether geometry functions should be applied
  *
- * @return string HTML content for viewing foreing data and elements
- * for search criteria input.
+ * @return string generated where clause.
  */
 function PMA_tbl_search_getWhereClause($criteriaValues, $names, $types, $collations,
     $func_type, $unaryFlag, $geom_func = null
 ) {
-    /**
-     * @todo move this to a more apropriate place
-     */
-    $geom_unary_functions = array(
-        'IsEmpty' => 1,
-        'IsSimple' => 1,
-        'IsRing' => 1,
-        'IsClosed' => 1,
-    );
-
-    $w = '';
-    // If geometry function is set apply it to the field name
+    // If geometry function is set
     if ($geom_func != null && trim($geom_func) != '') {
-        // Get details about the geometry fucntions
-        $geom_funcs = PMA_getGISFunctions($types, true, false);
-
-        // If the function takes a single parameter
-        if ($geom_funcs[$geom_func]['params'] == 1) {
-            $backquoted_name = $geom_func . '(' . PMA_backquote($names) . ')';
-        } else {
-            // If the function takes two parameters
-            // create gis data from the string
-            $gis_data = PMA_createGISData($criteriaValues);
-
-            $w = $geom_func . '(' . PMA_backquote($names) . ',' . $gis_data . ')';
-            return $w;
-        }
-
-        // New output type is the output type of the function being applied
-        $types = $geom_funcs[$geom_func]['type'];
-
-        // If the where clause is something like 'IsEmpty(`spatial_col_name`)'
-        if (isset($geom_unary_functions[$geom_func]) && trim($criteriaValues) == '') {
-            $w = $backquoted_name;
-            return $w;
-        }
-    } else {
-        $backquoted_name = PMA_backquote($names);
+        return PMA_tblSearchGetGeomWhereClause(
+            $criteriaValues, $names, $func_type, $geom_func
+        );
     }
 
+    $backquoted_name = PMA_backquote($names);
+    $where = '';
     if ($unaryFlag) {
         $criteriaValues = '';
-        $w = $backquoted_name . ' ' . $func_type;
-
-    } elseif (in_array($types, PMA_getGISDatatypes()) && ! empty($criteriaValues)) {
-        // create gis data from the string
-        $gis_data = PMA_createGISData($criteriaValues);
-        $w = $backquoted_name . ' ' . $func_type . ' ' . $gis_data;
+        $where = $backquoted_name . ' ' . $func_type;
 
     } elseif (strncasecmp($types, 'enum', 4) == 0) {
-        if (! empty($criteriaValues)) {
-            if (! is_array($criteriaValues)) {
-                $criteriaValues = explode(',', $criteriaValues);
-            }
-            $enum_selected_count = count($criteriaValues);
-            if ($func_type == '=' && $enum_selected_count > 1) {
-                $func_type    = 'IN';
-                $parens_open  = '(';
-                $parens_close = ')';
-
-            } elseif ($func_type == '!=' && $enum_selected_count > 1) {
-                $func_type    = 'NOT IN';
-                $parens_open  = '(';
-                $parens_close = ')';
-
-            } else {
-                $parens_open  = '';
-                $parens_close = '';
-            }
-            $enum_where = '\'' . PMA_sqlAddslashes($criteriaValues[0]) . '\'';
-            for ($e = 1; $e < $enum_selected_count; $e++) {
-                $enum_where .= ', \'' . PMA_sqlAddslashes($criteriaValues[$e])
-                    . '\'';
-            }
-
-            $w = $backquoted_name . ' ' . $func_type . ' ' . $parens_open
-                . $enum_where . $parens_close;
-        }
+        $where = $backquoted_name;
+        $where .= PMA_tblSearchGetEnumWhereClause($criteriaValues, $func_type);
 
     } elseif ($criteriaValues != '') {
         // For these types we quote the value. Even if it's another type (like INT),
@@ -462,20 +490,20 @@ function PMA_tbl_search_getWhereClause($criteriaValues, $names, $types, $collati
             }
 
             if ($func_type == 'BETWEEN' || $func_type == 'NOT BETWEEN') {
-                $w = $backquoted_name . ' ' . $func_type . ' '
+                $where = $backquoted_name . ' ' . $func_type . ' '
                     . (isset($values[0]) ? $values[0] : '')
                     . ' AND ' . (isset($values[1]) ? $values[1] : '');
             } else {
-                $w = $backquoted_name . ' ' . $func_type
+                $where = $backquoted_name . ' ' . $func_type
                     . ' (' . implode(',', $values) . ')';
             }
         } else {
-            $w = $backquoted_name . ' ' . $func_type . ' '
-                . $quot . PMA_sqlAddslashes($criteriaValues) . $quot;;
+            $where = $backquoted_name . ' ' . $func_type . ' '
+                . $quot . PMA_sqlAddslashes($criteriaValues) . $quot;
         }
     } // end if
 
-    return $w;
+    return $where;
 }
 
 /**
