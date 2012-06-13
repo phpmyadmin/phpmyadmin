@@ -114,21 +114,12 @@ class PMA_DisplayResults
      * @return array    an array with explicit indexes for all the display
      *                   elements
      *
-     * @global integer  the total number of rows returned by the SQL query
-     *                   without any programmatically appended "LIMIT" clause
-     * @global array    the properties of the fields returned by the query
-     * @global string   the URL to return to in case of error in a SQL
-     *                   statement
-     *
      * @access  private
      *
      * @see     getTable()
      */
     private function _setDisplayMode(&$the_disp_mode, &$the_total)
     {
-
-        global $unlim_num_rows, $fields_meta;
-        global $err_url;
 
         // 1. Initializes the $do_display array
         $do_display              = array();
@@ -210,7 +201,7 @@ class PMA_DisplayResults
                 // 2.3 Other statements (ie "SELECT" ones) -> updates
                 //     $do_display['edit_lnk'], $do_display['del_lnk'] and
                 //     $do_display['text_btn'] (keeps other default values)
-                $prev_table = $fields_meta[0]->table;
+                $prev_table = $GLOBALS['fields_meta'][0]->table;
                 $do_display['text_btn']  = (string) '1';
                 for ($i = 0; $i < $GLOBALS['fields_cnt']; $i++) {
                     $is_link = ($do_display['edit_lnk'] != self::NO_EDIT_OR_DELETE)
@@ -219,8 +210,8 @@ class PMA_DisplayResults
                         || ($do_display['ins_row'] != '0');
                     // 2.3.2 Displays edit/delete/sort/insert links?
                     if ($is_link
-                        && (($fields_meta[$i]->table == '')
-                        || ($fields_meta[$i]->table != $prev_table))
+                        && (($GLOBALS['fields_meta'][$i]->table == '')
+                        || ($GLOBALS['fields_meta'][$i]->table != $prev_table))
                     ) {
                         // don't display links
                         $do_display['edit_lnk'] = self::NO_EDIT_OR_DELETE;
@@ -237,14 +228,14 @@ class PMA_DisplayResults
                     } // end if (2.3.2)
                     // 2.3.3 Always display print view link
                     $do_display['pview_lnk']    = (string) '1';
-                    $prev_table = $fields_meta[$i]->table;
+                    $prev_table = $GLOBALS['fields_meta'][$i]->table;
                 } // end for
             } // end if..elseif...else (2.1 -> 2.3)
         } // end if (2)
 
         // 3. Gets the total number of rows if it is unknown
-        if (isset($unlim_num_rows) && $unlim_num_rows != '') {
-            $the_total = $unlim_num_rows;
+        if (isset($GLOBALS['unlim_num_rows']) && $GLOBALS['unlim_num_rows'] != '') {
+            $the_total = $GLOBALS['unlim_num_rows'];
         } elseif ((($do_display['nav_bar'] == '1')
             || ($do_display['sort_lnk'] == '1'))
             && (strlen($this->_db) && !empty($this->_table))
@@ -261,8 +252,8 @@ class PMA_DisplayResults
             // - For a VIEW we (probably) did not count the number of rows
             //   so don't test this number here, it would remove the possibility
             //   of sorting VIEW results.
-            if (isset($unlim_num_rows)
-                && $unlim_num_rows < 2
+            if (isset($GLOBALS['unlim_num_rows'])
+                && $GLOBALS['unlim_num_rows'] < 2
                 && ! PMA_Table::isView($this->_db, $this->_table)
             ) {
                 // force display of navbar for vertical/horizontal display-choice.
@@ -291,14 +282,11 @@ class PMA_DisplayResults
      */
     private function _isSelect()
     {
-        // global variables set from sql.php
-        global $is_count, $is_export, $is_func, $is_analyse;
-        global $analyzed_sql;
-
-        return ! ($is_count || $is_export || $is_func || $is_analyse)
-            && (count($analyzed_sql[0]['select_expr']) == 0)
-            && isset($analyzed_sql[0]['queryflags']['select_from'])
-            && (count($analyzed_sql[0]['table_ref']) == 1);
+        return ! ($GLOBALS['is_count'] || $GLOBALS['is_export']
+            || $GLOBALS['is_func'] || $GLOBALS['is_analyse'])
+            && (count($GLOBALS['analyzed_sql'][0]['select_expr']) == 0)
+            && isset($GLOBALS['analyzed_sql'][0]['queryflags']['select_from'])
+            && (count($GLOBALS['analyzed_sql'][0]['table_ref']) == 1);
     }
 
 
@@ -320,8 +308,9 @@ class PMA_DisplayResults
      * @see     _getMoveBackwardButtonsForTableNavigation(),
      *          _getMoveForwardButtonsForTableNavigation()
      */
-    private function _getTableNavigationButton($caption, $title, $pos,
-        $html_sql_query, $onsubmit = '', $input_for_real_end = '', $onclick = ''
+    private function _getTableNavigationButton(
+        $caption, $title, $pos, $html_sql_query, $onsubmit = '',
+        $input_for_real_end = '', $onclick = ''
     ) {
 
         $caption_output = '';
@@ -364,25 +353,13 @@ class PMA_DisplayResults
      *
      * @return string                            html content
      *
-     * @global integer  $num_rows       the total number of rows returned by the
-     *                                   SQL query
-     * @global integer  $unlim_num_rows the total number of rows returned by the
-     *                                   SQL any programmatically appended "LIMIT"
-     *                                   clause
-     * @global boolean  $is_innodb      whether its InnoDB or not
-     * @global array    $showtable      table definitions
-     *
      * @access  private
      *
      * @see     _getTable()
      */
-    private function _getTableNavigation($pos_next, $pos_prev,
-        $id_for_direction_dropdown
+    private function _getTableNavigation(
+        $pos_next, $pos_prev, $id_for_direction_dropdown
     ) {
-
-        global $num_rows, $unlim_num_rows;
-        global $is_innodb;
-        global $showtable;
 
         $table_navigation_html = '';
 
@@ -394,8 +371,8 @@ class PMA_DisplayResults
          * @todo move this to a central place
          * @todo for other future table types
          */
-        $is_innodb = (isset($showtable['Type'])
-            && $showtable['Type'] == self::TABLE_TYPE_INNO_DB);
+        $GLOBALS['is_innodb'] = (isset($GLOBALS['showtable']['Type'])
+            && $GLOBALS['showtable']['Type'] == self::TABLE_TYPE_INNO_DB);
 
         // Navigation bar
         $table_navigation_html .= '<table class="navigation nospacing nopadding">'
@@ -425,7 +402,7 @@ class PMA_DisplayResults
             ) + 1;
 
             $nbTotalPage = @ceil(
-                $unlim_num_rows
+                $GLOBALS['unlim_num_rows']
                 / $_SESSION['tmp_user_values']['max_rows']
             );
 
@@ -456,9 +433,9 @@ class PMA_DisplayResults
         } //_if1
 
         // Display the "Show all" button if allowed
-        if (($num_rows < $unlim_num_rows)
+        if (($GLOBALS['num_rows'] < $GLOBALS['unlim_num_rows'])
             && ($GLOBALS['cfg']['ShowAll']
-            || ($GLOBALS['cfg']['MaxRows'] * 5 >= $unlim_num_rows))
+            || ($GLOBALS['cfg']['MaxRows'] * 5 >= $GLOBALS['unlim_num_rows']))
         ) {
 
             $table_navigation_html .= $this->_getShowAllButtonForTableNavigation(
@@ -471,15 +448,15 @@ class PMA_DisplayResults
         $endpos = $_SESSION['tmp_user_values']['pos']
             + $_SESSION['tmp_user_values']['max_rows'];
 
-        if (($endpos < $unlim_num_rows)
-            && ($num_rows >= $_SESSION['tmp_user_values']['max_rows'])
+        if (($endpos < $GLOBALS['unlim_num_rows'])
+            && ($GLOBALS['num_rows'] >= $_SESSION['tmp_user_values']['max_rows'])
             && ($_SESSION['tmp_user_values']['max_rows'] != self::ALL_ROWS)
         ) {
 
             $table_navigation_html
                 .= $this->_getMoveForwardButtonsForTableNavigation(
-                    $html_sql_query, $pos_next, $is_innodb,
-                    $unlim_num_rows, $num_rows
+                    $html_sql_query, $pos_next, $GLOBALS['is_innodb'],
+                    $GLOBALS['unlim_num_rows'], $GLOBALS['num_rows']
                 );
 
         } // end move toward
@@ -526,7 +503,7 @@ class PMA_DisplayResults
                     . str_replace('\'', '\\\'', __('%d is not valid row number.'))
                     . '\', '
                     . '0'
-                    . ($unlim_num_rows > 0 ? ', ' . ($unlim_num_rows - 1) : '') . ')'
+                    . ($GLOBALS['unlim_num_rows'] > 0 ? ', ' . ($GLOBALS['unlim_num_rows'] - 1) : '') . ')'
                 . ')'
             .'">';
 
@@ -536,7 +513,7 @@ class PMA_DisplayResults
 
         $table_navigation_html .= $this->_getAdditionalFieldsForTableNavigation(
             $html_sql_query, $pos_next,
-            $unlim_num_rows, $id_for_direction_dropdown
+            $GLOBALS['unlim_num_rows'], $id_for_direction_dropdown
         );
 
         $table_navigation_html .= '</form>'
@@ -747,22 +724,15 @@ class PMA_DisplayResults
      *
      * @return string                      html content
      *
-     * @global integer  $num_rows         the total number of rows returned by the
-     *                                     SQL query
-     * @global array    $vertical_display informations used with vertical display
-     *                                     mode
-     *
      * @access  private
      *
      * @see     getTable()
      */
-    private function _getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
-        $analyzed_sql = '', $sort_expression = '', $sort_expression_nodirection = '',
+    private function _getTableHeaders(
+        &$is_display, &$fields_meta, $fields_cnt = 0, $analyzed_sql = '',
+        $sort_expression = '', $sort_expression_nodirection = '',
         $sort_direction = ''
     ) {
-
-        global $num_rows;
-        global $vertical_display, $highlight_columns;
 
         $table_headers_html = '';
 
@@ -830,9 +800,9 @@ class PMA_DisplayResults
             $table_headers_html .= $this->_getDataForResettingColumnOrder();
         }
 
-        $vertical_display['emptypre']   = 0;
-        $vertical_display['emptyafter'] = 0;
-        $vertical_display['textbtn']    = '';
+        $GLOBALS['vertical_display']['emptypre']   = 0;
+        $GLOBALS['vertical_display']['emptyafter'] = 0;
+        $GLOBALS['vertical_display']['textbtn']    = '';
 
         // Display options (if we are not in print view)
         if (! (isset($GLOBALS['printview']) && ($GLOBALS['printview'] == '1'))) {
@@ -871,7 +841,7 @@ class PMA_DisplayResults
             && ($is_display['text_btn'] == '1')
         ) {
 
-            $vertical_display['emptypre']
+            $GLOBALS['vertical_display']['emptypre']
                 = (($is_display['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 && ($is_display['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 0;
 
@@ -884,8 +854,8 @@ class PMA_DisplayResults
                 // end horizontal/horizontalflipped mode
             } else {
 
-                $span = $num_rows + 1 + floor(
-                    $num_rows / $_SESSION['tmp_user_values']['repeat_cells']
+                $span = $GLOBALS['num_rows'] + 1 + floor(
+                    $GLOBALS['num_rows'] / $_SESSION['tmp_user_values']['repeat_cells']
                 );
                 $table_headers_html .= '<tr><th colspan="' . $span . '"></th></tr>';
 
@@ -898,7 +868,7 @@ class PMA_DisplayResults
             //     ... at the left column of the result table header if possible
             //     and required
 
-            $vertical_display['emptypre']
+            $GLOBALS['vertical_display']['emptypre']
                 = (($is_display['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 && ($is_display['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 0;
 
@@ -910,7 +880,7 @@ class PMA_DisplayResults
 
             } else {
 
-                $vertical_display['textbtn']
+                $GLOBALS['vertical_display']['textbtn']
                     = '    <th ' . $rowspan . ' class="vmiddle">' . "\n"
                     . '        ' . "\n"
                     . '    </th>' . "\n";
@@ -923,7 +893,7 @@ class PMA_DisplayResults
         ) {
             //     ... elseif no button, displays empty(ies) col(s) if required
 
-            $vertical_display['emptypre']
+            $GLOBALS['vertical_display']['emptypre']
                 = (($is_display['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 && ($is_display['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 0;
 
@@ -933,7 +903,7 @@ class PMA_DisplayResults
 
                 // end horizontal/horizontalfipped mode
             } else {
-                $vertical_display['textbtn'] = '    <td' . $rowspan .
+                $GLOBALS['vertical_display']['textbtn'] = '    <td' . $rowspan .
                     '></td>' . "\n";
             } // end vertical mode
 
@@ -977,7 +947,7 @@ class PMA_DisplayResults
 
         // See if we have to highlight any header fields of a WHERE query.
         // Uses SQL-Parser results.
-        $highlight_columns = array();
+        $GLOBALS['highlight_columns'] = array();
         if (isset($analyzed_sql) && isset($analyzed_sql[0])
             && isset($analyzed_sql[0]['where_clause_identifiers'])
         ) {
@@ -989,7 +959,7 @@ class PMA_DisplayResults
                 foreach ($analyzed_sql[0]['where_clause_identifiers']
                     as $wci_nr => $wci
                 ) {
-                    $highlight_columns[$wci] = 'true';
+                    $GLOBALS['highlight_columns'][$wci] = 'true';
                 }
             }
         }
@@ -1003,8 +973,8 @@ class PMA_DisplayResults
 
             //  See if this column should get highlight because it's used in the
             //  where-query.
-            $condition_field = (isset($highlight_columns[$fields_meta[$i]->name])
-                || isset($highlight_columns[PMA_backquote($fields_meta[$i]->name)]))
+            $condition_field = (isset($GLOBALS['highlight_columns'][$fields_meta[$i]->name])
+                || isset($GLOBALS['highlight_columns'][PMA_backquote($fields_meta[$i]->name)]))
                 ? true
                 : false;
 
@@ -1101,7 +1071,7 @@ class PMA_DisplayResults
                         );
                 }
 
-                $vertical_display['desc'][] = '    <th '
+                $GLOBALS['vertical_display']['desc'][] = '    <th '
                     . 'class="draggable'
                     . ($condition_field ? ' condition' : '')
                     . '" data-column="' . htmlspecialchars($fields_meta[$i]->name)
@@ -1117,7 +1087,7 @@ class PMA_DisplayResults
                         );
                 }
 
-                $vertical_display['desc'][] = '    <th '
+                $GLOBALS['vertical_display']['desc'][] = '    <th '
                     . 'class="draggable'
                     . ($condition_field ? ' condition"' : '')
                     . '" data-column="' . htmlspecialchars($fields_meta[$i]->name)
@@ -1136,7 +1106,7 @@ class PMA_DisplayResults
             && ($is_display['text_btn'] == '1')
         ) {
 
-            $vertical_display['emptyafter']
+            $GLOBALS['vertical_display']['emptyafter']
                 = (($is_display['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 && ($is_display['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 1;
 
@@ -1147,7 +1117,7 @@ class PMA_DisplayResults
 
                 // end horizontal/horizontalflipped mode
             } else {
-                $vertical_display['textbtn'] = '    <th ' . $rowspan
+                $GLOBALS['vertical_display']['textbtn'] = '    <th ' . $rowspan
                     . ' class="vmiddle">' . "\n"
                     . '        ' . "\n"
                     . '    </th>' . "\n";
@@ -1161,7 +1131,7 @@ class PMA_DisplayResults
             //     ... elseif no button, displays empty columns if required
             // (unless coming from Browse mode print view)
 
-            $vertical_display['emptyafter']
+            $GLOBALS['vertical_display']['emptyafter']
                 = (($is_display['edit_lnk'] != self::NO_EDIT_OR_DELETE)
                 && ($is_display['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 1;
 
@@ -1171,7 +1141,7 @@ class PMA_DisplayResults
 
                 // end horizontal/horizontalflipped mode
             } else {
-                $vertical_display['textbtn'] = '    <td' . $rowspan
+                $GLOBALS['vertical_display']['textbtn'] = '    <td' . $rowspan
                     . '></td>' . "\n";
             } // end vertical mode
         }
@@ -1951,8 +1921,9 @@ class PMA_DisplayResults
      * 
      * @see     _buildNullDisplay(), _getRowData()
      */
-    private function _addClass($class, $condition_field, $meta, $nowrap,
-        $is_field_truncated = false, $transform_function = '', $default_function = ''
+    private function _addClass(
+        $class, $condition_field, $meta, $nowrap, $is_field_truncated = false,
+        $transform_function = '', $default_function = ''
     ) {
 
         // Define classes to be added to this data field based on the type of data
@@ -1993,15 +1964,9 @@ class PMA_DisplayResults
      * @param array   $map          the list of relations
      * @param array   $analyzed_sql the analyzed query
      *
-     * @return string $table_body_html   html content
+     * @return string $table_body_html  html content
      *
-     * @global array   $fields_meta       the list of fields properties
-     * @global integer $fields_cnt        the total number of fields returned by
-     *                                    the SQL query
-     * @global array   $vertical_display  informations used with vertical display
-     *                                    mode
-     * @global array   $highlight_columns column names to highlight
-     * @global array   $row               current row data
+     * @global array   $row             current row data
      *
      * @access  private
      *
@@ -2010,8 +1975,6 @@ class PMA_DisplayResults
     private function _getTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
     {
 
-        global $fields_meta, $fields_cnt;
-        global $vertical_display, $highlight_columns;
         global $row; // mostly because of browser transformations,
                      // to make the row-data accessible in a plugin
 
@@ -2026,11 +1989,11 @@ class PMA_DisplayResults
         }
 
         $row_no                         = 0;
-        $vertical_display['edit']       = array();
-        $vertical_display['copy']       = array();
-        $vertical_display['delete']     = array();
-        $vertical_display['data']       = array();
-        $vertical_display['row_delete'] = array();
+        $GLOBALS['vertical_display']['edit']       = array();
+        $GLOBALS['vertical_display']['copy']       = array();
+        $GLOBALS['vertical_display']['delete']     = array();
+        $GLOBALS['vertical_display']['data']       = array();
+        $GLOBALS['vertical_display']['row_delete'] = array();
         // name of the class added to all grid editable elements
         $grid_edit_class = 'grid_edit';
 
@@ -2060,7 +2023,7 @@ class PMA_DisplayResults
 
             // "vertical display" mode stuff
             $table_body_html .= $this->_getVerticalDisplaySupportSegments(
-                $vertical_display, $row_no, $directionCondition
+                $GLOBALS['vertical_display'], $row_no, $directionCondition
             );
 
             $alternating_color_class = ($odd_row ? 'odd' : 'even');
@@ -2081,7 +2044,7 @@ class PMA_DisplayResults
              */
             list($where_clause, $clause_is_unique, $condition_array)
                 = PMA_getUniqueCondition(
-                    $dt_result, $fields_cnt, $fields_meta, $row
+                    $dt_result, $GLOBALS['fields_cnt'], $GLOBALS['fields_meta'], $row
                 );
             $where_clause_html = urlencode($where_clause);
 
@@ -2153,12 +2116,12 @@ class PMA_DisplayResults
 
             // 2. Displays the rows' values
 
-            for ($j = 0; $j < $fields_cnt; ++$j) {
+            for ($j = 0; $j < $GLOBALS['fields_cnt']; ++$j) {
 
                 // assign $i with appropriate column order
                 $i = $col_order ? $col_order[$j] : $j;
 
-                $meta    = $fields_meta[$i];
+                $meta    = $GLOBALS['fields_meta'][$i];
                 $not_null_class = $meta->not_null ? 'not_null' : '';
                 $relation_class = isset($map[$meta->name]) ? 'relation' : '';
                 $hide_class = ($col_visib && !$col_visib[$j]
@@ -2183,9 +2146,9 @@ class PMA_DisplayResults
 
                 //  See if this column should get highlight because it's used in the
                 //  where-query.
-                $condition_field = (isset($highlight_columns)
-                    && (isset($highlight_columns[$meta->name])
-                    || isset($highlight_columns[PMA_backquote($meta->name)])))
+                $condition_field = (isset($GLOBALS['highlight_columns'])
+                    && (isset($GLOBALS['highlight_columns'][$meta->name])
+                    || isset($GLOBALS['highlight_columns'][PMA_backquote($meta->name)])))
                     ? true
                     : false;
 
@@ -2262,7 +2225,7 @@ class PMA_DisplayResults
                     //       will show both fields NULL even if only one is NULL,
                     //       so use the $pointer
 
-                    $vertical_display['data'][$row_no][$i]
+                    $GLOBALS['vertical_display']['data'][$row_no][$i]
                         = $this->_getDataCellForNumericFeilds(
                             $row[$i], $class, $condition_field, $meta,
                             $analyzed_sql, $transform_function, $map,
@@ -2277,7 +2240,7 @@ class PMA_DisplayResults
                     // TEXT fields type so we have to ensure it's really a BLOB
                     $field_flags = PMA_DBI_field_flags($dt_result, $i);
 
-                    $vertical_display['data'][$row_no][$i]
+                    $GLOBALS['vertical_display']['data'][$row_no][$i]
                         = $this->_getDataCellForBlobField(
                             $row[$i], $class, $meta, $_url_params, $field_flags,
                             $transform_function, $default_function,
@@ -2291,7 +2254,7 @@ class PMA_DisplayResults
                     // inline-edit geometry data.
                     $class = str_replace('grid_edit', '', $class);
 
-                    $vertical_display['data'][$row_no][$i]
+                    $GLOBALS['vertical_display']['data'][$row_no][$i]
                         = $this->_getDataCellForGeometryFields(
                             $row[$i], $class, $meta, $map, $_url_params,
                             $condition_field, $transform_function, $default_function,
@@ -2301,7 +2264,7 @@ class PMA_DisplayResults
                 } else {
                     // n o t   n u m e r i c   a n d   n o t   B L O B
 
-                    $vertical_display['data'][$row_no][$i]
+                    $GLOBALS['vertical_display']['data'][$row_no][$i]
                         = $this->_getDataCellForNonNumericAndNonBlobFields(
                             $row[$i], $class, $meta, $map, $_url_params,
                             $condition_field, $transform_function, $default_function,
@@ -2313,15 +2276,15 @@ class PMA_DisplayResults
 
                 // output stored cell
                 if ($directionCondition) {
-                    $table_body_html .= $vertical_display['data'][$row_no][$i];
+                    $table_body_html .= $GLOBALS['vertical_display']['data'][$row_no][$i];
                 }
 
-                if (isset($vertical_display['rowdata'][$i][$row_no])) {
-                    $vertical_display['rowdata'][$i][$row_no]
-                        .= $vertical_display['data'][$row_no][$i];
+                if (isset($GLOBALS['vertical_display']['rowdata'][$i][$row_no])) {
+                    $GLOBALS['vertical_display']['rowdata'][$i][$row_no]
+                        .= $GLOBALS['vertical_display']['data'][$row_no][$i];
                 } else {
-                    $vertical_display['rowdata'][$i][$row_no]
-                        = $vertical_display['data'][$row_no][$i];
+                    $GLOBALS['vertical_display']['rowdata'][$i][$row_no]
+                        = $GLOBALS['vertical_display']['data'][$row_no][$i];
                 }
             } // end for (2)
 
@@ -2346,11 +2309,11 @@ class PMA_DisplayResults
 
             // 4. Gather links of del_urls and edit_urls in an array for later
             //    output
-            if (! isset($vertical_display['edit'][$row_no])) {
-                $vertical_display['edit'][$row_no]       = '';
-                $vertical_display['copy'][$row_no]       = '';
-                $vertical_display['delete'][$row_no]     = '';
-                $vertical_display['row_delete'][$row_no] = '';
+            if (! isset($GLOBALS['vertical_display']['edit'][$row_no])) {
+                $GLOBALS['vertical_display']['edit'][$row_no]       = '';
+                $GLOBALS['vertical_display']['copy'][$row_no]       = '';
+                $GLOBALS['vertical_display']['delete'][$row_no]     = '';
+                $GLOBALS['vertical_display']['row_delete'][$row_no] = '';
             }
 
             $vertical_class = ' row_' . $row_no;
@@ -2366,7 +2329,7 @@ class PMA_DisplayResults
                 && ($is_display['del_lnk'] != self::KILL_PROCESS)
             ) {
 
-                $vertical_display['row_delete'][$row_no]
+                $GLOBALS['vertical_display']['row_delete'][$row_no]
                     .= $this->_getCheckboxForMultiRowSubmissions(
                         $del_url, $is_display, $row_no, $where_clause_html,
                         $condition_array, $del_query, '[%_PMA_CHECKBOX_DIR_%]',
@@ -2374,12 +2337,12 @@ class PMA_DisplayResults
                     );
 
             } else {
-                unset($vertical_display['row_delete'][$row_no]);
+                unset($GLOBALS['vertical_display']['row_delete'][$row_no]);
             }
 
             if (isset($edit_url)) {
 
-                $vertical_display['edit'][$row_no] .= $this->_getEditLink(
+                $GLOBALS['vertical_display']['edit'][$row_no] .= $this->_getEditLink(
                     $edit_url,
                     $alternating_color_class . ' ' . $edit_anchor_class
                     . $vertical_class, $edit_str,
@@ -2388,18 +2351,18 @@ class PMA_DisplayResults
                 );
 
             } else {
-                unset($vertical_display['edit'][$row_no]);
+                unset($GLOBALS['vertical_display']['edit'][$row_no]);
             }
 
             if (isset($copy_url)) {
 
-                $vertical_display['copy'][$row_no] .= $this->_getCopyLink(
+                $GLOBALS['vertical_display']['copy'][$row_no] .= $this->_getCopyLink(
                     $copy_url, $copy_str, $where_clause, $where_clause_html,
                     $alternating_color_class . $vertical_class
                 );
 
             } else {
-                unset($vertical_display['copy'][$row_no]);
+                unset($GLOBALS['vertical_display']['copy'][$row_no]);
             }
 
             if (isset($del_url)) {
@@ -2408,13 +2371,13 @@ class PMA_DisplayResults
                     $js_conf = '';
                 }
 
-                $vertical_display['delete'][$row_no] .= $this->_getDeleteLink(
+                $GLOBALS['vertical_display']['delete'][$row_no] .= $this->_getDeleteLink(
                     $del_url, $del_str, $js_conf,
                     $alternating_color_class . $vertical_class
                 );
 
             } else {
-                unset($vertical_display['delete'][$row_no]);
+                unset($GLOBALS['vertical_display']['delete'][$row_no]);
             }
 
             $table_body_html .= $directionCondition ? "\n" : '';
@@ -2430,7 +2393,7 @@ class PMA_DisplayResults
     /**
      * Get url sql query without conditions to shorten URLs
      *
-     * @param array  $analyzed_sql analyzed query
+     * @param array $analyzed_sql analyzed query
      * 
      * @return  string  $url_sql        analyzed sql query
      * 
@@ -2611,8 +2574,8 @@ class PMA_DisplayResults
      *
      * @see     _getTableBody()
      */
-    private function _getDeleteAndKillLinks($where_clause,
-        $clause_is_unique, $url_sql_query, $del_lnk
+    private function _getDeleteAndKillLinks(
+        $where_clause, $clause_is_unique, $url_sql_query, $del_lnk
     ) {
 
         if ($del_lnk == self::DELETE_ROW) { // delete row case
@@ -3200,8 +3163,6 @@ class PMA_DisplayResults
      *
      * @return string       html content
      *
-     * @global array    $vertical_display the information to display
-     *
      * @access  private
      *
      * @see     _getTable()
@@ -3209,15 +3170,13 @@ class PMA_DisplayResults
     private function _getVerticalTable()
     {
 
-        global $vertical_display;
-
         $vertical_table_html = '';
 
         // Prepares "multi row delete" link at top if required
         if (($GLOBALS['cfg']['RowActionLinks'] != self::POSITION_RIGHT)
-            && is_array($vertical_display['row_delete'])
-            && ((count($vertical_display['row_delete']) > 0)
-            || !empty($vertical_display['textbtn']))
+            && is_array($GLOBALS['vertical_display']['row_delete'])
+            && ((count($GLOBALS['vertical_display']['row_delete']) > 0)
+            || !empty($GLOBALS['vertical_display']['textbtn']))
         ) {
 
             $vertical_table_html .= '<tr>' . "\n";
@@ -3227,9 +3186,9 @@ class PMA_DisplayResults
                 $vertical_table_html .= '<th></th>' . "\n";
             }
 
-            $vertical_table_html .= $vertical_display['textbtn']
+            $vertical_table_html .= $GLOBALS['vertical_display']['textbtn']
                                  . $this->_getCheckBoxesForMultipleRowOperations(
-                                     $vertical_display, '_left'
+                                     $GLOBALS['vertical_display'], '_left'
                                  )
                                  . '</tr>' . "\n";
         } // end if
@@ -3237,43 +3196,43 @@ class PMA_DisplayResults
         // Prepares "edit" link at top if required
         if ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
             || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH))
-            && is_array($vertical_display['edit'])
-            && ((count($vertical_display['edit']) > 0)
-            || !empty($vertical_display['textbtn']))
+            && is_array($GLOBALS['vertical_display']['edit'])
+            && ((count($GLOBALS['vertical_display']['edit']) > 0)
+            || !empty($GLOBALS['vertical_display']['textbtn']))
         ) {
             $vertical_table_html .= $this->_getOperationLinksForVerticleTable(
-                $vertical_display, 'edit'
+                $GLOBALS['vertical_display'], 'edit'
             );
         } // end if
 
         // Prepares "copy" link at top if required
         if ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
             || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH))
-            && is_array($vertical_display['copy'])
-            && ((count($vertical_display['copy']) > 0)
-            || !empty($vertical_display['textbtn']))
+            && is_array($GLOBALS['vertical_display']['copy'])
+            && ((count($GLOBALS['vertical_display']['copy']) > 0)
+            || !empty($GLOBALS['vertical_display']['textbtn']))
         ) {
             $vertical_table_html .= $this->_getOperationLinksForVerticleTable(
-                $vertical_display, 'copy'
+                $GLOBALS['vertical_display'], 'copy'
             );
         } // end if
 
         // Prepares "delete" link at top if required
         if ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
             || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH))
-            && is_array($vertical_display['delete'])
-            && ((count($vertical_display['delete']) > 0)
-            || !empty($vertical_display['textbtn']))
+            && is_array($GLOBALS['vertical_display']['delete'])
+            && ((count($GLOBALS['vertical_display']['delete']) > 0)
+            || !empty($GLOBALS['vertical_display']['textbtn']))
         ) {
             $vertical_table_html .= $this->_getOperationLinksForVerticleTable(
-                $vertical_display, 'delete'
+                $GLOBALS['vertical_display'], 'delete'
             );
         } // end if
 
         list($col_order, $col_visib) = $this->_getColumnParams();
 
         // Prepares data
-        foreach ($vertical_display['desc'] AS $j => $val) {
+        foreach ($GLOBALS['vertical_display']['desc'] AS $j => $val) {
 
             // assign appropriate key with current column order
             $key = $col_order ? $col_order[$j] : $j;
@@ -3284,7 +3243,7 @@ class PMA_DisplayResults
                 . $val;
 
             $cell_displayed = 0;
-            foreach ($vertical_display['rowdata'][$key] as $subval) {
+            foreach ($GLOBALS['vertical_display']['rowdata'][$key] as $subval) {
 
                 if (($cell_displayed != 0)
                     && ($_SESSION['tmp_user_values']['repeat_cells'] != 0)
@@ -3304,14 +3263,14 @@ class PMA_DisplayResults
         // Prepares "multi row delete" link at bottom if required
         if ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_RIGHT)
             || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH))
-            && is_array($vertical_display['row_delete'])
-            && ((count($vertical_display['row_delete']) > 0)
-            || !empty($vertical_display['textbtn']))
+            && is_array($GLOBALS['vertical_display']['row_delete'])
+            && ((count($GLOBALS['vertical_display']['row_delete']) > 0)
+            || !empty($GLOBALS['vertical_display']['textbtn']))
         ) {
 
-            $vertical_table_html .= '<tr>' . "\n" . $vertical_display['textbtn']
+            $vertical_table_html .= '<tr>' . "\n" . $GLOBALS['vertical_display']['textbtn']
                                  . $this->_getCheckBoxesForMultipleRowOperations(
-                                     $vertical_display, '_right'
+                                     $GLOBALS['vertical_display'], '_right'
                                  )
                                  . '</tr>' . "\n";
         } // end if
@@ -3319,36 +3278,36 @@ class PMA_DisplayResults
         // Prepares "edit" link at bottom if required
         if ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_RIGHT)
             || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH))
-            && is_array($vertical_display['edit'])
-            && ((count($vertical_display['edit']) > 0)
-            || !empty($vertical_display['textbtn']))
+            && is_array($GLOBALS['vertical_display']['edit'])
+            && ((count($GLOBALS['vertical_display']['edit']) > 0)
+            || !empty($GLOBALS['vertical_display']['textbtn']))
         ) {
             $vertical_table_html .= $this->_getOperationLinksForVerticleTable(
-                $vertical_display, 'edit'
+                $GLOBALS['vertical_display'], 'edit'
             );
         } // end if
 
         // Prepares "copy" link at bottom if required
         if ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_RIGHT)
             || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH))
-            && is_array($vertical_display['copy'])
-            && ((count($vertical_display['copy']) > 0)
-            || !empty($vertical_display['textbtn']))
+            && is_array($GLOBALS['vertical_display']['copy'])
+            && ((count($GLOBALS['vertical_display']['copy']) > 0)
+            || !empty($GLOBALS['vertical_display']['textbtn']))
         ) {
             $vertical_table_html .= $this->_getOperationLinksForVerticleTable(
-                $vertical_display, 'copy'
+                $GLOBALS['vertical_display'], 'copy'
             );
         } // end if
 
         // Prepares "delete" link at bottom if required
         if ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_RIGHT)
             || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH))
-            && is_array($vertical_display['delete'])
-            && ((count($vertical_display['delete']) > 0)
-            || !empty($vertical_display['textbtn']))
+            && is_array($GLOBALS['vertical_display']['delete'])
+            && ((count($GLOBALS['vertical_display']['delete']) > 0)
+            || !empty($GLOBALS['vertical_display']['textbtn']))
         ) {
             $vertical_table_html .= $this->_getOperationLinksForVerticleTable(
-                $vertical_display, 'delete'
+                $GLOBALS['vertical_display'], 'delete'
             );
         }
 
@@ -3369,8 +3328,8 @@ class PMA_DisplayResults
      *
      * @see     _getVerticalTable()
      */
-    private function _getOperationLinksForVerticleTable($vertical_display,
-        $operation
+    private function _getOperationLinksForVerticleTable(
+        $vertical_display, $operation
     ) {
 
         $link_html = '<tr>' . "\n";
@@ -3692,31 +3651,12 @@ class PMA_DisplayResults
      *
      * @return sting                        Generated HTML content for resulted table
      *
-     * @global integer  $num_rows          the total number of rows returned by the
-     *                                      SQL query
-     * @global integer  $unlim_num_rows    the total number of rows returned by the
-     *                                      SQL query without any programmatically
-     *                                      appended "LIMIT" clause
-     * @global array    $fields_meta       the list of fields properties
-     * @global integer  $fields_cnt        the total number of fields returned by
-     *                                      the SQL query
-     * @global array    $vertical_display  informations used with vertical display
-     *                                      mode
-     * @global array    $highlight_columns column names to highlight
-     * @global array    $showtable         table definitions
-     * 
-     * @return void
-     *
      * @access  public
      *
      * @see     sql.php file
      */
     public function getTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     {
-
-        global $num_rows, $unlim_num_rows, $fields_meta, $fields_cnt;
-        global $vertical_display, $highlight_columns;
-        global $showtable;
 
         $table_html = '';
 
@@ -3727,8 +3667,8 @@ class PMA_DisplayResults
          * @todo move this to a central place
          * @todo for other future table types
          */
-        $is_innodb = (isset($showtable['Type'])
-            && $showtable['Type'] == self::TABLE_TYPE_INNO_DB);
+        $is_innodb = (isset($GLOBALS['showtable']['Type'])
+            && $GLOBALS['showtable']['Type'] == self::TABLE_TYPE_INNO_DB);
 
         if ($is_innodb
             && ! isset($analyzed_sql[0]['queryflags']['union'])
@@ -3773,7 +3713,7 @@ class PMA_DisplayResults
         // 1.4 Prepares display of first and last value of the sorted column
 
         $sorted_column_message = $this->_getSortedColumnMessage(
-            $dt_result, $fields_meta, $num_rows,
+            $dt_result, $GLOBALS['fields_meta'], $GLOBALS['num_rows'],
             $sort_expression_nodirection
         );
 
@@ -3785,7 +3725,7 @@ class PMA_DisplayResults
 
             $message = $this->_setMessageInformation(
                 $sorted_column_message,
-                $analyzed_sql[0]['limit_clause'], $unlim_num_rows,
+                $analyzed_sql[0]['limit_clause'], $GLOBALS['unlim_num_rows'],
                 $total, $pos_next, $pre_count, $after_count
             );
 
@@ -3808,7 +3748,7 @@ class PMA_DisplayResults
                 // table does not always contain a real table name,
                 // for example in MySQL 5.0.x, the query SHOW STATUS
                 // returns STATUS as a table name
-                $this->_table = $fields_meta[0]->table;
+                $this->_table = $GLOBALS['fields_meta'][0]->table;
             } else {
                 $this->_table = '';
             }
@@ -3883,7 +3823,7 @@ class PMA_DisplayResults
 
         // 3. ----- Prepare the results table -----
         $table_html .= $this->_getTableHeaders(
-            $is_display, $fields_meta, $fields_cnt, $analyzed_sql,
+            $is_display, $GLOBALS['fields_meta'], $GLOBALS['fields_cnt'], $analyzed_sql,
             $sort_expression, $sort_expression_nodirection, $sort_direction
         )
         . '<tbody>' . "\n";
@@ -3898,7 +3838,7 @@ class PMA_DisplayResults
             $table_html .= $this->_getVerticalTable();
         } // end if
 
-        unset($vertical_display);
+        unset($GLOBALS['vertical_display']);
         $table_html .= '</tbody>' . "\n"
             . '</table>';
 
@@ -3909,7 +3849,7 @@ class PMA_DisplayResults
         ) {
 
             $table_html .= $this->_getMultiRowOperationLinks(
-                $dt_result, $fields_cnt, $fields_meta, $num_rows, $analyzed_sql,
+                $dt_result, $GLOBALS['fields_cnt'], $GLOBALS['fields_meta'], $GLOBALS['num_rows'], $analyzed_sql,
                 $is_display['del_lnk']
             );
 
@@ -4038,8 +3978,8 @@ class PMA_DisplayResults
      *
      * @see     getTable()
      */
-    private function _getSortedColumnMessage(&$dt_result, $fields_meta,
-        $num_rows, $sort_expression_nodirection
+    private function _getSortedColumnMessage(
+        &$dt_result, $fields_meta, $num_rows, $sort_expression_nodirection
     ) {
 
         if (! empty($sort_expression_nodirection)) {
@@ -4378,22 +4318,14 @@ class PMA_DisplayResults
      * @param array $the_disp_mode the display mode
      * @param array $analyzed_sql  the analyzed query
      *
-     * @return string                       html content
+     * @return string $results_operations_html  html content
      *
-     * @global integer  $unlim_num_rows the total number of rows returned by the
-     *                                   SQL query without any programmatically
-     *                                   appended "LIMIT" clause
-     *
-     * @return string $links_html html content
-     * 
      * @access  private
      *
      * @see     getTable()
      */
     private function _getResultsOperations($the_disp_mode, $analyzed_sql)
     {
-
-        global $unlim_num_rows, $fields_meta;
 
         $results_operations_html = '';
         $header_shown = false;
@@ -4465,7 +4397,7 @@ class PMA_DisplayResults
                 $header_shown = true;
             }
 
-            $_url_params['unlim_num_rows'] = $unlim_num_rows;
+            $_url_params['unlim_num_rows'] = $GLOBALS['unlim_num_rows'];
 
             /**
              * At this point we don't know the table name; this can happen
@@ -4501,7 +4433,7 @@ class PMA_DisplayResults
             // prepare GIS chart
             $geometry_found = false;
             // If atleast one geometry field is found
-            foreach ($fields_meta as $meta) {
+            foreach ($GLOBALS['fields_meta'] as $meta) {
                 if ($meta->type == self::GEOMETRY_FIELD) {
                     $geometry_found = true;
                     break;
@@ -4576,9 +4508,9 @@ class PMA_DisplayResults
      *          _getDataCellForNonNumericAndNonBlobFields(),
      *          _getSortedColumnMessage()
      */
-    private function _handleNonPrintableContents($category, $content,
-        $transform_function, $transform_options, $default_function, $meta,
-        $url_params = array()
+    private function _handleNonPrintableContents(
+        $category, $content, $transform_function, $transform_options,
+        $default_function, $meta, $url_params = array()
     ) {
 
         $result = '[' . $category;
@@ -4657,9 +4589,10 @@ class PMA_DisplayResults
      *          _getDataCellForNonNumericAndNonBlobFields(),
      *          
      */
-    private function _getRowData($class, $condition_field, $analyzed_sql, $meta,
-        $map, $data, $transform_function, $default_function, $nowrap,
-        $where_comparison, $transform_options, $is_field_truncated
+    private function _getRowData(
+        $class, $condition_field, $analyzed_sql, $meta, $map, $data,
+        $transform_function, $default_function, $nowrap, $where_comparison,
+        $transform_options, $is_field_truncated
     ) {
 
         $result = '<td class="'
@@ -4827,9 +4760,9 @@ class PMA_DisplayResults
      * 
      * @see     _getTableBody(), _getCheckboxAndLinks()
      */
-    private function _getCheckboxForMultiRowSubmissions($del_url, $is_display,
-        $row_no, $where_clause_html, $condition_array, $del_query, $id_suffix,
-        $class
+    private function _getCheckboxForMultiRowSubmissions(
+        $del_url, $is_display, $row_no, $where_clause_html, $condition_array,
+        $del_query, $id_suffix, $class
     ) {
 
         $ret = '';
@@ -4876,8 +4809,8 @@ class PMA_DisplayResults
      * 
      * @see     _getTableBody(), _getCheckboxAndLinks()
      */
-    private function _getEditLink($edit_url, $class, $edit_str, $where_clause,
-        $where_clause_html
+    private function _getEditLink(
+        $edit_url, $class, $edit_str, $where_clause, $where_clause_html
     ) {
 
         $ret = '';
@@ -4916,8 +4849,8 @@ class PMA_DisplayResults
      * 
      * @see     _getTableBody(), _getCheckboxAndLinks()
      */
-    private function _getCopyLink($copy_url, $copy_str, $where_clause,
-        $where_clause_html, $class
+    private function _getCopyLink(
+        $copy_url, $copy_str, $where_clause, $where_clause_html, $class
     ) {
 
         $ret = '';
@@ -5010,8 +4943,9 @@ class PMA_DisplayResults
      * 
      * @see     _getPlacedLinks()
      */
-    private function _getCheckboxAndLinks($position, $del_url, $is_display, $row_no,
-        $where_clause, $where_clause_html, $condition_array, $del_query, $id_suffix,
+    private function _getCheckboxAndLinks(
+        $position, $del_url, $is_display, $row_no, $where_clause,
+        $where_clause_html, $condition_array, $del_query, $id_suffix,
         $edit_url, $copy_url, $class, $edit_str, $copy_str, $del_str, $js_conf
     ) {
 
