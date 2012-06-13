@@ -128,7 +128,6 @@ if (! isset($goto)) {
 $err_url   = $goto . '?' . PMA_generate_common_url($db, $table);
 
 // Gets the list and number of fields
-
 list($columnNames, $columnTypes, $columnCollations, $columnNullFlags)
     = PMA_tbl_getFields($db, $table);
 
@@ -141,13 +140,12 @@ $foreigners = PMA_getForeigners($db, $table);
 if ( !isset($_POST['zoom_submit']) || $_POST['dataLabel'] == '') {
     $dataLabel = PMA_getDisplayField($db, $table);
 }
+//Display zoom search form
 echo PMA_tblSearchGetSelectionForm(
     $goto, $db, $table, $columnNames, $columnTypes, $columnCollations,
     $columnNullFlags, false, $foreigners, "zoom", $dataLabel
 );
-?>
 
-<?php
 /*
  * Handle the input criteria and generate the query result
  * Form for displaying query results
@@ -157,15 +155,11 @@ if (isset($zoom_submit)
     && $_POST['criteriaColumnNames'][1] != 'pma_null'
     && $_POST['criteriaColumnNames'][0] != $_POST['criteriaColumnNames'][1]
 ) {
-    /*
-     * Query generation part
-     */
+    //Query generation part
     $sql_query = PMA_tblSearchBuildSqlQuery();
     $sql_query .= ' LIMIT ' . $maxPlotLimit;
 
-    /*
-     * Query execution part
-     */
+    //Query execution part
     $result = PMA_DBI_query($sql_query . ";", null, PMA_DBI_QUERY_STORE);
     $fields_meta = PMA_DBI_get_fields_meta($result);
     while ($row = PMA_DBI_fetch_assoc($result)) {
@@ -193,8 +187,9 @@ if (isset($zoom_submit)
     unset($tmpData);
 
     //Displays form for point data and scatter plot
-    echo PMA_tblSearchGetZoomResultsForm($goto, $db, $table, $columnNames,
-        $columnTypes, $columnNullFlags, $foreigners, $data
+    echo PMA_tblSearchGetZoomResultsForm(
+        $goto, $db, $table, $columnNames, $columnTypes, $columnNullFlags,
+        $foreigners, $data
     );
 }
 require './libraries/footer.inc.php';
