@@ -7,10 +7,6 @@
  * @package PhpMyAdmin
  */
 
-if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
-    $GLOBALS['is_header_sent'] = true;
-}
-
 require_once 'libraries/common.inc.php';
 
 /**
@@ -429,23 +425,26 @@ if (PMA_DRIZZLE) {
 /**
  * JS Includes
  */
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('server_status.js');
 
-$GLOBALS['js_include'][] = 'server_status.js';
-
-$GLOBALS['js_include'][] = 'jquery/jquery.tablesorter.js';
-$GLOBALS['js_include'][] = 'jquery/jquery.cookie.js'; // For tab persistence
+$scripts->addFile('jquery/jquery.tablesorter.js');
+$scripts->addFile('jquery/jquery.cookie.js'); // For tab persistence
 // Charting
-$GLOBALS['js_include'][] = 'highcharts/highcharts.js';
+$scripts->addFile('highcharts/highcharts.js');
 /* Files required for chart exporting */
-$GLOBALS['js_include'][] = 'highcharts/exporting.js';
+$scripts->addFile('highcharts/exporting.js');
 /* < IE 9 doesn't support canvas natively */
 if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
-    $GLOBALS['js_include'][] = 'canvg/flashcanvas.js';
+    $scripts->addFile('canvg/flashcanvas.js');
 }
-$GLOBALS['js_include'][] = 'canvg/canvg.js';
+
+$scripts->addFile('canvg/canvg.js');
 // for profiling chart
-$GLOBALS['js_include'][] = 'jqplot/jquery.jqplot.js';
-$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.pieRenderer.js';
+$scripts->addFile('jqplot/jquery.jqplot.js');
+$scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
 
 /**
  * flush status variables if requested
@@ -1836,8 +1835,4 @@ function cleanDeprecated(&$server_status)
     }
 }
 
-/**
- * Sends the footer
- */
-require 'libraries/footer.inc.php';
 ?>

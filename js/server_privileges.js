@@ -169,22 +169,12 @@ $(function() {
                             } else {
                                 $("#usersForm").remove();
                             }
-                            var $user_div = $('<div id="userFormDiv"></div>');
-                            /*If the JSON string parsed correctly*/
-                            if (typeof priv_data.success != 'undefined') {
-                                if (priv_data.success == true) {
-                                    $user_div
-                                     .html(priv_data.user_form)
-                                     .insertAfter('#result_query');
-                                } else {
-                                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + priv_data.error, false);
-                                }
+                            if (priv_data.success == true) {
+                                $('<div id="userFormDiv"></div>')
+                                    .html(priv_data.user_form)
+                                    .insertAfter('#result_query');
                             } else {
-                                /*parse the JSON string*/
-                                var obj = $.parseJSON(priv_data);
-                                $user_div
-                                 .html(obj.user_form)
-                                 .insertAfter('#result_query');
+                                PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + priv_data.error, false);
                             }
                         });
                     } else {
@@ -199,7 +189,7 @@ $(function() {
 
         $.get($(this).attr("href"), {'ajax_request':true}, function(data) {
             var $div = $('<div id="add_user_dialog"></div>')
-            .prepend(data)
+            .prepend(data.message)
             .find("#fieldset_add_user_footer").hide() //showing the "Go" and "Create User" buttons together will confuse the user
             .end()
             .find("form[name=usersForm]").append('<input type="hidden" name="ajax_request" value="true" />')
@@ -218,7 +208,7 @@ $(function() {
                 }
             }); //dialog options end
             displayPasswordGenerateButton();
-            PMA_convertFootnotesToTooltips($div);
+            PMA_showHints($div);
             PMA_ajaxRemoveMessage($msgbox);
             $div.find("input[autofocus]").focus();
 
@@ -251,8 +241,7 @@ $(function() {
         $.get($(this).attr("href"), {'ajax_request': true}, function(data) {
             if(data.success == true) {
                 PMA_ajaxRemoveMessage($msgbox);
-            }
-            else {
+            } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
         }); //end $.get()
@@ -300,8 +289,7 @@ $(function() {
                     .find('tr:even')
                     .removeClass('odd').addClass('even');
                 });
-            }
-            else {
+            } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
         }); // end $.post()
@@ -343,7 +331,7 @@ $(function() {
             },
             function(data) {
                 var $div = $('<div id="edit_user_dialog"></div>')
-                .append(data)
+                .append(data.message)
                 .dialog({
                     width: 900,
                     height: 600,
@@ -354,7 +342,7 @@ $(function() {
                 }); //dialog options end
             displayPasswordGenerateButton();
             PMA_ajaxRemoveMessage($msgbox);
-            PMA_convertFootnotesToTooltips($div);
+            PMA_showHints($div);
         }); // end $.get()
     });
 
@@ -436,8 +424,7 @@ $(function() {
                 $("#usersForm")
                 .find('.current_row')
                 .removeClass('current_row');
-            }
-            else {
+            } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
         });
@@ -562,7 +549,7 @@ $(function() {
             $("#usersForm").hide("medium").remove();
             $("#fieldset_add_user").hide("medium").remove();
             $("#initials_table")
-             .after(data).show("medium")
+             .after(data.message).show("medium")
              .siblings("h2").not(":first").remove();
 
             PMA_ajaxRemoveMessage($msgbox);

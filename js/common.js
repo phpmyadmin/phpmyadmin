@@ -159,7 +159,7 @@ function markDbTable(db, table)
 }
 
 /**
- * sets current selected server, table and db (called from libraries/footer.inc.php)
+ * sets current selected server, table and db (called from the footer)
  */
 function setAll( new_lang, new_collation_connection, new_server, new_db, new_table, new_token )
 {

@@ -126,9 +126,4 @@ if (empty($_REQUEST['engine'])
     }
 }
 
-/**
- * Sends the footer
- */
-require 'libraries/footer.inc.php';
-
 ?>

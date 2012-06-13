@@ -11,15 +11,19 @@
  */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/Table.class.php';
+require_once 'libraries/Header.class.php';
 require_once 'libraries/check_user_privileges.lib.php';
 require_once 'libraries/bookmark.lib.php';
 
-$GLOBALS['js_include'][] = 'jquery/timepicker.js';
-$GLOBALS['js_include'][] = 'tbl_change.js';
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('jquery/timepicker.js');
+$scripts->addFile('tbl_change.js');
 // the next one needed because sql.php may do a "goto" to tbl_structure.php
-$GLOBALS['js_include'][] = 'tbl_structure.js';
-$GLOBALS['js_include'][] = 'indexes.js';
-$GLOBALS['js_include'][] = 'gis_data_editor.js';
+$scripts->addFile('tbl_structure.js');
+$scripts->addFile('indexes.js');
+$scripts->addFile('gis_data_editor.js');
 
 /**
  * Sets globals from $_POST
@@ -55,12 +59,16 @@ if (isset($_REQUEST['printview'])) {
 }
 
 if (isset($_SESSION['profiling'])) {
+    $response = PMA_Response::getInstance();
+    $header   = $response->getHeader();
+    $scripts  = $header->getScripts();
     /* < IE 9 doesn't support canvas natively */
     if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
-        $GLOBALS['js_include'][] = 'canvg/flashcanvas.js';
+        $scripts->addFile('canvg/flashcanvas.js');
     }
-    $GLOBALS['js_include'][] = 'jqplot/jquery.jqplot.js';
-    $GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.pieRenderer.js';
+    $scripts->addFile('jqplot/jquery.jqplot.js');
+    $scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
+    $scripts->addFile('canvg/canvg.js');
 }
 
 /**
@@ -104,7 +112,6 @@ if (isset($fields['dbase'])) {
  * better place either.
  */
 if (isset($_REQUEST['get_relational_values']) && $_REQUEST['get_relational_values'] == true) {
-    include_once 'libraries/relation.lib.php';
 
     $column = $_REQUEST['column'];
     $foreigners = PMA_getForeigners($db, $table, $column);
@@ -139,8 +146,9 @@ if (isset($_REQUEST['get_relational_values']) && $_REQUEST['get_relational_value
         $dropdown = '<select>' . $dropdown . '</select>';
     }
 
-    $extra_data['dropdown'] = $dropdown;
-    PMA_ajaxResponse(null, true, $extra_data);
+    $response = PMA_Response::getInstance();
+    $response->addJSON('dropdown', $dropdown);
+    exit;
 }
 
 /**
@@ -166,8 +174,9 @@ if (isset($_REQUEST['get_enum_values']) && $_REQUEST['get_enum_values'] == true)
 
     $dropdown = '<select>' . $dropdown . '</select>';
 
-    $extra_data['dropdown'] = $dropdown;
-    PMA_ajaxResponse(null, true, $extra_data);
+    $response = PMA_Response::getInstance();
+    $response->addJSON('dropdown', $dropdown);
+    exit;
 }
 
 /**
@@ -194,8 +203,9 @@ if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
     $select_size = (sizeof($values) > 10) ? 10 : sizeof($values);
     $select = '<select multiple="multiple" size="' . $select_size . '">' . $select . '</select>';
 
-    $extra_data['select'] = $select;
-    PMA_ajaxResponse(null, true, $extra_data);
+    $response = PMA_Response::getInstance();
+    $response->addJSON('select', $select);
+    exit;
 }
 
 /**
@@ -213,7 +223,10 @@ if (isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
             $_REQUEST['table_create_time']
             );
         if (gettype($retval) != 'boolean') {
-            PMA_ajaxResponse($retval->getString(), false);
+            $response = PMA_Response::getInstance();
+            $response->isSuccess(false);
+            $response->addJSON('message', $retval->getString());
+            exit;
         }
     }
 
@@ -225,11 +238,16 @@ if (isset($_REQUEST['set_col_prefs']) && $_REQUEST['set_col_prefs'] == true) {
             $_REQUEST['table_create_time']
             );
         if (gettype($retval) != 'boolean') {
-            PMA_ajaxResponse($retval->getString(), false);
+            $response = PMA_Response::getInstance();
+            $response->isSuccess(false);
+            $response->addJSON('message', $retval->getString());
+            exit;
         }
     }
 
-    PMA_ajaxResponse(null, ($retval == true));
+    $response = PMA_Response::getInstance();
+    $response->isSuccess($retval == true);
+    exit;
 }
 
 // Default to browse if no query set and we have table
@@ -283,7 +301,6 @@ if (! defined('PMA_CHK_DROP')
     && $is_drop_database
     && ! $is_superuser
 ) {
-    include_once 'libraries/header.inc.php';
     PMA_mysqlDie(__('"DROP DATABASE" statements are disabled.'), '', '', $err_url);
 } // end if
 
@@ -387,7 +404,6 @@ if (! $cfg['Confirm']
 
 if ($do_confirm) {
     $stripped_sql_query = $sql_query;
-    include_once 'libraries/header.inc.php';
     if ($is_drop_database) {
         echo '<h1 class="error">' . __(
                 'You are about to DESTROY a complete database!'
@@ -417,10 +433,7 @@ if ($do_confirm) {
     echo '</fieldset>' . "\n"
        . '</form>' . "\n";
 
-    /**
-     * Displays the footer and exit
-     */
-    include 'libraries/footer.inc.php';
+    exit;
 } // end if $do_confirm
 
 
@@ -578,7 +591,10 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
             $message = PMA_Message::rawError($error);
 
             if ($GLOBALS['is_ajax_request'] == true) {
-                PMA_ajaxResponse($message, false);
+                $response = PMA_Response::getInstance();
+                $response->isSuccess(false);
+                $response->addJSON('message', $message);
+                exit;
             }
 
             /**
@@ -826,7 +842,11 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
             $extra_data['reload'] = 1;
             $extra_data['db'] = $GLOBALS['db'];
         }
-        PMA_ajaxResponse($message, $message->isSuccess(), (isset($extra_data) ? $extra_data : ''));
+        $response = PMA_Response::getInstance();
+        $response->isSuccess($message->isSuccess());
+        $response->addJSON('message', $message);
+        $response->addJSON(isset($extra_data) ? $extra_data : array());
+        exit;
     }
 
     if ($is_gotofile) {
@@ -852,9 +872,6 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
             $goto = 'main.php';
         }
         // Loads to target script
-        if ($goto != 'main.php') {
-            include_once 'libraries/header.inc.php';
-        }
         $active_page = $goto;
         include '' . $goto;
     } else {
@@ -872,15 +889,17 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     // value of a transformed field, show it here and exit
     if ($GLOBALS['grid_edit'] == true && $GLOBALS['cfg']['AjaxEnable']) {
         $row = PMA_DBI_fetch_row($result);
-        $extra_data = array();
-        $extra_data['value'] = $row[0];
-        PMA_ajaxResponse(null, true, $extra_data);
+        $response = PMA_Response::getInstance();
+        $response->addJSON('value', $row[0]);
+        exit;
     }
 
     if (isset($_REQUEST['ajax_request']) && isset($_REQUEST['table_maintenance'])) {
-        $GLOBALS['js_include'][] = 'functions.js';
-        $GLOBALS['js_include'][] = 'makegrid.js';
-        $GLOBALS['js_include'][] = 'sql.js';
+        $response = PMA_Response::getInstance();
+        $header   = $response->getHeader();
+        $scripts  = $header->getScripts();
+        $scripts->addFile('makegrid.js');
+        $scripts->addFile('sql.js');
 
         // Gets the list of fields properties
         if (isset($result) && $result) {
@@ -914,7 +933,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     if (isset($printview) && $printview == '1') {
         PMA_checkParameters(array('db', 'full_sql_query'));
 
-        include_once 'libraries/header_printview.inc.php';
+        $response = PMA_Response::getInstance();
+        $header = $response->getHeader();
+        $header->enablePrintView();
 
         $hostname = '';
         if ($cfg['Server']['verbose']) {
@@ -944,9 +965,11 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         echo "</p>";
     } else {
 
-        $GLOBALS['js_include'][] = 'functions.js';
-        $GLOBALS['js_include'][] = 'makegrid.js';
-        $GLOBALS['js_include'][] = 'sql.js';
+        $response = PMA_Response::getInstance();
+        $header = $response->getHeader();
+        $scripts = $header->getScripts();
+        $scripts->addFile('makegrid.js');
+        $scripts->addFile('sql.js');
 
         unset($message);
 
@@ -962,7 +985,6 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
                 include 'libraries/server_common.inc.php';
             }
         } else {
-            include_once 'libraries/header.inc.php';
             //we don't need to buffer the output in PMA_getMessage here.
             //set a global variable and check against it in the function
             $GLOBALS['buffer_message'] = false;
@@ -1121,6 +1143,6 @@ $(makeProfilingChart);
  * Displays the footer
  */
 if (! isset($_REQUEST['table_maintenance'])) {
-    include 'libraries/footer.inc.php';
+    exit;
 }
 ?>

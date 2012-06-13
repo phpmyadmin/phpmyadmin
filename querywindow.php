@@ -20,12 +20,6 @@ $is_superuser = PMA_isSuperuser();
 require_once 'libraries/sql_query_form.lib.php';
 
 /**
- * starts output buffering if requested and supported
- */
-require_once 'libraries/ob.lib.php';
-PMA_outBufferPre();
-
-/**
  * load relation params
  */
 $cfgRelation = PMA_getRelationsParam();
@@ -118,41 +112,27 @@ $sql_query = '';
 /**
  * prepare JavaScript functionality
  */
-$js_include[] = 'common.js';
-$js_include[] = 'querywindow.js';
+$response = PMA_Response::getInstance();
+$response->getFooter()->setMinimal();
+$header   = $response->getHeader();
+$header->disableMenu();
+$header->setBodyId('bodyquerywindow');
+$scripts = $header->getScripts();
+$scripts->addFile('common.js');
+$scripts->addFile('querywindow.js');
 
 if (PMA_isValid($_REQUEST['auto_commit'], 'identical', 'true')) {
-    $js_events[] = array(
-        'event'     => 'load',
-        'function'  => 'PMA_queryAutoCommit',
-    );
+    $scripts->addEvent('load','PMA_queryAutoCommit');
 }
 if (PMA_isValid($_REQUEST['init'])) {
-    $js_events[] = array(
-        'event'     => 'load',
-        'function'  => 'PMA_querywindowResize',
-    );
+    $scripts->addEvent('load','PMA_querywindowResize');
 }
 // always set focus to the textarea
 if ($querydisplay_tab == 'sql' || $querydisplay_tab == 'full') {
-    $js_events[] = array(
-        'event'     => 'load',
-        'function'  => 'PMA_querywindowSetFocus',
-    );
+    $scripts->addEvent('load','PMA_querywindowSetFocus');
 }
 
-/**
- * start HTTP/HTML output
- */
-require_once 'libraries/header_http.inc.php';
-require_once 'libraries/header_meta_style.inc.php';
-require_once 'libraries/header_scripts.inc.php';
-?>
-</head>
-
-<body id="bodyquerywindow">
-<div id="querywindowcontainer">
-<?php
+echo '<div id="querywindowcontainer">';
 
 if ($tabs) {
     echo PMA_generateHtmlTabs($tabs, array());
@@ -220,5 +200,3 @@ if (! empty($_sql_history)
     <input type="hidden" name="querydisplay_tab" value="<?php echo $querydisplay_tab; ?>" />
 </form>
 </div>
-</body>
-</html>

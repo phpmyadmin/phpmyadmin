@@ -322,6 +322,9 @@ $(function() {
      *    to previous page" and "insert another new row" actions, using AJAX
      *    has no obvious advantage. If inserting, the "go back to previous"
      *    action needs a page refresh anyway.
+     *
+     * 3. The handling of the response is also broken because PMA
+     *    no longher returns plain HTML for an ajax request
      */
     $("#insertFormDEACTIVATED").live('submit', function(event) {
 

@@ -69,8 +69,7 @@ $(function() {
                     $("<span>" + PMA_messages['strReloadDatabase'] + "?</span>").dialog({
                         buttons: button_options
                     }) //end dialog options
-                }
-                else {
+                } else {
                     PMA_ajaxShowMessage(data.error, false);
                 }
             }) // end $.get()
@@ -106,8 +105,7 @@ $(function() {
                     // not refresh it
                     window.parent.refreshNavigation(true);
                }
-            }
-            else {
+            } else {
                 $('#floating_menubar').after(data.error);
             }
 
@@ -131,8 +129,7 @@ $(function() {
         $.get($form.attr('action'), $form.serialize() + "&submitcollation=" + $form.find("input[name=submitcollation]").val(), function(data) {
             if(data.success == true) {
                 PMA_ajaxShowMessage(data.message);
-            }
-            else {
+            } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
         }) // end $.get()

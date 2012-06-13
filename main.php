@@ -18,6 +18,7 @@ require_once 'libraries/display_git_revision.lib.php';
 if ($GLOBALS['PMA_Config']->isGitRevision()) {
     if (isset($_REQUEST['git_revision']) && $GLOBALS['is_ajax_request'] == true) {
         PMA_printGitRevision();
+        exit;
     }
     PMA_addJSVar('is_git_revision', true);
 }
@@ -26,7 +27,6 @@ if ($GLOBALS['PMA_Config']->isGitRevision()) {
 $GLOBALS['db'] = '';
 $GLOBALS['table'] = '';
 $show_query = '1';
-require_once 'libraries/header.inc.php';
 
 // Any message to display?
 if (! empty($message)) {
@@ -452,9 +452,4 @@ function PMA_printListItem($name, $id = null, $url = null, $mysql_help_page = nu
     }
     echo '</li>';
 }
-
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
 ?>

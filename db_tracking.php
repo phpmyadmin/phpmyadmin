@@ -10,15 +10,18 @@
 require_once 'libraries/common.inc.php';
 
 //Get some js files needed for Ajax requests
-$GLOBALS['js_include'][] = 'db_structure.js';
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('db_structure.js');
 
 /**
  * If we are not in an Ajax request, then do the common work and show the links etc.
  */
 if ($GLOBALS['is_ajax_request'] != true) {
     include 'libraries/db_common.inc.php';
+    $url_query .= '&amp;goto=tbl_tracking.php&amp;back=db_tracking.php';
 }
-$url_query .= '&amp;goto=tbl_tracking.php&amp;back=db_tracking.php';
 
 // Get the database structure
 $sub_part = '_structure';
@@ -31,11 +34,12 @@ if (isset($_REQUEST['delete_tracking']) && isset($_REQUEST['table'])) {
 
     /**
      * If in an Ajax request, generate the success message and use
-     * {@link PMA_ajaxResponse()} to send the output
+     * {@link PMA_Response()} to send the output
      */
     if ($GLOBALS['is_ajax_request'] == true) {
-        $message = PMA_Message::success();
-        PMA_ajaxResponse($message, true);
+        $response = PMA_Response::getInstance();
+        $response->addJSON('message', PMA_Message::success());
+        exit;
     }
 }
 
@@ -49,9 +53,6 @@ if ($num_tables == 0 && count($data['ddlog']) == 0) {
     if (empty($db_is_information_schema)) {
         include 'libraries/display_create_table.lib.php';
     }
-
-    // Display the footer
-    include 'libraries/footer.inc.php';
     exit;
 }
 
@@ -228,8 +229,4 @@ if (count($data['ddlog']) > 0) {
     echo PMA_getMessage(__('Database Log'), $log);
 }
 
-/**
- * Display the footer
- */
-require 'libraries/footer.inc.php';
 ?>
