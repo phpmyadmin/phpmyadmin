@@ -13,10 +13,13 @@
  */
 require_once 'libraries/common.inc.php';
 
-$GLOBALS['js_include'][] = 'db_search.js';
-$GLOBALS['js_include'][] = 'sql.js';
-$GLOBALS['js_include'][] = 'makegrid.js';
-$GLOBALS['js_include'][] = 'jquery/timepicker.js';
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('db_search.js');
+$scripts->addFile('sql.js');
+$scripts->addFile('makegrid.js');
+$scripts->addFile('jquery/timepicker.js');
 
 /**
  * Gets some core libraries and send headers
@@ -368,9 +371,3 @@ $alter_select
 <!--  toggle query box link-->
 <a id="togglequerybox"></a>
 
-<?php
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
-?>

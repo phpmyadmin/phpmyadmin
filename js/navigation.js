@@ -180,12 +180,14 @@ function fast_filter(value)
         }
         fast_filter.ajax_semaphore = true;
         $.get('db_tables_search.php?db=' + db +'&table=' + lowercase_value, function(data) {
+            if (data.tables) {
                 var tables = data.tables;
                 var l = tables.length;        
                 for(var i = 0; i < l; i++) {          
                     $('#subel0').append(tables[i].line);
                 }
                 fast_filter.ajax_semaphore = false;
+            }
         });
     }
 }

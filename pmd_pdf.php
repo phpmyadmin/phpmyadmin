@@ -77,11 +77,12 @@ if (isset($mode)) {
     }
 }
 
-// no need to use pmd/styles
-require_once 'libraries/header_meta_style.inc.php';
+$response = PMA_Response::getInstance();
+$response->getFooter()->setMinimal();
+$header   = $response->getHeader();
+$header->disableMenu();
+
 ?>
-</head>
-<body>
 <br>
 <div>
 <?php
@@ -144,6 +145,4 @@ echo '<p>' . __('Export/Import to scale') . ':';
     </div>
   </form>
 </div>
-</body>
-</html>
 

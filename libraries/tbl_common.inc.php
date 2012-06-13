@@ -45,11 +45,6 @@ $err_url   = $cfg['DefaultTabTable'] . PMA_generate_common_url($url_params);
  */
 require_once './libraries/db_table_exists.lib.php';
 
-/**
- * Displays headers
- */
-require_once './libraries/header.inc.php';
-
 if (PMA_Tracker::isActive()
     && PMA_Tracker::isTracked($GLOBALS["db"], $GLOBALS["table"])
 ) {

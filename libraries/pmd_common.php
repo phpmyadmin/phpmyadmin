@@ -10,17 +10,9 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-// not understand
-require_once './libraries/header_http.inc.php';
-
 $GLOBALS['PMD']['STYLE']          = 'default';
 
 $cfgRelation = PMA_getRelationsParam();
-
-$GLOBALS['script_display_field']
-    = '<script type="text/javascript">' . "\n" .
-    '// <![CDATA[' . "\n" .
-    'var display_field = new Array();' . "\n";
 
 /**
  * retrieves table info and stores it in $GLOBALS['PMD']
@@ -28,6 +20,8 @@ $GLOBALS['script_display_field']
  */
 function get_tables_info()
 {
+    $GLOBALS['script_display_field'] = 'var display_field = new Array();' . "\n";
+
     $GLOBALS['PMD']['TABLE_NAME'] = array();// that foreach no error
     $GLOBALS['PMD']['OWNER'] = array();
     $GLOBALS['PMD']['TABLE_NAME_SMALL'] = array();
@@ -61,10 +55,7 @@ function get_tables_info()
         $i++;
     }
 
-    $GLOBALS['script_display_field'] .=
-        '// ]]>' . "\n" .
-        '</script>' . "\n";
-    //  return $GLOBALS['PMD'];       // many bases // not use ??????
+    return $GLOBALS['script_display_field'];
 }
 
 /**
@@ -131,10 +122,7 @@ function get_script_contr()
     }
 
     $ti = 0;
-    $script_contr
-        = '<script type="text/javascript">' . "\n" .
-        '// <![CDATA[' . "\n" .
-        'var contr = new Array();' . "\n";
+    $script_contr = 'var contr = new Array();' . "\n";
     for ($i = 0, $cnt = count($con["C_NAME"]); $i < $cnt; $i++) {
         $js_var = ' contr[' . $ti . ']';
         $script_contr .= $js_var . " = new Array();\n";
@@ -153,9 +141,6 @@ function get_script_contr()
         }
         $ti++;
     }
-    $script_contr .=
-        '// ]]>' . "\n" .
-        '</script>' . "\n";
     return $script_contr;
 }
 
@@ -203,19 +188,13 @@ function get_all_keys($unique_only = false)
  */
 function get_script_tabs()
 {
-    $script_tabs
-        = '<script type="text/javascript">' . "\n" .
-        '// <![CDATA[' . "\n" .
-        'var j_tabs = new Array();' . "\n" .
-        'var h_tabs = new Array();' . "\n" ;
+    $script_tabs = 'var j_tabs = new Array();' . "\n"
+        . 'var h_tabs = new Array();' . "\n" ;
     for ($i = 0, $cnt = count($GLOBALS['PMD']['TABLE_NAME']); $i < $cnt; $i++) {
         $script_tabs .= "j_tabs['" . $GLOBALS['PMD_URL']['TABLE_NAME'][$i] . "'] = '"
             . (PMA_isForeignKeySupported($GLOBALS['PMD']['TABLE_TYPE'][$i]) ? '1' : '0') . "';\n";
         $script_tabs .="h_tabs['" . $GLOBALS['PMD_URL']['TABLE_NAME'][$i] . "'] = 1;"."\n" ;
     }
-    $script_tabs .=
-        '// ]]>' . "\n" .
-        '</script>' . "\n";
     return $script_tabs;
 }
 
@@ -241,5 +220,4 @@ function get_tab_pos()
     return count($tab_pos) ? $tab_pos : null;
 }
 
-get_tables_info();
 ?>

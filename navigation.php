@@ -19,7 +19,6 @@ require_once 'libraries/common.inc.php';
  */
 function PMA_exitNavigationFrame()
 {
-    echo '</body></html>';
     exit;
 }
 
@@ -30,11 +29,12 @@ require_once 'libraries/RecentTable.class.php';
  * Check if it is an ajax request to reload the recent tables list.
  */
 if ($GLOBALS['is_ajax_request'] && $_REQUEST['recent_table']) {
-    PMA_ajaxResponse(
-        '',
-        true,
-        array('options' => PMA_RecentTable::getInstance()->getHtmlSelectOption())
+    $response = PMA_Response::getInstance();
+    $response->addJSON(
+        'options',
+        PMA_RecentTable::getInstance()->getHtmlSelectOption()
     );
+    exit;
 }
 
 // keep the offset of the db list in session before closing it
@@ -62,13 +62,6 @@ if (empty($_SESSION['debug'])) {
     session_write_close();
 }
 
-/**
- * the output compression library
- */
-require_once 'libraries/ob.lib.php';
-
-PMA_outBufferPre();
-
 /*
  * selects the database if there is only one on current server
  */
@@ -83,41 +76,14 @@ $db_start = $GLOBALS['db'];
  */
 $cfgRelation = PMA_getRelationsParam();
 
-/**
- * For re-usability, moved http-headers to a seperate file.
- * It can now be included by libraries/header.inc.php, querywindow.php.
- */
-require_once 'libraries/header_http.inc.php';
-
-/*
- * Displays the frame
- */
-// xml declaration moves IE into quirks mode, making much trouble with CSS
-/* echo '<?xml version="1.0" encoding="utf-8"?>'; */
-?>
-<!DOCTYPE HTML>
-<html lang="<?php echo $available_languages[$lang][1]; ?>" dir="<?php echo $GLOBALS['text_dir']; ?>">
-
-<head>
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <title>phpMyAdmin</title>
-    <meta charset="utf-8" />
-    <base target="frame_content" />
-    <link rel="stylesheet" type="text/css"
-        href="phpmyadmin.css.php?<?php echo PMA_generate_common_url('', ''); ?>&amp;nocache=<?php echo $GLOBALS['PMA_Config']->getThemeUniqueValue(); ?>" />
-    <?php
-    echo PMA_includeJS('jquery/jquery-1.6.2.js');
-    echo PMA_includeJS('jquery/jquery-ui-1.8.16.custom.js');
-    echo PMA_includeJS('jquery/jquery.qtip-1.0.0-rc3.js');
-    echo PMA_includeJS('navigation.js');
-    echo PMA_includeJS('functions.js');
-    echo PMA_includeJS('messages.php');
-    // Append the theme id to this url to invalidate the cache on a theme change
-    echo PMA_includeJS('get_image.js.php?theme=' . urlencode($_SESSION['PMA_Theme']->getId()));
-    ?>
-    <script type="text/javascript">
-    // <![CDATA[
+$response = PMA_Response::getInstance();
+$response->getFooter()->setMinimal();
+$header   = $response->getHeader();
+$header->disableMenu();
+$header->setBodyId('body_leftFrame');
+$scripts = $header->getScripts();
+$scripts->addFile('navigation.js');
+$scripts->addCode('
     // INIT PMA_setFrameSize
     var onloadCnt = 0;
     var onLoadHandler = window.onload;
@@ -128,8 +94,8 @@ require_once 'libraries/header_http.inc.php';
             if (typeof(onLoadHandler) == "function") {
                 onLoadHandler();
             }
-            if (typeof(PMA_setFrameSize) != 'undefined'
-                && typeof(PMA_setFrameSize) == 'function'
+            if (typeof(PMA_setFrameSize) != "undefined"
+                && typeof(PMA_setFrameSize) == "function"
             ) {
                 PMA_setFrameSize();
             }
@@ -140,32 +106,14 @@ require_once 'libraries/header_http.inc.php';
         if (typeof(resizeHandler) == "function") {
             resizeHandler();
         }
-        if (typeof(PMA_saveFrameSize) != 'undefined'
-            && typeof(PMA_saveFrameSize) == 'function'
+        if (typeof(PMA_saveFrameSize) != "undefined"
+            && typeof(PMA_saveFrameSize) == "function"
         ) {
             PMA_saveFrameSize();
         }
     };
-    // ]]>
-    </script>
-    <?php
-    /*
-     * remove horizontal scroll bar bug in IE 6 by forcing a vertical scroll bar
-     */
-    ?>
-    <!--[if IE 6]>
-    <style type="text/css">
-    /* <![CDATA[ */
-    html {
-        overflow-y: scroll;
-    }
-    /* ]]> */
-    </style>
-    <![endif]-->
-</head>
+');
 
-<body id="body_leftFrame">
-<?php
 require 'libraries/navigation_header.inc.php';
 
 // display recently used tables
@@ -667,7 +615,7 @@ function PMA_displayTableList(
             );
             // quick access icon next to each table name
             echo '<li>' . "\n";
-            echo '<a class="tableicon" title="'
+            echo '<a target="frame_content" class="tableicon" title="'
                 . htmlspecialchars($link_title)
                 . ': ' . htmlspecialchars($table['Comment'])
                 .' (' . PMA_formatNumber($table['Rows'], 0) . ' ' . __('Rows') . ')"'
@@ -699,7 +647,7 @@ function PMA_displayTableList(
             $href = $GLOBALS['cfg']['DefaultTabTable'] . '?'
                 .$GLOBALS['common_url_query'] . '&amp;table='
                 .urlencode($table['Name']) . '&amp;pos=0';
-            echo '<a href="' . $href . '" title="'
+            echo '<a target="frame_content" href="' . $href . '" title="'
                 . htmlspecialchars(
                     PMA_getTitleForTarget($GLOBALS['cfg']['DefaultTabTable'])
                     . ': ' . $table['Comment']

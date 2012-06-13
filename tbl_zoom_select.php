@@ -14,27 +14,27 @@
 require_once './libraries/common.inc.php';
 require_once './libraries/mysql_charsets.lib.php';
 require_once './libraries/tbl_select.lib.php';
-require_once './libraries/relation.lib.php';
 require_once './libraries/tbl_info.inc.php';
 
-$GLOBALS['js_include'][] = 'makegrid.js';
-$GLOBALS['js_include'][] = 'sql.js';
-$GLOBALS['js_include'][] = 'functions.js';
-$GLOBALS['js_include'][] = 'date.js';
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('makegrid.js');
+$scripts->addFile('sql.js');
+$scripts->addFile('date.js');
 /* < IE 9 doesn't support canvas natively */
 if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
-    $GLOBALS['js_include'][] = 'canvg/flashcanvas.js';
+    $scripts->addFile('canvg/flashcanvas.js');
 }
-
-$GLOBALS['js_include'][] = 'jqplot/jquery.jqplot.js';
-$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.canvasTextRenderer.js';
-$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.canvasAxisLabelRenderer.js';
-$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.dateAxisRenderer.js';
-$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.highlighter.js';
-$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.cursor.js';
-$GLOBALS['js_include'][] = 'canvg/canvg.js';
-$GLOBALS['js_include'][] = 'jquery/timepicker.js';
-$GLOBALS['js_include'][] = 'tbl_zoom_plot_jqplot.js';
+$scripts->addFile('jqplot/jquery.jqplot.js');
+$scripts->addFile('jqplot/plugins/jqplot.canvasTextRenderer.js');
+$scripts->addFile('jqplot/plugins/jqplot.canvasAxisLabelRenderer.js');
+$scripts->addFile('jqplot/plugins/jqplot.dateAxisRenderer.js');
+$scripts->addFile('jqplot/plugins/jqplot.highlighter.js');
+$scripts->addFile('jqplot/plugins/jqplot.cursor.js');
+$scripts->addFile('canvg/canvg.js');
+$scripts->addFile('jquery/timepicker.js');
+$scripts->addFile('tbl_zoom_plot_jqplot.js');
 
 /**
  * Sets globals from $_POST
@@ -72,7 +72,8 @@ if (isset($_REQUEST['get_data_row']) && $_REQUEST['get_data_row'] == true) {
         }
         $extra_data['row_info'] = $row;
     }
-    PMA_ajaxResponse(null, true, $extra_data);
+    PMA_Response::getInstance()->addJSON($extra_data);
+    exit;
 }
 
 /**
@@ -82,14 +83,14 @@ if (isset($_REQUEST['get_data_row']) && $_REQUEST['get_data_row'] == true) {
  */
 
 if (isset($_REQUEST['change_tbl_info']) && $_REQUEST['change_tbl_info'] == true) {
-    $extra_data = array();
+    $response = PMA_Response::getInstance();
     $field = $_REQUEST['field'];
     if ($field == 'pma_null') {
-        $extra_data['field_type'] = '';
-        $extra_data['field_collation'] = '';
-        $extra_data['field_operators'] = '';
-        $extra_data['field_value'] = '';
-        PMA_ajaxResponse(null, true, $extra_data);
+        $response->addJSON('field_type', '');
+        $response->addJSON('field_collation', '');
+        $response->addJSON('field_operators', '');
+        $response->addJSON('field_value', '');
+        exit;
     }
     // Gets the list and number of fields
     list($columnNames, $columnTypes, $columnCollations, $columnNullFlags)
@@ -100,11 +101,11 @@ if (isset($_REQUEST['change_tbl_info']) && $_REQUEST['change_tbl_info'] == true)
         $db, $table, $columnNames, $columnTypes, $columnCollations,
         $columnNullFlags, $foreigners, $_REQUEST['it'], $key
     );
-    $extra_data['field_type'] = $properties['type'];
-    $extra_data['field_collation'] = $properties['collation'];
-    $extra_data['field_operators'] = $properties['func'];
-    $extra_data['field_value'] = $properties['value'];
-    PMA_ajaxResponse(null, true, $extra_data);
+    $response->addJSON('field_type', $properties['type']);
+    $response->addJSON('field_collation', $properties['collation']);
+    $response->addJSON('field_operators', $properties['func']);
+    $response->addJSON('field_value', $properties['value']);
+    exit;
 }
 
 $titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
@@ -264,5 +265,4 @@ if (isset($zoom_submit)
     </form>
     <?php
 }
-require './libraries/footer.inc.php';
 ?>

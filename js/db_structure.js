@@ -173,7 +173,7 @@ $(function() {
                 }); // end dialog options
             } else {
                 var $dialog = $div
-                    .append(data)
+                    .append(data.message)
                     .dialog({
                         title: PMA_messages['strInsertTable'],
                         height: 600,
@@ -194,7 +194,7 @@ $(function() {
                 $("table.insertRowTable").addClass("ajax");
                 $("#buttonYes").addClass("ajax");
                 $div = $("#insert_table_dialog");
-                PMA_convertFootnotesToTooltips($div);
+                PMA_showHints($div);
             }
             PMA_ajaxRemoveMessage($msgbox);
         }); // end $.get()

@@ -21,7 +21,7 @@ if (! PMA_isValid($_REQUEST['rows_to_delete'], 'array')
     $disp_message = __('No rows selected');
     $disp_query = '';
     include 'sql.php';
-    include 'libraries/footer.inc.php';
+    exit;
 }
 
 if (isset($_REQUEST['submit_mult'])) {
@@ -137,11 +137,6 @@ if (!empty($submit_mult)) {
 
         $active_page = 'sql.php';
         include 'sql.php';
-
-        /**
-         * Displays the footer
-         */
-        include 'libraries/footer.inc.php';
         break;
     }
 }

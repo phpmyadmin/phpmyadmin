@@ -10,9 +10,12 @@
  */
 require_once 'libraries/common.inc.php';
 
-$GLOBALS['js_include'][] = 'db_structure.js';
-$GLOBALS['js_include'][] = 'tbl_change.js';
-$GLOBALS['js_include'][] = 'jquery/timepicker.js';
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('db_structure.js');
+$scripts->addFile('tbl_change.js');
+$scripts->addFile('jquery/timepicker.js');
 
 /**
  * Sets globals from $_POST
@@ -86,11 +89,6 @@ if ($num_tables == 0) {
     if (empty($db_is_information_schema)) {
         include 'libraries/display_create_table.lib.php';
     } // end if (Create Table dialog)
-
-    /**
-     * Displays the footer
-     */
-    include_once 'libraries/footer.inc.php';
     exit;
 }
 
@@ -756,8 +754,4 @@ if (empty($db_is_information_schema)) {
     include 'libraries/display_create_table.lib.php';
 } // end if (Create Table dialog)
 
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
 ?>

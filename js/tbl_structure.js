@@ -64,8 +64,7 @@ $(function() {
                     $curr_row.hide("medium").remove();
                     // refresh the list of indexes (comes from sql.php)
                     $('#indexes').html(data.indexes_list);
-                }
-                else {
+                } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
             }); // end $.get()
@@ -104,8 +103,7 @@ $(function() {
                     if (typeof data.reload != 'undefined') {
                         window.parent.frame_content.location.reload();
                     }
-                }
-                else {
+                } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
             }); // end $.get()
@@ -158,8 +156,7 @@ $(function() {
                             $(this).remove();
                         });
                     }
-                }
-                else {
+                } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
             }); // end $.get()
@@ -265,7 +262,7 @@ $(function() {
                         $("#edit_index_dialog").dialog("close");
                     }
                     $('div.no_indexes_defined').hide();
-                } else if (data.error != undefined) {
+                } else {
                     var $temp_div = $("<div id='temp_div'><div>").append(data.error);
                     if ($temp_div.find(".error code").length != 0) {
                         var $error = $temp_div.find(".error code").addClass("error");
@@ -281,14 +278,14 @@ $(function() {
         };
         var $msgbox = PMA_ajaxShowMessage();
         $.get("tbl_indexes.php", url, function(data) {
-            if (data.error) {
+            if (data.success == false) {
                 //in the case of an error, show the error message returned.
                 PMA_ajaxShowMessage(data.error, false);
             } else {
                 PMA_ajaxRemoveMessage($msgbox);
                 // Show dialog if the request was successful
                 $div
-                .append(data)
+                .append(data.message)
                 .dialog({
                     title: title,
                     width: 450,
@@ -301,7 +298,7 @@ $(function() {
                 });
                 checkIndexType();
                 checkIndexName("index_frm");
-                PMA_convertFootnotesToTooltips($div);
+                PMA_showHints($div);
                 // Add a slider for selecting how many columns to add to the index
                 $div.find('.slider').slider({
                     animate: true,
@@ -390,7 +387,7 @@ $(function() {
             }
 
             $.post($form.prop("action"), serialized + "&ajax_request=true", function (data) {
-                if (data.success != undefined && data.success == false) {
+                if (data.success == false) {
                     PMA_ajaxRemoveMessage($msgbox);
                     $this
                     .clone()
@@ -410,8 +407,7 @@ $(function() {
                     // loop through the correct order
                     for (var i in data.columns) {
                         var the_column = data.columns[i];
-                        var $the_row
-                            = $rows
+                        var $the_row = $rows
                             .find("input:checkbox[value=" + the_column + "]")
                             .closest("tr");
                         // append the row for this column to the table
@@ -526,7 +522,7 @@ $(function() {
                 }); // end dialog options
             } else {
                 $div
-                .append(data)
+                .append(data.message)
                 .dialog({
                     title: PMA_messages['strAddColumns'],
                     height: 600,
@@ -542,7 +538,7 @@ $(function() {
                 $div = $("#add_columns");
                 /*changed the z-index of the enum editor to allow the edit*/
                 $("#enum_editor").css("z-index", "1100");
-                PMA_convertFootnotesToTooltips($div);
+                PMA_showHints($div);
                 // set focus on first column name input
                 $div.find("input.textfield").eq(0).focus();
             }
@@ -604,7 +600,7 @@ function changeColumns(action,url)
             }); // end dialog options
         } else {
             $div
-            .append(data)
+            .append(data.message)
             .dialog({
                 title: PMA_messages['strChangeTbl'],
                 height: 600,
@@ -620,7 +616,7 @@ function changeColumns(action,url)
             /*changed the z-index of the enum editor to allow the edit*/
             $("#enum_editor").css("z-index", "1100");
             $div = $("#change_column_dialog");
-            PMA_convertFootnotesToTooltips($div);
+            PMA_showHints($div);
         }
         PMA_ajaxRemoveMessage($msgbox);
     }); // end $.get()
@@ -673,7 +669,7 @@ $(function() {
                         /*Reload the field form*/
                         reloadFieldForm(data.message);
                     } else {
-                        var $temp_div = $("<div id='temp_div'><div>").append(data);
+                        var $temp_div = $("<div id='temp_div'><div>").append(data.error);
                         var $error = $temp_div.find(".error code").addClass("error");
                         PMA_ajaxShowMessage($error, false);
                     }
@@ -693,7 +689,7 @@ $(function() {
  */
 function reloadFieldForm(message) {
     $.post($("#fieldsForm").attr('action'), $("#fieldsForm").serialize()+"&ajax_request=true", function(form_data) {
-        var $temp_div = $("<div id='temp_div'><div>").append(form_data);
+        var $temp_div = $("<div id='temp_div'><div>").append(form_data.message);
         $("#fieldsForm").replaceWith($temp_div.find("#fieldsForm"));
         $("#addColumns").replaceWith($temp_div.find("#addColumns"));
         $('#move_columns_dialog ul').replaceWith($temp_div.find("#move_columns_dialog ul"));

@@ -52,11 +52,11 @@ $(function() {
 
         PMA_prepareForAjaxRequest($search_form);
 
-        $.post($search_form.attr('action'), $search_form.serialize(), function(response) {
+        $.post($search_form.attr('action'), $search_form.serialize(), function(data) {
             PMA_ajaxRemoveMessage($msgbox);
-            if (typeof response == 'string') {
+            if (data.success == true) {
                 // found results
-                $("#sqlqueryresults").html(response);
+                $("#sqlqueryresults").html(data.message);
                 $("#sqlqueryresults").trigger('makegrid');
                 $('#tbl_search_form')
                 // workaround for bug #3168569 - Issue on toggling the "Hide search criteria" in chrome.
@@ -71,14 +71,7 @@ $(function() {
                  // needed for the display options slider in the results
                  PMA_init_slider();
             } else {
-                // error message (zero rows)
-                if (response.message != undefined) {
-                    $("#sqlqueryresults").html(response['message']);
-                }
-                // other error (syntax error?)
-                if (response.error != undefined) {
-                    $("#sqlqueryresults").html(response['error']);
-                }
+                $("#sqlqueryresults").html(data.error);
             }
         }); // end $.post()
     });

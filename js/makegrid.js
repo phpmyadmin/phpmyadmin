@@ -950,8 +950,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                                     $editArea.find('textarea').val($(this).val());
                                 });
                                 $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
-                            }
-                            else {
+                            } else {
                                 PMA_ajaxShowMessage(data.error, false);
                             }
                         }); // end $.post()

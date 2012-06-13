@@ -1,7 +1,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Conditionally called from libraries/header_scripts.inc.php
- * if third-party framing is not allowed
+ * Conditionally included if third-party framing is not allowed
  *
  */
 
@@ -13,8 +12,7 @@ try {
         alert("Redirecting...");
         top.location.replace(self.document.URL.substring(0, self.document.URL.lastIndexOf("/")+1));
     }
-}
-catch(e) {
+} catch(e) {
     alert("Redirecting... (error: " + e);
     top.location.replace(self.document.URL.substring(0, self.document.URL.lastIndexOf("/")+1));
 }
