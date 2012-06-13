@@ -1737,7 +1737,7 @@ function PMA_getWarningMessages()
 }
 
 /**
- * Field to display from the foreign table?
+ * Column to display from the foreign table?
  * 
  * @param string $where_comparison      string that contain relation field value
  * @param string $relation_field_value  relation field value
@@ -1747,7 +1747,7 @@ function PMA_getWarningMessages()
  * 
  * @return string  $dispval             display value from the foriegn table
  */
-function PMA_displayForiengTableColumn($where_comparison, $relation_field_value, $map, $relation_field)
+function PMA_getDisplayValueForForiengTableColumn($where_comparison, $relation_field_value, $map, $relation_field)
 {
     $display_field = PMA_getDisplayField($map[$relation_field]['foreign_db'], $map[$relation_field]['foreign_table']);
     // Field to display from the foreign table?
@@ -1824,7 +1824,7 @@ function PMA_getLinkForRelationalDisplayField($map, $relation_field, $where_comp
  * @return array $extra_data
  */
 function PMA_getTransformationFunctionAndTransformationOptions($db, $table,
-    $transformation, $edited_values, $extra_data
+    $transformation, $edited_values, $extra_data, $include_file
 ) {
     foreach ($edited_values as $cell_index => $curr_cell_edited_values) {
         if (isset($curr_cell_edited_values[$column_name])) {
@@ -1857,6 +1857,48 @@ function PMA_getTransformationFunctionAndTransformationOptions($db, $table,
         }
     }   // end of loop for each transformation cell   
     return $extra_data;
+}
+
+/**
+ * Get current value in multi edit mode
+ * 
+ * @param array $multi_edit_colummns        multiple edit column array
+ * @param array $multi_edit_columns_name    multiple edit columns name array
+ * @param array $multi_edit_funcs           multiple edit functions array
+ * @param array $gis_from_text_functions    array that contains gis from text functions
+ * @param string $val                       
+ * @param array $gis_from_wkb_functions     initialy $val is $multi_edit_colummns[$key]
+ * @param array $func_optional_param        array('RAND','UNIX_TIMESTAMP')
+ * @param array $func_no_param              array of set of string
+ * @param string $key                       an md5 of the fieldname
+ * 
+ * @return array $val, $cur_value
+ */
+function PMA_getCurrentValueForMultipleEdit($multi_edit_colummns, $multi_edit_columns_name, $multi_edit_funcs,
+    $gis_from_text_functions, $val, $gis_from_wkb_functions, $func_optional_param, $func_no_param, $key
+) { 
+    if (empty($multi_edit_funcs[$key])) {
+        $cur_value = $val;
+    } elseif ('UUID' === $multi_edit_funcs[$key]) {
+        /* This way user will know what UUID new row has */
+        $uuid = PMA_DBI_fetch_value('SELECT UUID()');
+        $cur_value = "'" . $uuid . "'";
+    } elseif ((in_array($multi_edit_funcs[$key], $gis_from_text_functions)
+        && substr($val, 0, 3) == "'''")
+        || in_array($multi_edit_funcs[$key], $gis_from_wkb_functions)
+    ) {
+        // Remove enclosing apostrophes
+        $val = substr($val, 1, strlen($val) - 2);
+        // Remove escaping apostrophes
+        $val = str_replace("''", "'", $val);
+        $cur_value = $multi_edit_funcs[$key] . '(' . $val . ')';
+    } elseif (! in_array($multi_edit_funcs[$key], $func_no_param)
+              || ($val != "''" && in_array($multi_edit_funcs[$key], $func_optional_param))) {
+        $cur_value = $multi_edit_funcs[$key] . '(' . $val . ')';
+    } else {
+        $cur_value = $multi_edit_funcs[$key] . '()';
+    }   
+    return array($val, $cur_value);
 }
 
 ?>

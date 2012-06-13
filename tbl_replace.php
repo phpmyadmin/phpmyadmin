@@ -176,32 +176,12 @@ foreach ($loop_array as $rownumber => $where_clause) {
     // when inserting multiple entries
     foreach ($multi_edit_columns_name as $key => $colummn_name) {
         $val = $multi_edit_colummns[$key];
-
         // Note: $key is an md5 of the fieldname. The actual fieldname is available in $multi_edit_columns_name[$key]
 
         include 'libraries/tbl_replace_fields.inc.php';
-
-        if (empty($multi_edit_funcs[$key])) {
-            $cur_value = $val;
-        } elseif ('UUID' === $multi_edit_funcs[$key]) {
-            /* This way user will know what UUID new row has */
-            $uuid = PMA_DBI_fetch_value('SELECT UUID()');
-            $cur_value = "'" . $uuid . "'";
-        } elseif ((in_array($multi_edit_funcs[$key], $gis_from_text_functions)
-            && substr($val, 0, 3) == "'''")
-            || in_array($multi_edit_funcs[$key], $gis_from_wkb_functions)
-        ) {
-            // Remove enclosing apostrophes
-            $val = substr($val, 1, strlen($val) - 2);
-            // Remove escaping apostrophes
-            $val = str_replace("''", "'", $val);
-            $cur_value = $multi_edit_funcs[$key] . '(' . $val . ')';
-        } elseif (! in_array($multi_edit_funcs[$key], $func_no_param)
-                  || ($val != "''" && in_array($multi_edit_funcs[$key], $func_optional_param))) {
-            $cur_value = $multi_edit_funcs[$key] . '(' . $val . ')';
-        } else {
-            $cur_value = $multi_edit_funcs[$key] . '()';
-        }
+        list($val, $cur_value) = PMA_getCurrentValueForMultipleEdit($multi_edit_colummns,
+            $multi_edit_columns_name, $multi_edit_funcs, $gis_from_text_functions, $val,
+            $gis_from_wkb_functions, $func_optional_param, $func_no_param, $key);
 
         //  i n s e r t
         if ($is_insert) {
@@ -344,7 +324,7 @@ if ($GLOBALS['is_ajax_request'] == true) {
             $include_file = PMA_securePath($transformation['transformation']);
             $column_name = $transformation['column_name'];
             $extra_data = PMA_getTransformationFunctionAndTransformationOptions($db, $table,
-                $transformation, $edited_values, $include_file, $column_name, $extra_data);
+                $transformation, $edited_values, $include_file, $column_name, $extra_data, $include_file);
         }   // end of loop for each $mime_map
     }
 
