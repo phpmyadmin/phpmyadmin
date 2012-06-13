@@ -2227,10 +2227,9 @@ class PMA_DisplayResults
 
                     $GLOBALS['vertical_display']['data'][$row_no][$i]
                         = $this->_getDataCellForNumericFeilds(
-                            $row[$i], $class, $condition_field, $meta,
-                            $analyzed_sql, $transform_function, $map,
-                            $default_function, $transform_options,
-                            $is_field_truncated
+                            $row[$i], $class, $condition_field, $meta, $map,
+                            $is_field_truncated, $analyzed_sql, $transform_function,
+                            $default_function, $transform_options
                         );
 
                 } elseif (stristr($meta->type, self::BLOB_FIELD)) {
