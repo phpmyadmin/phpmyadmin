@@ -73,6 +73,7 @@ if (isset($_REQUEST['get_data_row']) && $_REQUEST['get_data_row'] == true) {
         $extra_data['row_info'] = $row;
     }
     PMA_ajaxResponse(null, true, $extra_data);
+    // execution has stopped at this point
 }
 
 /**
@@ -90,6 +91,7 @@ if (isset($_REQUEST['change_tbl_info']) && $_REQUEST['change_tbl_info'] == true)
         $extra_data['field_operators'] = '';
         $extra_data['field_value'] = '';
         PMA_ajaxResponse(null, true, $extra_data);
+        // execution has stopped at this point
     }
     // Gets the list and number of fields
     list($columnNames, $columnTypes, $columnCollations, $columnNullFlags)
@@ -105,6 +107,7 @@ if (isset($_REQUEST['change_tbl_info']) && $_REQUEST['change_tbl_info'] == true)
     $extra_data['field_operators'] = $properties['func'];
     $extra_data['field_value'] = $properties['value'];
     PMA_ajaxResponse(null, true, $extra_data);
+    // execution has stopped at this point
 }
 
 $titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
