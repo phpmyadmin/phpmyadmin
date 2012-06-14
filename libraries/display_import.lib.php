@@ -218,7 +218,7 @@ if ($GLOBALS['is_upload'] && !empty($cfg['UploadDir'])) { ?>
             </li>
             <li>
                 <input type="radio" name="file_location" id="radio_local_import_file" />
-                <?php PMA_selectUploadFile($import_list, $cfg['UploadDir']); ?>
+                <?php echo PMA_getSelectUploadFileBlock($import_list, $cfg['UploadDir']); ?>
             </li>
             </ul>
         <?php
@@ -228,7 +228,7 @@ if ($GLOBALS['is_upload'] && !empty($cfg['UploadDir'])) { ?>
 } elseif (!$GLOBALS['is_upload']) {
     PMA_Message::notice(__('File uploads are not allowed on this server.'))->display();
 } elseif (!empty($cfg['UploadDir'])) {
-    PMA_selectUploadFile($import_list, $cfg['UploadDir']);
+    echo PMA_getSelectUploadFileBlock($import_list, $cfg['UploadDir']);
 } // end if (web-server upload directory)
 ?>
         </div>

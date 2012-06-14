@@ -3297,7 +3297,7 @@ function PMA_getBrowseUploadFileBlock($max_upload_size)
 }
 
 /**
- * Display the form used to select a file to import from the server upload
+ * Prepare the form used to select a file to import from the server upload
  * directory
  *
  * @param array  $import_list array of import types
@@ -3305,14 +3305,18 @@ function PMA_getBrowseUploadFileBlock($max_upload_size)
  *
  * @return void
  */
-function PMA_selectUploadFile($import_list, $uploaddir)
+function PMA_getSelectUploadFileBlock($import_list, $uploaddir)
 {
-    echo '<label for="radio_local_import_file">'
+    
+    $block_html = '';
+    
+    $block_html .= '<label for="radio_local_import_file">'
         . sprintf(
             __("Select from the web server upload directory <b>%s</b>:"),
             htmlspecialchars(PMA_userDir($uploaddir))
         )
         . '</label>';
+    
     $extensions = '';
     foreach ($import_list as $val) {
         if (! empty($extensions)) {
@@ -3320,6 +3324,7 @@ function PMA_selectUploadFile($import_list, $uploaddir)
         }
         $extensions .= $val['extension'];
     }
+    
     $matcher = '@\.(' . $extensions . ')(\.('
         . PMA_supportedDecompressions() . '))?$@';
 
@@ -3327,25 +3332,30 @@ function PMA_selectUploadFile($import_list, $uploaddir)
         && isset($local_import_file))
         ? $local_import_file
         : '';
+    
     $files = PMA_getFileSelectOptions(
         PMA_userDir($uploaddir),
         $matcher,
         $active
     );
+    
     if ($files === false) {
         PMA_Message::error(
             __('The directory you set for upload work cannot be reached')
         )->display();
     } elseif (! empty($files)) {
-        echo "\n";
-        echo '    <select style="margin: 5px" size="1" name="local_import_file" '
-            .'id="select_local_import_file">' . "\n";
-        echo '        <option value="">&nbsp;</option>' . "\n";
-        echo $files;
-        echo '    </select>' . "\n";
+        $block_html .= "\n"
+            . '    <select style="margin: 5px" size="1" name="local_import_file" '
+            .'id="select_local_import_file">' . "\n"
+            . '        <option value="">&nbsp;</option>' . "\n"
+            . $files
+            . '    </select>' . "\n";
     } elseif (empty ($files)) {
-        echo '<i>' . __('There are no files to upload') . '</i>';
+        $block_html .= '<i>' . __('There are no files to upload') . '</i>';
     }
+    
+    return $block_html;
+    
 }
 
 /**
