@@ -40,9 +40,9 @@ if (isset($_REQUEST['nopass'])) {
         $password = $_REQUEST['pma_pw'];
     }
     $change_password_message = PMA_setChangePasswordMsg();
-    $message = $change_password_message['msg'];
+    $msg = $change_password_message['msg'];
     if (! $change_password_message['error']) {
-        PMA_changePassword($password, $message, $change_password_message);
+        PMA_changePassword($password, $msg, $change_password_message);
     } else {
         PMA_getChangePassMessage($change_password_message);
     }
@@ -54,9 +54,9 @@ if (isset($_REQUEST['nopass'])) {
  */
 
 // Displays an error message if required
-if (isset($message)) {
-    $message->display();
-    unset($message);
+if (isset($msg)) {
+    $msg->display();
+    unset($msg);
 }
 
 require_once './libraries/display_change_password.lib.php';
