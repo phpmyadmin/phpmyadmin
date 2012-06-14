@@ -1131,7 +1131,7 @@ $(makeProfilingChart);
 
     // Do print the page if required
     if (isset($printview) && $printview == '1') {
-        PMA_printButton();
+        echo PMA_getButton();
     } // end print case
 
     if ($GLOBALS['is_ajax_request'] != true) {

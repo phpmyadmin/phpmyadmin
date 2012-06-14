@@ -244,7 +244,7 @@ if ($num_tables == 0) {
 /**
  * Displays the footer
  */
-PMA_printButton();
+echo PMA_getButton();
 
 echo "<div id='PMA_disable_floating_menubar'></div>\n";
 ?>
