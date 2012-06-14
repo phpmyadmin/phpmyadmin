@@ -2424,7 +2424,7 @@ function PMA_pageselector($rows, $pageNow = 1, $nbTotalPage = 1,
 
 
 /**
- * Generate navigation for a list
+ * Prepare navigation for a list
  *
  * @param int    $count       number of elements in the list
  * @param int    $pos         current position in the list
@@ -2433,24 +2433,30 @@ function PMA_pageselector($rows, $pageNow = 1, $nbTotalPage = 1,
  * @param string $frame       target frame
  * @param int    $max_count   maximum number of elements to display from the list
  *
- * @return void
+ * @return string $list_navigator_html the  html content
  *
  * @access  public
  *
  * @todo    use $pos from $_url_params
  */
-function PMA_listNavigator($count, $pos, $_url_params, $script, $frame, $max_count)
+function PMA_getListNavigator($count, $pos, $_url_params, $script, $frame, $max_count)
 {
+    
+    $list_navigator_html = '';
 
     if ($max_count < $count) {
-        echo 'frame_navigation' == $frame
+        
+        $list_navigator_html .= ($frame == 'frame_navigation')
             ? '<div id="navidbpageselector">' . "\n"
             : '';
-        echo __('Page number:');
-        echo 'frame_navigation' == $frame ? '<br />' : ' ';
+        
+        $list_navigator_html .= __('Page number:');
+        
+        $list_navigator_html .= ($frame == 'frame_navigation') ? '<br />' : ' ';
 
         // Move to the beginning or to the previous page
         if ($pos > 0) {
+            
             // patch #474210 - part 1
             if ($GLOBALS['cfg']['NavigationBarIconic']) {
                 $caption1 = '&lt;&lt;';
@@ -2464,27 +2470,31 @@ function PMA_listNavigator($count, $pos, $_url_params, $script, $frame, $max_cou
                 $title1   = '';
                 $title2   = '';
             } // end if... else...
+            
             $_url_params['pos'] = 0;
-            echo '<a' . $title1 . ' href="' . $script
+            $list_navigator_html .= '<a' . $title1 . ' href="' . $script
                 . PMA_generate_common_url($_url_params) . '" target="'
                 . $frame . '">' . $caption1 . '</a>';
-            $_url_params['pos'] = $pos - $max_count;
-            echo '<a' . $title2 . ' href="' . $script
+            
+            $_url_params['pos'] = $pos - $max_count;            
+            $list_navigator_html .= '<a' . $title2 . ' href="' . $script
                 . PMA_generate_common_url($_url_params) . '" target="'
                 . $frame . '">' . $caption2 . '</a>';
         }
 
-        echo "\n", '<form action="', basename($script),
-            '" method="post" target="', $frame, '">', "\n";
-        echo PMA_generate_common_hidden_inputs($_url_params);
-        echo PMA_pageselector(
+        $list_navigator_html .= "\n" . '<form action="' . basename($script).
+            '" method="post" target="' . $frame . '">' . "\n";
+        
+        $list_navigator_html .= PMA_generate_common_hidden_inputs($_url_params);
+        $list_navigator_html .= PMA_pageselector(
             $max_count,
             floor(($pos + 1) / $max_count) + 1,
             ceil($count / $max_count)
         );
-        echo '</form>';
+        $list_navigator_html .= '</form>';
 
         if ($pos + $max_count < $count) {
+            
             if ($GLOBALS['cfg']['NavigationBarIconic']) {
                 $caption3 = ' &gt; ';
                 $caption4 = '&gt;&gt;';
@@ -2496,23 +2506,30 @@ function PMA_listNavigator($count, $pos, $_url_params, $script, $frame, $max_cou
                 $title3   = '';
                 $title4   = '';
             } // end if... else...
+            
             $_url_params['pos'] = $pos + $max_count;
-            echo '<a' . $title3 . ' href="' . $script
+            $list_navigator_html .= '<a' . $title3 . ' href="' . $script
                 . PMA_generate_common_url($_url_params) . '" target="'
                 . $frame . '">' . $caption3 . '</a>';
+            
             $_url_params['pos'] = floor($count / $max_count) * $max_count;
             if ($_url_params['pos'] == $count) {
                 $_url_params['pos'] = $count - $max_count;
             }
-            echo '<a' . $title4 . ' href="' . $script
+            
+            $list_navigator_html .= '<a' . $title4 . ' href="' . $script
                 . PMA_generate_common_url($_url_params) . '" target="'
                 . $frame . '">' . $caption4 . '</a>';
         }
-        echo "\n";
+        
+        $list_navigator_html .= "\n";
         if ('frame_navigation' == $frame) {
-            echo '</div>' . "\n";
+            $list_navigator_html .= '</div>' . "\n";
         }
     }
+    
+    return $list_navigator_html;
+    
 }
 
 /**
