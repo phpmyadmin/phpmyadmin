@@ -3267,27 +3267,33 @@ function PMA_expandUserString($string, $escape = null, $updates = array())
 }
 
 /**
- * Display the form used to browse anywhere on the local server for a file to
+ * Prepare the form used to browse anywhere on the local server for a file to
  * import
  *
  * @param string $max_upload_size maximum upload size
  *
  * @return void
  */
-function PMA_browseUploadFile($max_upload_size)
+function PMA_getBrowseUploadFileBlock($max_upload_size)
 {
+    
+    $block_html = '';
+    
     if ($GLOBALS['is_upload'] && ! empty($GLOBALS['cfg']['UploadDir'])) {
-        echo '<label for="radio_import_file">';
+        $block_html .= '<label for="radio_import_file">';
     } else {
-        echo '<label for="input_import_file">';
+        $block_html .= '<label for="input_import_file">';
     }
-    echo __("Browse your computer:") . '</label>';
-    echo '<div id="upload_form_status" style="display: none;"></div>';
-    echo '<div id="upload_form_status_info" style="display: none;"></div>';
-    echo '<input type="file" name="import_file" id="input_import_file" />';
-    echo PMA_getFormattedMaximumUploadSize($max_upload_size) . "\n";
-    // some browsers should respect this :)
-    echo PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";
+    
+    $block_html .= __("Browse your computer:") . '</label>'
+        . '<div id="upload_form_status" style="display: none;"></div>'
+        . '<div id="upload_form_status_info" style="display: none;"></div>'
+        . '<input type="file" name="import_file" id="input_import_file" />'
+        . PMA_getFormattedMaximumUploadSize($max_upload_size) . "\n"
+        // some browsers should respect this :)
+        . PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";
+    
+    return $block_html;
 }
 
 /**

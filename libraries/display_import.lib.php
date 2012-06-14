@@ -214,7 +214,7 @@ if ($GLOBALS['is_upload'] && !empty($cfg['UploadDir'])) { ?>
             <ul>
             <li>
                 <input type="radio" name="file_location" id="radio_import_file" />
-                <?php PMA_browseUploadFile($max_upload_size); ?>
+                <?php echo PMA_getBrowseUploadFileBlock($max_upload_size); ?>
             </li>
             <li>
                 <input type="radio" name="file_location" id="radio_local_import_file" />
@@ -224,7 +224,7 @@ if ($GLOBALS['is_upload'] && !empty($cfg['UploadDir'])) { ?>
         <?php
 } elseif ($GLOBALS['is_upload']) {
     $uid = uniqid('');
-    PMA_browseUploadFile($max_upload_size);
+    echo PMA_getBrowseUploadFileBlock($max_upload_size);
 } elseif (!$GLOBALS['is_upload']) {
     PMA_Message::notice(__('File uploads are not allowed on this server.'))->display();
 } elseif (!empty($cfg['UploadDir'])) {
