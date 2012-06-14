@@ -10,10 +10,9 @@
  */
 require_once 'libraries/common.inc.php';
 
-/**
- * Gets the variables sent or posted to this script, then displays headers
- */
-require_once 'libraries/header_printview.inc.php';
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$header->enablePrintView();
 
 PMA_checkParameters(array('db'));
 
@@ -248,6 +247,4 @@ if ($num_tables == 0) {
 PMA_printButton();
 
 echo "<div id='PMA_disable_floating_menubar'></div>\n";
-
-require 'libraries/footer.inc.php';
 ?>

@@ -118,8 +118,7 @@ div.error h4 {
 
 div.success,
 div.notice,
-div.error,
-div.footnotes {
+div.error {
     margin: .5em 0 1.3em 0;
     border: 1px solid;
     background-repeat: no-repeat;
@@ -137,8 +136,7 @@ div.footnotes {
 
 .success a,
 .notice a,
-.error a,
-.footnotes a {
+.error a {
     text-decoration: underline;
 }
 
@@ -158,15 +156,13 @@ div.success {
     border-color: #00FF00;
 }
 
-.notice,
-.footnotes {
+.notice {
     color: #000;
     background-color: #e8eef1;
 }
 
 h1.notice,
-div.notice,
-div.footnotes {
+div.notice {
     border-color: #3a6c7e;
     background-image: url(../themes/pmahomme/img/s_notice.png);
     background-repeat: no-repeat;

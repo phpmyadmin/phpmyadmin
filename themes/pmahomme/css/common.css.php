@@ -652,11 +652,6 @@ img.lightbulb {
 .syntax_quote_backtick {
 }
 
-/* leave some space between icons and text */
-img.footnotemarker {
-    display: none;
-}
-
 /* no extra space in table cells */
 td .icon {
     margin: 0;
@@ -679,8 +674,7 @@ div.error h1 {
 
 div.success,
 div.notice,
-div.error,
-div.footnotes {
+div.error {
     margin: .5em 0 1.3em 0;
     border: 1px solid;
     background-repeat: no-repeat;
@@ -703,8 +697,7 @@ div.footnotes {
 
 .success a,
 .notice a,
-.error a,
-.footnotes a {
+.error a {
     text-decoration: underline;
 }
 
@@ -728,15 +721,13 @@ div.success {
     border-color: #00FF00;
 }
 
-.notice,
-.footnotes {
+.notice {
     color: #000;
     background-color: #e8eef1;
 }
 
 h1.notice,
-div.notice,
-div.footnotes {
+div.notice {
     border-color: #3a6c7e;
     background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_notice.png);
     background-repeat: no-repeat;
@@ -855,17 +846,18 @@ td.disabled {
 /**
  * login form
  */
-body.loginform h1,
-body.loginform a.logo {
+body#loginform h1,
+body#loginform a.logo {
     display: block;
     text-align: center;
 }
 
-body.loginform {
+body#loginform {
+    margin-top: 1em;
     text-align: center;
 }
 
-body.loginform div.container {
+body#loginform div.container {
     text-align: <?php echo $left; ?>;
     width: 30em;
     margin: 0 auto;

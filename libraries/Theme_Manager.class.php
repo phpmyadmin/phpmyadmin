@@ -400,16 +400,18 @@ class PMA_Theme_Manager
     }
 
     /**
-     * prints out preview for every theme
+     * Renders the previews for all themes
      *
-     * @return void
+     * @return string
      * @access public
      */
-    public function printPreviews()
+    public function getPrintPreviews()
     {
+        $retval = '';
         foreach ($this->themes as $each_theme) {
-            $each_theme->printPreview();
+            $retval .= $each_theme->getPrintPreview();
         } // end 'open themes'
+        return $retval;
     }
 
     /**

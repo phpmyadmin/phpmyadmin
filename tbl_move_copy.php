@@ -64,16 +64,9 @@ if (PMA_isValid($_REQUEST['new_name'])) {
 
         /* Check: Work on new table or on old table? */
         if (isset($_REQUEST['submit_move']) || PMA_isValid($_REQUEST['switch_to_new'])) {
-            $db        = $_REQUEST['target_db'];
-            $table     = $_REQUEST['new_name'];
+            $db    = $_REQUEST['target_db'];
+            $table = $_REQUEST['new_name'];
         }
-
-        if ( $_REQUEST['ajax_request'] == true) {
-            $extra_data['sql_query'] = PMA_getMessage(null, $sql_query);
-            $extra_data['db'] = $GLOBALS['db'];
-            PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
-        }
-
         $reload = 1;
     }
 } else {
@@ -82,6 +75,18 @@ if (PMA_isValid($_REQUEST['new_name'])) {
      */
     $message = PMA_Message::error(__('The table name is empty!'));
     $result = false;
+}
+
+if ($GLOBALS['is_ajax_request'] == true) {
+    $response = PMA_Response::getInstance();
+    $response->addJSON('message', $message);
+    if ($message->isSuccess()) {
+        $response->addJSON('db', $GLOBALS['db']);
+        $response->addJSON('sql_query', PMA_getMessage(null, $sql_query));
+    } else {
+        $response->isSuccess(false);
+    }
+    exit;
 }
 
 /**

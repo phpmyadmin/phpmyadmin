@@ -429,35 +429,39 @@ class PMA_Theme
     }
 
     /**
-     * prints out the preview for this theme
+     * Renders the preview for this theme
      *
-     * @return void
+     * @return string
      * @access public
      */
-    public function printPreview()
+    public function getPrintPreview()
     {
-        echo '<div class="theme_preview">';
-        echo '<h2>' . htmlspecialchars($this->getName())
-            .' (' . htmlspecialchars($this->getVersion()) . ')</h2>';
-        echo '<p>';
-        echo '<a target="_top" class="take_theme" '
-            .'name="' . htmlspecialchars($this->getId()) . '" '
-            . 'href="index.php'. PMA_generate_common_url(
-                array('set_theme' => $this->getId())
-            ) . '">';
+        $url_params = array('set_theme' => $this->getId());
+        $url = 'index.php'. PMA_generate_common_url($url_params);
+
+        $retval  = '<div class="theme_preview">';
+        $retval .= '<h2>';
+        $retval .= htmlspecialchars($this->getName());
+        $retval .= ' (' . htmlspecialchars($this->getVersion()) . ') ';
+        $retval .= '</h2>';
+        $retval .= '<p>';
+        $retval .= '<a target="_top" class="take_theme" ';
+        $retval .= 'name="' . htmlspecialchars($this->getId()) . '" ';
+        $retval .=  'href="' . $url . '">';
         if (@file_exists($this->getPath() . '/screen.png')) {
             // if screen exists then output
-
-            echo '<img src="' . $this->getPath() . '/screen.png" border="1"'
-                .' alt="' . htmlspecialchars($this->getName()) . '"'
-                .' title="' . htmlspecialchars($this->getName()) . '" /><br />';
+            $retval .= '<img src="' . $this->getPath() . '/screen.png" border="1"';
+            $retval .= ' alt="' . htmlspecialchars($this->getName()) . '"';
+            $retval .= ' title="' . htmlspecialchars($this->getName()) . '" />';
+            $retval .= '<br />';
         } else {
-            echo __('No preview available.');
+            $retval .= __('No preview available.');
         }
-
-        echo '[ <strong>' . __('take it') . '</strong> ]</a>'
-            .'</p>'
-            .'</div>';
+        $retval .= '[ <strong>' . __('take it') . '</strong> ]';
+        $retval .= '</a>';
+        $retval .= '</p>';
+        $retval .= '</div>';
+        return $retval;
     }
 
     /**

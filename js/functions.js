@@ -157,10 +157,9 @@ function PMA_display_git_revision()
     $.get("main.php?token="
         + $("input[type=hidden][name=token]").val()
         + "&git_revision=1&ajax_request=true", function (data) {
-        if (data.error != "undefined" && data.error) {
-            return;
+        if (data.success == true) {
+            $(data.message).insertAfter('#li_pma_version');
         }
-        $(data.message).insertAfter('#li_pma_version');
     });
 }
 
@@ -1612,12 +1611,11 @@ function PMA_createTableDialog( $div, url , target)
              })// end dialog options
              //remove the redundant [Back] link in the error message.
              .find('fieldset').remove();
-         }
-         else {
+         } else {
              var size = getWindowSize();
              var timeout;
              $div
-             .append(data)
+             .append(data.message)
              .dialog({
                  dialogClass: 'create-table',
                  resizable: false,
@@ -1673,7 +1671,7 @@ function PMA_createTableDialog( $div, url , target)
                  buttons: button_options
              }); // end dialog options
          }
-        PMA_convertFootnotesToTooltips($div);
+        PMA_showHints($div);
         PMA_ajaxRemoveMessage($msgbox);
      }); // end $.get()
 
@@ -1730,7 +1728,7 @@ function PMA_createChart(passedSettings)
                             thisChart.options.realtime.postData,
                             function(data) {
                                 try {
-                                    curValue = jQuery.parseJSON(data);
+                                    curValue = jQuery.parseJSON(data.message);
                                 } catch (err) {
                                     if (thisChart.options.realtime.error) {
                                         thisChart.options.realtime.error(err);
@@ -2335,11 +2333,11 @@ $(function() {
         $.post($form.attr('action'), $form.serialize() + "&submit_num_fields=" + $(this).val(), function(data) {
             // if 'create_table_dialog' exists
             if ($("#create_table_dialog").length > 0) {
-                $("#create_table_dialog").html(data);
+                $("#create_table_dialog").html(data.message);
             }
             // if 'create_table_div' exists
             if ($("#create_table_div").length > 0) {
-                $("#create_table_div").html(data);
+                $("#create_table_div").html(data.message);
             }
             PMA_verifyColumnsProperties();
             PMA_ajaxRemoveMessage($msgbox);
@@ -2375,7 +2373,7 @@ $(function() {
                 $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
                 $("#sqlqueryresults").html(data.sql_query);
                 $("#result_query .notice").remove();
-                $("#result_query").prepend((data.message));
+                $("#result_query").prepend(data.message);
             } else {
                 var $temp_div = $("<div id='temp_div'></div>");
                 $temp_div.html(data.error);
@@ -2411,7 +2409,7 @@ $(function() {
                     $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
                     $("#sqlqueryresults").html(data.sql_query);
                     $("#result_query .notice").remove();
-                    $("#result_query").prepend((data.message));
+                    $("#result_query").prepend(data.message);
                     $("#copyTable").find("select[name='target_db'] option").filterByValue(data.db).prop('selected', true);
 
                     //Refresh navigation frame when the table is coppied
@@ -2419,10 +2417,7 @@ $(function() {
                         window.parent.frame_navigation.location.reload();
                     }
                 } else {
-                    var $temp_div = $("<div id='temp_div'></div>");
-                    $temp_div.html(data.error);
-                    var $error = $temp_div.find("code").addClass("error");
-                    PMA_ajaxShowMessage($error, false);
+                    PMA_ajaxShowMessage(data.error, false);
                 }
             }); // end $.post()
         }
@@ -2444,19 +2439,19 @@ $(function() {
         }
         //variables which stores the common attributes
         $.post(href[0], href[1]+"&ajax_request=true", function(data) {
-            if (data.success == undefined) {
-                var $temp_div = $("<div id='temp_div'></div>");
-                $temp_div.html(data);
-                var $success = $temp_div.find("#result_query .success");
-                PMA_ajaxShowMessage($success);
-                $("<div id='sqlqueryresults' class='ajax'></div>").insertAfter("#floating_menubar");
-                $("#sqlqueryresults").html(data);
-                PMA_init_slider();
-                $("#sqlqueryresults").children("fieldset").remove();
-            } else if (data.success == true ) {
+            if (data.success == true && data.sql_query != undefined) {
                 PMA_ajaxShowMessage(data.message);
                 $("<div id='sqlqueryresults' class='ajax'></div>").insertAfter("#floating_menubar");
                 $("#sqlqueryresults").html(data.sql_query);
+            } else if (data.success == true) {
+                var $temp_div = $("<div id='temp_div'></div>");
+                $temp_div.html(data.message);
+                var $success = $temp_div.find("#result_query .success");
+                PMA_ajaxShowMessage($success);
+                $("<div id='sqlqueryresults' class='ajax'></div>").insertAfter("#floating_menubar");
+                $("#sqlqueryresults").html(data.message);
+                PMA_init_slider();
+                $("#sqlqueryresults").children("fieldset").remove();
             } else {
                 var $temp_div = $("<div id='temp_div'></div>");
                 $temp_div.html(data.error);
@@ -2535,8 +2530,7 @@ $(function() {
                 if (window.parent && window.parent.frame_navigation) {
                     window.parent.frame_navigation.location.reload();
                 }
-            }
-            else {
+            } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
         }); // end $.post()
@@ -2592,16 +2586,11 @@ $(function() {
      * Attach Ajax event handler on the change password anchor
      * @see $cfg['AjaxEnable']
      */
-    $('#change_password_anchor.dialog_active').live('click', function(event) {
-        event.preventDefault();
-        return false;
-        });
     $('#change_password_anchor.ajax').live('click', function(event) {
         event.preventDefault();
 
         var $msgbox = PMA_ajaxShowMessage();
 
-        $(this).removeClass('ajax').addClass('dialog_active');
         /**
          * @var button_options  Object containing options to be passed to jQueryUI's dialog
          */
@@ -2631,10 +2620,9 @@ $(function() {
 
             $.post($the_form.attr('action'), $the_form.serialize() + '&change_pw='+ this_value, function(data) {
                 if (data.success == true) {
-                    $("#floating_menubar").after(data.sql_query);
+                    $("#floating_menubar").after(data.message);
                     $("#change_password_dialog").hide().remove();
                     $("#edit_user_dialog").dialog("close").remove();
-                    $('#change_password_anchor.dialog_active').removeClass('dialog_active').addClass('ajax');
                     PMA_ajaxRemoveMessage($msgbox);
                 }
                 else {
@@ -2655,11 +2643,9 @@ $(function() {
                     $(this).remove();
                 },
                 buttons : button_options,
-                beforeClose: function(ev, ui) {
-                    $('#change_password_anchor.dialog_active').removeClass('dialog_active').addClass('ajax');
-                }
+                modal: true
             })
-            .append(data);
+            .append(data.message);
             // for this dialog, we remove the fieldset wrapping due to double headings
             $("fieldset#fieldset_change_password")
             .find("legend").remove().end()
@@ -2922,10 +2908,6 @@ $(function() {
     });
 });
 
-$(function() {
-    PMA_convertFootnotesToTooltips();
-});
-
 /**
  * Ensures indexes names are valid according to their type and, for a primary
  * key, lock index name to 'PRIMARY'
@@ -2961,61 +2943,32 @@ function checkIndexName(form_id)
 } // end of the 'checkIndexName()' function
 
 /**
- * function to convert the footnotes to tooltips
+ * Function to display tooltips that were
+ * generated on the PHP side by PMA_showHint()
  *
- * @param jquery-Object   $div    a div jquery object which specifies the
- *                                  domain for searching footnootes. If we
- *                                  ommit this parameter the function searches
- *                                  the footnotes in the whole body
+ * @param object $div a div jquery object which specifies the
+ *                    domain for searching for tooltips. If we
+ *                    omit this parameter the function searches
+ *                    in the whole body
  **/
-function PMA_convertFootnotesToTooltips($div)
+function PMA_showHints($div)
 {
-    // Hide the footnotes from the footer (which are displayed for
-    // JavaScript-disabled browsers) since the tooltip is sufficient
-
     if ($div == undefined || ! $div instanceof jQuery || $div.length == 0) {
         $div = $("body");
     }
-
-    $footnotes = $div.find(".footnotes");
-
-    $footnotes.hide();
-    $footnotes.find('span').each(function() {
-        $(this).children("sup").remove();
-    });
-    // The border and padding must be removed otherwise a thin yellow box remains visible
-    $footnotes.css("border", "none");
-    $footnotes.css("padding", "0px");
-
-    // Replace the superscripts with the help icon
-    $div.find("sup.footnotemarker").hide();
-    $div.find("img.footnotemarker").show();
-
-    $div.find("img.footnotemarker").each(function() {
-        var img_class = $(this).attr("class");
-        /** img contains two classes, as example "footnotemarker footnote_1".
-         *  We split it by second class and take it for the id of span
-        */
-        img_class = img_class.split(" ");
-        for (i = 0; i < img_class.length; i++) {
-            if (img_class[i].split("_")[0] == "footnote") {
-                var span_id = img_class[i].split("_")[1];
-            }
-        }
-        /**
-         * Now we get the #id of the span with span_id variable. As an example if we
-         * initially get the img class as "footnotemarker footnote_2", now we get
-         * #2 as the span_id. Using that we can find footnote_2 in footnotes.
-         * */
-        var tooltip_text = $footnotes.find("span#footnote_" + span_id).html();
-        $(this).qtip({
-            content: tooltip_text,
+    $div.find('.pma_hint').each(function () {
+        $(this).children('img').qtip({
+            content: $(this).children('span').html(),
             show: { delay: 0 },
             hide: { delay: 1000 },
             style: { background: '#ffffcc' }
         });
     });
 }
+
+$(function() {
+    PMA_showHints();
+});
 
 /**
  * This function handles the resizing of the content frame
@@ -3839,13 +3792,13 @@ $(document).ready(function () {
             buttonOptions[PMA_messages['strClose']] = function () {
                 $(this).dialog("close");
             };
-            var $dialog = $('<div/>').attr('id', 'createViewDialog').append(data).dialog({
+            var $dialog = $('<div/>').attr('id', 'createViewDialog').append(data.message).dialog({
                 width: 500,
                 minWidth: 300,
                 maxWidth: 620,
                 modal: true,
                 buttons: buttonOptions,
-                title: $('legend', $(data)).html(),
+                title: $('legend', $(data.message)).html(),
                 close: function () {
                     $(this).remove();
                 }

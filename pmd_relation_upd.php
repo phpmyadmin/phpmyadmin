@@ -9,6 +9,9 @@
  *
  */
 require_once './libraries/common.inc.php';
+
+PMA_Response::getInstance()->disable();
+
 require_once 'libraries/pmd_common.php';
 extract($_POST, EXTR_SKIP);
 extract($_GET, EXTR_SKIP);
@@ -29,8 +32,8 @@ if (PMA_isForeignKeySupported($type_T1) && PMA_isForeignKeySupported($type_T2) &
     $existrel_foreign = PMA_getForeigners($DB2, $T2, '', 'foreign');
 
     if (isset($existrel_foreign[$F2]['constraint'])) {
-        $upd_query  = 'ALTER TABLE ' . PMA_backquote($T2)
-                  . ' DROP FOREIGN KEY '
+        $upd_query  = 'ALTER TABLE ' . PMA_backquote($DB2)
+                  . '.' . PMA_backquote($T2) . ' DROP FOREIGN KEY '
                   . PMA_backquote($existrel_foreign[$F2]['constraint'])
                   . ';';
         $upd_rs     = PMA_DBI_query($upd_query);

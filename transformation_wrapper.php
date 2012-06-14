@@ -84,11 +84,10 @@ if ($cfgRelation['commwork'] && $cfgRelation['mimework']) {
     }
 }
 
-// For re-usability, moved http-headers and stylesheets
-// to a seperate file. It can now be included by libraries/header.inc.php,
-// querywindow.php.
+// Only output the http headers
+$response = PMA_Response::getInstance();
+$response->getHeader()->sendHttpHeaders();
 
-require_once './libraries/header_http.inc.php';
 // [MIME]
 if (isset($ct) && !empty($ct)) {
     $mime_type = $ct;

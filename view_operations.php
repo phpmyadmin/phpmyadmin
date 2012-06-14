@@ -96,9 +96,3 @@ $url_params['back'] = 'view_operations.php';
 </form>
 </div>
 
-<?php
-/**
- * Displays the footer
- */
-require './libraries/footer.inc.php';
-?>

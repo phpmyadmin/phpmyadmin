@@ -6,9 +6,6 @@
 // default values for fields
 var defaultValues = {};
 
-// language strings
-var PMA_messages = {};
-
 /**
  * Returns field type
  *
@@ -693,6 +690,7 @@ function savePrefsToLocalStorage(form)
         cache: false,
         type: 'POST',
         data: {
+            ajax_request: true,
             token: form.find('input[name=token]').val(),
             submit_get_json: true
         },

@@ -13,8 +13,10 @@ require_once 'libraries/common.inc.php';
 /**
  * Does the common work
  */
-$GLOBALS['js_include'][] = 'server_privileges.js';
-$GLOBALS['js_include'][] = 'functions.js';
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('server_privileges.js');
 
 $_add_user_error = false;
 
@@ -175,13 +177,12 @@ if (isset($dbname)) {
  * Checks if the user is allowed to do what he tries to...
  */
 if (! $is_superuser) {
-    include 'libraries/header.inc.php';
     echo '<h2>' . "\n"
        . PMA_getIcon('b_usrlist.png')
        . __('Privileges') . "\n"
        . '</h2>' . "\n";
     PMA_Message::error(__('No Privileges'))->display();
-    include 'libraries/footer.inc.php';
+    exit;
 }
 
 // a random number that will be appended to the id of the user forms
@@ -1184,7 +1185,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
                     // this is needed in case tracking is on:
                     $GLOBALS['db'] = $username;
                     $GLOBALS['reload'] = true;
-                    PMA_reloadNavigation();
+                    echo PMA_getReloadNavigationScript();
                 }
 
                 $q = 'GRANT ALL PRIVILEGES ON '
@@ -1474,7 +1475,7 @@ if (isset($_REQUEST['delete']) || (isset($_REQUEST['change_copy']) && $_REQUEST[
             $GLOBALS['reload'] = true;
 
             if ($GLOBALS['is_ajax_request'] != true) {
-                PMA_reloadNavigation();
+                echo PMA_getReloadNavigationScript();
             }
         }
     }
@@ -1642,7 +1643,11 @@ if ($GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_RE
     }
 
     if ($message instanceof PMA_Message) {
-        PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
+        $response = PMA_Response::getInstance();
+        $response->isSuccess($message->isSuccess());
+        $response->addJSON('message', $message);
+        $response->addJSON($extra_data);
+        exit;
     }
 }
 
@@ -1704,7 +1709,10 @@ if (isset($_REQUEST['export']) || (isset($_REQUEST['submit_mult']) && $_REQUEST[
     $response .= '</textarea>';
     unset($username, $hostname, $grants, $one_grant);
     if ($GLOBALS['is_ajax_request']) {
-        PMA_ajaxResponse($response, 1, array('title' => $title));
+        $response = PMA_Response::getInstance();
+        $response->addJSON('message', $response);
+        $response->addJSON('title', $title);
+        exit;
     } else {
         echo "<h2>$title</h2>$response";
     }
@@ -2033,7 +2041,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         if ($user_does_not_exists) {
             PMA_Message::error(__('The selected user was not found in the privilege table.'))->display();
             PMA_displayLoginInformationFields();
-            //require 'libraries/footer.inc.php';
+            //exit;
         }
 
         echo '<form name="usersForm" id="addUsersForm_' . $random_n . '" action="server_privileges.php" method="post">' . "\n";
@@ -2567,9 +2575,11 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
        . '</table></fieldset></form>' . "\n";
 
     if ($GLOBALS['is_ajax_request'] == true) {
-        $extra_data['user_form'] = $user_form;
         $message = PMA_Message::success(__('User has been added.'));
-        PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
+        $response = PMA_Response::getInstance();
+        $response->addJSON('message', $message);
+        $response->addJSON('user_form', $user_form);
+        exit;
     } else {
         // Offer to create a new user for the current database
         $user_form .= '<fieldset id="fieldset_add_user">' . "\n"
@@ -2582,12 +2592,5 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
     }
 
 } // end if (empty($_REQUEST['adduser']) && empty($checkprivs)) ... elseif ... else ...
-
-
-/**
- * Displays the footer
- */
-echo "\n\n";
-require 'libraries/footer.inc.php';
 
 ?>

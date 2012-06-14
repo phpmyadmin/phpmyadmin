@@ -102,7 +102,6 @@ $tbl_result = PMA_DBI_query(
 $tbl_result_cnt = PMA_DBI_num_rows($tbl_result);
 if (0 == $tbl_result_cnt) {
     PMA_Message::error(__('No tables found in database.'))->display();
-    include 'libraries/footer.inc.php';
     exit;
 }
 
@@ -949,9 +948,3 @@ if (! empty($qry_orderby)) {
     </fieldset>
 </div>
 </form>
-<?php
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
-?>
