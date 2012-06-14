@@ -2583,7 +2583,7 @@ function PMA_getDbLink($database = null)
 }
 
 /**
- * Displays a lightbulb hint explaining a known external bug
+ * Prepare a lightbulb hint explaining a known external bug
  * that affects a functionality
  *
  * @param string $functionality   localized message explaining the func.
@@ -2593,17 +2593,19 @@ function PMA_getDbLink($database = null)
  *
  * @return void
  */
-function PMA_externalBug($functionality, $component, $minimum_version, $bugref)
-{
+function PMA_getExternalBug($functionality, $component, $minimum_version, $bugref)
+{    
+    $ext_but_html = '';    
     if ($component == 'mysql' && PMA_MYSQL_INT_VERSION < $minimum_version) {
-        echo PMA_showHint(
+        $ext_but_html .= PMA_showHint(
             sprintf(
                 __('The %s functionality is affected by a known bug, see %s'),
                 $functionality,
                 PMA_linkURL('http://bugs.mysql.com/') . $bugref
             )
         );
-    }
+    }    
+    return $ext_but_html;
 }
 
 /**
