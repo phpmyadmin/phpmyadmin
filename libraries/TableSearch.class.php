@@ -842,7 +842,7 @@ EOT;
      *
      * @return array Array contaning column's properties
      */
-    private function _getColumnProperties($search_index, $column_index)
+    public function getColumnProperties($search_index, $column_index)
     {
         $selected_operator = (isset($_POST['criteriaColumnOperators'])
             ? $_POST['criteriaColumnOperators'][$search_index] : '');
@@ -894,7 +894,7 @@ EOT;
             //Displays column's name, type, collation and value
             $html_output .= '<th>' . htmlspecialchars($this->_columnNames[$column_index])
                 . '</th>';
-            $properties = $this->_getColumnProperties($column_index, $column_index);
+            $properties = $this->getColumnProperties($column_index, $column_index);
             $html_output .= '<td>' . $properties['type'] . '</td>';
             $html_output .= '<td>' . $properties['collation'] . '</td>';
             $html_output .= '<td>' . $properties['func'] . '</td>';
@@ -962,7 +962,7 @@ EOT;
                 && $_POST['criteriaColumnNames'][$i] != 'pma_null'
             ) {
                 $key = array_search($_POST['criteriaColumnNames'][$i], $this->_columnNames);
-                $properties = $this->_getColumnProperties($i, $key);
+                $properties = $this->getColumnProperties($i, $key);
                 $type[$i] = $properties['type'];
                 $collation[$i] = $properties['collation'];
                 $func[$i] = $properties['func'];
