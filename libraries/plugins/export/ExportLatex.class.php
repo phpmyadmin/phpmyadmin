@@ -463,7 +463,7 @@ class ExportLatex extends ExportPlugin
     ) {
         global $cfgRelation;
         $this->setCfgRelation($cfgRelation);
-        
+
         /**
          * Get the unique keys in the table
          */
