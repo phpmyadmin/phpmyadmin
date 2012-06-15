@@ -528,49 +528,23 @@ function PMA_showPHPDocu($target)
 } // end of the 'PMA_showPHPDocu()' function
 
 /**
- * returns HTML for a footnote marker and add the messsage to the footnotes
+ * Returns HTML code for a tooltip
  *
- * @param string $message the error message
- * @param bool   $bbcode  whether to interpret BB code
- * @param string $type    message types
+ * @param string $message the message for the tooltip
  *
- * @return string html code for a footnote marker
+ * @return string
  *
  * @access  public
  */
-function PMA_showHint($message, $bbcode = false, $type = 'notice')
+function PMA_showHint($message)
 {
-    if ($message instanceof PMA_Message) {
-        $key = $message->getHash();
-        $type = $message->getLevel();
-    } else {
-        $key = md5($message);
-    }
-
-    if (! isset($GLOBALS['footnotes'][$key])) {
-        if (empty($GLOBALS['footnotes']) || ! is_array($GLOBALS['footnotes'])) {
-            $GLOBALS['footnotes'] = array();
-        }
-        $nr = count($GLOBALS['footnotes']) + 1;
-        $GLOBALS['footnotes'][$key] = array(
-            'note'      => $message,
-            'type'      => $type,
-            'nr'        => $nr,
-        );
-    } else {
-        $nr = $GLOBALS['footnotes'][$key]['nr'];
-    }
-
-    if ($bbcode) {
-        return '[sup]' . $nr . '[/sup]';
-    }
-
-    // footnotemarker used in js/tooltip.js
-    return '<sup class="footnotemarker">' . $nr . '</sup>'
-        . PMA_getImage(
-            'b_help.png', '',
-            array('class' => 'footnotemarker footnote_' . $nr)
-        );
+    $retval  = '<span class="pma_hint">';
+    $retval .= PMA_getImage('b_help.png');
+    $retval .= '<span class="hide">';
+    $retval .= $message;
+    $retval .= '</span>';
+    $retval .= '</span>';
+    return $retval;
 }
 
 /**
@@ -594,11 +568,6 @@ function PMA_mysqlDie(
     $is_modify_link = true, $back_url = '', $exit = true
 ) {
     global $table, $db;
-
-    /**
-     * start http output, display html headers
-     */
-    include_once './libraries/header.inc.php';
 
     $error_msg = '';
 
@@ -710,10 +679,13 @@ function PMA_mysqlDie(
         /**
          * If in an Ajax request
          * - avoid displaying a Back link
-         * - use PMA_ajaxResponse() to transmit the message and exit
+         * - use PMA_Response() to transmit the message and exit
          */
         if ($GLOBALS['is_ajax_request'] == true) {
-            PMA_ajaxResponse($error_msg, false);
+            $response = PMA_Response::getInstance();
+            $response->isSuccess(false);
+            $response->addJSON('message', $error_msg);
+            exit;
         }
         if (! empty($back_url)) {
             if (strstr($back_url, '?')) {
@@ -730,10 +702,7 @@ function PMA_mysqlDie(
         }
 
         echo $error_msg;
-        /**
-         * display footer and exit
-         */
-        include './libraries/footer.inc.php';
+        exit;
     } else {
         echo $error_msg;
     }
@@ -939,8 +908,9 @@ function PMA_whichCrlf()
  *
  * @access  public
  */
-function PMA_reloadNavigation($jsonly = false)
+function PMA_getReloadNavigationScript($jsonly = false)
 {
+    $retval = '';
     // Reloads the navigation frame via JavaScript if required
     if (isset($GLOBALS['reload']) && $GLOBALS['reload']) {
         // one of the reasons for a reload is when a table is dropped
@@ -948,29 +918,29 @@ function PMA_reloadNavigation($jsonly = false)
         // we have a problem when dropping a table on the last page
         // and the offset becomes greater than the total number of tables
         unset($_SESSION['tmp_user_values']['table_limit_offset']);
-        echo "\n";
         $reload_url = './navigation.php?' . PMA_generate_common_url(
             $GLOBALS['db'],
             '',
             '&'
         );
         if (! $jsonly) {
-            echo '<script type="text/javascript">' . PHP_EOL;
+            $retval .= '<script type="text/javascript">' . PHP_EOL;
         }
-        echo '//<![CDATA[' . PHP_EOL;
-        echo 'if (typeof(window.parent) != "undefined"' . PHP_EOL;
-        echo '    && typeof(window.parent.frame_navigation) != "undefined"'
-            . PHP_EOL;
-        echo '    && window.parent.goTo) {' . PHP_EOL;
-        echo '    window.parent.goTo("' . $reload_url . '");' . PHP_EOL;
-        echo '}' . PHP_EOL;
-        echo '//]]>' . PHP_EOL;
+        $retval .= '//<![CDATA[' . PHP_EOL;
+        $retval .= 'if (typeof(window.parent) != "undefined"' . PHP_EOL;
+        $retval .= '    && typeof(window.parent.frame_navigation) != "undefined"'
+             . PHP_EOL;
+        $retval .= '    && window.parent.goTo) {' . PHP_EOL;
+        $retval .= '    window.parent.goTo("' . $reload_url . '");' . PHP_EOL;
+        $retval .= '}' . PHP_EOL;
+        $retval .= '//]]>' . PHP_EOL;
         if (! $jsonly) {
-            echo '</script>' . PHP_EOL;
+            $retval .= '</script>' . PHP_EOL;
         }
 
         unset($GLOBALS['reload']);
     }
+    return $retval;
 }
 
 /**
@@ -3275,61 +3245,6 @@ function PMA_expandUserString($string, $escape = null, $updates = array())
 
     /* Do the replacement */
     return strtr(strftime($string), $replace);
-}
-
-/**
- * function that generates a json output for an ajax request and ends script
- * execution
- *
- * @param PMA_Message|string $message    message string containing the
- *                                       html of the message
- * @param bool               $success    success whether the ajax request
- *                                       was successfull
- * @param array              $extra_data extra data  optional - any other data
- *                                       as part of the json request
- *
- * @return void
- */
-function PMA_ajaxResponse($message, $success = true, $extra_data = array())
-{
-    $response = array();
-    if ( $success == true ) {
-        $response['success'] = true;
-        if ($message instanceof PMA_Message) {
-            $response['message'] = $message->getDisplay();
-        } else {
-            $response['message'] = $message;
-        }
-    } else {
-        $response['success'] = false;
-        if ($message instanceof PMA_Message) {
-            $response['error'] = $message->getDisplay();
-        } else {
-            $response['error'] = $message;
-        }
-    }
-
-    // If extra_data has been provided, append it to the response array
-    if ( ! empty($extra_data) && count($extra_data) > 0 ) {
-        $response = array_merge($response, $extra_data);
-    }
-
-    // Set the Content-Type header to JSON so that jQuery parses the
-    // response correctly.
-    //
-    // At this point, other headers might have been sent;
-    // even if $GLOBALS['is_header_sent'] is true,
-    // we have to send these additional headers.
-    if (! defined('TESTSUITE')) {
-        header('Cache-Control: no-cache');
-        header("Content-Type: application/json");
-    }
-
-    echo json_encode($response);
-
-    if (! defined('TESTSUITE')) {
-        exit;
-    }
 }
 
 /**

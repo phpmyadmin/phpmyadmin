@@ -17,7 +17,10 @@
  * Gets some core libraries
  */
 require_once 'libraries/common.inc.php';
-$GLOBALS['js_include'][] = 'tbl_relation.js';
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('tbl_relation.js');
 
 require_once 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_sql.php';
@@ -572,8 +575,4 @@ if (count($columns) > 0) {
     <?php
 } // end if (we have columns in this table)
 
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
 ?>

@@ -9,10 +9,8 @@
 /**
  *
  */
-require_once './libraries/common.inc.php';
+require_once 'libraries/common.inc.php';
 require_once 'libraries/pmd_common.php';
-require 'libraries/db_common.inc.php';
-require 'libraries/db_info.inc.php';
 
 /**
  * Sets globals from $_GET
@@ -28,6 +26,7 @@ foreach ($get_params as $one_get_param) {
     }
 }
 
+$script_display_field = get_tables_info();
 $tab_column       = get_columns_info();
 $script_tabs      = get_script_tabs();
 $script_contr     = get_script_contr();
@@ -39,42 +38,45 @@ $params = array('lang' => $GLOBALS['lang']);
 if (isset($GLOBALS['db'])) {
     $params['db'] = $GLOBALS['db'];
 }
-require_once 'libraries/header_scripts.inc.php';
-?>
-    <script type="text/javascript">
-    // <![CDATA[
-<?php
-echo '
+
+$response = PMA_Response::getInstance();
+$response->getFooter()->setMinimal();
+$header   = $response->getHeader();
+$header->setBodyId('pmd_body');
+$scripts = $header->getScripts();
+$scripts->addFile('pmd/ajax.js');
+$scripts->addFile('pmd/history.js');
+$scripts->addFile('pmd/move.js');
+$scripts->addFile('pmd/iecanvas.js', true);
+$scripts->addCode('
     var server = "' . PMA_escapeJsString($server) . '";
     var db = "' . PMA_escapeJsString($db) . '";
-    var token = "' . PMA_escapeJsString($token) . '";';
-echo "\n";
+    var token = "' . PMA_escapeJsString($token) . '";
+');
 if (isset($_REQUEST['query'])) {
-    echo '
-     $(function() {
+    $scripts->addCode('
+    $(function() {
         $(".trigger").click(function() {
         $(".panel").toggle("fast");
         $(this).toggleClass("active");
         return false;
         });
-    });';
+    });
+    ');
 }
-?>
-    // ]]>
-    </script>
-    <script src="js/pmd/ajax.js" type="text/javascript"></script>
-    <script src="js/pmd/history.js" type="text/javascript"></script>
-    <script src="js/pmd/move.js" type="text/javascript"></script>
-    <!--[if IE]>
-    <script src="js/pmd/iecanvas.js" type="text/javascript"></script>
-    <![endif]-->
-<?php
-echo $script_tabs . $script_contr . $script_display_field;
-?>
+$scripts->addCode('
+    $(function() {
+        Main();
+    });
+');
+$scripts->addCode($script_tabs);
+$scripts->addCode($script_contr);
+$scripts->addCode($script_display_field);
 
-</head>
-<body onload="Main()" class="general_body" id="pmd_body">
+require 'libraries/db_common.inc.php';
+require 'libraries/db_info.inc.php';
 
+?>
 <div class="pmd_header" id="top_menu">
     <a href="#"
         onclick="Show_left_menu(document.getElementById('key_Show_left_menu')); return false" class="M_butt first" target="_self">
@@ -857,5 +859,3 @@ if (! empty($_REQUEST['query'])) {
 <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/rightarrow2.png'); ?>" width="0" height="0" alt="" />
 <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/uparrow2_m.png'); ?>" width="0" height="0" alt="" />
 <div id="PMA_disable_floating_menubar"></div>
-</body>
-</html>

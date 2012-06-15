@@ -55,25 +55,17 @@ function PMA_query_as_controluser($sql, $show_error = true, $options = 0)
 /**
  * Returns current relation parameters
  *
- * @param bool $verbose whether to print diagnostic info
- *
  * @return array   $cfgRelation
  */
-function PMA_getRelationsParam($verbose = false)
+function PMA_getRelationsParam()
 {
     if (empty($_SESSION['relation'][$GLOBALS['server']])) {
         $_SESSION['relation'][$GLOBALS['server']] = PMA__getRelationsParam();
     }
 
-    // just for BC but needs to be before PMA_printRelationsParamDiagnostic()
+    // just for BC but needs to be before PMA_getRelationsParamDiagnostic()
     // which uses it
     $GLOBALS['cfgRelation'] = $_SESSION['relation'][$GLOBALS['server']];
-
-    if ($verbose) {
-        PMA_printRelationsParamDiagnostic(
-            $_SESSION['relation'][$GLOBALS['server']]
-        );
-    }
 
     return $_SESSION['relation'][$GLOBALS['server']];
 }
@@ -83,10 +75,12 @@ function PMA_getRelationsParam($verbose = false)
  *
  * @param array $cfgRelation Relation configuration
  *
- * @return void
+ * @return string
  */
-function PMA_printRelationsParamDiagnostic($cfgRelation)
+function PMA_getRelationsParamDiagnostic($cfgRelation)
 {
+    $retval = '';
+
     $messages['error'] = '<font color="red"><strong>'
         . __('not OK')
         . '</strong></font>'
@@ -97,211 +91,195 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
     $messages['ok'] = '<font color="green"><strong>'
         .  _pgettext('Correctly working', 'OK')
         . '</strong></font>';
+
     $messages['enabled']  = '<font color="green">' . __('Enabled') . '</font>';
     $messages['disabled'] = '<font color="red">'   . __('Disabled') . '</font>';
 
     if (false === $GLOBALS['cfg']['Server']['pmadb']) {
-        echo 'PMA Database ... '
+        $retval .= 'PMA Database ... '
              . sprintf($messages['error'], 'pmadb')
              . '<br />' . "\n"
              . __('General relation features')
              . ' <font color="green">' . __('Disabled')
              . '</font>' . "\n";
-        return;
+    } else {
+        $retval .= '<table>' . "\n";
+        $retval .= PMA_getDiagMessageForParameter(
+            'pmadb',
+            $GLOBALS['cfg']['Server']['pmadb'],
+            $messages,
+            'pmadb'
+        );
+        $retval .= PMA_getDiagMessageForParameter(
+            'relation',
+            isset($cfgRelation['relation']),
+            $messages,
+            'relation'
+        );
+        $retval .= PMA_getDiagMessageForFeature(
+            __('General relation features'),
+            'relwork',
+            $messages
+        );
+        $retval .= PMA_getDiagMessageForParameter(
+            'table_info',
+            isset($cfgRelation['table_info']),
+            $messages,
+            'table_info'
+        );
+        $retval .= PMA_getDiagMessageForFeature(
+            __('Display Features'),
+            'displaywork',
+            $messages
+        );
+        $retval .= PMA_getDiagMessageForParameter(
+            'table_coords',
+            isset($cfgRelation['table_coords']),
+            $messages,
+            'table_coords'
+        );
+        $retval .= PMA_getDiagMessageForParameter(
+            'pdf_pages',
+            isset($cfgRelation['pdf_pages']),
+            $messages,
+            'table_coords'
+        );
+        $retval .= PMA_getDiagMessageForFeature(
+            __('Creation of PDFs'),
+            'pdfwork',
+            $messages
+        );
+        $retval .= PMA_getDiagMessageForParameter(
+            'column_info',
+            isset($cfgRelation['column_info']),
+            $messages,
+            'col_com'
+        );
+        $retval .= PMA_getDiagMessageForFeature(
+            __('Displaying Column Comments'),
+            'commwork',
+            $messages,
+            false
+        );
+        $retval .= PMA_getDiagMessageForFeature(
+            __('Browser transformation'),
+            'mimework',
+            $messages
+        );
+        if ($cfgRelation['commwork'] && ! $cfgRelation['mimework']) {
+            $retval .= '<tr><td colspan=2 class="left">';
+            $retval .=  __('Please see the documentation on how to update your column_comments table');
+            $retval .= '</td></tr>';
+        }
+        $retval .= PMA_getDiagMessageForParameter(
+            'bookmarktable',
+            isset($cfgRelation['bookmark']),
+            $messages,
+            'bookmark'
+        );
+        $retval .= PMA_getDiagMessageForFeature(
+            __('Bookmarked SQL query'),
+            'bookmarkwork',
+            $messages
+        );
+        $retval .= PMA_getDiagMessageForParameter(
+            'history',
+            isset($cfgRelation['history']),
+            $messages,
+            'history'
+        );
+        $retval .= PMA_getDiagMessageForFeature(
+            __('SQL history'),
+            'historywork',
+            $messages
+        );
+        $retval .= PMA_getDiagMessageForParameter(
+            'designer_coords',
+            isset($cfgRelation['designer_coords']),
+            $messages,
+            'designer_coords'
+        );
+        $retval .= PMA_getDiagMessageForFeature(
+            __('Designer'),
+            'designerwork',
+            $messages
+        );
+        $retval .= PMA_getDiagMessageForParameter(
+            'recent',
+            isset($cfgRelation['recent']),
+            $messages,
+            'recent'
+        );
+        $retval .= PMA_getDiagMessageForFeature(
+            __('Persistent recently used tables'),
+            'recentwork',
+            $messages
+        );
+        $retval .= PMA_getDiagMessageForParameter(
+            'table_uiprefs',
+            isset($cfgRelation['table_uiprefs']),
+            $messages,
+            'table_uiprefs'
+        );
+        $retval .= PMA_getDiagMessageForFeature(
+            __('Persistent tables\' UI preferences'),
+            'uiprefswork',
+            $messages
+        );
+        $retval .= PMA_getDiagMessageForParameter(
+            'tracking',
+            isset($cfgRelation['tracking']),
+            $messages,
+            'tracking'
+        );
+        $retval .= PMA_getDiagMessageForFeature(
+            __('Tracking'),
+            'trackingwork',
+            $messages
+        );
+        $retval .= PMA_getDiagMessageForParameter(
+            'userconfig',
+            isset($cfgRelation['userconfig']),
+            $messages,
+            'userconfig'
+        );
+        $retval .= PMA_getDiagMessageForFeature(
+            __('User preferences'),
+            'userconfigwork',
+            $messages
+        );
+        $retval .= '</table>' . "\n";
+
+        $retval .= '<p>' . __('Quick steps to setup advanced features:') . '</p>';
+        $retval .= '<ul>';
+        $retval .= '<li>';
+        $retval .= __(
+            'Create the needed tables with the '
+            . '<code>examples/create_tables.sql</code>.'
+        );
+        $retval .= ' ' . PMA_showDocu('linked-tables');
+        $retval .= '</li>';
+        $retval .= '<li>';
+        $retval .= __('Create a pma user and give access to these tables.');
+        $retval .= ' ' . PMA_showDocu('pmausr');
+        $retval .= '</li>';
+        $retval .= '<li>';
+        $retval .= __(
+            'Enable advanced features in configuration file '
+            . '(<code>config.inc.php</code>), for example by '
+            . 'starting from <code>config.sample.inc.php</code>.'
+        );
+        $retval .= ' ' . PMA_showDocu('quick_install');
+        $retval .= '</li>';
+        $retval .= '<li>';
+        $retval .= __(
+            'Re-login to phpMyAdmin to load the updated configuration file.'
+        );
+        $retval .= '</li>';
+        $retval .= '</ul>';
     }
 
-    echo '<table>' . "\n";
-
-    PMA_printDiagMessageForParameter(
-        'pmadb',
-        $GLOBALS['cfg']['Server']['pmadb'],
-        $messages,
-        'pmadb'
-    );
-
-    PMA_printDiagMessageForParameter(
-        'relation',
-        isset($cfgRelation['relation']),
-        $messages,
-        'relation'
-    );
-
-    PMA_printDiagMessageForFeature(
-        __('General relation features'),
-        'relwork',
-        $messages
-    );
-
-    PMA_printDiagMessageForParameter(
-        'table_info',
-        isset($cfgRelation['table_info']),
-        $messages,
-        'table_info'
-    );
-
-    PMA_printDiagMessageForFeature(
-        __('Display Features'),
-        'displaywork',
-        $messages
-    );
-
-    PMA_printDiagMessageForParameter(
-        'table_coords',
-        isset($cfgRelation['table_coords']),
-        $messages,
-        'table_coords'
-    );
-
-    PMA_printDiagMessageForParameter(
-        'pdf_pages',
-        isset($cfgRelation['pdf_pages']),
-        $messages,
-        'table_coords'
-    );
-
-    PMA_printDiagMessageForFeature(
-        __('Creation of PDFs'),
-        'pdfwork',
-        $messages
-    );
-
-    PMA_printDiagMessageForParameter(
-        'column_info',
-        isset($cfgRelation['column_info']),
-        $messages,
-        'col_com'
-    );
-
-    PMA_printDiagMessageForFeature(
-        __('Displaying Column Comments'),
-        'commwork',
-        $messages,
-        false
-    );
-
-    PMA_printDiagMessageForFeature(
-        __('Browser transformation'),
-        'mimework',
-        $messages
-    );
-
-    if ($cfgRelation['commwork'] && ! $cfgRelation['mimework']) {
-        echo '<tr><td colspan=2 class="left">'
-            . __('Please see the documentation on how to update your column_comments table')
-            . '</td></tr>' . "\n";
-    }
-
-    PMA_printDiagMessageForParameter(
-        'bookmarktable',
-        isset($cfgRelation['bookmark']),
-        $messages,
-        'bookmark'
-    );
-
-    PMA_printDiagMessageForFeature(
-        __('Bookmarked SQL query'),
-        'bookmarkwork',
-        $messages
-    );
-
-    PMA_printDiagMessageForParameter(
-        'history',
-        isset($cfgRelation['history']),
-        $messages,
-        'history'
-    );
-
-    PMA_printDiagMessageForFeature(
-        __('SQL history'),
-        'historywork',
-        $messages
-    );
-
-    PMA_printDiagMessageForParameter(
-        'designer_coords',
-        isset($cfgRelation['designer_coords']),
-        $messages,
-        'designer_coords'
-    );
-
-    PMA_printDiagMessageForFeature(
-        __('Designer'),
-        'designerwork',
-        $messages
-    );
-
-    PMA_printDiagMessageForParameter(
-        'recent',
-        isset($cfgRelation['recent']),
-        $messages,
-        'recent'
-    );
-
-    PMA_printDiagMessageForFeature(
-        __('Persistent recently used tables'),
-        'recentwork',
-        $messages
-    );
-
-    PMA_printDiagMessageForParameter(
-        'table_uiprefs',
-        isset($cfgRelation['table_uiprefs']),
-        $messages,
-        'table_uiprefs'
-    );
-
-    PMA_printDiagMessageForFeature(
-        __('Persistent tables\' UI preferences'),
-        'uiprefswork',
-        $messages
-    );
-
-    PMA_printDiagMessageForParameter(
-        'tracking',
-        isset($cfgRelation['tracking']),
-        $messages,
-        'tracking'
-    );
-
-    PMA_printDiagMessageForFeature(
-        __('Tracking'),
-        'trackingwork',
-        $messages
-    );
-
-    PMA_printDiagMessageForParameter(
-        'userconfig',
-        isset($cfgRelation['userconfig']),
-        $messages,
-        'userconfig'
-    );
-
-    PMA_printDiagMessageForFeature(
-        __('User preferences'),
-        'userconfigwork',
-        $messages
-    );
-
-    echo '</table>' . "\n";
-
-    echo '<p>' . __('Quick steps to setup advanced features:') . '</p>';
-    echo '<ul>';
-    echo '<li>'
-        . __('Create the needed tables with the <code>examples/create_tables.sql</code>.')
-        . ' ' . PMA_showDocu('linked-tables')
-        . '</li>';
-    echo '<li>'
-        . __('Create a pma user and give access to these tables.')
-        . ' ' . PMA_showDocu('pmausr')
-        . '</li>';
-    echo '<li>'
-        . __('Enable advanced features in configuration file (<code>config.inc.php</code>), for example by starting from <code>config.sample.inc.php</code>.')
-        . ' ' . PMA_showDocu('quick_install')
-        . '</li>';
-    echo '<li>'
-        . __('Re-login to phpMyAdmin to load the updated configuration file.')
-        . '</li>';
-    echo '</ul>';
+    return $retval;
 }
 
 /**
@@ -312,21 +290,22 @@ function PMA_printRelationsParamDiagnostic($cfgRelation)
  * @param array   $messages           utility messages
  * @param boolean $skip_line          whether to skip a line after the message
  *
- * @return void
+ * @return string
  */
-function PMA_printDiagMessageForFeature($feature_name,
+function PMA_getDiagMessageForFeature($feature_name,
     $relation_parameter, $messages, $skip_line = true
 ) {
-    echo '    <tr><td colspan=2 class="right">' . $feature_name . ': ';
+    $retval = '    <tr><td colspan=2 class="right">' . $feature_name . ': ';
     if ($GLOBALS['cfgRelation'][$relation_parameter]) {
-        echo $messages['enabled'];
+        $retval .= $messages['enabled'];
     } else {
-        echo $messages['disabled'];
+        $retval .= $messages['disabled'];
     }
-    echo '</td></tr>' . "\n";
+    $retval .= '</td></tr>';
     if ($skip_line) {
-        echo '    <tr><td>&nbsp;</td></tr>' . "\n";
+        $retval .= '<tr><td>&nbsp;</td></tr>';
     }
+    return $retval;
 }
 
 /**
@@ -339,18 +318,19 @@ function PMA_printDiagMessageForFeature($feature_name,
  *
  * @return void
  */
-function PMA_printDiagMessageForParameter($parameter,
+function PMA_getDiagMessageForParameter($parameter,
     $relation_parameter_set, $messages, $doc_anchor
 ) {
-    echo '<tr><th class="left">';
-    echo '$cfg[\'Servers\'][$i][\'' . $parameter . '\']  ... ';
-    echo '</th><td class="right">';
+    $retval = '<tr><th class="left">';
+    $retval .= '$cfg[\'Servers\'][$i][\'' . $parameter . '\']  ... ';
+    $retval .= '</th><td class="right">';
     if ($relation_parameter_set) {
-        echo $messages['ok'];
+        $retval .= $messages['ok'];
     } else {
-        printf($messages['error'], $doc_anchor);
+        $retval .= sprintf($messages['error'], $doc_anchor);
     }
-    echo '</td></tr>' . "\n";
+    $retval .= '</td></tr>' . "\n";
+    return $retval;
 }
 
 

@@ -270,29 +270,42 @@ function PMA_userprefs_redirect(array $forms, array $old_settings, $file_name,
 }
 
 /**
- * Shows form which allows to quickly load settings stored in browser's local storage
+ * Shows form which allows to quickly load
+ * settings stored in browser's local storage
  *
+ * @return string
  */
-function PMA_userprefs_autoload_header()
+function PMA_userprefsAutoloadGetHeader()
 {
-    if (isset($_REQUEST['prefs_autoload']) && $_REQUEST['prefs_autoload'] == 'hide') {
+    $retval = '';
+
+    if (isset($_REQUEST['prefs_autoload'])
+        && $_REQUEST['prefs_autoload'] == 'hide'
+    ) {
         $_SESSION['userprefs_autoload'] = true;
-        exit;
+    } else {
+        $script_name = basename(basename($GLOBALS['PMA_PHP_SELF']));
+        $return_url = htmlspecialchars(
+            $script_name . '?' . http_build_query($_GET, '', '&')
+        );
+
+        $retval .= '<div id="prefs_autoload" class="notice" style="display:none">';
+        $retval .= '<form action="prefs_manage.php" method="post">';
+        $retval .= PMA_generate_common_hidden_inputs();
+        $retval .= '<input type="hidden" name="json" value="" />';
+        $retval .= '<input type="hidden" name="submit_import" value="1" />';
+        $retval .= '<input type="hidden" name="return_url" value="' . $return_url . '" />';
+        $retval .=  __(
+            'Your browser has phpMyAdmin configuration for this domain. '
+            . 'Would you like to import it for current session?'
+        );
+        $retval .= '<br />';
+        $retval .= '<a href="#yes">' . __('Yes') . '</a>';
+        $retval .= ' / ';
+        $retval .= '<a href="#no">' . __('No') . '</a>';
+        $retval .= '</form>';
+        $retval .= '</div>';
     }
-    $script_name = basename(basename($GLOBALS['PMA_PHP_SELF']));
-    $return_url = $script_name . '?' . http_build_query($_GET, '', '&');
-    ?>
-    <div id="prefs_autoload" class="notice" style="display:none">
-        <form action="prefs_manage.php" method="post">
-            <?php echo PMA_generate_common_hidden_inputs() . "\n"; ?>
-            <input type="hidden" name="json" value="" />
-            <input type="hidden" name="submit_import" value="1" />
-            <input type="hidden" name="return_url" value="<?php echo htmlspecialchars($return_url) ?>" />
-            <?php echo __('Your browser has phpMyAdmin configuration for this domain. Would you like to import it for current session?') ?>
-            <br />
-            <a href="#yes"><?php echo __('Yes') ?></a> / <a href="#no"><?php echo __('No') ?></a>
-        </form>
-    </div>
-    <?php
+    return $retval;
 }
 ?>

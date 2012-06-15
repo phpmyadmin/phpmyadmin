@@ -81,6 +81,4 @@ unset($table_row_count);
 echo '</table>' . "\n"
    . '</div>' . "\n";
 
-require 'libraries/footer.inc.php';
-
 ?>

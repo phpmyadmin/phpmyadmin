@@ -10,7 +10,10 @@
  */
 require_once 'libraries/common.inc.php';
 
-$GLOBALS['js_include'][] = 'import.js';
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('import.js');
 
 /**
  * Does the common work
@@ -19,9 +22,6 @@ require 'libraries/server_common.inc.php';
 
 $import_type = 'server';
 require 'libraries/display_import.lib.php';
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
+
 ?>
 

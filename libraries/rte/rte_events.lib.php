@@ -148,21 +148,22 @@ function PMA_EVN_handleEditor()
 
         $output = PMA_getMessage($message, $sql_query);
         if ($GLOBALS['is_ajax_request']) {
-            $extra_data = array();
+            $response = PMA_Response::getInstance();
             if ($message->isSuccess()) {
                 $columns = "`EVENT_NAME`, `EVENT_TYPE`, `STATUS`";
                 $where   = "EVENT_SCHEMA='" . PMA_sqlAddSlashes($db) . "' "
                          . "AND EVENT_NAME='" . PMA_sqlAddSlashes($_REQUEST['item_name']) . "'";
                 $query   = "SELECT $columns FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE $where;";
                 $event   = PMA_DBI_fetch_single_row($query);
-                $extra_data['name'] = htmlspecialchars(strtoupper($_REQUEST['item_name']));
-                $extra_data['new_row'] = PMA_EVN_getRowForList($event);
-                $extra_data['insert'] = ! empty($event);
-                $response = $output;
+                $response->addJSON('name', htmlspecialchars(strtoupper($_REQUEST['item_name'])));
+                $response->addJSON('new_row', PMA_EVN_getRowForList($event));
+                $response->addJSON('insert', ! empty($event));
+                $response->addJSON('message', $output);
             } else {
-                $response = $message;
+                $response->isSuccess(false);
+                $response->addJSON('message', $message);
             }
-            PMA_ajaxResponse($response, $message->isSuccess(), $extra_data);
+            exit;
         }
     }
     /**
@@ -200,14 +201,14 @@ function PMA_EVN_handleEditor()
             // Show form
             $editor = PMA_EVN_getEditorForm($mode, $operation, $item);
             if ($GLOBALS['is_ajax_request']) {
-                $extra_data = array('title' => $title);
-                PMA_ajaxResponse($editor, true, $extra_data);
+                $response = PMA_Response::getInstance();
+                $response->addJSON('message', $editor);
+                $response->addJSON('title', $title);
             } else {
                 echo "\n\n<h2>$title</h2>\n\n$editor";
                 unset($_POST);
-                include './libraries/footer.inc.php';
             }
-            // exit;
+            exit;
         } else {
             $message  = __('Error in processing request') . ' : ';
             $message .= sprintf(
@@ -217,7 +218,10 @@ function PMA_EVN_handleEditor()
             );
             $message = PMA_message::error($message);
             if ($GLOBALS['is_ajax_request']) {
-                PMA_ajaxResponse($message, false);
+                $response = PMA_Response::getInstance();
+                $response->isSuccess(false);
+                $response->addJSON('message', $message);
+                exit;
             } else {
                 $message->display();
             }

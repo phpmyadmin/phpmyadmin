@@ -301,21 +301,22 @@ function PMA_RTN_handleEditor()
 
         $output = PMA_getMessage($message, $sql_query);
         if ($GLOBALS['is_ajax_request']) {
-            $extra_data = array();
+            $response = PMA_Response::getInstance();
             if ($message->isSuccess()) {
                 $columns  = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`, `DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
                 $where    = "ROUTINE_SCHEMA='" . PMA_sqlAddSlashes($db) . "' "
                           . "AND ROUTINE_NAME='" . PMA_sqlAddSlashes($_REQUEST['item_name']) . "'"
                           . "AND ROUTINE_TYPE='" . PMA_sqlAddSlashes($_REQUEST['item_type']) . "'";
                 $routine  = PMA_DBI_fetch_single_row("SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;");
-                $extra_data['name']    = htmlspecialchars(strtoupper($_REQUEST['item_name']));
-                $extra_data['new_row'] = PMA_RTN_getRowForList($routine);
-                $extra_data['insert']  = ! empty($routine);
-                $response = $output;
+                $response->addJSON('name', htmlspecialchars(strtoupper($_REQUEST['item_name'])));
+                $response->addJSON('new_row', PMA_RTN_getRowForList($routine));
+                $response->addJSON('insert', ! empty($routine));
+                $response->addJSON('message', $output);
             } else {
-                $response = $message;
+                $response->isSuccess(false);
+                $response->addJSON('message', $output);
             }
-            PMA_ajaxResponse($response, $message->isSuccess(), $extra_data);
+            exit;
         }
     }
 
@@ -359,15 +360,15 @@ function PMA_RTN_handleEditor()
             // Show form
             $editor = PMA_RTN_getEditorForm($mode, $operation, $routine);
             if ($GLOBALS['is_ajax_request']) {
-                $template   = PMA_RTN_getParameterRow();
-                $extra_data = array('title' => $title,
-                                    'param_template' => $template,
-                                    'type' => $routine['item_type']);
-                PMA_ajaxResponse($editor, true, $extra_data);
+                $response = PMA_Response::getInstance();
+                $response->addJSON('message', $editor);
+                $response->addJSON('title', $title);
+                $response->addJSON('param_template', PMA_RTN_getParameterRow());
+                $response->addJSON('type', $routine['item_type']);
+            } else {
+                echo "\n\n<h2>$title</h2>\n\n$editor";
             }
-            echo "\n\n<h2>$title</h2>\n\n$editor";
-            include './libraries/footer.inc.php';
-            // exit;
+            exit;
         } else {
             $message  = __('Error in processing request') . ' : ';
             $message .= sprintf(
@@ -377,7 +378,9 @@ function PMA_RTN_handleEditor()
             );
             $message = PMA_message::error($message);
             if ($GLOBALS['is_ajax_request']) {
-                PMA_ajaxResponse($message, false);
+                $response->isSuccess(false);
+                $response->addJSON('message', $message);
+                exit;
             } else {
                 $message->display();
             }
@@ -1268,12 +1271,11 @@ function PMA_RTN_handleExecute()
             }
             // Print/send output
             if ($GLOBALS['is_ajax_request']) {
-                $extra_data = array('dialog' => false);
-                PMA_ajaxResponse(
-                    $message->getDisplay() . $output,
-                    $message->isSuccess(),
-                    $extra_data
-                );
+                $response = PMA_Response::getInstance();
+                $response->isSuccess($message->isSuccess());
+                $response->addJSON('message', $message->getDisplay() . $output);
+                $response->addJSON('dialog', false);
+                exit;
             } else {
                 echo $message->getDisplay() . $output;
                 if ($message->isError()) {
@@ -1293,7 +1295,10 @@ function PMA_RTN_handleExecute()
             );
             $message = PMA_message::error($message);
             if ($GLOBALS['is_ajax_request']) {
-                PMA_ajaxResponse($message, $message->isSuccess());
+                $response = PMA_Response::getInstance();
+                $response->isSuccess(false);
+                $response->addJSON('message', $message);
+                exit;
             } else {
                 echo $message->getDisplay();
                 unset($_POST);
@@ -1307,19 +1312,18 @@ function PMA_RTN_handleExecute()
         if ($routine !== false) {
             $form = PMA_RTN_getExecuteForm($routine);
             if ($GLOBALS['is_ajax_request'] == true) {
-                $extra_data = array();
-                $extra_data['dialog'] = true;
-                $extra_data['title']  = __("Execute routine") . " ";
-                $extra_data['title'] .= PMA_backquote(
+                $title = __("Execute routine") . " " . PMA_backquote(
                     htmlentities($_GET['item_name'], ENT_QUOTES)
                 );
-                PMA_ajaxResponse($form, true, $extra_data);
+                $response = PMA_Response::getInstance();
+                $response->addJSON('message', $form);
+                $response->addJSON('title', $title);
+                $response->addJSON('dialog', true);
             } else {
                 echo "\n\n<h2>" . __("Execute routine") . "</h2>\n\n";
                 echo $form;
-                include './libraries/footer.inc.php';
-                // exit;
             }
+            exit;
         } else if (($GLOBALS['is_ajax_request'] == true)) {
             $message  = __('Error in processing request') . ' : ';
             $message .= sprintf(
@@ -1328,7 +1332,11 @@ function PMA_RTN_handleExecute()
                 htmlspecialchars(PMA_backquote($db))
             );
             $message = PMA_message::error($message);
-            PMA_ajaxResponse($message, false);
+
+            $response = PMA_Response::getInstance();
+            $response->isSuccess(false);
+            $response->addJSON('message', $message);
+            exit;
         }
     }
 }

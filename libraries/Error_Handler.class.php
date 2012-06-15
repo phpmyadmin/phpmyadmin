@@ -64,8 +64,8 @@ class PMA_Error_Handler
                     if (count($_SESSION['errors']) >= 20) {
                         $error = new PMA_Error(0, __('Too many error messages, some are not displayed.'), __FILE__, __LINE__);
                         $_SESSION['errors'][$error->getHash()] = $error;
-                    }
-                    if (($error instanceof PMA_Error) && ! $error->isDisplayed()) {
+                        break;
+                    } else if (($error instanceof PMA_Error) && ! $error->isDisplayed()) {
                         $_SESSION['errors'][$key] = $error;
                     }
                 }
@@ -205,17 +205,29 @@ class PMA_Error_Handler
     }
 
     /**
-     * display user errors not displayed
+     * Displays user errors not displayed
      *
      * @return void
      */
     public function dispUserErrors()
     {
+        echo $this->getDispUserErrors();
+    }
+
+    /**
+     * Renders user errors not displayed
+     *
+     * @return string
+     */
+    public function getDispUserErrors()
+    {
+        $retval = '';
         foreach ($this->getErrors() as $error) {
             if ($error->isUserError() && ! $error->isDisplayed()) {
-                $error->display();
+                $retval .= $error->getDisplay();
             }
         }
+        return $retval;
     }
 
     /**
@@ -227,6 +239,7 @@ class PMA_Error_Handler
      */
     protected function dispPageStart($error = null)
     {
+        PMA_Response::getInstance()->disable();
         echo '<html><head><title>';
         if ($error) {
             echo $error->getTitle();
@@ -259,25 +272,39 @@ class PMA_Error_Handler
     }
 
     /**
-     * display errors not displayed
+     * renders errors not displayed
+     *
+     * @return void
+     */
+    public function getDispErrors()
+    {
+        $retval = '';
+        if ($GLOBALS['cfg']['Error_Handler']['display']) {
+            foreach ($this->getErrors() as $error) {
+                if ($error instanceof PMA_Error) {
+                    if (! $error->isDisplayed()) {
+                        $retval .= $error->getDisplay();
+                    }
+                } else {
+                    ob_start();
+                    var_dump($error);
+                    $retval .= ob_end_clean();
+                }
+            }
+        } else {
+            $retval .= $this->getDispUserErrors();
+        }
+        return $retval;
+    }
+
+    /**
+     * displays errors not displayed
      *
      * @return void
      */
     public function dispErrors()
     {
-        if ($GLOBALS['cfg']['Error_Handler']['display']) {
-            foreach ($this->getErrors() as $error) {
-                if ($error instanceof PMA_Error) {
-                    if (! $error->isDisplayed()) {
-                        $error->display();
-                    }
-                } else {
-                    var_dump($error);
-                }
-            }
-        } else {
-            $this->dispUserErrors();
-        }
+        echo $this->getDispErrors();
     }
 
     /**
@@ -297,7 +324,7 @@ class PMA_Error_Handler
             }
             //$this->errors = array_merge($_SESSION['errors'], $this->errors);
 
-            // delet stored errors
+            // delete stored errors
             $_SESSION['errors'] = array();
             unset($_SESSION['errors']);
         }

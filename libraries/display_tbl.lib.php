@@ -1061,7 +1061,6 @@ function PMA_getTableHeaders(&$is_display, &$fields_meta, $fields_cnt = 0,
     } elseif ((($GLOBALS['cfg']['RowActionLinks'] == 'left')
         || ($GLOBALS['cfg']['RowActionLinks'] == 'both'))
         && (($is_display['edit_lnk'] == 'nn') && ($is_display['del_lnk'] == 'nn'))
-        && (! isset($GLOBALS['is_header_sent']) || ! $GLOBALS['is_header_sent'])
     ) {
         //     ... elseif no button, displays empty columns if required
         // (unless coming from Browse mode print view)

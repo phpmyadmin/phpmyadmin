@@ -9,9 +9,10 @@
  * Does the common work
  */
 require_once 'libraries/common.inc.php';
-
-$GLOBALS['js_include'][] = 'server_databases.js';
-$GLOBALS['js_include'][] = 'functions.js';
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('server_databases.js');
 
 require 'libraries/server_common.inc.php';
 if (! PMA_DRIZZLE) {
@@ -116,7 +117,10 @@ if ((isset($_REQUEST['drop_selected_dbs']) || isset($_REQUEST['query_type']))
         }
     }
     if ($GLOBALS['is_ajax_request'] && $message instanceof PMA_Message) {
-        PMA_ajaxResponse($message, $message->isSuccess());
+        $response = PMA_Response::getInstance();
+        $response->isSuccess($message->isSuccess());
+        $response->addJSON('message', $message);
+        exit;
     }
 }
 
@@ -311,10 +315,5 @@ if ($databases_count > 0) {
     echo __('No databases');
 }
 unset($databases_count);
-
-/**
- * Sends the footer
- */
-require 'libraries/footer.inc.php';
 
 ?>
