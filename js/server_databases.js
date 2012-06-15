@@ -103,10 +103,7 @@ $(function() {
                 $("#tabledatabases")
                 .find('tbody')
                 .append(data.new_db_string)
-                .PMA_sort_table('.name')
-                .find('#db_summary_row')
-                .appendTo('#tabledatabases tbody')
-                .removeClass('odd even');
+                .PMA_sort_table('.name');
 
                 var $databases_count_object = $('#databases_count');
                 var databases_count = parseInt($databases_count_object.text()) + 1;
