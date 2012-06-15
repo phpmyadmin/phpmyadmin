@@ -1841,7 +1841,7 @@ class PMA_DisplayResults
      * 
      * @access  private
      * 
-     * @see     _getDataCellForBlobColumns(), _getDataCellForGeometryFields(),
+     * @see     _getDataCellForBlobColumns(), _getDataCellForGeometryColumns(),
      *          _getDataCellForNonNumericAndNonBlobFields()
      */
     private function _buildValueDisplay($class, $condition_field, $value)
@@ -1864,7 +1864,7 @@ class PMA_DisplayResults
      * @access  private
      * 
      * @see     _getDataCellForNumericFeilds(), _getDataCellForBlobColumns(),
-     *          _getDataCellForGeometryFields(),
+     *          _getDataCellForGeometryColumns(),
      *          _getDataCellForNonNumericAndNonBlobFields()
      */
     private function _buildNullDisplay($class, $condition_field, $meta, $align = '')
@@ -1891,7 +1891,7 @@ class PMA_DisplayResults
      * @access  private
      * 
      * @see     _getDataCellForNumericFeilds(), _getDataCellForBlobColumns(),
-     *          _getDataCellForGeometryFields(),
+     *          _getDataCellForGeometryColumns(),
      *          _getDataCellForNonNumericAndNonBlobFields()
      */
     private function _buildEmptyDisplay($class, $condition_field, $meta, $align = '')
@@ -2254,7 +2254,7 @@ class PMA_DisplayResults
                     $class = str_replace('grid_edit', '', $class);
 
                     $GLOBALS['vertical_display']['data'][$row_no][$i]
-                        = $this->_getDataCellForGeometryFields(
+                        = $this->_getDataCellForGeometryColumns(
                             $row[$i], $class, $meta, $map, $_url_params,
                             $condition_field, $transform_function, $default_function,
                             $transform_options, $is_field_truncated, $analyzed_sql
@@ -2920,7 +2920,7 @@ class PMA_DisplayResults
      *
      * @see     _getTableBody()
      */
-    private function _getDataCellForGeometryFields(
+    private function _getDataCellForGeometryColumns(
         $column, $class, $meta, $map, $_url_params, $condition_field,
         $transform_function, $default_function, $transform_options,
         $is_field_truncated, $analyzed_sql
@@ -3022,7 +3022,7 @@ class PMA_DisplayResults
 
         return $cell;
 
-    } // end of the '_getDataCellForGeometryFields()' function
+    } // end of the '_getDataCellForGeometryColumns()' function
 
 
     /**
@@ -4503,7 +4503,7 @@ class PMA_DisplayResults
      * 
      * @access  private
      * 
-     * @see     _getDataCellForBlobColumns(), _getDataCellForGeometryFields(),
+     * @see     _getDataCellForBlobColumns(), _getDataCellForGeometryColumns(),
      *          _getDataCellForNonNumericAndNonBlobFields(),
      *          _getSortedColumnMessage()
      */
@@ -4584,7 +4584,7 @@ class PMA_DisplayResults
      * 
      * @access  private
      * 
-     * @see     _getDataCellForNumericFeilds(), _getDataCellForGeometryFields(),
+     * @see     _getDataCellForNumericFeilds(), _getDataCellForGeometryColumns(),
      *          _getDataCellForNonNumericAndNonBlobFields(),
      *          
      */
