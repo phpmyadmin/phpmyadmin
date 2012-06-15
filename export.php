@@ -496,7 +496,7 @@ do {
                 if (! $export_plugin->exportDBCreate($current_db)) {
                     break 2;
                 }
-                if (function_exists('$export_plugin->exportRoutines')
+                if (method_exists($export_plugin, 'exportRoutines')
                     && strpos($GLOBALS['sql_structure_or_data'], 'structure') !== false
                     && isset($GLOBALS['sql_procedure_function'])
                 ) {
@@ -574,7 +574,7 @@ do {
             break;
         }
 
-        if (function_exists('$export_plugin->exportRoutines')
+        if (method_exists($export_plugin, 'exportRoutines')
             && strpos($GLOBALS['sql_structure_or_data'], 'structure') !== false
             && isset($GLOBALS['sql_procedure_function'])
         ) {

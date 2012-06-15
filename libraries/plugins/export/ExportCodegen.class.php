@@ -342,7 +342,7 @@ class ExportCodegen extends ExportPlugin
         return $this->_CG_FORMATS;
     }
 
-    public function setCG_FORMATS($CG_FORMATS)
+    private function setCG_FORMATS($CG_FORMATS)
     {
         $this->_CG_FORMATS = $CG_FORMATS;
     }
@@ -352,7 +352,7 @@ class ExportCodegen extends ExportPlugin
         return $this->_CG_HANDLERS;
     }
 
-    public function setCG_HANDLERS($CG_HANDLERS)
+    private function setCG_HANDLERS($CG_HANDLERS)
     {
         $this->_CG_HANDLERS = $CG_HANDLERS;
     }
