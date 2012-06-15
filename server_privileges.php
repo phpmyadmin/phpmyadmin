@@ -1676,13 +1676,13 @@ if (isset($viewing_mode) && $viewing_mode == 'db') {
 
 // export user definition
 if (isset($_REQUEST['export']) || (isset($_REQUEST['submit_mult']) && $_REQUEST['submit_mult'] == 'export')) {
-    $response = '<textarea class="export" cols="' . $GLOBALS['cfg']['TextareaCols'] . '" rows="' . $GLOBALS['cfg']['TextareaRows'] . '">';
+    $export = '<textarea class="export" cols="' . $GLOBALS['cfg']['TextareaCols'] . '" rows="' . $GLOBALS['cfg']['TextareaRows'] . '">';
     if ($username == '%') {
         // export privileges for all users
         $title = __('Privileges for all users');
         foreach ($_SESSION['user_host_pairs'] as $pair) {
-            $response .= PMA_getGrants($pair['user'], $pair['host']);
-            $response .= "\n";
+            $export .= PMA_getGrants($pair['user'], $pair['host']);
+            $export .= "\n";
         }
     } elseif (isset($_REQUEST['selected_usr'])) {
         // export privileges for selected users
@@ -1690,31 +1690,31 @@ if (isset($_REQUEST['export']) || (isset($_REQUEST['submit_mult']) && $_REQUEST[
         foreach ($_REQUEST['selected_usr'] as $export_user) {
             $export_username = substr($export_user, 0, strpos($export_user, '&'));
             $export_hostname = substr($export_user, strrpos($export_user, ';') + 1);
-            $response .= '# '
+            $export .= '# '
                 . sprintf(
                     __('Privileges for %s'),
                     '`' . htmlspecialchars($export_username) . '`@`' . htmlspecialchars($export_hostname) . '`'
                 )
                 . "\n\n";
-            $response .= PMA_getGrants($export_username, $export_hostname) . "\n";
+            $export .= PMA_getGrants($export_username, $export_hostname) . "\n";
         }
     } else {
         // export privileges for a single user
         $title = __('User') . ' `' . htmlspecialchars($username) . '`@`' . htmlspecialchars($hostname) . '`';
-        $response .= PMA_getGrants($username, $hostname);
+        $export .= PMA_getGrants($username, $hostname);
     }
     // remove trailing whitespace
-    $response = trim($response);
+    $export = trim($export);
 
-    $response .= '</textarea>';
+    $export .= '</textarea>';
     unset($username, $hostname, $grants, $one_grant);
     if ($GLOBALS['is_ajax_request']) {
         $response = PMA_Response::getInstance();
-        $response->addJSON('message', $response);
+        $response->addJSON('message', $export);
         $response->addJSON('title', $title);
         exit;
     } else {
-        echo "<h2>$title</h2>$response";
+        echo "<h2>$title</h2>$export";
     }
 }
 
