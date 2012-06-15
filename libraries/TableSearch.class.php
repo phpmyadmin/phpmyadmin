@@ -517,7 +517,7 @@ EOT;
     ) {
         // If geometry function is set
         if ($geom_func != null && trim($geom_func) != '') {
-            return _getGeomWhereClause($criteriaValues, $names, $func_type, $geom_func);
+            return $this->_getGeomWhereClause($criteriaValues, $names, $func_type, $geom_func);
         }
 
         $backquoted_name = PMA_backquote($names);
@@ -528,7 +528,7 @@ EOT;
 
         } elseif (strncasecmp($types, 'enum', 4) == 0) {
             $where = $backquoted_name;
-            $where .= _getEnumWhereClause($criteriaValues, $func_type);
+            $where .= $this->_getEnumWhereClause($criteriaValues, $func_type);
 
         } elseif ($criteriaValues != '') {
             // For these types we quote the value. Even if it's another type (like INT),
@@ -610,7 +610,7 @@ EOT;
         } // end if
 
         $sql_query .= ' FROM ' . PMA_backquote($_POST['table']);
-        $whereClause = _generateWhereClause();
+        $whereClause = $this->_generateWhereClause();
         $sql_query .= $whereClause;
      
         // if the search results are to be ordered
@@ -651,7 +651,7 @@ EOT;
             $tmp_geom_func = isset($geom_func[$column_index])
                 ? $geom_func[$column_index] : null;
 
-            $whereClause = _getWhereClause(
+            $whereClause = $this->_getWhereClause(
                 $_POST['criteriaValues'][$column_index],
                 $_POST['criteriaColumnNames'][$column_index],
                 $_POST['criteriaColumnTypes'][$column_index],
