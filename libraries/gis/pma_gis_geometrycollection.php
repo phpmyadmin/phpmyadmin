@@ -59,7 +59,7 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
 
         // Trim to remove leading 'GEOMETRYCOLLECTION(' and trailing ')'
         $goem_col = substr($spatial, 19, (strlen($spatial) - 20));
-
+                    
         // Split the geometry collection object to get its constituents.
         $sub_parts = $this->_explodeGeomCol($goem_col);
 

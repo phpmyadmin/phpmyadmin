@@ -244,5 +244,72 @@ class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
             ),
         );
     }
+    
+    /**
+     *
+     * @param type $srid
+     * @param type $scale_data
+     * @param type $output 
+     * 
+     *@dataProvider providerForGetBoundsForOl
+     */
+    public function testGetBoundsForOl($srid, $scale_data, $output) {
+        $this->assertEquals(
+            $this->_callProtectedFunction(
+                'getBoundsForOl',
+                array($srid, $scale_data)
+            ),
+            $output
+        );
+    }
+    
+    public function providerForGetBoundsForOl(){
+        
+        return array(
+            array(
+                4326,
+                array(
+                    'minX' => '0',
+                    'minY' => '0',
+                    'maxX' => '1',
+                    'maxY' => '1',
+                ),
+                'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.LonLat(0, 0).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject())); bound.extend(new OpenLayers.LonLat(1, 1).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()));'
+            )
+            
+        );
+    }
+
+    /**
+     *
+     * @param type $polygons
+     * @param type $srid
+     * @param type $output 
+     * 
+     *@dataProvider providerForGetPolygonArrayForOpenLayers
+     */
+    public function testGetPolygonArrayForOpenLayers($polygons, $srid, $output) {
+        $this->assertEquals(
+            $this->_callProtectedFunction(
+                'getPolygonArrayForOpenLayers',
+                array($polygons, $srid)
+            ),
+            $output
+        );
+    }
+    
+    public function providerForGetPolygonArrayForOpenLayers(){
+        
+        return array(
+            array(              
+                array('Triangle'),
+                4326,
+                'new Array(new OpenLayers.Geometry.Polygon(new Array(new OpenLayers.Geometry.LinearRing(new Array((new OpenLayers.Geometry.Point(,)).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()))))))'
+            )
+            
+        );
+    }
+            
+    
 }
 ?>
