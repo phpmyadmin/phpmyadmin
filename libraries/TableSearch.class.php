@@ -587,7 +587,7 @@ EOT;
      *
      * @return string the generated SQL query
      */
-    public function _buildSqlQuery()
+    public function buildSqlQuery()
     {
         $sql_query = 'SELECT ';
 
@@ -1020,7 +1020,7 @@ EOT;
      * Provides the form tag for table search form
      * (normal search or zoom search)
      *
-     * @param string $goto       Goto URL
+     * @param string $goto Goto URL
      *
      * @return string the HTML for form tag
      */
@@ -1045,12 +1045,12 @@ EOT;
     /**
      * Generates the table search form under table search tab
      *
-     * @param string  $goto      Goto URL
-     * @param string  $dataLabel Label for points in zoom plot
+     * @param string $goto      Goto URL
+     * @param string $dataLabel Label for points in zoom plot
      *
      * @return string the generated HTML for table search form
      */
-    public function _getSelectionForm($goto, $dataLabel = null)
+    public function getSelectionForm($goto, $dataLabel = null)
     {
         $html_output = '';
         $html_output .= '<fieldset id="fieldset_subtab">';
@@ -1123,7 +1123,7 @@ EOT;
      *
      * @return string form's html
      */
-    public function _getZoomResultsForm($goto, $data)
+    public function getZoomResultsForm($goto, $data)
     {
         $html_output = '';
         $titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
