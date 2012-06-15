@@ -74,4 +74,43 @@ $(function() {
                 }); // end $.post()
         }); // end $.PMA_confirm()
     }) ; //end of Drop Database action
+
+    /**
+     * Attach Ajax event handlers for 'Create Database'.
+     *
+     * @see $cfg['AjaxEnable']
+     */
+    $('#create_database_form.ajax').live('submit', function(event) {
+        event.preventDefault();
+
+        $form = $(this);
+
+        PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+        PMA_prepareForAjaxRequest($form);
+
+        $.post($form.attr('action'), $form.serialize(), function(data) {
+            if (data.success == true) {
+                PMA_ajaxShowMessage(data.message);
+
+                //Append database's row to table
+                $("#tabledatabases")
+                .find('tbody')
+                .append(data.new_db_string)
+                .PMA_sort_table('.name')
+                .find('#db_summary_row')
+                .appendTo('#tabledatabases tbody')
+                .removeClass('odd even');
+
+                var $databases_count_object = $('#databases_count');
+                var databases_count = parseInt($databases_count_object.text()) + 1;
+                $databases_count_object.text(databases_count);
+                //Refresh navigation frame as a new database has been added
+                if (window.parent && window.parent.frame_navigation) {
+                    window.parent.frame_navigation.location.reload();
+                }
+            } else {
+                PMA_ajaxShowMessage(data.error, false);
+            }
+        }); // end $.post()
+    }); // end $().live()
 }); // end $()
