@@ -90,7 +90,6 @@ if (isset($_REQUEST['change_tbl_info']) && $_REQUEST['change_tbl_info'] == true)
         $response->addJSON('field_collation', '');
         $response->addJSON('field_operators', '');
         $response->addJSON('field_value', '');
-        exit;
     }
     // Gets the list and number of fields
     list($columnNames, $columnTypes, $columnCollations, $columnNullFlags)
@@ -129,7 +128,6 @@ if (! isset($goto)) {
 $err_url   = $goto . '?' . PMA_generate_common_url($db, $table);
 
 // Gets the list and number of fields
-
 list($columnNames, $columnTypes, $columnCollations, $columnNullFlags)
     = PMA_tbl_getFields($db, $table);
 
@@ -142,13 +140,12 @@ $foreigners = PMA_getForeigners($db, $table);
 if ( !isset($_POST['zoom_submit']) || $_POST['dataLabel'] == '') {
     $dataLabel = PMA_getDisplayField($db, $table);
 }
+//Display zoom search form
 echo PMA_tblSearchGetSelectionForm(
     $goto, $db, $table, $columnNames, $columnTypes, $columnCollations,
     $columnNullFlags, false, $foreigners, "zoom", $dataLabel
 );
-?>
 
-<?php
 /*
  * Handle the input criteria and generate the query result
  * Form for displaying query results
@@ -158,15 +155,11 @@ if (isset($zoom_submit)
     && $_POST['criteriaColumnNames'][1] != 'pma_null'
     && $_POST['criteriaColumnNames'][0] != $_POST['criteriaColumnNames'][1]
 ) {
-    /*
-     * Query generation part
-     */
+    //Query generation part
     $sql_query = PMA_tblSearchBuildSqlQuery();
     $sql_query .= ' LIMIT ' . $maxPlotLimit;
 
-    /*
-     * Query execution part
-     */
+    //Query execution part
     $result = PMA_DBI_query($sql_query . ";", null, PMA_DBI_QUERY_STORE);
     $fields_meta = PMA_DBI_get_fields_meta($result);
     while ($row = PMA_DBI_fetch_assoc($result)) {
@@ -180,89 +173,23 @@ if (isset($zoom_submit)
         $uniqueCondition = PMA_getUniqueCondition(
             $result, count($columnNames), $fields_meta, $tmpRow, true
         );
-
         //Append it to row array as where_clause
         $row['where_clause'] = $uniqueCondition[0];
+
         $tmpData = array(
             $_POST['criteriaColumnNames'][0] => $row[$_POST['criteriaColumnNames'][0]],
             $_POST['criteriaColumnNames'][1] => $row[$_POST['criteriaColumnNames'][1]],
             'where_clause' => $uniqueCondition[0]
         );
         $tmpData[$dataLabel] = ($dataLabel) ? $row[$dataLabel] : '';
-
         $data[] = $tmpData;
     }
     unset($tmpData);
-    /*
-     * Form for displaying point data and also the scatter plot
-     */
-    ?>
-    <form method="post" action="tbl_zoom_select.php" name="displayResultForm" id="zoom_display_form"
-        <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?>>
-    <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-    <input type="hidden" name="goto" value="<?php echo $goto; ?>" />
-    <input type="hidden" name="back" value="tbl_zoom_select.php" />
 
-    <fieldset id="displaySection">
-      <legend><?php echo __('Browse/Edit the points') ?></legend>
-      <center>
-    <?php
-    //JSON encode the data(query result)
-    if (isset($zoom_submit) && ! empty($data)) {
-        ?>
-        <div id="resizer">
-          <center><a href="#" onclick="displayHelp();"><?php echo __('How to use'); ?></a></center>
-          <div id="querydata" style="display:none">
-        <?php
-        echo json_encode($data);
-        ?>
-          </div>
-          <div id="querychart"></div>
-          <button class="button-reset"><?php echo __('Reset zoom'); ?></button>
-        </div>
-        <?php
-    }
-    ?>
-      </center>
-      <div id='dataDisplay' style="display:none">
-        <table>
-          <thead>
-            <tr>
-              <th> <?php echo __('Column'); ?> </th>
-              <th> <?php echo __('Null'); ?> </th>
-              <th> <?php echo __('Value'); ?> </th>
-            </tr>
-          </thead>
-          <tbody>
-    <?php
-    $odd_row = true;
-    for ($column_index = 0; $column_index < count($columnNames); $column_index++) {
-        $fieldpopup = $columnNames[$column_index];
-        $foreignData = PMA_getForeignData($foreigners, $fieldpopup, false, '', '');
-        ?>
-            <tr class="noclick <?php echo $odd_row ? 'odd' : 'even'; $odd_row = ! $odd_row; ?>">
-              <th><?php echo htmlspecialchars($columnNames[$column_index]); ?></th>
-              <th><?php echo ($columnNullFlags[$column_index] == 'YES')
-                  ? '<input type="checkbox" class="checkbox_null" name="criteriaColumnNullFlags[ '
-                      . $column_index . ' ]" id="edit_fields_null_id_' . $column_index . '" />'
-                  : ''; ?>
-              </th>
-              <th> <?php
-              echo PMA_getForeignFields_Values(
-                  $foreigners, $foreignData, $fieldpopup, $columnTypes,
-                  $column_index, $db, $table, $titles,
-                  $GLOBALS['cfg']['ForeignKeyMaxLimit'], '', false, true
-              ); ?>
-              </th>
-            </tr>
-        <?php
-    }
-    ?>
-          </tbody>
-        </table>
-    </div>
-    <input type="hidden" id="queryID" name="sql_query" />
-    </form>
-    <?php
+    //Displays form for point data and scatter plot
+    echo PMA_tblSearchGetZoomResultsForm(
+        $goto, $db, $table, $columnNames, $columnTypes, $columnNullFlags,
+        $foreigners, $data
+    );
 }
 ?>
