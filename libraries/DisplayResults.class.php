@@ -1842,7 +1842,7 @@ class PMA_DisplayResults
      * @access  private
      * 
      * @see     _getDataCellForBlobColumns(), _getDataCellForGeometryColumns(),
-     *          _getDataCellForNonNumericAndNonBlobFields()
+     *          _getDataCellForNonNumericAndNonBlobColumns()
      */
     private function _buildValueDisplay($class, $condition_field, $value)
     {
@@ -1865,7 +1865,7 @@ class PMA_DisplayResults
      * 
      * @see     _getDataCellForNumericFeilds(), _getDataCellForBlobColumns(),
      *          _getDataCellForGeometryColumns(),
-     *          _getDataCellForNonNumericAndNonBlobFields()
+     *          _getDataCellForNonNumericAndNonBlobColumns()
      */
     private function _buildNullDisplay($class, $condition_field, $meta, $align = '')
     {
@@ -1892,7 +1892,7 @@ class PMA_DisplayResults
      * 
      * @see     _getDataCellForNumericFeilds(), _getDataCellForBlobColumns(),
      *          _getDataCellForGeometryColumns(),
-     *          _getDataCellForNonNumericAndNonBlobFields()
+     *          _getDataCellForNonNumericAndNonBlobColumns()
      */
     private function _buildEmptyDisplay($class, $condition_field, $meta, $align = '')
     {
@@ -2264,7 +2264,7 @@ class PMA_DisplayResults
                     // n o t   n u m e r i c   a n d   n o t   B L O B
 
                     $GLOBALS['vertical_display']['data'][$row_no][$i]
-                        = $this->_getDataCellForNonNumericAndNonBlobFields(
+                        = $this->_getDataCellForNonNumericAndNonBlobColumns(
                             $row[$i], $class, $meta, $map, $_url_params,
                             $condition_field, $transform_function, $default_function,
                             $transform_options, $is_field_truncated, $analyzed_sql,
@@ -3049,7 +3049,7 @@ class PMA_DisplayResults
      *
      * @see     _getTableBody()
      */
-    private function _getDataCellForNonNumericAndNonBlobFields(
+    private function _getDataCellForNonNumericAndNonBlobColumns(
         $column, $class, $meta, $map, $_url_params, $condition_field,
         $transform_function, $default_function, $transform_options,
         $is_field_truncated, $analyzed_sql, &$dt_result, $col_index
@@ -3154,7 +3154,7 @@ class PMA_DisplayResults
 
         return $cell;
 
-    } // end of the '_getDataCellForNonNumericAndNonBlobFields()' function
+    } // end of the '_getDataCellForNonNumericAndNonBlobColumns()' function
 
 
     /**
@@ -4504,7 +4504,7 @@ class PMA_DisplayResults
      * @access  private
      * 
      * @see     _getDataCellForBlobColumns(), _getDataCellForGeometryColumns(),
-     *          _getDataCellForNonNumericAndNonBlobFields(),
+     *          _getDataCellForNonNumericAndNonBlobColumns(),
      *          _getSortedColumnMessage()
      */
     private function _handleNonPrintableContents(
@@ -4585,7 +4585,7 @@ class PMA_DisplayResults
      * @access  private
      * 
      * @see     _getDataCellForNumericFeilds(), _getDataCellForGeometryColumns(),
-     *          _getDataCellForNonNumericAndNonBlobFields(),
+     *          _getDataCellForNonNumericAndNonBlobColumns(),
      *          
      */
     private function _getRowData(
