@@ -1863,7 +1863,7 @@ class PMA_DisplayResults
      * 
      * @access  private
      * 
-     * @see     _getDataCellForNumericFeilds(), _getDataCellForBlobColumns(),
+     * @see     _getDataCellForNumericColumns(), _getDataCellForBlobColumns(),
      *          _getDataCellForGeometryColumns(),
      *          _getDataCellForNonNumericAndNonBlobColumns()
      */
@@ -1890,7 +1890,7 @@ class PMA_DisplayResults
      * 
      * @access  private
      * 
-     * @see     _getDataCellForNumericFeilds(), _getDataCellForBlobColumns(),
+     * @see     _getDataCellForNumericColumns(), _getDataCellForBlobColumns(),
      *          _getDataCellForGeometryColumns(),
      *          _getDataCellForNonNumericAndNonBlobColumns()
      */
@@ -2226,7 +2226,7 @@ class PMA_DisplayResults
                     //       so use the $pointer
 
                     $GLOBALS['vertical_display']['data'][$row_no][$i]
-                        = $this->_getDataCellForNumericFeilds(
+                        = $this->_getDataCellForNumericColumns(
                             $row[$i], $class, $condition_field, $meta, $map,
                             $is_field_truncated, $analyzed_sql, $transform_function,
                             $default_function, $transform_options
@@ -2776,7 +2776,7 @@ class PMA_DisplayResults
      *
      * @see     _getTableBody()
      */
-    private function _getDataCellForNumericFeilds(
+    private function _getDataCellForNumericColumns(
         $column, $class, $condition_field, $meta, $map, $is_field_truncated,
         $analyzed_sql, $transform_function, $default_function, $transform_options
     ) {
@@ -2808,7 +2808,7 @@ class PMA_DisplayResults
 
         return $cell;
 
-    } // end of the '_getDataCellForNumericFeilds()' function
+    } // end of the '_getDataCellForNumericColumns()' function
 
 
     /**
@@ -4584,7 +4584,7 @@ class PMA_DisplayResults
      * 
      * @access  private
      * 
-     * @see     _getDataCellForNumericFeilds(), _getDataCellForGeometryColumns(),
+     * @see     _getDataCellForNumericColumns(), _getDataCellForGeometryColumns(),
      *          _getDataCellForNonNumericAndNonBlobColumns(),
      *          
      */
