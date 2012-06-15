@@ -31,6 +31,7 @@ $(function() {
          */
         var selected_dbs = [];
         $form.find('input:checkbox:checked').each(function () {
+            $(this).closest('tr').addClass('removeMe');
             selected_dbs[selected_dbs.length] = 'DROP DATABASE `' + escapeHtml($(this).val()) + '`;';
         });
         if (! selected_dbs.length) {
@@ -55,12 +56,20 @@ $(function() {
                 $.post(url, function(data) {
                     if(data.success == true) {
                         PMA_ajaxShowMessage(data.message);
+
+                        var $rowsToRemove = $form.find('tr.removeMe');
+                        var $databasesCount = $('#databases_count');
+                        var newCount = parseInt($databasesCount.text()) - $rowsToRemove.length;
+                        $databasesCount.text(newCount);
+
+                        $rowsToRemove.remove();
+                        $form.find('tbody').PMA_sort_table('.name');
                         if (window.parent && window.parent.frame_navigation) {
                             window.parent.frame_navigation.location.reload();
                         }
-                        $('#tableslistcontainer').load('server_databases.php form#dbStatsForm');
                     } else {
-                        PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + ": " + data.error, false);
+                        $form.find('tr.removeMe').removeClass('removeMe');
+                        PMA_ajaxShowMessage(data.error, false);
                     }
                 }); // end $.post()
         }); // end $.PMA_confirm()
