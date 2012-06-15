@@ -14,7 +14,7 @@
  */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/mysql_charsets.lib.php';
-require_once 'libraries/tbl_select.lib.php';
+require_once 'libraries/TableSearch.class.php';
 
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
@@ -36,6 +36,7 @@ foreach ($post_params as $one_post_param) {
     }
 }
 
+$table_search = new PMA_TableSearch($db, $table, "normal");
 
 /**
  * Not selection yet required -> displays the selection form
@@ -45,7 +46,6 @@ if (! isset($_POST['columnsToDisplay']) || $_POST['columnsToDisplay'][0] == '') 
     include_once 'libraries/tbl_common.inc.php';
     //$err_url   = 'tbl_select.php' . $err_url;
     $url_query .= '&amp;goto=tbl_select.php&amp;back=tbl_select.php';
-
     /**
      * Gets table's information
      */
@@ -56,26 +56,14 @@ if (! isset($_POST['columnsToDisplay']) || $_POST['columnsToDisplay'][0] == '') 
     }
     // Defines the url to return to in case of error in the next sql statement
     $err_url   = $goto . '?' . PMA_generate_common_url($db, $table);
-
-    // Gets the list and number of fields
-    list($columnNames, $columnTypes, $columnCollations, $columnNullFlags, $geomColumnFlag)
-        = PMA_tbl_getFields($db, $table);
-
-    // retrieve keys into foreign fields, if any
-    // check also foreigners even if relwork is FALSE (to get
-    // foreign keys from innodb)
-    $foreigners = PMA_getForeigners($db, $table);
-
     // Displays the table search form
-    echo PMA_tblSearchGetSelectionForm(
-        $goto, $db, $table, $columnNames, $columnTypes, $columnCollations,
-        $columnNullFlags, $geomColumnFlag, $foreigners, "normal"
-    );
+    $response->addHTML($table_search->getSelectionForm($goto));
+
 } else {
     /**
      * Selection criteria have been submitted -> do the work
      */
-    $sql_query = PMA_tblSearchBuildSqlQuery();
+    $sql_query = $table_search->buildSqlQuery();
     include 'sql.php';
 }
 ?>
