@@ -1841,7 +1841,7 @@ class PMA_DisplayResults
      * 
      * @access  private
      * 
-     * @see     _getDataCellForBlobField(), _getDataCellForGeometryFields(),
+     * @see     _getDataCellForBlobColumns(), _getDataCellForGeometryFields(),
      *          _getDataCellForNonNumericAndNonBlobFields()
      */
     private function _buildValueDisplay($class, $condition_field, $value)
@@ -1863,7 +1863,7 @@ class PMA_DisplayResults
      * 
      * @access  private
      * 
-     * @see     _getDataCellForNumericFeilds(), _getDataCellForBlobField(),
+     * @see     _getDataCellForNumericFeilds(), _getDataCellForBlobColumns(),
      *          _getDataCellForGeometryFields(),
      *          _getDataCellForNonNumericAndNonBlobFields()
      */
@@ -1890,7 +1890,7 @@ class PMA_DisplayResults
      * 
      * @access  private
      * 
-     * @see     _getDataCellForNumericFeilds(), _getDataCellForBlobField(),
+     * @see     _getDataCellForNumericFeilds(), _getDataCellForBlobColumns(),
      *          _getDataCellForGeometryFields(),
      *          _getDataCellForNonNumericAndNonBlobFields()
      */
@@ -2240,7 +2240,7 @@ class PMA_DisplayResults
                     $field_flags = PMA_DBI_field_flags($dt_result, $i);
 
                     $GLOBALS['vertical_display']['data'][$row_no][$i]
-                        = $this->_getDataCellForBlobField(
+                        = $this->_getDataCellForBlobColumns(
                             $row[$i], $class, $meta, $_url_params, $field_flags,
                             $transform_function, $default_function,
                             $transform_options, $condition_field, $is_field_truncated
@@ -2831,7 +2831,7 @@ class PMA_DisplayResults
      *
      * @see     _getTableBody()
      */
-    private function _getDataCellForBlobField(
+    private function _getDataCellForBlobColumns(
         $column, $class, $meta, $_url_params, $field_flags, $transform_function,
         $default_function, $transform_options, $condition_field, $is_field_truncated
     ) {
@@ -2896,7 +2896,7 @@ class PMA_DisplayResults
 
         return $cell;
 
-    } // end of the '_getDataCellForBlobField()' function
+    } // end of the '_getDataCellForBlobColumns()' function
 
 
     /**
@@ -4503,7 +4503,7 @@ class PMA_DisplayResults
      * 
      * @access  private
      * 
-     * @see     _getDataCellForBlobField(), _getDataCellForGeometryFields(),
+     * @see     _getDataCellForBlobColumns(), _getDataCellForGeometryFields(),
      *          _getDataCellForNonNumericAndNonBlobFields(),
      *          _getSortedColumnMessage()
      */
