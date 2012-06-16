@@ -250,7 +250,8 @@ if (! empty($error_messages)) {
 }
 unset($error_messages, $warning_messages, $total_affected_rows, $last_messages, $last_message);
 
-if ($GLOBALS['is_ajax_request'] == true) {
+$response = PMA_Response::getInstance();
+if ($response->isAjax()) {
     /**
      * If we are in grid editing, we need to process the relational and
      * transformed fields, if they were edited. After that, output the correct
@@ -270,11 +271,13 @@ if ($GLOBALS['is_ajax_request'] == true) {
         foreach ( $relation_fields as $cell_index => $curr_cell_rel_field) {
             foreach ( $curr_cell_rel_field as $relation_field => $relation_field_value) {
                 $where_comparison = "='" . $relation_field_value . "'";
-                $dispval = PMA_getDisplayValueForForeignTableColumn($where_comparison, $relation_field_value, $map, $relation_field);
+                $dispval = PMA_getDisplayValueForForeignTableColumn(
+                    $where_comparison, $relation_field_value, $map, $relation_field
+                );
 
                 $extra_data['relations'][$cell_index] = PMA_getLinkForRelationalDisplayField(
                     $map, $relation_field, $where_comparison, $dispval, $relation_field_value
-                    );
+                );
             }
         }   // end of loop for each relation cell
     }
@@ -303,7 +306,6 @@ if ($GLOBALS['is_ajax_request'] == true) {
     $extra_data['row_count'] = PMA_Table::countRecords($_REQUEST['db'], $_REQUEST['table']);
     $extra_data['sql_query'] = PMA_getMessage($message, $GLOBALS['display_query']);
 
-    $response = PMA_Response::getInstance();
     $response->isSuccess($message->isSuccess());
     $response->addJSON('message', $message);
     $response->addJSON($extra_data);

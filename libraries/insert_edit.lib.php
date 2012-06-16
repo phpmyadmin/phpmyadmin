@@ -2009,7 +2009,7 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
     $multi_edit_columns_null, $current_value, $multi_edit_columns_prev,
     $multi_edit_funcs,$is_insert, $query_values, $query_fields, $current_value_as_an_array,
     $value_sets, $key, $multi_edit_columns_null_prev
-) {     
+) {
     //  i n s e r t
     if ($is_insert) {
         // no need to add column into the valuelist
