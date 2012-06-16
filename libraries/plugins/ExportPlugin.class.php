@@ -193,20 +193,6 @@ abstract class ExportPlugin extends PluginObserver
     }
 
     /**
-     * Formats the definition for one column
-     *
-     * @param array $column      info about this column
-     * @param array $unique_keys unique keys of the table
-     *
-     * @return string Formatted column definition
-     */
-    protected function formatOneColumnDefinition(
-        $column, $unique_keys
-    ) {
-        ;
-    }
-
-    /**
      * Initializes the local variables with the global values.
      * These are variables that are used by all of the export plugins.
      *
