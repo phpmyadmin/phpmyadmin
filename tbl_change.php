@@ -186,14 +186,14 @@ $html_output .= '<script src="js/keyhandler.js" type="text/javascript"></script>
     . 'document.onkeydown = onKeyDownArrowsHandler;'
     . '</script>';
 // Set if we passed the first timestamp field
-$timestamp_seen = 0;
-$columns_cnt     = count($table_fields);
+$timestamp_seen        = 0;
+$columns_cnt           = count($table_fields);
 
-$tabindex = 0;
+$tabindex              = 0;
 $tabindex_for_function = +3000;
 $tabindex_for_null     = +6000;
 $tabindex_for_value    = 0;
-$o_rows   = 0;
+$o_rows                = 0;
 $biggest_max_file_size = 0;
 
 $url_params['db'] = $db;

@@ -270,7 +270,7 @@ if ($GLOBALS['is_ajax_request'] == true) {
         foreach ( $relation_fields as $cell_index => $curr_cell_rel_field) {
             foreach ( $curr_cell_rel_field as $relation_field => $relation_field_value) {
                 $where_comparison = "='" . $relation_field_value . "'";
-                $dispval = PMA_displayForiengTableColumn($where_comparison, $relation_field_value, $map, $relation_field);
+                $dispval = PMA_getDisplayValueForForeignTableColumn($where_comparison, $relation_field_value, $map, $relation_field);
 
                 $extra_data['relations'][$cell_index] = PMA_getLinkForRelationalDisplayField(
                     $map, $relation_field, $where_comparison, $dispval, $relation_field_value

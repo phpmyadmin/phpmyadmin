@@ -1339,7 +1339,7 @@ function PMA_getAfterInsertDropDown($where_clause, $after_insert, $found_unique_
         //if (preg_match('@^[\s]*`[^`]*` = [0-9]+@', $where_clause)) {
         // in 2.9.0, we are looking for `table_name`.`field_name` = numeric_value
         $is_numeric = false;
-        if(!is_array($where_clause)) {
+        if(! is_array($where_clause)) {
             $is_numeric = $found_unique_key && preg_match('@^[\s]*`[^`]*`[\.]`[^`]*` = [0-9]+@', $where_clause);
         } else {
             for ($i = 0; $i < count($where_clause); $i++) {
@@ -1755,7 +1755,7 @@ function PMA_getWarningMessages()
  * 
  * @return string  $dispval             display value from the foriegn table
  */
-function PMA_getDisplayValueForForiengTableColumn($where_comparison, $relation_field_value, $map, $relation_field)
+function PMA_getDisplayValueForForeignTableColumn($where_comparison, $relation_field_value, $map, $relation_field)
 {
     $display_field = PMA_getDisplayField($map[$relation_field]['foreign_db'], $map[$relation_field]['foreign_table']);
     // Field to display from the foreign table?
