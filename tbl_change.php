@@ -156,7 +156,7 @@ if (! isset($where_clause)) {
 }
 //Retrieve values for data edit view
 list($insert_mode, $where_clauses, $result, $rows, $where_clause_array, $found_unique_key)  	
-    = PMA_getValuesForEditMode($where_clause, $table, $db);
+    = PMA_getStuffForEditMode($where_clause, $table, $db);
 
 // Copying a row - fetched data will be inserted as a new row, therefore the where clause is needless.
 if (isset($_REQUEST['default_action']) && $_REQUEST['default_action'] === 'insert') {
@@ -201,7 +201,7 @@ $biggest_max_file_size = 0;
 
 $url_params['db'] = $db;
 $url_params['table'] = $table;
-$url_params = PMA_urlParamsInEditMode($url_params);
+$url_params = PMA_urlParamsInEditMode($url_params, $where_clause_array, $where_clause);
 
 //Insert/Edit form
 $html_output .= '<form id="insertForm" method="post" action="tbl_replace.php" name="insertForm" ';

@@ -112,6 +112,7 @@ $gis_from_wkb_functions = array(
     'MPolyFromWKB',
 );
 
+$query_fields = array();
 foreach ($loop_array as $rownumber => $where_clause) {
     // skip fields to be ignored
     if (! $using_key && isset($_REQUEST['insert_ignore_' . $where_clause])) {
@@ -176,65 +177,17 @@ foreach ($loop_array as $rownumber => $where_clause) {
     // when inserting multiple entries
     foreach ($multi_edit_columns_name as $key => $colummn_name) {
         $val = $multi_edit_colummns[$key];
-
         // Note: $key is an md5 of the fieldname. The actual fieldname is available in $multi_edit_columns_name[$key]
 
         include 'libraries/tbl_replace_fields.inc.php';
+        list($val, $cur_value) = PMA_getCurrentValueForMultipleEdit($multi_edit_colummns,
+            $multi_edit_columns_name, $multi_edit_funcs, $gis_from_text_functions, $val,
+            $gis_from_wkb_functions, $func_optional_param, $func_no_param, $key);
 
-        if (empty($multi_edit_funcs[$key])) {
-            $cur_value = $val;
-        } elseif ('UUID' === $multi_edit_funcs[$key]) {
-            /* This way user will know what UUID new row has */
-            $uuid = PMA_DBI_fetch_value('SELECT UUID()');
-            $cur_value = "'" . $uuid . "'";
-        } elseif ((in_array($multi_edit_funcs[$key], $gis_from_text_functions)
-            && substr($val, 0, 3) == "'''")
-            || in_array($multi_edit_funcs[$key], $gis_from_wkb_functions)
-        ) {
-            // Remove enclosing apostrophes
-            $val = substr($val, 1, strlen($val) - 2);
-            // Remove escaping apostrophes
-            $val = str_replace("''", "'", $val);
-            $cur_value = $multi_edit_funcs[$key] . '(' . $val . ')';
-        } elseif (! in_array($multi_edit_funcs[$key], $func_no_param)
-                  || ($val != "''" && in_array($multi_edit_funcs[$key], $func_optional_param))) {
-            $cur_value = $multi_edit_funcs[$key] . '(' . $val . ')';
-        } else {
-            $cur_value = $multi_edit_funcs[$key] . '()';
-        }
-
-        //  i n s e r t
-        if ($is_insert) {
-            // no need to add column into the valuelist
-            if (strlen($cur_value)) {
-                $query_values[] = $cur_value;
-                // first inserted row so prepare the list of fields
-                if (empty($value_sets)) {
-                    $query_fields[] = PMA_backquote($multi_edit_columns_name[$key]);
-                }
-            }
-
-        //  u p d a t e
-        } elseif (!empty($multi_edit_columns_null_prev[$key])
-         && ! isset($multi_edit_columns_null[$key])) {
-            // field had the null checkbox before the update
-            // field no longer has the null checkbox
-            $query_values[] = PMA_backquote($multi_edit_columns_name[$key]) . ' = ' . $cur_value;
-        } elseif (empty($multi_edit_funcs[$key])
-         && isset($multi_edit_columns_prev[$key])
-         && ("'" . PMA_sqlAddSlashes($multi_edit_columns_prev[$key]) . "'" == $val)) {
-            // No change for this column and no MySQL function is used -> next column
-            continue;
-        } elseif (! empty($val)) {
-            // avoid setting a field to NULL when it's already NULL
-            // (field had the null checkbox before the update
-            //  field still has the null checkbox)
-            if (empty($multi_edit_columns_null_prev[$key])
-                || empty($multi_edit_columns_null[$key])
-            ) {
-                 $query_values[] = PMA_backquote($multi_edit_columns_name[$key]) . ' = ' . $cur_value;
-            }
-        }
+        list($query_values, $query_fields) = PMA_getQueryValuesForInsertAndUpdateInMultipleEdit(
+            $multi_edit_columns_name,$multi_edit_columns_null, $val, $multi_edit_columns_prev,
+            $multi_edit_funcs,$is_insert,$query_values, $query_fields, $cur_value, $value_sets,
+            $key, $multi_edit_columns_null_prev);    
     } // end foreach ($multi_edit_colummns as $key => $val)
 
     if (count($query_values) > 0) {
@@ -277,7 +230,7 @@ unset($multi_edit_colummns, $is_insertignore);
  * page
  */
 list ($url_params, $total_affected_rows, $last_messages, $warning_messages,
-    $error_messages) = PMA_executeSqlQuery($url_params, $query);
+    $error_messages, $return_to_sql_query) = PMA_executeSqlQuery($url_params, $query);
 
 if ($is_insert && count($value_sets) > 0) {
     $message = PMA_Message::inserted_rows($total_affected_rows);
@@ -312,63 +265,18 @@ if ($GLOBALS['is_ajax_request'] == true) {
 
         $map = PMA_getForeigners($db, $table, '', 'both');
 
-        $rel_fields = array();
-        parse_str($_REQUEST['rel_fields_list'], $rel_fields);
+        $relation_fields = array();
+        parse_str($_REQUEST['rel_fields_list'], $relation_fields);
 
         // loop for each relation cell
-        foreach ( $rel_fields as $cell_index => $curr_cell_rel_field) {
+        foreach ( $relation_fields as $cell_index => $curr_cell_rel_field) {
+            foreach ( $curr_cell_rel_field as $relation_field => $relation_field_value) {
+                $where_comparison = "='" . $relation_field_value . "'";
+                $dispval = PMA_displayForiengTableColumn($where_comparison, $relation_field_value, $map, $relation_field);
 
-            foreach ( $curr_cell_rel_field as $rel_field => $rel_field_value) {
-
-                $where_comparison = "='" . $rel_field_value . "'";
-                $display_field = PMA_getDisplayField($map[$rel_field]['foreign_db'], $map[$rel_field]['foreign_table']);
-
-                // Field to display from the foreign table?
-                if (isset($display_field) && strlen($display_field)) {
-                    $dispsql     = 'SELECT ' . PMA_backquote($display_field)
-                        . ' FROM ' . PMA_backquote($map[$rel_field]['foreign_db'])
-                        . '.' . PMA_backquote($map[$rel_field]['foreign_table'])
-                        . ' WHERE ' . PMA_backquote($map[$rel_field]['foreign_field'])
-                        . $where_comparison;
-                    $dispresult  = PMA_DBI_try_query($dispsql, null, PMA_DBI_QUERY_STORE);
-                    if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
-                        list($dispval) = PMA_DBI_fetch_row($dispresult, 0);
-                    } else {
-                        //$dispval = __('Link not found');
-                    }
-                    @PMA_DBI_free_result($dispresult);
-                } else {
-                    $dispval     = '';
-                } // end if... else...
-
-                if ('K' == $_SESSION['tmp_user_values']['relational_display']) {
-                    // user chose "relational key" in the display options, so
-                    // the title contains the display field
-                    $title = (! empty($dispval))? ' title="' . htmlspecialchars($dispval) . '"' : '';
-                } else {
-                    $title = ' title="' . htmlspecialchars($rel_field_value) . '"';
-                }
-
-                $_url_params = array(
-                    'db'    => $map[$rel_field]['foreign_db'],
-                    'table' => $map[$rel_field]['foreign_table'],
-                    'pos'   => '0',
-                    'sql_query' => 'SELECT * FROM '
-                        . PMA_backquote($map[$rel_field]['foreign_db']) . '.' . PMA_backquote($map[$rel_field]['foreign_table'])
-                        . ' WHERE ' . PMA_backquote($map[$rel_field]['foreign_field']) . $where_comparison
-                );
-                $output = '<a href="sql.php' . PMA_generate_common_url($_url_params) . '"' . $title . '>';
-
-                if ('D' == $_SESSION['tmp_user_values']['relational_display']) {
-                    // user chose "relational display field" in the
-                    // display options, so show display field in the cell
-                    $output .= (!empty($dispval)) ? htmlspecialchars($dispval) : '';
-                } else {
-                    // otherwise display data in the cell
-                    $output .= htmlspecialchars($rel_field_value);
-                }
-                $output .= '</a>';
-                $extra_data['relations'][$cell_index] = $output;
+                $extra_data['relations'][$cell_index] = PMA_getLinkForRelationalDisplayField(
+                    $map, $relation_field, $where_comparison, $dispval, $relation_field_value
+                    );
             }
         }   // end of loop for each relation cell
     }
@@ -388,35 +296,8 @@ if ($GLOBALS['is_ajax_request'] == true) {
         foreach ($mime_map as $transformation) {
             $include_file = PMA_securePath($transformation['transformation']);
             $column_name = $transformation['column_name'];
-
-            foreach ($edited_values as $cell_index => $curr_cell_edited_values) {
-                if (isset($curr_cell_edited_values[$column_name])) {
-                    $column_data = $curr_cell_edited_values[$column_name];
-
-                    $_url_params = array(
-                        'db'            => $db,
-                        'table'         => $table,
-                        'where_clause'  => $_REQUEST['where_clause'],
-                        'transform_key' => $column_name,
-                    );
-
-                    if (file_exists('libraries/transformations/' . $include_file)) {
-                        $transformfunction_name = str_replace('.inc.php', '', $transformation['transformation']);
-
-                        include_once 'libraries/transformations/' . $include_file;
-
-                        if (function_exists('PMA_transformation_' . $transformfunction_name)) {
-                            $transform_function = 'PMA_transformation_' . $transformfunction_name;
-                            $transform_options  = PMA_transformation_getOptions(
-                                isset($transformation['transformation_options']) ? $transformation['transformation_options'] : ''
-                            );
-                            $transform_options['wrapper_link'] = PMA_generate_common_url($_url_params);
-                        }
-                    }
-
-                    $extra_data['transformations'][$cell_index] = $transform_function($column_data, $transform_options);
-                }
-            }   // end of loop for each transformation cell
+            $extra_data = PMA_getTransformationFunctionAndTransformationOptions($db, $table,
+                $transformation, $edited_values, $include_file, $column_name, $extra_data, $include_file);
         }   // end of loop for each $mime_map
     }
 
@@ -443,7 +324,7 @@ $active_page = $goto_include;
  * to the current record
  */
 if (isset($_REQUEST['after_insert']) && 'new_insert' == $_REQUEST['after_insert']) {
-        unset($_REQUEST['where_clause']);
+    unset($_REQUEST['where_clause']);
 }
 
 /**
