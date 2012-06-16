@@ -250,7 +250,6 @@ if (! empty($error_messages)) {
 }
 unset($error_messages, $warning_messages, $total_affected_rows, $last_messages, $last_message);
 
-$response = PMA_Response::getInstance();
 if ($response->isAjax()) {
     /**
      * If we are in grid editing, we need to process the relational and

@@ -381,6 +381,6 @@ if ($insert_mode) {
     //Continue insertion form
     $html_output .= PMA_getContinueInsertionForm($table, $db, $where_clause_array, $err_url);
 }
-echo $html_output;
+$response->addHTML($html_output);
 
 ?>
