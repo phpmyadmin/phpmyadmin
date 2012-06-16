@@ -70,7 +70,7 @@ class ExportOdt extends ExportPlugin
     }
 
     /**
-     * Sets the export XML properties
+     * Sets the export ODT properties
      *
      * @return void
      */
@@ -268,8 +268,6 @@ class ExportOdt extends ExportPlugin
      * @param string $sql_query SQL query for obtaining data
      *
      * @return bool Whether it succeeded
-     *
-     * @access public
      */
     public function exportData($db, $table, $crlf, $error_url, $sql_query)
     {

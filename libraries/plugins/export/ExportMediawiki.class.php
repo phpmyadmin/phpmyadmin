@@ -30,7 +30,7 @@ class ExportMediawiki extends ExportPlugin
     }
 
     /**
-     * Sets the export XML properties
+     * Sets the export MediaWiki properties
      *
      * @return void
      */

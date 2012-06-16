@@ -54,7 +54,7 @@ class ExportOds extends ExportPlugin
     }
 
     /**
-     * Sets the export XML properties
+     * Sets the export ODS properties
      *
      * @return void
      */
