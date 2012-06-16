@@ -36,6 +36,12 @@ class ExportHtmlword extends ExportPlugin
     private $_what;
 
     /**
+     *
+     * @var type
+     */
+    private $_cfgRelation;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -52,9 +58,11 @@ class ExportHtmlword extends ExportPlugin
     {
         global $charset_of_file;
         global $what;
+        global $cfgRelation;
 
         $this->setCharsetOfFile($charset_of_file);
         $this->setWhat($what);
+        $this->setCfgRelation($cfgRelation);
     }
 
     /**
@@ -369,6 +377,7 @@ class ExportHtmlword extends ExportPlugin
         $view = false
     ) {
         global $cfgRelation;
+        $this->setCfgRelation($cfgRelation);
 
         $schema_insert = '';
 
@@ -481,7 +490,7 @@ class ExportHtmlword extends ExportPlugin
             }
 
             $schema_insert .= '</tr>';
-        } // end foreach 
+        } // end foreach
 
         $schema_insert .= '</table>';
         return $schema_insert;
@@ -605,7 +614,7 @@ class ExportHtmlword extends ExportPlugin
     }
 
     /**
-     * Formats the definition for one column 
+     * Formats the definition for one column
      *
      * @param array $column      info about this column
      * @param array $unique_keys unique keys of the table
@@ -638,16 +647,16 @@ class ExportHtmlword extends ExportPlugin
             $fmt_pre = '<em>' . $fmt_pre;
             $fmt_post = $fmt_post . '</em>';
         }
-        $definition .= '<td class="print">' . $fmt_pre 
+        $definition .= '<td class="print">' . $fmt_pre
             . htmlspecialchars($column['Field']) . $fmt_post . '</td>';
         $definition .= '<td class="print">' . htmlspecialchars($type)
             . '</td>';
-        $definition .= '<td class="print">' 
-            . (($column['Null'] == '' || $column['Null'] == 'NO') 
-                ? __('No') 
-                : __('Yes')) 
+        $definition .= '<td class="print">'
+            . (($column['Null'] == '' || $column['Null'] == 'NO')
+                ? __('No')
+                : __('Yes'))
             . '</td>';
-        $definition .= '<td class="print">' 
+        $definition .= '<td class="print">'
             . htmlspecialchars(
                 isset($column['Default'])
                 ? $column['Default']
@@ -657,7 +666,7 @@ class ExportHtmlword extends ExportPlugin
 
         return $definition;
     }
-    
+
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
@@ -680,6 +689,16 @@ class ExportHtmlword extends ExportPlugin
     public function setCharsetOfFile($charsetOfFile)
     {
         $this->_charsetOfFile = $charsetOfFile;
+    }
+
+    public function getCfgRelation()
+    {
+        return $this->_cfgRelation;
+    }
+
+    private function setCfgRelation($cfgRelation)
+    {
+        $this->_cfgRelation = $cfgRelation;
     }
 }
 ?>
