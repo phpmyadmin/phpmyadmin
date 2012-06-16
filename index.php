@@ -52,12 +52,17 @@ if (! strlen($GLOBALS['db'])) {
 } else {
     $_GET['db'] = $GLOBALS['db'];
     $_GET['table'] = $GLOBALS['table'];
-    $main_target = ! empty($GLOBALS['goto']) ? $GLOBALS['goto'] : $GLOBALS['cfg']['DefaultTabTable'];
+    $main_target = ! empty($GLOBALS['goto'])
+        ? $GLOBALS['goto']
+        : $GLOBALS['cfg']['DefaultTabTable'];
 }
 
 $url_query = PMA_generate_common_url($_GET);
 
-if (! empty($_REQUEST['target']) && is_string($_REQUEST['target']) && in_array($_REQUEST['target'], $goto_whitelist)) {
+if (! empty($_REQUEST['target'])
+    && is_string($_REQUEST['target'])
+    && in_array($_REQUEST['target'], $goto_whitelist)
+) {
     $main_target = $_REQUEST['target'];
 }
 
@@ -67,7 +72,11 @@ $lang_iso_code = $GLOBALS['available_languages'][$GLOBALS['lang']][1];
 
 
 // start output
-require 'libraries/header_http.inc.php';
+$response = PMA_Response::getInstance();
+$header = $response->getHeader();
+$header->sendHttpHeaders();
+$response->disable();
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
@@ -130,9 +139,11 @@ require 'libraries/header_http.inc.php';
 // ]]>
 </script>
 <?php
-echo PMA_includeJS('jquery/jquery-1.6.2.js');
-echo PMA_includeJS('update-location.js');
-echo PMA_includeJS('common.js');
+$scripts = new PMA_Scripts();
+$scripts->addFile('jquery/jquery-1.6.2.js');
+$scripts->addFile('update-location.js');
+$scripts->addFile('common.js');
+echo $scripts->getDisplay();
 ?>
 </head>
 <frameset cols="<?php

@@ -13,9 +13,12 @@ require_once 'libraries/common.inc.php';
 /**
  * JS includes
  */
-$GLOBALS['js_include'][] = 'jquery/jquery.cookie.js';
-$GLOBALS['js_include'][] = 'jquery/jquery.tablesorter.js';
-$GLOBALS['js_include'][] = 'server_plugins.js';
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('jquery/jquery.cookie.js');
+$scripts->addFile('jquery/jquery.tablesorter.js');
+$scripts->addFile('server_plugins.js');
 
 /**
  * Does the common work
@@ -180,10 +183,3 @@ pma_theme_image = '<?php echo $GLOBALS['pmaThemeImage']; ?>';
         </table>
     </div>
 </div>
-<?php
-/**
- * Sends the footer
- */
-require 'libraries/footer.inc.php';
-
-?>

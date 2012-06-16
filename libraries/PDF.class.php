@@ -85,9 +85,8 @@ class PMA_PDF extends TCPDF
      */
     function Error($error_message = '')
     {
-        include './libraries/header.inc.php';
         PMA_Message::error(__('Error while creating PDF:') . ' ' . $error_message)->display();
-        include './libraries/footer.inc.php';
+        exit;
     }
 
     /**
@@ -96,7 +95,7 @@ class PMA_PDF extends TCPDF
     function Download($filename)
     {
         $pdfData = $this->getPDFData();
-        PMA_download_header($filename, 'application/pdf', strlen($pdfData));
+        PMA_downloadHeader($filename, 'application/pdf', strlen($pdfData));
         echo $pdfData;
     }
 }

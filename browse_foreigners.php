@@ -6,22 +6,23 @@
  * @package PhpMyAdmin
  */
 
-/**
- * Gets a core script and starts output buffering work
- */
 require_once 'libraries/common.inc.php';
+require_once 'libraries/transformations.lib.php';
+
+$field = $_REQUEST['field'];
 
 PMA_checkParameters(array('db', 'table', 'field'));
 
-require_once 'libraries/ob.lib.php';
-PMA_outBufferPre();
-
-require_once 'libraries/header_http.inc.php';
+$response = PMA_Response::getInstance();
+$response->getFooter()->setMinimal();
+$header = $response->getHeader();
+$header->disableMenu();
+$header->setBodyId('body_browse_foreigners');
 
 /**
  * Displays the frame
  */
-require_once 'libraries/transformations.lib.php'; // Transformations
+
 $cfgRelation = PMA_getRelationsParam();
 $foreigners  = ($cfgRelation['relwork'] ? PMA_getForeigners($db, $table) : false);
 
@@ -77,93 +78,79 @@ if (is_array($foreignData['disp_row'])) {
         );
     }
 }
-?>
-<?php
-$current_language = $available_languages[$lang][1]; 
-?>
-<!DOCTYPE HTML>
-<html lang="<?php echo $current_language;  ?>" dir="<?php echo $text_dir; ?>">
 
-<head>
-    <title>phpMyAdmin</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css"
-        href="phpmyadmin.css.php?<?php echo PMA_generate_common_url('', ''); ?>&amp;nocache=<?php echo $GLOBALS['PMA_Config']->getThemeUniqueValue(); ?>" />
-<?php
-// includes everything asked for by libraries/common.inc.php
-require_once 'libraries/header_scripts.inc.php';
-?>
-    <script type="text/javascript">
-    //<![CDATA[
-    self.focus();
-    function formupdate(fieldmd5, key) {
-        var $inline = window.opener.jQuery('.browse_foreign_clicked');
-        if ($inline.length != 0) {
-            $inline.removeClass('browse_foreign_clicked')
-                // for grid editing,
-                // puts new value in the previous element which is
-                // a span with class curr_value
-                .prev('.curr_value').text(key);
-            // for zoom-search editing, puts new value in the previous
-            // element which is an input field
-            $inline.prev('input[type=text]').val(key);
+
+
+if (isset($rownumber)) {
+    $element_name  = "        var element_name = field + '[multi_edit]["
+        . htmlspecialchars($rownumber) . "][' + fieldmd5 + ']';\n"
+        . "        var null_name = field_null + '[multi_edit]["
+        . htmlspecialchars($rownumber) . "][' + fieldmd5 + ']';\n";
+} else {
+    $element_name = "var element_name = field + '[]'";
+}
+$error = PMA_jsFormat(
+    __(
+        'The target browser window could not be updated. '
+        . 'Maybe you have closed the parent window, or '
+        . 'your browser\'s security settings are '
+        . 'configured to block cross-window updates.'
+    )
+);
+
+
+if (! isset($fieldkey) || ! is_numeric($fieldkey)) {
+    $fieldkey = 0;
+}
+
+$code = <<<EOC
+self.focus();
+function formupdate(fieldmd5, key) {
+    var \$inline = window.opener.jQuery('.browse_foreign_clicked');
+    if (\$inline.length != 0) {
+        \$inline.removeClass('browse_foreign_clicked')
+            // for grid editing,
+            // puts new value in the previous element which is
+            // a span with class curr_value
+            .prev('.curr_value').text(key);
+        // for zoom-search editing, puts new value in the previous
+        // element which is an input field
+        \$inline.prev('input[type=text]').val(key);
+        self.close();
+        return false;
+    }
+
+    if (opener && opener.document && opener.document.insertForm) {
+        var field = 'fields';
+        var field_null = 'fields_null';
+
+        $element_name
+
+        var element_name_alt = field + '[$fieldkey]';
+
+        if (opener.document.insertForm.elements[element_name]) {
+            // Edit/Insert form
+            opener.document.insertForm.elements[element_name].value = key;
+            if (opener.document.insertForm.elements[null_name]) {
+                opener.document.insertForm.elements[null_name].checked = false;
+            }
+            self.close();
+            return false;
+        } else if (opener.document.insertForm.elements[element_name_alt]) {
+            // Search form
+            opener.document.insertForm.elements[element_name_alt].value = key;
             self.close();
             return false;
         }
-
-        if (opener && opener.document && opener.document.insertForm) {
-            var field = 'fields';
-            var field_null = 'fields_null';
-
-            <?php
-            if (isset($rownumber)) {
-            ?>
-            var element_name = field + '[multi_edit][<?php echo htmlspecialchars($rownumber); ?>][' + fieldmd5 + ']';
-            var null_name = field_null + '[multi_edit][<?php echo htmlspecialchars($rownumber); ?>][' + fieldmd5 + ']';
-            <?php
-            } else {
-            ?>
-            var element_name = field + '[]';
-            <?php
-            }
-            ?>
-
-            <?php
-            if (isset($fieldkey) && is_numeric($fieldkey)) {
-            ?>
-            var element_name_alt = field + '[<?php echo $fieldkey; ?>]';
-            <?php
-            } else {
-            ?>
-            var element_name_alt = field + '[0]';
-            <?php
-            }
-            ?>
-
-            if (opener.document.insertForm.elements[element_name]) {
-                // Edit/Insert form
-                opener.document.insertForm.elements[element_name].value = key;
-                if (opener.document.insertForm.elements[null_name]) {
-                    opener.document.insertForm.elements[null_name].checked = false;
-                }
-                self.close();
-                return false;
-            } else if (opener.document.insertForm.elements[element_name_alt]) {
-                // Search form
-                opener.document.insertForm.elements[element_name_alt].value = key;
-                self.close();
-                return false;
-            }
-        }
-
-        alert('<?php echo PMA_jsFormat(__('The target browser window could not be updated. Maybe you have closed the parent window, or your browser\'s security settings are configured to block cross-window updates.')); ?>');
     }
-    //]]>
-    </script>
-</head>
 
-<body id="body_browse_foreigners">
+    alert('$error');
+}
+EOC;
 
+$header->getScripts()->addCode($code);
+
+?>
 <form action="browse_foreigners.php" method="post">
 <fieldset>
 <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
@@ -335,6 +322,3 @@ if (is_array($foreignData['disp_row'])) {
 ?>
 </tbody>
 </table>
-
-</body>
-</html>

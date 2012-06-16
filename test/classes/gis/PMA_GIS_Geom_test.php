@@ -10,6 +10,8 @@ require_once 'libraries/gis/pma_gis_geometry.php';
 
 /**
  * Abstract parent class for all PMA_GIS_<Geom_type> test classes
+ *
+ * @package PhpMyAdmin-test
  */
 abstract class PMA_GIS_GeomTest extends PHPUnit_Framework_TestCase
 {

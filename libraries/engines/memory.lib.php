@@ -1,6 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * The MEMORY (HEAP) storage engine
+ *
  * @package PhpMyAdmin-Engines
  */
 if (! defined('PHPMYADMIN')) {
@@ -8,13 +10,14 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * the MEMORY (HEAP) storage engine
+ * The MEMORY (HEAP) storage engine
+ *
  * @package PhpMyAdmin-Engines
  */
 class PMA_StorageEngine_memory extends PMA_StorageEngine
 {
     /**
-     * returns array with variable names dedicated to MyISAM storage engine
+     * Returns array with variable names dedicated to MEMORY storage engine
      *
      * @return array   variable names
      */

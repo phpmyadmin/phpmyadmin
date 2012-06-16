@@ -1,6 +1,8 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * The InnoDB storage engine
+ *
  * @package PhpMyAdmin-Engines
  */
 if (! defined('PHPMYADMIN')) {
@@ -8,13 +10,16 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
+ * The InnoDB storage engine
  *
  * @package PhpMyAdmin-Engines
  */
 class PMA_StorageEngine_innodb extends PMA_StorageEngine
 {
     /**
-     * @return array
+     * Returns array with variable names related to InnoDB storage engine
+     *
+     * @return array   variable names
      */
     function getVariables()
     {
@@ -114,6 +119,9 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
     }
 
     /**
+     * Returns the pattern to be used in the query for SQL variables
+     * related to InnoDb storage engine
+     *
      * @return string  SQL query LIKE pattern
      */
     function getVariablesLikePattern()

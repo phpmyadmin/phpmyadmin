@@ -63,7 +63,7 @@ class PMA_User_Schema
                 }
                 break;
             case 'createpage':
-                $this->pageNumber = PMA_REL_create_page(
+                $this->pageNumber = PMA_REL_createPage(
                     $_POST['newpage'],
                     $cfgRelation,
                     $db

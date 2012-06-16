@@ -7,10 +7,6 @@
  * @package PhpMyAdmin
  */
 
-if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
-    $GLOBALS['is_header_sent'] = true;
-}
-
 require_once 'libraries/common.inc.php';
 
 /**
@@ -429,20 +425,26 @@ if (PMA_DRIZZLE) {
 /**
  * JS Includes
  */
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('server_status.js');
 
-$GLOBALS['js_include'][] = 'server_status.js';
-
-$GLOBALS['js_include'][] = 'jquery/jquery.tablesorter.js';
-$GLOBALS['js_include'][] = 'jquery/jquery.cookie.js'; // For tab persistence
+$scripts->addFile('jquery/jquery.tablesorter.js');
+$scripts->addFile('jquery/jquery.cookie.js'); // For tab persistence
 // Charting
-$GLOBALS['js_include'][] = 'highcharts/highcharts.js';
+$scripts->addFile('highcharts/highcharts.js');
 /* Files required for chart exporting */
-$GLOBALS['js_include'][] = 'highcharts/exporting.js';
+$scripts->addFile('highcharts/exporting.js');
 /* < IE 9 doesn't support canvas natively */
 if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
-    $GLOBALS['js_include'][] = 'canvg/flashcanvas.js';
+    $scripts->addFile('canvg/flashcanvas.js');
 }
-$GLOBALS['js_include'][] = 'canvg/canvg.js';
+
+$scripts->addFile('canvg/canvg.js');
+// for profiling chart
+$scripts->addFile('jqplot/jquery.jqplot.js');
+$scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
 
 /**
  * flush status variables if requested
@@ -729,36 +731,36 @@ $server_db_isLocal = strtolower($cfg['Server']['host']) == 'localhost'
                               || $cfg['Server']['host'] == '127.0.0.1'
                               || $cfg['Server']['host'] == '::1';
 
-PMA_AddJSVar(
+PMA_addJSVar(
     'pma_token',
     $_SESSION[' PMA_token ']
 );
-PMA_AddJSVar(
+PMA_addJSVar(
     'url_query',
     str_replace('&amp;', '&', PMA_generate_common_url($db))
 );
-PMA_AddJSVar(
+PMA_addJSVar(
     'server_time_diff',
     'new Date().getTime() - ' . (microtime(true) * 1000),
     false
 );
-PMA_AddJSVar(
+PMA_addJSVar(
     'server_os',
     PHP_OS
 );
-PMA_AddJSVar(
+PMA_addJSVar(
     'is_superuser',
     PMA_isSuperuser()
 );
-PMA_AddJSVar(
+PMA_addJSVar(
     'server_db_isLocal',
     $server_db_isLocal
 );
-PMA_AddJSVar(
+PMA_addJSVar(
     'profiling_docu',
     PMA_showMySQLDocu('general-thread-states', 'general-thread-states')
 );
-PMA_AddJSVar(
+PMA_addJSVar(
     'explain_docu',
     PMA_showMySQLDocu('explain-output', 'explain-output')
 );
@@ -800,7 +802,7 @@ echo __('Runtime Information');
                 </a>
                 <span class="refreshList" style="display:none;">
                     <label for="id_trafficChartRefresh"><?php echo __('Refresh rate: '); ?></label>
-                    <?php refreshList('trafficChartRefresh'); ?>
+                    <?php echo PMA_getRefreshList('trafficChartRefresh'); ?>
                 </span>
 
                 <a class="tabChart livetrafficLink" href="#">
@@ -822,7 +824,7 @@ echo __('Runtime Information');
                 </a>
                 <span class="refreshList" style="display:none;">
                     <label for="id_queryChartRefresh"><?php echo __('Refresh rate: '); ?></label>
-                       <?php refreshList('queryChartRefresh'); ?>
+                       <?php echo PMA_getRefreshList('queryChartRefresh'); ?>
                 </span>
                 <a class="tabChart livequeriesLink" href="#">
                     <?php echo __('Live query chart'); ?>
@@ -1601,7 +1603,7 @@ function printMonitor()
         <div class="floatleft">
             <?php
             echo __('Refresh rate') . '<br />';
-            refreshList('gridChartRefresh', 5, Array(2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200));
+            echo PMA_getRefreshList('gridChartRefresh', 5, Array(2, 3, 4, 5, 10, 20, 40, 60, 120, 300, 600, 1200));
         ?><br />
         </div>
         <div class="floatleft">
@@ -1783,24 +1785,34 @@ function printMonitor()
 <?php
 }
 
-/* Builds a <select> list for refresh rates */
-function refreshList($name, $defaultRate=5, $refreshRates=Array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600))
-{
-?>
-    <select name="<?php echo $name; ?>" id="id_<?php echo $name; ?>">
-        <?php
-            foreach ($refreshRates as $rate) {
-                $selected = ($rate == $defaultRate)?' selected="selected"':'';
+/**
+ * Builds a <select> list for refresh rates
+ *
+ * @param string $name         Name of select
+ * @param int    $defaultRate  Currently chosen rate
+ * @param array  $refreshRates List of refresh rates
+ *
+ * @return HTML code with select
+ */
+function PMA_getRefreshList($name,
+    $defaultRate = 5,
+    $refreshRates = Array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600)
+) {
+    $return = '<select name="' . $name . '" id="id_' . $name . '">';
+    foreach ($refreshRates as $rate) {
+        $selected = ($rate == $defaultRate)?' selected="selected"':'';
 
-                if ($rate<60) {
-                    echo '<option value="' . $rate . '"' . $selected . '>' . sprintf(_ngettext('%d second', '%d seconds', $rate), $rate) . '</option>';
-                } else {
-                    echo '<option value="' . $rate . '"' . $selected . '>' . sprintf(_ngettext('%d minute', '%d minutes', $rate/60), $rate/60) . '</option>';
-                }
-            }
-        ?>
-    </select>
-<?php
+        $return .= '<option value="' . $rate . '"' . $selected . '>';
+        if ($rate < 60) {
+            $return .= sprintf(_ngettext('%d second', '%d seconds', $rate), $rate);
+        } else {
+            $rate = $rate / 60;
+            $return .= sprintf(_ngettext('%d minute', '%d minutes', $rate), $rate);
+        }
+        $return .=  '</option>';
+    }
+    $return .= '</select>';
+    return $return;
 }
 
 /**
@@ -1823,8 +1835,4 @@ function cleanDeprecated(&$server_status)
     }
 }
 
-/**
- * Sends the footer
- */
-require 'libraries/footer.inc.php';
 ?>

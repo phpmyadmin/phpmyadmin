@@ -18,15 +18,15 @@ require_once 'libraries/display_git_revision.lib.php';
 if ($GLOBALS['PMA_Config']->isGitRevision()) {
     if (isset($_REQUEST['git_revision']) && $GLOBALS['is_ajax_request'] == true) {
         PMA_printGitRevision();
+        exit;
     }
-    PMA_AddJSVar('is_git_revision', true);
+    PMA_addJSVar('is_git_revision', true);
 }
 
 // Handles some variables that may have been sent by the calling script
 $GLOBALS['db'] = '';
 $GLOBALS['table'] = '';
 $show_query = '1';
-require_once 'libraries/header.inc.php';
 
 // Any message to display?
 if (! empty($message)) {
@@ -329,14 +329,14 @@ if (file_exists('config')) {
 if ($server > 0) {
     $cfgRelation = PMA_getRelationsParam();
     if (! $cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {
-        $message = PMA_Message::notice(__('The phpMyAdmin configuration storage is not completely configured, some extended features have been deactivated. To find out why click %shere%s.'));
-        $message->addParam('<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $common_url_query . '">', false);
-        $message->addParam('</a>', false);
+        $msg = PMA_Message::notice(__('The phpMyAdmin configuration storage is not completely configured, some extended features have been deactivated. To find out why click %shere%s.'));
+        $msg->addParam('<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $common_url_query . '">', false);
+        $msg->addParam('</a>', false);
         /* Show error if user has configured something, notice elsewhere */
         if (!empty($cfg['Servers'][$server]['pmadb'])) {
-            $message->isError(true);
+            $msg->isError(true);
         }
-        $message->display();
+        $msg->display();
     } // end if
 }
 
@@ -452,9 +452,4 @@ function PMA_printListItem($name, $id = null, $url = null, $mysql_help_page = nu
     }
     echo '</li>';
 }
-
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
 ?>

@@ -10,13 +10,15 @@
  * Include required files
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/common.lib.php';
 
 /**
  * Include JavaScript libraries
  */
-$GLOBALS['js_include'][] = 'rte/common.js';
-$GLOBALS['js_include'][] = 'rte/triggers.js';
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('rte/common.js');
+$scripts->addFile('rte/triggers.js');
 
 /**
  * Include all other files

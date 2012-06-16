@@ -43,7 +43,7 @@ if (isset($mode)) {
     $scale_q = PMA_sqlAddSlashes($scale);
 
     if ('create_export' == $mode) {
-        $pdf_page_number = PMA_REL_create_page($newpage, $cfgRelation, $db);
+        $pdf_page_number = PMA_REL_createPage($newpage, $cfgRelation, $db);
         if ($pdf_page_number > 0) {
             $message = PMA_Message::success(__('Page has been created'));
             $mode = 'export';
@@ -77,11 +77,12 @@ if (isset($mode)) {
     }
 }
 
-// no need to use pmd/styles
-require_once 'libraries/header_meta_style.inc.php';
+$response = PMA_Response::getInstance();
+$response->getFooter()->setMinimal();
+$header   = $response->getHeader();
+$header->disableMenu();
+
 ?>
-</head>
-<body>
 <br>
 <div>
 <?php
@@ -144,6 +145,4 @@ echo '<p>' . __('Export/Import to scale') . ':';
     </div>
   </form>
 </div>
-</body>
-</html>
 

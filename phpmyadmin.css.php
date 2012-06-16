@@ -11,7 +11,6 @@
 
 define('PMA_MINIMUM_COMMON', true);
 require_once 'libraries/common.inc.php';
-require_once 'libraries/sqlparser.lib.php';
 
 // MSIE 6 (at least some unpatched versions) has problems loading CSS
 // when zlib_compression is on

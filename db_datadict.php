@@ -283,5 +283,4 @@ foreach ($tables as $table) {
  */
 PMA_printButton();
 
-require 'libraries/footer.inc.php';
 ?>

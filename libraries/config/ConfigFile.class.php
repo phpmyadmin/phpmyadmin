@@ -91,7 +91,7 @@ class ConfigFile
         // apply default values overrides
         if (count($cfg_db['_overrides'])) {
             foreach ($cfg_db['_overrides'] as $path => $value) {
-                PMA_array_write($path, $cfg, $value);
+                PMA_arrayWrite($path, $cfg, $value);
             }
         }
 
@@ -231,7 +231,7 @@ class ConfigFile
             // we need original config values not overwritten by user
             // preferences to allow for overwriting options set in
             // config.inc.php with default values
-            $instance_default_value = PMA_array_read(
+            $instance_default_value = PMA_arrayRead(
                 $canonical_path,
                 $this->_orgCfgObject->settings
             );
@@ -240,11 +240,11 @@ class ConfigFile
                 || (empty($value) && empty($default_value) && (defined('PMA_SETUP')
                 || empty($current_global)))
             ) {
-                PMA_array_remove($path, $_SESSION[$this->_id]);
+                PMA_arrayRemove($path, $_SESSION[$this->_id]);
                 return;
             }
         }
-        PMA_array_write($path, $_SESSION[$this->_id], $value);
+        PMA_arrayWrite($path, $_SESSION[$this->_id], $value);
     }
 
     /**
@@ -320,7 +320,7 @@ class ConfigFile
      */
     public function get($path, $default = null)
     {
-        return PMA_array_read($path, $_SESSION[$this->_id], $default);
+        return PMA_arrayRead($path, $_SESSION[$this->_id], $default);
     }
 
     /**
@@ -335,7 +335,7 @@ class ConfigFile
      */
     public function getDefault($canonical_path, $default = null)
     {
-        return PMA_array_read($canonical_path, $this->_cfg, $default);
+        return PMA_arrayRead($canonical_path, $this->_cfg, $default);
     }
 
     /**
@@ -349,7 +349,7 @@ class ConfigFile
      */
     public function getValue($path, $default = null)
     {
-        $v = PMA_array_read($path, $_SESSION[$this->_id], null);
+        $v = PMA_arrayRead($path, $_SESSION[$this->_id], null);
         if ($v !== null) {
             return $v;
         }
@@ -379,7 +379,7 @@ class ConfigFile
      */
     public function getDbEntry($path, $default = null)
     {
-        return PMA_array_read($path, $this->_cfgDb, $default);
+        return PMA_arrayRead($path, $this->_cfgDb, $default);
     }
 
     /**
@@ -511,8 +511,8 @@ class ConfigFile
     {
         $c = $_SESSION[$this->_id];
         foreach ($this->_cfgUpdateReadMapping as $map_to => $map_from) {
-            PMA_array_write($map_to, $c, PMA_array_read($map_from, $c));
-            PMA_array_remove($map_from, $c);
+            PMA_arrayWrite($map_to, $c, PMA_arrayRead($map_from, $c));
+            PMA_arrayRemove($map_from, $c);
         }
         return $c;
     }

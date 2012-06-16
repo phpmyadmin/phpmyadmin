@@ -148,18 +148,24 @@ class PMA_Types
     /**
      * Returns operators for given type as html options
      *
-     * @param string  $type Type of field
-     * @param boolean $null Whether field can be NULL
+     * @param string  $type             Type of field
+     * @param boolean $null             Whether field can be NULL
+     * @param string  $selectedOperator Option to be selected
      *
-     * @return array
+     * @return string Generated Html
      */
-    public function getTypeOperatorsHtml($type, $null)
+    public function getTypeOperatorsHtml($type, $null, $selectedOperator = null)
     {
         $html = '';
 
         foreach ($this->getTypeOperators($type, $null) as $fc) {
-            $escaped = htmlspecialchars($fc);
-            $html .= '<option value="' . $escaped  . '">' . $escaped  . '</option>';
+            if (isset($selectedOperator) && $selectedOperator == $fc) {
+                $html .= '<option value="' . htmlspecialchars($fc)  . '" selected="selected">'
+                    . htmlspecialchars($fc)  . '</option>';
+            } else {
+                $html .= '<option value="' . htmlspecialchars($fc)  . '">'
+                    . htmlspecialchars($fc)  . '</option>';
+            }
         }
 
         return $html;

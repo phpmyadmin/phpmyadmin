@@ -16,9 +16,12 @@ require_once 'libraries/mysql_charsets.lib.php';
 /**
  * Include JavaScript libraries
  */
-$GLOBALS['js_include'][] = 'jquery/timepicker.js';
-$GLOBALS['js_include'][] = 'rte/common.js';
-$GLOBALS['js_include'][] = 'rte/routines.js';
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('jquery/timepicker.js');
+$scripts->addFile('rte/common.js');
+$scripts->addFile('rte/routines.js');
 
 /**
  * Include all other files

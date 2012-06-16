@@ -74,7 +74,9 @@ class PMA_Theme
         'gis',
         'navigation',
         'pmd',
-        'rte'
+        'rte',
+        'codemirror',
+        'jqplot'
     );
 
     /**
@@ -146,22 +148,30 @@ class PMA_Theme
      */
     public function checkImgPath()
     {
+        // try current theme first
         if (is_dir($this->getPath() . '/img/')) {
             $this->setImgPath($this->getPath() . '/img/');
             return true;
-        } elseif (is_dir($GLOBALS['cfg']['ThemePath'] . '/' . PMA_Theme_Manager::FALLBACK_THEME . '/img/')) {
-            $this->setImgPath($GLOBALS['cfg']['ThemePath'] . '/' . PMA_Theme_Manager::FALLBACK_THEME . '/img/');
-            return true;
-        } else {
-            trigger_error(
-                sprintf(
-                    __('No valid image path for theme %s found!'),
-                    $this->getName()
-                ),
-                E_USER_ERROR
-            );
-            return false;
         }
+
+        // try fallback theme
+        $fallback = $GLOBALS['cfg']['ThemePath'] . '/'
+            . PMA_Theme_Manager::FALLBACK_THEME
+            . '/img/';
+        if (is_dir($fallback)) {
+            $this->setImgPath($fallback);
+            return true;
+        }
+
+        // we failed
+        trigger_error(
+            sprintf(
+                __('No valid image path for theme %s found!'),
+                $this->getName()
+            ),
+            E_USER_ERROR
+        );
+        return false;
     }
 
     /**
@@ -299,15 +309,83 @@ class PMA_Theme
     }
 
     /**
-     * Returns the path to images for the theme
+     * Returns the path to image for the theme.
+     * If filename is given, it possibly fallbacks to fallback
+     * theme for it if image does not exist.
+     *
+     * @param string $file file name for image
      *
      * @access public
      * @return string image path for this theme
      */
-    public function getImgPath()
+    public function getImgPath($file = null)
     {
-        return $this->img_path;
+        if (is_null($file)) {
+            return $this->img_path;
+        } else {
+            if (is_readable($this->img_path . $file)) {
+                return $this->img_path . $file;
+            } else {
+                return $GLOBALS['cfg']['ThemePath'] . '/'
+                    . PMA_Theme_Manager::FALLBACK_THEME . '/img/' . $file;
+            }
+        }
     }
+
+    /**
+     * Builds a CSS rule used for html formatted SQL queries
+     *
+     * @param string $classname The class name
+     * @param string $property  The property name
+     * @param string $value     The property value
+     *
+     * @return string  The CSS rule
+     *
+     * @access public
+     *
+     * @see    PMA_SQP_buildCssData()
+     */
+    public function buildSQPCssRule($classname, $property, $value)
+    {
+        $str     = '.' . $classname . ' {';
+        if ($value != '') {
+            $str .= $property . ': ' . $value . ';';
+        }
+        $str     .= '}' . "\n";
+
+        return $str;
+    } // end of the "PMA_SQP_buildCssRule()" function
+
+
+    /**
+     * Builds CSS rules used for html formatted SQL queries
+     *
+     * @return string  The CSS rules set
+     *
+     * @access public
+     *
+     * @global array   The current PMA configuration
+     *
+     * @see    PMA_SQP_buildCssRule()
+     */
+    public function buildSQPCssData()
+    {
+        global $cfg;
+
+        $css_string     = '';
+        foreach ($cfg['SQP']['fmtColor'] AS $key => $col) {
+            $css_string .= $this->buildSQPCssRule('syntax_' . $key, 'color', $col);
+        }
+
+        for ($i = 0; $i < 8; $i++) {
+            $css_string .= $this->buildSQPCssRule(
+                'syntax_indent' . $i, 'margin-left',
+                ($i * $cfg['SQP']['fmtInd']) . $cfg['SQP']['fmtIndUnit']
+            );
+        }
+
+        return $css_string;
+    } // end of the "PMA_SQP_buildCssData()" function
 
     /**
      * load css (send to stdout, normally the browser)
@@ -319,7 +397,7 @@ class PMA_Theme
     {
         $success = true;
 
-        echo PMA_SQP_buildCssData();
+        echo $this->buildSQPCssData();
 
         if ($GLOBALS['text_dir'] === 'ltr') {
             $right = 'right';
@@ -331,7 +409,8 @@ class PMA_Theme
 
         foreach ($this->_cssFiles as $file) {
             $path = $this->getPath() . "/css/$file.css.php";
-            $fallback = "./themes/" . PMA_Theme_Manager::FALLBACK_THEME .  "/css/$file.css.php";
+            $fallback = "./themes/"
+                . PMA_Theme_Manager::FALLBACK_THEME .  "/css/$file.css.php";
 
             if (is_readable($path)) {
                 echo "\n/* FILE: $file.css.php */\n";
@@ -350,35 +429,39 @@ class PMA_Theme
     }
 
     /**
-     * prints out the preview for this theme
+     * Renders the preview for this theme
      *
-     * @return void
+     * @return string
      * @access public
      */
-    public function printPreview()
+    public function getPrintPreview()
     {
-        echo '<div class="theme_preview">';
-        echo '<h2>' . htmlspecialchars($this->getName())
-            .' (' . htmlspecialchars($this->getVersion()) . ')</h2>';
-        echo '<p>';
-        echo '<a target="_top" class="take_theme" '
-            .'name="' . htmlspecialchars($this->getId()) . '" '
-            . 'href="index.php'. PMA_generate_common_url(
-                array('set_theme' => $this->getId())
-            ) . '">';
+        $url_params = array('set_theme' => $this->getId());
+        $url = 'index.php'. PMA_generate_common_url($url_params);
+
+        $retval  = '<div class="theme_preview">';
+        $retval .= '<h2>';
+        $retval .= htmlspecialchars($this->getName());
+        $retval .= ' (' . htmlspecialchars($this->getVersion()) . ') ';
+        $retval .= '</h2>';
+        $retval .= '<p>';
+        $retval .= '<a target="_top" class="take_theme" ';
+        $retval .= 'name="' . htmlspecialchars($this->getId()) . '" ';
+        $retval .=  'href="' . $url . '">';
         if (@file_exists($this->getPath() . '/screen.png')) {
             // if screen exists then output
-
-            echo '<img src="' . $this->getPath() . '/screen.png" border="1"'
-                .' alt="' . htmlspecialchars($this->getName()) . '"'
-                .' title="' . htmlspecialchars($this->getName()) . '" /><br />';
+            $retval .= '<img src="' . $this->getPath() . '/screen.png" border="1"';
+            $retval .= ' alt="' . htmlspecialchars($this->getName()) . '"';
+            $retval .= ' title="' . htmlspecialchars($this->getName()) . '" />';
+            $retval .= '<br />';
         } else {
-            echo __('No preview available.');
+            $retval .= __('No preview available.');
         }
-
-        echo '[ <strong>' . __('take it') . '</strong> ]</a>'
-            .'</p>'
-            .'</div>';
+        $retval .= '[ <strong>' . __('take it') . '</strong> ]';
+        $retval .= '</a>';
+        $retval .= '</p>';
+        $retval .= '</div>';
+        return $retval;
     }
 
     /**
@@ -396,6 +479,23 @@ class PMA_Theme
     }
 
     /**
+     * Gets currently configured font size.
+     *
+     * @return String with font size.
+     */
+    function getFontSize()
+    {
+        $fs = $GLOBALS['PMA_Config']->get('fontsize');
+        if (!is_null($fs)) {
+            return $fs;
+        }
+        if (isset($_COOKIE['pma_fontsize'])) {
+            return $_COOKIE['pma_fontsize'];
+        }
+        return '82%';
+    }
+
+    /**
      * Generates code for CSS gradient using various browser extensions.
      *
      * @param string $start_color Color of gradient start, hex value without #
@@ -407,21 +507,33 @@ class PMA_Theme
     {
         $result = array();
         // Opera 9.5+, IE 9
-        $result[] = 'background-image: url(./themes/svg_gradient.php?from=' . $start_color . '&to=' . $end_color . ');';
+        $result[] = 'background-image: url(./themes/svg_gradient.php?from='
+            . $start_color . '&to=' . $end_color . ');';
         $result[] = 'background-size: 100% 100%;';
         // Safari 4-5, Chrome 1-9
-        $result[] = 'background: -webkit-gradient(linear, left top, left bottom, from(#' . $start_color . '), to(#' . $end_color . '));';
+        $result[] = 'background: '
+            . '-webkit-gradient(linear, left top, left bottom, from(#'
+            . $start_color . '), to(#' . $end_color . '));';
         // Safari 5.1, Chrome 10+
-        $result[] = 'background: -webkit-linear-gradient(top, #' . $start_color . ', #' . $end_color . ');';
+        $result[] = 'background: -webkit-linear-gradient(top, #'
+            . $start_color . ', #' . $end_color . ');';
         // Firefox 3.6+
-        $result[] = 'background: -moz-linear-gradient(top, #' . $start_color . ', #' . $end_color . ');';
+        $result[] = 'background: -moz-linear-gradient(top, #'
+            . $start_color . ', #' . $end_color . ');';
         // IE 10
-        $result[] = 'background: -ms-linear-gradient(top, #' . $start_color . ', #' . $end_color . ');';
+        $result[] = 'background: -ms-linear-gradient(top, #'
+            . $start_color . ', #' . $end_color . ');';
         // Opera 11.10
-        $result[] = 'background: -o-linear-gradient(top, #' . $start_color . ', #' . $end_color . ');';
+        $result[] = 'background: -o-linear-gradient(top, #'
+            . $start_color . ', #' . $end_color . ');';
         // IE 6-8
-        if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 6 && PMA_USR_BROWSER_VER <= 8) {
-            $result[] = 'filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#' . $start_color . '", endColorstr="#' . $end_color . '");';
+        if (PMA_USR_BROWSER_AGENT == 'IE'
+            && PMA_USR_BROWSER_VER >= 6
+            && PMA_USR_BROWSER_VER <= 8
+        ) {
+            $result[] = 'filter: '
+                . 'progid:DXImageTransform.Microsoft.gradient(startColorstr="#'
+                . $start_color . '", endColorstr="#' . $end_color . '");';
         }
         return implode("\n", $result);
     }
@@ -429,141 +541,59 @@ class PMA_Theme
     /**
      * Returns CSS styles for CodeMirror editor based on query formatter colors.
      *
-     * @param boolean $generic Whether to include generic CodeMirror CSS as well
-     *
      * @return string CSS code.
      */
-    function getCssCodeMirror($generic = false)
+    function getCssCodeMirror()
     {
         if (! $GLOBALS['cfg']['CodemirrorEnable']) {
             return '';
         }
 
         $result[] = 'span.cm-keyword, span.cm-statement-verb {';
-        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_reservedWord'] . ';';
+        $result[] = '    color: '
+            . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_reservedWord'] . ';';
         $result[] = '}';
         $result[] = 'span.cm-variable {';
-        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_identifier'] . ';';
+        $result[] = '    color: '
+            . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_identifier'] . ';';
         $result[] = '}';
         $result[] = 'span.cm-comment {';
-        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['comment'] . ';';
+        $result[] = '    color: '
+            . $GLOBALS['cfg']['SQP']['fmtColor']['comment'] . ';';
         $result[] = '}';
         $result[] = 'span.cm-mysql-string {';
-        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['quote'] . ';';
+        $result[] = '    color: '
+            . $GLOBALS['cfg']['SQP']['fmtColor']['quote'] . ';';
         $result[] = '}';
         $result[] = 'span.cm-operator {';
-        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['punct'] . ';';
+        $result[] = '    color: '
+            . $GLOBALS['cfg']['SQP']['fmtColor']['punct'] . ';';
         $result[] = '}';
         $result[] = 'span.cm-mysql-word {';
-        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_identifier'] . ';';
+        $result[] = '    color: '
+            . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_identifier'] . ';';
         $result[] = '}';
         $result[] = 'span.cm-builtin {';
-        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_functionName'] . ';';
+        $result[] = '    color: '
+            . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_functionName'] . ';';
         $result[] = '}';
         $result[] = 'span.cm-variable-2 {';
-        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_columnType'] . ';';
+        $result[] = '    color: '
+            . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_columnType'] . ';';
         $result[] = '}';
         $result[] = 'span.cm-variable-3 {';
-        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_columnAttrib'] . ';';
+        $result[] = '    color: '
+            . $GLOBALS['cfg']['SQP']['fmtColor']['alpha_columnAttrib'] . ';';
         $result[] = '}';
         $result[] = 'span.cm-separator {';
-        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['punct'] . ';';
+        $result[] = '    color: '
+            . $GLOBALS['cfg']['SQP']['fmtColor']['punct'] . ';';
         $result[] = '}';
         $result[] = 'span.cm-number {';
-        $result[] = '    color: ' . $GLOBALS['cfg']['SQP']['fmtColor']['digit_integer'] . ';';
+        $result[] = '    color: '
+            . $GLOBALS['cfg']['SQP']['fmtColor']['digit_integer'] . ';';
         $result[] = '}';
 
-        if ($generic) {
-            $height = ceil($GLOBALS['cfg']['TextareaRows'] * 1.2);
-            $result[] = <<<EOT
-.CodeMirror {
-  font-size: 140%;
-  font-family: monospace;
-  background: #fff;
-  border: 1px solid #000;
-}
-
-.CodeMirror-scroll {
-  overflow: auto;
-  height:   ${height}em;
-  /* This is needed to prevent an IE[67] bug where the scrolled content
-     is visible outside of the scrolling box. */
-  position: relative;
-}
-
-.CodeMirror-gutter {
-  position: absolute; left: 0; top: 0;
-  z-index: 10;
-  background-color: #f7f7f7;
-  border-right: 1px solid #eee;
-  min-width: 2em;
-  height: 100%;
-}
-.CodeMirror-gutter-text {
-  color: #aaa;
-  text-align: right;
-  padding: .4em .2em .4em .4em;
-  white-space: pre !important;
-}
-.CodeMirror-lines {
-  padding: .4em;
-}
-
-.CodeMirror pre {
-  -moz-border-radius: 0;
-  -webkit-border-radius: 0;
-  -o-border-radius: 0;
-  border-radius: 0;
-  border-width: 0; margin: 0; padding: 0; background: transparent;
-  font-family: inherit;
-  font-size: inherit;
-  padding: 0; margin: 0;
-  white-space: pre;
-  word-wrap: normal;
-}
-
-.CodeMirror-wrap pre {
-  word-wrap: break-word;
-  white-space: pre-wrap;
-}
-.CodeMirror-wrap .CodeMirror-scroll {
-  overflow-x: hidden;
-}
-
-.CodeMirror textarea {
-  font-family: inherit !important;
-  font-size: inherit !important;
-}
-
-.CodeMirror-cursor {
-  z-index: 10;
-  position: absolute;
-  visibility: hidden;
-  border-left: 1px solid black !important;
-}
-
-.CodeMirror-focused .CodeMirror-cursor {
-  visibility: visible;
-}
-
-span.CodeMirror-selected {
-  background: #ccc !important;
-  color: HighlightText !important;
-}
-
-.CodeMirror-focused span.CodeMirror-selected {
-  background: Highlight !important;
-}
-
-.CodeMirror-matchingbracket {
-    color: #0f0 !important;
-}
-
-.CodeMirror-nonmatchingbracket {
-    color: #f22 !important;
-}
-EOT;
-        }
         return implode("\n", $result);
     }
 }

@@ -15,6 +15,7 @@ require_once 'libraries/common.lib.php';
 require_once 'libraries/config.default.php';
 require_once 'libraries/Config.class.php';
 require_once 'libraries/database_interface.lib.php';
+require_once 'libraries/vendor_config.php';
 
 require_once 'config.sample.inc.php';
 

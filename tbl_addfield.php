@@ -10,8 +10,6 @@
  */
 require_once 'libraries/common.inc.php';
 
-require_once 'libraries/header.inc.php';
-
 // Check parameters
 PMA_checkParameters(array('db', 'table'));
 
@@ -190,9 +188,11 @@ if (isset($_REQUEST['do_save_data'])) {
         $message = PMA_Message::success(__('Table %1$s has been altered successfully'));
         $message->addParam($table);
 
-        if ( $GLOBALS['is_ajax_request'] == true) {
-            $extra_data['sql_query'] = PMA_getMessage(null, $sql_query);
-            PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
+        if ($GLOBALS['is_ajax_request'] == true) {
+            $response = PMA_Response::getInstance();
+            $response->addJSON('message', $message);
+            $response->addJSON('sql_query', PMA_getMessage(null, $sql_query));
+            exit;
         }
 
         $active_page = 'tbl_structure.php';
@@ -229,9 +229,6 @@ if ($abort == false) {
      */
     $action = 'tbl_addfield.php';
     include_once 'libraries/tbl_properties.inc.php';
-
-    // Diplays the footer
-    include 'libraries/footer.inc.php';
 }
 
 ?>

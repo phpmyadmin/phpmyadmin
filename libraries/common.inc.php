@@ -129,7 +129,7 @@ require './libraries/Table.class.php';
  */
 require './libraries/Types.class.php';
 
-if (!defined('PMA_MINIMUM_COMMON')) {
+if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * common functions
      */
@@ -144,28 +144,15 @@ if (!defined('PMA_MINIMUM_COMMON')) {
      * Include URL/hidden inputs generating.
      */
     include_once './libraries/url_generating.lib.php';
+
+    /**
+     * Used to generate the page
+     */
+    include_once 'libraries/Response.class.php';
 }
 
 /******************************************************************************/
 /* start procedural code                       label_start_procedural         */
-
-/**
- * protect against possible exploits - there is no need to have so much variables
- */
-if (count($_REQUEST) > 1000) {
-    PMA_fatalError(__('possible exploit'));
-}
-
-/**
- * Check for numeric keys
- * (if register_globals is on, numeric key can be found in $GLOBALS)
- */
-foreach ($GLOBALS as $key => $dummy) {
-    if (is_numeric($key)) {
-        PMA_fatalError(__('numeric key detected'));
-    }
-}
-unset($dummy);
 
 /**
  * PATH_INFO could be compromised if set, so remove it from PHP_SELF
@@ -489,7 +476,9 @@ if (! PMA_isValid($_REQUEST['token'])
         /* Cookie preferences */
         'pma_lang', 'pma_collation_connection',
         /* Possible login form */
-        'pma_servername', 'pma_username', 'pma_password'
+        'pma_servername', 'pma_username', 'pma_password',
+        /* Needed to send the correct reply */
+        'ajax_request'
     );
     /**
      * Allow changing themes in test/theme.php
@@ -558,40 +547,6 @@ if (PMA_isValid($_REQUEST['sql_query'])) {
 //$_REQUEST['server']; // checked later in this file
 //$_REQUEST['lang'];   // checked by LABEL_loading_language_file
 
-
-/**
- * holds name of JavaScript files to be included in HTML header
- * @global array $js_include
- */
-$GLOBALS['js_include'] = array();
-$GLOBALS['js_include'][] = 'jquery/jquery-1.6.2.js';
-$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.16.custom.js';
-$GLOBALS['js_include'][] = 'jquery/jquery.sprintf.js';
-$GLOBALS['js_include'][] = 'update-location.js';
-
-/**
- * holds an array of javascript code snippets to be included in the HTML header
- * Can be used with PMA_AddJSCode() to pass on js variables to the browser.
- * @global array $js_script
- */
-$GLOBALS['js_script'] = array();
-
-/**
- * Add common jQuery functions script here if necessary.
- */
-
-/**
- * JavaScript events that will be registered
- * @global array $js_events
- */
-$GLOBALS['js_events'] = array();
-
-/**
- * footnotes to be displayed ot the page bottom
- * @global array $footnotes
- */
-$GLOBALS['footnotes'] = array();
-
 /******************************************************************************/
 /* loading language file                       LABEL_loading_language_file    */
 
@@ -599,6 +554,15 @@ $GLOBALS['footnotes'] = array();
  * lang detection is done here
  */
 require './libraries/select_lang.lib.php';
+
+// Defines the cell alignment values depending on text direction
+if ($GLOBALS['text_dir'] == 'ltr') {
+    $GLOBALS['cell_align_left']  = 'left';
+    $GLOBALS['cell_align_right'] = 'right';
+} else {
+    $GLOBALS['cell_align_left']  = 'right';
+    $GLOBALS['cell_align_right'] = 'left';
+}
 
 /**
  * check for errors occurred while loading configuration
@@ -766,6 +730,9 @@ if (@file_exists($_SESSION['PMA_Theme']->getLayoutFile())) {
 }
 
 if (! defined('PMA_MINIMUM_COMMON')) {
+    // get a dummy object to ensure that the class is instanciated
+    PMA_Response::getInstance();
+
     /**
      * Character set conversion.
      */
@@ -881,7 +848,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
          * the required auth type plugin
          */
         include_once './libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php';
-        if (!PMA_auth_check()) {
+        if (! PMA_auth_check()) {
             /* Force generating of new session on login */
             PMA_secureSession();
             PMA_auth();
@@ -932,7 +899,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
                 PMA_log_user($cfg['Server']['user'], 'allow-denied');
                 PMA_auth_fails();
             }
-            unset($allowDeny_forbidden); //Clean up after you!
         } // end if
 
         // is root allowed?
@@ -940,7 +906,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             $allowDeny_forbidden = true;
             PMA_log_user($cfg['Server']['user'], 'root-denied');
             PMA_auth_fails();
-            unset($allowDeny_forbidden); //Clean up after you!
         }
 
         // is a login without password allowed?
@@ -948,7 +913,6 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             $login_without_password_is_forbidden = true;
             PMA_log_user($cfg['Server']['user'], 'empty-denied');
             PMA_auth_fails();
-            unset($login_without_password_is_forbidden); //Clean up after you!
         }
 
         // if using TCP socket is not needed
@@ -1099,6 +1063,32 @@ if (isset($_REQUEST['grid_edit']) && $_REQUEST['grid_edit'] == true) {
     $GLOBALS['grid_edit'] = false;
 }
 
+if (isset($_REQUEST['GLOBALS']) || isset($_FILES['GLOBALS'])) {
+    PMA_fatalError(__("GLOBALS overwrite attempt"));
+}
+
+/**
+ * protect against possible exploits - there is no need to have so much variables
+ */
+if (count($_REQUEST) > 1000) {
+    PMA_fatalError(__('possible exploit'));
+}
+
+/**
+ * Check for numeric keys
+ * (if register_globals is on, numeric key can be found in $GLOBALS)
+ */
+foreach ($GLOBALS as $key => $dummy) {
+    if (is_numeric($key)) {
+        PMA_fatalError(__('numeric key detected'));
+    }
+}
+unset($dummy);
+
+// here, the function does not exist with this configuration:
+// $cfg['ServerDefault'] = 0;
+$GLOBALS['is_superuser'] = function_exists('PMA_isSuperuser') && PMA_isSuperuser();
+
 if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {
     /**
      * include subform target page
@@ -1106,4 +1096,5 @@ if (!empty($__redirect) && in_array($__redirect, $goto_whitelist)) {
     include $__redirect;
     exit();
 }
+
 ?>

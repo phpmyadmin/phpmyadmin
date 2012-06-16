@@ -34,31 +34,31 @@ class PMA_List_Database extends PMA_List
      * @var mixed   database link resource|object to be used
      * @access protected
      */
-    protected $_db_link = null;
+    protected $db_link = null;
 
     /**
      * @var mixed   user database link resource|object
      * @access protected
      */
-    protected $_db_link_user = null;
+    protected $db_link_user = null;
 
     /**
      * @var mixed   controluser database link resource|object
      * @access protected
      */
-    protected $_db_link_control = null;
+    protected $db_link_control = null;
 
     /**
      * @var boolean whether SHOW DATABASES is disabled or not
      * @access protected
      */
-    protected $_show_databases_disabled = false;
+    protected $show_databases_disabled = false;
 
     /**
      * @var string command to retrieve databases from server
      * @access protected
      */
-    protected $_command = null;
+    protected $command = null;
 
     /**
      * Constructor
@@ -70,9 +70,9 @@ class PMA_List_Database extends PMA_List
      */
     public function __construct($db_link_user = null, $db_link_control = null)
     {
-        $this->_db_link = $db_link_user;
-        $this->_db_link_user = $db_link_user;
-        $this->_db_link_control = $db_link_control;
+        $this->db_link = $db_link_user;
+        $this->db_link_user = $db_link_user;
+        $this->db_link_control = $db_link_control;
 
         parent::__construct();
         $this->build();
@@ -83,7 +83,7 @@ class PMA_List_Database extends PMA_List
      *
      * @return void
      */
-    protected function _checkHideDatabase()
+    protected function checkHideDatabase()
     {
         if (empty($GLOBALS['cfg']['Server']['hide_db'])) {
             return;
@@ -104,33 +104,33 @@ class PMA_List_Database extends PMA_List
      * @return array
      * @todo   we could also search mysql tables if all fail?
      */
-    protected function _retrieve($like_db_name = null)
+    protected function retrieve($like_db_name = null)
     {
-        if ($this->_show_databases_disabled) {
+        if ($this->show_databases_disabled) {
             return array();
         }
 
         if (null !== $like_db_name) {
             $command = "SHOW DATABASES LIKE '" . $like_db_name . "'";
-        } elseif (null === $this->_command) {
+        } elseif (null === $this->command) {
             $command = str_replace(
                 '#user#', $GLOBALS['cfg']['Server']['user'],
                 $GLOBALS['cfg']['Server']['ShowDatabasesCommand']
             );
-            $this->_command = $command;
+            $this->command = $command;
         } else {
-            $command = $this->_command;
+            $command = $this->command;
         }
 
-        $database_list = PMA_DBI_fetch_result($command, null, null, $this->_db_link);
+        $database_list = PMA_DBI_fetch_result($command, null, null, $this->db_link);
         PMA_DBI_getError();
 
         if ($GLOBALS['errno'] !== 0) {
             // failed to get database list, try the control user
             // (hopefully there is one and he has SHOW DATABASES right)
-            $this->_db_link = $this->_db_link_control;
+            $this->db_link = $this->db_link_control;
             $database_list = PMA_DBI_fetch_result(
-                $command, null, null, $this->_db_link
+                $command, null, null, $this->db_link
             );
 
             PMA_DBI_getError();
@@ -140,7 +140,7 @@ class PMA_List_Database extends PMA_List
                 // retrieve database list, the admin has to setup a control user or
                 // allow SHOW DATABASES
                 $GLOBALS['error_showdatabases'] = true;
-                $this->_show_databases_disabled = true;
+                $this->show_databases_disabled = true;
             }
         }
 
@@ -162,12 +162,12 @@ class PMA_List_Database extends PMA_List
      */
     public function build()
     {
-        if (! $this->_checkOnlyDatabase()) {
-            $items = $this->_retrieve();
+        if (! $this->checkOnlyDatabase()) {
+            $items = $this->retrieve();
             $this->exchangeArray($items);
         }
 
-        $this->_checkHideDatabase();
+        $this->checkHideDatabase();
     }
 
     /**
@@ -175,7 +175,7 @@ class PMA_List_Database extends PMA_List
      *
      * @return boolean false if there is no only_db, otherwise true
      */
-    protected function _checkOnlyDatabase()
+    protected function checkOnlyDatabase()
     {
         if (is_string($GLOBALS['cfg']['Server']['only_db'])
             && strlen($GLOBALS['cfg']['Server']['only_db'])
@@ -192,10 +192,10 @@ class PMA_List_Database extends PMA_List
         $items = array();
 
         foreach ($GLOBALS['cfg']['Server']['only_db'] as $each_only_db) {
-            if ($each_only_db === '*' && ! $this->_show_databases_disabled) {
+            if ($each_only_db === '*' && ! $this->show_databases_disabled) {
                 // append all not already listed dbs to the list
                 $items = array_merge(
-                    $items, array_diff($this->_retrieve(), $items)
+                    $items, array_diff($this->retrieve(), $items)
                 );
                 // there can only be one '*', and this can only be last
                 break;
@@ -209,8 +209,8 @@ class PMA_List_Database extends PMA_List
                 continue;
             }
 
-            if (! $this->_show_databases_disabled) {
-                $items = array_merge($items, $this->_retrieve($each_only_db));
+            if (! $this->show_databases_disabled) {
+                $items = array_merge($items, $this->retrieve($each_only_db));
                 continue;
             }
 
@@ -441,7 +441,7 @@ class PMA_List_Database extends PMA_List
      * @deprecated
      * @return void
      */
-    protected function _checkAgainstPrivTables()
+    protected function checkAgainstPrivTables()
     {
         // 1. get allowed dbs from the "mysql.db" table
         // User can be blank (anonymous user)

@@ -493,7 +493,7 @@ if (! function_exists('__')) {
     PMA_fatalError('Bad invocation!');
 }
 
-/* l10n: Text direction, use either ltr or rtl */
+/* l10n: Text direction for language, use either "ltr" or "rtl" */
 $GLOBALS['text_dir'] = __('ltr');
 
 /* TCPDF */

@@ -10,6 +10,8 @@ require_once 'libraries/gis/pma_gis_geometry.php';
 
 /**
  * Tests for PMA_GIS_Geometry class
+ *
+ * @package PhpMyAdmin-test
  */
 class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
 {
@@ -244,5 +246,68 @@ class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
             ),
         );
     }
+
+    /**
+     *
+     * @param type $srid
+     * @param type $scale_data
+     * @param type $output
+     * @dataProvider providerForTestGetBoundsForOl
+     */
+    public function testGetBoundsForOl($srid, $scale_data, $output){
+
+        $this->assertEquals(
+            $this->_callProtectedFunction(
+                'getBoundsForOl',
+                array($srid, $scale_data)
+            ),
+            $output
+        );
+    }
+
+    public function providerForTestGetBoundsForOl() {
+        return array(
+            array(
+                4326,
+                array(
+                    'minX' => '0',
+                    'minY' => '0',
+                    'maxX' => '1',
+                    'maxY' => '1'
+                ),
+                'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.LonLat(0, 0).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject())); bound.extend(new OpenLayers.LonLat(1, 1).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()));'
+            ),
+        );
+
+    }
+
+    /**
+     *
+     * @param type $polygons
+     * @param type $srid
+     * @param type $output
+     *
+     *@dataProvider providerForTestGetPolygonArrayForOpenLayers
+     */
+    public function testGetPolygonArrayForOpenLayers($polygons, $srid, $output){
+        $this->assertEquals(
+            $this->_callProtectedFunction(
+                'getPolygonArrayForOpenLayers',
+                array($polygons, $srid)
+            ),
+            $output
+        );
+    }
+
+    public function providerForTestGetPolygonArrayForOpenLayers(){
+
+        return array(
+
+
+        );
+
+    }
+
+
 }
 ?>
