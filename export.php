@@ -675,8 +675,6 @@ do {
             || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data')
             && ! PMA_Table::isMerge($db, $table)
         ) {
-                    echo "not server not database";
-
             if (!empty($sql_query)) {
                 // only preg_replace if needed
                 if (!empty($add_query)) {
