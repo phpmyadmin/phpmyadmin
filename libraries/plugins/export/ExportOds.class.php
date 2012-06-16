@@ -228,8 +228,6 @@ class ExportOds extends ExportPlugin
      * @param string $sql_query SQL query for obtaining data
      *
      * @return bool Whether it succeeded
-     *
-     * @access public
      */
     public function exportData($db, $table, $crlf, $error_url, $sql_query)
     {
