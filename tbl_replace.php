@@ -183,7 +183,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
         // Note: $key is an md5 of the fieldname. The actual fieldname is available in $multi_edit_columns_name[$key]
 
         include 'libraries/tbl_replace_fields.inc.php';
-        list($val, $cur_value) = PMA_getCurrentValueForMultipleEdit($multi_edit_colummns,
+        $cur_value = PMA_getCurrentValueForMultipleEdit($multi_edit_colummns,
             $multi_edit_columns_name, $multi_edit_funcs, $gis_from_text_functions, $val,
             $gis_from_wkb_functions, $func_optional_param, $func_no_param, $key);
 

@@ -1906,7 +1906,7 @@ function PMA_getCurrentValueForMultipleEdit($multi_edit_colummns, $multi_edit_co
     } else {
         $cur_value = $multi_edit_funcs[$key] . '()';
     }   
-    return array($val, $cur_value);
+    return $cur_value;
 }
 
 /**
