@@ -106,6 +106,16 @@ class PMA_TableSearch
     }
 
     /**
+     * Returns Column names array
+     *
+     * @return array column names
+     */
+    public function getColumnNames()
+    {        
+        return $this->_columnNames;
+    }
+
+    /**
      * Gets all the columns of a table along with their types, collations
      * and whether null or not.
      *
