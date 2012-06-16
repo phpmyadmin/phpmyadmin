@@ -21,8 +21,9 @@ if (! defined('PHPMYADMIN')) {
  *
  * @return array $_form_params array of insert/edit form parameters
  */
-function PMA_getFormParametersForInsertForm($db, $table, $where_clauses, $where_clause_array, $err_url)
-{
+function PMA_getFormParametersForInsertForm($db, $table, $where_clauses,
+    $where_clause_array, $err_url
+) {
     $_form_params = array(
         'db'        => $db,
         'table'     => $table,
@@ -198,9 +199,13 @@ function PMA_showFunctionFieldsInEditMode($url_params, $showFuncFields)
     $params['goto'] = 'sql.php';
     $this_url_params = array_merge($url_params, $params);
     if (! $showFuncFields) {
-        return ' : <a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '">' . __('Function') . '</a>' . "\n";
+        return ' : <a href="tbl_change.php'
+            . PMA_generate_common_url($this_url_params)
+            . '">' . __('Function') . '</a>' . "\n";
     }
-    return '          <th><a href="tbl_change.php' . PMA_generate_common_url($this_url_params) . '" title="' . __('Hide') . '">' . __('Function') . '</a></th>' . "\n";
+    return '          <th><a href="tbl_change.php'
+        . PMA_generate_common_url($this_url_params)
+        . '" title="' . __('Hide') . '">' . __('Function') . '</a></th>' . "\n";
 }
 
 /**
@@ -222,9 +227,12 @@ function PMA_showColumnTypesInDataEditView($url_params, $showColumnType )
     $params['goto'] = 'sql.php';
     $this_other_url_params = array_merge($url_params, $params);
     if (! $showColumnType) {
-        return ' : <a href="tbl_change.php' . PMA_generate_common_url($this_other_url_params) . '">' . __('Type') . '</a>' . "\n";
+        return ' : <a href="tbl_change.php'
+            . PMA_generate_common_url($this_other_url_params)
+            . '">' . __('Type') . '</a>' . "\n";
     }
-    return '          <th><a href="tbl_change.php' . PMA_generate_common_url($this_other_url_params)
+    return '          <th><a href="tbl_change.php'
+        . PMA_generate_common_url($this_other_url_params)
         . '" title="' . __('Hide') . '">' . __('Type') . '</a></th>' . "\n";
 
 }
@@ -439,8 +447,10 @@ function PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
         $html_output .= '        <td class="center">--</td>' . "\n";
     } else {
         $html_output .= '<td>' . "\n";
-        $html_output .= '<select name="funcs' . $column_name_appendix . '"' . $unnullify_trigger
-            . 'tabindex="' . ($tabindex + $tabindex_for_function) . '" id="field_' . $idindex . '_1">';
+        $html_output .= '<select name="funcs' . $column_name_appendix . '"'
+            . $unnullify_trigger
+            . 'tabindex="' . ($tabindex + $tabindex_for_function) . '" id="field_'
+            . $idindex . '_1">';
         $html_output .= PMA_getFunctionsForField($column, $insert_mode) . "\n";
         $html_output .= '</select>' .  "\n";
         $html_output .= '</td>' .  "\n";
@@ -469,13 +479,15 @@ function PMA_getNullColumn($column, $column_name_appendix, $real_null_value,
     $html_output = '';
     $html_output .= '        <td>' . "\n";
     if ($column['Null'] == 'YES') {
-        $html_output .= '            <input type="hidden" name="fields_null_prev' . $column_name_appendix . '"';
+        $html_output .= '            <input type="hidden" name="fields_null_prev'
+            . $column_name_appendix . '"';
         if ($real_null_value && !$column['first_timestamp']) {
             $html_output .= ' value="on"';
         }
         $html_output .= ' />' . "\n";
 
-        $html_output .= '            <input type="checkbox" class="checkbox_null" tabindex="' . ($tabindex + $tabindex_for_null) . '"'
+        $html_output .= '<input type="checkbox" class="checkbox_null" tabindex="'
+            . ($tabindex + $tabindex_for_null) . '"'
              . ' name="fields_null' . $column_name_appendix . '"';
         if ($real_null_value && !$column['first_timestamp']) {
             $html_output .= ' checked="checked"';
@@ -516,10 +528,14 @@ function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
         }
     } elseif (strstr($column['True_Type'], 'set')) {
         $nullify_code = '3';
-    } elseif ($foreigners && isset($foreigners[$column['Field']]) && $foreignData['foreign_link'] == false) {
+    } elseif ($foreigners && isset($foreigners[$column['Field']])
+        && ($foreignData['foreign_link'] == false)
+    ) {
         // foreign key in a drop-down
         $nullify_code = '4';
-    } elseif ($foreigners && isset($foreigners[$column['Field']]) && $foreignData['foreign_link'] == true) {
+    } elseif ($foreigners && isset($foreigners[$column['Field']])
+        && ($foreignData['foreign_link'] == true)
+    ) {
         // foreign key with a browsing icon
         $nullify_code = '6';
     } else {
@@ -565,51 +581,62 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
     $html_output = '';
 
     if ($foreignData['foreign_link'] == true) {
-        $html_output .= PMA_getForeignLink($column, $backup_field, $column_name_appendix,
-            $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex, $data,
-            $paramTableDbArray, $rownumber_param, $titles
-            );
+        $html_output .= PMA_getForeignLink($column, $backup_field,
+            $column_name_appendix, $unnullify_trigger, $tabindex, $tabindex_for_value,
+            $idindex, $data, $paramTableDbArray, $rownumber_param, $titles
+        );
 
     } elseif (is_array($foreignData['disp_row'])) {
         $html_output .= PMA_dispRowForeignData($backup_field, $column_name_appendix,
             $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex, $data, $foreignData
-            );
+        );
 
-    } elseif ($GLOBALS['cfg']['LongtextDoubleTextarea'] && strstr($column['pma_type'], 'longtext')) {
+    } elseif ($GLOBALS['cfg']['LongtextDoubleTextarea']
+        && strstr($column['pma_type'], 'longtext')
+    ) {
         $html_output = '&nbsp;</td>';
         $html_output .= '</tr>';
         $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">'
             . '<td colspan="5" class="right">';
-        $html_output .= PMA_getTextarea($column,$backup_field, $column_name_appendix, $unnullify_trigger,
-            $tabindex, $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded
-            );
+        $html_output .= PMA_getTextarea($column,$backup_field, $column_name_appendix,
+            $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex, $text_dir,
+            $special_chars_encoded
+        );
 
     } elseif (strstr($column['pma_type'], 'text')) {
-        $html_output .= PMA_getTextarea($column,$backup_field, $column_name_appendix, $unnullify_trigger,
-            $tabindex, $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded
-            );
+        $html_output .= PMA_getTextarea($column,$backup_field, $column_name_appendix,
+            $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex, $text_dir,
+            $special_chars_encoded
+        );
         $html_output .= "\n";
         if (strlen($special_chars) > 32000) {
             $html_output .= "        </td>\n";
-            $html_output .= '        <td>' . __('Because of its length,<br /> this column might not be editable');
+            $html_output .= '        <td>'
+                . __('Because of its length,<br /> this column might not be editable');
         }
 
     } elseif ($column['pma_type'] == 'enum') {
         $html_output .= PMA_getPmaTypeEnum($paramsArrayForColumns, $column,$extracted_columnspec);
 
     } elseif ($column['pma_type'] == 'set') {
-        $html_output .= PMA_getPmaTypeSet($column,$extracted_columnspec, $backup_field,
-            $column_name_appendix, $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex);
+        $html_output .= PMA_getPmaTypeSet($column,$extracted_columnspec,
+            $backup_field, $column_name_appendix, $unnullify_trigger, $tabindex,
+            $tabindex_for_value, $idindex
+        );
 
     } elseif ($column['is_binary'] || $column['is_blob']) {
-        $html_output .= PMA_getBinaryAndBlobColumn($column, $data, $special_chars,$biggest_max_file_size,
-             $backup_field,$column_name_appendix, $unnullify_trigger, $tabindex, $tabindex_for_value,
-            $idindex, $text_dir, $special_chars_encoded, $vkey, $is_upload);
+        $html_output .= PMA_getBinaryAndBlobColumn($column, $data, $special_chars,
+            $biggest_max_file_size, $backup_field,$column_name_appendix,
+            $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex,
+            $text_dir, $special_chars_encoded, $vkey, $is_upload
+        );
 
     } elseif (! in_array($column['pma_type'], $no_support_types)) {
-        $html_output .= PMA_getNoSupportTypes($column, $default_char_editing,$backup_field,
-            $column_name_appendix, $unnullify_trigger,$tabindex,$special_chars,
-            $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded, $data, $extracted_columnspec);
+        $html_output .= PMA_getNoSupportTypes($column, $default_char_editing,
+            $backup_field, $column_name_appendix, $unnullify_trigger,$tabindex,
+            $special_chars, $tabindex_for_value, $idindex, $text_dir,
+            $special_chars_encoded, $data, $extracted_columnspec
+        );
     }
 
     if (in_array($column['pma_type'], $gis_data_types)) {
@@ -644,14 +671,16 @@ function PMA_getForeignLink($column, $backup_field, $column_name_appendix,
     list($db, $table) = $paramTableDbArray;
     $html_output = '';
     $html_output .= $backup_field . "\n";
-    $html_output .= '<input type="hidden" name="fields_type' . $column_name_appendix . '" value="foreign" />';
+    $html_output .= '<input type="hidden" name="fields_type'
+        . $column_name_appendix . '" value="foreign" />';
     $html_output .= '<input type="text" name="fields' . $column_name_appendix . '"'
         . 'class="textfield" ' . $unnullify_trigger
         . 'tabindex="' . ($tabindex + $tabindex_for_value) . '"'
         . 'id="field_' . ($idindex) . '_3"'
         . 'value="' . htmlspecialchars($data) . '" />'
         . '<a class="hide foreign_values_anchor" target="_blank" onclick="window.open(this.href,'
-        . '\'foreigners\', \'width=640,height=240,scrollbars=yes,resizable=yes\'); return false;" href="browse_foreigners.php?'
+        . '\'foreigners\', \'width=640,height=240,scrollbars=yes,'
+        . 'resizable=yes\'); return false;" href="browse_foreigners.php?'
         . PMA_generate_common_url($db, $table) . '&amp;field='
         . PMA_escapeJsString(urlencode($column['Field']) . $rownumber_param) . '">'
         . str_replace("'", "\'", $titles['Browse']) . '</a>';
@@ -677,7 +706,8 @@ function PMA_dispRowForeignData($backup_field, $column_name_appendix,
 ) {
     $html_output = '';
     $html_output .= $backup_field . "\n";
-    $html_output .= '<input type="hidden" name="fields_type' . $column_name_appendix . '" value="foreign" />'
+    $html_output .= '<input type="hidden" name="fields_type' . $column_name_appendix
+        . '" value="foreign" />'
         . '<select name="fields' . $column_name_appendix . '"'
         . $unnullify_trigger
         . 'class="textfield"' . ($tabindex + $tabindex_for_value). '"'
@@ -704,7 +734,7 @@ function PMA_dispRowForeignData($backup_field, $column_name_appendix,
  *
  * @return string                       an html snippet
  */
-function PMA_getTextarea($column, $backup_field, $column_name_appendix, $unnullify_trigger,
+function PMA_getTextarea($column, $backup_field, $column_name_appendix,$unnullify_trigger,
     $tabindex, $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded
 ) {
     $the_class = '';
@@ -715,7 +745,9 @@ function PMA_getTextarea($column, $backup_field, $column_name_appendix, $unnulli
         $the_class = 'char';
         $textAreaRows = $GLOBALS['cfg']['CharTextareaRows'];
         $textareaCols = $GLOBALS['cfg']['CharTextareaCols'];
-    } elseif (($GLOBALS['cfg']['LongtextDoubleTextarea'] && strstr($column['pma_type'], 'longtext'))) {
+    } elseif ($GLOBALS['cfg']['LongtextDoubleTextarea']
+        && strstr($column['pma_type'], 'longtext')
+    ) {
         $textAreaRows = $GLOBALS['cfg']['TextareaRows']*2;
         $textareaCols = $GLOBALS['cfg']['TextareaCols']*2;
     }
@@ -752,17 +784,20 @@ function PMA_getPmaTypeEnum($column, $backup_field, $column_name_appendix, $extr
          $column['values'] = PMA_getColumnEnumValues($column, $extracted_columnspec);
      }
      $column_enum_values = $column['values'];
-     $html_output .= '<input type="hidden" name="fields_type' . $column_name_appendix. '" value="enum" />';
-     $html_output .= '<input type="hidden" name="fields' . $column_name_appendix . '" value="" />';
-     $html_output .= "\n" . '            ' . $backup_field . "\n";
+     $html_output .= '<input type="hidden" name="fields_type'
+        . $column_name_appendix. '" value="enum" />'
+        .  '<input type="hidden" name="fields' . $column_name_appendix . '" value="" />'
+        . "\n" . '            ' . $backup_field . "\n";
      if (strlen($column['Type']) > 20) {
-         $html_output .= PMA_getDropDownDependingOnLength($column, $column_name_appendix, $unnullify_trigger,
-            $tabindex, $tabindex_for_value, $idindex, $data, $column_enum_values
-            );
+         $html_output .= PMA_getDropDownDependingOnLength($column, $column_name_appendix,
+            $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex, $data,
+            $column_enum_values
+        );
      } else {
-         $html_output .= PMA_getRadioButtonDependingOnLength($column_name_appendix, $unnullify_trigger,
-            $tabindex, $column, $tabindex_for_value, $idindex, $data, $column_enum_values
-            );
+         $html_output .= PMA_getRadioButtonDependingOnLength($column_name_appendix,
+            $unnullify_trigger, $tabindex, $column, $tabindex_for_value, $idindex,
+            $data, $column_enum_values
+        );
      }
      return $html_output;
 }
@@ -804,8 +839,9 @@ function PMA_getColumnEnumValues($column, $extracted_columnspec)
  *
  * @return string                       an html snippet
  */
-function PMA_getDropDownDependingOnLength($column, $column_name_appendix, $unnullify_trigger,
-    $tabindex, $tabindex_for_value, $idindex, $data, $column_enum_values
+function PMA_getDropDownDependingOnLength($column, $column_name_appendix,
+    $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex, $data,
+    $column_enum_values
 ) {
     $html_output = '<select name="fields' . $column_name_appendix . '"'
         . $unnullify_trigger
@@ -891,7 +927,9 @@ function PMA_getRadioButtonDependingOnLength($column_name_appendix, $unnullify_t
 function PMA_getPmaTypeSet($column,$extracted_columnspec, $backup_field,
     $column_name_appendix, $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex
 ) {
-    list($column_set_values, $select_size) = PMA_getColumnSetValueAndSelectSize($column, $extracted_columnspec);
+    list($column_set_values, $select_size)
+        = PMA_getColumnSetValueAndSelectSize($column, $extracted_columnspec);
+    
     $vset = array_flip(explode(',', $data));
     $html_output = $backup_field . "\n";
     $html_output .= '<input type="hidden" name="fields_type' . $column_name_appendix . '" value="set" />';
@@ -974,7 +1012,8 @@ function PMA_getBinaryAndBlobColumn($column, $data, $special_chars,$biggest_max_
             unset($data_size);
         }
 
-        $html_output .= '<input type="hidden" name="fields_type' . $column_name_appendix . '" value="protected" />'
+        $html_output .= '<input type="hidden" name="fields_type' . $column_name_appendix 
+            . '" value="protected" />'
             . '<input type="hidden" name="fields' . $column_name_appendix . '" value="" />';
     } elseif ($column['is_blob']) {
         $html_output .= "\n"
@@ -992,7 +1031,8 @@ function PMA_getBinaryAndBlobColumn($column, $data, $special_chars,$biggest_max_
     if ($is_upload && $column['is_blob']) {
         $html_output .= '<br />'
             . '<input type="file" name="fields_upload' . $vkey . '[' . $column['Field_md5']
-            . ']" class="textfield" id="field_' . $idindex . '_3" size="10" ' . $unnullify_trigger . '/>&nbsp;';
+            . ']" class="textfield" id="field_' . $idindex . '_3" size="10" ' 
+            . $unnullify_trigger . '/>&nbsp;';
         list($html_out, $biggest_max_file_size) = PMA_getMaxUploadSize($column,$biggest_max_file_size);
         $html_output .= $html_out;
     }
@@ -1052,11 +1092,12 @@ function PMA_getSelectOptionForUpload($vkey, $column)
             . '        ' . __('The directory you set for upload work cannot be reached') . "\n";
     } elseif (!empty($files)) {
         return "<br />\n"
-            . '    <i>' . __('Or') . '</i>' . ' ' . __('web server upload directory') . ':<br />' . "\n"
-            . '        <select size="1" name="fields_uploadlocal' . $vkey . '[' . $column['Field_md5'] . ']">' . "\n"
-            . '            <option value="" selected="selected"></option>' . "\n"
+            . '<i>' . __('Or') . '</i>' . ' ' . __('web server upload directory') . ':<br />' . "\n"
+            . '<select size="1" name="fields_uploadlocal' . $vkey . '['
+            . $column['Field_md5'] . ']">' . "\n"
+            . '<option value="" selected="selected"></option>' . "\n"
             . $files
-            . '        </select>' . "\n";
+            . '</select>' . "\n";
     }
 }
 
@@ -1116,7 +1157,8 @@ function PMA_getMaxUploadSize($column, $biggest_max_file_size)
  */
 function PMA_getNoSupportTypes($column, $default_char_editing,$backup_field,
     $column_name_appendix, $unnullify_trigger,$tabindex,$special_chars,
-    $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded,$data, $extracted_columnspec
+    $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded,$data,
+    $extracted_columnspec
 ) {
     $fieldsize = PMA_getColumnSize($column, $extracted_columnspec);
     $html_output = $backup_field . "\n";
@@ -1126,26 +1168,31 @@ function PMA_getNoSupportTypes($column, $default_char_editing,$backup_field,
     ) {
         $html_output .= "\n";
         $GLOBALS['cfg']['CharEditing'] = $default_char_editing;
-        $html_output .= PMA_getTextarea($column, $backup_field, $column_name_appendix, $unnullify_trigger,
-            $tabindex, $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded);
+        $html_output .= PMA_getTextarea($column, $backup_field, $column_name_appendix,
+            $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex, $text_dir,
+            $special_chars_encoded);
     } else {
         $html_output .= PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
             $fieldsize, $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex);
 
         if ($column['Extra'] == 'auto_increment') {
-            $html_output .= '<input type="hidden" name="auto_increment' . $column_name_appendix . '" value="1" />';
+            $html_output .= '<input type="hidden" name="auto_increment'
+                . $column_name_appendix . '" value="1" />';
 
         }
         if (substr($column['pma_type'], 0, 9) == 'timestamp') {
-            $html_output .= '<input type="hidden" name="fields_type' . $column_name_appendix . '" value="timestamp" />';
+            $html_output .= '<input type="hidden" name="fields_type'
+                . $column_name_appendix . '" value="timestamp" />';
 
         }
         if (substr($column['pma_type'], 0, 8) == 'datetime') {
-            $html_output .= '<input type="hidden" name="fields_type' . $column_name_appendix . '" value="datetime" />';
+            $html_output .= '<input type="hidden" name="fields_type'
+                . $column_name_appendix . '" value="datetime" />';
 
         }
         if ($column['True_Type'] == 'bit') {
-            $html_output .= '<input type="hidden" name="fields_type' . $column_name_appendix . '" value="bit" />';
+            $html_output .= '<input type="hidden" name="fields_type'
+                . $column_name_appendix . '" value="bit" />';
 
         }
         if ($column['pma_type'] == 'date'
@@ -1186,7 +1233,10 @@ function PMA_getColumnSize($column, $extracted_columnspec)
          */
         $fieldsize = $column['len'];
     }
-    return min(max($fieldsize, $GLOBALS['cfg']['MinSizeForInputField']), $GLOBALS['cfg']['MaxSizeForInputField']);
+    return min(
+        max($fieldsize, $GLOBALS['cfg']['MinSizeForInputField']),
+        $GLOBALS['cfg']['MaxSizeForInputField']
+    );
 }
 
 /**
@@ -1233,7 +1283,8 @@ function PMA_getContinueInsertionForm($table, $db, $where_clause_array, $err_url
 
     if (isset($_REQUEST['where_clause'])) {
         foreach ($where_clause_array as $key_id => $where_clause) {
-            $html_output .= '<input type="hidden" name="where_clause[' . $key_id . ']" value="' . htmlspecialchars(trim($where_clause)) . '" />'. "\n";
+            $html_output .= '<input type="hidden" name="where_clause[' . $key_id . ']" value="'
+                . htmlspecialchars(trim($where_clause)) . '" />'. "\n";
         }
     }
     $tmp = '<select name="insert_rows" id="insert_rows">' . "\n";
@@ -1331,7 +1382,8 @@ function PMA_getAfterInsertDropDown($where_clause, $after_insert, $found_unique_
         . __('Insert another new row') . '</option>';
 
     if (isset($where_clause)) {
-        $html_output .= '<option value="same_insert" ' . ($after_insert == 'same_insert' ? 'selected="selected"' : '') . '>'
+        $html_output .= '<option value="same_insert" '
+            . ($after_insert == 'same_insert' ? 'selected="selected"' : '') . '>'
             . __('Go back to this page') . '</option>';
 
         // If we have just numeric primary key, we can also edit next
@@ -1340,7 +1392,8 @@ function PMA_getAfterInsertDropDown($where_clause, $after_insert, $found_unique_
         // in 2.9.0, we are looking for `table_name`.`field_name` = numeric_value
         $is_numeric = false;
         if(! is_array($where_clause)) {
-            $is_numeric = $found_unique_key && preg_match('@^[\s]*`[^`]*`[\.]`[^`]*` = [0-9]+@', $where_clause);
+            $is_numeric = $found_unique_key
+                && preg_match('@^[\s]*`[^`]*`[\.]`[^`]*` = [0-9]+@', $where_clause);
         } else {
             for ($i = 0; $i < count($where_clause); $i++) {
                 $is_numeric = preg_match('@^[\s]*`[^`]*`[\.]`[^`]*` = [0-9]+@', $where_clause[$i]);
@@ -1350,7 +1403,8 @@ function PMA_getAfterInsertDropDown($where_clause, $after_insert, $found_unique_
             }
         }
         if ($found_unique_key && $is_numeric) {
-            $html_output .= '<option value="edit_next" '. ($after_insert == 'edit_next' ? 'selected="selected"' : '') . '>'
+            $html_output .= '<option value="edit_next" '
+                . ($after_insert == 'edit_next' ? 'selected="selected"' : '') . '>'
                 . __('Edit next row') . '</option>';
 
         }
@@ -1425,11 +1479,12 @@ function PMA_getHeadAndFootOfInsertRowTable($url_params)
  *                                      and possibly enum_set_values (another array)
  * @param boolean $real_null_value      whether column value null or not null
  *
- * @return array                        $real_null_value, $data, $special_chars, $backup_field, $special_chars_encoded
+ * @return array                        $real_null_value, $data, $special_chars,
+ *                                      $backup_field, $special_chars_encoded
  */
-function PMA_getSpecialCharsAndBackupFieldForExistingRow($current_row, $column, $extracted_columnspec,
-    $real_null_value, $gis_data_types, $column_name_appendix)
-{
+function PMA_getSpecialCharsAndBackupFieldForExistingRow($current_row, $column,
+    $extracted_columnspec, $real_null_value, $gis_data_types, $column_name_appendix
+) {
     $special_chars_encoded = '';
     // (we are editing)
     if (is_null($current_row[$column['Field']])) {
@@ -1447,8 +1502,12 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow($current_row, $column, 
         $special_chars = htmlspecialchars($current_row[$column['Field']]);
     } else {
         // special binary "characters"
-        if ($column['is_binary'] || ($column['is_blob'] && ! $GLOBALS['cfg']['ProtectBinary'])) {
-            if ($_SESSION['tmp_user_values']['display_binary_as_hex'] && $GLOBALS['cfg']['ShowFunctionFields']) {
+        if ($column['is_binary'] || ($column['is_blob']
+            && ! $GLOBALS['cfg']['ProtectBinary'])
+        ) {
+            if ($_SESSION['tmp_user_values']['display_binary_as_hex']
+                && $GLOBALS['cfg']['ShowFunctionFields']
+            ) {
                 $current_row[$column['Field']] = bin2hex($current_row[$column['Field']]);
                 $column['display_binary_as_hex'] = true;
             } else {
@@ -1487,7 +1546,8 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow($current_row, $column, 
  * @param type $column              description of column in given table
  * @param boolean $real_null_value  whether column value null or not null
  *
- * @return array                    $real_null_value, $data, $special_chars, $backup_field, $special_chars_encoded
+ * @return array                    $real_null_value, $data, $special_chars,
+ *                                  $backup_field, $special_chars_encoded
  */
 function PMA_getSpecialCharsAndBackupFieldForInsertingMode($column, $real_null_value)
 {
@@ -1526,7 +1586,10 @@ function PMA_getParamsForUpdateOrInsert()
 {
     if (isset($_REQUEST['where_clause'])) {
         // we were editing something => use the WHERE clause
-        $loop_array = (is_array($_REQUEST['where_clause']) ? $_REQUEST['where_clause'] : array($_REQUEST['where_clause']));
+        $loop_array = (is_array($_REQUEST['where_clause'])
+            ? $_REQUEST['where_clause']
+            : array($_REQUEST['where_clause'])
+        );
         $using_key  = true;
         $is_insert  = $_REQUEST['submit_type'] == 'insert'
                       || $_REQUEST['submit_type'] == 'showinsert'
@@ -1575,7 +1638,8 @@ function PMA_isInsertRow()
  */
 function PMA_setSessionForEditNext($one_where_clause)
 {
-    $local_query    = 'SELECT * FROM ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($GLOBALS['table'])
+    $local_query    = 'SELECT * FROM ' . PMA_backquote($GLOBALS['db']) . '.' 
+        . PMA_backquote($GLOBALS['table'])
         . ' WHERE ' . str_replace('` =', '` >', $one_where_clause)
         . ' LIMIT 1;';
     $res            = PMA_DBI_query($local_query);
@@ -1657,7 +1721,8 @@ function PMA_buildSqlQuery($is_insertignore, $query_fields, $value_sets)
     } else {
         $insert_command = 'INSERT ';
     }
-    $query[] = $insert_command . 'INTO ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($GLOBALS['table'])
+    $query[] = $insert_command . 'INTO ' . PMA_backquote($GLOBALS['db']) . '.' 
+        . PMA_backquote($GLOBALS['table'])
         . ' (' . implode(', ', $query_fields) . ') VALUES (' . implode('), (', $value_sets) . ')';
     unset($insert_command, $query_fields);
     return $query;
@@ -1724,7 +1789,10 @@ function PMA_executeSqlQuery($url_params, $query)
         $warning_messages = PMA_getWarningMessages();
     }
     unset($result, $single_query, $last_message, $query);
-    return array($url_params, $total_affected_rows, $last_messages, $warning_messages, $error_messages, $return_to_sql_query);
+    
+    return array($url_params, $total_affected_rows, $last_messages,
+        $warning_messages, $error_messages, $return_to_sql_query
+    );
 }
 
 /**
@@ -1755,9 +1823,13 @@ function PMA_getWarningMessages()
  * 
  * @return string  $dispval             display value from the foriegn table
  */
-function PMA_getDisplayValueForForeignTableColumn($where_comparison, $relation_field_value, $map, $relation_field)
-{
-    $display_field = PMA_getDisplayField($map[$relation_field]['foreign_db'], $map[$relation_field]['foreign_table']);
+function PMA_getDisplayValueForForeignTableColumn($where_comparison,
+    $relation_field_value, $map, $relation_field
+) {
+    $display_field = PMA_getDisplayField(
+        $map[$relation_field]['foreign_db'],
+        $map[$relation_field]['foreign_table']
+    );
     // Field to display from the foreign table?
     if (isset($display_field) && strlen($display_field)) {
         $dispsql     = 'SELECT ' . PMA_backquote($display_field)
@@ -1802,8 +1874,10 @@ function PMA_getLinkForRelationalDisplayField($map, $relation_field, $where_comp
         'table' => $map[$relation_field]['foreign_table'],
         'pos'   => '0',
         'sql_query' => 'SELECT * FROM '
-            . PMA_backquote($map[$relation_field]['foreign_db']) . '.' . PMA_backquote($map[$relation_field]['foreign_table'])
-            . ' WHERE ' . PMA_backquote($map[$relation_field]['foreign_field']) . $where_comparison
+            . PMA_backquote($map[$relation_field]['foreign_db'])
+            . '.' . PMA_backquote($map[$relation_field]['foreign_table'])
+            . ' WHERE ' . PMA_backquote($map[$relation_field]['foreign_field'])
+            . $where_comparison
     );
     $output = '<a href="sql.php' . PMA_generate_common_url($_url_params) . '"' . $title . '>';
 
@@ -1846,7 +1920,8 @@ function PMA_getTransformationFunctionAndTransformationOptions($db, $table,
             );
 
             if (file_exists('libraries/transformations/' . $include_file)) {
-                $transformfunction_name = str_replace('.inc.php', '', $transformation['transformation']);
+                $transformfunction_name
+                    = str_replace('.inc.php', '', $transformation['transformation']);
 
                 include_once 'libraries/transformations/' . $include_file;
 
@@ -1861,7 +1936,8 @@ function PMA_getTransformationFunctionAndTransformationOptions($db, $table,
                 }
             }
 
-            $extra_data['transformations'][$cell_index] = $transform_function($column_data, $transform_options);
+            $extra_data['transformations'][$cell_index]
+                = $transform_function($column_data, $transform_options);
         }
     }   // end of loop for each transformation cell   
     return $extra_data;
@@ -1882,8 +1958,9 @@ function PMA_getTransformationFunctionAndTransformationOptions($db, $table,
  * 
  * @return array $cur_value
  */
-function PMA_getCurrentValueAsAnArrayForMultipleEdit($multi_edit_colummns, $multi_edit_columns_name, $multi_edit_funcs,
-    $gis_from_text_functions, $current_value, $gis_from_wkb_functions, $func_optional_param, $func_no_param, $key
+function PMA_getCurrentValueAsAnArrayForMultipleEdit($multi_edit_colummns,
+    $multi_edit_columns_name, $multi_edit_funcs, $gis_from_text_functions,
+    $current_value, $gis_from_wkb_functions, $func_optional_param, $func_no_param, $key
 ) {
     if (empty($multi_edit_funcs[$key])) {
         return $current_value;
@@ -1901,7 +1978,9 @@ function PMA_getCurrentValueAsAnArrayForMultipleEdit($multi_edit_colummns, $mult
         $current_value = str_replace("''", "'", $current_value);
         return $multi_edit_funcs[$key] . '(' . $current_value . ')';
     } elseif (! in_array($multi_edit_funcs[$key], $func_no_param)
-              || ($current_value != "''" && in_array($multi_edit_funcs[$key], $func_optional_param))) {
+        || ($current_value != "''"
+        && in_array($multi_edit_funcs[$key], $func_optional_param))
+    ) {
         return $multi_edit_funcs[$key] . '(' . $current_value . ')';
     } else {
         return $multi_edit_funcs[$key] . '()';
@@ -1927,8 +2006,9 @@ function PMA_getCurrentValueAsAnArrayForMultipleEdit($multi_edit_colummns, $mult
  * @return array ($query_values, $query_fields)
  */
 function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_name,
-    $multi_edit_columns_null, $current_value, $multi_edit_columns_prev, $multi_edit_funcs,$is_insert,
-    $query_values, $query_fields, $current_value_as_an_array, $value_sets, $key, $multi_edit_columns_null_prev
+    $multi_edit_columns_null, $current_value, $multi_edit_columns_prev,
+    $multi_edit_funcs,$is_insert, $query_values, $query_fields, $current_value_as_an_array,
+    $value_sets, $key, $multi_edit_columns_null_prev
 ) {     
     //  i n s e r t
     if ($is_insert) {
@@ -1945,7 +2025,8 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
      && ! isset($multi_edit_columns_null[$key])) {
         // field had the null checkbox before the update
         // field no longer has the null checkbox
-        $query_values[] = PMA_backquote($multi_edit_columns_name[$key]) . ' = ' . $current_value_as_an_array;
+        $query_values[] = PMA_backquote($multi_edit_columns_name[$key])
+            . ' = ' . $current_value_as_an_array;
     } elseif (empty($multi_edit_funcs[$key])
      && isset($multi_edit_columns_prev[$key])
      && ("'" . PMA_sqlAddSlashes($multi_edit_columns_prev[$key]) . "'" == $current_value)) {
@@ -1957,7 +2038,8 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
         if (empty($multi_edit_columns_null_prev[$key])
             || empty($multi_edit_columns_null[$key])
         ) {
-             $query_values[] = PMA_backquote($multi_edit_columns_name[$key]) . ' = ' . $current_value_as_an_array;
+             $query_values[] = PMA_backquote($multi_edit_columns_name[$key])
+                . ' = ' . $current_value_as_an_array;
         }
     }
     return array($query_values, $query_fields);
