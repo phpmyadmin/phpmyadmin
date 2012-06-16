@@ -1874,39 +1874,38 @@ function PMA_getTransformationFunctionAndTransformationOptions($db, $table,
  * @param array $multi_edit_columns_name    multiple edit columns name array
  * @param array $multi_edit_funcs           multiple edit functions array
  * @param array $gis_from_text_functions    array that contains gis from text functions
- * @param string $val                       
+ * @param string $current_value             current value in the column          
  * @param array $gis_from_wkb_functions     initialy $val is $multi_edit_colummns[$key]
  * @param array $func_optional_param        array('RAND','UNIX_TIMESTAMP')
  * @param array $func_no_param              array of set of string
  * @param string $key                       an md5 of the column name
  * 
- * @return array $val, $cur_value
+ * @return array $cur_value
  */
-function PMA_getCurrentValueForMultipleEdit($multi_edit_colummns, $multi_edit_columns_name, $multi_edit_funcs,
-    $gis_from_text_functions, $val, $gis_from_wkb_functions, $func_optional_param, $func_no_param, $key
-) { 
+function PMA_getCurrentValueAsAnArrayForMultipleEdit($multi_edit_colummns, $multi_edit_columns_name, $multi_edit_funcs,
+    $gis_from_text_functions, $current_value, $gis_from_wkb_functions, $func_optional_param, $func_no_param, $key
+) {
     if (empty($multi_edit_funcs[$key])) {
-        $cur_value = $val;
+        return $current_value;
     } elseif ('UUID' === $multi_edit_funcs[$key]) {
         /* This way user will know what UUID new row has */
         $uuid = PMA_DBI_fetch_value('SELECT UUID()');
-        $cur_value = "'" . $uuid . "'";
+        return "'" . $uuid . "'";
     } elseif ((in_array($multi_edit_funcs[$key], $gis_from_text_functions)
-        && substr($val, 0, 3) == "'''")
+        && substr($current_value, 0, 3) == "'''")
         || in_array($multi_edit_funcs[$key], $gis_from_wkb_functions)
     ) {
         // Remove enclosing apostrophes
-        $val = substr($val, 1, strlen($val) - 2);
+        $current_value = substr($current_value, 1, strlen($current_value) - 2);
         // Remove escaping apostrophes
-        $val = str_replace("''", "'", $val);
-        $cur_value = $multi_edit_funcs[$key] . '(' . $val . ')';
+        $current_value = str_replace("''", "'", $current_value);
+        return $multi_edit_funcs[$key] . '(' . $current_value . ')';
     } elseif (! in_array($multi_edit_funcs[$key], $func_no_param)
-              || ($val != "''" && in_array($multi_edit_funcs[$key], $func_optional_param))) {
-        $cur_value = $multi_edit_funcs[$key] . '(' . $val . ')';
+              || ($current_value != "''" && in_array($multi_edit_funcs[$key], $func_optional_param))) {
+        return $multi_edit_funcs[$key] . '(' . $current_value . ')';
     } else {
-        $cur_value = $multi_edit_funcs[$key] . '()';
-    }   
-    return $cur_value;
+        return $multi_edit_funcs[$key] . '()';
+    }
 }
 
 /**
@@ -1914,13 +1913,13 @@ function PMA_getCurrentValueForMultipleEdit($multi_edit_colummns, $multi_edit_co
  * 
  * @param array $multi_edit_columns_name        multiple edit columns name array
  * @param array $multi_edit_columns_null        multiple edit columns name array
- * @param string $val                           
+ * @param string $current_value                 current value in the column in loop          
  * @param array $multi_edit_columns_prev        multiple edit previous columns array
  * @param array $multi_edit_funcs               multiple edit functions array
  * @param boolean $is_insert                    boolean value whether insert or not
  * @param array $query_values                   SET part of the sql query
  * @param array $query_fields                   array of query fileds
- * @param string $current_value                 current value in the column in loop
+ * @param string $current_value_as_an_array     current value in the column as an array
  * @param array $value_sets                     array of valu sets
  * @param string $key                           an md5 of the column name
  * @param array $multi_edit_columns_null_prev   array of multiple edit columnd null previous
@@ -1928,14 +1927,14 @@ function PMA_getCurrentValueForMultipleEdit($multi_edit_colummns, $multi_edit_co
  * @return array ($query_values, $query_fields)
  */
 function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_name,
-    $multi_edit_columns_null, $val, $multi_edit_columns_prev, $multi_edit_funcs,$is_insert,
-    $query_values, $query_fields, $current_value, $value_sets, $key, $multi_edit_columns_null_prev
+    $multi_edit_columns_null, $current_value, $multi_edit_columns_prev, $multi_edit_funcs,$is_insert,
+    $query_values, $query_fields, $current_value_as_an_array, $value_sets, $key, $multi_edit_columns_null_prev
 ) {     
     //  i n s e r t
     if ($is_insert) {
         // no need to add column into the valuelist
-        if (strlen($current_value)) {
-            $query_values[] = $current_value;
+        if (strlen($current_value_as_an_array)) {
+            $query_values[] = $current_value_as_an_array;
             // first inserted row so prepare the list of fields
             if (empty($value_sets)) {
                 $query_fields[] = PMA_backquote($multi_edit_columns_name[$key]);
@@ -1946,19 +1945,19 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
      && ! isset($multi_edit_columns_null[$key])) {
         // field had the null checkbox before the update
         // field no longer has the null checkbox
-        $query_values[] = PMA_backquote($multi_edit_columns_name[$key]) . ' = ' . $current_value;
+        $query_values[] = PMA_backquote($multi_edit_columns_name[$key]) . ' = ' . $current_value_as_an_array;
     } elseif (empty($multi_edit_funcs[$key])
      && isset($multi_edit_columns_prev[$key])
-     && ("'" . PMA_sqlAddSlashes($multi_edit_columns_prev[$key]) . "'" == $val)) {
+     && ("'" . PMA_sqlAddSlashes($multi_edit_columns_prev[$key]) . "'" == $current_value)) {
         // No change for this column and no MySQL function is used -> next column
-    } elseif (! empty($val)) {
+    } elseif (! empty($current_value)) {
         // avoid setting a field to NULL when it's already NULL
         // (field had the null checkbox before the update
         //  field still has the null checkbox)
         if (empty($multi_edit_columns_null_prev[$key])
             || empty($multi_edit_columns_null[$key])
         ) {
-             $query_values[] = PMA_backquote($multi_edit_columns_name[$key]) . ' = ' . $current_value;
+             $query_values[] = PMA_backquote($multi_edit_columns_name[$key]) . ' = ' . $current_value_as_an_array;
         }
     }
     return array($query_values, $query_fields);

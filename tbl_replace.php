@@ -179,19 +179,19 @@ foreach ($loop_array as $rownumber => $where_clause) {
     // Iterate in the order of $multi_edit_columns_name, not $multi_edit_colummns, to avoid problems
     // when inserting multiple entries
     foreach ($multi_edit_columns_name as $key => $colummn_name) {
-        $val = $multi_edit_colummns[$key];
+        $current_value = $multi_edit_colummns[$key];
         // Note: $key is an md5 of the fieldname. The actual fieldname is available in $multi_edit_columns_name[$key]
-
+        
         include 'libraries/tbl_replace_fields.inc.php';
-        $cur_value = PMA_getCurrentValueForMultipleEdit($multi_edit_colummns,
-            $multi_edit_columns_name, $multi_edit_funcs, $gis_from_text_functions, $val,
+        $current_value_as_an_array = PMA_getCurrentValueAsAnArrayForMultipleEdit($multi_edit_colummns,
+            $multi_edit_columns_name, $multi_edit_funcs, $gis_from_text_functions, $current_value,
             $gis_from_wkb_functions, $func_optional_param, $func_no_param, $key);
 
         list($query_values, $query_fields) = PMA_getQueryValuesForInsertAndUpdateInMultipleEdit(
-            $multi_edit_columns_name,$multi_edit_columns_null, $val, $multi_edit_columns_prev,
-            $multi_edit_funcs,$is_insert,$query_values, $query_fields, $cur_value, $value_sets,
+            $multi_edit_columns_name,$multi_edit_columns_null, $current_value, $multi_edit_columns_prev,
+            $multi_edit_funcs,$is_insert,$query_values, $query_fields, $current_value_as_an_array, $value_sets,
             $key, $multi_edit_columns_null_prev);    
-    } // end foreach ($multi_edit_colummns as $key => $val)
+    } //end of foreach
 
     if (count($query_values) > 0) {
         if ($is_insert) {
@@ -207,7 +207,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
 } // end foreach ($loop_array as $where_clause)
 unset($multi_edit_columns_name, $multi_edit_columns_prev, $multi_edit_funcs,
     $multi_edit_columns_type, $multi_edit_columns_null, $func_no_param,
-    $multi_edit_auto_increment, $cur_value, $key, $val, $loop_array, $where_clause,
+    $multi_edit_auto_increment, $current_value_as_an_array, $key, $current_value, $loop_array, $where_clause,
     $using_key,  $multi_edit_columns_null_prev);
 
 

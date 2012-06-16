@@ -37,7 +37,7 @@ if ($file_to_insert->isError()) {
 $file_to_insert->cleanUp();
 
 if (false !== $possibly_uploaded_val) {
-    $val = $possibly_uploaded_val;
+    $current_value = $possibly_uploaded_val;
 } else {
 
     // f i e l d    v a l u e    i n    t h e    f o r m
@@ -49,21 +49,21 @@ if (false !== $possibly_uploaded_val) {
     }
 
     // $key contains the md5() of the fieldname
-    if ($type != 'protected' && $type != 'set' && 0 === strlen($val)) {
+    if ($type != 'protected' && $type != 'set' && 0 === strlen($current_value)) {
         // best way to avoid problems in strict mode (works also in non-strict mode)
         if (isset($multi_edit_auto_increment)
             && isset($multi_edit_auto_increment[$key])
         ) {
-            $val = 'NULL';
+            $current_value = 'NULL';
         } else {
-            $val = "''";
+            $current_value = "''";
         }
     } elseif ($type == 'set') {
         if (! empty($_REQUEST['fields']['multi_edit'][$rownumber][$key])) {
-            $val = implode(',', $_REQUEST['fields']['multi_edit'][$rownumber][$key]);
-            $val = "'" . PMA_sqlAddSlashes($val) . "'";
+            $current_value = implode(',', $_REQUEST['fields']['multi_edit'][$rownumber][$key]);
+            $current_value = "'" . PMA_sqlAddSlashes($current_value) . "'";
         } else {
-             $val = "''";
+             $current_value = "''";
         }
     } elseif ($type == 'protected') {
         // here we are in protected mode (asked in the config)
@@ -75,32 +75,32 @@ if (false !== $possibly_uploaded_val) {
         // mode, insert empty field because no values were submitted. If protected
         // blobs where set, insert original fields content.
         if (! empty($prot_row[$multi_edit_columns_name[$key]])) {
-            $val = '0x' . bin2hex($prot_row[$multi_edit_columns_name[$key]]);
+            $current_value = '0x' . bin2hex($prot_row[$multi_edit_columns_name[$key]]);
         } else {
-            $val = '';
+            $current_value = '';
         }
     } elseif ($type == 'bit') {
-        $val = preg_replace('/[^01]/', '0', $val);
-        $val = "b'" . PMA_sqlAddSlashes($val) . "'";
+        $current_value = preg_replace('/[^01]/', '0', $current_value);
+        $current_value = "b'" . PMA_sqlAddSlashes($current_value) . "'";
     } elseif (! ($type == 'datetime' || $type == 'timestamp')
-        || $val != 'CURRENT_TIMESTAMP'
+        || $current_value != 'CURRENT_TIMESTAMP'
     ) {
-        $val = "'" . PMA_sqlAddSlashes($val) . "'";
+        $current_value = "'" . PMA_sqlAddSlashes($current_value) . "'";
     }
 
     // Was the Null checkbox checked for this field?
     // (if there is a value, we ignore the Null checkbox: this could
     // be possible if Javascript is disabled in the browser)
-    if (! empty($multi_edit_columns_null[$key]) && ($val == "''" || $val == '')) {
-        $val = 'NULL';
+    if (! empty($multi_edit_columns_null[$key]) && ($current_value == "''" || $current_value == '')) {
+        $current_value = 'NULL';
     }
 
     // The Null checkbox was unchecked for this field
-    if (empty($val)
+    if (empty($current_value)
         && ! empty($multi_edit_columns_null_prev[$key])
         && ! isset($multi_edit_columns_null[$key])
     ) {
-        $val = "''";
+        $current_value = "''";
     }
 }  // end else (field value in the form)
 unset($type);
