@@ -130,6 +130,17 @@ function PMA_auth()
 {
     global $conn_error;
 
+    $response = PMA_Response::getInstance();
+    if ($response->isAjax()) {
+        $response->isSuccess(false);
+        if (! empty($conn_error)) {
+            $response->addJSON('message', $conn_error);
+        } else {
+            $response->addJSON('message', PMA_Message::error(__('Your session has expired. Please login again.')));
+        }
+        exit;
+    }
+
     /* Perform logout to custom URL */
     if (! empty($_REQUEST['old_usr'])
         && ! empty($GLOBALS['cfg']['Server']['LogoutURL'])
@@ -154,20 +165,13 @@ function PMA_auth()
 
     $cell_align = ($GLOBALS['text_dir'] == 'ltr') ? 'left' : 'right';
 
-    // Defines the charset to be used
-    header('Content-Type: text/html; charset=utf-8');
+    $response->getFooter()->setMinimal();
+    $header = $response->getHeader();
+    $header->setBodyId('loginform');
+    $header->setTitle('phpMyAdmin');
+    $header->disableMenu();
+    $header->disableWarnings();
 
-    /* HTML header; do not show here the PMA version to improve security */
-    $page_title = 'phpMyAdmin ';
-    include './libraries/header_meta_style.inc.php';
-    // if $page_title is set, this script uses it as the title:
-    include './libraries/header_scripts.inc.php';
-    ?>
-</head>
-
-<body class="loginform">
-
-    <?php
     if (file_exists(CUSTOM_HEADER_FILE)) {
         include CUSTOM_HEADER_FILE;
     }
@@ -189,7 +193,7 @@ function PMA_auth()
     <?php
     echo sprintf(
         __('Welcome to %s'),
-        '<bdo dir="ltr" lang="en">' . $page_title . '</bdo>'
+        '<bdo dir="ltr" lang="en">phpMyAdmin</bdo>'
     );
     ?>
 </h1>
@@ -306,13 +310,11 @@ function PMA_auth()
 <script type="text/javascript">
 //<![CDATA[
 // show login form in top frame.
-if (top != self || document.body.className != 'loginform') {
+if (top != self || ! $('body#loginform').length) {
     window.top.location.href=location;
 }
 //]]>
 </script>
-</body>
-</html>
     <?php
     exit;
 } // end of the 'PMA_auth()' function
@@ -373,8 +375,6 @@ function PMA_auth_check()
 
         // according to the PHP manual we should do this before the destroy:
         //$_SESSION = array();
-        // but we still need some parts of the session information
-        // in libraries/header_meta_style.inc.php
 
         session_destroy();
         // -> delete password cookie(s)
@@ -581,11 +581,13 @@ function PMA_auth_set_user()
          */
         PMA_clearUserCache();
 
+        PMA_Response::getInstance()->disable();
+
         PMA_sendHeaderLocation(
             $redirect_url . PMA_generate_common_url($url_params, '&'),
             true
         );
-        exit();
+        exit;
     } // end if
 
     return true;

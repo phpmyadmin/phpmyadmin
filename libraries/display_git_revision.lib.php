@@ -17,7 +17,9 @@ if (! defined('PHPMYADMIN')) {
 function PMA_printGitRevision()
 {
     if (! $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT')) {
-        PMA_ajaxResponse('', false);
+        $response = PMA_Response::getInstance();
+        $response->isSuccess(false);
+        return;
     }
 
     // load revision data from repo
@@ -56,7 +58,6 @@ function PMA_printGitRevision()
         $branch = $commit_hash . ' (' . __('no branch') . ')';
     }
 
-    ob_start();
     $committer = $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_COMMITTER');
     $author = $GLOBALS['PMA_Config']->get('PMA_VERSION_GIT_AUTHOR');
     PMA_printListItem(
@@ -79,7 +80,4 @@ function PMA_printGitRevision()
             : ''),
         'li_pma_version_git', null, null, null
     );
-    $item = ob_get_contents();
-    ob_end_clean();
-    PMA_ajaxResponse($item, true);
 }

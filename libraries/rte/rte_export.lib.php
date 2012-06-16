@@ -26,8 +26,10 @@ function PMA_RTE_handleExport($item_name, $export_data)
                      . htmlspecialchars(trim($export_data)) . '</textarea>';
         $title = sprintf(PMA_RTE_getWord('export'), $item_name);
         if ($GLOBALS['is_ajax_request'] == true) {
-            $extra_data = array('title' => $title);
-            PMA_ajaxResponse($export_data, true, $extra_data);
+            $response = PMA_Response::getInstance();
+            $response->addJSON('message', $export_data);
+            $response->addJSON('title', $title);
+            exit;
         } else {
             echo "<fieldset>\n"
                . "<legend>$title</legend>\n"
@@ -40,7 +42,10 @@ function PMA_RTE_handleExport($item_name, $export_data)
                   . sprintf(PMA_RTE_getWord('not_found'), $item_name, $_db);
         $response = PMA_message::error($response);
         if ($GLOBALS['is_ajax_request'] == true) {
-            PMA_ajaxResponse($response, false);
+            $response = PMA_Response::getInstance();
+            $response->isSuccess(false);
+            $response->addJSON('message', $response);
+            exit;
         } else {
             $response->display();
         }

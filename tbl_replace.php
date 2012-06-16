@@ -31,9 +31,12 @@ PMA_DBI_select_db($GLOBALS['db']);
  */
 $goto_include = false;
 
-$GLOBALS['js_include'][] = 'makegrid.js';
+$response = PMA_Response::getInstance();
+$header = $response->getHeader();
+$scripts = $header->getScripts();
+$scripts->addFile('makegrid.js');
 // Needed for generation of Inline Edit anchors
-$GLOBALS['js_include'][] = 'sql.js';
+$scripts->addFile('sql.js');
 
 // check whether insert row moode, if so include tbl_change.php
 PMA_isInsertRow();
@@ -217,9 +220,6 @@ if ($is_insert && count($value_sets) > 0) {
     // Note: logic passes here for inline edit
     $message = PMA_Message::success(__('No change'));
     $active_page = $goto_include;
-    if (! $GLOBALS['is_ajax_request'] == true) {
-        include_once 'libraries/header.inc.php';
-    }
     include '' . PMA_securePath($goto_include);
     exit;
 }
@@ -260,8 +260,6 @@ if ($GLOBALS['is_ajax_request'] == true) {
      */
 
     if (isset($_REQUEST['rel_fields_list']) && $_REQUEST['rel_fields_list'] != '') {
-        //handle relations work here for updated row.
-        include_once 'libraries/relation.lib.php';
 
         $map = PMA_getForeigners($db, $table, '', 'both');
 
@@ -304,7 +302,12 @@ if ($GLOBALS['is_ajax_request'] == true) {
     /**Get the total row count of the table*/
     $extra_data['row_count'] = PMA_Table::countRecords($_REQUEST['db'], $_REQUEST['table']);
     $extra_data['sql_query'] = PMA_getMessage($message, $GLOBALS['display_query']);
-    PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
+
+    $response = PMA_Response::getInstance();
+    $response->isSuccess($message->isSuccess());
+    $response->addJSON('message', $message);
+    $response->addJSON($extra_data);
+    exit;
 }
 
 if (isset($return_to_sql_query)) {
@@ -314,7 +317,7 @@ if (isset($return_to_sql_query)) {
     $GLOBALS['sql_query'] = $return_to_sql_query;
 }
 
-$GLOBALS['js_include'][] = 'tbl_change.js';
+$scripts->addFile('tbl_change.js');
 
 $active_page = $goto_include;
 
@@ -327,10 +330,6 @@ if (isset($_REQUEST['after_insert']) && 'new_insert' == $_REQUEST['after_insert'
     unset($_REQUEST['where_clause']);
 }
 
-/**
- * Load header.
- */
-require_once 'libraries/header.inc.php';
 /**
  * Load target page.
  */

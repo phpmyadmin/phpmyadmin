@@ -14,14 +14,17 @@
  */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/mysql_charsets.lib.php';
-require_once 'libraries/tbl_select.lib.php';
+require_once 'libraries/TableSearch.class.php';
 
-$GLOBALS['js_include'][] = 'makegrid.js';
-$GLOBALS['js_include'][] = 'sql.js';
-$GLOBALS['js_include'][] = 'tbl_select.js';
-$GLOBALS['js_include'][] = 'tbl_change.js';
-$GLOBALS['js_include'][] = 'jquery/timepicker.js';
-$GLOBALS['js_include'][] = 'gis_data_editor.js';
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('makegrid.js');
+$scripts->addFile('sql.js');
+$scripts->addFile('tbl_select.js');
+$scripts->addFile('tbl_change.js');
+$scripts->addFile('jquery/timepicker.js');
+$scripts->addFile('gis_data_editor.js');
 
 $post_params = array(
     'ajax_request',
@@ -33,6 +36,7 @@ foreach ($post_params as $one_post_param) {
     }
 }
 
+$table_search = new PMA_TableSearch($db, $table, "normal");
 
 /**
  * Not selection yet required -> displays the selection form
@@ -42,7 +46,6 @@ if (! isset($_POST['columnsToDisplay']) || $_POST['columnsToDisplay'][0] == '') 
     include_once 'libraries/tbl_common.inc.php';
     //$err_url   = 'tbl_select.php' . $err_url;
     $url_query .= '&amp;goto=tbl_select.php&amp;back=tbl_select.php';
-
     /**
      * Gets table's information
      */
@@ -53,28 +56,14 @@ if (! isset($_POST['columnsToDisplay']) || $_POST['columnsToDisplay'][0] == '') 
     }
     // Defines the url to return to in case of error in the next sql statement
     $err_url   = $goto . '?' . PMA_generate_common_url($db, $table);
-
-    // Gets the list and number of fields
-    list($columnNames, $columnTypes, $columnCollations, $columnNullFlags, $geomColumnFlag)
-        = PMA_tbl_getFields($db, $table);
-
-    // retrieve keys into foreign fields, if any
-    // check also foreigners even if relwork is FALSE (to get
-    // foreign keys from innodb)
-    $foreigners = PMA_getForeigners($db, $table);
-
     // Displays the table search form
-    echo PMA_tblSearchGetSelectionForm(
-        $goto, $db, $table, $columnNames, $columnTypes, $columnCollations,
-        $columnNullFlags, $geomColumnFlag, $foreigners, "normal"
-    );
+    $response->addHTML($table_search->getSelectionForm($goto));
 
-    include 'libraries/footer.inc.php';
 } else {
     /**
      * Selection criteria have been submitted -> do the work
      */
-    $sql_query = PMA_tblSearchBuildSqlQuery();
+    $sql_query = $table_search->buildSqlQuery();
     include 'sql.php';
 }
 ?>

@@ -121,7 +121,7 @@ function PMA_TRI_handleEditor()
 
         $output = PMA_getMessage($message, $sql_query);
         if ($GLOBALS['is_ajax_request']) {
-            $extra_data = array();
+            $response = PMA_Response::getInstance();
             if ($message->isSuccess()) {
                 $items = PMA_DBI_get_triggers($db, $table, '');
                 $trigger = false;
@@ -130,19 +130,24 @@ function PMA_TRI_handleEditor()
                         $trigger = $value;
                     }
                 }
-                $extra_data['insert'] = false;
+                $insert = false;
                 if (empty($table) || ($trigger !== false && $table == $trigger['table'])) {
-                    $extra_data['insert'] = true;
-                    $extra_data['new_row'] = PMA_TRI_getRowForList($trigger);
-                    $extra_data['name'] = htmlspecialchars(
-                        strtoupper($_REQUEST['item_name'])
+                    $insert = true;
+                    $response->addJSON('new_row', PMA_TRI_getRowForList($trigger));
+                    $response->addJSON(
+                        'name',
+                        htmlspecialchars(
+                            strtoupper($_REQUEST['item_name'])
+                        )
                     );
                 }
-                $response = $output;
+                $response->addJSON('insert', $insert);
+                $response->addJSON('message', $output);
             } else {
-                $response = $message;
+                $response->addJSON('message', $message);
+                $response->isSuccess(false);
             }
-            PMA_ajaxResponse($response, $message->isSuccess(), $extra_data);
+            exit;
         }
     }
 
@@ -175,14 +180,14 @@ function PMA_TRI_handleEditor()
             // Show form
             $editor = PMA_TRI_getEditorForm($mode, $item);
             if ($GLOBALS['is_ajax_request']) {
-                $extra_data = array('title' => $title);
-                PMA_ajaxResponse($editor, true, $extra_data);
+                $response = PMA_Response::getInstance();
+                $response->addJSON('message', $editor);
+                $response->addJSON('title', $title);
             } else {
                 echo "\n\n<h2>$title</h2>\n\n$editor";
                 unset($_POST);
-                include './libraries/footer.inc.php';
             }
-            // exit;
+            exit;
         } else {
             $message  = __('Error in processing request') . ' : ';
             $message .= sprintf(
@@ -192,7 +197,10 @@ function PMA_TRI_handleEditor()
             );
             $message = PMA_message::error($message);
             if ($GLOBALS['is_ajax_request']) {
-                PMA_ajaxResponse($message, false);
+                $response = PMA_Response::getInstance();
+                $response->isSuccess(false);
+                $response->addJSON('message', $message);
+                exit;
             } else {
                 $message->display();
             }

@@ -63,5 +63,6 @@ foreach ($tables_full as $key => $table) {
     }
 }
 
-PMA_ajaxResponse('', true, array('tables' => $tables_response));
+$response = PMA_Response::getInstance();
+$response->addJSON('tables', $tables_response);
 ?>

@@ -59,8 +59,7 @@ $(function() {
                             window.parent.frame_navigation.location.reload();
                         }
                         $('#tableslistcontainer').load('server_databases.php form#dbStatsForm');
-                    }
-                    else {
+                    } else {
                         PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + ": " + data.error, false);
                     }
                 }); // end $.post()
