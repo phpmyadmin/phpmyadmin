@@ -1068,7 +1068,7 @@ EOT;
         $url_params['db'] = $this->_db;
         $url_params['table'] = $this->_table;
 
-        $html_output .= PMA_generateHtmlTabs(
+        $html_output .= PMA_getHtmlTabs(
             $this->_getSubTabs(), $url_params, 'topmenu2'
         );
         $html_output .= $this->_getFormTag($goto);
