@@ -323,7 +323,6 @@ class PMA_GIS_Geometrycollection extends PMA_GIS_Geometry
         foreach ($sub_parts as $sub_part) {
             $type_pos = stripos($sub_part, '(');
             $type = substr($sub_part, 0, $type_pos);
-
             $gis_obj = PMA_GIS_Factory::factory($type);
             if (! $gis_obj) {
                 continue;

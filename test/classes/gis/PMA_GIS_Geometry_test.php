@@ -10,6 +10,8 @@ require_once 'libraries/gis/pma_gis_geometry.php';
 
 /**
  * Tests for PMA_GIS_Geometry class
+ *
+ * @package PhpMyAdmin-test
  */
 class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
 {
@@ -244,16 +246,16 @@ class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
             ),
         );
     }
-    
+
     /**
      *
      * @param type $srid
      * @param type $scale_data
-     * @param type $output 
-     * 
-     *@dataProvider providerForGetBoundsForOl
+     * @param type $output
+     * @dataProvider providerForTestGetBoundsForOl
      */
-    public function testGetBoundsForOl($srid, $scale_data, $output) {
+    public function testGetBoundsForOl($srid, $scale_data, $output){
+
         $this->assertEquals(
             $this->_callProtectedFunction(
                 'getBoundsForOl',
@@ -262,9 +264,9 @@ class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
             $output
         );
     }
-    
-    public function providerForGetBoundsForOl(){
-        
+
+    public function providerForTestGetBoundsForOl() {
+
         return array(
             array(
                 4326,
@@ -284,11 +286,12 @@ class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
      *
      * @param type $polygons
      * @param type $srid
-     * @param type $output 
-     * 
-     *@dataProvider providerForGetPolygonArrayForOpenLayers
+     * @param type $output
+     *
+     *@dataProvider providerForTestGetPolygonArrayForOpenLayers
      */
-    public function testGetPolygonArrayForOpenLayers($polygons, $srid, $output) {
+    public function testGetPolygonArrayForOpenLayers($polygons, $srid, $output){
+
         $this->assertEquals(
             $this->_callProtectedFunction(
                 'getPolygonArrayForOpenLayers',
@@ -298,7 +301,7 @@ class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
         );
     }
     
-    public function providerForGetPolygonArrayForOpenLayers(){
+    public function providerForTestGetPolygonArrayForOpenLayers(){
         
         return array(
             array(              
@@ -309,7 +312,6 @@ class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
             
         );
     }
-            
-    
+
 }
 ?>

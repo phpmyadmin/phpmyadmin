@@ -87,11 +87,4 @@ case 'EVN':
     break;
 }
 
-/**
- * Display the footer, if necessary
- */
-if ($GLOBALS['is_ajax_request'] != true) {
-    include './libraries/footer.inc.php';
-}
-
 ?>

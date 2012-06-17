@@ -69,8 +69,11 @@ if ($form_display->process(false) && !$form_display->hasErrors()) {
 }
 
 // display forms
-$GLOBALS['js_include'][] = 'config.js';
-require 'libraries/header.inc.php';
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('config.js');
+
 require 'libraries/user_preferences.inc.php';
 if ($error) {
     $error->display();
@@ -85,9 +88,4 @@ if ($form_display->hasErrors()) {
     <?php
 }
 $form_display->display(true, true);
-
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
 ?>

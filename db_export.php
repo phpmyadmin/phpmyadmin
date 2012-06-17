@@ -11,7 +11,10 @@
  */
 require_once 'libraries/common.inc.php';
 
-$GLOBALS['js_include'][] = 'export.js';
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('export.js');
 
 // $sub_part is also used in db_info.inc.php to see if we are coming from
 // db_export.php, in which case we don't obey $cfg['MaxTableList']
@@ -28,7 +31,6 @@ $export_page_title = __('View dump (schema) of database');
 // exit if no tables in db found
 if ($num_tables < 1) {
     PMA_Message::error(__('No tables found in database.'))->display();
-    include 'libraries/footer.inc.php';
     exit;
 } // end if
 
@@ -81,8 +83,4 @@ $multi_values .= '</select></div>';
 $export_type = 'database';
 require_once 'libraries/display_export.lib.php';
 
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
 ?>

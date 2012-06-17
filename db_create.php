@@ -9,7 +9,6 @@
  * Gets some core libraries
  */
 require_once 'libraries/common.inc.php';
-$GLOBALS['js_include'][] = 'functions.js';
 
 require_once 'libraries/mysql_charsets.lib.php';
 if (! PMA_DRIZZLE) {
@@ -62,14 +61,15 @@ if (! $result) {
     $GLOBALS['table'] = '';
 
     /**
-     * If in an Ajax request, just display the message with {@link PMA_ajaxResponse}
+     * If in an Ajax request, just display the message with {@link PMA_Response}
      */
     if ($GLOBALS['is_ajax_request'] == true) {
-        PMA_ajaxResponse($message, false);
+        $response = PMA_Response::getInstance();
+        $response->isSuccess(false);
+        $response->addJSON('message', $message);
+    } else {
+        include_once 'main.php';
     }
-
-    include_once 'libraries/header.inc.php';
-    include_once 'main.php';
 } else {
     $message = PMA_Message::success(__('Database %1$s has been created.'));
     $message->addParam($new_db);
@@ -79,14 +79,6 @@ if (! $result) {
      * If in an Ajax request, build the output and send it
      */
     if ($GLOBALS['is_ajax_request'] == true) {
-
-        /**
-         * String containing the SQL Query formatted in pretty HTML
-         * @global array $GLOBALS['extra_data']
-         * @name $extra_data
-         */
-        $extra_data['sql_query'] = PMA_getMessage(null, $sql_query, 'success');
-
         //Construct the html for the new database, so that it can be appended to
         // the list of databases on server_databases.php
 
@@ -140,12 +132,12 @@ if (! $result) {
 
         $new_db_string .= '</tr>';
 
-        $extra_data['new_db_string'] = $new_db_string;
-
-        PMA_ajaxResponse($message, true, $extra_data);
+        $response = PMA_Response::getInstance();
+        $response->addJSON('message', $message);
+        $response->addJSON('new_db_string', $new_db_string);
+        $response->addJSON('sql_query', PMA_getMessage(null, $sql_query, 'success'));
+    } else {
+        include_once '' . $cfg['DefaultTabDatabase'];
     }
-
-    include_once 'libraries/header.inc.php';
-    include_once '' . $cfg['DefaultTabDatabase'];
 }
 ?>

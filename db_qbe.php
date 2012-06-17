@@ -102,7 +102,6 @@ $tbl_result = PMA_DBI_query(
 $tbl_result_cnt = PMA_DBI_num_rows($tbl_result);
 if (0 == $tbl_result_cnt) {
     PMA_Message::error(__('No tables found in database.'))->display();
-    include 'libraries/footer.inc.php';
     exit;
 }
 
@@ -168,29 +167,21 @@ function showColumnSelectCell($columns, $column_number, $selected = '')
     <?php
 }
 
-?>
-<?php if (! empty($tab_designer['link'])) {
-        $tab_designer['link'] = htmlentities($tab_designer['link']);
-        $tab_designer['link'] = $tab_designer['link'] . PMA_generate_common_url($url_params);
-        if (! empty($tab_designer['args'])) {
-            foreach ($tab_designer['args'] as $param => $value) {
-                $tab_designer['link'] .= PMA_get_arg_separator('html') . urlencode($param) . '='
-                    . urlencode($value);
-            }
-        }
-    }
-    if (! empty($tab['fragment'])) {
-        $tab['link'] .= $tab['fragment'];
-    }
-    if (isset($tab_designer['link'])) {
-?>
-<div id="visual_builder_anchor" class="notice hide">
-    <span id="footnote_1">
-<?php printf(__('Switch to %svisual builder%s'), ' <a href="' . $tab_designer['link'] . PMA_get_arg_separator('html') . 'query=1">', '</a>'); ?>
-    </span>
-</div>
-<?php
-    }
+if ($cfgRelation['designerwork']) {
+    $url = 'pmd_general.php' . PMA_generate_common_url(
+        array_merge(
+            $url_params,
+            array('query' => 1)
+        )
+    );
+    PMA_Message::notice(
+        sprintf(
+            __('Switch to %svisual builder%s'),
+            '<a href="' . $url . '">',
+            '</a>'
+        )
+    )->display();
+}
 ?>
 <form action="db_qbe.php" method="post">
 <fieldset>
@@ -957,9 +948,3 @@ if (! empty($qry_orderby)) {
     </fieldset>
 </div>
 </form>
-<?php
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
-?>

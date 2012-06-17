@@ -13,9 +13,11 @@ require_once 'libraries/common.inc.php';
 /**
  * Runs common work
  */
-$GLOBALS['js_include'][] = 'functions.js';
-$GLOBALS['js_include'][] = 'makegrid.js';
-$GLOBALS['js_include'][] = 'sql.js';
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('makegrid.js');
+$scripts->addFile('sql.js');
 
 require 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_sql.php&amp;back=tbl_sql.php';
@@ -41,8 +43,4 @@ PMA_sqlQueryForm(
     isset($_REQUEST['delimiter']) ? htmlspecialchars($_REQUEST['delimiter']) : ';'
 );
 
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
 ?>

@@ -106,31 +106,43 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase {
         );
     }
 
-    public function testGenerateWkt($gis_data, $index, $empty, $output) {
+    /**
+     * @param $value
+     * @param $output
+     *
+     * @dataProvider providerForGenerateParams
+     */
+    public function testGenerateParams($value, $output) {
 
         $this->assertEquals($this->object->generateParams($value), $output);
     }
 
-    public function providerForGenerateWkt() {
-
-        $temp1 = array(
-            0 => array(
-                'gis_type' => 'LINESTRING',
-                'LINESTRING' => array(
-                    'no_of_points' => 2,
-                    0 => array('x' => 5.02, 'y' => 8.45),
-                    1 => array('x' => 6.14, 'y' => 0.15)
-                )
-            )
-        );
+    public function providerForGenerateParams() {
 
         return array(
             array(
-                $temp1,
-                0,
-                null,
-                'GEOMETRYCOLLECTION(LINESTRING(5.02 8.45,6.14 0.15))'
-            )
+                'GEOMETRYCOLLECTION(LINESTRING(5.02 8.45,6.14 0.15))',
+                array(
+                    'srid' => 0,
+                    'GEOMETRYCOLLECTION' => Array('geom_count' => 1),
+
+                '0' => Array(
+                    'gis_type' => 'LINESTRING',
+                    'LINESTRING' => Array(
+                        'no_of_points' => 2,
+                        '0' => Array(
+                            'x' => 5.02,
+                            'y' => 8.45
+                        ),
+                        '1' => Array(
+                            'x' => 6.14,
+                            'y' => 0.15
+                        )
+                    )
+
+                )
+                ),
+            ),
         );
     }
 

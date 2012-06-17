@@ -22,18 +22,18 @@ if (! defined('PHPMYADMIN')) {
 function PMA_tbl_getFields($db, $table)
 {
     // Gets the list and number of fields
-    $fields = PMA_DBI_get_columns($db, $table, null, true);
-    $fields_list = $fields_null = $fields_type = $fields_collation = array();
-    $geom_column_present = false;
+    $columns = PMA_DBI_get_columns($db, $table, null, true);
+    $columnNames = $columnNullFlags = $columnTypes = $columnCollations = array();
+    $geomColumnFlag = false;
     $geom_types = PMA_getGISDatatypes();
 
-    foreach ($fields as $key => $row) {
-        $fields_list[] = $row['Field'];
+    foreach ($columns as $key => $row) {
+        $columnNames[] = $row['Field'];
         $type          = $row['Type'];
 
         // check whether table contains geometric columns
         if (in_array($type, $geom_types)) {
-            $geom_column_present = true;
+            $geomColumnFlag = true;
         }
 
         // reformat mysql query output
@@ -55,35 +55,35 @@ function PMA_tbl_getFields($db, $table)
         if (empty($type)) {
             $type = '&nbsp;';
         }
-        $fields_null[] = $row['Null'];
-        $fields_type[] = $type;
-        $fields_collation[]
+        $columnNullFlags[] = $row['Null'];
+        $columnTypes[] = $type;
+        $columnCollations[]
             = ! empty($row['Collation']) && $row['Collation'] != 'NULL'
             ? $row['Collation']
             : '';
     } // end while
 
     return array(
-         $fields_list,
-         $fields_type,
-         $fields_collation,
-         $fields_null,
-         $geom_column_present
+         $columnNames,
+         $columnTypes,
+         $columnCollations,
+         $columnNullFlags,
+         $geomColumnFlag
     );
 }
 
 /**
  * Sets the table header for displaying a table in query-by-example format.
  *
- * @param bool $geom_column_present whether a geometry column is present
+ * @param bool $geomColumnFlag whether a geometry column is present
  *
  * @return HTML content, the tags and content for table header
  */
-function PMA_tbl_setTableHeader($geom_column_present = false)
+function PMA_tbl_getTableHeader($geomColumnFlag = false)
 {
-    // Display the Function column only if there is alteast one geomety colum
+    // Display the Function column only if there is at least one geometry column
     $func = '';
-    if ($geom_column_present) {
+    if ($geomColumnFlag) {
         $func = '<th>' . __('Function') . '</th>';
     }
 
@@ -129,13 +129,13 @@ function PMA_tbl_getSubTabs()
  * @param array  $foreigners          Array of foreign keys
  * @param array  $foreignData         Foreign keys data
  * @param string $field               Column name
- * @param string $tbl_fields_type     Column type
- * @param int    $i                   Column index
+ * @param string $field_type          Column type
+ * @param int    $column_index        Column index
  * @param string $db                  Selected database
  * @param string $table               Selected table
  * @param array  $titles              Selected title
  * @param int    $foreignMaxLimit     Max limit of displaying foreign elements
- * @param array  $fields              Array of search criteria inputs
+ * @param array  $criteriaValues      Array of search criteria inputs
  * @param bool   $in_fbs              Whether we are in 'function based search'
  * @param bool   $in_zoom_search_edit Whether we are in zoom search edit
  *
@@ -143,16 +143,19 @@ function PMA_tbl_getSubTabs()
  * for search criteria input.
  */
 function PMA_getForeignFields_Values($foreigners, $foreignData, $field,
-    $tbl_fields_type, $i, $db, $table, $titles, $foreignMaxLimit, $fields,
-    $in_fbs = false, $in_zoom_search_edit = false
+    $field_type, $column_index, $db, $table, $titles, $foreignMaxLimit,
+    $criteriaValues, $in_fbs = false, $in_zoom_search_edit = false
 ) {
     $str = '';
+    $field_type = (string)$field_type;
+    $field_id = ($in_zoom_search_edit) ? 'edit_fieldID_' : 'fieldID_';
     if ($foreigners
         && isset($foreigners[$field])
         && is_array($foreignData['disp_row'])
     ) {
         // f o r e i g n    k e y s
-        $str .=  '<select name="fields[' . $i . ']" id="fieldID_' . $i .'">';
+        $str .=  '<select name="criteriaValues[' . $column_index . ']" id="'
+            . $field_id . $column_index .'">';
         // go back to first row
         // here, the 4th parameter is empty because there is no current
         // value of data for the dropdown (the search page initial values
@@ -164,29 +167,34 @@ function PMA_getForeignFields_Values($foreigners, $foreignData, $field,
         $str .= '</select>';
 
     } elseif ($foreignData['foreign_link'] == true) {
-        if (isset($fields[$i]) && is_string($fields[$i])) {
-            $str .= '<input type="text" id="fieldID_' . $i . '"'
-                . ' name="fields[' . $i . ']" value="' . $fields[$i] . '"'
-                . ' id="field_' . md5($field) . '[' . $i .']" class="textfield" />';
+        if (isset($criteriaValues[$column_index])
+            && is_string($criteriaValues[$column_index])
+        ) {
+            $str .= '<input type="text" id="' . $field_id . $column_index . '"'
+                . ' name="criteriaValues[' . $column_index . ']" value="' 
+                . $criteriaValues[$column_index] . '" id="field_' . md5($field)
+                . '[' . $column_index .']" class="textfield" />';
         } else {
-            $str .= '<input type="text" id="fieldID_' . $i . '"'
-                . ' name="fields[' . $i . ']"'
-                . ' id="field_' . md5($field) . '[' . $i .']" class="textfield" />';
+            $str .= '<input type="text" id="' . $field_id . $column_index . '"'
+                . ' name="criteriaValues[' . $column_index . ']"'
+                . ' id="field_' . md5($field) . '[' . $column_index .']" '
+                .'class="textfield" />';
         }
         $str .=  <<<EOT
 <a target="_blank" onclick="window.open(this.href, 'foreigners', 'width=640,height=240,scrollbars=yes'); return false" href="browse_foreigners.php?
 EOT;
         $str .= '' . PMA_generate_common_url($db, $table)
-            . '&amp;field=' . urlencode($field) . '&amp;fieldkey=' . $i . '"';
+            . '&amp;field=' . urlencode($field) . '&amp;fieldkey=' . $column_index
+            . '"';
         if ($in_zoom_search_edit) {
             $str .= ' class="browse_foreign"';
         }
         $str .= '>' . str_replace("'", "\'", $titles['Browse']) . '</a>';
 
-    } elseif (in_array($tbl_fields_type[$i], PMA_getGISDatatypes())) {
+    } elseif (in_array($field_type, PMA_getGISDatatypes())) {
         // g e o m e t r y
-        $str .= '<input type="text" name="fields[' . $i . ']"'
-            . ' size="40" class="textfield" id="field_' . $i . '" />';
+        $str .= '<input type="text" name="criteriaValues[' . $column_index . ']"'
+            . ' size="40" class="textfield" id="field_' . $column_index . '" />';
 
         if ($in_fbs) {
             $edit_url = 'gis_data_editor.php?' . PMA_generate_common_url();
@@ -198,8 +206,8 @@ EOT;
             $str .= '</span>';
         }
 
-    } elseif (strncasecmp($tbl_fields_type[$i], 'enum', 4) == 0
-        || (strncasecmp($tbl_fields_type[$i], 'set', 3) == 0 && $in_zoom_search_edit)
+    } elseif (strncasecmp($field_type, 'enum', 4) == 0
+        || (strncasecmp($field_type, 'set', 3) == 0 && $in_zoom_search_edit)
     ) {
         // e n u m s   a n d   s e t s
 
@@ -211,23 +219,25 @@ EOT;
 
         $value = explode(
             ', ',
-            str_replace("'", '', substr($tbl_fields_type[$i], 5, -1))
+            str_replace("'", '', substr($field_type, 5, -1))
         );
         $cnt_value = count($value);
 
-        if ((strncasecmp($tbl_fields_type[$i], 'enum', 4) && ! $in_zoom_search_edit)
-            || (strncasecmp($tbl_fields_type[$i], 'set', 3) && $in_zoom_search_edit)
+        if ((strncasecmp($field_type, 'enum', 4) && ! $in_zoom_search_edit)
+            || (strncasecmp($field_type, 'set', 3) && $in_zoom_search_edit)
         ) {
-            $str .= '<select name="fields[' . ($i) . '][]" id="fieldID_' . $i .'">';
+            $str .= '<select name="criteriaValues[' . ($column_index)
+                . '][]" id="' . $field_id . $column_index .'">';
         } else {
-            $str .= '<select name="fields[' . ($i) . '][]" id="fieldID_' . $i .'"'
-                . ' multiple="multiple" size="' . min(3, $cnt_value) . '">';
+            $str .= '<select name="criteriaValues[' . ($column_index)
+                . '][]" id="' . $field_id . $column_index .'" multiple="multiple" size="'
+                . min(3, $cnt_value) . '">';
         }
 
         for ($j = 0; $j < $cnt_value; $j++) {
-            if (isset($fields[$i])
-                && is_array($fields[$i])
-                && in_array($value[$j], $fields[$i])
+            if (isset($criteriaValues[$column_index])
+                && is_array($criteriaValues[$column_index])
+                && in_array($value[$j], $criteriaValues[$column_index])
             ) {
                 $str .= '<option value="' . $value[$j] . '" Selected>'
                     . $value[$j] . '</option>';
@@ -241,24 +251,26 @@ EOT;
     } else {
         // o t h e r   c a s e s
         $the_class = 'textfield';
-        $type = $tbl_fields_type[$i];
 
-        if ($type == 'date') {
+        if ($field_type == 'date') {
             $the_class .= ' datefield';
-        } elseif ($type == 'datetime' || substr($type, 0, 9) == 'timestamp') {
+        } elseif ($field_type == 'datetime' || substr($field_type, 0, 9) == 'timestamp') {
             $the_class .= ' datetimefield';
-        } elseif (substr($type, 0, 3) == 'bit') {
+        } elseif (substr($field_type, 0, 3) == 'bit') {
             $the_class .= ' bit';
         }
 
-        if (isset($fields[$i]) && is_string($fields[$i])) {
-            $str .= '<input type="text" name="fields[' . $i . ']"'
-                .' size="40" class="' . $the_class . '" id="fieldID_'
-                . $i .'" value = "' . $fields[$i] . '"/>';
+        if (isset($criteriaValues[$column_index])
+            && is_string($criteriaValues[$column_index])
+        ) {
+            $str .= '<input type="text" name="criteriaValues[' . $column_index . ']"'
+                .' size="40" class="' . $the_class . '" id="' . $field_id
+                . $column_index .'" value = "' . $criteriaValues[$column_index]
+                . '"/>';
         } else {
-            $str .= '<input type="text" name="fields[' . $i . ']"'
-                .' size="40" class="' . $the_class . '" id="fieldID_'
-                . $i .'" />';
+            $str .= '<input type="text" name="criteriaValues[' . $column_index . ']"'
+                .' size="40" class="' . $the_class . '" id="' . $field_id
+                . $column_index .'" />';
         }
     }
     return $str;
@@ -267,18 +279,18 @@ EOT;
 /**
  * Return the where clause for query generation based on the inputs provided.
  *
- * @param mixed  $fields     Search criteria input
- * @param string $names      Name of the column on which search is submitted
- * @param string $types      Type of the field
- * @param string $collations Field collation
- * @param string $func_type  Search fucntion/operator
- * @param bool   $unaryFlag  Whether operator unary or not
- * @param bool   $geom_func  Whether geometry functions should be applied
+ * @param mixed  $criteriaValues Search criteria input
+ * @param string $names          Name of the column on which search is submitted
+ * @param string $types          Type of the field
+ * @param string $collations     Field collation
+ * @param string $func_type      Search fucntion/operator
+ * @param bool   $unaryFlag      Whether operator unary or not
+ * @param bool   $geom_func      Whether geometry functions should be applied
  *
  * @return string HTML content for viewing foreing data and elements
  * for search criteria input.
  */
-function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations,
+function PMA_tbl_search_getWhereClause($criteriaValues, $names, $types, $collations,
     $func_type, $unaryFlag, $geom_func = null
 ) {
     /**
@@ -303,7 +315,7 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations,
         } else {
             // If the function takes two parameters
             // create gis data from the string
-            $gis_data = PMA_createGISData($fields);
+            $gis_data = PMA_createGISData($criteriaValues);
 
             $w = $geom_func . '(' . PMA_backquote($names) . ',' . $gis_data . ')';
             return $w;
@@ -313,7 +325,7 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations,
         $types = $geom_funcs[$geom_func]['type'];
 
         // If the where clause is something like 'IsEmpty(`spatial_col_name`)'
-        if (isset($geom_unary_functions[$geom_func]) && trim($fields) == '') {
+        if (isset($geom_unary_functions[$geom_func]) && trim($criteriaValues) == '') {
             $w = $backquoted_name;
             return $w;
         }
@@ -322,20 +334,20 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations,
     }
 
     if ($unaryFlag) {
-        $fields = '';
+        $criteriaValues = '';
         $w = $backquoted_name . ' ' . $func_type;
 
-    } elseif (in_array($types, PMA_getGISDatatypes()) && ! empty($fields)) {
+    } elseif (in_array($types, PMA_getGISDatatypes()) && ! empty($criteriaValues)) {
         // create gis data from the string
-        $gis_data = PMA_createGISData($fields);
+        $gis_data = PMA_createGISData($criteriaValues);
         $w = $backquoted_name . ' ' . $func_type . ' ' . $gis_data;
 
     } elseif (strncasecmp($types, 'enum', 4) == 0) {
-        if (! empty($fields)) {
-            if (! is_array($fields)) {
-                $fields = explode(',', $fields);
+        if (! empty($criteriaValues)) {
+            if (! is_array($criteriaValues)) {
+                $criteriaValues = explode(',', $criteriaValues);
             }
-            $enum_selected_count = count($fields);
+            $enum_selected_count = count($criteriaValues);
             if ($func_type == '=' && $enum_selected_count > 1) {
                 $func_type    = 'IN';
                 $parens_open  = '(';
@@ -350,16 +362,17 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations,
                 $parens_open  = '';
                 $parens_close = '';
             }
-            $enum_where = '\'' . PMA_sqlAddslashes($fields[0]) . '\'';
+            $enum_where = '\'' . PMA_sqlAddslashes($criteriaValues[0]) . '\'';
             for ($e = 1; $e < $enum_selected_count; $e++) {
-                $enum_where .= ', \'' . PMA_sqlAddslashes($fields[$e]) . '\'';
+                $enum_where .= ', \'' . PMA_sqlAddslashes($criteriaValues[$e])
+                    . '\'';
             }
 
             $w = $backquoted_name . ' ' . $func_type . ' ' . $parens_open
                 . $enum_where . $parens_close;
         }
 
-    } elseif ($fields != '') {
+    } elseif ($criteriaValues != '') {
         // For these types we quote the value. Even if it's another type (like INT),
         // for a LIKE we always quote the value. MySQL converts strings to numbers
         // and numbers to strings as necessary during the comparison
@@ -374,11 +387,11 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations,
         // LIKE %...%
         if ($func_type == 'LIKE %...%') {
             $func_type = 'LIKE';
-            $fields = '%' . $fields . '%';
+            $criteriaValues = '%' . $criteriaValues . '%';
         }
         if ($func_type == 'REGEXP ^...$') {
             $func_type = 'REGEXP';
-            $fields = '^' . $fields . '$';
+            $criteriaValues = '^' . $criteriaValues . '$';
         }
 
         if ($func_type == 'IN (...)'
@@ -389,7 +402,7 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations,
             $func_type = str_replace(' (...)', '', $func_type);
 
             // quote values one by one
-            $values = explode(',', $fields);
+            $values = explode(',', $criteriaValues);
             foreach ($values as &$value) {
                 $value = $quot . PMA_sqlAddslashes(trim($value)) . $quot;
             }
@@ -404,7 +417,7 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations,
             }
         } else {
             $w = $backquoted_name . ' ' . $func_type . ' '
-                . $quot . PMA_sqlAddslashes($fields) . $quot;;
+                . $quot . PMA_sqlAddslashes($criteriaValues) . $quot;;
         }
     } // end if
 
@@ -414,17 +427,9 @@ function PMA_tbl_search_getWhereClause($fields, $names, $types, $collations,
 /**
  * Builds the sql search query from the post parameters
  *
- * @param string  $table                    Selected table
- * @param array   $fields                   Entered values of the columns
- * @param array   $criteriaColumnNames      Names of all columns
- * @param array   $criteriaColumnTypes      Types of all columns
- * @param array   $criteriaColumnCollations Collations of all columns
- * @param array   $criteriaColumnOperators  Operators for given column type
- *
  * @return string the generated SQL query
  */
-function PMA_tblSearchBuildSqlQuery($table, $fields, $criteriaColumnNames,
-    $criteriaColumnTypes, $criteriaColumnCollations, $criteriaColumnOperators)
+function PMA_tblSearchBuildSqlQuery()
 {
     $sql_query = 'SELECT ';
 
@@ -437,21 +442,21 @@ function PMA_tblSearchBuildSqlQuery($table, $fields, $criteriaColumnNames,
     // if all column names were selected to display, we do a 'SELECT *'
     // (more efficient and this helps prevent a problem in IE
     // if one of the rows is edited and we come back to the Select results)
-    if (count($_POST['columnsToDisplay']) == count($criteriaColumnNames)) {
+    if (isset($_POST['zoom_submit'])) {
         $sql_query .= '* ';
     } else {
-        $sql_query .= implode(', ', PMA_backquote($_POST['columnsToDisplay']));
+        $sql_query .= (count($_POST['columnsToDisplay'])
+            == count($_POST['criteriaColumnNames'])
+            ? '* '
+            : implode(', ', PMA_backquote($_POST['columnsToDisplay'])));
     } // end if
 
-    $sql_query .= ' FROM ' . PMA_backquote($table);
-    $whereClause = PMA_tblSearchGenerateWhereClause(
-        $fields, $criteriaColumnNames, $criteriaColumnTypes,
-        $criteriaColumnCollations, $criteriaColumnOperators
-    );
+    $sql_query .= ' FROM ' . PMA_backquote($_POST['table']);
+    $whereClause = PMA_tblSearchGenerateWhereClause();
     $sql_query .= $whereClause;
  
     // if the search results are to be ordered
-    if ($_POST['orderByColumn'] != '--nil--') {
+    if (isset($_POST['orderByColumn']) && $_POST['orderByColumn'] != '--nil--') {
         $sql_query .= ' ORDER BY ' . PMA_backquote($_POST['orderByColumn'])
             . ' ' . $_POST['order'];
     } // end if
@@ -461,40 +466,39 @@ function PMA_tblSearchBuildSqlQuery($table, $fields, $criteriaColumnNames,
 /**
  * Generates the where clause for the SQL search query to be executed
  *
- * @param array  $fields                   Entered values of the columns
- * @param array  $criteriaColumnNames      Names of all columns
- * @param array  $criteriaColumnTypes      Types of all columns
- * @param array  $criteriaColumnCollations Collations of all columns
- * @param array  $criteriaColumnOperators  Operators for given column type
- *
  * @return string the generated where clause
  */
-function PMA_tblSearchGenerateWhereClause($fields, $criteriaColumnNames,
-    $criteriaColumnTypes, $criteriaColumnCollations, $criteriaColumnOperators)
+function PMA_tblSearchGenerateWhereClause()
 {
     $fullWhereClause = '';
 
-    if (trim($_POST['customWhereClause']) != '') {
+    if (isset($_POST['customWhereClause']) && trim($_POST['customWhereClause']) != '') {
         $fullWhereClause .= ' WHERE ' . $_POST['customWhereClause'];
         return $fullWhereClause;
     }
 
-    // If there are no search criterias set, return
-    if (! array_filter($fields)) {
+    // If there are no search criteria set, return
+    if (! array_filter($_POST['criteriaValues'])) {
         return $fullWhereClause;
     }
 
     // else continue to form the where clause from column criteria values
     $fullWhereClause = $charsets = array();
-    reset($criteriaColumnOperators);
-    while (list($i, $operator) = each($criteriaColumnOperators)) {
-        list($charsets[$i]) = explode('_', $criteriaColumnCollations[$i]);
+    reset($_POST['criteriaColumnOperators']);
+    while (list($column_index, $operator) = each($_POST['criteriaColumnOperators'])) {
+        list($charsets[$column_index]) = explode(
+            '_', $_POST['criteriaColumnCollations'][$column_index]
+        );
         $unaryFlag =  $GLOBALS['PMA_Types']->isUnaryOperator($operator);
-        $tmp_geom_func = isset($geom_func[$i]) ? $geom_func[$i] : null;
+        $tmp_geom_func = isset($geom_func[$column_index])
+            ? $geom_func[$column_index] : null;
 
         $whereClause = PMA_tbl_search_getWhereClause(
-            $fields[$i], $criteriaColumnNames[$i], $criteriaColumnTypes[$i],
-            $criteriaColumnCollations[$i], $operator, $unaryFlag, $tmp_geom_func
+            $_POST['criteriaValues'][$column_index],
+            $_POST['criteriaColumnNames'][$column_index],
+            $_POST['criteriaColumnTypes'][$column_index],
+            $_POST['criteriaColumnCollations'][$column_index], $operator, $unaryFlag,
+            $tmp_geom_func
         );
 
         if ($whereClause) {
@@ -519,9 +523,9 @@ function PMA_tblSearchGenerateWhereClause($fields, $criteriaColumnNames,
  *
  * @return string the generated HTML
  */
-function PMA_tblSearchGetGeomFuncHtml($geomColumnFlag, $columnTypes,
-$geom_types, $column_index)
-{
+function PMA_tblSearchGetGeomFuncHtml($geomColumnFlag, $columnTypes, $geom_types,
+    $column_index
+) {
     $html_output = '';
     // return if geometrical column is not present
     if (! $geomColumnFlag) {
@@ -530,7 +534,7 @@ $geom_types, $column_index)
 
     /**
      * Displays 'Function' column if it is present
-     */    
+     */
     $html_output .= '<td>';
     // if a geometry column is present
     if (in_array($columnTypes[$column_index], $geom_types)) {
@@ -557,13 +561,12 @@ $geom_types, $column_index)
 /**
  * Generates formatted HTML for extra search options in table search form
  *
- * @param array   $columnNames Array containing types of all columns in the table
- * @param integer $columnCount Number of columns in the table
+ * @param array $columnNames Array containing types of all columns in the table
  *
  * @return string the generated HTML
  */
-function PMA_tblSearchGetOptions($columnNames, $columnCount)
-{    
+function PMA_tblSearchGetOptions($columnNames)
+{
     $html_output = '';
     $html_output .= PMA_getDivForSliderEffect('searchoptions', __('Options'));
     /**
@@ -571,7 +574,7 @@ function PMA_tblSearchGetOptions($columnNames, $columnCount)
      */
     $html_output .= '<fieldset id="fieldset_select_fields">'
         . '<legend>' . __('Select columns (at least one):') . '</legend>'
-        . '<select name="columnsToDisplay[]" size="' . min($columnCount, 10)
+        . '<select name="columnsToDisplay[]" size="' . min(count($columnNames), 10)
         . '" multiple="multiple">';
     // Displays the list of the fields
     foreach ($columnNames as $each_field) {
@@ -591,8 +594,9 @@ function PMA_tblSearchGetOptions($columnNames, $columnCount)
         . '<legend>' . '<em>' . __('Or') . '</em> '
         . __('Add search conditions (body of the "where" clause):') . '</legend>';
     $html_output .= PMA_showMySQLDocu('SQL-Syntax', 'Functions');
-    $html_output .= '<input type="text" name="customWhereClause" class="textfield" size="64" />'
-        . '</fieldset>';
+    $html_output .= '<input type="text" name="customWhereClause" class="textfield"'
+        . 'size="64" />';
+    $html_output .= '</fieldset>';
 
     /**
      * Displays option of changing default number of rows displayed per page
@@ -619,7 +623,9 @@ function PMA_tblSearchGetOptions($columnNames, $columnCount)
         'ASC' => __('Ascending'),
         'DESC' => __('Descending')
     );
-    $html_output .= PMA_getRadioFields('order', $choices, 'ASC', false, true, "formelement");
+    $html_output .= PMA_getRadioFields(
+        'order', $choices, 'ASC', false, true, "formelement"
+    );
     unset($choices);
 
     $html_output .= '</fieldset><br style="clear: both;"/></div></fieldset>';
@@ -627,139 +633,403 @@ function PMA_tblSearchGetOptions($columnNames, $columnCount)
 }
 
 /**
- * Generates HTML for displaying fields table in search form
+ * Other search criteria like data label
+ * (for tbl_zoom_select.php)
  *
+ * @param array $columnNames Names of columns in the table
+ * @param array $dataLabel   Label for points in zoom plot
+ *
+ * @return string the generated html
+ */
+function PMA_tblSearchGetOptionsZoom($columnNames, $dataLabel)
+{
+    $html_output = '';
+    $html_output .= '<table class="data">';
+    //Select options for datalabel
+    $html_output .= '<tr>';
+    $html_output .= '<td><label for="dataLabel">'
+        . __("Use this column to label each point") . '</label></td>';
+    $html_output .= '<td><select name="dataLabel" id="dataLabel" >'
+        . '<option value = "">' . __('None') . '</option>';
+    for ($j = 0; $j < count($columnNames); $j++) {
+        if (isset($dataLabel)
+            && $dataLabel == htmlspecialchars($columnNames[$j])
+        ) {
+            $html_output .= '<option value="'
+                . htmlspecialchars($columnNames[$j]) . '" selected="selected">'
+                . htmlspecialchars($columnNames[$j]) . '</option>';
+        } else {
+            $html_output .= '<option value="'
+                . htmlspecialchars($columnNames[$j]) . '" >'
+                . htmlspecialchars($columnNames[$j]) . '</option>';
+        }
+    }
+    $html_output .= '</select></td>';
+    $html_output .= '</tr>';
+    //Inputbox for changing default maximum rows to plot
+    $html_output .= '<tr>';
+    $html_output .= '<td><label for="maxRowPlotLimit">'
+        . __("Maximum rows to plot") . '</label></td>';
+    $html_output .= '<td>';
+    $html_output .= '<input type="text" name="maxPlotLimit" id="maxRowPlotLimit" '
+        . 'value="' . ((! empty($_POST['maxPlotLimit']))
+            ? htmlspecialchars($_POST['maxPlotLimit'])
+            : $GLOBALS['cfg']['maxRowPlotLimit'])
+        . '" />';
+    $html_output .= '</td></tr>';
+    $html_output .= '</table>';
+    return $html_output;
+}
+
+/**
+ * Provides a column's type, collation, operators list, and crietria value
+ * to display in table search form
+ *
+ * @param string  $db               Selected Database
+ * @param string  $table            Selected Table
+ * @param array   $columnNames      Names of columns in the table
+ * @param array   $columnTypes      Types of columns in the table
+ * @param array   $columnCollations Collation of all columns
+ * @param array   $columnNullFlags  Null information of columns
+ * @param array   $foreigners       Array of foreign keys
+ * @param integer $search_index     Row number in table search form
+ * @param integer $column_index     Column index in ColumnNames array
+ *
+ * @return array Array contaning column's properties
+ */
+function PMA_tblSearchGetColumnProperties($db, $table, $columnNames, $columnTypes,
+    $columnCollations, $columnNullFlags, $foreigners, $search_index, $column_index
+) {
+    $selected_operator = (isset($_POST['criteriaColumnOperators'])
+        ? $_POST['criteriaColumnOperators'][$search_index] : '');
+    $entered_value = (isset($_POST['criteriaValues'])
+        ? $_POST['criteriaValues'] : '');
+    $titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
+    //Gets column's type and collation
+    $type = $columnTypes[$column_index];
+    $collation = $columnCollations[$column_index];
+    //Gets column's comparison operators depending on column type
+    $func = '<select name="criteriaColumnOperators[' . $search_index . ']">';
+    $func .= $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
+        preg_replace('@\(.*@s', '', $columnTypes[$column_index]),
+        $columnNullFlags[$column_index], $selected_operator
+    );
+    $func .= '</select>';
+    //Gets link to browse foreign data(if any) and criteria inputbox
+    $foreignData = PMA_getForeignData(
+        $foreigners, $columnNames[$column_index], false, '', ''
+    );
+    $value =  PMA_getForeignFields_Values(
+        $foreigners, $foreignData, $columnNames[$column_index], $type, $search_index,
+        $db, $table, $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], $entered_value
+    );
+    return array(
+        'type' => $type,
+        'collation' => $collation,
+        'func' => $func,
+        'value' => $value
+    );
+}
+
+/**
+ * Provides the search form's table row in case of Normal Search
+ * (for tbl_select.php)
+ *
+ * @param string  $db               Selected Database
+ * @param string  $table            Selected Table
  * @param array   $columnNames      Names of columns in the table
  * @param array   $columnTypes      Types of columns in the table
  * @param array   $columnCollations Collation of all columns
  * @param array   $columnNullFlags  Null information of columns
  * @param boolean $geomColumnFlag   Whether a geometry column is present
- * @param integer $columnCount      Number of columns in the table
  * @param array   $foreigners       Array of foreign keys
- * @param string  $db               Selected database
- * @param string  $table            Selected table
+ *
+ * @return string the generated table row
+ */
+function PMA_tblSearchGetRowsNormal($db, $table, $columnNames, $columnTypes,
+    $columnCollations, $columnNullFlags, $geomColumnFlag, $foreigners
+) {
+    $titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
+    $geom_types = PMA_getGISDatatypes();
+    $odd_row = true;
+    $html_output = '';
+    // for every column present in table
+    for ($column_index = 0; $column_index < count($columnNames); $column_index++) {
+        $html_output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
+        $odd_row = !$odd_row;
+        //If 'Function' column is present
+        $html_output .= PMA_tblSearchGetGeomFuncHtml(
+            $geomColumnFlag, $columnTypes, $geom_types, $column_index
+        );
+        //Displays column's name, type, collation and value
+        $html_output .= '<th>' . htmlspecialchars($columnNames[$column_index])
+            . '</th>';
+        $properties = PMA_tblSearchGetColumnProperties(
+            $db, $table, $columnNames, $columnTypes, $columnCollations,
+            $columnNullFlags, $foreigners, $column_index, $column_index
+        );
+        $html_output .= '<td>' . $properties['type'] . '</td>';
+        $html_output .= '<td>' . $properties['collation'] . '</td>';
+        $html_output .= '<td>' . $properties['func'] . '</td>';
+        $html_output .= '<td>' . $properties['value'] . '</td>';
+        $html_output .= '</tr>';
+        //Displays hidden fields
+        $html_output .= '<tr><td>';
+        $html_output .= '<input type="hidden" name="criteriaColumnNames['
+            . $column_index . ']" value="'
+            . htmlspecialchars($columnNames[$column_index]) . '" />';
+        $html_output .= '<input type="hidden" name="criteriaColumnTypes['
+            . $column_index . ']" value="' . $columnTypes[$column_index] . '" />';
+        $html_output .= '<input type="hidden" name="criteriaColumnCollations['
+            . $column_index . ']" value="' . $columnCollations[$column_index]
+            . '" /></td></tr>';
+    } // end for
+    
+    return $html_output;
+}
+
+/**
+ * Provides the search form's table row in case of Zoom Search
+ * (for tbl_zoom_select.php)
+ *
+ * @param string $db               Selected Database
+ * @param string $table            Selected Table
+ * @param array  $columnNames      Names of columns in the table
+ * @param array  $columnTypes      Types of columns in the table
+ * @param array  $columnCollations Collation of all columns
+ * @param array  $columnNullFlags  Null information of columns
+ * @param array  $foreigners       Array of foreign keys
+ *
+ * @return string the generated table row
+ */
+function PMA_tblSearchGetRowsZoom($db, $table, $columnNames, $columnTypes,
+    $columnCollations, $columnNullFlags, $foreigners
+) {
+    $odd_row = true;
+    $html_output = '';
+    /**
+     * Get already set search criteria (if any)
+     */
+
+    //Displays column rows for search criteria input
+    for ($i = 0; $i < 4; $i++) {
+        //After X-Axis and Y-Axis column rows, display additional criteria option
+        if ($i == 2) {
+            $html_output .= '<tr><td>';
+            $html_output .= __("Additional search criteria");
+            $html_output .= '</td></tr>';
+        }
+        $html_output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
+        $odd_row = ! $odd_row;
+        //Select options for column names
+        $html_output .= '<th><select name="criteriaColumnNames[]" id="'
+            . 'tableid_' . $i . '" >';
+        $html_output .= '<option value="' . 'pma_null' . '">' . __('None')
+            . '</option>';
+        for ($j = 0 ; $j < count($columnNames); $j++) {
+            if (isset($_POST['criteriaColumnNames'][$i])
+                && $_POST['criteriaColumnNames'][$i] == htmlspecialchars($columnNames[$j])
+            ) {
+                $html_output .= '<option value="'
+                    . htmlspecialchars($columnNames[$j]) . '" selected="selected">'
+                    . htmlspecialchars($columnNames[$j]) . '</option>';
+            } else {
+                $html_output .= '<option value="'
+                    . htmlspecialchars($columnNames[$j]) . '">'
+                    . htmlspecialchars($columnNames[$j]) . '</option>';
+            }
+        }
+        $html_output .= '</select></th>';
+        if (isset($_POST['criteriaColumnNames'])
+            && $_POST['criteriaColumnNames'][$i] != 'pma_null'
+        ) {
+            $key = array_search($_POST['criteriaColumnNames'][$i], $columnNames);
+            $properties = PMA_tblSearchGetColumnProperties(
+                $db, $table, $columnNames, $columnTypes, $columnCollations,
+                $columnNullFlags, $foreigners, $i, $key
+            );
+            $type[$i] = $properties['type'];
+            $collation[$i] = $properties['collation'];
+            $func[$i] = $properties['func'];
+            $value[$i] = $properties['value'];
+        }
+        //Column type
+        $html_output .= '<td>' . (isset($type[$i]) ? $type[$i] : '') . '</td>';
+        //Column Collation
+        $html_output .= '<td>' . (isset($collation[$i]) ? $collation[$i] : '')
+            . '</td>';
+        //Select options for column operators 
+        $html_output .= '<td>' . (isset($func[$i]) ? $func[$i] : '') . '</td>';
+        //Inputbox for search criteria value
+        $html_output .= '<td>' . (isset($value[$i]) ? $value[$i] : '') . '</td>';
+        $html_output .= '</tr>';
+        //Displays hidden fields
+        $html_output .= '<tr><td>';
+        $html_output .= '<input type="hidden" name="criteriaColumnTypes[' . $i . ']"'
+            . ' id="types_' . $i . '" ';
+        if (isset($_POST['criteriaColumnTypes'][$i])) {
+            $html_output .= 'value="' . $_POST['criteriaColumnTypes'][$i] . '" ';
+        }
+        $html_output .= '/>';
+        $html_output .= '<input type="hidden" name="criteriaColumnCollations['
+            . $i . ']" id="collations_' . $i . '" />';
+        $html_output .= '</td></tr>';
+    }//end for
+    return $html_output;
+}
+
+/**
+ * Generates HTML for displaying fields table in search form
+ *
+ * @param string  $db               Selected Database
+ * @param string  $table            Selected Table
+ * @param array   $columnNames      Names of columns in the table
+ * @param array   $columnTypes      Types of columns in the table
+ * @param array   $columnCollations Collation of all columns
+ * @param array   $columnNullFlags  Null information of columns
+ * @param boolean $geomColumnFlag   Whether a geometry column is present
+ * @param array   $foreigners       Array of foreign keys
+ * @param string  $searchType       Whether normal search or zoom search
  *
  * @return string the generated HTML
  */
-function PMA_tblSearchGetFieldsTableHtml($columnNames, $columnTypes,
-$columnCollations, $columnNullFlags, $geomColumnFlag, $columnCount,
-$foreigners, $db, $table)
-{
+function PMA_tblSearchGetFieldsTableHtml($db, $table, $columnNames, $columnTypes,
+    $columnCollations, $columnNullFlags, $geomColumnFlag, $foreigners, $searchType
+) {
     $html_output = '';
-    $html_output .= '<table class="data">';
-    $html_output .= PMA_tbl_setTableHeader($geomColumnFlag) . '<tbody>';
-    $odd_row = true;
-    $titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
-    $geom_types = PMA_getGISDatatypes();
+    $html_output .= '<table class="data"'
+        . ($searchType == 'zoom' ? ' id="tableFieldsId"' : '') . '>';
+    $html_output .= PMA_tbl_getTableHeader($geomColumnFlag);
+    $html_output .= '<tbody>';
 
-    // for every column present in table
-    for ($i = 0; $i < $columnCount; $i++) {
-        $html_output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
-        $odd_row = !$odd_row;
-
-        /**
-         * If 'Function' column is present
-         */
-        $html_output .= PMA_tblSearchGetGeomFuncHtml(
-            $geomColumnFlag, $columnTypes, $geom_types, $i
+    if ($searchType == 'zoom') {
+        $html_output .= PMA_tblSearchGetRowsZoom(
+            $db, $table, $columnNames, $columnTypes, $columnCollations,
+            $columnNullFlags, $foreigners
         );
-        /**
-         * Displays column's name, type and collation
-         */
-        $html_output .= '<th>' . htmlspecialchars($columnNames[$i]) . '</th>';
-        $html_output .= '<td>' . htmlspecialchars($columnTypes[$i]) . '</td>';
-        $html_output .= '<td>' . $columnCollations[$i] . '</td>';
-        /**
-         * Displays column's comparison operators depending on column type
-         */
-        $html_output .= '<td><select name="criteriaColumnOperators[]">';
-        $html_output .= $GLOBALS['PMA_Types']->getTypeOperatorsHtml(
-            preg_replace('@\(.*@s', '', $columnTypes[$i]),
-            $columnNullFlags[$i]
+    } else {
+        $html_output .= PMA_tblSearchGetRowsNormal(
+            $db, $table, $columnNames, $columnTypes, $columnCollations,
+            $columnNullFlags, $geomColumnFlag, $foreigners
         );
-        $html_output .= '</select></td>';
-        /**
-         * Displays column's foreign relations if any
-         */
-        $html_output .= '<td>';
-        $field = $columnNames[$i];
-        $foreignData = PMA_getForeignData($foreigners, $field, false, '', '');
-        $html_output .= PMA_getForeignFields_Values(
-            $foreigners, $foreignData, $field, $columnTypes, $i, $db, $table,
-            $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], '', true
-        );
-
-        $html_output .= '<input type="hidden" name="criteriaColumnNames[' . $i . ']" value="'
-            . htmlspecialchars($columnNames[$i]) . '" />'
-            . '<input type="hidden" name="criteriaColumnTypes[' . $i . ']" value="'
-            . $columnTypes[$i] . '" />'
-            . '<input type="hidden" name="criteriaColumnCollations[' . $i . ']" value="'
-            . $columnCollations[$i] . '" /></td></tr>';
-    } // end for
+    }
 
     $html_output .= '</tbody></table>';
     return $html_output;
 }
 
 /**
+ * Provides the form tag for table search form
+ * (normal search or zoom search)
+ *
+ * @param string $goto       Goto URL
+ * @param string $db         Selected Database
+ * @param string $table      Selected Table
+ * @param string $searchType Whether normal search or zoom search
+ *
+ * @return string the HTML for form tag
+ */
+function PMA_tblSearchGetFormTag($goto, $db, $table, $searchType)
+{
+    $html_output = '';
+    $scriptName = ($searchType == 'zoom' ? 'tbl_zoom_select.php' : 'tbl_select.php');
+    $formId = ($searchType == 'zoom' ? 'zoom_search_form' : 'tbl_search_form');
+
+    $html_output .= '<form method="post" action="' . $scriptName . '" '
+        . 'name="insertForm" id="' . $formId . '" '
+        . ($GLOBALS['cfg']['AjaxEnable'] ? 'class="ajax"' : '') . '>';
+
+    $html_output .= PMA_generate_common_hidden_inputs($db, $table);
+    $html_output .= '<input type="hidden" name="goto" value="' . $goto . '" />';
+    $html_output .= '<input type="hidden" name="back" value="' . $scriptName
+        . '" />';
+
+    return $html_output;
+}
+
+/**
  * Generates the table search form under table search tab
  *
- * @param string  $goto             Goto URL   
+ * @param string  $goto             Goto URL
+ * @param string  $db               Selected Database
+ * @param string  $table            Selected Table
  * @param array   $columnNames      Names of columns in the table
  * @param array   $columnTypes      Types of columns in the table
  * @param array   $columnCollations Collation of all columns
  * @param array   $columnNullFlags  Null information of columns
  * @param boolean $geomColumnFlag   Whether a geometry column is present
- * @param integer $columnCount      Number of columns in the table
  * @param array   $foreigners       Array of foreign keys
- * @param string  $db               Selected database
- * @param string  $table            Selected table
+ * @param string  $searchType       Whether normal search or zoom search
+ * @param string  $dataLabel        Label for points in zoom plot
  *
  * @return string the generated HTML for table search form
  */
-function PMA_tblSearchGetSelectionForm($goto, $columnNames, $columnTypes,
-$columnCollations, $columnNullFlags, $geomColumnFlag, $columnCount,
-$foreigners, $db, $table)
-{
+function PMA_tblSearchGetSelectionForm($goto, $db, $table, $columnNames,
+    $columnTypes, $columnCollations, $columnNullFlags, $geomColumnFlag, $foreigners,
+    $searchType, $dataLabel = null
+) {
     $html_output = '';
     $html_output .= '<fieldset id="fieldset_subtab">';
     $url_params = array();
     $url_params['db'] = $db;
     $url_params['table'] = $table;
 
-    $html_output .= PMA_generateHtmlTabs(PMA_tbl_getSubTabs(), $url_params, 'topmenu2');
-    $html_output .= '<form method="post" action="tbl_select.php" name="insertForm"'
-        . ' id="tbl_search_form" ' . ($GLOBALS['cfg']['AjaxEnable'] ? 'class="ajax"' : '')
-        . '>';
-    $html_output .= PMA_generate_common_hidden_inputs($db, $table);
-    $html_output .= '<input type="hidden" name="goto" value="' . $goto . '" />';
-    $html_output .= '<input type="hidden" name="back" value="tbl_select.php" />'
-        . '<fieldset id="fieldset_table_search"><fieldset id="fieldset_table_qbe">'
-        . '<legend>' . __('Do a "query by example" (wildcard: "%")') . '</legend>';
+    $html_output .= PMA_generateHtmlTabs(
+        PMA_tbl_getSubTabs(), $url_params, 'topmenu2'
+    );
+    $html_output .= PMA_tblSearchGetFormTag($goto, $db, $table, $searchType);
+
+    $html_output .= '<fieldset id='
+        . ($searchType == 'zoom' ? '"inputSection"' : '"fieldset_table_search"') . '>';
+    $html_output .= ($searchType == 'zoom'
+        ? '' : '<fieldset id="fieldset_table_qbe">');
+
+    // Set caption for fieldset
+    if ($searchType == 'zoom') {
+        $html_output .= '<legend>'
+            . __('Do a "query by example" (wildcard: "%") for two different columns')
+            . '</legend>';
+    } else {
+        $html_output .= '<legend>'
+            . __('Do a "query by example" (wildcard: "%")')
+            . '</legend>';
+    }
 
     /**
-     * Displays table fields
+     * Displays fields table in search form
      */
     $html_output .= PMA_tblSearchGetFieldsTableHtml(
-        $columnNames, $columnTypes, $columnCollations, $columnNullFlags,
-        $geomColumnFlag, $columnCount, $foreigners, $db, $table    
+        $db, $table, $columnNames, $columnTypes, $columnCollations, $columnNullFlags,
+        $geomColumnFlag, $foreigners, $searchType
     );
 
-    $html_output .= '<div id="gis_editor"></div>'
-        . '<div id="popup_background"></div>'
-        . '</fieldset>';
-
     /**
-     * Displays slider options form
+     * Displays more search options
      */
-    $html_output .= PMA_tblSearchGetOptions($columnNames, $columnCount);
+    if ($searchType == 'zoom') {
+        $html_output .= PMA_tblSearchGetOptionsZoom($columnNames, $dataLabel);
+    } else {
+        $html_output .= '<div id="gis_editor"></div>'
+            . '<div id="popup_background"></div>'
+            . '</fieldset>';
+        $html_output .= PMA_tblSearchGetOptions($columnNames);
+    }
 
     /**
      * Displays selection form's footer elements
      */
-    $html_output .= '<fieldset class="tblFooters">'
-        . '<input type="submit" name="submit" value="' . __('Go') . '" />'
-        . '</fieldset></form><div id="sqlqueryresults"></div></fieldset>';
+    $html_output .= '<fieldset class="tblFooters">';
+    $html_output .= '<input type="submit" name="'
+        . ($searchType == 'zoom' ? 'zoom_submit' : 'submit')
+        . ($searchType == 'zoom' ? '" id="inputFormSubmitId"' : '" ')
+        . 'value="' . __('Go') . '" />';
+    $html_output .= '</fieldset></form>';
+    if ($searchType == 'zoom') {
+        $html_output = '<div id="sqlqueryresults"></div>'
+            . $html_output . '</fieldset>';
+    } else {
+        $html_output .= '<div id="sqlqueryresults"></div></fieldset>';
+    }
     return $html_output;
 }
 ?>

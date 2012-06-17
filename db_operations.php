@@ -19,7 +19,10 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/mysql_charsets.lib.php';
 
 // add a javascript file for jQuery functions to handle Ajax actions
-$GLOBALS['js_include'][] = 'db_operations.js';
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('db_operations.js');
 
 /**
  * Sets globals from $_REQUEST (we're using GET on ajax, POST otherwise)
@@ -337,13 +340,16 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
 
     /**
      * Database has been successfully renamed/moved.  If in an Ajax request,
-     * generate the output with {@link PMA_ajaxResponse} and exit
+     * generate the output with {@link PMA_Response} and exit
      */
-    if ( $GLOBALS['is_ajax_request'] == true) {
-        $extra_data['newname'] = $newname;
-        $extra_data['sql_query'] = PMA_getMessage(null, $sql_query);
-        PMA_ajaxResponse($message, $message->isSuccess(), $extra_data);
-    };
+    if ($GLOBALS['is_ajax_request'] == true) {
+        $response = PMA_Response::getInstance();
+        $response->isSuccess($message->isSuccess());
+        $response->addJSON('message', $message);
+        $response->addJSON('newname', $newname);
+        $response->addJSON('sql_query', PMA_getMessage(null, $sql_query));
+        exit;
+    }
 }
 
 
@@ -633,8 +639,4 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
     echo __('Edit or export relational schema') . '</a></fieldset></div>';
 } // end if
 
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
 ?>

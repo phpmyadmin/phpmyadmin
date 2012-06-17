@@ -13,6 +13,8 @@ require_once 'libraries/tcpdf/tcpdf.php';
 
 /**
  * Tests for PMA_GIS_Multilinestring class
+ *
+ * @package PhpMyAdmin-test
  */
 class PMA_GIS_MultilinestringTest extends PMA_GIS_GeomTest
 {

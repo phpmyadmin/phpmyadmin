@@ -38,7 +38,7 @@ if (PMA_ifSetOr($_POST['submit_clear'], '')) {
     //
     // Output generated config file
     //
-    PMA_download_header('config.inc.php', 'text/plain');
+    PMA_downloadHeader('config.inc.php', 'text/plain');
     echo ConfigGenerator::getConfigFile();
     exit;
 } elseif (PMA_ifSetOr($_POST['submit_save'], '')) {

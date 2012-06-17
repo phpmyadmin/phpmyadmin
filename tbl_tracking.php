@@ -135,7 +135,7 @@ if (isset($_REQUEST['report_export']) && $_REQUEST['export_type'] == 'sqldumpfil
         $dump .= $entry['statement'];
     }
     $filename = 'log_' . htmlspecialchars($_REQUEST['table']) . '.sql';
-    PMA_download_header($filename, 'text/x-sql', strlen($dump));
+    PMA_downloadHeader($filename, 'text/x-sql', strlen($dump));
 
     echo $dump;
     exit();
@@ -816,9 +816,3 @@ if ($last_version > 0) {
 
 <br class="clearfloat"/>
 
-<?php
-/**
- * Displays the footer
- */
-require './libraries/footer.inc.php';
-?>

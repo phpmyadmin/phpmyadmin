@@ -53,7 +53,7 @@ if ($GLOBALS['cfg']['LeftDisplayLogo']) {
 ?>
 <div id="leftframelinks">
 <?php
-    echo '<a href="main.php?' . $query_url . '"'
+    echo '<a target="frame_content" href="main.php?' . $query_url . '"'
         .' title="' . __('Home') . '">'
         . PMA_getImage('b_home.png', __('Home'))
         .'</a>' . "\n";

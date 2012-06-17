@@ -10,48 +10,6 @@
  */
 
 /**
- * Validates the password field in a form
- *
- * @see     PMA_messages['strPasswordEmpty']
- * @see     PMA_messages['strPasswordNotSame']
- * @param object   the form
- * @return boolean  whether the field value is valid or not
- */
-function checkPassword(the_form)
-{
-    // Did the user select 'no password'?
-    if (typeof(the_form.elements['nopass']) != 'undefined'
-     && the_form.elements['nopass'][0].checked) {
-        return true;
-    } else if (typeof(the_form.elements['pred_password']) != 'undefined'
-     && (the_form.elements['pred_password'].value == 'none'
-      || the_form.elements['pred_password'].value == 'keep')) {
-        return true;
-    }
-
-    var password = the_form.elements['pma_pw'];
-    var password_repeat = the_form.elements['pma_pw2'];
-    var alert_msg = false;
-
-    if (password.value == '') {
-        alert_msg = PMA_messages['strPasswordEmpty'];
-    } else if (password.value != password_repeat.value) {
-        alert_msg = PMA_messages['strPasswordNotSame'];
-    }
-
-    if (alert_msg) {
-        alert(alert_msg);
-        password.value  = '';
-        password_repeat.value = '';
-        password.focus();
-        return false;
-    }
-
-    return true;
-} // end of the 'checkPassword()' function
-
-
-/**
  * Validates the "add a user" form
  *
  * @return boolean  whether the form is validated or not
@@ -70,7 +28,7 @@ function checkAddUser(the_form)
         return false;
     }
 
-    return checkPassword(the_form);
+    return PMA_checkPassword($(the_form));
 } // end of the 'checkAddUser()' function
 
 /**
@@ -167,7 +125,6 @@ $(function() {
             var $form = $(this).find("form[name=usersForm]").last();
 
             if (! checkAddUser($form.get(0))) {
-                PMA_ajaxShowMessage(PMA_messages['strFormEmpty']);
                 return false;
             }
 
@@ -212,22 +169,12 @@ $(function() {
                             } else {
                                 $("#usersForm").remove();
                             }
-                            var $user_div = $('<div id="userFormDiv"></div>');
-                            /*If the JSON string parsed correctly*/
-                            if (typeof priv_data.success != 'undefined') {
-                                if (priv_data.success == true) {
-                                    $user_div
-                                     .html(priv_data.user_form)
-                                     .insertAfter('#result_query');
-                                } else {
-                                    PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + priv_data.error, false);
-                                }
+                            if (priv_data.success == true) {
+                                $('<div id="userFormDiv"></div>')
+                                    .html(priv_data.user_form)
+                                    .insertAfter('#result_query');
                             } else {
-                                /*parse the JSON string*/
-                                var obj = $.parseJSON(priv_data);
-                                $user_div
-                                 .html(obj.user_form)
-                                 .insertAfter('#result_query');
+                                PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + priv_data.error, false);
                             }
                         });
                     } else {
@@ -242,7 +189,7 @@ $(function() {
 
         $.get($(this).attr("href"), {'ajax_request':true}, function(data) {
             var $div = $('<div id="add_user_dialog"></div>')
-            .prepend(data)
+            .prepend(data.message)
             .find("#fieldset_add_user_footer").hide() //showing the "Go" and "Create User" buttons together will confuse the user
             .end()
             .find("form[name=usersForm]").append('<input type="hidden" name="ajax_request" value="true" />')
@@ -261,9 +208,18 @@ $(function() {
                 }
             }); //dialog options end
             displayPasswordGenerateButton();
-            PMA_convertFootnotesToTooltips($div);
+            PMA_showHints($div);
             PMA_ajaxRemoveMessage($msgbox);
             $div.find("input[autofocus]").focus();
+
+            $div.find('form[name=usersForm]').bind('submit', function (e) {
+                e.preventDefault();
+                $(this)
+                    .closest('.ui-dialog')
+                    .find('.ui-dialog-buttonpane .ui-button')
+                    .first()
+                    .click();
+            });
         }); // end $.get()
 
     });//end of Add New User AJAX event handler
@@ -285,8 +241,7 @@ $(function() {
         $.get($(this).attr("href"), {'ajax_request': true}, function(data) {
             if(data.success == true) {
                 PMA_ajaxRemoveMessage($msgbox);
-            }
-            else {
+            } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
         }); //end $.get()
@@ -334,8 +289,7 @@ $(function() {
                     .find('tr:even')
                     .removeClass('odd').addClass('even');
                 });
-            }
-            else {
+            } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
         }); // end $.post()
@@ -377,7 +331,7 @@ $(function() {
             },
             function(data) {
                 var $div = $('<div id="edit_user_dialog"></div>')
-                .append(data)
+                .append(data.message)
                 .dialog({
                     width: 900,
                     height: 600,
@@ -388,7 +342,7 @@ $(function() {
                 }); //dialog options end
             displayPasswordGenerateButton();
             PMA_ajaxRemoveMessage($msgbox);
-            PMA_convertFootnotesToTooltips($div);
+            PMA_showHints($div);
         }); // end $.get()
     });
 
@@ -404,9 +358,13 @@ $(function() {
         /** @lends jQuery */
         event.preventDefault();
 
-        PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
-
         var $t = $(this);
+
+        if ($t.is('.copyUserForm') && ! PMA_checkPassword($t)) {
+            return false;
+        }
+
+        PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
 
         $t.append('<input type="hidden" name="ajax_request" value="true" />');
 
@@ -466,8 +424,7 @@ $(function() {
                 $("#usersForm")
                 .find('.current_row')
                 .removeClass('current_row');
-            }
-            else {
+            } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
         });
@@ -592,7 +549,7 @@ $(function() {
             $("#usersForm").hide("medium").remove();
             $("#fieldset_add_user").hide("medium").remove();
             $("#initials_table")
-             .after(data).show("medium")
+             .after(data.message).show("medium")
              .siblings("h2").not(":first").remove();
 
             PMA_ajaxRemoveMessage($msgbox);

@@ -202,12 +202,3 @@ while ($value = PMA_DBI_fetch_assoc($result)) {
 ?>
 </tbody>
 </table>
-<?php
-
-
-/**
- * Sends the footer
- */
-require 'libraries/footer.inc.php';
-
-?>

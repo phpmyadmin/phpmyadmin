@@ -34,7 +34,7 @@ if (isset($_REQUEST['submitoptions'])) {
     $warning_messages = array();
 
     if (isset($_REQUEST['new_name'])) {
-        if ($pma_table->rename($_REQUEST['new_name'], null, $is_view = true)) {
+        if ($pma_table->rename($_REQUEST['new_name'])) {
             $_message .= $pma_table->getLastMessage();
             $result = true;
             $GLOBALS['table'] = $pma_table->getName();
@@ -96,9 +96,3 @@ $url_params['back'] = 'view_operations.php';
 </form>
 </div>
 
-<?php
-/**
- * Displays the footer
- */
-require './libraries/footer.inc.php';
-?>
