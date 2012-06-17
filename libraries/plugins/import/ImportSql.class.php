@@ -37,10 +37,10 @@ class ImportSql extends ImportPlugin
     protected function setProperties()
     {
         $this->properties = array(
-            'text'          => __('SQL'),
-            'extension'     => 'sql',
+            'text' => __('SQL'),
+            'extension' => 'sql',
             'options' => array(),
-            'options_text'  => __('Options'),
+            'options_text' => __('Options'),
         );
 
         $compats = PMA_DBI_getCompatibilities();
@@ -52,11 +52,11 @@ class ImportSql extends ImportPlugin
             $this->properties['options'] = array(
                 array('type' => 'begin_group', 'name' => 'general_opts'),
                 array(
-                    'type'      => 'select',
-                    'name'      => 'compatibility',
-                    'text'      => __('SQL compatibility mode:'),
-                    'values'    => $values,
-                    'doc'       => array(
+                    'type' => 'select',
+                    'name' => 'compatibility',
+                    'text' => __('SQL compatibility mode:'),
+                    'values' => $values,
+                    'doc' => array(
                         'manual_MySQL_Database_Administration',
                         'Server_SQL_mode',
                     ),
@@ -64,13 +64,14 @@ class ImportSql extends ImportPlugin
                 array(
                     'type' => 'bool',
                     'name' => 'no_auto_value_on_zero',
-                    'text' => __('Do not use <code>AUTO_INCREMENT</code> for zero values'),
-                    'doc'       => array(
+                    'text' => __(
+                        'Do not use <code>AUTO_INCREMENT</code> for zero values'
+                    ),
+                    'doc' => array(
                         'manual_MySQL_Database_Administration',
                         'Server_SQL_mode',
                         'sqlmode_no_auto_value_on_zero'
                     ),
-
                 ),
                 array('type' => 'end_group'),
             );
@@ -92,6 +93,8 @@ class ImportSql extends ImportPlugin
 
     /**
      * Handles the whole import logic
+     * 
+     * @return void
      */
     public function doImport()
     {
@@ -108,7 +111,8 @@ class ImportSql extends ImportPlugin
         $i = 0;
         $len= 0;
         $big_value = 2147483647;
-        $delimiter_keyword = 'DELIMITER '; // include the space because it's mandatory
+        // include the space because it's mandatory
+        $delimiter_keyword = 'DELIMITER ';
         $length_of_delimiter_keyword = strlen($delimiter_keyword);
 
         if (isset($_POST['sql_delimiter'])) {
@@ -139,7 +143,10 @@ class ImportSql extends ImportPlugin
          */
         $GLOBALS['finished'] = false;
 
-        while (! ($GLOBALS['finished'] && $i >= $len) && ! $error && ! $timeout_passed) {
+        while (! ($GLOBALS['finished'] && $i >= $len)
+            && ! $error
+            && ! $timeout_passed
+        ) {
             $data = PMA_importGetNextChunk();
             if ($data === false) {
                 // subtract data we didn't handle yet and stop processing
@@ -152,7 +159,8 @@ class ImportSql extends ImportPlugin
                 $buffer .= $data;
                 // free memory
                 unset($data);
-                // Do not parse string when we're not at the end and don't have ; inside
+                // Do not parse string when we're not at the end
+                // and don't have ; inside
                 if ((strpos($buffer, $sql_delimiter, $i) === false)
                     && ! $GLOBALS['finished']
                 ) {
@@ -170,7 +178,8 @@ class ImportSql extends ImportPlugin
                 // this is about 7 times faster that looking for each sequence i
                 // one by one with strpos()
                 $match = preg_match(
-                    '/(\'|"|#|-- |\/\*|`|(?i)(?<![A-Z0-9_])' . $delimiter_keyword . ')/',
+                    '/(\'|"|#|-- |\/\*|`|(?i)(?<![A-Z0-9_])'
+                    . $delimiter_keyword . ')/',
                     $buffer,
                     $matches,
                     PREG_OFFSET_CAPTURE,
@@ -203,7 +212,7 @@ class ImportSql extends ImportPlugin
                     // none of the above was found in the string
 
                     $i = $old_i;
-                    if (!$GLOBALS['finished']) {
+                    if (! $GLOBALS['finished']) {
                         break;
                     }
                     // at the end there might be some whitespace...
@@ -223,11 +232,12 @@ class ImportSql extends ImportPlugin
                 if (strpos('\'"`', $ch) !== false) {
                     $quote = $ch;
                     $endq = false;
-                    while (!$endq) {
+                    while (! $endq) {
                         // Find next quote
                         $pos = strpos($buffer, $quote, $i + 1);
                         /*
-                         * Behave same as MySQL and accept end of query as end of backtick.
+                         * Behave same as MySQL and accept end of query as end
+                         * of backtick.
                          * I know this is sick, but MySQL behaves like this:
                          *
                          * SELECT * FROM `table
@@ -262,7 +272,7 @@ class ImportSql extends ImportPlugin
                             $found_delimiter = false;
                         }
                     }
-                    if (!$endq) {
+                    if (! $endq) {
                         break;
                     }
                     $i++;
@@ -276,18 +286,19 @@ class ImportSql extends ImportPlugin
 
                 // Not enough data to decide
                 if ((($i == ($len - 1) && ($ch == '-' || $ch == '/'))
-                  || ($i == ($len - 2) && (($ch == '-' && $buffer[$i + 1] == '-')
-                    || ($ch == '/' && $buffer[$i + 1] == '*')))) && !$GLOBALS['finished']
+                    || ($i == ($len - 2) && (($ch == '-' && $buffer[$i + 1] == '-')
+                    || ($ch == '/' && $buffer[$i + 1] == '*'))))
+                    && ! $GLOBALS['finished']
                 ) {
                     break;
                 }
 
                 // Comments
                 if ($ch == '#'
-                 || ($i < ($len - 1) && $ch == '-' && $buffer[$i + 1] == '-'
-                  && (($i < ($len - 2) && $buffer[$i + 2] <= ' ')
-                   || ($i == ($len - 1)  && $GLOBALS['finished'])))
-                 || ($i < ($len - 1) && $ch == '/' && $buffer[$i + 1] == '*')
+                    || ($i < ($len - 1) && $ch == '-' && $buffer[$i + 1] == '-'
+                    && (($i < ($len - 2) && $buffer[$i + 2] <= ' ')
+                    || ($i == ($len - 1)  && $GLOBALS['finished'])))
+                    || ($i < ($len - 1) && $ch == '/' && $buffer[$i + 1] == '*')
                 ) {
                     // Copy current string to SQL
                     if ($start_pos != $i) {
@@ -314,7 +325,11 @@ class ImportSql extends ImportPlugin
                     $i++;
                     // We need to send the comment part in case we are defining
                     // a procedure or function and comments in it are valuable
-                    $sql .= substr($buffer, $start_of_comment, $i - $start_of_comment);
+                    $sql .= substr(
+                        $buffer,
+                        $start_of_comment,
+                        $i - $start_of_comment
+                    );
                     // Next query part will start here
                     $start_pos = $i;
                     // Aren't we at the end?
@@ -324,13 +339,20 @@ class ImportSql extends ImportPlugin
                         continue;
                     }
                 }
-                // Change delimiter, if redefined, and skip it (don't send to server!)
-                if (strtoupper(substr($buffer, $i, $length_of_delimiter_keyword)) == $delimiter_keyword
-                    && ($i + $length_of_delimiter_keyword < $len)
+                // Change delimiter, if redefined, and skip it
+                // (don't send to server!)
+                if (($i + $length_of_delimiter_keyword < $len)
+                    && strtoupper(
+                        substr($buffer, $i, $length_of_delimiter_keyword)
+                    ) == $delimiter_keyword
                 ) {
                      // look for EOL on the character immediately after 'DELIMITER '
                      // (see previous comment about PHP_EOL)
-                    $new_line_pos = strpos($buffer, "\n", $i + $length_of_delimiter_keyword);
+                    $new_line_pos = strpos(
+                        $buffer,
+                        "\n",
+                        $i + $length_of_delimiter_keyword
+                    );
                     // it might happen that there is no EOL
                     if (false === $new_line_pos) {
                         $new_line_pos = $len;
@@ -347,7 +369,10 @@ class ImportSql extends ImportPlugin
                 }
 
                 // End of SQL
-                if ($found_delimiter || ($GLOBALS['finished'] && ($i == $len - 1))) {
+                if ($found_delimiter 
+                    || ($GLOBALS['finished']
+                    && ($i == $len - 1))
+                ) {
                     $tmp_sql = $sql;
                     if ($start_pos < $len) {
                         $length_to_grab = $i - $start_pos;
@@ -372,7 +397,8 @@ class ImportSql extends ImportPlugin
                         $i = 0;
                         $start_pos = 0;
                         // Any chance we will get a complete query?
-                        //if ((strpos($buffer, ';') === false) && !$GLOBALS['finished']) {
+                        //if ((strpos($buffer, ';') === false)
+                        //&& ! $GLOBALS['finished']) {
                         if (strpos($buffer, $sql_delimiter) === false
                             && ! $GLOBALS['finished']
                         ) {
