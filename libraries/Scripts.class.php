@@ -153,6 +153,7 @@ class PMA_Scripts
         foreach ($this->_files as $file) {
             $retval .= $this->_includeFile(
                 $file['filename'],
+                $file['timestamp'],
                 $file['conditional_ie']
             );
         }
