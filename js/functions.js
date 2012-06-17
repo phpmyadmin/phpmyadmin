@@ -3540,7 +3540,7 @@ $(function () {
  * Ajaxification for the "Create View" action
  */
 $(document).ready(function () {
-    $('span.create_view.ajax a').live('click', function (e) {
+    $('span a.create_view.ajax').live('click', function (e) {
         e.preventDefault();
         var $msg = PMA_ajaxShowMessage();
         var syntaxHighlighter = null;

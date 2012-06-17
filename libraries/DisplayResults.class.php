@@ -249,7 +249,7 @@ class PMA_DisplayResults
      * @param type $showtable      array   table definitions
      * @param type $printview      string
      * @param type $url_query      string  URL query
-     * @param type $resultSetContainsUniqueKey  boolean 
+     * @param type $resultSetContainsUniqueKey  boolean
      *
      * @return  void
      *
@@ -5346,14 +5346,13 @@ class PMA_DisplayResults
 
             $ajax_class = $GLOBALS['cfg']['AjaxEnable'] ? ' ajax' : '';
 
-            $results_operations_html .= '<span class="create_view'
-                . $ajax_class . '">'
+            $results_operations_html .= '<span>'
                 . PMA_Util::linkOrButton(
                     'view_create.php' . $url_query,
                     PMA_Util::getIcon(
                         'b_views.png', __('Create view'), true
                     ),
-                    '', true, true, ''
+                    array('class' => 'create_view' . $ajax_class), true, true, ''
                 )
                 . '</span>' . "\n";
         }
