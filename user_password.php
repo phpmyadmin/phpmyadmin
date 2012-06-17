@@ -12,7 +12,10 @@
  */
 require_once './libraries/common.inc.php';
 
-$GLOBALS['js_include'][] = 'server_privileges.js';
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('server_privileges.js');
 
 /**
  * Displays an error message and exits if the user isn't allowed to use this
@@ -22,9 +25,8 @@ if (! $cfg['ShowChgPassword']) {
     $cfg['ShowChgPassword'] = PMA_DBI_select_db('mysql');
 }
 if ($cfg['Server']['auth_type'] == 'config' || ! $cfg['ShowChgPassword']) {
-    include_once './libraries/header.inc.php';
     PMA_Message::error(__('You don\'t have sufficient privileges to be here right now!'))->display();
-    include './libraries/footer.inc.php';
+    exit;
 } // end if
 
 /**
@@ -38,9 +40,9 @@ if (isset($_REQUEST['nopass'])) {
         $password = $_REQUEST['pma_pw'];
     }
     $change_password_message = PMA_setChangePasswordMsg();
-    $message = $change_password_message['msg'];
+    $msg = $change_password_message['msg'];
     if (! $change_password_message['error']) {
-        PMA_changePassword($password, $message, $change_password_message);
+        PMA_changePassword($password, $msg, $change_password_message);
     } else {
         PMA_getChangePassMessage($change_password_message);
     }
@@ -50,20 +52,15 @@ if (isset($_REQUEST['nopass'])) {
  * If the "change password" form hasn't been submitted or the values submitted
  * aren't valid -> displays the form
  */
-// Loads the headers
-require_once './libraries/header.inc.php';
 
 // Displays an error message if required
-if (isset($message)) {
-    $message->display();
+if (isset($msg)) {
+    $msg->display();
+    unset($msg);
 }
 
 require_once './libraries/display_change_password.lib.php';
-
-/**
- * Displays the footer
- */
-require './libraries/footer.inc.php';
+exit;
 
 /**
  * Send the message as an ajax request
@@ -79,12 +76,19 @@ function PMA_getChangePassMessage($change_password_message, $sql_query = '')
         /**
          * If in an Ajax request, we don't need to show the rest of the page
          */
+        $response = PMA_Response::getInstance();
         if ($change_password_message['error']) {
-            PMA_ajaxResponse($change_password_message['msg'], false);
+            $response->addJSON('message', $change_password_message['msg']);
+            $response->isSuccess(false);
         } else {
-            $extra_data['sql_query'] = PMA_getMessage($change_password_message['msg'], $sql_query, 'success');
-            PMA_ajaxResponse($change_password_message['msg'], true, $extra_data);
+            $sql_query = PMA_getMessage(
+                $change_password_message['msg'],
+                $sql_query,
+                'success'
+            );
+            $response->addJSON('message', $sql_query);
         }
+        exit;
     }
 }
 
@@ -180,7 +184,10 @@ function PMA_changePassAuthType($_url_params, $password)
      * Duration = till the browser is closed for password (we don't want this to be saved)
      */
     if ($GLOBALS['cfg']['Server']['auth_type'] == 'cookie') {
-        $GLOBALS['PMA_Config']->setCookie('pmaPass-' . $server, PMA_blowfish_encrypt($password, $GLOBALS['cfg']['blowfish_secret']));
+        $GLOBALS['PMA_Config']->setCookie(
+            'pmaPass-' . $GLOBALS['server'],
+            PMA_blowfish_encrypt($password, $GLOBALS['cfg']['blowfish_secret'])
+        );
     }
     /**
      * For http auth. mode, the "back" link will also enforce new
@@ -203,11 +210,10 @@ function PMA_changePassAuthType($_url_params, $password)
  */
 function PMA_changePassDisplayPage($message, $sql_query, $_url_params)
 {
-    include_once './libraries/header.inc.php';
     echo '<h1>' . __('Change password') . '</h1>' . "\n\n";
     echo PMA_getMessage($message, $sql_query, 'success');
     echo '<a href="index.php'.PMA_generate_common_url($_url_params).' target="_parent">'. "\n"
             .'<strong>'.__('Back').'</strong></a>';
-    include './libraries/footer.inc.php';
+    exit;
 }
 ?>

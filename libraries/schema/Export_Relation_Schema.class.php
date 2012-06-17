@@ -226,7 +226,6 @@ class PMA_Export_Relation_Schema
     {
         global $db;
 
-        include_once './libraries/header.inc.php';
         echo "<p><strong>" . __("SCHEMA ERROR: ") .  $type . "</strong></p>" . "\n";
         if (!empty($error_message)) {
             $error_message = htmlspecialchars($error_message);
@@ -238,8 +237,7 @@ class PMA_Export_Relation_Schema
             . '&do=selectpage&chpage=' . $pageNumber . '&action_choose=0'
             . '">' . __('Back') . '</a>';
         echo "\n";
-        include_once './libraries/footer.inc.php';
-        exit();
+        exit;
     }
 }
 ?>

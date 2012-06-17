@@ -515,6 +515,7 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
 {
     if (PMA_IS_IIS && strlen($uri) > 600) {
         include_once './libraries/js_escape.lib.php';
+        PMA_Response::getInstance()->disable();
 
         echo '<html><head><title>- - -</title>' . "\n";
         echo '<meta http-equiv="expires" content="0">' . "\n";
@@ -742,40 +743,8 @@ function PMA_linkURL($url)
 }
 
 /**
- * Returns HTML code to include javascript file.
- *
- * @param string $url            Location of javascript, relative to js/ folder.
- * @param string $ie_conditional true - wrap with IE conditional comment
- *                               'lt 9' etc. - wrap for specific IE version
- *
- * @return string HTML code for javascript inclusion.
- */
-function PMA_includeJS($url, $ie_conditional = false)
-{
-    $include = '';
-    if ($ie_conditional !== false) {
-        if ($ie_conditional === true) {
-            $include .= '<!--[if IE]>' . "\n    ";
-        } else {
-            $include .= '<!--[if IE ' . $ie_conditional . ']>' . "\n    ";
-        }
-    }
-    if (strpos($url, '?') === false) {
-        $include .= '<script src="js/' . $url . '?ts=' . filemtime('js/' . $url)
-            . '" type="text/javascript"></script>' . "\n";
-    } else {
-        $include .= '<script src="js/' . $url
-            . '" type="text/javascript"></script>' . "\n";
-    }
-    if ($ie_conditional !== false) {
-        $include .= '<![endif]-->' . "\n";
-    }
-    return $include;
-}
-
-/**
- * Adds JS code snippets to be displayed by header.inc.php. Adds a
- * newline to each snippet.
+ * Adds JS code snippets to be displayed by the PMA_Response class.
+ * Adds a newline to each snippet.
  *
  * @param string $str Js code to be added (e.g. "token=1234;")
  *
@@ -783,11 +752,15 @@ function PMA_includeJS($url, $ie_conditional = false)
  */
 function PMA_addJSCode($str)
 {
-    $GLOBALS['js_script'][] = $str;
+    $response = PMA_Response::getInstance();
+    $header   = $response->getHeader();
+    $scripts  = $header->getScripts();
+    $scripts->addCode($str);
 }
 
 /**
- * Adds JS code snippet for variable assignment to be displayed by header.inc.php.
+ * Adds JS code snippet for variable assignment
+ * to be displayed by the PMA_Response class.
  *
  * @param string $key    Name of value to set
  * @param mixed  $value  Value to set, can be either string or array of strings

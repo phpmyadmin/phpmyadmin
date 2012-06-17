@@ -68,21 +68,18 @@ function PMA_auth_set_user()
 function PMA_auth_fails()
 {
     $conn_error = PMA_DBI_getError();
-    if (!$conn_error) {
+    if (! $conn_error) {
         $conn_error = __('Cannot connect: invalid settings.');
     }
 
-    // Defines the charset to be used
-    header('Content-Type: text/html; charset=utf-8');
     /* HTML header */
-    $page_title = __('Access denied');
-    include './libraries/header_meta_style.inc.php';
-    include './libraries/header_scripts.inc.php';
-    ?>
+    $response = PMA_Response::getInstance();
+    $response->getFooter()->setMinimal();
+    $header = $response->getHeader();
+    $header->setTitle(__('Access denied'));
+    $header->disableMenu();
 
-</head>
-
-<body>
+?>
 <br /><br />
 <center>
     <h1><?php echo sprintf(__('Welcome to %s'), ' phpMyAdmin '); ?></h1>
@@ -91,9 +88,7 @@ function PMA_auth_fails()
 <table cellpadding="0" cellspacing="3" style="margin: 0 auto" width="80%">
     <tr>
         <td>
-
     <?php
-    $GLOBALS['is_header_sent'] = true;
 
     if (isset($GLOBALS['allowDeny_forbidden']) && $GLOBALS['allowDeny_forbidden']) {
         trigger_error(__('Access denied'), E_USER_NOTICE);
@@ -131,7 +126,7 @@ function PMA_auth_fails()
         echo '</tr>' . "\n";
     }
     echo '</table>' . "\n";
-    include './libraries/footer.inc.php';
+    exit;
     return true;
 } // end of the 'PMA_auth_fails()' function
 

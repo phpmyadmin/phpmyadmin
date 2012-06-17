@@ -126,8 +126,7 @@ function PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id,
     if (! $rows[$key_id]) {
         unset($rows[$key_id], $where_clause_array[$key_id]);
         PMA_showMessage(__('MySQL returned an empty result set (i.e. zero rows).'), $local_query);
-        echo "\n";
-        include 'libraries/footer.inc.php';
+        exit;
     } else {// end if (no row returned)
         $meta = PMA_DBI_get_fields_meta($result[$key_id]);
         list($unique_condition, $tmp_clause_is_unique)
@@ -1551,8 +1550,10 @@ function PMA_isInsertRow()
         && $_REQUEST['insert_rows'] != $GLOBALS['cfg']['InsertRows']
     ) {
         $GLOBALS['cfg']['InsertRows'] = $_REQUEST['insert_rows'];
-        $GLOBALS['js_include'][] = 'tbl_change.js';
-        include_once 'libraries/header.inc.php';
+        $response = PMA_Response::getInstance();
+        $header = $response->getHeader();
+        $scripts = $header->getScripts();
+        $scripts->addFile('tbl_change.js');
         include 'tbl_change.php';
         exit;
     }
@@ -1661,7 +1662,7 @@ function PMA_buildSqlQuery($is_insertignore, $query_fields, $value_sets)
  * @param array $url_params url paramters array
  * @param string $query     built query from PMA_buildSqlQuery()
  * @return array            $url_params, $total_affected_rows, $last_messages
- *                          $warning_messages, $error_messages
+ *                          $warning_messages, $error_messages, $return_to_sql_query
  */
 function PMA_executeSqlQuery($url_params, $query)
 {
@@ -1715,7 +1716,7 @@ function PMA_executeSqlQuery($url_params, $query)
         $warning_messages = PMA_getWarningMessages();
     }
     unset($result, $single_query, $last_message, $query);
-    return array($url_params, $total_affected_rows, $last_messages, $warning_messages, $error_messages);
+    return array($url_params, $total_affected_rows, $last_messages, $warning_messages, $error_messages, $return_to_sql_query);
 }
 
 /**

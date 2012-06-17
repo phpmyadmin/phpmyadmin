@@ -12,11 +12,9 @@ require_once 'libraries/common.inc.php';
 require 'libraries/StorageEngine.class.php';
 
 /**
- * Include settings for relation stuff
  * get all variables needed for exporting relational schema
  * in $cfgRelation
  */
-require_once 'libraries/relation.lib.php';
 $cfgRelation = PMA_getRelationsParam();
 
 require_once 'libraries/transformations.lib.php';

@@ -10,7 +10,10 @@
  */
 require_once 'libraries/common.inc.php';
 
-$GLOBALS['js_include'][] = 'export.js';
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('export.js');
 
 /**
  * Gets tables informations and displays top links
@@ -81,10 +84,4 @@ if (! empty($sql_query)) {
 
 $export_type = 'table';
 require_once 'libraries/display_export.lib.php';
-
-
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
 ?>

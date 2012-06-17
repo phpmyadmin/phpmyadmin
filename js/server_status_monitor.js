@@ -621,7 +621,7 @@ $(function() {
 
             $.get('server_status.php?' + url_query, vars,
                 function(data) {
-                    var logVars = $.parseJSON(data),
+                    var logVars = $.parseJSON(data.message),
                         icon = PMA_getImage('s_success.png'), msg='', str='';
 
                     if (logVars['general_log'] == 'ON') {
@@ -1202,7 +1202,7 @@ $(function() {
         }, function(data) {
             var chartData;
             try {
-                chartData = $.parseJSON(data);
+                chartData = $.parseJSON(data.message);
             } catch(err) {
                 return serverResponseError();
             }
@@ -1388,7 +1388,7 @@ $(function() {
             function(data) {
                 var logData;
                 try {
-                    logData = $.parseJSON(data);
+                    logData = $.parseJSON(data.message);
                 } catch(err) {
                     return serverResponseError();
                 }
@@ -1773,7 +1773,7 @@ $(function() {
             query: codemirror_editor ? codemirror_editor.getValue() : $('#sqlquery').val(),
             database: db
         }, function(data) {
-            data = $.parseJSON(data);
+            data = $.parseJSON(data.message);
             var totalTime = 0;
 
             if (data.error) {

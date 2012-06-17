@@ -93,7 +93,6 @@ if ($_REQUEST['output_format'] == 'astext') {
 if (isset($export_plugin_properties['force_file']) && ! $asfile) {
     
     $message = PMA_Message::error(__('Selected export type has to be saved in file!'));
-    include_once 'libraries/header.inc.php';
     if ($export_type == 'server') {
         $active_page = 'server_export.php';
         include 'server_export.php';
@@ -370,7 +369,6 @@ if ($save_on_server) {
         }
     }
     if (isset($message)) {
-        include_once 'libraries/header.inc.php';
         if ($export_type == 'server') {
             $active_page = 'server_export.php';
             include 'server_export.php';
@@ -404,14 +402,12 @@ if (! $save_on_server) {
             $num_tables = count($tables);
             if ($num_tables == 0) {
                 $message = PMA_Message::error(__('No tables found in database.'));
-                include_once 'libraries/header.inc.php';
                 $active_page = 'db_export.php';
                 include 'db_export.php';
                 exit();
             }
         }
         $backup_cfgServer = $cfg['Server'];
-        include_once 'libraries/header.inc.php';
         $cfg['Server'] = $backup_cfgServer;
         unset($backup_cfgServer);
         echo "\n" . '<div style="text-align: ' . $cell_align_left . '">' . "\n";
@@ -709,7 +705,6 @@ do {
 // End of fake loop
 
 if ($save_on_server && isset($message)) {
-    include_once 'libraries/header.inc.php';
     if ($export_type == 'server') {
         $active_page = 'server_export.php';
         include 'server_export.php';
@@ -757,7 +752,7 @@ if (! empty($asfile)) {
         }
     }
 
-    /* If ve saved on server, we have to close file now */
+    /* If we saved on server, we have to close file now */
     if ($save_on_server) {
         $write_result = @fwrite($file_handle, $dump_buffer);
         fclose($file_handle);
@@ -777,7 +772,6 @@ if (! empty($asfile)) {
             );
         }
 
-        include_once 'libraries/header.inc.php';
         if ($export_type == 'server') {
             $active_page = 'server_export.php';
             include_once 'server_export.php';
@@ -790,6 +784,7 @@ if (! empty($asfile)) {
         }
         exit();
     } else {
+        PMA_Response::getInstance()->disable();
         echo $dump_buffer;
     }
 } else {
@@ -827,6 +822,5 @@ if (! empty($asfile)) {
 //]]>
 </script>
 <?php
-    include 'libraries/footer.inc.php';
 } // end if
 ?>

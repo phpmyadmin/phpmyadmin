@@ -1,10 +1,6 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 require_once 'libraries/common.inc.php';
-if (! isset($_REQUEST['get_gis_editor']) && ! isset($_REQUEST['generate'])) {
-    include_once 'libraries/header_http.inc.php';
-    include_once 'libraries/header_meta_style.inc.php';
-}
 require_once 'libraries/gis/pma_gis_factory.php';
 require_once 'libraries/gis_visualization.lib.php';
 
@@ -66,18 +62,12 @@ if (isset($_REQUEST['generate']) && $_REQUEST['generate'] == true) {
         'visualization' => $visualization,
         'openLayers'    => $open_layers,
     );
-    PMA_ajaxResponse(null, true, $extra_data);
+    $response = PMA_Response::getInstance();
+    $response->addJSON($extra_data);
+    exit;
 }
 
-// If the call is to get the whole content, start buffering, skipping </head> and <body> tags
-if (isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
-    ob_start();
-} else {
-?>
-</head>
-<body>
-<?php
-}
+ob_start();
 ?>
     <form id="gis_data_editor_form" action="gis_data_editor.php" method="post">
     <input type="hidden" id="pmaThemeImage" value="<?php echo($GLOBALS['pmaThemeImage']); ?>" />
@@ -323,18 +313,7 @@ if (isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
     </form>
 <?php
 
-// If the call is to get the whole content, get the content in the buffer and make and AJAX response.
-if (isset($_REQUEST['get_gis_editor']) && $_REQUEST['get_gis_editor'] == true) {
-    $extra_data['gis_editor'] = ob_get_contents();
-    PMA_ajaxResponse(null, ob_end_clean(), $extra_data);
-}
-?>
-</body>
-
-<?php
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
+PMA_Response::getInstance()->addJSON('gis_editor', ob_get_contents());
+ob_end_clean();
 
 ?>

@@ -193,10 +193,10 @@ $(function() {
         PMA_prepareForAjaxRequest($form);
 
         var url = $form.serialize() + "&submit_search=" + $("#buttonGo").val();
-        $.post($form.attr('action'), url, function(response) {
-            if (typeof response == 'string') {
+        $.post($form.attr('action'), url, function(data) {
+            if (data.success == true) {
                 // found results
-                $("#searchresults").html(response);
+                $("#searchresults").html(data.message);
 
                 $('#togglesearchresultlink')
                 // always start with the Show message
@@ -219,7 +219,7 @@ $(function() {
                     .show();
             } else {
                 // error message (zero rows)
-                $("#sqlqueryresults").html(response['message']);
+                $("#sqlqueryresults").html(data.error);
             }
 
             PMA_ajaxRemoveMessage($msgbox);

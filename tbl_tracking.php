@@ -816,9 +816,3 @@ if ($last_version > 0) {
 
 <br class="clearfloat"/>
 
-<?php
-/**
- * Displays the footer
- */
-require './libraries/footer.inc.php';
-?>

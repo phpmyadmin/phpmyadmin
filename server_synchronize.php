@@ -14,7 +14,10 @@ require_once 'libraries/common.inc.php';
 /**
  * Does the common work
  */
-$GLOBALS['js_include'][] = 'server_synchronize.js';
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('server_synchronize.js');
 require_once 'libraries/server_common.inc.php';
 
 /**
@@ -1484,8 +1487,4 @@ if (! isset($_REQUEST['submit_connect'])
     <div class="notice">' . __('Target database will be completely synchronized with source database. Source database will remain unchanged.') . '</div>';
 }
 
- /**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
 ?>

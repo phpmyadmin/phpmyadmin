@@ -48,20 +48,14 @@ function PMA_auth()
         header('status: 401 Unauthorized');
     }
 
-    // Defines the charset to be used
-    header('Content-Type: text/html; charset=utf-8');
     /* HTML header */
-    $page_title = __('Access denied');
-    include './libraries/header_meta_style.inc.php';
-    ?>
-</head>
-<body>
-    <?php
-    if (file_exists(CUSTOM_HEADER_FILE)) {
-        include CUSTOM_HEADER_FILE;
-    }
-    ?>
+    $response = PMA_Response::getInstance();
+    $response->getFooter()->setMinimal();
+    $header = $response->getHeader();
+    $header->setTitle(__('Access denied'));
+    $header->disableMenu();
 
+?>
 <br /><br />
 <center>
     <h1><?php echo sprintf(__('Welcome to %s'), ' phpMyAdmin'); ?></h1>
@@ -74,12 +68,8 @@ function PMA_auth()
     if (file_exists(CUSTOM_FOOTER_FILE)) {
         include CUSTOM_FOOTER_FILE;
     }
-    ?>
 
-</body>
-</html>
-    <?php
-    exit();
+    exit;
 } // end of the 'PMA_auth()' function
 
 

@@ -27,7 +27,7 @@ if (empty($import_list)) {
     PMA_Message::error(__(
         'Could not load import plugins, please check your installation!'
     ))->display();
-    include './libraries/footer.inc.php';
+    exit;
 }
 ?>
 
@@ -136,7 +136,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
                             <?php
                             // reload the left sidebar when the import is finished
                             $GLOBALS['reload'] = true;
-                            PMA_reloadNavigation(true);
+                            echo PMA_getReloadNavigationScript(true);
                             ?>
 
                         } // if finished

@@ -23,21 +23,18 @@ PMA_userprefs_pageinit();
 $error = '';
 if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') == 'text_file') {
     // export to JSON file
+    PMA_Response::getInstance()->disable();
     $filename = 'phpMyAdmin-config-' . urlencode(PMA_getenv('HTTP_HOST')) . '.json';
     PMA_downloadHeader($filename, 'application/json');
     $settings = PMA_load_userprefs();
     echo json_encode($settings['config_data']);
-    return;
+    exit;
 } else if (isset($_POST['submit_get_json'])) {
     $settings = PMA_load_userprefs();
-    header('Content-Type: application/json');
-    echo json_encode(
-        array(
-            'prefs' => json_encode($settings['config_data']),
-            'mtime' => $settings['mtime']
-        )
-    );
-    return;
+    $response = PMA_Response::getInstance();
+    $response->addJSON('prefs', json_encode($settings['config_data']));
+    $response->addJSON('mtime', $settings['mtime']);
+    exit;
 } else if (isset($_POST['submit_import'])) {
     // load from JSON file
     $json = '';
@@ -109,7 +106,6 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
         }
         if (!$all_ok) {
             // mimic original form and post json in a hidden field
-            include 'libraries/header.inc.php';
             include 'libraries/user_preferences.inc.php';
             $msg = PMA_Message::error(__('Configuration contains incorrect data for some fields.'));
             $msg->display();
@@ -132,8 +128,7 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
                 <input type="submit" name="submit_ignore" value="<?php echo __('No') ?>" />
             </form>
             <?php
-            include 'libraries/footer.inc.php';
-            return;
+            exit;
         }
 
         // check for ThemeDefault and fontsize
@@ -216,8 +211,11 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
     exit;
 }
 
-$GLOBALS['js_include'][] = 'config.js';
-require 'libraries/header.inc.php';
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts = $header->getScripts();
+$scripts->addFile('config.js');
+
 require 'libraries/user_preferences.inc.php';
 if ($error) {
     if (!$error instanceof PMA_Message) {
@@ -294,8 +292,7 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
             <h2><?php echo __('Export') ?></h2>
             <div class="click-hide-message group-cnt" style="display:none">
                 <?php
-                $message = PMA_Message::rawSuccess(__('Configuration has been saved'));
-                $message->display();
+                PMA_Message::rawSuccess(__('Configuration has been saved'))->display();
                 ?>
             </div>
             <form class="group-cnt prefs-form" name="prefs_export" action="prefs_manage.php" method="post">
@@ -335,9 +332,3 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
     </div>
     <br class="clearfloat" />
 </div>
-<?php
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
-?>

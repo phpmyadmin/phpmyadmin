@@ -9,9 +9,13 @@
  * Does the common work
  */
 require_once 'libraries/common.inc.php';
-require 'libraries/server_common.inc.php';
 
-$GLOBALS['js_include'][] = 'export.js';
+$response = PMA_Response::getInstance();
+$header   = $response->getHeader();
+$scripts  = $header->getScripts();
+$scripts->addFile('export.js');
+
+require 'libraries/server_common.inc.php';
 
 $export_page_title = __('View dump (schema) of databases') . "\n";
 $checkall_url = 'server_export.php?'
@@ -56,9 +60,4 @@ $multi_values .= '</select></div>';
 $export_type = 'server';
 require_once 'libraries/display_export.lib.php';
 
-
-/**
- * Displays the footer
- */
-require 'libraries/footer.inc.php';
 ?>
