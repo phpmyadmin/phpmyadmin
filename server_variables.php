@@ -13,11 +13,6 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_variables.js');
 
-PMA_addJSVar('pma_token', $_SESSION[' PMA_token ']);
-PMA_addJSVar('url_query', str_replace('&amp;', '&', PMA_generate_common_url($db)));
-PMA_addJSVar('is_superuser', PMA_isSuperuser() ? true : false);
-
-
 /**
  * Does the common work
  */
@@ -126,6 +121,18 @@ $output = '<h2>' . PMA_Util::getImage('s_vars.png')
     . '</h2>' . "\n";
 
 /**
+ * Link templates
+ */
+$url = htmlspecialchars('server_variables.php?' . PMA_generate_common_url($db));
+$output .= '<a href="#" class="editLink hide" onclick="return editVariable(this);">';
+$output .= PMA_Util::getIcon('b_edit.png', __('Edit')) . '</a>';
+$output .= '<a href="' . $url . '" class="ajax saveLink hide">';
+$output .= PMA_Util::getIcon('b_save.png', __('Save')) . '</a> ';
+$output .= '<a href="#" class="cancelLink hide">';
+$output .= PMA_Util::getIcon('b_close.png', __('Cancel')) . '</a> ';
+
+
+/**
  * Sends the queries and buffers the results
  */
 $serverVarsSession = PMA_DBI_fetch_result('SHOW SESSION VARIABLES;', 0, 1);
@@ -165,7 +172,9 @@ foreach ($serverVars as $name => $value) {
     $output .= '<tr class="' . $row_class . '">'
         . '<th class="nowrap">' . htmlspecialchars(str_replace('_', ' ', $name))
         . '</th>'
-        . '<td class="value">' . formatVariable($name, $value) . '</td>'
+        . '<td class="value' . (PMA_isSuperuser() ? ' editable' : '') . '">'
+        . formatVariable($name, $value)
+        . '</td>'
         . '<td class="value">';
 
     // To display variable documentation link
@@ -184,8 +193,7 @@ foreach ($serverVars as $name => $value) {
         $output .= '</tr>'
             . '<tr class="' . ($odd_row ? 'odd' : 'even') . '">'
             . '<td>(' . __('Session value') . ')</td>'
-            . '<td class="value">' . formatVariable($name, $serverVarsSession[$name])
-            . '</td>'
+            . '<td class="value">' . formatVariable($name, $serverVarsSession[$name]) . '</td>'
             . '<td class="value"></td>';
     }
 
