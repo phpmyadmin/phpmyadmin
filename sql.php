@@ -1175,9 +1175,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     }
 
     if (isset($label)) {
-        $message = PMA_message::success(__('Bookmark %s created'));
-        $message->addParam($label);
-        $message->display();
+        $msg = PMA_message::success(__('Bookmark %s created'));
+        $msg->addParam($label);
+        $msg->display();
     }
 
     // Should be initialized these parameters before parsing
