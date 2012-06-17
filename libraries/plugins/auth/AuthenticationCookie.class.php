@@ -73,7 +73,12 @@ class AuthenticationCookie extends AuthenticationPlugin
         if ($response->isAjax()) {
             $response->isSuccess(false);
             if (! empty($conn_error)) {
-                $response->addJSON('message', $conn_error);
+                $response->addJSON(
+                    'message',
+                    PMA_Message::error(
+                        $conn_error
+                    )
+                );
             } else {
                 $response->addJSON(
                     'message',
