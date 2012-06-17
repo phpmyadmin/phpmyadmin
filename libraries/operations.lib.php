@@ -1075,8 +1075,7 @@ function PMA_getHtmlForTableMaintenance(
     $html_output = '<div class="operations_half_width">';
     $html_output .= '<fieldset>'
         . '<legend>' . __('Table maintenance') . '</legend>';
-    $html_output .= '<ul id="tbl_maintenance" '
-        . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '') .'>';
+    $html_output .= '<ul id="tbl_maintenance">';
 
     // Note: BERKELEY (BDB) is no longer supported, starting with MySQL 5.1
     $html_output .= PMA_getListofMaintainActionLink(
@@ -1210,8 +1209,9 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
 function PMA_getMaintainActionlink($action, $params, $url_params, $link,
     $chapter = 'MySQL_Database_Administration'
 ) {
+    $isAjax = ($GLOBALS['cfg']['AjaxEnable'] ? ' ajax' : '');
     return '<li>'
-        . '<a class="maintain_action" '
+        . '<a class="maintain_action' . $isAjax . '" '
         . 'href="tbl_operations.php'
         . PMA_generate_common_url(array_merge($url_params, $params)) .'">'
         . $action

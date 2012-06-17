@@ -2239,7 +2239,7 @@ $(function() {
     /**
      *Ajax events for actions in the "Table maintenance"
     **/
-    $("#tbl_maintenance.ajax li a.maintain_action").live('click', function(event) {
+    $("#tbl_maintenance li a.maintain_action.ajax").live('click', function(event) {
         event.preventDefault();
         var $link = $(this);
         var href = $link.attr("href");
