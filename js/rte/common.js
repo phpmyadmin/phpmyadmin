@@ -83,7 +83,7 @@ $(function () {
     /**
      * Attach Ajax event handlers for the Add/Edit functionality.
      */
-    $('a.ajax_add_anchor, a.ajax_edit_anchor').live('click', function (event) {
+    $('a.ajax.add_anchor, a.ajax.edit_anchor').live('click', function (event) {
         event.preventDefault();
         /**
          * @var    $edit_row    jQuery object containing the reference to
@@ -276,7 +276,7 @@ $(function () {
     /**
      * Attach Ajax event handlers for Export of Routines, Triggers and Events.
      */
-    $('a.ajax_export_anchor').live('click', function (event) {
+    $('a.ajax.export_anchor').live('click', function (event) {
         event.preventDefault();
         var $msg = PMA_ajaxShowMessage();
         // Fire the ajax request straight away
@@ -318,7 +318,7 @@ $(function () {
     /**
      * Attach Ajax event handlers for Drop functionality of Routines, Triggers and Events.
      */
-    $('a.ajax_drop_anchor').live('click', function (event) {
+    $('a.ajax.drop_anchor').live('click', function (event) {
         event.preventDefault();
         /**
          * @var $curr_row    Object containing reference to the current row

@@ -335,7 +335,7 @@ $(function () {
     /**
      * Attach Ajax event handlers for the Execute routine functionality.
      */
-    $('a.ajax_exec_anchor').live('click', function (event) {
+    $('a.ajax.exec_anchor').live('click', function (event) {
         event.preventDefault();
         /**
          * @var    $msg    jQuery object containing the reference to
