@@ -1271,12 +1271,10 @@ function PMA_getHtmlForDeleteDataOrTable(
  */
 function PMA_getDeleteDataOrTablelink($url_params, $syntax, $link, $id)
 {
+    $isAjax = $GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '';
     return  '<li><a '
         . 'href="sql.php' . PMA_generate_common_url($url_params) . '"'
-        . ($GLOBALS['cfg']['AjaxEnable']
-            ? ' id="' . $id . '" class="ajax"'
-            : ''
-        ) . '>'
+        . ' id="' . $id . '"' . $isAjax . '>'
         . $link . '</a>'
         . PMA_Util::showMySQLDocu(
             'SQL-Syntax', $syntax

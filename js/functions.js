@@ -2284,7 +2284,7 @@ $(function() {
  * @see $cfg['AjaxEnable']
  */
 $(function() {
-    $("#drop_db_anchor").live('click', function(event) {
+    $("#drop_db_anchor.ajax").live('click', function(event) {
         event.preventDefault();
 
         //context is top.frame_content, so we need to use window.parent.db to access the db var
@@ -3235,7 +3235,7 @@ function PMA_slidingMessage(msg, $obj)
  * @see $cfg['AjaxEnable']
  */
 $(function() {
-    $("#drop_tbl_anchor").live('click', function(event) {
+    $("#drop_tbl_anchor.ajax").live('click', function(event) {
         event.preventDefault();
 
         //context is top.frame_content, so we need to use window.parent.table to access the table var

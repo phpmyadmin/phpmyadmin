@@ -546,7 +546,7 @@ function PMA_getHtmlForInsertEmptyDropActionLinks($tbl_url_query, $table_is_view
     $html_output .= '<td class="center">';
     $html_output .= '<a ';
     if ($GLOBALS['cfg']['AjaxEnable']) {
-        $html_output .= 'class="drop_table_anchor';
+        $html_output .= 'class="ajax drop_table_anchor';
         if ($table_is_view || $current_table['ENGINE'] == null) {
             // this class is used in db_structure.js to display the
             // correct confirmation message
