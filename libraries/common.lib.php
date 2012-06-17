@@ -1786,7 +1786,7 @@ function PMA_generateHtmlTab($tab, $url_params = array())
  *
  * @return string  html-code for tab-navigation
  */
-function PMA_generateHtmlTabs($tabs, $url_params, $menu_id = 'topmenu')
+function PMA_getHtmlTabs($tabs, $url_params, $menu_id = 'topmenu')
 {
     $tab_navigation = '<div id="' . htmlentities($menu_id)
         . 'container" class="menucontainer">'
