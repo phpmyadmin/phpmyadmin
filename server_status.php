@@ -784,41 +784,23 @@ $server_db_isLocal = strtolower($cfg['Server']['host']) == 'localhost'
                               || $cfg['Server']['host'] == '127.0.0.1'
                               || $cfg['Server']['host'] == '::1';
 
-PMA_addJSVar(
-    'pma_token',
-    $_SESSION[' PMA_token ']
-);
-PMA_addJSVar(
-    'url_query',
-    str_replace('&amp;', '&', PMA_generate_common_url($db))
-);
-PMA_addJSVar(
-    'server_time_diff',
-    'new Date().getTime() - ' . (microtime(true) * 1000),
-    false
-);
-PMA_addJSVar(
-    'server_os',
-    PHP_OS
-);
-PMA_addJSVar(
-    'is_superuser',
-    PMA_isSuperuser()
-);
-PMA_addJSVar(
-    'server_db_isLocal',
-    $server_db_isLocal
-);
-PMA_addJSVar(
-    'profiling_docu',
-    PMA_Util::showMySQLDocu(
-        'general-thread-states', 'general-thread-states'
-    )
-);
-PMA_addJSVar(
-    'explain_docu',
-    PMA_Util::showMySQLDocu('explain-output', 'explain-output')
-);
+$input = '<input type="hidden" name="%s" value="%s" />';
+
+echo '<form id="js_data" class="hide">';
+printf($input, 'pma_token', $_SESSION[' PMA_token ']);
+printf($input, 'url_query', str_replace('&amp;', '&', PMA_generate_common_url($db)));
+printf($input, 'server_time_diff', 'new Date().getTime() - ' . (microtime(true) * 1000));
+printf($input, 'server_os', PHP_OS);
+printf($input, 'is_superuser', PMA_isSuperuser());
+printf($input, 'server_db_isLocal', $server_db_isLocal);
+echo '</form>';
+
+echo '<div id="profiling_docu" class="hide">';
+echo $common_functions->showMySQLDocu('general-thread-states', 'general-thread-states');
+echo '</div>';
+echo '<div id="explain_docu" class="hide">';
+echo $common_functions->showMySQLDocu('explain-output', 'explain-output');
+echo '</div>';
 
 /**
  * start output

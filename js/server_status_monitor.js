@@ -1943,7 +1943,7 @@ $(function() {
             $('div#queryAnalyzerDialog div.placeHolder')
                 .html('<table width="100%" border="0"><tr><td class="explain"></td><td class="chart"></td></tr></table>');
 
-            var explain = '<b>' + PMA_messages['strExplainOutput'] + '</b> ' + explain_docu;
+            var explain = '<b>' + PMA_messages['strExplainOutput'] + '</b> ' + $('#explain_docu').html();
             if (data.explain.length > 1) {
                 explain += ' (';
                 for (var i = 0; i < data.explain.length; i++) {
@@ -1998,7 +1998,7 @@ $(function() {
                 numberTable += '</tbody></table>';
 
                 $('div#queryAnalyzerDialog div.placeHolder td.chart').append(
-                    '<b>' + PMA_messages['strProfilingResults'] + ' ' + profiling_docu + '</b> ' +
+                    '<b>' + PMA_messages['strProfilingResults'] + ' ' + $('#profiling_docu').html() + '</b> ' +
                     '(<a href="#showNums">' + PMA_messages['strTable'] + '</a>, <a href="#showChart">' + PMA_messages['strChart'] + '</a>)<br/>' +
                     numberTable + ' <div id="queryProfiling"></div>');
 
