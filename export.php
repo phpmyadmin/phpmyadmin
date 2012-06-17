@@ -26,7 +26,7 @@ PMA_checkParameters(array('what', 'export_type'));
 // export class instance, not array of properties, as before
 $export_plugin = PMA_getPlugin(
     "export",
-    $what,    
+    $what,
     'libraries/plugins/export/',
     array(
         'export_type' => $export_type,
@@ -91,7 +91,7 @@ if ($_REQUEST['output_format'] == 'astext') {
 
 // Does export require to be into file?
 if (isset($export_plugin_properties['force_file']) && ! $asfile) {
-    
+
     $message = PMA_Message::error(__('Selected export type has to be saved in file!'));
     if ($export_type == 'server') {
         $active_page = 'server_export.php';
@@ -492,7 +492,7 @@ do {
                 if (! $export_plugin->exportDBCreate($current_db)) {
                     break 2;
                 }
-                if (function_exists('$export_plugin->exportRoutines')
+                if (method_exists($export_plugin, 'exportRoutines')
                     && strpos($GLOBALS['sql_structure_or_data'], 'structure') !== false
                     && isset($GLOBALS['sql_procedure_function'])
                 ) {
@@ -570,7 +570,7 @@ do {
             break;
         }
 
-        if (function_exists('$export_plugin->exportRoutines')
+        if (method_exists($export_plugin, 'exportRoutines')
             && strpos($GLOBALS['sql_structure_or_data'], 'structure') !== false
             && isset($GLOBALS['sql_procedure_function'])
         ) {
@@ -666,7 +666,11 @@ do {
         // If this is an export of a single view, we have to export data;
         // for example, a PDF report
         // if it is a merge table, no data is exported
-        if (($GLOBALS[$what . '_structure_or_data'] == 'data' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') && ! PMA_Table::isMerge($db, $table)) {
+
+        if (($GLOBALS[$what . '_structure_or_data'] == 'data'
+            || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data')
+            && ! PMA_Table::isMerge($db, $table)
+        ) {
             if (!empty($sql_query)) {
                 // only preg_replace if needed
                 if (!empty($add_query)) {
@@ -676,15 +680,20 @@ do {
                 $local_query = $sql_query . $add_query;
                 PMA_DBI_select_db($db);
             } else {
-                $local_query  = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . $add_query;
+                $local_query  = 'SELECT * FROM ' . PMA_backquote($db) . '.'
+                    . PMA_backquote($table) . $add_query;
             }
-            if (! $export_plugin->exportData($db, $table, $crlf, $err_url, $local_query)) {
+            if (! $export_plugin->exportData($db, $table, $crlf, $err_url,
+                $local_query
+            )) {
                 break;
             }
         }
         // now export the triggers (needs to be done after the data because
         // triggers can modify already imported tables)
-        if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
+        if ($GLOBALS[$what . '_structure_or_data'] == 'structure'
+            || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data'
+        ) {
             if (! $export_plugin->exportStructure(
                 $db, $table, $crlf, $err_url,
                 'triggers', $export_type,

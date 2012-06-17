@@ -3172,13 +3172,19 @@ function PMA_getTitleForTarget($target)
  *
  * @param string   $string  Text where to do expansion.
  * @param function $escape  Function to call for escaping variable values.
+ * @param function $class   The name of the class, if the above function is
+ *                          actually a method inside a class.
  * @param array    $updates Array with overrides for default parameters
- *                 (obtained from GLOBALS).
+ *                          (obtained from GLOBALS).
  *
  * @return string
  */
-function PMA_expandUserString($string, $escape = null, $updates = array())
-{
+function PMA_expandUserString(
+    $string,
+    $escape = null,
+    $class = null,
+    $updates = array()
+) {
     /* Content */
     $vars['http_host'] = PMA_getenv('HTTP_HOST');
     $vars['server_name'] = $GLOBALS['cfg']['Server']['host'];
@@ -3218,7 +3224,13 @@ function PMA_expandUserString($string, $escape = null, $updates = array())
     /* Optional escaping */
     if (! is_null($escape)) {
         foreach ($replace as $key => $val) {
-            $replace[$key] = $escape($val);
+            if (is_null($class)) {
+                // Use as function
+                $replace[$key] = $escape($val);
+            } else {
+                // Use as method
+                call_user_func($class . "::" . $escape, $val);
+            }
         }
     }
 
@@ -3234,7 +3246,16 @@ function PMA_expandUserString($string, $escape = null, $updates = array())
         $column_names = array();
         foreach ($columns_list as $column) {
             if (! is_null($escape)) {
-                $column_names[] = $escape($column['Field']);
+                if (is_null($class)) {
+                    // Use as function
+                    $column_names[] = $escape($column['Field']);
+                } else {
+                    // Use as method
+                    $column_names[] = call_user_func(
+                        $class . "::" . $escape,
+                        $column['Field']
+                    );
+                }
             } else {
                 $column_names[] = $column['Field'];
             }
