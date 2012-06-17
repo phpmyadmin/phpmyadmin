@@ -20,7 +20,7 @@ if ($GLOBALS['PMA_Config']->isGitRevision()) {
         PMA_printGitRevision();
         exit;
     }
-    PMA_addJSVar('is_git_revision', true);
+    echo '<div id="is_git_revision"></div>';
 }
 
 // Handles some variables that may have been sent by the calling script

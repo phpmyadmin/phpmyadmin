@@ -3120,7 +3120,7 @@ $(function() {
         $.getJSON('http://www.phpmyadmin.net/home_page/version.json', {}, PMA_current_version);
     }
 
-    if (typeof is_git_revision != "undefined") {
+    if ($('#is_git_revision').length > 0) {
         setTimeout(PMA_display_git_revision, 10);
     }
 
