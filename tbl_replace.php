@@ -159,15 +159,6 @@ foreach ($loop_array as $rownumber => $where_clause) {
         ? $_REQUEST['auto_increment']['multi_edit'][$rownumber]
         : null;
 
-    // Fetch the current values of a row to use in case we have a protected field
-    // @todo possibly move to ./libraries/tbl_replace_fields.inc.php
-    if ($is_insert
-        && $using_key && isset($multi_edit_columns_type)
-        && is_array($multi_edit_columns_type) && isset($where_clause)
-    ) {
-        $prot_row = PMA_DBI_fetch_single_row('SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $where_clause . ';');
-    }
-
     // When a select field is nullified, it's not present in $_REQUEST
     // so initialize it; this way, the foreach($multi_edit_colummns) will process it
     foreach ($multi_edit_columns_name as $key => $val) {
@@ -182,7 +173,25 @@ foreach ($loop_array as $rownumber => $where_clause) {
         $current_value = $multi_edit_colummns[$key];
         // Note: $key is an md5 of the fieldname. The actual fieldname is available in $multi_edit_columns_name[$key]
         
-        include 'libraries/tbl_replace_fields.inc.php';
+        // to create an object of PMA_File class
+        require_once './libraries/File.class.php';
+        
+        $file_to_insert = new PMA_File();
+        $file_to_insert->checkTblChangeForm($key, $rownumber);
+
+        $possibly_uploaded_val = $file_to_insert->getContent();
+
+        if ($file_to_insert->isError()) {
+            $message .= $file_to_insert->getError();
+        }
+        // delete $file_to_insert temporary variable
+        $file_to_insert->cleanUp();
+        
+        $current_value = PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
+            $multi_edit_columns_type, $current_value, $multi_edit_auto_increment,
+            $rownumber, $multi_edit_columns_name, $multi_edit_columns_null,
+            $multi_edit_columns_null_prev, $is_insert, $using_key, $where_clause, $table);
+        
         $current_value_as_an_array = PMA_getCurrentValueAsAnArrayForMultipleEdit($multi_edit_colummns,
             $multi_edit_columns_name, $multi_edit_funcs, $gis_from_text_functions, $current_value,
             $gis_from_wkb_functions, $func_optional_param, $func_no_param, $key);
@@ -207,8 +216,8 @@ foreach ($loop_array as $rownumber => $where_clause) {
 } // end foreach ($loop_array as $where_clause)
 unset($multi_edit_columns_name, $multi_edit_columns_prev, $multi_edit_funcs,
     $multi_edit_columns_type, $multi_edit_columns_null, $func_no_param,
-    $multi_edit_auto_increment, $current_value_as_an_array, $key, $current_value, $loop_array, $where_clause,
-    $using_key,  $multi_edit_columns_null_prev);
+    $multi_edit_auto_increment, $current_value_as_an_array, $key, $current_value,
+    $loop_array, $where_clause, $using_key,  $multi_edit_columns_null_prev);
 
 
 // Builds the sql query

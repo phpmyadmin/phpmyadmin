@@ -1991,7 +1991,7 @@ function PMA_getCurrentValueAsAnArrayForMultipleEdit($multi_edit_colummns,
  * Get query values array and query fileds array for insert and update in multi edit
  * 
  * @param array $multi_edit_columns_name        multiple edit columns name array
- * @param array $multi_edit_columns_null        multiple edit columns name array
+ * @param array $multi_edit_columns_null        multiple edit columns null array
  * @param string $current_value                 current value in the column in loop          
  * @param array $multi_edit_columns_prev        multiple edit previous columns array
  * @param array $multi_edit_funcs               multiple edit functions array
@@ -2043,6 +2043,108 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
         }
     }
     return array($query_values, $query_fields);
+}
+
+/**
+ * Get the current column value in the form for different data types
+ * 
+ * @param string $possibly_uploaded_val         uploaded file content
+ * @param string $key                           an md5 of the column name
+ * @param array $multi_edit_columns_type        array of multi edit column types
+ * @param string $current_value                 current column value in the form
+ * @param array $multi_edit_auto_increment      multi edit auto increment
+ * @param string $rownumber                     index of where clause array
+ * @param array $multi_edit_columns_name        multi edit column names array
+ * @param array $multi_edit_columns_null        multi edit columns null array
+ * @param array $multi_edit_columns_null_prev   multi edit columns previous null
+ * @param boolean $is_insert                    whether insert or not
+ * @param boolean $using_key                    whether editing or new row
+ * @param array $where_clause                   where clauses
+ * @param string $table                         table name
+ * 
+ * @return string $current_value                current column value in the form
+ */
+function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
+    $multi_edit_columns_type, $current_value, $multi_edit_auto_increment,
+    $rownumber, $multi_edit_columns_name, $multi_edit_columns_null,
+    $multi_edit_columns_null_prev, $is_insert, $using_key, $where_clause, $table
+) {
+    // Fetch the current values of a row to use in case we have a protected field
+    if ($is_insert
+        && $using_key && isset($multi_edit_columns_type)
+        && is_array($multi_edit_columns_type) && isset($where_clause)
+    ) {
+        $protected_row = PMA_DBI_fetch_single_row(
+            'SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $where_clause . ';');
+    }
+    
+    if (false !== $possibly_uploaded_val) {
+        $current_value = $possibly_uploaded_val;
+    } else {
+        // c o l u m n    v a l u e    i n    t h e    f o r m
+        if (isset($multi_edit_columns_type[$key])) {
+            $type = $multi_edit_columns_type[$key];
+        } else {
+            $type = '';
+        }
+
+        if ($type != 'protected' && $type != 'set' && 0 === strlen($current_value)) {
+            // best way to avoid problems in strict mode (works also in non-strict mode)
+            if (isset($multi_edit_auto_increment)
+                && isset($multi_edit_auto_increment[$key])
+            ) {
+                $current_value = 'NULL';
+            } else {
+                $current_value = "''";
+            }
+        } elseif ($type == 'set') {
+            if (! empty($_REQUEST['fields']['multi_edit'][$rownumber][$key])) {
+                $current_value = implode(',', $_REQUEST['fields']['multi_edit'][$rownumber][$key]);
+                $current_value = "'" . PMA_sqlAddSlashes($current_value) . "'";
+            } else {
+                 $current_value = "''";
+            }
+        } elseif ($type == 'protected') {
+            // here we are in protected mode (asked in the config)
+            // so tbl_change has put this special value in the
+            // coulmns array, so we do not change the column value
+            // but we can still handle column upload
+
+            // when in UPDATE mode, do not alter field's contents. When in INSERT
+            // mode, insert empty field because no values were submitted. If protected
+            // blobs where set, insert original fields content.
+            if (! empty($protected_row[$multi_edit_columns_name[$key]])) {
+                $current_value = '0x' . bin2hex($protected_row[$multi_edit_columns_name[$key]]);
+            } else {
+                $current_value = '';
+            }
+        } elseif ($type == 'bit') {
+            $current_value = preg_replace('/[^01]/', '0', $current_value);
+            $current_value = "b'" . PMA_sqlAddSlashes($current_value) . "'";
+        } elseif (! ($type == 'datetime' || $type == 'timestamp')
+            || $current_value != 'CURRENT_TIMESTAMP'
+        ) {
+            $current_value = "'" . PMA_sqlAddSlashes($current_value) . "'";
+        }
+
+        // Was the Null checkbox checked for this field?
+        // (if there is a value, we ignore the Null checkbox: this could
+        // be possible if Javascript is disabled in the browser)
+        if (! empty($multi_edit_columns_null[$key])
+            && ($current_value == "''" || $current_value == '')
+        ) {
+            $current_value = 'NULL';
+        }
+
+        // The Null checkbox was unchecked for this field
+        if (empty($current_value)
+            && ! empty($multi_edit_columns_null_prev[$key])
+            && ! isset($multi_edit_columns_null[$key])
+        ) {
+            $current_value = "''";
+        }
+    }  // end else (column value in the form)
+    return $current_value;
 }
 
 ?>
