@@ -326,7 +326,8 @@ class PMA_Footer
                     $retval .= ob_get_contents();
                     ob_end_clean();
                 }
-            } else if (! $this->_isAjax) {
+            }
+            if (! $this->_isAjax) {
                 $retval .= "</body></html>";
             }
         }
