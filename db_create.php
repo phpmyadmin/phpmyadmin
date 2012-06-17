@@ -125,8 +125,8 @@ if (! $result) {
         }
 
         list($column_order, $generated_html) = PMA_buildHtmlForDb(
-            $current, $is_superuser, (isset($checkall) ? $checkall : ''),
-            $url_query, $column_order, $replication_types, $replication_info
+            $current, $is_superuser, $url_query,
+            $column_order, $replication_types, $replication_info
         );
         $new_db_string .= $generated_html;
 

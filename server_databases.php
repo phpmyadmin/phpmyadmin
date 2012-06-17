@@ -250,7 +250,6 @@ if ($databases_count > 0) {
         list($column_order, $generated_html) = PMA_buildHtmlForDb(
             $current,
             $is_superuser,
-            (isset($checkall) ? $checkall : ''),
             $url_query,
             $column_order,
             $replication_types,

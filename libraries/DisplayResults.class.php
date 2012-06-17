@@ -5702,9 +5702,6 @@ class PMA_DisplayResults
                 . '" name="rows_to_delete[' . $row_no . ']"'
                 . ' class="multi_checkbox checkall"'
                 . ' value="' . $where_clause_html . '" '
-                . (isset($GLOBALS['checkall'])
-                    ? 'checked="checked"'
-                    : '')
                 . ' />'
                 . '<input type="hidden" class="condition_array" value="'
                 . htmlspecialchars(json_encode($condition_array)) . '" />'

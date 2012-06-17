@@ -323,7 +323,6 @@ function PMA_getHtmlForDisplayColumnPrivileges($columns, $row, $name_for_select,
         . '<i>' . __('Or') . '</i>' . "\n"
         . '<label for="checkbox_' . $name_for_select
         . '_none"><input type="checkbox"'
-        . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
         . ' name="' . $name_for_select . '_none" id="checkbox_'
         . $name_for_select . '_none" title="'
         . _pgettext('None privileges', 'None') . '" />'
@@ -688,7 +687,6 @@ function PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
 
         $html_output .= '<div class="item">' . "\n"
            . '<input type="checkbox"'
-           . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
            . ' name="' . $current_grant . '" id="checkbox_' . $current_grant
            . '" value="Y" '
            . ($current_grant_value == 'Y' ? 'checked="checked" ' : '')
@@ -782,13 +780,11 @@ function PMA_getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row, $random_n)
             : ($table == '*'
                 ? __('Database-specific privileges')
                 : __('Table-specific privileges'))) . "\n"
-        . '(<a href="server_privileges.php?'
-        . $GLOBALS['url_query'] . '&amp;checkall=1" '
+        . '(<a href="#" '
         . 'onclick="setCheckboxes(\'addUsersForm_' . $random_n . '\', true); '
         . 'return false;">'
         . __('Check All') . '</a> /' . "\n"
-        . '<a href="server_privileges.php?'
-        . $GLOBALS['url_query'] . '" '
+        . '<a href="#" '
         . 'onclick="setCheckboxes(\'addUsersForm_' . $random_n . '\', false); '
         . 'return false;">'
         . __('Uncheck All') . '</a>)' . "\n"
@@ -998,7 +994,7 @@ function PMA_getHtmlForGlobalPrivTableWithCheckboxes(
                 . ' name="' . $priv[0] . '_priv" '
                 . 'id="checkbox_' . $priv[0] . '_priv"'
                 . ' value="Y" title="' . $priv[2] . '"'
-                . ((! empty($GLOBALS['checkall']) || $row[$priv[0] . '_priv'] == 'Y')
+                . (($row[$priv[0] . '_priv'] == 'Y')
                     ?  ' checked="checked"'
                     : ''
                 )
@@ -2460,7 +2456,6 @@ function PMA_getTableBodyForUserRightsTable($db_rights, $link_edit, $link_export
                 . $index_checkbox . '" value="'
                 . htmlspecialchars($host['User'] . '&amp;#27;' . $host['Host'])
                 . '"'
-                . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
                 . ' /></td>' . "\n";
 
             $html_output .= '<td><label '

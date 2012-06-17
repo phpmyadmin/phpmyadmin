@@ -421,7 +421,6 @@ function PMA_getTimeForCreateUpdateCheck($current_table, $time_label, $time_all)
  * @param boolean $odd_row                  whether row is odd or not
  * @param boolean $table_is_view            whether table is view or not
  * @param array   $current_table            current table
- * @param string  $checked                  checked attribute
  * @param string  $browse_table_label       browse table label action link
  * @param string  $tracking_icon            tracking icon
  * @param boolean $server_slave_status      server slave state
@@ -449,7 +448,7 @@ function PMA_getTimeForCreateUpdateCheck($current_table, $time_label, $time_all)
  */
 function PMA_getHtmlForStructureTableRow(
     $curr, $odd_row, $table_is_view, $current_table,
-    $checked, $browse_table_label, $tracking_icon,$server_slave_status,
+    $browse_table_label, $tracking_icon,$server_slave_status,
     $browse_table, $tbl_url_query, $search_table,
     $db_is_information_schema,$titles, $empty_table, $drop_query, $drop_message,
     $collation, $formatted_size, $unit, $overhead, $create_time, $update_time,
@@ -463,7 +462,7 @@ function PMA_getHtmlForStructureTableRow(
     $html_output .= '<td class="center">'
         . '<input type="checkbox" name="selected_tbl[]" class="checkall" '
         . 'value="' . htmlspecialchars($current_table['TABLE_NAME']) . '" '
-        . 'id="checkbox_tbl_' . $curr .'"' . $checked .' /></td>';
+        . 'id="checkbox_tbl_' . $curr .'" /></td>';
 
     $html_output .= '<th>'
         . $browse_table_label
@@ -1218,7 +1217,6 @@ function PMA_getHtmlForTableStructureHeader(
  *
  * @param array   $row                      current row
  * @param string  $rownum                   row number
- * @param string  $checked                  checked
  * @param string  $displayed_field_name     displayed field name
  * @param string  $type_nowrap              type nowrap
  * @param array   $extracted_columnspec     associative array containing type,
@@ -1238,7 +1236,7 @@ function PMA_getHtmlForTableStructureHeader(
  *
  * @return array ($html_output, $odd_row)
  */
-function PMA_getHtmlTableStructureRow($row, $rownum, $checked,
+function PMA_getHtmlTableStructureRow($row, $rownum,
     $displayed_field_name, $type_nowrap, $extracted_columnspec, $type_mime,
     $field_charset, $attribute, $tbl_is_view, $db_is_information_schema,
     $url_query, $field_encoded, $titles, $table
@@ -1246,7 +1244,7 @@ function PMA_getHtmlTableStructureRow($row, $rownum, $checked,
     $html_output = '<td class="center">'
         . '<input type="checkbox" class="checkall" name="selected_fld[]" '
         . 'value="' . htmlspecialchars($row['Field']) . '" '
-        . 'id="checkbox_row_' . $rownum . '"' . $checked . '/>'
+        . 'id="checkbox_row_' . $rownum . '"/>'
         . '</td>';
 
     $html_output .= '<td class="right">'
