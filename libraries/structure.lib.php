@@ -359,7 +359,7 @@ function PMA_getHtmlForCheckTablesHavingOverheadlink($overhead_check)
 function PMA_getHtmlForTablePrintViewLink($url_query)
 {
     return '<p>'
-        . '<a href="db_printview.php?' . $url_query . '">'
+        . '<a href="db_printview.php?' . $url_query . '" target="print_view">'
         . PMA_Util::getIcon(
             'b_print.png',
             __('Print view'),
@@ -1485,7 +1485,7 @@ function PMA_getHtmlForEditView($url_params)
 function PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
     $db_is_information_schema, $tbl_storage_engine, $cfgRelation
 ) {
-    $html_output = '<a href="tbl_printview.php?' . $url_query . '">'
+    $html_output = '<a href="tbl_printview.php?' . $url_query . '" target="print_view">'
         . PMA_Util::getIcon('b_print.png', __('Print view'), true)
         . '</a>';
 

@@ -5206,7 +5206,7 @@ class PMA_DisplayResults
                         PMA_Util::getIcon(
                             'b_print.png', __('Print view'), true
                         ),
-                        '',
+                        array('target' => 'print_view'),
                         true,
                         true,
                         'print_view'
@@ -5224,7 +5224,7 @@ class PMA_DisplayResults
                                 'b_print.png',
                                 __('Print view (with full texts)'), true
                             ),
-                            '',
+                            array('target' => 'print_view'),
                             true,
                             true,
                             'print_view'
