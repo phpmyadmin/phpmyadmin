@@ -168,28 +168,33 @@ function editVariable(link)
             type: 'getval',
             varName: varName
         }, function(data) {
-            // hide original content
-            $cell.html('<span class="oldContent" style="display:none;">' + $cell.html() + '</span>');
-            // put edit field and save/cancel link
-            $cell.prepend('<table class="serverVariableEditTable" border="0"><tr><td></td><td style="width:100%;">' +
-                          '<input type="text" id="variableEditArea" value="' + data.message + '" /></td></tr></table>');
-            $cell.find('table td:first').append($mySaveLink);
-            $cell.find('table td:first').append(' ');
-            $cell.find('table td:first').append($myCancelLink);
+            if (data.success == true) {
+                // hide original content
+                $cell.html('<span class="oldContent" style="display:none;">' + $cell.html() + '</span>');
+                // put edit field and save/cancel link
+                $cell.prepend('<table class="serverVariableEditTable" border="0"><tr><td></td><td style="width:100%;">' +
+                              '<input type="text" id="variableEditArea" value="' + data.message + '" /></td></tr></table>');
+                $cell.find('table td:first').append($mySaveLink);
+                $cell.find('table td:first').append(' ');
+                $cell.find('table td:first').append($myCancelLink);
 
-            // Keyboard shortcuts to the rescue
-            $('input#variableEditArea').focus();
-            $('input#variableEditArea').keydown(function(event) {
-                // Enter key
-                if (event.keyCode == 13) {
-                    $mySaveLink.trigger('click');
-                }
-                // Escape key
-                if (event.keyCode == 27) {
-                    $myCancelLink.trigger('click');
-                }
-            });
-            PMA_ajaxRemoveMessage($msgbox);
+                // Keyboard shortcuts to the rescue
+                $('input#variableEditArea').focus();
+                $('input#variableEditArea').keydown(function(event) {
+                    // Enter key
+                    if (event.keyCode == 13) {
+                        $mySaveLink.trigger('click');
+                    }
+                    // Escape key
+                    if (event.keyCode == 27) {
+                        $myCancelLink.trigger('click');
+                    }
+                });
+                PMA_ajaxRemoveMessage($msgbox);
+            } else {
+                $cell.removeClass('edit');
+                PMA_ajaxShowMessage(data.error);
+            }
         });
 
     return false;
