@@ -297,6 +297,9 @@ class PMA_Footer
         $retval = '';
         $this->_setHistory();
         if ($this->_isEnabled) {
+            if (! $this->_isAjax) {
+                $retval .= "</div>";
+            }
             if (! $this->_isAjax && ! $this->_isMinimal) {
                 // Link to itself to replicate windows including frameset
                 if (! isset($GLOBALS['checked_special'])) {

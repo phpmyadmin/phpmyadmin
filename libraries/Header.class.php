@@ -312,14 +312,15 @@ class PMA_Header
                 if (! $GLOBALS['cfg']['ShowHint']) {
                     $retval .= '<span id="no_hint" class="hide"></span>';
                 }
-                $retval .= $this->_getWarnings();
-                if ($this->_menuEnabled && $GLOBALS['server'] > 0) {
-                    $retval .= $this->_menu->getDisplay();
-                }
                 $retval .= $this->_addRecentTable(
                     $GLOBALS['db'],
                     $GLOBALS['table']
                 );
+                $retval .= $this->_getWarnings();
+                if ($this->_menuEnabled && $GLOBALS['server'] > 0) {
+                    $retval .= $this->_menu->getDisplay();
+                }
+                $retval .= '<div id="page_content">';
             }
         }
         return $retval;
