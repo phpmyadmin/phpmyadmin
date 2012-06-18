@@ -297,7 +297,8 @@ class PMA_Header
                 if (file_exists(CUSTOM_HEADER_FILE)) {
                     ob_start();
                     include CUSTOM_HEADER_FILE;
-                    $retval .= ob_end_clean();
+                    $retval .= ob_get_contents();
+                    ob_end_clean();
                 }
                 // offer to load user preferences from localStorage
                 if ($this->_userprefsOfferImport) {

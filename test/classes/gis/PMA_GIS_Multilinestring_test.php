@@ -9,6 +9,7 @@
 require_once 'PMA_GIS_Geom_test.php';
 require_once 'libraries/gis/pma_gis_geometry.php';
 require_once 'libraries/gis/pma_gis_multilinestring.php';
+require_once 'libraries/tcpdf/tcpdf.php';
 
 /**
  * Tests for PMA_GIS_Multilinestring class
@@ -219,6 +220,148 @@ class PMA_GIS_MultilinestringTest extends PMA_GIS_GeomTest
                     'maxY' => 75
                 )
             )
+        );
+    }
+    
+        
+    /**
+     *
+     * @param type $spatial
+     * @param type $label
+     * @param type $line_color
+     * @param type $scale_data
+     * @param type $image
+     * @param type $output 
+     * 
+     *@dataProvider providerForPrepareRowAsPng
+     */
+    public function testPrepareRowAsPng($spatial, $label, $line_color, $scale_data, $image, $output) {
+        
+        $return = $this->object->prepareRowAsPng($spatial, $label, $line_color, $scale_data, $image);
+        $this->assertTrue(true);
+    }
+    
+    public function providerForPrepareRowAsPng(){
+        
+        return array(
+            array(
+                'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
+                'image',
+                '#B02EE0',
+                array(
+                    'x' => 12,
+                    'y' => 69,
+                    'scale' => 2,
+                    'height' => 150
+                ),
+                imagecreatetruecolor('120','150'),
+                ''
+            )
+            
+        );
+    }
+
+    /**
+     *
+     * @param type $spatial
+     * @param type $label
+     * @param type $line_color
+     * @param type $scale_data
+     * @param type $pdf
+     * 
+     *@dataProvider providerForPrepareRowAsPdf
+     */
+    public function testPrepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf) {
+        
+        $return = $this->object->prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf);
+        $this->assertTrue($return instanceof TCPDF);
+    }
+    
+    public function providerForPrepareRowAsPdf(){
+        
+        return array(
+            array(
+                'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
+                'pdf',
+                '#B02EE0',
+                array(
+                    'x' => 12,
+                    'y' => 69,
+                    'scale' => 2,
+                    'height' => 150
+                ),
+                new TCPDF(),
+            )           
+        );
+    }
+    
+    /**
+     *
+     * @param type $spatial
+     * @param type $label
+     * @param type $line_color
+     * @param type $scale_data
+     * @param type $output 
+     * 
+     *@dataProvider providerForPrepareRowAsSvg 
+     */
+    public function testPrepareRowAsSvg($spatial, $label, $line_color, $scale_data, $output) {
+        
+        $string = $this->object->prepareRowAsSvg($spatial, $label, $line_color, $scale_data);
+        $this->assertEquals(1, preg_match($output, $string));
+        //$this->assertEquals($this->object->prepareRowAsSvg($spatial, $label, $line_color, $scale_data) , $output);
+    }
+    
+    public function providerForPrepareRowAsSvg(){
+        
+        return array(
+            array(
+                'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
+                'svg',
+                '#B02EE0',
+                array(
+                    'x' => 12,
+                    'y' => 69,
+                    'scale' => 2,
+                    'height' => 150
+                ),
+                '/^(<polyline points="48,260 70,242 100,138 " name="svg" class="linestring vector" fill="none" stroke="#B02EE0" stroke-width="2" id="svg)(\d+)("\/><polyline points="48,268 10,242 332,182 " name="svg" class="linestring vector" fill="none" stroke="#B02EE0" stroke-width="2" id="svg)(\d+)("\/>)$/'
+            )           
+        );
+    }
+
+    /**
+     *
+     * @param type $spatial
+     * @param type $srid
+     * @param type $label
+     * @param type $line_color
+     * @param type $scale_data
+     * @param type $output 
+     * 
+     *@dataProvider providerForPrepareRowAsOl
+     */
+    public function testPrepareRowAsOl($spatial, $srid, $label, $line_color, $scale_data, $output) {
+        
+        $this->assertEquals($this->object->prepareRowAsOl($spatial, $srid, $label, $line_color, $scale_data) , $output);
+    }
+    
+    public function providerForPrepareRowAsOl(){
+        
+        return array(
+            array(
+                'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
+                4326,
+                'Ol',
+                '#B02EE0',
+                array(
+                    'minX' => '0',
+                    'minY' => '0',
+                    'maxX' => '1',
+                    'maxY' => '1',
+                ),
+                'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.LonLat(0, 0).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject())); bound.extend(new OpenLayers.LonLat(1, 1).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()));vectorLayer.addFeatures(new OpenLayers.Feature.Vector(new OpenLayers.Geometry.MultiLineString(new Array(new OpenLayers.Geometry.LineString(new Array((new OpenLayers.Geometry.Point(36,14)).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.Geometry.Point(47,23)).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.Geometry.Point(62,75)).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()))), new OpenLayers.Geometry.LineString(new Array((new OpenLayers.Geometry.Point(36,10)).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.Geometry.Point(17,23)).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.Geometry.Point(178,53)).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()))))), null, {"strokeColor":"#B02EE0","strokeWidth":2,"label":"Ol","fontSize":10}));'
+            )           
         );
     }
 }

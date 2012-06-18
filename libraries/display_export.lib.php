@@ -369,7 +369,7 @@ if (isset($_GET['sql_query'])) {
 <?php } ?>
 
 <div class="exportoptions" id="submit">
-<?php PMA_externalBug(__('SQL compatibility mode'), 'mysql', '50027', '14515'); ?>
+<?php echo PMA_getExternalBug(__('SQL compatibility mode'), 'mysql', '50027', '14515'); ?>
     <input type="submit" value="<?php echo __('Go'); ?>" id="buttonGo" />
 </div>
 </form>

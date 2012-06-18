@@ -288,7 +288,8 @@ class PMA_Error_Handler
                 } else {
                     ob_start();
                     var_dump($error);
-                    $retval .= ob_end_clean();
+                    $retval .= ob_get_contents();
+                    ob_end_clean();
                 }
             }
         } else {
