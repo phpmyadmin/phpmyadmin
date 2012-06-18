@@ -289,7 +289,7 @@ $(function() {
      *
      * @see     $cfg['AjaxEnable']
      */
-    $("a.truncate_table_anchor").live('click', function(event) {
+    $("a.truncate_table_anchor.ajax").live('click', function(event) {
         event.preventDefault();
 
         /**

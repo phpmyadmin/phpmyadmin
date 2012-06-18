@@ -56,11 +56,11 @@ function PMA_getHtmlForActionLinks($current_table, $table_is_view, $tbl_url_quer
         . $truename . '</a>';
 
     if (!$db_is_information_schema) {
-        $empty_table = '<a ';
+        $empty_table = '<a class="truncate_table_anchor';
         if ($GLOBALS['cfg']['AjaxEnable']) {
-            $empty_table .= 'class="truncate_table_anchor"';
+            $empty_table .= ' ajax';
         }
-        $empty_table .= ' href="sql.php?' . $tbl_url_query
+        $empty_table .= '" href="sql.php?' . $tbl_url_query
             . '&amp;sql_query=';
         $empty_table .= urlencode(
             'TRUNCATE ' . PMA_Util::backquote($current_table['TABLE_NAME'])
