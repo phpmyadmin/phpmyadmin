@@ -469,7 +469,7 @@ foreach ($the_tables as $key => $table) {
 /**
  * Displays the footer
  */
-PMA_printButton();
+echo PMA_getButton();
 
 echo "<div id='PMA_disable_floating_menubar'></div>\n";
 ?>

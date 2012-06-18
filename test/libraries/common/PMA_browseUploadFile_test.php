@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_browseUploadFile from common.lib
+ * Test for PMA_getBrowseUploadFileBlock from common.lib
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -13,7 +13,7 @@
 require_once 'libraries/common.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
-class PMA_browseUploadFile_test extends PHPUnit_Framework_TestCase
+class PMA_getBrowseUploadFileBlock_test extends PHPUnit_Framework_TestCase
 {
 
     protected function setUp()
@@ -43,15 +43,14 @@ class PMA_browseUploadFile_test extends PHPUnit_Framework_TestCase
      */
     function testBrowseUploadFile($size, $unit, $res)
     {
-        $this->expectOutputString(
+        $this->assertEquals(
+            PMA_getBrowseUploadFileBlock($size),
             '<label for="input_import_file">' . __("Browse your computer:") . '</label>'
             . '<div id="upload_form_status" style="display: none;"></div>'
             . '<div id="upload_form_status_info" style="display: none;"></div>'
             . '<input type="file" name="import_file" id="input_import_file" />'
             . "(" . __('Max: '). $res . $unit .")" . "\n"
             . '<input type="hidden" name="MAX_FILE_SIZE" value="' .$size . '" />' . "\n"
-        );
-
-        PMA_browseUploadFile($size);
+        );        
     }
 }

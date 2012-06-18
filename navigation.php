@@ -176,7 +176,7 @@ if (! $GLOBALS['server']) {
     }
 
     $_url_params = array('pos' => $pos);
-    PMA_listNavigator(count($GLOBALS['pma']->databases), $pos, $_url_params, 'navigation.php', 'frame_navigation', $GLOBALS['cfg']['MaxDbList']);
+    echo PMA_getListNavigator(count($GLOBALS['pma']->databases), $pos, $_url_params, 'navigation.php', 'frame_navigation', $GLOBALS['cfg']['MaxDbList']);
 }
 ?>
 
@@ -256,7 +256,7 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
               'pos' => $tpos,
               'db' => $GLOBALS['db']
             );
-            PMA_listNavigator(
+            echo PMA_getListNavigator(
                 $table_count, $tpos, $_url_params, 'navigation.php',
                 'frame_navigation', $GLOBALS['cfg']['MaxTableList']
             );
@@ -266,7 +266,7 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
         if (count($table_list) <= $GLOBALS['cfg']['MaxTableList']
             && $table_count > $GLOBALS['cfg']['MaxTableList']
         ) {
-            PMA_listNavigator(
+            echo PMA_getListNavigator(
                 $table_count, $tpos, $_url_params, 'navigation.php',
                 'frame_navigation', $GLOBALS['cfg']['MaxTableList']
             );
@@ -297,7 +297,7 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
 } else {
     echo '<div id="databaseList">' . "\n";
     $_url_params = array('pos' => $pos);
-    PMA_listNavigator(
+    echo PMA_getListNavigator(
         count($GLOBALS['pma']->databases), $pos, $_url_params, 'navigation.php',
         'frame_navigation', $GLOBALS['cfg']['MaxDbList']
     );
