@@ -29,8 +29,8 @@ function prepareJSVersion() {
         .before('<br><br>');
 
     // Add close and cancel links
-    $('#gis_data_editor').prepend('<a class="close_gis_editor">' + PMA_messages['strClose'] + '</a>');
-    $('<a class="cancel_gis_editor"> ' + PMA_messages['strCancel'] + '</a>')
+    $('#gis_data_editor').prepend('<a class="close_gis_editor" href="#">' + PMA_messages['strClose'] + '</a>');
+    $('<a class="cancel_gis_editor" href="#"> ' + PMA_messages['strCancel'] + '</a>')
         .insertAfter($("input[name='gis_data[save]']"));
 
     // Remove the unnecessary text
@@ -43,7 +43,7 @@ function prepareJSVersion() {
         var classes = $button.attr('class');
         $button.replaceWith(
             '<a class="' + classes + '" name="' + $button.attr('name')
-                + '">+ ' + $button.val() + '</a>'
+                + '" href="#">+ ' + $button.val() + '</a>'
         );
     });
 }
@@ -310,7 +310,7 @@ $(function() {
         for (i = 0; i < noOfPoints; i++) {
             html += addDataPoint(i, (prefix + '[' + noOfLines + ']'));
         }
-        html += '<a class="addPoint addJs" name="' + prefix + '[' + noOfLines + '][add_point]">+ '
+        html += '<a class="addPoint addJs" name="' + prefix + '[' + noOfLines + '][add_point]" href="#">+ '
             + PMA_messages['strAddPoint'] + '</a><br>';
 
         $a.before(html);
@@ -337,9 +337,9 @@ $(function() {
         for (i = 0; i < 4; i++) {
             html += addDataPoint(i, (prefix + '[' + noOfPolygons + '][0]'));
         }
-        html += '<a class="addPoint addJs" name="' + prefix + '[' + noOfPolygons + '][0][add_point]">+ '
+        html += '<a class="addPoint addJs" name="' + prefix + '[' + noOfPolygons + '][0][add_point]" href="#">+ '
             + PMA_messages['strAddPoint'] + '</a><br>'
-            + '<a class="addLine addJs" name="' + prefix + '[' + noOfPolygons + '][add_line]">+ '
+            + '<a class="addLine addJs" name="' + prefix + '[' + noOfPolygons + '][add_line]" href="#">+ '
             + PMA_messages['strAddInnerRing'] + '</a><br><br>';
 
         $a.before(html);
