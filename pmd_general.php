@@ -28,7 +28,7 @@ foreach ($get_params as $one_get_param) {
 
 $script_display_field = get_tables_info();
 $tab_column       = get_columns_info();
-$script_tabs      = get_script_tabs();
+$script_tables    = get_script_tabs();
 $script_contr     = get_script_contr();
 $tab_pos          = get_tab_pos();
 $tables_pk_or_unique_keys = get_pk_or_unique_keys();
@@ -48,33 +48,31 @@ $scripts->addFile('pmd/ajax.js');
 $scripts->addFile('pmd/history.js');
 $scripts->addFile('pmd/move.js');
 $scripts->addFile('pmd/iecanvas.js', true);
-$scripts->addCode(
-    'var server = "' . PMA_escapeJsString($server) . '";
-    var db = "' . PMA_escapeJsString($db) . '";
-    var token = "' . PMA_escapeJsString($token) . '";'
-);
-if (isset($_REQUEST['query'])) {
-    $scripts->addCode(
-        '$(function() {
-            $(".trigger").click(function() {
-            $(".panel").toggle("fast");
-            $(this).toggleClass("active");
-            return false;
-            });
-        });'
-    );
-}
-$scripts->addCode(
-    '$(function() {
-        Main();
-    });'
-);
-$scripts->addCode($script_tabs);
-$scripts->addCode($script_contr);
-$scripts->addCode($script_display_field);
+$scripts->addFile('pmd/init.js');
 
 require 'libraries/db_common.inc.php';
 require 'libraries/db_info.inc.php';
+
+// Embed some data into HTML, later it will be read
+// by pmd/init.js and converted to JS variables.
+echo '<div id="script_server" class="hide">';
+echo htmlspecialchars($GLOBALS['server']);
+echo '</div>';
+echo '<div id="script_db" class="hide">';
+echo htmlspecialchars($GLOBALS['db']);
+echo '</div>';
+echo '<div id="script_token" class="hide">';
+echo htmlspecialchars($GLOBALS['token']);
+echo '</div>';
+echo '<div id="script_tables" class="hide">';
+echo htmlspecialchars(json_encode($script_tables));
+echo '</div>';
+echo '<div id="script_contr" class="hide">';
+echo htmlspecialchars(json_encode($script_contr));
+echo '</div>';
+echo '<div id="script_display_field" class="hide">';
+echo htmlspecialchars(json_encode($script_display_field));
+echo '</div>';
 
 ?>
 <div class="pmd_header" id="top_menu">
