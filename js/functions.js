@@ -3295,10 +3295,7 @@ $(function() {
                     $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
                     $("#sqlqueryresults").html(data.sql_query);
                 } else {
-                    var $temp_div = $("<div id='temp_div'></div>");
-                    $temp_div.html(data.error);
-                    var $error = $temp_div.find("code").addClass("error");
-                    PMA_ajaxShowMessage($error, false);
+                    PMA_ajaxShowMessage(data.error, false);
                 }
             }); // end $.get()
         }); // end $.PMA_confirm()
