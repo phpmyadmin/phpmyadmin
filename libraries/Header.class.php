@@ -142,6 +142,7 @@ class PMA_Header
     private function _addDefaultScripts()
     {
         $this->_scripts->addFile('jquery/jquery-1.6.2.js');
+        $this->_scripts->addFile('ajax.js');
         $this->_scripts->addFile('jquery/jquery-ui-1.8.16.custom.js');
         $this->_scripts->addFile('jquery/jquery.sprintf.js');
         $this->_scripts->addFile('update-location.js');
@@ -204,6 +205,16 @@ class PMA_Header
     public function getScripts()
     {
         return $this->_scripts;
+    }
+
+    /**
+     * Returns the PMA_Menu object
+     *
+     * @return PMA_Menu object
+     */
+    public function getMenu()
+    {
+        return $this->_menu;
     }
 
     /**

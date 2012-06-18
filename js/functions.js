@@ -2824,7 +2824,8 @@ function menuResize()
     }
 }
 
-$(function() {
+function menuPrepare()
+{
     var topmenu = $('#topmenu');
     if (topmenu.length == 0) {
         return;
@@ -2853,7 +2854,10 @@ $(function() {
             }
         });
     topmenu.append(submenu);
+}
 
+$(function() {
+    menuPrepare();
     // populate submenu and register resize event
     menuResize();
     $(window).resize(menuResize);

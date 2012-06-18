@@ -67,6 +67,14 @@ class PMA_Response
      */
     private $_isAjax;
     /**
+     * Whether we are servicing an ajax request for a page
+     * that was fired using the generic page handler in JS.
+     *
+     * @access private
+     * @var bool
+     */
+    private $_isAjaxPage;
+    /**
      * Whether there were any errors druing the processing of the request
      * Only used for ajax responses
      *
@@ -96,10 +104,14 @@ class PMA_Response
         $this->_JSON   = array();
         $this->_footer = new PMA_Footer();
 
-        $this->_isSuccess = true;
-        $this->_isAjax    = false;
+        $this->_isSuccess  = true;
+        $this->_isAjax     = false;
+        $this->_isAjaxPage = false;
         if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $this->_isAjax = true;
+        }
+        if (isset($_REQUEST['ajax_page_request']) && $_REQUEST['ajax_page_request'] == true) {
+            $this->_isAjaxPage = true;
         }
         $this->_header->setAjax($this->_isAjax);
         $this->_footer->setAjax($this->_isAjax);
@@ -276,6 +288,11 @@ class PMA_Response
             $this->_JSON['success'] = false;
             $this->_JSON['error']   = $this->_JSON['message'];
             unset($this->_JSON['message']);
+        }
+
+        if ($this->_isAjaxPage) {
+            $this->addJSON('_menu', $this->getHeader()->getMenu()->getDisplay());
+            $this->addJSON('_scripts', $this->getHeader()->getScripts()->getFiles());
         }
 
         // Set the Content-Type header to JSON so that jQuery parses the
