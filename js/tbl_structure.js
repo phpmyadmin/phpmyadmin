@@ -115,7 +115,7 @@ $(function() {
      *
      * (see $GLOBALS['cfg']['AjaxEnable'])
      */
-    $('a.drop_primary_key_index_anchor').live('click', function(event) {
+    $('a.drop_primary_key_index_anchor.ajax').live('click', function(event) {
         event.preventDefault();
 
         $anchor = $(this);
