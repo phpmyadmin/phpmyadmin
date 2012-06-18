@@ -398,7 +398,7 @@ $(function() {
      *
      * @see     $cfg['AjaxEnable']
      */
-    $('a.drop_tracking_anchor').live('click', function(event) {
+    $('a.drop_tracking_anchor.ajax').live('click', function(event) {
         event.preventDefault();
 
         var $anchor = $(this);
