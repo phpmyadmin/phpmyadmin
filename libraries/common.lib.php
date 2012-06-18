@@ -1684,7 +1684,7 @@ function PMA_localisedDate($timestamp = -1, $format = '')
  *
  * @access  public
  */
-function PMA_generateHtmlTab($tab, $url_params = array())
+function PMA_getHtmlTab($tab, $url_params = array())
 {
     // default values
     $defaults = array(
@@ -1775,7 +1775,7 @@ function PMA_generateHtmlTab($tab, $url_params = array())
 
     $out .= '</li>';
     return $out;
-} // end of the 'PMA_generateHtmlTab()' function
+} // end of the 'PMA_getHtmlTab()' function
 
 /**
  * returns html-code for a tab navigation
@@ -1786,14 +1786,14 @@ function PMA_generateHtmlTab($tab, $url_params = array())
  *
  * @return string  html-code for tab-navigation
  */
-function PMA_generateHtmlTabs($tabs, $url_params, $menu_id = 'topmenu')
+function PMA_getHtmlTabs($tabs, $url_params, $menu_id = 'topmenu')
 {
     $tab_navigation = '<div id="' . htmlentities($menu_id)
         . 'container" class="menucontainer">'
         .'<ul id="' . htmlentities($menu_id) . '">';
 
     foreach ($tabs as $tab) {
-        $tab_navigation .= PMA_generateHtmlTab($tab, $url_params);
+        $tab_navigation .= PMA_getHtmlTab($tab, $url_params);
     }
 
     $tab_navigation .=
