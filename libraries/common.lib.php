@@ -16,11 +16,11 @@ class PMA_CommonFunctions
 {
 
     /**
-     * Detects which function to use for PMA_pow.
+     * Detects which function to use for pow.
      *
      * @return string Function name.
      */
-    private function PMA_detectPow()
+    private function _detectPow()
     {
         if (function_exists('bcpow')) {
             // BCMath Arbitrary Precision Mathematics Function
@@ -44,12 +44,12 @@ class PMA_CommonFunctions
      *
      * @return mixed string or float
      */
-    public function PMA_pow($base, $exp, $use_function = false)
+    public function pow($base, $exp, $use_function = false)
     {
         static $pow_function = null;
 
         if ($pow_function == null) {
-            $pow_function = $this->PMA_detectPow();
+            $pow_function = $this->_detectPow();
         }
 
         if (! $use_function) {
@@ -62,7 +62,7 @@ class PMA_CommonFunctions
 
         switch ($use_function) {
         case 'bcpow' :
-            // bcscale() needed for testing PMA_pow() with base values < 1
+            // bcscale() needed for testing pow() with base values < 1
             bcscale(10);
             $pow = bcpow($base, $exp);
             break;
@@ -94,7 +94,7 @@ class PMA_CommonFunctions
      *
      * @return string an html snippet
      */
-    public function PMA_getIcon($icon, $alternate = '', $force_text = false)
+    public function getIcon($icon, $alternate = '', $force_text = false)
     {
         // $cfg['PropertiesIconic'] is true or both
         $include_icon = ($GLOBALS['cfg']['PropertiesIconic'] !== false);
@@ -105,7 +105,7 @@ class PMA_CommonFunctions
         // Always use a span (we rely on this in js/sql.js)
         $button = '<span class="nowrap">';
         if ($include_icon) {
-            $button .= $this->PMA_getImage($icon, $alternate);
+            $button .= $this->getImage($icon, $alternate);
         }
         if ($include_icon && $include_text) {
             $button .= ' ';
@@ -129,7 +129,7 @@ class PMA_CommonFunctions
      *
      * @return string an html IMG tag
      */
-    public function PMA_getImage($image, $alternate = '', $attributes = array())
+    public function getImage($image, $alternate = '', $attributes = array())
     {
         static $sprites; // cached list of available sprites (if any)
 
@@ -207,11 +207,11 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function PMA_getFormattedMaximumUploadSize($max_upload_size)
+    public function getFormattedMaximumUploadSize($max_upload_size)
     {
         // I have to reduce the second parameter (sensitiveness) from 6 to 4
         // to avoid weird results like 512 kKib
-        list($max_size, $max_unit) = $this->PMA_formatByteDown($max_upload_size, 4);
+        list($max_size, $max_unit) = $this->formatByteDown($max_upload_size, 4);
         return '(' . sprintf(__('Max: %s%s'), $max_size, $max_unit) . ')';
     }
 
@@ -226,7 +226,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function PMA_generateHiddenMaxFileSize($max_size)
+    public function generateHiddenMaxFileSize($max_size)
     {
         return '<input type="hidden" name="MAX_FILE_SIZE" value="' .$max_size . '" />';
     }
@@ -248,7 +248,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function PMA_sqlAddSlashes(
+    public function sqlAddSlashes(
         $a_string = '', $is_like = false, $crlf = false, $php_code = false
     ) {
 
@@ -272,7 +272,7 @@ class PMA_CommonFunctions
         }
 
         return $a_string;
-    } // end of the 'PMA_sqlAddSlashes()' function
+    } // end of the 'sqlAddSlashes()' function
 
 
     /**
@@ -286,10 +286,10 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function PMA_escapeMysqlWildcards($name)
+    public function escapeMysqlWildcards($name)
     {
         return strtr($name, array('_' => '\\_', '%' => '\\%'));
-    } // end of the 'PMA_escapeMysqlWildcards()' function
+    } // end of the 'escapeMysqlWildcards()' function
 
 
     /**
@@ -302,10 +302,10 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function PMA_unescapeMysqlWildcards($name)
+    public function unescapeMysqlWildcards($name)
     {
         return strtr($name, array('\\_' => '_', '\\%' => '%'));
-    } // end of the 'PMA_unescapeMysqlWildcards()' function
+    } // end of the 'unescapeMysqlWildcards()' function
 
 
     /**
@@ -318,7 +318,7 @@ class PMA_CommonFunctions
      *
      * @return string unqoted string
      */
-    public function PMA_unQuote($quoted_string, $quote = null)
+    public function unQuote($quoted_string, $quote = null)
     {
         $quotes = array();
 
@@ -363,7 +363,7 @@ class PMA_CommonFunctions
      * @access  public
      * @todo    move into PMA_Sql
      */
-    public function PMA_formatSql($parsed_sql, $unparsed_sql = '')
+    public function formatSql($parsed_sql, $unparsed_sql = '')
     {
         global $cfg;
 
@@ -410,7 +410,7 @@ class PMA_CommonFunctions
         } // end switch
 
         return $formatted_sql;
-    } // end of the "PMA_formatSql()" function
+    } // end of the "formatSql()" function
 
 
     /**
@@ -423,12 +423,12 @@ class PMA_CommonFunctions
      *
      * @access public
      */
-    public function PMA_showDocLink($link, $target = 'documentation')
+    public function showDocLink($link, $target = 'documentation')
     {
         return '<a href="' . $link . '" target="' . $target . '">'
-            . $this->PMA_getImage('b_help.png', __('Documentation'))
+            . $this->getImage('b_help.png', __('Documentation'))
             . '</a>';
-    } // end of the 'PMA_showDocLink()' function
+    } // end of the 'showDocLink()' function
 
 
     /**
@@ -444,7 +444,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function PMA_showMySQLDocu(
+    public function showMySQLDocu(
         $chapter, $link, $big_icon = false, $anchor = '', $just_open = false
     ) {
 
@@ -518,12 +518,12 @@ class PMA_CommonFunctions
             return $open_link;
         } elseif ($big_icon) {
             return $open_link
-                . $this->PMA_getImage('b_sqlhelp.png', __('Documentation')) . '</a>';
+                . $this->getImage('b_sqlhelp.png', __('Documentation')) . '</a>';
         } else {
-            return $this->PMA_showDocLink(PMA_linkURL($url), 'mysql_doc');
+            return $this->showDocLink(PMA_linkURL($url), 'mysql_doc');
         }
 
-    } // end of the 'PMA_showMySQLDocu()' function
+    } // end of the 'showMySQLDocu()' function
 
 
     /**
@@ -535,10 +535,10 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function PMA_showDocu($anchor)
+    public function showDocu($anchor)
     {
-        return $this->PMA_showDocLink('Documentation.html#' . $anchor);
-    } // end of the 'PMA_showDocu()' function
+        return $this->showDocLink('Documentation.html#' . $anchor);
+    } // end of the 'showDocu()' function
 
 
     /**
@@ -550,12 +550,12 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function PMA_showPHPDocu($target)
+    public function showPHPDocu($target)
     {
         $url = PMA_getPHPDocLink($target);
 
-        return $this->PMA_showDocLink($url);
-    } // end of the 'PMA_showPHPDocu()' function
+        return $this->showDocLink($url);
+    } // end of the 'showPHPDocu()' function
 
 
     /**
@@ -567,10 +567,10 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function PMA_showHint($message)
+    public function showHint($message)
     {
         return '<span class="pma_hint">'
-            . $this->PMA_getImage('b_help.png')
+            . $this->getImage('b_help.png')
             . '<span class="hide">' . $message . '</span>'
             . '</span>';
     }
@@ -592,7 +592,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function PMA_mysqlDie(
+    public function mysqlDie(
         $error_message = '', $the_query = '',
         $is_modify_link = true, $back_url = '', $exit = true
     ) {
@@ -620,7 +620,7 @@ class PMA_CommonFunctions
                 )
                 . '[...]';
             } else {
-                $formatted_sql = $this->PMA_formatSql(PMA_SQP_parse($the_query), $the_query);
+                $formatted_sql = $this->formatSql(PMA_SQP_parse($the_query), $the_query);
             }
         }
         // ---
@@ -641,7 +641,7 @@ class PMA_CommonFunctions
             $error_msg .= '<p><strong>' . __('SQL query') . ':</strong>' . "\n";
             if (strstr(strtolower($formatted_sql), 'select')) {
                 // please show me help to the error on select
-                $error_msg .= $this->PMA_showMySQLDocu('SQL-Syntax', 'SELECT');
+                $error_msg .= $this->showMySQLDocu('SQL-Syntax', 'SELECT');
             }
             if ($is_modify_link) {
                 $_url_params = array(
@@ -663,7 +663,7 @@ class PMA_CommonFunctions
                 }
 
                 $error_msg .= $doedit_goto
-                   . $this->PMA_getIcon('b_edit.png', __('Edit'))
+                   . $this->getIcon('b_edit.png', __('Edit'))
                    . '</a>';
             } // end if
             $error_msg .= '    </p>' . "\n"
@@ -683,7 +683,7 @@ class PMA_CommonFunctions
         // (now error-messages-server)
         $error_msg .= '<p>' . "\n"
             . '    <strong>' . __('MySQL said: ') . '</strong>'
-            . $this->PMA_showMySQLDocu('Error-messages-server', 'Error-messages-server')
+            . $this->showMySQLDocu('Error-messages-server', 'Error-messages-server')
             . "\n"
             . '</p>' . "\n";
 
@@ -736,7 +736,7 @@ class PMA_CommonFunctions
         } else {
             echo $error_msg;
         }
-    } // end of the 'PMA_mysqlDie()' function
+    } // end of the 'mysqlDie()' function
 
 
     /**
@@ -749,7 +749,7 @@ class PMA_CommonFunctions
      *
      * @return array    (recursive) grouped table list
      */
-    public function PMA_getTableList($db, $tables = null, $limit_offset = 0,
+    public function getTableList($db, $tables = null, $limit_offset = 0,
         $limit_count = false
     ) {
         $sep = $GLOBALS['cfg']['LeftFrameTableSeparator'];
@@ -881,7 +881,7 @@ class PMA_CommonFunctions
      *
      * example:
      * <code>
-     * echo PMA_backquote('owner`s db'); // `owner``s db`
+     * echo backquote('owner`s db'); // `owner``s db`
      *
      * </code>
      *
@@ -894,12 +894,12 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function PMA_backquote($a_name, $do_it = true)
+    public function backquote($a_name, $do_it = true)
     {
 
         if (is_array($a_name)) {
             foreach ($a_name as &$data) {
-                $data = $this->PMA_backquote($data, $do_it);
+                $data = $this->backquote($data, $do_it);
             }
             return $a_name;
         }
@@ -919,7 +919,7 @@ class PMA_CommonFunctions
             return $a_name;
         }
 
-    } // end of the 'PMA_backquote()' function
+    } // end of the 'backquote()' function
 
 
     /**
@@ -929,7 +929,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function PMA_whichCrlf()
+    public function whichCrlf()
     {
         // The 'PMA_USR_OS' constant is defined in "libraries/Config.class.php"
         // Win case
@@ -941,7 +941,7 @@ class PMA_CommonFunctions
         }
 
         return $the_crlf;
-    } // end of the 'PMA_whichCrlf()' function
+    } // end of the 'whichCrlf()' function
 
 
     /**
@@ -953,7 +953,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function PMA_getReloadNavigationScript($jsonly = false)
+    public function getReloadNavigationScript($jsonly = false)
     {
         $retval = '';
         // Reloads the navigation frame via JavaScript if required
@@ -1004,7 +1004,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function PMA_getMessage(
+    public function getMessage(
         $message, $sql_query = null, $type = 'notice', $is_view = false
     ) {
 
@@ -1165,7 +1165,7 @@ class PMA_CommonFunctions
                     )->getDisplay();
                 }
             } elseif (isset($parsed_sql)) {
-                $query_base = $this->PMA_formatSql($parsed_sql, $query_base);
+                $query_base = $this->formatSql($parsed_sql, $query_base);
             }
 
             // Prepares links that may be displayed to edit/explain the query
@@ -1215,7 +1215,7 @@ class PMA_CommonFunctions
                     $explain_link = 'import.php'
                         . PMA_generate_common_url($explain_params);
                     $explain_link = ' ['
-                        . $this->PMA_linkOrButton($explain_link, $_message) . ']';
+                        . $this->linkOrButton($explain_link, $_message) . ']';
                 }
             } //show explain
 
@@ -1223,7 +1223,7 @@ class PMA_CommonFunctions
             $url_params['show_query'] = 1;
 
             // even if the query is big and was truncated, offer the chance
-            // to edit it (unless it's enormous, see PMA_linkOrButton() )
+            // to edit it (unless it's enormous, see linkOrButton() )
             if (! empty($cfg['SQLQuery']['Edit'])) {
                 if ($cfg['EditInWindow'] == true) {
                     $onclick = 'window.parent.focus_querywindow(\''
@@ -1234,7 +1234,7 @@ class PMA_CommonFunctions
 
                 $edit_link .= PMA_generate_common_url($url_params) . '#querybox';
                 $edit_link = ' ['
-                    . $this->PMA_linkOrButton(
+                    . $this->linkOrButton(
                         $edit_link, __('Edit'), array('onclick' => $onclick)
                     )
                     . ']';
@@ -1255,12 +1255,12 @@ class PMA_CommonFunctions
                 }
 
                 $php_link = 'import.php' . PMA_generate_common_url($php_params);
-                $php_link = ' [' . $this->PMA_linkOrButton($php_link, $_message) . ']';
+                $php_link = ' [' . $this->linkOrButton($php_link, $_message) . ']';
 
                 if (isset($GLOBALS['show_as_php'])) {
                     $runquery_link = 'import.php' . PMA_generate_common_url($url_params);
                     $php_link .= ' ['
-                        . $this->PMA_linkOrButton($runquery_link, __('Submit Query')) . ']';
+                        . $this->linkOrButton($runquery_link, __('Submit Query')) . ']';
                 }
             } else {
                 $php_link = '';
@@ -1273,7 +1273,7 @@ class PMA_CommonFunctions
             ) {
                 $refresh_link = 'import.php' . PMA_generate_common_url($url_params);
                 $refresh_link = ' ['
-                    . $this->PMA_linkOrButton($refresh_link, __('Refresh')) . ']';
+                    . $this->linkOrButton($refresh_link, __('Refresh')) . ']';
             } else {
                 $refresh_link = '';
             } //refresh
@@ -1292,7 +1292,7 @@ class PMA_CommonFunctions
                 $validate_link = 'import.php'
                     . PMA_generate_common_url($validate_params);
                 $validate_link = ' ['
-                    . $this->PMA_linkOrButton($validate_link, $validate_message) . ']';
+                    . $this->linkOrButton($validate_link, $validate_message) . ']';
             } else {
                 $validate_link = '';
             } //validator
@@ -1322,12 +1322,12 @@ class PMA_CommonFunctions
             // avoid displaying a Profiling checkbox that could
             // be checked, which would reexecute an INSERT, for example
             if (! empty($refresh_link)) {
-                $retval .= $this->PMA_getProfilingForm($sql_query);
+                $retval .= $this->getProfilingForm($sql_query);
             }
             // if needed, generate an invisible form that contains controls for the
             // Inline link; this way, the behavior of the Inline link does not
             // depend on the profiling support or on the refresh link
-            if (empty($refresh_link) || !$this->PMA_profilingSupported()) {
+            if (empty($refresh_link) || !$this->profilingSupported()) {
                 $retval .= '<form action="sql.php" method="post">';
                 $retval .= PMA_generate_common_hidden_inputs(
                     $GLOBALS['db'], $GLOBALS['table']
@@ -1367,7 +1367,7 @@ class PMA_CommonFunctions
 
         return $retval;
 
-    } // end of the 'PMA_getMessage()' function
+    } // end of the 'getMessage()' function
 
 
     /**
@@ -1377,9 +1377,9 @@ class PMA_CommonFunctions
      *
      * @return boolean whether profiling is supported
      */
-    public function PMA_profilingSupported()
+    public function profilingSupported()
     {
-        if (!$this->PMA_cacheExists('profiling_supported', true)) {
+        if (!$this->cacheExists('profiling_supported', true)) {
             // 5.0.37 has profiling but for example, 5.1.20 does not
             // (avoid a trip to the server for MySQL before 5.0.37)
             // and do not set a constant as we might be switching servers
@@ -1387,13 +1387,13 @@ class PMA_CommonFunctions
                 && (PMA_MYSQL_INT_VERSION >= 50037)
                 && PMA_DBI_fetch_value("SHOW VARIABLES LIKE 'profiling'")
             ) {
-                $this->PMA_cacheSet('profiling_supported', true, true);
+                $this->cacheSet('profiling_supported', true, true);
             } else {
-                $this->PMA_cacheSet('profiling_supported', false, true);
+                $this->cacheSet('profiling_supported', false, true);
             }
         }
 
-        return $this->PMA_cacheGet('profiling_supported', true);
+        return $this->cacheGet('profiling_supported', true);
     }
 
 
@@ -1406,10 +1406,10 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function PMA_getProfilingForm($sql_query)
+    public function getProfilingForm($sql_query)
     {
         $retval = '';
-        if ($this->PMA_profilingSupported()) {
+        if ($this->profilingSupported()) {
 
             $retval .= '<form action="sql.php" method="post">' . "\n";
             $retval .= PMA_generate_common_hidden_inputs(
@@ -1420,7 +1420,7 @@ class PMA_CommonFunctions
                 . htmlspecialchars($sql_query) . '" />' . "\n"
                 . '<input type="hidden" name="profiling_form" value="1" />' . "\n";
 
-            $retval .= $this->PMA_getCheckbox(
+            $retval .= $this->getCheckbox(
                 'profiling', __('Profiling'), isset($_SESSION['profiling']), true
             );
             $retval .= ' </form>' . "\n";
@@ -1441,7 +1441,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function PMA_formatByteDown($value, $limes = 6, $comma = 0)
+    public function formatByteDown($value, $limes = 6, $comma = 0)
     {
         if ($value === null) {
             return null;
@@ -1464,14 +1464,14 @@ class PMA_CommonFunctions
             __('EiB')
         );
 
-        $dh   = $this->PMA_pow(10, $comma);
-        $li   = $this->PMA_pow(10, $limes);
+        $dh   = $this->pow(10, $comma);
+        $li   = $this->pow(10, $limes);
         $unit = $byteUnits[0];
 
         for ($d = 6, $ex = 15; $d >= 1; $d--, $ex-=3) {
-            if (isset($byteUnits[$d]) && ($value >= $li * $this->PMA_pow(10, $ex))) {
+            if (isset($byteUnits[$d]) && ($value >= $li * $this->pow(10, $ex))) {
                 // use 1024.0 to avoid integer overflow on 64-bit machines
-                $value = round($value / ($this->PMA_pow(1024, $d) / $dh)) /$dh;
+                $value = round($value / ($this->pow(1024, $d) / $dh)) /$dh;
                 $unit = $byteUnits[$d];
                 break 1;
             } // end if
@@ -1481,14 +1481,14 @@ class PMA_CommonFunctions
             // if the unit is not bytes (as represented in current language)
             // reformat with max length of 5
             // 4th parameter=true means do not reformat if value < 1
-            $return_value = $this->PMA_formatNumber($value, 5, $comma, true);
+            $return_value = $this->formatNumber($value, 5, $comma, true);
         } else {
             // do not reformat, just handle the locale
-            $return_value = $this->PMA_formatNumber($value, 0);
+            $return_value = $this->formatNumber($value, 0);
         }
 
         return array(trim($return_value), $unit);
-    } // end of the 'PMA_formatByteDown' function
+    } // end of the 'formatByteDown' function
 
 
     /**
@@ -1498,7 +1498,7 @@ class PMA_CommonFunctions
      *
      * @return string
      */
-    public function PMA_localizeNumber($value)
+    public function localizeNumber($value)
     {
         return str_replace(
             array(',', '.'),
@@ -1520,12 +1520,12 @@ class PMA_CommonFunctions
      *
      * examples:
      * <code>
-     * echo PMA_formatNumber(123456789, 6);     // 123,457 k
-     * echo PMA_formatNumber(-123456789, 4, 2); //    -123.46 M
-     * echo PMA_formatNumber(-0.003, 6);        //      -3 m
-     * echo PMA_formatNumber(0.003, 3, 3);      //       0.003
-     * echo PMA_formatNumber(0.00003, 3, 2);    //       0.03 m
-     * echo PMA_formatNumber(0, 6);             //       0
+     * echo formatNumber(123456789, 6);     // 123,457 k
+     * echo formatNumber(-123456789, 4, 2); //    -123.46 M
+     * echo formatNumber(-0.003, 6);        //      -3 m
+     * echo formatNumber(0.003, 3, 3);      //       0.003
+     * echo formatNumber(0.00003, 3, 2);    //       0.03 m
+     * echo formatNumber(0, 6);             //       0
      * </code>
      *
      * @param double  $value          the value to format
@@ -1539,7 +1539,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function PMA_formatNumber(
+    public function formatNumber(
         $value, $digits_left = 3, $digits_right = 0,
         $only_down = false, $noTrailingZero = true
     ) {
@@ -1553,10 +1553,10 @@ class PMA_CommonFunctions
         if ($digits_left === 0) {
             $value = number_format($value, $digits_right);
             if (($originalValue != 0) && (floatval($value) == 0)) {
-                $value = ' <' . (1 / $this->PMA_pow(10, $digits_right));
+                $value = ' <' . (1 / $this->pow(10, $digits_right));
             }
 
-            return $this->PMA_localizeNumber($value);
+            return $this->localizeNumber($value);
         }
 
         // this units needs no translation, ISO
@@ -1588,7 +1588,7 @@ class PMA_CommonFunctions
             $sign = '';
         }
 
-        $dh = $this->PMA_pow(10, $digits_right);
+        $dh = $this->pow(10, $digits_right);
 
         /*
          * This gives us the right SI prefix already,
@@ -1600,7 +1600,7 @@ class PMA_CommonFunctions
          * So if we have 3,6,9,12.. free digits ($digits_left - $cur_digits)
          * to use, then lower the SI prefix
          */
-        $cur_digits = floor(log10($value / $this->PMA_pow(1000, $d, 'pow'))+1);
+        $cur_digits = floor(log10($value / $this->pow(1000, $d, 'pow'))+1);
         if ($digits_left > $cur_digits) {
             $d -= floor(($digits_left - $cur_digits)/3);
         }
@@ -1609,25 +1609,25 @@ class PMA_CommonFunctions
             $d = 0;
         }
 
-        $value = round($value / ($this->PMA_pow(1000, $d, 'pow') / $dh)) /$dh;
+        $value = round($value / ($this->pow(1000, $d, 'pow') / $dh)) /$dh;
         $unit = $units[$d];
 
         // If we dont want any zeros after the comma just add the thousand separator
         if ($noTrailingZero) {
-            $value = $this->PMA_localizeNumber(
+            $value = $this->localizeNumber(
                 preg_replace('/(?<=\d)(?=(\d{3})+(?!\d))/', ',', $value)
             );
         } else {
             //number_format is not multibyte safe, str_replace is safe
-            $value = $this->PMA_localizeNumber(number_format($value, $digits_right));
+            $value = $this->localizeNumber(number_format($value, $digits_right));
         }
 
         if ($originalValue != 0 && floatval($value) == 0) {
-            return ' <' . (1 / $this->PMA_pow(10, $digits_right)) . ' ' . $unit;
+            return ' <' . (1 / $this->pow(10, $digits_right)) . ' ' . $unit;
         }
 
         return $sign . $value . ' ' . $unit;
-    } // end of the 'PMA_formatNumber' function
+    } // end of the 'formatNumber' function
 
 
     /**
@@ -1637,19 +1637,19 @@ class PMA_CommonFunctions
      *
      * @return integer  The numerical part of the expression (for example 8)
      */
-    public function PMA_extractValueFromFormattedSize($formatted_size)
+    public function extractValueFromFormattedSize($formatted_size)
     {
         $return_value = -1;
 
         if (preg_match('/^[0-9]+GB$/', $formatted_size)) {
-            $return_value = substr($formatted_size, 0, -2) * $this->PMA_pow(1024, 3);
+            $return_value = substr($formatted_size, 0, -2) * $this->pow(1024, 3);
         } elseif (preg_match('/^[0-9]+MB$/', $formatted_size)) {
-            $return_value = substr($formatted_size, 0, -2) * $this->PMA_pow(1024, 2);
+            $return_value = substr($formatted_size, 0, -2) * $this->pow(1024, 2);
         } elseif (preg_match('/^[0-9]+K$/', $formatted_size)) {
-            $return_value = substr($formatted_size, 0, -1) * $this->PMA_pow(1024, 1);
+            $return_value = substr($formatted_size, 0, -1) * $this->pow(1024, 1);
         }
         return $return_value;
-    }// end of the 'PMA_extractValueFromFormattedSize' function
+    }// end of the 'extractValueFromFormattedSize' function
 
 
     /**
@@ -1662,7 +1662,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function PMA_localisedDate($timestamp = -1, $format = '')
+    public function localisedDate($timestamp = -1, $format = '')
     {
         $month = array(
             /* l10n: Short month name */
@@ -1726,7 +1726,7 @@ class PMA_CommonFunctions
         );
 
         return strftime($date, $timestamp);
-    } // end of the 'PMA_localisedDate()' function
+    } // end of the 'localisedDate()' function
 
 
     /**
@@ -1740,7 +1740,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function PMA_generateHtmlTab($tab, $url_params = array())
+    public function generateHtmlTab($tab, $url_params = array())
     {
         // default values
         $defaults = array(
@@ -1804,7 +1804,7 @@ class PMA_CommonFunctions
             // avoid generating an alt tag, because it only illustrates
             // the text that follows and if browser does not display
             // images, the text is duplicated
-            $tab['text'] = $this->PMA_getImage(htmlentities($tab['icon'])) . $tab['text'];
+            $tab['text'] = $this->getImage(htmlentities($tab['icon'])) . $tab['text'];
 
         } elseif (empty($tab['text'])) {
             // check to not display an empty link-text
@@ -1831,7 +1831,7 @@ class PMA_CommonFunctions
 
         $out .= '</li>';
         return $out;
-    } // end of the 'PMA_generateHtmlTab()' function
+    } // end of the 'generateHtmlTab()' function
 
 
     /**
@@ -1843,14 +1843,14 @@ class PMA_CommonFunctions
      *
      * @return string  html-code for tab-navigation
      */
-    public function PMA_generateHtmlTabs($tabs, $url_params, $menu_id = 'topmenu')
+    public function generateHtmlTabs($tabs, $url_params, $menu_id = 'topmenu')
     {
         $tab_navigation = '<div id="' . htmlentities($menu_id)
             . 'container" class="menucontainer">'
             .'<ul id="' . htmlentities($menu_id) . '">';
 
         foreach ($tabs as $tab) {
-            $tab_navigation .= $this->PMA_generateHtmlTab($tab, $url_params);
+            $tab_navigation .= $this->generateHtmlTab($tab, $url_params);
         }
 
         $tab_navigation .=
@@ -1877,7 +1877,7 @@ class PMA_CommonFunctions
      *
      * @return string  the results to be echoed or saved in an array
      */
-    public function PMA_linkOrButton(
+    public function linkOrButton(
         $url, $message, $tag_params = array(),
         $new_form = true, $strip_img = false, $target = ''
     ) {
@@ -1929,7 +1929,7 @@ class PMA_CommonFunctions
         $in_suhosin_limits = true;
         if ($url_length <= $GLOBALS['cfg']['LinkLengthLimit']) {
             if ($suhosin_get_MaxValueLength = ini_get('suhosin.get.max_value_length')) {
-                $query_parts = $this->PMA_splitURLQuery($url);
+                $query_parts = $this->splitURLQuery($url);
                 foreach ($query_parts as $query_pair) {
                     list($eachvar, $eachval) = explode('=', $query_pair);
                     if (strlen($eachval) > $suhosin_get_MaxValueLength) {
@@ -1959,7 +1959,7 @@ class PMA_CommonFunctions
             }
 
             if (! isset($query_parts)) {
-                $query_parts = $this->PMA_splitURLQuery($url);
+                $query_parts = $this->splitURLQuery($url);
             }
             $url_parts   = parse_url($url);
 
@@ -1998,7 +1998,7 @@ class PMA_CommonFunctions
         } // end if... else...
 
         return $ret;
-    } // end of the 'PMA_linkOrButton()' function
+    } // end of the 'linkOrButton()' function
 
 
     /**
@@ -2008,7 +2008,7 @@ class PMA_CommonFunctions
      *
      * @return array  the parameter/value pairs, for example [0] db=sakila
      */
-    public function PMA_splitURLQuery($url)
+    public function splitURLQuery($url)
     {
         // decode encoded url separators
         $separator = PMA_get_arg_separator();
@@ -2035,7 +2035,7 @@ class PMA_CommonFunctions
      *
      * @return string  the formatted value
      */
-    public function PMA_timespanFormat($seconds)
+    public function timespanFormat($seconds)
     {
         $days = floor($seconds / 86400);
         if ($days > 0) {
@@ -2074,7 +2074,7 @@ class PMA_CommonFunctions
      *
      * @return string      The flipped string
      */
-    public function PMA_flipstring($string, $Separator = "<br />\n")
+    public function flipstring($string, $Separator = "<br />\n")
     {
         $format_string = '';
         $charbuff = false;
@@ -2125,7 +2125,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function PMA_checkParameters($params, $request = true)
+    public function checkParameters($params, $request = true)
     {
         global $checked_special;
 
@@ -2146,7 +2146,7 @@ class PMA_CommonFunctions
                 $error_message .= $reported_script_name
                     . ': ' . __('Missing parameter:') . ' '
                     . $param
-                    . $this->PMA_showDocu('faqmissingparameters')
+                    . $this->showDocu('faqmissingparameters')
                     . '<br />';
                 $found_error = true;
             }
@@ -2170,7 +2170,7 @@ class PMA_CommonFunctions
      *
      * @return array     the calculated condition and whether condition is unique
      */
-    public function PMA_getUniqueCondition($handle, $fields_cnt, $fields_meta, $row,
+    public function getUniqueCondition($handle, $fields_cnt, $fields_meta, $row,
         $force_unique = false
     ) {
 
@@ -2235,11 +2235,11 @@ class PMA_CommonFunctions
             // (also, the syntax "CONCAT(field) IS NULL"
             // that we need on the next "if" will work)
             if ($meta->type == 'real') {
-                $con_key = 'CONCAT(' . $this->PMA_backquote($meta->table) . '.'
-                    . $this->PMA_backquote($meta->orgname) . ')';
+                $con_key = 'CONCAT(' . $this->backquote($meta->table) . '.'
+                    . $this->backquote($meta->orgname) . ')';
             } else {
-                $con_key = $this->PMA_backquote($meta->table) . '.'
-                    . $this->PMA_backquote($meta->orgname);
+                $con_key = $this->backquote($meta->table) . '.'
+                    . $this->backquote($meta->orgname);
             } // end if... else...
             $condition = ' ' . $con_key . ' ';
 
@@ -2272,7 +2272,7 @@ class PMA_CommonFunctions
                         $con_val = null;
                     }
 
-                } elseif (in_array($meta->type, $this->PMA_getGISDatatypes())
+                } elseif (in_array($meta->type, $this->getGISDatatypes())
                     && ! empty($row[$i])
                 ) {
 
@@ -2286,10 +2286,10 @@ class PMA_CommonFunctions
                 } elseif ($meta->type == 'bit') {
 
                     $con_val = "= b'"
-                        . $this->PMA_printableBitValue($row[$i], $meta->length) . "'";
+                        . $this->printableBitValue($row[$i], $meta->length) . "'";
 
                 } else {
-                    $con_val = '= \'' . $this->PMA_sqlAddSlashes($row[$i], false, true) . '\'';
+                    $con_val = '= \'' . $this->sqlAddSlashes($row[$i], false, true) . '\'';
                 }            
             }
 
@@ -2348,7 +2348,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function PMA_getButtonOrImage(
+    public function getButtonOrImage(
         $button_name, $button_class, $image_name, $text, $image, $value = ''
     ) {
 
@@ -2368,7 +2368,7 @@ class PMA_CommonFunctions
             return '<button class="' . $button_class . '" type="submit"'
                 .' name="' . $button_name . '" value="' . htmlspecialchars($value) . '"'
                 .' title="' . htmlspecialchars($text) . '">' . "\n"
-                . $this->PMA_getIcon($image, $text)
+                . $this->getIcon($image, $text)
                 .'</button>' . "\n";
         } else {
             return '<input type="image" name="' . $image_name
@@ -2402,7 +2402,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function PMA_pageselector(
+    public function pageselector(
         $rows, $pageNow = 1, $nbTotalPage = 1, $showAll = 200, $sliceStart = 5,
         $sliceEnd = 5, $percent = 20, $range = 10, $prompt = ''
     ) {
@@ -2539,7 +2539,7 @@ class PMA_CommonFunctions
      *
      * @todo    use $pos from $_url_params
      */
-    public function PMA_getListNavigator(
+    public function getListNavigator(
         $count, $pos, $_url_params, $script, $frame, $max_count
     ) {
 
@@ -2587,7 +2587,7 @@ class PMA_CommonFunctions
                 '" method="post" target="' . $frame . '">' . "\n";
 
             $list_navigator_html .= PMA_generate_common_hidden_inputs($_url_params);
-            $list_navigator_html .= $this->PMA_pageselector(
+            $list_navigator_html .= $this->pageselector(
                 $max_count,
                 floor(($pos + 1) / $max_count) + 1,
                 ceil($count / $max_count)
@@ -2639,7 +2639,7 @@ class PMA_CommonFunctions
      *
      * example:
      * <code>
-     * $user_dir = PMA_userDir('/var/pma_tmp/%u/'); // '/var/pma_tmp/root/'
+     * $user_dir = userDir('/var/pma_tmp/%u/'); // '/var/pma_tmp/root/'
      *
      * </code>
      *
@@ -2647,7 +2647,7 @@ class PMA_CommonFunctions
      *
      * @return string  per user directory
      */
-    public function PMA_userDir($dir)
+    public function userDir($dir)
     {
         // add trailing slash
         if (substr($dir, -1) != '/') {
@@ -2665,7 +2665,7 @@ class PMA_CommonFunctions
      *
      * @return string  html link to default db page
      */
-    public function PMA_getDbLink($database = null)
+    public function getDbLink($database = null)
     {
         if (! strlen($database)) {
             if (! strlen($GLOBALS['db'])) {
@@ -2673,7 +2673,7 @@ class PMA_CommonFunctions
             }
             $database = $GLOBALS['db'];
         } else {
-            $database = $this->PMA_unescapeMysqlWildcards($database);
+            $database = $this->unescapeMysqlWildcards($database);
         }
 
         return '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?'
@@ -2697,11 +2697,11 @@ class PMA_CommonFunctions
      *
      * @return void
      */
-    public function PMA_getExternalBug($functionality, $component, $minimum_version, $bugref)
+    public function getExternalBug($functionality, $component, $minimum_version, $bugref)
     {    
         $ext_but_html = '';    
         if (($component == 'mysql') && (PMA_MYSQL_INT_VERSION < $minimum_version)) {
-            $ext_but_html .= $this->PMA_showHint(
+            $ext_but_html .= $this->showHint(
                 sprintf(
                     __('The %s functionality is affected by a known bug, see %s'),
                     $functionality,
@@ -2723,7 +2723,7 @@ class PMA_CommonFunctions
      *
      * @return string                  HTML for the checkbox
      */
-    public function PMA_getCheckbox($html_field_name, $label, $checked, $onclick)
+    public function getCheckbox($html_field_name, $label, $checked, $onclick)
     {
         return '<input type="checkbox" name="' . $html_field_name . '" id="'
             . $html_field_name . '"' . ($checked ? ' checked="checked"' : '')
@@ -2744,7 +2744,7 @@ class PMA_CommonFunctions
      *
      * @return string                  set of html radio fiels
      */
-    public function PMA_getRadioFields($html_field_name, $choices, $checked_choice = '',
+    public function getRadioFields($html_field_name, $choices, $checked_choice = '',
         $line_break = true, $escape_label = true, $class=''
     ) {
 
@@ -2801,7 +2801,7 @@ class PMA_CommonFunctions
      *
      * @todo    support titles
      */
-    public function PMA_getDropdown($select_name, $choices, $active_choice, $id)
+    public function getDropdown($select_name, $choices, $active_choice, $id)
     {
         $result = '<select name="' . htmlspecialchars($select_name) . '" id="'
             . htmlspecialchars($id) . '">';
@@ -2832,7 +2832,7 @@ class PMA_CommonFunctions
      * @return string         html div element
      *
      */
-    public function PMA_getDivForSliderEffect($id, $message)
+    public function getDivForSliderEffect($id, $message)
     {
         if ($GLOBALS['cfg']['InitialSlidersState'] == 'disabled') {
             return '<div id="' . $id . '">';
@@ -2867,7 +2867,7 @@ class PMA_CommonFunctions
      *
      * @return string   HTML code for the toggle button
      */
-    public function PMA_toggleButton($action, $select_name, $options, $callback)
+    public function toggleButton($action, $select_name, $options, $callback)
     {
         // Do the logic first
         $link = "$action&amp;" . urlencode($select_name) . "=";
@@ -2918,7 +2918,7 @@ class PMA_CommonFunctions
             . "</div>\n"
             . "<!-- TOGGLE END -->";
 
-    } // end PMA_toggleButton()
+    } // end toggleButton()
 
 
     /**
@@ -2926,9 +2926,9 @@ class PMA_CommonFunctions
      *
      * @return void
      */
-    public function PMA_clearUserCache()
+    public function clearUserCache()
     {
-        $this->PMA_cacheUnset('is_superuser', true);
+        $this->cacheUnset('is_superuser', true);
     }
 
 
@@ -2940,7 +2940,7 @@ class PMA_CommonFunctions
      *
      * @return boolean
      */
-    public function PMA_cacheExists($var, $server = 0)
+    public function cacheExists($var, $server = 0)
     {
         if (true === $server) {
             $server = $GLOBALS['server'];
@@ -2957,7 +2957,7 @@ class PMA_CommonFunctions
      *
      * @return mixed
      */
-    public function PMA_cacheGet($var, $server = 0)
+    public function cacheGet($var, $server = 0)
     {
         if (true === $server) {
             $server = $GLOBALS['server'];
@@ -2979,7 +2979,7 @@ class PMA_CommonFunctions
      *
      * @return mixed
      */
-    public function PMA_cacheSet($var, $val = null, $server = 0)
+    public function cacheSet($var, $val = null, $server = 0)
     {
         if (true === $server) {
             $server = $GLOBALS['server'];
@@ -2996,7 +2996,7 @@ class PMA_CommonFunctions
      *
      * @return void
      */
-    public function PMA_cacheUnset($var, $server = 0)
+    public function cacheUnset($var, $server = 0)
     {
         if ($server === true) {
             $server = $GLOBALS['server'];
@@ -3015,7 +3015,7 @@ class PMA_CommonFunctions
      *
      * @return string  the printable value
      */
-    public function PMA_printableBitValue($value, $length)
+    public function printableBitValue($value, $length)
     {
         $printable = '';
         for ($i = 0, $len_ceiled = ceil($length / 8); $i < $len_ceiled; $i++) {
@@ -3033,7 +3033,7 @@ class PMA_CommonFunctions
      *
      * @return boolean
      */
-    public function PMA_containsNonPrintableAscii($value)
+    public function containsNonPrintableAscii($value)
     {
         return preg_match('@[^[:print:]]@', $value);
     }
@@ -3047,7 +3047,7 @@ class PMA_CommonFunctions
      *
      * @return string the converted value
      */
-    public function PMA_convertBitDefaultValue($bit_default_value)
+    public function convertBitDefaultValue($bit_default_value)
     {
         return strtr($bit_default_value, array("b" => "", "'" => ""));
     }
@@ -3061,7 +3061,7 @@ class PMA_CommonFunctions
      * @return array associative array containing type, spec_in_brackets
      *          and possibly enum_set_values (another array)
      */
-    public function PMA_extractColumnSpec($columnspec)
+    public function extractColumnSpec($columnspec)
     {
         $first_bracket_pos = strpos($columnspec, '(');
         if ($first_bracket_pos) {
@@ -3222,7 +3222,7 @@ class PMA_CommonFunctions
      *
      * @return boolean
      */
-    public function PMA_isForeignKeySupported($engine)
+    public function isForeignKeySupported($engine)
     {
         $engine = strtoupper($engine);
         if (($engine == 'INNODB') || ($engine == 'PBXT')) {
@@ -3240,7 +3240,7 @@ class PMA_CommonFunctions
      *
      * @return string the content with characters replaced
      */
-    public function PMA_replaceBinaryContents($content)
+    public function replaceBinaryContents($content)
     {
         $result = str_replace("\x00", '\0', $content);
         $result = str_replace("\x08", '\b', $result);
@@ -3259,7 +3259,7 @@ class PMA_CommonFunctions
      *
      * @return string GIS data in Well Know Text format
      */
-    public function PMA_asWKT($data, $includeSRID = false)
+    public function asWKT($data, $includeSRID = false)
     {
         // Convert to WKT format
         $hex = bin2hex($data);
@@ -3290,7 +3290,7 @@ class PMA_CommonFunctions
      * @return string with the chars replaced
      */
 
-    public function PMA_duplicateFirstNewline($string)
+    public function duplicateFirstNewline($string)
     {
         $first_occurence = strpos($string, "\r\n");
         if ($first_occurence === 0) {
@@ -3309,7 +3309,7 @@ class PMA_CommonFunctions
      *
      * @return array
      */
-    public function PMA_getTitleForTarget($target)
+    public function getTitleForTarget($target)
     {
         $mapping = array(
             // Values for $cfg['DefaultTabTable']
@@ -3340,7 +3340,7 @@ class PMA_CommonFunctions
      *
      * @return string
      */
-    public function PMA_expandUserString($string, $escape = null, $updates = array())
+    public function expandUserString($string, $escape = null, $updates = array())
     {
         /* Content */
         $vars['http_host'] = PMA_getenv('HTTP_HOST');
@@ -3421,7 +3421,7 @@ class PMA_CommonFunctions
      *
      * @return void
      */
-    public function PMA_getBrowseUploadFileBlock($max_upload_size)
+    public function getBrowseUploadFileBlock($max_upload_size)
     {
 
         $block_html = '';
@@ -3436,9 +3436,9 @@ class PMA_CommonFunctions
             . '<div id="upload_form_status" style="display: none;"></div>'
             . '<div id="upload_form_status_info" style="display: none;"></div>'
             . '<input type="file" name="import_file" id="input_import_file" />'
-            . $this->PMA_getFormattedMaximumUploadSize($max_upload_size) . "\n"
+            . $this->getFormattedMaximumUploadSize($max_upload_size) . "\n"
             // some browsers should respect this :)
-            . $this->PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";
+            . $this->generateHiddenMaxFileSize($max_upload_size) . "\n";
 
         return $block_html;
     }
@@ -3453,7 +3453,7 @@ class PMA_CommonFunctions
      *
      * @return void
      */
-    public function PMA_getSelectUploadFileBlock($import_list, $uploaddir)
+    public function getSelectUploadFileBlock($import_list, $uploaddir)
     {
 
         $block_html = '';
@@ -3461,7 +3461,7 @@ class PMA_CommonFunctions
         $block_html .= '<label for="radio_local_import_file">'
             . sprintf(
                 __("Select from the web server upload directory <b>%s</b>:"),
-                htmlspecialchars($this->PMA_userDir($uploaddir))
+                htmlspecialchars($this->userDir($uploaddir))
             )
             . '</label>';
 
@@ -3482,7 +3482,7 @@ class PMA_CommonFunctions
             : '';
 
         $files = PMA_getFileSelectOptions(
-            $this->PMA_userDir($uploaddir),
+            $this->userDir($uploaddir),
             $matcher,
             $active
         );
@@ -3512,27 +3512,27 @@ class PMA_CommonFunctions
      *
      * @return array   the action titles
      */
-    public function PMA_buildActionTitles()
+    public function buildActionTitles()
     {
         $titles = array();
 
-        $titles['Browse']     = $this->PMA_getIcon('b_browse.png', __('Browse'));
-        $titles['NoBrowse']   = $this->PMA_getIcon('bd_browse.png', __('Browse'));
-        $titles['Search']     = $this->PMA_getIcon('b_select.png', __('Search'));
-        $titles['NoSearch']   = $this->PMA_getIcon('bd_select.png', __('Search'));
-        $titles['Insert']     = $this->PMA_getIcon('b_insrow.png', __('Insert'));
-        $titles['NoInsert']   = $this->PMA_getIcon('bd_insrow.png', __('Insert'));
-        $titles['Structure']  = $this->PMA_getIcon('b_props.png', __('Structure'));
-        $titles['Drop']       = $this->PMA_getIcon('b_drop.png', __('Drop'));
-        $titles['NoDrop']     = $this->PMA_getIcon('bd_drop.png', __('Drop'));
-        $titles['Empty']      = $this->PMA_getIcon('b_empty.png', __('Empty'));
-        $titles['NoEmpty']    = $this->PMA_getIcon('bd_empty.png', __('Empty'));
-        $titles['Edit']       = $this->PMA_getIcon('b_edit.png', __('Edit'));
-        $titles['NoEdit']     = $this->PMA_getIcon('bd_edit.png', __('Edit'));
-        $titles['Export']     = $this->PMA_getIcon('b_export.png', __('Export'));
-        $titles['NoExport']   = $this->PMA_getIcon('bd_export.png', __('Export'));
-        $titles['Execute']    = $this->PMA_getIcon('b_nextpage.png', __('Execute'));
-        $titles['NoExecute']  = $this->PMA_getIcon('bd_nextpage.png', __('Execute'));
+        $titles['Browse']     = $this->getIcon('b_browse.png', __('Browse'));
+        $titles['NoBrowse']   = $this->getIcon('bd_browse.png', __('Browse'));
+        $titles['Search']     = $this->getIcon('b_select.png', __('Search'));
+        $titles['NoSearch']   = $this->getIcon('bd_select.png', __('Search'));
+        $titles['Insert']     = $this->getIcon('b_insrow.png', __('Insert'));
+        $titles['NoInsert']   = $this->getIcon('bd_insrow.png', __('Insert'));
+        $titles['Structure']  = $this->getIcon('b_props.png', __('Structure'));
+        $titles['Drop']       = $this->getIcon('b_drop.png', __('Drop'));
+        $titles['NoDrop']     = $this->getIcon('bd_drop.png', __('Drop'));
+        $titles['Empty']      = $this->getIcon('b_empty.png', __('Empty'));
+        $titles['NoEmpty']    = $this->getIcon('bd_empty.png', __('Empty'));
+        $titles['Edit']       = $this->getIcon('b_edit.png', __('Edit'));
+        $titles['NoEdit']     = $this->getIcon('bd_edit.png', __('Edit'));
+        $titles['Export']     = $this->getIcon('b_export.png', __('Export'));
+        $titles['NoExport']   = $this->getIcon('bd_export.png', __('Export'));
+        $titles['Execute']    = $this->getIcon('b_nextpage.png', __('Execute'));
+        $titles['NoExecute']  = $this->getIcon('bd_nextpage.png', __('Execute'));
 
         return $titles;
     }
@@ -3549,7 +3549,7 @@ class PMA_CommonFunctions
      * @return mixed   An HTML snippet or an array of datatypes.
      *
      */
-    public function PMA_getSupportedDatatypes($html = false, $selected = '')
+    public function getSupportedDatatypes($html = false, $selected = '')
     {
         if ($html) {
 
@@ -3622,7 +3622,7 @@ class PMA_CommonFunctions
         }
 
         return $retval;
-    } // end PMA_getSupportedDatatypes()
+    } // end getSupportedDatatypes()
 
 
     /**
@@ -3631,7 +3631,7 @@ class PMA_CommonFunctions
      *
      * @return array   list of datatypes
      */
-    public function PMA_unsupportedDatatypes()
+    public function unsupportedDatatypes()
     {
         $no_support_types = array();
         return $no_support_types;
@@ -3645,7 +3645,7 @@ class PMA_CommonFunctions
      *
      * @return array GIS data types
      */
-    public function PMA_getGISDatatypes($upper_case = false)
+    public function getGISDatatypes($upper_case = false)
     {
         $gis_data_types = array(
             'geometry',
@@ -3673,7 +3673,7 @@ class PMA_CommonFunctions
      *
      * @return string GIS data enclosed in 'GeomFromText' function
      */
-    public function PMA_createGISData($gis_string)
+    public function createGISData($gis_string)
     {
         $gis_string = trim($gis_string);
         $geom_types = '(POINT|MULTIPOINT|LINESTRING|MULTILINESTRING|'
@@ -3702,7 +3702,7 @@ class PMA_CommonFunctions
      * @return array names and details of the functions that can be applied on
      *               geometry data typess.
      */
-    public function PMA_getGISFunctions($geom_type = null, $binary = true, $display = false)
+    public function getGISFunctions($geom_type = null, $binary = true, $display = false)
     {
         $funcs = array();
         if ($display) {
@@ -3814,7 +3814,7 @@ class PMA_CommonFunctions
      * @return string   An HTML snippet of a dropdown list with function
      *                    names appropriate for the requested column.
      */
-    public function PMA_getDefaultFunctionForField($field, $insert_mode)
+    public function getDefaultFunctionForField($field, $insert_mode)
     {
         global $cfg, $analyzed_sql, $data;
 
@@ -3879,9 +3879,9 @@ class PMA_CommonFunctions
      * @return string   An HTML snippet of a dropdown list with function
      *                    names appropriate for the requested column.
      */
-    public function PMA_getFunctionsForField($field, $insert_mode)
+    public function getFunctionsForField($field, $insert_mode)
     {
-        $default_function = $this->PMA_getDefaultFunctionForField($field, $insert_mode);
+        $default_function = $this->getDefaultFunctionForField($field, $insert_mode);
         $dropdown_built = array();
 
         // Create the output
@@ -3920,7 +3920,7 @@ class PMA_CommonFunctions
         } // end for
 
         return $retval;
-    } // end PMA_getFunctionsForField()
+    } // end getFunctionsForField()
 
 
     /**
@@ -3929,7 +3929,7 @@ class PMA_CommonFunctions
      * only be used for features that are available since MySQL 5, because it
      * relies on the INFORMATION_SCHEMA database to be present.
      *
-     * Example:   PMA_currentUserHasPrivilege('CREATE ROUTINE', 'mydb');
+     * Example:   currentUserHasPrivilege('CREATE ROUTINE', 'mydb');
      *            // Checks if the currently logged in user has the global
      *            // 'CREATE ROUTINE' privilege or, if not, checks if the
      *            // user has this privilege on database 'mydb'.
@@ -3942,7 +3942,7 @@ class PMA_CommonFunctions
      *
      * @return bool
      */
-    public function PMA_currentUserHasPrivilege($priv, $db = null, $tbl = null)
+    public function currentUserHasPrivilege($priv, $db = null, $tbl = null)
     {
         // Get the username for the current user in the format
         // required to use in the information schema database.
@@ -3986,7 +3986,7 @@ class PMA_CommonFunctions
                     'SCHEMA_PRIVILEGES',
                     $username,
                     $priv,
-                    $this->PMA_sqlAddSlashes($db)
+                    $this->sqlAddSlashes($db)
                 )
             );
             if ($schema_privileges) {
@@ -4009,8 +4009,8 @@ class PMA_CommonFunctions
                     'TABLE_PRIVILEGES',
                     $username,
                     $priv,
-                    $this->PMA_sqlAddSlashes($db),
-                    $this->PMA_sqlAddSlashes($tbl)
+                    $this->sqlAddSlashes($db),
+                    $this->sqlAddSlashes($tbl)
                 )
             );
             if ($table_privileges) {
@@ -4030,7 +4030,7 @@ class PMA_CommonFunctions
      *
      * @return string
      */
-    public function PMA_getServerType()
+    public function getServerType()
     {
         $server_type = 'MySQL';
         if (PMA_DRIZZLE) {
@@ -4051,7 +4051,7 @@ class PMA_CommonFunctions
      *
      * @return array Start and length attributes of the limit clause
      */
-    public function PMA_analyzeLimitClause($limit_clause)
+    public function analyzeLimitClause($limit_clause)
     {
         $start_and_length = explode(',', str_ireplace('LIMIT', '', $limit_clause));
         return array(
@@ -4066,7 +4066,7 @@ class PMA_CommonFunctions
      *
      * @return void
      */
-    public function PMA_getButton()
+    public function getButton()
     {
         return '<p class="print_ignore">'
             . '<input type="button" class="button" id="print" value="'
@@ -4083,7 +4083,7 @@ class PMA_CommonFunctions
      *
      * @return array
      */
-    public function PMA_parseEnumSetValues($definition)
+    public function parseEnumSetValues($definition)
     {
         $values_string = htmlentities($definition);
         // There is a JS port of the below parser in functions.js
