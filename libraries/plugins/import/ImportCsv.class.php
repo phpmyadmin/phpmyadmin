@@ -7,7 +7,6 @@
  * @package    PhpMyAdmin-Import
  * @subpackage CSV
  */
-
 if (! defined('PHPMYADMIN')) {
     exit;
 }
