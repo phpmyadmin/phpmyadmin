@@ -151,13 +151,8 @@ class ImportCsv extends ImportPlugin
      */
     public function doImport()
     {
-        global $finished, $db;
-        global $csv_terminated, $csv_enclosed, $csv_escaped, $csv_new_line;
-
-        // initialize the common import variables
-        $this->initImportCommonVariables();
-        $error = $this->getError();
-        $timeout_passed = $this->getTimeoutPassed();
+        global $db, $csv_terminated, $csv_enclosed, $csv_escaped, $csv_new_line;
+        global $error, $timeout_passed, $finished;
 
         $replacements = array(
             '\\n'   => "\n",

@@ -99,12 +99,8 @@ class ImportDocsql extends ImportPlugin
      */
     public function doImport()
     {
-        global $finished;
-
-        // initialize the common import variables
-        $this->initImportCommonVariables();
-        $error = $this->getError();
-        $timeout_passed = $this->getTimeoutPassed();
+        global $error, $timeout_passed, $finished;
+        $cfgRelation = $this->_getCfgRelation();
     
         $tab = $_POST['docsql_table'];
         $buffer = '';

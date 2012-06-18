@@ -98,10 +98,7 @@ class ImportSql extends ImportPlugin
      */
     public function doImport()
     {
-        // initialize the common import variables
-        $this->initImportCommonVariables();
-        $error = $this->getError();
-        $timeout_passed = $this->getTimeoutPassed();
+        global $error, $timeout_passed;
 
         $buffer = '';
         // Defaults for parser

@@ -28,42 +28,11 @@ abstract class ImportPlugin extends PluginObserver
     protected $properties;
 
     /**
-     * Tells whether there was an error during the import
-     *
-     * @var bool
-     */
-    private $_error;
-
-    /**
-     * Tells whether the timeout passed before the import finished
-     *
-     * @var bool
-     */
-    private $_timeoutPassed;
-
-    /**
      * Handles the whole import logic
      *
      * @return void
      */
     abstract public function doImport();
-
-    /**
-     * Initializes the local variables with the global values.
-     * These are variables that are used by all of the import plugins.
-     *
-     * @global type $error
-     * @global type $timeout_passed
-     *
-     * @return void
-     */
-    protected function initImportCommonVariables()
-    {
-        global $error;
-        global $timeout_passed;
-        $this->setError($error);
-        $this->setTimeoutPassed($timeout_passed);
-    }
 
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
@@ -86,50 +55,5 @@ abstract class ImportPlugin extends PluginObserver
      * @return void
      */
     abstract protected function setProperties();
-
-    /**
-     * Finds out whether there was an error during the import
-     *
-     * @return string
-     */
-    protected function getError()
-    {
-        return $this->_error;
-    }
-
-    /**
-     * Sets to true if there was an error during the import, false otherwise
-     *
-     * @param bool $error whether there was an error during the import
-     *
-     * @return void
-     */
-    protected function setError($error)
-    {
-        $this->_error = $error;
-    }
-
-    /**
-     * Finds out whether the timeout passed before the import finished
-     *
-     * @return string
-     */
-    protected function getTimeoutPassed()
-    {
-        return $this->_timeoutPassed;
-    }
-
-    /**
-     * Sets to true if the timeout passed
-     *
-     * @param bool $timeoutPassed whether the timeout passed before the import
-     *                            finished
-     *
-     * @return void
-     */
-    protected function setTimeoutPassed($timeoutPassed)
-    {
-        $this->_timeoutPassed = $timeoutPassed;
-    }
 }
 ?>

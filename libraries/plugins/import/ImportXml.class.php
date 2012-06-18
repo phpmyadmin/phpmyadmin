@@ -69,18 +69,12 @@ class ImportXml extends ImportPlugin
 
     /**
      * Handles the whole import logic
-     * 
+     *
      * @return void
      */
     public function doImport()
     {
-        global $finished;
-        global $db;
-
-        // initialize the common import variables
-        $this->initImportCommonVariables();
-        $error = $this->getError();
-        $timeout_passed = $this->getTimeoutPassed();
+        global $error, $timeout_passed, $finished, $db;
 
         $i = 0;
         $len = 0;
