@@ -76,13 +76,13 @@ $(function() {
      *
      * (see $GLOBALS['cfg']['AjaxEnable'])
      */
-    $("div.action_primary a").live('click', function(event) {
+    $("a.action_primary.ajax").live('click', function(event) {
         event.preventDefault();
 
         /**
          * @var curr_table_name String containing the name of the current table
          */
-        var curr_table_name = window.parent.table;
+        var curr_table_name = $(this).closest('form').find('input[name=table]').val();
         /**
          * @var curr_column_name    String containing name of the field referred to by {@link curr_row}
          */

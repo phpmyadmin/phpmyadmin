@@ -1812,7 +1812,7 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
 /**
  * Get HTML divs for Structure Action drop down
  *
- * @param string  $class            div class
+ * @param string  $class            link class
  * @param boolean $isActionEnabled  whether action is enabled or not
  * @param string  $url_query        url query
  * @param array   $row              current row
@@ -1829,9 +1829,9 @@ function PMA_getHtmlDivsForStructureActionsDropdown($class, $isActionEnabled,
     $url_query, $row, $hidden_titles, $hidden_titles_no, $primary, $syntax,
     $message, $isPrimary
 ) {
-    $html_output = '<div  class="' . $class . '">';
+    $html_output = '<div class="replace_in_more"';
     if ($isActionEnabled) {
-        $html_output .= '<a href="sql.php?' .  $url_query
+        $html_output .= '<a class="' . $class . '" href="sql.php?' .  $url_query
             . '&amp;sql_query='
             . urlencode(
                 'ALTER TABLE ' . PMA_Util::backquote($GLOBALS['table'])
@@ -1882,8 +1882,7 @@ function PMA_getHtmlForMoreOptionInTableStructure($rownum, $primary_enabled,
     ) . __('More');
     $html_output .= '<div class="structure_actions_dropdown" id="row_' . $rownum . '">';
 
-    $class = ($GLOBALS['cfg']['AjaxEnable'] ? 'action_primary ' : '')
-        . 'replace_in_more';
+    $class = 'action_primary' . ($GLOBALS['cfg']['AjaxEnable'] ? ' ajax' : '');
     $html_output .= PMA_getHtmlDivsForStructureActionsDropdown(
         $class, $primary_enabled, $url_query, $row, $hidden_titles['Primary'],
         $hidden_titles['NoPrimary'], $primary, 'ADD PRIMARY KEY',
