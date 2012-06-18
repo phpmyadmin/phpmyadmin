@@ -1935,8 +1935,9 @@ function PMA_getChangeLoginInformationHtmlForm($username, $hostname)
         '2' => __('... revoke all active privileges from the old one and delete it afterwards.'),
         '3' => __('... delete the old one from the user tables and reload the privileges afterwards.'));
 
+    $class = $GLOBALS['cfg']['AjaxEnable'] ? ' ajax' : '';
     $html_output = '<form action="server_privileges.php" '
-        . 'method="post" class="copyUserForm">' . "\n"
+        . 'method="post" class="copyUserForm' . $class .'">' . "\n"
         . PMA_generate_common_hidden_inputs('', '')
         . '<input type="hidden" name="old_username" '
         . 'value="' . htmlspecialchars($username) . '" />' . "\n"
@@ -3027,7 +3028,9 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
             //exit;
     }
 
-    $html_output .= '<form name="usersForm" id="addUsersForm_' . $random_n . '"'
+    $class = $GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '';
+    $html_output .= '<form' . $class . ' name="usersForm"'
+        . ' id="addUsersForm_' . $random_n . '"'
         . ' action="server_privileges.php" method="post">' . "\n";
 
     $_params = array(
