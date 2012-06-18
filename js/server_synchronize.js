@@ -242,7 +242,7 @@ function ApplySelectedChanges(token)
     }
 
     //Appending the token and list of table ids in the URL
-    location.href += '?' + $.param(params);
+    location.href = $('#synchronize_form').attr('action') + '?' + $.param(params);
 }
 
 
