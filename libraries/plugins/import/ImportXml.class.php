@@ -25,54 +25,16 @@ require_once "libraries/plugins/ImportPlugin.class.php";
 /**
  * Handles the import for the XML format
  *
- * @todo add descriptions
  * @package PhpMyAdmin-Import
  */
 class ImportXml extends ImportPlugin
 {
-    /**
-     * Database name
-     *
-     * @var type String
-     */
-    private $_db = null;
-
-    /**
-     *
-     *
-     * @var type
-     */
-    private $_table = null;
-
-    /**
-     *
-     *
-     * @var type
-     */
-    private $_tables = null;
-
     /**
      * Constructor
      */
     public function __construct()
     {
         $this->setProperties();
-    }
-
-    /**
-     * Initialize the local variables that are used specific for import XML
-     *
-     * @global type $table
-     * @global type $tables
-     *
-     * @return void
-     */
-    private function initLocalVariables()
-    {
-        global $table;
-        global $tables;
-        $this->setTable($table);
-        $this->setTables($tables);
     }
 
     /**
@@ -107,20 +69,18 @@ class ImportXml extends ImportPlugin
 
     /**
      * Handles the whole import logic
+     * 
+     * @return void
      */
     public function doImport()
     {
-        // initialize the general import variables
-        $this->initImportCommonVariables();
-
-        // initialize the specific import xml variables
-        $this->initLocalVariables();
-
-        $error = $this->getError();
-        $timeout_passed = $this->getTimeout_passed();
-        $db = $this->getDb();
-        // this is used in other functions while doImport() is being run
         global $finished;
+        global $db;
+
+        // initialize the common import variables
+        $this->initImportCommonVariables();
+        $error = $this->getError();
+        $timeout_passed = $this->getTimeoutPassed();
 
         $i = 0;
         $len = 0;
@@ -167,10 +127,12 @@ class ImportXml extends ImportPlugin
          * The XML was malformed
          */
         if ($xml === false) {
-            PMA_Message::error(__(
-                'The XML file specified was either malformed or incomplete.'
-                . ' Please correct the issue and try again.'
-            ))->display();
+            PMA_Message::error(
+                __(
+                    'The XML file specified was either malformed or incomplete.'
+                    . ' Please correct the issue and try again.'
+                )
+            )->display();
             unset($xml);
             $GLOBALS['finished'] = false;
             return;
@@ -204,7 +166,8 @@ class ImportXml extends ImportPlugin
         /**
          * Get the database name, collation and charset
          */
-        $db_attr = $xml->children($namespaces['pma'])->{'structure_schemas'}->{'database'};
+        $db_attr = $xml->children($namespaces['pma'])
+            ->{'structure_schemas'}->{'database'};
 
         if ($db_attr instanceof SimpleXMLElement) {
             $db_attr = $db_attr->attributes();
@@ -226,10 +189,12 @@ class ImportXml extends ImportPlugin
          * The XML was malformed
          */
         if ($db_name === null) {
-            PMA_Message::error(__(
-                'The XML file specified was either malformed or incomplete.'
-                . ' Please correct the issue and try again.'
-            ))->display();
+            PMA_Message::error(
+                __(
+                    'The XML file specified was either malformed or incomplete.'
+                    . ' Please correct the issue and try again.'
+                )
+            )->display();
             unset($xml);
             $GLOBALS['finished'] = false;
             return;
@@ -248,8 +213,8 @@ class ImportXml extends ImportPlugin
 
             foreach ($struct as $tier1 => $val1) {
                 foreach ($val1 as $tier2 => $val2) {
-                    // Need to select the correct database for the creation of tables,
-                    // views, triggers, etc.
+                    // Need to select the correct database for the creation of
+                    // tables, views, triggers, etc.
                     /**
                      * @todo    Generating a USE here blocks importing of a table
                      *          into another database.
@@ -408,51 +373,5 @@ class ImportXml extends ImportPlugin
 
         /* Commit any possible data in buffers */
         PMA_importRunQuery();
-    }
-
-
-    /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
-
-
-    /**
-     * Gets the database name
-     *
-     * @return string
-     */
-    public function getDb()
-    {
-        return $this->_db;
-    }
-
-    /**
-     * Sets the database name
-     *
-     * @param String $db database name
-     *
-     * @return void
-     */
-    public function setDb($db)
-    {
-        $this->_db = $db;
-    }
-
-    private function getTable()
-    {
-        return $this->_table;
-    }
-
-    private function setTable($table)
-    {
-        $this->_table = $table;
-    }
-
-    private function getTables()
-    {
-        return $this->_tables;
-    }
-
-    private function setTables($tables)
-    {
-        $this->_tables = $tables;
     }
 }

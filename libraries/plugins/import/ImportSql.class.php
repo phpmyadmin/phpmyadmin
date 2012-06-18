@@ -93,16 +93,15 @@ class ImportSql extends ImportPlugin
 
     /**
      * Handles the whole import logic
-     * 
+     *
      * @return void
      */
     public function doImport()
     {
-        // initialize the general import variables
+        // initialize the common import variables
         $this->initImportCommonVariables();
-
         $error = $this->getError();
-        $timeout_passed = $this->getTimeout_passed();
+        $timeout_passed = $this->getTimeoutPassed();
 
         $buffer = '';
         // Defaults for parser
@@ -369,7 +368,7 @@ class ImportSql extends ImportPlugin
                 }
 
                 // End of SQL
-                if ($found_delimiter 
+                if ($found_delimiter
                     || ($GLOBALS['finished']
                     && ($i == $len - 1))
                 ) {

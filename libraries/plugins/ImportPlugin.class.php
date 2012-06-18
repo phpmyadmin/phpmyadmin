@@ -16,7 +16,6 @@ require_once "PluginObserver.class.php";
  * Provides a common interface that will have to implemented by all of the
  * import plugins.
  *
- * @todo descriptions
  * @package PhpMyAdmin
  */
 abstract class ImportPlugin extends PluginObserver
@@ -29,18 +28,18 @@ abstract class ImportPlugin extends PluginObserver
     protected $properties;
 
     /**
+     * Tells whether there was an error during the import
      *
-     *
-     * @var type
+     * @var bool
      */
     private $_error;
 
     /**
+     * Tells whether the timeout passed before the import finished
      *
-     *
-     * @var type
+     * @var bool
      */
-    private $_timeout_passed;
+    private $_timeoutPassed;
 
     /**
      * Handles the whole import logic
@@ -55,7 +54,6 @@ abstract class ImportPlugin extends PluginObserver
      *
      * @global type $error
      * @global type $timeout_passed
-     * @global type $finished
      *
      * @return void
      */
@@ -64,7 +62,7 @@ abstract class ImportPlugin extends PluginObserver
         global $error;
         global $timeout_passed;
         $this->setError($error);
-        $this->setTimeout_passed($timeout_passed);
+        $this->setTimeoutPassed($timeout_passed);
     }
 
 
@@ -89,24 +87,49 @@ abstract class ImportPlugin extends PluginObserver
      */
     abstract protected function setProperties();
 
-    public function getError()
+    /**
+     * Finds out whether there was an error during the import
+     *
+     * @return string
+     */
+    protected function getError()
     {
         return $this->_error;
     }
 
-    public function setError($error)
+    /**
+     * Sets to true if there was an error during the import, false otherwise
+     *
+     * @param bool $error whether there was an error during the import
+     *
+     * @return void
+     */
+    protected function setError($error)
     {
         $this->_error = $error;
     }
 
-    public function getTimeout_passed()
+    /**
+     * Finds out whether the timeout passed before the import finished
+     *
+     * @return string
+     */
+    protected function getTimeoutPassed()
     {
-        return $this->_timeout_passed;
+        return $this->_timeoutPassed;
     }
 
-    public function setTimeout_passed($timeout_passed)
+    /**
+     * Sets to true if the timeout passed
+     *
+     * @param bool $timeoutPassed whether the timeout passed before the import
+     *                            finished
+     *
+     * @return void
+     */
+    protected function setTimeoutPassed($timeoutPassed)
     {
-        $this->_timeout_passed = $timeout_passed;
+        $this->_timeoutPassed = $timeoutPassed;
     }
 }
 ?>
