@@ -556,8 +556,12 @@ $(function() {
                         } else if ($("#add_columns").length > 0) {
                             $("#add_columns").dialog("close").remove();
                         }
-                        /*Reload the field form*/
-                        reloadFieldForm(data.message);
+                        /* Reload the field form */
+                        if ($("#fieldsForm").length) {
+                            reloadFieldForm(data.message);
+                        } else {
+                            PMA_ajaxShowMessage(data.message);
+                        }
                     } else {
                         var $temp_div = $("<div id='temp_div'><div>").append(data.error);
                         var $error = $temp_div.find(".error code").addClass("error");
