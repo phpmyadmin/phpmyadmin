@@ -59,7 +59,7 @@ class ImportDocsql extends ImportPlugin
         $this->properties = array(
             'text' => __('DocSQL'),
             'extension' => '',
-            'options' => array( ),
+            'options' => array(),
             'options_text' => __('Options'),
         );
 
@@ -127,7 +127,7 @@ class ImportDocsql extends ImportPlugin
             $lines = explode("\n", $buffer);
             foreach ($lines AS $lkey => $line) {
                 //echo '<p>' . $line . '</p>';
-                $inf     = explode('|', $line);
+                $inf = explode('|', $line);
                 if (!empty($inf[1]) && strlen(trim($inf[1])) > 0) {
                     $qry = '
                          INSERT INTO
