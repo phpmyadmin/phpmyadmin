@@ -115,6 +115,9 @@ $gis_from_wkb_functions = array(
     'MPolyFromWKB',
 );
 
+// to create an object of PMA_File class
+require_once './libraries/File.class.php';
+    
 $query_fields = array();
 foreach ($loop_array as $rownumber => $where_clause) {
     // skip fields to be ignored
@@ -166,15 +169,13 @@ foreach ($loop_array as $rownumber => $where_clause) {
             $multi_edit_colummns[$key] = '';
         }
     }
-
-    // Iterate in the order of $multi_edit_columns_name, not $multi_edit_colummns, to avoid problems
-    // when inserting multiple entries
+    
+    // Iterate in the order of $multi_edit_columns_name, not $multi_edit_colummns,
+    // to avoid problems when inserting multiple entries
     foreach ($multi_edit_columns_name as $key => $colummn_name) {
         $current_value = $multi_edit_colummns[$key];
-        // Note: $key is an md5 of the fieldname. The actual fieldname is available in $multi_edit_columns_name[$key]
-        
-        // to create an object of PMA_File class
-        require_once './libraries/File.class.php';
+        // Note: $key is an md5 of the fieldname. The actual fieldname is 
+        // available in $multi_edit_columns_name[$key]
         
         $file_to_insert = new PMA_File();
         $file_to_insert->checkTblChangeForm($key, $rownumber);
@@ -187,19 +188,22 @@ foreach ($loop_array as $rownumber => $where_clause) {
         // delete $file_to_insert temporary variable
         $file_to_insert->cleanUp();
         
-        $current_value = PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
-            $multi_edit_columns_type, $current_value, $multi_edit_auto_increment,
+        $current_value = PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val,
+            $key, $multi_edit_columns_type, $current_value, $multi_edit_auto_increment,
             $rownumber, $multi_edit_columns_name, $multi_edit_columns_null,
             $multi_edit_columns_null_prev, $is_insert, $using_key, $where_clause, $table);
         
-        $current_value_as_an_array = PMA_getCurrentValueAsAnArrayForMultipleEdit($multi_edit_colummns,
-            $multi_edit_columns_name, $multi_edit_funcs, $gis_from_text_functions, $current_value,
-            $gis_from_wkb_functions, $func_optional_param, $func_no_param, $key);
+        $current_value_as_an_array = PMA_getCurrentValueAsAnArrayForMultipleEdit(
+            $multi_edit_colummns, $multi_edit_columns_name, $multi_edit_funcs,
+            $gis_from_text_functions, $current_value, $gis_from_wkb_functions,
+            $func_optional_param, $func_no_param, $key);
 
-        list($query_values, $query_fields) = PMA_getQueryValuesForInsertAndUpdateInMultipleEdit(
-            $multi_edit_columns_name,$multi_edit_columns_null, $current_value, $multi_edit_columns_prev,
-            $multi_edit_funcs,$is_insert,$query_values, $query_fields, $current_value_as_an_array, $value_sets,
-            $key, $multi_edit_columns_null_prev);    
+        list($query_values, $query_fields)
+            = PMA_getQueryValuesForInsertAndUpdateInMultipleEdit(
+                $multi_edit_columns_name,$multi_edit_columns_null, $current_value,
+                $multi_edit_columns_prev, $multi_edit_funcs,$is_insert,$query_values,
+                $query_fields, $current_value_as_an_array, $value_sets, $key,
+                $multi_edit_columns_null_prev);
     } //end of foreach
 
     if (count($query_values) > 0) {
@@ -207,7 +211,8 @@ foreach ($loop_array as $rownumber => $where_clause) {
             $value_sets[] = implode(', ', $query_values);
         } else {
             // build update query
-            $query[] = 'UPDATE ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($GLOBALS['table'])
+            $query[] = 'UPDATE ' . PMA_backquote($GLOBALS['db']) . '.'
+                . PMA_backquote($GLOBALS['table'])
                 . ' SET ' . implode(', ', $query_values)
                 . ' WHERE ' . $where_clause . ($_REQUEST['clause_is_unique'] ? '' : ' LIMIT 1');
 
@@ -305,8 +310,9 @@ if ($response->isAjax()) {
         foreach ($mime_map as $transformation) {
             $include_file = PMA_securePath($transformation['transformation']);
             $column_name = $transformation['column_name'];
-            $extra_data = PMA_getTransformationFunctionAndTransformationOptions($db, $table,
-                $transformation, $edited_values, $include_file, $column_name, $extra_data, $include_file);
+            $extra_data = PMA_getTransformationFunctionAndTransformationOptions(
+                $db, $table, $transformation, $edited_values, $include_file,
+                $column_name, $extra_data, $include_file);
         }   // end of loop for each $mime_map
     }
 
