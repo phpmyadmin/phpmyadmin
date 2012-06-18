@@ -185,7 +185,7 @@ $(function() {
     /**
      *Ajax event handler for single column change
     **/
-    $("#fieldsForm.ajax #tablestructure tbody tr td.edit a").live('click', function(event){
+    $("#fieldsForm.ajax #tablestructure tbody tr td.edit a.ajax").live('click', function(event){
         event.preventDefault();
         /*Define the action and $url variabls for the post method*/
         var action = "tbl_alter.php";

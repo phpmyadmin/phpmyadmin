@@ -581,14 +581,14 @@ class PMA_Index
                 $this_params = $GLOBALS['url_params'];
                 $this_params['index'] = $index->getName();
                 $r .= '<td class="edit_index';
+                $r .= '" ' . $row_span . '>'
+                   . '    <a class="';
                 if ($GLOBALS['cfg']['AjaxEnable']) {
-                    $r .= ' ajax';
+                    $r .= 'ajax';
                 }
-                $r .= '" ' . $row_span . '>' . '    <a href="tbl_indexes.php'
-                    . PMA_generate_common_url($this_params) . '">'
-                    . PMA_Util::getIcon('b_edit.png', __('Edit')) . '</a>'
+                $r .= '" href="tbl_indexes.php' . PMA_generate_common_url($this_params)
+                   . '">' . PMA_Util::getIcon('b_edit.png', __('Edit')) . '</a>'
                    . '</td>' . "\n";
-
                 $this_params = $GLOBALS['url_params'];
                 if ($index->getName() == 'PRIMARY') {
                     $this_params['sql_query'] = 'ALTER TABLE '
