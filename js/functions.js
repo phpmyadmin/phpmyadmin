@@ -3248,11 +3248,16 @@ $(function() {
 
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
 
-            PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+            var $msgbox = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
             $.get(url, {'is_js_confirmed': '1', 'ajax_request': true}, function(data) {
-                //Database deleted successfully, refresh both the frames
-                window.parent.refreshNavigation();
-                window.parent.refreshMain();
+                if (data.success == true) {
+                    PMA_ajaxRemoveMessage($msgbox);
+                    // Table deleted successfully, refresh both the frames
+                    window.parent.refreshNavigation();
+                    window.parent.refreshMain();
+                } else {
+                    PMA_ajaxShowMessage(data.error, false);
+                }
             }); // end $.get()
         }); // end $.PMA_confirm()
     }); //end of Drop Table Ajax action
