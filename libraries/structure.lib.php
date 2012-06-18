@@ -1322,9 +1322,9 @@ function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_information_schema,
             . $field_encoded . '">'
             . $titles['Change'] . '</a>' . '</td>';
         $html_output .= '<td class="drop center">'
-            . '<a '
-            . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="drop_column_anchor"' : '')
-            . ' href="sql.php?' . $url_query . '&amp;sql_query='
+            . '<a class="drop_column_anchor'
+            . ($GLOBALS['cfg']['AjaxEnable'] ? ' ajax' : '')
+            . '" href="sql.php?' . $url_query . '&amp;sql_query='
             . urlencode(
                 'ALTER TABLE ' . PMA_Util::backquote($table)
                 . ' DROP ' . PMA_Util::backquote($row['Field']) . ';'

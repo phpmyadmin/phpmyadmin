@@ -23,13 +23,13 @@ $(function() {
      *
      * (see $GLOBALS['cfg']['AjaxEnable'])
      */
-    $("a.drop_column_anchor").live('click', function(event) {
+    $("a.drop_column_anchor.ajax").live('click', function(event) {
         event.preventDefault();
 
         /**
          * @var curr_table_name String containing the name of the current table
          */
-        var curr_table_name = window.parent.table;
+        var curr_table_name = $(this).closest('form').find('input[name=table]').val();
         /**
          * @var curr_row    Object reference to the currently selected row (i.e. field in the table)
          */
