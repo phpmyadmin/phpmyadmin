@@ -10,15 +10,62 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+/**
+ * Holds the TableProperty class
+ *
+ * @package PhpMyAdmin-Export
+ */
 class TableProperty
 {
+    /**
+     * Name
+     *
+     * @var string
+     */
     public $name;
+
+    /**
+     * Type
+     *
+     * @var string
+     */
     public $type;
+    
+    /**
+     * Wheter the key is nullable or not
+     *
+     * @var bool
+     */
     public $nullable;
+    
+    /**
+     * The key
+     * 
+     * @var int 
+     */
     public $key;
+    
+    /**
+     * Default value
+     * 
+     * @var mixed
+     */
     public $defaultValue;
+    
+    /**
+     * Extension
+     * 
+     * @var string
+     */
     public $ext;
 
+    /**
+     * Constructor
+     *
+     * @param array $row table row 
+     * 
+     * @return void
+     */
     function __construct($row)
     {
         $this->name = trim($row[0]);
@@ -29,25 +76,45 @@ class TableProperty
         $this->ext = trim($row[5]);
     }
 
+    /**
+     * Gets the pure type
+     * 
+     * @return string type
+     */
     function getPureType()
     {
-        $pos=strpos($this->type, "(");
+        $pos = strpos($this->type, "(");
         if ($pos > 0) {
             return substr($this->type, 0, $pos);
         }
         return $this->type;
     }
 
+    /** 
+     * Tells whether the key is null or not
+     * 
+     * @return bool true if the key is not null, false otherwise
+     */
     function isNotNull()
     {
         return $this->nullable == "NO" ? "true" : "false";
     }
 
+    /** 
+     * Tells whether the key is unique or not
+     * 
+     * @return bool true if the key is unique, false otherwise
+     */
     function isUnique()
     {
         return $this->key == "PRI" || $this->key == "UNI" ? "true" : "false";
     }
 
+     /**
+     * Gets the .NET primitive type
+     * 
+     * @return string type
+     */
     function getDotNetPrimitiveType()
     {
         if (strpos($this->type, "int") === 0) {
@@ -77,6 +144,11 @@ class TableProperty
         return "unknown";
     }
 
+    /**
+     * Gets the .NET object type
+     * 
+     * @return string type
+     */
     function getDotNetObjectType()
     {
         if (strpos($this->type, "int") === 0) {
@@ -106,6 +178,11 @@ class TableProperty
         return "Unknown";
     }
 
+    /**
+     * Gets the index name
+     *
+     * @return string containing the name of the index
+     */
     function getIndexName()
     {
         if (strlen($this->key) > 0) {
@@ -116,11 +193,23 @@ class TableProperty
         return "";
     }
 
+    /**
+     * Tells whether the key is primary or not
+     * 
+     * @return bool true if the key is primary, false otherwise
+     */
     function isPK()
     {
         return $this->key=="PRI";
     }
 
+    /**
+     * Formats a string for C#
+     * 
+     * @param string $text string to be formatted
+     *
+     * @return string formatted text
+     */
     function formatCs($text)
     {
         $text = str_replace(
@@ -131,6 +220,13 @@ class TableProperty
         return $this->format($text);
     }
 
+    /**
+     * Formats a string for XML
+     * 
+     * @param string $text string to be formatted
+     *
+     * @return string formatted text
+     */
     function formatXml($text)
     {
         $text = str_replace(
@@ -146,6 +242,13 @@ class TableProperty
         return $this->format($text);
     }
 
+    /**
+     * Formats a string
+     * 
+     * @param string $text string to be formatted
+     *
+     * @return string formatted text
+     */
     function format($text)
     {
         $text = str_replace(

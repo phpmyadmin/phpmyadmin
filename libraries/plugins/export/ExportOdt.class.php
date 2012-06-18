@@ -14,59 +14,21 @@ if (! defined('PHPMYADMIN')) {
 require_once "libraries/plugins/ExportPlugin.class.php";
 
 $GLOBALS['odt_buffer'] = '';
-include_once 'libraries/opendocument.lib.php';
+require_once 'libraries/opendocument.lib.php';
 
 /**
  * Handles the export for the ODT class
  *
- * @todo add descriptions for all vars/methods
  * @package PhpMyAdmin-Export
  */
 class ExportOdt extends ExportPlugin
 {
     /**
-     *
-     *
-     * @var type string
-     */
-    private $_what;
-
-    /**
-     *
-     * @var type array
-     */
-    private $_pluginParam;
-
-    /**
-     *
-     * @var type
-     */
-    private $_cfgRelation;
-
-    /**
      * Constructor
      */
     public function __construct()
     {
-        // initialize the specific export ODT variables
-        $this->initLocalVariables();
-
         $this->setProperties();
-    }
-
-    /**
-     * Initialize the local variables that are used for export ODT
-     *
-     * @return void
-     */
-    private function initLocalVariables()
-    {
-        global $what;
-        global $plugin_param;
-        global $cfgRelation;
-        $this->setWhat($what);
-        $this->setPluginParam($plugin_param);
-        $this->setCfgRelation($cfgRelation);
     }
 
     /**
@@ -186,9 +148,6 @@ class ExportOdt extends ExportPlugin
      */
     public function exportHeader ()
     {
-        // initialize the general export variables
-        $this->initExportCommonVariables();
-
         $GLOBALS['odt_buffer'] .= '<?xml version="1.0" encoding="utf-8"?' . '>'
             . '<office:document-content '
                 . $GLOBALS['OpenDocumentNS'] . 'office:version="1.0">'
@@ -271,7 +230,8 @@ class ExportOdt extends ExportPlugin
      */
     public function exportData($db, $table, $crlf, $error_url, $sql_query)
     {
-        $what = $this->getWhat();
+        global $what;
+        $this->setWhat($what);
 
         // Gets the data from the database
         $result = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
@@ -365,7 +325,7 @@ class ExportOdt extends ExportPlugin
      *
      * @return bool true
      */
-    function getTableDefStandIn($db, $view, $crlf)
+    public function getTableDefStandIn($db, $view, $crlf)
     {
         /**
          * Gets fields properties
@@ -426,6 +386,8 @@ class ExportOdt extends ExportPlugin
      * @param bool   $add_semicolon whether to add semicolon and end-of-line at
      *                              the end
      * @param bool   $view          whether we're handling a view
+     * 
+     * @return bool true
      */
     public function getTableDef(
         $db,
@@ -439,7 +401,8 @@ class ExportOdt extends ExportPlugin
         $add_semicolon = true,
         $view = false
     ) {
-        $cfgRelation = $this->getCfgRelation();
+        global $cfgRelation;
+        $this->setCfgRelation($cfgRelation);
 
         /**
          * Gets fields properties
@@ -576,7 +539,7 @@ class ExportOdt extends ExportPlugin
      *
      * @return bool true
      */
-    function getTriggers($db, $table)
+    protected function getTriggers($db, $table)
     {
         $GLOBALS['odt_buffer'] .= '<table:table'
             . ' table:name="' . htmlspecialchars($table) . '_triggers">'
@@ -649,7 +612,7 @@ class ExportOdt extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    function exportStructure(
+    public function exportStructure(
         $db,
         $table,
         $crlf,
@@ -756,40 +719,6 @@ class ExportOdt extends ExportPlugin
             . '<text:p>' . htmlspecialchars($column['Default']) . '</text:p>'
             . '</table:table-cell>';
         return $definition;
-    }
-
-
-    /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
-
-
-    public function getWhat()
-    {
-        return $this->_what;
-    }
-
-    public function setWhat($what)
-    {
-        $this->_what = $what;
-    }
-
-    public function getPluginParam()
-    {
-        return $this->_pluginParam;
-    }
-
-    private function setPluginParam($pluginParam)
-    {
-        $this->_pluginParam = $pluginParam;
-    }
-
-    public function getCfgRelation()
-    {
-        return $this->_cfgRelation;
-    }
-
-    private function setCfgRelation($cfgRelation)
-    {
-        $this->_cfgRelation = $cfgRelation;
     }
 }
 ?>

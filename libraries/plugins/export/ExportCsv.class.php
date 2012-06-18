@@ -22,61 +22,54 @@ require_once "libraries/plugins/ExportPlugin.class.php";
 class ExportCsv extends ExportPlugin
 {
     /**
+     * The string used to end lines
      *
-     *
-     * @var type String
+     * @var string
      */
-    protected $what;
+    private $_csvTerminated;
 
     /**
+     * The string used to separate columns
      *
-     *
-     * @var type String
+     * @var string
      */
-    protected $csvTerminated;
+    private $_csvSeparator;
 
     /**
+     * The string used to enclose columns
      *
-     *
-     * @var type String
+     * @var string
      */
-    protected $csvSeparator;
+    private $_csvEnclosed;
 
     /**
+     * The string used to escape columns
      *
-     *
-     * @var type String
+     * @var string
      */
-    protected $csvEnclosed;
-
-    /**
-     *
-     *
-     * @var type String
-     */
-    protected $csvEscaped;
+    private $_csvEscaped;
 
     /**
      * Constructor
      */
     public function __construct()
     {
+        // initialize the specific export csv variables
+        $this->initSpecificVariables();
         $this->setProperties();
     }
 
     /**
-     * Initialize the local variables that are used for export CSV
+     * Initialize the variables that are used for export CSV
      *
      * @return void
      */
-    private function initLocalVariables()
+    protected function initSpecificVariables()
     {
-        global $what;
         global $csv_terminated;
         global $csv_separator;
         global $csv_enclosed;
         global $csv_escaped;
-        $this->setWhat($what);
         $this->setCsvTerminated($csv_terminated);
         $this->setCsvSeparator($csv_separator);
         $this->setCsvEnclosed($csv_enclosed);
@@ -170,13 +163,11 @@ class ExportCsv extends ExportPlugin
      */
     public function exportHeader ()
     {
-        // initialize the general export variables
-        $this->initExportCommonVariables();
+        // The type of the export plugin only has to be set once and then
+        // it will remain unchanged. This is the first time
+        global $what;
+        $this->setWhat($what);
 
-        // initialize the specific export sql variables
-        $this->initLocalVariables();
-
-        $what = $this->getWhat();
         $csv_terminated = $this->getCsvTerminated();
         $csv_separator = $this->getCsvSeparator();
         $csv_enclosed = $this->getCsvEnclosed();
@@ -279,8 +270,6 @@ class ExportCsv extends ExportPlugin
      * @param string $sql_query SQL query for obtaining data
      *
      * @return bool Whether it succeeded
-     *
-     * @access public
      */
     public function exportData($db, $table, $crlf, $error_url, $sql_query)
     {
@@ -390,54 +379,92 @@ class ExportCsv extends ExportPlugin
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
 
-    public function getWhat()
+    /**
+     * Gets the string used to terminate lines
+     *
+     * @return string
+     */
+    protected function getCsvTerminated()
     {
-        return $this->what;
+        return $this->_csvTerminated;
     }
 
-    public function setWhat($_what)
+    /**
+     * Sets the string used to terminate lines
+     *
+     * @param string $csvTerminated lines terminator
+     *
+     * @return void
+     */
+    protected function setCsvTerminated($csvTerminated)
     {
-        $this->what = $_what;
+        $this->_csvTerminated = $csvTerminated;
     }
 
-    public function getCsvTerminated()
+    /**
+     * Gets the string used to separate columns
+     *
+     * @return string
+     */
+    protected function getCsvSeparator()
     {
-        return $this->csvTerminated;
+        return $this->_csvSeparator;
     }
 
-    public function setCsvTerminated($_csvTerminated)
+    /**
+     * Sets the string used to separate columns
+     *
+     * @param string $csvSeparator columns separator
+     *
+     * @return void
+     */
+    protected function setCsvSeparator($csvSeparator)
     {
-        $this->csvTerminated = $_csvTerminated;
+        $this->_csvSeparator = $csvSeparator;
     }
 
-    public function getCsvSeparator()
+    /**
+     * Gets the string used to enclose columns
+     *
+     * @return string
+     */
+    protected function getCsvEnclosed()
     {
-        return $this->csvSeparator;
+        return $this->_csvEnclosed;
     }
 
-    public function setCsvSeparator($_csvSeparator)
+    /**
+     * Sets the string used to enclose columns
+     *
+     * @param string $csvEnclosed columns encloser
+     *
+     * @return void
+     */
+    protected function setCsvEnclosed($csvEnclosed)
     {
-        $this->csvSeparator = $_csvSeparator;
+        $this->_csvEnclosed = $csvEnclosed;
     }
 
-    public function getCsvEnclosed()
+    /**
+     * Gets the string used to escape columns
+     *
+     * @return string
+     */
+    protected function getCsvEscaped()
     {
-        return $this->csvEnclosed;
+        return $this->_csvEscaped;
     }
 
-    public function setCsvEnclosed($_csvEnclosed)
+    /**
+     * Sets the string used to escape columns
+     *
+     * @param string $csvEscaped columns escaper
+     *
+     * @return void
+     */
+    protected function setCsvEscaped($csvEscaped)
     {
-        $this->csvEnclosed = $_csvEnclosed;
-    }
-
-    public function getCsvEscaped()
-    {
-        return $this->csvEscaped;
-    }
-
-    public function setCsvEscaped($_csvEscaped)
-    {
-        $this->csvEscaped = $_csvEscaped;
+        $this->_csvEscaped = $csvEscaped;
     }
 }
 ?>

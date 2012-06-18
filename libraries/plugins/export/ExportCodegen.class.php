@@ -18,33 +18,31 @@ require_once "libraries/plugins/export/TableProperty.class.php";
 /**
  * Handles the export for the CodeGen class
  *
- * @todo add descriptions for all vars/methods
  * @package PhpMyAdmin-Export
  */
 class ExportCodegen extends ExportPlugin
 {
     /**
+     * CodeGen Formats
      *
-     *
-     * @var type array
+     * @var array
      */
-    private $_CG_FORMATS;
+    private $_cgFormats;
 
     /**
+     * CodeGen Handlers
      *
-     *
-     * @var type array
+     * @var array
      */
-    private $_CG_HANDLERS;
+    private $_cgHandlers;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        // initialize the specific export codegen variables
-        $this->initLocalVariables();
-
+        // initialize the specific export CodeGen variables
+        $this->initSpecificVariables();
         $this->setProperties();
     }
 
@@ -53,25 +51,25 @@ class ExportCodegen extends ExportPlugin
      *
      * @return void
      */
-    private function initLocalVariables()
+    protected function initSpecificVariables()
     {
-        $this->setCG_FORMATS(
+        $this->_setCgFormats(
             array(
                 "NHibernate C# DO",
                 "NHibernate XML"
             )
         );
 
-        $this->setCG_HANDLERS(
+        $this->_setCgHandlers(
             array(
-                "handleNHibernateCSBody",
-                "handleNHibernateXMLBody"
+                "_handleNHibernateCSBody",
+                "_handleNHibernateXMLBody"
             )
         );
     }
 
     /**
-     * Sets the export XML properties
+     * Sets the export CodeGen properties
      *
      * @return void
      */
@@ -98,7 +96,7 @@ class ExportCodegen extends ExportPlugin
                 'type' => 'select',
                 'name' => 'format',
                 'text' => __('Format:'),
-                'values' => $this->getCG_FORMATS()
+                'values' => $this->_getCgFormats()
             ),
             array(
                 'type' => 'end_group'
@@ -126,9 +124,6 @@ class ExportCodegen extends ExportPlugin
      */
     public function exportHeader ()
     {
-        // initialize the general export variables
-        $this->initExportCommonVariables();
-
         return true;
     }
 
@@ -177,6 +172,7 @@ class ExportCodegen extends ExportPlugin
     {
         return true;
     }
+
     /**
      * Outputs the content of a table in NHibernate format
      *
@@ -187,13 +183,11 @@ class ExportCodegen extends ExportPlugin
      * @param string $sql_query SQL query for obtaining data
      *
      * @return bool Whether it succeeded
-     *
-     * @access public
      */
     public function exportData($db, $table, $crlf, $error_url, $sql_query)
     {
-        $CG_FORMATS = $this->getCG_FORMATS();
-        $CG_HANDLERS = $this->getCG_HANDLERS();
+        $CG_FORMATS = $this->_getCgFormats();
+        $CG_HANDLERS = $this->_getCgHandlers();
 
         $format = $GLOBALS['codegen_format'];
         if (isset($CG_FORMATS[$format])) {
@@ -204,6 +198,14 @@ class ExportCodegen extends ExportPlugin
         return PMA_exportOutputHandler(sprintf("%s is not supported.", $format));
     }
 
+    /**
+     * Used to make identifiers (from table or database names)
+     *
+     * @param string $str     name to be converted
+     * @param bool   $ucfirst whether to make the first character uppercase
+     *
+     * @return string identifier
+     */
     public static function cgMakeIdentifier($str, $ucfirst = true)
     {
         // remove unsafe characters
@@ -218,7 +220,16 @@ class ExportCodegen extends ExportPlugin
         return $str;
     }
 
-    private function handleNHibernateCSBody($db, $table, $crlf)
+    /**
+     * C# Handler
+     *
+     * @param string $db    database name
+     * @param string $table table name
+     * @param string $crlf  line separator
+     *
+     * @return string containing C# code lines, separated by "\n"
+     */
+    private function _handleNHibernateCSBody($db, $table, $crlf)
     {
         $lines = array();
         $result = PMA_DBI_query(
@@ -247,7 +258,8 @@ class ExportCodegen extends ExportPlugin
             }
             $lines[] = '        #endregion';
             $lines[] = '        #region Constructors';
-            $lines[] = '        public ' . ExportCodegen::cgMakeIdentifier($table).'() { }';
+            $lines[] = '        public '
+                . ExportCodegen::cgMakeIdentifier($table) . '() { }';
             $temp = array();
             foreach ($tableProperties as $tableProperty) {
                 if (! $tableProperty->isPK()) {
@@ -290,7 +302,16 @@ class ExportCodegen extends ExportPlugin
         return implode("\n", $lines);
     }
 
-    function handleNHibernateXMLBody($db, $table, $crlf)
+    /**
+     * XML Handler
+     *
+     * @param string $db    database name
+     * @param string $table table name
+     * @param string $crlf  line separator
+     *
+     * @return string containing XML code lines, separated by "\n"
+     */
+    private function _handleNHibernateXMLBody($db, $table, $crlf)
     {
         $lines = array();
         $lines[] = '<?xml version="1.0" encoding="utf-8" ?' . '>';
@@ -337,24 +358,48 @@ class ExportCodegen extends ExportPlugin
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
 
-    public function getCG_FORMATS()
+    /**
+     * Getter for CodeGen formats
+     *
+     * @return array
+     */
+    private function _getCgFormats()
     {
-        return $this->_CG_FORMATS;
+        return $this->_cgFormats;
     }
 
-    private function setCG_FORMATS($CG_FORMATS)
+    /**
+     * Setter for CodeGen formats
+     *
+     * @param array $CG_FORMATS contains CodeGen Formats
+     *
+     * @return void
+     */
+    private function _setCgFormats($CG_FORMATS)
     {
-        $this->_CG_FORMATS = $CG_FORMATS;
+        $this->_cgFormats = $CG_FORMATS;
     }
 
-    public function getCG_HANDLERS()
+    /**
+     * Getter for CodeGen handlers
+     *
+     * @return array
+     */
+    private function _getCgHandlers()
     {
-        return $this->_CG_HANDLERS;
+        return $this->_cgHandlers;
     }
 
-    private function setCG_HANDLERS($CG_HANDLERS)
+    /**
+     * Setter for CodeGen handlers
+     *
+     * @param array $CG_HANDLERS contains CodeGen handler methods
+     *
+     * @return void
+     */
+    private function _setCgHandlers($CG_HANDLERS)
     {
-        $this->_CG_HANDLERS = $CG_HANDLERS;
+        $this->_cgHandlers = $CG_HANDLERS;
     }
 }
 ?>

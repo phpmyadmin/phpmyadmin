@@ -4,7 +4,7 @@
  * Export to Texy! text.
  *
  * @package    PhpMyAdmin-Export
- * @subpackage Texy! text
+ * @subpackage Texy!text
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -16,47 +16,16 @@ require_once "libraries/plugins/ExportPlugin.class.php";
 /**
  * Handles the export for the Texy! text class
  *
- * @todo add descriptions for all vars/methods
  * @package PhpMyAdmin-Export
  */
 class ExportTexytext extends ExportPlugin
 {
     /**
-     *
-     *
-     * @var type string
-     */
-    private $_what;
-
-    /**
-     *
-     * @var type
-     */
-    private $_cfgRelation;
-
-    /**
      * Constructor
      */
     public function __construct()
     {
-        // initialize the specific export Texy! text variables
-        $this->initLocalVariables();
-
         $this->setProperties();
-    }
-
-    /**
-     * Initialize the local variables that are used for export Texy! text
-     *
-     * @return void
-     */
-    private function initLocalVariables()
-    {
-        global $what;
-        global $cfgRelation;
-
-        $this->setWhat($what);
-        $this->setCfgRelation($cfgRelation);
     }
 
     /**
@@ -198,7 +167,8 @@ class ExportTexytext extends ExportPlugin
      */
     public function exportData($db, $table, $crlf, $error_url, $sql_query)
     {
-        $what = $this->getWhat();
+        global $what;
+        $this->setWhat($what);
 
         if (! PMA_exportOutputHandler(
             '== ' . __('Dumping data for table') . ' ' . $table . "\n\n"
@@ -588,30 +558,6 @@ class ExportTexytext extends ExportPlugin
                 isset($column['Default']) ? $column['Default'] : ''
             );
         return $definition;
-    }
-
-
-    /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
-
-
-    public function getWhat()
-    {
-        return $this->_what;
-    }
-
-    public function setWhat($what)
-    {
-        $this->_what = $what;
-    }
-
-    public function getCfgRelation()
-    {
-        return $this->_cfgRelation;
-    }
-
-    private function setCfgRelation($cfgRelation)
-    {
-        $this->_cfgRelation = $cfgRelation;
     }
 }
 ?>

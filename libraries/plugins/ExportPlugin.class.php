@@ -25,31 +25,59 @@ abstract class ExportPlugin extends PluginObserver
     /**
      * Array containing the specific export plugin type properties
      *
-     * @var type array
+     * @var array
      */
     protected $properties;
 
     /**
      * Type of the newline character
      *
-     * @var type string
+     * @var string
      */
     private $_crlf;
 
     /**
-     * Contains configuration settings
-     *
-     * @var type array
-     */
-    private $_cfg;
-
-    /**
      * Database name
      *
-     * @var type string
+     * @var string
      */
     private $_db;
 
+    /**
+     * Contains configuration settings
+     *
+     * @var array
+     */
+    private $_cfg;
+
+
+    /**
+     * Relation configuration
+     *
+     * @var array
+     */
+    private $_cfgRelation;
+
+    /**
+     * The type of the export plugin
+     *
+     * @var string
+     */
+    private $_what;
+
+    /**
+     * Parameter to plugin by which it can decide whether it can work
+     *
+     * @var mixed
+     */
+    private $_pluginParam;
+
+    /**
+     * File Charset
+     *
+     * @var type String
+     */
+    private $_charsetOfFile;
 
     /**
      * Common methods, must be overwritten by all export plugins
@@ -193,23 +221,13 @@ abstract class ExportPlugin extends PluginObserver
     }
 
     /**
-     * Initializes the local variables with the global values.
-     * These are variables that are used by all of the export plugins.
-     *
-     * @global String $crlf type of the newline character
-     * @global array  $cfg  array with configuration settings
-     * @global String $db   database name
+     * Initialize the specific variables for each export plugin
      *
      * @return void
      */
-    protected function initExportCommonVariables()
+    protected function initSpecificVariables()
     {
-        global $crlf;
-        global $cfg;
-        global $db;
-        $this->setCrlf($crlf);
-        $this->setCfg($cfg);
-        $this->setDb($db);
+        ;
     }
 
 
@@ -239,7 +257,7 @@ abstract class ExportPlugin extends PluginObserver
      *
      * @return string
      */
-    public function getCrlf()
+    protected function getCrlf()
     {
         return $this->_crlf;
     }
@@ -257,11 +275,33 @@ abstract class ExportPlugin extends PluginObserver
     }
 
     /**
+     * Gets the database name
+     *
+     * @return string
+     */
+    protected function getDb()
+    {
+        return $this->_db;
+    }
+
+    /**
+     * Sets the database name
+     *
+     * @param String $db database name
+     *
+     * @return void
+     */
+    protected function setDb($db)
+    {
+        $this->_db = $db;
+    }
+
+    /**
      * Gets the configuration settings
      *
      * @return array
      */
-    public function getCfg()
+    protected function getCfg()
     {
         return $this->_cfg;
     }
@@ -279,25 +319,91 @@ abstract class ExportPlugin extends PluginObserver
     }
 
     /**
-     * Gets the database name
+     * Gets the relation configuration
      *
-     * @return string
+     * @return array
      */
-    public function getDb()
+    protected function getCfgRelation()
     {
-        return $this->_db;
+        return $this->_cfgRelation;
     }
 
     /**
-     * Sets the database name
+     * Sets the relation configuration
      *
-     * @param String $db database name
+     * @param array $cfgRelation relation configuration
+     *
+     * @return array
+     */
+    protected function setCfgRelation($cfgRelation)
+    {
+        $this->_cfgRelation = $cfgRelation;
+    }
+
+    /**
+     * Gets the type of the export plugin
+     *
+     * @return string
+     */
+    protected function getWhat()
+    {
+        return $this->_what;
+    }
+
+    /**
+     * Sets the type of the export plugin
+     *
+     * @param string $what type of the export plugin
      *
      * @return void
      */
-    protected function setDb($db)
+    protected function setWhat($what)
     {
-        $this->_db = $db;
+        $this->_what = $what;
+    }
+
+    /**
+     * Gets the parameter to plugin by which it can decide whether it can work
+     *
+     * @return mixed
+     */
+    protected function getPluginParam()
+    {
+        return $this->_pluginParam;
+    }
+
+    /**
+     * Sets the parameter to plugin by which it can decide whether it can work
+     *
+     * @param mixed $pluginParam plugin parameter
+     *
+     * @return void
+     */
+    protected function setPluginParam($pluginParam)
+    {
+        $this->_pluginParam = $pluginParam;
+    }
+
+    /**
+     * Gets the file charset
+     *
+     * @return string
+     */
+    protected function getCharsetOfFile()
+    {
+        return $this->_charsetOfFile;
+    }
+
+    /**
+     * Sets the file charset
+     *
+     * @param string $charsetOfFile file charset
+     *
+     * @return void
+     */
+    protected function setCharsetOfFile($charsetOfFile)
+    {
+        $this->_charsetOfFile = $charsetOfFile;
     }
 }
 ?>

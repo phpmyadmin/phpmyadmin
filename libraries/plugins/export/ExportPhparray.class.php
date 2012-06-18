@@ -18,7 +18,7 @@ require_once "libraries/plugins/ExportPlugin.class.php";
  *
  * @package PhpMyAdmin-Export
  */
-class ExportPhp_array extends ExportPlugin
+class ExportPhparray extends ExportPlugin
 {
     /**
      * Constructor
@@ -138,6 +138,7 @@ class ExportPhp_array extends ExportPlugin
     {
         return true;
     }
+
     /**
      * Outputs the content of a table in NHibernate format
      *

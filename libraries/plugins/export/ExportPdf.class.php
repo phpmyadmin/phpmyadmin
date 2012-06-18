@@ -18,12 +18,22 @@ require_once 'libraries/plugins/export/PMA_ExportPdf.class.php';
 /**
  * Handles the export for the PDF class
  *
- * @todo add descriptions for all vars/methods
  * @package PhpMyAdmin-Export
  */
 class ExportPdf extends ExportPlugin
 {
+    /**
+     * PMA_ExportPdf instance
+     *
+     * @var PMA_ExportPdf
+     */
     private $_pdf;
+
+    /**
+     * PDF Report Title
+     *
+     * @var string
+     */
     private $_pdfReportTitle;
 
     /**
@@ -32,7 +42,7 @@ class ExportPdf extends ExportPlugin
     public function __construct()
     {
         // initialize the specific export PDF variables
-        $this->initLocalVariables();
+        $this->initSpecificVariables();
 
         $this->setProperties();
     }
@@ -42,11 +52,10 @@ class ExportPdf extends ExportPlugin
      *
      * @return void
      */
-    private function initLocalVariables()
+    protected function initSpecificVariables()
     {
-        global $pdf_report_title;
-        $this->setPdfReportTitle($pdf_report_title);
-        $this->setPdf(new PMA_ExportPdf('L', 'pt', 'A3'));
+        $this->_setPdfReportTitle("");
+        $this->_setPdf(new PMA_ExportPdf('L', 'pt', 'A3'));
     }
 
     /**
@@ -112,8 +121,8 @@ class ExportPdf extends ExportPlugin
      */
     public function exportHeader ()
     {
-        $pdf_report_title = $this->getPdfReportTitle();
-        $pdf = $this->getPdf();
+        $pdf_report_title = $this->_getPdfReportTitle();
+        $pdf = $this->_getPdf();
         $pdf->Open();
 
         $attr = array('titleFontSize' => 18, 'titleText' => $pdf_report_title);
@@ -130,7 +139,7 @@ class ExportPdf extends ExportPlugin
      */
     public function exportFooter ()
     {
-        $pdf = $this->getPdf();
+        $pdf = $this->_getPdf();
 
         // instead of $pdf->Output():
         if (! PMA_exportOutputHandler($pdf->getPDFData())) {
@@ -188,7 +197,7 @@ class ExportPdf extends ExportPlugin
      */
     public function exportData($db, $table, $crlf, $error_url, $sql_query)
     {
-        $pdf = $this->getPdf();
+        $pdf = $this->_getPdf();
 
         $attr = array('currentDb' => $db, 'currentTable' => $table);
         $pdf->setAttributes($attr);
@@ -201,24 +210,48 @@ class ExportPdf extends ExportPlugin
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
 
-    public function getPdf()
+    /**
+     * Gets the PMA_ExportPdf instance
+     *
+     * @return PMA_ExportPdf
+     */
+    private function _getPdf()
     {
         return $this->_pdf;
     }
 
-    public function setPdf($pdf)
+    /**
+     * Instantiates the PMA_ExportPdf class
+     *
+     * @param string $pdf PMA_ExportPdf instance
+     *
+     * @return void
+     */
+    private function _setPdf($pdf)
     {
         $this->_pdf = $pdf;
     }
 
-    public function getPdfReportTitle()
+    /**
+     * Gets the PDF report title
+     *
+     * @return string
+     */
+    private function _getPdfReportTitle()
     {
         return $this->_pdfReportTitle;
     }
 
-    public function setPdfReportTitle($pdf_report_title)
+    /**
+     * Sets the PDF report title
+     *
+     * @param string $pdfReportTitle PDF report title
+     *
+     * @return void
+     */
+    private function _setPdfReportTitle($pdfReportTitle)
     {
-        $this->_pdfReportTitle = $pdf_report_title;
+        $this->_pdfReportTitle = $pdfReportTitle;
     }
 }
 ?>

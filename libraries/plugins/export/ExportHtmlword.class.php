@@ -16,53 +16,16 @@ require_once "libraries/plugins/ExportPlugin.class.php";
 /**
  * Handles the export for the HTML-Word format
  *
- * @todo add descriptions for all vars/methods
  * @package PhpMyAdmin-Export
  */
 class ExportHtmlword extends ExportPlugin
 {
-    /**
-     * File Charset
-     *
-     * @var type String
-     */
-    private $_charsetOfFile;
-
-    /**
-     *
-     *
-     * @var type String
-     */
-    private $_what;
-
-    /**
-     *
-     * @var type
-     */
-    private $_cfgRelation;
-
     /**
      * Constructor
      */
     public function __construct()
     {
         $this->setProperties();
-    }
-
-    /**
-     * Initialize the local variables that are used for export HTML-Word
-     *
-     * @return void
-     */
-    private function initLocalVariables()
-    {
-        global $charset_of_file;
-        global $what;
-        global $cfgRelation;
-
-        $this->setCharsetOfFile($charset_of_file);
-        $this->setWhat($what);
-        $this->setCfgRelation($cfgRelation);
     }
 
     /**
@@ -144,11 +107,8 @@ class ExportHtmlword extends ExportPlugin
      */
     public function exportHeader ()
     {
-        // initialize the general export variables
-        $this->initExportCommonVariables();
-
-        // initialize the specific export sql variables
-        $this->initLocalVariables();
+        global $charset_of_file;
+        $this->setCharsetOfFile($charset_of_file);
 
         return PMA_exportOutputHandler(
             '<html xmlns:o="urn:schemas-microsoft-com:office:office"
@@ -160,7 +120,7 @@ class ExportHtmlword extends ExportPlugin
             <html>
             <head>
                 <meta http-equiv="Content-type" content="text/html;charset='
-            . (isset($charset_of_file) ? $charset_of_file : 'utf-8') . '" />
+            . (isset($charsetOfFile) ? $charsetOfFile : 'utf-8') . '" />
             </head>
             <body>'
         );
@@ -224,12 +184,11 @@ class ExportHtmlword extends ExportPlugin
      * @param string $sql_query SQL query for obtaining data
      *
      * @return bool Whether it succeeded
-     *
-     * @access public
      */
     public function exportData($db, $table, $crlf, $error_url, $sql_query)
     {
-        $what = $this->getWhat();
+        global $what;
+        $this->setWhat($what);
 
         if (! PMA_exportOutputHandler(
             '<h2>'
@@ -292,7 +251,7 @@ class ExportHtmlword extends ExportPlugin
         return true;
     }
 
-   /**
+    /**
      * Returns a stand-in CREATE definition to resolve view dependencies
      *
      * @param string $db   the database name
@@ -332,7 +291,10 @@ class ExportHtmlword extends ExportPlugin
 
         $columns = PMA_DBI_get_columns($db, $view);
         foreach ($columns as $column) {
-            $schema_insert .= $this->formatOneColumnDefinition($column, $unique_keys);
+            $schema_insert .= $this->formatOneColumnDefinition(
+                $column,
+                $unique_keys
+            );
             $schema_insert .= '</tr>';
         }
 
@@ -361,10 +323,8 @@ class ExportHtmlword extends ExportPlugin
      * @param bool   $view          whether we're handling a view
      *
      * @return string resulting schema
-     *
-     * @access public
      */
-    function getTableDef(
+    public function getTableDef(
         $db,
         $table,
         $crlf,
@@ -376,6 +336,8 @@ class ExportHtmlword extends ExportPlugin
         $add_semicolon = true,
         $view = false
     ) {
+        // set $cfgRelation here, because there is a chance that it's modified
+        // since the class initialization
         global $cfgRelation;
         $this->setCfgRelation($cfgRelation);
 
@@ -454,14 +416,17 @@ class ExportHtmlword extends ExportPlugin
          * Get the unique keys in the table
          */
         $unique_keys = array();
-        $keys        = PMA_DBI_get_table_indexes($db, $table);
+        $keys = PMA_DBI_get_table_indexes($db, $table);
         foreach ($keys as $key) {
             if ($key['Non_unique'] == 0) {
                 $unique_keys[] = $key['Column_name'];
             }
         }
         foreach ($columns as $column) {
-            $schema_insert .= $this->formatOneColumnDefinition($column, $unique_keys);
+            $schema_insert .= $this->formatOneColumnDefinition(
+                $column,
+                $unique_keys
+            );
             $field_name = $column['Field'];
 
             if ($do_relation && $have_rel) {
@@ -559,7 +524,7 @@ class ExportHtmlword extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    function exportStructure(
+    public function exportStructure(
         $db,
         $table,
         $crlf,
@@ -665,40 +630,6 @@ class ExportHtmlword extends ExportPlugin
             . '</td>';
 
         return $definition;
-    }
-
-
-    /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
-
-
-    public function getWhat()
-    {
-        return $this->_what;
-    }
-
-    public function setWhat($what)
-    {
-        $this->_what = $what;
-    }
-
-    public function getCharsetOfFile()
-    {
-        return $this->_charsetOfFile;
-    }
-
-    public function setCharsetOfFile($charsetOfFile)
-    {
-        $this->_charsetOfFile = $charsetOfFile;
-    }
-
-    public function getCfgRelation()
-    {
-        return $this->_cfgRelation;
-    }
-
-    private function setCfgRelation($cfgRelation)
-    {
-        $this->_cfgRelation = $cfgRelation;
     }
 }
 ?>

@@ -19,7 +19,6 @@ require_once "libraries/plugins/ExportPlugin.class.php";
 /**
  * Handles the export for the XML class
  *
- * @todo add descriptions for all vars/methods
  * @package PhpMyAdmin-Export
  */
 class ExportXml extends ExportPlugin
@@ -27,14 +26,14 @@ class ExportXml extends ExportPlugin
     /**
      * Table name
      *
-     * @var type String
+     * @var string
      */
     private $_table;
 
     /**
+     * Table names
      *
-     *
-     * @var type
+     * @var array
      */
     private $_tables;
 
@@ -44,23 +43,18 @@ class ExportXml extends ExportPlugin
     public function __construct()
     {
         $this->setProperties();
-
     }
 
     /**
-     * Initialize the local variables that are used specific for export XML
-     *
-     * @global type $table
-     * @global type $tables
+     * Initialize the local variables that are used for export PDF
      *
      * @return void
      */
-    private function initLocalVariables()
+    protected function initSpecificVariables()
     {
-        global $table;
-        global $tables;
-        $this->setTable($table);
-        $this->setTables($tables);
+        global $table, $tables;
+        $this->_setTable($table);
+        $this->_setTables($tables);
     }
 
     /**
@@ -168,17 +162,13 @@ class ExportXml extends ExportPlugin
      */
     public function exportHeader ()
     {
-        // initialize the general export variables
-        $this->initExportCommonVariables();
-
-        // initialize the specific export xml variables
-        $this->initLocalVariables();
-
-        $crlf = $this->getCrlf();
-        $cfg = $this->getCfg();
-        $db = $this->getDb();
-        $table = $this->getTable();
-        $tables = $this->getTables();
+        $this->initSpecificVariables();
+        global $crlf, $cfg, $db;
+        $this->setCrlf($crlf);
+        $this->setCfg($cfg);
+        $this->setDb($db);
+        $table = $this->_getTable();
+        $tables = $this->_getTables();
 
         $export_struct = isset($GLOBALS['xml_export_functions'])
             || isset($GLOBALS['xml_export_procedures'])
@@ -498,22 +488,46 @@ class ExportXml extends ExportPlugin
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
 
-    private function getTable()
+    /**
+     * Gets the table name
+     *
+     * @return void
+     */
+    private function _getTable()
     {
         return $this->_table;
     }
 
-    private function setTable($table)
+    /**
+     * Sets the table name
+     *
+     * @param string $table table name
+     *
+     * @return void
+     */
+    private function _setTable($table)
     {
         $this->_table = $table;
     }
 
-    private function getTables()
+    /**
+     * Gets the table names
+     *
+     * @return array
+     */
+    private function _getTables()
     {
         return $this->_tables;
     }
 
-    private function setTables($tables)
+    /**
+     * Sets the table names
+     *
+     * @param array $tables table names
+     *
+     * @return void
+     */
+    private function _setTables($tables)
     {
         $this->_tables = $tables;
     }

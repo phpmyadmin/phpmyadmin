@@ -353,17 +353,25 @@ if ($save_on_server) {
     unset($message);
     if (file_exists($save_filename)
         && ((! $quick_export && empty($onserverover))
-        || ($quick_export && $_REQUEST['quick_export_onserverover'] != 'saveitover'))
+        || ($quick_export
+        && $_REQUEST['quick_export_onserverover'] != 'saveitover'))
     ) {
-        $message = PMA_Message::error(__('File %s already exists on server, change filename or check overwrite option.'));
+        $message = PMA_Message::error(__(
+            'File %s already exists on server, change filename or check'
+            . ' overwrite option.'
+        ));
         $message->addParam($save_filename);
     } else {
         if (is_file($save_filename) && ! is_writable($save_filename)) {
-            $message = PMA_Message::error(__('The web server does not have permission to save the file %s.'));
+            $message = PMA_Message::error(__(
+                'The web server does not have permission to save the file %s.'
+            ));
             $message->addParam($save_filename);
         } else {
             if (! $file_handle = @fopen($save_filename, 'w')) {
-                $message = PMA_Message::error(__('The web server does not have permission to save the file %s.'));
+                $message = PMA_Message::error(__(
+                    'The web server does not have permission to save the file %s.'
+                ));
                 $message->addParam($save_filename);
             }
         }
@@ -451,7 +459,6 @@ if (! $save_on_server) {
 // Fake loop just to allow skip of remain of this code by break, I'd really
 // need exceptions here :-)
 do {
-
     // Add possibly some comments to export
     if (! $export_plugin->exportHeader($db)) {
         break;
@@ -469,7 +476,7 @@ do {
     }
 
     // Include dates in export?
-    $do_dates   = isset($GLOBALS[$what . '_dates']);
+    $do_dates = isset($GLOBALS[$what . '_dates']);
 
     /**
      * Builds the dump
@@ -745,7 +752,7 @@ if (! empty($asfile)) {
     if ($compression == 'zip') {
         if (@function_exists('gzcompress')) {
             $zipfile = new zipfile();
-            $zipfile -> addFile($dump_buffer, substr($filename, 0, -4));
+            $zipfile->addFile($dump_buffer, substr($filename, 0, -4));
             $dump_buffer = $zipfile -> file();
         }
     } elseif ($compression == 'bzip2') {

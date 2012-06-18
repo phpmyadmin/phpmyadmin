@@ -16,30 +16,17 @@ require_once "libraries/plugins/ExportPlugin.class.php";
 /**
  * Handles the export for the Latex format
  *
- * @todo add descriptions for all vars/methods
  * @package PhpMyAdmin-Export
  */
 class ExportLatex extends ExportPlugin
 {
-    /**
-     *
-     * @var type array
-     */
-    private $_pluginParam;
-
-    /**
-     *
-     * @var type
-     */
-    private $_cfgRelation;
-
     /**
      * Constructor
      */
     public function __construct()
     {
         // initialize the specific export sql variables
-        $this->initLocalVariables();
+        $this->initSpecificVariables();
 
         $this->setProperties();
     }
@@ -49,13 +36,8 @@ class ExportLatex extends ExportPlugin
      *
      * @return void
      */
-    private function initLocalVariables()
+    protected function initSpecificVariables()
     {
-        global $plugin_param;
-        global $cfgRelation;
-        $this->setPluginParam($plugin_param);
-        $this->setCfgRelation($cfgRelation);
-
         /* Messages used in default captions */
         $GLOBALS['strLatexContent'] = __('Content of table @TABLE@');
         $GLOBALS['strLatexContinued'] = __('(continued)');
@@ -229,11 +211,10 @@ class ExportLatex extends ExportPlugin
      */
     public function exportHeader ()
     {
-        // initialize the general export variables
-        $this->initExportCommonVariables();
-
-        $crlf = $this->getCrlf();
-        $cfg = $this->getCfg();
+        global $crlf;
+        global $cfg;
+        $this->setCrlf($crlf);
+        $this->setCfg($cfg);
 
         $head = '% phpMyAdmin LaTeX Dump' . $crlf
             . '% version ' . PMA_VERSION . $crlf
@@ -310,8 +291,6 @@ class ExportLatex extends ExportPlugin
      * @param string $sql_query SQL query for obtaining data
      *
      * @return bool Whether it succeeded
-     *
-     * @access public
      */
     public function exportData($db, $table, $crlf, $error_url, $sql_query)
     {
@@ -390,7 +369,6 @@ class ExportLatex extends ExportPlugin
 
         // print the whole table
         while ($record = PMA_DBI_fetch_assoc($result)) {
-
             $buffer = '';
             // print each row
             for ($i = 0; $i < $columns_cnt; $i++) {
@@ -449,7 +427,7 @@ class ExportLatex extends ExportPlugin
      *
      * @return bool Whether it succeeded
      */
-    function exportStructure(
+    public function exportStructure(
         $db,
         $table,
         $crlf,
@@ -658,30 +636,6 @@ class ExportLatex extends ExportPlugin
             $string = str_replace($escape[$k], '\\' . $escape[$k], $string);
         }
         return $string;
-    }
-
-
-    /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
-
-
-    public function getPluginParam()
-    {
-        return $this->_pluginParam;
-    }
-
-    private function setPluginParam($pluginParam)
-    {
-        $this->_pluginParam = $pluginParam;
-    }
-
-    public function getCfgRelation()
-    {
-        return $this->_cfgRelation;
-    }
-
-    private function setCfgRelation($cfgRelation)
-    {
-        $this->_cfgRelation = $cfgRelation;
     }
 }
 ?>

@@ -16,7 +16,6 @@ require_once "libraries/plugins/ExportPlugin.class.php";
 /**
  * Handles the export for the JSON format
  *
- * @todo add descriptions for all vars/methods
  * @package PhpMyAdmin-Export
  */
 class ExportJson extends ExportPlugin
@@ -79,9 +78,6 @@ class ExportJson extends ExportPlugin
      */
     public function exportHeader ()
     {
-        // initialize the general export variables
-        $this->initExportCommonVariables();
-
         PMA_exportOutputHandler(
             '/**' . $GLOBALS['crlf']
             . ' Export to JSON plugin for PHPMyAdmin' . $GLOBALS['crlf']
@@ -148,8 +144,6 @@ class ExportJson extends ExportPlugin
      * @param string $sql_query SQL query for obtaining data
      *
      * @return bool Whether it succeeded
-     *
-     * @access public
      */
     public function exportData($db, $table, $crlf, $error_url, $sql_query)
     {
@@ -179,11 +173,8 @@ class ExportJson extends ExportPlugin
             }
 
             for ($i = 0; $i < $columns_cnt; $i++) {
-
                 $isLastLine = ($i + 1 >= $columns_cnt);
-
                 $column = $columns[$i];
-
                 if (is_null($record[$i])) {
                     $buffer .= '"' . addslashes($column)
                         . '": null'
@@ -213,7 +204,6 @@ class ExportJson extends ExportPlugin
         }
 
         PMA_DBI_free_result($result);
-
         return true;
     }
 }

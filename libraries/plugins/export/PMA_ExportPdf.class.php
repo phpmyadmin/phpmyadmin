@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the PDF class */
-include_once 'libraries/PDF.class.php';
+require_once 'libraries/PDF.class.php';
 
 /**
  * Adapted from a LGPL script by Philip Clarke

@@ -14,43 +14,21 @@ if (! defined('PHPMYADMIN')) {
 require_once "libraries/plugins/ExportPlugin.class.php";
 
 $GLOBALS['ods_buffer'] = '';
-include_once 'libraries/opendocument.lib.php';
+require_once 'libraries/opendocument.lib.php';
 
 /**
  * Handles the export for the ODS class
  *
- * @todo add descriptions for all vars/methods
  * @package PhpMyAdmin-Export
  */
 class ExportOds extends ExportPlugin
 {
     /**
-     *
-     *
-     * @var type string
-     */
-    private $_what;
-
-    /**
      * Constructor
      */
     public function __construct()
     {
-        // initialize the specific export ODS variables
-        $this->initLocalVariables();
-
         $this->setProperties();
-    }
-
-    /**
-     * Initialize the local variables that are used for export ODS
-     *
-     * @return void
-     */
-    private function initLocalVariables()
-    {
-        global $what;
-        $this->setWhat($what);
     }
 
     /**
@@ -218,6 +196,7 @@ class ExportOds extends ExportPlugin
     {
         return true;
     }
+
     /**
      * Outputs the content of a table in NHibernate format
      *
@@ -231,7 +210,8 @@ class ExportOds extends ExportPlugin
      */
     public function exportData($db, $table, $crlf, $error_url, $sql_query)
     {
-        $what = $this->getWhat();
+        global $what;
+        $this->setWhat($what);
 
         // Gets the data from the database
         $result = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
@@ -337,20 +317,6 @@ class ExportOds extends ExportPlugin
         $GLOBALS['ods_buffer'] .= '</table:table>';
 
         return true;
-    }
-
-
-    /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
-
-
-    public function getWhat()
-    {
-        return $this->_what;
-    }
-
-    public function setWhat($what)
-    {
-        $this->_what = $what;
     }
 }
 ?>
