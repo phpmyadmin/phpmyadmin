@@ -283,7 +283,7 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
             <h2><?php echo __('More settings') ?></h2>
             <div class="group-cnt">
                 <?php
-                echo sprintf(__('You can set more settings by modifying config.inc.php, eg. by using %sSetup script%s.'), '<a href="setup/index.php">', '</a>');
+                echo sprintf(__('You can set more settings by modifying config.inc.php, eg. by using %sSetup script%s.'), '<a href="setup/index.php" target="_blank">', '</a>');
                 echo PMA_Util::showDocu('setup_script');
                 ?>
             </div>
