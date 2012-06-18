@@ -547,7 +547,7 @@ $(function() {
      * @name        paginate_users_table_click
      * @memberOf    jQuery
      */
-    $("#initials_table.ajax").find("a").live('click', function(event) {
+    $("#initials_table").find("a.ajax").die().live('click', function(event) {
         event.preventDefault();
 
         var $msgbox = PMA_ajaxShowMessage();

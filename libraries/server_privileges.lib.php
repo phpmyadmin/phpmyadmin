@@ -2591,19 +2591,21 @@ function PMA_getHtmlForDisplayTheInitials($array_initials, $conditional_class)
 
     uksort($array_initials, "strnatcasecmp");
 
-    $html_output = '<table id="initials_table" '
-        . 'class="' . $conditional_class . '" <cellspacing="5">'
+    $html_output = '<table id="initials_table" <cellspacing="5">'
         . '<tr>';
     foreach ($array_initials as $tmp_initial => $initial_was_found) {
-        if ($initial_was_found) {
-            $html_output .= '<td>'
-                . '<a href="server_privileges.php?'
-                . $GLOBALS['url_query'] . '&amp;'
-                . 'initial=' . urlencode($tmp_initial) . '">' . $tmp_initial
-                . '</a>'
-                . '</td>' . "\n";
-        } else {
-            $html_output .= '<td>' . $tmp_initial . '</td>';
+        if (! empty($tmp_initial)) {
+            if ($initial_was_found) {
+                $html_output .= '<td>'
+                    . '<a class="' . $conditional_class . '"'
+                    . ' href="server_privileges.php?'
+                    . $GLOBALS['url_query'] . '&amp;'
+                    . 'initial=' . urlencode($tmp_initial) . '">' . $tmp_initial
+                    . '</a>'
+                    . '</td>' . "\n";
+            } else {
+                $html_output .= '<td>' . $tmp_initial . '</td>';
+            }
         }
     }
     $html_output .= '<td>'
