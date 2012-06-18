@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-18 10:54+0200\n"
-"PO-Revision-Date: 2012-06-01 19:33+0200\n"
+"PO-Revision-Date: 2012-06-18 13:24+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -1891,11 +1891,10 @@ msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "Yakınlaştırmak için fare ile çizimin bir bölümünü seçin."
 
 #: js/messages.php:306
-#, fuzzy
 #| msgid "Click reset zoom link to come back to original state."
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
-"Orijinal durumuna geri gelmesi için yakınlaştırmayı sıfırla bağlantısına "
+"Orijinal durumuna geri gelmesi için yakınlaştırmayı sıfırla düğmesine "
 "tıklayın."
 
 #: js/messages.php:308
@@ -3435,7 +3434,7 @@ msgstr "mcrypt'tan Blowfish kullanmak başarısız!"
 
 #: libraries/auth/cookie.auth.lib.php:139
 msgid "Your session has expired. Please login again."
-msgstr ""
+msgstr "Oturumunuzun süresi doldu. Lütfen tekrar oturum açın."
 
 #: libraries/auth/cookie.auth.lib.php:227
 msgid "Log in"
