@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-18 10:54+0200\n"
-"PO-Revision-Date: 2012-06-04 15:36+0200\n"
+"PO-Revision-Date: 2012-06-19 10:44+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -3416,7 +3416,7 @@ msgstr "Při použití funkce Blowfish z knihovny mcrypt došlo k chybě!"
 
 #: libraries/auth/cookie.auth.lib.php:139
 msgid "Your session has expired. Please login again."
-msgstr ""
+msgstr "Vaše sezení vypršelo, prosím přihlaste se znovu."
 
 #: libraries/auth/cookie.auth.lib.php:227
 msgid "Log in"
