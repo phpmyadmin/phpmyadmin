@@ -329,14 +329,14 @@ if (file_exists('config')) {
 if ($server > 0) {
     $cfgRelation = PMA_getRelationsParam();
     if (! $cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {
-        $message = PMA_Message::notice(__('The phpMyAdmin configuration storage is not completely configured, some extended features have been deactivated. To find out why click %shere%s.'));
-        $message->addParam('<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $common_url_query . '">', false);
-        $message->addParam('</a>', false);
+        $msg = PMA_Message::notice(__('The phpMyAdmin configuration storage is not completely configured, some extended features have been deactivated. To find out why click %shere%s.'));
+        $msg->addParam('<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $common_url_query . '">', false);
+        $msg->addParam('</a>', false);
         /* Show error if user has configured something, notice elsewhere */
         if (!empty($cfg['Servers'][$server]['pmadb'])) {
-            $message->isError(true);
+            $msg->isError(true);
         }
-        $message->display();
+        $msg->display();
     } // end if
 }
 

@@ -9,6 +9,7 @@
 require_once 'PMA_GIS_Geom_test.php';
 require_once 'libraries/gis/pma_gis_geometry.php';
 require_once 'libraries/gis/pma_gis_polygon.php';
+require_once 'libraries/tcpdf/tcpdf.php';
 
 /**
  * Tests for PMA_GIS_Polygon class
@@ -345,6 +346,179 @@ class PMA_GIS_PolygonTest extends PMA_GIS_GeomTest
                     'maxY' => 45
                 )
             ),
+        );
+    }
+
+
+    /**
+     *
+     * @param type $spatial
+     * @param type $label
+     * @param type $line_color
+     * @param type $scale_data
+     * @param type $image
+     * @param type $output
+     *
+     *@dataProvider providerForPrepareRowAsPng
+     */
+    public function testPrepareRowAsPng($spatial, $label, $line_color, $scale_data, $image, $output)
+    {
+
+        $return = $this->object->prepareRowAsPng($spatial, $label, $line_color, $scale_data, $image);
+        $this->assertTrue(true);
+    }
+
+    public function providerForPrepareRowAsPng(){
+
+        return array(
+            array(
+                'POLYGON((123 0,23 30,17 63,123 0))',
+                'image',
+                '#B02EE0',
+                array(
+                    'x' => 12,
+                    'y' => 69,
+                    'scale' => 2,
+                    'height' => 150
+                ),
+                imagecreatetruecolor('120','150'),
+                ''
+            )
+
+        );
+    }
+
+    /**
+     *
+     * @param type $spatial
+     * @param type $label
+     * @param type $line_color
+     * @param type $scale_data
+     * @param type $pdf
+     *
+     *@dataProvider providerForPrepareRowAsPdf
+     */
+    public function testPrepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf)
+    {
+
+        $return = $this->object->prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf);
+        $this->assertTrue($return instanceof TCPDF);
+    }
+
+    public function providerForPrepareRowAsPdf(){
+
+        return array(
+            array(
+                'POLYGON((123 0,23 30,17 63,123 0))',
+                'pdf',
+                '#B02EE0',
+                array(
+                    'x' => 12,
+                    'y' => 69,
+                    'scale' => 2,
+                    'height' => 150
+                ),
+                new TCPDF(),
+            )
+        );
+    }
+
+    /**
+     *
+     * @param type $spatial
+     * @param type $label
+     * @param type $line_color
+     * @param type $scale_data
+     * @param type $output
+     *
+     *@dataProvider providerForPrepareRowAsSvg
+     */
+    public function testPrepareRowAsSvg($spatial, $label, $line_color, $scale_data, $output)
+    {
+
+        $string = $this->object->prepareRowAsSvg($spatial, $label, $line_color, $scale_data);
+        $this->assertEquals(1, preg_match($output, $string));
+//        $this->assertEquals($this->object->prepareRowAsSvg($spatial, $label, $line_color, $scale_data) , $output);
+    }
+
+    public function providerForPrepareRowAsSvg(){
+
+        return array(
+            array(
+                'POLYGON((123 0,23 30,17 63,123 0))',
+                'svg',
+                '#B02EE0',
+                array(
+                    'x' => 12,
+                    'y' => 69,
+                    'scale' => 2,
+                    'height' => 150
+                ),
+                '/^(<path d=" M 222, 288 L 22, 228 L 10, 162 Z " name="svg" id="svg)(\d+)(" class="polygon vector" stroke="black" stroke-width="0.5" fill="#B02EE0" fill-rule="evenodd" fill-opacity="0.8"\/>)$/'
+            )
+        );
+    }
+
+    /**
+     *
+     * @param type $spatial
+     * @param type $srid
+     * @param type $label
+     * @param type $line_color
+     * @param type $scale_data
+     * @param type $output
+     *
+     *@dataProvider providerForPrepareRowAsOl
+     */
+    public function testPrepareRowAsOl($spatial, $srid, $label, $line_color, $scale_data, $output)
+    {
+
+        $this->assertEquals($this->object->prepareRowAsOl($spatial, $srid, $label, $line_color, $scale_data) , $output);
+    }
+
+    public function providerForPrepareRowAsOl(){
+
+        return array(
+            array(
+                'POLYGON((123 0,23 30,17 63,123 0))',
+                4326,
+                'Ol',
+                '#B02EE0',
+                array(
+                    'minX' => '0',
+                    'minY' => '0',
+                    'maxX' => '1',
+                    'maxY' => '1',
+                ),
+                'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.LonLat(0, 0).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject())); bound.extend(new OpenLayers.LonLat(1, 1).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()));vectorLayer.addFeatures(new OpenLayers.Feature.Vector(new OpenLayers.Geometry.Polygon(new Array(new OpenLayers.Geometry.LinearRing(new Array((new OpenLayers.Geometry.Point(123,0)).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.Geometry.Point(23,30)).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.Geometry.Point(17,63)).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()), (new OpenLayers.Geometry.Point(123,0)).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()))))), null, {"strokeColor":"#000000","strokeWidth":0.5,"fillColor":"#B02EE0","fillOpacity":0.8,"label":"Ol","fontSize":10}));'
+            )
+        );
+    }
+
+    /**
+     *
+     * @param type $ring
+     * @param type $output
+     *
+     *@dataProvider providerForIsOuterRing
+     */
+    public function testIsOuterRing($ring)
+    {
+
+        $this->assertTrue($this->object->isOuterRing($ring));
+    }
+
+    public function providerForIsOuterRing(){
+
+        return array(
+            array(
+                array(
+                    array('x' => 0, 'y' => 0),
+                    array('x' => 0, 'y' => 1),
+                    array('x' => 1, 'y' => 1),
+                    array('x' => 1, 'y' => 0)
+                ),
+            )
         );
     }
 }

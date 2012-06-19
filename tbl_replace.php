@@ -318,7 +318,7 @@ if ($GLOBALS['is_ajax_request'] == true) {
      * transformed fields, if they were edited. After that, output the correct
      * link/transformed value and exit
      *
-     * Logic taken from libraries/display_tbl.lib.php
+     * Logic taken from libraries/DisplayResults.class.php
      */
 
     if (isset($_REQUEST['rel_fields_list']) && $_REQUEST['rel_fields_list'] != '') {
