@@ -1716,7 +1716,14 @@ function PMA_executeSqlQuery($url_params, $query)
         $warning_messages = PMA_getWarningMessages();
     }
     unset($result, $single_query, $last_message, $query);
-    return array($url_params, $total_affected_rows, $last_messages, $warning_messages, $error_messages, $return_to_sql_query);
+    return array(
+        $url_params,
+        $total_affected_rows,
+        $last_messages,
+        $warning_messages,
+        $error_messages,
+        $return_to_sql_query
+    );
 }
 
 /**
@@ -1728,10 +1735,9 @@ function PMA_getWarningMessages()
 {
     $warning_essages = array();
     foreach (PMA_DBI_get_warnings() as $warning) {
-        $warning_essages[]
-            = PMA_Message::sanitize(
-                $warning['Level'] . ': #' . $warning['Code'] . ' ' . $warning['Message']
-            );
+        $warning_essages[] = PMA_Message::sanitize(
+            $warning['Level'] . ': #' . $warning['Code'] . ' ' . $warning['Message']
+        );
     }
     return $warning_essages;
 }
