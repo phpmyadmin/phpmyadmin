@@ -1,25 +1,24 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Text Plain Image Link Transformations plugin for phpMyAdmin
+ * Text Plain Long To IPv4 Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Image Link
+ * @subpackage LongToIPv4
  */
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/* Get the image link transformations interface */
-require_once "libraries/plugins/abstract/ImageLinkTransformationsPlugin.class.php";
+/* Get the long to ipv4 transformations interface */
+require_once "libraries/plugins/abstract/LongToIPv4TransformationsPlugin.class.php";
 
 /**
- * Handles the image link transformation for text plain
+ * Handles the long to ipv4 transformation for text plain
  *
  * @package PhpMyAdmin
  */
-class TransformationTextPlainImageLink
-    extends ImageLinkTransformationsPlugin
+class Text_Plain_Longtoipv4 extends LongToIPv4TransformationsPlugin
 {
     /**
      * Gets the transformation description of the specific plugin
@@ -29,9 +28,8 @@ class TransformationTextPlainImageLink
     public function getInfo()
     {
         return __(
-            'Displays an image and a link; the column contains the filename. The'
-            . ' first option is a URL prefix like "http://www.example.com/". The'
-            . ' second and third options are the width and the height in pixels.'
+            'Converts an (IPv4) Internet network address into a string in'
+            . ' Internet standard dotted format.'
         );
     }
 

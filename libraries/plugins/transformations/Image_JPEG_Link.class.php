@@ -1,26 +1,24 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Text Plain Append Transformations plugin for phpMyAdmin
+ * Image JPEG Link Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Append
+ * @subpackage Link
  */
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/* Get the append transformations interface */
-require_once "libraries/plugins/abstract/AppendTransformationsPlugin.class.php";
+/* Get the link transformations interface */
+require_once "libraries/plugins/abstract/LinkTransformationsPlugin.class.php";
 
 /**
- * Handles the append transformation for text plain.
- * Has one option: the text to be appended (default '')
+ * Handles the link transformation for image jpeg
  *
  * @package PhpMyAdmin
  */
-class TransformationTextPlainAppend
-    extends AppendTransformationsPlugin
+class Image_JPEG_Link extends LinkTransformationsPlugin
 {
     /**
      * Gets the transformation description of the specific plugin
@@ -30,8 +28,7 @@ class TransformationTextPlainAppend
     public function getInfo()
     {
         return __(
-            'Appends text to a string. The only option is the text to be appended'
-            . ' (enclosed in single quotes, default empty string).'
+            'Displays a link to download this image.'
         );
     }
 
@@ -42,7 +39,7 @@ class TransformationTextPlainAppend
      */
     public function getMIMEType()
     {
-        return "Text";
+        return "Image";
     }
 
     /**
@@ -52,7 +49,7 @@ class TransformationTextPlainAppend
      */
     public function getMIMESubtype()
     {
-        return "Plain";
+        return "JPEG";
     }
 }
 ?>

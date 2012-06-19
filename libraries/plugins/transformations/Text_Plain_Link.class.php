@@ -18,8 +18,7 @@ require_once "libraries/plugins/abstract/LinkTransformationsPlugin.class.php";
  *
  * @package PhpMyAdmin
  */
-class TransformationTextPlainLink
-    extends LinkTransformationsPlugin
+class Text_Plain_Link extends LinkTransformationsPlugin
 {
     /**
      * Gets the transformation description of the specific plugin

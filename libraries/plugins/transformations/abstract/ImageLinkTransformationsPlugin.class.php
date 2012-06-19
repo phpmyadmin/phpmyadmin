@@ -4,7 +4,7 @@
  * Abstract class for the image link transformations plugins
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Image Link
+ * @subpackage ImageLink
  */
 if (! defined('PHPMYADMIN')) {
     exit;

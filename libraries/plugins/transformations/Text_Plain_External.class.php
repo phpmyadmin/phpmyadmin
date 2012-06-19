@@ -18,8 +18,7 @@ require_once "libraries/plugins/abstract/ExternalTransformationsPlugin.class.php
  *
  * @package PhpMyAdmin
  */
-class TransformationTextPlainExternal
-    extends ExternalTransformationsPlugin
+class Text_Plain_External extends ExternalTransformationsPlugin
 {
     /**
      * Gets the transformation description of the specific plugin

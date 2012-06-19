@@ -1,25 +1,24 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Application OctetStream Hex Transformations plugin for phpMyAdmin
+ * Text Plain SQL Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Hex
+ * @subpackage SQL
  */
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/* Get the hex transformations interface */
-require_once "libraries/plugins/abstract/HexTransformationsPlugin.class.php";
+/* Get the sql transformations interface */
+require_once "libraries/plugins/abstract/SQLTransformationsPlugin.class.php";
 
 /**
- * Handles the hex transformation for application octetstream
+ * Handles the sql transformation for text plain
  *
  * @package PhpMyAdmin
  */
-class TransformationApplicationOctetStreamHex
-    extends HexTransformationsPlugin
+class Text_Plain_Sql extends SQLTransformationsPlugin
 {
     /**
      * Gets the transformation description of the specific plugin
@@ -29,9 +28,7 @@ class TransformationApplicationOctetStreamHex
     public function getInfo()
     {
         return __(
-            'Displays hexadecimal representation of data. Optional first'
-            . ' parameter specifies how often space will be added (defaults'
-            . ' to 2 nibbles).'
+            'Formats text as SQL query with syntax highlighting.'
         );
     }
 
@@ -42,7 +39,7 @@ class TransformationApplicationOctetStreamHex
      */
     public function getMIMEType()
     {
-        return "Application";
+        return "Text";
     }
 
     /**
@@ -52,7 +49,7 @@ class TransformationApplicationOctetStreamHex
      */
     public function getMIMESubtype()
     {
-        return "OctetStream";
+        return "Plain";
     }
 }
 ?>

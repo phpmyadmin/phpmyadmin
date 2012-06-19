@@ -1,25 +1,24 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Text Plain Formatted Transformations plugin for phpMyAdmin
+ * Image PNG Inline Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Formatted
+ * @subpackage Inline
  */
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/* Get the formatted transformations interface */
-require_once "libraries/plugins/abstract/FormattedTransformationsPlugin.class.php";
+/* Get the inline transformations interface */
+require_once "libraries/plugins/abstract/InlineTransformationsPlugin.class.php";
 
 /**
- * Handles the formatted transformation for text plain
+ * Handles the inline transformation for image png
  *
  * @package PhpMyAdmin
  */
-class TransformationTextPlainFormatted
-    extends FormattedTransformationsPlugin
+class Image_PNG_Inline extends InlineTransformationsPlugin
 {
     /**
      * Gets the transformation description of the specific plugin
@@ -29,9 +28,8 @@ class TransformationTextPlainFormatted
     public function getInfo()
     {
         return __(
-            'Displays the contents of the column as-is, without running it'
-            . ' through htmlspecialchars(). That is, the column is assumed'
-            . ' to contain valid HTML.'
+            'Displays a clickable thumbnail. The options are the maximum width'
+            . ' and height in pixels. The original aspect ratio is preserved.'
         );
     }
 
@@ -42,7 +40,7 @@ class TransformationTextPlainFormatted
      */
     public function getMIMEType()
     {
-        return "Text";
+        return "Image";
     }
 
     /**
@@ -52,7 +50,7 @@ class TransformationTextPlainFormatted
      */
     public function getMIMESubtype()
     {
-        return "Plain";
+        return "PNG";
     }
 }
 ?>

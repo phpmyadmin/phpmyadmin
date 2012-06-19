@@ -18,8 +18,7 @@ require_once "libraries/plugins/abstract/SubstringTransformationsPlugin.class.ph
  *
  * @package PhpMyAdmin
  */
-class TransformationTextPlainSubstring
-    extends SubstringTransformationsPlugin
+class Text_Plain_Substring extends SubstringTransformationsPlugin
 {
     /**
      * Gets the transformation description of the specific plugin

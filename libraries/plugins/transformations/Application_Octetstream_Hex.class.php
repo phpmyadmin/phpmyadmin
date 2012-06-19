@@ -1,25 +1,24 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Image PNG Inline Transformations plugin for phpMyAdmin
+ * Application OctetStream Hex Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Inline
+ * @subpackage Hex
  */
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/* Get the inline transformations interface */
-require_once "libraries/plugins/abstract/InlineTransformationsPlugin.class.php";
+/* Get the hex transformations interface */
+require_once "libraries/plugins/abstract/HexTransformationsPlugin.class.php";
 
 /**
- * Handles the inline transformation for image png
+ * Handles the hex transformation for application octetstream
  *
  * @package PhpMyAdmin
  */
-class TransformationImagePNGInline
-    extends InlineTransformationsPlugin
+class Application_Octetstream_Hex extends HexTransformationsPlugin
 {
     /**
      * Gets the transformation description of the specific plugin
@@ -29,8 +28,9 @@ class TransformationImagePNGInline
     public function getInfo()
     {
         return __(
-            'Displays a clickable thumbnail. The options are the maximum width'
-            . ' and height in pixels. The original aspect ratio is preserved.'
+            'Displays hexadecimal representation of data. Optional first'
+            . ' parameter specifies how often space will be added (defaults'
+            . ' to 2 nibbles).'
         );
     }
 
@@ -41,7 +41,7 @@ class TransformationImagePNGInline
      */
     public function getMIMEType()
     {
-        return "Image";
+        return "Application";
     }
 
     /**
@@ -51,7 +51,7 @@ class TransformationImagePNGInline
      */
     public function getMIMESubtype()
     {
-        return "PNG";
+        return "OctetStream";
     }
 }
 ?>

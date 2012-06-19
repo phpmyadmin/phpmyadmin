@@ -4,7 +4,7 @@
  * Abstract class for the date format transformations plugins
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Date Format
+ * @subpackage DateFormat
  */
 if (! defined('PHPMYADMIN')) {
     exit;

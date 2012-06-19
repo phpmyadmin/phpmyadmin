@@ -1,25 +1,24 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Image JPEG Link Transformations plugin for phpMyAdmin
+ * Text Plain Formatted Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Link
+ * @subpackage Formatted
  */
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/* Get the link transformations interface */
-require_once "libraries/plugins/abstract/LinkTransformationsPlugin.class.php";
+/* Get the formatted transformations interface */
+require_once "libraries/plugins/abstract/FormattedTransformationsPlugin.class.php";
 
 /**
- * Handles the link transformation for image jpeg
+ * Handles the formatted transformation for text plain
  *
  * @package PhpMyAdmin
  */
-class TransformationImageJPEGLink
-    extends LinkTransformationsPlugin
+class Text_Plain_Formatted extends FormattedTransformationsPlugin
 {
     /**
      * Gets the transformation description of the specific plugin
@@ -29,7 +28,9 @@ class TransformationImageJPEGLink
     public function getInfo()
     {
         return __(
-            'Displays a link to download this image.'
+            'Displays the contents of the column as-is, without running it'
+            . ' through htmlspecialchars(). That is, the column is assumed'
+            . ' to contain valid HTML.'
         );
     }
 
@@ -40,7 +41,7 @@ class TransformationImageJPEGLink
      */
     public function getMIMEType()
     {
-        return "Image";
+        return "Text";
     }
 
     /**
@@ -50,7 +51,7 @@ class TransformationImageJPEGLink
      */
     public function getMIMESubtype()
     {
-        return "JPEG";
+        return "Plain";
     }
 }
 ?>

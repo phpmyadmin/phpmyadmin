@@ -4,7 +4,7 @@
  * Text Plain Date Format Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Date Format
+ * @subpackage DateFormat
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -18,8 +18,7 @@ require_once "libraries/plugins/abstract/DateFormatTransformationsPlugin.class.p
  *
  * @package PhpMyAdmin
  */
-class TransformationTextPlainDateFormat
-    extends DateFormatTransformationsPlugin
+class Text_Plain_Dateformat extends DateFormatTransformationsPlugin
 {
     /**
      * Gets the transformation description of the specific plugin

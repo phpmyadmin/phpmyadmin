@@ -1,25 +1,24 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Text Plain SQL Transformations plugin for phpMyAdmin
+ * Image JPEG Inline Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage SQL
+ * @subpackage Inline
  */
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/* Get the sql transformations interface */
-require_once "libraries/plugins/abstract/SQLTransformationsPlugin.class.php";
+/* Get the inline transformations interface */
+require_once "libraries/plugins/abstract/InlineTransformationsPlugin.class.php";
 
 /**
- * Handles the sql transformation for text plain
+ * Handles the inline transformation for image jpeg
  *
  * @package PhpMyAdmin
  */
-class TransformationTextPlainSQL
-    extends SQLTransformationsPlugin
+class Image_JPEG_Inline extends InlineTransformationsPlugin
 {
     /**
      * Gets the transformation description of the specific plugin
@@ -29,7 +28,8 @@ class TransformationTextPlainSQL
     public function getInfo()
     {
         return __(
-            'Formats text as SQL query with syntax highlighting.'
+            'Displays a clickable thumbnail. The options are the maximum width'
+            . ' and height in pixels. The original aspect ratio is preserved.'
         );
     }
 
@@ -40,7 +40,7 @@ class TransformationTextPlainSQL
      */
     public function getMIMEType()
     {
-        return "Text";
+        return "Image";
     }
 
     /**
@@ -50,7 +50,7 @@ class TransformationTextPlainSQL
      */
     public function getMIMESubtype()
     {
-        return "Plain";
+        return "JPEG";
     }
 }
 ?>

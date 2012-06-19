@@ -47,14 +47,14 @@ abstract class TransformationsPlugin extends PluginObserver
      *
      * @return string
      */
-    abstract public function getMimeType();
+    abstract public function getMIMEType();
 
     /**
      * Gets the specific MIME subtype
      *
      * @return string
      */
-    abstract public function getMimeSubType();
+    abstract public function getMIMESubtype();
 
     /**
      * Gets the transformation name of the specific plugin

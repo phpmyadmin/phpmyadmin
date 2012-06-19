@@ -4,7 +4,7 @@
  * Abstract class for the long to IPv4 transformations plugins
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Long To IPv4
+ * @subpackage LongToIPv4
  */
 if (! defined('PHPMYADMIN')) {
     exit;

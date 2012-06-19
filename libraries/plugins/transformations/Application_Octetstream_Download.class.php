@@ -18,8 +18,7 @@ require_once "libraries/plugins/abstract/DownloadTransformationsPlugin.class.php
  *
  * @package PhpMyAdmin
  */
-class TransformationApplicationOctetStreamDownload
-    extends DownloadTransformationsPlugin
+class Application_Octetstream_Download extends DownloadTransformationsPlugin
 {
     /**
      * Gets the transformation description of the specific plugin

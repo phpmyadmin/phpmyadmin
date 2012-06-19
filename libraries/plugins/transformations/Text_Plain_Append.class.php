@@ -1,25 +1,25 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Image JPEG Inline Transformations plugin for phpMyAdmin
+ * Text Plain Append Transformations plugin for phpMyAdmin
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Inline
+ * @subpackage Append
  */
 if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/* Get the inline transformations interface */
-require_once "libraries/plugins/abstract/InlineTransformationsPlugin.class.php";
+/* Get the append transformations interface */
+require_once "libraries/plugins/abstract/AppendTransformationsPlugin.class.php";
 
 /**
- * Handles the inline transformation for image jpeg
+ * Handles the append transformation for text plain.
+ * Has one option: the text to be appended (default '')
  *
  * @package PhpMyAdmin
  */
-class TransformationImageJPEGInline
-    extends InlineTransformationsPlugin
+class Text_Plain_Append extends AppendTransformationsPlugin
 {
     /**
      * Gets the transformation description of the specific plugin
@@ -29,8 +29,8 @@ class TransformationImageJPEGInline
     public function getInfo()
     {
         return __(
-            'Displays a clickable thumbnail. The options are the maximum width'
-            . ' and height in pixels. The original aspect ratio is preserved.'
+            'Appends text to a string. The only option is the text to be appended'
+            . ' (enclosed in single quotes, default empty string).'
         );
     }
 
@@ -41,7 +41,7 @@ class TransformationImageJPEGInline
      */
     public function getMIMEType()
     {
-        return "Image";
+        return "Text";
     }
 
     /**
@@ -51,7 +51,7 @@ class TransformationImageJPEGInline
      */
     public function getMIMESubtype()
     {
-        return "JPEG";
+        return "Plain";
     }
 }
 ?>
