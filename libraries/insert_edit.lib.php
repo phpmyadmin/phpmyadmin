@@ -255,7 +255,7 @@ function PMA_getDefaultForDatetime($column)
         && $column['Null'] == 'YES'
     ) {
         $column['Default'] = null;
-      }
+    }
 }
 
  /**
@@ -571,7 +571,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
     } elseif (is_array($foreignData['disp_row'])) {
         $html_output .= PMA_dispRowForeignData($backup_field, $column_name_appendix,
             $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex, $data, $foreignData
-            );
+        );
 
     } elseif ($GLOBALS['cfg']['LongtextDoubleTextarea'] && strstr($column['pma_type'], 'longtext')) {
         $html_output = '&nbsp;</td>';
@@ -580,12 +580,12 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
             . '<td colspan="5" class="right">';
         $html_output .= PMA_getTextarea($column,$backup_field, $column_name_appendix, $unnullify_trigger,
             $tabindex, $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded
-            );
+        );
 
     } elseif (strstr($column['pma_type'], 'text')) {
         $html_output .= PMA_getTextarea($column,$backup_field, $column_name_appendix, $unnullify_trigger,
             $tabindex, $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded
-            );
+        );
         $html_output .= "\n";
         if (strlen($special_chars) > 32000) {
             $html_output .= "        </td>\n";
@@ -748,21 +748,21 @@ function PMA_getPmaTypeEnum($column, $backup_field, $column_name_appendix, $extr
     $html_output = '';
     if (! isset($column['values'])) {
          $column['values'] = PMA_getColumnEnumValues($column, $extracted_columnspec);
-     }
-     $column_enum_values = $column['values'];
-     $html_output .= '<input type="hidden" name="fields_type' . $column_name_appendix. '" value="enum" />';
-     $html_output .= '<input type="hidden" name="fields' . $column_name_appendix . '" value="" />';
-     $html_output .= "\n" . '            ' . $backup_field . "\n";
-     if (strlen($column['Type']) > 20) {
-         $html_output .= PMA_getDropDownDependingOnLength($column, $column_name_appendix, $unnullify_trigger,
+    }
+    $column_enum_values = $column['values'];
+    $html_output .= '<input type="hidden" name="fields_type' . $column_name_appendix. '" value="enum" />';
+    $html_output .= '<input type="hidden" name="fields' . $column_name_appendix . '" value="" />';
+    $html_output .= "\n" . '            ' . $backup_field . "\n";
+    if (strlen($column['Type']) > 20) {
+        $html_output .= PMA_getDropDownDependingOnLength($column, $column_name_appendix, $unnullify_trigger,
             $tabindex, $tabindex_for_value, $idindex, $data, $column_enum_values
-            );
-     } else {
-         $html_output .= PMA_getRadioButtonDependingOnLength($column_name_appendix, $unnullify_trigger,
+        );
+    } else {
+        $html_output .= PMA_getRadioButtonDependingOnLength($column_name_appendix, $unnullify_trigger,
             $tabindex, $column, $tabindex_for_value, $idindex, $data, $column_enum_values
-            );
-     }
-     return $html_output;
+        );
+    }
+    return $html_output;
 }
 
 /**
@@ -975,23 +975,26 @@ function PMA_getBinaryAndBlobColumn($column, $data, $special_chars,$biggest_max_
         $html_output .= '<input type="hidden" name="fields_type' . $column_name_appendix . '" value="protected" />'
             . '<input type="hidden" name="fields' . $column_name_appendix . '" value="" />';
     } elseif ($column['is_blob']) {
-        $html_output .= "\n"
-            . PMA_getTextarea($column,$backup_field, $column_name_appendix, $unnullify_trigger,
-            $tabindex, $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded);
+        $html_output .= "\n" . PMA_getTextarea(
+            $column, $backup_field, $column_name_appendix, $unnullify_trigger,
+            $tabindex, $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded
+        );
     } else {
         // field size should be at least 4 and max $GLOBALS['cfg']['LimitChars']
         $fieldsize = min(max($column['len'], 4), $GLOBALS['cfg']['LimitChars']);
-        $html_output .= "\n"
-            . $backup_field . "\n"
-            . PMA_getHTMLinput($column, $column_name_appendix, $special_chars, $fieldsize,
-            $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex);
+        $html_output .= "\n" . $backup_field . "\n" . PMA_getHTMLinput(
+            $column, $column_name_appendix, $special_chars, $fieldsize,
+            $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex
+        );
     }
 
     if ($is_upload && $column['is_blob']) {
         $html_output .= '<br />'
             . '<input type="file" name="fields_upload' . $vkey . '[' . $column['Field_md5']
             . ']" class="textfield" id="field_' . $idindex . '_3" size="10" ' . $unnullify_trigger . '/>&nbsp;';
-        list($html_out, $biggest_max_file_size) = PMA_getMaxUploadSize($column,$biggest_max_file_size);
+        list($html_out, $biggest_max_file_size) = PMA_getMaxUploadSize(
+            $column, $biggest_max_file_size
+        );
         $html_output .= $html_out;
     }
 
@@ -1124,11 +1127,15 @@ function PMA_getNoSupportTypes($column, $default_char_editing,$backup_field,
     ) {
         $html_output .= "\n";
         $GLOBALS['cfg']['CharEditing'] = $default_char_editing;
-        $html_output .= PMA_getTextarea($column, $backup_field, $column_name_appendix, $unnullify_trigger,
-            $tabindex, $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded);
+        $html_output .= PMA_getTextarea(
+            $column, $backup_field, $column_name_appendix, $unnullify_trigger,
+            $tabindex, $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded
+        );
     } else {
-        $html_output .= PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
-            $fieldsize, $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex);
+        $html_output .= PMA_getHTMLinput(
+            $column, $column_name_appendix, $special_chars,
+            $fieldsize, $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex
+        );
 
         if ($column['Extra'] == 'auto_increment') {
             $html_output .= '<input type="hidden" name="auto_increment' . $column_name_appendix . '" value="1" />';
@@ -1421,8 +1428,8 @@ function PMA_getHeadAndFootOfInsertRowTable($url_params)
  * @return array $real_null_value, $data, $special_chars, $backup_field, $special_chars_encoded
  */
 function PMA_getSpecialCharsAndBackupFieldForExistingRow($current_row, $column, $extracted_columnspec,
-    $real_null_value, $gis_data_types, $column_name_appendix)
-{
+    $real_null_value, $gis_data_types, $column_name_appendix
+) {
     $special_chars_encoded = '';
     // (we are editing)
     if (is_null($current_row[$column['Field']])) {
@@ -1596,7 +1603,7 @@ function PMA_setSessionForEditNext($one_where_clause)
 function PMA_getGotoInclude($goto_include)
 {
     if (isset($_REQUEST['after_insert'])
-    && in_array($_REQUEST['after_insert'], array('new_insert', 'same_insert', 'same_insert'))
+        && in_array($_REQUEST['after_insert'], array('new_insert', 'same_insert', 'same_insert'))
     ) {
         $goto_include = 'tbl_change.php';
     } elseif (! empty($GLOBALS['goto'])) {
