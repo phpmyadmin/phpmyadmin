@@ -1715,7 +1715,7 @@ function PMA_executeSqlQuery($url_params, $query)
         }
         $warning_messages = PMA_getWarningMessages();
     }
-    unset($result, $single_query, $last_message, $query);
+
     return array(
         $url_params,
         $total_affected_rows,
