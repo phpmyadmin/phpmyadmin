@@ -97,7 +97,7 @@ function PMA_getWhereClauseArray($where_clause)
  *
  * @return array $where_clauses, $result, $rows
  */
-function PMA_analyzeWhereClauses(\
+function PMA_analyzeWhereClauses(
     $where_clause_array, $table, $db, $found_unique_key
 ) {
     $rows               = array();
