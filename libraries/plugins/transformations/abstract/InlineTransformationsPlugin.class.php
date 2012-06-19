@@ -1,10 +1,10 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Abstract class for the hex transformations plugins
+ * Abstract class for the inline transformations plugins
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Hex
+ * @subpackage Inline
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -14,11 +14,11 @@ if (! defined('PHPMYADMIN')) {
 require_once "libraries/plugins/TransformationsPlugin.class.php";
 
 /**
- * Provides common methods for all of the hex transformations plugins.
+ * Provides common methods for all of the inline transformations plugins.
  *
  * @package PhpMyAdmin
  */
-abstract class HexTransformationsPlugin extends PluginObserver
+abstract class InlineTransformationsPlugin extends TransformationsPlugin
 {
     /**
      * Does the actual work of each specific transformations plugin.
@@ -59,9 +59,9 @@ abstract class HexTransformationsPlugin extends PluginObserver
      *
      * @return string
      */
-    public function getName()
+    public static function getName()
     {
-        return "Hex";
+        return "Inline";
     }
 }
 ?>

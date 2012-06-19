@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the sql transformations interface */
-require_once "libraries/plugins/abstract/SQLTransformationsPlugin.class.php";
+require_once "abstract/SQLTransformationsPlugin.class.php";
 
 /**
  * Handles the sql transformation for text plain
@@ -25,7 +25,7 @@ class Text_Plain_Sql extends SQLTransformationsPlugin
      *
      * @return string
      */
-    public function getInfo()
+    public static function getInfo()
     {
         return __(
             'Formats text as SQL query with syntax highlighting.'
@@ -37,7 +37,7 @@ class Text_Plain_Sql extends SQLTransformationsPlugin
      *
      * @return string
      */
-    public function getMIMEType()
+    public static function getMIMEType()
     {
         return "Text";
     }
@@ -47,7 +47,7 @@ class Text_Plain_Sql extends SQLTransformationsPlugin
      *
      * @return string
      */
-    public function getMIMESubtype()
+    public static function getMIMESubtype()
     {
         return "Plain";
     }

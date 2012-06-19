@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the external transformations interface */
-require_once "libraries/plugins/abstract/ExternalTransformationsPlugin.class.php";
+require_once "abstract/ExternalTransformationsPlugin.class.php";
 
 /**
  * Handles the external transformation for text plain
@@ -25,7 +25,7 @@ class Text_Plain_External extends ExternalTransformationsPlugin
      *
      * @return string
      */
-    public function getInfo()
+    public static function getInfo()
     {
         return __(
             'LINUX ONLY: Launches an external application and feeds it the column'
@@ -48,7 +48,7 @@ class Text_Plain_External extends ExternalTransformationsPlugin
      *
      * @return string
      */
-    public function getMIMEType()
+    public static function getMIMEType()
     {
         return "Text";
     }
@@ -58,7 +58,7 @@ class Text_Plain_External extends ExternalTransformationsPlugin
      *
      * @return string
      */
-    public function getMIMESubtype()
+    public static function getMIMESubtype()
     {
         return "Plain";
     }

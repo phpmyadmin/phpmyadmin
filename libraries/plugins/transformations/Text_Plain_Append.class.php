@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the append transformations interface */
-require_once "libraries/plugins/abstract/AppendTransformationsPlugin.class.php";
+require_once "abstract/AppendTransformationsPlugin.class.php";
 
 /**
  * Handles the append transformation for text plain.
@@ -26,7 +26,7 @@ class Text_Plain_Append extends AppendTransformationsPlugin
      *
      * @return string
      */
-    public function getInfo()
+    public static function getInfo()
     {
         return __(
             'Appends text to a string. The only option is the text to be appended'
@@ -39,7 +39,7 @@ class Text_Plain_Append extends AppendTransformationsPlugin
      *
      * @return string
      */
-    public function getMIMEType()
+    public static function getMIMEType()
     {
         return "Text";
     }
@@ -49,7 +49,7 @@ class Text_Plain_Append extends AppendTransformationsPlugin
      *
      * @return string
      */
-    public function getMIMESubtype()
+    public static function getMIMESubtype()
     {
         return "Plain";
     }

@@ -18,7 +18,7 @@ require_once "libraries/plugins/TransformationsPlugin.class.php";
  *
  * @package PhpMyAdmin
  */
-abstract class FormattedTransformationsPlugin extends PluginObserver
+abstract class FormattedTransformationsPlugin extends TransformationsPlugin
 {
     /**
      * Does the actual work of each specific transformations plugin.
@@ -59,7 +59,7 @@ abstract class FormattedTransformationsPlugin extends PluginObserver
      *
      * @return string
      */
-    public function getName()
+    public static function getName()
     {
         return "Formatted";
     }

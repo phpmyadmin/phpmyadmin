@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the link transformations interface */
-require_once "libraries/plugins/abstract/LinkTransformationsPlugin.class.php";
+require_once "abstract/LinkTransformationsPlugin.class.php";
 
 /**
  * Handles the link transformation for image jpeg
@@ -25,7 +25,7 @@ class Image_JPEG_Link extends LinkTransformationsPlugin
      *
      * @return string
      */
-    public function getInfo()
+    public static function getInfo()
     {
         return __(
             'Displays a link to download this image.'
@@ -37,7 +37,7 @@ class Image_JPEG_Link extends LinkTransformationsPlugin
      *
      * @return string
      */
-    public function getMIMEType()
+    public static function getMIMEType()
     {
         return "Image";
     }
@@ -47,7 +47,7 @@ class Image_JPEG_Link extends LinkTransformationsPlugin
      *
      * @return string
      */
-    public function getMIMESubtype()
+    public static function getMIMESubtype()
     {
         return "JPEG";
     }

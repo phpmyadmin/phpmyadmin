@@ -9,16 +9,19 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-/* This class extends the PluginObserver class */
+/* It extends the PluginObserver abstract class */
 require_once "PluginObserver.class.php";
+/* It also implements the transformations interface */
+require_once "TransformationsInterface.int.php";
 
 /**
- * Provides a common interface that will have to implemented by all of the
- * transformations plugins.
+ * Extends PluginObserver and provides a common interface that will have to
+ * be implemented by all of the transformations plugins.
  *
  * @package PhpMyAdmin
  */
 abstract class TransformationsPlugin extends PluginObserver
+    implements TransformationsInterface
 {
     /**
      * Does the actual work of each specific transformations plugin.
@@ -30,37 +33,5 @@ abstract class TransformationsPlugin extends PluginObserver
      * @return void
      */
     abstract public function applyTransformation($buffer, $options, $meta);
-
-
-    /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
-
-
-    /**
-     * Gets the transformation description
-     *
-     * @return string
-     */
-    abstract public function getInfo();
-
-    /**
-     * Gets the specific MIME type
-     *
-     * @return string
-     */
-    abstract public function getMIMEType();
-
-    /**
-     * Gets the specific MIME subtype
-     *
-     * @return string
-     */
-    abstract public function getMIMESubtype();
-
-    /**
-     * Gets the transformation name of the specific plugin
-     *
-     * @return string
-     */
-    abstract public function getName();
 }
 ?>

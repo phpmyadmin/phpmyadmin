@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the formatted transformations interface */
-require_once "libraries/plugins/abstract/FormattedTransformationsPlugin.class.php";
+require_once "abstract/FormattedTransformationsPlugin.class.php";
 
 /**
  * Handles the formatted transformation for text plain
@@ -25,7 +25,7 @@ class Text_Plain_Formatted extends FormattedTransformationsPlugin
      *
      * @return string
      */
-    public function getInfo()
+    public static function getInfo()
     {
         return __(
             'Displays the contents of the column as-is, without running it'
@@ -39,7 +39,7 @@ class Text_Plain_Formatted extends FormattedTransformationsPlugin
      *
      * @return string
      */
-    public function getMIMEType()
+    public static function getMIMEType()
     {
         return "Text";
     }
@@ -49,7 +49,7 @@ class Text_Plain_Formatted extends FormattedTransformationsPlugin
      *
      * @return string
      */
-    public function getMIMESubtype()
+    public static function getMIMESubtype()
     {
         return "Plain";
     }

@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the image link transformations interface */
-require_once "libraries/plugins/abstract/ImageLinkTransformationsPlugin.class.php";
+require_once "abstract/ImageLinkTransformationsPlugin.class.php";
 
 /**
  * Handles the image link transformation for text plain
@@ -25,7 +25,7 @@ class Text_Plain_Imagelink extends ImageLinkTransformationsPlugin
      *
      * @return string
      */
-    public function getInfo()
+    public static function getInfo()
     {
         return __(
             'Displays an image and a link; the column contains the filename. The'
@@ -39,7 +39,7 @@ class Text_Plain_Imagelink extends ImageLinkTransformationsPlugin
      *
      * @return string
      */
-    public function getMIMEType()
+    public static function getMIMEType()
     {
         return "Text";
     }
@@ -49,7 +49,7 @@ class Text_Plain_Imagelink extends ImageLinkTransformationsPlugin
      *
      * @return string
      */
-    public function getMIMESubtype()
+    public static function getMIMESubtype()
     {
         return "Plain";
     }

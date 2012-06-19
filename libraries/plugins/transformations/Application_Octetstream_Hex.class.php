@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the hex transformations interface */
-require_once "libraries/plugins/abstract/HexTransformationsPlugin.class.php";
+require_once "abstract/HexTransformationsPlugin.class.php";
 
 /**
  * Handles the hex transformation for application octetstream
@@ -25,7 +25,7 @@ class Application_Octetstream_Hex extends HexTransformationsPlugin
      *
      * @return string
      */
-    public function getInfo()
+    public static function getInfo()
     {
         return __(
             'Displays hexadecimal representation of data. Optional first'
@@ -39,7 +39,7 @@ class Application_Octetstream_Hex extends HexTransformationsPlugin
      *
      * @return string
      */
-    public function getMIMEType()
+    public static function getMIMEType()
     {
         return "Application";
     }
@@ -49,7 +49,7 @@ class Application_Octetstream_Hex extends HexTransformationsPlugin
      *
      * @return string
      */
-    public function getMIMESubtype()
+    public static function getMIMESubtype()
     {
         return "OctetStream";
     }

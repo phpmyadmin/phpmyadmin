@@ -9,9 +9,8 @@
 if (! defined('PHPMYADMIN')) {
     exit;
 }
-
 /* Get the download transformations interface */
-require_once "libraries/plugins/abstract/DownloadTransformationsPlugin.class.php";
+require_once "abstract/DownloadTransformationsPlugin.class.php";
 
 /**
  * Handles the download transformation for application octetstream
@@ -25,7 +24,7 @@ class Application_Octetstream_Download extends DownloadTransformationsPlugin
      *
      * @return string
      */
-    public function getInfo()
+    public static function getInfo()
     {
         return __(
             'Displays a link to download the binary data of the column. You can'
@@ -41,7 +40,7 @@ class Application_Octetstream_Download extends DownloadTransformationsPlugin
      *
      * @return string
      */
-    public function getMIMEType()
+    public static function getMIMEType()
     {
         return "Application";
     }
@@ -51,7 +50,7 @@ class Application_Octetstream_Download extends DownloadTransformationsPlugin
      *
      * @return string
      */
-    public function getMIMESubtype()
+    public static function getMIMESubtype()
     {
         return "OctetStream";
     }

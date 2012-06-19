@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the date format transformations interface */
-require_once "libraries/plugins/abstract/DateFormatTransformationsPlugin.class.php";
+require_once "abstract/DateFormatTransformationsPlugin.class.php";
 
 /**
  * Handles the date format transformation for text plain
@@ -25,7 +25,7 @@ class Text_Plain_Dateformat extends DateFormatTransformationsPlugin
      *
      * @return string
      */
-    public function getInfo()
+    public static function getInfo()
     {
         return __(
             'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp'
@@ -45,7 +45,7 @@ class Text_Plain_Dateformat extends DateFormatTransformationsPlugin
      *
      * @return string
      */
-    public function getMIMEType()
+    public static function getMIMEType()
     {
         return "Text";
     }
@@ -55,7 +55,7 @@ class Text_Plain_Dateformat extends DateFormatTransformationsPlugin
      *
      * @return string
      */
-    public function getMIMESubtype()
+    public static function getMIMESubtype()
     {
         return "Plain";
     }

@@ -18,7 +18,7 @@ require_once "libraries/plugins/TransformationsPlugin.class.php";
  *
  * @package PhpMyAdmin
  */
-abstract class LongToIPv4TransformationsPlugin extends PluginObserver
+abstract class LongToIPv4TransformationsPlugin extends TransformationsPlugin
 {
     /**
      * Does the actual work of each specific transformations plugin.
@@ -59,7 +59,7 @@ abstract class LongToIPv4TransformationsPlugin extends PluginObserver
      *
      * @return string
      */
-    public function getName()
+    public static function getName()
     {
         return "Long To IPv4";
     }

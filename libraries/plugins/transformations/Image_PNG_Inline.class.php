@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the inline transformations interface */
-require_once "libraries/plugins/abstract/InlineTransformationsPlugin.class.php";
+require_once "abstract/InlineTransformationsPlugin.class.php";
 
 /**
  * Handles the inline transformation for image png
@@ -25,7 +25,7 @@ class Image_PNG_Inline extends InlineTransformationsPlugin
      *
      * @return string
      */
-    public function getInfo()
+    public static function getInfo()
     {
         return __(
             'Displays a clickable thumbnail. The options are the maximum width'
@@ -38,7 +38,7 @@ class Image_PNG_Inline extends InlineTransformationsPlugin
      *
      * @return string
      */
-    public function getMIMEType()
+    public static function getMIMEType()
     {
         return "Image";
     }
@@ -48,7 +48,7 @@ class Image_PNG_Inline extends InlineTransformationsPlugin
      *
      * @return string
      */
-    public function getMIMESubtype()
+    public static function getMIMESubtype()
     {
         return "PNG";
     }

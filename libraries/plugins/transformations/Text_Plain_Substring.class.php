@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the substring transformations interface */
-require_once "libraries/plugins/abstract/SubstringTransformationsPlugin.class.php";
+require_once "abstract/SubstringTransformationsPlugin.class.php";
 
 /**
  * Handles the substring transformation for text plain
@@ -25,7 +25,7 @@ class Text_Plain_Substring extends SubstringTransformationsPlugin
      *
      * @return string
      */
-    public function getInfo()
+    public static function getInfo()
     {
         return __(
             'Displays a part of a string. The first option is the number of'
@@ -41,7 +41,7 @@ class Text_Plain_Substring extends SubstringTransformationsPlugin
      *
      * @return string
      */
-    public function getMIMEType()
+    public static function getMIMEType()
     {
         return "Text";
     }
@@ -51,7 +51,7 @@ class Text_Plain_Substring extends SubstringTransformationsPlugin
      *
      * @return string
      */
-    public function getMIMESubtype()
+    public static function getMIMESubtype()
     {
         return "Plain";
     }

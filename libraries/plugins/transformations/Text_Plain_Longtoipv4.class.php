@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the long to ipv4 transformations interface */
-require_once "libraries/plugins/abstract/LongToIPv4TransformationsPlugin.class.php";
+require_once "abstract/LongToIPv4TransformationsPlugin.class.php";
 
 /**
  * Handles the long to ipv4 transformation for text plain
@@ -25,7 +25,7 @@ class Text_Plain_Longtoipv4 extends LongToIPv4TransformationsPlugin
      *
      * @return string
      */
-    public function getInfo()
+    public static function getInfo()
     {
         return __(
             'Converts an (IPv4) Internet network address into a string in'
@@ -38,7 +38,7 @@ class Text_Plain_Longtoipv4 extends LongToIPv4TransformationsPlugin
      *
      * @return string
      */
-    public function getMIMEType()
+    public static function getMIMEType()
     {
         return "Text";
     }
@@ -48,7 +48,7 @@ class Text_Plain_Longtoipv4 extends LongToIPv4TransformationsPlugin
      *
      * @return string
      */
-    public function getMIMESubtype()
+    public static function getMIMESubtype()
     {
         return "Plain";
     }
