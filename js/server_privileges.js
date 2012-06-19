@@ -142,11 +142,8 @@ $(function() {
 
                     $("#add_user_dialog").dialog("close");
                     PMA_ajaxShowMessage(data.message);
-                    $("#floating_menubar")
-                     .next('div')
-                     .remove()
-                     .end()
-                     .after(data.sql_query);
+                    $("#result_query").remove();
+                    $('#floating_menubar').after(data.sql_query);
 
                     //Remove the empty notice div generated due to a NULL query passed to PMA_getMessage()
                     var $notice_class = $("#floating_menubar").next("div").find('.notice');
@@ -393,12 +390,9 @@ $(function() {
                 $("#edit_user_dialog").dialog("close");
 
                 if(data.sql_query) {
-                    $("#floating_menubar")
-                    .next('div')
-                    .remove()
-                    .end()
-                    .after(data.sql_query);
-                    var $notice_class = $("#floating_menubar").next("div").find('.notice');
+                    $("#result_query").remove();
+                    $('#floating_menubar').after(data.sql_query);
+                    var $notice_class = $("#result_query").find('.notice');
                     if($notice_class.text() == '') {
                         $notice_class.remove();
                     }

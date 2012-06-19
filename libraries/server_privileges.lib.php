@@ -1613,7 +1613,7 @@ function PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
         . '</fieldset>'
         . '</form>' . "\n";
 
-    if ($GLOBALS['is_ajax_request'] == true) {
+    if ($GLOBALS['is_ajax_request'] == true && empty($_REQUEST['ajax_page_request'])) {
         $message = PMA_Message::success(__('User has been added.'));
         $response = PMA_Response::getInstance();
         $response->addJSON('message', $message);
@@ -2948,10 +2948,9 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
 
         /**
          * Displays the initials
-         * In an Ajax request, we don't need to show this.
          * Also not necassary if there is less than 20 privileges
          */
-        if ($GLOBALS['is_ajax_request'] != true && PMA_DBI_num_rows($res) > 20 ) {
+        if (PMA_DBI_num_rows($res) > 20 ) {
             $html_output .= PMA_getHtmlForDisplayTheInitials(
                 $array_initials, $conditional_class
             );
@@ -2973,20 +2972,24 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
             $html_output .= PMA_getAddUserHtmlFieldset($conditional_class);
         } // end if (display overview)
 
-        $flushnote = new PMA_Message(
-            __('Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of these tables may differ from the privileges the server uses, if they have been changed manually. In this case, you should %sreload the privileges%s before you continue.'),
-            PMA_Message::NOTICE
-        );
-        $flushLink = '<a href="server_privileges.php?' . $GLOBALS['url_query']
-            . '&amp;' . 'flush_privileges=1" id="reload_privileges_anchor" '
-            . 'class="' . $conditional_class . '">';
-        $flushnote->addParam(
-            $flushLink,
-            false
-        );
-        $flushnote->addParam('</a>', false);
-        $html_output .= $flushnote->getDisplay();
-
+        if (! $GLOBALS['is_ajax_request'] || ! empty($_REQUEST['ajax_page_request'])) {
+            $flushnote = new PMA_Message(
+                __('Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of these tables may differ from the privileges the server uses, if they have been changed manually. In this case, you should %sreload the privileges%s before you continue.'),
+                PMA_Message::NOTICE
+            );
+            $flushLink = '<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;'
+                . 'flush_privileges=1" id="reload_privileges_anchor" '
+                . 'class="' . $conditional_class . '">';
+            $flushnote->addParam(
+                $flushLink,
+                false
+            );
+            $flushnote->addParam('</a>', false);
+            $html_output .= $flushnote->getDisplay();
+        }
+        if ($GLOBALS['is_ajax_request']) {
+            exit;
+        }
         return $html_output;
     }
 }

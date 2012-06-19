@@ -392,7 +392,7 @@ if ($GLOBALS['is_ajax_request']
         $link_edit, $hostname, $username
     );
 
-    if ($message instanceof PMA_Message) {
+    if (! empty($message) && $message instanceof PMA_Message) {
         $response = PMA_Response::getInstance();
         $response->isSuccess($message->isSuccess());
         $response->addJSON('message', $message);
