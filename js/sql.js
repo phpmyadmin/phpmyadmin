@@ -56,11 +56,6 @@ function getFieldName($this_field)
     return field_name;
 }
 
-
-/**#@+
- * @namespace   jQuery
- */
-
 /**
  * @description <p>Ajax scripts for sql and browse pages</p>
  *
@@ -76,7 +71,7 @@ function getFieldName($this_field)
  * @name        document.ready
  * @memberOf    jQuery
  */
-$(function() {
+AJAX.registerOnload('sql.js', function() {
     /* Hides the bookmarkoptions checkboxes when the bookmark label is empty */
     $('input#bkm_label').keyup(function() {
         $('input#id_bkm_all_users, input#id_bkm_replace')
@@ -555,7 +550,7 @@ function PMA_changeClassForColumn($this_th, newclass, isAddClass)
     }
 }
 
-$(function() {
+AJAX.registerOnload('sql.js', function() {
 
     $('a.browse_foreign').live('click', function(e) {
         e.preventDefault();
@@ -603,6 +598,3 @@ function makeProfilingChart()
 
     PMA_createProfilingChartJqplot('profilingchart', data);
 }
-
-
-/**#@- */

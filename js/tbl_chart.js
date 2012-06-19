@@ -9,9 +9,9 @@ var currentChart = null;
 var nonJqplotSettings = null;
 var currentSettings = null;
 
-$(function() {
+AJAX.registerOnload('tbl_chart.js', function() {
     chart_series = $('select[name="chartSeries"]').val();
-    // If no series is selected null is returned. 
+    // If no series is selected null is returned.
     // In such case initialize chart_series to empty array.
     if (chart_series == null) {
         chart_series = new Array();
@@ -118,14 +118,14 @@ $(function() {
 
         if (chart_series.length == 1) {
             $('span.span_pie').show();
-            var yaxis_title = $(this).children('option:selected').text();            
+            var yaxis_title = $(this).children('option:selected').text();
         } else {
             $('span.span_pie').hide();
             if (nonJqplotSettings.chart.type == 'pie') {
                 $('input#radio_line').prop('checked', true);
                 nonJqplotSettings.chart.type = 'line';
             }
-            var yaxis_title = y_values_text;        
+            var yaxis_title = y_values_text;
         }
         $('input[name="yaxis_label"]').val(yaxis_title);
         currentSettings.axes.yaxis.label = yaxis_title;
@@ -144,7 +144,7 @@ $(function() {
     });
 });
 
-	
+
 /**
  * Ajax Event handler for 'Go' button click
  *
@@ -189,7 +189,7 @@ $("#tblchartform").live('submit', function(event) {
 
 function isColumnNumeric(columnName)
 {
-    var first = true; 
+    var first = true;
     var isNumeric = false;
     $('select[name="chartSeries"] option').each(function() {
         if ($(this).val() == columnName) {
@@ -219,9 +219,9 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
 
     var columnNames = [];
     var series = new Array();
-    var xaxis = { 
-        type: 'linear', 
-        categories: new Array() 
+    var xaxis = {
+        type: 'linear',
+        categories: new Array()
     };
     var yaxis = new Object();
 
@@ -273,7 +273,7 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
 
     var settings = {
         title: {
-            text: '' 
+            text: ''
             //margin:20
         }
     };
@@ -307,7 +307,7 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
     if (passedNonJqplotSettings.chart.type == 'spline') {
         settings.seriesDefaults = {
             rendererOptions: {
-                smooth: true 
+                smooth: true
             }
         };
     }

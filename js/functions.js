@@ -536,7 +536,7 @@ function checkTableEditForm(theForm, fieldsCnt)
     return true;
 } // enf of the 'checkTableEditForm()' function
 
-$(function() {
+AJAX.registerOnload('functions.js', function() {
     /**
      * Row marking in horizontal mode (use "live" so that it works also for
      * next pages reached via AJAX); a tr may have the class noclick to remove
@@ -652,7 +652,7 @@ var last_shift_clicked_row = -1;
  * Row highlighting in horizontal mode (use "live"
  * so that it works also for pages reached via AJAX)
  */
-/*$(function() {
+/*AJAX.registerOnload('functions.js', function() {
     $('tr.odd, tr.even').live('hover',function(event) {
         var $tr = $(this);
         $tr.toggleClass('hover',event.type=='mouseover');
@@ -1271,7 +1271,7 @@ function pdfPaperSize(format, axis)
 /**
  * Jquery Coding for inline editing SQL_QUERY
  */
-$(function() {
+AJAX.registerOnload('functions.js', function() {
     $("a.inline_edit_sql").live('click', function() {
         if ($('#sql_query_edit').length) {
             // An inline query editor is already open,
@@ -1533,7 +1533,7 @@ function PMA_ajaxRemoveMessage($this_msgbox)
     }
 }
 
-$(function() {
+AJAX.registerOnload('functions.js', function() {
     /**
      * Allows the user to dismiss a notification
      * created with PMA_ajaxShowMessage()
@@ -1998,7 +1998,7 @@ jQuery.fn.PMA_sort_table = function(text_selector) {
  *
  * Attach Ajax Event handlers for Create Table
  */
-$(function() {
+AJAX.registerOnload('functions.js', function() {
 
      /**
      * Attach event handler to the submit action of the create table minimal form
@@ -2158,13 +2158,13 @@ $(function() {
 
     }); // end create table form (add fields)
 
-}, 'top.frame_content'); //end $(document).ready for 'Create Table'
+});
 
 /**
  * jQuery coding for 'Table operations'.  Used on tbl_operations.php
  * Attach Ajax Event handlers for Table operations
  */
-$(function() {
+AJAX.registerOnload('functions.js', function() {
     /**
      *Ajax action for submitting the "Alter table order by"
     **/
@@ -2274,7 +2274,7 @@ $(function() {
         }); // end $.post()
     });//end of table maintanance ajax click
 
-}, 'top.frame_content'); //end $(document).ready for 'Table operations'
+}); //end $(document).ready for 'Table operations'
 
 
 /**
@@ -2283,7 +2283,7 @@ $(function() {
  *
  * @see $cfg['AjaxEnable']
  */
-$(function() {
+AJAX.registerOnload('functions.js', function() {
     $("#drop_db_anchor.ajax").live('click', function(event) {
         event.preventDefault();
 
@@ -2350,7 +2350,7 @@ function PMA_checkPassword($the_form)
 /**
  * Attach Ajax event handlers for 'Change Password' on main.php
  */
-$(function() {
+AJAX.registerOnload('functions.js', function() {
 
     /**
      * Attach Ajax event handler on the change password anchor
@@ -2444,7 +2444,7 @@ $(function() {
  * Toggle the hiding/showing of the "Open in ENUM/SET editor" message when
  * the page loads and when the selected data type changes
  */
-$(function() {
+AJAX.registerOnload('functions.js', function() {
     // is called here for normal page loads and also when opening
     // the Create table dialog
     PMA_verifyColumnsProperties();
@@ -2509,7 +2509,7 @@ var $enum_editor_dialog = null;
 /**
  * Opens the ENUM/SET editor and controls its functions
  */
-$(function() {
+AJAX.registerOnload('functions.js', function() {
     $("a.open_enum_editor").live('click', function() {
         // Get the name of the column that is being edited
         var colname = $(this).closest('tr').find('input:first').val();
@@ -2740,7 +2740,7 @@ function PMA_showHints($div)
     });
 }
 
-$(function() {
+AJAX.registerOnload('functions.js', function() {
     PMA_showHints();
 });
 
@@ -2856,6 +2856,7 @@ function menuPrepare()
     topmenu.append(submenu);
 }
 
+// This must be fired only once after the inital page load
 $(function() {
     menuPrepare();
     // populate submenu and register resize event
@@ -3040,7 +3041,7 @@ var toggleButton = function ($obj) {
 /**
  * Initialise all toggle buttons
  */
-$(window).load(function () {
+AJAX.registerOnload('functions.js', function () {
     $('div.toggleAjax').each(function () {
         $(this).show();
         toggleButton($(this));
@@ -3050,7 +3051,7 @@ $(window).load(function () {
 /**
  * Vertical pointer
  */
-$(function() {
+AJAX.registerOnload('functions.js', function() {
     $('.vpointer').live('hover',
         //handlerInOut
         function(e) {
@@ -3060,9 +3061,12 @@ $(function() {
             $('.vpointer').filter('.row_' + row_num).toggleClass('hover');
         }
         );
-}); // end of $() for vertical pointer
 
-$(function() {
+    /**
+     * Slider effect.
+     */
+    PMA_init_slider();
+
     /**
      * Vertical marker
      */
@@ -3238,7 +3242,7 @@ function PMA_slidingMessage(msg, $obj)
  *
  * @see $cfg['AjaxEnable']
  */
-$(function() {
+AJAX.registerOnload('functions.js', function() {
     $("#drop_tbl_anchor.ajax").live('click', function(event) {
         event.preventDefault();
 
@@ -3272,7 +3276,7 @@ $(function() {
  *
  * @see $cfg['AjaxEnable']
  */
-$(function() {
+AJAX.registerOnload('functions.js', function() {
     $("#truncate_tbl_anchor.ajax").live('click', function(event) {
         event.preventDefault();
 
@@ -3309,7 +3313,7 @@ $(function() {
 /**
  * Attach CodeMirror2 editor to SQL edit area.
  */
-$(function() {
+AJAX.registerOnload('functions.js', function() {
     var elm = $('#sqlquery');
     if (elm.length > 0 && typeof CodeMirror != 'undefined') {
         codemirror_editor = CodeMirror.fromTextArea(elm[0], {
@@ -3441,7 +3445,7 @@ loadJavascript=function(file) {
     }
 };
 
-$(function() {
+AJAX.registerOnload('functions.js', function() {
     /**
      * Theme selector.
      */
@@ -3516,14 +3520,12 @@ function printPage()
     }
 }
 
-$(function() {
+AJAX.registerOnload('functions.js', function() {
     $('input#print').click(printPage);
-});
 
-/**
- * Makes the breadcrumbs and the menu bar float at the top of the viewport
- */
-$(function () {
+    /**
+     * Makes the breadcrumbs and the menu bar float at the top of the viewport
+     */
     if ($("#floating_menubar").length && $('#PMA_disable_floating_menubar').length == 0) {
         $("#floating_menubar")
             .css({
@@ -3545,7 +3547,7 @@ $(function () {
 /**
  * Ajaxification for the "Create View" action
  */
-$(document).ready(function () {
+AJAX.registerOnload('functions.js', function () {
     $('span a.create_view.ajax').live('click', function (e) {
         e.preventDefault();
         var $msg = PMA_ajaxShowMessage();
@@ -3675,14 +3677,14 @@ function formatBytes(bytes, subdecimals, pointchar) {
  * Opens pma more themes link in themes browser, in new window instead of popup
  * This way, we don't break HTML validity
  */
-$(function () {
+AJAX.registerOnload('functions.js', function () {
     $("a._blank").prop("target", "_blank");
 });
 
 /**
  * Reveal the login form to users with JS enabled
  */
-$(function () {
+AJAX.registerOnload('functions.js', function () {
     var $loginform = $('#loginform');
     $loginform.find('.js-show').show();
     $loginform.find('#input_username').select();

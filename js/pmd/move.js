@@ -14,7 +14,10 @@
 
 // Below is the function to bind onbeforeunload events with the content_frame as well as the top window.
 
- $(function(){
+/*
+FIXME: we can't register the beforeonload event because it will persist between pageloads
+
+AJAX.registerOnload('pmd/move.js', function(){
     $(window).bind('beforeunload', function() {        // onbeforeunload for the frame window.
         if (_change == 1 && _staying == 0) {
             return PMA_messages['strLeavingDesigner'];
@@ -32,7 +35,7 @@
             return PMA_messages['strLeavingDesigner'];
         }
     };
-});
+});*/
 
 function make_zero() {   // Function called if the user stays after seeing the confirmation prompt.
     _staying = 0;

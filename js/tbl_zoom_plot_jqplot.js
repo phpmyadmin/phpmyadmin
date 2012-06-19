@@ -104,7 +104,7 @@ function scrollToChart() {
    $('html,body').animate({scrollTop: x}, 500);
 }
 
-$(document).ready(function() {
+AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
     var cursorMode = ($("input[name='mode']:checked").val() == 'edit') ? 'crosshair' : 'pointer';
     var currentChart = null;
     var searchedDataKey = null;

@@ -318,7 +318,7 @@ function hideOrDisplayServerFields($server_selector, selected_option)
     }
 }
 
-$(function() {
+AJAX.registerOnload('server_synchronize.js', function() {
     $('select.server_selector').change(function(evt) {
         var selected_option = $(evt.target).val();
         hideOrDisplayServerFields($(evt.target), selected_option);

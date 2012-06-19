@@ -17,7 +17,7 @@
  * Drop Primary Key/Index
  *
  */
-$(function() {
+AJAX.registerOnload('tbl_structure.js', function() {
     /**
      * Attach Event Handler for 'Drop Column'
      *
@@ -516,7 +516,7 @@ $(function() {
  * jQuery coding for 'Change Table' and 'Add Column'.  Used on tbl_structure.php *
  * Attach Ajax Event handlers for Change Table
  */
-$(function() {
+AJAX.registerOnload('tbl_structure.js', function() {
     /**
      *Ajax action for submitting the "Column Change" and "Add Column" form
     **/
@@ -576,7 +576,7 @@ $(function() {
         }
     }); // end change table button "do_save_data"
 
-}, 'top.frame_content'); //end $(document).ready for 'Change Table'
+});
 
 /**
  * Reload fields table
@@ -732,8 +732,8 @@ function moreOptsMenuResize() {
             }
         });
 }
-$(window).resize(moreOptsMenuResize);
-$(function () {
+AJAX.registerOnload('tbl_structure.js', function () {
+    $(window).resize(moreOptsMenuResize);
     $("div.replace_in_more").hide();
     moreOptsMenuResize();
 });

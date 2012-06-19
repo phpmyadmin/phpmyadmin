@@ -213,7 +213,7 @@ RTE.setOptionsForParameter = function ($type, $len, $text, $num) {
  *
  * @see $cfg['AjaxEnable']
  */
-$(function () {
+AJAX.registerOnload('rte/routines.js', function () {
     /**
      * Attach Ajax event handlers for the "Add parameter to routine" functionality.
      */

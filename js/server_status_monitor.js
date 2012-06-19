@@ -1,5 +1,5 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-$(function() {
+AJAX.registerOnload('server_status_monitor.js', function() {
     // Show tab links
     $('div#statustabs_charting div.tabLinks').show();
     $('div#statustabs_charting img#loadingMonitorIcon').remove();
@@ -2046,6 +2046,6 @@ $(function() {
 });
 
 // Run the monitor once loaded
-$(function() {
+AJAX.registerOnload('server_status_monitor.js', function() {
     $('a[href="#pauseCharts"]').trigger('click');
 });

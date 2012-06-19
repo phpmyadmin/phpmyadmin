@@ -18,7 +18,7 @@
  * Change charset
  */
 
-$(function() {
+AJAX.registerOnload('db_operations.js', function() {
 
     /**
      * Ajax event handlers for 'Rename Database'
@@ -132,5 +132,4 @@ $(function() {
             }
         }) // end $.get()
     }) // end change charset
-
-}, 'top.frame_content');
+});

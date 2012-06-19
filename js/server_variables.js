@@ -1,5 +1,5 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
-$(function() {
+AJAX.registerOnload('server_variables.js', function() {
     var textFilter = null, odd_row = false;
     var testString = 'abcdefghijklmnopqrstuvwxyz0123456789,ABCEFGHIJKLMOPQRSTUVWXYZ';
     var $tmpDiv, charWidth;

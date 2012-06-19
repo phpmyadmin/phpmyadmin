@@ -53,7 +53,7 @@ function fix_favicon() {
  * Handler for changing url according to the hash part, which is updated
  * on each page to allow bookmarks.
  */
-$(function(){
+AJAX.registerOnload('update_location.js', function(){
     /* Don't do anything if we're not root Window */
     if (window.parent != window && window.parent.setURLHash) {
         return;

@@ -80,10 +80,6 @@ function appendNewUser(new_user_string, new_user_initial, new_user_initial_strin
     $(checkboxes_sel).trigger("change");
 };
 
-/**#@+
- * @namespace   jQuery
- */
-
 /**
  * AJAX scripts for server_privileges page.
  *
@@ -99,7 +95,7 @@ function appendNewUser(new_user_string, new_user_initial, new_user_initial_strin
  * @name        document.ready
  */
 
-$(function() {
+AJAX.registerOnload('server_privileges.js', function() {
     /**
      * AJAX event handler for 'Add a New User'
      *
@@ -575,6 +571,4 @@ $(function() {
     });
 
     displayPasswordGenerateButton();
-}, 'top.frame_content'); //end $()
-
-/**#@- */
+});

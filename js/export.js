@@ -4,22 +4,20 @@
  *
  */
 
-/**
- * Toggles the hiding and showing of each plugin's options
- * according to the currently selected plugin from the dropdown list
- */
-$(function() {
+AJAX.registerOnload('export.js', function () {
+    /**
+     * Toggles the hiding and showing of each plugin's options
+     * according to the currently selected plugin from the dropdown list
+     */
     $("#plugins").change(function() {
         $("#format_specific_opts div.format_specific_options").hide();
         var selected_plugin_name = $("#plugins option:selected").val();
         $("#" + selected_plugin_name + "_options").show();
      });
-});
 
-/**
- * Toggles the enabling and disabling of the SQL plugin's comment options that apply only when exporting structure
- */
-$(function() {
+    /**
+     * Toggles the enabling and disabling of the SQL plugin's comment options that apply only when exporting structure
+     */
     $("input[type='radio'][name='sql_structure_or_data']").change(function() {
         var comments_are_present = $("#checkbox_sql_include_comments").prop("checked");
         var show = $("input[type='radio'][name='sql_structure_or_data']:checked").val();
@@ -65,7 +63,7 @@ function toggle_structure_data_opts(pluginName)
     }
 }
 
-$(function() {
+AJAX.registerOnload('export.js', function () {
     $("input[type='radio'][name='latex_structure_or_data']").change(function() {
         toggle_structure_data_opts("latex");
     });
@@ -99,7 +97,7 @@ function toggle_save_to_file()
     }
 }
 
-$(function() {
+AJAX.registerOnload('export.js', function () {
     toggle_save_to_file();
     $("input[type='radio'][name='output_format']").change(toggle_save_to_file);
 });
@@ -125,10 +123,10 @@ function toggle_sql_include_comments()
     });
 }
 
-/**
- * For SQL plugin, if "CREATE TABLE options" is checked/unchecked, check/uncheck each of its sub-options
- */
-$(function() {
+AJAX.registerOnload('export.js', function () {
+    /**
+     * For SQL plugin, if "CREATE TABLE options" is checked/unchecked, check/uncheck each of its sub-options
+     */
     var $create = $("#checkbox_sql_create_table_statements");
     var $create_options = $("#ul_create_table_statements input");
     $create.change(function() {
@@ -139,12 +137,10 @@ $(function() {
             $create.prop('checked', true);
         }
     });
-});
 
-/**
- * Disables the view output as text option if the output must be saved as a file
- */
-$(function() {
+    /**
+     * Disables the view output as text option if the output must be saved as a file
+     */
     $("#plugins").change(function() {
         var active_plugin = $("#plugins option:selected").val();
         var force_file = $("#force_file_" + active_plugin).val();
@@ -178,15 +174,14 @@ function toggle_quick_or_custom()
     }
 }
 
-$(function() {
+AJAX.registerOnload('export.js', function () {
     $("input[type='radio'][name='quick_or_custom']").change(toggle_quick_or_custom);
-});
 
-/**
- * Sets up the interface for Javascript-enabled browsers since the default is for
- *  Javascript-disabled browsers
- */
-$(function() {
+    /**
+     * Sets up the interface for Javascript-enabled browsers since the default is for
+     *  Javascript-disabled browsers
+     * TODO: drop non-JS behaviour
+     */
     if ($("input[type='hidden'][name='export_method']").val() != "custom-no-form") {
         $("#quick_or_custom").show();
     }
@@ -203,12 +198,10 @@ $(function() {
     toggle_quick_or_custom();
     toggle_structure_data_opts($("select#plugins").val());
     toggle_sql_include_comments();
-});
 
-/**
- * Disables the "Dump some row(s)" sub-options when it is not selected
- */
-$(function() {
+    /**
+     * Disables the "Dump some row(s)" sub-options when it is not selected
+     */
     $("input[type='radio'][name='allrows']").change(function() {
         if ($("input[type='radio'][name='allrows']").prop("checked")) {
             $("label[for='limit_to']").fadeTo('fast', 0.4);

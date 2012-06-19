@@ -15,7 +15,7 @@
  * Drop Databases
  *
  */
-$(function() {
+AJAX.registerOnload('server_databases.js', function() {
     /**
      * Attach Event Handler for 'Drop Databases'
      *

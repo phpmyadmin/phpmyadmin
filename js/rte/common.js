@@ -79,7 +79,7 @@ var RTE = {
  *
  * @see $cfg['AjaxEnable']
  */
-$(function () {
+AJAX.registerOnload('rte/common.js', function () {
     /**
      * Attach Ajax event handlers for the Add/Edit functionality.
      */

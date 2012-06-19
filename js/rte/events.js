@@ -36,7 +36,7 @@ RTE.validateCustom = function () {
  *
  * @see $cfg['AjaxEnable']
  */
-$(function () {
+AJAX.registerOnload('rte/events.js', function () {
     $('select[name=item_type]').live('change', function () {
         $('tr.recurring_event_row, tr.onetime_event_row').toggle();
     }); // end $.live()

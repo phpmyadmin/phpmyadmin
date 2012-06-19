@@ -449,7 +449,7 @@ function setRestoreDefaultBtn(field, display)
     el[display ? 'show' : 'hide']();
 }
 
-$(function() {
+AJAX.registerOnload('config.js', function() {
     // register validators and mark custom values
     var elements = $('input[id], select[id], textarea[id]');
     $('input[id], select[id], textarea[id]').each(function(){
@@ -514,7 +514,7 @@ function setTab(tab_id)
     $('form.config-form input[name=tab_hash]').val(location.hash);
 }
 
-$(function() {
+AJAX.registerOnload('config.js', function() {
     var tabs = $('ul.tabs');
     if (!tabs.length) {
         return;
@@ -553,7 +553,7 @@ $(function() {
 // Form reset buttons
 //
 
-$(function() {
+AJAX.registerOnload('config.js', function() {
     $('input[type=button][name=submit_reset]').click(function() {
         var fields = $(this).closest('fieldset').find('input, select, textarea');
         for (var i = 0, imax = fields.length; i < imax; i++) {
@@ -584,7 +584,7 @@ function restoreField(field_id)
     setFieldValue(field, getFieldType(field), defaultValues[field_id]);
 }
 
-$(function() {
+AJAX.registerOnload('config.js', function() {
     $('div.tabs_contents')
         .delegate('.restore-default, .set-value', 'mouseenter', function(){$(this).css('opacity', 1)})
         .delegate('.restore-default, .set-value', 'mouseleave', function(){$(this).css('opacity', 0.25)})
@@ -615,7 +615,7 @@ $(function() {
 // User preferences import/export
 //
 
-$(function() {
+AJAX.registerOnload('config.js', function() {
     offerPrefsAutoimport();
     var radios = $('#import_local_storage, #export_local_storage');
     if (!radios.length) {

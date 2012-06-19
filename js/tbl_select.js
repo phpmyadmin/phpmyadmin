@@ -12,7 +12,7 @@
  * Actions ajaxified here:
  * Table Search
  */
-$(function() {
+AJAX.registerOnload('tbl_select.js', function() {
     /**
      * Prepare a div containing a link, otherwise it's incorrectly displayed
      * after a couple of clicks
@@ -212,4 +212,4 @@ $(function() {
         }
     });
 
-}, 'top.frame_content'); // end $()
+});

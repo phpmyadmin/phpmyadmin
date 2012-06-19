@@ -223,7 +223,7 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
  * Submit Data to be inserted into the table.
  * Restart insertion with 'N' rows.
  */
-$(function() {
+AJAX.registerOnload('tbl_change.js', function() {
 
     $('span.open_gis_editor').live('click', function(event) {
         event.preventDefault();
@@ -549,4 +549,4 @@ $(function() {
             }
         }
     })
-}, 'top.frame_content'); //end $()
+});

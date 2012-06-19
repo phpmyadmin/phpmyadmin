@@ -98,7 +98,7 @@ function deleteResult(result_path, msg, ajaxEnable)
     });
 }
 
-$(function() {
+AJAX.registerOnload('db_search.js', function() {
     /** Hide the table link in the initial search result */
     var icon = PMA_getImage('s_tbl.png', '', {'id': 'table-image'}).toString();
     $("#table-info").prepend(icon).hide();
@@ -229,4 +229,4 @@ $(function() {
             PMA_ajaxRemoveMessage($msgbox);
         })
     })
-}, 'top.frame_content'); // end $()
+}); // end $()

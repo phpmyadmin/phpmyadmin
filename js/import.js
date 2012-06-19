@@ -43,7 +43,7 @@ function matchFile(fname)
         }
     }
 }
-$(function() {
+AJAX.registerOnload('import.js', function() {
     // Initially display the options for the selected plugin
     changePluginOpts();
 

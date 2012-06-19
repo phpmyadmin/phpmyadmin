@@ -4,7 +4,7 @@
  */
 
 var j_tabs, h_tabs, contr, server, db, token;
-$(function() {
+AJAX.registerOnload('pmd/init.js', function() {
     $(".trigger").click(function() {
         $(".panel").toggle("fast");
         $(this).toggleClass("active");
