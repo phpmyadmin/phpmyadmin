@@ -368,8 +368,8 @@ function PMA_isColumnChar($column)
 /**
  * Retieve set, enum, timestamp table columns
  *
- * @param array $column         description of column in given table
- * @param int $timestamp_seen   0 interger
+ * @param array   $column         description of column in given table
+ * @param integer $timestamp_seen 0 interger
  *
  * return array                 $column['pma_type'], $column['wrap'], $column['first_timestamp']
  */
@@ -408,15 +408,15 @@ function PMA_getEnumSetAndTimestampColumns($column, $timestamp_seen)
  * Note: from the MySQL manual: "BINARY doesn't affect how the column is
  *       stored or retrieved" so it does not mean that the contents is binary
  *
- * @param array $column                     description of column in given table
- * @param boolean $is_upload                upload or no
- * @param string $column_name_appendix      the name atttibute
- * @param string $unnullify_trigger         validation string
- * @param array $no_support_types           list of datatypes that are not (yet) handled by PMA
- * @param integer $tabindex_for_function    +3000
- * @param integer $tabindex                 tab index
- * @param integer $idindex                  id index
- * @param boolean $insert_mode              insert mode or edit mode
+ * @param array   $column                description of column in given table
+ * @param boolean $is_upload             upload or no
+ * @param string  $column_name_appendix  the name atttibute
+ * @param string  $unnullify_trigger     validation string
+ * @param array   $no_support_types      list of datatypes that are not (yet) handled by PMA
+ * @param integer $tabindex_for_function +3000
+ * @param integer $tabindex              tab index
+ * @param integer $idindex               id index
+ * @param boolean $insert_mode           insert mode or edit mode
  *
  * @return string                           an html sippet
  */
@@ -449,15 +449,15 @@ function PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
 /**
  * The null column
  *
- * @param array $column                 description of column in given table
- * @param string $column_name_appendix  the name atttibute
- * @param array $real_null_value        is column value null or not null
+ * @param array   $column               description of column in given table
+ * @param string  $column_name_appendix the name atttibute
+ * @param array   $real_null_value      is column value null or not null
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_null    +6000
  * @param integer $idindex              id index
- * @param array $vkey                   [multi_edit]['row_id']
- * @param array $foreigners             keys into foreign fields
- * @param array $foreignData            data about the foreign keys
+ * @param array   $vkey                 [multi_edit]['row_id']
+ * @param array   $foreigners           keys into foreign fields
+ * @param array   $foreignData          data about the foreign keys
  *
  * @return string                       an html snippet
  */
@@ -498,9 +498,9 @@ function PMA_getNullColumn($column, $column_name_appendix, $real_null_value,
 /**
  * Retrieve the nullify code for the null column
  *
- * @param array $column         description of column in given table
- * @param array $foreigners     keys into foreign fields
- * @param array $foreignData    data about the foreign keys
+ * @param array $column      description of column in given table
+ * @param array $foreigners  keys into foreign fields
+ * @param array $foreignData data about the foreign keys
  *
  * @return integer              $nullify_code
  */
@@ -529,30 +529,30 @@ function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
 /**
  * Get the HTML elements for value column in inert form
  *
- * @param array $column                     description of column in given table
- * @param string $backup_field              hidden input field
- * @param string $column_name_appendix      the name atttibute
- * @param string $unnullify_trigger         validation string
- * @param integer $tabindex                 tab index
- * @param integer $tabindex_for_value       offset for the values tabindex
- * @param integer $idindex                  id index
- * @param array $data                       description of the column field
- * @param array $special_chars              special characters
- * @param array $foreignData                data about the foreign keys
- * @param array $paramTableDbArray          array containing $db and $table
- * @param array $rownumber_param            &amp;rownumber=row_id
- * @param array $titles                     An HTML IMG tag for a particular icon from a theme,
- *                                          which may be an actual file or an icon from a sprite
- * @param array $text_dir
- * @param string $special_chars_encoded     replaced char if the string starts
- *                                          with a \r\n pair (0x0d0a) add an extra \n
- * @param integer $biggest_max_file_size    0 intger
- * @param string $default_char_editing      default char editing mode which is stroe
- *                                          in the config.inc.php script
- * @param array $no_support_types           list of datatypes that are not (yet) handled by PMA
- * @param array $gis_data_types             list of GIS data types
+ * @param array   $column                description of column in given table
+ * @param string  $backup_field          hidden input field
+ * @param string  $column_name_appendix  the name atttibute
+ * @param string  $unnullify_trigger     validation string
+ * @param integer $tabindex              tab index
+ * @param integer $tabindex_for_value    offset for the values tabindex
+ * @param integer $idindex               id index
+ * @param array   $data                  description of the column field
+ * @param array   $special_chars         special characters
+ * @param array   $foreignData           data about the foreign keys
+ * @param array   $paramTableDbArray     array containing $db and $table
+ * @param array   $rownumber_param       &amp;rownumber=row_id
+ * @param array   $titles                An HTML IMG tag for a particular icon from a theme,
+ *                                       which may be an actual file or an icon from a sprite
+ * @param array   $text_dir
+ * @param string  $special_chars_encoded replaced char if the string starts
+ *                                       with a \r\n pair (0x0d0a) add an extra \n
+ * @param integer $biggest_max_file_size 0 intger
+ * @param string  $default_char_editing  default char editing mode which is stroe
+ *                                       in the config.inc.php script
+ * @param array   $no_support_types      list of datatypes that are not (yet) handled by PMA
+ * @param array   $gis_data_types        list of GIS data types
  *
- * @return string                           an html snippet
+ * @return string an html snippet
  */
 function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
     $unnullify_trigger,$tabindex, $tabindex_for_value, $idindex, $data,
@@ -620,17 +620,17 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
 /**
  * Get HTML for foreign link in insert form
  *
- * @param array $column                 description of column in given table
- * @param string $backup_field          hidden input field
- * @param string $column_name_appendix  the name atttibute
- * @param string $unnullify_trigger     validation string
+ * @param array   $column               description of column in given table
+ * @param string  $backup_field         hidden input field
+ * @param string  $column_name_appendix the name atttibute
+ * @param string  $unnullify_trigger    validation string
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
- * @param array $data
- * @param array $paramTableDbArray      array containing $db and $table
- * @param array $rownumber_param        &amp;rownumber=row_id
- * @param array $titles                 An HTML IMG tag for a particular icon from a theme,
+ * @param array   $data
+ * @param array   $paramTableDbArray    array containing $db and $table
+ * @param array   $rownumber_param      &amp;rownumber=row_id
+ * @param array   $titles               An HTML IMG tag for a particular icon from a theme,
  *                                      which may be an actual file or an icon from a sprite
  *
  * @return string                       an html snippet
@@ -659,14 +659,14 @@ function PMA_getForeignLink($column, $backup_field, $column_name_appendix,
 /**
  * Get HTML to display foreign data
  *
- * @param string $backup_field          hidden input field
- * @param string $column_name_appendix  the name atttibute
- * @param string $unnullify_trigger     validation string
+ * @param string  $backup_field         hidden input field
+ * @param string  $column_name_appendix the name atttibute
+ * @param string  $unnullify_trigger    validation string
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
- * @param array $data
- * @param array $foreignData            data about the foreign keys
+ * @param array   $data
+ * @param array   $foreignData          data about the foreign keys
  *
  * @return string                       an html snippet
  */
@@ -690,15 +690,15 @@ function PMA_dispRowForeignData($backup_field, $column_name_appendix,
 /**
  * Get HTML textarea for insert form
  *
- * @param string $backup_field          hidden input field
- * @param string $column_name_appendix  the name atttibute
- * @param string $unnullify_trigger     validation string
- * @param integer $tabindex             tab index
- * @param integer $tabindex_for_value   offset for the values tabindex
- * @param integer $idindex              id index
- * @param array $text_dir
- * @param array $special_chars_encoded  replaced char if the string starts
- *                                      with a \r\n pair (0x0d0a) add an extra \n
+ * @param string  $backup_field          hidden input field
+ * @param string  $column_name_appendix  the name atttibute
+ * @param string  $unnullify_trigger     validation string
+ * @param integer $tabindex              tab index
+ * @param integer $tabindex_for_value    offset for the values tabindex
+ * @param integer $idindex               id index
+ * @param array   $text_dir
+ * @param array   $special_chars_encoded replaced char if the string starts
+ *                                       with a \r\n pair (0x0d0a) add an extra \n
  *
  * @return string                       an html snippet
  */
@@ -735,11 +735,11 @@ function PMA_getTextarea($column, $backup_field, $column_name_appendix, $unnulli
 /**
  * Get HTML for enum type
  *
- * @param array $column                 description of column in given table
- * @param string $backup_field          hidden input field
- * @param string $column_name_appendix  the name atttibute
- * @param array $extracted_columnspec   associative array containing type, spec_in_brackets
- *                                      and possibly enum_set_values (another array)
+ * @param array  $column               description of column in given table
+ * @param string $backup_field         hidden input field
+ * @param string $column_name_appendix the name atttibute
+ * @param array  $extracted_columnspec associative array containing type, spec_in_brackets
+ *                                     and possibly enum_set_values (another array)
  *
  * @return string                       an html snippet
  */
@@ -768,9 +768,9 @@ function PMA_getPmaTypeEnum($column, $backup_field, $column_name_appendix, $extr
 /**
  * Get column values
  *
- * @param array $column                 description of column in given table
- * @param array $extracted_columnspec   associative array containing type, spec_in_brackets
- *                                      and possibly enum_set_values (another array)
+ * @param array $column               description of column in given table
+ * @param array $extracted_columnspec associative array containing type, spec_in_brackets
+ *                                    and possibly enum_set_values (another array)
  *
  * @return array                        column values as an associative array
  */
@@ -791,14 +791,14 @@ function PMA_getColumnEnumValues($column, $extracted_columnspec)
 /**
  * Get HTML drop down for more than 20 string length
  *
- * @param array $column                 description of column in given table
- * @param string $column_name_appendix  the name atttibute
- * @param string $unnullify_trigger     validation string
+ * @param array   $column               description of column in given table
+ * @param string  $column_name_appendix the name atttibute
+ * @param string  $unnullify_trigger    validation string
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
- * @param array $data
- * @param array $column_enum_values     $column['values']
+ * @param array   $data
+ * @param array   $column_enum_values   $column['values']
  *
  * @return string                       an html snippet
  */
@@ -832,14 +832,14 @@ function PMA_getDropDownDependingOnLength($column, $column_name_appendix, $unnul
 /**
  * Get HTML radio button for less than 20 string length
  *
- * @param string $column_name_appendix  the name atttibute
- * @param string $unnullify_trigger     validation string
+ * @param string  $column_name_appendix the name atttibute
+ * @param string  $unnullify_trigger    validation string
  * @param integer $tabindex             tab index
- * @param array $column                 description of column in given table
+ * @param array   $column               description of column in given table
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
- * @param array $data
- * @param array $column_enum_values     $column['values']
+ * @param array   $data
+ * @param array   $column_enum_values   $column['values']
  *
  * @return string                       an html snippet
  */
@@ -938,19 +938,19 @@ function PMA_getColumnSetValueAndSelectSize($column, $extracted_columnspec)
 /**
  * Get HTML for binary and blob column
  *
- * @param array $column                     description of column in given table
- * @param array $data
- * @param array $special_chars              special characters
- * @param integer $biggest_max_file_size    biggest max file size for uploading
- * @param string $backup_field              hidden input field
- * @param string $column_name_appendix      the name atttibute
- * @param string $unnullify_trigger         validation string
- * @param integer $tabindex                 tab index
- * @param integer $tabindex_for_value       offset for the values tabindex
- * @param integer $idindex                  id index
- * @param string $text_dir
- * @param string $special_chars_encoded     replaced char if the string starts
- *                                          with a \r\n pair (0x0d0a) add an extra \n
+ * @param array   $column                description of column in given table
+ * @param array   $data
+ * @param array   $special_chars         special characters
+ * @param integer $biggest_max_file_size biggest max file size for uploading
+ * @param string  $backup_field          hidden input field
+ * @param string  $column_name_appendix  the name atttibute
+ * @param string  $unnullify_trigger     validation string
+ * @param integer $tabindex              tab index
+ * @param integer $tabindex_for_value    offset for the values tabindex
+ * @param integer $idindex               id index
+ * @param string  $text_dir
+ * @param string  $special_chars_encoded replaced char if the string starts
+ *                                       with a \r\n pair (0x0d0a) add an extra \n
  * @param string $vkey                      [multi_edit]['row_id']
  * @param boolean $is_upload                is upload or not
  *
@@ -1005,11 +1005,11 @@ function PMA_getBinaryAndBlobColumn($column, $data, $special_chars,$biggest_max_
 /**
  * Get HTML input type
  *
- * @param array $column                 description of column in given table
- * @param string $column_name_appendix  the name atttibute
- * @param array $special_chars          special characters
+ * @param array   $column               description of column in given table
+ * @param string  $column_name_appendix the name atttibute
+ * @param array   $special_chars        special characters
  * @param integer $fieldsize            html field size
- * @param string $unnullify_trigger     validation string
+ * @param string  $unnullify_trigger    validation string
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
@@ -1037,8 +1037,8 @@ function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
 /**
  * Get HTML select option for upload
  *
- * @param string $vkey      [multi_edit]['row_id']
- * @param array $column     description of column in given table
+ * @param string $vkey   [multi_edit]['row_id']
+ * @param array  $column description of column in given table
  *
  * @return string           an html snippet
  */
@@ -1096,21 +1096,21 @@ function PMA_getMaxUploadSize($column, $biggest_max_file_size)
 /**
  * Get HTML for pma no support types
  *
- * @param array $column                 description of column in given table
- * @param string $default_char_editing  default char editing mode which is stroe
- *                                      in the config.inc.php script
- * @param string $backup_field          hidden input field
- * @param string $column_name_appendix  the name atttibute
- * @param string $unnullify_trigger     validation string
- * @param integer $tabindex             tab index
- * @param array $special_chars          apecial characters
- * @param integer $tabindex_for_value   offset for the values tabindex
- * @param integer $idindex              id index
- * @param string $text_dir
- * @param array $special_chars_encoded  replaced char if the string starts
- *                                      with a \r\n pair (0x0d0a) add an extra \n
+ * @param array   $column                description of column in given table
+ * @param string  $default_char_editing  default char editing mode which is stroe
+ *                                       in the config.inc.php script
+ * @param string  $backup_field          hidden input field
+ * @param string  $column_name_appendix  the name atttibute
+ * @param string  $unnullify_trigger     validation string
+ * @param integer $tabindex              tab index
+ * @param array   $special_chars         apecial characters
+ * @param integer $tabindex_for_value    offset for the values tabindex
+ * @param integer $idindex               id index
+ * @param string  $text_dir
+ * @param array   $special_chars_encoded replaced char if the string starts
+ *                                       with a \r\n pair (0x0d0a) add an extra \n
  *
- * @return string                       an html snippet
+ * @return string an html snippet
  */
 function PMA_getNoSupportTypes($column, $default_char_editing,$backup_field,
     $column_name_appendix, $unnullify_trigger,$tabindex,$special_chars,
@@ -1214,10 +1214,10 @@ function PMA_getHTMLforGisDataTypes($current_row, $column)
 /**
  * get html for continue insertion form
  *
- * @param string $table             name of the table
- * @param string $db                name of the database
- * @param array $where_clause_array array of where clauses
- * @param string $err_url           error url
+ * @param string $table              name of the table
+ * @param string $db                 name of the database
+ * @param array  $where_clause_array array of where clauses
+ * @param string $err_url            error url
  *
  * @return string                   an html snippet
  */
@@ -1255,11 +1255,11 @@ function PMA_getContinueInsertionForm($table, $db, $where_clause_array, $err_url
 /**
  * Get action panel
  *
- * @param integer $tabindex             tab index
- * @param integer $tabindex_for_value   offset for the values tabindex
- * @param boolean $found_unique_key     boolean variable for unique key
+ * @param integer $tabindex           tab index
+ * @param integer $tabindex_for_value offset for the values tabindex
+ * @param boolean $found_unique_key   boolean variable for unique key
  *
- * @return string                       an html snippet
+ * @return string an html snippet
  */
 function PMA_getActionsPanel($where_clause, $after_insert, $tabindex,
     $tabindex_for_value, $found_unique_key
@@ -1290,9 +1290,9 @@ function PMA_getActionsPanel($where_clause, $after_insert, $tabindex,
 /**
  * Get a HTML drop down for submit types
  *
- * @param array $where_clause           where clause
- * @param integer $tabindex             tab index
- * @param integer $tabindex_for_value   offset for the values tabindex
+ * @param array   $where_clause       where clause
+ * @param integer $tabindex           tab index
+ * @param integer $tabindex_for_value offset for the values tabindex
  *
  * @return string                       an html snippet
  */
@@ -1312,9 +1312,9 @@ function PMA_getSubmitTypeDropDown($where_clause, $tabindex, $tabindex_for_value
 /**
  * Get HTML drop down for after insert
  *
- * @param array $where_clause       where clause
- * @param string $after_insert      insert mode, e.g. new_insert, same_insert
- * @param string $after_insert      a request parameter it can be 'edit_text', 'back'
+ * @param array   $where_clause     where clause
+ * @param string  $after_insert     insert mode, e.g. new_insert, same_insert
+ * @param string  $after_insert     a request parameter it can be 'edit_text', 'back'
  * @param boolean $found_unique_key boolean variable for unique key
  *
  * @return string                   an html snippet
@@ -1412,13 +1412,13 @@ function PMA_getHeadAndFootOfInsertRowTable($url_params)
 /**
  * Prepares the field value and retrieve special chars, backup field and data array
  *
- * @param array $current_row            a row of the table
- * @param array $column                 description of column in given table
- * @param array $extracted_columnspec   associative array containing type, spec_in_brackets
+ * @param array   $current_row          a row of the table
+ * @param array   $column               description of column in given table
+ * @param array   $extracted_columnspec associative array containing type, spec_in_brackets
  *                                      and possibly enum_set_values (another array)
  * @param boolean $real_null_value      whether column value null or not null
  *
- * @return array                        $real_null_value, $data, $special_chars, $backup_field, $special_chars_encoded
+ * @return array $real_null_value, $data, $special_chars, $backup_field, $special_chars_encoded
  */
 function PMA_getSpecialCharsAndBackupFieldForExistingRow($current_row, $column, $extracted_columnspec,
     $real_null_value, $gis_data_types, $column_name_appendix)
@@ -1477,10 +1477,10 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow($current_row, $column, 
 /**
  * display default values
  *
- * @param type $column              description of column in given table
- * @param boolean $real_null_value  whether column value null or not null
+ * @param type    $column          description of column in given table
+ * @param boolean $real_null_value whether column value null or not null
  *
- * @return array                    $real_null_value, $data, $special_chars, $backup_field, $special_chars_encoded
+ * @return array $real_null_value, $data, $special_chars, $backup_field, $special_chars_encoded
  */
 function PMA_getSpecialCharsAndBackupFieldForInsertingMode($column, $real_null_value)
 {
@@ -1562,7 +1562,7 @@ function PMA_isInsertRow()
 /**
  * set $_SESSION for edit_next
  *
- * @param string $one_where_clause  one where clause from where clauses array
+ * @param string $one_where_clause one where clause from where clauses array
  *
  * @return void
  */
@@ -1589,7 +1589,8 @@ function PMA_setSessionForEditNext($one_where_clause)
  * if $GLOBALS['goto'] empty, if $goto_include previously not defined
  * and new_insert, same_insert, same_insert
  *
- * @param string $goto_include  store some script for include, otherwise it is boolean false
+ * @param string $goto_include store some script for include, otherwise it is boolean false
+ *
  * @return string               $goto_include
  */
 function PMA_getGotoInclude($goto_include)
@@ -1624,6 +1625,7 @@ function PMA_getGotoInclude($goto_include)
  * Defines the url to return in case of failure of the query
  *
  * @param array $url_params url parameters
+ *
  * @return string           error url for query failure
  */
 function PMA_getErrorUrl($url_params)
@@ -1639,8 +1641,9 @@ function PMA_getErrorUrl($url_params)
  * Builds the sql query
  *
  * @param boolean $is_insertignore  $_REQUEST['submit_type'] == 'insertignore'
- * @param array $query_fields       column names array
- * @param array $value_sets         array of query values
+ * @param array   $query_fields     column names array
+ * @param array   $value_sets       array of query values
+ *
  * @return string                   a query
  */
 function PMA_buildSqlQuery($is_insertignore, $query_fields, $value_sets)
@@ -1659,10 +1662,11 @@ function PMA_buildSqlQuery($is_insertignore, $query_fields, $value_sets)
 /**
  * Executes the sql query and get the result, then move back to the calling page
  *
- * @param array $url_params url paramters array
- * @param string $query     built query from PMA_buildSqlQuery()
- * @return array            $url_params, $total_affected_rows, $last_messages
- *                          $warning_messages, $error_messages, $return_to_sql_query
+ * @param array  $url_params url paramters array
+ * @param string $query      built query from PMA_buildSqlQuery()
+ *
+ * @return array             $url_params, $total_affected_rows, $last_messages
+ *                           $warning_messages, $error_messages, $return_to_sql_query
  */
 function PMA_executeSqlQuery($url_params, $query)
 {
