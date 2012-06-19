@@ -39,8 +39,8 @@ $db_search = new PMA_DbSearch($GLOBALS['db']);
 // Display top links if we are not in an Ajax request
 if ( $GLOBALS['is_ajax_request'] != true) {
     include 'libraries/db_info.inc.php';
-    $response->addHTML('<div id="searchresults">');
 }
+$response->addHTML('<div id="searchresults">');
 
 // Main search form has been submitted, get results
 if (isset($_REQUEST['submit_search'])) {
@@ -48,10 +48,8 @@ if (isset($_REQUEST['submit_search'])) {
 }
 
 // If we are in an Ajax request, we need to exit after displaying all the HTML
-if ($GLOBALS['is_ajax_request'] == true) {
+if ($GLOBALS['is_ajax_request'] == true && empty($_REQUEST['ajax_page_request'])) {
     exit;
-} else {
-    $response->addHTML('</div>');//end searchresults div
 }
 
 // Display the search form
