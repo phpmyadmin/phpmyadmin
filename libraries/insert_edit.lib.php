@@ -1750,6 +1750,7 @@ function PMA_buildSqlQuery($is_insertignore, $query_fields, $value_sets)
  */
 function PMA_executeSqlQuery($url_params, $query)
 {
+    $return_to_sql_query = '';
     if (! empty($GLOBALS['sql_query'])) {
         $url_params['sql_query'] = $GLOBALS['sql_query'];
         $return_to_sql_query = $GLOBALS['sql_query'];
