@@ -168,8 +168,8 @@ class PMA_GIS_PointTest extends PMA_GIS_GeomTest
             )
         );
     }
-    
-        
+
+
     /**
      *
      * @param type $spatial
@@ -177,18 +177,19 @@ class PMA_GIS_PointTest extends PMA_GIS_GeomTest
      * @param type $line_color
      * @param type $scale_data
      * @param type $image
-     * @param type $output 
-     * 
+     * @param type $output
+     *
      *@dataProvider providerForPrepareRowAsPng
      */
-    public function testPrepareRowAsPng($spatial, $label, $line_color, $scale_data, $image, $output) {
-        
+    public function testPrepareRowAsPng($spatial, $label, $line_color, $scale_data, $image, $output)
+    {
+
         $return = $this->object->prepareRowAsPng($spatial, $label, $line_color, $scale_data, $image);
         $this->assertTrue(true);
     }
-    
+
     public function providerForPrepareRowAsPng(){
-        
+
         return array(
             array(
                 'POINT(12 35)',
@@ -203,7 +204,7 @@ class PMA_GIS_PointTest extends PMA_GIS_GeomTest
                 imagecreatetruecolor('120','150'),
                 ''
             )
-            
+
         );
     }
 
@@ -214,17 +215,18 @@ class PMA_GIS_PointTest extends PMA_GIS_GeomTest
      * @param type $line_color
      * @param type $scale_data
      * @param type $pdf
-     * 
+     *
      *@dataProvider providerForPrepareRowAsPdf
      */
-    public function testPrepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf) {
-        
+    public function testPrepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf)
+    {
+
         $return = $this->object->prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf);
         $this->assertTrue($return instanceof TCPDF);
     }
-    
+
     public function providerForPrepareRowAsPdf(){
-        
+
         return array(
             array(
                 'POINT(12 35)',
@@ -237,28 +239,29 @@ class PMA_GIS_PointTest extends PMA_GIS_GeomTest
                     'height' => 150
                 ),
                 new TCPDF(),
-            )           
+            )
         );
     }
-    
+
     /**
      *
      * @param type $spatial
      * @param type $label
      * @param type $line_color
      * @param type $scale_data
-     * @param type $output 
-     * 
-     *@dataProvider providerForPrepareRowAsSvg 
+     * @param type $output
+     *
+     *@dataProvider providerForPrepareRowAsSvg
      */
-    public function testPrepareRowAsSvg($spatial, $label, $line_color, $scale_data, $output) {
-        
+    public function testPrepareRowAsSvg($spatial, $label, $line_color, $scale_data, $output)
+    {
+
         $this->assertEquals($output, $this->object->prepareRowAsSvg($spatial, $label, $line_color, $scale_data));
 //        $this->assertEquals($this->object->prepareRowAsSvg($spatial, $label, $line_color, $scale_data) , $output);
     }
-    
+
     public function providerForPrepareRowAsSvg(){
-        
+
         return array(
             array(
                 'POINT(12 35)',
@@ -271,7 +274,7 @@ class PMA_GIS_PointTest extends PMA_GIS_GeomTest
                     'height' => 150
                 ),
                 ''
-            )           
+            )
         );
     }
 
@@ -282,17 +285,18 @@ class PMA_GIS_PointTest extends PMA_GIS_GeomTest
      * @param type $label
      * @param type $line_color
      * @param type $scale_data
-     * @param type $output 
-     * 
+     * @param type $output
+     *
      *@dataProvider providerForPrepareRowAsOl
      */
-    public function testPrepareRowAsOl($spatial, $srid, $label, $line_color, $scale_data, $output) {
-        
+    public function testPrepareRowAsOl($spatial, $srid, $label, $line_color, $scale_data, $output)
+    {
+
         $this->assertEquals($this->object->prepareRowAsOl($spatial, $srid, $label, $line_color, $scale_data) , $output);
     }
-    
+
     public function providerForPrepareRowAsOl(){
-        
+
         return array(
             array(
                 'POINT(12 35)',
@@ -306,7 +310,7 @@ class PMA_GIS_PointTest extends PMA_GIS_GeomTest
                     'maxY' => '1',
                 ),
                 'bound = new OpenLayers.Bounds(); bound.extend(new OpenLayers.LonLat(0, 0).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject())); bound.extend(new OpenLayers.LonLat(1, 1).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()));vectorLayer.addFeatures(new OpenLayers.Feature.Vector((new OpenLayers.Geometry.Point(12,35)).transform(new OpenLayers.Projection("EPSG:4326"), map.getProjectionObject()), null, {"pointRadius":3,"fillColor":"#ffffff","strokeColor":"#B02EE0","strokeWidth":2,"label":"Ol","labelYOffset":-8,"fontSize":10}));'
-            )           
+            )
         );
     }
 }

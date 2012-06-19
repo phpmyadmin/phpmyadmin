@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-18 10:54+0200\n"
-"PO-Revision-Date: 2012-06-15 12:12+0200\n"
+"PO-Revision-Date: 2012-06-18 16:41+0200\n"
 "Last-Translator: Hamlet Muradyan <contact@hamletmuradyan.com>\n"
 "Language-Team: none\n"
 "Language: hy\n"
@@ -263,11 +263,11 @@ msgstr "%1$s տվյալների բազան վերանված է %2$s-ի"
 #: db_operations.php:318
 #, php-format
 msgid "Database %1$s has been copied to %2$s"
-msgstr ""
+msgstr "%1$s տվյալների բազան պատճենված է %2$s-ում"
 
 #: db_operations.php:449
 msgid "Rename database to"
-msgstr ""
+msgstr "Վերնվանել տվյալների բազան"
 
 #: db_operations.php:476
 msgid "Remove database"
@@ -284,7 +284,7 @@ msgstr "Հեռացնել տվյալների բազան (DROP)"
 
 #: db_operations.php:522
 msgid "Copy database to"
-msgstr ""
+msgstr "Պատճենել տվյալների բազան"
 
 #: db_operations.php:529 tbl_operations.php:567 tbl_tracking.php:482
 msgid "Structure only"
