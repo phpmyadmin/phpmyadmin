@@ -44,10 +44,9 @@ class ImportCsv extends ImportPlugin
      */
     protected function setProperties()
     {
-        global $plugin_param;
         $this->_setAnalyze(false);
 
-        if ($plugin_param !== 'table') {
+        if ($GLOBALS['plugin_param'] !== 'table') {
             $this->_setAnalyze(true);
         }
 
@@ -102,7 +101,7 @@ class ImportCsv extends ImportPlugin
             )
         );
 
-        if ($plugin_param !== 'table') {
+        if ($GLOBALS['plugin_param'] !== 'table') {
             $this->properties['options'][] = array(
                 'type' => 'bool',
                 'name' => 'col_names',

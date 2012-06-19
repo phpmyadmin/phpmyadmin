@@ -17,8 +17,13 @@
  *
  * @return new plugin instance
  */
-function PMA_getPlugin($plugin_type, $plugin_format, $plugins_dir, $plugin_param = false)
-{
+function PMA_getPlugin(
+    $plugin_type,
+    $plugin_format,
+    $plugins_dir,
+    $plugin_param = false
+){
+    $GLOBALS['plugin_param'] = $plugin_param;
     $class_name = strtoupper($plugin_type[0])
         . strtolower(substr($plugin_type, 1))
         . strtoupper($plugin_format[0])
@@ -44,6 +49,7 @@ function PMA_getPlugin($plugin_type, $plugin_format, $plugins_dir, $plugin_param
  */
 function PMA_getPlugins($plugin_type, $plugins_dir, $plugin_param)
 {
+    $GLOBALS['plugin_param'] = $plugin_param;
     /* Scan for plugins */
     $plugin_list = array();
     if ($handle = @opendir($plugins_dir)) {
@@ -61,9 +67,12 @@ function PMA_getPlugins($plugin_type, $plugins_dir, $plugin_param)
                     $matches
                 )
             ) {
+                $GLOBALS['skip_import'] = false;
                 include_once $plugins_dir . $file;
-                $class_name = $class_type . $matches[1];
-                $plugin_list [] = new $class_name;
+                if (! $GLOBALS['skip_import']) {
+                    $class_name = $class_type . $matches[1];
+                    $plugin_list [] = new $class_name;
+                }
             }
         }
     }

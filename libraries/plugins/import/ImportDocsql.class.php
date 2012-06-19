@@ -13,6 +13,12 @@ if (! defined('PHPMYADMIN')) {
 /* Get the import interface */
 require_once "libraries/plugins/ImportPlugin.class.php";
 
+// We need relations enabled and we work only on database
+if ($GLOBALS['plugin_param'] !== 'database') {
+    $GLOBALS['skip_import'] = true;
+    return;
+}
+            
 /**
  * Handles the import for the DocSQL format
  *
@@ -43,13 +49,9 @@ class ImportDocsql extends ImportPlugin
      */
     protected function setProperties()
     {
-        global $plugin_param;
         $this->_setCfgRelation(PMA_getRelationsParam());
         $cfgRelation = $this->_getCfgRelation();
-
-        // We need relations enabled and we work only on database
-        if ($plugin_param !== 'database'
-            || $GLOBALS['num_tables'] < 1
+        if ( $GLOBALS['num_tables'] < 1
             || ! $cfgRelation['relwork']
             || ! $cfgRelation['commwork']
         ) {
