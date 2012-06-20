@@ -56,6 +56,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 - bug #3531586 [unterface] Add user form prints JSON when user presses enter
 - bug #3534121 [config] duplicate line in config.sample.inc.php
 - bug #3534311 [interface] Grid editing incorrectly parses ENUM/SET values
+- bug #3510196 [core] More clever URL rewriting with ForceSSL
 
 3.5.1.0 (2012-05-03)
 - bug #3510784 [edit] Limit clause ignored when sort order is remembered
