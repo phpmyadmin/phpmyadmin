@@ -46,7 +46,7 @@ abstract class ExternalTransformationsPlugin extends TransformationsPlugin
     /**
      * Enables no-wrapping
      *
-     * @param array  $options transformation options
+     * @param array $options transformation options
      *
      * @return bool
      */

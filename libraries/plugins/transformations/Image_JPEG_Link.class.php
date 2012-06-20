@@ -18,7 +18,7 @@ require_once "abstract/ImageLinkTransformationsPlugin.class.php";
  *
  * @package PhpMyAdmin
  */
-    class Image_JPEG_Link extends ImageLinkTransformationsPlugin
+class Image_JPEG_Link extends ImageLinkTransformationsPlugin
 {
     /**
      * Gets the plugin`s MIME type

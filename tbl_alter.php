@@ -221,7 +221,7 @@ if (isset($_REQUEST['do_save_data'])) {
          */
         include_once 'libraries/transformations.lib.php';
 
-        // updaet field names in relation
+        // update field names in relation
         if (isset($_REQUEST['field_orig']) && is_array($_REQUEST['field_orig'])) {
             foreach ($_REQUEST['field_orig'] as $fieldindex => $fieldcontent) {
                 if ($_REQUEST['field_name'][$fieldindex] != $fieldcontent) {
