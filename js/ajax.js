@@ -19,7 +19,7 @@ var AJAX = {
      *
      * @return string
      */
-    getEventName: function (key){
+    hash: function (key){
         /* http://burtleburtle.net/bob/hash/doobs.html#one */
         key += "";
         var len = key.length, hash=0, i=0;
@@ -31,7 +31,7 @@ var AJAX = {
         hash += (hash << 3);
         hash ^= (hash >> 11);
         hash += (hash << 15);
-        return "onload_" + Math.abs(hash);
+        return Math.abs(hash);
     },
     /**
      * Registers an onload event for a file
@@ -39,25 +39,63 @@ var AJAX = {
      * @param string   file The filename for which to register the event
      * @param function func The function to execute when the page is ready
      *
-     * @return void
+     * @return self For chaining
      */
     registerOnload: function (file, func) {
-        eventName = AJAX.getEventName(file);
+        eventName = 'onload_' + AJAX.hash(file);
         $(document).bind(eventName, func);
-        this._debug && console.log("Registered event " + eventName + " for file " + file); // no need to translate
+        this._debug && console.log(
+            "Registered event " + eventName + " for file " + file // no need to translate
+        );
+        return this;
+    },
+    /**
+     * Registers a teardown event for a file. This is useful to execute functions
+     * that unbind events for page elements that are about to be removed.
+     *
+     * @param string   file The filename for which to register the event
+     * @param function func The function to execute when
+     *                      the page is about to be torn down
+     *
+     * @return self For chaining
+     */
+    registerTeardown: function (file, func) {
+        eventName = 'teardown_' + AJAX.hash(file);
+        $(document).bind(eventName, func);
+        this._debug && console.log(
+            "Registered event " + eventName + " for file " + file // no need to translate
+        );
+        return this;
     },
     /**
      * Called when a page has finished loading, once for every
      * file that registered to the onload event of that file.
      *
-     * @param string   file The filename for which to fire the event
+     * @param string file The filename for which to fire the event
      *
      * @return void
      */
     fireOnload: function (file) {
-        eventName = AJAX.getEventName(file);
+        eventName = 'onload_' + AJAX.hash(file);
         $(document).trigger(eventName);
-        this._debug && console.log("Fired event " + eventName + " for file " + file); // no need to translate
+        this._debug && console.log(
+            "Fired event " + eventName + " for file " + file // no need to translate
+        );
+    },
+    /**
+     * Called just before a page is torn down, once for every
+     * file that registered to the teardown event of that file.
+     *
+     * @param string file The filename for which to fire the event
+     *
+     * @return void
+     */
+    fireTeardown: function (file) {
+        eventName = 'teardown_' + AJAX.hash(file);
+        $(document).trigger(eventName);
+        this._debug && console.log(
+            "Fired event " + eventName + " for file " + file // no need to translate
+        );
     },
     /**
      * Event handler for clicks on links and form submissions
@@ -75,14 +113,14 @@ var AJAX = {
             return true;
         } else if ($(this).attr('href') && $(this).attr('href').match(/^mailto/)) {
             return true;
+        }
+
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        if (AJAX.active == true) {
+            return false;
         } else {
-            e.preventDefault();
-            e.stopImmediatePropagation();
-            if (AJAX.active == true) {
-                return false;
-            } else {
-                AJAX.active = true;
-            }
+            AJAX.active = true;
         }
 
         var url = $(this).attr('href') || $(this).attr('action') + '?' + $(this).serialize();
@@ -93,14 +131,14 @@ var AJAX = {
             if (data.success) {
                 PMA_ajaxRemoveMessage($msgbox);
 
+                AJAX.scriptHandler.reset();
+
                 if (data._menu) {
                     $('#floating_menubar').html(data._menu)
                         .children().first().remove(); // Remove duplicate wrapper (TODO: don't send it in the response)
                     menuPrepare();
                     menuResize();
                 }
-
-                $('*').unbind().die();
 
                 $('body').children().not('#floating_menubar').not('#page_content').not('#selflink').remove();
 
@@ -197,14 +235,24 @@ var AJAX = {
                 AJAX.fireOnload(this._scriptsToBeFired[i]);
             }
             AJAX.active = false;
+        },
+        reset: function () {
+            for (var i in this._scriptsToBeFired) {
+                AJAX.fireTeardown(this._scriptsToBeFired[i]);
+            }
+            this._scriptsToBeFired = [];
+            /**
+             * Re-attach a generic event handler to clicks
+             * on pages and submissions of forms
+             */
+            $('a').die('click').live('click', AJAX.requestHandler);
+            $('form').die('submit').live('submit', AJAX.requestHandler);
         }
     }
 };
-
 /**
  * Attach a generic event handler to clicks
  * on pages and submissions of forms
  */
 $('a').live('click', AJAX.requestHandler);
 $('form').live('submit', AJAX.requestHandler);
-

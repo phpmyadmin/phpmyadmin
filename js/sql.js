@@ -57,6 +57,28 @@ function getFieldName($this_field)
 }
 
 /**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('sql.js', function() {
+    $('input#bkm_label').unbind('keyup');
+    $("#sqlqueryresults").die('makegrid');
+    $("#togglequerybox").unbind('click');
+    $("#button_submit_query").die('click');
+    $("input[name=bookmark_variable]").unbind("keypress");
+    $("#sqlqueryform.ajax").die('submit');
+    $("input[name=navig].ajax").die('click');
+    $("#pageselector").die('change');
+    $("#table_results.ajax").find("a[title=Sort]").die('click');
+    $("#displayOptionsForm.ajax").die('submit');
+    $("#resultsForm.ajax .mult_submit[value=edit]").die('click');
+    $("#insertForm .insertRowTable.ajax input[type=submit]").die('click');
+    $("#buttonYes.ajax").die('click');
+    $('a.browse_foreign').die('click');
+    $('th.column_heading.pointer').die('hover');
+    $('th.column_heading.marker').die('click');
+});
+
+/**
  * @description <p>Ajax scripts for sql and browse pages</p>
  *
  * Actions ajaxified here:
@@ -476,6 +498,7 @@ AJAX.registerOnload('sql.js', function() {
 /**$("#buttonYes.ajax").live('click'
  * Click action for #buttonYes button in ajax dialog insertForm
  */
+
     $("#buttonYes.ajax").live('click', function(event){
         event.preventDefault();
         /**
@@ -526,7 +549,7 @@ AJAX.registerOnload('sql.js', function() {
         }); // end $.post()
     });
 
-}, 'top.frame_content'); // end $()
+}); // end $()
 
 
 /**

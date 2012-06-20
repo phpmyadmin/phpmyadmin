@@ -9,6 +9,14 @@
  */
 
 /**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('server_databases.js', function() {
+    $("button[name=drop_selected_dbs].ajax").die('click');
+    $('#create_database_form.ajax').die('submit');
+});
+
+/**
  * AJAX scripts for server_databases.php
  *
  * Actions ajaxified here:

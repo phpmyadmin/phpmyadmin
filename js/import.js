@@ -43,6 +43,18 @@ function matchFile(fname)
         }
     }
 }
+
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('import.js', function() {
+    $("#plugins").unbind('change');
+    $("#input_import_file").unbind('change');
+    $("#select_local_import_file").unbind('change');
+    $("#input_import_file").unbind('change').unbind('focus');
+    $("#select_local_import_file").unbind('focus');
+});
+
 AJAX.registerOnload('import.js', function() {
     // Initially display the options for the selected plugin
     changePluginOpts();

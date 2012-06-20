@@ -209,6 +209,18 @@ RTE.setOptionsForParameter = function ($type, $len, $text, $num) {
 }; // end RTE.setOptionsForParameter()
 
 /**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('rte/routines.js', function () {
+    $('input[name=routine_addparameter]').die('click');
+    $('a.routine_param_remove_anchor').die('click');
+    $('select[name=item_type]').die('change');
+    $('select[name^=item_param_type]').die('change');
+    $('select[name=item_returntype]').die('change');
+    $('a.ajax.exec_anchor').die('click');
+});
+
+/**
  * Attach Ajax event handlers for the Routines functionalities.
  *
  * @see $cfg['AjaxEnable']

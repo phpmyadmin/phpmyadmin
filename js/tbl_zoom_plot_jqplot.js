@@ -104,6 +104,22 @@ function scrollToChart() {
    $('html,body').animate({scrollTop: x}, 500);
 }
 
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('tbl_zoom_plot_jqplot.js', function() {
+    $('#tableid_0').unbind('change');
+    $('#tableid_1').unbind('change');
+    $('#tableid_2').unbind('change');
+    $('#tableid_3').unbind('change');
+    $('#inputFormSubmitId').unbind('click');
+    $('#togglesearchformlink').unbind('click');
+    $("#dataDisplay").find(':input').die('keydown');
+    $('button.button-reset').unbind('click');
+    $('div#resizer').unbind('resizestop');
+    $('div#querychart').unbind('jqplotDataClick');
+});
+
 AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
     var cursorMode = ($("input[name='mode']:checked").val() == 'edit') ? 'crosshair' : 'pointer';
     var currentChart = null;

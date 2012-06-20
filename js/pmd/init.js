@@ -4,6 +4,11 @@
  */
 
 var j_tabs, h_tabs, contr, server, db, token;
+
+AJAX.registerTeardown('pmd/init.js', function() {
+    $(".trigger").unbind('click');
+});
+
 AJAX.registerOnload('pmd/init.js', function() {
     $(".trigger").click(function() {
         $(".panel").toggle("fast");

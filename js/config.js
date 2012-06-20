@@ -3,6 +3,19 @@
  * Functions used in configuration forms and on user preferences pages
  */
 
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('config.js', function() {
+    $('input[id], select[id], textarea[id]').unbind('change').unbind('keyup');
+    $('input[type=button][name=submit_reset]').unbind('click');
+    $('div.tabs_contents').undelegate();
+    $('#import_local_storage, #export_local_storage').unbind('click');
+    $('form.prefs-form').unbind('change').unbind('submit');
+    $('div.click-hide-message').die('click');
+    $('#prefs_autoload').find('a').unbind('click');
+});
+
 // default values for fields
 var defaultValues = {};
 

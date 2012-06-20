@@ -17,6 +17,21 @@
  * Drop Primary Key/Index
  *
  */
+
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('tbl_structure.js', function() {
+    $("a.drop_column_anchor.ajax").die('click');
+    $("a.action_primary.ajax").die('click');
+    $('a.drop_primary_key_index_anchor.ajax').die('click');
+    $("#table_index tbody tr td.edit_index.ajax, #indexes .add_index.ajax").die('click');
+    $('#index_frm input[type=submit]').die('click');
+    $("#move_columns_anchor").die('click');
+    $("#addColumns.ajax input[type=submit]").die('click');
+    $("#append_fields_form.ajax input[name=do_save_data]").die('click');
+});
+
 AJAX.registerOnload('tbl_structure.js', function() {
     /**
      * Attach Event Handler for 'Drop Column'
@@ -510,13 +525,12 @@ AJAX.registerOnload('tbl_structure.js', function() {
             PMA_ajaxRemoveMessage($msgbox);
         }); // end $.get()
     });
-}); // end $()
 
-/**
- * jQuery coding for 'Change Table' and 'Add Column'.  Used on tbl_structure.php *
- * Attach Ajax Event handlers for Change Table
- */
-AJAX.registerOnload('tbl_structure.js', function() {
+    /**
+     * jQuery coding for 'Change Table' and 'Add Column'.  Used on tbl_structure.php *
+     * Attach Ajax Event handlers for Change Table
+     */
+
     /**
      *Ajax action for submitting the "Column Change" and "Add Column" form
     **/
@@ -733,7 +747,7 @@ function moreOptsMenuResize() {
         });
 }
 AJAX.registerOnload('tbl_structure.js', function () {
-    $(window).resize(moreOptsMenuResize);
+    $(window).resize(moreOptsMenuResize); // FIXME: shouldn't register that can't be unbound easily
     $("div.replace_in_more").hide();
     moreOptsMenuResize();
 });

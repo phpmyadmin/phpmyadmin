@@ -318,6 +318,16 @@ function hideOrDisplayServerFields($server_selector, selected_option)
     }
 }
 
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('server_synchonize.js', function() {
+    $('select.server_selector').unbind('change');
+    $('img.struct_img').unbind('hover');
+    $('img.data_img').unbind('hover');
+    $('#buttonGo').unbind('click');
+});
+
 AJAX.registerOnload('server_synchronize.js', function() {
     $('select.server_selector').change(function(evt) {
         var selected_option = $(evt.target).val();

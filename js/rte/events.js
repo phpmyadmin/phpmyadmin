@@ -30,6 +30,13 @@ RTE.validateCustom = function () {
 }; // end RTE.validateCustom()
 
 /**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('rte/events.js', function () {
+    $('select[name=item_type]').die('change');
+});
+
+/**
  * Attach Ajax event handlers for the "Change event type"
  * functionality in the events editor, so that the correct
  * rows are shown in the editor when changing the event type

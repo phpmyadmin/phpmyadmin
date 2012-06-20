@@ -19,6 +19,21 @@
  */
 
 /**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('db_structure.js', function() {
+    $("td.insert_table a.ajax").die('click');
+    $("#insertForm .insertRowTable.ajax input[type=submit]").die('click');
+    $("#buttonYes.ajax").die('click');
+    $("span.fkc_switch").unbind('click');
+    $('#fkc_checkbox').unbind('change');
+    $("a.truncate_table_anchor.ajax").die('click');
+    $("a.drop_table_anchor.ajax").die('click');
+    $('a.drop_tracking_anchor.ajax').die('click');
+    $('#real_end_input').die('click');
+});
+
+/**
  * Adjust number of rows and total size in the summary
  * when truncating, creating, dropping or inserting into a table
  */

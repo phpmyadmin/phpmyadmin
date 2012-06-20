@@ -95,6 +95,23 @@ function appendNewUser(new_user_string, new_user_initial, new_user_initial_strin
  * @name        document.ready
  */
 
+
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('server_privileges.js', function() {
+    $("#fieldset_add_user a.ajax").die("click");
+    $('form[name=usersForm]').unbind('submit');
+    $("#reload_privileges_anchor.ajax").die("click");
+    $("#fieldset_delete_user_footer #buttonGo.ajax").die('click');
+    $("a.edit_user_anchor.ajax").die('click');
+    $("#edit_user_dialog").find("form.ajax").die('submit');
+    $("button.mult_submit[value=export]").die('click');
+    $("a.export_user_anchor.ajax").die('click');
+    $("#initials_table").find("a.ajax").die('click');
+    $('#checkbox_drop_users_db').unbind('click');
+});
+
 AJAX.registerOnload('server_privileges.js', function() {
     /**
      * AJAX event handler for 'Add a New User'
@@ -353,7 +370,7 @@ AJAX.registerOnload('server_privileges.js', function() {
      * @memberOf    jQuery
      * @name        edit_user_submit
      */
-    $("#edit_user_dialog").find("form.ajax").die().live('submit', function(event) {
+    $("#edit_user_dialog").find("form.ajax").live('submit', function(event) {
         /** @lends jQuery */
         event.preventDefault();
 
@@ -537,7 +554,7 @@ AJAX.registerOnload('server_privileges.js', function() {
      * @name        paginate_users_table_click
      * @memberOf    jQuery
      */
-    $("#initials_table").find("a.ajax").die().live('click', function(event) {
+    $("#initials_table").find("a.ajax").live('click', function(event) {
         event.preventDefault();
 
         var $msgbox = PMA_ajaxShowMessage();

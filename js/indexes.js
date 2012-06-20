@@ -77,6 +77,13 @@ function checkIndexType()
 }
 
 /**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('indexes.js', function() {
+    $('#select_index_type').die('change');
+});
+
+/**
  * @description <p>Ajax scripts for table index page</p>
  *
  * Actions ajaxified here:

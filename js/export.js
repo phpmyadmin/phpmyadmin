@@ -4,6 +4,24 @@
  *
  */
 
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('export.js', function() {
+    $("#plugins").unbind('change');
+    $("input[type='radio'][name='sql_structure_or_data']").unbind('change');
+    $("input[type='radio'][name='latex_structure_or_data']").unbind('change');
+    $("input[type='radio'][name='odt_structure_or_data']").unbind('change');
+    $("input[type='radio'][name='texytext_structure_or_data']").unbind('change');
+    $("input[type='radio'][name='htmlword_structure_or_data']").unbind('change');
+    $("input[type='radio'][name='sql_structure_or_data']").unbind('change');
+    $("input[type='radio'][name='output_format']").unbind('change');
+    $("#checkbox_sql_include_comments").unbind('change');
+    $("#plugins").unbind('change');
+    $("input[type='radio'][name='quick_or_custom']").unbind('change');
+    $("input[type='radio'][name='allrows']").unbind('change');
+});
+
 AJAX.registerOnload('export.js', function () {
     /**
      * Toggles the hiding and showing of each plugin's options

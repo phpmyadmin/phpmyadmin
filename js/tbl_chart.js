@@ -9,6 +9,19 @@ var currentChart = null;
 var nonJqplotSettings = null;
 var currentSettings = null;
 
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('tbl_chart.js', function() {
+    $('input[name="chartType"]').unbind('click');
+    $('input[name="barStacked"]').unbind('click');
+    $('input[name="chartTitle"]').unbind('focus').unbind('keyup').unbind('blur');
+    $('select[name="chartXAxis"]').unbind('change');
+    $('select[name="chartSeries"]').unbind('change');
+    $('input[name="xaxis_label"]').unbind('keyup');
+    $('input[name="yaxis_label"]').unbind('keyup');
+});
+
 AJAX.registerOnload('tbl_chart.js', function() {
     chart_series = $('select[name="chartSeries"]').val();
     // If no series is selected null is returned.

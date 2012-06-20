@@ -75,10 +75,16 @@ var RTE = {
 }; // end RTE namespace
 
 /**
- * Attach Ajax event handlers for the Routines, Triggers and Events editor.
- *
- * @see $cfg['AjaxEnable']
+ * Unbind all event handlers before tearing down a page
  */
+AJAX.registerTeardown('rte/common.js', function () {
+    $('a.ajax.add_anchor, a.ajax.edit_anchor').die('click');
+    $('table.rte_table').find('input[name^=item], input[name^=params]').die('keydown');
+    $('a.ajax.export_anchor').die('click');
+    $('a.ajax.drop_anchor').die('click');
+});
+
+
 AJAX.registerOnload('rte/common.js', function () {
     /**
      * Attach Ajax event handlers for the Add/Edit functionality.

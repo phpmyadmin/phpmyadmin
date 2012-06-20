@@ -18,6 +18,15 @@
  * Change charset
  */
 
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('db_operations.js', function() {
+    $("#rename_db_form.ajax").die('submit');
+    $("#copy_db_form.ajax").die('submit');
+    $("#change_db_charset_form.ajax").die('submit');
+});
+
 AJAX.registerOnload('db_operations.js', function() {
 
     /**

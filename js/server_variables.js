@@ -1,4 +1,13 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('server_variables.js', function() {
+    $('table.data tbody tr td:nth-child(2).editable').unbind('hover');
+    $('#filterText').unbind('keyup');
+});
+
 AJAX.registerOnload('server_variables.js', function() {
     var textFilter = null, odd_row = false;
     var testString = 'abcdefghijklmnopqrstuvwxyz0123456789,ABCEFGHIJKLMOPQRSTUVWXYZ';
@@ -47,7 +56,7 @@ AJAX.registerOnload('server_variables.js', function() {
     charWidth = $tmpDiv.width() / testString.length;
     $tmpDiv.remove();
 
-    $(window).resize(limitTableWidth);
+    $(window).resize(limitTableWidth); // FIXME: this doesn't work that well and binding anything to the window resize event is a bad idea
     limitTableWidth();
 
     /* This function chops of long variable values to keep the table from overflowing horizontally

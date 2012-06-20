@@ -201,6 +201,21 @@ function insertDataAndClose() {
     closeGISEditor();
 }
 
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('gis_data_editor.js', function() {
+    $("#gis_editor input[name='gis_data[save]']").die('click');
+    $('#gis_editor').die('submit');
+    $('#gis_editor').find("input[type='text']").die('change');
+    $("#gis_editor select.gis_type").die('change');
+    $('#gis_editor a.close_gis_editor, #gis_editor a.cancel_gis_editor').die('click');
+    $('#gis_editor a.addJs.addPoint').die('click');
+    $('#gis_editor a.addLine.addJs').die('click');
+    $('#gis_editor a.addJs.addPolygon').die('click');
+    $('#gis_editor a.addJs.addGeom').die('click');
+});
+
 AJAX.registerOnload('gis_data_editor.js', function() {
 
     // Remove the class that is added due to the URL being too long.

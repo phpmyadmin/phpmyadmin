@@ -536,6 +536,12 @@ function checkTableEditForm(theForm, fieldsCnt)
     return true;
 } // enf of the 'checkTableEditForm()' function
 
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('functions.js', function() {
+    $('table:not(.noclick) tr.odd:not(.noclick), table:not(.noclick) tr.even:not(.noclick)').die('click');
+});
 AJAX.registerOnload('functions.js', function() {
     /**
      * Row marking in horizontal mode (use "live" so that it works also for
@@ -1269,6 +1275,18 @@ function pdfPaperSize(format, axis)
 }
 
 /**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('functions.js', function() {
+    $("a.inline_edit_sql").die('click');
+    $("input.btnSave").unbind('click');
+    $("input.btnDiscard").unbind('click');
+    $('input.sqlbutton').unbind('click');
+    $("#export_type").unbind('change');
+    $('#sqlquery').unbind('keydown');
+});
+
+/**
  * Jquery Coding for inline editing SQL_QUERY
  */
 AJAX.registerOnload('functions.js', function() {
@@ -1533,7 +1551,8 @@ function PMA_ajaxRemoveMessage($this_msgbox)
     }
 }
 
-AJAX.registerOnload('functions.js', function() {
+// This event only need to be fired once after the initial page load
+$(function() {
     /**
      * Allows the user to dismiss a notification
      * created with PMA_ajaxShowMessage()
@@ -1992,6 +2011,15 @@ jQuery.fn.PMA_sort_table = function(text_selector) {
 };
 
 /**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('functions.js', function() {
+    $("#create_table_form_minimal.ajax").die('submit');
+    $("#create_table_form input[name=do_save_data]").die('click');
+    $("#create_table_form.ajax input[name=submit_num_fields]").die('click');
+});
+
+/**
  * jQuery coding for 'Create Table'.  Used on db_operations.php,
  * db_structure.php and db_tracking.php (i.e., wherever
  * libraries/display_create_table.lib.php is used)
@@ -2160,6 +2188,15 @@ AJAX.registerOnload('functions.js', function() {
 
 });
 
+
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('functions.js', function() {
+    $("#alterTableOrderby.ajax").die('submit');
+    $("#copyTable.ajax input[name='submit_copy']").die('click');
+    $("#tbl_maintenance li a.maintain_action.ajax").die('click');
+});
 /**
  * jQuery coding for 'Table operations'.  Used on tbl_operations.php
  * Attach Ajax Event handlers for Table operations
@@ -2276,7 +2313,12 @@ AJAX.registerOnload('functions.js', function() {
 
 }); //end $(document).ready for 'Table operations'
 
-
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('functions.js', function() {
+    $("#drop_db_anchor.ajax").die('click');
+});
 /**
  * Attach Ajax event handlers for Drop Database. Moved here from db_structure.js
  * as it was also required on db_create.php
@@ -2347,6 +2389,12 @@ function PMA_checkPassword($the_form)
     return true;
 }
 
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('functions.js', function() {
+    $('#change_password_anchor.ajax').die('click');
+});
 /**
  * Attach Ajax event handlers for 'Change Password' on main.php
  */
@@ -2441,6 +2489,14 @@ AJAX.registerOnload('functions.js', function() {
 }); // end $() for Change Password
 
 /**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('functions.js', function() {
+    $("select.column_type").die('change');
+    $("select.default_type").die('change');
+    $('input.allow_null').die('change');
+});
+/**
  * Toggle the hiding/showing of the "Open in ENUM/SET editor" message when
  * the page loads and when the selected data type changes
  */
@@ -2501,6 +2557,15 @@ function PMA_validateDefaultValue($null_checkbox)
     }
 }
 
+
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('functions.js', function() {
+    $("a.open_enum_editor").die('click');
+    $("input.add_value").die('click');
+    $("#enum_editor td.drop").die('click');
+});
 /**
  * @var $enum_editor_dialog An object that points to the jQuery
  *                          dialog of the ENUM/SET editor
@@ -3039,6 +3104,12 @@ var toggleButton = function ($obj) {
 };
 
 /**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('functions.js', function() {
+    $('div.container').unbind('click');
+});
+/**
  * Initialise all toggle buttons
  */
 AJAX.registerOnload('functions.js', function () {
@@ -3048,6 +3119,16 @@ AJAX.registerOnload('functions.js', function () {
     });
 });
 
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('functions.js', function() {
+    $('.vpointer').die('hover');
+    $('.vmarker').die('click');
+    $('#pageselector').die('change');
+    $('a.formLinkSubmit').die('click');
+    $('#update_recent_tables').unbind('ready');
+});
 /**
  * Vertical pointer
  */
@@ -3238,6 +3319,13 @@ function PMA_slidingMessage(msg, $obj)
 } // end PMA_slidingMessage()
 
 /**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('functions.js', function() {
+    $("#drop_tbl_anchor.ajax").die('click');
+    $("#truncate_tbl_anchor.ajax").die('click');
+});
+/**
  * Attach Ajax event handlers for Drop Table.
  *
  * @see $cfg['AjaxEnable']
@@ -3269,14 +3357,7 @@ AJAX.registerOnload('functions.js', function() {
             }); // end $.get()
         }); // end $.PMA_confirm()
     }); //end of Drop Table Ajax action
-}); // end of $() for Drop Table
 
-/**
- * Attach Ajax event handlers for Truncate Table.
- *
- * @see $cfg['AjaxEnable']
- */
-AJAX.registerOnload('functions.js', function() {
     $("#truncate_tbl_anchor.ajax").live('click', function(event) {
         event.preventDefault();
 
@@ -3445,6 +3526,15 @@ loadJavascript=function(file) {
     }
 };
 
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('functions.js', function() {
+    $('a.themeselect').die('click');
+    $('.autosubmit').unbind('change');
+    $('a.take_theme').unbind('click');
+});
+
 AJAX.registerOnload('functions.js', function() {
     /**
      * Theme selector.
@@ -3520,6 +3610,15 @@ function printPage()
     }
 }
 
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('functions.js', function() {
+    $('input#print').unbind('click');
+    $('span a.create_view.ajax').die('click');
+    $('#createViewDialog').find('input, select').die('keydown');
+});
+
 AJAX.registerOnload('functions.js', function() {
     $('input#print').click(printPage);
 
@@ -3542,12 +3641,10 @@ AJAX.registerOnload('functions.js', function() {
             $('#floating_menubar').outerHeight(true)
         );
     }
-});
 
-/**
- * Ajaxification for the "Create View" action
- */
-AJAX.registerOnload('functions.js', function () {
+    /**
+     * Ajaxification for the "Create View" action
+     */
     $('span a.create_view.ajax').live('click', function (e) {
         e.preventDefault();
         var $msg = PMA_ajaxShowMessage();
@@ -3673,18 +3770,15 @@ function formatBytes(bytes, subdecimals, pointchar) {
     return bytes + ' ' + units[i];
 }
 
-/**
- * Opens pma more themes link in themes browser, in new window instead of popup
- * This way, we don't break HTML validity
- */
 AJAX.registerOnload('functions.js', function () {
+    /**
+     * Opens pma more themes link in themes browser, in new window instead of popup
+     * This way, we don't break HTML validity
+     */
     $("a._blank").prop("target", "_blank");
-});
-
-/**
- * Reveal the login form to users with JS enabled
- */
-AJAX.registerOnload('functions.js', function () {
+    /**
+     * Reveal the login form to users with JS enabled
+     */
     var $loginform = $('#loginform');
     $loginform.find('.js-show').show();
     $loginform.find('#input_username').select();

@@ -20,6 +20,26 @@ var pma_token,
     is_superuser,
     server_db_isLocal;
 
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('server_status.js', function() {
+    $('a.popupLink').unbind('click');
+    $(document).unbind('click'); // Am I sure about this? I guess not...
+    $('div.buttonlinks select').unbind('click');
+    $('div.buttonlinks a.tabRefresh').unbind('click');
+    $('div.buttonlinks a.livetrafficLink').unbind('click');
+    $('div.buttonlinks a.liveconnectionsLink').unbind('click');
+    $('div.buttonlinks a.livequeriesLink').unbind('click');
+
+    $('#filterAlert').unbind('change');
+    $('#filterText').unbind('keyup');
+    $('#filterCategory').unbind('change');
+    $('input#dontFormat').unbind('change');
+    $('a[href="#openAdvisorInstructions"]').unbind('click');
+    $('a[href="#startAnalyzer"]').unbind('click');
+});
+
 // Add a tablesorter parser to properly handle thousands seperated numbers and SI prefixes
 AJAX.registerOnload('server_status.js', function() {
 

@@ -16,6 +16,17 @@
  */
 
 /**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('db_search.js', function() {
+    $('#buttonGo').unbind('click');
+    $('#togglesearchresultlink').unbind('click');
+    $("#togglequerybox").unbind('click');
+    $('#togglesearchformlink').unbind('click');
+    $("#db_search_form.ajax").die('submit');
+});
+
+/**
  * Loads the database search results
  *
  * @param result_path Url of the page to load

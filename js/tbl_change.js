@@ -216,6 +216,18 @@ function verificationsAfterFieldChange(urlField, multi_edit, theType)
  }
  /* End of datetime validation*/
 
+
+/**
+ * Unbind all event handlers before tearing down a page
+ */
+AJAX.registerTeardown('tbl_change.js', function() {
+    $('span.open_gis_editor').die('click');
+    $("input[name='gis_data[save]']").die('click');
+    $('input.checkbox_null').unbind('click');
+    $('select[name="submit_type"]').unbind('change');
+    $("#insert_rows").die('change');
+});
+
 /**
  * Ajax handlers for Change Table page
  *
