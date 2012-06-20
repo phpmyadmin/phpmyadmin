@@ -457,9 +457,9 @@ function PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
     $tabindex, $idindex, $insert_mode
 ) {
     $html_output = '';
-    if (($GLOBALS['cfg']['ProtectBinary'] && $column['is_blob'] && !$is_upload)
-        || ($GLOBALS['cfg']['ProtectBinary'] == 'all' && $column['is_binary'])
-        || ($GLOBALS['cfg']['ProtectBinary'] == 'noblob' && !$column['is_blob'])
+    if (($GLOBALS['cfg']['ProtectBinary'] && $column['is_blob'] && ! $is_upload)
+        || ($GLOBALS['cfg']['ProtectBinary'] === 'all' && $column['is_binary'])
+        || ($GLOBALS['cfg']['ProtectBinary'] === 'noblob' && ! $column['is_blob'])
     ) {
         $html_output .= '<td class="center">' . __('Binary') . '</td>' . "\n";
     } elseif (strstr($column['True_Type'], 'enum')
