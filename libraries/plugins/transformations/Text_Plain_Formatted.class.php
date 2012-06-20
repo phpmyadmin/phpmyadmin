@@ -21,20 +21,6 @@ require_once "abstract/FormattedTransformationsPlugin.class.php";
 class Text_Plain_Formatted extends FormattedTransformationsPlugin
 {
     /**
-     * Gets the transformation description of the specific plugin
-     *
-     * @return string
-     */
-    public static function getInfo()
-    {
-        return __(
-            'Displays the contents of the column as-is, without running it'
-            . ' through htmlspecialchars(). That is, the column is assumed'
-            . ' to contain valid HTML.'
-        );
-    }
-
-    /**
      * Gets the plugin`s MIME type
      *
      * @return string

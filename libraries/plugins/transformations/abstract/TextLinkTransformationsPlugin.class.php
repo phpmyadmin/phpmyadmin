@@ -18,8 +18,22 @@ require_once "libraries/plugins/TransformationsPlugin.class.php";
  *
  * @package PhpMyAdmin
  */
-abstract class LinkTransformationsPlugin extends TransformationsPlugin
+abstract class TextLinkTransformationsPlugin extends TransformationsPlugin
 {
+    /**
+     * Gets the transformation description of the specific plugin
+     *
+     * @return string
+     */
+    public static function getInfo()
+    {
+        return __(
+            'Displays a link; the column contains the filename. The first option'
+            . ' is a URL prefix like "http://www.example.com/". The second option'
+            . ' is a title for the link.'
+        );
+    }
+
     /**
      * Does the actual work of each specific transformations plugin.
      *
@@ -27,12 +41,23 @@ abstract class LinkTransformationsPlugin extends TransformationsPlugin
      * @param array  $options transformation options
      * @param string $meta    meta information
      *
-     * @todo implement
      * @return void
      */
-    public function applyTransformation($buffer, $options, $meta)
+    public function applyTransformation($buffer, $options = array(), $meta = '')
     {
-        ;
+        $transform_options = array (
+            'string' => '<a href="'
+                . PMA_linkURL((isset($options[0]) ? $options[0] : '') . $buffer)
+                . '" title="' . (isset($options[1]) ? $options[1] : '')
+                . '">' . (isset($options[1]) ? $options[1] : $buffer) . '</a>'
+        );
+
+        $buffer = PMA_transformation_global_html_replace(
+            $buffer,
+            $transform_options
+        );
+
+        return $buffer;
     }
 
     /**

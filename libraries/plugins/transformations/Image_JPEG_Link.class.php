@@ -11,27 +11,15 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the link transformations interface */
-require_once "abstract/LinkTransformationsPlugin.class.php";
+require_once "abstract/ImageLinkTransformationsPlugin.class.php";
 
 /**
  * Handles the link transformation for image jpeg
  *
  * @package PhpMyAdmin
  */
-class Image_JPEG_Link extends LinkTransformationsPlugin
+    class Image_JPEG_Link extends ImageLinkTransformationsPlugin
 {
-    /**
-     * Gets the transformation description of the specific plugin
-     *
-     * @return string
-     */
-    public static function getInfo()
-    {
-        return __(
-            'Displays a link to download this image.'
-        );
-    }
-
     /**
      * Gets the plugin`s MIME type
      *

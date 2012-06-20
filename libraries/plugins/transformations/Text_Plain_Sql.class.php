@@ -21,18 +21,6 @@ require_once "abstract/SQLTransformationsPlugin.class.php";
 class Text_Plain_Sql extends SQLTransformationsPlugin
 {
     /**
-     * Gets the transformation description of the specific plugin
-     *
-     * @return string
-     */
-    public static function getInfo()
-    {
-        return __(
-            'Formats text as SQL query with syntax highlighting.'
-        );
-    }
-
-    /**
      * Gets the plugin`s MIME type
      *
      * @return string

@@ -21,20 +21,6 @@ require_once "abstract/HexTransformationsPlugin.class.php";
 class Application_Octetstream_Hex extends HexTransformationsPlugin
 {
     /**
-     * Gets the transformation description of the specific plugin
-     *
-     * @return string
-     */
-    public static function getInfo()
-    {
-        return __(
-            'Displays hexadecimal representation of data. Optional first'
-            . ' parameter specifies how often space will be added (defaults'
-            . ' to 2 nibbles).'
-        );
-    }
-
-    /**
      * Gets the plugin`s MIME type
      *
      * @return string

@@ -26,6 +26,19 @@ abstract class TransformationsPlugin extends PluginObserver
     /**
      * Does the actual work of each specific transformations plugin.
      *
+     * @param array  $options transformation options
+     *
+     * @todo implement
+     * @return void
+     */
+    public function applyTransformationNoWrap($options = array())
+    {
+        ;
+    }
+
+    /**
+     * Does the actual work of each specific transformations plugin.
+     *
      * @param string $buffer  text to be transformed
      * @param array  $options transformation options
      * @param string $meta    meta information

@@ -1,10 +1,10 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Abstract class for the image link transformations plugins
+ * Abstract class for the link transformations plugins
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage ImageLink
+ * @subpackage Link
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -14,12 +14,24 @@ if (! defined('PHPMYADMIN')) {
 require_once "libraries/plugins/TransformationsPlugin.class.php";
 
 /**
- * Provides common methods for all of the image link transformations plugins.
+ * Provides common methods for all of the link transformations plugins.
  *
  * @package PhpMyAdmin
  */
 abstract class ImageLinkTransformationsPlugin extends TransformationsPlugin
 {
+    /**
+     * Gets the transformation description of the specific plugin
+     *
+     * @return string
+     */
+    public static function getInfo()
+    {
+        return __(
+            'Displays a link to download this image.'
+        );
+    }
+
     /**
      * Does the actual work of each specific transformations plugin.
      *
@@ -27,12 +39,20 @@ abstract class ImageLinkTransformationsPlugin extends TransformationsPlugin
      * @param array  $options transformation options
      * @param string $meta    meta information
      *
-     * @todo implement
      * @return void
      */
-    public function applyTransformation($buffer, $options, $meta)
+    public function applyTransformation($buffer, $options = array(), $meta = '')
     {
-        ;
+        $transform_options = array (
+            'string' => '<a href="transformation_wrapper.php'
+                . $options['wrapper_link'] . '" alt="[__BUFFER__]">[BLOB]</a>'
+        );
+        $buffer = PMA_transformation_global_html_replace(
+            $buffer,
+            $transform_options
+        );
+
+        return $buffer;
     }
 
     /**
@@ -61,7 +81,7 @@ abstract class ImageLinkTransformationsPlugin extends TransformationsPlugin
      */
     public static function getName()
     {
-        return "Image Link";
+        return "Link";
     }
 }
 ?>

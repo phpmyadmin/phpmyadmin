@@ -21,18 +21,42 @@ require_once "libraries/plugins/TransformationsPlugin.class.php";
 abstract class HexTransformationsPlugin extends TransformationsPlugin
 {
     /**
+     * Gets the transformation description of the specific plugin
+     *
+     * @return string
+     */
+    public static function getInfo()
+    {
+        return __(
+            'Displays hexadecimal representation of data. Optional first'
+            . ' parameter specifies how often space will be added (defaults'
+            . ' to 2 nibbles).'
+        );
+    }
+
+    /**
      * Does the actual work of each specific transformations plugin.
      *
      * @param string $buffer  text to be transformed
      * @param array  $options transformation options
      * @param string $meta    meta information
      *
-     * @todo implement
      * @return void
      */
-    public function applyTransformation($buffer, $options, $meta)
+    public function applyTransformation($buffer, $options = array(), $meta = '')
     {
-        ;
+        // possibly use a global transform and feed it with special options
+        if (!isset($options[0])) {
+            $options[0] = 2;
+        } else {
+            $options[0] = (int)$options[0];
+        }
+
+        if ($options[0] < 1) {
+            return bin2hex($buffer);
+        } else {
+            return chunk_split(bin2hex($buffer), $options[0], ' ');
+        }
     }
 
     /**

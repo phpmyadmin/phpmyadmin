@@ -21,18 +21,32 @@ require_once "libraries/plugins/TransformationsPlugin.class.php";
 abstract class SQLTransformationsPlugin extends TransformationsPlugin
 {
     /**
+     * Gets the transformation description of the specific plugin
+     *
+     * @return string
+     */
+    public static function getInfo()
+    {
+        return __(
+            'Formats text as SQL query with syntax highlighting.'
+        );
+    }
+
+    /**
      * Does the actual work of each specific transformations plugin.
      *
      * @param string $buffer  text to be transformed
      * @param array  $options transformation options
      * @param string $meta    meta information
      *
-     * @todo implement
      * @return void
      */
-    public function applyTransformation($buffer, $options, $meta)
+    public function applyTransformation($buffer, $options = array(), $meta = '')
     {
-        ;
+        $result = PMA_SQP_formatHtml(PMA_SQP_parse($buffer));
+        // Need to clear error state not to break subsequent queries display.
+        PMA_SQP_resetError();
+        return $result;
     }
 
     /**

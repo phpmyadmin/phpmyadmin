@@ -1,10 +1,10 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Abstract class for the inline transformations plugins
+ * Abstract class for the image link transformations plugins
  *
  * @package    PhpMyAdmin-Transformations
- * @subpackage Inline
+ * @subpackage ImageLink
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -14,11 +14,11 @@ if (! defined('PHPMYADMIN')) {
 require_once "libraries/plugins/TransformationsPlugin.class.php";
 
 /**
- * Provides common methods for all of the inline transformations plugins.
+ * Provides common methods for all of the image link transformations plugins.
  *
  * @package PhpMyAdmin
  */
-abstract class InlineTransformationsPlugin extends TransformationsPlugin
+abstract class TextImageLinkTransformationsPlugin extends TransformationsPlugin
 {
     /**
      * Gets the transformation description of the specific plugin
@@ -28,8 +28,9 @@ abstract class InlineTransformationsPlugin extends TransformationsPlugin
     public static function getInfo()
     {
         return __(
-            'Displays a clickable thumbnail. The options are the maximum width'
-            . ' and height in pixels. The original aspect ratio is preserved.'
+            'Displays an image and a link; the column contains the filename. The'
+            . ' first option is a URL prefix like "http://www.example.com/". The'
+            . ' second and third options are the width and the height in pixels.'
         );
     }
 
@@ -44,23 +45,15 @@ abstract class InlineTransformationsPlugin extends TransformationsPlugin
      */
     public function applyTransformation($buffer, $options = array(), $meta = '')
     {
-        if (PMA_IS_GD2) {
-            $transform_options = array (
-                'string' => '<a href="transformation_wrapper.php'
-                    . $options['wrapper_link']
-                    . '" target="_blank"><img src="transformation_wrapper.php'
-                    . $options['wrapper_link'] . '&amp;resize=jpeg&amp;newWidth='
-                    . (isset($options[0]) ? $options[0] : '100') . '&amp;newHeight='
-                    . (isset($options[1]) ? $options[1] : 100)
-                    . '" alt="[__BUFFER__]" border="0" /></a>'
-            );
-        } else {
-            $transform_options = array (
-                'string' => '<img src="transformation_wrapper.php'
-                . $options['wrapper_link']
-                . '" alt="[__BUFFER__]" width="320" height="240" />'
-            );
-        }
+        $transform_options = array (
+            'string' => '<a href="' . (isset($options[0]) ? $options[0] : '')
+                . $buffer . '" target="_blank"><img src="'
+                . (isset($options[0]) ? $options[0] : '') . $buffer
+                . '" border="0" width="' . (isset($options[1]) ? $options[1] : 100)
+                . '" height="' . (isset($options[2]) ? $options[2] : 50) . '" />'
+                . $buffer . '</a>'
+        );
+
         $buffer = PMA_transformation_global_html_replace(
             $buffer,
             $transform_options
@@ -95,7 +88,7 @@ abstract class InlineTransformationsPlugin extends TransformationsPlugin
      */
     public static function getName()
     {
-        return "Inline";
+        return "Image Link";
     }
 }
 ?>

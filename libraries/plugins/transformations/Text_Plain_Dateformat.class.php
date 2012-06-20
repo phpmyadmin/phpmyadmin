@@ -21,26 +21,6 @@ require_once "abstract/DateFormatTransformationsPlugin.class.php";
 class Text_Plain_Dateformat extends DateFormatTransformationsPlugin
 {
     /**
-     * Gets the transformation description of the specific plugin
-     *
-     * @return string
-     */
-    public static function getInfo()
-    {
-        return __(
-            'Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp'
-            . ' column as formatted date. The first option is the offset (in'
-            . ' hours) which will be added to the timestamp (Default: 0). Use'
-            . ' second option to specify a different date/time format string.'
-            . ' Third option determines whether you want to see local date or'
-            . ' UTC one (use "local" or "utc" strings) for that. According to'
-            . ' that, date format has different value - for "local" see the'
-            . ' documentation for PHP\'s strftime() function and for "utc" it'
-            . ' is done using gmdate() function.'
-        );
-    }
-
-    /**
      * Gets the plugin`s MIME type
      *
      * @return string

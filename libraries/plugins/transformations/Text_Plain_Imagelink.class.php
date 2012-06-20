@@ -11,29 +11,15 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the image link transformations interface */
-require_once "abstract/ImageLinkTransformationsPlugin.class.php";
+require_once "abstract/TextImageLinkTransformationsPlugin.class.php";
 
 /**
  * Handles the image link transformation for text plain
  *
  * @package PhpMyAdmin
  */
-class Text_Plain_Imagelink extends ImageLinkTransformationsPlugin
+class Text_Plain_Imagelink extends TextImageLinkTransformationsPlugin
 {
-    /**
-     * Gets the transformation description of the specific plugin
-     *
-     * @return string
-     */
-    public static function getInfo()
-    {
-        return __(
-            'Displays an image and a link; the column contains the filename. The'
-            . ' first option is a URL prefix like "http://www.example.com/". The'
-            . ' second and third options are the width and the height in pixels.'
-        );
-    }
-
     /**
      * Gets the plugin`s MIME type
      *

@@ -21,18 +21,34 @@ require_once "libraries/plugins/TransformationsPlugin.class.php";
 abstract class LongToIPv4TransformationsPlugin extends TransformationsPlugin
 {
     /**
+     * Gets the transformation description of the specific plugin
+     *
+     * @return string
+     */
+    public static function getInfo()
+    {
+        return __(
+            'Converts an (IPv4) Internet network address into a string in'
+            . ' Internet standard dotted format.'
+        );
+    }
+
+    /**
      * Does the actual work of each specific transformations plugin.
      *
      * @param string $buffer  text to be transformed
      * @param array  $options transformation options
      * @param string $meta    meta information
      *
-     * @todo implement
      * @return void
      */
-    public function applyTransformation($buffer, $options, $meta)
+    public function applyTransformation($buffer, $options = array(), $meta = '')
     {
-        ;
+        if ($buffer < 0 || $buffer > 4294967295) {
+            return $buffer;
+        }
+
+        return long2ip($buffer);
     }
 
     /**

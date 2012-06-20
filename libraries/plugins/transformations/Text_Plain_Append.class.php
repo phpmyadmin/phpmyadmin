@@ -22,19 +22,6 @@ require_once "abstract/AppendTransformationsPlugin.class.php";
 class Text_Plain_Append extends AppendTransformationsPlugin
 {
     /**
-     * Gets the transformation description of the specific plugin
-     *
-     * @return string
-     */
-    public static function getInfo()
-    {
-        return __(
-            'Appends text to a string. The only option is the text to be appended'
-            . ' (enclosed in single quotes, default empty string).'
-        );
-    }
-
-    /**
      * Gets the plugin`s MIME type
      *
      * @return string

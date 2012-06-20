@@ -21,19 +21,6 @@ require_once "abstract/LongToIPv4TransformationsPlugin.class.php";
 class Text_Plain_Longtoipv4 extends LongToIPv4TransformationsPlugin
 {
     /**
-     * Gets the transformation description of the specific plugin
-     *
-     * @return string
-     */
-    public static function getInfo()
-    {
-        return __(
-            'Converts an (IPv4) Internet network address into a string in'
-            . ' Internet standard dotted format.'
-        );
-    }
-
-    /**
      * Gets the plugin`s MIME type
      *
      * @return string

@@ -21,19 +21,6 @@ require_once "abstract/InlineTransformationsPlugin.class.php";
 class Image_PNG_Inline extends InlineTransformationsPlugin
 {
     /**
-     * Gets the transformation description of the specific plugin
-     *
-     * @return string
-     */
-    public static function getInfo()
-    {
-        return __(
-            'Displays a clickable thumbnail. The options are the maximum width'
-            . ' and height in pixels. The original aspect ratio is preserved.'
-        );
-    }
-
-    /**
      * Gets the plugin`s MIME type
      *
      * @return string

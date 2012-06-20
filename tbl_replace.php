@@ -371,7 +371,9 @@ if ($GLOBALS['is_ajax_request'] == true) {
         }   // end of loop for each relation cell
     }
 
-    if (isset($_REQUEST['do_transformations']) && $_REQUEST['do_transformations'] == true ) {
+    if (isset($_REQUEST['do_transformations'])
+        && $_REQUEST['do_transformations'] == true
+    ) {
         include_once 'libraries/transformations.lib.php';
         //if some posted fields need to be transformed, generate them here.
         $mime_map = PMA_getMIME($db, $table);
@@ -384,8 +386,26 @@ if ($GLOBALS['is_ajax_request'] == true) {
         parse_str($_REQUEST['transform_fields_list'], $edited_values);
 
         foreach ($mime_map as $transformation) {
-            $include_file = PMA_securePath($transformation['transformation']);
             $column_name = $transformation['column_name'];
+
+            $include_file = $transformation['transformation'];
+            $include_file = PMA_securePath(
+                str_replace(
+                    ".inc.php",
+                    ".class.php",
+                    str_replace(
+                        "__",
+                        "_",
+                        $include_file
+                    )
+                )
+            );
+            $file_parts = explode("_", $include_file);
+            $include_file = strtoupper($file_parts[0]) . "_"
+                . strtoupper($file_parts[1]) . "_"
+                . strtoupper($file_parts[2]);
+
+            $include_file = 'libraries/transformations/plugins/' . $include_file;
 
             foreach ($edited_values as $cell_index => $curr_cell_edited_values) {
                 if (isset($curr_cell_edited_values[$column_name])) {
@@ -398,21 +418,24 @@ if ($GLOBALS['is_ajax_request'] == true) {
                         'transform_key' => $column_name,
                     );
 
-                    if (file_exists('libraries/transformations/' . $include_file)) {
-                        $transformfunction_name = str_replace('.inc.php', '', $transformation['transformation']);
+                    if (file_exists($include_file)) {
+                        include_once $include_file;
+                        $class_name = str_replace('.class.php', '', $file);
+                        $transformation_plugin = new $class_name;
 
-                        include_once 'libraries/transformations/' . $include_file;
-
-                        if (function_exists('PMA_transformation_' . $transformfunction_name)) {
-                            $transform_function = 'PMA_transformation_' . $transformfunction_name;
-                            $transform_options  = PMA_transformation_getOptions(
-                                isset($transformation['transformation_options']) ? $transformation['transformation_options'] : ''
-                            );
-                            $transform_options['wrapper_link'] = PMA_generate_common_url($_url_params);
-                        }
+                        $transform_options  = PMA_transformation_getOptions(
+                            isset($transformation['transformation_options'])
+                            ? $transformation['transformation_options'] : ''
+                        );
+                        $transform_options['wrapper_link'] =
+                            PMA_generate_common_url($_url_params);
                     }
 
-                    $extra_data['transformations'][$cell_index] = $transform_function($column_data, $transform_options);
+                    $extra_data['transformations'][$cell_index] =
+                        $transformation_plugin->applyTransformation(
+                            $column_data,
+                            $transform_options
+                        );
                 }
             }   // end of loop for each transformation cell
         }   // end of loop for each $mime_map

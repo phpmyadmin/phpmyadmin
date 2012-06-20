@@ -11,29 +11,15 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* Get the link transformations interface */
-require_once "abstract/LinkTransformationsPlugin.class.php";
+require_once "abstract/TextLinkTransformationsPlugin.class.php";
 
 /**
  * Handles the link transformation for text plain
  *
  * @package PhpMyAdmin
  */
-class Text_Plain_Link extends LinkTransformationsPlugin
+class Text_Plain_Link extends TextLinkTransformationsPlugin
 {
-    /**
-     * Gets the transformation description of the specific plugin
-     *
-     * @return string
-     */
-    public static function getInfo()
-    {
-        return __(
-            'Displays a link; the column contains the filename. The first option'
-            . ' is a URL prefix like "http://www.example.com/". The second option'
-            . ' is a title for the link.'
-        );
-    }
-
     /**
      * Gets the plugin`s MIME type
      *
