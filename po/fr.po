@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-18 10:54+0200\n"
-"PO-Revision-Date: 2012-05-25 18:45+0200\n"
+"PO-Revision-Date: 2012-06-20 18:40+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -1582,7 +1582,7 @@ msgstr "Tableau"
 
 #: js/messages.php:191
 msgid "Edit chart"
-msgstr "Éditer le graphique"
+msgstr "Modifier le graphique"
 
 #: js/messages.php:192
 msgid "Series"
@@ -1897,10 +1897,9 @@ msgstr "Survoler un point montrera sa description."
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr "Pour faire un zoom avant, sélectionnez une section avec la souris."
+msgstr "Pour zoomer, sélectionnez une section avec la souris."
 
 #: js/messages.php:306
-#, fuzzy
 #| msgid "Click reset zoom link to come back to original state."
 msgid "Click reset zoom button to come back to original state."
 msgstr "Cliquez le lien «Réinitialiser zoom» pour revenir à l'état original."
@@ -2467,10 +2466,10 @@ msgid "vertical"
 msgstr "vertical"
 
 #: libraries/DisplayResults.class.php:702
-#, fuzzy, php-format
+#, php-format
 #| msgid "Headers every"
 msgid "Headers every %s rows"
-msgstr "En-têtes à chaque"
+msgstr "En-têtes à chaque %s ligne"
 
 #: libraries/DisplayResults.class.php:1180
 msgid "Sort by key"
@@ -3462,7 +3461,7 @@ msgstr "Impossible d'utiliser Blowfish depuis mcrypt !"
 
 #: libraries/auth/cookie.auth.lib.php:139
 msgid "Your session has expired. Please login again."
-msgstr ""
+msgstr "Votre session a expiré. Veuillez vous connecter à nouveau."
 
 #: libraries/auth/cookie.auth.lib.php:227
 msgid "Log in"
