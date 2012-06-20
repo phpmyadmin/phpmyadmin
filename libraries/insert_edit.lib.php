@@ -457,9 +457,9 @@ function PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
     $tabindex, $idindex, $insert_mode
 ) {
     $html_output = '';
-    if (($GLOBALS['cfg']['ProtectBinary'] && $column['is_blob'] && !$is_upload)
-        || ($GLOBALS['cfg']['ProtectBinary'] == 'all' && $column['is_binary'])
-        || ($GLOBALS['cfg']['ProtectBinary'] == 'noblob' && !$column['is_blob'])
+    if (($GLOBALS['cfg']['ProtectBinary'] && $column['is_blob'] && ! $is_upload)
+        || ($GLOBALS['cfg']['ProtectBinary'] === 'all' && $column['is_binary'])
+        || ($GLOBALS['cfg']['ProtectBinary'] === 'noblob' && ! $column['is_blob'])
     ) {
         $html_output .= '<td class="center">' . __('Binary') . '</td>' . "\n";
     } elseif (strstr($column['True_Type'], 'enum')
@@ -1750,6 +1750,7 @@ function PMA_buildSqlQuery($is_insertignore, $query_fields, $value_sets)
  */
 function PMA_executeSqlQuery($url_params, $query)
 {
+    $return_to_sql_query = '';
     if (! empty($GLOBALS['sql_query'])) {
         $url_params['sql_query'] = $GLOBALS['sql_query'];
         $return_to_sql_query = $GLOBALS['sql_query'];
