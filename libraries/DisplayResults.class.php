@@ -2167,23 +2167,7 @@ class PMA_DisplayResults
                         && !empty($GLOBALS['mime_map'][$meta->name]['transformation'])
                     ) {
                         $file = $GLOBALS['mime_map'][$meta->name]['transformation'];
-                        $file = PMA_securePath(
-                            str_replace(
-                                ".inc.php",
-                                ".class.php",
-                                str_replace(
-                                    "__",
-                                    "_",
-                                    $file
-                                )
-                            )
-                        );
-                        $file_parts = explode("_", $file);
-                        $file = strtoupper($file_parts[0]) . "_"
-                            . strtoupper($file_parts[1]) . "_"
-                            . strtoupper($file_parts[2]);
-
-                        $include_file = 'libraries/transformations/plugins/' . $file;
+                        $include_file = 'libraries/plugins/transformations/' . $file;
                         if (file_exists($include_file)) {
                             include_once $include_file;
                             $class_name = str_replace('.class.php', '', $file);
@@ -4730,18 +4714,10 @@ class PMA_DisplayResults
                     if ($_SESSION['tmp_user_values']['relational_display'] == self::RELATIONAL_DISPLAY_COLUMN) {
                         // user chose "relational display field" in the
                         // display options, so show display field in the cell
-                        $result .= $transformation_plugin->applyTransformation(
-                            $dispval,
-                            array(),
-                            $meta
-                        );
+                        $result .= $default_function($dispval);
                     } else {
                         // otherwise display data in the cell
-                        $result .= $transformation_plugin->applyTransformation(
-                            $data,
-                            array(),
-                            $meta
-                        );
+                        $result .= $default_function($data);
                     }
 
                 }

@@ -414,23 +414,7 @@ if ($GLOBALS['is_ajax_request'] == true) {
             $column_name = $transformation['column_name'];
 
             $include_file = $transformation['transformation'];
-            $include_file = PMA_securePath(
-                str_replace(
-                    ".inc.php",
-                    ".class.php",
-                    str_replace(
-                        "__",
-                        "_",
-                        $include_file
-                    )
-                )
-            );
-            $file_parts = explode("_", $include_file);
-            $include_file = strtoupper($file_parts[0]) . "_"
-                . strtoupper($file_parts[1]) . "_"
-                . strtoupper($file_parts[2]);
-
-            $include_file = 'libraries/transformations/plugins/' . $include_file;
+            $include_file = 'libraries/plugins/transformations/' . $include_file;
 
             foreach ($edited_values as $cell_index => $curr_cell_edited_values) {
                 if (isset($curr_cell_edited_values[$column_name])) {
