@@ -332,6 +332,16 @@ class PMA_Header
                     $retval .= $this->_menu->getDisplay();
                 }
                 $retval .= '<div id="page_content">';
+                if (! empty($GLOBALS['message'])) {
+                    if (isset($GLOBALS['buffer_message'])) {
+                        $buffer_message = $GLOBALS['buffer_message'];
+                    }
+                    $retval .= PMA_Util::getInstance()->getMessage($GLOBALS['message']);
+                    unset($GLOBALS['message']);
+                    if (isset($buffer_message)) {
+                        $GLOBALS['buffer_message'] = $buffer_message;
+                    }
+                }
             }
         }
         return $retval;

@@ -73,16 +73,6 @@ class PMA_Menu
     {
         $retval  = $this->_getBreadcrumbs();
         $retval .= $this->_getMenu();
-        if (! empty($GLOBALS['message'])) {
-            if (isset($GLOBALS['buffer_message'])) {
-                $buffer_message = $GLOBALS['buffer_message'];
-            }
-            $retval .= PMA_Util::getMessage($GLOBALS['message']);
-            unset($GLOBALS['message']);
-            if (isset($buffer_message)) {
-                $GLOBALS['buffer_message'] = $buffer_message;
-            }
-        }
         return $retval;
     }
 
