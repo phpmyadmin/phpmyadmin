@@ -91,7 +91,7 @@ function PMA_getWhereClauseArray($where_clause)
 }
 
 /**
- * Analysing where cluases array
+ * Analysing where clauses array
  *
  * @param array   $where_clause_array array of where clauses
  * @param string  $table              name of the table
