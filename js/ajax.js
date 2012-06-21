@@ -177,11 +177,18 @@ var AJAX = {
          * Records that a file has been downloaded
          *
          * @param string file The filename
+         * @param string fire Whether this file will be registering
+         *                    onload/teardown events
          *
          * @return self For chaining
          */
-        add: function (file) {
+        add: function (file, fire) {
             this._scripts.push(file);
+            if (fire) {
+                // Record whether to fire any events for the file
+                // This is necessary to correctly tear down the initial page
+                this._scriptsToBeFired.push(file);
+            }
             return this;
         },
         /**

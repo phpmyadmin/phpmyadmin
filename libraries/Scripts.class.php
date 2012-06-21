@@ -202,7 +202,11 @@ class PMA_Scripts
         }
         $code = 'AJAX.scriptHandler';
         foreach ($this->_files as $file) {
-            $code .= '.add("' . PMA_escapeJsString($file['filename']) . '")';
+            $code .= sprintf(
+                '.add("%s",%d)',
+                PMA_escapeJsString($file['filename']),
+                $file['has_onload'] ? 1 : 0
+            );
         }
         $code .= ';';
         $this->addCode($code);
