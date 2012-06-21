@@ -186,7 +186,7 @@ $html_output .= '<script src="js/keyhandler.js" type="text/javascript"></script>
     . 'document.onkeydown = onKeyDownArrowsHandler;'
     . '</script>';
 // Set if we passed the first timestamp field
-$timestamp_seen = 0;
+$timestamp_seen = false;
 $columns_cnt     = count($table_fields);
 
 $tabindex = 0;
