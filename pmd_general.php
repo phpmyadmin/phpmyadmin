@@ -228,23 +228,24 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 <thead>
 <tr>
     <?php
-if (isset($_REQUEST['query'])) {
-    echo '<td class="select_all">';
-    echo '<input type="checkbox" value="select_all_'.htmlspecialchars($t_n_url).'" style="margin: 0px;" ';
-    echo 'id="select_all_'.htmlspecialchars($t_n_url).'" title="select all" ';
-    echo 'onclick="Select_all(\''. htmlspecialchars($t_n_url) .'\',\''.htmlspecialchars($GLOBALS['PMD_OUT']["OWNER"][$i]).'\')"></td>';
-}?>
+    if (isset($_REQUEST['query'])) {
+        echo '<td class="select_all">';
+        echo '<input type="checkbox" value="select_all_'.htmlspecialchars($t_n_url).'" style="margin: 0px;" ';
+        echo 'id="select_all_'.htmlspecialchars($t_n_url).'" title="select all" ';
+        echo 'onclick="Select_all(\''. htmlspecialchars($t_n_url) .'\',\''.htmlspecialchars($GLOBALS['PMD_OUT']["OWNER"][$i]).'\')"></td>';
+    }
+    ?>
     <td class="small_tab" onmouseover="this.className='small_tab2';"
         onmouseout="this.className='small_tab';"
         id="id_hide_tbody_<?php echo $t_n_url ?>"
         onclick="Small_tab('<?php echo $t_n_url ?>', 1)"><?php
         // no space alloawd here, between tags and content !!!
         // JavaScript function does require this
-if (! isset($tab_pos[$t_n]) || ! empty($tab_pos[$t_n]["V"])) {
-    echo 'v';
-} else {
-    echo '&gt;';
-}
+    if (! isset($tab_pos[$t_n]) || ! empty($tab_pos[$t_n]["V"])) {
+        echo 'v';
+    } else {
+        echo '&gt;';
+    }
         ?></td>
     <td class="small_tab_pref" onmouseover="this.className='small_tab_pref2';"
         onmouseout="this.className='small_tab_pref';"
@@ -261,21 +262,22 @@ if (! isset($tab_pos[$t_n]) || ! empty($tab_pos[$t_n]["V"])) {
         echo $GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i];
         ?></td>
     <?php
-if (isset($_REQUEST['query'])) {
-    echo '<td class="tab_zag"  onmouseover="Table_onover(\''.htmlspecialchars($t_n_url).'\',0,1)"  id="id_zag_'.htmlspecialchars($t_n_url).'_2"';
-    echo 'onmousedown="cur_click=document.getElementById(\''.htmlspecialchars($t_n_url).'\');"';
-    echo 'onmouseout="Table_onover(\''.htmlspecialchars($t_n_url).'\',1,1)">';
-}?>
+    if (isset($_REQUEST['query'])) {
+        echo '<td class="tab_zag"  onmouseover="Table_onover(\''.htmlspecialchars($t_n_url).'\',0,1)"  id="id_zag_'.htmlspecialchars($t_n_url).'_2"';
+        echo 'onmousedown="cur_click=document.getElementById(\''.htmlspecialchars($t_n_url).'\');"';
+        echo 'onmouseout="Table_onover(\''.htmlspecialchars($t_n_url).'\',1,1)">';
+    }
+    ?>
 </tr>
 </thead>
 <tbody id="id_tbody_<?php echo $t_n_url ?>"
     <?php
-if (isset($tab_pos[$t_n]) && empty($tab_pos[$t_n]["V"])) {
-    echo 'style="display: none;"';
-}
-echo '>';
-$display_field = PMA_getDisplayField($db, $GLOBALS['PMD']["TABLE_NAME_SMALL"][$i]);
-for ($j = 0, $id_cnt = count($tab_column[$t_n]["COLUMN_ID"]); $j < $id_cnt; $j++) {
+    if (isset($tab_pos[$t_n]) && empty($tab_pos[$t_n]["V"])) {
+        echo 'style="display: none;"';
+    }
+    echo '>';
+    $display_field = PMA_getDisplayField($db, $GLOBALS['PMD']["TABLE_NAME_SMALL"][$i]);
+    for ($j = 0, $id_cnt = count($tab_column[$t_n]["COLUMN_ID"]); $j < $id_cnt; $j++) {
         ?>
 <tr id="id_tr_<?php
         echo $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i] . '.'
