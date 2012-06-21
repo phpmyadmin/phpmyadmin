@@ -212,29 +212,35 @@ function PMA_fatalError(
     } elseif (is_array($message_args)) {
         $error_message = vsprintf($error_message, $message_args);
     }
-    $error_message = strtr($error_message, array('<br />' => '[br]'));
 
-    if (function_exists('__')) {
-        $error_header = __('Error');
+    if ($GLOBALS['is_ajax_request']) {
+        $response = PMA_Response::getInstance();
+        $response->isSuccess(false);
+        $response->addJSON('message', PMA_Message::error($error_message)->getDisplay());
     } else {
-        $error_header = 'Error';
+        $error_message = strtr($error_message, array('<br />' => '[br]'));
+
+        if (function_exists('__')) {
+            $error_header = __('Error');
+        } else {
+            $error_header = 'Error';
+        }
+
+        $lang = $GLOBALS['available_languages'][$GLOBALS['lang']][1];
+        $dir = $GLOBALS['text_dir'];
+
+        // on fatal errors it cannot hurt to always delete the current session
+        if ($delete_session
+            && isset($GLOBALS['session_name'])
+            && isset($_COOKIE[$GLOBALS['session_name']])
+        ) {
+            $GLOBALS['PMA_Config']->removeCookie($GLOBALS['session_name']);
+        }
+
+        // Displays the error message
+        include './libraries/error.inc.php';
     }
-
-    // Displays the error message
-    $lang = $GLOBALS['available_languages'][$GLOBALS['lang']][1];
-    $dir = $GLOBALS['text_dir'];
-
-    // on fatal errors it cannot hurt to always delete the current session
-    if ($delete_session
-        && isset($GLOBALS['session_name'])
-        && isset($_COOKIE[$GLOBALS['session_name']])
-    ) {
-        $GLOBALS['PMA_Config']->removeCookie($GLOBALS['session_name']);
-    }
-
-    include './libraries/error.inc.php';
-
-    if (!defined('TESTSUITE')) {
+    if (! defined('TESTSUITE')) {
         exit;
     }
 }
