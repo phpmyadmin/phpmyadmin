@@ -299,7 +299,7 @@ function PMA_getDefaultForDatetime($column)
   *
   * @param array   $column         description of column in given table
   * @param array   $comments_map   comments for every column that has a comment
-  * @param integer $timestamp_seen 0 interger
+  * @param boolean $timestamp_seen whether a timestamp has been seen 
   *
   * @return array                   description of column in given table
   */
@@ -407,7 +407,7 @@ function PMA_isColumnChar($column)
  * Retieve set, enum, timestamp table columns
  *
  * @param array   $column         description of column in given table
- * @param integer $timestamp_seen 0 interger
+ * @param boolean $timestamp_seen whether a timestamp has been seen 
  *
  * @return array $column['pma_type'], $column['wrap'], $column['first_timestamp']
  */
@@ -424,8 +424,8 @@ function PMA_getEnumSetAndTimestampColumns($column, $timestamp_seen)
         $column['wrap']  = '';
         break;
     case 'timestamp':
-        if (!$timestamp_seen) {   // can only occur once per table
-            $timestamp_seen  = 1;
+        if (! $timestamp_seen) {   // can only occur once per table
+            $timestamp_seen  = true;
             $column['first_timestamp'] = true;
         }
         $column['pma_type'] = $column['Type'];
