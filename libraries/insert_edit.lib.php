@@ -404,7 +404,7 @@ function PMA_isColumnChar($column)
     }
 }
 /**
- * Retieve set, enum, timestamp table columns
+ * Retrieve set, enum, timestamp table columns
  *
  * @param array   $column         description of column in given table
  * @param boolean $timestamp_seen whether a timestamp has been seen 
