@@ -262,9 +262,9 @@ if (! isset($tab_pos[$t_n]) || ! empty($tab_pos[$t_n]["V"])) {
         ?></td>
     <?php
 if (isset($_REQUEST['query'])) {
-echo '<td class="tab_zag"  onmouseover="Table_onover(\''.htmlspecialchars($t_n_url).'\',0,1)"  id="id_zag_'.htmlspecialchars($t_n_url).'_2"';
-echo 'onmousedown="cur_click=document.getElementById(\''.htmlspecialchars($t_n_url).'\');"';
-echo 'onmouseout="Table_onover(\''.htmlspecialchars($t_n_url).'\',1,1)">';
+    echo '<td class="tab_zag"  onmouseover="Table_onover(\''.htmlspecialchars($t_n_url).'\',0,1)"  id="id_zag_'.htmlspecialchars($t_n_url).'_2"';
+    echo 'onmousedown="cur_click=document.getElementById(\''.htmlspecialchars($t_n_url).'\');"';
+    echo 'onmouseout="Table_onover(\''.htmlspecialchars($t_n_url).'\',1,1)">';
 }?>
 </tr>
 </thead>
@@ -272,8 +272,8 @@ echo 'onmouseout="Table_onover(\''.htmlspecialchars($t_n_url).'\',1,1)">';
     <?php
 if (isset($tab_pos[$t_n]) && empty($tab_pos[$t_n]["V"])) {
     echo 'style="display: none;"';
-} ?>>
-    <?php
+}
+echo '>';
 $display_field = PMA_getDisplayField($db, $GLOBALS['PMD']["TABLE_NAME_SMALL"][$i]);
 for ($j = 0, $id_cnt = count($tab_column[$t_n]["COLUMN_ID"]); $j < $id_cnt; $j++) {
         ?>
@@ -311,56 +311,52 @@ for ($j = 0, $id_cnt = count($tab_column[$t_n]["COLUMN_ID"]); $j < $id_cnt; $j++
         id="<?php echo $t_n_url.".".urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) ?>">
         <div class="nowrap">
         <?php
-    if (isset($tables_pk_or_unique_keys[$t_n.".".$tab_column[$t_n]["COLUMN_NAME"][$j]])) {
-        ?>
-            <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/FieldKey_small.png"
-                alt="*" />
-        <?php
-    } else {
-        ?>
-                <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/Field_small<?php
-        if (strstr($tab_column[$t_n]["TYPE"][$j], 'char')
-            || strstr($tab_column[$t_n]["TYPE"][$j], 'text')
-        ) {
-            echo '_char';
-        } elseif (strstr($tab_column[$t_n]["TYPE"][$j], 'int')
-            || strstr($tab_column[$t_n]["TYPE"][$j], 'float')
-            || strstr($tab_column[$t_n]["TYPE"][$j], 'double')
-            || strstr($tab_column[$t_n]["TYPE"][$j], 'decimal')
-        ) {
-            echo '_int';
-        } elseif (strstr($tab_column[$t_n]["TYPE"][$j], 'date')
-            || strstr($tab_column[$t_n]["TYPE"][$j], 'time')
-            || strstr($tab_column[$t_n]["TYPE"][$j], 'year')
-        ) {
-            echo '_date';
+        if (isset($tables_pk_or_unique_keys[$t_n.".".$tab_column[$t_n]["COLUMN_NAME"][$j]])) {
+            ?>
+                <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/FieldKey_small.png"
+                    alt="*" />
+            <?php
+        } else {
+            ?>
+                    <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>pmd/Field_small<?php
+            if (strstr($tab_column[$t_n]["TYPE"][$j], 'char')
+                || strstr($tab_column[$t_n]["TYPE"][$j], 'text')
+            ) {
+                echo '_char';
+            } elseif (strstr($tab_column[$t_n]["TYPE"][$j], 'int')
+                || strstr($tab_column[$t_n]["TYPE"][$j], 'float')
+                || strstr($tab_column[$t_n]["TYPE"][$j], 'double')
+                || strstr($tab_column[$t_n]["TYPE"][$j], 'decimal')
+            ) {
+                echo '_int';
+            } elseif (strstr($tab_column[$t_n]["TYPE"][$j], 'date')
+                || strstr($tab_column[$t_n]["TYPE"][$j], 'time')
+                || strstr($tab_column[$t_n]["TYPE"][$j], 'year')
+            ) {
+                echo '_date';
+            }
+            ?>.png" alt="*" />
+            <?php
         }
-        ?>.png" alt="*" />
-        <?php
+        echo htmlspecialchars(
+            $tab_column[$t_n]["COLUMN_NAME"][$j] . " : " . $tab_column[$t_n]["TYPE"][$j],
+            ENT_QUOTES
+        );
+        echo "</div>\n</td>\n";
+        if (isset($_REQUEST['query'])) {
+            //$temp = $GLOBALS['PMD_OUT']["OWNER"][$i].'.'.$GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i];
+            echo '<td class="small_tab_pref" onmouseover="this.className=\'small_tab_pref2\';"';
+            echo 'onmouseout="this.className=\'small_tab_pref\';"';
+            echo 'onclick="Click_option(\'pmd_optionse\',\''
+                . urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]) . '\',\''
+                . $GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i].'\')" >';
+            echo  '<img src="'
+                . $_SESSION['PMA_Theme']->getImgPath('pmd/exec_small.png')
+                . '" title="options" alt="" /></td> ';
+        }
+        echo "</tr>\n";
     }
-    echo htmlspecialchars(
-        $tab_column[$t_n]["COLUMN_NAME"][$j] . " : " . $tab_column[$t_n]["TYPE"][$j],
-        ENT_QUOTES
-    );
-        ?>
-        </div>
-   </td>
-    <?php
-    if (isset($_REQUEST['query'])) {
-       //$temp = $GLOBALS['PMD_OUT']["OWNER"][$i].'.'.$GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i];
-       echo '<td class="small_tab_pref" onmouseover="this.className=\'small_tab_pref2\';"';
-       echo 'onmouseout="this.className=\'small_tab_pref\';"';
-       echo 'onclick="Click_option(\'pmd_optionse\',\''.urlencode($tab_column[$t_n]["COLUMN_NAME"][$j]).'\',\''.$GLOBALS['PMD_OUT']["TABLE_NAME_SMALL"][$i].'\')" >';
-       echo  '<img src="' . $_SESSION['PMA_Theme']->getImgPath('pmd/exec_small.png') . '" title="options" alt="" /></td> ';
-    }
-    ?>
-</tr>
-        <?php
-}
-    ?>
-</tbody>
-</table>
-    <?php
+    echo "</tbody>\n</table>\n";
 }
 ?>
 </form>
