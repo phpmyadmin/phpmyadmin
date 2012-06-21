@@ -1467,20 +1467,24 @@ function printVariablesTable()
         'Table_locks_waited' => 0,
         'Qcache_lowmem_prunes' => 0,
 
-        'Qcache_free_blocks' => isset($server_status['Qcache_total_blocks']) ? $server_status['Qcache_total_blocks'] / 5 : 0,
+        'Qcache_free_blocks' => isset($server_status['Qcache_total_blocks'])
+            ? $server_status['Qcache_total_blocks'] / 5 : 0,
         'Slow_launch_threads' => 0,
 
         // depends on Key_read_requests
         // normaly lower then 1:0.01
-        'Key_reads' => isset($server_status['Key_read_requests']) ? (0.01 * $server_status['Key_read_requests']) : 0,
+        'Key_reads' => isset($server_status['Key_read_requests'])
+            ? (0.01 * $server_status['Key_read_requests']) : 0,
         // depends on Key_write_requests
         // normaly nearly 1:1
-        'Key_writes' => isset($server_status['Key_write_requests']) ? (0.9 * $server_status['Key_write_requests']) : 0,
+        'Key_writes' => isset($server_status['Key_write_requests'])
+            ? (0.9 * $server_status['Key_write_requests']) : 0,
 
         'Key_buffer_fraction' => 0.5,
 
         // alert if more than 95% of thread cache is in use
-        'Threads_cached' => isset($server_variables['thread_cache_size']) ? 0.95 * $server_variables['thread_cache_size'] : 0
+        'Threads_cached' => isset($server_variables['thread_cache_size'])
+            ? 0.95 * $server_variables['thread_cache_size'] : 0
 
         // higher is better
         // variable => min value
