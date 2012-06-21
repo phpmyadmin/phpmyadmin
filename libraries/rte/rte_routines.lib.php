@@ -115,17 +115,27 @@ function PMA_RTN_parseOneParameter($value)
             || $parsed_param[$i]['type'] == 'alpha_functionName') && $depth == 0 // "CHAR" seems to be mistaken for a function by the parser
         ) {
             $retval[2] = strtoupper($parsed_param[$i]['data']);
-        } else if ($parsed_param[$i]['type'] == 'punct_bracket_open_round' && $depth == 0) {
+        } else if ($parsed_param[$i]['type'] == 'punct_bracket_open_round'
+            && $depth == 0
+        ) {
             $depth = 1;
-        } else if ($parsed_param[$i]['type'] == 'punct_bracket_close_round' && $depth == 1) {
+        } else if ($parsed_param[$i]['type'] == 'punct_bracket_close_round'
+            && $depth == 1
+        ) {
             $depth = 0;
         } else if ($depth == 1) {
             $param_length .= $parsed_param[$i]['data'];
-        } else if ($parsed_param[$i]['type'] == 'alpha_reservedWord' && strtoupper($parsed_param[$i]['data']) == 'CHARSET' && $depth == 0) {
-            if ($parsed_param[$i+1]['type'] == 'alpha_charset' || $parsed_param[$i+1]['type'] == 'alpha_identifier') {
+        } else if ($parsed_param[$i]['type'] == 'alpha_reservedWord'
+            && strtoupper($parsed_param[$i]['data']) == 'CHARSET' && $depth == 0
+        ) {
+            if ($parsed_param[$i+1]['type'] == 'alpha_charset'
+                || $parsed_param[$i+1]['type'] == 'alpha_identifier'
+            ) {
                 $param_opts[] = strtolower($parsed_param[$i+1]['data']);
             }
-        } else if ($parsed_param[$i]['type'] == 'alpha_columnAttrib' && $depth == 0) {
+        } else if ($parsed_param[$i]['type'] == 'alpha_columnAttrib'
+            && $depth == 0
+        ) {
             $param_opts[] = strtoupper($parsed_param[$i]['data']);
         }
     }
@@ -157,14 +167,20 @@ function PMA_RTN_parseAllParameters($parsed_query, $routine_type)
     $fetching = false;
     $depth = 0;
     for ($i=0; $i<$parsed_query['len']; $i++) {
-        if ($parsed_query[$i]['type'] == 'alpha_reservedWord' && $parsed_query[$i]['data'] == $routine_type) {
+        if ($parsed_query[$i]['type'] == 'alpha_reservedWord'
+            && $parsed_query[$i]['data'] == $routine_type
+        ) {
             $fetching = true;
-        } else if ($fetching == true && $parsed_query[$i]['type'] == 'punct_bracket_open_round') {
+        } else if ($fetching == true
+            && $parsed_query[$i]['type'] == 'punct_bracket_open_round'
+        ) {
             $depth++;
             if ($depth > 1) {
                 $buffer .= $parsed_query[$i]['data'] . ' ';
             }
-        } else if ($fetching == true && $parsed_query[$i]['type'] == 'punct_bracket_close_round') {
+        } else if ($fetching == true
+            && $parsed_query[$i]['type'] == 'punct_bracket_close_round'
+        ) {
             $depth--;
             if ($depth > 0) {
                 $buffer .= $parsed_query[$i]['data'] . ' ';
@@ -216,11 +232,18 @@ function PMA_RTN_parseRoutineDefiner($parsed_query)
     $retval = '';
     $fetching = false;
     for ($i=0; $i<$parsed_query['len']; $i++) {
-        if ($parsed_query[$i]['type'] == 'alpha_reservedWord' && $parsed_query[$i]['data'] == 'DEFINER') {
+        if ($parsed_query[$i]['type'] == 'alpha_reservedWord'
+            && $parsed_query[$i]['data'] == 'DEFINER'
+        ) {
             $fetching = true;
-        } else if ($fetching == true && ($parsed_query[$i]['type'] != 'quote_backtick' && substr($parsed_query[$i]['type'], 0, 5) != 'punct')) {
+        } else if ($fetching == true
+            && $parsed_query[$i]['type'] != 'quote_backtick'
+            && substr($parsed_query[$i]['type'], 0, 5) != 'punct'
+        ) {
             break;
-        } else if ($fetching == true && $parsed_query[$i]['type'] == 'quote_backtick') {
+        } else if ($fetching == true
+            && $parsed_query[$i]['type'] == 'quote_backtick'
+        ) {
             $retval .= PMA_unQuote($parsed_query[$i]['data']);
         } else if ($fetching == true && $parsed_query[$i]['type'] == 'punct_user') {
             $retval .= $parsed_query[$i]['data'];
@@ -286,10 +309,15 @@ function PMA_RTN_handleEditor()
                 // 'Add a new routine' mode
                 $result = PMA_DBI_try_query($routine_query);
                 if (! $result) {
-                    $errors[] = sprintf(__('The following query has failed: "%s"'), $routine_query) . '<br /><br />'
-                                      . __('MySQL said: ') . PMA_DBI_getError(null);
+                    $errors[] = sprintf(
+                        __('The following query has failed: "%s"'),
+                        $routine_query
+                    ) . '<br /><br />'
+                        . __('MySQL said: ') . PMA_DBI_getError(null);
                 } else {
-                    $message = PMA_Message::success(__('Routine %1$s has been created.'));
+                    $message = PMA_Message::success(
+                        __('Routine %1$s has been created.')
+                    );
                     $message->addParam(PMA_backquote($_REQUEST['item_name']));
                     $sql_query = $routine_query;
                 }
@@ -297,7 +325,9 @@ function PMA_RTN_handleEditor()
         }
 
         if (count($errors)) {
-            $message = PMA_Message::error(__('<b>One or more errors have occured while processing your request:</b>'));
+            $message = PMA_Message::error(
+                __('<b>One or more errors have occured while processing your request:</b>')
+            );
             $message->addString('<ul>');
             foreach ($errors as $string) {
                 $message->addString('<li>' . $string . '</li>');
@@ -583,7 +613,9 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
                         && strtoupper($parsed_query[$i]['data']) == 'RETURNS'
                     ) {
                         $fetching = true;
-                    } else if ($fetching == true && $parsed_query[$i]['type'] == 'alpha_reservedWord') {
+                    } else if ($fetching == true
+                        && $parsed_query[$i]['type'] == 'alpha_reservedWord'
+                    ) {
                         // We will not be looking for options such as UNSIGNED
                         // or ZEROFILL because there is no way that a numeric
                         // field's DTD_IDENTIFIER can be longer than 64
@@ -610,8 +642,8 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
             $retval['item_returnopts_num']  = $returnparam[4];
             $retval['item_returnopts_text'] = $returnparam[4];
         }
-        $retval['item_definer']         = PMA_RTN_parseRoutineDefiner($parsed_query);
-        $retval['item_definition']      = $routine['ROUTINE_DEFINITION'];
+        $retval['item_definer'] = PMA_RTN_parseRoutineDefiner($parsed_query);
+        $retval['item_definition'] = $routine['ROUTINE_DEFINITION'];
         $retval['item_isdeterministic'] = '';
         if ($routine['IS_DETERMINISTIC'] == 'YES') {
             $retval['item_isdeterministic'] = " checked='checked'";
@@ -785,7 +817,9 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
             $routine['item_type']        = 'PROCEDURE';
             $routine['item_type_toggle'] = 'FUNCTION';
         }
-    } else if ($operation == 'add' || ($routine['item_num_params'] == 0 && $mode == 'add' && ! $errors)) {
+    } else if ($operation == 'add'
+        || ($routine['item_num_params'] == 0 && $mode == 'add' && ! $errors)
+    ) {
         $routine['item_param_dir'][]       = '';
         $routine['item_param_name'][]      = '';
         $routine['item_param_type'][]      = '';
@@ -995,7 +1029,8 @@ function PMA_RTN_getQueryFromRequest()
 {
     global $_REQUEST, $errors, $param_sqldataaccess, $param_directions;
 
-    $_REQUEST['item_type'] = isset($_REQUEST['item_type']) ? $_REQUEST['item_type'] : '';
+    $_REQUEST['item_type'] = isset($_REQUEST['item_type'])
+        ? $_REQUEST['item_type'] : '';
 
     $query = 'CREATE ';
     if (! empty($_REQUEST['item_definer'])) {
@@ -1012,7 +1047,10 @@ function PMA_RTN_getQueryFromRequest()
     ) {
         $query .= $_REQUEST['item_type'] . ' ';
     } else {
-        $errors[] = sprintf(__('Invalid routine type: "%s"'), htmlspecialchars($_REQUEST['item_type']));
+        $errors[] = sprintf(
+            __('Invalid routine type: "%s"'),
+            htmlspecialchars($_REQUEST['item_type'])
+        );
     }
     if (! empty($_REQUEST['item_name'])) {
         $query .= PMA_backquote($_REQUEST['item_name']);
