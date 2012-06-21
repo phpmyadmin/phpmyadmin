@@ -73,7 +73,7 @@ function PMA_GIS_modifyQuery($sql_query, $visualizationSettings)
                 }
             }
         }
-        // If select cluase is *
+        // If select clause is *
     } else {
         // If label column is chosen add it to the query
         if (isset($visualizationSettings['labelColumn'])

@@ -4576,7 +4576,7 @@ class PMA_DisplayResults
      * @param string $default_function   default function
      * @param string $nowrap             'nowrap' if the content should not be
      *                                   wrapped
-     * @param string $where_comparison   data for the where cluase
+     * @param string $where_comparison   data for the where clause
      * @param array  $transform_options  array of options for transformation
      * @param bool   $is_field_truncated whether the field is truncated
      *
@@ -4747,8 +4747,8 @@ class PMA_DisplayResults
      * @param array  $is_display        array with explicit indexes for all
      *                                  the display elements
      * @param string $row_no            the row number
-     * @param string $where_clause_html url encoded where cluase
-     * @param array  $condition_array   array of conditions in the where cluase
+     * @param string $where_clause_html url encoded where clause
+     * @param array  $condition_array   array of conditions in the where clause
      * @param string $del_query         delete query
      * @param string $id_suffix         suffix for the id
      * @param string $class             css classes for the td element
@@ -4799,8 +4799,8 @@ class PMA_DisplayResults
      * @param string $edit_url          edit url
      * @param string $class             css classes for td element
      * @param string $edit_str          text for the edit link
-     * @param string $where_clause      where cluase
-     * @param string $where_clause_html url encoded where cluase
+     * @param string $where_clause      where clause
+     * @param string $where_clause_html url encoded where clause
      *
      * @return string  the generated HTML
      * 
@@ -4839,7 +4839,7 @@ class PMA_DisplayResults
      * @param string $copy_url          copy url
      * @param string $copy_str          text for the copy link
      * @param string $where_clause      where clause
-     * @param string $where_clause_html url encoded where cluase
+     * @param string $where_clause_html url encoded where clause
      * @param string $class             css classes for the td element
      *
      * @return string  the generated HTML
@@ -4924,8 +4924,8 @@ class PMA_DisplayResults
      *                                  display elements
      * @param string $row_no            row number
      * @param string $where_clause      where clause
-     * @param string $where_clause_html url encoded where cluase
-     * @param array  $condition_array   array of conditions in the where cluase
+     * @param string $where_clause_html url encoded where clause
+     * @param array  $condition_array   array of conditions in the where clause
      * @param string $del_query         delete query
      * @param string $id_suffix         suffix for the id
      * @param string $edit_url          edit url
