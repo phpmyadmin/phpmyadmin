@@ -314,8 +314,8 @@ function PMA_analyzeTableColumnsArray($column, $comments_map, $timestamp_seen)
     $column['is_binary']     = PMA_isColumnBinary($column);
     $column['is_blob']       = PMA_isColumnBlob($column);
     $column['is_char']       = PMA_isColumnChar($column);
-    list($column['pma_type'], $column['wrap'], $column['first_timestamp']) =
-            PMA_getEnumSetAndTimestampColumns($column, $timestamp_seen);
+    list($column['pma_type'], $column['wrap'], $column['first_timestamp'])
+        = PMA_getEnumSetAndTimestampColumns($column, $timestamp_seen);
 
     return $column;
 }
@@ -617,7 +617,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
             $column, $backup_field, $column_name_appendix,
             $unnullify_trigger, $tabindex, $tabindex_for_value, $idindex, $data,
             $paramTableDbArray, $rownumber_param, $titles
-            );
+        );
 
     } elseif (is_array($foreignData['disp_row'])) {
         $html_output .= PMA_dispRowForeignData(
@@ -632,7 +632,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
         $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">'
             . '<td colspan="5" class="right">';
         $html_output .= PMA_getTextarea(
-            $column,$backup_field, $column_name_appendix, $unnullify_trigger,
+            $column, $backup_field, $column_name_appendix, $unnullify_trigger,
             $tabindex, $tabindex_for_value, $idindex, $text_dir,
             $special_chars_encoded
         );
@@ -651,28 +651,28 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
 
     } elseif ($column['pma_type'] == 'enum') {
         $html_output .= PMA_getPmaTypeEnum(
-            $paramsArrayForColumns, $column,$extracted_columnspec
+            $paramsArrayForColumns, $column, $extracted_columnspec
         );
 
     } elseif ($column['pma_type'] == 'set') {
         $html_output .= PMA_getPmaTypeSet(
-            $column,$extracted_columnspec, $backup_field,
+            $column, $extracted_columnspec, $backup_field,
             $column_name_appendix, $unnullify_trigger, $tabindex,
             $tabindex_for_value, $idindex
         );
 
     } elseif ($column['is_binary'] || $column['is_blob']) {
         $html_output .= PMA_getBinaryAndBlobColumn(
-            $column, $data, $special_chars,$biggest_max_file_size,
-            $backup_field,$column_name_appendix, $unnullify_trigger, $tabindex,
+            $column, $data, $special_chars, $biggest_max_file_size,
+            $backup_field, $column_name_appendix, $unnullify_trigger, $tabindex,
             $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded,
             $vkey, $is_upload
         );
 
     } elseif (! in_array($column['pma_type'], $no_support_types)) {
         $html_output .= PMA_getNoSupportTypes(
-            $column, $default_char_editing,$backup_field,
-            $column_name_appendix, $unnullify_trigger,$tabindex,$special_chars,
+            $column, $default_char_editing, $backup_field,
+            $column_name_appendix, $unnullify_trigger, $tabindex, $special_chars,
             $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded,
             $data, $extracted_columnspec
         );
@@ -750,8 +750,10 @@ function PMA_dispRowForeignData($backup_field, $column_name_appendix,
         . $unnullify_trigger
         . 'class="textfield"' . ($tabindex + $tabindex_for_value). '"'
         . 'id="field_' . $idindex . '_3"'
-        . PMA_foreignDropdown($foreignData['disp_row'], $foreignData['foreign_field'],
-                $foreignData['foreign_display'], $data, $GLOBALS['cfg']['ForeignKeyMaxLimit'])
+        . PMA_foreignDropdown(
+            $foreignData['disp_row'], $foreignData['foreign_field'],
+            $foreignData['foreign_display'], $data, $GLOBALS['cfg']['ForeignKeyMaxLimit']
+        )
         . '</select>';
 
     return $html_output;
@@ -828,11 +830,13 @@ function PMA_getPmaTypeEnum(
     $html_output .= '<input type="hidden" name="fields' . $column_name_appendix . '" value="" />';
     $html_output .= "\n" . '            ' . $backup_field . "\n";
     if (strlen($column['Type']) > 20) {
-        $html_output .= PMA_getDropDownDependingOnLength($column, $column_name_appendix, $unnullify_trigger,
+        $html_output .= PMA_getDropDownDependingOnLength(
+            $column, $column_name_appendix, $unnullify_trigger,
             $tabindex, $tabindex_for_value, $idindex, $data, $column_enum_values
         );
     } else {
-        $html_output .= PMA_getRadioButtonDependingOnLength($column_name_appendix, $unnullify_trigger,
+        $html_output .= PMA_getRadioButtonDependingOnLength(
+            $column_name_appendix, $unnullify_trigger,
             $tabindex, $column, $tabindex_for_value, $idindex, $data, $column_enum_values
         );
     }
@@ -1039,7 +1043,7 @@ function PMA_getColumnSetValueAndSelectSize($column, $extracted_columnspec)
  * @return string                           an html snippet
  */
 function PMA_getBinaryAndBlobColumn(
-    $column, $data, $special_chars,$biggest_max_file_size,
+    $column, $data, $special_chars, $biggest_max_file_size,
     $backup_field, $column_name_appendix, $unnullify_trigger, $tabindex,
     $tabindex_for_value, $idindex, $text_dir, $special_chars_encoded,
     $vkey, $is_upload
