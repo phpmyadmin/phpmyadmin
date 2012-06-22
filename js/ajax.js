@@ -123,35 +123,63 @@ var AJAX = {
             AJAX.active = true;
         }
 
-        var url = $(this).attr('href') || $(this).attr('action') + '?' + $(this).serialize();
         this._debug && console.log("Loading: " + url); // no need to translate
-        var $msgbox = PMA_ajaxShowMessage();
+        this.$msgbox = PMA_ajaxShowMessage();
         $('html, body').animate({scrollTop: 0}, 'fast');
-        $.get(url, {'ajax_request': true, 'ajax_page_request': true}, function (data) {
-            if (data.success) {
-                PMA_ajaxRemoveMessage($msgbox);
 
-                AJAX.scriptHandler.reset();
+        var isLink = !! $(this).attr('href') || false;
+        var url = isLink ? $(this).attr('href') : $(this).attr('action');
+        var params = 'ajax_request=true&ajax_page_request=true';
+        if (! isLink) {
+            params += '&' + $(this).serialize();
+        }
 
-                if (data._menu) {
-                    $('#floating_menubar').html(data._menu)
-                        .children().first().remove(); // Remove duplicate wrapper (TODO: don't send it in the response)
-                    menuPrepare();
-                    menuResize();
-                }
+        if (isLink) {
+            $.get(url, params, AJAX.responseHandler);
+        } else {
+            $.post(url, params, AJAX.responseHandler);
+        }
+    },
 
-                $('body').children().not('#floating_menubar').not('#page_content').not('#selflink').remove();
+    $msgbox: null,
 
-                $('#page_content').replaceWith("<div id='page_content'>" + data.message + "</div>");
+    responseHandler: function (data) {
+        if (data.success) {
+            PMA_ajaxRemoveMessage(AJAX.$msgbox);
 
-                if (data._scripts) {
-                    AJAX.scriptHandler.load(data._scripts, 1);
-                }
-            } else {
-                PMA_ajaxShowMessage(data.error, false);
+            if (data._redirect) {
+                PMA_ajaxShowMessage(data._redirect, false);
                 AJAX.active = false;
+                return;
             }
-        });
+
+            AJAX.scriptHandler.reset();
+
+            if (data._menu) {
+                $('#floating_menubar').html(data._menu)
+                    .children().first().remove(); // Remove duplicate wrapper (TODO: don't send it in the response)
+                menuPrepare();
+                menuResize();
+            }
+
+            $('body').children().not('#floating_menubar').not('#page_content').not('#selflink').remove();
+
+            $('#page_content').replaceWith("<div id='page_content'>" + data.message + "</div>");
+            if (data.sql_query) {
+                var $sql = $(data.sql_query);
+                $sql
+                    .find('div.error, div.success, div.notice')
+                    .remove();
+                $('#page_content').append($sql);
+            }
+
+            if (data._scripts) {
+                AJAX.scriptHandler.load(data._scripts, 1);
+            }
+        } else {
+            PMA_ajaxShowMessage(data.error, false);
+            AJAX.active = false;
+        }
     },
     /**
      * This object is in charge of downloading scripts,
