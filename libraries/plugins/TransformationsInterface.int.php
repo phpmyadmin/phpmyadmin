@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Abstract class for the transformations plugins
+ * Interface for the transformations plugins
  *
  * @package PhpMyAdmin
  */

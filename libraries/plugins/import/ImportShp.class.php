@@ -28,7 +28,7 @@ require_once "libraries/plugins/import/PMA_ShapeRecord.class.php";
  * @package PhpMyAdmin-Import
  */
 class ImportShp extends ImportPlugin
-{    
+{
     /**
      * Constructor
      */

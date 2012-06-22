@@ -71,6 +71,7 @@ class PluginManager implements SplSubject
      * the role of sending a notification to all of the plugins in $_storage,
      * by calling the update() method for each of them.
      *
+     * @todo implement
      * @return void
      */
     function notify ()

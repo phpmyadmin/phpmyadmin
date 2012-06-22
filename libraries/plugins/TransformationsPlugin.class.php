@@ -28,7 +28,6 @@ abstract class TransformationsPlugin extends PluginObserver
      *
      * @param array  $options transformation options
      *
-     * @todo implement
      * @return void
      */
     public function applyTransformationNoWrap($options = array())
