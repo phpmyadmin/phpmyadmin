@@ -44,7 +44,7 @@ foreach ($plugins as $plugin) {
     if ($check()) {
         $upload_class = "Upload" . ucwords($plugin);
         $_SESSION[$SESSION_KEY]["handler"] = $upload_class;
-        include_once "import/upload/" . $plugin . ".class.php";
+        include_once "plugins/import/upload/" . $upload_class . ".class.php";
         break;
     }
 }

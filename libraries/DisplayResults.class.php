@@ -2172,7 +2172,9 @@ class PMA_DisplayResults
                         if (file_exists($include_file)) {
                             include_once $include_file;
                             $class_name = str_replace('.class.php', '', $file);
-                            $transformation_plugin = new $class_name;
+                            // todo add $plugin_manager
+                            $plugin_manager = null;
+                            $transformation_plugin = new $class_name($plugin_manager);
                             $transform_options  = PMA_transformation_getOptions(
                                 isset($GLOBALS['mime_map'][$meta->name]
                                     ['transformation_options']
