@@ -290,52 +290,6 @@ AJAX.registerOnload('sql.js', function() {
     }); // end SQL Query submit
 
     /**
-     * Ajax Event handlers for Paginating the results table
-     */
-
-    /**
-     * Paginate when we click any of the navigation buttons
-     * (only if the element has the ajax class, see $cfg['AjaxEnable'])
-     * @memberOf    jQuery
-     * @name        paginate_nav_button_click
-     * @see         $cfg['AjaxEnable']
-     */
-    $("input[name=navig].ajax").live('click', function(event) {
-        /** @lends jQuery */
-        event.preventDefault();
-
-        /**
-         * @var $form    Object referring to the form element that paginates the results table
-         */
-        var $form = $(this).parent("form");
-
-        if (($form[0].elements['session_max_rows'] != undefined
-            ? checkFormElementInRange(
-                $form[0],
-                'session_max_rows',
-                PMA_messages['strNotValidRowNumber'], 1)
-            : true
-            )
-            &&
-            checkFormElementInRange(
-                $form[0],
-                'pos',
-                PMA_messages['strNotValidRowNumber'], 0)) {
-
-            var $msgbox = PMA_ajaxShowMessage();
-            PMA_prepareForAjaxRequest($form);
-
-            $.post($form.attr('action'), $form.serialize(), function(data) {
-                $("#sqlqueryresults")
-                 .html(data.message)
-                 .trigger('makegrid');
-                PMA_init_slider();
-                PMA_ajaxRemoveMessage($msgbox);
-            }); // end $.post()
-        }
-    }); // end Paginate results table
-
-    /**
      * Paginate results with Page Selector dropdown
      * @memberOf    jQuery
      * @name        paginate_dropdown_change
@@ -343,45 +297,8 @@ AJAX.registerOnload('sql.js', function() {
      */
     $("#pageselector").live('change', function(event) {
         var $form = $(this).parent("form");
-
-        if ($(this).hasClass('ajax')) {
-            event.preventDefault();
-
-            var $msgbox = PMA_ajaxShowMessage();
-
-            $.post($form.attr('action'), $form.serialize() + '&ajax_request=true', function(data) {
-                $("#sqlqueryresults")
-                 .html(data.message)
-                 .trigger('makegrid');
-                PMA_init_slider();
-                PMA_ajaxRemoveMessage($msgbox);
-            }); // end $.post()
-        } else {
-            $form.submit();
-        }
-
+        $form.submit();
     }); // end Paginate results with Page Selector
-
-    /**
-     * Ajax Event handler for sorting the results table
-     * @memberOf    jQuery
-     * @name        table_results_sort_click
-     * @see         $cfg['AjaxEnable']
-     */
-    $("#table_results.ajax").find("a[title=Sort]").live('click', function(event) {
-        event.preventDefault();
-
-        var $msgbox = PMA_ajaxShowMessage();
-
-        $anchor = $(this);
-
-        $.get($anchor.attr('href'), $anchor.serialize() + '&ajax_request=true', function(data) {
-            $("#sqlqueryresults")
-             .html(data.message)
-             .trigger('makegrid');
-            PMA_ajaxRemoveMessage($msgbox);
-        }); // end $.get()
-    }); //end Sort results table
 
     /**
      * Ajax Event handler for the display options
