@@ -511,7 +511,8 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
         . htmlspecialchars($_REQUEST['date_to']) . '" size="19" />';
     $str4 = '<input type="text" name="users" value="'
         . htmlspecialchars($_REQUEST['users']) . '" />';
-    $str5 = '<input type="submit" name="list_report" value="' . __('Go') . '" />';
+    $str5 = '<input type="hidden" name="list_report" value="1" />'
+      . '<input type="submit" value="' . __('Go') . '" />';
 
     printf(
         __('Show %1$s with dates from %2$s to %3$s by user %4$s %5$s'),
@@ -673,9 +674,10 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
         . PMA_escapeJsString(__('This option will replace your table and contained data.'))
         .'\')">' . __('SQL execution') . '</option>' . '</select>';
 
-    $str_export2 = '<input type="submit" name="report_export" value="' . __('Go') .'" />';
+    $str_export2 = '<input type="hidden" name="report_export" value="1" />'
+                 . '<input type="submit" value="' . __('Go') .'" />';
     echo '</form>';
-    echo '<form method="post" action="tbl_tracking.php'
+    echo '<form class="disableAjax" method="post" action="tbl_tracking.php'
         . PMA_generate_common_url(
             $url_params + array('report' => 'true', 'version' => $_REQUEST['version'])
         )
@@ -724,7 +726,8 @@ if (PMA_DBI_num_rows($sql_result) > 0) {
         echo '<option value="' . htmlspecialchars($entries['table_name']) . '"' . $s . '>' . htmlspecialchars($entries['db_name']) . ' . ' . htmlspecialchars($entries['table_name']) . $status . '</option>' . "\n";
     }
     echo '</select>';
-    echo '<input type="submit" name="show_versions_submit" value="' . __('Show versions') . '" />';
+    echo '<input type="hidden" name="show_versions_submit" value="1" />';
+    echo '<input type="submit" value="' . __('Show versions') . '" />';
     echo '</form>';
 }
 echo '<br />';
@@ -817,8 +820,8 @@ if ($last_version > 0) {
         );
         echo '</legend>';
         echo '<input type="hidden" name="version" value="' . $last_version . '" />';
-        echo '<input type="submit" name="submit_deactivate_now" value="'
-            . __('Deactivate now') . '" />';
+        echo '<input type="hidden" name="submit_deactivate_now" value="1" />';
+        echo '<input type="submit" value="' . __('Deactivate now') . '" />';
         echo '</fieldset>';
         echo '</form>';
         echo '</div>';
@@ -833,7 +836,8 @@ if ($last_version > 0) {
         );
         echo '</legend>';
         echo '<input type="hidden" name="version" value="' . $last_version . '" />';
-        echo '<input type="submit" name="submit_activate_now" value="' . __('Activate now') . '" />';
+        echo '<input type="hidden" name="submit_activate_now" value="1" />';
+        echo '<input type="submit" value="' . __('Activate now') . '" />';
         echo '</fieldset>';
         echo '</form>';
         echo '</div>';
@@ -870,10 +874,11 @@ echo '<input type="checkbox" name="truncate" value="true" checked="checked" /> T
 
 echo '</fieldset>';
 echo '<fieldset class="tblFooters">';
-echo '<input type="submit" name="submit_create_version" value="' . __('Create version') . '" />';
+
+echo '<input type="hidden" name="submit_create_version" value="1" />';
+echo '<input type="submit" value="' . __('Create version') . '" />';
 echo '</fieldset>';
 echo '</form>';
 echo '</div>';
 
 echo '<br class="clearfloat"/>';
-
