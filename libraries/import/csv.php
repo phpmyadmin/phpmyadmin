@@ -11,6 +11,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+$common_functions = PMA_CommonFunctions::getInstance();
 $analyze = false;
 
 if ($plugin_param !== 'table') {
@@ -91,7 +92,7 @@ if (isset($plugin_list)) {
         $plugin_list['csv']['options'][] = array(
             'type' => 'text',
             'name' => 'columns',
-            'text' => __('Column names: ') . PMA_showHint($hint)
+            'text' => __('Column names: ') . $common_functions->showHint($hint)
         );
     }
 
@@ -144,7 +145,7 @@ if (strlen($csv_terminated) != 1) {
 
 // If there is an error in the parameters entered, indicate that immediately.
 if ($param_error) {
-    PMA_mysqlDie($message->getMessage(), '', '', $err_url);
+    $common_functions->mysqlDie($message->getMessage(), '', '', $err_url);
 }
 
 $buffer = '';
@@ -159,7 +160,7 @@ if (! $analyze) {
             $sql_template .= ' IGNORE';
         }
     }
-    $sql_template .= ' INTO ' . PMA_backquote($table);
+    $sql_template .= ' INTO ' . $common_functions->backquote($table);
 
     $tmp_fields = PMA_DBI_get_columns($db, $table);
 
@@ -195,7 +196,7 @@ if (! $analyze) {
                 break;
             }
             $fields[] = $field;
-            $sql_template .= PMA_backquote($val);
+            $sql_template .= $common_functions->backquote($val);
         }
         $sql_template .= ') ';
     }
@@ -424,7 +425,7 @@ while (! ($finished && $i >= $len) && ! $error && ! $timeout_passed) {
                     if ($val === null) {
                         $sql .= 'NULL';
                     } else {
-                        $sql .= '\'' . PMA_sqlAddSlashes($val) . '\'';
+                        $sql .= '\'' . $common_functions->sqlAddSlashes($val) . '\'';
                     }
 
                     $first = false;

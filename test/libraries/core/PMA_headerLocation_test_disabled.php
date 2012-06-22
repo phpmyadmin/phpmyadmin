@@ -288,7 +288,7 @@ class PMA_headerLocation_test extends PHPUnit_Framework_TestCase
                     '</script>' . PHP_EOL;
 
         $this->expectOutputString($write);
-        echo PMA_getReloadNavigationScript();
+        echo PMA_CommonFunctions::getInstance()->getReloadNavigationScript();
 
         $this->assertFalse(isset($GLOBALS['reload']));
         unset($GLOBALS['db']);

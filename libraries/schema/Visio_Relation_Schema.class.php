@@ -212,8 +212,9 @@ class Table_Stats
     {
         global $visio, $cfgRelation, $db;
 
+        $common_functions = PMA_CommonFunctions::getInstance();
         $this->_tableName = $tableName;
-        $sql = 'DESCRIBE ' . PMA_backquote($tableName);
+        $sql = 'DESCRIBE ' . $common_functions->backquote($tableName);
         $result = PMA_DBI_try_query($sql, null, PMA_DBI_QUERY_STORE);
         if (!$result || !PMA_DBI_num_rows($result)) {
             $visio->dieSchema(
@@ -258,10 +259,10 @@ class Table_Stats
 
         // x and y
         $sql = 'SELECT x, y FROM '
-         . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
-         . PMA_backquote($cfgRelation['table_coords'])
-         . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
-         . ' AND   table_name = \'' . PMA_sqlAddSlashes($tableName) . '\''
+         . $common_functions->backquote($GLOBALS['cfgRelation']['db']) . '.'
+         . $common_functions->backquote($cfgRelation['table_coords'])
+         . ' WHERE db_name = \'' . $common_functions->sqlAddSlashes($db) . '\''
+         . ' AND   table_name = \'' . $common_functions->sqlAddSlashes($tableName) . '\''
          . ' AND   pdf_page_number = ' . $pageNumber;
         $result = PMA_query_as_controluser($sql, false, PMA_DBI_QUERY_STORE);
 
@@ -281,7 +282,7 @@ class Table_Stats
         // displayfield
         $this->displayfield = PMA_getDisplayField($db, $tableName);
         // index
-        $result = PMA_DBI_query('SHOW INDEX FROM ' . PMA_backquote($tableName) . ';', null, PMA_DBI_QUERY_STORE);
+        $result = PMA_DBI_query('SHOW INDEX FROM ' . PMA_CommonFunctions::getInstance()->backquote($tableName) . ';', null, PMA_DBI_QUERY_STORE);
         if (PMA_DBI_num_rows($result) > 0) {
             while ($row = PMA_DBI_fetch_assoc($result)) {
                 if ($row['Key_name'] == 'PRIMARY') {

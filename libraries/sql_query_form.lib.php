@@ -165,6 +165,8 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
  */
 function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter = ';')
 {
+    
+    $common_functions = PMA_CommonFunctions::getInstance();
 
     // enable auto select text in textarea
     if ($GLOBALS['cfg']['TextareaAutoSelect']) {
@@ -212,7 +214,9 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         // $tmp_db_link = htmlspecialchars($db);
         $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
         if (empty($query)) {
-            $query = PMA_expandUserString($GLOBALS['cfg']['DefaultQueryDatabase'], 'PMA_backquote');
+            $query = $common_functions->expandUserString(
+                $GLOBALS['cfg']['DefaultQueryDatabase'], 'PMA_CommonFunctions::getInstance()->backquote'
+            );
         }
     } else {
         $table  = $GLOBALS['table'];
@@ -234,10 +238,12 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         // $tmp_db_link = htmlspecialchars($db);
         $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
         if (empty($query)) {
-            $query = PMA_expandUserString($GLOBALS['cfg']['DefaultQueryTable'], 'PMA_backquote');
+            $query = $common_functions->expandUserString(
+                $GLOBALS['cfg']['DefaultQueryTable'], 'PMA_CommonFunctions::getInstance()->backquote'
+            );
         }
     }
-    $legend .= ': ' . PMA_showMySQLDocu('SQL-Syntax', 'SELECT');
+    $legend .= ': ' . $common_functions->showMySQLDocu('SQL-Syntax', 'SELECT');
 
     if (count($fields_list)) {
         $sqlquerycontainer_id = 'sqlquerycontainer';
@@ -275,7 +281,7 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
             .'multiple="multiple" ondblclick="insertValueQuery()">' . "\n";
         foreach ($fields_list as $field) {
             echo '<option value="'
-                .PMA_backquote(htmlspecialchars($field['Field'])) . '"';
+                .PMA_CommonFunctions::getInstance()->backquote(htmlspecialchars($field['Field'])) . '"';
             if (isset($field['Field']) && strlen($field['Field']) && isset($field['Comment'])) {
                 echo ' title="' . htmlspecialchars($field['Comment']) . '"';
             }
@@ -392,7 +398,7 @@ function PMA_sqlQueryFormBookmark()
     echo '</div>' . "\n";
     echo '<div class="formelement">' . "\n";
     echo __('Variable');
-    echo PMA_showDocu('faqbookmark');
+    echo PMA_CommonFunctions::getInstance()->showDocu('faqbookmark');
     echo '<input type="text" name="bookmark_variable" class="textfield"'
         .' size="10" />' . "\n";
     echo '</div>' . "\n";
@@ -426,12 +432,14 @@ function PMA_sqlQueryFormBookmark()
  */
 function PMA_sqlQueryFormUpload()
 {
+    
+    $common_functions = PMA_CommonFunctions::getInstance();
     $errors = array ();
 
     $matcher = '@\.sql(\.(' . PMA_supportedDecompressions() . '))?$@'; // we allow only SQL here
 
     if (!empty($GLOBALS['cfg']['UploadDir'])) {
-        $files = PMA_getFileSelectOptions(PMA_userDir($GLOBALS['cfg']['UploadDir']), $matcher, (isset($timeout_passed) && $timeout_passed && isset($local_import_file)) ? $local_import_file : '');
+        $files = PMA_getFileSelectOptions($common_functions->userDir($GLOBALS['cfg']['UploadDir']), $matcher, (isset($timeout_passed) && $timeout_passed && isset($local_import_file)) ? $local_import_file : '');
     } else {
         $files = '';
     }
@@ -442,9 +450,9 @@ function PMA_sqlQueryFormUpload()
     echo __('Browse your computer:') . '</legend>';
     echo '<div class="formelement">';
     echo '<input type="file" name="sql_file" class="textfield" /> ';
-    echo PMA_getFormattedMaximumUploadSize($GLOBALS['max_upload_size']);
+    echo $common_functions->getFormattedMaximumUploadSize($GLOBALS['max_upload_size']);
     // some browsers should respect this :)
-    echo PMA_generateHiddenMaxFileSize($GLOBALS['max_upload_size']) . "\n";
+    echo $common_functions->generateHiddenMaxFileSize($GLOBALS['max_upload_size']) . "\n";
     echo '</div>';
 
     if ($files === false) {

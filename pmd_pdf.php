@@ -8,6 +8,8 @@
 require_once './libraries/common.inc.php';
 require_once 'libraries/pmd_common.php';
 
+$common_functions = PMA_CommonFunctions::getInstance();
+
 /**
   * Sets globals from $_POST
   */
@@ -38,9 +40,9 @@ if (isset($mode)) {
         die("<script>alert('Pages not found!');history.go(-2);</script>");
     }
 
-    $pmd_table = PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['designer_coords']);
-    $pma_table = PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_coords']);
-    $scale_q = PMA_sqlAddSlashes($scale);
+    $pmd_table = $common_functions->backquote($GLOBALS['cfgRelation']['db']) . '.' . $common_functions->backquote($GLOBALS['cfgRelation']['designer_coords']);
+    $pma_table = $common_functions->backquote($GLOBALS['cfgRelation']['db']) . '.' . $common_functions->backquote($cfgRelation['table_coords']);
+    $scale_q = $common_functions->sqlAddSlashes($scale);
 
     if ('create_export' == $mode) {
         $pdf_page_number = PMA_REL_createPage($newpage, $cfgRelation, $db);
@@ -52,10 +54,10 @@ if (isset($mode)) {
         }
     }
 
-    $pdf_page_number_q = PMA_sqlAddSlashes($pdf_page_number);
+    $pdf_page_number_q = $common_functions->sqlAddSlashes($pdf_page_number);
 
     if ('export' == $mode) {
-        $sql = "REPLACE INTO " . $pma_table . " (db_name, table_name, pdf_page_number, x, y) SELECT db_name, table_name, " . $pdf_page_number_q . ", ROUND(x/" . $scale_q . ") , ROUND(y/" . $scale_q . ") y FROM " . $pmd_table . " WHERE db_name = '" . PMA_sqlAddSlashes($db) . "'";
+        $sql = "REPLACE INTO " . $pma_table . " (db_name, table_name, pdf_page_number, x, y) SELECT db_name, table_name, " . $pdf_page_number_q . ", ROUND(x/" . $scale_q . ") , ROUND(y/" . $scale_q . ") y FROM " . $pmd_table . " WHERE db_name = '" . $common_functions->sqlAddSlashes($db) . "'";
 
         PMA_query_as_controluser($sql, true, PMA_DBI_QUERY_STORE);
     }
@@ -70,7 +72,7 @@ if (isset($mode)) {
             AND
             ' . $pmd_table . '.`table_name` = ' . $pma_table . '.`table_name`
             AND
-            ' . $pmd_table . '.`db_name`=\''. PMA_sqlAddSlashes($db) .'\'
+            ' . $pmd_table . '.`db_name`=\''. $common_functions->sqlAddSlashes($db) .'\'
             AND pdf_page_number = ' . $pdf_page_number_q . ';',
             true, PMA_DBI_QUERY_STORE
         );
@@ -99,9 +101,9 @@ echo '<fieldset><legend>' . __('Import/Export coordinates for PDF schema') . '</
 $choices = array();
 
 $table_info_result = PMA_query_as_controluser(
-    'SELECT * FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db'])
-    . '.' . PMA_backquote($cfgRelation['pdf_pages'])
-    . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
+    'SELECT * FROM ' . $common_functions->backquote($GLOBALS['cfgRelation']['db'])
+    . '.' . $common_functions->backquote($cfgRelation['pdf_pages'])
+    . ' WHERE db_name = \'' . $common_functions->sqlAddSlashes($db) . '\''
 );
 
 if (PMA_DBI_num_rows($table_info_result) > 0) {
@@ -124,7 +126,10 @@ if (1 == count($choices)) {
     echo $choices['create_export'];
     echo '<input type="hidden" name="mode" value="create_export" />';
 } else {
-    echo PMA_getRadioFields('mode', $choices, $checked_choice = '', $line_break = true, $escape_label = false, $class = '');
+    echo $common_functions->getRadioFields(
+        'mode', $choices, $checked_choice = '', $line_break = true,
+        $escape_label = false, $class = ''
+    );
 }
 echo '<br />';
 echo '<label for="newpage">' . __('New page name: ') . '</label>';

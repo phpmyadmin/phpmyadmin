@@ -7,7 +7,7 @@
  */
 
 /*
- * Needed for PMA_backquote() and PMA_RTN_getQueryFromRequest()
+ * Needed for backquote() and PMA_RTN_getQueryFromRequest()
  */
 require_once 'libraries/common.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';

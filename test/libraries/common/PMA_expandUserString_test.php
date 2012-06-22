@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_expandUserString from common.lib.php
+ * Test for PMA_CommonFunctions::expandUserString from common.lib.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -18,7 +18,7 @@ if (!defined('PMA_VERSION')) {
 }
 
 /**
- * Test for PMA_expandUserString function.
+ * Test for PMA_CommonFunctions::expandUserString function.
  */
 class PMA_expandUserString_test extends PHPUnit_Framework_TestCase
 {
@@ -44,7 +44,9 @@ class PMA_expandUserString_test extends PHPUnit_Framework_TestCase
      */
     public function testExpand($in, $out)
     {
-        $this->assertEquals($out, PMA_expandUserString($in));
+        $this->assertEquals(
+            $out, PMA_CommonFunctions::getInstance()->expandUserString($in)
+        );
     }
 
     /**
@@ -54,7 +56,11 @@ class PMA_expandUserString_test extends PHPUnit_Framework_TestCase
      */
     public function testExpandEscape($in, $out)
     {
-        $this->assertEquals(htmlspecialchars($out), PMA_expandUserString($in, 'htmlspecialchars'));
+        $this->assertEquals(
+            htmlspecialchars($out),
+            PMA_CommonFunctions::getInstance()
+                ->expandUserString($in, 'htmlspecialchars')
+        );
     }
 
     /**

@@ -85,7 +85,7 @@ if (isset($plugin_list)) {
     {
         PMA_exportOutputHandler(
             '//' . $GLOBALS['crlf']
-            . '// Database ' . PMA_backquote($db) . $GLOBALS['crlf']
+            . '// Database ' . PMA_CommonFunctions::getInstance()->backquote($db) . $GLOBALS['crlf']
             . '//' . $GLOBALS['crlf']
         );
         return true;
@@ -168,8 +168,8 @@ if (isset($plugin_list)) {
 
             // Output table name as comment if this is the first record of the table
             if ($record_cnt == 1) {
-                $buffer .= $crlf . '// '. PMA_backquote($db) . '.'
-                    . PMA_backquote($table) . $crlf;
+                $buffer .= $crlf . '// '. PMA_CommonFunctions::getInstance()->backquote($db) . '.'
+                    . PMA_CommonFunctions::getInstance()->backquote($table) . $crlf;
                 $buffer .= '$' . $tablefixed . ' = array(' . $crlf;
                 $buffer .= '  array(';
             } else {

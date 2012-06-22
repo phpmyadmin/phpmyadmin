@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_getRadioFields from common.lib.php
+ * Test for PMA_CommonFunctions::getRadioFields from common.lib.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -20,7 +20,7 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         $choices = array();
 
         $this->assertEquals(
-            PMA_getRadioFields($name, $choices),
+            PMA_CommonFunctions::getInstance()->getRadioFields($name, $choices),
             ""
         );
     }
@@ -41,7 +41,7 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         }
 
         $this->assertEquals(
-            PMA_getRadioFields($name, $choices),
+            PMA_CommonFunctions::getInstance()->getRadioFields($name, $choices),
             $out
         );
     }
@@ -66,7 +66,9 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         }
 
         $this->assertEquals(
-            PMA_getRadioFields($name, $choices, $checked_choice),
+            PMA_CommonFunctions::getInstance()->getRadioFields(
+                $name, $choices, $checked_choice
+            ),
             $out
         );
     }
@@ -94,7 +96,9 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         }
 
         $this->assertEquals(
-            PMA_getRadioFields($name, $choices, $checked_choice, true, false, $class),
+            PMA_CommonFunctions::getInstance()->getRadioFields(
+                $name, $choices, $checked_choice, true, false, $class
+            ),
             $out
         );
     }
@@ -118,7 +122,9 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         }
 
         $this->assertEquals(
-            PMA_getRadioFields($name, $choices, $checked_choice, false),
+            PMA_CommonFunctions::getInstance()->getRadioFields(
+                $name, $choices, $checked_choice, false
+            ),
             $out
         );
     }
@@ -143,7 +149,9 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         }
 
         $this->assertEquals(
-            PMA_getRadioFields($name, $choices, $checked_choice, true, true),
+            PMA_CommonFunctions::getInstance()->getRadioFields(
+                $name, $choices, $checked_choice, true, true
+            ),
             $out
         );
     }
@@ -168,7 +176,9 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         }
 
         $this->assertEquals(
-            PMA_getRadioFields($name, $choices, $checked_choice, true, false),
+            PMA_CommonFunctions::getInstance()->getRadioFields(
+                $name, $choices, $checked_choice, true, false
+            ),
             $out
         );
     }
@@ -196,7 +206,9 @@ class PMA_GetRadioFieldsTest extends PHPUnit_Framework_TestCase
         }
 
         $this->assertEquals(
-            PMA_getRadioFields($name, $choices, $checked_choice, true, true, $class),
+            PMA_CommonFunctions::getInstance()->getRadioFields(
+                $name, $choices, $checked_choice, true, true, $class
+            ),
             $out
         );
     }

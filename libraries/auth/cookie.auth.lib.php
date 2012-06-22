@@ -225,7 +225,7 @@ function PMA_auth()
     <legend>
 <?php
     echo __('Log in');
-    echo PMA_showDocu('');
+    echo PMA_CommonFunctions::getInstance()->showDocu('');
 ?>
 </legend>
 
@@ -353,6 +353,8 @@ function PMA_auth_check()
 
     $GLOBALS['PHP_AUTH_USER'] = $GLOBALS['PHP_AUTH_PW'] = '';
     $GLOBALS['from_cookie'] = false;
+    
+    $common_functions = PMA_CommonFunctions::getInstance();
 
     // BEGIN Swekey Integration
     if (! Swekey_auth_check()) {
@@ -434,11 +436,11 @@ function PMA_auth_check()
 
     // User inactive too long
     if ($_SESSION['last_access_time'] < time() - $GLOBALS['cfg']['LoginCookieValidity']) {
-        PMA_cacheUnset('is_create_db_priv', true);
-        PMA_cacheUnset('is_process_priv', true);
-        PMA_cacheUnset('is_reload_priv', true);
-        PMA_cacheUnset('db_to_create', true);
-        PMA_cacheUnset('dbs_where_create_table_allowed', true);
+        $common_functions->cacheUnset('is_create_db_priv', true);
+        $common_functions->cacheUnset('is_process_priv', true);
+        $common_functions->cacheUnset('is_reload_priv', true);
+        $common_functions->cacheUnset('db_to_create', true);
+        $common_functions->cacheUnset('dbs_where_create_table_allowed', true);
         $GLOBALS['no_activity'] = true;
         PMA_auth_fails();
         exit;
@@ -579,7 +581,7 @@ function PMA_auth_set_user()
         /**
          * Clear user cache.
          */
-        PMA_clearUserCache();
+        PMA_CommonFunctions::getInstance()->clearUserCache();
 
         PMA_Response::getInstance()->disable();
 

@@ -21,24 +21,26 @@ if (! defined('PHPMYADMIN')) {
 function PMA_RTE_getFooterLinks($docu, $priv, $name)
 {
     global $db, $url_query, $ajax_class;
-
+    
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
     $icon = 'b_' . strtolower($name) . '_add.png';
     $retval  = "";
     $retval .= "<!-- ADD " . $name . " FORM START -->\n";
     $retval .= "<fieldset class='left'>\n";
     $retval .= "    <legend>" . __('New'). "</legend>\n";
     $retval .= "        <div class='wrap'>\n";
-    if (PMA_currentUserHasPrivilege($priv, $db)) {
+    if ($common_functions->currentUserHasPrivilege($priv, $db)) {
         $retval .= "            <a {$ajax_class['add']} ";
         $retval .= "href='db_" . strtolower($name) . "s.php";
         $retval .= "?$url_query&amp;add_item=1'>";
-        $retval .= PMA_getIcon($icon);
+        $retval .= $common_functions->getIcon($icon);
         $retval .= PMA_RTE_getWord('add') . "</a>\n";
     } else {
-        $retval .= "            " . PMA_getIcon($icon);
+        $retval .= "            " . $common_functions->getIcon($icon);
         $retval .= PMA_RTE_getWord('no_create') . "\n";
     }
-    $retval .= "            " . PMA_showMySQLDocu('SQL-Syntax', $docu) . "\n";
+    $retval .= "            " . $common_functions->showMySQLDocu('SQL-Syntax', $docu) . "\n";
     $retval .= "        </div>\n";
     $retval .= "</fieldset>\n";
     $retval .= "<!-- ADD " . $name . " FORM END -->\n\n";
@@ -109,7 +111,7 @@ function PMA_EVN_getFooterLinks()
     $retval .= "        </legend>\n";
     $retval .= "        <div class='wrap'>\n";
     // show the toggle button
-    $retval .= PMA_toggleButton(
+    $retval .= PMA_CommonFunctions::getInstance()->toggleButton(
         "sql.php?$url_query&amp;goto=db_events.php" . urlencode("?db=$db"),
         'sql_query',
         $options,

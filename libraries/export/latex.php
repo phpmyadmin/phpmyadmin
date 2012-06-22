@@ -206,9 +206,10 @@ if (isset($plugin_list)) {
              $head .= ':' . $cfg['Server']['port'];
         }
         $head .= $crlf
-               .  '% ' . __('Generation Time') . ': ' . PMA_localisedDate() . $crlf
-               .  '% ' . __('Server version') . ': ' . PMA_MYSQL_STR_VERSION . $crlf
-               .  '% ' . __('PHP Version') . ': ' . phpversion() . $crlf;
+            . '% ' . __('Generation Time') . ': '
+            . PMA_CommonFunctions::getInstance()->localisedDate() . $crlf
+            . '% ' . __('Server version') . ': ' . PMA_MYSQL_STR_VERSION . $crlf
+            . '% ' . __('PHP Version') . ': ' . phpversion() . $crlf;
         return PMA_exportOutputHandler($head);
     }
 
@@ -273,6 +274,7 @@ if (isset($plugin_list)) {
      */
     function PMA_exportData($db, $table, $crlf, $error_url, $sql_query)
     {
+        $common_functions = PMA_CommonFunctions::getInstance();
         $result      = PMA_DBI_try_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
 
         $columns_cnt = PMA_DBI_num_fields($result);
@@ -292,13 +294,13 @@ if (isset($plugin_list)) {
         $buffer .= ' \\hline \\endhead \\hline \\endfoot \\hline ' . $crlf;
         if (isset($GLOBALS['latex_caption'])) {
             $buffer .= ' \\caption{'
-                . PMA_expandUserString(
+                . $common_functions->expandUserString(
                     $GLOBALS['latex_data_caption'],
                     'PMA_texEscape',
                     array('table' => $table, 'database' => $db)
                 )
                 . '} \\label{'
-                . PMA_expandUserString(
+                . $common_functions->expandUserString(
                     $GLOBALS['latex_data_label'],
                     null,
                     array('table' => $table, 'database' => $db)
@@ -324,7 +326,7 @@ if (isset($plugin_list)) {
             if (isset($GLOBALS['latex_caption'])) {
                 if (! PMA_exportOutputHandler(
                     '\\caption{'
-                    . PMA_expandUserString(
+                    . $common_functions->expandUserString(
                         $GLOBALS['latex_data_continued_caption'],
                         'PMA_texEscape',
                         array('table' => $table, 'database' => $db)
@@ -420,6 +422,8 @@ if (isset($plugin_list)) {
         $dates = false
     ) {
         global $cfgRelation;
+        
+        $common_functions = PMA_CommonFunctions::getInstance();
 
         /**
          * Get the unique keys in the table
@@ -497,13 +501,13 @@ if (isset($plugin_list)) {
         // Table caption for first page and label
         if (isset($GLOBALS['latex_caption'])) {
             $buffer .= ' \\caption{'
-                . PMA_expandUserString(
+                . $common_functions->expandUserString(
                     $GLOBALS['latex_structure_caption'],
                     'PMA_texEscape',
                     array('table' => $table, 'database' => $db)
                 )
                 . '} \\label{'
-                . PMA_expandUserString(
+                . $common_functions->expandUserString(
                     $GLOBALS['latex_structure_label'],
                     null,
                     array('table' => $table, 'database' => $db)
@@ -515,7 +519,7 @@ if (isset($plugin_list)) {
         // Table caption on next pages
         if (isset($GLOBALS['latex_caption'])) {
             $buffer .= ' \\caption{'
-                . PMA_expandUserString(
+                . $common_functions->expandUserString(
                     $GLOBALS['latex_structure_continued_caption'],
                     'PMA_texEscape',
                     array('table' => $table, 'database' => $db)
@@ -530,7 +534,8 @@ if (isset($plugin_list)) {
 
         $fields = PMA_DBI_get_columns($db, $table);
         foreach ($fields as $row) {
-            $extracted_columnspec = PMA_extractColumnSpec($row['Type']);
+            $extracted_columnspec
+                = PMA_CommonFunctions::getInstance()->extractColumnSpec($row['Type']);
             $type = $extracted_columnspec['print_type'];
             if (empty($type)) {
                 $type = ' ';

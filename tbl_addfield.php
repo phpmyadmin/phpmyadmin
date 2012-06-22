@@ -10,8 +10,10 @@
  */
 require_once 'libraries/common.inc.php';
 
+$common_functions = PMA_CommonFunctions::getInstance();
+
 // Check parameters
-PMA_checkParameters(array('db', 'table'));
+$common_functions->checkParameters(array('db', 'table'));
 
 
 /**
@@ -105,10 +107,10 @@ if (isset($_REQUEST['do_save_data'])) {
                 if ($_REQUEST['field_where'] == 'first') {
                     $definition .= ' FIRST';
                 } else {
-                    $definition .= ' AFTER ' . PMA_backquote($_REQUEST['after_field']);
+                    $definition .= ' AFTER ' . $common_functions->backquote($_REQUEST['after_field']);
                 }
             } else {
-                $definition .= ' AFTER ' . PMA_backquote($_REQUEST['field_name'][$i-1]);
+                $definition .= ' AFTER ' . $common_functions->backquote($_REQUEST['field_name'][$i-1]);
             }
         }
         $definitions[] = $definition;
@@ -118,7 +120,7 @@ if (isset($_REQUEST['do_save_data'])) {
     if (count($field_primary)) {
         $fields = array();
         foreach ($field_primary as $field_nr) {
-            $fields[] = PMA_backquote($_REQUEST['field_name'][$field_nr]);
+            $fields[] = $common_functions->backquote($_REQUEST['field_name'][$field_nr]);
         }
         $definitions[] = ' ADD PRIMARY KEY (' . implode(', ', $fields) . ') ';
         unset($fields);
@@ -128,7 +130,7 @@ if (isset($_REQUEST['do_save_data'])) {
     if (count($field_index)) {
         $fields = array();
         foreach ($field_index as $field_nr) {
-            $fields[] = PMA_backquote($_REQUEST['field_name'][$field_nr]);
+            $fields[] = $common_functions->backquote($_REQUEST['field_name'][$field_nr]);
         }
         $definitions[] = ' ADD INDEX (' . implode(', ', $fields) . ') ';
         unset($fields);
@@ -138,7 +140,7 @@ if (isset($_REQUEST['do_save_data'])) {
     if (count($field_unique)) {
         $fields = array();
         foreach ($field_unique as $field_nr) {
-            $fields[] = PMA_backquote($_REQUEST['field_name'][$field_nr]);
+            $fields[] = $common_functions->backquote($_REQUEST['field_name'][$field_nr]);
         }
         $definitions[] = ' ADD UNIQUE (' . implode(', ', $fields) . ') ';
         unset($fields);
@@ -148,7 +150,7 @@ if (isset($_REQUEST['do_save_data'])) {
     if (count($field_fulltext)) {
         $fields = array();
         foreach ($field_fulltext as $field_nr) {
-            $fields[] = PMA_backquote($_REQUEST['field_name'][$field_nr]);
+            $fields[] = $common_functions->backquote($_REQUEST['field_name'][$field_nr]);
         }
         $definitions[] = ' ADD FULLTEXT (' . implode(', ', $fields) . ') ';
         unset($fields);
@@ -156,8 +158,8 @@ if (isset($_REQUEST['do_save_data'])) {
 
     // To allow replication, we first select the db to use and then run queries
     // on this db.
-    PMA_DBI_select_db($db) or PMA_mysqlDie(PMA_getError(), 'USE ' . PMA_backquotes($db), '', $err_url);
-    $sql_query    = 'ALTER TABLE ' . PMA_backquote($table) . ' ' . implode(', ', $definitions) . ';';
+    PMA_DBI_select_db($db) or $common_functions->mysqlDie(PMA_getError(), 'USE ' . PMA_backquotes($db), '', $err_url);
+    $sql_query    = 'ALTER TABLE ' . $common_functions->backquote($table) . ' ' . implode(', ', $definitions) . ';';
     $result = PMA_DBI_try_query($sql_query);
 
     if ($result === true) {
@@ -191,14 +193,17 @@ if (isset($_REQUEST['do_save_data'])) {
         if ($GLOBALS['is_ajax_request'] == true) {
             $response = PMA_Response::getInstance();
             $response->addJSON('message', $message);
-            $response->addJSON('sql_query', PMA_getMessage(null, $sql_query));
+            $response->addJSON(
+                'sql_query',
+                $common_functions->getMessage(null, $sql_query)
+            );
             exit;
         }
 
         $active_page = 'tbl_structure.php';
         include 'tbl_structure.php';
     } else {
-        PMA_mysqlDie('', '', '', $err_url, false);
+        $common_functions->mysqlDie('', '', '', $err_url, false);
         // An error happened while inserting/updating a table definition.
         // to prevent total loss of that data, we embed the form once again.
         // The variable $regenerate will be used to restore data in libraries/tbl_properties.inc.php

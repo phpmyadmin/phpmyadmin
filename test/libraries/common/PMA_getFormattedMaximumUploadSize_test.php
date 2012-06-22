@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_getFormattedMaximumUploadSize from common.lib.php
+ * Test for PMA_CommonFunctions::getFormattedMaximumUploadSize from common.lib.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -37,7 +37,10 @@ class PMA_getFormattedMaximumUploadSize_test extends PHPUnit_Framework_TestCase
      */
     function testMaximumUploadSize($size, $unit, $res)
     {
-        $this->assertEquals("(" . __('Max: '). $res . $unit .")", PMA_getFormattedMaximumUploadSize($size));
+        $this->assertEquals(
+            "(" . __('Max: '). $res . $unit .")",
+            PMA_CommonFunctions::getInstance()->getFormattedMaximumUploadSize($size)
+        );
 
     }
 }

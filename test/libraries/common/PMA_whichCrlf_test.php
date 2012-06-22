@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test whichCrlf function
+ * Test PMA_CommonFunctions::whichCrlf function
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -30,9 +30,13 @@ class PMA_whichCrlf_test extends PHPUnit_Framework_TestCase
         if (defined('PMA_USR_OS') && !$runkit) {
 
             if (PMA_USR_OS == 'Win') {
-                $this->assertEquals("\r\n", PMA_whichCrlf());
+                $this->assertEquals(
+                    "\r\n", PMA_CommonFunctions::getInstance()->whichCrlf()
+                );
             } else {
-                $this->assertEquals("\n", PMA_whichCrlf());
+                $this->assertEquals(
+                    "\n", PMA_CommonFunctions::getInstance()->whichCrlf()
+                );
             }
 
             $this->markTestIncomplete('Cannot redefine constant');
@@ -41,7 +45,9 @@ class PMA_whichCrlf_test extends PHPUnit_Framework_TestCase
 
             if ($runkit) {
                 define('PMA_USR_OS', 'Linux');
-                $this->assertEquals("\n", PMA_whichCrlf());
+                $this->assertEquals(
+                    "\n", PMA_CommonFunctions::getInstance()->whichCrlf()
+                );
             }
 
             if ($runkit) {
@@ -49,7 +55,9 @@ class PMA_whichCrlf_test extends PHPUnit_Framework_TestCase
             } else {
                 define('PMA_USR_OS', 'Win');
             }
-            $this->assertEquals("\r\n", PMA_whichCrlf());
+            $this->assertEquals(
+                "\r\n", PMA_CommonFunctions::getInstance()->whichCrlf()
+            );
 
         }
 

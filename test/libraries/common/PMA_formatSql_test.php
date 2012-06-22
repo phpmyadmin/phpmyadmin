@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_formatSql from common.lib.php
+ * Test for PMA_CommonFunctions::formatSql from common.lib.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -49,7 +49,10 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
         global $cfg;
         $cfg['SQP']['fmtType'] = 'html';
         $sql = "SELECT * FROM tTable;";
-        $this->assertEquals("<pre>\n$sql\n</pre>", PMA_formatSql($sql));
+        $this->assertEquals(
+            "<pre>\n$sql\n</pre>",
+            PMA_CommonFunctions::getInstance()->formatSql($sql)
+        );
     }
 
     function testFormatSQLfmTypeHtml_1()
@@ -84,7 +87,10 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
         $unparsed = "SELECT 1;";
         $expected = '<span class="syntax"><span class="inner_sql"><span class="syntax_alpha syntax_alpha_reservedWord">SELECT</span></a> <span class="syntax_digit syntax_digit_integer">1</span> <span class="syntax_punct syntax_punct_queryend">;</span><br /><br /></span></span>';
 
-        $this->assertEquals($expected, PMA_formatSql($sql, $unparsed));
+        $this->assertEquals(
+            $expected,
+            PMA_CommonFunctions::getInstance()->formatSql($sql, $unparsed)
+        );
     }
 
     function testFormatSQLfmTypeHtml_2()
@@ -132,7 +138,9 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
         );
         $expected = '<span class="syntax"><span class="inner_sql"><span class="syntax_alpha syntax_alpha_reservedWord">SELECT</span></a>  <span class="syntax_punct">*</span> <br /><span class="syntax_alpha syntax_alpha_reservedWord">FROM</span>  <span class="syntax_quote syntax_quote_backtick">`tTable`</span> <span class="syntax_punct syntax_punct_queryend">;</span><br /><br /></span></span>';
 
-        $this->assertEquals($expected, PMA_formatSql($sql, $unparsed));
+        $this->assertEquals(
+            $expected, PMA_CommonFunctions::getInstance()->formatSql($sql, $unparsed)
+        );
     }
 
     function testFormatSQLfmTypeHtml_3()
@@ -268,7 +276,9 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
 
         $expected = '<span class="syntax"><span class="inner_sql"><span class="syntax_alpha syntax_alpha_reservedWord">SELECT</span></a>  <span class="syntax_punct">*</span> <br /><span class="syntax_alpha syntax_alpha_reservedWord">FROM</span>  <span class="syntax_quote syntax_quote_backtick">`tTable_A`</span> <span class="syntax_alpha syntax_alpha_identifier">A</span><br /><span class="syntax_alpha syntax_alpha_reservedWord">INNER</span>  <span class="syntax_alpha syntax_alpha_reservedWord">JOIN</span>  <span class="syntax_quote syntax_quote_backtick">`tTable_B`</span> <span class="syntax_alpha syntax_alpha_identifier">B</span> <span class="syntax_alpha syntax_alpha_reservedWord">ON</span> <span class="syntax_alpha syntax_alpha_identifier">B</span><span class="syntax_punct syntax_punct_qualifier">.</span><span class="syntax_alpha syntax_alpha_identifier">ID</span> <span class="syntax_punct">=</span></a> <span class="syntax_alpha syntax_alpha_identifier">A</span><span class="syntax_punct syntax_punct_qualifier">.</span><span class="syntax_alpha syntax_alpha_identifier">ID</span><span class="syntax_punct syntax_punct_queryend">;</span><br /><br /></span></span>';
 
-        $this->assertEquals($expected, PMA_formatSql($sql, $unparsed));
+        $this->assertEquals(
+            $expected, PMA_CommonFunctions::getInstance()->formatSql($sql, $unparsed)
+        );
     }
 
     function testFormatSQLfmTypeText_1()
@@ -303,7 +313,9 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
         $unparsed = "SELECT 1;";
         $expected = '<span class="inner_sql">SELECT</a> 1 ;<br /><br /></span>';
 
-        $this->assertEquals($expected, PMA_formatSql($sql, $unparsed));
+        $this->assertEquals(
+            $expected, PMA_CommonFunctions::getInstance()->formatSql($sql, $unparsed)
+        );
     }
 
     function testFormatSQLfmTypeText_2()
@@ -351,7 +363,9 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
         );
         $expected = '<span class="inner_sql">SELECT</a>  * <br />FROM  `tTable` ;<br /><br /></span>';
 
-        $this->assertEquals($expected, PMA_formatSql($sql, $unparsed));
+        $this->assertEquals(
+            $expected, PMA_CommonFunctions::getInstance()->formatSql($sql, $unparsed)
+        );
     }
 
     function testFormatSQLfmTypeText_3()
@@ -486,7 +500,9 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
         );
         $expected = '<span class="inner_sql">SELECT</a>  * <br />FROM  `tTable_A` A<br />INNER  JOIN  `tTable_B` B ON B.ID =</a> A.ID;<br /><br /></span>';
 
-        $this->assertEquals($expected, PMA_formatSql($sql, $unparsed));
+        $this->assertEquals(
+            $expected, PMA_CommonFunctions::getInstance()->formatSql($sql, $unparsed)
+        );
     }
 
     function testFormatSQLfmTypeNone_1()
@@ -521,10 +537,14 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
         $unparsed = "SELECT 1;";
 
         $expected = "<span class=\"inner_sql\"><pre>\nSELECT 1;\n</pre></span>";
-        $this->assertEquals($expected, PMA_formatSql($sql, $unparsed));
+        $this->assertEquals(
+            $expected, PMA_CommonFunctions::getInstance()->formatSql($sql, $unparsed)
+        );
 
         $expected = "SELECT 1;";
-        $this->assertEquals($expected, PMA_formatSql($sql));
+        $this->assertEquals(
+            $expected, PMA_CommonFunctions::getInstance()->formatSql($sql)
+        );
     }
 
     function testFormatSQLfmTypeNone_2()
@@ -572,10 +592,14 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
         );
 
         $expected = "<span class=\"inner_sql\"><pre>\nSELECT * from `tTable`;\n</pre></span>";
-        $this->assertEquals($expected, PMA_formatSql($sql, $unparsed));
+        $this->assertEquals(
+            $expected, PMA_CommonFunctions::getInstance()->formatSql($sql, $unparsed)
+        );
 
         $expected = "SELECT * from `tTable`;";
-        $this->assertEquals($expected, PMA_formatSql($sql));
+        $this->assertEquals(
+            $expected, PMA_CommonFunctions::getInstance()->formatSql($sql)
+        );
     }
 
     function testFormatSQLfmTypeNone_3()
@@ -710,10 +734,14 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
         );
 
         $expected = "<span class=\"inner_sql\"><pre>\nSELECT * FROM `tTable_A` A INNER JOIN `tTable_B` B ON B.ID = A.ID;\n</pre></span>";
-        $this->assertEquals($expected, PMA_formatSql($sql, $unparsed));
+        $this->assertEquals(
+            $expected, PMA_CommonFunctions::getInstance()->formatSql($sql, $unparsed)
+        );
 
         $expected = 'SELECT * FROM `tTable_A` A INNER JOIN `tTable_B` B ON B.ID = A.ID;';
-        $this->assertEquals($expected, PMA_formatSql($sql));
+        $this->assertEquals(
+            $expected, PMA_CommonFunctions::getInstance()->formatSql($sql)
+        );
     }
 
     function testFormatSQLWithoutType()
@@ -744,7 +772,7 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
           ),
           'len' => 3,
         );
-        $this->assertEmpty(PMA_formatSql($sql));
+        $this->assertEmpty(PMA_CommonFunctions::getInstance()->formatSql($sql));
     }
 
     function testFormatSQLError()
@@ -752,7 +780,10 @@ class PMA_formatSql_test extends PHPUnit_Framework_TestCase
         global $SQP_errorString;
         $SQP_errorString = true;
         $sql = array("raw" => "& \" < >");
-        $this->assertEquals("&amp; &quot; &lt; &gt;", PMA_formatSql($sql));
+        $this->assertEquals(
+            "&amp; &quot; &lt; &gt;",
+            PMA_CommonFunctions::getInstance()->formatSql($sql)
+        );
         $SQP_errorString = false;
     }
 }

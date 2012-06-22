@@ -13,6 +13,8 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/Index.class.php';
 require_once 'libraries/tbl_common.inc.php';
 
+$common_functions = PMA_CommonFunctions::getInstance();
+
 // Get fields and stores their name/type
 $fields = array();
 foreach (PMA_DBI_get_columns_full($db, $table) as $row) {
@@ -48,7 +50,7 @@ if (isset($_REQUEST['do_save_data'])) {
     $error = false;
 
     // $sql_query is the one displayed in the query box
-    $sql_query = 'ALTER TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table);
+    $sql_query = 'ALTER TABLE ' . $common_functions->backquote($db) . '.' . $common_functions->backquote($table);
 
     // Drops the old index
     if (! empty($_REQUEST['old_index'])) {
@@ -56,7 +58,7 @@ if (isset($_REQUEST['do_save_data'])) {
             $sql_query .= ' DROP PRIMARY KEY,';
         } else {
             $sql_query .= ' DROP INDEX ' 
-                . PMA_backquote($_REQUEST['old_index']) . ',';
+                . $common_functions->backquote($_REQUEST['old_index']) . ',';
         }
     } // end if
 
@@ -79,13 +81,13 @@ if (isset($_REQUEST['do_save_data'])) {
                 $error = PMA_Message::error(__('Can\'t rename index to PRIMARY!'));
             }
             $sql_query .= ' ADD ' . $index->getType() . ' '
-                . ($index->getName() ? PMA_backquote($index->getName()) : '');
+                . ($index->getName() ? $common_functions->backquote($index->getName()) : '');
             break;
     } // end switch
 
     $index_fields = array();
     foreach ($index->getColumns() as $key => $column) {
-        $index_fields[$key] = PMA_backquote($column->getName());
+        $index_fields[$key] = $common_functions->backquote($column->getName());
         if ($column->getSubPart()) {
             $index_fields[$key] .= '(' . $column->getSubPart() . ')';
         }
@@ -109,7 +111,10 @@ if (isset($_REQUEST['do_save_data'])) {
             $response = PMA_Response::getInstance();
             $response->addJSON('message', $message);
             $response->addJSON('index_table', PMA_Index::getView($table, $db));
-            $response->addJSON('sql_query', PMA_getMessage(null, $sql_query));
+            $response->addJSON(
+                'sql_query',
+                $common_functions->getMessage(null, $sql_query)
+            );
         } else {
             $active_page = 'tbl_structure.php';
             include 'tbl_structure.php';
@@ -213,7 +218,7 @@ if ($GLOBALS['is_ajax_request'] != true) {
             <strong>
                 <label for="select_index_type">
                     <?php echo __('Index type:'); ?>
-                    <?php echo PMA_showMySQLDocu('SQL-Syntax', 'ALTER_TABLE'); ?>
+                    <?php echo $common_functions->showMySQLDocu('SQL-Syntax', 'ALTER_TABLE'); ?>
                 </label>
             </strong>
         </div>

@@ -342,7 +342,7 @@ if (isset($plugin_list)) {
     {
         $lines = array();
         $result = PMA_DBI_query(
-            sprintf('DESC %s.%s', PMA_backquote($db), PMA_backquote($table))
+            sprintf('DESC %s.%s', PMA_CommonFunctions::getInstance()->backquote($db), PMA_CommonFunctions::getInstance()->backquote($table))
         );
         if ($result) {
             $tableProperties = array();
@@ -421,7 +421,7 @@ if (isset($plugin_list)) {
             . 'name="' . cgMakeIdentifier($table) . '" '
             . 'table="' . cgMakeIdentifier($table) . '">';
         $result = PMA_DBI_query(
-            sprintf("DESC %s.%s", PMA_backquote($db), PMA_backquote($table))
+            sprintf("DESC %s.%s", PMA_CommonFunctions::getInstance()->backquote($db), PMA_CommonFunctions::getInstance()->backquote($table))
         );
         if ($result) {
             while ($row = PMA_DBI_fetch_row($result)) {

@@ -177,7 +177,7 @@ function PMA_auth_check()
         /**
          * Clear user cache.
          */
-        PMA_clearUserCache();
+        PMA_CommonFunctions::getInstance()->clearUserCache();
     }
 
     // Returns whether we get authentication settings or not

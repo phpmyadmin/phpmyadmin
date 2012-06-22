@@ -11,6 +11,7 @@ $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_variables.js');
+$common_functions = PMA_CommonFunctions::getInstance();
 
 PMA_addJSVar('pma_token', $_SESSION[' PMA_token ']);
 PMA_addJSVar('url_query', str_replace('&amp;', '&', PMA_generate_common_url($db)));
@@ -44,7 +45,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             if (isset($VARIABLE_DOC_LINKS[$_REQUEST['varName']][3])
                 && $VARIABLE_DOC_LINKS[$_REQUEST['varName']][3] == 'byte'
             ) {
-                exit(implode(' ', PMA_formatByteDown($varValue[1], 3, 3)));
+                exit(implode(' ', $common_functions->formatByteDown($varValue[1], 3, 3)));
             }
             exit($varValue[1]);
             break;
@@ -57,7 +58,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 && preg_match('/^\s*(\d+(\.\d+)?)\s*(mb|kb|mib|kib|gb|gib)\s*$/i', $value, $matches)
             ) {
                 $exp = array('kb' => 1, 'kib' => 1, 'mb' => 2, 'mib' => 2, 'gb' => 3, 'gib' => 3);
-                $value = floatval($matches[1]) * pow(1024, $exp[strtolower($matches[3])]);
+                $value = floatval($matches[1]) * $common_functions->pow(1024, $exp[strtolower($matches[3])]);
             } else {
                 $value = PMA_sqlAddslashes($value);
             }
@@ -95,9 +96,9 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 /**
  * Displays the sub-page heading
  */
-echo '<h2>' . PMA_getImage('s_vars.png')
+echo '<h2>' . $common_functions->getImage('s_vars.png')
    . '' . __('Server variables and settings') . "\n"
-   . PMA_showMySQLDocu('server_system_variables', 'server_system_variables')
+   . $common_functions->showMySQLDocu('server_system_variables', 'server_system_variables')
    . '</h2>' . "\n";
 
 /**
@@ -142,7 +143,7 @@ foreach ($serverVars as $name => $value) {
     <td class="value"><?php
     // To display variable documentation link
     if (isset($VARIABLE_DOC_LINKS[$name])) {
-        echo PMA_showMySQLDocu($VARIABLE_DOC_LINKS[$name][1], $VARIABLE_DOC_LINKS[$name][1], false, $VARIABLE_DOC_LINKS[$name][2] . '_' . $VARIABLE_DOC_LINKS[$name][0]);
+        echo $common_functions->showMySQLDocu($VARIABLE_DOC_LINKS[$name][1], $VARIABLE_DOC_LINKS[$name][1], false, $VARIABLE_DOC_LINKS[$name][2] . '_' . $VARIABLE_DOC_LINKS[$name][0]);
     }
     ?></td>
     <?php
@@ -166,12 +167,14 @@ foreach ($serverVars as $name => $value) {
 function formatVariable($name, $value)
 {
     global $VARIABLE_DOC_LINKS;
+    
+    $common_functions = PMA_CommonFunctions::getInstance();
 
     if (is_numeric($value)) {
         if (isset($VARIABLE_DOC_LINKS[$name][3]) && $VARIABLE_DOC_LINKS[$name][3]=='byte') {
-            return '<abbr title="'.PMA_formatNumber($value, 0).'">'.implode(' ', PMA_formatByteDown($value, 3, 3)).'</abbr>';
+            return '<abbr title="'.$common_functions->formatNumber($value, 0).'">'.implode(' ', $common_functions->formatByteDown($value, 3, 3)).'</abbr>';
         } else {
-            return PMA_formatNumber($value, 0);
+            return $common_functions->formatNumber($value, 0);
         }
     }
     return htmlspecialchars($value);

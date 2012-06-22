@@ -291,7 +291,7 @@ for ($j = 0, $id_cnt = count($tab_column[$t_n]["COLUMN_ID"]); $j < $id_cnt; $j++
     onmouseout="this.className = old_class;"
     onmousedown="Click_field('<?php
     echo $GLOBALS['PMD_URL']["TABLE_NAME_SMALL"][$i]."','".urlencode($tab_column[$t_n]["COLUMN_NAME"][$j])."',";
-    if (! PMA_isForeignKeySupported($GLOBALS['PMD']['TABLE_TYPE'][$i])) {
+    if (!PMA_CommonFunctions::getInstance()->isForeignKeySupported($GLOBALS['PMD']['TABLE_TYPE'][$i])) {
         echo (isset($tables_pk_or_unique_keys[$t_n . "." . $tab_column[$t_n]["COLUMN_NAME"][$j]]) ? 1 : 0);
     } else {
         // if foreign keys are supported, it's not necessary that the

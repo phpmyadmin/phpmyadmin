@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_showDocu from common.lib.php
+ * Test for PMA_CommonFunctions::showDocu from common.lib.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -27,7 +27,9 @@ class PMA_showDocu_test extends PHPUnit_Framework_TestCase
                   . '<img src="themes/dot.gif" title="' . __('Documentation') . '" '
                   . 'alt="' . __('Documentation') . '" class="icon ic_b_help" /></a>';
 
-        $this->assertEquals($expected, PMA_showDocu($anchor));
+        $this->assertEquals(
+            $expected, PMA_CommonFunctions::getInstance()->showDocu($anchor)
+        );
 
     }
 }

@@ -58,7 +58,7 @@ function PMA_auth_set_user()
  * @global  string    the font face to use in case of failure
  * @global  string    the default font size to use in case of failure
  * @global  string    the big font size to use in case of failure
- * @global  boolean   tell the "PMA_mysqlDie()" function headers have been
+ * @global  boolean   tell the "mysqlDie()" function headers have been
  *                    sent
  *
  * @return boolean   always true (no return indeed)
@@ -109,7 +109,9 @@ function PMA_auth_fails()
             // 2003 is the error given by mysql
             trigger_error(__('phpMyAdmin tried to connect to the MySQL server, and the server rejected the connection. You should check the host, username and password in your configuration and make sure that they correspond to the information given by the administrator of the MySQL server.'), E_USER_WARNING);
         }
-        PMA_mysqlDie($conn_error, '', true, '', false);
+        PMA_CommonFunctions::getInstance()->mysqlDie(
+            $conn_error, '', true, '', false
+        );
     }
     $GLOBALS['error_handler']->dispUserErrors();
 ?>

@@ -39,7 +39,7 @@ class PMA_stringOperations_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * data provider for flipstring test
+     * data provider for PMA_CommonFunctions::flipstring test
      *
      * @return array
      */
@@ -58,11 +58,11 @@ class PMA_stringOperations_test extends PHPUnit_Framework_TestCase
 
     public function testFlipString($a, $e)
     {
-        $this->assertEquals($e, PMA_flipstring($a));
+        $this->assertEquals($e, PMA_CommonFunctions::getInstance()->flipstring($a));
     }
 
     /**
-     * data provider for userDir test
+     * data provider for PMA_CommonFunctions::userDir test
      *
      * @return array
      */
@@ -83,7 +83,7 @@ class PMA_stringOperations_test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['cfg']['Server']['user'] = 'root';
 
-        $this->assertEquals($e, PMA_userDir($a));
+        $this->assertEquals($e, PMA_CommonFunctions::getInstance()->userDir($a));
     }
 
     /**
@@ -107,7 +107,9 @@ class PMA_stringOperations_test extends PHPUnit_Framework_TestCase
 
     public function testReplaceBinaryContents($a, $e)
     {
-        $this->assertEquals($e, PMA_replaceBinaryContents($a));
+        $this->assertEquals(
+            $e, PMA_CommonFunctions::getInstance()->replaceBinaryContents($a)
+        );
     }
 
     /**
@@ -132,7 +134,9 @@ class PMA_stringOperations_test extends PHPUnit_Framework_TestCase
 
     public function testDuplicateFirstNewline($a, $e)
     {
-        $this->assertEquals($e, PMA_duplicateFirstNewline($a));
+        $this->assertEquals(
+            $e, PMA_CommonFunctions::getInstance()->duplicateFirstNewline($a)
+        );
     }
 
 }

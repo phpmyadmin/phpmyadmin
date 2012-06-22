@@ -419,7 +419,7 @@ class PMA_File
         }
 
         $this->setName(
-            PMA_userDir($GLOBALS['cfg']['UploadDir']) . PMA_securePath($name)
+            PMA_CommonFunctions::getInstance()->userDir($GLOBALS['cfg']['UploadDir']) . PMA_securePath($name)
         );
         if (! $this->isReadable()) {
             $this->_error_message = __('File could not be read');

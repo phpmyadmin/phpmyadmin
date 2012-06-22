@@ -14,13 +14,47 @@
  */
 class PMA_CommonFunctions
 {
+    
+    /**
+     * PMA_CommonFunctions instance
+     *
+     * @access private
+     * @static
+     * @var object
+     */
+    private static $_instance;
+    
+    
+    /**
+     * Creates a new class instance
+     *
+     * @return PMA_CommonFunctions object
+     */
+    private function __construct()
+    {
+    }
+    
+    
+    /**
+     * Returns the singleton PMA_CommonFunctions object
+     *
+     * @return PMA_CommonFunctions object
+     */
+    public static function getInstance()
+    {
+        if (empty(self::$_instance)) {
+            self::$_instance = new PMA_CommonFunctions();
+        }
+        return self::$_instance;
+    }
+    
 
     /**
      * Detects which function to use for pow.
      *
      * @return string Function name.
      */
-    private function _detectPow()
+    public function detectPow()
     {
         if (function_exists('bcpow')) {
             // BCMath Arbitrary Precision Mathematics Function
@@ -49,7 +83,7 @@ class PMA_CommonFunctions
         static $pow_function = null;
 
         if ($pow_function == null) {
-            $pow_function = $this->_detectPow();
+            $pow_function = $this->detectPow();
         }
 
         if (! $use_function) {

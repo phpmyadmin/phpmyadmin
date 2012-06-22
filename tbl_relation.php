@@ -21,6 +21,7 @@ $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('tbl_relation.js');
+$common_functions = PMA_CommonFunctions::getInstance();
 
 require_once 'libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_sql.php';
@@ -125,7 +126,7 @@ $cfgRelation = PMA_getRelationsParam();
 if ($cfgRelation['relwork']) {
     $existrel = PMA_getForeigners($db, $table, '', 'internal');
 }
-if (PMA_isForeignKeySupported($tbl_storage_engine)) {
+if ($common_functions->isForeignKeySupported($tbl_storage_engine)) {
     $existrel_foreign = PMA_getForeigners($db, $table, '', 'foreign');
 }
 if ($cfgRelation['displaywork']) {
@@ -150,29 +151,29 @@ if (isset($destination) && $cfgRelation['relwork']) {
             $foreign_string = trim($foreign_string, '`');
             list($foreign_db, $foreign_table, $foreign_field) = explode('.', $foreign_string);
             if (! isset($existrel[$master_field])) {
-                $upd_query  = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['relation'])
+                $upd_query  = 'INSERT INTO ' . $common_functions->backquote($GLOBALS['cfgRelation']['db']) . '.' . $common_functions->backquote($cfgRelation['relation'])
                             . '(master_db, master_table, master_field, foreign_db, foreign_table, foreign_field)'
                             . ' values('
-                            . '\'' . PMA_sqlAddSlashes($db) . '\', '
-                            . '\'' . PMA_sqlAddSlashes($table) . '\', '
-                            . '\'' . PMA_sqlAddSlashes($master_field) . '\', '
-                            . '\'' . PMA_sqlAddSlashes($foreign_db) . '\', '
-                            . '\'' . PMA_sqlAddSlashes($foreign_table) . '\','
-                            . '\'' . PMA_sqlAddSlashes($foreign_field) . '\')';
+                            . '\'' . $common_functions->sqlAddSlashes($db) . '\', '
+                            . '\'' . $common_functions->sqlAddSlashes($table) . '\', '
+                            . '\'' . $common_functions->sqlAddSlashes($master_field) . '\', '
+                            . '\'' . $common_functions->sqlAddSlashes($foreign_db) . '\', '
+                            . '\'' . $common_functions->sqlAddSlashes($foreign_table) . '\','
+                            . '\'' . $common_functions->sqlAddSlashes($foreign_field) . '\')';
             } elseif ($existrel[$master_field]['foreign_db'] . '.' .$existrel[$master_field]['foreign_table'] . '.' . $existrel[$master_field]['foreign_field'] != $foreign_string) {
-                $upd_query  = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['relation']) . ' SET'
-                            . ' foreign_db       = \'' . PMA_sqlAddSlashes($foreign_db) . '\', '
-                            . ' foreign_table    = \'' . PMA_sqlAddSlashes($foreign_table) . '\', '
-                            . ' foreign_field    = \'' . PMA_sqlAddSlashes($foreign_field) . '\' '
-                            . ' WHERE master_db  = \'' . PMA_sqlAddSlashes($db) . '\''
-                            . ' AND master_table = \'' . PMA_sqlAddSlashes($table) . '\''
-                            . ' AND master_field = \'' . PMA_sqlAddSlashes($master_field) . '\'';
+                $upd_query  = 'UPDATE ' . $common_functions->backquote($GLOBALS['cfgRelation']['db']) . '.' . $common_functions->backquote($cfgRelation['relation']) . ' SET'
+                            . ' foreign_db       = \'' . $common_functions->sqlAddSlashes($foreign_db) . '\', '
+                            . ' foreign_table    = \'' . $common_functions->sqlAddSlashes($foreign_table) . '\', '
+                            . ' foreign_field    = \'' . $common_functions->sqlAddSlashes($foreign_field) . '\' '
+                            . ' WHERE master_db  = \'' . $common_functions->sqlAddSlashes($db) . '\''
+                            . ' AND master_table = \'' . $common_functions->sqlAddSlashes($table) . '\''
+                            . ' AND master_field = \'' . $common_functions->sqlAddSlashes($master_field) . '\'';
             } // end if... else....
         } elseif (isset($existrel[$master_field])) {
-            $upd_query      = 'DELETE FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['relation'])
-                            . ' WHERE master_db  = \'' . PMA_sqlAddSlashes($db) . '\''
-                            . ' AND master_table = \'' . PMA_sqlAddSlashes($table) . '\''
-                            . ' AND master_field = \'' . PMA_sqlAddSlashes($master_field) . '\'';
+            $upd_query      = 'DELETE FROM ' . $common_functions->backquote($GLOBALS['cfgRelation']['db']) . '.' . $common_functions->backquote($cfgRelation['relation'])
+                            . ' WHERE master_db  = \'' . $common_functions->sqlAddSlashes($db) . '\''
+                            . ' AND master_table = \'' . $common_functions->sqlAddSlashes($table) . '\''
+                            . ' AND master_field = \'' . $common_functions->sqlAddSlashes($master_field) . '\'';
         } // end if... else....
         if ($upd_query) {
             PMA_query_as_controluser($upd_query);
@@ -184,7 +185,7 @@ if (isset($destination) && $cfgRelation['relwork']) {
 // (for now, one index name only; we keep the definitions if the
 // foreign db is not the same)
 // I use $sql_query to be able to display directly the query via
-// PMA_getMessage()
+// getMessage()
 
 if (isset($_REQUEST['destination_foreign'])) {
     $display_query = '';
@@ -205,9 +206,9 @@ if (isset($_REQUEST['destination_foreign'])) {
                 // backquotes but MySQL 4.0.16 did not like the syntax
                 // (for example: `base2`.`table1`)
 
-                $sql_query  = 'ALTER TABLE ' . PMA_backquote($table)
+                $sql_query  = 'ALTER TABLE ' . $common_functions->backquote($table)
                             . ' ADD FOREIGN KEY ('
-                            . PMA_backquote($master_field) . ')'
+                            . $common_functions->backquote($master_field) . ')'
                             . ' REFERENCES '
                             . $foreign_db . '.'
                             . $foreign_table . '('
@@ -223,9 +224,9 @@ if (isset($_REQUEST['destination_foreign'])) {
                 $display_query .= $sql_query . "\n";
                 // end repeated code
 
-            } elseif (PMA_backquote($existrel_foreign[$master_field]['foreign_db']) != $foreign_db
-                || PMA_backquote($existrel_foreign[$master_field]['foreign_table']) != $foreign_table
-                || PMA_backquote($existrel_foreign[$master_field]['foreign_field']) != $foreign_field
+            } elseif ($common_functions->backquote($existrel_foreign[$master_field]['foreign_db']) != $foreign_db
+                || $common_functions->backquote($existrel_foreign[$master_field]['foreign_table']) != $foreign_table
+                || $common_functions->backquote($existrel_foreign[$master_field]['foreign_field']) != $foreign_field
                 || ($_REQUEST['on_delete'][$master_field_md5] != (!empty($existrel_foreign[$master_field]['on_delete']) ? $existrel_foreign[$master_field]['on_delete'] : 'RESTRICT'))
                 || ($_REQUEST['on_update'][$master_field_md5] != (!empty($existrel_foreign[$master_field]['on_update']) ? $existrel_foreign[$master_field]['on_update'] : 'RESTRICT'))
                    ) {
@@ -234,11 +235,11 @@ if (isset($_REQUEST['destination_foreign'])) {
                 // an option has been changed for ON DELETE or ON UPDATE
 
                 // remove existing key and add the new one
-                $sql_query  = 'ALTER TABLE ' . PMA_backquote($table)
+                $sql_query  = 'ALTER TABLE ' . $common_functions->backquote($table)
                             . ' DROP FOREIGN KEY '
-                            . PMA_backquote($existrel_foreign[$master_field]['constraint']) . ', '
+                            . $common_functions->backquote($existrel_foreign[$master_field]['constraint']) . ', '
                             . 'ADD FOREIGN KEY ('
-                            . PMA_backquote($master_field) . ')'
+                            . $common_functions->backquote($master_field) . ')'
                             . ' REFERENCES '
                             . $foreign_db . '.'
                             . $foreign_table . '('
@@ -257,9 +258,9 @@ if (isset($_REQUEST['destination_foreign'])) {
 
             } // end if... else....
         } elseif (isset($existrel_foreign[$master_field])) {
-            $sql_query  = 'ALTER TABLE ' . PMA_backquote($table)
+            $sql_query  = 'ALTER TABLE ' . $common_functions->backquote($table)
                     . ' DROP FOREIGN KEY '
-                    . PMA_backquote($existrel_foreign[$master_field]['constraint']);
+                    . $common_functions->backquote($existrel_foreign[$master_field]['constraint']);
             $sql_query .= ';';
             $display_query .= $sql_query . "\n";
         } // end if... else....
@@ -273,14 +274,14 @@ if (isset($_REQUEST['destination_foreign'])) {
             if (substr($tmp_error, 1, 4) == '1216'
                 ||  substr($tmp_error, 1, 4) == '1452'
             ) {
-                PMA_mysqlDie($tmp_error, $sql_query, false, '', false);
-                echo PMA_showMySQLDocu('manual_Table_types', 'InnoDB_foreign_key_constraints') . "\n";
+                $common_functions->mysqlDie($tmp_error, $sql_query, false, '', false);
+                echo $common_functions->showMySQLDocu('manual_Table_types', 'InnoDB_foreign_key_constraints') . "\n";
             }
             if (substr($tmp_error, 1, 4) == '1005') {
                 $message = PMA_Message::error(__('Error creating foreign key on %1$s (check data types)'));
                 $message->addParam($master_field);
                 $message->display();
-                echo PMA_showMySQLDocu('manual_Table_types', 'InnoDB_foreign_key_constraints') . "\n";
+                echo $common_functions->showMySQLDocu('manual_Table_types', 'InnoDB_foreign_key_constraints') . "\n";
             }
             unset($tmp_error);
             $sql_query = '';
@@ -288,9 +289,9 @@ if (isset($_REQUEST['destination_foreign'])) {
     } // end foreach
     if (!empty($display_query)) {
         if ($seen_error) {
-            echo PMA_getMessage(__('Error'), null, 'error');
+            echo $common_functions->getMessage(__('Error'), null, 'error');
         } else {
-            echo PMA_getMessage(__('Your SQL query has been executed successfully'), null, 'success');
+            echo $common_functions->getMessage(__('Your SQL query has been executed successfully'), null, 'success');
         }
     }
 } // end if isset($destination_foreign)
@@ -302,22 +303,22 @@ if ($cfgRelation['displaywork'] && isset($display_field)) {
     $upd_query = false;
     if ($disp) {
         if ($display_field != '') {
-            $upd_query = 'UPDATE ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_info'])
-                       . ' SET display_field = \'' . PMA_sqlAddSlashes($display_field) . '\''
-                       . ' WHERE db_name  = \'' . PMA_sqlAddSlashes($db) . '\''
-                       . ' AND table_name = \'' . PMA_sqlAddSlashes($table) . '\'';
+            $upd_query = 'UPDATE ' . $common_functions->backquote($GLOBALS['cfgRelation']['db']) . '.' . $common_functions->backquote($cfgRelation['table_info'])
+                       . ' SET display_field = \'' . $common_functions->sqlAddSlashes($display_field) . '\''
+                       . ' WHERE db_name  = \'' . $common_functions->sqlAddSlashes($db) . '\''
+                       . ' AND table_name = \'' . $common_functions->sqlAddSlashes($table) . '\'';
         } else {
-            $upd_query = 'DELETE FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_info'])
-                       . ' WHERE db_name  = \'' . PMA_sqlAddSlashes($db) . '\''
-                       . ' AND table_name = \'' . PMA_sqlAddSlashes($table) . '\'';
+            $upd_query = 'DELETE FROM ' . $common_functions->backquote($GLOBALS['cfgRelation']['db']) . '.' . $common_functions->backquote($cfgRelation['table_info'])
+                       . ' WHERE db_name  = \'' . $common_functions->sqlAddSlashes($db) . '\''
+                       . ' AND table_name = \'' . $common_functions->sqlAddSlashes($table) . '\'';
         }
     } elseif ($display_field != '') {
-        $upd_query = 'INSERT INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['table_info'])
+        $upd_query = 'INSERT INTO ' . $common_functions->backquote($GLOBALS['cfgRelation']['db']) . '.' . $common_functions->backquote($cfgRelation['table_info'])
                    . '(db_name, table_name, display_field) '
                    . ' VALUES('
-                   . '\'' . PMA_sqlAddSlashes($db) . '\','
-                   . '\'' . PMA_sqlAddSlashes($table) . '\','
-                   . '\'' . PMA_sqlAddSlashes($display_field) . '\')';
+                   . '\'' . $common_functions->sqlAddSlashes($db) . '\','
+                   . '\'' . $common_functions->sqlAddSlashes($table) . '\','
+                   . '\'' . $common_functions->sqlAddSlashes($display_field) . '\')';
     }
 
     if ($upd_query) {
@@ -329,7 +330,9 @@ if ($cfgRelation['displaywork'] && isset($display_field)) {
 if (isset($destination) && $cfgRelation['relwork']) {
     $existrel = PMA_getForeigners($db, $table, '', 'internal');
 }
-if (isset($destination_foreign) && PMA_isForeignKeySupported($tbl_storage_engine)) {
+if (isset($destination_foreign)
+    && $common_functions->isForeignKeySupported($tbl_storage_engine)
+) {
     $existrel_foreign = PMA_getForeigners($db, $table, '', 'foreign');
 }
 
@@ -349,18 +352,20 @@ echo PMA_generate_common_hidden_inputs($db, $table);
 
 // relations
 
-if ($cfgRelation['relwork'] || PMA_isForeignKeySupported($tbl_storage_engine)) {
+if ($cfgRelation['relwork']
+    || $common_functions->isForeignKeySupported($tbl_storage_engine)
+) {
     // To choose relations we first need all tables names in current db
     // and if the main table supports foreign keys
     // we use SHOW TABLE STATUS because we need to find other tables of the
     // same engine.
 
-    if (PMA_isForeignKeySupported($tbl_storage_engine)) {
-        $tab_query           = 'SHOW TABLE STATUS FROM ' . PMA_backquote($db);
+    if ($common_functions->isForeignKeySupported($tbl_storage_engine)) {
+        $tab_query           = 'SHOW TABLE STATUS FROM ' . $common_functions->backquote($db);
         // [0] of the row is the name
         // [1] is the type
     } else {
-        $tab_query           = 'SHOW TABLES FROM ' . PMA_backquote($db);
+        $tab_query           = 'SHOW TABLES FROM ' . $common_functions->backquote($db);
         // [0] of the row is the name
     }
 
@@ -376,7 +381,7 @@ if ($cfgRelation['relwork'] || PMA_isForeignKeySupported($tbl_storage_engine)) {
 
         // if foreign keys are supported, collect all keys from other
         // tables of the same engine
-        if (PMA_isForeignKeySupported($tbl_storage_engine)
+        if ($common_functions->isForeignKeySupported($tbl_storage_engine)
             && isset($curr_table[1])
             && strtoupper($curr_table[1]) == $tbl_storage_engine
         ) {
@@ -405,12 +410,12 @@ if (count($columns) > 0) {
     <?php
     if ($cfgRelation['relwork']) {
         echo '<th>' . __('Internal relation');
-        if (PMA_isForeignKeySupported($tbl_storage_engine)) {
-            echo PMA_showHint(__('An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.'));
+        if ($common_functions->isForeignKeySupported($tbl_storage_engine)) {
+            echo $common_functions->showHint(__('An internal relation is not necessary when a corresponding FOREIGN KEY relation exists.'));
         }
         echo '</th>';
     }
-    if (PMA_isForeignKeySupported($tbl_storage_engine)) {
+    if ($common_functions->isForeignKeySupported($tbl_storage_engine)) {
         // this does not have to be translated, it's part of the MySQL syntax
         echo '<th colspan="2">' . __('Foreign key constraint') . ' (' . $tbl_storage_engine . ')';
         echo '</th>';
@@ -469,7 +474,7 @@ if (count($columns) > 0) {
             <?php
         } // end if (internal relations)
 
-        if (PMA_isForeignKeySupported($tbl_storage_engine)) {
+        if ($common_functions->isForeignKeySupported($tbl_storage_engine)) {
             echo '<td>';
             if (!empty($save_row[$i]['Key'])) {
                 ?>
@@ -477,11 +482,11 @@ if (count($columns) > 0) {
             <select name="destination_foreign[<?php echo $myfield_md5; ?>]" class="referenced_column_dropdown">
                 <?php
                 if (isset($existrel_foreign[$myfield])) {
-                    // need to backquote to support a dot character inside
+                    // need to PMA_CommonFunctions::getInstance()->backquote to support a dot character inside
                     // an element
-                    $foreign_field    = PMA_backquote($existrel_foreign[$myfield]['foreign_db']) . '.'
-                             . PMA_backquote($existrel_foreign[$myfield]['foreign_table']) . '.'
-                             . PMA_backquote($existrel_foreign[$myfield]['foreign_field']);
+                    $foreign_field    = $common_functions->backquote($existrel_foreign[$myfield]['foreign_db']) . '.'
+                             . $common_functions->backquote($existrel_foreign[$myfield]['foreign_table']) . '.'
+                             . $common_functions->backquote($existrel_foreign[$myfield]['foreign_field']);
                 } else {
                     $foreign_field    = false;
                 }

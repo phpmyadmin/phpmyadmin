@@ -423,6 +423,8 @@ class PMA_Index
      */
     static public function getView($table, $schema, $print_mode = false)
     {
+        
+        $common_functions = PMA_CommonFunctions::getInstance();
         $indexes = PMA_Index::getFromTable($table, $schema);
 
         $no_indexes_class = count($indexes) > 0 ? ' hide' : '';
@@ -433,7 +435,7 @@ class PMA_Index
         if (! $print_mode) {
             $r  = '<fieldset>';
             $r .= '<legend id="index_header">' . __('Indexes');
-            $r .= PMA_showMySQLDocu('optimization', 'optimizing-database-structure');
+            $r .= $common_functions->showMySQLDocu('optimization', 'optimizing-database-structure');
             $r .= '</legend>';
             $r .= $no_indexes;
             if (count($indexes) < 1) {
@@ -482,16 +484,16 @@ class PMA_Index
                 }
                 $r .= '" ' . $row_span . '>'
                    . '    <a href="tbl_indexes.php' . PMA_generate_common_url($this_params)
-                   . '">' . PMA_getIcon('b_edit.png', __('Edit')) . '</a>'
+                   . '">' . $common_functions->getIcon('b_edit.png', __('Edit')) . '</a>'
                    . '</td>' . "\n";
 
                 $this_params = $GLOBALS['url_params'];
                 if ($index->getName() == 'PRIMARY') {
-                    $this_params['sql_query'] = 'ALTER TABLE ' . PMA_backquote($table) . ' DROP PRIMARY KEY;';
+                    $this_params['sql_query'] = 'ALTER TABLE ' . $common_functions->backquote($table) . ' DROP PRIMARY KEY;';
                     $this_params['message_to_show'] = __('The primary key has been dropped');
                     $js_msg      = PMA_jsFormat('ALTER TABLE ' . $table . ' DROP PRIMARY KEY');
                 } else {
-                    $this_params['sql_query'] = 'ALTER TABLE ' . PMA_backquote($table) . ' DROP INDEX ' . PMA_backquote($index->getName()) . ';';
+                    $this_params['sql_query'] = 'ALTER TABLE ' . $common_functions->backquote($table) . ' DROP INDEX ' . $common_functions->backquote($index->getName()) . ';';
                     $this_params['message_to_show'] = sprintf(__('Index %s has been dropped'), $index->getName());
                     $js_msg      = PMA_jsFormat('ALTER TABLE ' . $table . ' DROP INDEX ' . $index->getName()) . ';';
                 }
@@ -504,7 +506,7 @@ class PMA_Index
                 }
                 $r .= ' href="sql.php' . PMA_generate_common_url($this_params)
                    . '" >'
-                   . PMA_getIcon('b_drop.png', __('Drop'))  . '</a>'
+                   . $common_functions->getIcon('b_drop.png', __('Drop'))  . '</a>'
                    . '</td>' . "\n";
             }
 

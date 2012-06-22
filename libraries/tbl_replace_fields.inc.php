@@ -28,6 +28,7 @@ require_once './libraries/File.class.php';
 
 $file_to_insert = new PMA_File();
 $file_to_insert->checkTblChangeForm($key, $rownumber);
+$common_functions = PMA_CommonFunctions::getInstance();
 
 $possibly_uploaded_val = $file_to_insert->getContent();
 
@@ -61,7 +62,7 @@ if (false !== $possibly_uploaded_val) {
     } elseif ($type == 'set') {
         if (! empty($_REQUEST['fields']['multi_edit'][$rownumber][$key])) {
             $val = implode(',', $_REQUEST['fields']['multi_edit'][$rownumber][$key]);
-            $val = "'" . PMA_sqlAddSlashes($val) . "'";
+            $val = "'" . $common_functions->sqlAddSlashes($val) . "'";
         } else {
              $val = "''";
         }
@@ -81,11 +82,11 @@ if (false !== $possibly_uploaded_val) {
         }
     } elseif ($type == 'bit') {
         $val = preg_replace('/[^01]/', '0', $val);
-        $val = "b'" . PMA_sqlAddSlashes($val) . "'";
+        $val = "b'" . $common_functions->sqlAddSlashes($val) . "'";
     } elseif (! ($type == 'datetime' || $type == 'timestamp')
         || $val != 'CURRENT_TIMESTAMP'
     ) {
-        $val = "'" . PMA_sqlAddSlashes($val) . "'";
+        $val = "'" . $common_functions->sqlAddSlashes($val) . "'";
     }
 
     // Was the Null checkbox checked for this field?

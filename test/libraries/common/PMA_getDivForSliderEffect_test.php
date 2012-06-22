@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_getDivForSliderEffect from common.lib.php
+ * Test for PMA_CommonFunctions::getDivForSliderEffect from common.lib.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -23,7 +23,7 @@ class PMA_GetDivForSliderEffectTest extends PHPUnit_Framework_TestCase
         $message = "test_message";
 
         $this->assertEquals(
-            PMA_getDivForSliderEffect($id, $message),
+            PMA_CommonFunctions::getInstance()->getDivForSliderEffect($id, $message),
             '<div id="' . $id . '" class="pma_auto_slider" title="' . htmlspecialchars($message) . '">'
         );
     }
@@ -37,7 +37,7 @@ class PMA_GetDivForSliderEffectTest extends PHPUnit_Framework_TestCase
         $message = "test_message";
 
         $this->assertEquals(
-            PMA_getDivForSliderEffect($id, $message),
+            PMA_CommonFunctions::getInstance()->getDivForSliderEffect($id, $message),
             '<div id="' . $id . '" style="display: none; overflow:auto;" class="pma_auto_slider" title="' . htmlspecialchars($message) . '">'
         );
         
@@ -52,7 +52,7 @@ class PMA_GetDivForSliderEffectTest extends PHPUnit_Framework_TestCase
         $message = "test_message";
 
         $this->assertEquals(
-            PMA_getDivForSliderEffect($id, $message),
+            PMA_CommonFunctions::getInstance()->getDivForSliderEffect($id, $message),
             '<div id="' . $id . '">'
         );
     }

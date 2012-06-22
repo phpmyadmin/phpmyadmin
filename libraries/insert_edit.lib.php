@@ -96,7 +96,7 @@ function PMA_analyzeWhereClauses($where_clause_array, $table, $db, $found_unique
     $result             = array();
     $where_clauses      = array();
     foreach ($where_clause_array as $key_id => $where_clause) {
-        $local_query           = 'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table)
+        $local_query           = 'SELECT * FROM ' . PMA_CommonFunctions::getInstance()->backquote($db) . '.' . PMA_CommonFunctions::getInstance()->backquote($table)
                                  . ' WHERE ' . $where_clause . ';';
         $result[$key_id]       = PMA_DBI_query($local_query, null, PMA_DBI_QUERY_STORE);
         $rows[$key_id]         = PMA_DBI_fetch_assoc($result[$key_id]);
@@ -130,7 +130,9 @@ function PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id,
     } else {// end if (no row returned)
         $meta = PMA_DBI_get_fields_meta($result[$key_id]);
         list($unique_condition, $tmp_clause_is_unique)
-            = PMA_getUniqueCondition($result[$key_id], count($meta), $meta, $rows[$key_id], true);
+            = PMA_CommonFunctions::getInstance()->getUniqueCondition(
+                $result[$key_id], count($meta), $meta, $rows[$key_id], true
+            );
         if (! empty($unique_condition)) {
             $found_unique_key = true;
         }
@@ -150,7 +152,7 @@ function PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id,
 function PMA_loadFirstRowInEditMode($table, $db)
 {
     $result = PMA_DBI_query(
-        'SELECT * FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table) . ' LIMIT 1;',
+        'SELECT * FROM ' . PMA_CommonFunctions::getInstance()->backquote($db) . '.' . PMA_CommonFunctions::getInstance()->backquote($table) . ' LIMIT 1;',
         null,
         PMA_DBI_QUERY_STORE
     );
@@ -439,7 +441,8 @@ function PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
         $html_output .= '<td>' . "\n";
         $html_output .= '<select name="funcs' . $column_name_appendix . '"' . $unnullify_trigger
             . 'tabindex="' . ($tabindex + $tabindex_for_function) . '" id="field_' . $idindex . '_1">';
-        $html_output .= PMA_getFunctionsForField($column, $insert_mode) . "\n";
+        $html_output .= PMA_CommonFunctions::getInstance()
+            ->getFunctionsForField($column, $insert_mode) . "\n";
         $html_output .= '</select>' .  "\n";
         $html_output .= '</td>' .  "\n";
     }
@@ -967,7 +970,9 @@ function PMA_getBinaryAndBlobColumn($column, $data, $special_chars,$biggest_max_
     ) {
         $html_output .= __('Binary - do not edit');
         if (isset($data)) {
-            $data_size = PMA_formatByteDown(strlen(stripslashes($data)), 3, 1);
+            $data_size = PMA_CommonFunctions::getInstance()->formatByteDown(
+                strlen(stripslashes($data)), 3, 1
+            );
             $html_output .= ' ('. $data_size [0] . ' ' . $data_size[1] . ')';
             unset($data_size);
         }
@@ -1044,7 +1049,10 @@ function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
  */
 function PMA_getSelectOptionForUpload($vkey, $column)
 {
-    $files = PMA_getFileSelectOptions(PMA_userDir($GLOBALS['cfg']['UploadDir']));
+    $files = PMA_getFileSelectOptions(
+        PMA_CommonFunctions::getInstance()->userDir($GLOBALS['cfg']['UploadDir'])
+    );
+    
     if ($files === false) {
         return '        <font color="red">' . __('Error') . '</font><br />' . "\n"
             . '        ' . __('The directory you set for upload work cannot be reached') . "\n";
@@ -1084,7 +1092,10 @@ function PMA_getMaxUploadSize($column, $biggest_max_file_size)
     if ($this_field_max_size > $max_field_sizes[$column['pma_type']]) {
         $this_field_max_size = $max_field_sizes[$column['pma_type']];
     }
-    $html_output = PMA_getFormattedMaximumUploadSize($this_field_max_size) . "\n";
+    $html_output
+        = PMA_CommonFunctions::getInstance()->getFormattedMaximumUploadSize(
+            $this_field_max_size
+        ) . "\n";
     // do not generate here the MAX_FILE_SIZE, because we should
     // put only one in the form to accommodate the biggest field
     if ($this_field_max_size > $biggest_max_file_size) {
@@ -1197,6 +1208,8 @@ function PMA_getColumnSize($column, $extracted_columnspec)
  */
 function PMA_getHTMLforGisDataTypes($current_row, $column)
 {
+    
+    $common_functions = PMA_CommonFunctions::getInstance();
     $data_val = isset($current_row[$column['Field']]) ? $current_row[$column['Field']] : '';
     $_url_params = array(
         'field' => $column['Field_title'],
@@ -1205,9 +1218,11 @@ function PMA_getHTMLforGisDataTypes($current_row, $column)
     if ($column['pma_type'] != 'geometry') {
         $_url_params = $_url_params + array('gis_data[gis_type]' => strtoupper($column['pma_type']));
     }
-    $edit_str = PMA_getIcon('b_edit.png', __('Edit/Insert'));
+    $edit_str = $common_functions->getIcon('b_edit.png', __('Edit/Insert'));
     return '<span class="open_gis_editor">'
-        . PMA_linkOrButton('#', $edit_str, array(), false, false, '_blank')
+        . $common_functions->linkOrButton(
+            '#', $edit_str, array(), false, false, '_blank'
+        )
         . '</span>';
 }
 
@@ -1364,7 +1379,9 @@ function PMA_getAfterInsertDropDown($where_clause, $after_insert, $found_unique_
 function PMA_getSumbitAndResetButtonForActionsPanel($tabindex, $tabindex_for_value)
 {
     return '<td>'
-    . PMA_showHint(__('Use TAB key to move from value to value, or CTRL+arrows to move anywhere'))
+    . PMA_CommonFunctions::getInstance()->showHint(
+        __('Use TAB key to move from value to value, or CTRL+arrows to move anywhere')
+    )
     . '</td>'
     . '<td colspan="3" class="right vmiddle">'
     . '<input type="submit" class="control_at_footer" value="' . __('Go') . '"'
@@ -1423,6 +1440,8 @@ function PMA_getHeadAndFootOfInsertRowTable($url_params)
 function PMA_getSpecialCharsAndBackupFieldForExistingRow($current_row, $column, $extracted_columnspec,
     $real_null_value, $gis_data_types, $column_name_appendix)
 {
+    
+    $common_functions = PMA_CommonFunctions::getInstance();
     $special_chars_encoded = '';
     // (we are editing)
     if (is_null($current_row[$column['Field']])) {
@@ -1436,7 +1455,9 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow($current_row, $column, 
         );
     } elseif (in_array($column['True_Type'], $gis_data_types)) {
         // Convert gis data to Well Know Text format
-        $current_row[$column['Field']] = PMA_asWKT($current_row[$column['Field']], true);
+        $current_row[$column['Field']] = $common_functions->asWKT(
+            $current_row[$column['Field']], true
+        );
         $special_chars = htmlspecialchars($current_row[$column['Field']]);
     } else {
         // special binary "characters"
@@ -1445,14 +1466,18 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow($current_row, $column, 
                 $current_row[$column['Field']] = bin2hex($current_row[$column['Field']]);
                 $column['display_binary_as_hex'] = true;
             } else {
-                $current_row[$column['Field']] = PMA_replaceBinaryContents($current_row[$column['Field']]);
+                $current_row[$column['Field']]
+                    = $common_functions->replaceBinaryContents(
+                        $current_row[$column['Field']]
+                    );
             }
         } // end if
         $special_chars = htmlspecialchars($current_row[$column['Field']]);
 
         //We need to duplicate the first \n or otherwise we will lose
         //the first newline entered in a VARCHAR or TEXT column
-        $special_chars_encoded = PMA_duplicateFirstNewline($special_chars);
+        $special_chars_encoded
+            = $common_functions->duplicateFirstNewline($special_chars);
 
         $data = $current_row[$column['Field']];
     } // end if... else...
@@ -1498,7 +1523,8 @@ function PMA_getSpecialCharsAndBackupFieldForInsertingMode($column, $real_null_v
         $special_chars = htmlspecialchars($column['Default']);
     }
     $backup_field = '';
-    $special_chars_encoded = PMA_duplicateFirstNewline($special_chars);
+    $special_chars_encoded = PMA_CommonFunctions::getInstance()
+        ->duplicateFirstNewline($special_chars);
     // this will select the UNHEX function while inserting
     if (($column['is_binary'] || ($column['is_blob'] && ! $GLOBALS['cfg']['ProtectBinary']))
         && (isset($_SESSION['tmp_user_values']['display_binary_as_hex'])
@@ -1568,7 +1594,9 @@ function PMA_isInsertRow()
  */
 function PMA_setSessionForEditNext($one_where_clause)
 {
-    $local_query    = 'SELECT * FROM ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($GLOBALS['table'])
+    
+    $common_functions = PMA_CommonFunctions::getInstance();
+    $local_query    = 'SELECT * FROM ' . $common_functions->backquote($GLOBALS['db']) . '.' . $common_functions->backquote($GLOBALS['table'])
         . ' WHERE ' . str_replace('` =', '` >', $one_where_clause)
         . ' LIMIT 1;';
     $res            = PMA_DBI_query($local_query);
@@ -1577,7 +1605,9 @@ function PMA_setSessionForEditNext($one_where_clause)
     // must find a unique condition based on unique key,
     // not a combination of all fields
     list($unique_condition, $clause_is_unique)
-        = PMA_getUniqueCondition($res, count($meta), $meta, $row, true);
+        = $common_functions->getUniqueCondition(
+            $res, count($meta), $meta, $row, true
+        );
     if (! empty($unique_condition)) {
         $_SESSION['edit_next'] = $unique_condition;
     }
@@ -1650,7 +1680,7 @@ function PMA_buildSqlQuery($is_insertignore, $query_fields, $value_sets)
     } else {
         $insert_command = 'INSERT ';
     }
-    $query[] = $insert_command . 'INTO ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($GLOBALS['table'])
+    $query[] = $insert_command . 'INTO ' . PMA_CommonFunctions::getInstance()->backquote($GLOBALS['db']) . '.' . PMA_CommonFunctions::getInstance()->backquote($GLOBALS['table'])
         . ' (' . implode(', ', $query_fields) . ') VALUES (' . implode('), (', $value_sets) . ')';
     unset($insert_command, $query_fields);
     return $query;

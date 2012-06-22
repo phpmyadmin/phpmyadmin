@@ -415,6 +415,7 @@ if (isset($plugin_list)) {
     {
         global $crlf;
 
+        $common_functions = PMA_CommonFunctions::getInstance();
         $text = '';
         $delimiter = '$$';
 
@@ -435,7 +436,7 @@ if (isset($plugin_list)) {
             foreach ($procedure_names as $procedure_name) {
                 if (! empty($GLOBALS['sql_drop_table'])) {
                     $text .= 'DROP PROCEDURE IF EXISTS '
-                        . PMA_backquote($procedure_name)
+                        . $common_functions->backquote($procedure_name)
                         . $delimiter . $crlf;
                 }
                 $text .= PMA_DBI_get_definition($db, 'PROCEDURE', $procedure_name)
@@ -452,7 +453,7 @@ if (isset($plugin_list)) {
             foreach ($function_names as $function_name) {
                 if (! empty($GLOBALS['sql_drop_table'])) {
                     $text .= 'DROP FUNCTION IF EXISTS '
-                        . PMA_backquote($function_name)
+                        . $common_functions->backquote($function_name)
                         . $delimiter . $crlf;
                 }
                 $text .= PMA_DBI_get_definition($db, 'FUNCTION', $function_name)
@@ -588,7 +589,8 @@ if (isset($plugin_list)) {
         $head .= PMA_exportComment($host_string);
         $head .=
             PMA_exportComment(
-                __('Generation Time') . ': ' .  PMA_localisedDate()
+                __('Generation Time') . ': '
+                .  PMA_CommonFunctions::getInstance()->localisedDate()
             )
             .  PMA_exportComment(__('Server version') . ': ' . PMA_MYSQL_STR_VERSION)
             .  PMA_exportComment(__('PHP Version') . ': ' . phpversion())
@@ -672,18 +674,21 @@ if (isset($plugin_list)) {
     function PMA_exportDBCreate($db)
     {
         global $crlf;
+        
+        $common_functions = PMA_CommonFunctions::getInstance();
+        
         if (isset($GLOBALS['sql_drop_database'])) {
             if (! PMA_exportOutputHandler(
                 'DROP DATABASE '
                 . (isset($GLOBALS['sql_backquotes'])
-                ? PMA_backquote($db) : $db)
+                ? $common_functions->backquote($db) : $db)
                 . ';' . $crlf
             )) {
                 return false;
             }
         }
         $create_query = 'CREATE DATABASE '
-            . (isset($GLOBALS['sql_backquotes']) ? PMA_backquote($db) : $db);
+            . (isset($GLOBALS['sql_backquotes']) ? $common_functions->backquote($db) : $db);
         $collation = PMA_getDbCollation($db);
         if (PMA_DRIZZLE) {
             $create_query .= ' COLLATE ' . $collation;
@@ -706,7 +711,7 @@ if (isset($plugin_list)) {
             || PMA_DRIZZLE)
         ) {
             $result = PMA_exportOutputHandler(
-                'USE ' . PMA_backquote($db) . ';' . $crlf
+                'USE ' . $common_functions->backquote($db) . ';' . $crlf
             );
         } else {
             $result = PMA_exportOutputHandler('USE ' . $db . ';' . $crlf);
@@ -730,7 +735,7 @@ if (isset($plugin_list)) {
             . PMA_exportComment(
                 __('Database') . ': '
                 . (isset($GLOBALS['sql_backquotes'])
-                ? PMA_backquote($db) : '\'' . $db . '\'')
+                ? PMA_CommonFunctions::getInstance()->backquote($db) : '\'' . $db . '\'')
             )
             . PMA_exportComment();
         return PMA_exportOutputHandler($head);
@@ -749,6 +754,7 @@ if (isset($plugin_list)) {
     {
         global $crlf;
 
+        $common_functions = PMA_CommonFunctions::getInstance();
         $result = true;
         if (isset($GLOBALS['sql_constraints'])) {
             $result = PMA_exportOutputHandler($GLOBALS['sql_constraints']);
@@ -765,7 +771,9 @@ if (isset($plugin_list)) {
             if (PMA_MYSQL_INT_VERSION > 50100) {
                 $event_names = PMA_DBI_fetch_result(
                     'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE'
-                    . ' EVENT_SCHEMA= \'' . PMA_sqlAddSlashes($db, true) . '\';'
+                    . ' EVENT_SCHEMA= \''
+                    . $common_functions->sqlAddSlashes($db, true)
+                    . '\';'
                 );
             } else {
                 $event_names = array();
@@ -782,7 +790,7 @@ if (isset($plugin_list)) {
 
                 foreach ($event_names as $event_name) {
                     if (! empty($GLOBALS['sql_drop_table'])) {
-                        $text .= 'DROP EVENT ' . PMA_backquote($event_name)
+                        $text .= 'DROP EVENT ' . $common_functions->backquote($event_name)
                             . $delimiter . $crlf;
                     }
                     $text .= PMA_DBI_get_definition($db, 'EVENT', $event_name)
@@ -812,9 +820,11 @@ if (isset($plugin_list)) {
      */
     function PMA_getTableDefStandIn($db, $view, $crlf)
     {
+        
+        $common_functions = PMA_CommonFunctions::getInstance();
         $create_query = '';
         if (! empty($GLOBALS['sql_drop_table'])) {
-            $create_query .= 'DROP VIEW IF EXISTS ' . PMA_backquote($view)
+            $create_query .= 'DROP VIEW IF EXISTS ' . $common_functions->backquote($view)
                 . ';' . $crlf;
         }
 
@@ -825,11 +835,11 @@ if (isset($plugin_list)) {
         ) {
             $create_query .= 'IF NOT EXISTS ';
         }
-        $create_query .= PMA_backquote($view) . ' (' . $crlf;
+        $create_query .= $common_functions->backquote($view) . ' (' . $crlf;
         $tmp = array();
         $columns = PMA_DBI_get_columns_full($db, $view);
         foreach ($columns as $column_name => $definition) {
-            $tmp[] = PMA_backquote($column_name) . ' ' . $definition['Type'] . $crlf;
+            $tmp[] = $common_functions->backquote($column_name) . ' ' . $definition['Type'] . $crlf;
         }
         $create_query .= implode(',', $tmp) . ');';
         return($create_query);
@@ -866,14 +876,15 @@ if (isset($plugin_list)) {
         global $sql_constraints_query; // just the text of the query
         global $sql_drop_foreign_keys;
 
+        $common_functions = PMA_CommonFunctions::getInstance();
         $schema_create = '';
         $auto_increment = '';
         $new_crlf = $crlf;
 
         // need to use PMA_DBI_QUERY_STORE with PMA_DBI_num_rows() in mysqli
         $result = PMA_DBI_query(
-            'SHOW TABLE STATUS FROM ' . PMA_backquote($db) . ' LIKE \''
-            . PMA_sqlAddSlashes($table, true) . '\'',
+            'SHOW TABLE STATUS FROM ' . $common_functions->backquote($db) . ' LIKE \''
+            . $common_functions->sqlAddSlashes($table, true) . '\'',
             null,
             PMA_DBI_QUERY_STORE
         );
@@ -887,8 +898,8 @@ if (isset($plugin_list)) {
                             TABLE_CREATION_TIME AS Create_time,
                             TABLE_UPDATE_TIME AS Update_time
                         FROM data_dictionary.TABLES
-                        WHERE TABLE_SCHEMA = '" . PMA_sqlAddSlashes($db) . "'
-                          AND TABLE_NAME = '" . PMA_sqlAddSlashes($table) . "'";
+                        WHERE TABLE_SCHEMA = '" . $common_functions->sqlAddSlashes($db) . "'
+                          AND TABLE_NAME = '" . $common_functions->sqlAddSlashes($table) . "'";
                     $tmpres = array_merge(PMA_DBI_fetch_single_row($sql), $tmpres);
                 }
                 // Here we optionally add the AUTO_INCREMENT next value,
@@ -909,7 +920,9 @@ if (isset($plugin_list)) {
                 ) {
                     $schema_create .= PMA_exportComment(
                         __('Creation') . ': '
-                        . PMA_localisedDate(strtotime($tmpres['Create_time']))
+                        . $common_functions->localisedDate(
+                            strtotime($tmpres['Create_time'])
+                        )
                     );
                     $new_crlf = PMA_exportComment() . $crlf;
                 }
@@ -920,7 +933,9 @@ if (isset($plugin_list)) {
                 ) {
                     $schema_create .= PMA_exportComment(
                         __('Last update') . ': '
-                        . PMA_localisedDate(strtotime($tmpres['Update_time']))
+                        . $common_functions->localisedDate(
+                            strtotime($tmpres['Update_time'])
+                        )
                     );
                     $new_crlf = PMA_exportComment() . $crlf;
                 }
@@ -931,7 +946,9 @@ if (isset($plugin_list)) {
                 ) {
                     $schema_create .= PMA_exportComment(
                         __('Last check') . ': '
-                        . PMA_localisedDate(strtotime($tmpres['Check_time']))
+                        . $common_functions->localisedDate(
+                            strtotime($tmpres['Check_time'])
+                        )
                     );
                     $new_crlf = PMA_exportComment() . $crlf;
                 }
@@ -944,7 +961,7 @@ if (isset($plugin_list)) {
         // no need to generate a DROP VIEW here, it was done earlier
         if (! empty($sql_drop_table) && ! PMA_Table::isView($db, $table)) {
             $schema_create .= 'DROP TABLE IF EXISTS '
-                . PMA_backquote($table, $sql_backquotes) . ';' . $crlf;
+                . $common_functions->backquote($table, $sql_backquotes) . ';' . $crlf;
         }
 
         // Complete table dump,
@@ -962,14 +979,14 @@ if (isset($plugin_list)) {
         // because SHOW CREATE TABLE returns only one row, and we free the
         // results below. Nonetheless, we got 2 user reports about this
         // (see bug 1562533) so I removed the unbuffered mode.
-        // $result = PMA_DBI_query('SHOW CREATE TABLE ' . PMA_backquote($db)
-        // . '.' . PMA_backquote($table), null, PMA_DBI_QUERY_UNBUFFERED);
+        // $result = PMA_DBI_query('SHOW CREATE TABLE ' . backquote($db)
+        // . '.' . backquote($table), null, PMA_DBI_QUERY_UNBUFFERED);
         //
         // Note: SHOW CREATE TABLE, at least in MySQL 5.1.23, does not
         // produce a displayable result for the default value of a BIT
         // column, nor does the mysqldump command. See MySQL bug 35796
         $result = PMA_DBI_try_query(
-            'SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table)
+            'SHOW CREATE TABLE ' . $common_functions->backquote($db) . '.' . $common_functions->backquote($table)
         );
         // an error can happen, for example the table is crashed
         $tmp_error = PMA_DBI_getError();
@@ -1000,7 +1017,7 @@ if (isset($plugin_list)) {
              */
             if ($view) {
                 $create_query = preg_replace(
-                    '/' . PMA_backquote($db) . '\./',
+                    '/' . $common_functions->backquote($db) . '\./',
                     '',
                     $create_query
                 );
@@ -1074,19 +1091,19 @@ if (isset($plugin_list)) {
                         . PMA_exportComment(
                             __('Constraints for table')
                             . ' '
-                            . PMA_backquote($table)
+                            . $common_functions->backquote($table)
                         )
                         . PMA_exportComment();
                     }
 
                     // let's do the work
                     $sql_constraints_query .= 'ALTER TABLE '
-                        . PMA_backquote($table) . $crlf;
+                        . $common_functions->backquote($table) . $crlf;
                     $sql_constraints .= 'ALTER TABLE '
-                        . PMA_backquote($table) . $crlf;
+                        . $common_functions->backquote($table) . $crlf;
                     $sql_drop_foreign_keys .= 'ALTER TABLE '
-                        . PMA_backquote($db) . '.'
-                        . PMA_backquote($table) . $crlf;
+                        . $common_functions->backquote($db) . '.'
+                        . $common_functions->backquote($table) . $crlf;
 
                     $first = true;
                     for ($j = $i; $j < $sql_count; $j++) {
@@ -1186,6 +1203,7 @@ if (isset($plugin_list)) {
         global $cfgRelation;
         global $sql_backquotes;
 
+        $common_functions = PMA_CommonFunctions::getInstance();
         $schema_create = '';
 
         // Check if we can use Relations
@@ -1214,18 +1232,18 @@ if (isset($plugin_list)) {
             . PMA_exportComment()
             . PMA_exportComment(
                 __('MIME TYPES FOR TABLE'). ' '
-                . PMA_backquote($table, $sql_backquotes) . ':'
+                . $common_functions->backquote($table, $sql_backquotes) . ':'
             );
             @reset($mime_map);
             foreach ($mime_map AS $mime_field => $mime) {
                 $schema_create .=
                     PMA_exportComment(
                         '  '
-                        . PMA_backquote($mime_field, $sql_backquotes)
+                        . $common_functions->backquote($mime_field, $sql_backquotes)
                     )
                     . PMA_exportComment(
                         '      '
-                        . PMA_backquote($mime['mimetype'], $sql_backquotes)
+                        . $common_functions->backquote($mime['mimetype'], $sql_backquotes)
                     );
             }
             $schema_create .= PMA_exportComment();
@@ -1236,20 +1254,20 @@ if (isset($plugin_list)) {
                 . PMA_exportComment()
                 . PMA_exportComment(
                     __('RELATIONS FOR TABLE') . ' '
-                    . PMA_backquote($table, $sql_backquotes)
+                    . $common_functions->backquote($table, $sql_backquotes)
                     . ':'
                 );
             foreach ($res_rel AS $rel_field => $rel) {
                 $schema_create .=
                     PMA_exportComment(
                         '  '
-                        . PMA_backquote($rel_field, $sql_backquotes)
+                        . $common_functions->backquote($rel_field, $sql_backquotes)
                     )
                     . PMA_exportComment(
                         '      '
-                        . PMA_backquote($rel['foreign_table'], $sql_backquotes)
+                        . $common_functions->backquote($rel['foreign_table'], $sql_backquotes)
                         . ' -> '
-                        . PMA_backquote($rel['foreign_field'], $sql_backquotes)
+                        . $common_functions->backquote($rel['foreign_field'], $sql_backquotes)
                     );
             }
             $schema_create .= PMA_exportComment();
@@ -1294,8 +1312,11 @@ if (isset($plugin_list)) {
         $mime = false,
         $dates = false
     ) {
+        
+        $common_functions = PMA_CommonFunctions::getInstance();
+        
         $formatted_table_name = (isset($GLOBALS['sql_backquotes']))
-                              ? PMA_backquote($table)
+                              ? $common_functions->backquote($table)
                               : '\'' . $table . '\'';
         $dump = PMA_possibleCRLF()
             . PMA_exportComment(str_repeat('-', 56))
@@ -1341,7 +1362,7 @@ if (isset($plugin_list)) {
             // delete the stand-in table previously created (if any)
             if ($export_type != 'table') {
                 $dump .= 'DROP TABLE IF EXISTS '
-                    . PMA_backquote($table) . ';' . $crlf;
+                    . $common_functions->backquote($table) . ';' . $crlf;
             }
             $dump .= PMA_getTableDef(
                 $db, $table, $crlf, $error_url, $dates, true, true
@@ -1382,8 +1403,9 @@ if (isset($plugin_list)) {
         global $sql_backquotes;
         global $current_row;
 
+        $common_functions = PMA_CommonFunctions::getInstance();
         $formatted_table_name = (isset($GLOBALS['sql_backquotes']))
-                              ? PMA_backquote($table)
+                              ? $common_functions->backquote($table)
                               : '\'' . $table . '\'';
 
         // Do not export data for a VIEW
@@ -1430,12 +1452,12 @@ if (isset($plugin_list)) {
 
             for ($j = 0; $j < $fields_cnt; $j++) {
                 if (isset($analyzed_sql[0]['select_expr'][$j]['column'])) {
-                    $field_set[$j] = PMA_backquote(
+                    $field_set[$j] = $common_functions->backquote(
                         $analyzed_sql[0]['select_expr'][$j]['column'],
                         $sql_backquotes
                     );
                 } else {
-                    $field_set[$j] = PMA_backquote(
+                    $field_set[$j] = $common_functions->backquote(
                         $fields_meta[$j]->name,
                         $sql_backquotes
                     );
@@ -1451,7 +1473,7 @@ if (isset($plugin_list)) {
                     $schema_insert .= 'IGNORE ';
                 }
                 // avoid EOL blank
-                $schema_insert .= PMA_backquote($table, $sql_backquotes) . ' SET';
+                $schema_insert .= $common_functions->backquote($table, $sql_backquotes) . ' SET';
             } else {
                 // insert or replace
                 if (isset($GLOBALS['sql_type'])
@@ -1482,7 +1504,7 @@ if (isset($plugin_list)) {
                     && $sql_command == 'INSERT'
                 ) {
                     $truncate = 'TRUNCATE TABLE '
-                        . PMA_backquote($table, $sql_backquotes) . ";";
+                        . $common_functions->backquote($table, $sql_backquotes) . ";";
                     $truncatehead = PMA_possibleCRLF()
                         . PMA_exportComment()
                         . PMA_exportComment(
@@ -1502,12 +1524,12 @@ if (isset($plugin_list)) {
                 ) {
                     $fields        = implode(', ', $field_set);
                     $schema_insert = $sql_command . $insert_delayed .' INTO '
-                        . PMA_backquote($table, $sql_backquotes)
+                        . $common_functions->backquote($table, $sql_backquotes)
                         // avoid EOL blank
                         . ' (' . $fields . ') VALUES';
                 } else {
                     $schema_insert = $sql_command . $insert_delayed .' INTO '
-                        . PMA_backquote($table, $sql_backquotes)
+                        . $common_functions->backquote($table, $sql_backquotes)
                         . ' VALUES';
                 }
             }
@@ -1575,8 +1597,8 @@ if (isset($plugin_list)) {
                         }
                     } elseif ($fields_meta[$j]->type == 'bit') {
                         // detection of 'bit' works only on mysqli extension
-                        $values[] = "b'" . PMA_sqlAddSlashes(
-                            PMA_printableBitValue(
+                        $values[] = "b'" . $common_functions->sqlAddSlashes(
+                            $common_functions->printableBitValue(
                                 $row[$j], $fields_meta[$j]->length
                             )
                         )
@@ -1585,7 +1607,7 @@ if (isset($plugin_list)) {
                         // something else -> treat as a string
                         $values[] = '\''
                             . str_replace(
-                                $search, $replace, PMA_sqlAddSlashes($row[$j])
+                                $search, $replace, $common_functions->sqlAddSlashes($row[$j])
                             )
                             . '\'';
                     } // end if
@@ -1609,7 +1631,7 @@ if (isset($plugin_list)) {
                     }
 
                     list($tmp_unique_condition, $tmp_clause_is_unique)
-                        = PMA_getUniqueCondition(
+                        = $common_functions->getUniqueCondition(
                             $result,
                             $fields_cnt,
                             $fields_meta,

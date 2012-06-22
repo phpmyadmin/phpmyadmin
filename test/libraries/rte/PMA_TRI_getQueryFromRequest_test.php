@@ -7,7 +7,7 @@
  */
 
 /*
- * Needed for PMA_backquote()
+ * Needed for backquote()
  */
 require_once 'libraries/common.lib.php';
 

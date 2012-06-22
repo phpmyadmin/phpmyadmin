@@ -209,7 +209,7 @@ if (isset($plugin_list)) {
             // Print structure comment
             $output = PMA_exportComment(
                 "Table structure for "
-                . PMA_backquote($table)
+                . PMA_CommonFunctions::getInstance()->backquote($table)
             );
 
             // Begin the table construction
@@ -283,7 +283,7 @@ if (isset($plugin_list)) {
         $sql_query
     ) {
         // Print data comment
-        $output = PMA_exportComment("Table data for ". PMA_backquote($table));
+        $output = PMA_exportComment("Table data for ". PMA_CommonFunctions::getInstance()->backquote($table));
 
         // Begin the table construction
         // Use the "wikitable" class for style

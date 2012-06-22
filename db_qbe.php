@@ -16,6 +16,7 @@ require_once 'libraries/common.inc.php';
  */
 $cfgRelation = PMA_getRelationsParam();
 
+$common_functions = PMA_CommonFunctions::getInstance();
 
 /**
  * A query has been submitted -> (maybe) execute it
@@ -96,7 +97,7 @@ if (PMA_isValid($_REQUEST['TableList'], 'array')) {
  * Prepares the form
  */
 $tbl_result = PMA_DBI_query(
-    'SHOW TABLES FROM ' . PMA_backquote($db) . ';',
+    'SHOW TABLES FROM ' . $common_functions->backquote($db) . ';',
     null, PMA_DBI_QUERY_STORE
 );
 $tbl_result_cnt = PMA_DBI_num_rows($tbl_result);
@@ -117,10 +118,10 @@ while (list($tbl) = PMA_DBI_fetch_row($tbl_result)) {
 
     // The fields list per selected tables
     if ($tbl_names[$tbl] == ' selected="selected"') {
-        $each_table = PMA_backquote($tbl);
+        $each_table = $common_functions->backquote($tbl);
         $fld[]  = $each_table . '.*';
         foreach ($fld_results as $each_field) {
-            $each_field = $each_table . '.' . PMA_backquote($each_field['Field']);
+            $each_field = $each_table . '.' . $common_functions->backquote($each_field['Field']);
             $fld[] = $each_field;
 
             // increase the width if necessary
@@ -651,7 +652,7 @@ foreach ($tbl_names as $key => $val) {
 
 <div class="floatleft">
     <fieldset>
-        <legend><?php echo sprintf(__('SQL query on database <b>%s</b>:'), PMA_getDbLink($db)); ?>
+        <legend><?php echo sprintf(__('SQL query on database <b>%s</b>:'), $common_functions->getDbLink($db)); ?>
             </legend>
         <textarea cols="80" name="sql_query" id="textSqlquery"
             rows="<?php echo ($numTableListOptions > 30) ? '15' : '7'; ?>"
@@ -845,12 +846,12 @@ if (isset($Field) && count($Field) > 0) {
             if ($run > 5) {
 
                 foreach ($tab_left as $tab) {
-                    $emerg .= ', ' . PMA_backquote($tab);
+                    $emerg .= ', ' . $common_functions->backquote($tab);
                     unset($tab_left[$tab]);
                 }
             }
         } // end while
-        $qry_from = PMA_backquote($master) . $emerg . $fromclause;
+        $qry_from = $common_functions->backquote($master) . $emerg . $fromclause;
     } // end if ($cfgRelation['relwork'] && count($tab_all) > 0)
 
 } // end count($Field) > 0

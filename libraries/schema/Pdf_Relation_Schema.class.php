@@ -35,6 +35,33 @@ class PMA_Schema_PDF extends PMA_PDF
     var $def_outlines;
     var $widths;
     private $_ff = PMA_PDF_FONT;
+    private $_common_functions;
+    
+    /**
+     * Set CommmonFunctions
+     * 
+     * @param PMA_CommonFunctions $commonFunctions
+     * 
+     * @return void
+     */
+    public function setCommonFunctions(PMA_CommonFunctions $commonFunctions)
+    {
+        $this->_common_functions = $commonFunctions;
+    }
+    
+    
+    /**
+     * Get CommmonFunctions
+     * 
+     * @return CommonFunctions object
+     */
+    public function getCommonFunctions()
+    {
+        if (is_null($this->_common_functions)) {
+            $this->_common_functions = PMA_CommonFunctions::getInstance();
+        }
+        return $this->_common_functions;
+    }
 
     /**
      * Sets the value for margins
@@ -210,9 +237,9 @@ class PMA_Schema_PDF extends PMA_PDF
         global $cfgRelation, $db, $pdf_page_number, $with_doc;
         if ($with_doc) {
             $test_query = 'SELECT * FROM '
-                . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
-                . PMA_backquote($cfgRelation['pdf_pages'])
-                . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
+                . $this->getCommonFunctions()->backquote($GLOBALS['cfgRelation']['db']) . '.'
+                . $this->getCommonFunctions()->backquote($cfgRelation['pdf_pages'])
+                . ' WHERE db_name = \'' . $this->getCommonFunctions()->sqlAddSlashes($db) . '\''
                 . ' AND page_nr = \'' . $pdf_page_number . '\'';
             $test_rs = PMA_query_as_controluser($test_query);
             $pages = @PMA_DBI_fetch_assoc($test_rs);
@@ -377,6 +404,33 @@ class Table_Stats
     public $x, $y;
     public $primary = array();
     private $_ff = PMA_PDF_FONT;
+    private $_common_functions;
+    
+    /**
+     * Set CommmonFunctions
+     * 
+     * @param PMA_CommonFunctions $commonFunctions
+     * 
+     * @return void
+     */
+    public function setCommonFunctions(PMA_CommonFunctions $commonFunctions)
+    {
+        $this->_common_functions = $commonFunctions;
+    }
+    
+    
+    /**
+     * Get CommmonFunctions
+     * 
+     * @return CommonFunctions object
+     */
+    public function getCommonFunctions()
+    {
+        if (is_null($this->_common_functions)) {
+            $this->_common_functions = PMA_CommonFunctions::getInstance();
+        }
+        return $this->_common_functions;
+    }
 
     /**
      * The "Table_Stats" constructor
@@ -404,7 +458,7 @@ class Table_Stats
         global $pdf, $cfgRelation, $db;
 
         $this->_tableName = $tableName;
-        $sql = 'DESCRIBE ' . PMA_backquote($tableName);
+        $sql = 'DESCRIBE ' . $this->getCommonFunctions()->backquote($tableName);
         $result = PMA_DBI_try_query($sql, null, PMA_DBI_QUERY_STORE);
         if (! $result || ! PMA_DBI_num_rows($result)) {
             $pdf->Error(sprintf(__('The %s table doesn\'t exist!'), $tableName));
@@ -438,10 +492,10 @@ class Table_Stats
             $sameWideWidth = $this->width;
         }
         $sql = 'SELECT x, y FROM '
-             . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
-             . PMA_backquote($cfgRelation['table_coords'])
-             . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
-             . ' AND   table_name = \'' . PMA_sqlAddSlashes($tableName) . '\''
+             . $this->getCommonFunctions()->backquote($GLOBALS['cfgRelation']['db']) . '.'
+             . $this->getCommonFunctions()->backquote($cfgRelation['table_coords'])
+             . ' WHERE db_name = \'' . $this->getCommonFunctions()->sqlAddSlashes($db) . '\''
+             . ' AND   table_name = \'' . $this->getCommonFunctions()->sqlAddSlashes($tableName) . '\''
              . ' AND   pdf_page_number = ' . $pageNumber;
         $result = PMA_query_as_controluser($sql, false, PMA_DBI_QUERY_STORE);
         if (! $result || ! PMA_DBI_num_rows($result)) {
@@ -463,7 +517,7 @@ class Table_Stats
          * index
          */
         $result = PMA_DBI_query(
-            'SHOW INDEX FROM ' . PMA_backquote($tableName) . ';',
+            'SHOW INDEX FROM ' . $this->getCommonFunctions()->backquote($tableName) . ';',
             null, PMA_DBI_QUERY_STORE
         );
         if (PMA_DBI_num_rows($result) > 0) {
@@ -1141,8 +1195,8 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
 
         // Get the name of this pdfpage to use as filename
         $_name_sql = 'SELECT page_descr FROM '
-            . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
-            . PMA_backquote($cfgRelation['pdf_pages'])
+            . $this->getCommonFunctions()->backquote($GLOBALS['cfgRelation']['db']) . '.'
+            . $this->getCommonFunctions()->backquote($cfgRelation['pdf_pages'])
             . ' WHERE page_nr = ' . $pageNumber;
         $_name_rs = PMA_query_as_controluser($_name_sql);
         if ($_name_rs) {
@@ -1238,20 +1292,26 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
                 ? $showtable['Comment']
                 : '';
             $create_time  = isset($showtable['Create_time'])
-                ? PMA_localisedDate(strtotime($showtable['Create_time']))
+                ? $this->getCommonFunctions()->localisedDate(
+                    strtotime($showtable['Create_time'])
+                )
                 : '';
             $update_time  = isset($showtable['Update_time'])
-                ? PMA_localisedDate(strtotime($showtable['Update_time']))
+                ? $this->getCommonFunctions()->localisedDate(
+                    strtotime($showtable['Update_time'])
+                )
                 : '';
             $check_time   = isset($showtable['Check_time'])
-                ? PMA_localisedDate(strtotime($showtable['Check_time']))
+                ? $this->getCommonFunctions()->localisedDate(
+                    strtotime($showtable['Check_time'])
+                )
                 : '';
 
             /**
              * Gets table keys and retains them
              */
             $result = PMA_DBI_query(
-                'SHOW KEYS FROM ' . PMA_backquote($table) . ';'
+                'SHOW KEYS FROM ' . $this->getCommonFunctions()->backquote($table) . ';'
             );
             $primary = '';
             $indexes = array();
@@ -1375,7 +1435,8 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             $pdf->SetFont($this->_ff, '');
 
             foreach ($columns as $row) {
-                $extracted_columnspec = PMA_extractColumnSpec($row['Type']);
+                $extracted_columnspec
+                    = $this->getCommonFunctions()->extractColumnSpec($row['Type']);
                 $type                = $extracted_columnspec['print_type'];
                 $attribute           = $extracted_columnspec['attribute'];
                 if (! isset($row['Default'])) {

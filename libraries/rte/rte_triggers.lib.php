@@ -92,7 +92,7 @@ function PMA_TRI_handleEditor()
                         }
                     } else {
                         $message = PMA_Message::success(__('Trigger %1$s has been modified.'));
-                        $message->addParam(PMA_backquote($_REQUEST['item_name']));
+                        $message->addParam(PMA_CommonFunctions::getInstance()->backquote($_REQUEST['item_name']));
                         $sql_query = $drop_item . $item_query;
                     }
                 }
@@ -104,7 +104,7 @@ function PMA_TRI_handleEditor()
                                       . __('MySQL said: ') . PMA_DBI_getError(null);
                 } else {
                     $message = PMA_Message::success(__('Trigger %1$s has been created.'));
-                    $message->addParam(PMA_backquote($_REQUEST['item_name']));
+                    $message->addParam(PMA_CommonFunctions::getInstance()->backquote($_REQUEST['item_name']));
                     $sql_query = $item_query;
                 }
             }
@@ -119,7 +119,7 @@ function PMA_TRI_handleEditor()
             $message->addString('</ul>');
         }
 
-        $output = PMA_getMessage($message, $sql_query);
+        $output = PMA_CommonFunctions::getInstance()->getMessage($message, $sql_query);
         if ($GLOBALS['is_ajax_request']) {
             $response = PMA_Response::getInstance();
             if ($message->isSuccess()) {
@@ -192,8 +192,8 @@ function PMA_TRI_handleEditor()
             $message  = __('Error in processing request') . ' : ';
             $message .= sprintf(
                 PMA_RTE_getWord('not_found'),
-                htmlspecialchars(PMA_backquote($_REQUEST['item_name'])),
-                htmlspecialchars(PMA_backquote($db))
+                htmlspecialchars(PMA_CommonFunctions::getInstance()->backquote($_REQUEST['item_name'])),
+                htmlspecialchars(PMA_CommonFunctions::getInstance()->backquote($db))
             );
             $message = PMA_message::error($message);
             if ($GLOBALS['is_ajax_request']) {
@@ -295,7 +295,7 @@ function PMA_TRI_getEditorForm($mode, $item)
                        . "type='hidden' value='{$item['item_original_name']}'/>\n";
     }
     $query  = "SELECT `TABLE_NAME` FROM `INFORMATION_SCHEMA`.`TABLES` ";
-    $query .= "WHERE `TABLE_SCHEMA`='" . PMA_sqlAddSlashes($db) . "' ";
+    $query .= "WHERE `TABLE_SCHEMA`='" . PMA_CommonFunctions::getInstance()->sqlAddSlashes($db) . "' ";
     $query .= "AND `TABLE_TYPE`='BASE TABLE'";
     $tables = PMA_DBI_fetch_result($query);
 
@@ -400,15 +400,15 @@ function PMA_TRI_getQueryFromRequest()
     if (! empty($_REQUEST['item_definer'])) {
         if (strpos($_REQUEST['item_definer'], '@') !== false) {
             $arr = explode('@', $_REQUEST['item_definer']);
-            $query .= 'DEFINER=' . PMA_backquote($arr[0]);
-            $query .= '@' . PMA_backquote($arr[1]) . ' ';
+            $query .= 'DEFINER=' . PMA_CommonFunctions::getInstance()->backquote($arr[0]);
+            $query .= '@' . PMA_CommonFunctions::getInstance()->backquote($arr[1]) . ' ';
         } else {
             $errors[] = __('The definer must be in the "username@hostname" format');
         }
     }
     $query .= 'TRIGGER ';
     if (! empty($_REQUEST['item_name'])) {
-        $query .= PMA_backquote($_REQUEST['item_name']) . ' ';
+        $query .= PMA_CommonFunctions::getInstance()->backquote($_REQUEST['item_name']) . ' ';
     } else {
         $errors[] = __('You must provide a trigger name');
     }

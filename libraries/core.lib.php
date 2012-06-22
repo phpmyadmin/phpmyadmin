@@ -301,7 +301,7 @@ function PMA_warnMissingExtension($extension, $fatal = false, $extra = '')
 function PMA_getTableCount($db)
 {
     $tables = PMA_DBI_try_query(
-        'SHOW TABLES FROM ' . PMA_backquote($db) . ';',
+        'SHOW TABLES FROM ' . PMA_CommonFunctions::getInstance()->backquote($db) . ';',
         null, PMA_DBI_QUERY_STORE
     );
     if ($tables) {

@@ -20,6 +20,7 @@ $scripts->addFile('db_search.js');
 $scripts->addFile('sql.js');
 $scripts->addFile('makegrid.js');
 $scripts->addFile('jquery/timepicker.js');
+$common_functions = PMA_CommonFunctions::getInstance();
 
 /**
  * Gets some core libraries and send headers
@@ -31,7 +32,7 @@ require 'libraries/db_common.inc.php';
  */
 // If config variable $GLOBALS['cfg']['Usedbsearch'] is on false : exit.
 if (! $GLOBALS['cfg']['UseDbSearch']) {
-    PMA_mysqlDie(__('Access denied'), '', false, $err_url);
+    $common_functions->mysqlDie(__('Access denied'), '', false, $err_url);
 } // end if
 $url_query .= '&amp;goto=db_search.php';
 $url_params['goto'] = 'db_search.php';
@@ -67,11 +68,11 @@ if (empty($_REQUEST['search_str']) || ! is_string($_REQUEST['search_str'])) {
     $searched = htmlspecialchars($_REQUEST['search_str']);
     // For "as regular expression" (search option 4), we should not treat
     // this as an expression that contains a LIKE (second parameter of
-    // PMA_sqlAddSlashes()).
+    // sqlAddSlashes()).
     //
     // Usage example: If user is seaching for a literal $ in a regexp search,
     // he should enter \$ as the value.
-    $search_str = PMA_sqlAddSlashes(
+    $search_str = $common_functions->sqlAddSlashes(
         $_REQUEST['search_str'], ($search_option == 4 ? false : true)
     );
 }
@@ -92,7 +93,7 @@ if (isset($_REQUEST['selectall'])) {
 if (empty($_REQUEST['field_str']) || ! is_string($_REQUEST['field_str'])) {
     unset($field_str);
 } else {
-    $field_str = PMA_sqlAddSlashes($_REQUEST['field_str'], true);
+    $field_str = $common_functions->sqlAddSlashes($_REQUEST['field_str'], true);
 }
 
 /**
@@ -123,7 +124,7 @@ if (isset($_REQUEST['submit_search'])) {
      * @return array    3 SQL querys (for count, display and delete results)
      *
      * @todo    can we make use of fulltextsearch IN BOOLEAN MODE for this?
-     * PMA_backquote
+     * PMA_CommonFunctions::backquote
      * PMA_DBI_free_result
      * PMA_DBI_fetch_assoc
      * $GLOBALS['db']
@@ -141,7 +142,7 @@ if (isset($_REQUEST['submit_search'])) {
         $tblfields = PMA_DBI_get_columns($GLOBALS['db'], $table);
 
         // Table to use
-        $sqlstr_from = ' FROM ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($table);
+        $sqlstr_from = ' FROM ' . $common_functions->backquote($GLOBALS['db']) . '.' . $common_functions->backquote($table);
 
         $search_words    = (($search_option > 2) ? array($search_str) : explode(' ', $search_str));
 
@@ -160,13 +161,13 @@ if (isset($_REQUEST['submit_search'])) {
                 if (! isset($field) || strlen($field) == 0 || $tblfield['Field'] == $field) {
                     // Drizzle has no CONVERT and all text columns are UTF-8
                     if (PMA_DRIZZLE) {
-                        $thefieldlikevalue[] = PMA_backquote($tblfield['Field'])
+                        $thefieldlikevalue[] = $common_functions->backquote($tblfield['Field'])
                             . ' ' . $like_or_regex . ' '
                             . "'" . $automatic_wildcard
                             . $search_word
                             . $automatic_wildcard . "'";
                     } else {
-                        $thefieldlikevalue[] = 'CONVERT(' . PMA_backquote($tblfield['Field']) . ' USING utf8)'
+                        $thefieldlikevalue[] = 'CONVERT(' . $common_functions->backquote($tblfield['Field']) . ' USING utf8)'
                             . ' ' . $like_or_regex . ' '
                             . "'" . $automatic_wildcard
                             . $search_word
@@ -301,15 +302,17 @@ if ($GLOBALS['is_ajax_request'] == true) {
             <td><?php
 
 $choices = array(
-    '1' => __('at least one of the words') . PMA_showHint(__('Words are separated by a space character (" ").')),
-    '2' => __('all words') . PMA_showHint(__('Words are separated by a space character (" ").')),
+    '1' => __('at least one of the words') . $common_functions->showHint(__('Words are separated by a space character (" ").')),
+    '2' => __('all words') . $common_functions->showHint(__('Words are separated by a space character (" ").')),
     '3' => __('the exact phrase'),
-    '4' => __('as regular expression') . ' ' . PMA_showMySQLDocu('Regexp', 'Regexp')
+    '4' => __('as regular expression') . ' ' . $common_functions->showMySQLDocu('Regexp', 'Regexp')
 );
 // 4th parameter set to true to add line breaks
 // 5th parameter set to false to avoid htmlspecialchars() escaping in the label
 //  since we have some HTML in some labels
-echo PMA_getRadioFields('search_option', $choices, $search_option, true, false);
+echo $common_functions->getRadioFields(
+    'search_option', $choices, $search_option, true, false
+);
 unset($choices);
             ?>
             </td>

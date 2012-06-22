@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_getCheckbox from common.lib.php
+ * Test for PMA_CommonFunctions::getCheckbox from common.lib.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -20,7 +20,7 @@ class PMA_GetCheckboxTest extends PHPUnit_Framework_TestCase
         $label = "text_label_for_checkbox";
 
         $this->assertEquals(
-            PMA_getCheckbox($name, $label, false, false),
+            PMA_CommonFunctions::getInstance()->getCheckbox($name, $label, false, false),
             '<input type="checkbox" name="' . $name . '" id="' . $name . '" /><label for="' . $name . '">' . $label . '</label>'
         );
     }
@@ -31,7 +31,7 @@ class PMA_GetCheckboxTest extends PHPUnit_Framework_TestCase
         $label = "text_label_for_checkbox";
 
         $this->assertEquals(
-            PMA_getCheckbox($name, $label, true, false),
+            PMA_CommonFunctions::getInstance()->getCheckbox($name, $label, true, false),
             '<input type="checkbox" name="' . $name . '" id="' . $name . '" checked="checked" /><label for="' . $name . '">' . $label . '</label>'
         );
     }
@@ -42,7 +42,7 @@ class PMA_GetCheckboxTest extends PHPUnit_Framework_TestCase
         $label = "text_label_for_checkbox";
 
         $this->assertEquals(
-            PMA_getCheckbox($name, $label, false, true),
+            PMA_CommonFunctions::getInstance()->getCheckbox($name, $label, false, true),
             '<input type="checkbox" name="' . $name . '" id="' . $name . '" class="autosubmit" /><label for="' . $name . '">' . $label . '</label>'
         );
     }
@@ -53,10 +53,8 @@ class PMA_GetCheckboxTest extends PHPUnit_Framework_TestCase
         $label = "text_label_for_checkbox";
 
         $this->assertEquals(
-            PMA_getCheckbox($name, $label, true, true),
+            PMA_CommonFunctions::getInstance()->getCheckbox($name, $label, true, true),
             '<input type="checkbox" name="' . $name . '" id="' . $name . '" checked="checked" class="autosubmit" /><label for="' . $name . '">' . $label . '</label>'
         );
     }
 }
-
-//PMA_getCheckbox

@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_getDropdown from common.lib.php
+ * Test for PMA_CommonFunctions::getDropdown from common.lib.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -23,7 +23,12 @@ class PMA_GetDropdownTest extends PHPUnit_Framework_TestCase
 
         $result = '<select name="' . htmlspecialchars($name) . '" id="' . htmlspecialchars($id) . '"></select>';
 
-        $this->assertEquals($result, PMA_getDropdown($name, $choices, $active_choice, $id));
+        $this->assertEquals(
+            $result,
+            PMA_CommonFunctions::getInstance()->getDropdown(
+                $name, $choices, $active_choice, $id
+            )
+        );
     }
 
     function testGetDropdown()
@@ -43,7 +48,12 @@ class PMA_GetDropdownTest extends PHPUnit_Framework_TestCase
         }
         $result .= '</select>';
 
-        $this->assertEquals($result, PMA_getDropdown($name, $choices, $active_choice, $id));
+        $this->assertEquals(
+            $result,
+            PMA_CommonFunctions::getInstance()->getDropdown(
+                $name, $choices, $active_choice, $id
+            )
+        );
     }
 
     function testGetDropdownWithActive()
@@ -63,6 +73,11 @@ class PMA_GetDropdownTest extends PHPUnit_Framework_TestCase
         }
         $result .= '</select>';
 
-        $this->assertEquals($result, PMA_getDropdown($name, $choices, $active_choice, $id));
+        $this->assertEquals(
+            $result,
+            PMA_CommonFunctions::getInstance()->getDropdown(
+                $name, $choices, $active_choice, $id
+            )
+        );
     }
 }

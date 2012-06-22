@@ -21,8 +21,10 @@ require_once 'libraries/common.inc.php';
  */
 require_once 'libraries/insert_edit.lib.php';
 
+$common_functions = PMA_CommonFunctions::getInstance();
+
 // Check parameters
-PMA_checkParameters(array('db', 'table', 'goto'));
+$common_functions->checkParameters(array('db', 'table', 'goto'));
 
 PMA_DBI_select_db($GLOBALS['db']);
 
@@ -164,7 +166,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
         && $using_key && isset($multi_edit_columns_type)
         && is_array($multi_edit_columns_type) && isset($where_clause)
     ) {
-        $prot_row = PMA_DBI_fetch_single_row('SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $where_clause . ';');
+        $prot_row = PMA_DBI_fetch_single_row('SELECT * FROM ' . $common_functions->backquote($table) . ' WHERE ' . $where_clause . ';');
     }
 
     // When a select field is nullified, it's not present in $_REQUEST
@@ -213,7 +215,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
                 $query_values[] = $cur_value;
                 // first inserted row so prepare the list of fields
                 if (empty($value_sets)) {
-                    $query_fields[] = PMA_backquote($multi_edit_columns_name[$key]);
+                    $query_fields[] = $common_functions->backquote($multi_edit_columns_name[$key]);
                 }
             }
 
@@ -222,10 +224,10 @@ foreach ($loop_array as $rownumber => $where_clause) {
          && ! isset($multi_edit_columns_null[$key])) {
             // field had the null checkbox before the update
             // field no longer has the null checkbox
-            $query_values[] = PMA_backquote($multi_edit_columns_name[$key]) . ' = ' . $cur_value;
+            $query_values[] = $common_functions->backquote($multi_edit_columns_name[$key]) . ' = ' . $cur_value;
         } elseif (empty($multi_edit_funcs[$key])
          && isset($multi_edit_columns_prev[$key])
-         && ("'" . PMA_sqlAddSlashes($multi_edit_columns_prev[$key]) . "'" == $val)) {
+         && ("'" . $common_functions->sqlAddSlashes($multi_edit_columns_prev[$key]) . "'" == $val)) {
             // No change for this column and no MySQL function is used -> next column
             continue;
         } elseif (! empty($val)) {
@@ -235,7 +237,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
             if (empty($multi_edit_columns_null_prev[$key])
                 || empty($multi_edit_columns_null[$key])
             ) {
-                 $query_values[] = PMA_backquote($multi_edit_columns_name[$key]) . ' = ' . $cur_value;
+                 $query_values[] = $common_functions->backquote($multi_edit_columns_name[$key]) . ' = ' . $cur_value;
             }
         }
     } // end foreach ($multi_edit_colummns as $key => $val)
@@ -245,7 +247,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
             $value_sets[] = implode(', ', $query_values);
         } else {
             // build update query
-            $query[] = 'UPDATE ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($GLOBALS['table'])
+            $query[] = 'UPDATE ' . $common_functions->backquote($GLOBALS['db']) . '.' . $common_functions->backquote($GLOBALS['table'])
                 . ' SET ' . implode(', ', $query_values)
                 . ' WHERE ' . $where_clause . ($_REQUEST['clause_is_unique'] ? '' : ' LIMIT 1');
 
@@ -323,10 +325,10 @@ if ($GLOBALS['is_ajax_request'] == true) {
 
                 // Field to display from the foreign table?
                 if (isset($display_field) && strlen($display_field)) {
-                    $dispsql     = 'SELECT ' . PMA_backquote($display_field)
-                        . ' FROM ' . PMA_backquote($map[$rel_field]['foreign_db'])
-                        . '.' . PMA_backquote($map[$rel_field]['foreign_table'])
-                        . ' WHERE ' . PMA_backquote($map[$rel_field]['foreign_field'])
+                    $dispsql     = 'SELECT ' . $common_functions->backquote($display_field)
+                        . ' FROM ' . $common_functions->backquote($map[$rel_field]['foreign_db'])
+                        . '.' . $common_functions->backquote($map[$rel_field]['foreign_table'])
+                        . ' WHERE ' . $common_functions->backquote($map[$rel_field]['foreign_field'])
                         . $where_comparison;
                     $dispresult  = PMA_DBI_try_query($dispsql, null, PMA_DBI_QUERY_STORE);
                     if ($dispresult && PMA_DBI_num_rows($dispresult) > 0) {
@@ -352,8 +354,8 @@ if ($GLOBALS['is_ajax_request'] == true) {
                     'table' => $map[$rel_field]['foreign_table'],
                     'pos'   => '0',
                     'sql_query' => 'SELECT * FROM '
-                        . PMA_backquote($map[$rel_field]['foreign_db']) . '.' . PMA_backquote($map[$rel_field]['foreign_table'])
-                        . ' WHERE ' . PMA_backquote($map[$rel_field]['foreign_field']) . $where_comparison
+                        . $common_functions->backquote($map[$rel_field]['foreign_db']) . '.' . $common_functions->backquote($map[$rel_field]['foreign_table'])
+                        . ' WHERE ' . $common_functions->backquote($map[$rel_field]['foreign_field']) . $where_comparison
                 );
                 $output = '<a href="sql.php' . PMA_generate_common_url($_url_params) . '"' . $title . '>';
 
@@ -420,7 +422,7 @@ if ($GLOBALS['is_ajax_request'] == true) {
 
     /**Get the total row count of the table*/
     $extra_data['row_count'] = PMA_Table::countRecords($_REQUEST['db'], $_REQUEST['table']);
-    $extra_data['sql_query'] = PMA_getMessage($message, $GLOBALS['display_query']);
+    $extra_data['sql_query'] = $common_functions->getMessage($message, $GLOBALS['display_query']);
 
     $response = PMA_Response::getInstance();
     $response->isSuccess($message->isSuccess());

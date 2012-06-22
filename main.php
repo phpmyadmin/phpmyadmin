@@ -15,6 +15,8 @@ require_once 'libraries/common.inc.php';
  */
 require_once 'libraries/display_git_revision.lib.php';
 
+$common_functions = PMA_CommonFunctions::getInstance();
+
 if ($GLOBALS['PMA_Config']->isGitRevision()) {
     if (isset($_REQUEST['git_revision']) && $GLOBALS['is_ajax_request'] == true) {
         PMA_printGitRevision();
@@ -30,7 +32,7 @@ $show_query = '1';
 
 // Any message to display?
 if (! empty($message)) {
-    echo PMA_getMessage($message);
+    echo $common_functions->getMessage($message);
     unset($message);
 }
 
@@ -118,7 +120,7 @@ if ($server > 0
            . '            <label for="select_collation_connection">' . "\n"
            . '                ' . __('Server connection collation') . "\n"
            // put the doc link in the form so that it appears on the same line
-           . PMA_showMySQLDocu('MySQL_Database_Administration', 'Charset-connection') . ': ' .  "\n"
+           . $common_functions->showMySQLDocu('MySQL_Database_Administration', 'Charset-connection') . ': ' .  "\n"
            . '            </label>' . "\n"
 
            . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'collation_connection', 'select_collation_connection', $collation_connection, true, 4, true)
@@ -174,11 +176,12 @@ echo '<div id="main_pane_right">';
 
 
 if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
+    
     echo '<div class="group">';
     echo '<h2>' . __('Database server') . '</h2>';
     echo '<ul>' . "\n";
     PMA_printListItem(__('Server') . ': ' . $server_info, 'li_server_info');
-    PMA_printListItem(__('Software') . ': ' . PMA_getServerType(), 'li_server_type');
+    PMA_printListItem(__('Software') . ': ' . $common_functions->getServerType(), 'li_server_type');
     PMA_printListItem(__('Software version') . ': ' . PMA_MYSQL_STR_VERSION . ' - ' . PMA_MYSQL_VERSION_COMMENT, 'li_server_version');
     PMA_printListItem(
         __('Protocol version') . ': ' . PMA_DBI_get_proto_info(),
@@ -220,7 +223,7 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
             );
             PMA_printListItem(
                 __('PHP extension') . ': ' . $GLOBALS['cfg']['Server']['extension']. ' '
-                . PMA_showPHPDocu('book.' . $GLOBALS['cfg']['Server']['extension'] . '.php'),
+                . $common_functions->showPHPDocu('book.' . $GLOBALS['cfg']['Server']['extension'] . '.php'),
                 'li_used_php_extension'
             );
         }
@@ -448,7 +451,7 @@ function PMA_printListItem($name, $id = null, $url = null, $mysql_help_page = nu
         echo '</a>' . "\n";
     }
     if (null !== $mysql_help_page) {
-        echo PMA_showMySQLDocu('', $mysql_help_page);
+        echo PMA_CommonFunctions::getInstance()->showMySQLDocu('', $mysql_help_page);
     }
     echo '</li>';
 }

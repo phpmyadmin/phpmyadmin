@@ -90,7 +90,7 @@ function PMA_transformation_text_plain__dateformat($buffer, $options = array(), 
         $timestamp -= $options[0] * 60 * 60;
         $source = $buffer;
         if ($options[2] == 'local') {
-            $text = PMA_localisedDate($timestamp, $options[1]);
+            $text = PMA_CommonFunctions::getInstance()->localisedDate($timestamp, $options[1]);
         } elseif ($options[2] == 'utc') {
             $text = gmdate($options[1], $timestamp);
         } else {
