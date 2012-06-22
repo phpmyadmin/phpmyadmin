@@ -847,13 +847,18 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         /**
          * the required auth type plugin
          */
-        include_once './libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php';
-        if (! PMA_auth_check()) {
+        $auth_class = "Authentication"
+            . strtoupper(substr($cfg['Server']['auth_type'], 0, 1))
+            . strtolower(substr($cfg['Server']['auth_type'], 1));
+        include_once  './libraries/plugins/auth/' . $auth_class . '.class.php';
+        $auth_plugin = new $auth_class;
+
+        if (! $auth_plugin->authCheck()) {
             /* Force generating of new session on login */
             PMA_secureSession();
-            PMA_auth();
+            $auth_plugin->auth();
         } else {
-            PMA_auth_set_user();
+            $auth_plugin->authSetUser();
         }
 
          // Check IP-based Allow/Deny rules as soon as possible to reject the
@@ -897,7 +902,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             // Ejects the user if banished
             if ($allowDeny_forbidden) {
                 PMA_log_user($cfg['Server']['user'], 'allow-denied');
-                PMA_auth_fails();
+                $auth_plugin->authFails();
             }
         } // end if
 
@@ -905,14 +910,14 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         if (!$cfg['Server']['AllowRoot'] && $cfg['Server']['user'] == 'root') {
             $allowDeny_forbidden = true;
             PMA_log_user($cfg['Server']['user'], 'root-denied');
-            PMA_auth_fails();
+            $auth_plugin->authFails();
         }
 
         // is a login without password allowed?
         if (!$cfg['Server']['AllowNoPassword'] && $cfg['Server']['password'] == '') {
             $login_without_password_is_forbidden = true;
             PMA_log_user($cfg['Server']['user'], 'empty-denied');
-            PMA_auth_fails();
+            $auth_plugin->authFails();
         }
 
         // if using TCP socket is not needed

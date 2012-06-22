@@ -19,7 +19,7 @@ require_once "libraries/plugins/AuthenticationPlugin.class.php";
  *
  * @package PhpMyAdmin-Authentication
  */
-class AuthenticationHTTP extends AuthenticationPlugin
+class AuthenticationHttp extends AuthenticationPlugin
 {
     /**
      * Displays authentication form
