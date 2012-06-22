@@ -1115,14 +1115,12 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $fields_cnt  = count($fields_meta);
     }
 
-    if (! $GLOBALS['is_ajax_request']) {
-        //begin the sqlqueryresults div here. container div
-        echo '<div id="sqlqueryresults"';
-        if ($GLOBALS['cfg']['AjaxEnable']) {
-            echo ' class="ajax"';
-        }
-        echo '>';
+    //begin the sqlqueryresults div here. container div
+    echo '<div id="sqlqueryresults"';
+    if ($GLOBALS['cfg']['AjaxEnable']) {
+        echo ' class="ajax"';
     }
+    echo '>';
 
     // Display previous update query (from tbl_replace)
     if (isset($disp_query) && ($cfg['ShowSQL'] == true) && empty($sql_data)) {
@@ -1290,10 +1288,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     if (isset($printview) && $printview == '1') {
         echo PMA_Util::getButton();
     } // end print case
-
-    if ($GLOBALS['is_ajax_request'] != true) {
-        echo '</div>'; // end sqlqueryresults div
-    }
+    echo '</div>'; // end sqlqueryresults div
 } // end rows returned
 
 $_SESSION['is_multi_query'] = false;
