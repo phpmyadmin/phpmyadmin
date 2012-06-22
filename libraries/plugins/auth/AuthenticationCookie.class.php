@@ -274,11 +274,11 @@ class AuthenticationCookie extends AuthenticationPlugin
      * usually with PMA_DBI_connect()
      *
      * it returns false if something is missing - which usually leads to
-     * PMA_auth() which displays login form
+     * auth() which displays login form
      *
-     * it returns true if all seems ok which usually leads to PMA_auth_set_user()
+     * it returns true if all seems ok which usually leads to auth_set_user()
      *
-     * it directly switches to PMA_auth_fails() if user inactivity timout is reached
+     * it directly switches to authFails() if user inactivity timout is reached
      *
      * @todo    AllowArbitraryServer on does not imply that the user wants an
      *          arbitrary server, or? so we should also check if this is filled and
@@ -365,9 +365,9 @@ class AuthenticationCookie extends AuthenticationPlugin
             return false;
         }
 
-        $GLOBALS['PHP_AUTH_USER'] = PMA_blowfish_decrypt(
+        $GLOBALS['PHP_AUTH_USER'] = $this->blowfishDecrypt(
             $_COOKIE['pmaUser-' . $GLOBALS['server']],
-            PMA_get_blowfish_secret()
+            $this->getBlowfishSecret()
         );
 
         // user was never logged in since session start
@@ -383,7 +383,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             PMA_cacheUnset('db_to_create', true);
             PMA_cacheUnset('dbs_where_create_table_allowed', true);
             $GLOBALS['no_activity'] = true;
-            PMA_auth_fails();
+            $this->authFails();
             exit;
         }
 
@@ -392,9 +392,9 @@ class AuthenticationCookie extends AuthenticationPlugin
             return false;
         }
 
-        $GLOBALS['PHP_AUTH_PW'] = PMA_blowfish_decrypt(
+        $GLOBALS['PHP_AUTH_PW'] = $this->blowfishDecrypt(
             $_COOKIE['pmaPass-' . $GLOBALS['server']],
-            PMA_get_blowfish_secret()
+            $this->getBlowfishSecret()
         );
 
         if ($GLOBALS['PHP_AUTH_PW'] == "\xff(blank)") {
@@ -466,17 +466,18 @@ class AuthenticationCookie extends AuthenticationPlugin
         // Duration = one month for username
         $GLOBALS['PMA_Config']->setCookie(
             'pmaUser-' . $GLOBALS['server'],
-            PMA_blowfish_encrypt(
-                $cfg['Server']['user'], PMA_get_blowfish_secret()
+            $this->blowfishEncrypt(
+                $cfg['Server']['user'],
+                $this->getBlowfishSecret()
             )
         );
 
         // Duration = as configured
         $GLOBALS['PMA_Config']->setCookie(
             'pmaPass-' . $GLOBALS['server'],
-            PMA_blowfish_encrypt(
+            $this->blowfishEncrypt(
                 ! empty($cfg['Server']['password']) ? $cfg['Server']['password'] : "\xff(blank)",
-                PMA_get_blowfish_secret()
+                $this->getBlowfishSecret()
             ),
             null,
             $GLOBALS['cfg']['LoginCookieStore']
@@ -537,11 +538,11 @@ class AuthenticationCookie extends AuthenticationPlugin
     /**
      * User is not allowed to login to MySQL -> authentication failed
      *
-     * prepares error message and switches to PMA_auth() which display the error
+     * prepares error message and switches to auth() which display the error
      * and the login form
      *
      * this function MUST exit/quit the application,
-     * currently doen by call to PMA_auth()
+     * currently doen by call to auth()
      *
      * @return void
      */
@@ -577,7 +578,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         header('Cache-Control: no-store, no-cache, must-revalidate');
         header('Pragma: no-cache');
 
-        PMA_auth();
+        $this->auth();
     }
 
     /**
@@ -617,6 +618,25 @@ class AuthenticationCookie extends AuthenticationPlugin
         return base64_encode(
             mcrypt_encrypt(MCRYPT_BLOWFISH, $secret, $data, MCRYPT_MODE_CBC, $this->_getIv())
         );
+    }
+
+    /**
+     * Returns blowfish secret or generates one if needed.
+     *
+     * @return string
+     */
+    private function getBlowfishSecret()
+    {
+        if (empty($GLOBALS['cfg']['blowfish_secret'])) {
+            if (empty($_SESSION['auto_blowfish_secret'])) {
+                // this returns 23 characters
+                $_SESSION['auto_blowfish_secret'] = uniqid('', true);
+            }
+            return $_SESSION['auto_blowfish_secret'];
+        } else {
+            // apply md5() to work around too long secrets (returns 32 characters)
+            return md5($GLOBALS['cfg']['blowfish_secret']);
+        }
     }
 
     /**
