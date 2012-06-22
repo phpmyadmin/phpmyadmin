@@ -27,48 +27,35 @@ if (! empty($_REQUEST['target'])) {
 require './libraries/plugins/auth/swekey/swekey.auth.lib.php';
 
 /**
+ * Initialization
+ * Store the initialization vector because it will be needed for
+ * further decryption. I don't think necessary to have one iv
+ * per server so I don't put the server number in the cookie name.
+ */
+if (function_exists('mcrypt_encrypt')) {
+    if (empty($_COOKIE['pma_mcrypt_iv'])
+        || ! ($iv = base64_decode($_COOKIE['pma_mcrypt_iv'], true))
+    ) {
+        srand((double) microtime() * 1000000);
+        $td = mcrypt_module_open(MCRYPT_BLOWFISH, '', MCRYPT_MODE_CBC, '');
+        if ($td === false) {
+            PMA_fatalError(__('Failed to use Blowfish from mcrypt!'));
+        }
+        $iv = mcrypt_create_iv(mcrypt_enc_get_iv_size($td), MCRYPT_RAND);
+        $GLOBALS['PMA_Config']->setCookie(
+            'pma_mcrypt_iv',
+            base64_encode($iv)
+        );
+    }
+}
+        
+/**
  * Handles the cookie authentication method
  *
  * @package PhpMyAdmin-Authentication
  */
 class AuthenticationCookie extends AuthenticationPlugin
 {
-    /**
-     * Initialization vector
-     *
-     * @var array
-     */
-    private $_iv;
-
-    /**
-     * Constructor
-     */
-    function __construct()
-    {
-        /**
-         * Initialization
-         * Store the initialization vector because it will be needed for
-         * further decryption. I don't think necessary to have one iv
-         * per server so I don't put the server number in the cookie name.
-         */
-        if (empty($_COOKIE['pma_mcrypt_iv'])
-            || ! ($this->_setIv(base64_decode($_COOKIE['pma_mcrypt_iv'], true)))
-        ) {
-            srand((double) microtime() * 1000000);
-            $td = mcrypt_module_open(MCRYPT_BLOWFISH, '', MCRYPT_MODE_CBC, '');
-            if ($td === false) {
-                PMA_fatalError(__('Failed to use Blowfish from mcrypt!'));
-            }
-            $this->_setIv(
-                mcrypt_create_iv(mcrypt_enc_get_iv_size($td), MCRYPT_RAND)
-            );
-            $GLOBALS['PMA_Config']->setCookie(
-                'pma_mcrypt_iv',
-                base64_encode($this->_getIv())
-            );
-        }
-    }
-
     /**
      * Displays authentication form
      *
@@ -640,6 +627,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function blowfishEncrypt($data, $secret)
     {
+        global $iv;
         if (! function_exists('mcrypt_encrypt')) {
             include_once "HordeCipherBlowfishOperations.class.php";
             return HordeCipherBlowfishOperations::blowfishEncrypt($data, $secret);
@@ -651,7 +639,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 $secret,
                 $data,
                 MCRYPT_MODE_CBC,
-                $this->_getIv()
+                $iv
             )
         );
     }
@@ -666,6 +654,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function blowfishDecrypt($encdata, $secret)
     {
+        global $iv;
         if (! function_exists('mcrypt_encrypt')) {
             include_once "HordeCipherBlowfishOperations.class.php";
             return HordeCipherBlowfishOperations::blowfishDecrypt(
@@ -680,7 +669,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $secret,
             $data,
             MCRYPT_MODE_CBC,
-            $this->_getIv()
+            $iv
         );
         return trim($decrypted);
     }
@@ -696,31 +685,5 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function update (SplSubject $subject)
     {
-    }
-
-
-    /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
-
-
-    /**
-     * Get the initialization vector
-     *
-     * @return array
-     */
-    private function _getIv()
-    {
-        return $this->_iv;
-    }
-
-    /**
-     * Set the initialization vector
-     *
-     * @param array $iv the initialization vector
-     *
-     * @return void
-     */
-    private function _setIv($iv)
-    {
-        $this->_iv = $iv;
     }
 }

@@ -851,7 +851,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             . strtoupper(substr($cfg['Server']['auth_type'], 0, 1))
             . strtolower(substr($cfg['Server']['auth_type'], 1));
         include_once  './libraries/plugins/auth/' . $auth_class . '.class.php';
-        $auth_plugin = new $auth_class;
+        // todo: add plugin manager
+        $plugin_manager = null;
+        $auth_plugin = new $auth_class($plugin_manager);
 
         if (! $auth_plugin->authCheck()) {
             /* Force generating of new session on login */
