@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-18 10:54+0200\n"
-"PO-Revision-Date: 2012-06-04 04:35+0200\n"
-"Last-Translator: S W <ciomfs@gmail.com>\n"
+"PO-Revision-Date: 2012-06-22 04:47+0200\n"
+"Last-Translator: Hyun-Sung Yun <bemax38@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -1355,7 +1355,7 @@ msgstr "차트에 그리드 추가"
 
 #: js/messages.php:138
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "최소 한개이상의 변수를 시리즈에 추가하십시오"
 
 #: js/messages.php:139 libraries/DisplayResults.class.php:1238
 #: libraries/TableSearch.class.php:815 libraries/TableSearch.class.php:955
