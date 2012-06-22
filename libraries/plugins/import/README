@@ -1,3 +1,5 @@
+Todo: Rewrite!
+
 This directory holds import plugins for phpMyAdmin. Plugin should
 basically look like following code. Official plugins need to have str*
 messages with their definition in language files, if you build some
