@@ -43,7 +43,8 @@ class AuthenticationCookie extends AuthenticationPlugin
     /**
      * Constructor
      */
-    function __construct() {
+    function __construct()
+    {
         /**
          * Initialization
          * Store the initialization vector because it will be needed for
@@ -51,15 +52,20 @@ class AuthenticationCookie extends AuthenticationPlugin
          * per server so I don't put the server number in the cookie name.
          */
         if (empty($_COOKIE['pma_mcrypt_iv'])
-            || false === ($this->_setIv(base64_decode($_COOKIE['pma_mcrypt_iv'], true)))
+            || ! ($this->_setIv(base64_decode($_COOKIE['pma_mcrypt_iv'], true)))
         ) {
             srand((double) microtime() * 1000000);
             $td = mcrypt_module_open(MCRYPT_BLOWFISH, '', MCRYPT_MODE_CBC, '');
             if ($td === false) {
                 PMA_fatalError(__('Failed to use Blowfish from mcrypt!'));
             }
-            $this->_setIv(mcrypt_create_iv(mcrypt_enc_get_iv_size($td), MCRYPT_RAND));
-            $GLOBALS['PMA_Config']->setCookie('pma_mcrypt_iv', base64_encode($this->_getIv()));
+            $this->_setIv(
+                mcrypt_create_iv(mcrypt_enc_get_iv_size($td), MCRYPT_RAND)
+            );
+            $GLOBALS['PMA_Config']->setCookie(
+                'pma_mcrypt_iv',
+                base64_encode($this->_getIv())
+            );
         }
     }
 
@@ -82,7 +88,12 @@ class AuthenticationCookie extends AuthenticationPlugin
             if (! empty($conn_error)) {
                 $response->addJSON('message', $conn_error);
             } else {
-                $response->addJSON('message', PMA_Message::error(__('Your session has expired. Please login again.')));
+                $response->addJSON(
+                    'message',
+                    PMA_Message::error(
+                        __('Your session has expired. Please login again.')
+                    )
+                );
             }
             exit;
         }
@@ -95,7 +106,8 @@ class AuthenticationCookie extends AuthenticationPlugin
             exit;
         }
 
-        /* No recall if blowfish secret is not configured as it would produce garbage */
+        // No recall if blowfish secret is not configured as it would produce
+        // garbage
         if ($GLOBALS['cfg']['LoginCookieRecall']
             && ! empty($GLOBALS['cfg']['blowfish_secret'])
         ) {
@@ -121,10 +133,11 @@ class AuthenticationCookie extends AuthenticationPlugin
         if (file_exists(CUSTOM_HEADER_FILE)) {
             include CUSTOM_HEADER_FILE;
         }
-        ?>
-
+        echo '
     <div class="container">
-    <a href="<?php echo PMA_linkURL('http://www.phpmyadmin.net/'); ?>" target="_blank" class="logo"><?php
+    <a href="';
+        echo PMA_linkURL('http://www.phpmyadmin.net/');
+        echo '" target="_blank" class="logo">';
         $logo_image = $GLOBALS['pmaThemeImage'] . 'logo_right.png';
         if (@file_exists($logo_image)) {
             echo '<img src="' . $logo_image
@@ -134,16 +147,13 @@ class AuthenticationCookie extends AuthenticationPlugin
                 . $GLOBALS['pmaThemeImage'] . 'pma_logo.png' . '" '
                 . 'border="0" width="88" height="31" alt="phpMyAdmin" />';
         }
-        ?></a>
-    <h1>
-        <?php
+        echo '</a>
+       <h1>';
         echo sprintf(
             __('Welcome to %s'),
             '<bdo dir="ltr" lang="en">phpMyAdmin</bdo>'
         );
-        ?>
-    </h1>
-        <?php
+        echo "</h1>";
 
         // Show error message
         if (! empty($conn_error)) {
@@ -151,7 +161,9 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         echo "<noscript>\n";
-        PMA_message::error(__("Javascript must be enabled past this point"))->display();
+        PMA_message::error(
+            __("Javascript must be enabled past this point")
+        )->display();
         echo "</noscript>\n";
 
         echo "<div class='hide js-show'>";
@@ -161,43 +173,53 @@ class AuthenticationCookie extends AuthenticationPlugin
             // use fieldset, don't show doc link
             PMA_select_language(true, false);
         }
-        echo "</div>";
-
-        ?>
+        echo '</div>
     <br />
     <!-- Login form -->
-    <form method="post" action="index.php" name="login_form"<?php echo $autocomplete; ?> target="_top" class="login hide js-show">
+    <form method="post" action="index.php" name="login_form"' . $autocomplete .
+            ' target="_top" class="login hide js-show">
         <fieldset>
-        <legend>
-    <?php
+        <legend>';
         echo __('Log in');
         echo PMA_showDocu('');
-    ?>
-    </legend>
-
-    <?php if ($GLOBALS['cfg']['AllowArbitraryServer']) { ?>
+        echo '</legend>';
+        if ($GLOBALS['cfg']['AllowArbitraryServer']) {
+            echo '
             <div class="item">
-                <label for="input_servername" title="<?php echo __('You can enter hostname/IP address and port separated by space.'); ?>"><?php echo __('Server:'); ?></label>
-                <input type="text" name="pma_servername" id="input_servername" value="<?php echo htmlspecialchars($default_server); ?>" size="24" class="textfield" title="<?php echo __('You can enter hostname/IP address and port separated by space.'); ?>" />
+                <label for="input_servername" title="';
+            echo __(
+                'You can enter hostname/IP address and port separated by space.'
+            );
+            echo '">';
+            echo __('Server:');
+            echo '</label>
+                <input type="text" name="pma_servername" id="input_servername"';
+            echo ' value="';
+            echo htmlspecialchars($default_server);
+            echo '" size="24" class="textfield" title="';
+            echo __(
+                'You can enter hostname/IP address and port separated by space.'
+            ); echo '" />
+            </div>';
+        }
+            echo '<div class="item">
+                <label for="input_username">' . __('Username:') . '</label>
+                <input type="text" name="pma_username" id="input_username" '
+                . 'value="' . htmlspecialchars($default_user) . '" size="24"'
+                . ' class="textfield"/>
             </div>
-    <?php } ?>
             <div class="item">
-                <label for="input_username"><?php echo __('Username:'); ?></label>
-                <input type="text" name="pma_username" id="input_username" value="<?php echo htmlspecialchars($default_user); ?>" size="24" class="textfield"/>
-            </div>
-            <div class="item">
-                <label for="input_password"><?php echo __('Password:'); ?></label>
-                <input type="password" name="pma_password" id="input_password" value="" size="24" class="textfield" />
-            </div>
-        <?php
+                <label for="input_password">' . __('Password:') . '</label>
+                <input type="password" name="pma_password" id="input_password"'
+                . ' value="" size="24" class="textfield" />
+            </div>';
         if (count($GLOBALS['cfg']['Servers']) > 1) {
-            ?>
-            <div class="item">
-                <label for="select_server"><?php echo __('Server Choice'); ?>:</label>
-                <select name="server" id="select_server"
-            <?php
+            echo '<div class="item">
+                <label for="select_server">' . __('Server Choice') .':</label>
+                <select name="server" id="select_server"';
             if ($GLOBALS['cfg']['AllowArbitraryServer']) {
-                echo ' onchange="document.forms[\'login_form\'].elements[\'pma_servername\'].value = \'\'" ';
+                echo ' onchange="document.forms[\'login_form\'].'
+                    . 'elements[\'pma_servername\'].value = \'\'" ';
             }
             echo '>';
 
@@ -206,13 +228,13 @@ class AuthenticationCookie extends AuthenticationPlugin
 
             echo '</select></div>';
         } else {
-            echo '    <input type="hidden" name="server" value="' . $GLOBALS['server'] . '" />';
+            echo '    <input type="hidden" name="server" value="'
+                . $GLOBALS['server'] . '" />';
         } // end if (server choice)
-        ?>
-        </fieldset>
+
+        echo '</fieldset>
         <fieldset class="tblFooters">
-            <input value="<?php echo __('Go'); ?>" type="submit" id="input_go" />
-        <?php
+            <input value="' . __('Go') . '" type="submit" id="input_go" />';
         $_form_params = array();
         if (! empty($GLOBALS['target'])) {
             $_form_params['target'] = $GLOBALS['target'];
@@ -226,11 +248,8 @@ class AuthenticationCookie extends AuthenticationPlugin
         // do not generate a "server" hidden field as we want the "server"
         // drop-down to have priority
         echo PMA_generate_common_hidden_inputs($_form_params, '', 0, 'server');
-        ?>
-        </fieldset>
-    </form>
-
-        <?php
+        echo '</fieldset>
+    </form>';
 
         // BEGIN Swekey Integration
         Swekey_login('input_username', 'input_go');
@@ -246,24 +265,20 @@ class AuthenticationCookie extends AuthenticationPlugin
             $GLOBALS['error_handler']->dispErrors();
             echo '</div>';
         }
-        ?>
-    </div>
-        <?php
+        echo '</div>';
         if (file_exists(CUSTOM_FOOTER_FILE)) {
             include CUSTOM_FOOTER_FILE;
         }
-        ?>
+        echo '
     <script type="text/javascript">
     //<![CDATA[
     // show login form in top frame.
-    if (top != self || ! $('body#loginform').length) {
+    if (top != self || ! $(\'body#loginform\').length) {
         window.top.location.href=location;
     }
     //]]>
-    </script>
-        <?php
+    </script>';
         exit;
-
     }
 
     /**
@@ -281,8 +296,8 @@ class AuthenticationCookie extends AuthenticationPlugin
      * it directly switches to authFails() if user inactivity timout is reached
      *
      * @todo    AllowArbitraryServer on does not imply that the user wants an
-     *          arbitrary server, or? so we should also check if this is filled and
-     *          not only if allowed
+     *          arbitrary server, or? so we should also check if this is filled
+     *          and not only if allowed
      *
      * @return boolean   whether we get authentication settings or not
      */
@@ -290,7 +305,8 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         // Initialization
         /**
-         * @global $GLOBALS['pma_auth_server'] the user provided server to connect to
+         * @global $GLOBALS['pma_auth_server'] the user provided server to
+         * connect to
          */
         $GLOBALS['pma_auth_server'] = '';
 
@@ -329,7 +345,9 @@ class AuthenticationCookie extends AuthenticationPlugin
                     }
                 }
             } else {
-                $GLOBALS['PMA_Config']->removeCookie('pmaPass-' . $GLOBALS['server']);
+                $GLOBALS['PMA_Config']->removeCookie(
+                    'pmaPass-' . $GLOBALS['server']
+                );
                 if (isset($_COOKIE['pmaPass-' . $GLOBALS['server']])) {
                     unset($_COOKIE['pmaPass-' . $GLOBALS['server']]);
                 }
@@ -357,7 +375,8 @@ class AuthenticationCookie extends AuthenticationPlugin
         if ($GLOBALS['cfg']['AllowArbitraryServer']
             && ! empty($_COOKIE['pmaServer-' . $GLOBALS['server']])
         ) {
-            $GLOBALS['pma_auth_server'] = $_COOKIE['pmaServer-' . $GLOBALS['server']];
+            $GLOBALS['pma_auth_server']
+                = $_COOKIE['pmaServer-' . $GLOBALS['server']];
         }
 
         // username
@@ -367,7 +386,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $GLOBALS['PHP_AUTH_USER'] = $this->blowfishDecrypt(
             $_COOKIE['pmaUser-' . $GLOBALS['server']],
-            $this->getBlowfishSecret()
+            $this->_getBlowfishSecret()
         );
 
         // user was never logged in since session start
@@ -376,7 +395,9 @@ class AuthenticationCookie extends AuthenticationPlugin
         }
 
         // User inactive too long
-        if ($_SESSION['last_access_time'] < time() - $GLOBALS['cfg']['LoginCookieValidity']) {
+        $last_access_time = time() - $GLOBALS['cfg']['LoginCookieValidity'];
+        if ($_SESSION['last_access_time'] < $last_access_time
+        ) {
             PMA_cacheUnset('is_create_db_priv', true);
             PMA_cacheUnset('is_process_priv', true);
             PMA_cacheUnset('is_reload_priv', true);
@@ -394,7 +415,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $GLOBALS['PHP_AUTH_PW'] = $this->blowfishDecrypt(
             $_COOKIE['pmaPass-' . $GLOBALS['server']],
-            $this->getBlowfishSecret()
+            $this->_getBlowfishSecret()
         );
 
         if ($GLOBALS['PHP_AUTH_PW'] == "\xff(blank)") {
@@ -468,7 +489,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             'pmaUser-' . $GLOBALS['server'],
             $this->blowfishEncrypt(
                 $cfg['Server']['user'],
-                $this->getBlowfishSecret()
+                $this->_getBlowfishSecret()
             )
         );
 
@@ -476,15 +497,16 @@ class AuthenticationCookie extends AuthenticationPlugin
         $GLOBALS['PMA_Config']->setCookie(
             'pmaPass-' . $GLOBALS['server'],
             $this->blowfishEncrypt(
-                ! empty($cfg['Server']['password']) ? $cfg['Server']['password'] : "\xff(blank)",
-                $this->getBlowfishSecret()
+                ! empty($cfg['Server']['password'])
+                ? $cfg['Server']['password'] : "\xff(blank)",
+                $this->_getBlowfishSecret()
             ),
             null,
             $GLOBALS['cfg']['LoginCookieStore']
         );
 
-        // Set server cookies if required (once per session) and, in this case, force
-        // reload to ensure the client accepts cookies
+        // Set server cookies if required (once per session) and, in this case,
+        // force reload to ensure the client accepts cookies
         if (! $GLOBALS['from_cookie']) {
             if ($GLOBALS['cfg']['AllowArbitraryServer']) {
                 if (! empty($GLOBALS['pma_auth_server'])) {
@@ -513,7 +535,9 @@ class AuthenticationCookie extends AuthenticationPlugin
                 $url_params['table'] = $GLOBALS['table'];
             }
             // any target to pass?
-            if (! empty($GLOBALS['target']) && $GLOBALS['target'] != 'index.php') {
+            if (! empty($GLOBALS['target'])
+                && $GLOBALS['target'] != 'index.php'
+            ) {
                 $url_params['target'] = $GLOBALS['target'];
             }
 
@@ -554,11 +578,17 @@ class AuthenticationCookie extends AuthenticationPlugin
         $GLOBALS['PMA_Config']->removeCookie('pmaPass-' . $GLOBALS['server']);
 
         if (! empty($GLOBALS['login_without_password_is_forbidden'])) {
-            $conn_error = __('Login without a password is forbidden by configuration (see AllowNoPassword)');
+            $conn_error = __(
+                'Login without a password is forbidden by configuration'
+                . ' (see AllowNoPassword)'
+            );
         } elseif (! empty($GLOBALS['allowDeny_forbidden'])) {
             $conn_error = __('Access denied');
         } elseif (! empty($GLOBALS['no_activity'])) {
-            $conn_error = sprintf(__('No activity within %s seconds; please log in again'), $GLOBALS['cfg']['LoginCookieValidity']);
+            $conn_error = sprintf(
+                __('No activity within %s seconds; please log in again'),
+                $GLOBALS['cfg']['LoginCookieValidity']
+            );
             // Remember where we got timeout to return on same place
             if (PMA_getenv('SCRIPT_NAME')) {
                 $GLOBALS['target'] = basename(PMA_getenv('SCRIPT_NAME'));
@@ -586,7 +616,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      *
      * @return string
      */
-    public function getBlowfishSecret ()
+    private function _getBlowfishSecret()
     {
         if (empty($GLOBALS['cfg']['blowfish_secret'])) {
             if (empty($_SESSION['auto_blowfish_secret'])) {
@@ -611,32 +641,19 @@ class AuthenticationCookie extends AuthenticationPlugin
     public function blowfishEncrypt($data, $secret)
     {
         if (! function_exists('mcrypt_encrypt')) {
-            include_once("HordeCipherBlowfishOperations.class.php");
+            include_once "HordeCipherBlowfishOperations.class.php";
             return HordeCipherBlowfishOperations::blowfishEncrypt($data, $secret);
         }
 
         return base64_encode(
-            mcrypt_encrypt(MCRYPT_BLOWFISH, $secret, $data, MCRYPT_MODE_CBC, $this->_getIv())
+            mcrypt_encrypt(
+                MCRYPT_BLOWFISH,
+                $secret,
+                $data,
+                MCRYPT_MODE_CBC,
+                $this->_getIv()
+            )
         );
-    }
-
-    /**
-     * Returns blowfish secret or generates one if needed.
-     *
-     * @return string
-     */
-    private function getBlowfishSecret()
-    {
-        if (empty($GLOBALS['cfg']['blowfish_secret'])) {
-            if (empty($_SESSION['auto_blowfish_secret'])) {
-                // this returns 23 characters
-                $_SESSION['auto_blowfish_secret'] = uniqid('', true);
-            }
-            return $_SESSION['auto_blowfish_secret'];
-        } else {
-            // apply md5() to work around too long secrets (returns 32 characters)
-            return md5($GLOBALS['cfg']['blowfish_secret']);
-        }
     }
 
     /**
@@ -648,9 +665,9 @@ class AuthenticationCookie extends AuthenticationPlugin
      * @return string original data
      */
     public function blowfishDecrypt($encdata, $secret)
-    {        
+    {
         if (! function_exists('mcrypt_encrypt')) {
-            include_once("HordeCipherBlowfishOperations.class.php");
+            include_once "HordeCipherBlowfishOperations.class.php";
             return HordeCipherBlowfishOperations::blowfishDecrypt(
                 $encdata,
                 $secret

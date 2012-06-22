@@ -53,16 +53,16 @@ class AuthenticationConfig extends AuthenticationPlugin
     /**
      * User is not allowed to login to MySQL -> authentication failed
      *
-     * @global  string    the MySQL error message PHP returns
-     * @global  string    the connection type (persistent or not)
-     * @global  string    the MySQL server port to use
-     * @global  string    the MySQL socket port to use
-     * @global  array     the current server settings
-     * @global  string    the font face to use in case of failure
-     * @global  string    the default font size to use in case of failure
-     * @global  string    the big font size to use in case of failure
-     * @global  boolean   tell the "PMA_mysqlDie()" function headers have been
-     *                    sent
+     * @global string  the MySQL error message PHP returns
+     * @global string  the connection type (persistent or not)
+     * @global string  the MySQL server port to use
+     * @global string  the MySQL socket port to use
+     * @global array   the current server settings
+     * @global string  the font face to use in case of failure
+     * @global string  the default font size to use in case of failure
+     * @global string  the big font size to use in case of failure
+     * @global boolean tell the "PMA_mysqlDie()" function headers have been
+     *                 sent
      *
      * @return boolean   always true (no return indeed)
      */
@@ -89,24 +89,42 @@ class AuthenticationConfig extends AuthenticationPlugin
     <table cellpadding="0" cellspacing="3" style="margin: 0 auto" width="80%">
         <tr>
             <td>';
-        if (isset($GLOBALS['allowDeny_forbidden']) && $GLOBALS['allowDeny_forbidden']) {
+        if (isset($GLOBALS['allowDeny_forbidden'])
+            && $GLOBALS['allowDeny_forbidden']
+        ) {
             trigger_error(__('Access denied'), E_USER_NOTICE);
         } else {
             // Check whether user has configured something
             if ($GLOBALS['PMA_Config']->source_mtime == 0) {
-                echo '<p>' . sprintf(__('You probably did not create a configuration file. You might want to use the %1$ssetup script%2$s to create one.'), '<a href="setup/">', '</a>') . '</p>' . "\n";
+                echo '<p>' . sprintf(
+                    __(
+                        'You probably did not create a configuration file.'
+                        . ' You might want to use the %1$ssetup script%2$s to'
+                        . ' create one.'
+                    ),
+                    '<a href="setup/">',
+                    '</a>'
+                ) . '</p>' . "\n";
             } elseif (! isset($GLOBALS['errno'])
                 || (isset($GLOBALS['errno']) && $GLOBALS['errno'] != 2002)
                 && $GLOBALS['errno'] != 2003
             ) {
-                // if we display the "Server not responding" error, do not confuse users
-                // by telling them they have a settings problem
-                // (note: it's true that they could have a badly typed host name, but
-                //  anyway the current message tells that the server
+                // if we display the "Server not responding" error, do not confuse
+                // users by telling them they have a settings problem
+                // (note: it's true that they could have a badly typed host name,
+                // but anyway the current message tells that the server
                 //  rejected the connection, which is not really what happened)
                 // 2002 is the error given by mysqli
                 // 2003 is the error given by mysql
-                trigger_error(__('phpMyAdmin tried to connect to the MySQL server, and the server rejected the connection. You should check the host, username and password in your configuration and make sure that they correspond to the information given by the administrator of the MySQL server.'), E_USER_WARNING);
+                trigger_error(
+                    __(
+                        'phpMyAdmin tried to connect to the MySQL server, and the'
+                        . ' server rejected the connection. You should check the'
+                        . ' host, username and password in your configuration and'
+                        . ' make sure that they correspond to the information given'
+                        . ' by the administrator of the MySQL server.'
+                    ), E_USER_WARNING
+                );
             }
             PMA_mysqlDie($conn_error, '', true, '', false);
         }

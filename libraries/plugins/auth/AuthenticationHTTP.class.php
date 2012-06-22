@@ -64,16 +64,17 @@ class AuthenticationHTTP extends AuthenticationPlugin
         $header = $response->getHeader();
         $header->setTitle(__('Access denied'));
         $header->disableMenu();
-
-    ?>
+        echo '
     <br /><br />
     <center>
-        <h1><?php echo sprintf(__('Welcome to %s'), ' phpMyAdmin'); ?></h1>
+        <h1>';
+        echo sprintf(__('Welcome to %s'), ' phpMyAdmin');
+        echo ' </h1>
     </center>
-    <br />
-
-        <?php
-        PMA_Message::error(__('Wrong username/password. Access denied.'))->display();
+    <br />' .
+        PMA_Message::error(
+            __('Wrong username/password. Access denied.')
+        )->display();
 
         if (file_exists(CUSTOM_FOOTER_FILE)) {
             include CUSTOM_FOOTER_FILE;

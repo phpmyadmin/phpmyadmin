@@ -67,8 +67,9 @@ class AuthenticationSignOn extends AuthenticationPlugin
         global $PHP_AUTH_USER, $PHP_AUTH_PW;
 
         /* Check if we're using same sigon server */
+        $signon_url = $GLOBALS['cfg']['Server']['SignonURL'];
         if (isset($_SESSION['LAST_SIGNON_URL'])
-            && $_SESSION['LAST_SIGNON_URL'] != $GLOBALS['cfg']['Server']['SignonURL']
+            && $_SESSION['LAST_SIGNON_URL'] != $signon_url
         ) {
             return false;
         }
@@ -98,7 +99,8 @@ class AuthenticationSignOn extends AuthenticationPlugin
         if (!empty($script_name)) {
             if (! file_exists($script_name)) {
                 PMA_fatalError(
-                    __('Can not find signon authentication script:') . ' ' . $script_name
+                    __('Can not find signon authentication script:')
+                    . ' '. $script_name
                 );
             }
             include $script_name;
@@ -196,7 +198,7 @@ class AuthenticationSignOn extends AuthenticationPlugin
             return true;
         }
     }
-    
+
     /**
      * Set the user and password after last checkings if required
      *
@@ -243,15 +245,25 @@ class AuthenticationSignOn extends AuthenticationPlugin
 
             /* Set error message */
             if (! empty($GLOBALS['login_without_password_is_forbidden'])) {
-                $_SESSION['PMA_single_signon_error_message'] = __('Login without a password is forbidden by configuration (see AllowNoPassword)');
+                $_SESSION['PMA_single_signon_error_message'] = __(
+                    'Login without a password is forbidden by configuration '
+                    . '(see AllowNoPassword)'
+                );
             } elseif (! empty($GLOBALS['allowDeny_forbidden'])) {
                 $_SESSION['PMA_single_signon_error_message'] = __('Access denied');
             } elseif (! empty($GLOBALS['no_activity'])) {
-                $_SESSION['PMA_single_signon_error_message'] = sprintf(__('No activity within %s seconds; please log in again'), $GLOBALS['cfg']['LoginCookieValidity']);
+                $_SESSION['PMA_single_signon_error_message'] = sprintf(
+                    __('No activity within %s seconds; please log in again'),
+                    $GLOBALS['cfg']['LoginCookieValidity']
+                );
             } elseif (PMA_DBI_getError()) {
-                $_SESSION['PMA_single_signon_error_message'] = PMA_sanitize(PMA_DBI_getError());
+                $_SESSION['PMA_single_signon_error_message'] = PMA_sanitize(
+                    PMA_DBI_getError()
+                );
             } else {
-                $_SESSION['PMA_single_signon_error_message'] = __('Cannot log in to the MySQL server');
+                $_SESSION['PMA_single_signon_error_message'] = __(
+                    'Cannot log in to the MySQL server'
+                );
             }
         }
         $this->auth();
@@ -264,7 +276,7 @@ class AuthenticationSignOn extends AuthenticationPlugin
      * @param SplSubject $subject The PluginManager notifying the observer
      *                            of an update.
      *
- * @return void
+     * @return void
      */
     public function update (SplSubject $subject)
     {

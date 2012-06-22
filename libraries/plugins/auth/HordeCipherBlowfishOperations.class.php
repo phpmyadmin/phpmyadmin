@@ -2,7 +2,7 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * Auxiliary functions for cookie authentication
- * 
+ *
  * @package    PhpMyAdmin-Auth
  * @subpackage Cookie
  */
@@ -12,10 +12,12 @@ if (! defined('PHPMYADMIN')) {
 
 /* Get the Horde_Cipher_blowfish class */
 require_once './libraries/blowfish.php';
-    
+
 /**
  * The HordeCipherBlowfishOperations provides encrypt and decrypt functions
  * using the Horde_Cipher_blowfish class
+ *
+ * @package PhpMyAdmin-Auth
  */
 class HordeCipherBlowfishOperations
 {
