@@ -2162,6 +2162,7 @@ class PMA_DisplayResults
                 if ($GLOBALS['cfgRelation']['mimework']
                     && $GLOBALS['cfg']['BrowseMIME']
                 ) {
+
                     if (isset($GLOBALS['mime_map'][$meta->name]['mimetype'])
                         && isset($GLOBALS['mime_map'][$meta->name]['transformation'])
                         && !empty($GLOBALS['mime_map'][$meta->name]['transformation'])
@@ -2503,7 +2504,7 @@ class PMA_DisplayResults
      *
      * @return  array                   5 element array - $edit_url, $copy_url,
      *                                  $edit_str, $copy_str, $edit_anchor_class
-     *
+     * 
      * @access  private
      *
      * @see     _getTableBody()
@@ -2555,7 +2556,7 @@ class PMA_DisplayResults
      *
      * @return  array                       4 element array - $del_query,
      *                                      $del_url, $del_str, $js_conf
-     *
+     * 
      * @access  private
      *
      * @see     _getTableBody()
@@ -2760,7 +2761,7 @@ class PMA_DisplayResults
      * @param string  $default_function      the default transformation function
      * @param string  $transform_options     the transformation parameters
      *
-     * @return  string  $cell                the prepared cell, html content
+     * @return  string  $cell               the prepared cell, html content
      *
      * @access  private
      *
@@ -2771,6 +2772,7 @@ class PMA_DisplayResults
         $analyzed_sql, $transformation_plugin, $default_function,
         $transform_options
     ) {
+
         if (! isset($column) || is_null($column)) {
 
             $cell = $this->_buildNullDisplay(
@@ -3322,7 +3324,7 @@ class PMA_DisplayResults
      * @param string $operation        edit/copy/delete
      *
      * @return  string  $links_html         html content
-     *
+     * 
      * @access  private
      *
      * @see     _getVerticalTable()
@@ -4586,7 +4588,7 @@ class PMA_DisplayResults
      * @param string $default_function      default function
      * @param string $nowrap                'nowrap' if the content should not
      *                                      be wrapped
-     * @param string $where_comparison      data for the where cluase
+     * @param string $where_comparison      data for the where clause
      * @param array  $transform_options     array of options for transformation
      * @param bool   $is_field_truncated    whether the field is truncated
      *
@@ -4948,8 +4950,8 @@ class PMA_DisplayResults
      *                                  display elements
      * @param string $row_no            row number
      * @param string $where_clause      where clause
-     * @param string $where_clause_html url encoded where cluase
-     * @param array  $condition_array   array of conditions in the where cluase
+     * @param string $where_clause_html url encoded where clause
+     * @param array  $condition_array   array of conditions in the where clause
      * @param string $del_query         delete query
      * @param string $id_suffix         suffix for the id
      * @param string $edit_url          edit url
