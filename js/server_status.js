@@ -193,11 +193,12 @@ AJAX.registerOnload('server_status.js', function() {
                 // Delay loading a bit so the tab loads and the user gets to see a ajax loading icon
                 setTimeout(function() {
                     var scripts = [
-                        'js/jquery/timepicker.js',
-                        'js/jquery/jquery.json-2.2.js',
-                        'js/jquery/jquery.sortableTable.js'];
-                    scripts.push('js/server_status_monitor.js');
-                    loadJavascript(scripts);
+                        {name:'jquery/timepicker.js',fire:0},
+                        {name:'jquery/jquery.json-2.2.js',fire:0},
+                        {name:'jquery/jquery.sortableTable.js',fire:0},
+                        {name:'server_status_monitor.js',fire:1}
+                    ];
+                    AJAX.scriptHandler.load(scripts);
                 }, 50);
 
                 monitorLoaded = true;

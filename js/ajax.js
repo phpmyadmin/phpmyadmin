@@ -145,7 +145,7 @@ var AJAX = {
                 $('#page_content').replaceWith("<div id='page_content'>" + data.message + "</div>");
 
                 if (data._scripts) {
-                    AJAX.scriptHandler.load(data._scripts);
+                    AJAX.scriptHandler.load(data._scripts, 1);
                 }
             } else {
                 PMA_ajaxShowMessage(data.error, false);
@@ -198,9 +198,11 @@ var AJAX = {
          *
          * @return void
          */
-        load: function (files) {
-            this._scriptsToBeLoaded = [];
-            this._scriptsToBeFired = [];
+        load: function (files, reset) {
+            if (reset) {
+                this._scriptsToBeLoaded = [];
+                this._scriptsToBeFired = [];
+            }
             for (var i in files) {
                 this._scriptsToBeLoaded.push(files[i].name);
                 if (files[i].fire) {
