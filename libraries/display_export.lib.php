@@ -51,7 +51,7 @@ if (empty($export_list)) {
     exit;
 }
 
-echo '<form method="post" action="export.php" name="dump">';
+echo '<form method="post" action="export.php" name="dump" class="disableAjax">';
 
 if ($export_type == 'server') {
     echo PMA_generate_common_hidden_inputs('', '', 1);
