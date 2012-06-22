@@ -22,7 +22,7 @@ if (! empty($_REQUEST['target'])) {
 /**
  * Swekey authentication functions.
  */
-require './libraries/auth/swekey/swekey.auth.lib.php';
+require './libraries/plugins/auth/swekey/swekey.auth.lib.php';
 
 if (function_exists('mcrypt_encrypt')) {
     /**

@@ -839,17 +839,17 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         // to allow HTTP or http
         $cfg['Server']['auth_type'] = strtolower($cfg['Server']['auth_type']);
-        if (! file_exists('./libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php')) {
-            PMA_fatalError(
-                __('Invalid authentication method set in configuration:') . ' ' . $cfg['Server']['auth_type']
-            );
-        }
+
         /**
          * the required auth type plugin
          */
-        $auth_class = "Authentication"
-            . strtoupper(substr($cfg['Server']['auth_type'], 0, 1))
-            . strtolower(substr($cfg['Server']['auth_type'], 1));
+        $auth_class = "Authentication" . ucfirst($cfg['Server']['auth_type']);
+        if (! file_exists('./libraries/plugins/auth/' . $auth_class . '.class.php')) {
+            PMA_fatalError(
+                __('Invalid authentication method set in configuration:')
+                . ' ' . $cfg['Server']['auth_type']
+            );
+        }
         include_once  './libraries/plugins/auth/' . $auth_class . '.class.php';
         // todo: add plugin manager
         $plugin_manager = null;

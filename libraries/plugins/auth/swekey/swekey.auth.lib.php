@@ -79,7 +79,7 @@ function Swekey_auth_error()
         return null;
     }
 
-    include_once './libraries/auth/swekey/authentication.inc.php';
+    include_once './libraries/plugins/auth/swekey/authentication.inc.php';
 
     ?>
     <script>
@@ -132,7 +132,7 @@ function Swekey_auth_error()
         return sprintf(__('File %s does not contain any key id'), $GLOBALS['cfg']['Server']['auth_swekey_config']);
     }
 
-    include_once "libraries/auth/swekey/swekey.php";
+    include_once "libraries/plugins/auth/swekey/swekey.php";
 
     Swekey_SetCheckServer($_SESSION['SWEKEY']['CONF_SERVER_CHECK']);
     Swekey_SetRndTokenServer($_SESSION['SWEKEY']['CONF_SERVER_RNDTOKEN']);
