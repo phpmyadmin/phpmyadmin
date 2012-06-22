@@ -281,6 +281,6 @@ foreach ($tables as $table) {
 /**
  * Displays the footer
  */
-PMA_printButton();
+echo PMA_getButton();
 
 ?>

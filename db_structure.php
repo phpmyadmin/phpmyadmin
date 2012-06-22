@@ -112,7 +112,7 @@ if (isset($_REQUEST['sort_order'])) {
     $_url_params['sort_order'] = $_REQUEST['sort_order'];
 }
 
-PMA_listNavigator(
+echo PMA_getListNavigator(
     $total_num_tables, $pos, $_url_params, 'db_structure.php',
     'frame_content', $GLOBALS['cfg']['MaxTableList']
 );
@@ -727,7 +727,7 @@ if (!$db_is_information_schema && !$cfg['DisableMultiTableMaintenance']) {
 </form>
 <?php
 // display again the table list navigator
-PMA_listNavigator(
+echo PMA_getListNavigator(
     $total_num_tables, $pos, $_url_params, 'db_structure.php',
     'frame_content', $GLOBALS['cfg']['MaxTableList']
 );

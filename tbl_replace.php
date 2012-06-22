@@ -1,13 +1,14 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * manipulation of table data like inserting, replacing and updating
+ * Manipulation of table data like inserting, replacing and updating
  *
- * usally called as form action from tbl_change.php to insert or update table rows
+ * Usally called as form action from tbl_change.php to insert or update table rows
  *
+ * @todo 'edit_next' tends to not work as expected if used ...
+ * at least there is no order by it needs the original query
+ * and the row number and than replace the LIMIT clause
  *
- * @todo 'edit_next' tends to not work as expected if used ... at least there is no order by
- *       it needs the original query and the row number and than replace the LIMIT clause
  * @package PhpMyAdmin
  */
 
@@ -214,8 +215,8 @@ foreach ($loop_array as $rownumber => $where_clause) {
             $query[] = 'UPDATE ' . PMA_backquote($GLOBALS['db']) . '.'
                 . PMA_backquote($GLOBALS['table'])
                 . ' SET ' . implode(', ', $query_values)
-                . ' WHERE ' . $where_clause . ($_REQUEST['clause_is_unique'] ? '' : ' LIMIT 1');
-
+                . ' WHERE ' . $where_clause
+                . ($_REQUEST['clause_is_unique'] ? '' : ' LIMIT 1');
         }
     }
 } // end foreach ($loop_array as $where_clause)
@@ -223,7 +224,6 @@ unset($multi_edit_columns_name, $multi_edit_columns_prev, $multi_edit_funcs,
     $multi_edit_columns_type, $multi_edit_columns_null, $func_no_param,
     $multi_edit_auto_increment, $current_value_as_an_array, $key, $current_value,
     $loop_array, $where_clause, $using_key,  $multi_edit_columns_null_prev);
-
 
 // Builds the sql query
 if ($is_insert && count($value_sets) > 0) {
@@ -262,7 +262,10 @@ if (! empty($error_messages)) {
     $message->addMessages($error_messages);
     $message->isError(true);
 }
-unset($error_messages, $warning_messages, $total_affected_rows, $last_messages, $last_message);
+unset(
+    $error_messages, $warning_messages, $total_affected_rows,
+    $last_messages, $last_message
+);
 
 if ($response->isAjax()) {
     /**
@@ -270,7 +273,7 @@ if ($response->isAjax()) {
      * transformed fields, if they were edited. After that, output the correct
      * link/transformed value and exit
      *
-     * Logic taken from libraries/display_tbl.lib.php
+     * Logic taken from libraries/DisplayResults.class.php
      */
 
     if (isset($_REQUEST['rel_fields_list']) && $_REQUEST['rel_fields_list'] != '') {
@@ -294,8 +297,9 @@ if ($response->isAjax()) {
             }
         }   // end of loop for each relation cell
     }
-
-    if (isset($_REQUEST['do_transformations']) && $_REQUEST['do_transformations'] == true ) {
+    if (isset($_REQUEST['do_transformations'])
+        && $_REQUEST['do_transformations'] == true
+    ) {
         include_once 'libraries/transformations.lib.php';
         //if some posted fields need to be transformed, generate them here.
         $mime_map = PMA_getMIME($db, $table);
@@ -303,7 +307,6 @@ if ($response->isAjax()) {
         if ($mime_map === false) {
             $mime_map = array();
         }
-
         $edited_values = array();
         parse_str($_REQUEST['transform_fields_list'], $edited_values);
 
