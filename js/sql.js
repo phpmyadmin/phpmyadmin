@@ -60,6 +60,7 @@ function getFieldName($this_field)
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('sql.js', function() {
+    $('#bookmarkQueryForm').die('submit');
     $('input#bkm_label').unbind('keyup');
     $("#sqlqueryresults").die('makegrid');
     $("#togglequerybox").unbind('click');
@@ -88,12 +89,26 @@ AJAX.registerTeardown('sql.js', function() {
  * <li>Sort the results table</li>
  * <li>Change table according to display options</li>
  * <li>Grid editing of data</li>
+ * <li>Saving a bookmark</li>
  * </ul>
  *
  * @name        document.ready
  * @memberOf    jQuery
  */
 AJAX.registerOnload('sql.js', function() {
+    // Ajaxification for 'Bookmark this SQL query'
+    $('#bookmarkQueryForm').live('submit', function (e) {
+        e.preventDefault();
+        PMA_ajaxShowMessage();
+        $.post($(this).attr('action'), 'ajax_request=1&' + $(this).serialize(), function (data) {
+            if (data.success) {
+                PMA_ajaxShowMessage(data.message);
+            } else {
+                PMA_ajaxShowMessage(data.error, false);
+            }
+        });
+    });
+
     /* Hides the bookmarkoptions checkboxes when the bookmark label is empty */
     $('input#bkm_label').keyup(function() {
         $('input#id_bkm_all_users, input#id_bkm_replace')
