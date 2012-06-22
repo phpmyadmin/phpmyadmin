@@ -5826,11 +5826,12 @@ class PMA_DisplayResults
             if (! empty($class)) {
                 $ret .= $class . ' ';
             }
-
+            $ajax = $GLOBALS['is_ajax_request'] ? ' ajax' : '';
             $ret .= 'center" ' . ' >'
                . PMA_Util::linkOrButton(
-                   $del_url, $del_str, $js_conf, false
+                   $del_url, $del_str, array('class' => 'delete_row' . $ajax), false
                )
+               . '<div class="hide">' . $js_conf . '</div>'
                . '</td>';
         }
 

@@ -60,6 +60,7 @@ function getFieldName($this_field)
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('sql.js', function() {
+    $('a.delete_row.ajax').unbind('click');
     $('#bookmarkQueryForm').die('submit');
     $('input#bkm_label').unbind('keyup');
     $("#sqlqueryresults").die('makegrid');
@@ -96,6 +97,24 @@ AJAX.registerTeardown('sql.js', function() {
  * @memberOf    jQuery
  */
 AJAX.registerOnload('sql.js', function() {
+    // Delete row from SQL results
+    $('a.delete_row.ajax').click(function (e) {
+        e.preventDefault();
+        var question = $.sprintf(PMA_messages['strDoYouReally'], $(this).closest('td').find('div').text());
+        var $link = $(this);
+        $link.PMA_confirm(question, $link.attr('href'), function (url) {
+            $msgbox = PMA_ajaxShowMessage();
+            $.get(url, {'ajax_request':true, 'is_js_confirmed': true}, function (data) {
+                if (data.success) {
+                    PMA_ajaxShowMessage(data.message);
+                    $link.closest('tr').remove();
+                } else {
+                    PMA_ajaxShowMessage(data.error, false);
+                }
+            })
+        });
+    });
+
     // Ajaxification for 'Bookmark this SQL query'
     $('#bookmarkQueryForm').live('submit', function (e) {
         e.preventDefault();
