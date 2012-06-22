@@ -616,7 +616,9 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
         }
 
     } elseif ($column['pma_type'] == 'enum') {
-        $html_output .= PMA_getPmaTypeEnum($paramsArrayForColumns, $column,$extracted_columnspec);
+        $html_output .= PMA_getPmaTypeEnum($column, $backup_field, $column_name_appendix,
+            $extracted_columnspec, $unnullify_trigger, $tabindex, $tabindex_for_value,
+            $idindex, $data);
 
     } elseif ($column['pma_type'] == 'set') {
         $html_output .= PMA_getPmaTypeSet($column,$extracted_columnspec,
@@ -777,8 +779,10 @@ function PMA_getTextarea($column, $backup_field, $column_name_appendix,$unnullif
  *
  * @return string                       an html snippet
  */
-function PMA_getPmaTypeEnum($column, $backup_field, $column_name_appendix, $extracted_columnspec)
-{
+function PMA_getPmaTypeEnum($column, $backup_field, $column_name_appendix,
+    $extracted_columnspec, $unnullify_trigger, $tabindex, $tabindex_for_value,
+    $idindex, $data
+) {
     $html_output = '';
     if (! isset($column['values'])) {
          $column['values'] = PMA_getColumnEnumValues($column, $extracted_columnspec);
