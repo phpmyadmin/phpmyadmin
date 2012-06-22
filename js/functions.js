@@ -3514,18 +3514,6 @@ function PMA_getCellValue(td) {
     }
 }
 
-/* Loads a js file, an array may be passed as well */
-loadJavascript=function(file) {
-    var $head = $('head');
-    if ($.isArray(file)) {
-        for(var i=0, l=file.length; i<l; i++) {
-            $head.append('<script type="text/javascript" src="'+file[i]+'"></script>');
-        }
-    } else {
-        $head.append('<script type="text/javascript" src="'+file+'"></script>');
-    }
-};
-
 /**
  * Unbind all event handlers before tearing down a page
  */
