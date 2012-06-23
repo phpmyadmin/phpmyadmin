@@ -17,7 +17,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @return void
  */
-function PMA_select_server($not_only_options, $ommit_fieldset)
+function PMA_selectServer($not_only_options, $ommit_fieldset)
 {
     // Show as list?
     if ($not_only_options) {
