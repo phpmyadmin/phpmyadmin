@@ -497,7 +497,36 @@ function PMA_getHtmlToDisplayColumnPrivileges($columns, $row, $name_for_select,
     return $html_output;
 } // end function
 
-
+/**
+ * Get sql query for display privileges table
+ * 
+ * @param string $db      the database
+ * @param string $table   the table
+ * 
+ * @return string sql query
+ */
+function PMA_getSqlQueryForDisplayPrivTable($db, $table)
+{
+    $username = $GLOBALS['username'];
+    $hostname = $GLOBALS['hostname'];
+    if ($db == '*') {
+        return "SELECT * FROM `mysql`.`user`"
+            ." WHERE `User` = '" . PMA_sqlAddSlashes($username) . "'"
+            ." AND `Host` = '" . PMA_sqlAddSlashes($hostname) . "';";
+    } elseif ($table == '*') {
+        return "SELECT * FROM `mysql`.`db`"
+            ." WHERE `User` = '" . PMA_sqlAddSlashes($username) . "'"
+            ." AND `Host` = '" . PMA_sqlAddSlashes($hostname) . "'"
+            ." AND '" . PMA_unescapeMysqlWildcards($db) . "'"
+            ." LIKE `Db`;";
+    }
+    return "SELECT `Table_priv`"
+        ." FROM `mysql`.`tables_priv`"
+        ." WHERE `User` = '" . PMA_sqlAddSlashes($username) . "'"
+        ." AND `Host` = '" . PMA_sqlAddSlashes($hostname) . "'"
+        ." AND `Db` = '" . PMA_unescapeMysqlWildcards($db) . "'"
+        ." AND `Table_name` = '" . PMA_sqlAddSlashes($table) . "';";
+}
 /**
  * Displays the privileges form table
  *
@@ -508,37 +537,19 @@ function PMA_getHtmlToDisplayColumnPrivileges($columns, $row, $name_for_select,
  * @global  array      $cfg         the phpMyAdmin configuration
  * @global  ressource  $user_link   the database connection
  *
- * @return void
+ * @return string html snippet
  */
-function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
+function PMA_getHtmlToDisplayPrivilegesTable($db = '*', $table = '*', $submit = true)
 {
     global $random_n;
-
+    $html_output = '';
+    
     if ($db == '*') {
         $table = '*';
     }
 
     if (isset($GLOBALS['username'])) {
-        $username = $GLOBALS['username'];
-        $hostname = $GLOBALS['hostname'];
-        if ($db == '*') {
-            $sql_query = "SELECT * FROM `mysql`.`user`"
-                ." WHERE `User` = '" . PMA_sqlAddSlashes($username) . "'"
-                ." AND `Host` = '" . PMA_sqlAddSlashes($hostname) . "';";
-        } elseif ($table == '*') {
-            $sql_query = "SELECT * FROM `mysql`.`db`"
-                ." WHERE `User` = '" . PMA_sqlAddSlashes($username) . "'"
-                ." AND `Host` = '" . PMA_sqlAddSlashes($hostname) . "'"
-                ." AND '" . PMA_unescapeMysqlWildcards($db) . "'"
-                ." LIKE `Db`;";
-        } else {
-            $sql_query = "SELECT `Table_priv`"
-                ." FROM `mysql`.`tables_priv`"
-                ." WHERE `User` = '" . PMA_sqlAddSlashes($username) . "'"
-                ." AND `Host` = '" . PMA_sqlAddSlashes($hostname) . "'"
-                ." AND `Db` = '" . PMA_unescapeMysqlWildcards($db) . "'"
-                ." AND `Table_name` = '" . PMA_sqlAddSlashes($table) . "';";
-        }
+        $sql_query = PMA_getSqlQueryForDisplayPrivTable($db, $table);
         $row = PMA_DBI_fetch_single_row($sql_query);
     }
     if (empty($row)) {
@@ -632,39 +643,37 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
         PMA_DBI_free_result($res);
         unset($res, $row1, $current);
 
-        echo '<input type="hidden" name="grant_count" value="' . count($row) . '" />' . "\n"
+        $html_output .= '<input type="hidden" name="grant_count" value="' . count($row) . '" />' . "\n"
            . '<input type="hidden" name="column_count" value="' . count($columns) . '" />' . "\n"
            . '<fieldset id="fieldset_user_priv">' . "\n"
            . '    <legend>' . __('Table-specific privileges')
            . PMA_showHint(__('Note: MySQL privilege names are expressed in English'))
            . '</legend>' . "\n";
 
-
-
         // privs that are attached to a specific column
-        echo PMA_getHtmlForDisplayColumnPrivileges(
+        $html_output .= PMA_getHtmlForDisplayColumnPrivileges(
             $columns, $row, 'Select_priv', 'SELECT',
             'select', __('Allows reading data.'), 'Select'
         );
 
-        echo PMA_getHtmlForDisplayColumnPrivileges(
+        $html_output .= PMA_getHtmlForDisplayColumnPrivileges(
             $columns, $row, 'Insert_priv', 'INSERT',
             'insert', __('Allows inserting and replacing data.'), 'Insert'
         );
 
-        echo PMA_getHtmlForDisplayColumnPrivileges(
+        $html_output .= PMA_getHtmlForDisplayColumnPrivileges(
             $columns, $row, 'Update_priv', 'UPDATE',
             'update', __('Allows changing data.'), 'Update'
         );
 
-        echo PMA_getHtmlForDisplayColumnPrivileges(
+        $html_output .= PMA_getHtmlForDisplayColumnPrivileges(
             $columns, $row, 'References_priv', 'REFERENCES', 'references',
             __('Has no effect in this MySQL version.'), 'References'
         );
 
         // privs that are not attached to a specific column
 
-        echo '    <div class="item">' . "\n";
+        $html_output .= '<div class="item">' . "\n";
         foreach ($row as $current_grant => $current_grant_value) {
             $grant_type = substr($current_grant, 0, (strlen($current_grant) - 5));
             if (in_array($grant_type, array('Select', 'Insert', 'Update', 'References'))) {
@@ -684,30 +693,30 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
                 $tmp_current_grant = $current_grant;
             }
 
-            echo '        <div class="item">' . "\n"
-               . '            <input type="checkbox"'
+            $html_output .= '<div class="item">' . "\n"
+               . '<input type="checkbox"'
                . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
-               . ' name="' . $current_grant . '" id="checkbox_' . $current_grant
+               . 'name="' . $current_grant . '" id="checkbox_' . $current_grant
                . '" value="Y" '
                . ($current_grant_value == 'Y' ? 'checked="checked" ' : '')
                . 'title="';
 
-            echo (isset($GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))])
+            $html_output .= (isset($GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))])
                 ? $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))]
                 : $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5)) . 'Tbl']) . '"/>' . "\n";
 
-            echo '            <label for="checkbox_' . $current_grant
+            $html_output .= '<label for="checkbox_' . $current_grant
                 . '"><code><dfn title="'
                 . (isset($GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))])
                     ? $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))]
                     : $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5)) . 'Tbl'])
-               . '">' . strtoupper(substr($current_grant, 0, strlen($current_grant) - 5)) . '</dfn></code></label>' . "\n"
-               . '        </div>' . "\n";
+                . '">' . strtoupper(substr($current_grant, 0, strlen($current_grant) - 5)) . '</dfn></code></label>' . "\n"
+                . '</div>' . "\n";
         } // end foreach ()
 
-        echo '    </div>' . "\n";
+        $html_output .= '</div>' . "\n";
         // for Safari 2.0.2
-        echo '    <div class="clearfloat"></div>' . "\n";
+        $html_output .= '<div class="clearfloat"></div>' . "\n";
 
     } else {
 
@@ -770,84 +779,85 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
             $privTable[2][] = array('Repl_slave', 'REPLICATION SLAVE', __('Needed for the replication slaves.'));
             $privTable[2][] = array('Create_user', 'CREATE USER', __('Allows creating, dropping and renaming user accounts.'));
         }
-        echo '<input type="hidden" name="grant_count" value="'
+        $html_output .= '<input type="hidden" name="grant_count" value="'
             . (count($privTable[0]) + count($privTable[1]) + count($privTable[2]) - (isset($row['Grant_priv']) ? 1 : 0))
             . '" />' . "\n"
-           . '<fieldset id="fieldset_user_global_rights">' . "\n"
-           . '    <legend>' . "\n"
-           . '        '
+            . '<fieldset id="fieldset_user_global_rights">' . "\n"
+            . '<legend>' . "\n"
+            . '        '
             . ($db == '*'
                 ? __('Global privileges')
                 : ($table == '*'
                     ? __('Database-specific privileges')
                     : __('Table-specific privileges'))) . "\n"
-           . '        (<a href="server_privileges.php?'
+            . '(<a href="server_privileges.php?'
             . $GLOBALS['url_query'] . '&amp;checkall=1" onclick="setCheckboxes(\'addUsersForm_' . $random_n . '\', true); return false;">'
             . __('Check All') . '</a> /' . "\n"
-           . '        <a href="server_privileges.php?'
+            . '<a href="server_privileges.php?'
             . $GLOBALS['url_query'] . '" onclick="setCheckboxes(\'addUsersForm_' . $random_n . '\', false); return false;">'
             . __('Uncheck All') . '</a>)' . "\n"
-           . '    </legend>' . "\n"
-           . '    <p><small><i>' . __('Note: MySQL privilege names are expressed in English') . '</i></small></p>' . "\n";
+            . '</legend>' . "\n"
+            . '<p><small><i>' . __('Note: MySQL privilege names are expressed in English') . '</i></small></p>' . "\n";
 
         // Output the Global privilege tables with checkboxes
         foreach ($privTable as $i => $table) {
-            echo '    <fieldset>' . "\n"
-                . '        <legend>' . __($privTable_names[$i]) . '</legend>' . "\n";
+            $html_output .= '<fieldset>' . "\n"
+                . '<legend>' . __($privTable_names[$i]) . '</legend>' . "\n";
             foreach ($table as $priv) {
-                echo '        <div class="item">' . "\n"
-                    . '            <input type="checkbox"'
-                    .                   ' name="' . $priv[0] . '_priv" id="checkbox_' . $priv[0] . '_priv"'
-                    .                   ' value="Y" title="' . $priv[2] . '"'
-                    .                   ((! empty($GLOBALS['checkall']) || $row[$priv[0] . '_priv'] == 'Y') ?  ' checked="checked"' : '')
-                    .               '/>' . "\n"
-                    . '            <label for="checkbox_' . $priv[0] . '_priv"><code><dfn title="' . $priv[2] . '">'
-                    .                    $priv[1] . '</dfn></code></label>' . "\n"
-                    . '        </div>' . "\n";
+                $html_output .= '<div class="item">' . "\n"
+                    . '<input type="checkbox"'
+                    . ' name="' . $priv[0] . '_priv" id="checkbox_' . $priv[0] . '_priv"'
+                    . ' value="Y" title="' . $priv[2] . '"'
+                    . ((! empty($GLOBALS['checkall']) || $row[$priv[0] . '_priv'] == 'Y') ?  ' checked="checked"' : '')
+                    . '/>' . "\n"
+                    . '<label for="checkbox_' . $priv[0] . '_priv"><code><dfn title="' . $priv[2] . '">'
+                    . $priv[1] . '</dfn></code></label>' . "\n"
+                    . '</div>' . "\n";
             }
-            echo '    </fieldset>' . "\n";
+            $html_output .= '</fieldset>' . "\n";
         }
 
         // The "Resource limits" box is not displayed for db-specific privs
         if ($db == '*') {
-            echo '    <fieldset>' . "\n"
-               . '        <legend>' . __('Resource limits') . '</legend>' . "\n"
-               . '        <p><small><i>' . __('Note: Setting these options to 0 (zero) removes the limit.') . '</i></small></p>' . "\n"
-               . '        <div class="item">' . "\n"
-               . '            <label for="text_max_questions"><code><dfn title="'
-                . __('Limits the number of queries the user may send to the server per hour.') . '">MAX QUERIES PER HOUR</dfn></code></label>' . "\n"
-               . '            <input type="text" name="max_questions" id="text_max_questions" value="'
-                . $row['max_questions'] . '" size="11" maxlength="11" title="' . __('Limits the number of queries the user may send to the server per hour.') . '" />' . "\n"
-               . '        </div>' . "\n"
-               . '        <div class="item">' . "\n"
-               . '            <label for="text_max_updates"><code><dfn title="'
-                . __('Limits the number of commands that change any table or database the user may execute per hour.') . '">MAX UPDATES PER HOUR</dfn></code></label>' . "\n"
-               . '            <input type="text" name="max_updates" id="text_max_updates" value="'
-                . $row['max_updates'] . '" size="11" maxlength="11" title="' . __('Limits the number of commands that change any table or database the user may execute per hour.') . '" />' . "\n"
-               . '        </div>' . "\n"
-               . '        <div class="item">' . "\n"
-               . '            <label for="text_max_connections"><code><dfn title="'
-                . __('Limits the number of new connections the user may open per hour.') . '">MAX CONNECTIONS PER HOUR</dfn></code></label>' . "\n"
-               . '            <input type="text" name="max_connections" id="text_max_connections" value="'
-                . $row['max_connections'] . '" size="11" maxlength="11" title="' . __('Limits the number of new connections the user may open per hour.') . '" />' . "\n"
-               . '        </div>' . "\n"
-               . '        <div class="item">' . "\n"
-               . '            <label for="text_max_user_connections"><code><dfn title="'
-                . __('Limits the number of simultaneous connections the user may have.') . '">MAX USER_CONNECTIONS</dfn></code></label>' . "\n"
-               . '            <input type="text" name="max_user_connections" id="text_max_user_connections" value="'
-                . $row['max_user_connections'] . '" size="11" maxlength="11" title="' . __('Limits the number of simultaneous connections the user may have.') . '" />' . "\n"
-               . '        </div>' . "\n"
-               . '    </fieldset>' . "\n";
+            $html_output .= '<fieldset>' . "\n"
+               . '<legend>' . __('Resource limits') . '</legend>' . "\n"
+               . '<p><small><i>' . __('Note: Setting these options to 0 (zero) removes the limit.') . '</i></small></p>' . "\n"
+               . '<div class="item">' . "\n"
+               . '<label for="text_max_questions"><code><dfn title="'
+               . __('Limits the number of queries the user may send to the server per hour.') . '">MAX QUERIES PER HOUR</dfn></code></label>' . "\n"
+               . '<input type="text" name="max_questions" id="text_max_questions" value="'
+               . $row['max_questions'] . '" size="11" maxlength="11" title="' . __('Limits the number of queries the user may send to the server per hour.') . '" />' . "\n"
+               . '</div>' . "\n"
+               . '<div class="item">' . "\n"
+               . '<label for="text_max_updates"><code><dfn title="'
+               . __('Limits the number of commands that change any table or database the user may execute per hour.') . '">MAX UPDATES PER HOUR</dfn></code></label>' . "\n"
+               . '<input type="text" name="max_updates" id="text_max_updates" value="'
+               . $row['max_updates'] . '" size="11" maxlength="11" title="' . __('Limits the number of commands that change any table or database the user may execute per hour.') . '" />' . "\n"
+               . '</div>' . "\n"
+               . '<div class="item">' . "\n"
+               . '<label for="text_max_connections"><code><dfn title="'
+               . __('Limits the number of new connections the user may open per hour.') . '">MAX CONNECTIONS PER HOUR</dfn></code></label>' . "\n"
+               . '<input type="text" name="max_connections" id="text_max_connections" value="'
+               . $row['max_connections'] . '" size="11" maxlength="11" title="' . __('Limits the number of new connections the user may open per hour.') . '" />' . "\n"
+               . '</div>' . "\n"
+               . '<div class="item">' . "\n"
+               . '<label for="text_max_user_connections"><code><dfn title="'
+               . __('Limits the number of simultaneous connections the user may have.') . '">MAX USER_CONNECTIONS</dfn></code></label>' . "\n"
+               . '<input type="text" name="max_user_connections" id="text_max_user_connections" value="'
+               . $row['max_user_connections'] . '" size="11" maxlength="11" title="' . __('Limits the number of simultaneous connections the user may have.') . '" />' . "\n"
+               . '</div>' . "\n"
+               . '</fieldset>' . "\n";
         }
         // for Safari 2.0.2
-        echo '    <div class="clearfloat"></div>' . "\n";
+        $html_output .= '<div class="clearfloat"></div>' . "\n";
     }
-    echo '</fieldset>' . "\n";
+    $html_output .= '</fieldset>' . "\n";
     if ($submit) {
-        echo '<fieldset id="fieldset_user_privtable_footer" class="tblFooters">' . "\n"
-           . '    <input type="submit" name="update_privs" value="' . __('Go') . '" />' . "\n"
+        $html_output .= '<fieldset id="fieldset_user_privtable_footer" class="tblFooters">' . "\n"
+           . '<input type="submit" name="update_privs" value="' . __('Go') . '" />' . "\n"
            . '</fieldset>' . "\n";
     }
+    return $html_output;
 } // end of the 'PMA_displayPrivTable()' function
 
 
@@ -2059,7 +2069,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         }
         echo PMA_generate_common_hidden_inputs($_params);
 
-        PMA_displayPrivTable(
+        echo PMA_getHtmlToDisplayPrivilegesTable(
             PMA_ifSetOr($dbname, '*', 'length'),
             PMA_ifSetOr($tablename, '*', 'length')
         );
@@ -2412,7 +2422,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
     }
 
     echo '</fieldset>' . "\n";
-    PMA_displayPrivTable('*', '*', false);
+    echo PMA_getHtmlToDisplayPrivilegesTable('*', '*', false);
     echo '    <fieldset id="fieldset_add_user_footer" class="tblFooters">' . "\n"
        . '        <input type="submit" name="adduser_submit" value="' . __('Go') . '" />' . "\n"
        . '    </fieldset>' . "\n"
