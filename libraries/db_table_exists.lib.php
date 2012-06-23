@@ -31,7 +31,7 @@ if (empty($is_db)) {
                 $url_params['show_as_php'] = $show_as_php;
             }
             PMA_sendHeaderLocation(
-                $cfg['PmaAbsoluteUri'] . 'main.php'
+                $cfg['PmaAbsoluteUri'] . 'index.php'
                 . PMA_generate_common_url($url_params, '&')
             );
         }

@@ -73,7 +73,7 @@ $cfg_db['GridEditing'] = array(
     'disabled' => __('Disabled'),
 );
 $cfg_db['DefaultTabServer'] = array(
-    'main.php',                // the welcome page (recommended for multiuser setups)
+    'index.php',               // the welcome page (recommended for multiuser setups)
     'server_databases.php',    // list of databases
     'server_status.php',       // runtime information
     'server_variables.php',    // MySQL server variables

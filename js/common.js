@@ -81,21 +81,7 @@ function setTable(new_table)
  */
 function refreshMain(url)
 {
-    if (! url) {
-        if (db) {
-            url = opendb_url;
-        } else {
-            url = 'main.php';
-        }
-    }
-    //alert(db);
-    goTo(url + '?server=' + encodeURIComponent(server) +
-        '&token=' + encodeURIComponent(token) +
-        '&db=' + encodeURIComponent(db) +
-        '&table=' + encodeURIComponent(table) +
-        '&lang=' + encodeURIComponent(lang) +
-        '&collation_connection=' + encodeURIComponent(collation_connection),
-        'main');
+    console.log('Call to deprecate function refreshMain() ignored');
 }
 
 /**
@@ -105,20 +91,7 @@ function refreshMain(url)
  */
 function refreshNavigation(force)
 {
-    // The goTo() function won't refresh in case the target
-    // url is the same as the url given as parameter, but sometimes
-    // we want to refresh anyway.
-    if (typeof force != undefined && force && window.parent && window.parent.frame_navigation) {
-        window.parent.frame_navigation.location.reload();
-    } else {
-        goTo('navigation.php?server=' + encodeURIComponent(server) +
-            '&token=' + encodeURIComponent(token)  +
-            '&db=' + encodeURIComponent(db)  +
-            '&table=' + encodeURIComponent(table) +
-            '&lang=' + encodeURIComponent(lang) +
-            '&collation_connection=' + encodeURIComponent(collation_connection)
-            );
-    }
+    console.log('Call to deprecate function refreshNavigation() ignored');
 }
 
 function unmarkDbTable(db, table)

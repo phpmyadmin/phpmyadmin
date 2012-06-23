@@ -863,7 +863,7 @@ $cfg['LeftDisplayLogo'] = true;
  *
  * @global string $cfg['LeftLogoLink']
  */
-$cfg['LeftLogoLink'] = 'main.php';
+$cfg['LeftLogoLink'] = 'index.php';
 
 /**
  * whether to open the linked page in the main window ('main') or
@@ -1202,7 +1202,7 @@ $cfg['PropertiesNumColumns'] = 1;
 
 /**
  * Possible values:
- * 'main.php' = the welcome page
+ * 'index.php' = the welcome page
  * (recommended for multiuser setups)
  * 'server_databases.php' = list of databases
  * 'server_status.php' = runtime information
@@ -1212,7 +1212,7 @@ $cfg['PropertiesNumColumns'] = 1;
  *
  * @global string $cfg['DefaultTabServer']
  */
-$cfg['DefaultTabServer'] = 'main.php';
+$cfg['DefaultTabServer'] = 'index.php';
 
 /**
  * Possible values:

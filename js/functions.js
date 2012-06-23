@@ -150,11 +150,11 @@ function PMA_current_version(data)
 }
 
 /**
- * Loads Git revision data from ajax for main.php
+ * Loads Git revision data from ajax for index.php
  */
 function PMA_display_git_revision()
 {
-    $.get("main.php?token="
+    $.get("index.php?token="
         + $("input[type=hidden][name=token]").val()
         + "&git_revision=1&ajax_request=true", function (data) {
         if (data.success == true) {
@@ -2396,7 +2396,7 @@ AJAX.registerTeardown('functions.js', function() {
     $('#change_password_anchor.ajax').die('click');
 });
 /**
- * Attach Ajax event handlers for 'Change Password' on main.php
+ * Attach Ajax event handlers for 'Change Password' on index.php
  */
 AJAX.registerOnload('functions.js', function() {
 

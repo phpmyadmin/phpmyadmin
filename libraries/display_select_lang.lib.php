@@ -42,7 +42,7 @@ function PMA_Language_select($use_fieldset = false, $show_doc = true)
 
     global $cfg, $lang;
 
-    echo '<form method="post" action="main.php" target="_parent">';
+    echo '<form method="post" action="index.php" target="_parent">';
 
     $_form_params = array(
         'db' => $GLOBALS['db'],

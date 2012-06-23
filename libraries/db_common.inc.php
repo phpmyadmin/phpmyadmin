@@ -26,7 +26,7 @@ if ($db_is_information_schema) {
 /**
  * Defines the urls to return to in case of error in a sql statement
  */
-$err_url_0 = 'main.php?' . PMA_generate_common_url();
+$err_url_0 = 'index.php?' . PMA_generate_common_url();
 $err_url   = $cfg['DefaultTabDatabase'] . '?' . PMA_generate_common_url($db);
 
 
@@ -46,7 +46,7 @@ if (! isset($is_db) || ! $is_db) {
         }
     }
     // Not a valid db name -> back to the welcome page
-    $uri = $cfg['PmaAbsoluteUri'] . 'main.php?'
+    $uri = $cfg['PmaAbsoluteUri'] . 'index.php?'
         . PMA_generate_common_url('', '', '&')
         . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1';
     if (! strlen($db) || ! $is_db) {

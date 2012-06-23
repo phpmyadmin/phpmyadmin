@@ -378,7 +378,7 @@ $goto_whitelist = array(
     //'index.php',
     //'navigation.php',
     //'license.php',
-    'main.php',
+    'index.php',
     'pdf_pages.php',
     'pdf_schema.php',
     //'phpinfo.php',

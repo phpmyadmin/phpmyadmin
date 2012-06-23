@@ -100,7 +100,7 @@ function PMA_getHtmlForDropDatabaseLink($db)
     $this_url_params = array(
         'sql_query' => $this_sql_query,
         'back' => 'db_operations.php',
-        'goto' => 'main.php',
+        'goto' => 'index.php',
         'reload' => '1',
         'purge' => '1',
         'message_to_show' => sprintf(

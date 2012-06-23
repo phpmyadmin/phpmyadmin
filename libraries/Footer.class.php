@@ -193,7 +193,7 @@ class PMA_Footer
     {
         $retval  = '';
         $retval .= '<div id="selflink" class="print_ignore">';
-        $retval .= '<a href="main.php' . PMA_generate_common_url($url_params) . '"'
+        $retval .= '<a href="index.php' . PMA_generate_common_url($url_params) . '"'
             . ' title="' . __('Open new phpMyAdmin window') . '" target="_blank">';
         if ($GLOBALS['cfg']['NavigationBarIconic']) {
             $retval .= PMA_Util::getImage(

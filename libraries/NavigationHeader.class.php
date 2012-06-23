@@ -83,7 +83,7 @@ class PMA_NavigationHeader
     {
         $retval = '<!-- LINKS START -->';
         $retval .= '<div id="leftframelinks">';
-        $retval .= '    <a href="main.php?' . $GLOBALS['url_query'] . '" title="' . __('Home') . '">';
+        $retval .= '    <a href="index.php?' . $GLOBALS['url_query'] . '" title="' . __('Home') . '">';
         if ($GLOBALS['cfg']['NavigationBarIconic']) {
             $retval .= '<img class="icon ic_b_home" src="themes/dot.gif" alt="' . __('Home') . '" /></a>';
         } else {
@@ -94,7 +94,7 @@ class PMA_NavigationHeader
         if ($GLOBALS['server'] != 0) {
             // Logout for advanced authentication
             if ($GLOBALS['cfg']['Server']['auth_type'] != 'config') {
-                $retval .= '    <a href="main.php?' . $GLOBALS['url_query'] . '&amp;old_usr=';
+                $retval .= '    <a href="index.php?' . $GLOBALS['url_query'] . '&amp;old_usr=';
                 $retval .= urlencode($GLOBALS['PHP_AUTH_USER']) . '" target="_parent"';
                 $retval .= ' title="' . __('Log out') . '" >';
                 if ($GLOBALS['cfg']['NavigationBarIconic']) {
@@ -185,7 +185,7 @@ class PMA_NavigationHeader
         if ($GLOBALS['cfg']['LeftRecentTable'] > 0) {
             $retval .= '<!-- RECENT START -->';
             $retval .= '<div id="recentTableList">';
-            $retval .= '    <form method="post" action="main.php" target="_parent">';
+            $retval .= '    <form method="post" action="index.php" target="_parent">';
             $retval .= '        ' . PMA_generate_common_hidden_inputs();
             $retval .= PMA_RecentTable::getInstance()->getHtmlSelect();
             $retval .= '    </form>';

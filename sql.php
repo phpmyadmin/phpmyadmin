@@ -950,7 +950,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
             if (strlen($db)) {
                 $db = '';
             }
-            $goto = 'main.php';
+            $goto = 'index.php';
         }
         // Loads to target script
         $active_page = $goto;

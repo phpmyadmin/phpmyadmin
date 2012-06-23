@@ -21,7 +21,7 @@ class PMA_checkPageValidity_test extends PHPUnit_Framework_TestCase
         'db_search.php',
         'export.php',
         'import.php',
-        'main.php',
+        'index.php',
         'pdf_pages.php',
         'pdf_schema.php',
         'querywindow.php',
@@ -57,14 +57,14 @@ class PMA_checkPageValidity_test extends PHPUnit_Framework_TestCase
 
     function testGotoWhitelistPage()
     {
-        $page = 'main.php?sql.php&test=true';
+        $page = 'index.php?sql.php&test=true';
 
         $this->assertTrue(PMA_checkPageValidity($page, $this->goto_whitelist));
     }
 
     function testGotoWhitelistEncodedPage()
     {
-        $page = 'main.php%3Fsql.php%26test%3Dtrue';
+        $page = 'index.php%3Fsql.php%26test%3Dtrue';
 
         $this->assertTrue(PMA_checkPageValidity($page, $this->goto_whitelist));
     }

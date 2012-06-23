@@ -764,7 +764,7 @@ function offerPrefsAutoimport()
         var a = $(this);
         if (a.attr('href') == '#no') {
             cnt.remove();
-            $.post('main.php', {
+            $.post('index.php', {
                 token: cnt.find('input[name=token]').val(),
                 prefs_autoload: 'hide'});
             return;

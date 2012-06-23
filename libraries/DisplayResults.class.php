@@ -3395,7 +3395,7 @@ class PMA_DisplayResults
                     'db'        => $this->__get('_db'),
                     'table'     => $this->__get('_table'),
                     'sql_query' => $url_sql_query,
-                    'goto'      => 'main.php',
+                    'goto'      => 'index.php',
                 );
 
             $lnk_goto = 'sql.php'
