@@ -832,17 +832,17 @@ function PMA_getTextarea($column, $backup_field, $column_name_appendix,
 /**
  * Get HTML for enum type
  *
- * @param type $column                  description of column in given table
- * @param type $backup_field            hidden input field
- * @param type $column_name_appendix    the name atttibute
- * @param type $extracted_columnspec    associative array containing type,
- *                                      spec_in_brackets and possibly
- *                                      enum_set_values (another array)
- * @param type $unnullify_trigger       validation string
- * @param type $tabindex                tab index
- * @param type $tabindex_for_value      offset for the values tabindex
- * @param type $idindex                 id index
- * @param type $data                    data to edit
+ * @param type $column               description of column in given table
+ * @param type $backup_field         hidden input field
+ * @param type $column_name_appendix the name atttibute
+ * @param type $extracted_columnspec associative array containing type,
+ *                                   spec_in_brackets and possibly
+ *                                   enum_set_values (another array)
+ * @param type $unnullify_trigger    validation string
+ * @param type $tabindex             tab index
+ * @param type $tabindex_for_value   offset for the values tabindex
+ * @param type $idindex              id index
+ * @param type $data                 data to edit
  *
  * @return type string an html snippet
  */
@@ -1857,7 +1857,8 @@ function PMA_buildSqlQuery($is_insertignore, $query_fields, $value_sets)
     }
     $query[] = $insert_command . 'INTO ' . PMA_backquote($GLOBALS['db']) . '.'
         . PMA_backquote($GLOBALS['table'])
-        . ' (' . implode(', ', $query_fields) . ') VALUES (' . implode('), (', $value_sets) . ')';
+        . ' (' . implode(', ', $query_fields)
+        . ') VALUES (' . implode('), (', $value_sets) . ')';
     unset($insert_command, $query_fields);
     return $query;
 }
@@ -1952,13 +1953,13 @@ function PMA_getWarningMessages()
 /**
  * Column to display from the foreign table?
  *
- * @param string $where_comparison      string that contain relation field value
- * @param string $relation_field_value  relation field value
- * @param array $map                    all Relations to foreign tables for a
- *                                      given table or optionally a given column in a table
- * @param string $relation_field        relation field
+ * @param string $where_comparison     string that contain relation field value
+ * @param string $relation_field_value relation field value
+ * @param array  $map                  all Relations to foreign tables for a given
+ *                                     table or optionally a given column in a table
+ * @param string $relation_field       relation field
  *
- * @return string  $dispval             display value from the foriegn table
+ * @return string $dispval display value from the foriegn table
  */
 function PMA_getDisplayValueForForeignTableColumn($where_comparison,
     $relation_field_value, $map, $relation_field
@@ -1987,22 +1988,24 @@ function PMA_getDisplayValueForForeignTableColumn($where_comparison,
 /**
  * Display option in the cell according to user choises
  *
- * @param array $map                    all Relations to foreign tables for a
- *                                      given table or optionally a given column in a table
- * @param string $relation_field        relation field
- * @param string $where_comparison      string that contain relation field value
- * @param string $dispval               display value from the foriegn table
- * @param string $relation_field_value  relation field value
+ * @param array  $map                  all Relations to foreign tables for a given
+ *                                     table or optionally a given column in a table
+ * @param string $relation_field       relation field
+ * @param string $where_comparison     string that contain relation field value
+ * @param string $dispval              display value from the foriegn table
+ * @param string $relation_field_value relation field value
  *
- * @return string $output               HTML <a> tag
+ * @return string $output HTML <a> tag
  */
-function PMA_getLinkForRelationalDisplayField($map, $relation_field, $where_comparison,
-    $dispval, $relation_field_value
-){
+function PMA_getLinkForRelationalDisplayField($map, $relation_field,
+    $where_comparison, $dispval, $relation_field_value
+) {
     if ('K' == $_SESSION['tmp_user_values']['relational_display']) {
         // user chose "relational key" in the display options, so
         // the title contains the display field
-        $title = (! empty($dispval))? ' title="' . htmlspecialchars($dispval) . '"' : '';
+        $title = (! empty($dispval))
+            ? ' title="' . htmlspecialchars($dispval) . '"'
+            : '';
     } else {
         $title = ' title="' . htmlspecialchars($relation_field_value) . '"';
     }
@@ -2033,12 +2036,12 @@ function PMA_getLinkForRelationalDisplayField($map, $relation_field, $where_comp
 /**
  * Get transformation function and transformation options
  *
- * @param string $db            db name
- * @param string $table         table name
- * @param array $transformation mimetypes for all columns of a table
- *                              [field_name][field_key]
- * @param array $edited_values  transform fields list
- * @param array $extra_data     extra data array
+ * @param string $db             db name
+ * @param string $table          table name
+ * @param array  $transformation mimetypes for all columns of a table
+ *                               [field_name][field_key]
+ * @param array  $edited_values  transform fields list
+ * @param array  $extra_data     extra data array
  *
  * @return array $extra_data
  */
@@ -2083,21 +2086,22 @@ function PMA_getTransformationFunctionAndTransformationOptions($db, $table,
 /**
  * Get current value in multi edit mode
  *
- * @param array $multi_edit_colummns        multiple edit column array
- * @param array $multi_edit_columns_name    multiple edit columns name array
- * @param array $multi_edit_funcs           multiple edit functions array
- * @param array $gis_from_text_functions    array that contains gis from text functions
- * @param string $current_value             current value in the column
- * @param array $gis_from_wkb_functions     initialy $val is $multi_edit_colummns[$key]
- * @param array $func_optional_param        array('RAND','UNIX_TIMESTAMP')
- * @param array $func_no_param              array of set of string
- * @param string $key                       an md5 of the column name
+ * @param array  $multi_edit_colummns     multiple edit column array
+ * @param array  $multi_edit_columns_name multiple edit columns name array
+ * @param array  $multi_edit_funcs        multiple edit functions array
+ * @param array  $gis_from_text_functions array that contains gis from text functions
+ * @param string $current_value           current value in the column
+ * @param array  $gis_from_wkb_functions  initialy $val is $multi_edit_colummns[$key]
+ * @param array  $func_optional_param     array('RAND','UNIX_TIMESTAMP')
+ * @param array  $func_no_param           array of set of string
+ * @param string $key                     an md5 of the column name
  *
  * @return array $cur_value
  */
 function PMA_getCurrentValueAsAnArrayForMultipleEdit($multi_edit_colummns,
     $multi_edit_columns_name, $multi_edit_funcs, $gis_from_text_functions,
-    $current_value, $gis_from_wkb_functions, $func_optional_param, $func_no_param, $key
+    $current_value, $gis_from_wkb_functions, $func_optional_param,
+    $func_no_param, $key
 ) {
     if (empty($multi_edit_funcs[$key])) {
         return $current_value;
@@ -2127,25 +2131,25 @@ function PMA_getCurrentValueAsAnArrayForMultipleEdit($multi_edit_colummns,
 /**
  * Get query values array and query fileds array for insert and update in multi edit
  *
- * @param array $multi_edit_columns_name        multiple edit columns name array
- * @param array $multi_edit_columns_null        multiple edit columns null array
- * @param string $current_value                 current value in the column in loop
- * @param array $multi_edit_columns_prev        multiple edit previous columns array
- * @param array $multi_edit_funcs               multiple edit functions array
+ * @param array   $multi_edit_columns_name      multiple edit columns name array
+ * @param array   $multi_edit_columns_null      multiple edit columns null array
+ * @param string  $current_value                current value in the column in loop
+ * @param array   $multi_edit_columns_prev      multiple edit previous columns array
+ * @param array   $multi_edit_funcs             multiple edit functions array
  * @param boolean $is_insert                    boolean value whether insert or not
- * @param array $query_values                   SET part of the sql query
- * @param array $query_fields                   array of query fileds
- * @param string $current_value_as_an_array     current value in the column as an array
- * @param array $value_sets                     array of valu sets
- * @param string $key                           an md5 of the column name
- * @param array $multi_edit_columns_null_prev   array of multiple edit columnd null previous
+ * @param array   $query_values                 SET part of the sql query
+ * @param array   $query_fields                 array of query fileds
+ * @param string  $current_value_as_an_array    current value in the column as an array
+ * @param array   $value_sets                   array of valu sets
+ * @param string  $key                          an md5 of the column name
+ * @param array   $multi_edit_columns_null_prev array of multiple edit columnd null previous
  *
  * @return array ($query_values, $query_fields)
  */
 function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_name,
     $multi_edit_columns_null, $current_value, $multi_edit_columns_prev,
-    $multi_edit_funcs,$is_insert, $query_values, $query_fields, $current_value_as_an_array,
-    $value_sets, $key, $multi_edit_columns_null_prev
+    $multi_edit_funcs,$is_insert, $query_values, $query_fields,
+    $current_value_as_an_array, $value_sets, $key, $multi_edit_columns_null_prev
 ) {
     //  i n s e r t
     if ($is_insert) {
@@ -2157,16 +2161,20 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
                 $query_fields[] = PMA_backquote($multi_edit_columns_name[$key]);
             }
         }
-    //  u p d a t e
-    } elseif (!empty($multi_edit_columns_null_prev[$key])
-     && ! isset($multi_edit_columns_null[$key])) {
+
+    } elseif (! empty($multi_edit_columns_null_prev[$key])
+        && ! isset($multi_edit_columns_null[$key])
+    ) {
+        //  u p d a t e
+
         // field had the null checkbox before the update
         // field no longer has the null checkbox
         $query_values[] = PMA_backquote($multi_edit_columns_name[$key])
             . ' = ' . $current_value_as_an_array;
     } elseif (empty($multi_edit_funcs[$key])
-     && isset($multi_edit_columns_prev[$key])
-     && ("'" . PMA_sqlAddSlashes($multi_edit_columns_prev[$key]) . "'" == $current_value)) {
+        && isset($multi_edit_columns_prev[$key])
+        && ("'" . PMA_sqlAddSlashes($multi_edit_columns_prev[$key]) . "'" == $current_value)
+    ) {
         // No change for this column and no MySQL function is used -> next column
     } elseif (! empty($current_value)) {
         // avoid setting a field to NULL when it's already NULL
@@ -2185,19 +2193,19 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
 /**
  * Get the current column value in the form for different data types
  *
- * @param string $possibly_uploaded_val         uploaded file content
- * @param string $key                           an md5 of the column name
- * @param array $multi_edit_columns_type        array of multi edit column types
- * @param string $current_value                 current column value in the form
- * @param array $multi_edit_auto_increment      multi edit auto increment
- * @param string $rownumber                     index of where clause array
- * @param array $multi_edit_columns_name        multi edit column names array
- * @param array $multi_edit_columns_null        multi edit columns null array
- * @param array $multi_edit_columns_null_prev   multi edit columns previous null
+ * @param string  $possibly_uploaded_val        uploaded file content
+ * @param string  $key                          an md5 of the column name
+ * @param array   $multi_edit_columns_type      array of multi edit column types
+ * @param string  $current_value                current column value in the form
+ * @param array   $multi_edit_auto_increment    multi edit auto increment
+ * @param string  $rownumber                    index of where clause array
+ * @param array   $multi_edit_columns_name      multi edit column names array
+ * @param array   $multi_edit_columns_null      multi edit columns null array
+ * @param array   $multi_edit_columns_null_prev multi edit columns previous null
  * @param boolean $is_insert                    whether insert or not
  * @param boolean $using_key                    whether editing or new row
- * @param array $where_clause                   where clauses
- * @param string $table                         table name
+ * @param array   $where_clause                 where clauses
+ * @param string  $table                        table name
  *
  * @return string $current_value                current column value in the form
  */
@@ -2212,7 +2220,8 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
         && is_array($multi_edit_columns_type) && isset($where_clause)
     ) {
         $protected_row = PMA_DBI_fetch_single_row(
-            'SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $where_clause . ';');
+            'SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $where_clause . ';'
+        );
     }
 
     if (false !== $possibly_uploaded_val) {
@@ -2226,7 +2235,8 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
         }
 
         if ($type != 'protected' && $type != 'set' && 0 === strlen($current_value)) {
-            // best way to avoid problems in strict mode (works also in non-strict mode)
+            // best way to avoid problems in strict mode
+            // (works also in non-strict mode)
             if (isset($multi_edit_auto_increment)
                 && isset($multi_edit_auto_increment[$key])
             ) {
@@ -2248,8 +2258,8 @@ function PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val, $key,
             // but we can still handle column upload
 
             // when in UPDATE mode, do not alter field's contents. When in INSERT
-            // mode, insert empty field because no values were submitted. If protected
-            // blobs where set, insert original fields content.
+            // mode, insert empty field because no values were submitted.
+            // If protected blobs where set, insert original fields content.
             if (! empty($protected_row[$multi_edit_columns_name[$key]])) {
                 $current_value = '0x' . bin2hex($protected_row[$multi_edit_columns_name[$key]]);
             } else {
