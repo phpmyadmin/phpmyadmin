@@ -454,45 +454,47 @@ function PMA_extractPrivInfo($row = '', $enableHTML = false)
 /**
  * Displays on which column(s) a table-specific privilege is granted
  *
- * @param array  $columns
- * @param array  $row
- * @param string $name_for_select
- * @param string $priv_for_header
- * @param string $name
- * @param string $name_for_dfn
- * @param string $name_for_current
+ * @param array  $columns           columns array
+ * @param array  $row               first row from result or boolean false
+ * @param string $name_for_select   privilege types - Select_priv, Insert_priv
+ *                                  Update_priv, References_priv
+ * @param string $priv_for_header   privilege for header
+ * @param string $name              privilege name - insert, select, update, references
+ * @param string $name_for_dfn      name for dfn
+ * @param string $name_for_current  name for current
  *
- * @return void
+ * @return $html_output             html snippet
  */
-function PMA_displayColumnPrivs($columns, $row, $name_for_select,
+function PMA_getHtmlToDisplayColumnPrivileges($columns, $row, $name_for_select,
     $priv_for_header, $name, $name_for_dfn, $name_for_current
 ) {
-    echo '    <div class="item" id="div_item_' . $name . '">' . "\n"
-       . '        <label for="select_' . $name . '_priv">' . "\n"
-       . '            <code><dfn title="' . $name_for_dfn . '">'
+    $html_output = '<div class="item" id="div_item_' . $name . '">' . "\n"
+        . '<label for="select_' . $name . '_priv">' . "\n"
+        . '<code><dfn title="' . $name_for_dfn . '">'
         . $priv_for_header . '</dfn></code>' . "\n"
-       . '        </label><br />' . "\n"
-       . '        <select id="select_' . $name . '_priv" name="'
+        . '</label><br />' . "\n"
+        . '<select id="select_' . $name . '_priv" name="'
         . $name_for_select . '[]" multiple="multiple" size="8">' . "\n";
 
     foreach ($columns as $current_column => $current_column_privileges) {
-        echo '            <option value="' . htmlspecialchars($current_column) . '"';
+        $html_output .= '<option value="' . htmlspecialchars($current_column) . '"';
         if ($row[$name_for_select] == 'Y' || $current_column_privileges[$name_for_current]) {
-            echo ' selected="selected"';
+            $html_output .= ' selected="selected"';
         }
-        echo '>' . htmlspecialchars($current_column) . '</option>' . "\n";
+        $html_output .= '>' . htmlspecialchars($current_column) . '</option>' . "\n";
     }
 
-    echo '        </select>' . "\n"
-       . '        <i>' . __('Or') . '</i>' . "\n"
-       . '        <label for="checkbox_' . $name_for_select
+    $html_output .= '</select>' . "\n"
+        . '<i>' . __('Or') . '</i>' . "\n"
+        . '<label for="checkbox_' . $name_for_select
         . '_none"><input type="checkbox"'
         . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
         . ' name="' . $name_for_select . '_none" id="checkbox_'
         . $name_for_select . '_none" title="'
         . _pgettext('None privileges', 'None') . '" />'
         . _pgettext('None privileges', 'None') . '</label>' . "\n"
-       . '    </div>' . "\n";
+        . '</div>' . "\n";
+    return $html_output;
 } // end function
 
 
@@ -640,22 +642,22 @@ function PMA_displayPrivTable($db = '*', $table = '*', $submit = true)
 
 
         // privs that are attached to a specific column
-        PMA_displayColumnPrivs(
+        echo PMA_getHtmlForDisplayColumnPrivileges(
             $columns, $row, 'Select_priv', 'SELECT',
             'select', __('Allows reading data.'), 'Select'
         );
 
-        PMA_displayColumnPrivs(
+        echo PMA_getHtmlForDisplayColumnPrivileges(
             $columns, $row, 'Insert_priv', 'INSERT',
             'insert', __('Allows inserting and replacing data.'), 'Insert'
         );
 
-        PMA_displayColumnPrivs(
+        echo PMA_getHtmlForDisplayColumnPrivileges(
             $columns, $row, 'Update_priv', 'UPDATE',
             'update', __('Allows changing data.'), 'Update'
         );
 
-        PMA_displayColumnPrivs(
+        echo PMA_getHtmlForDisplayColumnPrivileges(
             $columns, $row, 'References_priv', 'REFERENCES', 'references',
             __('Has no effect in this MySQL version.'), 'References'
         );
