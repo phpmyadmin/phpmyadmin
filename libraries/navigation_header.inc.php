@@ -58,8 +58,8 @@ if ($GLOBALS['cfg']['LeftDisplayLogo']) {
     if ($server != 0) {
         // Logout for advanced authentication
         if ($GLOBALS['cfg']['Server']['auth_type'] != 'config') {
-            echo '<a href="index.php?' . $query_url . '&amp;old_usr='
-                .urlencode($PHP_AUTH_USER) . '" target="_parent"'
+            echo '<a href="main.php?' . $query_url . '&amp;old_usr='
+                . urlencode($PHP_AUTH_USER) . '" target="_parent"'
                 .' title="' . __('Log out') . '" >'
                 . PMA_Util::getImage('s_loggoff.png', __('Log out'))
                 .'</a>' . "\n";

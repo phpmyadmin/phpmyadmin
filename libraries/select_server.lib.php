@@ -28,7 +28,7 @@ function PMA_selectServer($not_only_options, $ommit_fieldset)
     }
 
     if ($not_only_options) {
-        echo '<form method="post" action="index.php" target="_parent">';
+        echo '<form method="post" action="' . $GLOBALS['cfg']['DefaultTabServer'] . '" target="_parent">';
         echo PMA_generate_common_hidden_inputs();
 
         if (! $ommit_fieldset) {
@@ -79,7 +79,7 @@ function PMA_selectServer($not_only_options, $ommit_fieldset)
                 echo '<strong>' . htmlspecialchars($label) . '</strong>';
             } else {
 
-                echo '<a class="item" href="index.php'
+                echo '<a class="item" href="' . $GLOBALS['cfg']['DefaultTabServer']
                     . PMA_generate_common_url(array('server' => $key))
                     . '" target="_top">' . htmlspecialchars($label) . '</a>';
             }

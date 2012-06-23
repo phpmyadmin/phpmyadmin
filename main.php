@@ -113,7 +113,7 @@ if ($server > 0
             }
         } // end if
         echo '    <li id="li_select_mysql_collation">';
-        echo '        <form method="post" action="index.php" target="_parent">' . "\n"
+        echo '        <form method="post" action="main.php" target="_parent">' . "\n"
            . PMA_generate_common_hidden_inputs(null, null, 4, 'collation_connection')
            . '            <label for="select_collation_connection">' . "\n"
            . '                ' . __('Server connection collation') . "\n"

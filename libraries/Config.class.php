@@ -1545,7 +1545,7 @@ class PMA_Config
     static public function getFontsizeForm()
     {
         return '<form name="form_fontsize_selection" id="form_fontsize_selection"'
-            . ' method="post" action="index.php" target="_parent">' . "\n"
+            . ' method="post" action="main.php" target="_parent">' . "\n"
             . PMA_generate_common_hidden_inputs() . "\n"
             . PMA_Config::getFontsizeSelection() . "\n"
             . '</form>';

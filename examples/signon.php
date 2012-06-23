@@ -31,7 +31,7 @@ if (isset($_POST['user'])) {
     /* Close that session */
     session_write_close();
     /* Redirect to phpMyAdmin (should use absolute URL here!) */
-    header('Location: ../index.php');
+    header('Location: ../main.php');
 } else {
     /* Show simple form */
     header('Content-Type: text/html; charset=utf-8');

@@ -353,7 +353,7 @@ class PMA_Theme_Manager
         $select_box = '';
 
         if ($form) {
-            $select_box .= '<form name="setTheme" method="post" action="index.php"'
+            $select_box .= '<form name="setTheme" method="post" action="main.php"'
                 .' target="_parent">';
             $select_box .=  PMA_generate_common_hidden_inputs();
         }

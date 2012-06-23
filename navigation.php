@@ -121,7 +121,7 @@ require 'libraries/navigation_header.inc.php';
 // display recently used tables
 if ($GLOBALS['cfg']['LeftRecentTable'] > 0) {
     echo '<div id="recentTableList">' . "\n"
-        .'<form method="post" action="index.php" target="_parent">' . "\n"
+        .'<form method="post" action="main.php" target="_parent">' . "\n"
         .PMA_generate_common_hidden_inputs() . "\n"
         .PMA_RecentTable::getInstance()->getHtmlSelect()
         .'</form>' . "\n"
@@ -157,7 +157,7 @@ if (! $GLOBALS['server']) {
     ?>
 
     <div id="databaseList">
-    <form method="post" action="index.php" target="_parent" id="left">
+    <form method="post" action="<?php echo $GLOBALS['cfg']['DefaultTabDatabase']; ?>" target="_parent" id="left">
     <?php
         echo PMA_generate_common_hidden_inputs() . "\n";
         echo $GLOBALS['pma']->databases->getHtmlSelectGrouped(true, $_SESSION['tmp_user_values']['navi_limit_offset'], $GLOBALS['cfg']['MaxDbList']) . "\n"
@@ -414,7 +414,7 @@ function PMA_displayDbList($ext_dblist, $offset, $count)
                 ?>
                 <a class="item"
                     id="<?php echo htmlspecialchars($db['name']); ?>"
-                    href="index.php?<?php echo $common_url_query; ?>"
+                    href="<?php echo $GLOBALS['cfg']['DefaultTabDatabase']; ?>?<?php echo $common_url_query; ?>"
                     target="_parent"
                     title="<?php echo htmlspecialchars($db['comment']); ?>"
                     onclick="
@@ -568,7 +568,7 @@ function PMA_displayTableList(
             }
             echo '</a>';
             ?>
-            <a href="index.php?<?php echo $common_url_query; ?>"
+            <a href="<?php echo $GLOBALS['cfg']['DefaultTabTable'];?>?<?php echo $common_url_query; ?>"
                 target="_parent"
                 onclick="
                     if (! toggle('<?php echo $element_counter; ?>', true))

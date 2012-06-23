@@ -360,8 +360,9 @@ class PMA_List_Database extends PMA_List
                 if (! empty($db['comment'])) {
                     $return .= ' title="' . htmlspecialchars($db['comment']) . '"';
                 }
-                $return .= ' href="index.php?' . PMA_generate_common_url($db['name'])
-                    . '" target="_parent">';
+                $return .= ' href="' . $GLOBALS['cfg']['DefaultTabDatabase']
+                    . '?' . PMA_generate_common_url($db['name'])
+                    . '">';
                 if ($cut) {
                     $return .= htmlspecialchars($db['disp_name_cut']);
                 } else {

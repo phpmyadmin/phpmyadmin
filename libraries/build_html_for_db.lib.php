@@ -87,10 +87,8 @@ function PMA_buildHtmlForDb(
         $out .= ' /></td>';
     }
     $out .= '<td class="name">'
-           . '        <a onclick="'
-           . 'if (window.parent.openDb &amp;&amp; window.parent.openDb(\''
-           . PMA_jsFormat($current['SCHEMA_NAME'], false) . '\')) return false;'
-           . '" href="index.php?' . $url_query . '&amp;db='
+           . '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase']
+           . '?' . $url_query . '&amp;db='
            . urlencode($current['SCHEMA_NAME']) . '" title="'
            . sprintf(
                __('Jump to database'),
