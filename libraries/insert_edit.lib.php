@@ -299,7 +299,7 @@ function PMA_getDefaultForDatetime($column)
   *
   * @param array   $column         description of column in given table
   * @param array   $comments_map   comments for every column that has a comment
-  * @param boolean $timestamp_seen whether a timestamp has been seen 
+  * @param boolean $timestamp_seen whether a timestamp has been seen
   *
   * @return array                   description of column in given table
   */
@@ -407,7 +407,7 @@ function PMA_isColumnChar($column)
  * Retrieve set, enum, timestamp table columns
  *
  * @param array   $column         description of column in given table
- * @param boolean $timestamp_seen whether a timestamp has been seen 
+ * @param boolean $timestamp_seen whether a timestamp has been seen
  *
  * @return array $column['pma_type'], $column['wrap'], $column['first_timestamp']
  */
@@ -560,10 +560,16 @@ function PMA_getNullifyCodeForNullColumn($column, $foreigners, $foreignData)
         }
     } elseif (strstr($column['True_Type'], 'set')) {
         $nullify_code = '3';
-    } elseif ($foreigners && isset($foreigners[$column['Field']]) && $foreignData['foreign_link'] == false) {
+    } elseif ($foreigners
+        && isset($foreigners[$column['Field']])
+        && $foreignData['foreign_link'] == false
+    ) {
         // foreign key in a drop-down
         $nullify_code = '4';
-    } elseif ($foreigners && isset($foreigners[$column['Field']]) && $foreignData['foreign_link'] == true) {
+    } elseif ($foreigners
+        && isset($foreigners[$column['Field']])
+        && $foreignData['foreign_link'] == true
+    ) {
         // foreign key with a browsing icon
         $nullify_code = '6';
     } else {
@@ -631,7 +637,9 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
             $idindex, $data, $foreignData
         );
 
-    } elseif ($GLOBALS['cfg']['LongtextDoubleTextarea'] && strstr($column['pma_type'], 'longtext')) {
+    } elseif ($GLOBALS['cfg']['LongtextDoubleTextarea']
+        && strstr($column['pma_type'], 'longtext')
+    ) {
         $html_output = '&nbsp;</td>';
         $html_output .= '</tr>';
         $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">'
@@ -719,11 +727,12 @@ function PMA_getForeignLink($column, $backup_field, $column_name_appendix,
     $html_output .= '<input type="hidden" name="fields_type' . $column_name_appendix . '" value="foreign" />';
     $html_output .= '<input type="text" name="fields' . $column_name_appendix . '"'
         . 'class="textfield" ' . $unnullify_trigger
-        . 'tabindex="' . ($tabindex + $tabindex_for_value) . '"'
-        . 'id="field_' . ($idindex) . '_3"'
+        . 'tabindex="' . ($tabindex + $tabindex_for_value) . '" '
+        . 'id="field_' . ($idindex) . '_3" '
         . 'value="' . htmlspecialchars($data) . '" />'
-        . '<a class="hide foreign_values_anchor" target="_blank" onclick="window.open(this.href,'
-        . '\'foreigners\', \'width=640,height=240,scrollbars=yes,resizable=yes\'); return false;" href="browse_foreigners.php?'
+        . '<a class="hide foreign_values_anchor" target="_blank" '
+        . 'onclick="window.open(this.href,\'foreigners\', \'width=640,height=240,scrollbars=yes,resizable=yes\'); return false;" '
+        . 'href="browse_foreigners.php?'
         . PMA_generate_common_url($db, $table) . '&amp;field='
         . PMA_escapeJsString(urlencode($column['Field']) . $rownumber_param) . '">'
         . str_replace("'", "\'", $titles['Browse']) . '</a>';
@@ -794,7 +803,9 @@ function PMA_getTextarea($column, $backup_field, $column_name_appendix,
         $the_class = 'char';
         $textAreaRows = $GLOBALS['cfg']['CharTextareaRows'];
         $textareaCols = $GLOBALS['cfg']['CharTextareaCols'];
-    } elseif (($GLOBALS['cfg']['LongtextDoubleTextarea'] && strstr($column['pma_type'], 'longtext'))) {
+    } elseif ($GLOBALS['cfg']['LongtextDoubleTextarea']
+        && strstr($column['pma_type'], 'longtext')
+    ) {
         $textAreaRows = $GLOBALS['cfg']['TextareaRows']*2;
         $textareaCols = $GLOBALS['cfg']['TextareaCols']*2;
     }
@@ -909,9 +920,9 @@ function PMA_getDropDownDependingOnLength(
         $html_output .= '<option value="' . $enum_value['html'] . '"';
         if ($data == $enum_value['plain']
             || ($data == ''
-                && (! isset($_REQUEST['where_clause']) || $column['Null'] != 'YES')
-                && isset($column['Default'])
-                && $enum_value['plain'] == $column['Default'])
+            && (! isset($_REQUEST['where_clause']) || $column['Null'] != 'YES')
+            && isset($column['Default'])
+            && $enum_value['plain'] == $column['Default'])
         ) {
             $html_output .= ' selected="selected"';
         }
@@ -950,9 +961,9 @@ function PMA_getRadioButtonDependingOnLength(
             . $unnullify_trigger;
         if ($data == $enum_value['plain']
             || ($data == ''
-                && (! isset($_REQUEST['where_clause']) || $column['Null'] != 'YES')
-                && isset($column['Default'])
-                && $enum_value['plain'] == $column['Default'])
+            && (! isset($_REQUEST['where_clause']) || $column['Null'] != 'YES')
+            && isset($column['Default'])
+            && $enum_value['plain'] == $column['Default'])
         ) {
             $html_output .= ' checked="checked"';
         }
@@ -1435,7 +1446,8 @@ function PMA_getActionsPanel($where_clause, $after_insert, $tabindex,
  */
 function PMA_getSubmitTypeDropDown($where_clause, $tabindex, $tabindex_for_value)
 {
-    $html_output = '<select name="submit_type" class="control_at_footer" tabindex="' . ($tabindex + $tabindex_for_value + 1) . '">';
+    $html_output = '<select name="submit_type" class="control_at_footer" tabindex="'
+        . ($tabindex + $tabindex_for_value + 1) . '">';
     if (isset($where_clause)) {
         $html_output .= '<option value="save">' . __('Save') . '</option>';
     }
@@ -1464,13 +1476,16 @@ function PMA_getSubmitTypeDropDown($where_clause, $tabindex, $tabindex_for_value
 function PMA_getAfterInsertDropDown($where_clause, $after_insert, $found_unique_key)
 {
     $html_output = '<select name="after_insert">'
-        . '<option value="back" ' . ($after_insert == 'back' ? 'selected="selected"' : '') . '>'
+        . '<option value="back" '
+        . ($after_insert == 'back' ? 'selected="selected"' : '') . '>'
         . __('Go back to previous page') . '</option>'
-        . '<option value="new_insert" ' . ($after_insert == 'new_insert' ? 'selected="selected"' : '') . '>'
+        . '<option value="new_insert" '
+        . ($after_insert == 'new_insert' ? 'selected="selected"' : '') . '>'
         . __('Insert another new row') . '</option>';
 
     if (isset($where_clause)) {
-        $html_output .= '<option value="same_insert" ' . ($after_insert == 'same_insert' ? 'selected="selected"' : '') . '>'
+        $html_output .= '<option value="same_insert" '
+            . ($after_insert == 'same_insert' ? 'selected="selected"' : '') . '>'
             . __('Go back to this page') . '</option>';
 
         // If we have just numeric primary key, we can also edit next
@@ -1488,7 +1503,8 @@ function PMA_getAfterInsertDropDown($where_clause, $after_insert, $found_unique_
             }
         }
         if ($found_unique_key && $is_numeric) {
-            $html_output .= '<option value="edit_next" '. ($after_insert == 'edit_next' ? 'selected="selected"' : '') . '>'
+            $html_output .= '<option value="edit_next" '
+                . ($after_insert == 'edit_next' ? 'selected="selected"' : '') . '>'
                 . __('Edit next row') . '</option>';
 
         }
@@ -1590,8 +1606,12 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
         $special_chars = htmlspecialchars($current_row[$column['Field']]);
     } else {
         // special binary "characters"
-        if ($column['is_binary'] || ($column['is_blob'] && ! $GLOBALS['cfg']['ProtectBinary'])) {
-            if ($_SESSION['tmp_user_values']['display_binary_as_hex'] && $GLOBALS['cfg']['ShowFunctionFields']) {
+        if ($column['is_binary']
+            || ($column['is_blob'] && ! $GLOBALS['cfg']['ProtectBinary'])
+        ) {
+            if ($_SESSION['tmp_user_values']['display_binary_as_hex']
+                && $GLOBALS['cfg']['ShowFunctionFields']
+            ) {
                 $current_row[$column['Field']] = bin2hex($current_row[$column['Field']]);
                 $column['display_binary_as_hex'] = true;
             } else {
@@ -1607,9 +1627,14 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
         $data = $current_row[$column['Field']];
     } // end if... else...
 
-    //when copying row, it is useful to empty auto-increment column to prevent duplicate key error
-    if (isset($_REQUEST['default_action']) && $_REQUEST['default_action'] === 'insert') {
-        if ($column['Key'] === 'PRI' && strpos($column['Extra'], 'auto_increment') !== false) {
+    //when copying row, it is useful to empty auto-increment column
+    // to prevent duplicate key error
+    if (isset($_REQUEST['default_action'])
+        && $_REQUEST['default_action'] === 'insert'
+    ) {
+        if ($column['Key'] === 'PRI'
+            && strpos($column['Extra'], 'auto_increment') !== false
+        ) {
             $data = $special_chars_encoded = $special_chars = null;
         }
     }
@@ -1621,7 +1646,13 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
         . $column_name_appendix . '" value="'
         . htmlspecialchars($current_row[$column['Field']]) . '" />';
 
-    return array($real_null_value, $special_chars_encoded, $special_chars, $data, $backup_field);
+    return array(
+        $real_null_value,
+        $special_chars_encoded,
+        $special_chars,
+        $data,
+        $backup_field
+    );
 }
 
 /**
@@ -1630,7 +1661,8 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
  * @param type    $column          description of column in given table
  * @param boolean $real_null_value whether column value null or not null
  *
- * @return array $real_null_value, $data, $special_chars, $backup_field, $special_chars_encoded
+ * @return array $real_null_value, $data, $special_chars,
+ *               $backup_field, $special_chars_encoded
  */
 function PMA_getSpecialCharsAndBackupFieldForInsertingMode(
     $column, $real_null_value
@@ -1673,7 +1705,9 @@ function PMA_getParamsForUpdateOrInsert()
 {
     if (isset($_REQUEST['where_clause'])) {
         // we were editing something => use the WHERE clause
-        $loop_array = (is_array($_REQUEST['where_clause']) ? $_REQUEST['where_clause'] : array($_REQUEST['where_clause']));
+        $loop_array = (is_array($_REQUEST['where_clause'])
+            ? $_REQUEST['where_clause']
+            : array($_REQUEST['where_clause']));
         $using_key  = true;
         $is_insert  = $_REQUEST['submit_type'] == 'insert'
                       || $_REQUEST['submit_type'] == 'showinsert'
@@ -1810,8 +1844,9 @@ function PMA_buildSqlQuery($is_insertignore, $query_fields, $value_sets)
     } else {
         $insert_command = 'INSERT ';
     }
-    $query[] = $insert_command . 'INTO ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($GLOBALS['table'])
-        . ' (' . implode(', ', $query_fields) . ') VALUES (' . implode('), (', $value_sets) . ')';
+    $query[] = $insert_command . 'INTO ' . PMA_backquote($GLOBALS['db']) . '.'
+        . PMA_backquote($GLOBALS['table']) . ' (' . implode(', ', $query_fields)
+        . ') VALUES (' . implode('), (', $value_sets) . ')';
     unset($insert_command, $query_fields);
     return $query;
 }
