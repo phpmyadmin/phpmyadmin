@@ -438,7 +438,7 @@ class PMA_Header
             $retval .= '<link rel="stylesheet" type="text/css" href="'
                 . $basedir . 'phpmyadmin.css.php'
                 . $common_url . '&amp;nocache='
-                . $theme_id . '" />';
+                . $theme_id . $GLOBALS['text_dir'] . '" />';
             $retval .= '<link rel="stylesheet" type="text/css" href="'
                 . $theme_path . '/jquery/jquery-ui-1.8.16.custom.css" />';
         }
