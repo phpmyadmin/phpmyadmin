@@ -249,7 +249,7 @@ var AJAX = {
             var scripts = this._scriptsToBeLoaded;
             if (scripts.length > 0) {
                 var script = scripts.shift();
-                if (this._scripts.indexOf(script) === -1) {
+                if ($.inArray(script, this._scripts) == -1) {
                     this.add(script);
                     var self = this;
                     $.getScript('js/' + script, function () {
