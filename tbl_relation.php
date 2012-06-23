@@ -175,7 +175,7 @@ if (isset($destination) && $cfgRelation['relwork']) {
                             . ' AND master_field = \'' . PMA_sqlAddSlashes($master_field) . '\'';
         } // end if... else....
         if ($upd_query) {
-            PMA_query_as_controluser($upd_query);
+            PMA_queryAsControlUser($upd_query);
         }
     } // end while
 } // end if (updates for internal relations)
@@ -321,7 +321,7 @@ if ($cfgRelation['displaywork'] && isset($display_field)) {
     }
 
     if ($upd_query) {
-        PMA_query_as_controluser($upd_query);
+        PMA_queryAsControlUser($upd_query);
     }
 } // end if
 

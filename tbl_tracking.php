@@ -655,7 +655,7 @@ $sql_query = " SELECT DISTINCT db_name, table_name FROM " .
              " WHERE db_name = '" . PMA_sqlAddSlashes($GLOBALS['db']) . "' " .
              " ORDER BY db_name, table_name";
 
-$sql_result = PMA_query_as_controluser($sql_query);
+$sql_result = PMA_queryAsControlUser($sql_query);
 
 if (PMA_DBI_num_rows($sql_result) > 0) {
 ?>
@@ -696,7 +696,7 @@ $sql_query = " SELECT * FROM " .
              " AND table_name = '" . PMA_sqlAddSlashes($_REQUEST['table']) ."' ".
              " ORDER BY version DESC ";
 
-$sql_result = PMA_query_as_controluser($sql_query);
+$sql_result = PMA_queryAsControlUser($sql_query);
 
 $last_version = 0;
 $maxversion = PMA_DBI_fetch_array($sql_result);

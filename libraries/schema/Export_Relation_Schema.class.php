@@ -198,7 +198,7 @@ class PMA_Export_Relation_Schema
             . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
             . ' AND pdf_page_number = ' . $pageNumber;
 
-        $tab_rs = PMA_query_as_controluser($tab_sql, null, PMA_DBI_QUERY_STORE);
+        $tab_rs = PMA_queryAsControlUser($tab_sql, null, PMA_DBI_QUERY_STORE);
         if (!$tab_rs || !PMA_DBI_num_rows($tab_rs) > 0) {
             $this->dieSchema('', __('This page does not contain any tables!'));
         }
