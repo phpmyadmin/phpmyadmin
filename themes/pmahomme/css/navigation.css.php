@@ -258,21 +258,25 @@ body#body_leftFrame {
     display: none;
 }
 
+#body_leftFrame #NavDbFilter,
+#body_leftFrame #NavFilter {
+    margin: 20px 10px 0px 10px;
+}
+
 #body_leftFrame #clear_fast_filter,
 #body_leftFrame #clear_fast_db_filter {
     background: white;
-    color: black;
+    color: #666;
     cursor: pointer;
     padding: 0;
     margin: 0;
-    position: relative;
-    right: 3ex;
 }
 
 #body_leftFrame #fast_filter,
 #body_leftFrame #fast_db_filter {
     width: 85%;
     padding: .1em;
+    margin: 0px;
 }
 
 #body_leftFrame #fast_filter.gray,

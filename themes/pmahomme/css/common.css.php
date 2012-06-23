@@ -282,6 +282,10 @@ fieldset legend {
     box-shadow: 3px 3px 15px #bbb;
 }
 
+fieldset table tbody tr td {
+    vertical-align: middle;
+}
+
 .some-margin {
     margin: 1.5em;
 }

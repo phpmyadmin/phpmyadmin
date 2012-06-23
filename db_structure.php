@@ -722,9 +722,17 @@ if (!$db_is_information_schema && !$cfg['DisableMultiTableMaintenance']) {
 }
 ?>
 </select>
+
+<?php
+echo '<a href="db_regexpedit.php?'.$url_query.'">'
+     .__('Regexp processing...').'</a>';
+?>
+
 <?php echo implode("\n", $hidden_fields) . "\n"; ?>
+
 </div>
 </form>
+
 <?php
 // display again the table list navigator
 echo PMA_getListNavigator(
