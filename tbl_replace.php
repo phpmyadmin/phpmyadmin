@@ -118,7 +118,7 @@ $gis_from_wkb_functions = array(
 
 // to create an object of PMA_File class
 require_once './libraries/File.class.php';
-    
+
 $query_fields = array();
 foreach ($loop_array as $rownumber => $where_clause) {
     // skip fields to be ignored
@@ -170,14 +170,14 @@ foreach ($loop_array as $rownumber => $where_clause) {
             $multi_edit_colummns[$key] = '';
         }
     }
-    
+
     // Iterate in the order of $multi_edit_columns_name, not $multi_edit_colummns,
     // to avoid problems when inserting multiple entries
     foreach ($multi_edit_columns_name as $key => $colummn_name) {
         $current_value = $multi_edit_colummns[$key];
-        // Note: $key is an md5 of the fieldname. The actual fieldname is 
+        // Note: $key is an md5 of the fieldname. The actual fieldname is
         // available in $multi_edit_columns_name[$key]
-        
+
         $file_to_insert = new PMA_File();
         $file_to_insert->checkTblChangeForm($key, $rownumber);
 
@@ -188,23 +188,28 @@ foreach ($loop_array as $rownumber => $where_clause) {
         }
         // delete $file_to_insert temporary variable
         $file_to_insert->cleanUp();
-        
-        $current_value = PMA_getCurrentValueForDifferentTypes($possibly_uploaded_val,
-            $key, $multi_edit_columns_type, $current_value, $multi_edit_auto_increment,
+
+        $current_value = PMA_getCurrentValueForDifferentTypes(
+            $possibly_uploaded_val, $key, $multi_edit_columns_type,
+            $current_value, $multi_edit_auto_increment,
             $rownumber, $multi_edit_columns_name, $multi_edit_columns_null,
-            $multi_edit_columns_null_prev, $is_insert, $using_key, $where_clause, $table);
-        
+            $multi_edit_columns_null_prev, $is_insert,
+            $using_key, $where_clause, $table
+        );
+
         $current_value_as_an_array = PMA_getCurrentValueAsAnArrayForMultipleEdit(
             $multi_edit_colummns, $multi_edit_columns_name, $multi_edit_funcs,
             $gis_from_text_functions, $current_value, $gis_from_wkb_functions,
-            $func_optional_param, $func_no_param, $key);
+            $func_optional_param, $func_no_param, $key
+        );
 
         list($query_values, $query_fields)
             = PMA_getQueryValuesForInsertAndUpdateInMultipleEdit(
-                $multi_edit_columns_name,$multi_edit_columns_null, $current_value,
-                $multi_edit_columns_prev, $multi_edit_funcs,$is_insert,$query_values,
-                $query_fields, $current_value_as_an_array, $value_sets, $key,
-                $multi_edit_columns_null_prev);
+                $multi_edit_columns_name, $multi_edit_columns_null, $current_value,
+                $multi_edit_columns_prev, $multi_edit_funcs, $is_insert,
+                $query_values, $query_fields, $current_value_as_an_array,
+                $value_sets, $key, $multi_edit_columns_null_prev
+            );
     } //end of foreach
 
     if (count($query_values) > 0) {
@@ -244,7 +249,8 @@ unset($multi_edit_colummns, $is_insertignore);
  * page
  */
 list ($url_params, $total_affected_rows, $last_messages, $warning_messages,
-    $error_messages, $return_to_sql_query) = PMA_executeSqlQuery($url_params, $query);
+    $error_messages, $return_to_sql_query)
+        = PMA_executeSqlQuery($url_params, $query);
 
 if ($is_insert && count($value_sets) > 0) {
     $message = PMA_Message::inserted_rows($total_affected_rows);
@@ -284,15 +290,16 @@ if ($response->isAjax()) {
         parse_str($_REQUEST['rel_fields_list'], $relation_fields);
 
         // loop for each relation cell
-        foreach ( $relation_fields as $cell_index => $curr_cell_rel_field) {
-            foreach ( $curr_cell_rel_field as $relation_field => $relation_field_value) {
+        foreach ($relation_fields as $cell_index => $curr_cell_rel_field) {
+            foreach ($curr_cell_rel_field as $relation_field => $relation_field_value) {
                 $where_comparison = "='" . $relation_field_value . "'";
                 $dispval = PMA_getDisplayValueForForeignTableColumn(
                     $where_comparison, $relation_field_value, $map, $relation_field
                 );
 
                 $extra_data['relations'][$cell_index] = PMA_getLinkForRelationalDisplayField(
-                    $map, $relation_field, $where_comparison, $dispval, $relation_field_value
+                    $map, $relation_field, $where_comparison,
+                    $dispval, $relation_field_value
                 );
             }
         }   // end of loop for each relation cell
@@ -315,12 +322,16 @@ if ($response->isAjax()) {
             $column_name = $transformation['column_name'];
             $extra_data = PMA_getTransformationFunctionAndTransformationOptions(
                 $db, $table, $transformation, $edited_values, $include_file,
-                $column_name, $extra_data, $include_file);
+                $column_name, $extra_data, $include_file
+            );
         }   // end of loop for each $mime_map
     }
 
     /**Get the total row count of the table*/
-    $extra_data['row_count'] = PMA_Table::countRecords($_REQUEST['db'], $_REQUEST['table']);
+    $extra_data['row_count'] = PMA_Table::countRecords(
+        $_REQUEST['db'],
+        $_REQUEST['table']
+    );
     $extra_data['sql_query'] = PMA_getMessage($message, $GLOBALS['display_query']);
 
     $response->isSuccess($message->isSuccess());
