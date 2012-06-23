@@ -17,7 +17,7 @@ if (! defined('PHPMYADMIN')) {
  * @package PhpMyAdmin
  * @see     Official ZIP file format: http://www.pkware.com/support/zip-app-note
  */
-class zipfile
+class ZipFile
 {
     /**
      * Whether to echo zip as it's built or return as string from -> file
@@ -212,5 +212,5 @@ class zipfile
         }
     } // end of the 'file()' method
 
-} // end of the 'zipfile' class
+} // end of the 'ZipFile' class
 ?>

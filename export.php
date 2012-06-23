@@ -746,7 +746,7 @@ if (! empty($asfile)) {
     // 1. as a zipped file
     if ($compression == 'zip') {
         if (@function_exists('gzcompress')) {
-            $zipfile = new zipfile();
+            $zipfile = new ZipFile();
             $zipfile -> addFile($dump_buffer, substr($filename, 0, -4));
             $dump_buffer = $zipfile -> file();
         }

@@ -47,7 +47,7 @@ foreach ($parameters as $key => $value) {
 
 PMA_downloadHeader($name, 'application/webapp', 0, false);
 
-$zip = new zipfile;
+$zip = new ZipFile;
 $zip->setDoWrite();
 $zip->addFile($ini_file, 'webapp.ini');
 $zip->addFile(file_get_contents($icon), 'phpMyAdmin.ico');
