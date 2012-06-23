@@ -318,7 +318,7 @@ if ($asfile) {
         }
     }
     $filename = PMA_expandUserString($filename_template);
-    $filename = PMA_sanitize_filename($filename);
+    $filename = PMA_sanitizeFilename($filename);
 
     // Grab basic dump extension and mime type
     // Check if the user already added extension;
@@ -392,7 +392,7 @@ if (! $save_on_server) {
         // (avoid rewriting data containing HTML with anchors and forms;
         // this was reported to happen under Plesk)
         @ini_set('url_rewriter.tags', '');
-        $filename = PMA_sanitize_filename($filename);
+        $filename = PMA_sanitizeFilename($filename);
 
         PMA_downloadHeader($filename, $mime_type);
     } else {
