@@ -498,10 +498,6 @@ function PMA_updateTargetTables(
  * PMA_insertIntoTargetTable() inserts missing rows in the target table
  * using $array_insert[$matching_table_index]
  *
- * @todo this function uses undefined variables and is possibly broken:
- * $matching_tables, $matching_tables_fields, $remove_indexes_array,
- * $matching_table_keys
- *
  * @param array  $matching_table          matching table names
  * @param string $src_db                  name of source database
  * @param string $trg_db                  name of target database
@@ -540,6 +536,10 @@ function PMA_updateTargetTables(
  * @param bool   $display                 whether to display query
  *
  * @return nothing
+ *
+ * @todo this function uses undefined variables and is possibly broken:
+ * $matching_tables, $matching_tables_fields, $remove_indexes_array,
+ * $matching_table_keys
  */
 function PMA_insertIntoTargetTable($matching_table, $src_db, $trg_db, $src_link,
     $trg_link, $table_fields, &$array_insert, $matching_table_index,
