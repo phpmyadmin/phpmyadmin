@@ -307,8 +307,9 @@ if (!$GLOBALS['sqlvalidator_error']) {
          * @return void
          * @access public
          */
-        function setConnectionTechnology($connection_technology, $connection_technology_version)
-        {
+        function setConnectionTechnology(
+            $connection_technology, $connection_technology_version
+        ) {
             $this->connection_technology         = $connection_technology;
             $this->connection_technology_version = $connection_technology_version;
         } // end of the "setConnectionTechnology()" function
@@ -323,8 +324,9 @@ if (!$GLOBALS['sqlvalidator_error']) {
          * @return void
          * @access public
          */
-        function appendConnectionTechnology($connection_technology, $connection_technology_version)
-        {
+        function appendConnectionTechnology(
+            $connection_technology, $connection_technology_version
+        ) {
             $this->connection_technology         .= ' - ' . $connection_technology;
             $this->connection_technology_version .= ' - ' . $connection_technology_version;
         } // end of the "appendConnectionTechnology()" function

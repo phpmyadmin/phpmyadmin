@@ -23,7 +23,8 @@ define('PMA_ENGINE_DETAILS_TYPE_NUMERIC',   2); //Has no effect yet...
 define('PMA_ENGINE_DETAILS_TYPE_BOOLEAN',   3); // 'ON' or 'OFF'
 
 /**
- * base Storage Engine Class
+ * Base Storage Engine Class
+ *
  * @package PhpMyAdmin
  */
 class PMA_StorageEngine
@@ -75,7 +76,8 @@ class PMA_StorageEngine
                         AND p.plugin_name NOT IN ('FunctionEngine', 'schema')";
                 $storage_engines = PMA_DBI_fetch_result($sql, 'Engine');
             } else {
-                $storage_engines = PMA_DBI_fetch_result('SHOW STORAGE ENGINES', 'Engine');
+                $storage_engines
+                    = PMA_DBI_fetch_result('SHOW STORAGE ENGINES', 'Engine');
             }
         }
 
@@ -88,7 +90,8 @@ class PMA_StorageEngine
      * @param string  $name                    The name of the select form element
      * @param string  $id                      The ID of the form field
      * @param string  $selected                The selected engine
-     * @param boolean $offerUnavailableEngines Should unavailable storage engines be offered?
+     * @param boolean $offerUnavailableEngines Should unavailable storage
+     *                                         engines be offered?
      *
      * @static
      * @return string  html selectbox
@@ -116,8 +119,10 @@ class PMA_StorageEngine
             $output .= '    <option value="' . htmlspecialchars($key). '"'
                 . (empty($details['Comment'])
                     ? '' : ' title="' . htmlspecialchars($details['Comment']) . '"')
-                . (strtolower($key) == $selected || (empty($selected) && $details['Support'] == 'DEFAULT')
-                    ? ' selected="selected"' : '') . '>' . "\n"
+                . (strtolower($key) == $selected
+                    || (empty($selected) && $details['Support'] == 'DEFAULT')
+                    ? ' selected="selected"' : '')
+                . '>' . "\n"
                 . '        ' . htmlspecialchars($details['Engine']) . "\n"
                 . '    </option>' . "\n";
         }
@@ -214,7 +219,7 @@ class PMA_StorageEngine
     }
 
     /**
-     * returns the engine specific handling for
+     * Returns the engine specific handling for
      * PMA_ENGINE_DETAILS_TYPE_SIZE type variables.
      *
      * This function should be overridden when
