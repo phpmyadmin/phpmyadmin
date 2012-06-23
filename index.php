@@ -360,14 +360,6 @@ PMA_printListItem(
 
 </div>
 
-<?php
-/**
- * BUG: MSIE needs two <br /> here, otherwise it will not extend the outer div to the
- * full height of the inner divs
- */
-?>
-<br class="clearfloat" />
-<br class="clearfloat" />
 </div>
 
 <?php
