@@ -116,18 +116,6 @@ $scripts->addCode(
     };'
 );
 
-require 'libraries/navigation_header.inc.php';
-
-// display recently used tables
-if ($GLOBALS['cfg']['LeftRecentTable'] > 0) {
-    echo '<div id="recentTableList">' . "\n"
-        .'<form method="post" action="main.php" target="_parent">' . "\n"
-        .PMA_generate_common_hidden_inputs() . "\n"
-        .PMA_RecentTable::getInstance()->getHtmlSelect()
-        .'</form>' . "\n"
-        .'</div>' . "\n";
-}
-
 if (! $GLOBALS['server']) {
     // no server selected
     PMA_exitNavigationFrame();

@@ -162,7 +162,7 @@ var AJAX = {
                 menuResize();
             }
 
-            $('body').children().not('#floating_menubar').not('#page_content').not('#selflink').remove();
+            $('body').children().not('#pma_navigation').not('#floating_menubar').not('#page_content').not('#selflink').remove();
 
             $('#page_content').replaceWith("<div id='page_content'>" + data.message + "</div>");
             if (data.sql_query) {

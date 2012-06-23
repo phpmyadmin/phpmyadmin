@@ -2816,7 +2816,7 @@ AJAX.registerOnload('functions.js', function() {
 function menuResize()
 {
     var $cnt = $('#topmenu');
-    var wmax = $cnt.innerWidth() - 5; // 5 px margin for jumping menu in Chrome
+    var wmax = $cnt.innerWidth() - $('#pma_navigation').width() - 5 ; // 5 px margin for jumping menu in Chrome
     var $submenu = $cnt.find('.submenu');
     var submenu_w = $submenu.outerWidth(true);
     var $submenu_ul = $submenu.find('ul');
@@ -3614,11 +3614,13 @@ AJAX.registerOnload('functions.js', function() {
      * Makes the breadcrumbs and the menu bar float at the top of the viewport
      */
     if ($("#floating_menubar").length && $('#PMA_disable_floating_menubar').length == 0) {
+        var left = $('html').attr('dir') == 'ltr' ? 'left' : 'right';
         $("#floating_menubar")
+            .css('margin-' + left, $('#pma_navigation').width())
+            .css(left, 0)
             .css({
                 'position': 'fixed',
                 'top': 0,
-                'left': 0,
                 'width': '100%',
                 'z-index': 500
             })
@@ -3628,6 +3630,7 @@ AJAX.registerOnload('functions.js', function() {
             'padding-top',
             $('#floating_menubar').outerHeight(true)
         );
+        menuResize();
     }
 
     /**
@@ -3774,4 +3777,15 @@ AJAX.registerOnload('functions.js', function () {
     var $loginform = $('#loginform');
     $loginform.find('.js-show').show();
     $loginform.find('#input_username').select();
+});
+
+// Load the navigation into the initial page
+$(function () {
+    if ($('body#loginform').length == 0) {
+        $.get('navigation.php', {ajax_request: true}, function (data) {
+            if (data.success) {
+                $('#pma_navigation_tree').html(data.message);
+            }
+        });
+    }
 });
