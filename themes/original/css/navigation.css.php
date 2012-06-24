@@ -84,7 +84,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     font-style: normal;
 }
 
-#pma_navigation div#navidbpageselector a,
+#pma_navigation div.pageselector a,
 #pma_navigation ul#databaseList a {
     background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
     color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;

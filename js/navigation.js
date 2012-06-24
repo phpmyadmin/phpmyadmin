@@ -254,6 +254,18 @@ function PMA_reloadRecentTable()
 
 /* Performed on load */
 AJAX.registerOnload('navigation.js', function(){
+
+    $('#pma_navigation_tree div.pageselector a.ajax').live('click', function (e) {
+        e.preventDefault();
+        var $msgbox = PMA_ajaxShowMessage();
+        $.get($(this).attr('href'), {ajax_request: true}, function (data) {
+            PMA_ajaxRemoveMessage($msgbox);
+            if (data.success) {
+                $('#pma_navigation_tree').html(data.message);
+            }
+        });
+    });
+
     /* Display filter */
     $('#NavFilter').css('display', 'inline');
     var txt = $('#fast_filter').val();

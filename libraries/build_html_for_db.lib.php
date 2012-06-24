@@ -94,7 +94,7 @@ function PMA_buildHtmlForDb(
                __('Jump to database'),
                htmlspecialchars($current['SCHEMA_NAME'])
            )
-           . '" target="_parent">'
+           . '">'
            . ' ' . htmlspecialchars($current['SCHEMA_NAME'])
            . '</a>'
            . '</td>';

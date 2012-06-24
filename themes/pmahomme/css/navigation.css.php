@@ -94,13 +94,13 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     border-<?php echo $right; ?>: 1px solid #aaa;
 }
 
-#pma_navigation div#navidbpageselector {
+#pma_navigation div.pageselector {
     margin: .1em;
     text-align: center;
 }
 
-#pma_navigation div#navidbpageselector a,
-#pma_navigation div#navidbpageselector select{
+#pma_navigation div.pageselector a,
+#pma_navigation div.pageselector select{
     color: #333;
     margin: .2em;
 }

@@ -56,7 +56,7 @@ class PMA_NavigationHeader
                     case 'main':
                         // do not add our parameters for an external link
                         if (substr(strtolower($GLOBALS['cfg']['LeftLogoLink']), 0, 4) !== '://') {
-                            $retval .= '?' . $GLOBALS['url_query'] . '" target="frame_content"';
+                            $retval .= '?' . $GLOBALS['url_query'] . '"';
                         } else {
                             $retval .= '" target="_blank"';
                         }
@@ -95,8 +95,8 @@ class PMA_NavigationHeader
             // Logout for advanced authentication
             if ($GLOBALS['cfg']['Server']['auth_type'] != 'config') {
                 $retval .= '    <a href="index.php?' . $GLOBALS['url_query'] . '&amp;old_usr=';
-                $retval .= urlencode($GLOBALS['PHP_AUTH_USER']) . '" target="_parent"';
-                $retval .= ' title="' . __('Log out') . '" >';
+                $retval .= urlencode($GLOBALS['PHP_AUTH_USER']) . '"';
+                $retval .= ' title="' . __('Log out') . '" class="disableAjax">';
                 if ($GLOBALS['cfg']['NavigationBarIconic']) {
                        $retval .= '<img class="icon ic_s_loggoff" src="themes/dot.gif" alt="' . __('Log out') . '" /></a>';
                 } else {
@@ -140,7 +140,7 @@ class PMA_NavigationHeader
         if (!empty($GLOBALS['db'])) {
             $params['db'] = $GLOBALS['db'];
         }
-        $retval .= '    <a href="navigation.php?' . PMA_generate_common_url($params) . '" target="frame_navigation">';
+        $retval .= '    <a href="#" id="reloadNavigation">';
         if ($GLOBALS['cfg']['NavigationBarIconic']) {
             $retval .= '<img class="icon ic_s_reload" src="themes/dot.gif"';
             $retval .= ' title="' . __('Reload navigation frame') . '"';
@@ -185,7 +185,7 @@ class PMA_NavigationHeader
         if ($GLOBALS['cfg']['LeftRecentTable'] > 0) {
             $retval .= '<!-- RECENT START -->';
             $retval .= '<div id="recentTableList">';
-            $retval .= '    <form method="post" action="index.php" target="_parent">';
+            $retval .= '    <form method="post" action="index.php">';
             $retval .= '        ' . PMA_generate_common_hidden_inputs();
             $retval .= PMA_RecentTable::getInstance()->getHtmlSelect();
             $retval .= '    </form>';

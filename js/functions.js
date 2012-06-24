@@ -3182,24 +3182,24 @@ AJAX.registerOnload('functions.js', function() {
     });
 
     /**
-     * Page selector in db Structure (non-AJAX)
+     * Autosubmit page selector
      */
-    $('#tableslistcontainer').find('#pageselector').live('change', function() {
-        $(this).parent("form").submit();
-    });
-
-    /**
-     * Page selector in navi panel (non-AJAX)
-     */
-    $('#navidbpageselector').find('#pageselector').live('change', function() {
-        $(this).parent("form").submit();
-    });
-
-    /**
-     * Page selector in browse_foreigners windows (non-AJAX)
-     */
-    $('#body_browse_foreigners').find('#pageselector').live('change', function() {
-        $(this).closest("form").submit();
+    $('select.pageselector').live('change', function() {
+        // Check where to load the new content
+        // For the main page we don't need to do anything,
+        // but for the navigation we need to manually replace the content
+        if ($(this).closest("div#pma_navigation").length == 0) {
+            $(this).closest("form").submit();
+        } else {
+            var $msgbox = PMA_ajaxShowMessage();
+            var params = $(this).closest("form").serialize() + '&ajax_request=true';
+            $.get('navigation.php', params, function (data) {
+                PMA_ajaxRemoveMessage($msgbox);
+                if (data.success) {
+                    $('#pma_navigation_tree').html(data.message);
+                }
+            });
+        }
     });
 
     /**

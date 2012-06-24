@@ -2427,7 +2427,7 @@ class PMA_Util
         $pageNowMinusRange = ($pageNow - $range);
         $pageNowPlusRange = ($pageNow + $range);
 
-        $gotopage = $prompt . ' <select id="pageselector" ';
+        $gotopage = $prompt . ' <select class="pageselector" ';
         if ($GLOBALS['cfg']['AjaxEnable']) {
             $gotopage .= ' class="ajax"';
         }
@@ -2554,17 +2554,18 @@ class PMA_Util
     public static function getListNavigator(
         $count, $pos, $_url_params, $script, $frame, $max_count
     ) {
+
+        $class = $frame == 'frame_navigation' ? ' class="ajax"' : '';
+
         $list_navigator_html = '';
 
         if ($max_count < $count) {
 
-            $list_navigator_html .= ($frame == 'frame_navigation')
-                ? '<div id="navidbpageselector">' . "\n"
-                : '';
+            $list_navigator_html .= '<div class="pageselector">';
 
-            $list_navigator_html .= __('Page number:');
-
-            $list_navigator_html .= ($frame == 'frame_navigation') ? '<br />' : ' ';
+            if ($frame != 'frame_navigation') {
+                $list_navigator_html .= __('Page number:');
+            }
 
             // Move to the beginning or to the previous page
             if ($pos > 0) {
@@ -2583,18 +2584,16 @@ class PMA_Util
                 } // end if... else...
 
                 $_url_params['pos'] = 0;
-                $list_navigator_html .= '<a' . $title1 . ' href="' . $script
-                    . PMA_generate_common_url($_url_params) . '" target="'
-                    . $frame . '">' . $caption1 . '</a>';
+                $list_navigator_html .= '<a' . $class . $title1 . ' href="' . $script
+                    . PMA_generate_common_url($_url_params) . '">' . $caption1 . '</a>';
 
                 $_url_params['pos'] = $pos - $max_count;
-                $list_navigator_html .= '<a' . $title2 . ' href="' . $script
-                    . PMA_generate_common_url($_url_params) . '" target="'
-                    . $frame . '">' . $caption2 . '</a>';
+                $list_navigator_html .= '<a' . $class . $title2 . ' href="' . $script
+                    . PMA_generate_common_url($_url_params) . '">' . $caption2 . '</a>';
             }
 
-            $list_navigator_html .= "\n" . '<form action="' . basename($script).
-                '" method="post" target="' . $frame . '">' . "\n";
+            $list_navigator_html .= '<form action="' . basename($script).
+                '" method="post">';
 
             $list_navigator_html .= PMA_generate_common_hidden_inputs($_url_params);
             $list_navigator_html .= self::pageselector(
@@ -2618,24 +2617,18 @@ class PMA_Util
                 } // end if... else...
 
                 $_url_params['pos'] = $pos + $max_count;
-                $list_navigator_html .= '<a' . $title3 . ' href="' . $script
-                    . PMA_generate_common_url($_url_params) . '" target="'
-                    . $frame . '">' . $caption3 . '</a>';
+                $list_navigator_html .= '<a' . $class . $title3 . ' href="' . $script
+                    . PMA_generate_common_url($_url_params) . '" >' . $caption3 . '</a>';
 
                 $_url_params['pos'] = floor($count / $max_count) * $max_count;
                 if ($_url_params['pos'] == $count) {
                     $_url_params['pos'] = $count - $max_count;
                 }
 
-                $list_navigator_html .= '<a' . $title4 . ' href="' . $script
-                    . PMA_generate_common_url($_url_params) . '" target="'
-                    . $frame . '">' . $caption4 . '</a>';
+                $list_navigator_html .= '<a' . $class . $title4 . ' href="' . $script
+                    . PMA_generate_common_url($_url_params) . '" >' . $caption4 . '</a>';
             }
-
-            $list_navigator_html .= "\n";
-            if ('frame_navigation' == $frame) {
-                $list_navigator_html .= '</div>' . "\n";
-            }
+            $list_navigator_html .= '</div>' . "\n";
         }
 
         return $list_navigator_html;

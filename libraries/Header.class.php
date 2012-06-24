@@ -170,6 +170,7 @@ class PMA_Header
             . urlencode($_SESSION['PMA_Theme']->getId())
         );
         $this->_scripts->addFile('functions.js');
+        $this->_scripts->addFile('navigation.js');
         $this->_scripts->addCode(
             PMA_Util::getReloadNavigationScript(true)
         );
