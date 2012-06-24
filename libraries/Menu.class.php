@@ -238,12 +238,7 @@ class PMA_Menu
     {
         $db_is_information_schema = PMA_is_system_schema($this->_db);
         $tbl_is_view = PMA_Table::isView($this->_db, $this->_table);
-
-        $table_status = PMA_Table::sGetStatusInfo($this->_db, $this->_table);
-        $table_info_num_rows = 0;
-        if (isset($table_status['Rows'])) {
-            $table_info_num_rows = $table_status['Rows'];
-        }
+        $table_info_num_rows = PMA_Table::countRecords($this->_db, $this->_table);
 
         $tabs = array();
 
