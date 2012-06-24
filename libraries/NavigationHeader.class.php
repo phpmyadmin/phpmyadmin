@@ -188,8 +188,14 @@ class PMA_NavigationHeader
         if ($GLOBALS['cfg']['LeftRecentTable'] > 0) {
             $retval .= '<!-- RECENT START -->';
             $retval .= '<div id="recentTableList">';
-            $retval .= '    <form method="post" action="index.php">';
-            $retval .= '        ' . PMA_generate_common_hidden_inputs();
+            $retval .= '<form method="post" action="' . $GLOBALS['cfg']['LeftDefaultTabTable'] . '">';
+            $retval .= PMA_generate_common_hidden_inputs(
+                array(
+                    'db' => '',
+                    'table' => '',
+                    'server' => $GLOBALS['server']
+                )
+            );
             $retval .= PMA_RecentTable::getInstance()->getHtmlSelect();
             $retval .= '    </form>';
             $retval .= '</div>';

@@ -306,12 +306,13 @@ $(function(){
     });
 
     /* Jump to recent table */
-    $('#recentTable').change(function() {
+    $('#recentTable').live('change', function() {
         if (this.value != '') {
             var arr = jQuery.parseJSON(this.value);
-            window.parent.setDb(arr['db']);
-            window.parent.setTable(arr['table']);
-            window.parent.refreshMain($('#LeftDefaultTabTable')[0].value);
+            var $form = $(this).closest('form');
+            $form.find('input[name=db]').val(arr['db']);
+            $form.find('input[name=table]').val(arr['table']);
+            $form.submit();
         }
     });
 
