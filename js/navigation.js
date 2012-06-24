@@ -253,7 +253,7 @@ function PMA_reloadRecentTable()
 }
 
 /* Performed on load */
-AJAX.registerOnload('navigation.js', function(){
+$(function(){
 
     $('#pma_navigation_tree div.pageselector a.ajax').live('click', function (e) {
         e.preventDefault();
