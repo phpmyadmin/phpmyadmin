@@ -208,18 +208,16 @@ body#body_leftFrame {
 
 #body_leftFrame #clear_fast_filter,
 #body_leftFrame #clear_fast_db_filter {
-    background: white;
     color: black;
     cursor: pointer;
     padding: 0;
     margin: 3px 5px 0 -23px;
-    position: relative;
     float: right;
 }
 
 #body_leftFrame #fast_filter,
 #body_leftFrame #fast_db_filter {
-    width: 100%;
+    width: 90%;
     padding: 2px 0;
     margin: 0;
     border: 0;
