@@ -260,19 +260,24 @@ body#body_leftFrame {
 
 #body_leftFrame #clear_fast_filter,
 #body_leftFrame #clear_fast_db_filter {
-    background: white;
     color: black;
     cursor: pointer;
     padding: 0;
     margin: 0;
-    position: relative;
-    right: 3ex;
 }
 
-#body_leftFrame #fast_filter,
+#body_leftFrame #fast_filter {
+    width: 85%;
+    padding: .1em;
+    margin-right: 0;
+    margin-left: 0;
+}
+
 #body_leftFrame #fast_db_filter {
     width: 85%;
     padding: .1em;
+    margin-right: 0;
+    margin-left: 10px;
 }
 
 #body_leftFrame #fast_filter.gray,
