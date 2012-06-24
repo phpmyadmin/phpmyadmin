@@ -238,49 +238,6 @@ class PMA_Table
     }
 
     /**
-     * loads structure data
-     * (this function is work in progress? not yet used)
-     *
-     * @return boolean
-     */
-    function loadStructure()
-    {
-        $table_info = PMA_DBI_get_tables_full(
-            $this->getDbName(),
-            $this->getName()
-        );
-
-        if (false === $table_info) {
-            return false;
-        }
-
-        $this->settings = $table_info;
-
-        if ($this->get('TABLE_ROWS') === null) {
-            $this->set(
-                'TABLE_ROWS',
-                PMA_Table::countRecords(
-                    $this->getDbName(),
-                    $this->getName(),
-                    true
-                )
-            );
-        }
-
-        $create_options = explode(' ', $this->get('TABLE_ROWS'));
-
-        // export create options by its name as variables into global namespace
-        // f.e. pack_keys=1 becomes available as $pack_keys with value of '1'
-        foreach ($create_options as $each_create_option) {
-            $each_create_option = explode('=', $each_create_option);
-            if (isset($each_create_option[1])) {
-                $this->set($$each_create_option[0], $each_create_option[1]);
-            }
-        }
-        return true;
-    }
-
-    /**
      * Checks if this is a merge table
      *
      * If the ENGINE of the table is MERGE or MRG_MYISAM (alias),
