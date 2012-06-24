@@ -3231,13 +3231,17 @@ AJAX.registerOnload('functions.js', function() {
         return false;
     });
 
-    $('#update_recent_tables').ready(function() {
-        if (window.parent.frame_navigation != undefined
-            && window.parent.frame_navigation.PMA_reloadRecentTable != undefined)
-        {
-            window.parent.frame_navigation.PMA_reloadRecentTable();
-        }
-    });
+    if ($('#update_recent_tables').length) {
+        $.get(
+            $('#update_recent_tables').attr('href'),
+            function (data) {
+                if (data.success == true) {
+                    $('#recentTable').html(data.options);
+                }
+            }
+        );
+    }
+
 }); // end of $()
 
 /**

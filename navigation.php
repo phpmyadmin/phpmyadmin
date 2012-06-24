@@ -25,19 +25,6 @@ function PMA_exitNavigationFrame()
 }
 
 require_once 'libraries/Util.class.php';
-require_once 'libraries/RecentTable.class.php';
-
-/**
- * Check if it is an ajax request to reload the recent tables list.
- */
-if ($GLOBALS['is_ajax_request'] && $_REQUEST['recent_table']) {
-    $response = PMA_Response::getInstance();
-    $response->addJSON(
-        'options',
-        PMA_RecentTable::getInstance()->getHtmlSelectOption()
-    );
-    exit;
-}
 
 // keep the offset of the db list in session before closing it
 if (! isset($_SESSION['tmp_user_values']['navi_limit_offset'])) {

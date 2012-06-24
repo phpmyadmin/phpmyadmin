@@ -235,23 +235,6 @@ function clear_fast_db_filter()
     fast_db_filter('');
 }
 
-/**
- * Reloads the recent tables list.
- */
-function PMA_reloadRecentTable()
-{
-    $.get('navigation.php', {
-            'token': window.parent.token,
-            'server': window.parent.server,
-            'ajax_request': true,
-            'recent_table': true},
-        function (data) {
-            if (data.success == true) {
-                $('#recentTable').html(data.options);
-            }
-        });
-}
-
 /* Performed on load */
 $(function(){
 

@@ -329,10 +329,6 @@ class PMA_Header
                 if (! $GLOBALS['cfg']['ShowHint']) {
                     $retval .= '<span id="no_hint" class="hide"></span>';
                 }
-                $retval .= $this->_addRecentTable(
-                    $GLOBALS['db'],
-                    $GLOBALS['table']
-                );
                 $retval .= $this->_getWarnings();
                 if ($this->_menuEnabled && $GLOBALS['server'] > 0) {
                     $retval .= $this->_menu->getDisplay();
@@ -349,6 +345,10 @@ class PMA_Header
                     }
                 }
             }
+            $retval .= $this->_addRecentTable(
+                $GLOBALS['db'],
+                $GLOBALS['table']
+            );
         }
         return $retval;
     }
@@ -545,7 +545,9 @@ class PMA_Header
         if ($this->_menuEnabled && strlen($table) && $GLOBALS['cfg']['LeftRecentTable'] > 0) {
             $tmp_result = PMA_RecentTable::getInstance()->add($db, $table);
             if ($tmp_result === true) {
-                $retval = '<span class="hide" id="update_recent_tables"></span>';
+                $params = array('ajax_request' => true, 'recent_table' => true);
+                $url = 'index.php' . PMA_generate_common_url($params);
+                $retval = '<a class="hide" id="update_recent_tables" href="' . $url . '"></a>';
             } else {
                 $error  = $tmp_result;
                 $retval = $error->getDisplay();

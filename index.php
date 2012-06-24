@@ -41,6 +41,18 @@ if (! empty($_REQUEST['target'])
     exit;
 }
 
+/**
+ * Check if it is an ajax request to reload the recent tables list.
+ */
+require_once 'libraries/RecentTable.class.php';
+if ($GLOBALS['is_ajax_request'] && ! empty($_REQUEST['recent_table'])) {
+    $response = PMA_Response::getInstance();
+    $response->addJSON(
+        'options',
+        PMA_RecentTable::getInstance()->getHtmlSelectOption()
+    );
+    exit;
+}
 
 if ($GLOBALS['PMA_Config']->isGitRevision()) {
     if (isset($_REQUEST['git_revision']) && $GLOBALS['is_ajax_request'] == true) {
