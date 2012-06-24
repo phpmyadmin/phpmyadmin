@@ -541,7 +541,7 @@ class PMA_Header
     private function _addRecentTable($db, $table)
     {
         $retval = '';
-        if (strlen($table) && $GLOBALS['cfg']['LeftRecentTable'] > 0) {
+        if ($this->_menuEnabled && strlen($table) && $GLOBALS['cfg']['LeftRecentTable'] > 0) {
             $tmp_result = PMA_RecentTable::getInstance()->add($db, $table);
             if ($tmp_result === true) {
                 $retval = '<span class="hide" id="update_recent_tables"></span>';
