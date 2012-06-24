@@ -22,6 +22,9 @@ class PMA_NavigationHeader
         $buffer .= $this->serverChoice();
         $buffer .= $this->recent();
         $buffer .= '<div id="pma_navigation_tree">';
+        $buffer .= '<div style="text-align:center; margin-top:1em;">';
+        $buffer .= PMA_getImage('ajax_clock_small.gif', __('Loading'));
+        $buffer .= '</div>';
         $buffer .= '</div>';
         $buffer .= '</div>';
         return $buffer;
