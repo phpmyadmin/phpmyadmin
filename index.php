@@ -38,6 +38,7 @@ if (! empty($_REQUEST['target'])
     && in_array($_REQUEST['target'], $goto_whitelist)
 ) {
     include $_REQUEST['target'];
+    exit;
 }
 
 
