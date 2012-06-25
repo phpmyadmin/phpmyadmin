@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * 
+ *
  *
  * @package PhpMyAdmin
  */
@@ -10,7 +10,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * 
+ *
  *
  * @package PhpMyAdmin
  */
@@ -85,7 +85,9 @@ class PMA_OutputBuffering
                 ob_start('ob_gzhandler');
             }
             ob_start();
-            header('X-ob_mode: ' . $this->_mode);
+            if (! defined('TESTSUITE')) {
+                header('X-ob_mode: ' . $this->_mode);
+            }
             register_shutdown_function('PMA_OutputBuffering::stop');
             $this->_on = true;
         }

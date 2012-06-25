@@ -575,6 +575,9 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
  */
 function PMA_noCacheHeader()
 {
+    if (defined('TESTSUITE')) {
+        return;
+    }
     // rfc2616 - Section 14.21
     header('Expires: ' . date(DATE_RFC1123));
     // HTTP/1.1
