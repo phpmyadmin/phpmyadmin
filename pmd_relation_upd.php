@@ -46,7 +46,7 @@ if (PMA_isForeignKeySupported($type_T1) && PMA_isForeignKeySupported($type_T2) &
 }
 if ($try_to_delete_internal_relation) {
     // internal relations
-    PMA_query_as_controluser(
+    PMA_queryAsControlUser(
         'DELETE FROM '
         . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
         . $cfg['Server']['relation'].' WHERE '

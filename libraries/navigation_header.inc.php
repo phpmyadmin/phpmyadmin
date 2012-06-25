@@ -101,7 +101,7 @@ echo '</div>' . "\n";
 if ($GLOBALS['cfg']['LeftDisplayServers'] && (count($GLOBALS['cfg']['Servers']) > 1 || $server == 0 && count($GLOBALS['cfg']['Servers']) == 1)) {
     echo '<div id="serverinfo">';
     include './libraries/select_server.lib.php';
-    PMA_select_server(true, true);
+    PMA_selectServer(true, true);
     echo '</div><br />';
 } // end if LeftDisplayServers
 ?>

@@ -214,7 +214,7 @@ class PMA_Schema_PDF extends PMA_PDF
                 . PMA_backquote($cfgRelation['pdf_pages'])
                 . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
                 . ' AND page_nr = \'' . $pdf_page_number . '\'';
-            $test_rs = PMA_query_as_controluser($test_query);
+            $test_rs = PMA_queryAsControlUser($test_query);
             $pages = @PMA_DBI_fetch_assoc($test_rs);
             $this->SetFont($this->_ff, 'B', 14);
             $this->Cell(0, 6, ucfirst($pages['page_descr']), 'B', 1, 'C');
@@ -443,7 +443,7 @@ class Table_Stats
              . ' WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\''
              . ' AND   table_name = \'' . PMA_sqlAddSlashes($tableName) . '\''
              . ' AND   pdf_page_number = ' . $pageNumber;
-        $result = PMA_query_as_controluser($sql, false, PMA_DBI_QUERY_STORE);
+        $result = PMA_queryAsControlUser($sql, false, PMA_DBI_QUERY_STORE);
         if (! $result || ! PMA_DBI_num_rows($result)) {
             $pdf->Error(
                 sprintf(
@@ -1144,7 +1144,7 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
             . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
             . PMA_backquote($cfgRelation['pdf_pages'])
             . ' WHERE page_nr = ' . $pageNumber;
-        $_name_rs = PMA_query_as_controluser($_name_sql);
+        $_name_rs = PMA_queryAsControlUser($_name_sql);
         if ($_name_rs) {
             $_name_row = PMA_DBI_fetch_row($_name_rs);
             $filename = $_name_row[0] . '.pdf';
