@@ -199,27 +199,45 @@ if (isset($_REQUEST['submit_search'])) {
 
         return $sql;
     } // end of the "PMA_getSearchSqls()" function
+    echo PMA_dbSearchGetSearchResults(
+        $tables_selected, $searched, $option_str,
+        $search_str, $search_option, (! empty($field_str) ? $field_str : '')
+    );
+} // end 1.
 
-
-    /**
-     * Displays the results
-     */
+/**
+ * Displays the results
+ *
+ * @param array   $tables_selected Tables on which search is to be performed
+ * @param string  $searched        The search word/phrase/regexp
+ * @param string  $option_str      Type of search
+ * @param string  $search_str      the string to search
+ * @param integer $search_option   type of search
+ *                                 (1 -> 1 word at least, 2 -> all words,
+ *                                 3 -> exact string, 4 -> regexp)
+ * @param string  $field_str       Restrict the search to this field
+ *
+ * @return string HTML results *
+ */
+function PMA_dbSearchGetSearchResults($tables_selected, $searched, $option_str,
+    $search_str, $search_option, $field_str = null
+) {
     $this_url_params = array(
         'db'    => $GLOBALS['db'],
         'goto'  => 'db_sql.php',
         'pos'   => 0,
         'is_js_confirmed' => 0,
     );
-
+    $html_output = '';
     // Displays search string
-    echo '<br />' . "\n"
-        . '<table class="data">' . "\n"
-        . '<caption class="tblHeaders">' . "\n"
+    $html_output .= '<br />'
+        . '<table class="data">'
+        . '<caption class="tblHeaders">'
         . sprintf(
             __('Search results for "<i>%s</i>" %s:'),
             $searched, $option_str
-        ) . "\n"
-        . '</caption>' . "\n";
+        )
+        . '</caption>';
 
     $num_search_result_total = 0;
     $odd_row = true;
@@ -230,47 +248,65 @@ if (isset($_REQUEST['submit_search'])) {
             $each_table, (! empty($field_str) ? $field_str : ''),
             $search_str, $search_option
         );
-
         // Executes the "COUNT" statement
         $res_cnt = PMA_DBI_fetch_value($newsearchsqls['select_count']);
         $num_search_result_total += $res_cnt;
 
-        $sql_query .= $newsearchsqls['select_count'];
-
-        echo '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">'
-            . '<td>' . sprintf(
-                _ngettext('%1$s match inside table <i>%2$s</i>', '%1$s matches inside table <i>%2$s</i>', $res_cnt),
-                $res_cnt, htmlspecialchars($each_table)
-            ) . "</td>\n";
+        $html_output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
+        $html_output .= '<td>';
+        $html_output .= sprintf(
+            _ngettext(
+                '%1$s match inside table <i>%2$s</i>',
+                '%1$s matches inside table <i>%2$s</i>', $res_cnt
+            ),
+            $res_cnt, htmlspecialchars($each_table)
+        );
+        $html_output .= '</td>';
 
         if ($res_cnt > 0) {
             $this_url_params['sql_query'] = $newsearchsqls['select_fields'];
-             $browse_result_path = 'sql.php' . PMA_generate_common_url($this_url_params);
-             ?>
-            <td> <a name="browse_search" href="<?php echo $browse_result_path; ?>" onclick="loadResult('<?php echo $browse_result_path ?> ',' <?php echo  $each_table?> ' , '<?php echo PMA_generate_common_url($GLOBALS['db'], $each_table)?>','<?php echo ($GLOBALS['cfg']['AjaxEnable']); ?>');return false;" ><?php echo __('Browse') ?></a>   </td>
-            <?php
+            $browse_result_path = 'sql.php' . PMA_generate_common_url($this_url_params);
+            $html_output .= '<td><a name="browse_search" href="'
+                . $browse_result_path . '" onclick="loadResult(\''
+                . $browse_result_path . '\',\'' . $each_table . '\',\''
+                . PMA_generate_common_url($GLOBALS['db'], $each_table) . '\',\''
+                . ($GLOBALS['cfg']['AjaxEnable']) .'\');return false;" >'
+                . __('Browse') . '</a></td>';
             $this_url_params['sql_query'] = $newsearchsqls['delete'];
             $delete_result_path = 'sql.php' . PMA_generate_common_url($this_url_params);
-            ?>
-            <td> <a name="delete_search" href="<?php echo $delete_result_path; ?>" onclick="deleteResult('<?php echo $delete_result_path ?>' , ' <?php printf(__('Delete the matches for the %s table?'), htmlspecialchars($each_table)); ?>','<?php echo ($GLOBALS['cfg']['AjaxEnable']); ?>');return false;" ><?php echo __('Delete') ?></a>   </td>
-            <?php
+            $html_output .= '<td><a name="delete_search" href="'
+                . $delete_result_path . '" onclick="deleteResult(\''
+                . $delete_result_path . '\' , \''
+                . sprintf(
+                    __('Delete the matches for the %s table?'),
+                    htmlspecialchars($each_table)
+                )
+                . '\',\'' . ($GLOBALS['cfg']['AjaxEnable']) . '\');return false;">'
+                . __('Delete') . '</a></td>';
         } else {
-            echo '<td>&nbsp;</td>' . "\n"
-                .'<td>&nbsp;</td>' . "\n";
+            $html_output .= '<td>&nbsp;</td>'
+                .'<td>&nbsp;</td>';
         }// end if else
         $odd_row = ! $odd_row;
-        echo '</tr>' . "\n";
+        $html_output .= '</tr>';
     } // end for
 
-    echo '</table>' . "\n";
+    $html_output .= '</table>';
 
     if (count($tables_selected) > 1) {
-        echo '<p>' . sprintf(
-            _ngettext('<b>Total:</b> <i>%s</i> match', '<b>Total:</b> <i>%s</i> matches', $num_search_result_total),
+        $html_output .= '<p>';
+        $html_output .= sprintf(
+            _ngettext(
+                '<b>Total:</b> <i>%s</i> match',
+                '<b>Total:</b> <i>%s</i> matches',
+                $num_search_result_total
+            ),
             $num_search_result_total
-        ) . '</p>' . "\n";
+        );
+        $html_output .= '</p>';
     }
-} // end 1.
+    return $html_output;
+}
 
 /**
  * If we are in an Ajax request, we need to exit after displaying all the HTML
