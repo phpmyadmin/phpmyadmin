@@ -1,6 +1,8 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * function used in or for navigation frame
+ *
+ * @package phpMyAdmin-Navigation
  */
 
 /**
@@ -13,44 +15,46 @@ var pma_saveframesize_timeout = null;
 
 /**
  * opens/closes (hides/shows) tree elements
- *
- * @param string  id          id of the element in the DOM
- * @param boolean only_open   do not close/hide element
+ * loads data via ajax
  */
-function toggle(id, only_open)
-{
-    var el = document.getElementById('subel' + id);
-    if (! el) {
-        return false;
-    }
-
-    var img = document.getElementById('el' + id + 'Img');
-
-    if (el.style.display == 'none' || only_open) {
-        el.style.display = '';
-        if (img) {
-            var newimg = PMA_getImage('b_minus.png');
-            img.className = newimg.attr('class');
-            img.src = newimg.attr('src');
-            img.alt = '-';
+$(document).ready(function() {
+	$('#pma_navigation_tree a.expander').live('click', function(event) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        var $this = $(this);
+        var $children = $this.closest('li').children('div.list_container');
+        var $icon = $this.parent().find('img');
+        if ($this.hasClass('loaded')) {
+	        if ($icon.is('.ic_b_plus')) {
+		        $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
+		        $children.show('fast');
+	        } else {
+		        $icon.removeClass('ic_b_minus').addClass('ic_b_plus');
+		        $children.hide('fast');
+	        }
+        } else {
+            var $destination = $this.closest('li');
+            var $throbber = $('.throbber').first().clone().show();
+            $icon.hide();
+            $throbber.insertBefore($icon);
+            $.get($this.attr('href'), {ajax_request: true}, function (data) {
+                if (data.success === true) {
+                    $this.addClass('loaded');
+                    $destination.find('div.list_container').remove(); // FIXME: Hack, there shouldn't be a list container there
+                    $destination.append(data.message);
+	                $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
+	                $destination.children('div.list_container').show('fast');
+                    if ($destination.find('ul > li').length == 1) {
+                        $destination.find('ul > li').find('a.expander.container').click();
+                    }
+                }
+                $icon.show();
+                $throbber.remove();
+            });
         }
-        // if only one sub-list, open as well
-        var $submenus = $(el).find("> li > ul");
-        var $sublinks = $(el).find("> li > a.item, > li > a.tableicon");
-        if ($submenus.length == 1 && $sublinks.length == 0) {
-            toggle($submenus.prop("id").split("subel").join(""), true);
-        }
-    } else {
-        el.style.display = 'none';
-        if (img) {
-            var newimg = PMA_getImage('b_plus.png');
-            img.className = newimg.attr('class');
-            img.src = newimg.attr('src');
-            img.alt = '+';
-        }
-    }
-    return true;
-}
+        $(this).blur();
+	});
+});
 
 function PMA_callFunctionDelayed(myfunction, delay)
 {
@@ -151,162 +155,82 @@ function PMA_setCookie(name, value, expires, path, domain, secure)
         ( (secure)  ? ";secure" : "");
 }
 
-/**
- * hide all LI elements with second A tag which doesn`t contain requested value
- *
- * @param string  value    requested value
- *
- */
-function fast_filter(value)
-{
-    var lowercase_value = value.toLowerCase();
-    var matches = 0;
-    var db = $('#lightm_db').val();
-    $('li.ajax_table').hide();
-    $("#subel0 a[class!='tableicon']").each(function(idx, elem) {
-        var $elem = $(elem);
-        // .indexOf is case sensitive so convert to lowercase to compare
-        if (value && $elem.html().toLowerCase().indexOf(lowercase_value) == -1) {
-            $elem.parent().hide();
-        } else {
-            $elem.parents('li').show();
-            matches = matches + 1;
-        }
-    });
-   
-    if (matches === 0) {  //If no local matches search in all tables
-        if (fast_filter.ajax_semaphore) { //If is true another request is running
-            return;
-        }
-        fast_filter.ajax_semaphore = true;
-        $.get('db_tables_search.php?db=' + db +'&table=' + lowercase_value, function(data) {
-            if (data.tables) {
-                var tables = data.tables;
-                var l = tables.length;        
-                for(var i = 0; i < l; i++) {          
-                    $('#subel0').append(tables[i].line);
-                }
-                fast_filter.ajax_semaphore = false;
-            }
-        });
-    }
-}
-
-fast_filter.ajax_semaphore = false; //If is true an Ajax request is running
-
-/**
- * Clears fast filter.
- */
-function clear_fast_filter()
-{
-    var $elm = $('#fast_filter');
-    $elm.val('');
-    fast_filter('');
-}
-
-/**
- * hide all LI elements with second A tag which doesn`t contain requested value
- *
- * @param string  value    requested value
- *
- */
-function fast_db_filter(value)
-{
-    var lowercase_value = value.toLowerCase();
- 
-    $('#databaseList li a').each(function(idx, elem) {
-        var $elem = $(elem);
-        if (value && $elem.html().toLowerCase().indexOf(lowercase_value) == -1) {
-            $elem.parent().hide();
-        } else {
-            $elem.parents('li').show();
-        }
-    });
-
-}
-
-/**
- * Clears fast database filter.
- */
-function clear_fast_db_filter()
-{
-    var $elm = $('#fast_db_filter');
-    $elm.val('');
-    fast_db_filter('');
-}
-
 /* Performed on load */
 $(function(){
 
     $('#pma_navigation_tree div.pageselector a.ajax').live('click', function (e) {
         e.preventDefault();
         var $msgbox = PMA_ajaxShowMessage();
-        $.get($(this).attr('href'), {ajax_request: true}, function (data) {
+        $.get($(this).attr('href'), {ajax_request: true, full: true}, function (data) {
             PMA_ajaxRemoveMessage($msgbox);
             if (data.success) {
-                $('#pma_navigation_tree').html(data.message);
+                $('#pma_navigation_tree').html(data.message).children('div').show();
             }
         });
     });
 
-    /* Display filter */
-    $('#NavFilter').css('display', 'inline');
-    var txt = $('#fast_filter').val();
-
-    $('#fast_filter.gray').live('focus', function() {
-        $(this).removeClass('gray');
-        clear_fast_filter();
-    });
-
-    $('#fast_filter:not(.gray)').live('focusout', function() {
-        var $input = $(this);
-        if ($input.val() == '') {
-            $input
-                .addClass('gray')
-                .val(txt);
+    // Node highlighting
+	$('#navigation_tree.highlight li:not(.fast_filter)').live('mouseover', function () {
+        if ($('li:visible', this).length == 0) {
+            $(this).css('background', '#ddd');
         }
     });
-
-    $('#clear_fast_filter').click(function() {
-        clear_fast_filter();
-        $('#fast_filter').focus();
+	$('#navigation_tree.highlight li:not(.fast_filter)').live('mouseout', function () {
+        $(this).css('background', '');
     });
 
-    $('#fast_filter').keyup(function(evt) {        
-        fast_filter($(this).val());
-        if ($(this).val() == '') { //Hides added tables by search
-          $('li.ajax_table').hide();
+    // FIXME: reintegrate ajax table filtering
+    // when the table pagination is implemented
+
+    // Bind "clear fast filter"
+    $('li.fast_filter > span').live('click', function () {
+        // Clear the input and apply the fast filter with empty input
+        var value = $(this).prev()[0].defaultValue;
+        $(this).prev().val(value).trigger('keyup');
+    });
+    // Bind "fast filter"
+    $('li.fast_filter > input').live('focus', function () {
+        if ($(this).val() == this.defaultValue) {
+            $(this).val('');
+        } else {
+            $(this).select();
         }
     });
-
-    /* Fast database filter */
-    var txtDb = $('#fast_db_filter').val();
-
-    $('#fast_db_filter.gray').live('focus', function() {
-        $(this).removeClass('gray');
-        clear_fast_db_filter();
-    });
-
-    $('#fast_db_filter:not(.gray)').live('focusout', function() {
-        var $input = $(this);
-        if ($input.val() == '') {
-            $input
-                .addClass('gray')
-                .val(txtDb);
+    $('li.fast_filter > input').live('blur', function () {
+        if ($(this).val() == '') {
+            $(this).val(this.defaultValue);
         }
     });
-
-    $('#clear_fast_db_filter').click(function() {
-        clear_fast_db_filter();
-        $('#fast_db_filter').focus();
+    $('li.fast_filter > input').live('keyup', function () {
+        var $obj = $(this).parent().parent();
+        var str = '';
+        if ($(this).val() != this.defaultValue) {
+            str = $(this).val().toLowerCase();
+        }
+        $obj.find('li > a').not('.container').each(function () {
+            if ($(this).text().toLowerCase().indexOf(str) != -1) {
+                $(this).parent().show().removeClass('hidden');
+            } else {
+                $(this).parent().hide().addClass('hidden');
+            }
+        });
+        var container_filter = function ($curr, str) {
+            $curr.children('li').children('a.container').each(function () {
+                var $group = $(this).parent().children('ul');
+                if ($group.children('li').children('a.container').length > 0) {
+                    container_filter($group); // recursive
+                }
+                $group.parent().show().removeClass('hidden');
+                if ($group.children().not('.hidden').length == 0) {
+                    $group.parent().hide().addClass('hidden');
+                }
+            });
+        };
+        container_filter($obj, str);
     });
 
-    $('#fast_db_filter').keyup(function(evt) {        
-        fast_db_filter($(this).val());
-    });
-
-    /* Jump to recent table */
-    $('#recentTable').live('change', function() {
+    // Jump to recent table
+    $('#recentTable').change(function() {
         if (this.value != '') {
             var arr = jQuery.parseJSON(this.value);
             var $form = $(this).closest('form');
@@ -315,26 +239,5 @@ $(function(){
             $form.submit();
         }
     });
-
-    /* Create table */
-    $('#newtable a.ajax').click(function(event){
-        event.preventDefault();
-        /*Getting the url */
-        var url = $('#newtable a').attr("href");
-        if (url.substring(0, 15) == "tbl_create.php?") {
-             url = url.substring(15);
-        }
-        url = url +"&num_fields=&ajax_request=true";
-        /*Creating a div on the frame_content frame */
-        var div = parent.frame_content.$('<div id="create_table_dialog"></div>');
-        var target = "tbl_create.php";
-
-        /*
-         * Calling to the createTableDialog function
-         * (needs to be done in the context of frame_content in order
-         *  for the qtip tooltips to work)
-         * */
-        parent.frame_content.PMA_createTableDialog(div , url , target);
-    });//end of create new table
 });//end of document get ready
 

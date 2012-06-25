@@ -3192,11 +3192,11 @@ AJAX.registerOnload('functions.js', function() {
             $(this).closest("form").submit();
         } else {
             var $msgbox = PMA_ajaxShowMessage();
-            var params = $(this).closest("form").serialize() + '&ajax_request=true';
+            var params = $(this).closest("form").serialize() + '&ajax_request=true&full=true';
             $.get('navigation.php', params, function (data) {
                 PMA_ajaxRemoveMessage($msgbox);
                 if (data.success) {
-                    $('#pma_navigation_tree').html(data.message);
+                    $('#pma_navigation_tree').html(data.message).children('div').show();
                 }
             });
         }
@@ -3785,10 +3785,11 @@ AJAX.registerOnload('functions.js', function () {
 
 // Load the navigation into the initial page
 $(function () {
-    if ($('body#loginform').length == 0) {
-        $.get('navigation.php', {ajax_request: true}, function (data) {
+    if ($('#pma_navigation_tree').length) {
+        var url = $('#pma_navigation_tree').find('a').attr('href');
+        $.get(url, function (data) {
             if (data.success) {
-                $('#pma_navigation_tree').html(data.message);
+                $('#pma_navigation_tree').html(data.message).children('div').show();
             }
         });
     }

@@ -16,14 +16,30 @@ class PMA_NavigationHeader
     public function getDisplay()
     {
         $this->_commonFunctions = PMA_CommonFunctions::getInstance();
+
+        $link_url = PMA_generate_common_url(
+            array(
+                'ajax_request' => true,
+                'full' => true
+            )
+        );
+        $link = sprintf(
+            '<a class="hide" href="navigation.php%s"></a>',
+            $link_url
+        );
+
         $buffer  = '<div id="pma_navigation">';
         $buffer .= $this->logo();
         $buffer .= $this->links();
         $buffer .= $this->serverChoice();
         $buffer .= $this->recent();
         $buffer .= '<div id="pma_navigation_tree">';
+        $buffer .= $link;
         $buffer .= '<div style="text-align:center; margin-top:1em;">';
-        $buffer .= PMA_getImage('ajax_clock_small.gif', __('Loading'));
+        $buffer .= $this->_commonFunctions->getImage(
+            'ajax_clock_small.gif',
+            __('Loading')
+        );
         $buffer .= '</div>';
         $buffer .= '</div>';
         $buffer .= '</div>';

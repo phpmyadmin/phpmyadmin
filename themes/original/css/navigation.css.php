@@ -66,169 +66,117 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 
 #pma_navigation div#pmalogo,
 #pma_navigation div#leftframelinks,
-#pma_navigation div#databaseList {
+#pma_navigation div#databaseList,
+#pma_navigation div.pageselector {
     text-align:         center;
     margin-bottom:      0.5em;
     padding-bottom:     0.5em;
 }
-
-#pma_navigation ul#databaseList {
-    margin-bottom:      0.5em;
-    padding-bottom:     0.5em;
-    padding-<?php echo $left; ?>:     1.5em;
-    font-style: italic;
+/* Navigation tree*/
+#pma_navigation_tree {
+    margin: 0.5em 0 0 1em;
+    color: black;
 }
-
-#pma_navigation ul#databaseList a {
-    display: block;
-    font-style: normal;
+#pma_navigation_tree a {
+    color: <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
 }
-
-#pma_navigation div.pageselector a,
-#pma_navigation ul#databaseList a {
-    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
-    color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+#pma_navigation_tree a:hover {
+    color: <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
+    text-decoration: underline;
 }
-
-#pma_navigation ul#databaseList ul {
-    padding-left: 1em;
-    padding-right: 0;
-}
-
-#pma_navigation ul#databaseList a:hover {
-    background:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
-    color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
-}
-
-#pma_navigation ul#databaseList li.selected a {
-    background: <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
-    color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
-}
-
-#pma_navigation div#leftframelinks .icon {
-    padding:            0;
-    margin:             0;
-}
-
-#pma_navigation div#leftframelinks a img.icon {
-    margin:             2px;
-    border:             0.1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
-    padding:            0;
-}
-
-#pma_navigation div#leftframelinks a:hover img {
-    background-color:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
-    color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
-}
-
-/* serverlist */
-#pma_navigation #list_server {
-    list-style-image: url(<?php echo $GLOBALS['cfg']['ThemePath']; ?>/original/img/s_host.png);
-    list-style-position: inside;
+#pma_navigation_tree ul {
+    clear: both;
+    padding: 0;
     list-style-type: none;
     margin: 0;
-    padding: 0;
+}
+#pma_navigation_tree ul ul {
+    position: relative;
+}
+#pma_navigation_tree li {
+    white-space: nowrap;
+    clear: both;
+    min-height: 16px;
+}
+#pma_navigation_tree img {
+	margin: 0;
+}
+#pma_navigation_tree div.block {
+    position: relative;
+    width:1.5em;
+    height:1.5em;
+    min-width: 16px;
+    min-height: 16px;
+    float: <?php echo $left; ?>;
+}
+#pma_navigation_tree div.block i,
+#pma_navigation_tree div.block b {
+    width: 1.5em;
+    height: 1.5em;
+    min-width: 16px;
+    min-height: 8px;
+    position: absolute;
+    bottom: 0.7em;
+    <?php echo $left; ?>: 0.75em;
+    z-index: 0;
+}
+#pma_navigation_tree div.block i {
+    border-<?php echo $left; ?>: 1px solid #666;
+    border-bottom: 1px solid #666;
+}
+#pma_navigation_tree div.block i.first { /* Removes top segment */
+    border-<?php echo $left; ?>: 0;
+}
+#pma_navigation_tree div.block b { /* Bottom segment for the tree element connections */
+    display: block;
+    height: 0.75em;
+    bottom: 0;
+    left: 0.75em;
+    border-<?php echo $left; ?>: 1px solid #666;
+}
+#pma_navigation_tree div.block a {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 10;
+}
+#pma_navigation_tree div.block img {
+    position: relative;
+    top: -7px;
+    left: -7px;
+}
+#pma_navigation_tree li.last > ul {
+    background: none;
+}
+#pma_navigation_tree li > a, #pma_navigation_tree li > i {
+    line-height: 1.5em;
+    height: 1.5em;
+    padding-<?php echo $left; ?>: 0.3em;
+}
+#pma_navigation_tree .list_container {
+    border-<?php echo $left; ?>: 1px solid #666;
+    margin-<?php echo $left; ?>: 0.75em;
+    padding-<?php echo $left; ?>: 0.75em;
+}
+#pma_navigation_tree .last > .list_container {
+    border-<?php echo $left; ?>: 0 solid #666;
 }
 
-#pma_navigation #list_server li {
-    margin: 0;
-    padding: 0;
-    font-size:          80%;
+/* Fast filter */
+li.fast_filter {
+    padding-<?php echo $left; ?>: 0.75em;
+    margin-<?php echo $left; ?>: 0.75em;
+    padding-<?php echo $right; ?>: 10px;
+    border-<?php echo $left; ?>: 1px solid #666;
 }
-
-#pma_navigation div#left_tableList ul {
-    list-style-type:    none;
-    list-style-position: outside;
-    margin:             0;
-    padding:            0;
-    font-size:          80%;
-    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+li.fast_filter input {
+    width: 100%;
 }
-
-#pma_navigation div#left_tableList ul ul {
-    font-size:          100%;
-}
-
-#pma_navigation div#left_tableList a {
-    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
-    color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
-    text-decoration:    none;
-}
-
-#pma_navigation div#left_tableList a:hover {
-    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
-    color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
-    text-decoration:    underline;
-}
-
-#pma_navigation div#left_tableList li {
-    margin:             0;
-    padding:            0;
-    white-space:        nowrap;
-}
-
-<?php if ($GLOBALS['cfg']['BrowseMarkerColor']) { ?>
-/* marked items */
-#pma_navigation div#left_tableList > ul li.marked > a,
-#pma_navigation div#left_tableList > ul li.marked {
-    background: <?php echo $GLOBALS['cfg']['BrowseMarkerBackground']; ?>;
-    color: <?php echo $GLOBALS['cfg']['BrowseMarkerColor']; ?>;
-}
-<?php } ?>
-
-<?php if ($GLOBALS['cfg']['LeftPointerEnable']) { ?>
-#pma_navigation div#left_tableList > ul li:hover > a,
-#pma_navigation div#left_tableList > ul li:hover {
-    background:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
-    color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
-}
-<?php } ?>
-
-#pma_navigation div#left_tableList img {
-    padding: 0;
-    vertical-align: middle;
-}
-
-#pma_navigation div#left_tableList ul ul {
-    margin-<?php echo $left; ?>: 0;
-    padding-<?php echo $left; ?>: .1em;
-    border-<?php echo $left; ?>: .1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
-    padding-bottom: .1em;
-    border-bottom: .1em solid <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
-}
-
-/* for the servers list in navi panel */
-#pma_navigation #serverinfo .item {
-    white-space:        nowrap;
-    color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
-}
-#pma_navigation #serverinfo a:hover {
-    background:         <?php echo $GLOBALS['cfg']['NaviPointerBackground']; ?>;
-    color:              <?php echo $GLOBALS['cfg']['NaviPointerColor']; ?>;
-}
-
-#pma_navigation #NavFilter {
-    display: none;
-}
-
-#pma_navigation #clear_fast_filter,
-#pma_navigation #clear_fast_db_filter {
-    color: black;
+li.fast_filter span {
+    position: relative;
+    <?php echo $right; ?>: 1.5em;
+    padding: 0.2em;
     cursor: pointer;
-    padding: 0;
-    margin: 3px 5px 0 -23px;
-    float: right;
-}
-
-#pma_navigation #fast_filter,
-#pma_navigation #fast_db_filter {
-    width: 90%;
-    padding: 2px 0;
-    margin: 0;
-    border: 0;
-}
-
-#pma_navigation #fast_filter.gray,
-#pma_navigation #fast_db_fiter.gray {
-    color: gray;
+    font-weight: bold;
+    color: #800;
 }
