@@ -13,8 +13,8 @@
  * Include to test.
  */
 require_once 'libraries/vendor_config.php';
-require_once 'libraries/select_lang.lib.php';
 require_once 'libraries/core.lib.php';
+require_once 'libraries/select_lang.lib.php';
 require_once 'libraries/sanitizing.lib.php';
 require_once 'libraries/Config.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
