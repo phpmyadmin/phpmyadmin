@@ -696,7 +696,7 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*', $table = '*', $submit = 
             $html_output .= '<div class="item">' . "\n"
                . '<input type="checkbox"'
                . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
-               . 'name="' . $current_grant . '" id="checkbox_' . $current_grant
+               . ' name="' . $current_grant . '" id="checkbox_' . $current_grant
                . '" value="Y" '
                . ($current_grant_value == 'Y' ? 'checked="checked" ' : '')
                . 'title="';
@@ -819,34 +819,7 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*', $table = '*', $submit = 
 
         // The "Resource limits" box is not displayed for db-specific privs
         if ($db == '*') {
-            $html_output .= '<fieldset>' . "\n"
-               . '<legend>' . __('Resource limits') . '</legend>' . "\n"
-               . '<p><small><i>' . __('Note: Setting these options to 0 (zero) removes the limit.') . '</i></small></p>' . "\n"
-               . '<div class="item">' . "\n"
-               . '<label for="text_max_questions"><code><dfn title="'
-               . __('Limits the number of queries the user may send to the server per hour.') . '">MAX QUERIES PER HOUR</dfn></code></label>' . "\n"
-               . '<input type="text" name="max_questions" id="text_max_questions" value="'
-               . $row['max_questions'] . '" size="11" maxlength="11" title="' . __('Limits the number of queries the user may send to the server per hour.') . '" />' . "\n"
-               . '</div>' . "\n"
-               . '<div class="item">' . "\n"
-               . '<label for="text_max_updates"><code><dfn title="'
-               . __('Limits the number of commands that change any table or database the user may execute per hour.') . '">MAX UPDATES PER HOUR</dfn></code></label>' . "\n"
-               . '<input type="text" name="max_updates" id="text_max_updates" value="'
-               . $row['max_updates'] . '" size="11" maxlength="11" title="' . __('Limits the number of commands that change any table or database the user may execute per hour.') . '" />' . "\n"
-               . '</div>' . "\n"
-               . '<div class="item">' . "\n"
-               . '<label for="text_max_connections"><code><dfn title="'
-               . __('Limits the number of new connections the user may open per hour.') . '">MAX CONNECTIONS PER HOUR</dfn></code></label>' . "\n"
-               . '<input type="text" name="max_connections" id="text_max_connections" value="'
-               . $row['max_connections'] . '" size="11" maxlength="11" title="' . __('Limits the number of new connections the user may open per hour.') . '" />' . "\n"
-               . '</div>' . "\n"
-               . '<div class="item">' . "\n"
-               . '<label for="text_max_user_connections"><code><dfn title="'
-               . __('Limits the number of simultaneous connections the user may have.') . '">MAX USER_CONNECTIONS</dfn></code></label>' . "\n"
-               . '<input type="text" name="max_user_connections" id="text_max_user_connections" value="'
-               . $row['max_user_connections'] . '" size="11" maxlength="11" title="' . __('Limits the number of simultaneous connections the user may have.') . '" />' . "\n"
-               . '</div>' . "\n"
-               . '</fieldset>' . "\n";
+            $html_output .= PMA_getHtmlForDisplayResourceLimits($row);
         }
         // for Safari 2.0.2
         $html_output .= '<div class="clearfloat"></div>' . "\n";
@@ -860,6 +833,44 @@ function PMA_getHtmlToDisplayPrivilegesTable($db = '*', $table = '*', $submit = 
     return $html_output;
 } // end of the 'PMA_displayPrivTable()' function
 
+/**
+ * Get HTML for "Resource limits"
+ * 
+ * @param array $row    first row from result or boolean false
+ * 
+ * @return string       html snippet 
+ */
+function PMA_getHtmlForDisplayResourceLimits($row)
+{
+    return '<fieldset>' . "\n"
+       . '<legend>' . __('Resource limits') . '</legend>' . "\n"
+       . '<p><small><i>' . __('Note: Setting these options to 0 (zero) removes the limit.') . '</i></small></p>' . "\n"
+       . '<div class="item">' . "\n"
+       . '<label for="text_max_questions"><code><dfn title="'
+       . __('Limits the number of queries the user may send to the server per hour.') . '">MAX QUERIES PER HOUR</dfn></code></label>' . "\n"
+       . '<input type="text" name="max_questions" id="text_max_questions" value="'
+       . $row['max_questions'] . '" size="11" maxlength="11" title="' . __('Limits the number of queries the user may send to the server per hour.') . '" />' . "\n"
+       . '</div>' . "\n"
+       . '<div class="item">' . "\n"
+       . '<label for="text_max_updates"><code><dfn title="'
+       . __('Limits the number of commands that change any table or database the user may execute per hour.') . '">MAX UPDATES PER HOUR</dfn></code></label>' . "\n"
+       . '<input type="text" name="max_updates" id="text_max_updates" value="'
+       . $row['max_updates'] . '" size="11" maxlength="11" title="' . __('Limits the number of commands that change any table or database the user may execute per hour.') . '" />' . "\n"
+       . '</div>' . "\n"
+       . '<div class="item">' . "\n"
+       . '<label for="text_max_connections"><code><dfn title="'
+       . __('Limits the number of new connections the user may open per hour.') . '">MAX CONNECTIONS PER HOUR</dfn></code></label>' . "\n"
+       . '<input type="text" name="max_connections" id="text_max_connections" value="'
+       . $row['max_connections'] . '" size="11" maxlength="11" title="' . __('Limits the number of new connections the user may open per hour.') . '" />' . "\n"
+       . '</div>' . "\n"
+       . '<div class="item">' . "\n"
+       . '<label for="text_max_user_connections"><code><dfn title="'
+       . __('Limits the number of simultaneous connections the user may have.') . '">MAX USER_CONNECTIONS</dfn></code></label>' . "\n"
+       . '<input type="text" name="max_user_connections" id="text_max_user_connections" value="'
+       . $row['max_user_connections'] . '" size="11" maxlength="11" title="' . __('Limits the number of simultaneous connections the user may have.') . '" />' . "\n"
+       . '</div>' . "\n"
+       . '</fieldset>' . "\n";
+}
 
 /**
  * Displays the fields used by the "new user" form as well as the
