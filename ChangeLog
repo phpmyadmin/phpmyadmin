@@ -49,10 +49,11 @@ VerboseMultiSubmit, ReplaceHelpImg
 - bug #3577443 [edit] "Browse foreign values" does not show on ajax edit
 + rfe #3522109 [browse] Grid editing: action to trigger it (or disable)
 - bug #3526598 [interface] SQL query not shown when creating table
++ Dropped configuration directive: AllowThirdPartyFraming
 
 3.5.4.0 (not yet released)
 - bug #3570212 [edit] uuid_short() is a no-arguments function
-- bug #3569577 [edit] Add routine parameter headers not valid for "function" 
+- bug #3569577 [edit] Add routine parameter headers not valid for "function"
 - bug #3575799 [search] Various search operators not working as expected
 - bug #3576322 [search] Invalid select query generated for tables with ENUM fields
 - bug #3577468 [display] Incorrect imagejpeg Syntax Breaks Image Transformation
@@ -79,7 +80,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 - bug #3559955 [edit] current_date from function drop down fails on update
 - bug #3562472 add support for Solaris and FreeBSD system load and memory display in server status
 - bug #3553068 [import] Table import from XML file fails
-- replace Highcharts with jqplot for Display chart 
+- replace Highcharts with jqplot for Display chart
 - bug #3567684 [edit] Pasting value doesn't clear null checkbox
 - bug #3570786 [edit] Datepicker for date and datetime fields is broken
 

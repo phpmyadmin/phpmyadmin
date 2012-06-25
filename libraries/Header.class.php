@@ -158,11 +158,6 @@ class PMA_Header
             $this->_scripts->addFile('codemirror/mode/mysql/mysql.js');
         }
 
-        // Cross-framing protection
-        if ($GLOBALS['cfg']['AllowThirdPartyFraming'] === false) {
-            $this->_scripts->addFile('cross_framing_protection.js');
-        }
-
         $this->_scripts->addFile('rte.js');
 
         // Localised strings
@@ -373,15 +368,11 @@ class PMA_Header
          * Sends http headers
          */
         $GLOBALS['now'] = gmdate('D, d M Y H:i:s') . ' GMT';
-        /* Prevent against ClickJacking by allowing frames only from same origin */
-        if (! $GLOBALS['cfg']['AllowThirdPartyFraming'] && ! defined('TESTSUITE')) {
-            header(
-                'X-Frame-Options: SAMEORIGIN'
-            );
+        if (! defined('TESTSUITE')) {
             header(
                 "X-Content-Security-Policy: allow 'self' http://www.phpmyadmin.net; "
                 . "options inline-script eval-script; "
-                . "frame-ancestors 'self'; img-src 'self' data:; "
+                . "img-src 'self' data:; "
             );
             header(
                 "X-WebKit-CSP: allow 'self' http://www.phpmyadmin.net; "

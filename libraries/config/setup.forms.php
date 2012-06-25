@@ -137,8 +137,7 @@ $forms['Features']['Other_core_settings'] = array(
     'MemoryLimit',
     'SkipLockedTables',
     'DisableMultiTableMaintenance',
-    'UseDbSearch',
-    'AllowThirdPartyFraming');
+    'UseDbSearch');
 $forms['Sql_queries']['Sql_queries'] = array(
     'ShowSQL',
     'Confirm',
