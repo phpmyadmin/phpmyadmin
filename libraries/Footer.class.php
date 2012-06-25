@@ -106,7 +106,7 @@ class PMA_Footer
 
             // set current db, table and sql query in the querywindow
             $query = '';
-            if (strlen($GLOBALS['sql_query']) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
+            if (isset($GLOBALS['sql_query']) && strlen($GLOBALS['sql_query']) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
                 $query = PMA_escapeJsString($GLOBALS['sql_query']);
             }
             $this->_scripts->addCode("
