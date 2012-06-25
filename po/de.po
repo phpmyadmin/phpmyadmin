@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-06-06 19:43+0200\n"
+"PO-Revision-Date: 2012-06-24 16:15+0200\n"
 "Last-Translator: J. M. <me@mynetx.net>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -1165,7 +1165,7 @@ msgstr "Die ausgewählten Benutzer werden gelöscht"
 #: js/messages.php:62 js/messages.php:141 tbl_tracking.php:235
 #: tbl_tracking.php:415
 msgid "Close"
-msgstr "Schliessen"
+msgstr "Schließen"
 
 #: js/messages.php:65 js/messages.php:284 libraries/Index.class.php:468
 #: libraries/common.lib.php:648 libraries/common.lib.php:1197
