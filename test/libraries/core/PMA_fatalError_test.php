@@ -21,6 +21,12 @@ require_once 'libraries/php-gettext/gettext.inc';
 
 class PMA_fatalError_test extends PHPUnit_Framework_TestCase
 {
+    public function setup()
+    {
+        $GLOBALS['PMA_Config'] = new PMA_Config();
+        $GLOBALS['PMA_Config']->enableBc();
+    }
+
     public function testFatalErrorMessage()
     {
         $this->expectOutputRegex("/FatalError!/");
