@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-18 10:54+0200\n"
-"PO-Revision-Date: 2012-05-11 19:33+0200\n"
+"PO-Revision-Date: 2012-06-24 15:15+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1871,11 +1871,11 @@ msgstr "ලක්ෂ්‍යයක් මතින් ගමන් කරන �
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "තුළු සූමකරණය සඳහා ප්‍රස්ථාරයේ කොටසක් මූසිකය ආධාරයෙන් තෝරන්න."
 
 #: js/messages.php:306
 msgid "Click reset zoom button to come back to original state."
-msgstr ""
+msgstr "පෙර තත්ත්වයට පැමිණීම සඳහා සූමකරණය ප්‍රතිසකසන බොත්තම ක්ලික් කරන්න."
 
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."
@@ -2323,22 +2323,24 @@ msgstr "'%s' රීතිය සඳහා පෙළ සැකසීම අසම
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
 msgstr ""
+"%1$s පේළියේ වැරදි රීති අර්ථ දැක්වීමකි, පෙර රීතියේ %2$s වන පේළිය බලාපොරොත්තු "
+"විය"
 
 #: libraries/Advisor.class.php:378
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid rule declaration on line %s"
-msgstr "CSV ආනයනයේ %d පේළියේ වැරදි ආකෘතියක්."
+msgstr "%s වන පේළියේ වැරදි රීති අර්ථදැක්වීමකි"
 
 #: libraries/Advisor.class.php:386
 #, php-format
 msgid "Unexpected characters on line %s"
-msgstr ""
+msgstr "%s වන පේළියේ අනපේක්ෂිත අනුලකුණකි"
 
 #: libraries/Advisor.class.php:400
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
-msgstr ""
+msgstr "%1$s වන පේළියේ අනපේක්ෂිත අනුලකුණකි. ටැබයක් අපේක්ෂිත නමුත් \"%2$s\" හමුවිය"
 
 #: libraries/Advisor.class.php:425 server_status.php:958
 msgid "per second"
@@ -2427,7 +2429,7 @@ msgid "vertical"
 msgstr "සිරස්"
 
 #: libraries/DisplayResults.class.php:702
-#, fuzzy, php-format
+#, php-format
 #| msgid "Headers every %s rows"
 msgid "Headers every %s rows"
 msgstr "ශීර්ෂක, පේළි %s කට වරක්"
@@ -2727,7 +2729,7 @@ msgstr "ප්‍රේරක"
 
 #: libraries/Menu.class.php:316 libraries/Menu.class.php:317
 msgid "Table seems to be empty!"
-msgstr ""
+msgstr "වගුව හිස් ය!"
 
 #: libraries/Menu.class.php:344 libraries/Menu.class.php:345
 #: libraries/Menu.class.php:346
@@ -2983,10 +2985,9 @@ msgid "How to use"
 msgstr "භාවිතා කරන අයුරු"
 
 #: libraries/TableSearch.class.php:1160
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "ප්‍රතිසකසන්න"
+msgstr "සූමය ප්‍රතිසකසන්න"
 
 #: libraries/Theme.class.php:169
 #, php-format
@@ -3280,28 +3281,25 @@ msgstr "ඕනෑම වර්ගයක ජ්‍යාමිතීන් එක
 #: libraries/Types.class.php:623 libraries/Types.class.php:973
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "සංඛ්‍යාත්මක"
 
 #: libraries/Types.class.php:642 libraries/Types.class.php:976
-#, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "නව සූචියක් සාදන්න"
+msgstr "දිනය සහ වේලාව"
 
 #: libraries/Types.class.php:651 libraries/Types.class.php:979
-#, fuzzy
 #| msgid "Linestring"
 msgctxt "string types"
 msgid "String"
-msgstr "රේඛාව"
+msgstr "පෙළ"
 
 #: libraries/Types.class.php:672
-#, fuzzy
 #| msgid "Spatial"
 msgctxt "spatial types"
 msgid "Spatial"
-msgstr "ජ්‍යාමිතික"
+msgstr "අවකාශීය"
 
 #: libraries/Types.class.php:707
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
@@ -3392,7 +3390,7 @@ msgstr "mcrypt හි Blowfish භාවිතා කිරීම අසමත�
 
 #: libraries/auth/cookie.auth.lib.php:139
 msgid "Your session has expired. Please login again."
-msgstr ""
+msgstr "ඔබගේ සැසිය කල් ඉකුත් වී ඇත. නැවත ඇතුළු වන්න."
 
 #: libraries/auth/cookie.auth.lib.php:227
 msgid "Log in"
@@ -4819,10 +4817,9 @@ msgid "Minimum number of tables to display the table filter box"
 msgstr "වගු පෙරහන් කවුළුව පෙන්වීමට අවම වශයෙන් තිබිය යුතු වගු ගණන"
 
 #: libraries/config/messages.inc.php:281
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of databases to display the database filter box"
-msgstr "වගු පෙරහන් කවුළුව පෙන්වීමට අවම වශයෙන් තිබිය යුතු වගු ගණන"
+msgstr "දත්තගබඩා පෙරහන් කවුළුව පෙන්වීමට අවම වශයෙන් තිබිය යුතු දත්තගබඩා ගණන"
 
 #: libraries/config/messages.inc.php:282
 msgid "String that separates databases into different tree levels"
@@ -6290,9 +6287,8 @@ msgstr ""
 "තෝරාගත් ආකෘතිය සඳහා විකල්ප භාවිතා කිරීමට පහලට යන්න. අනෙකුත් ආකෘති සඳහා විකල්ප නොසලකන්න."
 
 #: libraries/display_export.lib.php:357 libraries/display_import.lib.php:311
-#, fuzzy
 msgid "Encoding Conversion:"
-msgstr "MySQL සේවාදායකයාගේ සංස්කරණය"
+msgstr "කේතීකරණ පරිවර්තනය:"
 
 #: libraries/display_git_revision.lib.php:56
 #, php-format
@@ -7165,10 +7161,10 @@ msgid "This plugin does not support compressed imports!"
 msgstr "මෙම පේණුව හැකිළු ආනයන සඳහා සහාය නොදක්වයි!"
 
 #: libraries/import/mediawiki.php:246
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid format of mediawiki input on line: <br />%s."
-msgstr "CSV ආනයනයේ %d පේළියේ වැරදි ආකෘතියක්."
+msgstr "Mediawiki ආනයනයේ වැරදි ආකෘතියකි, පේළිය: <br />%s."
 
 #: libraries/import/ods.php:49
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -8441,10 +8437,9 @@ msgid "Index"
 msgstr "සූචිය"
 
 #: libraries/tbl_properties.inc.php:121
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move column"
-msgstr "පේළි(යක්) ඉවත් කරන්න"
+msgstr "පේළිය ගෙනයන්න"
 
 #: libraries/tbl_properties.inc.php:130
 #, php-format
@@ -8497,7 +8492,7 @@ msgid "first"
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:599
-#, fuzzy, php-format
+#, php-format
 #| msgid "After %s"
 msgid "after %s"
 msgstr "%s ට පසු"
@@ -8847,10 +8842,9 @@ msgid "No databases"
 msgstr "දත්තගබඩා නොමැත"
 
 #: navigation.php:170
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "Filter databases by name"
-msgstr "වගු නමින් පෙරහන්න"
+msgstr "දත්තගබඩා නමින් පෙරහන්න"
 
 #: navigation.php:239
 msgid "Filter tables by name"
@@ -10298,18 +10292,12 @@ msgid "The amount of data written so far, in bytes."
 msgstr "මේ දක්වා ලියැවුණු දත්ත ප්‍රමාණය, බයිට වලින්."
 
 #: server_status.php:1364
-#, fuzzy
 msgid "The number of pages that have been written for doublewrite operations."
-msgstr ""
-"The number of doublewrite writes that have been performed and the number of "
-"pages that have been written for this purpose."
+msgstr "ද්විත්ව-ලිවීම් මෙහෙයුම් සඳහා ලියැවුණු පිටු ගණන."
 
 #: server_status.php:1365
-#, fuzzy
 msgid "The number of doublewrite operations that have been performed."
-msgstr ""
-"The number of doublewrite writes that have been performed and the number of "
-"pages that have been written for this purpose."
+msgstr "සිදු කෙරුණු ද්විත්ව-ලිවීම් මෙහෙයුම් ගණන."
 
 #: server_status.php:1366
 msgid ""
@@ -10416,10 +10404,9 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1389
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of used key cache (calculated value)"
-msgstr "ආනයනය කරන ලද ගොනුවේ ආකෘතිය"
+msgstr "යතුරු කෑෂයේ භාවිතා කරන ලද ප්‍රතිශතය (ගණනය කරන ලද අගයකි)"
 
 #: server_status.php:1390
 msgid "The number of requests to read a key block from the cache."
@@ -11303,10 +11290,9 @@ msgid "Table %1$s has been altered successfully"
 msgstr "%1$s වගුව සාර්ථකව වෙනස් කරන ලදි"
 
 #: tbl_alter.php:131
-#, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
-msgstr "තෝරාගත් භාවිතා කරන්නන් සාර්ථකව ඉවත් කරන ලදි."
+msgstr "තීර සාර්ථකව ගෙන යන ලදි."
 
 #: tbl_chart.php:83
 msgctxt "Chart type"
@@ -11924,10 +11910,9 @@ msgid "The uptime is only %s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:56
-#, fuzzy
 #| msgid "Versions"
 msgid "Questions below 1,000"
-msgstr "අනුවාද"
+msgstr "ප්‍රශ්න ගණන 1,000 ට වඩා අඩුය"
 
 #: libraries/advisory_rules.txt:59
 msgid ""
@@ -11942,10 +11927,10 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:61
-#, fuzzy, php-format
+#, php-format
 #| msgid "Current connection"
 msgid "Current amount of Questions: %s"
-msgstr "වත්මන් සම්බන්දතාව"
+msgstr "වත්මන් ප්‍රශ්න ගණන: %s"
 
 #: libraries/advisory_rules.txt:63
 msgid "Percentage of slow queries"
@@ -12000,7 +11985,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:82
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time තත්පර %d කට සිටුවා ඇත."
@@ -12010,10 +11995,9 @@ msgid "Slow query logging"
 msgstr "මන්දගාමී විමසුම් ලොගගත කිරීම"
 
 #: libraries/advisory_rules.txt:87
-#, fuzzy
 #| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
-msgstr "slow_query_log සක්‍රීය යි."
+msgstr "වැඩි කාලයක් ගන්න විමසුම් සටහන් කරනා ලොගය අක්‍රීය යි."
 
 #: libraries/advisory_rules.txt:88
 msgid ""
@@ -12022,10 +12006,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:89
-#, fuzzy
 #| msgid "long_query_time is set to %d second(s)."
 msgid "log_slow_queries is set to 'OFF'"
-msgstr "long_query_time තත්පර %d කට සිටුවා ඇත."
+msgstr "log_slow_queries, 'OFF'(අක්‍රීය) වෙත පිහිටුවා ඇත"
 
 #: libraries/advisory_rules.txt:93
 #, fuzzy
@@ -12068,10 +12051,9 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr ""
 
 #: libraries/advisory_rules.txt:111
-#, fuzzy
 #| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5"
-msgstr "You should upgrade to %s %s or later."
+msgstr "ඔබ MySQL 5.5 හි ස්ථාවර අනුවාදයක් වෙත යාවත්කාලීන කල යුතුය"
 
 #: libraries/advisory_rules.txt:114 libraries/advisory_rules.txt:121
 #: libraries/advisory_rules.txt:128
@@ -12115,10 +12097,9 @@ msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr ""
 
 #: libraries/advisory_rules.txt:135
-#, fuzzy
 #| msgid "MySQL charset"
 msgid "MySQL Architecture"
-msgstr "MySQL අක්ෂර කට්ටලය"
+msgstr "MySQL නිර්මිතය"
 
 #: libraries/advisory_rules.txt:138
 msgid "MySQL is not compiled as a 64-bit package."
@@ -12161,10 +12142,9 @@ msgid "Query caching method"
 msgstr "විමසුම් කෑෂ්ගත කරන ක්‍රමය"
 
 #: libraries/advisory_rules.txt:156
-#, fuzzy
 #| msgid "Query caching method"
 msgid "Suboptimal caching method."
-msgstr "විමසුම් කෑෂ්ගත කරන ක්‍රමය"
+msgstr "කෑෂ්ගත කරන ක්‍රමය ප්‍රශස්ත නැත."
 
 #: libraries/advisory_rules.txt:157
 msgid ""
@@ -12297,10 +12277,10 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:193
-#, fuzzy, php-format
+#, php-format
 #| msgid "Current version: %s"
 msgid "Current query cache size: %s"
-msgstr "වත්මන් අනුවාදය: %s"
+msgstr "වත්මන් විමසුම් කෑෂයේ ප්‍රමාණය: %s"
 
 #: libraries/advisory_rules.txt:195
 msgid "Query cache min result size"

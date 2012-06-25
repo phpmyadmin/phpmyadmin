@@ -41,7 +41,7 @@ if ($cfgRelation['displaywork']) {
     }
 
     if (isset($upd_query)) {
-        $upd_rs    = PMA_query_as_controluser($upd_query);
+        $upd_rs    = PMA_queryAsControlUser($upd_query);
     }
 } // end if
 

@@ -32,8 +32,9 @@ if (! defined('PHPMYADMIN')) {
  *
  * @access  public
  */
-function PMA_generate_common_hidden_inputs($db = '', $table = '', $indent = 0, $skip = array())
-{
+function PMA_generate_common_hidden_inputs($db = '', $table = '',
+    $indent = 0, $skip = array()
+) {
     if (is_array($db)) {
         $params  =& $db;
         $_indent = empty($table) ? $indent : $table;

@@ -238,49 +238,6 @@ class PMA_Table
     }
 
     /**
-     * loads structure data
-     * (this function is work in progress? not yet used)
-     *
-     * @return boolean
-     */
-    function loadStructure()
-    {
-        $table_info = PMA_DBI_get_tables_full(
-            $this->getDbName(),
-            $this->getName()
-        );
-
-        if (false === $table_info) {
-            return false;
-        }
-
-        $this->settings = $table_info;
-
-        if ($this->get('TABLE_ROWS') === null) {
-            $this->set(
-                'TABLE_ROWS',
-                PMA_Table::countRecords(
-                    $this->getDbName(),
-                    $this->getName(),
-                    true
-                )
-            );
-        }
-
-        $create_options = explode(' ', $this->get('TABLE_ROWS'));
-
-        // export create options by its name as variables into global namespace
-        // f.e. pack_keys=1 becomes available as $pack_keys with value of '1'
-        foreach ($create_options as $each_create_option) {
-            $each_create_option = explode('=', $each_create_option);
-            if (isset($each_create_option[1])) {
-                $this->set($$each_create_option[0], $each_create_option[1]);
-            }
-        }
-        return true;
-    }
-
-    /**
      * Checks if this is a merge table
      *
      * If the ENGINE of the table is MERGE or MRG_MYISAM (alias),
@@ -695,7 +652,7 @@ class PMA_Table
 
             // must use PMA_DBI_QUERY_STORE here, since we execute another
             // query inside the loop
-            $table_copy_rs = PMA_query_as_controluser(
+            $table_copy_rs = PMA_queryAsControlUser(
                 $table_copy_query, true, PMA_DBI_QUERY_STORE
             );
 
@@ -716,7 +673,7 @@ class PMA_Table
                     (\'' . implode('\', \'', $value_parts) . '\',
                      \'' . implode('\', \'', $new_value_parts) . '\')';
 
-                PMA_query_as_controluser($new_table_query);
+                PMA_queryAsControlUser($new_table_query);
                 $last_id = PMA_DBI_insert_id();
             } // end while
 
@@ -995,7 +952,7 @@ class PMA_Table
                                             WHERE
                                                 db_name = \'' . PMA_sqlAddSlashes($source_db) . '\' AND
                                                 table_name = \'' . PMA_sqlAddSlashes($source_table) . '\'';
-                    $comments_copy_rs    = PMA_query_as_controluser($comments_copy_query);
+                    $comments_copy_rs    = PMA_queryAsControlUser($comments_copy_query);
 
                     // Write every comment as new copied entry. [MIME]
                     while ($comments_copy_row = PMA_DBI_fetch_assoc($comments_copy_rs)) {
@@ -1010,7 +967,7 @@ class PMA_Table
                                             . '\'' . PMA_sqlAddSlashes($comments_copy_row['transformation']) . '\','
                                             . '\'' . PMA_sqlAddSlashes($comments_copy_row['transformation_options']) . '\'' : '')
                                     . ')';
-                        PMA_query_as_controluser($new_comment_query);
+                        PMA_queryAsControlUser($new_comment_query);
                     } // end while
                     PMA_DBI_free_result($comments_copy_rs);
                     unset($comments_copy_rs);
@@ -1372,7 +1329,7 @@ class PMA_Table
             . " AND `db_name` = '" . PMA_sqlAddSlashes($this->db_name) . "'"
             . " AND `table_name` = '" . PMA_sqlAddSlashes($this->name) . "'";
 
-        $row = PMA_DBI_fetch_array(PMA_query_as_controluser($sql_query));
+        $row = PMA_DBI_fetch_array(PMA_queryAsControlUser($sql_query));
         if (isset($row[0])) {
             return json_decode($row[0], true);
         } else {

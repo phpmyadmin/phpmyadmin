@@ -21,7 +21,7 @@ if (! defined('PHPMYADMIN')) {
  * @access  public
  *
  */
-function PMA_query_as_controluser($sql, $show_error = true, $options = 0)
+function PMA_queryAsControlUser($sql, $show_error = true, $options = 0)
 {
     // Avoid caching of the number of rows affected; for example, this function
     // is called for tracking purposes but we want to display the correct number
@@ -50,7 +50,7 @@ function PMA_query_as_controluser($sql, $show_error = true, $options = 0)
     } else {
         return false;
     }
-} // end of the "PMA_query_as_controluser()" function
+} // end of the "PMA_queryAsControlUser()" function
 
 /**
  * Returns current relation parameters
@@ -382,7 +382,7 @@ function PMA__getRelationsParam()
 
     $tab_query = 'SHOW TABLES FROM '
         . PMA_backquote($GLOBALS['cfg']['Server']['pmadb']);
-    $tab_rs    = PMA_query_as_controluser($tab_query, false, PMA_DBI_QUERY_STORE);
+    $tab_rs    = PMA_queryAsControlUser($tab_query, false, PMA_DBI_QUERY_STORE);
 
     if (! $tab_rs) {
         // query failed ... ?
@@ -686,7 +686,7 @@ function PMA_getDbComment($db)
               WHERE db_name     = '" . PMA_sqlAddSlashes($db) . "'
                 AND table_name  = ''
                 AND column_name = '(db_comment)'";
-        $com_rs = PMA_query_as_controluser($com_qry, true, PMA_DBI_QUERY_STORE);
+        $com_rs = PMA_queryAsControlUser($com_qry, true, PMA_DBI_QUERY_STORE);
 
         if ($com_rs && PMA_DBI_num_rows($com_rs) > 0) {
             $row = PMA_DBI_fetch_assoc($com_rs);
@@ -716,7 +716,7 @@ function PMA_getDbComments()
              SELECT `db_name`, `comment`
                FROM " . PMA_backquote($cfgRelation['db']) . "." . PMA_backquote($cfgRelation['column_info']) . "
               WHERE `column_name` = '(db_comment)'";
-        $com_rs = PMA_query_as_controluser($com_qry, true, PMA_DBI_QUERY_STORE);
+        $com_rs = PMA_queryAsControlUser($com_qry, true, PMA_DBI_QUERY_STORE);
 
         if ($com_rs && PMA_DBI_num_rows($com_rs) > 0) {
             while ($row = PMA_DBI_fetch_assoc($com_rs)) {
@@ -769,7 +769,7 @@ function PMA_setDbComment($db, $comment = '')
     }
 
     if (isset($upd_query)) {
-        return PMA_query_as_controluser($upd_query);
+        return PMA_queryAsControlUser($upd_query);
     }
 
     return false;
@@ -820,7 +820,7 @@ function PMA_setHistory($db, $table, $username, $sqlquery)
         return;
     }
 
-    PMA_query_as_controluser(
+    PMA_queryAsControlUser(
         'INSERT INTO
                 ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['history']) . '
               (`username`,
@@ -896,7 +896,7 @@ function PMA_purgeHistory($username)
           LIMIT ' . $GLOBALS['cfg']['QueryHistoryMax'] . ', 1';
 
     if ($max_time = PMA_DBI_fetch_value($search_query, 0, 0, $GLOBALS['controllink'])) {
-        PMA_query_as_controluser(
+        PMA_queryAsControlUser(
             'DELETE FROM
                     ' . PMA_backquote($cfgRelation['db']) . '.' . PMA_backquote($cfgRelation['history']) . '
               WHERE `username` = \'' . PMA_sqlAddSlashes($username) . '\'
@@ -1209,7 +1209,7 @@ function PMA_REL_renameField($db, $table, $field, $new_name)
             . ' WHERE db_name       = \'' . PMA_sqlAddSlashes($db) . '\''
             . '   AND table_name    = \'' . PMA_sqlAddSlashes($table) . '\''
             . '   AND display_field = \'' . PMA_sqlAddSlashes($field) . '\'';
-        PMA_query_as_controluser($table_query);
+        PMA_queryAsControlUser($table_query);
     }
 
     if ($cfgRelation['relwork']) {
@@ -1220,7 +1220,7 @@ function PMA_REL_renameField($db, $table, $field, $new_name)
             . ' WHERE master_db    = \'' . PMA_sqlAddSlashes($db) . '\''
             . '   AND master_table = \'' . PMA_sqlAddSlashes($table) . '\''
             . '   AND master_field = \'' . PMA_sqlAddSlashes($field) . '\'';
-        PMA_query_as_controluser($table_query);
+        PMA_queryAsControlUser($table_query);
 
         $table_query = 'UPDATE '
             . PMA_backquote($cfgRelation['db']) . '.'
@@ -1229,7 +1229,7 @@ function PMA_REL_renameField($db, $table, $field, $new_name)
             . ' WHERE foreign_db    = \'' . PMA_sqlAddSlashes($db) . '\''
             . '   AND foreign_table = \'' . PMA_sqlAddSlashes($table) . '\''
             . '   AND foreign_field = \'' . PMA_sqlAddSlashes($field) . '\'';
-        PMA_query_as_controluser($table_query);
+        PMA_queryAsControlUser($table_query);
     } // end if relwork
 }
 
@@ -1261,7 +1261,7 @@ function PMA_REL_renameSingleTable($table,
         . $db_field . '  = \'' . PMA_sqlAddSlashes($source_db) . '\''
         . ' AND '
         . $table_field . ' = \'' . PMA_sqlAddSlashes($source_table) . '\'';
-    PMA_query_as_controluser($query);
+    PMA_queryAsControlUser($query);
 }
 
 
@@ -1364,7 +1364,7 @@ function PMA_REL_createPage($newpage, $cfgRelation, $db)
         . ' VALUES (\''
         . PMA_sqlAddSlashes($db) . '\', \''
         . PMA_sqlAddSlashes($newpage) . '\')';
-    PMA_query_as_controluser($ins_query, false);
+    PMA_queryAsControlUser($ins_query, false);
     return PMA_DBI_insert_id(
         isset($GLOBALS['controllink']) ? $GLOBALS['controllink'] : ''
     );

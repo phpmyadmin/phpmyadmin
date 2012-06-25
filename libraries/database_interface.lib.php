@@ -660,7 +660,8 @@ function PMA_DBI_get_tables_full($database, $table = false,
                     $each_tables[$table_name]['TABLE_TYPE'] = 'VIEW';
                 } else {
                     /**
-                     * @todo difference between 'TEMPORARY' and 'BASE TABLE' but how to detect?
+                     * @todo difference between 'TEMPORARY' and 'BASE TABLE'
+                     * but how to detect?
                      */
                     $each_tables[$table_name]['TABLE_TYPE'] = 'BASE TABLE';
                 }
@@ -874,8 +875,9 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
                 $databases[$database_name]['SCHEMA_LENGTH']          = 0;
                 $databases[$database_name]['SCHEMA_DATA_FREE']       = 0;
 
-                $res = PMA_DBI_query('SHOW TABLE STATUS FROM '
-                    . PMA_backquote($database_name) . ';');
+                $res = PMA_DBI_query(
+                    'SHOW TABLE STATUS FROM ' . PMA_backquote($database_name) . ';'
+                );
                 while ($row = PMA_DBI_fetch_assoc($res)) {
                     $databases[$database_name]['SCHEMA_TABLES']++;
                     $databases[$database_name]['SCHEMA_TABLE_ROWS']
@@ -1421,9 +1423,10 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
     if (!PMA_DRIZZLE) {
         if (! empty($GLOBALS['collation_connection'])) {
             PMA_DBI_query("SET CHARACTER SET 'utf8';", $link, PMA_DBI_QUERY_STORE);
+            $set_collation_con_query = "SET collation_connection = '"
+                . PMA_sqlAddSlashes($GLOBALS['collation_connection']) . "';";
             PMA_DBI_query(
-                "SET collation_connection = '"
-                    . PMA_sqlAddSlashes($GLOBALS['collation_connection']) . "';",
+                $set_collation_con_query,
                 $link,
                 PMA_DBI_QUERY_STORE
             );
