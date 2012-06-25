@@ -206,7 +206,7 @@ if (isset($_REQUEST['submit_search'])) {
 } // end 1.
 
 /**
- * Displays the results
+ * Displays database search results
  *
  * @param array   $tables_selected Tables on which search is to be performed
  * @param string  $searched        The search word/phrase/regexp
@@ -217,7 +217,7 @@ if (isset($_REQUEST['submit_search'])) {
  *                                 3 -> exact string, 4 -> regexp)
  * @param string  $field_str       Restrict the search to this field
  *
- * @return string HTML results *
+ * @return string HTML for search results
  */
 function PMA_dbSearchGetSearchResults($tables_selected, $searched, $option_str,
     $search_str, $search_option, $field_str = null
