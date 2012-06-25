@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-05-21 20:39+0200\n"
+"PO-Revision-Date: 2012-06-24 00:18+0200\n"
 "Last-Translator: Jukka Penttinen <tikkakalja@hotmail.com>\n"
 "Language-Team: finnish <fi@li.org>\n"
 "Language: fi\n"
@@ -1535,10 +1535,9 @@ msgid "From general log"
 msgstr "Yleisestä lokista"
 
 #: js/messages.php:176
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "Lokien lataus"
+msgstr "Analyysilokit"
 
 #: js/messages.php:177
 msgid "Analysing & loading logs. This may take a while."
@@ -1576,10 +1575,9 @@ msgid "Jump to Log table"
 msgstr "Siirry lokitauluun"
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "No databases"
 msgid "No data found"
-msgstr "Ei tietokantoja"
+msgstr "Tietoa ei löydy"
 
 #: js/messages.php:185
 msgid "Log analysed, but no data found in this time span."
@@ -1616,16 +1614,14 @@ msgid "Chart"
 msgstr "Kaavio"
 
 #: js/messages.php:195
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Edit chart"
-msgstr "Käytä indeksiä/indeksejä"
+msgstr "Muokkaa kaaviota"
 
 #: js/messages.php:196
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Series"
-msgstr "SQL-kyselyt"
+msgstr "Sarjat"
 
 #. l10n: A collection of available filters
 #: js/messages.php:199
@@ -1701,16 +1697,14 @@ msgid "Import"
 msgstr "Tuonti"
 
 #: js/messages.php:217
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Import monitor configuration"
-msgstr "Oletusasetuksia ei voitu ladata kohteesta: \"%1$s\""
+msgstr "Tuo seuranta-asetukset"
 
 #: js/messages.php:218
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "Valitse perusavain tai uniikki avain"
+msgstr "Valitse tuotava tiedosto"
 
 #: js/messages.php:220
 msgid "Analyse Query"
@@ -4939,8 +4933,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables'UI preferences across sessions, "
 "suggested: [kbd]pma_table_uiprefs[/kbd]"
 msgstr ""
-"Jätä tyhjäksi, jos et halua SQL-kyselyhistorian tukea; oletusarvo: [kbd]"
-"pma_history[/kbd]"
+"Jätä tyhjäksi, jos et halua SQL-kyselyhistorian tukea; oletusarvo: "
+"[kbd]pma_table_uiprefs[/kbd]"
 
 #: libraries/config/messages.inc.php:434
 msgid "UI preferences table"
@@ -5634,52 +5628,44 @@ msgid "Exporting rows from \"%s\" table"
 msgstr "Tuo rivejä taulusta %s"
 
 #: libraries/display_export.lib.php:92
-#, fuzzy
 #| msgid "Export type"
 msgid "Export Method:"
-msgstr "Vientityyppi"
+msgstr "Vientitapa:"
 
 #: libraries/display_export.lib.php:108
-#, fuzzy
 #| msgid "Quick - display only the minimal options to configure"
 msgid "Quick - display only the minimal options"
-msgstr "Nopea asetusten määritys - näytä asetuksia mahdollisimman vähän"
+msgstr "Nopea - näytä vain vähän vaihtoehtoja"
 
 #: libraries/display_export.lib.php:124
-#, fuzzy
 #| msgid "Custom - display all possible options to configure"
 msgid "Custom - display all possible options"
-msgstr "Mukautettu - näytä kaikki mahdolliset asetukset"
+msgstr "Mukautettu - näytä kaikki mahdolliset vaihtoehdot"
 
 #: libraries/display_export.lib.php:132
-#, fuzzy
 #| msgid "Databases"
 msgid "Database(s):"
-msgstr "Tietokannat"
+msgstr "Tietokanta(-kannat):"
 
 #: libraries/display_export.lib.php:134
-#, fuzzy
 #| msgid "Tables"
 msgid "Table(s):"
-msgstr "Taulut"
+msgstr "Taulu(t):"
 
 #: libraries/display_export.lib.php:144
-#, fuzzy
 #| msgid "Rows"
 msgid "Rows:"
-msgstr "Kpl rivejä"
+msgstr "Rivit:"
 
 #: libraries/display_export.lib.php:152
-#, fuzzy
 #| msgid "Dump all rows"
 msgid "Dump some row(s)"
-msgstr "Vedosta kaikki rivit"
+msgstr "Vedosta rivi/rivejä"
 
 #: libraries/display_export.lib.php:154
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of rows:"
-msgstr "Kenttien määrä"
+msgstr "Rivien määrä:"
 
 #: libraries/display_export.lib.php:157
 msgid "Row to begin at:"
@@ -5694,22 +5680,20 @@ msgid "Output:"
 msgstr ""
 
 #: libraries/display_export.lib.php:183 libraries/display_export.lib.php:209
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <b>%s</b>"
-msgstr "Tallenna palvelimelle hakemistoon %s"
+msgstr "Tallenna palvelimelle hakemistoon <b>%s</b>"
 
 #: libraries/display_export.lib.php:201
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
-msgstr "Tallenna tiedostoon"
+msgstr "Tallenna tulos tiedostoon"
 
 #: libraries/display_export.lib.php:222
-#, fuzzy
 #| msgid "File name template"
 msgid "File name template:"
-msgstr "Tiedostonimen pohja"
+msgstr "Tiedostonimen pohja:"
 
 #: libraries/display_export.lib.php:224
 msgid "@SERVER@ will become the server name"
@@ -5724,7 +5708,7 @@ msgid ", @TABLE@ will become the table name"
 msgstr ""
 
 #: libraries/display_export.lib.php:232
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "alue is interpreted using %1$sstrftime%2$s, so you can use time matting "
 #| "ings. Additionally the following transformations will pen: %3$s. Other t "
@@ -5734,9 +5718,9 @@ msgid ""
 "formatting strings. Additionally the following transformations will happen: "
 "%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
-"Tämä arvo on %1$sstrftime%2$s-funktion mukainen, joten "
-"ajanmuodostostusmerkkijonoja voi käyttää. Lisäksi tapahtuu seuraavat "
-"muutokset: %3$s. Muu teksti pysyy alkuperäisenä."
+"Tämä arvo on tukittu %1$sstrftime%2$s mukaan, joten voi käyttää "
+"ajanmuodostostusmerkkijonoja. Lisäksi tapahtuu seuraavat muutokset: %3$s. "
+"Muu teksti pysyy alkuperäisenä. Katso lisätietoja %4$sFAQ%5$s."
 
 #: libraries/display_export.lib.php:270
 msgid "use this for future exports"
@@ -5748,10 +5732,9 @@ msgid "Character set of the file:"
 msgstr "Tiedoston merkistö:"
 
 #: libraries/display_export.lib.php:306
-#, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
-msgstr "Pakkaus"
+msgstr "Pakkaus:"
 
 #: libraries/display_export.lib.php:310
 msgid "zipped"
@@ -5766,23 +5749,20 @@ msgid "bzipped"
 msgstr "BZIP-pakattu"
 
 #: libraries/display_export.lib.php:323
-#, fuzzy
 #| msgid "Save as file"
 msgid "View output as text"
-msgstr "Tallenna tiedostoon"
+msgstr "Näytä tulos tekstinä"
 
 #: libraries/display_export.lib.php:328 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:38
-#, fuzzy
 #| msgid "Format"
 msgid "Format:"
-msgstr "Muoto"
+msgstr "Muoto:"
 
 #: libraries/display_export.lib.php:333
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Format-specific options:"
-msgstr "Muunnosvaihtoehdot"
+msgstr "Muotoiluvaihtoehdot:"
 
 #: libraries/display_export.lib.php:334
 msgid ""
@@ -5791,10 +5771,9 @@ msgid ""
 msgstr ""
 
 #: libraries/display_export.lib.php:342 libraries/display_import.lib.php:260
-#, fuzzy
 #| msgid "Recoding engine"
 msgid "Encoding Conversion:"
-msgstr "Merkistön uudelleenkoodaus"
+msgstr "Merkistön uudelleenkoodaus:"
 
 #: libraries/display_import.lib.php:66
 msgid ""
@@ -5819,28 +5798,26 @@ msgstr ""
 "saatavilla."
 
 #: libraries/display_import.lib.php:129
-#, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
-msgstr "MySQL-palvelimelle ei voitu kirjautua"
+msgstr "Tuonti nykyiselle palvalimelle"
 
 #: libraries/display_import.lib.php:131
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to database"
 msgid "Importing into the database \"%s\""
-msgstr "Siirry tietokantaan"
+msgstr "Tuonti tietokantaan \"%s\""
 
 #: libraries/display_import.lib.php:133
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to database"
 msgid "Importing into the table \"%s\""
-msgstr "Siirry tietokantaan"
+msgstr "Tuonti tauluun \"%s\""
 
 #: libraries/display_import.lib.php:139
-#, fuzzy
 #| msgid "File to import"
 msgid "File to Import:"
-msgstr "Tuotava tiedosto"
+msgstr "Tuotava tiedosto:"
 
 #: libraries/display_import.lib.php:156
 #, php-format
@@ -5858,10 +5835,9 @@ msgid "File uploads are not allowed on this server."
 msgstr "Tällä palvelimella ei ole sallittu tiedostojen lähetystä."
 
 #: libraries/display_import.lib.php:208
-#, fuzzy
 #| msgid "Partial import"
 msgid "Partial Import:"
-msgstr "Osittainen tuonti"
+msgstr "Osittainen tuonti:"
 
 #: libraries/display_import.lib.php:214
 #, php-format
@@ -5872,7 +5848,6 @@ msgstr ""
 "uudestaan, jatkamme kohdasta %d."
 
 #: libraries/display_import.lib.php:221
-#, fuzzy
 #| msgid ""
 #| "the interruption of an import in case the script detects it is se to the  "
 #| "timeout limit. This might be good way to import large es, however it "
@@ -5882,15 +5857,14 @@ msgid ""
 "to the PHP timeout limit. <i>(This might be good way to import large files, "
 "however it can break transactions.)</i>"
 msgstr ""
-"Anna tuonnin keskeytyä, mikäli skripti huomaa ylittävänsä aikarajoituksen. "
-"Tätä kannattaa käyttää tuotaessa suuria tiedostoja; se voi kuitenkin "
-"aiheuttaa häiriöitä transaktioihin."
+"Mahdollistaa tuonnin keskeytyksen, mikäli skripti päättyy PHP:n "
+"aikarajoituksen. <i>(Tätä kannattaa käyttää tuotaessa suuria tiedostoja, se "
+"voi kuitenkin aiheuttaa häiriöitä transaktioihin.)</i>"
 
 #: libraries/display_import.lib.php:228
-#, fuzzy
 #| msgid "Number of records (queries) to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
-msgstr "Alusta ohitettavien tietueiden (kyselyjen) määrä"
+msgstr "Ohitettavien rivien määrä, aloitus ensimmäisestä rivistä:"
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
@@ -5902,34 +5876,29 @@ msgid "Language"
 msgstr "Kieli"
 
 #: libraries/display_tbl.lib.php:406
-#, fuzzy
 #| msgid "Save directory"
 msgid "Save edited data"
-msgstr "Tallennushakemisto"
+msgstr "Tallenna muokatut tiedot"
 
 #: libraries/display_tbl.lib.php:412
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Restore column order"
-msgstr "CHAR-tekstikentän sarakkeet"
+msgstr "Palauta sarakkeiden järjestys"
 
 #: libraries/display_tbl.lib.php:428
-#, fuzzy
 #| msgid "Start"
 msgid "Start row"
-msgstr "Käynnistä"
+msgstr "Aloitusrivi"
 
 #: libraries/display_tbl.lib.php:430
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of rows"
-msgstr "Kenttien määrä"
+msgstr "Rivien määrä"
 
 #: libraries/display_tbl.lib.php:435
-#, fuzzy
 #| msgid "More"
 msgid "Mode"
-msgstr "Lisää"
+msgstr "Tila"
 
 #: libraries/display_tbl.lib.php:437
 msgid "horizontal"
@@ -5946,7 +5915,7 @@ msgstr "pystysuorassa"
 #: libraries/display_tbl.lib.php:445
 #, php-format
 msgid "Headers every %s rows"
-msgstr ""
+msgstr "Otsikot joka %s rivi"
 
 #: libraries/display_tbl.lib.php:548
 msgid "Sort by key"
@@ -5970,13 +5939,11 @@ msgid "Options"
 msgstr "Valinnat"
 
 #: libraries/display_tbl.lib.php:632 libraries/display_tbl.lib.php:650
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
-msgstr "Lyhennetyt tekstit"
+msgstr "Osittaiset tekstit"
 
 #: libraries/display_tbl.lib.php:633 libraries/display_tbl.lib.php:654
-#, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Koko tekstit"
@@ -6000,10 +5967,9 @@ msgid "Show BLOB contents"
 msgstr "Näytä BLOB-sisältö"
 
 #: libraries/display_tbl.lib.php:687
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
-msgstr "Selaimen muunnos (transformation)"
+msgstr "piilota webselaimen muunnos"
 
 #: libraries/display_tbl.lib.php:694
 msgid "Well Known Text"
@@ -6247,20 +6213,16 @@ msgstr ""
 "kyselyllä tai luotaessa indeksejä CREATE INDEX- tai ALTER TABLE -kyselyillä."
 
 #: libraries/engines/pbms.lib.php:30
-#, fuzzy
 #| msgid "Garbage threshold"
 msgid "Garbage Threshold"
-msgstr "Roskankeruun kynnysarvo"
+msgstr "Roskankeruun alaraja"
 
 #: libraries/engines/pbms.lib.php:31
-#, fuzzy
 #| msgid ""
 #| "rcentage of garbage in a data log file before it is compacted. This a ue "
 #| "between 1 and 99. The default is 50."
 msgid "The percentage of garbage in a repository file before it is compacted."
-msgstr ""
-"Tietolokitiedoston roskatietojen prosentuaalinen määrä ennen kuin tiedostoa "
-"tiivistetään. Tämän arvon on oltava väliltä 1 - 99. Oletusarvo on 50."
+msgstr "Roskatietojen prosentuaalinen määrä ennen kuin tiedostoa tiivistetään."
 
 #: libraries/engines/pbms.lib.php:35 libraries/replication_gui.lib.php:70
 #: server_synchronize.php:1261
@@ -6295,10 +6257,9 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/pbms.lib.php:50
-#, fuzzy
 #| msgid "Log file threshold"
 msgid "Temp Log Threshold"
-msgstr "Lokitiedoston kynnysarvo"
+msgstr "Väliaikaislokin alaraja"
 
 #: libraries/engines/pbms.lib.php:51
 msgid ""
@@ -6335,10 +6296,9 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
-#, fuzzy
 #| msgid "Relations"
 msgid "Related Links"
-msgstr "Relaatiot"
+msgstr "Riippuvuudet"
 
 #: libraries/engines/pbms.lib.php:98
 msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
@@ -6512,10 +6472,9 @@ msgid "The PrimeBase Media Streaming (PBMS) home page"
 msgstr ""
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:28
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns separated with:"
-msgstr "Rivien erotinmerkki"
+msgstr "Sarakkeiden erotin:"
 
 #: libraries/export/csv.php:25 libraries/import/csv.php:29
 #, fuzzy
@@ -6530,38 +6489,33 @@ msgid "Columns escaped with:"
 msgstr "Koodinvaihtomerkki"
 
 #: libraries/export/csv.php:27 libraries/import/csv.php:31
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Lines terminated with:"
-msgstr "Rivien erotinmerkki"
+msgstr "Rivien lopetusmerkki:"
 
 #: libraries/export/csv.php:28 libraries/export/excel.php:23
 #: libraries/export/htmlword.php:29 libraries/export/latex.php:80
 #: libraries/export/ods.php:24 libraries/export/odt.php:60
-#, fuzzy
 #| msgid "Replace NULL by"
 msgid "Replace NULL with:"
-msgstr "Korvaa NULL-merkki tällä:"
+msgstr "Korvaa NULL-merkki:"
 
 #: libraries/export/csv.php:29 libraries/export/excel.php:24
-#, fuzzy
 #| msgid "Remove CRLF characters within fields"
 msgid "Remove carriage return/line feed characters within columns"
-msgstr "Poista kentistä CRLF-merkit"
+msgstr "Poista sarakkeista CR/LF-merkit"
 
 #: libraries/export/excel.php:33
-#, fuzzy
 #| msgid "Excel edition"
 msgid "Excel edition:"
-msgstr "Excel-muokkaus"
+msgstr "Excel-muotoilu:"
 
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:70
 #: libraries/export/odt.php:56 libraries/export/sql.php:222
 #: libraries/export/texytext.php:26 libraries/export/xml.php:73
-#, fuzzy
 #| msgid "Databases display options"
 msgid "Data dump options"
-msgstr "Tietokantojen näyttöasetukset"
+msgstr "Tiedon vedostusasetukset"
 
 #: libraries/export/htmlword.php:121 libraries/export/odt.php:173
 #: libraries/export/sql.php:1188 libraries/export/texytext.php:109
@@ -6574,46 +6528,40 @@ msgid "Table structure for table"
 msgstr "Rakenne taululle"
 
 #: libraries/export/latex.php:14
-#, fuzzy
 #| msgid "Content of table __TABLE__"
 msgid "Content of table @TABLE@"
-msgstr "Taulun __TABLE__ sisältö"
+msgstr "Taulun @TABLE@ sisältö"
 
 #: libraries/export/latex.php:15
 msgid "(continued)"
 msgstr "(jatkuu)"
 
 #: libraries/export/latex.php:16
-#, fuzzy
 #| msgid "Structure of table __TABLE__"
 msgid "Structure of table @TABLE@"
-msgstr "Taulun __TABLE__ rakenne"
+msgstr "Taulun @TABLE@ rakenne"
 
 #: libraries/export/latex.php:48 libraries/export/odt.php:40
 #: libraries/export/sql.php:142
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Object creation options"
-msgstr "Muunnosvaihtoehdot"
+msgstr "Objektin luontivaihtoehdot"
 
 #: libraries/export/latex.php:52 libraries/export/latex.php:76
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table caption (continued)"
-msgstr "Taulun otsikko"
+msgstr "Taulun otsikko (jatkuu)"
 
 #: libraries/export/latex.php:57 libraries/export/odt.php:43
 #: libraries/export/sql.php:56
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Display foreign key relationships"
-msgstr "Älä tarkista viiteavaimia"
+msgstr "Näytä viiteavaimien suhteet"
 
 #: libraries/export/latex.php:60 libraries/export/odt.php:46
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display comments"
-msgstr "Sarakkeiden kommentit näkyvissä"
+msgstr "Näytä kommentit"
 
 #: libraries/export/latex.php:63 libraries/export/odt.php:49
 #: libraries/export/sql.php:63
@@ -6673,10 +6621,9 @@ msgid ""
 msgstr ""
 
 #: libraries/export/sql.php:45
-#, fuzzy
 #| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr "Lisää oma kommentti otsikkoon (\\n on rivinvaihto)"
+msgstr "Lisää oma kommentti otsikkoon (\\n on rivinvaihto):"
 
 #: libraries/export/sql.php:50
 msgid ""
@@ -6691,16 +6638,15 @@ msgstr ""
 
 #: libraries/export/sql.php:114 libraries/export/sql.php:173
 #: libraries/export/sql.php:180
-#, fuzzy, php-format
+#, php-format
 #| msgid "Statements"
 msgid "Add %s statement"
-msgstr "Tieto"
+msgstr "Lisää %s lauseke"
 
 #: libraries/export/sql.php:152
-#, fuzzy
 #| msgid "Statements"
 msgid "Add statements:"
-msgstr "Tieto"
+msgstr "Lisää lausekkeet:"
 
 #: libraries/export/sql.php:211
 msgid ""
@@ -6813,10 +6759,9 @@ msgid "Object creation options (all are recommended)"
 msgstr ""
 
 #: libraries/export/xml.php:62
-#, fuzzy
 #| msgid "View"
 msgid "Views"
-msgstr "Näkymä"
+msgstr "Näkymät"
 
 #: libraries/export/xml.php:78
 msgid "Export contents"
@@ -6828,10 +6773,9 @@ msgid "Open new phpMyAdmin window"
 msgstr "Avaa uusi phpMyAdmin-ikkuna"
 
 #: libraries/gis_visualization.lib.php:134
-#, fuzzy
 #| msgid "No data found for the chart."
 msgid "No data found for GIS visualization."
-msgstr "Kaaviolle ei ole tietoja."
+msgstr "GIS visualisoinnille ei ole tietoja."
 
 #: libraries/header_http.inc.php:15 libraries/header_meta_style.inc.php:15
 msgid "GLOBALS overwrite attempt"
@@ -7561,10 +7505,9 @@ msgstr "Loppu"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:923
 #: libraries/rte/rte_triggers.lib.php:354
-#, fuzzy
 #| msgid "Description"
 msgid "Definition"
-msgstr "Kuvaus"
+msgstr "Määritys"
 
 #: libraries/rte/rte_events.lib.php:471
 #, fuzzy
@@ -8421,16 +8364,14 @@ msgid "Operator"
 msgstr "Operaattori"
 
 #: libraries/tbl_select.lib.php:103
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "Etsi"
+msgstr "Taulu haku"
 
 #: libraries/tbl_select.lib.php:175 tbl_change.php:1000
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "Lisää rivi"
+msgstr "Muokkaa/lisää"
 
 #: libraries/transformations.lib.php:134
 #, php-format
@@ -12051,7 +11992,6 @@ msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Suorita mallin mukainen kysely (jokerimerkki: \"%\")"
 
 #: tbl_select.php:178
-#, fuzzy
 #| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
 msgstr "Valitse sarakkeet (vähintään yksi):"
@@ -12327,42 +12267,38 @@ msgid "Create version"
 msgstr "Luo versio"
 
 #: tbl_zoom_select.php:142
-#, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "Suorita mallin mukainen kysely (jokerimerkki: \"%\")"
+msgstr ""
+"Suorita mallin mukainen kysely (jokerimerkki: \"%\") kahteen eri sarakkeeseen"
 
 #: tbl_zoom_select.php:152
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Additional search criteria"
-msgstr "Piilota hakusanat"
+msgstr "Tarkempi haku"
 
 #: tbl_zoom_select.php:283
 msgid "Use this column to label each point"
 msgstr ""
 
 #: tbl_zoom_select.php:303
-#, fuzzy
 #| msgid "Maximum number of rows to display"
 msgid "Maximum rows to plot"
-msgstr "Näytettävien rivien enimmäismäärä"
+msgstr "Tulostettavien rivien enimmäismäärä"
 
 #: tbl_zoom_select.php:417
 msgid "Browse/Edit the points"
 msgstr ""
 
 #: tbl_zoom_select.php:424
-#, fuzzy
 #| msgid "Control user"
 msgid "How to use"
-msgstr "Hallintakäyttäjä"
+msgstr "Kuinka käytetään"
 
 #: tbl_zoom_select.php:431
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Palauta"
+msgstr "Palauta zoomaus"
 
 #: themes.php:28
 msgid "Get more themes!"
