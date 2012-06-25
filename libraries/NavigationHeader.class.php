@@ -86,7 +86,7 @@ class PMA_NavigationHeader
     {
         $retval = '<!-- LINKS START -->';
         $retval .= '<div id="leftframelinks">';
-        $retval .= '    <a href="index.php?' . $GLOBALS['url_query'] . '" title="' . __('Home') . '">';
+        $retval .= '    <a href="index.php?' . PMA_generate_common_url() . '" title="' . __('Home') . '">';
         if ($GLOBALS['cfg']['NavigationBarIconic']) {
             $retval .= '<img class="icon ic_b_home" src="themes/dot.gif" alt="' . __('Home') . '" /></a>';
         } else {
