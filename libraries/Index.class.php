@@ -21,7 +21,7 @@ class PMA_Index
      *
      * @var array
      */
-    protected static $_registry = array();
+    private static $_registry = array();
 
     /**
      * @var string The name of the schema
@@ -157,7 +157,7 @@ class PMA_Index
      *
      * @return boolean whether loading was successful
      */
-    static protected function _loadIndexes($table, $schema)
+    static private function _loadIndexes($table, $schema)
     {
         if (isset(PMA_Index::$_registry[$schema][$table])) {
             return true;
