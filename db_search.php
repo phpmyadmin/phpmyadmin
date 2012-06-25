@@ -102,7 +102,7 @@ $sub_part = '';
 
 if ( $GLOBALS['is_ajax_request'] != true) {
     include 'libraries/db_info.inc.php';
-    echo '<div id="searchresults">';
+    $response->addHTML('<div id="searchresults">');
 }
 
 /**
@@ -199,9 +199,11 @@ if (isset($_REQUEST['submit_search'])) {
 
         return $sql;
     } // end of the "PMA_getSearchSqls()" function
-    echo PMA_dbSearchGetSearchResults(
-        $tables_selected, $searched, $option_str,
-        $search_str, $search_option, (! empty($field_str) ? $field_str : '')
+    $response->addHTML(
+        PMA_dbSearchGetSearchResults(
+            $tables_selected, $searched, $option_str,
+            $search_str, $search_option, (! empty($field_str) ? $field_str : '')
+        )
     );
 } // end 1.
 
@@ -332,7 +334,7 @@ function PMA_dbSearchGetResultsRow($each_table, $newsearchsqls, $odd_row)
 if ($GLOBALS['is_ajax_request'] == true) {
     exit;
 } else {
-    echo '</div>';//end searchresults div
+    $response->addHTML('</div>');//end searchresults div
 }
 
 /**
@@ -453,8 +455,10 @@ function getResultDivs()
     return $html_output;
 }
 
-echo PMA_dbSearchGetSelectionForm(
-    $searched, $search_option, $tables_names_only, $tables_selected, $url_params,
-    (! empty($field_str) ? $field_str : '')
+$response->addHTML(
+    PMA_dbSearchGetSelectionForm(
+        $searched, $search_option, $tables_names_only, $tables_selected, $url_params,
+        (! empty($field_str) ? $field_str : '')
+    )
 );
 ?>
