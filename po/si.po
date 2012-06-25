@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-18 10:54+0200\n"
-"PO-Revision-Date: 2012-06-24 12:42+0200\n"
+"PO-Revision-Date: 2012-06-24 15:15+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -1871,11 +1871,11 @@ msgstr "ලක්ෂ්‍යයක් මතින් ගමන් කරන �
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "තුළු සූමකරණය සඳහා ප්‍රස්ථාරයේ කොටසක් මූසිකය ආධාරයෙන් තෝරන්න."
 
 #: js/messages.php:306
 msgid "Click reset zoom button to come back to original state."
-msgstr ""
+msgstr "පෙර තත්ත්වයට පැමිණීම සඳහා සූමකරණය ප්‍රතිසකසන බොත්තම ක්ලික් කරන්න."
 
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."
@@ -2323,6 +2323,8 @@ msgstr "'%s' රීතිය සඳහා පෙළ සැකසීම අසම
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
 msgstr ""
+"%1$s පේළියේ වැරදි රීති අර්ථ දැක්වීමකි, පෙර රීතියේ %2$s වන පේළිය බලාපොරොත්තු "
+"විය"
 
 #: libraries/Advisor.class.php:378
 #, php-format
@@ -2333,12 +2335,12 @@ msgstr "%s වන පේළියේ වැරදි රීති අර්ථ�
 #: libraries/Advisor.class.php:386
 #, php-format
 msgid "Unexpected characters on line %s"
-msgstr ""
+msgstr "%s වන පේළියේ අනපේක්ෂිත අනුලකුණකි"
 
 #: libraries/Advisor.class.php:400
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
-msgstr ""
+msgstr "%1$s වන පේළියේ අනපේක්ෂිත අනුලකුණකි. ටැබයක් අපේක්ෂිත නමුත් \"%2$s\" හමුවිය"
 
 #: libraries/Advisor.class.php:425 server_status.php:958
 msgid "per second"
@@ -2727,7 +2729,7 @@ msgstr "ප්‍රේරක"
 
 #: libraries/Menu.class.php:316 libraries/Menu.class.php:317
 msgid "Table seems to be empty!"
-msgstr ""
+msgstr "වගුව හිස් ය!"
 
 #: libraries/Menu.class.php:344 libraries/Menu.class.php:345
 #: libraries/Menu.class.php:346
@@ -3279,7 +3281,7 @@ msgstr "ඕනෑම වර්ගයක ජ්‍යාමිතීන් එක
 #: libraries/Types.class.php:623 libraries/Types.class.php:973
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "සංඛ්‍යාත්මක"
 
 #: libraries/Types.class.php:642 libraries/Types.class.php:976
 #| msgid "Create an index"
@@ -3388,7 +3390,7 @@ msgstr "mcrypt හි Blowfish භාවිතා කිරීම අසමත�
 
 #: libraries/auth/cookie.auth.lib.php:139
 msgid "Your session has expired. Please login again."
-msgstr ""
+msgstr "ඔබගේ සැසිය කල් ඉකුත් වී ඇත. නැවත ඇතුළු වන්න."
 
 #: libraries/auth/cookie.auth.lib.php:227
 msgid "Log in"
