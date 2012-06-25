@@ -334,7 +334,7 @@ foreach ($fields as $row) {
     ?>
 <tr class="<?php echo $odd_row ? 'odd': 'even'; $odd_row = !$odd_row; ?>">
     <td class="center">
-        <input type="checkbox" name="selected_fld[]" value="<?php echo htmlspecialchars($row['Field']); ?>" id="checkbox_row_<?php echo $rownum; ?>" <?php echo $checked; ?> />
+        <input type="checkbox" class="checkall" name="selected_fld[]" value="<?php echo htmlspecialchars($row['Field']); ?>" id="checkbox_row_<?php echo $rownum; ?>" <?php echo $checked; ?> />
     </td>
     <td class="right">
         <?php echo $rownum; ?>
@@ -559,15 +559,10 @@ $checkall_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
 
 <img class="selectallarrow" src="<?php echo $pmaThemeImage . 'arrow_' . $text_dir . '.png'; ?>"
     width="38" height="22" alt="<?php echo __('With selected:'); ?>" />
-<a href="<?php echo $checkall_url; ?>&amp;checkall=1"
-    onclick="if (markAllRows('fieldsForm')) return false;">
-    <?php echo __('Check All'); ?></a>
-/
-<a href="<?php echo $checkall_url; ?>"
-    onclick="if (unMarkAllRows('fieldsForm')) return false;">
-    <?php echo __('Uncheck All'); ?></a>
+<input type="checkbox" id="checkall" title="' . __('Check All') . '" />
+<label for="checkall"><?php echo __('Check All'); ?></label>
 
-<i><?php echo __('With selected:'); ?></i>
+<i style="margin-left: 2em"><?php echo __('With selected:'); ?></i>
 
 <?php
 echo PMA_getButtonOrImage(

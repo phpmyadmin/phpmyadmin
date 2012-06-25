@@ -4220,34 +4220,8 @@ class PMA_DisplayResults
             'sql_query' => $this->_sql_query,
             'goto'      => $this->_goto,
         );
-        $uncheckall_url = 'sql.php' . PMA_generate_common_url($_url_params);
 
-        $_url_params['checkall'] = '1';
-        $checkall_url = 'sql.php' . PMA_generate_common_url($_url_params);
 
-        if ($_SESSION['tmp_user_values']['disp_direction'] == self::DISP_DIR_VERTICAL) {
-
-            $checkall_params['onclick']
-                = 'if (setCheckboxes(\'resultsForm\', true)) return false;';
-            $uncheckall_params['onclick']
-                = 'if (setCheckboxes(\'resultsForm\', false)) return false;';
-
-        } else {
-
-            $checkall_params['onclick']
-                = 'if (markAllRows(\'resultsForm\')) return false;';
-            $uncheckall_params['onclick']
-                = 'if (unMarkAllRows(\'resultsForm\')) return false;';
-
-        }
-
-        $checkall_link = PMA_linkOrButton(
-            $checkall_url, __('Check All'), $checkall_params, false
-        );
-
-        $uncheckall_link = PMA_linkOrButton(
-            $uncheckall_url, __('Uncheck All'), $uncheckall_params, false
-        );
 
         if ($_SESSION['tmp_user_values']['disp_direction'] != self::DISP_DIR_VERTICAL) {
 
@@ -4257,10 +4231,9 @@ class PMA_DisplayResults
                 . ' alt="' . __('With selected:') . '" />';
         }
 
-        $links_html .= $checkall_link . "\n"
-            . ' / ' . "\n"
-            . $uncheckall_link . "\n"
-            . '<i>' . __('With selected:') . '</i>' . "\n";
+        $links_html .= '<input type="checkbox" id="checkall" title="' . __('Check All') . '" /> '
+            . '<label for="checkall">' . __('Check All') . '</label> '
+            . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
 
         $links_html .= PMA_getButtonOrImage(
             'submit_mult', 'mult_submit', 'submit_mult_change',
@@ -4496,13 +4469,13 @@ class PMA_DisplayResults
      * @param string $transform_options  transformation parameters
      * @param string $default_function   default transformation function
      * @param object $meta               the meta-information about this field
-     * @param array  $url_params         parameters that should go to the 
+     * @param array  $url_params         parameters that should go to the
      *                                   download link
      *
      * @return mixed  string or float
-     * 
+     *
      * @access  private
-     * 
+     *
      * @see     _getDataCellForBlobColumns(), _getDataCellForGeometryColumns(),
      *          _getDataCellForNonNumericAndNonBlobColumns(),
      *          _getSortedColumnMessage()
@@ -4581,12 +4554,12 @@ class PMA_DisplayResults
      * @param bool   $is_field_truncated whether the field is truncated
      *
      * @return string  formatted data
-     * 
+     *
      * @access  private
-     * 
+     *
      * @see     _getDataCellForNumericColumns(), _getDataCellForGeometryColumns(),
      *          _getDataCellForNonNumericAndNonBlobColumns(),
-     *          
+     *
      */
     private function _getRowData(
         $class, $condition_field, $analyzed_sql, $meta, $map, $data,
@@ -4754,9 +4727,9 @@ class PMA_DisplayResults
      * @param string $class             css classes for the td element
      *
      * @return string  the generated HTML
-     * 
+     *
      * @access  private
-     * 
+     *
      * @see     _getTableBody(), _getCheckboxAndLinks()
      */
     private function _getCheckboxForMultiRowSubmissions(
@@ -4777,7 +4750,7 @@ class PMA_DisplayResults
                 . '<input type="checkbox" id="id_rows_to_delete'
                 . $row_no . $id_suffix
                 . '" name="rows_to_delete[' . $row_no . ']"'
-                . ' class="multi_checkbox"'
+                . ' class="multi_checkbox checkall"'
                 . ' value="' . $where_clause_html . '" '
                 . (isset($GLOBALS['checkall'])
                     ? 'checked="checked"'
@@ -4803,9 +4776,9 @@ class PMA_DisplayResults
      * @param string $where_clause_html url encoded where clause
      *
      * @return string  the generated HTML
-     * 
+     *
      * @access  private
-     * 
+     *
      * @see     _getTableBody(), _getCheckboxAndLinks()
      */
     private function _getEditLink(
@@ -4843,9 +4816,9 @@ class PMA_DisplayResults
      * @param string $class             css classes for the td element
      *
      * @return string  the generated HTML
-     * 
+     *
      * @access  private
-     * 
+     *
      * @see     _getTableBody(), _getCheckboxAndLinks()
      */
     private function _getCopyLink(
@@ -4888,9 +4861,9 @@ class PMA_DisplayResults
      * @param string $class   css classes for the td element
      *
      * @return string  the generated HTML
-     * 
+     *
      * @access  private
-     * 
+     *
      * @see     _getTableBody(), _getCheckboxAndLinks()
      */
     private function _getDeleteLink($del_url, $del_str, $js_conf, $class)
@@ -4937,9 +4910,9 @@ class PMA_DisplayResults
      * @param string $js_conf           text for the JS confirmation
      *
      * @return string  the generated HTML
-     * 
+     *
      * @access  private
-     * 
+     *
      * @see     _getPlacedLinks()
      */
     private function _getCheckboxAndLinks(
@@ -4995,6 +4968,6 @@ class PMA_DisplayResults
         return $ret;
 
     } // end of the '_getCheckboxAndLinks()' function
-    
+
 }
 ?>

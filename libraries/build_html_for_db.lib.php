@@ -79,7 +79,7 @@ function PMA_buildHtmlForDb(
     $out = '';
     if ($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase']) {
         $out .= '<td class="tool">';
-        $out .= '<input type="checkbox" name="selected_dbs[]" '
+        $out .= '<input type="checkbox" name="selected_dbs[]" class="checkall" '
             . 'title="' . htmlspecialchars($current['SCHEMA_NAME']) . '" '
             . 'value="' . htmlspecialchars($current['SCHEMA_NAME']) . '" ';
 

@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Load vendor configuration.
  */
-require './libraries/vendor_config.php';
+require_once './libraries/vendor_config.php';
 
 /**
  * Configuration class
