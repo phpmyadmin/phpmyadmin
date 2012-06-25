@@ -241,7 +241,7 @@ function PMA_dbSearchGetSearchResults($tables_selected, $searched, $option_str,
 
     $num_search_result_total = 0;
     $odd_row = true;
-
+    // For each table selected as search criteria
     foreach ($tables_selected as $each_table) {
         // Gets the SQL statements
         $newsearchsqls = PMA_getSearchSqls(
@@ -251,46 +251,11 @@ function PMA_dbSearchGetSearchResults($tables_selected, $searched, $option_str,
         // Executes the "COUNT" statement
         $res_cnt = PMA_DBI_fetch_value($newsearchsqls['select_count']);
         $num_search_result_total += $res_cnt;
-
-        $html_output .= '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
-        $html_output .= '<td>';
-        $html_output .= sprintf(
-            _ngettext(
-                '%1$s match inside table <i>%2$s</i>',
-                '%1$s matches inside table <i>%2$s</i>', $res_cnt
-            ),
-            $res_cnt, htmlspecialchars($each_table)
+        $html_output .= PMA_dbSearchGetResultsRow(
+            $each_table, $newsearchsqls, $odd_row
         );
-        $html_output .= '</td>';
-
-        if ($res_cnt > 0) {
-            $this_url_params['sql_query'] = $newsearchsqls['select_fields'];
-            $browse_result_path = 'sql.php' . PMA_generate_common_url($this_url_params);
-            $html_output .= '<td><a name="browse_search" href="'
-                . $browse_result_path . '" onclick="loadResult(\''
-                . $browse_result_path . '\',\'' . $each_table . '\',\''
-                . PMA_generate_common_url($GLOBALS['db'], $each_table) . '\',\''
-                . ($GLOBALS['cfg']['AjaxEnable']) .'\');return false;" >'
-                . __('Browse') . '</a></td>';
-            $this_url_params['sql_query'] = $newsearchsqls['delete'];
-            $delete_result_path = 'sql.php' . PMA_generate_common_url($this_url_params);
-            $html_output .= '<td><a name="delete_search" href="'
-                . $delete_result_path . '" onclick="deleteResult(\''
-                . $delete_result_path . '\' , \''
-                . sprintf(
-                    __('Delete the matches for the %s table?'),
-                    htmlspecialchars($each_table)
-                )
-                . '\',\'' . ($GLOBALS['cfg']['AjaxEnable']) . '\');return false;">'
-                . __('Delete') . '</a></td>';
-        } else {
-            $html_output .= '<td>&nbsp;</td>'
-                .'<td>&nbsp;</td>';
-        }// end if else
         $odd_row = ! $odd_row;
-        $html_output .= '</tr>';
     } // end for
-
     $html_output .= '</table>';
 
     if (count($tables_selected) > 1) {
@@ -305,6 +270,59 @@ function PMA_dbSearchGetSearchResults($tables_selected, $searched, $option_str,
         );
         $html_output .= '</p>';
     }
+    return $html_output;
+}
+
+/**
+ * Provides search results row with browse/delete links.
+ * (for a table)
+ *
+ * @param string $each_table    Tables on which search is to be performed
+ * @param array  $newsearchsqls Contains SQL queries
+ * @param bool   $odd_row       For displaying contrasting table rows
+ *
+ * @return string HTML row
+ */
+function PMA_dbSearchGetResultsRow($each_table, $newsearchsqls, $odd_row)
+{
+    $res_cnt = PMA_DBI_fetch_value($newsearchsqls['select_count']);
+    // Start forming search results row
+    $html_output = '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
+    $html_output .= '<td>';
+    $html_output .= sprintf(
+        _ngettext(
+            '%1$s match inside table <i>%2$s</i>',
+            '%1$s matches inside table <i>%2$s</i>', $res_cnt
+        ),
+        $res_cnt, htmlspecialchars($each_table)
+    );
+    $html_output .= '</td>';
+
+    if ($res_cnt > 0) {
+        $this_url_params['sql_query'] = $newsearchsqls['select_fields'];
+        $browse_result_path = 'sql.php' . PMA_generate_common_url($this_url_params);
+        $html_output .= '<td><a name="browse_search" href="'
+            . $browse_result_path . '" onclick="loadResult(\''
+            . $browse_result_path . '\',\'' . $each_table . '\',\''
+            . PMA_generate_common_url($GLOBALS['db'], $each_table) . '\',\''
+            . ($GLOBALS['cfg']['AjaxEnable']) .'\');return false;" >'
+            . __('Browse') . '</a></td>';
+        $this_url_params['sql_query'] = $newsearchsqls['delete'];
+        $delete_result_path = 'sql.php' . PMA_generate_common_url($this_url_params);
+        $html_output .= '<td><a name="delete_search" href="'
+            . $delete_result_path . '" onclick="deleteResult(\''
+            . $delete_result_path . '\' , \''
+            . sprintf(
+                __('Delete the matches for the %s table?'),
+                htmlspecialchars($each_table)
+            )
+            . '\',\'' . ($GLOBALS['cfg']['AjaxEnable']) . '\');return false;">'
+            . __('Delete') . '</a></td>';
+    } else {
+        $html_output .= '<td>&nbsp;</td>'
+            .'<td>&nbsp;</td>';
+    }// end if else
+    $html_output .= '</tr>';
     return $html_output;
 }
 
