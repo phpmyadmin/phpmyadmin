@@ -26,45 +26,45 @@ class PMA_Index
     /**
      * @var string The name of the schema
      */
-    protected $_schema = '';
+    private $_schema = '';
 
     /**
      * @var string The name of the table
      */
-    protected $_table = '';
+    private $_table = '';
 
     /**
      * @var string The name of the index
      */
-    protected $_name = '';
+    private $_name = '';
 
     /**
      * Columns in index
      *
      * @var array
      */
-    protected $_columns = array();
+    private $_columns = array();
 
     /**
      * The index method used (BTREE, SPATIAL, FULLTEXT, HASH, RTREE).
      *
      * @var string
      */
-    protected $_type = '';
+    private $_type = '';
 
     /**
      * The index choice (PRIMARY, UNIQUE, INDEX, SPATIAL, FULLTEXT)
      *
      * @var string
      */
-    protected $_choice = '';
+    private $_choice = '';
 
     /**
      * Various remarks.
      *
      * @var string
      */
-    protected $_remarks = '';
+    private $_remarks = '';
 
     /**
      * Any comment provided for the index with a COMMENT attribute when the
@@ -72,19 +72,19 @@ class PMA_Index
      *
      * @var string
      */
-    protected $_comment = '';
+    private $_comment = '';
 
     /**
      * @var integer 0 if the index cannot contain duplicates, 1 if it can.
      */
-    protected $_non_unique = 0;
+    private $_non_unique = 0;
 
     /**
      * Indicates how the key is packed. NULL if it is not.
      *
      * @var string
      */
-    protected $_packed = null;
+    private $_packed = null;
 
     /**
      * Constructor
@@ -617,17 +617,17 @@ class PMA_Index_Column
     /**
      * @var string The column name
      */
-    protected $_name = '';
+    private $_name = '';
 
     /**
      * @var integer The column sequence number in the index, starting with 1.
      */
-    protected $_seq_in_index = 1;
+    private $_seq_in_index = 1;
 
     /**
      * @var string How the column is sorted in the index. “A” (Ascending) or NULL (Not sorted)
      */
-    protected $_collation = null;
+    private $_collation = null;
 
     /**
      * The number of indexed characters if the column is only partly indexed,
@@ -635,7 +635,7 @@ class PMA_Index_Column
      *
      * @var integer
      */
-    protected $_sub_part = null;
+    private $_sub_part = null;
 
     /**
      * Contains YES if the column may contain NULL.
@@ -643,7 +643,7 @@ class PMA_Index_Column
      *
      * @var string
      */
-    protected $_null = '';
+    private $_null = '';
 
     /**
      * An estimate of the number of unique values in the index. This is updated
@@ -654,7 +654,7 @@ class PMA_Index_Column
      *
      * @var integer
      */
-    protected $_cardinality = null;
+    private $_cardinality = null;
 
     public function __construct($params = array())
     {
