@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-05-07 10:57+0200\n"
+"PO-Revision-Date: 2012-06-24 15:11+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
 "Language: si\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.10\n"
+"X-Generator: Weblate 1.0\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -1891,7 +1891,7 @@ msgstr "ලක්ෂ්‍යයක් මතින් ගමන් කරන �
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "තුළු සූමකරණය සඳහා ප්‍රස්ථාරයේ කොටසක් මූසිකය ආධාරයෙන් තෝරන්න."
 
 #: js/messages.php:306
 msgid "Click reset zoom link to come back to original state."
@@ -5674,9 +5674,8 @@ msgstr ""
 "තෝරාගත් ආකෘතිය සඳහා විකල්ප භාවිතා කිරීමට පහලට යන්න. අනෙකුත් ආකෘති සඳහා විකල්ප නොසලකන්න."
 
 #: libraries/display_export.lib.php:342 libraries/display_import.lib.php:260
-#, fuzzy
 msgid "Encoding Conversion:"
-msgstr "MySQL සේවාදායකයාගේ සංස්කරණය"
+msgstr "කේතීකරණ පරිවර්තනය:"
 
 #: libraries/display_import.lib.php:66
 msgid ""
@@ -7933,7 +7932,7 @@ msgstr ""
 
 #: libraries/tbl_links.inc.php:118 libraries/tbl_links.inc.php:119
 msgid "Table seems to be empty!"
-msgstr ""
+msgstr "වගුව හිස් ය!"
 
 #: libraries/tbl_links.inc.php:126
 #, php-format
@@ -9821,18 +9820,12 @@ msgid "The amount of data written so far, in bytes."
 msgstr "මේ දක්වා ලියැවුණු දත්ත ප්‍රමාණය, බයිට වලින්."
 
 #: server_status.php:1350
-#, fuzzy
 msgid "The number of pages that have been written for doublewrite operations."
-msgstr ""
-"The number of doublewrite writes that have been performed and the number of "
-"pages that have been written for this purpose."
+msgstr "ද්විත්ව-ලිවීම් මෙහෙයුම් සඳහා ලියැවුණු පිටු ගණන."
 
 #: server_status.php:1351
-#, fuzzy
 msgid "The number of doublewrite operations that have been performed."
-msgstr ""
-"The number of doublewrite writes that have been performed and the number of "
-"pages that have been written for this purpose."
+msgstr "සිදු කෙරුණු ද්විත්ව-ලිවීම් මෙහෙයුම් ගණන."
 
 #: server_status.php:1352
 msgid ""
@@ -11460,10 +11453,9 @@ msgid "How to use"
 msgstr "භාවිතා කරන අයුරු"
 
 #: tbl_zoom_select.php:431
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "ප්‍රතිසකසන්න"
+msgstr "සූමය ප්‍රතිසකසන්න"
 
 #: themes.php:28
 msgid "Get more themes!"
@@ -11523,10 +11515,9 @@ msgid "The uptime is only %s"
 msgstr ""
 
 #: po/advisory_rules.php:10
-#, fuzzy
 #| msgid "Versions"
 msgid "Questions below 1,000"
-msgstr "අනුවාද"
+msgstr "ප්‍රශ්න ගණන 1,000 ට වඩා අඩුය"
 
 #: po/advisory_rules.php:11
 msgid ""
@@ -11541,10 +11532,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:13
-#, fuzzy, php-format
+#, php-format
 #| msgid "Current connection"
 msgid "Current amount of Questions: %s"
-msgstr "වත්මන් සම්බන්දතාව"
+msgstr "වත්මන් ප්‍රශ්න ගණන: %s"
 
 #: po/advisory_rules.php:15
 msgid "Percentage of slow queries"
@@ -11601,7 +11592,7 @@ msgstr ""
 #: po/advisory_rules.php:28
 #, php-format
 msgid "long_query_time is currently set to %ds."
-msgstr ""
+msgstr "long_query_time තත්පර %d කට සිටුවා ඇත."
 
 #: po/advisory_rules.php:30
 msgid "Slow query logging"
@@ -11609,7 +11600,7 @@ msgstr "මන්දගාමී විමසුම් ලොගගත කිර
 
 #: po/advisory_rules.php:31
 msgid "The slow query log is disabled."
-msgstr ""
+msgstr "වැඩි කාලයක් ගන්න විමසුම් සටහන් කරනා ලොගය අක්‍රීය යි."
 
 #: po/advisory_rules.php:32
 msgid ""
@@ -11619,7 +11610,7 @@ msgstr ""
 
 #: po/advisory_rules.php:33
 msgid "log_slow_queries is set to 'OFF'"
-msgstr ""
+msgstr "log_slow_queries, 'OFF'(අක්‍රීය) වෙත පිහිටුවා ඇත"
 
 #: po/advisory_rules.php:35
 #, fuzzy
@@ -11661,10 +11652,9 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr ""
 
 #: po/advisory_rules.php:47
-#, fuzzy
 #| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5"
-msgstr "You should upgrade to %s %s or later."
+msgstr "ඔබ MySQL 5.5 හි ස්ථාවර අනුවාදයක් වෙත යාවත්කාලීන කල යුතුය"
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
 msgid "Distribution"
@@ -11707,10 +11697,9 @@ msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr ""
 
 #: po/advisory_rules.php:65
-#, fuzzy
 #| msgid "MySQL charset"
 msgid "MySQL Architecture"
-msgstr "MySQL අක්ෂර කට්ටලය"
+msgstr "MySQL නිර්මිතය"
 
 #: po/advisory_rules.php:66
 msgid "MySQL is not compiled as a 64-bit package."
@@ -11754,7 +11743,7 @@ msgstr "විමසුම් කෑෂ්ගත කරන ක්‍රමය"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
-msgstr ""
+msgstr "කෑෂ්ගත කරන ක්‍රමය ප්‍රශස්ත නැත."
 
 #: po/advisory_rules.php:77
 msgid ""
@@ -11884,7 +11873,7 @@ msgstr ""
 #: po/advisory_rules.php:103
 #, php-format
 msgid "Current query cache size: %s"
-msgstr ""
+msgstr "වත්මන් විමසුම් කෑෂයේ ප්‍රමාණය: %s"
 
 #: po/advisory_rules.php:105
 msgid "Query cache min result size"
