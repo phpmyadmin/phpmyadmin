@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-18 10:54+0200\n"
-"PO-Revision-Date: 2012-05-17 15:00+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-06-25 16:57+0200\n"
+"Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -254,16 +254,16 @@ msgid "The database name is empty!"
 msgstr "Databasenavnet er tomt!"
 
 #: db_operations.php:314
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "Database %s er blevet omdøbt til %s"
+msgstr "Database %1$s er blevet omdøbt til %2$s"
 
 #: db_operations.php:318
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "Database %s er blevet kopieret til %s"
+msgstr "Databasen %1$s er blevet kopieret til %2$s"
 
 #: db_operations.php:449
 msgid "Rename database to"
@@ -514,13 +514,13 @@ msgid "Search results for \"<i>%s</i>\" %s:"
 msgstr "Søgeresultater for \"<i>%s</i>\" %s:"
 
 #: db_search.php:242
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match inside table <i>%s</i>"
 #| msgid_plural "%s matches inside table <i>%s</i>"
 msgid "%1$s match inside table <i>%2$s</i>"
 msgid_plural "%1$s matches inside table <i>%2$s</i>"
-msgstr[0] "%s sammenfald i tabel <i>%s</i>"
-msgstr[1] "%s sammenfald i tabel <i>%s</i>"
+msgstr[0] "%1$s sammenfald i tabel <i>%2$s</i>"
+msgstr[1] "%1$s sammenfald i tabel <i>%2$s</i>"
 
 #: db_search.php:250 libraries/Menu.class.php:251
 #: libraries/common.lib.php:3311 libraries/common.lib.php:3510
@@ -1031,10 +1031,10 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" erklæringer kan ikke bruges."
 
 #: js/messages.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to "
 msgid "Do you really want to execute \"%s\"?"
-msgstr "Er du sikker på at du vil "
+msgstr "Er du sikker på at du vil udføre \"%s\"?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:305 sql.php:409
 msgid "You are about to DESTROY a complete database!"
@@ -1069,22 +1069,20 @@ msgid "This is not a number!"
 msgstr "Dette er ikke et tal!"
 
 #: js/messages.php:42
-#, fuzzy
 #| msgid "Add index"
 msgid "Add Index"
 msgstr "Tilføj indeks"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit Index"
-msgstr "Redigeringstilstand"
+msgstr "Redigér indeks"
 
 #: js/messages.php:44 tbl_indexes.php:318
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s column(s)"
 msgid "Add %d column(s) to index"
-msgstr "Tilføj %s kolonne(r)"
+msgstr "Tilføj %d kolonne(r) til indeks"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:48
@@ -1224,8 +1222,8 @@ msgid ""
 msgstr ""
 "Konfigurationen af diagramopstillingen i din browsers lokale lager er ikke "
 "længere kompatibel med den nyere version af skærmdialogen. Det er meget "
-"sandsynligt, at din aktuelle konfiguration ikke vil virke længere.Nulstil "
-"derfor din konfiguration i menuen <i>Settings</>"
+"sandsynligt, at din aktuelle konfiguration ikke vil virke længere. Nulstil "
+"derfor din konfiguration i menuen <i>Settings</>."
 
 #: js/messages.php:93
 msgid "Query cache efficiency"
@@ -1341,11 +1339,11 @@ msgid "EiB"
 msgstr "EiB"
 
 #: js/messages.php:128
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "%d table(s)"
-msgstr "%s tabel"
+msgstr "%d tabel(ler)"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:131
@@ -1490,14 +1488,14 @@ msgid "Differential"
 msgstr "Differentiel"
 
 #: js/messages.php:167
-#, fuzzy, php-format
+#, php-format
 #| msgid "Divided by %s:"
 msgid "Divided by %s"
-msgstr "Divideret med %s:"
+msgstr "Divideret med %s"
 
 #: js/messages.php:168
 msgid "Unit"
-msgstr ""
+msgstr "Enhed"
 
 #: js/messages.php:170
 msgid "From slow log"
@@ -1508,20 +1506,18 @@ msgid "From general log"
 msgstr "Fra generel log"
 
 #: js/messages.php:172
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "Indlæser logs"
+msgstr "Analyserer logge"
 
 #: js/messages.php:173
 msgid "Analysing & loading logs. This may take a while."
 msgstr "Analyserer & indlæser logs. Dette kan vare nogen tid."
 
 #: js/messages.php:174
-#, fuzzy
 #| msgid "Read requests"
 msgid "Cancel request"
-msgstr "Read-anmodninger"
+msgstr "Annullér forespørgsel"
 
 #: js/messages.php:175
 msgid ""
@@ -1552,26 +1548,23 @@ msgid "Jump to Log table"
 msgstr "Gå til logtabellen"
 
 #: js/messages.php:180
-#, fuzzy
 #| msgid "No data"
 msgid "No data found"
-msgstr "Ingen data"
+msgstr "Fandt ingen data"
 
 #: js/messages.php:181
 msgid "Log analysed, but no data found in this time span."
 msgstr "Loggen er analyseret, men ingen data fundet i dette tidsinterval."
 
 #: js/messages.php:183
-#, fuzzy
 #| msgid "Analyze"
 msgid "Analyzing..."
-msgstr "Analyser"
+msgstr "Analyserer ..."
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
-msgstr "Forklar SQL"
+msgstr "Forklar output"
 
 #: js/messages.php:186 js/messages.php:516 libraries/export/htmlword.php:449
 #: libraries/export/odt.php:534 libraries/export/texytext.php:408
@@ -1580,41 +1573,35 @@ msgid "Time"
 msgstr "Tid"
 
 #: js/messages.php:187
-#, fuzzy
 #| msgid "Total:"
 msgid "Total time:"
-msgstr "Total:"
+msgstr "Samlet tid:"
 
 #: js/messages.php:188
-#, fuzzy
 #| msgid "Profiling"
 msgid "Profiling results"
-msgstr "Profilering"
+msgstr "Resultat af profilering"
 
 #: js/messages.php:189
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
 msgstr "Tabel"
 
 #: js/messages.php:190
-#, fuzzy
 #| msgid "Charset"
 msgid "Chart"
-msgstr "Tegnsæt"
+msgstr "Diagram"
 
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Add chart"
 msgid "Edit chart"
-msgstr "Tilføj diagram"
+msgstr "Redigér diagram"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Series:"
 msgid "Series"
-msgstr "Serie:"
+msgstr "Serier"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
@@ -1670,12 +1657,11 @@ msgid "Affected rows:"
 msgstr "Berørte rækker:"
 
 #: js/messages.php:210
-#, fuzzy
 #| msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 "Kunne ikke fortolke konfigurationsfilen. Det ser ikke ud til at være gyldig "
-"JSON kode"
+"JSON-kode."
 
 #: js/messages.php:211
 msgid ""
@@ -1693,16 +1679,14 @@ msgid "Import"
 msgstr "Importer"
 
 #: js/messages.php:213
-#, fuzzy
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
-msgstr "Kunne ikke indlæse konfiguration"
+msgstr "Importér overvågningskonfiguration"
 
 #: js/messages.php:214
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "Vælg venligst den primære nøgle eller en unik nøgle"
+msgstr "Vælg venligst filen du vil importere"
 
 #: js/messages.php:216
 msgid "Analyse Query"
@@ -1813,22 +1797,19 @@ msgid "Show indexes"
 msgstr "Vis indekser"
 
 #: js/messages.php:257 libraries/mult_submits.inc.php:315
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Foreign key check:"
-msgstr "Slå fremmednøgle-checks fra"
+msgstr "Tjek af fremmednøgle:"
 
 #: js/messages.php:258 libraries/mult_submits.inc.php:319
-#, fuzzy
 #| msgid "Enabled"
 msgid "(Enabled)"
-msgstr "Slået til"
+msgstr "(Slået til)"
 
 #: js/messages.php:259 libraries/mult_submits.inc.php:319
-#, fuzzy
 #| msgid "Disabled"
 msgid "(Disabled)"
-msgstr "Slået fra"
+msgstr "(Slået fra)"
 
 #: js/messages.php:262
 msgid "Searching"
@@ -1858,31 +1839,29 @@ msgstr ""
 
 #: js/messages.php:272 libraries/rte/rte_routines.lib.php:694
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "ENUM/SET-redigeringsværktøj"
 
 #: js/messages.php:273
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
-msgstr "Værdier for kolonnen \"%s\""
+msgstr "Værdier for kolonnen %s"
 
 #: js/messages.php:274
-#, fuzzy
 #| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
-msgstr "Værdier for kolonnen \"%s\""
+msgstr "Værdier for en ny kolonne"
 
 #: js/messages.php:275
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
-msgstr "Indtast hver værdi i et seperat felt."
+msgstr "Indtast hver værdi i et separat felt"
 
 #: js/messages.php:276
-#, fuzzy, php-format
+#, php-format
 #| msgid "+ Add a value"
 msgid "Add %d value(s)"
-msgstr "+ Tilføj en værdi"
+msgstr "Tilføj %d værdi(er)"
 
 #: js/messages.php:279
 msgid ""
@@ -1940,11 +1919,11 @@ msgstr "Forstør søgning"
 
 #: js/messages.php:300
 msgid "Each point represents a data row."
-msgstr "Hvert punkt repræsenterer en datarække"
+msgstr "Hvert punkt repræsenterer en datarække."
 
 #: js/messages.php:302
 msgid "Hovering over a point will show its label."
-msgstr "Ved at holde pointeren over et punkt vises dets etiket"
+msgstr "Når der holdes over et punkt vises dets etiket."
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
@@ -1960,7 +1939,7 @@ msgstr ""
 
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."
-msgstr "Klik et datapunkt for at se og muligvis redigere datarækken"
+msgstr "Klik et datapunkt for at se og muligvis redigere datarækken."
 
 #: js/messages.php:310
 msgid "The plot can be resized by dragging it along the bottom right corner."
@@ -1976,10 +1955,9 @@ msgid "Select two different columns"
 msgstr "Vælg to forskellige kolonner"
 
 #: js/messages.php:314
-#, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
-msgstr "Forespørgselsresultat operationer"
+msgstr "Forespørgselsresultater"
 
 #: js/messages.php:315
 #, fuzzy
@@ -2030,7 +2008,7 @@ msgstr "Tilføj mulighed for kolonne "
 
 #: js/messages.php:347
 msgid "Press escape to cancel editing"
-msgstr "Tryk på ESC for at annullere redigeringen."
+msgstr "Tryk på ESC for at annullere redigeringen"
 
 #: js/messages.php:348
 msgid ""
@@ -2054,7 +2032,7 @@ msgstr "Klik for at markere/afmarkere"
 
 #: js/messages.php:352
 msgid "Double-click to copy column name"
-msgstr ""
+msgstr "Dobbeltklik for at kopiere kolonnenavn"
 
 #: js/messages.php:353
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
@@ -2081,20 +2059,18 @@ msgid "Go to link"
 msgstr "Gå til link"
 
 #: js/messages.php:358
-#, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
-msgstr "Kolonnenavne"
+msgstr "Kopiér kolonnenavn"
 
 #: js/messages.php:359
 msgid "Right-click the column name to copy it to your clipboard."
-msgstr ""
+msgstr "Højreklik kolonnenavnet for at kopiere det til din udklipsholder."
 
 #: js/messages.php:360
-#, fuzzy
 #| msgid "Update row(s)"
 msgid "Show data row(s)"
-msgstr "Opdater række(r)"
+msgstr "Vis datarække(r)"
 
 #: js/messages.php:363
 msgid "Generate password"
@@ -2365,15 +2341,14 @@ msgstr "uge"
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: js/messages.php:506
 msgid "calendar-month-year"
-msgstr ""
+msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:508
-#, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
-msgstr "Ingen"
+msgstr "ingen"
 
 #: js/messages.php:517
 msgid "Hour"
@@ -2390,29 +2365,29 @@ msgstr "Sekund"
 #: libraries/Advisor.class.php:67
 #, php-format
 msgid "PHP threw following error: %s"
-msgstr ""
+msgstr "PHP smed følgende fejl: %s"
 
 #: libraries/Advisor.class.php:89
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'"
-msgstr ""
+msgstr "Mislykkedes med at evaluere betingelse for reglen '%s'"
 
 #: libraries/Advisor.class.php:106
 #, php-format
 msgid "Failed calculating value for rule '%s'"
-msgstr ""
+msgstr "Mislykkedes med at beregne værdi for reglen '%s'"
 
 #: libraries/Advisor.class.php:125
 #, php-format
 msgid "Failed running test for rule '%s'"
-msgstr ""
+msgstr "Mislykkedes med at afvikle test for reglen '%s'"
 
 #: libraries/Advisor.class.php:207
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgid "Failed formatting string for rule '%s'."
-msgstr "Fejlende formatteringsstreng for regel '%s'. PHP gav følgende fejl: %s"
+msgstr "Mislykkedes med at formatere streng for reglen '%s'."
 
 #: libraries/Advisor.class.php:361
 #, php-format
@@ -5207,7 +5182,7 @@ msgid ""
 msgstr ""
 "Deaktiver standardadvarslen, som vises på databasedetaljers strukturside, "
 "hvis nogen af de påkrævede tabeller i phpMyAdmin configuration storage ikke "
-"kunne findes."
+"kunne findes"
 
 #: libraries/config/messages.inc.php:338
 msgid "Missing phpMyAdmin configuration storage tables"
