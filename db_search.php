@@ -293,8 +293,8 @@ function PMA_dbSearchGetResultsRow($each_table, $newsearchsqls, $odd_row)
     $html_output .= '<td>';
     $html_output .= sprintf(
         _ngettext(
-            '%1$s match inside table <i>%2$s</i>',
-            '%1$s matches inside table <i>%2$s</i>', $res_cnt
+            '%1$s match in <strong>%2$s</strong>',
+            '%1$s matches in <strong>%2$s</strong>', $res_cnt
         ),
         $res_cnt, htmlspecialchars($each_table)
     );
