@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-05-17 15:00+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-06-25 16:57+0200\n"
+"Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -808,25 +808,23 @@ msgstr "Databaselog"
 #: enum_editor.php:23 js/messages.php:272
 #: libraries/rte/rte_routines.lib.php:690
 msgid "ENUM/SET editor"
-msgstr ""
+msgstr "ENUM/SET-redigeringsværktøj"
 
 #: enum_editor.php:28 js/messages.php:274
-#, fuzzy
 #| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
-msgstr "Værdier for kolonnen \"%s\""
+msgstr "Værdier for en ny kolonne"
 
 #: enum_editor.php:30 js/messages.php:273
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
-msgstr "Værdier for kolonnen \"%s\""
+msgstr "Værdier for kolonnen %s"
 
 #: enum_editor.php:34 js/messages.php:275
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
-msgstr "Indtast hver værdi i et seperat felt."
+msgstr "Indtast hver værdi i et separat felt"
 
 #: enum_editor.php:123
 #, fuzzy
@@ -1115,22 +1113,20 @@ msgid "This is not a number!"
 msgstr "Dette er ikke et tal!"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid "Add index"
 msgid "Add Index"
 msgstr "Tilføj indeks"
 
 #: js/messages.php:47
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit Index"
-msgstr "Redigeringstilstand"
+msgstr "Redigér indeks"
 
 #: js/messages.php:48 tbl_indexes.php:293
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s column(s)"
 msgid "Add %d column(s) to index"
-msgstr "Tilføj %s kolonne(r)"
+msgstr "Tilføj %d kolonne(r) til indeks"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:52
@@ -1269,8 +1265,8 @@ msgid ""
 msgstr ""
 "Konfigurationen af diagramopstillingen i din browsers lokale lager er ikke "
 "længere kompatibel med den nyere version af skærmdialogen. Det er meget "
-"sandsynligt, at din aktuelle konfiguration ikke vil virke længere.Nulstil "
-"derfor din konfiguration i menuen <i>Settings</>"
+"sandsynligt, at din aktuelle konfiguration ikke vil virke længere. Nulstil "
+"derfor din konfiguration i menuen <i>Settings</>."
 
 #: js/messages.php:97
 msgid "Query cache efficiency"
@@ -1386,11 +1382,11 @@ msgid "EiB"
 msgstr "EiB"
 
 #: js/messages.php:132
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "%d table(s)"
-msgstr "%s tabel"
+msgstr "%d tabel(ler)"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:135
@@ -1536,14 +1532,14 @@ msgid "Differential"
 msgstr "Differentiel"
 
 #: js/messages.php:171
-#, fuzzy, php-format
+#, php-format
 #| msgid "Divided by %s:"
 msgid "Divided by %s"
-msgstr "Divideret med %s:"
+msgstr "Divideret med %s"
 
 #: js/messages.php:172
 msgid "Unit"
-msgstr ""
+msgstr "Enhed"
 
 #: js/messages.php:174
 msgid "From slow log"
@@ -1554,20 +1550,18 @@ msgid "From general log"
 msgstr "Fra generel log"
 
 #: js/messages.php:176
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "Indlæser logs"
+msgstr "Analyserer logge"
 
 #: js/messages.php:177
 msgid "Analysing & loading logs. This may take a while."
 msgstr "Analyserer & indlæser logs. Dette kan vare nogen tid."
 
 #: js/messages.php:178
-#, fuzzy
 #| msgid "Read requests"
 msgid "Cancel request"
-msgstr "Read-anmodninger"
+msgstr "Annullér forespørgsel"
 
 #: js/messages.php:179
 msgid ""
@@ -1598,26 +1592,23 @@ msgid "Jump to Log table"
 msgstr "Gå til logtabellen"
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "No data"
 msgid "No data found"
-msgstr "Ingen data"
+msgstr "Fandt ingen data"
 
 #: js/messages.php:185
 msgid "Log analysed, but no data found in this time span."
 msgstr "Loggen er analyseret, men ingen data fundet i dette tidsinterval."
 
 #: js/messages.php:187
-#, fuzzy
 #| msgid "Analyze"
 msgid "Analyzing..."
-msgstr "Analyser"
+msgstr "Analyserer ..."
 
 #: js/messages.php:188
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
-msgstr "Forklar SQL"
+msgstr "Forklar output"
 
 #: js/messages.php:190 js/messages.php:497 libraries/rte/rte_list.lib.php:62
 #: server_status.php:1244 sql.php:900
@@ -1625,41 +1616,35 @@ msgid "Time"
 msgstr "Tid"
 
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Total:"
 msgid "Total time:"
-msgstr "Total:"
+msgstr "Samlet tid:"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Profiling"
 msgid "Profiling results"
-msgstr "Profilering"
+msgstr "Resultat af profilering"
 
 #: js/messages.php:193
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
 msgstr "Tabel"
 
 #: js/messages.php:194
-#, fuzzy
 #| msgid "Charset"
 msgid "Chart"
-msgstr "Tegnsæt"
+msgstr "Diagram"
 
 #: js/messages.php:195
-#, fuzzy
 #| msgid "Add chart"
 msgid "Edit chart"
-msgstr "Tilføj diagram"
+msgstr "Redigér diagram"
 
 #: js/messages.php:196
-#, fuzzy
 #| msgid "Series:"
 msgid "Series"
-msgstr "Serie:"
+msgstr "Serier"
 
 #. l10n: A collection of available filters
 #: js/messages.php:199
@@ -1715,12 +1700,11 @@ msgid "Affected rows:"
 msgstr "Berørte rækker:"
 
 #: js/messages.php:214
-#, fuzzy
 #| msgid "Failed parsing config file. It doesn't seem to be valid JSON code"
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
 "Kunne ikke fortolke konfigurationsfilen. Det ser ikke ud til at være gyldig "
-"JSON kode"
+"JSON-kode."
 
 #: js/messages.php:215
 msgid ""
@@ -1738,16 +1722,14 @@ msgid "Import"
 msgstr "Importer"
 
 #: js/messages.php:217
-#, fuzzy
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
-msgstr "Kunne ikke indlæse konfiguration"
+msgstr "Importér overvågningskonfiguration"
 
 #: js/messages.php:218
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "Vælg venligst den primære nøgle eller en unik nøgle"
+msgstr "Vælg venligst filen du vil importere"
 
 #: js/messages.php:220
 msgid "Analyse Query"
@@ -1880,10 +1862,10 @@ msgstr ""
 "udtryk!"
 
 #: js/messages.php:276
-#, fuzzy, php-format
+#, php-format
 #| msgid "+ Add a value"
 msgid "Add %d value(s)"
-msgstr "+ Tilføj en værdi"
+msgstr "Tilføj %d værdi(er)"
 
 #: js/messages.php:279
 msgid ""
@@ -1940,11 +1922,11 @@ msgstr "Forstør søgning"
 
 #: js/messages.php:300
 msgid "Each point represents a data row."
-msgstr "Hvert punkt repræsenterer en datarække"
+msgstr "Hvert punkt repræsenterer en datarække."
 
 #: js/messages.php:302
 msgid "Hovering over a point will show its label."
-msgstr "Ved at holde pointeren over et punkt vises dets etiket"
+msgstr "Når der holdes over et punkt vises dets etiket."
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
@@ -1958,7 +1940,7 @@ msgstr ""
 
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."
-msgstr "Klik et datapunkt for at se og muligvis redigere datarækken"
+msgstr "Klik et datapunkt for at se og muligvis redigere datarækken."
 
 #: js/messages.php:310
 msgid "The plot can be resized by dragging it along the bottom right corner."
@@ -1974,10 +1956,9 @@ msgid "Select two different columns"
 msgstr "Vælg to forskellige kolonner"
 
 #: js/messages.php:314
-#, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
-msgstr "Forespørgselsresultat operationer"
+msgstr "Forespørgselsresultater"
 
 #: js/messages.php:315
 #, fuzzy
@@ -2028,7 +2009,7 @@ msgstr "Tilføj mulighed for kolonne "
 
 #: js/messages.php:347
 msgid "Press escape to cancel editing"
-msgstr "Tryk på ESC for at annullere redigeringen."
+msgstr "Tryk på ESC for at annullere redigeringen"
 
 #: js/messages.php:348
 msgid ""
@@ -2343,15 +2324,14 @@ msgstr "uge"
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: js/messages.php:487
 msgid "calendar-month-year"
-msgstr ""
+msgstr "calendar-month-year"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:489
-#, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
-msgstr "Ingen"
+msgstr "ingen"
 
 #: js/messages.php:498
 msgid "Hour"
@@ -4525,7 +4505,7 @@ msgid ""
 msgstr ""
 "Deaktiver standardadvarslen, som vises på databasedetaljers strukturside, "
 "hvis nogen af de påkrævede tabeller i phpMyAdmin configuration storage ikke "
-"kunne findes."
+"kunne findes"
 
 #: libraries/config/messages.inc.php:334
 msgid "Missing phpMyAdmin configuration storage tables"
