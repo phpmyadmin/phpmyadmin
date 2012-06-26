@@ -367,6 +367,10 @@ $js_messages['strChangePassword'] = __('Change Password');
 /* navigation tabs */
 $js_messages['strMore'] = __('More');
 
+/* navigation panel */
+$js_messages['strShowPanel'] = __('Show Panel');
+$js_messages['strHidePanel'] = __('Hide Panel');
+
 /* update */
 $js_messages['strNewerVersion'] = __('A newer version of phpMyAdmin is available and you should consider upgrading. The newest version is %s, released on %s.');
 /* l10n: Latest available phpMyAdmin version */

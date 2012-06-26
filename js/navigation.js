@@ -6,14 +6,6 @@
  */
 
 /**
- * init
- */
-var today = new Date();
-var expires = new Date(today.getTime() + (56 * 86400000));
-var pma_navi_width;
-var pma_saveframesize_timeout = null;
-
-/**
  * opens/closes (hides/shows) tree elements
  * loads data via ajax
  */
@@ -56,108 +48,186 @@ $(document).ready(function() {
 	});
 });
 
-function PMA_callFunctionDelayed(myfunction, delay)
-{
-    if (typeof pma_saveframesize_timeout == "number") {
-         window.clearTimeout(pma_saveframesize_timeout);
-        pma_saveframesize_timeout = null;
-    }
-}
-
 /**
- * saves current navigation frame width in a cookie
- * usally called on resize of the navigation frame
+ * @var ResizeHandler Custom object that manages the resizing of the navigation
+ *
+ * XXX: Must only be ever instanciated once
+ * XXX: Inside event handlers the 'this' object is accessed as 'e.data.this'
  */
-function PMA_saveFrameSizeReal()
-{
-    if (parent.text_dir == 'ltr') {
-        pma_navi_width = parseInt(parent.document.getElementById('mainFrameset').cols);
-    } else {
-        pma_navi_width = parent.document.getElementById('mainFrameset').cols.match(/\d+$/);
-    }
-    if ((pma_navi_width > 0) && (pma_navi_width != PMA_getCookie('pma_navi_width'))) {
-        PMA_setCookie('pma_navi_width', pma_navi_width, expires);
-    }
-}
-
-/**
- * calls PMA_saveFrameSizeReal with delay
- */
-function PMA_saveFrameSize()
-{
-    //alert(typeof(pma_saveframesize_timeout) + ' : ' + pma_saveframesize_timeout);
-
-    if (typeof pma_saveframesize_timeout == "number") {
-        window.clearTimeout(pma_saveframesize_timeout);
-        pma_saveframesize_timeout = null;
-    }
-
-    pma_saveframesize_timeout = window.setTimeout(PMA_saveFrameSizeReal, 2000);
-}
-
-/**
- * sets navigation frame width to the value stored in the cookie
- * usally called on document load
- */
-function PMA_setFrameSize()
-{
-    pma_navi_width = PMA_getCookie('pma_navi_width');
-    //alert('from cookie: ' + typeof(pma_navi_width) + ' : ' + pma_navi_width);
-    if (pma_navi_width != null && parent.document != document) {
-        if (parent.text_dir == 'ltr') {
-            parent.document.getElementById('mainFrameset').cols = pma_navi_width + ',*';
+var ResizeHandler = function () {
+    /**
+     * Whether we are busy
+     */
+    this.active = false;
+    /**
+     * @var int goto Used by the collapser to know where to go
+     *               back to when uncollapsing the panel
+     */
+    this.goto = 0;
+    /**
+     * @var string left Used to provide support for RTL languages
+     */
+    this.left = $('html').attr('dir') == 'ltr' ? 'left' : 'right';
+    /**
+     * Adjusts the width of the navigation panel to the specified value
+     *
+     * @param int pos Navigation width in pixels
+     *
+     * @return void
+     */
+    this.setWidth = function (pos) {
+        var resizer_width = $('#pma_navigation_resizer').width();
+        var $collapser = $('#pma_navigation_collapser');
+        $('#pma_navigation').width(pos);
+        $('body').css('margin-' + this.left, pos + 'px');
+        $("#floating_menubar").css('margin-' + this.left, (pos + resizer_width) + 'px');
+        $('#pma_navigation_resizer').css(this.left, pos + 'px');
+        if (pos === 0) {
+            $collapser
+                .css(this.left, pos + resizer_width)
+                .html(this.getSymbol(pos))
+                .prop('title', PMA_messages['strShowPanel']);
+            $('#serverinfo').css('padding-' + this.left, '2.2em');
         } else {
-            parent.document.getElementById('mainFrameset').cols = '*,' + pma_navi_width;
+            $collapser
+                .css(this.left, pos - $collapser.width())
+                .html(this.getSymbol(pos))
+                .prop('title', PMA_messages['strHidePanel']);
+            $('#serverinfo').css('padding-' + this.left, '0.9em');
         }
-        //alert('framesize set');
+        menuResize();
+    };
+    /**
+     * Returns the horizontal position of the mouse,
+     * relative to the outer side of the navigation panel
+     *
+     * @param int pos Navigation width in pixels
+     *
+     * @return void
+     */
+    this.getPos = function (e) {
+        var pos = e.pageX;
+        if (this.left != 'left') {
+            pos = $(window).width() - e.pageX;
+        }
+        if (pos < 0) {
+            pos = 0;
+        } else if (pos + 100 >= $(window).width()) {
+            pos = $(window).width() - 100;
+        } else {
+            this.goto = 0;
+        }
+        return pos;
+    };
+    /**
+     * Returns the HTML code for the arrow symbol used in the collapser
+     *
+     * @param int width The width of the panel
+     *
+     * @return string
+     */
+    this.getSymbol = function (width) {
+        if (this.left == 'left') {
+            if (width == 0) {
+                return '&rarr;';
+            } else {
+                return '&larr;';
+            }
+        } else {
+            if (width == 0) {
+                return '&larr;';
+            } else {
+                return '&rarr;';
+            }
+        }
+    };
+    /**
+     * Event handler for initiating a resize of the panel
+     *
+     * @param object e Event data (contains a reference to resizeHandler)
+     *
+     * @return void
+     */
+    this.mousedown = function (e) {
+        e.preventDefault();
+        e.data.this.active = true;
+        $('body').css('cursor', 'col-resize');
+    };
+    /**
+     * Event handler for terminating a resize of the panel
+     *
+     * @param object e Event data (contains a reference to resizeHandler)
+     *
+     * @return void
+     */
+    this.mouseup = function (e) {
+        if (e.data.this.active) {
+            e.data.this.active = false;
+            $('body').css('cursor', '');
+            $.cookie('pma_navi_width', e.data.this.getPos(e));
+        }
+    };
+    /**
+     * Event handler for updating the panel during a resize operation
+     *
+     * @param object e Event data (contains a reference to resizeHandler)
+     *
+     * @return void
+     */
+    this.mousemove = function (e) {
+        if (e.data.this.active) {
+            e.preventDefault();
+            var pos = e.data.this.getPos(e);
+            e.data.this.setWidth(pos);
+            menuResize();
+        }
+    };
+    /**
+     * Event handler for collapsing the panel
+     *
+     * @param object e Event data (contains a reference to resizeHandler)
+     *
+     * @return void
+     */
+    this.collapse = function (e) {
+        e.preventDefault();
+        e.data.active = false;
+        var goto = e.data.this.goto;
+        var width = $('#pma_navigation').width();
+        if (width === 0 && goto === 0) {
+            goto = 240;
+        }
+        e.data.this.setWidth(goto);
+        e.data.this.goto = width;
+    };
+    /* Initialisation section begins here */
+    if ($.cookie('pma_navi_width')) {
+        // If we have a cookie, set the width of the panel to its value
+        var pos = Math.abs(parseInt($.cookie('pma_navi_width'), 10));
+        this.setWidth(pos);
+        menuResize();
     }
-}
+    // Register the events for the resizer and the collapser
+    $('#pma_navigation_resizer')
+        .bind('mousedown', {'this':this}, this.mousedown);
+    $(document)
+        .bind('mouseup', {'this':this}, this.mouseup)
+        .bind('mousemove', {'this':this}, this.mousemove);
+    var $collapser = $('#pma_navigation_collapser');
+    $collapser.bind('click', {'this':this}, this.collapse);
+    // Add the correct arrow symbol to the collapser
+    $collapser.html(this.getSymbol($('#pma_navigation').width()));
+}; // End of ResizeHandler
 
-/**
- * retrieves a named value from cookie
- *
- * @param string  name    name of the value to retrieve
- * @return string  value   value for the given name from cookie
- */
-function PMA_getCookie(name)
-{
-    var start = document.cookie.indexOf(name + "=");
-    var len = start + name.length + 1;
-    if ((!start) && (name != document.cookie.substring(0, name.length))) {
-        return null;
-    }
-    if (start == -1) {
-        return null;
-    }
-    var end = document.cookie.indexOf(";", len);
-    if (end == -1) {
-        end = document.cookie.length;
-    }
-    return unescape(document.cookie.substring(len,end));
-}
-
-/**
- * stores a named value into cookie
- *
- * @param string  name    name of value
- * @param string  value   value to be stored
- * @param Date    expires expire time
- * @param string  path
- * @param string  domain
- * @param boolean secure
- */
-function PMA_setCookie(name, value, expires, path, domain, secure)
-{
-    document.cookie = name + "=" + escape(value) +
-        ( (expires) ? ";expires=" + expires.toGMTString() : "") +
-        ( (path)    ? ";path=" + path : "") +
-        ( (domain)  ? ";domain=" + domain : "") +
-        ( (secure)  ? ";secure" : "");
-}
 
 /* Performed on load */
 $(function(){
+    /* Instanciate the resize handler */
+    if ($('#pma_navigation').length) {
+        new ResizeHandler();
+    }
 
+    // Ajax handler for database pagination
     $('#pma_navigation_tree div.pageselector a.ajax').live('click', function (e) {
         e.preventDefault();
         var $msgbox = PMA_ajaxShowMessage();

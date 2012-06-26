@@ -29,6 +29,8 @@ class PMA_NavigationHeader
         );
 
         $buffer  = '<div id="pma_navigation">';
+        $buffer .= '<div id="pma_navigation_resizer"></div>';
+        $buffer .= '<div id="pma_navigation_collapser"></div>';
         $buffer .= $this->logo();
         $buffer .= $this->links();
         $buffer .= $this->serverChoice();

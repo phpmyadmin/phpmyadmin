@@ -187,3 +187,32 @@ li.fast_filter span {
     font-weight: bold;
     color: #800;
 }
+
+/* Resize handler */
+#pma_navigation_resizer {
+    width: 3px;
+    height: 100%;
+    background-color: #aaa;
+    cursor: col-resize;
+    position: fixed;
+    top: 0;
+    <?php echo $left; ?>: 240px;
+    z-index: 801;
+}
+#pma_navigation_collapser {
+    width: 20px;
+    height: 23px;
+    line-height: 23px;
+    background: #eee;
+    color: #555;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    <?php echo $left; ?>: 220px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 800;
+    text-shadow: 0px 1px 0px #fff;
+    filter: dropshadow(color=#fff, offx=0, offy=1);
+    border: 1px solid #888;
+}
