@@ -9,7 +9,6 @@
 if (! defined('PHPMYADMIN')) {
     exit;
 }
-
 /**
  * Escapes wildcard in a database+table specification
  * before using it in a GRANT statement.
@@ -361,9 +360,8 @@ function PMA_getSqlQueryForDisplayPrivTable($db, $table)
  *
  * @return string html snippet
  */
-function PMA_getHtmlToDisplayPrivilegesTable($db = '*', $table = '*', $submit = true)
+function PMA_getHtmlToDisplayPrivilegesTable($random_n, $db = '*', $table = '*', $submit = true)
 {
-    global $random_n;
     $html_output = '';
     
     if ($db == '*') {
@@ -770,7 +768,7 @@ function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
             unset($thishost);
         }
     }
-    $html_output = '    onchange="if (this.value == \'any\') { hostname.value = \'%\'; } else if (this.value == \'localhost\') { hostname.value = \'localhost\'; } '
+    $html_output .= '    onchange="if (this.value == \'any\') { hostname.value = \'%\'; } else if (this.value == \'localhost\') { hostname.value = \'localhost\'; } '
        . (empty($thishost) ? '' : 'else if (this.value == \'thishost\') { hostname.value = \'' . addslashes(htmlspecialchars($thishost)) . '\'; } ')
        . 'else if (this.value == \'hosttable\') { hostname.value = \'\'; } else if (this.value == \'userdefined\') { hostname.focus(); hostname.select(); }">' . "\n";
     unset($_current_user);
@@ -790,7 +788,7 @@ function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
             break;
         }
     }
-    $html_output =  '        <option value="any"'
+    $html_output .=  '        <option value="any"'
         . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'any')
             ? ' selected="selected"' : '') . '>' . __('Any host')
         . '</option>' . "\n"
@@ -799,13 +797,13 @@ function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
             ? ' selected="selected"' : '') . '>' . __('Local')
         . '</option>' . "\n";
     if (! empty($thishost)) {
-        $html_output = '        <option value="thishost"'
+        $html_output .= '        <option value="thishost"'
             . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'thishost')
                 ? ' selected="selected"' : '') . '>' . __('This Host')
             . '</option>' . "\n";
     }
     unset($thishost);
-    $html_output = '        <option value="hosttable"'
+    $html_output .= '        <option value="hosttable"'
         . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'hosttable')
             ? ' selected="selected"' : '') . '>' . __('Use Host Table')
         . '</option>' . "\n"
@@ -833,9 +831,9 @@ function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
         . ($mode == 'change' ? '            <option value="keep" selected="selected">' . __('Do not change the password') . '</option>' . "\n" : '')
         . '<option value="none"';
     if (isset($GLOBALS['username']) && $mode != 'change') {
-        $html_output = '  selected="selected"';
+        $html_output .= '  selected="selected"';
     }
-    $html_output = '>' . __('No Password') . '</option>' . "\n"
+    $html_output .= '>' . __('No Password') . '</option>' . "\n"
        . '<option value="userdefined"' . (isset($GLOBALS['username']) ? '' : ' selected="selected"') . '>' . __('Use text field') . ':</option>' . "\n"
        . '</select>' . "\n"
        . '</span>' . "\n"
