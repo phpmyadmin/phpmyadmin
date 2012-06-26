@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+3.5.3.0 (not yet released)
+
 3.5.2.0 (not yet released)
 - bug #3521416 [interface] JS error when editing index
 - bug #3521313 [core] Call to undefined function __()
