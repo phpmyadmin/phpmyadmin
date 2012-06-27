@@ -172,7 +172,8 @@ class PMA_Footer
 
             ob_start();
             print_r($_SESSION['debug']);
-            $retval .= ob_end_clean();
+            $retval .= ob_get_contents();
+            ob_end_clean();
 
             $retval .= '</pre>';
             $retval .= '</div>';
@@ -322,7 +323,8 @@ class PMA_Footer
                 if (file_exists(CUSTOM_FOOTER_FILE)) {
                     ob_start();
                     include CUSTOM_FOOTER_FILE;
-                    $retval .= ob_end_clean();
+                    $retval .= ob_get_contents();
+                    ob_end_clean();
                 }
             } else if (! $this->_isAjax) {
                 $retval .= "</body></html>";

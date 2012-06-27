@@ -1774,7 +1774,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function generateHtmlTab($tab, $url_params = array())
+    public function getHtmlTab($tab, $url_params = array())
     {
         // default values
         $defaults = array(
@@ -1865,7 +1865,7 @@ class PMA_CommonFunctions
 
         $out .= '</li>';
         return $out;
-    } // end of the 'generateHtmlTab()' function
+    } // end of the 'getHtmlTab()' function
 
 
     /**
@@ -1877,14 +1877,14 @@ class PMA_CommonFunctions
      *
      * @return string  html-code for tab-navigation
      */
-    public function generateHtmlTabs($tabs, $url_params, $menu_id = 'topmenu')
+    public function getHtmlTabs($tabs, $url_params, $menu_id = 'topmenu')
     {
         $tab_navigation = '<div id="' . htmlentities($menu_id)
             . 'container" class="menucontainer">'
             .'<ul id="' . htmlentities($menu_id) . '">';
 
         foreach ($tabs as $tab) {
-            $tab_navigation .= $this->generateHtmlTab($tab, $url_params);
+            $tab_navigation .= $this->getHtmlTab($tab, $url_params);
         }
 
         $tab_navigation .=
@@ -2287,8 +2287,7 @@ class PMA_CommonFunctions
                     && ($meta->type != 'timestamp')
                     && ($meta->type != 'real')
                 ) {
-
-                    $con_val = '= ' . $row[$i];
+                        $con_val = '= ' . $row[$i];
 
                 } elseif ((($meta->type == 'blob') || ($meta->type == 'string'))
                     // hexify only if this is a true not empty BLOB or a BINARY
@@ -2318,17 +2317,16 @@ class PMA_CommonFunctions
                     }
 
                 } elseif ($meta->type == 'bit') {
-
                     $con_val = "= b'"
                         . $this->printableBitValue($row[$i], $meta->length) . "'";
-
+                
                 } else {
                     $con_val = '= \'' . $this->sqlAddSlashes($row[$i], false, true) . '\'';
-                }            
+                }
             }
-
+            
             if ($con_val != null) {
-
+               
                 $condition .= $con_val . ' AND';
 
                 if ($meta->primary_key > 0) {                

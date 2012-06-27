@@ -29,7 +29,7 @@ function loadResult(result_path, table_name, link, ajaxEnable)
     $(function() {
         if(ajaxEnable) {
             /**   Hides the results shown by the delete criteria */
-            var $msg = PMA_ajaxShowMessage();
+            var $msg = PMA_ajaxShowMessage(PMA_messages['strBrowsing'], false);
             $('#sqlqueryform').hide();
             $('#togglequerybox').hide();
             /**  Load the browse results to the page */
@@ -81,11 +81,15 @@ function deleteResult(result_path, msg, ajaxEnable)
                     /** Refresh the search results after the deletion */
                     document.getElementById('buttonGo').click();
                     $('#togglequerybox').html(PMA_messages['strHideQueryBox']);
-                    PMA_ajaxRemoveMessage($msg);
                     /** Show the results of the deletion option */
                     $('#browse-results').show();
                     $('#sqlqueryform').show();
                     $('#togglequerybox').show();
+                    $('html, body')
+                        .animate({
+                            scrollTop: $("#browse-results").offset().top
+                        }, 1000);
+                    PMA_ajaxRemoveMessage($msg);
                 });
             } else {
                 event.preventDefault();

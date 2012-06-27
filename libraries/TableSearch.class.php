@@ -1106,7 +1106,7 @@ EOT;
         $url_params['db'] = $this->_db;
         $url_params['table'] = $this->_table;
 
-        $html_output .= $this->getCommonFunctions()->generateHtmlTabs(
+        $html_output .= $this->getCommonFunctions()->getHtmlTabs(
             $this->_getSubTabs(), $url_params, 'topmenu2'
         );
         $html_output .= $this->_getFormTag($goto);

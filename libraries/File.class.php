@@ -159,7 +159,8 @@ class PMA_File
     /**
      * Gets file content
      *
-     * @return string  binary file content
+     * @return mixed   the binary file content as a string,
+     *                 or false if no content 
      *
      * @access  public
      */

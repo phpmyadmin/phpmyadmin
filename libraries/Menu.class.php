@@ -132,7 +132,7 @@ class PMA_Menu
         } else {
             $tabs = $this->_getServerTabs();
         }
-        return $this->getCommonFunctions()->generateHtmlTabs($tabs, $url_params);
+        return $this->getCommonFunctions()->getHtmlTabs($tabs, $url_params);
     }
 
     /**

@@ -143,7 +143,7 @@ $tabs['import']['link'] = 'server_import.php';
 $tabs['import']['text'] = 'active';
 $tabs['import']['class'] = 'active';
 
-echo PMA_CommonFunctions::getInstance()->generateHtmlTabs($tabs, array());
+echo PMA_CommonFunctions::getInstance()->getHtmlTabs($tabs, array());
 unset($tabs);
 
 if (@file_exists($pmaThemeImage . 'logo_right.png')) {

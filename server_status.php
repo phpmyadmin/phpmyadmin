@@ -866,15 +866,14 @@ echo __('Runtime Information');
                 <div class="formelement">
                     <select id="filterCategory" name="filterCategory">
                         <option value=''><?php echo __('Filter by category...'); ?></option>
-                <?php
-                        foreach ($sections as $section_id => $section_name) {
-                            if (isset($categoryUsed[$section_id])) {
-                ?>
-                                <option value='<?php echo $section_id; ?>'><?php echo $section_name; ?></option>
-                <?php
-                            }
-                        }
-                ?>
+<?php
+foreach ($sections as $section_id => $section_name) {
+    if (isset($categoryUsed[$section_id])) {
+        echo '<option value="' . $section_id. '">'
+            . $section_name. '</option>'. "\n";
+    }
+}
+?>
                     </select>
                 </div>
                 <div class="formelement">
@@ -884,25 +883,27 @@ echo __('Runtime Information');
             </fieldset>
             <div id="linkSuggestions" class="defaultLinks" style="display:none">
                 <p class="notice"><?php echo __('Related links:'); ?>
-                <?php
-                foreach ($links as $section_name => $section_links) {
-                    echo '<span class="status_' . $section_name . '"> ';
-                    $i=0;
-                    foreach ($section_links as $link_name => $link_url) {
-                        if ($i > 0) {
-                            echo ', ';
+                
+                    <?php
+                    foreach ($links as $section_name => $section_links) {
+                        echo '<span class="status_' . $section_name . '"> ';
+                        $i=0;
+                        foreach ($section_links as $link_name => $link_url) {
+                            if ($i > 0) {
+                                echo ', ';
+                            }
+                            if ('doc' == $link_name) {
+                                echo $common_functions->showMySQLDocu($link_url, $link_url);
+                            } else {
+                                echo '<a href="' . $link_url . '">' . $link_name . '</a>';
+                            }
+                            $i++;
                         }
-                        if ('doc' == $link_name) {
-                            echo $common_functions->showMySQLDocu($link_url, $link_url);
-                        } else {
-                            echo '<a href="' . $link_url . '">' . $link_name . '</a>';
-                        }
-                        $i++;
+                        echo '</span>';
                     }
-                    echo '</span>';
-                }
-                unset($link_url, $link_name, $i);
-                ?>
+                    unset($link_url, $link_name, $i);
+                    ?>
+
                 </p>
             </div>
             <div class="tabInnerContent">
@@ -922,17 +923,17 @@ echo __('Runtime Information');
             <div class="tabInnerContent clearfloat">
             </div>
             <div id="advisorInstructionsDialog" style="display:none;">
-            <?php
-            echo '<p>';
-            echo __('The Advisor system can provide recommendations on server variables by analyzing the server status variables.');
-            echo '</p> <p>';
-            echo __('Do note however that this system provides recommendations based on simple calculations and by rule of thumb which may not necessarily apply to your system.');
-            echo '</p> <p>';
-            echo __('Prior to changing any of the configuration, be sure to know what you are changing (by reading the documentation) and how to undo the change. Wrong tuning can have a very negative effect on performance.');
-            echo '</p> <p>';
-            echo __('The best way to tune your system would be to change only one setting at a time, observe or benchmark your database, and undo the change if there was no clearly measurable improvement.');
-            echo '</p>';
-            ?>
+<?php
+echo '<p>';
+echo __('The Advisor system can provide recommendations on server variables by analyzing the server status variables.');
+echo '</p> <p>';
+echo __('Do note however that this system provides recommendations based on simple calculations and by rule of thumb which may not necessarily apply to your system.');
+echo '</p> <p>';
+echo __('Prior to changing any of the configuration, be sure to know what you are changing (by reading the documentation) and how to undo the change. Wrong tuning can have a very negative effect on performance.');
+echo '</p> <p>';
+echo __('The best way to tune your system would be to change only one setting at a time, observe or benchmark your database, and undo the change if there was no clearly measurable improvement.');
+echo '</p>';
+?>
             </div>
         </div>
     </div>
@@ -1037,11 +1038,11 @@ function printQueryStatistics()
         <div id="serverstatusquerieschart">
             <span style="display:none;">
         <?php
-            if ($other_sum > 0) {
-                $chart_json[__('Other')] = $other_sum;
-            }
+        if ($other_sum > 0) {
+            $chart_json[__('Other')] = $other_sum;
+        }
 
-            echo json_encode($chart_json);
+        echo json_encode($chart_json);
         ?>
             </span>
         </div>
@@ -1299,7 +1300,9 @@ function printServerTraffic()
                 <img src="<?php echo $GLOBALS['pmaThemeImage'] . 's_' . ($show_full_sql ? 'partial' : 'full'); ?>text.png"
                 alt="<?php echo $show_full_sql ? __('Truncate Shown Queries') : __('Show Full Queries'); ?>" />
             </a>
-            <?php } ?>
+            <?php
+            }
+            ?>
         </th>
     </tr>
     </thead>
@@ -1502,20 +1505,24 @@ function printVariablesTable()
         'Table_locks_waited' => 0,
         'Qcache_lowmem_prunes' => 0,
 
-        'Qcache_free_blocks' => isset($server_status['Qcache_total_blocks']) ? $server_status['Qcache_total_blocks'] / 5 : 0,
+        'Qcache_free_blocks' => isset($server_status['Qcache_total_blocks'])
+            ? $server_status['Qcache_total_blocks'] / 5 : 0,
         'Slow_launch_threads' => 0,
 
         // depends on Key_read_requests
         // normaly lower then 1:0.01
-        'Key_reads' => isset($server_status['Key_read_requests']) ? (0.01 * $server_status['Key_read_requests']) : 0,
+        'Key_reads' => isset($server_status['Key_read_requests'])
+            ? (0.01 * $server_status['Key_read_requests']) : 0,
         // depends on Key_write_requests
         // normaly nearly 1:1
-        'Key_writes' => isset($server_status['Key_write_requests']) ? (0.9 * $server_status['Key_write_requests']) : 0,
+        'Key_writes' => isset($server_status['Key_write_requests'])
+            ? (0.9 * $server_status['Key_write_requests']) : 0,
 
         'Key_buffer_fraction' => 0.5,
 
         // alert if more than 95% of thread cache is in use
-        'Threads_cached' => isset($server_variables['thread_cache_size']) ? 0.95 * $server_variables['thread_cache_size'] : 0
+        'Threads_cached' => isset($server_variables['thread_cache_size'])
+            ? 0.95 * $server_variables['thread_cache_size'] : 0
 
         // higher is better
         // variable => min value
@@ -1622,12 +1629,16 @@ function printMonitor()
             <?php echo $common_functions->getImage('s_cog.png'); ?>
             <?php echo __('Settings'); ?>
         </a>
-        <?php if (! PMA_DRIZZLE) { ?>
+        <?php
+        if (! PMA_DRIZZLE) {
+            ?>
         <a href="#monitorInstructionsDialog">
             <?php echo $common_functions->getImage('b_help.png'); ?>
             <?php echo __('Instructions/Setup'); ?>
         </a>
-        <?php } ?>
+        <?php
+        }
+        ?>
         <a href="#endChartEditMode" style="display:none;">
             <?php echo $common_functions->getImage('s_okay.png'); ?>
             <?php echo __('Done rearranging/editing charts'); ?>
@@ -1705,7 +1716,9 @@ function printMonitor()
             ?>
             </p>
         </div>
-    <?php } ?>
+    <?php
+    }
+    ?>
     </div>
 
     <div id="addChartDialog" title="<?php echo __('Add chart'); ?>" style="display:none;">
@@ -1772,7 +1785,9 @@ function printMonitor()
     <div id="emptyDialog" title="Dialog" style="display:none;">
     </div>
 
-    <?php if (! PMA_DRIZZLE) { ?>
+    <?php
+    if (! PMA_DRIZZLE) {
+    ?>
     <div id="logAnalyseDialog" title="<?php echo __('Log statistics'); ?>" style="display:none;">
         <p> <?php echo __('Selected time range:'); ?>
         <input type="text" name="dateStart" class="datetimefield" value="" /> -
@@ -1801,7 +1816,9 @@ function printMonitor()
         <p></p>
         <div class="placeHolder"></div>
     </div>
-    <?php } ?>
+    <?php
+    }
+    ?>
 
     <table class="clearfloat" id="chartGrid">
 
@@ -1812,16 +1829,16 @@ function printMonitor()
 
     <script type="text/javascript">
         variableNames = [ <?php
-            $i=0;
-            foreach ($server_status as $name=>$value) {
-                if (is_numeric($value)) {
-                    if ($i++ > 0) {
-                        echo ", ";
-                    }
-                    echo "'" . $name . "'";
-                }
+    $i=0;
+    foreach ($server_status as $name=>$value) {
+        if (is_numeric($value)) {
+            if ($i++ > 0) {
+                echo ", ";
             }
-            ?> ];
+            echo "'" . $name . "'";
+        }
+    }
+    ?> ];
     </script>
 <?php
 }

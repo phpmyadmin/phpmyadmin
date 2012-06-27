@@ -31,6 +31,7 @@ $(function() {
          */
         var selected_dbs = [];
         $form.find('input:checkbox:checked').each(function () {
+            $(this).closest('tr').addClass('removeMe');
             selected_dbs[selected_dbs.length] = 'DROP DATABASE `' + escapeHtml($(this).val()) + '`;';
         });
         if (! selected_dbs.length) {
@@ -55,14 +56,65 @@ $(function() {
                 $.post(url, function(data) {
                     if(data.success == true) {
                         PMA_ajaxShowMessage(data.message);
+
+                        var $rowsToRemove = $form.find('tr.removeMe');
+                        var $databasesCount = $('#databases_count');
+                        var newCount = parseInt($databasesCount.text()) - $rowsToRemove.length;
+                        $databasesCount.text(newCount);
+
+                        $rowsToRemove.remove();
+                        $form.find('tbody').PMA_sort_table('.name');
                         if (window.parent && window.parent.frame_navigation) {
                             window.parent.frame_navigation.location.reload();
                         }
-                        $('#tableslistcontainer').load('server_databases.php form#dbStatsForm');
                     } else {
-                        PMA_ajaxShowMessage(PMA_messages.strErrorProcessingRequest + ": " + data.error, false);
+                        $form.find('tr.removeMe').removeClass('removeMe');
+                        PMA_ajaxShowMessage(data.error, false);
                     }
                 }); // end $.post()
         }); // end $.PMA_confirm()
     }) ; //end of Drop Database action
+
+    /**
+     * Attach Ajax event handlers for 'Create Database'.
+     *
+     * @see $cfg['AjaxEnable']
+     */
+    $('#create_database_form.ajax').live('submit', function(event) {
+        event.preventDefault();
+
+        $form = $(this);
+
+        var newDbNameInput = $form.find('input[name=new_db]');
+        if (newDbNameInput.val() === '') {
+            newDbNameInput.focus();
+            alert(PMA_messages['strFormEmpty']);
+            return;
+        }
+
+        PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+        PMA_prepareForAjaxRequest($form);
+
+        $.post($form.attr('action'), $form.serialize(), function(data) {
+            if (data.success == true) {
+                PMA_ajaxShowMessage(data.message);
+
+                //Append database's row to table
+                $("#tabledatabases")
+                .find('tbody')
+                .append(data.new_db_string)
+                .PMA_sort_table('.name');
+
+                var $databases_count_object = $('#databases_count');
+                var databases_count = parseInt($databases_count_object.text()) + 1;
+                $databases_count_object.text(databases_count);
+                //Refresh navigation frame as a new database has been added
+                if (window.parent && window.parent.frame_navigation) {
+                    window.parent.frame_navigation.location.reload();
+                }
+            } else {
+                PMA_ajaxShowMessage(data.error, false);
+            }
+        }); // end $.post()
+    }); // end $().live()
 }); // end $()

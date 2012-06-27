@@ -137,7 +137,7 @@ if ($querydisplay_tab == 'sql' || $querydisplay_tab == 'full') {
 echo '<div id="querywindowcontainer">';
 
 if ($tabs) {
-    echo $common_functions->generateHtmlTabs($tabs, array());
+    echo $common_functions->getHtmlTabs($tabs, array());
     unset($tabs);
 }
 

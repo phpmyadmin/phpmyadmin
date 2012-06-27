@@ -250,7 +250,7 @@ if ($databases_count > 0) {
     } // end foreach ($databases as $key => $current)
     unset($current, $odd_row);
 
-    echo '<tr id="db_summary_row">' . "\n";
+    echo '</tbody><tfoot><tr>' . "\n";
     if ($is_superuser || $cfg['AllowUserDropDatabase']) {
         echo '    <th></th>' . "\n";
     }
@@ -289,7 +289,7 @@ if ($databases_count > 0) {
         echo '    <th></th>' . "\n";
     }
     echo '</tr>' . "\n";
-    echo '</tbody>' . "\n"
+    echo '</tfoot>' . "\n"
         .'</table>' . "\n";
     unset($column_order, $stat_name, $stat, $databases, $table_columns);
 
