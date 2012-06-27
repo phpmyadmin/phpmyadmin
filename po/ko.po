@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-26 10:18-0400\n"
-"PO-Revision-Date: 2012-06-26 17:43+0200\n"
-"Last-Translator: Seung Ho Jang <shjang1992@hotmail.com>\n"
+"PO-Revision-Date: 2012-06-26 18:35+0200\n"
+"Last-Translator: Gyu-sun Youm <omniavinco@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -10199,7 +10199,7 @@ msgstr "보냄"
 
 #: server_status.php:1163
 msgid "max. concurrent connections"
-msgstr ""
+msgstr "최대 동시 연결"
 
 #: server_status.php:1170
 msgid "Failed attempts"
@@ -10221,12 +10221,11 @@ msgstr "커맨드"
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
-msgstr ""
+msgstr "연결을 닫지 않고 클라이언트가 종료되어서 실패한 연결의 숫자"
 
 #: server_status.php:1321
-#, fuzzy
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "Limits the number of new connections the user may open per hour."
+msgstr "MySQL 서버에 연결 실패한 횟수"
 
 #: server_status.php:1322
 msgid ""
@@ -10242,7 +10241,7 @@ msgstr ""
 #: server_status.php:1324
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
-msgstr ""
+msgstr "MySQL 서버에 연결 시도한 횟수"
 
 #: server_status.php:1325
 msgid ""
