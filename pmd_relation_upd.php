@@ -50,7 +50,7 @@ if ($common_functions->isForeignKeySupported($type_T1)
 }
 if ($try_to_delete_internal_relation) {
     // internal relations
-    PMA_query_as_controluser(
+    PMA_queryAsControlUser(
         'DELETE FROM '
         . $common_functions->backquote($GLOBALS['cfgRelation']['db']) . '.'
         . $cfg['Server']['relation'].' WHERE '

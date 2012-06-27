@@ -296,11 +296,9 @@ if ($databases_count > 0) {
     if ($is_superuser || $cfg['AllowUserDropDatabase']) {
         $common_url_query = PMA_generate_common_url(array('sort_by' => $sort_by, 'sort_order' => $sort_order, 'dbstats' => $dbstats));
         echo '<img class="selectallarrow" src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" width="38" height="22" alt="' . __('With selected:') . '" />' . "\n"
-           . '<a href="server_databases.php' . $common_url_query . '&amp;checkall=1" onclick="if (markAllRows(\'tabledatabases\')) return false;">' . "\n"
-           . '    ' . __('Check All') . '</a> / ' . "\n"
-           . '<a href="server_databases.php' . $common_url_query . '" onclick="if (unMarkAllRows(\'tabledatabases\')) return false;">' . "\n"
-           . '    ' . __('Uncheck All') . '</a>' . "\n"
-           . '<i>' . __('With selected:') . '</i>' . "\n";
+           . '<input type="checkbox" id="checkall" title="' . __('Check All') . '" /> '
+           . '<label for="checkall">' . __('Check All') . '</label> '
+           . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
         echo $common_functions->getButtonOrImage('drop_selected_dbs', 'mult_submit' . ($cfg['AjaxEnable'] ? ' ajax' : ''), 'drop_selected_dbs', __('Drop'), 'b_deltbl.png');
     }
 

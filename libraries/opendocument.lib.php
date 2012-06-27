@@ -32,7 +32,7 @@ $GLOBALS['OpenDocumentNS'] = 'xmlns:office="urn:oasis:names:tc:opendocument:xmln
  */
 function PMA_createOpenDocument($mime, $data)
 {
-    $zipfile = new zipfile();
+    $zipfile = new ZipFile();
     $zipfile -> addFile($mime, 'mimetype');
     $zipfile -> addFile($data, 'content.xml');
     $zipfile -> addFile(

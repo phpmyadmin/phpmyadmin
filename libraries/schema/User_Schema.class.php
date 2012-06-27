@@ -196,7 +196,8 @@ class PMA_User_Schema
             . $this->getCommonFunctions()->backquote($GLOBALS['cfgRelation']['db']) . '.'
             . $this->getCommonFunctions()->backquote($cfgRelation['pdf_pages'])
             . ' WHERE db_name = \'' . $this->getCommonFunctions()->sqlAddSlashes($db) . '\'';
-        $page_rs    = PMA_query_as_controluser($page_query, false, PMA_DBI_QUERY_STORE);
+        $page_rs    = PMA_queryAsControlUser($page_query, false, PMA_DBI_QUERY_STORE);
+        
         if ($page_rs && PMA_DBI_num_rows($page_rs) > 0) {
             ?>
             <form method="get" action="schema_edit.php" name="frm_select_page">
@@ -282,7 +283,7 @@ class PMA_User_Schema
                 . '.' . $this->getCommonFunctions()->backquote($cfgRelation['table_coords'])
                 . ' WHERE db_name = \'' . $this->getCommonFunctions()->sqlAddSlashes($db) . '\''
                 . ' AND pdf_page_number = \'' . $this->getCommonFunctions()->sqlAddSlashes($this->chosenPage) . '\'';
-            $page_rs    = PMA_query_as_controluser($page_query, false);
+            $page_rs    = PMA_queryAsControlUser($page_query, false);
             $array_sh_page = array();
             while ($temp_sh_page = @PMA_DBI_fetch_assoc($page_rs)) {
                    $array_sh_page[] = $temp_sh_page;
@@ -618,7 +619,7 @@ class PMA_User_Schema
                 .   ' AND table_name = \'' . $this->getCommonFunctions()->sqlAddSlashes($current_row) . '\'' . "\n"
                 .   ' AND pdf_page_number = \'' . $this->getCommonFunctions()->sqlAddSlashes($chpage) . '\'';
                 echo $del_query;
-            PMA_query_as_controluser($del_query, false);
+            PMA_queryAsControlUser($del_query, false);
         }
     }
 
@@ -666,7 +667,7 @@ class PMA_User_Schema
             . $this->getCommonFunctions()->backquote($cfgRelation['table_coords'])
             . ' WHERE db_name = \'' . $this->getCommonFunctions()->sqlAddSlashes($db) . '\''
             . ' AND   pdf_page_number = \'' . $this->getCommonFunctions()->sqlAddSlashes($choosePage) . '\'';
-        PMA_query_as_controluser($query, false);
+        PMA_queryAsControlUser($query, false);
     }
 
     /**
@@ -685,7 +686,7 @@ class PMA_User_Schema
             . $this->getCommonFunctions()->backquote($cfgRelation['pdf_pages'])
             . ' WHERE db_name = \'' . $this->getCommonFunctions()->sqlAddSlashes($db) . '\''
             . ' AND   page_nr = \'' . $this->getCommonFunctions()->sqlAddSlashes($choosePage) . '\'';
-        PMA_query_as_controluser($query, false);
+        PMA_queryAsControlUser($query, false);
     }
 
     /**
@@ -746,7 +747,7 @@ class PMA_User_Schema
                 . ' WHERE master_db = \'' . $this->getCommonFunctions()->sqlAddSlashes($db) . '\''
                 . ' GROUP BY master_table'
                 . ' ORDER BY COUNT(master_table) DESC';
-            $master_tables_rs = PMA_query_as_controluser(
+            $master_tables_rs = PMA_queryAsControlUser(
                 $master_tables, false, PMA_DBI_QUERY_STORE
             );
             if ($master_tables_rs && PMA_DBI_num_rows($master_tables_rs) > 0) {
@@ -827,7 +828,7 @@ class PMA_User_Schema
                 . 'VALUES (\'' . $this->getCommonFunctions()->sqlAddSlashes($db) . '\', \''
                 . $this->getCommonFunctions()->sqlAddSlashes($current_table) . '\',' . $pageNumber
                 . ',' . $pos_x . ',' . $pos_y . ')';
-            PMA_query_as_controluser($insert_query, false);
+            PMA_queryAsControlUser($insert_query, false);
 
             /*
              * compute for the next table
@@ -885,7 +886,7 @@ class PMA_User_Schema
                     . ' WHERE db_name = \'' .  $this->getCommonFunctions()->sqlAddSlashes($db) . '\''
                     . ' AND   table_name = \'' . $this->getCommonFunctions()->sqlAddSlashes($arrvalue['name']) . '\''
                     . ' AND   pdf_page_number = \'' . $this->getCommonFunctions()->sqlAddSlashes($this->chosenPage) . '\'';
-                $test_rs = PMA_query_as_controluser($test_query, false, PMA_DBI_QUERY_STORE);
+                $test_rs = PMA_queryAsControlUser($test_query, false, PMA_DBI_QUERY_STORE);
                 //echo $test_query;
                 if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
                     if (isset($arrvalue['delete']) && $arrvalue['delete'] == 'y') {
@@ -913,7 +914,7 @@ class PMA_User_Schema
                         . $arrvalue['x'] . ',' . $arrvalue['y'] . ')';
                 }
                 //echo $ch_query;
-                PMA_query_as_controluser($ch_query, false);
+                PMA_queryAsControlUser($ch_query, false);
             } // end if
         } // end for
     }

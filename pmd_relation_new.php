@@ -97,7 +97,7 @@ if ($common_functions->isForeignKeySupported($type_T1)
                             . '\'' . $common_functions->sqlAddSlashes($T1) . '\','
                             . '\'' . $common_functions->sqlAddSlashes($F1) . '\')';
 
-        if (PMA_query_as_controluser($q, false, PMA_DBI_QUERY_STORE)) {
+        if (PMA_queryAsControlUser($q, false, PMA_DBI_QUERY_STORE)) {
             PMD_return_new(1, __('Internal relation added'));
         } else {
             PMD_return_new(0, __('Error: Relation not added.'));

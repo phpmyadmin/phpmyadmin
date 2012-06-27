@@ -231,7 +231,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
           WHERE `db_name`     = \'' . $common_functions->sqlAddSlashes($db) . '\'
             AND `table_name`  = \'' . $common_functions->sqlAddSlashes($table) . '\'
             AND `column_name` = \'' . $common_functions->sqlAddSlashes($key) . '\'';
-    $test_rs   = PMA_query_as_controluser($test_qry, true, PMA_DBI_QUERY_STORE);
+    $test_rs   = PMA_queryAsControlUser($test_qry, true, PMA_DBI_QUERY_STORE);
 
     if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
         $row = @PMA_DBI_fetch_assoc($test_rs);
@@ -267,7 +267,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
     }
 
     if (isset($upd_query)) {
-        return PMA_query_as_controluser($upd_query);
+        return PMA_queryAsControlUser($upd_query);
     } else {
         return false;
     }

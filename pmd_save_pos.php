@@ -40,14 +40,14 @@ foreach ($post_params as $one_post_param) {
 foreach ($t_x as $key => $value) {
     $KEY = empty($IS_AJAX) ? urldecode($key) : $key; // table name decode (post PDF exp/imp)
     list($DB,$TAB) = explode(".", $KEY);
-    PMA_query_as_controluser(
+    PMA_queryAsControlUser(
         'DELETE FROM ' . $common_functions->backquote($GLOBALS['cfgRelation']['db']) . '.' . $common_functions->backquote($GLOBALS['cfgRelation']['designer_coords'])
         . ' WHERE `db_name` = \'' . $common_functions->sqlAddSlashes($DB) . '\''
         . ' AND `table_name` = \'' . $common_functions->sqlAddSlashes($TAB) . '\'',
         true, PMA_DBI_QUERY_STORE
     );
 
-    PMA_query_as_controluser(
+    PMA_queryAsControlUser(
         'INSERT INTO ' . $common_functions->backquote($GLOBALS['cfgRelation']['db']) . '.' . $common_functions->backquote($GLOBALS['cfgRelation']['designer_coords'])
         . ' (db_name, table_name, x, y, v, h)'
         . ' VALUES ('

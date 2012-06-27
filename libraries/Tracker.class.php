@@ -220,7 +220,7 @@ class PMA_Tracker
         " AND table_name = '" . $common_functions->sqlAddSlashes($tablename) . "' " .
         " ORDER BY version DESC";
 
-        $row = PMA_DBI_fetch_array(PMA_query_as_controluser($sql_query));
+        $row = PMA_DBI_fetch_array(PMA_queryAsControlUser($sql_query));
 
         if (isset($row['tracking_active']) && $row['tracking_active'] == 1) {
             return true;
@@ -331,7 +331,7 @@ class PMA_Tracker
         '" . $common_functions->sqlAddSlashes("\n") . "',
         '" . $common_functions->sqlAddSlashes(self::_transformTrackingSet($tracking_set)) . "' )";
 
-        $result = PMA_query_as_controluser($sql_query);
+        $result = PMA_queryAsControlUser($sql_query);
 
         if ($result) {
             // Deactivate previous version
@@ -357,8 +357,10 @@ class PMA_Tracker
         $common_functions = PMA_CommonFunctions::getInstance();
         $sql_query = "/*NOTRACK*/\n"
             . "DELETE FROM " . self::$pma_table
-            . " WHERE `db_name` = '" . $common_functions->sqlAddSlashes($dbname) . "'"
-            . " AND `table_name` = '" . $common_functions->sqlAddSlashes($tablename) . "'";
+            . " WHERE `db_name` = '"
+            . $common_functions->sqlAddSlashes($dbname) . "'"
+            . " AND `table_name` = '"
+            . $common_functions->sqlAddSlashes($tablename) . "'";
         $result = PMA_query_as_controluser($sql_query);
 
         return $result;
@@ -423,7 +425,7 @@ class PMA_Tracker
         '" . $common_functions->sqlAddSlashes("\n") . "',
         '" . $common_functions->sqlAddSlashes(self::_transformTrackingSet($tracking_set)) . "' )";
 
-        $result = PMA_query_as_controluser($sql_query);
+        $result = PMA_queryAsControlUser($sql_query);
 
         return $result;
     }
@@ -452,7 +454,7 @@ class PMA_Tracker
         " AND `table_name` = '" . $common_functions->sqlAddSlashes($tablename) . "' " .
         " AND `version` = '" . $common_functions->sqlAddSlashes($version) . "' ";
 
-        $result = PMA_query_as_controluser($sql_query);
+        $result = PMA_queryAsControlUser($sql_query);
 
         return $result;
     }
@@ -501,7 +503,7 @@ class PMA_Tracker
         " AND `table_name` = '" . $common_functions->sqlAddSlashes($tablename) . "' " .
         " AND `version` = '" . $common_functions->sqlAddSlashes($version) . "' ";
 
-        $result = PMA_query_as_controluser($sql_query);
+        $result = PMA_queryAsControlUser($sql_query);
 
         return $result;
     }
@@ -566,7 +568,7 @@ class PMA_Tracker
                 ? ' AND tracking & ' . self::_transformTrackingSet($statement) . ' <> 0'
                 : " AND FIND_IN_SET('" . $statement . "',tracking) > 0" ;
         }
-        $row = PMA_DBI_fetch_array(PMA_query_as_controluser($sql_query));
+        $row = PMA_DBI_fetch_array(PMA_queryAsControlUser($sql_query));
         return isset($row[0])
             ? $row[0]
             : -1;
@@ -601,7 +603,7 @@ class PMA_Tracker
         $sql_query .= " AND `version` = '" . $common_functions->sqlAddSlashes($version) ."' ".
                      " ORDER BY `version` DESC LIMIT 1";
 
-        $mixed = PMA_DBI_fetch_assoc(PMA_query_as_controluser($sql_query));
+        $mixed = PMA_DBI_fetch_assoc(PMA_queryAsControlUser($sql_query));
 
         // Parse log
         $log_schema_entries = explode('# log ',  $mixed['schema_sql']);
@@ -1026,7 +1028,7 @@ class PMA_Tracker
                 " AND `table_name` = '" . $common_functions->sqlAddSlashes($result['tablename']) . "' " .
                 " AND `version` = '" . $common_functions->sqlAddSlashes($version) . "' ";
 
-                $result = PMA_query_as_controluser($sql_query);
+                $result = PMA_queryAsControlUser($sql_query);
             }
         }
     }

@@ -631,9 +631,10 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
 
     $test_query = '
          SELECT *
-           FROM ' . $common_functions->backquote($GLOBALS['cfgRelation']['db']) . '.' . $common_functions->backquote($cfgRelation['pdf_pages']) . '
+           FROM ' . $common_functions->backquote($GLOBALS['cfgRelation']['db'])
+            . '.' . $common_functions->backquote($cfgRelation['pdf_pages']) . '
           WHERE db_name = \'' . $common_functions->sqlAddSlashes($db) . '\'';
-    $test_rs    = PMA_query_as_controluser($test_query, null, PMA_DBI_QUERY_STORE);
+    $test_rs    = PMA_queryAsControlUser($test_query, null, PMA_DBI_QUERY_STORE);
 
     /*
      * Export Relational Schema View

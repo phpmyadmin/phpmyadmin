@@ -84,7 +84,7 @@ if ($server > 0
     ) {
         echo '<li id="li_select_server">';
         include_once 'libraries/select_server.lib.php';
-        PMA_select_server(true, true);
+        PMA_selectServer(true, true);
         echo '</li>';
     }
 

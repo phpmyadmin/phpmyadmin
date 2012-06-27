@@ -22,7 +22,7 @@ require_once './libraries/file_listing.php'; // used for file listing
 require_once './libraries/bookmark.lib.php'; // used for file listing
 
 /**
- * prints the sql query boxes
+ * Prints the sql query boxes
  *
  * @param boolean|string $query       query to display in the textarea
  *                                    or true to display last executed
@@ -30,6 +30,8 @@ require_once './libraries/bookmark.lib.php'; // used for file listing
  *                                    what part to display
  *                                    false if not inside querywindow
  * @param string         $delimiter   delimeter
+ *
+ * @return void
  *
  * @usedby  server_sql.php
  * @usedby  db_sql.php
@@ -150,21 +152,25 @@ function PMA_sqlQueryForm($query = true, $display_tab = false, $delimiter = ';')
         <?php
     }
 
-    // print an empty div, which will be later filled with the sql query results by ajax
+    // print an empty div, which will be later filled with
+    // the sql query results by ajax
     echo '<div id="sqlqueryresults"></div>';
 }
 
 /**
- * prints querybox fieldset
+ * Prints querybox fieldset
  *
  * @param string  $query          query to display in the textarea
  * @param boolean $is_querywindow if inside querywindow or not
  * @param string  $delimiter      default delimiter to use
  *
+ * @return void
+ *
  * @usedby  PMA_sqlQueryForm()
  */
-function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter = ';')
-{
+function PMA_sqlQueryFormInsert(
+    $query = '', $is_querywindow = false, $delimiter = ';'
+) {
     
     $common_functions = PMA_CommonFunctions::getInstance();
 
@@ -215,7 +221,7 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
         if (empty($query)) {
             $query = $common_functions->expandUserString(
-                $GLOBALS['cfg']['DefaultQueryDatabase'], 'PMA_CommonFunctions::getInstance()->backquote'
+                $GLOBALS['cfg']['DefaultQueryDatabase'], 'backquote'
             );
         }
     } else {
@@ -239,7 +245,7 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         $legend = sprintf(__('Run SQL query/queries on database %s'), $tmp_db_link);
         if (empty($query)) {
             $query = $common_functions->expandUserString(
-                $GLOBALS['cfg']['DefaultQueryTable'], 'PMA_CommonFunctions::getInstance()->backquote'
+                $GLOBALS['cfg']['DefaultQueryTable'], 'backquote'
             );
         }
     }
@@ -262,7 +268,8 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
         .'  rows="' . $height . '"'
         .'  dir="' . $GLOBALS['text_dir'] . '"'
         .$auto_sel . $locking . '>' . htmlspecialchars($query) . '</textarea>' . "\n";
-    // Add buttons to generate query easily for select all,single select,insert,update and delete
+    // Add buttons to generate query easily for
+    // select all, single select, insert, update and delete
     if (count($fields_list)) {
         echo '<input type="button" value="SELECT *" id="selectall" class="button sqlbutton" />';
         echo '<input type="button" value="SELECT" id="select" class="button sqlbutton" />';
@@ -359,7 +366,8 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
     if (! $is_querywindow) {
         echo '<input type="checkbox" name="retain_query_box" value="1" '
             . 'id="retain_query_box" tabindex="133" '
-            . ($GLOBALS['cfg']['RetainQueryBox'] === false ? '' : ' checked="checked"')
+            . ($GLOBALS['cfg']['RetainQueryBox'] === false
+                ? '' : ' checked="checked"')
             . ' />'
             . '<label for="retain_query_box">' . __('Retain query box')
             . '</label>';
@@ -372,7 +380,9 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false, $delimiter
 }
 
 /**
- * prints bookmark fieldset
+ * Prints bookmark fieldset
+ *
+ * @return void
  *
  * @usedby  PMA_sqlQueryForm()
  */
@@ -426,7 +436,9 @@ function PMA_sqlQueryFormBookmark()
 }
 
 /**
- * prints bookmark fieldset
+ * Prints bookmark fieldset
+ *
+ * @return void
  *
  * @usedby  PMA_sqlQueryForm()
  */
@@ -436,10 +448,16 @@ function PMA_sqlQueryFormUpload()
     $common_functions = PMA_CommonFunctions::getInstance();
     $errors = array ();
 
-    $matcher = '@\.sql(\.(' . PMA_supportedDecompressions() . '))?$@'; // we allow only SQL here
+    // we allow only SQL here
+    $matcher = '@\.sql(\.(' . PMA_supportedDecompressions() . '))?$@';
 
     if (!empty($GLOBALS['cfg']['UploadDir'])) {
-        $files = PMA_getFileSelectOptions($common_functions->userDir($GLOBALS['cfg']['UploadDir']), $matcher, (isset($timeout_passed) && $timeout_passed && isset($local_import_file)) ? $local_import_file : '');
+        $files = PMA_getFileSelectOptions(
+            $common_functions->userDir($GLOBALS['cfg']['UploadDir']), $matcher,
+            (isset($timeout_passed) && $timeout_passed && isset($local_import_file))
+                ? $local_import_file
+                : ''
+        );
     } else {
         $files = '';
     }

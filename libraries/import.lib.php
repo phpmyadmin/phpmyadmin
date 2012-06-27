@@ -135,7 +135,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false)
                         );
                     } elseif ($run_query) {
                         if ($controluser) {
-                            $result = PMA_query_as_controluser(
+                            $result = PMA_queryAsControlUser(
                                 $import_run_buffer['sql']
                             );
                         } else {

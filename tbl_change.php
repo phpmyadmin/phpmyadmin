@@ -155,7 +155,7 @@ if (! isset($where_clause)) {
 }
 //Retrieve values for data edit view
 list($insert_mode, $where_clauses, $result, $rows, $where_clause_array, $found_unique_key)  	
-    = PMA_getValuesForEditMode($where_clause, $table, $db);
+    = PMA_getStuffForEditMode($where_clause, $table, $db);
 
 // Copying a row - fetched data will be inserted as a new row, therefore the where clause is needless.
 if (isset($_REQUEST['default_action']) && $_REQUEST['default_action'] === 'insert') {
@@ -191,16 +191,16 @@ $html_output .= '<script src="js/keyhandler.js" type="text/javascript"></script>
 $timestamp_seen = false;
 $columns_cnt     = count($table_fields);
 
-$tabindex = 0;
+$tabindex              = 0;
 $tabindex_for_function = +3000;
 $tabindex_for_null     = +6000;
 $tabindex_for_value    = 0;
-$o_rows   = 0;
+$o_rows                = 0;
 $biggest_max_file_size = 0;
 
 $url_params['db'] = $db;
 $url_params['table'] = $table;
-$url_params = PMA_urlParamsInEditMode($url_params);
+$url_params = PMA_urlParamsInEditMode($url_params, $where_clause_array, $where_clause);
 
 //Insert/Edit form
 $html_output .= '<form id="insertForm" method="post" action="tbl_replace.php" name="insertForm" ';
@@ -387,6 +387,6 @@ if ($insert_mode) {
     //Continue insertion form
     $html_output .= PMA_getContinueInsertionForm($table, $db, $where_clause_array, $err_url);
 }
-echo $html_output;
+$response->addHTML($html_output);
 
 ?>

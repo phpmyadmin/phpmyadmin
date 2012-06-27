@@ -337,7 +337,7 @@ class PMA_Header
          */
         $GLOBALS['now'] = gmdate('D, d M Y H:i:s') . ' GMT';
         /* Prevent against ClickJacking by allowing frames only from same origin */
-        if (! $GLOBALS['cfg']['AllowThirdPartyFraming']) {
+        if (! $GLOBALS['cfg']['AllowThirdPartyFraming'] && ! defined('TESTSUITE')) {
             header(
                 'X-Frame-Options: SAMEORIGIN'
             );
@@ -353,7 +353,7 @@ class PMA_Header
             );
         }
         PMA_noCacheHeader();
-        if (! defined('IS_TRANSFORMATION_WRAPPER')) {
+        if (! defined('IS_TRANSFORMATION_WRAPPER') && ! defined('TESTSUITE')) {
             // Define the charset to be used
             header('Content-Type: text/html; charset=utf-8');
         }

@@ -21,50 +21,50 @@ class PMA_Index
      *
      * @var array
      */
-    protected static $_registry = array();
+    private static $_registry = array();
 
     /**
      * @var string The name of the schema
      */
-    protected $_schema = '';
+    private $_schema = '';
 
     /**
      * @var string The name of the table
      */
-    protected $_table = '';
+    private $_table = '';
 
     /**
      * @var string The name of the index
      */
-    protected $_name = '';
+    private $_name = '';
 
     /**
      * Columns in index
      *
      * @var array
      */
-    protected $_columns = array();
+    private $_columns = array();
 
     /**
      * The index method used (BTREE, SPATIAL, FULLTEXT, HASH, RTREE).
      *
      * @var string
      */
-    protected $_type = '';
+    private $_type = '';
 
     /**
      * The index choice (PRIMARY, UNIQUE, INDEX, SPATIAL, FULLTEXT)
      *
      * @var string
      */
-    protected $_choice = '';
+    private $_choice = '';
 
     /**
      * Various remarks.
      *
      * @var string
      */
-    protected $_remarks = '';
+    private $_remarks = '';
 
     /**
      * Any comment provided for the index with a COMMENT attribute when the
@@ -72,19 +72,19 @@ class PMA_Index
      *
      * @var string
      */
-    protected $_comment = '';
+    private $_comment = '';
 
     /**
      * @var integer 0 if the index cannot contain duplicates, 1 if it can.
      */
-    protected $_non_unique = 0;
+    private $_non_unique = 0;
 
     /**
      * Indicates how the key is packed. NULL if it is not.
      *
      * @var string
      */
-    protected $_packed = null;
+    private $_packed = null;
 
     /**
      * Constructor
@@ -157,7 +157,7 @@ class PMA_Index
      *
      * @return boolean whether loading was successful
      */
-    static protected function _loadIndexes($table, $schema)
+    static private function _loadIndexes($table, $schema)
     {
         if (isset(PMA_Index::$_registry[$schema][$table])) {
             return true;
@@ -202,7 +202,8 @@ class PMA_Index
             // $columns[names][]
             // $columns[sub_parts][]
             foreach ($columns['names'] as $key => $name) {
-                $sub_part = isset($columns['sub_parts'][$key]) ? $columns['sub_parts'][$key] : '';
+                $sub_part = isset($columns['sub_parts'][$key])
+                    ? $columns['sub_parts'][$key] : '';
                 $_columns[] = array(
                     'Column_name'   => $name,
                     'Sub_part'      => $sub_part,
@@ -435,7 +436,10 @@ class PMA_Index
         if (! $print_mode) {
             $r  = '<fieldset>';
             $r .= '<legend id="index_header">' . __('Indexes');
-            $r .= $common_functions->showMySQLDocu('optimization', 'optimizing-database-structure');
+            $r .= $common_functions->showMySQLDocu(
+                'optimization', 'optimizing-database-structure'
+            );
+
             $r .= '</legend>';
             $r .= $no_indexes;
             if (count($indexes) < 1) {
@@ -482,24 +486,39 @@ class PMA_Index
                 if ($GLOBALS['cfg']['AjaxEnable']) {
                     $r .= ' ajax';
                 }
-                $r .= '" ' . $row_span . '>'
-                   . '    <a href="tbl_indexes.php' . PMA_generate_common_url($this_params)
-                   . '">' . $common_functions->getIcon('b_edit.png', __('Edit')) . '</a>'
+                $r .= '" ' . $row_span . '>' . '    <a href="tbl_indexes.php'
+                    . PMA_generate_common_url($this_params) . '">'
+                    . $common_functions->getIcon('b_edit.png', __('Edit')) . '</a>'
                    . '</td>' . "\n";
 
                 $this_params = $GLOBALS['url_params'];
                 if ($index->getName() == 'PRIMARY') {
-                    $this_params['sql_query'] = 'ALTER TABLE ' . $common_functions->backquote($table) . ' DROP PRIMARY KEY;';
-                    $this_params['message_to_show'] = __('The primary key has been dropped');
-                    $js_msg      = PMA_jsFormat('ALTER TABLE ' . $table . ' DROP PRIMARY KEY');
+                    $this_params['sql_query'] = 'ALTER TABLE '
+                        . $common_functions->backquote($table)
+                        . ' DROP PRIMARY KEY;';
+                    $this_params['message_to_show']
+                        = __('The primary key has been dropped');
+                    $js_msg = PMA_jsFormat(
+                        'ALTER TABLE ' . $table . ' DROP PRIMARY KEY'
+                    );
                 } else {
-                    $this_params['sql_query'] = 'ALTER TABLE ' . $common_functions->backquote($table) . ' DROP INDEX ' . $common_functions->backquote($index->getName()) . ';';
-                    $this_params['message_to_show'] = sprintf(__('Index %s has been dropped'), $index->getName());
-                    $js_msg      = PMA_jsFormat('ALTER TABLE ' . $table . ' DROP INDEX ' . $index->getName()) . ';';
+                    $this_params['sql_query'] = 'ALTER TABLE '
+                        . $common_functions->backquote($table) . ' DROP INDEX '
+                        . $common_functions->backquote($index->getName()) . ';';
+                    $this_params['message_to_show'] = sprintf(
+                        __('Index %s has been dropped'), $index->getName()
+                    );
+                    
+                    $js_msg = PMA_jsFormat(
+                        'ALTER TABLE ' . $table . ' DROP INDEX '
+                        . $index->getName() . ';'
+                    );
+
                 }
 
                 $r .= '<td ' . $row_span . '>';
-                $r .= '<input type="hidden" class="drop_primary_key_index_msg" value="' . $js_msg . '" />';
+                $r .= '<input type="hidden" class="drop_primary_key_index_msg"'
+                    . ' value="' . $js_msg . '" />';
                 $r .= '    <a ';
                 if ($GLOBALS['cfg']['AjaxEnable']) {
                     $r .= 'class="drop_primary_key_index_anchor" ';
@@ -511,11 +530,17 @@ class PMA_Index
             }
 
             if (! $print_mode) {
-                $r .= '<th ' . $row_span . '>' . htmlspecialchars($index->getName()) . '</th>';
+                $r .= '<th ' . $row_span . '>'
+                    . htmlspecialchars($index->getName())
+                    . '</th>';
             } else {
-                $r .= '<td ' . $row_span . '>' . htmlspecialchars($index->getName()) . '</td>';
+                $r .= '<td ' . $row_span . '>'
+                    . htmlspecialchars($index->getName())
+                    . '</td>';
             }
-            $r .= '<td ' . $row_span . '>' . htmlspecialchars($index->getType()) . '</td>';
+            $r .= '<td ' . $row_span . '>'
+                . htmlspecialchars($index->getType())
+                . '</td>';
             $r .= '<td ' . $row_span . '>' . $index->isUnique(true) . '</td>';
             $r .= '<td ' . $row_span . '>' . $index->isPacked(true) . '</td>';
 
@@ -528,9 +553,15 @@ class PMA_Index
                     $r .= ' (' . $column->getSubPart() . ')';
                 }
                 $r .= '</td>';
-                $r .= '<td>' . htmlspecialchars($column->getCardinality()) . '</td>';
-                $r .= '<td>' . htmlspecialchars($column->getCollation()) . '</td>';
-                $r .= '<td>' . htmlspecialchars($column->getNull(true)) . '</td>';
+                $r .= '<td>'
+                    . htmlspecialchars($column->getCardinality())
+                    . '</td>';
+                $r .= '<td>'
+                    . htmlspecialchars($column->getCollation())
+                    . '</td>';
+                $r .= '<td>'
+                    . htmlspecialchars($column->getNull(true))
+                    . '</td>';
 
                 if ($column->getSeqInIndex() == 1) {
                     $r .= '<td ' . $row_span . '>'
@@ -597,7 +628,9 @@ class PMA_Index
                 // did not find any difference
                 // so it makes no sense to have this two equal indexes
 
-                $message = PMA_Message::notice(__('The indexes %1$s and %2$s seem to be equal and one of them could possibly be removed.'));
+                $message = PMA_Message::notice(
+                    __('The indexes %1$s and %2$s seem to be equal and one of them could possibly be removed.')
+                );
                 $message->addParam($each_index->getName());
                 $message->addParam($while_index->getName());
                 $output .= $message->getDisplay();
@@ -619,17 +652,18 @@ class PMA_Index_Column
     /**
      * @var string The column name
      */
-    protected $_name = '';
+    private $_name = '';
 
     /**
      * @var integer The column sequence number in the index, starting with 1.
      */
-    protected $_seq_in_index = 1;
+    private $_seq_in_index = 1;
 
     /**
-     * @var string How the column is sorted in the index. “A” (Ascending) or NULL (Not sorted)
+     * @var string How the column is sorted in the index. “A” (Ascending) or
+     * NULL (Not sorted)
      */
-    protected $_collation = null;
+    private $_collation = null;
 
     /**
      * The number of indexed characters if the column is only partly indexed,
@@ -637,7 +671,7 @@ class PMA_Index_Column
      *
      * @var integer
      */
-    protected $_sub_part = null;
+    private $_sub_part = null;
 
     /**
      * Contains YES if the column may contain NULL.
@@ -645,7 +679,7 @@ class PMA_Index_Column
      *
      * @var string
      */
-    protected $_null = '';
+    private $_null = '';
 
     /**
      * An estimate of the number of unique values in the index. This is updated
@@ -656,7 +690,7 @@ class PMA_Index_Column
      *
      * @var integer
      */
-    protected $_cardinality = null;
+    private $_cardinality = null;
 
     public function __construct($params = array())
     {

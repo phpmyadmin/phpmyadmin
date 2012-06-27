@@ -124,7 +124,7 @@ class PMA_GIS_Visualization
      */
     private function _sanitizeName($file_name, $ext)
     {
-        $file_name = PMA_sanitize_filename($file_name);
+        $file_name = PMA_sanitizeFilename($file_name);
 
         // Check if the user already added extension;
         // get the substring where the extension would be if it was included

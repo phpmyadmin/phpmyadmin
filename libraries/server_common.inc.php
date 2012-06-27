@@ -42,7 +42,13 @@ if ($is_superuser && ! PMA_DRIZZLE) {
  */
 $binary_logs = PMA_DRIZZLE
     ? null
-    : PMA_DBI_fetch_result('SHOW MASTER LOGS', 'Log_name', null, null, PMA_DBI_QUERY_STORE);
+    : PMA_DBI_fetch_result(
+        'SHOW MASTER LOGS',
+        'Log_name',
+        null,
+        null,
+        PMA_DBI_QUERY_STORE
+    );
 
 PMA_CommonFunctions::getInstance()->checkParameters(
     array('is_superuser', 'url_query'), false

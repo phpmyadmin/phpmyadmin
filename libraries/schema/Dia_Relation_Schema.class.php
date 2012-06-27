@@ -260,7 +260,7 @@ class Table_Stats
              . ' WHERE db_name = \'' . $common_functions->sqlAddSlashes($db) . '\''
              . ' AND   table_name = \'' . $common_functions->sqlAddSlashes($tableName) . '\''
              . ' AND   pdf_page_number = ' . $pageNumber;
-        $result = PMA_query_as_controluser($sql, false, PMA_DBI_QUERY_STORE);
+        $result = PMA_queryAsControlUser($sql, false, PMA_DBI_QUERY_STORE);
         if (! $result || ! PMA_DBI_num_rows($result)) {
             $dia->dieSchema(
                 $pageNumber,

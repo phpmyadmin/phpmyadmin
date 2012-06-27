@@ -460,7 +460,7 @@ foreach ($tables as $keyname => $each_table) {
     ?>"
     id="row_tbl_<?php echo $i; ?>">
     <td class="center">
-        <input type="checkbox" name="selected_tbl[]"
+        <input type="checkbox" name="selected_tbl[]" class="checkall"
             value="<?php echo htmlspecialchars($each_table['TABLE_NAME']); ?>"
             id="checkbox_tbl_<?php echo $i; ?>"<?php echo $checked; ?> /></td>
     <th><?php echo $browse_table_label; ?>
@@ -684,13 +684,8 @@ $checkall_url = 'db_structure.php?' . PMA_generate_common_url($db);
 ?>
 <img class="selectallarrow" src="<?php echo $pmaThemeImage .'arrow_'.$text_dir.'.png'; ?>"
     width="38" height="22" alt="<?php echo __('With selected:'); ?>" />
-<a href="<?php echo $checkall_url; ?>&amp;checkall=1"
-    onclick="if (markAllRows('tablesForm')) return false;">
-    <?php echo __('Check All'); ?></a>
-/
-<a href="<?php echo $checkall_url; ?>"
-    onclick="if (unMarkAllRows('tablesForm')) return false;">
-    <?php echo __('Uncheck All'); ?></a>
+<input type="checkbox" id="checkall" title="<?php echo __('Check All'); ?>" />
+<label for="checkall"><?php echo __('Check All'); ?></label>
 <?php if ($overhead_check != '') { ?>
 /
 <a href="#" onclick="unMarkAllRows('tablesForm');

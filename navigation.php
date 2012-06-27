@@ -168,8 +168,8 @@ if (! $GLOBALS['server']) {
         if (count($GLOBALS['pma']->databases) >= $GLOBALS['cfg']['LeftDisplayDatabaseFilterMinimum']) {
             ?>
             <span id="NavDbFilter">
-            <span id="clear_fast_db_filter" title="<?php echo __('Clear'); ?>">X</span>
                 <input type="text" class="gray" name="fast_db_filter" id="fast_db_filter" title="<?php echo __('Filter databases by name'); ?>" value="<?php echo __('Filter databases by name'); ?>" />
+                <span id="clear_fast_db_filter" title="<?php echo __('Clear'); ?>">X</span>
             </span>
             <?php
         }
@@ -240,8 +240,8 @@ if ($GLOBALS['cfg']['LeftFrameLight'] && strlen($GLOBALS['db'])) {
     if ($table_count >= $GLOBALS['cfg']['LeftDisplayTableFilterMinimum']) {
         ?>
         <span id="NavFilter">
-        <span id="clear_fast_filter" title="<?php echo __('Clear'); ?>">X</span>
             <input type="text" class="gray" name="fast_filter" id="fast_filter" title="<?php echo __('Filter tables by name'); ?>" value="<?php echo __('Filter tables by name'); ?>" />
+            <span id="clear_fast_filter" title="<?php echo __('Clear'); ?>">X</span>
         </span>
         <?php
     }

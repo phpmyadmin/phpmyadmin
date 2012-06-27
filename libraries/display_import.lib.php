@@ -39,7 +39,7 @@ if (empty($import_list)) {
                 $('#upload_form_status').css("display", "inline"); // show progress bar
                 $('#upload_form_status_info').css("display", "inline"); // - || -
 <?php
-if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
+if ($_SESSION[$SESSION_KEY]["handler"] != "noplugin") {
     ?>
                 var finished = false;
                 var percent  = 0.0;
@@ -156,7 +156,7 @@ if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
     </script>
     <form action="import.php" method="post" enctype="multipart/form-data"
         name="import"<?php
-if ($_SESSION[$SESSION_KEY]["handler"]!="noplugin") {
+if ($_SESSION[$SESSION_KEY]["handler"] != "noplugin") {
     echo ' target="import_upload_iframe"';
 } ?>>
     <input type="hidden" name="<?php echo $ID_KEY; ?>" value="<?php echo $upload_id ; ?>" />

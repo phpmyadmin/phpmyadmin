@@ -59,11 +59,11 @@ if (isset($mode)) {
     if ('export' == $mode) {
         $sql = "REPLACE INTO " . $pma_table . " (db_name, table_name, pdf_page_number, x, y) SELECT db_name, table_name, " . $pdf_page_number_q . ", ROUND(x/" . $scale_q . ") , ROUND(y/" . $scale_q . ") y FROM " . $pmd_table . " WHERE db_name = '" . $common_functions->sqlAddSlashes($db) . "'";
 
-        PMA_query_as_controluser($sql, true, PMA_DBI_QUERY_STORE);
+        PMA_queryAsControlUser($sql, true, PMA_DBI_QUERY_STORE);
     }
 
     if ('import' == $mode) {
-        PMA_query_as_controluser(
+        PMA_queryAsControlUser(
             'UPDATE ' . $pma_table . ',' . $pmd_table .
             ' SET ' . $pmd_table . '.`x`= ' . $pma_table . '.`x` * '. $scale_q . ',
             ' . $pmd_table . '.`y`= ' . $pma_table . '.`y` * '. $scale_q .'
@@ -100,7 +100,7 @@ echo '<fieldset><legend>' . __('Import/Export coordinates for PDF schema') . '</
 
 $choices = array();
 
-$table_info_result = PMA_query_as_controluser(
+$table_info_result = PMA_queryAsControlUser(
     'SELECT * FROM ' . $common_functions->backquote($GLOBALS['cfgRelation']['db'])
     . '.' . $common_functions->backquote($cfgRelation['pdf_pages'])
     . ' WHERE db_name = \'' . $common_functions->sqlAddSlashes($db) . '\''

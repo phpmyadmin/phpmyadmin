@@ -2287,7 +2287,8 @@ class PMA_CommonFunctions
                     && ($meta->type != 'timestamp')
                     && ($meta->type != 'real')
                 ) {
-                        $con_val = '= ' . $row[$i];
+
+                    $con_val = '= ' . $row[$i];
 
                 } elseif ((($meta->type == 'blob') || ($meta->type == 'string'))
                     // hexify only if this is a true not empty BLOB or a BINARY
@@ -2317,16 +2318,17 @@ class PMA_CommonFunctions
                     }
 
                 } elseif ($meta->type == 'bit') {
+
                     $con_val = "= b'"
                         . $this->printableBitValue($row[$i], $meta->length) . "'";
-                
+
                 } else {
                     $con_val = '= \'' . $this->sqlAddSlashes($row[$i], false, true) . '\'';
-                }
+                }            
             }
-            
+
             if ($con_val != null) {
-               
+
                 $condition .= $con_val . ' AND';
 
                 if ($meta->primary_key > 0) {                

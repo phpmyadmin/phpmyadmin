@@ -1892,7 +1892,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                     foreach ($user as $host) {
                         $index_checkbox++;
                         echo '        <tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n"
-                           . '            <td><input type="checkbox" name="selected_usr[]" id="checkbox_sel_users_'
+                           . '            <td><input type="checkbox" class="checkall" name="selected_usr[]" id="checkbox_sel_users_'
                             . $index_checkbox . '" value="'
                             . htmlspecialchars($host['User'] . '&amp;#27;' . $host['Host'])
                             . '"'
@@ -1941,14 +1941,9 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                    .' src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png"'
                    .' width="38" height="22"'
                    .' alt="' . __('With selected:') . '" />' . "\n"
-                   .'<a href="server_privileges.php?' . $GLOBALS['url_query'] .  '&amp;checkall=1"'
-                   .' onclick="if (markAllRows(\'usersForm\')) return false;">'
-                   . __('Check All') . '</a>' . "\n"
-                   .'/' . "\n"
-                   .'<a href="server_privileges.php?' . $GLOBALS['url_query'] .  '"'
-                   .' onclick="if (unMarkAllRows(\'usersForm\')) return false;">'
-                   . __('Uncheck All') . '</a>' . "\n"
-                   .'<i>' . __('With selected:') . '</i>' . "\n";
+                   .'<input type="checkbox" id="checkall" title="' . __('Check All') . '" /> '
+                   .'<label for="checkall">' . __('Check All') . '</label> '
+                   .'<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
 
                 echo $common_functions->getButtonOrImage(
                     'submit_mult', 'mult_submit', 'submit_mult_export',
