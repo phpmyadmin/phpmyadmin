@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-26 10:18-0400\n"
-"PO-Revision-Date: 2012-06-27 16:06+0200\n"
+"PO-Revision-Date: 2012-06-27 16:29+0200\n"
 "Last-Translator: Alexsandro Preis Dubinski <alexsandroeco@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -1586,7 +1586,7 @@ msgstr "Grafico"
 
 #: js/messages.php:191
 msgid "Edit chart"
-msgstr "Editar Gráfico"
+msgstr "Editar gráfico"
 
 #: js/messages.php:192
 msgid "Series"
@@ -1673,7 +1673,7 @@ msgstr "Importar configuração do monitor"
 
 #: js/messages.php:214
 msgid "Please select the file you want to import"
-msgstr "Por favor selecione o arquivo que você quer importar"
+msgstr "Por favor, selecione o arquivo que deseja importar"
 
 #: js/messages.php:216
 msgid "Analyse Query"
@@ -2409,8 +2409,8 @@ msgstr "Arquivo de configuração existente (%s) não pode ser lido."
 #: libraries/Config.class.php:945
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
-"Erro de permissão no arquivo de configuração, não deve ser manipulado por "
-"todos."
+"Permissões incorretas no arquivo de configuração, não deve ser gravável por "
+"todos!"
 
 #: libraries/Config.class.php:1521
 msgid "Font size"
@@ -4740,7 +4740,7 @@ msgstr "Personalizar campos de entrada de texto"
 
 #: libraries/config/messages.inc.php:236 libraries/export/texytext.php:18
 msgid "Texy! text"
-msgstr "Texto texy!"
+msgstr "Texto Texy!"
 
 #: libraries/config/messages.inc.php:238
 msgid "Warnings"
@@ -6320,7 +6320,7 @@ msgstr "Customizar - exibir todas as opções possíveis"
 
 #: libraries/display_export.lib.php:135
 msgid "Database(s):"
-msgstr "Banco(s) de dados"
+msgstr "Banco(s) de dados:"
 
 #: libraries/display_export.lib.php:137
 msgid "Table(s):"
@@ -7415,7 +7415,7 @@ msgstr "Arquivo %s não contém qualquer identificação da chave"
 
 #: libraries/import/sql.php:33
 msgid "SQL compatibility mode:"
-msgstr "Modo de compatibilidade SQL"
+msgstr "Modo de compatibilidade SQL:"
 
 #: libraries/import/sql.php:43
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
@@ -8476,7 +8476,7 @@ msgstr "Criar uma nova página"
 
 #: libraries/schema/User_Schema.class.php:125
 msgid "Page name"
-msgstr "Numero da página:"
+msgstr "Numero da página"
 
 #: libraries/schema/User_Schema.class.php:129
 #, fuzzy
@@ -11594,8 +11594,8 @@ msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
 msgstr ""
-"Você não está usando conexão segura; todos dados (incluindo possíveis "
-"informações sensíveis, como senhas) são transferidos sem criptografia."
+"Você não está usando conexão segura; todos dados (incluindo possivelmente "
+"informações sensíveis, como senhas) são transferidos sem criptografia!"
 
 #: setup/frames/index.inc.php:64
 #, php-format
@@ -11965,7 +11965,7 @@ msgstr "Título do Relatório"
 
 #: tbl_chart.php:106
 msgid "X-Axis:"
-msgstr "Eixo X"
+msgstr "Eixo X:"
 
 #: tbl_chart.php:121
 #, fuzzy
