@@ -35,6 +35,7 @@ unset($drops, $each_drop);
 // If we have a valid a valid target, lets load that script instead
 if (! empty($_REQUEST['target'])
     && is_string($_REQUEST['target'])
+    && ! preg_match('/^index/', $_REQUEST['target'])
     && in_array($_REQUEST['target'], $goto_whitelist)
 ) {
     include $_REQUEST['target'];
