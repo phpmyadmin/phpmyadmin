@@ -495,7 +495,7 @@ class PMA_Header
             }
             $retval .= "<noscript>";
             $retval .= PMA_message::error(
-                    __("Javascript must be enabled past this point")
+                __("Javascript must be enabled past this point")
             )->getDisplay();
             $retval .= "</noscript>";
         }
