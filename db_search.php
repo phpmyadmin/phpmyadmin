@@ -254,12 +254,6 @@ function PMA_dbSearchGetWhereClause($table, $search_words, $search_option, $fiel
 function PMA_dbSearchGetSearchResults($tables_selected, $searched, $option_str,
     $search_str, $search_option, $field_str = null
 ) {
-    $this_url_params = array(
-        'db'    => $GLOBALS['db'],
-        'goto'  => 'db_sql.php',
-        'pos'   => 0,
-        'is_js_confirmed' => 0,
-    );
     $html_output = '';
     // Displays search string
     $html_output .= '<br />'
@@ -317,6 +311,12 @@ function PMA_dbSearchGetSearchResults($tables_selected, $searched, $option_str,
  */
 function PMA_dbSearchGetResultsRow($each_table, $newsearchsqls, $odd_row)
 {
+    $this_url_params = array(
+        'db'    => $GLOBALS['db'],
+        'goto'  => 'db_sql.php',
+        'pos'   => 0,
+        'is_js_confirmed' => 0,
+    );
     $res_cnt = PMA_DBI_fetch_value($newsearchsqls['select_count']);
     // Start forming search results row
     $html_output = '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
