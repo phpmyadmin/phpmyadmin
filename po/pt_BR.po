@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-26 10:18-0400\n"
-"PO-Revision-Date: 2012-06-27 15:43+0200\n"
+"PO-Revision-Date: 2012-06-27 16:06+0200\n"
 "Last-Translator: Alexsandro Preis Dubinski <alexsandroeco@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -81,7 +81,7 @@ msgstr "Executar"
 #: browse_foreigners.php:186 browse_foreigners.php:190
 #: libraries/Index.class.php:461 tbl_tracking.php:365
 msgid "Keyname"
-msgstr "Nome chave"
+msgstr "Nome da chave"
 
 #: browse_foreigners.php:187 browse_foreigners.php:189
 #: server_collations.php:39 server_collations.php:51 server_engines.php:42
@@ -1590,7 +1590,7 @@ msgstr "Editar Gráfico"
 
 #: js/messages.php:192
 msgid "Series"
-msgstr "Series"
+msgstr "Grupos"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
@@ -1667,10 +1667,9 @@ msgid "Import"
 msgstr "Importar"
 
 #: js/messages.php:213
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Import monitor configuration"
-msgstr "Não foi possível carregar configuração padrão de: \"%1$s\""
+msgstr "Importar configuração do monitor"
 
 #: js/messages.php:214
 msgid "Please select the file you want to import"
@@ -1906,7 +1905,7 @@ msgstr "Mover o mouse sobre um ponto mostrará seu rótulo."
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "Para ampliar, selecione um trecho do gráfico com o mouse."
 
 #: js/messages.php:306
 #, fuzzy
@@ -6167,19 +6166,19 @@ msgstr ""
 
 #: libraries/config/validate.lib.php:287
 msgid "Empty signon session name while using signon authentication method"
-msgstr ""
+msgstr "Nome da sessão signon vazia ao usar o método de autenticação signon"
 
 #: libraries/config/validate.lib.php:296
 msgid "Empty signon URL while using signon authentication method"
-msgstr ""
+msgstr "URL signon vazia ao usar o método de autenticação signon"
 
 #: libraries/config/validate.lib.php:344
 msgid "Empty phpMyAdmin control user while using pmadb"
-msgstr ""
+msgstr "Controle de usuário phpMyAdmin vazio ao usar pmadb"
 
 #: libraries/config/validate.lib.php:349
 msgid "Empty phpMyAdmin control user password while using pmadb"
-msgstr ""
+msgstr "Controle de senha do usuário phpMyAdmin vazio ao usar pmadb"
 
 #: libraries/config/validate.lib.php:441
 #, php-format
@@ -6316,9 +6315,8 @@ msgid "Quick - display only the minimal options"
 msgstr "Rápida - mostrar apenas as opções mínimas"
 
 #: libraries/display_export.lib.php:127
-#, fuzzy
 msgid "Custom - display all possible options"
-msgstr "Customizada - exibir todas as opções possíveis"
+msgstr "Customizar - exibir todas as opções possíveis"
 
 #: libraries/display_export.lib.php:135
 msgid "Database(s):"
@@ -6378,7 +6376,7 @@ msgid ", @TABLE@ will become the table name"
 msgstr ", @TABLE@ se tornará o nome da tabela"
 
 #: libraries/display_export.lib.php:235
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "alue is interpreted using %1$sstrftime%2$s, so you can use time matting "
 #| "ings. Additionally the following transformations will pen: %3$s. Other t "
@@ -6390,7 +6388,7 @@ msgid ""
 msgstr ""
 "Esse valor é interpretado usando %1$sstrftime%2$s, então você pode usar as "
 "strings de formatação de tempo. Adicionalmente a seguinte transformação "
-"ocorrerá: %3$s. Outros textos serão mantidos como são. Veja a %4$sFAQ%5$s "
+"ocorrerá: %3$s. Outros textos serão mantidos como estão. Veja a %4$sFAQ%5$s "
 "para detalhes"
 
 #: libraries/display_export.lib.php:285
