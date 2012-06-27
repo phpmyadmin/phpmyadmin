@@ -109,56 +109,6 @@ if ( $GLOBALS['is_ajax_request'] != true) {
  * 1. Main search form has been submitted
  */
 if (isset($_REQUEST['submit_search'])) {
-
-    /**
-     * Builds the SQL search query
-     *
-     * @param string  $table         the table name
-     * @param string  $field         restrict the search to this field
-     * @param string  $search_str    the string to search
-     * @param integer $search_option type of search
-     *                               (1 -> 1 word at least, 2 -> all words,
-     *                                3 -> exact string, 4 -> regexp)
-     *
-     * @return array    3 SQL querys (for count, display and delete results)
-     *
-     * @todo    can we make use of fulltextsearch IN BOOLEAN MODE for this?
-     * PMA_backquote
-     * PMA_DBI_free_result
-     * PMA_DBI_fetch_assoc
-     * $GLOBALS['db']
-     * explode
-     * count
-     * strlen
-     */
-    function PMA_getSearchSqls($table, $field, $search_str, $search_option)
-    {
-        // Statement types
-        $sqlstr_select = 'SELECT';
-        $sqlstr_delete = 'DELETE';
-        // Table to use
-        $sqlstr_from = ' FROM ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($table);
-        // Search words or pattern
-        $search_words    = (($search_option > 2) ? array($search_str) : explode(' ', $search_str));
-
-        $like_or_regex   = (($search_option == 4) ? 'REGEXP' : 'LIKE');
-        $automatic_wildcard   = (($search_option < 3) ? '%' : '');
-
-        $where_clause = PMA_dbSearchGetWhereClause(
-            $table, $search_words, $search_option, $field, $like_or_regex,
-            $automatic_wildcard
-        );
-
-        // Builds complete queries
-        $sql['select_fields'] = $sqlstr_select . ' * ' . $sqlstr_from . $where_clause;
-        // here, I think we need to still use the COUNT clause, even for
-        // VIEWs, anyway we have a WHERE clause that should limit results
-        $sql['select_count']  = $sqlstr_select . ' COUNT(*) AS `count`' . $sqlstr_from . $where_clause;
-        $sql['delete']        = $sqlstr_delete . $sqlstr_from . $where_clause;
-
-        return $sql;
-    } // end of the "PMA_getSearchSqls()" function
-
     $response->addHTML(
         PMA_dbSearchGetSearchResults(
             $tables_selected, $searched, $option_str,
@@ -166,6 +116,71 @@ if (isset($_REQUEST['submit_search'])) {
         )
     );
 } // end 1.
+
+/**
+ * If we are in an Ajax request, we need to exit after displaying all the HTML
+ */
+if ($GLOBALS['is_ajax_request'] == true) {
+    exit;
+} else {
+    $response->addHTML('</div>');//end searchresults div
+}
+
+$response->addHTML(
+    PMA_dbSearchGetSelectionForm(
+        $searched, $search_option, $tables_names_only, $tables_selected, $url_params,
+        (! empty($field_str) ? $field_str : '')
+    )
+);
+
+/**
+ * Builds the SQL search query
+ *
+ * @param string  $table         the table name
+ * @param string  $field         restrict the search to this field
+ * @param string  $search_str    the string to search
+ * @param integer $search_option type of search
+ *                               (1 -> 1 word at least, 2 -> all words,
+ *                                3 -> exact string, 4 -> regexp)
+ *
+ * @return array    3 SQL querys (for count, display and delete results)
+ *
+ * @todo    can we make use of fulltextsearch IN BOOLEAN MODE for this?
+ * PMA_backquote
+ * PMA_DBI_free_result
+ * PMA_DBI_fetch_assoc
+ * $GLOBALS['db']
+ * explode
+ * count
+ * strlen
+ */
+function PMA_getSearchSqls($table, $field, $search_str, $search_option)
+{
+    // Statement types
+    $sqlstr_select = 'SELECT';
+    $sqlstr_delete = 'DELETE';
+    // Table to use
+    $sqlstr_from = ' FROM ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($table);
+    // Search words or pattern
+    $search_words    = (($search_option > 2) ? array($search_str) : explode(' ', $search_str));
+
+    $like_or_regex   = (($search_option == 4) ? 'REGEXP' : 'LIKE');
+    $automatic_wildcard   = (($search_option < 3) ? '%' : '');
+
+    $where_clause = PMA_dbSearchGetWhereClause(
+        $table, $search_words, $search_option, $field, $like_or_regex,
+        $automatic_wildcard
+    );
+
+    // Builds complete queries
+    $sql['select_fields'] = $sqlstr_select . ' * ' . $sqlstr_from . $where_clause;
+    // here, I think we need to still use the COUNT clause, even for
+    // VIEWs, anyway we have a WHERE clause that should limit results
+    $sql['select_count']  = $sqlstr_select . ' COUNT(*) AS `count`' . $sqlstr_from . $where_clause;
+    $sql['delete']        = $sqlstr_delete . $sqlstr_from . $where_clause;
+
+    return $sql;
+}
 
 /**
  * Provides where clause for bulding SQL query
@@ -344,15 +359,6 @@ function PMA_dbSearchGetResultsRow($each_table, $newsearchsqls, $odd_row)
 }
 
 /**
- * If we are in an Ajax request, we need to exit after displaying all the HTML
- */
-if ($GLOBALS['is_ajax_request'] == true) {
-    exit;
-} else {
-    $response->addHTML('</div>');//end searchresults div
-}
-
-/**
  * Provides the main search form's html
  *
  * @param string  $searched          Keyword/Regular expression to be searched
@@ -469,11 +475,4 @@ function getResultDivs()
     $html_output .= '<a id="togglequerybox"></a>';
     return $html_output;
 }
-
-$response->addHTML(
-    PMA_dbSearchGetSelectionForm(
-        $searched, $search_option, $tables_names_only, $tables_selected, $url_params,
-        (! empty($field_str) ? $field_str : '')
-    )
-);
 ?>
