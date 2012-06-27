@@ -320,7 +320,7 @@ if ($asfile) {
         }
     }
     $filename = PMA_expandUserString($filename_template);
-    $filename = PMA_sanitize_filename($filename);
+    $filename = PMA_sanitizeFilename($filename);
 
     // Grab basic dump extension and mime type
     // Check if the user already added extension; get the substring where the extension would be if it was included
@@ -401,7 +401,7 @@ if (! $save_on_server) {
         // (avoid rewriting data containing HTML with anchors and forms;
         // this was reported to happen under Plesk)
         @ini_set('url_rewriter.tags', '');
-        $filename = PMA_sanitize_filename($filename);
+        $filename = PMA_sanitizeFilename($filename);
 
         PMA_downloadHeader($filename, $mime_type);
     } else {
@@ -459,6 +459,7 @@ if (! $save_on_server) {
 // Fake loop just to allow skip of remain of this code by break, I'd really
 // need exceptions here :-)
 do {
+
     // Add possibly some comments to export
     if (! $export_plugin->exportHeader($db)) {
         break;
@@ -673,14 +674,13 @@ do {
         // If this is an export of a single view, we have to export data;
         // for example, a PDF report
         // if it is a merge table, no data is exported
-
         if (($GLOBALS[$what . '_structure_or_data'] == 'data'
             || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data')
             && ! PMA_Table::isMerge($db, $table)
         ) {
-            if (!empty($sql_query)) {
+            if (! empty($sql_query)) {
                 // only preg_replace if needed
-                if (!empty($add_query)) {
+                if (! empty($add_query)) {
                     // remove trailing semicolon before adding a LIMIT
                     $sql_query = preg_replace('%;\s*$%', '', $sql_query);
                 }
@@ -751,8 +751,8 @@ if (! empty($asfile)) {
     // 1. as a zipped file
     if ($compression == 'zip') {
         if (@function_exists('gzcompress')) {
-            $zipfile = new zipfile();
-            $zipfile->addFile($dump_buffer, substr($filename, 0, -4));
+            $zipfile = new ZipFile();
+            $zipfile -> addFile($dump_buffer, substr($filename, 0, -4));
             $dump_buffer = $zipfile -> file();
         }
     } elseif ($compression == 'bzip2') {

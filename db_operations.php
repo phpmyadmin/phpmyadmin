@@ -639,7 +639,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
          SELECT *
            FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages']) . '
           WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\'';
-    $test_rs    = PMA_query_as_controluser($test_query, null, PMA_DBI_QUERY_STORE);
+    $test_rs    = PMA_queryAsControlUser($test_query, null, PMA_DBI_QUERY_STORE);
 
     /*
      * Export Relational Schema View

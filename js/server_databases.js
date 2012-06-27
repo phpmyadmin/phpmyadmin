@@ -30,7 +30,8 @@ $(function() {
          * @var selected_dbs Array containing the names of the checked databases
          */
         var selected_dbs = [];
-        $form.find('input:checkbox:checked').each(function () {
+        // loop over all checked checkboxes, except the #checkall checkbox
+        $form.find('input:checkbox:checked:not(#checkall)').each(function () {
             $(this).closest('tr').addClass('removeMe');
             selected_dbs[selected_dbs.length] = 'DROP DATABASE `' + escapeHtml($(this).val()) + '`;';
         });

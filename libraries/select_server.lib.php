@@ -10,12 +10,14 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * display server selection in list or selectbox form, or option tags only
+ * Display server selection in list or selectbox form, or option tags only
  *
  * @param boolean $not_only_options whether to include form tags or not
  * @param boolean $ommit_fieldset   whether to ommit fieldset tag or not
+ *
+ * @return void
  */
-function PMA_select_server($not_only_options, $ommit_fieldset)
+function PMA_selectServer($not_only_options, $ommit_fieldset)
 {
     // Show as list?
     if ($not_only_options) {

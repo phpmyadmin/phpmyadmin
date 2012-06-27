@@ -231,7 +231,7 @@ if (isset($result) && empty($message_to_show)) {
         $_message = $result ? $message = PMA_Message::success(__('Your SQL query has been executed successfully')) : PMA_Message::error(__('Error'));
         // $result should exist, regardless of $_message
         $_type = $result ? 'success' : 'error';
-        if ($GLOBALS['ajax_request'] == true) {
+        if (isset($GLOBALS['ajax_request']) && $GLOBALS['ajax_request'] == true) {
             $response = PMA_Response::getInstance();
             $response->isSuccess($_message->isSuccess());
             $response->addJSON('message', $_message);

@@ -4226,34 +4226,6 @@ class PMA_DisplayResults
             'sql_query' => $this->_sql_query,
             'goto'      => $this->_goto,
         );
-        $uncheckall_url = 'sql.php' . PMA_generate_common_url($_url_params);
-
-        $_url_params['checkall'] = '1';
-        $checkall_url = 'sql.php' . PMA_generate_common_url($_url_params);
-
-        if ($_SESSION['tmp_user_values']['disp_direction'] == self::DISP_DIR_VERTICAL) {
-
-            $checkall_params['onclick']
-                = 'if (setCheckboxes(\'resultsForm\', true)) return false;';
-            $uncheckall_params['onclick']
-                = 'if (setCheckboxes(\'resultsForm\', false)) return false;';
-
-        } else {
-
-            $checkall_params['onclick']
-                = 'if (markAllRows(\'resultsForm\')) return false;';
-            $uncheckall_params['onclick']
-                = 'if (unMarkAllRows(\'resultsForm\')) return false;';
-
-        }
-
-        $checkall_link = PMA_linkOrButton(
-            $checkall_url, __('Check All'), $checkall_params, false
-        );
-
-        $uncheckall_link = PMA_linkOrButton(
-            $uncheckall_url, __('Uncheck All'), $uncheckall_params, false
-        );
 
         if ($_SESSION['tmp_user_values']['disp_direction'] != self::DISP_DIR_VERTICAL) {
 
@@ -4263,10 +4235,9 @@ class PMA_DisplayResults
                 . ' alt="' . __('With selected:') . '" />';
         }
 
-        $links_html .= $checkall_link . "\n"
-            . ' / ' . "\n"
-            . $uncheckall_link . "\n"
-            . '<i>' . __('With selected:') . '</i>' . "\n";
+        $links_html .= '<input type="checkbox" id="checkall" title="' . __('Check All') . '" /> '
+            . '<label for="checkall">' . __('Check All') . '</label> '
+            . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
 
         $links_html .= PMA_getButtonOrImage(
             'submit_mult', 'mult_submit', 'submit_mult_change',
@@ -4775,8 +4746,8 @@ class PMA_DisplayResults
      * @param array  $is_display        array with explicit indexes for all
      *                                  the display elements
      * @param string $row_no            the row number
-     * @param string $where_clause_html url encoded where cluase
-     * @param array  $condition_array   array of conditions in the where cluase
+     * @param string $where_clause_html url encoded where clause
+     * @param array  $condition_array   array of conditions in the where clause
      * @param string $del_query         delete query
      * @param string $id_suffix         suffix for the id
      * @param string $class             css classes for the td element
@@ -4827,8 +4798,8 @@ class PMA_DisplayResults
      * @param string $edit_url          edit url
      * @param string $class             css classes for td element
      * @param string $edit_str          text for the edit link
-     * @param string $where_clause      where cluase
-     * @param string $where_clause_html url encoded where cluase
+     * @param string $where_clause      where clause
+     * @param string $where_clause_html url encoded where clause
      *
      * @return string  the generated HTML
      *
@@ -4867,7 +4838,7 @@ class PMA_DisplayResults
      * @param string $copy_url          copy url
      * @param string $copy_str          text for the copy link
      * @param string $where_clause      where clause
-     * @param string $where_clause_html url encoded where cluase
+     * @param string $where_clause_html url encoded where clause
      * @param string $class             css classes for the td element
      *
      * @return string  the generated HTML
