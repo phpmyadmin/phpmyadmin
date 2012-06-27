@@ -136,69 +136,29 @@ if (isset($_REQUEST['submit_search'])) {
         // Statement types
         $sqlstr_select = 'SELECT';
         $sqlstr_delete = 'DELETE';
-
-        // Fields to select
-        $tblfields = PMA_DBI_get_columns($GLOBALS['db'], $table);
-
         // Table to use
         $sqlstr_from = ' FROM ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($table);
-
+        // Search words or pattern
         $search_words    = (($search_option > 2) ? array($search_str) : explode(' ', $search_str));
 
         $like_or_regex   = (($search_option == 4) ? 'REGEXP' : 'LIKE');
         $automatic_wildcard   = (($search_option < 3) ? '%' : '');
 
-        $fieldslikevalues = array();
-        foreach ($search_words as $search_word) {
-            // Eliminates empty values
-            if (strlen($search_word) === 0) {
-                continue;
-            }
-
-            $thefieldlikevalue = array();
-            foreach ($tblfields as $tblfield) {
-                if (! isset($field) || strlen($field) == 0 || $tblfield['Field'] == $field) {
-                    // Drizzle has no CONVERT and all text columns are UTF-8
-                    if (PMA_DRIZZLE) {
-                        $thefieldlikevalue[] = PMA_backquote($tblfield['Field'])
-                            . ' ' . $like_or_regex . ' '
-                            . "'" . $automatic_wildcard
-                            . $search_word
-                            . $automatic_wildcard . "'";
-                    } else {
-                        $thefieldlikevalue[] = 'CONVERT(' . PMA_backquote($tblfield['Field']) . ' USING utf8)'
-                            . ' ' . $like_or_regex . ' '
-                            . "'" . $automatic_wildcard
-                            . $search_word
-                            . $automatic_wildcard . "'";
-                    }
-                }
-            } // end for
-
-            if (count($thefieldlikevalue) > 0) {
-                $fieldslikevalues[]      = implode(' OR ', $thefieldlikevalue);
-            }
-        } // end for
-
-        $implode_str  = ($search_option == 1 ? ' OR ' : ' AND ');
-        if ( empty($fieldslikevalues)) {
-            // this could happen when the "inside field" does not exist
-            // in any selected tables
-            $sqlstr_where = ' WHERE FALSE';
-        } else {
-            $sqlstr_where = ' WHERE (' . implode(') ' . $implode_str . ' (', $fieldslikevalues) . ')';
-        }
-        unset($fieldslikevalues);
+        $where_clause = PMA_dbSearchGetWhereClause(
+            $table, $search_words, $search_option, $field, $like_or_regex,
+            $automatic_wildcard
+        );
 
         // Builds complete queries
-        $sql['select_fields'] = $sqlstr_select . ' * ' . $sqlstr_from . $sqlstr_where;
+        $sql['select_fields'] = $sqlstr_select . ' * ' . $sqlstr_from . $where_clause;
         // here, I think we need to still use the COUNT clause, even for
         // VIEWs, anyway we have a WHERE clause that should limit results
-        $sql['select_count']  = $sqlstr_select . ' COUNT(*) AS `count`' . $sqlstr_from . $sqlstr_where;
-        $sql['delete']        = $sqlstr_delete . $sqlstr_from . $sqlstr_where;
+        $sql['select_count']  = $sqlstr_select . ' COUNT(*) AS `count`' . $sqlstr_from . $where_clause;
+        $sql['delete']        = $sqlstr_delete . $sqlstr_from . $where_clause;
 
         return $sql;
     } // end of the "PMA_getSearchSqls()" function
+
     $response->addHTML(
         PMA_dbSearchGetSearchResults(
             $tables_selected, $searched, $option_str,
@@ -206,6 +166,61 @@ if (isset($_REQUEST['submit_search'])) {
         )
     );
 } // end 1.
+
+/**
+ * Provides where clause for bulding SQL query
+ *
+ * @param string  $table              the table name
+ * @param integer $search_words       Search words or pattern
+ * @param integer $search_option      type of search
+ *                                    (1 -> 1 word at least, 2 -> all words,
+ *                                    3 -> exact string, 4 -> regexp)
+ * @param string  $field              Restrict the search to this field
+ * @param string  $like_or_regex      Whether to use 'LIKE' or 'REGEXP'
+ * @param string  $automatic_wildcard Use automatic wildcard
+ *
+ * @return string The generated where clause
+ */
+function PMA_dbSearchGetWhereClause($table, $search_words, $search_option, $field,
+    $like_or_regex, $automatic_wildcard
+) {
+    $where_clause = '';
+    // Fields to select
+    $tblfields = PMA_DBI_get_columns($GLOBALS['db'], $table);
+    $fieldslikevalues = array();
+
+    foreach ($search_words as $search_word) {
+        // Eliminates empty values
+        if (strlen($search_word) === 0) {
+            continue;
+        }
+        $thefieldlikevalue = array();
+        // for each field in the table
+        foreach ($tblfields as $tblfield) {
+            if (! isset($field) || strlen($field) == 0 || $tblfield['Field'] == $field) {
+                // Drizzle has no CONVERT and all text columns are UTF-8
+                $column = ((PMA_DRIZZLE)
+                    ? PMA_backquote($tblfield['Field'])
+                    : 'CONVERT(' . PMA_backquote($tblfield['Field']) . ' USING utf8)');
+                $thefieldlikevalue[] = $column . ' ' . $like_or_regex . ' '
+                    . "'" . $automatic_wildcard . $search_word . $automatic_wildcard . "'";
+            }
+        } // end for
+        if (count($thefieldlikevalue) > 0) {
+            $fieldslikevalues[] = implode(' OR ', $thefieldlikevalue);
+        }
+    } // end for
+
+    $implode_str  = ($search_option == 1 ? ' OR ' : ' AND ');
+    if ( empty($fieldslikevalues)) {
+        // this could happen when the "inside field" does not exist
+        // in any selected tables
+        $where_clause = ' WHERE FALSE';
+    } else {
+        $where_clause = ' WHERE (' . implode(') ' . $implode_str . ' (', $fieldslikevalues) . ')';
+    }
+    return $where_clause;
+}
 
 /**
  * Displays database search results
