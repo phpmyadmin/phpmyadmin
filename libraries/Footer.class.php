@@ -185,15 +185,15 @@ class PMA_Footer
     /**
      * Renders the link to open a new page
      *
-     * @param string $url_params URL paramater string
+     * @param string $url The url of the page
      *
      * @return string
      */
-    private function _getSelfLink($url_params)
+    private function _getSelfLink($url)
     {
         $retval  = '';
         $retval .= '<div id="selflink" class="print_ignore">';
-        $retval .= '<a href="index.php' . PMA_generate_common_url($url_params) . '"'
+        $retval .= '<a href="' . $url . '"'
             . ' title="' . __('Open new phpMyAdmin window') . '" target="_blank">';
         if ($GLOBALS['cfg']['NavigationBarIconic']) {
             $retval .= PMA_Util::getImage(
@@ -310,14 +310,13 @@ class PMA_Footer
                     && ! $GLOBALS['checked_special']
                     && ! $this->_isAjax
                 ) {
-                    $url_params['target'] = basename(PMA_getenv('SCRIPT_NAME'));
-                    $url = PMA_generate_common_url($url_params, 'text', '');
-                    $this->_scripts->addCode(
-                        "// Store current location in hash part
+                    $url = basename(PMA_getenv('SCRIPT_NAME')) . '?' . PMA_generate_common_url();
+                    $this->_scripts->addCode("
+                        // Store current location in hash part
                         // of URL to allow direct bookmarking
-                        setURLHash('$url');"
-                    );
-                    $retval .= $this->_getSelfLink($url_params);
+                        setURLHash('$url');
+                    ");
+                    $retval .= $this->_getSelfLink($url);
                 }
                 $retval .= $this->_getDebugMessage();
                 $retval .= $this->_getErrorMessages();

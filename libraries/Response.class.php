@@ -293,6 +293,8 @@ class PMA_Response
         if ($this->_isAjaxPage) {
             $this->addJSON('_menu', $this->getHeader()->getMenu()->getDisplay());
             $this->addJSON('_scripts', $this->getHeader()->getScripts()->getFiles());
+            $url = basename(PMA_getenv('SCRIPT_NAME')) . '?' . PMA_generate_common_url();
+            $this->addJSON('_selflink', $url);
         }
 
         // Set the Content-Type header to JSON so that jQuery parses the

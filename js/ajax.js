@@ -173,6 +173,10 @@ var AJAX = {
                 $('#page_content').append($sql);
             }
 
+            if (data._selflink) {
+                $('#selflink > a').attr('href', data._selflink);
+            }
+
             if (data._scripts) {
                 AJAX.scriptHandler.load(data._scripts, 1);
             }
