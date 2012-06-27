@@ -1443,7 +1443,7 @@ function PMA_DBI_postConnect($link, $is_controluser = false)
         if (! empty($GLOBALS['collation_connection'])) {
             PMA_DBI_query("SET CHARACTER SET 'utf8';", $link, PMA_DBI_QUERY_STORE);
             $set_collation_con_query = "SET collation_connection = '"
-                . PMA_sqlAddSlashes($GLOBALS['collation_connection']) . "';";
+                . $common_functions->sqlAddSlashes($GLOBALS['collation_connection']) . "';";
             PMA_DBI_query(
                 $set_collation_con_query,
                 $link,

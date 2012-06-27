@@ -4276,29 +4276,7 @@ class PMA_DisplayResults
             'goto'      => $this->_goto,
         );
 
-        if ($_SESSION['tmp_user_values']['disp_direction'] == self::DISP_DIR_VERTICAL) {
 
-            $checkall_params['onclick']
-                = 'if (setCheckboxes(\'resultsForm\', true)) return false;';
-            $uncheckall_params['onclick']
-                = 'if (setCheckboxes(\'resultsForm\', false)) return false;';
-
-        } else {
-
-            $checkall_params['onclick']
-                = 'if (markAllRows(\'resultsForm\')) return false;';
-            $uncheckall_params['onclick']
-                = 'if (unMarkAllRows(\'resultsForm\')) return false;';
-
-        }
-
-        $checkall_link = $this->getCommonFunctions()->linkOrButton(
-            $checkall_url, __('Check All'), $checkall_params, false
-        );
-
-        $uncheckall_link = $this->getCommonFunctions()->linkOrButton(
-            $uncheckall_url, __('Uncheck All'), $uncheckall_params, false
-        );
 
         if ($_SESSION['tmp_user_values']['disp_direction'] != self::DISP_DIR_VERTICAL) {
 
