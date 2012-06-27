@@ -29,7 +29,12 @@ $(document).ready(function() {
             var $throbber = $('.throbber').first().clone().show();
             $icon.hide();
             $throbber.insertBefore($icon);
-            $.get($this.attr('href'), {ajax_request: true}, function (data) {
+            var params = {
+                a_path: $(this).find('span.a_path').text(),
+                v_path: $(this).find('span.v_path').text()
+            };
+            var url = $('#pma_navigation').find('a.navigation_url').attr('href');
+            $.get(url, params, function (data) {
                 if (data.success === true) {
                     $this.addClass('loaded');
                     $destination.find('div.list_container').remove(); // FIXME: Hack, there shouldn't be a list container there

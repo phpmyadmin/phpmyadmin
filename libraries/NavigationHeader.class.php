@@ -19,16 +19,16 @@ class PMA_NavigationHeader
 
         $link_url = PMA_generate_common_url(
             array(
-                'ajax_request' => true,
-                'full' => true
+                'ajax_request' => true
             )
         );
         $link = sprintf(
-            '<a class="hide" href="navigation.php%s"></a>',
+            '<a class="hide navigation_url" href="navigation.php%s"></a>',
             $link_url
         );
 
         $buffer  = '<div id="pma_navigation">';
+        $buffer .= $link;
         $buffer .= '<div id="pma_navigation_resizer"></div>';
         $buffer .= '<div id="pma_navigation_collapser"></div>';
         $buffer .= $this->logo();
@@ -36,7 +36,6 @@ class PMA_NavigationHeader
         $buffer .= $this->serverChoice();
         $buffer .= $this->recent();
         $buffer .= '<div id="pma_navigation_tree">';
-        $buffer .= $link;
         $buffer .= '<div style="text-align:center; margin-top:1em;">';
         $buffer .= $this->_commonFunctions->getImage(
             'ajax_clock_small.gif',

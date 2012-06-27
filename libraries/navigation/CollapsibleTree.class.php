@@ -479,15 +479,14 @@ class CollapsibleTree {
         ) {
             $a_path = array();
             foreach ($node->parents(true, true, false) as $parent) {
-                $a_path[] = urlencode(base64_encode($parent->real_name));
+                $a_path[] = base64_encode($parent->real_name);
             }
             $a_path = implode('.', array_reverse($a_path));
             $v_path = array();
             foreach ($node->parents(true, true, true) as $parent) {
-                $v_path[] = urlencode(base64_encode($parent->name));
+                $v_path[] = base64_encode($parent->name);
             }
             $v_path = implode('.', array_reverse($v_path));
-            $link    = "navigation.php?" . PMA_generate_common_url() . "&amp;a_path=$a_path&amp;v_path=$v_path";
             $loaded = '';
             if ($node->is_group || $GLOBALS['cfg']['LeftFrameLight'] != true || $this->is_loaded) {
                 $loaded = ' loaded';
@@ -501,7 +500,9 @@ class CollapsibleTree {
             if (strpos($class, 'last') === false) {
                 $retval .= "<b></b>";
             }
-            $retval .= "<a class='expander$loaded$container' target='_self' href='$link'>";
+            $retval .= "<a class='expander$loaded$container' target='_self' href='#'>";
+            $retval .= "<span class='hide a_path'>" . $a_path . "</span>";
+            $retval .= "<span class='hide v_path'>" . $v_path . "</span>";
             $retval .= $this->_commonFunctions->getImage('b_plus.png');
             $retval .= "</a>";
             $retval .= "</div>";
