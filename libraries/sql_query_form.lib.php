@@ -267,7 +267,9 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false,
         .'  cols="' . $GLOBALS['cfg']['TextareaCols'] . '"'
         .'  rows="' . $height . '"'
         .'  dir="' . $GLOBALS['text_dir'] . '"'
-        .$auto_sel . $locking . '>' . htmlspecialchars($query) . '</textarea>' . "\n";
+        .$auto_sel . $locking . '>'
+        . htmlspecialchars($query)
+        . '</textarea>' . "\n";
     // Add buttons to generate query easily for
     // select all, single select, insert, update and delete
     if (count($fields_list)) {
@@ -289,7 +291,10 @@ function PMA_sqlQueryFormInsert($query = '', $is_querywindow = false,
         foreach ($fields_list as $field) {
             echo '<option value="'
                 .PMA_backquote(htmlspecialchars($field['Field'])) . '"';
-            if (isset($field['Field']) && strlen($field['Field']) && isset($field['Comment'])) {
+            if (isset($field['Field'])
+                && strlen($field['Field'])
+                && isset($field['Comment'])
+            ) {
                 echo ' title="' . htmlspecialchars($field['Comment']) . '"';
             }
             echo '>' . htmlspecialchars($field['Field']) . '</option>' . "\n";
