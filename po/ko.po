@@ -1018,7 +1018,7 @@ msgstr "\"DROP DATABASE\" 구문은 허락되지 않습니다."
 #, php-format
 #| msgid "Do you really want to "
 msgid "Do you really want to execute \"%s\"?"
-msgstr "정말로 \"$s\"을/를 실행하시겠습니까?"
+msgstr "정말로 \"%s\"을/를 실행하시겠습니까?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:305 sql.php:409
 msgid "You are about to DESTROY a complete database!"
