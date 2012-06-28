@@ -12,14 +12,14 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Builds the SQL search query
  *
- * @param string  $table              The table name
- * @param string  $criteriaColumnName Restrict the search to this column
- * @param string  $search_str         the string to search
- * @param integer $search_option      type of search
- *                                    (1 -> 1 word at least, 2 -> all words,
- *                                    3 -> exact string, 4 -> regexp)
+ * @param string  $table                The table name
+ * @param string  $criteriaColumnName   Restrict the search to this column
+ * @param string  $criteriaSearchString The string to search
+ * @param integer $criteriaSearchType   Type of search
+ *                                      (1 -> 1 word at least, 2 -> all words,
+ *                                      3 -> exact string, 4 -> regexp)
  *
- * @return array    3 SQL querys (for count, display and delete results)
+ * @return array 3 SQL querys (for count, display and delete results)
  *
  * @todo    can we make use of fulltextsearch IN BOOLEAN MODE for this?
  * PMA_backquote
@@ -30,23 +30,25 @@ if (! defined('PHPMYADMIN')) {
  * count
  * strlen
  */
-function PMA_getSearchSqls($table, $criteriaColumnName, $search_str, $search_option)
-{
+function PMA_getSearchSqls($table, $criteriaColumnName, $criteriaSearchString,
+    $criteriaSearchType
+) {
     // Statement types
     $sqlstr_select = 'SELECT';
     $sqlstr_delete = 'DELETE';
     // Table to use
-    $sqlstr_from = ' FROM ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($table);
+    $sqlstr_from = ' FROM '
+        . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($table);
     // Search words or pattern
-    $search_words    = (($search_option > 2)
-        ? array($search_str) : explode(' ', $search_str));
+    $search_words    = (($criteriaSearchType > 2)
+        ? array($criteriaSearchString) : explode(' ', $criteriaSearchString));
 
-    $like_or_regex   = (($search_option == 4) ? 'REGEXP' : 'LIKE');
-    $automatic_wildcard   = (($search_option < 3) ? '%' : '');
+    $like_or_regex   = (($criteriaSearchType == 4) ? 'REGEXP' : 'LIKE');
+    $automatic_wildcard   = (($criteriaSearchType < 3) ? '%' : '');
 
     $where_clause = PMA_dbSearchGetWhereClause(
-        $table, $search_words, $search_option, $criteriaColumnName, $like_or_regex,
-        $automatic_wildcard
+        $table, $search_words, $criteriaSearchType, $criteriaColumnName,
+        $like_or_regex, $automatic_wildcard
     );
 
     // Builds complete queries
@@ -65,7 +67,7 @@ function PMA_getSearchSqls($table, $criteriaColumnName, $search_str, $search_opt
  *
  * @param string  $table              the table name
  * @param integer $search_words       Search words or pattern
- * @param integer $search_option      type of search
+ * @param integer $criteriaSearchType Type of search
  *                                    (1 -> 1 word at least, 2 -> all words,
  *                                    3 -> exact string, 4 -> regexp)
  * @param string  $criteriaColumnName Restrict the search to this column
@@ -74,7 +76,7 @@ function PMA_getSearchSqls($table, $criteriaColumnName, $search_str, $search_opt
  *
  * @return string The generated where clause
  */
-function PMA_dbSearchGetWhereClause($table, $search_words, $search_option,
+function PMA_dbSearchGetWhereClause($table, $search_words, $criteriaSearchType,
     $criteriaColumnName, $like_or_regex, $automatic_wildcard
 ) {
     $where_clause = '';
@@ -109,7 +111,7 @@ function PMA_dbSearchGetWhereClause($table, $search_words, $search_option,
         }
     } // end for
 
-    $implode_str  = ($search_option == 1 ? ' OR ' : ' AND ');
+    $implode_str  = ($criteriaSearchType == 1 ? ' OR ' : ' AND ');
     if ( empty($likeClauses)) {
         // this could happen when the "inside column" does not exist
         // in any selected tables
@@ -123,19 +125,19 @@ function PMA_dbSearchGetWhereClause($table, $search_words, $search_option,
 /**
  * Displays database search results
  *
- * @param array   $tables_selected    Tables on which search is to be performed
- * @param string  $searched           The search word/phrase/regexp
- * @param string  $option_str         Type of search
- * @param string  $search_str         the string to search
- * @param integer $search_option      type of search
- *                                    (1 -> 1 word at least, 2 -> all words,
- *                                    3 -> exact string, 4 -> regexp)
- * @param string  $criteriaColumnName Restrict the search to this column
+ * @param array   $criteriaTables       Tables on which search is to be performed
+ * @param string  $searched             The search word/phrase/regexp
+ * @param string  $option_str           Type of search
+ * @param string  $criteriaSearchString The string to search
+ * @param integer $criteriaSearchType   Type of search
+ *                                      (1 -> 1 word at least, 2 -> all words,
+ *                                      3 -> exact string, 4 -> regexp)
+ * @param string  $criteriaColumnName   Restrict the search to this column
  *
  * @return string HTML for search results
  */
-function PMA_dbSearchGetSearchResults($tables_selected, $searched, $option_str,
-    $search_str, $search_option, $criteriaColumnName = null
+function PMA_dbSearchGetSearchResults($criteriaTables, $searched, $option_str,
+    $criteriaSearchString, $criteriaSearchType, $criteriaColumnName = null
 ) {
     $html_output = '';
     // Displays search string
@@ -151,11 +153,11 @@ function PMA_dbSearchGetSearchResults($tables_selected, $searched, $option_str,
     $num_search_result_total = 0;
     $odd_row = true;
     // For each table selected as search criteria
-    foreach ($tables_selected as $each_table) {
+    foreach ($criteriaTables as $each_table) {
         // Gets the SQL statements
         $newsearchsqls = PMA_getSearchSqls(
             $each_table, (! empty($criteriaColumnName) ? $criteriaColumnName : ''),
-            $search_str, $search_option
+            $criteriaSearchString, $criteriaSearchType
         );
         // Executes the "COUNT" statement
         $res_cnt = PMA_DBI_fetch_value($newsearchsqls['select_count']);
@@ -167,7 +169,7 @@ function PMA_dbSearchGetSearchResults($tables_selected, $searched, $option_str,
     } // end for
     $html_output .= '</table>';
 
-    if (count($tables_selected) > 1) {
+    if (count($criteriaTables) > 1) {
         $html_output .= '<p>';
         $html_output .= sprintf(
             _ngettext(
@@ -245,16 +247,16 @@ function PMA_dbSearchGetResultsRow($each_table, $newsearchsqls, $odd_row)
  * Provides the main search form's html
  *
  * @param string  $searched           Keyword/Regular expression to be searched
- * @param integer $search_option      Type of search (one word, phrase etc.)
+ * @param integer $criteriaSearchType Type of search (one word, phrase etc.)
  * @param array   $tables_names_only  Names of all tables
- * @param array   $tables_selected    Tables on which search is to be performed
+ * @param array   $criteriaTables     Tables on which search is to be performed
  * @param array   $url_params         URL parameters
  * @param string  $criteriaColumnName Restrict the search to this column
  *
  * @return string HTML for selection form
  */
-function PMA_dbSearchGetSelectionForm($searched, $search_option, $tables_names_only,
-    $tables_selected, $url_params, $criteriaColumnName = null
+function PMA_dbSearchGetSelectionForm($searched, $criteriaSearchType,
+    $tables_names_only, $criteriaTables, $url_params, $criteriaColumnName = null
 ) {
     $html_output = '<a id="db_search"></a>';
     $html_output .= '<form id="db_search_form"'
@@ -269,7 +271,7 @@ function PMA_dbSearchGetSelectionForm($searched, $search_option, $tables_names_o
     $html_output .= '<tr>';
     $html_output .= '<td>' . __('Words or values to search for (wildcard: "%"):')
         . '</td>';
-    $html_output .= '<td><input type="text" name="search_str" size="60"'
+    $html_output .= '<td><input type="text" name="criteriaSearchString" size="60"'
         . ' value="' . $searched . '" /></td>';
     $html_output .= '</tr>';
     // choices for types of search
@@ -286,16 +288,16 @@ function PMA_dbSearchGetSelectionForm($searched, $search_option, $tables_names_o
     // 5th parameter set to false to avoid htmlspecialchars() escaping in the label
     //  since we have some HTML in some labels
     $html_output .= PMA_getRadioFields(
-        'search_option', $choices, $search_option, true, false
+        'criteriaSearchType', $choices, $criteriaSearchType, true, false
     );
     $html_output .= '</td></tr>';
     // displays table names as select options 
     $html_output .= '<tr>';
     $html_output .= '<td class="right vtop">' . __('Inside tables:') . '</td>';
     $html_output .= '<td rowspan="2">';
-    $html_output .= '<select name="table_select[]" size="6" multiple="multiple">';
+    $html_output .= '<select name="criteriaTables[]" size="6" multiple="multiple">';
     foreach ($tables_names_only as $each_table) {
-        if (in_array($each_table, $tables_selected)) {
+        if (in_array($each_table, $criteriaTables)) {
             $is_selected = ' selected="selected"';
         } else {
             $is_selected = '';
@@ -308,10 +310,10 @@ function PMA_dbSearchGetSelectionForm($searched, $search_option, $tables_names_o
     $html_output .= '</select>';
     $alter_select
         = '<a href="db_search.php' . PMA_generate_common_url(array_merge($url_params, array('selectall' => 1))) . '#db_search"'
-        . ' onclick="setSelectOptions(\'db_search\', \'table_select[]\', true); return false;">' . __('Select All') . '</a>'
+        . ' onclick="setSelectOptions(\'db_search\', \'criteriaTables[]\', true); return false;">' . __('Select All') . '</a>'
         . '&nbsp;/&nbsp;'
         . '<a href="db_search.php' . PMA_generate_common_url(array_merge($url_params, array('unselectall' => 1))) . '#db_search"'
-        . ' onclick="setSelectOptions(\'db_search\', \'table_select[]\', false); return false;">' . __('Unselect All') . '</a>';
+        . ' onclick="setSelectOptions(\'db_search\', \'criteriaTables[]\', false); return false;">' . __('Unselect All') . '</a>';
     $html_output .= '</td></tr>';
     $html_output .= '<tr><td class="right vbottom">' . $alter_select . '</td></tr>';
     $html_output .= '<tr>';
