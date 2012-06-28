@@ -141,7 +141,7 @@ class PMA_TableSearch
      * @return array column names
      */
     public function getColumnNames()
-    {        
+    {
         return $this->_columnNames;
     }
 
@@ -290,10 +290,10 @@ class PMA_TableSearch
         $column_index, $titles, $foreignMaxLimit, $criteriaValues, $column_id,
         $in_zoom_search_edit = false
     ) {
-        $html_output = '';    
+        $html_output = '';
         if (is_array($foreignData['disp_row'])) {
-            $html_output .=  '<select name="criteriaValues[' . $column_index . ']" id="'
-                . $column_id . $column_index .'">';
+            $html_output .=  '<select name="criteriaValues[' . $column_index . ']"'
+                . ' id="' . $column_id . $column_index .'">';
             $html_output .= PMA_foreignDropdown(
                 $foreignData['disp_row'], $foreignData['foreign_field'],
                 $foreignData['foreign_display'], '', $foreignMaxLimit
@@ -359,9 +359,9 @@ EOT;
             $html_output .= '<select name="criteriaValues[' . ($column_index)
                 . '][]" id="' . $column_id . $column_index .'">';
         } else {
-            $html_output .= '<select name="criteriaValues[' . ($column_index)
-                . '][]" id="' . $column_id . $column_index .'" multiple="multiple" size="'
-                . min(3, $cnt_value) . '">';
+            $html_output .= '<select name="criteriaValues[' . $column_index . '][]"'
+                . ' id="' . $column_id . $column_index . '" multiple="multiple"'
+                . ' size="' . min(3, $cnt_value) . '">';
         }
 
         //Add select options
@@ -407,7 +407,8 @@ EOT;
         $column_type = (string)$column_type;
         $column_id = ($in_zoom_search_edit) ? 'edit_fieldID_' : 'fieldID_';
 
-        //Get inputbox based on different column types (Foreign key, geometrical, enum)
+        // Get inputbox based on different column types
+        // (Foreign key, geometrical, enum)
         if ($this->_foreigners && isset($this->_foreigners[$column_name])) {
             $str .= $this->_getForeignKeyInputBox(
                 $foreignData, $column_name, $column_index, $titles,
@@ -431,7 +432,9 @@ EOT;
 
             if ($column_type == 'date') {
                 $the_class .= ' datefield';
-            } elseif ($column_type == 'datetime' || substr($column_type, 0, 9) == 'timestamp') {
+            } elseif ($column_type == 'datetime'
+                || substr($column_type, 0, 9) == 'timestamp'
+            ) {
                 $the_class .= ' datetimefield';
             } elseif (substr($column_type, 0, 3) == 'bit') {
                 $the_class .= ' bit';
@@ -501,8 +504,9 @@ EOT;
      *
      * @return string part of where clause.
      */
-    private function _getGeomWhereClause($criteriaValues, $names, $func_type, $geom_func = null)
-    {
+    private function _getGeomWhereClause($criteriaValues, $names,
+        $func_type, $geom_func = null
+    ) {
         $geom_unary_functions = array(
             'IsEmpty' => 1,
             'IsSimple' => 1,
@@ -528,7 +532,9 @@ EOT;
         }
 
         // If the where clause is something like 'IsEmpty(`spatial_col_name`)'
-        if (isset($geom_unary_functions[$geom_func]) && trim($criteriaValues) == '') {
+        if (isset($geom_unary_functions[$geom_func])
+            && trim($criteriaValues) == ''
+        ) {
             $where = $backquoted_name;
 
         } elseif (in_array($types, $this->getCommonFunctions()->getGISDatatypes())
@@ -559,7 +565,9 @@ EOT;
     ) {
         // If geometry function is set
         if ($geom_func != null && trim($geom_func) != '') {
-            return $this->_getGeomWhereClause($criteriaValues, $names, $func_type, $geom_func);
+            return $this->_getGeomWhereClause(
+                $criteriaValues, $names, $func_type, $geom_func
+            );
         }
 
         $backquoted_name = $this->getCommonFunctions()->backquote($names);
@@ -573,9 +581,10 @@ EOT;
             $where .= $this->_getEnumWhereClause($criteriaValues, $func_type);
 
         } elseif ($criteriaValues != '') {
-            // For these types we quote the value. Even if it's another type (like INT),
-            // for a LIKE we always quote the value. MySQL converts strings to numbers
-            // and numbers to strings as necessary during the comparison
+            // For these types we quote the value. Even if it's another type
+            // (like INT), for a LIKE we always quote the value. MySQL converts
+            // strings to numbers and numbers to strings as necessary
+            // during the comparison
             if (preg_match('@char|binary|blob|text|set|date|time|year@i', $types)
                 || strpos(' ' . $func_type, 'LIKE')
             ) {
@@ -654,7 +663,7 @@ EOT;
         $sql_query .= ' FROM ' . $this->getCommonFunctions()->backquote($_POST['table']);
         $whereClause = $this->_generateWhereClause();
         $sql_query .= $whereClause;
-     
+
         // if the search results are to be ordered
         if (isset($_POST['orderByColumn']) && $_POST['orderByColumn'] != '--nil--') {
             $sql_query .= ' ORDER BY ' . $this->getCommonFunctions()->backquote($_POST['orderByColumn'])
@@ -672,7 +681,9 @@ EOT;
     {
         $fullWhereClause = '';
 
-        if (isset($_POST['customWhereClause']) && trim($_POST['customWhereClause']) != '') {
+        if (isset($_POST['customWhereClause'])
+            && trim($_POST['customWhereClause']) != ''
+        ) {
             $fullWhereClause .= ' WHERE ' . $_POST['customWhereClause'];
             return $fullWhereClause;
         }
@@ -697,7 +708,9 @@ EOT;
                 $_POST['criteriaValues'][$column_index],
                 $_POST['criteriaColumnNames'][$column_index],
                 $_POST['criteriaColumnTypes'][$column_index],
-                $_POST['criteriaColumnCollations'][$column_index], $operator, $unaryFlag,
+                $_POST['criteriaColumnCollations'][$column_index],
+                $operator,
+                $unaryFlag,
                 $tmp_geom_func
             );
 
@@ -741,7 +754,8 @@ EOT;
             $funcs = $this->getCommonFunctions()
                 ->getGISFunctions($this->_columnTypes[$column_index], true, true);
             /**
-             * For each function in the list of functions, add an option to select list
+             * For each function in the list of functions,
+             * add an option to select list
              */
             foreach ($funcs as $func_name => $func) {
                 $name = isset($func['display']) ? $func['display'] : $func_name;
@@ -773,8 +787,9 @@ EOT;
          */
         $html_output .= '<fieldset id="fieldset_select_fields">'
             . '<legend>' . __('Select columns (at least one):') . '</legend>'
-            . '<select name="columnsToDisplay[]" size="' . min(count($this->_columnNames), 10)
-            . '" multiple="multiple">';
+            . '<select name="columnsToDisplay[]"'
+            . ' size="' . min(count($this->_columnNames), 10) . '"'
+            . ' multiple="multiple">';
         // Displays the list of the fields
         foreach ($this->_columnNames as $each_field) {
             $html_output .= '        '
@@ -795,8 +810,8 @@ EOT;
         $html_output .= $this->getCommonFunctions()->showMySQLDocu(
             'SQL-Syntax', 'Functions'
         );
-        $html_output .= '<input type="text" name="customWhereClause" class="textfield"'
-            . 'size="64" />';
+        $html_output .= '<input type="text" name="customWhereClause"'
+            . ' class="textfield" size="64" />';
         $html_output .= '</fieldset>';
 
         /**
@@ -809,7 +824,8 @@ EOT;
             . '</fieldset>';
 
         /**
-         * Displays option for ordering search results by a column value (Asc or Desc)
+         * Displays option for ordering search results
+         * by a column value (Asc or Desc)
          */
         $html_output .= '<fieldset id="fieldset_display_order">'
             . '<legend>' . __('Display order:') . '</legend>'
@@ -871,8 +887,9 @@ EOT;
         $html_output .= '<td><label for="maxRowPlotLimit">'
             . __("Maximum rows to plot") . '</label></td>';
         $html_output .= '<td>';
-        $html_output .= '<input type="text" name="maxPlotLimit" id="maxRowPlotLimit" '
-            . 'value="' . ((! empty($_POST['maxPlotLimit']))
+        $html_output .= '<input type="text" name="maxPlotLimit"'
+            . ' id="maxRowPlotLimit"'
+            . ' value="' . ((! empty($_POST['maxPlotLimit']))
                 ? htmlspecialchars($_POST['maxPlotLimit'])
                 : $GLOBALS['cfg']['maxRowPlotLimit'])
             . '" />';
@@ -940,8 +957,8 @@ EOT;
             //If 'Function' column is present
             $html_output .= $this->_getGeomFuncHtml($column_index);
             //Displays column's name, type, collation and value
-            $html_output .= '<th>' . htmlspecialchars($this->_columnNames[$column_index])
-                . '</th>';
+            $html_output .= '<th>'
+                . htmlspecialchars($this->_columnNames[$column_index]) . '</th>';
             $properties = $this->getColumnProperties($column_index, $column_index);
             $html_output .= '<td>' . $properties['type'] . '</td>';
             $html_output .= '<td>' . $properties['collation'] . '</td>';
@@ -950,16 +967,19 @@ EOT;
             $html_output .= '</tr>';
             //Displays hidden fields
             $html_output .= '<tr><td>';
-            $html_output .= '<input type="hidden" name="criteriaColumnNames['
-                . $column_index . ']" value="'
-                . htmlspecialchars($this->_columnNames[$column_index]) . '" />';
-            $html_output .= '<input type="hidden" name="criteriaColumnTypes['
-                . $column_index . ']" value="' . $this->_columnTypes[$column_index] . '" />';
-            $html_output .= '<input type="hidden" name="criteriaColumnCollations['
-                . $column_index . ']" value="' . $this->_columnCollations[$column_index]
-                . '" /></td></tr>';
+            $html_output .= '<input type="hidden"'
+                . ' name="criteriaColumnNames[' . $column_index . ']"'
+                . ' value="' . htmlspecialchars($this->_columnNames[$column_index])
+                . '" />';
+            $html_output .= '<input type="hidden"'
+                . ' name="criteriaColumnTypes[' . $column_index . ']"'
+                . ' value="' . $this->_columnTypes[$column_index] . '" />';
+            $html_output .= '<input type="hidden"'
+                . ' name="criteriaColumnCollations[' . $column_index . ']"'
+                . ' value="' . $this->_columnCollations[$column_index] . '" />';
+            $html_output .= '</td></tr>';
         } // end for
-        
+
         return $html_output;
     }
 
@@ -1009,7 +1029,10 @@ EOT;
             if (isset($_POST['criteriaColumnNames'])
                 && $_POST['criteriaColumnNames'][$i] != 'pma_null'
             ) {
-                $key = array_search($_POST['criteriaColumnNames'][$i], $this->_columnNames);
+                $key = array_search(
+                    $_POST['criteriaColumnNames'][$i],
+                    $this->_columnNames
+                );
                 $properties = $this->getColumnProperties($i, $key);
                 $type[$i] = $properties['type'];
                 $collation[$i] = $properties['collation'];
@@ -1021,7 +1044,7 @@ EOT;
             //Column Collation
             $html_output .= '<td>' . (isset($collation[$i]) ? $collation[$i] : '')
                 . '</td>';
-            //Select options for column operators 
+            //Select options for column operators
             $html_output .= '<td>' . (isset($func[$i]) ? $func[$i] : '') . '</td>';
             //Inputbox for search criteria value
             $html_output .= '<td>' . (isset($value[$i]) ? $value[$i] : '') . '</td>';
@@ -1230,8 +1253,9 @@ EOT;
             //Column's Input box
             $html_output .= '<th>';
             $html_output .= $this->_getInputbox(
-                $foreignData, $fieldpopup, $this->_columnTypes[$column_index], $column_index,
-                $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'], '', false, true
+                $foreignData, $fieldpopup, $this->_columnTypes[$column_index],
+                $column_index, $titles, $GLOBALS['cfg']['ForeignKeyMaxLimit'],
+                '', false, true
             );
             $html_output .= '</th></tr>';
         }
