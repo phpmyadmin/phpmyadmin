@@ -10,7 +10,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/common.lib.php';
+require_once 'libraries/CommonFunctions.class.php';
 require_once 'libraries/sqlparser.data.php';
 
 class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase

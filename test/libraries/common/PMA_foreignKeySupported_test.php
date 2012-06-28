@@ -10,7 +10,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/common.lib.php';
+require_once 'libraries/CommonFunctions.class.php';
 
 class PMA_IsForeignKeySupportedTest extends PHPUnit_Framework_TestCase
 {

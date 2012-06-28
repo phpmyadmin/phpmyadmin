@@ -22,7 +22,7 @@ function PMA_exitNavigationFrame()
     exit;
 }
 
-require_once 'libraries/common.lib.php';
+require_once 'libraries/CommonFunctions.class.php';
 require_once 'libraries/RecentTable.class.php';
 
 $common_functions = PMA_CommonFunctions::getInstance();

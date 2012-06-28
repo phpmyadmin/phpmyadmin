@@ -9,7 +9,7 @@
 /*
  * Needed for PMA_CommonFunctions::unQuote() and PMA_SQP_parse()
  */
-require_once 'libraries/common.lib.php';
+require_once 'libraries/CommonFunctions.class.php';
 require_once 'libraries/sqlparser.lib.php';
 
 /*

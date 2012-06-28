@@ -11,7 +11,7 @@
  * Include to test.
  */
 require_once 'libraries/core.lib.php';
-require_once 'libraries/common.lib.php';
+require_once 'libraries/CommonFunctions.class.php';
 require_once 'libraries/config.default.php';
 require_once 'libraries/Config.class.php';
 require_once 'libraries/database_interface.lib.php';

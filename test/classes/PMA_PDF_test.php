@@ -9,7 +9,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/common.lib.php';
+require_once 'libraries/CommonFunctions.class.php';
 require_once 'libraries/PDF.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 

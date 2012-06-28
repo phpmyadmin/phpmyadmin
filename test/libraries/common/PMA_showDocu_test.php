@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_CommonFunctions::showDocu from common.lib.php
+ * Test for PMA_CommonFunctions::showDocu from CommonFunctions.class.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -10,7 +10,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/common.lib.php';
+require_once 'libraries/CommonFunctions.class.php';
 require_once 'libraries/Theme.class.php';
 
 class PMA_showDocu_test extends PHPUnit_Framework_TestCase

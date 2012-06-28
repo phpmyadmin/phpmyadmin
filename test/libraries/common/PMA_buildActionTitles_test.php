@@ -10,7 +10,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/common.lib.php';
+require_once 'libraries/CommonFunctions.class.php';
 require_once 'libraries/Theme.class.php';
 
 class PMA_buildActionTitles_test extends PHPUnit_Framework_TestCase

@@ -9,7 +9,7 @@
 /*
  * Needed for backquote()
  */
-require_once 'libraries/common.lib.php';
+require_once 'libraries/CommonFunctions.class.php';
 
 /*
  * Needed by PMA_EVN_getQueryFromRequest()

@@ -133,7 +133,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * common functions
      */
-    include_once './libraries/common.lib.php';
+    include_once './libraries/CommonFunctions.class.php';
 
     /**
      * JavaScript escaping.
