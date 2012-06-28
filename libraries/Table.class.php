@@ -751,12 +751,21 @@ class PMA_Table
 
         // do not create the table if dataonly
         if ($what != 'dataonly') {
-            include_once './libraries/export/sql.php';
+            // get Export SQL instance
+            $export_sql_plugin = PMA_getPlugin(
+                "export",
+                "sql",    
+                'libraries/plugins/export/',
+                array(
+                    'export_type' => $export_type,
+                    'single_table' => isset($single_table)
+                )
+            );
 
             $no_constraints_comments = true;
             $GLOBALS['sql_constraints_query'] = '';
 
-            $sql_structure = PMA_getTableDef(
+            $sql_structure = $export_sql_plugin->getTableDef(
                 $source_db, $source_table, "\n", $err_url, false, false
             );
             unset($no_constraints_comments);
@@ -947,11 +956,11 @@ class PMA_Table
                 if ($GLOBALS['cfgRelation']['commwork']) {
                     // Get all comments and MIME-Types for current table
                     $comments_copy_query = 'SELECT
-                                                column_name, comment' . ($GLOBALS['cfgRelation']['mimework'] ? ', mimetype, transformation, transformation_options' : '') . '
-                                            FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['column_info']) . '
-                                            WHERE
-                                                db_name = \'' . PMA_sqlAddSlashes($source_db) . '\' AND
-                                                table_name = \'' . PMA_sqlAddSlashes($source_table) . '\'';
+                    column_name, comment' . ($GLOBALS['cfgRelation']['mimework'] ? ', mimetype, transformation, transformation_options' : '') . '
+                    FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['column_info']) . '
+                    WHERE
+                    db_name = \'' . PMA_sqlAddSlashes($source_db) . '\' AND
+                    table_name = \'' . PMA_sqlAddSlashes($source_table) . '\'';
                     $comments_copy_rs    = PMA_queryAsControlUser($comments_copy_query);
 
                     // Write every comment as new copied entry. [MIME]

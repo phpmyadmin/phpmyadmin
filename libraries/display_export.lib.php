@@ -33,11 +33,20 @@ function PMA_exportIsActive($what, $val)
 }
 
 /* Scan for plugins */
-$export_list = PMA_getPlugins('./libraries/export/', array('export_type' => $export_type, 'single_table' => isset($single_table)));
+$export_list = PMA_getPlugins(
+    "export",
+    'libraries/plugins/export/',
+    array(
+        'export_type' => $export_type,
+        'single_table' => isset($single_table)
+    )
+);
 
 /* Fail if we didn't find any plugin */
 if (empty($export_list)) {
-    PMA_Message::error(__('Could not load export plugins, please check your installation!'))->display();
+    PMA_Message::error(__(
+        'Could not load export plugins, please check your installation!'
+    ))->display();
     exit;
 }
 ?>

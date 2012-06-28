@@ -1680,9 +1680,9 @@ $cfg['Export']['pdf_structure_or_data'] = 'data';
 /**
  *
  *
- * @global string $cfg['Export']['php_array_structure_or_data']
+ * @global string $cfg['Export']['phparray_structure_or_data']
  */
-$cfg['Export']['php_array_structure_or_data'] = 'data';
+$cfg['Export']['phparray_structure_or_data'] = 'data';
 
 /**
  *

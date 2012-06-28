@@ -20,8 +20,8 @@ require_once 'libraries/mysql_charsets.lib.php';
 
 // add a javascript file for jQuery functions to handle Ajax actions
 $response = PMA_Response::getInstance();
-$header   = $response->getHeader();
-$scripts  = $header->getScripts();
+$header = $response->getHeader();
+$scripts = $header->getScripts();
 $scripts->addFile('db_operations.js');
 
 /**
@@ -135,11 +135,21 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
         $views = array();
 
         // remove all foreign key constraints, otherwise we can get errors
-        include_once 'libraries/export/sql.php';
+        $export_sql_plugin = PMA_getPlugin(
+            "export",
+            "sql",    
+            'libraries/plugins/export/',
+            array(
+                'export_type' => $export_type,
+                'single_table' => isset($single_table)
+            )
+        );
         foreach ($tables_full as $each_table => $tmp) {
             $sql_constraints = '';
             $sql_drop_foreign_keys = '';
-            $sql_structure = PMA_getTableDef($db, $each_table, "\n", '', false, false);
+            $sql_structure = $export_sql_plugin->getTableDef(
+                $db, $each_table, "\n", '', false, false
+            );
             if ($move && ! empty($sql_drop_foreign_keys)) {
                 PMA_DBI_query($sql_drop_foreign_keys);
             }
@@ -157,7 +167,9 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             if (PMA_Table::isView($db, $each_table)) {
                 $views[] = $each_table;
                 // Create stand-in definition to resolve view dependencies
-                $sql_view_standin = PMA_getTableDefStandIn($db, $each_table, "\n");
+                $sql_view_standin = $export_sql_plugin->getTableDefStandIn(
+                    $db, $each_table, "\n"
+                );
                 PMA_DBI_select_db($newname);
                 PMA_DBI_query($sql_view_standin);
                 $GLOBALS['sql_query'] .= "\n" . $sql_view_standin;
