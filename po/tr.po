@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-28 09:04+0200\n"
-"PO-Revision-Date: 2012-06-18 13:24+0200\n"
+"PO-Revision-Date: 2012-06-28 12:41+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.0\n"
+"X-Generator: Weblate 1.1\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:577 server_privileges.php:1838
@@ -549,12 +549,12 @@ msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] "<b>Toplam:</b> <i>%s</i> benzeşme"
 
 #: db_search.php:296
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$s match inside table <i>%2$s</i>"
 #| msgid_plural "%1$s matches inside table <i>%2$s</i>"
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "<i>%2$s</i> tablosu içerisinde %1$s benzeşme"
+msgstr[0] "<strong>%2$s</strong> tablosu içerisinde %1$s eşleşme"
 
 #: db_search.php:311 libraries/Menu.class.php:246
 #: libraries/common.lib.php:3311 libraries/common.lib.php:3533
@@ -7950,7 +7950,6 @@ msgstr ""
 "gerekir."
 
 #: libraries/plugins/transformations/abstract/ExternalTransformationsPlugin.class.php:31
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the column data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -7976,14 +7975,14 @@ msgid ""
 msgstr ""
 "SADECE LINUX: Harici bir uygulama çalıştırır ve sütun verisini standart "
 "girdi yoluyla besler. Uygulamanın standart çıktısı döner. Düzgün HTML kodu "
-"baskısı için varsayılan düzenlidir. Güvenlik nedeniyle libraries/"
-"transformations/text_plain__external.inc.php dosyasını elle düzenlemeli ve "
-"olmasını istediğiniz araçları listelemelisiniz. İlk seçenek kullanmak "
-"istediğiniz program sayısı ve ikinci seçenek program için parametrelerdir. "
-"Üçüncü seçenek, eğer 1'e ayarlanırsa, htmlspecialchars() işlevi kullanılarak "
-"çıktıyı dönüştürecektir (Varsayılan 1). Dördüncü seçenek, eğer 1'e "
-"ayarlanırsa, sözcük kaydırma korunacak ve tüm çıktı tek bir satırda "
-"görünecektir (Varsayılan 1)."
+"baskısı için varsayılan düzenlidir. Güvenlik nedeniyle "
+"libraries/plugins/transformations/Text_Plain_External.class.php dosyasını "
+"elle düzenlemeli ve olmasını istediğiniz araçları listelemelisiniz. İlk "
+"seçenek kullanmak istediğiniz program sayısı ve ikinci seçenek program için "
+"parametrelerdir. Üçüncü seçenek, eğer 1'e ayarlanırsa, htmlspecialchars() "
+"işlevi kullanılarak çıktıyı dönüştürecektir (Varsayılan 1). Dördüncü "
+"seçenek, eğer 1'e ayarlanırsa, sözcük kaydırma korunacak ve tüm çıktı tek "
+"bir satırda görünecektir (Varsayılan 1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
