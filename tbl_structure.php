@@ -559,7 +559,7 @@ $checkall_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
 
 <img class="selectallarrow" src="<?php echo $pmaThemeImage . 'arrow_' . $text_dir . '.png'; ?>"
     width="38" height="22" alt="<?php echo __('With selected:'); ?>" />
-<input type="checkbox" id="checkall" title="' . __('Check All') . '" />
+<input type="checkbox" id="checkall" title="<?php echo __('Check All'); ?>" />
 <label for="checkall"><?php echo __('Check All'); ?></label>
 
 <i style="margin-left: 2em"><?php echo __('With selected:'); ?></i>

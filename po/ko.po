@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-26 10:18-0400\n"
-"PO-Revision-Date: 2012-06-25 10:59+0200\n"
+"PO-Revision-Date: 2012-06-26 18:35+0200\n"
 "Last-Translator: Gyu-sun Youm <omniavinco@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.0\n"
 
@@ -1015,10 +1015,10 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" 구문은 허락되지 않습니다."
 
 #: js/messages.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to "
 msgid "Do you really want to execute \"%s\"?"
-msgstr "정말로 다음을 실행하시겠습니까? "
+msgstr "정말로 \"%s\"을/를 실행하시겠습니까?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:305 sql.php:409
 msgid "You are about to DESTROY a complete database!"
@@ -1380,11 +1380,11 @@ msgstr ""
 
 #: js/messages.php:145
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "슬로우 쿼리 로그가 활성화 되었습니다."
 
 #: js/messages.php:146
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "슬로우 쿼리 로그와 일반 로그가 비활성화 되었습니다."
 
 #: js/messages.php:147
 msgid "log_output is not set to TABLE."
@@ -1401,6 +1401,8 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"슬로우 쿼리 로그는 활성화 되어 있지만, 서버는 수행 시간이 %d초 이상인 쿼리에 대해서만 슬로우 쿼리 로그를 남깁니다.   슬로우 "
+"쿼리를 남기는 쿼리의 수행 시간을 0-2초로 설정하는 것을 권장합니다.  사용하는 시스템에 따라 적절하게 설정하십시오."
 
 #: js/messages.php:150
 #, php-format
@@ -10197,7 +10199,7 @@ msgstr "보냄"
 
 #: server_status.php:1163
 msgid "max. concurrent connections"
-msgstr ""
+msgstr "최대 동시 연결"
 
 #: server_status.php:1170
 msgid "Failed attempts"
@@ -10219,12 +10221,11 @@ msgstr "커맨드"
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
-msgstr ""
+msgstr "연결을 닫지 않고 클라이언트가 종료되어서 실패한 연결의 숫자"
 
 #: server_status.php:1321
-#, fuzzy
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "Limits the number of new connections the user may open per hour."
+msgstr "MySQL 서버에 연결 실패한 횟수"
 
 #: server_status.php:1322
 msgid ""
@@ -10240,7 +10241,7 @@ msgstr ""
 #: server_status.php:1324
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
-msgstr ""
+msgstr "MySQL 서버에 연결 시도한 횟수"
 
 #: server_status.php:1325
 msgid ""
