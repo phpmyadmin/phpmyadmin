@@ -428,13 +428,20 @@ if (! $error && isset($skip)) {
 
 if (! $error) {
     // Check for file existance
-    if (!file_exists('libraries/import/' . $format . '.php')) {
+    require_once("libraries/plugin_interface.lib.php");
+    $import_plugin = PMA_getPlugin(
+        "import",
+        $format,
+        'libraries/plugins/import/'
+    );
+    if ($import_plugin == null) {
         $error = true;
-        $message = PMA_Message::error(__('Could not load import plugins, please check your installation!'));
+        $message = PMA_Message::error(
+            __('Could not load import plugins, please check your installation!')
+        );
     } else {
         // Do the real import
-        $plugin_param = $import_type;
-        include 'libraries/import/' . $format . '.php';
+        $import_plugin->doImport();
     }
 }
 

@@ -257,7 +257,16 @@ class PMA_Tracker
             $tracking_set = self::$default_tracking_set;
         }
 
-        include_once './libraries/export/sql.php';
+        // get Export SQL instance
+        $export_sql_plugin = PMA_getPlugin(
+            "export",
+            "sql",    
+            'libraries/plugins/export/',
+            array(
+                'export_type' => $export_type,
+                'single_table' => isset($single_table)
+            )
+        );
 
         $sql_backquotes = true;
 
@@ -295,7 +304,7 @@ class PMA_Tracker
         }
 
         $create_sql .= self::getLogComment() .
-                       PMA_getTableDef($dbname, $tablename, "\n", "");
+            $export_sql_plugin->getTableDef($dbname, $tablename, "\n", "");
 
         // Save version
 
