@@ -43,12 +43,19 @@ abstract class PluginObserver implements SplObserver
      * This method is called when any PluginManager to which the observer
      * is attached calls PluginManager::notify()
      *
+     * TODO Declare this function abstract, removing its body, 
+     * as soon as we drop support for PHP 5.2.x.
+     * See bug #3538655.
+     *
      * @param SplSubject $subject The PluginManager notifying the observer
      *                            of an update.
      *
      * @return void
      */
-    abstract public function update (SplSubject $subject);
+    public function update (SplSubject $subject)
+    {
+        throw new Exception('PluginObserver::update must be overridden in child classes.');
+    }
 
     
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
