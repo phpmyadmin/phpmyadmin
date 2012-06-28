@@ -92,9 +92,8 @@ function PMA_extractPrivInfo($row = '', $enableHTML = false)
                 = in_array($current_grant, $users_grants) ? 'Y' : 'N';
         }
         unset($current_grant);
-        unset($av_grants);
-        unset($users_grants);
     }
+    
     $privs = array();
     $allPrivileges = true;
     foreach ($grants as $current_grant) {
@@ -221,8 +220,7 @@ function PMA_getGrantsArray()
             'Super_priv',
             'SUPER',
             __('Allows connecting, even if maximum number of connections is reached;
-                required for most administrative operations like setting global 
-                variables or killing threads of other users.')),
+                required for most administrative operations like setting global variables or killing threads of other users.')),
         array(
             'Create_tmp_table_priv',
             'CREATE TEMPORARY TABLES',
