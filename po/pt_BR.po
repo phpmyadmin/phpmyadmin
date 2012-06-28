@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-06-27 16:06+0200\n"
+"PO-Revision-Date: 2012-06-27 16:29+0200\n"
 "Last-Translator: Alexsandro Preis Dubinski <alexsandroeco@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -1064,7 +1064,7 @@ msgstr "O comando \"DROP DATABASE\" está desabilitado."
 
 #: js/messages.php:30 libraries/mult_submits.inc.php:280 sql.php:353
 msgid "Do you really want to "
-msgstr "Você realmente deseja"
+msgstr "Você realmente deseja "
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:280 sql.php:338
 msgid "You are about to DESTROY a complete database!"
@@ -1632,7 +1632,7 @@ msgstr "Grafico"
 #: js/messages.php:195
 #| msgid "Add index"
 msgid "Edit chart"
-msgstr "Editar Gráfico"
+msgstr "Editar gráfico"
 
 #: js/messages.php:196
 #| msgid "SQL queries"
@@ -1721,7 +1721,7 @@ msgstr "Importar configuração do monitor"
 #: js/messages.php:218
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "Por favor selecione o arquivo que você quer importar"
+msgstr "Por favor, selecione o arquivo que deseja importar"
 
 #: js/messages.php:220
 msgid "Analyse Query"
@@ -2365,8 +2365,8 @@ msgstr "Arquivo de configuração existente (%s) não pode ser lido."
 #: libraries/Config.class.php:755
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
-"Erro de permissão no arquivo de configuração, não deve ser manipulado por "
-"todos."
+"Permissões incorretas no arquivo de configuração, não deve ser gravável por "
+"todos!"
 
 #: libraries/Config.class.php:1306
 msgid "Font size"
@@ -4065,7 +4065,7 @@ msgstr "Personalizar campos de entrada de texto"
 
 #: libraries/config/messages.inc.php:230 libraries/export/texytext.php:18
 msgid "Texy! text"
-msgstr "Texto texy!"
+msgstr "Texto Texy!"
 
 #: libraries/config/messages.inc.php:232
 msgid "Warnings"
@@ -5714,7 +5714,7 @@ msgstr "Customizar - exibir todas as opções possíveis"
 
 #: libraries/display_export.lib.php:132
 msgid "Database(s):"
-msgstr "Banco(s) de dados"
+msgstr "Banco(s) de dados:"
 
 #: libraries/display_export.lib.php:134
 msgid "Table(s):"
@@ -6982,7 +6982,7 @@ msgstr "Arquivo %s não contém qualquer identificação da chave"
 
 #: libraries/import/sql.php:33
 msgid "SQL compatibility mode:"
-msgstr "Modo de compatibilidade SQL"
+msgstr "Modo de compatibilidade SQL:"
 
 #: libraries/import/sql.php:43
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
@@ -7965,7 +7965,7 @@ msgstr "Criar uma nova página"
 
 #: libraries/schema/User_Schema.class.php:122
 msgid "Page name"
-msgstr "Numero da página:"
+msgstr "Numero da página"
 
 #: libraries/schema/User_Schema.class.php:126
 #, fuzzy
@@ -9124,7 +9124,7 @@ msgstr "Nenhum Banco de Dados selecionado."
 #: server_databases.php:80
 #, php-format
 msgid "%s databases have been dropped successfully."
-msgstr "Banco de Dados %s foi eliminado com sucesso!"
+msgstr "Bancos de Dados %s foram eliminados com sucesso."
 
 #: server_databases.php:104
 msgid "Databases statistics"
@@ -11092,8 +11092,8 @@ msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
 msgstr ""
-"Você não está usando conexão segura; todos dados (incluindo possíveis "
-"informações sensíveis, como senhas) são transferidos sem criptografia."
+"Você não está usando conexão segura; todos dados (incluindo possivelmente "
+"informações sensíveis, como senhas) são transferidos sem criptografia!"
 
 #: setup/frames/index.inc.php:61
 #, php-format
@@ -11520,7 +11520,7 @@ msgstr "Título do Relatório"
 
 #: tbl_chart.php:109
 msgid "X-Axis:"
-msgstr "Eixo X"
+msgstr "Eixo X:"
 
 #: tbl_chart.php:124
 #, fuzzy
