@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-28 09:04+0200\n"
-"PO-Revision-Date: 2012-06-27 16:29+0200\n"
+"PO-Revision-Date: 2012-06-28 13:50+0200\n"
 "Last-Translator: Alexsandro Preis Dubinski <alexsandroeco@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -1933,7 +1933,7 @@ msgstr "Zoom Pesquisa detalhada"
 
 #: js/messages.php:300
 msgid "Each point represents a data row."
-msgstr "Cada ponto representa uma linha de dados"
+msgstr "Cada ponto representa uma linha de dados."
 
 #: js/messages.php:302
 msgid "Hovering over a point will show its label."
@@ -2056,14 +2056,14 @@ msgid ""
 msgstr ""
 "Esta tabela não contem uma unica coluna, Opções relacionadas aos links "
 "Editar, Marcar, Editar, Copiar e Apagar podem não funcionar mais após ser "
-"salva"
+"salva."
 
 #: js/messages.php:356
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
 "Você também pode editar algumas colunas<br/>clicando diretamente em seu "
-"conteúdo"
+"conteúdo."
 
 #: js/messages.php:357
 msgid "Go to link"
@@ -2662,7 +2662,7 @@ msgstr "Muitas mensagens de erro, algumas não exibidas."
 
 #: libraries/File.class.php:235
 msgid "File was not an uploaded file."
-msgstr "Arquivo não era um arquivo carregado"
+msgstr "Arquivo não era um arquivo carregado."
 
 #: libraries/File.class.php:273
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
@@ -5126,7 +5126,7 @@ msgid ""
 "DATETIME and TIMESTAMP, ascending order otherwise"
 msgstr ""
 "[kbd]SMART[/kbd] - i.e. ordem decrescente para colunas do tipo TIME, DATE, "
-"DATETIME e TIMESTAM; caso contrário, ordem ascendente."
+"DATETIME e TIMESTAM, caso contrário, ordem ascendente."
 
 #: libraries/config/messages.inc.php:334
 msgid "Default sorting order"
@@ -6371,7 +6371,7 @@ msgstr ""
 "Esse valor é interpretado usando %1$sstrftime%2$s, então você pode usar as "
 "strings de formatação de tempo. Adicionalmente a seguinte transformação "
 "ocorrerá: %3$s. Outros textos serão mantidos como estão. Veja a %4$sFAQ%5$s "
-"para detalhes"
+"para detalhes."
 
 #: libraries/display_export.lib.php:294
 msgid "use this for future exports"
@@ -7978,8 +7978,8 @@ msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
 msgstr ""
-"Mostra o conteúdo da coluna como na realidade, sem manipular através de "
-"htmlspecialchars(). Isso é, a coluna assume conter HTML válido"
+"Mostra o conteúdo da coluna como é, sem manipular através de "
+"htmlspecialchars(). Isso é, a coluna assume conter somente HTML válido."
 
 #: libraries/plugins/transformations/abstract/HexTransformationsPlugin.class.php:31
 msgid ""
@@ -8704,7 +8704,7 @@ msgstr "Nenhuma tabela encontrada no banco de dados"
 
 #: libraries/rte/rte_words.lib.php:52
 msgid "There are no events to display."
-msgstr "Não existem eventos para serem mostrados"
+msgstr "Não existem eventos para serem mostrados."
 
 #: libraries/schema/Dia_Relation_Schema.class.php:233
 #: libraries/schema/Eps_Relation_Schema.class.php:424
@@ -8960,7 +8960,7 @@ msgid ""
 "below, if there is any, may also help you in diagnosing the problem"
 msgstr ""
 "Parece haver um erro na sua consulta SQL. A saída do servidor MySQL abaixo, "
-"isto se existir alguma, também poderá ajudar a diagnosticar o problema."
+"isto se existir alguma, também poderá ajudar a diagnosticar o problema"
 
 #: libraries/sqlparser.lib.php:171
 msgid ""
@@ -10053,7 +10053,7 @@ msgstr "O usuário %s já existe!"
 
 #: server_privileges.php:1168
 msgid "You have added a new user."
-msgstr "Adicionado usuário"
+msgstr "Você adicionou um novo usuário."
 
 #: server_privileges.php:1392
 #, php-format
@@ -10707,7 +10707,7 @@ msgstr ""
 "O número de tabelas temporárias no disco criadas automaticamente pelo "
 "servidor enquanto executava os enunciados. Se Created_tmp_disk_tables é "
 "grande, você pode aumentar o valor de tmp_table_size para fazer as tabelas "
-"temporárias serem baseadas na memória ou invés de baseadas no disco"
+"temporárias serem baseadas na memória ou invés de baseadas no disco."
 
 #: server_status.php:1326
 msgid "How many temporary files mysqld has created."
@@ -10908,7 +10908,7 @@ msgid ""
 "and had to do a single-page read."
 msgstr ""
 "O número de leituras lógicas que o InnoDB não pode satisfer do buffer pool e "
-"teria que fazer uma leitura de página simples"
+"teria que fazer uma leitura de página simples."
 
 #: server_status.php:1355
 msgid ""
@@ -11334,7 +11334,7 @@ msgid ""
 msgstr ""
 "O número de processos no cache de processos. A taxa de hits do cache pode "
 "ser calculada como Threads_created/conexões. Se este valor for vermelho você "
-"deve aumentar seu thread_cache_size"
+"deve aumentar seu thread_cache_size."
 
 #: server_status.php:1430
 msgid "The number of currently open connections."
@@ -11877,7 +11877,7 @@ msgstr ""
 
 #: setup/lib/index.lib.php:203
 msgid "No newer stable version is available"
-msgstr "Não existe nenhuma versão estável mais nova."
+msgstr "Não existe nenhuma versão estável mais nova"
 
 #: setup/lib/index.lib.php:294
 #, php-format
@@ -13795,7 +13795,7 @@ msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 "A taxa de conexões abortadas é %s, este valor deve ser menor do que 1 por "
-"hora."
+"hora"
 
 #: libraries/advisory_rules.txt:406
 msgid "Percentage of aborted clients"
@@ -13831,7 +13831,7 @@ msgstr "Taxa de clientes abortados"
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 "A taxa de clientes abortados é %s. Este valor deve ser menor do que 1 por "
-"hora."
+"hora"
 
 #: libraries/advisory_rules.txt:422
 msgid "Is InnoDB disabled?"
@@ -13843,7 +13843,7 @@ msgstr "O InnoDB não está ativado."
 
 #: libraries/advisory_rules.txt:426
 msgid "InnoDB is usually the better choice for table engines."
-msgstr "InnoDB é normalmente a melhor escolha para engines de tabelas"
+msgstr "InnoDB é normalmente a melhor escolha para engines de tabelas."
 
 #: libraries/advisory_rules.txt:427
 msgid "have_innodb is set to 'value'"
@@ -13859,7 +13859,7 @@ msgid ""
 "InnoDB buffer pool."
 msgstr ""
 "O tamanho do arquivo de log do InnoDB não é apropriado em relação ao Buffer "
-"Pool do InnoDB"
+"Pool do InnoDB."
 
 #: libraries/advisory_rules.txt:433
 #, php-format
@@ -13946,7 +13946,7 @@ msgstr ""
 "consumo. Tenha cuidado, pois ao atribuir valores muito altos, seu sistema "
 "começará a fazer swap, o que diminuirá o desempenho significativamente. Veja "
 "também <a href=\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
-"innodb_buffer_pool_size/\">este artigo</a>."
+"innodb_buffer_pool_size/\">este artigo</a>"
 
 #: libraries/advisory_rules.txt:448
 #, php-format
