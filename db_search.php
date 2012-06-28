@@ -108,7 +108,7 @@ if ( $GLOBALS['is_ajax_request'] != true) {
 }
 
 /**
- * 1. Main search form has been submitted
+ * Main search form has been submitted
  */
 if (isset($_REQUEST['submit_search'])) {
     $response->addHTML(
@@ -118,7 +118,7 @@ if (isset($_REQUEST['submit_search'])) {
             (! empty($criteriaColumnName) ? $criteriaColumnName : '')
         )
     );
-} // end 1.
+}
 
 /**
  * If we are in an Ajax request, we need to exit after displaying all the HTML
@@ -128,7 +128,7 @@ if ($GLOBALS['is_ajax_request'] == true) {
 } else {
     $response->addHTML('</div>');//end searchresults div
 }
-
+// Add search form
 $response->addHTML(
     PMA_dbSearchGetSelectionForm(
         $searched, $search_option, $tables_names_only, $tables_selected, $url_params,
