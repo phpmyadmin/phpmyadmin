@@ -89,10 +89,12 @@ if (isset($_REQUEST['selectall'])) {
     $tables_selected = array();
 }
 
-if (empty($_REQUEST['field_str']) || ! is_string($_REQUEST['field_str'])) {
-    unset($field_str);
+if (empty($_REQUEST['criteriaColumnName'])
+    || ! is_string($_REQUEST['criteriaColumnName'])
+) {
+    unset($criteriaColumnName);
 } else {
-    $field_str = PMA_sqlAddSlashes($_REQUEST['field_str'], true);
+    $criteriaColumnName = PMA_sqlAddSlashes($_REQUEST['criteriaColumnName'], true);
 }
 
 /**
@@ -112,7 +114,8 @@ if (isset($_REQUEST['submit_search'])) {
     $response->addHTML(
         PMA_dbSearchGetSearchResults(
             $tables_selected, $searched, $option_str,
-            $search_str, $search_option, (! empty($field_str) ? $field_str : '')
+            $search_str, $search_option,
+            (! empty($criteriaColumnName) ? $criteriaColumnName : '')
         )
     );
 } // end 1.
@@ -129,19 +132,19 @@ if ($GLOBALS['is_ajax_request'] == true) {
 $response->addHTML(
     PMA_dbSearchGetSelectionForm(
         $searched, $search_option, $tables_names_only, $tables_selected, $url_params,
-        (! empty($field_str) ? $field_str : '')
+        (! empty($criteriaColumnName) ? $criteriaColumnName : '')
     )
 );
 
 /**
  * Builds the SQL search query
  *
- * @param string  $table         the table name
- * @param string  $field         restrict the search to this field
- * @param string  $search_str    the string to search
- * @param integer $search_option type of search
- *                               (1 -> 1 word at least, 2 -> all words,
- *                                3 -> exact string, 4 -> regexp)
+ * @param string  $table              The table name
+ * @param string  $criteriaColumnName Restrict the search to this column
+ * @param string  $search_str         the string to search
+ * @param integer $search_option      type of search
+ *                                    (1 -> 1 word at least, 2 -> all words,
+ *                                    3 -> exact string, 4 -> regexp)
  *
  * @return array    3 SQL querys (for count, display and delete results)
  *
@@ -154,7 +157,7 @@ $response->addHTML(
  * count
  * strlen
  */
-function PMA_getSearchSqls($table, $field, $search_str, $search_option)
+function PMA_getSearchSqls($table, $criteriaColumnName, $search_str, $search_option)
 {
     // Statement types
     $sqlstr_select = 'SELECT';
@@ -162,21 +165,23 @@ function PMA_getSearchSqls($table, $field, $search_str, $search_option)
     // Table to use
     $sqlstr_from = ' FROM ' . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($table);
     // Search words or pattern
-    $search_words    = (($search_option > 2) ? array($search_str) : explode(' ', $search_str));
+    $search_words    = (($search_option > 2)
+        ? array($search_str) : explode(' ', $search_str));
 
     $like_or_regex   = (($search_option == 4) ? 'REGEXP' : 'LIKE');
     $automatic_wildcard   = (($search_option < 3) ? '%' : '');
 
     $where_clause = PMA_dbSearchGetWhereClause(
-        $table, $search_words, $search_option, $field, $like_or_regex,
+        $table, $search_words, $search_option, $criteriaColumnName, $like_or_regex,
         $automatic_wildcard
     );
 
     // Builds complete queries
-    $sql['select_fields'] = $sqlstr_select . ' * ' . $sqlstr_from . $where_clause;
+    $sql['select_columns'] = $sqlstr_select . ' * ' . $sqlstr_from . $where_clause;
     // here, I think we need to still use the COUNT clause, even for
     // VIEWs, anyway we have a WHERE clause that should limit results
-    $sql['select_count']  = $sqlstr_select . ' COUNT(*) AS `count`' . $sqlstr_from . $where_clause;
+    $sql['select_count']  = $sqlstr_select . ' COUNT(*) AS `count`'
+        . $sqlstr_from . $where_clause;
     $sql['delete']        = $sqlstr_delete . $sqlstr_from . $where_clause;
 
     return $sql;
@@ -190,49 +195,54 @@ function PMA_getSearchSqls($table, $field, $search_str, $search_option)
  * @param integer $search_option      type of search
  *                                    (1 -> 1 word at least, 2 -> all words,
  *                                    3 -> exact string, 4 -> regexp)
- * @param string  $field              Restrict the search to this field
+ * @param string  $criteriaColumnName Restrict the search to this column
  * @param string  $like_or_regex      Whether to use 'LIKE' or 'REGEXP'
  * @param string  $automatic_wildcard Use automatic wildcard
  *
  * @return string The generated where clause
  */
-function PMA_dbSearchGetWhereClause($table, $search_words, $search_option, $field,
-    $like_or_regex, $automatic_wildcard
+function PMA_dbSearchGetWhereClause($table, $search_words, $search_option,
+    $criteriaColumnName, $like_or_regex, $automatic_wildcard
 ) {
     $where_clause = '';
-    // Fields to select
-    $tblfields = PMA_DBI_get_columns($GLOBALS['db'], $table);
-    $fieldslikevalues = array();
+    // Columns to select
+    $allColumns = PMA_DBI_get_columns($GLOBALS['db'], $table);
+    $likeClauses = array();
 
     foreach ($search_words as $search_word) {
         // Eliminates empty values
         if (strlen($search_word) === 0) {
             continue;
         }
-        $thefieldlikevalue = array();
-        // for each field in the table
-        foreach ($tblfields as $tblfield) {
-            if (! isset($field) || strlen($field) == 0 || $tblfield['Field'] == $field) {
+        $likeClausesPerColumn = array();
+        // for each column in the table
+        foreach ($allColumns as $column) {
+            if (! isset($criteriaColumnName)
+                || strlen($criteriaColumnName) == 0
+                || $column['Field'] == $criteriaColumnName
+            ) {
                 // Drizzle has no CONVERT and all text columns are UTF-8
                 $column = ((PMA_DRIZZLE)
-                    ? PMA_backquote($tblfield['Field'])
-                    : 'CONVERT(' . PMA_backquote($tblfield['Field']) . ' USING utf8)');
-                $thefieldlikevalue[] = $column . ' ' . $like_or_regex . ' '
-                    . "'" . $automatic_wildcard . $search_word . $automatic_wildcard . "'";
+                    ? PMA_backquote($column['Field'])
+                    : 'CONVERT(' . PMA_backquote($column['Field']) . ' USING utf8)');
+                $likeClausesPerColumn[] = $column . ' ' . $like_or_regex . ' '
+                    . "'"
+                    . $automatic_wildcard . $search_word . $automatic_wildcard
+                    . "'";
             }
         } // end for
-        if (count($thefieldlikevalue) > 0) {
-            $fieldslikevalues[] = implode(' OR ', $thefieldlikevalue);
+        if (count($likeClausesPerColumn) > 0) {
+            $likeClauses[] = implode(' OR ', $likeClausesPerColumn);
         }
     } // end for
 
     $implode_str  = ($search_option == 1 ? ' OR ' : ' AND ');
-    if ( empty($fieldslikevalues)) {
-        // this could happen when the "inside field" does not exist
+    if ( empty($likeClauses)) {
+        // this could happen when the "inside column" does not exist
         // in any selected tables
         $where_clause = ' WHERE FALSE';
     } else {
-        $where_clause = ' WHERE (' . implode(') ' . $implode_str . ' (', $fieldslikevalues) . ')';
+        $where_clause = ' WHERE (' . implode(') ' . $implode_str . ' (', $likeClauses) . ')';
     }
     return $where_clause;
 }
@@ -240,19 +250,19 @@ function PMA_dbSearchGetWhereClause($table, $search_words, $search_option, $fiel
 /**
  * Displays database search results
  *
- * @param array   $tables_selected Tables on which search is to be performed
- * @param string  $searched        The search word/phrase/regexp
- * @param string  $option_str      Type of search
- * @param string  $search_str      the string to search
- * @param integer $search_option   type of search
- *                                 (1 -> 1 word at least, 2 -> all words,
- *                                 3 -> exact string, 4 -> regexp)
- * @param string  $field_str       Restrict the search to this field
+ * @param array   $tables_selected    Tables on which search is to be performed
+ * @param string  $searched           The search word/phrase/regexp
+ * @param string  $option_str         Type of search
+ * @param string  $search_str         the string to search
+ * @param integer $search_option      type of search
+ *                                    (1 -> 1 word at least, 2 -> all words,
+ *                                    3 -> exact string, 4 -> regexp)
+ * @param string  $criteriaColumnName Restrict the search to this column
  *
  * @return string HTML for search results
  */
 function PMA_dbSearchGetSearchResults($tables_selected, $searched, $option_str,
-    $search_str, $search_option, $field_str = null
+    $search_str, $search_option, $criteriaColumnName = null
 ) {
     $html_output = '';
     // Displays search string
@@ -271,7 +281,7 @@ function PMA_dbSearchGetSearchResults($tables_selected, $searched, $option_str,
     foreach ($tables_selected as $each_table) {
         // Gets the SQL statements
         $newsearchsqls = PMA_getSearchSqls(
-            $each_table, (! empty($field_str) ? $field_str : ''),
+            $each_table, (! empty($criteriaColumnName) ? $criteriaColumnName : ''),
             $search_str, $search_option
         );
         // Executes the "COUNT" statement
@@ -331,7 +341,7 @@ function PMA_dbSearchGetResultsRow($each_table, $newsearchsqls, $odd_row)
     $html_output .= '</td>';
 
     if ($res_cnt > 0) {
-        $this_url_params['sql_query'] = $newsearchsqls['select_fields'];
+        $this_url_params['sql_query'] = $newsearchsqls['select_columns'];
         $browse_result_path = 'sql.php' . PMA_generate_common_url($this_url_params);
         $html_output .= '<td><a name="browse_search" href="'
             . $browse_result_path . '" onclick="loadResult(\''
@@ -361,17 +371,17 @@ function PMA_dbSearchGetResultsRow($each_table, $newsearchsqls, $odd_row)
 /**
  * Provides the main search form's html
  *
- * @param string  $searched          Keyword/Regular expression to be searched
- * @param integer $search_option     Type of search (one word, phrase etc.)
- * @param array   $tables_names_only Names of all tables
- * @param array   $tables_selected   Tables on which search is to be performed
- * @param array   $url_params        URL parameters
- * @param string  $field_str         Restrict the search to this field
+ * @param string  $searched           Keyword/Regular expression to be searched
+ * @param integer $search_option      Type of search (one word, phrase etc.)
+ * @param array   $tables_names_only  Names of all tables
+ * @param array   $tables_selected    Tables on which search is to be performed
+ * @param array   $url_params         URL parameters
+ * @param string  $criteriaColumnName Restrict the search to this column
  *
  * @return string HTML for selection form
  */
 function PMA_dbSearchGetSelectionForm($searched, $search_option, $tables_names_only,
-    $tables_selected, $url_params, $field_str = null
+    $tables_selected, $url_params, $criteriaColumnName = null
 ) {
     $html_output = '<a id="db_search"></a>';
     $html_output .= '<form id="db_search_form"'
@@ -433,8 +443,8 @@ function PMA_dbSearchGetSelectionForm($searched, $search_option, $tables_names_o
     $html_output .= '<tr><td class="right vbottom">' . $alter_select . '</td></tr>';
     $html_output .= '<tr>';
     $html_output .= '<td class="right">' . __('Inside column:') . '</td>';
-    $html_output .= '<td><input type="text" name="field_str" size="60"'
-        . 'value="' . (! empty($field_str) ? htmlspecialchars($field_str) : '')
+    $html_output .= '<td><input type="text" name="criteriaColumnName" size="60"'
+        . 'value="' . (! empty($criteriaColumnName) ? htmlspecialchars($criteriaColumnName) : '')
         . '" /></td>';
     $html_output .= '</tr>';
     $html_output .= '</table>';
