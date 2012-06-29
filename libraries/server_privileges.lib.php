@@ -333,13 +333,13 @@ function PMA_getHtmlToDisplayColumnPrivileges($columns, $row, $name_for_select,
  * 
  * @param string $db      the database
  * @param string $table   the table
+ * @param string $username   username for database connection
+ * @param string $hostname   hostname for database connection
  * 
  * @return string sql query
  */
-function PMA_getSqlQueryForDisplayPrivTable($db, $table)
+function PMA_getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname)
 {
-    $username = $GLOBALS['username'];
-    $hostname = $GLOBALS['hostname'];
     if ($db == '*') {
         return "SELECT * FROM `mysql`.`user`"
             ." WHERE `User` = '" . PMA_sqlAddSlashes($username) . "'"
@@ -379,7 +379,9 @@ function PMA_getHtmlToDisplayPrivilegesTable($random_n, $db = '*', $table = '*',
     }
 
     if (isset($GLOBALS['username'])) {
-        $sql_query = PMA_getSqlQueryForDisplayPrivTable($db, $table);
+        $username = $GLOBALS['username'];
+        $hostname = $GLOBALS['hostname'];
+        $sql_query = PMA_getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname);
         $row = PMA_DBI_fetch_single_row($sql_query);
     }
     if (empty($row)) {
@@ -451,103 +453,7 @@ function PMA_getHtmlToDisplayPrivilegesTable($random_n, $db = '*', $table = '*',
     }
     // t a b l e - s p e c i f i c    p r i v i l e g e s
     if (! empty($columns)) {
-        $res = PMA_DBI_query(
-            'SELECT `Column_name`, `Column_priv`'
-            .' FROM `mysql`.`columns_priv`'
-            .' WHERE `User`'
-            .' = \'' . PMA_sqlAddSlashes($username) . "'"
-            .' AND `Host`'
-            .' = \'' . PMA_sqlAddSlashes($hostname) . "'"
-            .' AND `Db`'
-            .' = \'' . PMA_sqlAddSlashes(PMA_unescapeMysqlWildcards($db)) . "'"
-            .' AND `Table_name`'
-            .' = \'' . PMA_sqlAddSlashes($table) . '\';'
-        );
-
-        while ($row1 = PMA_DBI_fetch_row($res)) {
-            $row1[1] = explode(',', $row1[1]);
-            foreach ($row1[1] as $current) {
-                $columns[$row1[0]][$current] = true;
-            }
-        }
-        PMA_DBI_free_result($res);
-        unset($res, $row1, $current);
-
-        $html_output .= '<input type="hidden" name="grant_count" value="' . count($row) . '" />' . "\n"
-           . '<input type="hidden" name="column_count" value="' . count($columns) . '" />' . "\n"
-           . '<fieldset id="fieldset_user_priv">' . "\n"
-           . '    <legend>' . __('Table-specific privileges')
-           . PMA_showHint(__('Note: MySQL privilege names are expressed in English'))
-           . '</legend>' . "\n";
-
-        // privs that are attached to a specific column
-        $html_output .= PMA_getHtmlForDisplayColumnPrivileges(
-            $columns, $row, 'Select_priv', 'SELECT',
-            'select', __('Allows reading data.'), 'Select'
-        );
-
-        $html_output .= PMA_getHtmlForDisplayColumnPrivileges(
-            $columns, $row, 'Insert_priv', 'INSERT',
-            'insert', __('Allows inserting and replacing data.'), 'Insert'
-        );
-
-        $html_output .= PMA_getHtmlForDisplayColumnPrivileges(
-            $columns, $row, 'Update_priv', 'UPDATE',
-            'update', __('Allows changing data.'), 'Update'
-        );
-
-        $html_output .= PMA_getHtmlForDisplayColumnPrivileges(
-            $columns, $row, 'References_priv', 'REFERENCES', 'references',
-            __('Has no effect in this MySQL version.'), 'References'
-        );
-
-        // privs that are not attached to a specific column
-
-        $html_output .= '<div class="item">' . "\n";
-        foreach ($row as $current_grant => $current_grant_value) {
-            $grant_type = substr($current_grant, 0, (strlen($current_grant) - 5));
-            if (in_array($grant_type, array('Select', 'Insert', 'Update', 'References'))) {
-                continue;
-            }
-            // make a substitution to match the messages variables;
-            // also we must substitute the grant we get, because we can't generate
-            // a form variable containing blanks (those would get changed to
-            // an underscore when receiving the POST)
-            if ($current_grant == 'Create View_priv') {
-                $tmp_current_grant = 'CreateView_priv';
-                $current_grant = 'Create_view_priv';
-            } elseif ($current_grant == 'Show view_priv') {
-                $tmp_current_grant = 'ShowView_priv';
-                $current_grant = 'Show_view_priv';
-            } else {
-                $tmp_current_grant = $current_grant;
-            }
-
-            $html_output .= '<div class="item">' . "\n"
-               . '<input type="checkbox"'
-               . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
-               . ' name="' . $current_grant . '" id="checkbox_' . $current_grant
-               . '" value="Y" '
-               . ($current_grant_value == 'Y' ? 'checked="checked" ' : '')
-               . 'title="';
-
-            $html_output .= (isset($GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))])
-                ? $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))]
-                : $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5)) . 'Tbl']) . '"/>' . "\n";
-
-            $html_output .= '<label for="checkbox_' . $current_grant
-                . '"><code><dfn title="'
-                . (isset($GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))])
-                    ? $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))]
-                    : $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5)) . 'Tbl'])
-                . '">' . strtoupper(substr($current_grant, 0, strlen($current_grant) - 5)) . '</dfn></code></label>' . "\n"
-                . '</div>' . "\n";
-        } // end foreach ()
-
-        $html_output .= '</div>' . "\n";
-        // for Safari 2.0.2
-        $html_output .= '<div class="clearfloat"></div>' . "\n";
-
+        $html_output .= PMA_getHtmlForTableSpecificPrivileges($username, $hostname, $db, $table, $columns);
     } else {
 
         // g l o b a l    o r    d b - s p e c i f i c
@@ -702,6 +608,145 @@ function PMA_getHtmlForDisplayResourceLimits($row)
        . '</fieldset>' . "\n";
 }
 
+/**
+ * Get the HTML snippet for table specific privileges
+ * 
+ * @param string $username  username for database connection
+ * @param string $hostname  hostname for database connection
+ * @param string $db        the database
+ * @param string $table     the table
+ * @param boolean $columns  columns array
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForTableSpecificPrivileges($username, $hostname, $db, $table, $columns)
+{
+    $res = PMA_DBI_query(
+        'SELECT `Column_name`, `Column_priv`'
+        .' FROM `mysql`.`columns_priv`'
+        .' WHERE `User`'
+        .' = \'' . PMA_sqlAddSlashes($username) . "'"
+        .' AND `Host`'
+        .' = \'' . PMA_sqlAddSlashes($hostname) . "'"
+        .' AND `Db`'
+        .' = \'' . PMA_sqlAddSlashes(PMA_unescapeMysqlWildcards($db)) . "'"
+        .' AND `Table_name`'
+        .' = \'' . PMA_sqlAddSlashes($table) . '\';'
+    );
+
+    while ($row1 = PMA_DBI_fetch_row($res)) {
+        $row1[1] = explode(',', $row1[1]);
+        foreach ($row1[1] as $current) {
+            $columns[$row1[0]][$current] = true;
+        }
+    }
+    PMA_DBI_free_result($res);
+    unset($res, $row1, $current);
+
+    $html_output .= '<input type="hidden" name="grant_count" value="' . count($row) . '" />' . "\n"
+       . '<input type="hidden" name="column_count" value="' . count($columns) . '" />' . "\n"
+       . '<fieldset id="fieldset_user_priv">' . "\n"
+       . '    <legend>' . __('Table-specific privileges')
+       . PMA_showHint(__('Note: MySQL privilege names are expressed in English'))
+       . '</legend>' . "\n";
+
+    // privs that are attached to a specific column
+    $html_output .= PMA_getHtmlForAttachedPrivilegesToTableSpecificColumn($columns, $row);
+    
+    // privs that are not attached to a specific column   
+    $html_output .= '<div class="item">' . "\n"
+        . PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row, $grant_type)
+        . '</div>' . "\n";
+    
+    // for Safari 2.0.2
+    $html_output .= '<div class="clearfloat"></div>' . "\n";
+    
+    return $html_output;
+}
+
+/**
+ * Get HTML snippet for privileges that are attached to a specific column
+ * 
+ * @param string $columns   columns array
+ * @param array $row        first row from result or boolean false
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForAttachedPrivilegesToTableSpecificColumn($columns, $row)
+{
+    $html_output = PMA_getHtmlForDisplayColumnPrivileges(
+        $columns, $row, 'Select_priv', 'SELECT',
+        'select', __('Allows reading data.'), 'Select'
+    );
+
+    $html_output .= PMA_getHtmlForDisplayColumnPrivileges(
+        $columns, $row, 'Insert_priv', 'INSERT',
+        'insert', __('Allows inserting and replacing data.'), 'Insert'
+    );
+
+    $html_output .= PMA_getHtmlForDisplayColumnPrivileges(
+        $columns, $row, 'Update_priv', 'UPDATE',
+        'update', __('Allows changing data.'), 'Update'
+    );
+
+    $html_output .= PMA_getHtmlForDisplayColumnPrivileges(
+        $columns, $row, 'References_priv', 'REFERENCES', 'references',
+        __('Has no effect in this MySQL version.'), 'References'
+    );
+    return $html_output;
+}
+
+/** 
+ * Get HTML for privileges that are not attached to a specific column
+ * 
+ * @param array $row         first row from result or boolean false
+ * @param array $grant_type  privilrge type
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row, $grant_type)
+{
+    foreach ($row as $current_grant => $current_grant_value) {
+        $grant_type = substr($current_grant, 0, (strlen($current_grant) - 5));
+        if (in_array($grant_type, array('Select', 'Insert', 'Update', 'References'))) {
+            continue;
+        }
+        // make a substitution to match the messages variables;
+        // also we must substitute the grant we get, because we can't generate
+        // a form variable containing blanks (those would get changed to
+        // an underscore when receiving the POST)
+        if ($current_grant == 'Create View_priv') {
+            $tmp_current_grant = 'CreateView_priv';
+            $current_grant = 'Create_view_priv';
+        } elseif ($current_grant == 'Show view_priv') {
+            $tmp_current_grant = 'ShowView_priv';
+            $current_grant = 'Show_view_priv';
+        } else {
+            $tmp_current_grant = $current_grant;
+        }
+
+        $html_output .= '<div class="item">' . "\n"
+           . '<input type="checkbox"'
+           . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
+           . ' name="' . $current_grant . '" id="checkbox_' . $current_grant
+           . '" value="Y" '
+           . ($current_grant_value == 'Y' ? 'checked="checked" ' : '')
+           . 'title="';
+
+        $html_output .= (isset($GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))])
+            ? $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))]
+            : $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5)) . 'Tbl']) . '"/>' . "\n";
+
+        $html_output .= '<label for="checkbox_' . $current_grant
+            . '"><code><dfn title="'
+            . (isset($GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))])
+                ? $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))]
+                : $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5)) . 'Tbl'])
+            . '">' . strtoupper(substr($current_grant, 0, strlen($current_grant) - 5)) . '</dfn></code></label>' . "\n"
+            . '</div>' . "\n";
+    } // end foreach ()
+    return $html_output;
+}
 /**
  * Displays the fields used by the "new user" form as well as the
  * "change login information / copy user" form.
