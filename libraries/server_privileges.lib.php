@@ -219,8 +219,7 @@ function PMA_getGrantsArray()
         array(
             'Super_priv',
             'SUPER',
-            __('Allows connecting, even if maximum number of connections is reached;
-                required for most administrative operations like setting global variables or killing threads of other users.')),
+            __('Allows connecting, even if maximum number of connections is reached; required for most administrative operations like setting global variables or killing threads of other users.')),
         array(
             'Create_tmp_table_priv',
             'CREATE TEMPORARY TABLES',
