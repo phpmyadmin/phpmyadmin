@@ -425,7 +425,7 @@ class PMA_Menu
     {
         $is_superuser = PMA_isSuperuser();
         $binary_logs = null;
-        if (! PMA_DRIZZLE) {
+        if (!defined('PMA_DRIZZLE') || (defined('PMA_DRIZZLE') && ! PMA_DRIZZLE)) {
             $binary_logs = PMA_DBI_fetch_result(
                 'SHOW MASTER LOGS',
                 'Log_name',
@@ -495,7 +495,7 @@ class PMA_Menu
         $tabs['charset']['link'] = 'server_collations.php';
         $tabs['charset']['text'] = __('Charsets');
 
-        if (PMA_DRIZZLE) {
+        if (defined('PMA_DRIZZLE') && PMA_DRIZZLE) {
             $tabs['plugins']['icon'] = 'b_engine.png';
             $tabs['plugins']['link'] = 'server_plugins.php';
             $tabs['plugins']['text'] = __('Plugins');
