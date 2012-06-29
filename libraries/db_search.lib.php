@@ -125,19 +125,20 @@ function PMA_dbSearchGetWhereClause($table, $search_words, $criteriaSearchType,
 /**
  * Displays database search results
  *
- * @param array   $criteriaTables       Tables on which search is to be performed
- * @param string  $searched             The search word/phrase/regexp
- * @param string  $option_str           Type of search
- * @param string  $criteriaSearchString The string to search
- * @param integer $criteriaSearchType   Type of search
- *                                      (1 -> 1 word at least, 2 -> all words,
- *                                      3 -> exact string, 4 -> regexp)
- * @param string  $criteriaColumnName   Restrict the search to this column
+ * @param array   $criteriaTables        Tables on which search is to be performed
+ * @param string  $searched              The search word/phrase/regexp
+ * @param string  $searchTypeDescription Type of search
+ * @param string  $criteriaSearchString  The string to search
+ * @param integer $criteriaSearchType    Type of search
+ *                                       (1 -> 1 word at least, 2 -> all words,
+ *                                       3 -> exact string, 4 -> regexp)
+ * @param string  $criteriaColumnName    Restrict the search to this column
  *
  * @return string HTML for search results
  */
-function PMA_dbSearchGetSearchResults($criteriaTables, $searched, $option_str,
-    $criteriaSearchString, $criteriaSearchType, $criteriaColumnName = null
+function PMA_dbSearchGetSearchResults($criteriaTables, $searched,
+    $searchTypeDescription, $criteriaSearchString, $criteriaSearchType,
+    $criteriaColumnName = null
 ) {
     $html_output = '';
     // Displays search string
@@ -146,7 +147,7 @@ function PMA_dbSearchGetSearchResults($criteriaTables, $searched, $option_str,
         . '<caption class="tblHeaders">'
         . sprintf(
             __('Search results for "<i>%s</i>" %s:'),
-            $searched, $option_str
+            $searched, $searchTypeDescription
         )
         . '</caption>';
 

@@ -58,7 +58,7 @@ if (empty($_REQUEST['criteriaSearchType'])
     unset($_REQUEST['submit_search']);
 } else {
     $criteriaSearchType = (int) $_REQUEST['criteriaSearchType'];
-    $option_str = $searchTypes[$_REQUEST['criteriaSearchType']];
+    $searchTypeDescription = $searchTypes[$_REQUEST['criteriaSearchType']];
 }
 
 if (empty($_REQUEST['criteriaSearchString'])
@@ -118,7 +118,7 @@ if ( $GLOBALS['is_ajax_request'] != true) {
 if (isset($_REQUEST['submit_search'])) {
     $response->addHTML(
         PMA_dbSearchGetSearchResults(
-            $criteriaTables, $searched, $option_str,
+            $criteriaTables, $searched, $searchTypeDescription,
             $criteriaSearchString, $criteriaSearchType,
             (! empty($criteriaColumnName) ? $criteriaColumnName : '')
         )
