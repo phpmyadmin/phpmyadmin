@@ -1,10 +1,8 @@
 <?php
 /**
- * Created by JetBrains PhpStorm.
- * User: yasitha
- * Date: 6/28/12
- * Time: 11:40 AM
- * To change this template use File | Settings | File Templates.
+ * Tests for displaing results
+ *
+ * @package PhpMyAdmin-test
  */
 
 /*
