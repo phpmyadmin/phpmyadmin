@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-06-28 13:50+0200\n"
+"PO-Revision-Date: 2012-06-28 16:25+0200\n"
 "Last-Translator: Alexsandro Preis Dubinski <alexsandroeco@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -5553,14 +5553,13 @@ msgid "possible deep recursion attack"
 msgstr "possível ataque de recursão profunda"
 
 #: libraries/database_interface.lib.php:1813
-#, fuzzy
 #| msgid " the local MySQL server's socket is not correctly configured)"
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
 msgstr ""
 "O servidor não está respondendo (ou o soquete do servidor local não está "
-"configurado corretamente)"
+"configurado corretamente)."
 
 #: libraries/database_interface.lib.php:1816
 msgid "The server is not responding."
@@ -5699,7 +5698,6 @@ msgid "Exporting rows from \"%s\" table"
 msgstr "Exportar linhas da tabela \"%s\""
 
 #: libraries/display_export.lib.php:92
-#, fuzzy
 #| msgid "Export type"
 msgid "Export Method:"
 msgstr "Método de exportação:"
@@ -5803,16 +5801,15 @@ msgid "zipped"
 msgstr "compactado"
 
 #: libraries/display_export.lib.php:312
-#, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
-msgstr "\"compactado com gzip\""
+msgstr "compactado com gzip"
 
 #: libraries/display_export.lib.php:314
 #, fuzzy
 #| msgid "\"bzipped\""
 msgid "bzipped"
-msgstr "\"compactado com bzip\""
+msgstr "compactado com bzip"
 
 #: libraries/display_export.lib.php:323
 msgid "View output as text"
@@ -5944,13 +5941,11 @@ msgid "Start row"
 msgstr "Linha inicial"
 
 #: libraries/display_tbl.lib.php:430
-#, fuzzy
 #| msgid "Number of fields"
 msgid "Number of rows"
 msgstr "Número de linhas"
 
 #: libraries/display_tbl.lib.php:435
-#, fuzzy
 #| msgid "More"
 msgid "Mode"
 msgstr "Modo"
@@ -5994,13 +5989,11 @@ msgid "Options"
 msgstr "Opções"
 
 #: libraries/display_tbl.lib.php:632 libraries/display_tbl.lib.php:650
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Textos parciais"
 
 #: libraries/display_tbl.lib.php:633 libraries/display_tbl.lib.php:654
-#, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Textos completos"
@@ -6018,7 +6011,6 @@ msgid "Show binary contents"
 msgstr "Mostrar conteúdo binário"
 
 #: libraries/display_tbl.lib.php:677
-#, fuzzy
 msgid "Show BLOB contents"
 msgstr "Exibir conteúdo BLOB"
 
@@ -6354,10 +6346,9 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
-#, fuzzy
 #| msgid "Relations"
 msgid "Related Links"
-msgstr "Relações"
+msgstr "Links relatados"
 
 #: libraries/engines/pbms.lib.php:98
 msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
@@ -6389,9 +6380,8 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:32
-#, fuzzy
 msgid "Log cache size"
-msgstr "Tamanho do buffer de ordenação"
+msgstr "Tamanho do cache do log"
 
 #: libraries/engines/pbxt.lib.php:33
 msgid ""
@@ -6452,9 +6442,8 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:62
-#, fuzzy
 msgid "Log buffer size"
-msgstr "Tamanho do buffer de ordenação"
+msgstr "Tamanho do buffer do log"
 
 #: libraries/engines/pbxt.lib.php:63
 msgid ""
@@ -6515,10 +6504,9 @@ msgid "Columns enclosed with:"
 msgstr "Colunas delimitadas por:"
 
 #: libraries/export/csv.php:26 libraries/import/csv.php:30
-#, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped with:"
-msgstr "Campos pulados por:"
+msgstr "Campos escapou com:"
 
 #: libraries/export/csv.php:27 libraries/import/csv.php:31
 msgid "Lines terminated with:"
@@ -6541,7 +6529,6 @@ msgstr "Edição do Excel:"
 #: libraries/export/htmlword.php:28 libraries/export/latex.php:70
 #: libraries/export/odt.php:56 libraries/export/sql.php:222
 #: libraries/export/texytext.php:26 libraries/export/xml.php:73
-#, fuzzy
 msgid "Data dump options"
 msgstr "Opções de exportação do Banco de Dados"
 
@@ -6556,53 +6543,46 @@ msgid "Table structure for table"
 msgstr "Estrutura da tabela"
 
 #: libraries/export/latex.php:14
-#, fuzzy
 #| msgid "Content of table __TABLE__"
 msgid "Content of table @TABLE@"
-msgstr "Conteúdo da tabela __TABLE__"
+msgstr "Conteúdo da tabela @TABLE@"
 
 #: libraries/export/latex.php:15
 msgid "(continued)"
 msgstr "(continuação)"
 
 #: libraries/export/latex.php:16
-#, fuzzy
 #| msgid "Structure of table __TABLE__"
 msgid "Structure of table @TABLE@"
-msgstr "Estrutura da tabela __TABLE__"
+msgstr "Estrutura da tabela @TABLE@"
 
 #: libraries/export/latex.php:48 libraries/export/odt.php:40
 #: libraries/export/sql.php:142
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Object creation options"
-msgstr "Opções de transformação"
+msgstr "Opções de criação de objetos"
 
 #: libraries/export/latex.php:52 libraries/export/latex.php:76
-#, fuzzy
 #| msgid "Table caption"
 msgid "Table caption (continued)"
-msgstr "Leganda da Tabela"
+msgstr "Legenda da tabela(continuação)"
 
 #: libraries/export/latex.php:57 libraries/export/odt.php:43
 #: libraries/export/sql.php:56
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Display foreign key relationships"
 msgstr "Desabilitar verificação de chaves estrangeiras"
 
 #: libraries/export/latex.php:60 libraries/export/odt.php:46
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display comments"
-msgstr "Exibindo comentários da coluna"
+msgstr "Exibir comentários"
 
 #: libraries/export/latex.php:63 libraries/export/odt.php:49
 #: libraries/export/sql.php:63
-#, fuzzy
 #| msgid "Available MIME types"
 msgid "Display MIME types"
-msgstr "MIME-type disponíveis"
+msgstr "Mostrar os MIME-type"
 
 #: libraries/export/latex.php:132 libraries/export/sql.php:482
 #: libraries/export/xml.php:131 libraries/header_printview.inc.php:59
@@ -6657,12 +6637,9 @@ msgid ""
 msgstr ""
 
 #: libraries/export/sql.php:45
-#, fuzzy
 #| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr ""
-"Adicionar comentário pessoal no cabeçalho (\n"
-" quebra linhas)"
+msgstr "Adicionar comentário pessoal no cabeçalho (\\n quebras de linha):"
 
 #: libraries/export/sql.php:50
 msgid ""
@@ -6677,10 +6654,10 @@ msgstr ""
 
 #: libraries/export/sql.php:114 libraries/export/sql.php:173
 #: libraries/export/sql.php:180
-#, fuzzy, php-format
+#, php-format
 #| msgid "Statements"
 msgid "Add %s statement"
-msgstr "Comandos"
+msgstr "Adicionar comando %s"
 
 #: libraries/export/sql.php:152
 msgid "Add statements:"
@@ -6783,10 +6760,9 @@ msgid "Stand-in structure for view"
 msgstr "Estrutura stand-in para visualizar"
 
 #: libraries/export/sql.php:1112
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error reading data:"
-msgstr "Permitir leitura dos dados."
+msgstr "Erro ao ler dados:"
 
 #: libraries/export/xml.php:19 libraries/import/xml.php:28
 msgid "XML"
@@ -6797,15 +6773,13 @@ msgid "Object creation options (all are recommended)"
 msgstr ""
 
 #: libraries/export/xml.php:62
-#, fuzzy
 #| msgid "View"
 msgid "Views"
-msgstr "Visão"
+msgstr "Visualizações"
 
 #: libraries/export/xml.php:78
-#, fuzzy
 msgid "Export contents"
-msgstr "Tipo de exportação"
+msgstr "Exportar conteúdo"
 
 #: libraries/footer.inc.php:163 libraries/footer.inc.php:165
 #: libraries/footer.inc.php:168
@@ -6852,26 +6826,26 @@ msgid "Edit structure by following the \"Structure\" link"
 msgstr ""
 
 #: libraries/import.lib.php:1106
-#, fuzzy, php-format
+#, php-format
 msgid "Go to database: %s"
-msgstr "Sem bases"
+msgstr "Ir para bando de dados: %s"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
-#, fuzzy, php-format
+#, php-format
 #| msgid "Missing data for %s"
 msgid "Edit settings for %s"
-msgstr "dado faltante para %s"
+msgstr "Editar configurações para %s"
 
 #: libraries/import.lib.php:1127
-#, fuzzy, php-format
+#, php-format
 msgid "Go to table: %s"
-msgstr "Sem bases"
+msgstr "Ir para tabela: %s"
 
 #: libraries/import.lib.php:1130
-#, fuzzy, php-format
+#, php-format
 #| msgid "Structure only"
 msgid "Structure of %s"
-msgstr "Somente estrutura"
+msgstr "Estrutura do %s"
 
 #: libraries/import.lib.php:1136
 #, php-format
@@ -6892,10 +6866,9 @@ msgid ""
 msgstr ""
 
 #: libraries/import/csv.php:42
-#, fuzzy
 #| msgid "Column names"
 msgid "Column names: "
-msgstr "Nome das colunas"
+msgstr "Nome das colunas:"
 
 #: libraries/import/csv.php:62 libraries/import/csv.php:75
 #: libraries/import/csv.php:80 libraries/import/csv.php:85
@@ -6916,7 +6889,7 @@ msgid "Invalid format of CSV input on line %d."
 msgstr "Formato inválido na linha %d da entrada CSV."
 
 #: libraries/import/csv.php:337
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid field count in CSV input on line %d."
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Contador de campo inválido na linha %d da entrada CSV."
@@ -6975,10 +6948,9 @@ msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
 #: libraries/import/shp.php:376
-#, fuzzy
 #| msgid "File %s does not contain any key id"
 msgid "The imported file does not contain any data"
-msgstr "Arquivo %s não contém qualquer identificação da chave"
+msgstr "Os arquivos importados não contém dados válidos"
 
 #: libraries/import/sql.php:33
 msgid "SQL compatibility mode:"
@@ -6989,11 +6961,10 @@ msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr ""
 
 #: libraries/kanji-encoding.lib.php:147
-#, fuzzy
 #| msgid "None"
 msgctxt "None encoding conversion"
 msgid "None"
-msgstr "Nenhum"
+msgstr "Nenhuma"
 
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:153
@@ -7001,10 +6972,9 @@ msgid "Convert to Kana"
 msgstr ""
 
 #: libraries/mult_submits.inc.php:254
-#, fuzzy
 #| msgid "Fri"
 msgid "From"
-msgstr "Sex"
+msgstr "Do"
 
 #: libraries/mult_submits.inc.php:257
 msgid "To"
@@ -7020,7 +6990,6 @@ msgid "Add table prefix"
 msgstr ""
 
 #: libraries/mult_submits.inc.php:270
-#, fuzzy
 #| msgid "Add index"
 msgid "Add prefix"
 msgstr "Adicionar índice"
@@ -7235,7 +7204,6 @@ msgid "Reload navigation frame"
 msgstr ""
 
 #: libraries/plugin_interface.lib.php:309
-#, fuzzy
 #| msgid "This format has no options"
 msgid "This format has no options"
 msgstr "Esse formato não tem opções"
@@ -7285,10 +7253,9 @@ msgid "SQL history"
 msgstr "Histórico SQL"
 
 #: libraries/relation.lib.php:136
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Persistent recently used tables"
-msgstr "Conexões persistentes"
+msgstr "Tabelas persistentes recentemente usadas"
 
 #: libraries/relation.lib.php:140
 msgid "Persistent tables' UI preferences"
@@ -7348,14 +7315,12 @@ msgid "User name"
 msgstr "Nome do usuário"
 
 #: libraries/replication_gui.lib.php:107
-#, fuzzy
 msgid "Master status"
-msgstr "Exibir status dos escravos"
+msgstr "Status principal"
 
 #: libraries/replication_gui.lib.php:109
-#, fuzzy
 msgid "Slave status"
-msgstr "Exibir status dos escravos"
+msgstr "Status dos secundários"
 
 #: libraries/replication_gui.lib.php:118 libraries/sql_query_form.lib.php:388
 #: server_status.php:1478 server_variables.php:123
@@ -7433,10 +7398,9 @@ msgid "The following query has failed: \"%s\""
 msgstr "A seguinte consulta falhou: \"%s\""
 
 #: libraries/rte/rte_events.lib.php:116
-#, fuzzy
 #| msgid "Sorry, we failed to restore the dropped routine."
 msgid "Sorry, we failed to restore the dropped event."
-msgstr "Desculpa, mas falhamos ao restaurar a rotina."
+msgstr "Desculpe, mas falhamos ao restaurar o evento caído."
 
 #: libraries/rte/rte_events.lib.php:117 libraries/rte/rte_routines.lib.php:267
 #: libraries/rte/rte_triggers.lib.php:90
@@ -7444,16 +7408,16 @@ msgid "The backed up query was:"
 msgstr "A consulta de backup foi:"
 
 #: libraries/rte/rte_events.lib.php:121
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Event %1$s has been modified."
-msgstr "A rotina %1$s foi modificada."
+msgstr "O evento %1$s foi modificado."
 
 #: libraries/rte/rte_events.lib.php:133
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Event %1$s has been created."
-msgstr "A tabela %1$s foi criada."
+msgstr "O evento %1$s foi criada."
 
 #: libraries/rte/rte_events.lib.php:141 libraries/rte/rte_routines.lib.php:292
 #: libraries/rte/rte_triggers.lib.php:114
@@ -7462,10 +7426,9 @@ msgstr ""
 "<b>Um ou mais erros ocorreram durante o processamento de sua requisição:</b>"
 
 #: libraries/rte/rte_events.lib.php:185
-#, fuzzy
 #| msgid "Edit server"
 msgid "Edit event"
-msgstr "Editar servidor"
+msgstr "Editar evento"
 
 #: libraries/rte/rte_events.lib.php:212 libraries/rte/rte_routines.lib.php:370
 #: libraries/rte/rte_routines.lib.php:1276
@@ -7480,58 +7443,51 @@ msgid "Details"
 msgstr "Detalhes"
 
 #: libraries/rte/rte_events.lib.php:374
-#, fuzzy
 #| msgid "Event type"
 msgid "Event name"
-msgstr "Tipo de evento"
+msgstr "Nome do evento"
 
 #: libraries/rte/rte_events.lib.php:395 server_binlog.php:182
 msgid "Event type"
 msgstr "Tipo de evento"
 
 #: libraries/rte/rte_events.lib.php:416 libraries/rte/rte_routines.lib.php:849
-#, fuzzy, php-format
+#, php-format
 #| msgid "Change"
 msgid "Change to %s"
-msgstr "Alterar"
+msgstr "Alterar para %s"
 
 #: libraries/rte/rte_events.lib.php:422
-#, fuzzy
 #| msgid "Execute"
 msgid "Execute at"
-msgstr "Executar"
+msgstr "Executar em"
 
 #: libraries/rte/rte_events.lib.php:430
-#, fuzzy
 #| msgid "Execute"
 msgid "Execute every"
-msgstr "Executar"
+msgstr "Executar sempre"
 
 #: libraries/rte/rte_events.lib.php:449
-#, fuzzy
 msgctxt "Start of recurring event"
 msgid "Start"
-msgstr "Status"
+msgstr "Início"
 
 #: libraries/rte/rte_events.lib.php:457
-#, fuzzy
 #| msgid "End"
 msgctxt "End of recurring event"
 msgid "End"
-msgstr "Fim"
+msgstr "Final"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:923
 #: libraries/rte/rte_triggers.lib.php:354
-#, fuzzy
 #| msgid "Description"
 msgid "Definition"
-msgstr "Descrição"
+msgstr "Definição"
 
 #: libraries/rte/rte_events.lib.php:471
-#, fuzzy
 #| msgid "Complete inserts"
 msgid "On completion preserve"
-msgstr "Inserções completas"
+msgstr "Após a conclusão manter"
 
 #: libraries/rte/rte_events.lib.php:475 libraries/rte/rte_routines.lib.php:933
 #: libraries/rte/rte_triggers.lib.php:360
@@ -7580,10 +7536,9 @@ msgid "Event scheduler status"
 msgstr ""
 
 #: libraries/rte/rte_list.lib.php:54
-#, fuzzy
 #| msgid "Return type"
 msgid "Returns"
-msgstr "Tipo de returno"
+msgstr "Retornos"
 
 #: libraries/rte/rte_list.lib.php:63 libraries/rte/rte_triggers.lib.php:340
 msgid "Event"
@@ -7625,62 +7580,55 @@ msgid "Edit routine"
 msgstr "Editar rotina"
 
 #: libraries/rte/rte_routines.lib.php:831
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine name"
-msgstr "Rotinas"
+msgstr "Nome das rotinas"
 
 #: libraries/rte/rte_routines.lib.php:854
 msgid "Parameters"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:859
-#, fuzzy
 #| msgid "Direct links"
 msgid "Direction"
-msgstr "Links diretos"
+msgstr "Diração"
 
 #: libraries/rte/rte_routines.lib.php:862 libraries/tbl_properties.inc.php:98
 msgid "Length/Values"
 msgstr "Tamanho/Definir*"
 
 #: libraries/rte/rte_routines.lib.php:877
-#, fuzzy
 #| msgid "Add index"
 msgid "Add parameter"
 msgstr "Adicionar índice"
 
 #: libraries/rte/rte_routines.lib.php:881
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove last parameter"
-msgstr "Remover Banco de Dados"
+msgstr "Remover último índice"
 
 #: libraries/rte/rte_routines.lib.php:886
 msgid "Return type"
 msgstr "Tipo de returno"
 
 #: libraries/rte/rte_routines.lib.php:892
-#, fuzzy
 #| msgid "Length/Values"
 msgid "Return length/values"
-msgstr "Tamanho/Definir*"
+msgstr "Retornar comprimento/valores"
 
 #: libraries/rte/rte_routines.lib.php:898
-#, fuzzy
 #| msgid "Table options"
 msgid "Return options"
-msgstr "Opções da tabela"
+msgstr "Opções de retorno"
 
 #: libraries/rte/rte_routines.lib.php:929
 msgid "Is deterministic"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:938
-#, fuzzy
 #| msgid "Security"
 msgid "Security type"
-msgstr "Segurança"
+msgstr "Tipo de segurança"
 
 #: libraries/rte/rte_routines.lib.php:945
 msgid "SQL data access"
@@ -7733,10 +7681,9 @@ msgstr "Executar rotina"
 
 #: libraries/rte/rte_routines.lib.php:1359
 #: libraries/rte/rte_routines.lib.php:1362
-#, fuzzy
 #| msgid "Routines"
 msgid "Routine parameters"
-msgstr "Rotinas"
+msgstr "Parâmetros da rotina"
 
 #: libraries/rte/rte_routines.lib.php:1369 libraries/tbl_select.lib.php:79
 #: tbl_change.php:292 tbl_change.php:330
@@ -7744,37 +7691,33 @@ msgid "Function"
 msgstr "Função"
 
 #: libraries/rte/rte_triggers.lib.php:89
-#, fuzzy
 #| msgid "Sorry, we failed to restore the dropped routine."
 msgid "Sorry, we failed to restore the dropped trigger."
 msgstr "Desculpa, mas falhamos ao restaurar a rotina."
 
 #: libraries/rte/rte_triggers.lib.php:94
-#, fuzzy, php-format
+#, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Trigger %1$s has been modified."
 msgstr "A rotina %1$s foi modificada."
 
 #: libraries/rte/rte_triggers.lib.php:106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %1$s has been created."
 msgid "Trigger %1$s has been created."
-msgstr "A tabela %1$s foi criada."
+msgstr "A rotina %1$s foi criada."
 
 #: libraries/rte/rte_triggers.lib.php:161
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Edit trigger"
-msgstr "Adicionar novo servidor"
+msgstr "Editar rotina"
 
 #: libraries/rte/rte_triggers.lib.php:305
-#, fuzzy
 #| msgid "Triggers"
 msgid "Trigger name"
-msgstr "Gatilhos"
+msgstr "Nome da rotina"
 
 #: libraries/rte/rte_triggers.lib.php:326
-#, fuzzy
 #| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
@@ -7793,17 +7736,15 @@ msgid "You must provide a valid event for the trigger"
 msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:421
-#, fuzzy
 #| msgid "Invalid table name"
 msgid "You must provide a valid table name"
-msgstr "Nome de tabela inválida"
+msgstr "Você precisa colocar um nome de tabela válido"
 
 #: libraries/rte/rte_triggers.lib.php:427
 msgid "You must provide a trigger definition."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:18
-#, fuzzy
 #| msgid "Add index"
 msgid "Add routine"
 msgstr "Adicionar índice"
@@ -7814,16 +7755,14 @@ msgid "Export of routine %s"
 msgstr "Exportação de rotina %s"
 
 #: libraries/rte/rte_words.lib.php:21
-#, fuzzy
 #| msgid "Routines"
 msgid "routine"
-msgstr "Rotinas"
+msgstr "rotina"
 
 #: libraries/rte/rte_words.lib.php:22
-#, fuzzy
 #| msgid " do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a routine"
-msgstr "Você não tem direitos suficientes para criar uma nova rotina"
+msgstr "Você não tem privilégios suficientes para criar uma nova rotina"
 
 #: libraries/rte/rte_words.lib.php:23
 #, php-format
@@ -7835,62 +7774,55 @@ msgid "There are no routines to display."
 msgstr "Não existem rotinas para mostrar."
 
 #: libraries/rte/rte_words.lib.php:30
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add trigger"
-msgstr "Adicionar novo servidor"
+msgstr "Adicionar gatilho"
 
 #: libraries/rte/rte_words.lib.php:32
-#, fuzzy, php-format
+#, php-format
 msgid "Export of trigger %s"
-msgstr "Tipo de exportação"
+msgstr "Exportação do gatilho %s"
 
 #: libraries/rte/rte_words.lib.php:33
-#, fuzzy
 #| msgid "Triggers"
 msgid "trigger"
-msgstr "Gatilhos"
+msgstr "Gatilho"
 
 #: libraries/rte/rte_words.lib.php:34
-#, fuzzy
 #| msgid " do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create a trigger"
-msgstr "Você não tem direitos suficientes para criar uma nova rotina"
+msgstr "Você não tem permissões suficientes para criar um novo gatilho"
 
 #: libraries/rte/rte_words.lib.php:35
-#, fuzzy, php-format
+#, php-format
 #| msgid "No routine with name %1$s found in database %2$s"
 msgid "No trigger with name %1$s found in database %2$s"
-msgstr "Nenhuma rotina com o nome %1$s encontrada no banco de dados %2$s"
+msgstr "Nenhum gatilho com o nome %1$s encontrado no banco de dados %2$s"
 
 #: libraries/rte/rte_words.lib.php:36
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are no triggers to display."
-msgstr "Não existem triggers para mostrar"
+msgstr "Não existem gatilhos para mostrar."
 
 #: libraries/rte/rte_words.lib.php:42
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add event"
-msgstr "Adicionar novo servidor"
+msgstr "Adicionar evento"
 
 #: libraries/rte/rte_words.lib.php:44
-#, fuzzy, php-format
+#, php-format
 msgid "Export of event %s"
-msgstr "Tipo de exportação"
+msgstr "Exportação do evento %s"
 
 #: libraries/rte/rte_words.lib.php:45
-#, fuzzy
 #| msgid "Event"
 msgid "event"
-msgstr "Evento"
+msgstr "evento"
 
 #: libraries/rte/rte_words.lib.php:46
-#, fuzzy
 #| msgid " do not have the necessary privileges to create a new routine"
 msgid "You do not have the necessary privileges to create an event"
-msgstr "Você não tem direitos suficientes para criar uma nova rotina"
+msgstr "Você não tem permissões suficientes para criar um novo evento"
 
 #: libraries/rte/rte_words.lib.php:47
 #, fuzzy, php-format
