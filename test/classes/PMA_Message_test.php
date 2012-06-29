@@ -479,7 +479,7 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
         return array(
             array(1, '<div class="notice"> 1 row affected.</div>'),
             array(2, '<div class="notice"> 2 rows affected.</div>'),
-            array(50000000000000, '<div class="notice"> 50000000000000 rows affected.</div>'),
+            array(10000, '<div class="notice"> 10000 rows affected.</div>'),
         );
     }
 
@@ -505,7 +505,7 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
         return array(
             array(1, '<div class="notice"> 1 row inserted.</div>'),
             array(2, '<div class="notice"> 2 rows inserted.</div>'),
-            array(50000000000000, '<div class="notice"> 50000000000000 rows inserted.</div>'),
+            array(100000, '<div class="notice"> 100000 rows inserted.</div>'),
         );
     }
 
@@ -531,7 +531,7 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
         return array(
             array(1, '<div class="notice"> 1 row deleted.</div>'),
             array(2, '<div class="notice"> 2 rows deleted.</div>'),
-            array(50000000000000, '<div class="notice"> 50000000000000 rows deleted.</div>'),
+            array(500000, '<div class="notice"> 500000 rows deleted.</div>'),
         );
     }
 
