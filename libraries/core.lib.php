@@ -777,31 +777,4 @@ function PMA_addJSVar($key, $value, $escape = true)
     PMA_addJSCode(PMA_getJsValue($key, $value, $escape));
 }
 
-
-/**
- * Replace some html-unfriendly stuff
- *
- * @param string $buffer String to process
- *
- * @return Escaped and cleaned up text suitable for html.
- * 
- * @access  private
- * 
- * @see     PMA_DisplayResults::_getDataCellForBlobField(),
- *          PMA_DisplayResults::_getRowData(),
- *          PMA_DisplayResults::_handleNonPrintableContents()
- */
-function PMA_mimeDefaultFunction($buffer)
-{
-    $buffer = htmlspecialchars($buffer);
-    $buffer = str_replace(
-        "\011",
-        ' &nbsp;&nbsp;&nbsp;',
-        str_replace('  ', ' &nbsp;', $buffer)
-    );
-    $buffer = preg_replace("@((\015\012)|(\015)|(\012))@", '<br />', $buffer);
-
-    return $buffer;
-}
-
 ?>

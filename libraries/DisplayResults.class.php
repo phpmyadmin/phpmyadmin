@@ -2191,7 +2191,7 @@ class PMA_DisplayResults
                     : false;
 
                 // Wrap MIME-transformations. [MIME]
-                $default_function = 'PMA_mimeDefaultFunction'; // default_function
+                $default_function = '_mimeDefaultFunction'; // default_function
                 $transformation_plugin = $default_function;
                 $transform_options = array();
 
@@ -2928,7 +2928,7 @@ class PMA_DisplayResults
                         $transform_options,
                         $meta
                     )
-                    : $default_function($column, array(), $meta);
+                    : $this->$default_function($column, array(), $meta);
 
                 if ($is_field_truncated) {
                     $class .= ' truncated';
@@ -4068,7 +4068,7 @@ class PMA_DisplayResults
                 $row = PMA_DBI_fetch_row($dt_result);
 
                 // initializing default arguments
-                $default_function = 'PMA_mimeDefaultFunction';
+                $default_function = '_mimeDefaultFunction';
                 $transformation_plugin = $default_function;
                 $transform_options = array();
 
@@ -4596,7 +4596,7 @@ class PMA_DisplayResults
                 );
             } else {
 
-                $result = $default_function($result, array(), $meta);
+                $result = $this->$default_function($result, array(), $meta);
                 if (stristr($meta->type, self::BLOB_FIELD)
                     && $_SESSION['tmp_user_values']['display_blob']
                 ) {
@@ -4726,7 +4726,7 @@ class PMA_DisplayResults
                         $transform_options,
                         $meta
                     )
-                    : $default_function($data)
+                    : $this->$default_function($data)
                 )
                 . ' <code>[-&gt;' . $dispval . ']</code>';
 
@@ -4776,10 +4776,10 @@ class PMA_DisplayResults
                     if ($_SESSION['tmp_user_values']['relational_display'] == self::RELATIONAL_DISPLAY_COLUMN) {
                         // user chose "relational display field" in the
                         // display options, so show display field in the cell
-                        $result .= $default_function($dispval);
+                        $result .= $this->$default_function($dispval);
                     } else {
                         // otherwise display data in the cell
-                        $result .= $default_function($data);
+                        $result .= $this->$default_function($data);
                     }
 
                 }
@@ -4793,7 +4793,7 @@ class PMA_DisplayResults
                     $transform_options,
                     $meta
                 )
-                : $default_function($data)
+                : $this->$default_function($data)
             );
         }
 
@@ -5087,6 +5087,32 @@ class PMA_DisplayResults
         return $ret;
 
     } // end of the '_getCheckboxAndLinks()' function
+    
+
+    /**
+     * Replace some html-unfriendly stuff
+     *
+     * @param string $buffer String to process
+     *
+     * @return Escaped and cleaned up text suitable for html.
+     * 
+     * @access  private
+     * 
+     * @see     _getDataCellForBlobField(), _getRowData(),
+     *          _handleNonPrintableContents()
+     */
+    private function _mimeDefaultFunction($buffer)
+    {
+        $buffer = htmlspecialchars($buffer);
+        $buffer = str_replace(
+            "\011",
+            ' &nbsp;&nbsp;&nbsp;',
+            str_replace('  ', ' &nbsp;', $buffer)
+        );
+        $buffer = preg_replace("@((\015\012)|(\015)|(\012))@", '<br />', $buffer);
+
+        return $buffer;
+    }    
 
 }
 ?>
