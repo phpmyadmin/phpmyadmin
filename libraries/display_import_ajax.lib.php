@@ -121,6 +121,8 @@ function PMA_import_nopluginCheck()
 function PMA_importAjaxStatus($id)
 {
     header('Content-type: application/json');
-    echo json_encode($_SESSION[$SESSION_KEY]["handler"]::getUploadStatus($id));
+    echo json_encode(
+        $_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getUploadStatus($id)
+    );
 }
 ?>

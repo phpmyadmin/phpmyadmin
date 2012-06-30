@@ -143,7 +143,17 @@ function PMA_replication_print_status_table($type, $hidden = false, $title = tru
         } else {
             echo '<span>';
         }
-        echo ${"server_{$type}_replication"}[0][$variable];
+        // allow wrapping long table lists into multiple lines
+        static $variables_wrap = array(
+            'Replicate_Do_DB', 'Replicate_Ignore_DB',
+            'Replicate_Do_Table', 'Replicate_Ignore_Table',
+            'Replicate_Wild_Do_Table', 'Replicate_Wild_Ignore_Table');
+        if (in_array($variable, $variables_wrap)) {
+            echo str_replace(',', ', ', ${"server_{$type}_replication"}[0][$variable]);
+        }
+        else {
+            echo ${"server_{$type}_replication"}[0][$variable];
+        }
         echo '</span>';
 
         echo '  </td>';
