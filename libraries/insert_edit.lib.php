@@ -143,7 +143,7 @@ function PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id,
     // No row returned
     if (! $rows[$key_id]) {
         unset($rows[$key_id], $where_clause_array[$key_id]);
-        PMA_showMessage(
+        echo PMA_getMessage(
             __('MySQL returned an empty result set (i.e. zero rows).'),
             $local_query
         );
