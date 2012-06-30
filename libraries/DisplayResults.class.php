@@ -2506,7 +2506,7 @@ class PMA_DisplayResults
      *
      * @return  array                   5 element array - $edit_url, $copy_url,
      *                                  $edit_str, $copy_str, $edit_anchor_class
-     * 
+     *
      * @access  private
      *
      * @see     _getTableBody()
@@ -2558,7 +2558,7 @@ class PMA_DisplayResults
      *
      * @return  array                       4 element array - $del_query,
      *                                      $del_url, $del_str, $js_conf
-     * 
+     *
      * @access  private
      *
      * @see     _getTableBody()
@@ -3069,7 +3069,8 @@ class PMA_DisplayResults
             // (unless it's a link-type transformation)
             if (PMA_strlen($column) > $GLOBALS['cfg']['LimitChars']
                 && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
-                && ! strpos($transformation_plugin, 'Link') === true
+                && gettype($transformation_plugin) == "object"
+                && ! strpos($transformation_plugin::getName(), 'Link') === true
             ) {
                 $column = PMA_substr($column, 0, $GLOBALS['cfg']['LimitChars'])
                     . '...';
@@ -3326,7 +3327,7 @@ class PMA_DisplayResults
      * @param string $operation        edit/copy/delete
      *
      * @return  string  $links_html         html content
-     * 
+     *
      * @access  private
      *
      * @see     _getVerticalTable()
@@ -4508,7 +4509,9 @@ class PMA_DisplayResults
 
         $result .= ']';
 
-        if (strpos($transformation_plugin, 'Octetstream')) {
+        if (gettype($transformation_plugin) == "object"
+            && strpos($transformation_plugin::getMIMESubtype(), 'Octetstream')
+        ) {
             $result = $content;
         }
 
