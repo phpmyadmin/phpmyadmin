@@ -531,7 +531,11 @@ class PMA_DisplayResults
                     . str_replace('\'', '\\\'', __('%d is not valid row number.'))
                     . '\', '
                     . '0'
-                    . ($GLOBALS['unlim_num_rows'] > 0 ? ', ' . ($GLOBALS['unlim_num_rows'] - 1) : '') . ')'
+                    . (($GLOBALS['unlim_num_rows'] > 0)
+                        ? ', ' . ($GLOBALS['unlim_num_rows'] - 1)
+                        : ''
+                    )
+                    . ')'
                 . ')'
             .'">';
 
@@ -883,7 +887,8 @@ class PMA_DisplayResults
             } else {
 
                 $span = $GLOBALS['num_rows'] + 1 + floor(
-                    $GLOBALS['num_rows'] / $_SESSION['tmp_user_values']['repeat_cells']
+                    $GLOBALS['num_rows']
+                    / $_SESSION['tmp_user_values']['repeat_cells']
                 );
                 $table_headers_html .= '<tr><th colspan="' . $span . '"></th></tr>';
 
@@ -2203,14 +2208,20 @@ class PMA_DisplayResults
                         && isset($GLOBALS['mime_map'][$meta->name]['transformation'])
                         && !empty($GLOBALS['mime_map'][$meta->name]['transformation'])
                     ) {
+                        
                         $file = $GLOBALS['mime_map'][$meta->name]['transformation'];
                         $include_file = 'libraries/plugins/transformations/' . $file;
+                        
                         if (file_exists($include_file)) {
+                            
                             include_once $include_file;
                             $class_name = str_replace('.class.php', '', $file);
                             // todo add $plugin_manager
                             $plugin_manager = null;
-                            $transformation_plugin = new $class_name($plugin_manager);
+                            $transformation_plugin = new $class_name(
+                                $plugin_manager
+                            );
+                            
                             $transform_options  = PMA_transformation_getOptions(
                                 isset($GLOBALS['mime_map'][$meta->name]
                                     ['transformation_options']
@@ -2219,10 +2230,12 @@ class PMA_DisplayResults
                                 ['transformation_options']
                                 : ''
                             );
+                            
                             $meta->mimetype = str_replace(
                                 '_', '/',
                                 $GLOBALS['mime_map'][$meta->name]['mimetype']
                             );
+                            
                         } // end if file_exists
                     } // end if transformation is set
                 } // end if mime/transformation works.
@@ -2301,7 +2314,8 @@ class PMA_DisplayResults
 
                 // output stored cell
                 if ($directionCondition) {
-                    $table_body_html .= $GLOBALS['vertical_display']['data'][$row_no][$i];
+                    $table_body_html
+                        .= $GLOBALS['vertical_display']['data'][$row_no][$i];
                 }
 
                 if (isset($GLOBALS['vertical_display']['rowdata'][$i][$row_no])) {
@@ -2396,10 +2410,11 @@ class PMA_DisplayResults
                     $js_conf = '';
                 }
 
-                $GLOBALS['vertical_display']['delete'][$row_no] .= $this->_getDeleteLink(
-                    $del_url, $del_str, $js_conf,
-                    $alternating_color_class . $vertical_class
-                );
+                $GLOBALS['vertical_display']['delete'][$row_no]
+                    .= $this->_getDeleteLink(
+                        $del_url, $del_str, $js_conf,
+                        $alternating_color_class . $vertical_class
+                    );
 
             } else {
                 unset($GLOBALS['vertical_display']['delete'][$row_no]);
@@ -2610,12 +2625,12 @@ class PMA_DisplayResults
         if ($del_lnk == self::DELETE_ROW) { // delete row case
 
             $_url_params = array(
-                    'db'        => $this->_db,
-                    'table'     => $this->_table,
-                    'sql_query' => $url_sql_query,
-                    'message_to_show' => __('The row has been deleted'),
-                    'goto'      => (empty($this->_goto) ? 'tbl_sql.php' : $this->_goto),
-                );
+                'db'        => $this->_db,
+                'table'     => $this->_table,
+                'sql_query' => $url_sql_query,
+                'message_to_show' => __('The row has been deleted'),
+                'goto'      => (empty($this->_goto) ? 'tbl_sql.php' : $this->_goto),
+            );
 
             $lnk_goto = 'sql.php' . PMA_generate_common_url($_url_params, 'text');
 
@@ -3322,11 +3337,12 @@ class PMA_DisplayResults
             || !empty($GLOBALS['vertical_display']['textbtn']))
         ) {
 
-            $vertical_table_html .= '<tr>' . "\n" . $GLOBALS['vertical_display']['textbtn']
-                                 . $this->_getCheckBoxesForMultipleRowOperations(
-                                     $GLOBALS['vertical_display'], '_right'
-                                 )
-                                 . '</tr>' . "\n";
+            $vertical_table_html .= '<tr>' . "\n"
+                . $GLOBALS['vertical_display']['textbtn']
+                . $this->_getCheckBoxesForMultipleRowOperations(
+                    $GLOBALS['vertical_display'], '_right'
+                )
+                . '</tr>' . "\n";
         } // end if
 
         // Prepares "edit" link at bottom if required
@@ -3856,7 +3872,9 @@ class PMA_DisplayResults
             // configuration storage. If no PMA storage, we won't be able
             // to use the "column to display" notion (for example show
             // the name related to a numeric id).
-            $exist_rel = PMA_getForeigners($this->_db, $this->_table, '', self::POSITION_BOTH);
+            $exist_rel = PMA_getForeigners(
+                $this->_db, $this->_table, '', self::POSITION_BOTH
+            );
 
             if ($exist_rel) {
 
@@ -3879,8 +3897,9 @@ class PMA_DisplayResults
 
         // 3. ----- Prepare the results table -----
         $table_html .= $this->_getTableHeaders(
-            $is_display, $GLOBALS['fields_meta'], $GLOBALS['fields_cnt'], $analyzed_sql,
-            $sort_expression, $sort_expression_nodirection, $sort_direction
+            $is_display, $GLOBALS['fields_meta'],
+            $GLOBALS['fields_cnt'], $analyzed_sql, $sort_expression,
+            $sort_expression_nodirection, $sort_direction
         )
         . '<tbody>' . "\n";
 
@@ -3905,8 +3924,8 @@ class PMA_DisplayResults
         ) {
 
             $table_html .= $this->_getMultiRowOperationLinks(
-                $dt_result, $GLOBALS['fields_cnt'], $GLOBALS['fields_meta'], $GLOBALS['num_rows'], $analyzed_sql,
-                $is_display['del_lnk']
+                $dt_result, $GLOBALS['fields_cnt'], $GLOBALS['fields_meta'],
+                $GLOBALS['num_rows'], $analyzed_sql, $is_display['del_lnk']
             );
 
         }
@@ -4291,7 +4310,8 @@ class PMA_DisplayResults
                 . ' alt="' . __('With selected:') . '" />';
         }
 
-        $links_html .= '<input type="checkbox" id="checkall" title="' . __('Check All') . '" /> '
+        $links_html .= '<input type="checkbox" id="checkall" title="'
+            . __('Check All') . '" /> '
             . '<label for="checkall">' . __('Check All') . '</label> '
             . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
 
@@ -4401,7 +4421,8 @@ class PMA_DisplayResults
                         .= $this->getCommonFunctions()->linkOrButton(
                             'sql.php' . PMA_generate_common_url($_url_params),
                             $this->getCommonFunctions()->getIcon(
-                                'b_print.png', __('Print view (with full texts)'), true
+                                'b_print.png',
+                                __('Print view (with full texts)'), true
                             ),
                             '', true, true, 'print_view'
                         )
@@ -4756,7 +4777,9 @@ class PMA_DisplayResults
                             $map[$meta->name][0]
                         )
                         . ' WHERE '
-                        . $this->getCommonFunctions()->backquote($map[$meta->name][1])
+                        . $this->getCommonFunctions()->backquote(
+                            $map[$meta->name][1]
+                        )
                         . $where_comparison,
                 );
 
