@@ -14,7 +14,7 @@ if (! defined('PHPMYADMIN')) {
  *
  * @param string  $table                The table name
  * @param string  $criteriaColumnName   Restrict the search to this column
- * @param string  $criteriaSearchString The string to search
+ * @param string  $criteriaSearchString The search word/phrase/regexp to be searched
  * @param integer $criteriaSearchType   Type of search
  *                                      (1 -> 1 word at least, 2 -> all words,
  *                                      3 -> exact string, 4 -> regexp)
@@ -39,12 +39,9 @@ function PMA_getSearchSqls($table, $criteriaColumnName, $criteriaSearchString,
     // Table to use
     $sqlstr_from = ' FROM '
         . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($table);
-    // Search words or pattern
-    $search_words    = (($criteriaSearchType > 2)
-        ? array($criteriaSearchString) : explode(' ', $criteriaSearchString));
     // Gets where clause for the query
     $where_clause = PMA_dbSearchGetWhereClause(
-        $table, $search_words, $criteriaSearchType, $criteriaColumnName
+        $table, $criteriaSearchString, $criteriaSearchType, $criteriaColumnName
     );
     // Builds complete queries
     $sql['select_columns'] = $sqlstr_select . ' * ' . $sqlstr_from . $where_clause;
@@ -60,24 +57,33 @@ function PMA_getSearchSqls($table, $criteriaColumnName, $criteriaSearchString,
 /**
  * Provides where clause for bulding SQL query
  *
- * @param string  $table              the table name
- * @param integer $search_words       Search words or pattern
- * @param integer $criteriaSearchType Type of search
- *                                    (1 -> 1 word at least, 2 -> all words,
- *                                    3 -> exact string, 4 -> regexp)
- * @param string  $criteriaColumnName Restrict the search to this column
+ * @param string  $table                The table name
+ * @param integer $criteriaSearchString The search word/phrase/regexp to be searched
+ * @param integer $criteriaSearchType   Type of search
+ *                                      (1 -> 1 word at least, 2 -> all words,
+ *                                      3 -> exact string, 4 -> regexp)
+ * @param string  $criteriaColumnName   Restrict the search to this column
  *
  * @return string The generated where clause
  */
-function PMA_dbSearchGetWhereClause($table, $search_words, $criteriaSearchType,
-    $criteriaColumnName
+function PMA_dbSearchGetWhereClause($table, $criteriaSearchString,
+    $criteriaSearchType, $criteriaColumnName
 ) {
     $where_clause = '';
     // Columns to select
     $allColumns = PMA_DBI_get_columns($GLOBALS['db'], $table);
+    $likeClauses = array();
     $like_or_regex   = (($criteriaSearchType == 4) ? 'REGEXP' : 'LIKE');
     $automatic_wildcard   = (($criteriaSearchType < 3) ? '%' : '');
-    $likeClauses = array();
+    // For "as regular expression" (search option 4), LIKE won't be used
+    // Usage example: If user is seaching for a literal $ in a regexp search,
+    // he should enter \$ as the value.
+    $criteriaSearchString = PMA_sqlAddSlashes(
+        $_REQUEST['criteriaSearchString'], ($criteriaSearchType == 4 ? false : true)
+    );
+    // Search words or pattern
+    $search_words    = (($criteriaSearchType > 2)
+        ? array($criteriaSearchString) : explode(' ', $criteriaSearchString));
 
     foreach ($search_words as $search_word) {
         // Eliminates empty values
@@ -121,9 +127,8 @@ function PMA_dbSearchGetWhereClause($table, $search_words, $criteriaSearchType,
  * Displays database search results
  *
  * @param array   $criteriaTables        Tables on which search is to be performed
- * @param string  $searched              The search word/phrase/regexp
  * @param string  $searchTypeDescription Type of search
- * @param string  $criteriaSearchString  The string to search
+ * @param string  $criteriaSearchString  The search word/phrase/regexp to be searched
  * @param integer $criteriaSearchType    Type of search
  *                                       (1 -> 1 word at least, 2 -> all words,
  *                                       3 -> exact string, 4 -> regexp)
@@ -131,9 +136,8 @@ function PMA_dbSearchGetWhereClause($table, $search_words, $criteriaSearchType,
  *
  * @return string HTML for search results
  */
-function PMA_dbSearchGetSearchResults($criteriaTables, $searched,
-    $searchTypeDescription, $criteriaSearchString, $criteriaSearchType,
-    $criteriaColumnName = null
+function PMA_dbSearchGetSearchResults($criteriaTables, $searchTypeDescription,
+    $criteriaSearchString, $criteriaSearchType, $criteriaColumnName = null
 ) {
     $html_output = '';
     // Displays search string
@@ -142,7 +146,7 @@ function PMA_dbSearchGetSearchResults($criteriaTables, $searched,
         . '<caption class="tblHeaders">'
         . sprintf(
             __('Search results for "<i>%s</i>" %s:'),
-            $searched, $searchTypeDescription
+            htmlspecialchars($criteriaSearchString), $searchTypeDescription
         )
         . '</caption>';
 
@@ -242,16 +246,16 @@ function PMA_dbSearchGetResultsRow($each_table, $newsearchsqls, $odd_row)
 /**
  * Provides the main search form's html
  *
- * @param string  $searched           Keyword/Regular expression to be searched
- * @param integer $criteriaSearchType Type of search (one word, phrase etc.)
- * @param array   $tables_names_only  Names of all tables
- * @param array   $criteriaTables     Tables on which search is to be performed
- * @param array   $url_params         URL parameters
- * @param string  $criteriaColumnName Restrict the search to this column
+ * @param string  $criteriaSearchString Keyword/Regular expression earlier entered
+ * @param integer $criteriaSearchType   Type of search (one word, phrase etc.)
+ * @param array   $tables_names_only    Names of all tables
+ * @param array   $criteriaTables       Tables on which search is to be performed
+ * @param array   $url_params           URL parameters
+ * @param string  $criteriaColumnName   Restrict the search to this column
  *
  * @return string HTML for selection form
  */
-function PMA_dbSearchGetSelectionForm($searched, $criteriaSearchType,
+function PMA_dbSearchGetSelectionForm($criteriaSearchString, $criteriaSearchType,
     $tables_names_only, $criteriaTables, $url_params, $criteriaColumnName = null
 ) {
     $html_output = '<a id="db_search"></a>';
@@ -268,7 +272,7 @@ function PMA_dbSearchGetSelectionForm($searched, $criteriaSearchType,
     $html_output .= '<td>' . __('Words or values to search for (wildcard: "%"):')
         . '</td>';
     $html_output .= '<td><input type="text" name="criteriaSearchString" size="60"'
-        . ' value="' . $searched . '" /></td>';
+        . ' value="' . htmlspecialchars($criteriaSearchString) . '" /></td>';
     $html_output .= '</tr>';
     // choices for types of search
     $html_output .= '<tr>';
