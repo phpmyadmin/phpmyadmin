@@ -130,7 +130,7 @@ function PMA_dbSearchGetWhereClause($table, $criteriaSearchString,
  * Displays database search results
  *
  * @param array   $criteriaTables        Tables on which search is to be performed
- * @param string  $searchTypeDescription Type of search
+ * @param string  $searchTypeDescription Description for search type
  * @param string  $criteriaSearchString  The search word/phrase/regexp to be searched
  * @param integer $criteriaSearchType    Type of search
  *                                       (1 -> 1 word at least, 2 -> all words,
