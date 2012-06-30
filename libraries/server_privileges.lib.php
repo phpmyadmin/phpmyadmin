@@ -540,7 +540,7 @@ function PMA_getHtmlForTableSpecificPrivileges($username, $hostname, $db, $table
     PMA_DBI_free_result($res);
     unset($res, $row1, $current);
 
-    $html_output .= '<input type="hidden" name="grant_count" value="' . count($row) . '" />' . "\n"
+    $html_output = '<input type="hidden" name="grant_count" value="' . count($row) . '" />' . "\n"
        . '<input type="hidden" name="column_count" value="' . count($columns) . '" />' . "\n"
        . '<fieldset id="fieldset_user_priv">' . "\n"
        . '    <legend>' . __('Table-specific privileges')
@@ -603,6 +603,7 @@ function PMA_getHtmlForAttachedPrivilegesToTableSpecificColumn($columns, $row)
  */
 function PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row, $grant_type)
 {
+    $html_output = '';
     foreach ($row as $current_grant => $current_grant_value) {
         $grant_type = substr($current_grant, 0, (strlen($current_grant) - 5));
         if (in_array($grant_type, array('Select', 'Insert', 'Update', 'References'))) {
