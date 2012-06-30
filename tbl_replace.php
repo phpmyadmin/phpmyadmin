@@ -173,8 +173,9 @@ foreach ($loop_array as $rownumber => $where_clause) {
         }
     }
 
-    // Iterate in the order of $multi_edit_columns_name, not $multi_edit_colummns,
-    // to avoid problems when inserting multiple entries
+    // Iterate in the order of $multi_edit_columns_name,
+    // not $multi_edit_colummns, to avoid problems
+    // when inserting multiple entries
     foreach ($multi_edit_columns_name as $key => $colummn_name) {
         $current_value = $multi_edit_colummns[$key];
         // Note: $key is an md5 of the fieldname. The actual fieldname is
@@ -322,10 +323,40 @@ if ($response->isAjax()) {
         foreach ($mime_map as $transformation) {
             $include_file = PMA_securePath($transformation['transformation']);
             $column_name = $transformation['column_name'];
-            $extra_data = PMA_getTransformationFunctionAndTransformationOptions(
-                $db, $table, $transformation, $edited_values, $include_file,
-                $column_name, $extra_data, $include_file
-            );
+
+            foreach ($edited_values as $cell_index => $curr_cell_edited_values) {
+                if (isset($curr_cell_edited_values[$column_name])) {
+                    $column_data = $curr_cell_edited_values[$column_name];
+
+                    $_url_params = array(
+                        'db'            => $db,
+                        'table'         => $table,
+                        'where_clause'  => $_REQUEST['where_clause'],
+                        'transform_key' => $column_name,
+                    );
+
+                    if (file_exists('libraries/transformations/' . $include_file)) {
+                        $transformfunction_name = str_replace(
+                            '.inc.php', '', $transformation['transformation']
+                        );
+
+                        include_once 'libraries/transformations/' . $include_file;
+
+                        if (function_exists('PMA_transformation_' . $transformfunction_name)) {
+                            $transform_function = 'PMA_transformation_' . $transformfunction_name;
+                            $transform_options  = PMA_transformation_getOptions(
+                                isset($transformation['transformation_options'])
+                                ? $transformation['transformation_options'] : ''
+                            );
+                            $transform_options['wrapper_link'] = PMA_generate_common_url($_url_params);
+                        }
+                    }
+
+                    $extra_data['transformations'][$cell_index] = $transform_function(
+                        $column_data, $transform_options
+                    );
+                }
+            }   // end of loop for each transformation cell
         }   // end of loop for each $mime_map
     }
 
@@ -337,6 +368,7 @@ if ($response->isAjax()) {
     $extra_data['sql_query']
         = $common_functions->getMessage($message, $GLOBALS['display_query']);
 
+    $response = PMA_Response::getInstance();
     $response->isSuccess($message->isSuccess());
     $response->addJSON('message', $message);
     $response->addJSON($extra_data);

@@ -361,7 +361,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
     if (isset($_REQUEST['logging_vars'])) {
         if (isset($_REQUEST['varName']) && isset($_REQUEST['varValue'])) {
-            $value = PMA_sqlAddslashes($_REQUEST['varValue']);
+            $value = $common_functions->sqlAddSlashes($_REQUEST['varValue']);
             if (! is_numeric($value)) {
                 $value="'" . $value . "'";
             }

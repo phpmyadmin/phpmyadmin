@@ -463,6 +463,7 @@ EOT;
     private function _getEnumWhereClause($criteriaValues, $func_type)
     {
         $where = '';
+        $common_functions = PMA_CommonFunctions::getInstance();
         if (! empty($criteriaValues)) {
             if (! is_array($criteriaValues)) {
                 $criteriaValues = explode(',', $criteriaValues);
@@ -482,10 +483,11 @@ EOT;
                 $parens_open  = '';
                 $parens_close = '';
             }
-            $enum_where = '\'' . PMA_sqlAddslashes($criteriaValues[0]) . '\'';
+            $enum_where = '\''
+                . $common_functions->sqlAddSlashes($criteriaValues[0]) . '\'';
             for ($e = 1; $e < $enum_selected_count; $e++) {
-                $enum_where .= ', \'' . PMA_sqlAddslashes($criteriaValues[$e])
-                    . '\'';
+                $enum_where .= ', \''
+                    . $common_functions->sqlAddSlashes($criteriaValues[$e]) . '\'';
             }
 
             $where = ' ' . $func_type . ' ' . $parens_open
@@ -563,6 +565,9 @@ EOT;
     private function _getWhereClause($criteriaValues, $names, $types, $collations,
         $func_type, $unaryFlag, $geom_func = null
     ) {
+        
+        $common_functions = PMA_CommonFunctions::getInstance();
+        
         // If geometry function is set
         if ($geom_func != null && trim($geom_func) != '') {
             return $this->_getGeomWhereClause(
@@ -613,7 +618,8 @@ EOT;
                 // quote values one by one
                 $values = explode(',', $criteriaValues);
                 foreach ($values as &$value) {
-                    $value = $quot . PMA_sqlAddslashes(trim($value)) . $quot;
+                    $value = $quot . $common_functions->sqlAddSlashes(trim($value))
+                        . $quot;
                 }
 
                 if ($func_type == 'BETWEEN' || $func_type == 'NOT BETWEEN') {
@@ -625,8 +631,8 @@ EOT;
                         . ' (' . implode(',', $values) . ')';
                 }
             } else {
-                $where = $backquoted_name . ' ' . $func_type . ' '
-                    . $quot . PMA_sqlAddslashes($criteriaValues) . $quot;
+                $where = $backquoted_name . ' ' . $func_type . ' ' . $quot
+                    . $common_functions->sqlAddSlashes($criteriaValues) . $quot;
             }
         } // end if
 

@@ -783,8 +783,8 @@ class PMA_CommonFunctions
      *
      * @return array    (recursive) grouped table list
      */
-    public function getTableList($db, $tables = null, $limit_offset = 0,
-        $limit_count = false
+    public function getTableList(
+        $db, $tables = null, $limit_offset = 0, $limit_count = false
     ) {
         $sep = $GLOBALS['cfg']['LeftFrameTableSeparator'];
 
@@ -2204,8 +2204,8 @@ class PMA_CommonFunctions
      *
      * @return array     the calculated condition and whether condition is unique
      */
-    public function getUniqueCondition($handle, $fields_cnt, $fields_meta, $row,
-        $force_unique = false
+    public function getUniqueCondition(
+        $handle, $fields_cnt, $fields_meta, $row, $force_unique = false
     ) {
 
         $primary_key          = '';
@@ -2778,8 +2778,9 @@ class PMA_CommonFunctions
      *
      * @return string                  set of html radio fiels
      */
-    public function getRadioFields($html_field_name, $choices, $checked_choice = '',
-        $line_break = true, $escape_label = true, $class=''
+    public function getRadioFields(
+        $html_field_name, $choices, $checked_choice = '',
+        $line_break = true, $escape_label = true, $class = ''
     ) {
 
         $radio_html = '';
@@ -2976,7 +2977,7 @@ class PMA_CommonFunctions
      */
     public function cacheExists($var, $server = 0)
     {
-        if (true === $server) {
+        if ($server === true) {
             $server = $GLOBALS['server'];
         }
         return isset($_SESSION['cache']['server_' . $server][$var]);
@@ -2993,7 +2994,7 @@ class PMA_CommonFunctions
      */
     public function cacheGet($var, $server = 0)
     {
-        if (true === $server) {
+        if ($server === true) {
             $server = $GLOBALS['server'];
         }
         if (isset($_SESSION['cache']['server_' . $server][$var])) {
@@ -3015,7 +3016,7 @@ class PMA_CommonFunctions
      */
     public function cacheSet($var, $val = null, $server = 0)
     {
-        if (true === $server) {
+        if ($server === true) {
             $server = $GLOBALS['server'];
         }
         $_SESSION['cache']['server_' . $server][$var] = $val;
@@ -3323,7 +3324,6 @@ class PMA_CommonFunctions
      *
      * @return string with the chars replaced
      */
-
     public function duplicateFirstNewline($string)
     {
         $first_occurence = strpos($string, "\r\n");
@@ -3416,8 +3416,10 @@ class PMA_CommonFunctions
 
         /* Optional escaping */
         if (! is_null($escape)) {
-            foreach ($replace as $key => $val) {
-                $replace[$key] = $escape($val);
+            foreach ($replace as $key => $val) {                 
+                $replace[$key] = ($escape == 'backquote')
+                    ? $this->$escape($val)
+                    : $escape($val);
             }
         }
 
@@ -3736,8 +3738,9 @@ class PMA_CommonFunctions
      * @return array names and details of the functions that can be applied on
      *               geometry data typess.
      */
-    public function getGISFunctions($geom_type = null, $binary = true, $display = false)
-    {
+    public function getGISFunctions(
+        $geom_type = null, $binary = true, $display = false
+    ) {
         $funcs = array();
         if ($display) {
             $funcs[] = array('display' => ' ');

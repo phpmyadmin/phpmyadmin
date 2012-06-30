@@ -93,7 +93,7 @@ function PMA_getAvailableMIMEtypes()
     $stack = array();
     $filestack = array();
 
-    $handle = opendir('./libraries/transformations');
+    $handle = opendir('./libraries/plugins/transformations');
 
     if (! $handle) {
         return $stack;
@@ -107,18 +107,17 @@ function PMA_getAvailableMIMEtypes()
     sort($filestack);
 
     foreach ($filestack as $file) {
-        if (preg_match('|^.*__.*\.inc\.php$|', $file)) {
+        if (preg_match('|^.*_.*_.*\.class\.php$|', $file)) {
             // File contains transformation functions.
-            $base = explode('__', str_replace('.inc.php', '', $file));
-            $mimetype = str_replace('_', '/', $base[0]);
+            $parts = explode('_', str_replace('.class.php', '', $file));
+            $mimetype = $parts[0] . "/" . $parts[1];
             $stack['mimetype'][$mimetype] = $mimetype;
-
-            $stack['transformation'][] = $mimetype . ': ' . $base[1];
+            $stack['transformation'][] = $mimetype . ': ' . $parts[2];
             $stack['transformation_file'][] = $file;
 
-        } elseif (preg_match('|^.*\.inc\.php$|', $file)) {
+        } elseif (preg_match('|^.*\.class.php$|', $file)) {
             // File is a plain mimetype, no functions.
-            $base = str_replace('.inc.php', '', $file);
+            $base = str_replace('.class.php', '', $file);
 
             if ($base != 'global') {
                 $mimetype = str_replace('_', '/', $base);
@@ -135,29 +134,20 @@ function PMA_getAvailableMIMEtypes()
  * Returns the description of the transformation
  *
  * @param string $file           transformation file
- * @param string $html_formatted whether the description should be formatted as HTML
+ * @param string $html_formatted whether the description should be formatted
+ *                               as HTML
  *
  * @return the description of the transformation
  */
 function PMA_getTransformationDescription($file, $html_formatted = true)
 {
-    include_once './libraries/transformations/' . $file;
-    $func = strtolower(str_replace('.inc.php', '', $file));
-    $funcname = 'PMA_transformation_' . $func . '_info';
+    // get the transformation class name
+    $class_name = explode(".class.php", $file);
+    $class_name = $class_name[0];
 
-    $desc = sprintf(__('No description is available for this transformation.<br />Please ask the author what %s does.'), 'PMA_transformation_' . $func . '()');
-    if ($html_formatted) {
-        $desc = '<i>' . $desc . '</i>';
-    } else {
-        $desc = str_replace('<br />', ' ', $desc);
-    }
-    if (function_exists($funcname)) {
-        $desc_arr = $funcname();
-        if (isset($desc_arr['info'])) {
-            $desc = $desc_arr['info'];
-        }
-    }
-    return $desc;
+    // include and instantiate the class
+    require_once 'libraries/plugins/transformations/' . $file;
+    return $class_name::getInfo();
 }
 
 /**
@@ -186,7 +176,8 @@ function PMA_getMIME($db, $table, $strict = false)
                 `mimetype`,
                 `transformation`,
                 `transformation_options`
-         FROM ' . $common_functions->backquote($cfgRelation['db']) . '.' . $common_functions->backquote($cfgRelation['column_info']) . '
+         FROM ' . $common_functions->backquote($cfgRelation['db']) . '.'
+        . $common_functions->backquote($cfgRelation['column_info']) . '
          WHERE `db_name`    = \'' . $common_functions->sqlAddSlashes($db) . '\'
            AND `table_name` = \'' . $common_functions->sqlAddSlashes($table) . '\'
            AND ( `mimetype` != \'\'' . (!$strict ? '
@@ -227,10 +218,12 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
     $test_qry  = '
          SELECT `mimetype`,
                 `comment`
-           FROM ' . $common_functions->backquote($cfgRelation['db']) . '.' . $common_functions->backquote($cfgRelation['column_info']) . '
+           FROM ' . $common_functions->backquote($cfgRelation['db']) . '.'
+        . $common_functions->backquote($cfgRelation['column_info']) . '
           WHERE `db_name`     = \'' . $common_functions->sqlAddSlashes($db) . '\'
             AND `table_name`  = \'' . $common_functions->sqlAddSlashes($table) . '\'
             AND `column_name` = \'' . $common_functions->sqlAddSlashes($key) . '\'';
+    
     $test_rs   = PMA_queryAsControlUser($test_qry, true, PMA_DBI_QUERY_STORE);
 
     if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
@@ -242,7 +235,8 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
             || strlen($transformation_options) || strlen($row['comment']))
         ) {
             $upd_query = '
-                UPDATE ' . $common_functions->backquote($cfgRelation['db']) . '.' . $common_functions->backquote($cfgRelation['column_info']) . '
+                UPDATE ' . $common_functions->backquote($cfgRelation['db']) . '.'
+                . $common_functions->backquote($cfgRelation['column_info']) . '
                    SET `mimetype`               = \'' . $common_functions->sqlAddSlashes($mimetype) . '\',
                        `transformation`         = \'' . $common_functions->sqlAddSlashes($transformation) . '\',
                        `transformation_options` = \'' . $common_functions->sqlAddSlashes($transformation_options) . '\'';
@@ -255,6 +249,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
               AND `column_name` = \'' . $common_functions->sqlAddSlashes($key) . '\'';
     } elseif (strlen($mimetype) || strlen($transformation)
      || strlen($transformation_options)) {
+
         $upd_query = 'INSERT INTO ' . $common_functions->backquote($cfgRelation['db']) . '.' . $common_functions->backquote($cfgRelation['column_info'])
                    . ' (db_name, table_name, column_name, mimetype, transformation, transformation_options) '
                    . ' VALUES('
@@ -290,7 +285,8 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
  *     = array (
  *         'string'        => 'string', // text containing "[__BUFFER__]"
  *         'regex'         => 'mixed',  // the pattern to search for
- *         'regex_replace' => 'mixed',  // string or array of strings to replace with
+ *         'regex_replace' => 'mixed',  // string or array of strings to replace
+ *                                      // with
  *     );
  *
  * @return string containing the text with all the replacements

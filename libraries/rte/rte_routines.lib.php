@@ -1045,6 +1045,7 @@ function PMA_RTN_getQueryFromRequest()
 {
     global $_REQUEST, $errors, $param_sqldataaccess, $param_directions;
 
+    $common_functions = PMA_CommonFunctions::getInstance();    
     $_REQUEST['item_type'] = isset($_REQUEST['item_type'])
         ? $_REQUEST['item_type'] : '';
 
@@ -1052,8 +1053,8 @@ function PMA_RTN_getQueryFromRequest()
     if (! empty($_REQUEST['item_definer'])) {
         if (strpos($_REQUEST['item_definer'], '@') !== false) {
             $arr = explode('@', $_REQUEST['item_definer']);
-            $query .= 'DEFINER=' . PMA_CommonFunctions::getInstance()->backquote($arr[0]);
-            $query .= '@' . PMA_CommonFunctions::getInstance()->backquote($arr[1]) . ' ';
+            $query .= 'DEFINER=' . $common_functions->backquote($arr[0]);
+            $query .= '@' . $common_functions->backquote($arr[1]) . ' ';
         } else {
             $errors[] = __('The definer must be in the "username@hostname" format');
         }
@@ -1069,7 +1070,7 @@ function PMA_RTN_getQueryFromRequest()
         );
     }
     if (! empty($_REQUEST['item_name'])) {
-        $query .= PMA_CommonFunctions::getInstance()->backquote($_REQUEST['item_name']);
+        $query .= $common_functions->backquote($_REQUEST['item_name']);
     } else {
         $errors[] = __('You must provide a routine name');
     }
@@ -1090,10 +1091,10 @@ function PMA_RTN_getQueryFromRequest()
                     && ! empty($_REQUEST['item_param_dir'][$i])
                     && in_array($_REQUEST['item_param_dir'][$i], $param_directions)
                 ) {
-                    $params .= $_REQUEST['item_param_dir'][$i] . " " . PMA_CommonFunctions::getInstance()->backquote($_REQUEST['item_param_name'][$i]) . " "
+                    $params .= $_REQUEST['item_param_dir'][$i] . " " . $common_functions->backquote($_REQUEST['item_param_name'][$i]) . " "
                             . $_REQUEST['item_param_type'][$i];
                 } else if ($_REQUEST['item_type'] == 'FUNCTION') {
-                    $params .= PMA_CommonFunctions::getInstance()->backquote($_REQUEST['item_param_name'][$i]) . " " . $_REQUEST['item_param_type'][$i];
+                    $params .= $common_functions->backquote($_REQUEST['item_param_name'][$i]) . " " . $_REQUEST['item_param_type'][$i];
                 } else if (! $warned_about_dir) {
                     $warned_about_dir = true;
                     $errors[] = sprintf(
@@ -1137,7 +1138,7 @@ function PMA_RTN_getQueryFromRequest()
     $query .= "(" . $params . ") ";
     if ($_REQUEST['item_type'] == 'FUNCTION') {
         if (! empty($_REQUEST['item_returntype'])
-            && in_array($_REQUEST['item_returntype'], PMA_CommonFunctions::getInstance()->getSupportedDatatypes())
+            && in_array($_REQUEST['item_returntype'], $common_functions->getSupportedDatatypes())
         ) {
             $query .= "RETURNS {$_REQUEST['item_returntype']}";
         } else {
@@ -1169,7 +1170,7 @@ function PMA_RTN_getQueryFromRequest()
         $query .= ' ';
     }
     if (! empty($_REQUEST['item_comment'])) {
-        $query .= "COMMENT '" . PMA_sqlAddslashes($_REQUEST['item_comment']) . "' ";
+        $query .= "COMMENT '" . $common_functions->sqlAddslashes($_REQUEST['item_comment']) . "' ";
     }
     if (isset($_REQUEST['item_isdeterministic'])) {
         $query .= 'DETERMINISTIC ';
@@ -1418,6 +1419,8 @@ function PMA_RTN_handleExecute()
 function PMA_RTN_getExecuteForm($routine)
 {
     global $db, $cfg;
+    
+    $common_functions = PMA_CommonFunctions::getInstance();
 
     // Escape special characters
     $routine['item_name'] = htmlentities($routine['item_name'], ENT_QUOTES);
@@ -1457,7 +1460,7 @@ function PMA_RTN_getExecuteForm($routine)
     $retval .= "<th>" . __('Value')    . "</th>\n";
     $retval .= "</tr>\n";
     // Get a list of data types that are not yet supported.
-    $no_support_types = PMA_CommonFunctions::getInstance()->unsupportedDatatypes();
+    $no_support_types = $common_functions->unsupportedDatatypes();
     for ($i=0; $i<$routine['item_num_params']; $i++) { // Each parameter
         if ($routine['item_type'] == 'PROCEDURE'
             && $routine['item_param_dir'][$i] == 'OUT'
@@ -1485,8 +1488,7 @@ function PMA_RTN_getExecuteForm($routine)
                     'first_timestamp' => false
                 );
                 $retval .= "<select name='funcs[{$routine['item_param_name'][$i]}]'>";
-                $retval .= PMA_CommonFunctions::getInstance()
-                    ->getFunctionsForField($field, false);
+                $retval .= $common_functions->getFunctionsForField($field, false);
                 $retval .= "</select>";
             }
             $retval .= "</td>\n";
@@ -1512,7 +1514,7 @@ function PMA_RTN_getExecuteForm($routine)
             for ($j=0; $j<$tokens['len']; $j++) {
                 if ($tokens[$j]['type'] != 'punct_listsep') {
                     $tokens[$j]['data'] = htmlentities(
-                        PMA_unquote($tokens[$j]['data']),
+                        $common_functions->unquote($tokens[$j]['data']),
                         ENT_QUOTES
                     );
                     $retval .= "<input name='params[{$routine['item_param_name'][$i]}][]' "

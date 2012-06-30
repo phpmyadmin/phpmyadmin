@@ -792,12 +792,21 @@ class PMA_Table
 
         // do not create the table if dataonly
         if ($what != 'dataonly') {
-            include_once './libraries/export/sql.php';
+            // get Export SQL instance
+            $export_sql_plugin = PMA_getPlugin(
+                "export",
+                "sql",    
+                'libraries/plugins/export/',
+                array(
+                    'export_type' => $export_type,
+                    'single_table' => isset($single_table)
+                )
+            );
 
             $no_constraints_comments = true;
             $GLOBALS['sql_constraints_query'] = '';
 
-            $sql_structure = PMA_getTableDef(
+            $sql_structure = $export_sql_plugin->getTableDef(
                 $source_db, $source_table, "\n", $err_url, false, false
             );
             unset($no_constraints_comments);
@@ -993,7 +1002,7 @@ class PMA_Table
                                             WHERE
                                                 db_name = \'' . $common_functions->sqlAddSlashes($source_db) . '\' AND
                                                 table_name = \'' . $common_functions->sqlAddSlashes($source_table) . '\'';
-                    $comments_copy_rs    = PMA_query_as_controluser($comments_copy_query);
+                    $comments_copy_rs    = PMA_queryAsControlUser($comments_copy_query);
 
                     // Write every comment as new copied entry. [MIME]
                     while ($comments_copy_row = PMA_DBI_fetch_assoc($comments_copy_rs)) {

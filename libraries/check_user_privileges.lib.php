@@ -140,7 +140,8 @@ function PMA_analyseShowGrant()
 
     PMA_DBI_free_result($rs_usr);
 
-    // must also cacheUnset() them in libraries/auth/cookie.auth.lib.php
+    // must also cacheUnset() them in
+    // libraries/plugins/auth/AuthenticationCookie.class.php
     $common_functions->cacheSet('is_create_db_priv', $GLOBALS['is_create_db_priv'], true);
     $common_functions->cacheSet('is_process_priv', $GLOBALS['is_process_priv'], true);
     $common_functions->cacheSet('is_reload_priv', $GLOBALS['is_reload_priv'], true);

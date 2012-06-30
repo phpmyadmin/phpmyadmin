@@ -25,7 +25,9 @@ if (! $cfg['ShowChgPassword']) {
     $cfg['ShowChgPassword'] = PMA_DBI_select_db('mysql');
 }
 if ($cfg['Server']['auth_type'] == 'config' || ! $cfg['ShowChgPassword']) {
-    PMA_Message::error(__('You don\'t have sufficient privileges to be here right now!'))->display();
+    PMA_Message::error(
+        __('You don\'t have sufficient privileges to be here right now!')
+    )->display();
     exit;
 } // end if
 
@@ -165,7 +167,9 @@ function PMA_ChangePassUrlParamsAndSubmitQuery($password, $_url_params, $sql_que
 {
     $common_functions = PMA_CommonFunctions::getInstance();
     $err_url = 'user_password.php' . PMA_generate_common_url($_url_params);
-    $local_query = 'SET password = ' . (($password == '') ? '\'\'' : $hashing_function . '(\'' . $common_functions->sqlAddSlashes($password) . '\')');
+    $local_query = 'SET password = ' . (($password == '')
+        ? '\'\''
+        : $hashing_function . '(\'' . $common_functions->sqlAddSlashes($password) . '\')');
     $result = @PMA_DBI_try_query($local_query)
             or $common_functions->mysqlDie(PMA_DBI_getError(), $sql_query, false, $err_url);
 }
@@ -182,12 +186,22 @@ function PMA_changePassAuthType($_url_params, $password)
 {
     /**
      * Changes password cookie if required
-     * Duration = till the browser is closed for password (we don't want this to be saved)
+     * Duration = till the browser is closed for password
+     * (we don't want this to be saved)
      */
+    
+    //    include_once "libraries/plugins/auth/AuthenticationCookie.class.php";
+    //    $auth_plugin = new AuthenticationCookie();
+    // the $auth_plugin is already defined in common.lib.php when this is used
+    global $auth_plugin;
+    
     if ($GLOBALS['cfg']['Server']['auth_type'] == 'cookie') {
         $GLOBALS['PMA_Config']->setCookie(
             'pmaPass-' . $GLOBALS['server'],
-            PMA_blowfish_encrypt($password, $GLOBALS['cfg']['blowfish_secret'])
+            $auth_plugin->blowfishEncrypt(
+                $password,
+                $GLOBALS['cfg']['blowfish_secret']
+            )
         );
     }
     /**
@@ -215,8 +229,9 @@ function PMA_changePassDisplayPage($message, $sql_query, $_url_params)
     echo PMA_CommonFunctions::getInstance()->getMessage(
         $message, $sql_query, 'success'
     );
-    echo '<a href="index.php'.PMA_generate_common_url($_url_params).' target="_parent">'. "\n"
-            .'<strong>'.__('Back').'</strong></a>';
+    echo '<a href="index.php'.PMA_generate_common_url($_url_params)
+        .' target="_parent">'. "\n"
+        .'<strong>'.__('Back').'</strong></a>';
     exit;
 }
 ?>

@@ -31,11 +31,6 @@ foreach ($types['mimetype'] as $key => $mimetype) {
 }
 ?>
 <br />
-<i>(<?php echo __('MIME types printed in italics do not have a separate transformation function'); ?>)</i>
-
-<br />
-<br />
-<br />
 <h2><?php echo __('Available transformations'); ?></h2>
 <table width="90%">
 <thead>

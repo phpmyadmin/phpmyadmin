@@ -40,7 +40,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             header('Content-Type: text/html; charset=UTF-8');
             $varValue = PMA_DBI_fetch_single_row(
                 'SHOW GLOBAL VARIABLES WHERE Variable_name="'
-                . PMA_sqlAddslashes($_REQUEST['varName']) . '";', 'NUM'
+                . $common_functions->sqlAddSlashes($_REQUEST['varName']) . '";', 'NUM'
             );
             if (isset($VARIABLE_DOC_LINKS[$_REQUEST['varName']][3])
                 && $VARIABLE_DOC_LINKS[$_REQUEST['varName']][3] == 'byte'
@@ -60,7 +60,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 $exp = array('kb' => 1, 'kib' => 1, 'mb' => 2, 'mib' => 2, 'gb' => 3, 'gib' => 3);
                 $value = floatval($matches[1]) * $common_functions->pow(1024, $exp[strtolower($matches[3])]);
             } else {
-                $value = PMA_sqlAddslashes($value);
+                $value = $common_functions->sqlAddSlashes($value);
             }
 
             if (! is_numeric($value)) {
@@ -74,7 +74,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 // Some values are rounded down etc.
                 $varValue = PMA_DBI_fetch_single_row(
                     'SHOW GLOBAL VARIABLES WHERE Variable_name="'
-                    . PMA_sqlAddslashes($_REQUEST['varName']) . '";', 'NUM'
+                    . $common_functions->sqlAddSlashes($_REQUEST['varName']) . '";', 'NUM'
                 );
                 $response->addJSON(
                     'variable',
