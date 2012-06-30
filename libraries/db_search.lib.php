@@ -119,7 +119,9 @@ function PMA_dbSearchGetWhereClause($table, $criteriaSearchString,
         // in any selected tables
         $where_clause = ' WHERE FALSE';
     } else {
-        $where_clause = ' WHERE (' . implode(') ' . $implode_str . ' (', $likeClauses) . ')';
+        $where_clause = ' WHERE ('
+            . implode(') ' . $implode_str . ' (', $likeClauses)
+            . ')';
     }
     return $where_clause;
 }
@@ -220,7 +222,7 @@ function PMA_dbSearchGetResultsRow($each_table, $newsearchsqls, $odd_row)
     // Displays browse/delete link if result count > 0
     if ($res_cnt > 0) {
         $this_url_params['sql_query'] = $newsearchsqls['select_columns'];
-        $browse_result_path = 'sql.php' . PMA_generate_common_url($this_url_params);        
+        $browse_result_path = 'sql.php' . PMA_generate_common_url($this_url_params);
         $html_output .= '<td><a name="browse_search" href="'
             . $browse_result_path . '" onclick="loadResult(\''
             . $browse_result_path . '\',\'' . $each_table . '\',\''
@@ -282,10 +284,13 @@ function PMA_dbSearchGetSelectionForm($criteriaSearchString, $criteriaSearchType
     $html_output .= '<td class="right vtop">' . __('Find:') . '</td>';
     $html_output .= '<td>';
     $choices = array(
-        '1' => __('at least one of the words') . PMA_showHint(__('Words are separated by a space character (" ").')),
-        '2' => __('all words') . PMA_showHint(__('Words are separated by a space character (" ").')),
+        '1' => __('at least one of the words')
+            . PMA_showHint(__('Words are separated by a space character (" ").')),
+        '2' => __('all words')
+            . PMA_showHint(__('Words are separated by a space character (" ").')),
         '3' => __('the exact phrase'),
-        '4' => __('as regular expression') . ' ' . PMA_showMySQLDocu('Regexp', 'Regexp')
+        '4' => __('as regular expression')
+            . ' ' . PMA_showMySQLDocu('Regexp', 'Regexp')
     );
     // 4th parameter set to true to add line breaks
     // 5th parameter set to false to avoid htmlspecialchars() escaping in the label
@@ -311,20 +316,27 @@ function PMA_dbSearchGetSelectionForm($criteriaSearchString, $criteriaSearchType
             . '</option>';
     } // end for
     $html_output .= '</select>';
-    // Displays 'select all' and 'unselect all' links
-    $alter_select
-        = '<a href="db_search.php' . PMA_generate_common_url(array_merge($url_params, array('selectall' => 1))) . '#db_search"'
-        . ' onclick="setSelectOptions(\'db_search\', \'criteriaTables[]\', true); return false;">' . __('Select All') . '</a>'
-        . '&nbsp;/&nbsp;'
-        . '<a href="db_search.php' . PMA_generate_common_url(array_merge($url_params, array('unselectall' => 1))) . '#db_search"'
-        . ' onclick="setSelectOptions(\'db_search\', \'criteriaTables[]\', false); return false;">' . __('Unselect All') . '</a>';
     $html_output .= '</td></tr>';
+    // Displays 'select all' and 'unselect all' links
+    $alter_select = '<a href="db_search.php'
+        . PMA_generate_common_url(
+            array_merge($url_params, array('selectall' => 1))
+        )
+        . '#db_search" onclick="setSelectOptions(\'db_search\', \'criteriaTables[]\', true); return false;">'
+        . __('Select All') . '</a> &nbsp;/&nbsp;';
+    $alter_select .= '<a href="db_search.php'
+        . PMA_generate_common_url(
+            array_merge($url_params, array('unselectall' => 1))
+        )
+        . '#db_search" onclick="setSelectOptions(\'db_search\', \'criteriaTables[]\', false); return false;">'
+        . __('Unselect All') . '</a>';
     $html_output .= '<tr><td class="right vbottom">' . $alter_select . '</td></tr>';
     // Inputbox for column name entry
     $html_output .= '<tr>';
     $html_output .= '<td class="right">' . __('Inside column:') . '</td>';
     $html_output .= '<td><input type="text" name="criteriaColumnName" size="60"'
-        . 'value="' . (! empty($criteriaColumnName) ? htmlspecialchars($criteriaColumnName) : '')
+        . 'value="'
+        . (! empty($criteriaColumnName) ? htmlspecialchars($criteriaColumnName) : '')
         . '" /></td>';
     $html_output .= '</tr>';
     $html_output .= '</table>';
@@ -353,8 +365,8 @@ function getResultDivs()
     $html_output .= '</div>';
     // div for browsing results
     $html_output .= '<div id="browse-results">';
-    $html_output .= '<!-- this browse-results div is used to load the browse and delete'
-        . ' results in the db search -->';
+    $html_output .= '<!-- this browse-results div is used to load the browse'
+        . ' and delete results in the db search -->';
     $html_output .= '</div>';
     $html_output .= '<br class="clearfloat" />';
     $html_output .= '<div id="sqlqueryform">';
