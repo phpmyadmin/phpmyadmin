@@ -73,6 +73,7 @@ function PMA_dbSearchGetWhereClause($table, $criteriaSearchString,
     // Columns to select
     $allColumns = PMA_DBI_get_columns($GLOBALS['db'], $table);
     $likeClauses = array();
+    // Based on search type, decide like/regex & '%'/''
     $like_or_regex   = (($criteriaSearchType == 4) ? 'REGEXP' : 'LIKE');
     $automatic_wildcard   = (($criteriaSearchType < 3) ? '%' : '');
     // For "as regular expression" (search option 4), LIKE won't be used
@@ -81,8 +82,8 @@ function PMA_dbSearchGetWhereClause($table, $criteriaSearchString,
     $criteriaSearchString = PMA_sqlAddSlashes(
         $_REQUEST['criteriaSearchString'], ($criteriaSearchType == 4 ? false : true)
     );
-    // Search words or pattern
-    $search_words    = (($criteriaSearchType > 2)
+    // Extract search words or pattern
+    $search_words = (($criteriaSearchType > 2)
         ? array($criteriaSearchString) : explode(' ', $criteriaSearchString));
 
     foreach ($search_words as $search_word) {
@@ -111,7 +112,7 @@ function PMA_dbSearchGetWhereClause($table, $criteriaSearchString,
             $likeClauses[] = implode(' OR ', $likeClausesPerColumn);
         }
     } // end for
-
+    // Use 'OR' if 'at least one word' is to be searched, else use 'AND'
     $implode_str  = ($criteriaSearchType == 1 ? ' OR ' : ' AND ');
     if ( empty($likeClauses)) {
         // this could happen when the "inside column" does not exist
@@ -162,13 +163,14 @@ function PMA_dbSearchGetSearchResults($criteriaTables, $searchTypeDescription,
         // Executes the "COUNT" statement
         $res_cnt = PMA_DBI_fetch_value($newsearchsqls['select_count']);
         $num_search_result_total += $res_cnt;
+        // Gets the result row's HTML for a table
         $html_output .= PMA_dbSearchGetResultsRow(
             $each_table, $newsearchsqls, $odd_row
         );
         $odd_row = ! $odd_row;
     } // end for
     $html_output .= '</table>';
-
+    // Displays total number of matches
     if (count($criteriaTables) > 1) {
         $html_output .= '<p>';
         $html_output .= sprintf(
@@ -205,6 +207,7 @@ function PMA_dbSearchGetResultsRow($each_table, $newsearchsqls, $odd_row)
     $res_cnt = PMA_DBI_fetch_value($newsearchsqls['select_count']);
     // Start forming search results row
     $html_output = '<tr class="noclick ' . ($odd_row ? 'odd' : 'even') . '">';
+    // Displays results count for a table
     $html_output .= '<td>';
     $html_output .= sprintf(
         _ngettext(
@@ -214,10 +217,10 @@ function PMA_dbSearchGetResultsRow($each_table, $newsearchsqls, $odd_row)
         $res_cnt, htmlspecialchars($each_table)
     );
     $html_output .= '</td>';
-
+    // Displays browse/delete link if result count > 0
     if ($res_cnt > 0) {
         $this_url_params['sql_query'] = $newsearchsqls['select_columns'];
-        $browse_result_path = 'sql.php' . PMA_generate_common_url($this_url_params);
+        $browse_result_path = 'sql.php' . PMA_generate_common_url($this_url_params);        
         $html_output .= '<td><a name="browse_search" href="'
             . $browse_result_path . '" onclick="loadResult(\''
             . $browse_result_path . '\',\'' . $each_table . '\',\''
@@ -308,6 +311,7 @@ function PMA_dbSearchGetSelectionForm($criteriaSearchString, $criteriaSearchType
             . '</option>';
     } // end for
     $html_output .= '</select>';
+    // Displays 'select all' and 'unselect all' links
     $alter_select
         = '<a href="db_search.php' . PMA_generate_common_url(array_merge($url_params, array('selectall' => 1))) . '#db_search"'
         . ' onclick="setSelectOptions(\'db_search\', \'criteriaTables[]\', true); return false;">' . __('Select All') . '</a>'
@@ -316,6 +320,7 @@ function PMA_dbSearchGetSelectionForm($criteriaSearchString, $criteriaSearchType
         . ' onclick="setSelectOptions(\'db_search\', \'criteriaTables[]\', false); return false;">' . __('Unselect All') . '</a>';
     $html_output .= '</td></tr>';
     $html_output .= '<tr><td class="right vbottom">' . $alter_select . '</td></tr>';
+    // Inputbox for column name entry
     $html_output .= '<tr>';
     $html_output .= '<td class="right">' . __('Inside column:') . '</td>';
     $html_output .= '<td><input type="text" name="criteriaColumnName" size="60"'
