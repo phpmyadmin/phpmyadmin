@@ -835,7 +835,7 @@ function PMA_getHtmlForGlobalPrivTableWithCheckboxes($privTable, $privTable_name
  * @global  array      $cfg     the phpMyAdmin configuration
  * @global  ressource  $user_link the database connection
  *
- * @return void
+ * @return string $html_output  a HTML snippet
  */
 function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
 {
