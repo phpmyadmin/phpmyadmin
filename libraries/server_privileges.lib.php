@@ -839,26 +839,7 @@ function PMA_getHtmlForGlobalPrivTableWithCheckboxes($privTable, $privTable_name
  */
 function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
 {
-    // Get user/host name lengths
-    $fields_info = PMA_DBI_get_columns('mysql', 'user', null, true);
-    $username_length = 16;
-    $hostname_length = 41;
-    foreach ($fields_info as $val) {
-        if ($val['Field'] == 'User') {
-            strtok($val['Type'], '()');
-            $v = strtok('()');
-            if (is_int($v)) {
-                $username_length = $v;
-            }
-        } elseif ($val['Field'] == 'Host') {
-            strtok($val['Type'], '()');
-            $v = strtok('()');
-            if (is_int($v)) {
-                $hostname_length = $v;
-            }
-        }
-    }
-    unset($fields_info);
+    list($username_length, $hostname_length) = PMA_getUsernameAndHostnameLength();
 
     if (isset($GLOBALS['username']) && strlen($GLOBALS['username']) === 0) {
         $GLOBALS['pred_username'] = 'any';
@@ -985,6 +966,33 @@ function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
     return $html_output;
 } // end of the 'PMA_displayUserAndHostFields()' function
 
+/**
+ * Get username and hostname length
+ * 
+ * @return array username length and hostname length 
+ */
+function PMA_getUsernameAndHostnameLength()
+{
+    $fields_info = PMA_DBI_get_columns('mysql', 'user', null, true);
+    $username_length = 16;
+    $hostname_length = 41;
+    foreach ($fields_info as $val) {
+        if ($val['Field'] == 'User') {
+            strtok($val['Type'], '()');
+            $value = strtok('()');
+            if (is_int($value)) {
+                $username_length = $value;
+            }
+        } elseif ($val['Field'] == 'Host') {
+            strtok($val['Type'], '()');
+            $value = strtok('()');
+            if (is_int($value)) {
+                $hostname_length = $value;
+            }
+        }
+    }
+    return array($username_length, $hostname_length);
+}
 
 /**
  * Returns all the grants for a certain user on a certain host
