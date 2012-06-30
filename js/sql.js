@@ -305,7 +305,7 @@ $(document).ready(function() {
 
             $.post($form.attr('action'), $form.serialize(), function(data) {
                 $("#sqlqueryresults")
-                 .html(data)
+                 .html(data.sql_query ? data.sql_query : data)
                  .trigger('makegrid');
                 PMA_init_slider();
 
