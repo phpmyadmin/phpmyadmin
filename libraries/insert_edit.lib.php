@@ -675,7 +675,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
         $html_output .= PMA_getPmaTypeSet(
             $column, $extracted_columnspec, $backup_field,
             $column_name_appendix, $unnullify_trigger, $tabindex,
-            $tabindex_for_value, $idindex
+            $tabindex_for_value, $idindex, $data
         );
 
     } elseif ($column['is_binary'] || $column['is_blob']) {
@@ -999,13 +999,14 @@ function PMA_getRadioButtonDependingOnLength(
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
+ * @param array   $data                 description of the column field
  *
  * @return string                       an html snippet
  */
 function PMA_getPmaTypeSet(
     $column, $extracted_columnspec, $backup_field,
     $column_name_appendix, $unnullify_trigger, $tabindex,
-    $tabindex_for_value, $idindex
+    $tabindex_for_value, $idindex, $data
 ) {
     list($column_set_values, $select_size) = PMA_getColumnSetValueAndSelectSize(
         $column, $extracted_columnspec
