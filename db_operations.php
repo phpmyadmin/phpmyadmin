@@ -135,6 +135,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
         $tables_full = PMA_DBI_get_tables_full($db);
         $views = array();
 
+        require_once "libraries/plugin_interface.lib.php";
         // remove all foreign key constraints, otherwise we can get errors
         $export_sql_plugin = PMA_getPlugin(
             "export",

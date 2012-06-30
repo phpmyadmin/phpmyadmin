@@ -10,9 +10,16 @@
  * Include to test.
  */
 require_once 'libraries/CommonFunctions.class.php';
-require_once 'libraries/url_generating.lib.php';
+require_once 'libraries/vendor_config.php';
 require_once 'libraries/core.lib.php';
+require_once 'libraries/js_escape.lib.php';
 require_once 'libraries/select_lang.lib.php';
+require_once 'libraries/sanitizing.lib.php';
+require_once 'libraries/Config.class.php';
+require_once 'libraries/url_generating.lib.php';
+require_once 'libraries/Theme.class.php';
+require_once 'libraries/Table.class.php';
+require_once 'libraries/php-gettext/gettext.inc';
 
 /**
  * Test function sending headers.
