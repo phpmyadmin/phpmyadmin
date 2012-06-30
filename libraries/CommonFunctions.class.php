@@ -134,7 +134,8 @@ class PMA_CommonFunctions
         $include_icon = ($GLOBALS['cfg']['PropertiesIconic'] !== false);
         // $cfg['PropertiesIconic'] is false or both
         // OR we have no $include_icon
-        $include_text = ($force_text || ($GLOBALS['cfg']['PropertiesIconic'] !== true));
+        $include_text = ($force_text
+            || ($GLOBALS['cfg']['PropertiesIconic'] !== true));
 
         // Always use a span (we rely on this in js/sql.js)
         $button = '<span class="nowrap">';
@@ -158,7 +159,8 @@ class PMA_CommonFunctions
      * which may be an actual file or an icon from a sprite
      *
      * @param string $image      The name of the file to get
-     * @param string $alternate  Used to set 'alt' and 'title' attributes of the image
+     * @param string $alternate  Used to set 'alt' and 'title' attributes
+     *                           of the image
      * @param array  $attributes An associative array of other attributes
      *
      * @return string an html IMG tag
@@ -262,7 +264,8 @@ class PMA_CommonFunctions
      */
     public function generateHiddenMaxFileSize($max_size)
     {
-        return '<input type="hidden" name="MAX_FILE_SIZE" value="' .$max_size . '" />';
+        return '<input type="hidden" name="MAX_FILE_SIZE" value="'
+            . $max_size . '" />';
     }
 
 
@@ -650,11 +653,16 @@ class PMA_CommonFunctions
         } else {
             if (strlen($the_query) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
                 $formatted_sql = htmlspecialchars(
-                    substr($the_query, 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL'])
+                    substr(
+                        $the_query, 0,
+                        $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']
+                    )
                 )
                 . '[...]';
             } else {
-                $formatted_sql = $this->formatSql(PMA_SQP_parse($the_query), $the_query);
+                $formatted_sql = $this->formatSql(
+                    PMA_SQP_parse($the_query), $the_query
+                );
             }
         }
         // ---
@@ -728,7 +736,9 @@ class PMA_CommonFunctions
         // Replace all non-single blanks with their HTML-counterpart
         $error_message = str_replace('  ', '&nbsp;&nbsp;', $error_message);
         // Replace TAB-characters with their HTML-counterpart
-        $error_message = str_replace("\t", '&nbsp;&nbsp;&nbsp;&nbsp;', $error_message);
+        $error_message = str_replace(
+            "\t", '&nbsp;&nbsp;&nbsp;&nbsp;', $error_message
+        );
         // Replace linebreaks
         $error_message = nl2br($error_message);
 
@@ -760,9 +770,9 @@ class PMA_CommonFunctions
 
                 $_SESSION['Import_message']['go_back_url'] = $back_url;
 
-                $error_msg .= '<fieldset class="tblFooters">';
-                $error_msg .= '[ <a href="' . $back_url . '">' . __('Back') . '</a> ]';
-                $error_msg .= '</fieldset>' . "\n\n";
+                $error_msg .= '<fieldset class="tblFooters">'
+                    . '[ <a href="' . $back_url . '">' . __('Back') . '</a> ]'
+                    . '</fieldset>' . "\n\n";
             }
 
             echo $error_msg;
@@ -859,7 +869,8 @@ class PMA_CommonFunctions
                         $group[$group_name] = array();
                         $group[$group_name]['is' . $sep . 'group'] = true;
                         $group[$group_name]['tab' . $sep . 'count'] = 1;
-                        $group[$group_name]['tab' . $sep . 'group'] = $group_name_full;
+                        $group[$group_name]['tab' . $sep . 'group']
+                            = $group_name_full;
 
                     } elseif (! isset($group[$group_name]['is' . $sep . 'group'])) {
 
@@ -869,7 +880,8 @@ class PMA_CommonFunctions
                         unset($table);
                         $group[$group_name]['is' . $sep . 'group'] = true;
                         $group[$group_name]['tab' . $sep . 'count'] = 1;
-                        $group[$group_name]['tab' . $sep . 'group'] = $group_name_full;
+                        $group[$group_name]['tab' . $sep . 'group']
+                            = $group_name_full;
 
                     } else {
                         $group[$group_name]['tab' . $sep . 'count']++;
@@ -1240,7 +1252,9 @@ class PMA_CommonFunctions
                     $_message = __('Explain SQL');
                     $is_select = true;
                 } elseif (
-                    preg_match('@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sql_query)
+                    preg_match(
+                        '@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sql_query
+                    )
                 ) {
                     $explain_params['sql_query'] = substr($sql_query, 8);
                     $_message = __('Skip Explain SQL');
@@ -1292,9 +1306,13 @@ class PMA_CommonFunctions
                 $php_link = ' [' . $this->linkOrButton($php_link, $_message) . ']';
 
                 if (isset($GLOBALS['show_as_php'])) {
-                    $runquery_link = 'import.php' . PMA_generate_common_url($url_params);
+                    
+                    $runquery_link = 'import.php'
+                        . PMA_generate_common_url($url_params);
+                    
                     $php_link .= ' ['
-                        . $this->linkOrButton($runquery_link, __('Submit Query')) . ']';
+                        . $this->linkOrButton($runquery_link, __('Submit Query'))
+                        . ']';
                 }
             } else {
                 $php_link = '';
@@ -1838,7 +1856,8 @@ class PMA_CommonFunctions
             // avoid generating an alt tag, because it only illustrates
             // the text that follows and if browser does not display
             // images, the text is duplicated
-            $tab['text'] = $this->getImage(htmlentities($tab['icon'])) . $tab['text'];
+            $tab['text'] = $this->getImage(htmlentities($tab['icon']))
+                . $tab['text'];
 
         } elseif (empty($tab['text'])) {
             // check to not display an empty link-text
@@ -1859,8 +1878,8 @@ class PMA_CommonFunctions
                 .' href="' . $tab['link'] . '" ' . $tab['attr'] . '>'
                 . $tab['text'] . '</a>';
         } else {
-            $out .= '<span class="tab' . htmlentities($tab['class']) . '"'.$id_string.'>'
-                . $tab['text'] . '</span>';
+            $out .= '<span class="tab' . htmlentities($tab['class']) . '"'
+                . $id_string. '>' . $tab['text'] . '</span>';
         }
 
         $out .= '</li>';
@@ -1974,7 +1993,9 @@ class PMA_CommonFunctions
             }
         }
 
-        if (($url_length <= $GLOBALS['cfg']['LinkLengthLimit']) && $in_suhosin_limits) {
+        if (($url_length <= $GLOBALS['cfg']['LinkLengthLimit'])
+            && $in_suhosin_limits
+        ) {
 
             // no whitespace within an <a> else Safari will make it part of the link
             $ret = "\n" . '<a href="' . $url . '" '
@@ -2012,7 +2033,8 @@ class PMA_CommonFunctions
                 $ret            = '';
                 $subname_open   = 'subform[' . $GLOBALS['subform_counter'] . '][';
                 $subname_close  = ']';
-                $submit_link    = '#usesubform[' . $GLOBALS['subform_counter'] . ']=1';
+                $submit_link    = '#usesubform[' . $GLOBALS['subform_counter']
+                    . ']=1';
             }
 
             foreach ($query_parts as $query_pair) {
@@ -2149,8 +2171,9 @@ class PMA_CommonFunctions
      * Not sure we could use a strMissingParameter message here,
      * would have to check if the error message file is always available
      *
-     * @param array $params  The names of the parameters needed by the calling script.
-     * @param bool  $request Whether to include this list in checking for special params.
+     * @param array $params  The names of the parameters needed by the calling script
+     * @param bool  $request Whether to include this list in checking for 
+     *                       special params
      *
      * @return void
      *
@@ -2323,7 +2346,8 @@ class PMA_CommonFunctions
                         . $this->printableBitValue($row[$i], $meta->length) . "'";
 
                 } else {
-                    $con_val = '= \'' . $this->sqlAddSlashes($row[$i], false, true) . '\'';
+                    $con_val = '= \''
+                        . $this->sqlAddSlashes($row[$i], false, true) . '\'';
                 }            
             }
 
@@ -2400,8 +2424,8 @@ class PMA_CommonFunctions
         /* IE has trouble with <button> */
         if (PMA_USR_BROWSER_AGENT != 'IE') {
             return '<button class="' . $button_class . '" type="submit"'
-                .' name="' . $button_name . '" value="' . htmlspecialchars($value) . '"'
-                .' title="' . htmlspecialchars($text) . '">' . "\n"
+                .' name="' . $button_name . '" value="' . htmlspecialchars($value)
+                . '" title="' . htmlspecialchars($text) . '">' . "\n"
                 . $this->getIcon($image, $text)
                 .'</button>' . "\n";
         } else {
@@ -2424,7 +2448,8 @@ class PMA_CommonFunctions
      * @param int    $nbTotalPage number of total pages
      * @param int    $showAll     If the number of pages is lower than this
      *                            variable, no pages will be omitted in pagination
-     * @param int    $sliceStart  How many rows at the beginning should always be shown?
+     * @param int    $sliceStart  How many rows at the beginning should always
+     *                            be shown?
      * @param int    $sliceEnd    How many rows at the end should always be shown?
      * @param int    $percent     Percentage of calculation page offsets to hop to a
      *                            next page
@@ -2731,8 +2756,9 @@ class PMA_CommonFunctions
      *
      * @return void
      */
-    public function getExternalBug($functionality, $component, $minimum_version, $bugref)
-    {    
+    public function getExternalBug(
+        $functionality, $component, $minimum_version, $bugref
+    ) {    
         $ext_but_html = '';    
         if (($component == 'mysql') && (PMA_MYSQL_INT_VERSION < $minimum_version)) {
             $ext_but_html .= $this->showHint(
@@ -2772,7 +2798,7 @@ class PMA_CommonFunctions
      * @param string  $html_field_name the radio HTML field
      * @param array   $choices         the choices values and labels
      * @param string  $checked_choice  the choice to check by default
-     * @param boolean $line_break      whether to add an HTML line break after a choice
+     * @param boolean $line_break      whether to add HTML line break after a choice
      * @param boolean $escape_label    whether to use htmlspecialchars() on label
      * @param string  $class           enclose each choice with a div of this class
      *
@@ -3142,8 +3168,9 @@ class PMA_CommonFunctions
                         $has_next = isset($columnspec[$index + 1]);
                         $next = $has_next ? $columnspec[$index + 1] : null;
 
-                        //If we have reached the end of our 'working' string (because
-                        //there are no more chars,or the next char is not another quote)
+                        // If we have reached the end of our 'working' string
+                        // (because there are no more chars,or the next char
+                        // is not another quote)
                         if (! $has_next || $next != "'") {
                             $enum_set_values[] = $working;
                             $in_string = false;
@@ -3199,9 +3226,13 @@ class PMA_CommonFunctions
                 $binary = false;
             }
 
-            $printtype = preg_replace('@zerofill@', '', $printtype, -1, $zerofill_cnt);
+            $printtype = preg_replace(
+                '@zerofill@', '', $printtype, -1, $zerofill_cnt
+            );
             $zerofill = ($zerofill_cnt > 0);
-            $printtype = preg_replace('@unsigned@', '', $printtype, -1, $unsigned_cnt);
+            $printtype = preg_replace(
+                '@unsigned@', '', $printtype, -1, $unsigned_cnt
+            );
             $unsigned = ($unsigned_cnt > 0);
             $printtype = trim($printtype);
 
@@ -3529,8 +3560,9 @@ class PMA_CommonFunctions
             )->display();
         } elseif (! empty($files)) {
             $block_html .= "\n"
-                . '    <select style="margin: 5px" size="1" name="local_import_file" '
-                .'id="select_local_import_file">' . "\n"
+                . '    <select style="margin: 5px" size="1" '
+                . 'name="local_import_file" '
+                . 'id="select_local_import_file">' . "\n"
                 . '        <option value="">&nbsp;</option>' . "\n"
                 . $files
                 . '    </select>' . "\n";
@@ -3575,9 +3607,10 @@ class PMA_CommonFunctions
 
 
     /**
-     * This function processes the datatypes supported by the DB, as specified in
-     * PMA_Types->getColumns() and either returns an array (useful for quickly checking
-     * if a datatype is supported) or an HTML snippet that creates a drop-down list.
+     * This function processes the datatypes supported by the DB,
+     * as specified in PMA_Types->getColumns() and either returns an array
+     * (useful for quickly checking if a datatype is supported)
+     * or an HTML snippet that creates a drop-down list.
      *
      * @param bool   $html     Whether to generate an html snippet or an array
      * @param string $selected The value to mark as selected in HTML mode
@@ -3778,8 +3811,8 @@ class PMA_CommonFunctions
             $funcs['IsClosed'] = array('params' => 1, 'type' => 'int');
 
         } elseif ($geom_type == 'polygon') {
-            $funcs['Area']             = array('params' => 1, 'type' => 'float');
-            $funcs['ExteriorRing']     = array('params' => 1, 'type' => 'linestring');
+            $funcs['Area']         = array('params' => 1, 'type' => 'float');
+            $funcs['ExteriorRing'] = array('params' => 1, 'type' => 'linestring');
             $funcs['NumInteriorRings'] = array('params' => 1, 'type' => 'int');
 
         } elseif ($geom_type == 'multipolygon') {
@@ -3809,7 +3842,8 @@ class PMA_CommonFunctions
                 $funcs['Touches']    = array('params' => 2, 'type' => 'int');
                 $funcs['Within']     = array('params' => 2, 'type' => 'int');
             } else {
-                // If MySQl version is greaeter than or equal 5.6.1, use the ST_ prefix.
+                // If MySQl version is greaeter than or equal 5.6.1,
+                // use the ST_ prefix.
                 $funcs['ST_Crosses']    = array('params' => 2, 'type' => 'int');
                 $funcs['ST_Contains']   = array('params' => 2, 'type' => 'int');
                 $funcs['ST_Disjoint']   = array('params' => 2, 'type' => 'int');
@@ -3861,7 +3895,8 @@ class PMA_CommonFunctions
         $current_class = $GLOBALS['PMA_Types']->getTypeClass($field['True_Type']);
         if (! empty($current_class)) {
             if (isset($cfg['DefaultFunctions']['FUNC_' . $current_class])) {
-                $default_function   = $cfg['DefaultFunctions']['FUNC_' . $current_class];
+                $default_function
+                    = $cfg['DefaultFunctions']['FUNC_' . $current_class];
             }
         }
 
@@ -3937,7 +3972,8 @@ class PMA_CommonFunctions
 
         // Create separator before all functions list
         if (count($functions) > 0) {
-            $retval .= '<option value="" disabled="disabled">--------</option>' . "\n";
+            $retval .= '<option value="" disabled="disabled">--------</option>'
+                . "\n";
         }
 
         // For compatibility's sake, do not let out all other functions. Instead
@@ -4133,14 +4169,16 @@ class PMA_CommonFunctions
         for ($i=0; $i<strlen($values_string); $i++) {
 
             $curr = $values_string[$i];
-            $next = $i == strlen($values_string)-1 ? '' : $values_string[$i+1];
+            $next = ($i == strlen($values_string)-1) ? '' : $values_string[$i+1];
 
             if (! $in_string && $curr == "'") {
                 $in_string = true;
-            } else if ($in_string && $curr == "\\" && $next == "\\") {
+            } else if (($in_string && $curr == "\\") && $next == "\\") {
                 $buffer .= "&#92;";
                 $i++;
-            } else if ($in_string && $next == "'" && ($curr == "'" || $curr == "\\")) {
+            } else if (($in_string && $next == "'")
+                && ($curr == "'" || $curr == "\\")
+            ) {
                 $buffer .= "&#39;";
                 $i++;
             } else if ($in_string && $curr == "'") {
