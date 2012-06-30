@@ -25,12 +25,12 @@ if (version_compare(PHP_VERSION, '5.4.0', '>=')
 ) {
 
     $sessionupload = array();
-    $prefix = ini_get('session.upload_progress.prefix');
+    define('UPLOAD_PREFIX', ini_get('session.upload_progress.prefix'));
 
     session_start();
     foreach ($_SESSION as $key => $value) {
         // only copy session-prefixed data
-        if (substr($key, 0, strlen($prefix)) == $prefix) {
+        if (substr($key, 0, strlen(UPLOAD_PREFIX)) == UPLOAD_PREFIX) {
             $sessionupload[$key] = $value;
         }
     }
@@ -53,6 +53,15 @@ if (defined('SESSIONUPLOAD')) {
     $sessionupload = unserialize(SESSIONUPLOAD);
     foreach ($sessionupload as $key => $value) {
         $_SESSION[$key] = $value;
+    }
+
+    // remove session upload data that are not set anymore
+    foreach ($_SESSION as $key => $value) {
+        if (substr($key, 0, strlen(UPLOAD_PREFIX)) == UPLOAD_PREFIX
+            && ! isset($sessionupload[$key])
+        ) {
+            unset($_SESSION[$key]);
+        }
     }
 }
 
