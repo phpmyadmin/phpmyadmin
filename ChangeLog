@@ -18,6 +18,7 @@ phpMyAdmin - ChangeLog
 - bug #3534121 [config] duplicate line in config.sample.inc.php
 - bug #3534311 [interface] Grid editing incorrectly parses ENUM/SET values
 - bug #3510196 [core] More clever URL rewriting with ForceSSL
+- bug #3539044 [interface] Browse mode "Show" button gives blank page if no results anymore
 
 3.5.1.0 (2012-05-03)
 - bug #3510784 [edit] Limit clause ignored when sort order is remembered
