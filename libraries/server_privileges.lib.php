@@ -454,110 +454,8 @@ function PMA_getHtmlToDisplayPrivilegesTable($random_n, $db = '*', $table = '*',
     if (! empty($columns)) {
         $html_output .= PMA_getHtmlForTableSpecificPrivileges($username, $hostname, $db, $table, $columns);
     } else {
-
         // g l o b a l    o r    d b - s p e c i f i c
-        //
-        $privTable_names = array(0 => __('Data'), 1 => __('Structure'), 2 => __('Administration'));
-
-        // d a t a
-        $privTable[0] = array(
-            array('Select', 'SELECT', __('Allows reading data.')),
-            array('Insert', 'INSERT', __('Allows inserting and replacing data.')),
-            array('Update', 'UPDATE', __('Allows changing data.')),
-            array('Delete', 'DELETE', __('Allows deleting data.'))
-        );
-        if ($db == '*') {
-            $privTable[0][] = array('File', 'FILE', __('Allows importing data from and exporting data into files.'));
-        }
-
-        // s t r u c t u r e
-        $privTable[1] = array(
-            array('Create', 'CREATE', ($table == '*' ? __('Allows creating new databases and tables.') : __('Allows creating new tables.'))),
-            array('Alter', 'ALTER', __('Allows altering the structure of existing tables.')),
-            array('Index', 'INDEX', __('Allows creating and dropping indexes.')),
-            array('Drop', 'DROP', ($table == '*' ? __('Allows dropping databases and tables.') : __('Allows dropping tables.'))),
-            array('Create_tmp_table', 'CREATE TEMPORARY TABLES', __('Allows creating temporary tables.')),
-            array('Show_view', 'SHOW VIEW', __('Allows performing SHOW CREATE VIEW queries.')),
-            array('Create_routine', 'CREATE ROUTINE', __('Allows creating stored routines.')),
-            array('Alter_routine', 'ALTER ROUTINE', __('Allows altering and dropping stored routines.')),
-            array('Execute', 'EXECUTE', __('Allows executing stored routines.')),
-        );
-        // this one is for a db-specific priv: Create_view_priv
-        if (isset($row['Create_view_priv'])) {
-            $privTable[1][] = array('Create_view', 'CREATE VIEW', __('Allows creating new views.'));
-        }
-        // this one is for a table-specific priv: Create View_priv
-        if (isset($row['Create View_priv'])) {
-            $privTable[1][] = array('Create View', 'CREATE VIEW', __('Allows creating new views.'));
-        }
-        if (isset($row['Event_priv'])) {
-            // MySQL 5.1.6
-            $privTable[1][] = array('Event', 'EVENT', __('Allows to set up events for the event scheduler'));
-            $privTable[1][] = array('Trigger', 'TRIGGER', __('Allows creating and dropping triggers'));
-        }
-
-        // a d m i n i s t r a t i o n
-        $privTable[2] = array(
-            array('Grant', 'GRANT', __('Allows adding users and privileges without reloading the privilege tables.')),
-        );
-        if ($db == '*') {
-            $privTable[2][] = array('Super', 'SUPER', __('Allows connecting, even if maximum number of connections is reached; required for most administrative operations like setting global variables or killing threads of other users.'));
-            $privTable[2][] = array('Process', 'PROCESS', __('Allows viewing processes of all users'));
-            $privTable[2][] = array('Reload', 'RELOAD', __('Allows reloading server settings and flushing the server\'s caches.'));
-            $privTable[2][] = array('Shutdown', 'SHUTDOWN', __('Allows shutting down the server.'));
-            $privTable[2][] = array('Show_db', 'SHOW DATABASES', __('Gives access to the complete list of databases.'));
-        }
-        $privTable[2][] = array('Lock_tables', 'LOCK TABLES', __('Allows locking tables for the current thread.'));
-        $privTable[2][] = array('References', 'REFERENCES', __('Has no effect in this MySQL version.'));
-        if ($db == '*') {
-            $privTable[2][] = array('Repl_client', 'REPLICATION CLIENT', __('Allows the user to ask where the slaves / masters are.'));
-            $privTable[2][] = array('Repl_slave', 'REPLICATION SLAVE', __('Needed for the replication slaves.'));
-            $privTable[2][] = array('Create_user', 'CREATE USER', __('Allows creating, dropping and renaming user accounts.'));
-        }
-        $html_output .= '<input type="hidden" name="grant_count" value="'
-            . (count($privTable[0]) + count($privTable[1]) + count($privTable[2]) - (isset($row['Grant_priv']) ? 1 : 0))
-            . '" />' . "\n"
-            . '<fieldset id="fieldset_user_global_rights">' . "\n"
-            . '<legend>' . "\n"
-            . '        '
-            . ($db == '*'
-                ? __('Global privileges')
-                : ($table == '*'
-                    ? __('Database-specific privileges')
-                    : __('Table-specific privileges'))) . "\n"
-            . '(<a href="server_privileges.php?'
-            . $GLOBALS['url_query'] . '&amp;checkall=1" onclick="setCheckboxes(\'addUsersForm_' . $random_n . '\', true); return false;">'
-            . __('Check All') . '</a> /' . "\n"
-            . '<a href="server_privileges.php?'
-            . $GLOBALS['url_query'] . '" onclick="setCheckboxes(\'addUsersForm_' . $random_n . '\', false); return false;">'
-            . __('Uncheck All') . '</a>)' . "\n"
-            . '</legend>' . "\n"
-            . '<p><small><i>' . __('Note: MySQL privilege names are expressed in English') . '</i></small></p>' . "\n";
-
-        // Output the Global privilege tables with checkboxes
-        foreach ($privTable as $i => $table) {
-            $html_output .= '<fieldset>' . "\n"
-                . '<legend>' . __($privTable_names[$i]) . '</legend>' . "\n";
-            foreach ($table as $priv) {
-                $html_output .= '<div class="item">' . "\n"
-                    . '<input type="checkbox"'
-                    . ' name="' . $priv[0] . '_priv" id="checkbox_' . $priv[0] . '_priv"'
-                    . ' value="Y" title="' . $priv[2] . '"'
-                    . ((! empty($GLOBALS['checkall']) || $row[$priv[0] . '_priv'] == 'Y') ?  ' checked="checked"' : '')
-                    . '/>' . "\n"
-                    . '<label for="checkbox_' . $priv[0] . '_priv"><code><dfn title="' . $priv[2] . '">'
-                    . $priv[1] . '</dfn></code></label>' . "\n"
-                    . '</div>' . "\n";
-            }
-            $html_output .= '</fieldset>' . "\n";
-        }
-
-        // The "Resource limits" box is not displayed for db-specific privs
-        if ($db == '*') {
-            $html_output .= PMA_getHtmlForDisplayResourceLimits($row);
-        }
-        // for Safari 2.0.2
-        $html_output .= '<div class="clearfloat"></div>' . "\n";
+        $html_output .= PMA_getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row, $random_n);
     }
     $html_output .= '</fieldset>' . "\n";
     if ($submit) {
@@ -746,6 +644,186 @@ function PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row, $grant_t
     } // end foreach ()
     return $html_output;
 }
+
+/**
+ * Get HTML for global or database specific privileges
+ * 
+ * @param string $db        the database
+ * @param string $table     the table
+ * @param string $row       first row from result or boolean false
+ * @param string $random_n  a random number that will be appended
+ *                          to the id of the user forms
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row, $random_n)
+{
+    $privTable_names = array(0 => __('Data'), 1 => __('Structure'), 2 => __('Administration'));
+    $privTable = array();
+    // d a t a
+    $privTable[0] = PMA_getDataPrivilegeTable($db);
+
+    // s t r u c t u r e
+    $privTable[1] = PMA_getStructurePrivilegeTable($table, $row);
+
+    // a d m i n i s t r a t i o n
+    $privTable[2] = PMA_getAdministrationPrivilegeTable($db);
+    
+    $html_output = '<input type="hidden" name="grant_count" value="'
+        . (count($privTable[0]) + count($privTable[1]) + count($privTable[2]) - (isset($row['Grant_priv']) ? 1 : 0))
+        . '" />' . "\n"
+        . '<fieldset id="fieldset_user_global_rights">' . "\n"
+        . '<legend>' . "\n"
+        . '        '
+        . ($db == '*'
+            ? __('Global privileges')
+            : ($table == '*'
+                ? __('Database-specific privileges')
+                : __('Table-specific privileges'))) . "\n"
+        . '(<a href="server_privileges.php?'
+        . $GLOBALS['url_query'] . '&amp;checkall=1" onclick="setCheckboxes(\'addUsersForm_' . $random_n . '\', true); return false;">'
+        . __('Check All') . '</a> /' . "\n"
+        . '<a href="server_privileges.php?'
+        . $GLOBALS['url_query'] . '" onclick="setCheckboxes(\'addUsersForm_' . $random_n . '\', false); return false;">'
+        . __('Uncheck All') . '</a>)' . "\n"
+        . '</legend>' . "\n"
+        . '<p><small><i>' . __('Note: MySQL privilege names are expressed in English') . '</i></small></p>' . "\n";
+
+    // Output the Global privilege tables with checkboxes
+    $html_output .= PMA_getHtmlForGlobalPrivTableWithCheckboxes($privTable, $privTable_names, $row);
+
+    // The "Resource limits" box is not displayed for db-specific privs
+    if ($db == '*') {
+        $html_output .= PMA_getHtmlForDisplayResourceLimits($row);
+    }
+    // for Safari 2.0.2
+    $html_output .= '<div class="clearfloat"></div>' . "\n";
+    
+    return $html_output;
+}
+
+/**
+ * Get data privilege table as an array
+ * 
+ * @param string $db    the database
+ * 
+ * @return string       data privilege table
+ */
+function PMA_getDataPrivilegeTable($db)
+{
+    $data_privTable = array(
+        array('Select', 'SELECT', __('Allows reading data.')),
+        array('Insert', 'INSERT', __('Allows inserting and replacing data.')),
+        array('Update', 'UPDATE', __('Allows changing data.')),
+        array('Delete', 'DELETE', __('Allows deleting data.'))
+    );
+    if ($db == '*') {
+        $data_privTable[]
+            = array('File',
+                'FILE',
+                __('Allows importing data from and exporting data into files.')
+            );
+    }
+    return $data_privTable;
+}
+
+/**
+ * Get structure privilege table as an array
+ * 
+ * @param string $table the table
+ * @param array $row    first row from result or boolean false
+ * 
+ * @return string       structure privilege table
+ */
+function PMA_getStructurePrivilegeTable($table, $row)
+{
+    $structure_privTable = array(
+        array('Create', 'CREATE', ($table == '*' ? __('Allows creating new databases and tables.') : __('Allows creating new tables.'))),
+        array('Alter', 'ALTER', __('Allows altering the structure of existing tables.')),
+        array('Index', 'INDEX', __('Allows creating and dropping indexes.')),
+        array('Drop', 'DROP', ($table == '*' ? __('Allows dropping databases and tables.') : __('Allows dropping tables.'))),
+        array('Create_tmp_table', 'CREATE TEMPORARY TABLES', __('Allows creating temporary tables.')),
+        array('Show_view', 'SHOW VIEW', __('Allows performing SHOW CREATE VIEW queries.')),
+        array('Create_routine', 'CREATE ROUTINE', __('Allows creating stored routines.')),
+        array('Alter_routine', 'ALTER ROUTINE', __('Allows altering and dropping stored routines.')),
+        array('Execute', 'EXECUTE', __('Allows executing stored routines.')),
+    );
+    // this one is for a db-specific priv: Create_view_priv
+    if (isset($row['Create_view_priv'])) {
+        $structure_privTable[] = array('Create_view', 'CREATE VIEW', __('Allows creating new views.'));
+    }
+    // this one is for a table-specific priv: Create View_priv
+    if (isset($row['Create View_priv'])) {
+        $structure_privTable[] = array('Create View', 'CREATE VIEW', __('Allows creating new views.'));
+    }
+    if (isset($row['Event_priv'])) {
+        // MySQL 5.1.6
+        $structure_privTable[] = array('Event', 'EVENT', __('Allows to set up events for the event scheduler'));
+        $structure_privTable[] = array('Trigger', 'TRIGGER', __('Allows creating and dropping triggers'));
+    }
+    return $structure_privTable;
+}
+
+/**
+ * Get administration privilege table as an array
+ * 
+ * @param string $db    the table
+ * 
+ * @return string       administration privilege table
+ */
+function PMA_getAdministrationPrivilegeTable($db)
+{
+    $administration_privTable = array(
+        array('Grant', 'GRANT', __('Allows adding users and privileges without reloading the privilege tables.')),
+    );
+    if ($db == '*') {
+        $administration_privTable[] = array('Super', 'SUPER', __('Allows connecting, even if maximum number of connections is reached; required for most administrative operations like setting global variables or killing threads of other users.'));
+        $administration_privTable[] = array('Process', 'PROCESS', __('Allows viewing processes of all users'));
+        $administration_privTable[] = array('Reload', 'RELOAD', __('Allows reloading server settings and flushing the server\'s caches.'));
+        $administration_privTable[] = array('Shutdown', 'SHUTDOWN', __('Allows shutting down the server.'));
+        $administration_privTable[] = array('Show_db', 'SHOW DATABASES', __('Gives access to the complete list of databases.'));
+    }
+    $administration_privTable[] = array('Lock_tables', 'LOCK TABLES', __('Allows locking tables for the current thread.'));
+    $administration_privTable[] = array('References', 'REFERENCES', __('Has no effect in this MySQL version.'));
+    if ($db == '*') {
+        $administration_privTable[] = array('Repl_client', 'REPLICATION CLIENT', __('Allows the user to ask where the slaves / masters are.'));
+        $administration_privTable[] = array('Repl_slave', 'REPLICATION SLAVE', __('Needed for the replication slaves.'));
+        $administration_privTable[] = array('Create_user', 'CREATE USER', __('Allows creating, dropping and renaming user accounts.'));
+    }
+    return $administration_privTable;
+}
+
+/**
+ * Get HTML snippet for global privileges table with check boxes
+ * 
+ * @param array $privTable          privileges table array
+ * @param array $privTable_names    names of the privilege tables (Data, Structure, Administration)
+ * @param array $row                first row from result or boolean false
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForGlobalPrivTableWithCheckboxes($privTable, $privTable_names, $row)
+{
+    $html_output = '';
+    foreach ($privTable as $i => $table) {
+        $html_output .= '<fieldset>' . "\n"
+            . '<legend>' . __($privTable_names[$i]) . '</legend>' . "\n";
+        foreach ($table as $priv) {
+            $html_output .= '<div class="item">' . "\n"
+                . '<input type="checkbox"'
+                . ' name="' . $priv[0] . '_priv" id="checkbox_' . $priv[0] . '_priv"'
+                . ' value="Y" title="' . $priv[2] . '"'
+                . ((! empty($GLOBALS['checkall']) || $row[$priv[0] . '_priv'] == 'Y') ?  ' checked="checked"' : '')
+                . '/>' . "\n"
+                . '<label for="checkbox_' . $priv[0] . '_priv"><code><dfn title="' . $priv[2] . '">'
+                . $priv[1] . '</dfn></code></label>' . "\n"
+                . '</div>' . "\n";
+        }
+        $html_output .= '</fieldset>' . "\n";
+    }
+    return $html_output;
+}
+
 /**
  * Displays the fields used by the "new user" form as well as the
  * "change login information / copy user" form.
