@@ -42,6 +42,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 + [import] New plugin: import mediawiki
 + Add Ajax support to Fast filter in order to search the term in all database tables
 - bug #3535015 [navi] DbFilter, TableFilter clear button hidden on Chrome
++ rfe #3528994 [interface] Allow wrapping possibly long values in replication-status table
 
 3.5.3.0 (not yet released)
 
