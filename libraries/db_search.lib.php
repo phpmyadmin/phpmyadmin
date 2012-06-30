@@ -80,7 +80,7 @@ function PMA_dbSearchGetWhereClause($table, $criteriaSearchString,
     // Usage example: If user is seaching for a literal $ in a regexp search,
     // he should enter \$ as the value.
     $criteriaSearchString = PMA_sqlAddSlashes(
-        $_REQUEST['criteriaSearchString'], ($criteriaSearchType == 4 ? false : true)
+        $criteriaSearchString, ($criteriaSearchType == 4 ? false : true)
     );
     // Extract search words or pattern
     $search_words = (($criteriaSearchType > 2)
