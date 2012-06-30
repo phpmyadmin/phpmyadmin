@@ -1504,6 +1504,9 @@ function PMA_getAfterInsertDropDown($where_clause, $after_insert, $found_unique_
         //if (preg_match('@^[\s]*`[^`]*` = [0-9]+@', $where_clause)) {
         // in 2.9.0, we are looking for `table_name`.`field_name` = numeric_value
         $is_numeric = false;
+        if (! is_array($where_clause)) {
+            $where_clause = array($where_clause);
+        }
         for ($i = 0; $i < count($where_clause); $i++) {
             $is_numeric = preg_match(
                 '@^[\s]*`[^`]*`[\.]`[^`]*` = [0-9]+@',
