@@ -42,15 +42,10 @@ function PMA_getSearchSqls($table, $criteriaColumnName, $criteriaSearchString,
     // Search words or pattern
     $search_words    = (($criteriaSearchType > 2)
         ? array($criteriaSearchString) : explode(' ', $criteriaSearchString));
-
-    $like_or_regex   = (($criteriaSearchType == 4) ? 'REGEXP' : 'LIKE');
-    $automatic_wildcard   = (($criteriaSearchType < 3) ? '%' : '');
-
+    // Gets where clause for the query
     $where_clause = PMA_dbSearchGetWhereClause(
-        $table, $search_words, $criteriaSearchType, $criteriaColumnName,
-        $like_or_regex, $automatic_wildcard
+        $table, $search_words, $criteriaSearchType, $criteriaColumnName
     );
-
     // Builds complete queries
     $sql['select_columns'] = $sqlstr_select . ' * ' . $sqlstr_from . $where_clause;
     // here, I think we need to still use the COUNT clause, even for
@@ -71,17 +66,17 @@ function PMA_getSearchSqls($table, $criteriaColumnName, $criteriaSearchString,
  *                                    (1 -> 1 word at least, 2 -> all words,
  *                                    3 -> exact string, 4 -> regexp)
  * @param string  $criteriaColumnName Restrict the search to this column
- * @param string  $like_or_regex      Whether to use 'LIKE' or 'REGEXP'
- * @param string  $automatic_wildcard Use automatic wildcard
  *
  * @return string The generated where clause
  */
 function PMA_dbSearchGetWhereClause($table, $search_words, $criteriaSearchType,
-    $criteriaColumnName, $like_or_regex, $automatic_wildcard
+    $criteriaColumnName
 ) {
     $where_clause = '';
     // Columns to select
     $allColumns = PMA_DBI_get_columns($GLOBALS['db'], $table);
+    $like_or_regex   = (($criteriaSearchType == 4) ? 'REGEXP' : 'LIKE');
+    $automatic_wildcard   = (($criteriaSearchType < 3) ? '%' : '');
     $likeClauses = array();
 
     foreach ($search_words as $search_word) {
