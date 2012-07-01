@@ -418,7 +418,48 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             $output
         );
     }
+
+    /**
+     * Test for _getClassForDateTimeRelatedFields - case 1
+     */
+    public function testGetClassForDateTimeRelatedFieldsCase1()
+    {
+        $this->assertEquals(
+            $this->_callPrivateFunction(
+                '_getClassForDateTimeRelatedFields',
+                array(PMA_DisplayResults::DATETIME_FIELD)
+            ),
+            'datetimefield'
+        );
+    }
     
+    /**
+     * Test for _getClassForDateTimeRelatedFields - case 2
+     */
+    public function testGetClassForDateTimeRelatedFieldsCase2()
+    {
+        $this->assertEquals(
+            $this->_callPrivateFunction(
+                '_getClassForDateTimeRelatedFields',
+                array(PMA_DisplayResults::DATE_FIELD)
+            ),
+            'datefield'
+        );
+    }
+    
+    /**
+     * Test for _getClassForDateTimeRelatedFields - case 3
+     */
+    public function testGetClassForDateTimeRelatedFieldsCase3()
+    {
+        $this->assertEquals(
+            $this->_callPrivateFunction(
+                '_getClassForDateTimeRelatedFields',
+                array(PMA_DisplayResults::STRING_FIELD)
+            ),
+            ''
+        );
+    }
     
 
 }
