@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-28 09:04+0200\n"
-"PO-Revision-Date: 2012-05-02 12:41+0200\n"
-"Last-Translator: Marc Delisle <marc@infomarc.info>\n"
+"PO-Revision-Date: 2012-07-01 18:47+0200\n"
+"Last-Translator: aitzol berasategi <aitzol76@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.10\n"
+"X-Generator: Weblate 1.1\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:577 server_privileges.php:1838
@@ -29,15 +29,14 @@ msgid "Page number:"
 msgstr "Orri zenbakia:"
 
 #: browse_foreigners.php:94
-#, fuzzy
 msgid ""
 "The target browser window could not be updated. Maybe you have closed the "
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"The target browser window could not be updated. Maybe you have closed the "
-"parent window, or your browser's security settings are configured to block "
-"cross-window updates."
+"Helburuko lehioa ezin da eguneratu. Baliteke jatorrizko leihoa itxita "
+"edukitzea edo zure nabigatzailearen segurtasun ezarpenak zeharkako lehioen "
+"eguneratzea blokeatzeko konfiguraturik egotea."
 
 #: browse_foreigners.php:168 libraries/Menu.class.php:259
 #: libraries/Menu.class.php:353 libraries/common.lib.php:3309
@@ -82,9 +81,8 @@ msgstr "Joan"
 
 #: browse_foreigners.php:186 browse_foreigners.php:190
 #: libraries/Index.class.php:461 tbl_tracking.php:365
-#, fuzzy
 msgid "Keyname"
-msgstr "Giltzaren izena"
+msgstr "Giltza-izena"
 
 #: browse_foreigners.php:187 browse_foreigners.php:189
 #: server_collations.php:39 server_collations.php:51 server_engines.php:42
@@ -103,8 +101,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"%s fitxategia ez dago eskuragarri sisteman, joan www.phpmyadmin.net "
-"informazio gehiagorako"
+"%s fitxategia ez dago eskuragarri sisteman, informazio gehiagorako ikusi "
+"www.phpmyadmin.net"
 
 #: db_create.php:74
 #, php-format
@@ -288,10 +286,10 @@ msgid "Database %1$s has been renamed to %2$s"
 msgstr "%s datu-basea %s-(e)ra berrizendatua izan da"
 
 #: db_operations.php:330
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "%s datu-basea hona kopiatua izan da: %s."
+msgstr "%1$s datu-basea %2$s(e)ra kopiatua izan da."
 
 #: db_operations.php:461
 msgid "Rename database to"
