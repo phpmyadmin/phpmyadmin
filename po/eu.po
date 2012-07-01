@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-07-01 12:06+0200\n"
+"PO-Revision-Date: 2012-07-01 18:46+0200\n"
 "Last-Translator: aitzol berasategi <aitzol76@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -29,15 +29,14 @@ msgid "Page number:"
 msgstr "Orri zenbakia:"
 
 #: browse_foreigners.php:142
-#, fuzzy
 msgid ""
 "The target browser window could not be updated. Maybe you have closed the "
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"The target browser window could not be updated. Maybe you have closed the "
-"parent window, or your browser's security settings are configured to block "
-"cross-window updates."
+"Helburuko lehioa ezin da eguneratu. Baliteke jatorrizko leihoa itxita "
+"edukitzea edo zure nabigatzailearen segurtasun ezarpenak zeharkako lehioen "
+"eguneratzea blokeatzeko konfiguraturik egotea."
 
 #: browse_foreigners.php:160 libraries/common.lib.php:3129
 #: libraries/common.lib.php:3136 libraries/common.lib.php:3345
