@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-28 09:04+0200\n"
-"PO-Revision-Date: 2012-07-01 12:06+0200\n"
+"PO-Revision-Date: 2012-07-01 18:47+0200\n"
 "Last-Translator: aitzol berasategi <aitzol76@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -29,15 +29,14 @@ msgid "Page number:"
 msgstr "Orri zenbakia:"
 
 #: browse_foreigners.php:94
-#, fuzzy
 msgid ""
 "The target browser window could not be updated. Maybe you have closed the "
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"The target browser window could not be updated. Maybe you have closed the "
-"parent window, or your browser's security settings are configured to block "
-"cross-window updates."
+"Helburuko lehioa ezin da eguneratu. Baliteke jatorrizko leihoa itxita "
+"edukitzea edo zure nabigatzailearen segurtasun ezarpenak zeharkako lehioen "
+"eguneratzea blokeatzeko konfiguraturik egotea."
 
 #: browse_foreigners.php:168 libraries/Menu.class.php:259
 #: libraries/Menu.class.php:353 libraries/common.lib.php:3309
@@ -287,10 +286,10 @@ msgid "Database %1$s has been renamed to %2$s"
 msgstr "%s datu-basea %s-(e)ra berrizendatua izan da"
 
 #: db_operations.php:330
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "%s datu-basea hona kopiatua izan da: %s."
+msgstr "%1$s datu-basea %2$s(e)ra kopiatua izan da."
 
 #: db_operations.php:461
 msgid "Rename database to"
