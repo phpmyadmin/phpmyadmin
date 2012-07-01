@@ -375,7 +375,7 @@ if ($response->isAjax()) {
     exit;
 }
 
-if (isset($return_to_sql_query)) {
+if (! empty($return_to_sql_query)) {
     $disp_query = $GLOBALS['sql_query'];
     $disp_message = $message;
     unset($message);
