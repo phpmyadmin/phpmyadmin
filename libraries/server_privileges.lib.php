@@ -1093,4 +1093,41 @@ function PMA_getMessageAndSqlQueryForPrivilegesRevoke($db_and_table, $dbname,
     return array($message, $sql_query);
 }
 
+/**'
+ * Get a common SQL query for 'update privileges' and 'add user'
+ * 
+ * @param type $Grant_priv              grant privileges
+ * @param type $max_questions           maximum questions
+ * @param type $max_connections         maximum connections
+ * @param type $max_updates             maximum updates
+ * @param type $max_user_connections    maximum userconnections
+ * 
+ * @return string $sql_query
+ */
+function PMA_getCommonSQlQueryForAddUserAndUpdatePrivs($Grant_priv, $max_questions, $max_connections,
+    $max_updates, $max_user_connections
+) {
+    $sql_query = 'WITH';
+    if (isset($Grant_priv) && $Grant_priv == 'Y') {
+        $sql_query .= ' GRANT OPTION';
+    }
+    if (isset($Grant_priv)) {
+        $max_questions = max(0, (int)$max_questions);
+        $sql_query .= ' MAX_QUERIES_PER_HOUR ' . $max_questions;
+    }
+    if (isset($max_connections)) {
+        $max_connections = max(0, (int)$max_connections);
+        $sql_query .= ' MAX_CONNECTIONS_PER_HOUR ' . $max_connections;
+    }
+    if (isset($max_updates)) {
+        $max_updates = max(0, (int)$max_updates);
+        $sql_query .= ' MAX_UPDATES_PER_HOUR ' . $max_updates;
+    }
+    if (isset($max_user_connections)) {
+        $max_user_connections = max(0, (int)$max_user_connections);
+        $sql_query .= ' MAX_USER_CONNECTIONS ' . $max_user_connections;
+    }
+    return $sql_query;
+}
+
 ?>

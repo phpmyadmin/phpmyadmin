@@ -216,7 +216,6 @@ if (isset($_REQUEST['change_copy'])) {
     }
 }
 
-
 /**
  * Adds a user
  *   (Changes / copies a user, part II)
@@ -275,40 +274,16 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
                 $create_user_show = $create_user_real;
             }
         }
-        /**
-         * @todo similar code appears twice in this script
-         */
+
         if ((isset($Grant_priv) && $Grant_priv == 'Y')
             || (isset($max_questions) || isset($max_connections)
             || isset($max_updates) || isset($max_user_connections))
         ) {
-            $real_sql_query .= ' WITH';
-            $sql_query .= ' WITH';
-            if (isset($Grant_priv) && $Grant_priv == 'Y') {
-                $real_sql_query .= ' GRANT OPTION';
-                $sql_query .= ' GRANT OPTION';
-            }
-            if (isset($max_questions)) {
-                // avoid negative values
-                $max_questions = max(0, (int)$max_questions);
-                $real_sql_query .= ' MAX_QUERIES_PER_HOUR ' . $max_questions;
-                $sql_query .= ' MAX_QUERIES_PER_HOUR ' . $max_questions;
-            }
-            if (isset($max_connections)) {
-                $max_connections = max(0, (int)$max_connections);
-                $real_sql_query .= ' MAX_CONNECTIONS_PER_HOUR ' . $max_connections;
-                $sql_query .= ' MAX_CONNECTIONS_PER_HOUR ' . $max_connections;
-            }
-            if (isset($max_updates)) {
-                $max_updates = max(0, (int)$max_updates);
-                $real_sql_query .= ' MAX_UPDATES_PER_HOUR ' . $max_updates;
-                $sql_query .= ' MAX_UPDATES_PER_HOUR ' . $max_updates;
-            }
-            if (isset($max_user_connections)) {
-                $max_user_connections = max(0, (int)$max_user_connections);
-                $real_sql_query .= ' MAX_USER_CONNECTIONS ' . $max_user_connections;
-                $sql_query .= ' MAX_USER_CONNECTIONS ' . $max_user_connections;
-            }
+            $real_sql_query .= PMA_getCommonSQlQueryForAddUserAndUpdatePrivs(
+                $Grant_priv, $max_questions, $max_connections,$max_updates, 
+                $max_user_connections
+            );
+            $sql_query .= $real_sql_query;
         }
         if (isset($create_user_real)) {
             $create_user_real .= ';';
@@ -508,34 +483,15 @@ if (! empty($update_privs)) {
             . ' ON ' . $db_and_table
             . ' TO \'' . PMA_sqlAddSlashes($username) . '\'@\'' . PMA_sqlAddSlashes($hostname) . '\'';
 
-        /**
-         * @todo similar code appears twice in this script
-         */
         if ((isset($Grant_priv) && $Grant_priv == 'Y')
             || (! isset($dbname)
             && (isset($max_questions) || isset($max_connections)
             || isset($max_updates) || isset($max_user_connections)))
         ) {
-            $sql_query2 .= 'WITH';
-            if (isset($Grant_priv) && $Grant_priv == 'Y') {
-                $sql_query2 .= ' GRANT OPTION';
-            }
-            if (isset($max_questions)) {
-                $max_questions = max(0, (int)$max_questions);
-                $sql_query2 .= ' MAX_QUERIES_PER_HOUR ' . $max_questions;
-            }
-            if (isset($max_connections)) {
-                $max_connections = max(0, (int)$max_connections);
-                $sql_query2 .= ' MAX_CONNECTIONS_PER_HOUR ' . $max_connections;
-            }
-            if (isset($max_updates)) {
-                $max_updates = max(0, (int)$max_updates);
-                $sql_query2 .= ' MAX_UPDATES_PER_HOUR ' . $max_updates;
-            }
-            if (isset($max_user_connections)) {
-                $max_user_connections = max(0, (int)$max_user_connections);
-                $sql_query2 .= ' MAX_USER_CONNECTIONS ' . $max_user_connections;
-            }
+            $sql_query2 .= PMA_getCommonSQlQueryForAddUserAndUpdatePrivs(
+                $Grant_priv, $max_questions, $max_connections, $max_updates,
+                $max_user_connections
+            );
         }
         $sql_query2 .= ';';
     }
