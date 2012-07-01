@@ -394,6 +394,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param string  $hide_class       the class for visibility of a column
      * @param string  $field_type_class the class related to type of the field
      * @param integer $row_no           the row index
+     * @param string  $output           output of__getResettedClassForInlineEdit
      * 
      * @dataProvider dataProviderForTestGetResettedClassForInlineEdit
      */
@@ -458,6 +459,181 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                 array(PMA_DisplayResults::STRING_FIELD)
             ),
             ''
+        );
+    }
+    
+    /**
+     * Provide data for testGetOperationLinksForVerticleTableCase1
+     * 
+     * @return array parameters and output
+     */
+    public function dataProviderForTestGetOperationLinksForVerticleTableCase1()
+    {
+        return array(
+            array(
+                array(
+                    'emptypre' => 4,
+                    'emptyafter' => 0,
+                    'textbtn' => " \n \n \n",
+                    'desc' => array(" \n\nid\n \n", " \n\nname\n \n"),
+                    'edit' => array('<td class="odd edit_row_anchor row_0 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=update&amp;token=a41d74bba668a938d5822179770ab75e" ><span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span></a>\n<input type="hidden" class="where_clause" value ="%60new%60.%60id%60+%3D"...'),
+                    'copy' => array('<td class="odd row_0 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=insert&amp;token=a41d74bba668a938d5822179770ab75e" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>\n<input type="hidden" class="where_clause" value="%60new%60.%60id%60+%3D+1" /></span></"...'),
+                    'delete' => array('<td class="odd row_0 vpointer vmarker center"  >\n<a href="sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Da41d74bba668a938d5822179770ab75e&amp;token=a41d74bba668a938d5822179770ab75e" onclick="return confirmLink(this, \'DEL"...'),
+                    'data' => array(
+                        array('<td class="right data grid_edit not_null    row_0 vpointer vmarker nowrap ">1</td>\n'),
+                        array('<td class="data grid_edit not_null    row_0 vpointer vmarker ">cv x c c</td>\n')
+                    ),
+                    'row_delete' => array('<td class="odd row_0 vpointer vmarker" class="center"><input type="checkbox" id="id_rows_to_delete0[%_PMA_CHECKBOX_DIR_%]" name="rows_to_delete[0]" class="multi_checkbox" value="%60new%60.%60id%60+%3D+1"  /><input type="hidden" class="condition_array" value="{&quot;`new`.`id`&quot;:&quot;= 1&quot;}" />    </td>'),
+                    'rowdata' => array(
+                        array('<td class="right data grid_edit not_null    row_0 vpointer vmarker nowrap ">1</td>\n'),
+                        array('edit not_null    row_0 vpointer vmarker ">cv x c c</td>\n')
+                    )
+                ),
+                'edit',
+                '<tr>
+<td class="odd edit_row_anchor row_0 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=update&amp;token=a41d74bba668a938d5822179770ab75e" ><span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span></a>\n<input type="hidden" class="where_clause" value ="%60new%60.%60id%60+%3D"...</tr>
+'
+            )
+        );
+    }
+
+    /**
+     * Test for _getOperationLinksForVerticleTable - case 1
+     * 
+     * @param array  $vertical_display the information to display
+     * @param string $operation        edit/copy/delete
+     * @param string $output           output of _getOperationLinksForVerticleTable
+     * 
+     * @dataProvider dataProviderForTestGetOperationLinksForVerticleTableCase1
+     */
+    public function testGetOperationLinksForVerticleTableCase1(
+        $vertical_display, $operation, $output
+    ) {
+        $this->assertEquals(
+            $this->_callPrivateFunction(
+                '_getOperationLinksForVerticleTable',
+                array($vertical_display, $operation)
+            ),
+            $output
+        );
+    }
+    
+    /**
+     * Provide data for testGetOperationLinksForVerticleTableCase2
+     * 
+     * @return array parameters and output
+     */
+    public function dataProviderForTestGetOperationLinksForVerticleTableCase2()
+    {
+        return array(
+            array(
+                array(
+                    'emptypre' => 4,
+                    'emptyafter' => 0,
+                    'textbtn' => " \n \n \n",
+                    'desc' => array(" \n\nid\n \n", " \n\nname\n \n"),
+                    'edit' => array('<td class="odd edit_row_anchor row_0 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=update&amp;token=a41d74bba668a938d5822179770ab75e" ><span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span></a>\n<input type="hidden" class="where_clause" value ="%60new%60.%60id%60+%3D"...'),
+                    'copy' => array('<td class="odd row_0 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=insert&amp;token=a41d74bba668a938d5822179770ab75e" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>\n<input type="hidden" class="where_clause" value="%60new%60.%60id%60+%3D+1" /></span></"...'),
+                    'delete' => array('<td class="odd row_0 vpointer vmarker center"  >\n<a href="sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Da41d74bba668a938d5822179770ab75e&amp;token=a41d74bba668a938d5822179770ab75e" onclick="return confirmLink(this, \'DEL"...'),
+                    'data' => array(
+                        array('<td class="right data grid_edit not_null    row_0 vpointer vmarker nowrap ">1</td>\n'),
+                        array('<td class="data grid_edit not_null    row_0 vpointer vmarker ">cv x c c</td>\n')
+                    ),
+                    'row_delete' => '',
+                    'rowdata' => array(
+                        array('<td class="right data grid_edit not_null    row_0 vpointer vmarker nowrap ">1</td>\n'),
+                        array('edit not_null    row_0 vpointer vmarker ">cv x c c</td>\n')
+                    )
+                ),
+                'edit',
+                '<tr>
+ 
+ 
+ 
+<td class="odd edit_row_anchor row_0 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=update&amp;token=a41d74bba668a938d5822179770ab75e" ><span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span></a>\n<input type="hidden" class="where_clause" value ="%60new%60.%60id%60+%3D"...</tr>
+'
+            )
+        );
+    }
+
+    /**
+     * Test for _getOperationLinksForVerticleTable - case 2
+     * 
+     * @param array  $vertical_display the information to display
+     * @param string $operation        edit/copy/delete
+     * @param string $output           output of _getOperationLinksForVerticleTable
+     * 
+     * @dataProvider dataProviderForTestGetOperationLinksForVerticleTableCase2
+     */
+    public function testGetOperationLinksForVerticleTableCase2(
+        $vertical_display, $operation, $output
+    ) {
+        $this->assertEquals(
+            $this->_callPrivateFunction(
+                '_getOperationLinksForVerticleTable',
+                array($vertical_display, $operation)
+            ),
+            $output
+        );
+    }
+    
+    
+    /**
+     * Provide data for testGetOperationLinksForVerticleTableCase3
+     * 
+     * @return array parameters and output
+     */
+    public function dataProviderForTestGetOperationLinksForVerticleTableCase3()
+    {
+        return array(
+            array(
+                array(
+                    'emptypre' => 4,
+                    'emptyafter' => 0,
+                    'textbtn' => " \n \n \n",
+                    'desc' => array(" \n\nid\n \n", " \n\nname\n \n"),
+                    'edit' => '',
+                    'copy' => array('<td class="odd row_0 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=insert&amp;token=a41d74bba668a938d5822179770ab75e" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>\n<input type="hidden" class="where_clause" value="%60new%60.%60id%60+%3D+1" /></span></"...'),
+                    'delete' => array('<td class="odd row_0 vpointer vmarker center"  >\n<a href="sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Da41d74bba668a938d5822179770ab75e&amp;token=a41d74bba668a938d5822179770ab75e" onclick="return confirmLink(this, \'DEL"...'),
+                    'data' => array(
+                        array('<td class="right data grid_edit not_null    row_0 vpointer vmarker nowrap ">1</td>\n'),
+                        array('<td class="data grid_edit not_null    row_0 vpointer vmarker ">cv x c c</td>\n')
+                    ),
+                    'row_delete' => '',
+                    'rowdata' => array(
+                        array('<td class="right data grid_edit not_null    row_0 vpointer vmarker nowrap ">1</td>\n'),
+                        array('edit not_null    row_0 vpointer vmarker ">cv x c c</td>\n')
+                    )
+                ),
+                'delete',
+                '<tr>
+ 
+ 
+ 
+<td class="odd row_0 vpointer vmarker center"  >\n<a href="sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Da41d74bba668a938d5822179770ab75e&amp;token=a41d74bba668a938d5822179770ab75e" onclick="return confirmLink(this, \'DEL"...</tr>
+'
+            )
+        );
+    }
+
+    /**
+     * Test for _getOperationLinksForVerticleTable - case 3
+     * 
+     * @param array  $vertical_display the information to display
+     * @param string $operation        edit/copy/delete
+     * @param string $output           output of _getOperationLinksForVerticleTable
+     * 
+     * @dataProvider dataProviderForTestGetOperationLinksForVerticleTableCase3
+     */
+    public function testGetOperationLinksForVerticleTableCase3(
+        $vertical_display, $operation, $output
+    ) {
+        $this->assertEquals(
+            $this->_callPrivateFunction(
+                '_getOperationLinksForVerticleTable',
+                array($vertical_display, $operation)
+            ),
+            $output
         );
     }
     
