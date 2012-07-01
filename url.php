@@ -13,4 +13,5 @@ if (! PMA_isValid($_GET['url']) || ! preg_match('/^https?:\/\/[^\n\r]*$/', $_GET
 } else {
     header('Location: ' . $_GET['url']);
 }
+die();
 ?>
