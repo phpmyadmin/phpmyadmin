@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
 require_once 'libraries/Scripts.class.php';
 require_once 'libraries/RecentTable.class.php';
 require_once 'libraries/Menu.class.php';
-require_once 'libraries/NavigationHeader.class.php';
+require_once 'libraries/navigation/NavigationHeader.class.php';
 
 /**
  * Class used to output the HTTP and HTML headers
