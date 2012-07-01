@@ -652,9 +652,21 @@ class CollapsibleTree {
     static public function sortNode($a, $b)
     {
         if ($GLOBALS['cfg']['NaturalOrder']) {
-            return strnatcmp($a->name, $b->name);
+            if (substr($a->classes, 0, 3) === 'new') {
+                return -1;
+            } else if (substr($b->classes, 0, 3) === 'new') {
+                return 1;
+            } else {
+                return strnatcmp($a->name, $b->name);
+            }
         } else {
-            return strcmp($a->name, $b->name);
+            if (substr($a->classes, 0, 3) === 'new') {
+                return -1;
+            } else if (substr($b->classes, 0, 3) === 'new') {
+                return 1;
+            } else {
+                return strcmp($a->name, $b->name);
+            }
         }
     }
 }
