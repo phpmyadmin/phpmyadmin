@@ -45,7 +45,9 @@ $(document).ready(function() {
 	                $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
 	                $destination.children('div.list_container').show('fast');
                     if ($destination.find('ul > li').length == 1) {
-                        $destination.find('ul > li').find('a.expander.container').click();
+                        $destination.find('ul > li')
+                            .find('a.expander.container')
+                            .click();
                     }
                 }
                 $icon.show();
@@ -122,7 +124,8 @@ var ResizeHandler = function () {
         var $collapser = $('#pma_navigation_collapser');
         $('#pma_navigation').width(pos);
         $('body').css('margin-' + this.left, pos + 'px');
-        $("#floating_menubar").css('margin-' + this.left, (pos + resizer_width) + 'px');
+        $("#floating_menubar")
+            .css('margin-' + this.left, (pos + resizer_width) + 'px');
         $('#pma_navigation_resizer').css(this.left, pos + 'px');
         if (pos === 0) {
             $collapser
@@ -273,7 +276,8 @@ $(function(){
     $('#pma_navigation_tree div.pageselector a.ajax').live('click', function (e) {
         e.preventDefault();
         var $msgbox = PMA_ajaxShowMessage();
-        $.get($(this).attr('href'), {ajax_request: true, full: true}, function (data) {
+        var params = {ajax_request: true, full: true};
+        $.get($(this).attr('href'), params, function (data) {
             PMA_ajaxRemoveMessage($msgbox);
             if (data.success) {
                 $('#pma_navigation_tree').html(data.message).children('div').show();
