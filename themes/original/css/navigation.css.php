@@ -28,6 +28,15 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     border-<?php echo $right; ?>: 1px solid gray;
 }
 
+#pma_navigation_content {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    <?php echo $left; ?>: 0;
+    z-index: 0;
+    padding-bottom: 1em;
+}
+
 #pma_navigation ul {
     margin: 0;
 }
@@ -166,7 +175,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 li.fast_filter {
     padding-<?php echo $left; ?>: 0.75em;
     margin-<?php echo $left; ?>: 0.75em;
-    padding-<?php echo $right; ?>: 10px;
+    padding-<?php echo $right; ?>: 35px;
     border-<?php echo $left; ?>: 1px solid #666;
 }
 li.fast_filter input {
@@ -208,4 +217,22 @@ li.fast_filter span {
     text-shadow: 0px 1px 0px #fff;
     filter: dropshadow(color=#fff, offx=0, offy=1);
     border: 1px solid #888;
+}
+
+
+/* Scroll handler */
+#pma_navigation_scrollbar {
+    display: none;
+    position: fixed;
+    top: 25px;
+    <?php echo $left; ?>: 220px;
+    width: 20px;
+    background: #ddd;
+    height: 100%;
+    z-index: 1;
+}
+#pma_navigation_scrollbar_handle {
+    position: absolute;
+    width: 20px;
+    background: #888;
 }

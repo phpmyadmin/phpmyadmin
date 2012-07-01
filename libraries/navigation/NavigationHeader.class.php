@@ -28,9 +28,14 @@ class PMA_NavigationHeader
         );
 
         $buffer  = '<div id="pma_navigation">';
-        $buffer .= $link;
         $buffer .= '<div id="pma_navigation_resizer"></div>';
         $buffer .= '<div id="pma_navigation_collapser"></div>';
+        $buffer .= '<div id="pma_navigation_content">';
+        $buffer .= '<div id="pma_navigation_scrollbar">';
+        $buffer .= '<div id="pma_navigation_scrollbar_handle">';
+        $buffer .= '</div>';
+        $buffer .= '</div>';
+        $buffer .= $link;
         $buffer .= $this->logo();
         $buffer .= $this->links();
         $buffer .= $this->serverChoice();
@@ -41,6 +46,7 @@ class PMA_NavigationHeader
             'ajax_clock_small.gif',
             __('Loading')
         );
+        $buffer .= '</div>';
         $buffer .= '</div>';
         $buffer .= '</div>';
         $buffer .= '</div>';

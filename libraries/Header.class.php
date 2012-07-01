@@ -147,6 +147,8 @@ class PMA_Header
         $this->_scripts->addFile('jquery/jquery-ui-1.8.16.custom.js');
         $this->_scripts->addFile('jquery/jquery.sprintf.js');
         $this->_scripts->addFile('jquery/jquery.cookie.js');
+        $this->_scripts->addFile('jquery/jquery.mousewheel.js');
+        $this->_scripts->addFile('jquery/jquery.event.drag-2.0.js');
         $this->_scripts->addFile('update-location.js');
 
         $this->_scripts->addFile('jquery/jquery.qtip-1.0.0-rc3.js');

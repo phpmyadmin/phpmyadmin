@@ -19,10 +19,14 @@ $(document).ready(function() {
         if ($this.hasClass('loaded')) {
 	        if ($icon.is('.ic_b_plus')) {
 		        $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
-		        $children.show('fast');
+		        $children.show('fast', function () {
+                    ScrollHandler.displayScrollbar();
+                });
 	        } else {
 		        $icon.removeClass('ic_b_minus').addClass('ic_b_plus');
-		        $children.hide('fast');
+		        $children.hide('fast', function () {
+                    ScrollHandler.displayScrollbar();
+                });
 	        }
         } else {
             var $destination = $this.closest('li');
@@ -43,7 +47,9 @@ $(document).ready(function() {
                     $destination.find('div.list_container').remove(); // FIXME: Hack, there shouldn't be a list container there
                     $destination.append(data.message);
 	                $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
-	                $destination.children('div.list_container').show('fast');
+	                $destination.children('div.list_container').show('fast', function () {
+                    ScrollHandler.displayScrollbar();
+                });
                     if ($destination.find('ul > li').length == 1) {
                         $destination.find('ul > li')
                             .find('a.expander.container')
@@ -62,8 +68,12 @@ $(document).ready(function() {
     });
 });
 
-
-var PMA_reloadNavigation = function () {
+/**
+ * Reloads the whole navigation tree while preserving its state
+ *
+ * @return void
+ */
+function PMA_reloadNavigation() {
     var $throbber = $('#pma_navigation .throbber')
         .first()
         .css('visibility', 'visible');
@@ -91,6 +101,95 @@ var PMA_reloadNavigation = function () {
     });
 };
 
+/**
+ * @var ScrollHandler Custom object that manages the scrolling of the navigation
+ */
+var ScrollHandler = {
+    sanitize: function (value) {
+        if (value < 0) {
+            value = 0;
+        } else if (value > 1) {
+            value = 1;
+        }
+        return value;
+    },
+    setScrollbar: function (value) {
+        value = ScrollHandler.sanitize(value);
+        var elms = ScrollHandler.elms;
+        var height = elms.$scrollbar.height() - elms.$handle.height() - elms.$scrollbar.offset().top;
+        var offset = Math.floor(
+            value * height
+        );
+        elms.$handle.css('top', offset);
+    },
+    setContent: function (value) {
+        value = ScrollHandler.sanitize(value);
+        var elms = ScrollHandler.elms;
+        var diff = elms.$content.height() - $(window).height();
+        var offset = Math.floor(
+            value * diff
+        );
+        elms.$content.css('top', -offset);
+    },
+    displayScrollbar: function () {
+        var elms = ScrollHandler.elms;
+        if (elms.$content.height() > $(window).height()) {
+            elms.$scrollbar.show().data('active', 1);
+            var visibleRatio = ($(window).height() - elms.$scrollbar.offset().top) / elms.$content.height();
+            elms.$handle.height(
+                Math.floor(
+                    visibleRatio * $(window).height()
+                )
+            );
+        } else {
+            elms.$scrollbar.hide().data('active', 0);
+            elms.$content.css('top', 0);
+        }
+    },
+    init: function () {
+        this.elms = {
+            $content: $('#pma_navigation_content'),
+            $scrollbar: $('#pma_navigation_scrollbar'),
+            $handle: $('#pma_navigation_scrollbar_handle')
+        };
+        this.displayScrollbar();
+        $(window).bind('resize', this.displayScrollbar);
+        this.elms.$handle.bind('drag', function (event, drag) {
+            var elms = ScrollHandler.elms;
+            var scrollbarOffset = elms.$scrollbar.offset().top;
+            var pos = drag.offsetY - scrollbarOffset;
+            var height = $(window).height() - scrollbarOffset - elms.$handle.height();
+            value = ScrollHandler.sanitize(pos / height);
+            ScrollHandler.setScrollbar(value);
+            ScrollHandler.setContent(value);
+        });
+        this.elms.$scrollbar.bind('click', function (event) {
+            if($(event.target).attr('id') === $(this).attr('id')) {
+                var $scrollbar = ScrollHandler.elms.$scrollbar;
+                var $handle = ScrollHandler.elms.$handle;
+                var pos = event.pageY - $scrollbar.offset().top - ($handle.height() / 2);
+                var height = $scrollbar.height() - $scrollbar.offset().top - $handle.height();
+                var target = pos / height;
+                ScrollHandler.setScrollbar(target);
+                ScrollHandler.setContent(target);
+            }
+        });
+        $('#pma_navigation').bind('mousewheel', function(event, delta, deltaX, deltaY) {
+            event.preventDefault();
+            var elms = ScrollHandler.elms;
+            if (elms.$scrollbar.data('active')) {
+                var elms = ScrollHandler.elms;
+                var pixelValue = 1 / (elms.$content.height() - $(window).height());
+                var offset = -deltaY * 20 * pixelValue;
+                var pos = Math.abs(elms.$content.offset().top);
+                var diff = elms.$content.height() - $(window).height();
+                var target = ScrollHandler.sanitize((pos / diff) + offset);
+                ScrollHandler.setScrollbar(target);
+                ScrollHandler.setContent(target);
+            }
+        });
+    }
+};
 
 /**
  * @var ResizeHandler Custom object that manages the resizing of the navigation
@@ -140,6 +239,9 @@ var ResizeHandler = function () {
                 .prop('title', PMA_messages['strHidePanel']);
             $('#serverinfo').css('padding-' + this.left, '0.9em');
         }
+
+        $('#pma_navigation_scrollbar').css(this.left, (pos - $('#pma_navigation_scrollbar').width()) + 'px');
+
         menuResize();
     };
     /**
@@ -267,9 +369,18 @@ var ResizeHandler = function () {
 
 /* Performed on load */
 $(function(){
-    /* Instanciate the resize handler */
-    if ($('#pma_navigation').length) {
+    if ($('#pma_navigation_tree').length) {
+        // Load the navigation into the initial page
+        var url = $('#pma_navigation').find('a.navigation_url').attr('href');
+        $.get(url, 'full=true', function (data) {
+            if (data.success) {
+                $('#pma_navigation_tree').html(data.message).children('div').show();
+                ScrollHandler.displayScrollbar();
+            }
+        });
+        // Fire up the resize and scroll handlers
         new ResizeHandler();
+        ScrollHandler.init();
     }
 
     // Ajax handler for database pagination
