@@ -410,25 +410,25 @@ $(function(){
     // when the table pagination is implemented
 
     // Bind "clear fast filter"
-    $('li.fast_filter > span').live('click', function () {
+    $('#pma_navigation_tree li.fast_filter > span').live('click', function () {
         // Clear the input and apply the fast filter with empty input
         var value = $(this).prev()[0].defaultValue;
         $(this).prev().val(value).trigger('keyup');
     });
     // Bind "fast filter"
-    $('li.fast_filter > input').live('focus', function () {
+    $('#pma_navigation_tree li.fast_filter > input').live('focus', function () {
         if ($(this).val() == this.defaultValue) {
             $(this).val('');
         } else {
             $(this).select();
         }
     });
-    $('li.fast_filter > input').live('blur', function () {
+    $('#pma_navigation_tree li.fast_filter > input').live('blur', function () {
         if ($(this).val() == '') {
             $(this).val(this.defaultValue);
         }
     });
-    $('li.fast_filter > input').live('keyup', function () {
+    $('#pma_navigation_tree li.fast_filter > input').live('keyup', function () {
         var $obj = $(this).parent().parent();
         var str = '';
         if ($(this).val() != this.defaultValue) {
