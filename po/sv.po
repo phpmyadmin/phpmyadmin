@@ -7926,7 +7926,7 @@ msgstr ""
 "program du vill använda och den andra optionen är parametrarna för "
 "programmet. Den tredje optionen, om den är 1, kommer omvandla utdata via "
 "htmlspecialchars() (Default 1). Den fjärde optionen, om 1, kommer förhindra "
-"radbrytning och se till att utskriften sker på en rad (Default 1). "
+"radbrytning och se till att utskriften sker på en rad (Default 1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
