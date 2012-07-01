@@ -45,6 +45,9 @@ VerboseMultiSubmit, ReplaceHelpImg
 + rfe #3528994 [interface] Allow wrapping possibly long values in replication-status table
 
 3.5.3.0 (not yet released)
+- bug #3539044 [interface] Browse mode "Show" button gives blank page if no results anymore
+- bug #3534979 [interface] Copy Database Ajax feedback vanishes long before copying is done
+- bug #3527531 [interface] GC-maxlifetime warning incorrectly displayed
 
 3.5.2.0 (not yet released)
 - bug #3521416 [interface] JS error when editing index
