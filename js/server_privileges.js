@@ -149,8 +149,8 @@ AJAX.registerOnload('server_privileges.js', function() {
                 if (data.success == true) {
                     // Refresh navigation, if we created a database with the name
                     // that is the same as the username of the new user
-                    if ($('#add_user_dialog #createdb_1:checked').length && window.parent) {
-                        window.parent.refreshNavigation(true);
+                    if ($('#add_user_dialog #createdb_1:checked').length) {
+                        PMA_reloadNavigation();
                     }
 
                     $("#add_user_dialog").dialog("close");
@@ -281,8 +281,8 @@ AJAX.registerOnload('server_privileges.js', function() {
                 PMA_ajaxShowMessage(data.message);
                 // Refresh navigation, if we droppped some databases with the name
                 // that is the same as the username of the deleted user
-                if ($('#checkbox_drop_users_db:checked').length && window.parent) {
-                    window.parent.refreshNavigation(true);
+                if ($('#checkbox_drop_users_db:checked').length) {
+                    PMA_reloadNavigation();
                 }
                 //Remove the revoked user from the users list
                 $form.find("input:checkbox:checked").parents("tr").slideUp("medium", function() {

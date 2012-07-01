@@ -15,7 +15,7 @@ $(document).ready(function() {
         event.stopImmediatePropagation();
         var $this = $(this);
         var $children = $this.closest('li').children('div.list_container');
-        var $icon = $this.parent().find('img');
+        var $icon = $this.find('img');
         if ($this.hasClass('loaded')) {
 	        if ($icon.is('.ic_b_plus')) {
 		        $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
@@ -26,7 +26,10 @@ $(document).ready(function() {
 	        }
         } else {
             var $destination = $this.closest('li');
-            var $throbber = $('.throbber').first().clone().show();
+            var $throbber = $('#pma_navigation .throbber')
+                .first()
+                .clone()
+                .css('visibility', 'visible');
             $icon.hide();
             $throbber.insertBefore($icon);
             var params = {
@@ -51,7 +54,41 @@ $(document).ready(function() {
         }
         $(this).blur();
 	});
+
+    $('#pma_navigation_reload').click(function () {
+        PMA_reloadNavigation();
+    });
 });
+
+
+var PMA_reloadNavigation = function () {
+    var $throbber = $('#pma_navigation .throbber')
+        .first()
+        .css('visibility', 'visible');
+    var params = {
+        reload: true
+    };
+    var count = 0;
+    $('#pma_navigation_tree').find('a.expander:visible').each(function () {
+        if ($(this).find('img').is('.ic_b_minus')
+            && $(this).closest('li').find('.list_container .ic_b_minus').length == 0
+        ) {
+            params['a_path[' + count] = $(this).find('span.a_path').text();
+            params['v_path[' + count] = $(this).find('span.v_path').text();
+            count++;
+        }
+    });
+    var url = $('#pma_navigation').find('a.navigation_url').attr('href');
+    $.post(url, params, function (data) {
+        if (data.success) {
+            $throbber.css('visibility', 'hidden');
+            $('#pma_navigation_tree').html(data.message).children('div').show();
+        } else {
+            PMA_ajaxShowMessage(data.error);
+        }
+    });
+};
+
 
 /**
  * @var ResizeHandler Custom object that manages the resizing of the navigation

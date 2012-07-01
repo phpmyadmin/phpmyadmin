@@ -158,6 +158,7 @@ class Node {
         case 'separator':
         case 'separator_depth':
         case 'visible':
+        case 'loaded':
             $this->$a = $b;
             return true;
         default:
@@ -284,6 +285,20 @@ class Node {
                     $retval = true;
                     break;
                 }
+            }
+        }
+        return $retval;
+    }
+
+    public function hasSiblings()
+    {
+        $retval = false;
+        foreach ($this->parent->children as $child) {
+            if ($child != $this
+                && ($child->type == Node::OBJECT || $child->hasChildren(false))
+            ) {
+                $retval = true;
+                break;
             }
         }
         return $retval;

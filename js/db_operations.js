@@ -49,7 +49,7 @@ AJAX.registerOnload('db_operations.js', function() {
         button_options[PMA_messages['strYes']] = function() {
                                                     $(this).dialog("close").remove();
                                                     window.parent.refreshMain();
-                                                    window.parent.refreshNavigation();
+                                                    PMA_reloadNavigation();
                                                 };
         button_options[PMA_messages['strNo']] = function() { $(this).dialog("close").remove(); }
 
@@ -107,12 +107,9 @@ AJAX.registerOnload('db_operations.js', function() {
                 if( $("#checkbox_switch").is(":checked")) {
                     window.parent.db = data.newname;
                     window.parent.refreshMain();
-                    window.parent.refreshNavigation();
+                    PMA_reloadNavigation();
                } else {
-                    // Here we force a refresh because the navigation
-                    // frame url is not changing so this function would
-                    // not refresh it
-                    window.parent.refreshNavigation(true);
+                    PMA_reloadNavigation();
                }
             } else {
                 PMA_ajaxShowMessage(data.error, false);

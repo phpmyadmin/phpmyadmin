@@ -160,7 +160,7 @@ class PMA_NavigationHeader
         if (!empty($GLOBALS['db'])) {
             $params['db'] = $GLOBALS['db'];
         }
-        $retval .= '    <a href="#" id="reloadNavigation">';
+        $retval .= '    <a href="#" id="pma_navigation_reload">';
         if ($GLOBALS['cfg']['NavigationBarIconic']) {
             $retval .= '<img class="icon ic_s_reload" src="themes/dot.gif"';
             $retval .= ' title="' . __('Reload navigation frame') . '"';

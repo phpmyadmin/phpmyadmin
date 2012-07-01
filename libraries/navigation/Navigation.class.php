@@ -48,10 +48,9 @@ class PMA_Navigation {
     public function getDisplay()
     {
         /* Init */
-        $tree   = new CollapsibleTree($this->pos);
-        $full   = ! empty($_REQUEST['full']);
         $retval = '';
-        if ($full) {
+        $tree   = new CollapsibleTree($this->pos);
+        if (! empty($_REQUEST['full']) || ! empty($_REQUEST['reload'])) {
             $_url_params = array('pos' => $this->pos, 'server' => $GLOBALS['server']);
             $num_db = PMA_DBI_fetch_value(
                 "SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`SCHEMATA`"

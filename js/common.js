@@ -86,12 +86,13 @@ function refreshMain(url)
 
 /**
  * reloads navigation frame
+ * TODO: drop this function
  *
  * @param boolean    force   force reloading
  */
 function refreshNavigation(force)
 {
-    console.log('Call to deprecate function refreshNavigation() ignored');
+    PMA_reloadNavigation();
 }
 
 function unmarkDbTable(db, table)

@@ -2132,10 +2132,8 @@ AJAX.registerOnload('functions.js', function() {
                             PMA_adjustTotals();
                         }
 
-                        //Refresh navigation frame as a new table has been added
-                        if (window.parent && window.parent.frame_navigation) {
-                            window.parent.frame_navigation.location.reload();
-                        }
+                        //Refresh navigation as a new table has been added
+                        PMA_reloadNavigation();
                     } else {
                         $('#properties_message')
                          .addClass('error')
@@ -2262,10 +2260,8 @@ AJAX.registerOnload('functions.js', function() {
                     $("#result_query").prepend(data.message);
                     $("#copyTable").find("select[name='target_db'] option").filterByValue(data.db).prop('selected', true);
 
-                    //Refresh navigation frame when the table is coppied
-                    if (window.parent && window.parent.frame_navigation) {
-                        window.parent.frame_navigation.location.reload();
-                    }
+                    // Refresh navigation when the table is coppied
+                    PMA_reloadNavigation();
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
                 }
@@ -2342,7 +2338,7 @@ AJAX.registerOnload('functions.js', function() {
             PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
             $.get(url, {'is_js_confirmed': '1', 'ajax_request': true}, function(data) {
                 //Database deleted successfully, refresh both the frames
-                window.parent.refreshNavigation();
+                PMA_reloadNavigation();
                 window.parent.refreshMain();
             }); // end $.get()
         }); // end $.PMA_confirm()
@@ -3353,7 +3349,7 @@ AJAX.registerOnload('functions.js', function() {
                 if (data.success == true) {
                     PMA_ajaxRemoveMessage($msgbox);
                     // Table deleted successfully, refresh both the frames
-                    window.parent.refreshNavigation();
+                    PMA_reloadNavigation();
                     window.parent.refreshMain();
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
