@@ -563,26 +563,10 @@ if (! empty($update_privs)) {
  * Revokes Privileges
  */
 if (isset($_REQUEST['revokeall'])) {
-    $db_and_table = PMA_wildcardEscapeForGrant($dbname, isset($tablename) ? $tablename : '');
-
-    $sql_query0 = 'REVOKE ALL PRIVILEGES ON ' . $db_and_table
-        . ' FROM \'' . PMA_sqlAddSlashes($username) . '\'@\'' . PMA_sqlAddSlashes($hostname) . '\';';
-    $sql_query1 = 'REVOKE GRANT OPTION ON ' . $db_and_table
-        . ' FROM \'' . PMA_sqlAddSlashes($username) . '\'@\'' . PMA_sqlAddSlashes($hostname) . '\';';
-
-    PMA_DBI_query($sql_query0);
-    if (! PMA_DBI_try_query($sql_query1)) {
-        // this one may fail, too...
-        $sql_query1 = '';
-    }
-    $sql_query = $sql_query0 . ' ' . $sql_query1;
-    $message = PMA_Message::success(__('You have revoked the privileges for %s'));
-    $message->addParam('\'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\'');
-    if (! isset($tablename)) {
-        unset($dbname);
-    } else {
-        unset($tablename);
-    }
+    list ($message, $sql_query) = PMA_getMessageAndSqlQueryForPrivilegesRevoke(
+        $db_and_table, $dbname, $tablename, $sql_query0, $sql_query1, $username,
+        $hostname
+    );
 }
 
 /**
@@ -649,7 +633,6 @@ if (isset($_REQUEST['delete']) || (isset($_REQUEST['change_copy']) && $_REQUEST[
         unset($queries);
     }
 }
-
 
 /**
  * Changes / copies a user, part V

@@ -1059,4 +1059,38 @@ function PMA_getMessageForUpdatePassword($pma_pw, $pma_pw2, $err_url, $username,
     return $message;
 }
 
+/**
+ * Revokes privileges and get message and SQL query for privileges revokes
+ * 
+ * @param string $db_and_table  wildcard Escaped database+table specification
+ * @param string $dbname        database name
+ * @param string $tablename     table name
+ * @param string $sql_query0    sql query
+ * @param string $sql_query1    sql query
+ * @param string $username      username
+ * @param string $hostname      hostname
+ * @return array ($message, $sql_query)
+ */
+function PMA_getMessageAndSqlQueryForPrivilegesRevoke($db_and_table, $dbname,
+    $tablename, $sql_query0, $sql_query1, $username, $hostname
+) {
+    $db_and_table = PMA_wildcardEscapeForGrant($dbname, isset($tablename) ? $tablename : '');
+
+    $sql_query0 = 'REVOKE ALL PRIVILEGES ON ' . $db_and_table
+        . ' FROM \'' . PMA_sqlAddSlashes($username) . '\'@\'' . PMA_sqlAddSlashes($hostname) . '\';';
+    $sql_query1 = 'REVOKE GRANT OPTION ON ' . $db_and_table
+        . ' FROM \'' . PMA_sqlAddSlashes($username) . '\'@\'' . PMA_sqlAddSlashes($hostname) . '\';';
+
+    PMA_DBI_query($sql_query0);
+    if (! PMA_DBI_try_query($sql_query1)) {
+        // this one may fail, too...
+        $sql_query1 = '';
+    }
+    $sql_query = $sql_query0 . ' ' . $sql_query1;
+    $message = PMA_Message::success(__('You have revoked the privileges for %s'));
+    $message->addParam('\'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\'');
+    
+    return array($message, $sql_query);
+}
+
 ?>
