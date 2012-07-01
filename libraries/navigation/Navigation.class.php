@@ -49,7 +49,7 @@ class PMA_Navigation {
     {
         /* Init */
         $retval = '';
-        $tree   = new CollapsibleTree($this->pos);
+        $tree   = new PMA_NavigationTree($this->pos);
         if (! empty($_REQUEST['full']) || ! empty($_REQUEST['reload'])) {
             $_url_params = array('pos' => $this->pos, 'server' => $GLOBALS['server']);
             $num_db = PMA_DBI_fetch_value(

@@ -32,7 +32,7 @@ require_once './libraries/navigation/Nodes/Node_Trigger_Container.class.php';
 require_once './libraries/navigation/Nodes/Node_View_Container.class.php';
 
 // Generates a collapsible tree of database objects
-require_once './libraries/navigation/CollapsibleTree.class.php';
+require_once './libraries/navigation/NavigationTree.class.php';
 
 // Also initialises the collapsible tree class
 require_once './libraries/navigation/Navigation.class.php';

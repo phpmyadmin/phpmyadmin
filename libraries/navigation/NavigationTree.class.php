@@ -8,7 +8,7 @@
 /**
  * Displays a collapsible of database objects in the navigation frame
  */
-class CollapsibleTree {
+class PMA_NavigationTree {
     /**
      * @var Node Reference to the root node of the tree
      */
