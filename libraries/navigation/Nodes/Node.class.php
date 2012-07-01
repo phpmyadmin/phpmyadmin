@@ -348,7 +348,7 @@ class Node {
     /**
      * TODO: comment
      */
-    public function getPresence()
+    public function getPresence($type)
     {
         return false;
     }
