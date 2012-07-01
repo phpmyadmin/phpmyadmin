@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-28 09:04+0200\n"
-"PO-Revision-Date: 2012-06-24 16:15+0200\n"
+"PO-Revision-Date: 2012-07-01 18:22+0200\n"
 "Last-Translator: J. M. <me@mynetx.net>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.0\n"
+"X-Generator: Weblate 1.1\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:577 server_privileges.php:1838
@@ -551,13 +551,13 @@ msgstr[0] "<b>Insgesamt</b> <i>%s</i> Treffer"
 msgstr[1] "<b>Insgesamt</b> <i>%s</i> Treffer"
 
 #: db_search.php:296
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$s match inside table <i>%2$s</i>"
 #| msgid_plural "%1$s matches inside table <i>%2$s</i>"
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s Treffer in der Tabelle <i>%2$s</i>"
-msgstr[1] "%1$s Treffer in der Tabelle <i>%2$s</i>"
+msgstr[0] "%1$s Treffer in <strong>%2$s</strong>"
+msgstr[1] "%1$s Treffer in <strong>%2$s</strong>"
 
 #: db_search.php:311 libraries/Menu.class.php:246
 #: libraries/common.lib.php:3311 libraries/common.lib.php:3533
@@ -7382,7 +7382,7 @@ msgstr "Benutzung von Blowfish des mcrypt-Pakets fehlgeschlagen!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:81
 msgid "Your session has expired. Please login again."
-msgstr ""
+msgstr "Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:170
 msgid "Log in"
@@ -8003,7 +8003,6 @@ msgstr ""
 "zu setzen."
 
 #: libraries/plugins/transformations/abstract/ExternalTransformationsPlugin.class.php:31
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the column data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -8030,15 +8029,15 @@ msgstr ""
 "NUR FÜR LINUX: Startet ein externes Programm und verwendet die Daten der "
 "Spalte für die Standardeingabe. Gibt die Standardausgabe der Anwendung "
 "zurück. Die Voreinstellung wurde für Tidy optimiert, um HTML code optisch zu "
-"formatieren. Aus Sicherheitsgründen müssen Sie die Datei libraries/"
-"transformations/text_plain__external.inc.php von Hand bearbeiten, um weitere "
-"Programme verfügbar zu machen. Die erste Option ist die Nummer des dort "
-"hinterlegten Programmes und die zweite Option legt die Parameter für das "
-"externe Programm fest. Die dritte Option bestimmt, falls auf 1 gesetzt, dass "
-"die Ausgabe mit htmlspecialchars() formatiert wird (Standard: 1). Die vierte "
-"Option bestimmt, falls auf 1 gesetzt, ob ein NOWRAP-Parameter der "
-"Tabellenzelle hinzugefügt wird, um einen automatischen Umbruch der "
-"Standardausgabe zu verhindern (Standard: 1)."
+"formatieren. Aus Sicherheitsgründen müssen Sie die Datei "
+"libraries/plugins/transformations/Text_Plain_External.class.php von Hand "
+"bearbeiten, um weitere Programme verfügbar zu machen. Die erste Option ist "
+"die Nummer des dort hinterlegten Programmes und die zweite Option legt die "
+"Parameter für das externe Programm fest. Die dritte Option bestimmt, falls "
+"auf 1 gesetzt, dass die Ausgabe mit htmlspecialchars() formatiert wird "
+"(Standard: 1). Die vierte Option bestimmt, falls auf 1 gesetzt, ob ein "
+"NOWRAP-Parameter der Tabellenzelle hinzugefügt wird, um einen automatischen "
+"Umbruch der Standardausgabe zu verhindern (Standard: 1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
@@ -9294,12 +9293,12 @@ msgstr ""
 #: main.php:302
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower than cookie "
+"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie "
 "validity configured in phpMyAdmin, because of this, your login will expire "
 "sooner than configured in phpMyAdmin."
 msgstr ""
 "Ihre PHP Einstellung [a@http://php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@]session.gc_maxlifetime[/a] ist niedriger als "
+"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] ist niedriger als "
 "die in phpMyAdmin konfigurierte Cookiegültigkeit, deshalb wird Ihre "
 "Anmeldung eher ablaufen als in phpMyAdmin konfiguriert."
 

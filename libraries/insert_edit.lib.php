@@ -140,7 +140,7 @@ function PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id,
     // No row returned
     if (! $rows[$key_id]) {
         unset($rows[$key_id], $where_clause_array[$key_id]);
-        PMA_showMessage(
+        echo PMA_getMessage(
             __('MySQL returned an empty result set (i.e. zero rows).'),
             $local_query
         );
@@ -675,7 +675,7 @@ function PMA_getValueColumn($column, $backup_field, $column_name_appendix,
         $html_output .= PMA_getPmaTypeSet(
             $column, $extracted_columnspec, $backup_field,
             $column_name_appendix, $unnullify_trigger, $tabindex,
-            $tabindex_for_value, $idindex
+            $tabindex_for_value, $idindex, $data
         );
 
     } elseif ($column['is_binary'] || $column['is_blob']) {
@@ -999,13 +999,14 @@ function PMA_getRadioButtonDependingOnLength(
  * @param integer $tabindex             tab index
  * @param integer $tabindex_for_value   offset for the values tabindex
  * @param integer $idindex              id index
+ * @param array   $data                 description of the column field
  *
  * @return string                       an html snippet
  */
 function PMA_getPmaTypeSet(
     $column, $extracted_columnspec, $backup_field,
     $column_name_appendix, $unnullify_trigger, $tabindex,
-    $tabindex_for_value, $idindex
+    $tabindex_for_value, $idindex, $data
 ) {
     list($column_set_values, $select_size) = PMA_getColumnSetValueAndSelectSize(
         $column, $extracted_columnspec
@@ -1504,6 +1505,9 @@ function PMA_getAfterInsertDropDown($where_clause, $after_insert, $found_unique_
         //if (preg_match('@^[\s]*`[^`]*` = [0-9]+@', $where_clause)) {
         // in 2.9.0, we are looking for `table_name`.`field_name` = numeric_value
         $is_numeric = false;
+        if (! is_array($where_clause)) {
+            $where_clause = array($where_clause);
+        }
         for ($i = 0; $i < count($where_clause); $i++) {
             $is_numeric = preg_match(
                 '@^[\s]*`[^`]*`[\.]`[^`]*` = [0-9]+@',

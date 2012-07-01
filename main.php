@@ -299,7 +299,7 @@ if (! @extension_loaded('mbstring')) {
  */
 $gc_time = (int)@ini_get('session.gc_maxlifetime');
 if ($gc_time < $GLOBALS['cfg']['LoginCookieValidity'] ) {
-    trigger_error(__('Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower than cookie validity configured in phpMyAdmin, because of this, your login will expire sooner than configured in phpMyAdmin.'), E_USER_WARNING);
+    trigger_error(__('Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity configured in phpMyAdmin, because of this, your login will expire sooner than configured in phpMyAdmin.'), E_USER_WARNING);
 }
 
 /**

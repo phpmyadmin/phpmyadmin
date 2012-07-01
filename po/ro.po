@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-28 09:04+0200\n"
-"PO-Revision-Date: 2012-05-17 15:15+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-06-30 17:07+0200\n"
+"Last-Translator: Alex Marin <alex.ukf@gmail.com>\n"
 "Language-Team: romanian <ro@li.org>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2);;\n"
-"X-Generator: Weblate 1.0\n"
+"X-Generator: Weblate 1.1\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:577 server_privileges.php:1838
@@ -9637,7 +9637,7 @@ msgstr ""
 #: main.php:302
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower than cookie "
+"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie "
 "validity configured in phpMyAdmin, because of this, your login will expire "
 "sooner than configured in phpMyAdmin."
 msgstr ""
@@ -11218,15 +11218,15 @@ msgstr ""
 
 #: server_status.php:1362
 msgid "The total number of data reads."
-msgstr ""
+msgstr "Numărul total de citiri de date."
 
 #: server_status.php:1363
 msgid "The total number of data writes."
-msgstr ""
+msgstr "Numărul total de scrieri de date."
 
 #: server_status.php:1364
 msgid "The amount of data written so far, in bytes."
-msgstr ""
+msgstr "Cantitatea totală de date scrisă până acum, în bytes."
 
 #: server_status.php:1365
 msgid "The number of pages that have been written for doublewrite operations."
@@ -11734,10 +11734,9 @@ msgid "Log statistics"
 msgstr "Statisticile rîndului"
 
 #: server_status.php:1749
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Selected time range:"
-msgstr "Selectează tabele"
+msgstr "Perioada selectată:"
 
 #: server_status.php:1754
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
