@@ -1065,14 +1065,12 @@ function PMA_getMessageForUpdatePassword($pma_pw, $pma_pw2, $err_url, $username,
  * @param string $db_and_table  wildcard Escaped database+table specification
  * @param string $dbname        database name
  * @param string $tablename     table name
- * @param string $sql_query0    sql query
- * @param string $sql_query1    sql query
  * @param string $username      username
- * @param string $hostname      hostname
+ * @param string $hostname      host name
  * @return array ($message, $sql_query)
  */
 function PMA_getMessageAndSqlQueryForPrivilegesRevoke($db_and_table, $dbname,
-    $tablename, $sql_query0, $sql_query1, $username, $hostname
+    $tablename, $username, $hostname
 ) {
     $db_and_table = PMA_wildcardEscapeForGrant($dbname, isset($tablename) ? $tablename : '');
 

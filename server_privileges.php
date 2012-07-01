@@ -520,8 +520,7 @@ if (! empty($update_privs)) {
  */
 if (isset($_REQUEST['revokeall'])) {
     list ($message, $sql_query) = PMA_getMessageAndSqlQueryForPrivilegesRevoke(
-        $db_and_table, $dbname, $tablename, $sql_query0, $sql_query1, $username,
-        $hostname
+        $db_and_table, $dbname, $tablename, $username, $hostname
     );
 }
 
