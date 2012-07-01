@@ -47,7 +47,7 @@ $(document).ready(function() {
         button_options[PMA_messages['strNo']] = function() { $(this).dialog("close").remove(); }
 
         $form.PMA_confirm(question, $form.attr('action'), function(url) {
-            PMA_ajaxShowMessage(PMA_messages['strRenamingDatabases']);
+            PMA_ajaxShowMessage(PMA_messages['strRenamingDatabases'], false);
 
             $.get(url, $("#rename_db_form").serialize() + '&is_js_confirmed=1', function(data) {
                 if(data.success == true) {
@@ -88,7 +88,7 @@ $(document).ready(function() {
     $("#copy_db_form.ajax").live('submit', function(event) {
         event.preventDefault();
 
-        var $msgbox = PMA_ajaxShowMessage(PMA_messages['strCopyingDatabase']);
+        PMA_ajaxShowMessage(PMA_messages['strCopyingDatabase'], false);
 
         var $form = $(this);
         
@@ -99,7 +99,7 @@ $(document).ready(function() {
             $('.success').fadeOut();
             $('.error').fadeOut();
             if(data.success == true) {
-                $('#floating_menubar').after(data.message);
+                PMA_ajaxShowMessage(data.message);
                 if( $("#checkbox_switch").is(":checked")) {
                     window.parent.db = data.newname;
                     window.parent.refreshMain();
@@ -112,10 +112,8 @@ $(document).ready(function() {
                }
             }
             else {
-                $('#floating_menubar').after(data.error);
+                PMA_ajaxShowMessage(data.error, false);
             }
-            
-            PMA_ajaxRemoveMessage($msgbox);
         }) // end $.get
     }) // end copy database
 

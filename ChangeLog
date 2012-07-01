@@ -17,6 +17,7 @@ phpMyAdmin - ChangeLog
 - bug #3534311 [interface] Grid editing incorrectly parses ENUM/SET values
 - bug #3510196 [core] More clever URL rewriting with ForceSSL
 - bug #3539044 [interface] Browse mode "Show" button gives blank page if no results anymore
+- bug #3534979 [interface] Copy Database Ajax feedback vanishes long before copying is done
 
 3.5.1.0 (2012-05-03)
 - bug #3510784 [edit] Limit clause ignored when sort order is remembered
