@@ -8617,7 +8617,7 @@ msgstr ""
 #: main.php:302
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@]session.gc_maxlifetime[/a] is lower than cookie "
+"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie "
 "validity configured in phpMyAdmin, because of this, your login will expire "
 "sooner than configured in phpMyAdmin."
 msgstr ""
