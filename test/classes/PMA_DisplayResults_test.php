@@ -11,8 +11,7 @@
 require_once 'libraries/DisplayResults.class.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
-require_once 'libraries/common.lib.php';
-
+require_once 'libraries/CommonFunctions.class.php';
 
 
 class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
@@ -364,6 +363,62 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                 '526'
             )
         );
+    }    
+    
+    /**
+     * Data provider for testGetResettedClassForInlineEdit
+     * 
+     * @return array parameters and output
+     */
+    public function dataProviderForTestGetResettedClassForInlineEdit()
+    {
+        return array(
+            array(
+                'grid_edit',
+                'not_null',
+                '',
+                '',
+                '',
+                0,
+                'data grid_edit not_null    row_0 vpointer vmarker'
+            )
+        );
     }
+    
+    /**
+     * Test for _getResettedClassForInlineEdit
+     * 
+     * @param string  $grid_edit_class  the class for all editable columns
+     * @param string  $not_null_class   the class for not null columns
+     * @param string  $relation_class   the class for relations in a column
+     * @param string  $hide_class       the class for visibility of a column
+     * @param string  $field_type_class the class related to type of the field
+     * @param integer $row_no           the row index
+     * 
+     * @dataProvider dataProviderForTestGetResettedClassForInlineEdit
+     */
+    public function testGetResettedClassForInlineEdit(
+        $grid_edit_class, $not_null_class, $relation_class,
+        $hide_class, $field_type_class, $row_no, $output
+    ) {
+        $GLOBALS['cfg']['BrowsePointerEnable'] = true;
+        $GLOBALS['cfg']['BrowseMarkerEnable'] = true;
+        $GLOBALS['printview'] = 2;
+        $_SESSION['tmp_user_values']['disp_direction']
+            = PMA_DisplayResults::DISP_DIR_VERTICAL;        
+        
+        $this->assertEquals(
+            $this->_callPrivateFunction(
+                '_getResettedClassForInlineEdit',
+                array(
+                    $grid_edit_class, $not_null_class, $relation_class,
+                    $hide_class, $field_type_class, $row_no
+                )
+            ),
+            $output
+        );
+    }
+    
+    
 
 }
