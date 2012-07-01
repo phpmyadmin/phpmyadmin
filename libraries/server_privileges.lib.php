@@ -1013,4 +1013,50 @@ function PMA_getGrants($user, $host)
     return $response;
 } // end of the 'PMA_getGrants()' function
 
+/**
+ * Update password and get message for password updating
+ * 
+ * @param string $pma_pw    password that user entered for change, comming from request
+ * @param string $pma_pw2   Re typed password, comming from request
+ * @param string $err_url   error url
+ * @param string $username  username
+ * @param string $hostname  hostname
+ * 
+ * @return string $message  success or error message after updating password
+ */
+function PMA_getMessageForUpdatePassword($pma_pw, $pma_pw2, $err_url, $username, $hostname)
+{
+    // similar logic in user_password.php
+    $message = '';
+
+    if (empty($_REQUEST['nopass']) && isset($pma_pw) && isset($pma_pw2)) {
+        if ($pma_pw != $pma_pw2) {
+            $message = PMA_Message::error(__('The passwords aren\'t the same!'));
+        } elseif (empty($pma_pw) || empty($pma_pw2)) {
+            $message = PMA_Message::error(__('The password is empty!'));
+        }
+    }
+
+    // here $nopass could be == 1
+    if (empty($message)) {
+
+        $hashing_function = (! empty($_REQUEST['pw_hash']) && $_REQUEST['pw_hash'] == 'old' ? 'OLD_' : '')
+                      . 'PASSWORD';
+
+        // in $sql_query which will be displayed, hide the password
+        $sql_query        = 'SET PASSWORD FOR \'' . PMA_sqlAddSlashes($username) 
+            . '\'@\'' . PMA_sqlAddSlashes($hostname) . '\' = ' 
+            . (($pma_pw == '') ? '\'\'' : $hashing_function . '(\'' . preg_replace('@.@s', '*', $pma_pw) . '\')');
+        $local_query      = 'SET PASSWORD FOR \'' . PMA_sqlAddSlashes($username)
+            . '\'@\'' . PMA_sqlAddSlashes($hostname) . '\' = '
+            . (($pma_pw == '') ? '\'\'' : $hashing_function . '(\'' . PMA_sqlAddSlashes($pma_pw) . '\')');
+        
+        PMA_DBI_try_query($local_query)
+            or PMA_mysqlDie(PMA_DBI_getError(), $sql_query, false, $err_url);
+        $message = PMA_Message::success(__('The password for %s was changed successfully.'));
+        $message->addParam('\'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\'');
+    }
+    return $message;
+}
+
 ?>
