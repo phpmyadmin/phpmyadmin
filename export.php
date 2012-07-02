@@ -322,7 +322,7 @@ if ($asfile) {
         }
     }
     $filename = $common_functions->expandUserString($filename_template);
-    $filename = PMA_sanitize_filename($filename);
+    $filename = PMA_sanitizeFilename($filename);
 
     // Grab basic dump extension and mime type
     // Check if the user already added extension; get the substring where the extension would be if it was included
