@@ -637,5 +637,118 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
         );
     }
     
+    /**
+     * Data provider for _getCheckBoxesForMultipleRowOperations
+     * 
+     * return array parameters and output
+     */
+    public function dataProviderForGetCheckBoxesForMultipleRowOperations()
+    {
+        return array(
+            array(
+                array(
+                    'emptypre' => 4,
+                    'emptyafter' => 0,
+                    'textbtn' => '<th  rowspan="4" class="vmiddle">\n        \n    </th>\n',
+                    'desc' => array(
+                        '<th class="draggable" data-column="id">\n\n<a href="sql.php?db=data&amp;table=a_sales&amp;sql_query=SELECT+%2A+FROM+%60a_sales%60%0AORDER+BY+%60a_sales%60.%60id%60+ASC&amp;session_max_rows=30&amp;token=d1aecb47ef7c081e068e7008b38a5d76" title="Sort">id</a>\n    </th>\n',
+                        '<th class="draggable" data-column="cars_id">\n\n<a href="sql.php?db=data&amp;table=a_sales&amp;sql_query=SELECT+%2A+FROM+%60a_sales%60%0AORDER+BY+%60a_sales%60.%60cars_id%60+ASC&amp;session_max_rows=30&amp;token=d1aecb47ef7c081e068e7008b38a5d76" title="Sort">cars_id</a>\n    </th>\n',
+                        '<th class="draggable" data-column="customer_id">\n\n<a href="sql.php?db=data&amp;table=a_sales&amp;sql_query=SELECT+%2A+FROM+%60a_sales%60%0AORDER+BY+%60a_sales%60.%60customer_id%60++DESC&amp;session_max_rows=30&amp;token=d1aecb47ef7c081e068e7008b38a5d76" onmouseover="$(\'.soimg2\').toggle()" onmouseout="$(\'.soimg2\').toggle()" title="Sort">customer_id <img src="themes/dot.gif" title="" alt="Ascending" class="icon ic_s_asc soimg2" /> <img src="themes/dot.gif" title="" alt="Descending" class="icon ic_s_desc"...'
+                    ),
+                    'edit' => array(
+                        '<td class="odd edit_row_anchor row_0 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=data&amp;table=a_sales&amp;where_clause=%60a_sales%60.%60id%60+%3D+2&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60a_sales%60&amp;goto=sql.php&amp;default_action=update&amp;token=d1aecb47ef7c081e068e7008b38a5d76" ><span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span></a>\n<input type="hidden" class="where_clause" value ="%60a_sales"...',
+                        '<td class="even edit_row_anchor row_1 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=data&amp;table=a_sales&amp;where_clause=%60a_sales%60.%60id%60+%3D+3&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60a_sales%60&amp;goto=sql.php&amp;default_action=update&amp;token=d1aecb47ef7c081e068e7008b38a5d76" ><span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span></a>\n<input type="hidden" class="where_clause" value ="%60a_sale"...',
+                        '<td class="odd edit_row_anchor row_2 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=data&amp;table=a_sales&amp;where_clause=%60a_sales%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60a_sales%60&amp;goto=sql.php&amp;default_action=update&amp;token=d1aecb47ef7c081e068e7008b38a5d76" ><span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span></a>\n<input type="hidden" class="where_clause" value ="%60a_sales"...',
+                        '<td class="even edit_row_anchor row_3 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=data&amp;table=a_sales&amp;where_clause=%60a_sales%60.%60id%60+%3D+4&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60a_sales%60&amp;goto=sql.php&amp;default_action=update&amp;token=d1aecb47ef7c081e068e7008b38a5d76" ><span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span></a>\n<input type="hidden" class="where_clause" value ="%60a_sale"...'
+                    ),
+                    'copy' => array(
+                        '<td class="odd row_0 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=data&amp;table=a_sales&amp;where_clause=%60a_sales%60.%60id%60+%3D+2&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60a_sales%60&amp;goto=sql.php&amp;default_action=insert&amp;token=d1aecb47ef7c081e068e7008b38a5d76" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>\n<input type="hidden" class="where_clause" value="%60a_sales%60.%60id%60+%3"...',
+                        '<td class="even row_1 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=data&amp;table=a_sales&amp;where_clause=%60a_sales%60.%60id%60+%3D+3&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60a_sales%60&amp;goto=sql.php&amp;default_action=insert&amp;token=d1aecb47ef7c081e068e7008b38a5d76" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>\n<input type="hidden" class="where_clause" value="%60a_sales%60.%60id%60+%"...',
+                        '<td class="odd row_2 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=data&amp;table=a_sales&amp;where_clause=%60a_sales%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60a_sales%60&amp;goto=sql.php&amp;default_action=insert&amp;token=d1aecb47ef7c081e068e7008b38a5d76" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>\n<input type="hidden" class="where_clause" value="%60a_sales%60.%60id%60+%3"...',
+                        '<td class="even row_3 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=data&amp;table=a_sales&amp;where_clause=%60a_sales%60.%60id%60+%3D+4&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60a_sales%60&amp;goto=sql.php&amp;default_action=insert&amp;token=d1aecb47ef7c081e068e7008b38a5d76" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>\n<input type="hidden" class="where_clause" value="%60a_sales%60.%60id%60+%"...'
+                    ),
+                    'delete' => array(
+                        '<td class="odd row_0 vpointer vmarker center"  >\n<a href="sql.php?db=data&amp;table=a_sales&amp;sql_query=DELETE+FROM+%60data%60.%60a_sales%60+WHERE+%60a_sales%60.%60id%60+%3D+2&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Da_sales%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560a_sales%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Dd1aecb47ef7c081e068e7008b38a5d76&amp;token=d1aecb47ef7c081e068e7008b38a5d76" onclick="return co"...',
+                        '<td class="even row_1 vpointer vmarker center"  >\n<a href="sql.php?db=data&amp;table=a_sales&amp;sql_query=DELETE+FROM+%60data%60.%60a_sales%60+WHERE+%60a_sales%60.%60id%60+%3D+3&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Da_sales%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560a_sales%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Dd1aecb47ef7c081e068e7008b38a5d76&amp;token=d1aecb47ef7c081e068e7008b38a5d76" onclick="return c"...',
+                        '<td class="odd row_2 vpointer vmarker center"  >\n<a href="sql.php?db=data&amp;table=a_sales&amp;sql_query=DELETE+FROM+%60data%60.%60a_sales%60+WHERE+%60a_sales%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Da_sales%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560a_sales%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Dd1aecb47ef7c081e068e7008b38a5d76&amp;token=d1aecb47ef7c081e068e7008b38a5d76" onclick="return co"...',
+                        '<td class="even row_3 vpointer vmarker center"  >\n<a href="sql.php?db=data&amp;table=a_sales&amp;sql_query=DELETE+FROM+%60data%60.%60a_sales%60+WHERE+%60a_sales%60.%60id%60+%3D+4&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Da_sales%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560a_sales%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Dd1aecb47ef7c081e068e7008b38a5d76&amp;token=d1aecb47ef7c081e068e7008b38a5d76" onclick="return c"...'
+                    ),
+                    'data' => array(
+                        array(
+                            '<td class="right data grid_edit not_null    row_0 vpointer vmarker nowrap ">2</td>\n',
+                            '<td class="right data grid_edit not_null    row_0 vpointer vmarker nowrap ">6</td>\n',
+                            '<td class="right data grid_edit not_null    row_0 vpointer vmarker nowrap ">1</td>\n'
+                        ),
+                        array(
+                            '<td class="right data grid_edit not_null    row_1 vpointer vmarker nowrap ">3</td>\n',
+                            '<td class="right data grid_edit not_null    row_1 vpointer vmarker nowrap ">7</td>\n',
+                            '<td class="right data grid_edit not_null    row_1 vpointer vmarker nowrap ">2</td>\n'
+                        ),
+                        array(
+                            '<td class="right data grid_edit not_null    row_2 vpointer vmarker nowrap ">1</td>\n',
+                            '<td class="right data grid_edit not_null    row_2 vpointer vmarker nowrap ">9</td>\n',
+                            '<td class="right data grid_edit not_null    row_2 vpointer vmarker nowrap ">3</td>\n'
+                        ),
+                        array(
+                            '<td class="right data grid_edit not_null    row_3 vpointer vmarker nowrap ">4</td>\n',
+                            '<td class="right data grid_edit not_null    row_3 vpointer vmarker nowrap ">8</td>\n',
+                            '<td class="right data grid_edit not_null    row_3 vpointer vmarker nowrap ">5</td>\n'
+                        )
+                    ),
+                    'row_delete' => array(
+                        '<td class="odd row_0 vpointer vmarker" class="center"><input type="checkbox" id="id_rows_to_delete0[%_PMA_CHECKBOX_DIR_%]" name="rows_to_delete[0]" class="multi_checkbox" value="%60a_sales%60.%60id%60+%3D+2"  /><input type="hidden" class="condition_array" value="{&quot;`a_sales`.`id`&quot;:&quot;= 2&quot;}" />    </td>',
+                        '<td class="even row_1 vpointer vmarker" class="center"><input type="checkbox" id="id_rows_to_delete1[%_PMA_CHECKBOX_DIR_%]" name="rows_to_delete[1]" class="multi_checkbox" value="%60a_sales%60.%60id%60+%3D+3"  /><input type="hidden" class="condition_array" value="{&quot;`a_sales`.`id`&quot;:&quot;= 3&quot;}" />    </td>',
+                        '<td class="odd row_2 vpointer vmarker" class="center"><input type="checkbox" id="id_rows_to_delete2[%_PMA_CHECKBOX_DIR_%]" name="rows_to_delete[2]" class="multi_checkbox" value="%60a_sales%60.%60id%60+%3D+1"  /><input type="hidden" class="condition_array" value="{&quot;`a_sales`.`id`&quot;:&quot;= 1&quot;}" />    </td>',
+                        '<td class="even row_3 vpointer vmarker" class="center"><input type="checkbox" id="id_rows_to_delete3[%_PMA_CHECKBOX_DIR_%]" name="rows_to_delete[3]" class="multi_checkbox" value="%60a_sales%60.%60id%60+%3D+4"  /><input type="hidden" class="condition_array" value="{&quot;`a_sales`.`id`&quot;:&quot;= 4&quot;}" />    </td>'
+                    ),
+                    'rowdata' => array(
+                        array(
+                            '<td class="right data grid_edit not_null    row_0 vpointer vmarker nowrap ">2</td>\n',
+                            '<td class="right data grid_edit not_null    row_1 vpointer vmarker nowrap ">3</td>\n',
+                            '<td class="right data grid_edit not_null    row_2 vpointer vmarker nowrap ">1</td>\n',
+                            '<td class="right data grid_edit not_null    row_3 vpointer vmarker nowrap ">4</td>\n'
+                        ),
+                        array(
+                            '<td class="right data grid_edit not_null    row_0 vpointer vmarker nowrap ">6</td>\n',
+                            '<td class="right data grid_edit not_null    row_1 vpointer vmarker nowrap ">7</td>\n',
+                            '<td class="right data grid_edit not_null    row_2 vpointer vmarker nowrap ">9</td>\n',
+                            '<td class="right data grid_edit not_null    row_3 vpointer vmarker nowrap ">8</td>\n'
+                        ),
+                        array(
+                            '<td class="right data grid_edit not_null    row_0 vpointer vmarker nowrap ">1</td>\n',
+                            '<td class="right data grid_edit not_null    row_1 vpointer vmarker nowrap ">2</td>\n',
+                            '<td class="right data grid_edit not_null    row_2 vpointer vmarker nowrap ">3</td>\n',
+                            '<td class="right data grid_edit not_null    row_3 vpointer vmarker nowrap ">5</td>\n'
+                        )
+                    )
+                ),
+                '_left',
+                '<td class="odd row_0 vpointer vmarker" class="center"><input type="checkbox" id="id_rows_to_delete0_left" name="rows_to_delete[0]" class="multi_checkbox" value="%60a_sales%60.%60id%60+%3D+2"  /><input type="hidden" class="condition_array" value="{&quot;`a_sales`.`id`&quot;:&quot;= 2&quot;}" />    </td><td class="even row_1 vpointer vmarker" class="center"><input type="checkbox" id="id_rows_to_delete1_left" name="rows_to_delete[1]" class="multi_checkbox" value="%60a_sales%60.%60id%60+%3D+3"  /><input type="hidden" class="condition_array" value="{&quot;`a_sales`.`id`&quot;:&quot;= 3&quot;}" />    </td><td class="odd row_2 vpointer vmarker" class="center"><input type="checkbox" id="id_rows_to_delete2_left" name="rows_to_delete[2]" class="multi_checkbox" value="%60a_sales%60.%60id%60+%3D+1"  /><input type="hidden" class="condition_array" value="{&quot;`a_sales`.`id`&quot;:&quot;= 1&quot;}" />    </td><td class="even row_3 vpointer vmarker" class="center"><input type="checkbox" id="id_rows_to_delete3_left" name="rows_to_delete[3]" class="multi_checkbox" value="%60a_sales%60.%60id%60+%3D+4"  /><input type="hidden" class="condition_array" value="{&quot;`a_sales`.`id`&quot;:&quot;= 4&quot;}" />    </td>'
+            )
+        );
+    }
+    
+    /**
+     * Test for _getCheckBoxesForMultipleRowOperations
+     * 
+     * @param array  $vertical_display the information to display
+     * @param string $dir              _left / _right
+     * @param string $output           output of _getCheckBoxesForMultipleRowOperations
+     * 
+     * @dataProvider dataProviderForGetCheckBoxesForMultipleRowOperations
+     */
+    public function testGetCheckBoxesForMultipleRowOperations(
+        $vertical_display, $dir, $output
+    ) {
+        $_SESSION['tmp_user_values']['repeat_cells'] = 0;
+        $this->assertEquals(
+            $this->_callPrivateFunction(
+                '_getCheckBoxesForMultipleRowOperations',
+                array($vertical_display, $dir)
+            ),
+            $output
+        );
+    }
+    
 
 }
