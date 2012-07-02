@@ -25,6 +25,9 @@ $scripts->addFile('tbl_structure.js');
 $scripts->addFile('indexes.js');
 $scripts->addFile('gis_data_editor.js');
 
+// Get instance of PMA_CommonFunctions
+$common_functions = PMA_CommonFunctions::getInstance();
+
 /**
  * Sets globals from $_POST
  */
@@ -161,7 +164,7 @@ if (isset($_REQUEST['get_enum_values']) && $_REQUEST['get_enum_values'] == true)
 
     $field_info_result = PMA_DBI_fetch_result($field_info_query, null, null, null, PMA_DBI_QUERY_STORE);
 
-    $values = PMA_parseEnumSetValues($field_info_result[0]['Type']);
+    $values = $common_functions->parseEnumSetValues($field_info_result[0]['Type']);
 
     $dropdown = '<option value="">&nbsp;</option>';
     foreach ($values as $value) {
@@ -189,7 +192,7 @@ if (isset($_REQUEST['get_set_values']) && $_REQUEST['get_set_values'] == true) {
 
     $selected_values = explode(',', $_REQUEST['curr_value']);
 
-    $values = PMA_parseEnumSetValues($field_info_result[0]['Type']);
+    $values = $common_functions->parseEnumSetValues($field_info_result[0]['Type']);
 
     $select = '';
     foreach ($values as $value) {
@@ -256,7 +259,7 @@ if (empty($sql_query) && strlen($table) && strlen($db)) {
     include_once 'libraries/bookmark.lib.php';
     $book_sql_query = PMA_Bookmark_get(
         $db,
-        '\'' . PMA_sqlAddSlashes($table) . '\'',
+        '\'' . $common_functions->sqlAddSlashes($table) . '\'',
         'label',
         false,
         true
@@ -269,10 +272,12 @@ if (empty($sql_query) && strlen($table) && strlen($db)) {
             )
             );
         $GLOBALS['using_bookmark_message']->addParam($table);
-        $GLOBALS['using_bookmark_message']->addMessage(PMA_showDocu('faq6_22'));
+        $GLOBALS['using_bookmark_message']->addMessage(
+            $common_functions->showDocu('faq6_22')
+        );
         $sql_query = $book_sql_query;
     } else {
-        $sql_query = 'SELECT * FROM ' . PMA_backquote($table);
+        $sql_query = 'SELECT * FROM ' . $common_functions->backquote($table);
     }
     unset($book_sql_query);
 
@@ -280,7 +285,7 @@ if (empty($sql_query) && strlen($table) && strlen($db)) {
     $goto = 'tbl_structure.php';
 } else {
     // Now we can check the parameters
-    PMA_checkParameters(array('sql_query'));
+    $common_functions->checkParameters(array('sql_query'));
 }
 
 // instead of doing the test twice
@@ -301,7 +306,7 @@ if (! defined('PMA_CHK_DROP')
     && $is_drop_database
     && ! $is_superuser
 ) {
-    PMA_mysqlDie(__('"DROP DATABASE" statements are disabled.'), '', '', $err_url);
+    $common_functions->mysqlDie(__('"DROP DATABASE" statements are disabled.'), '', '', $err_url);
 } // end if
 
 // Include PMA_Index class for use in PMA_DisplayResults class
@@ -558,7 +563,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     $num_rows = 0;
     $unlim_num_rows = 0;
 } else {
-    if (isset($_SESSION['profiling']) && PMA_profilingSupported()) {
+    if (isset($_SESSION['profiling']) && $common_functions->profilingSupported()) {
         PMA_DBI_query('SET PROFILING=1;');
     }
 
@@ -605,7 +610,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
             $full_err_url = (preg_match('@^(db|tbl)_@', $err_url))
                           ? $err_url . '&amp;show_query=1&amp;sql_query=' . urlencode($sql_query)
                           : $err_url;
-            PMA_mysqlDie($error, $full_sql_query, '', $full_err_url);
+            $common_functions->mysqlDie($error, $full_sql_query, '', $full_err_url);
         }
         exit;
     }
@@ -648,7 +653,7 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
     }
 
     // Grabs the profiling results
-    if (isset($_SESSION['profiling']) && PMA_profilingSupported()) {
+    if (isset($_SESSION['profiling']) && $common_functions->profilingSupported()) {
         $profiling_results = PMA_DBI_fetch_result('SHOW PROFILE;');
     }
 
@@ -836,7 +841,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
 
     if ($GLOBALS['is_ajax_request'] == true) {
         if ($cfg['ShowSQL']) {
-            $extra_data['sql_query'] = PMA_getMessage($message, $GLOBALS['sql_query'], 'success');
+            $extra_data['sql_query'] = $common_functions->getMessage(
+                $message, $GLOBALS['sql_query'], 'success'
+            );
         }
         if (isset($GLOBALS['reload']) && $GLOBALS['reload'] == 1) {
             $extra_data['reload'] = 1;
@@ -920,7 +927,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
 
         if (isset($message)) {
             $message = PMA_Message::success($message);
-            echo PMA_getMessage($message, $GLOBALS['sql_query'], 'success');
+            echo $common_functions->getMessage(
+                $message, $GLOBALS['sql_query'], 'success'
+            );
         }
         echo $displayResultsObject->getTable($result, $disp_mode, $analyzed_sql);
         exit();
@@ -931,7 +940,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         unset($show_query);
     }
     if (isset($printview) && $printview == '1') {
-        PMA_checkParameters(array('db', 'full_sql_query'));
+        $common_functions->checkParameters(array('db', 'full_sql_query'));
 
         $response = PMA_Response::getInstance();
         $header = $response->getHeader();
@@ -955,7 +964,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         echo "<p>";
         echo "<strong>" . __('Host') . ":</strong> $hostname<br />";
         echo "<strong>" . __('Database') . ":</strong> " . htmlspecialchars($db) . "<br />";
-        echo "<strong>" . __('Generation Time') . ":</strong> " . PMA_localisedDate() . "<br />";
+        echo "<strong>" . __('Generation Time') . ":</strong> " . $common_functions->localisedDate() . "<br />";
         echo "<strong>" . __('Generated by') . ":</strong> $versions<br />";
         echo "<strong>" . __('SQL query') . ":</strong> " . htmlspecialchars($full_sql_query) . ";";
         if (isset($num_rows)) {
@@ -985,7 +994,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
                 include 'libraries/server_common.inc.php';
             }
         } else {
-            //we don't need to buffer the output in PMA_getMessage here.
+            //we don't need to buffer the output in getMessage here.
             //set a global variable and check against it in the function
             $GLOBALS['buffer_message'] = false;
         }
@@ -1012,7 +1021,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
 
     // Display previous update query (from tbl_replace)
     if (isset($disp_query) && $cfg['ShowSQL'] == true) {
-        echo PMA_getMessage($disp_message, $disp_query, 'success');
+        echo $common_functions->getMessage($disp_message, $disp_query, 'success');
     }
 
     if (isset($profiling_results)) {
@@ -1028,7 +1037,7 @@ $(makeProfilingChart);
         echo '<div style="float: left;">';
         echo '<table>' . "\n";
         echo ' <tr>' .  "\n";
-        echo '  <th>' . __('Status') . PMA_showMySQLDocu('general-thread-states', 'general-thread-states') .  '</th>' . "\n";
+        echo '  <th>' . __('Status') . $common_functions->showMySQLDocu('general-thread-states', 'general-thread-states') .  '</th>' . "\n";
         echo '  <th>' . __('Time') . '</th>' . "\n";
         echo ' </tr>' .  "\n";
 
@@ -1036,7 +1045,7 @@ $(makeProfilingChart);
         foreach ($profiling_results as $one_result) {
             echo ' <tr>' .  "\n";
             echo '<td>' . ucwords($one_result['Status']) . '</td>' .  "\n";
-            echo '<td class="right">' . (PMA_formatNumber($one_result['Duration'], 3, 1)) . 's</td>' .  "\n";
+            echo '<td class="right">' . ($common_functions->formatNumber($one_result['Duration'], 3, 1)) . 's</td>' .  "\n";
             if (isset($chart_json[ucwords($one_result['Status'])])) {
                 $chart_json[ucwords($one_result['Status'])] += $one_result['Duration'];
             } else {
@@ -1106,7 +1115,7 @@ $(makeProfilingChart);
 <input type="hidden" name="fields[query]" value="<?php echo urlencode(isset($complete_query) ? $complete_query : $sql_query); ?>" />
 <fieldset>
     <legend><?php
-    echo PMA_getIcon('b_bookmark.png', __('Bookmark this SQL query'), true);
+    echo $common_functions->getIcon('b_bookmark.png', __('Bookmark this SQL query'), true);
 ?>
     </legend>
 
@@ -1131,7 +1140,7 @@ $(makeProfilingChart);
 
     // Do print the page if required
     if (isset($printview) && $printview == '1') {
-        echo PMA_getButton();
+        echo $common_functions->getButton();
     } // end print case
 
     if ($GLOBALS['is_ajax_request'] != true) {

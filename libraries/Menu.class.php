@@ -36,7 +36,36 @@ class PMA_Menu
      * @access private
      * @var string
      */
-    private $_table;
+    private $_table;    
+    
+    private $_common_functions;
+    
+    
+    /**
+     * Set CommmonFunctions
+     * 
+     * @param PMA_CommonFunctions $commonFunctions
+     * 
+     * @return void
+     */
+    public function setCommonFunctions(PMA_CommonFunctions $commonFunctions)
+    {
+        $this->_common_functions = $commonFunctions;
+    }
+    
+    
+    /**
+     * Get CommmonFunctions
+     * 
+     * @return CommonFunctions object
+     */
+    public function getCommonFunctions()
+    {
+        if (is_null($this->_common_functions)) {
+            $this->_common_functions = PMA_CommonFunctions::getInstance();
+        }
+        return $this->_common_functions;
+    }
 
     /**
      * Creates a new instance of PMA_Menu
@@ -77,7 +106,7 @@ class PMA_Menu
             if (isset($GLOBALS['buffer_message'])) {
                 $buffer_message = $GLOBALS['buffer_message'];
             }
-            $retval .= PMA_getMessage($GLOBALS['message']);
+            $retval .= $this->getCommonFunctions()->getMessage($GLOBALS['message']);
             unset($GLOBALS['message']);
             if (isset($buffer_message)) {
                 $GLOBALS['buffer_message'] = $buffer_message;
@@ -103,7 +132,7 @@ class PMA_Menu
         } else {
             $tabs = $this->_getServerTabs();
         }
-        return PMA_getHtmlTabs($tabs, $url_params);
+        return $this->getCommonFunctions()->getHtmlTabs($tabs, $url_params);
     }
 
     /**
@@ -132,7 +161,7 @@ class PMA_Menu
         $retval .= "<div id='floating_menubar'></div>";
         $retval .= "<div id='serverinfo'>";
         if ($GLOBALS['cfg']['NavigationBarIconic']) {
-            $retval .= PMA_getImage(
+            $retval .= $this->getCommonFunctions()->getImage(
                 's_host.png',
                 '',
                 array('class' => 'item')
@@ -149,7 +178,7 @@ class PMA_Menu
         if (strlen($this->_db)) {
             $retval .= $separator;
             if ($GLOBALS['cfg']['NavigationBarIconic']) {
-                $retval .= PMA_getImage(
+                $retval .= $this->getCommonFunctions()->getImage(
                     's_db.png',
                     '',
                     array('class' => 'item')
@@ -172,7 +201,7 @@ class PMA_Menu
                 $retval .= $separator;
                 if ($GLOBALS['cfg']['NavigationBarIconic']) {
                     $icon = $tbl_is_view ? 'b_views.png' : 's_tbl.png';
-                    $retval .= PMA_getImage(
+                    $retval .= $this->getCommonFunctions()->getImage(
                         $icon,
                         '',
                         array('class' => 'item')
@@ -290,7 +319,7 @@ class PMA_Menu
         }
         if (! $db_is_information_schema
             && ! PMA_DRIZZLE
-            && PMA_currentUserHasPrivilege('TRIGGER', $this->_db, $this->_table)
+            && $this->getCommonFunctions()->currentUserHasPrivilege('TRIGGER', $this->_db, $this->_table)
             && ! $tbl_is_view
         ) {
             $tabs['triggers']['link'] = 'tbl_triggers.php';
@@ -386,14 +415,14 @@ class PMA_Menu
             }
             if (PMA_MYSQL_INT_VERSION >= 50106
                 && ! PMA_DRIZZLE
-                && PMA_currentUserHasPrivilege('EVENT', $this->_db)
+                && $this->getCommonFunctions()->currentUserHasPrivilege('EVENT', $this->_db)
             ) {
                 $tabs['events']['link'] = 'db_events.php';
                 $tabs['events']['text'] = __('Events');
                 $tabs['events']['icon'] = 'b_events.png';
             }
             if (! PMA_DRIZZLE
-                && PMA_currentUserHasPrivilege('TRIGGER', $this->_db)
+                && $this->getCommonFunctions()->currentUserHasPrivilege('TRIGGER', $this->_db)
             ) {
                 $tabs['triggers']['link'] = 'db_triggers.php';
                 $tabs['triggers']['text'] = __('Triggers');

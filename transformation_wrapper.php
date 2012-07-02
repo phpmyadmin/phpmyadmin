@@ -49,14 +49,14 @@ foreach ($request_params as $one_request_param) {
 PMA_DBI_select_db($db);
 if (isset($where_clause)) {
     $result = PMA_DBI_query(
-        'SELECT * FROM ' . PMA_backquote($table) . ' WHERE ' . $where_clause . ';',
+        'SELECT * FROM ' . PMA_CommonFunctions::getInstance()->backquote($table) . ' WHERE ' . $where_clause . ';',
         null,
         PMA_DBI_QUERY_STORE
     );
     $row = PMA_DBI_fetch_assoc($result);
 } else {
     $result = PMA_DBI_query(
-        'SELECT * FROM ' . PMA_backquote($table) . ' LIMIT 1;',
+        'SELECT * FROM ' . PMA_CommonFunctions::getInstance()->backquote($table) . ' LIMIT 1;',
         null,
         PMA_DBI_QUERY_STORE
     );

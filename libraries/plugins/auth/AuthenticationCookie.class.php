@@ -168,7 +168,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         <fieldset>
         <legend>';
         echo __('Log in');
-        echo PMA_showDocu('');
+        echo PMA_CommonFunctions::getInstance()->showDocu('');
         echo '</legend>';
         if ($GLOBALS['cfg']['AllowArbitraryServer']) {
             echo '
@@ -300,6 +300,8 @@ class AuthenticationCookie extends AuthenticationPlugin
         $GLOBALS['PHP_AUTH_USER'] = $GLOBALS['PHP_AUTH_PW'] = '';
         $GLOBALS['from_cookie'] = false;
 
+        $common_functions = PMA_CommonFunctions::getInstance();
+        
         // BEGIN Swekey Integration
         if (! Swekey_auth_check()) {
             return false;
@@ -385,11 +387,11 @@ class AuthenticationCookie extends AuthenticationPlugin
         $last_access_time = time() - $GLOBALS['cfg']['LoginCookieValidity'];
         if ($_SESSION['last_access_time'] < $last_access_time
         ) {
-            PMA_cacheUnset('is_create_db_priv', true);
-            PMA_cacheUnset('is_process_priv', true);
-            PMA_cacheUnset('is_reload_priv', true);
-            PMA_cacheUnset('db_to_create', true);
-            PMA_cacheUnset('dbs_where_create_table_allowed', true);
+            $common_functions->cacheUnset('is_create_db_priv', true);
+            $common_functions->cacheUnset('is_process_priv', true);
+            $common_functions->cacheUnset('is_reload_priv', true);
+            $common_functions->cacheUnset('db_to_create', true);
+            $common_functions->cacheUnset('dbs_where_create_table_allowed', true);
             $GLOBALS['no_activity'] = true;
             $this->authFails();
             exit;
@@ -531,7 +533,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             /**
              * Clear user cache.
              */
-            PMA_clearUserCache();
+            PMA_CommonFunctions::getInstance()->clearUserCache();
 
             PMA_Response::getInstance()->disable();
 

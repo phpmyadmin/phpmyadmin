@@ -50,7 +50,7 @@ if (empty($is_table)
 
         if (! $is_table) {
             $_result = PMA_DBI_try_query(
-                'SHOW TABLES LIKE \'' . PMA_sqlAddSlashes($table, true) . '\';',
+                'SHOW TABLES LIKE \'' . PMA_CommonFunctions::getInstance()->sqlAddSlashes($table, true) . '\';',
                 null, PMA_DBI_QUERY_STORE
             );
             $is_table = @PMA_DBI_num_rows($_result);
@@ -72,7 +72,7 @@ if (empty($is_table)
                  * only happen if IS_TRANSFORMATION_WRAPPER?
                  */
                 $_result = PMA_DBI_try_query(
-                    'SELECT COUNT(*) FROM ' . PMA_backquote($table) . ';',
+                    'SELECT COUNT(*) FROM ' . PMA_CommonFunctions::getInstance()->backquote($table) . ';',
                     null,
                     PMA_DBI_QUERY_STORE
                 );
