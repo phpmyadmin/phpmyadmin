@@ -444,9 +444,9 @@ if (! $save_on_server) {
         }
 
         foreach ($_REQUEST as $name => $value) {
-            $back_button .= '&' . urlencode($name) . '=' . urlencode($value);
+            $back_button .= '&amp;' . urlencode($name) . '=' . urlencode($value);
         }
-        $back_button .= '&repopulate=1">Back</a> ]</p>';
+        $back_button .= '&amp;repopulate=1">Back</a> ]</p>';
 
         echo $back_button;
         echo '    <form name="nofunction">' . "\n"
@@ -754,8 +754,8 @@ if (! empty($asfile)) {
     if ($compression == 'zip') {
         if (@function_exists('gzcompress')) {
             $zipfile = new ZipFile();
-            $zipfile -> addFile($dump_buffer, substr($filename, 0, -4));
-            $dump_buffer = $zipfile -> file();
+            $zipfile->addFile($dump_buffer, substr($filename, 0, -4));
+            $dump_buffer = $zipfile->file();
         }
     } elseif ($compression == 'bzip2') {
         // 2. as a bzipped file
@@ -774,7 +774,7 @@ if (! empty($asfile)) {
     if ($save_on_server) {
         $write_result = @fwrite($file_handle, $dump_buffer);
         fclose($file_handle);
-        if (strlen($dump_buffer) !=0
+        if (strlen($dump_buffer) > 0
             && (! $write_result || ($write_result != strlen($dump_buffer)))
         ) {
             $message = new PMA_Message(
@@ -821,22 +821,10 @@ if (! empty($asfile)) {
 ?>
 <script type="text/javascript">
 //<![CDATA[
-    var bodyWidth=null; var bodyHeight=null;
-    if (document.getElementById('textSQLDUMP')) {
-        bodyWidth  = self.innerWidth;
-        bodyHeight = self.innerHeight;
-        if (! bodyWidth && ! bodyHeight) {
-            if (document.compatMode && document.compatMode == "BackCompat") {
-                bodyWidth  = document.body.clientWidth;
-                bodyHeight = document.body.clientHeight;
-            } else if (document.compatMode && document.compatMode == "CSS1Compat") {
-                bodyWidth  = document.documentElement.clientWidth;
-                bodyHeight = document.documentElement.clientHeight;
-            }
-        }
-        document.getElementById('textSQLDUMP').style.width=(bodyWidth-50) + 'px';
-        document.getElementById('textSQLDUMP').style.height=(bodyHeight-100) + 'px';
-    }
+    var $body = $("body");
+    $("#textSQLDUMP")
+        .width($body.width() - 50)
+        .height($body.height() - 100);
 //]]>
 </script>
 <?php
