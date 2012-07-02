@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-28 09:04+0200\n"
-"PO-Revision-Date: 2012-07-02 20:22+0200\n"
+"PO-Revision-Date: 2012-07-02 21:18+0200\n"
 "Last-Translator: Ashiyane Digital Security Team <HeXa.ashiyane@gmail.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
@@ -6598,17 +6598,17 @@ msgstr "فقط داده‌ها"
 
 #: libraries/engines/innodb.lib.php:35
 msgid "Autoextend increment"
-msgstr ""
+msgstr "افزایش خودکار گسترش "
 
 #: libraries/engines/innodb.lib.php:36
 msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
-msgstr ""
+msgstr " را وقتی از آن می شودautoextendingافزایش حجم برای گسترش اندازه جدول ."
 
 #: libraries/engines/innodb.lib.php:40
 msgid "Buffer pool size"
-msgstr ""
+msgstr "اندازه بافر استخر"
 
 #: libraries/engines/innodb.lib.php:41
 msgid ""
