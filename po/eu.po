@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-28 09:04+0200\n"
-"PO-Revision-Date: 2012-07-01 18:47+0200\n"
+"PO-Revision-Date: 2012-07-02 11:20+0200\n"
 "Last-Translator: aitzol berasategi <aitzol76@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -959,11 +959,13 @@ msgid ""
 msgstr ""
 
 #: import.php:86
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
 "%s for ways to workaround this limit."
 msgstr ""
+"Agian fitxategi haundiegia igotzen saiatu zara. Mesedez begiratu %"
+"sdocumentation%a tamaina mugak aldatzeko."
 
 #: import.php:224 import.php:471
 msgid "Showing bookmark"
@@ -1047,10 +1049,10 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" sententziak ezgaituta daude."
 
 #: js/messages.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to "
 msgid "Do you really want to execute \"%s\"?"
-msgstr "Benetan nahi al duzu "
+msgstr "Benetan nahi al duzu \"%s\" exekutatzea?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:305 sql.php:409
 msgid "You are about to DESTROY a complete database!"
