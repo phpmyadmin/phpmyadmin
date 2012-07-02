@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-28 09:04+0200\n"
-"PO-Revision-Date: 2012-07-02 21:18+0200\n"
+"PO-Revision-Date: 2012-07-02 21:26+0200\n"
 "Last-Translator: Ashiyane Digital Security Team <HeXa.ashiyane@gmail.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
@@ -6615,6 +6615,8 @@ msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
 msgstr ""
+"استفاده می کند به داده های ذخیره سازی و شاخص از جداول آن است  InnoDB اندازه "
+" بافر حافظه از."
 
 #: libraries/engines/innodb.lib.php:141
 msgid "Buffer Pool"
@@ -6622,27 +6624,27 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:142 server_status.php:662
 msgid "InnoDB Status"
-msgstr ""
+msgstr " InnoDB حالت"
 
 #: libraries/engines/innodb.lib.php:164
 msgid "Buffer Pool Usage"
-msgstr ""
+msgstr " مقداراستفاده از حافظه بافر"
 
 #: libraries/engines/innodb.lib.php:171
 msgid "pages"
-msgstr ""
+msgstr "صفحه ها"
 
 #: libraries/engines/innodb.lib.php:182
 msgid "Free pages"
-msgstr ""
+msgstr "صفحه های ازاد"
 
 #: libraries/engines/innodb.lib.php:188
 msgid "Dirty pages"
-msgstr ""
+msgstr "صفحه های کثیف"
 
 #: libraries/engines/innodb.lib.php:194
 msgid "Pages containing data"
-msgstr ""
+msgstr "صفحه های شامل داده"
 
 #: libraries/engines/innodb.lib.php:200
 msgid "Pages to be flushed"
