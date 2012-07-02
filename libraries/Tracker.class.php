@@ -258,7 +258,7 @@ class PMA_Tracker
     static public function createVersion($dbname, $tablename, $version,
         $tracking_set = '', $is_view = false
     ) {
-        global $sql_backquotes;
+        global $sql_backquotes, $export_type;
 
         $common_functions = PMA_CommonFunctions::getInstance();
         
@@ -267,6 +267,7 @@ class PMA_Tracker
         }
 
         // get Export SQL instance
+        require_once "libraries/plugin_interface.lib.php";
         $export_sql_plugin = PMA_getPlugin(
             "export",
             "sql",    
