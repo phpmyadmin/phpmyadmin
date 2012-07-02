@@ -750,5 +750,30 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
         );
     }
     
+    /**
+     * Test for _getOffsets - case 1
+     */
+    public function testGetOffsetsCase1()
+    {
+        $_SESSION['tmp_user_values']['max_rows'] = PMA_DisplayResults::ALL_ROWS;
+        $this->assertEquals(
+            $this->_callPrivateFunction('_getOffsets', array()),
+            array(0, 0)
+        );
+    }
+    
+    /**
+     * Test for _getOffsets - case 2
+     */
+    public function testGetOffsetsCase2()
+    {
+        $_SESSION['tmp_user_values']['max_rows'] = 5;
+        $_SESSION['tmp_user_values']['pos'] = 4;
+        $this->assertEquals(
+            $this->_callPrivateFunction('_getOffsets', array()),
+            array(9, 0)
+        );
+    }    
+    
 
 }
