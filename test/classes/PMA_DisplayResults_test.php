@@ -638,7 +638,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     }
     
     /**
-     * Data provider for _getCheckBoxesForMultipleRowOperations
+     * Data provider for testGetCheckBoxesForMultipleRowOperations
      * 
      * return array parameters and output
      */
@@ -773,7 +773,68 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             $this->_callPrivateFunction('_getOffsets', array()),
             array(9, 0)
         );
-    }    
+    }
+    
+    /**
+     * Data provider for testGetSortParamsCase1
+     * 
+     * return array parameters and output
+     */
+    public function dataProviderForGetSortParamsCase1()
+    {
+        return array(
+            array('', array('', '', ''))
+        );
+    }
+    
+    /**
+     * Test for _getSortParams - case 1
+     * 
+     * @dataProvider dataProviderForGetSortParamsCase1
+     */
+    public function testGetSortParamsCase1($order_by_clause, $output)
+    {
+        $this->assertEquals(
+            $this->_callPrivateFunction(
+                '_getSortParams', array($order_by_clause)
+            ),
+            $output
+        );
+    }
+    
+    /**
+     * Data provider for testGetSortParamsCase2
+     * 
+     * return array parameters and output
+     */
+    public function dataProviderForGetSortParamsCase2()
+    {
+        return array(
+            array(
+                '`a_sales`.`customer_id` ASC',
+                array(
+                    '`a_sales`.`customer_id` ASC',
+                    '`a_sales`.`customer_id`',
+                    'ASC'
+                )
+            )
+        );
+    }
+    
+    /**
+     * Test for _getSortParams - case 2
+     * 
+     * @dataProvider dataProviderForGetSortParamsCase2
+     */
+    public function testGetSortParamsCase2($order_by_clause, $output)
+    {
+        $this->assertEquals(
+            $this->_callPrivateFunction(
+                '_getSortParams', array($order_by_clause)
+            ),
+            $output
+        );
+    }
     
 
 }
