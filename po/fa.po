@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-07-02 08:35+0200\n"
-"Last-Translator: Hamed Narimani <narimani.h@gmail.com>\n"
+"PO-Revision-Date: 2012-07-02 11:08+0200\n"
+"Last-Translator: Ashiyane Digital Security Team <HeXa.ashiyane@gmail.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
@@ -523,7 +523,7 @@ msgstr "بعنوان مبين منظم(as regular expression)"
 #: db_search.php:209
 #, php-format
 msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr "نتيجه جستجوي \"<i>%s</i>\" %s:"
+msgstr "نتيجه ي جستجو \"<i>%s</i>\" %s:"
 
 #: db_search.php:227
 #, php-format
@@ -535,12 +535,12 @@ msgstr[0] "%s عبارت همتا در جدول <i>%s</i>"
 #: libraries/common.lib.php:3343 libraries/common.lib.php:3344
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:585
 msgid "Browse"
-msgstr "مشاهده"
+msgstr "جستجو"
 
 #: db_search.php:239
-#, php-format
+#, fuzzy, php-format
 msgid "Delete the matches for the %s table?"
-msgstr "داده های همتا در جدول %s حذف شوند؟"
+msgstr "حذف شوند؟ %s داده های همتا در جدول"
 
 #: db_search.php:239 libraries/display_tbl.lib.php:1426
 #: libraries/display_tbl.lib.php:2473
@@ -551,14 +551,19 @@ msgstr "داده های همتا در جدول %s حذف شوند؟"
 #: libraries/sql_query_form.lib.php:411 pmd_general.php:417
 #: setup/frames/index.inc.php:140 setup/frames/index.inc.php:231
 #: tbl_tracking.php:441 tbl_tracking.php:462 tbl_tracking.php:519
+#, fuzzy
 msgid "Delete"
-msgstr "حذف"
+msgstr "Delete"
 
 #: db_search.php:252
-#, php-format
+#, fuzzy, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] ""
+"مفرد\n"
+"<b>مجموع:</b> <i>%s</i> مطابق\n"
+"جمع\n"
+"<b>مجموع:</b> <i>%s</i> مطابق"
 
 #: db_search.php:274
 msgid "Search in database"
@@ -571,107 +576,119 @@ msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "كلمه(ها) يا مقدار(ها) براي جستجو (wildcard: \"%\"):"
 
 #: db_search.php:282
+#, fuzzy
 msgid "Find:"
-msgstr "نوع جستجو :"
+msgstr " جستجو :"
 
 #: db_search.php:286 db_search.php:287
 msgid "Words are separated by a space character (\" \")."
 msgstr "كلمات با علامت فاصله (\" \") جدا مي‌شوند."
 
 #: db_search.php:300
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
-msgstr "در جدول(هاي) :"
+msgstr "درجدول های:"
 
 #: db_search.php:330
+#, fuzzy
 msgid "Inside column:"
-msgstr "در جدول:"
+msgstr "در ستونها:"
 
 #: db_structure.php:68
+#, fuzzy
 msgid "No tables found in database"
 msgstr "در پايگاه داده هيچ جدولي یافت نشد"
 
 #: db_structure.php:228 libraries/mysql_charsets.lib.php:409
 #: libraries/mysql_charsets.lib.php:416
+#, fuzzy
 msgid "unknown"
 msgstr "ناشناس"
 
 #: db_structure.php:315 tbl_operations.php:709
-#, php-format
+#, fuzzy, php-format
 msgid "Table %s has been emptied"
-msgstr "جدول %s خالي شد"
+msgstr "خالي شد %s جدول"
 
 #: db_structure.php:328 tbl_operations.php:728
 #, php-format
 msgid "View %s has been dropped"
-msgstr "نمای %s حذف گرديد"
+msgstr "نوشته شد%sنمای "
 
 #: db_structure.php:328 tbl_operations.php:728
-#, php-format
+#, fuzzy, php-format
 msgid "Table %s has been dropped"
-msgstr "جدول %s حذف گرديد"
+msgstr " حذف گرديد%s جدول"
 
 #: db_structure.php:338 tbl_create.php:281
+#, fuzzy
 msgid "Tracking is active."
 msgstr "پیگردی فعال می باشد."
 
 #: db_structure.php:343 tbl_create.php:284
+#, fuzzy
 msgid "Tracking is not active."
 msgstr "پیگردی فعال نمی باشد."
 
 #: db_structure.php:461 libraries/display_tbl.lib.php:2356
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr ""
-"در این نما حداقل این تعداد از سطرها موجود می باشد. لطفاً به %sنوشتار%s مراجعه "
-"نمایید."
+"مراجعه نمایید%sنوشتار%s .در این نما حداقل این تعداد از سطرها موجود می باشد. "
+"لطفاً به "
 
 #: db_structure.php:477 db_structure.php:491 libraries/header.inc.php:161
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:210
+#, fuzzy
 msgid "View"
 msgstr "نمایش"
 
 #: db_structure.php:531 libraries/db_structure.lib.php:35
 #: libraries/server_links.inc.php:90 server_replication.php:31
 #: server_replication.php:162 server_status.php:600
+#, fuzzy
 msgid "Replication"
-msgstr ""
+msgstr "پاسخ"
 
 #: db_structure.php:535
+#, fuzzy
 msgid "Sum"
-msgstr "مجموع"
+msgstr "جمع"
 
 #: db_structure.php:542 libraries/StorageEngine.class.php:338
-#, php-format
+#, fuzzy, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr ""
+msgstr "موتور پیش فرض ذخیره سازی روی سرور است MySQL %s"
 
 #: db_structure.php:571 db_structure.php:588 db_structure.php:589
 #: libraries/display_tbl.lib.php:2498 libraries/display_tbl.lib.php:2503
 #: libraries/mult_submits.inc.php:15 server_databases.php:263
 #: server_databases.php:268 server_privileges.php:1760 tbl_structure.php:573
 #: tbl_structure.php:582
+#, fuzzy
 msgid "With selected:"
 msgstr "موارد انتخاب‌شده :"
 
 #: db_structure.php:574 libraries/display_tbl.lib.php:2493
 #: server_databases.php:265 server_privileges.php:684
 #: server_privileges.php:1763 tbl_structure.php:576
+#, fuzzy
 msgid "Check All"
 msgstr "انتخاب همه"
 
 #: db_structure.php:578 libraries/display_tbl.lib.php:2494
 #: libraries/replication_gui.lib.php:35 server_databases.php:267
 #: server_privileges.php:687 server_privileges.php:1767 tbl_structure.php:580
+#, fuzzy
 msgid "Uncheck All"
 msgstr "عدم انتخاب همه"
 
 #: db_structure.php:583
+#, fuzzy
 msgid "Check tables having overhead"
-msgstr ""
+msgstr "جدول هایی که سربار دارند را چک کنید"
 
 #: db_structure.php:591 libraries/common.lib.php:3356
 #: libraries/common.lib.php:3357 libraries/config/messages.inc.php:166
@@ -680,16 +697,19 @@ msgstr ""
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
 #: prefs_manage.php:286 server_privileges.php:1449 server_status.php:1609
 #: setup/frames/menu.inc.php:21
+#, fuzzy
 msgid "Export"
 msgstr "صدور"
 
 #: db_structure.php:593 db_structure.php:649
 #: libraries/display_tbl.lib.php:2606 tbl_structure.php:629
+#, fuzzy
 msgid "Print view"
 msgstr "نماي چاپ"
 
 #: db_structure.php:597 libraries/common.lib.php:3352
 #: libraries/common.lib.php:3353
+#, fuzzy
 msgid "Empty"
 msgstr "خالي كردن"
 
@@ -697,28 +717,34 @@ msgstr "خالي كردن"
 #: libraries/Index.class.php:490 libraries/common.lib.php:3350
 #: libraries/common.lib.php:3351 server_databases.php:269
 #: tbl_structure.php:150 tbl_structure.php:151 tbl_structure.php:589
+#, fuzzy
 msgid "Drop"
 msgstr "حذف"
 
 #: db_structure.php:601 tbl_operations.php:612
+#, fuzzy
 msgid "Check table"
 msgstr "بررسي جدول"
 
 #: db_structure.php:604 tbl_operations.php:669 tbl_structure.php:826
+#, fuzzy
 msgid "Optimize table"
 msgstr "بهينه‌سازي جدول"
 
 #: db_structure.php:606 tbl_operations.php:654
+#, fuzzy
 msgid "Repair table"
 msgstr "مرمت جدول"
 
 #: db_structure.php:609 tbl_operations.php:639
+#, fuzzy
 msgid "Analyze table"
-msgstr "تحليل جدول"
+msgstr "انالیز جدول"
 
 #: db_structure.php:611
+#, fuzzy
 msgid "Add prefix to table"
-msgstr ""
+msgstr "سرواژه را به جدول اضافه کنید"
 
 #: db_structure.php:613 libraries/mult_submits.inc.php:251
 #, fuzzy
@@ -730,15 +756,17 @@ msgstr "جايگزيني داده‌هاي جدول با پرونده"
 #, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
-msgstr "جايگزيني داده‌هاي جدول با پرونده"
+msgstr "جايگزيني داده‌هاي جدول با پیشوند"
 
 #: db_structure.php:652 libraries/schema/User_Schema.class.php:423
+#, fuzzy
 msgid "Data Dictionary"
-msgstr "فرهنگ داده‌ها"
+msgstr "  دیکشنری داده‌ها"
 
 #: db_tracking.php:80
+#, fuzzy
 msgid "Tracked tables"
-msgstr ""
+msgstr "جدول های دنبال شده"
 
 #: db_tracking.php:85 libraries/config/messages.inc.php:504
 #: libraries/export/htmlword.php:78 libraries/export/latex.php:156
@@ -769,7 +797,7 @@ msgstr "به روز شده"
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
 #: server_status.php:1245 sql.php:899 tbl_tracking.php:653
 msgid "Status"
-msgstr ""
+msgstr "وضعیت"
 
 #: db_tracking.php:91 libraries/Index.class.php:438
 #: libraries/db_structure.lib.php:39 libraries/rte/rte_list.lib.php:52
@@ -781,7 +809,7 @@ msgstr "عمل"
 
 #: db_tracking.php:102 js/messages.php:34
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "اطلاعات دنبال شده برای این جدول را پاک کنید"
 
 #: db_tracking.php:120 tbl_tracking.php:605 tbl_tracking.php:663
 msgid "active"
@@ -792,22 +820,20 @@ msgid "not active"
 msgstr "غیر فعال"
 
 #: db_tracking.php:135
-#, fuzzy
 msgid "Versions"
-msgstr "فارسي"
+msgstr "نسخه ها"
 
 #: db_tracking.php:136 tbl_tracking.php:415 tbl_tracking.php:683
 msgid "Tracking report"
-msgstr ""
+msgstr "گزارشات دنبال شده"
 
 #: db_tracking.php:137 tbl_tracking.php:235 tbl_tracking.php:685
-#, fuzzy
 msgid "Structure snapshot"
-msgstr "فقط ساختار"
+msgstr "رونوشت لحظه ای ساختار ساختار"
 
 #: db_tracking.php:183
 msgid "Untracked tables"
-msgstr ""
+msgstr "جدول های دنبال نشده"
 
 #: db_tracking.php:201 tbl_structure.php:655
 #, fuzzy
@@ -826,7 +852,7 @@ msgstr ""
 
 #: enum_editor.php:28 js/messages.php:274
 msgid "Values for a new column"
-msgstr ""
+msgstr "مقادیر ستون جدید"
 
 #: enum_editor.php:30 js/messages.php:273
 #, fuzzy, php-format
@@ -836,16 +862,15 @@ msgstr "تعداد سطرها در هر صفحه"
 
 #: enum_editor.php:34 js/messages.php:275
 msgid "Enter each value in a separate field"
-msgstr ""
+msgstr "هر کداممقادیر(سطر ها)را در یک خط وارد کنید"
 
 #: enum_editor.php:123
-#, fuzzy
 msgid "Add a value"
-msgstr "افزودن يك كاربر جديد"
+msgstr "افزودن يك مقدار جديد"
 
 #: enum_editor.php:129 gis_data_editor.php:317
 msgid "Output"
-msgstr ""
+msgstr "خروجی"
 
 #: enum_editor.php:130
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
