@@ -590,7 +590,10 @@ class ExportHtmlword extends ExportPlugin
         $column, $unique_keys
     ) {
         $definition = '<tr class="print-category">';
-        $extracted_columnspec = PMA_extractColumnSpec($column['Type']);
+        
+        $extracted_columnspec
+            = PMA_CommonFunctions::getInstance()->extractColumnSpec($column['Type']);
+        
         $type = htmlspecialchars($extracted_columnspec['print_type']);
         if (empty($type)) {
             $type = '&nbsp;';

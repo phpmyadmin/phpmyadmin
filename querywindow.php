@@ -29,6 +29,8 @@ $cfgRelation = PMA_getRelationsParam();
  */
 require_once 'libraries/bookmark.lib.php';
 
+$common_functions = PMA_CommonFunctions::getInstance();
+
 $querydisplay_tabs = array(
     'sql',
     'files',
@@ -79,7 +81,7 @@ if ($no_js) {
     }
 }
 
-$titles['Change'] = PMA_getIcon('b_edit.png', __('Change'));
+$titles['Change'] = $common_functions->getIcon('b_edit.png', __('Change'));
 $url_query = PMA_generate_common_url($db, $table);
 
 if (! empty($sql_query)) {
@@ -135,7 +137,7 @@ if ($querydisplay_tab == 'sql' || $querydisplay_tab == 'full') {
 echo '<div id="querywindowcontainer">';
 
 if ($tabs) {
-    echo PMA_getHtmlTabs($tabs, array());
+    echo $common_functions->getHtmlTabs($tabs, array());
     unset($tabs);
 }
 
@@ -170,9 +172,9 @@ if (! empty($_sql_history)
 
         if (! empty($query['db'])) {
             echo '[';
-            echo htmlspecialchars(PMA_backquote($query['db']));
+            echo htmlspecialchars($common_functions->backquote($query['db']));
             if (! empty($query['table'])) {
-                echo '.' . htmlspecialchars(PMA_backquote($query['table']));
+                echo '.' . htmlspecialchars($common_functions->backquote($query['table']));
             }
             echo  '] ';
         }

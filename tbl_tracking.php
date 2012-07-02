@@ -13,6 +13,7 @@ require './libraries/tbl_common.inc.php';
 $url_query .= '&amp;goto=tbl_tracking.php&amp;back=tbl_tracking.php';
 $url_params['goto'] = 'tbl_tracking.php';;
 $url_params['back'] = 'tbl_tracking.php';
+$common_functions = PMA_CommonFunctions::getInstance();
 
 // Init vars for tracking report
 if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
@@ -289,7 +290,13 @@ if (isset($_REQUEST['snapshot'])) {
         $drop_create_statements .= $data['ddlog'][1]['statement'];
     }
     // Print SQL code
-    echo PMA_getMessage(sprintf(__('Version %s snapshot (SQL code)'), htmlspecialchars($_REQUEST['version'])), $drop_create_statements);
+    echo $common_functions->getMessage(
+        sprintf(
+            __('Version %s snapshot (SQL code)')
+            , htmlspecialchars($_REQUEST['version'])
+        ),
+        $drop_create_statements
+    );
 
     // Unserialize snapshot
     $temp = unserialize($data['schema_snapshot']);
@@ -327,10 +334,11 @@ if (isset($_REQUEST['snapshot'])) {
             <td><?php echo (($field['Null'] == 'YES') ? __('Yes') : __('No')); ?></td>
             <td><?php
             if (isset($field['Default'])) {
-                $extracted_columnspec = PMA_extractColumnSpec($field['Type']);
+                $extracted_columnspec
+                    = $common_functions->extractColumnSpec($field['Type']);
                 if ($extracted_columnspec['type'] == 'bit') {
                     // here, $field['Default'] contains something like b'010'
-                    echo PMA_convertBitDefaultValue($field['Default']);
+                    echo $common_functions->convertBitDefaultValue($field['Default']);
                 } else {
                     echo htmlspecialchars($field['Default']);
                 }
@@ -493,7 +501,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
     // Prepare delete link content here
     $drop_image_or_text = '';
     if (true == $GLOBALS['cfg']['PropertiesIconic']) {
-        $drop_image_or_text .= PMA_getImage('b_drop.png', __('Delete tracking data row from report'));
+        $drop_image_or_text .= $common_functions->getImage('b_drop.png', __('Delete tracking data row from report'));
     }
     if ('both' === $GLOBALS['cfg']['PropertiesIconic'] || false === $GLOBALS['cfg']['PropertiesIconic']) {
         $drop_image_or_text .= __('Delete');
@@ -528,7 +536,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
             if (strlen($entry['statement']) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
                 $statement = substr($entry['statement'], 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) . '[...]';
             } else {
-                $statement  = PMA_formatSql(PMA_SQP_parse($entry['statement']));
+                $statement  = $common_functions->formatSql(PMA_SQP_parse($entry['statement']));
             }
             $timestamp = strtotime($entry['date']);
 
@@ -586,7 +594,7 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
             if (strlen($entry['statement']) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
                 $statement = substr($entry['statement'], 0, $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) . '[...]';
             } else {
-                $statement  = PMA_formatSql(PMA_SQP_parse($entry['statement']));
+                $statement  = $common_functions->formatSql(PMA_SQP_parse($entry['statement']));
             }
             $timestamp = strtotime($entry['date']);
 
@@ -650,9 +658,9 @@ if (isset($_REQUEST['report']) || isset($_REQUEST['report_export'])) {
  */
 
 $sql_query = " SELECT DISTINCT db_name, table_name FROM " .
-             PMA_backquote($GLOBALS['cfg']['Server']['pmadb']) . "." .
-             PMA_backquote($GLOBALS['cfg']['Server']['tracking']) .
-             " WHERE db_name = '" . PMA_sqlAddSlashes($GLOBALS['db']) . "' " .
+             $common_functions->backquote($GLOBALS['cfg']['Server']['pmadb']) . "." .
+             $common_functions->backquote($GLOBALS['cfg']['Server']['tracking']) .
+             " WHERE db_name = '" . $common_functions->sqlAddSlashes($GLOBALS['db']) . "' " .
              " ORDER BY db_name, table_name";
 
 $sql_result = PMA_queryAsControlUser($sql_query);
@@ -690,10 +698,10 @@ if (PMA_DBI_num_rows($sql_result) > 0) {
  */
 
 $sql_query = " SELECT * FROM " .
-             PMA_backquote($GLOBALS['cfg']['Server']['pmadb']) . "." .
-             PMA_backquote($GLOBALS['cfg']['Server']['tracking']) .
-             " WHERE db_name = '" . PMA_sqlAddSlashes($_REQUEST['db']) . "' ".
-             " AND table_name = '" . PMA_sqlAddSlashes($_REQUEST['table']) ."' ".
+             $common_functions->backquote($GLOBALS['cfg']['Server']['pmadb']) . "." .
+             $common_functions->backquote($GLOBALS['cfg']['Server']['tracking']) .
+             " WHERE db_name = '" . $common_functions->sqlAddSlashes($_REQUEST['db']) . "' ".
+             " AND table_name = '" . $common_functions->sqlAddSlashes($_REQUEST['table']) ."' ".
              " ORDER BY version DESC ";
 
 $sql_result = PMA_queryAsControlUser($sql_query);

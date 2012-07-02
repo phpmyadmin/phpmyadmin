@@ -9,7 +9,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/common.lib.php';
+require_once 'libraries/CommonFunctions.class.php';
 require_once 'libraries/List_Database.class.php';
 
 class PMA_List_Database_test extends PHPUnit_Framework_TestCase

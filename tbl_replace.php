@@ -22,8 +22,10 @@ require_once 'libraries/common.inc.php';
  */
 require_once 'libraries/insert_edit.lib.php';
 
+$common_functions = PMA_CommonFunctions::getInstance();
+
 // Check parameters
-PMA_checkParameters(array('db', 'table', 'goto'));
+$common_functions->checkParameters(array('db', 'table', 'goto'));
 
 PMA_DBI_select_db($GLOBALS['db']);
 
@@ -162,6 +164,7 @@ foreach ($loop_array as $rownumber => $where_clause) {
         = isset($_REQUEST['auto_increment']['multi_edit'][$rownumber])
         ? $_REQUEST['auto_increment']['multi_edit'][$rownumber]
         : null;
+
     // When a select field is nullified, it's not present in $_REQUEST
     // so initialize it; this way, the foreach($multi_edit_colummns) will process it
     foreach ($multi_edit_columns_name as $key => $val) {
@@ -217,8 +220,8 @@ foreach ($loop_array as $rownumber => $where_clause) {
             $value_sets[] = implode(', ', $query_values);
         } else {
             // build update query
-            $query[] = 'UPDATE ' . PMA_backquote($GLOBALS['db']) . '.'
-                . PMA_backquote($GLOBALS['table'])
+            $query[] = 'UPDATE ' . $common_functions->backquote($GLOBALS['db'])
+                . '.' . $common_functions->backquote($GLOBALS['table'])
                 . ' SET ' . implode(', ', $query_values)
                 . ' WHERE ' . $where_clause
                 . ($_REQUEST['clause_is_unique'] ? '' : ' LIMIT 1');
@@ -359,10 +362,11 @@ if ($response->isAjax()) {
 
     /**Get the total row count of the table*/
     $extra_data['row_count'] = PMA_Table::countRecords(
-        $_REQUEST['db'],
-        $_REQUEST['table']
+        $_REQUEST['db'], $_REQUEST['table']
     );
-    $extra_data['sql_query'] = PMA_getMessage($message, $GLOBALS['display_query']);
+    
+    $extra_data['sql_query']
+        = $common_functions->getMessage($message, $GLOBALS['display_query']);
 
     $response = PMA_Response::getInstance();
     $response->isSuccess($message->isSuccess());

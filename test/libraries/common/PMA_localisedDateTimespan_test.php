@@ -10,7 +10,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/common.lib.php';
+require_once 'libraries/CommonFunctions.class.php';
 
 class PMA_localisedDateTimespan_test extends PHPUnit_Framework_TestCase
 {
@@ -70,7 +70,9 @@ class PMA_localisedDateTimespan_test extends PHPUnit_Framework_TestCase
      */
     public function testLocalisedDate($a, $b, $e)
     {
-        $this->assertEquals($e, PMA_localisedDate($a, $b));
+        $this->assertEquals(
+            $e, PMA_CommonFunctions::getInstance()->localisedDate($a, $b)
+        );
     }
 
     /**
@@ -94,7 +96,9 @@ class PMA_localisedDateTimespan_test extends PHPUnit_Framework_TestCase
     {
         $GLOBALS['timespanfmt'] = '%s days, %s hours, %s minutes and %s seconds';
 
-        $this->assertEquals($e, PMA_timespanFormat($a));
+        $this->assertEquals(
+            $e, PMA_CommonFunctions::getInstance()->timespanFormat($a)
+        );
     }
 }
 ?>

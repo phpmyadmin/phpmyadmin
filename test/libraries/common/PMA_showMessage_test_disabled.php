@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_getMessage from common.lib
+ * Test for PMA_CommonFunctions::getMessage from common.lib
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -12,7 +12,7 @@ const PMA_IS_WINDOWS = false;
 /*
  * Include to test.
  */
-require_once 'libraries/common.lib.php';
+require_once 'libraries/CommonFunctions.class.php';
 require_once 'libraries/Table.class.php';
 require_once 'libraries/database_interface.lib.php';
 require_once 'libraries/js_escape.lib.php';
@@ -60,9 +60,9 @@ class PMA_showMessage_test extends PHPUnit_Framework_TestCase
         ]</div></div>"
         );
 
-        echo PMA_getMessage("msg");
+        echo PMA_CommonFunctions::getInstance()->getMessage("msg");
 
-        //$this->assertEquals("",PMA_getMessage("msg"));
+        //$this->assertEquals("", PMA_CommonFunctions::getInstance()->getMessage("msg"));
         $this->assertTrue(true);
     }
 }
