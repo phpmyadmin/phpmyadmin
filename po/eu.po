@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-07-01 18:46+0200\n"
+"PO-Revision-Date: 2012-07-02 11:09+0200\n"
 "Last-Translator: aitzol berasategi <aitzol76@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
 "Language: eu\n"
@@ -960,11 +960,13 @@ msgid ""
 msgstr ""
 
 #: import.php:57
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
 "%s for ways to workaround this limit."
 msgstr ""
+"Agian fitxategi haundiegia igotzen saiatu zara. Mesedez begiratu %"
+"sdocumentation%a tamaina mugak aldatzeko."
 
 #: import.php:170 import.php:419
 msgid "Showing bookmark"
