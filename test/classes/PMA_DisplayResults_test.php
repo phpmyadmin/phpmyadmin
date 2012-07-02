@@ -790,6 +790,9 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getSortParams - case 1
      * 
+     * @param string $order_by_clause the order by clause of the sql query
+     * @param string $output          output of _getSortParams
+     * 
      * @dataProvider dataProviderForGetSortParamsCase1
      */
     public function testGetSortParamsCase1($order_by_clause, $output)
@@ -824,6 +827,9 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getSortParams - case 2
      * 
+     * @param string $order_by_clause the order by clause of the sql query
+     * @param string $output          output of _getSortParams
+     * 
      * @dataProvider dataProviderForGetSortParamsCase2
      */
     public function testGetSortParamsCase2($order_by_clause, $output)
@@ -831,6 +837,69 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             $this->_callPrivateFunction(
                 '_getSortParams', array($order_by_clause)
+            ),
+            $output
+        );
+    }
+    
+    /**
+     * Data provider for testGetCheckboxForMultiRowSubmissions
+     * 
+     * return array parameters and output
+     */
+    public function dataProviderForGetCheckboxForMultiRowSubmissions()
+    {
+        return array(
+            array(
+                'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Dd1aecb47ef7c081e068e7008b38a5d76&amp;token=d1aecb47ef7c081e068e7008b38a5d76',
+                array(
+                    'edit_lnk' => 'ur',
+                    'del_lnk' => 'dr',
+                    'sort_lnk' => '0',
+                    'nav_bar' => '1',
+                    'ins_row' => '1',
+                    'bkm_form' => '1',
+                    'text_btn' => '1',
+                    'pview_lnk' => '1'
+                ),
+                0,
+                '%60new%60.%60id%60+%3D+1',
+                array('`new`.`id`' => '= 1'),
+                'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
+                '[%_PMA_CHECKBOX_DIR_%]',
+                'odd row_0 vpointer vmarker',
+                '<td class="odd row_0 vpointer vmarker" class="center"><input type="checkbox" id="id_rows_to_delete0[%_PMA_CHECKBOX_DIR_%]" name="rows_to_delete[0]" class="multi_checkbox" value="%60new%60.%60id%60+%3D+1"  /><input type="hidden" class="condition_array" value="{&quot;`new`.`id`&quot;:&quot;= 1&quot;}" />    </td>'
+            )
+        );
+    }
+
+    /**
+     * Test for _getCheckboxForMultiRowSubmissions
+     * 
+     * @param string $del_url           delete url
+     * @param array  $is_display        array with explicit indexes for all
+     *                                  the display elements
+     * @param string $row_no            the row number
+     * @param string $where_clause_html url encoded where clause
+     * @param array  $condition_array   array of conditions in the where clause
+     * @param string $del_query         delete query
+     * @param string $id_suffix         suffix for the id
+     * @param string $class             css classes for the td element
+     * @param string $output            output of _getSortParams
+     * 
+     * @dataProvider dataProviderForGetCheckboxForMultiRowSubmissions
+     */
+    public function testGetCheckboxForMultiRowSubmissions(
+        $del_url, $is_display, $row_no, $where_clause_html, $condition_array,
+        $del_query, $id_suffix, $class, $output
+    ) {
+        $this->assertEquals(
+            $this->_callPrivateFunction(
+                '_getCheckboxForMultiRowSubmissions',
+                array(
+                    $del_url, $is_display, $row_no, $where_clause_html,
+                    $condition_array, $del_query, $id_suffix, $class
+                )                    
             ),
             $output
         );
