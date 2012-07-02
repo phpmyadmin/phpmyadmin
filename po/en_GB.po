@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-02-08 14:33+0100\n"
+"PO-Revision-Date: 2012-07-02 11:12+0200\n"
 "Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.1.6\n"
+"X-Generator: Weblate 1.1\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -1535,10 +1535,9 @@ msgid "From general log"
 msgstr "From general log"
 
 #: js/messages.php:176
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "Loading logs"
+msgstr "Analysing logs"
 
 #: js/messages.php:177
 msgid "Analysing & loading logs. This may take a while."
@@ -1577,10 +1576,9 @@ msgid "Jump to Log table"
 msgstr "Jump to Log table"
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "No data"
 msgid "No data found"
-msgstr "No data"
+msgstr "No data found"
 
 #: js/messages.php:185
 msgid "Log analysed, but no data found in this time span."
@@ -1617,16 +1615,14 @@ msgid "Chart"
 msgstr "Chart"
 
 #: js/messages.php:195
-#, fuzzy
 #| msgid "Add chart"
 msgid "Edit chart"
-msgstr "Add chart"
+msgstr "Edit chart"
 
 #: js/messages.php:196
-#, fuzzy
 #| msgid "Series:"
 msgid "Series"
-msgstr "Series:"
+msgstr "Series"
 
 #. l10n: A collection of available filters
 #: js/messages.php:199
@@ -1700,16 +1696,14 @@ msgid "Import"
 msgstr "Import"
 
 #: js/messages.php:217
-#, fuzzy
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
-msgstr "Could not import configuration"
+msgstr "Import monitor configuration"
 
 #: js/messages.php:218
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "Please select the primary key or a unique key"
+msgstr "Please select the file you want to import"
 
 #: js/messages.php:220
 msgid "Analyse Query"
@@ -1907,7 +1901,7 @@ msgstr "Hovering over a point will show its label."
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "To zoom in, select a section of the plot with the mouse."
 
 #: js/messages.php:306
 msgid "Click reset zoom link to come back to original state."
@@ -11853,10 +11847,9 @@ msgid "How to use"
 msgstr "How to use"
 
 #: tbl_zoom_select.php:431
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Reset"
+msgstr "Reset zoom"
 
 #: themes.php:28
 msgid "Get more themes!"
