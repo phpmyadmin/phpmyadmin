@@ -163,7 +163,6 @@ function PMA_getTransformationDescription($file, $html_formatted = true)
  */
 function PMA_getMIME($db, $table, $strict = false)
 {
-    
     $common_functions = PMA_CommonFunctions::getInstance();
     $cfgRelation = PMA_getRelationsParam();
 
@@ -183,7 +182,7 @@ function PMA_getMIME($db, $table, $strict = false)
            AND ( `mimetype` != \'\'' . (!$strict ? '
               OR `transformation` != \'\'
               OR `transformation_options` != \'\'' : '') . ')';
-    return PMA_DBI_fetch_result(
+    $result = PMA_DBI_fetch_result(
         $com_qry, 'column_name', null, $GLOBALS['controllink']
     );
 
