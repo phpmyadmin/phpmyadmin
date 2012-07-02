@@ -352,7 +352,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return array array data for testGetTableNavigation
+     * @return array data for testGetTableNavigation
      */
     public function providerForTestGetTableNavigation()
     {
