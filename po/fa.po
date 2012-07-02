@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-28 09:04+0200\n"
-"PO-Revision-Date: 2012-07-02 08:35+0200\n"
-"Last-Translator: Hamed Narimani <narimani.h@gmail.com>\n"
+"PO-Revision-Date: 2012-07-02 09:50+0200\n"
+"Last-Translator: Ashiyane Digital Security Team <HeXa.ashiyane@gmail.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
@@ -663,7 +663,7 @@ msgstr "نمایش"
 #: libraries/db_structure.lib.php:35 server_replication.php:33
 #: server_replication.php:191 server_status.php:612
 msgid "Replication"
-msgstr ""
+msgstr "پاسخ"
 
 #: db_structure.php:622
 msgid "Sum"
@@ -672,7 +672,7 @@ msgstr "مجموع"
 #: db_structure.php:629 libraries/StorageEngine.class.php:350
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr ""
+msgstr "%s موتور پیش فرض ذخیره سازی روی سرور MySQL است."
 
 #: db_structure.php:677 db_structure.php:689 db_structure.php:690
 #: libraries/DisplayResults.class.php:4235
