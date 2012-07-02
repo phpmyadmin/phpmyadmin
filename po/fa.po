@@ -366,7 +366,7 @@ msgid ""
 "click %shere%s."
 msgstr ""
 "امكانات اضافي براي كاركردن با جدولهاي پيوندي غيرفعال شده‌است . براي پيداكردن "
-"دليل آن %shere% را بزنيد ."
+"دليل آن %shere%s را بزنيد ."
 
 #: db_operations.php:651
 msgid "Edit or export relational schema"
