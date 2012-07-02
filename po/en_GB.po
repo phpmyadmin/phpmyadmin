@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-28 09:04+0200\n"
-"PO-Revision-Date: 2012-05-16 15:28+0200\n"
+"PO-Revision-Date: 2012-07-02 11:22+0200\n"
 "Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "Language: en_GB\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.0\n"
+"X-Generator: Weblate 1.1\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:577 server_privileges.php:1838
@@ -553,13 +553,13 @@ msgstr[0] "<b>Total:</b> <i>%s</i> match"
 msgstr[1] "<b>Total:</b> <i>%s</i> matches"
 
 #: db_search.php:296
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$s match inside table <i>%2$s</i>"
 #| msgid_plural "%1$s matches inside table <i>%2$s</i>"
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s match inside table <i>%2$s</i>"
-msgstr[1] "%1$s matched inside table <i>%2$s</i>"
+msgstr[0] "%1$s match in <strong>%2$s</strong>"
+msgstr[1] "%1$s matches in <strong>%2$s</strong>"
 
 #: db_search.php:311 libraries/Menu.class.php:246
 #: libraries/common.lib.php:3311 libraries/common.lib.php:3533
@@ -1923,13 +1923,12 @@ msgstr "Hovering over a point will show its label."
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "To zoom in, select a section of the plot with the mouse."
 
 #: js/messages.php:306
-#, fuzzy
 #| msgid "Click reset zoom link to come back to original state."
 msgid "Click reset zoom button to come back to original state."
-msgstr "Click reset zoom link to come back to original state."
+msgstr "Click reset zoom button to come back to original state."
 
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."
@@ -2482,7 +2481,7 @@ msgid "vertical"
 msgstr "vertical"
 
 #: libraries/DisplayResults.class.php:702
-#, fuzzy, php-format
+#, php-format
 #| msgid "Headers every %s rows"
 msgid "Headers every %s rows"
 msgstr "Headers every %s rows"
@@ -3064,10 +3063,9 @@ msgid "How to use"
 msgstr "How to use"
 
 #: libraries/TableSearch.class.php:1187
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Reset"
+msgstr "Reset zoom"
 
 #: libraries/Theme.class.php:169
 #, php-format
@@ -4855,10 +4853,9 @@ msgid "Minimum number of tables to display the table filter box"
 msgstr "Minimum number of tables to display the table filter box"
 
 #: libraries/config/messages.inc.php:281
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of databases to display the database filter box"
-msgstr "Minimum number of tables to display the table filter box"
+msgstr "Minimum number of databases to display the database filter box"
 
 #: libraries/config/messages.inc.php:282
 msgid "String that separates databases into different tree levels"
@@ -7285,7 +7282,7 @@ msgstr "Failed to use Blowfish from mcrypt!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:81
 msgid "Your session has expired. Please login again."
-msgstr ""
+msgstr "Your session has expired. Please login again."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:170
 msgid "Log in"
@@ -7888,7 +7885,6 @@ msgstr ""
 "need to set the first option to the empty string."
 
 #: libraries/plugins/transformations/abstract/ExternalTransformationsPlugin.class.php:31
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the column data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -7915,13 +7911,13 @@ msgstr ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
 "default is Tidy, to pretty-print HTML code. For security reasons, you have "
-"to manually edit the file libraries/transformations/text_plain__external.inc."
-"php and list the tools you want to make available. The first option is then "
-"the number of the program you want to use and the second option is the "
-"parameters for the program. The third option, if set to 1, will convert the "
-"output using htmlspecialchars() (Default 1). The fourth option, if set to 1, "
-"will prevent wrapping and ensure that the output appears all on one line "
-"(Default 1)."
+"to manually edit the file "
+"libraries/plugins/transformations/Text_Plain_External.class.php and list the "
+"tools you want to make available. The first option is then the number of "
+"the program you want to use and the second option is the parameters for the "
+"program. The third option, if set to 1, will convert the output using "
+"htmlspecialchars() (Default 1). The fourth option, if set to 1, will prevent "
+"wrapping and ensure that the output appears all on one line (Default 1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
@@ -9214,10 +9210,9 @@ msgid "No databases"
 msgstr "No databases"
 
 #: navigation.php:169
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "Filter databases by name"
-msgstr "Filter tables by name"
+msgstr "Filter databases by name"
 
 #: navigation.php:238
 msgid "Filter tables by name"
