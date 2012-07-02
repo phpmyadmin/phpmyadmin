@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-28 09:04+0200\n"
-"PO-Revision-Date: 2012-05-17 15:19+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-07-02 08:35+0200\n"
+"Last-Translator: Hamed Narimani <narimani.h@gmail.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.0\n"
+"X-Generator: Weblate 1.1\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:577 server_privileges.php:1838
@@ -34,6 +34,8 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
+"پنجره هدف قابل به روز آوری نیست. زیرا یا آن را بسته اید و یا تنظیمات امنیتی "
+"شما جلوی این کار را میگیرد."
 
 #: browse_foreigners.php:168 libraries/Menu.class.php:259
 #: libraries/Menu.class.php:353 libraries/common.lib.php:3309
@@ -79,7 +81,7 @@ msgstr "تاييد"
 #: browse_foreigners.php:186 browse_foreigners.php:190
 #: libraries/Index.class.php:461 tbl_tracking.php:365
 msgid "Keyname"
-msgstr "Keyname"
+msgstr "نام کلیدی"
 
 #: browse_foreigners.php:187 browse_foreigners.php:189
 #: server_collations.php:39 server_collations.php:51 server_engines.php:42
@@ -104,7 +106,7 @@ msgstr ""
 #: db_create.php:74
 #, php-format
 msgid "Database %1$s has been created."
-msgstr "پايگاه داده %1$s ایجاد شده است."
+msgstr "پایگاه داده %1$s ایجاد شد."
 
 #: db_datadict.php:49 db_operations.php:419
 msgid "Database comment: "
@@ -276,16 +278,16 @@ msgid "The database name is empty!"
 msgstr "نام پایگاه داده وارد نشده‌ است!"
 
 #: db_operations.php:326
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "نام پایگاه داده %s به %s تغییر داده شد"
+msgstr "پایگاه داده %1$s به %2$s تغییر نام داده شد"
 
 #: db_operations.php:330
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "پایگاه داده %s در %s کپی شد"
+msgstr "پایگاه داده %1$s در %2$s کپی شد"
 
 #: db_operations.php:461
 msgid "Rename database to"
@@ -355,7 +357,7 @@ msgid "Collation"
 msgstr "مقایسه"
 
 #: db_operations.php:617
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "ditional features for working with linked tables have been ctivated. To d "
 #| "out why click %shere%s."
@@ -364,7 +366,7 @@ msgid ""
 "click %shere%s."
 msgstr ""
 "امكانات اضافي براي كاركردن با جدولهاي پيوندي غيرفعال شده‌است . براي پيداكردن "
-"دليل آن %sاينجا%s را بزنيد ."
+"دليل آن %shere% را بزنيد ."
 
 #: db_operations.php:651
 msgid "Edit or export relational schema"
@@ -397,7 +399,7 @@ msgstr "اندازه"
 #: db_printview.php:158 db_structure.php:590
 #: libraries/plugins/export/ExportSql.class.php:1080
 msgid "in use"
-msgstr "in use"
+msgstr "در حال استفاده"
 
 #: db_printview.php:184 libraries/db_info.inc.php:76
 #: libraries/db_structure.lib.php:60
@@ -421,7 +423,7 @@ msgstr "آخرین به روز رسانی"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1332 tbl_printview.php:441
 #: tbl_structure.php:981
 msgid "Last check"
-msgstr ""
+msgstr "آخرین بازدید"
 
 #: db_printview.php:219 db_structure.php:611
 #, php-format
@@ -434,10 +436,10 @@ msgid "You have to choose at least one column to display"
 msgstr "شما حذاقل بايد يك ستون را براي نمايش انتخاب نماييد"
 
 #: db_qbe.php:179
-#, fuzzy, php-format
+#, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "سازنده ی تصویری"
+msgstr "به %svisual builder%s بروید"
 
 #: db_qbe.php:216 libraries/DisplayResults.class.php:1689
 #: libraries/db_structure.lib.php:106
@@ -471,7 +473,7 @@ msgstr "معيارها"
 
 #: db_qbe.php:371 db_qbe.php:453 db_qbe.php:545 db_qbe.php:576
 msgid "Ins"
-msgstr "Ins"
+msgstr "اینسرت"
 
 #: db_qbe.php:375 db_qbe.php:457 db_qbe.php:542 db_qbe.php:573
 msgid "And"
@@ -479,7 +481,7 @@ msgstr "و"
 
 #: db_qbe.php:384 db_qbe.php:465 db_qbe.php:547 db_qbe.php:578
 msgid "Del"
-msgstr "Del"
+msgstr "حذف"
 
 #: db_qbe.php:388 db_qbe.php:469 db_qbe.php:540 db_qbe.php:571
 #: libraries/TableSearch.class.php:776 libraries/insert_edit.lib.php:1184
@@ -492,7 +494,6 @@ msgid "Modify"
 msgstr "اصلاح"
 
 #: db_qbe.php:600
-#, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
 msgstr "اضافه/حذف معيارها"
@@ -516,7 +517,7 @@ msgstr "پرس و جوي SQL از پايگاه داده <b>%s</b>:"
 
 #: db_qbe.php:947 libraries/common.lib.php:1254
 msgid "Submit Query"
-msgstr ""
+msgstr "ثبت کوئری"
 
 #: db_search.php:34 libraries/plugins/auth/AuthenticationConfig.class.php:80
 #: libraries/plugins/auth/AuthenticationConfig.class.php:95
@@ -614,7 +615,7 @@ msgstr "در جدول:"
 
 #: db_structure.php:87
 msgid "No tables found in database"
-msgstr "در پايگاه داده هيچ جدولي یافت نشد."
+msgstr "در پايگاه داده هيچ جدولي یافت نشد"
 
 #: db_structure.php:240 libraries/mysql_charsets.lib.php:411
 #: libraries/mysql_charsets.lib.php:418
@@ -629,7 +630,7 @@ msgstr "جدول %s خالي شد"
 #: db_structure.php:382 tbl_operations.php:742
 #, php-format
 msgid "View %s has been dropped"
-msgstr "نمای %s حذف گرديد."
+msgstr "نمای %s حذف گرديد"
 
 #: db_structure.php:382 tbl_operations.php:742
 #, php-format
@@ -2054,7 +2055,7 @@ msgstr "توضيحات جدول"
 #: js/messages.php:318 tbl_change.php:242 tbl_indexes.php:244
 #: tbl_indexes.php:279
 msgid "Ignore"
-msgstr "Ignore"
+msgstr "در نظر نگرفتن"
 
 #: js/messages.php:319 libraries/DisplayResults.class.php:2538
 msgid "Copy"
@@ -2741,12 +2742,12 @@ msgstr ""
 #: libraries/DisplayResults.class.php:2576
 #: libraries/DisplayResults.class.php:2591
 msgid "The row has been deleted"
-msgstr "سطر حذف گرديد ."
+msgstr "سطر حذف گرديد"
 
 #: libraries/DisplayResults.class.php:2626
 #: libraries/DisplayResults.class.php:4221 server_status.php:1282
 msgid "Kill"
-msgstr "Kill"
+msgstr "از کار انداختن"
 
 #: libraries/DisplayResults.class.php:3687 libraries/db_structure.lib.php:43
 msgid ""
@@ -2756,7 +2757,7 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:4109
 msgid "in query"
-msgstr "in query"
+msgstr "داخل کوئری"
 
 #: libraries/DisplayResults.class.php:4158
 msgid "Showing rows"
@@ -3256,7 +3257,7 @@ msgstr ""
 
 #: libraries/Theme.class.php:458
 msgid "No preview available."
-msgstr "پش دید موجود نمی باشد"
+msgstr "نمای قبلی موجود نمی باشد."
 
 #: libraries/Theme.class.php:460
 msgid "take it"
@@ -3688,19 +3689,19 @@ msgstr "مستندات"
 #: libraries/common.lib.php:488
 msgctxt "MySQL 5.5 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "انگلیسی"
 
 #. l10n: Please check that translation actually exists.
 #: libraries/common.lib.php:492
 msgctxt "MySQL 5.1 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "انگلیسی"
 
 #. l10n: Please check that translation actually exists.
 #: libraries/common.lib.php:496
 msgctxt "MySQL 5.0 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "انگلیسی"
 
 #: libraries/common.lib.php:632 server_status.php:601 server_status.php:1260
 #: sql.php:960
@@ -3820,7 +3821,7 @@ msgstr ""
 #: libraries/common.lib.php:3506 libraries/insert_edit.lib.php:1181
 #: libraries/sql_query_form.lib.php:479
 msgid "The directory you set for upload work cannot be reached"
-msgstr "پوشه‌اي را كه براي انتقال فايل انتخاب كرده‌ايد قابل دسترسي نيست."
+msgstr "پوشه‌اي را كه براي انتقال فايل انتخاب كرده‌ايد قابل دسترسي نيست"
 
 #: libraries/common.lib.php:3516
 msgid "There are no files to upload"
@@ -4026,7 +4027,7 @@ msgstr ""
 #: libraries/schema/User_Schema.class.php:510 prefs_manage.php:323
 #: prefs_manage.php:328
 msgid "Reset"
-msgstr "Reset"
+msgstr "پاک سازی"
 
 #: libraries/config/messages.inc.php:17
 msgid "Improves efficiency of screen refresh"
@@ -7969,7 +7970,7 @@ msgstr ""
 
 #: libraries/relation.lib.php:85
 msgid "not OK"
-msgstr "not OK"
+msgstr "خراب"
 
 #: libraries/relation.lib.php:92
 #, fuzzy
@@ -8683,7 +8684,7 @@ msgstr ""
 
 #: libraries/schema/User_Schema.class.php:416
 msgid "Show grid"
-msgstr "Show grid"
+msgstr "نمایش جدول"
 
 #: libraries/schema/User_Schema.class.php:418
 msgid "Show color"
@@ -8695,7 +8696,7 @@ msgstr "نمايش ابعاد جدولها"
 
 #: libraries/schema/User_Schema.class.php:423
 msgid "Display all tables with the same width"
-msgstr "نمايش همه جدولها با عرض يكسان؟"
+msgstr "نمايش همه جدولها با عرض يكسان"
 
 #: libraries/schema/User_Schema.class.php:428
 msgid "Only show keys"
@@ -8707,7 +8708,7 @@ msgstr ""
 
 #: libraries/schema/User_Schema.class.php:431
 msgid "Portrait"
-msgstr "تصوير "
+msgstr "تصوير"
 
 #: libraries/schema/User_Schema.class.php:433
 #, fuzzy
@@ -8818,7 +8819,7 @@ msgstr ""
 
 #: libraries/sql_query_form.lib.php:368
 msgid "Show this query here again"
-msgstr "نمايش دوباره اين پرس و جو در اينجا "
+msgstr "نمايش دوباره اين پرس و جو در اينجا"
 
 #: libraries/sql_query_form.lib.php:427
 msgid "View only"
@@ -9230,7 +9231,7 @@ msgstr "ساخت يك صفحه جديد"
 
 #: navigation.php:295 navigation.php:489
 msgid "Please select a database"
-msgstr "لطفا يك پايگاه داده را انتخاب نماييد."
+msgstr "لطفا يك پايگاه داده را انتخاب نماييد"
 
 #: pmd_general.php:83
 msgid "Show/Hide left menu"
@@ -9821,7 +9822,7 @@ msgstr ""
 #: server_privileges.php:637 server_privileges.php:789
 #: server_privileges.php:1865
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "نكته : نام امتيازات MySQL به زبان انگليسي بيان مي‌شود ."
+msgstr "نكته : نام امتيازات MySQL به زبان انگليسي بيان مي‌شود"
 
 #: server_privileges.php:714
 msgid "Administration"
@@ -12015,7 +12016,7 @@ msgstr "طول سطر"
 
 #: tbl_printview.php:395 tbl_structure.php:949
 msgid "Row size"
-msgstr "اندازه سطر "
+msgstr "اندازه سطر"
 
 #: tbl_printview.php:405 tbl_structure.php:957
 msgid "Next autoindex"
@@ -12090,7 +12091,7 @@ msgstr "يك كليد اصلي در %s اضافه شد"
 #: tbl_structure.php:515 tbl_structure.php:528
 #, php-format
 msgid "An index has been added on %s"
-msgstr "يك فهرست در %s اضافه گرديد."
+msgstr "يك فهرست در %s اضافه گرديد"
 
 #: tbl_structure.php:469
 #, fuzzy
