@@ -178,12 +178,55 @@ function PMA_getMIME($db, $table, $strict = false)
         . PMA_backquote($cfgRelation['column_info']) . '
          WHERE `db_name`    = \'' . PMA_sqlAddSlashes($db) . '\'
            AND `table_name` = \'' . PMA_sqlAddSlashes($table) . '\'
-           AND ( `mimetype` != \'\'' . (!$strict ? '
+           AND ( `mimetype` != \'\'' . (! $strict ? '
               OR `transformation` != \'\'
               OR `transformation_options` != \'\'' : '') . ')';
-    return PMA_DBI_fetch_result(
+    $result = PMA_DBI_fetch_result(
         $com_qry, 'column_name', null, $GLOBALS['controllink']
     );
+
+    foreach ($result as $column => $values) {
+        // replacements in mimetype and transformation
+        $values = str_replace("jpeg", "JPEG", $values);
+        $values = str_replace("png", "PNG", $values);
+        $values = str_replace("octet-stream", "Octetstream", $values);
+
+        // convert mimetype to new format (f.e. Text_Plain, etc)
+        $delimiter_space = '- ';
+        $delimiter = "_";
+        $values['mimetype'] = str_replace(
+            $delimiter_space,
+            $delimiter,
+            ucwords(
+                str_replace(
+                    $delimiter,
+                    $delimiter_space,
+                    $values['mimetype']
+                )
+            )
+        );
+
+        // convert transformation to new format (class name)
+        // f.e. Text_Plain_Substring.class.php
+        $values = str_replace("__", "_", $values);
+        $values = str_replace(".inc.php", ".class.php", $values);
+
+        $values['transformation'] = str_replace(
+            $delimiter_space,
+            $delimiter,
+            ucwords(
+                str_replace(
+                    $delimiter,
+                    $delimiter_space,
+                    $values['transformation']
+                )
+            )
+        );
+
+        $result[$column] = $values;
+    }
+
+    return $result;
 } // end of the 'PMA_getMIME()' function
 
 /**
@@ -211,7 +254,21 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
         return false;
     }
 
-    $test_qry  = '
+    // convert mimetype to old format (f.e. text_plain)
+    $mimetype = strtolower($mimetype);
+    // old format has octet-stream instead of octetstream for mimetype
+    if (strstr($mimetype, "octetstream")) {
+        $mimetype = "application_octet-stream";
+    }
+
+    // convert transformation to old format (f.e. text_plain__substring.inc.php)
+    $transformation = strtolower($transformation);
+    $transformation = str_replace(".class.php", ".inc.php", $transformation);
+    $last_pos = strrpos($transformation, "_");
+    $transformation = substr($transformation , 0, $last_pos) . "_"
+        . substr($transformation, $last_pos);
+
+    $test_qry = '
          SELECT `mimetype`,
                 `comment`
            FROM ' . PMA_backquote($cfgRelation['db']) . '.'
@@ -219,7 +276,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
           WHERE `db_name`     = \'' . PMA_sqlAddSlashes($db) . '\'
             AND `table_name`  = \'' . PMA_sqlAddSlashes($table) . '\'
             AND `column_name` = \'' . PMA_sqlAddSlashes($key) . '\'';
-    $test_rs   = PMA_queryAsControlUser($test_qry, true, PMA_DBI_QUERY_STORE);
+    $test_rs = PMA_queryAsControlUser($test_qry, true, PMA_DBI_QUERY_STORE);
 
     if ($test_rs && PMA_DBI_num_rows($test_rs) > 0) {
         $row = @PMA_DBI_fetch_assoc($test_rs);
