@@ -11,12 +11,16 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/mime.lib.php';
 
+$common_functions = PMA_CommonFunctions::getInstance();
+
 /* Check parameters */
-PMA_checkParameters(array('db', 'table', 'where_clause', 'transform_key'));
+$common_functions->checkParameters(
+    array('db', 'table', 'where_clause', 'transform_key')
+);
 
 /* Select database */
 if (!PMA_DBI_select_db($db)) {
-    PMA_mysqlDie(
+    $common_functions->mysqlDie(
         sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
         '', ''
     );
@@ -24,16 +28,16 @@ if (!PMA_DBI_select_db($db)) {
 
 /* Check if table exists */
 if (!PMA_DBI_get_columns($db, $table)) {
-    PMA_mysqlDie(__('Invalid table name'));
+    $common_functions->mysqlDie(__('Invalid table name'));
 }
 
 /* Grab data */
-$sql = 'SELECT ' . PMA_backquote($transform_key) . ' FROM ' . PMA_backquote($table) . ' WHERE ' . $where_clause . ';';
+$sql = 'SELECT ' . $common_functions->backquote($transform_key) . ' FROM ' . $common_functions->backquote($table) . ' WHERE ' . $where_clause . ';';
 $result = PMA_DBI_fetch_value($sql);
 
 /* Check return code */
 if ($result === false) {
-    PMA_mysqlDie(__('MySQL returned an empty result set (i.e. zero rows).'), $sql);
+    $common_functions->mysqlDie(__('MySQL returned an empty result set (i.e. zero rows).'), $sql);
 }
 
 /* Avoid corrupting data */

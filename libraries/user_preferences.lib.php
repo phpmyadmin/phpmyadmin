@@ -41,6 +41,8 @@ function PMA_userprefs_pageinit()
  */
 function PMA_load_userprefs()
 {
+    
+    $common_functions = PMA_CommonFunctions::getInstance();
     $cfgRelation = PMA_getRelationsParam();
     if (! $cfgRelation['userconfigwork']) {
         // no pmadb table, use session storage
@@ -55,12 +57,12 @@ function PMA_load_userprefs()
             'type' => 'session');
     }
     // load configuration from pmadb
-    $query_table = PMA_backquote($cfgRelation['db']) . '.'
-        . PMA_backquote($cfgRelation['userconfig']);
+    $query_table = $common_functions->backquote($cfgRelation['db']) . '.'
+        . $common_functions->backquote($cfgRelation['userconfig']);
     $query = '
         SELECT `config_data`, UNIX_TIMESTAMP(`timevalue`) ts
         FROM ' . $query_table . '
-          WHERE `username` = \'' . PMA_sqlAddSlashes($cfgRelation['user']) . '\'';
+          WHERE `username` = \'' . $common_functions->sqlAddSlashes($cfgRelation['user']) . '\'';
     $row = PMA_DBI_fetch_single_row($query, 'ASSOC', $GLOBALS['controllink']);
 
     return array(
@@ -78,6 +80,8 @@ function PMA_load_userprefs()
  */
 function PMA_save_userprefs(array $config_array)
 {
+    
+    $common_functions = PMA_CommonFunctions::getInstance();
     $cfgRelation = PMA_getRelationsParam();
     $server = isset($GLOBALS['server'])
         ? $GLOBALS['server']
@@ -95,25 +99,25 @@ function PMA_save_userprefs(array $config_array)
     }
 
     // save configuration to pmadb
-    $query_table = PMA_backquote($cfgRelation['db']) . '.'
-        . PMA_backquote($cfgRelation['userconfig']);
+    $query_table = $common_functions->backquote($cfgRelation['db']) . '.'
+        . $common_functions->backquote($cfgRelation['userconfig']);
     $query = '
         SELECT `username`
         FROM ' . $query_table . '
-          WHERE `username` = \'' . PMA_sqlAddSlashes($cfgRelation['user']) . '\'';
+          WHERE `username` = \'' . $common_functions->sqlAddSlashes($cfgRelation['user']) . '\'';
 
     $has_config = PMA_DBI_fetch_value($query, 0, 0, $GLOBALS['controllink']);
     $config_data = json_encode($config_array);
     if ($has_config) {
         $query = '
             UPDATE ' . $query_table . '
-            SET `config_data` = \'' . PMA_sqlAddSlashes($config_data) . '\'
-            WHERE `username` = \'' . PMA_sqlAddSlashes($cfgRelation['user']) . '\'';
+            SET `config_data` = \'' . $common_functions->sqlAddSlashes($config_data) . '\'
+            WHERE `username` = \'' . $common_functions->sqlAddSlashes($cfgRelation['user']) . '\'';
     } else {
         $query = '
             INSERT INTO ' . $query_table . ' (`username`, `config_data`)
-            VALUES (\'' . PMA_sqlAddSlashes($cfgRelation['user']) . '\',
-                \'' . PMA_sqlAddSlashes($config_data) . '\')';
+            VALUES (\'' . $common_functions->sqlAddSlashes($cfgRelation['user']) . '\',
+                \'' . $common_functions->sqlAddSlashes($config_data) . '\')';
     }
     if (isset($_SESSION['cache'][$cache_key]['userprefs'])) {
         unset($_SESSION['cache'][$cache_key]['userprefs']);

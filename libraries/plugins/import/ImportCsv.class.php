@@ -123,7 +123,8 @@ class ImportCsv extends ImportPlugin
             $this->properties['options'][] = array(
                 'type' => 'text',
                 'name' => 'columns',
-                'text' => __('Column names: ') . PMA_showHint($hint)
+                'text' => __('Column names: ')
+                    . PMA_CommonFunctions::getInstance()->showHint($hint)
             );
         }
 
@@ -153,6 +154,7 @@ class ImportCsv extends ImportPlugin
         global $db, $csv_terminated, $csv_enclosed, $csv_escaped, $csv_new_line;
         global $error, $timeout_passed, $finished;
 
+        $common_functions = PMA_CommonFunctions::getInstance();
         $replacements = array(
             '\\n'   => "\n",
             '\\t'   => "\t",
@@ -205,7 +207,7 @@ class ImportCsv extends ImportPlugin
         // If there is an error in the parameters entered,
         // indicate that immediately.
         if ($param_error) {
-            PMA_mysqlDie($message->getMessage(), '', '', $err_url);
+            $common_functions->mysqlDie($message->getMessage(), '', '', $err_url);
         }
 
         $buffer = '';
@@ -220,7 +222,7 @@ class ImportCsv extends ImportPlugin
                     $sql_template .= ' IGNORE';
                 }
             }
-            $sql_template .= ' INTO ' . PMA_backquote($table);
+            $sql_template .= ' INTO ' . $common_functions->backquote($table);
 
             $tmp_fields = PMA_DBI_get_columns($db, $table);
 
@@ -256,7 +258,7 @@ class ImportCsv extends ImportPlugin
                         break;
                     }
                     $fields[] = $field;
-                    $sql_template .= PMA_backquote($val);
+                    $sql_template .= $common_functions->backquote($val);
                 }
                 $sql_template .= ') ';
             }
@@ -487,7 +489,9 @@ class ImportCsv extends ImportPlugin
                             if ($val === null) {
                                 $sql .= 'NULL';
                             } else {
-                                $sql .= '\'' . PMA_sqlAddSlashes($val) . '\'';
+                                $sql .= '\''
+                                    . $common_functions->sqlAddSlashes($val)
+                                    . '\'';
                             }
 
                             $first = false;

@@ -41,7 +41,7 @@ $is_create_table_priv = true;
     <legend>
 <?php
 if ($GLOBALS['cfg']['PropertiesIconic']) {
-    echo PMA_getImage('b_newtbl.png');
+    echo PMA_CommonFunctions::getInstance()->getImage('b_newtbl.png');
 }
 echo __('Create table');
 ?>

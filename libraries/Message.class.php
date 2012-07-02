@@ -33,7 +33,7 @@
  * $hint->addParam('[a@./Documentation.html#cfg_Example@_blank]');
  * $hint->addParam('[/a]');
  * // add this hint as a tooltip
- * $hint = PMA_showHint($hint);
+ * $hint = showHint($hint);
  *
  * // add the retrieved tooltip reference to the original message
  * $message->addMessage($hint);

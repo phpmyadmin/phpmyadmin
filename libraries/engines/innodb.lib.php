@@ -150,6 +150,9 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
      */
     function getPageBufferpool()
     {
+        
+        $common_functions = PMA_CommonFunctions::getInstance();
+        
         // The following query is only possible because we know
         // that we are on MySQL 5 here (checked above)!
         // side note: I love MySQL 5 for this. :-)
@@ -160,61 +163,76 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
         $status = PMA_DBI_fetch_result($sql, 0, 1);
 
         $output = '<table class="data" id="table_innodb_bufferpool_usage">' . "\n"
-                . '    <caption class="tblHeaders">' . "\n"
-                . '        ' . __('Buffer Pool Usage') . "\n"
-                . '    </caption>' . "\n"
-                . '    <tfoot>' . "\n"
-                . '        <tr>' . "\n"
-                . '            <th colspan="2">' . "\n"
-                . '                ' . __('Total') . "\n"
-                . '                : ' . PMA_formatNumber($status['Innodb_buffer_pool_pages_total'], 0)
-                . '&nbsp;' . __('pages')
-                . ' / '
-                . join(
-                    '&nbsp;',
-                    PMA_formatByteDown($status['Innodb_buffer_pool_pages_total'] * $status['Innodb_page_size'])
-                ) . "\n"
-                . '            </th>' . "\n"
-                . '        </tr>' . "\n"
-                . '    </tfoot>' . "\n"
-                . '    <tbody>' . "\n"
-                . '        <tr class="odd">' . "\n"
-                . '            <th>' . __('Free pages') . '</th>' . "\n"
-                . '            <td class="value">'
-                . PMA_formatNumber($status['Innodb_buffer_pool_pages_free'], 0)
-                . '</td>' . "\n"
-                . '        </tr>' . "\n"
-                . '        <tr class="even">' . "\n"
-                . '            <th>' . __('Dirty pages') . '</th>' . "\n"
-                . '            <td class="value">'
-                . PMA_formatNumber($status['Innodb_buffer_pool_pages_dirty'], 0)
-                . '</td>' . "\n"
-                . '        </tr>' . "\n"
-                . '        <tr class="odd">' . "\n"
-                . '            <th>' . __('Pages containing data') . '</th>' . "\n"
-                . '            <td class="value">'
-                . PMA_formatNumber($status['Innodb_buffer_pool_pages_data'], 0) . "\n"
-                . '</td>' . "\n"
-                . '        </tr>' . "\n"
-                . '        <tr class="even">' . "\n"
-                . '            <th>' . __('Pages to be flushed') . '</th>' . "\n"
-                . '            <td class="value">'
-                . PMA_formatNumber($status['Innodb_buffer_pool_pages_flushed'], 0) . "\n"
-                . '</td>' . "\n"
-                . '        </tr>' . "\n"
-                . '        <tr class="odd">' . "\n"
-                . '            <th>' . __('Busy pages') . '</th>' . "\n"
-                . '            <td class="value">'
-                . PMA_formatNumber($status['Innodb_buffer_pool_pages_misc'], 0) . "\n"
-                . '</td>' . "\n"
-                . '        </tr>';
+            . '    <caption class="tblHeaders">' . "\n"
+            . '        ' . __('Buffer Pool Usage') . "\n"
+            . '    </caption>' . "\n"
+            . '    <tfoot>' . "\n"
+            . '        <tr>' . "\n"
+            . '            <th colspan="2">' . "\n"
+            . '                ' . __('Total') . "\n"
+            . '                : '
+            . $common_functions->formatNumber(
+                $status['Innodb_buffer_pool_pages_total'], 0
+            )
+            . '&nbsp;' . __('pages')
+            . ' / '
+            . join(
+                '&nbsp;',
+                $common_functions->formatByteDown($status['Innodb_buffer_pool_pages_total'] * $status['Innodb_page_size'])
+            ) . "\n"
+            . '            </th>' . "\n"
+            . '        </tr>' . "\n"
+            . '    </tfoot>' . "\n"
+            . '    <tbody>' . "\n"
+            . '        <tr class="odd">' . "\n"
+            . '            <th>' . __('Free pages') . '</th>' . "\n"
+            . '            <td class="value">'
+            . $common_functions->formatNumber(
+                $status['Innodb_buffer_pool_pages_free'], 0
+            )
+            . '</td>' . "\n"
+            . '        </tr>' . "\n"
+            . '        <tr class="even">' . "\n"
+            . '            <th>' . __('Dirty pages') . '</th>' . "\n"
+            . '            <td class="value">'
+            . $common_functions->formatNumber(
+                $status['Innodb_buffer_pool_pages_dirty'], 0
+            )
+            . '</td>' . "\n"
+            . '        </tr>' . "\n"
+            . '        <tr class="odd">' . "\n"
+            . '            <th>' . __('Pages containing data') . '</th>' . "\n"
+            . '            <td class="value">'
+            . $common_functions->formatNumber(
+                $status['Innodb_buffer_pool_pages_data'], 0
+            ) . "\n"
+            . '</td>' . "\n"
+            . '        </tr>' . "\n"
+            . '        <tr class="even">' . "\n"
+            . '            <th>' . __('Pages to be flushed') . '</th>' . "\n"
+            . '            <td class="value">'
+            . $common_functions->formatNumber(
+                $status['Innodb_buffer_pool_pages_flushed'], 0
+            ) . "\n"
+            . '</td>' . "\n"
+            . '        </tr>' . "\n"
+            . '        <tr class="odd">' . "\n"
+            . '            <th>' . __('Busy pages') . '</th>' . "\n"
+            . '            <td class="value">'
+            . $common_functions->formatNumber(
+                $status['Innodb_buffer_pool_pages_misc'], 0
+            ) . "\n"
+            . '</td>' . "\n"
+            . '        </tr>';
 
             // not present at least since MySQL 5.1.40
             if (isset($status['Innodb_buffer_pool_pages_latched'])) {
                 $output .= '        <tr class="even">'
                 . '            <th>' . __('Latched pages') . '</th>'
                 . '            <td class="value">'
-                . PMA_formatNumber($status['Innodb_buffer_pool_pages_latched'], 0)
+                . $common_functions->formatNumber(
+                    $status['Innodb_buffer_pool_pages_latched'], 0
+                )
                 . '</td>'
                 . '        </tr>';
             }
@@ -229,25 +247,33 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
                 . '        <tr class="odd">' . "\n"
                 . '            <th>' . __('Read requests') . '</th>' . "\n"
                 . '            <td class="value">'
-                . PMA_formatNumber($status['Innodb_buffer_pool_read_requests'], 0) . "\n"
+                . $common_functions->formatNumber(
+                    $status['Innodb_buffer_pool_read_requests'], 0
+                ) . "\n"
                 . '</td>' . "\n"
                 . '        </tr>' . "\n"
                 . '        <tr class="even">' . "\n"
                 . '            <th>' . __('Write requests') . '</th>' . "\n"
                 . '            <td class="value">'
-                . PMA_formatNumber($status['Innodb_buffer_pool_write_requests'], 0) . "\n"
+                . $common_functions->formatNumber(
+                    $status['Innodb_buffer_pool_write_requests'], 0
+                ) . "\n"
                 . '</td>' . "\n"
                 . '        </tr>' . "\n"
                 . '        <tr class="odd">' . "\n"
                 . '            <th>' . __('Read misses') . '</th>' . "\n"
                 . '            <td class="value">'
-                . PMA_formatNumber($status['Innodb_buffer_pool_reads'], 0) . "\n"
+                . $common_functions->formatNumber(
+                    $status['Innodb_buffer_pool_reads'], 0
+                ) . "\n"
                 . '</td>' . "\n"
                 . '        </tr>' . "\n"
                 . '        <tr class="even">' . "\n"
                 . '            <th>' . __('Write waits') . '</th>' . "\n"
                 . '            <td class="value">'
-                . PMA_formatNumber($status['Innodb_buffer_pool_wait_free'], 0) . "\n"
+                . $common_functions->formatNumber(
+                    $status['Innodb_buffer_pool_wait_free'], 0
+                ) . "\n"
                 . '</td>' . "\n"
                 . '        </tr>' . "\n"
                 . '        <tr class="odd">' . "\n"
@@ -255,7 +281,7 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
                 . '            <td class="value">'
                 . ($status['Innodb_buffer_pool_read_requests'] == 0
                     ? '---'
-                    : htmlspecialchars(PMA_formatNumber($status['Innodb_buffer_pool_reads'] * 100 / $status['Innodb_buffer_pool_read_requests'], 3, 2)) . ' %') . "\n"
+                    : htmlspecialchars($common_functions->formatNumber($status['Innodb_buffer_pool_reads'] * 100 / $status['Innodb_buffer_pool_read_requests'], 3, 2)) . ' %') . "\n"
                 . '</td>' . "\n"
                 . '        </tr>' . "\n"
                 . '        <tr class="even">' . "\n"
@@ -263,7 +289,7 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
                 . '            <td class="value">'
                 . ($status['Innodb_buffer_pool_write_requests'] == 0
                     ? '---'
-                    : htmlspecialchars(PMA_formatNumber($status['Innodb_buffer_pool_wait_free'] * 100 / $status['Innodb_buffer_pool_write_requests'], 3, 2)) . ' %') . "\n"
+                    : htmlspecialchars($common_functions->formatNumber($status['Innodb_buffer_pool_wait_free'] * 100 / $status['Innodb_buffer_pool_write_requests'], 3, 2)) . ' %') . "\n"
                 . '</td>' . "\n"
                 . '        </tr>' . "\n"
                 . '    </tbody>' . "\n"

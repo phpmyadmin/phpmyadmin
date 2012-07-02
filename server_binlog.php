@@ -16,6 +16,7 @@ require_once 'libraries/common.inc.php';
  */
 require_once 'libraries/server_common.inc.php';
 
+$common_functions = PMA_CommonFunctions::getInstance();
 $url_params = array();
 
 /**
@@ -68,7 +69,7 @@ if (empty($_REQUEST['dontlimitchars'])) {
  * Displays the sub-page heading
  */
 echo '<h2>' . "\n"
-   . PMA_getImage('s_tbl.png')
+   . $common_functions->getImage('s_tbl.png')
    . '    ' . __('Binary log') . "\n"
    . '</h2>' . "\n";
 
@@ -90,14 +91,23 @@ if (count($binary_logs) > 1) {
         echo '>' . $each_log['Log_name'];
         if (isset($each_log['File_size'])) {
             $full_size += $each_log['File_size'];
-            echo ' (' . implode(' ', PMA_formatByteDown($each_log['File_size'], 3, 2)) . ')';
+            echo ' ('
+                . implode(
+                    ' ',
+                    $common_functions->formatByteDown(
+                        $each_log['File_size'], 3, 2
+                    )
+                )
+                . ')';
         }
         echo '</option>';
     }
     echo '</select> ';
     echo count($binary_logs) . ' ' . __('Files') . ', ';
     if ($full_size > 0) {
-        echo implode(' ', PMA_formatByteDown($full_size));
+        echo implode(
+            ' ', $common_functions->formatByteDown($full_size)
+        );
     }
     echo '</fieldset>';
     echo '<fieldset class="tblFooters">';
@@ -106,7 +116,7 @@ if (count($binary_logs) > 1) {
     echo '</form>';
 }
 
-echo PMA_getMessage(PMA_Message::success());
+echo $common_functions->getMessage(PMA_Message::success());
 
 /**
  * Displays the page

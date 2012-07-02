@@ -62,10 +62,38 @@ class PMA_DisplayResults
     const TABLE_TYPE_INNO_DB = 'InnoDB';
     const ALL_ROWS = 'all';
     const QUERY_TYPE_SELECT = 'SELECT';
-
-
-    private $_db, $_table, $_goto, $_sql_query, $_cfgRelation;
-
+    
+    
+    private $_common_functions;
+    private $_db, $_table, $_goto, $_sql_query;    
+    
+    
+    /**
+     * Set CommmonFunctions
+     * 
+     * @param PMA_CommonFunctions $commonFunctions
+     * 
+     * @return void
+     */
+    public function setCommonFunctions(PMA_CommonFunctions $commonFunctions)
+    {
+        $this->_common_functions = $commonFunctions;
+    }
+    
+    
+    /**
+     * Get CommmonFunctions
+     * 
+     * @return CommonFunctions object
+     */
+    public function getCommonFunctions()
+    {
+        if (is_null($this->_common_functions)) {
+            $this->_common_functions = PMA_CommonFunctions::getInstance();
+        }
+        return $this->_common_functions;
+    }
+    
 
     /**
      * Constructor for PMA_DisplayResults class
@@ -422,7 +450,7 @@ class PMA_DisplayResults
                     . PMA_generate_common_url($_url_params)
                     . '" method="post">';
 
-                $table_navigation_html .= PMA_pageselector(
+                $table_navigation_html .= $this->getCommonFunctions()->pageselector(
                     $_SESSION['tmp_user_values']['max_rows'],
                     $pageNow, $nbTotalPage, 200, 5, 5, 20, 10
                 );
@@ -503,7 +531,11 @@ class PMA_DisplayResults
                     . str_replace('\'', '\\\'', __('%d is not valid row number.'))
                     . '\', '
                     . '0'
-                    . ($GLOBALS['unlim_num_rows'] > 0 ? ', ' . ($GLOBALS['unlim_num_rows'] - 1) : '') . ')'
+                    . (($GLOBALS['unlim_num_rows'] > 0)
+                        ? ', ' . ($GLOBALS['unlim_num_rows'] - 1)
+                        : ''
+                    )
+                    . ')'
                 . ')'
             .'">';
 
@@ -690,7 +722,7 @@ class PMA_DisplayResults
                     'vertical'          => __('vertical')
                 );
 
-            $additional_fields_html .= PMA_getDropdown(
+            $additional_fields_html .= $this->getCommonFunctions()->getDropdown(
                 'disp_direction', $choices,
                 $_SESSION['tmp_user_values']['disp_direction'],
                 $id_for_direction_dropdown
@@ -855,7 +887,8 @@ class PMA_DisplayResults
             } else {
 
                 $span = $GLOBALS['num_rows'] + 1 + floor(
-                    $GLOBALS['num_rows'] / $_SESSION['tmp_user_values']['repeat_cells']
+                    $GLOBALS['num_rows']
+                    / $_SESSION['tmp_user_values']['repeat_cells']
                 );
                 $table_headers_html .= '<tr><th colspan="' . $span . '"></th></tr>';
 
@@ -974,7 +1007,7 @@ class PMA_DisplayResults
             //  See if this column should get highlight because it's used in the
             //  where-query.
             $condition_field = (isset($GLOBALS['highlight_columns'][$fields_meta[$i]->name])
-                || isset($GLOBALS['highlight_columns'][PMA_backquote($fields_meta[$i]->name)]))
+                || isset($GLOBALS['highlight_columns'][$this->getCommonFunctions()->backquote($fields_meta[$i]->name)]))
                 ? true
                 : false;
 
@@ -992,7 +1025,9 @@ class PMA_DisplayResults
 
                 $sort_tbl = (isset($fields_meta[$i]->table)
                     && strlen($fields_meta[$i]->table))
-                    ? PMA_backquote($fields_meta[$i]->table) . '.'
+                    ? $this->getCommonFunctions()->backquote(
+                        $fields_meta[$i]->table
+                    ) . '.'
                     : '';
 
                 // 2.1.2 Checks if the current column is used to sort the
@@ -1027,7 +1062,9 @@ class PMA_DisplayResults
                     $sort_order = "\n" . 'ORDER BY ' . $name_to_use_in_sort . ' ';
                 } else {
                     $sort_order = "\n" . 'ORDER BY ' . $sort_tbl
-                        . PMA_backquote($name_to_use_in_sort) . ' ';
+                        . $this->getCommonFunctions()->backquote(
+                            $name_to_use_in_sort
+                        ) . ' ';
                 }
                 unset($name_to_use_in_sort);
                 unset($is_orgname);
@@ -1321,7 +1358,9 @@ class PMA_DisplayResults
 
         $options_html .= PMA_generate_common_hidden_inputs($url_params)
             . '<br />'
-            . PMA_getDivForSliderEffect('displayoptions', __('Options'))
+            . $this->getCommonFunctions()->getDivForSliderEffect(
+                'displayoptions', __('Options')
+            )
             . '<fieldset>';
 
         $options_html .= '<div class="formelement">';
@@ -1330,7 +1369,7 @@ class PMA_DisplayResults
             'F'   => __('Full texts')
         );
 
-        $options_html .= PMA_getRadioFields(
+        $options_html .= $this->getCommonFunctions()->getRadioFields(
             'display_text', $choices,
             $_SESSION['tmp_user_values']['display_text']
         )
@@ -1345,7 +1384,7 @@ class PMA_DisplayResults
                 'D'   => __('Relational display column')
             );
 
-            $options_html .= PMA_getRadioFields(
+            $options_html .= $this->getCommonFunctions()->getRadioFields(
                 'relational_display', $choices,
                 $_SESSION['tmp_user_values']['relational_display']
             )
@@ -1353,17 +1392,17 @@ class PMA_DisplayResults
         }
 
         $options_html .= '<div class="formelement">'
-            . PMA_getCheckbox(
+            . $this->getCommonFunctions()->getCheckbox(
                 'display_binary', __('Show binary contents'),
                 ! empty($_SESSION['tmp_user_values']['display_binary']), false
             )
             . '<br />'
-            . PMA_getCheckbox(
+            . $this->getCommonFunctions()->getCheckbox(
                 'display_blob', __('Show BLOB contents'),
                 ! empty($_SESSION['tmp_user_values']['display_blob']), false
             )
             . '<br />'
-            . PMA_getCheckbox(
+            . $this->getCommonFunctions()->getCheckbox(
                 'display_binary_as_hex', __('Show binary contents as HEX'),
                 ! empty($_SESSION['tmp_user_values']['display_binary_as_hex']), false
             )
@@ -1374,7 +1413,7 @@ class PMA_DisplayResults
         // per SQL query, and at the same time have a default that displays
         // the transformations.
         $options_html .= '<div class="formelement">'
-            . PMA_getCheckbox(
+            . $this->getCommonFunctions()->getCheckbox(
                 'hide_transformation', __('Hide browser transformation'),
                 ! empty($_SESSION['tmp_user_values']['hide_transformation']), false
             )
@@ -1388,7 +1427,7 @@ class PMA_DisplayResults
                 'WKB'   => __('Well Known Binary')
             );
 
-            $options_html .= PMA_getRadioFields(
+            $options_html .= $this->getCommonFunctions()->getRadioFields(
                 'geometry_display', $choices,
                 $_SESSION['tmp_user_values']['geometry_display']
             )
@@ -1444,7 +1483,9 @@ class PMA_DisplayResults
                      . $tmp_txt . '" title="' . $tmp_txt . '" />';
         $tmp_url = 'sql.php' . PMA_generate_common_url($url_params_full_text);
 
-        return PMA_linkOrButton($tmp_url, $tmp_image, array(), false);
+        return $this->getCommonFunctions()->linkOrButton(
+            $tmp_url, $tmp_image, array(), false
+        );
 
     } // end of the '_getFullOrPartialTextButtonOrLink()' function
 
@@ -1612,12 +1653,12 @@ class PMA_DisplayResults
         } elseif ($sort_direction == self::DESCENDING_SORT_DIR) {
 
             $sort_order .= ' ASC';
-            $order_img   = ' ' . PMA_getImage(
+            $order_img   = ' ' . $this->getCommonFunctions()->getImage(
                 's_desc.png', __('Descending'),
                 array('class' => "soimg$column_index", 'title' => '')
             );
 
-            $order_img  .= ' ' . PMA_getImage(
+            $order_img  .= ' ' . $this->getCommonFunctions()->getImage(
                 's_asc.png', __('Ascending'),
                 array('class' => "soimg$column_index hide", 'title' => '')
             );
@@ -1625,12 +1666,12 @@ class PMA_DisplayResults
         } else {
 
             $sort_order .= ' DESC';
-            $order_img   = ' ' . PMA_getImage(
+            $order_img   = ' ' . $this->getCommonFunctions()->getImage(
                 's_asc.png', __('Ascending'),
                 array('class' => "soimg$column_index", 'title' => '')
             );
 
-            $order_img  .= ' ' . PMA_getImage(
+            $order_img  .= ' ' . $this->getCommonFunctions()->getImage(
                 's_desc.png', __('Descending'),
                 array('class' => "soimg$column_index hide", 'title' => '')
             );
@@ -1690,13 +1731,13 @@ class PMA_DisplayResults
 
         $order_link_content = (($direction == self::DISP_DIR_HORIZONTAL_FLIPPED)
             && ($GLOBALS['cfg']['HeaderFlipType'] == self::HEADER_FLIP_TYPE_FAKE))
-            ? PMA_flipstring(
+            ? $this->getCommonFunctions()->flipstring(
                 htmlspecialchars($fields_meta->name),
                 "<br />\n"
             )
             : htmlspecialchars($fields_meta->name);
 
-        return PMA_linkOrButton(
+        return $this->getCommonFunctions()->linkOrButton(
             $order_url, $order_link_content . $order_img,
             $order_link_params, false, true
         );
@@ -1815,7 +1856,7 @@ class PMA_DisplayResults
             && ($GLOBALS['cfg']['HeaderFlipType'] == self::HEADER_FLIP_TYPE_FAKE)
         ) {
 
-            $draggable_html .= PMA_flipstring(
+            $draggable_html .= $this->getCommonFunctions()->flipstring(
                 htmlspecialchars($fields_meta->name), '<br />'
             );
 
@@ -2045,7 +2086,7 @@ class PMA_DisplayResults
              *       avoid to display the delete and edit links
              */
             list($where_clause, $clause_is_unique, $condition_array)
-                = PMA_getUniqueCondition(
+                = $this->getCommonFunctions()->getUniqueCondition(
                     $dt_result, $GLOBALS['fields_cnt'], $GLOBALS['fields_meta'], $row
                 );
             $where_clause_html = urlencode($where_clause);
@@ -2150,12 +2191,12 @@ class PMA_DisplayResults
                 //  where-query.
                 $condition_field = (isset($GLOBALS['highlight_columns'])
                     && (isset($GLOBALS['highlight_columns'][$meta->name])
-                    || isset($GLOBALS['highlight_columns'][PMA_backquote($meta->name)])))
+                    || isset($GLOBALS['highlight_columns'][$this->getCommonFunctions()->backquote($meta->name)])))
                     ? true
                     : false;
 
                 // Wrap MIME-transformations. [MIME]
-                $default_function = 'PMA_mimeDefaultFunction'; // default_function
+                $default_function = '_mimeDefaultFunction'; // default_function
                 $transformation_plugin = $default_function;
                 $transform_options = array();
 
@@ -2167,14 +2208,20 @@ class PMA_DisplayResults
                         && isset($GLOBALS['mime_map'][$meta->name]['transformation'])
                         && !empty($GLOBALS['mime_map'][$meta->name]['transformation'])
                     ) {
+                        
                         $file = $GLOBALS['mime_map'][$meta->name]['transformation'];
                         $include_file = 'libraries/plugins/transformations/' . $file;
+                        
                         if (file_exists($include_file)) {
+                            
                             include_once $include_file;
                             $class_name = str_replace('.class.php', '', $file);
                             // todo add $plugin_manager
                             $plugin_manager = null;
-                            $transformation_plugin = new $class_name($plugin_manager);
+                            $transformation_plugin = new $class_name(
+                                $plugin_manager
+                            );
+                            
                             $transform_options  = PMA_transformation_getOptions(
                                 isset($GLOBALS['mime_map'][$meta->name]
                                     ['transformation_options']
@@ -2183,10 +2230,12 @@ class PMA_DisplayResults
                                 ['transformation_options']
                                 : ''
                             );
+                            
                             $meta->mimetype = str_replace(
                                 '_', '/',
                                 $GLOBALS['mime_map'][$meta->name]['mimetype']
                             );
+                            
                         } // end if file_exists
                     } // end if transformation is set
                 } // end if mime/transformation works.
@@ -2265,7 +2314,8 @@ class PMA_DisplayResults
 
                 // output stored cell
                 if ($directionCondition) {
-                    $table_body_html .= $GLOBALS['vertical_display']['data'][$row_no][$i];
+                    $table_body_html
+                        .= $GLOBALS['vertical_display']['data'][$row_no][$i];
                 }
 
                 if (isset($GLOBALS['vertical_display']['rowdata'][$i][$row_no])) {
@@ -2360,10 +2410,11 @@ class PMA_DisplayResults
                     $js_conf = '';
                 }
 
-                $GLOBALS['vertical_display']['delete'][$row_no] .= $this->_getDeleteLink(
-                    $del_url, $del_str, $js_conf,
-                    $alternating_color_class . $vertical_class
-                );
+                $GLOBALS['vertical_display']['delete'][$row_no]
+                    .= $this->_getDeleteLink(
+                        $del_url, $del_str, $js_conf,
+                        $alternating_color_class . $vertical_class
+                    );
 
             } else {
                 unset($GLOBALS['vertical_display']['delete'][$row_no]);
@@ -2534,8 +2585,12 @@ class PMA_DisplayResults
                 $_url_params + array('default_action' => 'insert')
             );
 
-        $edit_str = PMA_getIcon('b_edit.png', __('Edit'));
-        $copy_str = PMA_getIcon('b_insrow.png', __('Copy'));
+        $edit_str = $this->getCommonFunctions()->getIcon(
+            'b_edit.png', __('Edit')
+        );
+        $copy_str = $this->getCommonFunctions()->getIcon(
+            'b_insrow.png', __('Copy')
+        );
 
         // Class definitions required for grid editing jQuery scripts
         $edit_anchor_class = "edit_row_anchor";
@@ -2570,17 +2625,18 @@ class PMA_DisplayResults
         if ($del_lnk == self::DELETE_ROW) { // delete row case
 
             $_url_params = array(
-                    'db'        => $this->_db,
-                    'table'     => $this->_table,
-                    'sql_query' => $url_sql_query,
-                    'message_to_show' => __('The row has been deleted'),
-                    'goto'      => (empty($this->_goto) ? 'tbl_sql.php' : $this->_goto),
-                );
+                'db'        => $this->_db,
+                'table'     => $this->_table,
+                'sql_query' => $url_sql_query,
+                'message_to_show' => __('The row has been deleted'),
+                'goto'      => (empty($this->_goto) ? 'tbl_sql.php' : $this->_goto),
+            );
 
             $lnk_goto = 'sql.php' . PMA_generate_common_url($_url_params, 'text');
 
-            $del_query = 'DELETE FROM ' . PMA_backquote($this->_db) . '.'
-                . PMA_backquote($this->_table)
+            $del_query = 'DELETE FROM '
+                . $this->getCommonFunctions()->backquote($this->_db) . '.'
+                . $this->getCommonFunctions()->backquote($this->_table)
                 . ' WHERE ' . $where_clause .
                 ($clause_is_unique ? '' : ' LIMIT 1');
 
@@ -2598,7 +2654,9 @@ class PMA_DisplayResults
                 . ' WHERE ' . PMA_jsFormat($where_clause, false)
                 . ($clause_is_unique ? '' : ' LIMIT 1');
 
-            $del_str = PMA_getIcon('b_drop.png', __('Delete'));
+            $del_str = $this->getCommonFunctions()->getIcon(
+                'b_drop.png', __('Delete')
+            );
 
         } elseif ($del_lnk == self::KILL_PROCESS) { // kill process case
 
@@ -2623,7 +2681,9 @@ class PMA_DisplayResults
             $del_url  = 'sql.php' . PMA_generate_common_url($_url_params);
             $del_query = 'KILL ' . $row[0];
             $js_conf  = 'KILL ' . $row[0];
-            $del_str = PMA_getIcon('b_drop.png', __('Kill'));
+            $del_str = $this->getCommonFunctions()->getIcon(
+                'b_drop.png', __('Kill')
+            );
         }
 
         return array($del_query, $del_url, $del_str, $js_conf);
@@ -2883,7 +2943,7 @@ class PMA_DisplayResults
                         $transform_options,
                         $meta
                     )
-                    : $default_function($column, array(), $meta);
+                    : $this->$default_function($column, array(), $meta);
 
                 if ($is_field_truncated) {
                     $class .= ' truncated';
@@ -2955,7 +3015,7 @@ class PMA_DisplayResults
                 $where_comparison = ' = ' . $column;
 
                 // Convert to WKT format
-                $wktval = PMA_asWKT($column);
+                $wktval = $this->getCommonFunctions()->asWKT($column);
 
                 if ((PMA_strlen($wktval) > $GLOBALS['cfg']['LimitChars'])
                     && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
@@ -2980,12 +3040,14 @@ class PMA_DisplayResults
                     $where_comparison = ' = ' . $column;
 
                     if ($_SESSION['tmp_user_values']['display_binary_as_hex']
-                        && PMA_containsNonPrintableAscii($column)
+                        && $this->getCommonFunctions()->containsNonPrintableAscii($column)
                     ) {
                         $wkbval = PMA_substr(bin2hex($column), 8);
                     } else {
                         $wkbval = htmlspecialchars(
-                            PMA_replaceBinaryContents($column)
+                            $this->getCommonFunctions()->replaceBinaryContents(
+                                $column
+                            )
                         );
                     }
 
@@ -3083,7 +3145,7 @@ class PMA_DisplayResults
 
             if (isset($meta->_type) && $meta->_type === MYSQLI_TYPE_BIT) {
 
-                $column = PMA_printableBitValue(
+                $column = $this->getCommonFunctions()->printableBitValue(
                     $column, $meta->length
                 );
 
@@ -3100,12 +3162,14 @@ class PMA_DisplayResults
                     // user asked to see the real contents of BINARY
                     // fields
                     if ($_SESSION['tmp_user_values']['display_binary_as_hex']
-                        && PMA_containsNonPrintableAscii($column)
+                        && $this->getCommonFunctions()->containsNonPrintableAscii($column)
                     ) {
                         $column = bin2hex($column);
                     } else {
                         $column = htmlspecialchars(
-                            PMA_replaceBinaryContents($column)
+                            $this->getCommonFunctions()->replaceBinaryContents(
+                                $column
+                            )
                         );
                     }
 
@@ -3141,7 +3205,8 @@ class PMA_DisplayResults
                 $nowrap = (preg_match('@DATE|TIME@i', $meta->type)
                     || $bool_nowrap) ? ' nowrap' : '';
 
-                $where_comparison = ' = \'' . PMA_sqlAddSlashes($column)
+                $where_comparison = ' = \''
+                    . $this->getCommonFunctions()->sqlAddSlashes($column)
                     . '\'';
 
                 $cell = $this->_getRowData(
@@ -3272,11 +3337,12 @@ class PMA_DisplayResults
             || !empty($GLOBALS['vertical_display']['textbtn']))
         ) {
 
-            $vertical_table_html .= '<tr>' . "\n" . $GLOBALS['vertical_display']['textbtn']
-                                 . $this->_getCheckBoxesForMultipleRowOperations(
-                                     $GLOBALS['vertical_display'], '_right'
-                                 )
-                                 . '</tr>' . "\n";
+            $vertical_table_html .= '<tr>' . "\n"
+                . $GLOBALS['vertical_display']['textbtn']
+                . $this->_getCheckBoxesForMultipleRowOperations(
+                    $GLOBALS['vertical_display'], '_right'
+                )
+                . '</tr>' . "\n";
         } // end if
 
         // Prepares "edit" link at bottom if required
@@ -3682,7 +3748,7 @@ class PMA_DisplayResults
         ) {
             // "j u s t   b r o w s i n g"
             $pre_count = '~';
-            $after_count = PMA_showHint(
+            $after_count = $this->getCommonFunctions()->showHint(
                 PMA_sanitize(
                     __(
                         'May be approximate. See [a@./Documentation.html'
@@ -3733,11 +3799,13 @@ class PMA_DisplayResults
                 $total, $pos_next, $pre_count, $after_count
             );
 
-            $table_html .= PMA_getMessage($message, $this->_sql_query, 'success');
+            $table_html .= $this->getCommonFunctions()->getMessage(
+                $message, $this->_sql_query, 'success'
+            );
 
         } elseif (! isset($GLOBALS['printview']) || ($GLOBALS['printview'] != '1')) {
 
-            $table_html .= PMA_getMessage(
+            $table_html .= $this->getCommonFunctions()->getMessage(
                 __('Your SQL query has been executed successfully'),
                 $this->_sql_query, 'success'
             );
@@ -3804,7 +3872,9 @@ class PMA_DisplayResults
             // configuration storage. If no PMA storage, we won't be able
             // to use the "column to display" notion (for example show
             // the name related to a numeric id).
-            $exist_rel = PMA_getForeigners($this->_db, $this->_table, '', self::POSITION_BOTH);
+            $exist_rel = PMA_getForeigners(
+                $this->_db, $this->_table, '', self::POSITION_BOTH
+            );
 
             if ($exist_rel) {
 
@@ -3827,8 +3897,9 @@ class PMA_DisplayResults
 
         // 3. ----- Prepare the results table -----
         $table_html .= $this->_getTableHeaders(
-            $is_display, $GLOBALS['fields_meta'], $GLOBALS['fields_cnt'], $analyzed_sql,
-            $sort_expression, $sort_expression_nodirection, $sort_direction
+            $is_display, $GLOBALS['fields_meta'],
+            $GLOBALS['fields_cnt'], $analyzed_sql, $sort_expression,
+            $sort_expression_nodirection, $sort_direction
         )
         . '<tbody>' . "\n";
 
@@ -3853,8 +3924,8 @@ class PMA_DisplayResults
         ) {
 
             $table_html .= $this->_getMultiRowOperationLinks(
-                $dt_result, $GLOBALS['fields_cnt'], $GLOBALS['fields_meta'], $GLOBALS['num_rows'], $analyzed_sql,
-                $is_display['del_lnk']
+                $dt_result, $GLOBALS['fields_cnt'], $GLOBALS['fields_meta'],
+                $GLOBALS['num_rows'], $analyzed_sql, $is_display['del_lnk']
             );
 
         }
@@ -3996,8 +4067,8 @@ class PMA_DisplayResults
                     = explode('.', $sort_expression_nodirection);
             }
 
-            $sort_table = PMA_unQuote($sort_table);
-            $sort_column = PMA_unQuote($sort_column);
+            $sort_table = $this->getCommonFunctions()->unQuote($sort_table);
+            $sort_column = $this->getCommonFunctions()->unQuote($sort_column);
 
             // find the sorted column index in row result
             // (this might be a multi-table query)
@@ -4016,7 +4087,7 @@ class PMA_DisplayResults
                 $row = PMA_DBI_fetch_row($dt_result);
 
                 // initializing default arguments
-                $default_function = 'PMA_mimeDefaultFunction';
+                $default_function = '_mimeDefaultFunction';
                 $transformation_plugin = $default_function;
                 $transform_options = array();
 
@@ -4114,7 +4185,8 @@ class PMA_DisplayResults
 
         if (! empty($limit_clause)) {
 
-            $limit_data = PMA_analyzeLimitClause($limit_clause);
+            $limit_data
+                = $this->getCommonFunctions()->analyzeLimitClause($limit_clause);
             $first_shown_rec = $limit_data['start'];
 
             if ($limit_data['length'] < $total) {
@@ -4150,7 +4222,7 @@ class PMA_DisplayResults
 
             $message->addParam('[a@./Documentation.html#cfg_MaxExactCount@_blank]');
             $message->addParam('[/a]');
-            $message_view_warning = PMA_showHint($message);
+            $message_view_warning = $this->getCommonFunctions()->showHint($message);
 
         } else {
             $message_view_warning = false;
@@ -4169,7 +4241,9 @@ class PMA_DisplayResults
 
             $message->addMessage($last_shown_rec, ' - ');
             $message->addMessage(' (');
-            $message->addMessage($pre_count  . PMA_formatNumber($total, 0));
+            $message->addMessage(
+                $pre_count . $this->getCommonFunctions()->formatNumber($total, 0)
+            );
             $message->addString(__('total'));
 
             if (!empty($after_count)) {
@@ -4236,22 +4310,23 @@ class PMA_DisplayResults
                 . ' alt="' . __('With selected:') . '" />';
         }
 
-        $links_html .= '<input type="checkbox" id="checkall" title="' . __('Check All') . '" /> '
+        $links_html .= '<input type="checkbox" id="checkall" title="'
+            . __('Check All') . '" /> '
             . '<label for="checkall">' . __('Check All') . '</label> '
             . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
 
-        $links_html .= PMA_getButtonOrImage(
+        $links_html .= $this->getCommonFunctions()->getButtonOrImage(
             'submit_mult', 'mult_submit', 'submit_mult_change',
             __('Change'), 'b_edit.png', 'edit'
         );
 
-        $links_html .= PMA_getButtonOrImage(
+        $links_html .= $this->getCommonFunctions()->getButtonOrImage(
             'submit_mult', 'mult_submit', 'submit_mult_delete',
             $delete_text, 'b_drop.png', 'delete'
         );
 
         if (isset($analyzed_sql[0]) && $analyzed_sql[0]['querytype'] == self::QUERY_TYPE_SELECT) {
-            $links_html .= PMA_getButtonOrImage(
+            $links_html .= $this->getCommonFunctions()->getButtonOrImage(
                 'submit_mult', 'mult_submit', 'submit_mult_export',
                 __('Export'), 'b_tblexport.png', 'export'
             );
@@ -4274,7 +4349,9 @@ class PMA_DisplayResults
         // $clause_is_unique is needed by getTable() to generate the proper param
         // in the multi-edit and multi-delete form
         list($where_clause, $clause_is_unique, $condition_array)
-            = PMA_getUniqueCondition($dt_result, $fields_cnt, $fields_meta, $row);
+            = $this->getCommonFunctions()->getUniqueCondition(
+                $dt_result, $fields_cnt, $fields_meta, $row
+            );
 
         // reset to first row for the loop in _getTableBody()
         PMA_DBI_data_seek($dt_result, 0);
@@ -4326,25 +4403,30 @@ class PMA_DisplayResults
                 );
                 $url_query = PMA_generate_common_url($_url_params);
 
-                $results_operations_html .= PMA_linkOrButton(
-                    'sql.php' . $url_query,
-                    PMA_getIcon('b_print.png', __('Print view'), true),
-                    '', true, true, 'print_view'
-                )
-                . "\n";
+                $results_operations_html
+                    .= $this->getCommonFunctions()->linkOrButton(
+                        'sql.php' . $url_query,
+                        $this->getCommonFunctions()->getIcon(
+                            'b_print.png', __('Print view'), true
+                        ),
+                        '', true, true, 'print_view'
+                    )
+                    . "\n";
 
                 if ($_SESSION['tmp_user_values']['display_text']) {
 
                     $_url_params['display_text'] = self::DISPLAY_FULL_TEXT;
 
-                    $results_operations_html .= PMA_linkOrButton(
-                        'sql.php' . PMA_generate_common_url($_url_params),
-                        PMA_getIcon(
-                            'b_print.png', __('Print view (with full texts)'), true
-                        ),
-                        '', true, true, 'print_view'
-                    )
-                    . "\n";
+                    $results_operations_html
+                        .= $this->getCommonFunctions()->linkOrButton(
+                            'sql.php' . PMA_generate_common_url($_url_params),
+                            $this->getCommonFunctions()->getIcon(
+                                'b_print.png',
+                                __('Print view (with full texts)'), true
+                            ),
+                            '', true, true, 'print_view'
+                        )
+                        . "\n";
                     unset($_url_params['display_text']);
                 }
             } // end displays "printable view"
@@ -4392,17 +4474,21 @@ class PMA_DisplayResults
                 }
             }
 
-            $results_operations_html .= PMA_linkOrButton(
+            $results_operations_html .= $this->getCommonFunctions()->linkOrButton(
                 'tbl_export.php' . PMA_generate_common_url($_url_params),
-                PMA_getIcon('b_tblexport.png', __('Export'), true),
+                $this->getCommonFunctions()->getIcon(
+                    'b_tblexport.png', __('Export'), true
+                ),
                 '', true, true, ''
             )
             . "\n";
 
             // prepare chart
-            $results_operations_html .= PMA_linkOrButton(
+            $results_operations_html .= $this->getCommonFunctions()->linkOrButton(
                 'tbl_chart.php' . PMA_generate_common_url($_url_params),
-                PMA_getIcon('b_chart.png', __('Display chart'), true),
+                $this->getCommonFunctions()->getIcon(
+                    'b_chart.png', __('Display chart'), true
+                ),
                 '', true, true, ''
             )
             . "\n";
@@ -4418,13 +4504,16 @@ class PMA_DisplayResults
             }
 
             if ($geometry_found) {
-                $results_operations_html .= PMA_linkOrButton(
-                    'tbl_gis_visualization.php'
-                    . PMA_generate_common_url($_url_params),
-                    PMA_getIcon('b_globe.gif', __('Visualize GIS data'), true),
-                    '', true, true, ''
-                )
-                . "\n";
+                $results_operations_html
+                    .= $this->getCommonFunctions()->linkOrButton(
+                        'tbl_gis_visualization.php'
+                        . PMA_generate_common_url($_url_params),
+                        $this->getCommonFunctions()->getIcon(
+                            'b_globe.gif', __('Visualize GIS data'), true
+                        ),
+                        '', true, true, ''
+                    )
+                    . "\n";
             }
         }
 
@@ -4447,9 +4536,11 @@ class PMA_DisplayResults
 
             $results_operations_html .= '<span class="create_view'
                 . $ajax_class . '">'
-                . PMA_linkOrButton(
+                . $this->getCommonFunctions()->linkOrButton(
                     'view_create.php' . $url_query,
-                    PMA_getIcon('b_views.png', __('Create view'), true),
+                    $this->getCommonFunctions()->getIcon(
+                        'b_views.png', __('Create view'), true
+                    ),
                     '', true, true, ''
                 )
                 . '</span>' . "\n";
@@ -4491,7 +4582,7 @@ class PMA_DisplayResults
         $category, $content, $transformation_plugin, $transform_options,
         $default_function, $meta, $url_params = array()
     ) {
-
+        
         $result = '[' . $category;
 
         if (is_null($content)) {
@@ -4502,7 +4593,8 @@ class PMA_DisplayResults
         } elseif (isset($content)) {
 
             $size = strlen($content);
-            $display_size = PMA_formatByteDown($size, 3, 1);
+            $display_size
+                = $this->getCommonFunctions()->formatByteDown($size, 3, 1);
             $result .= ' - '. $display_size[0] . ' ' . $display_size[1];
 
         }
@@ -4525,12 +4617,16 @@ class PMA_DisplayResults
                 );
             } else {
 
-                $result = $default_function($result, array(), $meta);
+                $result = $this->$default_function($result, array(), $meta);
                 if (stristr($meta->type, self::BLOB_FIELD)
                     && $_SESSION['tmp_user_values']['display_blob']
                 ) {
                     // in this case, restart from the original $content
-                    $result = htmlspecialchars(PMA_replaceBinaryContents($content));
+                    $result = htmlspecialchars(
+                        $this->getCommonFunctions()->replaceBinaryContents(
+                            $content
+                        )
+                    );
                 }
 
                 /* Create link to download */
@@ -4619,10 +4715,14 @@ class PMA_DisplayResults
             // Field to display from the foreign table?
             if (isset($map[$meta->name][2]) && strlen($map[$meta->name][2])) {
 
-                $dispsql     = 'SELECT ' . PMA_backquote($map[$meta->name][2])
-                    . ' FROM ' . PMA_backquote($map[$meta->name][3])
-                    . '.' . PMA_backquote($map[$meta->name][0])
-                    . ' WHERE ' . PMA_backquote($map[$meta->name][1])
+                $dispsql     = 'SELECT '
+                    . $this->getCommonFunctions()->backquote($map[$meta->name][2])
+                    . ' FROM '
+                    . $this->getCommonFunctions()->backquote($map[$meta->name][3])
+                    . '.'
+                    . $this->getCommonFunctions()->backquote($map[$meta->name][0])
+                    . ' WHERE '
+                    . $this->getCommonFunctions()->backquote($map[$meta->name][1])
                     . $where_comparison;
 
                 $dispresult = PMA_DBI_try_query($dispsql, null, PMA_DBI_QUERY_STORE);
@@ -4647,7 +4747,7 @@ class PMA_DisplayResults
                         $transform_options,
                         $meta
                     )
-                    : $default_function($data)
+                    : $this->$default_function($data)
                 )
                 . ' <code>[-&gt;' . $dispval . ']</code>';
 
@@ -4670,9 +4770,16 @@ class PMA_DisplayResults
                     'table' => $map[$meta->name][0],
                     'pos'   => '0',
                     'sql_query' => 'SELECT * FROM '
-                        . PMA_backquote($map[$meta->name][3]) . '.'
-                        . PMA_backquote($map[$meta->name][0])
-                        . ' WHERE ' . PMA_backquote($map[$meta->name][1])
+                        . $this->getCommonFunctions()->backquote(
+                            $map[$meta->name][3]
+                        ) . '.'
+                        . $this->getCommonFunctions()->backquote(
+                            $map[$meta->name][0]
+                        )
+                        . ' WHERE '
+                        . $this->getCommonFunctions()->backquote(
+                            $map[$meta->name][1]
+                        )
                         . $where_comparison,
                 );
 
@@ -4692,10 +4799,10 @@ class PMA_DisplayResults
                     if ($_SESSION['tmp_user_values']['relational_display'] == self::RELATIONAL_DISPLAY_COLUMN) {
                         // user chose "relational display field" in the
                         // display options, so show display field in the cell
-                        $result .= $default_function($dispval);
+                        $result .= $this->$default_function($dispval);
                     } else {
                         // otherwise display data in the cell
-                        $result .= $default_function($data);
+                        $result .= $this->$default_function($data);
                     }
 
                 }
@@ -4709,7 +4816,7 @@ class PMA_DisplayResults
                     $transform_options,
                     $meta
                 )
-                : $default_function($data)
+                : $this->$default_function($data)
             );
         }
 
@@ -4723,11 +4830,11 @@ class PMA_DisplayResults
                 'table' => $meta->orgtable,
                 'pos'   => '0',
                 'sql_query' => 'SELECT * FROM '
-                                    . PMA_backquote($this->_db) . '.'
-                                    . PMA_backquote($meta->orgtable)
-                                    . ' WHERE '
-                                    . PMA_backquote($meta->orgname)
-                                    . $where_comparison,
+                    . $this->getCommonFunctions()->backquote($this->_db) . '.'
+                    . $this->getCommonFunctions()->backquote($meta->orgtable)
+                    . ' WHERE '
+                    . $this->getCommonFunctions()->backquote($meta->orgname)
+                    . $where_comparison,
             );
 
             $result .= '<input type="hidden" class="data_browse_link" value="'
@@ -4818,7 +4925,9 @@ class PMA_DisplayResults
         if (! empty($edit_url)) {
 
             $ret .= '<td class="' . $class . ' center" ' . ' ><span class="nowrap">'
-               . PMA_linkOrButton($edit_url, $edit_str, array(), false);
+               . $this->getCommonFunctions()->linkOrButton(
+                   $edit_url, $edit_str, array(), false
+               );
             /*
              * Where clause for selecting this row uniquely is provided as
              * a hidden input. Used by jQuery scripts for handling grid editing
@@ -4863,7 +4972,9 @@ class PMA_DisplayResults
             }
 
             $ret .= 'center" ' . ' ><span class="nowrap">'
-               . PMA_linkOrButton($copy_url, $copy_str, array(), false);
+               . $this->getCommonFunctions()->linkOrButton(
+                   $copy_url, $copy_str, array(), false
+               );
 
             /*
              * Where clause for selecting this row uniquely is provided as
@@ -4907,7 +5018,9 @@ class PMA_DisplayResults
             }
 
             $ret .= 'center" ' . ' >'
-               . PMA_linkOrButton($del_url, $del_str, $js_conf, false)
+               . $this->getCommonFunctions()->linkOrButton(
+                   $del_url, $del_str, $js_conf, false
+               )
                . '</td>';
         }
 
@@ -4997,6 +5110,32 @@ class PMA_DisplayResults
         return $ret;
 
     } // end of the '_getCheckboxAndLinks()' function
+    
+
+    /**
+     * Replace some html-unfriendly stuff
+     *
+     * @param string $buffer String to process
+     *
+     * @return Escaped and cleaned up text suitable for html.
+     * 
+     * @access  private
+     * 
+     * @see     _getDataCellForBlobField(), _getRowData(),
+     *          _handleNonPrintableContents()
+     */
+    private function _mimeDefaultFunction($buffer)
+    {
+        $buffer = htmlspecialchars($buffer);
+        $buffer = str_replace(
+            "\011",
+            ' &nbsp;&nbsp;&nbsp;',
+            str_replace('  ', ' &nbsp;', $buffer)
+        );
+        $buffer = preg_replace("@((\015\012)|(\015)|(\012))@", '<br />', $buffer);
+
+        return $buffer;
+    }    
 
 }
 ?>

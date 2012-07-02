@@ -525,7 +525,8 @@ class ExportTexytext extends ExportPlugin
     function formatOneColumnDefinition(
         $column, $unique_keys
     ) {
-        $extracted_columnspec = PMA_extractColumnSpec($column['Type']);
+        $extracted_columnspec
+            = PMA_CommonFunctions::getInstance()->extractColumnSpec($column['Type']);
         $type = $extracted_columnspec['print_type'];
         if (empty($type)) {
             $type     = '&nbsp;';

@@ -232,8 +232,12 @@ class ExportCodegen extends ExportPlugin
     private function _handleNHibernateCSBody($db, $table, $crlf)
     {
         $lines = array();
+        $common_functions = PMA_CommonFunctions::getInstance();
         $result = PMA_DBI_query(
-            sprintf('DESC %s.%s', PMA_backquote($db), PMA_backquote($table))
+            sprintf(
+                'DESC %s.%s', $common_functions->backquote($db),
+                $common_functions->backquote($table)
+            )
         );
         if ($result) {
             $tableProperties = array();
@@ -322,7 +326,10 @@ class ExportCodegen extends ExportPlugin
             . 'name="' . ExportCodegen::cgMakeIdentifier($table) . '" '
             . 'table="' . ExportCodegen::cgMakeIdentifier($table) . '">';
         $result = PMA_DBI_query(
-            sprintf("DESC %s.%s", PMA_backquote($db), PMA_backquote($table))
+            sprintf(
+                "DESC %s.%s", $common_functions->backquote($db),
+                $common_functions->backquote($table)
+            )
         );
         if ($result) {
             while ($row = PMA_DBI_fetch_row($result)) {
