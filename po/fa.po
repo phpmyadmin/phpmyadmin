@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-07-03 16:27+0200\n"
-"Last-Translator: Ashiyane Digital Security Team <HeXa.ashiyane@gmail.com>\n"
+"PO-Revision-Date: 2012-07-03 16:28+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
@@ -1850,7 +1850,7 @@ msgstr "زمان اجرای پرس و جو"
 #: libraries/DisplayResults.class.php:531
 #, php-format
 msgid "%d is not valid row number."
-msgstr "D٪٪ شماره ردیف معتبر نمی باشد."
+msgstr "%d شماره ردیف معتبر نمی باشد."
 
 #: js/messages.php:291 libraries/config/FormDisplay.tpl.php:387
 #: libraries/insert_edit.lib.php:1487
