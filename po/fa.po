@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-28 09:04+0200\n"
-"PO-Revision-Date: 2012-07-03 09:06+0200\n"
+"PO-Revision-Date: 2012-07-03 09:10+0200\n"
 "Last-Translator: Ashiyane Digital Security Team <HeXa.ashiyane@gmail.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
@@ -1568,9 +1568,8 @@ msgid "From general log"
 msgstr "از لاگ عمومی"
 
 #: js/messages.php:172
-#, fuzzy
 msgid "Analysing logs"
-msgstr "محلی"
+msgstr "آنالیز لاگ ها"
 
 #: js/messages.php:173
 msgid "Analysing & loading logs. This may take a while."
