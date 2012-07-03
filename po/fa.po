@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-28 09:04+0200\n"
-"PO-Revision-Date: 2012-07-03 08:46+0200\n"
+"PO-Revision-Date: 2012-07-03 09:06+0200\n"
 "Last-Translator: Ashiyane Digital Security Team <HeXa.ashiyane@gmail.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
@@ -1489,13 +1489,13 @@ msgstr ""
 #: js/messages.php:150
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time روی %d ثانیه تنظیم شده است."
 
 #: js/messages.php:151
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
-msgstr ""
+msgstr "بعد از ری استارت سرور این تنظیمات به حالت پیش فرض برمیگردد:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:153
@@ -1522,13 +1522,15 @@ msgstr "غیر فعال سازی %s"
 #: js/messages.php:159
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "long_query_time را به %ds تنظیم نمایید"
 
 #: js/messages.php:160
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
+"شما این مقادیر را نمی توانید تغییر دهید. لطفا به عنوان root وارد شوید و یا "
+"با مدیر پایگاه داده تماس بگیرید."
 
 #: js/messages.php:161
 #| msgid "Change"
@@ -1546,24 +1548,24 @@ msgstr "عنوان نمودار"
 #. l10n: As in differential values
 #: js/messages.php:166
 msgid "Differential"
-msgstr ""
+msgstr "تفاوت"
 
 #: js/messages.php:167
 #, php-format
 msgid "Divided by %s"
-msgstr ""
+msgstr "تقسیم بر %s"
 
 #: js/messages.php:168
 msgid "Unit"
-msgstr ""
+msgstr "واحد"
 
 #: js/messages.php:170
 msgid "From slow log"
-msgstr ""
+msgstr "از slow log"
 
 #: js/messages.php:171
 msgid "From general log"
-msgstr ""
+msgstr "از لاگ عمومی"
 
 #: js/messages.php:172
 #, fuzzy
