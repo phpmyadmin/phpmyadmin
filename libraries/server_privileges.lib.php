@@ -1206,4 +1206,60 @@ function PMA_getCommonSQlQueryForAddUserAndUpdatePrivs($Grant_priv, $max_questio
     return $sql_query;
 }
 
+/**
+ * Get HTML for addUsersForm, This function call if isset($_REQUEST['adduser'])
+ * 
+ * @param int $random_n
+ * @param string $dbname
+ * 
+ * @return string HTML for addUserForm
+ */
+function PMA_getHtmlForAddUser($random_n, $dbname)
+{
+    $common_functions = PMA_CommonFunctions::getInstance();
+    $GLOBALS['url_query'] .= '&amp;adduser=1';
+    
+    $html_output = '<h2>' . "\n"
+       . $common_functions->getIcon('b_usradd.png') . __('Add user') . "\n"
+       . '</h2>' . "\n"
+       . '<form name="usersForm" id="addUsersForm_' . $random_n . '" action="server_privileges.php" method="post">' . "\n"
+       . PMA_generate_common_hidden_inputs('', '')
+       . PMA_getHtmlForDisplayLoginInformationFields('new');
+    
+    $html_output .= '<fieldset id="fieldset_add_user_database">' . "\n"
+        . '<legend>' . __('Database for user') . '</legend>' . "\n";
+
+    $html_output .= $common_functions->getCheckbox(
+        'createdb-1',
+        __('Create database with same name and grant all privileges'),
+        false, false
+    );
+    $html_output .= '<br />' . "\n";
+    $html_output .= $common_functions->getCheckbox(
+        'createdb-2',
+        __('Grant all privileges on wildcard name (username\\_%)'),
+        false, false
+    );
+    $html_output .= '<br />' . "\n";
+
+    if (! empty($dbname) ) {
+        $html_output .= $common_functions->getCheckbox(
+            'createdb-3',
+            sprintf(__('Grant all privileges on database &quot;%s&quot;'),
+            htmlspecialchars($dbname)), true, false
+        );
+        $html_output .= '<input type="hidden" name="dbname" value="'
+            . htmlspecialchars($dbname) . '" />' . "\n";
+        $html_output .= '<br />' . "\n";
+    }
+
+    $html_output .= '</fieldset>' . "\n";
+    $html_output .= PMA_getHtmlToDisplayPrivilegesTable($random_n, '*', '*', false);
+    $html_output .= '<fieldset id="fieldset_add_user_footer" class="tblFooters">' . "\n"
+       . '<input type="submit" name="adduser_submit" value="' . __('Go') . '" />' . "\n"
+       . '</fieldset>' . "\n"
+       . '</form>' . "\n";
+    
+    return $html_output;
+}
 ?>

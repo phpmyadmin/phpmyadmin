@@ -461,7 +461,6 @@ if (isset($_REQUEST['change_copy'])) {
     }
 }
 
-
 /**
  * Updates privileges
  */
@@ -515,7 +514,6 @@ if (! empty($update_privs)) {
     $message->addParam('\'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\'');
 }
 
-
 /**
  * Revokes Privileges
  */
@@ -538,7 +536,6 @@ if (isset($_REQUEST['change_pw'])) {
  * Deletes users
  *   (Changes / copies a user, part IV)
  */
-
 if (isset($_REQUEST['delete']) || (isset($_REQUEST['change_copy']) && $_REQUEST['mode'] < 4)) {
     if (isset($_REQUEST['change_copy'])) {
         $selected_usr = array($old_username . '&amp;#27;' . $old_hostname);
@@ -609,7 +606,6 @@ if (isset($_REQUEST['change_copy'])) {
     $message = PMA_Message::success();
     $sql_query = join("\n", $queries);
 }
-
 
 /**
  * Reloads the privilege tables into memory
@@ -748,7 +744,6 @@ if (isset($viewing_mode) && $viewing_mode == 'db') {
         unset($GLOBALS['message']);
     }
 }
-
 
 /**
  * Displays the page
@@ -1466,35 +1461,10 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         }
     }
 } elseif (isset($_REQUEST['adduser'])) {
-
     // Add user
-    $GLOBALS['url_query'] .= '&amp;adduser=1';
-    echo '<h2>' . "\n"
-       . $common_functions->getIcon('b_usradd.png') . __('Add user') . "\n"
-       . '</h2>' . "\n"
-       . '<form name="usersForm" id="addUsersForm_' . $random_n . '" action="server_privileges.php" method="post">' . "\n"
-       . PMA_generate_common_hidden_inputs('', '')
-       . PMA_getHtmlForDisplayLoginInformationFields('new');
-    echo '<fieldset id="fieldset_add_user_database">' . "\n"
-        . '<legend>' . __('Database for user') . '</legend>' . "\n";
-
-    echo $common_functions->getCheckbox('createdb-1', __('Create database with same name and grant all privileges'), false, false);
-    echo '<br />' . "\n";
-    echo $common_functions->getCheckbox('createdb-2', __('Grant all privileges on wildcard name (username\\_%)'), false, false);
-    echo '<br />' . "\n";
-
-    if (! empty($dbname) ) {
-        echo $common_functions->getCheckbox('createdb-3', sprintf(__('Grant all privileges on database &quot;%s&quot;'), htmlspecialchars($dbname)), true, false);
-        echo '<input type="hidden" name="dbname" value="' . htmlspecialchars($dbname) . '" />' . "\n";
-        echo '<br />' . "\n";
-    }
-
-    echo '</fieldset>' . "\n";
-    echo PMA_getHtmlToDisplayPrivilegesTable($random_n, '*', '*', false);
-    echo '    <fieldset id="fieldset_add_user_footer" class="tblFooters">' . "\n"
-       . '        <input type="submit" name="adduser_submit" value="' . __('Go') . '" />' . "\n"
-       . '    </fieldset>' . "\n"
-       . '</form>' . "\n";
+    $response->addHTML(
+        PMA_getHtmlForAddUser($random_n, $dbname)
+    );
 } else {
     // check the privileges for a particular database.
     $user_form = '<form id="usersForm" action="server_privileges.php"><fieldset>' . "\n"
