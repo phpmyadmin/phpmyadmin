@@ -935,7 +935,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param string $edit_str          text for the edit link
      * @param string $where_clause      where clause
      * @param string $where_clause_html url encoded where clause
-     * @param string $output            _getEditLink
+     * @param string $output            output of _getEditLink
      * 
      * @dataProvider dataProviderForGetEditLink
      */
@@ -956,6 +956,57 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             $output
         );
         
+    }
+    
+    /**
+     * Data provider for testGetCopyLink
+     * 
+     * @return array parameters and output
+     */
+    public function dataProviderForGetCopyLink()
+    {
+        return array(
+            array(
+                'tbl_change.php?db=Data&amp;table=customer&amp;where_clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;default_action=insert&amp;token=f597309d3a066c3c81a6cb015a79636d',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span>',
+                '`customer`.`id` = 1',
+                '%60customer%60.%60id%60+%3D+1',
+                'odd row_0 vpointer vmarker',
+                '<td class="odd row_0 vpointer vmarker center"  ><span class="nowrap">
+<a href="tbl_change.php?db=Data&amp;table=customer&amp;where_clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;default_action=insert&amp;token=f597309d3a066c3c81a6cb015a79636d" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>
+<input type="hidden" class="where_clause" value="%60customer%60.%60id%60+%3D+1" /></span></td>'
+            )
+        );
+    }
+    
+    /**
+     * Test for _getCopyLink
+     * 
+     * @param string $copy_url          copy url
+     * @param string $copy_str          text for the copy link
+     * @param string $where_clause      where clause
+     * @param string $where_clause_html url encoded where clause
+     * @param string $class             css classes for the td element
+     * @param string $output            output of _getCopyLink
+     * 
+     * @dataProvider dataProviderForGetCopyLink
+     */
+    public function testGetCopyLink(
+        $copy_url, $copy_str, $where_clause, $where_clause_html, $class, $output
+    ) {
+        
+        $GLOBALS['cfg']['PropertiesIconic'] = 'both';
+        $GLOBALS['cfg']['LinkLengthLimit'] = 1000;
+        
+        $this->assertEquals(
+            $this->_callPrivateFunction(
+                '_getCopyLink',
+                array(
+                    $copy_url, $copy_str, $where_clause, $where_clause_html, $class
+                )
+            ),
+            $output
+        );
     }
     
 
