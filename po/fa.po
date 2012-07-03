@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-07-03 10:54+0200\n"
+"PO-Revision-Date: 2012-07-03 11:00+0200\n"
 "Last-Translator: Ashiyane Digital Security Team <HeXa.ashiyane@gmail.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
@@ -1687,7 +1687,7 @@ msgstr "در حال بارگیری"
 
 #: js/messages.php:236
 msgid "Processing Request"
-msgstr ""
+msgstr "پردازش درخواست"
 
 #: js/messages.php:237 libraries/rte/rte_export.lib.php:41
 msgid "Error in Processing Request"
@@ -1699,11 +1699,11 @@ msgstr "هیچ پایگاه داده ای انتخاب نشده است."
 
 #: js/messages.php:239
 msgid "Dropping Column"
-msgstr ""
+msgstr "حذف ستون"
 
 #: js/messages.php:240
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "اضافه کردن کلید اولیه"
 
 #: js/messages.php:241 pmd_general.php:415 pmd_general.php:572
 #: pmd_general.php:620 pmd_general.php:696 pmd_general.php:750
@@ -1713,7 +1713,7 @@ msgstr "تاييد"
 
 #: js/messages.php:242
 msgid "Click to dismiss this notification"
-msgstr ""
+msgstr "برای حذف کردن این اطلاعات کلیک کن"
 
 #: js/messages.php:245
 #, fuzzy
