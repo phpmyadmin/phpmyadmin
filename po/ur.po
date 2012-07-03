@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-05-17 15:19+0200\n"
+"PO-Revision-Date: 2012-07-03 16:27+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
 "Language: ur\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.0\n"
+"X-Generator: Weblate 1.1\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:609 server_privileges.php:1851
@@ -2544,7 +2544,7 @@ msgstr "SQL طلب"
 #: libraries/rte/rte_triggers.lib.php:91
 #: libraries/rte/rte_triggers.lib.php:104
 msgid "MySQL said: "
-msgstr "MySQL نے کہا:"
+msgstr "MySQL نے کہا: "
 
 #: libraries/CommonFunctions.class.php:1210
 msgid "Failed to connect to SQL validator!"
@@ -7420,7 +7420,7 @@ msgstr "مسل %s کلید آئی ڈی کا حامل نہیں ہے"
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:174
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:194
 msgid "Hardware authentication failed"
-msgstr "ہارڈویئر ‏‏توثيق ناکام ہوا "
+msgstr "ہارڈویئر ‏‏توثيق ناکام ہوا"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:181
 msgid "No valid authentication key plugged"
