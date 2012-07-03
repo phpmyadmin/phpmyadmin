@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-07-03 09:10+0200\n"
+"PO-Revision-Date: 2012-07-03 10:36+0200\n"
 "Last-Translator: Ashiyane Digital Security Team <HeXa.ashiyane@gmail.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
@@ -426,7 +426,9 @@ msgstr "آخرین بازدید"
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s جدول"
+msgstr[0] ""
+"%s جدول\n"
+"%s  جدولها"
 
 #: db_qbe.php:42
 msgid "You have to choose at least one column to display"
@@ -1465,10 +1467,9 @@ msgstr "آنالیز لاگ ها"
 
 #: js/messages.php:173
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "در حال آنالیز و بارگیری لاگ. ممکن است مدتی زمان بگیرد."
 
 #: js/messages.php:174
-#, fuzzy
 #| msgid "Cancel"
 msgid "Cancel request"
 msgstr "لغو کردن"
@@ -1479,6 +1480,9 @@ msgid ""
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
+"این ستون مقدار کوئری هایی که گروه بندی شده اند را نشان می دهد. هرچند فقط از "
+"کوئری SQL به عنوان ضابطه استفاده شده است، بنابراین بقیه مشخصات کوئری ها "
+"مانند زمان شروع ممکن است متفاوت باشند."
 
 #: js/messages.php:176
 msgid ""
@@ -1486,35 +1490,34 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
+"چون دسته بندی کوئری Insert انتخاب شده است ، کوئری Insert در همان جدول نیز "
+"دسته بندی می شود بدون در نظر گرفتن داده های ورودی."
 
 #: js/messages.php:177
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr ""
+msgstr "لاگ داده ها بارگیری شد. کوئری هایی که در این دوره اجرا شده اند:"
 
 #: js/messages.php:179
-#, fuzzy
 msgid "Jump to Log table"
-msgstr "No databases"
+msgstr "پرش به جدول لاگ ها"
 
 #: js/messages.php:180
-#, fuzzy
 #| msgid "No databases"
 msgid "No data found"
-msgstr "No databases"
+msgstr "اطلاعاتی یافت نشد"
 
 #: js/messages.php:181
 msgid "Log analysed, but no data found in this time span."
-msgstr ""
+msgstr "لاگ ها آنالیز شد، اما چیزی در این بازه زمانی یافت نشد."
 
 #: js/messages.php:183
 msgid "Analyzing..."
-msgstr ""
+msgstr "در حال آنالیز..."
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
-msgstr "شرح دادن SQL"
+msgstr "شرح دادن خروجی"
 
 #: js/messages.php:186 js/messages.php:516
 #: libraries/plugins/export/ExportHtmlword.class.php:477
@@ -1522,22 +1525,19 @@ msgstr "شرح دادن SQL"
 #: libraries/plugins/export/ExportTexytext.class.php:425
 #: libraries/rte/rte_list.lib.php:68 server_status.php:1292 sql.php:1041
 msgid "Time"
-msgstr ""
+msgstr "زمان"
 
 #: js/messages.php:187
-#, fuzzy
 #| msgid "Total"
 msgid "Total time:"
-msgstr "جمع كل"
+msgstr "زمان کل:"
 
 #: js/messages.php:188
-#, fuzzy
 #| msgid "SQL result"
 msgid "Profiling results"
-msgstr "نتيجه SQL"
+msgstr "دسته بندی نتایج"
 
 #: js/messages.php:189
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
@@ -1552,9 +1552,8 @@ msgid "Edit chart"
 msgstr "نمودار ویرایش"
 
 #: js/messages.php:192
-#, fuzzy
 msgid "Series"
-msgstr "پرس و جوي SQL"
+msgstr "سری"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
@@ -1572,28 +1571,25 @@ msgstr "فیلتر کوئری ها به وسیله لغت/عبارت باقاع�
 
 #: js/messages.php:199
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
+msgstr "دسته کوئری ها،در نظر نگرفتن قسمت Where"
 
 #: js/messages.php:200
-#, fuzzy
 #| msgid "Number of rows per page"
 msgid "Sum of grouped rows:"
-msgstr "تعداد سطرها در هر صفحه"
+msgstr "تعداد سطرها در هر صفحه:"
 
 #: js/messages.php:201
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "جمع كل"
+msgstr "مجموع:"
 
 #: js/messages.php:203
-#, fuzzy
 msgid "Loading logs"
-msgstr "محلی"
+msgstr "بارگیری لاگ ها"
 
 #: js/messages.php:204
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "رفرش مانیتور موفقیت آمیز نبود"
 
 #: js/messages.php:205
 msgid ""
@@ -1603,9 +1599,8 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:206
-#, fuzzy
 msgid "Reload page"
-msgstr "بازناميدن جدول به"
+msgstr "باز کردن مجدد صفحه"
 
 #: js/messages.php:208
 msgid "Affected rows:"
@@ -1625,7 +1620,6 @@ msgstr ""
 #: libraries/Menu.class.php:396 libraries/Menu.class.php:493
 #: libraries/config/messages.inc.php:174 libraries/display_import.lib.php:184
 #: prefs_manage.php:235 server_status.php:1679 setup/frames/menu.inc.php:21
-#, fuzzy
 msgid "Import"
 msgstr "صدور"
 
@@ -2489,7 +2483,7 @@ msgstr "انگلیسی"
 #: libraries/insert_edit.lib.php:1195 tbl_operations.php:232
 #: tbl_relation.php:292 view_operations.php:55
 msgid "Error"
-msgstr ""
+msgstr "خطا"
 
 #: libraries/CommonFunctions.class.php:683 server_status.php:613
 #: server_status.php:1295 sql.php:969
@@ -2659,7 +2653,7 @@ msgstr "ساختار"
 #: libraries/plugins/export/ExportSql.class.php:133
 #: libraries/plugins/import/ImportSql.class.php:40 querywindow.php:61
 msgid "SQL"
-msgstr ""
+msgstr "SQL"
 
 #: libraries/CommonFunctions.class.php:3384
 #: libraries/CommonFunctions.class.php:3591
@@ -6150,7 +6144,11 @@ msgstr "نتيجه ي جستجو \"<i>%s</i>\" %s:"
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>مجموع:</b> <i>%s</i> مطابقت"
+msgstr[0] ""
+"مفرد\n"
+"<b>مجموع:</b> <i>%s</i> مطابقت\n"
+"جمع\n"
+"<b>مجموع:</b> <i>%s</i> مطابقتها"
 
 #: libraries/db_search.lib.php:211
 #, php-format
