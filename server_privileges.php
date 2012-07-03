@@ -617,40 +617,10 @@ if (isset($_REQUEST['flush_privileges'])) {
 }
 
 /**
- * defines some standard links
+ * some standard links
  */
-$link_edit = '<a class="edit_user_anchor ' . $conditional_class . '" href="server_privileges.php?' . str_replace('%', '%%', $GLOBALS['url_query'])
-    . '&amp;username=%s'
-    . '&amp;hostname=%s'
-    . '&amp;dbname=%s'
-    . '&amp;tablename=%s">'
-    . $common_functions->getIcon('b_usredit.png', __('Edit Privileges'))
-    . '</a>';
-
-$link_revoke = '<a href="server_privileges.php?' . str_replace('%', '%%', $GLOBALS['url_query'])
-    . '&amp;username=%s'
-    . '&amp;hostname=%s'
-    . '&amp;dbname=%s'
-    . '&amp;tablename=%s'
-    . '&amp;revokeall=1">'
-    . $common_functions->getIcon('b_usrdrop.png', __('Revoke'))
-    . '</a>';
-
-$link_export = '<a class="export_user_anchor ' . $conditional_class . '" href="server_privileges.php?' . str_replace('%', '%%', $GLOBALS['url_query'])
-    . '&amp;username=%s'
-    . '&amp;hostname=%s'
-    . '&amp;initial=%s'
-    . '&amp;export=1">'
-    . $common_functions->getIcon('b_tblexport.png', __('Export'))
-    . '</a>';
-
-$link_export_all = '<a class="export_user_anchor ' . $conditional_class . '" href="server_privileges.php?' . str_replace('%', '%%', $GLOBALS['url_query'])
-    . '&amp;username=%s'
-    . '&amp;hostname=%s'
-    . '&amp;initial=%s'
-    . '&amp;export=1">'
-    . $common_functions->getIcon('b_tblexport.png', __('Export all'))
-    . '</a>';
+list($link_edit, $link_revoke, $link_export, $link_export_all)
+    = PMA_getStandardLinks($conditional_class);
 
 /**
  * If we are in an Ajax request for Create User/Edit User/Revoke User/
