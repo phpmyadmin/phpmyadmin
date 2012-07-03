@@ -409,7 +409,8 @@ msgstr "آخرین بازدید"
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] ""
-"%s جدول\n"
+"%s جدول"
+msgstr[1] ""
 "%s  جدولها"
 
 #: db_qbe.php:41
@@ -533,6 +534,7 @@ msgstr "نتيجه ي جستجو \"<i>%s</i>\" %s:"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s عبارت همتا در جدول <i>%s</i>"
+msgstr[1] "%s عبارت همتا در جدول <i>%s</i>"
 
 #: db_search.php:234 libraries/common.lib.php:3131
 #: libraries/common.lib.php:3343 libraries/common.lib.php:3344
@@ -562,9 +564,8 @@ msgstr "حذف"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] ""
-"مفرد\n"
-"<b>مجموع:</b> <i>%s</i> مطابقت\n"
-"جمع\n"
+"<b>مجموع:</b> <i>%s</i> مطابقت"
+msgstr[1] ""
 "<b>مجموع:</b> <i>%s</i> مطابقتها"
 
 #: db_search.php:274
