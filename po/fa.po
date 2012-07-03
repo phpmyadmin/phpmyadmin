@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-07-03 10:36+0200\n"
+"PO-Revision-Date: 2012-07-03 10:54+0200\n"
 "Last-Translator: Ashiyane Digital Security Team <HeXa.ashiyane@gmail.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
@@ -1604,11 +1604,13 @@ msgstr "باز کردن مجدد صفحه"
 
 #: js/messages.php:208
 msgid "Affected rows:"
-msgstr ""
+msgstr "سطر آسیب دیده"
 
 #: js/messages.php:210
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
+"تجزیه ی فایل های پیکربندی شده ناموفق بود .این کد معتبر برای JSON به نظر "
+"نمیرسد."
 
 #: js/messages.php:211
 msgid ""
@@ -1629,7 +1631,7 @@ msgstr ""
 
 #: js/messages.php:214
 msgid "Please select the file you want to import"
-msgstr ""
+msgstr "لطفا فایلی را که میخواهید وارد کنید را انتخاب کنید "
 
 #: js/messages.php:216
 #, fuzzy
@@ -1647,7 +1649,7 @@ msgstr ""
 
 #: js/messages.php:222
 msgid "Issue"
-msgstr ""
+msgstr "موضوع"
 
 #: js/messages.php:223
 #, fuzzy
@@ -1657,7 +1659,7 @@ msgstr "مستندات"
 
 #: js/messages.php:224
 msgid "Rule details"
-msgstr ""
+msgstr "جزئیات قانون"
 
 #: js/messages.php:225
 #, fuzzy
@@ -1671,7 +1673,7 @@ msgstr ""
 
 #: js/messages.php:227
 msgid "Test"
-msgstr ""
+msgstr "امتحان کردن"
 
 #: js/messages.php:232 pmd_general.php:417 pmd_general.php:454
 #: pmd_general.php:574 pmd_general.php:622 pmd_general.php:698
@@ -1680,9 +1682,8 @@ msgid "Cancel"
 msgstr "لغو کردن"
 
 #: js/messages.php:235
-#, fuzzy
 msgid "Loading"
-msgstr "محلی"
+msgstr "در حال بارگیری"
 
 #: js/messages.php:236
 msgid "Processing Request"
@@ -1690,7 +1691,7 @@ msgstr ""
 
 #: js/messages.php:237 libraries/rte/rte_export.lib.php:41
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "خطا در پردازش درخواست"
 
 #: js/messages.php:238 server_databases.php:90
 msgid "No databases selected."
