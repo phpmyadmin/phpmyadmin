@@ -84,12 +84,6 @@ class Node {
     protected $links;
 
     /**
-     * @var string If the node is a container, this indicates if
-     *             its children are already loaded
-     */
-    private $loaded = false;
-
-    /**
      * @var string classes
      */
 
@@ -158,7 +152,6 @@ class Node {
         case 'separator':
         case 'separator_depth':
         case 'visible':
-        case 'loaded':
             $this->$a = $b;
             return true;
         default:

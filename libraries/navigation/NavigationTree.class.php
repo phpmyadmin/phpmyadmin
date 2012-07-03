@@ -186,7 +186,9 @@ class PMA_NavigationTree {
                         $retval = $table;
                         $containers = $this->addTableContainers($table);
                         array_shift($path); // remove table
-                        foreach ($containers as $container) {
+                        if (count($path) > 0 && array_key_exists($path[0], $containers)) {
+                            $container = $table->getChild($path[0], true);
+                            $retval = $container;
                             foreach ($table->getData($container->real_name) as $item) {
                                 switch ($container->real_name) {
                                 case 'indexes':
@@ -239,11 +241,10 @@ class PMA_NavigationTree {
             }
             // Add all new Nodes to the tree
             foreach ($retval as $node) {
-                $node->loaded = true;
                 $table->addChild($node);
             }
         } else {
-            foreach ($db->children as $node) {
+            foreach ($table->children as $node) {
                 $retval[$node->real_name] = $node;
             }
         }
@@ -492,7 +493,7 @@ class PMA_NavigationTree {
                 $v_path = implode('.', array_reverse($v_path));
 
                 $loaded = '';
-                if ($node->loaded || $node->is_group || $GLOBALS['cfg']['LeftFrameLight'] != true) {
+                if ($node->is_group || $GLOBALS['cfg']['LeftFrameLight'] != true) {
                     $loaded = ' loaded';
                 }
                 $container = '';
