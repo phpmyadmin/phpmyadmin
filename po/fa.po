@@ -426,9 +426,7 @@ msgstr "آخرین بازدید"
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] ""
-"%s جدول\n"
-"%s جدول"
+msgstr[0] "%s جدول"
 
 #: db_qbe.php:42
 msgid "You have to choose at least one column to display"
@@ -550,9 +548,6 @@ msgstr "نتيجه ي جستجو \"<i>%s</i>\" %s:"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] ""
-"مفرد\n"
-"<b>مجموع:</b> <i>%s</i> مطابقت\n"
-"جمع\n"
 "<b>مجموع:</b> <i>%s</i> مطابقت"
 
 #: db_search.php:296
