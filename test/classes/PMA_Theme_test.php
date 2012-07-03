@@ -213,16 +213,10 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('/new/path', $this->object->getImgPath());
     }
 
-    public function testLoadCssWrongType()
+    public function testLoadCss()
     {
-        $type = 'middle';
-        $this->assertFalse($this->object->loadCss($type));
-    }
-
-    public function testLoadCssNotExisted()
-    {
-        $type = 'print';
-        $this->assertFalse($this->object->loadCss($type));
+        $this->expectOutputRegex('/.*FILE: codemirror.css.php.*/');
+        $this->assertTrue($this->object->loadCss());
     }
 
     /**
