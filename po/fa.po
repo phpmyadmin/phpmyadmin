@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-07-03 16:28+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-07-03 16:34+0200\n"
+"Last-Translator: Ashiyane Digital Security Team <HeXa.ashiyane@gmail.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
@@ -1866,27 +1866,25 @@ msgid "Hide search criteria"
 msgstr "پنهان سازی ضوابط جستجو"
 
 #: js/messages.php:295
-#, fuzzy
 msgid "Show search criteria"
-msgstr "پرس و جوي SQL"
+msgstr "نمایش معیارهای جستجو"
 
 #: js/messages.php:298 libraries/TableSearch.class.php:242
-#, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
-msgstr "جستجو"
+msgstr "زوم جستجو"
 
 #: js/messages.php:300
 msgid "Each point represents a data row."
-msgstr ""
+msgstr ".هر نقطه نشان دهنده یک سطر داده ها"
 
 #: js/messages.php:302
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "برچسب ن برفزار یک نقطه نشان داده خواهد شد."
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "برای بزرگنمایی,یک بخش را با موس انتخاب نمایید."
 
 #: js/messages.php:306
 msgid "Click reset zoom button to come back to original state."
