@@ -427,7 +427,8 @@ msgstr "آخرین بازدید"
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] ""
-"%s جدول\n"
+"%s جدول"
+msgstr[1] ""
 "%s  جدولها"
 
 #: db_qbe.php:42
@@ -6132,9 +6133,8 @@ msgstr "نتيجه ي جستجو \"<i>%s</i>\" %s:"
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgstr[0] ""
-"مفرد\n"
-"<b>مجموع:</b> <i>%s</i> مطابقت\n"
-"جمع\n"
+"<b>مجموع:</b> <i>%s</i> مطابقت"
+msgstr[1] ""
 "<b>مجموع:</b> <i>%s</i> مطابقتها"
 
 #: libraries/db_search.lib.php:211
@@ -6142,9 +6142,8 @@ msgstr[0] ""
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] ""
-"مفرد\n"
-"%1$s همتا در <strong>%2$s</strong>\n"
-"جمع\n"
+"%1$s همتا در <strong>%2$s</strong>"
+msgstr[1] ""
 "%1$s همتا در <strong>%2$s</strong>"
 
 #: libraries/db_search.lib.php:233
