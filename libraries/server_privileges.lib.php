@@ -742,28 +742,67 @@ function PMA_getDataPrivilegeTable($db)
 function PMA_getStructurePrivilegeTable($table, $row)
 {
     $structure_privTable = array(
-        array('Create', 'CREATE', ($table == '*' ? __('Allows creating new databases and tables.') : __('Allows creating new tables.'))),
-        array('Alter', 'ALTER', __('Allows altering the structure of existing tables.')),
+        array('Create',
+            'CREATE',
+            ($table == '*'
+                ? __('Allows creating new databases and tables.')
+                : __('Allows creating new tables.')
+            )
+        ),
+        array('Alter',
+            'ALTER',
+            __('Allows altering the structure of existing tables.')
+        ),
         array('Index', 'INDEX', __('Allows creating and dropping indexes.')),
-        array('Drop', 'DROP', ($table == '*' ? __('Allows dropping databases and tables.') : __('Allows dropping tables.'))),
-        array('Create_tmp_table', 'CREATE TEMPORARY TABLES', __('Allows creating temporary tables.')),
-        array('Show_view', 'SHOW VIEW', __('Allows performing SHOW CREATE VIEW queries.')),
-        array('Create_routine', 'CREATE ROUTINE', __('Allows creating stored routines.')),
-        array('Alter_routine', 'ALTER ROUTINE', __('Allows altering and dropping stored routines.')),
+        array('Drop',
+            'DROP',
+            ($table == '*' 
+                ? __('Allows dropping databases and tables.')
+                : __('Allows dropping tables.')
+            )
+        ),
+        array('Create_tmp_table',
+            'CREATE TEMPORARY TABLES',
+            __('Allows creating temporary tables.')
+        ),
+        array('Show_view',
+            'SHOW VIEW',
+            __('Allows performing SHOW CREATE VIEW queries.')
+        ),
+        array('Create_routine',
+            'CREATE ROUTINE',
+            __('Allows creating stored routines.')
+        ),
+        array('Alter_routine',
+            'ALTER ROUTINE',
+            __('Allows altering and dropping stored routines.')
+        ),
         array('Execute', 'EXECUTE', __('Allows executing stored routines.')),
     );
     // this one is for a db-specific priv: Create_view_priv
     if (isset($row['Create_view_priv'])) {
-        $structure_privTable[] = array('Create_view', 'CREATE VIEW', __('Allows creating new views.'));
+        $structure_privTable[] = array('Create_view',
+            'CREATE VIEW',
+            __('Allows creating new views.')
+        );
     }
     // this one is for a table-specific priv: Create View_priv
     if (isset($row['Create View_priv'])) {
-        $structure_privTable[] = array('Create View', 'CREATE VIEW', __('Allows creating new views.'));
+        $structure_privTable[] = array('Create View',
+            'CREATE VIEW',
+            __('Allows creating new views.')
+        );
     }
     if (isset($row['Event_priv'])) {
         // MySQL 5.1.6
-        $structure_privTable[] = array('Event', 'EVENT', __('Allows to set up events for the event scheduler'));
-        $structure_privTable[] = array('Trigger', 'TRIGGER', __('Allows creating and dropping triggers'));
+        $structure_privTable[] = array('Event',
+            'EVENT',
+            __('Allows to set up events for the event scheduler')
+        );
+        $structure_privTable[] = array('Trigger',
+            'TRIGGER',
+            __('Allows creating and dropping triggers')
+        );
     }
     return $structure_privTable;
 }
