@@ -213,6 +213,13 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('/new/path', $this->object->getImgPath());
     }
 
+    /**
+     * Test for loading CSS files.
+     *
+     * @return nothing
+     *
+     * @todo Needs to be revisited as original test is somehow broken.
+     */
     public function testLoadCss()
     {
         $this->markTestIncomplete(
