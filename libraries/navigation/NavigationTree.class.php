@@ -652,23 +652,18 @@ class PMA_NavigationTree {
      */
     static public function sortNode($a, $b)
     {
+        if (property_exists($a, 'classes')
+            && strpos($a->classes, 'new') === 0
+        ) {
+            return -1;
+        } else if (property_exists($b, 'classes')
+            && strpos($b->classes, 'new') === 0
+        ) {
+            return 1;
+        }
         if ($GLOBALS['cfg']['NaturalOrder']) {
-            if (property_exists($a, 'classes') && property_exists($b, 'classes')) {
-                if (substr($a->classes, 0, 3) === 'new') {
-                    return -1;
-                } else if (substr($b->classes, 0, 3) === 'new') {
-                    return 1;
-                }
-            }
             return strnatcmp($a->name, $b->name);
         } else {
-            if (property_exists($a, 'classes') && property_exists($b, 'classes')) {
-                if (substr($a->classes, 0, 3) === 'new') {
-                    return -1;
-                } else if (substr($b->classes, 0, 3) === 'new') {
-                    return 1;
-                }
-            }
             return strcmp($a->name, $b->name);
         }
     }
