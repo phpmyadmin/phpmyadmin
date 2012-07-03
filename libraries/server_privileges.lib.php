@@ -31,10 +31,10 @@ function PMA_wildcardEscapeForGrant($dbname, $tablename)
     } else {
         if (strlen($tablename)) {
             $db_and_table
-                = PMA_backquote(PMA_unescapeMysqlWildcards($dbname)) . '.'
-                . PMA_backquote($tablename);
+                = PMA_CommonFunctions::getInstance()->backquote(PMA_unescapeMysqlWildcards($dbname)) . '.'
+                . PMA_CommonFunctions::getInstance()->backquote($tablename);
         } else {
-            $db_and_table = PMA_backquote($dbname) . '.*';
+            $db_and_table = PMA_CommonFunctions::getInstance()->backquote($dbname) . '.*';
         }
     }
     return $db_and_table;
@@ -53,9 +53,9 @@ function PMA_rangeOfUsers($initial = '')
     // might be BINARY, so LIKE would be case sensitive
     if (! empty($initial)) {
         $ret = " WHERE `User` LIKE '"
-            . PMA_sqlAddSlashes($initial, true) . "%'"
+            . PMA_CommonFunctions::getInstance()->sqlAddSlashes($initial, true) . "%'"
             . " OR `User` LIKE '"
-            . PMA_sqlAddSlashes(strtolower($initial), true) . "%'";
+            . PMA_CommonFunctions::getInstance()->sqlAddSlashes(strtolower($initial), true) . "%'";
     } else {
         $ret = '';
     }
@@ -339,23 +339,24 @@ function PMA_getHtmlToDisplayColumnPrivileges($columns, $row, $name_for_select,
  */
 function PMA_getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname)
 {
+    $common_functions = PMA_CommonFunctions::getInstance();
     if ($db == '*') {
         return "SELECT * FROM `mysql`.`user`"
-            ." WHERE `User` = '" . PMA_sqlAddSlashes($username) . "'"
-            ." AND `Host` = '" . PMA_sqlAddSlashes($hostname) . "';";
+            ." WHERE `User` = '" . $common_functions->sqlAddSlashes($username) . "'"
+            ." AND `Host` = '" . $common_functions->sqlAddSlashes($hostname) . "';";
     } elseif ($table == '*') {
         return "SELECT * FROM `mysql`.`db`"
-            ." WHERE `User` = '" . PMA_sqlAddSlashes($username) . "'"
-            ." AND `Host` = '" . PMA_sqlAddSlashes($hostname) . "'"
-            ." AND '" . PMA_unescapeMysqlWildcards($db) . "'"
+            ." WHERE `User` = '" . $common_functions->sqlAddSlashes($username) . "'"
+            ." AND `Host` = '" . $common_functions->sqlAddSlashes($hostname) . "'"
+            ." AND '" . $common_functions->unescapeMysqlWildcards($db) . "'"
             ." LIKE `Db`;";
     }
     return "SELECT `Table_priv`"
         ." FROM `mysql`.`tables_priv`"
-        ." WHERE `User` = '" . PMA_sqlAddSlashes($username) . "'"
-        ." AND `Host` = '" . PMA_sqlAddSlashes($hostname) . "'"
-        ." AND `Db` = '" . PMA_unescapeMysqlWildcards($db) . "'"
-        ." AND `Table_name` = '" . PMA_sqlAddSlashes($table) . "';";
+        ." WHERE `User` = '" . $common_functions->sqlAddSlashes($username) . "'"
+        ." AND `Host` = '" . $common_functions->sqlAddSlashes($hostname) . "'"
+        ." AND `Db` = '" . $common_functions->unescapeMysqlWildcards($db) . "'"
+        ." AND `Table_name` = '" . $common_functions->sqlAddSlashes($table) . "';";
 }
 /**
  * Displays the privileges form table
@@ -522,13 +523,13 @@ function PMA_getHtmlForTableSpecificPrivileges($username, $hostname, $db, $table
         'SELECT `Column_name`, `Column_priv`'
         .' FROM `mysql`.`columns_priv`'
         .' WHERE `User`'
-        .' = \'' . PMA_sqlAddSlashes($username) . "'"
+        .' = \'' . PMA_CommonFunctions::getInstance()->sqlAddSlashes($username) . "'"
         .' AND `Host`'
-        .' = \'' . PMA_sqlAddSlashes($hostname) . "'"
+        .' = \'' . PMA_CommonFunctions::getInstance()->sqlAddSlashes($hostname) . "'"
         .' AND `Db`'
-        .' = \'' . PMA_sqlAddSlashes(PMA_unescapeMysqlWildcards($db)) . "'"
+        .' = \'' . PMA_CommonFunctions::getInstance()->sqlAddSlashes(PMA_unescapeMysqlWildcards($db)) . "'"
         .' AND `Table_name`'
-        .' = \'' . PMA_sqlAddSlashes($table) . '\';'
+        .' = \'' . PMA_CommonFunctions::getInstance()->sqlAddSlashes($table) . '\';'
     );
 
     while ($row1 = PMA_DBI_fetch_row($res)) {
@@ -544,7 +545,9 @@ function PMA_getHtmlForTableSpecificPrivileges($username, $hostname, $db, $table
        . '<input type="hidden" name="column_count" value="' . count($columns) . '" />' . "\n"
        . '<fieldset id="fieldset_user_priv">' . "\n"
        . '    <legend>' . __('Table-specific privileges')
-       . PMA_showHint(__('Note: MySQL privilege names are expressed in English'))
+       . PMA_CommonFunctions::getInstance()->showHint(
+               __('Note: MySQL privilege names are expressed in English')
+           )
        . '</legend>' . "\n";
 
     // privs that are attached to a specific column
@@ -932,7 +935,7 @@ function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
         . htmlspecialchars(isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '')
         . '" title="' . __('Host')
         . '" onchange="pred_hostname.value = \'userdefined\';" />' . "\n"
-        . PMA_showHint(__('When Host table is used, this field is ignored and values stored in Host table are used instead.'))
+        . PMA_CommonFunctions::getInstance()->showHint(__('When Host table is used, this field is ignored and values stored in Host table are used instead.'))
         . '</div>' . "\n"
         . '<div class="item">' . "\n"
         . '<label for="select_pred_password">' . "\n"
@@ -1005,7 +1008,9 @@ function PMA_getUsernameAndHostnameLength()
  */
 function PMA_getGrants($user, $host)
 {
-    $grants = PMA_DBI_fetch_result("SHOW GRANTS FOR '" . PMA_sqlAddSlashes($user) . "'@'" . PMA_sqlAddSlashes($host) . "'");
+    $grants = PMA_DBI_fetch_result("SHOW GRANTS FOR '" 
+        . PMA_CommonFunctions::getInstance()->sqlAddSlashes($user) . "'@'" 
+        . PMA_CommonFunctions::getInstance()->sqlAddSlashes($host) . "'");
     $response = '';
     foreach ($grants as $one_grant) {
         $response .= $one_grant . ";\n\n";
@@ -1028,7 +1033,7 @@ function PMA_getMessageForUpdatePassword($pma_pw, $pma_pw2, $err_url, $username,
 {
     // similar logic in user_password.php
     $message = '';
-
+    
     if (empty($_REQUEST['nopass']) && isset($pma_pw) && isset($pma_pw2)) {
         if ($pma_pw != $pma_pw2) {
             $message = PMA_Message::error(__('The passwords aren\'t the same!'));
@@ -1036,23 +1041,28 @@ function PMA_getMessageForUpdatePassword($pma_pw, $pma_pw2, $err_url, $username,
             $message = PMA_Message::error(__('The password is empty!'));
         }
     }
-
+    
     // here $nopass could be == 1
     if (empty($message)) {
-
+        $common_functions = PMA_CommonFunctions::getInstance();
+        
         $hashing_function = (! empty($_REQUEST['pw_hash']) && $_REQUEST['pw_hash'] == 'old' ? 'OLD_' : '')
                       . 'PASSWORD';
 
         // in $sql_query which will be displayed, hide the password
-        $sql_query        = 'SET PASSWORD FOR \'' . PMA_sqlAddSlashes($username) 
-            . '\'@\'' . PMA_sqlAddSlashes($hostname) . '\' = ' 
+        $sql_query        = 'SET PASSWORD FOR \'' 
+            . $common_functions->sqlAddSlashes($username) 
+            . '\'@\'' . $common_functions->sqlAddSlashes($hostname) . '\' = ' 
             . (($pma_pw == '') ? '\'\'' : $hashing_function . '(\'' . preg_replace('@.@s', '*', $pma_pw) . '\')');
-        $local_query      = 'SET PASSWORD FOR \'' . PMA_sqlAddSlashes($username)
-            . '\'@\'' . PMA_sqlAddSlashes($hostname) . '\' = '
-            . (($pma_pw == '') ? '\'\'' : $hashing_function . '(\'' . PMA_sqlAddSlashes($pma_pw) . '\')');
+        
+        $local_query      = 'SET PASSWORD FOR \'' 
+            . $common_functions->sqlAddSlashes($username)
+            . '\'@\'' . $common_functions->sqlAddSlashes($hostname) . '\' = '
+            . (($pma_pw == '') ? '\'\'' : $hashing_function 
+            . '(\'' . $common_functions->sqlAddSlashes($pma_pw) . '\')');
         
         PMA_DBI_try_query($local_query)
-            or PMA_mysqlDie(PMA_DBI_getError(), $sql_query, false, $err_url);
+            or $common_functions->mysqlDie(PMA_DBI_getError(), $sql_query, false, $err_url);
         $message = PMA_Message::success(__('The password for %s was changed successfully.'));
         $message->addParam('\'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\'');
     }
@@ -1075,9 +1085,12 @@ function PMA_getMessageAndSqlQueryForPrivilegesRevoke($db_and_table, $dbname,
     $db_and_table = PMA_wildcardEscapeForGrant($dbname, isset($tablename) ? $tablename : '');
 
     $sql_query0 = 'REVOKE ALL PRIVILEGES ON ' . $db_and_table
-        . ' FROM \'' . PMA_sqlAddSlashes($username) . '\'@\'' . PMA_sqlAddSlashes($hostname) . '\';';
+        . ' FROM \'' . PMA_CommonFunctions::getInstance()->sqlAddSlashes($username) . '\'@\''
+        . PMA_CommonFunctions::getInstance()->sqlAddSlashes($hostname) . '\';';
+    
     $sql_query1 = 'REVOKE GRANT OPTION ON ' . $db_and_table
-        . ' FROM \'' . PMA_sqlAddSlashes($username) . '\'@\'' . PMA_sqlAddSlashes($hostname) . '\';';
+        . ' FROM \'' . PMA_CommonFunctions::getInstance()->sqlAddSlashes($username) . '\'@\''
+        . PMA_CommonFunctions::getInstance()->sqlAddSlashes($hostname) . '\';';
 
     PMA_DBI_query($sql_query0);
     if (! PMA_DBI_try_query($sql_query1)) {
