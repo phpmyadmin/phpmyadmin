@@ -33,11 +33,6 @@ class PMA_Navigation {
             $_SESSION['tmp_user_values']['navi_limit_offset'] = $pos;
             $this->pos = $pos;
         }
-        // free the session file, for the other frames to be loaded
-        // but only if debugging is not enabled
-        if (empty($_SESSION['debug'])) {
-            session_write_close();
-        }
     }
 
     /**
