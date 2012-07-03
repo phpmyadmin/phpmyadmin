@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-07-02 18:12+0200\n"
+"PO-Revision-Date: 2012-07-03 14:05+0200\n"
 "Last-Translator: Ashiyane Digital Security Team <HeXa.ashiyane@gmail.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
@@ -34,8 +34,9 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"پنجره مرورگر ویندوز توانایی آپلود ندارد. شاید شما پنجره مادر را بسته اید ، "
-"یا تنظیمات امنیتی مرورگر شما طوری تنظیم شده که از به روز رسانی جلوگیری کند"
+"پنجره مرورگر ویندوز توانایی به روز شدن ندارد. شاید شما پنجره مادر را بسته "
+"اید ، یا تنظیمات امنیتی مرورگر شما طوری تنظیم شده که از به روز رسانی جلوگیری "
+"می کند."
 
 #: browse_foreigners.php:160 libraries/common.lib.php:3129
 #: libraries/common.lib.php:3136 libraries/common.lib.php:3345
@@ -409,7 +410,7 @@ msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] ""
 "%s جدول\n"
-"%s جدول"
+"%s  جدولها"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
@@ -564,7 +565,7 @@ msgstr[0] ""
 "مفرد\n"
 "<b>مجموع:</b> <i>%s</i> مطابقت\n"
 "جمع\n"
-"<b>مجموع:</b> <i>%s</i> مطابقت"
+"<b>مجموع:</b> <i>%s</i> مطابقتها"
 
 #: db_search.php:274
 msgid "Search in database"
@@ -965,9 +966,8 @@ msgid "Add a polygon"
 msgstr "افزودن یک چند ضلعی"
 
 #: gis_data_editor.php:310
-#, fuzzy
 msgid "Add geometry"
-msgstr "افزودن يك كاربر جديد"
+msgstr "اضافه کردن هندسه"
 
 #: gis_data_editor.php:318
 msgid ""
@@ -1015,12 +1015,15 @@ msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
-msgstr "دیدن.حداکثر تنظیمانت پی اچ پی مجاز است"
+msgstr ""
+"اطلاعاتی برای ورود دریافت نشد. یا فایلی انتخاب نشده ، یا فایل از حجم حداکثر "
+"بیشتر بوده. به  [a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a] "
+"مراجعه نمایید."
 
 #: import.php:366
 msgid ""
 "Cannot convert file's character set without character set conversion library"
-msgstr ""
+msgstr "نمی توان کاراکترها را بدون داشتن کتابخانه تبدیل آنها، تبدیل کرد"
 
 #: import.php:390 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -1029,7 +1032,7 @@ msgstr "خطا در بارگزار پلاگین ها, لطفا مراحل نصب
 #: import.php:421 sql.php:936
 #, php-format
 msgid "Bookmark %s created"
-msgstr "بوک مارک ایجاد شده"
+msgstr "بوک مارک  %s ایجاد شده"
 
 #: import.php:427 import.php:433
 #, php-format
@@ -1049,6 +1052,9 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
+" در آخرین اجرا هیچ داده ای پردازش نشد،این بدین معنی است که phpMyAdmin  نمی "
+"تواند ورود داده را تمام کند مگر اینکه شما حداکثر زمان اجرای php را افزایش "
+"دهید."
 
 #: import.php:472 libraries/Message.class.php:175
 #: libraries/display_tbl.lib.php:2393 libraries/rte/rte_routines.lib.php:1205
@@ -1093,7 +1099,7 @@ msgstr "در حال حذف اطلاعات پیگیری"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "حذف کلید اصلی/ایندکس"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1101,12 +1107,12 @@ msgstr "این فرمان ممکن است مدتی طول بکشد. در هر ح
 
 #: js/messages.php:40
 msgid "You are about to DISABLE a BLOB Repository!"
-msgstr ""
+msgstr "شما در حال از کار انداختن یک انبار BLOB  هستید!"
 
 #: js/messages.php:41
 #, php-format
 msgid "Are you sure you want to disable all BLOB references for database %s?"
-msgstr ""
+msgstr "آیا برای از کار انداختن همه مرجع های BLOB  در پایگاه داده %s مطمئنید؟"
 
 #: js/messages.php:44
 msgid "Missing value in the form!"
@@ -1122,10 +1128,9 @@ msgid "Add Index"
 msgstr "افزودن index"
 
 #: js/messages.php:47
-#, fuzzy
 #| msgid "Edit next row"
 msgid "Edit Index"
-msgstr "ویرایش کردن ردیف بعدی"
+msgstr "ویرایش کردن ایندکس"
 
 #: js/messages.php:48 tbl_indexes.php:293
 #, php-format
@@ -1255,16 +1260,15 @@ msgstr "سوالات در آخرین رفرش"
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:89
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "سوالات(بخش های اجرا شده توسط سرور)"
 
 #: js/messages.php:91 server_status.php:788
-#, fuzzy
 msgid "Query statistics"
-msgstr "آمار سطرها"
+msgstr "آمار پرس و جو"
 
 #: js/messages.php:94
 msgid "Local monitor configuration incompatible"
-msgstr ""
+msgstr "تنظیمات مانیتور محلی سازگار نیست"
 
 #: js/messages.php:95
 msgid ""
@@ -1273,36 +1277,36 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
+"تنظیمات نمودار در بروزر شما با ورژن جدید دایلوگ مانیتور سازگار نیست. احتمالا "
+"تنظیمات فعلی شما دیگر کار نکند.لطفا از منوی تنظیمات تنظیمات خود را به حالت "
+"اولیه برگردانید."
 
 #: js/messages.php:97
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "Query cache efficiency"
-msgstr "پیگردی فعال نمی باشد."
+msgstr "میزان کارایی کش کوئری"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Space usage"
 msgid "Query cache usage"
 msgstr "فضاي استفاده‌شده"
 
 #: js/messages.php:99
-#, fuzzy
 #| msgid "Space usage"
 msgid "Query cache used"
 msgstr "فضاي استفاده‌شده"
 
 #: js/messages.php:101
 msgid "System CPU Usage"
-msgstr ""
+msgstr "میزان استفاده از CPU سیستم"
 
 #: js/messages.php:102
 msgid "System memory"
-msgstr ""
+msgstr "حافظه سیستم"
 
 #: js/messages.php:103
 msgid "System swap"
-msgstr ""
+msgstr "swap سیستم"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1402
@@ -1318,59 +1322,57 @@ msgstr "كيلوبايت"
 
 #: js/messages.php:107
 msgid "Average load"
-msgstr ""
+msgstr "بار میانگین"
 
 #: js/messages.php:108
-#, fuzzy
 #| msgid "Total"
 msgid "Total memory"
-msgstr "جمع كل"
+msgstr "کل حافظه"
 
 #: js/messages.php:109
 msgid "Cached memory"
-msgstr ""
+msgstr "حافظه کش"
 
 #: js/messages.php:110
 msgid "Buffered memory"
-msgstr ""
+msgstr "حافظه بافر"
 
 #: js/messages.php:111
 msgid "Free memory"
-msgstr ""
+msgstr "حافظه آزاد"
 
 #: js/messages.php:112
 msgid "Used memory"
-msgstr ""
+msgstr "حافظه استفاده شده"
 
 #: js/messages.php:114
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "جمع كل"
+msgstr "Swap کل"
 
 #: js/messages.php:115
 msgid "Cached Swap"
-msgstr ""
+msgstr "Swap کش شده"
 
 #: js/messages.php:116
 msgid "Used Swap"
-msgstr ""
+msgstr "Swap استفاده شده"
 
 #: js/messages.php:117
 msgid "Free Swap"
-msgstr ""
+msgstr "Swap آزاد"
 
 #: js/messages.php:119
 msgid "Bytes sent"
-msgstr ""
+msgstr "میزان بایت ارسالی"
 
 #: js/messages.php:120
 msgid "Bytes received"
-msgstr ""
+msgstr "میزان بایت دریافتی"
 
 #: js/messages.php:121 server_status.php:1148
 msgid "Connections"
-msgstr ""
+msgstr "اتصالات"
 
 #. l10n: shortcuts for Byte
 #: js/messages.php:125 libraries/common.lib.php:1398
@@ -1398,11 +1400,11 @@ msgid "EiB"
 msgstr "اگزا بايت"
 
 #: js/messages.php:132
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "%d table(s)"
-msgstr "%s جدول"
+msgstr "%d جدول"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:135
@@ -1411,7 +1413,7 @@ msgstr "سوالات"
 
 #: js/messages.php:136 server_status.php:1103
 msgid "Traffic"
-msgstr ""
+msgstr "ترافیک"
 
 #: js/messages.php:137 libraries/server_links.inc.php:73
 #: server_status.php:1564
@@ -1420,22 +1422,21 @@ msgid "Settings"
 msgstr "تنظیم"
 
 #: js/messages.php:138
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "حذف پایگاه داده"
+msgstr "حذف نمودار"
 
 #: js/messages.php:139
 msgid "Edit title and labels"
-msgstr ""
+msgstr "ویرایش عنوان و برچسب ها"
 
 #: js/messages.php:140
 msgid "Add chart to grid"
-msgstr ""
+msgstr "اضافه کردن نمودار به جدول"
 
 #: js/messages.php:142
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "لطفا حداقل یک مقدار به این سری اضافه نمایید"
 
 #: js/messages.php:143 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1093
@@ -1447,11 +1448,11 @@ msgstr "هیچ یک"
 
 #: js/messages.php:144
 msgid "Resume monitor"
-msgstr ""
+msgstr "به حالت قبل برگرداندن مانیتور"
 
 #: js/messages.php:145
 msgid "Pause monitor"
-msgstr ""
+msgstr "توقف مانیتور"
 
 #: js/messages.php:147
 msgid "general_log and slow_query_log are enabled."
@@ -1463,19 +1464,19 @@ msgstr "general_log فعال شد."
 
 #: js/messages.php:149
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "slow_query_log فعال است."
 
 #: js/messages.php:150
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "slow_query_log و general_log are غیر فعال می باشند."
 
 #: js/messages.php:151
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output به جدول تنظیم نشده است."
 
 #: js/messages.php:152
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output به جدول تنظیم شده است."
 
 #: js/messages.php:153
 #, php-format
@@ -1484,100 +1485,100 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log فعال است ، اما سرور فقط کوئری هایی را لاگ می کند که بیش از %d "
+"ثانیه طول کشیده باشند. بهتر است این مقدار را بین 0-2 بسته به سیستم خود قرار "
+"دهید."
 
 #: js/messages.php:154
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr ""
+msgstr "long_query_time روی %d ثانیه تنظیم شده است."
 
 #: js/messages.php:155
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
-msgstr ""
+msgstr "بعد از ری استارت سرور این تنظیمات به حالت پیش فرض برمیگردد:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:157
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save as file"
 msgid "Set log_output to %s"
-msgstr "ذخيره به صورت پرونده"
+msgstr "ذخيره به صورت پرونده %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:159
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
-msgstr "فعال"
+msgstr "فعال سازی %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:161
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disable"
 msgid "Disable %s"
-msgstr "غيرفعال"
+msgstr "غیر فعال سازی %s"
 
 #. l10n: %d seconds
 #: js/messages.php:163
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "long_query_time را به %ds تنظیم نمایید"
 
 #: js/messages.php:164
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
+"شما این مقادیر را نمی توانید تغییر دهید. لطفا به عنوان root وارد شوید و یا "
+"با مدیر پایگاه داده تماس بگیرید."
 
 #: js/messages.php:165
-#, fuzzy
 #| msgid "Change"
 msgid "Change settings"
-msgstr "تغيير"
+msgstr "تغيير تنظیمات"
 
 #: js/messages.php:166
-#, fuzzy
 msgid "Current settings"
-msgstr "پرس و جوي SQL"
+msgstr "تنظیمات فعلی"
 
 #: js/messages.php:168 server_status.php:1654
-#, fuzzy
 msgid "Chart Title"
-msgstr "No tables"
+msgstr "عنوان نمودار"
 
 #. l10n: As in differential values
 #: js/messages.php:170
 msgid "Differential"
-msgstr ""
+msgstr "تفاوت"
 
 #: js/messages.php:171
 #, php-format
 msgid "Divided by %s"
-msgstr ""
+msgstr "تقسیم بر %s"
 
 #: js/messages.php:172
 msgid "Unit"
-msgstr ""
+msgstr "واحد"
 
 #: js/messages.php:174
 msgid "From slow log"
-msgstr ""
+msgstr "از slow log"
 
 #: js/messages.php:175
 msgid "From general log"
-msgstr ""
+msgstr "از لاگ عمومی"
 
 #: js/messages.php:176
-#, fuzzy
 msgid "Analysing logs"
-msgstr "محلی"
+msgstr "آنالیز لاگ ها"
 
 #: js/messages.php:177
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "در حال آنالیز و بارگیری لاگ. ممکن است مدتی زمان بگیرد."
 
 #: js/messages.php:178
-#, fuzzy
 #| msgid "Cancel"
 msgid "Cancel request"
 msgstr "لغو کردن"
@@ -1588,6 +1589,9 @@ msgid ""
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
+"این ستون مقدار کوئری هایی که گروه بندی شده اند را نشان می دهد. هرچند فقط از "
+"کوئری SQL به عنوان ضابطه استفاده شده است، بنابراین بقیه مشخصات کوئری ها "
+"مانند زمان شروع ممکن است متفاوت باشند."
 
 #: js/messages.php:180
 msgid ""
@@ -1595,55 +1599,51 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
+"چون دسته بندی کوئری Insert انتخاب شده است ، کوئری Insert در همان جدول نیز "
+"دسته بندی می شود بدون در نظر گرفتن داده های ورودی."
 
 #: js/messages.php:181
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr ""
+msgstr "لاگ داده ها بارگیری شد. کوئری هایی که در این دوره اجرا شده اند:"
 
 #: js/messages.php:183
-#, fuzzy
 msgid "Jump to Log table"
-msgstr "No databases"
+msgstr "پرش به جدول لاگ ها"
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "No databases"
 msgid "No data found"
-msgstr "No databases"
+msgstr "اطلاعاتی یافت نشد"
 
 #: js/messages.php:185
 msgid "Log analysed, but no data found in this time span."
-msgstr ""
+msgstr "لاگ ها آنالیز شد، اما چیزی در این بازه زمانی یافت نشد."
 
 #: js/messages.php:187
 msgid "Analyzing..."
-msgstr ""
+msgstr "در حال آنالیز..."
 
 #: js/messages.php:188
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
-msgstr "شرح دادن SQL"
+msgstr "شرح دادن خروجی"
 
 #: js/messages.php:190 js/messages.php:497 libraries/rte/rte_list.lib.php:62
 #: server_status.php:1244 sql.php:900
 msgid "Time"
-msgstr ""
+msgstr "زمان"
 
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Total"
 msgid "Total time:"
-msgstr "جمع كل"
+msgstr "زمان کل:"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "SQL result"
 msgid "Profiling results"
-msgstr "نتيجه SQL"
+msgstr "دسته بندی نتایج"
 
 #: js/messages.php:193
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
@@ -1658,9 +1658,8 @@ msgid "Edit chart"
 msgstr "نمودار ویرایش"
 
 #: js/messages.php:196
-#, fuzzy
 msgid "Series"
-msgstr "پرس و جوي SQL"
+msgstr "سری"
 
 #. l10n: A collection of available filters
 #: js/messages.php:199
@@ -1678,28 +1677,25 @@ msgstr "فیلتر کوئری ها به وسیله لغت/عبارت باقاع�
 
 #: js/messages.php:203
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
+msgstr "دسته کوئری ها،در نظر نگرفتن قسمت Where"
 
 #: js/messages.php:204
-#, fuzzy
 #| msgid "Number of rows per page"
 msgid "Sum of grouped rows:"
-msgstr "تعداد سطرها در هر صفحه"
+msgstr "تعداد سطرها در هر صفحه:"
 
 #: js/messages.php:205
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "جمع كل"
+msgstr "مجموع:"
 
 #: js/messages.php:207
-#, fuzzy
 msgid "Loading logs"
-msgstr "محلی"
+msgstr "بارگیری لاگ ها"
 
 #: js/messages.php:208
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "رفرش مانیتور موفقیت آمیز نبود"
 
 #: js/messages.php:209
 msgid ""
@@ -1707,83 +1703,84 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"هنگامی که اطلاعات جدید نمودار ارسال شد ، سرور جواب غلطی داد. این بیشتر به "
+"دلیل پایان زمان سشن شما می باشد.صفحه را رفرش کنید و دوباره وارد شوید."
 
 #: js/messages.php:210
-#, fuzzy
 msgid "Reload page"
-msgstr "بازناميدن جدول به"
+msgstr "باز کردن مجدد صفحه"
 
 #: js/messages.php:212
 msgid "Affected rows:"
-msgstr ""
+msgstr "سطر تحت تاثیر قرار گرفته:"
 
 #: js/messages.php:214
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
+"تجزیه ی فایل های پیکربندی شده ناموفق بود .این کد معتبر برای JSON به نظر "
+"نمیرسد."
 
 #: js/messages.php:215
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr ""
+"ایجاد خطا در تقسیم بندی نمودار(چارت گرید) به واسطه تنظیمات غلط.باز گرداندن "
+"به تنظیمات پیش فرض ..."
 
 #: js/messages.php:216 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
 #: prefs_manage.php:229 server_status.php:1609 setup/frames/menu.inc.php:20
-#, fuzzy
 msgid "Import"
 msgstr "صدور"
 
 #: js/messages.php:217
 msgid "Import monitor configuration"
-msgstr ""
+msgstr "وارد کردن تنظیمات مانیتور"
 
 #: js/messages.php:218
 msgid "Please select the file you want to import"
-msgstr ""
+msgstr "لطفا فایلی را که میخواهید وارد کنید را انتخاب کنید "
 
 #: js/messages.php:220
-#, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
-msgstr "به‌هنگام سازي پرس و جو"
+msgstr "آنالیز پرسجو"
 
 #: js/messages.php:224
 msgid "Advisor system"
-msgstr ""
+msgstr "سیستم مشاور"
 
 #: js/messages.php:225
 msgid "Possible performance issues"
-msgstr ""
+msgstr "امکان وجود مشکلات اجرایی"
 
 #: js/messages.php:226
 msgid "Issue"
-msgstr ""
+msgstr "موضوع"
 
 #: js/messages.php:227
-#, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
-msgstr "مستندات"
+msgstr "پیشنهادات"
 
 #: js/messages.php:228
 msgid "Rule details"
-msgstr ""
+msgstr "جزئیات قانون"
 
 #: js/messages.php:229
-#, fuzzy
 #| msgid "Documentation"
 msgid "Justification"
-msgstr "مستندات"
+msgstr "توجیهات"
 
 #: js/messages.php:230
 msgid "Used variable / formula"
-msgstr ""
+msgstr "متغیر استفاده شده / فورمول"
 
 #: js/messages.php:231
 msgid "Test"
-msgstr ""
+msgstr "امتحان کردن"
 
 #: js/messages.php:236 pmd_general.php:382 pmd_general.php:419
 #: pmd_general.php:539 pmd_general.php:587 pmd_general.php:663
@@ -1792,25 +1789,24 @@ msgid "Cancel"
 msgstr "لغو کردن"
 
 #: js/messages.php:239
-#, fuzzy
 msgid "Loading"
-msgstr "محلی"
+msgstr "در حال بارگیری"
 
 #: js/messages.php:240
 msgid "Processing Request"
-msgstr ""
+msgstr "پردازش درخواست"
 
 #: js/messages.php:241 libraries/rte/rte_export.lib.php:39
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "خطا در پردازش درخواست"
 
 #: js/messages.php:242
 msgid "Dropping Column"
-msgstr ""
+msgstr "حذف ستون"
 
 #: js/messages.php:243
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "اضافه کردن کلید اولیه"
 
 #: js/messages.php:244 libraries/relation.lib.php:80 pmd_general.php:380
 #: pmd_general.php:537 pmd_general.php:585 pmd_general.php:661
@@ -1820,78 +1816,66 @@ msgstr "تاييد"
 
 #: js/messages.php:245
 msgid "Click to dismiss this notification"
-msgstr ""
+msgstr "برای حذف کردن این اطلاعات کلیک کن"
 
 #: js/messages.php:248
-#, fuzzy
 msgid "Renaming Databases"
-msgstr "بازناميدن جدول به"
+msgstr "بازناميدن پایگاه داده"
 
 #: js/messages.php:249
-#, fuzzy
 msgid "Reload Database"
-msgstr "بازناميدن جدول به"
+msgstr "به روز سازی پایگاه داده"
 
 #: js/messages.php:250
-#, fuzzy
 msgid "Copying Database"
-msgstr "No databases"
+msgstr "کپی کردن پایگاه داده"
 
 #: js/messages.php:251
 msgid "Changing Charset"
 msgstr ""
 
 #: js/messages.php:252
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "Table must have at least one column"
 msgstr "شما حذاقل بايد يك ستون را براي نمايش انتخاب نماييد"
 
 #: js/messages.php:257
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
-msgstr "بكارگيري جدولها"
+msgstr "ورود اطلاعات"
 
 #: js/messages.php:258
-#, fuzzy
 #| msgid "Indexes"
 msgid "Hide indexes"
-msgstr "فهرست‌ها"
+msgstr "مخفی کردن فهرست ها"
 
 #: js/messages.php:259
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "Show grid"
+msgstr "نمایش فهرست ها"
 
 #: js/messages.php:262
-#, fuzzy
 #| msgid "Search"
 msgid "Searching"
 msgstr "جستجو"
 
 #: js/messages.php:263
-#, fuzzy
 msgid "Hide search results"
-msgstr "پرس و جوي SQL"
+msgstr "مخفی کردن نتایج جستجو"
 
 #: js/messages.php:264
-#, fuzzy
 msgid "Show search results"
-msgstr "پرس و جوي SQL"
+msgstr "نمایش نتایج"
 
 #: js/messages.php:265
-#, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
 msgstr "مشاهده"
 
 #: js/messages.php:266
-#, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
-msgstr "در حال پاک کردن %s"
+msgstr "پاک کردن"
 
 #: js/messages.php:269
 msgid "The definition of a stored function must contain a RETURN statement!"
@@ -1900,7 +1884,7 @@ msgstr ""
 #: js/messages.php:276
 #, fuzzy, php-format
 msgid "Add %d value(s)"
-msgstr "افزودن يك كاربر جديد"
+msgstr "اضافه کردن %d مقدار"
 
 #: js/messages.php:279
 msgid ""
@@ -1908,18 +1892,16 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:282
-#, fuzzy
 msgid "Hide query box"
-msgstr "پرس و جوي SQL"
+msgstr "مخفی کردن جعبه پرس و جو"
 
 #: js/messages.php:283
-#, fuzzy
 msgid "Show query box"
-msgstr "پرس و جوي SQL"
+msgstr "نمایش جعبه پرس و جو"
 
 #: js/messages.php:285 tbl_row_action.php:28
 msgid "No rows selected"
-msgstr ""
+msgstr "هیچ سطری انتخاب نشده است"
 
 #: js/messages.php:286 libraries/common.lib.php:2746
 #: libraries/display_tbl.lib.php:2507 querywindow.php:87 tbl_structure.php:149
@@ -1945,9 +1927,8 @@ msgid "Save"
 msgstr "ذخيره"
 
 #: js/messages.php:294
-#, fuzzy
 msgid "Hide search criteria"
-msgstr "پرس و جوي SQL"
+msgstr "پنهان سازی ضوابط جستجو"
 
 #: js/messages.php:295
 #, fuzzy
@@ -4232,8 +4213,8 @@ msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
 msgstr ""
-"فرمت پیش فرض;اگاه باشید که این لیست وابسته در محل(پایگاه داده,جدول) و فقط "
-"همیشه sql مورد دسترسی میباشد   "
+"فرمت پیش فرض;اگاه باشید که این لیست وابسته به محل(پایگاه داده,جدول) و فقط "
+"همیشه sql مورد دسترسی میباشد"
 
 #: libraries/config/messages.inc.php:249
 msgid "Format of imported file"
@@ -6097,23 +6078,25 @@ msgstr "فقط داده‌ها"
 
 #: libraries/engines/innodb.lib.php:27
 msgid "Autoextend increment"
-msgstr ""
+msgstr "افزایش خودکار گسترش "
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
-msgstr ""
+msgstr " را وقتی از آن می شودautoextendingافزایش حجم برای گسترش اندازه جدول ."
 
 #: libraries/engines/innodb.lib.php:32
 msgid "Buffer pool size"
-msgstr ""
+msgstr "اندازه بافر استخر"
 
 #: libraries/engines/innodb.lib.php:33
 msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
 msgstr ""
+"استفاده می کند به داده های ذخیره سازی و شاخص از جداول آن است  InnoDB اندازه "
+" بافر حافظه از."
 
 #: libraries/engines/innodb.lib.php:130
 msgid "Buffer Pool"
@@ -6121,59 +6104,59 @@ msgstr ""
 
 #: libraries/engines/innodb.lib.php:131 server_status.php:650
 msgid "InnoDB Status"
-msgstr ""
+msgstr " InnoDB حالت"
 
 #: libraries/engines/innodb.lib.php:153
 msgid "Buffer Pool Usage"
-msgstr ""
+msgstr " مقداراستفاده از حافظه بافر"
 
 #: libraries/engines/innodb.lib.php:161
 msgid "pages"
-msgstr ""
+msgstr "صفحه ها"
 
 #: libraries/engines/innodb.lib.php:170
 msgid "Free pages"
-msgstr ""
+msgstr "صفحه های ازاد"
 
 #: libraries/engines/innodb.lib.php:176
 msgid "Dirty pages"
-msgstr ""
+msgstr "صفحه های کثیف"
 
 #: libraries/engines/innodb.lib.php:182
 msgid "Pages containing data"
-msgstr ""
+msgstr "صفحه های شامل داده"
 
 #: libraries/engines/innodb.lib.php:188
 msgid "Pages to be flushed"
-msgstr ""
+msgstr "صفحه هایی که بایستی تراز (پاک) شوند"
 
 #: libraries/engines/innodb.lib.php:194
 msgid "Busy pages"
-msgstr ""
+msgstr "صفحه های مشغول"
 
 #: libraries/engines/innodb.lib.php:203
 msgid "Latched pages"
-msgstr ""
+msgstr "صفحه های ضامندار"
 
 #: libraries/engines/innodb.lib.php:214
 msgid "Buffer Pool Activity"
-msgstr ""
+msgstr "فعالیت حافظه بافر"
 
 #: libraries/engines/innodb.lib.php:218
 msgid "Read requests"
-msgstr ""
+msgstr "درخواست را بخوانید"
 
 #: libraries/engines/innodb.lib.php:224
 msgid "Write requests"
-msgstr ""
+msgstr "درخواست را بنویسید"
 
 #: libraries/engines/innodb.lib.php:230
 msgid "Read misses"
-msgstr ""
+msgstr "نمیتواند خوانده شود"
 
 #: libraries/engines/innodb.lib.php:236
 msgid "Write waits"
-msgstr ""
+msgstr "منتظر نوشتن"
 
 #: libraries/engines/innodb.lib.php:242
 msgid "Read misses in %"
@@ -6185,7 +6168,7 @@ msgstr ""
 
 #: libraries/engines/myisam.lib.php:22
 msgid "Data pointer size"
-msgstr ""
+msgstr "اندازه نشانگر داده ها"
 
 #: libraries/engines/myisam.lib.php:23
 msgid ""
@@ -8028,7 +8011,7 @@ msgstr "جستجو در پايگاه‌داده"
 #: libraries/server_synchronize.lib.php:1303
 #: libraries/server_synchronize.lib.php:1311
 msgid "Current server"
-msgstr ""
+msgstr "سرور فعلی"
 
 #: libraries/server_synchronize.lib.php:1305
 #: libraries/server_synchronize.lib.php:1313
