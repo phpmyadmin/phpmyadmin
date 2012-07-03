@@ -820,18 +820,48 @@ function PMA_getAdministrationPrivilegeTable($db)
         array('Grant', 'GRANT', __('Allows adding users and privileges without reloading the privilege tables.')),
     );
     if ($db == '*') {
-        $administration_privTable[] = array('Super', 'SUPER', __('Allows connecting, even if maximum number of connections is reached; required for most administrative operations like setting global variables or killing threads of other users.'));
-        $administration_privTable[] = array('Process', 'PROCESS', __('Allows viewing processes of all users'));
-        $administration_privTable[] = array('Reload', 'RELOAD', __('Allows reloading server settings and flushing the server\'s caches.'));
-        $administration_privTable[] = array('Shutdown', 'SHUTDOWN', __('Allows shutting down the server.'));
-        $administration_privTable[] = array('Show_db', 'SHOW DATABASES', __('Gives access to the complete list of databases.'));
+        $administration_privTable[] = array('Super',
+            'SUPER',
+            __('Allows connecting, even if maximum number of connections is reached; required for most administrative operations like setting global variables or killing threads of other users.')
+        );
+        $administration_privTable[] = array('Process',
+            'PROCESS',
+            __('Allows viewing processes of all users')
+        );
+        $administration_privTable[] = array('Reload',
+            'RELOAD',
+            __('Allows reloading server settings and flushing the server\'s caches.')
+        );
+        $administration_privTable[] = array('Shutdown',
+            'SHUTDOWN',
+            __('Allows shutting down the server.')
+        );
+        $administration_privTable[] = array('Show_db',
+            'SHOW DATABASES',
+            __('Gives access to the complete list of databases.')
+        );
     }
-    $administration_privTable[] = array('Lock_tables', 'LOCK TABLES', __('Allows locking tables for the current thread.'));
-    $administration_privTable[] = array('References', 'REFERENCES', __('Has no effect in this MySQL version.'));
+    $administration_privTable[] = array('Lock_tables',
+        'LOCK TABLES',
+        __('Allows locking tables for the current thread.')
+    );
+    $administration_privTable[] = array('References',
+        'REFERENCES',
+        __('Has no effect in this MySQL version.')
+    );
     if ($db == '*') {
-        $administration_privTable[] = array('Repl_client', 'REPLICATION CLIENT', __('Allows the user to ask where the slaves / masters are.'));
-        $administration_privTable[] = array('Repl_slave', 'REPLICATION SLAVE', __('Needed for the replication slaves.'));
-        $administration_privTable[] = array('Create_user', 'CREATE USER', __('Allows creating, dropping and renaming user accounts.'));
+        $administration_privTable[] = array('Repl_client',
+            'REPLICATION CLIENT',
+            __('Allows the user to ask where the slaves / masters are.')
+        );
+        $administration_privTable[] = array('Repl_slave',
+            'REPLICATION SLAVE',
+            __('Needed for the replication slaves.')
+        );
+        $administration_privTable[] = array('Create_user',
+            'CREATE USER',
+            __('Allows creating, dropping and renaming user accounts.')
+        );
     }
     return $administration_privTable;
 }
