@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-07-03 09:10+0200\n"
+"PO-Revision-Date: 2012-07-03 16:34+0200\n"
 "Last-Translator: Ashiyane Digital Security Team <HeXa.ashiyane@gmail.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.1\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
@@ -426,7 +426,10 @@ msgstr "آخرین بازدید"
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s جدول"
+msgstr[0] ""
+"%s جدول"
+msgstr[1] ""
+"%s  جدولها"
 
 #: db_qbe.php:42
 msgid "You have to choose at least one column to display"
@@ -1465,10 +1468,9 @@ msgstr "آنالیز لاگ ها"
 
 #: js/messages.php:173
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "در حال آنالیز و بارگیری لاگ. ممکن است مدتی زمان بگیرد."
 
 #: js/messages.php:174
-#, fuzzy
 #| msgid "Cancel"
 msgid "Cancel request"
 msgstr "لغو کردن"
@@ -1479,6 +1481,9 @@ msgid ""
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
+"این ستون مقدار کوئری هایی که گروه بندی شده اند را نشان می دهد. هرچند فقط از "
+"کوئری SQL به عنوان ضابطه استفاده شده است، بنابراین بقیه مشخصات کوئری ها "
+"مانند زمان شروع ممکن است متفاوت باشند."
 
 #: js/messages.php:176
 msgid ""
@@ -1486,35 +1491,34 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
+"چون دسته بندی کوئری Insert انتخاب شده است ، کوئری Insert در همان جدول نیز "
+"دسته بندی می شود بدون در نظر گرفتن داده های ورودی."
 
 #: js/messages.php:177
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr ""
+msgstr "لاگ داده ها بارگیری شد. کوئری هایی که در این دوره اجرا شده اند:"
 
 #: js/messages.php:179
-#, fuzzy
 msgid "Jump to Log table"
-msgstr "No databases"
+msgstr "پرش به جدول لاگ ها"
 
 #: js/messages.php:180
-#, fuzzy
 #| msgid "No databases"
 msgid "No data found"
-msgstr "No databases"
+msgstr "اطلاعاتی یافت نشد"
 
 #: js/messages.php:181
 msgid "Log analysed, but no data found in this time span."
-msgstr ""
+msgstr "لاگ ها آنالیز شد، اما چیزی در این بازه زمانی یافت نشد."
 
 #: js/messages.php:183
 msgid "Analyzing..."
-msgstr ""
+msgstr "در حال آنالیز..."
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
-msgstr "شرح دادن SQL"
+msgstr "شرح دادن خروجی"
 
 #: js/messages.php:186 js/messages.php:516
 #: libraries/plugins/export/ExportHtmlword.class.php:477
@@ -1522,22 +1526,19 @@ msgstr "شرح دادن SQL"
 #: libraries/plugins/export/ExportTexytext.class.php:425
 #: libraries/rte/rte_list.lib.php:68 server_status.php:1292 sql.php:1041
 msgid "Time"
-msgstr ""
+msgstr "زمان"
 
 #: js/messages.php:187
-#, fuzzy
 #| msgid "Total"
 msgid "Total time:"
-msgstr "جمع كل"
+msgstr "زمان کل:"
 
 #: js/messages.php:188
-#, fuzzy
 #| msgid "SQL result"
 msgid "Profiling results"
-msgstr "نتيجه SQL"
+msgstr "دسته بندی نتایج"
 
 #: js/messages.php:189
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
@@ -1552,9 +1553,8 @@ msgid "Edit chart"
 msgstr "نمودار ویرایش"
 
 #: js/messages.php:192
-#, fuzzy
 msgid "Series"
-msgstr "پرس و جوي SQL"
+msgstr "سری"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
@@ -1572,28 +1572,25 @@ msgstr "فیلتر کوئری ها به وسیله لغت/عبارت باقاع�
 
 #: js/messages.php:199
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
+msgstr "دسته کوئری ها،در نظر نگرفتن قسمت Where"
 
 #: js/messages.php:200
-#, fuzzy
 #| msgid "Number of rows per page"
 msgid "Sum of grouped rows:"
-msgstr "تعداد سطرها در هر صفحه"
+msgstr "تعداد سطرها در هر صفحه:"
 
 #: js/messages.php:201
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "جمع كل"
+msgstr "مجموع:"
 
 #: js/messages.php:203
-#, fuzzy
 msgid "Loading logs"
-msgstr "محلی"
+msgstr "بارگیری لاگ ها"
 
 #: js/messages.php:204
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "رفرش مانیتور موفقیت آمیز نبود"
 
 #: js/messages.php:205
 msgid ""
@@ -1601,83 +1598,84 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"هنگامی که اطلاعات جدید نمودار ارسال شد ، سرور جواب غلطی داد. این بیشتر به "
+"دلیل پایان زمان سشن شما می باشد.صفحه را رفرش کنید و دوباره وارد شوید."
 
 #: js/messages.php:206
-#, fuzzy
 msgid "Reload page"
-msgstr "بازناميدن جدول به"
+msgstr "باز کردن مجدد صفحه"
 
 #: js/messages.php:208
 msgid "Affected rows:"
-msgstr ""
+msgstr "سطر تحت تاثیر قرار گرفته:"
 
 #: js/messages.php:210
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
+"تجزیه ی فایل های پیکربندی شده ناموفق بود .این کد معتبر برای JSON به نظر "
+"نمیرسد."
 
 #: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr ""
+"ایجاد خطا در تقسیم بندی نمودار(چارت گرید) به واسطه تنظیمات غلط.باز گرداندن "
+"به تنظیمات پیش فرض ..."
 
 #: js/messages.php:212 libraries/Menu.class.php:309
 #: libraries/Menu.class.php:396 libraries/Menu.class.php:493
 #: libraries/config/messages.inc.php:174 libraries/display_import.lib.php:184
 #: prefs_manage.php:235 server_status.php:1679 setup/frames/menu.inc.php:21
-#, fuzzy
 msgid "Import"
 msgstr "صدور"
 
 #: js/messages.php:213
 msgid "Import monitor configuration"
-msgstr ""
+msgstr "وارد کردن تنظیمات مانیتور"
 
 #: js/messages.php:214
 msgid "Please select the file you want to import"
-msgstr ""
+msgstr "لطفا فایلی را که میخواهید وارد کنید را انتخاب کنید "
 
 #: js/messages.php:216
-#, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
-msgstr "به‌هنگام سازي پرس و جو"
+msgstr "آنالیز پرسجو"
 
 #: js/messages.php:220
 msgid "Advisor system"
-msgstr ""
+msgstr "سیستم مشاور"
 
 #: js/messages.php:221
 msgid "Possible performance issues"
-msgstr ""
+msgstr "امکان وجود مشکلات اجرایی"
 
 #: js/messages.php:222
 msgid "Issue"
-msgstr ""
+msgstr "موضوع"
 
 #: js/messages.php:223
-#, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
-msgstr "مستندات"
+msgstr "پیشنهادات"
 
 #: js/messages.php:224
 msgid "Rule details"
-msgstr ""
+msgstr "جزئیات قانون"
 
 #: js/messages.php:225
-#, fuzzy
 #| msgid "Documentation"
 msgid "Justification"
-msgstr "مستندات"
+msgstr "توجیهات"
 
 #: js/messages.php:226
 msgid "Used variable / formula"
-msgstr ""
+msgstr "متغیر استفاده شده / فورمول"
 
 #: js/messages.php:227
 msgid "Test"
-msgstr ""
+msgstr "امتحان کردن"
 
 #: js/messages.php:232 pmd_general.php:417 pmd_general.php:454
 #: pmd_general.php:574 pmd_general.php:622 pmd_general.php:698
@@ -1686,17 +1684,16 @@ msgid "Cancel"
 msgstr "لغو کردن"
 
 #: js/messages.php:235
-#, fuzzy
 msgid "Loading"
-msgstr "محلی"
+msgstr "در حال بارگیری"
 
 #: js/messages.php:236
 msgid "Processing Request"
-msgstr ""
+msgstr "پردازش درخواست"
 
 #: js/messages.php:237 libraries/rte/rte_export.lib.php:41
 msgid "Error in Processing Request"
-msgstr ""
+msgstr "خطا در پردازش درخواست"
 
 #: js/messages.php:238 server_databases.php:90
 msgid "No databases selected."
@@ -1704,11 +1701,11 @@ msgstr "هیچ پایگاه داده ای انتخاب نشده است."
 
 #: js/messages.php:239
 msgid "Dropping Column"
-msgstr ""
+msgstr "حذف ستون"
 
 #: js/messages.php:240
 msgid "Adding Primary Key"
-msgstr ""
+msgstr "اضافه کردن کلید اولیه"
 
 #: js/messages.php:241 pmd_general.php:415 pmd_general.php:572
 #: pmd_general.php:620 pmd_general.php:696 pmd_general.php:750
@@ -1718,50 +1715,43 @@ msgstr "تاييد"
 
 #: js/messages.php:242
 msgid "Click to dismiss this notification"
-msgstr ""
+msgstr "برای حذف کردن این اطلاعات کلیک کن"
 
 #: js/messages.php:245
-#, fuzzy
 msgid "Renaming Databases"
-msgstr "بازناميدن جدول به"
+msgstr "بازناميدن پایگاه داده"
 
 #: js/messages.php:246
-#, fuzzy
 msgid "Reload Database"
-msgstr "بازناميدن جدول به"
+msgstr "به روز سازی پایگاه داده"
 
 #: js/messages.php:247
-#, fuzzy
 msgid "Copying Database"
-msgstr "No databases"
+msgstr "کپی کردن پایگاه داده"
 
 #: js/messages.php:248
 msgid "Changing Charset"
-msgstr ""
+msgstr "تغییر نویسهگان"
 
 #: js/messages.php:249
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "Table must have at least one column"
 msgstr "شما حذاقل بايد يك ستون را براي نمايش انتخاب نماييد"
 
 #: js/messages.php:254
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
-msgstr "بكارگيري جدولها"
+msgstr "ورود اطلاعات"
 
 #: js/messages.php:255
-#, fuzzy
 #| msgid "Indexes"
 msgid "Hide indexes"
-msgstr "فهرست‌ها"
+msgstr "مخفی کردن فهرست ها"
 
 #: js/messages.php:256
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "Show grid"
+msgstr "نمایش فهرست ها"
 
 #: js/messages.php:257 libraries/mult_submits.inc.php:317
 msgid "Foreign key check:"
@@ -1780,36 +1770,31 @@ msgid "(Disabled)"
 msgstr "غيرفعال"
 
 #: js/messages.php:262
-#, fuzzy
 #| msgid "Search"
 msgid "Searching"
 msgstr "جستجو"
 
 #: js/messages.php:263
-#, fuzzy
 msgid "Hide search results"
-msgstr "پرس و جوي SQL"
+msgstr "مخفی کردن نتایج جستجو"
 
 #: js/messages.php:264
-#, fuzzy
 msgid "Show search results"
-msgstr "پرس و جوي SQL"
+msgstr "نمایش نتایج"
 
 #: js/messages.php:265
-#, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
 msgstr "مشاهده"
 
 #: js/messages.php:266
-#, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
-msgstr "در حال پاک کردن %s"
+msgstr "پاک کردن"
 
 #: js/messages.php:269
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr ""
+msgstr "تعریف یک تابع ذخیره شده باید شامل یک دستور بازگشت باشد"
 
 #: js/messages.php:272 libraries/rte/rte_routines.lib.php:747
 msgid "ENUM/SET editor"
@@ -1829,28 +1814,28 @@ msgid "Enter each value in a separate field"
 msgstr "هر کدام از مقادیر را در یک فیلد وارد کنید"
 
 #: js/messages.php:276
-#, fuzzy, php-format
+#, php-format
 msgid "Add %d value(s)"
-msgstr "افزودن يك كاربر جديد"
+msgstr "اضافه کردن مقدار %d "
 
 #: js/messages.php:279
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr ""
+"توجه داشته باشید:اگر این فایل شامل جداول چند گانه میباشد,انها به یکی تبدیل "
+"خواهند شد "
 
 #: js/messages.php:282
-#, fuzzy
 msgid "Hide query box"
-msgstr "پرس و جوي SQL"
+msgstr "مخفی کردن جعبه پرس و جو"
 
 #: js/messages.php:283
-#, fuzzy
 msgid "Show query box"
-msgstr "پرس و جوي SQL"
+msgstr "نمایش جعبه پرس و جو"
 
 #: js/messages.php:285 tbl_row_action.php:21
 msgid "No rows selected"
-msgstr ""
+msgstr "هیچ سطری انتخاب نشده است"
 
 #: js/messages.php:286 libraries/DisplayResults.class.php:4320
 #: querywindow.php:84 tbl_structure.php:148 tbl_structure.php:577
@@ -1859,13 +1844,13 @@ msgstr "تغيير"
 
 #: js/messages.php:287
 msgid "Query execution time"
-msgstr ""
+msgstr "زمان اجرای پرس و جو"
 
 #: js/messages.php:288 libraries/DisplayResults.class.php:523
 #: libraries/DisplayResults.class.php:531
 #, php-format
 msgid "%d is not valid row number."
-msgstr ""
+msgstr "%d شماره ردیف معتبر نمی باشد."
 
 #: js/messages.php:291 libraries/config/FormDisplay.tpl.php:387
 #: libraries/insert_edit.lib.php:1487
@@ -1877,32 +1862,29 @@ msgid "Save"
 msgstr "ذخيره"
 
 #: js/messages.php:294
-#, fuzzy
 msgid "Hide search criteria"
-msgstr "پرس و جوي SQL"
+msgstr "پنهان سازی ضوابط جستجو"
 
 #: js/messages.php:295
-#, fuzzy
 msgid "Show search criteria"
-msgstr "پرس و جوي SQL"
+msgstr "نمایش معیارهای جستجو"
 
 #: js/messages.php:298 libraries/TableSearch.class.php:242
-#, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
-msgstr "جستجو"
+msgstr "زوم جستجو"
 
 #: js/messages.php:300
 msgid "Each point represents a data row."
-msgstr ""
+msgstr ".هر نقطه نشان دهنده یک سطر داده ها"
 
 #: js/messages.php:302
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "برچسب ن برفزار یک نقطه نشان داده خواهد شد."
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "برای بزرگنمایی,یک بخش را با موس انتخاب نمایید."
 
 #: js/messages.php:306
 msgid "Click reset zoom button to come back to original state."
@@ -2489,7 +2471,7 @@ msgstr "انگلیسی"
 #: libraries/insert_edit.lib.php:1195 tbl_operations.php:232
 #: tbl_relation.php:292 view_operations.php:55
 msgid "Error"
-msgstr ""
+msgstr "خطا"
 
 #: libraries/CommonFunctions.class.php:683 server_status.php:613
 #: server_status.php:1295 sql.php:969
@@ -2659,7 +2641,7 @@ msgstr "ساختار"
 #: libraries/plugins/export/ExportSql.class.php:133
 #: libraries/plugins/import/ImportSql.class.php:40 querywindow.php:61
 msgid "SQL"
-msgstr ""
+msgstr "SQL"
 
 #: libraries/CommonFunctions.class.php:3384
 #: libraries/CommonFunctions.class.php:3591
@@ -6150,16 +6132,18 @@ msgstr "نتيجه ي جستجو \"<i>%s</i>\" %s:"
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>مجموع:</b> <i>%s</i> مطابقت"
+msgstr[0] ""
+"<b>مجموع:</b> <i>%s</i> مطابقت"
+msgstr[1] ""
+"<b>مجموع:</b> <i>%s</i> مطابقتها"
 
 #: libraries/db_search.lib.php:211
 #, php-format
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] ""
-"مفرد\n"
-"%1$s همتا در <strong>%2$s</strong>\n"
-"جمع\n"
+"%1$s همتا در <strong>%2$s</strong>"
+msgstr[1] ""
 "%1$s همتا در <strong>%2$s</strong>"
 
 #: libraries/db_search.lib.php:233
@@ -6575,7 +6559,7 @@ msgstr "فقط داده‌ها"
 
 #: libraries/engines/innodb.lib.php:35
 msgid "Autoextend increment"
-msgstr "افزایش خودکار گسترش "
+msgstr "افزایش خودکار گسترش"
 
 #: libraries/engines/innodb.lib.php:36
 msgid ""
@@ -8723,7 +8707,7 @@ msgstr "جستجو در پايگاه‌داده"
 #: libraries/server_synchronize.lib.php:1549
 #: libraries/server_synchronize.lib.php:1559
 msgid "Current server"
-msgstr ""
+msgstr "سرور فعلی"
 
 #: libraries/server_synchronize.lib.php:1551
 #: libraries/server_synchronize.lib.php:1561
@@ -13390,6 +13374,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:457
+#, fuzzy
 msgid "concurrent_insert is set to 0"
 msgstr "مقدار concurrent_insert  صفر میباشد"
 
