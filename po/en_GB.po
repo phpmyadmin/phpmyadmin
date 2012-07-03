@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-07-02 15:25-0400\n"
-"PO-Revision-Date: 2012-05-16 15:28+0200\n"
+"POT-Creation-Date: 2012-06-28 09:04+0200\n"
+"PO-Revision-Date: 2012-07-02 11:22+0200\n"
 "Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: en_GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.0\n"
+"X-Generator: Weblate 1.1\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:609 server_privileges.php:1851
@@ -541,7 +541,69 @@ msgstr "the exact phrase"
 msgid "as regular expression"
 msgstr "as regular expression"
 
-#: db_structure.php:88
+#: db_search.php:239
+#, php-format
+msgid "Search results for \"<i>%s</i>\" %s:"
+msgstr "Search results for \"<i>%s</i>\" %s:"
+
+#: db_search.php:267
+#, php-format
+msgid "<b>Total:</b> <i>%s</i> match"
+msgid_plural "<b>Total:</b> <i>%s</i> matches"
+msgstr[0] "<b>Total:</b> <i>%s</i> match"
+msgstr[1] "<b>Total:</b> <i>%s</i> matches"
+
+#: db_search.php:296
+#, php-format
+#| msgid "%1$s match inside table <i>%2$s</i>"
+#| msgid_plural "%1$s matches inside table <i>%2$s</i>"
+msgid "%1$s match in <strong>%2$s</strong>"
+msgid_plural "%1$s matches in <strong>%2$s</strong>"
+msgstr[0] "%1$s match in <strong>%2$s</strong>"
+msgstr[1] "%1$s matches in <strong>%2$s</strong>"
+
+#: db_search.php:318
+#, php-format
+msgid "Delete the matches for the %s table?"
+msgstr "Delete the matches for the %s table?"
+
+#: db_search.php:322 libraries/DisplayResults.class.php:2601
+#: libraries/DisplayResults.class.php:4221
+#: libraries/schema/User_Schema.class.php:200
+#: libraries/schema/User_Schema.class.php:276
+#: libraries/schema/User_Schema.class.php:311
+#: libraries/schema/User_Schema.class.php:341
+#: libraries/sql_query_form.lib.php:431 pmd_general.php:452
+#: setup/frames/index.inc.php:148 setup/frames/index.inc.php:254
+#: tbl_tracking.php:499 tbl_tracking.php:520 tbl_tracking.php:579
+msgid "Delete"
+msgstr "Delete"
+
+#: db_search.php:362
+msgid "Search in database"
+msgstr "Search in database"
+
+#: db_search.php:366
+msgid "Words or values to search for (wildcard: \"%\"):"
+msgstr "Words or values to search for (wildcard: \"%\"):"
+
+#: db_search.php:373
+msgid "Find:"
+msgstr "Find:"
+
+#: db_search.php:376 db_search.php:377
+msgid "Words are separated by a space character (\" \")."
+msgstr "Words are separated by a space character (\" \")."
+
+#: db_search.php:390
+msgid "Inside tables:"
+msgstr "Inside tables:"
+
+#: db_search.php:414
+msgid "Inside column:"
+msgstr "Inside column:"
+
+#: db_structure.php:87
 msgid "No tables found in database"
 msgstr "No tables found in database"
 
@@ -1860,13 +1922,12 @@ msgstr "Hovering over a point will show its label."
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "To zoom in, select a section of the plot with the mouse."
 
 #: js/messages.php:306
-#, fuzzy
 #| msgid "Click reset zoom link to come back to original state."
 msgid "Click reset zoom button to come back to original state."
-msgstr "Click reset zoom link to come back to original state."
+msgstr "Click reset zoom button to come back to original state."
 
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."
@@ -2638,8 +2699,8 @@ msgstr "horizontal (rotated headers)"
 msgid "vertical"
 msgstr "vertical"
 
-#: libraries/DisplayResults.class.php:734
-#, fuzzy, php-format
+#: libraries/DisplayResults.class.php:702
+#, php-format
 #| msgid "Headers every %s rows"
 msgid "Headers every %s rows"
 msgstr "Headers every %s rows"
@@ -2724,18 +2785,6 @@ msgstr "Well Known Binary"
 #: libraries/DisplayResults.class.php:2647
 msgid "The row has been deleted"
 msgstr "The row has been deleted"
-
-#: libraries/DisplayResults.class.php:2658
-#: libraries/DisplayResults.class.php:4296 libraries/db_search.lib.php:237
-#: libraries/schema/User_Schema.class.php:230
-#: libraries/schema/User_Schema.class.php:308
-#: libraries/schema/User_Schema.class.php:343
-#: libraries/schema/User_Schema.class.php:373
-#: libraries/sql_query_form.lib.php:431 pmd_general.php:452
-#: setup/frames/index.inc.php:148 setup/frames/index.inc.php:254
-#: tbl_tracking.php:507 tbl_tracking.php:528 tbl_tracking.php:587
-msgid "Delete"
-msgstr "Delete"
 
 #: libraries/DisplayResults.class.php:2685
 #: libraries/DisplayResults.class.php:4296 server_status.php:1317
@@ -3192,10 +3241,9 @@ msgid "How to use"
 msgstr "How to use"
 
 #: libraries/TableSearch.class.php:1227
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Reset"
+msgstr "Reset zoom"
 
 #: libraries/Theme.class.php:169
 #, php-format
@@ -4827,10 +4875,9 @@ msgid "Minimum number of tables to display the table filter box"
 msgstr "Minimum number of tables to display the table filter box"
 
 #: libraries/config/messages.inc.php:281
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of databases to display the database filter box"
-msgstr "Minimum number of tables to display the table filter box"
+msgstr "Minimum number of databases to display the database filter box"
 
 #: libraries/config/messages.inc.php:282
 msgid "String that separates databases into different tree levels"
@@ -6150,56 +6197,6 @@ msgstr "Please check privileges of directory containing database."
 msgid "Details..."
 msgstr "Details..."
 
-#: libraries/db_search.lib.php:148
-#, php-format
-msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr "Search results for \"<i>%s</i>\" %s:"
-
-#: libraries/db_search.lib.php:176
-#, php-format
-msgid "<b>Total:</b> <i>%s</i> match"
-msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] "<b>Total:</b> <i>%s</i> match"
-msgstr[1] "<b>Total:</b> <i>%s</i> matches"
-
-#: libraries/db_search.lib.php:211
-#, fuzzy, php-format
-#| msgid "%1$s match inside table <i>%2$s</i>"
-#| msgid_plural "%1$s matches inside table <i>%2$s</i>"
-msgid "%1$s match in <strong>%2$s</strong>"
-msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s match inside table <i>%2$s</i>"
-msgstr[1] "%1$s matched inside table <i>%2$s</i>"
-
-#: libraries/db_search.lib.php:233
-#, php-format
-msgid "Delete the matches for the %s table?"
-msgstr "Delete the matches for the %s table?"
-
-#: libraries/db_search.lib.php:268
-msgid "Search in database"
-msgstr "Search in database"
-
-#: libraries/db_search.lib.php:272
-msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "Words or values to search for (wildcard: \"%\"):"
-
-#: libraries/db_search.lib.php:279
-msgid "Find:"
-msgstr "Find:"
-
-#: libraries/db_search.lib.php:282 libraries/db_search.lib.php:283
-msgid "Words are separated by a space character (\" \")."
-msgstr "Words are separated by a space character (\" \")."
-
-#: libraries/db_search.lib.php:296
-msgid "Inside tables:"
-msgstr "Inside tables:"
-
-#: libraries/db_search.lib.php:320
-msgid "Inside column:"
-msgstr "Inside column:"
-
 #: libraries/dbi/drizzle.dbi.lib.php:117 libraries/dbi/mysql.dbi.lib.php:120
 #: libraries/dbi/mysqli.dbi.lib.php:192
 msgid "Connection for controluser as defined in your configuration failed."
@@ -7307,7 +7304,7 @@ msgstr "Failed to use Blowfish from mcrypt!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:81
 msgid "Your session has expired. Please login again."
-msgstr ""
+msgstr "Your session has expired. Please login again."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:170
 msgid "Log in"
@@ -7910,7 +7907,6 @@ msgstr ""
 "need to set the first option to the empty string."
 
 #: libraries/plugins/transformations/abstract/ExternalTransformationsPlugin.class.php:31
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the column data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -7937,13 +7933,13 @@ msgstr ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
 "default is Tidy, to pretty-print HTML code. For security reasons, you have "
-"to manually edit the file libraries/transformations/text_plain__external.inc."
-"php and list the tools you want to make available. The first option is then "
-"the number of the program you want to use and the second option is the "
-"parameters for the program. The third option, if set to 1, will convert the "
-"output using htmlspecialchars() (Default 1). The fourth option, if set to 1, "
-"will prevent wrapping and ensure that the output appears all on one line "
-"(Default 1)."
+"to manually edit the file "
+"libraries/plugins/transformations/Text_Plain_External.class.php and list the "
+"tools you want to make available. The first option is then the number of "
+"the program you want to use and the second option is the parameters for the "
+"program. The third option, if set to 1, will convert the output using "
+"htmlspecialchars() (Default 1). The fourth option, if set to 1, will prevent "
+"wrapping and ensure that the output appears all on one line (Default 1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
@@ -9236,10 +9232,9 @@ msgid "No databases"
 msgstr "No databases"
 
 #: navigation.php:171
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "Filter databases by name"
-msgstr "Filter tables by name"
+msgstr "Filter databases by name"
 
 #: navigation.php:243
 msgid "Filter tables by name"
