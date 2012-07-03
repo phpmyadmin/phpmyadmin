@@ -12,6 +12,7 @@ require_once 'libraries/DisplayResults.class.php';
 require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/CommonFunctions.class.php';
+require_once 'libraries/js_escape.lib.php';
 
 
 class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
@@ -1003,6 +1004,55 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                 '_getCopyLink',
                 array(
                     $copy_url, $copy_str, $where_clause, $where_clause_html, $class
+                )
+            ),
+            $output
+        );
+    }
+    
+    /**
+     * Data provider for testGetDeleteLink
+     * 
+     * @return array parameters and output
+     */
+    public function dataProviderForGetDeleteLink()
+    {
+        return array(
+            array(
+                'sql.php?db=Data&amp;table=customer&amp;sql_query=DELETE+FROM+%60Data%60.%60customer%60+WHERE+%60customer%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3DData%26table%3Dcustomer%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560customer%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Df597309d3a066c3c81a6cb015a79636d&amp;token=f597309d3a066c3c81a6cb015a79636d',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span>',
+                'DELETE FROM `Data`.`customer` WHERE `customer`.`id` = 1',
+                'odd row_0 vpointer vmarker',
+                '<td class="odd row_0 vpointer vmarker center"  >
+<a href="sql.php?db=Data&amp;table=customer&amp;sql_query=DELETE+FROM+%60Data%60.%60customer%60+WHERE+%60customer%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3DData%26table%3Dcustomer%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560customer%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Df597309d3a066c3c81a6cb015a79636d&amp;token=f597309d3a066c3c81a6cb015a79636d" onclick="return confirmLink(this, \'DELETE FROM `Data`.`customer` WHERE `customer`.`id` = 1\')"><span class="nowrap"><img src="themes/dot.gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span></a>
+</td>'
+            )
+        );
+    }
+    
+    /**
+     * Test for _getDeleteLink
+     * 
+     * @param string $del_url delete url
+     * @param string $del_str text for the delete link
+     * @param string $js_conf text for the JS confirmation
+     * @param string $class   css classes for the td element
+     * @param string $output  output of _getDeleteLink
+     * 
+     * @dataProvider dataProviderForGetDeleteLink
+     */
+    public function testGetDeleteLink(
+        $del_url, $del_str, $js_conf, $class, $output
+    ) {
+        
+        $GLOBALS['cfg']['PropertiesIconic'] = 'both';
+        $GLOBALS['cfg']['LinkLengthLimit'] = 1000;
+        
+        $this->assertEquals(
+            $this->_callPrivateFunction(
+                '_getDeleteLink',
+                array(
+                    $del_url, $del_str, $js_conf, $class
                 )
             ),
             $output
