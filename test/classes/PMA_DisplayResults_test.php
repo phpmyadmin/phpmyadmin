@@ -1326,5 +1326,19 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
         );
     }
     
+    /**
+     * Test for _mimeDefaultFunction
+     */
+    public function testMimeDefaultFunction()
+    {
+        $this->assertEquals(
+            $this->_callPrivateFunction(
+                '_mimeDefaultFunction',
+                array("A 'quote' is <b>bold</b>")
+            ),
+            "A 'quote' is &lt;b&gt;bold&lt;/b&gt;"
+        );
+    }    
+    
 
 }
