@@ -1059,5 +1059,272 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
         );
     }
     
+    /**
+     * Data provider for testGetCheckboxAndLinksCase1
+     * 
+     * @return array parameters and output
+     */
+    public function dataProviderForGetCheckboxAndLinksCase1()
+    {
+        return array(
+            array(
+                PMA_DisplayResults::POSITION_LEFT,
+                'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Dae4c6d18375f446dfa068420c1f6a4e8&amp;token=ae4c6d18375f446dfa068420c1f6a4e8',
+                array(
+                    'edit_lnk' => 'ur',
+                    'del_lnk' => 'dr',
+                    'sort_lnk' => '0',
+                    'nav_bar' => '1',
+                    'ins_row' => '1',
+                    'bkm_form' => '1',
+                    'text_btn' => '1',
+                    'pview_lnk' => '1'
+                ),
+                0,
+                '`new`.`id` = 1',
+                '%60new%60.%60id%60+%3D+1',
+                array(
+                    '`new`.`id`' => '= 1',
+                ),
+                'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
+                'l',
+                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=update&amp;token=ae4c6d18375f446dfa068420c1f6a4e8',
+                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=insert&amp;token=ae4c6d18375f446dfa068420c1f6a4e8',
+                'edit_row_anchor',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span>',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span>',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span>',
+                'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
+                '<td  class="center"><input type="checkbox" id="id_rows_to_delete0_left" name="rows_to_delete[0]" class="multi_checkbox" value="%60new%60.%60id%60+%3D+1"  /><input type="hidden" class="condition_array" value="{&quot;`new`.`id`&quot;:&quot;= 1&quot;}" />    </td><td class="edit_row_anchor center"  ><span class="nowrap">
+<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=update&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" ><span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span></a>
+<input type="hidden" class="where_clause" value ="%60new%60.%60id%60+%3D+1" /></span></td><td class="center"  ><span class="nowrap">
+<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=insert&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>
+<input type="hidden" class="where_clause" value="%60new%60.%60id%60+%3D+1" /></span></td><td class="center"  >
+<a href="sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Dae4c6d18375f446dfa068420c1f6a4e8&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" onclick="return confirmLink(this, \'DELETE FROM `data`.`new` WHERE `new`.`id` = 1\')"><span class="nowrap"><img src="themes/dot.gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span></a>
+</td>'
+            )
+        );
+    }
+    
+    /**
+     * Test for _getCheckboxAndLinks - case 1
+     * 
+     * @param string $position          the position of the checkbox and links
+     * @param string $del_url           delete url
+     * @param array  $is_display        array with explicit indexes for all the
+     *                                  display elements
+     * @param string $row_no            row number
+     * @param string $where_clause      where clause
+     * @param string $where_clause_html url encoded where clause
+     * @param array  $condition_array   array of conditions in the where clause
+     * @param string $del_query         delete query
+     * @param string $id_suffix         suffix for the id
+     * @param string $edit_url          edit url
+     * @param string $copy_url          copy url
+     * @param string $class             css classes for the td elements
+     * @param string $edit_str          text for the edit link
+     * @param string $copy_str          text for the copy link
+     * @param string $del_str           text for the delete link
+     * @param string $js_conf           text for the JS confirmation
+     * @param string $output            output of _getCheckboxAndLinks
+     * 
+     * @dataProvider dataProviderForGetCheckboxAndLinksCase1
+     */
+    public function testGetCheckboxAndLinksCase1(
+        $position, $del_url, $is_display, $row_no, $where_clause,
+        $where_clause_html, $condition_array, $del_query, $id_suffix, $edit_url,
+        $copy_url, $class, $edit_str, $copy_str, $del_str, $js_conf, $output
+    ) {
+        
+        $this->assertEquals(
+            $this->_callPrivateFunction(
+                '_getCheckboxAndLinks',
+                array(
+                    $position, $del_url, $is_display, $row_no, $where_clause,
+                    $where_clause_html, $condition_array, $del_query,
+                    $id_suffix, $edit_url, $copy_url, $class, $edit_str,
+                    $copy_str, $del_str, $js_conf
+                )
+            ),
+            $output
+        );
+    }
+    
+    /**
+     * Data provider for testGetCheckboxAndLinksCase2
+     * 
+     * @return array parameters and output
+     */
+    public function dataProviderForGetCheckboxAndLinksCase2()
+    {
+        return array(
+            array(
+                PMA_DisplayResults::POSITION_RIGHT,
+                'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Dae4c6d18375f446dfa068420c1f6a4e8&amp;token=ae4c6d18375f446dfa068420c1f6a4e8',
+                array(
+                    'edit_lnk' => 'ur',
+                    'del_lnk' => 'dr',
+                    'sort_lnk' => '0',
+                    'nav_bar' => '1',
+                    'ins_row' => '1',
+                    'bkm_form' => '1',
+                    'text_btn' => '1',
+                    'pview_lnk' => '1'
+                ),
+                0,
+                '`new`.`id` = 1',
+                '%60new%60.%60id%60+%3D+1',
+                array(
+                    '`new`.`id`' => '= 1',
+                ),
+                'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
+                'l',
+                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=update&amp;token=ae4c6d18375f446dfa068420c1f6a4e8',
+                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=insert&amp;token=ae4c6d18375f446dfa068420c1f6a4e8',
+                'edit_row_anchor',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span>',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span>',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span>',
+                'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
+                '<td class="center"  >
+<a href="sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Dae4c6d18375f446dfa068420c1f6a4e8&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" onclick="return confirmLink(this, \'DELETE FROM `data`.`new` WHERE `new`.`id` = 1\')"><span class="nowrap"><img src="themes/dot.gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span></a>
+</td><td class="center"  ><span class="nowrap">
+<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=insert&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>
+<input type="hidden" class="where_clause" value="%60new%60.%60id%60+%3D+1" /></span></td><td class="edit_row_anchor center"  ><span class="nowrap">
+<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=update&amp;token=ae4c6d18375f446dfa068420c1f6a4e8" ><span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span></a>
+<input type="hidden" class="where_clause" value ="%60new%60.%60id%60+%3D+1" /></span></td><td  class="center"><input type="checkbox" id="id_rows_to_delete0_right" name="rows_to_delete[0]" class="multi_checkbox" value="%60new%60.%60id%60+%3D+1"  /><input type="hidden" class="condition_array" value="{&quot;`new`.`id`&quot;:&quot;= 1&quot;}" />    </td>'
+            )
+        );
+    }
+    
+    /**
+     * Test for _getCheckboxAndLinks - case 2
+     * 
+     * @param string $position          the position of the checkbox and links
+     * @param string $del_url           delete url
+     * @param array  $is_display        array with explicit indexes for all the
+     *                                  display elements
+     * @param string $row_no            row number
+     * @param string $where_clause      where clause
+     * @param string $where_clause_html url encoded where clause
+     * @param array  $condition_array   array of conditions in the where clause
+     * @param string $del_query         delete query
+     * @param string $id_suffix         suffix for the id
+     * @param string $edit_url          edit url
+     * @param string $copy_url          copy url
+     * @param string $class             css classes for the td elements
+     * @param string $edit_str          text for the edit link
+     * @param string $copy_str          text for the copy link
+     * @param string $del_str           text for the delete link
+     * @param string $js_conf           text for the JS confirmation
+     * @param string $output            output of _getCheckboxAndLinks
+     * 
+     * @dataProvider dataProviderForGetCheckboxAndLinksCase2
+     */
+    public function testGetCheckboxAndLinksCase2(
+        $position, $del_url, $is_display, $row_no, $where_clause,
+        $where_clause_html, $condition_array, $del_query, $id_suffix, $edit_url,
+        $copy_url, $class, $edit_str, $copy_str, $del_str, $js_conf, $output
+    ) {
+        
+        $this->assertEquals(
+            $this->_callPrivateFunction(
+                '_getCheckboxAndLinks',
+                array(
+                    $position, $del_url, $is_display, $row_no, $where_clause,
+                    $where_clause_html, $condition_array, $del_query,
+                    $id_suffix, $edit_url, $copy_url, $class, $edit_str,
+                    $copy_str, $del_str, $js_conf
+                )
+            ),
+            $output
+        );
+    }
+    
+    /**
+     * Data provider for testGetCheckboxAndLinksCase3
+     * 
+     * @return array parameters and output
+     */
+    public function dataProviderForGetCheckboxAndLinksCase3()
+    {
+        return array(
+            array(
+                PMA_DisplayResults::POSITION_NONE,
+                'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Dae4c6d18375f446dfa068420c1f6a4e8&amp;token=ae4c6d18375f446dfa068420c1f6a4e8',
+                array(
+                    'edit_lnk' => 'ur',
+                    'del_lnk' => 'dr',
+                    'sort_lnk' => '0',
+                    'nav_bar' => '1',
+                    'ins_row' => '1',
+                    'bkm_form' => '1',
+                    'text_btn' => '1',
+                    'pview_lnk' => '1'
+                ),
+                0,
+                '`new`.`id` = 1',
+                '%60new%60.%60id%60+%3D+1',
+                array(
+                    '`new`.`id`' => '= 1',
+                ),
+                'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
+                'l',
+                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=update&amp;token=ae4c6d18375f446dfa068420c1f6a4e8',
+                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=insert&amp;token=ae4c6d18375f446dfa068420c1f6a4e8',
+                'edit_row_anchor',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span>',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span>',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span>',
+                'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
+                '<td  class="center"><input type="checkbox" id="id_rows_to_delete0_left" name="rows_to_delete[0]" class="multi_checkbox" value="%60new%60.%60id%60+%3D+1"  /><input type="hidden" class="condition_array" value="{&quot;`new`.`id`&quot;:&quot;= 1&quot;}" />    </td>'
+            )
+        );
+    }
+    
+    /**
+     * Test for _getCheckboxAndLinks - case 3
+     * 
+     * @param string $position          the position of the checkbox and links
+     * @param string $del_url           delete url
+     * @param array  $is_display        array with explicit indexes for all the
+     *                                  display elements
+     * @param string $row_no            row number
+     * @param string $where_clause      where clause
+     * @param string $where_clause_html url encoded where clause
+     * @param array  $condition_array   array of conditions in the where clause
+     * @param string $del_query         delete query
+     * @param string $id_suffix         suffix for the id
+     * @param string $edit_url          edit url
+     * @param string $copy_url          copy url
+     * @param string $class             css classes for the td elements
+     * @param string $edit_str          text for the edit link
+     * @param string $copy_str          text for the copy link
+     * @param string $del_str           text for the delete link
+     * @param string $js_conf           text for the JS confirmation
+     * @param string $output            output of _getCheckboxAndLinks
+     * 
+     * @dataProvider dataProviderForGetCheckboxAndLinksCase3
+     */
+    public function testGetCheckboxAndLinksCase3(
+        $position, $del_url, $is_display, $row_no, $where_clause,
+        $where_clause_html, $condition_array, $del_query, $id_suffix, $edit_url,
+        $copy_url, $class, $edit_str, $copy_str, $del_str, $js_conf, $output
+    ) {
+        
+        $this->assertEquals(
+            $this->_callPrivateFunction(
+                '_getCheckboxAndLinks',
+                array(
+                    $position, $del_url, $is_display, $row_no, $where_clause,
+                    $where_clause_html, $condition_array, $del_query,
+                    $id_suffix, $edit_url, $copy_url, $class, $edit_str,
+                    $copy_str, $del_str, $js_conf
+                )
+            ),
+            $output
+        );
+    }
+    
 
 }
