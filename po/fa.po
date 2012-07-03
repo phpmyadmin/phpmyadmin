@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-07-03 14:05+0200\n"
+"PO-Revision-Date: 2012-07-03 16:27+0200\n"
 "Last-Translator: Ashiyane Digital Security Team <HeXa.ashiyane@gmail.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
@@ -1833,7 +1833,7 @@ msgstr "کپی کردن پایگاه داده"
 
 #: js/messages.php:251
 msgid "Changing Charset"
-msgstr ""
+msgstr "تغییر نویسهگان"
 
 #: js/messages.php:252
 #| msgid "You have to choose at least one column to display"
@@ -1880,17 +1880,19 @@ msgstr "پاک کردن"
 
 #: js/messages.php:269
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr ""
+msgstr "تعریف یک تابع ذخیره شده باید شامل یک دستور بازگشت باشد"
 
 #: js/messages.php:276
-#, fuzzy, php-format
+#, php-format
 msgid "Add %d value(s)"
-msgstr "اضافه کردن %d مقدار"
+msgstr "اضافه کردن مقدار %d "
 
 #: js/messages.php:279
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr ""
+"توجه داشته باشید:اگر این فایل شامل جداول چند گانه میباشد,انها به یکی تبدیل "
+"خواهند شد "
 
 #: js/messages.php:282
 msgid "Hide query box"
@@ -1912,12 +1914,12 @@ msgstr "تغيير"
 
 #: js/messages.php:287
 msgid "Query execution time"
-msgstr ""
+msgstr "زمان اجرای پرس و جو"
 
 #: js/messages.php:288 libraries/display_tbl.lib.php:423
 #, php-format
 msgid "%d is not valid row number."
-msgstr ""
+msgstr "D٪٪ شماره ردیف معتبر نمی باشد."
 
 #: js/messages.php:291 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
@@ -6079,7 +6081,7 @@ msgstr "فقط داده‌ها"
 
 #: libraries/engines/innodb.lib.php:27
 msgid "Autoextend increment"
-msgstr "افزایش خودکار گسترش "
+msgstr "افزایش خودکار گسترش"
 
 #: libraries/engines/innodb.lib.php:28
 msgid ""
@@ -12837,6 +12839,7 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:273
+#, fuzzy
 msgid "concurrent_insert is set to 0"
 msgstr "مقدار concurrent_insert  صفر میباشد"
 
