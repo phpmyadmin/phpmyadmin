@@ -215,6 +215,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
 
     public function testLoadCss()
     {
+        $this->expectOutputRegex('/.*FILE: codemirror.css.php.*/');
         $this->assertTrue($this->object->loadCss());
     }
 
