@@ -399,7 +399,7 @@ class PMA_NavigationTree {
             );
             $retval .= "<div><ul>\n";
             $children = $this->tree->children;
-            usort($children, array('CollapsibleTree', 'sortNode'));
+            usort($children, array('PMA_NavigationTree', 'sortNode'));
             $this->setVisibility();
             for ($i=0; $i<count($children); $i++) {
                 if ($i == 0) {
@@ -436,7 +436,7 @@ class PMA_NavigationTree {
                 $retval .= $this->fastFilterHtml();
             }
             $children = $node->children;
-            usort($children, array('CollapsibleTree', 'sortNode'));
+            usort($children, array('PMA_NavigationTree', 'sortNode'));
             for ($i=0; $i<count($children); $i++) {
                 if ($i + 1 != count($children)) {
                     $retval .= $this->renderNode($children[$i], true, '');
@@ -510,7 +510,7 @@ class PMA_NavigationTree {
                 foreach ($this->a_path as $path) {
                     $match = 1;
                     foreach ($a_path_clean as $key => $part) {
-                        if ($part != $path[$key]) {
+                        if (! isset($path[$key]) || $part != $path[$key]) {
                             $match = 0;
                         }
                     }
@@ -581,13 +581,13 @@ class PMA_NavigationTree {
                 $hide = " style='display: none;'";
             }
             $children = $node->children;
-            usort($children, array('CollapsibleTree', 'sortNode'));
+            usort($children, array('PMA_NavigationTree', 'sortNode'));
             $buffer = '';
             for ($i=0; $i<count($children); $i++) {
                 if ($i + 1 != count($children)) {
-                    $buffer .= $this->renderNode($children[$i], true, $indent . '    ', $this->classes);
+                    $buffer .= $this->renderNode($children[$i], true, $indent . '    ', $node->classes);
                 } else {
-                    $buffer .= $this->renderNode($children[$i], true, $indent . '    ', $this->classes . ' last');
+                    $buffer .= $this->renderNode($children[$i], true, $indent . '    ', $node->classes . ' last');
                 }
             }
             if (! empty($buffer)) {
@@ -653,21 +653,23 @@ class PMA_NavigationTree {
     static public function sortNode($a, $b)
     {
         if ($GLOBALS['cfg']['NaturalOrder']) {
-            if (substr($a->classes, 0, 3) === 'new') {
-                return -1;
-            } else if (substr($b->classes, 0, 3) === 'new') {
-                return 1;
-            } else {
-                return strnatcmp($a->name, $b->name);
+            if (property_exists($a, 'classes') && property_exists($b, 'classes')) {
+                if (substr($a->classes, 0, 3) === 'new') {
+                    return -1;
+                } else if (substr($b->classes, 0, 3) === 'new') {
+                    return 1;
+                }
             }
+            return strnatcmp($a->name, $b->name);
         } else {
-            if (substr($a->classes, 0, 3) === 'new') {
-                return -1;
-            } else if (substr($b->classes, 0, 3) === 'new') {
-                return 1;
-            } else {
-                return strcmp($a->name, $b->name);
+            if (property_exists($a, 'classes') && property_exists($b, 'classes')) {
+                if (substr($a->classes, 0, 3) === 'new') {
+                    return -1;
+                } else if (substr($b->classes, 0, 3) === 'new') {
+                    return 1;
+                }
             }
+            return strcmp($a->name, $b->name);
         }
     }
 }
