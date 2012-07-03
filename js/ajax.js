@@ -180,6 +180,13 @@ var AJAX = {
             if (data._scripts) {
                 AJAX.scriptHandler.load(data._scripts, 1);
             }
+
+            $('#pma_errors').remove();
+            if (data._errors) {
+                $('<div/>', {id:'pma_errors'})
+                    .insertAfter('#selflink')
+                    .append(data._errors);
+            }
         } else {
             PMA_ajaxShowMessage(data.error, false);
             AJAX.active = false;

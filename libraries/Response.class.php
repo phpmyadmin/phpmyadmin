@@ -295,6 +295,10 @@ class PMA_Response
             $this->addJSON('_scripts', $this->getHeader()->getScripts()->getFiles());
             $url = basename(PMA_getenv('SCRIPT_NAME')) . '?' . PMA_generate_common_url();
             $this->addJSON('_selflink', $url);
+            $errors = $this->_footer->getErrorMessages();
+            if (strlen($errors)) {
+                $this->addJSON('_errors', $errors);
+            }
         }
 
         // Set the Content-Type header to JSON so that jQuery parses the

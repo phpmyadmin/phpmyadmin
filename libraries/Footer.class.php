@@ -213,11 +213,11 @@ class PMA_Footer
      *
      * @return string
      */
-    private function _getErrorMessages()
+    public function getErrorMessages()
     {
         $retval = '';
         if ($GLOBALS['error_handler']->hasDisplayErrors()) {
-            $retval .= '<div class="clearfloat">';
+            $retval .= '<div class="clearfloat" id="pma_errors">';
             $retval .= $GLOBALS['error_handler']->getDispErrors();
             $retval .= '</div>';
         }
@@ -319,7 +319,7 @@ class PMA_Footer
                     $retval .= $this->_getSelfLink($url);
                 }
                 $retval .= $this->_getDebugMessage();
-                $retval .= $this->_getErrorMessages();
+                $retval .= $this->getErrorMessages();
                 $retval .= $this->_scripts->getDisplay();
                 // Include possible custom footers
                 if (file_exists(CUSTOM_FOOTER_FILE)) {

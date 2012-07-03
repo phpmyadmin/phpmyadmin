@@ -672,6 +672,10 @@ td .icon {
 }
 
 /* message boxes: error, confirmation */
+#pma_errors {
+    padding: 0 0.5em;
+}
+
 .success h1,
 .notice h1,
 div.error h1 {
