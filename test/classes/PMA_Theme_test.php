@@ -2,6 +2,9 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 
 require_once 'libraries/Theme.class.php';
+require_once 'libraries/core.lib.php';
+require_once 'libraries/CommonFunctions.class.php';
+require_once 'libraries/Config.class.php';
 require_once 'libraries/Theme_Manager.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/sqlparser.lib.php';
@@ -22,7 +25,13 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new PMA_Theme;
+        $this->object = new PMA_Theme();
+        $_SESSION['PMA_Theme'] = $this->object;
+        $GLOBALS['PMA_Config'] = new PMA_Config();
+        $GLOBALS['PMA_Config']->enableBc();
+        $GLOBALS['cfg']['SQP']['fmtColor'] = array('fake' => 'red');
+        $GLOBALS['text_dir'] = 'ltr';
+        require 'themes/pmahomme/layout.inc.php';
     }
 
     /**
