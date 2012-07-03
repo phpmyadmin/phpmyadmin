@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-28 09:04+0200\n"
-"PO-Revision-Date: 2012-07-02 21:33+0200\n"
+"PO-Revision-Date: 2012-07-03 08:46+0200\n"
 "Last-Translator: Ashiyane Digital Security Team <HeXa.ashiyane@gmail.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
@@ -34,8 +34,9 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
-"پنجره مرورگر ویندوز توانایی آپلود ندارد. شاید شما پنجره مادر را بسته اید ، "
-"یا تنظیمات امنیتی مرورگر شما طوری تنظیم شده که از به روز رسانی جلوگیری .کند"
+"پنجره مرورگر ویندوز توانایی به روز شدن ندارد. شاید شما پنجره مادر را بسته "
+"اید ، یا تنظیمات امنیتی مرورگر شما طوری تنظیم شده که از به روز رسانی جلوگیری "
+"می کند."
 
 #: browse_foreigners.php:168 libraries/Menu.class.php:259
 #: libraries/Menu.class.php:353 libraries/common.lib.php:3309
@@ -965,9 +966,8 @@ msgid "Add a polygon"
 msgstr "افزودن یک چند ضلعی"
 
 #: gis_data_editor.php:299
-#, fuzzy
 msgid "Add geometry"
-msgstr "Dr.Global"
+msgstr "اضافه کردن هندسه"
 
 #: gis_data_editor.php:306
 msgid "Output"
@@ -1018,12 +1018,15 @@ msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
-msgstr "دیدن.حداکثر تنظیمانت پی اچ پی مجاز است"
+msgstr ""
+"اطلاعاتی برای ورود دریافت نشد. یا فایلی انتخاب نشده ، یا فایل از حجم حداکثر "
+"بیشتر بوده. به  [a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a] "
+"مراجعه نمایید."
 
 #: import.php:408
 msgid ""
 "Cannot convert file's character set without character set conversion library"
-msgstr ""
+msgstr "نمی توان کاراکترها را بدون داشتن کتابخانه تبدیل آنها، تبدیل کرد"
 
 #: import.php:440 libraries/display_import.lib.php:28
 msgid "Could not load import plugins, please check your installation!"
@@ -1032,7 +1035,7 @@ msgstr "خطا در بارگزار پلاگین ها, لطفا مراحل نصب
 #: import.php:474 sql.php:1069
 #, php-format
 msgid "Bookmark %s created"
-msgstr "بوک مارک ایجاد شده"
+msgstr "بوک مارک  %s ایجاد شده"
 
 #: import.php:482 import.php:488
 #, php-format
@@ -1052,6 +1055,9 @@ msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
+" در آخرین اجرا هیچ داده ای پردازش نشد،این بدین معنی است که phpMyAdmin  نمی "
+"تواند ورود داده را تمام کند مگر اینکه شما حداکثر زمان اجرای php را افزایش "
+"دهید."
 
 #: import.php:527 libraries/DisplayResults.class.php:3740
 #: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1260
@@ -1098,7 +1104,7 @@ msgstr "در حال حذف اطلاعات پیگیری"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "حذف کلید اصلی/ایندکس"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
@@ -1118,10 +1124,9 @@ msgid "Add Index"
 msgstr "افزودن index"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Edit next row"
 msgid "Edit Index"
-msgstr "ویرایش کردن ردیف بعدی"
+msgstr "ویرایش کردن ایندکس"
 
 #: js/messages.php:44 tbl_indexes.php:318
 #, php-format
@@ -1252,16 +1257,15 @@ msgstr "سوالات در آخرین رفرش"
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:85
 msgid "Questions (executed statements by the server)"
-msgstr ""
+msgstr "سوالات(بخش های اجرا شده توسط سرور)"
 
 #: js/messages.php:87 server_status.php:791
-#, fuzzy
 msgid "Query statistics"
-msgstr "آمار سطرها"
+msgstr "آمار پرس و جو"
 
 #: js/messages.php:90
 msgid "Local monitor configuration incompatible"
-msgstr ""
+msgstr "تنظیمات مانیتور محلی سازگار نیست"
 
 #: js/messages.php:91
 msgid ""
@@ -1270,36 +1274,36 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
+"تنظیمات نمودار در بروزر شما با ورژن جدید دایلوگ مانیتور سازگار نیست. احتمالا "
+"تنظیمات فعلی شما دیگر کار نکند.لطفا از منوی تنظیمات تنظیمات خود را به حالت "
+"اولیه برگردانید."
 
 #: js/messages.php:93
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "Query cache efficiency"
-msgstr "پیگردی فعال نمی باشد."
+msgstr "میزان کارایی کش کوئری"
 
 #: js/messages.php:94
-#, fuzzy
 #| msgid "Space usage"
 msgid "Query cache usage"
 msgstr "فضاي استفاده‌شده"
 
 #: js/messages.php:95
-#, fuzzy
 #| msgid "Space usage"
 msgid "Query cache used"
 msgstr "فضاي استفاده‌شده"
 
 #: js/messages.php:97
 msgid "System CPU Usage"
-msgstr ""
+msgstr "میزان استفاده از CPU سیستم"
 
 #: js/messages.php:98
 msgid "System memory"
-msgstr ""
+msgstr "حافظه سیستم"
 
 #: js/messages.php:99
 msgid "System swap"
-msgstr ""
+msgstr "swap سیستم"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:100 js/messages.php:123 libraries/common.lib.php:1447
@@ -1315,59 +1319,57 @@ msgstr "كيلوبايت"
 
 #: js/messages.php:103
 msgid "Average load"
-msgstr ""
+msgstr "بار میانگین"
 
 #: js/messages.php:104
-#, fuzzy
 #| msgid "Total"
 msgid "Total memory"
-msgstr "جمع كل"
+msgstr "کل حافظه"
 
 #: js/messages.php:105
 msgid "Cached memory"
-msgstr ""
+msgstr "حافظه کش"
 
 #: js/messages.php:106
 msgid "Buffered memory"
-msgstr ""
+msgstr "حافظه بافر"
 
 #: js/messages.php:107
 msgid "Free memory"
-msgstr ""
+msgstr "حافظه آزاد"
 
 #: js/messages.php:108
 msgid "Used memory"
-msgstr ""
+msgstr "حافظه استفاده شده"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "جمع كل"
+msgstr "Swap کل"
 
 #: js/messages.php:111
 msgid "Cached Swap"
-msgstr ""
+msgstr "Swap کش شده"
 
 #: js/messages.php:112
 msgid "Used Swap"
-msgstr ""
+msgstr "Swap استفاده شده"
 
 #: js/messages.php:113
 msgid "Free Swap"
-msgstr ""
+msgstr "Swap آزاد"
 
 #: js/messages.php:115
 msgid "Bytes sent"
-msgstr ""
+msgstr "میزان بایت ارسالی"
 
 #: js/messages.php:116
 msgid "Bytes received"
-msgstr ""
+msgstr "میزان بایت دریافتی"
 
 #: js/messages.php:117 server_status.php:1156
 msgid "Connections"
-msgstr ""
+msgstr "اتصالات"
 
 #. l10n: shortcuts for Byte
 #: js/messages.php:121 libraries/common.lib.php:1443
@@ -1395,11 +1397,11 @@ msgid "EiB"
 msgstr "اگزا بايت"
 
 #: js/messages.php:128
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "%d table(s)"
-msgstr "%s جدول"
+msgstr "%d جدول"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:131
@@ -1408,7 +1410,7 @@ msgstr "سوالات"
 
 #: js/messages.php:132 server_status.php:1105
 msgid "Traffic"
-msgstr ""
+msgstr "ترافیک"
 
 #: js/messages.php:133 libraries/Menu.class.php:468 server_status.php:1587
 #| msgid "Deleting %s"
@@ -1416,22 +1418,21 @@ msgid "Settings"
 msgstr "تنظیم"
 
 #: js/messages.php:134
-#, fuzzy
 #| msgid "Remove database"
 msgid "Remove chart"
-msgstr "حذف پایگاه داده"
+msgstr "حذف نمودار"
 
 #: js/messages.php:135
 msgid "Edit title and labels"
-msgstr ""
+msgstr "ویرایش عنوان و برچسب ها"
 
 #: js/messages.php:136
 msgid "Add chart to grid"
-msgstr ""
+msgstr "اضافه کردن نمودار به جدول"
 
 #: js/messages.php:138
 msgid "Please add at least one variable to the series"
-msgstr ""
+msgstr "لطفا حداقل یک مقدار به این سری اضافه نمایید"
 
 #: js/messages.php:139 libraries/DisplayResults.class.php:1238
 #: libraries/TableSearch.class.php:835 libraries/TableSearch.class.php:979
@@ -1444,11 +1445,11 @@ msgstr "هیچ یک"
 
 #: js/messages.php:140
 msgid "Resume monitor"
-msgstr ""
+msgstr "به حالت قبل برگرداندن مانیتور"
 
 #: js/messages.php:141
 msgid "Pause monitor"
-msgstr ""
+msgstr "توقف مانیتور"
 
 #: js/messages.php:143
 msgid "general_log and slow_query_log are enabled."
@@ -1460,19 +1461,19 @@ msgstr "general_log فعال شد."
 
 #: js/messages.php:145
 msgid "slow_query_log is enabled."
-msgstr ""
+msgstr "slow_query_log فعال است."
 
 #: js/messages.php:146
 msgid "slow_query_log and general_log are disabled."
-msgstr ""
+msgstr "slow_query_log و general_log are غیر فعال می باشند."
 
 #: js/messages.php:147
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output به جدول تنظیم نشده است."
 
 #: js/messages.php:148
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output به جدول تنظیم شده است."
 
 #: js/messages.php:149
 #, php-format
@@ -1481,6 +1482,9 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log فعال است ، اما سرور فقط کوئری هایی را لاگ می کند که بیش از %d "
+"ثانیه طول کشیده باشند. بهتر است این مقدار را بین 0-2 بسته به سیستم خود قرار "
+"دهید."
 
 #: js/messages.php:150
 #, php-format
@@ -1495,24 +1499,24 @@ msgstr ""
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:153
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save as file"
 msgid "Set log_output to %s"
-msgstr "ذخيره به صورت پرونده"
+msgstr "ذخيره به صورت پرونده %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:155
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
-msgstr "فعال"
+msgstr "فعال سازی %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:157
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disable"
 msgid "Disable %s"
-msgstr "غيرفعال"
+msgstr "غیر فعال سازی %s"
 
 #. l10n: %d seconds
 #: js/messages.php:159
@@ -1527,20 +1531,17 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:161
-#, fuzzy
 #| msgid "Change"
 msgid "Change settings"
-msgstr "تغيير"
+msgstr "تغيير تنظیمات"
 
 #: js/messages.php:162
-#, fuzzy
 msgid "Current settings"
-msgstr "پرس و جوي SQL"
+msgstr "تنظیمات فعلی"
 
 #: js/messages.php:164 server_status.php:1683
-#, fuzzy
 msgid "Chart Title"
-msgstr "No tables"
+msgstr "عنوان نمودار"
 
 #. l10n: As in differential values
 #: js/messages.php:166
@@ -4905,8 +4906,8 @@ msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
 msgstr ""
-"فرمت پیش فرض;اگاه باشید که این لیست وابسته در محل(پایگاه داده,جدول) و فقط "
-"همیشه sql مورد دسترسی میباشد   "
+"فرمت پیش فرض;اگاه باشید که این لیست وابسته به محل(پایگاه داده,جدول) و فقط "
+"همیشه sql مورد دسترسی میباشد"
 
 #: libraries/config/messages.inc.php:255
 msgid "Format of imported file"
