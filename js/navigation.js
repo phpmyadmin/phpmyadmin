@@ -195,7 +195,7 @@ var ScrollHandler = {
  * @var ResizeHandler Custom object that manages the resizing of the navigation
  *
  * XXX: Must only be ever instanciated once
- * XXX: Inside event handlers the 'this' object is accessed as 'e.data.this'
+ * XXX: Inside event handlers the 'this' object is accessed as 'event.data.this'
  */
 var ResizeHandler = function () {
     /**
@@ -252,10 +252,10 @@ var ResizeHandler = function () {
      *
      * @return void
      */
-    this.getPos = function (e) {
-        var pos = e.pageX;
+    this.getPos = function (event) {
+        var pos = event.pageX;
         if (this.left != 'left') {
-            pos = $(window).width() - e.pageX;
+            pos = $(window).width() - event.pageX;
         }
         if (pos < 0) {
             pos = 0;
@@ -295,9 +295,9 @@ var ResizeHandler = function () {
      *
      * @return void
      */
-    this.mousedown = function (e) {
-        e.preventDefault();
-        e.data.this.active = true;
+    this.mousedown = function (event) {
+        event.preventDefault();
+        event.data.this.active = true;
         $('body').css('cursor', 'col-resize');
     };
     /**
@@ -307,11 +307,11 @@ var ResizeHandler = function () {
      *
      * @return void
      */
-    this.mouseup = function (e) {
-        if (e.data.this.active) {
-            e.data.this.active = false;
+    this.mouseup = function (event) {
+        if (event.data.this.active) {
+            event.data.this.active = false;
             $('body').css('cursor', '');
-            $.cookie('pma_navi_width', e.data.this.getPos(e));
+            $.cookie('pma_navi_width', event.data.this.getPos(e));
         }
     };
     /**
@@ -321,11 +321,11 @@ var ResizeHandler = function () {
      *
      * @return void
      */
-    this.mousemove = function (e) {
-        if (e.data.this.active) {
-            e.preventDefault();
-            var pos = e.data.this.getPos(e);
-            e.data.this.setWidth(pos);
+    this.mousemove = function (event) {
+        if (event.data.this.active) {
+            event.preventDefault();
+            var pos = event.data.this.getPos(e);
+            event.data.this.setWidth(pos);
             menuResize();
         }
     };
@@ -336,16 +336,16 @@ var ResizeHandler = function () {
      *
      * @return void
      */
-    this.collapse = function (e) {
-        e.preventDefault();
-        e.data.active = false;
-        var goto = e.data.this.goto;
+    this.collapse = function (event) {
+        event.preventDefault();
+        event.data.active = false;
+        var goto = event.data.this.goto;
         var width = $('#pma_navigation').width();
         if (width === 0 && goto === 0) {
             goto = 240;
         }
-        e.data.this.setWidth(goto);
-        e.data.this.goto = width;
+        event.data.this.setWidth(goto);
+        event.data.this.goto = width;
     };
     /* Initialisation section begins here */
     if ($.cookie('pma_navi_width')) {
@@ -384,8 +384,8 @@ $(function(){
     }
 
     // Ajax handler for database pagination
-    $('#pma_navigation_tree div.pageselector a.ajax').live('click', function (e) {
-        e.preventDefault();
+    $('#pma_navigation_tree div.pageselector a.ajax').live('click', function (event) {
+        event.preventDefault();
         var $msgbox = PMA_ajaxShowMessage();
         var params = {ajax_request: true, full: true};
         $.get($(this).attr('href'), params, function (data) {
