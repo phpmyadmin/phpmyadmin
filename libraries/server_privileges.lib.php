@@ -1377,7 +1377,7 @@ function PMA_getUserForm($checkprivs, $link_edit, $conditional_class)
         $found = true;
     }
     $html_output .= PMA_getUserFormTableBody(
-        $found, $row, $odd_row, $link_edit, $res
+        $found, $row, $odd_row, $link_edit, $res, $checkprivs
     );
     $html_output .= '</table>'
         . '</fieldset>'
@@ -1415,10 +1415,11 @@ function PMA_getUserForm($checkprivs, $link_edit, $conditional_class)
  * @param boolean $odd_row      whether odd or not
  * @param string $link_edit     standard link for edit
  * @param string $res           ran sql query
+ * @param string $checkprivs    check privileges
  *            
  * @return string $html_output
  */
-function PMA_getUserFormTableBody($found, $row, $odd_row, $link_edit, $res)
+function PMA_getUserFormTableBody($found, $row, $odd_row, $link_edit, $res, $checkprivs)
 {
     $html_output = '<tbody>' . "\n";
     if ($found) {
