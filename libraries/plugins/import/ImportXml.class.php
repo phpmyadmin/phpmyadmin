@@ -214,7 +214,8 @@ class ImportXml extends ImportPlugin
                      *          into another database.
                      */
                     $attrs = $val2->attributes();
-                    $create[] = "USE " . PMA_backquote($attrs["name"]);
+                    $create[] = "USE "
+                        . PMA_CommonFunctions::getInstance()->backquote($attrs["name"]);
 
                     foreach ($val2 as $val3) {
                         /**

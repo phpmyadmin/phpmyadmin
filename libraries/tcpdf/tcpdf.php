@@ -8302,7 +8302,7 @@ class TCPDF {
 	 * @since 4.3.007 (2008-12-04)
 	 */
 	protected function getGDgamma($v) {
-		return (pow(($v / 255), 2.2) * 255);
+		return (PMA_CommonFunctions::getInstance()->pow(($v / 255), 2.2) * 255);
 	}
 
 	/**
@@ -11086,7 +11086,7 @@ class TCPDF {
 		$numTables = count($table);
 		$font .= pack('n', $numTables); // numTables
 		$entrySelector = floor(log($numTables, 2));
-		$searchRange = pow(2, $entrySelector) * 16;
+		$searchRange = PMA_CommonFunctions::getInstance()->pow(2, $entrySelector) * 16;
 		$rangeShift = ($numTables * 16) - $searchRange;
 		$font .= pack('n', $searchRange); // searchRange
 		$font .= pack('n', $entrySelector); // entrySelector
@@ -15082,7 +15082,7 @@ class TCPDF {
 		$y0 = ($this->h - $yc);
 		// starting angle
 		$ang = $as;
-		$alpha = sin($arcang) * ((sqrt(4 + (3 * pow(tan(($arcang) / 2), 2))) - 1) / 3);
+		$alpha = sin($arcang) * ((sqrt(4 + (3 * PMA_CommonFunctions::getInstance()->pow(tan(($arcang) / 2), 2))) - 1) / 3);
 		$cos_xang = cos($xang);
 		$sin_xang = sin($xang);
 		$cos_ang = cos($ang);
@@ -27669,7 +27669,7 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 					$xb = ($gtm[0] * $gradient['coords'][2]) + ($gtm[2] * $gradient['coords'][3]) + $gtm[4];
 					$yb = ($gtm[1] * $gradient['coords'][2]) + ($gtm[3] * $gradient['coords'][3]) + $gtm[5];
 					if (isset($gradient['coords'][4])) {
-						$gradient['coords'][4] = sqrt(pow(($gtm[0] * $gradient['coords'][4]), 2) + pow(($gtm[1] * $gradient['coords'][4]), 2));
+						$gradient['coords'][4] = sqrt(PMA_CommonFunctions::getInstance()->pow(($gtm[0] * $gradient['coords'][4]), 2) + PMA_CommonFunctions::getInstance()->pow(($gtm[1] * $gradient['coords'][4]), 2));
 					}
 					$gradient['coords'][0] = $xa;
 					$gradient['coords'][1] = $ya;

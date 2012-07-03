@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_expandUserString from common.lib.php
+ * Test for PMA_CommonFunctions::expandUserString from CommonFunctions.class.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -11,14 +11,14 @@
  * Include to test.
  */
 require_once 'libraries/core.lib.php';
-require_once 'libraries/common.lib.php';
+require_once 'libraries/CommonFunctions.class.php';
 
 if (!defined('PMA_VERSION')) {
     define('PMA_VERSION', 'TEST');
 }
 
 /**
- * Test for PMA_expandUserString function.
+ * Test for PMA_CommonFunctions::expandUserString function.
  */
 class PMA_expandUserString_test extends PHPUnit_Framework_TestCase
 {
@@ -44,7 +44,9 @@ class PMA_expandUserString_test extends PHPUnit_Framework_TestCase
      */
     public function testExpand($in, $out)
     {
-        $this->assertEquals($out, PMA_expandUserString($in));
+        $this->assertEquals(
+            $out, PMA_CommonFunctions::getInstance()->expandUserString($in)
+        );
     }
 
     /**
@@ -54,7 +56,11 @@ class PMA_expandUserString_test extends PHPUnit_Framework_TestCase
      */
     public function testExpandEscape($in, $out)
     {
-        $this->assertEquals(htmlspecialchars($out), PMA_expandUserString($in, 'htmlspecialchars'));
+        $this->assertEquals(
+            htmlspecialchars($out),
+            PMA_CommonFunctions::getInstance()
+                ->expandUserString($in, 'htmlspecialchars')
+        );
     }
 
     /**

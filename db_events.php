@@ -10,7 +10,7 @@
  * Include required files
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/common.lib.php';
+require_once 'libraries/CommonFunctions.class.php';
 
 /**
  * Include JavaScript libraries

@@ -68,7 +68,8 @@ if (isset($_REQUEST['get_data_row']) && $_REQUEST['get_data_row'] == true) {
         $i = 0;
         foreach ($row as $col => $val) {
             if ($fields_meta[$i]->type == 'bit') {
-                $row[$col] = PMA_printableBitValue($val, $fields_meta[$i]->length);
+                $row[$col] = PMA_CommonFunctions::getInstance()
+                    ->printableBitValue($val, $fields_meta[$i]->length);
             }
             $i++;
         }
@@ -141,14 +142,14 @@ if (isset($zoom_submit)
     $result = PMA_DBI_query($sql_query . ";", null, PMA_DBI_QUERY_STORE);
     $fields_meta = PMA_DBI_get_fields_meta($result);
     while ($row = PMA_DBI_fetch_assoc($result)) {
-        //Need a row with indexes as 0,1,2 for the PMA_getUniqueCondition
+        //Need a row with indexes as 0,1,2 for the getUniqueCondition
         // hence using a temporary array
         $tmpRow = array();
         foreach ($row as $val) {
             $tmpRow[] = $val;
         }
         //Get unique conditon on each row (will be needed for row update)
-        $uniqueCondition = PMA_getUniqueCondition(
+        $uniqueCondition = PMA_CommonFunctions::getInstance()->getUniqueCondition(
             $result, count($table_search->getColumnNames()), $fields_meta, $tmpRow,
             true
         );

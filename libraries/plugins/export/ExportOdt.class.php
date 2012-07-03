@@ -690,7 +690,8 @@ class ExportOdt extends ExportPlugin
             . '<text:p>' . htmlspecialchars($field_name) . '</text:p>'
             . '</table:table-cell>';
 
-        $extracted_columnspec = PMA_extractColumnSpec($column['Type']);
+        $extracted_columnspec
+            = PMA_CommonFunctions::getInstance()->extractColumnSpec($column['Type']);
         $type = htmlspecialchars($extracted_columnspec['print_type']);
         if (empty($type)) {
             $type = '&nbsp;';

@@ -20,7 +20,7 @@ require 'libraries/server_common.inc.php';
  * Displays the sub-page heading
  */
 echo '<h2>' . "\n"
-   . '    ' .  PMA_getImage('s_asci.png')
+   . '    ' . PMA_CommonFunctions::getInstance()->getImage('s_asci.png')
    . '' . __('Character Sets and Collations') . "\n"
    . '</h2>' . "\n";
 

@@ -21,6 +21,7 @@ $scripts->addFile('db_search.js');
 $scripts->addFile('sql.js');
 $scripts->addFile('makegrid.js');
 $scripts->addFile('jquery/timepicker.js');
+$common_functions = PMA_CommonFunctions::getInstance();
 
 /**
  * Gets some core libraries and send headers
@@ -32,7 +33,7 @@ require 'libraries/db_common.inc.php';
  */
 // If config variable $GLOBALS['cfg']['Usedbsearch'] is on false : exit.
 if (! $GLOBALS['cfg']['UseDbSearch']) {
-    PMA_mysqlDie(__('Access denied'), '', false, $err_url);
+    $common_functions->mysqlDie(__('Access denied'), '', false, $err_url);
 } // end if
 $url_query .= '&amp;goto=db_search.php';
 $url_params['goto'] = 'db_search.php';
@@ -90,7 +91,9 @@ if (empty($_REQUEST['criteriaColumnName'])
 ) {
     unset($criteriaColumnName);
 } else {
-    $criteriaColumnName = PMA_sqlAddSlashes($_REQUEST['criteriaColumnName'], true);
+    $criteriaColumnName = $common_functions->sqlAddSlashes(
+        $_REQUEST['criteriaColumnName'], true
+    );
 }
 
 /**
@@ -124,6 +127,7 @@ if ($GLOBALS['is_ajax_request'] == true) {
 } else {
     $response->addHTML('</div>');//end searchresults div
 }
+
 // Add search form
 $response->addHTML(
     PMA_dbSearchGetSelectionForm(

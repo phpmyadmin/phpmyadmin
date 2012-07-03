@@ -11,7 +11,7 @@
  * string $chapter: chapter of "HTML, one page per chapter" documentation
  * string $type: type of system variable
  * string $format: if set to 'byte' it will format the variable
- * with PMA_formatByteDown()
+ * with PMA_CommonFunctions::formatByteDown()
  *
  * @package PhpMyAdmin
  */

@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Test for PMA_getIcon() from common.lib.php
+ * Test for PMA_CommonFunctions::getIcon() from CommonFunctions.class.php
  *
  * @package PhpMyAdmin-test
  * @group common.lib-tests
@@ -10,7 +10,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/common.lib.php';
+require_once 'libraries/CommonFunctions.class.php';
 require_once 'libraries/Theme.class.php';
 
 class PMA_getIcon_test extends PHPUnit_Framework_TestCase
@@ -26,7 +26,7 @@ class PMA_getIcon_test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             '<span class="nowrap"></span>',
-            PMA_getIcon('b_comment.png')
+            PMA_CommonFunctions::getInstance()->getIcon('b_comment.png')
         );
     }
 
@@ -36,7 +36,7 @@ class PMA_getIcon_test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             '<span class="nowrap"><img src="themes/dot.gif" title="" alt="" class="icon ic_b_comment" /></span>',
-            PMA_getIcon('b_comment.png')
+            PMA_CommonFunctions::getInstance()->getIcon('b_comment.png')
         );
     }
 
@@ -48,7 +48,7 @@ class PMA_getIcon_test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             '<span class="nowrap"><img src="themes/dot.gif" title="' . $alternate_text . '" alt="' . $alternate_text
             . '" class="icon ic_b_comment" /></span>',
-            PMA_getIcon('b_comment.png', $alternate_text)
+            PMA_CommonFunctions::getInstance()->getIcon('b_comment.png', $alternate_text)
         );
     }
 
@@ -60,7 +60,7 @@ class PMA_getIcon_test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             '<span class="nowrap"><img src="themes/dot.gif" title="' . $alternate_text . '" alt="' . $alternate_text
             . '" class="icon ic_b_comment" /> ' . $alternate_text . '</span>',
-            PMA_getIcon('b_comment.png', $alternate_text, true)
+            PMA_CommonFunctions::getInstance()->getIcon('b_comment.png', $alternate_text, true)
         );
 
     }

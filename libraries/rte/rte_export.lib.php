@@ -20,7 +20,7 @@ function PMA_RTE_handleExport($item_name, $export_data)
 {
     global $db;
 
-    $item_name = htmlspecialchars(PMA_backquote($_GET['item_name']));
+    $item_name = htmlspecialchars(PMA_CommonFunctions::getInstance()->backquote($_GET['item_name']));
     if ($export_data !== false) {
         $export_data = '<textarea cols="40" rows="15" style="width: 100%;">'
                      . htmlspecialchars(trim($export_data)) . '</textarea>';
@@ -37,7 +37,7 @@ function PMA_RTE_handleExport($item_name, $export_data)
                . "</fieldset>\n";
         }
     } else {
-        $_db = htmlspecialchars(PMA_backquote($db));
+        $_db = htmlspecialchars(PMA_CommonFunctions::getInstance()->backquote($db));
         $response = __('Error in Processing Request') . ' : '
                   . sprintf(PMA_RTE_getWord('not_found'), $item_name, $_db);
         $response = PMA_message::error($response);

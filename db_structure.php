@@ -16,6 +16,7 @@ $scripts  = $header->getScripts();
 $scripts->addFile('db_structure.js');
 $scripts->addFile('tbl_change.js');
 $scripts->addFile('jquery/timepicker.js');
+$common_functions = PMA_CommonFunctions::getInstance();
 
 /**
  * Sets globals from $_POST
@@ -79,7 +80,7 @@ $db_collation = PMA_getDbCollation($db);
 
 // in a separate file to avoid redeclaration of functions in some code paths
 require_once 'libraries/db_structure.lib.php';
-$titles = PMA_buildActionTitles();
+$titles = $common_functions->buildActionTitles();
 
 // 1. No tables
 
@@ -112,7 +113,7 @@ if (isset($_REQUEST['sort_order'])) {
     $_url_params['sort_order'] = $_REQUEST['sort_order'];
 }
 
-echo PMA_getListNavigator(
+echo $common_functions->getListNavigator(
     $total_num_tables, $pos, $_url_params, 'db_structure.php',
     'frame_content', $GLOBALS['cfg']['MaxTableList']
 );
@@ -172,11 +173,15 @@ foreach ($tables as $keyname => $each_table) {
         if ($is_show_stats) {
             $tblsize = doubleval($each_table['Data_length']) + doubleval($each_table['Index_length']);
             $sum_size += $tblsize;
-            list($formatted_size, $unit) = PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
+            list($formatted_size, $unit) = $common_functions->formatByteDown(
+                $tblsize, 3, ($tblsize > 0) ? 1 : 0
+            );
             if (isset($each_table['Data_free']) && $each_table['Data_free'] > 0) {
-                list($formatted_overhead, $overhead_unit) = PMA_formatByteDown(
-                    $each_table['Data_free'], 3, ($each_table['Data_free'] > 0) ? 1 : 0
-                );
+                list($formatted_overhead, $overhead_unit)
+                    = $common_functions->formatByteDown(
+                        $each_table['Data_free'], 3,
+                        ($each_table['Data_free'] > 0) ? 1 : 0
+                    );
                 $overhead_size += $each_table['Data_free'];
             }
         }
@@ -203,7 +208,9 @@ foreach ($tables as $keyname => $each_table) {
         if ($is_show_stats && $each_table['Data_length'] !== null) {
             $tblsize =  $each_table['Data_length'] + $each_table['Index_length'];
             $sum_size += $tblsize;
-            list($formatted_size, $unit) = PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
+            list($formatted_size, $unit) = $common_functions->formatByteDown(
+                $tblsize, 3, ($tblsize > 0) ? 1 : 0
+            );
         }
         //$display_rows                   =  ' - ';
         break;
@@ -360,7 +367,7 @@ foreach ($tables as $keyname => $each_table) {
         }
         $empty_table .= ' href="sql.php?' . $tbl_url_query
             . '&amp;sql_query=';
-        $empty_table .= urlencode('TRUNCATE ' . PMA_backquote($each_table['TABLE_NAME']))
+        $empty_table .= urlencode('TRUNCATE ' . $common_functions->backquote($each_table['TABLE_NAME']))
             . '&amp;message_to_show='
             . urlencode(sprintf(__('Table %s has been emptied'), htmlspecialchars($each_table['TABLE_NAME'])))
             .'">';
@@ -377,7 +384,7 @@ foreach ($tables as $keyname => $each_table) {
 
         $drop_query = 'DROP '
             . (($table_is_view || $each_table['ENGINE'] == null) ? 'VIEW' : 'TABLE')
-            . ' ' . PMA_backquote($each_table['TABLE_NAME']);
+            . ' ' . $common_functions->backquote($each_table['TABLE_NAME']);
         $drop_message = sprintf(
             ($table_is_view || $each_table['ENGINE'] == null)? __('View %s has been dropped') : __('Table %s has been dropped'),
             str_replace(' ', '&nbsp;', htmlspecialchars($each_table['TABLE_NAME']))
@@ -389,12 +396,12 @@ foreach ($tables as $keyname => $each_table) {
         if (PMA_Tracker::isTracked($GLOBALS["db"], $truename)) {
             $tracking_icon = '<a href="tbl_tracking.php?' . $url_query
                 . '&amp;table=' . $truename . '">'
-                . PMA_getImage('eye.png', __('Tracking is active.'))
+                . $common_functions->getImage('eye.png', __('Tracking is active.'))
                 . '</a>';
         } elseif (PMA_Tracker::getVersion($GLOBALS["db"], $truename) > 0) {
             $tracking_icon = '<a href="tbl_tracking.php?' . $url_query
                 . '&amp;table=' . $truename . '">'
-                . PMA_getImage('eye.png', __('Tracking is not active.'))
+                . $common_functions->getImage('eye.png', __('Tracking is not active.'))
                 . '</a>';
         }
     }
@@ -463,10 +470,10 @@ foreach ($tables as $keyname => $each_table) {
     if ($server_slave_status) {
        ?><td class="center"><?php
         echo $ignored
-            ? PMA_getImage('s_cancel.png', 'NOT REPLICATED')
+            ? $common_functions->getImage('s_cancel.png', 'NOT REPLICATED')
             : ''.
         $do
-            ? PMA_getImage('s_success.png', 'REPLICATED')
+            ? $common_functions->getImage('s_success.png', 'REPLICATED')
             : ''; ?></td><?php
     }
     ?>
@@ -517,7 +524,7 @@ foreach ($tables as $keyname => $each_table) {
             ) {
                 $row_count_pre = '~';
                 $sum_row_count_pre = '~';
-                $show_superscript = PMA_showHint(
+                $show_superscript = $common_functions->showHint(
                     PMA_sanitize(
                         sprintf(
                             __('This view has at least this number of rows. Please refer to %sdocumentation%s.'),
@@ -534,7 +541,7 @@ foreach ($tables as $keyname => $each_table) {
             $show_superscript = '';
         }
     ?>
-    <td class="value tbl_rows"><?php echo $row_count_pre . PMA_formatNumber($each_table['TABLE_ROWS'], 0) . $show_superscript; ?></td>
+    <td class="value tbl_rows"><?php echo $row_count_pre . $common_functions->formatNumber($each_table['TABLE_ROWS'], 0) . $show_superscript; ?></td>
     <?php
     if (!($cfg['PropertiesNumColumns'] > 1)) {
     ?>
@@ -556,17 +563,17 @@ foreach ($tables as $keyname => $each_table) {
     } // end if
     if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
     ?>
-    <td class="value tbl_creation"><?php echo $create_time ? PMA_localisedDate(strtotime($create_time)) : '-'; ?></td>
+    <td class="value tbl_creation"><?php echo $create_time ? $common_functions->localisedDate(strtotime($create_time)) : '-'; ?></td>
     <?php
     } // end if
     if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
     ?>
-    <td class="value tbl_last_update"><?php echo $update_time ? PMA_localisedDate(strtotime($update_time)) : '-'; ?></td>
+    <td class="value tbl_last_update"><?php echo $update_time ? $common_functions->localisedDate(strtotime($update_time)) : '-'; ?></td>
     <?php
     } // end if
     if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
     ?>
-    <td class="value tbl_last_check"><?php echo $check_time ? PMA_localisedDate(strtotime($check_time)) : '-'; ?></td>
+    <td class="value tbl_last_check"><?php echo $check_time ? $common_functions->localisedDate(strtotime($check_time)) : '-'; ?></td>
     <?php
     } // end if
     } elseif ($table_is_view) {
@@ -597,9 +604,11 @@ foreach ($tables as $keyname => $each_table) {
 
 // Show Summary
 if ($is_show_stats) {
-    list($sum_formatted, $unit) = PMA_formatByteDown($sum_size, 3, 1);
+    list($sum_formatted, $unit) = $common_functions->formatByteDown(
+        $sum_size, 3, 1
+    );
     list($overhead_formatted, $overhead_unit)
-        = PMA_formatByteDown($overhead_size, 3, 1);
+        = $common_functions->formatByteDown($overhead_size, 3, 1);
 }
 ?>
 </tbody>
@@ -609,7 +618,7 @@ if ($is_show_stats) {
         <?php
             echo sprintf(
                 _ngettext('%s table', '%s tables', $num_tables),
-                PMA_formatNumber($num_tables, 0)
+                $common_functions->formatNumber($num_tables, 0)
             );
         ?>
     </th>
@@ -620,7 +629,7 @@ if ($is_show_stats) {
     ?>
     <th colspan="<?php echo ($db_is_information_schema ? 3 : 6) ?>">
         <?php echo __('Sum'); ?></th>
-    <th class="value tbl_rows"><?php echo $sum_row_count_pre . PMA_formatNumber($sum_entries, 0); ?></th>
+    <th class="value tbl_rows"><?php echo $sum_row_count_pre . $common_functions->formatNumber($sum_entries, 0); ?></th>
 <?php
 if (!($cfg['PropertiesNumColumns'] > 1)) {
     $default_engine = PMA_DBI_fetch_value('SHOW VARIABLES LIKE \'storage_engine\';', 0, 1);
@@ -647,19 +656,19 @@ if ($is_show_stats) {
 
 if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
     echo '    <th class="value tbl_creation">' . "\n"
-        . '        ' . ($create_time_all ? PMA_localisedDate(strtotime($create_time_all)) : '-')
+        . '        ' . ($create_time_all ? $common_functions->localisedDate(strtotime($create_time_all)) : '-')
         . '    </th>';
 }
 
 if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
     echo '    <th class="value tbl_last_update">' . "\n"
-        . '        ' . ($update_time_all ? PMA_localisedDate(strtotime($update_time_all)) : '-')
+        . '        ' . ($update_time_all ? $common_functions->localisedDate(strtotime($update_time_all)) : '-')
         . '    </th>';
 }
 
 if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
     echo '    <th class="value tbl_last_check">' . "\n"
-        . '        ' . ($check_time_all ? PMA_localisedDate(strtotime($check_time_all)) : '-')
+        . '        ' . ($check_time_all ? $common_functions->localisedDate(strtotime($check_time_all)) : '-')
         . '    </th>';
 }
 
@@ -722,7 +731,7 @@ if (!$db_is_information_schema && !$cfg['DisableMultiTableMaintenance']) {
 </form>
 <?php
 // display again the table list navigator
-echo PMA_getListNavigator(
+echo $common_functions->getListNavigator(
     $total_num_tables, $pos, $_url_params, 'db_structure.php',
     'frame_content', $GLOBALS['cfg']['MaxTableList']
 );
@@ -739,10 +748,10 @@ echo PMA_getListNavigator(
 /* Printable view of a table */
 echo '<p>';
 echo '<a href="db_printview.php?' . $url_query . '">';
-echo PMA_getIcon('b_print.png', __('Print view'), true) . '</a>';
+echo $common_functions->getIcon('b_print.png', __('Print view'), true) . '</a>';
 
 echo '<a href="db_datadict.php?' . $url_query . '">';
-echo PMA_getIcon('b_tblanalyse.png', __('Data Dictionary'), true) . '</a>';
+echo $common_functions->getIcon('b_tblanalyse.png', __('Data Dictionary'), true) . '</a>';
 echo '</p>';
 
 if (empty($db_is_information_schema)) {
