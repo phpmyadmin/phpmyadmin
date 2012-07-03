@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-07-03 12:34+0200\n"
+"PO-Revision-Date: 2012-07-03 14:05+0200\n"
 "Last-Translator: Ashiyane Digital Security Team <HeXa.ashiyane@gmail.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
@@ -1648,7 +1648,7 @@ msgstr "سیستم مشاور"
 
 #: js/messages.php:221
 msgid "Possible performance issues"
-msgstr ""
+msgstr "امکان وجود مشکلات اجرایی"
 
 #: js/messages.php:222
 msgid "Issue"
