@@ -295,7 +295,7 @@ function PMA_getGrantsArray()
  *
  * @return $html_output             html snippet
  */
-function PMA_getHtmlToDisplayColumnPrivileges($columns, $row, $name_for_select,
+function PMA_getHtmlForDisplayColumnPrivileges($columns, $row, $name_for_select,
     $priv_for_header, $name, $name_for_dfn, $name_for_current
 ) {
     $html_output = '<div class="item" id="div_item_' . $name . '">' . "\n"
