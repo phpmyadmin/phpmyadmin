@@ -23,6 +23,8 @@ require_once 'libraries/db_table_exists.lib.php';
  */
 require_once 'libraries/insert_edit.lib.php';
 
+$common_functions = PMA_CommonFunctions::getInstance();
+
 /**
  * Sets global variables.
  * Here it's better to use a if, instead of the '?' operator
@@ -134,7 +136,7 @@ if (! empty($disp_message)) {
  * @todo should be handled by class Table
  */
 $show_create_table = PMA_DBI_fetch_value(
-    'SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table),
+    'SHOW CREATE TABLE ' . $common_functions->backquote($db) . '.' . $common_functions->backquote($table),
     0, 1
 );
 $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
@@ -208,7 +210,7 @@ if ($is_upload) {
 $html_output .= '>';
 $html_output .= PMA_generate_common_hidden_inputs($_form_params);
 
-$titles['Browse'] = PMA_getIcon('b_browse.png', __('Browse foreign values'));
+$titles['Browse'] = $common_functions->getIcon('b_browse.png', __('Browse foreign values'));
 
 // user can toggle the display of Function column and column types
 // (currently does not work for multi-edits)
@@ -257,7 +259,8 @@ foreach ($rows as $row_id => $current_row) {
             $column = PMA_analyzeTableColumnsArray($column, $comments_map, $timestamp_seen);
         }
         
-        $extracted_columnspec = PMA_extractColumnSpec($column['Type']);
+        $extracted_columnspec
+            = $common_functions->extractColumnSpec($column['Type']);
 
         if (-1 === $column['len']) {
             $column['len'] = PMA_DBI_field_len($current_result, $i);
@@ -296,7 +299,7 @@ foreach ($rows as $row_id => $current_row) {
         } //End if
 
         // Get a list of GIS data types.
-        $gis_data_types = PMA_getGISDatatypes();
+        $gis_data_types = $common_functions->getGISDatatypes();
 
         // Prepares the field value
         $real_null_value = false;
@@ -317,7 +320,7 @@ foreach ($rows as $row_id => $current_row) {
         $tabindex = $idindex;
 
         // Get a list of data types that are not yet supported.
-        $no_support_types = PMA_unsupportedDatatypes();
+        $no_support_types = $common_functions->unsupportedDatatypes();
 
         // The function column
         // -------------------
@@ -372,7 +375,10 @@ $html_output .= PMA_getActionsPanel($where_clause, $after_insert, $tabindex,
     $tabindex_for_value, $found_unique_key);
 
 if ($biggest_max_file_size > 0) {
-    $html_output .= '        ' . PMA_generateHiddenMaxFileSize($biggest_max_file_size) . "\n";
+    $html_output .= '        '
+        . $common_functions->generateHiddenMaxFileSize(
+            $biggest_max_file_size
+        ) . "\n";
 }
 $html_output .= '</form>'; 
 // end Insert/Edit form

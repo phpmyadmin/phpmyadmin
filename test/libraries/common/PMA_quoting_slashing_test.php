@@ -10,7 +10,7 @@
 /*
  * Include to test.
  */
-require_once 'libraries/common.lib.php';
+require_once 'libraries/CommonFunctions.class.php';
 require_once 'libraries/sqlparser.data.php';
 
 class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
@@ -22,19 +22,20 @@ class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
     public function testAddSlashes()
     {
         $string = "\'test''\''\'\r\t\n";
+        $common = PMA_CommonFunctions::getInstance();
 
-        $this->assertEquals("\\\\\\\\\'test\'\'\\\\\\\\\'\'\\\\\\\\\'\\r\\t\\n", PMA_sqlAddSlashes($string, true, true, true));
-        $this->assertEquals("\\\\\\\\''test''''\\\\\\\\''''\\\\\\\\''\\r\\t\\n", PMA_sqlAddSlashes($string, true, true, false));
-        $this->assertEquals("\\\\\\\\\'test\'\'\\\\\\\\\'\'\\\\\\\\\'\r\t\n", PMA_sqlAddSlashes($string, true, false, true));
-        $this->assertEquals("\\\\\\\\''test''''\\\\\\\\''''\\\\\\\\''\r\t\n", PMA_sqlAddSlashes($string, true, false, false));
-        $this->assertEquals("\\\\\'test\'\'\\\\\'\'\\\\\'\\r\\t\\n", PMA_sqlAddSlashes($string, false, true, true));
-        $this->assertEquals("\\\\''test''''\\\\''''\\\\''\\r\\t\\n", PMA_sqlAddSlashes($string, false, true, false));
-        $this->assertEquals("\\\\\'test\'\'\\\\\'\'\\\\\'\r\t\n", PMA_sqlAddSlashes($string, false, false, true));
-        $this->assertEquals("\\\\''test''''\\\\''''\\\\''\r\t\n", PMA_sqlAddSlashes($string, false, false, false));
+        $this->assertEquals("\\\\\\\\\'test\'\'\\\\\\\\\'\'\\\\\\\\\'\\r\\t\\n", $common->sqlAddSlashes($string, true, true, true));
+        $this->assertEquals("\\\\\\\\''test''''\\\\\\\\''''\\\\\\\\''\\r\\t\\n", $common->sqlAddSlashes($string, true, true, false));
+        $this->assertEquals("\\\\\\\\\'test\'\'\\\\\\\\\'\'\\\\\\\\\'\r\t\n", $common->sqlAddSlashes($string, true, false, true));
+        $this->assertEquals("\\\\\\\\''test''''\\\\\\\\''''\\\\\\\\''\r\t\n", $common->sqlAddSlashes($string, true, false, false));
+        $this->assertEquals("\\\\\'test\'\'\\\\\'\'\\\\\'\\r\\t\\n", $common->sqlAddSlashes($string, false, true, true));
+        $this->assertEquals("\\\\''test''''\\\\''''\\\\''\\r\\t\\n", $common->sqlAddSlashes($string, false, true, false));
+        $this->assertEquals("\\\\\'test\'\'\\\\\'\'\\\\\'\r\t\n", $common->sqlAddSlashes($string, false, false, true));
+        $this->assertEquals("\\\\''test''''\\\\''''\\\\''\r\t\n", $common->sqlAddSlashes($string, false, false, false));
     }
 
     /**
-     * data provider for unQuote test
+     * data provider for PMA_CommonFunctions::unQuote test
      *
      * @return array
      */
@@ -49,16 +50,18 @@ class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * unQuote test
+     * PMA_CommonFunctions::unQuote test
      * @dataProvider unQuoteProvider
      */
     public function testUnQuote($param, $expected)
     {
-        $this->assertEquals($expected, PMA_unQuote($param));
+        $this->assertEquals(
+            $expected, PMA_CommonFunctions::getInstance()->unQuote($param)
+        );
     }
 
     /**
-     * data provider for unQuote test with chosen quote
+     * data provider for PMA_CommonFunctions::unQuote test with chosen quote
      *
      * @return array
      */
@@ -73,12 +76,14 @@ class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * unQuote test with chosen quote
+     * PMA_CommonFunctions::unQuote test with chosen quote
      * @dataProvider unQuoteSelectedProvider
      */
     public function testUnQuoteSelectedChar($param, $expected)
     {
-        $this->assertEquals($expected, PMA_unQuote($param, '"'));
+        $this->assertEquals(
+            $expected, PMA_CommonFunctions::getInstance()->unQuote($param, '"')
+        );
     }
 
     /**
@@ -103,10 +108,10 @@ class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
     public function testBackquote($a, $b)
     {
         // Test bypass quoting (used by dump functions)
-        $this->assertEquals($a, PMA_backquote($a, false));
+        $this->assertEquals($a, PMA_CommonFunctions::getInstance()->backquote($a, false));
 
         // Test backquote
-        $this->assertEquals($b, PMA_backquote($a));
+        $this->assertEquals($b, PMA_CommonFunctions::getInstance()->backquote($a));
     }
 
     public function testBackquoteForbidenWords()
@@ -114,7 +119,7 @@ class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
         global $PMA_SQPdata_forbidden_word;
 
         foreach ($PMA_SQPdata_forbidden_word as $forbidden) {
-            $this->assertEquals("`" . $forbidden . "`", PMA_backquote($forbidden, false));
+            $this->assertEquals("`" . $forbidden . "`", PMA_CommonFunctions::getInstance()->backquote($forbidden, false));
         }
     }
 }

@@ -11,11 +11,13 @@ if (! defined('PHPMYADMIN')) {
 /**
  *
  */
-if (! PMA_cacheExists('mysql_charsets', true)) {
+$common_functions = PMA_CommonFunctions::getInstance();
+
+if (! $common_functions->cacheExists('mysql_charsets', true)) {
     $sql = PMA_DRIZZLE
         ? 'SELECT * FROM data_dictionary.CHARACTER_SETS'
         : 'SELECT * FROM information_schema.CHARACTER_SETS';
-    $res = PMA_DBI_query($sql);
+    $res = PMA_DBI_query($sql);    
 
     $mysql_charsets = array();
     while ($row = PMA_DBI_fetch_assoc($res)) {
@@ -69,21 +71,21 @@ if (! PMA_cacheExists('mysql_charsets', true)) {
     }
     unset($key, $value);
 
-    PMA_cacheSet('mysql_charsets', $GLOBALS['mysql_charsets'], true);
-    PMA_cacheSet('mysql_charsets_descriptions', $GLOBALS['mysql_charsets_descriptions'], true);
-    PMA_cacheSet('mysql_charsets_available', $GLOBALS['mysql_charsets_available'], true);
-    PMA_cacheSet('mysql_collations', $GLOBALS['mysql_collations'], true);
-    PMA_cacheSet('mysql_default_collations', $GLOBALS['mysql_default_collations'], true);
-    PMA_cacheSet('mysql_collations_flat', $GLOBALS['mysql_collations_flat'], true);
-    PMA_cacheSet('mysql_collations_available', $GLOBALS['mysql_collations_available'], true);
+    $common_functions->cacheSet('mysql_charsets', $GLOBALS['mysql_charsets'], true);
+    $common_functions->cacheSet('mysql_charsets_descriptions', $GLOBALS['mysql_charsets_descriptions'], true);
+    $common_functions->cacheSet('mysql_charsets_available', $GLOBALS['mysql_charsets_available'], true);
+    $common_functions->cacheSet('mysql_collations', $GLOBALS['mysql_collations'], true);
+    $common_functions->cacheSet('mysql_default_collations', $GLOBALS['mysql_default_collations'], true);
+    $common_functions->cacheSet('mysql_collations_flat', $GLOBALS['mysql_collations_flat'], true);
+    $common_functions->cacheSet('mysql_collations_available', $GLOBALS['mysql_collations_available'], true);
 } else {
-    $GLOBALS['mysql_charsets']              = PMA_cacheGet('mysql_charsets', true);
-    $GLOBALS['mysql_charsets_descriptions'] = PMA_cacheGet('mysql_charsets_descriptions', true);
-    $GLOBALS['mysql_charsets_available']    = PMA_cacheGet('mysql_charsets_available', true);
-    $GLOBALS['mysql_collations']            = PMA_cacheGet('mysql_collations', true);
-    $GLOBALS['mysql_default_collations']    = PMA_cacheGet('mysql_default_collations', true);
-    $GLOBALS['mysql_collations_flat']       = PMA_cacheGet('mysql_collations_flat', true);
-    $GLOBALS['mysql_collations_available']  = PMA_cacheGet('mysql_collations_available', true);
+    $GLOBALS['mysql_charsets']              = $common_functions->cacheGet('mysql_charsets', true);
+    $GLOBALS['mysql_charsets_descriptions'] = $common_functions->cacheGet('mysql_charsets_descriptions', true);
+    $GLOBALS['mysql_charsets_available']    = $common_functions->cacheGet('mysql_charsets_available', true);
+    $GLOBALS['mysql_collations']            = $common_functions->cacheGet('mysql_collations', true);
+    $GLOBALS['mysql_default_collations']    = $common_functions->cacheGet('mysql_default_collations', true);
+    $GLOBALS['mysql_collations_flat']       = $common_functions->cacheGet('mysql_collations_flat', true);
+    $GLOBALS['mysql_collations_available']  = $common_functions->cacheGet('mysql_collations_available', true);
 }
 
 define('PMA_CSDROPDOWN_COLLATION', 0);
@@ -167,6 +169,9 @@ function PMA_generateCharsetQueryPart($collation)
  */
 function PMA_getDbCollation($db)
 {
+    
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
     if (PMA_is_system_schema($db)) {
         // We don't have to check the collation of the virtual
         // information_schema database: We know it!
@@ -176,8 +181,8 @@ function PMA_getDbCollation($db)
     if (! $GLOBALS['cfg']['Server']['DisableIS']) {
         // this is slow with thousands of databases
         $sql = PMA_DRIZZLE
-            ? 'SELECT DEFAULT_COLLATION_NAME FROM data_dictionary.SCHEMAS WHERE SCHEMA_NAME = \'' . PMA_sqlAddSlashes($db) . '\' LIMIT 1'
-            : 'SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA WHERE SCHEMA_NAME = \'' . PMA_sqlAddSlashes($db) . '\' LIMIT 1';
+            ? 'SELECT DEFAULT_COLLATION_NAME FROM data_dictionary.SCHEMAS WHERE SCHEMA_NAME = \'' . $common_functions->sqlAddSlashes($db) . '\' LIMIT 1'
+            : 'SELECT DEFAULT_COLLATION_NAME FROM information_schema.SCHEMATA WHERE SCHEMA_NAME = \'' . $common_functions->sqlAddSlashes($db) . '\' LIMIT 1';
         return PMA_DBI_fetch_value($sql);
     } else {
         PMA_DBI_select_db($db);

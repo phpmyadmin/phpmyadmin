@@ -15,6 +15,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+$common_functions = PMA_CommonFunctions::getInstance();
+
 /**
  * limits for table list
  */
@@ -40,6 +42,9 @@ $pos = $_SESSION['tmp_user_values']['table_limit_offset'];
  */
 function PMA_fillTooltip(&$tooltip_truename, &$tooltip_aliasname, $table)
 {
+    
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
     if (strstr($table['Comment'], '; InnoDB free') === false) {
         if (!strstr($table['Comment'], 'InnoDB free') === false) {
             // here we have just InnoDB generated part
@@ -74,21 +79,24 @@ function PMA_fillTooltip(&$tooltip_truename, &$tooltip_aliasname, $table)
 
     if (isset($table['Create_time']) && !empty($table['Create_time'])) {
         $tooltip_aliasname[$table['Name']] .= ', ' . __('Creation')
-             . ': ' . PMA_localisedDate(strtotime($table['Create_time']));
+            . ': '
+            . $common_functions->localisedDate(strtotime($table['Create_time']));
     }
 
     if (! empty($table['Update_time'])) {
         $tooltip_aliasname[$table['Name']] .= ', ' . __('Last update')
-             . ': ' . PMA_localisedDate(strtotime($table['Update_time']));
+            . ': '
+            . $common_functions->localisedDate(strtotime($table['Update_time']));
     }
 
     if (! empty($table['Check_time'])) {
         $tooltip_aliasname[$table['Name']] .= ', ' . __('Last check')
-             . ': ' . PMA_localisedDate(strtotime($table['Check_time']));
+            . ': '
+            . $common_functions->localisedDate(strtotime($table['Check_time']));
     }
 }
 
-PMA_checkParameters(array('db'));
+$common_functions->checkParameters(array('db'));
 
 /**
  * @global bool whether to display extended stats
@@ -113,7 +121,9 @@ $tables = array();
 // When used in Nested table group mode,
 // only show tables matching the given groupname
 if (PMA_isValid($tbl_group) && !$cfg['ShowTooltipAliasTB']) {
-    $tbl_group_sql = ' LIKE "' . PMA_escapeMysqlWildcards($tbl_group) . '%"';
+    $tbl_group_sql = ' LIKE "'
+        . $common_functions->escapeMysqlWildcards($tbl_group)
+        . '%"';
 } else {
     $tbl_group_sql = '';
 }
@@ -126,7 +136,7 @@ if ($cfg['ShowTooltip']) {
 // Special speedup for newer MySQL Versions (in 4.0 format changed)
 if (true === $cfg['SkipLockedTables']) {
     $db_info_result = PMA_DBI_query(
-        'SHOW OPEN TABLES FROM ' . PMA_backquote($db) . ';'
+        'SHOW OPEN TABLES FROM ' . $common_functions->backquote($db) . ';'
     );
 
     // Blending out tables in use
@@ -141,15 +151,15 @@ if (true === $cfg['SkipLockedTables']) {
 
         if (isset($sot_cache)) {
             $db_info_result = PMA_DBI_query(
-                'SHOW TABLES FROM ' . PMA_backquote($db) . $tbl_group_sql . ';',
+                'SHOW TABLES FROM ' . $common_functions->backquote($db) . $tbl_group_sql . ';',
                 null, PMA_DBI_QUERY_STORE
             );
             if ($db_info_result && PMA_DBI_num_rows($db_info_result) > 0) {
                 while ($tmp = PMA_DBI_fetch_row($db_info_result)) {
                     if (! isset($sot_cache[$tmp[0]])) {
                         $sts_result  = PMA_DBI_query(
-                            'SHOW TABLE STATUS FROM ' . PMA_backquote($db)
-                            . ' LIKE \'' . PMA_sqlAddSlashes($tmp[0], true) . '\';'
+                            'SHOW TABLE STATUS FROM ' . $common_functions->backquote($db)
+                            . ' LIKE \'' . $common_functions->sqlAddSlashes($tmp[0], true) . '\';'
                         );
                         $sts_tmp     = PMA_DBI_fetch_assoc($sts_result);
                         PMA_DBI_free_result($sts_result);

@@ -52,7 +52,7 @@ function PMA_select_language($use_fieldset = false, $show_doc = true)
     $language_title = __('Language')
         . (__('Language') != 'Language' ? ' - <em>Language</em>' : '');
     if ($show_doc) {
-        $language_title .= PMA_showDocu('faq7_2');
+        $language_title .= PMA_CommonFunctions::getInstance()->showDocu('faq7_2');
     }
     if ($use_fieldset) {
         echo '<fieldset><legend lang="en" dir="ltr">' . $language_title . '</legend>';

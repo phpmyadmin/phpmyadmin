@@ -16,6 +16,8 @@ if (isset($_REQUEST['show_as_php'])) {
     $GLOBALS['show_as_php'] = $_REQUEST['show_as_php'];
 }
 
+$common_functions = PMA_CommonFunctions::getInstance();
+
 /**
  * Sets globals from $_POST
  */
@@ -113,7 +115,7 @@ foreach (array_keys($_POST) as $post_key) {
 }
 
 // Check needed parameters
-PMA_checkParameters(array('import_type', 'format'));
+$common_functions->checkParameters(array('import_type', 'format'));
 
 // We don't want anything special in format
 $format = PMA_securePath($format);
@@ -207,7 +209,7 @@ if (! empty($id_bookmark)) {
         if (isset($bookmark_variable) && ! empty($bookmark_variable)) {
             $import_text = preg_replace(
                 '|/\*(.*)\[VARIABLE\](.*)\*/|imsU',
-                '${1}' . PMA_sqlAddSlashes($bookmark_variable) . '${2}',
+                '${1}' . $common_functions->sqlAddSlashes($bookmark_variable) . '${2}',
                 $import_text
             );
         }
@@ -291,7 +293,9 @@ if (! empty($local_import_file) && ! empty($cfg['UploadDir'])) {
     // sanitize $local_import_file as it comes from a POST
     $local_import_file = PMA_securePath($local_import_file);
 
-    $import_file  = PMA_userDir($cfg['UploadDir']) . $local_import_file;
+    $import_file = $common_functions->userDir($cfg['UploadDir'])
+        . $local_import_file;
+    
 } elseif (empty($import_file) || ! is_uploaded_file($import_file)) {
     $import_file  = 'none';
 }
@@ -516,7 +520,7 @@ if (strlen($sql_query) <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
 // There was an error?
 if (isset($my_die)) {
     foreach ($my_die AS $key => $die) {
-        PMA_mysqlDie($die['error'], $die['sql'], '', $err_url, $error);
+        $common_functions->mysqlDie($die['error'], $die['sql'], '', $err_url, $error);
     }
 }
 

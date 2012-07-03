@@ -13,6 +13,8 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/zip.lib.php';
 require_once 'libraries/plugin_interface.lib.php';
 
+$common_functions = PMA_CommonFunctions::getInstance();
+
 /**
  * Sets globals from all $_POST (in export.php only)
  * Would it not be tiresome to list all export-plugin options here?
@@ -21,7 +23,7 @@ foreach ($_POST as $one_post_param => $one_post_value) {
     $GLOBALS[$one_post_param] = $one_post_value;
 }
 
-PMA_checkParameters(array('what', 'export_type'));
+$common_functions->checkParameters(array('what', 'export_type'));
 
 // export class instance, not array of properties, as before
 $export_plugin = PMA_getPlugin(
@@ -249,7 +251,7 @@ function PMA_exportOutputHandler($line)
 if ($what == 'sql') {
     $crlf = "\n";
 } else {
-    $crlf = PMA_whichCrlf();
+    $crlf = $common_functions->whichCrlf();
 }
 
 $output_kanji_conversion = function_exists('PMA_kanji_str_conv') && $type != 'xls';
@@ -319,7 +321,7 @@ if ($asfile) {
             );
         }
     }
-    $filename = PMA_expandUserString($filename_template);
+    $filename = $common_functions->expandUserString($filename_template);
     $filename = PMA_sanitizeFilename($filename);
 
     // Grab basic dump extension and mime type
@@ -348,7 +350,7 @@ if ($asfile) {
 
 // Open file on server if needed
 if ($save_on_server) {
-    $save_filename = PMA_userDir($cfg['SaveDir'])
+    $save_filename = $common_functions->userDir($cfg['SaveDir'])
         . preg_replace('@[/\\\\]@', '_', $filename);
     unset($message);
     if (file_exists($save_filename)
@@ -442,9 +444,9 @@ if (! $save_on_server) {
         }
 
         foreach ($_REQUEST as $name => $value) {
-            $back_button .= '&' . urlencode($name) . '=' . urlencode($value);
+            $back_button .= '&amp;' . urlencode($name) . '=' . urlencode($value);
         }
-        $back_button .= '&repopulate=1">Back</a> ]</p>';
+        $back_button .= '&amp;repopulate=1">Back</a> ]</p>';
 
         echo $back_button;
         echo '    <form name="nofunction">' . "\n"
@@ -534,8 +536,8 @@ do {
                         || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data')
                         && ! ($is_view || PMA_Table::isMerge($current_db, $table))
                     ) {
-                        $local_query  = 'SELECT * FROM ' . PMA_backquote($current_db)
-                            . '.' . PMA_backquote($table);
+                        $local_query  = 'SELECT * FROM ' . $common_functions->backquote($current_db)
+                            . '.' . $common_functions->backquote($table);
                         if (! $export_plugin->exportData($current_db, $table, $crlf, $err_url, $local_query)) {
                             break 3;
                         }
@@ -613,8 +615,8 @@ do {
                 || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data')
                 && ! ($is_view || PMA_Table::isMerge($db, $table))
             ) {
-                $local_query  = 'SELECT * FROM ' . PMA_backquote($db)
-                    . '.' . PMA_backquote($table);
+                $local_query  = 'SELECT * FROM ' . $common_functions->backquote($db)
+                    . '.' . $common_functions->backquote($table);
                 if (! $export_plugin->exportData($db, $table, $crlf, $err_url, $local_query)) {
                     break 2;
                 }
@@ -687,8 +689,8 @@ do {
                 $local_query = $sql_query . $add_query;
                 PMA_DBI_select_db($db);
             } else {
-                $local_query  = 'SELECT * FROM ' . PMA_backquote($db) . '.'
-                    . PMA_backquote($table) . $add_query;
+                $local_query  = 'SELECT * FROM ' . $common_functions->backquote($db)
+                    . '.' . $common_functions->backquote($table) . $add_query;
             }
             if (! $export_plugin->exportData($db, $table, $crlf, $err_url,
                 $local_query
@@ -752,8 +754,8 @@ if (! empty($asfile)) {
     if ($compression == 'zip') {
         if (@function_exists('gzcompress')) {
             $zipfile = new ZipFile();
-            $zipfile -> addFile($dump_buffer, substr($filename, 0, -4));
-            $dump_buffer = $zipfile -> file();
+            $zipfile->addFile($dump_buffer, substr($filename, 0, -4));
+            $dump_buffer = $zipfile->file();
         }
     } elseif ($compression == 'bzip2') {
         // 2. as a bzipped file
@@ -772,7 +774,7 @@ if (! empty($asfile)) {
     if ($save_on_server) {
         $write_result = @fwrite($file_handle, $dump_buffer);
         fclose($file_handle);
-        if (strlen($dump_buffer) !=0
+        if (strlen($dump_buffer) > 0
             && (! $write_result || ($write_result != strlen($dump_buffer)))
         ) {
             $message = new PMA_Message(
@@ -819,22 +821,10 @@ if (! empty($asfile)) {
 ?>
 <script type="text/javascript">
 //<![CDATA[
-    var bodyWidth=null; var bodyHeight=null;
-    if (document.getElementById('textSQLDUMP')) {
-        bodyWidth  = self.innerWidth;
-        bodyHeight = self.innerHeight;
-        if (! bodyWidth && ! bodyHeight) {
-            if (document.compatMode && document.compatMode == "BackCompat") {
-                bodyWidth  = document.body.clientWidth;
-                bodyHeight = document.body.clientHeight;
-            } else if (document.compatMode && document.compatMode == "CSS1Compat") {
-                bodyWidth  = document.documentElement.clientWidth;
-                bodyHeight = document.documentElement.clientHeight;
-            }
-        }
-        document.getElementById('textSQLDUMP').style.width=(bodyWidth-50) + 'px';
-        document.getElementById('textSQLDUMP').style.height=(bodyHeight-100) + 'px';
-    }
+    var $body = $("body");
+    $("#textSQLDUMP")
+        .width($body.width() - 50)
+        .height($body.height() - 100);
 //]]>
 </script>
 <?php

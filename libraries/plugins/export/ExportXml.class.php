@@ -170,6 +170,7 @@ class ExportXml extends ExportPlugin
         $table = $this->_getTable();
         $tables = $this->_getTables();
 
+        $common_functions = PMA_CommonFunctions::getInstance();
         $export_struct = isset($GLOBALS['xml_export_functions'])
             || isset($GLOBALS['xml_export_procedures'])
             || isset($GLOBALS['xml_export_tables'])
@@ -194,10 +195,11 @@ class ExportXml extends ExportPlugin
              $head .= ':' . $cfg['Server']['port'];
         }
         $head .= $crlf
-               .  '- ' . __('Generation Time') . ': ' . PMA_localisedDate() . $crlf
-               .  '- ' . __('Server version') . ': ' . PMA_MYSQL_STR_VERSION . $crlf
-               .  '- ' . __('PHP Version') . ': ' . phpversion() . $crlf
-               .  '-->' . $crlf . $crlf;
+            . '- ' . __('Generation Time') . ': '
+            . $common_functions->localisedDate() . $crlf
+            . '- ' . __('Server version') . ': ' . PMA_MYSQL_STR_VERSION . $crlf
+            . '- ' . __('PHP Version') . ': ' . phpversion() . $crlf
+            . '-->' . $crlf . $crlf;
 
         $head .= '<pma_xml_export version="1.0"'
             . (($export_struct)
@@ -212,13 +214,13 @@ class ExportXml extends ExportPlugin
                         'utf8' AS DEFAULT_CHARACTER_SET_NAME,
                         DEFAULT_COLLATION_NAME
                     FROM data_dictionary.SCHEMAS
-                    WHERE SCHEMA_NAME = '" . PMA_sqlAddSlashes($db) . "'"
+                    WHERE SCHEMA_NAME = '" . $common_functions->sqlAddSlashes($db) . "'"
                 );
             } else {
                 $result = PMA_DBI_fetch_result(
                     'SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME`'
                     . ' FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`'
-                    . ' = \''.PMA_sqlAddSlashes($db).'\' LIMIT 1'
+                    . ' = \''.$common_functions->sqlAddSlashes($db).'\' LIMIT 1'
                 );
             }
             $db_collation = $result[0]['DEFAULT_COLLATION_NAME'];
@@ -239,8 +241,8 @@ class ExportXml extends ExportPlugin
             foreach ($tables as $table) {
                 // Export tables and views
                 $result = PMA_DBI_fetch_result(
-                    'SHOW CREATE TABLE ' . PMA_backquote($db) . '.'
-                    . PMA_backquote($table),
+                    'SHOW CREATE TABLE ' . $common_functions->backquote($db) . '.'
+                    . $common_functions->backquote($table),
                     0
                 );
                 $tbl =  $result[$table][1];

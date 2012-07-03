@@ -11,6 +11,7 @@
 require_once './libraries/common.inc.php';
 
 PMA_Response::getInstance()->disable();
+$common_functions = PMA_CommonFunctions::getInstance();
 
 require_once 'libraries/pmd_common.php';
 extract($_POST, EXTR_SKIP);
@@ -27,14 +28,17 @@ $type_T2 = strtoupper($tables[$T2]['ENGINE']);
 
 $try_to_delete_internal_relation = false;
 
-if (PMA_isForeignKeySupported($type_T1) && PMA_isForeignKeySupported($type_T2) && $type_T1 == $type_T2) {
+if ($common_functions->isForeignKeySupported($type_T1)
+    && $common_functions->isForeignKeySupported($type_T2)
+    && $type_T1 == $type_T2
+) {
     // InnoDB
     $existrel_foreign = PMA_getForeigners($DB2, $T2, '', 'foreign');
 
     if (isset($existrel_foreign[$F2]['constraint'])) {
-        $upd_query  = 'ALTER TABLE ' . PMA_backquote($DB2)
-                  . '.' . PMA_backquote($T2) . ' DROP FOREIGN KEY '
-                  . PMA_backquote($existrel_foreign[$F2]['constraint'])
+        $upd_query  = 'ALTER TABLE ' . $common_functions->backquote($DB2)
+                  . '.' . $common_functions->backquote($T2) . ' DROP FOREIGN KEY '
+                  . $common_functions->backquote($existrel_foreign[$F2]['constraint'])
                   . ';';
         $upd_rs     = PMA_DBI_query($upd_query);
     } else {
@@ -48,14 +52,14 @@ if ($try_to_delete_internal_relation) {
     // internal relations
     PMA_queryAsControlUser(
         'DELETE FROM '
-        . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
+        . $common_functions->backquote($GLOBALS['cfgRelation']['db']) . '.'
         . $cfg['Server']['relation'].' WHERE '
-        . 'master_db = \'' . PMA_sqlAddSlashes($DB2) . '\''
-        . ' AND master_table = \'' . PMA_sqlAddSlashes($T2) . '\''
-        . ' AND master_field = \'' . PMA_sqlAddSlashes($F2) . '\''
-        . ' AND foreign_db = \'' . PMA_sqlAddSlashes($DB1) . '\''
-        . ' AND foreign_table = \'' . PMA_sqlAddSlashes($T1) . '\''
-        . ' AND foreign_field = \'' . PMA_sqlAddSlashes($F1) . '\'',
+        . 'master_db = \'' . $common_functions->sqlAddSlashes($DB2) . '\''
+        . ' AND master_table = \'' . $common_functions->sqlAddSlashes($T2) . '\''
+        . ' AND master_field = \'' . $common_functions->sqlAddSlashes($F2) . '\''
+        . ' AND foreign_db = \'' . $common_functions->sqlAddSlashes($DB1) . '\''
+        . ' AND foreign_table = \'' . $common_functions->sqlAddSlashes($T1) . '\''
+        . ' AND foreign_field = \'' . $common_functions->sqlAddSlashes($F1) . '\'',
         false,
         PMA_DBI_QUERY_STORE
     );

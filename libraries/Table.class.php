@@ -65,6 +65,35 @@ class PMA_Table
      * @var array messages
      */
     var $messages = array();
+    
+    private $_common_functions;
+    
+    
+    /**
+     * Set CommmonFunctions
+     * 
+     * @param PMA_CommonFunctions $commonFunctions
+     * 
+     * @return void
+     */
+    public function setCommonFunctions(PMA_CommonFunctions $commonFunctions)
+    {
+        $this->_common_functions = $commonFunctions;
+    }
+    
+    
+    /**
+     * Get CommmonFunctions
+     * 
+     * @return CommonFunctions object
+     */
+    public function getCommonFunctions()
+    {
+        if (is_null($this->_common_functions)) {
+            $this->_common_functions = PMA_CommonFunctions::getInstance();
+        }
+        return $this->_common_functions;
+    }
 
     /**
      * Constructor
@@ -131,7 +160,7 @@ class PMA_Table
     function getName($backquoted = false)
     {
         if ($backquoted) {
-            return PMA_backquote($this->name);
+            return $this->getCommonFunctions()->backquote($this->name);
         }
         return $this->name;
     }
@@ -158,7 +187,7 @@ class PMA_Table
     function getDbName($backquoted = false)
     {
         if ($backquoted) {
-            return PMA_backquote($this->db_name);
+            return $this->getCommonFunctions()->backquote($this->db_name);
         }
         return $this->db_name;
     }
@@ -186,6 +215,9 @@ class PMA_Table
      */
     static public function isView($db = null, $table = null)
     {
+        
+        $common_functions = PMA_CommonFunctions::getInstance();
+        
         if (empty($db) || empty($table)) {
             return false;
         }
@@ -202,8 +234,8 @@ class PMA_Table
         $result = PMA_DBI_fetch_result(
             "SELECT TABLE_NAME
             FROM information_schema.VIEWS
-            WHERE TABLE_SCHEMA = '" . PMA_sqlAddSlashes($db) . "'
-                AND TABLE_NAME = '" . PMA_sqlAddSlashes($table) . "'"
+            WHERE TABLE_SCHEMA = '" . $common_functions->sqlAddSlashes($db) . "'
+                AND TABLE_NAME = '" . $common_functions->sqlAddSlashes($table) . "'"
         );
         return $result ? true : false;
     }
@@ -360,9 +392,11 @@ class PMA_Table
         $default_type = 'USER_DEFINED', $default_value = '',  $extra = '',
         $comment = '', &$field_primary = null, $move_to = ''
     ) {
+        
+        $common_functions = PMA_CommonFunctions::getInstance();
         $is_timestamp = strpos(strtoupper($type), 'TIMESTAMP') !== false;
 
-        $query = PMA_backquote($name) . ' ' . $type;
+        $query = $common_functions->backquote($name) . ' ' . $type;
 
         if ($length != ''
             && ! preg_match(
@@ -412,10 +446,10 @@ class PMA_Table
                 } else {
                     // Invalid BOOLEAN value
                     $query .= ' DEFAULT \''
-                        . PMA_sqlAddSlashes($default_value) . '\'';
+                        . $common_functions->sqlAddSlashes($default_value) . '\'';
                 }
             } else {
-                $query .= ' DEFAULT \'' . PMA_sqlAddSlashes($default_value) . '\'';
+                $query .= ' DEFAULT \'' . $common_functions->sqlAddSlashes($default_value) . '\'';
             }
             break;
         case 'NULL' :
@@ -465,14 +499,14 @@ class PMA_Table
             } // end if (auto_increment)
         }
         if (!empty($comment)) {
-            $query .= " COMMENT '" . PMA_sqlAddSlashes($comment) . "'";
+            $query .= " COMMENT '" . $common_functions->sqlAddSlashes($comment) . "'";
         }
 
         // move column
         if ($move_to == '-first') { // dash can't appear as part of column name
             $query .= ' FIRST';
         } elseif ($move_to != '') {
-            $query .= ' AFTER ' . PMA_backquote($move_to);
+            $query .= ' AFTER ' . $common_functions->backquote($move_to);
         }
         return $query;
     } // end function
@@ -494,6 +528,9 @@ class PMA_Table
     static public function countRecords($db, $table, $force_exact = false,
         $is_view = null
     ) {
+        
+        $common_functions = PMA_CommonFunctions::getInstance();
+        
         if (isset(PMA_Table::$cache[$db][$table]['ExactRows'])) {
             $row_count = PMA_Table::$cache[$db][$table]['ExactRows'];
         } else {
@@ -526,8 +563,8 @@ class PMA_Table
                 // fast enough
                 if (! $is_view || (PMA_DRIZZLE && PMA_is_system_schema($db))) {
                     $row_count = PMA_DBI_fetch_value(
-                        'SELECT COUNT(*) FROM ' . PMA_backquote($db) . '.'
-                        . PMA_backquote($table)
+                        'SELECT COUNT(*) FROM ' . PMA_CommonFunctions::getInstance()->backquote($db) . '.'
+                        . PMA_CommonFunctions::getInstance()->backquote($table)
                     );
                 } else {
                     // For complex views, even trying to get a partial record
@@ -543,8 +580,8 @@ class PMA_Table
                         // Use try_query because it can fail (when a VIEW is
                         // based on a table that no longer exists)
                         $result = PMA_DBI_try_query(
-                            'SELECT 1 FROM ' . PMA_backquote($db) . '.'
-                            . PMA_backquote($table) . ' LIMIT '
+                            'SELECT 1 FROM ' . $common_functions->backquote($db) . '.'
+                            . $common_functions->backquote($table) . ' LIMIT '
                             . $GLOBALS['cfg']['MaxExactCountViews'],
                             null,
                             PMA_DBI_QUERY_STORE
@@ -590,7 +627,7 @@ class PMA_Table
         $attribute, $collation, $null, $default_type, $default_value,
         $extra, $comment, &$field_primary, $index, $move_to
     ) {
-        return PMA_backquote($oldcol) . ' '
+        return PMA_CommonFunctions::getInstance()->backquote($oldcol) . ' '
             . PMA_Table::generateFieldSpec(
                 $newcol, $type, $index, $length, $attribute,
                 $collation, $null, $default_type, $default_value, $extra,
@@ -621,33 +658,35 @@ class PMA_Table
     static public function duplicateInfo($work, $pma_table, $get_fields,
         $where_fields, $new_fields
     ) {
+        
+        $common_functions = PMA_CommonFunctions::getInstance();
         $last_id = -1;
 
         if (isset($GLOBALS['cfgRelation']) && $GLOBALS['cfgRelation'][$work]) {
             $select_parts = array();
             $row_fields = array();
             foreach ($get_fields as $get_field) {
-                $select_parts[] = PMA_backquote($get_field);
+                $select_parts[] = $common_functions->backquote($get_field);
                 $row_fields[$get_field] = 'cc';
             }
 
             $where_parts = array();
             foreach ($where_fields as $_where => $_value) {
-                $where_parts[] = PMA_backquote($_where) . ' = \''
-                    . PMA_sqlAddSlashes($_value) . '\'';
+                $where_parts[] = $common_functions->backquote($_where) . ' = \''
+                    . $common_functions->sqlAddSlashes($_value) . '\'';
             }
 
             $new_parts = array();
             $new_value_parts = array();
             foreach ($new_fields as $_where => $_value) {
-                $new_parts[] = PMA_backquote($_where);
-                $new_value_parts[] = PMA_sqlAddSlashes($_value);
+                $new_parts[] = $common_functions->backquote($_where);
+                $new_value_parts[] = $common_functions->sqlAddSlashes($_value);
             }
 
             $table_copy_query = '
                 SELECT ' . implode(', ', $select_parts) . '
-                  FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.'
-                  . PMA_backquote($GLOBALS['cfgRelation'][$pma_table]) . '
+                  FROM ' . $common_functions->backquote($GLOBALS['cfgRelation']['db']) . '.'
+                  . $common_functions->backquote($GLOBALS['cfgRelation'][$pma_table]) . '
                  WHERE ' . implode(' AND ', $where_parts);
 
             // must use PMA_DBI_QUERY_STORE here, since we execute another
@@ -660,13 +699,13 @@ class PMA_Table
                 $value_parts = array();
                 foreach ($table_copy_row as $_key => $_val) {
                     if (isset($row_fields[$_key]) && $row_fields[$_key] == 'cc') {
-                        $value_parts[] = PMA_sqlAddSlashes($_val);
+                        $value_parts[] = $common_functions->sqlAddSlashes($_val);
                     }
                 }
 
                 $new_table_query = 'INSERT IGNORE INTO '
-                    . PMA_backquote($GLOBALS['cfgRelation']['db'])
-                    . '.' . PMA_backquote($GLOBALS['cfgRelation'][$pma_table]) . '
+                    . $common_functions->backquote($GLOBALS['cfgRelation']['db'])
+                    . '.' . $common_functions->backquote($GLOBALS['cfgRelation'][$pma_table]) . '
                     (' . implode(', ', $select_parts) . ',
                      ' . implode(', ', $new_parts) . ')
                     VALUES
@@ -702,6 +741,8 @@ class PMA_Table
         $target_table, $what, $move, $mode
     ) {
         global $err_url;
+        
+        $common_functions = PMA_CommonFunctions::getInstance();
 
         /* Try moving table directly */
         if ($move && $what == 'data') {
@@ -738,7 +779,7 @@ class PMA_Table
             return false;
         }
 
-        $source = PMA_backquote($source_db) . '.' . PMA_backquote($source_table);
+        $source = $common_functions->backquote($source_db) . '.' . $common_functions->backquote($source_table);
         if (! isset($target_db) || ! strlen($target_db)) {
             $target_db = $source_db;
         }
@@ -747,7 +788,7 @@ class PMA_Table
         // when moving table from replicated one to not replicated one
         PMA_DBI_select_db($target_db);
 
-        $target = PMA_backquote($target_db) . '.' . PMA_backquote($target_table);
+        $target = $common_functions->backquote($target_db) . '.' . $common_functions->backquote($target_table);
 
         // do not create the table if dataonly
         if ($what != 'dataonly') {
@@ -774,7 +815,7 @@ class PMA_Table
             $i = 0;
             if (empty($analyzed_sql[0]['create_table_fields'])) {
                 // this is not a CREATE TABLE, so find the first VIEW
-                $target_for_view = PMA_backquote($target_db);
+                $target_for_view = $common_functions->backquote($target_db);
                 while (true) {
                     if ($parsed_sql[$i]['type'] == 'alpha_reservedWord'
                         && $parsed_sql[$i]['data'] == 'VIEW'
@@ -808,7 +849,7 @@ class PMA_Table
                 $i++;
             }
 
-            /* no need to PMA_backquote() */
+            /* no need to backquote() */
             if (isset($target_for_view)) {
                 // this a view definition; we just found the first db name
                 // that follows DEFINER VIEW
@@ -818,7 +859,7 @@ class PMA_Table
                 // and change them to the target db, ensuring we stay into
                 // the $parsed_sql limits
                 $last = $parsed_sql['len'] - 1;
-                $backquoted_source_db = PMA_backquote($source_db);
+                $backquoted_source_db = $common_functions->backquote($source_db);
                 for (++$i; $i <= $last; $i++) {
                     if ($parsed_sql[$i]['type'] == $table_delimiter
                         && $parsed_sql[$i]['data'] == $backquoted_source_db
@@ -844,8 +885,8 @@ class PMA_Table
                     $drop_query = 'DROP TABLE';
                 }
                 $drop_query .= ' IF EXISTS '
-                    . PMA_backquote($target_db) . '.'
-                    . PMA_backquote($target_table);
+                    . $common_functions->backquote($target_db) . '.'
+                    . $common_functions->backquote($target_table);
                 PMA_DBI_query($drop_query);
 
                 $GLOBALS['sql_query'] .= "\n" . $drop_query . ';';
@@ -875,7 +916,7 @@ class PMA_Table
                 }
 
                 // replace it by the target table name, no need
-                // to PMA_backquote()
+                // to backquote()
                 $parsed_sql[$i]['data'] = $target;
 
                 // now we must remove all $table_delimiter that follow a
@@ -956,25 +997,25 @@ class PMA_Table
                 if ($GLOBALS['cfgRelation']['commwork']) {
                     // Get all comments and MIME-Types for current table
                     $comments_copy_query = 'SELECT
-                    column_name, comment' . ($GLOBALS['cfgRelation']['mimework'] ? ', mimetype, transformation, transformation_options' : '') . '
-                    FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['column_info']) . '
-                    WHERE
-                    db_name = \'' . PMA_sqlAddSlashes($source_db) . '\' AND
-                    table_name = \'' . PMA_sqlAddSlashes($source_table) . '\'';
+                                                column_name, comment' . ($GLOBALS['cfgRelation']['mimework'] ? ', mimetype, transformation, transformation_options' : '') . '
+                                            FROM ' . $common_functions->backquote($GLOBALS['cfgRelation']['db']) . '.' . $common_functions->backquote($GLOBALS['cfgRelation']['column_info']) . '
+                                            WHERE
+                                                db_name = \'' . $common_functions->sqlAddSlashes($source_db) . '\' AND
+                                                table_name = \'' . $common_functions->sqlAddSlashes($source_table) . '\'';
                     $comments_copy_rs    = PMA_queryAsControlUser($comments_copy_query);
 
                     // Write every comment as new copied entry. [MIME]
                     while ($comments_copy_row = PMA_DBI_fetch_assoc($comments_copy_rs)) {
-                        $new_comment_query = 'REPLACE INTO ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($GLOBALS['cfgRelation']['column_info'])
+                        $new_comment_query = 'REPLACE INTO ' . $common_functions->backquote($GLOBALS['cfgRelation']['db']) . '.' . $common_functions->backquote($GLOBALS['cfgRelation']['column_info'])
                                     . ' (db_name, table_name, column_name, comment' . ($GLOBALS['cfgRelation']['mimework'] ? ', mimetype, transformation, transformation_options' : '') . ') '
                                     . ' VALUES('
-                                    . '\'' . PMA_sqlAddSlashes($target_db) . '\','
-                                    . '\'' . PMA_sqlAddSlashes($target_table) . '\','
-                                    . '\'' . PMA_sqlAddSlashes($comments_copy_row['column_name']) . '\''
-                                    . ($GLOBALS['cfgRelation']['mimework'] ? ',\'' . PMA_sqlAddSlashes($comments_copy_row['comment']) . '\','
-                                            . '\'' . PMA_sqlAddSlashes($comments_copy_row['mimetype']) . '\','
-                                            . '\'' . PMA_sqlAddSlashes($comments_copy_row['transformation']) . '\','
-                                            . '\'' . PMA_sqlAddSlashes($comments_copy_row['transformation_options']) . '\'' : '')
+                                    . '\'' . $common_functions->sqlAddSlashes($target_db) . '\','
+                                    . '\'' . $common_functions->sqlAddSlashes($target_table) . '\','
+                                    . '\'' . $common_functions->sqlAddSlashes($comments_copy_row['column_name']) . '\''
+                                    . ($GLOBALS['cfgRelation']['mimework'] ? ',\'' . $common_functions->sqlAddSlashes($comments_copy_row['comment']) . '\','
+                                            . '\'' . $common_functions->sqlAddSlashes($comments_copy_row['mimetype']) . '\','
+                                            . '\'' . $common_functions->sqlAddSlashes($comments_copy_row['transformation']) . '\','
+                                            . '\'' . $common_functions->sqlAddSlashes($comments_copy_row['transformation_options']) . '\'' : '')
                                     . ')';
                         PMA_queryAsControlUser($new_comment_query);
                     } // end while
@@ -1180,8 +1221,8 @@ class PMA_Table
         $handle_triggers = $this->getDbName() != $new_db && $triggers;
         if ($handle_triggers) {
             foreach ($triggers as $trigger) {
-                $sql = 'DROP TRIGGER IF EXISTS ' . PMA_backquote($this->getDbName())
-                    . '.' . PMA_backquote($trigger['name']) . ';';
+                $sql = 'DROP TRIGGER IF EXISTS ' . $this->getCommonFunctions()->backquote($this->getDbName())
+                    . '.' . $this->getCommonFunctions()->backquote($trigger['name']) . ';';
                 PMA_DBI_query($sql);
             }
         }
@@ -1263,7 +1304,7 @@ class PMA_Table
                 continue;
             }
             $return[] = $this->getFullName($backquoted) . '.'
-                . ($backquoted ? PMA_backquote($index[0]) : $index[0]);
+                . ($backquoted ? $this->getCommonFunctions()->backquote($index[0]) : $index[0]);
         }
 
         return $return;
@@ -1293,7 +1334,7 @@ class PMA_Table
         $return = array();
         foreach ($indexed as $column) {
             $return[] = $this->getFullName($backquoted) . '.'
-                . ($backquoted ? PMA_backquote($column) : $column);
+                . ($backquoted ? $this->getCommonFunctions()->backquote($column) : $column);
         }
 
         return $return;
@@ -1316,7 +1357,7 @@ class PMA_Table
         $return = array();
         foreach ($indexed as $column) {
             $return[] = $this->getFullName($backquoted) . '.'
-                . ($backquoted ? PMA_backquote($column) : $column);
+                . ($backquoted ? $this->getCommonFunctions()->backquote($column) : $column);
         }
 
         return $return;
@@ -1329,14 +1370,14 @@ class PMA_Table
      */
     protected function getUiPrefsFromDb()
     {
-        $pma_table = PMA_backquote($GLOBALS['cfg']['Server']['pmadb']) .".".
-                     PMA_backquote($GLOBALS['cfg']['Server']['table_uiprefs']);
+        $pma_table = $this->getCommonFunctions()->backquote($GLOBALS['cfg']['Server']['pmadb']) ."."
+            . $this->getCommonFunctions()->backquote($GLOBALS['cfg']['Server']['table_uiprefs']);
 
         // Read from phpMyAdmin database
         $sql_query = " SELECT `prefs` FROM " . $pma_table
             . " WHERE `username` = '" . $GLOBALS['cfg']['Server']['user'] . "'"
-            . " AND `db_name` = '" . PMA_sqlAddSlashes($this->db_name) . "'"
-            . " AND `table_name` = '" . PMA_sqlAddSlashes($this->name) . "'";
+            . " AND `db_name` = '" . $this->getCommonFunctions()->sqlAddSlashes($this->db_name) . "'"
+            . " AND `table_name` = '" . $this->getCommonFunctions()->sqlAddSlashes($this->name) . "'";
 
         $row = PMA_DBI_fetch_array(PMA_queryAsControlUser($sql_query));
         if (isset($row[0])) {
@@ -1353,14 +1394,14 @@ class PMA_Table
      */
     protected function saveUiPrefsToDb()
     {
-        $pma_table = PMA_backquote($GLOBALS['cfg']['Server']['pmadb']) . "."
-            . PMA_backquote($GLOBALS['cfg']['Server']['table_uiprefs']);
+        $pma_table = $this->getCommonFunctions()->backquote($GLOBALS['cfg']['Server']['pmadb']) . "."
+            . $this->getCommonFunctions()->backquote($GLOBALS['cfg']['Server']['table_uiprefs']);
 
         $username = $GLOBALS['cfg']['Server']['user'];
         $sql_query = " REPLACE INTO " . $pma_table
-            . " VALUES ('" . $username . "', '" . PMA_sqlAddSlashes($this->db_name)
-            . "', '" . PMA_sqlAddSlashes($this->name) . "', '"
-            . PMA_sqlAddSlashes(json_encode($this->uiprefs)) . "', NULL)";
+            . " VALUES ('" . $username . "', '" . $this->getCommonFunctions()->sqlAddSlashes($this->db_name)
+            . "', '" . $this->getCommonFunctions()->sqlAddSlashes($this->name) . "', '"
+            . $this->getCommonFunctions()->sqlAddSlashes(json_encode($this->uiprefs)) . "', NULL)";
 
         $success = PMA_DBI_try_query($sql_query, $GLOBALS['controllink']);
 
@@ -1390,7 +1431,7 @@ class PMA_Table
                 $message = PMA_Message::error(
                     sprintf(
                         __('Failed to cleanup table UI preferences (see $cfg[\'Servers\'][$i][\'MaxTableUiprefs\'] %s)'),
-                        PMA_showDocu('cfg_Servers_MaxTableUiprefs')
+                        $this->getCommonFunctions()->showDocu('cfg_Servers_MaxTableUiprefs')
                     )
                 );
                 $message->addMessage('<br /><br />');

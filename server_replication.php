@@ -18,6 +18,7 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_privileges.js');
 $scripts->addFile('replication.js');
+$common_functions = PMA_CommonFunctions::getInstance();
 
 require 'libraries/server_common.inc.php';
 require 'libraries/replication.inc.php';
@@ -29,7 +30,7 @@ require_once 'libraries/server_synchronize.lib.php';
  */
 if (! $is_superuser) {
     echo '<h2>' . "\n"
-        . PMA_getIcon('s_replication.png')
+        . $common_functions->getIcon('s_replication.png')
         . __('Replication') . "\n"
         . '</h2>' . "\n";
     PMA_Message::error(__('No Privileges'))->display();
@@ -72,10 +73,10 @@ foreach ($request_params as $one_request_param) {
 if (isset($GLOBALS['sr_take_action'])) {
     $refresh = false;
     if (isset($GLOBALS['slave_changemaster'])) {
-        $_SESSION['replication']['m_username'] = $sr['username'] = PMA_sqlAddSlashes($GLOBALS['username']);
-        $_SESSION['replication']['m_password'] = $sr['pma_pw']   = PMA_sqlAddSlashes($GLOBALS['pma_pw']);
-        $_SESSION['replication']['m_hostname'] = $sr['hostname'] = PMA_sqlAddSlashes($GLOBALS['hostname']);
-        $_SESSION['replication']['m_port']     = $sr['port']     = PMA_sqlAddSlashes($GLOBALS['port']);
+        $_SESSION['replication']['m_username'] = $sr['username'] = $common_functions->sqlAddSlashes($GLOBALS['username']);
+        $_SESSION['replication']['m_password'] = $sr['pma_pw']   = $common_functions->sqlAddSlashes($GLOBALS['pma_pw']);
+        $_SESSION['replication']['m_hostname'] = $sr['hostname'] = $common_functions->sqlAddSlashes($GLOBALS['hostname']);
+        $_SESSION['replication']['m_port']     = $sr['port']     = $common_functions->sqlAddSlashes($GLOBALS['port']);
         $_SESSION['replication']['m_correct']  = '';
         $_SESSION['replication']['sr_action_status'] = 'error';
         $_SESSION['replication']['sr_action_info'] = __('Unknown error');
@@ -154,11 +155,11 @@ if (isset($GLOBALS['sr_take_action'])) {
                 }
                 $dblist[] = $tmp_row[0];
 
-                PMA_DBI_query('CREATE DATABASE IF NOT EXISTS '.PMA_backquote($tmp_row[0]), $trg_link);
+                PMA_DBI_query('CREATE DATABASE IF NOT EXISTS '.$common_functions->backquote($tmp_row[0]), $trg_link);
             } else {
                 if (array_search($tmp_row[0], $do_db) !== false) {
                     $dblist[] = $tmp_row[0];
-                    PMA_DBI_query('CREATE DATABASE IF NOT EXISTS '.PMA_backquote($tmp_row[0]), $trg_link);
+                    PMA_DBI_query('CREATE DATABASE IF NOT EXISTS '.  $common_functions->backquote($tmp_row[0]), $trg_link);
                 }
             }
         } // end while
@@ -187,7 +188,7 @@ if (isset($GLOBALS['sr_take_action'])) {
 
 echo '<div id="replication">';
 echo ' <h2>';
-echo '   ' . PMA_getImage('s_replication.png');
+echo '   ' . $common_functions->getImage('s_replication.png');
 echo     __('Replication');
 echo ' </h2>';
 
