@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-07-03 11:00+0200\n"
+"PO-Revision-Date: 2012-07-03 12:34+0200\n"
 "Last-Translator: Ashiyane Digital Security Team <HeXa.ashiyane@gmail.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
@@ -1597,6 +1597,8 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"هنگامی که اطلاعات جدید نمودار ارسال شد ، سرور جواب غلطی داد. این بیشتر به "
+"دلیل پایان زمان سشن شما می باشد.صفحه را رفرش کنید و دوباره وارد شوید."
 
 #: js/messages.php:206
 msgid "Reload page"
@@ -1604,7 +1606,7 @@ msgstr "باز کردن مجدد صفحه"
 
 #: js/messages.php:208
 msgid "Affected rows:"
-msgstr "سطر آسیب دیده"
+msgstr "سطر تحت تاثیر قرار گرفته:"
 
 #: js/messages.php:210
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
@@ -1617,6 +1619,8 @@ msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr ""
+"ایجاد خطا در تقسیم بندی نمودار(چارت گرید) به واسطه تنظیمات غلط.باز گرداندن "
+"به تنظیمات پیش فرض ..."
 
 #: js/messages.php:212 libraries/Menu.class.php:309
 #: libraries/Menu.class.php:396 libraries/Menu.class.php:493
@@ -1627,21 +1631,20 @@ msgstr "صدور"
 
 #: js/messages.php:213
 msgid "Import monitor configuration"
-msgstr ""
+msgstr "وارد کردن تنظیمات مانیتور"
 
 #: js/messages.php:214
 msgid "Please select the file you want to import"
 msgstr "لطفا فایلی را که میخواهید وارد کنید را انتخاب کنید "
 
 #: js/messages.php:216
-#, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
-msgstr "به‌هنگام سازي پرس و جو"
+msgstr "آنالیز پرسجو"
 
 #: js/messages.php:220
 msgid "Advisor system"
-msgstr ""
+msgstr "سیستم مشاور"
 
 #: js/messages.php:221
 msgid "Possible performance issues"
@@ -1652,24 +1655,22 @@ msgid "Issue"
 msgstr "موضوع"
 
 #: js/messages.php:223
-#, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
-msgstr "مستندات"
+msgstr "پیشنهادات"
 
 #: js/messages.php:224
 msgid "Rule details"
 msgstr "جزئیات قانون"
 
 #: js/messages.php:225
-#, fuzzy
 #| msgid "Documentation"
 msgid "Justification"
-msgstr "مستندات"
+msgstr "توجیهات"
 
 #: js/messages.php:226
 msgid "Used variable / formula"
-msgstr ""
+msgstr "متغیر استفاده شده / فورمول"
 
 #: js/messages.php:227
 msgid "Test"
@@ -1716,47 +1717,40 @@ msgid "Click to dismiss this notification"
 msgstr "برای حذف کردن این اطلاعات کلیک کن"
 
 #: js/messages.php:245
-#, fuzzy
 msgid "Renaming Databases"
-msgstr "بازناميدن جدول به"
+msgstr "بازناميدن پایگاه داده"
 
 #: js/messages.php:246
-#, fuzzy
 msgid "Reload Database"
-msgstr "بازناميدن جدول به"
+msgstr "به روز سازی پایگاه داده"
 
 #: js/messages.php:247
-#, fuzzy
 msgid "Copying Database"
-msgstr "No databases"
+msgstr "کپی کردن پایگاه داده"
 
 #: js/messages.php:248
 msgid "Changing Charset"
 msgstr ""
 
 #: js/messages.php:249
-#, fuzzy
 #| msgid "You have to choose at least one column to display"
 msgid "Table must have at least one column"
 msgstr "شما حذاقل بايد يك ستون را براي نمايش انتخاب نماييد"
 
 #: js/messages.php:254
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
-msgstr "بكارگيري جدولها"
+msgstr "ورود اطلاعات"
 
 #: js/messages.php:255
-#, fuzzy
 #| msgid "Indexes"
 msgid "Hide indexes"
-msgstr "فهرست‌ها"
+msgstr "مخفی کردن فهرست ها"
 
 #: js/messages.php:256
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "Show grid"
+msgstr "نمایش فهرست ها"
 
 #: js/messages.php:257 libraries/mult_submits.inc.php:317
 msgid "Foreign key check:"
@@ -1775,32 +1769,27 @@ msgid "(Disabled)"
 msgstr "غيرفعال"
 
 #: js/messages.php:262
-#, fuzzy
 #| msgid "Search"
 msgid "Searching"
 msgstr "جستجو"
 
 #: js/messages.php:263
-#, fuzzy
 msgid "Hide search results"
-msgstr "پرس و جوي SQL"
+msgstr "مخفی کردن نتایج جستجو"
 
 #: js/messages.php:264
-#, fuzzy
 msgid "Show search results"
-msgstr "پرس و جوي SQL"
+msgstr "نمایش نتایج"
 
 #: js/messages.php:265
-#, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
 msgstr "مشاهده"
 
 #: js/messages.php:266
-#, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
-msgstr "در حال پاک کردن %s"
+msgstr "پاک کردن"
 
 #: js/messages.php:269
 msgid "The definition of a stored function must contain a RETURN statement!"
@@ -1826,7 +1815,7 @@ msgstr "هر کدام از مقادیر را در یک فیلد وارد کنی�
 #: js/messages.php:276
 #, fuzzy, php-format
 msgid "Add %d value(s)"
-msgstr "افزودن يك كاربر جديد"
+msgstr "اضافه کردن %d مقدار"
 
 #: js/messages.php:279
 msgid ""
@@ -1834,18 +1823,16 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:282
-#, fuzzy
 msgid "Hide query box"
-msgstr "پرس و جوي SQL"
+msgstr "مخفی کردن جعبه پرس و جو"
 
 #: js/messages.php:283
-#, fuzzy
 msgid "Show query box"
-msgstr "پرس و جوي SQL"
+msgstr "نمایش جعبه پرس و جو"
 
 #: js/messages.php:285 tbl_row_action.php:21
 msgid "No rows selected"
-msgstr ""
+msgstr "هیچ سطری انتخاب نشده است"
 
 #: js/messages.php:286 libraries/DisplayResults.class.php:4320
 #: querywindow.php:84 tbl_structure.php:148 tbl_structure.php:577
@@ -1872,9 +1859,8 @@ msgid "Save"
 msgstr "ذخيره"
 
 #: js/messages.php:294
-#, fuzzy
 msgid "Hide search criteria"
-msgstr "پرس و جوي SQL"
+msgstr "پنهان سازی ضوابط جستجو"
 
 #: js/messages.php:295
 #, fuzzy
@@ -8722,7 +8708,7 @@ msgstr "جستجو در پايگاه‌داده"
 #: libraries/server_synchronize.lib.php:1549
 #: libraries/server_synchronize.lib.php:1559
 msgid "Current server"
-msgstr ""
+msgstr "سرور فعلی"
 
 #: libraries/server_synchronize.lib.php:1551
 #: libraries/server_synchronize.lib.php:1561
