@@ -788,36 +788,13 @@ class PMA_DisplayResults
         // can the result be sorted?
         if ($is_display['sort_lnk'] == '1') {
 
-            // Just as fallback
-            $unsorted_sql_query     = $this->_sql_query;
-            if (isset($analyzed_sql[0]['unsorted_query'])) {
-                $unsorted_sql_query = $analyzed_sql[0]['unsorted_query'];
-            }
-            // Handles the case of multiple clicks on a column's header
-            // which would add many spaces before "ORDER BY" in the
-            // generated query.
-            $unsorted_sql_query = trim($unsorted_sql_query);
-
-            // sorting by indexes, only if it makes sense (only one table ref)
-            if (isset($analyzed_sql)
-                && isset($analyzed_sql[0])
-                && isset($analyzed_sql[0]['querytype'])
-                && ($analyzed_sql[0]['querytype'] == self::QUERY_TYPE_SELECT)
-                && isset($analyzed_sql[0]['table_ref'])
-                && (count($analyzed_sql[0]['table_ref']) == 1)
-            ) {
-
-                // grab indexes data:
-                $indexes = PMA_Index::getFromTable($this->_table, $this->_db);
-
-                // do we have any index?
-                if ($indexes) {
-                    $table_headers_html .= $this->_getSortByKeyDropDown(
-                        $indexes, $sort_expression,
-                        $unsorted_sql_query
-                    );
-                }
-            }
+            list($unsorted_sql_query, $drop_down_html)
+                = $this->_getUnsortedSqlAndSortByKeyDropDown(
+                    $analyzed_sql, $sort_expression
+                );
+            
+            $table_headers_html .= $drop_down_html;            
+            
         }
 
         // Output data needed for grid editing
@@ -850,103 +827,13 @@ class PMA_DisplayResults
             $is_display['del_lnk']
         );
 
-        // 1. Displays the full/partial text button (part 1)...
-        if ($directionCondition) {
-
-            $table_headers_html .= '<thead><tr>' . "\n";
-
-            $colspan = (($is_display['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-                && ($is_display['del_lnk'] != self::NO_EDIT_OR_DELETE))
-                ? ' colspan="4"'
-                : '';
-
-        } else {
-            $rowspan = (($is_display['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-                && ($is_display['del_lnk'] != self::NO_EDIT_OR_DELETE))
-                ? ' rowspan="4"'
-                : '';
-        }
-
-        //     ... before the result table
-        if ((($is_display['edit_lnk'] == self::NO_EDIT_OR_DELETE)
-            && ($is_display['del_lnk'] == self::NO_EDIT_OR_DELETE))
-            && ($is_display['text_btn'] == '1')
-        ) {
-
-            $GLOBALS['vertical_display']['emptypre']
-                = (($is_display['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-                && ($is_display['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 0;
-
-            if ($directionCondition) {
-
-                $table_headers_html .= '<th colspan="' . $fields_cnt . '"></th>'
-                    . '</tr>'
-                    . '<tr>';
-
-                // end horizontal/horizontalflipped mode
-            } else {
-
-                $span = $GLOBALS['num_rows'] + 1 + floor(
-                    $GLOBALS['num_rows']
-                    / $_SESSION['tmp_user_values']['repeat_cells']
-                );
-                $table_headers_html .= '<tr><th colspan="' . $span . '"></th></tr>';
-
-            } // end vertical mode
-
-        } elseif ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
-            || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH))
-            && ($is_display['text_btn'] == '1')
-        ) {
-            //     ... at the left column of the result table header if possible
-            //     and required
-
-            $GLOBALS['vertical_display']['emptypre']
-                = (($is_display['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-                && ($is_display['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 0;
-
-            if ($directionCondition) {
-
-                $table_headers_html .= '<th ' . $colspan . '>'
-                    . $full_or_partial_text_link . '</th>';
-                // end horizontal/horizontalflipped mode
-
-            } else {
-
-                $GLOBALS['vertical_display']['textbtn']
-                    = '    <th ' . $rowspan . ' class="vmiddle">' . "\n"
-                    . '        ' . "\n"
-                    . '    </th>' . "\n";
-            } // end vertical mode
-
-        } elseif ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
-            || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH))
-            && (($is_display['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-            || ($is_display['del_lnk'] != self::NO_EDIT_OR_DELETE))
-        ) {
-            //     ... elseif no button, displays empty(ies) col(s) if required
-
-            $GLOBALS['vertical_display']['emptypre']
-                = (($is_display['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-                && ($is_display['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 0;
-
-            if ($directionCondition) {
-
-                $table_headers_html .= '<td ' . $colspan . '></td>';
-
-                // end horizontal/horizontalfipped mode
-            } else {
-                $GLOBALS['vertical_display']['textbtn'] = '    <td' . $rowspan .
-                    '></td>' . "\n";
-            } // end vertical mode
-
-        } elseif (($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_NONE)
-            && ($directionCondition)
-        ) {
-            // ... elseif display an empty column if the actions links are
-            //  disabled to match the rest of the table
-            $table_headers_html .= '<th></th>';
-        }
+        list($colspan, $rowspan, $button_html)
+            = $this->_getFeildVisibilityParams(
+                $directionCondition, $is_display, $fields_cnt,
+                $full_or_partial_text_link
+            );
+        
+        $table_headers_html .= $button_html;
 
         // 2. Displays the fields' name
         // 2.0 If sorting links should be used, checks if the query is a "JOIN"
@@ -1191,8 +1078,62 @@ class PMA_DisplayResults
         return $table_headers_html;
 
     } // end of the '_getTableHeaders()' function
+    
+    
+    /**
+     * Prepare unsorted sql query and sort by key drop down
+     * 
+     * @param array   $analyzed_sql    the analyzed query
+     * @param string  $sort_expression sort expression
+     * 
+     * @return  array   two element array - $unsorted_sql_query, $drop_down_html
+     * 
+     * @access  private
+     * 
+     * @see     _getTableHeaders()
+     */
+    private function _getUnsortedSqlAndSortByKeyDropDown(
+        $analyzed_sql, $sort_expression
+    ) {
+        
+        $drop_down_html = '';
+        
+        // Just as fallback
+        $unsorted_sql_query     = $this->_sql_query;
+        if (isset($analyzed_sql[0]['unsorted_query'])) {
+            $unsorted_sql_query = $analyzed_sql[0]['unsorted_query'];
+        }
+        // Handles the case of multiple clicks on a column's header
+        // which would add many spaces before "ORDER BY" in the
+        // generated query.
+        $unsorted_sql_query = trim($unsorted_sql_query);
 
+        // sorting by indexes, only if it makes sense (only one table ref)
+        if (isset($analyzed_sql)
+            && isset($analyzed_sql[0])
+            && isset($analyzed_sql[0]['querytype'])
+            && ($analyzed_sql[0]['querytype'] == self::QUERY_TYPE_SELECT)
+            && isset($analyzed_sql[0]['table_ref'])
+            && (count($analyzed_sql[0]['table_ref']) == 1)
+        ) {
 
+            // grab indexes data:
+            $indexes = PMA_Index::getFromTable($this->_table, $this->_db);
+
+            // do we have any index?
+            if ($indexes) {
+                $drop_down_html = $this->_getSortByKeyDropDown(
+                    $indexes, $sort_expression,
+                    $unsorted_sql_query
+                );
+            }
+        }
+        
+        return array($unsorted_sql_query, $drop_down_html);
+        
+    } // end of the '_getUnsortedSqlAndSortByKeyDropDown()' function
+
+    
     /**
      * Prepare sort by key dropdown - html code segment
      *
@@ -1280,7 +1221,130 @@ class PMA_DisplayResults
         return $drop_down_html;
 
     } // end of the '_getSortByKeyDropDown()' function
+    
+    
+    /**
+     * Set column span, row span and prepare html with full/partial
+     * text button or link
+     * 
+     * @param boolean $directionCondition        display direction horizontal or
+     *                                           horizontalflipped
+     * @param array   &$is_display               which elements to display
+     * @param integer $fields_cnt                the total number of fields
+     *                                           returned by the SQL query
+     * @param string  $full_or_partial_text_link full/partial link or text button
+     * 
+     * @return  array   3 element array - $colspan, $rowspan, $button_html
+     */
+    private function _getFeildVisibilityParams(
+        $directionCondition, &$is_display, $fields_cnt, $full_or_partial_text_link
+    ) {
+        
+        $button_html = '';
+        $colspan = $rowspan = null;
+        
+        // 1. Displays the full/partial text button (part 1)...
+        if ($directionCondition) {
 
+            $button_html .= '<thead><tr>' . "\n";
+
+            $colspan = (($is_display['edit_lnk'] != self::NO_EDIT_OR_DELETE)
+                && ($is_display['del_lnk'] != self::NO_EDIT_OR_DELETE))
+                ? ' colspan="4"'
+                : '';
+
+        } else {
+            $rowspan = (($is_display['edit_lnk'] != self::NO_EDIT_OR_DELETE)
+                && ($is_display['del_lnk'] != self::NO_EDIT_OR_DELETE))
+                ? ' rowspan="4"'
+                : '';
+        }
+
+        //     ... before the result table
+        if ((($is_display['edit_lnk'] == self::NO_EDIT_OR_DELETE)
+            && ($is_display['del_lnk'] == self::NO_EDIT_OR_DELETE))
+            && ($is_display['text_btn'] == '1')
+        ) {
+
+            $GLOBALS['vertical_display']['emptypre']
+                = (($is_display['edit_lnk'] != self::NO_EDIT_OR_DELETE)
+                && ($is_display['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 0;
+
+            if ($directionCondition) {
+
+                $button_html .= '<th colspan="' . $fields_cnt . '"></th>'
+                    . '</tr>'
+                    . '<tr>';
+
+                // end horizontal/horizontalflipped mode
+            } else {
+
+                $span = $GLOBALS['num_rows'] + 1 + floor(
+                    $GLOBALS['num_rows']
+                    / $_SESSION['tmp_user_values']['repeat_cells']
+                );
+                $button_html .= '<tr><th colspan="' . $span . '"></th></tr>';
+
+            } // end vertical mode
+
+        } elseif ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
+            || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH))
+            && ($is_display['text_btn'] == '1')
+        ) {
+            //     ... at the left column of the result table header if possible
+            //     and required
+
+            $GLOBALS['vertical_display']['emptypre']
+                = (($is_display['edit_lnk'] != self::NO_EDIT_OR_DELETE)
+                && ($is_display['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 0;
+
+            if ($directionCondition) {
+
+                $button_html .= '<th ' . $colspan . '>'
+                    . $full_or_partial_text_link . '</th>';
+                // end horizontal/horizontalflipped mode
+
+            } else {
+
+                $GLOBALS['vertical_display']['textbtn']
+                    = '    <th ' . $rowspan . ' class="vmiddle">' . "\n"
+                    . '        ' . "\n"
+                    . '    </th>' . "\n";
+            } // end vertical mode
+
+        } elseif ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
+            || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH))
+            && (($is_display['edit_lnk'] != self::NO_EDIT_OR_DELETE)
+            || ($is_display['del_lnk'] != self::NO_EDIT_OR_DELETE))
+        ) {
+            //     ... elseif no button, displays empty(ies) col(s) if required
+
+            $GLOBALS['vertical_display']['emptypre']
+                = (($is_display['edit_lnk'] != self::NO_EDIT_OR_DELETE)
+                && ($is_display['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 0;
+
+            if ($directionCondition) {
+
+                $button_html .= '<td ' . $colspan . '></td>';
+
+                // end horizontal/horizontalfipped mode
+            } else {
+                $GLOBALS['vertical_display']['textbtn'] = '    <td' . $rowspan .
+                    '></td>' . "\n";
+            } // end vertical mode
+
+        } elseif (($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_NONE)
+            && ($directionCondition)
+        ) {
+            // ... elseif display an empty column if the actions links are
+            //  disabled to match the rest of the table
+            $button_html .= '<th></th>';
+        }
+        
+        return array($colspan, $rowspan, $button_html);
+        
+    } // end of the '_getFeildVisibilityParams()' function
+    
 
     /**
      * Prepare data for column restoring and show/hide
