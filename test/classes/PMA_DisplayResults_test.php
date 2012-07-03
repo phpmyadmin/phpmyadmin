@@ -640,7 +640,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     /**
      * Data provider for testGetCheckBoxesForMultipleRowOperations
      * 
-     * return array parameters and output
+     * @return array parameters and output
      */
     public function dataProviderForGetCheckBoxesForMultipleRowOperations()
     {
@@ -778,7 +778,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     /**
      * Data provider for testGetSortParamsCase1
      * 
-     * return array parameters and output
+     * @return array parameters and output
      */
     public function dataProviderForGetSortParamsCase1()
     {
@@ -808,7 +808,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     /**
      * Data provider for testGetSortParamsCase2
      * 
-     * return array parameters and output
+     * @return array parameters and output
      */
     public function dataProviderForGetSortParamsCase2()
     {
@@ -845,7 +845,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     /**
      * Data provider for testGetCheckboxForMultiRowSubmissions
      * 
-     * return array parameters and output
+     * @return array parameters and output
      */
     public function dataProviderForGetCheckboxForMultiRowSubmissions()
     {
@@ -886,6 +886,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param string $id_suffix         suffix for the id
      * @param string $class             css classes for the td element
      * @param string $output            output of _getSortParams
+     * @param string $output            output of _getCheckboxForMultiRowSubmissions
      * 
      * @dataProvider dataProviderForGetCheckboxForMultiRowSubmissions
      */
@@ -903,6 +904,58 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             ),
             $output
         );
+    }
+    
+    /**
+     * Data provider for testGetEditLink
+     * 
+     * @return array parametres and output
+     */
+    public function dataProviderForGetEditLink()
+    {
+        return array(
+            array(
+                'tbl_change.php?db=Data&amp;table=customer&amp;where_clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;default_action=update&amp;token=bbd5003198a3bd856b21d9607d6c6a1e',
+                'odd edit_row_anchor row_0 vpointer vmarker',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span>',
+                '`customer`.`id` = 1',
+                '%60customer%60.%60id%60+%3D+1',
+                '<td class="odd edit_row_anchor row_0 vpointer vmarker center"  ><span class="nowrap">
+<a href="tbl_change.php?db=Data&amp;table=customer&amp;where_clause=%60customer%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60customer%60&amp;goto=sql.php&amp;default_action=update&amp;token=bbd5003198a3bd856b21d9607d6c6a1e" ><span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span></a>
+<input type="hidden" class="where_clause" value ="%60customer%60.%60id%60+%3D+1" /></span></td>'
+            )
+        );
+    }
+    
+    /**
+     * Test for _getEditLink
+     * 
+     * @param string $edit_url          edit url
+     * @param string $class             css classes for td element
+     * @param string $edit_str          text for the edit link
+     * @param string $where_clause      where clause
+     * @param string $where_clause_html url encoded where clause
+     * @param string $output            _getEditLink
+     * 
+     * @dataProvider dataProviderForGetEditLink
+     */
+    public function testGetEditLink(
+        $edit_url, $class, $edit_str, $where_clause, $where_clause_html, $output
+    ) {
+        
+        $GLOBALS['cfg']['PropertiesIconic'] = 'both';
+        $GLOBALS['cfg']['LinkLengthLimit'] = 1000;
+        
+        $this->assertEquals(
+            $this->_callPrivateFunction(
+                '_getEditLink',
+                array(
+                    $edit_url, $class, $edit_str, $where_clause, $where_clause_html
+                )
+            ),
+            $output
+        );
+        
     }
     
 
