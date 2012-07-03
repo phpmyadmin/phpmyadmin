@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-04-18 15:01+0200\n"
-"Last-Translator: Edgaras Janušauskas <edgaras.janusauskas@gmail.com>\n"
+"PO-Revision-Date: 2012-07-03 16:29+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: lithuanian <lt@li.org>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 0.9\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
+"100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 1.1\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -118,7 +118,7 @@ msgid ""
 "for more information."
 msgstr ""
 "Failas %s nėra prieinamas šioje sistemoje, norint sužinoti daugiau prašome "
-"apsilankyti www.phpmyadmin.net "
+"apsilankyti www.phpmyadmin.net."
 
 #: db_create.php:60
 #, php-format
@@ -2001,7 +2001,7 @@ msgstr ""
 
 #: js/messages.php:344
 msgid "Add an option for column "
-msgstr "Pridėti parinktį stulpeliui/skilčiai"
+msgstr "Pridėti parinktį stulpeliui/skilčiai "
 
 #: js/messages.php:347
 msgid "Press escape to cancel editing"
@@ -2565,7 +2565,7 @@ msgstr "Šis MySQL serveris nepalaiko %s saugojimo variklio."
 
 #: libraries/Table.class.php:329
 msgid "unknown table status: "
-msgstr "lentelės būsena nežinoma:"
+msgstr "lentelės būsena nežinoma: "
 
 #: libraries/Table.class.php:1120
 msgid "Invalid database"
@@ -4122,7 +4122,7 @@ msgstr "Nenutraukti įvykus INSERT klaidai"
 #: libraries/config/messages.inc.php:246 libraries/config/messages.inc.php:254
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
 msgid "Replace table data with file"
-msgstr "Pakeisti lentelės turinį failo duomenimis "
+msgstr "Pakeisti lentelės turinį failo duomenimis"
 
 #: libraries/config/messages.inc.php:248
 msgid ""
@@ -5985,7 +5985,7 @@ msgstr "Rodomi įrašai"
 
 #: libraries/display_tbl.lib.php:2374
 msgid "total"
-msgstr "iš viso "
+msgstr "iš viso"
 
 #: libraries/display_tbl.lib.php:2382 sql.php:733
 #, php-format
@@ -6811,7 +6811,7 @@ msgstr ""
 
 #: libraries/import/csv.php:42
 msgid "Column names: "
-msgstr "Stulpelių vardai:"
+msgstr "Stulpelių vardai: "
 
 #: libraries/import/csv.php:62 libraries/import/csv.php:75
 #: libraries/import/csv.php:80 libraries/import/csv.php:85
@@ -7794,7 +7794,7 @@ msgstr "Šis puslapis neturi jokių lentelių!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:228
 msgid "SCHEMA ERROR: "
-msgstr "SCHEMOS KLAIDA:"
+msgstr "SCHEMOS KLAIDA: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:858
 #: libraries/schema/Pdf_Relation_Schema.class.php:1171
@@ -8022,7 +8022,7 @@ msgstr "Skyriklis"
 
 #: libraries/sql_query_form.lib.php:344
 msgid "Show this query here again"
-msgstr "Rodyti šią užklausą vėl "
+msgstr "Rodyti šią užklausą vėl"
 
 #: libraries/sql_query_form.lib.php:407
 msgid "View only"
@@ -8741,7 +8741,7 @@ msgstr "Sukurti puslapį ir eksportuoti į jį"
 
 #: pmd_pdf.php:107
 msgid "New page name: "
-msgstr "Naujas puslapio vardas:"
+msgstr "Naujas puslapio vardas: "
 
 #: pmd_pdf.php:110
 msgid "Export/Import to scale"
@@ -9317,7 +9317,7 @@ msgid ""
 msgstr ""
 "Pastaba: phpMyAdmin gauna vartotojų teises tiesiai iš MySQL privilegijų "
 "lentelės. Šiose lentelėse nurodytos teisės gali skirtis nuo nustatymų "
-"failuose nurodytų teisių. Todėl %sperkraukite teises%s, jeigu norite tęsti. "
+"failuose nurodytų teisių. Todėl %sperkraukite teises%s, jeigu norite tęsti."
 
 #: server_privileges.php:1858
 msgid "The selected user was not found in the privilege table."
@@ -9682,7 +9682,7 @@ msgstr ""
 
 #: server_status.php:801 server_status.php:823
 msgid "Refresh rate: "
-msgstr "Atnaujinimo dažnis:"
+msgstr "Atnaujinimo dažnis: "
 
 #: server_status.php:842 server_variables.php:115
 msgid "Filters"
