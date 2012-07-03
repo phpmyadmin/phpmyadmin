@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-07-02 15:25-0400\n"
+"POT-Creation-Date: 2012-07-03 09:19+0200\n"
 "PO-Revision-Date: 2012-05-28 00:57+0200\n"
 "Last-Translator: Róbert Nagy <vrnagy@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.0\n"
 
@@ -576,11 +576,11 @@ msgstr "Nyomkövetés inaktív."
 #: db_structure.php:530 libraries/DisplayResults.class.php:4218
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Ebben a nézetben legalább ennyi számú sor van. Kérjük, hogy nézzen utána a %"
-"sdokumentációban%s."
+"Ebben a nézetben legalább ennyi számú sor van. Kérjük, hogy nézzen utána a "
+"%sdokumentációban%s."
 
 #: db_structure.php:548 db_structure.php:582 libraries/Menu.class.php:215
 #: libraries/tbl_info.inc.php:59 tbl_structure.php:211
@@ -899,11 +899,11 @@ msgstr ""
 #: import.php:88
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
-"Ön bizonyára túl nagy fájlt próbált meg feltölteni. Kérjük, nézzen utána a %"
-"sdokumentációban%s a korlátozás feloldása végett."
+"Ön bizonyára túl nagy fájlt próbált meg feltölteni. Kérjük, nézzen utána a "
+"%sdokumentációban%s a korlátozás feloldása végett."
 
 #: import.php:226 import.php:475
 msgid "Showing bookmark"
@@ -3312,14 +3312,14 @@ msgstr ""
 
 #: libraries/Types.class.php:307
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:309
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -6399,8 +6399,8 @@ msgstr ", @TABLE@ lesz a tábla neve"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Ennek az értéknek az értelmezése a(z) %1$sstrftime%2$s használatával "
 "történik, vagyis időformázó karakterláncokat használhat. Továbbá a következő "
@@ -6931,8 +6931,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:133
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:135
@@ -7338,11 +7338,11 @@ msgstr "Üdvözli a %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
-"Ön valószínűleg nem hozta létre a konfigurációs fájlt. A %1"
-"$stelepítőszkripttel%2$s el tudja készíteni."
+"Ön valószínűleg nem hozta létre a konfigurációs fájlt. A "
+"%1$stelepítőszkripttel%2$s el tudja készíteni."
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:121
 msgid ""
@@ -9026,8 +9026,8 @@ msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
-"Nem lehetett inicializálni az SQL ellenőrzőt. Ellenőrizze, hogy a %"
-"sdokumentációban%s leírtak szerint telepítette-e a szükséges PHP-"
+"Nem lehetett inicializálni az SQL ellenőrzőt. Ellenőrizze, hogy a "
+"%sdokumentációban%s leírtak szerint telepítette-e a szükséges PHP-"
 "kiterjesztést."
 
 #: libraries/tbl_common.inc.php:53
@@ -9613,8 +9613,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"További beállításokat állíthat be a config.inc.php modosításával, pl. %"
-"sBeállító parancsfájl%s használatával."
+"További beállításokat állíthat be a config.inc.php modosításával, pl. "
+"%sBeállító parancsfájl%s használatával."
 
 #: prefs_manage.php:305
 msgid "Save to browser's storage"
@@ -10116,13 +10116,13 @@ msgstr "A felhasználókéval azonos nevű adatbázisok eldobása."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Megjegyzés: a phpMyAdmin a felhasználók jogait közvetlenül a MySQL "
 "privilégium táblákból veszi. Ezen táblák tartalma eltérhet a szerver által "
-"használt jogoktól, ha a módosításuk kézzel történt. Ebben az esetben %"
-"stöltse be újra a jogokat%s a folytatás előtt."
+"használt jogoktól, ha a módosításuk kézzel történt. Ebben az esetben "
+"%stöltse be újra a jogokat%s a folytatás előtt."
 
 #: server_privileges.php:2050
 msgid "The selected user was not found in the privilege table."
@@ -12978,8 +12978,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:172
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:174
@@ -13110,8 +13110,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:209
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:211
@@ -14133,8 +14133,8 @@ msgstr "Max. egyidejű kapcsolatok száma"
 #~ "No themes support; please check your configuration and/or your themes in "
 #~ "directory %s."
 #~ msgstr ""
-#~ "Nincs téma támogatás, ellenőrizze a beállításokat és/vagy a témákat a(z) %"
-#~ "s könyvtárban."
+#~ "Nincs téma támogatás, ellenőrizze a beállításokat és/vagy a témákat a(z) "
+#~ "%s könyvtárban."
 
 #~ msgid "Switch to"
 #~ msgstr "Váltás"

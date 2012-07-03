@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-06-28 09:04+0200\n"
+"POT-Creation-Date: 2012-07-03 09:19+0200\n"
 "PO-Revision-Date: 2012-07-03 09:10+0200\n"
 "Last-Translator: Ashiyane Digital Security Team <HeXa.ashiyane@gmail.com>\n"
 "Language-Team: persian <fa@li.org>\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fa\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.1\n"
 
@@ -538,68 +538,7 @@ msgstr "عبارت كامل"
 msgid "as regular expression"
 msgstr "بعنوان مبين منظم(as regular expression)"
 
-#: db_search.php:239
-#, php-format
-msgid "Search results for \"<i>%s</i>\" %s:"
-msgstr "نتيجه ي جستجو \"<i>%s</i>\" %s:"
-
-#: db_search.php:267
-#, php-format
-msgid "<b>Total:</b> <i>%s</i> match"
-msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] ""
-"<b>مجموع:</b> <i>%s</i> مطابقت"
-
-#: db_search.php:296
-#, php-format
-#| msgid "%s match inside table <i>%s</i>"
-#| msgid_plural "%s matches inside table <i>%s</i>"
-msgid "%1$s match in <strong>%2$s</strong>"
-msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] ""
-"مفرد\n"
-"%1$s همتا در <strong>%2$s</strong>\n"
-"جمع\n"
-"%1$s همتا در <strong>%2$s</strong>"
-
-#: db_search.php:311 libraries/Menu.class.php:246
-#: libraries/common.lib.php:3311 libraries/common.lib.php:3533
-#: libraries/common.lib.php:3534 tbl_structure.php:570
-msgid "Browse"
-msgstr "فهرست"
-
-#: db_search.php:318
-#, php-format
-msgid "Delete the matches for the %s table?"
-msgstr "داده های همتا در جدول %s حذف شوند؟"
-
-#: db_search.php:362
-msgid "Search in database"
-msgstr "جستجو در پايگاه‌ داده"
-
-#: db_search.php:366
-#| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
-msgid "Words or values to search for (wildcard: \"%\"):"
-msgstr "كلمه(ها) يا مقدار(ها) براي جستجو (wildcard: \"%\"):"
-
-#: db_search.php:373
-msgid "Find:"
-msgstr " یافتن :"
-
-#: db_search.php:376 db_search.php:377
-msgid "Words are separated by a space character (\" \")."
-msgstr "كلمات با علامت فاصله (\" \") جدا مي‌شوند."
-
-#: db_search.php:390
-#| msgid "Inside table(s):"
-msgid "Inside tables:"
-msgstr "درجدول های:"
-
-#: db_search.php:414
-msgid "Inside column:"
-msgstr "در ستونها:"
-
-#: db_structure.php:87
+#: db_structure.php:88
 msgid "No tables found in database"
 msgstr "در پايگاه داده هيچ جدولي یافت نشد"
 
@@ -634,8 +573,8 @@ msgstr "پیگیری فعال نمی باشد."
 #: db_structure.php:530 libraries/DisplayResults.class.php:4218
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "در این نما حداقل این تعداد از سطرها موجود می باشد . لطفا به %sنوشتار%s "
 "مراجعه کنید ."
@@ -733,12 +672,10 @@ msgid "Add prefix to table"
 msgstr "پیشوند را به جدول اضافه کنید"
 
 #: db_structure.php:723 libraries/mult_submits.inc.php:276
-#| msgid "Replace table data with file"
 msgid "Replace table prefix"
 msgstr "جایگزینی پیشوند جدول"
 
 #: db_structure.php:725 libraries/mult_submits.inc.php:276
-#| msgid "Replace table data with file"
 msgid "Copy table with prefix"
 msgstr "کپی کردن جدول با پیشوند"
 
@@ -829,7 +766,6 @@ msgid "Database Log"
 msgstr "سابقه عملکرد پایگاه داده"
 
 #: export.php:44
-#| msgid "Bar type"
 msgid "Bad type!"
 msgstr "نوع اشتباه!"
 
@@ -838,7 +774,6 @@ msgid "Selected export type has to be saved in file!"
 msgstr "نوع صدور را انتخاب کنید تا در فایل ذخیره گردد!"
 
 #: export.php:125
-#| msgid "Remove database"
 msgid "Bad parameters!"
 msgstr "ورودی های اشتباه!"
 
@@ -866,7 +801,6 @@ msgid "Dump has been saved to file %s."
 msgstr "اطلاعات دریافت شده در فایل %s ذخیره شد‬."
 
 #: file_echo.php:21
-#| msgid "Export"
 msgid "Invalid export type"
 msgstr "نوع صدور معتبر نیست"
 
@@ -914,7 +848,6 @@ msgid "Add a point"
 msgstr "افزودن درجه جديد"
 
 #: gis_data_editor.php:209 js/messages.php:324
-#| msgid "Lines terminated by"
 msgid "Linestring"
 msgstr "رشته خطی"
 
@@ -927,12 +860,10 @@ msgid "Inner Ring"
 msgstr "حلقه داخلی"
 
 #: gis_data_editor.php:241
-#| msgid "Add a new User"
 msgid "Add a linestring"
 msgstr "افزودن يك رشته خطی"
 
 #: gis_data_editor.php:241 gis_data_editor.php:293 js/messages.php:330
-#| msgid "Add a new User"
 msgid "Add an inner ring"
 msgstr "افزودن يك حلقه داخلی"
 
@@ -957,14 +888,14 @@ msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
-"گزینه \"GeomFromText\" را از ستون \"Function\" انتخاب کنید و رشته زیر را در فیلد "
-"\"مقدار(value)\" وارد کنید"
+"گزینه \"GeomFromText\" را از ستون \"Function\" انتخاب کنید و رشته زیر را در "
+"فیلد \"مقدار(value)\" وارد کنید"
 
 #: import.php:88
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
 "احتمالاً شما سعی کردید یک فایل حجیم را اپلور کنید.لطفاً برای راهکار در مورد "
 "این محدودیت به%sنوشتار%s مراجعه کنید."
@@ -1098,12 +1029,10 @@ msgid "This is not a number!"
 msgstr "اين يك عدد نيست!"
 
 #: js/messages.php:42
-#| msgid "Index"
 msgid "Add Index"
 msgstr "افزودن index"
 
 #: js/messages.php:43
-#| msgid "Edit next row"
 msgid "Edit Index"
 msgstr "ویرایش کردن ایندکس"
 
@@ -1114,7 +1043,6 @@ msgstr "افزودن %d  ستون جديد به index"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:48
-#| msgid "Total"
 msgid "Total count"
 msgstr "جمع كل"
 
@@ -1136,12 +1064,10 @@ msgstr "اسم رمزها مانند هم نمي‌باشد!"
 
 #: js/messages.php:55 server_privileges.php:1965 server_privileges.php:1989
 #: server_privileges.php:2405 server_privileges.php:2601
-#| msgid "Any user"
 msgid "Add user"
 msgstr "افزودن کاربر"
 
 #: js/messages.php:56
-#| msgid "Edit Privileges"
 msgid "Reloading Privileges"
 msgstr "ويرايش امتيازات"
 
@@ -1166,7 +1092,6 @@ msgid "Edit"
 msgstr "ويرايش"
 
 #: js/messages.php:62 server_status.php:821
-#| msgid "Server version"
 msgid "Live traffic chart"
 msgstr "نمودار ترافیک لحظه ای"
 
@@ -1214,7 +1139,6 @@ msgid "KiB received since last refresh"
 msgstr "کیلو بایت در آخرین رفرش دریافت شد"
 
 #: js/messages.php:78
-#| msgid "Server version"
 msgid "Server traffic (in KiB)"
 msgstr "ترافیک سرور (کیلو بایت)"
 
@@ -1260,17 +1184,14 @@ msgstr ""
 "اولیه برگردانید."
 
 #: js/messages.php:93
-#| msgid "Tracking is not active."
 msgid "Query cache efficiency"
 msgstr "میزان کارایی کش کوئری"
 
 #: js/messages.php:94
-#| msgid "Space usage"
 msgid "Query cache usage"
 msgstr "فضاي استفاده‌شده"
 
 #: js/messages.php:95
-#| msgid "Space usage"
 msgid "Query cache used"
 msgstr "فضاي استفاده‌شده"
 
@@ -1303,7 +1224,6 @@ msgid "Average load"
 msgstr "بار میانگین"
 
 #: js/messages.php:104
-#| msgid "Total"
 msgid "Total memory"
 msgstr "کل حافظه"
 
@@ -1324,7 +1244,6 @@ msgid "Used memory"
 msgstr "حافظه استفاده شده"
 
 #: js/messages.php:110
-#| msgid "Total"
 msgid "Total Swap"
 msgstr "Swap کل"
 
@@ -1379,8 +1298,6 @@ msgstr "اگزا بايت"
 
 #: js/messages.php:128
 #, php-format
-#| msgid "%s table"
-#| msgid_plural "%s tables"
 msgid "%d table(s)"
 msgstr "%d جدول"
 
@@ -1394,12 +1311,10 @@ msgid "Traffic"
 msgstr "ترافیک"
 
 #: js/messages.php:133 libraries/Menu.class.php:497 server_status.php:1630
-#| msgid "Deleting %s"
 msgid "Settings"
 msgstr "تنظیم"
 
 #: js/messages.php:134
-#| msgid "Remove database"
 msgid "Remove chart"
 msgstr "حذف نمودار"
 
@@ -1481,21 +1396,18 @@ msgstr "بعد از ری استارت سرور این تنظیمات به حال
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:153
 #, php-format
-#| msgid "Save as file"
 msgid "Set log_output to %s"
 msgstr "ذخيره به صورت پرونده %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:155
 #, php-format
-#| msgid "Enabled"
 msgid "Enable %s"
 msgstr "فعال سازی %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:157
 #, php-format
-#| msgid "Disable"
 msgid "Disable %s"
 msgstr "غیر فعال سازی %s"
 
@@ -1514,7 +1426,6 @@ msgstr ""
 "با مدیر پایگاه داده تماس بگیرید."
 
 #: js/messages.php:161
-#| msgid "Change"
 msgid "Change settings"
 msgstr "تغيير تنظیمات"
 
@@ -1906,7 +1817,6 @@ msgstr "ویرایشگر ENUM/SET"
 
 #: js/messages.php:273
 #, php-format
-#| msgid "Number of rows per page"
 msgid "Values for column %s"
 msgstr "تعداد ستون ها %s"
 
@@ -2543,6 +2453,265 @@ msgstr "در ساعت"
 msgid "per day"
 msgstr ""
 
+#: libraries/CommonFunctions.class.php:251
+#, php-format
+msgid "Max: %s%s"
+msgstr "حداکثر:  %s %s"
+
+#: libraries/CommonFunctions.class.php:466
+#: libraries/CommonFunctions.class.php:558
+#: libraries/config/FormDisplay.tpl.php:147
+#: libraries/display_export.lib.php:248 libraries/engines/pbxt.lib.php:114
+#: libraries/relation.lib.php:90 main.php:249 server_variables.php:130
+msgid "Documentation"
+msgstr "مستندات"
+
+#. l10n: Please check that translation actually exists.
+#: libraries/CommonFunctions.class.php:534
+msgctxt "MySQL 5.5 documentation language"
+msgid "en"
+msgstr "انگلیسی"
+
+#. l10n: Please check that translation actually exists.
+#: libraries/CommonFunctions.class.php:538
+msgctxt "MySQL 5.1 documentation language"
+msgid "en"
+msgstr "انگلیسی"
+
+#. l10n: Please check that translation actually exists.
+#: libraries/CommonFunctions.class.php:542
+msgctxt "MySQL 5.0 documentation language"
+msgid "en"
+msgstr "انگلیسی"
+
+#: libraries/CommonFunctions.class.php:670 libraries/Message.class.php:199
+#: libraries/core.lib.php:217 libraries/import.lib.php:154
+#: libraries/insert_edit.lib.php:1195 tbl_operations.php:232
+#: tbl_relation.php:292 view_operations.php:55
+msgid "Error"
+msgstr ""
+
+#: libraries/CommonFunctions.class.php:683 server_status.php:613
+#: server_status.php:1295 sql.php:969
+msgid "SQL query"
+msgstr "پرس و جوي SQL"
+
+#: libraries/CommonFunctions.class.php:727
+#: libraries/rte/rte_events.lib.php:105 libraries/rte/rte_events.lib.php:110
+#: libraries/rte/rte_events.lib.php:120 libraries/rte/rte_events.lib.php:133
+#: libraries/rte/rte_routines.lib.php:290
+#: libraries/rte/rte_routines.lib.php:295
+#: libraries/rte/rte_routines.lib.php:305
+#: libraries/rte/rte_routines.lib.php:322
+#: libraries/rte/rte_routines.lib.php:1336
+#: libraries/rte/rte_triggers.lib.php:76 libraries/rte/rte_triggers.lib.php:81
+#: libraries/rte/rte_triggers.lib.php:91
+#: libraries/rte/rte_triggers.lib.php:104
+msgid "MySQL said: "
+msgstr "پيغام MySQL : "
+
+#: libraries/CommonFunctions.class.php:1210
+msgid "Failed to connect to SQL validator!"
+msgstr "خطا در اتصال به اعتبارسنج SQL!"
+
+#: libraries/CommonFunctions.class.php:1252
+#: libraries/config/messages.inc.php:491
+msgid "Explain SQL"
+msgstr "شرح دادن SQL"
+
+#: libraries/CommonFunctions.class.php:1260
+msgid "Skip Explain SQL"
+msgstr "رد شدن از توضیحات SQL"
+
+#: libraries/CommonFunctions.class.php:1299
+msgid "Without PHP Code"
+msgstr "بدون كد PHP"
+
+#: libraries/CommonFunctions.class.php:1302
+#: libraries/config/messages.inc.php:493
+msgid "Create PHP Code"
+msgstr "ساخت كد PHP"
+
+#: libraries/CommonFunctions.class.php:1328
+#: libraries/config/messages.inc.php:492 server_status.php:813
+#: server_status.php:835 server_status.php:855
+msgid "Refresh"
+msgstr "بارگیری مجدد"
+
+#: libraries/CommonFunctions.class.php:1338
+msgid "Skip Validate SQL"
+msgstr "رد شدن از اعتبار سنجی SQL"
+
+#: libraries/CommonFunctions.class.php:1341
+#: libraries/config/messages.inc.php:495
+msgid "Validate SQL"
+msgstr "معتبرسازي SQL"
+
+#: libraries/CommonFunctions.class.php:1403
+msgid "Inline edit of this query"
+msgstr "ویرایش در خط کوئری"
+
+#: libraries/CommonFunctions.class.php:1405
+msgctxt "Inline edit query"
+msgid "Inline"
+msgstr "در خط"
+
+#: libraries/CommonFunctions.class.php:1476 sql.php:1036
+msgid "Profiling"
+msgstr "استفاده از پروفایل"
+
+#. l10n: Short week day name
+#: libraries/CommonFunctions.class.php:1746
+msgctxt "Short week day name"
+msgid "Sun"
+msgstr "يكشنبه"
+
+#. l10n: See http://www.php.net/manual/en/function.strftime.php
+#: libraries/CommonFunctions.class.php:1762
+#: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:69
+msgid "%B %d, %Y at %I:%M %p"
+msgstr "%d %B %Y ساعت %I:%M %p"
+
+#: libraries/CommonFunctions.class.php:2112
+#, php-format
+msgid "%s days, %s hours, %s minutes and %s seconds"
+msgstr "%s روز ، %s ساعت ، %s دقیقه و %s ثانیه"
+
+#: libraries/CommonFunctions.class.php:2204
+msgid "Missing parameter:"
+msgstr "پارامتر یافت نشد:"
+
+#: libraries/CommonFunctions.class.php:2624
+#: libraries/CommonFunctions.class.php:2628
+#: libraries/DisplayResults.class.php:578
+#, fuzzy
+#| msgid "Begin"
+msgctxt "First page"
+msgid "Begin"
+msgstr "شروع"
+
+#: libraries/CommonFunctions.class.php:2626
+#: libraries/CommonFunctions.class.php:2629
+#: libraries/DisplayResults.class.php:581 server_binlog.php:140
+#: server_binlog.php:142
+#, fuzzy
+#| msgid "Previous"
+msgctxt "Previous page"
+msgid "Previous"
+msgstr "قبل"
+
+#: libraries/CommonFunctions.class.php:2661
+#: libraries/CommonFunctions.class.php:2664
+#: libraries/DisplayResults.class.php:637 server_binlog.php:175
+#: server_binlog.php:177
+#, fuzzy
+#| msgid "Next"
+msgctxt "Next page"
+msgid "Next"
+msgstr "بعد"
+
+#: libraries/CommonFunctions.class.php:2662
+#: libraries/CommonFunctions.class.php:2665
+#: libraries/DisplayResults.class.php:662
+#, fuzzy
+#| msgid "End"
+msgctxt "Last page"
+msgid "End"
+msgstr "انتها"
+
+#: libraries/CommonFunctions.class.php:2741
+#, php-format
+msgid "Jump to database &quot;%s&quot;."
+msgstr "پرش به پایگاه داده &quot;%s&quot;."
+
+#: libraries/CommonFunctions.class.php:2766
+#, php-format
+msgid "The %s functionality is affected by a known bug, see %s"
+msgstr ""
+"قابلیت %s به خاطر یک باگ شناخته شده تحت تاثیر قرار گرفته ایست، برای اطلاعات "
+"بیشتر به %s مراجعه کنید"
+
+#: libraries/CommonFunctions.class.php:2950
+msgid "Click to toggle"
+msgstr "برای انتخاب کلیک کنبد"
+
+#: libraries/CommonFunctions.class.php:3381
+#: libraries/CommonFunctions.class.php:3388
+#: libraries/CommonFunctions.class.php:3593 libraries/Menu.class.php:281
+#: libraries/Menu.class.php:374 libraries/config/setup.forms.php:295
+#: libraries/config/setup.forms.php:332 libraries/config/setup.forms.php:358
+#: libraries/config/user_preferences.forms.php:196
+#: libraries/config/user_preferences.forms.php:233
+#: libraries/config/user_preferences.forms.php:259
+#: libraries/import.lib.php:1202
+#: libraries/plugins/export/ExportLatex.class.php:483
+#: libraries/tbl_properties.inc.php:756 pmd_general.php:167
+#: server_privileges.php:724 server_replication.php:345 tbl_tracking.php:306
+#, fuzzy
+#| msgid "structure"
+msgid "Structure"
+msgstr "ساختار"
+
+#: libraries/CommonFunctions.class.php:3382
+#: libraries/CommonFunctions.class.php:3389 libraries/Menu.class.php:285
+#: libraries/Menu.class.php:379 libraries/Menu.class.php:475
+#: libraries/config/messages.inc.php:218
+#: libraries/plugins/export/ExportSql.class.php:133
+#: libraries/plugins/import/ImportSql.class.php:40 querywindow.php:61
+msgid "SQL"
+msgstr ""
+
+#: libraries/CommonFunctions.class.php:3384
+#: libraries/CommonFunctions.class.php:3591
+#: libraries/CommonFunctions.class.php:3592 libraries/Menu.class.php:294
+#: libraries/sql_query_form.lib.php:307 libraries/sql_query_form.lib.php:310
+#, fuzzy
+#| msgid "Insert"
+msgid "Insert"
+msgstr "درج"
+
+#: libraries/CommonFunctions.class.php:3385
+#: libraries/CommonFunctions.class.php:3587
+#: libraries/CommonFunctions.class.php:3588 libraries/Menu.class.php:275
+#: libraries/db_search.lib.php:226 tbl_structure.php:571
+msgid "Browse"
+msgstr "فهرست"
+
+#: libraries/CommonFunctions.class.php:3391 libraries/Menu.class.php:313
+#: libraries/Menu.class.php:336 libraries/Menu.class.php:400
+#: view_operations.php:84
+#, fuzzy
+msgid "Operations"
+msgstr "عمليات"
+
+#: libraries/CommonFunctions.class.php:3502
+#: libraries/sql_query_form.lib.php:473 prefs_manage.php:245
+msgid "Browse your computer:"
+msgstr "رایانه خود را مشاهده نمایید:"
+
+#: libraries/CommonFunctions.class.php:3530
+#, php-format
+msgid "Select from the web server upload directory <b>%s</b>:"
+msgstr "انتخاب از مسیر آپلود در سرور <b>%s</b>:"
+
+#: libraries/CommonFunctions.class.php:3559 libraries/insert_edit.lib.php:1196
+#: libraries/sql_query_form.lib.php:482
+msgid "The directory you set for upload work cannot be reached"
+msgstr "پوشه‌اي را كه براي انتقال فايل انتخاب كرده‌ايد قابل دسترسي نيست"
+
+#: libraries/CommonFunctions.class.php:3570
+msgid "There are no files to upload"
+msgstr "فایلی برای آپلود موجود نیست"
+
+#: libraries/CommonFunctions.class.php:3602
+#: libraries/CommonFunctions.class.php:3603
+msgid "Execute"
+msgstr "اجرا"
+
+#: libraries/CommonFunctions.class.php:4146
+msgid "Print"
+msgstr "چاپ"
+
 #: libraries/Config.class.php:915
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
@@ -3063,8 +3232,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
-"پاک سازی تنظیمات UI جداول موفقیت آمیز نبود(به "
-"$cfg['Servers'][$i]['MaxTableUiprefs'] %s مراجعه کنید)"
+"پاک سازی تنظیمات UI جداول موفقیت آمیز نبود(به $cfg['Servers'][$i]"
+"['MaxTableUiprefs'] %s مراجعه کنید)"
 
 #: libraries/Table.class.php:1571
 #, php-format
@@ -3073,8 +3242,8 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
-"مقدار UI \"%s\" را نمی توان ذخیره کرد.تغییرات انجام شد اما با رفرش صفحه از بین "
-"می روند.لطفا ساختار جدول خود را برای تغییرات چک کنید."
+"مقدار UI \"%s\" را نمی توان ذخیره کرد.تغییرات انجام شد اما با رفرش صفحه از "
+"بین می روند.لطفا ساختار جدول خود را برای تغییرات چک کنید."
 
 #: libraries/TableSearch.class.php:211 libraries/insert_edit.lib.php:230
 #: libraries/insert_edit.lib.php:236 libraries/rte/rte_routines.lib.php:1458
@@ -3237,14 +3406,14 @@ msgstr ""
 
 #: libraries/Types.class.php:307
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:309
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -3567,7 +3736,8 @@ msgstr "ایندکس غلط در سرور : %s"
 #: libraries/common.inc.php:632
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgstr "نام هاست برای سرور %1$s اشتباه است. لطفا تنظیمات خود را بازبینی نمایید."
+msgstr ""
+"نام هاست برای سرور %1$s اشتباه است. لطفا تنظیمات خود را بازبینی نمایید."
 
 #: libraries/common.inc.php:849
 msgid "Invalid authentication method set in configuration:"
@@ -3589,166 +3759,6 @@ msgstr "احتمال وجود exploit"
 #: libraries/common.inc.php:1092
 msgid "numeric key detected"
 msgstr "کلید عددی یافت شد"
-
-#: libraries/common.lib.php:206
-#, php-format
-msgid "Max: %s%s"
-msgstr "حداکثر:  %s %s"
-
-#: libraries/common.lib.php:420 libraries/common.lib.php:512
-#: libraries/config/FormDisplay.tpl.php:147
-#: libraries/display_export.lib.php:247 libraries/engines/pbxt.lib.php:112
-#: libraries/relation.lib.php:88 main.php:246 server_variables.php:129
-msgid "Documentation"
-msgstr "مستندات"
-
-#. l10n: Please check that translation actually exists.
-#: libraries/common.lib.php:488
-msgctxt "MySQL 5.5 documentation language"
-msgid "en"
-msgstr "انگلیسی"
-
-#. l10n: Please check that translation actually exists.
-#: libraries/common.lib.php:492
-msgctxt "MySQL 5.1 documentation language"
-msgid "en"
-msgstr "انگلیسی"
-
-#. l10n: Please check that translation actually exists.
-#: libraries/common.lib.php:496
-msgctxt "MySQL 5.0 documentation language"
-msgid "en"
-msgstr "انگلیسی"
-
-#: libraries/common.lib.php:632 server_status.php:601 server_status.php:1260
-#: sql.php:960
-msgid "SQL query"
-msgstr "پرس و جوي SQL"
-
-#: libraries/common.lib.php:676 libraries/rte/rte_events.lib.php:103
-#: libraries/rte/rte_events.lib.php:108 libraries/rte/rte_events.lib.php:118
-#: libraries/rte/rte_events.lib.php:131 libraries/rte/rte_routines.lib.php:284
-#: libraries/rte/rte_routines.lib.php:289
-#: libraries/rte/rte_routines.lib.php:299
-#: libraries/rte/rte_routines.lib.php:316
-#: libraries/rte/rte_routines.lib.php:1315
-#: libraries/rte/rte_triggers.lib.php:76 libraries/rte/rte_triggers.lib.php:81
-#: libraries/rte/rte_triggers.lib.php:91
-#: libraries/rte/rte_triggers.lib.php:104
-msgid "MySQL said: "
-msgstr "پيغام MySQL : "
-
-#: libraries/common.lib.php:1155
-msgid "Failed to connect to SQL validator!"
-msgstr "خطا در اتصال به اعتبارسنج SQL!"
-
-#: libraries/common.lib.php:1197 libraries/config/messages.inc.php:491
-msgid "Explain SQL"
-msgstr "شرح دادن SQL"
-
-#: libraries/common.lib.php:1203
-msgid "Skip Explain SQL"
-msgstr "رد شدن از توضیحات SQL"
-
-#: libraries/common.lib.php:1242
-msgid "Without PHP Code"
-msgstr "بدون كد PHP"
-
-#: libraries/common.lib.php:1245 libraries/config/messages.inc.php:493
-msgid "Create PHP Code"
-msgstr "ساخت كد PHP"
-
-#: libraries/common.lib.php:1267 libraries/config/messages.inc.php:492
-#: server_status.php:801 server_status.php:823 server_status.php:843
-msgid "Refresh"
-msgstr "بارگیری مجدد"
-
-#: libraries/common.lib.php:1277
-msgid "Skip Validate SQL"
-msgstr "رد شدن از اعتبار سنجی SQL"
-
-#: libraries/common.lib.php:1280 libraries/config/messages.inc.php:495
-msgid "Validate SQL"
-msgstr "معتبرسازي SQL"
-
-#: libraries/common.lib.php:1342
-msgid "Inline edit of this query"
-msgstr "ویرایش در خط کوئری"
-
-#: libraries/common.lib.php:1344
-#| msgid "Engines"
-msgctxt "Inline edit query"
-msgid "Inline"
-msgstr "در خط"
-
-#: libraries/common.lib.php:1415 sql.php:1027
-msgid "Profiling"
-msgstr "استفاده از پروفایل"
-
-#. l10n: Short week day name
-#: libraries/common.lib.php:1685
-msgctxt "Short week day name"
-msgid "Sun"
-msgstr "يكشنبه"
-
-#. l10n: See http://www.php.net/manual/en/function.strftime.php
-#: libraries/common.lib.php:1701
-#: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:69
-msgid "%B %d, %Y at %I:%M %p"
-msgstr "%d %B %Y ساعت %I:%M %p"
-
-#: libraries/common.lib.php:2047
-#, php-format
-msgid "%s days, %s hours, %s minutes and %s seconds"
-msgstr "%s روز ، %s ساعت ، %s دقیقه و %s ثانیه"
-
-#: libraries/common.lib.php:2138
-msgid "Missing parameter:"
-msgstr "پارامتر یافت نشد:"
-
-#: libraries/common.lib.php:2673
-#, php-format
-msgid "Jump to database &quot;%s&quot;."
-msgstr "پرش به پایگاه داده &quot;%s&quot;."
-
-#: libraries/common.lib.php:2697
-#, php-format
-msgid "The %s functionality is affected by a known bug, see %s"
-msgstr ""
-"قابلیت %s به خاطر یک باگ شناخته شده تحت تاثیر قرار گرفته ایست، برای اطلاعات "
-"بیشتر به %s مراجعه کنید"
-
-#: libraries/common.lib.php:2880
-#| msgid "Click to select"
-msgid "Click to toggle"
-msgstr "برای انتخاب کلیک کنبد"
-
-#: libraries/common.lib.php:3447 libraries/sql_query_form.lib.php:470
-#: prefs_manage.php:245
-msgid "Browse your computer:"
-msgstr "رایانه خود را مشاهده نمایید:"
-
-#: libraries/common.lib.php:3475
-#, php-format
-msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "انتخاب از مسیر آپلود در سرور <b>%s</b>:"
-
-#: libraries/common.lib.php:3506 libraries/insert_edit.lib.php:1181
-#: libraries/sql_query_form.lib.php:479
-msgid "The directory you set for upload work cannot be reached"
-msgstr "پوشه‌اي را كه براي انتقال فايل انتخاب كرده‌ايد قابل دسترسي نيست"
-
-#: libraries/common.lib.php:3516
-msgid "There are no files to upload"
-msgstr "فایلی برای آپلود موجود نیست"
-
-#: libraries/common.lib.php:3548 libraries/common.lib.php:3549
-msgid "Execute"
-msgstr "اجرا"
-
-#: libraries/common.lib.php:4088
-msgid "Print"
-msgstr "چاپ"
 
 #: libraries/config.values.php:53 libraries/config.values.php:60
 #: libraries/config.values.php:68
@@ -3808,7 +3818,6 @@ msgstr "اطلاعات"
 #: libraries/plugins/export/ExportOdt.class.php:70
 #: libraries/plugins/export/ExportSql.class.php:261
 #: libraries/plugins/export/ExportTexytext.class.php:59
-#| msgid "Structure and data"
 msgid "structure and data"
 msgstr "ساختار و داده‌ها"
 
@@ -3825,12 +3834,10 @@ msgid "Custom - like above, but without the quick/custom choice"
 msgstr "مرسوم - مانند قبلی، ولی بدون تنظیمات سریع/مرسوم"
 
 #: libraries/config.values.php:164
-#| msgid "Complete inserts"
 msgid "complete inserts"
 msgstr "تمام وروديها"
 
 #: libraries/config.values.php:165
-#| msgid "Extended inserts"
 msgid "extended inserts"
 msgstr "وروديهاي تمديدشده"
 
@@ -3876,7 +3883,6 @@ msgstr "داده برای %s وارد نشده است"
 
 #: libraries/config/FormDisplay.class.php:761
 #: libraries/config/FormDisplay.class.php:767
-#| msgid "Variable"
 msgid "unavailable"
 msgstr "در دسترس نیست"
 
@@ -4754,7 +4760,6 @@ msgid "Choose how you want tabs to work"
 msgstr ""
 
 #: libraries/config/messages.inc.php:234
-#| msgid "Add new field"
 msgid "Text fields"
 msgstr "فیلد های متنی"
 
@@ -4845,7 +4850,6 @@ msgstr "استفاده از کلید واژه های محلی"
 
 #: libraries/config/messages.inc.php:262 libraries/config/messages.inc.php:270
 #: libraries/config/messages.inc.php:271
-#| msgid "Put fields names in the first row"
 msgid "Column names in first row"
 msgstr " نام ستونها در اولين سطر"
 
@@ -5237,7 +5241,6 @@ msgid "When browsing tables, the sorting of each table is remembered"
 msgstr "هنگام مرور جدول ها,نوع هر جدول به یاد می ماند"
 
 #: libraries/config/messages.inc.php:357
-#| msgid "Rename table to"
 msgid "Remember table's sorting"
 msgstr "به یاد ماندن نوع جدول"
 
@@ -5497,7 +5500,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:415
-#| msgid "Database"
 msgid "Database name"
 msgstr "نام پايگاه داده"
 
@@ -5516,7 +5518,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:419
-#| msgid "Analyze table"
 msgid "Recently used table"
 msgstr "جدول هایی که به تازگی استفاده شده"
 
@@ -6140,6 +6141,56 @@ msgstr ""
 msgid "Details..."
 msgstr ""
 
+#: libraries/db_search.lib.php:148
+#, php-format
+msgid "Search results for \"<i>%s</i>\" %s:"
+msgstr "نتيجه ي جستجو \"<i>%s</i>\" %s:"
+
+#: libraries/db_search.lib.php:176
+#, php-format
+msgid "<b>Total:</b> <i>%s</i> match"
+msgid_plural "<b>Total:</b> <i>%s</i> matches"
+msgstr[0] "<b>مجموع:</b> <i>%s</i> مطابقت"
+
+#: libraries/db_search.lib.php:211
+#, php-format
+msgid "%1$s match in <strong>%2$s</strong>"
+msgid_plural "%1$s matches in <strong>%2$s</strong>"
+msgstr[0] ""
+"مفرد\n"
+"%1$s همتا در <strong>%2$s</strong>\n"
+"جمع\n"
+"%1$s همتا در <strong>%2$s</strong>"
+
+#: libraries/db_search.lib.php:233
+#, php-format
+msgid "Delete the matches for the %s table?"
+msgstr "داده های همتا در جدول %s حذف شوند؟"
+
+#: libraries/db_search.lib.php:268
+msgid "Search in database"
+msgstr "جستجو در پايگاه‌ داده"
+
+#: libraries/db_search.lib.php:272
+msgid "Words or values to search for (wildcard: \"%\"):"
+msgstr "كلمه(ها) يا مقدار(ها) براي جستجو (wildcard: \"%\"):"
+
+#: libraries/db_search.lib.php:279
+msgid "Find:"
+msgstr " یافتن :"
+
+#: libraries/db_search.lib.php:282 libraries/db_search.lib.php:283
+msgid "Words are separated by a space character (\" \")."
+msgstr "كلمات با علامت فاصله (\" \") جدا مي‌شوند."
+
+#: libraries/db_search.lib.php:296
+msgid "Inside tables:"
+msgstr "درجدول های:"
+
+#: libraries/db_search.lib.php:320
+msgid "Inside column:"
+msgstr "در ستونها:"
+
 #: libraries/dbi/drizzle.dbi.lib.php:117 libraries/dbi/mysql.dbi.lib.php:120
 #: libraries/dbi/mysqli.dbi.lib.php:192
 msgid "Connection for controluser as defined in your configuration failed."
@@ -6315,8 +6366,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:295
@@ -6541,8 +6592,8 @@ msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
 msgstr ""
-"استفاده می کند به داده های ذخیره سازی و شاخص از جداول آن است  InnoDB اندازه "
-" بافر حافظه از."
+"استفاده می کند به داده های ذخیره سازی و شاخص از جداول آن است  InnoDB اندازه  "
+"بافر حافظه از."
 
 #: libraries/engines/innodb.lib.php:141
 msgid "Buffer Pool"
@@ -6799,8 +6850,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:133
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:135
@@ -7206,8 +7257,8 @@ msgstr "به %s خوش‌آمديد"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "احتمالا فایل تنظیمات ایجاد نکرده اید.می توانید از %1$ssetup script%2$s برای "
 "ایجاد آن استفاده نمایید."
@@ -8280,7 +8331,6 @@ msgid "Add parameter"
 msgstr "ایجاد پارامتر"
 
 #: libraries/rte/rte_routines.lib.php:940
-#| msgid "Remove database"
 msgid "Remove last parameter"
 msgstr "حذف آخرین پارامتر"
 
@@ -8823,9 +8873,9 @@ msgid ""
 msgstr ""
 "اگر نوع ستون \"enum\" يا \"set\" مي‌باشد ، لطفا براي ورود مقادير از اين قالب "
 "استفاده نماييد : 'a','b','c'...<br /> اگر احتياج داشتيد كه از علامت مميز "
-"برعكس(بك‌اسلش) (\" \\ \") يا نقل‌قول تكي (\" ' \") در آن مقادير استفاده نماييد "
-"، قبل از آنها علامت (\" \\ \") را بگذاريد<br /> (براي مثال'\\\\xyz' يا 'a"
-"\\'b')"
+"برعكس(بك‌اسلش) (\" \\ \") يا نقل‌قول تكي (\" ' \") در آن مقادير استفاده "
+"نماييد ، قبل از آنها علامت (\" \\ \") را بگذاريد<br /> (براي مثال'\\\\xyz' "
+"يا 'a\\'b')"
 
 #: libraries/tbl_properties.inc.php:91
 msgid ""
@@ -8866,9 +8916,9 @@ msgid ""
 msgstr ""
 "اگر نوع ستون \"enum\" يا \"set\" مي‌باشد ، لطفا براي ورود مقادير از اين قالب "
 "استفاده نماييد : 'a','b','c'...<br /> اگر احتياج داشتيد كه از علامت مميز "
-"برعكس(بك‌اسلش) (\" \\ \") يا نقل‌قول تكي (\" ' \") در آن مقادير استفاده نماييد "
-"، قبل از آنها علامت (\" \\ \") را بگذاريد<br /> (براي مثال'\\\\xyz' يا 'a"
-"\\'b')"
+"برعكس(بك‌اسلش) (\" \\ \") يا نقل‌قول تكي (\" ' \") در آن مقادير استفاده "
+"نماييد ، قبل از آنها علامت (\" \\ \") را بگذاريد<br /> (براي مثال'\\\\xyz' "
+"يا 'a\\'b')"
 
 #: libraries/tbl_properties.inc.php:382
 msgid "ENUM or SET data too long?"
@@ -9058,8 +9108,8 @@ msgid ""
 "this security hole by setting a password for user 'root'."
 msgstr ""
 "پرونده پيكربندي شما حاوي تنظيماتي است (كاربر root بدون اسم رمز) كه مرتبط با "
-"حساب پيش‌فرض MySQL مي‌باشد. اجراي MySQL با اين پيش‌فرض باعث ورود غيرمجاز مي‌شود "
-"، و شما بايد اين حفره امنيتي را ذرست كنيد."
+"حساب پيش‌فرض MySQL مي‌باشد. اجراي MySQL با اين پيش‌فرض باعث ورود غيرمجاز "
+"مي‌شود ، و شما بايد اين حفره امنيتي را ذرست كنيد."
 
 #: main.php:289
 msgid ""
@@ -9201,7 +9251,6 @@ msgid "Import/Export coordinates for PDF schema"
 msgstr "وارد/صدور مختصات برای طرح های PDF"
 
 #: pmd_general.php:135
-#| msgid "Submit Query"
 msgid "Build Query"
 msgstr "ایجاد کوئری"
 
@@ -9231,7 +9280,6 @@ msgstr "عملگر رابطه"
 
 #: pmd_general.php:499 pmd_general.php:558 pmd_general.php:681
 #: pmd_general.php:798
-#| msgid "Export"
 msgid "Except"
 msgstr "به جز"
 
@@ -9247,12 +9295,10 @@ msgid "Rename to"
 msgstr "تغییر نام به"
 
 #: pmd_general.php:511 pmd_general.php:610
-#| msgid "User name"
 msgid "New name"
 msgstr "نام جدید"
 
 #: pmd_general.php:514 pmd_general.php:729
-#| msgid "Create"
 msgid "Aggregate"
 msgstr "مجموع"
 
@@ -9269,7 +9315,6 @@ msgid "Page creation failed"
 msgstr "ایجاد صفحه ممکن نیست"
 
 #: pmd_pdf.php:110
-#| msgid "Usage"
 msgid "Page"
 msgstr "صفحه"
 
@@ -9282,12 +9327,10 @@ msgid "Export to selected page"
 msgstr "صدور اطلاعات به صفحه انتخاب شده"
 
 #: pmd_pdf.php:123
-#| msgid "Create a new index"
 msgid "Create a page and export to it"
 msgstr "ایجاد صفحه و صدور اطلاعات به آن"
 
 #: pmd_pdf.php:135
-#| msgid "User name"
 msgid "New page name: "
 msgstr "نام صفحه جدید : "
 
@@ -9410,7 +9453,6 @@ msgid "<b>%s</b> table not found or not set in %s"
 msgstr "جدول <b>%s</b> وجود ندارد و يا در %s تنظيم نشده‌است"
 
 #: schema_export.php:59
-#| msgid "The \"%s\" table doesn't exist!"
 msgid "File doesn't exist"
 msgstr "فایل وجود ندارد"
 
@@ -9525,7 +9567,6 @@ msgid "License"
 msgstr "اعتبار"
 
 #: server_plugins.php:166
-#| msgid "Disabled"
 msgid "disabled"
 msgstr "غيرفعال"
 
@@ -9867,8 +9908,8 @@ msgstr ""
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 
 #: server_privileges.php:2050
@@ -12564,8 +12605,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:172
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:174
@@ -12695,8 +12736,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:209
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:211
@@ -13434,12 +13475,6 @@ msgstr "مقدار concurrent_insert  صفر میباشد"
 
 #~ msgid "Inline Edit"
 #~ msgstr "موتور"
-
-#~ msgid "Previous"
-#~ msgstr "قبل"
-
-#~ msgid "Next"
-#~ msgstr "بعد"
 
 #~ msgid "Create event"
 #~ msgstr "نسخه سرور"
