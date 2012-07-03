@@ -1338,7 +1338,90 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             ),
             "A 'quote' is &lt;b&gt;bold&lt;/b&gt;"
         );
-    }    
+    }
+    
+    /**
+     * Data provider for testGetPlacedLinks
+     * 
+     * @return array parameters and output
+     */
+    public function dataProviderForGetPlacedLinks()
+    {
+        return array(
+            array(
+                PMA_DisplayResults::POSITION_NONE,
+                'sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Dae4c6d18375f446dfa068420c1f6a4e8&amp;token=ae4c6d18375f446dfa068420c1f6a4e8',
+                array(
+                    'edit_lnk' => 'ur',
+                    'del_lnk' => 'dr',
+                    'sort_lnk' => '0',
+                    'nav_bar' => '1',
+                    'ins_row' => '1',
+                    'bkm_form' => '1',
+                    'text_btn' => '1',
+                    'pview_lnk' => '1'
+                ),
+                0,
+                '`new`.`id` = 1',
+                '%60new%60.%60id%60+%3D+1',
+                array(
+                    '`new`.`id`' => '= 1',
+                ),
+                'DELETE FROM `data`.`new` WHERE `new`.`id` = 1',
+                'l',
+                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=update&amp;token=ae4c6d18375f446dfa068420c1f6a4e8',
+                'tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=insert&amp;token=ae4c6d18375f446dfa068420c1f6a4e8',
+                'edit_row_anchor',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span>',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span>',
+                '<span class="nowrap"><img src="themes/dot.gif" title="Delete" alt="Delete" class="icon ic_b_drop" /> Delete</span>',
+                null,
+                '<td  class="center"><input type="checkbox" id="id_rows_to_delete0_left" name="rows_to_delete[0]" class="multi_checkbox" value="%60new%60.%60id%60+%3D+1"  /><input type="hidden" class="condition_array" value="{&quot;`new`.`id`&quot;:&quot;= 1&quot;}" />    </td>'
+            )
+        );
+    }
+
+    /**
+     * Test for _getPlacedLinks
+     * 
+     * @param string  $dir               the direction of links should place
+     * @param string  $del_url           the url for delete row
+     * @param array   $is_display        which elements to display
+     * @param integer $row_no            the index of current row
+     * @param string  $where_clause      the where clause of the sql
+     * @param string  $where_clause_html the html encoded where clause
+     * @param array   $condition_array   array of keys (primary, unique, condition)
+     * @param string  $del_query         the query for delete row
+     * @param string  $dir_letter        the letter denoted the direction
+     * @param string  $edit_url          the url for edit row
+     * @param string  $copy_url          the url for copy row
+     * @param string  $edit_anchor_class the class for html element for edit
+     * @param string  $edit_str          the label for edit row
+     * @param string  $copy_str          the label for copy row
+     * @param string  $del_str           the label for delete row
+     * @param string  $js_conf           text for the JS confirmation
+     * @param string $output             output of _getPlacedLinks
+     * 
+     * @dataProvider dataProviderForGetPlacedLinks
+     */
+    public function testGetPlacedLinks(
+        $dir, $del_url, $is_display, $row_no, $where_clause, $where_clause_html,
+        $condition_array, $del_query, $dir_letter, $edit_url, $copy_url,
+        $edit_anchor_class, $edit_str, $copy_str, $del_str, $js_conf, $output
+    ) {        
+        $this->assertEquals(
+            $this->_callPrivateFunction(
+                '_getPlacedLinks',
+                array(
+                    $dir, $del_url, $is_display, $row_no, $where_clause,
+                    $where_clause_html, $condition_array, $del_query,
+                    $dir_letter, $edit_url, $copy_url, $edit_anchor_class,
+                    $edit_str, $copy_str, $del_str, $js_conf
+                )
+            ),
+            $output
+        );
+    }
     
 
 }
