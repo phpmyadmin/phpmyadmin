@@ -53,18 +53,18 @@ if (isset($where_clause)) {
         null,
         PMA_DBI_QUERY_STORE
     );
-    $row    = PMA_DBI_fetch_assoc($result);
+    $row = PMA_DBI_fetch_assoc($result);
 } else {
     $result = PMA_DBI_query(
         'SELECT * FROM ' . PMA_CommonFunctions::getInstance()->backquote($table) . ' LIMIT 1;',
         null,
         PMA_DBI_QUERY_STORE
     );
-    $row    = PMA_DBI_fetch_assoc($result);
+    $row = PMA_DBI_fetch_assoc($result);
 }
 
 // No row returned
-if (!$row) {
+if (! $row) {
     exit;
 } // end if (no record returned)
 
@@ -89,7 +89,7 @@ $response = PMA_Response::getInstance();
 $response->getHeader()->sendHttpHeaders();
 
 // [MIME]
-if (isset($ct) && !empty($ct)) {
+if (isset($ct) && ! empty($ct)) {
     $mime_type = $ct;
 } else {
     $mime_type = (isset($mime_map[$transform_key]['mimetype'])
