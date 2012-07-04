@@ -12,8 +12,6 @@ require_once './libraries/common.inc.php';
 // Also initialises the collapsible tree class
 require_once './libraries/navigation/Navigation.class.php';
 
-$GLOBALS['token'] = $_REQUEST['token'];
-
 // Do the magic
 $response = PMA_Response::getInstance();
 if ($response->isAjax()) {

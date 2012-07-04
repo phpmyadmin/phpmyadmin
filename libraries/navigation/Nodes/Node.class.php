@@ -320,22 +320,11 @@ class Node {
      */
     public function getData($pos)
     {
-        $retval = array();
-        if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
-            $query  = "SELECT `SCHEMA_NAME` ";
-            $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
-            $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxDbList']}";
-            $retval = PMA_DBI_fetch_result($query);
-        } else {
-            $query = "SHOW DATABASES";
-            $temp = PMA_DBI_fetch_result($query);
-            $num = min($GLOBALS['cfg']['MaxDbList'], count($temp)) + $pos;
-            $num = $num > count($temp) ? count($temp) : $num;
-            for ($i=$pos; $i<$num; $i++) {
-                $retval[] = $temp[$i];
-            }
-        }
-        return $retval;
+        $query  = "SELECT `SCHEMA_NAME` ";
+        $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
+        $query .= "ORDER BY `SCHEMA_NAME` ASC ";
+        $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxDbList']}";
+        return PMA_DBI_fetch_result($query);
     }
 
     /**

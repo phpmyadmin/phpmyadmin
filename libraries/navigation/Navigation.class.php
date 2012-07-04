@@ -51,6 +51,8 @@ class PMA_Navigation {
      */
     public function __construct()
     {
+        $GLOBALS['token'] = $_REQUEST['token'];
+        
         if (isset($_REQUEST['pos'])) {
             $this->pos = (int) $_REQUEST['pos'];
         }
@@ -67,8 +69,8 @@ class PMA_Navigation {
     private function _getNavigationDbPos() {
         $query  = "SELECT (COUNT(`SCHEMA_NAME`) DIV %d) * %d ";
         $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
-        $query .= "WHERE `SCHEMA_NAME` <= '%s'";
-        
+        $query .= "WHERE `SCHEMA_NAME` < '%s' ";
+        $query .= "ORDER BY `SCHEMA_NAME` ASC";
         return PMA_DBI_fetch_value(
             sprintf(
                 $query,
