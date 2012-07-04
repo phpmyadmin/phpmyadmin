@@ -2357,175 +2357,12 @@ class PMA_DisplayResults
             } // end if (1)
 
             // 2. Displays the rows' values
-
-            for ($j = 0; $j < $GLOBALS['fields_cnt']; ++$j) {
-
-                // assign $i with appropriate column order
-                $i = $col_order ? $col_order[$j] : $j;
-
-                $meta    = $GLOBALS['fields_meta'][$i];
-                $not_null_class = $meta->not_null ? 'not_null' : '';
-                $relation_class = isset($map[$meta->name]) ? 'relation' : '';
-                $hide_class = ($col_visib && !$col_visib[$j]
-                    // hide per <td> only if the display dir is not vertical
-                    && ($_SESSION['tmp_user_values']['disp_direction']
-                        != self::DISP_DIR_VERTICAL))
-                    ? 'hide'
-                    : '';
-
-                // handle datetime-related class, for grid editing
-                $field_type_class
-                    = $this->_getClassForDateTimeRelatedFields($meta->type);
-
-                $pointer = $i;
-                $is_field_truncated = false;
-                //If the previous column had blob data, we need to reset the class
-                // to $inline_edit_class
-                $class = $this->_getResettedClassForInlineEdit(
-                    $grid_edit_class, $not_null_class, $relation_class,
-                    $hide_class, $field_type_class, $row_no
-                );
-
-                //  See if this column should get highlight because it's used in the
-                //  where-query.
-                $condition_field = (isset($GLOBALS['highlight_columns'])
-                    && (isset($GLOBALS['highlight_columns'][$meta->name])
-                    || isset($GLOBALS['highlight_columns'][$this->getCommonFunctions()->backquote($meta->name)])))
-                    ? true
-                    : false;
-
-                // Wrap MIME-transformations. [MIME]
-                $default_function = '_mimeDefaultFunction'; // default_function
-                $transformation_plugin = $default_function;
-                $transform_options = array();
-
-                if ($GLOBALS['cfgRelation']['mimework']
-                    && $GLOBALS['cfg']['BrowseMIME']
-                ) {
-
-                    if (isset($GLOBALS['mime_map'][$meta->name]['mimetype'])
-                        && isset($GLOBALS['mime_map'][$meta->name]['transformation'])
-                        && !empty($GLOBALS['mime_map'][$meta->name]['transformation'])
-                    ) {
-                        
-                        $file = $GLOBALS['mime_map'][$meta->name]['transformation'];
-                        $include_file = 'libraries/plugins/transformations/' . $file;
-                        
-                        if (file_exists($include_file)) {
-                            
-                            include_once $include_file;
-                            $class_name = str_replace('.class.php', '', $file);
-                            // todo add $plugin_manager
-                            $plugin_manager = null;
-                            $transformation_plugin = new $class_name(
-                                $plugin_manager
-                            );
-                            
-                            $transform_options  = PMA_transformation_getOptions(
-                                isset($GLOBALS['mime_map'][$meta->name]
-                                    ['transformation_options']
-                                )
-                                ? $GLOBALS['mime_map'][$meta->name]
-                                ['transformation_options']
-                                : ''
-                            );
-                            
-                            $meta->mimetype = str_replace(
-                                '_', '/',
-                                $GLOBALS['mime_map'][$meta->name]['mimetype']
-                            );
-                            
-                        } // end if file_exists
-                    } // end if transformation is set
-                } // end if mime/transformation works.
-
-                $_url_params = array(
-                    'db'            => $this->_db,
-                    'table'         => $this->_table,
-                    'where_clause'  => $where_clause,
-                    'transform_key' => $meta->name,
-                );
-
-                if (! empty($this->_sql_query)) {
-                    $_url_params['sql_query'] = $url_sql_query;
-                }
-
-                $transform_options['wrapper_link']
-                    = PMA_generate_common_url($_url_params);
-
-                if ($meta->numeric == 1) {
-                    // n u m e r i c
-
-                    // if two fields have the same name (this is possible
-                    //       with self-join queries, for example), using $meta->name
-                    //       will show both fields NULL even if only one is NULL,
-                    //       so use the $pointer
-
-                    $GLOBALS['vertical_display']['data'][$row_no][$i]
-                        = $this->_getDataCellForNumericColumns(
-                            $row[$i], $class, $condition_field, $meta, $map,
-                            $is_field_truncated, $analyzed_sql,
-                            $transformation_plugin, $default_function,
-                            $transform_options
-                        );
-
-                } elseif (stristr($meta->type, self::BLOB_FIELD)) {
-                    //  b l o b
-
-                    // PMA_mysql_fetch_fields returns BLOB in place of
-                    // TEXT fields type so we have to ensure it's really a BLOB
-                    $field_flags = PMA_DBI_field_flags($dt_result, $i);
-
-                    $GLOBALS['vertical_display']['data'][$row_no][$i]
-                        = $this->_getDataCellForBlobColumns(
-                            $row[$i], $class, $meta, $_url_params, $field_flags,
-                            $transformation_plugin, $default_function,
-                            $transform_options, $condition_field, $is_field_truncated
-                        );
-
-                } elseif ($meta->type == self::GEOMETRY_FIELD) {
-                    // g e o m e t r y
-
-                    // Remove 'grid_edit' from $class as we do not allow to
-                    // inline-edit geometry data.
-                    $class = str_replace('grid_edit', '', $class);
-
-                    $GLOBALS['vertical_display']['data'][$row_no][$i]
-                        = $this->_getDataCellForGeometryColumns(
-                            $row[$i], $class, $meta, $map, $_url_params,
-                            $condition_field, $transformation_plugin,
-                            $default_function, $transform_options,
-                            $is_field_truncated, $analyzed_sql
-                        );
-
-                } else {
-                    // n o t   n u m e r i c   a n d   n o t   B L O B
-
-                    $GLOBALS['vertical_display']['data'][$row_no][$i]
-                        = $this->_getDataCellForNonNumericAndNonBlobColumns(
-                            $row[$i], $class, $meta, $map, $_url_params,
-                            $condition_field, $transformation_plugin,
-                            $default_function, $transform_options,
-                            $is_field_truncated, $analyzed_sql, $dt_result, $i
-                        );
-
-                }
-
-                // output stored cell
-                if ($directionCondition) {
-                    $table_body_html
-                        .= $GLOBALS['vertical_display']['data'][$row_no][$i];
-                }
-
-                if (isset($GLOBALS['vertical_display']['rowdata'][$i][$row_no])) {
-                    $GLOBALS['vertical_display']['rowdata'][$i][$row_no]
-                        .= $GLOBALS['vertical_display']['data'][$row_no][$i];
-                } else {
-                    $GLOBALS['vertical_display']['rowdata'][$i][$row_no]
-                        = $GLOBALS['vertical_display']['data'][$row_no][$i];
-                }
-            } // end for (2)
-
+            $table_body_html .= $this->_getRowValues(
+                $dt_result, $row, $row_no, $col_order, $map,
+                $grid_edit_class, $col_visib, $where_clause,
+                $url_sql_query, $analyzed_sql, $directionCondition
+            );
+            
             // 3. Displays the modify/delete links on the right if required
             if ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_RIGHT)
                 || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH))
@@ -2546,79 +2383,13 @@ class PMA_DisplayResults
             } // end if
 
             // 4. Gather links of del_urls and edit_urls in an array for later
-            //    output
-            if (! isset($GLOBALS['vertical_display']['edit'][$row_no])) {
-                $GLOBALS['vertical_display']['edit'][$row_no]       = '';
-                $GLOBALS['vertical_display']['copy'][$row_no]       = '';
-                $GLOBALS['vertical_display']['delete'][$row_no]     = '';
-                $GLOBALS['vertical_display']['row_delete'][$row_no] = '';
-            }
-
-            $vertical_class = ' row_' . $row_no;
-            if ($GLOBALS['cfg']['BrowsePointerEnable'] == true) {
-                $vertical_class .= ' vpointer';
-            }
-
-            if ($GLOBALS['cfg']['BrowseMarkerEnable'] == true) {
-                $vertical_class .= ' vmarker';
-            }
-
-            if (!empty($del_url)
-                && ($is_display['del_lnk'] != self::KILL_PROCESS)
-            ) {
-
-                $GLOBALS['vertical_display']['row_delete'][$row_no]
-                    .= $this->_getCheckboxForMultiRowSubmissions(
-                        $del_url, $is_display, $row_no, $where_clause_html,
-                        $condition_array, $del_query, '[%_PMA_CHECKBOX_DIR_%]',
-                        $alternating_color_class . $vertical_class
-                    );
-
-            } else {
-                unset($GLOBALS['vertical_display']['row_delete'][$row_no]);
-            }
-
-            if (isset($edit_url)) {
-
-                $GLOBALS['vertical_display']['edit'][$row_no] .= $this->_getEditLink(
-                    $edit_url,
-                    $alternating_color_class . ' ' . $edit_anchor_class
-                    . $vertical_class, $edit_str,
-                    $where_clause,
-                    $where_clause_html
-                );
-
-            } else {
-                unset($GLOBALS['vertical_display']['edit'][$row_no]);
-            }
-
-            if (isset($copy_url)) {
-
-                $GLOBALS['vertical_display']['copy'][$row_no] .= $this->_getCopyLink(
-                    $copy_url, $copy_str, $where_clause, $where_clause_html,
-                    $alternating_color_class . $vertical_class
-                );
-
-            } else {
-                unset($GLOBALS['vertical_display']['copy'][$row_no]);
-            }
-
-            if (isset($del_url)) {
-
-                if (! isset($js_conf)) {
-                    $js_conf = '';
-                }
-
-                $GLOBALS['vertical_display']['delete'][$row_no]
-                    .= $this->_getDeleteLink(
-                        $del_url, $del_str, $js_conf,
-                        $alternating_color_class . $vertical_class
-                    );
-
-            } else {
-                unset($GLOBALS['vertical_display']['delete'][$row_no]);
-            }
-
+            //    output            
+            $this->_gatherLinksForLaterOutputs(
+                $row_no, $is_display, $where_clause, $where_clause_html, $js_conf,
+                $del_url, $del_query, $del_str, $edit_anchor_class, $edit_str,
+                $copy_url, $copy_str, $alternating_color_class, $condition_array
+            );
+            
             $table_body_html .= $directionCondition ? "\n" : '';
             $row_no++;
 
@@ -2627,7 +2398,318 @@ class PMA_DisplayResults
         return $table_body_html;
 
     } // end of the '_getTableBody()' function
+    
+    
+    /**
+     * Prepare rows
+     * 
+     * @param integer &$dt_result         the link id associated to the query
+     *                                    which results have to be displayed
+     * @param array   $row                current row data
+     * @param integer $row_no             the index of current row
+     * @param array   $col_order          the column order
+     *                                    false when a property not found
+     * @param array   $map                the list of relations
+     * @param string  $grid_edit_class    the class for all editable columns
+     * @param boolean $col_visib          column is visible(false)
+     *        array                       column isn't visible(string array)
+     * @param string  $where_clause       where clause
+     * @param string  $url_sql_query      the analyzed sql query
+     * @param array   $analyzed_sql       the analyzed query
+     * @param boolean $directionCondition the directional condition
+     *
+     * @return  string $row_values_html  html content
+     * 
+     * @access  private
+     * 
+     * @see     _getTableBody()
+     */
+    private function _getRowValues(
+        &$dt_result, $row, $row_no, $col_order, $map,
+        $grid_edit_class, $col_visib, $where_clause,
+        $url_sql_query, $analyzed_sql, $directionCondition
+    ) {
+        
+        $row_values_html = '';
+        
+        for ($j = 0; $j < $GLOBALS['fields_cnt']; ++$j) {
 
+            // assign $i with appropriate column order
+            $i = $col_order ? $col_order[$j] : $j;
+
+            $meta    = $GLOBALS['fields_meta'][$i];
+            $not_null_class = $meta->not_null ? 'not_null' : '';
+            $relation_class = isset($map[$meta->name]) ? 'relation' : '';
+            $hide_class = ($col_visib && !$col_visib[$j]
+                // hide per <td> only if the display dir is not vertical
+                && ($_SESSION['tmp_user_values']['disp_direction']
+                    != self::DISP_DIR_VERTICAL))
+                ? 'hide'
+                : '';
+
+            // handle datetime-related class, for grid editing
+            $field_type_class
+                = $this->_getClassForDateTimeRelatedFields($meta->type);
+
+            $pointer = $i;
+            $is_field_truncated = false;
+            //If the previous column had blob data, we need to reset the class
+            // to $inline_edit_class
+            $class = $this->_getResettedClassForInlineEdit(
+                $grid_edit_class, $not_null_class, $relation_class,
+                $hide_class, $field_type_class, $row_no
+            );
+
+            //  See if this column should get highlight because it's used in the
+            //  where-query.
+            $condition_field = (isset($GLOBALS['highlight_columns'])
+                && (isset($GLOBALS['highlight_columns'][$meta->name])
+                || isset($GLOBALS['highlight_columns'][$this->getCommonFunctions()->backquote($meta->name)])))
+                ? true
+                : false;
+
+            // Wrap MIME-transformations. [MIME]
+            $default_function = '_mimeDefaultFunction'; // default_function
+            $transformation_plugin = $default_function;
+            $transform_options = array();
+
+            if ($GLOBALS['cfgRelation']['mimework']
+                && $GLOBALS['cfg']['BrowseMIME']
+            ) {
+
+                if (isset($GLOBALS['mime_map'][$meta->name]['mimetype'])
+                    && isset($GLOBALS['mime_map'][$meta->name]['transformation'])
+                    && !empty($GLOBALS['mime_map'][$meta->name]['transformation'])
+                ) {
+
+                    $file = $GLOBALS['mime_map'][$meta->name]['transformation'];
+                    $include_file = 'libraries/plugins/transformations/' . $file;
+
+                    if (file_exists($include_file)) {
+
+                        include_once $include_file;
+                        $class_name = str_replace('.class.php', '', $file);
+                        // todo add $plugin_manager
+                        $plugin_manager = null;
+                        $transformation_plugin = new $class_name(
+                            $plugin_manager
+                        );
+
+                        $transform_options  = PMA_transformation_getOptions(
+                            isset($GLOBALS['mime_map'][$meta->name]
+                                ['transformation_options']
+                            )
+                            ? $GLOBALS['mime_map'][$meta->name]
+                            ['transformation_options']
+                            : ''
+                        );
+
+                        $meta->mimetype = str_replace(
+                            '_', '/',
+                            $GLOBALS['mime_map'][$meta->name]['mimetype']
+                        );
+
+                    } // end if file_exists
+                } // end if transformation is set
+            } // end if mime/transformation works.
+
+            $_url_params = array(
+                'db'            => $this->_db,
+                'table'         => $this->_table,
+                'where_clause'  => $where_clause,
+                'transform_key' => $meta->name,
+            );
+
+            if (! empty($this->_sql_query)) {
+                $_url_params['sql_query'] = $url_sql_query;
+            }
+
+            $transform_options['wrapper_link']
+                = PMA_generate_common_url($_url_params);
+
+            if ($meta->numeric == 1) {
+                // n u m e r i c
+
+                // if two fields have the same name (this is possible
+                //       with self-join queries, for example), using $meta->name
+                //       will show both fields NULL even if only one is NULL,
+                //       so use the $pointer
+
+                $GLOBALS['vertical_display']['data'][$row_no][$i]
+                    = $this->_getDataCellForNumericColumns(
+                        $row[$i], $class, $condition_field, $meta, $map,
+                        $is_field_truncated, $analyzed_sql,
+                        $transformation_plugin, $default_function,
+                        $transform_options
+                    );
+
+            } elseif (stristr($meta->type, self::BLOB_FIELD)) {
+                //  b l o b
+
+                // PMA_mysql_fetch_fields returns BLOB in place of
+                // TEXT fields type so we have to ensure it's really a BLOB
+                $field_flags = PMA_DBI_field_flags($dt_result, $i);
+
+                $GLOBALS['vertical_display']['data'][$row_no][$i]
+                    = $this->_getDataCellForBlobColumns(
+                        $row[$i], $class, $meta, $_url_params, $field_flags,
+                        $transformation_plugin, $default_function,
+                        $transform_options, $condition_field, $is_field_truncated
+                    );
+
+            } elseif ($meta->type == self::GEOMETRY_FIELD) {
+                // g e o m e t r y
+
+                // Remove 'grid_edit' from $class as we do not allow to
+                // inline-edit geometry data.
+                $class = str_replace('grid_edit', '', $class);
+
+                $GLOBALS['vertical_display']['data'][$row_no][$i]
+                    = $this->_getDataCellForGeometryColumns(
+                        $row[$i], $class, $meta, $map, $_url_params,
+                        $condition_field, $transformation_plugin,
+                        $default_function, $transform_options,
+                        $is_field_truncated, $analyzed_sql
+                    );
+
+            } else {
+                // n o t   n u m e r i c   a n d   n o t   B L O B
+
+                $GLOBALS['vertical_display']['data'][$row_no][$i]
+                    = $this->_getDataCellForNonNumericAndNonBlobColumns(
+                        $row[$i], $class, $meta, $map, $_url_params,
+                        $condition_field, $transformation_plugin,
+                        $default_function, $transform_options,
+                        $is_field_truncated, $analyzed_sql, $dt_result, $i
+                    );
+
+            }
+
+            // output stored cell
+            if ($directionCondition) {
+                $row_values_html
+                    .= $GLOBALS['vertical_display']['data'][$row_no][$i];
+            }
+
+            if (isset($GLOBALS['vertical_display']['rowdata'][$i][$row_no])) {
+                $GLOBALS['vertical_display']['rowdata'][$i][$row_no]
+                    .= $GLOBALS['vertical_display']['data'][$row_no][$i];
+            } else {
+                $GLOBALS['vertical_display']['rowdata'][$i][$row_no]
+                    = $GLOBALS['vertical_display']['data'][$row_no][$i];
+            }
+        } // end for
+        
+        return $row_values_html;
+        
+    } // end of the '_getRowValues()' function
+    
+    
+    /**
+     * Gather delete/edit url links for further outputs
+     * 
+     * @param integer $row_no                  the index of current row
+     * @param array   $is_display              which elements to display
+     * @param string  $where_clause            where clause
+     * @param string  $where_clause_html       the html encoded where clause
+     * @param string  $js_conf                 text for the JS confirmation
+     * @param string  $del_url                 the url for delete row
+     * @param string  $del_query               the query for delete row
+     * @param string  $del_str                 the label for delete row
+     * @param string  $edit_anchor_class       the class for html element for edit
+     * @param string  $edit_str                the label for edit row
+     * @param string  $copy_url                the url for copy row
+     * @param string  $copy_str                the label for copy row
+     * @param string  $alternating_color_class class for display two colors in rows
+     * @param array   $condition_array         array of keys 
+     *                                         (primary,unique,condition)
+     * 
+     * @return  void
+     * 
+     * @access  private
+     * 
+     * @see     _getTableBody()
+     */
+    private function _gatherLinksForLaterOutputs(
+        $row_no, $is_display, $where_clause, $where_clause_html, $js_conf,
+        $del_url, $del_query, $del_str, $edit_anchor_class, $edit_str,
+        $copy_url, $copy_str, $alternating_color_class, $condition_array
+    ) {
+        
+        if (! isset($GLOBALS['vertical_display']['edit'][$row_no])) {
+            $GLOBALS['vertical_display']['edit'][$row_no]       = '';
+            $GLOBALS['vertical_display']['copy'][$row_no]       = '';
+            $GLOBALS['vertical_display']['delete'][$row_no]     = '';
+            $GLOBALS['vertical_display']['row_delete'][$row_no] = '';
+        }
+
+        $vertical_class = ' row_' . $row_no;
+        if ($GLOBALS['cfg']['BrowsePointerEnable'] == true) {
+            $vertical_class .= ' vpointer';
+        }
+
+        if ($GLOBALS['cfg']['BrowseMarkerEnable'] == true) {
+            $vertical_class .= ' vmarker';
+        }
+
+        if (!empty($del_url)
+            && ($is_display['del_lnk'] != self::KILL_PROCESS)
+        ) {
+
+            $GLOBALS['vertical_display']['row_delete'][$row_no]
+                .= $this->_getCheckboxForMultiRowSubmissions(
+                    $del_url, $is_display, $row_no, $where_clause_html,
+                    $condition_array, $del_query, '[%_PMA_CHECKBOX_DIR_%]',
+                    $alternating_color_class . $vertical_class
+                );
+
+        } else {
+            unset($GLOBALS['vertical_display']['row_delete'][$row_no]);
+        }
+
+        if (isset($edit_url)) {
+
+            $GLOBALS['vertical_display']['edit'][$row_no] .= $this->_getEditLink(
+                $edit_url,
+                $alternating_color_class . ' ' . $edit_anchor_class
+                . $vertical_class, $edit_str,
+                $where_clause,
+                $where_clause_html
+            );
+
+        } else {
+            unset($GLOBALS['vertical_display']['edit'][$row_no]);
+        }
+
+        if (isset($copy_url)) {
+
+            $GLOBALS['vertical_display']['copy'][$row_no] .= $this->_getCopyLink(
+                $copy_url, $copy_str, $where_clause, $where_clause_html,
+                $alternating_color_class . $vertical_class
+            );
+
+        } else {
+            unset($GLOBALS['vertical_display']['copy'][$row_no]);
+        }
+
+        if (isset($del_url)) {
+
+            if (! isset($js_conf)) {
+                $js_conf = '';
+            }
+
+            $GLOBALS['vertical_display']['delete'][$row_no]
+                .= $this->_getDeleteLink(
+                    $del_url, $del_str, $js_conf,
+                    $alternating_color_class . $vertical_class
+                );
+
+        } else {
+            unset($GLOBALS['vertical_display']['delete'][$row_no]);
+        }
+        
+    } // end of the '_gatherLinksForLaterOutputs()' function
+    
 
     /**
      * Get url sql query without conditions to shorten URLs
