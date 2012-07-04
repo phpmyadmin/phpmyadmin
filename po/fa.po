@@ -5058,7 +5058,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:461
-#, fuzzy
 msgid "Show display direction"
 msgstr "آمار پايگاههاي داده"
 
@@ -5069,7 +5068,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:463
-#, fuzzy
 msgid "Show field types"
 msgstr "نمايش جدولها"
 
@@ -5086,7 +5084,6 @@ msgid "Whether to show hint or not"
 msgstr ""
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show hint"
 msgstr "Show grid"
@@ -5127,7 +5124,6 @@ msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:476
-#, fuzzy
 msgid "Show statistics"
 msgstr "آمار سطرها"
 
@@ -5198,7 +5194,6 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:494 tbl_tracking.php:460
 #: tbl_tracking.php:517
-#, fuzzy
 msgid "Username"
 msgstr "نام كاربر:"
 
@@ -5227,7 +5222,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:500
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Textarea columns"
 msgstr "اضافه يا حذف ستونها"
@@ -5251,7 +5245,6 @@ msgid "Title of browser window when nothing is selected"
 msgstr ""
 
 #: libraries/config/messages.inc.php:506
-#, fuzzy
 #| msgid "Default"
 msgid "Default title"
 msgstr "پيش‌فرض"
@@ -5379,7 +5372,6 @@ msgstr ""
 
 #: libraries/config/setup.forms.php:292
 #: libraries/config/user_preferences.forms.php:190
-#, fuzzy
 msgid "Database export options"
 msgstr "آمار پايگاههاي داده"
 
@@ -5545,7 +5537,6 @@ msgstr ""
 
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
-#, fuzzy
 #| msgid "Create new database"
 msgid "Create database"
 msgstr "ساخت پايگاه داده جديد"
@@ -5556,7 +5547,6 @@ msgstr "ساختن"
 
 #: libraries/display_create_database.lib.php:43 server_privileges.php:123
 #: server_privileges.php:1587 server_replication.php:33
-#, fuzzy
 msgid "No Privileges"
 msgstr "امتيازات"
 
@@ -5574,7 +5564,6 @@ msgid "Name"
 msgstr "اسم"
 
 #: libraries/display_create_table.lib.php:55
-#, fuzzy
 #| msgid "Number of rows per page"
 msgid "Number of columns"
 msgstr "تعداد سطرها در هر صفحه"
@@ -5584,7 +5573,6 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 
 #: libraries/display_export.lib.php:82
-#, fuzzy
 #| msgid "Create table on database %s"
 msgid "Exporting databases from the current server"
 msgstr "ساخت جدول جديد در پايگاه داده %s"
