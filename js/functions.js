@@ -3654,6 +3654,7 @@ AJAX.registerOnload('functions.js', function() {
                         if (data.success === true) {
                             $('#createViewDialog').dialog("close");
                             $('#result_query').html(data.message);
+                            PMA_reloadNavigation();
                         } else {
                             PMA_ajaxShowMessage(data.error, false);
                         }
