@@ -1,10 +1,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
+"Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-07-04 09:27+0200\n"
+"PO-Revision-Date: 2012-07-04 11:24+0200\n"
 "Last-Translator: Ashiyane Digital Security Team <HeXa.ashiyane@gmail.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
@@ -426,10 +426,8 @@ msgstr "آخرین بازدید"
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] ""
-"%s جدول"
-msgstr[1] ""
-"%s  جدولها"
+msgstr[0] "%s جدول"
+msgstr[1] "%s  جدولها"
 
 #: db_qbe.php:42
 msgid "You have to choose at least one column to display"
@@ -891,8 +889,8 @@ msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
-"گزینه \"GeomFromText\" را از ستون \"Function\" انتخاب کنید و رشته زیر را در "
-"فیلد \"مقدار(value)\" وارد کنید"
+"گزینه \"GeomFromText\" را از ستون \"Function\" انتخاب کنید و رشته زیر را در فیلد "
+"\"مقدار(value)\" وارد کنید"
 
 #: import.php:88
 #, php-format
@@ -1590,7 +1588,7 @@ msgstr "بارگیری لاگ ها"
 
 #: js/messages.php:204
 msgid "Monitor refresh failed"
-msgstr "رفرش مانیتور موفقیت آمیز نبود"
+msgstr "مانیتور رفرش ریت"
 
 #: js/messages.php:205
 msgid ""
@@ -1975,7 +1973,7 @@ msgstr ""
 
 #: js/messages.php:349
 msgid "Drag to reorder"
-msgstr "برای دوباره مرتب کردن drag کنید "
+msgstr "برای دوباره مرتب کردن drag کنید"
 
 #: js/messages.php:350
 #| msgid "Click to select"
@@ -2079,6 +2077,7 @@ msgid "Prev"
 msgstr "قبل"
 
 #: js/messages.php:402
+#, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
@@ -2541,7 +2540,6 @@ msgstr "پارامتر یافت نشد:"
 #: libraries/CommonFunctions.class.php:2624
 #: libraries/CommonFunctions.class.php:2628
 #: libraries/DisplayResults.class.php:578
-#, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
@@ -2561,16 +2559,14 @@ msgstr "قبل"
 #: libraries/CommonFunctions.class.php:2664
 #: libraries/DisplayResults.class.php:637 server_binlog.php:175
 #: server_binlog.php:177
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
-msgstr "بعد"
+msgstr "بعدی"
 
 #: libraries/CommonFunctions.class.php:2662
 #: libraries/CommonFunctions.class.php:2665
 #: libraries/DisplayResults.class.php:662
-#, fuzzy
 #| msgid "End"
 msgctxt "Last page"
 msgid "End"
@@ -2604,7 +2600,6 @@ msgstr "برای انتخاب کلیک کنبد"
 #: libraries/plugins/export/ExportLatex.class.php:483
 #: libraries/tbl_properties.inc.php:756 pmd_general.php:167
 #: server_privileges.php:724 server_replication.php:345 tbl_tracking.php:306
-#, fuzzy
 #| msgid "structure"
 msgid "Structure"
 msgstr "ساختار"
@@ -2622,7 +2617,6 @@ msgstr "SQL"
 #: libraries/CommonFunctions.class.php:3591
 #: libraries/CommonFunctions.class.php:3592 libraries/Menu.class.php:294
 #: libraries/sql_query_form.lib.php:307 libraries/sql_query_form.lib.php:310
-#, fuzzy
 #| msgid "Insert"
 msgid "Insert"
 msgstr "درج"
@@ -2637,7 +2631,6 @@ msgstr "فهرست"
 #: libraries/CommonFunctions.class.php:3391 libraries/Menu.class.php:313
 #: libraries/Menu.class.php:336 libraries/Menu.class.php:400
 #: view_operations.php:84
-#, fuzzy
 msgid "Operations"
 msgstr "عمليات"
 
@@ -2676,7 +2669,7 @@ msgstr "فایل تنظیمات فعلی (%s) قابل خواندن نیست."
 
 #: libraries/Config.class.php:945
 msgid "Wrong permissions on configuration file, should not be world writable!"
-msgstr ""
+msgstr "تنظمیات دسترسی اشتباه در فایل تنظیمات ، نباید قابل نوشتن جهانی باشد!"
 
 #: libraries/Config.class.php:1521
 msgid "Font size"
@@ -2882,11 +2875,11 @@ msgstr "پيوند پيدا نشد"
 
 #: libraries/Error_Handler.class.php:65
 msgid "Too many error messages, some are not displayed."
-msgstr ""
+msgstr "خطای زیاد،برخی نمایش داده نشدند."
 
 #: libraries/File.class.php:235
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "فایل آپلود شده نبود."
 
 #: libraries/File.class.php:273
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
@@ -2974,7 +2967,6 @@ msgstr ""
 #: libraries/Index.class.php:471 libraries/rte/rte_events.lib.php:488
 #: libraries/rte/rte_routines.lib.php:1017 tbl_tracking.php:316
 #: tbl_tracking.php:381
-#, fuzzy
 msgid "Comment"
 msgstr "توضيحات"
 
@@ -3118,9 +3110,8 @@ msgid "Could not save recent table"
 msgstr ""
 
 #: libraries/RecentTable.class.php:147
-#, fuzzy
 msgid "Recent tables"
-msgstr "No tables"
+msgstr "جدول های اخیر"
 
 #: libraries/RecentTable.class.php:154
 msgid "There are no recent tables"
@@ -3189,8 +3180,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
-"پاک سازی تنظیمات UI جداول موفقیت آمیز نبود(به $cfg['Servers'][$i]"
-"['MaxTableUiprefs'] %s مراجعه کنید)"
+"پاک سازی تنظیمات UI جداول موفقیت آمیز نبود(به "
+"$cfg['Servers'][$i]['MaxTableUiprefs'] %s مراجعه کنید)"
 
 #: libraries/Table.class.php:1571
 #, php-format
@@ -3199,8 +3190,8 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
-"مقدار UI \"%s\" را نمی توان ذخیره کرد.تغییرات انجام شد اما با رفرش صفحه از "
-"بین می روند.لطفا ساختار جدول خود را برای تغییرات چک کنید."
+"مقدار UI \"%s\" را نمی توان ذخیره کرد.تغییرات انجام شد اما با رفرش صفحه از بین "
+"می روند.لطفا ساختار جدول خود را برای تغییرات چک کنید."
 
 #: libraries/TableSearch.class.php:211 libraries/insert_edit.lib.php:230
 #: libraries/insert_edit.lib.php:236 libraries/rte/rte_routines.lib.php:1458
@@ -3693,8 +3684,7 @@ msgstr "ایندکس غلط در سرور : %s"
 #: libraries/common.inc.php:632
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgstr ""
-"نام هاست برای سرور %1$s اشتباه است. لطفا تنظیمات خود را بازبینی نمایید."
+msgstr "نام هاست برای سرور %1$s اشتباه است. لطفا تنظیمات خود را بازبینی نمایید."
 
 #: libraries/common.inc.php:849
 msgid "Invalid authentication method set in configuration:"
@@ -3864,10 +3854,9 @@ msgid "SQL Validator is disabled"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:811
-#, fuzzy
 #| msgid "Link not found"
 msgid "SOAP extension not found"
-msgstr "پيوند پيدا نشد"
+msgstr "کتابخانه SOAP یافت نشد"
 
 #: libraries/config/FormDisplay.class.php:821
 #, php-format
@@ -3907,9 +3896,8 @@ msgid "Improves efficiency of screen refresh"
 msgstr ""
 
 #: libraries/config/messages.inc.php:18
-#, fuzzy
 msgid "Enable Ajax"
-msgstr "فعال"
+msgstr "ایجکس فعال شود"
 
 #: libraries/config/messages.inc.php:19
 msgid ""
@@ -4062,9 +4050,8 @@ msgid "Debug SQL"
 msgstr ""
 
 #: libraries/config/messages.inc.php:51
-#, fuzzy
 msgid "Default display direction"
-msgstr "آمار پايگاههاي داده"
+msgstr "تنظیم پیش فرض جهت نمایش"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a database"
@@ -4127,26 +4114,23 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:67
-#, fuzzy
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "نگهداشت جدول"
+msgstr "نگهداشت چندتایی جدول را غیر فعال کنید"
 
 #: libraries/config/messages.inc.php:68
 msgid "Edit SQL queries in popup window"
 msgstr ""
 
 #: libraries/config/messages.inc.php:69
-#, fuzzy
 #| msgid "Edit next row"
 msgid "Edit in window"
-msgstr "ویرایش کردن ردیف بعدی"
+msgstr "ویرایش کردن این پنجره"
 
 #: libraries/config/messages.inc.php:70
-#, fuzzy
 #| msgid "Display Features"
 msgid "Display errors"
-msgstr "نمايش خصوصيات"
+msgstr "نمایش خطاها"
 
 #: libraries/config/messages.inc.php:71
 msgid "Gather errors"
@@ -4167,9 +4151,8 @@ msgid "Save as file"
 msgstr "ذخيره به صورت پرونده"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:247
-#, fuzzy
 msgid "Character set of the file"
-msgstr "مجموعه كاراكترهاي پرونده:"
+msgstr "مجموعه كاراكترهاي پرونده"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:92
 #: tbl_gis_visualization.php:177 tbl_printview.php:352 tbl_structure.php:899
@@ -4192,7 +4175,6 @@ msgstr "فشرده‌سازي"
 #: libraries/plugins/export/ExportOds.class.php:63
 #: libraries/plugins/export/ExportOdt.class.php:119
 #: libraries/plugins/export/ExportTexytext.class.php:79
-#, fuzzy
 #| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
 msgstr "قراردادن نام ستونها در اولين سطر"
@@ -4201,7 +4183,6 @@ msgstr "قراردادن نام ستونها در اولين سطر"
 #: libraries/config/messages.inc.php:256
 #: libraries/plugins/import/ImportCsv.class.php:188
 #: libraries/plugins/import/ImportLdi.class.php:93
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed by"
 msgstr "ستونهاي درميان‌گرفته با"
@@ -4210,7 +4191,6 @@ msgstr "ستونهاي درميان‌گرفته با"
 #: libraries/config/messages.inc.php:257
 #: libraries/plugins/import/ImportCsv.class.php:195
 #: libraries/plugins/import/ImportLdi.class.php:100
-#, fuzzy
 #| msgid "Fields escaped by"
 msgid "Columns escaped by"
 msgstr "ستونهاي جداشده با"
@@ -4232,10 +4212,9 @@ msgstr ""
 #: libraries/config/messages.inc.php:261
 #: libraries/plugins/import/ImportCsv.class.php:173
 #: libraries/plugins/import/ImportLdi.class.php:86
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Columns terminated by"
-msgstr "خطوط منتهي به"
+msgstr "ستون های از بین رفته به وسیله"
 
 #: libraries/config/messages.inc.php:84 libraries/config/messages.inc.php:248
 #: libraries/plugins/import/ImportCsv.class.php:202
@@ -4268,10 +4247,9 @@ msgstr ""
 #: libraries/plugins/export/ExportOdt.class.php:61
 #: libraries/plugins/export/ExportSql.class.php:252
 #: libraries/plugins/export/ExportTexytext.class.php:50
-#, fuzzy
 #| msgid "%s table(s)"
 msgid "Dump table"
-msgstr "%s جدول(ها)"
+msgstr "بیرون کشیدن جدول"
 
 #: libraries/config/messages.inc.php:96
 #: libraries/plugins/export/ExportLatex.class.php:78
@@ -4303,15 +4281,13 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:104 libraries/config/messages.inc.php:116
 #: libraries/config/messages.inc.php:140 tbl_relation.php:406
-#, fuzzy
 msgid "Relations"
-msgstr "عمليات"
+msgstr "رابطه ها"
 
 #: libraries/config/messages.inc.php:109
-#, fuzzy
 #| msgid "Export"
 msgid "Export method"
-msgstr "صدور"
+msgstr "روش صدور"
 
 #: libraries/config/messages.inc.php:118 libraries/config/messages.inc.php:120
 msgid "Save on server"
@@ -4327,10 +4303,9 @@ msgid "Remember file name template"
 msgstr ""
 
 #: libraries/config/messages.inc.php:124
-#, fuzzy
 #| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
-msgstr "قراردادن نام جدولها و ستونها بين علامت نقل‌قول (\" ' \")"
+msgstr "قراردادن نام جدولها و ستونها بين علامت نقل‌قول"
 
 #: libraries/config/messages.inc.php:125 libraries/config/messages.inc.php:268
 #: libraries/display_export.lib.php:374
@@ -4347,9 +4322,8 @@ msgid "Creation/Update/Check dates"
 msgstr ""
 
 #: libraries/config/messages.inc.php:128
-#, fuzzy
 msgid "Use delayed inserts"
-msgstr "وروديهاي تمديدشده"
+msgstr "از ورودی با تاخیر استفاده نمایید"
 
 #: libraries/config/messages.inc.php:129
 #: libraries/plugins/export/ExportSql.class.php:205
@@ -4361,10 +4335,9 @@ msgid "Use hexadecimal for BLOB"
 msgstr ""
 
 #: libraries/config/messages.inc.php:134
-#, fuzzy
 #| msgid "Extended inserts"
 msgid "Use ignore inserts"
-msgstr "وروديهاي تمديدشده"
+msgstr "از ورودی های درنظرگرفته نشده استفاده نمایید"
 
 #: libraries/config/messages.inc.php:136
 msgid "Syntax to use when inserting data"
@@ -4376,10 +4349,9 @@ msgid "Maximal length of created query"
 msgstr ""
 
 #: libraries/config/messages.inc.php:142
-#, fuzzy
 #| msgid "Export"
 msgid "Export type"
-msgstr "صدور"
+msgstr "نوع صدور"
 
 #: libraries/config/messages.inc.php:143
 #: libraries/plugins/export/ExportSql.class.php:193
@@ -4470,9 +4442,8 @@ msgid "Features"
 msgstr ""
 
 #: libraries/config/messages.inc.php:172
-#, fuzzy
 msgid "General"
-msgstr "توليد‌شده توسط"
+msgstr "عمومی"
 
 #: libraries/config/messages.inc.php:173
 msgid "Set some commonly used options"
@@ -4500,9 +4471,8 @@ msgid "LaTeX"
 msgstr ""
 
 #: libraries/config/messages.inc.php:182
-#, fuzzy
 msgid "Databases display options"
-msgstr "آمار پايگاههاي داده"
+msgstr "گزینه های نمایش پایگاه داده"
 
 #: libraries/config/messages.inc.php:183 setup/frames/menu.inc.php:19
 msgid "Navigation frame"
@@ -4514,7 +4484,6 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:185 libraries/select_server.lib.php:40
 #: setup/frames/index.inc.php:117
-#, fuzzy
 msgid "Servers"
 msgstr "سرور"
 
@@ -4535,10 +4504,9 @@ msgid "Microsoft Office"
 msgstr ""
 
 #: libraries/config/messages.inc.php:192
-#, fuzzy
 #| msgid "Documentation"
 msgid "Open Document"
-msgstr "مستندات"
+msgstr "مستندات باز"
 
 #: libraries/config/messages.inc.php:194
 msgid "Other core settings"
@@ -4549,10 +4517,9 @@ msgid "Settings that didn't fit enywhere else"
 msgstr ""
 
 #: libraries/config/messages.inc.php:196
-#, fuzzy
 #| msgid "Page number:"
 msgid "Page titles"
-msgstr "شماره صفحه:"
+msgstr "عنوان صفحه"
 
 #: libraries/config/messages.inc.php:197
 msgid ""
@@ -4586,10 +4553,9 @@ msgid "Basic settings"
 msgstr ""
 
 #: libraries/config/messages.inc.php:203
-#, fuzzy
 #| msgid "Documentation"
 msgid "Authentication"
-msgstr "مستندات"
+msgstr "ورود"
 
 #: libraries/config/messages.inc.php:204
 msgid "Authentication settings"
@@ -4648,26 +4614,22 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:217 libraries/config/messages.inc.php:222
 #: setup/frames/menu.inc.php:18
-#, fuzzy
 msgid "SQL queries"
 msgstr "پرس و جوي SQL"
 
 #: libraries/config/messages.inc.php:219
-#, fuzzy
 msgid "SQL Query box"
-msgstr "پرس و جوي SQL"
+msgstr "جعبه پرس و جوي SQL"
 
 #: libraries/config/messages.inc.php:220
 msgid "Customize links shown in SQL Query boxes"
 msgstr ""
 
 #: libraries/config/messages.inc.php:223
-#, fuzzy
 msgid "SQL queries settings"
-msgstr "پرس و جوي SQL"
+msgstr "تنظیمات پرس و جوي SQL"
 
 #: libraries/config/messages.inc.php:224
-#, fuzzy
 msgid "SQL Validator"
 msgstr "معتبرسازي SQL"
 
@@ -4708,7 +4670,6 @@ msgid "Settings for the table structure (list of columns)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:232
-#, fuzzy
 msgid "Tabs"
 msgstr "جدول"
 
@@ -4944,10 +4905,9 @@ msgid "Maximum number of recently used tables; set 0 to disable"
 msgstr ""
 
 #: libraries/config/messages.inc.php:298
-#, fuzzy
 #| msgid "Analyze table"
 msgid "Recently used tables"
-msgstr "تحليل جدول"
+msgstr "جدول های استفاده شده اخیر"
 
 #: libraries/config/messages.inc.php:299
 msgid ""
@@ -5080,10 +5040,9 @@ msgid "Use natural order for sorting table and database names"
 msgstr ""
 
 #: libraries/config/messages.inc.php:328
-#, fuzzy
 #| msgid "Alter table order by"
 msgid "Natural order"
-msgstr "تغيير جدول مرتب شده با"
+msgstr "نوبت خنثی"
 
 #: libraries/config/messages.inc.php:329 libraries/config/messages.inc.php:339
 msgid "Use only icons, only text or both"
@@ -5329,19 +5288,17 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:388
-#, fuzzy
 #| msgid "Any host"
 msgid "Control host"
-msgstr "همه ميزبانها"
+msgstr "کنترل هاست"
 
 #: libraries/config/messages.inc.php:389
 msgid "Count tables when showing database list"
 msgstr ""
 
 #: libraries/config/messages.inc.php:390
-#, fuzzy
 msgid "Count tables"
-msgstr "No tables"
+msgstr "تعداد جداول"
 
 #: libraries/config/messages.inc.php:391
 msgid ""
@@ -5485,9 +5442,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:421
-#, fuzzy
 msgid "Relation table"
-msgstr "مرمت جدول"
+msgstr "ارتباط جدول"
 
 #: libraries/config/messages.inc.php:422
 msgid "SQL command to fetch available databases"
@@ -5543,10 +5499,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:434
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display columns table"
-msgstr "نمايش توضيحات ستون"
+msgstr "نمایش جدول ستون ها"
 
 #: libraries/config/messages.inc.php:435
 msgid ""
@@ -5593,10 +5548,9 @@ msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
 #: libraries/config/messages.inc.php:444
-#, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
-msgstr "شرج"
+msgstr "جملاتی که باید ردگیری شوند"
 
 #: libraries/config/messages.inc.php:445
 msgid ""
@@ -5615,9 +5569,8 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:448
-#, fuzzy
 msgid "Automatically create versions"
-msgstr "نسخه سرور"
+msgstr "به صورت خودکار نسخه ایجاد شود"
 
 #: libraries/config/messages.inc.php:449
 msgid ""
@@ -5703,7 +5656,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 msgid "Show display direction"
 msgstr "آمار پايگاههاي داده"
 
@@ -5714,7 +5666,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:469
-#, fuzzy
 msgid "Show field types"
 msgstr "نمايش جدولها"
 
@@ -5731,7 +5682,6 @@ msgid "Whether to show hint or not"
 msgstr ""
 
 #: libraries/config/messages.inc.php:473
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show hint"
 msgstr "Show grid"
@@ -5764,7 +5714,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:480 libraries/sql_query_form.lib.php:377
-#, fuzzy
 msgid "Retain query box"
 msgstr "پرس و جوي SQL"
 
@@ -5773,7 +5722,6 @@ msgid "Allow to display database and table statistics (eg. space usage)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:482
-#, fuzzy
 msgid "Show statistics"
 msgstr "آمار سطرها"
 
@@ -5844,9 +5792,8 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:500 tbl_tracking.php:526
 #: tbl_tracking.php:585
-#, fuzzy
 msgid "Username"
-msgstr "نام كاربر:"
+msgstr "نام كاربر"
 
 #: libraries/config/messages.inc.php:501
 msgid "A warning is displayed on the main page if Suhosin is detected"
@@ -5863,7 +5810,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:504
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Textarea columns"
 msgstr "اضافه يا حذف ستونها"
@@ -5887,7 +5833,6 @@ msgid "Title of browser window when nothing is selected"
 msgstr ""
 
 #: libraries/config/messages.inc.php:510
-#, fuzzy
 #| msgid "Default"
 msgid "Default title"
 msgstr "پيش‌فرض"
@@ -6006,7 +5951,6 @@ msgstr ""
 
 #: libraries/config/setup.forms.php:291
 #: libraries/config/user_preferences.forms.php:192
-#, fuzzy
 msgid "Database export options"
 msgstr "آمار پايگاههاي داده"
 
@@ -6107,10 +6051,8 @@ msgstr "نتيجه ي جستجو \"<i>%s</i>\" %s:"
 #, php-format
 msgid "<b>Total:</b> <i>%s</i> match"
 msgid_plural "<b>Total:</b> <i>%s</i> matches"
-msgstr[0] ""
-"<b>مجموع:</b> <i>%s</i> مطابقت"
-msgstr[1] ""
-"<b>مجموع:</b> <i>%s</i> مطابقتها"
+msgstr[0] "<b>مجموع:</b> <i>%s</i> مطابقت"
+msgstr[1] "<b>مجموع:</b> <i>%s</i> مطابقتها"
 
 #: libraries/db_search.lib.php:211
 #, php-format
@@ -6181,7 +6123,6 @@ msgstr ""
 
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
-#, fuzzy
 #| msgid "Create new database"
 msgid "Create database"
 msgstr "ساخت پايگاه داده جديد"
@@ -6192,7 +6133,6 @@ msgstr "ساختن"
 
 #: libraries/display_create_database.lib.php:43 server_privileges.php:185
 #: server_privileges.php:1761 server_replication.php:36
-#, fuzzy
 msgid "No Privileges"
 msgstr "امتيازات"
 
@@ -6213,7 +6153,6 @@ msgid "Name"
 msgstr "اسم"
 
 #: libraries/display_create_table.lib.php:55
-#, fuzzy
 #| msgid "Number of rows per page"
 msgid "Number of columns"
 msgstr "تعداد سطرها در هر صفحه"
@@ -6223,19 +6162,18 @@ msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 
 #: libraries/display_export.lib.php:95
-#, fuzzy
 #| msgid "Create table on database %s"
 msgid "Exporting databases from the current server"
 msgstr "ساخت جدول جديد در پايگاه داده %s"
 
 #: libraries/display_export.lib.php:97
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting tables from \"%s\" database"
 msgstr "ساخت جدول جديد در پايگاه داده %s"
 
 #: libraries/display_export.lib.php:99
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting rows from \"%s\" table"
 msgstr "ساخت جدول جديد در پايگاه داده %s"
@@ -6551,8 +6489,8 @@ msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
 msgstr ""
-"استفاده می کند به داده های ذخیره سازی و شاخص از جداول آن است  InnoDB اندازه  "
-"بافر حافظه از."
+"استفاده می کند به داده های ذخیره سازی و شاخص از جداول آن است  InnoDB اندازه "
+" بافر حافظه از."
 
 #: libraries/engines/innodb.lib.php:141
 msgid "Buffer Pool"
@@ -8691,7 +8629,7 @@ msgstr ""
 
 #: libraries/server_synchronize.lib.php:1555
 msgid "Difference"
-msgstr ""
+msgstr "تفاوت"
 
 #: libraries/server_synchronize.lib.php:1556 server_synchronize.php:1355
 #, fuzzy
@@ -13375,9 +13313,8 @@ msgstr "مقدار concurrent_insert  صفر میباشد"
 #~ msgid "Dates only."
 #~ msgstr "فقط داده‌ها"
 
-#, fuzzy
 #~ msgid "Add a value"
-#~ msgstr "افزودن يك كاربر جديد"
+#~ msgstr "افزودن يك مقدار جديد"
 
 #, fuzzy
 #~ msgctxt "Correctly setup"
@@ -13469,12 +13406,12 @@ msgstr "مقدار concurrent_insert  صفر میباشد"
 #~ "a semicolon is missing somewhere.<br />If you receive a blank page, "
 #~ "everything is fine."
 #~ msgstr ""
-#~ "phpMyAdmin قادر به خواندن پرونده تنظيمات نمي‌باشد!<br />اين ممكن است به "
-#~ "خاطر وجود يك مشكل دستوري و يا پيدانشدن پرونده توسط php باشد.<br />لطفا "
-#~ "پرونده تنظميات را مستقيما توسط پيوند زير صدا زده و پيغام(هاي) خطاي php كه "
-#~ "دريافت مي‌كنيد را بخوانيد. در اكثر موارد يك علامت نقل قول (\" ' \") يا "
-#~ "ويرگول‌نقطه (\" ; \") در جايي وجود ندارد.<br />اگر يك صفحه خالي دريافت "
-#~ "كرديد ، همه چيز درست است."
+#~ "phpMyAdmin قادر به خواندن پرونده تنظيمات نمي‌باشد!<br />اين ممكن است به خاطر "
+#~ "وجود يك مشكل دستوري و يا پيدانشدن پرونده توسط php باشد.<br />لطفا پرونده "
+#~ "تنظميات را مستقيما توسط پيوند زير صدا زده و پيغام(هاي) خطاي php كه دريافت "
+#~ "مي‌كنيد را بخوانيد. در اكثر موارد يك علامت نقل قول (\" ' \") يا ويرگول‌نقطه (\" "
+#~ "; \") در جايي وجود ندارد.<br />اگر يك صفحه خالي دريافت كرديد ، همه چيز درست "
+#~ "است."
 
 #~ msgid "seconds"
 #~ msgstr "ثانیه"
@@ -13512,8 +13449,8 @@ msgstr "مقدار concurrent_insert  صفر میباشد"
 #~ "The additional features for working with linked tables have been "
 #~ "deactivated. To find out why click %shere%s."
 #~ msgstr ""
-#~ "امكانات اضافي براي كاركردن با جدولهاي پيوندي غيرفعال شده‌است . براي "
-#~ "پيداكردن دليل آن %sاينجا%s را بزنيد ."
+#~ "امكانات اضافي براي كاركردن با جدولهاي پيوندي غيرفعال شده‌است . براي پيداكردن "
+#~ "دليل آن %sاينجا%s را بزنيد ."
 
 #~ msgid "No tables"
 #~ msgstr "No tables"
@@ -13527,22 +13464,20 @@ msgstr "مقدار concurrent_insert  صفر میباشد"
 #~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
 #~ "\\'b')."
 #~ msgstr ""
-#~ "اگر نوع ستون \"enum\" يا \"set\" مي‌باشد ، لطفا براي ورود مقادير از اين "
-#~ "قالب استفاده نماييد : 'a','b','c'...<br /> اگر احتياج داشتيد كه از علامت "
-#~ "مميز برعكس(بك‌اسلش) (\" \\ \") يا نقل‌قول تكي (\" ' \") در آن مقادير "
-#~ "استفاده نماييد ، قبل از آنها علامت (\" \\ \") را بگذاريد<br /> (براي "
-#~ "مثال'\\\\xyz' يا 'a\\'b')"
+#~ "اگر نوع ستون \"enum\" يا \"set\" مي‌باشد ، لطفا براي ورود مقادير از اين قالب "
+#~ "استفاده نماييد : 'a','b','c'...<br /> اگر احتياج داشتيد كه از علامت مميز "
+#~ "برعكس(بك‌اسلش) (\" \\ \") يا نقل‌قول تكي (\" ' \") در آن مقادير استفاده نماييد ، "
+#~ "قبل از آنها علامت (\" \\ \") را بگذاريد<br /> (براي مثال'\\\\xyz' يا 'a\\'b')"
 
 #~ msgid ""
 #~ "Enter each value in a separate field. If you ever need to put a backslash "
 #~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
 #~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
 #~ msgstr ""
-#~ "اگر نوع ستون \"enum\" يا \"set\" مي‌باشد ، لطفا براي ورود مقادير از اين "
-#~ "قالب استفاده نماييد : 'a','b','c'...<br /> اگر احتياج داشتيد كه از علامت "
-#~ "مميز برعكس(بك‌اسلش) (\" \\ \") يا نقل‌قول تكي (\" ' \") در آن مقادير "
-#~ "استفاده نماييد ، قبل از آنها علامت (\" \\ \") را بگذاريد<br /> (براي "
-#~ "مثال'\\\\xyz' يا 'a\\'b')"
+#~ "اگر نوع ستون \"enum\" يا \"set\" مي‌باشد ، لطفا براي ورود مقادير از اين قالب "
+#~ "استفاده نماييد : 'a','b','c'...<br /> اگر احتياج داشتيد كه از علامت مميز "
+#~ "برعكس(بك‌اسلش) (\" \\ \") يا نقل‌قول تكي (\" ' \") در آن مقادير استفاده نماييد ، "
+#~ "قبل از آنها علامت (\" \\ \") را بگذاريد<br /> (براي مثال'\\\\xyz' يا 'a\\'b')"
 
 #~ msgid "New table"
 #~ msgstr "No tables"
@@ -13585,10 +13520,9 @@ msgstr "مقدار concurrent_insert  صفر میباشد"
 #~ "conversion. Either configure PHP to enable these extensions or disable "
 #~ "charset conversion in phpMyAdmin."
 #~ msgstr ""
-#~ "بارگذاري iconv يا  recode extension كه براي تبديل مجموعه كاراكترها لازم "
-#~ "است ، مقدور نمي‌باشد، php را براي اجازه استفاده از آنها تنظيم كرده و يا "
-#~ "تبديل مجموعه كاراكترها (charset conversion) را در phpMyAdmin غيرفعال "
-#~ "نماييد."
+#~ "بارگذاري iconv يا  recode extension كه براي تبديل مجموعه كاراكترها لازم است "
+#~ "، مقدور نمي‌باشد، php را براي اجازه استفاده از آنها تنظيم كرده و يا تبديل "
+#~ "مجموعه كاراكترها (charset conversion) را در phpMyAdmin غيرفعال نماييد."
 
 #~ msgid "Field"
 #~ msgstr "ستون"
