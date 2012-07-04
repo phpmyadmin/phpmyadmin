@@ -165,6 +165,50 @@ function showColumnSelectCell($columns, $column_number, $selected = '')
 }
 
 /**
+ * Provides select options list containing sort options (ASC/DESC)
+ *
+ * @param integer $column_number Column Number (0,1,2) or more
+ * @param string  $realwidth
+ *
+ * @return HTML for select options
+ */
+function getSortSelectCell($column_number, $realwidth)
+{
+    $html_output = '<td class="center">';
+    $html_output .= '<select style="width: ' . $realwidth
+        . '" name="Sort[' . $column_number . ']" size="1">';
+    $html_output .= '<option value="">&nbsp;</option>';
+
+    // If they have chosen all fields using the * selector,
+    // then sorting is not available, Fix for Bug #570698
+    if (isset($_REQUEST['Sort'][$column_number]) && isset($_REQUEST['Field'][$column_number])
+        && substr($_REQUEST['Field'][$column_number], -2) == '.*'
+    ) {
+        $_REQUEST['Sort'][$column_number] = '';
+    } //end if
+
+    if (isset($_REQUEST['Sort'][$column_number]) && $_REQUEST['Sort'][$column_number] == 'ASC') {
+        $curSort[$z] = $_REQUEST['Sort'][$column_number];
+        $sel = ' selected="selected"';
+    } else {
+        $sel = '';
+    } // end if
+    $html_output .= '<option value="ASC"' . $sel . '>' . __('Ascending')
+        . '</option>';
+    if (isset($_REQUEST['Sort'][$column_number]) && $_REQUEST['Sort'][$column_number] == 'DESC') {
+        $curSort[$z] = $_REQUEST['Sort'][$column_number];
+        $sel = ' selected="selected"';
+    } else {
+        $sel = '';
+    } // end if
+    $html_output .= '<option value="DESC"' . $sel . '>' . __('Descending')
+        . '</option>';
+    $html_output .= '</select>';
+    $html_output .= '</td>';
+    return $html_output;
+}
+
+/**
  * Provides search form's row containing column select options
  *
  * @param array   $criteria_column_count
@@ -172,7 +216,7 @@ function showColumnSelectCell($columns, $column_number, $selected = '')
  * @param string  $ins_col
  * @param string  $del_col
  *
- * @return HTML for search table's roe
+ * @return HTML for search table's row
  */
 function PMA_dbQbegetColumnNamesRow(
     $criteria_column_count, $columns, $ins_col = null, $del_col = null
@@ -195,6 +239,39 @@ function PMA_dbQbegetColumnNamesRow(
             $curField[$z] = $_REQUEST['Field'][$column_index];
         }
         $html_output .= showColumnSelectCell($columns, $z, $selected);
+        $z++;
+    } // end for
+    $html_output .= '</tr>';
+    return $html_output;
+}
+
+/**
+ * Provides search form's row containing sort(ASC/DESC) select options
+ *
+ * @param array   $criteria_column_count
+ * @param string  $realwidth
+ * @param string  $ins_col
+ * @param string  $del_col
+ *
+ * @return HTML for search table's row
+ */
+function PMA_dbQbegetSortRow(
+    $criteria_column_count, $realwidth, $ins_col = null, $del_col = null
+) {
+    $html_output = '<tr class="even noclick">';
+    $html_output .= '<th>' . __('Sort') . ':</th>';
+    $z = 0;
+    for ($column_index = 0; $column_index < $criteria_column_count; $column_index++)
+    {
+        if (! empty($ins_col) && isset($ins_col[$column_index]) && $ins_col[$column_index] == 'on') {
+            $html_output .= getSortSelectCell($z, $realwidth);
+            $z++;
+        } // end if
+
+        if (! empty($del_col) && isset($del_col[$column_index]) && $del_col[$column_index] == 'on') {
+            continue;
+        }
+        $html_output .= getSortSelectCell($column_index, $realwidth);
         $z++;
     } // end for
     $html_output .= '</tr>';
@@ -224,73 +301,10 @@ if ($cfgRelation['designerwork']) {
 echo PMA_dbQbegetColumnNamesRow(
     $col, $fld, $ins_col, $del_col
 );
+echo PMA_dbQbegetSortRow(
+    $col, $realwidth, $ins_col, $del_col
+);
 ?>
-
-<!-- Sort row -->
-<tr class="even noclick">
-    <th><?php echo __('Sort'); ?>:</th>
-<?php
-$z = 0;
-for ($x = 0; $x < $col; $x++) {
-    if (! empty($ins_col) && isset($ins_col[$x]) && $ins_col[$x] == 'on') {
-        ?>
-    <td class="center">
-        <select style="width: <?php echo $realwidth; ?>" name="Sort[<?php echo $z; ?>]" size="1">
-            <option value="">&nbsp;</option>
-            <option value="ASC"><?php echo __('Ascending'); ?></option>
-            <option value="DESC"><?php echo __('Descending'); ?></option>
-        </select>
-    </td>
-        <?php
-        $z++;
-    } // end if
-    echo "\n";
-
-    if (! empty($del_col) && isset($del_col[$x]) && $del_col[$x] == 'on') {
-        continue;
-    }
-    ?>
-    <td class="center">
-        <select style="width: <?php echo $realwidth; ?>" name="Sort[<?php echo $z; ?>]" size="1">
-            <option value="">&nbsp;</option>
-    <?php
-    echo "\n";
-
-    // If they have chosen all fields using the * selector,
-    // then sorting is not available
-    // Fix for Bug #570698
-    if (isset($Sort[$x]) && isset($Field[$x])
-        && substr($Field[$x], -2) == '.*'
-    ) {
-        $Sort[$x] = '';
-    } //end if
-
-    if (isset($_REQUEST['Sort'][$x]) && $_REQUEST['Sort'][$x] == 'ASC') {
-        $curSort[$z] = $_REQUEST['Sort'][$x];
-        $sel         = ' selected="selected"';
-    } else {
-        $sel         = '';
-    } // end if
-    echo '                ';
-    echo '<option value="ASC"' . $sel . '>' . __('Ascending') . '</option>' . "\n";
-    if (isset($_REQUEST['Sort'][$x]) && $_REQUEST['Sort'][$x] == 'DESC') {
-        $curSort[$z] = $_REQUEST['Sort'][$x];
-        $sel         = ' selected="selected"';
-    } else {
-        $sel         = '';
-    } // end if
-    echo '                ';
-    echo '<option value="DESC"' . $sel . '>' . __('Descending') . '</option>' . "\n";
-    ?>
-        </select>
-    </td>
-    <?php
-    $z++;
-    echo "\n";
-} // end for
-?>
-</tr>
-
 <!-- Show row -->
 <tr class="odd noclick">
     <th><?php echo __('Show'); ?>:</th>
