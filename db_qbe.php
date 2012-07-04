@@ -265,16 +265,16 @@ for ($x = 0; $x < $col; $x++) {
         $Sort[$x] = '';
     } //end if
 
-    if (isset($Sort[$x]) && $Sort[$x] == 'ASC') {
-        $curSort[$z] = $Sort[$x];
+    if (isset($_REQUEST['Sort'][$x]) && $_REQUEST['Sort'][$x] == 'ASC') {
+        $curSort[$z] = $_REQUEST['Sort'][$x];
         $sel         = ' selected="selected"';
     } else {
         $sel         = '';
     } // end if
     echo '                ';
     echo '<option value="ASC"' . $sel . '>' . __('Ascending') . '</option>' . "\n";
-    if (isset($Sort[$x]) && $Sort[$x] == 'DESC') {
-        $curSort[$z] = $Sort[$x];
+    if (isset($_REQUEST['Sort'][$x]) && $_REQUEST['Sort'][$x] == 'DESC') {
+        $curSort[$z] = $_REQUEST['Sort'][$x];
         $sel         = ' selected="selected"';
     } else {
         $sel         = '';
@@ -310,9 +310,9 @@ for ($x = 0; $x < $col; $x++) {
     if (! empty($del_col) && isset($del_col[$x]) && $del_col[$x] == 'on') {
         continue;
     }
-    if (isset($Show[$x])) {
+    if (isset($_REQUEST['Show'][$x])) {
         $checked     = ' checked="checked"';
-        $curShow[$z] = $Show[$x];
+        $curShow[$z] = $_REQUEST['Show'][$x];
     } else {
         $checked     =  '';
     }
