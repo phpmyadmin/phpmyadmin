@@ -33,12 +33,14 @@ if (! defined('PHPMYADMIN')) {
 function PMA_getSearchSqls($table, $criteriaColumnName, $criteriaSearchString,
     $criteriaSearchType
 ) {
+    $common_functions = PMA_CommonFunctions::getInstance();
     // Statement types
     $sqlstr_select = 'SELECT';
     $sqlstr_delete = 'DELETE';
     // Table to use
     $sqlstr_from = ' FROM '
-        . PMA_backquote($GLOBALS['db']) . '.' . PMA_backquote($table);
+        . $common_functions->backquote($GLOBALS['db']) . '.'
+        . $common_functions->backquote($table);
     // Gets where clause for the query
     $where_clause = PMA_dbSearchGetWhereClause(
         $table, $criteriaSearchString, $criteriaSearchType, $criteriaColumnName
@@ -69,6 +71,7 @@ function PMA_getSearchSqls($table, $criteriaColumnName, $criteriaSearchString,
 function PMA_dbSearchGetWhereClause($table, $criteriaSearchString,
     $criteriaSearchType, $criteriaColumnName
 ) {
+    $common_functions = PMA_CommonFunctions::getInstance();
     $where_clause = '';
     // Columns to select
     $allColumns = PMA_DBI_get_columns($GLOBALS['db'], $table);
@@ -79,7 +82,7 @@ function PMA_dbSearchGetWhereClause($table, $criteriaSearchString,
     // For "as regular expression" (search option 4), LIKE won't be used
     // Usage example: If user is seaching for a literal $ in a regexp search,
     // he should enter \$ as the value.
-    $criteriaSearchString = PMA_sqlAddSlashes(
+    $criteriaSearchString = $common_functions->sqlAddSlashes(
         $criteriaSearchString, ($criteriaSearchType == 4 ? false : true)
     );
     // Extract search words or pattern
@@ -100,8 +103,9 @@ function PMA_dbSearchGetWhereClause($table, $criteriaSearchString,
             ) {
                 // Drizzle has no CONVERT and all text columns are UTF-8
                 $column = ((PMA_DRIZZLE)
-                    ? PMA_backquote($column['Field'])
-                    : 'CONVERT(' . PMA_backquote($column['Field']) . ' USING utf8)');
+                    ? $common_functions->backquote($column['Field'])
+                    : 'CONVERT(' . $common_functions->backquote($column['Field'])
+                        . ' USING utf8)');
                 $likeClausesPerColumn[] = $column . ' ' . $like_or_regex . ' '
                     . "'"
                     . $automatic_wildcard . $search_word . $automatic_wildcard
@@ -263,6 +267,7 @@ function PMA_dbSearchGetResultsRow($each_table, $newsearchsqls, $odd_row)
 function PMA_dbSearchGetSelectionForm($criteriaSearchString, $criteriaSearchType,
     $tables_names_only, $criteriaTables, $url_params, $criteriaColumnName = null
 ) {
+    $common_functions = PMA_CommonFunctions::getInstance();
     $html_output = '<a id="db_search"></a>';
     $html_output .= '<form id="db_search_form"'
         . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '')
@@ -285,17 +290,21 @@ function PMA_dbSearchGetSelectionForm($criteriaSearchString, $criteriaSearchType
     $html_output .= '<td>';
     $choices = array(
         '1' => __('at least one of the words')
-            . PMA_showHint(__('Words are separated by a space character (" ").')),
+            . $common_functions->showHint(
+                __('Words are separated by a space character (" ").')
+            ),
         '2' => __('all words')
-            . PMA_showHint(__('Words are separated by a space character (" ").')),
+            . $common_functions->showHint(
+                __('Words are separated by a space character (" ").')
+            ),
         '3' => __('the exact phrase'),
         '4' => __('as regular expression')
-            . ' ' . PMA_showMySQLDocu('Regexp', 'Regexp')
+            . ' ' . $common_functions->showMySQLDocu('Regexp', 'Regexp')
     );
     // 4th parameter set to true to add line breaks
     // 5th parameter set to false to avoid htmlspecialchars() escaping in the label
     //  since we have some HTML in some labels
-    $html_output .= PMA_getRadioFields(
+    $html_output .= $common_functions->getRadioFields(
         'criteriaSearchType', $choices, $criteriaSearchType, true, false
     );
     $html_output .= '</td></tr>';
