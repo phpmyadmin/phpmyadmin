@@ -56,6 +56,8 @@ $(document).ready(function() {
                             .find('a.expander.container')
                             .click();
                     }
+                } else {
+                    PMA_ajaxShowMessage(data.error, false);
                 }
                 $icon.show();
                 $throbber.remove();
@@ -386,6 +388,8 @@ $(function(){
             PMA_ajaxRemoveMessage($msgbox);
             if (data.success) {
                 $('#pma_navigation_tree').html(data.message).children('div').show();
+            } else {
+                PMA_ajaxShowMessage(data.error);
             }
         });
     });
