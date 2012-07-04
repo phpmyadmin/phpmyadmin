@@ -474,7 +474,7 @@ class PMA_NavigationTree {
     public function renderNode($node, $recursive = -1, $indent = '  ', $class = '')
     {
         $retval = '';
-        if (!($node->real_name == 'tables' && ! $node->hasSiblings())) {
+        if ($node->hasSiblings()) {
             if (   $node->type == Node::CONTAINER
                 && count($node->children) == 0
                 && $GLOBALS['is_ajax_request'] != true
