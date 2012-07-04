@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-07-04 10:40+0200\n"
+"PO-Revision-Date: 2012-07-04 11:24+0200\n"
 "Last-Translator: Ashiyane Digital Security Team <HeXa.ashiyane@gmail.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
@@ -5793,7 +5793,7 @@ msgstr ""
 #: libraries/config/messages.inc.php:500 tbl_tracking.php:526
 #: tbl_tracking.php:585
 msgid "Username"
-msgstr "نام كاربر:"
+msgstr "نام كاربر"
 
 #: libraries/config/messages.inc.php:501
 msgid "A warning is displayed on the main page if Suhosin is detected"
@@ -6176,7 +6176,7 @@ msgstr "ساخت جدول جديد در پايگاه داده %s"
 #, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting rows from \"%s\" table"
-msgstr "ساخت جدول جديد در پايگاه داده %s "
+msgstr "ساخت جدول جديد در پايگاه داده %s"
 
 #: libraries/display_export.lib.php:105
 #, fuzzy
