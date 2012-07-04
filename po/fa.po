@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-07-03 16:34+0200\n"
+"PO-Revision-Date: 2012-07-04 00:33+0200\n"
 "Last-Translator: Ashiyane Digital Security Team <HeXa.ashiyane@gmail.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
@@ -1893,26 +1893,28 @@ msgstr ""
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
+"با کیک بر روی  داده ها ان ها را بینید و احتمالا  ردیف داده ها راویرایش کنید. "
+" "
 
 #: js/messages.php:310
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
+"  . تغییر اندازه طرح  با کشیدن آن در امتداد گوشه پایین سمت راس میتواند انجام "
+"گیرد"
 
 #: js/messages.php:312
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
-msgstr "اضافه/حذف ستون ها"
+msgstr "انتخاب دو ستون"
 
 #: js/messages.php:313
 msgid "Select two different columns"
-msgstr ""
+msgstr "انتخاب دو ستون متفاوت"
 
 #: js/messages.php:314
-#, fuzzy
 #| msgid "SQL result"
 msgid "Query results"
-msgstr "نتيجه SQL"
+msgstr "نتایج پرس و جو"
 
 #: js/messages.php:315
 #, fuzzy
@@ -1926,27 +1928,25 @@ msgstr "در نظر نگرفتن"
 
 #: js/messages.php:319 libraries/DisplayResults.class.php:2592
 msgid "Copy"
-msgstr ""
+msgstr "کپی"
 
 #: js/messages.php:334
-#, fuzzy
 msgid "Add columns"
-msgstr "افزودن ستون جديد"
+msgstr "افزودن ستونها"
 
 #: js/messages.php:337
 msgid "Select referenced key"
-msgstr ""
+msgstr "انتخاب کلید اشاره"
 
 #: js/messages.php:338
 msgid "Select Foreign Key"
-msgstr ""
+msgstr "انتخاب کلید خارجی"
 
 #: js/messages.php:339
 msgid "Please select the primary key or a unique key"
-msgstr ""
+msgstr "لطفا کلید اولیه و یا یک کلید منحصر به فرد را انتخاب کنید"
 
 #: js/messages.php:340 pmd_general.php:97 tbl_relation.php:559
-#, fuzzy
 #| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "ستون را براي نمايش انتخاب نماييد"
@@ -1956,34 +1956,38 @@ msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
+"تغییر در طرح شما ذخیره نشده است. آنها از دست خواهد رفت اگر شما آنها را ذخیره "
+"نکنید.  ایا شما میخواهید ادامه دهید؟"
 
 #: js/messages.php:344
 msgid "Add an option for column "
-msgstr ""
+msgstr "اضافه کردن تنظیمات برای ستون "
 
 #: js/messages.php:347
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "دکمه ی escape را برای  صرفنظر کردن از ویرایش"
 
 #: js/messages.php:348
+#, fuzzy
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
+"شما مقداری داده اضافه کردید و ان ها ذخیره نشده اند.ایا شما برای ترک این صفحه "
+"بدون ذخیره کردن داده ها اطمینان دارید؟ "
 
 #: js/messages.php:349
 msgid "Drag to reorder"
-msgstr ""
+msgstr "برای دوباره مرتب کردن drag کنید "
 
 #: js/messages.php:350
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to sort"
-msgstr "برای انتخاب کلیک کنبد"
+msgstr "برای مرتب کردن کلیک کنید"
 
 #: js/messages.php:351
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "برای علامتگذاری / برداشتن علامت اینجا را کلبک کن"
 
 #: js/messages.php:352
 msgid "Double-click to copy column name"
@@ -1991,7 +1995,7 @@ msgstr ""
 
 #: js/messages.php:353
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
-msgstr ""
+msgstr "با کلیک بر روی منوی کشویی <br فلش /> به ضامن دید ستون"
 
 #: js/messages.php:355
 msgid ""
@@ -9615,7 +9619,7 @@ msgstr ""
 #: server_privileges.php:109 server_privileges.php:347
 #: server_privileges.php:759
 msgid "Allows to set up events for the event scheduler"
-msgstr ""
+msgstr "دادن مجوز برای قرار دهی رویداد برای لیست رویدادهای زمانی"
 
 #: server_privileges.php:110 server_privileges.php:381
 #: server_privileges.php:747
@@ -9625,12 +9629,13 @@ msgstr ""
 #: server_privileges.php:111 server_privileges.php:303
 #: server_privileges.php:734
 msgid "Allows importing data from and exporting data into files."
-msgstr ""
+msgstr ".دادن اجازه برای وارد و خارج کردن اطلاعات از فایل ها"
 
 #: server_privileges.php:112 server_privileges.php:765
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
+"دادن اجازه برای ایجاد  کاربران و اعطای امتیازات بدون بارگذاری  اطلاعات جداول"
 
 #: server_privileges.php:113 server_privileges.php:311
 #: server_privileges.php:741
