@@ -448,6 +448,7 @@ $(function(){
             });
         };
         container_filter($obj, str);
+        ScrollHandler.displayScrollbar();
     });
 
     // Jump to recent table
