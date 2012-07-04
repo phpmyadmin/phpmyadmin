@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-06-28 16:25+0200\n"
-"Last-Translator: Alexsandro Preis Dubinski <alexsandroeco@gmail.com>\n"
+"PO-Revision-Date: 2012-07-04 15:59+0200\n"
+"Last-Translator: Marcelo Altmann <altmannmarcelo@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -1881,10 +1881,9 @@ msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "Para ampliar, selecione um trecho do gráfico com o mouse."
 
 #: js/messages.php:306
-#, fuzzy
 #| msgid "Click reset zoom link to come back to original state."
 msgid "Click reset zoom button to come back to original state."
-msgstr "Clique no link resetar zoom para voltar ao estado original"
+msgstr "Clique no botão resetar zoom para voltar ao estado original"
 
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."
@@ -2013,6 +2012,8 @@ msgstr "Copiar nome coluna"
 #: js/messages.php:359
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
+"Clique com o botão direito do mouse para copiar\n"
+"Right-click the column name to copy it to your clipboard."
 
 #: js/messages.php:360
 msgid "Show data row(s)"
@@ -6893,7 +6894,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:135
 msgid "Related Links"
-msgstr "Links relatados"
+msgstr "Links relacionados"
 
 #: libraries/engines/pbxt.lib.php:137
 msgid "The PrimeBase XT Blog by Paul McCullagh"
