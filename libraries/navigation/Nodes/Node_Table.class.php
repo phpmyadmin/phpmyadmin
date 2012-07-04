@@ -82,6 +82,7 @@ class Node_Table extends Node {
                 $query .= "FROM `INFORMATION_SCHEMA`.`COLUMNS` ";
                 $query .= "WHERE `TABLE_NAME`='$table' ";
                 $query .= "AND `TABLE_SCHEMA`='$db'";
+                $query .= "ORDER BY `COLUMN_NAME` ASC";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $db     = $this->_commonFunctions->backquote($db);
@@ -116,6 +117,7 @@ class Node_Table extends Node {
                 $query .= "FROM `INFORMATION_SCHEMA`.`TRIGGERS` ";
                 $query .= "WHERE `EVENT_OBJECT_SCHEMA`='$db' ";
                 $query .= "AND `EVENT_OBJECT_TABLE`='$table'";
+                $query .= "ORDER BY `TRIGGER_NAME` ASC";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $db     = $this->_commonFunctions->backquote($db);

@@ -112,6 +112,7 @@ class Node_Database extends Node {
                 $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
                 $query .= "WHERE `TABLE_SCHEMA`='$db' ";
                 $query .= "AND `TABLE_TYPE`='BASE TABLE'";
+                $query .= "ORDER BY `TABLE_NAME` ASC";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $db     = $this->_commonFunctions->backquote($db);
@@ -132,6 +133,7 @@ class Node_Database extends Node {
                 $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
                 $query .= "WHERE `TABLE_SCHEMA`='$db' ";
                 $query .= "AND `TABLE_TYPE`!='BASE TABLE'";
+                $query .= "ORDER BY `TABLE_NAME` ASC";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $db     = $this->_commonFunctions->backquote($db);
@@ -152,6 +154,7 @@ class Node_Database extends Node {
                 $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
                 $query .= "WHERE `ROUTINE_SCHEMA`='$db'";
                 $query .= "AND `ROUTINE_TYPE`='PROCEDURE'";
+                $query .= "ORDER BY `ROUTINE_NAME` ASC";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $db     = $this->_commonFunctions->sqlAddSlashes($db);
@@ -171,6 +174,7 @@ class Node_Database extends Node {
                 $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
                 $query .= "WHERE `ROUTINE_SCHEMA`='$db' ";
                 $query .= "AND `ROUTINE_TYPE`='FUNCTION'";
+                $query .= "ORDER BY `ROUTINE_NAME` ASC";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $db     = $this->_commonFunctions->sqlAddSlashes($db);
@@ -189,6 +193,7 @@ class Node_Database extends Node {
                 $query  = "SELECT `EVENT_NAME` AS `name` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`EVENTS` ";
                 $query .= "WHERE `EVENT_SCHEMA`='$db'";
+                $query .= "ORDER BY `EVENT_NAME` ASC";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $db     = $this->_commonFunctions->backquote($db);
