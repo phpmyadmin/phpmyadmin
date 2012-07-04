@@ -169,39 +169,21 @@ function showColumnSelectCell($columns, $column_number, $selected = '')
  *
  * @param integer $column_number Column Number (0,1,2) or more
  * @param string  $realwidth     Largest column width found
+ * @param string  $asc_selected  Selected criteria 'Ascending'
+ * @param string  $desc_selected Selected criteria 'Descending'
  *
  * @return HTML for select options
  */
-function getSortSelectCell($column_number, $realwidth)
+function getSortSelectCell($column_number, $realwidth, $asc_selected = '',
+    $desc_selected = '')
 {
     $html_output = '<td class="center">';
     $html_output .= '<select style="width: ' . $realwidth
         . '" name="Sort[' . $column_number . ']" size="1">';
     $html_output .= '<option value="">&nbsp;</option>';
-
-    // If they have chosen all fields using the * selector,
-    // then sorting is not available, Fix for Bug #570698
-    if (isset($_REQUEST['Sort'][$column_number]) && isset($_REQUEST['Field'][$column_number])
-        && substr($_REQUEST['Field'][$column_number], -2) == '.*'
-    ) {
-        $_REQUEST['Sort'][$column_number] = '';
-    } //end if
-
-    if (isset($_REQUEST['Sort'][$column_number]) && $_REQUEST['Sort'][$column_number] == 'ASC') {
-        $curSort[$z] = $_REQUEST['Sort'][$column_number];
-        $sel = ' selected="selected"';
-    } else {
-        $sel = '';
-    } // end if
-    $html_output .= '<option value="ASC"' . $sel . '>' . __('Ascending')
+    $html_output .= '<option value="ASC"' . $asc_selected . '>' . __('Ascending')
         . '</option>';
-    if (isset($_REQUEST['Sort'][$column_number]) && $_REQUEST['Sort'][$column_number] == 'DESC') {
-        $curSort[$z] = $_REQUEST['Sort'][$column_number];
-        $sel = ' selected="selected"';
-    } else {
-        $sel = '';
-    } // end if
-    $html_output .= '<option value="DESC"' . $sel . '>' . __('Descending')
+    $html_output .= '<option value="DESC"' . $desc_selected . '>' . __('Descending')
         . '</option>';
     $html_output .= '</select>';
     $html_output .= '</td>';
@@ -271,7 +253,30 @@ function PMA_dbQbegetSortRow(
         if (! empty($del_col) && isset($del_col[$column_index]) && $del_col[$column_index] == 'on') {
             continue;
         }
-        $html_output .= getSortSelectCell($column_index, $realwidth);
+        // If they have chosen all fields using the * selector,
+        // then sorting is not available, Fix for Bug #570698
+        if (isset($_REQUEST['Sort'][$column_index]) && isset($_REQUEST['Field'][$column_index])
+            && substr($_REQUEST['Field'][$column_index], -2) == '.*'
+        ) {
+            $_REQUEST['Sort'][$column_index] = '';
+        } //end if
+        // Set asc_selected
+        if (isset($_REQUEST['Sort'][$column_index]) && $_REQUEST['Sort'][$column_index] == 'ASC') {
+            $curSort[$z] = $_REQUEST['Sort'][$column_index];
+            $asc_selected = ' selected="selected"';
+        } else {
+            $asc_selected = '';
+        } // end if
+        // Set desc selected
+        if (isset($_REQUEST['Sort'][$column_index]) && $_REQUEST['Sort'][$column_index] == 'DESC') {
+            $curSort[$z] = $_REQUEST['Sort'][$column_index];
+            $desc_selected = ' selected="selected"';
+        } else {
+            $desc_selected = '';
+        } // end if
+        $html_output .= getSortSelectCell(
+            $z, $realwidth, $asc_selected, $desc_selected
+        );
         $z++;
     } // end for
     $html_output .= '</tr>';
