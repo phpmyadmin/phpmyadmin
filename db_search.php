@@ -59,25 +59,16 @@ if (empty($_REQUEST['criteriaSearchType'])
     unset($_REQUEST['submit_search']);
 } else {
     $criteriaSearchType = (int) $_REQUEST['criteriaSearchType'];
-    $option_str = $searchTypes[$_REQUEST['criteriaSearchType']];
+    $searchTypeDescription = $searchTypes[$_REQUEST['criteriaSearchType']];
 }
 
 if (empty($_REQUEST['criteriaSearchString'])
     || ! is_string($_REQUEST['criteriaSearchString'])
 ) {
+    $criteriaSearchString = '';
     unset($_REQUEST['submit_search']);
-    $searched = '';
 } else {
-    $searched = htmlspecialchars($_REQUEST['criteriaSearchString']);
-    // For "as regular expression" (search option 4), we should not treat
-    // this as an expression that contains a LIKE (second parameter of
-    // sqlAddSlashes()).
-    //
-    // Usage example: If user is seaching for a literal $ in a regexp search,
-    // he should enter \$ as the value.
-    $criteriaSearchString = $common_functions->sqlAddSlashes(
-        $_REQUEST['criteriaSearchString'], ($criteriaSearchType == 4 ? false : true)
-    );
+    $criteriaSearchString = $_REQUEST['criteriaSearchString'];
 }
 
 $criteriaTables = array();
@@ -121,8 +112,8 @@ if ( $GLOBALS['is_ajax_request'] != true) {
 if (isset($_REQUEST['submit_search'])) {
     $response->addHTML(
         PMA_dbSearchGetSearchResults(
-            $criteriaTables, $searched, $option_str,
-            $criteriaSearchString, $criteriaSearchType,
+            $criteriaTables, $searchTypeDescription,
+            $criteriaSearchString, $criteriaSearchType, 
             (! empty($criteriaColumnName) ? $criteriaColumnName : '')
         )
     );
@@ -140,8 +131,9 @@ if ($GLOBALS['is_ajax_request'] == true) {
 // Add search form
 $response->addHTML(
     PMA_dbSearchGetSelectionForm(
-        $searched, $criteriaSearchType, $tables_names_only, $criteriaTables,
-        $url_params, (! empty($criteriaColumnName) ? $criteriaColumnName : '')
+        $criteriaSearchString, $criteriaSearchType, $tables_names_only,
+        $criteriaTables, $url_params,
+        (! empty($criteriaColumnName) ? $criteriaColumnName : '')
     )
 );
 ?>
