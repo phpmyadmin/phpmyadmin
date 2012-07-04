@@ -827,6 +827,8 @@ class PMA_DisplayResults
             $is_display['del_lnk']
         );
 
+        // 1. Set $colspan or $rowspan and generate html with full/partial
+        // text button or link
         list($colspan, $rowspan, $button_html)
             = $this->_getFeildVisibilityParams(
                 $directionCondition, $is_display, $fields_cnt,
@@ -843,19 +845,8 @@ class PMA_DisplayResults
         //       ($GLOBALS['cfg']['ShowBrowseComments']).
         //       Do not show comments, if using horizontalflipped mode,
         //       because of space usage
-        if ($GLOBALS['cfg']['ShowBrowseComments']
-            && ($direction != self::DISP_DIR_HORIZONTAL_FLIPPED)
-        ) {
-            $comments_map = array();
-            if (isset($analyzed_sql[0]) && is_array($analyzed_sql[0])) {
-                foreach ($analyzed_sql[0]['table_ref'] as $tbl) {
-                    $tb = $tbl['table_true_name'];
-                    $comments_map[$tb] = PMA_getComments($this->_db, $tb);
-                    unset($tb);
-                }
-            }
-        }
-
+        $comments_map = $this->_getTableCommentsArray($direction, $analyzed_sql);
+        
         if ($GLOBALS['cfgRelation']['commwork']
             && $GLOBALS['cfgRelation']['mimework']
             && $GLOBALS['cfg']['BrowseMIME']
@@ -867,23 +858,8 @@ class PMA_DisplayResults
 
         // See if we have to highlight any header fields of a WHERE query.
         // Uses SQL-Parser results.
-        $GLOBALS['highlight_columns'] = array();
-        if (isset($analyzed_sql) && isset($analyzed_sql[0])
-            && isset($analyzed_sql[0]['where_clause_identifiers'])
-        ) {
-
-            $wi = 0;
-            if (isset($analyzed_sql[0]['where_clause_identifiers'])
-                && is_array($analyzed_sql[0]['where_clause_identifiers'])
-            ) {
-                foreach ($analyzed_sql[0]['where_clause_identifiers']
-                    as $wci_nr => $wci
-                ) {
-                    $GLOBALS['highlight_columns'][$wci] = 'true';
-                }
-            }
-        }
-
+        $this->_setHighlightedColumnGlobalField($analyzed_sql);
+        
         list($col_order, $col_visib) = $this->_getColumnParams();
 
         for ($j = 0; $j < $fields_cnt; $j++) {
@@ -902,98 +878,17 @@ class PMA_DisplayResults
             $comments = $this->_getCommentForRow($comments_map, $fields_meta[$i]);
 
             if ($is_display['sort_lnk'] == '1') {
-                // 2.1 Results can be sorted
-
-                // 2.1.1 Checks if the table name is required; it's the case
-                //       for a query with a "JOIN" statement and if the column
-                //       isn't aliased, or in queries like
-                //       SELECT `1`.`master_field` , `2`.`master_field`
-                //       FROM `PMA_relation` AS `1` , `PMA_relation` AS `2`
-
-                $sort_tbl = (isset($fields_meta[$i]->table)
-                    && strlen($fields_meta[$i]->table))
-                    ? $this->getCommonFunctions()->backquote(
-                        $fields_meta[$i]->table
-                    ) . '.'
-                    : '';
-
-                // 2.1.2 Checks if the current column is used to sort the
-                //       results
-                // the orgname member does not exist for all MySQL versions
-                // but if found, it's the one on which to sort
-                $name_to_use_in_sort = $fields_meta[$i]->name;
-                $is_orgname = false;
-                if (isset($fields_meta[$i]->orgname)
-                    && strlen($fields_meta[$i]->orgname)
-                ) {
-                    $name_to_use_in_sort = $fields_meta[$i]->orgname;
-                    $is_orgname = true;
-                }
-
-                // $name_to_use_in_sort might contain a space due to
-                // formatting of function expressions like "COUNT(name )"
-                // so we remove the space in this situation
-                $name_to_use_in_sort = str_replace(' )', ')', $name_to_use_in_sort);
-
-                $is_in_sort = $this->_isInSorted(
-                    $sort_expression, $sort_expression_nodirection,
-                    $sort_tbl, $name_to_use_in_sort
-                );
-
-                // 2.1.3 Check the field name for a bracket.
-                //       If it contains one, it's probably a function column
-                //       like 'COUNT(`field`)'
-                //       It still might be a column name of a view. See bug #3383711
-                //       Check is_orgname.
-                if ((strpos($name_to_use_in_sort, '(') !== false) && ! $is_orgname) {
-                    $sort_order = "\n" . 'ORDER BY ' . $name_to_use_in_sort . ' ';
-                } else {
-                    $sort_order = "\n" . 'ORDER BY ' . $sort_tbl
-                        . $this->getCommonFunctions()->backquote(
-                            $name_to_use_in_sort
-                        ) . ' ';
-                }
-                unset($name_to_use_in_sort);
-                unset($is_orgname);
-
-                // 2.1.4 Do define the sorting URL
-
-                list($sort_order, $order_img) = $this->_getSortingUrlParams(
-                    $is_in_sort, $sort_direction, $fields_meta[$i],
-                    $sort_order, $i
-                );
-
-                if (preg_match(
-                    '@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|'
-                    . 'LOCK IN SHARE MODE))@is',
-                    $unsorted_sql_query, $regs3
-                )) {
-                    $sorted_sql_query = $regs3[1] . $sort_order . $regs3[2];
-                } else {
-                    $sorted_sql_query = $unsorted_sql_query . $sort_order;
-                }
-
-                $_url_params = array(
-                    'db'                => $this->_db,
-                    'table'             => $this->_table,
-                    'sql_query'         => $sorted_sql_query,
-                    'session_max_rows'  => $session_max_rows
-                );
-                $order_url  = 'sql.php' . PMA_generate_common_url($_url_params);
-
-                // 2.1.5 Displays the sorting URL
-                // enable sort order swapping for image
-                $order_link = $this->_getSortOrderLink(
-                    $order_img, $i, $direction, $fields_meta[$i], $order_url
-                );
-
-                if ($directionCondition) {
-                    $table_headers_html
-                        .= $this->_getDraggableClassForSortableColumns(
-                            $col_visib, $col_visib[$j], $condition_field,
-                            $direction, $fields_meta[$i], $order_link, $comments
-                        );
-                }
+                
+                list($order_link, $sorted_headrer_html)
+                    = $this->_getOrderLinkAndSortedHeaderHtml(
+                        $fields_meta[$i], $sort_expression,
+                        $sort_expression_nodirection, $i, $unsorted_sql_query,
+                        $session_max_rows, $direction, $comments,
+                        $sort_direction, $directionCondition, $col_visib,
+                        $col_visib[$j], $condition_field
+                    );
+                
+                $table_headers_html .= $sorted_headrer_html;
 
                 $GLOBALS['vertical_display']['desc'][] = '    <th '
                     . 'class="draggable'
@@ -1020,55 +915,12 @@ class PMA_DisplayResults
                     . "\n" . $comments . '    </th>';
             } // end else (2.2)
         } // end for
-
-        // 3. Displays the needed checkboxes at the right
-        //    column of the result table header if possible and required...
-        if ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_RIGHT)
-            || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH))
-            && (($is_display['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-            || ($is_display['del_lnk'] != self::NO_EDIT_OR_DELETE))
-            && ($is_display['text_btn'] == '1')
-        ) {
-
-            $GLOBALS['vertical_display']['emptyafter']
-                = (($is_display['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-                && ($is_display['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 1;
-
-            if ($directionCondition) {
-                $table_headers_html .= "\n"
-                    . '<th ' . $colspan . '>' . $full_or_partial_text_link
-                    . '</th>';
-
-                // end horizontal/horizontalflipped mode
-            } else {
-                $GLOBALS['vertical_display']['textbtn'] = '    <th ' . $rowspan
-                    . ' class="vmiddle">' . "\n"
-                    . '        ' . "\n"
-                    . '    </th>' . "\n";
-            } // end vertical mode
-        } elseif ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
-            || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH))
-            && (($is_display['edit_lnk'] == self::NO_EDIT_OR_DELETE)
-            && ($is_display['del_lnk'] == self::NO_EDIT_OR_DELETE))
-            && (! isset($GLOBALS['is_header_sent']) || ! $GLOBALS['is_header_sent'])
-        ) {
-            //     ... elseif no button, displays empty columns if required
-            // (unless coming from Browse mode print view)
-
-            $GLOBALS['vertical_display']['emptyafter']
-                = (($is_display['edit_lnk'] != self::NO_EDIT_OR_DELETE)
-                && ($is_display['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 1;
-
-            if ($directionCondition) {
-                $table_headers_html .= "\n"
-                    . '<td ' . $colspan . '></td>';
-
-                // end horizontal/horizontalflipped mode
-            } else {
-                $GLOBALS['vertical_display']['textbtn'] = '    <td' . $rowspan
-                    . '></td>' . "\n";
-            } // end vertical mode
-        }
+        
+        // Display column at rightside - checkboxes or empty column
+        $table_headers_html .= $this->_getColumnAtRightSide(
+            $is_display, $directionCondition, $full_or_partial_text_link,
+            $colspan, $rowspan
+        );
 
         if ($directionCondition) {
             $table_headers_html .= '</tr>'
@@ -1235,6 +1087,10 @@ class PMA_DisplayResults
      * @param string  $full_or_partial_text_link full/partial link or text button
      * 
      * @return  array   3 element array - $colspan, $rowspan, $button_html
+     * 
+     * @access  private
+     * 
+     * @see     _getTableHeaders()
      */
     private function _getFeildVisibilityParams(
         $directionCondition, &$is_display, $fields_cnt, $full_or_partial_text_link
@@ -1344,6 +1200,77 @@ class PMA_DisplayResults
         return array($colspan, $rowspan, $button_html);
         
     } // end of the '_getFeildVisibilityParams()' function
+    
+    
+    /**
+     * Get table comments as array
+     * 
+     * @param boolean $directionCondition display direction horizontal
+     *                                    or horizontalflipped
+     * @param array   $analyzed_sql       the analyzed query
+     * 
+     * @return  array $comments_map table comments when condition true
+     *          null                when condition falls
+     * 
+     * @access  private
+     * 
+     * @see     _getTableHeaders()
+     */
+    private function _getTableCommentsArray($direction, $analyzed_sql)
+    {
+        
+        $comments_map = null;
+        
+        if ($GLOBALS['cfg']['ShowBrowseComments']
+            && ($direction != self::DISP_DIR_HORIZONTAL_FLIPPED)
+        ) {
+            $comments_map = array();
+            if (isset($analyzed_sql[0]) && is_array($analyzed_sql[0])) {
+                foreach ($analyzed_sql[0]['table_ref'] as $tbl) {
+                    $tb = $tbl['table_true_name'];
+                    $comments_map[$tb] = PMA_getComments($this->_db, $tb);
+                    unset($tb);
+                }
+            }
+        }
+        
+        return $comments_map;
+        
+    } // end of the '_getTableCommentsArray()' function
+    
+    
+    /**
+     * Set global array for store highlighted header fields
+     * 
+     * @param array   $analyzed_sql       the analyzed query
+     * 
+     * @return  void
+     * 
+     * @access  private
+     * 
+     * @see     _getTableHeaders()
+     */
+    private function _setHighlightedColumnGlobalField($analyzed_sql)
+    {
+        
+        $GLOBALS['highlight_columns'] = array();
+        if (isset($analyzed_sql) && isset($analyzed_sql[0])
+            && isset($analyzed_sql[0]['where_clause_identifiers'])
+        ) {
+
+            $wi = 0;
+            if (isset($analyzed_sql[0]['where_clause_identifiers'])
+                && is_array($analyzed_sql[0]['where_clause_identifiers'])
+            ) {
+                foreach ($analyzed_sql[0]['where_clause_identifiers']
+                    as $wci_nr => $wci
+                ) {
+                    $GLOBALS['highlight_columns'][$wci] = 'true';
+                }
+            }
+        }
+        
+    } // end of the '_setHighlightedColumnGlobalField()' function
     
 
     /**
@@ -1622,7 +1549,138 @@ class PMA_DisplayResults
         }
         return $comments;
     } // end of the '_getCommentForRow()' function
+    
+    
+    /**
+     * Prepare parameters and html for sorted table header fields
+     * 
+     * @param array   $fields_meta                 set of field properties
+     * @param string  $sort_expression             sort expression
+     * @param string  $sort_expression_nodirection sort expression without direction
+     * @param integer $column_index                the index of the column
+     * @param string  $unsorted_sql_query          the unsorted sql query
+     * @param integer $session_max_rows            maximum rows resulted by sql
+     * @param string  $direction                   the display direction
+     * @param string  $comments                    comment for row
+     * @param string  $sort_direction              sort direction
+     * @param boolean $directionCondition          display direction horizontal
+     *                                             or horizontalflipped
+     * @param boolean $col_visib                   column is visible(false)
+     *        array                                column isn't visible(string array)
+     * @param string  $col_visib_j                 element of $col_visib array
+     * @param boolean $condition_field             whether the column is a part of the
+     *                                             where clause
+     * 
+     * @return  array   2 element array - $order_link, $sorted_header_html
+     * 
+     * @access  private
+     * 
+     * @see     _getTableHeaders()
+     */
+    private function _getOrderLinkAndSortedHeaderHtml(
+        $fields_meta, $sort_expression, $sort_expression_nodirection,
+        $column_index, $unsorted_sql_query, $session_max_rows, $direction,
+        $comments, $sort_direction, $directionCondition, $col_visib,
+        $col_visib_j, $condition_field
+    ) {
 
+        $sorted_header_html = '';
+        
+        // Checks if the table name is required; it's the case
+        // for a query with a "JOIN" statement and if the column
+        // isn't aliased, or in queries like
+        // SELECT `1`.`master_field` , `2`.`master_field`
+        // FROM `PMA_relation` AS `1` , `PMA_relation` AS `2`
+
+        $sort_tbl = (isset($fields_meta->table)
+            && strlen($fields_meta->table))
+            ? $this->getCommonFunctions()->backquote(
+                $fields_meta->table
+            ) . '.'
+            : '';
+
+        // Checks if the current column is used to sort the
+        // results
+        // the orgname member does not exist for all MySQL versions
+        // but if found, it's the one on which to sort
+        $name_to_use_in_sort = $fields_meta->name;
+        $is_orgname = false;
+        if (isset($fields_meta->orgname)
+            && strlen($fields_meta->orgname)
+        ) {
+            $name_to_use_in_sort = $fields_meta->orgname;
+            $is_orgname = true;
+        }
+
+        // $name_to_use_in_sort might contain a space due to
+        // formatting of function expressions like "COUNT(name )"
+        // so we remove the space in this situation
+        $name_to_use_in_sort = str_replace(' )', ')', $name_to_use_in_sort);
+
+        $is_in_sort = $this->_isInSorted(
+            $sort_expression, $sort_expression_nodirection,
+            $sort_tbl, $name_to_use_in_sort
+        );
+
+        // Check the field name for a bracket.
+        // If it contains one, it's probably a function column
+        // like 'COUNT(`field`)'
+        // It still might be a column name of a view. See bug #3383711
+        // Check is_orgname.
+        if ((strpos($name_to_use_in_sort, '(') !== false) && ! $is_orgname) {
+            $sort_order = "\n" . 'ORDER BY ' . $name_to_use_in_sort . ' ';
+        } else {
+            $sort_order = "\n" . 'ORDER BY ' . $sort_tbl
+                . $this->getCommonFunctions()->backquote(
+                    $name_to_use_in_sort
+                ) . ' ';
+        }
+        unset($name_to_use_in_sort);
+        unset($is_orgname);
+
+        // Do define the sorting URL
+
+        list($sort_order, $order_img) = $this->_getSortingUrlParams(
+            $is_in_sort, $sort_direction, $fields_meta,
+            $sort_order, $column_index
+        );
+
+        if (preg_match(
+            '@(.*)([[:space:]](LIMIT (.*)|PROCEDURE (.*)|FOR UPDATE|'
+            . 'LOCK IN SHARE MODE))@is',
+            $unsorted_sql_query, $regs3
+        )) {
+            $sorted_sql_query = $regs3[1] . $sort_order . $regs3[2];
+        } else {
+            $sorted_sql_query = $unsorted_sql_query . $sort_order;
+        }
+
+        $_url_params = array(
+            'db'                => $this->_db,
+            'table'             => $this->_table,
+            'sql_query'         => $sorted_sql_query,
+            'session_max_rows'  => $session_max_rows
+        );
+        $order_url  = 'sql.php' . PMA_generate_common_url($_url_params);
+
+        // Displays the sorting URL
+        // enable sort order swapping for image
+        $order_link = $this->_getSortOrderLink(
+            $order_img, $column_index, $direction,
+            $fields_meta, $order_url
+        );
+
+        if ($directionCondition) {
+            $sorted_header_html .= $this->_getDraggableClassForSortableColumns(
+                $col_visib, $col_visib_j, $condition_field, $direction,
+                $fields_meta, $order_link, $comments
+            );
+        }
+        
+        return array($order_link, $sorted_header_html);
+        
+    } // end of the '_getOrderLinkAndSortedHeaderHtml()' function
+    
 
     /**
      * Check whether the column is sorted
@@ -1934,6 +1992,83 @@ class PMA_DisplayResults
 
     } // end of the '_getDraggableClassForNonSortableColumns()' function
 
+    
+    /**
+     * Prepare column to show at right side - check boxes or empty column
+     * 
+     * @param array   &$is_display               which elements to display
+     * @param boolean $directionCondition        display direction horizontal
+     *                                           or horizontalflipped
+     * @param string  $full_or_partial_text_link full/partial link or text button
+     * @param string  $colspan                   column span of table header
+     * @param string  $rowspan                   row span of table header
+     * 
+     * @return  string  html content
+     * 
+     * @access  private
+     * 
+     * @see     _getTableHeaders()
+     */
+    private function _getColumnAtRightSide(
+        &$is_display, $directionCondition, $full_or_partial_text_link,
+        $colspan, $rowspan
+    ) {
+        
+        $right_column_html = '';
+        
+        // Displays the needed checkboxes at the right
+        // column of the result table header if possible and required...
+        if ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_RIGHT)
+            || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH))
+            && (($is_display['edit_lnk'] != self::NO_EDIT_OR_DELETE)
+            || ($is_display['del_lnk'] != self::NO_EDIT_OR_DELETE))
+            && ($is_display['text_btn'] == '1')
+        ) {
+
+            $GLOBALS['vertical_display']['emptyafter']
+                = (($is_display['edit_lnk'] != self::NO_EDIT_OR_DELETE)
+                && ($is_display['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 1;
+
+            if ($directionCondition) {
+                $right_column_html .= "\n"
+                    . '<th ' . $colspan . '>' . $full_or_partial_text_link
+                    . '</th>';
+
+                // end horizontal/horizontalflipped mode
+            } else {
+                $GLOBALS['vertical_display']['textbtn'] = '    <th ' . $rowspan
+                    . ' class="vmiddle">' . "\n"
+                    . '        ' . "\n"
+                    . '    </th>' . "\n";
+            } // end vertical mode
+        } elseif ((($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_LEFT)
+            || ($GLOBALS['cfg']['RowActionLinks'] == self::POSITION_BOTH))
+            && (($is_display['edit_lnk'] == self::NO_EDIT_OR_DELETE)
+            && ($is_display['del_lnk'] == self::NO_EDIT_OR_DELETE))
+            && (! isset($GLOBALS['is_header_sent']) || ! $GLOBALS['is_header_sent'])
+        ) {
+            //     ... elseif no button, displays empty columns if required
+            // (unless coming from Browse mode print view)
+
+            $GLOBALS['vertical_display']['emptyafter']
+                = (($is_display['edit_lnk'] != self::NO_EDIT_OR_DELETE)
+                && ($is_display['del_lnk'] != self::NO_EDIT_OR_DELETE)) ? 4 : 1;
+
+            if ($directionCondition) {
+                $right_column_html .= "\n"
+                    . '<td ' . $colspan . '></td>';
+
+                // end horizontal/horizontalflipped mode
+            } else {
+                $GLOBALS['vertical_display']['textbtn'] = '    <td' . $rowspan
+                    . '></td>' . "\n";
+            } // end vertical mode
+        }
+        
+        return $right_column_html;
+        
+    } // end of the '_getColumnAtRightSide()' function
+    
 
     /**
      * Prepares the display for a value
