@@ -140,32 +140,65 @@ $realwidth = $form_column_width . 'ex';
  */
 
 /**
- * Enter description here...
+ * Provides select options list containing column names
  *
- * @param array     $columns
- * @param integer   $column_number
- * @param string    $selected
+ * @param array   $columns       All Column Names
+ * @param integer $column_number Column Number (0,1,2) or more
+ * @param string  $selected      Selected criteria column name
+ *
+ * @return HTML for select options
  */
 function showColumnSelectCell($columns, $column_number, $selected = '')
 {
-    ?>
-    <td class="center">
-        <select name="Field[<?php echo $column_number; ?>]" size="1">
-            <option value="">&nbsp;</option>
-    <?php
+    $html_output = '';
+    $html_output .= '<td class="center">';
+    $html_output .= '<select name="Field[' . $column_number . ']" size="1">';
+    $html_output .= '<option value="">&nbsp;</option>';
     foreach ($columns as $column) {
-        if ($column === $selected) {
-            $sel = ' selected="selected"';
-        } else {
-            $sel = '';
-        }
-        echo '<option value="' . htmlspecialchars($column) . '"' . $sel . '>'
-            . str_replace(' ', '&nbsp;', htmlspecialchars($column)) . '</option>' . "\n";
+        $html_output .= '<option value="' . htmlspecialchars($column) . '"'
+            . (($column === $selected) ? ' selected="selected"' : '') . '>'
+            . str_replace(' ', '&nbsp;', htmlspecialchars($column)) . '</option>';
     }
-    ?>
-        </select>
-    </td>
-    <?php
+    $html_output .= '</select>';
+    $html_output .= '</td>';
+    return $html_output;
+}
+
+/**
+ * Provides search form's row containing column select options
+ *
+ * @param array   $criteria_column_count
+ * @param integer $columns
+ * @param string  $ins_col
+ * @param string  $del_col
+ *
+ * @return HTML for search table's roe
+ */
+function PMA_dbQbegetColumnNamesRow(
+    $criteria_column_count, $columns, $ins_col = null, $del_col = null
+) {
+    $html_output = '<tr class="odd noclick">';
+    $html_output .= '<th>' . __('Column') . ':</th>';
+    $z = 0;
+    for ($column_index = 0; $column_index < $criteria_column_count; $column_index++)
+    {
+        if (isset($ins_col[$column_index]) && $ins_col[$column_index] == 'on') {
+            $html_output .= showColumnSelectCell($columns, $z);
+            $z++;
+        }
+        if (! empty($del_col) && isset($del_col[$column_index]) && $del_col[$column_index] == 'on') {
+            continue;
+        }
+        $selected = '';
+        if (isset($_REQUEST['Field'][$column_index])) {
+            $selected = $_REQUEST['Field'][$column_index];
+            $curField[$z] = $_REQUEST['Field'][$column_index];
+        }
+        $html_output .= showColumnSelectCell($columns, $z, $selected);
+        $z++;
+    } // end for
+    $html_output .= '</tr>';
+    return $html_output;
 }
 
 if ($cfgRelation['designerwork']) {
@@ -187,30 +220,11 @@ if ($cfgRelation['designerwork']) {
 <form action="db_qbe.php" method="post">
 <fieldset>
 <table class="data" style="width: 100%;">
-<tr class="odd noclick">
-    <th><?php echo __('Column'); ?>:</th>
 <?php
-$z = 0;
-for ($x = 0; $x < $col; $x++) {
-    if (isset($ins_col[$x]) && $ins_col[$x] == 'on') {
-        showColumnSelectCell($fld, $z);
-        $z++;
-    }
-
-    if (! empty($del_col) && isset($del_col[$x]) && $del_col[$x] == 'on') {
-        continue;
-    }
-
-    $selected = '';
-    if (isset($Field[$x])) {
-        $selected = $Field[$x];
-        $curField[$z] = $Field[$x];
-    }
-    showColumnSelectCell($fld, $z, $selected);
-    $z++;
-} // end for
+echo PMA_dbQbegetColumnNamesRow(
+    $col, $fld, $ins_col, $del_col
+);
 ?>
-</tr>
 
 <!-- Sort row -->
 <tr class="even noclick">
