@@ -38,7 +38,8 @@ $(document).ready(function() {
             $throbber.insertBefore($icon);
             var params = {
                 a_path: $(this).find('span.a_path').text(),
-                v_path: $(this).find('span.v_path').text()
+                v_path: $(this).find('span.v_path').text(),
+                pos: $(this).find('span.pos').text()
             };
             var url = $('#pma_navigation').find('a.navigation_url').attr('href');
             $.get(url, params, function (data) {
@@ -48,8 +49,8 @@ $(document).ready(function() {
                     $destination.append(data.message);
 	                $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
 	                $destination.children('div.list_container').show('fast', function () {
-                    ScrollHandler.displayScrollbar();
-                });
+                        ScrollHandler.displayScrollbar();
+                    });
                     if ($destination.find('ul > li').length == 1) {
                         $destination.find('ul > li')
                             .find('a.expander.container')
@@ -78,7 +79,8 @@ function PMA_reloadNavigation() {
         .first()
         .css('visibility', 'visible');
     var params = {
-        reload: true
+        reload: true,
+        pos: $('#pma_navigation_tree').find('a.expander:first > span.pos').text()
     };
     var count = 0;
     $('#pma_navigation_tree').find('a.expander:visible').each(function () {
@@ -366,18 +368,10 @@ var ResizeHandler = function () {
     $collapser.html(this.getSymbol($('#pma_navigation').width()));
 }; // End of ResizeHandler
 
-
 /* Performed on load */
 $(function(){
-    if ($('#pma_navigation_tree').length) {
-        // Load the navigation into the initial page
-        var url = $('#pma_navigation').find('a.navigation_url').attr('href');
-        $.get(url, 'full=true', function (data) {
-            if (data.success) {
-                $('#pma_navigation_tree').html(data.message).children('div').show();
-                ScrollHandler.displayScrollbar();
-            }
-        });
+    if ($('#pma_navigation').length) {
+        $('#pma_navigation_tree').children('div').show();
         // Fire up the resize and scroll handlers
         new ResizeHandler();
         ScrollHandler.init();

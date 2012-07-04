@@ -12,7 +12,7 @@ if (! defined('PHPMYADMIN')) {
 require_once 'libraries/Scripts.class.php';
 require_once 'libraries/RecentTable.class.php';
 require_once 'libraries/Menu.class.php';
-require_once 'libraries/navigation/NavigationHeader.class.php';
+require_once 'libraries/navigation/Navigation.class.php';
 
 /**
  * Class used to output the HTTP and HTML headers
@@ -312,7 +312,7 @@ class PMA_Header
                 $retval .= $this->_scripts->getDisplay();
                 $retval .= $this->_getBodyStart();
                 if ($this->_menuEnabled && $GLOBALS['server'] > 0) {
-                    $nav = new PMA_NavigationHeader();
+                    $nav = new PMA_Navigation();
                     $retval .= $nav->getDisplay();
                 }
                 // Include possible custom headers

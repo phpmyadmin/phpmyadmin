@@ -20,15 +20,10 @@ class PMA_NavigationHeader
         if (empty($GLOBALS['url_query'])) {
             $GLOBALS['url_query'] = PMA_generate_common_url();
         }
-
         $link_url = PMA_generate_common_url(
             array(
                 'ajax_request' => true
             )
-        );
-        $link = sprintf(
-            '<a class="hide navigation_url" href="navigation.php%s"></a>',
-            $link_url
         );
 
         $buffer  = '<div id="pma_navigation">';
@@ -39,21 +34,15 @@ class PMA_NavigationHeader
         $buffer .= '<div id="pma_navigation_scrollbar_handle">';
         $buffer .= '</div>';
         $buffer .= '</div>';
-        $buffer .= $link;
+        $buffer .= sprintf(
+            '<a class="hide navigation_url" href="navigation.php%s"></a>',
+            $link_url
+        );
         $buffer .= $this->logo();
         $buffer .= $this->links();
         $buffer .= $this->serverChoice();
         $buffer .= $this->recent();
         $buffer .= '<div id="pma_navigation_tree">';
-        $buffer .= '<div style="text-align:center; margin-top:1em;">';
-        $buffer .= $this->_commonFunctions->getImage(
-            'ajax_clock_small.gif',
-            __('Loading')
-        );
-        $buffer .= '</div>';
-        $buffer .= '</div>';
-        $buffer .= '</div>';
-        $buffer .= '</div>';
         return $buffer;
     }
 

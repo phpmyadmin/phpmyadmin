@@ -1,5 +1,33 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
+// The Nodes are the building blocks for the navigation tree
+require_once 'libraries/navigation/Nodes/Node.class.php';
+// All of the below Nodes inherit from the base Node
+require_once 'libraries/navigation/Nodes/Node_Column.class.php';
+require_once 'libraries/navigation/Nodes/Node_Database.class.php';
+require_once 'libraries/navigation/Nodes/Node_Event.class.php';
+require_once 'libraries/navigation/Nodes/Node_Function.class.php';
+require_once 'libraries/navigation/Nodes/Node_Index.class.php';
+require_once 'libraries/navigation/Nodes/Node_Procedure.class.php';
+require_once 'libraries/navigation/Nodes/Node_Table.class.php';
+require_once 'libraries/navigation/Nodes/Node_Trigger.class.php';
+require_once 'libraries/navigation/Nodes/Node_View.class.php';
+// Containers. Also inherit from the base Node
+require_once 'libraries/navigation/Nodes/Node_Column_Container.class.php';
+require_once 'libraries/navigation/Nodes/Node_Event_Container.class.php';
+require_once 'libraries/navigation/Nodes/Node_Function_Container.class.php';
+require_once 'libraries/navigation/Nodes/Node_Index_Container.class.php';
+require_once 'libraries/navigation/Nodes/Node_Procedure_Container.class.php';
+require_once 'libraries/navigation/Nodes/Node_Table_Container.class.php';
+require_once 'libraries/navigation/Nodes/Node_Trigger_Container.class.php';
+require_once 'libraries/navigation/Nodes/Node_View_Container.class.php';
+
+// Generates a collapsible tree of database objects
+require_once 'libraries/navigation/NavigationTree.class.php';
+
+require_once 'libraries/navigation/NavigationHeader.class.php';
+
 /**
  * Functionality for the navigation frame
  *
@@ -23,16 +51,32 @@ class PMA_Navigation {
      */
     public function __construct()
     {
-        // Keep the offset of the db list in session before closing it
-        if (! isset($_SESSION['tmp_user_values']['navi_limit_offset'])) {
-            $_SESSION['tmp_user_values']['navi_limit_offset'] = 0;
-        }
-        $this->pos = $_SESSION['tmp_user_values']['navi_limit_offset'];
         if (isset($_REQUEST['pos'])) {
-            $pos = (int) $_REQUEST['pos'];
-            $_SESSION['tmp_user_values']['navi_limit_offset'] = $pos;
-            $this->pos = $pos;
+            $this->pos = (int) $_REQUEST['pos'];
         }
+        if (! isset($this->pos)) {
+            $this->pos = $this->_getNavigationDbPos();
+        }
+    }
+
+    /**
+     * Returns the database position for the page selector
+     *
+     * return int
+     */
+    private function _getNavigationDbPos() {
+        $query  = "SELECT (COUNT(`SCHEMA_NAME`) DIV %d) * %d ";
+        $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
+        $query .= "WHERE `SCHEMA_NAME` <= '%s'";
+        
+        return PMA_DBI_fetch_value(
+            sprintf(
+                $query,
+                (int)$GLOBALS['cfg']['MaxDbList'],
+                (int)$GLOBALS['cfg']['MaxDbList'],
+                PMA_CommonFunctions::getInstance()->sqlAddSlashes($GLOBALS['db'])
+            )
+        );
     }
 
     /**
@@ -44,8 +88,15 @@ class PMA_Navigation {
     {
         /* Init */
         $retval = '';
-        $tree   = new PMA_NavigationTree($this->pos);
-        if (! empty($_REQUEST['full']) || ! empty($_REQUEST['reload'])) {
+        if (! PMA_Response::getInstance()->isAjax()) {
+            $header = new PMA_NavigationHeader();
+            $retval = $header->getDisplay();
+        }
+        $tree = new PMA_NavigationTree($this->pos);
+        if (! PMA_Response::getInstance()->isAjax()
+            || ! empty($_REQUEST['full'])
+            || ! empty($_REQUEST['reload'])
+        ) {
             $_url_params = array('pos' => $this->pos, 'server' => $GLOBALS['server']);
             $num_db = PMA_DBI_fetch_value(
                 "SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`SCHEMATA`"
@@ -58,15 +109,23 @@ class PMA_Navigation {
                 'frame_navigation',
                 $GLOBALS['cfg']['MaxDbList']
             );
-            $retval .= $tree->renderState();
+            $treeRender = $tree->renderState();
         } else {
-            $retval = $tree->renderPath();
+            $treeRender = $tree->renderPath();
         }
 
-        if (! $retval) {
-            $retval = PMA_Message::error(
+        if (! $treeRender) {
+            $retval .= PMA_Message::error(
                 __('An error has occured while loading the navigation tree')
             );
+        } else {
+            $retval .= $treeRender;
+        }
+        
+        if (! PMA_Response::getInstance()->isAjax()) {
+            $retval .= '</div>';
+            $retval .= '</div>';
+            $retval .= '</div>';
         }
 
         return $retval;

@@ -535,7 +535,7 @@ class PMA_NavigationTree {
                 $retval .= "<a class='expander$loaded$container' target='_self' href='#'>";
                 $retval .= "<span class='hide a_path'>" . $a_path . "</span>";
                 $retval .= "<span class='hide v_path'>" . $v_path . "</span>";
-
+                $retval .= "<span class='hide pos'>" . $this->pos . "</span>";
                 $retval .= $icon;
 
                 $retval .= "</a>";
