@@ -472,9 +472,9 @@ $scripts  = $header->getScripts();
 $scripts->addFile('server_status.js');
 
 $scripts->addFile('jquery/jquery.tablesorter.js');
-$scripts->addFile('jquery/jquery.cookie.js'); // For tab persistence
 $scripts->addFile('server_status.js');
 $scripts->addFile('jquery/jquery-ui-1.8.16.custom.js');
+
 /* < IE 9 doesn't support canvas natively */
 if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
     $scripts->addFile('jqplot/excanvas.js');
