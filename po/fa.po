@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-07-04 00:33+0200\n"
+"PO-Revision-Date: 2012-07-04 09:10+0200\n"
 "Last-Translator: Ashiyane Digital Security Team <HeXa.ashiyane@gmail.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
@@ -1876,7 +1876,7 @@ msgstr "زوم جستجو"
 
 #: js/messages.php:300
 msgid "Each point represents a data row."
-msgstr ".هر نقطه نشان دهنده یک سطر داده ها"
+msgstr "هر نقطه نشان دهنده یک سطر داده ها."
 
 #: js/messages.php:302
 msgid "Hovering over a point will show its label."
@@ -1893,14 +1893,13 @@ msgstr ""
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
-"با کیک بر روی  داده ها ان ها را بینید و احتمالا  ردیف داده ها راویرایش کنید. "
-" "
+"با کیک بر روی  داده ها ان ها را بینید و احتمالا  ردیف داده ها راویرایش کنید."
 
 #: js/messages.php:310
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
-"  . تغییر اندازه طرح  با کشیدن آن در امتداد گوشه پایین سمت راس میتواند انجام "
-"گیرد"
+"تغییر اندازه طرح  با کشیدن آن در امتداد گوشه پایین سمت راس میتواند انجام "
+"گیرد."
 
 #: js/messages.php:312
 #| msgid "Add/Delete columns"
@@ -1917,9 +1916,8 @@ msgid "Query results"
 msgstr "نتایج پرس و جو"
 
 #: js/messages.php:315
-#, fuzzy
 msgid "Data point content"
-msgstr "توضيحات جدول"
+msgstr "محتوای داده ها"
 
 #: js/messages.php:318 tbl_change.php:244 tbl_indexes.php:249
 #: tbl_indexes.php:284
@@ -1968,13 +1966,12 @@ msgid "Press escape to cancel editing"
 msgstr "دکمه ی escape را برای  صرفنظر کردن از ویرایش"
 
 #: js/messages.php:348
-#, fuzzy
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
-"شما مقداری داده اضافه کردید و ان ها ذخیره نشده اند.ایا شما برای ترک این صفحه "
-"بدون ذخیره کردن داده ها اطمینان دارید؟ "
+"شما مقداری داده ویرایش کردید و ان ها ذخیره نشده اند.ایا شما برای ترک این "
+"صفحه بدون ذخیره کردن داده ها اطمینان دارید؟"
 
 #: js/messages.php:349
 msgid "Drag to reorder"
@@ -2002,15 +1999,18 @@ msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
+"این جدول هیچ مقدار کلیدی ندارد. امکانات ویرایش جدولی، چک باکس ها ، ویرایش ، "
+"کپی و حذف ممکن است کار نکنند."
 
 #: js/messages.php:356
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
+"شما همچنین می توانید بیشتر ستون ها را <br /> با کلیک روی آنها ویرایش کنید."
 
 #: js/messages.php:357
 msgid "Go to link"
-msgstr ""
+msgstr "به لینک بروید"
 
 #: js/messages.php:358
 #, fuzzy
@@ -2029,27 +2029,23 @@ msgid "Show data row(s)"
 msgstr "شنبه"
 
 #: js/messages.php:363
-#, fuzzy
 #| msgid "Change password"
 msgid "Generate password"
 msgstr "تغيير اسم رمز"
 
 #: js/messages.php:364 libraries/replication_gui.lib.php:381
-#, fuzzy
 msgid "Generate"
-msgstr "توليد‌شده توسط"
+msgstr "توليد‌ کن"
 
 #: js/messages.php:365
-#, fuzzy
 #| msgid "Change password"
 msgid "Change Password"
 msgstr "تغيير اسم رمز"
 
 #: js/messages.php:368 tbl_structure.php:470
-#, fuzzy
 #| msgid "Mon"
 msgid "More"
-msgstr "دوشنبه"
+msgstr "بیشتر"
 
 #: js/messages.php:371 setup/lib/index.lib.php:188
 #, php-format
@@ -2057,35 +2053,32 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
+"نسخه جدید phpmyadmin آمده است و شما باید به فکر به روز رسانی باشید. جدیدترین "
+"نسخه %s و در %s بیرون آمده است."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:373
-#, fuzzy
 #| msgid "Last version"
 msgid ", latest stable version:"
-msgstr "نسخه قبلی"
+msgstr "نسخه قبلی:"
 
 #: js/messages.php:374
-#, fuzzy
 msgid "up to date"
-msgstr "No databases"
+msgstr "به روز"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:393
-#, fuzzy
 #| msgid "None"
 msgid "Done"
-msgstr "خير"
+msgstr "انجام شد"
 
 #: js/messages.php:397
-#, fuzzy
 #| msgid "Previous"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "قبل"
 
 #: js/messages.php:402
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
@@ -2093,29 +2086,25 @@ msgstr "بعد"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:405
-#, fuzzy
 #| msgid "Total"
 msgid "Today"
-msgstr "جمع كل"
+msgstr "امروز"
 
 #: js/messages.php:409
-#, fuzzy
 #| msgid "Binary"
 msgid "January"
-msgstr "دودويي"
+msgstr "ژانویه"
 
 #: js/messages.php:410
 msgid "February"
-msgstr ""
+msgstr "فوریه"
 
 #: js/messages.php:411
-#, fuzzy
 #| msgid "Mar"
 msgid "March"
 msgstr "مارس"
 
 #: js/messages.php:412
-#, fuzzy
 #| msgid "Apr"
 msgid "April"
 msgstr "آوريل"
@@ -2125,40 +2114,36 @@ msgid "May"
 msgstr "مي"
 
 #: js/messages.php:414
-#, fuzzy
 #| msgid "Jun"
 msgid "June"
 msgstr "ژوئن"
 
 #: js/messages.php:415
-#, fuzzy
 #| msgid "Jul"
 msgid "July"
 msgstr "جولاي"
 
 #: js/messages.php:416
-#, fuzzy
 #| msgid "Aug"
 msgid "August"
 msgstr "آگوست"
 
 #: js/messages.php:417
 msgid "September"
-msgstr ""
+msgstr "سپتامبر"
 
 #: js/messages.php:418
-#, fuzzy
 #| msgid "Oct"
 msgid "October"
 msgstr "اكتبر"
 
 #: js/messages.php:419
 msgid "November"
-msgstr ""
+msgstr "نوامبر"
 
 #: js/messages.php:420
 msgid "December"
-msgstr ""
+msgstr "دسامبر"
 
 #. l10n: Short month name
 #: js/messages.php:427 libraries/CommonFunctions.class.php:1721
@@ -2182,7 +2167,6 @@ msgstr "آوريل"
 
 #. l10n: Short month name
 #: js/messages.php:435 libraries/CommonFunctions.class.php:1729
-#, fuzzy
 #| msgid "May"
 msgctxt "Short month name"
 msgid "May"
@@ -2224,19 +2208,16 @@ msgid "Dec"
 msgstr "دسامبر"
 
 #: js/messages.php:455
-#, fuzzy
 #| msgid "Sun"
 msgid "Sunday"
 msgstr "يكشنبه"
 
 #: js/messages.php:456
-#, fuzzy
 #| msgid "Mon"
 msgid "Monday"
 msgstr "دوشنبه"
 
 #: js/messages.php:457
-#, fuzzy
 #| msgid "Tue"
 msgid "Tuesday"
 msgstr "سه‌شنبه"
@@ -2250,7 +2231,6 @@ msgid "Thursday"
 msgstr "پنجشنبه"
 
 #: js/messages.php:460
-#, fuzzy
 #| msgid "Fri"
 msgid "Friday"
 msgstr "جمعه"
@@ -2261,7 +2241,6 @@ msgstr "شنبه"
 
 #. l10n: Short week day name
 #: js/messages.php:468
-#, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
 msgid "Sun"
@@ -2299,49 +2278,42 @@ msgstr "شنبه"
 
 #. l10n: Minimal week day name
 #: js/messages.php:487
-#, fuzzy
 #| msgid "Sun"
 msgid "Su"
 msgstr "يكشنبه"
 
 #. l10n: Minimal week day name
 #: js/messages.php:489
-#, fuzzy
 #| msgid "Mon"
 msgid "Mo"
 msgstr "دوشنبه"
 
 #. l10n: Minimal week day name
 #: js/messages.php:491
-#, fuzzy
 #| msgid "Tue"
 msgid "Tu"
 msgstr "سه‌شنبه"
 
 #. l10n: Minimal week day name
 #: js/messages.php:493
-#, fuzzy
 #| msgid "Wed"
 msgid "We"
 msgstr "چهارشنبه"
 
 #. l10n: Minimal week day name
 #: js/messages.php:495
-#, fuzzy
 #| msgid "Thu"
 msgid "Th"
 msgstr "پنج‌شنبه"
 
 #. l10n: Minimal week day name
 #: js/messages.php:497
-#, fuzzy
 #| msgid "Fri"
 msgid "Fr"
 msgstr "جمعه"
 
 #. l10n: Minimal week day name
 #: js/messages.php:499
-#, fuzzy
 #| msgid "Sat"
 msgid "Sa"
 msgstr "شنبه"
@@ -2354,15 +2326,14 @@ msgstr "هفته"
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: js/messages.php:506
 msgid "calendar-month-year"
-msgstr ""
+msgstr "تقویم-ماه-سال"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:508
-#, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
-msgstr "خير"
+msgstr "هیچ"
 
 #: js/messages.php:517
 msgid "Hour"
@@ -2437,7 +2408,7 @@ msgstr "در ساعت"
 
 #: libraries/Advisor.class.php:434
 msgid "per day"
-msgstr ""
+msgstr "هر روز"
 
 #: libraries/CommonFunctions.class.php:251
 #, php-format
@@ -2701,7 +2672,7 @@ msgstr "چاپ"
 #: libraries/Config.class.php:915
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr ""
+msgstr "فایل تنظیمات فعلی (%s) قابل خواندن نیست."
 
 #: libraries/Config.class.php:945
 msgid "Wrong permissions on configuration file, should not be world writable!"
@@ -4920,7 +4891,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:285
 msgid "Display databases in a tree"
-msgstr "پایگاه داده را در یک درخت نمایش بده."
+msgstr "پایگاه داده را در یک درخت نمایش بده"
 
 #: libraries/config/messages.inc.php:286
 msgid "Disable this if you want to see all databases at once"
@@ -9629,13 +9600,13 @@ msgstr ""
 #: server_privileges.php:111 server_privileges.php:303
 #: server_privileges.php:734
 msgid "Allows importing data from and exporting data into files."
-msgstr ".دادن اجازه برای وارد و خارج کردن اطلاعات از فایل ها"
+msgstr "دادن اجازه برای وارد و خارج کردن اطلاعات از فایل ها."
 
 #: server_privileges.php:112 server_privileges.php:765
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
-"دادن اجازه برای ایجاد  کاربران و اعطای امتیازات بدون بارگذاری  اطلاعات جداول"
+"دادن اجازه برای ایجاد  کاربران و اعطای امتیازات بدون بارگذاری اطلاعات جداول."
 
 #: server_privileges.php:113 server_privileges.php:311
 #: server_privileges.php:741
@@ -13039,7 +13010,7 @@ msgid ""
 "restarting after changing open_files_limit."
 msgstr ""
 "می توانید با افزایش {open_files_limit}، و چک کردن سابقه اجرایی در هنگام "
-"اجرای مجدد"
+"اجرای مجدد."
 
 #: libraries/advisory_rules.txt:332
 #, php-format
