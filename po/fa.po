@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-07-04 09:10+0200\n"
+"PO-Revision-Date: 2012-07-04 09:27+0200\n"
 "Last-Translator: Ashiyane Digital Security Team <HeXa.ashiyane@gmail.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
@@ -1794,7 +1794,7 @@ msgstr "پاک کردن"
 
 #: js/messages.php:269
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr "تعریف یک تابع ذخیره شده باید شامل یک دستور بازگشت باشد"
+msgstr "تعریف یک تابع ذخیره شده باید شامل یک دستور بازگشت باشد!"
 
 #: js/messages.php:272 libraries/rte/rte_routines.lib.php:747
 msgid "ENUM/SET editor"
@@ -1816,14 +1816,14 @@ msgstr "هر کدام از مقادیر را در یک فیلد وارد کنی�
 #: js/messages.php:276
 #, php-format
 msgid "Add %d value(s)"
-msgstr "اضافه کردن مقدار %d "
+msgstr "اضافه کردن مقدار %d"
 
 #: js/messages.php:279
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr ""
 "توجه داشته باشید:اگر این فایل شامل جداول چند گانه میباشد,انها به یکی تبدیل "
-"خواهند شد "
+"خواهند شد"
 
 #: js/messages.php:282
 msgid "Hide query box"
