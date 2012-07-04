@@ -168,7 +168,7 @@ function showColumnSelectCell($columns, $column_number, $selected = '')
  * Provides select options list containing sort options (ASC/DESC)
  *
  * @param integer $column_number Column Number (0,1,2) or more
- * @param string  $realwidth
+ * @param string  $realwidth     Largest column width found
  *
  * @return HTML for select options
  */
@@ -211,10 +211,10 @@ function getSortSelectCell($column_number, $realwidth)
 /**
  * Provides search form's row containing column select options
  *
- * @param array   $criteria_column_count
- * @param integer $columns
- * @param string  $ins_col
- * @param string  $del_col
+ * @param array   $criteria_column_count Number of criteria columns
+ * @param integer $columns               All column names
+ * @param string  $ins_col               If a new criteria column is needed
+ * @param string  $del_col               If a criteria column is to be deleted
  *
  * @return HTML for search table's row
  */
@@ -248,10 +248,10 @@ function PMA_dbQbegetColumnNamesRow(
 /**
  * Provides search form's row containing sort(ASC/DESC) select options
  *
- * @param array   $criteria_column_count
- * @param string  $realwidth
- * @param string  $ins_col
- * @param string  $del_col
+ * @param array  $criteria_column_count Number of criteria columns
+ * @param string $realwidth             Largest column width found
+ * @param string $ins_col               If a new criteria column is needed
+ * @param string $del_col               If a criteria column is to be deleted
  *
  * @return HTML for search table's row
  */
