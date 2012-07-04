@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-07-04 01:21+0200\n"
+"PO-Revision-Date: 2012-07-04 16:03+0200\n"
 "Last-Translator: Nicholas Arnesen <baretester@live.no>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -301,7 +301,7 @@ msgstr "Fjern database"
 #: db_operations.php:505
 #, php-format
 msgid "Database %s has been dropped."
-msgstr "Databasen %s har blitt slettet"
+msgstr "Databasen %s har blitt slettet."
 
 #: db_operations.php:510
 msgid "Drop the database (DROP)"
@@ -929,8 +929,9 @@ msgid ""
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
 "Ingen data ble mottatt for importering. Enten ble ingen filnavn gitt, eller "
-"filstørrelsen oversteg maksimum størrelse tillatt i din PHP konfigurasjon. "
-"Se FAQ 1.16"
+"så var filstørrelsen over maksimum størrelse tillatt i din PHP "
+"konfigurasjon. Se [a@./Documentation.html#faq1_16@Documentation]FAQ "
+"1.16[/a]."
 
 #: import.php:412
 msgid ""
@@ -1202,7 +1203,7 @@ msgstr "System minne"
 
 #: js/messages.php:99
 msgid "System swap"
-msgstr "System swap"
+msgstr "Systembytte"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:100 js/messages.php:123
@@ -1341,8 +1342,9 @@ msgid "Resume monitor"
 msgstr "Gjenoppta monitor"
 
 #: js/messages.php:141
+#, fuzzy
 msgid "Pause monitor"
-msgstr "Pause monitor"
+msgstr "Pause skjerm"
 
 #: js/messages.php:143
 msgid "general_log and slow_query_log are enabled."
@@ -1583,7 +1585,7 @@ msgstr "Tabellvisningsinnstillinger"
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:197
 msgid "Filter"
-msgstr "Filter"
+msgstr "Filtrer"
 
 #: js/messages.php:198
 msgid "Filter queries by word/regexp:"
@@ -2446,19 +2448,19 @@ msgstr "Dokumentasjon"
 #: libraries/CommonFunctions.class.php:534
 msgctxt "MySQL 5.5 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "no"
 
 #. l10n: Please check that translation actually exists.
 #: libraries/CommonFunctions.class.php:538
 msgctxt "MySQL 5.1 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "no"
 
 #. l10n: Please check that translation actually exists.
 #: libraries/CommonFunctions.class.php:542
 msgctxt "MySQL 5.0 documentation language"
 msgid "en"
-msgstr "en"
+msgstr "no"
 
 #: libraries/CommonFunctions.class.php:670 libraries/Message.class.php:199
 #: libraries/core.lib.php:217 libraries/import.lib.php:154
@@ -2528,9 +2530,10 @@ msgid "Inline edit of this query"
 msgstr "Inline redigering av denne spørringa"
 
 #: libraries/CommonFunctions.class.php:1405
+#, fuzzy
 msgctxt "Inline edit query"
 msgid "Inline"
-msgstr "Inline"
+msgstr "Innebygd"
 
 #: libraries/CommonFunctions.class.php:1476 sql.php:1036
 msgid "Profiling"
@@ -3245,7 +3248,7 @@ msgstr "Funksjon"
 #: pmd_general.php:658 pmd_general.php:671 pmd_general.php:734
 #: pmd_general.php:788
 msgid "Operator"
-msgstr "Operator"
+msgstr "Operatør"
 
 #: libraries/TableSearch.class.php:219 libraries/TableSearch.class.php:1238
 #: libraries/insert_edit.lib.php:1600 libraries/replication_gui.lib.php:119
@@ -3971,9 +3974,9 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
 msgstr ""
-"Å tillate dette gir sider på andre domener muligheten til å innlemme "
+"Å tillate dette gir sider på andre domener muligheten til å legge inn "
 "phpMyAdmin i en ramme, og er et potensielt [strong]sikkerhetshull[/strong] "
-"og muligjør cross-site scripting."
+"og muligjør cross-frame skripting"
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
@@ -3992,8 +3995,9 @@ msgstr ""
 "autentisering"
 
 #: libraries/config/messages.inc.php:25
+#, fuzzy
 msgid "Blowfish secret"
-msgstr "Blowfish secret"
+msgstr "Blowfish hemmelighet"
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight selected rows"
@@ -4122,7 +4126,7 @@ msgstr "Bekreft DROP spørringer"
 
 #: libraries/config/messages.inc.php:50
 msgid "Debug SQL"
-msgstr "Debug SQL"
+msgstr "Feilsøk SQL"
 
 #: libraries/config/messages.inc.php:51
 msgid "Default display direction"
@@ -5639,7 +5643,7 @@ msgstr "Signon sesjonsnavn"
 
 #: libraries/config/messages.inc.php:426
 msgid "Signon URL"
-msgstr "Signon URL"
+msgstr "Innloggingslink"
 
 #: libraries/config/messages.inc.php:427
 msgid "Socket on which MySQL server is listening, leave empty for default"
@@ -6241,7 +6245,7 @@ msgstr "Ugyldig IP addresse: %s"
 #: libraries/core.lib.php:255
 msgctxt "PHP documentation language"
 msgid "en"
-msgstr "en"
+msgstr "no"
 
 #: libraries/core.lib.php:276
 #, php-format
@@ -6410,7 +6414,7 @@ msgstr "Eksporter rader fra %s tabell"
 
 #: libraries/display_export.lib.php:105
 msgid "Export Method:"
-msgstr "Eksportmetode"
+msgstr "Eksportmetode:"
 
 #: libraries/display_export.lib.php:121
 msgid "Quick - display only the minimal options"
@@ -7492,7 +7496,7 @@ msgstr "Du kan skrive vertsnavn/IP adresse og port separert med mellomrom."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:181
 msgid "Server:"
-msgstr "Tjener"
+msgstr "Tjener:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:193
 msgid "Username:"
@@ -8154,8 +8158,8 @@ msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
-"Viser et klikkbart tommelfingerbilde; valg: bredde, høyde i piksler (bevarer "
-"originale forhold)"
+"Viser et klikkbart ministyrbilde. Valgene er satt til maksimum lengde og "
+"høyde i piksler. Det opprinnelige størrelsesforholdet blir bevart."
 
 #: libraries/plugins/transformations/abstract/LongToIPv4TransformationsPlugin.class.php:31
 msgid ""
@@ -8984,7 +8988,7 @@ msgstr "Vis tabelldimensjoner"
 
 #: libraries/schema/User_Schema.class.php:455
 msgid "Display all tables with the same width"
-msgstr "vis alle tabeller med samme bredde?"
+msgstr "Vis alle tabeller med samme lengde"
 
 #: libraries/schema/User_Schema.class.php:460
 msgid "Only show keys"
@@ -9115,8 +9119,8 @@ msgid ""
 "below, if there is any, may also help you in diagnosing the problem"
 msgstr ""
 "Det ser ut til å være en feil i din SQL-spørring. En eventuell feilmelding "
-"fra MySQL-tjeneren er skrevet ut nedenfor, kan kanskje hjelpe deg med å "
-"finne feilen."
+"fra MySQL-tjeneren er skrevet ut nedenfor, og kan kanskje hjelpe deg med å "
+"finne feilen"
 
 #: libraries/sqlparser.lib.php:171
 msgid ""
@@ -10602,8 +10606,9 @@ msgstr ""
 "phpMyAdmin kunne ikke avslutte tråd %s. Den er sansynligvis alt avsluttet."
 
 #: server_status.php:616
+#, fuzzy
 msgid "Handler"
-msgstr "Handler"
+msgstr "Behandler"
 
 #: server_status.php:617
 msgid "Query cache"
@@ -10639,7 +10644,7 @@ msgstr "Transaksjonskoordinator"
 
 #: server_status.php:639
 msgid "Flush (close) all tables"
-msgstr "Flush (close) all tables"
+msgstr "Flush (lukk) alle tabeller"
 
 #: server_status.php:641
 msgid "Show open tables"
@@ -10655,7 +10660,7 @@ msgstr "Vis slavestatus"
 
 #: server_status.php:657
 msgid "Flush query cache"
-msgstr "Flush query cache"
+msgstr "Flush spørringsbufferen"
 
 #: server_status.php:797
 msgid "Runtime Information"
