@@ -17,6 +17,10 @@ class PMA_NavigationHeader
     {
         $this->_commonFunctions = PMA_CommonFunctions::getInstance();
 
+        if (empty($GLOBALS['url_query'])) {
+            $GLOBALS['url_query'] = PMA_generate_common_url();
+        }
+
         $link_url = PMA_generate_common_url(
             array(
                 'ajax_request' => true

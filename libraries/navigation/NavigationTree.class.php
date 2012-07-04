@@ -139,6 +139,10 @@ class PMA_NavigationTree {
             $db = $this->tree->getChild($path[0]);
             $retval = $db;
 
+            if ($db === false) {
+                return false;
+            }
+
             $containers = $this->addDbContainers($db);
 
             array_shift($path); // remove db
@@ -148,6 +152,9 @@ class PMA_NavigationTree {
                     $container = array_shift($containers);
                 } else {
                     $container = $db->getChild($path[0], true);
+                    if ($container === false) {
+                        return false;
+                    }
                 }
                 $retval = $container;
 
@@ -183,6 +190,9 @@ class PMA_NavigationTree {
                     array_shift($path); // remove container
                     if (count($path) > 0) {
                         $table = $container->getChild($path[0], true);
+                        if ($table === false) {
+                            return false;
+                        }
                         $retval = $table;
                         $containers = $this->addTableContainers($table);
                         array_shift($path); // remove table
@@ -463,6 +473,7 @@ class PMA_NavigationTree {
      */
     public function renderNode($node, $recursive = -1, $indent = '  ', $class = '')
     {
+        $retval = '';
         if (!($node->real_name == 'tables' && ! $node->hasSiblings())) {
             if (   $node->type == Node::CONTAINER
                 && count($node->children) == 0
@@ -471,7 +482,7 @@ class PMA_NavigationTree {
             ) {
                 return '';
             }
-            $retval = $indent . "<li" . ( $class || $node->classes ? " class='" . trim($class . ' ' . $node->classes) . "'" : '') . ">";
+            $retval .= $indent . "<li" . ( $class || $node->classes ? " class='" . trim($class . ' ' . $node->classes) . "'" : '') . ">";
             $hasChildren = $node->hasChildren(false);
             $sterile = array('events', 'triggers', 'functions', 'procedures', 'views', 'columns', 'indexes');
             if (($GLOBALS['is_ajax_request'] || $hasChildren || $GLOBALS['cfg']['LeftFrameLight'])
