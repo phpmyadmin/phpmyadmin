@@ -192,7 +192,7 @@ function PMA_changePassAuthType($_url_params, $password)
     
     //    include_once "libraries/plugins/auth/AuthenticationCookie.class.php";
     //    $auth_plugin = new AuthenticationCookie();
-    // the $auth_plugin is already defined in common.lib.php when this is used
+    // the $auth_plugin is already defined in common.inc.php when this is used
     global $auth_plugin;
     
     if ($GLOBALS['cfg']['Server']['auth_type'] == 'cookie') {
