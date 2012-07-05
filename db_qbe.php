@@ -454,6 +454,39 @@ function PMA_dbQbeGetTableFooters()
     return $html_output;
 }
 
+/**
+ * Provides a select list of database tables
+ *
+ * @param array $table_names Names of all the tables
+ *
+ * @return HTML for table select list
+ */
+function PMA_dbQbeGetTablesList($table_names)
+{
+    $html_output = '<div class="floatleft">';
+    $html_output .= '<fieldset>';
+    $html_output .= '<legend>' . __('Use Tables') . '</legend>';
+    // Build the options list for each table name
+    $options = '';
+    $numTableListOptions = 0;
+    foreach ($table_names as $key => $val) {
+        $options .= '<option value="' . htmlspecialchars($key) . '"' . $val . '>'
+            . (str_replace(' ', '&nbsp;', htmlspecialchars($key))) . '</option>';
+        $numTableListOptions++;
+    }
+    $html_output .= '<select name="TableList[]" multiple="multiple" id="listTable"'
+        . ' size="' . (($numTableListOptions > 30) ? '15' : '7') . '">';
+    $html_output .= $options;
+    $html_output .= '</select>';
+    $html_output .= '</fieldset>';
+    $html_output .= '<fieldset class="tblFooters">';
+    $html_output .= '<input type="submit" name="modify" value="'
+        . __('Update Query') . '" />';
+    $html_output .= '</fieldset>';
+    $html_output .= '</div>';
+    return $html_output;
+}
+
 if ($cfgRelation['designerwork']) {
     $url = 'pmd_general.php' . PMA_generate_common_url(
         array_merge(
@@ -720,8 +753,6 @@ for ($x = 0; $x < $col; $x++) {
 ?>
     </tr>
 </table>
-
-<!-- Other controls -->
 <?php
 $w--;
 $url_params['db']       = $db;
@@ -733,30 +764,8 @@ echo PMA_generate_common_hidden_inputs($url_params);
 
 <?php
 echo PMA_dbQbeGetTableFooters();
+echo PMA_dbQbeGetTablesList($tbl_names);
 ?>
-
-<div class="floatleft">
-    <fieldset>
-        <legend><?php echo __('Use Tables'); ?></legend>
-<?php
-$options = '';
-$numTableListOptions = 0;
-foreach ($tbl_names as $key => $val) {
-    $options .= '                    ';
-    $options .= '<option value="' . htmlspecialchars($key) . '"' . $val . '>'
-        . str_replace(' ', '&nbsp;', htmlspecialchars($key)) . '</option>' . "\n";
-    $numTableListOptions++;
-}
-?>
-        <select name="TableList[]" multiple="multiple" id="listTable"
-            size="<?php echo ($numTableListOptions > 30) ? '15' : '7'; ?>">
-            <?php echo $options; ?>
-        </select>
-    </fieldset>
-    <fieldset class="tblFooters">
-        <input type="submit" name="modify" value="<?php echo __('Update Query'); ?>" />
-    </fieldset>
-</div>
 
 <div class="floatleft">
     <fieldset>
