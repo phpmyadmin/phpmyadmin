@@ -13,7 +13,7 @@ if (! defined('PHPMYADMIN')) {
 require_once "PluginObserver.class.php";
 
 /**
- * Provides a common interface that will have to implemented by all of the
+ * Provides a common interface that will have to be implemented by all of the
  * export plugins. Some of the plugins will also implement other public
  * methods, but those are not declared here, because they are not implemented
  * by all export plugins.

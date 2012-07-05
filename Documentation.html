@@ -27,7 +27,7 @@ vim: expandtab ts=4 sw=4 sts=4 tw=78
     <li><a href="Documentation.html#intro">Introduction</a></li>
     <li><a href="Documentation.html#setup">Installation</a></li>
     <li><a href="Documentation.html#setup_script">Setup script</a></li>
-    <li><a href="Documentation.html#config">Configuration</a></li>
+    <li><a href="Documentation.html#config">Configuration</az></li>
     <li><a href="Documentation.html#transformations">Transformations</a></li>
     <li><a href="Documentation.html#faq"><abbr title="Frequently Asked Questions"> FAQ</abbr></a></li>
     <li><a href="Documentation.html#developers">Developers</a></li>
@@ -2486,8 +2486,10 @@ setfacl -d -m "g:www-data:rwx" tmp
 
 <h3 id="transformationsfiles">3. File structure</h3>
 
-<p> All mimetypes and their transformations are defined through single files in
-    the directory 'libraries/transformations/'.</p>
+<p> All specific transformations for mimetypes are defined through class files in
+    the directory 'libraries/plugins/transformations/'. Each of them extends
+    a certain transformation abstract class declared in
+    libraries/plugins/transformations/abstract.</p>
 
 <p> They are stored in files to ease up customization and easy adding of new
     transformations.</p>
@@ -2496,109 +2498,35 @@ setfacl -d -m "g:www-data:rwx" tmp
     always work. It makes no sense to apply a transformation to a mimetype the
     transform-function doesn't know to handle.</p>
 
-<p> One can, however, use empty mime-types and global transformations which should work
-    for many mimetypes. You can also use transforms on a different mimetype than what they where built
-    for, but pay attention to option usage as well as what the transformation does to your
-    column.</p>
-
 <p> There is a file called '<em>transformations.lib.php</em>' that provides some basic functions
     which can be included by any other transform function.</p>
 
-<p> There are 5 possible file names:</p>
+<p> The file name convention is
+    <code>[Mimetype]_[Subtype]_[Transformation Name].class.php</code>,<br />
+    while the abtract class that it extends has the name 
+    <code>[Transformation Name]TransformationsPlugin</code>.<br /><br />
+    All of the methods that have to be implemented by a transformations plug-in are: <Br />
+    <ol>
+        <li>getMIMEType() and getMIMESubtype() in the main class;</li>
+        <li>getName(), getInfo() and applyTransformation() in the abstract class it extends.</li>
+    </ol>
+    </p>
+    
+<p>The getMIMEType(), getMIMESubtype() and getName() methods return the name of the
+    MIME type, MIME Subtype and transformation accordingly. getInfo() returns the
+    transformation's description and possible options it may receive and
+    applyTransformation() is the method that does the actual work of the
+    transformation plug-in.</p>   
 
-<ol><li>A mimetype+subtype transform:<br /><br />
+<p> Please see the libraries/plugins/transformations/TEMPLATE and 
+    libraries/plugins/transformations/TEMPLATE_ABSTRACT
+    files for adding your own transformation plug-in. You can also generate a
+    new transformation plug-in (with or without the abstract transformation class),
+    by using
+    <code>libraries/plugins/transformations/generator_plugin.sh</code> or<br />
+    <code>libraries/plugins/transformations/generator_main_class.sh</code>.</p>
 
-        <code>[mimetype]_[subtype]__[transform].inc.php</code><br /><br />
-
-        Please not that mimetype and subtype are separated via '_', which shall
-        not be contained in their names. The transform function/filename may
-        contain only characters which cause no problems in the file system as
-        well as the PHP function naming convention.<br /><br />
-
-        The transform function will the be called
-        '<code>PMA_transform_[mimetype]_[subtype]__[transform]()</code>'.<br /><br />
-
-        <strong>Example:</strong><br /><br />
-
-        <code>text_html__formatted.inc.php</code><br />
-        <code>PMA_transform_text_html__formatted()</code></li>
-
-    <li>A mimetype (w/o subtype) transform:<br /><br />
-
-        <code>[mimetype]__[transform].inc.php</code><br /><br />
-
-        Please note that there are no single '_' characters.
-        The transform function/filename may contain only characters which cause
-        no problems in the file system as well as the PHP function naming
-        convention.<br /><br />
-
-        The transform function will the be called
-        '<code>PMA_transform_[mimetype]__[transform]()</code>'.<br /><br />
-
-        <strong>Example:</strong><br /><br />
-
-        <code>text__formatted.inc.php</code><br />
-        <code>PMA_transform_text__formatted()</code></li>
-
-    <li>A mimetype+subtype without specific transform function<br /><br />
-
-        <code>[mimetype]_[subtype].inc.php</code><br /><br />
-
-        Please note that there are no '__' characters in the filename. Do not
-        use special characters in the filename causing problems with the file
-        system.<br /><br />
-
-        No transformation function is defined in the file itself.<br /><br />
-
-        <strong>Example:</strong><br /><br />
-
-        <code>text_plain.inc.php</code><br />
-        (No function)</li>
-
-    <li>A mimetype (w/o subtype) without specific transform function<br /><br />
-
-        <code>[mimetype].inc.php</code><br /><br />
-
-        Please note that there are no '_' characters in the filename. Do not use
-        special characters in the filename causing problems with the file system.
-        <br /><br />
-
-        No transformation function is defined in the file itself.<br /><br />
-
-        <strong>Example:</strong><br /><br />
-
-        <code>text.inc.php</code><br />
-        (No function)</li>
-
-    <li>A global transform function with no specific mimetype<br /><br />
-
-        <code>global__[transform].inc.php</code><br /><br />
-
-        The transform function will the be called
-        '<code>PMA_transform_global__[transform]()</code>'.<br /><br />
-
-        <strong>Example:</strong><br /><br />
-
-        <code>global__formatted</code><br />
-        <code>PMA_transform_global__formatted()</code></li>
-</ol>
-
-<p> So generally use '_' to split up mimetype and subtype, and '__' to provide a
-    transform function.</p>
-
-<p> All filenames containing no '__' in themselves are not shown as valid transform
-    functions in the dropdown.</p>
-
-<p> Please see the libraries/transformations/TEMPLATE file for adding your own transform
-    function. See the libraries/transformations/TEMPLATE_MIMETYPE for adding a mimetype
-    without a transform function.</p>
-
-<p> To create a new transform function please see
-    <code>libraries/transformations/template_generator.sh</code>.
-    To create a new, empty mimetype please see
-    <code>libraries/transformations/template_generator_mimetype.sh</code>.</p>
-
-<p> A transform function always gets passed three variables:</p>
+<p> The applyTransformation() method always gets passed three variables:</p>
 
 <ol><li><strong>$buffer</strong> - Contains the text inside of the column. This is the text,
         you want to transform.</li>
@@ -2614,18 +2542,6 @@ setfacl -d -m "g:www-data:rwx" tmp
         The $meta-&gt;mimetype variable contains the original MIME-type of the
         column (i.e. 'text/plain', 'image/jpeg' etc.)</li>
 </ol>
-
-<p> Additionally you should also provide additional function to provide
-    information about the transformation to the user. This function should
-    have same name as transformation function just with appended
-    <code>_info</code> suffix. This function accepts no parameters and returns
-    array with information about the transformation. Currently following keys
-    can be used:
-</p>
-<dl>
-    <dt><code>info</code></dt>
-    <dd>Long description of the transformation.</dd>
-</dl>
 
 <!-- FAQ -->
 <h2 id="faq">FAQ - Frequently Asked Questions</h2>
