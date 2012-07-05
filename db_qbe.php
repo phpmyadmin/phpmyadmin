@@ -313,6 +313,48 @@ function PMA_dbQbegetSortRow(
     return $html_output;
 }
 
+/**
+ * Provides search form's row containing SHOW checkboxes
+ *
+ * @param array  $criteria_column_count Number of criteria columns
+ * @param string $ins_col               If a new criteria column is needed
+ * @param string $del_col               If a criteria column is to be deleted
+ *
+ * @return HTML for search table's row
+ */
+function PMA_dbQbegetShowRow(
+    $criteria_column_count, $ins_col = null, $del_col = null
+) {
+    $html_output = '<tr class="odd noclick">';
+    $html_output .= '<th>' . __('Show') . ':</th>';
+    $z = 0;
+    for ($column_index = 0; $column_index < $criteria_column_count; $column_index++)
+    {
+        if (! empty($ins_col) && isset($ins_col[$column_index]) && $ins_col[$column_index] == 'on') {
+            $html_output .= '<td class="center">';
+            $html_output .= '<input type="checkbox" name="Show[' . $z . ']" />';
+            $html_output .= '</td>';
+            $z++;
+        } // end if
+        if (! empty($del_col) && isset($del_col[$column_index]) && $del_col[$column_index] == 'on') {
+            continue;
+        }
+        if (isset($_REQUEST['Show'][$column_index])) {
+            $checked     = ' checked="checked"';
+            $curShow[$z] = $_REQUEST['Show'][$column_index];
+        } else {
+            $checked     =  '';
+        }
+        $html_output .= '<td class="center">';
+        $html_output .= '<input type="checkbox" name="Show[' . $z . ']"' . $checked
+            . ' />';
+        $html_output .= '</td>';
+        $z++;
+    } // end for
+    $html_output .= '</tr>';
+    return $html_output;
+}
+
 if ($cfgRelation['designerwork']) {
     $url = 'pmd_general.php' . PMA_generate_common_url(
         array_merge(
@@ -339,42 +381,10 @@ echo PMA_dbQbegetColumnNamesRow(
 echo PMA_dbQbegetSortRow(
     $col, $realwidth, $ins_col, $del_col
 );
+echo PMA_dbQbegetShowRow(
+    $col, $ins_col, $del_col
+);
 ?>
-<!-- Show row -->
-<tr class="odd noclick">
-    <th><?php echo __('Show'); ?>:</th>
-<?php
-$z = 0;
-for ($x = 0; $x < $col; $x++) {
-    if (! empty($ins_col) && isset($ins_col[$x]) && $ins_col[$x] == 'on') {
-        ?>
-    <td class="center">
-        <input type="checkbox" name="Show[<?php echo $z; ?>]" />
-    </td>
-        <?php
-        $z++;
-    } // end if
-    echo "\n";
-
-    if (! empty($del_col) && isset($del_col[$x]) && $del_col[$x] == 'on') {
-        continue;
-    }
-    if (isset($_REQUEST['Show'][$x])) {
-        $checked     = ' checked="checked"';
-        $curShow[$z] = $_REQUEST['Show'][$x];
-    } else {
-        $checked     =  '';
-    }
-    ?>
-    <td class="center">
-        <input type="checkbox" name="Show[<?php echo $z; ?>]"<?php echo $checked; ?> />
-    </td>
-    <?php
-    $z++;
-    echo "\n";
-} // end for
-?>
-</tr>
 
 <!-- Criteria row -->
 <tr class="even noclick">
