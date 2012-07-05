@@ -167,13 +167,12 @@ if (isset($dbname)) {
     $db_and_table = '*.*';
 }
 
+$dbname_is_wildcard = false;
 // check if given $dbname is a wildcard or not
 if (isset($dbname)) {
     //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
     if (preg_match('/(?<!\\\\)(?:_|%)/i', $dbname)) {
         $dbname_is_wildcard = true;
-    } else {
-        $dbname_is_wildcard = false;
     }
 }
 
@@ -634,9 +633,12 @@ if ($GLOBALS['is_ajax_request']
     && ! isset($_REQUEST['edit_user_dialog'])
     && ! isset($_REQUEST['db_specific']))
 {
-    $extra_data = PMA_getExatraDataForAjaxBehavior(
-        $sql_query, $username, $hostname, $pma_pw, $Grant_priv,
-         $link_edit, $update_privs, $dbname_is_wildcard
+    $isPass = false;
+    if(isset ($password)) {
+        $isPass = true;
+    }
+    $extra_data = PMA_getExtraDataForAjaxBehavior( $isPass,
+        $sql_query, $link_edit, $dbname_is_wildcard, $link_export
     );
 
     if ($message instanceof PMA_Message) {
