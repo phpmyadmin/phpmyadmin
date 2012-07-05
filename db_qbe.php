@@ -12,6 +12,36 @@
 require_once 'libraries/common.inc.php';
 
 /**
+ * Sets globals from $_POST
+ */
+$post_params = array(
+    'Field',
+    'Show',
+    'Sort'
+);
+foreach ($post_params as $one_post_param) {
+    if (isset($_POST[$one_post_param])) {
+        $GLOBALS[$one_post_param] = $_POST[$one_post_param];
+    }
+}
+
+/**
+ * Sets globals from $_POST patterns, for Or* variables 
+ * (additional criteria lines)
+ */
+
+$post_patterns = array(
+    '/^Or/i'
+);
+foreach (array_keys($_POST) as $post_key) {
+    foreach ($post_patterns as $one_post_pattern) {
+        if (preg_match($one_post_pattern, $post_key)) {
+            $GLOBALS[$post_key] = $_POST[$post_key];
+        }
+    }
+}
+
+/**
  * Gets the relation settings
  */
 $cfgRelation = PMA_getRelationsParam();
