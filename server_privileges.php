@@ -47,7 +47,6 @@ foreach ($get_params as $one_get_param) {
         $GLOBALS[$one_get_param] = $_REQUEST[$one_get_param];
     }
 }
-
 /**
  * Sets globals from $_POST
  */
@@ -536,7 +535,7 @@ if (isset($_REQUEST['change_pw'])) {
  * Deletes users
  *   (Changes / copies a user, part IV)
  */
-if (isset($_REQUEST['delete']) || (isset($_REQUEST['change_copy']) && $_REQUEST['mode'] < 4)) {
+if (isset($_REQUEST['delete']) || (isset($_REQUEST['change_copy']) && $_REQUEST['mode'] < 4)) { var_dump($GLOBALS);
     if (isset($_REQUEST['change_copy'])) {
         $selected_usr = array($old_username . '&amp;#27;' . $old_hostname);
     } else {
@@ -626,67 +625,19 @@ list($link_edit, $link_revoke, $link_export, $link_export_all)
  * If we are in an Ajax request for Create User/Edit User/Revoke User/
  * Flush Privileges, show $message and exit.
  */
-if ($GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_REQUEST['submit_mult']) || $_REQUEST['submit_mult'] != 'export') && (! isset($_REQUEST['adduser']) || $_add_user_error) && (! isset($_REQUEST['initial']) || empty($_REQUEST['initial'])) && ! isset($_REQUEST['showall']) && ! isset($_REQUEST['edit_user_dialog']) && ! isset($_REQUEST['db_specific'])) {
-
-    if (isset($sql_query)) {
-        $extra_data['sql_query'] = $common_functions->getMessage(null, $sql_query);
-    }
-
-    if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
-        /**
-         * generate html on the fly for the new user that was just created.
-         */
-        $new_user_string = '<tr>'."\n"
-                           .'<td> <input type="checkbox" name="selected_usr[]" id="checkbox_sel_users_" value="' . htmlspecialchars($username) . '&amp;#27;' . htmlspecialchars($hostname) . '" /> </td>' . "\n"
-                           .'<td><label for="checkbox_sel_users_">' . (empty($username) ? '<span style="color: #FF0000">' . __('Any') . '</span>' : htmlspecialchars($username) ) . '</label></td>' . "\n"
-                           .'<td>' . htmlspecialchars($hostname) . '</td>' . "\n";
-        $new_user_string .= '<td>';
-
-        if (! empty($password) || isset($pma_pw)) {
-            $new_user_string .= __('Yes');
-        } else {
-            $new_user_string .= '<span style="color: #FF0000">' . __('No') . '</span>';
-        };
-
-        $new_user_string .= '</td>'."\n";
-        $new_user_string .= '<td><code>' . join(', ', PMA_extractPrivInfo('', true)) . '</code></td>'; //Fill in privileges here
-        $new_user_string .= '<td>';
-
-        if ((isset($Grant_priv) && $Grant_priv == 'Y')) {
-            $new_user_string .= __('Yes');
-        } else {
-            $new_user_string .= __('No');
-        }
-
-        $new_user_string .='</td>';
-
-        $new_user_string .= '<td>' . sprintf($link_edit, urlencode($username), urlencode($hostname), '', '') . '</td>' . "\n";
-        $new_user_string .= '<td>' . sprintf($link_export, urlencode($username), urlencode($hostname), (isset($initial) ? $initial : '')) . '</td>' . "\n";
-
-        $new_user_string .= '</tr>';
-
-        $extra_data['new_user_string'] = $new_user_string;
-
-        /**
-         * Generate the string for this alphabet's initial, to update the user
-         * pagination
-         */
-        $new_user_initial = strtoupper(substr($username, 0, 1));
-        $new_user_initial_string = '<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&initial=' . $new_user_initial
-            .'">' . $new_user_initial . '</a>';
-        $extra_data['new_user_initial'] = $new_user_initial;
-        $extra_data['new_user_initial_string'] = $new_user_initial_string;
-    }
-
-    if (isset($update_privs)) {
-        $extra_data['db_specific_privs'] = false;
-        if (isset($dbname_is_wildcard)) {
-            $extra_data['db_specific_privs'] = ! $dbname_is_wildcard;
-        }
-        $new_privileges = join(', ', PMA_extractPrivInfo('', true));
-
-        $extra_data['new_privileges'] = $new_privileges;
-    }
+if ($GLOBALS['is_ajax_request']
+    && ! isset($_REQUEST['export'])
+    && (! isset($_REQUEST['submit_mult']) || $_REQUEST['submit_mult'] != 'export')
+    && (! isset($_REQUEST['adduser']) || $_add_user_error)
+    && (! isset($_REQUEST['initial']) || empty($_REQUEST['initial']))
+    && ! isset($_REQUEST['showall'])
+    && ! isset($_REQUEST['edit_user_dialog'])
+    && ! isset($_REQUEST['db_specific']))
+{
+    $extra_data = PMA_getExatraDataForAjaxBehavior(
+        $sql_query, $username, $hostname, $pma_pw, $Grant_priv,
+         $link_edit, $update_privs, $dbname_is_wildcard
+    );
 
     if ($message instanceof PMA_Message) {
         $response = PMA_Response::getInstance();
