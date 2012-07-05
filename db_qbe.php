@@ -355,6 +355,61 @@ function PMA_dbQbegetShowRow(
     return $html_output;
 }
 
+/**
+ * Provides search form's row containing criteria Inputboxes
+ *
+ * @param array  $criteria_column_count Number of criteria columns
+ * @param string $realwidth             Largest column width found
+ * @param string $criteria              Already Filled criteria
+ * @param string $prev_criteria         Previously filled criteria(hidden form field)
+ * @param string $ins_col               If a new criteria column is needed
+ * @param string $del_col               If a criteria column is to be deleted
+ *
+ * @return HTML for search table's row
+ */
+function PMA_dbQbegetCriteriaInputboxRow(
+    $criteria_column_count, $realwidth, $criteria, $prev_criteria,
+    $ins_col = null, $del_col = null
+) {
+    $html_output = '<tr class="even noclick">';
+    $html_output .= '<th>' . __('Criteria') . ':</th>';
+    $z = 0;
+    for ($column_index = 0; $column_index < $criteria_column_count; $column_index++)
+    {
+        if (! empty($ins_col) && isset($ins_col[$column_index]) && $ins_col[$column_index] == 'on') {
+            $html_output .= '<td class="center">';
+            $html_output .= '<input type="text" name="criteria[' . $z . ']"'
+                . ' value="" class="textfield" style="width: ' . $realwidth
+                . '" size="20" />';
+            $html_output .= '</td>';
+            $z++;
+        } // end if
+        if (! empty($del_col) && isset($del_col[$column_index]) && $del_col[$column_index] == 'on') {
+            continue;
+        }
+        if (isset($criteria[$column_index])) {
+            $tmp_criteria = $criteria[$column_index];
+        }
+        if ((empty($prev_criteria) || ! isset($prev_criteria[$column_index]))
+            || $prev_criteria[$column_index] != htmlspecialchars($tmp_criteria)
+        ) {
+            $curCriteria[$z]   = $tmp_criteria;
+        } else {
+            $curCriteria[$z]   = $prev_criteria[$column_index];
+        }
+        $html_output .= '<td class="center">';
+        $html_output .= '<input type="hidden" name="prev_criteria[' . $z . ']"'
+            . ' value="' . htmlspecialchars($curCriteria[$z]) . '" />';
+        $html_output .= '<input type="text" name="criteria[' . $z . ']"'
+        . ' value="' . htmlspecialchars($tmp_criteria) . '" class="textfield"'
+        . ' style="width: ' . $realwidth . '" size="20" />';
+        $html_output .= '</td>';
+        $z++;
+    } // end for
+    $html_output .= '</tr>';
+    return $html_output;
+}
+
 if ($cfgRelation['designerwork']) {
     $url = 'pmd_general.php' . PMA_generate_common_url(
         array_merge(
@@ -384,48 +439,10 @@ echo PMA_dbQbegetSortRow(
 echo PMA_dbQbegetShowRow(
     $col, $ins_col, $del_col
 );
+echo PMA_dbQbegetCriteriaInputboxRow(
+    $col, $realwidth, $criteria, $prev_criteria, $ins_col, $del_col
+);
 ?>
-
-<!-- Criteria row -->
-<tr class="even noclick">
-    <th><?php echo __('Criteria'); ?>:</th>
-<?php
-$z = 0;
-for ($x = 0; $x < $col; $x++) {
-    if (! empty($ins_col) && isset($ins_col[$x]) && $ins_col[$x] == 'on') {
-        ?>
-    <td class="center">
-        <input type="text" name="criteria[<?php echo $z; ?>]" value="" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
-    </td>
-        <?php
-        $z++;
-    } // end if
-    echo "\n";
-
-    if (! empty($del_col) && isset($del_col[$x]) && $del_col[$x] == 'on') {
-        continue;
-    }
-    if (isset($criteria[$x])) {
-        $tmp_criteria = $criteria[$x];
-    }
-    if ((empty($prev_criteria) || ! isset($prev_criteria[$x]))
-        || $prev_criteria[$x] != htmlspecialchars($tmp_criteria)
-    ) {
-        $curCriteria[$z]   = $tmp_criteria;
-    } else {
-        $curCriteria[$z]   = $prev_criteria[$x];
-    }
-    ?>
-    <td class="center">
-        <input type="hidden" name="prev_criteria[<?php echo $z; ?>]" value="<?php echo htmlspecialchars($curCriteria[$z]); ?>" />
-        <input type="text" name="criteria[<?php echo $z; ?>]" value="<?php echo htmlspecialchars($tmp_criteria); ?>" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
-    </td>
-    <?php
-    $z++;
-    echo "\n";
-} // end for
-?>
-</tr>
 
 <!-- And/Or columns and rows -->
 <?php
