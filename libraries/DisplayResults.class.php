@@ -28,6 +28,9 @@ class PMA_DisplayResults
     const POSITION_RIGHT = 'right';
     const POSITION_BOTH = 'both';
     const POSITION_NONE = 'none';
+    
+    const PLACE_TOP_DIRECTION_DROPDOWN = 'top_direction_dropdown';
+    const PLACE_BOTTOM_DIRECTION_DROPDOWN = 'bottom_direction_dropdown';
 
     const DISP_DIR_HORIZONTAL = 'horizontal';
     const DISP_DIR_HORIZONTAL_FLIPPED = 'horizontalflipped';
@@ -4108,18 +4111,10 @@ class PMA_DisplayResults
 
         }
 
-        if (($is_display['nav_bar'] == '1')
-            && empty($analyzed_sql[0]['limit_clause'])
-        ) {
-
-            $table_html .= $this->_getTableNavigation(
-                $pos_next, $pos_prev, 'top_direction_dropdown'
-            )
-            . "\n";
-
-        } elseif (! isset($GLOBALS['printview']) || ($GLOBALS['printview'] != '1')) {
-            $table_html .= "\n" . '<br /><br />' . "\n";
-        }
+        $table_html .= $this->_getPlacedTableNavigatoins(
+            $is_display, $analyzed_sql,  $pos_next, $pos_prev,
+            self::PLACE_TOP_DIRECTION_DROPDOWN, "\n"
+        );
 
         // 2b ----- Get field references from Database -----
         // (see the 'relation' configuration variable)
@@ -4146,33 +4141,8 @@ class PMA_DisplayResults
         if (! strlen($this->_table)) {
             $exist_rel = false;
         } else {
-
-            // To be able to later display a link to the related table,
-            // we verify both types of relations: either those that are
-            // native foreign keys or those defined in the phpMyAdmin
-            // configuration storage. If no PMA storage, we won't be able
-            // to use the "column to display" notion (for example show
-            // the name related to a numeric id).
-            $exist_rel = PMA_getForeigners(
-                $this->_db, $this->_table, '', self::POSITION_BOTH
-            );
-
-            if ($exist_rel) {
-
-                foreach ($exist_rel as $master_field => $rel) {
-
-                    $display_field = PMA_getDisplayField(
-                        $rel['foreign_db'], $rel['foreign_table']
-                    );
-
-                    $map[$master_field] = array(
-                            $rel['foreign_table'],
-                            $rel['foreign_field'],
-                            $display_field,
-                            $rel['foreign_db']
-                        );
-                } // end while
-            } // end if
+            // This method set the values for $map array
+            $this->_setParamForLinkForiegnKeyRelatedTables($map);            
         } // end if
         // end 2b
 
@@ -4213,18 +4183,10 @@ class PMA_DisplayResults
 
         // 5. ----- Get the navigation bar at the bottom if required -----
 
-        if (($is_display['nav_bar'] == '1')
-            && empty($analyzed_sql[0]['limit_clause'])
-        ) {
-
-            $table_html .= '<br />' . "\n";
-            $table_html .= $this->_getTableNavigation(
-                $pos_next, $pos_prev, 'bottom_direction_dropdown'
-            );
-
-        } elseif (! isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
-            $table_html .= "\n" . '<br /><br />' . "\n";
-        }
+        $table_html .= $this->_getPlacedTableNavigatoins(
+            $is_display, $analyzed_sql, $pos_next, $pos_prev,
+            self::PLACE_BOTTOM_DIRECTION_DROPDOWN, '<br />' . "\n"
+        );
 
         // 6. ----- Prepare "Query results operations"
         if (! isset($GLOBALS['printview']) || $GLOBALS['printview'] != '1') {
@@ -4548,6 +4510,50 @@ class PMA_DisplayResults
 
     } // end of the '_setMessageInformation()' function
 
+    
+    /**
+     * Set the value of $map array for linking foreign key related tables
+     * 
+     * @param array $map the list of relations
+     * 
+     * @return  void
+     * 
+     * @access  private
+     * 
+     * @see      getTable()
+     */
+    private function _setParamForLinkForiegnKeyRelatedTables(&$map)
+    {
+        
+        // To be able to later display a link to the related table,
+        // we verify both types of relations: either those that are
+        // native foreign keys or those defined in the phpMyAdmin
+        // configuration storage. If no PMA storage, we won't be able
+        // to use the "column to display" notion (for example show
+        // the name related to a numeric id).
+        $exist_rel = PMA_getForeigners(
+            $this->_db, $this->_table, '', self::POSITION_BOTH
+        );
+
+        if ($exist_rel) {
+
+            foreach ($exist_rel as $master_field => $rel) {
+
+                $display_field = PMA_getDisplayField(
+                    $rel['foreign_db'], $rel['foreign_table']
+                );
+
+                $map[$master_field] = array(
+                        $rel['foreign_table'],
+                        $rel['foreign_field'],
+                        $display_field,
+                        $rel['foreign_db']
+                    );
+            } // end while
+        } // end if
+        
+    } // end of the '_setParamForLinkForiegnKeyRelatedTables()' function
+        
 
     /**
      * Prepare multi field edit/delete links
@@ -4646,6 +4652,53 @@ class PMA_DisplayResults
 
     } // end of the '_getMultiRowOperationLinks()' function
 
+    
+    /**
+     * Prepare table navigation bar at the top or bottom
+     * 
+     * @param array   $is_display   which elements to display
+     * @param array   $analyzed_sql the analyzed query
+     * @param integer $pos_next     the offset for the "next" page
+     * @param integer $pos_prev     the offset for the "previous" page
+     * @param string  $place        the place to show navigation
+     * @param string  $empty_line   empty line depend on the $place
+     * 
+     * @return  string  html content of navigation bar
+     * 
+     * @access  private
+     * 
+     * @see     _getTable()
+     */
+    private function _getPlacedTableNavigatoins(
+        $is_display, $analyzed_sql,  $pos_next, $pos_prev, $place, $empty_line
+    ) {
+        
+        $navigation_html = '';
+        
+        if (($is_display['nav_bar'] == '1')
+            && empty($analyzed_sql[0]['limit_clause'])
+        ) {
+
+            if ($place == self::PLACE_BOTTOM_DIRECTION_DROPDOWN) {
+                $navigation_html .= '<br />' . "\n";
+            }
+            
+            $navigation_html .= $this->_getTableNavigation(
+                $pos_next, $pos_prev, 'top_direction_dropdown'
+            );
+            
+            if ($place == self::PLACE_TOP_DIRECTION_DROPDOWN) {
+                $navigation_html .= "\n";
+            }
+
+        } elseif (! isset($GLOBALS['printview']) || ($GLOBALS['printview'] != '1')) {
+            $navigation_html .= "\n" . '<br /><br />' . "\n";
+        }
+        
+        return $navigation_html;
+        
+    } // end of the '_getPlacedTableNavigatoins()' function
+    
 
     /**
      * Get operations that are available on results.
