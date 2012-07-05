@@ -1176,7 +1176,6 @@ function PMA_getMessageAndSqlQueryForPrivilegesRevoke($db_and_table, $dbname,
 /**
  * Get a common SQL query for 'update privileges' and 'add user'
  * 
- * @param type $Grant_priv              grant privileges
  * @param type $max_questions           maximum questions
  * @param type $max_connections         maximum connections
  * @param type $max_updates             maximum updates
@@ -1184,11 +1183,11 @@ function PMA_getMessageAndSqlQueryForPrivilegesRevoke($db_and_table, $dbname,
  * 
  * @return string $sql_query
  */
-function PMA_getCommonSQlQueryForAddUserAndUpdatePrivs($Grant_priv, $max_questions,
+function PMA_getCommonSQlQueryForAddUserAndUpdatePrivs($max_questions,
     $max_connections, $max_updates, $max_user_connections
 ) {
     $sql_query = 'WITH';
-    if ($Grant_priv == 'Y') {
+    if (isset($GlOBALS['Grant_priv']) && $GlOBALS['Grant_priv'] == 'Y') {
         $sql_query .= ' GRANT OPTION';
     }
     $max_questions = max(0, (int)$max_questions);

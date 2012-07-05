@@ -279,7 +279,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
             || isset($max_updates) || isset($max_user_connections))
         ) {
             $real_sql_query .= PMA_getCommonSQlQueryForAddUserAndUpdatePrivs(
-                $Grant_priv, $max_questions, $max_connections,$max_updates, 
+                $max_questions, $max_connections,$max_updates, 
                 $max_user_connections
             );
             $sql_query .= $real_sql_query;
@@ -534,7 +534,7 @@ if (isset($_REQUEST['change_pw'])) {
  * Deletes users
  *   (Changes / copies a user, part IV)
  */
-if (isset($_REQUEST['delete']) || (isset($_REQUEST['change_copy']) && $_REQUEST['mode'] < 4)) { var_dump($GLOBALS);
+if (isset($_REQUEST['delete']) || (isset($_REQUEST['change_copy']) && $_REQUEST['mode'] < 4)) {
     if (isset($_REQUEST['change_copy'])) {
         $selected_usr = array($old_username . '&amp;#27;' . $old_hostname);
     } else {
