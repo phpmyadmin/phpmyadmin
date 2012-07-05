@@ -410,6 +410,50 @@ function PMA_dbQbegetCriteriaInputboxRow(
     return $html_output;
 }
 
+/**
+ * Provides footer options for adding/deleting row/columns
+ *
+ * @param string $type Whether row or column
+ *
+ * @return HTML for footer options
+ */
+function PMA_dbQbeGetFootersOptions($type)
+{
+    $html_output = '<div class="floatleft">';
+    $html_output .= (($type == 'row')
+        ? __('Add/Delete criteria rows') : __('Add/Delete columns'));
+    $html_output .= ':<select size="1" name="'
+        . (($type == 'row') ? 'add_row' : 'add_col') . '">';
+    $html_output .= '<option value="-3">-3</option>';
+    $html_output .= '<option value="-2">-2</option>';
+    $html_output .= '<option value="-1">-1</option>';
+    $html_output .= '<option value="0" selected="selected">0</option>';
+    $html_output .= '<option value="1">1</option>';
+    $html_output .= '<option value="2">2</option>';
+    $html_output .= '<option value="3">3</option>';
+    $html_output .= '</select>';
+    $html_output .= '</div>';
+    return $html_output;
+}
+
+/**
+ * Provides search form table's footer options
+ *
+ * @return HTML for table footer
+ */
+function PMA_dbQbeGetTableFooters()
+{
+    $html_output = '<fieldset class="tblFooters">';
+    $html_output .= PMA_dbQbeGetFootersOptions("row");
+    $html_output .= PMA_dbQbeGetFootersOptions("column");
+    $html_output .= '<div class="floatleft">';
+    $html_output .= '<input type="submit" name="modify"'
+        . 'value="' . __('Update Query') . '" />';
+    $html_output .= '</div>';
+    $html_output .= '</fieldset>';
+    return $html_output;
+}
+
 if ($cfgRelation['designerwork']) {
     $url = 'pmd_general.php' . PMA_generate_common_url(
         array_merge(
@@ -686,36 +730,10 @@ $url_params['rows']     = $w;
 echo PMA_generate_common_hidden_inputs($url_params);
 ?>
 </fieldset>
-<fieldset class="tblFooters">
-    <div class="floatleft">
-        <?php echo __('Add/Delete criteria rows'); ?>:
-        <select size="1" name="add_row">
-            <option value="-3">-3</option>
-            <option value="-2">-2</option>
-            <option value="-1">-1</option>
-            <option value="0" selected="selected">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-        </select>
-    </div>
-    <div class="floatleft">
-        <?php echo __('Add/Delete columns'); ?>:
-        <select size="1" name="add_col">
-            <option value="-3">-3</option>
-            <option value="-2">-2</option>
-            <option value="-1">-1</option>
-            <option value="0" selected="selected">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-        </select>
-    </div>
-    <!-- Generates a query -->
-    <div class="floatleft">
-        <input type="submit" name="modify" value="<?php echo __('Update Query'); ?>" />
-    </div>
-</fieldset>
+
+<?php
+echo PMA_dbQbeGetTableFooters();
+?>
 
 <div class="floatleft">
     <fieldset>
