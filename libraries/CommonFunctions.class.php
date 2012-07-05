@@ -3515,7 +3515,7 @@ class PMA_CommonFunctions
      * Prepare the form used to select a file to import from the server upload
      * directory
      *
-     * @param array  $import_list array of import types
+     * @param array  $import_list array of import plugins
      * @param string $uploaddir   upload directory
      *
      * @return void
@@ -3533,11 +3533,12 @@ class PMA_CommonFunctions
             . '</label>';
 
         $extensions = '';
-        foreach ($import_list as $val) {
+        foreach ($import_list as $import_plugin) {
             if (! empty($extensions)) {
                 $extensions .= '|';
             }
-            $extensions .= $val['extension'];
+            $properties = $import_plugin->getProperties();
+            $extensions .= $properties['extension'];
         }
 
         $matcher = '@\.(' . $extensions . ')(\.('

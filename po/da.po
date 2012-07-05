@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-06-25 16:57+0200\n"
+"PO-Revision-Date: 2012-07-04 01:34+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.0\n"
+"X-Generator: Weblate 1.1\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:609 server_privileges.php:1851
@@ -1868,15 +1868,14 @@ msgstr "Når der holdes over et punkt vises dets etiket."
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "For at forstørre, vælg en sektion af plottet med musen."
 
 #: js/messages.php:306
-#, fuzzy
 #| msgid "Click reset zoom link to come back to original state."
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
-"Klik på linket for nulstil zoom for at vende tilbage til den oprindelige "
-"tilstand."
+"Klik på knap til nulstilling af zoom for at vende tilbage til den "
+"oprindelige tilstand."
 
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."
@@ -1900,10 +1899,9 @@ msgid "Query results"
 msgstr "Forespørgselsresultater"
 
 #: js/messages.php:315
-#, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
-msgstr "Data pointer-størrelse"
+msgstr "Datapunkt-indhold"
 
 #: js/messages.php:318 tbl_change.php:244 tbl_indexes.php:249
 #: tbl_indexes.php:284
@@ -2329,22 +2327,24 @@ msgstr "Mislykkedes med at formatere streng for reglen '%s'."
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
 msgstr ""
+"Ugyldig regel-deklaration på linje %1$s, forventede linje %2$s fra forrige "
+"regel"
 
 #: libraries/Advisor.class.php:378
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid rule declaration on line %s"
-msgstr "Ugyldigt format for CSV-input på linie %d."
+msgstr "Ugyldig regel-deklaration på linie %s"
 
 #: libraries/Advisor.class.php:386
 #, php-format
 msgid "Unexpected characters on line %s"
-msgstr ""
+msgstr "Uventet tegn på linje %s"
 
 #: libraries/Advisor.class.php:400
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
-msgstr ""
+msgstr "Uventet tegn på linje %1$s. Forventede tabulering, men fandt \"%2$s\""
 
 #: libraries/Advisor.class.php:425 server_status.php:972
 msgid "per second"
@@ -2361,7 +2361,7 @@ msgstr "pr. time"
 
 #: libraries/Advisor.class.php:434
 msgid "per day"
-msgstr ""
+msgstr "per dag"
 
 #: libraries/CommonFunctions.class.php:251
 #, php-format
@@ -2654,10 +2654,10 @@ msgid "vertical"
 msgstr "lodret"
 
 #: libraries/DisplayResults.class.php:734
-#, fuzzy, php-format
+#, php-format
 #| msgid "Headers every %s rows"
 msgid "Headers every %s rows"
-msgstr "Overskrifter for hver %s rows"
+msgstr "Overskrifter for hver %s. række"
 
 #: libraries/DisplayResults.class.php:1217
 msgid "Sort by key"
@@ -2724,10 +2724,9 @@ msgid "Show binary contents as HEX"
 msgstr "Vis binært indhold som HEX"
 
 #: libraries/DisplayResults.class.php:1417
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
-msgstr "Browser transformation"
+msgstr "Skjul browser-transformation"
 
 #: libraries/DisplayResults.class.php:1426
 msgid "Well Known Text"
@@ -2810,7 +2809,7 @@ msgstr "Link ikke fundet"
 
 #: libraries/Error_Handler.class.php:65
 msgid "Too many error messages, some are not displayed."
-msgstr ""
+msgstr "For mange fejlmeddelelser, nogle vises ikke."
 
 #: libraries/File.class.php:235
 msgid "File was not an uploaded file."
@@ -2876,10 +2875,9 @@ msgstr "Herefter skal cookies være slået til."
 
 #: libraries/Header.class.php:500
 #: libraries/plugins/auth/AuthenticationCookie.class.php:152
-#, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point"
-msgstr "Herefter skal cookies være slået til."
+msgstr "Herefter skal JavaScript være slået til"
 
 #: libraries/Index.class.php:433 tbl_relation.php:540
 msgid "No index defined!"
@@ -2990,10 +2988,9 @@ msgid "Designer"
 msgstr "Designer"
 
 #: libraries/Menu.class.php:484
-#, fuzzy
 #| msgid "User"
 msgid "Users"
-msgstr "Bruger"
+msgstr "Brugere"
 
 #: libraries/Menu.class.php:505 server_synchronize.php:1320
 #: server_synchronize.php:1327
@@ -3085,10 +3082,10 @@ msgid "unknown table status: "
 msgstr "ukendt tabelstatus: "
 
 #: libraries/Table.class.php:766
-#, fuzzy, php-format
+#, php-format
 #| msgid "Source database"
 msgid "Source database `%s` was not found!"
-msgstr "Kildedatabase"
+msgstr "Kildedatabasen '%s' blev ikke fundet!"
 
 #: libraries/Table.class.php:774
 #, fuzzy, php-format

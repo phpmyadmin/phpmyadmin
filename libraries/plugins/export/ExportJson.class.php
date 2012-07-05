@@ -135,7 +135,7 @@ class ExportJson extends ExportPlugin
     }
 
     /**
-     * Outputs the content of a table in CSV format
+     * Outputs the content of a table in JSON format
      *
      * @param string $db        database name
      * @param string $table     table name
