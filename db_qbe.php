@@ -40,6 +40,15 @@ foreach (array_keys($_POST) as $post_key) {
         }
     }
 }
+/**
+ * Initialize some more global variables
+ */
+$GLOBALS['curField'] = array();
+$GLOBALS['curSort'] = array();
+$GLOBALS['curShow'] = array();
+$GLOBALS['curCriteria'] = array();
+$GLOBALS['curAndOrRow'] = array();
+$GLOBALS['curAndOrCol'] = array();
 
 /**
  * Gets the relation settings
@@ -248,7 +257,7 @@ function PMA_dbQbegetColumnNamesRow(
         $selected = '';
         if (isset($_REQUEST['Field'][$column_index])) {
             $selected = $_REQUEST['Field'][$column_index];
-            $curField[$z] = $_REQUEST['Field'][$column_index];
+            $GLOBALS['curField'][$z] = $_REQUEST['Field'][$column_index];
         }
         $html_output .= showColumnSelectCell($columns, $z, $selected);
         $z++;
@@ -292,14 +301,14 @@ function PMA_dbQbegetSortRow(
         } //end if
         // Set asc_selected
         if (isset($_REQUEST['Sort'][$column_index]) && $_REQUEST['Sort'][$column_index] == 'ASC') {
-            $curSort[$z] = $_REQUEST['Sort'][$column_index];
+            $GLOBALS['curSort'][$z] = $_REQUEST['Sort'][$column_index];
             $asc_selected = ' selected="selected"';
         } else {
             $asc_selected = '';
         } // end if
         // Set desc selected
         if (isset($_REQUEST['Sort'][$column_index]) && $_REQUEST['Sort'][$column_index] == 'DESC') {
-            $curSort[$z] = $_REQUEST['Sort'][$column_index];
+            $GLOBALS['curSort'][$z] = $_REQUEST['Sort'][$column_index];
             $desc_selected = ' selected="selected"';
         } else {
             $desc_selected = '';
@@ -341,7 +350,7 @@ function PMA_dbQbegetShowRow(
         }
         if (isset($_REQUEST['Show'][$column_index])) {
             $checked     = ' checked="checked"';
-            $curShow[$z] = $_REQUEST['Show'][$column_index];
+            $GLOBALS['curShow'][$z] = $_REQUEST['Show'][$column_index];
         } else {
             $checked     =  '';
         }
@@ -393,13 +402,13 @@ function PMA_dbQbegetCriteriaInputboxRow(
         if ((empty($prev_criteria) || ! isset($prev_criteria[$column_index]))
             || $prev_criteria[$column_index] != htmlspecialchars($tmp_criteria)
         ) {
-            $curCriteria[$z]   = $tmp_criteria;
+            $GLOBALS['curCriteria'][$z]   = $tmp_criteria;
         } else {
-            $curCriteria[$z]   = $prev_criteria[$column_index];
+            $GLOBALS['curCriteria'][$z]   = $prev_criteria[$column_index];
         }
         $html_output .= '<td class="center">';
         $html_output .= '<input type="hidden" name="prev_criteria[' . $z . ']"'
-            . ' value="' . htmlspecialchars($curCriteria[$z]) . '" />';
+            . ' value="' . htmlspecialchars($GLOBALS['curCriteria'][$z]) . '" />';
         $html_output .= '<input type="text" name="criteria[' . $z . ']"'
         . ' value="' . htmlspecialchars($tmp_criteria) . '" class="textfield"'
         . ' style="width: ' . $realwidth . '" size="20" />';
@@ -601,7 +610,7 @@ for ($y = 0; $y <= $row; $y++) {
     }
 
     if (isset($and_or_row[$y])) {
-        $curAndOrRow[$w] = $and_or_row[$y];
+        $GLOBALS['curAndOrRow'][$w] = $and_or_row[$y];
     }
     if (isset($and_or_row[$y]) && $and_or_row[$y] == 'and') {
         $chk['and'] =  ' checked="checked"';
@@ -695,7 +704,7 @@ for ($y = 0; $y <= $row; $y++) {
 $z = 0;
 for ($x = 0; $x < $col; $x++) {
     if (! empty($ins_col) && isset($ins_col[$x]) && $ins_col[$x] == 'on') {
-        $curAndOrCol[$z] = $and_or_col[$y];
+        $GLOBALS['curAndOrCol'][$z] = $and_or_col[$y];
         if ($and_or_col[$z] == 'or') {
             $chk['or']  = ' checked="checked"';
             $chk['and'] = '';
@@ -725,7 +734,7 @@ for ($x = 0; $x < $col; $x++) {
     }
 
     if (isset($and_or_col[$y])) {
-        $curAndOrCol[$z] = $and_or_col[$y];
+        $GLOBALS['curAndOrCol'][$z] = $and_or_col[$y];
     }
     if (isset($and_or_col[$z]) && $and_or_col[$z] == 'or') {
         $chk['or']  = ' checked="checked"';
@@ -781,11 +790,14 @@ if (! isset($qry_select)) {
     $qry_select         = '';
 }
 for ($x = 0; $x < $col; $x++) {
-    if (! empty($curField[$x]) && isset($curShow[$x]) && $curShow[$x] == 'on') {
+    if (! empty($GLOBALS['curField'][$x])
+        && isset($GLOBALS['curShow'][$x])
+        && $GLOBALS['curShow'][$x] == 'on')
+    {
         if ($last_select) {
             $qry_select .=  ', ';
         }
-        $qry_select     .= $curField[$x];
+        $qry_select     .= $GLOBALS['curField'][$x];
         $last_select    = 1;
     }
 } // end for
@@ -988,11 +1000,16 @@ if (! empty($qry_from)) {
 $qry_where          = '';
 $criteria_cnt       = 0;
 for ($x = 0; $x < $col; $x++) {
-    if (! empty($curField[$x]) && ! empty($curCriteria[$x]) && $x && isset($last_where) && isset($curAndOrCol)) {
-        $qry_where  .= ' ' . strtoupper($curAndOrCol[$last_where]) . ' ';
+    if (! empty($GLOBALS['curField'][$x])
+        && ! empty($GLOBALS['curCriteria'][$x])
+        && $x
+        && isset($last_where)
+        && isset($GLOBALS['curAndOrCol'])) {
+        $qry_where  .= ' ' . strtoupper($GLOBALS['curAndOrCol'][$last_where]) . ' ';
     }
-    if (! empty($curField[$x]) && ! empty($curCriteria[$x])) {
-        $qry_where  .= '(' . $curField[$x] . ' ' . $curCriteria[$x] . ')';
+    if (! empty($GLOBALS['curField'][$x]) && ! empty($GLOBALS['curCriteria'][$x])) {
+        $qry_where  .= '(' . $GLOBALS['curField'][$x] . ' '
+            . $GLOBALS['curCriteria'][$x] . ')';
         $last_where = $x;
         $criteria_cnt++;
     }
@@ -1001,19 +1018,19 @@ if ($criteria_cnt > 1) {
     $qry_where      = '(' . $qry_where . ')';
 }
 // OR rows ${'cur' . $or}[$x]
-if (! isset($curAndOrRow)) {
-    $curAndOrRow          = array();
+if (! isset($GLOBALS['curAndOrRow'])) {
+    $GLOBALS['curAndOrRow'] = array();
 }
 for ($y = 0; $y <= $row; $y++) {
     $criteria_cnt         = 0;
     $qry_orwhere          = '';
     $last_orwhere         = '';
     for ($x = 0; $x < $col; $x++) {
-        if (! empty($curField[$x]) && ! empty(${'curOr' . $y}[$x]) && $x) {
-            $qry_orwhere  .= ' ' . strtoupper($curAndOrCol[$last_orwhere]) . ' ';
+        if (! empty($GLOBALS['curField'][$x]) && ! empty(${'curOr' . $y}[$x]) && $x) {
+            $qry_orwhere  .= ' ' . strtoupper($GLOBALS['curAndOrCol'][$last_orwhere]) . ' ';
         }
-        if (! empty($curField[$x]) && ! empty(${'curOr' . $y}[$x])) {
-            $qry_orwhere  .= '(' . $curField[$x]
+        if (! empty($GLOBALS['curField'][$x]) && ! empty(${'curOr' . $y}[$x])) {
+            $qry_orwhere  .= '(' . $GLOBALS['curField'][$x]
                           .  ' '
                           .  ${'curOr' . $y}[$x]
                           .  ')';
@@ -1026,7 +1043,7 @@ for ($y = 0; $y <= $row; $y++) {
     }
     if (! empty($qry_orwhere)) {
         $qry_where .= "\n"
-                   .  strtoupper(isset($curAndOrRow[$y]) ? $curAndOrRow[$y] . ' ' : '')
+            .  strtoupper(isset($GLOBALS['curAndOrRow'][$y]) ? $GLOBALS['curAndOrRow'][$y] . ' ' : '')
                    .  $qry_orwhere;
     } // end if
 } // end for
@@ -1042,15 +1059,15 @@ if (! isset($qry_orderby)) {
     $qry_orderby      = '';
 }
 for ($x = 0; $x < $col; $x++) {
-    if ($last_orderby && $x && ! empty($curField[$x]) && ! empty($curSort[$x])) {
+    if ($last_orderby && $x && ! empty($GLOBALS['curField'][$x]) && ! empty($GLOBALS['curSort'][$x])) {
         $qry_orderby  .=  ', ';
     }
-    if (! empty($curField[$x]) && ! empty($curSort[$x])) {
+    if (! empty($GLOBALS['curField'][$x]) && ! empty($GLOBALS['curSort'][$x])) {
         // if they have chosen all fields using the * selector,
         // then sorting is not available
         // Fix for Bug #570698
-        if (substr($curField[$x], -2) != '.*') {
-            $qry_orderby  .=  $curField[$x] . ' ' . $curSort[$x];
+        if (substr($GLOBALS['curField'][$x], -2) != '.*') {
+            $qry_orderby  .=  $GLOBALS['curField'][$x] . ' ' . $GLOBALS['curSort'][$x];
             $last_orderby = 1;
         }
     }
