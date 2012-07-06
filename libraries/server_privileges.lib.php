@@ -1578,17 +1578,17 @@ function PMA_getExtraDataForAjaxBehavior( $password, $sql_query,$link_edit,
         $new_user_string = '<tr>'."\n"
             . '<td> <input type="checkbox" name="selected_usr[]" id="checkbox_sel_users_"'
             . 'value="' 
-            . htmlspecialchars($GLOBALS['username']) . '&amp;#27;' . htmlspecialchars($GLOBALS['hostname']) . '" />'
+            . htmlspecialchars($_REQUEST['username']) . '&amp;#27;' . htmlspecialchars($_REQUEST['hostname']) . '" />'
             . '</td>' . "\n"
             . '<td><label for="checkbox_sel_users_">' 
-            . (empty($GLOBALS['username']) 
+            . (empty($_REQUEST['username']) 
                     ? '<span style="color: #FF0000">' . __('Any') . '</span>'
-                    : htmlspecialchars($GLOBALS['username']) ) . '</label></td>' . "\n"
-            . '<td>' . htmlspecialchars($GLOBALS['hostname']) . '</td>' . "\n";
+                    : htmlspecialchars($_REQUEST['username']) ) . '</label></td>' . "\n"
+            . '<td>' . htmlspecialchars($_REQUEST['hostname']) . '</td>' . "\n";
         
         $new_user_string .= '<td>';
 
-        if (! empty($password) || isset($GLOBALS['pma_pw'])) {
+        if (! empty($password) || isset($_POST['pma_pw'])) {
             $new_user_string .= __('Yes');
         } else {
             $new_user_string .= '<span style="color: #FF0000">' . __('No') . '</span>';
@@ -1600,7 +1600,7 @@ function PMA_getExtraDataForAjaxBehavior( $password, $sql_query,$link_edit,
             . '</td>'; //Fill in privileges here
         $new_user_string .= '<td>';
 
-        if ((isset($GLOBALS['Grant_priv']) && $GLOBALS['Grant_priv'] == 'Y')) {
+        if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')) {
             $new_user_string .= __('Yes');
         } else {
             $new_user_string .= __('No');
@@ -1610,16 +1610,16 @@ function PMA_getExtraDataForAjaxBehavior( $password, $sql_query,$link_edit,
 
         $new_user_string .= '<td>'
             . sprintf($link_edit,
-                urlencode($GLOBALS['username']),
-                urlencode($GLOBALS['hostname']),
+                urlencode($_REQUEST['username']),
+                urlencode($_REQUEST['hostname']),
                 '', ''
             )
             . '</td>' . "\n";
         $new_user_string .= '<td>'
             . sprintf($link_export,
-                urlencode($GLOBALS['username']),
-                urlencode($GLOBALS['hostname']),
-                (isset($initial) ? $initial : '')
+                urlencode($_REQUEST['username']),
+                urlencode($_REQUEST['hostname']),
+                (isset($_GET['initial']) ? $_GET['initial'] : '')
             )
             . '</td>' . "\n";
 
@@ -1631,14 +1631,14 @@ function PMA_getExtraDataForAjaxBehavior( $password, $sql_query,$link_edit,
          * Generate the string for this alphabet's initial, to update the user
          * pagination
          */
-        $new_user_initial = strtoupper(substr($GLOBALS['username'], 0, 1));
+        $new_user_initial = strtoupper(substr($_REQUEST['username'], 0, 1));
         $new_user_initial_string = '<a href="server_privileges.php?'
             . $GLOBALS['url_query'] . '&initial=' . $new_user_initial .'">' . $new_user_initial . '</a>';
         $extra_data['new_user_initial'] = $new_user_initial;
         $extra_data['new_user_initial_string'] = $new_user_initial_string;
     }
 
-    if (isset($GLOBALS['update_privs'])) {
+    if (isset($_POST['update_privs'])) {
         $extra_data['db_specific_privs'] = false;
         if (empty($dbname_is_wildcard)) {
             $extra_data['db_specific_privs'] = ! $dbname_is_wildcard;
