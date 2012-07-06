@@ -496,6 +496,78 @@ function PMA_dbQbeGetTablesList($table_names)
     return $html_output;
 }
 
+/**
+ * Provides And/Or modification cell along with Insert/Delete options
+ * (For modifying search form's table columns)
+ *
+ * @param integer $column_number Column Number (0,1,2) or more
+ * @param array   $selected      Selected criteria column name
+ *
+ * @return HTML for modification cell
+ */
+function PMA_dbQbeGetAndOrColCell($column_number, $selected = null)
+{
+    $html_output = '<td class="center">';
+    $html_output .= '<strong>' . __('Or') . ':</strong>';
+    $html_output .= '<input type="radio" name="and_or_col[' . $column_number . ']"'
+        . ' value="or"' . $selected['or'] . ' />';
+    $html_output .= '&nbsp;&nbsp;<strong>' . __('And') . ':</strong>';
+    $html_output .= '<input type="radio" name="and_or_col[' . $column_number . ']"'
+        . ' value="and"' . $selected['and'] . ' />';
+    $html_output .= '<br />' . __('Ins');
+    $html_output .= '<input type="checkbox" name="ins_col[' . $column_number . ']" />';
+    $html_output .= '&nbsp;&nbsp;' . __('Del');
+    $html_output .= '<input type="checkbox" name="del_col[' . $column_number . ']" />';
+    $html_output .= '</td>';
+    return $html_output;
+}
+
+/**
+ * Provides search form's row containing column modifications options
+ * (For modifying search form's table columns)
+ *
+ * @param array  $criteria_column_count Number of criteria columns
+ * @param string $realwidth             Largest column width found
+ * @param string $criteria              Already Filled criteria
+ * @param string $prev_criteria         Previously filled criteria(hidden form field)
+ * @param string $ins_col               If a new criteria column is needed
+ * @param string $del_col               If a criteria column is to be deleted
+ *
+ * @return HTML for search table's row
+ */
+function PMA_dbQbeGetModifyColumnsRow($criteria_column_count, $and_or_col,
+    $ins_col = null, $del_col = null 
+) {
+    $html_output = '<tr class="even noclick">';
+    $html_output .= '<th>' . __('Modify') . ':</th>';
+    $z = 0;
+    for ($x = 0; $x < $criteria_column_count; $x++) {
+        if (! empty($ins_col) && isset($ins_col[$x]) && $ins_col[$x] == 'on') {
+            $html_output .= PMA_dbQbeGetAndOrColCell($z);
+            $z++;
+        } // end if
+
+        if (! empty($del_col) && isset($del_col[$x]) && $del_col[$x] == 'on') {
+            continue;
+        }
+
+        if (isset($and_or_col[$x])) {
+            $GLOBALS['curAndOrCol'][$z] = $and_or_col[$x];
+        }
+        if (isset($and_or_col[$x]) && $and_or_col[$x] == 'or') {
+            $chk['or']  = ' checked="checked"';
+            $chk['and'] = '';
+        } else {
+            $chk['and'] = ' checked="checked"';
+            $chk['or']  = '';
+        }
+        $html_output .= PMA_dbQbeGetAndOrColCell($z, $chk);
+        $z++;
+    } // end for
+    $html_output .= '</tr>';
+    return $html_output;
+}
+
 if ($cfgRelation['designerwork']) {
     $url = 'pmd_general.php' . PMA_generate_common_url(
         array_merge(
@@ -697,70 +769,12 @@ for ($y = 0; $y <= $row; $y++) {
     $odd_row =! $odd_row;
 } // end for
 ?>
-<!-- Modify columns -->
-<tr class="even noclick">
-    <th><?php echo __('Modify'); ?>:</th>
+
 <?php
-$z = 0;
-for ($x = 0; $x < $col; $x++) {
-    if (! empty($ins_col) && isset($ins_col[$x]) && $ins_col[$x] == 'on') {
-        $GLOBALS['curAndOrCol'][$z] = $and_or_col[$y];
-        if ($and_or_col[$z] == 'or') {
-            $chk['or']  = ' checked="checked"';
-            $chk['and'] = '';
-        } else {
-            $chk['and'] = ' checked="checked"';
-            $chk['or']  = '';
-        }
-        ?>
-    <td class="center">
-        <strong><?php echo __('Or'); ?>:</strong>
-        <input type="radio" name="and_or_col[<?php echo $z; ?>]" value="or"<?php echo $chk['or']; ?> />
-        &nbsp;&nbsp;<strong><?php echo __('And'); ?>:</strong>
-        <input type="radio" name="and_or_col[<?php echo $z; ?>]" value="and"<?php echo $chk['and']; ?> />
-        <br />
-        <?php echo __('Ins') . "\n"; ?>
-        <input type="checkbox" name="ins_col[<?php echo $z; ?>]" />
-        &nbsp;&nbsp;<?php echo __('Del') . "\n"; ?>
-        <input type="checkbox" name="del_col[<?php echo $z; ?>]" />
-    </td>
-        <?php
-        $z++;
-    } // end if
-    echo "\n";
-
-    if (! empty($del_col) && isset($del_col[$x]) && $del_col[$x] == 'on') {
-        continue;
-    }
-
-    if (isset($and_or_col[$y])) {
-        $GLOBALS['curAndOrCol'][$z] = $and_or_col[$y];
-    }
-    if (isset($and_or_col[$z]) && $and_or_col[$z] == 'or') {
-        $chk['or']  = ' checked="checked"';
-        $chk['and'] = '';
-    } else {
-        $chk['and'] = ' checked="checked"';
-        $chk['or']  = '';
-    }
-    ?>
-    <td class="center">
-        <strong><?php echo __('Or'); ?>:</strong>
-        <input type="radio" name="and_or_col[<?php echo $z; ?>]" value="or"<?php echo $chk['or']; ?> />
-        &nbsp;&nbsp;<strong><?php echo __('And'); ?>:</strong>
-        <input type="radio" name="and_or_col[<?php echo $z; ?>]" value="and"<?php echo $chk['and']; ?> />
-        <br />
-        <?php echo __('Ins') . "\n"; ?>
-        <input type="checkbox" name="ins_col[<?php echo $z; ?>]" />
-        &nbsp;&nbsp;<?php echo __('Del') . "\n"; ?>
-        <input type="checkbox" name="del_col[<?php echo $z; ?>]" />
-    </td>
-    <?php
-    $z++;
-    echo "\n";
-} // end for
+echo PMA_dbQbeGetModifyColumnsRow(
+    $col, $and_or_col, $ins_col, $del_col 
+);
 ?>
-    </tr>
 </table>
 <?php
 $w--;
