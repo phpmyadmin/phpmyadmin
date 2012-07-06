@@ -634,7 +634,7 @@ if ($GLOBALS['is_ajax_request']
     && ! isset($_REQUEST['db_specific']))
 {
     $isPass = false;
-    if(isset ($password)) {
+    if(isset($password)) {
         $isPass = true;
     }
     $extra_data = PMA_getExtraDataForAjaxBehavior( $isPass,
