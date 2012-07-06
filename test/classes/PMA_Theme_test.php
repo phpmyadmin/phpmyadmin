@@ -8,6 +8,7 @@ require_once 'libraries/Config.class.php';
 require_once 'libraries/Theme_Manager.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/sqlparser.lib.php';
+require_once 'libraries/url_generating.lib.php';
 
 /**
  * Test class for PMA_Theme.
@@ -214,30 +215,197 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test for loading CSS files.
      *
-     * @return nothing
-     *
-     * @todo Needs to be revisited as original test is somehow broken.
-     */
-    public function testLoadCss()
-    {
-        $this->markTestIncomplete(
-            'This test seems to cause some problems in output buffering handling'
-        );
-        //$this->expectOutputRegex('/.*FILE: codemirror.css.php.*/');
-        //$this->assertTrue($this->object->loadCss());
-    }
-
-    /**
-     *
-     * @todo Implement testPrintPreview().
+     * Test for getPrintPreview().
      */
     public function testPrintPreview()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-            'This test has not been implemented yet.'
+        $this->assertEquals(
+            $this->object->getPrintPreview(),
+            '<div class="theme_preview"><h2> (0.0.0.0) </h2><p><a target="_top" class="take_theme" name="" href="index.php?set_theme=">No preview available.[ <strong>take it</strong> ]</a></p></div>'
+        );
+    }
+
+    /**
+     * Test for getCssIEClearFilter
+     */
+    public function testGetCssIEClearFilter(){
+        $this->assertEquals(
+            $this->object->getCssIEClearFilter(),
+            ''
+        );
+    }
+
+    /**
+     * Test for getFontSize
+     */
+    public function testGetFontSize(){
+        $this->assertEquals(
+            $this->object->getFontSize(),
+            '82%'
+        );
+
+        $_COOKIE['pma_fontsize'] = '14px';
+        $this->assertEquals(
+            $this->object->getFontSize(),
+            '14px'
+        );
+
+        $GLOBALS['PMA_Config']->set('fontsize','12px');
+        $this->assertEquals(
+            $this->object->getFontSize(),
+            '12px'
+        );
+
+    }
+
+    /**
+     * Test for getCssGradient
+     */
+    public function testgetCssGradient(){
+        $this->assertEquals(
+            $this->object->getCssGradient('12345', '54321'),
+            'background-image: url(./themes/svg_gradient.php?from=12345&to=54321);
+background-size: 100% 100%;
+background: -webkit-gradient(linear, left top, left bottom, from(#12345), to(#54321));
+background: -webkit-linear-gradient(top, #12345, #54321);
+background: -moz-linear-gradient(top, #12345, #54321);
+background: -ms-linear-gradient(top, #12345, #54321);
+background: -o-linear-gradient(top, #12345, #54321);'
+        );
+    }
+
+    /**
+     * Test for getCssCodeMirror
+     */
+    public function testGetCssCodeMirror(){
+        $this->assertEquals(
+            $this->object->getCssCodeMirror(),
+                'span.cm-keyword, span.cm-statement-verb {
+    color: #909;
+}
+span.cm-variable {
+    color: black;
+}
+span.cm-comment {
+    color: #808000;
+}
+span.cm-mysql-string {
+    color: #008000;
+}
+span.cm-operator {
+    color: fuchsia;
+}
+span.cm-mysql-word {
+    color: black;
+}
+span.cm-builtin {
+    color: #f00;
+}
+span.cm-variable-2 {
+    color: #f90;
+}
+span.cm-variable-3 {
+    color: #00f;
+}
+span.cm-separator {
+    color: fuchsia;
+}
+span.cm-number {
+    color: teal;
+}'
+        );
+
+        $GLOBALS['cfg']['CodemirrorEnable'] = false;
+            $this->assertEquals(
+                $this->object->getCssCodeMirror(),
+                ''
+            );
+    }
+
+    /**
+     * Test for getImgPath
+     * @param string $file file name for image
+     * @param $output
+     *
+     * @dataProvider providerForGetImgPath
+     */
+    public function testGetImgPath($file, $output){
+        $this->assertEquals(
+            $this->object->getImgPath($file),
+            $output
+        );
+    }
+
+    /**
+     * Provider for testGetImgPath
+     * @return array
+     */
+    public function providerForGetImgPath(){
+        return array(
+            array(
+                null,
+                ''
+            ),
+            array(
+                'screen.png',
+                './themes/pmahomme/img/screen.png'
+            ),
+            array(
+                'arrow_ltr.png',
+                './themes/pmahomme/img/arrow_ltr.png'
+            )
+
+        );
+    }
+
+    /**
+     * Test for buildSQPCssRule
+     */
+    public function testBuildSQPCssRule(){
+        $this->assertEquals(
+            $this->object->buildSQPCssRule('PMA_Config', 'fontSize', '12px'),
+            '.PMA_Config {fontSize: 12px;}
+'
+        );
+    }
+
+    /**
+     * Test for buildSQPCssData
+     */
+    public function testBuildSQPCssData(){
+        $this->assertEquals(
+            $this->object->buildSQPCssData(),
+            '.syntax_comment {color: #808000;}
+.syntax_comment_mysql {}
+.syntax_comment_ansi {}
+.syntax_comment_c {}
+.syntax_digit {}
+.syntax_digit_hex {color: teal;}
+.syntax_digit_integer {color: teal;}
+.syntax_digit_float {color: aqua;}
+.syntax_punct {color: fuchsia;}
+.syntax_alpha {}
+.syntax_alpha_columnType {color: #f90;}
+.syntax_alpha_columnAttrib {color: #00f;}
+.syntax_alpha_reservedWord {color: #909;}
+.syntax_alpha_functionName {color: #f00;}
+.syntax_alpha_identifier {color: black;}
+.syntax_alpha_charset {color: #6495ed;}
+.syntax_alpha_variable {color: #800000;}
+.syntax_quote {color: #008000;}
+.syntax_quote_double {}
+.syntax_quote_single {}
+.syntax_quote_backtick {}
+.syntax_indent0 {margin-left: 0em;}
+.syntax_indent1 {margin-left: 1em;}
+.syntax_indent2 {margin-left: 2em;}
+.syntax_indent3 {margin-left: 3em;}
+.syntax_indent4 {margin-left: 4em;}
+.syntax_indent5 {margin-left: 5em;}
+.syntax_indent6 {margin-left: 6em;}
+.syntax_indent7 {margin-left: 7em;}
+'
         );
     }
 }
