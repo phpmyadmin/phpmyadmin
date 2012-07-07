@@ -7,7 +7,7 @@ phpMyAdmin - ChangeLog
 - bug #3527531 [interface] GC-maxlifetime warning incorrectly displayed
 - bug #3526916 [interface] Search fails with JS error when tooltips disabled
 
-3.5.2.0 (not yet released)
+3.5.2.0 (2012-07-07)
 - bug #3521416 [interface] JS error when editing index
 - bug #3521313 [core] Call to undefined function __()
 - bug #3521016 [edit] NOW() function incorrectly selected
