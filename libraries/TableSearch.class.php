@@ -118,7 +118,6 @@ class PMA_TableSearch
      * @param string $table      Table name
      * @param string $searchType Whether normal or zoom search
      *
-     * @return New PMA_TableSearch
      */
     public function __construct($db, $table, $searchType)
     {
@@ -132,7 +131,7 @@ class PMA_TableSearch
         $this->_geomColumnFlag = false;
         $this->_foreigners = array();
         // Loads table's information
-        $this->_loadTableInfo($this->_db, $this->_table);
+        $this->_loadTableInfo();
     }
 
     /**
@@ -149,8 +148,6 @@ class PMA_TableSearch
      * Gets all the columns of a table along with their types, collations
      * and whether null or not.
      *
-     * @return array Array containing the column list, column types, collations
-     * and null constraint
      */
     private function _loadTableInfo()
     {
@@ -396,7 +393,7 @@ EOT;
      * @param bool   $in_fbs              Whether we are in 'function based search'
      * @param bool   $in_zoom_search_edit Whether we are in zoom search edit
      *
-     * @return string HTML content for viewing foreing data and elements
+     * @return string HTML content for viewing foreign data and elements
      * for search criteria input.
      */
     private function _getInputbox($foreignData, $column_name, $column_type,
@@ -456,7 +453,7 @@ EOT;
      * Return the where clause in case column's type is ENUM.
      *
      * @param mixed  $criteriaValues Search criteria input
-     * @param string $func_type      Search fucntion/operator
+     * @param string $func_type      Search function/operator
      *
      * @return string part of where clause.
      */
@@ -501,7 +498,7 @@ EOT;
      *
      * @param mixed  $criteriaValues Search criteria input
      * @param string $names          Name of the column on which search is submitted
-     * @param string $func_type      Search fucntion/operator
+     * @param string $func_type      Search function/operator
      * @param bool   $geom_func      Whether geometry functions should be applied
      *
      * @return string part of where clause.
@@ -556,7 +553,7 @@ EOT;
      * @param string $names          Name of the column on which search is submitted
      * @param string $types          Type of the field
      * @param string $collations     Field collation
-     * @param string $func_type      Search fucntion/operator
+     * @param string $func_type      Search function/operator
      * @param bool   $unaryFlag      Whether operator unary or not
      * @param bool   $geom_func      Whether geometry functions should be applied
      *
