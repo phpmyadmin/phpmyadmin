@@ -1335,22 +1335,9 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
 
         // Provide a line with links to the relevant database and table
         if (isset($dbname) && empty($dbname_is_wildcard)) {
-            echo '[ ' . __('Database')
-                . ' <a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?'
-                . $GLOBALS['url_query'] . '&amp;db=' . $url_dbname . '&amp;reload=1">'
-                . htmlspecialchars($dbname) . ': ' . $common_functions->getTitleForTarget($GLOBALS['cfg']['DefaultTabDatabase']) . "</a> ]\n";
-
-            if (isset($tablename)) {
-                echo ' [ ' . __('Table') . ' <a href="'
-                    . $GLOBALS['cfg']['DefaultTabTable'] . '?' . $GLOBALS['url_query']
-                    . '&amp;db=' . $url_dbname . '&amp;table=' . htmlspecialchars(urlencode($tablename))
-                    . '&amp;reload=1">' . htmlspecialchars($tablename) . ': '
-                    . $common_functions->getTitleForTarget(
-                        $GLOBALS['cfg']['DefaultTabTable']
-                    )
-                    . "</a> ]\n";
-            }
-            unset($url_dbname);
+            $response->addHTML(
+                PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
+            );
         }
 
         if (! isset($dbname) && ! $user_does_not_exists) {

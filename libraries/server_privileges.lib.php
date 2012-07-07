@@ -1690,4 +1690,34 @@ function PMA_changeLoginInformation($username, $hostname)
     return $html_output;
 }
 
+/**
+ * Provide a line with links to the relevant database and table
+ * 
+ * @param string $url_dbname    url database name that urlencode() string 
+ * @param string $dbname        database name
+ * @param string $tablename     table name
+ * 
+ * @return string HTML snippet
+ */
+function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
+{
+    $html_output = '[ ' . __('Database')
+        . ' <a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?'
+        . $GLOBALS['url_query'] . '&amp;db=' . $url_dbname . '&amp;reload=1">'
+        . htmlspecialchars($dbname) . ': '
+        . PMA_CommonFunctions::getInstance()->getTitleForTarget($GLOBALS['cfg']['DefaultTabDatabase'])
+        . "</a> ]\n";
+
+    if (isset($tablename)) {
+        $html_output .= ' [ ' . __('Table') . ' <a href="'
+            . $GLOBALS['cfg']['DefaultTabTable'] . '?' . $GLOBALS['url_query']
+            . '&amp;db=' . $url_dbname . '&amp;table=' . htmlspecialchars(urlencode($tablename))
+            . '&amp;reload=1">' . htmlspecialchars($tablename) . ': '
+            . PMA_CommonFunctions::getInstance()->getTitleForTarget(
+                $GLOBALS['cfg']['DefaultTabTable']
+            )
+            . "</a> ]\n";
+    }
+    return $html_output;
+}
 ?>
