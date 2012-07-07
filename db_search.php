@@ -36,7 +36,7 @@ $url_params['goto'] = 'db_search.php';
 // Create a database search instance
 $db_search = new PMA_DbSearch($GLOBALS['db']);
 
-// Displays top links if we are not in an Ajax request
+// Display top links if we are not in an Ajax request
 if ( $GLOBALS['is_ajax_request'] != true) {
     include 'libraries/db_info.inc.php';
     $response->addHTML('<div id="searchresults">');
@@ -54,6 +54,6 @@ if ($GLOBALS['is_ajax_request'] == true) {
     $response->addHTML('</div>');//end searchresults div
 }
 
-// Add search form to response
+// Display the search form
 $response->addHTML($db_search->getSelectionForm($url_params));
 ?>
