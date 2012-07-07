@@ -1156,69 +1156,9 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                 unset($row, $res);
 
             } else {
-
                 // db name was given,
                 // so we want all user specific rights for this db
-
-                $user_host_condition .=
-                    ' AND `Db`'
-                    .' LIKE \'' . $common_functions->sqlAddSlashes($dbname, true) . "'";
-
-                $tables_to_search_for_users = array(
-                    'columns_priv',
-                );
-
-                $db_rights_sqls = array();
-                foreach ($tables_to_search_for_users as $table_search_in) {
-                    if (in_array($table_search_in, $tables)) {
-                        $db_rights_sqls[] = '
-                            SELECT DISTINCT `Table_name`
-                                   FROM `mysql`.' . $common_functions->backquote($table_search_in)
-                                   . $user_host_condition;
-                    }
-                }
-
-                $user_defaults = array(
-                    'Table_name'  => '',
-                    'Grant_priv'  => 'N',
-                    'privs'       => array('USAGE'),
-                    'Column_priv' => true,
-                );
-
-                // for the rights
-                $db_rights = array();
-
-                $db_rights_sql = '(' . implode(') UNION (', $db_rights_sqls) . ')'
-                    .' ORDER BY `Table_name` ASC';
-
-                $db_rights_result = PMA_DBI_query($db_rights_sql);
-
-                while ($db_rights_row = PMA_DBI_fetch_assoc($db_rights_result)) {
-                    $db_rights_row = array_merge($user_defaults, $db_rights_row);
-                    $db_rights[$db_rights_row['Table_name']] = $db_rights_row;
-                }
-                PMA_DBI_free_result($db_rights_result);
-                unset($db_rights_sql, $db_rights_sqls, $db_rights_result, $db_rights_row);
-
-                $sql_query = 'SELECT `Table_name`,'
-                    .' `Table_priv`,'
-                    .' IF(`Column_priv` = _latin1 \'\', 0, 1)'
-                    .' AS \'Column_priv\''
-                    .' FROM `mysql`.`tables_priv`'
-                    . $user_host_condition
-                    .' ORDER BY `Table_name` ASC;';
-                $res = PMA_DBI_query($sql_query);
-                $sql_query = '';
-
-                while ($row = PMA_DBI_fetch_assoc($res)) {
-                    if (isset($db_rights[$row['Table_name']])) {
-                        $db_rights[$row['Table_name']] = array_merge($db_rights[$row['Table_name']], $row);
-                    } else {
-                        $db_rights[$row['Table_name']] = $row;
-                    }
-                }
-                PMA_DBI_free_result($res);
-                unset($row, $res);
+                $db_rights = PMA_getAllUserSpecificRightsForReleventDb($dbname, $tables);
             }
             ksort($db_rights);
 
