@@ -1650,4 +1650,44 @@ function PMA_getExtraDataForAjaxBehavior( $password, $sql_query,$link_edit,
     return $extra_data;
 }
 
+/**
+ * Get the HTML snippet for chane user login information 
+ * 
+ * @param string $username  username
+ * @param string $hostname  host name
+ * 
+ * @return string HTML snippet
+ */
+function PMA_changeLoginInformation($username, $hostname)
+{
+    $choices = array(
+        '4' => __('... keep the old one.'),
+        '1' => __('... delete the old one from the user tables.'),
+        '2' => __('... revoke all active privileges from the old one and delete it afterwards.'),
+        '3' => __('... delete the old one from the user tables and reload the privileges afterwards.'));
+
+    $html_output = '<form action="server_privileges.php" method="post" class="copyUserForm">' . "\n"
+        . PMA_generate_common_hidden_inputs('', '')
+        . '<input type="hidden" name="old_username" value="' . htmlspecialchars($username) . '" />' . "\n"
+        . '<input type="hidden" name="old_hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n"
+        . '<fieldset id="fieldset_change_copy_user">' . "\n"
+        . '<legend>' . __('Change Login Information / Copy User') . '</legend>' . "\n"
+        . PMA_getHtmlForDisplayLoginInformationFields('change');
+    
+    $html_output .= '<fieldset>' . "\n"
+        . ' <legend>' . __('Create a new user with the same privileges and ...') . '</legend>' . "\n";
+    $html_output .= PMA_CommonFunctions::getInstance()->getRadioFields(
+        'mode', $choices, '4', true
+    );
+    $html_output .= '</fieldset>' . "\n"
+       . '</fieldset>' . "\n";
+    
+    $html_output .= '<fieldset id="fieldset_change_copy_user_footer" class="tblFooters">' . "\n"
+       . '<input type="submit" name="change_copy" value="' . __('Go') . '" />' . "\n"
+       . '</fieldset>' . "\n"
+       . '</form>' . "\n";
+    
+    return $html_output;
+}
+
 ?>

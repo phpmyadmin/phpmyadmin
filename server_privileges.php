@@ -1354,33 +1354,11 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         }
 
         if (! isset($dbname) && ! $user_does_not_exists) {
+            //change login information
             include_once 'libraries/display_change_password.lib.php';
-
-            echo '<form action="server_privileges.php" method="post" class="copyUserForm">' . "\n"
-               . PMA_generate_common_hidden_inputs('', '')
-               . '<input type="hidden" name="old_username" value="' . htmlspecialchars($username) . '" />' . "\n"
-               . '<input type="hidden" name="old_hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n"
-               . '<fieldset id="fieldset_change_copy_user">' . "\n"
-               . '    <legend>' . __('Change Login Information / Copy User') . '</legend>' . "\n"
-               . PMA_getHtmlForDisplayLoginInformationFields('change');
-            echo '    <fieldset>' . "\n"
-                . '        <legend>' . __('Create a new user with the same privileges and ...') . '</legend>' . "\n";
-            $choices = array(
-                '4' => __('... keep the old one.'),
-                '1' => __('... delete the old one from the user tables.'),
-                '2' => __('... revoke all active privileges from the old one and delete it afterwards.'),
-                '3' => __('... delete the old one from the user tables and reload the privileges afterwards.'));
-            echo $common_functions->getRadioFields(
-                'mode', $choices, '4', true
+            $response->addHTML(
+                PMA_changeLoginInformation($username, $hostname)
             );
-            unset($choices);
-
-            echo '    </fieldset>' . "\n"
-               . '</fieldset>' . "\n"
-               . '<fieldset id="fieldset_change_copy_user_footer" class="tblFooters">' . "\n"
-               . '    <input type="submit" name="change_copy" value="' . __('Go') . '" />' . "\n"
-               . '</fieldset>' . "\n"
-               . '</form>' . "\n";
         }
     }
 } elseif (isset($_REQUEST['adduser'])) {
