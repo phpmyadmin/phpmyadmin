@@ -136,7 +136,7 @@ class PMA_DbSearch
 
         if (empty($_REQUEST['criteriaSearchType'])
             || ! is_string($_REQUEST['criteriaSearchType'])
-            || ! array_key_exists($_REQUEST['criteriaSearchType'], $searchTypes)
+            || ! array_key_exists($_REQUEST['criteriaSearchType'], $this->_searchTypes)
         ) {
             $this->_criteriaSearchType = 1;
             unset($_REQUEST['submit_search']);
@@ -321,7 +321,7 @@ class PMA_DbSearch
         } // end for
         $html_output .= '</table>';
         // Displays total number of matches
-        if (count($criteriaTables) > 1) {
+        if (count($this->_criteriaTables) > 1) {
             $html_output .= '<p>';
             $html_output .= sprintf(
                 _ngettext(

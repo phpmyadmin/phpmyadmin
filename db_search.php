@@ -9,10 +9,10 @@
  */
 
 /**
- *
+ * Gets some core libraries
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/db_search.lib.php';
+require_once 'libraries/DbSearch.class.php';
 
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
@@ -21,119 +21,39 @@ $scripts->addFile('db_search.js');
 $scripts->addFile('sql.js');
 $scripts->addFile('makegrid.js');
 $scripts->addFile('jquery/timepicker.js');
-$common_functions = PMA_CommonFunctions::getInstance();
 
-/**
- * Gets some core libraries and send headers
- */
 require 'libraries/db_common.inc.php';
 
-/**
- * init
- */
 // If config variable $GLOBALS['cfg']['Usedbsearch'] is on false : exit.
 if (! $GLOBALS['cfg']['UseDbSearch']) {
-    $common_functions->mysqlDie(__('Access denied'), '', false, $err_url);
+    PMA_CommonFunctions::getInstance()->mysqlDie(
+        __('Access denied'), '', false, $err_url
+    );
 } // end if
 $url_query .= '&amp;goto=db_search.php';
 $url_params['goto'] = 'db_search.php';
 
-/**
- * @global array list of tables from the current database
- * but do not clash with $tables coming from db_info.inc.php
- */
-$tables_names_only = PMA_DBI_get_tables($GLOBALS['db']);
+// Create a database search instance
+$db_search = new PMA_DbSearch($GLOBALS['db']);
 
-$searchTypes = array(
-    '1' => __('at least one of the words'),
-    '2' => __('all words'),
-    '3' => __('the exact phrase'),
-    '4' => __('as regular expression'),
-);
-
-if (empty($_REQUEST['criteriaSearchType'])
-    || ! is_string($_REQUEST['criteriaSearchType'])
-    || ! array_key_exists($_REQUEST['criteriaSearchType'], $searchTypes)
-) {
-    $criteriaSearchType = 1;
-    unset($_REQUEST['submit_search']);
-} else {
-    $criteriaSearchType = (int) $_REQUEST['criteriaSearchType'];
-    $searchTypeDescription = $searchTypes[$_REQUEST['criteriaSearchType']];
-}
-
-if (empty($_REQUEST['criteriaSearchString'])
-    || ! is_string($_REQUEST['criteriaSearchString'])
-) {
-    $criteriaSearchString = '';
-    unset($_REQUEST['submit_search']);
-} else {
-    $criteriaSearchString = $_REQUEST['criteriaSearchString'];
-}
-
-$criteriaTables = array();
-if (empty($_REQUEST['criteriaTables']) || ! is_array($_REQUEST['criteriaTables'])) {
-    unset($_REQUEST['submit_search']);
-} elseif (! isset($_REQUEST['selectall']) && ! isset($_REQUEST['unselectall'])) {
-    $criteriaTables = array_intersect(
-        $_REQUEST['criteriaTables'], $tables_names_only
-    );
-}
-
-if (isset($_REQUEST['selectall'])) {
-    $criteriaTables = $tables_names_only;
-} elseif (isset($_REQUEST['unselectall'])) {
-    $criteriaTables = array();
-}
-
-if (empty($_REQUEST['criteriaColumnName'])
-    || ! is_string($_REQUEST['criteriaColumnName'])
-) {
-    unset($criteriaColumnName);
-} else {
-    $criteriaColumnName = $common_functions->sqlAddSlashes(
-        $_REQUEST['criteriaColumnName'], true
-    );
-}
-
-/**
- * Displays top links if we are not in an Ajax request
- */
-$sub_part = '';
-
+// Displays top links if we are not in an Ajax request
 if ( $GLOBALS['is_ajax_request'] != true) {
     include 'libraries/db_info.inc.php';
     $response->addHTML('<div id="searchresults">');
 }
 
-/**
- * Main search form has been submitted
- */
+// Main search form has been submitted, get results
 if (isset($_REQUEST['submit_search'])) {
-    $response->addHTML(
-        PMA_dbSearchGetSearchResults(
-            $criteriaTables, $searchTypeDescription,
-            $criteriaSearchString, $criteriaSearchType, 
-            (! empty($criteriaColumnName) ? $criteriaColumnName : '')
-        )
-    );
+    $response->addHTML($db_search->getSearchResults());
 }
 
-/**
- * If we are in an Ajax request, we need to exit after displaying all the HTML
- */
+// If we are in an Ajax request, we need to exit after displaying all the HTML
 if ($GLOBALS['is_ajax_request'] == true) {
     exit;
 } else {
     $response->addHTML('</div>');//end searchresults div
 }
 
-// Add search form
-$response->addHTML(
-    PMA_dbSearchGetSelectionForm(
-        $criteriaSearchString, $criteriaSearchType, $tables_names_only,
-        $criteriaTables, $url_params,
-        (! empty($criteriaColumnName) ? $criteriaColumnName : '')
-    )
-);
+// Add search form to response
+$response->addHTML($db_search->getSelectionForm($url_params));
 ?>
