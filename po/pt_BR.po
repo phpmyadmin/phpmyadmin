@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-07-04 15:59+0200\n"
+"PO-Revision-Date: 2012-07-05 17:02+0200\n"
 "Last-Translator: Marcelo Altmann <altmannmarcelo@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -6806,7 +6806,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:48
 msgid "Transaction buffer size"
-msgstr ""
+msgstr "Tamanho do buffer de transação"
 
 #: libraries/engines/pbxt.lib.php:49
 msgid ""
