@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-06-25 16:57+0200\n"
+"PO-Revision-Date: 2012-07-05 23:51+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.0\n"
+"X-Generator: Weblate 1.1\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -1143,7 +1143,7 @@ msgstr "Intet brugernavn!"
 
 #: js/messages.php:57 server_privileges.php:1316 user_password.php:50
 msgid "The password is empty!"
-msgstr "Der er ikke angivet nogen adgangskode"
+msgstr "Adgangskoden er tom!"
 
 #: js/messages.php:58 server_privileges.php:1314 user_password.php:53
 msgid "The passwords aren't the same!"
@@ -1480,7 +1480,7 @@ msgid ""
 "restart:"
 msgstr ""
 "De følgende indstillinger vil blive anvendt globalt og nulstillet til "
-"standard ved genstart af server"
+"standard ved genstart af server:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:157
@@ -1930,7 +1930,7 @@ msgstr "Når der holdes over et punkt vises dets etiket."
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "For at forstørre, vælg en sektion af plottet med musen."
 
 #: js/messages.php:306
 msgid "Click reset zoom link to come back to original state."
@@ -1961,10 +1961,9 @@ msgid "Query results"
 msgstr "Forespørgselsresultater"
 
 #: js/messages.php:315
-#, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
-msgstr "Data pointer-størrelse"
+msgstr "Datapunkt-indhold"
 
 #: js/messages.php:318 tbl_change.php:312 tbl_indexes.php:228
 #: tbl_indexes.php:255
@@ -2365,7 +2364,7 @@ msgstr "pr. time"
 
 #: libraries/Advisor.class.php:335
 msgid "per day"
-msgstr ""
+msgstr "per dag"
 
 #: libraries/Config.class.php:703
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
@@ -2387,7 +2386,7 @@ msgstr "Skriftstørrelse"
 
 #: libraries/Error_Handler.class.php:62
 msgid "Too many error messages, some are not displayed."
-msgstr ""
+msgstr "For mange fejlmeddelelser, nogle vises ikke."
 
 #: libraries/File.class.php:221
 msgid "File was not an uploaded file."
@@ -3026,7 +3025,7 @@ msgstr "%s dage, %s timer, %s minutter og %s sekunder"
 
 #: libraries/common.lib.php:2074
 msgid "Missing parameter:"
-msgstr "Manglende parameter"
+msgstr "Manglende parameter:"
 
 #: libraries/common.lib.php:2457 libraries/common.lib.php:2460
 #: libraries/display_tbl.lib.php:306
@@ -3402,10 +3401,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
 #| msgid "Customize text input fields"
 msgid "Minimum size for input field"
-msgstr "Tilpas tekstfelter"
+msgstr "Mindste størrelse for input-felt"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
@@ -3414,10 +3412,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:37
-#, fuzzy
 #| msgid "Maximum size for temporary sort files"
 msgid "Maximum size for input field"
-msgstr "Maksimal størrelse for midlertidige sorteringsfiler"
+msgstr "Maksimal størrelse for input-felt"
 
 #: libraries/config/messages.inc.php:38
 msgid "Number of columns for CHAR/VARCHAR textareas"
@@ -4730,10 +4727,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:386
-#, fuzzy
 #| msgid "Control user"
 msgid "Control host"
-msgstr "Kontrolbruger"
+msgstr "Kontrolvært"
 
 #: libraries/config/messages.inc.php:387
 msgid "Count tables when showing database list"
@@ -4815,10 +4811,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:403
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximal number of table preferences to store"
-msgstr "Maksimalt antal tabeller vist i tabellisten"
+msgstr "Maksimalt antal tabel-præferencer, der lagres"
 
 #: libraries/config/messages.inc.php:404
 msgid "Try to connect without password"
@@ -5548,18 +5543,18 @@ msgid "possible deep recursion attack"
 msgstr "muligt dybt rekursionsangreb"
 
 #: libraries/database_interface.lib.php:1813
-#, fuzzy
 #| msgid " the local MySQL server's socket is not correctly configured)"
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
-msgstr "(eller den lokale MySQL servers socket er ikke korrekt konfigureret)"
+msgstr ""
+"Serveren svarer ikke (eller den lokale servers socket er ikke korrekt "
+"konfigureret)."
 
 #: libraries/database_interface.lib.php:1816
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
-msgstr "Serveren svarer ikke"
+msgstr "Serveren svarer ikke."
 
 #: libraries/database_interface.lib.php:1820
 msgid "Please check privileges of directory containing database."
@@ -5822,7 +5817,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:342 libraries/display_import.lib.php:260
 msgid "Encoding Conversion:"
-msgstr "Inkodningskonvertering"
+msgstr "Konvertering af indkodning:"
 
 #: libraries/display_import.lib.php:66
 msgid ""
@@ -5950,7 +5945,7 @@ msgstr "lodret"
 #: libraries/display_tbl.lib.php:445
 #, php-format
 msgid "Headers every %s rows"
-msgstr "Overskrifter for hver %s rows"
+msgstr "Overskrifter for hver %s. række"
 
 #: libraries/display_tbl.lib.php:548
 msgid "Sort by key"
@@ -5998,10 +5993,9 @@ msgid "Show BLOB contents"
 msgstr "Vis indhold af BLOB"
 
 #: libraries/display_tbl.lib.php:687
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
-msgstr "Browser transformation"
+msgstr "Skjul browser-transformation"
 
 #: libraries/display_tbl.lib.php:694
 msgid "Well Known Text"
@@ -6797,7 +6791,7 @@ msgstr "Stand-in-struktur for visning"
 
 #: libraries/export/sql.php:1112
 msgid "Error reading data:"
-msgstr "Fejl ved læsning af data."
+msgstr "Fejl ved læsning af data:"
 
 #: libraries/export/xml.php:19 libraries/import/xml.php:28
 msgid "XML"
@@ -6861,10 +6855,10 @@ msgid "Edit structure by following the \"Structure\" link"
 msgstr "Rediger struktur ved at følge linket \"Struktur\""
 
 #: libraries/import.lib.php:1106
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to database"
 msgid "Go to database: %s"
-msgstr "Gå til database"
+msgstr "Gå til databasen: %s"
 
 #: libraries/import.lib.php:1109 libraries/import.lib.php:1132
 #, php-format
@@ -6872,10 +6866,10 @@ msgid "Edit settings for %s"
 msgstr "Rediger indstillinger for %s"
 
 #: libraries/import.lib.php:1127
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to table"
 msgid "Go to table: %s"
-msgstr "Gå til tabel"
+msgstr "Gå til tabellen: %s"
 
 #: libraries/import.lib.php:1130
 #, php-format
@@ -6883,10 +6877,10 @@ msgid "Structure of %s"
 msgstr "Strukturen af %s"
 
 #: libraries/import.lib.php:1136
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to view"
 msgid "Go to view: %s"
-msgstr "Gå til view"
+msgstr "Gå til view: %s"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:33
 msgid ""
@@ -6994,7 +6988,7 @@ msgstr "MySQL Spatial Extension understøtter ikke ESRI type \"%s\"."
 
 #: libraries/import/shp.php:376
 msgid "The imported file does not contain any data"
-msgstr "Den importerede fil indeholder ingen data!"
+msgstr "Den importerede fil indeholder ingen data"
 
 #: libraries/import/sql.php:33
 msgid "SQL compatibility mode:"
@@ -8005,10 +7999,9 @@ msgid "Current Server"
 msgstr "Aktuel server"
 
 #: libraries/server_links.inc.php:60
-#, fuzzy
 #| msgid "User"
 msgid "Users"
-msgstr "Bruger"
+msgstr "Brugere"
 
 #: libraries/server_links.inc.php:79 server_synchronize.php:1154
 #: server_synchronize.php:1162
@@ -10606,7 +10599,7 @@ msgstr "Opdateringsfrekvens"
 
 #: server_status.php:1592
 msgid "Chart columns"
-msgstr "Diagramkolonner:"
+msgstr "Diagramkolonner"
 
 #: server_status.php:1608
 msgid "Chart arrangement"
@@ -10745,7 +10738,7 @@ msgstr "Slet serie"
 
 #: server_status.php:1704
 msgid "Series in Chart:"
-msgstr "Serier i diagram"
+msgstr "Serier i diagram:"
 
 #: server_status.php:1717
 msgid "Log statistics"
@@ -11693,7 +11686,7 @@ msgstr "Kør en forespørgsel på felter (jokertegn: \"%\")"
 
 #: tbl_select.php:178
 msgid "Select columns (at least one):"
-msgstr "Vælg mindst een kolonne"
+msgstr "Vælg kolonner (mindst én):"
 
 #: tbl_select.php:196
 msgid "Add search conditions (body of the \"where\" clause):"
@@ -11968,10 +11961,9 @@ msgid "How to use"
 msgstr "Hvordan man bruger"
 
 #: tbl_zoom_select.php:431
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Nulstil"
+msgstr "Nulstil zoom"
 
 #: themes.php:28
 msgid "Get more themes!"
