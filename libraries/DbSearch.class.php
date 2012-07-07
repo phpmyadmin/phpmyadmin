@@ -72,6 +72,13 @@ class PMA_DbSearch
      * @var string
      */
     private $_criteriaColumnName;
+    /**
+     * PMA_CommonFunctions object
+     *
+     * @access private
+     * @var object
+     */
+    private $_common_functions;
 
     /**
      * Public Constructor
@@ -167,7 +174,7 @@ class PMA_DbSearch
         ) {
             unset($this->_criteriaColumnName);
         } else {
-            $this->_criteriaColumnName = $common_functions->sqlAddSlashes(
+            $this->_criteriaColumnName = $this->getCommonFunctions()->sqlAddSlashes(
                 $_REQUEST['criteriaColumnName'], true
             );
         }
@@ -191,14 +198,13 @@ class PMA_DbSearch
      */
     private function _getSearchSqls($table)
     {
-        $common_functions = PMA_CommonFunctions::getInstance();
         // Statement types
         $sqlstr_select = 'SELECT';
         $sqlstr_delete = 'DELETE';
         // Table to use
         $sqlstr_from = ' FROM '
-            . $common_functions->backquote($GLOBALS['db']) . '.'
-            . $common_functions->backquote($table);
+            . $this->getCommonFunctions()->backquote($GLOBALS['db']) . '.'
+            . $this->getCommonFunctions()->backquote($table);
         // Gets where clause for the query
         $where_clause = $this->_getWhereClause($table);
         // Builds complete queries
@@ -221,7 +227,6 @@ class PMA_DbSearch
      */
     private function _getWhereClause($table)
     {
-        $common_functions = PMA_CommonFunctions::getInstance();
         $where_clause = '';
         // Columns to select
         $allColumns = PMA_DBI_get_columns($GLOBALS['db'], $table);
@@ -232,7 +237,7 @@ class PMA_DbSearch
         // For "as regular expression" (search option 4), LIKE won't be used
         // Usage example: If user is seaching for a literal $ in a regexp search,
         // he should enter \$ as the value.
-        $this->_criteriaSearchString = $common_functions->sqlAddSlashes(
+        $this->_criteriaSearchString = $this->getCommonFunctions()->sqlAddSlashes(
             $this->_criteriaSearchString, ($this->_criteriaSearchType == 4 ? false : true)
         );
         // Extract search words or pattern
@@ -253,8 +258,8 @@ class PMA_DbSearch
                 ) {
                     // Drizzle has no CONVERT and all text columns are UTF-8
                     $column = ((PMA_DRIZZLE)
-                        ? $common_functions->backquote($column['Field'])
-                        : 'CONVERT(' . $common_functions->backquote($column['Field'])
+                        ? $this->getCommonFunctions()->backquote($column['Field'])
+                        : 'CONVERT(' . $this->getCommonFunctions()->backquote($column['Field'])
                             . ' USING utf8)');
                     $likeClausesPerColumn[] = $column . ' ' . $like_or_regex . ' '
                         . "'"
@@ -400,7 +405,6 @@ class PMA_DbSearch
      */
     public function getSelectionForm($url_params)
     {
-        $common_functions = PMA_CommonFunctions::getInstance();
         $html_output = '<a id="db_search"></a>';
         $html_output .= '<form id="db_search_form"'
             . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '')
@@ -423,21 +427,21 @@ class PMA_DbSearch
         $html_output .= '<td>';
         $choices = array(
             '1' => __('at least one of the words')
-                . $common_functions->showHint(
+                . $this->getCommonFunctions()->showHint(
                     __('Words are separated by a space character (" ").')
                 ),
             '2' => __('all words')
-                . $common_functions->showHint(
+                . $this->getCommonFunctions()->showHint(
                     __('Words are separated by a space character (" ").')
                 ),
             '3' => __('the exact phrase'),
             '4' => __('as regular expression')
-                . ' ' . $common_functions->showMySQLDocu('Regexp', 'Regexp')
+                . ' ' . $this->getCommonFunctions()->showMySQLDocu('Regexp', 'Regexp')
         );
         // 4th parameter set to true to add line breaks
         // 5th parameter set to false to avoid htmlspecialchars() escaping in the label
         //  since we have some HTML in some labels
-        $html_output .= $common_functions->getRadioFields(
+        $html_output .= $this->getCommonFunctions()->getRadioFields(
             'criteriaSearchType', $choices, $this->_criteriaSearchType, true, false
         );
         $html_output .= '</td></tr>';
