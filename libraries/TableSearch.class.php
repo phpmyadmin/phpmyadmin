@@ -132,7 +132,7 @@ class PMA_TableSearch
         $this->_geomColumnFlag = false;
         $this->_foreigners = array();
         // Loads table's information
-        $this->_loadTableInfo($this->_db, $this->_table);
+        $this->_loadTableInfo();
     }
 
     /**
