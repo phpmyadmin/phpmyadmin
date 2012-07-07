@@ -1623,7 +1623,7 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
         $special_chars = '';
         $data = $current_row[$column['Field']];
     } elseif ($column['True_Type'] == 'bit') {
-        $special_chars = PMA_printable_bit_value(
+        $special_chars = $common_functions->printableBitValue(
             $current_row[$column['Field']], $extracted_columnspec['spec_in_brackets']
         );
     } elseif (in_array($column['True_Type'], $gis_data_types)) {
