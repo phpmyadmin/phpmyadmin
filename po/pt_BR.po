@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-06-28 16:25+0200\n"
-"Last-Translator: Alexsandro Preis Dubinski <alexsandroeco@gmail.com>\n"
+"PO-Revision-Date: 2012-07-05 17:02+0200\n"
+"Last-Translator: Marcelo Altmann <altmannmarcelo@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -6265,7 +6265,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:30
 msgid "Garbage Threshold"
-msgstr ""
+msgstr "Limite de lixo"
 
 #: libraries/engines/pbms.lib.php:31
 msgid "The percentage of garbage in a repository file before it is compacted."
@@ -6327,10 +6327,12 @@ msgid ""
 "The timeout for inactive connection with the keep-alive flag set. After this "
 "time the connection will be closed. The time-out is in milliseconds (1/1000)."
 msgstr ""
+"Tempo limite para conexões inativas com keep-alive ativado. Depois deste "
+"tempo a conexão será fechada. O tempo limite deve ser em milisegundos"
 
 #: libraries/engines/pbms.lib.php:60
 msgid "Metadata Headers"
-msgstr ""
+msgstr "Cabeçário de metadata"
 
 #: libraries/engines/pbms.lib.php:61
 msgid ""
@@ -6348,7 +6350,7 @@ msgstr ""
 #: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
 #| msgid "Relations"
 msgid "Related Links"
-msgstr "Links relatados"
+msgstr "Links relacionados"
 
 #: libraries/engines/pbms.lib.php:98
 msgid "The PrimeBase Media Streaming Blog by Barry Leslie"
@@ -6356,7 +6358,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:99
 msgid "PrimeBase XT Home Page"
-msgstr ""
+msgstr "Página inicial do PrimeBase XT"
 
 #: libraries/engines/pbxt.lib.php:22
 msgid "Index cache size"
@@ -6401,7 +6403,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:42
 msgid "Transaction buffer size"
-msgstr ""
+msgstr "Tamanho do buffer de transação"
 
 #: libraries/engines/pbxt.lib.php:43
 msgid ""
