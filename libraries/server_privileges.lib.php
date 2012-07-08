@@ -1831,7 +1831,7 @@ function PMA_getUserSpecificRights($dbname, $tables, $user_host_condition)
  * 
  * @return array $found_rows, $html_output
  */
-function PMA_getHtmlForDisplayUserRightsInRaws($db_rights, $link_edit,
+function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $link_edit,
     $link_revoke, $hostname, $username
 ) {
     if (PMA_isValid($_REQUEST['pred_dbname'])) {
