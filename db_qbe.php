@@ -40,6 +40,15 @@ foreach (array_keys($_POST) as $post_key) {
         }
     }
 }
+/**
+ * Initialize some more global variables
+ */
+$GLOBALS['curField'] = array();
+$GLOBALS['curSort'] = array();
+$GLOBALS['curShow'] = array();
+$GLOBALS['curCriteria'] = array();
+$GLOBALS['curAndOrRow'] = array();
+$GLOBALS['curAndOrCol'] = array();
 
 /**
  * Gets the relation settings
@@ -170,32 +179,393 @@ $realwidth = $form_column_width . 'ex';
  */
 
 /**
- * Enter description here...
+ * Provides select options list containing column names
  *
- * @param array     $columns
- * @param integer   $column_number
- * @param string    $selected
+ * @param array   $columns       All Column Names
+ * @param integer $column_number Column Number (0,1,2) or more
+ * @param string  $selected      Selected criteria column name
+ *
+ * @return HTML for select options
  */
 function showColumnSelectCell($columns, $column_number, $selected = '')
 {
-    ?>
-    <td class="center">
-        <select name="Field[<?php echo $column_number; ?>]" size="1">
-            <option value="">&nbsp;</option>
-    <?php
+    $html_output = '';
+    $html_output .= '<td class="center">';
+    $html_output .= '<select name="Field[' . $column_number . ']" size="1">';
+    $html_output .= '<option value="">&nbsp;</option>';
     foreach ($columns as $column) {
-        if ($column === $selected) {
-            $sel = ' selected="selected"';
-        } else {
-            $sel = '';
-        }
-        echo '<option value="' . htmlspecialchars($column) . '"' . $sel . '>'
-            . str_replace(' ', '&nbsp;', htmlspecialchars($column)) . '</option>' . "\n";
+        $html_output .= '<option value="' . htmlspecialchars($column) . '"'
+            . (($column === $selected) ? ' selected="selected"' : '') . '>'
+            . str_replace(' ', '&nbsp;', htmlspecialchars($column)) . '</option>';
     }
-    ?>
-        </select>
-    </td>
-    <?php
+    $html_output .= '</select>';
+    $html_output .= '</td>';
+    return $html_output;
+}
+
+/**
+ * Provides select options list containing sort options (ASC/DESC)
+ *
+ * @param integer $column_number Column Number (0,1,2) or more
+ * @param string  $realwidth     Largest column width found
+ * @param string  $asc_selected  Selected criteria 'Ascending'
+ * @param string  $desc_selected Selected criteria 'Descending'
+ *
+ * @return HTML for select options
+ */
+function getSortSelectCell($column_number, $realwidth, $asc_selected = '',
+    $desc_selected = '')
+{
+    $html_output = '<td class="center">';
+    $html_output .= '<select style="width: ' . $realwidth
+        . '" name="Sort[' . $column_number . ']" size="1">';
+    $html_output .= '<option value="">&nbsp;</option>';
+    $html_output .= '<option value="ASC"' . $asc_selected . '>' . __('Ascending')
+        . '</option>';
+    $html_output .= '<option value="DESC"' . $desc_selected . '>' . __('Descending')
+        . '</option>';
+    $html_output .= '</select>';
+    $html_output .= '</td>';
+    return $html_output;
+}
+
+/**
+ * Provides search form's row containing column select options
+ *
+ * @param array   $criteria_column_count Number of criteria columns
+ * @param integer $columns               All column names
+ * @param string  $ins_col               If a new criteria column is needed
+ * @param string  $del_col               If a criteria column is to be deleted
+ *
+ * @return HTML for search table's row
+ */
+function PMA_dbQbegetColumnNamesRow(
+    $criteria_column_count, $columns, $ins_col = null, $del_col = null
+) {
+    $html_output = '<tr class="odd noclick">';
+    $html_output .= '<th>' . __('Column') . ':</th>';
+    $z = 0;
+    for ($column_index = 0; $column_index < $criteria_column_count; $column_index++)
+    {
+        if (isset($ins_col[$column_index]) && $ins_col[$column_index] == 'on') {
+            $html_output .= showColumnSelectCell($columns, $z);
+            $z++;
+        }
+        if (! empty($del_col) && isset($del_col[$column_index]) && $del_col[$column_index] == 'on') {
+            continue;
+        }
+        $selected = '';
+        if (isset($_REQUEST['Field'][$column_index])) {
+            $selected = $_REQUEST['Field'][$column_index];
+            $GLOBALS['curField'][$z] = $_REQUEST['Field'][$column_index];
+        }
+        $html_output .= showColumnSelectCell($columns, $z, $selected);
+        $z++;
+    } // end for
+    $html_output .= '</tr>';
+    return $html_output;
+}
+
+/**
+ * Provides search form's row containing sort(ASC/DESC) select options
+ *
+ * @param array  $criteria_column_count Number of criteria columns
+ * @param string $realwidth             Largest column width found
+ * @param string $ins_col               If a new criteria column is needed
+ * @param string $del_col               If a criteria column is to be deleted
+ *
+ * @return HTML for search table's row
+ */
+function PMA_dbQbegetSortRow(
+    $criteria_column_count, $realwidth, $ins_col = null, $del_col = null
+) {
+    $html_output = '<tr class="even noclick">';
+    $html_output .= '<th>' . __('Sort') . ':</th>';
+    $z = 0;
+    for ($column_index = 0; $column_index < $criteria_column_count; $column_index++)
+    {
+        if (! empty($ins_col) && isset($ins_col[$column_index]) && $ins_col[$column_index] == 'on') {
+            $html_output .= getSortSelectCell($z, $realwidth);
+            $z++;
+        } // end if
+
+        if (! empty($del_col) && isset($del_col[$column_index]) && $del_col[$column_index] == 'on') {
+            continue;
+        }
+        // If they have chosen all fields using the * selector,
+        // then sorting is not available, Fix for Bug #570698
+        if (isset($_REQUEST['Sort'][$column_index]) && isset($_REQUEST['Field'][$column_index])
+            && substr($_REQUEST['Field'][$column_index], -2) == '.*'
+        ) {
+            $_REQUEST['Sort'][$column_index] = '';
+        } //end if
+        // Set asc_selected
+        if (isset($_REQUEST['Sort'][$column_index]) && $_REQUEST['Sort'][$column_index] == 'ASC') {
+            $GLOBALS['curSort'][$z] = $_REQUEST['Sort'][$column_index];
+            $asc_selected = ' selected="selected"';
+        } else {
+            $asc_selected = '';
+        } // end if
+        // Set desc selected
+        if (isset($_REQUEST['Sort'][$column_index]) && $_REQUEST['Sort'][$column_index] == 'DESC') {
+            $GLOBALS['curSort'][$z] = $_REQUEST['Sort'][$column_index];
+            $desc_selected = ' selected="selected"';
+        } else {
+            $desc_selected = '';
+        } // end if
+        $html_output .= getSortSelectCell(
+            $z, $realwidth, $asc_selected, $desc_selected
+        );
+        $z++;
+    } // end for
+    $html_output .= '</tr>';
+    return $html_output;
+}
+
+/**
+ * Provides search form's row containing SHOW checkboxes
+ *
+ * @param array  $criteria_column_count Number of criteria columns
+ * @param string $ins_col               If a new criteria column is needed
+ * @param string $del_col               If a criteria column is to be deleted
+ *
+ * @return HTML for search table's row
+ */
+function PMA_dbQbegetShowRow(
+    $criteria_column_count, $ins_col = null, $del_col = null
+) {
+    $html_output = '<tr class="odd noclick">';
+    $html_output .= '<th>' . __('Show') . ':</th>';
+    $z = 0;
+    for ($column_index = 0; $column_index < $criteria_column_count; $column_index++)
+    {
+        if (! empty($ins_col) && isset($ins_col[$column_index]) && $ins_col[$column_index] == 'on') {
+            $html_output .= '<td class="center">';
+            $html_output .= '<input type="checkbox" name="Show[' . $z . ']" />';
+            $html_output .= '</td>';
+            $z++;
+        } // end if
+        if (! empty($del_col) && isset($del_col[$column_index]) && $del_col[$column_index] == 'on') {
+            continue;
+        }
+        if (isset($_REQUEST['Show'][$column_index])) {
+            $checked     = ' checked="checked"';
+            $GLOBALS['curShow'][$z] = $_REQUEST['Show'][$column_index];
+        } else {
+            $checked     =  '';
+        }
+        $html_output .= '<td class="center">';
+        $html_output .= '<input type="checkbox" name="Show[' . $z . ']"' . $checked
+            . ' />';
+        $html_output .= '</td>';
+        $z++;
+    } // end for
+    $html_output .= '</tr>';
+    return $html_output;
+}
+
+/**
+ * Provides search form's row containing criteria Inputboxes
+ *
+ * @param array  $criteria_column_count Number of criteria columns
+ * @param string $realwidth             Largest column width found
+ * @param string $criteria              Already Filled criteria
+ * @param string $prev_criteria         Previously filled criteria(hidden form field)
+ * @param string $ins_col               If a new criteria column is needed
+ * @param string $del_col               If a criteria column is to be deleted
+ *
+ * @return HTML for search table's row
+ */
+function PMA_dbQbegetCriteriaInputboxRow(
+    $criteria_column_count, $realwidth, $criteria, $prev_criteria,
+    $ins_col = null, $del_col = null
+) {
+    $html_output = '<tr class="even noclick">';
+    $html_output .= '<th>' . __('Criteria') . ':</th>';
+    $z = 0;
+    for ($column_index = 0; $column_index < $criteria_column_count; $column_index++)
+    {
+        if (! empty($ins_col) && isset($ins_col[$column_index]) && $ins_col[$column_index] == 'on') {
+            $html_output .= '<td class="center">';
+            $html_output .= '<input type="text" name="criteria[' . $z . ']"'
+                . ' value="" class="textfield" style="width: ' . $realwidth
+                . '" size="20" />';
+            $html_output .= '</td>';
+            $z++;
+        } // end if
+        if (! empty($del_col) && isset($del_col[$column_index]) && $del_col[$column_index] == 'on') {
+            continue;
+        }
+        if (isset($criteria[$column_index])) {
+            $tmp_criteria = $criteria[$column_index];
+        }
+        if ((empty($prev_criteria) || ! isset($prev_criteria[$column_index]))
+            || $prev_criteria[$column_index] != htmlspecialchars($tmp_criteria)
+        ) {
+            $GLOBALS['curCriteria'][$z]   = $tmp_criteria;
+        } else {
+            $GLOBALS['curCriteria'][$z]   = $prev_criteria[$column_index];
+        }
+        $html_output .= '<td class="center">';
+        $html_output .= '<input type="hidden" name="prev_criteria[' . $z . ']"'
+            . ' value="' . htmlspecialchars($GLOBALS['curCriteria'][$z]) . '" />';
+        $html_output .= '<input type="text" name="criteria[' . $z . ']"'
+        . ' value="' . htmlspecialchars($tmp_criteria) . '" class="textfield"'
+        . ' style="width: ' . $realwidth . '" size="20" />';
+        $html_output .= '</td>';
+        $z++;
+    } // end for
+    $html_output .= '</tr>';
+    return $html_output;
+}
+
+/**
+ * Provides footer options for adding/deleting row/columns
+ *
+ * @param string $type Whether row or column
+ *
+ * @return HTML for footer options
+ */
+function PMA_dbQbeGetFootersOptions($type)
+{
+    $html_output = '<div class="floatleft">';
+    $html_output .= (($type == 'row')
+        ? __('Add/Delete criteria rows') : __('Add/Delete columns'));
+    $html_output .= ':<select size="1" name="'
+        . (($type == 'row') ? 'add_row' : 'add_col') . '">';
+    $html_output .= '<option value="-3">-3</option>';
+    $html_output .= '<option value="-2">-2</option>';
+    $html_output .= '<option value="-1">-1</option>';
+    $html_output .= '<option value="0" selected="selected">0</option>';
+    $html_output .= '<option value="1">1</option>';
+    $html_output .= '<option value="2">2</option>';
+    $html_output .= '<option value="3">3</option>';
+    $html_output .= '</select>';
+    $html_output .= '</div>';
+    return $html_output;
+}
+
+/**
+ * Provides search form table's footer options
+ *
+ * @return HTML for table footer
+ */
+function PMA_dbQbeGetTableFooters()
+{
+    $html_output = '<fieldset class="tblFooters">';
+    $html_output .= PMA_dbQbeGetFootersOptions("row");
+    $html_output .= PMA_dbQbeGetFootersOptions("column");
+    $html_output .= '<div class="floatleft">';
+    $html_output .= '<input type="submit" name="modify"'
+        . 'value="' . __('Update Query') . '" />';
+    $html_output .= '</div>';
+    $html_output .= '</fieldset>';
+    return $html_output;
+}
+
+/**
+ * Provides a select list of database tables
+ *
+ * @param array $table_names Names of all the tables
+ *
+ * @return HTML for table select list
+ */
+function PMA_dbQbeGetTablesList($table_names)
+{
+    $html_output = '<div class="floatleft">';
+    $html_output .= '<fieldset>';
+    $html_output .= '<legend>' . __('Use Tables') . '</legend>';
+    // Build the options list for each table name
+    $options = '';
+    $numTableListOptions = 0;
+    foreach ($table_names as $key => $val) {
+        $options .= '<option value="' . htmlspecialchars($key) . '"' . $val . '>'
+            . (str_replace(' ', '&nbsp;', htmlspecialchars($key))) . '</option>';
+        $numTableListOptions++;
+    }
+    $html_output .= '<select name="TableList[]" multiple="multiple" id="listTable"'
+        . ' size="' . (($numTableListOptions > 30) ? '15' : '7') . '">';
+    $html_output .= $options;
+    $html_output .= '</select>';
+    $html_output .= '</fieldset>';
+    $html_output .= '<fieldset class="tblFooters">';
+    $html_output .= '<input type="submit" name="modify" value="'
+        . __('Update Query') . '" />';
+    $html_output .= '</fieldset>';
+    $html_output .= '</div>';
+    return $html_output;
+}
+
+/**
+ * Provides And/Or modification cell along with Insert/Delete options
+ * (For modifying search form's table columns)
+ *
+ * @param integer $column_number Column Number (0,1,2) or more
+ * @param array   $selected      Selected criteria column name
+ *
+ * @return HTML for modification cell
+ */
+function PMA_dbQbeGetAndOrColCell($column_number, $selected = null)
+{
+    $html_output = '<td class="center">';
+    $html_output .= '<strong>' . __('Or') . ':</strong>';
+    $html_output .= '<input type="radio" name="and_or_col[' . $column_number . ']"'
+        . ' value="or"' . $selected['or'] . ' />';
+    $html_output .= '&nbsp;&nbsp;<strong>' . __('And') . ':</strong>';
+    $html_output .= '<input type="radio" name="and_or_col[' . $column_number . ']"'
+        . ' value="and"' . $selected['and'] . ' />';
+    $html_output .= '<br />' . __('Ins');
+    $html_output .= '<input type="checkbox" name="ins_col[' . $column_number . ']" />';
+    $html_output .= '&nbsp;&nbsp;' . __('Del');
+    $html_output .= '<input type="checkbox" name="del_col[' . $column_number . ']" />';
+    $html_output .= '</td>';
+    return $html_output;
+}
+
+/**
+ * Provides search form's row containing column modifications options
+ * (For modifying search form's table columns)
+ *
+ * @param array  $criteria_column_count Number of criteria columns
+ * @param string $realwidth             Largest column width found
+ * @param string $criteria              Already Filled criteria
+ * @param string $prev_criteria         Previously filled criteria(hidden form field)
+ * @param string $ins_col               If a new criteria column is needed
+ * @param string $del_col               If a criteria column is to be deleted
+ *
+ * @return HTML for search table's row
+ */
+function PMA_dbQbeGetModifyColumnsRow($criteria_column_count, $and_or_col,
+    $ins_col = null, $del_col = null 
+) {
+    $html_output = '<tr class="even noclick">';
+    $html_output .= '<th>' . __('Modify') . ':</th>';
+    $z = 0;
+    for ($x = 0; $x < $criteria_column_count; $x++) {
+        if (! empty($ins_col) && isset($ins_col[$x]) && $ins_col[$x] == 'on') {
+            $html_output .= PMA_dbQbeGetAndOrColCell($z);
+            $z++;
+        } // end if
+
+        if (! empty($del_col) && isset($del_col[$x]) && $del_col[$x] == 'on') {
+            continue;
+        }
+
+        if (isset($and_or_col[$x])) {
+            $GLOBALS['curAndOrCol'][$z] = $and_or_col[$x];
+        }
+        if (isset($and_or_col[$x]) && $and_or_col[$x] == 'or') {
+            $chk['or']  = ' checked="checked"';
+            $chk['and'] = '';
+        } else {
+            $chk['and'] = ' checked="checked"';
+            $chk['or']  = '';
+        }
+        $html_output .= PMA_dbQbeGetAndOrColCell($z, $chk);
+        $z++;
+    } // end for
+    $html_output .= '</tr>';
+    return $html_output;
 }
 
 if ($cfgRelation['designerwork']) {
@@ -217,172 +587,20 @@ if ($cfgRelation['designerwork']) {
 <form action="db_qbe.php" method="post">
 <fieldset>
 <table class="data" style="width: 100%;">
-<tr class="odd noclick">
-    <th><?php echo __('Column'); ?>:</th>
 <?php
-$z = 0;
-for ($x = 0; $x < $col; $x++) {
-    if (isset($ins_col[$x]) && $ins_col[$x] == 'on') {
-        showColumnSelectCell($fld, $z);
-        $z++;
-    }
-
-    if (! empty($del_col) && isset($del_col[$x]) && $del_col[$x] == 'on') {
-        continue;
-    }
-
-    $selected = '';
-    if (isset($Field[$x])) {
-        $selected = $Field[$x];
-        $curField[$z] = $Field[$x];
-    }
-    showColumnSelectCell($fld, $z, $selected);
-    $z++;
-} // end for
+echo PMA_dbQbegetColumnNamesRow(
+    $col, $fld, $ins_col, $del_col
+);
+echo PMA_dbQbegetSortRow(
+    $col, $realwidth, $ins_col, $del_col
+);
+echo PMA_dbQbegetShowRow(
+    $col, $ins_col, $del_col
+);
+echo PMA_dbQbegetCriteriaInputboxRow(
+    $col, $realwidth, $criteria, $prev_criteria, $ins_col, $del_col
+);
 ?>
-</tr>
-
-<!-- Sort row -->
-<tr class="even noclick">
-    <th><?php echo __('Sort'); ?>:</th>
-<?php
-$z = 0;
-for ($x = 0; $x < $col; $x++) {
-    if (! empty($ins_col) && isset($ins_col[$x]) && $ins_col[$x] == 'on') {
-        ?>
-    <td class="center">
-        <select style="width: <?php echo $realwidth; ?>" name="Sort[<?php echo $z; ?>]" size="1">
-            <option value="">&nbsp;</option>
-            <option value="ASC"><?php echo __('Ascending'); ?></option>
-            <option value="DESC"><?php echo __('Descending'); ?></option>
-        </select>
-    </td>
-        <?php
-        $z++;
-    } // end if
-    echo "\n";
-
-    if (! empty($del_col) && isset($del_col[$x]) && $del_col[$x] == 'on') {
-        continue;
-    }
-    ?>
-    <td class="center">
-        <select style="width: <?php echo $realwidth; ?>" name="Sort[<?php echo $z; ?>]" size="1">
-            <option value="">&nbsp;</option>
-    <?php
-    echo "\n";
-
-    // If they have chosen all fields using the * selector,
-    // then sorting is not available
-    // Fix for Bug #570698
-    if (isset($Sort[$x]) && isset($Field[$x])
-        && substr($Field[$x], -2) == '.*'
-    ) {
-        $Sort[$x] = '';
-    } //end if
-
-    if (isset($Sort[$x]) && $Sort[$x] == 'ASC') {
-        $curSort[$z] = $Sort[$x];
-        $sel         = ' selected="selected"';
-    } else {
-        $sel         = '';
-    } // end if
-    echo '                ';
-    echo '<option value="ASC"' . $sel . '>' . __('Ascending') . '</option>' . "\n";
-    if (isset($Sort[$x]) && $Sort[$x] == 'DESC') {
-        $curSort[$z] = $Sort[$x];
-        $sel         = ' selected="selected"';
-    } else {
-        $sel         = '';
-    } // end if
-    echo '                ';
-    echo '<option value="DESC"' . $sel . '>' . __('Descending') . '</option>' . "\n";
-    ?>
-        </select>
-    </td>
-    <?php
-    $z++;
-    echo "\n";
-} // end for
-?>
-</tr>
-
-<!-- Show row -->
-<tr class="odd noclick">
-    <th><?php echo __('Show'); ?>:</th>
-<?php
-$z = 0;
-for ($x = 0; $x < $col; $x++) {
-    if (! empty($ins_col) && isset($ins_col[$x]) && $ins_col[$x] == 'on') {
-        ?>
-    <td class="center">
-        <input type="checkbox" name="Show[<?php echo $z; ?>]" />
-    </td>
-        <?php
-        $z++;
-    } // end if
-    echo "\n";
-
-    if (! empty($del_col) && isset($del_col[$x]) && $del_col[$x] == 'on') {
-        continue;
-    }
-    if (isset($Show[$x])) {
-        $checked     = ' checked="checked"';
-        $curShow[$z] = $Show[$x];
-    } else {
-        $checked     =  '';
-    }
-    ?>
-    <td class="center">
-        <input type="checkbox" name="Show[<?php echo $z; ?>]"<?php echo $checked; ?> />
-    </td>
-    <?php
-    $z++;
-    echo "\n";
-} // end for
-?>
-</tr>
-
-<!-- Criteria row -->
-<tr class="even noclick">
-    <th><?php echo __('Criteria'); ?>:</th>
-<?php
-$z = 0;
-for ($x = 0; $x < $col; $x++) {
-    if (! empty($ins_col) && isset($ins_col[$x]) && $ins_col[$x] == 'on') {
-        ?>
-    <td class="center">
-        <input type="text" name="criteria[<?php echo $z; ?>]" value="" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
-    </td>
-        <?php
-        $z++;
-    } // end if
-    echo "\n";
-
-    if (! empty($del_col) && isset($del_col[$x]) && $del_col[$x] == 'on') {
-        continue;
-    }
-    if (isset($criteria[$x])) {
-        $tmp_criteria = $criteria[$x];
-    }
-    if ((empty($prev_criteria) || ! isset($prev_criteria[$x]))
-        || $prev_criteria[$x] != htmlspecialchars($tmp_criteria)
-    ) {
-        $curCriteria[$z]   = $tmp_criteria;
-    } else {
-        $curCriteria[$z]   = $prev_criteria[$x];
-    }
-    ?>
-    <td class="center">
-        <input type="hidden" name="prev_criteria[<?php echo $z; ?>]" value="<?php echo htmlspecialchars($curCriteria[$z]); ?>" />
-        <input type="text" name="criteria[<?php echo $z; ?>]" value="<?php echo htmlspecialchars($tmp_criteria); ?>" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
-    </td>
-    <?php
-    $z++;
-    echo "\n";
-} // end for
-?>
-</tr>
 
 <!-- And/Or columns and rows -->
 <?php
@@ -464,7 +682,7 @@ for ($y = 0; $y <= $row; $y++) {
     }
 
     if (isset($and_or_row[$y])) {
-        $curAndOrRow[$w] = $and_or_row[$y];
+        $GLOBALS['curAndOrRow'][$w] = $and_or_row[$y];
     }
     if (isset($and_or_row[$y]) && $and_or_row[$y] == 'and') {
         $chk['and'] =  ' checked="checked"';
@@ -551,73 +769,13 @@ for ($y = 0; $y <= $row; $y++) {
     $odd_row =! $odd_row;
 } // end for
 ?>
-<!-- Modify columns -->
-<tr class="even noclick">
-    <th><?php echo __('Modify'); ?>:</th>
+
 <?php
-$z = 0;
-for ($x = 0; $x < $col; $x++) {
-    if (! empty($ins_col) && isset($ins_col[$x]) && $ins_col[$x] == 'on') {
-        $curAndOrCol[$z] = $and_or_col[$y];
-        if ($and_or_col[$z] == 'or') {
-            $chk['or']  = ' checked="checked"';
-            $chk['and'] = '';
-        } else {
-            $chk['and'] = ' checked="checked"';
-            $chk['or']  = '';
-        }
-        ?>
-    <td class="center">
-        <strong><?php echo __('Or'); ?>:</strong>
-        <input type="radio" name="and_or_col[<?php echo $z; ?>]" value="or"<?php echo $chk['or']; ?> />
-        &nbsp;&nbsp;<strong><?php echo __('And'); ?>:</strong>
-        <input type="radio" name="and_or_col[<?php echo $z; ?>]" value="and"<?php echo $chk['and']; ?> />
-        <br />
-        <?php echo __('Ins') . "\n"; ?>
-        <input type="checkbox" name="ins_col[<?php echo $z; ?>]" />
-        &nbsp;&nbsp;<?php echo __('Del') . "\n"; ?>
-        <input type="checkbox" name="del_col[<?php echo $z; ?>]" />
-    </td>
-        <?php
-        $z++;
-    } // end if
-    echo "\n";
-
-    if (! empty($del_col) && isset($del_col[$x]) && $del_col[$x] == 'on') {
-        continue;
-    }
-
-    if (isset($and_or_col[$y])) {
-        $curAndOrCol[$z] = $and_or_col[$y];
-    }
-    if (isset($and_or_col[$z]) && $and_or_col[$z] == 'or') {
-        $chk['or']  = ' checked="checked"';
-        $chk['and'] = '';
-    } else {
-        $chk['and'] = ' checked="checked"';
-        $chk['or']  = '';
-    }
-    ?>
-    <td class="center">
-        <strong><?php echo __('Or'); ?>:</strong>
-        <input type="radio" name="and_or_col[<?php echo $z; ?>]" value="or"<?php echo $chk['or']; ?> />
-        &nbsp;&nbsp;<strong><?php echo __('And'); ?>:</strong>
-        <input type="radio" name="and_or_col[<?php echo $z; ?>]" value="and"<?php echo $chk['and']; ?> />
-        <br />
-        <?php echo __('Ins') . "\n"; ?>
-        <input type="checkbox" name="ins_col[<?php echo $z; ?>]" />
-        &nbsp;&nbsp;<?php echo __('Del') . "\n"; ?>
-        <input type="checkbox" name="del_col[<?php echo $z; ?>]" />
-    </td>
-    <?php
-    $z++;
-    echo "\n";
-} // end for
+echo PMA_dbQbeGetModifyColumnsRow(
+    $col, $and_or_col, $ins_col, $del_col 
+);
 ?>
-    </tr>
 </table>
-
-<!-- Other controls -->
 <?php
 $w--;
 $url_params['db']       = $db;
@@ -626,59 +784,11 @@ $url_params['rows']     = $w;
 echo PMA_generate_common_hidden_inputs($url_params);
 ?>
 </fieldset>
-<fieldset class="tblFooters">
-    <div class="floatleft">
-        <?php echo __('Add/Delete criteria rows'); ?>:
-        <select size="1" name="add_row">
-            <option value="-3">-3</option>
-            <option value="-2">-2</option>
-            <option value="-1">-1</option>
-            <option value="0" selected="selected">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-        </select>
-    </div>
-    <div class="floatleft">
-        <?php echo __('Add/Delete columns'); ?>:
-        <select size="1" name="add_col">
-            <option value="-3">-3</option>
-            <option value="-2">-2</option>
-            <option value="-1">-1</option>
-            <option value="0" selected="selected">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-        </select>
-    </div>
-    <!-- Generates a query -->
-    <div class="floatleft">
-        <input type="submit" name="modify" value="<?php echo __('Update Query'); ?>" />
-    </div>
-</fieldset>
 
-<div class="floatleft">
-    <fieldset>
-        <legend><?php echo __('Use Tables'); ?></legend>
 <?php
-$options = '';
-$numTableListOptions = 0;
-foreach ($tbl_names as $key => $val) {
-    $options .= '                    ';
-    $options .= '<option value="' . htmlspecialchars($key) . '"' . $val . '>'
-        . str_replace(' ', '&nbsp;', htmlspecialchars($key)) . '</option>' . "\n";
-    $numTableListOptions++;
-}
+echo PMA_dbQbeGetTableFooters();
+echo PMA_dbQbeGetTablesList($tbl_names);
 ?>
-        <select name="TableList[]" multiple="multiple" id="listTable"
-            size="<?php echo ($numTableListOptions > 30) ? '15' : '7'; ?>">
-            <?php echo $options; ?>
-        </select>
-    </fieldset>
-    <fieldset class="tblFooters">
-        <input type="submit" name="modify" value="<?php echo __('Update Query'); ?>" />
-    </fieldset>
-</div>
 
 <div class="floatleft">
     <fieldset>
@@ -694,11 +804,14 @@ if (! isset($qry_select)) {
     $qry_select         = '';
 }
 for ($x = 0; $x < $col; $x++) {
-    if (! empty($curField[$x]) && isset($curShow[$x]) && $curShow[$x] == 'on') {
+    if (! empty($GLOBALS['curField'][$x])
+        && isset($GLOBALS['curShow'][$x])
+        && $GLOBALS['curShow'][$x] == 'on')
+    {
         if ($last_select) {
             $qry_select .=  ', ';
         }
-        $qry_select     .= $curField[$x];
+        $qry_select     .= $GLOBALS['curField'][$x];
         $last_select    = 1;
     }
 } // end for
@@ -901,11 +1014,16 @@ if (! empty($qry_from)) {
 $qry_where          = '';
 $criteria_cnt       = 0;
 for ($x = 0; $x < $col; $x++) {
-    if (! empty($curField[$x]) && ! empty($curCriteria[$x]) && $x && isset($last_where) && isset($curAndOrCol)) {
-        $qry_where  .= ' ' . strtoupper($curAndOrCol[$last_where]) . ' ';
+    if (! empty($GLOBALS['curField'][$x])
+        && ! empty($GLOBALS['curCriteria'][$x])
+        && $x
+        && isset($last_where)
+        && isset($GLOBALS['curAndOrCol'])) {
+        $qry_where  .= ' ' . strtoupper($GLOBALS['curAndOrCol'][$last_where]) . ' ';
     }
-    if (! empty($curField[$x]) && ! empty($curCriteria[$x])) {
-        $qry_where  .= '(' . $curField[$x] . ' ' . $curCriteria[$x] . ')';
+    if (! empty($GLOBALS['curField'][$x]) && ! empty($GLOBALS['curCriteria'][$x])) {
+        $qry_where  .= '(' . $GLOBALS['curField'][$x] . ' '
+            . $GLOBALS['curCriteria'][$x] . ')';
         $last_where = $x;
         $criteria_cnt++;
     }
@@ -914,19 +1032,19 @@ if ($criteria_cnt > 1) {
     $qry_where      = '(' . $qry_where . ')';
 }
 // OR rows ${'cur' . $or}[$x]
-if (! isset($curAndOrRow)) {
-    $curAndOrRow          = array();
+if (! isset($GLOBALS['curAndOrRow'])) {
+    $GLOBALS['curAndOrRow'] = array();
 }
 for ($y = 0; $y <= $row; $y++) {
     $criteria_cnt         = 0;
     $qry_orwhere          = '';
     $last_orwhere         = '';
     for ($x = 0; $x < $col; $x++) {
-        if (! empty($curField[$x]) && ! empty(${'curOr' . $y}[$x]) && $x) {
-            $qry_orwhere  .= ' ' . strtoupper($curAndOrCol[$last_orwhere]) . ' ';
+        if (! empty($GLOBALS['curField'][$x]) && ! empty(${'curOr' . $y}[$x]) && $x) {
+            $qry_orwhere  .= ' ' . strtoupper($GLOBALS['curAndOrCol'][$last_orwhere]) . ' ';
         }
-        if (! empty($curField[$x]) && ! empty(${'curOr' . $y}[$x])) {
-            $qry_orwhere  .= '(' . $curField[$x]
+        if (! empty($GLOBALS['curField'][$x]) && ! empty(${'curOr' . $y}[$x])) {
+            $qry_orwhere  .= '(' . $GLOBALS['curField'][$x]
                           .  ' '
                           .  ${'curOr' . $y}[$x]
                           .  ')';
@@ -939,7 +1057,7 @@ for ($y = 0; $y <= $row; $y++) {
     }
     if (! empty($qry_orwhere)) {
         $qry_where .= "\n"
-                   .  strtoupper(isset($curAndOrRow[$y]) ? $curAndOrRow[$y] . ' ' : '')
+            .  strtoupper(isset($GLOBALS['curAndOrRow'][$y]) ? $GLOBALS['curAndOrRow'][$y] . ' ' : '')
                    .  $qry_orwhere;
     } // end if
 } // end for
@@ -955,15 +1073,15 @@ if (! isset($qry_orderby)) {
     $qry_orderby      = '';
 }
 for ($x = 0; $x < $col; $x++) {
-    if ($last_orderby && $x && ! empty($curField[$x]) && ! empty($curSort[$x])) {
+    if ($last_orderby && $x && ! empty($GLOBALS['curField'][$x]) && ! empty($GLOBALS['curSort'][$x])) {
         $qry_orderby  .=  ', ';
     }
-    if (! empty($curField[$x]) && ! empty($curSort[$x])) {
+    if (! empty($GLOBALS['curField'][$x]) && ! empty($GLOBALS['curSort'][$x])) {
         // if they have chosen all fields using the * selector,
         // then sorting is not available
         // Fix for Bug #570698
-        if (substr($curField[$x], -2) != '.*') {
-            $qry_orderby  .=  $curField[$x] . ' ' . $curSort[$x];
+        if (substr($GLOBALS['curField'][$x], -2) != '.*') {
+            $qry_orderby  .=  $GLOBALS['curField'][$x] . ' ' . $GLOBALS['curSort'][$x];
             $last_orderby = 1;
         }
     }
