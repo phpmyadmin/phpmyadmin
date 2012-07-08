@@ -953,7 +953,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
 
             if (! isset($dbname)) {
                 // no database name was given, display select db
-                echo PMA_displaySelectDbInEditPrivs($found_rows);
+                echo PMA_getHTmlForDisplaySelectDbInEditPrivs($found_rows);
 
             } else {
                 echo PMA_displayTablesInEditPrivs($dbname, $found_rows);

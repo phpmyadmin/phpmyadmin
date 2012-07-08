@@ -431,7 +431,7 @@ function PMA_getHtmlToDisplayPrivilegesTable($random_n, $db = '*', $table = '*',
         }
         unset($row['Table_priv'], $current_grant, $av_grants, $users_grants);
 
-        // get collumns
+        // get columns
         $res = PMA_DBI_try_query(
             'SHOW COLUMNS FROM '
             . PMA_CommonFunctions::getInstance()->PMA_backquote(PMA_unescapeMysqlWildcards($db))
@@ -1831,7 +1831,7 @@ function PMA_getUserSpecificRights($dbname, $tables, $user_host_condition)
  * 
  * @return array $found_rows, $html_output
  */
-function PMA_displayUserRightsInRaws($db_rights, $link_edit,
+function PMA_getHtmlForDisplayUserRightsInRaws($db_rights, $link_edit,
     $link_revoke, $hostname, $username
 ) {
     if (PMA_isValid($_REQUEST['pred_dbname'])) {
@@ -1958,7 +1958,7 @@ function PMA_getTableForDisplayAllTableSpecificRights($username, $hostname,
     
     $html_output .= '<tbody>' . "\n";
     // display rows
-    list ($found_rows, $html_out) =  PMA_displayUserRightsInRaws(
+    list ($found_rows, $html_out) =  PMA_getHtmlForDisplayUserRightsInRows(
         $db_rights, $link_edit, $link_revoke, $hostname, $username
     );
 
@@ -1976,7 +1976,7 @@ function PMA_getTableForDisplayAllTableSpecificRights($username, $hostname,
  * 
  * @return string HTML snippet
  */
-function PMA_displaySelectDbInEditPrivs($found_rows)
+function PMA_getHTmlForDisplaySelectDbInEditPrivs($found_rows)
 {
     $pred_db_array =PMA_DBI_fetch_result('SHOW DATABASES;');
 
