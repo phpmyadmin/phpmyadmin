@@ -434,8 +434,8 @@ function PMA_getHtmlToDisplayPrivilegesTable($random_n, $db = '*', $table = '*',
         // get collumns
         $res = PMA_DBI_try_query(
             'SHOW COLUMNS FROM '
-            . PMA_backquote(PMA_unescapeMysqlWildcards($db))
-            . '.' . PMA_backquote($table) . ';'
+            . PMA_CommonFunctions::getInstance()->PMA_backquote(PMA_unescapeMysqlWildcards($db))
+            . '.' . PMA_CommonFunctions::getInstance()->PMA_backquote($table) . ';'
         );
         $columns = array();
         if ($res) {
@@ -1839,7 +1839,7 @@ function PMA_displayUserRightsInRaws($db_rights, $link_edit,
     } elseif (PMA_isValid($_REQUEST['dbname'])) {
         $dbname = $_REQUEST['dbname'];
     }
-    
+    $found_rows = array();
     // display rows
     if (count($db_rights) < 1) {
         $html_output = '<tr class="odd">' . "\n"
@@ -1847,7 +1847,6 @@ function PMA_displayUserRightsInRaws($db_rights, $link_edit,
            . '</tr>' . "\n";
     } else {
         $odd_row = true;
-        $found_rows = array();
         //while ($row = PMA_DBI_fetch_assoc($res)) {
         foreach ($db_rights as $row) {
             $found_rows[] = (! isset($dbname)) ? $row['Db'] : $row['Table_name'];
@@ -1968,5 +1967,89 @@ function PMA_getTableForDisplayAllTableSpecificRights($username, $hostname,
     $html_output .='</table>' . "\n";
     
     return array($html_output, $found_rows);
+}
+
+/**
+ * Get HTML for display select db
+ * 
+ * @param array $found_rows     isset($dbname)) ? $row['Db'] : $row['Table_name']
+ * 
+ * @return string HTML snippet
+ */
+function PMA_displaySelectDbInEditPrivs($found_rows)
+{
+    $pred_db_array =PMA_DBI_fetch_result('SHOW DATABASES;');
+
+    $html_output = '<label for="text_dbname">'
+        . __('Add privileges on the following database') . ':</label>' . "\n";
+    if (! empty($pred_db_array)) {
+        $html_output .= '    <select name="pred_dbname" class="autosubmit">' . "\n"
+            . '<option value="" selected="selected">' . __('Use text field') . ':</option>' . "\n";
+        foreach ($pred_db_array as $current_db) {
+            $current_db = PMA_CommonFunctions::getInstance()->escapeMysqlWildcards($current_db);
+            // cannot use array_diff() once, outside of the loop,
+            // because the list of databases has special characters
+            // already escaped in $found_rows,
+            // contrary to the output of SHOW DATABASES
+            if (empty($found_rows) || ! in_array($current_db, $found_rows)) {
+                $html_output .= '<option value="' . htmlspecialchars($current_db) . '">'
+                    . htmlspecialchars($current_db) . '</option>' . "\n";
+            }
+        }
+        $html_output .= '</select>' . "\n";
+    }
+    $html_output .= '<input type="text" id="text_dbname" name="dbname" />' . "\n"
+        . PMA_CommonFunctions::getInstance()->showHint(
+            __('Wildcards % and _ should be escaped with a \ to use them literally')
+        );
+    return $html_output;
+}
+
+/**
+ * Get HTML for display table in edit privilege
+ * 
+ * @param string $dbname    database naame
+ * @param array $found_rows isset($dbname)) ? $row['Db'] : $row['Table_name']
+ * 
+ * @return string HTML snippet
+ */
+function PMA_displayTablesInEditPrivs($dbname, $found_rows)
+{
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
+    $html_output = '<input type="hidden" name="dbname" value="' . htmlspecialchars($dbname) . '"/>' . "\n"
+        . '<label for="text_tablename">' . __('Add privileges on the following table') . ':</label>' . "\n";
+    
+    $result = @PMA_DBI_try_query(
+        'SHOW TABLES FROM ' . $common_functions->backquote(
+            $common_functions->unescapeMysqlWildcards($dbname)
+            ) . ';',
+        null,
+        PMA_DBI_QUERY_STORE);
+    
+    if ($result) {
+        $pred_tbl_array = array();
+        while ($row = PMA_DBI_fetch_row($result)) {
+            if (! isset($found_rows) || ! in_array($row[0], $found_rows)) {
+                $pred_tbl_array[] = $row[0];
+            }
+        }
+        PMA_DBI_free_result($result);
+
+        if (! empty($pred_tbl_array)) {
+            $html_output .= '<select name="pred_tablename" class="autosubmit">' . "\n"
+                . '<option value="" selected="selected">' . __('Use text field')
+                . ':</option>' . "\n";
+            foreach ($pred_tbl_array as $current_table) {
+                $html_output .= '<option value="' . htmlspecialchars($current_table) . '">'
+                    . htmlspecialchars($current_table)
+                    . '</option>' . "\n";
+            }
+            $html_output .= '</select>' . "\n";
+        }
+    }
+    $html_output .= '<input type="text" id="text_tablename" name="tablename" />' . "\n";
+    
+    return $html_output;
 }
 ?>

@@ -1071,61 +1071,17 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             echo $html_output;
 
             if (! isset($dbname)) {
-
                 // no database name was given, display select db
+                echo PMA_displaySelectDbInEditPrivs($found_rows);
 
-                $pred_db_array =PMA_DBI_fetch_result('SHOW DATABASES;');
-
-                echo '    <label for="text_dbname">' . __('Add privileges on the following database') . ':</label>' . "\n";
-                if (! empty($pred_db_array)) {
-                    echo '    <select name="pred_dbname" class="autosubmit">' . "\n"
-                       . '        <option value="" selected="selected">' . __('Use text field') . ':</option>' . "\n";
-                    foreach ($pred_db_array as $current_db) {
-                        $current_db = $common_functions->escapeMysqlWildcards($current_db);
-                        // cannot use array_diff() once, outside of the loop,
-                        // because the list of databases has special characters
-                        // already escaped in $found_rows,
-                        // contrary to the output of SHOW DATABASES
-                        if (empty($found_rows) || ! in_array($current_db, $found_rows)) {
-                            echo '        <option value="' . htmlspecialchars($current_db) . '">'
-                                . htmlspecialchars($current_db) . '</option>' . "\n";
-                        }
-                    }
-                    echo '    </select>' . "\n";
-                }
-                echo '    <input type="text" id="text_dbname" name="dbname" />' . "\n"
-                    . $common_functions->showHint(__('Wildcards % and _ should be escaped with a \ to use them literally'));
             } else {
-                echo '    <input type="hidden" name="dbname" value="' . htmlspecialchars($dbname) . '"/>' . "\n"
-                   . '    <label for="text_tablename">' . __('Add privileges on the following table') . ':</label>' . "\n";
-                if ($res = @PMA_DBI_try_query('SHOW TABLES FROM ' . $common_functions->backquote($common_functions->unescapeMysqlWildcards($dbname)) . ';', null, PMA_DBI_QUERY_STORE)) {
-                    $pred_tbl_array = array();
-                    while ($row = PMA_DBI_fetch_row($res)) {
-                        if (! isset($found_rows) || ! in_array($row[0], $found_rows)) {
-                            $pred_tbl_array[] = $row[0];
-                        }
-                    }
-                    PMA_DBI_free_result($res);
-                    unset($res, $row);
-                    if (! empty($pred_tbl_array)) {
-                        echo '    <select name="pred_tablename" class="autosubmit">' . "\n"
-                           . '        <option value="" selected="selected">' . __('Use text field') . ':</option>' . "\n";
-                        foreach ($pred_tbl_array as $current_table) {
-                            echo '        <option value="' . htmlspecialchars($current_table) . '">' . htmlspecialchars($current_table) . '</option>' . "\n";
-                        }
-                        echo '    </select>' . "\n";
-                    }
-                } else {
-                    unset($res);
-                }
-                echo '    <input type="text" id="text_tablename" name="tablename" />' . "\n";
+                echo PMA_displayTablesInEditPrivs($dbname, $found_rows);
             }
             echo '</fieldset>' . "\n";
             echo '<fieldset class="tblFooters">' . "\n"
                . '    <input type="submit" value="' . __('Go') . '" />'
                . '</fieldset>' . "\n"
                . '</form>' . "\n";
-
         }
 
         // Provide a line with links to the relevant database and table
