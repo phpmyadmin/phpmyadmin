@@ -844,127 +844,9 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
 
             if (isset($initial) || isset($showall) || PMA_DBI_num_rows($res) < 50) {
 
-                while ($row = PMA_DBI_fetch_assoc($res)) {
-                    $row['privs'] = PMA_extractPrivInfo($row, true);
-                    $db_rights[$row['User']][$row['Host']] = $row;
-                }
-                @PMA_DBI_free_result($res);
-                unset($res);
-
-                echo '<form name="usersForm" id="usersForm" action="server_privileges.php" method="post">' . "\n"
-                   . PMA_generate_common_hidden_inputs('', '')
-                   . '    <table id="tableuserrights" class="data">' . "\n"
-                   . '    <thead>' . "\n"
-                   . '        <tr><th></th>' . "\n"
-                   . '            <th>' . __('User') . '</th>' . "\n"
-                   . '            <th>' . __('Host') . '</th>' . "\n"
-                   . '            <th>' . __('Password') . '</th>' . "\n"
-                   . '            <th>' . __('Global privileges') . ' '
-                   . $common_functions->showHint(__('Note: MySQL privilege names are expressed in English')) . '</th>' . "\n"
-                   . '            <th>' . __('Grant') . '</th>' . "\n"
-                   . '            <th colspan="2">' . __('Action') . '</th>' . "\n";
-                echo '        </tr>' . "\n";
-                echo '    </thead>' . "\n";
-                echo '    <tbody>' . "\n";
-
-                $_SESSION['user_host_pairs'] = array();
-                $pair_count = 0;
-                $odd_row = true;
-                $index_checkbox = -1;
-                foreach ($db_rights as $user) {
-                    $index_checkbox++;
-                    ksort($user);
-                    foreach ($user as $host) {
-                        $index_checkbox++;
-                        echo '        <tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n"
-                           . '            <td><input type="checkbox" class="checkall" name="selected_usr[]" id="checkbox_sel_users_'
-                            . $index_checkbox . '" value="'
-                            . htmlspecialchars($host['User'] . '&amp;#27;' . $host['Host'])
-                            . '"'
-                            . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
-                            . ' /></td>' . "\n"
-                           . '            <td><label for="checkbox_sel_users_' . $index_checkbox . '">' . (empty($host['User']) ? '<span style="color: #FF0000">' . __('Any') . '</span>' : htmlspecialchars($host['User'])) . '</label></td>' . "\n"
-                           . '            <td>' . htmlspecialchars($host['Host']) . '</td>' . "\n";
-                        echo '            <td>';
-                        switch ($host['Password']) {
-                        case 'Y':
-                            echo __('Yes');
-                            break;
-                        case 'N':
-                            echo '<span style="color: #FF0000">' . __('No') . '</span>';
-                            break;
-                        // this happens if this is a definition not coming from mysql.user
-                        default:
-                            echo '--'; // in future version, replace by "not present"
-                            break;
-                        } // end switch
-                        echo '</td>' . "\n"
-                           . '            <td><code>' . "\n"
-                           . '                ' . implode(',' . "\n" . '            ', $host['privs']) . "\n"
-                           . '                </code></td>' . "\n"
-                           . '            <td>' . ($host['Grant_priv'] == 'Y' ? __('Yes') : __('No')) . '</td>' . "\n"
-                           . '            <td class="center">';
-                        printf($link_edit, urlencode($host['User']), urlencode($host['Host']), '', '');
-                        echo '</td>';
-                        echo '<td class="center">';
-                        printf($link_export, urlencode($host['User']), urlencode($host['Host']), (isset($initial) ? $initial : ''));
-                        echo '</td>';
-                        echo '</tr>';
-                        $odd_row = ! $odd_row;
-
-                        $_SESSION['user_host_pairs'][$pair_count]['user'] = $host['User'];
-                        $_SESSION['user_host_pairs'][$pair_count]['host'] = $host['Host'];
-                        $pair_count ++;
-                    }
-                }
-
-                unset($user, $host, $odd_row);
-                echo '    </tbody></table>' . "\n"
-                   .'<div>'
-                   .'<div style="float:left;">'
-                   .'<img class="selectallarrow"'
-                   .' src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png"'
-                   .' width="38" height="22"'
-                   .' alt="' . __('With selected:') . '" />' . "\n"
-                   .'<input type="checkbox" id="checkall" title="' . __('Check All') . '" /> '
-                   .'<label for="checkall">' . __('Check All') . '</label> '
-                   .'<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
-
-                echo $common_functions->getButtonOrImage(
-                    'submit_mult', 'mult_submit', 'submit_mult_export',
-                    __('Export'), 'b_tblexport.png', 'export'
+                echo PMA_displayUserOverview($res, $db_rights, $link_edit,
+                    $pmaThemeImage, $text_dir, $conditional_class, $link_export, $link_export_all
                 );
-                echo '<input type="hidden" name="initial" value="' . (isset($initial) ? $initial : '') . '" />';
-                echo '</div>'
-                   . '<div class="clear_both" style="clear:both"></div>'
-                   . '<div style="float:left; padding-left:10px;">';
-                printf($link_export_all, urlencode('%'), urlencode('%'), (isset($initial) ? $initial : ''));
-                echo '</div>'
-                   . '</div>'
-                   . '<div class="clear_both" style="clear:both"></div>';
-
-                // add/delete user fieldset
-                echo '    <fieldset id="fieldset_add_user">' . "\n"
-                   . '        <a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;adduser=1" class="' . $conditional_class . '">' . "\n"
-                   . $common_functions->getIcon('b_usradd.png')
-                   . '            ' . __('Add user') . '</a>' . "\n"
-                   . '    </fieldset>' . "\n"
-                   . '    <fieldset id="fieldset_delete_user">'
-                   . '        <legend>' . "\n"
-                   . $common_functions->getIcon('b_usrdrop.png')
-                   . '            ' . __('Remove selected users') . '' . "\n"
-                   . '        </legend>' . "\n"
-                   . '        <input type="hidden" name="mode" value="2" />' . "\n"
-                   . '(' . __('Revoke all active privileges from the users and delete them afterwards.') . ')<br />' . "\n"
-                   . '        <input type="checkbox" title="' . __('Drop the databases that have the same names as the users.') . '" name="drop_users_db" id="checkbox_drop_users_db" />' . "\n"
-                   . '        <label for="checkbox_drop_users_db" title="' . __('Drop the databases that have the same names as the users.') . '">' . "\n"
-                   . '            ' . __('Drop the databases that have the same names as the users.') . "\n"
-                   . '        </label>' . "\n"
-                   . '    </fieldset>' . "\n"
-                   . '    <fieldset id="fieldset_delete_user_footer" class="tblFooters">' . "\n"
-                   . '        <input type="submit" name="delete" value="' . __('Go') . '" id="buttonGo" class="' . $conditional_class . '"/>' . "\n"
-                   . '    </fieldset>' . "\n"
-                   . '</form>' . "\n";
             } else {
 
                 unset ($row);
@@ -1024,7 +906,6 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
 
         }
         echo '</h2>' . "\n";
-
 
         $sql = "SELECT '1' FROM `mysql`.`user`"
             . " WHERE `User` = '" . $common_functions->sqlAddSlashes($username) . "'"

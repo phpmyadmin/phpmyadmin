@@ -2052,4 +2052,208 @@ function PMA_displayTablesInEditPrivs($dbname, $found_rows)
     
     return $html_output;
 }
+
+/**
+ * Display the user overview
+ * (if less than 50 users, display them immediately)
+ * 
+ * @param array $result             ran sql query
+ * @param array $db_rights          user's database rights array
+ * @param string $link_edit         standard link to edit privileges
+ * @param string $pmaThemeImage     a image source link
+ * @param string $text_dir          text directory
+ * @param string $conditional_class if ajaxable 'Ajax' otherwise ''
+ * @param string $link_export       standard link to export privileges
+ * @param string $link_export_all   standard link to export all privilegfes
+ * 
+ * @return string HTML snippet
+ */
+function PMA_displayUserOverview($result, $db_rights, $link_edit, $pmaThemeImage,
+    $text_dir, $conditional_class, $link_export, $link_export_all
+) {
+    $common_functions = PMA_CommonFunctions::getInstance();
+
+    while ($row = PMA_DBI_fetch_assoc($result)) {
+        $row['privs'] = PMA_extractPrivInfo($row, true);
+        $db_rights[$row['User']][$row['Host']] = $row;
+    }
+    @PMA_DBI_free_result($result);
+
+    $html_output = 
+        '<form name="usersForm" id="usersForm" action="server_privileges.php" method="post">' . "\n"
+        . PMA_generate_common_hidden_inputs('', '')
+        . '<table id="tableuserrights" class="data">' . "\n"
+        . '<thead>' . "\n"
+        . '<tr><th></th>' . "\n"
+        . '<th>' . __('User') . '</th>' . "\n"
+        . '<th>' . __('Host') . '</th>' . "\n"
+        . '<th>' . __('Password') . '</th>' . "\n"
+        . '<th>' . __('Global privileges') . ' '
+        . $common_functions->showHint(__('Note: MySQL privilege names are expressed in English'))
+        . '</th>' . "\n"
+        . '<th>' . __('Grant') . '</th>' . "\n"
+        . '<th colspan="2">' . __('Action') . '</th>' . "\n"
+        . '</tr>' . "\n"
+        . '</thead>' . "\n";
+    
+    $html_output .= '<tbody>' . "\n";
+    $html_output .= PMA_getTableBodyForUserRightsTable($db_rights, $link_edit, $link_export);
+    $html_output .= '</tbody>'
+        . '</table>' . "\n";
+    
+    $html_output .='<div>'
+        .'<div style="float:left;">'
+        .'<img class="selectallarrow"'
+        .' src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png"'
+        .' width="38" height="22"'
+        .' alt="' . __('With selected:') . '" />' . "\n"
+        .'<input type="checkbox" id="checkall" title="' . __('Check All') . '" /> '
+        .'<label for="checkall">' . __('Check All') . '</label> '
+        .'<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
+
+    $html_output .= $common_functions->getButtonOrImage(
+        'submit_mult', 'mult_submit', 'submit_mult_export',
+        __('Export'), 'b_tblexport.png', 'export'
+    );
+    $html_output .= '<input type="hidden" name="initial" value="' . (isset($_GET['initial']) ? $_GET['initial'] : '') . '" />';
+    $html_output .= '</div>'
+        . '<div class="clear_both" style="clear:both"></div>'
+        . '<div style="float:left; padding-left:10px;">'
+        . sprintf($link_export_all, urlencode('%'), urlencode('%'), (isset($_GET['initial']) ? $_GET['initial'] : ''));
+    $html_output .= '</div>'
+        . '</div>'
+        . '<div class="clear_both" style="clear:both"></div>';
+
+    // add/delete user fieldset
+    $html_output .= PMA_getFieldsetForAddDeleteUser($conditional_class);
+    $html_output .= '</form>' . "\n";
+
+    return $html_output;
+}
+
+/**
+ * Get table body for 'tableuserrights' table in userform
+ * 
+ * @param array $db_rights      user's database rights array
+ * @param string $link_edit     standard link to edit privileges
+ * @param string $link_export   Link for export all users
+ * 
+ * @return string HTML snippet
+ */
+function PMA_getTableBodyForUserRightsTable($db_rights, $link_edit, $link_export)
+{
+    $_SESSION['user_host_pairs'] = array();
+    $pair_count = 0;
+    $odd_row = true;
+    $index_checkbox = -1;
+    $html_output = '';
+    foreach ($db_rights as $user) {
+        $index_checkbox++;
+        ksort($user);
+        foreach ($user as $host) {
+            $index_checkbox++;
+            $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n";
+            $html_output .= '<td><input type="checkbox" class="checkall" name="selected_usr[]" id="checkbox_sel_users_'
+                . $index_checkbox . '" value="'
+                . htmlspecialchars($host['User'] . '&amp;#27;' . $host['Host'])
+                . '"'
+                . (empty($GLOBALS['checkall']) ?  '' : ' checked="checked"')
+                . ' /></td>' . "\n";
+            
+            $html_output .= '<td><label for="checkbox_sel_users_' . $index_checkbox . '">'
+                . (empty($host['User'])
+                    ? '<span style="color: #FF0000">' . __('Any') . '</span>'
+                    : htmlspecialchars($host['User'])) . '</label></td>' . "\n"
+                . '<td>' . htmlspecialchars($host['Host']) . '</td>' . "\n";
+            
+            $html_output .= '<td>';
+            switch ($host['Password']) {
+            case 'Y':
+                $html_output .= __('Yes');
+                break;
+            case 'N':
+                $html_output .= '<span style="color: #FF0000">' . __('No') . '</span>';
+                break;
+            // this happens if this is a definition not coming from mysql.user
+            default:
+                $html_output .= '--'; // in future version, replace by "not present"
+                break;
+            } // end switch
+            $html_output .= '</td>' . "\n";
+            
+            $html_output .= '<td><code>' . "\n"
+                . '' . implode(',' . "\n" . '            ', $host['privs']) . "\n"
+                . '</code></td>' . "\n"
+                . '<td>' . ($host['Grant_priv'] == 'Y' ? __('Yes') : __('No')) . '</td>' . "\n"
+                . '<td class="center">'
+                . sprintf($link_edit, urlencode($host['User']),
+                    urlencode($host['Host']), '', ''
+                );
+            $html_output .= '</td>';
+            
+            $html_output .= '<td class="center">';
+            $html_output .= sprintf($link_export, urlencode($host['User']),
+                urlencode($host['Host']),
+                (isset($_GET['initial']) ? $_GET['initial'] : '')
+            );
+            $html_output .= '</td>';
+            $html_output .= '</tr>';
+            $odd_row = ! $odd_row;
+
+            $_SESSION['user_host_pairs'][$pair_count]['user'] = $host['User'];
+            $_SESSION['user_host_pairs'][$pair_count]['host'] = $host['Host'];
+            $pair_count ++;
+        }
+    }
+    return $html_output;
+}
+
+/**
+ * Get HTML fieldset for Add/Delete user
+ * 
+ * @param string $conditional_class if ajaxable 'Ajax' otherwise ''
+ * 
+ * @return string HTML snippet
+ */
+function PMA_getFieldsetForAddDeleteUser($conditional_class)
+{
+    $common_functions = PMA_CommonFunctions::getInstance();
+
+    $html_output = '<fieldset id="fieldset_add_user">' . "\n";
+    $html_output .= '<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;adduser=1"'
+        . 'class="' . $conditional_class . '">' . "\n"
+        . $common_functions->getIcon('b_usradd.png')
+        . '            ' . __('Add user') . '</a>' . "\n";
+    $html_output .= '</fieldset>' . "\n";
+    
+    $html_output .= '<fieldset id="fieldset_delete_user">'
+        . '<legend>' . "\n"
+        . $common_functions->getIcon('b_usrdrop.png')
+        . '            ' . __('Remove selected users') . '' . "\n"
+        . '</legend>' . "\n";
+    
+    $html_output .= '<input type="hidden" name="mode" value="2" />' . "\n"
+        . '(' . __('Revoke all active privileges from the users and delete them afterwards.') . ')'
+        . '<br />' . "\n";
+    
+    $html_output .= '<input type="checkbox" '
+        . 'title="' . __('Drop the databases that have the same names as the users.') . '" '
+        . 'name="drop_users_db" id="checkbox_drop_users_db" />' . "\n";
+    
+    $html_output .= '<label for="checkbox_drop_users_db" '
+        . 'title="' . __('Drop the databases that have the same names as the users.') . '">' . "\n"
+        . '            ' . __('Drop the databases that have the same names as the users.') . "\n"
+        . '</label>' . "\n"
+        . '</fieldset>' . "\n";
+    
+    $html_output .= '<fieldset id="fieldset_delete_user_footer" class="tblFooters">' . "\n";
+    $html_output .= '<input type="submit" name="delete" '
+        . 'value="' . __('Go') . '" id="buttonGo" '
+        . 'class="' . $conditional_class . '"/>' . "\n";
+    
+    $html_output .= '</fieldset>' . "\n";
+    
+    return $html_output;
+}
+
 ?>
