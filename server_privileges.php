@@ -1063,52 +1063,12 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             // no table name was given, display all table specific rights
             // but only if $dbname contains no wildcards
 
-            // table header
-            echo '<form action="server_privileges.php" id="db_or_table_specific_priv" method="post">' . "\n"
-               . PMA_generate_common_hidden_inputs('', '')
-               . '<input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n"
-               . '<input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n"
-               . '<fieldset>' . "\n"
-               . '<legend>' . (! isset($dbname) ? __('Database-specific privileges') : __('Table-specific privileges')) . '</legend>' . "\n"
-               . '<table class="data">' . "\n"
-               . '<thead>' . "\n"
-               . '<tr><th>' . (! isset($dbname) ? __('Database') : __('Table')) . '</th>' . "\n"
-               . '    <th>' . __('Privileges') . '</th>' . "\n"
-               . '    <th>' . __('Grant') . '</th>' . "\n"
-               . '    <th>' . (! isset($dbname) ? __('Table-specific privileges') : __('Column-specific privileges')) . '</th>' . "\n"
-               . '    <th colspan="2">' . __('Action') . '</th>' . "\n"
-               . '</tr>' . "\n"
-               . '</thead>' . "\n"
-               . '<tbody>' . "\n";
-
-            $user_host_condition = ' WHERE `User`'
-                . ' = \'' . $common_functions->sqlAddSlashes($username) . "'"
-                . ' AND `Host`'
-                . ' = \'' . $common_functions->sqlAddSlashes($hostname) . "'";
-
-            // table body
-            // get data
-
-            // we also want privielgs for this user not in table `db` but in other table
-            $tables = PMA_DBI_fetch_result('SHOW TABLES FROM `mysql`;');
-
-            /**
-             * no db name given, so we want all privs for the given user
-             * db name was given, so we want all user specific rights for this db
-             */
-            $db_rights = PMA_getUserSpecificRights($dbname, $tables, $user_host_condition);
+            echo '<form action="server_privileges.php" id="db_or_table_specific_priv" method="post">' . "\n";
             
-            ksort($db_rights);
-
-            // display rows
-            list ($found_rows, $html_output) =  PMA_displayUserRightsInRaws(
-                $db_rights, $link_edit, $link_revoke, $hostname, $username
+            list($html_output, $found_rows) = PMA_getTableForDisplayAllTableSpecificRights(
+                $username, $hostname, $dbname, $link_edit, $link_revoke
             );
-            
             echo $html_output;
-            unset($row);
-            echo '</tbody>' . "\n"
-               . '</table>' . "\n";
 
             if (! isset($dbname)) {
 

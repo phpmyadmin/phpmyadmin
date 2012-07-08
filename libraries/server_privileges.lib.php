@@ -1823,7 +1823,7 @@ function PMA_getUserSpecificRights($dbname, $tables, $user_host_condition)
 /**
  * Display user rights in table rows(Table specific or database specific privs)
  * 
- * @param array $db_rights   user's database rights array
+ * @param array $db_rights    user's database rights array
  * @param string $link_edit   standard link to edit privileges
  * @param string $link_revoke standard link to revoke
  * @param string $hostname    host name
@@ -1902,5 +1902,71 @@ function PMA_displayUserRightsInRaws($db_rights, $link_edit,
         } // end while
     } //end if
     return array($found_rows, $html_output);
+}
+
+/**
+ * Get a HTML table for display user's tabel specific or database specific rights
+ * 
+ * @param string $username      username
+ * @param string $hostname      host name
+ * @param string $dbname        database name
+ * @param string $link_edit     standard link to edit privileges
+ * @param string $link_revoke   standard link to revoke
+ * 
+ * @return array $html_output, $found_rows
+ */
+function PMA_getTableForDisplayAllTableSpecificRights($username, $hostname,
+    $dbname, $link_edit, $link_revoke
+) {
+    // table header
+    $html_output = PMA_generate_common_hidden_inputs('', '')
+        . '<input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n"
+        . '<input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n"
+        . '<fieldset>' . "\n"
+        . '<legend>'
+        . (! isset($dbname) ? __('Database-specific privileges') : __('Table-specific privileges'))
+        . '</legend>' . "\n"
+        . '<table class="data">' . "\n"
+        . '<thead>' . "\n"
+        . '<tr><th>' . (! isset($dbname) ? __('Database') : __('Table')) . '</th>' . "\n"
+        . '<th>' . __('Privileges') . '</th>' . "\n"
+        . '<th>' . __('Grant') . '</th>' . "\n"
+        . '<th>' 
+        . (! isset($dbname) ? __('Table-specific privileges') : __('Column-specific privileges'))
+        . '</th>' . "\n"
+        . '<th colspan="2">' . __('Action') . '</th>' . "\n"
+        . '</tr>' . "\n"
+        . '</thead>' . "\n";
+
+    $user_host_condition = ' WHERE `User`'
+        . ' = \'' . PMA_CommonFunctions::getInstance()->sqlAddSlashes($username) . "'"
+        . ' AND `Host`'
+        . ' = \'' . PMA_CommonFunctions::getInstance()->sqlAddSlashes($hostname) . "'";
+
+    // table body
+    // get data
+
+    // we also want privielgs for this user not in table `db` but in other table
+    $tables = PMA_DBI_fetch_result('SHOW TABLES FROM `mysql`;');
+
+    /**
+     * no db name given, so we want all privs for the given user
+     * db name was given, so we want all user specific rights for this db
+     */
+    $db_rights = PMA_getUserSpecificRights($dbname, $tables, $user_host_condition);
+
+    ksort($db_rights);
+    
+    $html_output .= '<tbody>' . "\n";
+    // display rows
+    list ($found_rows, $html_out) =  PMA_displayUserRightsInRaws(
+        $db_rights, $link_edit, $link_revoke, $hostname, $username
+    );
+
+    $html_output .= $html_out;
+    $html_output .= '</tbody>' . "\n";
+    $html_output .='</table>' . "\n";
+    
+    return array($html_output, $found_rows);
 }
 ?>
