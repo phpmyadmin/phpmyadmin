@@ -1721,65 +1721,102 @@ function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
     return $html_output;
 }
 
-function PMA_getAllUserSpecificRightsForReleventDb($dbname, $tables)
+/**
+ * no db name given, so we want all privs for the given user
+ * db name was given, so we want all user specific rights for this db
+ * So this function returns user rights as an array
+ * 
+ * @param string $dbname                database name
+ * @param array $tables                 tables
+ * @param string $user_host_condition   a where clause that containd user's host condition
+ * 
+ * @return array $db_rights             database rights
+ */
+function PMA_getUserSpecificRights($dbname, $tables, $user_host_condition)
 {
     $common_functions = PMA_CommonFunctions::getInstance();
+
+    if (! isset($dbname)) {
+        $tables_to_search_for_users = array(
+            'tables_priv', 'columns_priv',
+        );
+        $dbOrTableName = 'Db';
+    } else {
+        $user_host_condition .=
+            ' AND `Db`'
+            .' LIKE \'' . $common_functions->sqlAddSlashes($dbname, true) . "'";
+        $tables_to_search_for_users = array('columns_priv',);
+        $dbOrTableName = 'Table_name';
+    }
     
-    $user_host_condition .=
-        ' AND `Db`'
-        .' LIKE \'' . $common_functions->sqlAddSlashes($dbname, true) . "'";
-
-    $tables_to_search_for_users = array('columns_priv',);
-
     $db_rights_sqls = array();
     foreach ($tables_to_search_for_users as $table_search_in) {
         if (in_array($table_search_in, $tables)) {
             $db_rights_sqls[] = '
-                SELECT DISTINCT `Table_name`
+                SELECT DISTINCT `' . $dbOrTableName .'`
                 FROM `mysql`.' . $common_functions->backquote($table_search_in)
                . $user_host_condition;
         }
     }
 
     $user_defaults = array(
-        'Table_name'  => '',
-        'Grant_priv'  => 'N',
-        'privs'       => array('USAGE'),
-        'Column_priv' => true,
+        $dbOrTableName  => '',
+        'Grant_priv'    => 'N',
+        'privs'         => array('USAGE'),
+        'Column_priv'   => true,
     );
 
     // for the rights
     $db_rights = array();
 
     $db_rights_sql = '(' . implode(') UNION (', $db_rights_sqls) . ')'
-        .' ORDER BY `Table_name` ASC';
+        .' ORDER BY `' . $dbOrTableName .'` ASC';
 
     $db_rights_result = PMA_DBI_query($db_rights_sql);
 
     while ($db_rights_row = PMA_DBI_fetch_assoc($db_rights_result)) {
         $db_rights_row = array_merge($user_defaults, $db_rights_row);
-        $db_rights[$db_rights_row['Table_name']] = $db_rights_row;
+         if (! isset($dbname)) {
+            // only Db names in the table `mysql`.`db` uses wildcards
+            // as we are in the db specific rights display we want
+            // all db names escaped, also from other sources
+            $db_rights_row['Db'] = $common_functions->escapeMysqlWildcards(
+                $db_rights_row['Db']
+            );
+         }
+        $db_rights[$db_rights_row[$dbOrTableName]] = $db_rights_row;
     }
+
     PMA_DBI_free_result($db_rights_result);
 
-    $sql_query = 'SELECT `Table_name`,'
-        .' `Table_priv`,'
-        .' IF(`Column_priv` = _latin1 \'\', 0, 1)'
-        .' AS \'Column_priv\''
-        .' FROM `mysql`.`tables_priv`'
-        . $user_host_condition
-        .' ORDER BY `Table_name` ASC;';
+    if (! isset($dbname)) {
+        $sql_query = 'SELECT * FROM `mysql`.`db`' . $user_host_condition . ' ORDER BY `Db` ASC';
+    } else {
+        $sql_query = 'SELECT `Table_name`,'
+            .' `Table_priv`,'
+            .' IF(`Column_priv` = _latin1 \'\', 0, 1)'
+            .' AS \'Column_priv\''
+            .' FROM `mysql`.`tables_priv`'
+            . $user_host_condition
+            .' ORDER BY `Table_name` ASC;';
+    }
+
     $result = PMA_DBI_query($sql_query);
     $sql_query = '';
 
     while ($row = PMA_DBI_fetch_assoc($result)) {
-        if (isset($db_rights[$row['Table_name']])) {
-            $db_rights[$row['Table_name']] = array_merge($db_rights[$row['Table_name']], $row);
+        if (isset($db_rights[$row[$dbOrTableName]])) {
+            $db_rights[$row[$dbOrTableName]] = array_merge($db_rights[$row[$dbOrTableName]], $row);
         } else {
-            $db_rights[$row['Table_name']] = $row;
+            $db_rights[$row[$dbOrTableName]] = $row;
+        }
+        if (! isset($dbname)) {
+            // there are db specific rights for this user
+            // so we can drop this db rights
+            $db_rights[$row['Db']]['can_delete'] = true;
         }
     }
-    PMA_DBI_free_result($res);
+    PMA_DBI_free_result($result);
     return $db_rights;
 }
 ?>

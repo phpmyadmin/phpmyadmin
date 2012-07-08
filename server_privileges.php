@@ -1091,75 +1091,13 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
 
             // we also want privielgs for this user not in table `db` but in other table
             $tables = PMA_DBI_fetch_result('SHOW TABLES FROM `mysql`;');
-            if (! isset($dbname)) {
 
-                // no db name given, so we want all privs for the given user
-
-                $tables_to_search_for_users = array(
-                    'tables_priv', 'columns_priv',
-                );
-
-                $db_rights_sqls = array();
-                foreach ($tables_to_search_for_users as $table_search_in) {
-                    if (in_array($table_search_in, $tables)) {
-                        $db_rights_sqls[] = '
-                            SELECT DISTINCT `Db`
-                                   FROM `mysql`.' . $common_functions->backquote($table_search_in)
-                                   . $user_host_condition;
-                    }
-                }
-
-                $user_defaults = array(
-                    'Db'          => '',
-                    'Grant_priv'  => 'N',
-                    'privs'       => array('USAGE'),
-                    'Table_privs' => true,
-                );
-
-                // for the rights
-                $db_rights = array();
-
-                $db_rights_sql = '(' . implode(') UNION (', $db_rights_sqls) . ')'
-                    .' ORDER BY `Db` ASC';
-
-                $db_rights_result = PMA_DBI_query($db_rights_sql);
-
-                while ($db_rights_row = PMA_DBI_fetch_assoc($db_rights_result)) {
-                    $db_rights_row = array_merge($user_defaults, $db_rights_row);
-                    // only Db names in the table `mysql`.`db` uses wildcards
-                    // as we are in the db specific rights display we want
-                    // all db names escaped, also from other sources
-                    $db_rights_row['Db'] = $common_functions->escapeMysqlWildcards(
-                        $db_rights_row['Db']
-                    );
-                    $db_rights[$db_rights_row['Db']] = $db_rights_row;
-                }
-
-                PMA_DBI_free_result($db_rights_result);
-                unset($db_rights_sql, $db_rights_sqls, $db_rights_result, $db_rights_row);
-
-                $sql_query = 'SELECT * FROM `mysql`.`db`' . $user_host_condition . ' ORDER BY `Db` ASC';
-                $res = PMA_DBI_query($sql_query);
-                $sql_query = '';
-
-                while ($row = PMA_DBI_fetch_assoc($res)) {
-                    if (isset($db_rights[$row['Db']])) {
-                        $db_rights[$row['Db']] = array_merge($db_rights[$row['Db']], $row);
-                    } else {
-                        $db_rights[$row['Db']] = $row;
-                    }
-                    // there are db specific rights for this user
-                    // so we can drop this db rights
-                    $db_rights[$row['Db']]['can_delete'] = true;
-                }
-                PMA_DBI_free_result($res);
-                unset($row, $res);
-
-            } else {
-                // db name was given,
-                // so we want all user specific rights for this db
-                $db_rights = PMA_getAllUserSpecificRightsForReleventDb($dbname, $tables);
-            }
+            /**
+             * no db name given, so we want all privs for the given user
+             * db name was given, so we want all user specific rights for this db
+             */
+            $db_rights = PMA_getUserSpecificRights($dbname, $tables, $user_host_condition);
+            
             ksort($db_rights);
 
             // display rows
@@ -1275,17 +1213,14 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
 
         // Provide a line with links to the relevant database and table
         if (isset($dbname) && empty($dbname_is_wildcard)) {
-            $response->addHTML(
-                PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
-            );
+            echo PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename);
+
         }
 
         if (! isset($dbname) && ! $user_does_not_exists) {
             //change login information
             include_once 'libraries/display_change_password.lib.php';
-            $response->addHTML(
-                PMA_changeLoginInformation($username, $hostname)
-            );
+            echo PMA_changeLoginInformation($username, $hostname);
         }
     }
 } elseif (isset($_REQUEST['adduser'])) {
