@@ -1220,7 +1220,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         if (! isset($dbname) && ! $user_does_not_exists) {
             //change login information
             include_once 'libraries/display_change_password.lib.php';
-            echo PMA_changeLoginInformation($username, $hostname);
+            echo PMA_getChangeLoginInformationHtmlForm($username, $hostname);
         }
     }
 } elseif (isset($_REQUEST['adduser'])) {

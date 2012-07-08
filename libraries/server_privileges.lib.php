@@ -1651,14 +1651,14 @@ function PMA_getExtraDataForAjaxBehavior( $password, $sql_query,$link_edit,
 }
 
 /**
- * Get the HTML snippet for chane user login information 
+ * Get the HTML snippet for change user login information 
  * 
  * @param string $username  username
  * @param string $hostname  host name
  * 
  * @return string HTML snippet
  */
-function PMA_changeLoginInformation($username, $hostname)
+function PMA_getChangeLoginInformationHtmlForm($username, $hostname)
 {
     $choices = array(
         '4' => __('... keep the old one.'),
