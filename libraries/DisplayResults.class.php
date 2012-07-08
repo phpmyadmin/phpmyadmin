@@ -168,30 +168,13 @@ class PMA_DisplayResults
      * 
      * @param string $property name of the property
      * @param        $value    value to set
-     * 
-     * @return PMA_DisplayResults 
      */
     public function __set($property, $value) {
         
         if (property_exists($this, $property)) {
             $this->$property = $value;
         }
-
-        return $this;
         
-    }
-    
-    
-    /**
-     * Set CommmonFunctions
-     * 
-     * @param PMA_CommonFunctions $commonFunctions
-     * 
-     * @return void
-     */
-    public function setCommonFunctions(PMA_CommonFunctions $commonFunctions)
-    {
-        $this->_common_functions = $commonFunctions;
     }
     
     
@@ -270,7 +253,7 @@ class PMA_DisplayResults
         $unlim_num_rows = $this->__get('_unlim_num_rows');
         $fields_meta = $this->__get('_fields_meta');
         $printview = $this->__get('_printview');
-        
+//var_dump($the_disp_mode);echo "-----<br/>";  var_dump($the_total);echo "-----<br/>";
         // 1. Initializes the $do_display array
         $do_display              = array();
         $do_display['edit_lnk']  = $the_disp_mode[0] . $the_disp_mode[1];
@@ -423,7 +406,7 @@ class PMA_DisplayResults
 
         // 5. Updates the synthetic var
         $the_disp_mode = join('', $do_display);
-
+//echo "****<br/>";var_dump($do_display);echo "<br/>****";
         return $do_display;
 
     } // end of the 'setDisplayMode()' function
