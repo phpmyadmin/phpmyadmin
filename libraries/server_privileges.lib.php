@@ -1819,4 +1819,88 @@ function PMA_getUserSpecificRights($dbname, $tables, $user_host_condition)
     PMA_DBI_free_result($result);
     return $db_rights;
 }
+
+/**
+ * Display user rights in table rows(Table specific or database specific privs)
+ * 
+ * @param array $db_rights   user's database rights array
+ * @param string $link_edit   standard link to edit privileges
+ * @param string $link_revoke standard link to revoke
+ * @param string $hostname    host name
+ * @param string $username    username
+ * 
+ * @return array $found_rows, $html_output
+ */
+function PMA_displayUserRightsInRaws($db_rights, $link_edit,
+    $link_revoke, $hostname, $username
+) {
+    if (PMA_isValid($_REQUEST['pred_dbname'])) {
+        $dbname = $_REQUEST['pred_dbname'];
+    } elseif (PMA_isValid($_REQUEST['dbname'])) {
+        $dbname = $_REQUEST['dbname'];
+    }
+    
+    // display rows
+    if (count($db_rights) < 1) {
+        $html_output = '<tr class="odd">' . "\n"
+           . '<td colspan="6"><center><i>' . __('None') . '</i></center></td>' . "\n"
+           . '</tr>' . "\n";
+    } else {
+        $odd_row = true;
+        $found_rows = array();
+        //while ($row = PMA_DBI_fetch_assoc($res)) {
+        foreach ($db_rights as $row) {
+            $found_rows[] = (! isset($dbname)) ? $row['Db'] : $row['Table_name'];
+
+            $html_output = '<tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n"
+                . '<td>'  
+                . htmlspecialchars((! isset($dbname))
+                    ? $row['Db']
+                    : $row['Table_name'])
+                . '</td>' . "\n"
+                . '<td><code>' . "\n"
+                . '        ' . join(',' . "\n" . '            ', PMA_extractPrivInfo($row, true)) . "\n"
+                . '</code></td>' . "\n"
+                . '<td>' 
+                    . ((((! isset($dbname)) && $row['Grant_priv'] == 'Y')
+                        || (isset($dbname) && in_array('Grant', explode(',', $row['Table_priv']))))
+                    ? __('Yes')
+                    : __('No'))
+                . '</td>' . "\n"
+                . '<td>';
+            if (! empty($row['Table_privs']) || ! empty ($row['Column_priv'])) {
+                $html_output .= __('Yes');
+            } else {
+                $html_output .= __('No');
+            }
+            $html_output .= '</td>' . "\n"
+               . '<td>';
+            $html_output .= sprintf(
+                $link_edit,
+                htmlspecialchars(urlencode($username)),
+                urlencode(htmlspecialchars($hostname)),
+                urlencode((! isset($dbname)) ? $row['Db'] : htmlspecialchars($dbname)),
+                urlencode((! isset($dbname)) ? '' : $row['Table_name'])
+            );
+            $html_output .= '</td>' . "\n"
+               . '    <td>';
+            if (! empty($row['can_delete'])
+                || isset($row['Table_name'])
+                && strlen($row['Table_name'])
+            ) {
+                $html_output .= sprintf(
+                    $link_revoke,
+                    htmlspecialchars(urlencode($username)),
+                    urlencode(htmlspecialchars($hostname)),
+                    urlencode((! isset($dbname)) ? $row['Db'] : htmlspecialchars($dbname)),
+                    urlencode((! isset($dbname)) ? '' : $row['Table_name'])
+                );
+            }
+            $html_output .= '</td>' . "\n"
+               . '</tr>' . "\n";
+            $odd_row = ! $odd_row;
+        } // end while
+    } //end if
+    return array($found_rows, $html_output);
+}
 ?>

@@ -1101,54 +1101,11 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             ksort($db_rights);
 
             // display rows
-            if (count($db_rights) < 1) {
-                echo '<tr class="odd">' . "\n"
-                   . '    <td colspan="6"><center><i>' . __('None') . '</i></center></td>' . "\n"
-                   . '</tr>' . "\n";
-            } else {
-                $odd_row = true;
-                $found_rows = array();
-                //while ($row = PMA_DBI_fetch_assoc($res)) {
-                foreach ($db_rights as $row) {
-                    $found_rows[] = (! isset($dbname)) ? $row['Db'] : $row['Table_name'];
-
-                    echo '<tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n"
-                       . '    <td>' . htmlspecialchars((! isset($dbname)) ? $row['Db'] : $row['Table_name']) . '</td>' . "\n"
-                       . '    <td><code>' . "\n"
-                       . '        ' . join(',' . "\n" . '            ', PMA_extractPrivInfo($row, true)) . "\n"
-                       . '        </code></td>' . "\n"
-                       . '    <td>' . ((((! isset($dbname)) && $row['Grant_priv'] == 'Y') || (isset($dbname) && in_array('Grant', explode(',', $row['Table_priv'])))) ? __('Yes') : __('No')) . '</td>' . "\n"
-                       . '    <td>';
-                    if (! empty($row['Table_privs']) || ! empty ($row['Column_priv'])) {
-                        echo __('Yes');
-                    } else {
-                        echo __('No');
-                    }
-                    echo '</td>' . "\n"
-                       . '    <td>';
-                    printf(
-                        $link_edit,
-                        htmlspecialchars(urlencode($username)),
-                        urlencode(htmlspecialchars($hostname)),
-                        urlencode((! isset($dbname)) ? $row['Db'] : htmlspecialchars($dbname)),
-                        urlencode((! isset($dbname)) ? '' : $row['Table_name'])
-                    );
-                    echo '</td>' . "\n"
-                       . '    <td>';
-                    if (! empty($row['can_delete']) || isset($row['Table_name']) && strlen($row['Table_name'])) {
-                        printf(
-                            $link_revoke,
-                            htmlspecialchars(urlencode($username)),
-                            urlencode(htmlspecialchars($hostname)),
-                            urlencode((! isset($dbname)) ? $row['Db'] : htmlspecialchars($dbname)),
-                            urlencode((! isset($dbname)) ? '' : $row['Table_name'])
-                        );
-                    }
-                    echo '</td>' . "\n"
-                       . '</tr>' . "\n";
-                    $odd_row = ! $odd_row;
-                } // end while
-            }
+            list ($found_rows, $html_output) =  PMA_displayUserRightsInRaws(
+                $db_rights, $link_edit, $link_revoke, $hostname, $username
+            );
+            
+            echo $html_output;
             unset($row);
             echo '</tbody>' . "\n"
                . '</table>' . "\n";
