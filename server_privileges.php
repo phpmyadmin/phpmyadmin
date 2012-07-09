@@ -833,8 +833,15 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                 exit;
             }
 
-            $flushnote = new PMA_Message(__('Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of these tables may differ from the privileges the server uses, if they have been changed manually. In this case, you should %sreload the privileges%s before you continue.'), PMA_Message::NOTICE);
-            $flushnote->addParam('<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;flush_privileges=1" id="reload_privileges_anchor" class="' . $conditional_class . '">', false);
+            $flushnote = new PMA_Message(
+                __('Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of these tables may differ from the privileges the server uses, if they have been changed manually. In this case, you should %sreload the privileges%s before you continue.')
+                , PMA_Message::NOTICE
+            );
+            $flushnote->addParam(
+                '<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;'
+                    . 'flush_privileges=1" id="reload_privileges_anchor" '
+                    . 'class="' . $conditional_class . '">',
+                false);
             $flushnote->addParam('</a>', false);
             $flushnote->display();
         }
