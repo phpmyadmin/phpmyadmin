@@ -806,35 +806,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
              * Also not necassary if there is less than 20 privileges
              */
             if ($GLOBALS['is_ajax_request'] != true && PMA_DBI_num_rows($res) > 20 ) {
-
-                // initialize to false the letters A-Z
-                for ($letter_counter = 1; $letter_counter < 27; $letter_counter++) {
-                    if (! isset($array_initials[chr($letter_counter + 64)])) {
-                        $array_initials[chr($letter_counter + 64)] = false;
-                    }
-                }
-
-                $initials = PMA_DBI_try_query('SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user` ORDER BY `User` ASC', null, PMA_DBI_QUERY_STORE);
-                while (list($tmp_initial) = PMA_DBI_fetch_row($initials)) {
-                    $array_initials[$tmp_initial] = true;
-                }
-
-                // Display the initials, which can be any characters, not
-                // just letters. For letters A-Z, we add the non-used letters
-                // as greyed out.
-
-                uksort($array_initials, "strnatcasecmp");
-
-                echo '<table id="initials_table" class="' . $conditional_class . '" <cellspacing="5"><tr>';
-                foreach ($array_initials as $tmp_initial => $initial_was_found) {
-                    if ($initial_was_found) {
-                        echo '<td><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;initial=' . urlencode($tmp_initial) . '">' . $tmp_initial . '</a></td>' . "\n";
-                    } else {
-                        echo '<td>' . $tmp_initial . '</td>';
-                    }
-                }
-                echo '<td><a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;showall=1" class="nowrap">[' . __('Show all') . ']</a></td>' . "\n";
-                echo '</tr></table>';
+                echo PMA_getHtmlForDisplayTheInitials($array_initials, $conditional_class);
             }
 
             /**

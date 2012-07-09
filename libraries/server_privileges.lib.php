@@ -2256,4 +2256,56 @@ function PMA_getFieldsetForAddDeleteUser($conditional_class)
     return $html_output;
 }
 
+/**
+ * Get HTML for Displays the initials
+ * 
+ * @param array $array_initials     array for all initials, even non A-Z
+ * @param string $conditional_class if ajaxable 'Ajax' otherwise ''
+ * 
+ * @return string HTML snippet
+ */
+function PMA_getHtmlForDisplayTheInitials($array_initials, $conditional_class)
+{
+    // initialize to false the letters A-Z
+    for ($letter_counter = 1; $letter_counter < 27; $letter_counter++) {
+        if (! isset($array_initials[chr($letter_counter + 64)])) {
+            $array_initials[chr($letter_counter + 64)] = false;
+        }
+    }
+
+    $initials = PMA_DBI_try_query(
+        'SELECT DISTINCT UPPER(LEFT(`User`,1)) FROM `user` ORDER BY `User` ASC',
+        null,
+        PMA_DBI_QUERY_STORE
+    );
+    while (list($tmp_initial) = PMA_DBI_fetch_row($initials)) {
+        $array_initials[$tmp_initial] = true;
+    }
+
+    // Display the initials, which can be any characters, not
+    // just letters. For letters A-Z, we add the non-used letters
+    // as greyed out.
+
+    uksort($array_initials, "strnatcasecmp");
+
+    $html_output = '<table id="initials_table" class="' . $conditional_class . '" <cellspacing="5">'
+        . '<tr>';
+    foreach ($array_initials as $tmp_initial => $initial_was_found) {
+        if ($initial_was_found) {
+            $html_output .= '<td>'
+                . '<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;'
+                . 'initial=' . urlencode($tmp_initial) . '">' . $tmp_initial . '</a>'
+                . '</td>' . "\n";
+        } else {
+            $html_output .= '<td>' . $tmp_initial . '</td>';
+        }
+    }
+    $html_output .= '<td>'
+        . '<a href="server_privileges.php?' . $GLOBALS['url_query'] . '&amp;showall=1" '
+        . 'class="nowrap">[' . __('Show all') . ']</a></td>' . "\n";
+    $html_output .= '</tr></table>';
+    
+    return $html_output;
+}
+
 ?>
