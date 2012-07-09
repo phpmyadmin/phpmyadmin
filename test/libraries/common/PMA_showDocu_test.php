@@ -12,6 +12,7 @@
  */
 require_once 'libraries/CommonFunctions.class.php';
 require_once 'libraries/Theme.class.php';
+require_once 'libraries/php-gettext/gettext.inc';
 
 class PMA_showDocu_test extends PHPUnit_Framework_TestCase
 {
