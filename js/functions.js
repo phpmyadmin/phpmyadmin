@@ -3187,12 +3187,26 @@ AJAX.registerOnload('functions.js', function() {
         if ($(this).closest("div#pma_navigation").length == 0) {
             $(this).closest("form").submit();
         } else {
+            var $this = $(this);
             var $msgbox = PMA_ajaxShowMessage();
-            var params = $(this).closest("form").serialize() + '&ajax_request=true&full=true';
+            var isDbSelector = $this.closest('.pageselector').is('.dbselector');
+            var params = $(this).closest("form").serialize() + '&ajax_request=true';
+            if (isDbSelector) {
+                params += '&full=true';
+            }
             $.get('navigation.php', params, function (data) {
-                PMA_ajaxRemoveMessage($msgbox);
                 if (data.success) {
-                    $('#pma_navigation_tree').html(data.message).children('div').show();
+                    PMA_ajaxRemoveMessage($msgbox);
+                    if (isDbSelector) {
+                        $('#pma_navigation_tree').html(data.message).children('div').show();
+                    } else {
+                        var $parent = $this.closest('.list_container').parent();
+                        $this.closest('.list_container').remove();
+                        $parent.append(data.message).children('div').show();
+                        $parent.find('span.pos2:first').text($parent.find('span.pos2:last').text());
+                    }
+                } else {
+                    PMA_ajaxShowMessage(data.error);
                 }
             });
         }

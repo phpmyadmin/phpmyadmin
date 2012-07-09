@@ -89,6 +89,8 @@ class Node {
 
     public $classes = '';
 
+    public $pos2 = 0;
+
     /**
      * @var object A reference to the common functions object
      */
@@ -318,7 +320,7 @@ class Node {
     /**
      * TODO: comment
      */
-    public function getData($pos)
+    public function getData($type, $pos)
     {
         $query  = "SELECT `SCHEMA_NAME` ";
         $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";

@@ -109,7 +109,9 @@ class PMA_Navigation {
                 $_url_params,
                 'navigation.php',
                 'frame_navigation',
-                $GLOBALS['cfg']['MaxDbList']
+                $GLOBALS['cfg']['MaxDbList'],
+                'pos',
+                array('dbselector')
             );
             $treeRender = $tree->renderState();
         } else {

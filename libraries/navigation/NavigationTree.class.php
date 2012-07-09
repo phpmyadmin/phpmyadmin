@@ -35,6 +35,12 @@ class PMA_NavigationTree {
     private $pos;
 
     /**
+     * @var int Positions of nodes in the list of tables, views, routines or events
+     *          used for pagination
+     */
+    private $pos2 = array();
+
+    /**
      * @var object A reference to the common functions object
      */
     private $_commonFunctions;
@@ -56,12 +62,14 @@ class PMA_NavigationTree {
         // Get the active node
         if (isset($_REQUEST['a_path'])) {
             $this->a_path[0] = $this->parsePath($_REQUEST['a_path']);
+            $this->pos2[0] = $_REQUEST['pos2'];
         } else if (isset($_REQUEST['a_path_0'])) {
             $count = 0;
             while (isset($_REQUEST['a_path_' . $count])) {
                 $this->a_path[$count] = $this->parsePath(
                     $_REQUEST['a_path_' . $count]
                 );
+                $this->pos2[$count] = $_REQUEST['pos2_' . $count];
                 $count++;
             }
         }
@@ -111,15 +119,15 @@ class PMA_NavigationTree {
         $retval = $this->tree;
 
         // Add all databases unconditionally
-        foreach ($this->tree->getData($this->pos) as $db) {
+        foreach ($this->tree->getData('', $this->pos) as $db) {
             $node = new Node_Database($db);
             $this->tree->addChild($node);
         }
 
         // Whether build other parts of the tree depends
         // on whether we have any paths in $this->a_path
-        foreach ($this->a_path as $path) {
-            $retval = $this->buildPathPart($path, $retval);
+        foreach ($this->a_path as $key => $path) {
+            $retval = $this->buildPathPart($path, $this->pos2[$key]);
         }
         return $retval;
     }
@@ -132,7 +140,7 @@ class PMA_NavigationTree {
      *
      * @return Node|false The active node or false in case of failure
      */
-    private function buildPathPart($path)
+    private function buildPathPart($path, $pos2)
     {
         if (count($path) > 1) {
             array_shift($path); // remove 'root'
@@ -143,7 +151,7 @@ class PMA_NavigationTree {
                 return false;
             }
 
-            $containers = $this->addDbContainers($db);
+            $containers = $this->addDbContainers($db, $pos2);
 
             array_shift($path); // remove db
 
@@ -159,7 +167,7 @@ class PMA_NavigationTree {
                 $retval = $container;
 
                 if (count($container->children) <= 1) {
-                    foreach ($db->getData($container->real_name) as $item) {
+                    foreach ($db->getData($container->real_name, $pos2) as $item) {
                         switch ($container->real_name) {
                         case 'events':
                             $node = new Node_Event($item);
@@ -180,6 +188,7 @@ class PMA_NavigationTree {
                             break;
                         }
                         if (isset($node)) {
+                            $node->pos2 = $pos2;
                             $container->addChild($node);
                         }
                     }
@@ -194,7 +203,7 @@ class PMA_NavigationTree {
                             return false;
                         }
                         $retval = $table;
-                        $containers = $this->addTableContainers($table);
+                        $containers = $this->addTableContainers($table, $pos2);
                         array_shift($path); // remove table
                         if (count($path) > 0 && array_key_exists($path[0], $containers)) {
                             $container = $table->getChild($path[0], true);
@@ -236,7 +245,7 @@ class PMA_NavigationTree {
      *
      * @return array An array of new nodes
      */
-    private function addTableContainers($table)
+    private function addTableContainers($table, $pos2)
     {
         $retval = array();
         if ($table->hasChildren(true) == 0) {
@@ -251,6 +260,7 @@ class PMA_NavigationTree {
             }
             // Add all new Nodes to the tree
             foreach ($retval as $node) {
+                $node->pos2 = $pos2;
                 $table->addChild($node);
             }
         } else {
@@ -272,7 +282,7 @@ class PMA_NavigationTree {
      *
      * @return array An array of new nodes
      */
-    private function addDbContainers($db)
+    private function addDbContainers($db, $pos2)
     {
         $retval = array();
         if ($db->hasChildren(true) == 0) {
@@ -293,6 +303,7 @@ class PMA_NavigationTree {
             }
             // Add all new Nodes to the tree
             foreach ($retval as $node) {
+                $node->pos2 = $pos2;
                 $db->addChild($node);
             }
         } else {
@@ -445,6 +456,12 @@ class PMA_NavigationTree {
                 // fast filter
                 $retval .= $this->fastFilterHtml();
             }
+
+
+            if ($node->real_name == 'tables') {
+                $retval .= $this->getPageSelector($node);
+            }
+
             $children = $node->children;
             usort($children, array('PMA_NavigationTree', 'sortNode'));
             for ($i=0; $i<count($children); $i++) {
@@ -488,20 +505,7 @@ class PMA_NavigationTree {
             if (($GLOBALS['is_ajax_request'] || $hasChildren || $GLOBALS['cfg']['LeftFrameLight'])
                 && ! in_array($node->parent->real_name, $sterile) && ! preg_match('/^' . __('New') . '/', $node->real_name)
             ) {
-                $a_path = array();
-                $a_path_clean = array();
-                foreach ($node->parents(true, true, false) as $parent) {
-                    $a_path[] = base64_encode($parent->real_name);
-                    $a_path_clean[] = $parent->real_name;
-                }
-                $a_path = implode('.', array_reverse($a_path));
-                $a_path_clean = array_reverse($a_path_clean);
-
-                $v_path = array();
-                foreach ($node->parents(true, true, true) as $parent) {
-                    $v_path[] = base64_encode($parent->name);
-                }
-                $v_path = implode('.', array_reverse($v_path));
+                $paths = $this->getPaths($node);
 
                 $loaded = '';
                 if ($node->is_group || $GLOBALS['cfg']['LeftFrameLight'] != true) {
@@ -520,7 +524,7 @@ class PMA_NavigationTree {
                 $icon = $this->_commonFunctions->getImage('b_plus.png');
                 foreach ($this->a_path as $path) {
                     $match = 1;
-                    foreach ($a_path_clean as $key => $part) {
+                    foreach ($paths['a_path_clean'] as $key => $part) {
                         if (! isset($path[$key]) || $part != $path[$key]) {
                             $match = 0;
                         }
@@ -533,9 +537,10 @@ class PMA_NavigationTree {
                 }
 
                 $retval .= "<a class='expander$loaded$container' target='_self' href='#'>";
-                $retval .= "<span class='hide a_path'>" . $a_path . "</span>";
-                $retval .= "<span class='hide v_path'>" . $v_path . "</span>";
+                $retval .= "<span class='hide a_path'>" . $paths['a_path'] . "</span>";
+                $retval .= "<span class='hide v_path'>" . $paths['v_path'] . "</span>";
                 $retval .= "<span class='hide pos'>" . $this->pos . "</span>";
+                $retval .= "<span class='hide pos2'>" . $node->pos2 . "</span>";
                 $retval .= $icon;
 
                 $retval .= "</a>";
@@ -610,6 +615,9 @@ class PMA_NavigationTree {
                 ) {
                     $retval .= $this->fastFilterHtml();
                 }
+                if ($node->real_name == 'tables') {
+                    $retval .= $this->getPageSelector($node);
+                }
                 $retval .= $buffer;
                 if ($wrap) {
                     $retval .= $indent . "  </ul></div>\n" . $indent;
@@ -618,6 +626,35 @@ class PMA_NavigationTree {
         }
         $retval .= "</li>\n";
         return $retval;
+    }
+
+    /**
+     * Returns the actual path and the virtual paths for a node
+     *
+     * @return array
+     */
+    private function getPaths($node)
+    {
+        $a_path = array();
+        $a_path_clean = array();
+        foreach ($node->parents(true, true, false) as $parent) {
+            $a_path[] = base64_encode($parent->real_name);
+            $a_path_clean[] = $parent->real_name;
+        }
+        $a_path = implode('.', array_reverse($a_path));
+        $a_path_clean = array_reverse($a_path_clean);
+
+        $v_path = array();
+        foreach ($node->parents(true, true, true) as $parent) {
+            $v_path[] = base64_encode($parent->name);
+        }
+        $v_path = implode('.', array_reverse($v_path));
+
+        return array(
+            'a_path' => $a_path,
+            'a_path_clean' => $a_path_clean,
+            'v_path' => $v_path
+        );
     }
 
     /**
@@ -651,6 +688,40 @@ class PMA_NavigationTree {
         $retval .= "<span title='" . __('Clear Fast Filter') . "'>X</span>";
         $retval .= "</li>";
         return $retval;
+    }
+
+    /**
+     * Generates the HTML code for displaying the list pagination
+     *
+     * @return string
+     */
+    private function getPageSelector($node)
+    {
+        $paths = $this->getPaths($node);
+        $_url_params = array(
+            'a_path' => $paths['a_path'],
+            'v_path' => $paths['v_path'],
+            'pos' => $this->pos,
+            'server' => $GLOBALS['server']
+        );
+        $db = $this->_commonFunctions->sqlAddSlashes(
+            $node->realParent()->real_name
+        );
+        $num_tbl = PMA_DBI_fetch_value(
+            "SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`TABLES` "
+            . "WHERE TABLE_TYPE = 'Base Table' "
+            . "AND TABLE_SCHEMA = '" . $db . "'"
+        );
+
+        return $this->_commonFunctions->getListNavigator(
+            $num_tbl,
+            $node->pos2,
+            $_url_params,
+            'navigation.php',
+            'frame_navigation',
+            $GLOBALS['cfg']['MaxTableList'],
+            'pos2'
+        );
     }
 
     /**

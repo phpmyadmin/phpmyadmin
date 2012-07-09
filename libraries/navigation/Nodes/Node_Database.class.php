@@ -100,7 +100,7 @@ class Node_Database extends Node {
         return $retval;
     }
 
-    public function getData($type)
+    public function getData($type, $pos)
     {
         $retval = array();
         $db = $this->real_name;
@@ -112,7 +112,8 @@ class Node_Database extends Node {
                 $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
                 $query .= "WHERE `TABLE_SCHEMA`='$db' ";
                 $query .= "AND `TABLE_TYPE`='BASE TABLE'";
-                $query .= "ORDER BY `TABLE_NAME` ASC";
+                $query .= "ORDER BY `TABLE_NAME` ASC ";
+                $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxTableList']}";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $db     = $this->_commonFunctions->backquote($db);
@@ -120,8 +121,13 @@ class Node_Database extends Node {
                 $query .= "WHERE `Table_type`='BASE TABLE'";
                 $handle = PMA_DBI_try_query($query);
                 if ($handle !== false) {
+                    $count  = 0;
                     while ($arr = PMA_DBI_fetch_array($handle)) {
-                        $retval[] = $arr[0];
+                        if ($pos <= 0 && $count < $GLOBALS['cfg']['MaxTableList']) {
+                            $retval[] = $arr[0];
+                            $count++;
+                        }
+                        $pos--;
                     }
                 }
             }

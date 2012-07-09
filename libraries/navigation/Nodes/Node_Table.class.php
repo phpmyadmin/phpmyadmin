@@ -68,7 +68,7 @@ class Node_Table extends Node {
         return $retval;
     }
 
-    public function getData($type)
+    public function getData($type, $pos = 0)
     {
         $retval = array();
         $db = $this->realParent()->real_name;

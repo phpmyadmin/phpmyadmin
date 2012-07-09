@@ -2401,6 +2401,7 @@ class PMA_Util
     /**
      * Generate a pagination selector for browsing resultsets
      *
+     * @param string $name        The name for the request parameter
      * @param int    $rows        Number of rows in the pagination set
      * @param int    $pageNow     current page number
      * @param int    $nbTotalPage number of total pages
@@ -2420,7 +2421,7 @@ class PMA_Util
      * @access  public
      */
     public static function pageselector(
-        $rows, $pageNow = 1, $nbTotalPage = 1, $showAll = 200, $sliceStart = 5,
+        $name, $rows, $pageNow = 1, $nbTotalPage = 1, $showAll = 200, $sliceStart = 5,
         $sliceEnd = 5, $percent = 20, $range = 10, $prompt = ''
     ) {
         $increment = floor($nbTotalPage / $percent);
@@ -2432,7 +2433,7 @@ class PMA_Util
             $gotopage .= ' class="ajax"';
         }
 
-        $gotopage .= ' name="pos" >' . "\n";
+        $gotopage .= ' name="' . $name . '" >';
         if ($nbTotalPage < $showAll) {
             $pages = range(1, $nbTotalPage);
         } else {
@@ -2544,6 +2545,8 @@ class PMA_Util
      * @param string $script      script name for form target
      * @param string $frame       target frame
      * @param int    $max_count   maximum number of elements to display from the list
+     * @param string $name        the name for the request parameter
+     * @param array  $classes     additional classes for the container
      *
      * @return string $list_navigator_html the  html content
      *
@@ -2552,7 +2555,7 @@ class PMA_Util
      * @todo    use $pos from $_url_params
      */
     public static function getListNavigator(
-        $count, $pos, $_url_params, $script, $frame, $max_count
+        $count, $pos, $_url_params, $script, $frame, $max_count, $name = 'pos', $classes = array()
     ) {
 
         $class = $frame == 'frame_navigation' ? ' class="ajax"' : '';
@@ -2561,7 +2564,8 @@ class PMA_Util
 
         if ($max_count < $count) {
 
-            $list_navigator_html .= '<div class="pageselector">';
+            $classes[] = 'pageselector';
+            $list_navigator_html .= '<div class="' . implode(' ', $classes) . '">';
 
             if ($frame != 'frame_navigation') {
                 $list_navigator_html .= __('Page number:');
@@ -2583,11 +2587,11 @@ class PMA_Util
                     $title2   = '';
                 } // end if... else...
 
-                $_url_params['pos'] = 0;
+                $_url_params[$name] = 0;
                 $list_navigator_html .= '<a' . $class . $title1 . ' href="' . $script
                     . PMA_generate_common_url($_url_params) . '">' . $caption1 . '</a>';
 
-                $_url_params['pos'] = $pos - $max_count;
+                $_url_params[$name] = $pos - $max_count;
                 $list_navigator_html .= '<a' . $class . $title2 . ' href="' . $script
                     . PMA_generate_common_url($_url_params) . '">' . $caption2 . '</a>';
             }
@@ -2597,6 +2601,7 @@ class PMA_Util
 
             $list_navigator_html .= PMA_generate_common_hidden_inputs($_url_params);
             $list_navigator_html .= self::pageselector(
+                $name,
                 $max_count,
                 floor(($pos + 1) / $max_count) + 1,
                 ceil($count / $max_count)
@@ -2616,13 +2621,13 @@ class PMA_Util
                     $title4   = '';
                 } // end if... else...
 
-                $_url_params['pos'] = $pos + $max_count;
+                $_url_params[$name] = $pos + $max_count;
                 $list_navigator_html .= '<a' . $class . $title3 . ' href="' . $script
                     . PMA_generate_common_url($_url_params) . '" >' . $caption3 . '</a>';
 
-                $_url_params['pos'] = floor($count / $max_count) * $max_count;
-                if ($_url_params['pos'] == $count) {
-                    $_url_params['pos'] = $count - $max_count;
+                $_url_params[$name] = floor($count / $max_count) * $max_count;
+                if ($_url_params[$name] == $count) {
+                    $_url_params[$name] = $count - $max_count;
                 }
 
                 $list_navigator_html .= '<a' . $class . $title4 . ' href="' . $script

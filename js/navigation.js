@@ -39,7 +39,8 @@ $(document).ready(function() {
             var params = {
                 a_path: $(this).find('span.a_path').text(),
                 v_path: $(this).find('span.v_path').text(),
-                pos: $(this).find('span.pos').text()
+                pos: $(this).find('span.pos').text(),
+                pos2: $(this).find('span.pos2').text()
             };
             var url = $('#pma_navigation').find('a.navigation_url').attr('href');
             $.get(url, params, function (data) {
@@ -89,8 +90,10 @@ function PMA_reloadNavigation() {
         if ($(this).find('img').is('.ic_b_minus')
             && $(this).closest('li').find('.list_container .ic_b_minus').length == 0
         ) {
-            params['a_path[' + count] = $(this).find('span.a_path').text();
-            params['v_path[' + count] = $(this).find('span.v_path').text();
+            params['a_path_' + count] = $(this).find('span.a_path').text();
+            params['v_path_' + count] = $(this).find('span.v_path').text();
+            params['v_path_' + count] = $(this).find('span.v_path').text();
+            params['pos2_' + count] = $(this).find('span.pos2').text();
             count++;
         }
     });
@@ -382,12 +385,26 @@ $(function(){
     // Ajax handler for database pagination
     $('#pma_navigation_tree div.pageselector a.ajax').live('click', function (event) {
         event.preventDefault();
+        var $this = $(this);
+        var isDbSelector = $this.closest('.pageselector').is('.dbselector');
         var $msgbox = PMA_ajaxShowMessage();
-        var params = {ajax_request: true, full: true};
-        $.get($(this).attr('href'), params, function (data) {
+        var params = {ajax_request: true};
+        if (isDbSelector) {
+            params['full'] = true;
+        }
+
+
+        $.get($this.attr('href'), params, function (data) {
             PMA_ajaxRemoveMessage($msgbox);
             if (data.success) {
-                $('#pma_navigation_tree').html(data.message).children('div').show();
+                if (isDbSelector) {
+                    $('#pma_navigation_tree').html(data.message).children('div').show();
+                } else {
+                    var $parent = $this.closest('.list_container').parent();
+                    $this.closest('.list_container').remove();
+                    $parent.append(data.message).children('div').show();
+                    $parent.find('span.pos2:first').text($parent.find('span.pos2:last').text());
+                }
             } else {
                 PMA_ajaxShowMessage(data.error);
             }
