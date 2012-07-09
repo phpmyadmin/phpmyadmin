@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-07-06 01:37+0200\n"
+"PO-Revision-Date: 2012-07-09 03:26+0200\n"
 "Last-Translator: Nicholas Arnesen <baretester@live.no>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -2413,7 +2413,7 @@ msgstr "per time"
 
 #: libraries/Advisor.class.php:434
 msgid "per day"
-msgstr ""
+msgstr "hver dag"
 
 #: libraries/CommonFunctions.class.php:251
 #, php-format
@@ -2675,11 +2675,11 @@ msgstr "Skriv ut"
 #: libraries/Config.class.php:915
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr ""
+msgstr "Nåværende konfigurasjonsfil (%s) er ikke lesbar."
 
 #: libraries/Config.class.php:945
 msgid "Wrong permissions on configuration file, should not be world writable!"
-msgstr ""
+msgstr "Gale tillatelser på konfigurasjonsfilen, den burde ikke være skrivbar!"
 
 #: libraries/Config.class.php:1521
 msgid "Font size"
@@ -2889,11 +2889,11 @@ msgstr "Link ikke funnet"
 
 #: libraries/Error_Handler.class.php:65
 msgid "Too many error messages, some are not displayed."
-msgstr ""
+msgstr "For mange feilmeldinger, noen vises ikke."
 
 #: libraries/File.class.php:235
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "Filen var ikke en opplastet fil."
 
 #: libraries/File.class.php:273
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
@@ -2938,11 +2938,11 @@ msgstr ""
 
 #: libraries/File.class.php:485
 msgid "Error while moving uploaded file."
-msgstr ""
+msgstr "Feil oppstod imens den opplastede filen ble flyttet."
 
 #: libraries/File.class.php:493
 msgid "Cannot read (moved) upload file."
-msgstr ""
+msgstr "Kan ikke lese (flyttet) opplastet fil."
 
 #: libraries/Footer.class.php:197 libraries/Footer.class.php:201
 #: libraries/Footer.class.php:204
@@ -3123,28 +3123,24 @@ msgstr[0] "%1$d rader innsatt."
 msgstr[1] "%1$d rader innsatt."
 
 #: libraries/PDF.class.php:88
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Tillater lesing av data."
+msgstr "Feil oppstod under oppretting av PDF:"
 
 #: libraries/RecentTable.class.php:112
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not save recent table"
-msgstr "Kunne ikke lagre konfigurasjonen"
+msgstr "Kunne ikke lagre tabell"
 
 #: libraries/RecentTable.class.php:147
-#, fuzzy
 #| msgid "Count tables"
 msgid "Recent tables"
-msgstr "Tell tabeller"
+msgstr "Tidligere tabeller"
 
 #: libraries/RecentTable.class.php:154
-#, fuzzy
 #| msgid "There are no configured servers"
 msgid "There are no recent tables"
-msgstr "Der finnes ingen konfigurerte tjenere"
+msgstr "Det er ikke noen nylig brukte tabeller"
 
 #: libraries/StorageEngine.class.php:214
 msgid ""
@@ -3168,10 +3164,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Denne MySQL tjeneren har ikke støtte for %s lagringsmotoren."
 
 #: libraries/Table.class.php:355
-#, fuzzy
 #| msgid "Show slave status"
 msgid "unknown table status: "
-msgstr "Vis slavestatus"
+msgstr "ukjent tabellstatus: "
 
 #: libraries/Table.class.php:766
 #, fuzzy, php-format
@@ -3347,7 +3342,7 @@ msgstr "Stilsti ble ikke funnet for stilen %s!"
 
 #: libraries/Theme_Manager.class.php:363 themes.php:16 themes.php:21
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 #: libraries/Types.class.php:295
 msgid ""
@@ -3690,10 +3685,9 @@ msgid "Check Privileges"
 msgstr "Kontroller privilegier"
 
 #: libraries/common.inc.php:572
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Failed to read configuration file"
-msgstr "Kunne ikke lagre konfigurasjonen"
+msgstr "Kunne ikke lese konfigurasjonsfilen"
 
 #: libraries/common.inc.php:574
 msgid ""
@@ -3743,7 +3737,7 @@ msgstr ""
 
 #: libraries/common.inc.php:1083
 msgid "possible exploit"
-msgstr ""
+msgstr "mulig sikkerhetshull"
 
 #: libraries/common.inc.php:1092
 msgid "numeric key detected"
@@ -7463,7 +7457,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:42
 msgid "Failed to use Blowfish from mcrypt!"
-msgstr ""
+msgstr "Kunne ikke bruke Blowfish fra mcrypt!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:81
 msgid "Your session has expired. Please login again."
@@ -7518,10 +7512,9 @@ msgid "Wrong username/password. Access denied."
 msgstr "Ugyldig brukernavn/passord. Ingen tilgang."
 
 #: libraries/plugins/auth/AuthenticationSignon.class.php:102
-#, fuzzy
 #| msgid "Config authentication"
 msgid "Can not find signon authentication script:"
-msgstr "Konfigurer vertsautentisering"
+msgstr "Kunne ikke finne signon autentiseringsscriptet:"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:132
 #, php-format
