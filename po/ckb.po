@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-05-26 20:03+0200\n"
-"Last-Translator: Aso Naderi <aso.naderi@gmail.com>\n"
+"PO-Revision-Date: 2012-07-04 20:30+0200\n"
+"Last-Translator: Hunar kirkuk <huner.kurdish@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ckb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.0\n"
+"X-Generator: Weblate 1.1\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:609 server_privileges.php:1851
@@ -777,9 +777,9 @@ msgid "Bad parameters!"
 msgstr ""
 
 #: export.php:196 export.php:227 export.php:781
-#, php-format
+#, php-format, fuzzy
 msgid "Insufficient space to save the file %s."
-msgstr ""
+msgstr "پاشکەوتکردنی فایل وەک"
 
 #: export.php:362
 #, php-format
@@ -799,7 +799,7 @@ msgstr ""
 
 #: file_echo.php:21
 msgid "Invalid export type"
-msgstr ""
+msgstr "هەناردنی ئەم جۆرە ڕێگەپێدراو نییە"
 
 #: gis_data_editor.php:75
 #, php-format
@@ -919,7 +919,7 @@ msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
-msgstr ""
+msgstr "هێنان"
 
 #: import.php:412
 msgid ""
@@ -1025,7 +1025,7 @@ msgstr ""
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:48
 msgid "Total count"
-msgstr ""
+msgstr "تێکڕای گشتی"
 
 #: js/messages.php:51
 msgid "The host name is empty!"
@@ -1040,8 +1040,9 @@ msgid "The password is empty!"
 msgstr "وشەی نهێنی بەتاڵە!"
 
 #: js/messages.php:54 server_privileges.php:1446 user_password.php:112
+#, fuzzy
 msgid "The passwords aren't the same!"
-msgstr ""
+msgstr "وشە نهێنیەکان وەک خۆیان نین"
 
 #: js/messages.php:55 server_privileges.php:1965 server_privileges.php:1989
 #: server_privileges.php:2405 server_privileges.php:2601
@@ -2279,20 +2280,20 @@ msgstr ""
 
 #: libraries/Advisor.class.php:425 server_status.php:972
 msgid "per second"
-msgstr ""
+msgstr "لە چرکەیەک دا"
 
 #: libraries/Advisor.class.php:428 server_status.php:967
 msgid "per minute"
-msgstr ""
+msgstr "لە خولەکێک دا"
 
 #: libraries/Advisor.class.php:431 server_status.php:963 server_status.php:999
 #: server_status.php:1129 server_status.php:1192
 msgid "per hour"
-msgstr ""
+msgstr "لە کاتژمێرێکدا"
 
 #: libraries/Advisor.class.php:434
 msgid "per day"
-msgstr ""
+msgstr "لە ڕؤژێکدا"
 
 #: libraries/CommonFunctions.class.php:251
 #, php-format
@@ -2305,7 +2306,7 @@ msgstr ""
 #: libraries/display_export.lib.php:248 libraries/engines/pbxt.lib.php:114
 #: libraries/relation.lib.php:90 main.php:249 server_variables.php:130
 msgid "Documentation"
-msgstr ""
+msgstr "به‌ڵگه‌سازی"
 
 #. l10n: Please check that translation actually exists.
 #: libraries/CommonFunctions.class.php:534
@@ -2330,12 +2331,12 @@ msgstr "en"
 #: libraries/insert_edit.lib.php:1195 tbl_operations.php:232
 #: tbl_relation.php:292 view_operations.php:55
 msgid "Error"
-msgstr ""
+msgstr "هەڵە"
 
 #: libraries/CommonFunctions.class.php:683 server_status.php:613
 #: server_status.php:1295 sql.php:969
 msgid "SQL query"
-msgstr ""
+msgstr "داواکاری SQL"
 
 #: libraries/CommonFunctions.class.php:727
 #: libraries/rte/rte_events.lib.php:105 libraries/rte/rte_events.lib.php:110
@@ -6212,7 +6213,7 @@ msgstr ""
 #: libraries/display_select_lang.lib.php:52
 #: libraries/display_select_lang.lib.php:53 setup/frames/index.inc.php:75
 msgid "Language"
-msgstr ""
+msgstr "زمان"
 
 #: libraries/engines/bdb.lib.php:25 main.php:248
 msgid "Version information"
@@ -7142,7 +7143,7 @@ msgstr ""
 #: libraries/plugins/export/ExportSql.class.php:703
 #: libraries/plugins/export/ExportXml.class.php:200
 msgid "Server version"
-msgstr ""
+msgstr "وەشانی ڕاژە"
 
 #: libraries/plugins/export/ExportLatex.class.php:231
 #: libraries/plugins/export/ExportSql.class.php:705

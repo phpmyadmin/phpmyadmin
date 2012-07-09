@@ -14,6 +14,8 @@ require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/Theme_Manager.class.php';
+require_once 'libraries/Config.class.php';
+require_once 'libraries/core.lib.php';
 
 class PMA_Theme_Manager_test extends PHPUnit_Framework_TestCase
 {
@@ -25,6 +27,7 @@ class PMA_Theme_Manager_test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $GLOBALS['server'] = 99;
         $_SESSION[' PMA_token '] = 'token';
+        $GLOBALS['PMA_Config'] = new PMA_Config();
     }
 
     public function testCookieName()
@@ -44,6 +47,59 @@ class PMA_Theme_Manager_test extends PHPUnit_Framework_TestCase
     {
         $tm = new PMA_Theme_Manager();
         $this->assertContains('<option value="pmahomme" selected="selected">', $tm->getHtmlSelectBox());
+    }
+
+    /**
+     * Test for setThemeCookie
+     */
+    public function testSetThemeCookie(){
+        $tm = new PMA_Theme_Manager();
+        $this->assertTrue(
+            $tm->setThemeCookie()
+        );
+    }
+
+    /**
+     * Test for checkConfig
+     */
+    public function testCheckConfig(){
+        $tm = new PMA_Theme_Manager();
+        $this->assertNull(
+            $tm->checkConfig()
+        );
+    }
+
+    /**
+     * Test for makeBc
+     */
+    public function testMakeBc(){
+        $tm = new PMA_Theme_Manager();
+        $this->assertNull(
+            $tm->makeBc()
+        );
+        $this->assertEquals($GLOBALS['theme'],'pmahomme');
+        $this->assertEquals($GLOBALS['pmaThemePath'],'./themes/pmahomme');
+        $this->assertEquals($GLOBALS['pmaThemeImage'],'./themes/pmahomme/img/');
+
+    }
+
+    /**
+     * Test for getPrintPreviews
+     */
+    public function testGetPrintPreviews(){
+        $tm = new PMA_Theme_Manager();
+        $this->assertEquals(
+            $tm->getPrintPreviews(),
+            '<div class="theme_preview"><h2>Original (2.9) </h2><p><a target="_top" class="take_theme" name="original" href="index.php?set_theme=original&amp;server=99&amp;token=token"><img src="./themes/original/screen.png" border="1" alt="Original" title="Original" /><br />[ <strong>take it</strong> ]</a></p></div><div class="theme_preview"><h2>pmahomme (1.1) </h2><p><a target="_top" class="take_theme" name="pmahomme" href="index.php?set_theme=pmahomme&amp;server=99&amp;token=token"><img src="./themes/pmahomme/screen.png" border="1" alt="pmahomme" title="pmahomme" /><br />[ <strong>take it</strong> ]</a></p></div>'
+        );
+    }
+
+    /**
+     * Test for getFallBackTheme
+     */
+    public function testGetFallBackTheme(){
+        $tm = new PMA_Theme_Manager();
+        $this->assertTrue($tm->getFallBackTheme() instanceof PMA_Theme);
     }
 
 }

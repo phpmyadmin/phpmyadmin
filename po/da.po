@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-07-04 01:34+0200\n"
+"PO-Revision-Date: 2012-07-05 23:51+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -1059,7 +1059,7 @@ msgstr "Intet brugernavn!"
 
 #: js/messages.php:53 server_privileges.php:1448 user_password.php:109
 msgid "The password is empty!"
-msgstr "Der er ikke angivet nogen adgangskode"
+msgstr "Adgangskoden er tom!"
 
 #: js/messages.php:54 server_privileges.php:1446 user_password.php:112
 msgid "The passwords aren't the same!"
@@ -1397,7 +1397,7 @@ msgid ""
 "restart:"
 msgstr ""
 "De følgende indstillinger vil blive anvendt globalt og nulstillet til "
-"standard ved genstart af server"
+"standard ved genstart af server:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:153
@@ -2489,7 +2489,7 @@ msgstr "%s dage, %s timer, %s minutter og %s sekunder"
 
 #: libraries/CommonFunctions.class.php:2204
 msgid "Missing parameter:"
-msgstr "Manglende parameter"
+msgstr "Manglende parameter:"
 
 #: libraries/CommonFunctions.class.php:2624
 #: libraries/CommonFunctions.class.php:2628
@@ -3088,10 +3088,10 @@ msgid "Source database `%s` was not found!"
 msgstr "Kildedatabasen '%s' blev ikke fundet!"
 
 #: libraries/Table.class.php:774
-#, fuzzy, php-format
+#, php-format
 #| msgid "Theme %s not found!"
 msgid "Target database `%s` was not found!"
-msgstr "Tema %s ikke fundet!"
+msgstr "Mål-databasen '%s' blev ikke fundet!"
 
 #: libraries/Table.class.php:1200
 msgid "Invalid database"
@@ -3107,10 +3107,10 @@ msgid "Error renaming table %1$s to %2$s"
 msgstr "Fejl ved omdøbning af tabel  %1$s til %2$s"
 
 #: libraries/Table.class.php:1265
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been renamed to %s"
 msgid "Table %1$s has been renamed to %2$s."
-msgstr "Tabellen %s er nu omdøbt til %s"
+msgstr "Tabellen %1$s er nu omdøbt til %2$s."
 
 #: libraries/Table.class.php:1409
 msgid "Could not save table UI preferences"
@@ -3165,7 +3165,7 @@ msgstr "Rediger/Indsæt"
 
 #: libraries/TableSearch.class.php:795
 msgid "Select columns (at least one):"
-msgstr "Vælg mindst een kolonne"
+msgstr "Vælg kolonner (mindst én):"
 
 #: libraries/TableSearch.class.php:815
 msgid "Add search conditions (body of the \"where\" clause):"
@@ -3215,10 +3215,9 @@ msgid "How to use"
 msgstr "Hvordan man bruger"
 
 #: libraries/TableSearch.class.php:1227
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Nulstil"
+msgstr "Nulstil zoom"
 
 #: libraries/Theme.class.php:169
 #, php-format
@@ -3323,10 +3322,10 @@ msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr ""
 
 #: libraries/Types.class.php:319 libraries/Types.class.php:721
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "Opret version %s af %s.%s"
+msgstr "En dato, understøttet interval er %1$s til %2$s"
 
 #: libraries/Types.class.php:321 libraries/Types.class.php:723
 #, php-format
@@ -3340,10 +3339,10 @@ msgid ""
 msgstr ""
 
 #: libraries/Types.class.php:325 libraries/Types.class.php:727
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "A time, range is %1$s to %2$s"
-msgstr "Fejl ved omdøbning af tabel  %1$s til %2$s"
+msgstr "Et tidspunkt, interval er %1$s til %2$s"
 
 #: libraries/Types.class.php:327
 msgid ""
@@ -3448,10 +3447,9 @@ msgid "A curve with linear interpolation between points"
 msgstr ""
 
 #: libraries/Types.class.php:363
-#, fuzzy
 #| msgid "Add a polygon"
 msgid "A polygon"
-msgstr "Tilføj polygon"
+msgstr "En polygon"
 
 #: libraries/Types.class.php:365
 msgid "A collection of points"
@@ -3475,21 +3473,18 @@ msgid "Numeric"
 msgstr ""
 
 #: libraries/Types.class.php:642 libraries/Types.class.php:976
-#, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "Lav et nyt indeks"
+msgstr "Dato og tid"
 
 #: libraries/Types.class.php:651 libraries/Types.class.php:979
-#, fuzzy
 #| msgid "Linestring"
 msgctxt "string types"
 msgid "String"
-msgstr "Linjestreng"
+msgstr "Streng"
 
 #: libraries/Types.class.php:672
-#, fuzzy
 #| msgid "Spatial"
 msgctxt "spatial types"
 msgid "Spatial"
@@ -3610,7 +3605,6 @@ msgid "Could not load default configuration from: %1$s"
 msgstr "Kunne ikke indlæse standardkonfiguration fra: %1$s"
 
 #: libraries/common.inc.php:588
-#, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 #| "configuration file!"
@@ -3618,7 +3612,7 @@ msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"<code>$cfg['PmaAbsoluteUri']</code> direktivet SKAL være sat i din "
+"Direktitvet [code]$cfg['PmaAbsoluteUri'][/code] SKAL være sat i din "
 "konfigurationsfil!"
 
 #: libraries/common.inc.php:621
@@ -3949,10 +3943,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:37
-#, fuzzy
 #| msgid "Customize text input fields"
 msgid "Minimum size for input field"
-msgstr "Tilpas tekstfelter"
+msgstr "Mindste størrelse for input-felt"
 
 #: libraries/config/messages.inc.php:38
 msgid ""
@@ -3961,10 +3954,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:39
-#, fuzzy
 #| msgid "Maximum size for temporary sort files"
 msgid "Maximum size for input field"
-msgstr "Maksimal størrelse for midlertidige sorteringsfiler"
+msgstr "Maksimal størrelse for input-felt"
 
 #: libraries/config/messages.inc.php:40
 msgid "Number of columns for CHAR/VARCHAR textareas"
@@ -4053,10 +4045,9 @@ msgid "Whether the table structure actions should be hidden"
 msgstr ""
 
 #: libraries/config/messages.inc.php:59
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Hide table structure actions"
-msgstr "Foreslå tabelstruktur"
+msgstr "Skjul handlinger for tabelstruktur"
 
 #: libraries/config/messages.inc.php:60
 msgid "Show binary contents as HEX by default"
@@ -4629,20 +4620,18 @@ msgid "Customize startup page"
 msgstr "Tilpas opstartside"
 
 #: libraries/config/messages.inc.php:228
-#, fuzzy
 #| msgid "Database server"
 msgid "Database structure"
-msgstr "Database server"
+msgstr "Database-struktur"
 
 #: libraries/config/messages.inc.php:229
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:230
-#, fuzzy
 #| msgid "Database server"
 msgid "Table structure"
-msgstr "Database server"
+msgstr "Tabel-struktur"
 
 #: libraries/config/messages.inc.php:231
 msgid "Settings for the table structure (list of columns)"
@@ -4816,10 +4805,9 @@ msgid "Minimum number of tables to display the table filter box"
 msgstr "Mindste antal tabeller der skal vises i tabel-filterboksen"
 
 #: libraries/config/messages.inc.php:281
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of databases to display the database filter box"
-msgstr "Mindste antal tabeller der skal vises i tabel-filterboksen"
+msgstr "Mindste antal databaser, der skal vises i database-filterboksen"
 
 #: libraries/config/messages.inc.php:282
 msgid "String that separates databases into different tree levels"
@@ -5308,10 +5296,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:388
-#, fuzzy
 #| msgid "Control user"
 msgid "Control host"
-msgstr "Kontrolbruger"
+msgstr "Kontrolvært"
 
 #: libraries/config/messages.inc.php:389
 msgid "Count tables when showing database list"
@@ -5393,10 +5380,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:405
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximal number of table preferences to store"
-msgstr "Maksimalt antal tabeller vist i tabellisten"
+msgstr "Maksimalt antal tabel-præferencer, der lagres"
 
 #: libraries/config/messages.inc.php:406
 msgid "Try to connect without password"
@@ -5692,10 +5678,9 @@ msgid "Show or hide a column displaying the Creation timestamp for all tables"
 msgstr ""
 
 #: libraries/config/messages.inc.php:461
-#, fuzzy
 #| msgid "Show more actions"
 msgid "Show Creation timestamp"
-msgstr "Vis flere operationer"
+msgstr "Vis tidsstempel for oprettelse"
 
 #: libraries/config/messages.inc.php:462
 msgid ""
@@ -5712,10 +5697,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:465
-#, fuzzy
 #| msgid "Show master status"
 msgid "Show Last check timestamp"
-msgstr "Vis master status"
+msgstr "Vis tidsstempel for Seneste tjek"
 
 #: libraries/config/messages.inc.php:466
 msgid ""
@@ -6121,18 +6105,18 @@ msgid "possible deep recursion attack"
 msgstr "muligt dybt rekursionsangreb"
 
 #: libraries/database_interface.lib.php:1966
-#, fuzzy
 #| msgid " the local MySQL server's socket is not correctly configured)"
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
-msgstr "(eller den lokale MySQL servers socket er ikke korrekt konfigureret)"
+msgstr ""
+"Serveren svarer ikke (eller den lokale servers socket er ikke korrekt "
+"konfigureret)."
 
 #: libraries/database_interface.lib.php:1969
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
-msgstr "Serveren svarer ikke"
+msgstr "Serveren svarer ikke."
 
 #: libraries/database_interface.lib.php:1974
 msgid "Please check privileges of directory containing database."
@@ -6155,13 +6139,13 @@ msgstr[0] "<b>I alt:</b> <i>%s</i> sammenfald"
 msgstr[1] "<b>I alt</b> <i>%s</i> sammenfald"
 
 #: libraries/db_search.lib.php:211
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$s match inside table <i>%2$s</i>"
 #| msgid_plural "%1$s matches inside table <i>%2$s</i>"
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s sammenfald i tabel <i>%2$s</i>"
-msgstr[1] "%1$s sammenfald i tabel <i>%2$s</i>"
+msgstr[0] "%1$s sammenfald i <strong>%2$s</strong>"
+msgstr[1] "%1$s sammenfald i <strong>%2$s</strong>"
 
 #: libraries/db_search.lib.php:233
 #, php-format
@@ -6402,7 +6386,7 @@ msgstr ""
 
 #: libraries/display_export.lib.php:367 libraries/display_import.lib.php:326
 msgid "Encoding Conversion:"
-msgstr "Inkodningskonvertering"
+msgstr "Konvertering af indkodning:"
 
 #: libraries/display_git_revision.lib.php:59
 #, php-format
@@ -6418,16 +6402,16 @@ msgid "Git revision"
 msgstr ""
 
 #: libraries/display_git_revision.lib.php:70
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "committed on %1$s by %2$s"
-msgstr "Opret version %s af %s.%s"
+msgstr "indsendt den %1$s af %2$s"
 
 #: libraries/display_git_revision.lib.php:78
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "authored on %1$s by %2$s"
-msgstr "Opret version %s af %s.%s"
+msgstr "forfattet den %1$s af %2$s"
 
 #: libraries/display_import.lib.php:68
 msgid ""
@@ -6445,10 +6429,9 @@ msgid "%s of %s"
 msgstr ""
 
 #: libraries/display_import.lib.php:85
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Uploading your import file..."
-msgstr "Format på importeret fil"
+msgstr "Overfører din importfil ..."
 
 #: libraries/display_import.lib.php:93
 #, php-format
@@ -6921,10 +6904,10 @@ msgid "Edit structure by following the \"Structure\" link"
 msgstr "Rediger struktur ved at følge linket \"Struktur\""
 
 #: libraries/import.lib.php:1178
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to database"
 msgid "Go to database: %s"
-msgstr "Gå til database"
+msgstr "Gå til databasen: %s"
 
 #: libraries/import.lib.php:1181 libraries/import.lib.php:1209
 #, php-format
@@ -6932,10 +6915,10 @@ msgid "Edit settings for %s"
 msgstr "Rediger indstillinger for %s"
 
 #: libraries/import.lib.php:1204
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to table"
 msgid "Go to table: %s"
-msgstr "Gå til tabel"
+msgstr "Gå til tabellen: %s"
 
 #: libraries/import.lib.php:1207
 #, php-format
@@ -6943,10 +6926,10 @@ msgid "Structure of %s"
 msgstr "Strukturen af %s"
 
 #: libraries/import.lib.php:1215
-#, fuzzy, php-format
+#, php-format
 #| msgid "Go to view"
 msgid "Go to view: %s"
-msgstr "Gå til view"
+msgstr "Gå til view: %s"
 
 #: libraries/insert_edit.lib.php:235 libraries/insert_edit.lib.php:266
 #: pmd_general.php:174
@@ -7055,10 +7038,9 @@ msgid "Add prefix"
 msgstr "Tilføj præfiks"
 
 #: libraries/mult_submits.inc.php:309
-#, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
-msgstr "Er du sikker på at du vil "
+msgstr "Er du sikker på at du vil udføre følgende forespørgsel?"
 
 #: libraries/mult_submits.inc.php:533 tbl_replace.php:243
 msgid "No change"
@@ -7550,16 +7532,14 @@ msgid "MediaWiki Table"
 msgstr "MediaWiki tabel"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:77
-#, fuzzy
 #| msgid "Export contents"
 msgid "Export table names"
-msgstr "Eksport indhold"
+msgstr "Eksportér tabelnavne"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:84
-#, fuzzy
 #| msgid "horizontal (rotated headers)"
 msgid "Export table headers"
-msgstr "vandret (roterede overskrifter)"
+msgstr "Eksportér tabel-hoveder"
 
 #: libraries/plugins/export/ExportPdf.class.php:69
 msgid "PDF"
@@ -7730,7 +7710,7 @@ msgstr "RELATIONS FOR TABLE (Relationer for tabellen)"
 
 #: libraries/plugins/export/ExportSql.class.php:1537
 msgid "Error reading data:"
-msgstr "Fejl ved læsning af data."
+msgstr "Fejl ved læsning af data:"
 
 #: libraries/plugins/export/ExportXml.class.php:68
 #: libraries/plugins/import/ImportXml.class.php:49
@@ -7820,10 +7800,10 @@ msgid "This plugin does not support compressed imports!"
 msgstr "Denne plugin understøtter ikke komprimeret import!"
 
 #: libraries/plugins/import/ImportMediawiki.class.php:298
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid format of mediawiki input on line: <br />%s."
-msgstr "Ugyldigt format for CSV-input på linie %d."
+msgstr "Ugyldigt format for mediawiki-input på linje: <br />%s."
 
 #: libraries/plugins/import/ImportOds.class.php:73
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -7867,7 +7847,7 @@ msgstr "MySQL Spatial Extension understøtter ikke ESRI type \"%s\"."
 
 #: libraries/plugins/import/ImportShp.class.php:256
 msgid "The imported file does not contain any data"
-msgstr "Den importerede fil indeholder ingen data!"
+msgstr "Den importerede fil indeholder ingen data"
 
 #: libraries/plugins/import/ImportSql.class.php:57
 msgid "SQL compatibility mode:"
@@ -8034,11 +8014,10 @@ msgid "not OK"
 msgstr "ikke OK"
 
 #: libraries/relation.lib.php:94
-#, fuzzy
 #| msgid "OK"
 msgctxt "Correctly working"
 msgid "OK"
-msgstr "OK"
+msgstr "O.K."
 
 #: libraries/relation.lib.php:97
 msgid "Enabled"
@@ -11236,7 +11215,7 @@ msgstr "Opdateringsfrekvens"
 
 #: server_status.php:1662
 msgid "Chart columns"
-msgstr "Diagramkolonner:"
+msgstr "Diagramkolonner"
 
 #: server_status.php:1678
 msgid "Chart arrangement"
@@ -11375,7 +11354,7 @@ msgstr "Slet serie"
 
 #: server_status.php:1776
 msgid "Series in Chart:"
-msgstr "Serier i diagram"
+msgstr "Serier i diagram:"
 
 #: server_status.php:1791
 msgid "Log statistics"

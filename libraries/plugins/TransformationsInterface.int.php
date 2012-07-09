@@ -10,7 +10,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /**
- * Provides a common interface that will have to implemented by all of the
+ * Provides a common interface that will have to be implemented by all of the
  * transformations plugins.
  *
  * @package PhpMyAdmin

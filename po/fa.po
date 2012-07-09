@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-07-04 11:24+0200\n"
+"PO-Revision-Date: 2012-07-05 21:15+0200\n"
 "Last-Translator: Ashiyane Digital Security Team <HeXa.ashiyane@gmail.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
@@ -2673,7 +2673,7 @@ msgstr "تنظمیات دسترسی اشتباه در فایل تنظیمات ،
 
 #: libraries/Config.class.php:1521
 msgid "Font size"
-msgstr "اندازه حروف"
+msgstr "اندازه فونت"
 
 #: libraries/DisplayResults.class.php:500
 msgid "Save edited data"
@@ -6179,10 +6179,9 @@ msgid "Exporting rows from \"%s\" table"
 msgstr "ساخت جدول جديد در پايگاه داده %s"
 
 #: libraries/display_export.lib.php:105
-#, fuzzy
 #| msgid "Export"
 msgid "Export Method:"
-msgstr "صدور"
+msgstr "صدور:"
 
 #: libraries/display_export.lib.php:121
 msgid "Quick - display only the minimal options"
@@ -6193,10 +6192,9 @@ msgid "Custom - display all possible options"
 msgstr ""
 
 #: libraries/display_export.lib.php:145
-#, fuzzy
 #| msgid "Databases"
 msgid "Database(s):"
-msgstr "پايگاههاي داده"
+msgstr "پايگاههاي داده:"
 
 #: libraries/display_export.lib.php:147
 #, fuzzy
