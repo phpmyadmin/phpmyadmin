@@ -2357,4 +2357,69 @@ function PMA_getDbRightsForUserOverview()
     return $db_rights;
 }
 
+/**
+ * Delete user and get message for delete user in privileges
+ * 
+ * @param string $queries   queries
+ * 
+ * @return PMA_message 
+ */
+function PMA_deleteUser($queries)
+{
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
+    if (isset($_REQUEST['change_copy'])) {
+        $selected_usr = array($_GET['old_username'] . '&amp;#27;' . $_GET['old_hostname']);
+    } else {
+        $selected_usr = $_REQUEST['selected_usr'];
+        $queries = array();
+    }
+    foreach ($selected_usr as $each_user) {
+        list($this_user, $this_host) = explode('&amp;#27;', $each_user);
+        $queries[] = '# ' 
+            . sprintf(__('Deleting %s'), '\'' . $this_user . '\'@\'' . $this_host . '\'')
+            . ' ...';
+        $queries[] = 'DROP USER \'' 
+            . $common_functions->sqlAddSlashes($this_user) . '\'@\'' 
+            . $common_functions->sqlAddSlashes($this_host) . '\';';
+
+        if (isset($_REQUEST['drop_users_db'])) {
+            $queries[] = 'DROP DATABASE IF EXISTS ' . $common_functions->backquote($this_user) . ';';
+            $GLOBALS['reload'] = true;
+
+            if ($GLOBALS['is_ajax_request'] != true) {
+                echo $common_functions->getReloadNavigationScript();
+            }
+        }
+    }
+    if (empty($_REQUEST['change_copy'])) {        
+        if (empty($queries)) {
+            $message = PMA_Message::error(__('No users selected for deleting!'));
+        } else {
+            if ($_REQUEST['mode'] == 3) {
+                $queries[] = '# ' . __('Reloading the privileges') . ' ...';
+                $queries[] = 'FLUSH PRIVILEGES;';
+            }
+            $drop_user_error = '';
+            foreach ($queries as $sql_query) {
+                if ($sql_query{0} != '#') {
+                    if (! PMA_DBI_try_query($sql_query, $GLOBALS['userlink'])) {
+                        $drop_user_error .= PMA_DBI_getError() . "\n";
+                    }
+                }
+            }
+            // tracking sets this, causing the deleted db to be shown in navi
+            unset($GLOBALS['db']);
+
+            $sql_query = join("\n", $queries);
+            if (! empty($drop_user_error)) {
+                $message = PMA_Message::rawError($drop_user_error);
+            } else {
+                $message = PMA_Message::success(__('The selected users have been deleted successfully.')); 
+            }
+        }
+    }
+    return $message;
+}
+
 ?>
