@@ -568,6 +568,34 @@ function PMA_dbQbeGetModifyColumnsRow($criteria_column_count, $and_or_col,
     return $html_output;
 }
 
+/**
+ * Provides SELECT clause for building SQL query
+ *
+ * @param array  $criteria_column_count Number of criteria columns
+ *
+ * @return Select clause
+ */
+function PMA_dbQbeGetSelectClause($criteria_column_count){
+    $last_select = 0;
+    $select_clause = '';
+    for ($column_index = 0; $column_index < $criteria_column_count; $column_index++) {
+        if (! empty($GLOBALS['curField'][$column_index])
+            && isset($GLOBALS['curShow'][$column_index])
+            && $GLOBALS['curShow'][$column_index] == 'on')
+        {
+            if ($last_select) {
+                $select_clause .=  ', ';
+            }
+            $select_clause .= $GLOBALS['curField'][$column_index];
+            $last_select = 1;
+        }
+    } // end for
+    if (! empty($select_clause)) {
+        $select_clause = 'SELECT ' . htmlspecialchars($select_clause) . "\n";
+    }
+    return $select_clause;
+}
+
 if ($cfgRelation['designerwork']) {
     $url = 'pmd_general.php' . PMA_generate_common_url(
         array_merge(
@@ -799,26 +827,7 @@ echo PMA_dbQbeGetTablesList($tbl_names);
             dir="<?php echo $text_dir; ?>">
 <?php
 // 1. SELECT
-$last_select = 0;
-if (! isset($qry_select)) {
-    $qry_select         = '';
-}
-for ($x = 0; $x < $col; $x++) {
-    if (! empty($GLOBALS['curField'][$x])
-        && isset($GLOBALS['curShow'][$x])
-        && $GLOBALS['curShow'][$x] == 'on')
-    {
-        if ($last_select) {
-            $qry_select .=  ', ';
-        }
-        $qry_select     .= $GLOBALS['curField'][$x];
-        $last_select    = 1;
-    }
-} // end for
-if (! empty($qry_select)) {
-    echo  'SELECT ' . htmlspecialchars($qry_select) . "\n";
-}
-
+echo PMA_dbQbeGetSelectClause($col);
 // 2. FROM
 
 // Create LEFT JOINS out of Relations
