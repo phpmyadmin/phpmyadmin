@@ -1175,33 +1175,31 @@ function PMA_getMessageAndSqlQueryForPrivilegesRevoke($db_and_table, $dbname,
 
 /**
  * Get a common SQL query for 'update privileges' and 'add user'
- * 
- * @param type $max_questions           maximum questions
- * @param type $max_connections         maximum connections
- * @param type $max_updates             maximum updates
- * @param type $max_user_connections    maximum userconnections
- * 
+ *
  * @return string $sql_query
  */
-function PMA_getCommonSQlQueryForAddUserAndUpdatePrivs($max_questions,
-    $max_connections, $max_updates, $max_user_connections
-) {
+function PMA_getCommonSQlQueryForAddUserAndUpdatePrivs()
+{
     $sql_query = 'WITH';
-    if (isset($GlOBALS['Grant_priv']) && $GlOBALS['Grant_priv'] == 'Y') {
+    if (isset($_POST['Grant_priv']) && $G_POST['Grant_priv'] == 'Y') {
         $sql_query .= ' GRANT OPTION';
     }
-    $max_questions = max(0, (int)$max_questions);
-    $sql_query .= ' MAX_QUERIES_PER_HOUR ' . $max_questions;
-
-    $max_connections = max(0, (int)$max_connections);
-    $sql_query .= ' MAX_CONNECTIONS_PER_HOUR ' . $max_connections;
-
-    $max_updates = max(0, (int)$max_updates);
-    $sql_query .= ' MAX_UPDATES_PER_HOUR ' . $max_updates;
-
-    $max_user_connections = max(0, (int)$max_user_connections);
-    $sql_query .= ' MAX_USER_CONNECTIONS ' . $max_user_connections;
-
+    if (isset($_POST['max_questions'])) {
+        $max_questions = max(0, (int)$_POST['max_questions']);
+        $sql_query .= ' MAX_QUERIES_PER_HOUR ' . $max_questions;
+    }
+    if (isset($_POST['max_connections'])) {
+        $max_connections = max(0, (int)$_POST['max_connections']);
+        $sql_query .= ' MAX_CONNECTIONS_PER_HOUR ' . $max_connections;
+    }
+    if (isset($_POST['max_updates'])) {
+        $max_updates = max(0, (int)$_POST['max_updates']);
+        $sql_query .= ' MAX_UPDATES_PER_HOUR ' . $max_updates;
+    }
+    if (isset($_POST['max_user_connections'])) {
+        $max_user_connections = max(0, (int)$_POST['max_user_connections']);
+        $sql_query .= ' MAX_USER_CONNECTIONS ' . $max_user_connections;
+    }
     return $sql_query;
 }
 
@@ -2419,6 +2417,76 @@ function PMA_deleteUser($queries)
             }
         }
     }
+    return $message;
+}
+
+/**
+ * Update the privileges and return the success or error message
+ * 
+ * @param string $dbname        database name
+ * @param string $tablename     table name
+ * @param string $username      username
+ * @param string $hostname      host name
+ * 
+ * @return PMA_message success message or error message for update
+ */
+function PMA_updatePrivileges($dbname, $tablename, $username, $hostname)
+{
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
+    $db_and_table = PMA_wildcardEscapeForGrant(
+        $dbname, (isset($tablename) ? $tablename : '')
+    );
+
+    $sql_query0 = 'REVOKE ALL PRIVILEGES ON ' . $db_and_table
+        . ' FROM \'' . $common_functions->sqlAddSlashes($username)
+        . '\'@\'' . $common_functions->sqlAddSlashes($hostname) . '\';';
+    
+    if (! isset($_POST['Grant_priv']) || $_POST['Grant_priv'] != 'Y') {
+        $sql_query1 = 'REVOKE GRANT OPTION ON ' . $db_and_table
+            . ' FROM \'' . $common_functions->sqlAddSlashes($username) . '\'@\''
+            . $common_functions->sqlAddSlashes($hostname) . '\';';
+    } else {
+        $sql_query1 = '';
+    }
+
+    // Should not do a GRANT USAGE for a table-specific privilege, it
+    // causes problems later (cannot revoke it)
+    if (! (isset($tablename) && 'USAGE' == implode('', PMA_extractPrivInfo()))) {
+        $sql_query2 = 'GRANT ' . join(', ', PMA_extractPrivInfo())
+            . ' ON ' . $db_and_table
+            . ' TO \'' . $common_functions->sqlAddSlashes($username) . '\'@\''
+            . $common_functions->sqlAddSlashes($hostname) . '\'';
+
+        if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')
+            || (! isset($dbname)
+            && (isset($_POST['max_questions']) || isset($_POST['max_connections'])
+            || isset($_POST['max_updates']) || isset($_POST['max_user_connections'])))
+        ) {
+            $sql_query2 .= PMA_getCommonSQlQueryForAddUserAndUpdatePrivs();
+        }
+        $sql_query2 .= ';';
+    }
+    if (! PMA_DBI_try_query($sql_query0)) {
+        // This might fail when the executing user does not have ALL PRIVILEGES himself.
+        // See https://sourceforge.net/tracker/index.php?func=detail&aid=3285929&group_id=23067&atid=377408
+        $sql_query0 = '';
+    }
+    if (isset($sql_query1) && ! PMA_DBI_try_query($sql_query1)) {
+        // this one may fail, too...
+        $sql_query1 = '';
+    }
+    if (isset($sql_query2)) {
+        PMA_DBI_query($sql_query2);
+    } else {
+        $sql_query2 = '';
+    }
+    $sql_query = $sql_query0 . ' ' . $sql_query1 . ' ' . $sql_query2;
+    $message = PMA_Message::success(__('You have updated the privileges for %s.'));
+    $message->addParam(
+        '\'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\''
+    );
+    
     return $message;
 }
 

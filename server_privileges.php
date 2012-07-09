@@ -463,53 +463,7 @@ if (isset($_REQUEST['change_copy'])) {
  * Updates privileges
  */
 if (! empty($update_privs)) {
-    $db_and_table = PMA_wildcardEscapeForGrant($dbname, (isset($tablename) ? $tablename : ''));
-
-    $sql_query0 = 'REVOKE ALL PRIVILEGES ON ' . $db_and_table
-        . ' FROM \'' . $common_functions->sqlAddSlashes($username) . '\'@\'' . $common_functions->sqlAddSlashes($hostname) . '\';';
-    if (! isset($Grant_priv) || $Grant_priv != 'Y') {
-        $sql_query1 = 'REVOKE GRANT OPTION ON ' . $db_and_table
-            . ' FROM \'' . $common_functions->sqlAddSlashes($username) . '\'@\'' . $common_functions->sqlAddSlashes($hostname) . '\';';
-    } else {
-        $sql_query1 = '';
-    }
-
-    // Should not do a GRANT USAGE for a table-specific privilege, it
-    // causes problems later (cannot revoke it)
-    if (! (isset($tablename) && 'USAGE' == implode('', PMA_extractPrivInfo()))) {
-        $sql_query2 = 'GRANT ' . join(', ', PMA_extractPrivInfo())
-            . ' ON ' . $db_and_table
-            . ' TO \'' . $common_functions->sqlAddSlashes($username) . '\'@\'' . $common_functions->sqlAddSlashes($hostname) . '\'';
-
-        if ((isset($Grant_priv) && $Grant_priv == 'Y')
-            || (! isset($dbname)
-            && (isset($max_questions) || isset($max_connections)
-            || isset($max_updates) || isset($max_user_connections)))
-        ) {
-            $sql_query2 .= PMA_getCommonSQlQueryForAddUserAndUpdatePrivs(
-                $Grant_priv, $max_questions, $max_connections, $max_updates,
-                $max_user_connections
-            );
-        }
-        $sql_query2 .= ';';
-    }
-    if (! PMA_DBI_try_query($sql_query0)) {
-        // This might fail when the executing user does not have ALL PRIVILEGES himself.
-        // See https://sourceforge.net/tracker/index.php?func=detail&aid=3285929&group_id=23067&atid=377408
-        $sql_query0 = '';
-    }
-    if (isset($sql_query1) && ! PMA_DBI_try_query($sql_query1)) {
-        // this one may fail, too...
-        $sql_query1 = '';
-    }
-    if (isset($sql_query2)) {
-        PMA_DBI_query($sql_query2);
-    } else {
-        $sql_query2 = '';
-    }
-    $sql_query = $sql_query0 . ' ' . $sql_query1 . ' ' . $sql_query2;
-    $message = PMA_Message::success(__('You have updated the privileges for %s.'));
-    $message->addParam('\'' . htmlspecialchars($username) . '\'@\'' . htmlspecialchars($hostname) . '\'');
+    $message = PMA_updatePrivileges($dbname, $tablename, $username, $hostname);
 }
 
 /**
