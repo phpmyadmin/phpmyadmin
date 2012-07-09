@@ -2308,4 +2308,53 @@ function PMA_getHtmlForDisplayTheInitials($array_initials, $conditional_class)
     return $html_output;
 }
 
+/**
+ * Get the database rigths array for Display user overview
+ * 
+ * @return array  $db_rights    database rights array
+ */
+function PMA_getDbRightsForUserOverview()
+{
+    // we also want users not in table `user` but in other table
+    $tables = PMA_DBI_fetch_result('SHOW TABLES FROM `mysql`;');
+
+    $tables_to_search_for_users = array(
+        'user', 'db', 'tables_priv', 'columns_priv', 'procs_priv',
+    );
+
+    $db_rights_sqls = array();
+    foreach ($tables_to_search_for_users as $table_search_in) {
+        if (in_array($table_search_in, $tables)) {
+            $db_rights_sqls[] = 'SELECT DISTINCT `User`, `Host` FROM `mysql`.`'
+                . $table_search_in . '` '
+                . (isset($_GET['initial']) ? PMA_rangeOfUsers($_GET['initial']) : '');
+        }
+    }
+    $user_defaults = array(
+        'User'       => '',
+        'Host'       => '%',
+        'Password'   => '?',
+        'Grant_priv' => 'N',
+        'privs'      => array('USAGE'),
+    );
+
+    // for the rights
+    $db_rights = array();
+
+    $db_rights_sql = '(' . implode(') UNION (', $db_rights_sqls) . ')'
+        .' ORDER BY `User` ASC, `Host` ASC';
+
+    $db_rights_result = PMA_DBI_query($db_rights_sql);
+
+    while ($db_rights_row = PMA_DBI_fetch_assoc($db_rights_result)) {
+        $db_rights_row = array_merge($user_defaults, $db_rights_row);
+        $db_rights[$db_rights_row['User']][$db_rights_row['Host']]
+            = $db_rights_row;
+    }
+    PMA_DBI_free_result($db_rights_result);
+    ksort($db_rights);
+    
+    return $db_rights;
+}
+
 ?>

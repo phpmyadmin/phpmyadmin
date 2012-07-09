@@ -758,48 +758,10 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                 PMA_Message::rawError($raw)->display();
             }
         } else {
-
-            // we also want users not in table `user` but in other table
-            $tables = PMA_DBI_fetch_result('SHOW TABLES FROM `mysql`;');
-
-            $tables_to_search_for_users = array(
-                'user', 'db', 'tables_priv', 'columns_priv', 'procs_priv',
-            );
-
-            $db_rights_sqls = array();
-            foreach ($tables_to_search_for_users as $table_search_in) {
-                if (in_array($table_search_in, $tables)) {
-                    $db_rights_sqls[] = 'SELECT DISTINCT `User`, `Host` FROM `mysql`.`' . $table_search_in . '` ' . (isset($initial) ? PMA_rangeOfUsers($initial) : '');
-                }
-            }
-
-            $user_defaults = array(
-                'User'      => '',
-                'Host'      => '%',
-                'Password'  => '?',
-                'Grant_priv' => 'N',
-                'privs'     => array('USAGE'),
-            );
-
+            $db_rights = PMA_getDbRightsForUserOverview();
             // for all initials, even non A-Z
             $array_initials = array();
-            // for the rights
-            $db_rights = array();
-
-            $db_rights_sql = '(' . implode(') UNION (', $db_rights_sqls) . ')'
-                .' ORDER BY `User` ASC, `Host` ASC';
-
-            $db_rights_result = PMA_DBI_query($db_rights_sql);
-
-            while ($db_rights_row = PMA_DBI_fetch_assoc($db_rights_result)) {
-                $db_rights_row = array_merge($user_defaults, $db_rights_row);
-                $db_rights[$db_rights_row['User']][$db_rights_row['Host']]
-                    = $db_rights_row;
-            }
-            PMA_DBI_free_result($db_rights_result);
-            unset($db_rights_sql, $db_rights_sqls, $db_rights_result, $db_rights_row);
-            ksort($db_rights);
-
+            
             /**
              * Displays the initials
              * In an Ajax request, we don't need to show this.
@@ -813,7 +775,6 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             * Display the user overview
             * (if less than 50 users, display them immediately)
             */
-
             if (isset($initial) || isset($showall) || PMA_DBI_num_rows($res) < 50) {
 
                 echo PMA_displayUserOverview($res, $db_rights, $link_edit,
