@@ -315,7 +315,7 @@ var ResizeHandler = function () {
         if (event.data.this.active) {
             event.data.this.active = false;
             $('body').css('cursor', '');
-            $.cookie('pma_navi_width', event.data.this.getPos(e));
+            $.cookie('pma_navi_width', event.data.this.getPos(event));
         }
     };
     /**
@@ -328,7 +328,7 @@ var ResizeHandler = function () {
     this.mousemove = function (event) {
         if (event.data.this.active) {
             event.preventDefault();
-            var pos = event.data.this.getPos(e);
+            var pos = event.data.this.getPos(event);
             event.data.this.setWidth(pos);
             menuResize();
         }
