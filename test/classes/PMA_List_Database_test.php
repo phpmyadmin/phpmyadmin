@@ -11,12 +11,30 @@
  */
 require_once 'libraries/CommonFunctions.class.php';
 require_once 'libraries/List_Database.class.php';
+require_once 'libraries/relation.lib.php';
 
 class PMA_List_Database_test extends PHPUnit_Framework_TestCase
 {
     public function setup()
     {
         $GLOBALS['cfg']['Server']['only_db'] = array('single\\_db');
+        $this->object = $this->getMockForAbstractClass('PMA_List_Database');
+    }
+
+    /**
+     * Call protected functions by making the visibitlity to public.
+     *
+     * @param string $name   method name
+     * @param array  $params parameters for the invocation
+     *
+     * @return the output from the protected method.
+     */
+    private function _callProtectedFunction($name, $params)
+    {
+        $class = new ReflectionClass('PMA_List_Database');
+        $method = $class->getMethod($name);
+        $method->setAccessible(true);
+        return $method->invokeArgs($this->object, $params);
     }
 
     public function testEmpty()
@@ -53,6 +71,74 @@ class PMA_List_Database_test extends PHPUnit_Framework_TestCase
     {
         $arr = new PMA_List_Database;
         $this->assertEquals('<option value="single_db">single_db</option>' . "\n", $arr->getHtmlOptions());
+    }
+
+    /**
+     * Test for checkHideDatabase
+     */
+    public function testCheckHideDatabase()
+    {
+        $GLOBALS['cfg']['Server']['hide_db'] = array('single\\_db');
+        $this->assertEquals(
+            $this->_callProtectedFunction(
+                'checkHideDatabase',
+                array()
+            ),
+            ''
+        );
+    }
+
+    /**
+     * Test for getDefault
+     */
+    public function testGetDefault()
+    {
+        $GLOBALS['db'] = '';
+        $this->assertEquals(
+            $this->object->getDefault(),
+            ''
+        );
+
+        $GLOBALS['db'] = 'mysql';
+        $this->assertEquals(
+            $this->object->getDefault(),
+            'mysql'
+        );
+    }
+
+    /**
+     * Test for getGroupedDetails
+     */
+    public function testGetGroupedDetails()
+    {
+        $GLOBALS['cfg']['ShowTooltip'] = true;
+        $GLOBALS['cfgRelation']['commwork'] = true;
+        $GLOBALS['server'] = 1;
+        $GLOBALS['cfg']['LeftFrameDBTree'] = true;
+        $GLOBALS['cfg']['LeftFrameDBSeparator'] = array('|',',');
+
+        $this->assertEquals(
+            $this->object->getGroupedDetails(10, 100),
+            array()
+        );
+    }
+
+    /**
+     * Test for getHtmlListGrouped
+     */
+    public function testGetHtmlListGrouped()
+    {
+        $GLOBALS['cfg']['ShowTooltip'] = true;
+        $GLOBALS['cfgRelation']['commwork'] = true;
+        $GLOBALS['server'] = 1;
+        $GLOBALS['cfg']['LeftFrameDBTree'] = true;
+        $GLOBALS['cfg']['LeftFrameDBSeparator'] = array('|',',');
+
+        $this->assertEquals(
+            $this->object->getHtmlListGrouped(true,5,5),
+            '<ul id="databaseList" lang="en" dir="ltr">
+</ul>'
+        );
     }
 }
 ?>

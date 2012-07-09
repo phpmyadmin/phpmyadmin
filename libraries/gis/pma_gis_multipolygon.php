@@ -338,33 +338,36 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
      */
     public function generateWkt($gis_data, $index, $empty = '')
     {
-        $no_of_polygons = isset($gis_data[$index]['MULTIPOLYGON']['no_of_polygons'])
-            ? $gis_data[$index]['MULTIPOLYGON']['no_of_polygons'] : 1;
+        $data_row = $gis_data[$index]['MULTIPOLYGON'];
+
+        $no_of_polygons = isset($data_row['no_of_polygons'])
+            ? $data_row['no_of_polygons'] : 1;
         if ($no_of_polygons < 1) {
             $no_of_polygons = 1;
         }
+
         $wkt = 'MULTIPOLYGON(';
         for ($k = 0; $k < $no_of_polygons; $k++) {
-            $no_of_lines = isset($gis_data[$index]['MULTIPOLYGON'][$k]['no_of_lines'])
-                ? $gis_data[$index]['MULTIPOLYGON'][$k]['no_of_lines'] : 1;
+            $no_of_lines = isset($data_row[$k]['no_of_lines'])
+                ? $data_row[$k]['no_of_lines'] : 1;
             if ($no_of_lines < 1) {
                 $no_of_lines = 1;
             }
             $wkt .= '(';
             for ($i = 0; $i < $no_of_lines; $i++) {
-                $no_of_points = isset($gis_data[$index]['MULTIPOLYGON'][$k][$i]['no_of_points'])
-                    ? $gis_data[$index]['MULTIPOLYGON'][$k][$i]['no_of_points'] : 4;
+                $no_of_points = isset($data_row[$k][$i]['no_of_points'])
+                    ? $data_row[$k][$i]['no_of_points'] : 4;
                 if ($no_of_points < 4) {
                     $no_of_points = 4;
                 }
                 $wkt .= '(';
                 for ($j = 0; $j < $no_of_points; $j++) {
-                    $wkt .= ((isset($gis_data[$index]['MULTIPOLYGON'][$k][$i][$j]['x'])
-                        && trim($gis_data[$index]['MULTIPOLYGON'][$k][$i][$j]['x']) != '')
-                        ? $gis_data[$index]['MULTIPOLYGON'][$k][$i][$j]['x'] : $empty)
-                        . ' ' . ((isset($gis_data[$index]['MULTIPOLYGON'][$k][$i][$j]['y'])
-                        && trim($gis_data[$index]['MULTIPOLYGON'][$k][$i][$j]['y']) != '')
-                        ? $gis_data[$index]['MULTIPOLYGON'][$k][$i][$j]['y'] : $empty) .',';
+                    $wkt .= ((isset($data_row[$k][$i][$j]['x'])
+                        && trim($data_row[$k][$i][$j]['x']) != '')
+                        ? $data_row[$k][$i][$j]['x'] : $empty)
+                        . ' ' . ((isset($data_row[$k][$i][$j]['y'])
+                        && trim($data_row[$k][$i][$j]['y']) != '')
+                        ? $data_row[$k][$i][$j]['y'] : $empty) .',';
                 }
                 $wkt = substr($wkt, 0, strlen($wkt) - 1);
                 $wkt .= '),';
@@ -484,32 +487,34 @@ class PMA_GIS_Multipolygon extends PMA_GIS_Geometry
         $multipolygon = substr($wkt, 15, (strlen($wkt) - 18));
         // Seperate each polygon
         $polygons = explode(")),((", $multipolygon);
-        $params[$index]['MULTIPOLYGON']['no_of_polygons'] = count($polygons);
+
+        $param_row =& $params[$index]['MULTIPOLYGON'];
+        $param_row['no_of_polygons'] = count($polygons);
 
         $k = 0;
         foreach ($polygons as $polygon) {
             // If the polygon doesnt have an inner polygon
             if (strpos($polygon, "),(") === false) {
-                $params[$index]['MULTIPOLYGON'][$k]['no_of_lines'] = 1;
+                $param_row[$k]['no_of_lines'] = 1;
                 $points_arr = $this->extractPoints($polygon, null);
                 $no_of_points = count($points_arr);
-                $params[$index]['MULTIPOLYGON'][$k][0]['no_of_points'] = $no_of_points;
+                $param_row[$k][0]['no_of_points'] = $no_of_points;
                 for ($i = 0; $i < $no_of_points; $i++) {
-                    $params[$index]['MULTIPOLYGON'][$k][0][$i]['x'] = $points_arr[$i][0];
-                    $params[$index]['MULTIPOLYGON'][$k][0][$i]['y'] = $points_arr[$i][1];
+                    $param_row[$k][0][$i]['x'] = $points_arr[$i][0];
+                    $param_row[$k][0][$i]['y'] = $points_arr[$i][1];
                 }
             } else {
                 // Seperate outer and inner polygons
                 $parts = explode("),(", $polygon);
-                $params[$index]['MULTIPOLYGON'][$k]['no_of_lines'] = count($parts);
+                $param_row[$k]['no_of_lines'] = count($parts);
                 $j = 0;
                 foreach ($parts as $ring) {
                     $points_arr = $this->extractPoints($ring, null);
                     $no_of_points = count($points_arr);
-                    $params[$index]['MULTIPOLYGON'][$k][$j]['no_of_points'] = $no_of_points;
+                    $param_row[$k][$j]['no_of_points'] = $no_of_points;
                     for ($i = 0; $i < $no_of_points; $i++) {
-                        $params[$index]['MULTIPOLYGON'][$k][$j][$i]['x'] = $points_arr[$i][0];
-                        $params[$index]['MULTIPOLYGON'][$k][$j][$i]['y'] = $points_arr[$i][1];
+                        $param_row[$k][$j][$i]['x'] = $points_arr[$i][0];
+                        $param_row[$k][$j][$i]['y'] = $points_arr[$i][1];
                     }
                     $j++;
                 }

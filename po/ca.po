@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-03-28 14:16+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-07-05 17:22+0200\n"
+"Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.8\n"
+"X-Generator: Weblate 1.1\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:609 server_privileges.php:1851
@@ -1469,10 +1469,9 @@ msgid "From general log"
 msgstr "Del registre general"
 
 #: js/messages.php:172
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "Carregant els registres"
+msgstr "analitzant registres"
 
 #: js/messages.php:173
 msgid "Analysing & loading logs. This may take a while."
@@ -1513,10 +1512,9 @@ msgid "Jump to Log table"
 msgstr "Saltar a la taula del registre"
 
 #: js/messages.php:180
-#, fuzzy
 #| msgid "No data"
 msgid "No data found"
-msgstr "No hi ha dades"
+msgstr "No s'han trobat dades"
 
 #: js/messages.php:181
 msgid "Log analysed, but no data found in this time span."
@@ -1557,16 +1555,14 @@ msgid "Chart"
 msgstr "Gràfic"
 
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Add chart"
 msgid "Edit chart"
-msgstr "Afegir gràfic"
+msgstr "Editar gràfic"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Series:"
 msgid "Series"
-msgstr "Series:"
+msgstr "Series"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
@@ -1642,16 +1638,14 @@ msgid "Import"
 msgstr "Importa"
 
 #: js/messages.php:213
-#, fuzzy
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
-msgstr "No es pot importar la configuració"
+msgstr "Importar configuració del monitor"
 
 #: js/messages.php:214
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "Tria la clau principal o una clau única"
+msgstr "Tria l'arxiu a importar"
 
 #: js/messages.php:216
 msgid "Analyse Query"
@@ -1663,11 +1657,11 @@ msgstr "Sistema d'assessorament"
 
 #: js/messages.php:221
 msgid "Possible performance issues"
-msgstr ""
+msgstr "Possibles problemes de rendiment"
 
 #: js/messages.php:222
 msgid "Issue"
-msgstr ""
+msgstr "Problema"
 
 #: js/messages.php:223
 msgid "Recommendation"
@@ -1683,7 +1677,7 @@ msgstr "Justificació"
 
 #: js/messages.php:226
 msgid "Used variable / formula"
-msgstr ""
+msgstr "Variable usada / formula"
 
 #: js/messages.php:227
 msgid "Test"
@@ -1727,7 +1721,7 @@ msgstr "Correcte"
 
 #: js/messages.php:242
 msgid "Click to dismiss this notification"
-msgstr ""
+msgstr "Prem per rebutjar aquest avís"
 
 #: js/messages.php:245
 msgid "Renaming Databases"
@@ -1802,6 +1796,7 @@ msgstr "Esborrant"
 #: js/messages.php:269
 msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr ""
+"La definició d'una funció enmagatzemada ha d'incloure una instrucció RETURN!"
 
 #: js/messages.php:272 libraries/rte/rte_routines.lib.php:747
 msgid "ENUM/SET editor"
@@ -1828,7 +1823,7 @@ msgstr "Afegir %d valors"
 #: js/messages.php:279
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
-msgstr ""
+msgstr "Nota: Si l'arxiu conté múltiples taules, es combinaran en una"
 
 #: js/messages.php:282
 msgid "Hide query box"
@@ -1880,15 +1875,15 @@ msgstr "Cerca de zoom"
 
 #: js/messages.php:300
 msgid "Each point represents a data row."
-msgstr ""
+msgstr "Cada punt representa una fila de dades."
 
 #: js/messages.php:302
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "Situant el cursor sobre un punt es mostrarà la seva etiqueta."
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "Per acostar, selecciona una secció del gràfic amb el ratolí."
 
 #: js/messages.php:306
 msgid "Click reset zoom button to come back to original state."
@@ -1897,10 +1892,12 @@ msgstr ""
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
+"Prem en un punt de dades per veure i possiblement editar la fila de dades."
 
 #: js/messages.php:310
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
+"El gràfic es pot re-dimensionar arrossegant la cantonada inferior dreta."
 
 #: js/messages.php:312
 msgid "Select two columns"
@@ -1908,7 +1905,7 @@ msgstr "selecciona dues columnes"
 
 #: js/messages.php:313
 msgid "Select two different columns"
-msgstr ""
+msgstr "Selecciona dues columnes diferents"
 
 #: js/messages.php:314
 msgid "Query results"
@@ -1952,6 +1949,8 @@ msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
+"No has desat els canvis en el disseny. Es perdran si no els deses. Vols "
+"continuar?"
 
 #: js/messages.php:344
 msgid "Add an option for column "
@@ -1959,17 +1958,19 @@ msgstr "Afegeix una opció per a la columna "
 
 #: js/messages.php:347
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "Prem la tecla escape per cancel·lar la edició"
 
 #: js/messages.php:348
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
+"Has editat algunes dades i no s'han desat. Estàs segur que vols sortir "
+"d'aquesta pàgina per desar les dades?"
 
 #: js/messages.php:349
 msgid "Drag to reorder"
-msgstr ""
+msgstr "Arrossega per reordenar"
 
 #: js/messages.php:350
 msgid "Click to sort"
@@ -1977,7 +1978,7 @@ msgstr "Clica per clasificar"
 
 #: js/messages.php:351
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "Prem per marcar/desmarcar"
 
 #: js/messages.php:352
 msgid "Double-click to copy column name"
@@ -1986,17 +1987,24 @@ msgstr ""
 #: js/messages.php:353
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
 msgstr ""
+"Prem a la fletxa de llista desplegable<br />per alternar la visibilitat de "
+"la columna"
 
 #: js/messages.php:355
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
+"Aquesta taula no conté una columna única. Característiques relacionades amb "
+"l'edició de quadrícula, checkbox, Editar, Copiar i Esborrar enllaços poden "
+"no funcionar després de desar."
 
 #: js/messages.php:356
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
+"També pots editar la majoria de les columnes<br />prement directament en el "
+"seu contingut."
 
 #: js/messages.php:357
 msgid "Go to link"
@@ -2287,7 +2295,7 @@ msgstr "Se"
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: js/messages.php:506
 msgid "calendar-month-year"
-msgstr ""
+msgstr "calendari-mes-any"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:508
@@ -2369,7 +2377,7 @@ msgstr "per hora"
 
 #: libraries/Advisor.class.php:434
 msgid "per day"
-msgstr ""
+msgstr "per dia"
 
 #: libraries/CommonFunctions.class.php:251
 #, php-format
@@ -2610,7 +2618,7 @@ msgstr "No hi ha cap arxiu per pujar"
 #: libraries/CommonFunctions.class.php:3602
 #: libraries/CommonFunctions.class.php:3603
 msgid "Execute"
-msgstr ""
+msgstr "Executar"
 
 #: libraries/CommonFunctions.class.php:4146
 msgid "Print"
@@ -2619,11 +2627,13 @@ msgstr "Imprimeix"
 #: libraries/Config.class.php:915
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr ""
+msgstr "No es pot llegir l'arxiu de configuració existent (%s)."
 
 #: libraries/Config.class.php:945
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
+"Permisos incorrectes a l'arxiu de configuració, no pot ser modificable per "
+"tothom!"
 
 #: libraries/Config.class.php:1521
 msgid "Font size"
@@ -2664,7 +2674,7 @@ msgstr "vertical"
 #: libraries/DisplayResults.class.php:734
 #, php-format
 msgid "Headers every %s rows"
-msgstr ""
+msgstr "Capceleres cada %s files"
 
 #: libraries/DisplayResults.class.php:1217
 msgid "Sort by key"
@@ -2736,11 +2746,11 @@ msgstr "Amagar transformació del navegador"
 
 #: libraries/DisplayResults.class.php:1426
 msgid "Well Known Text"
-msgstr ""
+msgstr "Text conegut"
 
 #: libraries/DisplayResults.class.php:1427
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Binari conegut"
 
 #: libraries/DisplayResults.class.php:2631
 #: libraries/DisplayResults.class.php:2647
@@ -2803,7 +2813,7 @@ msgstr "Mostra el gràfic"
 
 #: libraries/DisplayResults.class.php:4512
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "Visualitzar dades GIS"
 
 #: libraries/DisplayResults.class.php:4542 view_create.php:122
 msgid "Create view"
@@ -2815,11 +2825,11 @@ msgstr "No s'ha trobat l'enllaç"
 
 #: libraries/Error_Handler.class.php:65
 msgid "Too many error messages, some are not displayed."
-msgstr ""
+msgstr "Masses missatges d'error, alguns no es mostren."
 
 #: libraries/File.class.php:235
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "L'arxiu no ha estat pujat."
 
 #: libraries/File.class.php:273
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
@@ -2864,11 +2874,11 @@ msgstr ""
 
 #: libraries/File.class.php:485
 msgid "Error while moving uploaded file."
-msgstr ""
+msgstr "Error moven l'arxiu pujat."
 
 #: libraries/File.class.php:493
 msgid "Cannot read (moved) upload file."
-msgstr ""
+msgstr "No es pot llegir l'arxiu pujat (i mogut)."
 
 #: libraries/Footer.class.php:197 libraries/Footer.class.php:201
 #: libraries/Footer.class.php:204
@@ -3123,7 +3133,7 @@ msgstr "La taula %s ha canviat de nom a %s"
 
 #: libraries/Table.class.php:1409
 msgid "Could not save table UI preferences"
-msgstr ""
+msgstr "No s'ha pogut desar la llista de preferències d'interfície"
 
 #: libraries/Table.class.php:1433
 #, php-format
@@ -3131,6 +3141,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
+"No s'ha pogut netejar la taula de preferències de la interfície d'usuari "
+"(vegeu $cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.class.php:1571
 #, php-format
@@ -3139,6 +3151,9 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
+"No es pot desar la propietat d'interfície d'usuari \"%s\". Els canvis fets no "
+"seran persistents després d'actualitzar la pàgina. Comprova si l'estructura "
+"de la taula ha canviat."
 
 #: libraries/TableSearch.class.php:211 libraries/insert_edit.lib.php:230
 #: libraries/insert_edit.lib.php:236 libraries/rte/rte_routines.lib.php:1458
@@ -3219,10 +3234,9 @@ msgid "How to use"
 msgstr "Cóm utilitzar"
 
 #: libraries/TableSearch.class.php:1227
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Reinicia"
+msgstr "Reinicia l'ampliació"
 
 #: libraries/Theme.class.php:169
 #, php-format
@@ -3254,7 +3268,7 @@ msgstr "No s'ha trobat el camí de les imatges del tema %s!"
 
 #: libraries/Theme_Manager.class.php:363 themes.php:16 themes.php:21
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 #: libraries/Types.class.php:295
 msgid ""
@@ -3605,6 +3619,8 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
+"Això generalment significa que té un error de sintaxi, revisa els errors que "
+"es mostren a continuació."
 
 #: libraries/common.inc.php:581
 #, php-format
@@ -3645,15 +3661,15 @@ msgstr "Es necessari actualitzar a %s %s o posterior."
 
 #: libraries/common.inc.php:1076
 msgid "GLOBALS overwrite attempt"
-msgstr ""
+msgstr "intent de sobreescriure la variable GLOBALS"
 
 #: libraries/common.inc.php:1083
 msgid "possible exploit"
-msgstr ""
+msgstr "possible aprofitament"
 
 #: libraries/common.inc.php:1092
 msgid "numeric key detected"
-msgstr ""
+msgstr "detectat teclat numéric"
 
 #: libraries/config.values.php:53 libraries/config.values.php:60
 #: libraries/config.values.php:68
@@ -3662,11 +3678,11 @@ msgstr "Ambdós"
 
 #: libraries/config.values.php:57
 msgid "Nowhere"
-msgstr ""
+msgstr "Enlloc"
 
 #: libraries/config.values.php:58
 msgid "Left"
-msgstr ""
+msgstr "Esquerra"
 
 #: libraries/config.values.php:59
 msgid "Right"
@@ -3944,6 +3960,8 @@ msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"Defineix el tamany mínim per als camps d'entrada generats per columnes CHAR "
+"i VARCHAR"
 
 #: libraries/config/messages.inc.php:37
 msgid "Minimum size for input field"
@@ -3954,6 +3972,7 @@ msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"Defineix el nombre dels camps d'entrada generats per columnes CHAR i VARCHAR"
 
 #: libraries/config/messages.inc.php:39
 msgid "Maximum size for input field"
@@ -4076,6 +4095,9 @@ msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
 msgstr ""
+"Desactivar les operacions de manteniment massiu de taules, com "
+"l'optimització o la reparació de les taules seleccionades d'una base de "
+"dades."
 
 #: libraries/config/messages.inc.php:67
 msgid "Disable multi table maintenance"
@@ -5035,7 +5057,7 @@ msgstr "Aixó són enllaços a Edició, Còpia i Esborrat"
 
 #: libraries/config/messages.inc.php:326
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "Ón de mostrar els vincles de fila de taula"
 
 #: libraries/config/messages.inc.php:327
 msgid "Use natural order for sorting table and database names"
@@ -5167,7 +5189,7 @@ msgstr "Motor d'enregistrament"
 
 #: libraries/config/messages.inc.php:356
 msgid "When browsing tables, the sorting of each table is remembered"
-msgstr ""
+msgstr "Al navegar per les taules, es recorda la classificació de cada taula"
 
 #: libraries/config/messages.inc.php:357
 msgid "Remember table's sorting"
@@ -5184,7 +5206,7 @@ msgstr "Repeteix capçeleres"
 
 #: libraries/config/messages.inc.php:361
 msgid "Save all edited cells at once"
-msgstr ""
+msgstr "Desa totes les cel.les editades alhora"
 
 #: libraries/config/messages.inc.php:362
 msgid "Directory where exports can be saved on server"
@@ -5311,6 +5333,8 @@ msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
 msgstr ""
+"Un hoste alternatiu per mantenir l'emmagatzematge de la configuració, deixa "
+"en blanc per utilitzar la màquina ja definida"
 
 #: libraries/config/messages.inc.php:388
 msgid "Control host"
@@ -5395,6 +5419,8 @@ msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed"
 msgstr ""
+"Limita el nombre de preferències de taula que s'emmagatzemen a la base de "
+"dades, els registres més antics s'eliminen automàticament"
 
 #: libraries/config/messages.inc.php:405
 msgid "Maximal number of table preferences to store"
@@ -5731,6 +5757,8 @@ msgid ""
 "Defines whether or not type display direction option is shown when browsing "
 "a table"
 msgstr ""
+"Defineix si es mostra o no l'opció de tipus de direcció de visualització "
+"quan es navega per una taula"
 
 #: libraries/config/messages.inc.php:467
 msgid "Show display direction"
@@ -5758,7 +5786,7 @@ msgstr "Mostra els camps de funció"
 
 #: libraries/config/messages.inc.php:472
 msgid "Whether to show hint or not"
-msgstr ""
+msgstr "Mostrar o no ajudes"
 
 #: libraries/config/messages.inc.php:473
 msgid "Show hint"
@@ -5792,6 +5820,8 @@ msgstr "Mostra consultes SQL"
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
 msgstr ""
+"Defineix si el quadre de consulta ha de romandre a la pantalla després de la "
+"seva presentació"
 
 #: libraries/config/messages.inc.php:480 libraries/sql_query_form.lib.php:377
 msgid "Retain query box"
@@ -6080,7 +6110,7 @@ msgstr "Text format Open Document"
 
 #: libraries/config/validate.lib.php:212
 msgid "Could not initialize Drizzle connection library"
-msgstr ""
+msgstr "No s'ha pogut inicialitzar la biblioteca de connexió Drizzle"
 
 #: libraries/config/validate.lib.php:221 libraries/config/validate.lib.php:229
 msgid "Could not connect to Drizzle server"
@@ -6128,7 +6158,7 @@ msgstr "No es troba l'extensió %s. Comprova la configuració de PHP."
 
 #: libraries/core.lib.php:430
 msgid "possible deep recursion attack"
-msgstr ""
+msgstr "possible atac de recursivitat profunda"
 
 #: libraries/database_interface.lib.php:1966
 msgid ""
@@ -6144,7 +6174,7 @@ msgstr "El servidor no respon."
 
 #: libraries/database_interface.lib.php:1974
 msgid "Please check privileges of directory containing database."
-msgstr ""
+msgstr "Comprova els permisos del directori que conté la base de dades."
 
 #: libraries/database_interface.lib.php:1983
 msgid "Details..."
@@ -7056,7 +7086,7 @@ msgstr "De"
 
 #: libraries/mult_submits.inc.php:282
 msgid "To"
-msgstr ""
+msgstr "A"
 
 #: libraries/mult_submits.inc.php:287 libraries/mult_submits.inc.php:300
 #: libraries/sql_query_form.lib.php:423
@@ -7065,7 +7095,7 @@ msgstr "Envia"
 
 #: libraries/mult_submits.inc.php:292
 msgid "Add table prefix"
-msgstr ""
+msgstr "Afegir prefix de taula"
 
 #: libraries/mult_submits.inc.php:295
 msgid "Add prefix"
@@ -7321,7 +7351,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:42
 msgid "Failed to use Blowfish from mcrypt!"
-msgstr ""
+msgstr "No s'ha pogut utilitzar Blowfish de mcrypt!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:81
 msgid "Your session has expired. Please login again."
@@ -7861,23 +7891,23 @@ msgstr ""
 
 #: libraries/plugins/import/ImportShp.class.php:49
 msgid "ESRI Shape File"
-msgstr ""
+msgstr "Arxiu de tipus ESRI"
 
 #: libraries/plugins/import/ImportShp.class.php:149
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr ""
+msgstr "Hi va haver un error en importar el fitxer de tipus ESRI: \"%s\"."
 
 #: libraries/plugins/import/ImportShp.class.php:202
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data"
-msgstr ""
+msgstr "Has intentat importar un arxiu no vàlid o conté dades no vàlides"
 
 #: libraries/plugins/import/ImportShp.class.php:208
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
-msgstr ""
+msgstr "La extensió espacial MySQL no és compatible amb el tipus ESRI \"%s\"."
 
 #: libraries/plugins/import/ImportShp.class.php:256
 msgid "The imported file does not contain any data"
@@ -8102,7 +8132,7 @@ msgstr "Taules persistents usades recentment"
 
 #: libraries/relation.lib.php:227
 msgid "Persistent tables' UI preferences"
-msgstr ""
+msgstr "Preferències de la interfície de taules persistents"
 
 #: libraries/relation.lib.php:249
 msgid "User preferences"
@@ -8253,12 +8283,12 @@ msgstr "Ha fallat la següent consulta: \"%s\""
 
 #: libraries/rte/rte_events.lib.php:118
 msgid "Sorry, we failed to restore the dropped event."
-msgstr ""
+msgstr "Ho sentim, no s'ha pogut restaurar l'esdeveniment eliminat."
 
 #: libraries/rte/rte_events.lib.php:119 libraries/rte/rte_routines.lib.php:304
 #: libraries/rte/rte_triggers.lib.php:90
 msgid "The backed up query was:"
-msgstr ""
+msgstr "La consulta a la còpia de seguretat era:"
 
 #: libraries/rte/rte_events.lib.php:123
 #, php-format
@@ -8273,7 +8303,7 @@ msgstr "S'ha creat l'esdeveniment %1$s."
 #: libraries/rte/rte_events.lib.php:143 libraries/rte/rte_routines.lib.php:337
 #: libraries/rte/rte_triggers.lib.php:114
 msgid "<b>One or more errors have occured while processing your request:</b>"
-msgstr ""
+msgstr "<b>S'han produït un o més errors al processar la teva sol.licitud:</b>"
 
 #: libraries/rte/rte_events.lib.php:188
 msgid "Edit event"
@@ -8306,11 +8336,11 @@ msgstr "Canviar a %s"
 
 #: libraries/rte/rte_events.lib.php:430
 msgid "Execute at"
-msgstr ""
+msgstr "Executar en"
 
 #: libraries/rte/rte_events.lib.php:438
 msgid "Execute every"
-msgstr ""
+msgstr "Executar cada"
 
 #: libraries/rte/rte_events.lib.php:457
 msgctxt "Start of recurring event"
@@ -8329,49 +8359,49 @@ msgstr "Preservar al completar"
 #: libraries/rte/rte_events.lib.php:483 libraries/rte/rte_routines.lib.php:993
 #: libraries/rte/rte_triggers.lib.php:368
 msgid "Definer"
-msgstr ""
+msgstr "Definidor"
 
 #: libraries/rte/rte_events.lib.php:528
 #: libraries/rte/rte_routines.lib.php:1059
 #: libraries/rte/rte_triggers.lib.php:407
 msgid "The definer must be in the \"username@hostname\" format"
-msgstr ""
+msgstr "El definidor ha d'estar en el format \"usuari@servidor\""
 
 #: libraries/rte/rte_events.lib.php:535
 msgid "You must provide an event name"
-msgstr ""
+msgstr "Has de proporcionar un nom d'esdeveniment"
 
 #: libraries/rte/rte_events.lib.php:547
 msgid "You must provide a valid interval value for the event."
-msgstr ""
+msgstr "Has de proporcionar un valor de l'interval vàlid per a l'esdeveniment."
 
 #: libraries/rte/rte_events.lib.php:559
 msgid "You must provide a valid execution time for the event."
-msgstr ""
+msgstr "Has de proporcionar un temps d'execució vàlid per a l'esdeveniment."
 
 #: libraries/rte/rte_events.lib.php:563
 msgid "You must provide a valid type for the event."
-msgstr ""
+msgstr "Has de proporcionar un tipus vàlid per a l'esdeveniment."
 
 #: libraries/rte/rte_events.lib.php:582
 msgid "You must provide an event definition."
-msgstr ""
+msgstr "Has de proporcionar una definició d'esdeveniment."
 
 #: libraries/rte/rte_footer.lib.php:31 server_privileges.php:2598
 msgid "New"
-msgstr ""
+msgstr "Nou"
 
 #: libraries/rte/rte_footer.lib.php:93
 msgid "OFF"
-msgstr ""
+msgstr "Desconnectat"
 
 #: libraries/rte/rte_footer.lib.php:98
 msgid "ON"
-msgstr ""
+msgstr "Connectat"
 
 #: libraries/rte/rte_footer.lib.php:110
 msgid "Event scheduler status"
-msgstr ""
+msgstr "Estat del planificador d'esdeveniments"
 
 #: libraries/rte/rte_list.lib.php:55
 msgid "Returns"
@@ -8393,7 +8423,7 @@ msgstr "tipus de rutina invàlid: \"%s\""
 
 #: libraries/rte/rte_routines.lib.php:303
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr ""
+msgstr "Malauradament, no hem pogut recuperar la rutina eliminada."
 
 #: libraries/rte/rte_routines.lib.php:308
 #, php-format
@@ -8415,7 +8445,7 @@ msgstr "Nom de rutina"
 
 #: libraries/rte/rte_routines.lib.php:913
 msgid "Parameters"
-msgstr ""
+msgstr "Paràmetres"
 
 #: libraries/rte/rte_routines.lib.php:918
 msgid "Direction"
@@ -8447,7 +8477,7 @@ msgstr "Retornar opcions"
 
 #: libraries/rte/rte_routines.lib.php:989
 msgid "Is deterministic"
-msgstr ""
+msgstr "És deterministic"
 
 #: libraries/rte/rte_routines.lib.php:998
 msgid "Security type"
@@ -8455,16 +8485,16 @@ msgstr "Tipus de seguretat"
 
 #: libraries/rte/rte_routines.lib.php:1005
 msgid "SQL data access"
-msgstr ""
+msgstr "Accés de dades SQL"
 
 #: libraries/rte/rte_routines.lib.php:1075
 msgid "You must provide a routine name"
-msgstr ""
+msgstr "Has de proporcionar un nom de rutina"
 
 #: libraries/rte/rte_routines.lib.php:1101
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
-msgstr ""
+msgstr "Direcció \"%s\" no vàlida donada per al paràmetre."
 
 #: libraries/rte/rte_routines.lib.php:1115
 #: libraries/rte/rte_routines.lib.php:1157
@@ -8472,25 +8502,28 @@ msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
+"Has de proporcionar la longitud/valors dels paràmetres de tipus ENUM, SET, "
+"VARCHAR i VARBINARY."
 
 #: libraries/rte/rte_routines.lib.php:1133
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
+"Has de proporcionar un nom i un tipus per a cada paràmetre de la rutina."
 
 #: libraries/rte/rte_routines.lib.php:1145
 msgid "You must provide a valid return type for the routine."
-msgstr ""
+msgstr "Has de proporcionar un tipus de resposta vàlida per a la rutina."
 
 #: libraries/rte/rte_routines.lib.php:1191
 msgid "You must provide a routine definition."
-msgstr ""
+msgstr "Has de proporcionar una definició de la rutina."
 
 #: libraries/rte/rte_routines.lib.php:1286
 #, php-format
 msgid "%d row affected by the last statement inside the procedure"
 msgid_plural "%d rows affected by the last statement inside the procedure"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d fila afectada per l'última sentència dins el procediment"
+msgstr[1] "%d files afectades per l'última sentència dins el procediment"
 
 #: libraries/rte/rte_routines.lib.php:1302
 #, php-format
@@ -8500,7 +8533,7 @@ msgstr "Resultats de l'execució de la rutina %s"
 #: libraries/rte/rte_routines.lib.php:1382
 #: libraries/rte/rte_routines.lib.php:1390
 msgid "Execute routine"
-msgstr ""
+msgstr "Executar rutina"
 
 #: libraries/rte/rte_routines.lib.php:1448
 #: libraries/rte/rte_routines.lib.php:1451
@@ -8509,7 +8542,7 @@ msgstr "Paràmetres de rutina"
 
 #: libraries/rte/rte_triggers.lib.php:89
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr ""
+msgstr "Malauradament, no s'ha pogut restaurar el disparador eliminat."
 
 #: libraries/rte/rte_triggers.lib.php:94
 #, php-format
@@ -12732,10 +12765,9 @@ msgid "Query cache disabled"
 msgstr "Memòria cau de consultes desactivat"
 
 #: libraries/advisory_rules.txt:149
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is not enabled."
-msgstr "El servidor no respon"
+msgstr "El cau de consultes no està activat."
 
 #: libraries/advisory_rules.txt:150
 msgid ""
@@ -12750,10 +12782,9 @@ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 
 #: libraries/advisory_rules.txt:153
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query caching method"
-msgstr "Memòria cau de consultes"
+msgstr "Mètode de cau de consultes"
 
 #: libraries/advisory_rules.txt:156
 #, fuzzy
@@ -12777,10 +12808,10 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:160
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query cache"
 msgid "Query cache efficiency (%%)"
-msgstr "Memòria cau de consultes"
+msgstr "Eficiència del cau de consultes (%%)"
 
 #: libraries/advisory_rules.txt:163
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -12797,9 +12828,8 @@ msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr "Tamany de l'àrea de classificació"
 
 #: libraries/advisory_rules.txt:167
-#, fuzzy
 msgid "Query Cache usage"
-msgstr "Memòria cau de consultes"
+msgstr "Ús del cau de consultes"
 
 #: libraries/advisory_rules.txt:170
 #, php-format
@@ -12820,10 +12850,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:174
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache fragmentation"
-msgstr "Memòria cau de consultes"
+msgstr "Fragmentació del cau de consultes"
 
 #: libraries/advisory_rules.txt:177
 #, fuzzy
@@ -12858,12 +12887,13 @@ msgid "Query cache low memory prunes"
 msgstr "Memòria cau de consultes utilitzada"
 
 #: libraries/advisory_rules.txt:184
-#, fuzzy
 #| msgid "The amount of free memory for query cache."
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
-msgstr "La quantitat de memòria liure per a memòria cau de consultes."
+msgstr ""
+"S'esborren les consultes al cau degut a la poca memòria dedicada al cau de "
+"consultes."
 
 #: libraries/advisory_rules.txt:185
 msgid ""
@@ -12880,10 +12910,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:188
-#, fuzzy
 #| msgid "Query cache"
 msgid "Query cache max size"
-msgstr "Memòria cau de consultes"
+msgstr "Tamany màxim del cau de consultes"
 
 #: libraries/advisory_rules.txt:191
 msgid ""
@@ -12904,10 +12933,9 @@ msgid "Current query cache size: %s"
 msgstr "Versió actual: %s"
 
 #: libraries/advisory_rules.txt:195
-#, fuzzy
 #| msgid "Query results"
 msgid "Query cache min result size"
-msgstr "Resultats de consultes"
+msgstr "Tamany minim de resultats del cau de consultes"
 
 #: libraries/advisory_rules.txt:198
 msgid ""
@@ -12931,16 +12959,14 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
 
 #: libraries/advisory_rules.txt:204
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
-msgstr "Permet crear taules temporals."
+msgstr "Percentatge de classificacions que esdevenen taules temporals"
 
 #: libraries/advisory_rules.txt:207 libraries/advisory_rules.txt:214
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
-msgstr "Permet crear taules temporals."
+msgstr "Masses classificacions esdevenen en taules temporals."
 
 #: libraries/advisory_rules.txt:208 libraries/advisory_rules.txt:215
 msgid ""
@@ -12956,10 +12982,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:211
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
-msgstr "Permet crear taules temporals."
+msgstr "Rati de classificacions que provoquen taules temporals"
 
 #: libraries/advisory_rules.txt:216
 #, fuzzy, php-format
@@ -12969,10 +12994,9 @@ msgid ""
 msgstr "Tamany de l'àrea de classificació"
 
 #: libraries/advisory_rules.txt:218
-#, fuzzy
 #| msgid "Textarea rows"
 msgid "Sort rows"
-msgstr "Files per a textareas"
+msgstr "Files classificades"
 
 #: libraries/advisory_rules.txt:221
 msgid "There are lots of rows being sorted."
@@ -12992,16 +13016,14 @@ msgid "Sorted rows average: %s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:226
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "Rate of joins without indexes"
-msgstr "No hi ha cap arxiu per pujar"
+msgstr "Rati d'unions (\"JOIN\") sense índex"
 
 #: libraries/advisory_rules.txt:229
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "There are too many joins without indexes."
-msgstr "No hi ha cap arxiu per pujar"
+msgstr "Masses unions sense índex."
 
 #: libraries/advisory_rules.txt:230
 msgid ""
@@ -13146,11 +13168,10 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:269
-#, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Temp disk rate"
-msgstr "%s taula"
+msgstr "Rati de taules temporals en disc"
 
 #: libraries/advisory_rules.txt:273
 msgid ""
@@ -13171,10 +13192,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:289
-#, fuzzy
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer size"
-msgstr "Tamany de l'àrea de classificació"
+msgstr "Tamany de l'àrea de claus MyISAM"
 
 #: libraries/advisory_rules.txt:292
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
@@ -13193,16 +13213,16 @@ msgid "key_buffer_size is 0"
 msgstr "Tamany de l'àrea de classificació"
 
 #: libraries/advisory_rules.txt:296
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "Tamany de l'àrea de classificació"
+msgstr "%% Màxim àrea de claus MyISAM usada mai"
 
 #: libraries/advisory_rules.txt:299 libraries/advisory_rules.txt:307
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr "Tamany de l'àrea de classificació"
+msgstr "Àrea de claus MyISAM (cau d'índex) usada %% baixa."
 
 #: libraries/advisory_rules.txt:300 libraries/advisory_rules.txt:308
 msgid ""
@@ -13212,17 +13232,18 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:301
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
-msgstr "Tamany de l'àrea de classificació"
+msgstr ""
+"Màxim %% d'àrea de claus MyISAM usat mai: %s%%, aquest valor ha d'estar al "
+"voltant del 95%%"
 
 #: libraries/advisory_rules.txt:304
-#, fuzzy
 #| msgid "Sort buffer size"
 msgid "Percentage of MyISAM key buffer used"
-msgstr "Tamany de l'àrea de classificació"
+msgstr "Percentatge usat de l'àrea de claus MyISAM"
 
 #: libraries/advisory_rules.txt:309
 #, fuzzy, php-format
@@ -13252,16 +13273,14 @@ msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr "Tamany de l'àrea de classificació"
 
 #: libraries/advisory_rules.txt:320
-#, fuzzy
 #| msgid "Create table"
 msgid "Rate of table open"
-msgstr "Crea una taula"
+msgstr "Rati de taules obertes"
 
 #: libraries/advisory_rules.txt:323
-#, fuzzy
 #| msgid "The current number of pending writes."
 msgid "The rate of opening tables is high."
-msgstr "El nombre actual d'escritures pendents."
+msgstr "El rati de taules obertes és alt."
 
 #: libraries/advisory_rules.txt:324
 msgid ""
@@ -13276,10 +13295,9 @@ msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr "Tamany de l'àrea de classificació"
 
 #: libraries/advisory_rules.txt:327
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of used open files limit"
-msgstr "Format de l'arxiu importat"
+msgstr "Percentatge d'ús del límit d'arxius oberts"
 
 #: libraries/advisory_rules.txt:330
 msgid ""
@@ -13300,16 +13318,14 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:334
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of open files"
-msgstr "Format de l'arxiu importat"
+msgstr "Rati d'arxius oberts"
 
 #: libraries/advisory_rules.txt:337
-#, fuzzy
 #| msgid "The number of pending log file fsyncs."
 msgid "The rate of opening files is high."
-msgstr "El nombre d'operacions fsync pendents a l'arxiu de registre."
+msgstr "El rati d'arxius oberts és alt."
 
 #: libraries/advisory_rules.txt:339
 #, fuzzy, php-format
@@ -13318,16 +13334,15 @@ msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr "Tamany de l'àrea de classificació"
 
 #: libraries/advisory_rules.txt:341
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Immediate table locks %%"
-msgstr "Crear una taula nova a la base de dades %s"
+msgstr "%% de bloquejos immediats de taules"
 
 #: libraries/advisory_rules.txt:344 libraries/advisory_rules.txt:351
-#, fuzzy
 #| msgid " number of times that a table lock was acquired immediately."
 msgid "Too many table locks were not granted immediately."
-msgstr "El nombre de vegades que un bloqueig de taula s'ha fet immediatament."
+msgstr "Masses bloquejos de taula no s'han fet immediatament."
 
 #: libraries/advisory_rules.txt:345 libraries/advisory_rules.txt:352
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
@@ -13350,10 +13365,9 @@ msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr "Tamany de l'àrea de classificació"
 
 #: libraries/advisory_rules.txt:355
-#, fuzzy
 #| msgid "Key cache"
 msgid "Thread cache"
-msgstr "Memòria cau de claus"
+msgstr "Memòria cau de fils"
 
 #: libraries/advisory_rules.txt:358
 msgid ""
@@ -13372,16 +13386,15 @@ msgid "The thread cache is set to 0"
 msgstr "El seguiment no està actiu."
 
 #: libraries/advisory_rules.txt:362
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking is not active."
 msgid "Thread cache hit rate %%"
-msgstr "El seguiment no està actiu."
+msgstr "%% de rati d'encerts al cau de fils"
 
 #: libraries/advisory_rules.txt:365
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "Thread cache is not efficient."
-msgstr "El seguiment no està actiu."
+msgstr "El cau de fils no és eficient."
 
 #: libraries/advisory_rules.txt:366
 msgid "Increase {thread_cache_size}."
@@ -13400,10 +13413,9 @@ msgid "Threads that are slow to launch"
 msgstr "El nombre de fils que no estàn dormint."
 
 #: libraries/advisory_rules.txt:372
-#, fuzzy
 #| msgid "The number of threads that are not sleeping."
 msgid "There are too many threads that are slow to launch."
-msgstr "El nombre de fils que no estàn dormint."
+msgstr "Hi ha massa fils que s'inicien lentament."
 
 #: libraries/advisory_rules.txt:373
 msgid ""
@@ -13441,10 +13453,9 @@ msgid "slow_launch_time is set to %s"
 msgstr "«long_query_time» està configurat a %d segon(s)."
 
 #: libraries/advisory_rules.txt:385
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of used connections"
-msgstr "Connexions persistents"
+msgstr "Percentatge de connexions usades"
 
 #: libraries/advisory_rules.txt:388
 msgid ""
@@ -13466,10 +13477,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:392
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of aborted connections"
-msgstr "Connexions persistents"
+msgstr "Percentatge de connexions fallides"
 
 #: libraries/advisory_rules.txt:395 libraries/advisory_rules.txt:402
 #, fuzzy
@@ -13491,10 +13501,9 @@ msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:399
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Rate of aborted connections"
-msgstr "Connexions persistents"
+msgstr "Rati de connexions fallides"
 
 #: libraries/advisory_rules.txt:404
 #, php-format
@@ -13503,10 +13512,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:406
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of aborted clients"
-msgstr "Format de l'arxiu importat"
+msgstr "Percentatge de clients avortats"
 
 #: libraries/advisory_rules.txt:409 libraries/advisory_rules.txt:416
 #, fuzzy
@@ -13527,10 +13535,9 @@ msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:413
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of aborted clients"
-msgstr "Format de l'arxiu importat"
+msgstr "Rati de clients avortats"
 
 #: libraries/advisory_rules.txt:418
 #, fuzzy, php-format
@@ -13543,10 +13550,9 @@ msgid "Is InnoDB disabled?"
 msgstr ""
 
 #: libraries/advisory_rules.txt:425
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "You do not have InnoDB enabled."
-msgstr "No es pot desar la configuració"
+msgstr "El motor InnoDB no està activat."
 
 #: libraries/advisory_rules.txt:426
 msgid "InnoDB is usually the better choice for table engines."
@@ -13557,18 +13563,18 @@ msgid "have_innodb is set to 'value'"
 msgstr ""
 
 #: libraries/advisory_rules.txt:429
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB log size"
-msgstr "Tamany de la memòria cau"
+msgstr "Tamany del registre d'InnoDB"
 
 #: libraries/advisory_rules.txt:432
-#, fuzzy
 #| msgid "The number writes done to the InnoDB buffer pool."
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
-msgstr "El nombre d'escriptures fetes a la memòria cau d'InnoDB."
+msgstr ""
+"El tamany del registre d'InnoDB no és acurat, en relació a la reserva de "
+"búfers InnoDB."
 
 #: libraries/advisory_rules.txt:433
 #, php-format
@@ -13622,10 +13628,9 @@ msgid "Your absolute InnoDB log size is %s MiB"
 msgstr ""
 
 #: libraries/advisory_rules.txt:443
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
-msgstr "Tamany de la memòria cau"
+msgstr "Tamany del búfer d'InnoDB"
 
 #: libraries/advisory_rules.txt:446
 #, fuzzy
@@ -13658,10 +13663,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:452
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
-msgstr "max. connexions a la vegada"
+msgstr "Insercions MyISAM a l'hora"
 
 #: libraries/advisory_rules.txt:455
 #, fuzzy

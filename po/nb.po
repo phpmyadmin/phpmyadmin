@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-07-04 16:03+0200\n"
+"PO-Revision-Date: 2012-07-09 03:26+0200\n"
 "Last-Translator: Nicholas Arnesen <baretester@live.no>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -1180,6 +1180,11 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
+"Den grafiske fremstillinskonfigurasjonen i din nettlesers lokale lager er "
+"ikke lengre kompatibel til den nyere versjonen av overvåkningsdialogen. Det "
+"er veldig sannsynlig at din nåværende konfigurasjon ikke vil fungere lengre. "
+"Vennlist tilbakestill din konfigurasjon til standard i menyen "
+"<i>Innstillinger</i>."
 
 #: js/messages.php:93
 msgid "Query cache efficiency"
@@ -1396,94 +1401,90 @@ msgstr ""
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:153
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save output to a file"
 msgid "Set log_output to %s"
-msgstr "Lagre utdata til fil"
+msgstr "Lagre utdata til %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:155
-#, fuzzy, php-format
+#, php-format
 #| msgid "Enabled"
 msgid "Enable %s"
-msgstr "Påslått"
+msgstr "Aktiver %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:157
-#, fuzzy, php-format
+#, php-format
 #| msgid "Disabled"
 msgid "Disable %s"
-msgstr "Avslått"
+msgstr "Deaktiver %s"
 
 #. l10n: %d seconds
 #: js/messages.php:159
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr ""
+msgstr "Sett long_query_time til %ds"
 
 #: js/messages.php:160
 msgid ""
 "You can't change these variables. Please log in as root or contact your "
 "database administrator."
 msgstr ""
+"Du kan ikke endre disse verdiene. Logg inn som root eller kontakt din "
+"databaseadministrator."
 
 #: js/messages.php:161
-#, fuzzy
 #| msgid "Manage your settings"
 msgid "Change settings"
-msgstr "Endre dine innstillinger"
+msgstr "Endre innstillinger"
 
 #: js/messages.php:162
-#, fuzzy
 #| msgid "More settings"
 msgid "Current settings"
-msgstr "Flere innstillinger"
+msgstr "Nåværende innstillinger"
 
 #: js/messages.php:164 server_status.php:1726
-#, fuzzy
 #| msgid "Report title"
 msgid "Chart Title"
-msgstr "Rapporttittel"
+msgstr "Fremstillings-tittel"
 
 #. l10n: As in differential values
 #: js/messages.php:166
-#, fuzzy
 #| msgid "Difference"
 msgid "Differential"
-msgstr "Differanse"
+msgstr "Differensial"
 
 #: js/messages.php:167
 #, php-format
 msgid "Divided by %s"
-msgstr ""
+msgstr "Delt på %s"
 
 #: js/messages.php:168
 msgid "Unit"
-msgstr ""
+msgstr "Enhet"
 
 #: js/messages.php:170
 msgid "From slow log"
-msgstr ""
+msgstr "Fra langsom logg"
 
 #: js/messages.php:171
 msgid "From general log"
-msgstr ""
+msgstr "Fra generell logg"
 
 #: js/messages.php:172
-#, fuzzy
 #| msgid "Loading"
 msgid "Analysing logs"
-msgstr "Laster"
+msgstr "Analyserer logger"
 
 #: js/messages.php:173
 msgid "Analysing & loading logs. This may take a while."
-msgstr ""
+msgstr "Analyserer og laster inn logger. Dette kan ta tid."
 
 #: js/messages.php:174
-#, fuzzy
 #| msgid "Read requests"
 msgid "Cancel request"
-msgstr "Leseforespørsler"
+msgstr "Avbryt forespørsel"
 
 #: js/messages.php:175
 msgid ""
@@ -1491,6 +1492,9 @@ msgid ""
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
+"Denne kolonnen viser antallet identiske spørringer som er gruppert sammen. "
+"Men kun SQL-spørringene har blitt brukt som en grupperingskriterie, så andre "
+"attributter i spørringer som starter samtidig kan variere."
 
 #: js/messages.php:176
 msgid ""
@@ -1498,38 +1502,38 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
+"Ettersom gruppering av INSERT-spørringer har blitt valgt så vil INSERT-"
+"spørringer i samme tabellen bli gruppert sammen, uten hensyn til de innsatte "
+"dataene."
 
 #: js/messages.php:177
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
+"Loggdata lastet inn. Spørringer vil bli utført i løpet av denne tidsplanen:"
 
 #: js/messages.php:179
-#, fuzzy
 #| msgid "Jump to database"
 msgid "Jump to Log table"
-msgstr "Gå til database"
+msgstr "Gå til Loggtabellen"
 
 #: js/messages.php:180
-#, fuzzy
 #| msgid "No databases"
 msgid "No data found"
-msgstr "Ingen databaser"
+msgstr "Ingen data funnet"
 
 #: js/messages.php:181
 msgid "Log analysed, but no data found in this time span."
-msgstr ""
+msgstr "Logg analysert, men ingen data var funnet i løpet av tidsperioden."
 
 #: js/messages.php:183
-#, fuzzy
 #| msgid "Analyze"
 msgid "Analyzing..."
-msgstr "Analyser"
+msgstr "Analyserer..."
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
-msgstr "Forklar SQL"
+msgstr "Forklar utdata"
 
 #: js/messages.php:186 js/messages.php:516
 #: libraries/plugins/export/ExportHtmlword.class.php:477
@@ -1540,47 +1544,41 @@ msgid "Time"
 msgstr "Tid"
 
 #: js/messages.php:187
-#, fuzzy
 #| msgid "Total"
 msgid "Total time:"
-msgstr "Totalt"
+msgstr "Total tid:"
 
 #: js/messages.php:188
 #, fuzzy
 #| msgid "Profiling"
 msgid "Profiling results"
-msgstr "Profilering"
+msgstr "Profiliserer resultater"
 
 #: js/messages.php:189
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
 msgstr "Tabell"
 
 #: js/messages.php:190
-#, fuzzy
 msgid "Chart"
-msgstr "Tegnsett"
+msgstr "Grafisk fremstilling"
 
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Edit chart"
-msgstr "Utfør indeks(er)"
+msgstr "Endre fremstilling"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Series"
-msgstr "SQL spørringer"
+msgstr "Serier"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
-msgstr "Tabellvisningsinnstillinger"
+msgstr "Logg tabellfiltervalgene"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:197
@@ -1589,33 +1587,30 @@ msgstr "Filtrer"
 
 #: js/messages.php:198
 msgid "Filter queries by word/regexp:"
-msgstr ""
+msgstr "Filtrer spørringer med ord/regexp:"
 
 #: js/messages.php:199
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
+msgstr "Grupper spørringer, og ignorer varierende data brukt i WHERE-muligheter"
 
 #: js/messages.php:200
-#, fuzzy
 #| msgid "Number of inserted rows"
 msgid "Sum of grouped rows:"
-msgstr "Antall innsettingsrader"
+msgstr "Sum av grupperte rader:"
 
 #: js/messages.php:201
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "Totalt"
+msgstr "Totalt:"
 
 #: js/messages.php:203
-#, fuzzy
 #| msgid "Loading"
 msgid "Loading logs"
-msgstr "Laster"
+msgstr "Laster logger"
 
 #: js/messages.php:204
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "Visningsoppdatering feilet"
 
 #: js/messages.php:205
 msgid ""
@@ -1623,26 +1618,32 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"Imens nytt diagramdata ble forespurt, returnerte serveren en ugyldig "
+"respons. Dette er mest sannsynlig begrunnet at din sesjon utgikk. Det burde "
+"hjelpe å laste inn siden og logge inn på nytt."
 
 #: js/messages.php:206
-#, fuzzy
 #| msgid "Reload"
 msgid "Reload page"
-msgstr "Oppdater"
+msgstr "Oppdater siden"
 
 #: js/messages.php:208
 msgid "Affected rows:"
-msgstr ""
+msgstr "Berørte rader:"
 
 #: js/messages.php:210
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
 msgstr ""
+"Feilet analyseringen av konfigurasjonsfilen. Det virker ikke som det er "
+"gyldig JSON-kode."
 
 #: js/messages.php:211
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
 msgstr ""
+"Kunne ikke bygge diagramrutenett med importert konfigurasjon. Setter til "
+"standardkonfigurasjon..."
 
 #: js/messages.php:212 libraries/Menu.class.php:309
 #: libraries/Menu.class.php:396 libraries/Menu.class.php:493
@@ -1652,60 +1653,54 @@ msgid "Import"
 msgstr "Importer"
 
 #: js/messages.php:213
-#, fuzzy
 #| msgid "Could not load default configuration from: %1$s"
 msgid "Import monitor configuration"
-msgstr "Kunne ikke laste standard konfigurasjonsfil fra: %1$s"
+msgstr "Importer overvåkningskonfigurasjon"
 
 #: js/messages.php:214
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "Velg primærnøkkelen eller en unik nøkkel"
+msgstr "Velg filen du vil importere"
 
 #: js/messages.php:216
-#, fuzzy
 #| msgid "Update Query"
 msgid "Analyse Query"
-msgstr "Oppdater spørring"
+msgstr "Analyser Spørring"
 
 #: js/messages.php:220
 msgid "Advisor system"
-msgstr ""
+msgstr "Rådgivningssystem"
 
 #: js/messages.php:221
 msgid "Possible performance issues"
-msgstr ""
+msgstr "Mulige ytelsesproblemer"
 
 #: js/messages.php:222
 msgid "Issue"
-msgstr ""
+msgstr "Problem"
 
 #: js/messages.php:223
-#, fuzzy
 #| msgid "Documentation"
 msgid "Recommendation"
-msgstr "Dokumentasjon"
+msgstr "Anbefaling"
 
 #: js/messages.php:224
-#, fuzzy
 #| msgid "Details..."
 msgid "Rule details"
-msgstr "Detaljer..."
+msgstr "Regeldetaljer"
 
 #: js/messages.php:225
-#, fuzzy
 #| msgid "Authentication"
 msgid "Justification"
-msgstr "Godkjenning"
+msgstr "Begrunnelse"
 
 #: js/messages.php:226
 msgid "Used variable / formula"
-msgstr ""
+msgstr "Brukt variabel / formel"
 
 #: js/messages.php:227
 msgid "Test"
-msgstr ""
+msgstr "Test"
 
 #: js/messages.php:232 pmd_general.php:417 pmd_general.php:454
 #: pmd_general.php:574 pmd_general.php:622 pmd_general.php:698
@@ -1745,7 +1740,7 @@ msgstr "OK"
 
 #: js/messages.php:242
 msgid "Click to dismiss this notification"
-msgstr ""
+msgstr "Klikk for å overse dette varselet"
 
 #: js/messages.php:245
 msgid "Renaming Databases"
@@ -1768,22 +1763,19 @@ msgid "Table must have at least one column"
 msgstr "Tabellen må ha minst en kolonne"
 
 #: js/messages.php:254
-#, fuzzy
 #| msgid "Use Tables"
 msgid "Insert Table"
-msgstr "Bruk tabeller"
+msgstr "Sett inn tabell"
 
 #: js/messages.php:255
-#, fuzzy
 #| msgid "Apply index(s)"
 msgid "Hide indexes"
-msgstr "Utfør indeks(er)"
+msgstr "Skjul indekser"
 
 #: js/messages.php:256
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show indexes"
-msgstr "Vis rutenett"
+msgstr "Vis indekser"
 
 #: js/messages.php:257 libraries/mult_submits.inc.php:317
 #, fuzzy
@@ -1808,32 +1800,28 @@ msgid "Searching"
 msgstr "Søker"
 
 #: js/messages.php:263
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide search results"
-msgstr "Skjul søkekriterier"
+msgstr "Skjul søkeresultater"
 
 #: js/messages.php:264
-#, fuzzy
 #| msgid "Show search criteria"
 msgid "Show search results"
-msgstr "Vis søkekriterier"
+msgstr "Vis søkeresultater"
 
 #: js/messages.php:265
-#, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
-msgstr "Se på"
+msgstr "Leser"
 
 #: js/messages.php:266
-#, fuzzy
 #| msgid "Deleting %s"
 msgid "Deleting"
-msgstr "Sletter %s"
+msgstr "Sletter"
 
 #: js/messages.php:269
 msgid "The definition of a stored function must contain a RETURN statement!"
-msgstr ""
+msgstr "Definisjonen av en lagret funksjon må inneholde RETURN erklæring!"
 
 #: js/messages.php:272 libraries/rte/rte_routines.lib.php:747
 msgid "ENUM/SET editor"
@@ -1853,15 +1841,17 @@ msgid "Enter each value in a separate field"
 msgstr "Skriv hver verdi i et eget felt"
 
 #: js/messages.php:276
-#, fuzzy, php-format
+#, php-format
 #| msgid "+ Add a new value"
 msgid "Add %d value(s)"
-msgstr "+ Legg til ny verdi"
+msgstr "Legg til %d verdi(er)"
 
 #: js/messages.php:279
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
 msgstr ""
+"Legg merke til: Om filen inneholder flere tabeller, så vil de kombineres til "
+"en tabell"
 
 #: js/messages.php:282
 msgid "Hide query box"
@@ -1881,10 +1871,9 @@ msgid "Change"
 msgstr "Endre"
 
 #: js/messages.php:287
-#, fuzzy
 #| msgid "Maximum execution time"
 msgid "Query execution time"
-msgstr "Maks kjøretid"
+msgstr "Spørringens utførelsestid"
 
 #: js/messages.php:288 libraries/DisplayResults.class.php:523
 #: libraries/DisplayResults.class.php:531
@@ -1917,15 +1906,15 @@ msgstr "Søk"
 
 #: js/messages.php:300
 msgid "Each point represents a data row."
-msgstr ""
+msgstr "Hvert punkt representerer en datarad."
 
 #: js/messages.php:302
 msgid "Hovering over a point will show its label."
-msgstr ""
+msgstr "Ved å ha musen over punktet vises dets etikett."
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "For å zoome inn, velger en del for plotteområdet med musen."
 
 #: js/messages.php:306
 msgid "Click reset zoom button to come back to original state."
@@ -1940,26 +1929,23 @@ msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 
 #: js/messages.php:312
-#, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
-msgstr "Legg til/Slett kolonner"
+msgstr "Velg to kolonner"
 
 #: js/messages.php:313
 msgid "Select two different columns"
-msgstr ""
+msgstr "Velg to forskjellige kolonner"
 
 #: js/messages.php:314
-#, fuzzy
 #| msgid "Query results operations"
 msgid "Query results"
-msgstr "Spørringsresultatshandlinger"
+msgstr "Spørringsresultater"
 
 #: js/messages.php:315
-#, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
-msgstr "Datapekerstørrelse"
+msgstr "Datapunktinnhold"
 
 #: js/messages.php:318 tbl_change.php:244 tbl_indexes.php:249
 #: tbl_indexes.php:284
@@ -1968,13 +1954,12 @@ msgstr "Ignorer"
 
 #: js/messages.php:319 libraries/DisplayResults.class.php:2592
 msgid "Copy"
-msgstr ""
+msgstr "Kopier"
 
 #: js/messages.php:334
-#, fuzzy
 #| msgid "Add column"
 msgid "Add columns"
-msgstr "Legg til kolonne(r)"
+msgstr "Legg til kolonner"
 
 #: js/messages.php:337
 msgid "Select referenced key"
@@ -1997,6 +1982,8 @@ msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
 msgstr ""
+"Du har ikke lagret endringene i utseendet. De vil forsvinne om du ikke "
+"lagrer dem. Ønsker du å fortsette?"
 
 #: js/messages.php:344
 msgid "Add an option for column "
@@ -2004,27 +1991,28 @@ msgstr "Legg til valg for kolonne "
 
 #: js/messages.php:347
 msgid "Press escape to cancel editing"
-msgstr ""
+msgstr "Trykk escape for å avbryte endring"
 
 #: js/messages.php:348
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr ""
+"Du har endret en del data og de har ikke blitt lagret. Er du sikker på at du "
+"vil forlate denne siden før du lagrer dataene?"
 
 #: js/messages.php:349
 msgid "Drag to reorder"
-msgstr ""
+msgstr "Dra for å omplassere"
 
 #: js/messages.php:350
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to sort"
-msgstr "Klikk for å velge"
+msgstr "Klikk for å sortere"
 
 #: js/messages.php:351
 msgid "Click to mark/unmark"
-msgstr ""
+msgstr "Klikk for å markere/ta vekk markering"
 
 #: js/messages.php:352
 msgid "Double-click to copy column name"
@@ -2032,7 +2020,7 @@ msgstr ""
 
 #: js/messages.php:353
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
-msgstr ""
+msgstr "Klikk pilen som peker ned<br />for å bytte på kolonnens synlighet"
 
 #: js/messages.php:355
 msgid ""
@@ -2044,12 +2032,13 @@ msgstr ""
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
 msgstr ""
+"Du kan også endre de fleste kolonnene<br /> ved å klikke direkte på "
+"innholdet."
 
 #: js/messages.php:357
-#, fuzzy
 #| msgid "Go to view"
 msgid "Go to link"
-msgstr "Gå til visning"
+msgstr "Gå til link"
 
 #: js/messages.php:358
 #, fuzzy
@@ -2098,10 +2087,9 @@ msgid ", latest stable version:"
 msgstr ", siste tilgjengelige versjon:"
 
 #: js/messages.php:374
-#, fuzzy
 #| msgid "Jump to database"
 msgid "up to date"
-msgstr "Gå til database"
+msgstr "er oppdatert"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:393
@@ -2109,14 +2097,12 @@ msgid "Done"
 msgstr "Utført"
 
 #: js/messages.php:397
-#, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Forrige"
 
 #: js/messages.php:402
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
@@ -2266,7 +2252,6 @@ msgstr "Lørdag"
 
 #. l10n: Short week day name
 #: js/messages.php:468
-#, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
 msgid "Sun"
@@ -2345,15 +2330,14 @@ msgstr "Uke"
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: js/messages.php:506
 msgid "calendar-month-year"
-msgstr ""
+msgstr "kalender-måned-år"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:508
-#, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
-msgstr "Ingen"
+msgstr "ingen"
 
 #: js/messages.php:517
 msgid "Hour"
@@ -2429,7 +2413,7 @@ msgstr "per time"
 
 #: libraries/Advisor.class.php:434
 msgid "per day"
-msgstr ""
+msgstr "hver dag"
 
 #: libraries/CommonFunctions.class.php:251
 #, php-format
@@ -2691,11 +2675,11 @@ msgstr "Skriv ut"
 #: libraries/Config.class.php:915
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
-msgstr ""
+msgstr "Nåværende konfigurasjonsfil (%s) er ikke lesbar."
 
 #: libraries/Config.class.php:945
 msgid "Wrong permissions on configuration file, should not be world writable!"
-msgstr ""
+msgstr "Gale tillatelser på konfigurasjonsfilen, den burde ikke være skrivbar!"
 
 #: libraries/Config.class.php:1521
 msgid "Font size"
@@ -2905,11 +2889,11 @@ msgstr "Link ikke funnet"
 
 #: libraries/Error_Handler.class.php:65
 msgid "Too many error messages, some are not displayed."
-msgstr ""
+msgstr "For mange feilmeldinger, noen vises ikke."
 
 #: libraries/File.class.php:235
 msgid "File was not an uploaded file."
-msgstr ""
+msgstr "Filen var ikke en opplastet fil."
 
 #: libraries/File.class.php:273
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
@@ -2954,11 +2938,11 @@ msgstr ""
 
 #: libraries/File.class.php:485
 msgid "Error while moving uploaded file."
-msgstr ""
+msgstr "Feil oppstod imens den opplastede filen ble flyttet."
 
 #: libraries/File.class.php:493
 msgid "Cannot read (moved) upload file."
-msgstr ""
+msgstr "Kan ikke lese (flyttet) opplastet fil."
 
 #: libraries/Footer.class.php:197 libraries/Footer.class.php:201
 #: libraries/Footer.class.php:204
@@ -3139,28 +3123,24 @@ msgstr[0] "%1$d rader innsatt."
 msgstr[1] "%1$d rader innsatt."
 
 #: libraries/PDF.class.php:88
-#, fuzzy
 #| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Tillater lesing av data."
+msgstr "Feil oppstod under oppretting av PDF:"
 
 #: libraries/RecentTable.class.php:112
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not save recent table"
-msgstr "Kunne ikke lagre konfigurasjonen"
+msgstr "Kunne ikke lagre tabell"
 
 #: libraries/RecentTable.class.php:147
-#, fuzzy
 #| msgid "Count tables"
 msgid "Recent tables"
-msgstr "Tell tabeller"
+msgstr "Tidligere tabeller"
 
 #: libraries/RecentTable.class.php:154
-#, fuzzy
 #| msgid "There are no configured servers"
 msgid "There are no recent tables"
-msgstr "Der finnes ingen konfigurerte tjenere"
+msgstr "Det er ikke noen nylig brukte tabeller"
 
 #: libraries/StorageEngine.class.php:214
 msgid ""
@@ -3184,10 +3164,9 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Denne MySQL tjeneren har ikke støtte for %s lagringsmotoren."
 
 #: libraries/Table.class.php:355
-#, fuzzy
 #| msgid "Show slave status"
 msgid "unknown table status: "
-msgstr "Vis slavestatus"
+msgstr "ukjent tabellstatus: "
 
 #: libraries/Table.class.php:766
 #, fuzzy, php-format
@@ -3363,7 +3342,7 @@ msgstr "Stilsti ble ikke funnet for stilen %s!"
 
 #: libraries/Theme_Manager.class.php:363 themes.php:16 themes.php:21
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 #: libraries/Types.class.php:295
 msgid ""
@@ -3706,10 +3685,9 @@ msgid "Check Privileges"
 msgstr "Kontroller privilegier"
 
 #: libraries/common.inc.php:572
-#, fuzzy
 #| msgid "Could not save configuration"
 msgid "Failed to read configuration file"
-msgstr "Kunne ikke lagre konfigurasjonen"
+msgstr "Kunne ikke lese konfigurasjonsfilen"
 
 #: libraries/common.inc.php:574
 msgid ""
@@ -3759,7 +3737,7 @@ msgstr ""
 
 #: libraries/common.inc.php:1083
 msgid "possible exploit"
-msgstr ""
+msgstr "mulig sikkerhetshull"
 
 #: libraries/common.inc.php:1092
 msgid "numeric key detected"
@@ -7479,7 +7457,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:42
 msgid "Failed to use Blowfish from mcrypt!"
-msgstr ""
+msgstr "Kunne ikke bruke Blowfish fra mcrypt!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:81
 msgid "Your session has expired. Please login again."
@@ -7534,10 +7512,9 @@ msgid "Wrong username/password. Access denied."
 msgstr "Ugyldig brukernavn/passord. Ingen tilgang."
 
 #: libraries/plugins/auth/AuthenticationSignon.class.php:102
-#, fuzzy
 #| msgid "Config authentication"
 msgid "Can not find signon authentication script:"
-msgstr "Konfigurer vertsautentisering"
+msgstr "Kunne ikke finne signon autentiseringsscriptet:"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:132
 #, php-format
@@ -9417,10 +9394,9 @@ msgid "Official Homepage"
 msgstr "Offisiell phpMyAdmin-hjemmeside"
 
 #: main.php:254
-#, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
-msgstr "Attributter"
+msgstr "Bidra"
 
 #: main.php:255
 #, fuzzy
@@ -9428,10 +9404,9 @@ msgid "Get support"
 msgstr "Eksporter"
 
 #: main.php:256
-#, fuzzy
 #| msgid "No change"
 msgid "List of changes"
-msgstr "Ingen endring"
+msgstr "Endringsliste"
 
 #: main.php:281
 msgid ""
