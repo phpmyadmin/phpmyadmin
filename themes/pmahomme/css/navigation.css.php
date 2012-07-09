@@ -61,6 +61,12 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 /******************************************************************************/
 /* specific elements */
 
+#pma_navigation div.pageselector {
+    text-align: center;
+    margin: 0px 10px 0px 10px;
+    border-left: 1px solid #666;
+}
+
 #pma_navigation div#pmalogo {
     <?php //better echo $GLOBALS['cfg']['logoBGC']; ?>
 }
@@ -71,15 +77,16 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 }
 
 #pma_navigation div#recentTableList select {
-    width: 100%;
+    width: 80%;
 }
 
 #pma_navigation div#pmalogo,
 #pma_navigation div#leftframelinks,
 #pma_navigation div#databaseList,
-#pma_navigation div.pageselector {
+#pma_navigation div.pageselector.dbselector {
     text-align: center;
     margin: 5px 10px 0px 10px;
+    border: 0;
 }
 
 /* Navigation tree*/

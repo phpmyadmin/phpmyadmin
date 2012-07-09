@@ -58,6 +58,12 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 /******************************************************************************/
 /* specific elements */
 
+#pma_navigation div.pageselector {
+    text-align: center;
+    margin: 0px 10px 0px 10px;
+    border-left: 1px solid #666;
+}
+
 #pma_navigation div#pmalogo {
     <?php //better echo $GLOBALS['cfg']['logoBGC']; ?>
     background-color: <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
@@ -76,10 +82,11 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 #pma_navigation div#pmalogo,
 #pma_navigation div#leftframelinks,
 #pma_navigation div#databaseList,
-#pma_navigation div.pageselector {
+#pma_navigation div.pageselector.dbselector {
     text-align:         center;
     margin-bottom:      0.5em;
     padding-bottom:     0.5em;
+    border: 0;
 }
 /* Navigation tree*/
 #pma_navigation_tree {
