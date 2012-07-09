@@ -777,7 +777,7 @@ msgid "Bad parameters!"
 msgstr ""
 
 #: export.php:196 export.php:227 export.php:781
-#, php-format
+#, php-format, fuzzy
 msgid "Insufficient space to save the file %s."
 msgstr "پاشکەوتکردنی فایل وەک"
 
