@@ -99,8 +99,8 @@ function PMA_reloadNavigation() {
     });
     var url = $('#pma_navigation').find('a.navigation_url').attr('href');
     $.post(url, params, function (data) {
+        $throbber.css('visibility', 'hidden');
         if (data.success) {
-            $throbber.css('visibility', 'hidden');
             $('#pma_navigation_tree').html(data.message).children('div').show();
         } else {
             PMA_ajaxShowMessage(data.error);
