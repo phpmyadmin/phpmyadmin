@@ -253,7 +253,7 @@ class PMA_DisplayResults
         $unlim_num_rows = $this->__get('_unlim_num_rows');
         $fields_meta = $this->__get('_fields_meta');
         $printview = $this->__get('_printview');
-//var_dump($the_disp_mode);echo "-----<br/>";  var_dump($the_total);echo "-----<br/>";
+
         // 1. Initializes the $do_display array
         $do_display              = array();
         $do_display['edit_lnk']  = $the_disp_mode[0] . $the_disp_mode[1];
@@ -406,7 +406,7 @@ class PMA_DisplayResults
 
         // 5. Updates the synthetic var
         $the_disp_mode = join('', $do_display);
-//echo "****<br/>";var_dump($do_display);echo "<br/>****";
+
         return $do_display;
 
     } // end of the 'setDisplayMode()' function
@@ -924,6 +924,7 @@ class PMA_DisplayResults
         $vertical_display['emptypre']   = 0;
         $vertical_display['emptyafter'] = 0;
         $vertical_display['textbtn']    = '';
+        $full_or_partial_text_link = null;
 
         $this->__set('_vertical_display', $vertical_display);
         
@@ -1021,7 +1022,7 @@ class PMA_DisplayResults
                         );
                 }
 
-                $vertical_display[] = '    <th '
+                $vertical_display['desc'][] = '    <th '
                     . 'class="draggable'
                     . ($condition_field ? ' condition"' : '')
                     . '" data-column="' . htmlspecialchars($fields_meta[$i]->name)
@@ -2182,7 +2183,7 @@ class PMA_DisplayResults
 
                 // end horizontal/horizontalflipped mode
             } else {
-                $vertical_display = '    <td' . $rowspan
+                $vertical_display['textbtn'] = '    <td' . $rowspan
                     . '></td>' . "\n";
             } // end vertical mode
         }
@@ -2416,6 +2417,10 @@ class PMA_DisplayResults
                     $dt_result, $this->__get('_fields_cnt'), $this->__get('_fields_meta'), $row
                 );
             $where_clause_html = urlencode($where_clause);
+            
+            // In print view these variable needs toinitialized
+            $del_url = $del_query = $del_str = $edit_anchor_class
+                = $edit_str = $js_conf = $copy_url = $copy_str = null;
 
             // 1.2 Defines the URLs for the modify/delete link(s)
 
@@ -4186,7 +4191,7 @@ class PMA_DisplayResults
         }
         
         $table_html = '';
-		// Following variable are needed for use in isset/empty or
+        // Following variable are needed for use in isset/empty or
         // use with array indexes/safe use in foreach
         $fields_meta = $this->__get('_fields_meta');
         $showtable = $this->__get('_showtable');
@@ -4286,11 +4291,19 @@ class PMA_DisplayResults
             }
 
         }
+        
+        if (($is_display['nav_bar'] == '1')
+            && empty($analyzed_sql[0]['limit_clause'])
+        ) {
 
-        $table_html .= $this->_getPlacedTableNavigatoins(
-            $is_display, $analyzed_sql,  $pos_next, $pos_prev,
-            self::PLACE_TOP_DIRECTION_DROPDOWN, "\n", $is_innodb
-        );
+            $table_html .= $this->_getPlacedTableNavigatoins(
+                $pos_next, $pos_prev, self::PLACE_TOP_DIRECTION_DROPDOWN,
+                "\n", $is_innodb
+            );
+
+        } elseif (! isset($printview) || ($printview != '1')) {
+            $table_html .= "\n" . '<br /><br />' . "\n";
+        }
 
         // 2b ----- Get field references from Database -----
         // (see the 'relation' configuration variable)
@@ -4357,11 +4370,17 @@ class PMA_DisplayResults
         }
 
         // 5. ----- Get the navigation bar at the bottom if required -----
-
-        $table_html .= $this->_getPlacedTableNavigatoins(
-            $is_display, $analyzed_sql, $pos_next, $pos_prev,
-            self::PLACE_BOTTOM_DIRECTION_DROPDOWN, '<br />' . "\n", $is_innodb
-        );
+        if (($is_display['nav_bar'] == '1')
+            && empty($analyzed_sql[0]['limit_clause'])
+        ) {
+            $table_html .= $this->_getPlacedTableNavigatoins(
+                $pos_next, $pos_prev, self::PLACE_BOTTOM_DIRECTION_DROPDOWN,
+                '<br />' . "\n", $is_innodb
+            );
+        } elseif (! isset($printview) || ($printview != '1')) {
+            $table_html .= "\n" . '<br /><br />' . "\n";
+        }
+            
 
         // 6. ----- Prepare "Query results operations"
         if (! isset($printview) || ($printview != '1')) {
@@ -4824,8 +4843,6 @@ class PMA_DisplayResults
     /**
      * Prepare table navigation bar at the top or bottom
      * 
-     * @param array   $is_display   which elements to display
-     * @param array   $analyzed_sql the analyzed query
      * @param integer $pos_next     the offset for the "next" page
      * @param integer $pos_prev     the offset for the "previous" page
      * @param string  $place        the place to show navigation
@@ -4839,31 +4856,21 @@ class PMA_DisplayResults
      * @see     _getTable()
      */
     private function _getPlacedTableNavigatoins(
-        $is_display, $analyzed_sql,  $pos_next, $pos_prev
-        , $place, $empty_line, $is_innodb
+        $pos_next, $pos_prev, $place, $empty_line, $is_innodb
     ) {
         
         $navigation_html = '';
-        $printview = $this->__get('_printview');
         
-        if (($is_display['nav_bar'] == '1')
-            && empty($analyzed_sql[0]['limit_clause'])
-        ) {
-
-            if ($place == self::PLACE_BOTTOM_DIRECTION_DROPDOWN) {
-                $navigation_html .= '<br />' . "\n";
-            }
-            
-            $navigation_html .= $this->_getTableNavigation(
-                $pos_next, $pos_prev, 'top_direction_dropdown', $is_innodb
-            );
-            
-            if ($place == self::PLACE_TOP_DIRECTION_DROPDOWN) {
-                $navigation_html .= "\n";
-            }
-
-        } elseif (! isset($printview) || ($printview != '1')) {
-            $navigation_html .= "\n" . '<br /><br />' . "\n";
+        if ($place == self::PLACE_BOTTOM_DIRECTION_DROPDOWN) {
+            $navigation_html .= '<br />' . "\n";
+        }
+        
+        $navigation_html .= $this->_getTableNavigation(
+            $pos_next, $pos_prev, 'top_direction_dropdown', $is_innodb
+        );
+        
+        if ($place == self::PLACE_TOP_DIRECTION_DROPDOWN) {
+            $navigation_html .= "\n";
         }
         
         return $navigation_html;
