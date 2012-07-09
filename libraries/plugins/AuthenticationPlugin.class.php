@@ -13,7 +13,7 @@ if (! defined('PHPMYADMIN')) {
 require_once "PluginObserver.class.php";
 
 /**
- * Provides a common interface that will have to implemented by all of the
+ * Provides a common interface that will have to be implemented by all of the
  * authentication plugins.
  *
  * @package PhpMyAdmin
