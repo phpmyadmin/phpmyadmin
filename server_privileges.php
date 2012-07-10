@@ -582,38 +582,11 @@ if (isset($viewing_mode) && $viewing_mode == 'db') {
  */
 
 // export user definition
-if (isset($_REQUEST['export']) || (isset($_REQUEST['submit_mult']) && $_REQUEST['submit_mult'] == 'export')) {
-    $export = '<textarea class="export" cols="' . $GLOBALS['cfg']['TextareaCols'] . '" rows="' . $GLOBALS['cfg']['TextareaRows'] . '">';
-    if ($username == '%') {
-        // export privileges for all users
-        $title = __('Privileges for all users');
-        foreach ($_SESSION['user_host_pairs'] as $pair) {
-            $export .= PMA_getGrants($pair['user'], $pair['host']);
-            $export .= "\n";
-        }
-    } elseif (isset($_REQUEST['selected_usr'])) {
-        // export privileges for selected users
-        $title = __('Privileges');
-        foreach ($_REQUEST['selected_usr'] as $export_user) {
-            $export_username = substr($export_user, 0, strpos($export_user, '&'));
-            $export_hostname = substr($export_user, strrpos($export_user, ';') + 1);
-            $export .= '# '
-                . sprintf(
-                    __('Privileges for %s'),
-                    '`' . htmlspecialchars($export_username) . '`@`' . htmlspecialchars($export_hostname) . '`'
-                )
-                . "\n\n";
-            $export .= PMA_getGrants($export_username, $export_hostname) . "\n";
-        }
-    } else {
-        // export privileges for a single user
-        $title = __('User') . ' `' . htmlspecialchars($username) . '`@`' . htmlspecialchars($hostname) . '`';
-        $export .= PMA_getGrants($username, $hostname);
-    }
-    // remove trailing whitespace
-    $export = trim($export);
-
-    $export .= '</textarea>';
+if (isset($_REQUEST['export'])
+    || (isset($_REQUEST['submit_mult']) && $_REQUEST['submit_mult'] == 'export')
+) {
+    list($title, $export) = PMA_getHtmlForExportUserDefinition($username, $hostname);
+    
     unset($username, $hostname, $grants, $one_grant);
     if ($GLOBALS['is_ajax_request']) {
         $response = PMA_Response::getInstance();
