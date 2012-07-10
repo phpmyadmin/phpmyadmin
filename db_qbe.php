@@ -576,22 +576,19 @@ function PMA_dbQbeGetModifyColumnsRow($criteria_column_count, $and_or_col,
  * @return Select clause
  */
 function PMA_dbQbeGetSelectClause($criteria_column_count){
-    $last_select = 0;
     $select_clause = '';
+    $select_clauses = array();
     for ($column_index = 0; $column_index < $criteria_column_count; $column_index++) {
         if (! empty($GLOBALS['curField'][$column_index])
             && isset($GLOBALS['curShow'][$column_index])
             && $GLOBALS['curShow'][$column_index] == 'on')
         {
-            if ($last_select) {
-                $select_clause .=  ', ';
-            }
-            $select_clause .= $GLOBALS['curField'][$column_index];
-            $last_select = 1;
+            $select_clauses[] = $GLOBALS['curField'][$column_index];
         }
     } // end for
-    if (! empty($select_clause)) {
-        $select_clause = 'SELECT ' . htmlspecialchars($select_clause) . "\n";
+    if ($select_clauses) {
+        $select_clause = 'SELECT '
+            . htmlspecialchars(implode(", ", $select_clauses)) . "\n";
     }
     return $select_clause;
 }
@@ -671,8 +668,8 @@ function PMA_dbQbeGetWhereClause($criteria_column_count, $criteria_row_count) {
  */
 function PMA_dbQbeGetOrderByClause($criteria_column_count)
 {
-    $last_orderby = 0;
     $orderby_clause = '';
+    $orderby_clauses = array();
     for ($column_index = 0; $column_index < $criteria_column_count; $column_index++)
     {
         // if all columns are chosen with * selector, then sorting isn't available
@@ -683,16 +680,13 @@ function PMA_dbQbeGetOrderByClause($criteria_column_count)
             if (substr($GLOBALS['curField'][$column_index], -2) == '.*') {
                 continue;
             }
-            if ($last_orderby && $column_index) {
-                $orderby_clause .= ', ';
-            }
-            $orderby_clause .= $GLOBALS['curField'][$column_index] . ' '
+            $orderby_clauses[] = $GLOBALS['curField'][$column_index] . ' '
                 . $GLOBALS['curSort'][$column_index];
-            $last_orderby = 1;
         }
     } // end for
-    if (! empty($orderby_clause)) {
-        $orderby_clause = 'ORDER BY ' . htmlspecialchars($orderby_clause) . "\n";
+    if ($orderby_clauses) {
+        $orderby_clause = 'ORDER BY '
+            . htmlspecialchars(implode(", ", $orderby_clauses)) . "\n";
     }
     return $orderby_clause;
 }
