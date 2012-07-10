@@ -14,7 +14,11 @@ require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/CommonFunctions.class.php';
 require_once 'libraries/js_escape.lib.php';
 
-
+/**
+ * Test cases for displaying results.
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
 {
     /**
@@ -31,7 +35,10 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = $this->getMockForAbstractClass('PMA_DisplayResults', array('as', '','',''));
+        $this->object = $this->getMockForAbstractClass(
+            'PMA_DisplayResults',
+            array('as', '','','')
+        );
 
     }
 
@@ -64,19 +71,21 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param $the_disp_mode string  the synthetic value for display_mode (see a few lines above for explanations)
-     * @param $the_total the total number of rows returned by the SQL
-     *                                 query without any programmatically appended
-     *                                 LIMIT clause
-     *                                 (just a copy of $unlim_num_rows if it exists,
-     *                                 elsecomputed inside this function)
+     * Test for setting display mode
      *
-     * @param $output output from the _setDisplayMode method
+     * @param string  $the_disp_mode the synthetic value for display_mode (see a
+     *                               few lines above for explanations)
+     * @param integer $the_total     the total number of rows returned by the SQL
+     *                               query without any programmatically appended
+     *                               LIMIT clause
+     *                               (just a copy of $unlim_num_rows if it exists,
+     *                               elsecomputed inside this function)
+     * @param string  $output        output from the _setDisplayMode method
      *
      * @dataProvider providerForTestSetDisplayModeCase1
      */
-    public function testSetDisplayModeCase1($the_disp_mode, $the_total, $output){
-
+    public function testSetDisplayModeCase1($the_disp_mode, $the_total, $output)
+    {
         $GLOBALS['is_count'] = true;
         $GLOBALS['is_maint'] = true;
 
@@ -86,7 +95,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                 array(&$the_disp_mode, &$the_total)
             ),
             $output
-         );
+        );
     }
 
     /**
@@ -127,18 +136,21 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param $the_disp_mode string  the synthetic value for display_mode (see a few lines above for explanations)
-     * @param $the_total the total number of rows returned by the SQL
-     *                                 query without any programmatically appended
-     *                                 LIMIT clause
-     *                                 (just a copy of $unlim_num_rows if it exists,
-     *                                 elsecomputed inside this function)
+     * Test for setting display mode
      *
-     * @param $output output from the _setDisplayMode method
+     * @param string  $the_disp_mode the synthetic value for display_mode (see a
+     *                               few lines above for explanations)
+     * @param integer $the_total     the total number of rows returned by the SQL
+     *                               query without any programmatically appended
+     *                               LIMIT clause
+     *                               (just a copy of $unlim_num_rows if it exists,
+     *                               elsecomputed inside this function)
+     * @param string  $output        output from the _setDisplayMode method
      *
      * @dataProvider providerForTestSetDisplayModeCase2
      */
-    public function testSetDisplayModeCase2($the_disp_mode, $the_total, $output){
+    public function testSetDisplayModeCase2($the_disp_mode, $the_total, $output)
+    {
 
 
         $GLOBALS['is_count'] = false;
@@ -196,18 +208,21 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param $the_disp_mode string  the synthetic value for display_mode (see a few lines above for explanations)
-     * @param $the_total the total number of rows returned by the SQL
-     *                                 query without any programmatically appended
-     *                                 LIMIT clause
-     *                                 (just a copy of $unlim_num_rows if it exists,
-     *                                 elsecomputed inside this function)
+     * Test for setting display mode
      *
-     * @param $output output from the _setDisplayMode method
+     * @param string  $the_disp_mode the synthetic value for display_mode (see a
+     *                               few lines above for explanations)
+     * @param integer $the_total     the total number of rows returned by the SQL
+     *                               query without any programmatically appended
+     *                               LIMIT clause
+     *                               (just a copy of $unlim_num_rows if it exists,
+     *                               elsecomputed inside this function)
+     * @param string  $output        output from the _setDisplayMode method
      *
      * @dataProvider providerForTestSetDisplayModeCase3
      */
-    public function testSetDisplayModeCase3($the_disp_mode, $the_total, $output){
+    public function testSetDisplayModeCase3($the_disp_mode, $the_total, $output)
+    {
 
         $GLOBALS['is_count'] = false;
         $GLOBALS['is_maint'] = false;
@@ -264,7 +279,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _isSelect function
      */
-    public function testisSelect(){
+    public function testisSelect()
+    {
 
         $GLOBALS['is_count'] = false;
         $GLOBALS['is_export'] = false;
@@ -283,15 +299,18 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param string  $caption            iconic caption for button
-     * @param string  $title              text for button
-     * @param integer $pos                position for next query
-     * @param string  $html_sql_query     query ready for display
-     * @param $output output from the _getTableNavigationButton method
+     * @param string  $caption        iconic caption for button
+     * @param string  $title          text for button
+     * @param integer $pos            position for next query
+     * @param string  $html_sql_query query ready for display
+     * @param string  $output         output from the _getTableNavigationButton
+     *                                method
      *
      * @dataProvider providerForTestGetTableNavigationButton
      */
-    public function testGetTableNavigationButton($caption, $title, $pos, $html_sql_query, $output){
+    public function testGetTableNavigationButton(
+        $caption, $title, $pos, $html_sql_query, $output
+    ) {
 
         $GLOBALS['cfg']['NavigationBarIconic'] = true;
         $GLOBALS['cfg']['AjaxEnable'] = true;
@@ -326,11 +345,14 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param integer $pos_next                  the offset for the "next" page
      * @param integer $pos_prev                  the offset for the "previous" page
      * @param string  $id_for_direction_dropdown the id for the direction dropdown
-     * @param $output output from the _getTableNavigation method
+     * @param string  $output                    output from the _getTableNavigation
+     *                                           method
      *
      * @dataProvider providerForTestGetTableNavigation
      */
-    public function testGetTableNavigation($pos_next, $pos_prev, $id_for_direction_dropdown, $output){
+    public function testGetTableNavigation(
+        $pos_next, $pos_prev, $id_for_direction_dropdown, $output
+    ) {
 
         $_SESSION['tmp_user_values']['max_rows'] = '20';
         $GLOBALS['cfg']['AjaxEnable'] = true;
@@ -343,10 +365,12 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
         $_SESSION['tmp_user_values']['disp_direction'] = '1';
 
         $this->assertEquals(
-            str_word_count($this->_callPrivateFunction(
-                '_getTableNavigation',
-                array($pos_next, $pos_prev, $id_for_direction_dropdown)
-            )),
+            str_word_count(
+                $this->_callPrivateFunction(
+                    '_getTableNavigation',
+                    array($pos_next, $pos_prev, $id_for_direction_dropdown)
+                )
+            ),
             $output
         );
     }
@@ -364,11 +388,11 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                 '526'
             )
         );
-    }    
-    
+    }
+
     /**
      * Data provider for testGetResettedClassForInlineEdit
-     * 
+     *
      * @return array parameters and output
      */
     public function dataProviderForTestGetResettedClassForInlineEdit()
@@ -385,10 +409,10 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             )
         );
     }
-    
+
     /**
      * Test for _getResettedClassForInlineEdit
-     * 
+     *
      * @param string  $grid_edit_class  the class for all editable columns
      * @param string  $not_null_class   the class for not null columns
      * @param string  $relation_class   the class for relations in a column
@@ -396,7 +420,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param string  $field_type_class the class related to type of the field
      * @param integer $row_no           the row index
      * @param string  $output           output of__getResettedClassForInlineEdit
-     * 
+     *
      * @dataProvider dataProviderForTestGetResettedClassForInlineEdit
      */
     public function testGetResettedClassForInlineEdit(
@@ -407,8 +431,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['BrowseMarkerEnable'] = true;
         $GLOBALS['printview'] = 2;
         $_SESSION['tmp_user_values']['disp_direction']
-            = PMA_DisplayResults::DISP_DIR_VERTICAL;        
-        
+            = PMA_DisplayResults::DISP_DIR_VERTICAL;
+
         $this->assertEquals(
             $this->_callPrivateFunction(
                 '_getResettedClassForInlineEdit',
@@ -434,7 +458,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             'datetimefield'
         );
     }
-    
+
     /**
      * Test for _getClassForDateTimeRelatedFields - case 2
      */
@@ -448,7 +472,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             'datefield'
         );
     }
-    
+
     /**
      * Test for _getClassForDateTimeRelatedFields - case 3
      */
@@ -462,10 +486,10 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             ''
         );
     }
-    
+
     /**
      * Provide data for testGetOperationLinksForVerticleTableCase1
-     * 
+     *
      * @return array parameters and output
      */
     public function dataProviderForTestGetOperationLinksForVerticleTableCase1()
@@ -500,11 +524,11 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getOperationLinksForVerticleTable - case 1
-     * 
+     *
      * @param array  $vertical_display the information to display
      * @param string $operation        edit/copy/delete
      * @param string $output           output of _getOperationLinksForVerticleTable
-     * 
+     *
      * @dataProvider dataProviderForTestGetOperationLinksForVerticleTableCase1
      */
     public function testGetOperationLinksForVerticleTableCase1(
@@ -518,10 +542,10 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             $output
         );
     }
-    
+
     /**
      * Provide data for testGetOperationLinksForVerticleTableCase2
-     * 
+     *
      * @return array parameters and output
      */
     public function dataProviderForTestGetOperationLinksForVerticleTableCase2()
@@ -548,9 +572,9 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                 ),
                 'edit',
                 '<tr>
- 
- 
- 
+
+
+
 <td class="odd edit_row_anchor row_0 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=data&amp;table=new&amp;where_clause=%60new%60.%60id%60+%3D+1&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60new%60&amp;goto=sql.php&amp;default_action=update&amp;token=a41d74bba668a938d5822179770ab75e" ><span class="nowrap"><img src="themes/dot.gif" title="Edit" alt="Edit" class="icon ic_b_edit" /> Edit</span></a>\n<input type="hidden" class="where_clause" value ="%60new%60.%60id%60+%3D"...</tr>
 '
             )
@@ -559,11 +583,11 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getOperationLinksForVerticleTable - case 2
-     * 
+     *
      * @param array  $vertical_display the information to display
      * @param string $operation        edit/copy/delete
      * @param string $output           output of _getOperationLinksForVerticleTable
-     * 
+     *
      * @dataProvider dataProviderForTestGetOperationLinksForVerticleTableCase2
      */
     public function testGetOperationLinksForVerticleTableCase2(
@@ -577,11 +601,11 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             $output
         );
     }
-    
-    
+
+
     /**
      * Provide data for testGetOperationLinksForVerticleTableCase3
-     * 
+     *
      * @return array parameters and output
      */
     public function dataProviderForTestGetOperationLinksForVerticleTableCase3()
@@ -608,9 +632,9 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                 ),
                 'delete',
                 '<tr>
- 
- 
- 
+
+
+
 <td class="odd row_0 vpointer vmarker center"  >\n<a href="sql.php?db=data&amp;table=new&amp;sql_query=DELETE+FROM+%60data%60.%60new%60+WHERE+%60new%60.%60id%60+%3D+1&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3Ddata%26table%3Dnew%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560new%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3Da41d74bba668a938d5822179770ab75e&amp;token=a41d74bba668a938d5822179770ab75e" onclick="return confirmLink(this, \'DEL"...</tr>
 '
             )
@@ -619,11 +643,11 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getOperationLinksForVerticleTable - case 3
-     * 
+     *
      * @param array  $vertical_display the information to display
      * @param string $operation        edit/copy/delete
      * @param string $output           output of _getOperationLinksForVerticleTable
-     * 
+     *
      * @dataProvider dataProviderForTestGetOperationLinksForVerticleTableCase3
      */
     public function testGetOperationLinksForVerticleTableCase3(
@@ -637,10 +661,10 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             $output
         );
     }
-    
+
     /**
      * Data provider for testGetCheckBoxesForMultipleRowOperations
-     * 
+     *
      * @return array parameters and output
      */
     public function dataProviderForGetCheckBoxesForMultipleRowOperations()
@@ -728,14 +752,14 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             )
         );
     }
-    
+
     /**
      * Test for _getCheckBoxesForMultipleRowOperations
-     * 
+     *
      * @param array  $vertical_display the information to display
      * @param string $dir              _left / _right
      * @param string $output           output of _getCheckBoxesForMultipleRowOperations
-     * 
+     *
      * @dataProvider dataProviderForGetCheckBoxesForMultipleRowOperations
      */
     public function testGetCheckBoxesForMultipleRowOperations(
@@ -750,7 +774,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             $output
         );
     }
-    
+
     /**
      * Test for _getOffsets - case 1
      */
@@ -762,7 +786,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             array(0, 0)
         );
     }
-    
+
     /**
      * Test for _getOffsets - case 2
      */
@@ -775,10 +799,10 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             array(9, 0)
         );
     }
-    
+
     /**
      * Data provider for testGetSortParamsCase1
-     * 
+     *
      * @return array parameters and output
      */
     public function dataProviderForGetSortParamsCase1()
@@ -787,13 +811,13 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             array('', array('', '', ''))
         );
     }
-    
+
     /**
      * Test for _getSortParams - case 1
-     * 
+     *
      * @param string $order_by_clause the order by clause of the sql query
      * @param string $output          output of _getSortParams
-     * 
+     *
      * @dataProvider dataProviderForGetSortParamsCase1
      */
     public function testGetSortParamsCase1($order_by_clause, $output)
@@ -805,10 +829,10 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             $output
         );
     }
-    
+
     /**
      * Data provider for testGetSortParamsCase2
-     * 
+     *
      * @return array parameters and output
      */
     public function dataProviderForGetSortParamsCase2()
@@ -824,13 +848,13 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             )
         );
     }
-    
+
     /**
      * Test for _getSortParams - case 2
-     * 
+     *
      * @param string $order_by_clause the order by clause of the sql query
      * @param string $output          output of _getSortParams
-     * 
+     *
      * @dataProvider dataProviderForGetSortParamsCase2
      */
     public function testGetSortParamsCase2($order_by_clause, $output)
@@ -842,10 +866,10 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             $output
         );
     }
-    
+
     /**
      * Data provider for testGetCheckboxForMultiRowSubmissions
-     * 
+     *
      * @return array parameters and output
      */
     public function dataProviderForGetCheckboxForMultiRowSubmissions()
@@ -876,7 +900,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getCheckboxForMultiRowSubmissions
-     * 
+     *
      * @param string $del_url           delete url
      * @param array  $is_display        array with explicit indexes for all
      *                                  the display elements
@@ -888,7 +912,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param string $class             css classes for the td element
      * @param string $output            output of _getSortParams
      * @param string $output            output of _getCheckboxForMultiRowSubmissions
-     * 
+     *
      * @dataProvider dataProviderForGetCheckboxForMultiRowSubmissions
      */
     public function testGetCheckboxForMultiRowSubmissions(
@@ -901,15 +925,15 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                 array(
                     $del_url, $is_display, $row_no, $where_clause_html,
                     $condition_array, $del_query, $id_suffix, $class
-                )                    
+                )
             ),
             $output
         );
     }
-    
+
     /**
      * Data provider for testGetEditLink
-     * 
+     *
      * @return array parametres and output
      */
     public function dataProviderForGetEditLink()
@@ -927,26 +951,26 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             )
         );
     }
-    
+
     /**
      * Test for _getEditLink
-     * 
+     *
      * @param string $edit_url          edit url
      * @param string $class             css classes for td element
      * @param string $edit_str          text for the edit link
      * @param string $where_clause      where clause
      * @param string $where_clause_html url encoded where clause
      * @param string $output            output of _getEditLink
-     * 
+     *
      * @dataProvider dataProviderForGetEditLink
      */
     public function testGetEditLink(
         $edit_url, $class, $edit_str, $where_clause, $where_clause_html, $output
     ) {
-        
+
         $GLOBALS['cfg']['PropertiesIconic'] = 'both';
         $GLOBALS['cfg']['LinkLengthLimit'] = 1000;
-        
+
         $this->assertEquals(
             $this->_callPrivateFunction(
                 '_getEditLink',
@@ -956,12 +980,12 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             ),
             $output
         );
-        
+
     }
-    
+
     /**
      * Data provider for testGetCopyLink
-     * 
+     *
      * @return array parameters and output
      */
     public function dataProviderForGetCopyLink()
@@ -979,26 +1003,26 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             )
         );
     }
-    
+
     /**
      * Test for _getCopyLink
-     * 
+     *
      * @param string $copy_url          copy url
      * @param string $copy_str          text for the copy link
      * @param string $where_clause      where clause
      * @param string $where_clause_html url encoded where clause
      * @param string $class             css classes for the td element
      * @param string $output            output of _getCopyLink
-     * 
+     *
      * @dataProvider dataProviderForGetCopyLink
      */
     public function testGetCopyLink(
         $copy_url, $copy_str, $where_clause, $where_clause_html, $class, $output
     ) {
-        
+
         $GLOBALS['cfg']['PropertiesIconic'] = 'both';
         $GLOBALS['cfg']['LinkLengthLimit'] = 1000;
-        
+
         $this->assertEquals(
             $this->_callPrivateFunction(
                 '_getCopyLink',
@@ -1009,10 +1033,10 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             $output
         );
     }
-    
+
     /**
      * Data provider for testGetDeleteLink
-     * 
+     *
      * @return array parameters and output
      */
     public function dataProviderForGetDeleteLink()
@@ -1029,25 +1053,25 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             )
         );
     }
-    
+
     /**
      * Test for _getDeleteLink
-     * 
+     *
      * @param string $del_url delete url
      * @param string $del_str text for the delete link
      * @param string $js_conf text for the JS confirmation
      * @param string $class   css classes for the td element
      * @param string $output  output of _getDeleteLink
-     * 
+     *
      * @dataProvider dataProviderForGetDeleteLink
      */
     public function testGetDeleteLink(
         $del_url, $del_str, $js_conf, $class, $output
     ) {
-        
+
         $GLOBALS['cfg']['PropertiesIconic'] = 'both';
         $GLOBALS['cfg']['LinkLengthLimit'] = 1000;
-        
+
         $this->assertEquals(
             $this->_callPrivateFunction(
                 '_getDeleteLink',
@@ -1058,10 +1082,10 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             $output
         );
     }
-    
+
     /**
      * Data provider for testGetCheckboxAndLinksCase1
-     * 
+     *
      * @return array parameters and output
      */
     public function dataProviderForGetCheckboxAndLinksCase1()
@@ -1105,10 +1129,10 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             )
         );
     }
-    
+
     /**
      * Test for _getCheckboxAndLinks - case 1
-     * 
+     *
      * @param string $position          the position of the checkbox and links
      * @param string $del_url           delete url
      * @param array  $is_display        array with explicit indexes for all the
@@ -1127,7 +1151,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param string $del_str           text for the delete link
      * @param string $js_conf           text for the JS confirmation
      * @param string $output            output of _getCheckboxAndLinks
-     * 
+     *
      * @dataProvider dataProviderForGetCheckboxAndLinksCase1
      */
     public function testGetCheckboxAndLinksCase1(
@@ -1135,7 +1159,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
         $where_clause_html, $condition_array, $del_query, $id_suffix, $edit_url,
         $copy_url, $class, $edit_str, $copy_str, $del_str, $js_conf, $output
     ) {
-        
+
         $this->assertEquals(
             $this->_callPrivateFunction(
                 '_getCheckboxAndLinks',
@@ -1149,10 +1173,10 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             $output
         );
     }
-    
+
     /**
      * Data provider for testGetCheckboxAndLinksCase2
-     * 
+     *
      * @return array parameters and output
      */
     public function dataProviderForGetCheckboxAndLinksCase2()
@@ -1196,10 +1220,10 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             )
         );
     }
-    
+
     /**
      * Test for _getCheckboxAndLinks - case 2
-     * 
+     *
      * @param string $position          the position of the checkbox and links
      * @param string $del_url           delete url
      * @param array  $is_display        array with explicit indexes for all the
@@ -1218,7 +1242,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param string $del_str           text for the delete link
      * @param string $js_conf           text for the JS confirmation
      * @param string $output            output of _getCheckboxAndLinks
-     * 
+     *
      * @dataProvider dataProviderForGetCheckboxAndLinksCase2
      */
     public function testGetCheckboxAndLinksCase2(
@@ -1226,7 +1250,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
         $where_clause_html, $condition_array, $del_query, $id_suffix, $edit_url,
         $copy_url, $class, $edit_str, $copy_str, $del_str, $js_conf, $output
     ) {
-        
+
         $this->assertEquals(
             $this->_callPrivateFunction(
                 '_getCheckboxAndLinks',
@@ -1240,10 +1264,10 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             $output
         );
     }
-    
+
     /**
      * Data provider for testGetCheckboxAndLinksCase3
-     * 
+     *
      * @return array parameters and output
      */
     public function dataProviderForGetCheckboxAndLinksCase3()
@@ -1281,10 +1305,10 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             )
         );
     }
-    
+
     /**
      * Test for _getCheckboxAndLinks - case 3
-     * 
+     *
      * @param string $position          the position of the checkbox and links
      * @param string $del_url           delete url
      * @param array  $is_display        array with explicit indexes for all the
@@ -1303,7 +1327,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param string $del_str           text for the delete link
      * @param string $js_conf           text for the JS confirmation
      * @param string $output            output of _getCheckboxAndLinks
-     * 
+     *
      * @dataProvider dataProviderForGetCheckboxAndLinksCase3
      */
     public function testGetCheckboxAndLinksCase3(
@@ -1311,7 +1335,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
         $where_clause_html, $condition_array, $del_query, $id_suffix, $edit_url,
         $copy_url, $class, $edit_str, $copy_str, $del_str, $js_conf, $output
     ) {
-        
+
         $this->assertEquals(
             $this->_callPrivateFunction(
                 '_getCheckboxAndLinks',
@@ -1325,7 +1349,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             $output
         );
     }
-    
+
     /**
      * Test for _mimeDefaultFunction
      */
@@ -1339,10 +1363,10 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             "A 'quote' is &lt;b&gt;bold&lt;/b&gt;"
         );
     }
-    
+
     /**
      * Data provider for testGetPlacedLinks
-     * 
+     *
      * @return array parameters and output
      */
     public function dataProviderForGetPlacedLinks()
@@ -1383,7 +1407,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getPlacedLinks
-     * 
+     *
      * @param string  $dir               the direction of links should place
      * @param string  $del_url           the url for delete row
      * @param array   $is_display        which elements to display
@@ -1400,15 +1424,15 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param string  $copy_str          the label for copy row
      * @param string  $del_str           the label for delete row
      * @param string  $js_conf           text for the JS confirmation
-     * @param string $output             output of _getPlacedLinks
-     * 
+     * @param string  $output            output of _getPlacedLinks
+     *
      * @dataProvider dataProviderForGetPlacedLinks
      */
     public function testGetPlacedLinks(
         $dir, $del_url, $is_display, $row_no, $where_clause, $where_clause_html,
         $condition_array, $del_query, $dir_letter, $edit_url, $copy_url,
         $edit_anchor_class, $edit_str, $copy_str, $del_str, $js_conf, $output
-    ) {        
+    ) {
         $this->assertEquals(
             $this->_callPrivateFunction(
                 '_getPlacedLinks',
@@ -1422,6 +1446,6 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             $output
         );
     }
-    
+
 
 }
