@@ -152,9 +152,11 @@ class PMA_DisplayResults
      * Get any property of this class
      * 
      * @param string $property name of the property
+     * 
      * @return if property exist, value of the relavant property
      */
-    public function __get($property) {
+    public function __get($property)
+    {
         
         if (property_exists($this, $property)) {
             return $this->$property;
@@ -167,9 +169,12 @@ class PMA_DisplayResults
      * Set values for any property of this class
      * 
      * @param string $property name of the property
-     * @param        $value    value to set
+     * @param type   $value    value to set
+     * 
+     * @return void
      */
-    public function __set($property, $value) {
+    public function __set($property, $value)
+    {
         
         if (property_exists($this, $property)) {
             $this->$property = $value;
@@ -334,8 +339,8 @@ class PMA_DisplayResults
                 $do_display['text_btn']  = (string) '0';
                 $do_display['pview_lnk'] = (string) '0';
                 
-            } elseif ($this->__get ('_is_count') || $this->__get ('_is_analyse')
-                || $this->__get ('_is_maint') || $this->__get ('_is_explain')
+            } elseif ($this->__get('_is_count') || $this->__get('_is_analyse')
+                || $this->__get('_is_maint') || $this->__get('_is_explain')
             ) {
                 // 2.1 Statement is a "SELECT COUNT", a
                 //     "CHECK/ANALYZE/REPAIR/OPTIMIZE", an "EXPLAIN" one or
@@ -347,14 +352,14 @@ class PMA_DisplayResults
                 $do_display['ins_row']   = (string) '0';
                 $do_display['bkm_form']  = (string) '1';
                 
-                if ($this->__get ('_is_maint')) {
+                if ($this->__get('_is_maint')) {
                     $do_display['text_btn']  = (string) '1';
                 } else {
                     $do_display['text_btn']  = (string) '0';
                 }
                 $do_display['pview_lnk'] = (string) '1';
 
-            } elseif ($this->__get ('_is_show')) {
+            } elseif ($this->__get('_is_show')) {
                 // 2.2 Statement is a "SHOW..."
                 /**
                  * 2.2.1
@@ -480,8 +485,8 @@ class PMA_DisplayResults
      */
     private function _isSelect($analyzed_sql)
     {
-        return ! ($this->__get ('_is_count') || $this->__get('_is_export')
-            || $this->__get('_is_func') || $this->__get ('_is_analyse'))
+        return ! ($this->__get('_is_count') || $this->__get('_is_export')
+            || $this->__get('_is_func') || $this->__get('_is_analyse'))
             && (count($analyzed_sql[0]['select_expr']) == 0)
             && isset($analyzed_sql[0]['queryflags']['select_from'])
             && (count($analyzed_sql[0]['table_ref']) == 1);
@@ -527,11 +532,14 @@ class PMA_DisplayResults
 
         return '<td>'
             . '<form action="sql.php" method="post" ' . $onsubmit . '>'
-            . PMA_generate_common_hidden_inputs($this->__get('_db'), $this->__get('_table'))
+            . PMA_generate_common_hidden_inputs(
+                $this->__get('_db'), $this->__get('_table')
+            )
             . '<input type="hidden" name="sql_query" value="'
             . $html_sql_query . '" />'
             . '<input type="hidden" name="pos" value="' . $pos . '" />'
-            . '<input type="hidden" name="goto" value="' . $this->__get('_goto') . '" />'
+            . '<input type="hidden" name="goto" value="' . $this->__get('_goto')
+            . '" />'
             . $input_for_real_end
             . '<input type="submit" name="navig"'
             . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax" ' : '' )
@@ -770,12 +778,15 @@ class PMA_DisplayResults
         return "\n"
             . '<td>'
             . '<form action="sql.php" method="post">'
-            . PMA_generate_common_hidden_inputs($this->__get('_db'), $this->__get('_table'))
+            . PMA_generate_common_hidden_inputs(
+                $this->__get('_db'), $this->__get('_table')
+            )
             . '<input type="hidden" name="sql_query" value="'
             . $html_sql_query . '" />'
             . '<input type="hidden" name="pos" value="0" />'
             . '<input type="hidden" name="session_max_rows" value="all" />'
-            . '<input type="hidden" name="goto" value="' . $this->__get('_goto') . '" />'
+            . '<input type="hidden" name="goto" value="' . $this->__get('_goto')
+            . '" />'
             . '<input type="submit" name="navig" value="' . __('Show all') . '" />'
             . '</form>'
             . '</td>';
@@ -819,7 +830,8 @@ class PMA_DisplayResults
 
         $onsubmit = 'onsubmit="return '
             . ($_SESSION['tmp_user_values']['pos']
-                    + $_SESSION['tmp_user_values']['max_rows'] < $this->__get('_unlim_num_rows')
+                    + $_SESSION['tmp_user_values']['max_rows']
+                    < $this->__get('_unlim_num_rows')
                 && $this->__get('_num_rows') >= $_SESSION['tmp_user_values']['max_rows'])
             ? 'true'
             : 'false' . '"';
@@ -828,8 +840,10 @@ class PMA_DisplayResults
         $buttons_html .= $this->_getTableNavigationButton(
             '&gt;&gt;',
             _pgettext('Last page', 'End'),
-            @((ceil($this->__get('_unlim_num_rows') / $_SESSION['tmp_user_values']['max_rows'])- 1)
-            * $_SESSION['tmp_user_values']['max_rows']),
+            @((ceil(
+                $this->__get('_unlim_num_rows')
+                / $_SESSION['tmp_user_values']['max_rows']
+            )- 1) * $_SESSION['tmp_user_values']['max_rows']),
             $html_sql_query, $onsubmit, $input_for_real_end, $onclick
         );
 
@@ -861,7 +875,8 @@ class PMA_DisplayResults
 
         $additional_fields_html .= '<input type="hidden" name="sql_query" '
             . 'value="' . $html_sql_query . '" />'
-            . '<input type="hidden" name="goto" value="' . $this->__get('_goto') . '" />'
+            . '<input type="hidden" name="goto" value="' . $this->__get('_goto')
+            . '" />'
             . '<input type="submit" name="navig"'
             . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '')
             . ' value="' . __('Show') . ' :" />'
@@ -908,11 +923,11 @@ class PMA_DisplayResults
     /**
      * Get the headers of the results table
      *
-     * @param array   &$is_display                 which elements to display
-     * @param array   $analyzed_sql                the analyzed query
-     * @param string  $sort_expression             sort expression
-     * @param string  $sort_expression_nodirection sort expression without direction
-     * @param string  $sort_direction              sort direction
+     * @param array  &$is_display                 which elements to display
+     * @param array  $analyzed_sql                the analyzed query
+     * @param string $sort_expression             sort expression
+     * @param string $sort_expression_nodirection sort expression without direction
+     * @param string $sort_direction              sort direction
      *
      * @return string                      html content
      *
@@ -967,7 +982,9 @@ class PMA_DisplayResults
         $table_headers_html .= '<input id="save_cells_at_once" type="hidden" value="'
             . $GLOBALS['cfg']['SaveCellsAtOnce'] . '" />'
             . '<div class="common_hidden_inputs">'
-            . PMA_generate_common_hidden_inputs($this->__get('_db'), $this->__get('_table'))
+            . PMA_generate_common_hidden_inputs(
+                $this->__get('_db'), $this->__get('_table')
+            )
             . '</div>';
 
         // Output data needed for column reordering and show/hide column
@@ -1021,7 +1038,10 @@ class PMA_DisplayResults
             && ! $_SESSION['tmp_user_values']['hide_transformation']
         ) {
             include_once './libraries/transformations.lib.php';
-            $this->__set('_mime_map', PMA_getMIME($this->__get('_db'), $this->__get('_table')));
+            $this->__set(
+                '_mime_map',
+                PMA_getMIME($this->__get('_db'), $this->__get('_table'))
+            );
         }
 
         // See if we have to highlight any header fields of a WHERE query.
@@ -1108,8 +1128,8 @@ class PMA_DisplayResults
     /**
      * Prepare unsorted sql query and sort by key drop down
      * 
-     * @param array   $analyzed_sql    the analyzed query
-     * @param string  $sort_expression sort expression
+     * @param array  $analyzed_sql    the analyzed query
+     * @param string $sort_expression sort expression
      * 
      * @return  array   two element array - $unsorted_sql_query, $drop_down_html
      * 
@@ -1143,7 +1163,9 @@ class PMA_DisplayResults
         ) {
 
             // grab indexes data:
-            $indexes = PMA_Index::getFromTable($this->__get('_table'), $this->__get('_db'));
+            $indexes = PMA_Index::getFromTable(
+                $this->__get('_table'), $this->__get('_db')
+            );
 
             // do we have any index?
             if ($indexes) {
@@ -1179,7 +1201,9 @@ class PMA_DisplayResults
         $drop_down_html = '';
 
         $drop_down_html .= '<form action="sql.php" method="post">' . "\n"
-            . PMA_generate_common_hidden_inputs($this->__get('_db'), $this->__get('_table'))
+            . PMA_generate_common_hidden_inputs(
+                $this->__get('_db'), $this->__get('_table')
+            )
             . __('Sort by key')
             . ': <select name="sql_query" class="autosubmit">' . "\n";
 
@@ -1300,7 +1324,8 @@ class PMA_DisplayResults
 
             if ($directionCondition) {
 
-                $button_html .= '<th colspan="' . $this->__get('_fields_cnt') . '"></th>'
+                $button_html .= '<th colspan="' . $this->__get('_fields_cnt')
+                    . '"></th>'
                     . '</tr>'
                     . '<tr>';
 
@@ -1379,9 +1404,8 @@ class PMA_DisplayResults
     /**
      * Get table comments as array
      * 
-     * @param boolean $directionCondition display direction horizontal
-     *                                    or horizontalflipped
-     * @param array   $analyzed_sql       the analyzed query
+     * @param boolean $direction    the display direction
+     * @param array   $analyzed_sql the analyzed query
      * 
      * @return  array $comments_map table comments when condition true
      *          null                when condition falls
@@ -1416,7 +1440,7 @@ class PMA_DisplayResults
     /**
      * Set global array for store highlighted header fields
      * 
-     * @param array   $analyzed_sql       the analyzed query
+     * @param array $analyzed_sql the analyzed query
      * 
      * @return  void
      * 
@@ -1683,7 +1707,9 @@ class PMA_DisplayResults
             }
 
             $form_html .= '>' . "\n"
-                . PMA_generate_common_hidden_inputs($this->__get('_db'), $this->__get('_table'), 1)
+                . PMA_generate_common_hidden_inputs(
+                    $this->__get('_db'), $this->__get('_table'), 1
+                )
                 . '<input type="hidden" name="goto" value="sql.php" />' . "\n";
         }
 
@@ -1744,8 +1770,8 @@ class PMA_DisplayResults
      * @param boolean $col_visib                   column is visible(false)
      *        array                                column isn't visible(string array)
      * @param string  $col_visib_j                 element of $col_visib array
-     * @param boolean $condition_field             whether the column is a part of the
-     *                                             where clause
+     * @param boolean $condition_field             whether the column is a part of
+     *                                             the where clause
      * 
      * @return  array   2 element array - $order_link, $sorted_header_html
      * 
@@ -2468,7 +2494,8 @@ class PMA_DisplayResults
              */
             list($where_clause, $clause_is_unique, $condition_array)
                 = $this->getCommonFunctions()->getUniqueCondition(
-                    $dt_result, $this->__get('_fields_cnt'), $this->__get('_fields_meta'), $row
+                    $dt_result, $this->__get('_fields_cnt'),
+                    $this->__get('_fields_meta'), $row
                 );
             $where_clause_html = urlencode($where_clause);
             
@@ -3610,7 +3637,7 @@ class PMA_DisplayResults
         $is_field_truncated, $analyzed_sql, &$dt_result, $col_index
     ) {
         
-        $is_analyse = $this->__get ('_is_analyse');
+        $is_analyse = $this->__get('_is_analyse');
 
         if (! isset($column) || is_null($column)) {
 
@@ -3881,7 +3908,7 @@ class PMA_DisplayResults
     /**
      * Prepare edit, copy and delete links for verticle table
      *
-     * @param string $operation        edit/copy/delete
+     * @param string $operation edit/copy/delete
      *
      * @return  string  $links_html         html content
      *
@@ -3889,7 +3916,8 @@ class PMA_DisplayResults
      *
      * @see     _getVerticalTable()
      */
-    private function _getOperationLinksForVerticleTable($operation) {
+    private function _getOperationLinksForVerticleTable($operation)
+    {
 
         $link_html = '<tr>' . "\n";
         $vertical_display = $this->__get('_vertical_display');
@@ -3921,9 +3949,9 @@ class PMA_DisplayResults
     /**
      * Get checkboxes for multiple row data operations
      *
-     * @param string $dir              _left / _right
+     * @param string $dir _left/_right
      *
-     * @return $checkBoxes_html html content
+     * @return  $checkBoxes_html html content
      *
      * @access  private
      *
@@ -4734,7 +4762,7 @@ class PMA_DisplayResults
     /**
      * Set the value of $map array for linking foreign key related tables
      * 
-     * @param array $map the list of relations
+     * @param array &$map the list of relations
      * 
      * @return  void
      * 
@@ -4871,11 +4899,11 @@ class PMA_DisplayResults
     /**
      * Prepare table navigation bar at the top or bottom
      * 
-     * @param integer $pos_next     the offset for the "next" page
-     * @param integer $pos_prev     the offset for the "previous" page
-     * @param string  $place        the place to show navigation
-     * @param string  $empty_line   empty line depend on the $place
-     * @param boolean $is_innodb    whether its InnoDB or not
+     * @param integer $pos_next   the offset for the "next" page
+     * @param integer $pos_prev   the offset for the "previous" page
+     * @param string  $place      the place to show navigation
+     * @param string  $empty_line empty line depend on the $place
+     * @param boolean $is_innodb  whether its InnoDB or not
      * 
      * @return  string  html content of navigation bar
      * 
@@ -5372,8 +5400,8 @@ class PMA_DisplayResults
                 'table' => $meta->orgtable,
                 'pos'   => '0',
                 'sql_query' => 'SELECT * FROM '
-                    . $this->getCommonFunctions()->backquote($this->__get('_db')) . '.'
-                    . $this->getCommonFunctions()->backquote($meta->orgtable)
+                    . $this->getCommonFunctions()->backquote($this->__get('_db'))
+                    . '.' . $this->getCommonFunctions()->backquote($meta->orgtable)
                     . ' WHERE '
                     . $this->getCommonFunctions()->backquote($meta->orgname)
                     . $where_comparison,
