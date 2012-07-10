@@ -656,8 +656,9 @@ function PMA_dbQbeGetWhereClause($criteria_column_count, $criteria_row_count) {
     } // end for
 
     if (! empty($where_clause) && $where_clause != '()') {
-        echo 'WHERE ' . htmlspecialchars($where_clause) . "\n";
+        $where_clause = 'WHERE ' . htmlspecialchars($where_clause) . "\n";
     } // end if
+    return $where_clause;
 }
 
 if ($cfgRelation['designerwork']) {
