@@ -345,7 +345,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param integer $pos_next                  the offset for the "next" page
      * @param integer $pos_prev                  the offset for the "previous" page
      * @param string  $id_for_direction_dropdown the id for the direction dropdown
-     * @param $output output from the _getTableNavigation method
+     * @param string  $output                    output from the _getTableNavigation
+     *                                           method
      *
      * @dataProvider providerForTestGetTableNavigation
      */
@@ -1423,7 +1424,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param string  $copy_str          the label for copy row
      * @param string  $del_str           the label for delete row
      * @param string  $js_conf           text for the JS confirmation
-     * @param string $output             output of _getPlacedLinks
+     * @param string  $output            output of _getPlacedLinks
      *
      * @dataProvider dataProviderForGetPlacedLinks
      */
