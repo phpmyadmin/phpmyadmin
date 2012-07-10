@@ -35,7 +35,10 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = $this->getMockForAbstractClass('PMA_DisplayResults', array('as', '','',''));
+        $this->object = $this->getMockForAbstractClass(
+            'PMA_DisplayResults',
+            array('as', '','','')
+        );
 
     }
 
@@ -300,12 +303,14 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param string  $title          text for button
      * @param integer $pos            position for next query
      * @param string  $html_sql_query query ready for display
-     * @param string  $output         output from the _getTableNavigationButton method
+     * @param string  $output         output from the _getTableNavigationButton
+     *                                method
      *
      * @dataProvider providerForTestGetTableNavigationButton
      */
-    public function testGetTableNavigationButton($caption, $title, $pos, $html_sql_query, $output)
-    {
+    public function testGetTableNavigationButton(
+        $caption, $title, $pos, $html_sql_query, $output
+    ) {
 
         $GLOBALS['cfg']['NavigationBarIconic'] = true;
         $GLOBALS['cfg']['AjaxEnable'] = true;
@@ -344,8 +349,9 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      *
      * @dataProvider providerForTestGetTableNavigation
      */
-    public function testGetTableNavigation($pos_next, $pos_prev, $id_for_direction_dropdown, $output)
-    {
+    public function testGetTableNavigation(
+        $pos_next, $pos_prev, $id_for_direction_dropdown, $output
+    ) {
 
         $_SESSION['tmp_user_values']['max_rows'] = '20';
         $GLOBALS['cfg']['AjaxEnable'] = true;
