@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-07-08 20:32+0200\n"
-"Last-Translator: Keven do Nascimento Carneiro <kevennascimento@ovi.com>\n"
+"PO-Revision-Date: 2012-07-10 05:08+0200\n"
+"Last-Translator: Anderson Diego Kulpa Fachini <anderson.dkfachini@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -6764,7 +6764,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:28
 msgid "Index cache size"
-msgstr ""
+msgstr "Tamanho de cache de índice"
 
 #: libraries/engines/pbxt.lib.php:29
 msgid ""
@@ -6774,7 +6774,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:33
 msgid "Record cache size"
-msgstr ""
+msgstr "Tamanho de cache de gravação"
 
 #: libraries/engines/pbxt.lib.php:34
 msgid ""
@@ -6782,6 +6782,10 @@ msgid ""
 "table data. The default value is 32MB. This memory is used to cache changes "
 "to the handle data (.xtd) and row pointer (.xtr) files."
 msgstr ""
+"Esta é a quantidade de memória alocada para o cache de gravação usado no "
+"cache de dados de tabela. O valor padrão é 32MB. Esta memória será usada "
+"para fazer cache de alterações para a manipulação de dados (.xtd) e arquivos "
+"apontadores de linha (.xtr)."
 
 #: libraries/engines/pbxt.lib.php:38
 msgid "Log cache size"
@@ -6792,10 +6796,12 @@ msgid ""
 "The amount of memory allocated to the transaction log cache used to cache on "
 "transaction log data. The default is 16MB."
 msgstr ""
+"Quantidade de memória alocada para o cache de log de transação usada para "
+"manter cache no log da transação de dados. O valor padrão é 16MB."
 
 #: libraries/engines/pbxt.lib.php:43
 msgid "Log file threshold"
-msgstr ""
+msgstr "Limite de arquivo de log"
 
 #: libraries/engines/pbxt.lib.php:44
 msgid ""
