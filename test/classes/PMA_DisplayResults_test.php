@@ -81,8 +81,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      *
      * @dataProvider providerForTestSetDisplayModeCase1
      */
-    public function testSetDisplayModeCase1($the_disp_mode, $the_total, $output){
-
+    public function testSetDisplayModeCase1($the_disp_mode, $the_total, $output)
+    {
         $GLOBALS['is_count'] = true;
         $GLOBALS['is_maint'] = true;
 
@@ -92,7 +92,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                 array(&$the_disp_mode, &$the_total)
             ),
             $output
-         );
+        );
     }
 
     /**
@@ -146,7 +146,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      *
      * @dataProvider providerForTestSetDisplayModeCase2
      */
-    public function testSetDisplayModeCase2($the_disp_mode, $the_total, $output){
+    public function testSetDisplayModeCase2($the_disp_mode, $the_total, $output)
+    {
 
 
         $GLOBALS['is_count'] = false;
@@ -217,7 +218,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      *
      * @dataProvider providerForTestSetDisplayModeCase3
      */
-    public function testSetDisplayModeCase3($the_disp_mode, $the_total, $output){
+    public function testSetDisplayModeCase3($the_disp_mode, $the_total, $output)
+    {
 
         $GLOBALS['is_count'] = false;
         $GLOBALS['is_maint'] = false;
@@ -274,7 +276,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _isSelect function
      */
-    public function testisSelect(){
+    public function testisSelect()
+    {
 
         $GLOBALS['is_count'] = false;
         $GLOBALS['is_export'] = false;
@@ -301,7 +304,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      *
      * @dataProvider providerForTestGetTableNavigationButton
      */
-    public function testGetTableNavigationButton($caption, $title, $pos, $html_sql_query, $output){
+    public function testGetTableNavigationButton($caption, $title, $pos, $html_sql_query, $output)
+    {
 
         $GLOBALS['cfg']['NavigationBarIconic'] = true;
         $GLOBALS['cfg']['AjaxEnable'] = true;
@@ -340,7 +344,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      *
      * @dataProvider providerForTestGetTableNavigation
      */
-    public function testGetTableNavigation($pos_next, $pos_prev, $id_for_direction_dropdown, $output){
+    public function testGetTableNavigation($pos_next, $pos_prev, $id_for_direction_dropdown, $output)
+    {
 
         $_SESSION['tmp_user_values']['max_rows'] = '20';
         $GLOBALS['cfg']['AjaxEnable'] = true;
@@ -353,10 +358,12 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
         $_SESSION['tmp_user_values']['disp_direction'] = '1';
 
         $this->assertEquals(
-            str_word_count($this->_callPrivateFunction(
-                '_getTableNavigation',
-                array($pos_next, $pos_prev, $id_for_direction_dropdown)
-            )),
+            str_word_count(
+                $this->_callPrivateFunction(
+                    '_getTableNavigation',
+                    array($pos_next, $pos_prev, $id_for_direction_dropdown)
+                )
+            ),
             $output
         );
     }
