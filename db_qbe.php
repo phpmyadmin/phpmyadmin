@@ -600,6 +600,7 @@ function PMA_dbQbeGetSelectClause($criteria_column_count){
  * Provides WHERE clause for building SQL query
  *
  * @param array  $criteria_column_count Number of criteria columns
+ * @param array  $criteria_row_count    Number of criteria rows
  *
  * @return Where clause
  */
