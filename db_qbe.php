@@ -596,6 +596,70 @@ function PMA_dbQbeGetSelectClause($criteria_column_count){
     return $select_clause;
 }
 
+/**
+ * Provides WHERE clause for building SQL query
+ *
+ * @param array  $criteria_column_count Number of criteria columns
+ *
+ * @return Where clause
+ */
+function PMA_dbQbeGetWhereClause($criteria_column_count, $criteria_row_count) {
+    $where_clause = '';
+    $criteria_cnt = 0;
+    for ($x = 0; $x < $criteria_column_count; $x++) {
+        if (! empty($GLOBALS['curField'][$x])
+            && ! empty($GLOBALS['curCriteria'][$x])
+            && $x
+            && isset($last_where)
+            && isset($GLOBALS['curAndOrCol'])) {
+            $where_clause .= ' ' . strtoupper($GLOBALS['curAndOrCol'][$last_where]) . ' ';
+        }
+        if (! empty($GLOBALS['curField'][$x]) && ! empty($GLOBALS['curCriteria'][$x])) {
+            $where_clause .= '(' . $GLOBALS['curField'][$x] . ' '
+                . $GLOBALS['curCriteria'][$x] . ')';
+            $last_where = $x;
+            $criteria_cnt++;
+        }
+    } // end for
+    if ($criteria_cnt > 1) {
+        $where_clause = '(' . $where_clause . ')';
+    }
+    // OR rows ${'cur' . $or}[$x]
+    if (! isset($GLOBALS['curAndOrRow'])) {
+        $GLOBALS['curAndOrRow'] = array();
+    }
+    for ($y = 0; $y <= $criteria_row_count; $y++) {
+        $criteria_cnt = 0;
+        $qry_orwhere = '';
+        $last_orwhere = '';
+        for ($x = 0; $x < $criteria_column_count; $x++) {
+            if (! empty($GLOBALS['curField'][$x]) && ! empty(${'curOr' . $y}[$x]) && $x) {
+                $qry_orwhere .= ' ' . strtoupper($GLOBALS['curAndOrCol'][$last_orwhere]) . ' ';
+            }
+            if (! empty($GLOBALS['curField'][$x]) && ! empty(${'curOr' . $y}[$x])) {
+                $qry_orwhere .= '(' . $GLOBALS['curField'][$x]
+                    .  ' '
+                    .  ${'curOr' . $y}[$x]
+                    .  ')';
+                $last_orwhere = $x;
+                $criteria_cnt++;
+            }
+        } // end for
+        if ($criteria_cnt > 1) {
+            $qry_orwhere      = '(' . $qry_orwhere . ')';
+        }
+        if (! empty($qry_orwhere)) {
+            $where_clause .= "\n"
+                .  strtoupper(isset($GLOBALS['curAndOrRow'][$y]) ? $GLOBALS['curAndOrRow'][$y] . ' ' : '')
+                .  $qry_orwhere;
+        } // end if
+    } // end for
+
+    if (! empty($where_clause) && $where_clause != '()') {
+        echo 'WHERE ' . htmlspecialchars($where_clause) . "\n";
+    } // end if
+}
+
 if ($cfgRelation['designerwork']) {
     $url = 'pmd_general.php' . PMA_generate_common_url(
         array_merge(
@@ -1020,61 +1084,7 @@ if (! empty($qry_from)) {
 }
 
 // 3. WHERE
-$qry_where          = '';
-$criteria_cnt       = 0;
-for ($x = 0; $x < $col; $x++) {
-    if (! empty($GLOBALS['curField'][$x])
-        && ! empty($GLOBALS['curCriteria'][$x])
-        && $x
-        && isset($last_where)
-        && isset($GLOBALS['curAndOrCol'])) {
-        $qry_where  .= ' ' . strtoupper($GLOBALS['curAndOrCol'][$last_where]) . ' ';
-    }
-    if (! empty($GLOBALS['curField'][$x]) && ! empty($GLOBALS['curCriteria'][$x])) {
-        $qry_where  .= '(' . $GLOBALS['curField'][$x] . ' '
-            . $GLOBALS['curCriteria'][$x] . ')';
-        $last_where = $x;
-        $criteria_cnt++;
-    }
-} // end for
-if ($criteria_cnt > 1) {
-    $qry_where      = '(' . $qry_where . ')';
-}
-// OR rows ${'cur' . $or}[$x]
-if (! isset($GLOBALS['curAndOrRow'])) {
-    $GLOBALS['curAndOrRow'] = array();
-}
-for ($y = 0; $y <= $row; $y++) {
-    $criteria_cnt         = 0;
-    $qry_orwhere          = '';
-    $last_orwhere         = '';
-    for ($x = 0; $x < $col; $x++) {
-        if (! empty($GLOBALS['curField'][$x]) && ! empty(${'curOr' . $y}[$x]) && $x) {
-            $qry_orwhere  .= ' ' . strtoupper($GLOBALS['curAndOrCol'][$last_orwhere]) . ' ';
-        }
-        if (! empty($GLOBALS['curField'][$x]) && ! empty(${'curOr' . $y}[$x])) {
-            $qry_orwhere  .= '(' . $GLOBALS['curField'][$x]
-                          .  ' '
-                          .  ${'curOr' . $y}[$x]
-                          .  ')';
-            $last_orwhere = $x;
-            $criteria_cnt++;
-        }
-    } // end for
-    if ($criteria_cnt > 1) {
-        $qry_orwhere      = '(' . $qry_orwhere . ')';
-    }
-    if (! empty($qry_orwhere)) {
-        $qry_where .= "\n"
-            .  strtoupper(isset($GLOBALS['curAndOrRow'][$y]) ? $GLOBALS['curAndOrRow'][$y] . ' ' : '')
-                   .  $qry_orwhere;
-    } // end if
-} // end for
-
-if (! empty($qry_where) && $qry_where != '()') {
-    echo 'WHERE ' . htmlspecialchars($qry_where) . "\n";
-} // end if
-
+echo PMA_dbQbeGetWhereClause($col, $row);
 
 // 4. ORDER BY
 $last_orderby = 0;
