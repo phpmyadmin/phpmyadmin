@@ -209,6 +209,60 @@ class PMA_DisplayResults
         $this->__set('_goto', $goto);
         $this->__set('_sql_query', $sql_query);
     }
+    
+    
+    /**
+     * Set properties which were not initialized at the constructor
+     * 
+     * @param type $unlim_num_rows integer the total number of rows returned by
+     *                                     the SQL query without any appended
+     *                                     "LIMIT" clause programmatically
+     * @param type $fields_meta    array   meta information about fields
+     * @param type $is_count       boolean 
+     * @param type $is_export      integer 
+     * @param type $is_func        boolean 
+     * @param type $is_analyse     integer 
+     * @param type $num_rows       integer total no. of rows returned by SQL query
+     * @param type $fields_cnt     integer total no.of fields returned by SQL query
+     * @param type $querytime      double  time taken for execute the SQL query
+     * @param type $pmaThemeImage  string  path for theme images directory
+     * @param type $text_dir       string  
+     * @param type $is_maint       boolean 
+     * @param type $is_explain     boolean 
+     * @param type $is_show        boolean 
+     * @param type $showtable      array   table definitions
+     * @param type $printview      string  
+     * @param type $url_query      string  URL query
+     * 
+     * @return  void
+     * 
+     * @see     sql.php
+     */
+    public function processParams(
+        $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
+        $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage, $text_dir,
+        $is_maint, $is_explain, $is_show, $showtable, $printview, $url_query
+    ) {
+        
+        $this->__set('_unlim_num_rows', $unlim_num_rows);
+        $this->__set('_fields_meta', $fields_meta);
+        $this->__set('_is_count', $is_count);
+        $this->__set('_is_export', $is_export);
+        $this->__set('_is_func', $is_func);
+        $this->__set('_is_analyse', $is_analyse);
+        $this->__set('_num_rows', $num_rows);
+        $this->__set('_fields_cnt', $fields_cnt);
+        $this->__set('_querytime', $querytime);
+        $this->__set('_pma_theme_image', $pmaThemeImage);
+        $this->__set('_text_dir', $text_dir);
+        $this->__set('_is_maint', $is_maint);
+        $this->__set('_is_explain', $is_explain);
+        $this->__set('_is_show', $is_show);
+        $this->__set('_showtable', $showtable);
+        $this->__set('_printview', $printview);
+        $this->__set('_url_query', $url_query);
+        
+    }
 
 
     /**
@@ -4164,32 +4218,6 @@ class PMA_DisplayResults
     public function getTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
     {
 
-        // Initialize global variables which is not set in constructor
-        $this->__set('_unlim_num_rows', $GLOBALS['unlim_num_rows']);
-        $this->__set('_fields_meta', $GLOBALS['fields_meta']);
-        $this->__set('_is_count', $GLOBALS['is_count']);
-        $this->__set('_is_export', $GLOBALS['is_export']);
-        $this->__set('_is_func', $GLOBALS['is_func']);
-        $this->__set('_is_analyse', $GLOBALS['is_analyse']);
-        $this->__set('_num_rows', $GLOBALS['num_rows']);
-        $this->__set('_fields_cnt', $GLOBALS['fields_cnt']);
-        $this->__set('_querytime', $GLOBALS['querytime']);
-        $this->__set('_pma_theme_image', $GLOBALS['pmaThemeImage']);
-        $this->__set('_text_dir', $GLOBALS['text_dir']);
-        $this->__set('_is_maint', $GLOBALS['is_maint']);
-        $this->__set('_is_explain', $GLOBALS['is_explain']);
-        $this->__set('_is_show', $GLOBALS['is_show']);
-        
-        if (isset ($GLOBALS['showtable'])) {
-            $this->__set('_showtable', $GLOBALS['showtable']);
-        }
-        if (isset ($GLOBALS['printview'])) {
-            $this->__set('_printview', $GLOBALS['printview']);
-        }
-        if (isset ($GLOBALS['url_query'])) {
-            $this->__set('_url_query', $GLOBALS['url_query']);
-        }
-        
         $table_html = '';
         // Following variable are needed for use in isset/empty or
         // use with array indexes/safe use in foreach
