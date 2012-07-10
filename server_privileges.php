@@ -278,10 +278,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
             || (isset($max_questions) || isset($max_connections)
             || isset($max_updates) || isset($max_user_connections))
         ) {
-            $real_sql_query .= PMA_getCommonSQlQueryForAddUserAndUpdatePrivs(
-                $max_questions, $max_connections,$max_updates, 
-                $max_user_connections
-            );
+            $real_sql_query .= PMA_getCommonSqlQueryForAddUserAndUpdatePrivs();
             $sql_query .= $real_sql_query;
         }
         if (isset($create_user_real)) {
