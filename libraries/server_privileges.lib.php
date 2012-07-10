@@ -1181,7 +1181,7 @@ function PMA_getMessageAndSqlQueryForPrivilegesRevoke($db_and_table, $dbname,
 function PMA_getCommonSqlQueryForAddUserAndUpdatePrivs()
 {
     $sql_query = 'WITH';
-    if (isset($_POST['Grant_priv']) && $G_POST['Grant_priv'] == 'Y') {
+    if (isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y') {
         $sql_query .= ' GRANT OPTION';
     }
     if (isset($_POST['max_questions'])) {
