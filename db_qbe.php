@@ -661,6 +661,44 @@ function PMA_dbQbeGetWhereClause($criteria_column_count, $criteria_row_count) {
     return $where_clause;
 }
 
+/**
+ * Provides ORDER BY clause for building SQL query
+ *
+ * @param array  $criteria_column_count Number of criteria columns
+ *
+ * @return Order By clause
+ */
+function PMA_dbQbeGetOrderByClause($criteria_column_count)
+{
+    $last_orderby = 0;
+    $orderby_clause = '';
+    for ($column_index = 0; $column_index < $criteria_column_count; $column_index++) {
+        if ($last_orderby
+            && $column_index
+            && ! empty($GLOBALS['curField'][$column_index])
+            && ! empty($GLOBALS['curSort'][$column_index])
+        ) {
+            $orderby_clause .= ', ';
+        }
+        if (! empty($GLOBALS['curField'][$column_index])
+            && ! empty($GLOBALS['curSort'][$column_index])
+        ) {
+            // if they have chosen all fields using the * selector,
+            // then sorting is not available
+            // Fix for Bug #570698
+            if (substr($GLOBALS['curField'][$column_index], -2) != '.*') {
+                $orderby_clause .= $GLOBALS['curField'][$column_index] . ' '
+                    . $GLOBALS['curSort'][$column_index];
+                $last_orderby = 1;
+            }
+        }
+    } // end for
+    if (! empty($orderby_clause)) {
+        $orderby_clause = 'ORDER BY ' . htmlspecialchars($orderby_clause) . "\n";
+    }
+    return $orderby_clause;
+}
+
 if ($cfgRelation['designerwork']) {
     $url = 'pmd_general.php' . PMA_generate_common_url(
         array_merge(
@@ -1088,27 +1126,7 @@ if (! empty($qry_from)) {
 echo PMA_dbQbeGetWhereClause($col, $row);
 
 // 4. ORDER BY
-$last_orderby = 0;
-if (! isset($qry_orderby)) {
-    $qry_orderby      = '';
-}
-for ($x = 0; $x < $col; $x++) {
-    if ($last_orderby && $x && ! empty($GLOBALS['curField'][$x]) && ! empty($GLOBALS['curSort'][$x])) {
-        $qry_orderby  .=  ', ';
-    }
-    if (! empty($GLOBALS['curField'][$x]) && ! empty($GLOBALS['curSort'][$x])) {
-        // if they have chosen all fields using the * selector,
-        // then sorting is not available
-        // Fix for Bug #570698
-        if (substr($GLOBALS['curField'][$x], -2) != '.*') {
-            $qry_orderby  .=  $GLOBALS['curField'][$x] . ' ' . $GLOBALS['curSort'][$x];
-            $last_orderby = 1;
-        }
-    }
-} // end for
-if (! empty($qry_orderby)) {
-    echo 'ORDER BY ' . htmlspecialchars($qry_orderby) . "\n";
-}
+echo PMA_dbQbeGetOrderByClause($col);
 ?>
     </textarea>
     </fieldset>
