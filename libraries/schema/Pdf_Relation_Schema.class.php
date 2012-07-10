@@ -38,19 +38,6 @@ class PMA_Schema_PDF extends PMA_PDF
     private $_common_functions;
     
     /**
-     * Set CommmonFunctions
-     * 
-     * @param PMA_CommonFunctions $commonFunctions
-     * 
-     * @return void
-     */
-    public function setCommonFunctions(PMA_CommonFunctions $commonFunctions)
-    {
-        $this->_common_functions = $commonFunctions;
-    }
-    
-    
-    /**
      * Get CommmonFunctions
      * 
      * @return CommonFunctions object
@@ -405,19 +392,6 @@ class Table_Stats
     public $primary = array();
     private $_ff = PMA_PDF_FONT;
     private $_common_functions;
-    
-    /**
-     * Set CommmonFunctions
-     * 
-     * @param PMA_CommonFunctions $commonFunctions
-     * 
-     * @return void
-     */
-    public function setCommonFunctions(PMA_CommonFunctions $commonFunctions)
-    {
-        $this->_common_functions = $commonFunctions;
-    }
-    
     
     /**
      * Get CommmonFunctions
