@@ -588,13 +588,14 @@ if (isset($_REQUEST['export'])
     list($title, $export) = PMA_getHtmlForExportUserDefinition($username, $hostname);
     
     unset($username, $hostname, $grants, $one_grant);
+    
+    $response = PMA_Response::getInstance();
     if ($GLOBALS['is_ajax_request']) {
-        $response = PMA_Response::getInstance();
         $response->addJSON('message', $export);
         $response->addJSON('title', $title);
         exit;
     } else {
-        echo "<h2>$title</h2>$export";
+        $response->addHTML("<h2>$title</h2>$export");
     }
 }
 
