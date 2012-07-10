@@ -673,25 +673,22 @@ function PMA_dbQbeGetOrderByClause($criteria_column_count)
 {
     $last_orderby = 0;
     $orderby_clause = '';
-    for ($column_index = 0; $column_index < $criteria_column_count; $column_index++) {
-        if ($last_orderby
-            && $column_index
-            && ! empty($GLOBALS['curField'][$column_index])
-            && ! empty($GLOBALS['curSort'][$column_index])
-        ) {
-            $orderby_clause .= ', ';
-        }
+    for ($column_index = 0; $column_index < $criteria_column_count; $column_index++)
+    {
+        // if all columns are chosen with * selector, then sorting isn't available
+        // Fix for Bug #570698
         if (! empty($GLOBALS['curField'][$column_index])
             && ! empty($GLOBALS['curSort'][$column_index])
         ) {
-            // if they have chosen all fields using the * selector,
-            // then sorting is not available
-            // Fix for Bug #570698
-            if (substr($GLOBALS['curField'][$column_index], -2) != '.*') {
-                $orderby_clause .= $GLOBALS['curField'][$column_index] . ' '
-                    . $GLOBALS['curSort'][$column_index];
-                $last_orderby = 1;
+            if (substr($GLOBALS['curField'][$column_index], -2) == '.*') {
+                continue;
             }
+            if ($last_orderby && $column_index) {
+                $orderby_clause .= ', ';
+            }
+            $orderby_clause .= $GLOBALS['curField'][$column_index] . ' '
+                . $GLOBALS['curSort'][$column_index];
+            $last_orderby = 1;
         }
     } // end for
     if (! empty($orderby_clause)) {
