@@ -860,6 +860,20 @@ class PMA_Pdf_Relation_Schema extends PMA_Export_Relation_Schema
     private $leftMargin = 10;
     private $rightMargin = 10;
     private $_tablewidth;
+    private $_common_functions;
+    
+    /**
+     * Get CommmonFunctions
+     * 
+     * @return CommonFunctions object
+     */
+    public function getCommonFunctions()
+    {
+        if (is_null($this->_common_functions)) {
+            $this->_common_functions = PMA_CommonFunctions::getInstance();
+        }
+        return $this->_common_functions;
+    }
 
     /**
      * The "PMA_Pdf_Relation_Schema" constructor
