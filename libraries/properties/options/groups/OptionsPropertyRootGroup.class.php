@@ -10,7 +10,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* This class extends the OptionsPropertyGroup class */
-require_once "../OptionsPropertyGroup.class.php";
+require_once "libraries/properties/options/OptionsPropertyGroup.class.php";
 
 /**
  * Group property item class of type root
@@ -23,11 +23,11 @@ class OptionsPropertyRootGroup extends OptionsPropertyGroup
      * Returns the property item type of either an instance of
      *  - OptionsPropertyOneItem ( f.e. "bool", "text", "radio", etc ) or
      *  - OptionsPropertyGroup   ( "root", "main" or "subgroup" )
-     *  - PluginPropertyItem     ( "export", "import", "transformations" ) 
+     *  - PluginPropertyItem     ( "export", "import", "transformations" )
      *
      * @return string
      */
-    public abstract function getItemType()
+    public function getItemType()
     {
         return "root";
     }

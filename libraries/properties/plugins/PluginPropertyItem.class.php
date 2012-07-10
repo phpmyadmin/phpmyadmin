@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* This class extends the PropertyItem class */
-require_once "../PropertyItem.class.php";
+require_once "libraries/properties/PropertyItem.class.php";
 
 /**
  * Superclass for
@@ -21,14 +21,14 @@ require_once "../PropertyItem.class.php";
  *
  * @package PhpMyAdmin
  */
-abstract class OptionsPropertyItem extends PropertyItem
+abstract class PluginPropertyItem extends PropertyItem
 {
     /**
      * Returns the property type ( either "options", or "plugin" ).
      *
      * @return string
      */
-    public abstract function getPropertyType()
+    public function getPropertyType()
     {
         return "plugin";
     }

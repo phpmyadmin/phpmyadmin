@@ -10,7 +10,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* This class extends the OptionsPropertyOneItem class */
-require_once "../OptionsPropertyOneItem.class.php";
+require_once "libraries/properties/options/OptionsPropertyOneItem.class.php";
 
 /**
  * Single property item class of type select
@@ -23,11 +23,11 @@ class SelectPropertyItem extends OptionsPropertyOneItem
      * Returns the property item type of either an instance of
      *  - OptionsPropertyOneItem ( f.e. "bool", "text", "radio", etc ) or
      *  - OptionsPropertyGroup   ( "root", "main" or "subgroup" )
-     *  - PluginPropertyItem     ( "export", "import", "transformations" ) 
+     *  - PluginPropertyItem     ( "export", "import", "transformations" )
      *
      * @return string
      */
-    public abstract function getItemType()
+    public function getItemType()
     {
         return "select";
     }

@@ -11,7 +11,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 /* This class extends the PropertyItem class */
-require_once "../PropertyItem.class.php";
+require_once "libraries/properties/PropertyItem.class.php";
 
 /**
  * Superclass for
@@ -90,7 +90,7 @@ abstract class OptionsPropertyItem extends PropertyItem
      *
      * @return string
      */
-    public abstract function getPropertyType()
+    public function getPropertyType()
     {
         return "options";
     }

@@ -61,7 +61,7 @@ class TransformationsPluginProperties extends PluginPropertyItem
      *
      * @return string
      */
-    public abstract function getItemType()
+    public function getItemType()
     {
         return "transformations";
     }
