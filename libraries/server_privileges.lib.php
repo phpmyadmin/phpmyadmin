@@ -106,7 +106,7 @@ function PMA_extractPrivInfo($row = '', $enableHTML = false)
                 || (empty($row)
                 && ($GLOBALS[$current_grant[0]] == 'Y'
                 || (is_array($GLOBALS[$current_grant[0]])
-                && count($GLOBALS[$current_grant[0]]) == $GLOBALS['column_count']
+                && count($GLOBALS[$current_grant[0]]) == $_REQUEST['column_count']
                 && empty($GLOBALS[$current_grant[0] . '_none']))))
             ) {
                 if ($enableHTML) {
