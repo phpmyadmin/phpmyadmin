@@ -434,8 +434,8 @@ function PMA_getHtmlToDisplayPrivilegesTable($random_n, $db = '*', $table = '*',
         // get columns
         $res = PMA_DBI_try_query(
             'SHOW COLUMNS FROM '
-            . PMA_CommonFunctions::getInstance()->PMA_backquote(PMA_unescapeMysqlWildcards($db))
-            . '.' . PMA_CommonFunctions::getInstance()->PMA_backquote($table) . ';'
+            . PMA_CommonFunctions::getInstance()->backquote(PMA_unescapeMysqlWildcards($db))
+            . '.' . PMA_CommonFunctions::getInstance()->backquote($table) . ';'
         );
         $columns = array();
         if ($res) {
