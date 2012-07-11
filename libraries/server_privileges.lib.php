@@ -2067,7 +2067,7 @@ function PMA_displayTablesInEditPrivs($dbname, $found_rows)
 }
 
 /**
- * Get HTML for display the user overview
+ * Get HTML for display the users overview
  * (if less than 50 users, display them immediately)
  * 
  * @param array $result             ran sql query
