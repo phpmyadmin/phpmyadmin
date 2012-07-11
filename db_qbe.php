@@ -569,6 +569,53 @@ function PMA_dbQbeGetModifyColumnsRow($criteria_column_count, $criteriaAndOrColu
 }
 
 /**
+ * Provides Insert/Delete options for criteria inputbox
+ * with AND/OR relationship modification options
+ *
+ * @param integer $row_index Number of criteria row
+ * @param string  $checked   If checked
+ *
+ * @return HTML
+ */
+function PMA_dbQbeGetInsDelAndOrCell($row_index, $checked) {
+    $html_output = '<td class="' . $GLOBALS['cell_align_right'] . ' nowrap">';
+    $html_output .= '<!-- Row controls -->';
+    $html_output .= '<table class="nospacing nopadding">';
+    $html_output .= '<tr>';
+    $html_output .= '<td class="' . $GLOBALS['cell_align_right'] . ' nowrap">';
+    $html_output .= '<small>' . __('Ins') . ':</small>';
+    $html_output .= '<input type="checkbox"'
+        . ' name="criteriaRowInsert[' . $row_index . ']" />';
+    $html_output .= '</td>';
+    $html_output .= '<td class="' . $GLOBALS['cell_align_right'] . '">';
+    $html_output .= '<strong>' . __('And') . ':</strong>';
+    $html_output .= '</td>';
+    $html_output .= '<td>';
+    $html_output .= '<input type="radio"'
+        . ' name="criteriaAndOrRow[' . $row_index . ']" value="and"'
+        . $checked['and'] . ' />';
+    $html_output .= '</td>';
+    $html_output .= '</tr>';
+    $html_output .= '<tr>';
+    $html_output .= '<td class="' . $GLOBALS['cell_align_right'] . ' nowrap">';
+    $html_output .= '<small>' . __('Del') . ':</small>';
+    $html_output .= '<input type="checkbox"'
+        . ' name="criteriaRowDelete[' . $row_index . ']" />';
+    $html_output .= '</td>';
+    $html_output .= '<td class="' . $GLOBALS['cell_align_right'] . '">';
+    $html_output .= '<strong>' . __('Or') . ':</strong>';
+    $html_output .= '</td>';
+    $html_output .= '<td>';
+    $html_output .= '<input type="radio" name="criteriaAndOrRow[' . $row_index . ']"'
+        . ' value="or"' . $checked['or'] . ' />';
+    $html_output .= '</td>';
+    $html_output .= '</tr>';
+    $html_output .= '</table>';
+    $html_output .= '</td>';
+    return $html_output;
+}
+
+/**
  * Provides SELECT clause for building SQL query
  *
  * @param array  $criteria_column_count Number of criteria columns
@@ -735,37 +782,9 @@ for ($y = 0; $y <= $row; $y++) {
         $chk['and'] = '';
         ?>
 <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?> noclick">
-    <td class="<?php echo $cell_align_right; ?> nowrap">
-        <!-- Row controls -->
-        <table class="nospacing nopadding" border="0">
-        <tr>
-            <td class="<?php echo $cell_align_right; ?> nowrap">
-                <small><?php echo __('Ins'); ?>:</small>
-                <input type="checkbox" name="criteriaRowInsert[<?php echo $w; ?>]" />
-            </td>
-            <td class="<?php echo $cell_align_right; ?>">
-                <strong><?php echo __('And'); ?>:</strong>
-            </td>
-            <td>
-                <input type="radio" name="criteriaAndOrRow[<?php echo $w; ?>]" value="and"<?php echo $chk['and']; ?> />
-                &nbsp;
-            </td>
-        </tr>
-        <tr>
-            <td class="<?php echo $cell_align_right; ?> nowrap">
-                <small><?php echo __('Del'); ?>:</small>
-                <input type="checkbox" name="criteriaRowDelete[<?php echo $w; ?>]" />
-            </td>
-            <td class="<?php echo $cell_align_right; ?>">
-                <strong><?php echo __('Or'); ?>:</strong>
-            </td>
-            <td>
-                <input type="radio" name="criteriaAndOrRow[<?php echo $w; ?>]" value="or"<?php echo $chk['or']; ?> />
-                &nbsp;
-            </td>
-        </tr>
-        </table>
-    </td>
+<?php
+echo PMA_dbQbeGetInsDelAndOrCell($w, $chk);
+?>
         <?php
         $z = 0;
         for ($x = 0; $x < $col; $x++) {
@@ -817,36 +836,8 @@ for ($y = 0; $y <= $row; $y++) {
     echo "\n";
     ?>
 <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?> noclick">
-    <td class="<?php echo $cell_align_right; ?> nowrap">
-        <!-- Row controls -->
-        <table class="nospacing nopadding">
-        <tr>
-            <td class="<?php echo $cell_align_right; ?> nowrap">
-                <small><?php echo __('Ins'); ?>:</small>
-                <input type="checkbox" name="criteriaRowInsert[<?php echo $w; ?>]" />
-            </td>
-            <td class="<?php echo $cell_align_right; ?>">
-                <strong><?php echo __('And'); ?>:</strong>
-            </td>
-            <td>
-                <input type="radio" name="criteriaAndOrRow[<?php echo $w; ?>]" value="and"<?php echo $chk['and']; ?> />
-            </td>
-        </tr>
-        <tr>
-            <td class="<?php echo $cell_align_right; ?> nowrap">
-                <small><?php echo __('Del'); ?>:</small>
-                <input type="checkbox" name="criteriaRowDelete[<?php echo $w; ?>]" />
-            </td>
-            <td class="<?php echo $cell_align_right; ?>">
-                <strong><?php echo __('Or'); ?>:</strong>
-            </td>
-            <td>
-                <input type="radio" name="criteriaAndOrRow[<?php echo $w; ?>]" value="or"<?php echo $chk['or']; ?> />
-            </td>
-        </tr>
-        </table>
-    </td>
-    <?php
+<?php
+    echo PMA_dbQbeGetInsDelAndOrCell($w, $chk);
     $z = 0;
     for ($x = 0; $x < $col; $x++) {
         if (! empty($criteriaColumnInsert) && isset($criteriaColumnInsert[$x]) && $criteriaColumnInsert[$x] == 'on') {
