@@ -31,7 +31,9 @@ function PMA_wildcardEscapeForGrant($dbname, $tablename)
     } else {
         if (strlen($tablename)) {
             $db_and_table
-                = PMA_CommonFunctions::getInstance()->backquote(PMA_unescapeMysqlWildcards($dbname)) . '.'
+                = PMA_CommonFunctions::getInstance()->backquote(
+                    PMA_CommonFunctions::getInstance()->unescapeMysqlWildcards($dbname)
+                ) . '.'
                 . PMA_CommonFunctions::getInstance()->backquote($tablename);
         } else {
             $db_and_table = PMA_CommonFunctions::getInstance()->backquote($dbname) . '.*';
@@ -434,7 +436,7 @@ function PMA_getHtmlToDisplayPrivilegesTable($random_n, $db = '*', $table = '*',
         // get columns
         $res = PMA_DBI_try_query(
             'SHOW COLUMNS FROM '
-            . PMA_CommonFunctions::getInstance()->backquote(PMA_unescapeMysqlWildcards($db))
+            . PMA_CommonFunctions::getInstance()->backquote(PMA_CommonFunctions::getInstance()->unescapeMysqlWildcards($db))
             . '.' . PMA_CommonFunctions::getInstance()->backquote($table) . ';'
         );
         $columns = array();
@@ -519,17 +521,18 @@ function PMA_getHtmlForDisplayResourceLimits($row)
  */
 function PMA_getHtmlForTableSpecificPrivileges($username, $hostname, $db, $table, $columns)
 {
+    $common_functions = PMA_CommonFunctions::getInstance();
     $res = PMA_DBI_query(
         'SELECT `Column_name`, `Column_priv`'
         .' FROM `mysql`.`columns_priv`'
         .' WHERE `User`'
-        .' = \'' . PMA_CommonFunctions::getInstance()->sqlAddSlashes($username) . "'"
+        .' = \'' . $common_functions->sqlAddSlashes($username) . "'"
         .' AND `Host`'
-        .' = \'' . PMA_CommonFunctions::getInstance()->sqlAddSlashes($hostname) . "'"
+        .' = \'' . $common_functions->sqlAddSlashes($hostname) . "'"
         .' AND `Db`'
-        .' = \'' . PMA_CommonFunctions::getInstance()->sqlAddSlashes(PMA_unescapeMysqlWildcards($db)) . "'"
+        .' = \'' . $common_functions->sqlAddSlashes($common_functions->unescapeMysqlWildcards($db)) . "'"
         .' AND `Table_name`'
-        .' = \'' . PMA_CommonFunctions::getInstance()->sqlAddSlashes($table) . '\';'
+        .' = \'' . $common_functions->sqlAddSlashes($table) . '\';'
     );
 
     while ($row1 = PMA_DBI_fetch_row($res)) {
@@ -545,7 +548,7 @@ function PMA_getHtmlForTableSpecificPrivileges($username, $hostname, $db, $table
        . '<input type="hidden" name="column_count" value="' . count($columns) . '" />' . "\n"
        . '<fieldset id="fieldset_user_priv">' . "\n"
        . '    <legend>' . __('Table-specific privileges')
-       . PMA_CommonFunctions::getInstance()->showHint(
+       . $common_functions->showHint(
                __('Note: MySQL privilege names are expressed in English')
            )
        . '</legend>' . "\n";
@@ -2520,4 +2523,183 @@ function PMA_getHtmlForExportUserDefinition($username, $hostname)
 }
 
 
+function PMA_getUsernameAndHostname() {
+    if ($_POST['pred_hostname'] == 'any') {
+        $username = '';
+    } else {
+        $username = $_POST['username'];
+    }
+    
+    switch ($_POST['pred_hostname']) {
+    case 'any':
+        $hostname = '%';
+        break;
+    case 'localhost':
+        $hostname = 'localhost';
+        break;
+    case 'hosttable':
+        $hostname = '';
+        break;
+    case 'thishost':
+        $_user_name = PMA_DBI_fetch_value('SELECT USER()');
+        $hostname = substr($_user_name, (strrpos($_user_name, '@') + 1));
+        break;
+    }
+    
+    if (!isset($_POST['pred_hostname'])) {
+        $hostname = $_POST['hostname'];
+    }
+    
+    return array($username, $hostname);
+}
+
+function PMA_addOrChangeOrCopyUser($password) {
+    $common_functions = PMA_CommonFunctions::getInstance();
+    $sql_query = '';
+    
+    list($username, $hostname) = PMA_getUsernameAndHostname();
+
+    $sql = "SELECT '1' FROM `mysql`.`user`"
+        . " WHERE `User` = '" . $common_functions->sqlAddSlashes($username) . "'"
+        . " AND `Host` = '" . $common_functions->sqlAddSlashes($hostname) . "';";
+    if (PMA_DBI_fetch_value($sql) == 1) {
+        $message = PMA_Message::error(__('The user %s already exists!'));
+        $message->addParam('[i]\'' . $username . '\'@\'' . $hostname . '\'[/i]');
+        $_REQUEST['adduser'] = true;
+        $_add_user_error = true;
+    } else {
+        $create_user_real = 'CREATE USER \'' . $common_functions->sqlAddSlashes($username)
+            . '\'@\'' . $common_functions->sqlAddSlashes($hostname) . '\'';
+
+        $real_sql_query = 'GRANT ' . join(', ', PMA_extractPrivInfo()) . ' ON *.* TO \''
+            . $common_functions->sqlAddSlashes($username)
+            . '\'@\'' . $common_functions->sqlAddSlashes($hostname) . '\'';
+        
+        if ($_POST['pred_hostname'] != 'none' && $_POST['pred_hostname'] != 'keep') {
+            $sql_query = $real_sql_query . ' IDENTIFIED BY \'***\'';
+            $real_sql_query .= ' IDENTIFIED BY \'' . $common_functions->sqlAddSlashes($_POST['pma_pw']) . '\'';
+            
+            if (isset($create_user_real)) {
+                $create_user_show = $create_user_real . ' IDENTIFIED BY \'***\'';
+                $create_user_real .= ' IDENTIFIED BY \'' . $common_functions->sqlAddSlashes($_POST['pma_pw']) . '\'';
+            }
+        } else {
+            if ($_POST['pred_password'] == 'keep' && ! empty($password)) {
+                $real_sql_query .= ' IDENTIFIED BY PASSWORD \'' . $password . '\'';
+                if (isset($create_user_real)) {
+                    $create_user_real .= ' IDENTIFIED BY PASSWORD \'' . $password . '\'';
+                }
+            }
+            $sql_query = $real_sql_query;
+            if (isset($create_user_real)) {
+                $create_user_show = $create_user_real;
+            }
+        }
+
+        if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')
+            || (isset($_POST['max_questions']) || isset($_POST['max_connections'])
+            || isset($_POST['max_updates']) || isset($_POST['max_user_connections']))
+        ) {
+            $real_sql_query .= PMA_getCommonSqlQueryForAddUserAndUpdatePrivs();
+            $sql_query .= $real_sql_query;
+        }
+        if (isset($create_user_real)) {
+            $create_user_real .= ';';
+            $create_user_show .= ';';
+        }
+        $real_sql_query .= ';';
+        $sql_query .= ';';
+        if (empty($_REQUEST['change_copy'])) {
+            $_error = false;
+            if (isset($create_user_real)) {
+                if (! PMA_DBI_try_query($create_user_real)) {
+                    $_error = true;
+                }
+                $sql_query = $create_user_show . $sql_query;
+            }
+            list ($sql_query, $message) = PMA_addUser(
+                $sql_query, $_error, $real_sql_query, $username, $hostname
+            );
+            
+        } else {
+            if (isset($create_user_real)) {
+                $queries[]             = $create_user_real;
+            }
+            $queries[]             = $real_sql_query;
+            // we put the query containing the hidden password in
+            // $queries_for_display, at the same position occupied
+            // by the real query in $queries
+            $tmp_count = count($queries);
+            if (isset($create_user_real)) {
+                $queries_for_display[$tmp_count - 2] = $create_user_show;
+            }
+            $queries_for_display[$tmp_count - 1] = $sql_query;
+        }
+
+    }
+    return array($sql_query, $message);
+}
+
+function PMA_addUser($sql_query, $_error, $real_sql_query, $username, $hostname)
+{
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
+    if ($_error || ! PMA_DBI_try_query($real_sql_query)) {
+        $_REQUEST['createdb-1'] = $_REQUEST['createdb-2'] = $_REQUEST['createdb-3'] = false;
+        $message = PMA_Message::rawError(PMA_DBI_getError());
+    } else {
+        $message = PMA_Message::success(__('You have added a new user.'));
+    }
+
+    if (isset($_REQUEST['createdb-1'])) {
+        // Create database with same name and grant all privileges
+        $q = 'CREATE DATABASE IF NOT EXISTS '
+            . $common_functions->backquote($common_functions->sqlAddSlashes($username)) . ';';
+        $sql_query .= $q;
+        if (! PMA_DBI_try_query($q)) {
+            $message = PMA_Message::rawError(PMA_DBI_getError());
+        }
+        /**
+         * If we are not in an Ajax request, we can't reload navigation now
+         */
+        if ($GLOBALS['is_ajax_request'] != true) {
+            // this is needed in case tracking is on:
+            $GLOBALS['db'] = $username;
+            $GLOBALS['reload'] = true;
+            echo $common_functions->getReloadNavigationScript();
+        }
+
+        $q = 'GRANT ALL PRIVILEGES ON '
+            . $common_functions->backquote($common_functions->escapeMysqlWildcards($common_functions->sqlAddSlashes($username))) . '.* TO \''
+            . $common_functions->sqlAddSlashes($username) . '\'@\'' . $common_functions->sqlAddSlashes($hostname) . '\';';
+        $sql_query .= $q;
+        if (! PMA_DBI_try_query($q)) {
+            $message = PMA_Message::rawError(PMA_DBI_getError());
+        }
+    }
+
+    if (isset($_REQUEST['createdb-2'])) {
+        // Grant all privileges on wildcard name (username\_%)
+        $q = 'GRANT ALL PRIVILEGES ON '
+            . $common_functions->backquote($common_functions->sqlAddSlashes($username) . '\_%') . '.* TO \''
+            . $common_functions->sqlAddSlashes($username) . '\'@\'' . $common_functions->sqlAddSlashes($hostname) . '\';';
+        $sql_query .= $q;
+        if (! PMA_DBI_try_query($q)) {
+            $message = PMA_Message::rawError(PMA_DBI_getError());
+        }
+    }
+
+    if (isset($_REQUEST['createdb-3'])) {
+        // Grant all privileges on the specified database to the new user
+        $q = 'GRANT ALL PRIVILEGES ON '
+        . $common_functions->backquote($common_functions->sqlAddSlashes($dbname)) . '.* TO \''
+        . $common_functions->sqlAddSlashes($username) . '\'@\'' . $common_functions->sqlAddSlashes($hostname) . '\';';
+        $sql_query .= $q;
+        if (! PMA_DBI_try_query($q)) {
+            $message = PMA_Message::rawError(PMA_DBI_getError());
+        }
+    }
+    
+    return array($sql_query, $message);
+}
 ?>
