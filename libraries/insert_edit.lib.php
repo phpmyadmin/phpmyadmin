@@ -826,8 +826,8 @@ function PMA_getTextarea($column, $backup_field, $column_name_appendix,
     } elseif ($GLOBALS['cfg']['LongtextDoubleTextarea']
         && strstr($column['pma_type'], 'longtext')
     ) {
-        $textAreaRows = $GLOBALS['cfg']['TextareaRows']*2;
-        $textareaCols = $GLOBALS['cfg']['TextareaCols']*2;
+        $textAreaRows = $GLOBALS['cfg']['TextareaRows'] * 2;
+        $textareaCols = $GLOBALS['cfg']['TextareaCols'] * 2;
     }
     $html_output = $backup_field . "\n"
         . '<textarea name="fields' . $column_name_appendix . '"'
