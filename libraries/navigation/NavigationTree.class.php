@@ -526,11 +526,8 @@ class PMA_NavigationTree {
             $this->groupTree();
             $retval = "<div class='list_container' style='display: none;'>";
             $retval .= "<ul>";
-            if (($node->real_name == 'tables' || $node->real_name == 'views')
-                && $node->numChildren() >= (int)$GLOBALS['cfg']['LeftDisplayTableFilterMinimum']) {
-                // fast filter
-                $retval .= $this->fastFilterHtml();
-            }
+
+            $retval .= $this->fastFilterHtml($node);
 
             if ($node->type == Node::CONTAINER && ! $node->is_group) {
                 $retval .= $this->getPageSelector($node);
@@ -726,11 +723,7 @@ class PMA_NavigationTree {
                 if ($wrap) {
                     $retval .= "<div$hide class='list_container'><ul>";
                 }
-                if (($node->real_name == 'tables' || $node->real_name == 'views')
-                    && $node->numChildren() >= (int)$GLOBALS['cfg']['LeftDisplayTableFilterMinimum']
-                ) {
-                    $retval .= $this->fastFilterHtml();
-                }
+                $retval .= $this->fastFilterHtml($node);
                 if ($node->type == Node::CONTAINER && ! $node->is_group) {
                     $retval .= $this->getPageSelector($node);
                 }
@@ -766,14 +759,21 @@ class PMA_NavigationTree {
     /**
      * Generates the HTML code for displaying the fast filter for tables
      *
+     * @param Node $node The node for which to generate the fast filter html
+     *
      * @return string LI element used for the fast filter
      */
-    private function fastFilterHtml()
+    private function fastFilterHtml($node)
     {
-        $retval  = "<li class='fast_filter'>";
-        $retval .= "<input value='" . __('filter tables by name') . "' />";
-        $retval .= "<span title='" . __('Clear Fast Filter') . "'>X</span>";
-        $retval .= "</li>";
+        $retval = '';
+        if (($node->real_name == 'tables' || $node->real_name == 'views')
+            && $node->realParent()->getPresence($node->real_name) >= (int)$GLOBALS['cfg']['LeftDisplayTableFilterMinimum']
+        ) {
+            $retval .= "<li class='fast_filter'>";
+            $retval .= "<input value='" . __('filter tables by name') . "' />";
+            $retval .= "<span title='" . __('Clear Fast Filter') . "'>X</span>";
+            $retval .= "</li>";
+        }
         return $retval;
     }
 
