@@ -736,14 +736,18 @@ function PMA_getForeignLink($column, $backup_field, $column_name_appendix,
     list($db, $table) = $paramTableDbArray;
     $html_output = '';
     $html_output .= $backup_field . "\n";
+
     $html_output .= '<input type="hidden" name="fields_type'
         . $column_name_appendix . '" value="foreign" />';
-    $html_output .= '<input type="text" name="fields' . $column_name_appendix . '"'
-        . 'class="textfield" ' . $unnullify_trigger
+
+    $html_output .= '<input type="text" name="fields' . $column_name_appendix . '" '
+        . 'class="textfield" '
+        . $unnullify_trigger . ' '
         . 'tabindex="' . ($tabindex + $tabindex_for_value) . '" '
         . 'id="field_' . ($idindex) . '_3" '
-        . 'value="' . htmlspecialchars($data) . '" />'
-        . '<a class="hide foreign_values_anchor" target="_blank" '
+        . 'value="' . htmlspecialchars($data) . '" />';
+
+    $html_output .= '<a class="hide foreign_values_anchor" target="_blank" '
         . 'onclick="window.open(this.href,\'foreigners\', \'width=640,height=240,scrollbars=yes,resizable=yes\'); return false;" '
         . 'href="browse_foreigners.php?'
         . PMA_generate_common_url($db, $table) . '&amp;field='
