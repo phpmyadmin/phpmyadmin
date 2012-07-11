@@ -2428,12 +2428,12 @@ class PMA_Util
         $pageNowMinusRange = ($pageNow - $range);
         $pageNowPlusRange = ($pageNow + $range);
 
-        $gotopage = $prompt . ' <select class="pageselector" ';
+        $gotopage = $prompt . ' <select class="pageselector ';
         if ($GLOBALS['cfg']['AjaxEnable']) {
-            $gotopage .= ' class="ajax"';
+            $gotopage .= ' ajax';
         }
 
-        $gotopage .= ' name="' . $name . '" >';
+        $gotopage .= '" name="' . $name . '" >';
         if ($nbTotalPage < $showAll) {
             $pages = range(1, $nbTotalPage);
         } else {
