@@ -1388,11 +1388,15 @@ function PMA_getHTMLforGisDataTypes()
  */
 function PMA_getContinueInsertionForm($table, $db, $where_clause_array, $err_url)
 {
-    $html_output = '<form id="continueForm" method="post" action="tbl_replace.php" name="continueForm" >'
+    $html_output = '<form id="continueForm" method="post"'
+        . ' action="tbl_replace.php" name="continueForm">'
         . PMA_generate_common_hidden_inputs($db, $table)
-        . '<input type="hidden" name="goto" value="' . htmlspecialchars($GLOBALS['goto']) . '" />'
-        . '<input type="hidden" name="err_url" value="' . htmlspecialchars($err_url) . '" />'
-        . '<input type="hidden" name="sql_query" value="' . htmlspecialchars($_REQUEST['sql_query']) . '" />';
+        . '<input type="hidden" name="goto"'
+        . ' value="' . htmlspecialchars($GLOBALS['goto']) . '" />'
+        . '<input type="hidden" name="err_url"'
+        . ' value="' . htmlspecialchars($err_url) . '" />'
+        . '<input type="hidden" name="sql_query"'
+        . ' value="' . htmlspecialchars($_REQUEST['sql_query']) . '" />';
 
     if (isset($_REQUEST['where_clause'])) {
         foreach ($where_clause_array as $key_id => $where_clause) {
@@ -1646,7 +1650,9 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
             if ($_SESSION['tmp_user_values']['display_binary_as_hex']
                 && $GLOBALS['cfg']['ShowFunctionFields']
             ) {
-                $current_row[$column['Field']] = bin2hex($current_row[$column['Field']]);
+                $current_row[$column['Field']] = bin2hex(
+                    $current_row[$column['Field']]
+                );
                 $column['display_binary_as_hex'] = true;
             } else {
                 $current_row[$column['Field']]
@@ -2006,7 +2012,7 @@ function PMA_getDisplayValueForForeignTableColumn($where_comparison,
     );
     // Field to display from the foreign table?
     if (isset($display_field) && strlen($display_field)) {
-        $dispsql     = 'SELECT ' . $common_functions->backquote($display_field)
+        $dispsql = 'SELECT ' . $common_functions->backquote($display_field)
             . ' FROM ' . $common_functions->backquote($map[$relation_field]['foreign_db'])
             . '.' . $common_functions->backquote($map[$relation_field]['foreign_table'])
             . ' WHERE ' . $common_functions->backquote($map[$relation_field]['foreign_field'])
@@ -2081,6 +2087,7 @@ function PMA_getLinkForRelationalDisplayField($map, $relation_field,
  *                               [field_name][field_key]
  * @param array  $edited_values  transform fields list
  * @param array  $extra_data     extra data array
+ * @param string $include_file   file containing the transformation plugin
  *
  * @return array $extra_data
  */
@@ -2178,10 +2185,12 @@ function PMA_getCurrentValueAsAnArrayForMultipleEdit($multi_edit_colummns,
  * @param boolean $is_insert                    boolean value whether insert or not
  * @param array   $query_values                 SET part of the sql query
  * @param array   $query_fields                 array of query fileds
- * @param string  $current_value_as_an_array    current value in the column as an array
+ * @param string  $current_value_as_an_array    current value in the column
+ *                                              as an array
  * @param array   $value_sets                   array of valu sets
  * @param string  $key                          an md5 of the column name
- * @param array   $multi_edit_columns_null_prev array of multiple edit columnd null previous
+ * @param array   $multi_edit_columns_null_prev array of multiple edit columns
+ *                                              null previous
  *
  * @return array ($query_values, $query_fields)
  */
@@ -2200,7 +2209,9 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
             $query_values[] = $current_value_as_an_array;
             // first inserted row so prepare the list of fields
             if (empty($value_sets)) {
-                $query_fields[] = $common_functions->backquote($multi_edit_columns_name[$key]);
+                $query_fields[] = $common_functions->backquote(
+                    $multi_edit_columns_name[$key]
+                );
             }
         }
 
@@ -2211,7 +2222,8 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
 
         // field had the null checkbox before the update
         // field no longer has the null checkbox
-        $query_values[] = $common_functions->backquote($multi_edit_columns_name[$key])
+        $query_values[]
+            = $common_functions->backquote($multi_edit_columns_name[$key])
             . ' = ' . $current_value_as_an_array;
     } elseif (empty($multi_edit_funcs[$key])
         && isset($multi_edit_columns_prev[$key])
@@ -2225,7 +2237,8 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
         if (empty($multi_edit_columns_null_prev[$key])
             || empty($multi_edit_columns_null[$key])
         ) {
-             $query_values[] = $common_functions->backquote($multi_edit_columns_name[$key])
+             $query_values[]
+                 = $common_functions->backquote($multi_edit_columns_name[$key])
                 . ' = ' . $current_value_as_an_array;
         }
     }
