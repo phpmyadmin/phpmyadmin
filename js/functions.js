@@ -3180,7 +3180,8 @@ AJAX.registerOnload('functions.js', function() {
     /**
      * Autosubmit page selector
      */
-    $('select.pageselector').live('change', function() {
+    $('select.pageselector').live('change', function(event) {
+        event.stopPropagation();
         // Check where to load the new content
         // For the main page we don't need to do anything,
         // but for the navigation we need to manually replace the content
