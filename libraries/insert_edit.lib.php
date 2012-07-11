@@ -107,12 +107,12 @@ function PMA_analyzeWhereClauses(
     $where_clauses      = array();
     foreach ($where_clause_array as $key_id => $where_clause) {
 
-        $local_query           = 'SELECT * FROM '
+        $local_query     = 'SELECT * FROM '
             . PMA_CommonFunctions::getInstance()->backquote($db) . '.'
             . PMA_CommonFunctions::getInstance()->backquote($table)
             . ' WHERE ' . $where_clause . ';';
-        $result[$key_id]       = PMA_DBI_query($local_query, null, PMA_DBI_QUERY_STORE);
-        $rows[$key_id]         = PMA_DBI_fetch_assoc($result[$key_id]);
+        $result[$key_id] = PMA_DBI_query($local_query, null, PMA_DBI_QUERY_STORE);
+        $rows[$key_id]   = PMA_DBI_fetch_assoc($result[$key_id]);
 
         $where_clauses[$key_id] = str_replace('\\', '\\\\', $where_clause);
         $found_unique_key = PMA_showEmptyResultMessageOrSetUniqueCondition(
