@@ -1179,7 +1179,7 @@ function PMA_getMessageAndSqlQueryForPrivilegesRevoke($db_and_table, $dbname,
 }
 
 /**
- * Get a common SQL query for 'update privileges' and 'add user'
+ * Get a WITH clause for 'update privileges' and 'add user'
  *
  * @return string $sql_query
  */
