@@ -831,13 +831,13 @@ function PMA_getTextarea($column, $backup_field, $column_name_appendix,
     }
     $html_output = $backup_field . "\n"
         . '<textarea name="fields' . $column_name_appendix . '"'
-        . 'class="' . $the_class . '"'
-        . 'rows="' . $textAreaRows . '"'
-        . 'cols="' . $textareaCols . '"'
-        . 'dir="' . $text_dir . '"'
-        . 'id="field_' . ($idindex) . '_3"'
-        . $unnullify_trigger
-        . 'tabindex="' . ($tabindex + $tabindex_for_value) . '">'
+        . ' class="' . $the_class . '"'
+        . ' rows="' . $textAreaRows . '"'
+        . ' cols="' . $textareaCols . '"'
+        . ' dir="' . $text_dir . '"'
+        . ' id="field_' . ($idindex) . '_3"'
+        . ' ' . $unnullify_trigger
+        . ' tabindex="' . ($tabindex + $tabindex_for_value) . '">'
         . $special_chars_encoded
         . '</textarea>';
 
