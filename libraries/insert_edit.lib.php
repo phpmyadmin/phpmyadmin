@@ -484,10 +484,10 @@ function PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
     } else {
         $html_output .= '<td>' . "\n";
 
-        $html_output .= '<select name="funcs' . $column_name_appendix . '"' .
-            $unnullify_trigger
-            . 'tabindex="' . ($tabindex + $tabindex_for_function)
-            . '" id="field_' . $idindex . '_1">';
+        $html_output .= '<select name="funcs' . $column_name_appendix . '"'
+            . ' ' . $unnullify_trigger
+            . ' tabindex="' . ($tabindex + $tabindex_for_function) . '"'
+            . ' id="field_' . $idindex . '_1">';
         $html_output .= PMA_CommonFunctions::getInstance()
             ->getFunctionsForField($column, $insert_mode) . "\n";
 
