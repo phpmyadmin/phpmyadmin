@@ -2067,7 +2067,7 @@ function PMA_displayTablesInEditPrivs($dbname, $found_rows)
 }
 
 /**
- * Display the user overview
+ * Get HTML for display the user overview
  * (if less than 50 users, display them immediately)
  * 
  * @param array $result             ran sql query
@@ -2081,7 +2081,7 @@ function PMA_displayTablesInEditPrivs($dbname, $found_rows)
  * 
  * @return string HTML snippet
  */
-function PMA_displayUserOverview($result, $db_rights, $link_edit, $pmaThemeImage,
+function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
     $text_dir, $conditional_class, $link_export, $link_export_all
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
@@ -2679,7 +2679,7 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
         * (if less than 50 users, display them immediately)
         */
         if (isset($_REQUEST['initial']) || isset($_REQUEST['showall']) || PMA_DBI_num_rows($res) < 50) {
-            $html_output .= PMA_displayUserOverview($res, $db_rights, $link_edit,$pmaThemeImage,
+            $html_output .= PMA_getUsersOverview($res, $db_rights, $link_edit,$pmaThemeImage,
                     $text_dir, $conditional_class, $link_export, $link_export_all
                 );
         } else {
