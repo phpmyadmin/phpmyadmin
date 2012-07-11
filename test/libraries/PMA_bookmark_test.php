@@ -102,7 +102,12 @@ class PMA_bookmark_test extends PHPUnit_Framework_TestCase
             }
         }
         $this->assertEquals(
-            PMA_Bookmark_save('phpmyadmin'),
+            PMA_Bookmark_save(array(
+                'dbase' => 'phpmyadmin',
+                'user' => 'phpmyadmin',
+                'query' => 'SELECT "phpmyadmin"',
+                'label' => 'phpmyadmin',
+            )),
             true
         );
     }
