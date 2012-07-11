@@ -84,12 +84,21 @@ class Node {
     protected $links;
 
     /**
-     * @var string classes
+     * @var string Extra CSS classes for the node
      */
-
     public $classes = '';
 
+    /**
+     * @var int The position for the pagination of
+     *          the branch at the second level of the tree
+     */
     public $pos2 = 0;
+
+    /**
+     * @var int The position for the pagination of
+     *          the branch at the third level of the tree
+     */
+    public $pos3 = 0;
 
     /**
      * @var object A reference to the common functions object
@@ -285,15 +294,29 @@ class Node {
         return $retval;
     }
 
+    /**
+     * Returns true the node has some siblings (other nodes on the same tree level,
+     * in the same branch), false otherwise. The only exception is for nodes on
+     * the third level of the tree (columns and indexes), for which the function
+     * always returns true. This is because we want to render the containers
+     * for these nodes
+     *
+     * @return bool
+     */
     public function hasSiblings()
     {
         $retval = false;
-        foreach ($this->parent->children as $child) {
-            if ($child != $this
-                && ($child->type == Node::OBJECT || $child->hasChildren(false))
-            ) {
-                $retval = true;
-                break;
+        $paths = $this->getPaths();
+        if (count($paths['a_path_clean']) > 3) {
+            $retval = true;
+        } else {
+            foreach ($this->parent->children as $child) {
+                if ($child != $this
+                    && ($child->type == Node::OBJECT || $child->hasChildren(false))
+                ) {
+                    $retval = true;
+                    break;
+                }
             }
         }
         return $retval;
@@ -368,7 +391,7 @@ class Node {
      */
     public function getPresence($type)
     {
-        return false;
+        return 0;
     }
 }
 ?>

@@ -106,6 +106,9 @@ function PMA_reloadNavigation() {
 
             params['pos2_name_' + count] = pos2_name;
             params['pos2_value_' + count] = pos2_value;
+
+            params['pos3_name_' + count] = $(this).find('span.pos3_name').text();
+            params['pos3_value_' + count] = $(this).find('span.pos3_value').text();
             count++;
         }
     });
@@ -394,7 +397,7 @@ $(function(){
         ScrollHandler.init();
     }
 
-    // Ajax handler for database pagination
+    // Ajax handler for pagination
     $('#pma_navigation_tree div.pageselector a.ajax').live('click', function (event) {
         event.preventDefault();
         var $this = $(this);
@@ -416,6 +419,7 @@ $(function(){
                     $this.closest('.list_container').remove();
                     $parent.append(data.message).children('div').show();
                     $parent.find('span.pos2_value:first').text($parent.find('span.pos2_value:last').text());
+                    $parent.find('span.pos3_value:first').text($parent.find('span.pos3_value:last').text());
                 }
             } else {
                 PMA_ajaxShowMessage(data.error);
