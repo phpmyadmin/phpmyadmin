@@ -1325,7 +1325,7 @@ function PMA_getListOfPrivilegesAndComparedPrivileges()
 /**
  * Get the HTML for user form and check the privileges for a particular database.
  * 
- * @param string $dbToCheck         check privileges
+ * @param string $dbToCheck         database to check for privileges
  * @param string $link_edit         standard link for edit
  * @param string $conditional_class if ajaxable 'Ajax' otherwise ''
  * 
@@ -1417,7 +1417,7 @@ function PMA_getHtmlForSpecificDbPrivileges($dbToCheck, $link_edit, $conditional
  * @param boolean $odd_row      whether odd or not
  * @param string $link_edit     standard link for edit
  * @param string $res           ran sql query
- * @param string $dbToCheck    check privileges
+ * @param string $dbToCheck     database to check for privileges
  *            
  * @return string $html_output
  */
