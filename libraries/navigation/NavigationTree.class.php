@@ -493,20 +493,20 @@ class PMA_NavigationTree {
                 __('Loading'),
                 array('style' => 'visibility: hidden;', 'class' => 'throbber')
             );
-            $retval .= "<div><ul>\n";
+            $retval .= "<div><ul>";
             $children = $this->tree->children;
             usort($children, array('PMA_NavigationTree', 'sortNode'));
             $this->setVisibility();
             for ($i=0; $i<count($children); $i++) {
                 if ($i == 0) {
-                    $retval .= $this->renderNode($children[0], true, '', 'first');
+                    $retval .= $this->renderNode($children[0], true, 'first');
                 } else if ($i + 1 != count($children)) {
-                    $retval .= $this->renderNode($children[$i], true, '');
+                    $retval .= $this->renderNode($children[$i], true);
                 } else {
-                    $retval .= $this->renderNode($children[$i], true, '', 'last');
+                    $retval .= $this->renderNode($children[$i], true, 'last');
                 }
             }
-            $retval .= "</ul></div>\n";
+            $retval .= "</ul></div>";
         }
         return $retval;
     }
@@ -525,7 +525,7 @@ class PMA_NavigationTree {
         } else {
             $this->groupTree();
             $retval = "<div class='list_container' style='display: none;'>";
-            $retval .= "<ul>\n";
+            $retval .= "<ul>";
             if (($node->real_name == 'tables' || $node->real_name == 'views')
                 && $node->numChildren() >= (int)$GLOBALS['cfg']['LeftDisplayTableFilterMinimum']) {
                 // fast filter
@@ -540,13 +540,13 @@ class PMA_NavigationTree {
             usort($children, array('PMA_NavigationTree', 'sortNode'));
             for ($i=0; $i<count($children); $i++) {
                 if ($i + 1 != count($children)) {
-                    $retval .= $this->renderNode($children[$i], true, '');
+                    $retval .= $this->renderNode($children[$i], true);
                 } else {
-                    $retval .= $this->renderNode($children[$i], true, '', 'last');
+                    $retval .= $this->renderNode($children[$i], true, 'last');
                 }
             }
             $retval .= "</ul>";
-            $retval .= "</div>\n";
+            $retval .= "</div>";
         }
         return $retval;
     }
@@ -557,12 +557,11 @@ class PMA_NavigationTree {
      * @param Node     $node      The node to render
      * @param int|bool $recursive Bool: Whether to render a single node or a branch
      *                            Int: How many levels deep to render
-     * @param string   $indent    String used for indentation of output
      * @param string   $class     An additional class for the list item
      *
      * @return string HTML code for the tree node or branch
      */
-    public function renderNode($node, $recursive = -1, $indent = '  ', $class = '')
+    public function renderNode($node, $recursive = -1, $class = '')
     {
         $retval = '';
         $paths = $node->getPaths();
@@ -574,7 +573,7 @@ class PMA_NavigationTree {
             ) {
                 return '';
             }
-            $retval .= $indent . "<li" . ( $class || $node->classes ? " class='" . trim($class . ' ' . $node->classes) . "'" : '') . ">";
+            $retval .= "<li" . ( $class || $node->classes ? " class='" . trim($class . ' ' . $node->classes) . "'" : '') . ">";
             $hasChildren = $node->hasChildren(false);
             $sterile = array('events', 'triggers', 'functions', 'procedures', 'views', 'columns', 'indexes');
             if (($GLOBALS['is_ajax_request'] || $hasChildren || $GLOBALS['cfg']['LeftFrameLight'])
@@ -716,14 +715,14 @@ class PMA_NavigationTree {
             $buffer = '';
             for ($i=0; $i<count($children); $i++) {
                 if ($i + 1 != count($children)) {
-                    $buffer .= $this->renderNode($children[$i], true, $indent . '    ', $node->classes);
+                    $buffer .= $this->renderNode($children[$i], true, $node->classes);
                 } else {
-                    $buffer .= $this->renderNode($children[$i], true, $indent . '    ', $node->classes . ' last');
+                    $buffer .= $this->renderNode($children[$i], true, $node->classes . ' last');
                 }
             }
             if (! empty($buffer)) {
                 if ($wrap) {
-                    $retval .= "\n" . $indent ."  <div$hide class='list_container'><ul>\n";
+                    $retval .= "<div$hide class='list_container'><ul>";
                 }
                 if (($node->real_name == 'tables' || $node->real_name == 'views')
                     && $node->numChildren() >= (int)$GLOBALS['cfg']['LeftDisplayTableFilterMinimum']
@@ -735,11 +734,11 @@ class PMA_NavigationTree {
                 }
                 $retval .= $buffer;
                 if ($wrap) {
-                    $retval .= $indent . "  </ul></div>\n" . $indent;
+                    $retval .= "</ul></div>";
                 }
             }
         }
-        $retval .= "</li>\n";
+        $retval .= "</li>";
         return $retval;
     }
 
