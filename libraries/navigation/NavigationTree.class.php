@@ -526,13 +526,8 @@ class PMA_NavigationTree {
             $this->groupTree();
             $retval = "<div class='list_container' style='display: none;'>";
             $retval .= "<ul>";
-
             $retval .= $this->fastFilterHtml($node);
-
-            if ($node->type == Node::CONTAINER && ! $node->is_group) {
-                $retval .= $this->getPageSelector($node);
-            }
-
+            $retval .= $this->getPageSelector($node);
             $children = $node->children;
             usort($children, array('PMA_NavigationTree', 'sortNode'));
             for ($i=0; $i<count($children); $i++) {
@@ -724,9 +719,7 @@ class PMA_NavigationTree {
                     $retval .= "<div$hide class='list_container'><ul>";
                 }
                 $retval .= $this->fastFilterHtml($node);
-                if ($node->type == Node::CONTAINER && ! $node->is_group) {
-                    $retval .= $this->getPageSelector($node);
-                }
+                $retval .= $this->getPageSelector($node);
                 $retval .= $buffer;
                 if ($wrap) {
                     $retval .= "</ul></div>";
@@ -787,37 +780,37 @@ class PMA_NavigationTree {
      */
     private function getPageSelector($node)
     {
-        $paths = $node->getPaths();
+        $retval = '';
+        if ($node->type == Node::CONTAINER && ! $node->is_group) {
+            $paths = $node->getPaths();
 
-        $level = isset($paths['a_path_clean'][4]) ? 3 : 2;
-
-        $_url_params = array(
-            'a_path' => $paths['a_path'],
-            'v_path' => $paths['v_path'],
-            'pos' => $this->pos,
-            'server' => $GLOBALS['server'],
-            'pos2_name' => $paths['a_path_clean'][2]
-        );
-
-        if ($level == 3) {
-            $pos = $node->pos3;
-            $_url_params['pos2_value'] = $node->pos2;
-            $_url_params['pos3_name'] = $paths['a_path_clean'][4];
-        } else {
-            $pos = $node->pos2;
+            $level = isset($paths['a_path_clean'][4]) ? 3 : 2;
+            $_url_params = array(
+                'a_path' => $paths['a_path'],
+                'v_path' => $paths['v_path'],
+                'pos' => $this->pos,
+                'server' => $GLOBALS['server'],
+                'pos2_name' => $paths['a_path_clean'][2]
+            );
+            if ($level == 3) {
+                $pos = $node->pos3;
+                $_url_params['pos2_value'] = $node->pos2;
+                $_url_params['pos3_name'] = $paths['a_path_clean'][4];
+            } else {
+                $pos = $node->pos2;
+            }
+            $num = $node->realParent()->getPresence($node->real_name);
+            $retval = $this->_commonFunctions->getListNavigator(
+                $num,
+                $pos,
+                $_url_params,
+                'navigation.php',
+                'frame_navigation',
+                $GLOBALS['cfg']['MaxTableList'],
+                'pos' . $level . '_value'
+            );
         }
-
-        $num = $node->realParent()->getPresence($node->real_name);
-
-        return $this->_commonFunctions->getListNavigator(
-            $num,
-            $pos,
-            $_url_params,
-            'navigation.php',
-            'frame_navigation',
-            $GLOBALS['cfg']['MaxTableList'],
-            'pos' . $level . '_value'
-        );
+        return $retval;
     }
 
     /**
