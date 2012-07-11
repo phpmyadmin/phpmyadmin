@@ -1231,7 +1231,8 @@ function PMA_getMaxUploadSize($column, $biggest_max_file_size)
         'tinyblob'   =>        '256',
         'blob'       =>      '65536',
         'mediumblob' =>   '16777216',
-        'longblob'   => '4294967296'); // yeah, really
+        'longblob'   => '4294967296' // yeah, really
+    );
 
     $this_field_max_size = $max_upload_size; // from PHP max
     if ($this_field_max_size > $max_field_sizes[$column['pma_type']]) {
@@ -1396,13 +1397,13 @@ function PMA_getContinueInsertionForm($table, $db, $where_clause_array, $err_url
     if (isset($_REQUEST['where_clause'])) {
         foreach ($where_clause_array as $key_id => $where_clause) {
 
-            $html_output .= '<input type="hidden" name="where_clause['
-                . $key_id . ']" value="'
-                . htmlspecialchars(trim($where_clause)) . '" />'. "\n";
+            $html_output .= '<input type="hidden"'
+                . ' name="where_clause[' . $key_id . ']"'
+                . ' value="' . htmlspecialchars(trim($where_clause)) . '" />'. "\n";
         }
     }
     $tmp = '<select name="insert_rows" id="insert_rows">' . "\n";
-    $option_values = array(1,2,5,10,15,20,30,40);
+    $option_values = array(1, 2, 5, 10, 15, 20, 30, 40);
 
     foreach ($option_values as $value) {
         $tmp .= '<option value="' . $value . '"';
