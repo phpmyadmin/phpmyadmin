@@ -983,7 +983,7 @@ function PMA_getRadioButtonDependingOnLength(
             . ' class="textfield"'
             . ' value="' . $enum_value['html'] . '"'
             . ' id="field_' . ($idindex) . '_3_'  . $j . '"'
-            . $unnullify_trigger;
+            . ' ' . $unnullify_trigger;
         if ($data == $enum_value['plain']
             || ($data == ''
             && (! isset($_REQUEST['where_clause']) || $column['Null'] != 'YES')
@@ -1030,13 +1030,13 @@ function PMA_getPmaTypeSet(
     $html_output .= '<input type="hidden" name="fields_type'
         . $column_name_appendix . '" value="set" />';
     $html_output .= '<select name="fields' . $column_name_appendix . '[]' . '"'
-        . 'class="textfield"'
-        . 'size="' . $select_size . '"'
-        . 'multiple="multiple"' . $unnullify_trigger
-        . 'tabindex="' . ($tabindex + $tabindex_for_value) . '"'
-        . 'id="field_' . ($idindex) . '_3">';
+        . ' class="textfield"'
+        . ' size="' . $select_size . '"'
+        . ' multiple="multiple"'
+        . ' ' . $unnullify_trigger
+        . ' tabindex="' . ($tabindex + $tabindex_for_value) . '"'
+        . ' id="field_' . ($idindex) . '_3">';
     foreach ($column_set_values as $column_set_value) {
-        $html_output .= '                ';
         $html_output .= '<option value="' . $column_set_value['html'] . '"';
         if (isset($vset[$column_set_value['plain']])) {
             $html_output .= ' selected="selected"';
@@ -1133,10 +1133,10 @@ function PMA_getBinaryAndBlobColumn(
 
     if ($is_upload && $column['is_blob']) {
         $html_output .= '<br />'
-            . '<input type="file" name="fields_upload'
-            . $vkey . '[' . $column['Field_md5']
-            . ']" class="textfield" id="field_' . $idindex . '_3" size="10" '
-            . $unnullify_trigger . '/>&nbsp;';
+            . '<input type="file"'
+            . ' name="fields_upload' . $vkey . '[' . $column['Field_md5'] . ']"'
+            . ' class="textfield" id="field_' . $idindex . '_3" size="10"'
+            . ' ' . $unnullify_trigger . '/>&nbsp;';
         list($html_out, $biggest_max_file_size) = PMA_getMaxUploadSize(
             $column, $biggest_max_file_size
         );
@@ -1176,10 +1176,10 @@ function PMA_getHTMLinput($column, $column_name_appendix, $special_chars,
         $the_class .= ' datetimefield';
     }
     return '<input type="text" name="fields' . $column_name_appendix . '"'
-        . 'value="' . $special_chars . '" size="' . $fieldsize . '"'
-        . 'class="' . $the_class . '"' . $unnullify_trigger
-        . 'tabindex="' . ($tabindex + $tabindex_for_value). '"'
-        . 'id="field_' . ($idindex) . '_3" />';
+        . ' value="' . $special_chars . '" size="' . $fieldsize . '"'
+        . ' class="' . $the_class . '" ' . $unnullify_trigger
+        . ' tabindex="' . ($tabindex + $tabindex_for_value). '"'
+        . ' id="field_' . ($idindex) . '_3" />';
 }
 
 /**
