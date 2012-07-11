@@ -552,6 +552,29 @@ class PMA_NavigationTree {
     }
 
     /**
+     * Renders the parameters that are required on the client
+     * side to know which page(s) we will be requesting data from
+     *
+     * @param Node $node The node to create the pagination parameters for
+     *
+     * @return string
+     */
+    private function getPaginationParamsHtml($node)
+    {
+        $retval = '';
+        $paths = $node->getPaths();
+        if (isset($paths['a_path_clean'][2])) {
+            $retval .= "<span class='hide pos2_name'>" . $paths['a_path_clean'][2] . "</span>";
+            $retval .= "<span class='hide pos2_value'>" . $node->pos2 . "</span>";
+        }
+        if (isset($paths['a_path_clean'][4])) {
+            $retval .= "<span class='hide pos3_name'>" . $paths['a_path_clean'][4] . "</span>";
+            $retval .= "<span class='hide pos3_value'>" . $node->pos3 . "</span>";
+        }
+        return $retval;
+    }
+
+    /**
      * Renders a single node or a branch of the tree
      *
      * @param Node     $node      The node to render
@@ -631,14 +654,7 @@ class PMA_NavigationTree {
                 $retval .= "<span class='hide a_path'>" . $paths['a_path'] . "</span>";
                 $retval .= "<span class='hide v_path'>" . $paths['v_path'] . "</span>";
                 $retval .= "<span class='hide pos'>" . $this->pos . "</span>";
-                if (isset($paths['a_path_clean'][2])) {
-                    $retval .= "<span class='hide pos2_name'>" . $paths['a_path_clean'][2] . "</span>";
-                    $retval .= "<span class='hide pos2_value'>" . $node->pos2 . "</span>";
-                }
-                if (isset($paths['a_path_clean'][4])) {
-                    $retval .= "<span class='hide pos3_name'>" . $paths['a_path_clean'][4] . "</span>";
-                    $retval .= "<span class='hide pos3_value'>" . $node->pos3 . "</span>";
-                }
+                $retval .= $this->getPaginationParamsHtml($node);
                 $retval .= $icon;
 
                 $retval .= "</a>";
@@ -646,14 +662,7 @@ class PMA_NavigationTree {
             } else {
                 $retval .= "<div class='block'>";
                 $retval .= "<i" . ( $class == 'first' ? " class='first'" : '') . "></i>";
-                if (isset($paths['a_path_clean'][2])) {
-                    $retval .= "<span class='hide pos2_name'>" . $paths['a_path_clean'][2] . "</span>";
-                    $retval .= "<span class='hide pos2_value'>" . $node->pos2 . "</span>";
-                }
-                if (isset($paths['a_path_clean'][4])) {
-                    $retval .= "<span class='hide pos3_name'>" . $paths['a_path_clean'][4] . "</span>";
-                    $retval .= "<span class='hide pos3_value'>" . $node->pos3 . "</span>";
-                }
+                $retval .= $this->getPaginationParamsHtml($node);
                 $retval .= "</div>";
             }
 
@@ -695,14 +704,7 @@ class PMA_NavigationTree {
         } else {
             $node->visible = true;
             $wrap = false;
-            if (isset($paths['a_path_clean'][2])) {
-                $retval .= "<span class='hide pos2_name'>" . $paths['a_path_clean'][2] . "</span>";
-                $retval .= "<span class='hide pos2_value'>" . $node->pos2 . "</span>";
-            }
-            if (isset($paths['a_path_clean'][4])) {
-                $retval .= "<span class='hide pos3_name'>" . $paths['a_path_clean'][4] . "</span>";
-                $retval .= "<span class='hide pos3_value'>" . $node->pos3 . "</span>";
-            }
+            $retval .= $this->getPaginationParamsHtml($node);
         }
 
         if ($recursive) {
