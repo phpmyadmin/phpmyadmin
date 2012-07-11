@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-07-10 05:08+0200\n"
+"PO-Revision-Date: 2012-07-11 04:43+0200\n"
 "Last-Translator: Anderson Diego Kulpa Fachini <anderson.dkfachini@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -3660,7 +3660,7 @@ msgstr "Você deveria atualizar para %s %s ou posterior."
 
 #: libraries/common.inc.php:1076
 msgid "GLOBALS overwrite attempt"
-msgstr ""
+msgstr "Tentativa de sobrescrever GLOBALS"
 
 #: libraries/common.inc.php:1083
 msgid "possible exploit"
@@ -6771,6 +6771,9 @@ msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
 msgstr ""
+"Esta é a quantidade de memória alocada para o cache de índice. O valor "
+"padrão é 32MB. A memória alocada aqui é usada apenas para cache de páginas "
+"index."
 
 #: libraries/engines/pbxt.lib.php:33
 msgid "Record cache size"
@@ -6808,6 +6811,8 @@ msgid ""
 "The size of a transaction log before rollover, and a new log is created. The "
 "default value is 16MB."
 msgstr ""
+"Tamanho do log de transação antes da mudança e o novo log criado. O valor "
+"padrão é 16MB."
 
 #: libraries/engines/pbxt.lib.php:48
 msgid "Transaction buffer size"
@@ -6818,20 +6823,24 @@ msgid ""
 "The size of the global transaction log buffer (the engine allocates 2 "
 "buffers of this size). The default is 1MB."
 msgstr ""
+"O tamanho do buffer do log global de transações (a engine aloca 2 buffers "
+"deste tamanho). O padrão é 1MB."
 
 #: libraries/engines/pbxt.lib.php:53
 msgid "Checkpoint frequency"
-msgstr ""
+msgstr "Frequência de ponto de verificação"
 
 #: libraries/engines/pbxt.lib.php:54
 msgid ""
 "The amount of data written to the transaction log before a checkpoint is "
 "performed. The default value is 24MB."
 msgstr ""
+"A quantidade dados escritos no log de transação antes que um ponto de "
+"checagem é realizado. O valor padrão é 24MB."
 
 #: libraries/engines/pbxt.lib.php:58
 msgid "Data log threshold"
-msgstr ""
+msgstr "Início do log de dados"
 
 #: libraries/engines/pbxt.lib.php:59
 msgid ""
@@ -6840,16 +6849,22 @@ msgid ""
 "value of this variable can be increased to increase the total amount of data "
 "that can be stored in the database."
 msgstr ""
+"Tamanho máximo do log de dados. O valor padrão é 64MB. PBXT pode criar no "
+"máximo 32000 logs da dados, que são usados por todas as tabelas. Então o "
+"valor desta variável pode ser incrementado para aumentar a quantidade total "
+"dos dados que podem ser armazenados no banco de dados."
 
 #: libraries/engines/pbxt.lib.php:63
 msgid "Garbage threshold"
-msgstr ""
+msgstr "Início do lixo"
 
 #: libraries/engines/pbxt.lib.php:64
 msgid ""
 "The percentage of garbage in a data log file before it is compacted. This is "
 "a value between 1 and 99. The default is 50."
 msgstr ""
+"O percentual de lixo em um arquivo de dados de log antes de compactá-lo. "
+"Este valor está entre 1 e 99. O padrão é 50."
 
 #: libraries/engines/pbxt.lib.php:68
 msgid "Log buffer size"
@@ -6864,23 +6879,23 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:73
 msgid "Data file grow size"
-msgstr ""
+msgstr "Tamanho que um arquivo de dados pode atingir"
 
 #: libraries/engines/pbxt.lib.php:74
 msgid "The grow size of the handle data (.xtd) files."
-msgstr ""
+msgstr "Tamanho que um arquivo de controle de dados (.xtd) pode atingir."
 
 #: libraries/engines/pbxt.lib.php:78
 msgid "Row file grow size"
-msgstr ""
+msgstr "Tamanho que a linha de um arquivo pode atingir"
 
 #: libraries/engines/pbxt.lib.php:79
 msgid "The grow size of the row pointer (.xtr) files."
-msgstr ""
+msgstr "Tamanho que um ponteiro de linha (.xtr) pode atingir."
 
 #: libraries/engines/pbxt.lib.php:83
 msgid "Log file count"
-msgstr ""
+msgstr "Soma de arquivos de log"
 
 #: libraries/engines/pbxt.lib.php:84
 msgid ""
@@ -6896,6 +6911,8 @@ msgid ""
 "Documentation and further information about PBXT can be found on the "
 "%sPrimeBase XT Home Page%s."
 msgstr ""
+"Documentação e mais informações sobre PBXT podem ser encontradas na %"
+"sPrimeBase XT Home Page%s."
 
 #: libraries/engines/pbxt.lib.php:135
 msgid "Related Links"
@@ -6903,7 +6920,7 @@ msgstr "Links relacionados"
 
 #: libraries/engines/pbxt.lib.php:137
 msgid "The PrimeBase XT Blog by Paul McCullagh"
-msgstr ""
+msgstr "O PrimeBase XT Blog por Paul McCullagh"
 
 #: libraries/gis_visualization.lib.php:135
 msgid "No data found for GIS visualization."
@@ -7555,7 +7572,7 @@ msgstr "Versão do PHP"
 #: libraries/plugins/export/ExportMediawiki.class.php:39
 #: libraries/plugins/import/ImportMediawiki.class.php:52
 msgid "MediaWiki Table"
-msgstr ""
+msgstr "Tabela MediaWiki"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:77
 #, fuzzy
@@ -7582,13 +7599,15 @@ msgstr "Título do Relatório:"
 
 #: libraries/plugins/export/ExportPhparray.class.php:39
 msgid "PHP array"
-msgstr ""
+msgstr "Array PHP"
 
 #: libraries/plugins/export/ExportSql.class.php:152
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
+"Mostrar comentários <i>(incluindo informação como data e hora de exportação, "
+"versão do PHP e versão do servidor)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:160
 msgid "Additional custom header comment (\\n splits lines):"
@@ -7604,6 +7623,8 @@ msgstr ""
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
+"Sistema de banco de dados ou servidor de MySQL antigo para maximizar saída "
+"de compatível com:"
 
 #: libraries/plugins/export/ExportSql.class.php:242
 #: libraries/plugins/export/ExportSql.class.php:310
@@ -7621,6 +7642,8 @@ msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
+"Envolver nomes de tabela e colunas com crase <i>(Proteger nomes de colunas e "
+"tabelas formados com caracteres especiais ou palavras chaves)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:381
 #: libraries/plugins/export/ExportSql.class.php:1610
@@ -7629,23 +7652,23 @@ msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:388
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr ""
+msgstr "Em vez de declarar <code>INSERT</code>, use:"
 
 #: libraries/plugins/export/ExportSql.class.php:396
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr ""
+msgstr "declarações <code>INSERT DELAYED</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:406
 msgid "<code>INSERT IGNORE</code> statements"
-msgstr ""
+msgstr "declarações <code>INSERT IGNORE</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:421
 msgid "Function to use when dumping data:"
-msgstr ""
+msgstr "Função usada quando despejar dados:"
 
 #: libraries/plugins/export/ExportSql.class.php:434
 msgid "Syntax to use when inserting data:"
-msgstr ""
+msgstr "Sintaxe para usar quando inserir dados:"
 
 #: libraries/plugins/export/ExportSql.class.php:442
 msgid ""
@@ -7653,6 +7676,9 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
+"incluir nomes de columas em cada declaração <code>INSERT</code><br /> &nbsp; "
+"&nbsp; &nbsp; Exemplo: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
+"VALUES (1,2,3)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:447
 msgid ""
@@ -7660,12 +7686,17 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
+"inserir múltiplas linhas em cada declaração <code>INSERT</code><br /> &nbsp; "
+"&nbsp; &nbsp; Exemplo: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
+"(7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:452
 msgid ""
 "both of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
+"acima referidos<br /> &nbsp; &nbsp; &nbsp; Exemplo: <code>INSERT INTO "
+"tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/plugins/export/ExportSql.class.php:457
 msgid ""
