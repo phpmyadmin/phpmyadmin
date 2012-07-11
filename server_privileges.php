@@ -634,7 +634,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
             header('Cache-Control: no-cache');
         }
         $response->addHTML(
-            PMA_getHtmlForDisplayUserPropeties($dbname_is_wildcard,$url_dbname,
+            PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
                 $random_n, $username, $hostname, $link_edit, $link_revoke
             )
         );
