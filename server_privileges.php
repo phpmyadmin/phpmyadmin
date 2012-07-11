@@ -622,7 +622,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
     if (! isset($username)) {
         // No username is given --> display the overview
         $response->addHTML(
-            PMA_getHtmlForDiplayUserOverviewPage($link_edit, $pmaThemeImage,
+            PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
                 $text_dir, $conditional_class, $link_export, $link_export_all
             )
         );

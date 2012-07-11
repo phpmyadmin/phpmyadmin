@@ -2535,6 +2535,13 @@ function PMA_getHtmlForExportUserDefinition($username, $hostname)
     return array($title, $export);
 }
 
+/**
+ * Get HTML for display Add userfieldset
+ * 
+ * @param string $conditional_class   if ajaxable 'Ajax' otherwise ''
+ * 
+ * @return string html output
+ */
 function PMA_getAddUserHtmlFieldset($conditional_class)
 {
     return '<fieldset id="fieldset_add_user">' . "\n"
@@ -2545,6 +2552,13 @@ function PMA_getAddUserHtmlFieldset($conditional_class)
         . '</fieldset>' . "\n";
 }
 
+/**
+ * Get HTML header for display User's properties
+ * 
+ * @param boolean $dbname_is_wildcard   whether database name is wildcard or not
+ * 
+ * @return string $html_output
+ */
 function PMA_getHtmlHeaderForDisplayUserProperties($dbname_is_wildcard)
 {
     $html_output = '<h2>' . "\n"
@@ -2594,7 +2608,19 @@ function PMA_getHtmlHeaderForDisplayUserProperties($dbname_is_wildcard)
     return $html_output;
 }
 
-function PMA_getHtmlForDiplayUserOverviewPage($link_edit, $pmaThemeImage,
+/**
+ * Get HTML snippet for display user overview page
+ * 
+ * @param string $link_edit         standard link to edit privileges
+ * @param string $pmaThemeImage     a image source link
+ * @param string $text_dir          text directory
+ * @param string $conditional_class if ajaxable 'Ajax' otherwise ''
+ * @param string $link_export       standard link to export privileges
+ * @param string $link_export_all   standard link to export all privilegfes
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
     $text_dir, $conditional_class, $link_export, $link_export_all
 ) {
     $html_output = '<h2>' . "\n"
@@ -2681,7 +2707,21 @@ function PMA_getHtmlForDiplayUserOverviewPage($link_edit, $pmaThemeImage,
     }   
 }
 
-function PMA_getHtmlForDisplayUserPropeties($dbname_is_wildcard,$url_dbname,
+/**
+ * Get HTML snippet for display user properties
+ * 
+ * @param boolean $dbname_is_wildcard   whether database name is wildcard or not
+ * @param type $url_dbname              url database name that urlencode() string
+ * @param integer $random_n             a random number that will be appended
+ *                                      to the id of the user forms
+ * @param string $username              username
+ * @param string $hostname              host name
+ * @param string $link_edit             standard link to edit privileges
+ * @param string $link_revoke           standard link to revoke
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
     $random_n, $username, $hostname, $link_edit, $link_revoke
 ) {
     if (PMA_isValid($_REQUEST['pred_dbname'])) {
