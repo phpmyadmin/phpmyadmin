@@ -91,7 +91,7 @@ if ($server > 0
     /**
      * Displays the mysql server related links
      */
-    if ($server > 0 && !PMA_DRIZZLE) {
+    if ($server > 0 && ! PMA_DRIZZLE) {
         include_once 'libraries/check_user_privileges.lib.php';
 
         // Logout for advanced authentication
@@ -120,10 +120,22 @@ if ($server > 0
            . '            <label for="select_collation_connection">' . "\n"
            . '                ' . __('Server connection collation') . "\n"
            // put the doc link in the form so that it appears on the same line
-           . $common_functions->showMySQLDocu('MySQL_Database_Administration', 'Charset-connection') . ': ' .  "\n"
+           . $common_functions->showMySQLDocu(
+               'MySQL_Database_Administration',
+               'Charset-connection'
+           )
+           . ': ' .  "\n"
            . '            </label>' . "\n"
 
-           . PMA_generateCharsetDropdownBox(PMA_CSDROPDOWN_COLLATION, 'collation_connection', 'select_collation_connection', $collation_connection, true, 4, true)
+           . PMA_generateCharsetDropdownBox(
+               PMA_CSDROPDOWN_COLLATION,
+               'collation_connection',
+               'select_collation_connection',
+               $collation_connection,
+               true,
+               4,
+               true
+           )
            . '        </form>' . "\n"
            . '    </li>' . "\n";
     } // end of if ($server > 0 && !PMA_DRIZZLE)
@@ -176,13 +188,22 @@ echo '<div id="main_pane_right">';
 
 
 if ($server > 0 && $GLOBALS['cfg']['ShowServerInfo']) {
-    
+
     echo '<div class="group">';
     echo '<h2>' . __('Database server') . '</h2>';
     echo '<ul>' . "\n";
-    PMA_printListItem(__('Server') . ': ' . $server_info, 'li_server_info');
-    PMA_printListItem(__('Software') . ': ' . $common_functions->getServerType(), 'li_server_type');
-    PMA_printListItem(__('Software version') . ': ' . PMA_MYSQL_STR_VERSION . ' - ' . PMA_MYSQL_VERSION_COMMENT, 'li_server_version');
+    PMA_printListItem(
+        __('Server') . ': ' . $server_info,
+        'li_server_info'
+    );
+    PMA_printListItem(
+        __('Software') . ': ' . $common_functions->getServerType(),
+        'li_server_type'
+    );
+    PMA_printListItem(
+        __('Software version') . ': ' . PMA_MYSQL_STR_VERSION . ' - ' . PMA_MYSQL_VERSION_COMMENT,
+        'li_server_version'
+    );
     PMA_printListItem(
         __('Protocol version') . ': ' . PMA_DBI_get_proto_info(),
         'li_mysql_proto'
@@ -221,16 +242,25 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
                 __('Database client version') . ': ' . $client_version_str,
                 'li_mysql_client_version'
             );
+
+            $php_ext_string = __('PHP extension') . ': '
+                . $GLOBALS['cfg']['Server']['extension'] . ' '
+                . $common_functions->showPHPDocu(
+                    'book.' . $GLOBALS['cfg']['Server']['extension'] . '.php'
+                );
             PMA_printListItem(
-                __('PHP extension') . ': ' . $GLOBALS['cfg']['Server']['extension']. ' '
-                . $common_functions->showPHPDocu('book.' . $GLOBALS['cfg']['Server']['extension'] . '.php'),
+                $php_ext_string,
                 'li_used_php_extension'
             );
         }
     }
 
     if ($cfg['ShowPhpInfo']) {
-        PMA_printListItem(__('Show PHP information'), 'li_phpinfo', 'phpinfo.php?' . $common_url_query);
+        PMA_printListItem(
+            __('Show PHP information'),
+            'li_phpinfo',
+            'phpinfo.php?' . $common_url_query
+        );
     }
     echo '  </ul>';
     echo ' </div>';
@@ -242,18 +272,64 @@ echo '<ul>';
 $class = null;
 // We rely on CSP to allow access to http://www.phpmyadmin.net, but IE lacks
 // support here and does not allow request to http once using https.
-if ($GLOBALS['cfg']['VersionCheck'] && (! $GLOBALS['PMA_Config']->get('is_https') || PMA_USR_BROWSER_AGENT != 'IE')) {
+if ($GLOBALS['cfg']['VersionCheck']
+    && (! $GLOBALS['PMA_Config']->get('is_https') || PMA_USR_BROWSER_AGENT != 'IE')
+) {
     $class = 'jsversioncheck';
 }
-PMA_printListItem(__('Version information') . ': ' . PMA_VERSION, 'li_pma_version', null, null, null, null, $class);
-PMA_printListItem(__('Documentation'), 'li_pma_docs', 'Documentation.html', null, '_blank');
-PMA_printListItem(__('Wiki'), 'li_pma_wiki', PMA_linkURL('http://wiki.phpmyadmin.net/'), null, '_blank');
+PMA_printListItem(
+    __('Version information') . ': ' . PMA_VERSION,
+    'li_pma_version',
+    null,
+    null,
+    null,
+    null,
+    $class
+);
+PMA_printListItem(
+    __('Documentation'),
+    'li_pma_docs',
+    'Documentation.html',
+    null,
+    '_blank'
+);
+PMA_printListItem(
+    __('Wiki'),
+    'li_pma_wiki',
+    PMA_linkURL('http://wiki.phpmyadmin.net/'),
+    null,
+    '_blank'
+);
 
 // does not work if no target specified, don't know why
-PMA_printListItem(__('Official Homepage'), 'li_pma_homepage', PMA_linkURL('http://www.phpMyAdmin.net/'), null, '_blank');
-PMA_printListItem(__('Contribute'), 'li_pma_contribute', PMA_linkURL('http://www.phpmyadmin.net/home_page/improve.php'), null, '_blank');
-PMA_printListItem(__('Get support'), 'li_pma_support', PMA_linkURL('http://www.phpmyadmin.net/home_page/support.php'), null, '_blank');
-PMA_printListItem(__('List of changes'), 'li_pma_changes', PMA_linkURL('changelog.php'), null, '_blank');
+PMA_printListItem(
+    __('Official Homepage'),
+    'li_pma_homepage',
+    PMA_linkURL('http://www.phpMyAdmin.net/'),
+    null,
+    '_blank'
+);
+PMA_printListItem(
+    __('Contribute'),
+    'li_pma_contribute',
+    PMA_linkURL('http://www.phpmyadmin.net/home_page/improve.php'),
+    null,
+    '_blank'
+);
+PMA_printListItem(
+    __('Get support'),
+    'li_pma_support',
+    PMA_linkURL('http://www.phpmyadmin.net/home_page/support.php'),
+    null,
+    '_blank'
+);
+PMA_printListItem(
+    __('List of changes'),
+    'li_pma_changes',
+    PMA_linkURL('changelog.php'),
+    null,
+    '_blank'
+);
 ?>
     </ul>
  </div>
@@ -278,7 +354,10 @@ if ($server != 0
     && $cfg['Server']['user'] == 'root'
     && $cfg['Server']['password'] == ''
 ) {
-    trigger_error(__('Your configuration file contains settings (root with no password) that correspond to the default MySQL privileged account. Your MySQL server is running with this default, is open to intrusion, and you really should fix this security hole by setting a password for user \'root\'.'), E_USER_WARNING);
+    trigger_error(
+        __('Your configuration file contains settings (root with no password) that correspond to the default MySQL privileged account. Your MySQL server is running with this default, is open to intrusion, and you really should fix this security hole by setting a password for user \'root\'.'),
+        E_USER_WARNING
+    );
 }
 
 /**
@@ -286,7 +365,10 @@ if ($server != 0
  * break it, see bug 1063821.
  */
 if (@extension_loaded('mbstring') && @ini_get('mbstring.func_overload') > 1) {
-    trigger_error(__('You have enabled mbstring.func_overload in your PHP configuration. This option is incompatible with phpMyAdmin and might cause some data to be corrupted!'), E_USER_WARNING);
+    trigger_error(
+        __('You have enabled mbstring.func_overload in your PHP configuration. This option is incompatible with phpMyAdmin and might cause some data to be corrupted!'),
+        E_USER_WARNING
+    );
 }
 
 /**
@@ -294,7 +376,10 @@ if (@extension_loaded('mbstring') && @ini_get('mbstring.func_overload') > 1) {
  * to tell user something might be broken without it, see bug #1063149.
  */
 if (! @extension_loaded('mbstring')) {
-    trigger_error(__('The mbstring PHP extension was not found and you seem to be using a multibyte charset. Without the mbstring extension phpMyAdmin is unable to split strings correctly and it may result in unexpected results.'), E_USER_WARNING);
+    trigger_error(
+        __('The mbstring PHP extension was not found and you seem to be using a multibyte charset. Without the mbstring extension phpMyAdmin is unable to split strings correctly and it may result in unexpected results.'),
+        E_USER_WARNING
+    );
 }
 
 /**
@@ -302,14 +387,22 @@ if (! @extension_loaded('mbstring')) {
  */
 $gc_time = (int)@ini_get('session.gc_maxlifetime');
 if ($gc_time < $GLOBALS['cfg']['LoginCookieValidity'] ) {
-    trigger_error(__('Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity configured in phpMyAdmin, because of this, your login will expire sooner than configured in phpMyAdmin.'), E_USER_WARNING);
+    trigger_error(
+        __('Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity configured in phpMyAdmin, because of this, your login will expire sooner than configured in phpMyAdmin.'),
+        E_USER_WARNING
+    );
 }
 
 /**
  * Check whether LoginCookieValidity is limited by LoginCookieStore.
  */
-if ($GLOBALS['cfg']['LoginCookieStore'] != 0 && $GLOBALS['cfg']['LoginCookieStore'] < $GLOBALS['cfg']['LoginCookieValidity']) {
-    trigger_error(__('Login cookie store is lower than cookie validity configured in phpMyAdmin, because of this, your login will expire sooner than configured in phpMyAdmin.'), E_USER_WARNING);
+if ($GLOBALS['cfg']['LoginCookieStore'] != 0
+    && $GLOBALS['cfg']['LoginCookieStore'] < $GLOBALS['cfg']['LoginCookieValidity']
+) {
+    trigger_error(
+        __('Login cookie store is lower than cookie validity configured in phpMyAdmin, because of this, your login will expire sooner than configured in phpMyAdmin.'),
+        E_USER_WARNING
+    );
 }
 
 /**
@@ -318,7 +411,10 @@ if ($GLOBALS['cfg']['LoginCookieStore'] != 0 && $GLOBALS['cfg']['LoginCookieStor
 if (! empty($_SESSION['auto_blowfish_secret'])
     && empty($GLOBALS['cfg']['blowfish_secret'])
 ) {
-    trigger_error(__('The configuration file now needs a secret passphrase (blowfish_secret).'), E_USER_WARNING);
+    trigger_error(
+        __('The configuration file now needs a secret passphrase (blowfish_secret).'),
+        E_USER_WARNING
+    );
 }
 
 /**
@@ -326,14 +422,22 @@ if (! empty($_SESSION['auto_blowfish_secret'])
  * production environment.
  */
 if (file_exists('config')) {
-    trigger_error(__('Directory [code]config[/code], which is used by the setup script, still exists in your phpMyAdmin directory. You should remove it once phpMyAdmin has been configured.'), E_USER_WARNING);
+    trigger_error(
+        __('Directory [code]config[/code], which is used by the setup script, still exists in your phpMyAdmin directory. You should remove it once phpMyAdmin has been configured.'),
+        E_USER_WARNING
+    );
 }
 
 if ($server > 0) {
     $cfgRelation = PMA_getRelationsParam();
-    if (! $cfgRelation['allworks'] && $cfg['PmaNoRelation_DisableWarning'] == false) {
+    if (! $cfgRelation['allworks']
+        && $cfg['PmaNoRelation_DisableWarning'] == false
+    ) {
         $msg = PMA_Message::notice(__('The phpMyAdmin configuration storage is not completely configured, some extended features have been deactivated. To find out why click %shere%s.'));
-        $msg->addParam('<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $common_url_query . '">', false);
+        $msg->addParam(
+            '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $common_url_query . '">',
+            false
+        );
         $msg->addParam('</a>', false);
         /* Show error if user has configured something, notice elsewhere */
         if (!empty($cfg['Servers'][$server]['pmadb'])) {
@@ -346,14 +450,18 @@ if ($server > 0) {
 /**
  * Warning about different MySQL library and server version
  * (a difference on the third digit does not count).
- * If someday there is a constant that we can check about mysqlnd, we can use it instead
- * of strpos().
+ * If someday there is a constant that we can check about mysqlnd,
+ * we can use it instead of strpos().
  * If no default server is set, PMA_DBI_get_client_info() is not defined yet.
- * Drizzle can speak MySQL protocol, so don't warn about version mismatch for Drizzle servers.
+ * Drizzle can speak MySQL protocol, so don't warn about version mismatch for
+ * Drizzle servers.
  */
 if (function_exists('PMA_DBI_get_client_info') && !PMA_DRIZZLE) {
     $_client_info = PMA_DBI_get_client_info();
-    if ($server > 0 && strpos($_client_info, 'mysqlnd') === false && substr(PMA_MYSQL_CLIENT_API, 0, 3) != substr(PMA_MYSQL_INT_VERSION, 0, 3)) {
+    if ($server > 0
+        && strpos($_client_info, 'mysqlnd') === false
+        && substr(PMA_MYSQL_CLIENT_API, 0, 3) != substr(PMA_MYSQL_INT_VERSION, 0, 3)
+    ) {
         trigger_error(
             PMA_sanitize(
                 sprintf(
@@ -391,7 +499,9 @@ if ($cfg['SuhosinDisableWarning'] == false
 /**
  * Warning about mcrypt.
  */
-if (!function_exists('mcrypt_encrypt') && !$GLOBALS['cfg']['McryptDisableWarning']) {
+if (! function_exists('mcrypt_encrypt')
+    && ! $GLOBALS['cfg']['McryptDisableWarning']
+) {
     PMA_warnMissingExtension('mcrypt');
 }
 
@@ -407,25 +517,34 @@ if (file_exists('libraries/language_stats.inc.php')) {
      * handling incomplete translations here and focus on english
      * speaking users.
      */
-    if (isset($GLOBALS['language_stats'][$lang]) && $GLOBALS['language_stats'][$lang] < $cfg['TranslationWarningThreshold']) {
-        trigger_error('You are using an incomplete translation, please help to make it better by <a href="http://www.phpmyadmin.net/home_page/improve.php#translate" target="_blank">contributing</a>.', E_USER_NOTICE);
+    if (isset($GLOBALS['language_stats'][$lang])
+        && $GLOBALS['language_stats'][$lang] < $cfg['TranslationWarningThreshold']
+    ) {
+        trigger_error(
+            'You are using an incomplete translation, please help to make it better by <a href="http://www.phpmyadmin.net/home_page/improve.php#translate" target="_blank">contributing</a>.',
+            E_USER_NOTICE
+        );
     }
 }
 
 /**
  * prints list item for main page
  *
- * @param string  $name   displayed text
- * @param string  $id     id, used for css styles
- * @param string  $url    make item as link with $url as target
- * @param string  $mysql_help_page  display a link to MySQL's manual
- * @param string  $target special target for $url
- * @param string  $a_id   id for the anchor, used for jQuery to hook in functions
- * @param string  $class  class for the li element
- * @param string  $a_class  class for the anchor element
+ * @param string $name            displayed text
+ * @param string $id              id, used for css styles
+ * @param string $url             make item as link with $url as target
+ * @param string $mysql_help_page display a link to MySQL's manual
+ * @param string $target          special target for $url
+ * @param string $a_id            id for the anchor,
+ *                                used for jQuery to hook in functions
+ * @param string $class           class for the li element
+ * @param string $a_class         class for the anchor element
+ *
+ * @return void
  */
-function PMA_printListItem($name, $id = null, $url = null, $mysql_help_page = null, $target = null, $a_id = null, $class = null, $a_class = null)
-{
+function PMA_printListItem($name, $id = null, $url = null, $mysql_help_page = null,
+    $target = null, $a_id = null, $class = null, $a_class = null
+) {
     echo '<li id="' . $id . '"';
     if (null !== $class) {
         echo ' class="' . $class . '"';
@@ -434,7 +553,7 @@ function PMA_printListItem($name, $id = null, $url = null, $mysql_help_page = nu
     if (null !== $url) {
         echo '<a href="' . $url . '"';
         if (null !== $target) {
-           echo ' target="' . $target . '"';
+            echo ' target="' . $target . '"';
         }
         if (null != $a_id) {
             echo ' id="' . $a_id .'"';

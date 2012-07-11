@@ -68,20 +68,6 @@ class PMA_Table
     
     private $_common_functions;
     
-    
-    /**
-     * Set CommmonFunctions
-     * 
-     * @param PMA_CommonFunctions $commonFunctions
-     * 
-     * @return void
-     */
-    public function setCommonFunctions(PMA_CommonFunctions $commonFunctions)
-    {
-        $this->_common_functions = $commonFunctions;
-    }
-    
-    
     /**
      * Get CommmonFunctions
      * 
