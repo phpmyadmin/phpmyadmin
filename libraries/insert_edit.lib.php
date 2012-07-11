@@ -480,7 +480,7 @@ function PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
         || strstr($column['True_Type'], 'set')
         || in_array($column['pma_type'], $no_support_types)
     ) {
-        $html_output .= '        <td class="center">--</td>' . "\n";
+        $html_output .= '<td class="center">--</td>' . "\n";
     } else {
         $html_output .= '<td>' . "\n";
 
