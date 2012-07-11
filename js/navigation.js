@@ -40,7 +40,8 @@ $(document).ready(function() {
                 a_path: $(this).find('span.a_path').text(),
                 v_path: $(this).find('span.v_path').text(),
                 pos: $(this).find('span.pos').text(),
-                pos2: $(this).find('span.pos2').text()
+                pos2_name: $(this).find('span.pos2_name').text(),
+                pos2_value: $(this).find('span.pos2_value').text()
             };
             var url = $('#pma_navigation').find('a.navigation_url').attr('href');
             $.get(url, params, function (data) {
@@ -93,7 +94,18 @@ function PMA_reloadNavigation() {
             params['a_path_' + count] = $(this).find('span.a_path').text();
             params['v_path_' + count] = $(this).find('span.v_path').text();
             params['v_path_' + count] = $(this).find('span.v_path').text();
-            params['pos2_' + count] = $(this).find('span.pos2').text();
+
+            var pos2_name = $(this).find('span.pos2_name').text();
+            if (! pos2_name) {
+                pos2_name = $(this).parent().parent().find('span.pos2_name:last').text();
+            }
+            var pos2_value = $(this).find('span.pos2_value').text();
+            if (! pos2_value) {
+                pos2_value = $(this).parent().parent().find('span.pos2_value:last').text();
+            }
+
+            params['pos2_name_' + count] = pos2_name;
+            params['pos2_value_' + count] = pos2_value;
             count++;
         }
     });
@@ -403,7 +415,7 @@ $(function(){
                     var $parent = $this.closest('.list_container').parent();
                     $this.closest('.list_container').remove();
                     $parent.append(data.message).children('div').show();
-                    $parent.find('span.pos2:first').text($parent.find('span.pos2:last').text());
+                    $parent.find('span.pos2_value:first').text($parent.find('span.pos2_value:last').text());
                 }
             } else {
                 PMA_ajaxShowMessage(data.error);

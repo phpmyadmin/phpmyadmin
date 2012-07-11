@@ -21,12 +21,11 @@ class Node_Database extends Node {
         case 'tables':
             if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
                 $db     = $this->_commonFunctions->sqlAddSlashes($db);
-                $query  = "SELECT `TABLE_NAME` AS `name` ";
+                $query  = "SELECT COUNT(*) ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
                 $query .= "WHERE `TABLE_SCHEMA`='$db' ";
-                $query .= "AND `TABLE_TYPE`='BASE TABLE' ";
-                $query .= "LIMIT 1";
-                $retval = PMA_DBI_fetch_value($query) === false ? 0 : 1;
+                $query .= "AND `TABLE_TYPE`='BASE TABLE'";
+                $retval = (int)PMA_DBI_fetch_value($query);
             } else {
                 $db     = $this->_commonFunctions->backquote($db);
                 $query  = "SHOW FULL TABLES FROM $db ";
@@ -37,12 +36,11 @@ class Node_Database extends Node {
         case 'views':
             if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
                 $db     = $this->_commonFunctions->sqlAddSlashes($db);
-                $query  = "SELECT `TABLE_NAME` AS `name` ";
+                $query  = "SELECT COUNT(*) ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
                 $query .= "WHERE `TABLE_SCHEMA`='$db' ";
-                $query .= "AND `TABLE_TYPE`!='BASE TABLE' ";
-                $query .= "LIMIT 1";
-                $retval = PMA_DBI_fetch_value($query) === false ? 0 : 1;
+                $query .= "AND `TABLE_TYPE`!='BASE TABLE'";
+                $retval = (int)PMA_DBI_fetch_value($query);
             } else {
                 $db     = $this->_commonFunctions->backquote($db);
                 $query  = "SHOW FULL TABLES FROM $db ";
@@ -53,12 +51,11 @@ class Node_Database extends Node {
         case 'procedures':
             if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
                 $db     = $this->_commonFunctions->sqlAddSlashes($db);
-                $query  = "SELECT `ROUTINE_NAME` AS `name` ";
+                $query  = "SELECT COUNT(*) ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
                 $query .= "WHERE `ROUTINE_SCHEMA`='$db'";
-                $query .= "AND `ROUTINE_TYPE`='PROCEDURE' ";
-                $query .= "LIMIT 1";
-                $retval = PMA_DBI_fetch_value($query) === false ? 0 : 1;
+                $query .= "AND `ROUTINE_TYPE`='PROCEDURE'";
+                $retval = (int)PMA_DBI_fetch_value($query);
             } else {
                 $db     = $this->_commonFunctions->sqlAddSlashes($db);
                 $query  = "SHOW PROCEDURE STATUS WHERE `Db`='$db'";
@@ -68,12 +65,11 @@ class Node_Database extends Node {
         case 'functions':
             if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
                 $db     = $this->_commonFunctions->sqlAddSlashes($db);
-                $query  = "SELECT `ROUTINE_NAME` AS `name` ";
+                $query  = "SELECT COUNT(*) ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
                 $query .= "WHERE `ROUTINE_SCHEMA`='$db' ";
-                $query .= "AND `ROUTINE_TYPE`='FUNCTION' ";
-                $query .= "LIMIT 1";
-                $retval = PMA_DBI_fetch_value($query) === false ? 0 : 1;
+                $query .= "AND `ROUTINE_TYPE`='FUNCTION'";
+                $retval = (int)PMA_DBI_fetch_value($query);
             } else {
                 $db     = $this->_commonFunctions->sqlAddSlashes($db);
                 $query  = "SHOW FUNCTION STATUS WHERE `Db`='$db'";
@@ -83,11 +79,10 @@ class Node_Database extends Node {
         case 'events':
             if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
                 $db     = $this->_commonFunctions->sqlAddSlashes($db);
-                $query  = "SELECT `EVENT_NAME` AS `name` ";
+                $query  = "SELECT COUNT(*) ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`EVENTS` ";
-                $query .= "WHERE `EVENT_SCHEMA`='$db' ";
-                $query .= "LIMIT 1";
-                $retval = PMA_DBI_fetch_value($query) === false ? 0 : 1;
+                $query .= "WHERE `EVENT_SCHEMA`='$db'";
+                $retval = (int)PMA_DBI_fetch_value($query);
             } else {
                 $db     = $this->_commonFunctions->backquote($db);
                 $query  = "SHOW EVENTS FROM $db";
@@ -111,7 +106,7 @@ class Node_Database extends Node {
                 $query  = "SELECT `TABLE_NAME` AS `name` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
                 $query .= "WHERE `TABLE_SCHEMA`='$db' ";
-                $query .= "AND `TABLE_TYPE`='BASE TABLE'";
+                $query .= "AND `TABLE_TYPE`='BASE TABLE' ";
                 $query .= "ORDER BY `TABLE_NAME` ASC ";
                 $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxTableList']}";
                 $retval = PMA_DBI_fetch_result($query);
@@ -138,8 +133,9 @@ class Node_Database extends Node {
                 $query  = "SELECT `TABLE_NAME` AS `name` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
                 $query .= "WHERE `TABLE_SCHEMA`='$db' ";
-                $query .= "AND `TABLE_TYPE`!='BASE TABLE'";
-                $query .= "ORDER BY `TABLE_NAME` ASC";
+                $query .= "AND `TABLE_TYPE`!='BASE TABLE' ";
+                $query .= "ORDER BY `TABLE_NAME` ASC ";
+                $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxTableList']}";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $db     = $this->_commonFunctions->backquote($db);
@@ -147,8 +143,13 @@ class Node_Database extends Node {
                 $query .= "WHERE `Table_type`!='BASE TABLE'";
                 $handle = PMA_DBI_try_query($query);
                 if ($handle !== false) {
+                    $count  = 0;
                     while ($arr = PMA_DBI_fetch_array($handle)) {
-                        $retval[] = $arr[0];
+                        if ($pos <= 0 && $count < $GLOBALS['cfg']['MaxTableList']) {
+                            $retval[] = $arr[0];
+                            $count++;
+                        }
+                        $pos--;
                     }
                 }
             }
@@ -159,16 +160,22 @@ class Node_Database extends Node {
                 $query  = "SELECT `ROUTINE_NAME` AS `name` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
                 $query .= "WHERE `ROUTINE_SCHEMA`='$db'";
-                $query .= "AND `ROUTINE_TYPE`='PROCEDURE'";
-                $query .= "ORDER BY `ROUTINE_NAME` ASC";
+                $query .= "AND `ROUTINE_TYPE`='PROCEDURE' ";
+                $query .= "ORDER BY `ROUTINE_NAME` ASC ";
+                $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxTableList']}";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $db     = $this->_commonFunctions->sqlAddSlashes($db);
                 $query  = "SHOW PROCEDURE STATUS WHERE `Db`='$db'";
                 $handle = PMA_DBI_try_query($query);
                 if ($handle !== false) {
-                    while ($arr = PMA_DBI_fetch_assoc($handle)) {
-                        $retval[] = $arr['Name'];
+                    $count  = 0;
+                    while ($arr = PMA_DBI_fetch_array($handle)) {
+                        if ($pos <= 0 && $count < $GLOBALS['cfg']['MaxTableList']) {
+                            $retval[] = $arr['Name'];
+                            $count++;
+                        }
+                        $pos--;
                     }
                 }
             }
@@ -179,16 +186,22 @@ class Node_Database extends Node {
                 $query  = "SELECT `ROUTINE_NAME` AS `name` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
                 $query .= "WHERE `ROUTINE_SCHEMA`='$db' ";
-                $query .= "AND `ROUTINE_TYPE`='FUNCTION'";
-                $query .= "ORDER BY `ROUTINE_NAME` ASC";
+                $query .= "AND `ROUTINE_TYPE`='FUNCTION' ";
+                $query .= "ORDER BY `ROUTINE_NAME` ASC ";
+                $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxTableList']}";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $db     = $this->_commonFunctions->sqlAddSlashes($db);
                 $query  = "SHOW FUNCTION STATUS WHERE `Db`='$db'";
                 $handle = PMA_DBI_try_query($query);
                 if ($handle !== false) {
-                    while ($arr = PMA_DBI_fetch_assoc($handle)) {
-                        $retval[] = $arr['Name'];
+                    $count  = 0;
+                    while ($arr = PMA_DBI_fetch_array($handle)) {
+                        if ($pos <= 0 && $count < $GLOBALS['cfg']['MaxTableList']) {
+                            $retval[] = $arr['Name'];
+                            $count++;
+                        }
+                        $pos--;
                     }
                 }
             }
@@ -198,16 +211,22 @@ class Node_Database extends Node {
                 $db     = $this->_commonFunctions->sqlAddSlashes($db);
                 $query  = "SELECT `EVENT_NAME` AS `name` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`EVENTS` ";
-                $query .= "WHERE `EVENT_SCHEMA`='$db'";
-                $query .= "ORDER BY `EVENT_NAME` ASC";
+                $query .= "WHERE `EVENT_SCHEMA`='$db' ";
+                $query .= "ORDER BY `EVENT_NAME` ASC ";
+                $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxTableList']}";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $db     = $this->_commonFunctions->backquote($db);
                 $query  = "SHOW EVENTS FROM $db";
                 $handle = PMA_DBI_try_query($query);
                 if ($handle !== false) {
-                    while ($arr = PMA_DBI_fetch_assoc($handle)) {
-                        $retval[] = $arr['Name'];
+                    $count  = 0;
+                    while ($arr = PMA_DBI_fetch_array($handle)) {
+                        if ($pos <= 0 && $count < $GLOBALS['cfg']['MaxTableList']) {
+                            $retval[] = $arr['Name'];
+                            $count++;
+                        }
+                        $pos--;
                     }
                 }
             }

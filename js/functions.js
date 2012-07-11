@@ -3189,7 +3189,7 @@ AJAX.registerOnload('functions.js', function() {
         } else {
             var $this = $(this);
             var $msgbox = PMA_ajaxShowMessage();
-            var isDbSelector = $this.closest('.pageselector').is('.dbselector');
+            var isDbSelector = $this.parent().closest('.pageselector').is('.dbselector');
             var params = $(this).closest("form").serialize() + '&ajax_request=true';
             if (isDbSelector) {
                 params += '&full=true';
@@ -3203,7 +3203,7 @@ AJAX.registerOnload('functions.js', function() {
                         var $parent = $this.closest('.list_container').parent();
                         $this.closest('.list_container').remove();
                         $parent.append(data.message).children('div').show();
-                        $parent.find('span.pos2:first').text($parent.find('span.pos2:last').text());
+                        $parent.find('span.pos2_value:first').text($parent.find('span.pos2_value:last').text());
                     }
                 } else {
                     PMA_ajaxShowMessage(data.error);

@@ -318,6 +318,40 @@ class Node {
     }
 
     /**
+     * Returns the actual path and the virtual paths for a node
+     * both as clean arrays and base64 encoded strings
+     *
+     * @return array
+     */
+    public function getPaths()
+    {
+        $a_path = array();
+        $a_path_clean = array();
+        foreach ($this->parents(true, true, false) as $parent) {
+            $a_path[] = base64_encode($parent->real_name);
+            $a_path_clean[] = $parent->real_name;
+        }
+        $a_path = implode('.', array_reverse($a_path));
+        $a_path_clean = array_reverse($a_path_clean);
+
+        $v_path = array();
+        $v_path_clean = array();
+        foreach ($this->parents(true, true, true) as $parent) {
+            $v_path[] = base64_encode($parent->name);
+            $v_path_clean[] = $parent->name;
+        }
+        $v_path = implode('.', array_reverse($v_path));
+        $v_path_clean = array_reverse($v_path_clean);
+
+        return array(
+            'a_path' => $a_path,
+            'a_path_clean' => $a_path_clean,
+            'v_path' => $v_path,
+            'v_path_clean' => $v_path_clean
+        );
+    }
+
+    /**
      * TODO: comment
      */
     public function getData($type, $pos)
