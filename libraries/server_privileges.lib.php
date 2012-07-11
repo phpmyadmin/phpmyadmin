@@ -455,7 +455,9 @@ function PMA_getHtmlToDisplayPrivilegesTable($random_n, $db = '*', $table = '*',
     }
     // t a b l e - s p e c i f i c    p r i v i l e g e s
     if (! empty($columns)) {
-        $html_output .= PMA_getHtmlForTableSpecificPrivileges($username, $hostname, $db, $table, $columns);
+        $html_output .= PMA_getHtmlForTableSpecificPrivileges(
+            $username, $hostname, $db, $table, $columns,$row
+        );
     } else {
         // g l o b a l    o r    d b - s p e c i f i c
         $html_output .= PMA_getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row, $random_n);
@@ -519,7 +521,7 @@ function PMA_getHtmlForDisplayResourceLimits($row)
  * 
  * @return string $html_output
  */
-function PMA_getHtmlForTableSpecificPrivileges($username, $hostname, $db, $table, $columns)
+function PMA_getHtmlForTableSpecificPrivileges($username, $hostname, $db, $table, $columns,$row)
 {
     $common_functions = PMA_CommonFunctions::getInstance();
     $res = PMA_DBI_query(
