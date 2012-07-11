@@ -1183,7 +1183,7 @@ function PMA_getMessageAndSqlQueryForPrivilegesRevoke($db_and_table, $dbname,
  *
  * @return string $sql_query
  */
-function PMA_getCommonSqlQueryForAddUserAndUpdatePrivs()
+function PMA_getWithClauseForAddUserAndUpdatePrivs()
 {
     $sql_query = 'WITH';
     if (isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y') {
@@ -2460,7 +2460,7 @@ function PMA_updatePrivileges($username, $hostname)
             && (isset($_POST['max_questions']) || isset($_POST['max_connections'])
             || isset($_POST['max_updates']) || isset($_POST['max_user_connections'])))
         ) {
-            $sql_query2 .= PMA_getCommonSqlQueryForAddUserAndUpdatePrivs();
+            $sql_query2 .= PMA_getWithClauseForAddUserAndUpdatePrivs();
         }
         $sql_query2 .= ';';
     }
