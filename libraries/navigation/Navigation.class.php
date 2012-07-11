@@ -121,7 +121,7 @@ class PMA_Navigation {
         if (! $treeRender) {
             $retval .= PMA_Message::error(
                 __('An error has occured while loading the navigation tree')
-            );
+            )->getDisplay();
         } else {
             $retval .= $treeRender;
         }
