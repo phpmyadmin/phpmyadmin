@@ -1741,7 +1741,6 @@ function PMA_getUserSpecificRights($tables, $user_host_condition)
 
     if (PMA_isValid($_REQUEST['pred_dbname'])) {
         $dbname = $_REQUEST['pred_dbname'];
-        unset($pred_dbname);
     } elseif (PMA_isValid($_REQUEST['dbname'])) {
         $dbname = $_REQUEST['dbname'];
     }
