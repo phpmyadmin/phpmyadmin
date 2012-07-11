@@ -782,7 +782,8 @@ function PMA_dispRowForeignData($backup_field, $column_name_appendix,
 
     $html_output .= '<select name="fields' . $column_name_appendix . '"'
         . ' ' . $unnullify_trigger
-        . ' class="textfield"' . ($tabindex + $tabindex_for_value). '"'
+        . ' class="textfield"'
+        . ' tabindex="' . ($tabindex + $tabindex_for_value). '"'
         . ' id="field_' . $idindex . '_3"'
         . PMA_foreignDropdown(
             $foreignData['disp_row'], $foreignData['foreign_field'],
