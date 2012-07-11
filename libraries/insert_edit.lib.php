@@ -784,13 +784,13 @@ function PMA_dispRowForeignData($backup_field, $column_name_appendix,
         . ' ' . $unnullify_trigger
         . ' class="textfield"'
         . ' tabindex="' . ($tabindex + $tabindex_for_value). '"'
-        . ' id="field_' . $idindex . '_3">'
-        . PMA_foreignDropdown(
-            $foreignData['disp_row'], $foreignData['foreign_field'],
-            $foreignData['foreign_display'], $data,
-            $GLOBALS['cfg']['ForeignKeyMaxLimit']
-        )
-        . '</select>';
+        . ' id="field_' . $idindex . '_3">';
+    $html_output .= PMA_foreignDropdown(
+        $foreignData['disp_row'], $foreignData['foreign_field'],
+        $foreignData['foreign_display'], $data,
+        $GLOBALS['cfg']['ForeignKeyMaxLimit']
+    );
+    $html_output .= '</select>';
 
     return $html_output;
 }
