@@ -935,14 +935,13 @@ function PMA_getDropDownDependingOnLength(
     $tabindex, $tabindex_for_value, $idindex, $data, $column_enum_values
 ) {
     $html_output = '<select name="fields' . $column_name_appendix . '"'
-        . $unnullify_trigger
-        . 'class="textfield"'
-        . 'tabindex="' . ($tabindex + $tabindex_for_value) . '"'
-        . 'id="field_' . ($idindex) . '_3">'
-        . '<option value="">&nbsp;</option>' . "\n";
+        . ' ' . $unnullify_trigger
+        . ' class="textfield"'
+        . ' tabindex="' . ($tabindex + $tabindex_for_value) . '"'
+        . ' id="field_' . ($idindex) . '_3">';
+    $html_output .= '<option value="">&nbsp;</option>' . "\n";
 
     foreach ($column_enum_values as $enum_value) {
-        $html_output .= '                ';
         $html_output .= '<option value="' . $enum_value['html'] . '"';
         if ($data == $enum_value['plain']
             || ($data == ''
