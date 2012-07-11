@@ -243,7 +243,7 @@ class PMA_DisplayResults
      * 
      * @see     sql.php
      */
-    public function processParams(
+    public function setProperties(
         $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
         $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage, $text_dir,
         $is_maint, $is_explain, $is_show, $showtable, $printview, $url_query
@@ -267,7 +267,7 @@ class PMA_DisplayResults
         $this->__set('_printview', $printview);
         $this->__set('_url_query', $url_query);
         
-    }
+    } // end of the 'setProperties()' function
 
 
     /**
