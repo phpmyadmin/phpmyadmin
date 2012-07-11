@@ -54,12 +54,11 @@ function PMA_getFormParametersForInsertForm($db, $table, $where_clauses,
  */
 function PMA_getStuffForEditMode($where_clause, $table, $db)
 {
-    $found_unique_key = false;
     if (isset($where_clause)) {
         $where_clause_array = PMA_getWhereClauseArray($where_clause);
         list($whereClauses, $resultArray, $rowsArray, $found_unique_key)
             = PMA_analyzeWhereClauses(
-                $where_clause_array, $table, $db, $found_unique_key
+                $where_clause_array, $table, $db, false
             );
         return array(
             false, $whereClauses,
@@ -68,7 +67,7 @@ function PMA_getStuffForEditMode($where_clause, $table, $db)
             );
     } else {
         list($results, $row) = PMA_loadFirstRowInEditMode($table, $db);
-        return array(true, null, $results, $row, null, $found_unique_key);
+        return array(true, null, $results, $row, null, false);
     }
 }
 
