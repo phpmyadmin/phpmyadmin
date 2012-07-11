@@ -1325,13 +1325,13 @@ function PMA_getListOfPrivilegesAndComparedPrivileges()
 /**
  * Get the HTML for user form and check the privileges for a particular database.
  * 
- * @param string $checkprivs        check privileges
+ * @param string $dbToCheck         check privileges
  * @param string $link_edit         standard link for edit
  * @param string $conditional_class if ajaxable 'Ajax' otherwise ''
  * 
  * @return string $html_output
  */
-function PMA_getUserForm($checkprivs, $link_edit, $conditional_class)
+function PMA_getHtmlForSpecificDbPrivileges($dbToCheck, $link_edit, $conditional_class)
 {
     $common_functions = PMA_CommonFunctions::getInstance();
     // check the privileges for a particular database.
@@ -1341,7 +1341,7 @@ function PMA_getUserForm($checkprivs, $link_edit, $conditional_class)
         . '    '
         . sprintf(
            __('Users having access to &quot;%s&quot;'),
-           '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url($checkprivs) . '">' .  htmlspecialchars($checkprivs) . '</a>'
+           '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url($dbToCheck) . '">' .  htmlspecialchars($checkprivs) . '</a>'
         )
         . "\n"
         . '</legend>' . "\n";
@@ -1363,7 +1363,7 @@ function PMA_getUserForm($checkprivs, $link_edit, $conditional_class)
 
     $sql_query = '(SELECT ' . $list_of_privileges . ', `Db`'
         .' FROM `mysql`.`db`'
-        .' WHERE \'' . $common_functions->sqlAddSlashes($checkprivs) . "'"
+        .' WHERE \'' . $common_functions->sqlAddSlashes($dbToCheck) . "'"
         .' LIKE `Db`'
         .' AND NOT (' . $list_of_compared_privileges. ')) '
         .'UNION '
@@ -1378,8 +1378,8 @@ function PMA_getUserForm($checkprivs, $link_edit, $conditional_class)
     if ($row) {
         $found = true;
     }
-    $html_output .= PMA_getUserFormTableBody(
-        $found, $row, $odd_row, $link_edit, $res, $checkprivs
+    $html_output .= PMA_getHtmlTableBodyForSpecificDbPrivs(
+        $found, $row, $odd_row, $link_edit, $res, $dbToCheck
     );
     $html_output .= '</table>'
         . '</fieldset>'
@@ -1397,8 +1397,8 @@ function PMA_getUserForm($checkprivs, $link_edit, $conditional_class)
            . '<legend>' . __('New') . '</legend>' . "\n";
         
         $html_output .= '<a href="server_privileges.php?'
-            . $GLOBALS['url_query'] . '&amp;adduser=1&amp;dbname=' . htmlspecialchars($checkprivs)
-            .'" rel="'.'checkprivs='.htmlspecialchars($checkprivs). '&amp;'.$GLOBALS['url_query']
+            . $GLOBALS['url_query'] . '&amp;adduser=1&amp;dbname=' . htmlspecialchars($dbToCheck)
+            .'" rel="'.'checkprivs='.htmlspecialchars($dbToCheck). '&amp;'.$GLOBALS['url_query']
             . '" class="'.$conditional_class
             .'" name="db_specific">' . "\n"
             . $common_functions->getIcon('b_usradd.png')
@@ -1410,18 +1410,18 @@ function PMA_getUserForm($checkprivs, $link_edit, $conditional_class)
 }
 
 /**
- * Get HTML snippet for table body of user form
+ * Get HTML snippet for table body of specific database privileges
  * 
  * @param boolean $found        whether user found or not
  * @param array $row            array of rows from mysql , db table with list of privileges  
  * @param boolean $odd_row      whether odd or not
  * @param string $link_edit     standard link for edit
  * @param string $res           ran sql query
- * @param string $checkprivs    check privileges
+ * @param string $dbToCheck    check privileges
  *            
  * @return string $html_output
  */
-function PMA_getUserFormTableBody($found, $row, $odd_row, $link_edit, $res, $checkprivs)
+function PMA_getHtmlTableBodyForSpecificDbPrivs($found, $row, $odd_row, $link_edit, $res, $dbToCheck)
 {
     $html_output = '<tbody>' . "\n";
     if ($found) {
@@ -1457,7 +1457,7 @@ function PMA_getUserFormTableBody($found, $row, $odd_row, $link_edit, $res, $che
                    . '            ';
                 if (! isset($current['Db']) || $current['Db'] == '*') {
                     $html_output .= __('global');
-                } elseif ($current['Db'] == PMA_CommonFunctions::getInstance()->escapeMysqlWildcards($checkprivs)) {
+                } elseif ($current['Db'] == PMA_CommonFunctions::getInstance()->escapeMysqlWildcards($dbToCheck)) {
                     $html_output .= __('database-specific');
                 } else {
                     $html_output .= __('wildcard'). ': <code>' . htmlspecialchars($current['Db']) . '</code>';

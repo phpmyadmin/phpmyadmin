@@ -647,7 +647,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
 } else {
     // check the privileges for a particular database.
     $response->addHTML(
-        PMA_getUserForm($checkprivs, $link_edit, $conditional_class)
+        PMA_getHtmlForSpecificDbPrivileges($checkprivs, $link_edit, $conditional_class)
     );    
 } // end if (empty($_REQUEST['adduser']) && empty($checkprivs)) ... elseif ... else ...
 
