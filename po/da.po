@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-07-05 23:51+0200\n"
+"PO-Revision-Date: 2012-07-12 03:37+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -3255,36 +3255,49 @@ msgstr "Tema"
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
+"Et heltal på 1 byte, signeret interval er -128 til 127, usigneret interval "
+"er 0 til 255"
 
 #: libraries/Types.class.php:297
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
+"Et heltal på 2 byte, signeret interval er -32.768 til 32.767, usigneret "
+"interval er 0 til 65.535"
 
 #: libraries/Types.class.php:299
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
 msgstr ""
+"Et heltal på 3 byte, signeret interval er -8.388.608 til 8.388.607, "
+"usigneret interval er 0 til 16.777.215"
 
 #: libraries/Types.class.php:301
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295."
 msgstr ""
+"Et heltal på 4 byte, signeret interval er -2.147.483.648 til 2.147.483.647, "
+"usigneret interval er 0 til 4.294.967.295."
 
 #: libraries/Types.class.php:303
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
 msgstr ""
+"Et heltal på 8 byte, signeret interval er -9.223.372.036.854.755.808 til "
+"9.223.372.036.854.755.807, usigneret interval er 0 til "
+"18.446.744.073.709.55.615"
 
 #: libraries/Types.class.php:305 libraries/Types.class.php:711
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
 msgstr ""
+"Et fast decimaltal (M, D) - det maksimale antal af tal (M) er 65 (standard "
+"10), det maksimale antal decimaler (D) er 30 (standard 0)"
 
 #: libraries/Types.class.php:307
 msgid ""
@@ -3316,10 +3329,12 @@ msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
 msgstr ""
+"Et synonym for TINYINT(1), en værdi på nul anses som falsk, værdier som ikke "
+"er nul anses som sande"
 
 #: libraries/Types.class.php:317
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "Et alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/Types.class.php:319 libraries/Types.class.php:721
 #, php-format
@@ -3330,13 +3345,16 @@ msgstr "En dato, understøttet interval er %1$s til %2$s"
 #: libraries/Types.class.php:321 libraries/Types.class.php:723
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
-msgstr ""
+msgstr "En kombination af dato og tid, understøttet interval er %1$s til %2$s"
 
 #: libraries/Types.class.php:323
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
+"Et tidsstempel, intervallet er 1970-01-01 00:00:01 UTC til 2038-01-09 "
+"03:14:07 UTC, lagret som antallet af sekunder siden epoken (1970-01-01 "
+"00:00:00 UTC)"
 
 #: libraries/Types.class.php:325 libraries/Types.class.php:727
 #, php-format
@@ -3349,6 +3367,8 @@ msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
 msgstr ""
+"Et år med formater på fire cifre (4, standard) eller to cifre (2), hvor "
+"tilladte værdier er 70 (1970) til 69 (2069) eller 1901 til 2155 og 0000"
 
 #: libraries/Types.class.php:329
 msgid ""
