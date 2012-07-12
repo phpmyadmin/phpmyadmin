@@ -531,7 +531,7 @@ function PMA_dbQbeGetAndOrColCell($column_number, $selected = null)
  * @param string $criteria              Already Filled criteria
  * @param string $prev_criteria         Previously filled criteria(hidden form field)
  * @param string $criteriaColumnInsert  If a new criteria column is needed
- * @param string $criteriaColumnDelete               If a criteria column is to be deleted
+ * @param string $criteriaColumnDelete  If a criteria column is to be deleted
  *
  * @return HTML for search table's row
  */
@@ -653,6 +653,66 @@ function PMA_dbQbeGetInputboxRow($col, $new_row_index, $row_index,
             $GLOBALS[${'cur' . $or}][$z] = ${$or}[$x];
         }
         $z++;
+    } // end for
+    return $html_output;
+}
+
+/**
+ * Provides rows for criteria inputbox Insert/Delete options
+ * with AND/OR relationship modification options 
+ *
+ * @param integer $criteria_row_count    Number of criteria rows
+ * @param array   $criteria_column_count Number of criteria columns
+ * @param string  $realwidth             Largest column width found
+ * @param string  $criteriaColumnInsert  If a new criteria column is needed
+ * @param string  $criteriaColumnDelete  If a criteria column is to be deleted
+ * @param string  $criteriaAndOrRow      If AND or OR is to be checked
+ *
+ * @return HTML table rows
+ */
+function PMA_dbQbeGetInsDelAndOrCriteriaRows($criteria_row_count,
+    $criteria_column_count, $realwidth, $criteriaColumnInsert, $criteriaColumnDelete,
+    $criteriaAndOrRow
+) {
+    $html_output = '';
+    $w = 0;
+    $odd_row = true;
+    for ($y = 0; $y <= $criteria_row_count; $y++) {
+        if (isset($criteriaRowInsert[$y]) && $criteriaRowInsert[$y] == 'on') {
+            $chk['or']  = ' checked="checked"';
+            $chk['and'] = '';
+            $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . ' noclick">';
+            $html_output .= PMA_dbQbeGetInsDelAndOrCell($w, $chk);
+            $html_output .= PMA_dbQbeGetInputboxRow(
+                $criteria_column_count, $w, $y, $criteriaColumnInsert,
+                $criteriaColumnDelete, $realwidth
+            );
+            $w++;
+            $html_output .= '</tr>';
+            $odd_row =! $odd_row;
+        } // end if
+        if (isset($criteriaRowDelete[$y]) && $criteriaRowDelete[$y] == 'on') {
+            continue;
+        }
+        if (isset($criteriaAndOrRow[$y])) {
+            $GLOBALS['curAndOrRow'][$w] = $criteriaAndOrRow[$y];
+        }
+        if (isset($criteriaAndOrRow[$y]) && $criteriaAndOrRow[$y] == 'and') {
+            $chk['and'] =  ' checked="checked"';
+            $chk['or']  =  '';
+        } else {
+            $chk['or']  =  ' checked="checked"';
+            $chk['and'] =  '';
+        }
+        $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . ' noclick">';
+        $html_output .= PMA_dbQbeGetInsDelAndOrCell($w, $chk);
+        $html_output .= PMA_dbQbeGetInputboxRow(
+            $criteria_column_count, $w, $y, $criteriaColumnInsert,
+            $criteriaColumnDelete, $realwidth
+        );
+        $w++;
+        $html_output .= '</tr>';
+        $odd_row =! $odd_row;
     } // end for
     return $html_output;
 }
@@ -812,64 +872,9 @@ echo PMA_dbQbegetShowRow(
 echo PMA_dbQbegetCriteriaInputboxRow(
     $col, $realwidth, $criteria, $prev_criteria, $criteriaColumnInsert, $criteriaColumnDelete
 );
-?>
-
-<!-- And/Or columns and rows -->
-<?php
-$w = 0;
-$odd_row = true;
-for ($y = 0; $y <= $row; $y++) {
-    if (isset($criteriaRowInsert[$y]) && $criteriaRowInsert[$y] == 'on') {
-        $chk['or']  = ' checked="checked"';
-        $chk['and'] = '';
-        ?>
-    <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?> noclick">
-    <?php
-    echo PMA_dbQbeGetInsDelAndOrCell($w, $chk);
-    echo PMA_dbQbeGetInputboxRow(
-        $col, $w, $y, $criteriaColumnInsert, $criteriaColumnDelete, $realwidth
-    );
-    $w++;
-    echo "\n";
-    ?>
-    </tr>
-        <?php
-        $odd_row =! $odd_row;
-    } // end if
-
-    if (isset($criteriaRowDelete[$y]) && $criteriaRowDelete[$y] == 'on') {
-        continue;
-    }
-
-    if (isset($criteriaAndOrRow[$y])) {
-        $GLOBALS['curAndOrRow'][$w] = $criteriaAndOrRow[$y];
-    }
-    if (isset($criteriaAndOrRow[$y]) && $criteriaAndOrRow[$y] == 'and') {
-        $chk['and'] =  ' checked="checked"';
-        $chk['or']  =  '';
-    } else {
-        $chk['or']  =  ' checked="checked"';
-        $chk['and'] =  '';
-    }
-    echo "\n";
-    ?>
-<tr class="<?php echo $odd_row ? 'odd' : 'even'; ?> noclick">
-<?php
-    echo PMA_dbQbeGetInsDelAndOrCell($w, $chk);
-    echo PMA_dbQbeGetInputboxRow(
-        $col, $w, $y, $criteriaColumnInsert, $criteriaColumnDelete, $realwidth
-    );
-    $w++;
-    echo "\n";
-    ?>
-</tr>
-    <?php
-    echo "\n";
-    $odd_row =! $odd_row;
-} // end for
-?>
-
-<?php
+echo PMA_dbQbeGetInsDelAndOrCriteriaRows($row, $col, $realwidth,
+    $criteriaColumnInsert, $criteriaColumnDelete, $criteriaAndOrRow
+);
 echo PMA_dbQbeGetModifyColumnsRow(
     $col, $criteriaAndOrColumn, $criteriaColumnInsert, $criteriaColumnDelete 
 );
