@@ -58,13 +58,13 @@ function PMA_getStuffForEditMode($where_clause, $table, $db)
         $where_clause_array = PMA_getWhereClauseArray($where_clause);
         list($whereClauses, $resultArray, $rowsArray, $found_unique_key)
             = PMA_analyzeWhereClauses(
-                $where_clause_array, $table, $db, false
+                $where_clause_array, $table, $db
             );
         return array(
             false, $whereClauses,
             $resultArray, $rowsArray,
             $where_clause_array, $found_unique_key
-            );
+        );
     } else {
         list($results, $row) = PMA_loadFirstRowInEditMode($table, $db);
         return array(true, null, $results, $row, null, false);
@@ -92,19 +92,19 @@ function PMA_getWhereClauseArray($where_clause)
 /**
  * Analysing where clauses array
  *
- * @param array   $where_clause_array array of where clauses
- * @param string  $table              name of the table
- * @param string  $db                 name of the database
- * @param boolean $found_unique_key   boolean variable for unique key
+ * @param array  $where_clause_array array of where clauses
+ * @param string $table              name of the table
+ * @param string $db                 name of the database
  *
  * @return array $where_clauses, $result, $rows
  */
 function PMA_analyzeWhereClauses(
-    $where_clause_array, $table, $db, $found_unique_key
+    $where_clause_array, $table, $db
 ) {
     $rows               = array();
     $result             = array();
     $where_clauses      = array();
+    $found_unique_key   = false;
     foreach ($where_clause_array as $key_id => $where_clause) {
 
         $local_query     = 'SELECT * FROM '
@@ -115,11 +115,12 @@ function PMA_analyzeWhereClauses(
         $rows[$key_id]   = PMA_DBI_fetch_assoc($result[$key_id]);
 
         $where_clauses[$key_id] = str_replace('\\', '\\\\', $where_clause);
-        $found_unique_key = PMA_showEmptyResultMessageOrSetUniqueCondition(
-            $rows, $key_id,
-            $where_clause_array, $local_query,
-            $result, $found_unique_key
+        $has_unique_condition   = PMA_showEmptyResultMessageOrSetUniqueCondition(
+            $rows, $key_id, $where_clause_array, $local_query, $result
         );
+        if ($has_unique_condition) {
+            $found_unique_key = true;
+        }
     }
     return array($where_clauses, $result, $rows, $found_unique_key);
 }
@@ -127,18 +128,19 @@ function PMA_analyzeWhereClauses(
 /**
  * Show message for empty reult or set the unique_condition
  *
- * @param array   $rows               MySQL returned rows
- * @param string  $key_id             ID in current key
- * @param array   $where_clause_array array of where clauses
- * @param string  $local_query        query performed
- * @param array   $result             MySQL result handle
- * @param boolean $found_unique_key   boolean variable for unique key
+ * @param array  $rows               MySQL returned rows
+ * @param string $key_id             ID in current key
+ * @param array  $where_clause_array array of where clauses
+ * @param string $local_query        query performed
+ * @param array  $result             MySQL result handle
  *
- * @return boolean $found_unique_key
+ * @return boolean $has_unique_condition
  */
 function PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id,
-    $where_clause_array, $local_query, $result, $found_unique_key
+    $where_clause_array, $local_query, $result
 ) {
+    $has_unique_condition = false;
+
     // No row returned
     if (! $rows[$key_id]) {
         unset($rows[$key_id], $where_clause_array[$key_id]);
@@ -156,11 +158,11 @@ function PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id,
             );
 
         if (! empty($unique_condition)) {
-            $found_unique_key = true;
+            $has_unique_condition = true;
         }
         unset($unique_condition, $tmp_clause_is_unique);
     }
-    return $found_unique_key;
+    return $has_unique_condition;
 }
 
 /**
@@ -1388,11 +1390,15 @@ function PMA_getHTMLforGisDataTypes()
  */
 function PMA_getContinueInsertionForm($table, $db, $where_clause_array, $err_url)
 {
-    $html_output = '<form id="continueForm" method="post" action="tbl_replace.php" name="continueForm" >'
+    $html_output = '<form id="continueForm" method="post"'
+        . ' action="tbl_replace.php" name="continueForm">'
         . PMA_generate_common_hidden_inputs($db, $table)
-        . '<input type="hidden" name="goto" value="' . htmlspecialchars($GLOBALS['goto']) . '" />'
-        . '<input type="hidden" name="err_url" value="' . htmlspecialchars($err_url) . '" />'
-        . '<input type="hidden" name="sql_query" value="' . htmlspecialchars($_REQUEST['sql_query']) . '" />';
+        . '<input type="hidden" name="goto"'
+        . ' value="' . htmlspecialchars($GLOBALS['goto']) . '" />'
+        . '<input type="hidden" name="err_url"'
+        . ' value="' . htmlspecialchars($err_url) . '" />'
+        . '<input type="hidden" name="sql_query"'
+        . ' value="' . htmlspecialchars($_REQUEST['sql_query']) . '" />';
 
     if (isset($_REQUEST['where_clause'])) {
         foreach ($where_clause_array as $key_id => $where_clause) {
@@ -1646,7 +1652,9 @@ function PMA_getSpecialCharsAndBackupFieldForExistingRow(
             if ($_SESSION['tmp_user_values']['display_binary_as_hex']
                 && $GLOBALS['cfg']['ShowFunctionFields']
             ) {
-                $current_row[$column['Field']] = bin2hex($current_row[$column['Field']]);
+                $current_row[$column['Field']] = bin2hex(
+                    $current_row[$column['Field']]
+                );
                 $column['display_binary_as_hex'] = true;
             } else {
                 $current_row[$column['Field']]
@@ -2006,7 +2014,7 @@ function PMA_getDisplayValueForForeignTableColumn($where_comparison,
     );
     // Field to display from the foreign table?
     if (isset($display_field) && strlen($display_field)) {
-        $dispsql     = 'SELECT ' . $common_functions->backquote($display_field)
+        $dispsql = 'SELECT ' . $common_functions->backquote($display_field)
             . ' FROM ' . $common_functions->backquote($map[$relation_field]['foreign_db'])
             . '.' . $common_functions->backquote($map[$relation_field]['foreign_table'])
             . ' WHERE ' . $common_functions->backquote($map[$relation_field]['foreign_field'])
@@ -2081,6 +2089,7 @@ function PMA_getLinkForRelationalDisplayField($map, $relation_field,
  *                               [field_name][field_key]
  * @param array  $edited_values  transform fields list
  * @param array  $extra_data     extra data array
+ * @param string $include_file   file containing the transformation plugin
  *
  * @return array $extra_data
  */
@@ -2178,10 +2187,12 @@ function PMA_getCurrentValueAsAnArrayForMultipleEdit($multi_edit_colummns,
  * @param boolean $is_insert                    boolean value whether insert or not
  * @param array   $query_values                 SET part of the sql query
  * @param array   $query_fields                 array of query fileds
- * @param string  $current_value_as_an_array    current value in the column as an array
+ * @param string  $current_value_as_an_array    current value in the column
+ *                                              as an array
  * @param array   $value_sets                   array of valu sets
  * @param string  $key                          an md5 of the column name
- * @param array   $multi_edit_columns_null_prev array of multiple edit columnd null previous
+ * @param array   $multi_edit_columns_null_prev array of multiple edit columns
+ *                                              null previous
  *
  * @return array ($query_values, $query_fields)
  */
@@ -2200,7 +2211,9 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
             $query_values[] = $current_value_as_an_array;
             // first inserted row so prepare the list of fields
             if (empty($value_sets)) {
-                $query_fields[] = $common_functions->backquote($multi_edit_columns_name[$key]);
+                $query_fields[] = $common_functions->backquote(
+                    $multi_edit_columns_name[$key]
+                );
             }
         }
 
@@ -2211,7 +2224,8 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
 
         // field had the null checkbox before the update
         // field no longer has the null checkbox
-        $query_values[] = $common_functions->backquote($multi_edit_columns_name[$key])
+        $query_values[]
+            = $common_functions->backquote($multi_edit_columns_name[$key])
             . ' = ' . $current_value_as_an_array;
     } elseif (empty($multi_edit_funcs[$key])
         && isset($multi_edit_columns_prev[$key])
@@ -2225,7 +2239,8 @@ function PMA_getQueryValuesForInsertAndUpdateInMultipleEdit($multi_edit_columns_
         if (empty($multi_edit_columns_null_prev[$key])
             || empty($multi_edit_columns_null[$key])
         ) {
-             $query_values[] = $common_functions->backquote($multi_edit_columns_name[$key])
+             $query_values[]
+                 = $common_functions->backquote($multi_edit_columns_name[$key])
                 . ' = ' . $current_value_as_an_array;
         }
     }
