@@ -58,13 +58,13 @@ function PMA_getStuffForEditMode($where_clause, $table, $db)
         $where_clause_array = PMA_getWhereClauseArray($where_clause);
         list($whereClauses, $resultArray, $rowsArray, $found_unique_key)
             = PMA_analyzeWhereClauses(
-                $where_clause_array, $table, $db, false
+                $where_clause_array, $table, $db
             );
         return array(
             false, $whereClauses,
             $resultArray, $rowsArray,
             $where_clause_array, $found_unique_key
-            );
+        );
     } else {
         list($results, $row) = PMA_loadFirstRowInEditMode($table, $db);
         return array(true, null, $results, $row, null, false);
@@ -92,19 +92,19 @@ function PMA_getWhereClauseArray($where_clause)
 /**
  * Analysing where clauses array
  *
- * @param array   $where_clause_array array of where clauses
- * @param string  $table              name of the table
- * @param string  $db                 name of the database
- * @param boolean $found_unique_key   boolean variable for unique key
+ * @param array  $where_clause_array array of where clauses
+ * @param string $table              name of the table
+ * @param string $db                 name of the database
  *
  * @return array $where_clauses, $result, $rows
  */
 function PMA_analyzeWhereClauses(
-    $where_clause_array, $table, $db, $found_unique_key
+    $where_clause_array, $table, $db
 ) {
     $rows               = array();
     $result             = array();
     $where_clauses      = array();
+    $found_unique_key   = false;
     foreach ($where_clause_array as $key_id => $where_clause) {
 
         $local_query     = 'SELECT * FROM '
@@ -115,11 +115,12 @@ function PMA_analyzeWhereClauses(
         $rows[$key_id]   = PMA_DBI_fetch_assoc($result[$key_id]);
 
         $where_clauses[$key_id] = str_replace('\\', '\\\\', $where_clause);
-        $found_unique_key = PMA_showEmptyResultMessageOrSetUniqueCondition(
-            $rows, $key_id,
-            $where_clause_array, $local_query,
-            $result, $found_unique_key
+        $has_unique_condition   = PMA_showEmptyResultMessageOrSetUniqueCondition(
+            $rows, $key_id, $where_clause_array, $local_query, $result
         );
+        if ($has_unique_condition) {
+            $found_unique_key = true;
+        }
     }
     return array($where_clauses, $result, $rows, $found_unique_key);
 }
@@ -127,18 +128,19 @@ function PMA_analyzeWhereClauses(
 /**
  * Show message for empty reult or set the unique_condition
  *
- * @param array   $rows               MySQL returned rows
- * @param string  $key_id             ID in current key
- * @param array   $where_clause_array array of where clauses
- * @param string  $local_query        query performed
- * @param array   $result             MySQL result handle
- * @param boolean $found_unique_key   boolean variable for unique key
+ * @param array  $rows               MySQL returned rows
+ * @param string $key_id             ID in current key
+ * @param array  $where_clause_array array of where clauses
+ * @param string $local_query        query performed
+ * @param array  $result             MySQL result handle
  *
- * @return boolean $found_unique_key
+ * @return boolean $has_unique_condition
  */
 function PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id,
-    $where_clause_array, $local_query, $result, $found_unique_key
+    $where_clause_array, $local_query, $result
 ) {
+    $has_unique_condition = false;
+
     // No row returned
     if (! $rows[$key_id]) {
         unset($rows[$key_id], $where_clause_array[$key_id]);
@@ -156,11 +158,11 @@ function PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id,
             );
 
         if (! empty($unique_condition)) {
-            $found_unique_key = true;
+            $has_unique_condition = true;
         }
         unset($unique_condition, $tmp_clause_is_unique);
     }
-    return $found_unique_key;
+    return $has_unique_condition;
 }
 
 /**
