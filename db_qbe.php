@@ -615,6 +615,48 @@ function PMA_dbQbeGetInsDelAndOrCell($row_index, $checked) {
     return $html_output;
 }
 
+function PMA_dbQbeGetInputboxRow($col, $new_row_index, $row_index,
+    $criteriaColumnInsert, $criteriaColumnDelete, $realwidth
+) {
+    $html_output = '';
+    $z = 0;
+    for ($x = 0; $x < $col; $x++) {
+        if (! empty($criteriaColumnInsert)
+            && isset($criteriaColumnInsert[$x])
+            && $criteriaColumnInsert[$x] == 'on'
+        ) {
+            $or = 'Or' . $new_row_index . '[' . $z . ']';
+            $html_output .= '<td class="center">';
+            $html_output .= '<input type="text" name="Or' . $or . '" class="textfield"'
+                . ' style="width: ' . $realwidth . '" size="20" />';
+            $html_output .= '</td>';
+            $z++;
+        } // end if
+        if (! empty($criteriaColumnDelete) && isset($criteriaColumnDelete[$x]) && $criteriaColumnDelete[$x] == 'on') {
+            continue;
+        }
+        $or = 'Or' . $row_index;
+        if (! isset(${$or})) {
+            ${$or} = '';
+        }
+        if (! empty(${$or}) && isset(${$or}[$x])) {
+            $tmp_or = ${$or}[$x];
+        } else {
+            $tmp_or     = '';
+        }
+        $html_output .= '<td class="center">';
+        $html_output .= '<input type="text" name="Or' . $new_row_index . '[' . $z . ']' . '"'
+            . ' value="' . htmlspecialchars($tmp_or) . '" class="textfield"'
+            . ' style="width: ' . $realwidth . '" size="20" />';
+        $html_output .= '</td>';
+        if (! empty(${$or}) && isset(${$or}[$x])) {
+            $GLOBALS[${'cur' . $or}][$z] = ${$or}[$x];
+        }
+        $z++;
+    } // end for
+    return $html_output;
+}
+
 /**
  * Provides SELECT clause for building SQL query
  *
@@ -781,40 +823,16 @@ for ($y = 0; $y <= $row; $y++) {
         $chk['or']  = ' checked="checked"';
         $chk['and'] = '';
         ?>
-<tr class="<?php echo $odd_row ? 'odd' : 'even'; ?> noclick">
-<?php
-echo PMA_dbQbeGetInsDelAndOrCell($w, $chk);
-?>
-        <?php
-        $z = 0;
-        for ($x = 0; $x < $col; $x++) {
-            if (isset($criteriaColumnInsert[$x]) && $criteriaColumnInsert[$x] == 'on') {
-                echo "\n";
-                $or = 'Or' . $w . '[' . $z . ']';
-                ?>
-    <td class="center">
-        <input type="text" name="Or<?php echo $or; ?>" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
-    </td>
-                <?php
-                $z++;
-            } // end if
-            if (isset($criteriaColumnDelete[$x]) && $criteriaColumnDelete[$x] == 'on') {
-                continue;
-            }
-
-            echo "\n";
-            $or = 'Or' . $w . '[' . $z . ']';
-            ?>
-    <td class="center">
-        <input type="text" name="Or<?php echo $or; ?>" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
-    </td>
-            <?php
-            $z++;
-        } // end for
-        $w++;
-        echo "\n";
-        ?>
-</tr>
+    <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?> noclick">
+    <?php
+    echo PMA_dbQbeGetInsDelAndOrCell($w, $chk);
+    echo PMA_dbQbeGetInputboxRow(
+        $col, $w, $y, $criteriaColumnInsert, $criteriaColumnDelete, $realwidth
+    );
+    $w++;
+    echo "\n";
+    ?>
+    </tr>
         <?php
         $odd_row =! $odd_row;
     } // end if
@@ -838,42 +856,9 @@ echo PMA_dbQbeGetInsDelAndOrCell($w, $chk);
 <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?> noclick">
 <?php
     echo PMA_dbQbeGetInsDelAndOrCell($w, $chk);
-    $z = 0;
-    for ($x = 0; $x < $col; $x++) {
-        if (! empty($criteriaColumnInsert) && isset($criteriaColumnInsert[$x]) && $criteriaColumnInsert[$x] == 'on') {
-            echo "\n";
-            $or = 'Or' . $w . '[' . $z . ']';
-            ?>
-    <td class="center">
-        <input type="text" name="Or<?php echo $or; ?>" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
-    </td>
-            <?php
-            $z++;
-        } // end if
-        if (! empty($criteriaColumnDelete) && isset($criteriaColumnDelete[$x]) && $criteriaColumnDelete[$x] == 'on') {
-            continue;
-        }
-
-        echo "\n";
-        $or = 'Or' . $y;
-        if (! isset(${$or})) {
-            ${$or} = '';
-        }
-        if (! empty(${$or}) && isset(${$or}[$x])) {
-            $tmp_or = ${$or}[$x];
-        } else {
-            $tmp_or     = '';
-        }
-        ?>
-    <td class="center">
-        <input type="text" name="Or<?php echo $w . '[' . $z . ']'; ?>" value="<?php echo htmlspecialchars($tmp_or); ?>" class="textfield" style="width: <?php echo $realwidth; ?>" size="20" />
-    </td>
-        <?php
-        if (! empty(${$or}) && isset(${$or}[$x])) {
-            ${'cur' . $or}[$z] = ${$or}[$x];
-        }
-        $z++;
-    } // end for
+    echo PMA_dbQbeGetInputboxRow(
+        $col, $w, $y, $criteriaColumnInsert, $criteriaColumnDelete, $realwidth
+    );
     $w++;
     echo "\n";
     ?>
