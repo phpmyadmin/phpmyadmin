@@ -2898,7 +2898,7 @@ function PMA_getTablePrivsQueriesForChangeOrCopyUser($user_host_condition,
 }
 
 /**
- * Get queries for database speicific privileges foe change or copy user
+ * Get queries for database specific privileges for change or copy user
  * 
  * @param array $queries        queries array with string
  * @param string $username      username
@@ -2931,5 +2931,71 @@ function PMA_getDbSpecificPrivsQueriesForChangeOrCopyUser($queries, $username, $
     );
     
     return $queries;
+}
+
+function PMA_addUser($_error, $real_sql_query, $sql_query, $username, $hostname)
+{
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
+    if ($_error || ! PMA_DBI_try_query($real_sql_query)) {
+        $_REQUEST['createdb-1'] = $_REQUEST['createdb-2'] = $_REQUEST['createdb-3'] = false;
+        $message = PMA_Message::rawError(PMA_DBI_getError());
+    } else {
+        $message = PMA_Message::success(__('You have added a new user.'));
+    }
+
+    if (isset($_REQUEST['createdb-1'])) {
+        // Create database with same name and grant all privileges
+        $q = 'CREATE DATABASE IF NOT EXISTS '
+            . $common_functions->backquote($common_functions->sqlAddSlashes($username)) . ';';
+        $sql_query .= $q;
+        if (! PMA_DBI_try_query($q)) {
+            $message = PMA_Message::rawError(PMA_DBI_getError());
+        }
+
+        /**
+         * If we are not in an Ajax request, we can't reload navigation now
+         */
+        if ($GLOBALS['is_ajax_request'] != true) {
+            // this is needed in case tracking is on:
+            $GLOBALS['db'] = $username;
+            $GLOBALS['reload'] = true;
+            echo $common_functions->getReloadNavigationScript();
+        }
+
+        $q = 'GRANT ALL PRIVILEGES ON '
+            . $common_functions->backquote(
+                $common_functions->escapeMysqlWildcards($common_functions->sqlAddSlashes($username))
+            ) . '.* TO \''
+            . $common_functions->sqlAddSlashes($username)
+            . '\'@\'' . $common_functions->sqlAddSlashes($hostname) . '\';';
+        $sql_query .= $q;
+        if (! PMA_DBI_try_query($q)) {
+            $message = PMA_Message::rawError(PMA_DBI_getError());
+        }
+    }
+
+    if (isset($_REQUEST['createdb-2'])) {
+        // Grant all privileges on wildcard name (username\_%)
+        $q = 'GRANT ALL PRIVILEGES ON '
+            . $common_functions->backquote($common_functions->sqlAddSlashes($username) . '\_%') . '.* TO \''
+            . $common_functions->sqlAddSlashes($username) . '\'@\'' . $common_functions->sqlAddSlashes($hostname) . '\';';
+        $sql_query .= $q;
+        if (! PMA_DBI_try_query($q)) {
+            $message = PMA_Message::rawError(PMA_DBI_getError());
+        }
+    }
+
+    if (isset($_REQUEST['createdb-3'])) {
+        // Grant all privileges on the specified database to the new user
+        $q = 'GRANT ALL PRIVILEGES ON '
+        . $common_functions->backquote($common_functions->sqlAddSlashes($dbname)) . '.* TO \''
+        . $common_functions->sqlAddSlashes($username) . '\'@\'' . $common_functions->sqlAddSlashes($hostname) . '\';';
+        $sql_query .= $q;
+        if (! PMA_DBI_try_query($q)) {
+            $message = PMA_Message::rawError(PMA_DBI_getError());
+        }
+    }
+    return array($sql_query, $message);
 }
 ?>
