@@ -239,7 +239,7 @@ class PMA_DisplayResults
      *
      * @see     sql.php
      */
-    public function processParams(
+    public function setProperties(
         $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
         $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage, $text_dir,
         $is_maint, $is_explain, $is_show, $showtable, $printview, $url_query
@@ -262,8 +262,8 @@ class PMA_DisplayResults
         $this->__set('_showtable', $showtable);
         $this->__set('_printview', $printview);
         $this->__set('_url_query', $url_query);
-
-    }
+        
+    } // end of the 'setProperties()' function
 
 
     /**
@@ -334,7 +334,7 @@ class PMA_DisplayResults
                 $do_display['bkm_form']  = (string) '0';
                 $do_display['text_btn']  = (string) '0';
                 $do_display['pview_lnk'] = (string) '0';
-
+                
             } elseif ($this->__get('_is_count') || $this->__get('_is_analyse')
                 || $this->__get('_is_maint') || $this->__get('_is_explain')
             ) {
@@ -347,7 +347,7 @@ class PMA_DisplayResults
                 $do_display['nav_bar']   = (string) '0';
                 $do_display['ins_row']   = (string) '0';
                 $do_display['bkm_form']  = (string) '1';
-
+                
                 if ($this->__get('_is_maint')) {
                     $do_display['text_btn']  = (string) '1';
                 } else {
@@ -528,11 +528,14 @@ class PMA_DisplayResults
 
         return '<td>'
             . '<form action="sql.php" method="post" ' . $onsubmit . '>'
-            . PMA_generate_common_hidden_inputs($this->__get('_db'), $this->__get('_table'))
+            . PMA_generate_common_hidden_inputs(
+                $this->__get('_db'), $this->__get('_table')
+            )
             . '<input type="hidden" name="sql_query" value="'
             . $html_sql_query . '" />'
             . '<input type="hidden" name="pos" value="' . $pos . '" />'
-            . '<input type="hidden" name="goto" value="' . $this->__get('_goto') . '" />'
+            . '<input type="hidden" name="goto" value="' . $this->__get('_goto')
+            . '" />'
             . $input_for_real_end
             . '<input type="submit" name="navig"'
             . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax" ' : '' )
@@ -771,12 +774,15 @@ class PMA_DisplayResults
         return "\n"
             . '<td>'
             . '<form action="sql.php" method="post">'
-            . PMA_generate_common_hidden_inputs($this->__get('_db'), $this->__get('_table'))
+            . PMA_generate_common_hidden_inputs(
+                $this->__get('_db'), $this->__get('_table')
+            )
             . '<input type="hidden" name="sql_query" value="'
             . $html_sql_query . '" />'
             . '<input type="hidden" name="pos" value="0" />'
             . '<input type="hidden" name="session_max_rows" value="all" />'
-            . '<input type="hidden" name="goto" value="' . $this->__get('_goto') . '" />'
+            . '<input type="hidden" name="goto" value="' . $this->__get('_goto')
+            . '" />'
             . '<input type="submit" name="navig" value="' . __('Show all') . '" />'
             . '</form>'
             . '</td>';
@@ -822,7 +828,8 @@ class PMA_DisplayResults
 
         $onsubmit = 'onsubmit="return '
             . ($_SESSION['tmp_user_values']['pos']
-                    + $_SESSION['tmp_user_values']['max_rows'] < $this->__get('_unlim_num_rows')
+                    + $_SESSION['tmp_user_values']['max_rows']
+                    < $this->__get('_unlim_num_rows')
                 && $this->__get('_num_rows') >= $_SESSION['tmp_user_values']['max_rows'])
             ? 'true'
             : 'false' . '"';
@@ -831,8 +838,10 @@ class PMA_DisplayResults
         $buttons_html .= $this->_getTableNavigationButton(
             '&gt;&gt;',
             _pgettext('Last page', 'End'),
-            @((ceil($this->__get('_unlim_num_rows') / $_SESSION['tmp_user_values']['max_rows'])- 1)
-            * $_SESSION['tmp_user_values']['max_rows']),
+            @((ceil(
+                $this->__get('_unlim_num_rows')
+                / $_SESSION['tmp_user_values']['max_rows']
+            )- 1) * $_SESSION['tmp_user_values']['max_rows']),
             $html_sql_query, $onsubmit, $input_for_real_end, $onclick
         );
 
@@ -864,7 +873,8 @@ class PMA_DisplayResults
 
         $additional_fields_html .= '<input type="hidden" name="sql_query" '
             . 'value="' . $html_sql_query . '" />'
-            . '<input type="hidden" name="goto" value="' . $this->__get('_goto') . '" />'
+            . '<input type="hidden" name="goto" value="' . $this->__get('_goto')
+            . '" />'
             . '<input type="submit" name="navig"'
             . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '')
             . ' value="' . __('Show') . ' :" />'
@@ -970,7 +980,9 @@ class PMA_DisplayResults
         $table_headers_html .= '<input id="save_cells_at_once" type="hidden" value="'
             . $GLOBALS['cfg']['SaveCellsAtOnce'] . '" />'
             . '<div class="common_hidden_inputs">'
-            . PMA_generate_common_hidden_inputs($this->__get('_db'), $this->__get('_table'))
+            . PMA_generate_common_hidden_inputs(
+                $this->__get('_db'), $this->__get('_table')
+            )
             . '</div>';
 
         // Output data needed for column reordering and show/hide column
@@ -1187,7 +1199,9 @@ class PMA_DisplayResults
         $drop_down_html = '';
 
         $drop_down_html .= '<form action="sql.php" method="post">' . "\n"
-            . PMA_generate_common_hidden_inputs($this->__get('_db'), $this->__get('_table'))
+            . PMA_generate_common_hidden_inputs(
+                $this->__get('_db'), $this->__get('_table')
+            )
             . __('Sort by key')
             . ': <select name="sql_query" class="autosubmit">' . "\n";
 
@@ -1692,7 +1706,9 @@ class PMA_DisplayResults
             }
 
             $form_html .= '>' . "\n"
-                . PMA_generate_common_hidden_inputs($this->__get('_db'), $this->__get('_table'), 1)
+                . PMA_generate_common_hidden_inputs(
+                    $this->__get('_db'), $this->__get('_table'), 1
+                )
                 . '<input type="hidden" name="goto" value="sql.php" />' . "\n";
         }
 
@@ -3901,6 +3917,7 @@ class PMA_DisplayResults
      */
     private function _getOperationLinksForVerticleTable($operation)
     {
+
         $link_html = '<tr>' . "\n";
         $vertical_display = $this->__get('_vertical_display');
 
@@ -3933,7 +3950,7 @@ class PMA_DisplayResults
      *
      * @param string $dir _left / _right
      *
-     * @return $checkBoxes_html html content
+     * @return  $checkBoxes_html html content
      *
      * @access  private
      *
