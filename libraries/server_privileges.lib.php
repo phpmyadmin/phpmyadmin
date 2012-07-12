@@ -2933,7 +2933,18 @@ function PMA_getDbSpecificPrivsQueriesForChangeOrCopyUser($queries, $username, $
     return $queries;
 }
 
-function PMA_addUser($_error, $real_sql_query, $sql_query, $username, $hostname)
+/**
+ * Prepares queries for adding users and also create database and return query and message
+ * 
+ * @param boolean $_error           whether use create or not         
+ * @param string $real_sql_query    real sql query
+ * @param string $sql_query         sql query
+ * @param string $username          username
+ * @param string $hostname          host name
+ * 
+ * @return array  $sql_query, $message
+ */
+function PMA_getQueryAndMessageForAddUser($_error, $real_sql_query, $sql_query, $username, $hostname)
 {
     $common_functions = PMA_CommonFunctions::getInstance();
     
