@@ -2813,4 +2813,123 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
     
     return $html_output;
 }
+
+/**
+ * Get queries for Table privileges to change or copy user
+ * 
+ * @param string $user_host_condition   user host condition to select relevent table privileges
+ * @param string $queries               queries array
+ * @param string $username              username
+ * @param string $hostname              host name
+ * 
+ * @return array  $queries
+ */
+function PMA_getTablePrivsQueriesForChangeOrCopyUser($user_host_condition,
+     $queries, $username, $hostname)
+{
+    $common_functions = PMA_CommonFunctions::getInstance();
+    $res = PMA_DBI_query(
+        'SELECT `Db`, `Table_name`, `Table_priv` FROM `mysql`.`tables_priv`' . $user_host_condition,
+        $GLOBALS['userlink'],
+        PMA_DBI_QUERY_STORE
+    );
+    while ($row = PMA_DBI_fetch_assoc($res)) {
+
+        $res2 = PMA_DBI_QUERY(
+            'SELECT `Column_name`, `Column_priv`'
+            .' FROM `mysql`.`columns_priv`'
+            .' WHERE `User`'
+            .' = \'' . $common_functions->sqlAddSlashes($_REQUEST['old_username']) . "'"
+            .' AND `Host`'
+            .' = \'' . $common_functions->sqlAddSlashes($_REQUEST['old_username']) . '\''
+            .' AND `Db`'
+            .' = \'' . $common_functions->sqlAddSlashes($row['Db']) . "'"
+            .' AND `Table_name`'
+            .' = \'' . $common_functions->sqlAddSlashes($row['Table_name']) . "'"
+            .';',
+            null,
+            PMA_DBI_QUERY_STORE
+        );
+
+        $tmp_privs1 = PMA_extractPrivInfo($row);
+        $tmp_privs2 = array(
+            'Select' => array(),
+            'Insert' => array(),
+            'Update' => array(),
+            'References' => array()
+        );
+
+        while ($row2 = PMA_DBI_fetch_assoc($res2)) {
+            $tmp_array = explode(',', $row2['Column_priv']);
+            if (in_array('Select', $tmp_array)) {
+                $tmp_privs2['Select'][] = $row2['Column_name'];
+            }
+            if (in_array('Insert', $tmp_array)) {
+                $tmp_privs2['Insert'][] = $row2['Column_name'];
+            }
+            if (in_array('Update', $tmp_array)) {
+                $tmp_privs2['Update'][] = $row2['Column_name'];
+            }
+            if (in_array('References', $tmp_array)) {
+                $tmp_privs2['References'][] = $row2['Column_name'];
+            }
+        }
+        if (count($tmp_privs2['Select']) > 0 && ! in_array('SELECT', $tmp_privs1)) {
+            $tmp_privs1[] = 'SELECT (`' . join('`, `', $tmp_privs2['Select']) . '`)';
+        }
+        if (count($tmp_privs2['Insert']) > 0 && ! in_array('INSERT', $tmp_privs1)) {
+            $tmp_privs1[] = 'INSERT (`' . join('`, `', $tmp_privs2['Insert']) . '`)';
+        }
+        if (count($tmp_privs2['Update']) > 0 && ! in_array('UPDATE', $tmp_privs1)) {
+            $tmp_privs1[] = 'UPDATE (`' . join('`, `', $tmp_privs2['Update']) . '`)';
+        }
+        if (count($tmp_privs2['References']) > 0 && ! in_array('REFERENCES', $tmp_privs1)) {
+            $tmp_privs1[] = 'REFERENCES (`' . join('`, `', $tmp_privs2['References']) . '`)';
+        }
+        
+        $queries[] = 'GRANT ' . join(', ', $tmp_privs1)
+            . ' ON ' . $common_functions->backquote($row['Db']) . '.'
+            . $common_functions->backquote($row['Table_name'])
+            . ' TO \'' . $common_functions->sqlAddSlashes($username) 
+            . '\'@\'' . $common_functions->sqlAddSlashes($hostname) . '\''
+            . (in_array('Grant', explode(',', $row['Table_priv'])) ? ' WITH GRANT OPTION;' : ';');
+    }
+    return $queries;
+}
+
+/**
+ * Get queries for database speicific privileges foe change or copy user
+ * 
+ * @param array $queries        queries array with string
+ * @param string $username      username
+ * @param string $hostname      host name
+ * 
+ * @return array $queries       
+ */
+function PMA_getDbSpecificPrivsQueriesForChangeOrCopyUser($queries, $username, $hostname)
+{
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
+    $user_host_condition = ' WHERE `User`'
+        .' = \'' . $common_functions->sqlAddSlashes($_REQUEST['old_username']) . "'"
+        .' AND `Host`'
+        .' = \'' . $common_functions->sqlAddSlashes($_REQUEST['old_username']) . '\';';
+    
+    $res = PMA_DBI_query('SELECT * FROM `mysql`.`db`' . $user_host_condition);
+    
+    while ($row = PMA_DBI_fetch_assoc($res)) {
+        $queries[] = 'GRANT ' . join(', ', PMA_extractPrivInfo($row))
+            .' ON ' . $common_functions->backquote($row['Db']) . '.*'
+            .' TO \'' . $common_functions->sqlAddSlashes($username)
+            . '\'@\'' . $common_functions->sqlAddSlashes($hostname) . '\''
+            . ($row['Grant_priv'] == 'Y' ? ' WITH GRANT OPTION;' : ';');
+    }
+    PMA_DBI_free_result($res);
+    
+    $queries = PMA_getTablePrivsQueriesForChangeOrCopyUser(
+        $user_host_condition, $queries, $username, $hostname
+    );
+    
+    return $queries;
+}
 ?>
