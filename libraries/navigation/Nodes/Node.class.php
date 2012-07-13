@@ -26,18 +26,18 @@ class Node
      * @var string A non-unique identifier for the node
      *             This may be trimmed when grouping nodes
      */
-    public $name;
+    public $name = "";
 
     /**
      * @var string A non-unique identifier for the node
      *             This will never change after being assigned
      */
-    public $real_name;
+    public $real_name = "";
 
     /**
      * @var int May be one of CONTAINER or OBJECT
      */
-    public $type;
+    public $type = Node::OBJECT;
 
     /**
      * @var bool Whether this object has been created while grouping nodes
@@ -116,7 +116,7 @@ class Node
      * @param bool   $is_group Whether this object has been created
      *                         while grouping nodes
      *
-     * @return bool Whether the initialisation was successful
+     * @return Node
      */
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
@@ -124,16 +124,11 @@ class Node
         if (! empty($name)) {
             $this->name      = $name;
             $this->real_name = $name;
-            if ($type === 0 || $type === 1) {
-                $this->type = $type;
-                if (is_bool($is_group)) {
-                    $this->is_group = $is_group;
-                    return true;
-                }
-            }
         }
-        return false;
-
+        if ($type === Node::CONTAINER) {
+            $this->type = Node::CONTAINER;
+        }
+        $this->is_group = (bool)$is_group;
     }
 
     /**
