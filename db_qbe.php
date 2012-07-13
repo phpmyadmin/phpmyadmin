@@ -115,8 +115,8 @@ $criteriaAndOrColumn = isset($_REQUEST['criteriaAndOrColumn'])
 
 // minimum width
 $form_column_width = 12;
-$col = max($criteriaColumnCount + $criteriaColumnAdd, 0);
-$row = max($rows + $criteriaRowAdd, 0);
+$criteria_column_count = max($criteriaColumnCount + $criteriaColumnAdd, 0);
+$criteria_row_count = max($rows + $criteriaRowAdd, 0);
 
 
 // The tables list sent by a previously submitted form
@@ -244,12 +244,12 @@ function PMA_dbQbegetColumnNamesRow(
 ) {
     $html_output = '<tr class="odd noclick">';
     $html_output .= '<th>' . __('Column') . ':</th>';
-    $z = 0;
+    $new_column_count = 0;
     for ($column_index = 0; $column_index < $criteria_column_count; $column_index++)
     {
         if (isset($criteriaColumnInsert[$column_index]) && $criteriaColumnInsert[$column_index] == 'on') {
-            $html_output .= showColumnSelectCell($columns, $z);
-            $z++;
+            $html_output .= showColumnSelectCell($columns, $new_column_count);
+            $new_column_count++;
         }
         if (! empty($criteriaColumnDelete) && isset($criteriaColumnDelete[$column_index]) && $criteriaColumnDelete[$column_index] == 'on') {
             continue;
@@ -257,10 +257,10 @@ function PMA_dbQbegetColumnNamesRow(
         $selected = '';
         if (isset($_REQUEST['criteriaColumn'][$column_index])) {
             $selected = $_REQUEST['criteriaColumn'][$column_index];
-            $GLOBALS['curField'][$z] = $_REQUEST['criteriaColumn'][$column_index];
+            $GLOBALS['curField'][$new_column_count] = $_REQUEST['criteriaColumn'][$column_index];
         }
-        $html_output .= showColumnSelectCell($columns, $z, $selected);
-        $z++;
+        $html_output .= showColumnSelectCell($columns, $new_column_count, $selected);
+        $new_column_count++;
     } // end for
     $html_output .= '</tr>';
     return $html_output;
@@ -281,12 +281,12 @@ function PMA_dbQbegetSortRow(
 ) {
     $html_output = '<tr class="even noclick">';
     $html_output .= '<th>' . __('Sort') . ':</th>';
-    $z = 0;
+    $new_column_count = 0;
     for ($column_index = 0; $column_index < $criteria_column_count; $column_index++)
     {
         if (! empty($criteriaColumnInsert) && isset($criteriaColumnInsert[$column_index]) && $criteriaColumnInsert[$column_index] == 'on') {
-            $html_output .= getSortSelectCell($z, $realwidth);
-            $z++;
+            $html_output .= getSortSelectCell($new_column_count, $realwidth);
+            $new_column_count++;
         } // end if
 
         if (! empty($criteriaColumnDelete) && isset($criteriaColumnDelete[$column_index]) && $criteriaColumnDelete[$column_index] == 'on') {
@@ -301,22 +301,22 @@ function PMA_dbQbegetSortRow(
         } //end if
         // Set asc_selected
         if (isset($_REQUEST['criteriaSort'][$column_index]) && $_REQUEST['criteriaSort'][$column_index] == 'ASC') {
-            $GLOBALS['curSort'][$z] = $_REQUEST['criteriaSort'][$column_index];
+            $GLOBALS['curSort'][$new_column_count] = $_REQUEST['criteriaSort'][$column_index];
             $asc_selected = ' selected="selected"';
         } else {
             $asc_selected = '';
         } // end if
         // Set desc selected
         if (isset($_REQUEST['criteriaSort'][$column_index]) && $_REQUEST['criteriaSort'][$column_index] == 'DESC') {
-            $GLOBALS['curSort'][$z] = $_REQUEST['criteriaSort'][$column_index];
+            $GLOBALS['curSort'][$new_column_count] = $_REQUEST['criteriaSort'][$column_index];
             $desc_selected = ' selected="selected"';
         } else {
             $desc_selected = '';
         } // end if
         $html_output .= getSortSelectCell(
-            $z, $realwidth, $asc_selected, $desc_selected
+            $new_column_count, $realwidth, $asc_selected, $desc_selected
         );
-        $z++;
+        $new_column_count++;
     } // end for
     $html_output .= '</tr>';
     return $html_output;
@@ -336,29 +336,29 @@ function PMA_dbQbegetShowRow(
 ) {
     $html_output = '<tr class="odd noclick">';
     $html_output .= '<th>' . __('Show') . ':</th>';
-    $z = 0;
+    $new_column_count = 0;
     for ($column_index = 0; $column_index < $criteria_column_count; $column_index++)
     {
         if (! empty($criteriaColumnInsert) && isset($criteriaColumnInsert[$column_index]) && $criteriaColumnInsert[$column_index] == 'on') {
             $html_output .= '<td class="center">';
-            $html_output .= '<input type="checkbox" name="criteriaShow[' . $z . ']" />';
+            $html_output .= '<input type="checkbox" name="criteriaShow[' . $new_column_count . ']" />';
             $html_output .= '</td>';
-            $z++;
+            $new_column_count++;
         } // end if
         if (! empty($criteriaColumnDelete) && isset($criteriaColumnDelete[$column_index]) && $criteriaColumnDelete[$column_index] == 'on') {
             continue;
         }
         if (isset($_REQUEST['criteriaShow'][$column_index])) {
-            $checked     = ' checked="checked"';
-            $GLOBALS['curShow'][$z] = $_REQUEST['criteriaShow'][$column_index];
+            $checked_options = ' checked="checked"';
+            $GLOBALS['curShow'][$new_column_count] = $_REQUEST['criteriaShow'][$column_index];
         } else {
-            $checked     =  '';
+            $checked_options = '';
         }
         $html_output .= '<td class="center">';
-        $html_output .= '<input type="checkbox" name="criteriaShow[' . $z . ']"' . $checked
-            . ' />';
+        $html_output .= '<input type="checkbox" name="criteriaShow[' . $new_column_count . ']"'
+            . $checked_options . ' />';
         $html_output .= '</td>';
-        $z++;
+        $new_column_count++;
     } // end for
     $html_output .= '</tr>';
     return $html_output;
@@ -382,16 +382,16 @@ function PMA_dbQbegetCriteriaInputboxRow(
 ) {
     $html_output = '<tr class="even noclick">';
     $html_output .= '<th>' . __('Criteria') . ':</th>';
-    $z = 0;
+    $new_column_count = 0;
     for ($column_index = 0; $column_index < $criteria_column_count; $column_index++)
     {
         if (! empty($criteriaColumnInsert) && isset($criteriaColumnInsert[$column_index]) && $criteriaColumnInsert[$column_index] == 'on') {
             $html_output .= '<td class="center">';
-            $html_output .= '<input type="text" name="criteria[' . $z . ']"'
+            $html_output .= '<input type="text" name="criteria[' . $new_column_count . ']"'
                 . ' value="" class="textfield" style="width: ' . $realwidth
                 . '" size="20" />';
             $html_output .= '</td>';
-            $z++;
+            $new_column_count++;
         } // end if
         if (! empty($criteriaColumnDelete) && isset($criteriaColumnDelete[$column_index]) && $criteriaColumnDelete[$column_index] == 'on') {
             continue;
@@ -402,18 +402,18 @@ function PMA_dbQbegetCriteriaInputboxRow(
         if ((empty($prev_criteria) || ! isset($prev_criteria[$column_index]))
             || $prev_criteria[$column_index] != htmlspecialchars($tmp_criteria)
         ) {
-            $GLOBALS['curCriteria'][$z]   = $tmp_criteria;
+            $GLOBALS['curCriteria'][$new_column_count]   = $tmp_criteria;
         } else {
-            $GLOBALS['curCriteria'][$z]   = $prev_criteria[$column_index];
+            $GLOBALS['curCriteria'][$new_column_count]   = $prev_criteria[$column_index];
         }
         $html_output .= '<td class="center">';
-        $html_output .= '<input type="hidden" name="prev_criteria[' . $z . ']"'
-            . ' value="' . htmlspecialchars($GLOBALS['curCriteria'][$z]) . '" />';
-        $html_output .= '<input type="text" name="criteria[' . $z . ']"'
+        $html_output .= '<input type="hidden" name="prev_criteria[' . $new_column_count . ']"'
+            . ' value="' . htmlspecialchars($GLOBALS['curCriteria'][$new_column_count]) . '" />';
+        $html_output .= '<input type="text" name="criteria[' . $new_column_count . ']"'
         . ' value="' . htmlspecialchars($tmp_criteria) . '" class="textfield"'
         . ' style="width: ' . $realwidth . '" size="20" />';
         $html_output .= '</td>';
-        $z++;
+        $new_column_count++;
     } // end for
     $html_output .= '</tr>';
     return $html_output;
@@ -540,29 +540,32 @@ function PMA_dbQbeGetModifyColumnsRow($criteria_column_count, $criteriaAndOrColu
 ) {
     $html_output = '<tr class="even noclick">';
     $html_output .= '<th>' . __('Modify') . ':</th>';
-    $z = 0;
-    for ($x = 0; $x < $criteria_column_count; $x++) {
-        if (! empty($criteriaColumnInsert) && isset($criteriaColumnInsert[$x]) && $criteriaColumnInsert[$x] == 'on') {
-            $html_output .= PMA_dbQbeGetAndOrColCell($z);
-            $z++;
+    $new_column_count = 0;
+    for ($column_index = 0; $column_index < $criteria_column_count; $column_index++) {
+        if (! empty($criteriaColumnInsert)
+            && isset($criteriaColumnInsert[$column_index])
+            && $criteriaColumnInsert[$column_index] == 'on'
+        ) {
+            $html_output .= PMA_dbQbeGetAndOrColCell($new_column_count);
+            $new_column_count++;
         } // end if
 
-        if (! empty($criteriaColumnDelete) && isset($criteriaColumnDelete[$x]) && $criteriaColumnDelete[$x] == 'on') {
+        if (! empty($criteriaColumnDelete) && isset($criteriaColumnDelete[$column_index]) && $criteriaColumnDelete[$column_index] == 'on') {
             continue;
         }
 
-        if (isset($criteriaAndOrColumn[$x])) {
-            $GLOBALS['curAndOrCol'][$z] = $criteriaAndOrColumn[$x];
+        if (isset($criteriaAndOrColumn[$column_index])) {
+            $GLOBALS['curAndOrCol'][$new_column_count] = $criteriaAndOrColumn[$column_index];
         }
-        if (isset($criteriaAndOrColumn[$x]) && $criteriaAndOrColumn[$x] == 'or') {
-            $chk['or']  = ' checked="checked"';
-            $chk['and'] = '';
+        if (isset($criteriaAndOrColumn[$column_index]) && $criteriaAndOrColumn[$column_index] == 'or') {
+            $checked_options['or']  = ' checked="checked"';
+            $checked_options['and'] = '';
         } else {
-            $chk['and'] = ' checked="checked"';
-            $chk['or']  = '';
+            $checked_options['and'] = ' checked="checked"';
+            $checked_options['or']  = '';
         }
-        $html_output .= PMA_dbQbeGetAndOrColCell($z, $chk);
-        $z++;
+        $html_output .= PMA_dbQbeGetAndOrColCell($new_column_count, $checked_options);
+        $new_column_count++;
     } // end for
     $html_output .= '</tr>';
     return $html_output;
@@ -572,12 +575,12 @@ function PMA_dbQbeGetModifyColumnsRow($criteria_column_count, $criteriaAndOrColu
  * Provides Insert/Delete options for criteria inputbox
  * with AND/OR relationship modification options
  *
- * @param integer $row_index Number of criteria row
- * @param string  $checked   If checked
+ * @param integer $row_index       Number of criteria row
+ * @param string  $checked_options If checked
  *
  * @return HTML
  */
-function PMA_dbQbeGetInsDelAndOrCell($row_index, $checked) {
+function PMA_dbQbeGetInsDelAndOrCell($row_index, $checked_options) {
     $html_output = '<td class="' . $GLOBALS['cell_align_right'] . ' nowrap">';
     $html_output .= '<!-- Row controls -->';
     $html_output .= '<table class="nospacing nopadding">';
@@ -593,7 +596,7 @@ function PMA_dbQbeGetInsDelAndOrCell($row_index, $checked) {
     $html_output .= '<td>';
     $html_output .= '<input type="radio"'
         . ' name="criteriaAndOrRow[' . $row_index . ']" value="and"'
-        . $checked['and'] . ' />';
+        . $checked_options['and'] . ' />';
     $html_output .= '</td>';
     $html_output .= '</tr>';
     $html_output .= '<tr>';
@@ -607,7 +610,7 @@ function PMA_dbQbeGetInsDelAndOrCell($row_index, $checked) {
     $html_output .= '</td>';
     $html_output .= '<td>';
     $html_output .= '<input type="radio" name="criteriaAndOrRow[' . $row_index . ']"'
-        . ' value="or"' . $checked['or'] . ' />';
+        . ' value="or"' . $checked_options['or'] . ' />';
     $html_output .= '</td>';
     $html_output .= '</tr>';
     $html_output .= '</table>';
@@ -615,44 +618,47 @@ function PMA_dbQbeGetInsDelAndOrCell($row_index, $checked) {
     return $html_output;
 }
 
-function PMA_dbQbeGetInputboxRow($col, $new_row_index, $row_index,
+function PMA_dbQbeGetInputboxRow($criteria_column_count, $new_row_index, $row_index,
     $criteriaColumnInsert, $criteriaColumnDelete, $realwidth
 ) {
     $html_output = '';
-    $z = 0;
-    for ($x = 0; $x < $col; $x++) {
+    $new_column_count = 0;
+    for ($column_index = 0; $column_index < $criteria_column_count; $column_index++) {
         if (! empty($criteriaColumnInsert)
-            && isset($criteriaColumnInsert[$x])
-            && $criteriaColumnInsert[$x] == 'on'
+            && isset($criteriaColumnInsert[$column_index])
+            && $criteriaColumnInsert[$column_index] == 'on'
         ) {
-            $or = 'Or' . $new_row_index . '[' . $z . ']';
+            $or = 'Or' . $new_row_index . '[' . $new_column_count . ']';
             $html_output .= '<td class="center">';
             $html_output .= '<input type="text" name="Or' . $or . '" class="textfield"'
                 . ' style="width: ' . $realwidth . '" size="20" />';
             $html_output .= '</td>';
-            $z++;
+            $new_column_count++;
         } // end if
-        if (! empty($criteriaColumnDelete) && isset($criteriaColumnDelete[$x]) && $criteriaColumnDelete[$x] == 'on') {
+        if (! empty($criteriaColumnDelete)
+            && isset($criteriaColumnDelete[$column_index])
+            && $criteriaColumnDelete[$column_index] == 'on'
+        ) {
             continue;
         }
         $or = 'Or' . $row_index;
         if (! isset(${$or})) {
             ${$or} = '';
         }
-        if (! empty(${$or}) && isset(${$or}[$x])) {
-            $tmp_or = ${$or}[$x];
+        if (! empty(${$or}) && isset(${$or}[$column_index])) {
+            $tmp_or = ${$or}[$column_index];
         } else {
             $tmp_or     = '';
         }
         $html_output .= '<td class="center">';
-        $html_output .= '<input type="text" name="Or' . $new_row_index . '[' . $z . ']' . '"'
+        $html_output .= '<input type="text" name="Or' . $new_row_index . '[' . $new_column_count . ']' . '"'
             . ' value="' . htmlspecialchars($tmp_or) . '" class="textfield"'
             . ' style="width: ' . $realwidth . '" size="20" />';
         $html_output .= '</td>';
-        if (! empty(${$or}) && isset(${$or}[$x])) {
-            $GLOBALS[${'cur' . $or}][$z] = ${$or}[$x];
+        if (! empty(${$or}) && isset(${$or}[$column_index])) {
+            $GLOBALS[${'cur' . $or}][$new_column_count] = ${$or}[$column_index];
         }
-        $z++;
+        $new_column_count++;
     } // end for
     return $html_output;
 }
@@ -675,42 +681,42 @@ function PMA_dbQbeGetInsDelAndOrCriteriaRows($criteria_row_count,
     $criteriaAndOrRow
 ) {
     $html_output = '';
-    $w = 0;
+    $new_row_count = 0;
     $odd_row = true;
-    for ($y = 0; $y <= $criteria_row_count; $y++) {
-        if (isset($criteriaRowInsert[$y]) && $criteriaRowInsert[$y] == 'on') {
-            $chk['or']  = ' checked="checked"';
-            $chk['and'] = '';
+    for ($row_index = 0; $row_index <= $criteria_row_count; $row_index++) {
+        if (isset($criteriaRowInsert[$row_index]) && $criteriaRowInsert[$row_index] == 'on') {
+            $checked_options['or']  = ' checked="checked"';
+            $checked_options['and'] = '';
             $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . ' noclick">';
-            $html_output .= PMA_dbQbeGetInsDelAndOrCell($w, $chk);
+            $html_output .= PMA_dbQbeGetInsDelAndOrCell($new_row_count, $checked_options);
             $html_output .= PMA_dbQbeGetInputboxRow(
-                $criteria_column_count, $w, $y, $criteriaColumnInsert,
+                $criteria_column_count, $new_row_count, $row_index, $criteriaColumnInsert,
                 $criteriaColumnDelete, $realwidth
             );
-            $w++;
+            $new_row_count++;
             $html_output .= '</tr>';
             $odd_row =! $odd_row;
         } // end if
-        if (isset($criteriaRowDelete[$y]) && $criteriaRowDelete[$y] == 'on') {
+        if (isset($criteriaRowDelete[$row_index]) && $criteriaRowDelete[$row_index] == 'on') {
             continue;
         }
-        if (isset($criteriaAndOrRow[$y])) {
-            $GLOBALS['curAndOrRow'][$w] = $criteriaAndOrRow[$y];
+        if (isset($criteriaAndOrRow[$row_index])) {
+            $GLOBALS['curAndOrRow'][$new_row_count] = $criteriaAndOrRow[$row_index];
         }
-        if (isset($criteriaAndOrRow[$y]) && $criteriaAndOrRow[$y] == 'and') {
-            $chk['and'] =  ' checked="checked"';
-            $chk['or']  =  '';
+        if (isset($criteriaAndOrRow[$row_index]) && $criteriaAndOrRow[$row_index] == 'and') {
+            $checked_options['and'] =  ' checked="checked"';
+            $checked_options['or']  =  '';
         } else {
-            $chk['or']  =  ' checked="checked"';
-            $chk['and'] =  '';
+            $checked_options['or']  =  ' checked="checked"';
+            $checked_options['and'] =  '';
         }
         $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . ' noclick">';
-        $html_output .= PMA_dbQbeGetInsDelAndOrCell($w, $chk);
+        $html_output .= PMA_dbQbeGetInsDelAndOrCell($new_row_count, $checked_options);
         $html_output .= PMA_dbQbeGetInputboxRow(
-            $criteria_column_count, $w, $y, $criteriaColumnInsert,
+            $criteria_column_count, $new_row_count, $row_index, $criteriaColumnInsert,
             $criteriaColumnDelete, $realwidth
         );
-        $w++;
+        $new_row_count++;
         $html_output .= '</tr>';
         $odd_row =! $odd_row;
     } // end for
@@ -753,42 +759,42 @@ function PMA_dbQbeGetSelectClause($criteria_column_count){
 function PMA_dbQbeGetWhereClause($criteria_column_count, $criteria_row_count) {
     $where_clause = '';
     $criteria_cnt = 0;
-    for ($x = 0; $x < $criteria_column_count; $x++) {
-        if (! empty($GLOBALS['curField'][$x])
-            && ! empty($GLOBALS['curCriteria'][$x])
-            && $x
+    for ($column_index = 0; $column_index < $criteria_column_count; $column_index++) {
+        if (! empty($GLOBALS['curField'][$column_index])
+            && ! empty($GLOBALS['curCriteria'][$column_index])
+            && $column_index
             && isset($last_where)
             && isset($GLOBALS['curAndOrCol'])) {
             $where_clause .= ' ' . strtoupper($GLOBALS['curAndOrCol'][$last_where]) . ' ';
         }
-        if (! empty($GLOBALS['curField'][$x]) && ! empty($GLOBALS['curCriteria'][$x])) {
-            $where_clause .= '(' . $GLOBALS['curField'][$x] . ' '
-                . $GLOBALS['curCriteria'][$x] . ')';
-            $last_where = $x;
+        if (! empty($GLOBALS['curField'][$column_index]) && ! empty($GLOBALS['curCriteria'][$column_index])) {
+            $where_clause .= '(' . $GLOBALS['curField'][$column_index] . ' '
+                . $GLOBALS['curCriteria'][$column_index] . ')';
+            $last_where = $column_index;
             $criteria_cnt++;
         }
     } // end for
     if ($criteria_cnt > 1) {
         $where_clause = '(' . $where_clause . ')';
     }
-    // OR rows ${'cur' . $or}[$x]
+    // OR rows ${'cur' . $or}[$column_index]
     if (! isset($GLOBALS['curAndOrRow'])) {
         $GLOBALS['curAndOrRow'] = array();
     }
-    for ($y = 0; $y <= $criteria_row_count; $y++) {
+    for ($row_index = 0; $row_index <= $criteria_row_count; $row_index++) {
         $criteria_cnt = 0;
         $qry_orwhere = '';
         $last_orwhere = '';
-        for ($x = 0; $x < $criteria_column_count; $x++) {
-            if (! empty($GLOBALS['curField'][$x]) && ! empty(${'curOr' . $y}[$x]) && $x) {
+        for ($column_index = 0; $column_index < $criteria_column_count; $column_index++) {
+            if (! empty($GLOBALS['curField'][$column_index]) && ! empty(${'curOr' . $row_index}[$column_index]) && $column_index) {
                 $qry_orwhere .= ' ' . strtoupper($GLOBALS['curAndOrCol'][$last_orwhere]) . ' ';
             }
-            if (! empty($GLOBALS['curField'][$x]) && ! empty(${'curOr' . $y}[$x])) {
-                $qry_orwhere .= '(' . $GLOBALS['curField'][$x]
+            if (! empty($GLOBALS['curField'][$column_index]) && ! empty(${'curOr' . $row_index}[$column_index])) {
+                $qry_orwhere .= '(' . $GLOBALS['curField'][$column_index]
                     .  ' '
-                    .  ${'curOr' . $y}[$x]
+                    .  ${'curOr' . $row_index}[$column_index]
                     .  ')';
-                $last_orwhere = $x;
+                $last_orwhere = $column_index;
                 $criteria_cnt++;
             }
         } // end for
@@ -797,7 +803,7 @@ function PMA_dbQbeGetWhereClause($criteria_column_count, $criteria_row_count) {
         }
         if (! empty($qry_orwhere)) {
             $where_clause .= "\n"
-                .  strtoupper(isset($GLOBALS['curAndOrRow'][$y]) ? $GLOBALS['curAndOrRow'][$y] . ' ' : '')
+                .  strtoupper(isset($GLOBALS['curAndOrRow'][$row_index]) ? $GLOBALS['curAndOrRow'][$row_index] . ' ' : '')
                 .  $qry_orwhere;
         } // end if
     } // end for
@@ -861,30 +867,30 @@ if ($cfgRelation['designerwork']) {
 <table class="data" style="width: 100%;">
 <?php
 echo PMA_dbQbegetColumnNamesRow(
-    $col, $fld, $criteriaColumnInsert, $criteriaColumnDelete
+    $criteria_column_count, $fld, $criteriaColumnInsert, $criteriaColumnDelete
 );
 echo PMA_dbQbegetSortRow(
-    $col, $realwidth, $criteriaColumnInsert, $criteriaColumnDelete
+    $criteria_column_count, $realwidth, $criteriaColumnInsert, $criteriaColumnDelete
 );
 echo PMA_dbQbegetShowRow(
-    $col, $criteriaColumnInsert, $criteriaColumnDelete
+    $criteria_column_count, $criteriaColumnInsert, $criteriaColumnDelete
 );
 echo PMA_dbQbegetCriteriaInputboxRow(
-    $col, $realwidth, $criteria, $prev_criteria, $criteriaColumnInsert, $criteriaColumnDelete
+    $criteria_column_count, $realwidth, $criteria, $prev_criteria, $criteriaColumnInsert, $criteriaColumnDelete
 );
-echo PMA_dbQbeGetInsDelAndOrCriteriaRows($row, $col, $realwidth,
+echo PMA_dbQbeGetInsDelAndOrCriteriaRows($criteria_row_count, $criteria_column_count, $realwidth,
     $criteriaColumnInsert, $criteriaColumnDelete, $criteriaAndOrRow
 );
 echo PMA_dbQbeGetModifyColumnsRow(
-    $col, $criteriaAndOrColumn, $criteriaColumnInsert, $criteriaColumnDelete 
+    $criteria_column_count, $criteriaAndOrColumn, $criteriaColumnInsert, $criteriaColumnDelete 
 );
 ?>
 </table>
 <?php
-$w--;
+$new_row_count--;
 $url_params['db']       = $db;
-$url_params['criteriaColumnCount']  = $z;
-$url_params['rows']     = $w;
+$url_params['criteriaColumnCount']  = $new_column_count;
+$url_params['rows']     = $new_row_count;
 echo PMA_generate_common_hidden_inputs($url_params);
 ?>
 </fieldset>
@@ -903,7 +909,7 @@ echo PMA_dbQbeGetTablesList($tbl_names);
             dir="<?php echo $text_dir; ?>">
 <?php
 // 1. SELECT
-echo PMA_dbQbeGetSelectClause($col);
+echo PMA_dbQbeGetSelectClause($criteria_column_count);
 // 2. FROM
 
 // Create LEFT JOINS out of Relations
@@ -939,8 +945,8 @@ if (isset($criteriaColumn) && count($criteriaColumn) > 0) {
     if ($cfgRelation['relwork'] && count($tab_all) > 0) {
         // Now we need all tables that we have in the where clause
         $crit_cnt         = count($criteria);
-        for ($x = 0; $x < $crit_cnt; $x++) {
-            $curr_tab     = explode('.', $criteriaColumn[$x]);
+        for ($column_index = 0; $column_index < $crit_cnt; $column_index++) {
+            $curr_tab     = explode('.', $criteriaColumn[$column_index]);
             if (! empty($curr_tab[0]) && ! empty($curr_tab[1])) {
                 $tab_raw  = $curr_tab[0];
                 $tab      = str_replace('`', '', $tab_raw);
@@ -950,9 +956,9 @@ if (isset($criteriaColumn) && count($criteriaColumn) > 0) {
                 $col1     = $tab . '.' . $col1;
                 // Now we know that our array has the same numbers as $criteria
                 // we can check which of our columns has a where clause
-                if (! empty($criteria[$x])) {
-                    if (substr($criteria[$x], 0, 1) == '=' || stristr($criteria[$x], 'is')) {
-                        $col_where[$col] = $col1;
+                if (! empty($criteria[$column_index])) {
+                    if (substr($criteria[$column_index], 0, 1) == '=' || stristr($criteria[$column_index], 'is')) {
+                        $col_where[$criteria_column_count] = $col1;
                         $tab_wher[$tab]  = $tab;
                     }
                 } // end if
@@ -1016,13 +1022,13 @@ if (isset($criteriaColumn) && count($criteriaColumn) > 0) {
             // (that would mean that they were also found in the whereclauses
             // which would be great). if yes, we take only those
             if ($needsort == 1) {
-                foreach ($col_cand as $col => $is_where) {
-                    $tab           = explode('.', $col);
+                foreach ($col_cand as $criteria_column_count => $is_where) {
+                    $tab           = explode('.', $criteria_column_count);
                     $tab           = $tab[0];
                     if ($is_where == 'Y') {
-                        $vg[$col]  = $tab;
+                        $vg[$criteria_column_count]  = $tab;
                     } else {
-                        $sg[$col]  = $tab;
+                        $sg[$criteria_column_count]  = $tab;
                     }
                 }
                 if (isset($vg)) {
@@ -1096,10 +1102,10 @@ if (! empty($qry_from)) {
 }
 
 // 3. WHERE
-echo PMA_dbQbeGetWhereClause($col, $row);
+echo PMA_dbQbeGetWhereClause($criteria_column_count, $criteria_row_count);
 
 // 4. ORDER BY
-echo PMA_dbQbeGetOrderByClause($col);
+echo PMA_dbQbeGetOrderByClause($criteria_column_count);
 ?>
     </textarea>
     </fieldset>
