@@ -70,7 +70,9 @@ class PMA_NavigationHeader
             }
             $retval .= '<div id="pmalogo">';
             if ($GLOBALS['cfg']['LeftLogoLink']) {
-                $retval .= '    <a href="' . htmlspecialchars($GLOBALS['cfg']['LeftLogoLink']);
+                $retval .= '    <a href="' . htmlspecialchars(
+                    $GLOBALS['cfg']['LeftLogoLink']
+                );
                 switch ($GLOBALS['cfg']['LeftLogoLinkWindow']) {
                     case 'new':
                         $retval .= '" target="_blank"';
@@ -84,8 +86,8 @@ class PMA_NavigationHeader
                         }
                 }
                 $retval .= '>';
-                $retval .= '        ' . $logo;
-                $retval .= '    </a>';
+                $retval .= $logo;
+                $retval .= '</a>';
             } else {
                 $retval .= $logo;
             }
@@ -105,48 +107,66 @@ class PMA_NavigationHeader
     {
         $retval = '<!-- LINKS START -->';
         $retval .= '<div id="leftframelinks">';
-        $retval .= '    <a href="index.php?' . PMA_generate_common_url() . '" title="' . __('Home') . '">';
+        $retval .= '<a href="index.php?' . PMA_generate_common_url() . '" ';
+        $retval .= ' title="' . __('Home') . '">';
         if ($GLOBALS['cfg']['NavigationBarIconic']) {
-            $retval .= '<img class="icon ic_b_home" src="themes/dot.gif" alt="' . __('Home') . '" /></a>';
+            $retval .= $this->_commonFunctions->getImage(
+                'b_home.png',
+                __('Home')
+            );
+            $retval .= '</a>';
         } else {
             $retval .= __('Home') . '</a>';
-            $retval .= '    <br />';
+            $retval .= '<br />';
         }
         // if we have chosen server
         if ($GLOBALS['server'] != 0) {
             // Logout for advanced authentication
             if ($GLOBALS['cfg']['Server']['auth_type'] != 'config') {
-                $retval .= '    <a href="index.php?' . $GLOBALS['url_query'] . '&amp;old_usr=';
-                $retval .= urlencode($GLOBALS['PHP_AUTH_USER']) . '"';
-                $retval .= ' title="' . __('Log out') . '" class="disableAjax">';
+                $retval .= '    <a href="index.php?' . $GLOBALS['url_query'];
+                $retval .= '&amp;old_usr=' . urlencode($GLOBALS['PHP_AUTH_USER']);
+                $retval .= '" title="' . __('Log out') . '" class="disableAjax">';
                 if ($GLOBALS['cfg']['NavigationBarIconic']) {
-                       $retval .= '<img class="icon ic_s_loggoff" src="themes/dot.gif" alt="' . __('Log out') . '" /></a>';
+                    $retval .= $this->_commonFunctions->getImage(
+                        's_loggoff.png',
+                        __('Log out')
+                    );
+                    $retval .= '</a>';
                 } else {
                     $retval .= __('Log out') . '</a>';
-                    $retval .= '    <br />';
+                    $retval .= '<br />';
                 }
             }
-            $retval .= '    <a href="querywindow.php?' . PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']) . '&amp;no_js=true"';
+            $retval .= '<a href="querywindow.php?';
+            $retval .= PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']);
+            $retval .= '&amp;no_js=true"';
             $retval .= ' title="' . __('Query window') . '"';
-            $retval .= ' onclick="javascript:if (window.parent.open_querywindow()) return false;">';
+            $retval .= ' onclick="javascript:if (open_querywindow()) return false;">';
             if ($GLOBALS['cfg']['NavigationBarIconic']) {
-                $retval .= '<img class="icon ic_b_selboard" src="themes/dot.gif" alt="' . __('Query window') . '" /></a>';
+                $retval .= $this->_commonFunctions->getImage(
+                    'b_selboard.png',
+                    __('Query window')
+                );
+                $retval .= '</a>';
             } else {
                 $retval .= __('Query window') . '</a>';
-                $retval .= '    <br />';
+                $retval .= '<br />';
             }
         }
-        $retval .= '    <a href="Documentation.html" target="documentation"';
+        $retval .= '<a href="Documentation.html" target="documentation"';
         $retval .= ' title="' . __('phpMyAdmin documentation') . '" >';
         if ($GLOBALS['cfg']['NavigationBarIconic']) {
-            $retval .= '<img class="icon ic_b_docs" src="themes/dot.gif"';
-            $retval .= ' alt="' . __('phpMyAdmin documentation') . '" /></a>';
+            $retval .= $this->_commonFunctions->getImage(
+                'b_docs.png',
+                __('phpMyAdmin documentation')
+            );
+            $retval .= '</a>';
         } else {
             $retval .= __('phpMyAdmin documentation') . '</a>';
-            $retval .= '    <br />';
+            $retval .= '<br />';
         }
         if ($GLOBALS['cfg']['NavigationBarIconic']) {
-            $retval .= '    ' . $this->_commonFunctions->showMySQLDocu('', '', true);
+            $retval .= $this->_commonFunctions->showMySQLDocu('', '', true);
         } else {
             // PMA_showMySQLDocu always spits out an icon,
             // we just replace it with some perl regexp.
@@ -155,21 +175,19 @@ class PMA_NavigationHeader
                 __('Documentation'),
                 $this->_commonFunctions->showMySQLDocu('', '', true)
             );
-            $retval .= '    ' . $link;
-            $retval .= '    <br />';
+            $retval .= $link;
+            $retval .= '<br />';
         }
-        $params = array('uniqid' => uniqid());
-        if (!empty($GLOBALS['db'])) {
-            $params['db'] = $GLOBALS['db'];
-        }
-        $retval .= '    <a href="#" id="pma_navigation_reload">';
+        $retval .= '<a href="#" id="pma_navigation_reload">';
         if ($GLOBALS['cfg']['NavigationBarIconic']) {
-            $retval .= '<img class="icon ic_s_reload" src="themes/dot.gif"';
-            $retval .= ' title="' . __('Reload navigation frame') . '"';
-            $retval .= ' alt="' . __('Reload navigation frame') . '" /></a>';
+            $retval .= $this->_commonFunctions->getImage(
+                's_reload.png',
+                __('Reload navigation frame')
+            );
+            $retval .= '</a>';
         } else {
             $retval .= __('Reload navigation frame') . '</a>';
-            $retval .= '    <br />';
+            $retval .= '<br />';
         }
         $retval .= '</div>';
         $retval .= '<!-- LINKS ENDS -->';
@@ -207,7 +225,8 @@ class PMA_NavigationHeader
         if ($GLOBALS['cfg']['LeftRecentTable'] > 0) {
             $retval .= '<!-- RECENT START -->';
             $retval .= '<div id="recentTableList">';
-            $retval .= '<form method="post" action="' . $GLOBALS['cfg']['LeftDefaultTabTable'] . '">';
+            $retval .= '<form method="post" ';
+            $retval .= 'action="' . $GLOBALS['cfg']['LeftDefaultTabTable'] . '">';
             $retval .= PMA_generate_common_hidden_inputs(
                 array(
                     'db' => '',
@@ -216,7 +235,7 @@ class PMA_NavigationHeader
                 )
             );
             $retval .= PMA_RecentTable::getInstance()->getHtmlSelect();
-            $retval .= '    </form>';
+            $retval .= '</form>';
             $retval .= '</div>';
             $retval .= '<!-- RECENT END -->';
         }
