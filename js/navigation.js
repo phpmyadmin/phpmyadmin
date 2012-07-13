@@ -6,10 +6,22 @@
  */
 
 /**
- * opens/closes (hides/shows) tree elements
- * loads data via ajax
+ * Executed on page load
  */
 $(function() {
+    if (! $('#pma_navigation').length) {
+        // Don't bother running any code if the navigation is not even on the page
+        return;
+    }
+
+    // Fire up the resize and scroll handlers
+    new ResizeHandler();
+    ScrollHandler.init();
+
+    /**
+     * opens/closes (hides/shows) tree elements
+     * loads data via ajax
+     */
 	$('#pma_navigation_tree a.expander').live('click', function(event) {
         event.preventDefault();
         event.stopImmediatePropagation();
@@ -46,10 +58,14 @@ $(function() {
                 } else if (! $filterContainer.is('div.list_container')) {
                     break;
                 }
-                $filterContainer = $filterContainer.parent().closest('div.list_container');
+                $filterContainer = $filterContainer
+                    .parent()
+                    .closest('div.list_container');
             }
             var searchClause = '';
-            if ($filterInput.length != 0 && $filterInput.val() != $filterInput[0].defaultValue) {
+            if ($filterInput.length != 0
+                && $filterInput.val() != $filterInput[0].defaultValue
+            ) {
                 searchClause = $filterInput.val();
             }
 
@@ -68,9 +84,14 @@ $(function() {
                     $destination.find('div.list_container').remove(); // FIXME: Hack, there shouldn't be a list container there
                     $destination.append(data.message);
 	                $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
-	                $destination.children('div.list_container').show('fast', function () {
-                        ScrollHandler.displayScrollbar();
-                    });
+	                $destination
+                        .children('div.list_container')
+                        .show(
+                            'fast',
+                            function () {
+                                ScrollHandler.displayScrollbar();
+                            }
+                        );
                     if ($destination.find('ul > li').length == 1) {
                         $destination.find('ul > li')
                             .find('a.expander.container')
@@ -86,8 +107,106 @@ $(function() {
         $(this).blur();
 	});
 
+    /**
+     * Register event handler for click on the reload
+     * navigation icon at the top of the panel
+     */
     $('#pma_navigation_reload').click(function () {
         PMA_reloadNavigation();
+    });
+
+    /**
+     * Bind all "fast filter" events
+     */
+    $('#pma_navigation_tree li.fast_filter span')
+        .live('click', PMA_fastFilter.events.clear);
+    $('#pma_navigation_tree li.fast_filter input.searchClause')
+        .live('focus', PMA_fastFilter.events.focus)
+        .live('blur', PMA_fastFilter.events.blur)
+        .live('keyup', PMA_fastFilter.events.keyup);
+
+    /**
+     * Ajax handler for pagination
+     */
+    $('#pma_navigation_tree div.pageselector a.ajax').live('click', function (event) {
+        event.preventDefault();
+        var $this = $(this);
+        var isDbSelector = $this.closest('.pageselector').is('.dbselector');
+        var $msgbox = PMA_ajaxShowMessage();
+        var params = {ajax_request: true};
+        if (isDbSelector) {
+            params['full'] = true;
+        } else {
+            var $input = $this
+                .closest('div.list_container')
+                .find('li.fast_filter input.searchClause');
+            if ($input.length && $input.val() != $input[0].defaultValue) {
+                params['searchClause'] = $input.val();
+            }
+        }
+        $.get($this.attr('href'), params, function (data) {
+            PMA_ajaxRemoveMessage($msgbox);
+            if (data.success) {
+                if (isDbSelector) {
+                    $('#pma_navigation_tree')
+                        .html(data.message)
+                        .children('div')
+                        .show();
+                } else {
+                    var $parent = $this.closest('div.list_container').parent();
+                    var $input = $this
+                        .closest('div.list_container')
+                        .find('li.fast_filter input.searchClause');
+                    var val = '';
+                    if ($input.length) {
+                        val = $input.val();
+                    }
+                    $this.closest('div.list_container').html(
+                        $(data.message).children().show()
+                    );
+                    $parent.find('li.fast_filter input.searchClause').val(val);
+                    $parent.find('span.pos2_value:first').text(
+                        $parent.find('span.pos2_value:last').text()
+                    );
+                    $parent.find('span.pos3_value:first').text(
+                        $parent.find('span.pos3_value:last').text()
+                    );
+                }
+            } else {
+                PMA_ajaxShowMessage(data.error);
+            }
+        });
+    });
+
+    /**
+     * Node highlighting
+     */
+	$('#navigation_tree.highlight li:not(.fast_filter)').live(
+        'mouseover',
+        function () {
+            if ($('li:visible', this).length == 0) {
+                $(this).css('background', '#ddd');
+            }
+        }
+    );
+	$('#navigation_tree.highlight li:not(.fast_filter)').live(
+        'mouseout',
+        function () {
+            $(this).css('background', '');
+        }
+    );
+
+    /**
+     * Jump to recent table
+     */
+    $('#recentTable').change(function() {
+        if (this.value != '') {
+            var arr = jQuery.parseJSON(this.value);
+            var $form = $(this).closest('form');
+            $form.find('input[name=db]').val(arr['db']);
+            $form.find('input[name=table]').val(arr['table']);
+            $form.submit();
+        }
     });
 });
 
@@ -115,11 +234,19 @@ function PMA_reloadNavigation() {
 
             var pos2_name = $(this).find('span.pos2_name').text();
             if (! pos2_name) {
-                pos2_name = $(this).parent().parent().find('span.pos2_name:last').text();
+                pos2_name = $(this)
+                    .parent()
+                    .parent()
+                    .find('span.pos2_name:last')
+                    .text();
             }
             var pos2_value = $(this).find('span.pos2_value').text();
             if (! pos2_value) {
-                pos2_value = $(this).parent().parent().find('span.pos2_value:last').text();
+                pos2_value = $(this)
+                    .parent()
+                    .parent()
+                    .find('span.pos2_value:last')
+                    .text();
             }
 
             params['pos2_name_' + count] = pos2_name;
@@ -175,7 +302,9 @@ var ScrollHandler = {
         var elms = ScrollHandler.elms;
         if (elms.$content.height() > $(window).height()) {
             elms.$scrollbar.show().data('active', 1);
-            var visibleRatio = ($(window).height() - elms.$scrollbar.offset().top) / elms.$content.height();
+            var visibleRatio = (
+                $(window).height() - elms.$scrollbar.offset().top
+            ) / elms.$content.height();
             elms.$handle.height(
                 Math.floor(
                     visibleRatio * $(window).height()
@@ -214,20 +343,23 @@ var ScrollHandler = {
                 ScrollHandler.setContent(target);
             }
         });
-        $('#pma_navigation').bind('mousewheel', function(event, delta, deltaX, deltaY) {
-            event.preventDefault();
-            var elms = ScrollHandler.elms;
-            if (elms.$scrollbar.data('active')) {
+        $('#pma_navigation').bind(
+            'mousewheel',
+            function(event, delta, deltaX, deltaY) {
+                event.preventDefault();
                 var elms = ScrollHandler.elms;
-                var pixelValue = 1 / (elms.$content.height() - $(window).height());
-                var offset = -deltaY * 20 * pixelValue;
-                var pos = Math.abs(elms.$content.offset().top);
-                var diff = elms.$content.height() - $(window).height();
-                var target = ScrollHandler.sanitize((pos / diff) + offset);
-                ScrollHandler.setScrollbar(target);
-                ScrollHandler.setContent(target);
+                if (elms.$scrollbar.data('active')) {
+                    var elms = ScrollHandler.elms;
+                    var pixelValue = 1 / (elms.$content.height() - $(window).height());
+                    var offset = -deltaY * 20 * pixelValue;
+                    var pos = Math.abs(elms.$content.offset().top);
+                    var diff = elms.$content.height() - $(window).height();
+                    var target = ScrollHandler.sanitize((pos / diff) + offset);
+                    ScrollHandler.setScrollbar(target);
+                    ScrollHandler.setContent(target);
+                }
             }
-        });
+        );
     }
 };
 
@@ -408,84 +540,6 @@ var ResizeHandler = function () {
     // Add the correct arrow symbol to the collapser
     $collapser.html(this.getSymbol($('#pma_navigation').width()));
 }; // End of ResizeHandler
-
-/* Performed on load */
-$(function(){
-    if (! $('#pma_navigation').length) {
-        // Don't bother running any code if the navigation is not even on the page
-        return;
-    }
-    // Fire up the resize and scroll handlers
-    new ResizeHandler();
-    ScrollHandler.init();
-    // Bind all "fast filter" events
-    $('#pma_navigation_tree li.fast_filter span')
-        .live('click', PMA_fastFilter.events.clear);
-    $('#pma_navigation_tree li.fast_filter input.searchClause')
-        .live('focus', PMA_fastFilter.events.focus)
-        .live('blur', PMA_fastFilter.events.blur)
-        .live('keyup', PMA_fastFilter.events.keyup);
-
-    // Ajax handler for pagination
-    $('#pma_navigation_tree div.pageselector a.ajax').live('click', function (event) {
-        event.preventDefault();
-        var $this = $(this);
-        var isDbSelector = $this.closest('.pageselector').is('.dbselector');
-        var $msgbox = PMA_ajaxShowMessage();
-        var params = {ajax_request: true};
-        if (isDbSelector) {
-            params['full'] = true;
-        } else {
-            var $input = $this.closest('div.list_container').find('li.fast_filter input.searchClause');
-            if ($input.length && $input.val() != $input[0].defaultValue) {
-                params['searchClause'] = $input.val();
-            }
-        }
-        $.get($this.attr('href'), params, function (data) {
-            PMA_ajaxRemoveMessage($msgbox);
-            if (data.success) {
-                if (isDbSelector) {
-                    $('#pma_navigation_tree').html(data.message).children('div').show();
-                } else {
-                    var $parent = $this.closest('div.list_container').parent();
-                    var $input = $this.closest('div.list_container').find('li.fast_filter input.searchClause');
-                    var val = '';
-                    if ($input.length) {
-                        val = $input.val();
-                    }
-                    $this.closest('div.list_container').html($(data.message).children().show());
-                    $parent.find('li.fast_filter input.searchClause').val(val);
-                    $parent.find('span.pos2_value:first').text($parent.find('span.pos2_value:last').text());
-                    $parent.find('span.pos3_value:first').text($parent.find('span.pos3_value:last').text());
-                }
-            } else {
-                PMA_ajaxShowMessage(data.error);
-            }
-        });
-    });
-
-    // Node highlighting
-	$('#navigation_tree.highlight li:not(.fast_filter)').live('mouseover', function () {
-        if ($('li:visible', this).length == 0) {
-            $(this).css('background', '#ddd');
-        }
-    });
-	$('#navigation_tree.highlight li:not(.fast_filter)').live('mouseout', function () {
-        $(this).css('background', '');
-    });
-
-    // Jump to recent table
-    $('#recentTable').change(function() {
-        if (this.value != '') {
-            var arr = jQuery.parseJSON(this.value);
-            var $form = $(this).closest('form');
-            $form.find('input[name=db]').val(arr['db']);
-            $form.find('input[name=table]').val(arr['table']);
-            $form.submit();
-        }
-    });
-});//end of document get ready
-
 
 /**
  * @var object PMA_fastFilter Handles the functionality that allows filtering
