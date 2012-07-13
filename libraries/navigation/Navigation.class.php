@@ -51,7 +51,7 @@ class PMA_Navigation {
      */
     public function __construct()
     {
-        $GLOBALS['token'] = $_REQUEST['token'];
+        $GLOBALS['token'] = $_SESSION[' PMA_token '];
         
         if (isset($_REQUEST['pos'])) {
             $this->pos = (int) $_REQUEST['pos'];
