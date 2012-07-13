@@ -560,7 +560,7 @@ function PMA_getHtmlForTableSpecificPrivileges($username, $hostname, $db, $table
     
     // privs that are not attached to a specific column   
     $html_output .= '<div class="item">' . "\n"
-        . PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row, $grant_type)
+        . PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
         . '</div>' . "\n";
     
     // for Safari 2.0.2
@@ -605,11 +605,10 @@ function PMA_getHtmlForAttachedPrivilegesToTableSpecificColumn($columns, $row)
  * Get HTML for privileges that are not attached to a specific column
  * 
  * @param array $row         first row from result or boolean false
- * @param array $grant_type  privilrge type
  * 
  * @return string $html_output
  */
-function PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row, $grant_type)
+function PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
 {
     $html_output = '';
     foreach ($row as $current_grant => $current_grant_value) {
