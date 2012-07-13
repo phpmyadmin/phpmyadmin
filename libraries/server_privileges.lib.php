@@ -1852,10 +1852,11 @@ function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $link_edit,
     } elseif (PMA_isValid($_REQUEST['dbname'])) {
         $dbname = $_REQUEST['dbname'];
     }
+    $html_output = '';
     $found_rows = array();
     // display rows
     if (count($db_rights) < 1) {
-        $html_output = '<tr class="odd">' . "\n"
+        $html_output .= '<tr class="odd">' . "\n"
            . '<td colspan="6"><center><i>' . __('None') . '</i></center></td>' . "\n"
            . '</tr>' . "\n";
     } else {
@@ -1864,7 +1865,7 @@ function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $link_edit,
         foreach ($db_rights as $row) {
             $found_rows[] = (! isset($dbname)) ? $row['Db'] : $row['Table_name'];
 
-            $html_output = '<tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n"
+            $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n"
                 . '<td>'  
                 . htmlspecialchars((! isset($dbname))
                     ? $row['Db']
