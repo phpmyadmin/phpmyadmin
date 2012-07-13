@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-07-09 03:26+0200\n"
+"PO-Revision-Date: 2012-07-09 16:04+0200\n"
 "Last-Translator: Nicholas Arnesen <baretester@live.no>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -1950,7 +1950,7 @@ msgstr "Klikk tilbakestill zoom linken for å gå tilbake til normal størrelse.
 
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."
-msgstr ""
+msgstr "Velg et datapunkt for å vise, og muligens endre raden med data."
 
 #: js/messages.php:310
 msgid "The plot can be resized by dragging it along the bottom right corner."
@@ -2363,6 +2363,7 @@ msgstr "Sekund"
 #, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr ""
+"Formatering av string for regel '%s' feilet. PHP skrev ut følgende feil: %s"
 
 #: libraries/Advisor.class.php:326 server_status.php:955
 msgid "per second"
@@ -2880,6 +2881,8 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
+"Dette mener vanligvis at det er en syntaksfeil i det, sjekk mulige feil som "
+"vises under."
 
 #: libraries/common.inc.php:615
 #, php-format
@@ -3010,7 +3013,6 @@ msgid "Inline edit of this query"
 msgstr "Inline redigering av denne spørringa"
 
 #: libraries/common.lib.php:1307
-#, fuzzy
 msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Innebygd"
@@ -3037,14 +3039,12 @@ msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dager, %s timer, %s minutter og %s sekunder"
 
 #: libraries/common.lib.php:2074
-#, fuzzy
 #| msgid "Routines"
 msgid "Missing parameter:"
-msgstr "Rutiner"
+msgstr "Mangler parametere:"
 
 #: libraries/common.lib.php:2457 libraries/common.lib.php:2460
 #: libraries/display_tbl.lib.php:306
-#, fuzzy
 #| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
@@ -3053,7 +3053,6 @@ msgstr "Start"
 #: libraries/common.lib.php:2458 libraries/common.lib.php:2461
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
-#, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
@@ -3062,7 +3061,6 @@ msgstr "Forrige"
 #: libraries/common.lib.php:2488 libraries/common.lib.php:2491
 #: libraries/display_tbl.lib.php:373 server_binlog.php:170
 #: server_binlog.php:172
-#, fuzzy
 #| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
@@ -3070,11 +3068,10 @@ msgstr "Neste"
 
 #: libraries/common.lib.php:2489 libraries/common.lib.php:2492
 #: libraries/display_tbl.lib.php:390
-#, fuzzy
 #| msgid "End"
 msgctxt "Last page"
 msgid "End"
-msgstr "Slutt"
+msgstr "Siste"
 
 #: libraries/common.lib.php:2559
 #, php-format
@@ -3087,10 +3084,9 @@ msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Funksjonaliteten %s er påvirket av en kjent feil, se %s"
 
 #: libraries/common.lib.php:2753
-#, fuzzy
 #| msgid "Click to select"
 msgid "Click to toggle"
-msgstr "Klikk for å velge"
+msgstr "Klikk for å endre"
 
 #: libraries/common.lib.php:3127 libraries/common.lib.php:3134
 #: libraries/common.lib.php:3349 libraries/config/setup.forms.php:296
@@ -3146,7 +3142,7 @@ msgstr "Det er ingen filer å laste opp"
 
 #: libraries/common.lib.php:3358 libraries/common.lib.php:3359
 msgid "Execute"
-msgstr ""
+msgstr "Utfør"
 
 #: libraries/common.lib.php:3839
 msgid "Print"
@@ -3159,15 +3155,15 @@ msgstr "Begge"
 
 #: libraries/config.values.php:47
 msgid "Nowhere"
-msgstr ""
+msgstr "Ingensteds"
 
 #: libraries/config.values.php:47
 msgid "Left"
-msgstr ""
+msgstr "Venstre"
 
 #: libraries/config.values.php:47
 msgid "Right"
-msgstr ""
+msgstr "Høyre"
 
 #: libraries/config.values.php:76
 msgid "Open"
@@ -3370,9 +3366,8 @@ msgstr ""
 "autentisering"
 
 #: libraries/config/messages.inc.php:25
-#, fuzzy
 msgid "Blowfish secret"
-msgstr "Blowfish hemmelighet"
+msgstr "Blowfish hemmelig kode"
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight selected rows"
@@ -3421,24 +3416,26 @@ msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"Definerer minimum størrelse for innskrivningfelt laget for CHAR og VARCHAR "
+"kolonner"
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
 #| msgid "Customize export options"
 msgid "Minimum size for input field"
-msgstr "Endre eksportstandarder"
+msgstr "Minste størrelse for innskrivningsfelt"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"Definerer maks størrelse for innskrivningsfelt laget for CHAR og VARCHAR "
+"kolonner"
 
 #: libraries/config/messages.inc.php:37
-#, fuzzy
 #| msgid "Maximum size for temporary sort files"
 msgid "Maximum size for input field"
-msgstr "Maksimum størrelse for midlertidige sorteringsfiler"
+msgstr "Maksimum størrelse for innskrivningsfelt"
 
 #: libraries/config/messages.inc.php:38
 msgid "Number of columns for CHAR/VARCHAR textareas"
@@ -3552,10 +3549,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:63
-#, fuzzy
 #| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
-msgstr "Tabellvedlikehold"
+msgstr "Deaktiver multitabellvedlikehold"
 
 #: libraries/config/messages.inc.php:64
 msgid "Edit SQL queries in popup window"
@@ -3737,7 +3733,7 @@ msgstr "SQL kompatibilitetsmodus"
 
 #: libraries/config/messages.inc.php:124 libraries/export/sql.php:190
 msgid "<code>CREATE TABLE</code> options:"
-msgstr ""
+msgstr "<code>OPPRETT TABELL</code> valg:"
 
 #: libraries/config/messages.inc.php:125
 msgid "Creation/Update/Check dates"
@@ -4073,6 +4069,11 @@ msgid ""
 "strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], "
 "Copyright 2002 Upright Database Technology. All rights reserved.[/em]"
 msgstr ""
+"Om du ønsker å bruke SQL-vurderingsservicen så må du være klar over at "
+"[strong] alle SQL-spørringer blir lagret anonymt for statistisk "
+"bruk[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL-"
+"vurderer(engelsk)[/a], Kopirettigheter 2002 Upright Database Technology. "
+"Alle rettigheter reservert.[/em]"
 
 #: libraries/config/messages.inc.php:224
 msgid "Startup"
@@ -4190,7 +4191,6 @@ msgid "Do not import empty rows"
 msgstr "Ikke importer tomme rader"
 
 #: libraries/config/messages.inc.php:258
-#, fuzzy
 #| msgid "Import currencies ($5.00 to 5.00)"
 msgid "Import currencies ($5.00 to 5.00)"
 msgstr "Importer valuta ($5.00 til 5.00)"
@@ -4208,7 +4208,6 @@ msgid "Partial import: skip queries"
 msgstr "Delvis import: hopp over spørringer"
 
 #: libraries/config/messages.inc.php:263
-#, fuzzy
 #| msgid "Do not use AUTO_INCREMENT for zero values"
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Ikke bruk AUTO_INCREMENT for nullverdier"
@@ -4324,10 +4323,9 @@ msgid "Maximum number of recently used tables; set 0 to disable"
 msgstr "Maks antall tabeller vist i tabellista"
 
 #: libraries/config/messages.inc.php:291
-#, fuzzy
 #| msgid "Untracked tables"
 msgid "Recently used tables"
-msgstr "Ikke overvåkede tabeller"
+msgstr "Sist brukte tabeller"
 
 #: libraries/config/messages.inc.php:292
 msgid "Use less graphically intense tabs"
@@ -4478,14 +4476,13 @@ msgid "Memory limit"
 msgstr "Minnetak"
 
 #: libraries/config/messages.inc.php:321
-#, fuzzy
 #| msgid "These are Edit, Inline edit, Copy and Delete links"
 msgid "These are Edit, Copy and Delete links"
-msgstr "Dette er rediger, innsmettet rediger, kopier og slettede lenker"
+msgstr "Disse er Rediger-, kopi- og slettelenker"
 
 #: libraries/config/messages.inc.php:322
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "Hvor tabell-lenkene skal vises"
 
 #: libraries/config/messages.inc.php:323
 msgid "Use natural order for sorting table and database names"
@@ -4540,7 +4537,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:334
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr ""
+msgstr "Mangler phpMyAdmin konfigurasjonslagertabeller"
 
 #: libraries/config/messages.inc.php:336
 msgid "Iconic table operations"
@@ -4555,7 +4552,6 @@ msgid "Protect binary columns"
 msgstr "Beskytt binære kolonner"
 
 #: libraries/config/messages.inc.php:339
-#, fuzzy
 #| msgid ""
 #| " if you want DB-based query history (requires pmadb). If disabled, s "
 #| "lizes JS-routines to display query history (lost by window close)."
@@ -4589,7 +4585,7 @@ msgstr "Standard spørringsvindufane"
 
 #: libraries/config/messages.inc.php:346
 msgid "Query window height (in pixels)"
-msgstr ""
+msgstr "Spørringsvinduets høyde (i piksler)"
 
 #: libraries/config/messages.inc.php:347
 msgid "Query window height"
