@@ -250,11 +250,9 @@ class PMA_Message
      */
     static public function affected_rows($rows)
     {
-        $message = PMA_Message::success(
-            _ngettext('%1$d row affected.', '%1$d rows affected.', $rows)
+        return self::rows_messages(
+            '%1$d row affected.', '%1$d rows affected.', $rows
         );
-        $message->addParam($rows);
-        return $message;
     }
 
     /**
@@ -269,11 +267,9 @@ class PMA_Message
      */
     static public function deleted_rows($rows)
     {
-        $message = PMA_Message::success(
-            _ngettext('%1$d row deleted.', '%1$d rows deleted.', $rows)
+        return self::rows_messages(
+            '%1$d row deleted.', '%1$d rows deleted.', $rows
         );
-        $message->addParam($rows);
-        return $message;
     }
 
     /**
@@ -288,8 +284,26 @@ class PMA_Message
      */
     static public function inserted_rows($rows)
     {
+        return self::rows_messages(
+            '%1$d row inserted.', '%1$d rows inserted.', $rows
+        );
+    }
+
+    /**
+     * get PMA_Message for number of rows
+     *
+     * @param string $singular_message
+     * @param string $plural_message
+     * @param integer $rows Number of rows
+     *
+     * @return PMA_Message
+     * @static
+     */
+    static private function rows_messages($singular_message, $plural_message,
+        $rows
+    ) {
         $message = PMA_Message::success(
-            _ngettext('%1$d row inserted.', '%1$d rows inserted.', $rows)
+            _ngettext($singular_message, $plural_message, $rows)
         );
         $message->addParam($rows);
         return $message;
