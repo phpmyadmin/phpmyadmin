@@ -37,16 +37,16 @@ $(function() {
             $icon.hide();
             $throbber.insertBefore($icon);
 
-            var $filterContainer = $(this).closest('.list_container');
+            var $filterContainer = $(this).closest('div.list_container');
             var $filterInput = $([]);
             while (1) {
-                if ($filterContainer.find('.fast_filter input.searchClause').length != 0) {
-                    $filterInput = $filterContainer.find('.fast_filter input.searchClause');
+                if ($filterContainer.find('li.fast_filter input.searchClause').length != 0) {
+                    $filterInput = $filterContainer.find('li.fast_filter input.searchClause');
                     break;
-                } else if (! $filterContainer.is('.list_container')) {
+                } else if (! $filterContainer.is('div.list_container')) {
                     break;
                 }
-                $filterContainer = $filterContainer.parent().closest('.list_container');
+                $filterContainer = $filterContainer.parent().closest('div.list_container');
             }
             var searchClause = '';
             if ($filterInput.length != 0 && $filterInput.val() != $filterInput[0].defaultValue) {
@@ -107,7 +107,7 @@ function PMA_reloadNavigation() {
     var count = 0;
     $('#pma_navigation_tree').find('a.expander:visible').each(function () {
         if ($(this).find('img').is('.ic_b_minus')
-            && $(this).closest('li').find('.list_container .ic_b_minus').length == 0
+            && $(this).closest('li').find('div.list_container .ic_b_minus').length == 0
         ) {
             params['a_path_' + count] = $(this).find('span.a_path').text();
             params['v_path_' + count] = $(this).find('span.v_path').text();
@@ -436,7 +436,7 @@ $(function(){
         if (isDbSelector) {
             params['full'] = true;
         } else {
-            var $input = $this.closest('.list_container').find('.fast_filter input.searchClause');
+            var $input = $this.closest('div.list_container').find('li.fast_filter input.searchClause');
             if ($input.length && $input.val() != $input[0].defaultValue) {
                 params['searchClause'] = $input.val();
             }
@@ -447,14 +447,14 @@ $(function(){
                 if (isDbSelector) {
                     $('#pma_navigation_tree').html(data.message).children('div').show();
                 } else {
-                    var $parent = $this.closest('.list_container').parent();
-                    var $input = $this.closest('.list_container').find('.fast_filter input.searchClause');
+                    var $parent = $this.closest('div.list_container').parent();
+                    var $input = $this.closest('div.list_container').find('li.fast_filter input.searchClause');
                     var val = '';
                     if ($input.length) {
                         val = $input.val();
                     }
-                    $this.closest('.list_container').html($(data.message).children().show());
-                    $parent.find('.fast_filter input.searchClause').val(val);
+                    $this.closest('div.list_container').html($(data.message).children().show());
+                    $parent.find('li.fast_filter input.searchClause').val(val);
                     $parent.find('span.pos2_value:first').text($parent.find('span.pos2_value:last').text());
                     $parent.find('span.pos3_value:first').text($parent.find('span.pos3_value:last').text());
                 }
