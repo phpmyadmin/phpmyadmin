@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-07-05 23:51+0200\n"
+"PO-Revision-Date: 2012-07-12 23:10+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -5217,9 +5217,9 @@ msgid ""
 "alias, the table name itself stays unchanged"
 msgstr ""
 "Når denne sættes til [kbd]nested[/kbd] bruges alias for tabelnavnet kun til "
-"at splitte/samle tabellerne i henhold til direktivet $cfg"
-"['LeftFrameTableSeparator'], så kun mappen benævnes som aliaset; tabelnavnet "
-"selv forbliver uændret."
+"at splitte/samle tabellerne i henhold til direktivet "
+"$cfg['LeftFrameTableSeparator'], så kun mappen benævnes som aliaset; "
+"tabelnavnet selv forbliver uændret"
 
 #: libraries/config/messages.inc.php:480
 msgid "Display table comment instead of its name"
@@ -5492,7 +5492,7 @@ msgstr "Open Document tekst"
 
 #: libraries/config/validate.lib.php:198
 msgid "Could not initialize Drizzle connection library"
-msgstr "Kunne ikke initialisere Drizzle forbindelsesbibliotek."
+msgstr "Kunne ikke initialisere Drizzle forbindelsesbibliotek"
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
 msgid "Could not connect to Drizzle server"
@@ -6384,7 +6384,7 @@ msgid ""
 "transaction log data. The default is 16MB."
 msgstr ""
 "Mængden af hukommelse allokeret til mellemlageret for transaktionslogdata. "
-"Standard er 16MB"
+"Standard er 16MB."
 
 #: libraries/engines/pbxt.lib.php:37
 msgid "Log file threshold"
@@ -6395,8 +6395,8 @@ msgid ""
 "The size of a transaction log before rollover, and a new log is created. The "
 "default value is 16MB."
 msgstr ""
-"Størrelsen af en transajktionslog før den ruller over og en ny log oprettes. "
-"Standardværdien er 16MB"
+"Størrelsen af en transaktionslog før den ruller over og en ny log oprettes. "
+"Standardværdien er 16MB."
 
 #: libraries/engines/pbxt.lib.php:42
 msgid "Transaction buffer size"
@@ -6477,7 +6477,7 @@ msgstr "Voksestørrelsen af rækkefil"
 
 #: libraries/engines/pbxt.lib.php:73
 msgid "The grow size of the row pointer (.xtr) files."
-msgstr "Voksestørrelsen af rækkepointerfiler (.xtr)"
+msgstr "Vækststørrelsen af rækkepointerfiler (.xtr)."
 
 #: libraries/engines/pbxt.lib.php:77
 msgid "Log file count"
@@ -6500,8 +6500,8 @@ msgid ""
 "Documentation and further information about PBXT can be found on the "
 "%sPrimeBase XT Home Page%s."
 msgstr ""
-"Dokumentation og yderliger information om PBXT kan findes på %sPrimeBase XT "
-"hjemmeside%s"
+"Dokumentation og yderligere information om PBXT kan findes på %sPrimeBase XT "
+"hjemmeside%s."
 
 #: libraries/engines/pbxt.lib.php:129
 msgid "The PrimeBase XT Blog by Paul McCullagh"
@@ -6971,7 +6971,7 @@ msgstr "ESRI formfil"
 #: libraries/import/shp.php:280
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr "Der var en fejl i importen af ESRI formfilen \"%s\""
+msgstr "Der var en fejl i importen af ESRI-formfilen: \"%s\"."
 
 #: libraries/import/shp.php:336
 msgid ""
@@ -7539,7 +7539,7 @@ msgstr "Du skal angive en gyldig intervalværdi for hændelsen."
 
 #: libraries/rte/rte_events.lib.php:549
 msgid "You must provide a valid execution time for the event."
-msgstr "Du skal angive et gyldigt kørselstidspunkt for hændelsen"
+msgstr "Du skal angive et gyldigt kørselstidspunkt for hændelsen."
 
 #: libraries/rte/rte_events.lib.php:553
 msgid "You must provide a valid type for the event."
@@ -8419,8 +8419,8 @@ msgid ""
 "Converts an (IPv4) Internet network address into a string in Internet "
 "standard dotted format."
 msgstr ""
-"Konverterer en IPV4 internet adresse til en streng i internet standard x.x.x."
-"x adresseformat"
+"Konverterer en IPV4-internetadresse til en streng i internet-standard "
+"x.x.x.x adresseformat."
 
 #: libraries/transformations/text_plain__sql.inc.php:10
 msgid "Formats text as SQL query with syntax highlighting."
@@ -8871,7 +8871,7 @@ msgstr "Importer fra fil"
 
 #: prefs_manage.php:243
 msgid "Import from browser's storage"
-msgstr "Import fra browserens lager."
+msgstr "Import fra browserens lager"
 
 #: prefs_manage.php:246
 msgid "Settings will be imported from your browser's local storage."
@@ -8883,7 +8883,7 @@ msgstr "Du har ingen gemte indstillinger!"
 
 #: prefs_manage.php:256 prefs_manage.php:310
 msgid "This feature is not supported by your web browser"
-msgstr "Denne funktion er ikke understøttet af din browser."
+msgstr "Denne funktion er ikke understøttet af din browser"
 
 #: prefs_manage.php:261
 msgid "Merge with current configuration"
@@ -8913,7 +8913,8 @@ msgstr "Eksisterende indstillinger vil blive overskrevet!"
 #: prefs_manage.php:321
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
-"Du han nulstille alle dine indstillinger og gendanne dem med standardværdier"
+"Du kan nulstille alle dine indstillinger og gendanne dem med "
+"standardværdier."
 
 #: querywindow.php:69
 msgid "Import files"
@@ -9398,7 +9399,7 @@ msgstr "Tilføj privilegier på følgende database"
 #: server_privileges.php:2124
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
-"Jokertegn % og _ skal escapes med en \\ for brug af dem som almindelige tegn."
+"Jokertegn % og _ skal escapes med en \\ for brug af dem som almindelige tegn"
 
 #: server_privileges.php:2127
 msgid "Add privileges on the following table"
@@ -9567,9 +9568,9 @@ msgid ""
 "should see a message informing you, that this server <b>is</b> configured as "
 "master"
 msgstr ""
-"Når du har genstartet MySQL serveren, så klik på Go knappen. Bagefter bør du "
+"Når du har genstartet MySQL-serveren, så klik på knappen Go. Bagefter bør du "
 "se en besked, der fortæller, at denne server <b>er</b> konfigureret som "
-"master."
+"master"
 
 #: server_replication.php:291
 msgid "Slave SQL Thread not running!"
@@ -9778,8 +9779,8 @@ msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
 msgstr ""
-"Rådgiversystemer kan give anbefalinger om servervariable ved at analysere "
-"serverens statusvariable"
+"Rådgiversystemet kan give anbefalinger om servervariabler ved at analysere "
+"serverens statusvariabler."
 
 #: server_status.php:914
 msgid ""
@@ -9788,7 +9789,7 @@ msgid ""
 "system."
 msgstr ""
 "Bemærk dog, at dette system giver anbefalinger baseret på simple beregninger "
-"og tommelfingerregler, som ikke passer med dit system"
+"og tommelfingerregler, som ikke nødvendigvis passer med dit system."
 
 #: server_status.php:916
 msgid ""
@@ -10862,7 +10863,7 @@ msgstr "Valgte måltabeller er blevet synkroniseret med kildetabeller."
 
 #: server_synchronize.php:988
 msgid "Target database has been synchronized with source database"
-msgstr "Måldatabasen er blevet synkroniseret med kildedatabase."
+msgstr "Måldatabasen er blevet synkroniseret med kildedatabasen"
 
 #: server_synchronize.php:1046
 msgid "Executed queries"
@@ -11229,7 +11230,7 @@ msgstr "Du bør bruge mysqli af ydelsesgrunde."
 
 #: setup/lib/index.lib.php:368
 msgid "You allow for connecting to the server without a password."
-msgstr "Du tillader forbindelse til serveren uden adgangskode"
+msgstr "Du tillader forbindelse til serveren uden adgangskode."
 
 #: setup/lib/index.lib.php:390
 msgid "Key is too short, it should have at least 8 characters."
@@ -11250,7 +11251,7 @@ msgstr "Bladre i fremmedværdier"
 #: sql.php:217
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
-msgstr "Bruger bogmærke \"%s\" som standard gennemsynsforespørgsel"
+msgstr "Bruger bogmærket \"%s\" som standard-forespørgsel til gennemsyn."
 
 #: sql.php:705 tbl_replace.php:412
 #, php-format
@@ -12019,8 +12020,8 @@ msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
-"For at få mere korrekte gennemsnit anbefales det at lade serveren køre "
-"længere end en dag før dette analyseværktøj anvendes."
+"For at få mere korrekte gennemsnit, anbefales det at lade serveren køre "
+"længere end én dag, før dette analyseværktøj anvendes"
 
 #: po/advisory_rules.php:8
 #, php-format
@@ -12076,7 +12077,7 @@ msgstr ""
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 "Andelen af langsomme forespørgsler bør være under 5%%. Den aktuelle værdi er "
-"%s%%"
+"%s%%."
 
 #: po/advisory_rules.php:20
 msgid "Slow query rate"
@@ -12121,7 +12122,7 @@ msgstr ""
 #: po/advisory_rules.php:28
 #, php-format
 msgid "long_query_time is currently set to %ds."
-msgstr "long_query_time er sat til %ds"
+msgstr "long_query_time er i øjeblikket sat til %ds."
 
 #: po/advisory_rules.php:30
 msgid "Slow query logging"
@@ -12149,7 +12150,7 @@ msgstr "Udgivelsesserie"
 
 #: po/advisory_rules.php:36
 msgid "The MySQL server version less than 5.1."
-msgstr "Versionen af MySQL server er mindre end 5.1"
+msgstr "Versionen af MySQL-serveren er lavere end 5.1."
 
 #: po/advisory_rules.php:37
 msgid ""
@@ -12169,7 +12170,7 @@ msgstr "Underversion"
 
 #: po/advisory_rules.php:41
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr "Version mindre end 5.1.30 (den første GA release af 5.1)"
+msgstr "Versionen er mindre end 5.1.30 (den første GA-udgivelse i 5.1)."
 
 #: po/advisory_rules.php:42
 msgid ""
@@ -12181,7 +12182,7 @@ msgstr ""
 
 #: po/advisory_rules.php:46
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr "Version mindre end 5.5.8 (den første GA release af 5.5)"
+msgstr "Version mindre end 5.5.8 (den første GA-udgivelse i 5.5)."
 
 #: po/advisory_rules.php:47
 msgid "You should upgrade, to a stable version of MySQL 5.5"
@@ -12262,7 +12263,7 @@ msgstr "Forespørgsel-mellemlager deaktiveret"
 
 #: po/advisory_rules.php:71
 msgid "The query cache is not enabled."
-msgstr "Forespørgsel-mellemlager er ikke aktiveret"
+msgstr "Forespørgsel-mellemlager er ikke aktiveret."
 
 #: po/advisory_rules.php:72
 msgid ""
@@ -12286,7 +12287,7 @@ msgstr "Metode for forespørgsels-mellemlager"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
-msgstr "Suboptimal metode for mellemlager"
+msgstr "Suboptimal metode for mellemlager."
 
 #: po/advisory_rules.php:77
 msgid ""
@@ -12391,9 +12392,9 @@ msgid ""
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
-"Mellemlageret er aktuelt fragmenteret med %s%%. 1%% fragmentering betyder, "
+"Mellemlageret er aktuelt fragmenteret med %s%%. 100%% fragmentering betyder, "
 "at forespørgselmellemlageret er et skiftende mønster af frie og ubrugte "
-"blokke. Denne værdi bør være under 20%%"
+"blokke. Denne værdi bør være under 20%%."
 
 #: po/advisory_rules.php:95
 msgid "Query cache low memory prunes"
@@ -12404,8 +12405,8 @@ msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
 msgstr ""
-"Mellemlagrede forespørgsler er fjernet pga lav hukommelse i "
-"forspørgselmellemlageret"
+"Mellemlagrede forespørgsler er fjernet pga. lav hukommelse i "
+"forespørgselmellemlageret."
 
 #: po/advisory_rules.php:97
 msgid ""
@@ -12936,8 +12937,8 @@ msgstr "Frekvens af venten på tabellås"
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
-"Frekvens af venten på tabellås: %s. Denne værdi bør være mindre end 1 pr "
-"time."
+"Frekvens af venten på tabellås: %s. Denne værdi bør være mindre end 1 per "
+"time"
 
 #: po/advisory_rules.php:205
 msgid "Thread cache"
@@ -12984,7 +12985,7 @@ msgstr "Tråde som er langsomme til at starte"
 
 #: po/advisory_rules.php:216
 msgid "There are too many threads that are slow to launch."
-msgstr "Der er for mange tråde, som starter for langsomt"
+msgstr "Der er for mange tråde, som starter for langsomt."
 
 #: po/advisory_rules.php:217
 msgid ""
@@ -13083,7 +13084,7 @@ msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 "Frekvensen af aborterede forbindelser er %s. Denne værdi bør være mindre end "
-"1 pr time."
+"1 per time"
 
 #: po/advisory_rules.php:240
 msgid "Percentage of aborted clients"
@@ -13117,7 +13118,7 @@ msgstr "Frekvens af aborterede klienter"
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 "Frekvensen af aborterede klienter er %s. Denne værdi bør være mindre end 1 "
-"pr time."
+"per time"
 
 #: po/advisory_rules.php:250
 msgid "Is InnoDB disabled?"
