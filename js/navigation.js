@@ -181,7 +181,7 @@ $(function() {
     /**
      * Node highlighting
      */
-	$('#navigation_tree.highlight li:not(.fast_filter)').live(
+	$('#pma_navigation_tree.highlight li:not(.fast_filter)').live(
         'mouseover',
         function () {
             if ($('li:visible', this).length == 0) {
@@ -189,7 +189,7 @@ $(function() {
             }
         }
     );
-	$('#navigation_tree.highlight li:not(.fast_filter)').live(
+	$('#pma_navigation_tree.highlight li:not(.fast_filter)').live(
         'mouseout',
         function () {
             $(this).css('background', '');

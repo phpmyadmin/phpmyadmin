@@ -25,7 +25,10 @@ class PMA_NavigationHeader
                 'ajax_request' => true
             )
         );
-
+        $highlight = '';
+        if ($GLOBALS['cfg']['LeftPointerEnable']) {
+            $highlight = ' class="highlight"';
+        }
         $buffer  = '<div id="pma_navigation">';
         $buffer .= '<div id="pma_navigation_resizer"></div>';
         $buffer .= '<div id="pma_navigation_collapser"></div>';
@@ -42,7 +45,7 @@ class PMA_NavigationHeader
         $buffer .= $this->links();
         $buffer .= $this->serverChoice();
         $buffer .= $this->recent();
-        $buffer .= '<div id="pma_navigation_tree">';
+        $buffer .= '<div id="pma_navigation_tree"' . $highlight . '>';
         return $buffer;
     }
 
