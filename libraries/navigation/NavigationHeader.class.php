@@ -1,7 +1,14 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Header for the navigation
+ * Header for the navigation panel
+ *
+ * @package PhpMyAdmin-Navigation
+ */
+
+/**
+ * This class renders the logo, links, server selection and recent tables,
+ * which are then displayed at the top of the naviagtion panel
  *
  * @package PhpMyAdmin-Navigation
  */
@@ -11,7 +18,7 @@ class PMA_NavigationHeader
     /**
      * Renders the navigation
      *
-     * return nothing
+     * @return void
      */
     public function getDisplay()
     {
@@ -41,10 +48,10 @@ class PMA_NavigationHeader
             '<a class="hide navigation_url" href="navigation.php%s"></a>',
             $link_url
         );
-        $buffer .= $this->logo();
-        $buffer .= $this->links();
-        $buffer .= $this->serverChoice();
-        $buffer .= $this->recent();
+        $buffer .= $this->_logo();
+        $buffer .= $this->_links();
+        $buffer .= $this->_serverChoice();
+        $buffer .= $this->_recent();
         $buffer .= '<div id="pma_navigation_tree"' . $highlight . '>';
         return $buffer;
     }
@@ -53,9 +60,9 @@ class PMA_NavigationHeader
      * Create the code for displaying the phpMyAdmin
      * logo based on configuration settings
      *
-     * return string HTML code for the logo
+     * @return string HTML code for the logo
      */
-    private function logo()
+    private function _logo()
     {
         $retval = '<!-- LOGO START -->';
         // display Logo, depending on $GLOBALS['cfg']['LeftDisplayLogo']
@@ -74,16 +81,16 @@ class PMA_NavigationHeader
                     $GLOBALS['cfg']['LeftLogoLink']
                 );
                 switch ($GLOBALS['cfg']['LeftLogoLinkWindow']) {
-                    case 'new':
+                case 'new':
+                    $retval .= '" target="_blank"';
+                    break;
+                case 'main':
+                    // do not add our parameters for an external link
+                    if (substr(strtolower($GLOBALS['cfg']['LeftLogoLink']), 0, 4) !== '://') {
+                        $retval .= '?' . $GLOBALS['url_query'] . '"';
+                    } else {
                         $retval .= '" target="_blank"';
-                        break;
-                    case 'main':
-                        // do not add our parameters for an external link
-                        if (substr(strtolower($GLOBALS['cfg']['LeftLogoLink']), 0, 4) !== '://') {
-                            $retval .= '?' . $GLOBALS['url_query'] . '"';
-                        } else {
-                            $retval .= '" target="_blank"';
-                        }
+                    }
                 }
                 $retval .= '>';
                 $retval .= $logo;
@@ -101,11 +108,11 @@ class PMA_NavigationHeader
      * Creates the code for displaying the links
      * at the top of the navigation frame
      *
-     * return string HTML code for the links
+     * @return string HTML code for the links
      */
-    private function links()
+    private function _links()
     {
-        $retval = '<!-- LINKS START -->';
+        $retval  = '<!-- LINKS START -->';
         $retval .= '<div id="leftframelinks">';
         $retval .= '<a href="index.php?' . PMA_generate_common_url() . '" ';
         $retval .= ' title="' . __('Home') . '">';
@@ -197,13 +204,13 @@ class PMA_NavigationHeader
     /**
      * Displays the MySQL servers choice form
      *
-     * return string HTML code for the MySQL servers choice
+     * @return string HTML code for the MySQL servers choice
      */
-    private function serverChoice()
+    private function _serverChoice()
     {
         $retval = '';
         if ($GLOBALS['cfg']['LeftDisplayServers']) {
-            require_once './libraries/select_server.lib.php';
+            include_once './libraries/select_server.lib.php';
             $retval .= '<!-- SERVER CHOICE START -->';
             $retval .= '<div id="serverChoice">';
             $retval .= PMA_selectServer(true, true);
@@ -216,9 +223,9 @@ class PMA_NavigationHeader
     /**
      * Displays a drop-down choice of most recently used tables
      *
-     * return string HTML code for the Recent tables
+     * @return string HTML code for the Recent tables
      */
-    private function recent()
+    private function _recent()
     {
         $retval = '';
         // display recently used tables

@@ -7,8 +7,11 @@
  */
 /**
  * The Node is the building block for the collapsible navigation tree
+ *
+ * @package PhpMyAdmin-Navigation
  */
-class Node {
+class Node
+{
     /**
      * @var int Defines a possible node type
      */
@@ -23,65 +26,65 @@ class Node {
      * @var string A non-unique identifier for the node
      *             This may be trimmed when grouping nodes
      */
-    private $name;
+    public $name;
 
     /**
      * @var string A non-unique identifier for the node
      *             This will never change after being assigned
      */
-    private $real_name;
+    public $real_name;
 
     /**
      * @var int May be one of CONTAINER or OBJECT
      */
-    private $type;
+    public $type;
 
     /**
      * @var bool Whether this object has been created while grouping nodes
      *           Only relevant if the node is of type CONTAINER
      */
-    private $is_group;
+    public $is_group;
 
     /**
      * @var bool Whether to add a "display: none;" CSS
      *           rule to the node when rendering it
      */
-    private $visible = false;
+    public $visible = false;
 
     /**
      * @var Node A reference to the parent object of
      *           this node, NULL for the root node.
      */
-    private $parent;
+    public $parent;
 
     /**
      * @var array An array of Node objects that are
      *            direct children of this node
      */
-    private $children = array();
+    public $children = array();
 
     /**
      * @var string This string is used to group nodes
      *             Only relevant if the node is of type CONTAINER
      */
-    private $separator = '';
+    public $separator = '';
 
     /**
      * @var string How many time to recursively apply the grouping function
      *             Only relevant if the node is of type CONTAINER
      */
-    private $separator_depth = 1;
+    public $separator_depth = 1;
 
     /**
      * @var string An IMG tag, used when rendering the node
      */
-    protected $icon;
+    public $icon;
 
     /**
      * @var Array An array of A tags, used when rendering the node
      *            The indexes in the array may be 'icon' and 'text'
      */
-    protected $links;
+    public $links;
 
     /**
      * @var string Extra CSS classes for the node
@@ -103,7 +106,7 @@ class Node {
     /**
      * @var object A reference to the common functions object
      */
-    private $_commonFunctions;
+    protected $_commonFunctions;
 
     /**
      * Initialises the class by setting the mandatory variables
@@ -134,43 +137,6 @@ class Node {
     }
 
     /**
-     * Getter. Returns values of private variables
-     *
-     * @param string $a Variable name
-     *
-     * @return mixed The value of the requested variable
-     */
-    public function __get($a)
-    {
-        return $this->$a;
-    }
-
-    /**
-     * Setter. Allows to change some of the private variables
-     *
-     * @param string $a Variable name
-     * @param string $b Variable value
-     *
-     * @return bool Whether the operation was successful
-     */
-    public function __set($a, $b)
-    {
-        switch ($a) {
-        case 'icon':
-        case 'links':
-        case 'parent':
-        case 'real_name':
-        case 'separator':
-        case 'separator_depth':
-        case 'visible':
-            $this->$a = $b;
-            return true;
-        default:
-            return false;
-        }
-    }
-
-    /**
      * Adds a child node to this node
      *
      * @param Node $child A child node
@@ -180,7 +146,7 @@ class Node {
     public function addChild($child)
     {
         $this->children[] = $child;
-        $child->parent = $this;
+        $child->parent    = $this;
     }
 
     /**
@@ -231,9 +197,9 @@ class Node {
     /**
      * Retreives the parents for a node
      *
-     * @param bool $self      Whether to include the Node itself in the results
-     * @param bool $container Whether to include nodes of type CONTAINER
-     * @param bool $groups    Whether to include nodes which have $group == true
+     * @param bool $self       Whether to include the Node itself in the results
+     * @param bool $containers Whether to include nodes of type CONTAINER
+     * @param bool $groups     Whether to include nodes which have $group == true
      *
      * @return array An array of parent Nodes
      */
@@ -245,7 +211,7 @@ class Node {
             && ($this->is_group != true || $groups)
         ) {
             $parents[] = $this;
-            $self = false;
+            $self      = false;
         }
         $parent = $this->parent;
         while (isset($parent)) {
@@ -260,9 +226,13 @@ class Node {
     }
 
     /**
-     * TODO: comment
+     * Returns the actual parent of a node. If used twice on an index or columns
+     * node, it will return the table and database nodes. The names of the returned
+     * nodes can be used in SQL queries, etc...
+     *
+     * @return Node
      */
-    function realParent()
+    public function realParent()
     {
         $retval = $this->parents();
         return $retval[0];
@@ -306,7 +276,7 @@ class Node {
     public function hasSiblings()
     {
         $retval = false;
-        $paths = $this->getPaths();
+        $paths  = $this->getPaths();
         if (count($paths['aPath_clean']) > 3) {
             $retval = true;
         } else {
@@ -348,22 +318,22 @@ class Node {
      */
     public function getPaths()
     {
-        $aPath = array();
+        $aPath       = array();
         $aPath_clean = array();
         foreach ($this->parents(true, true, false) as $parent) {
-            $aPath[] = base64_encode($parent->real_name);
+            $aPath[]       = base64_encode($parent->real_name);
             $aPath_clean[] = $parent->real_name;
         }
-        $aPath = implode('.', array_reverse($aPath));
+        $aPath       = implode('.', array_reverse($aPath));
         $aPath_clean = array_reverse($aPath_clean);
 
-        $vPath = array();
+        $vPath       = array();
         $vPath_clean = array();
         foreach ($this->parents(true, true, true) as $parent) {
-            $vPath[] = base64_encode($parent->name);
+            $vPath[]       = base64_encode($parent->name);
             $vPath_clean[] = $parent->name;
         }
-        $vPath = implode('.', array_reverse($vPath));
+        $vPath       = implode('.', array_reverse($vPath));
         $vPath_clean = array_reverse($vPath_clean);
 
         return array(
@@ -375,7 +345,15 @@ class Node {
     }
 
     /**
-     * TODO: comment
+     * Returns the names of children of type $type present inside this container
+     * This method is overridden by the Node_Database and Node_Table classes
+     *
+     * @param string $type         The type of item we are looking for
+     *                             ('tables', 'views', etc)
+     * @param int    $pos          The offset of the list within the results
+     * @param string $searchClause A string used to filter the results of the query
+     *
+     * @return array
      */
     public function getData($type, $pos, $searchClause = '')
     {
@@ -387,7 +365,14 @@ class Node {
     }
 
     /**
-     * TODO: comment
+     * Returns the number of children of type $type present inside this container
+     * This method is overridden by the Node_Database and Node_Table classes
+     *
+     * @param string $type         The type of item we are looking for
+     *                             ('tables', 'views', etc)
+     * @param string $searchClause A string used to filter the results of the query
+     *
+     * @return int
      */
     public function getPresence($type, $searchClause = '')
     {

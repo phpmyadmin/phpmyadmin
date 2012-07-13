@@ -1,11 +1,31 @@
 <?php
-
-class Node_Table extends Node {
-    
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Functionality for the navigation tree
+ *
+ * @package PhpMyAdmin-Navigation
+ */
+/**
+ * Represents a columns node in the navigation tree
+ *
+ * @package PhpMyAdmin-Navigation
+ */
+class Node_Table extends Node
+{
+    /**
+     * Initialises the class
+     *
+     * @param string $name     An identifier for the new node
+     * @param int    $type     Type of node, may be one of CONTAINER or OBJECT
+     * @param bool   $is_group Whether this object has been created
+     *                         while grouping nodes
+     *
+     * @return Node_Table
+     */
     public function __construct($name, $type = Node::OBJECT, $is_group = false)
     {
         parent::__construct($name, $type, $is_group);
-        $this->icon = $this->_commonFunctions->getImage('b_browse.png');
+        $this->icon  = $this->_commonFunctions->getImage('b_browse.png');
         $this->links = array(
             'text' => 'sql.php?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;table=%1$s'
@@ -16,11 +36,21 @@ class Node_Table extends Node {
         );
     }
 
+    /**
+     * Returns the number of children of type $type present inside this container
+     * This method is overridden by the Node_Database and Node_Table classes
+     *
+     * @param string $type         The type of item we are looking for
+     *                             ('columns' or 'indexes')
+     * @param string $searchClause A string used to filter the results of the query
+     *
+     * @return int
+     */
     public function getPresence($type, $searchClause = '')
     {
         $retval = 0;
-        $db = $this->realParent()->real_name;
-        $table = $this->real_name;
+        $db     = $this->realParent()->real_name;
+        $table  = $this->real_name;
         switch ($type) {
         case 'columns':
             if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
@@ -66,11 +96,22 @@ class Node_Table extends Node {
         return $retval;
     }
 
+    /**
+     * Returns the names of children of type $type present inside this container
+     * This method is overridden by the Node_Database and Node_Table classes
+     *
+     * @param string $type         The type of item we are looking for
+     *                             ('tables', 'views', etc)
+     * @param int    $pos          The offset of the list within the results
+     * @param string $searchClause A string used to filter the results of the query
+     *
+     * @return array
+     */
     public function getData($type, $pos, $searchClause = '')
     {
         $retval = array();
-        $db = $this->realParent()->real_name;
-        $table = $this->real_name;
+        $db     = $this->realParent()->real_name;
+        $table  = $this->real_name;
         switch ($type) {
         case 'columns':
             if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
@@ -89,7 +130,7 @@ class Node_Table extends Node {
                 $query  = "SHOW COLUMNS FROM $table FROM $db";
                 $handle = PMA_DBI_try_query($query);
                 if ($handle !== false) {
-                    $count  = 0;
+                    $count = 0;
                     while ($arr = PMA_DBI_fetch_array($handle)) {
                         if ($pos <= 0 && $count < $GLOBALS['cfg']['MaxTableList']) {
                             $retval[] = $arr['Field'];
@@ -106,7 +147,7 @@ class Node_Table extends Node {
             $query  = "SHOW INDEXES FROM $table FROM $db";
             $handle = PMA_DBI_try_query($query);
             if ($handle !== false) {
-                $count  = 0;
+                $count = 0;
                 while ($arr = PMA_DBI_fetch_array($handle)) {
                     if (! in_array($arr['Key_name'], $retval)) {
                         if ($pos <= 0 && $count < $GLOBALS['cfg']['MaxTableList']) {
@@ -135,7 +176,7 @@ class Node_Table extends Node {
                 $query  = "SHOW TRIGGERS FROM $db WHERE `Table` = '$table'";
                 $handle = PMA_DBI_try_query($query);
                 if ($handle !== false) {
-                    $count  = 0;
+                    $count = 0;
                     while ($arr = PMA_DBI_fetch_array($handle)) {
                         if ($pos <= 0 && $count < $GLOBALS['cfg']['MaxTableList']) {
                             $retval[] = $arr['Trigger'];

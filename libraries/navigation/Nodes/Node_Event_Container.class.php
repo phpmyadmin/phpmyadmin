@@ -1,11 +1,26 @@
 <?php
-
-class Node_Event_Container extends Node {
-    
+/* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * Functionality for the navigation tree
+ *
+ * @package PhpMyAdmin-Navigation
+ */
+/**
+ * Represents a container for events nodes in the navigation tree
+ *
+ * @package PhpMyAdmin-Navigation
+ */
+class Node_Event_Container extends Node
+{
+    /**
+     * Initialises the class
+     *
+     * @return Node_Event_Container
+     */
     public function __construct()
     {
         parent::__construct(__('Events'), Node::CONTAINER);
-        $this->icon = $this->_commonFunctions->getImage('b_events.png', '');
+        $this->icon  = $this->_commonFunctions->getImage('b_events.png', '');
         $this->links = array(
             'text' => 'db_events.php?server=' . $GLOBALS['server']
                     . '&amp;db=%1$s&amp;token=' . $GLOBALS['token'],
@@ -15,7 +30,7 @@ class Node_Event_Container extends Node {
         $this->real_name = 'events';
 
         $new = new Node(__('New'));
-        $new->icon = $this->_commonFunctions->getImage('b_event_add.png', '');
+        $new->icon  = $this->_commonFunctions->getImage('b_event_add.png', '');
         $new->links = array(
             'text' => 'db_events.php?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;token=' . $GLOBALS['token']

@@ -1,14 +1,17 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Functionality for the navigation tree in the left frame
+ * Functionality for the navigation tree
  *
  * @package PhpMyAdmin-Navigation
  */
 /**
  * Displays a collapsible of database objects in the navigation frame
+ *
+ * @package PhpMyAdmin-Navigation
  */
-class PMA_NavigationTree {
+class PMA_NavigationTree
+{
     /**
      * @var Node Reference to the root node of the tree
      */
@@ -77,7 +80,7 @@ class PMA_NavigationTree {
      * @param int $pos Position in the list of databases,
      *                 used for pagination
      *
-     * @return nothing
+     * @return void
      */
     public function __construct($pos)
     {
@@ -87,11 +90,11 @@ class PMA_NavigationTree {
         $this->_pos = $pos;
         // Get the active node
         if (isset($_REQUEST['aPath'])) {
-            $this->_aPath[0] = $this->_parsePath($_REQUEST['aPath']);
-            $this->_pos2_name[0] = $_REQUEST['pos2_name'];
+            $this->_aPath[0]      = $this->_parsePath($_REQUEST['aPath']);
+            $this->_pos2_name[0]  = $_REQUEST['pos2_name'];
             $this->_pos2_value[0] = $_REQUEST['pos2_value'];
             if (isset($_REQUEST['pos3_name'])) {
-                $this->_pos3_name[0] = $_REQUEST['pos3_name'];
+                $this->_pos3_name[0]  = $_REQUEST['pos3_name'];
                 $this->_pos3_value[0] = $_REQUEST['pos3_value'];
             }
         } else if (isset($_REQUEST['n0_aPath'])) {
@@ -100,11 +103,13 @@ class PMA_NavigationTree {
                 $this->_aPath[$count] = $this->_parsePath(
                     $_REQUEST['n' . $count . '_aPath']
                 );
-                $this->_pos2_name[$count]  = $_REQUEST['n' . $count . '_pos2_name'];
-                $this->_pos2_value[$count] = $_REQUEST['n' . $count . '_pos2_value'];
-                if (isset($_REQUEST['n' . $count . '_pos3_name'])) {
-                    $this->_pos3_name[$count]  = $_REQUEST['n' . $count . '_pos3_name'];
-                    $this->_pos3_value[$count] = $_REQUEST['n' . $count . '_pos3_value'];
+                $index = 'n' . $count . '_pos2_';
+                $this->_pos2_name[$count]  = $_REQUEST[$index . 'name'];
+                $this->_pos2_value[$count] = $_REQUEST[$index . 'value'];
+                $index = 'n' . $count . '_pos3_';
+                if (isset($_REQUEST[$index])) {
+                    $this->_pos3_name[$count]  = $_REQUEST[$index . 'name'];
+                    $this->_pos3_value[$count] = $_REQUEST[$index . 'value'];
                 }
                 $count++;
             }
@@ -416,12 +421,12 @@ class PMA_NavigationTree {
     /**
      * Recursively groups tree nodes given a separator
      *
-     * @param null|Node $node The node to group or null
-     *                        to group the whole tree. If
-     *                        passed as an argument, $node
-     *                        must be of type CONTAINER
+     * @param mixed $node The node to group or null
+     *                    to group the whole tree. If
+     *                    passed as an argument, $node
+     *                    must be of type CONTAINER
      *
-     * @return nothing
+     * @return void
      */
     public function groupTree($node = null)
     {
@@ -438,9 +443,9 @@ class PMA_NavigationTree {
     /**
      * Recursively groups tree nodes given a sperarator
      *
-     * @param null|Node $node The node to group
+     * @param Node $node The node to group
      *
-     * @return nothing
+     * @return void
      */
     public function groupNode($node)
     {
@@ -558,7 +563,7 @@ class PMA_NavigationTree {
             $retval = false;
         } else {
             $this->groupTree();
-            $retval = "<div class='list_container' style='display: none;'>";
+            $retval  = "<div class='list_container' style='display: none;'>";
             $retval .= "<ul>";
             $retval .= $this->_fastFilterHtml($node);
             $retval .= $this->_getPageSelector($node);
@@ -615,7 +620,7 @@ class PMA_NavigationTree {
     private function _getPaginationParamsHtml($node)
     {
         $retval = '';
-        $paths = $node->getPaths();
+        $paths  = $node->getPaths();
         if (isset($paths['aPath_clean'][2])) {
             $retval .= "<span class='hide pos2_name'>";
             $retval .= $paths['aPath_clean'][2];
@@ -648,7 +653,7 @@ class PMA_NavigationTree {
     private function _renderNode($node, $recursive = -1, $class = '')
     {
         $retval = '';
-        $paths = $node->getPaths();
+        $paths  = $node->getPaths();
         if ($node->hasSiblings()) {
             if (   $node->type == Node::CONTAINER
                 && count($node->children) == 0
@@ -693,7 +698,7 @@ class PMA_NavigationTree {
                     $retval .= "<b></b>";
                 }
 
-                $icon = $this->_commonFunctions->getImage('b_plus.png');
+                $icon  = $this->_commonFunctions->getImage('b_plus.png');
                 $match = 1;
                 foreach ($this->_aPath as $path) {
                     $match = 1;
@@ -724,7 +729,7 @@ class PMA_NavigationTree {
                     }
                     if ($match) {
                         $loaded = ' loaded';
-                        $icon = $this->_commonFunctions->getImage('b_minus.png');
+                        $icon  = $this->_commonFunctions->getImage('b_minus.png');
                         break;
                     }
                 }
@@ -747,7 +752,7 @@ class PMA_NavigationTree {
                 $retval .= "</div>";
             } else {
                 $retval .= "<div class='block'>";
-                $iClass = '';
+                $iClass  = '';
                 if ($class == 'first') {
                     $iClass = " class='first'";
                 }

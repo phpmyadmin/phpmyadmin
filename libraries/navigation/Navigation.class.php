@@ -1,5 +1,11 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+/**
+ * This class is responsible for instanciating
+ * the various components of the navigation panel
+ *
+ * @package PhpMyAdmin-navigation
+ */
 
 // The Nodes are the building blocks for the navigation tree
 require_once 'libraries/navigation/Nodes/Node.class.php';
@@ -29,14 +35,12 @@ require_once 'libraries/navigation/NavigationTree.class.php';
 require_once 'libraries/navigation/NavigationHeader.class.php';
 
 /**
- * Functionality for the navigation frame
+ * The navigation panel - displays server, db and table selection tree
  *
  * @package PhpMyAdmin-Navigation
  */
-/**
- * the navigation frame - displays server, db and table selection tree
- */
-class PMA_Navigation {
+class PMA_Navigation
+{
     /**
      * @var int Position in the list of databases,
      *          used for pagination
@@ -47,12 +51,12 @@ class PMA_Navigation {
      * Initialises the class, handles incoming requests
      * and fires up rendering of the output
      *
-     * return nothing
+     * @return void
      */
     public function __construct()
     {
         $GLOBALS['token'] = $_SESSION[' PMA_token '];
-        
+
         if (isset($_REQUEST['pos'])) {
             $this->_pos = (int) $_REQUEST['pos'];
         }
@@ -64,9 +68,10 @@ class PMA_Navigation {
     /**
      * Returns the database position for the page selector
      *
-     * return int
+     * @return int
      */
-    private function _getNavigationDbPos() {
+    private function _getNavigationDbPos()
+    {
         $query  = "SELECT (COUNT(`SCHEMA_NAME`) DIV %d) * %d ";
         $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
         $query .= "WHERE `SCHEMA_NAME` < '%s' ";
@@ -100,7 +105,7 @@ class PMA_Navigation {
             || ! empty($_REQUEST['reload'])
         ) {
             $_url_params = array('server' => $GLOBALS['server']);
-            $num_db = PMA_DBI_fetch_value(
+            $num_db      = PMA_DBI_fetch_value(
                 "SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`SCHEMATA`"
             );
             $retval .= PMA_commonFunctions::getInstance()->getListNavigator(
@@ -125,7 +130,7 @@ class PMA_Navigation {
         } else {
             $retval .= $treeRender;
         }
-        
+
         if (! PMA_Response::getInstance()->isAjax()) {
             $retval .= '</div>';
             $retval .= '</div>';
