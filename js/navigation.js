@@ -228,8 +228,8 @@ function PMA_reloadNavigation() {
         if ($(this).find('img').is('.ic_b_minus')
             && $(this).closest('li').find('div.list_container .ic_b_minus').length == 0
         ) {
-            params['aPath_' + count] = $(this).find('span.aPath').text();
-            params['vPath_' + count] = $(this).find('span.vPath').text();
+            params['n' + count + '_aPath'] = $(this).find('span.aPath').text();
+            params['n' + count + '_vPath'] = $(this).find('span.vPath').text();
 
             var pos2_name = $(this).find('span.pos2_name').text();
             if (! pos2_name) {
@@ -248,11 +248,11 @@ function PMA_reloadNavigation() {
                     .text();
             }
 
-            params['pos2_name_' + count] = pos2_name;
-            params['pos2_value_' + count] = pos2_value;
+            params['n' + count + '_pos2_name'] = pos2_name;
+            params['n' + count + '_pos2_value'] = pos2_value;
 
-            params['pos3_name_' + count] = $(this).find('span.pos3_name').text();
-            params['pos3_value_' + count] = $(this).find('span.pos3_value').text();
+            params['n' + count + '_pos3_name'] = $(this).find('span.pos3_name').text();
+            params['n' + count + '_pos3_value'] = $(this).find('span.pos3_value').text();
             count++;
         }
     });

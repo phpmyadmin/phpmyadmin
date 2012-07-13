@@ -94,28 +94,28 @@ class PMA_NavigationTree {
                 $this->pos3_name[0] = $_REQUEST['pos3_name'];
                 $this->pos3_value[0] = $_REQUEST['pos3_value'];
             }
-        } else if (isset($_REQUEST['aPath_0'])) {
+        } else if (isset($_REQUEST['n0_aPath'])) {
             $count = 0;
-            while (isset($_REQUEST['aPath_' . $count])) {
+            while (isset($_REQUEST['n' . $count . '_aPath'])) {
                 $this->_aPath[$count] = $this->parsePath(
-                    $_REQUEST['aPath_' . $count]
+                    $_REQUEST['n' . $count . '_aPath']
                 );
-                $this->pos2_name[$count]  = $_REQUEST['pos2_name_' . $count];
-                $this->pos2_value[$count] = $_REQUEST['pos2_value_' . $count];
-                if (isset($_REQUEST['pos3_name_' . $count])) {
-                    $this->pos3_name[$count]  = $_REQUEST['pos3_name_' . $count];
-                    $this->pos3_value[$count] = $_REQUEST['pos3_value_' . $count];
+                $this->pos2_name[$count]  = $_REQUEST['n' . $count . '_pos2_name'];
+                $this->pos2_value[$count] = $_REQUEST['n' . $count . '_pos2_value'];
+                if (isset($_REQUEST['n' . $count . '_pos3_name'])) {
+                    $this->pos3_name[$count]  = $_REQUEST['n' . $count . '_pos3_name'];
+                    $this->pos3_value[$count] = $_REQUEST['n' . $count . '_pos3_value'];
                 }
                 $count++;
             }
         }
         if (isset($_REQUEST['vPath'])) {
             $this->_vPath[0] = $this->parsePath($_REQUEST['vPath']);
-        } else if (isset($_REQUEST['vPath_0'])) {
+        } else if (isset($_REQUEST['n0_vPath'])) {
             $count = 0;
-            while (isset($_REQUEST['vPath_' . $count])) {
+            while (isset($_REQUEST['n' . $count . '_vPath'])) {
                 $this->_vPath[$count] = $this->parsePath(
-                    $_REQUEST['vPath_' . $count]
+                    $_REQUEST['n' . $count . '_vPath']
                 );
                 $count++;
             }
