@@ -41,7 +41,7 @@ class PMA_Navigation {
      * @var int Position in the list of databases,
      *          used for pagination
      */
-    private $pos;
+    private $_pos;
 
     /**
      * Initialises the class, handles incoming requests
@@ -54,10 +54,10 @@ class PMA_Navigation {
         $GLOBALS['token'] = $_SESSION[' PMA_token '];
         
         if (isset($_REQUEST['pos'])) {
-            $this->pos = (int) $_REQUEST['pos'];
+            $this->_pos = (int) $_REQUEST['pos'];
         }
-        if (! isset($this->pos)) {
-            $this->pos = $this->_getNavigationDbPos();
+        if (! isset($this->_pos)) {
+            $this->_pos = $this->_getNavigationDbPos();
         }
     }
 
@@ -94,7 +94,7 @@ class PMA_Navigation {
             $header = new PMA_NavigationHeader();
             $retval = $header->getDisplay();
         }
-        $tree = new PMA_NavigationTree($this->pos);
+        $tree = new PMA_NavigationTree($this->_pos);
         if (! PMA_Response::getInstance()->isAjax()
             || ! empty($_REQUEST['full'])
             || ! empty($_REQUEST['reload'])
@@ -105,7 +105,7 @@ class PMA_Navigation {
             );
             $retval .= PMA_commonFunctions::getInstance()->getListNavigator(
                 $num_db,
-                $this->pos,
+                $this->_pos,
                 $_url_params,
                 'navigation.php',
                 'frame_navigation',
