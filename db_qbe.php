@@ -618,6 +618,19 @@ function PMA_dbQbeGetInsDelAndOrCell($row_index, $checked_options) {
     return $html_output;
 }
 
+/**
+ * Provides rows for criteria inputbox Insert/Delete options
+ * with AND/OR relationship modification options 
+ *
+ * @param array   $criteria_column_count Number of criteria columns
+ * @param integer $new_row_index         New row index if rows are added/deleted
+ * @param integer $row_index             Row index
+ * @param string  $criteriaColumnInsert  If a new criteria column is needed
+ * @param string  $criteriaColumnDelete  If a criteria column is to be deleted
+ * @param string  $realwidth             Largest column width found
+ *
+ * @return HTML table rows
+ */
 function PMA_dbQbeGetInputboxRow($criteria_column_count, $new_row_index, $row_index,
     $criteriaColumnInsert, $criteriaColumnDelete, $realwidth
 ) {
