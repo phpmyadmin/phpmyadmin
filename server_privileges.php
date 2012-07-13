@@ -299,7 +299,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
                 }
                 $sql_query = $create_user_show . $sql_query;
             }
-            list($sql_query, $message) = PMA_getQueryAndMessageForAddUser(
+            list($sql_query, $message) = PMA_addUserAndCreateDatabas(
                 $_error, $real_sql_query, $sql_query, $username, $hostname
             );
 
