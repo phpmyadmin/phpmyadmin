@@ -704,7 +704,7 @@ PMA_fastFilter.filter.prototype.request = function ()
         }
         var url = $('#pma_navigation').find('a.navigation_url').attr('href');
         var results = that.$this.find('li:visible:not(.fast_filter)').length;
-        var params = that.$this.find('form').serialize() + "&results=" + results;
+        var params = that.$this.find('form.fast_filter').serialize() + "&results=" + results;
         that.xhr = $.ajax({
             url: url,
             type: 'post',

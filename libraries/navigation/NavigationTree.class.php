@@ -810,7 +810,7 @@ class PMA_NavigationTree {
                 'pos2_value' => 0
             );
             $retval .= "<li class='fast_filter'>";
-            $retval .= "<form class='ajax'>";
+            $retval .= "<form class='ajax fast_filter'>";
             $retval .= PMA_getHiddenFields($url_params);
             $retval .= "<input class='searchClause' name='searchClause' value='" . __('filter tables by name') . "' />";
             $retval .= "<span title='" . __('Clear Fast Filter') . "'>X</span>";
