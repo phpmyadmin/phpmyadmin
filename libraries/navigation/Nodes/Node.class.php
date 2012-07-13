@@ -377,7 +377,7 @@ class Node {
     /**
      * TODO: comment
      */
-    public function getData($type, $pos)
+    public function getData($type, $pos, $searchClause = '')
     {
         $query  = "SELECT `SCHEMA_NAME` ";
         $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
@@ -389,7 +389,7 @@ class Node {
     /**
      * TODO: comment
      */
-    public function getPresence($type)
+    public function getPresence($type, $searchClause = '')
     {
         return 0;
     }

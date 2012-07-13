@@ -13,7 +13,7 @@ class Node_Database extends Node {
                     . '&amp;db=%1$s&amp;token=' . $GLOBALS['token']
         );
     }
-    public function getPresence($type)
+    public function getPresence($type, $searchClause = '')
     {
         $retval = 0;
         $db = $this->real_name;
@@ -24,27 +24,39 @@ class Node_Database extends Node {
                 $query  = "SELECT COUNT(*) ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
                 $query .= "WHERE `TABLE_SCHEMA`='$db' ";
-                $query .= "AND `TABLE_TYPE`='BASE TABLE'";
+                $query .= "AND `TABLE_TYPE`='BASE TABLE' ";
+                if (! empty($searchClause)) {
+                    $query .= "AND `TABLE_NAME` LIKE '%" . $this->_commonFunctions->sqlAddSlashes($searchClause, true) . "%' ";
+                }
                 $retval = (int)PMA_DBI_fetch_value($query);
             } else {
-                $db     = $this->_commonFunctions->backquote($db);
-                $query  = "SHOW FULL TABLES FROM $db ";
-                $query .= "WHERE `Table_type`='BASE TABLE'";
+                $query  = "SHOW FULL TABLES FROM " . $this->_commonFunctions->backquote($db) . " ";
+                $query .= "WHERE `Table_type`='BASE TABLE' ";
+                if (! empty($searchClause)) {
+                    $query .= "AND " . $this->_commonFunctions->backquote("Tables_in_" . $db);
+                    $query .= " LIKE '%" . $this->_commonFunctions->sqlAddSlashes($searchClause, true) . "%' ";
+                }
                 $retval = PMA_DBI_num_rows(PMA_DBI_try_query($query));
             }
             break;
         case 'views':
-            if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
+            if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS'] || ! empty($searchClause)) {
                 $db     = $this->_commonFunctions->sqlAddSlashes($db);
                 $query  = "SELECT COUNT(*) ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
                 $query .= "WHERE `TABLE_SCHEMA`='$db' ";
-                $query .= "AND `TABLE_TYPE`!='BASE TABLE'";
+                $query .= "AND `TABLE_TYPE`!='BASE TABLE' ";
+                if (! empty($searchClause)) {
+                    $query .= "AND `TABLE_NAME` LIKE '%" . $this->_commonFunctions->sqlAddSlashes($searchClause, true) . "%' ";
+                }
                 $retval = (int)PMA_DBI_fetch_value($query);
             } else {
-                $db     = $this->_commonFunctions->backquote($db);
-                $query  = "SHOW FULL TABLES FROM $db ";
-                $query .= "WHERE `Table_type`!='BASE TABLE'";
+                $query  = "SHOW FULL TABLES FROM " . $this->_commonFunctions->backquote($db) . " ";
+                $query .= "WHERE `Table_type`!='BASE TABLE' ";
+                if (! empty($searchClause)) {
+                    $query .= "AND " . $this->_commonFunctions->backquote("Tables_in_" . $db);
+                    $query .= " LIKE '%" . $this->_commonFunctions->sqlAddSlashes($searchClause, true) . "%' ";
+                }
                 $retval = PMA_DBI_num_rows(PMA_DBI_try_query($query));
             }
             break;
@@ -54,11 +66,17 @@ class Node_Database extends Node {
                 $query  = "SELECT COUNT(*) ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
                 $query .= "WHERE `ROUTINE_SCHEMA`='$db'";
-                $query .= "AND `ROUTINE_TYPE`='PROCEDURE'";
+                $query .= "AND `ROUTINE_TYPE`='PROCEDURE' ";
+                if (! empty($searchClause)) {
+                    $query .= "AND `ROUTINE_NAME` LIKE '%" . $this->_commonFunctions->sqlAddSlashes($searchClause, true) . "%' ";
+                }
                 $retval = (int)PMA_DBI_fetch_value($query);
             } else {
                 $db     = $this->_commonFunctions->sqlAddSlashes($db);
-                $query  = "SHOW PROCEDURE STATUS WHERE `Db`='$db'";
+                $query  = "SHOW PROCEDURE STATUS WHERE `Db`='$db' ";
+                if (! empty($searchClause)) {
+                    $query .= "WHERE `Name` LIKE '%" . $this->_commonFunctions->sqlAddSlashes($searchClause, true) . "%'";
+                }
                 $retval = PMA_DBI_num_rows(PMA_DBI_try_query($query));
             }
             break;
@@ -68,11 +86,17 @@ class Node_Database extends Node {
                 $query  = "SELECT COUNT(*) ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
                 $query .= "WHERE `ROUTINE_SCHEMA`='$db' ";
-                $query .= "AND `ROUTINE_TYPE`='FUNCTION'";
+                $query .= "AND `ROUTINE_TYPE`='FUNCTION' ";
+                if (! empty($searchClause)) {
+                    $query .= "AND `ROUTINE_NAME` LIKE '%" . $this->_commonFunctions->sqlAddSlashes($searchClause, true) . "%' ";
+                }
                 $retval = (int)PMA_DBI_fetch_value($query);
             } else {
                 $db     = $this->_commonFunctions->sqlAddSlashes($db);
-                $query  = "SHOW FUNCTION STATUS WHERE `Db`='$db'";
+                $query  = "SHOW FUNCTION STATUS WHERE `Db`='$db' ";
+                if (! empty($searchClause)) {
+                    $query .= "WHERE `Name` LIKE '%" . $this->_commonFunctions->sqlAddSlashes($searchClause, true) . "%'";
+                }
                 $retval = PMA_DBI_num_rows(PMA_DBI_try_query($query));
             }
             break;
@@ -81,11 +105,17 @@ class Node_Database extends Node {
                 $db     = $this->_commonFunctions->sqlAddSlashes($db);
                 $query  = "SELECT COUNT(*) ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`EVENTS` ";
-                $query .= "WHERE `EVENT_SCHEMA`='$db'";
+                $query .= "WHERE `EVENT_SCHEMA`='$db' ";
+                if (! empty($searchClause)) {
+                    $query .= "AND `EVENT_NAME` LIKE '%" . $this->_commonFunctions->sqlAddSlashes($searchClause, true) . "%' ";
+                }
                 $retval = (int)PMA_DBI_fetch_value($query);
             } else {
                 $db     = $this->_commonFunctions->backquote($db);
-                $query  = "SHOW EVENTS FROM $db";
+                $query  = "SHOW EVENTS FROM $db ";
+                if (! empty($searchClause)) {
+                    $query .= "WHERE `Name` LIKE '%" . $this->_commonFunctions->sqlAddSlashes($searchClause, true) . "%'";
+                }
                 $retval = PMA_DBI_num_rows(PMA_DBI_try_query($query));
             }
             break;
@@ -95,7 +125,7 @@ class Node_Database extends Node {
         return $retval;
     }
 
-    public function getData($type, $pos)
+    public function getData($type, $pos, $searchClause = '')
     {
         $retval = array();
         $db = $this->real_name;
@@ -107,13 +137,19 @@ class Node_Database extends Node {
                 $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
                 $query .= "WHERE `TABLE_SCHEMA`='$db' ";
                 $query .= "AND `TABLE_TYPE`='BASE TABLE' ";
+                if (! empty($searchClause)) {
+                    $query .= "AND `TABLE_NAME` LIKE '%" . $this->_commonFunctions->sqlAddSlashes($searchClause, true) . "%' ";
+                }
                 $query .= "ORDER BY `TABLE_NAME` ASC ";
                 $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxTableList']}";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
-                $db     = $this->_commonFunctions->backquote($db);
-                $query  = "SHOW FULL TABLES FROM $db ";
-                $query .= "WHERE `Table_type`='BASE TABLE'";
+                $query  = "SHOW FULL TABLES FROM " . $this->_commonFunctions->backquote($db) . " ";
+                $query .= "WHERE `Table_type`='BASE TABLE' ";
+                if (! empty($searchClause)) {
+                    $query .= "AND " . $this->_commonFunctions->backquote("Tables_in_" . $db);
+                    $query .= " LIKE '%" . $this->_commonFunctions->sqlAddSlashes($searchClause, true) . "%' ";
+                }
                 $handle = PMA_DBI_try_query($query);
                 if ($handle !== false) {
                     $count  = 0;
@@ -134,13 +170,19 @@ class Node_Database extends Node {
                 $query .= "FROM `INFORMATION_SCHEMA`.`TABLES` ";
                 $query .= "WHERE `TABLE_SCHEMA`='$db' ";
                 $query .= "AND `TABLE_TYPE`!='BASE TABLE' ";
+                if (! empty($searchClause)) {
+                    $query .= "AND `TABLE_NAME` LIKE '%" . $this->_commonFunctions->sqlAddSlashes($searchClause, true) . "%' ";
+                }
                 $query .= "ORDER BY `TABLE_NAME` ASC ";
                 $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxTableList']}";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
-                $db     = $this->_commonFunctions->backquote($db);
-                $query  = "SHOW FULL TABLES FROM $db ";
-                $query .= "WHERE `Table_type`!='BASE TABLE'";
+                $query  = "SHOW FULL TABLES FROM " . $this->_commonFunctions->backquote($db) . " ";
+                $query .= "WHERE `Table_type`!='BASE TABLE' ";
+                if (! empty($searchClause)) {
+                    $query .= "AND " . $this->_commonFunctions->backquote("Tables_in_" . $db);
+                    $query .= " LIKE '%" . $this->_commonFunctions->sqlAddSlashes($searchClause, true) . "%' ";
+                }
                 $handle = PMA_DBI_try_query($query);
                 if ($handle !== false) {
                     $count  = 0;
@@ -161,12 +203,18 @@ class Node_Database extends Node {
                 $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
                 $query .= "WHERE `ROUTINE_SCHEMA`='$db'";
                 $query .= "AND `ROUTINE_TYPE`='PROCEDURE' ";
+                if (! empty($searchClause)) {
+                    $query .= "AND `ROUTINE_NAME` LIKE '%" . $this->_commonFunctions->sqlAddSlashes($searchClause, true) . "%' ";
+                }
                 $query .= "ORDER BY `ROUTINE_NAME` ASC ";
                 $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxTableList']}";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $db     = $this->_commonFunctions->sqlAddSlashes($db);
-                $query  = "SHOW PROCEDURE STATUS WHERE `Db`='$db'";
+                $query  = "SHOW PROCEDURE STATUS WHERE `Db`='$db' ";
+                if (! empty($searchClause)) {
+                    $query .= "WHERE `Name` LIKE '%" . $this->_commonFunctions->sqlAddSlashes($searchClause, true) . "%'";
+                }
                 $handle = PMA_DBI_try_query($query);
                 if ($handle !== false) {
                     $count  = 0;
@@ -187,12 +235,18 @@ class Node_Database extends Node {
                 $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
                 $query .= "WHERE `ROUTINE_SCHEMA`='$db' ";
                 $query .= "AND `ROUTINE_TYPE`='FUNCTION' ";
+                if (! empty($searchClause)) {
+                    $query .= "AND `ROUTINE_NAME` LIKE '%" . $this->_commonFunctions->sqlAddSlashes($searchClause, true) . "%' ";
+                }
                 $query .= "ORDER BY `ROUTINE_NAME` ASC ";
                 $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxTableList']}";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $db     = $this->_commonFunctions->sqlAddSlashes($db);
-                $query  = "SHOW FUNCTION STATUS WHERE `Db`='$db'";
+                $query  = "SHOW FUNCTION STATUS WHERE `Db`='$db' ";
+                if (! empty($searchClause)) {
+                    $query .= "WHERE `Name` LIKE '%" . $this->_commonFunctions->sqlAddSlashes($searchClause, true) . "%'";
+                }
                 $handle = PMA_DBI_try_query($query);
                 if ($handle !== false) {
                     $count  = 0;
@@ -212,12 +266,18 @@ class Node_Database extends Node {
                 $query  = "SELECT `EVENT_NAME` AS `name` ";
                 $query .= "FROM `INFORMATION_SCHEMA`.`EVENTS` ";
                 $query .= "WHERE `EVENT_SCHEMA`='$db' ";
+                if (! empty($searchClause)) {
+                    $query .= "AND `EVENT_NAME` LIKE '%" . $this->_commonFunctions->sqlAddSlashes($searchClause, true) . "%' ";
+                }
                 $query .= "ORDER BY `EVENT_NAME` ASC ";
                 $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxTableList']}";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $db     = $this->_commonFunctions->backquote($db);
-                $query  = "SHOW EVENTS FROM $db";
+                $query  = "SHOW EVENTS FROM $db ";
+                if (! empty($searchClause)) {
+                    $query .= "WHERE `Name` LIKE '%" . $this->_commonFunctions->sqlAddSlashes($searchClause, true) . "%'";
+                }
                 $handle = PMA_DBI_try_query($query);
                 if ($handle !== false) {
                     $count  = 0;

@@ -3194,6 +3194,11 @@ AJAX.registerOnload('functions.js', function() {
             var params = $(this).closest("form").serialize() + '&ajax_request=true';
             if (isDbSelector) {
                 params += '&full=true';
+            } else {
+                var $input = $this.closest('.list_container').find('.fast_filter input.searchClause');
+                if ($input.length && $input.val() != $input[0].defaultValue) {
+                    params += "&searchClause=" + $input.val();
+                }
             }
             $.get('navigation.php', params, function (data) {
                 if (data.success) {
@@ -3202,9 +3207,15 @@ AJAX.registerOnload('functions.js', function() {
                         $('#pma_navigation_tree').html(data.message).children('div').show();
                     } else {
                         var $parent = $this.closest('.list_container').parent();
-                        $this.closest('.list_container').remove();
-                        $parent.append(data.message).children('div').show();
+                        var $input = $this.closest('.list_container').find('.fast_filter input.searchClause');
+                        var val = '';
+                        if ($input.length) {
+                            val = $input.val();
+                        }
+                        $this.closest('.list_container').html($(data.message).children().show());
+                        $parent.find('.fast_filter input.searchClause').val(val);
                         $parent.find('span.pos2_value:first').text($parent.find('span.pos2_value:last').text());
+                        $parent.find('span.pos3_value:first').text($parent.find('span.pos3_value:last').text());
                     }
                 } else {
                     PMA_ajaxShowMessage(data.error);

@@ -60,6 +60,12 @@ class PMA_NavigationTree {
     private $pos3_value = array();
 
     /**
+     * @var string The search clause to use in SQL queries for fetching nodes
+     *             Used by the asynchronous fast filter
+     */
+    private $searchClause = '';
+
+    /**
      * @var object A reference to the common functions object
      */
     private $_commonFunctions;
@@ -112,6 +118,9 @@ class PMA_NavigationTree {
                 );
                 $count++;
             }
+        }
+        if (isset($_REQUEST['searchClause'])) {
+            $this->searchClause = $_REQUEST['searchClause'];
         }
         // Initialise the tree by creating a root node
         $node = new Node('root', Node::CONTAINER);
@@ -210,7 +219,7 @@ class PMA_NavigationTree {
                 $retval = $container;
 
                 if (count($container->children) <= 1) {
-                    foreach ($db->getData($container->real_name, $pos2) as $item) {
+                    foreach ($db->getData($container->real_name, $pos2, $this->searchClause) as $item) {
                         switch ($container->real_name) {
                         case 'events':
                             $node = new Node_Event($item);
@@ -540,6 +549,30 @@ class PMA_NavigationTree {
             $retval .= "</ul>";
             $retval .= "</div>";
         }
+        if (! empty($this->searchClause)) {
+            $results = $node->realParent()->getPresence(
+                $node->real_name,
+                $this->searchClause
+            );
+            $clientResults = ! empty($_REQUEST['results']) ? (int)$_REQUEST['results'] : 0;
+            $otherResults = $results - $clientResults;
+            if ($otherResults < 1) {
+                $otherResults = '';
+            } else {
+                $otherResults = sprintf(
+                    _ngettext(
+                        '%s other result found',
+                        '%s other results found',
+                        $otherResults
+                    ),
+                    $otherResults
+                );
+            }
+            PMA_Response::getInstance()->addJSON(
+                'results',
+                $otherResults
+            );
+        }
         return $retval;
     }
 
@@ -759,12 +792,29 @@ class PMA_NavigationTree {
     private function fastFilterHtml($node)
     {
         $retval = '';
-        if (($node->real_name == 'tables' || $node->real_name == 'views')
+        if (($node->type == Node::CONTAINER
+            && (   $node->real_name == 'tables'
+                || $node->real_name == 'views'
+                || $node->real_name == 'functions'
+                || $node->real_name == 'procedures'
+                || $node->real_name == 'events')
+            )
             && $node->realParent()->getPresence($node->real_name) >= (int)$GLOBALS['cfg']['LeftDisplayTableFilterMinimum']
         ) {
+            $paths = $node->getPaths();
+            $url_params = array(
+                'pos' => $this->pos,
+                'a_path' => $paths['a_path'],
+                'v_path' => $paths['v_path'],
+                'pos2_name' => $node->real_name,
+                'pos2_value' => 0
+            );
             $retval .= "<li class='fast_filter'>";
-            $retval .= "<input value='" . __('filter tables by name') . "' />";
+            $retval .= "<form class='ajax'>";
+            $retval .= PMA_getHiddenFields($url_params);
+            $retval .= "<input class='searchClause' name='searchClause' value='" . __('filter tables by name') . "' />";
             $retval .= "<span title='" . __('Clear Fast Filter') . "'>X</span>";
+            $retval .= "</form>";
             $retval .= "</li>";
         }
         return $retval;
@@ -799,7 +849,7 @@ class PMA_NavigationTree {
             } else {
                 $pos = $node->pos2;
             }
-            $num = $node->realParent()->getPresence($node->real_name);
+            $num = $node->realParent()->getPresence($node->real_name, $this->searchClause);
             $retval = $this->_commonFunctions->getListNavigator(
                 $num,
                 $pos,

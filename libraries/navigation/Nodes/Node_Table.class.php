@@ -16,7 +16,7 @@ class Node_Table extends Node {
         );
     }
 
-    public function getPresence($type)
+    public function getPresence($type, $searchClause = '')
     {
         $retval = 0;
         $db = $this->realParent()->real_name;
@@ -66,7 +66,7 @@ class Node_Table extends Node {
         return $retval;
     }
 
-    public function getData($type, $pos)
+    public function getData($type, $pos, $searchClause = '')
     {
         $retval = array();
         $db = $this->realParent()->real_name;

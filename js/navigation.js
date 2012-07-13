@@ -36,12 +36,30 @@ $(document).ready(function() {
                 .css('visibility', 'visible');
             $icon.hide();
             $throbber.insertBefore($icon);
+
+            var $filterContainer = $(this).closest('.list_container');
+            var $filterInput = $([]);
+            while (1) {
+                if ($filterContainer.find('.fast_filter input.searchClause').length != 0) {
+                    $filterInput = $filterContainer.find('.fast_filter input.searchClause');
+                    break;
+                } else if (! $filterContainer.is('.list_container')) {
+                    break;
+                }
+                $filterContainer = $filterContainer.parent().closest('.list_container');
+            }
+            var searchClause = '';
+            if ($filterInput.length != 0 && $filterInput.val() != $filterInput[0].defaultValue) {
+                searchClause = $filterInput.val();
+            }
+
             var params = {
                 a_path: $(this).find('span.a_path').text(),
                 v_path: $(this).find('span.v_path').text(),
                 pos: $(this).find('span.pos').text(),
                 pos2_name: $(this).find('span.pos2_name').text(),
-                pos2_value: $(this).find('span.pos2_value').text()
+                pos2_value: $(this).find('span.pos2_value').text(),
+                searchClause: searchClause
             };
             var url = $('#pma_navigation').find('a.navigation_url').attr('href');
             $.get(url, params, function (data) {
@@ -406,9 +424,12 @@ $(function(){
         var params = {ajax_request: true};
         if (isDbSelector) {
             params['full'] = true;
+        } else {
+            var $input = $this.closest('.list_container').find('.fast_filter input.searchClause');
+            if ($input.length && $input.val() != $input[0].defaultValue) {
+                params['searchClause'] = $input.val();
+            }
         }
-
-
         $.get($this.attr('href'), params, function (data) {
             PMA_ajaxRemoveMessage($msgbox);
             if (data.success) {
@@ -416,8 +437,13 @@ $(function(){
                     $('#pma_navigation_tree').html(data.message).children('div').show();
                 } else {
                     var $parent = $this.closest('.list_container').parent();
-                    $this.closest('.list_container').remove();
-                    $parent.append(data.message).children('div').show();
+                    var $input = $this.closest('.list_container').find('.fast_filter input.searchClause');
+                    var val = '';
+                    if ($input.length) {
+                        val = $input.val();
+                    }
+                    $this.closest('.list_container').html($(data.message).children().show());
+                    $parent.find('.fast_filter input.searchClause').val(val);
                     $parent.find('span.pos2_value:first').text($parent.find('span.pos2_value:last').text());
                     $parent.find('span.pos3_value:first').text($parent.find('span.pos3_value:last').text());
                 }
@@ -437,32 +463,43 @@ $(function(){
         $(this).css('background', '');
     });
 
-    // FIXME: reintegrate ajax table filtering
-    // when the table pagination is implemented
-
     // Bind "clear fast filter"
-    $('#pma_navigation_tree li.fast_filter > span').live('click', function () {
+    $('#pma_navigation_tree li.fast_filter span').live('click', function (event) {
+        event.stopPropagation();
         // Clear the input and apply the fast filter with empty input
+        var filter = $(this).closest('.list_container').data('fastFilter');
+        if (filter) {
+            filter.restore();
+        }
         var value = $(this).prev()[0].defaultValue;
         $(this).prev().val(value).trigger('keyup');
     });
     // Bind "fast filter"
-    $('#pma_navigation_tree li.fast_filter > input').live('focus', function () {
+    $('#pma_navigation_tree li.fast_filter input.searchClause').live('focus', function () {
+        var $obj = $(this).closest('.list_container');
+        if (! $obj.data('fastFilter')) {
+            $obj.data('fastFilter', new fastFilter($obj, $(this).val()));
+        }
         if ($(this).val() == this.defaultValue) {
             $(this).val('');
         } else {
             $(this).select();
         }
     });
-    $('#pma_navigation_tree li.fast_filter > input').live('blur', function () {
+    $('#pma_navigation_tree li.fast_filter input.searchClause').live('blur', function () {
         if ($(this).val() == '') {
             $(this).val(this.defaultValue);
         }
+        var $obj = $(this).closest('.list_container');
+        if ($(this).val() == this.defaultValue && $obj.data('fastFilter')) {
+            $obj.data('fastFilter').restore();
+        }
     });
-    $('#pma_navigation_tree li.fast_filter > input').live('keyup', function () {
-        var $obj = $(this).parent().parent();
+    $('#pma_navigation_tree li.fast_filter input.searchClause').live('keyup', function () {
+        var $obj = $(this).closest('.list_container');
         var str = '';
-        if ($(this).val() != this.defaultValue) {
+        if ($(this).val() != this.defaultValue && $(this).val() != '') {
+            $obj.find('div.pageselector').hide();
             str = $(this).val().toLowerCase();
         }
         $obj.find('li > a').not('.container').each(function () {
@@ -486,6 +523,15 @@ $(function(){
         };
         container_filter($obj, str);
         ScrollHandler.displayScrollbar();
+        if ($(this).val() != this.defaultValue && $(this).val() != '') {
+            if (! $obj.data('fastFilter')) {
+                $obj.data('fastFilter', new fastFilter($obj, $(this).val()));
+            } else {
+                $obj.data('fastFilter').update($(this).val());
+            }
+        } else if ($obj.data('fastFilter')) {
+            $obj.data('fastFilter').restore(true);
+        }
     });
 
     // Jump to recent table
@@ -500,3 +546,91 @@ $(function(){
     });
 });//end of document get ready
 
+var fastFilter = function ($this, query)
+{
+    this.update = function (query) {
+        if (this.query != query) {
+            this.query = query;
+            this.$this.find('.moreResults').remove();
+            this.request();
+        }
+    };
+
+    this.request = function () {
+        var that = this;
+        clearTimeout(this.timeout);
+        this.timeout = setTimeout(function () {
+            if (that.xhr) {
+                that.xhr.abort();
+            }
+            var url = $('#pma_navigation').find('a.navigation_url').attr('href');
+            var results = that.$this.find('li:visible:not(.fast_filter)').length;
+            var params = that.$this.find('form').serialize() + "&results=" + results;
+            that.xhr = $.ajax({
+                url: url,
+                type: 'post',
+                dataType: 'json',
+                data: params,
+                complete: function (jqXHR) {
+                    var data = $.parseJSON(jqXHR.responseText);
+                    if (data && data.results) {
+                        var $listItem = $('<li />', {'class':'moreResults'})
+                            .appendTo(that.$this.find('.fast_filter'));
+                        var $link = $('<a />', {href:'#'})
+                            .text(data.results)
+                            .appendTo($listItem)
+                            .click(function (event) {
+                                event.preventDefault();
+                                that.swap.apply(that, [data.message]);
+                            });
+                    }
+                }
+            });
+        }, 500);
+    };
+
+    this.swap = function (list)
+    {
+        this.swapped = true;
+        this.$this
+            .html($(list).html())
+            .children()
+            .show()
+            .end()
+            .find('.fast_filter input.searchClause')
+            .val(this.query);
+        this.$this.data('fastFilter', this);
+        ScrollHandler.displayScrollbar();
+    };
+
+    this.restore = function (focus)
+    {
+        if (this.swapped) {
+            this.swapped = false;
+            this.$this.html(this.$clone.html()).children().show();
+            this.$this.data('fastFilter', this);
+            if (focus) {
+                this.$this.find('.fast_filter input.searchClause').focus();
+            }
+        }
+        this.query = '';
+        this.$this.find('.moreResults').remove();
+        this.$this.find('div.pageselector').show();
+        ScrollHandler.displayScrollbar();
+    };
+
+    this.$this   = $this;
+    this.query   = query;
+    this.$clone  = $this.clone();
+    this.swapped = false;
+    this.xhr     = null;
+    this.timeout = null;
+
+    var $filterInput = $this.find('.fast_filter input.searchClause');
+    if (   $filterInput.length != 0
+        && $filterInput.val() != ''
+        && $filterInput.val() != $filterInput[0].defaultValue
+    ) {
+        this.request();
+    }
+};
