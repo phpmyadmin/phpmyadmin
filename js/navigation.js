@@ -70,8 +70,8 @@ $(function() {
             }
 
             var params = {
-                a_path: $(this).find('span.a_path').text(),
-                v_path: $(this).find('span.v_path').text(),
+                aPath: $(this).find('span.aPath').text(),
+                vPath: $(this).find('span.vPath').text(),
                 pos: $(this).find('span.pos').text(),
                 pos2_name: $(this).find('span.pos2_name').text(),
                 pos2_value: $(this).find('span.pos2_value').text(),
@@ -228,9 +228,8 @@ function PMA_reloadNavigation() {
         if ($(this).find('img').is('.ic_b_minus')
             && $(this).closest('li').find('div.list_container .ic_b_minus').length == 0
         ) {
-            params['a_path_' + count] = $(this).find('span.a_path').text();
-            params['v_path_' + count] = $(this).find('span.v_path').text();
-            params['v_path_' + count] = $(this).find('span.v_path').text();
+            params['aPath_' + count] = $(this).find('span.aPath').text();
+            params['vPath_' + count] = $(this).find('span.vPath').text();
 
             var pos2_name = $(this).find('span.pos2_name').text();
             if (! pos2_name) {

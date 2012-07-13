@@ -19,14 +19,14 @@ class PMA_NavigationTree {
      *            This does not include nodes created after the grouping
      *            of nodes has been performed
      */
-    private $a_path = array();
+    private $_aPath = array();
 
     /**
      * @var array The virtual paths to all expanded nodes in the tree
      *            This includes nodes created after the grouping of
      *            nodes has been performed
      */
-    private $v_path = array();
+    private $_vPath = array();
 
     /**
      * @var int Position in the list of databases,
@@ -86,19 +86,19 @@ class PMA_NavigationTree {
         // Save the position at which we are in the database list
         $this->pos = $pos;
         // Get the active node
-        if (isset($_REQUEST['a_path'])) {
-            $this->a_path[0] = $this->parsePath($_REQUEST['a_path']);
+        if (isset($_REQUEST['aPath'])) {
+            $this->_aPath[0] = $this->parsePath($_REQUEST['aPath']);
             $this->pos2_name[0] = $_REQUEST['pos2_name'];
             $this->pos2_value[0] = $_REQUEST['pos2_value'];
             if (isset($_REQUEST['pos3_name'])) {
                 $this->pos3_name[0] = $_REQUEST['pos3_name'];
                 $this->pos3_value[0] = $_REQUEST['pos3_value'];
             }
-        } else if (isset($_REQUEST['a_path_0'])) {
+        } else if (isset($_REQUEST['aPath_0'])) {
             $count = 0;
-            while (isset($_REQUEST['a_path_' . $count])) {
-                $this->a_path[$count] = $this->parsePath(
-                    $_REQUEST['a_path_' . $count]
+            while (isset($_REQUEST['aPath_' . $count])) {
+                $this->_aPath[$count] = $this->parsePath(
+                    $_REQUEST['aPath_' . $count]
                 );
                 $this->pos2_name[$count]  = $_REQUEST['pos2_name_' . $count];
                 $this->pos2_value[$count] = $_REQUEST['pos2_value_' . $count];
@@ -109,13 +109,13 @@ class PMA_NavigationTree {
                 $count++;
             }
         }
-        if (isset($_REQUEST['v_path'])) {
-            $this->v_path[0] = $this->parsePath($_REQUEST['v_path']);
-        } else if (isset($_REQUEST['v_path_0'])) {
+        if (isset($_REQUEST['vPath'])) {
+            $this->_vPath[0] = $this->parsePath($_REQUEST['vPath']);
+        } else if (isset($_REQUEST['vPath_0'])) {
             $count = 0;
-            while (isset($_REQUEST['v_path_' . $count])) {
-                $this->v_path[$count] = $this->parsePath(
-                    $_REQUEST['v_path_' . $count]
+            while (isset($_REQUEST['vPath_' . $count])) {
+                $this->_vPath[$count] = $this->parsePath(
+                    $_REQUEST['vPath_' . $count]
                 );
                 $count++;
             }
@@ -164,8 +164,8 @@ class PMA_NavigationTree {
         }
 
         // Whether build other parts of the tree depends
-        // on whether we have any paths in $this->a_path
-        foreach ($this->a_path as $key => $path) {
+        // on whether we have any paths in $this->_aPath
+        foreach ($this->_aPath as $key => $path) {
             $retval = $this->buildPathPart(
                 $path,
                 $this->pos2_name[$key],
@@ -580,7 +580,7 @@ class PMA_NavigationTree {
                 $this->searchClause
             );
             $clientResults = 0;
-            if (! empty($_REQUEST['results']) {
+            if (! empty($_REQUEST['results'])) {
                 $clientResults = (int)$_REQUEST['results'];
             }
             $otherResults = $results - $clientResults;
@@ -616,17 +616,17 @@ class PMA_NavigationTree {
     {
         $retval = '';
         $paths = $node->getPaths();
-        if (isset($paths['a_path_clean'][2])) {
+        if (isset($paths['aPath_clean'][2])) {
             $retval .= "<span class='hide pos2_name'>";
-            $retval .= $paths['a_path_clean'][2];
+            $retval .= $paths['aPath_clean'][2];
             $retval .= "</span>";
             $retval .= "<span class='hide pos2_value'>";
             $retval .= $node->pos2;
             $retval .= "</span>";
         }
-        if (isset($paths['a_path_clean'][4])) {
+        if (isset($paths['aPath_clean'][4])) {
             $retval .= "<span class='hide pos3_name'>";
-            $retval .= $paths['a_path_clean'][4];
+            $retval .= $paths['aPath_clean'][4];
             $retval .= "</span>";
             $retval .= "<span class='hide pos3_value'>";
             $retval .= $node->pos3;
@@ -695,9 +695,9 @@ class PMA_NavigationTree {
 
                 $icon = $this->_commonFunctions->getImage('b_plus.png');
                 $match = 1;
-                foreach ($this->a_path as $path) {
+                foreach ($this->_aPath as $path) {
                     $match = 1;
-                    foreach ($paths['a_path_clean'] as $key => $part) {
+                    foreach ($paths['aPath_clean'] as $key => $part) {
                         if (! isset($path[$key]) || $part != $path[$key]) {
                             $match = 0;
                             break;
@@ -714,9 +714,9 @@ class PMA_NavigationTree {
                     }
                 }
 
-                foreach ($this->v_path as $path) {
+                foreach ($this->_vPath as $path) {
                     $match = 1;
-                    foreach ($paths['v_path_clean'] as $key => $part) {
+                    foreach ($paths['vPath_clean'] as $key => $part) {
                         if ((! isset($path[$key]) || $part != $path[$key])) {
                             $match = 0;
                             break;
@@ -731,11 +731,11 @@ class PMA_NavigationTree {
 
                 $retval .= "<a class='expander$loaded$container'";
                 $retval .= " target='_self' href='#'>";
-                $retval .= "<span class='hide a_path'>";
-                $retval .= $paths['a_path'];
+                $retval .= "<span class='hide aPath'>";
+                $retval .= $paths['aPath'];
                 $retval .= "</span>";
-                $retval .= "<span class='hide v_path'>";
-                $retval .= $paths['v_path'];
+                $retval .= "<span class='hide vPath'>";
+                $retval .= $paths['vPath'];
                 $retval .= "</span>";
                 $retval .= "<span class='hide pos'>";
                 $retval .= $this->pos;
@@ -847,7 +847,7 @@ class PMA_NavigationTree {
      */
     private function setVisibility()
     {
-        foreach ($this->v_path as $path) {
+        foreach ($this->_vPath as $path) {
             $node = $this->tree;
             foreach ($path as $value) {
                 $child = $node->getChild($value);
@@ -881,8 +881,8 @@ class PMA_NavigationTree {
             $paths = $node->getPaths();
             $url_params = array(
                 'pos' => $this->pos,
-                'a_path' => $paths['a_path'],
-                'v_path' => $paths['v_path'],
+                'aPath' => $paths['aPath'],
+                'vPath' => $paths['vPath'],
                 'pos2_name' => $node->real_name,
                 'pos2_value' => 0
             );
@@ -912,18 +912,18 @@ class PMA_NavigationTree {
         if ($node->type == Node::CONTAINER && ! $node->is_group) {
             $paths = $node->getPaths();
 
-            $level = isset($paths['a_path_clean'][4]) ? 3 : 2;
+            $level = isset($paths['aPath_clean'][4]) ? 3 : 2;
             $_url_params = array(
-                'a_path' => $paths['a_path'],
-                'v_path' => $paths['v_path'],
+                'aPath' => $paths['aPath'],
+                'vPath' => $paths['vPath'],
                 'pos' => $this->pos,
                 'server' => $GLOBALS['server'],
-                'pos2_name' => $paths['a_path_clean'][2]
+                'pos2_name' => $paths['aPath_clean'][2]
             );
             if ($level == 3) {
                 $pos = $node->pos3;
                 $_url_params['pos2_value'] = $node->pos2;
-                $_url_params['pos3_name'] = $paths['a_path_clean'][4];
+                $_url_params['pos3_name'] = $paths['aPath_clean'][4];
             } else {
                 $pos = $node->pos2;
             }

@@ -307,7 +307,7 @@ class Node {
     {
         $retval = false;
         $paths = $this->getPaths();
-        if (count($paths['a_path_clean']) > 3) {
+        if (count($paths['aPath_clean']) > 3) {
             $retval = true;
         } else {
             foreach ($this->parent->children as $child) {
@@ -348,29 +348,29 @@ class Node {
      */
     public function getPaths()
     {
-        $a_path = array();
-        $a_path_clean = array();
+        $aPath = array();
+        $aPath_clean = array();
         foreach ($this->parents(true, true, false) as $parent) {
-            $a_path[] = base64_encode($parent->real_name);
-            $a_path_clean[] = $parent->real_name;
+            $aPath[] = base64_encode($parent->real_name);
+            $aPath_clean[] = $parent->real_name;
         }
-        $a_path = implode('.', array_reverse($a_path));
-        $a_path_clean = array_reverse($a_path_clean);
+        $aPath = implode('.', array_reverse($aPath));
+        $aPath_clean = array_reverse($aPath_clean);
 
-        $v_path = array();
-        $v_path_clean = array();
+        $vPath = array();
+        $vPath_clean = array();
         foreach ($this->parents(true, true, true) as $parent) {
-            $v_path[] = base64_encode($parent->name);
-            $v_path_clean[] = $parent->name;
+            $vPath[] = base64_encode($parent->name);
+            $vPath_clean[] = $parent->name;
         }
-        $v_path = implode('.', array_reverse($v_path));
-        $v_path_clean = array_reverse($v_path_clean);
+        $vPath = implode('.', array_reverse($vPath));
+        $vPath_clean = array_reverse($vPath_clean);
 
         return array(
-            'a_path' => $a_path,
-            'a_path_clean' => $a_path_clean,
-            'v_path' => $v_path,
-            'v_path_clean' => $v_path_clean
+            'aPath' => $aPath,
+            'aPath_clean' => $aPath_clean,
+            'vPath' => $vPath,
+            'vPath_clean' => $vPath_clean
         );
     }
 
