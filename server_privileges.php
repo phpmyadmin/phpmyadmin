@@ -506,6 +506,12 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         if ($GLOBALS['is_ajax_request'] == true) {
             header('Cache-Control: no-cache');
         }
+        $url_dbname = urlencode(
+            str_replace(
+                array('\_', '\%'),
+                array('_', '%'), $_REQUEST['dbname']
+            )
+        );
         $response->addHTML(
             PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
                 $random_n, $username, $hostname, $link_edit, $link_revoke

@@ -2561,10 +2561,11 @@ function PMA_getAddUserHtmlFieldset($conditional_class)
  * Get HTML header for display User's properties
  * 
  * @param boolean $dbname_is_wildcard   whether database name is wildcard or not
+ * @param type $url_dbname              url database name that urlencode() string
  * 
  * @return string $html_output
  */
-function PMA_getHtmlHeaderForDisplayUserProperties($dbname_is_wildcard)
+function PMA_getHtmlHeaderForDisplayUserProperties($dbname_is_wildcard, $url_dbname)
 {
     $html_output = '<h2>' . "\n"
        . PMA_CommonFunctions::getInstance()->getIcon('b_usredit.png')
@@ -2579,13 +2580,6 @@ function PMA_getHtmlHeaderForDisplayUserProperties($dbname_is_wildcard)
             . '&amp;dbname=&amp;tablename=">\'' . htmlspecialchars($_REQUEST['username'])
             . '\'@\'' . htmlspecialchars($_REQUEST['hostname'])
             . '\'</a></i>' . "\n";
-        
-        $url_dbname = urlencode(
-            str_replace(
-                array('\_', '\%'),
-                array('_', '%'), $_REQUEST['dbname']
-            )
-        );
 
         $html_output .= ' - ' . ($dbname_is_wildcard ? __('Databases') : __('Database') );
         if (isset($_REQUEST['tablename'])) {
@@ -2739,7 +2733,7 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
     } elseif (PMA_isValid($_REQUEST['tablename'])) {
         $tablename = $_REQUEST['tablename'];
     }
-    $html_output = PMA_getHtmlHeaderForDisplayUserProperties($dbname_is_wildcard);
+    $html_output = PMA_getHtmlHeaderForDisplayUserProperties($dbname_is_wildcard, $url_dbname);
 
     $sql = "SELECT '1' FROM `mysql`.`user`"
         . " WHERE `User` = '" . PMA_CommonFunctions::getInstance()->sqlAddSlashes($username) . "'"
