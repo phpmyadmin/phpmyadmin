@@ -279,11 +279,10 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
             || isset($max_updates) || isset($max_user_connections))
         ) {
             $with_clause = PMA_getWithClauseForAddUserAndUpdatePrivs();
+            $real_sql_query .= $with_clause;
+            $sql_query .= $with_clause;
         }
-        if (!empty ($with_clause)) {
-            $real_sql_query .= 'WITH' . $with_clause;
-            $sql_query .= 'WITH' . $with_clause;
-        }
+
         if (isset($create_user_real)) {
             $create_user_real .= ';';
             $create_user_show .= ';';
