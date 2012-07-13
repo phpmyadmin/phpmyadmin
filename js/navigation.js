@@ -9,7 +9,7 @@
  * opens/closes (hides/shows) tree elements
  * loads data via ajax
  */
-$(document).ready(function() {
+$(function() {
 	$('#pma_navigation_tree a.expander').live('click', function(event) {
         event.preventDefault();
         event.stopImmediatePropagation();
@@ -280,7 +280,10 @@ var ResizeHandler = function () {
             $('#serverinfo').css('padding-' + this.left, '0.9em');
         }
 
-        $('#pma_navigation_scrollbar').css(this.left, (pos - $('#pma_navigation_scrollbar').width()) + 'px');
+        $('#pma_navigation_scrollbar').css(
+            this.left,
+            (pos - $('#pma_navigation_scrollbar').width()) + 'px'
+        );
 
         menuResize();
     };
@@ -408,12 +411,20 @@ var ResizeHandler = function () {
 
 /* Performed on load */
 $(function(){
-    if ($('#pma_navigation').length) {
-        $('#pma_navigation_tree').children('div').show();
-        // Fire up the resize and scroll handlers
-        new ResizeHandler();
-        ScrollHandler.init();
+    if (! $('#pma_navigation').length) {
+        // Don't bother running any code if the navigation is not even on the page
+        return;
     }
+    // Fire up the resize and scroll handlers
+    new ResizeHandler();
+    ScrollHandler.init();
+    // Bind all "fast filter" events
+    $('#pma_navigation_tree li.fast_filter span')
+        .live('click', PMA_fastFilter.events.clear);
+    $('#pma_navigation_tree li.fast_filter input.searchClause')
+        .live('focus', PMA_fastFilter.events.focus)
+        .live('blur', PMA_fastFilter.events.blur)
+        .live('keyup', PMA_fastFilter.events.keyup);
 
     // Ajax handler for pagination
     $('#pma_navigation_tree div.pageselector a.ajax').live('click', function (event) {
@@ -463,77 +474,6 @@ $(function(){
         $(this).css('background', '');
     });
 
-    // Bind "clear fast filter"
-    $('#pma_navigation_tree li.fast_filter span').live('click', function (event) {
-        event.stopPropagation();
-        // Clear the input and apply the fast filter with empty input
-        var filter = $(this).closest('.list_container').data('fastFilter');
-        if (filter) {
-            filter.restore();
-        }
-        var value = $(this).prev()[0].defaultValue;
-        $(this).prev().val(value).trigger('keyup');
-    });
-    // Bind "fast filter"
-    $('#pma_navigation_tree li.fast_filter input.searchClause').live('focus', function () {
-        var $obj = $(this).closest('.list_container');
-        if (! $obj.data('fastFilter')) {
-            $obj.data('fastFilter', new fastFilter($obj, $(this).val()));
-        }
-        if ($(this).val() == this.defaultValue) {
-            $(this).val('');
-        } else {
-            $(this).select();
-        }
-    });
-    $('#pma_navigation_tree li.fast_filter input.searchClause').live('blur', function () {
-        if ($(this).val() == '') {
-            $(this).val(this.defaultValue);
-        }
-        var $obj = $(this).closest('.list_container');
-        if ($(this).val() == this.defaultValue && $obj.data('fastFilter')) {
-            $obj.data('fastFilter').restore();
-        }
-    });
-    $('#pma_navigation_tree li.fast_filter input.searchClause').live('keyup', function () {
-        var $obj = $(this).closest('.list_container');
-        var str = '';
-        if ($(this).val() != this.defaultValue && $(this).val() != '') {
-            $obj.find('div.pageselector').hide();
-            str = $(this).val().toLowerCase();
-        }
-        $obj.find('li > a').not('.container').each(function () {
-            if ($(this).text().toLowerCase().indexOf(str) != -1) {
-                $(this).parent().show().removeClass('hidden');
-            } else {
-                $(this).parent().hide().addClass('hidden');
-            }
-        });
-        var container_filter = function ($curr, str) {
-            $curr.children('li').children('a.container').each(function () {
-                var $group = $(this).parent().children('ul');
-                if ($group.children('li').children('a.container').length > 0) {
-                    container_filter($group); // recursive
-                }
-                $group.parent().show().removeClass('hidden');
-                if ($group.children().not('.hidden').length == 0) {
-                    $group.parent().hide().addClass('hidden');
-                }
-            });
-        };
-        container_filter($obj, str);
-        ScrollHandler.displayScrollbar();
-        if ($(this).val() != this.defaultValue && $(this).val() != '') {
-            if (! $obj.data('fastFilter')) {
-                $obj.data('fastFilter', new fastFilter($obj, $(this).val()));
-            } else {
-                $obj.data('fastFilter').update($(this).val());
-            }
-        } else if ($obj.data('fastFilter')) {
-            $obj.data('fastFilter').restore(true);
-        }
-    });
-
     // Jump to recent table
     $('#recentTable').change(function() {
         if (this.value != '') {
@@ -546,91 +486,232 @@ $(function(){
     });
 });//end of document get ready
 
-var fastFilter = function ($this, query)
-{
-    this.update = function (query) {
-        if (this.query != query) {
-            this.query = query;
-            this.$this.find('.moreResults').remove();
+
+/**
+ * @var object PMA_fastFilter Handles the functionality that allows filtering
+ *                            of the items in a branch of the navigation tree
+ */
+var PMA_fastFilter = {
+    /**
+     * Construct for the asynchronous fast filter functionality
+     *
+     * @param object $this        A jQuery object pointing to the list container
+     *                            which is the nearest parent of the fast filter
+     * @param string searchClause The query string for the filter
+     *
+     * @return new PMA_fastFilter.filter object
+     */
+    filter: function ($this, searchClause) {
+        /**
+         * @var object $this A jQuery object pointing to the list container
+         *                   which is the nearest parent of the fast filter
+         */
+        this.$this = $this;
+        /**
+         * @var bool searchClause The query string for the filter
+         */
+        this.searchClause = searchClause;
+        /**
+         * @var object $clone A clone of the original contents
+         *                    of the navigation branch before
+         *                    the fast filter was applied
+         */
+        this.$clone = $this.clone();
+        /**
+         * @var bool swapped Whether the user clicked on the "N other results" link
+         */
+        this.swapped = false;
+        /**
+         * @var object xhr A reference to the ajax request that is currently running
+         */
+        this.xhr = null;
+        /**
+         * @var int timeout Used to delay the request for asynchronous search
+         */
+        this.timeout = null;
+
+        var $filterInput = $this.find('li.fast_filter input.searchClause');
+        if (   $filterInput.length != 0
+            && $filterInput.val() != ''
+            && $filterInput.val() != $filterInput[0].defaultValue
+        ) {
             this.request();
         }
-    };
-
-    this.request = function () {
-        var that = this;
-        clearTimeout(this.timeout);
-        this.timeout = setTimeout(function () {
-            if (that.xhr) {
-                that.xhr.abort();
+    },
+    /**
+     * @var hash events A list of functions that are further
+     *                  down the page bound to DOM events
+     */
+    events: {
+        focus: function (event) {
+            var $obj = $(this).closest('div.list_container');
+            if (! $obj.data('fastFilter')) {
+                $obj.data(
+                    'fastFilter',
+                    new PMA_fastFilter.filter($obj, $(this).val())
+                );
             }
-            var url = $('#pma_navigation').find('a.navigation_url').attr('href');
-            var results = that.$this.find('li:visible:not(.fast_filter)').length;
-            var params = that.$this.find('form').serialize() + "&results=" + results;
-            that.xhr = $.ajax({
-                url: url,
-                type: 'post',
-                dataType: 'json',
-                data: params,
-                complete: function (jqXHR) {
-                    var data = $.parseJSON(jqXHR.responseText);
-                    if (data && data.results) {
-                        var $listItem = $('<li />', {'class':'moreResults'})
-                            .appendTo(that.$this.find('.fast_filter'));
-                        var $link = $('<a />', {href:'#'})
-                            .text(data.results)
-                            .appendTo($listItem)
-                            .click(function (event) {
-                                event.preventDefault();
-                                that.swap.apply(that, [data.message]);
-                            });
-                    }
+            if ($(this).val() == this.defaultValue) {
+                $(this).val('');
+            } else {
+                $(this).select();
+            }
+        },
+        blur: function (event) {
+            if ($(this).val() == '') {
+                $(this).val(this.defaultValue);
+            }
+            var $obj = $(this).closest('div.list_container');
+            if ($(this).val() == this.defaultValue && $obj.data('fastFilter')) {
+                $obj.data('fastFilter').restore();
+            }
+        },
+        keyup: function (event) {
+            var $obj = $(this).closest('div.list_container');
+            var str = '';
+            if ($(this).val() != this.defaultValue && $(this).val() != '') {
+                $obj.find('div.pageselector').hide();
+                str = $(this).val().toLowerCase();
+            }
+            $obj.find('li > a').not('.container').each(function () {
+                if ($(this).text().toLowerCase().indexOf(str) != -1) {
+                    $(this).parent().show().removeClass('hidden');
+                } else {
+                    $(this).parent().hide().addClass('hidden');
                 }
             });
-        }, 500);
-    };
-
-    this.swap = function (list)
-    {
-        this.swapped = true;
-        this.$this
-            .html($(list).html())
-            .children()
-            .show()
-            .end()
-            .find('.fast_filter input.searchClause')
-            .val(this.query);
-        this.$this.data('fastFilter', this);
-        ScrollHandler.displayScrollbar();
-    };
-
-    this.restore = function (focus)
-    {
-        if (this.swapped) {
-            this.swapped = false;
-            this.$this.html(this.$clone.html()).children().show();
-            this.$this.data('fastFilter', this);
-            if (focus) {
-                this.$this.find('.fast_filter input.searchClause').focus();
+            var container_filter = function ($curr, str) {
+                $curr.children('li').children('a.container').each(function () {
+                    var $group = $(this).parent().children('ul');
+                    if ($group.children('li').children('a.container').length > 0) {
+                        container_filter($group); // recursive
+                    }
+                    $group.parent().show().removeClass('hidden');
+                    if ($group.children().not('.hidden').length == 0) {
+                        $group.parent().hide().addClass('hidden');
+                    }
+                });
+            };
+            container_filter($obj, str);
+            ScrollHandler.displayScrollbar();
+            if ($(this).val() != this.defaultValue && $(this).val() != '') {
+                if (! $obj.data('fastFilter')) {
+                    $obj.data(
+                        'fastFilter',
+                        new PMA_fastFilter.filter($obj, $(this).val())
+                    );
+                } else {
+                    $obj.data('fastFilter').update($(this).val());
+                }
+            } else if ($obj.data('fastFilter')) {
+                $obj.data('fastFilter').restore(true);
             }
-        }
-        this.query = '';
+        },
+        clear: function (event) {
+            event.stopPropagation();
+            // Clear the input and apply the fast filter with empty input
+            var filter = $(this).closest('div.list_container').data('fastFilter');
+            if (filter) {
+                filter.restore();
+            }
+            var value = $(this).prev()[0].defaultValue;
+            $(this).prev().val(value).trigger('keyup');
+        },
+    }
+};
+/**
+ * Handles a change in the search clause
+ *
+ * @param string searchClause The query string for the filter
+ *
+ * @return void
+ */
+PMA_fastFilter.filter.prototype.update = function (searchClause)
+{
+    if (this.searchClause != searchClause) {
+        this.searchClause = searchClause;
         this.$this.find('.moreResults').remove();
-        this.$this.find('div.pageselector').show();
-        ScrollHandler.displayScrollbar();
-    };
-
-    this.$this   = $this;
-    this.query   = query;
-    this.$clone  = $this.clone();
-    this.swapped = false;
-    this.xhr     = null;
-    this.timeout = null;
-
-    var $filterInput = $this.find('.fast_filter input.searchClause');
-    if (   $filterInput.length != 0
-        && $filterInput.val() != ''
-        && $filterInput.val() != $filterInput[0].defaultValue
-    ) {
         this.request();
     }
+};
+/**
+ * After a delay of 500mS, initiates a request to retrieve search results
+ * Multiple calls to this function will always abort the previous request
+ *
+ * @return void
+ */
+PMA_fastFilter.filter.prototype.request = function ()
+{
+    var that = this;
+    clearTimeout(this.timeout);
+    this.timeout = setTimeout(function () {
+        if (that.xhr) {
+            that.xhr.abort();
+        }
+        var url = $('#pma_navigation').find('a.navigation_url').attr('href');
+        var results = that.$this.find('li:visible:not(.fast_filter)').length;
+        var params = that.$this.find('form').serialize() + "&results=" + results;
+        that.xhr = $.ajax({
+            url: url,
+            type: 'post',
+            dataType: 'json',
+            data: params,
+            complete: function (jqXHR) {
+                var data = $.parseJSON(jqXHR.responseText);
+                if (data && data.results) {
+                    var $listItem = $('<li />', {'class':'moreResults'})
+                        .appendTo(that.$this.find('li.fast_filter'));
+                    var $link = $('<a />', {href:'#'})
+                        .text(data.results)
+                        .appendTo($listItem)
+                        .click(function (event) {
+                            event.preventDefault();
+                            that.swap.apply(that, [data.message]);
+                        });
+                }
+            }
+        });
+    }, 500);
+};
+/**
+ * Replaces the contents of the navigation branch with the search results
+ *
+ * @param string list The search results
+ *
+ * @return void
+ */
+PMA_fastFilter.filter.prototype.swap = function (list)
+{
+    this.swapped = true;
+    this.$this
+        .html($(list).html())
+        .children()
+        .show()
+        .end()
+        .find('li.fast_filter input.searchClause')
+        .val(this.searchClause);
+    this.$this.data('fastFilter', this);
+    ScrollHandler.displayScrollbar();
+};
+/**
+ * Restores the navigation to the original state after the fast filter is cleared
+ *
+ * @param bool focus Whether to also focus the input box of the fast filter
+ *
+ * @return void
+ */
+PMA_fastFilter.filter.prototype.restore = function (focus)
+{
+    if (this.swapped) {
+        this.swapped = false;
+        this.$this.html(this.$clone.html()).children().show();
+        this.$this.data('fastFilter', this);
+        if (focus) {
+            this.$this.find('li.fast_filter input.searchClause').focus();
+        }
+    }
+    this.searchClause = '';
+    this.$this.find('.moreResults').remove();
+    this.$this.find('div.pageselector').show();
+    ScrollHandler.displayScrollbar();
 };
