@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-07-01 18:22+0200\n"
-"Last-Translator: J. M. <me@mynetx.net>\n"
+"PO-Revision-Date: 2012-07-13 00:19+0200\n"
+"Last-Translator: Maxi Lampert <maxilampert@yahoo.de>\n"
 "Language-Team: none\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -10561,7 +10561,7 @@ msgstr "Netzwerk-Datenverkehr seit Start: %s"
 #: server_status.php:1086
 #, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Dieser MySQL-Server läuft bereits %1$s. Er wurde um %2$s gestartet."
+msgstr "Dieser MySQL-Server läuft bereits %1$s. Er wurde am %2$s gestartet."
 
 #: server_status.php:1097
 msgid ""
@@ -12799,7 +12799,7 @@ msgstr "Langsame Anfragen Überwachung"
 
 #: libraries/advisory_rules.txt:87
 msgid "The slow query log is disabled."
-msgstr "Die Überwachung langsamer Anfragen ist deaktiveirt."
+msgstr "Die Überwachung langsamer Anfragen ist deaktiviert."
 
 #: libraries/advisory_rules.txt:88
 msgid ""
