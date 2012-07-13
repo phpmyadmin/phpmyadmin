@@ -937,7 +937,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $printview = isset($printview) ? $printview : null;
         $url_query = isset($url_query) ? $url_query : null;
     
-        $displayResultsObject->processParams(
+        $displayResultsObject->setProperties(
             $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
             $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage, $text_dir,
             $is_maint, $is_explain, $is_show, $showtable, $printview, $url_query
@@ -1097,7 +1097,7 @@ $(makeProfilingChart);
     $printview = isset($printview) ? $printview : null;
     $url_query = isset($url_query) ? $url_query : null;
     
-    $displayResultsObject->processParams(
+    $displayResultsObject->setProperties(
         $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
         $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage, $text_dir,
         $is_maint, $is_explain, $is_show, $showtable, $printview, $url_query

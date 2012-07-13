@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-06-26 18:35+0200\n"
-"Last-Translator: Gyu-sun Youm <omniavinco@gmail.com>\n"
+"PO-Revision-Date: 2012-07-11 16:17+0200\n"
+"Last-Translator: Hyun-Sung Yun <bemax38@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.0\n"
+"X-Generator: Weblate 1.1\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:609 server_privileges.php:1851
@@ -885,7 +885,7 @@ msgstr "출력"
 msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
-msgstr ""
+msgstr "\"기능\"컬럼에서 \"GeomFromText\"를 선택하고 아래 문자를 복사하여 \"값\"필드에 붙여넣으십시오."
 
 #: import.php:88
 #, php-format
@@ -1155,7 +1155,6 @@ msgstr "마지막 새로고침 이후 Questions"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:85
-#, fuzzy
 msgid "Questions (executed statements by the server)"
 msgstr "Questions(서버에 의해 실행된 문장)"
 
@@ -1294,7 +1293,7 @@ msgstr "EB"
 #: js/messages.php:128
 #, php-format
 msgid "%d table(s)"
-msgstr "%d개 테이블 "
+msgstr "%d개 테이블(s)"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:131
@@ -1345,11 +1344,12 @@ msgstr "모니터링 정지"
 
 #: js/messages.php:143
 msgid "general_log and slow_query_log are enabled."
-msgstr ""
+msgstr "general_log 와 slow_query_log 가 활성화 되었습니다."
 
 #: js/messages.php:144
+#, fuzzy
 msgid "general_log is enabled."
-msgstr ""
+msgstr "general_log 가 활성화 되었습니다."
 
 #: js/messages.php:145
 msgid "slow_query_log is enabled."
@@ -1388,8 +1388,7 @@ msgstr "long_query_time이 %d초로 설정되였습니다."
 msgid ""
 "Following settings will be applied globally and reset to default on server "
 "restart:"
-msgstr ""
-"다음 설정은 서버 전체에 적용됩니다. 서버 재기동시 기본 설정으로 초기화됩니다."
+msgstr "다음 설정은 서버 전체에 적용되고 서버 재기동시 기본 설정으로 초기화됩니다:"
 
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:153
@@ -1413,7 +1412,7 @@ msgstr "%s 사용안함"
 #: js/messages.php:159
 #, php-format
 msgid "Set long_query_time to %ds"
-msgstr "long_query_time을 %d초로 설정합니다."
+msgstr "long_query_time을 %d초로 설정합니다"
 
 #: js/messages.php:160
 msgid ""
@@ -1458,9 +1457,8 @@ msgid "From general log"
 msgstr "일반 로그로부터"
 
 #: js/messages.php:172
-#, fuzzy
 msgid "Analysing logs"
-msgstr "로그를 불러오고 있습니다."
+msgstr "로그 분석중"
 
 #: js/messages.php:173
 msgid "Analysing & loading logs. This may take a while."
@@ -1488,17 +1486,16 @@ msgstr ""
 
 #: js/messages.php:177
 msgid "Log data loaded. Queries executed in this time span:"
-msgstr "로그자료가 적재되였습니다. 그동안 질의가 실행되였습니다."
+msgstr "로그자료가 로드되었습니다. 쿼리들이 실행되었던 기간:"
 
 #: js/messages.php:179
 msgid "Jump to Log table"
 msgstr "로그 테이블로 이동"
 
 #: js/messages.php:180
-#, fuzzy
 #| msgid "No databases"
 msgid "No data found"
-msgstr "데이터베이스가 없습니다"
+msgstr "자료가 없습니다"
 
 #: js/messages.php:181
 msgid "Log analysed, but no data found in this time span."
@@ -1509,7 +1506,6 @@ msgid "Analyzing..."
 msgstr "분석중..."
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
 msgstr "SQL 해석"
@@ -1527,24 +1523,22 @@ msgid "Total time:"
 msgstr "전체 시간:"
 
 #: js/messages.php:188
-#, fuzzy
 #| msgid "Profiling"
 msgid "Profiling results"
-msgstr "프로파일링"
+msgstr "프로파일링 결과"
 
 #: js/messages.php:189
 msgctxt "Display format"
 msgid "Table"
-msgstr "테이블 "
+msgstr "테이블"
 
 #: js/messages.php:190
 msgid "Chart"
 msgstr "차트"
 
 #: js/messages.php:191
-#, fuzzy
 msgid "Edit chart"
-msgstr "필드 추가하기"
+msgstr "차트 편집"
 
 #: js/messages.php:192
 #, fuzzy
@@ -1574,19 +1568,17 @@ msgid "Sum of grouped rows:"
 msgstr "그룹화된 행의 합계:"
 
 #: js/messages.php:201
-#, fuzzy
 #| msgid "Total"
 msgid "Total:"
-msgstr "전체 사용량"
+msgstr "전체:"
 
 #: js/messages.php:203
-#, fuzzy
 msgid "Loading logs"
-msgstr "로그를 불러오고 있습니다."
+msgstr "로그를 불러오는 중"
 
 #: js/messages.php:204
 msgid "Monitor refresh failed"
-msgstr "모니터링 리프리쉬가 실패하였습니다."
+msgstr "모니터링 리프리쉬가 실패하였습니다"
 
 #: js/messages.php:205
 msgid ""
@@ -1594,6 +1586,8 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"새로운 차트 데이터를 요청하는 동안 서버에서 잘못된 응답을 반환했습니다.대부분의 경우 세션이 만료되었기 때문입니다.페이지를 다시 로드하고 "
+"새로 인증받는 것이 도움이 될것입니다."
 
 #: js/messages.php:206
 msgid "Reload page"
@@ -1611,7 +1605,7 @@ msgstr "구성 파일을 분석할 수 없습니다. 유효한 JSON 코드가 �
 msgid ""
 "Failed building chart grid with imported config. Resetting to default "
 "config..."
-msgstr ""
+msgstr "가져온 설정과 차트 격자를 그리는데 실패했습니다. 기본 설정으로 적용중..."
 
 #: js/messages.php:212 libraries/Menu.class.php:309
 #: libraries/Menu.class.php:396 libraries/Menu.class.php:493
@@ -1621,14 +1615,13 @@ msgid "Import"
 msgstr "가져오기"
 
 #: js/messages.php:213
-#, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Import monitor configuration"
-msgstr "호환되지 않는 로컬 모니터 설정입니다."
+msgstr "모니터 설정 가져오기"
 
 #: js/messages.php:214
 msgid "Please select the file you want to import"
-msgstr ""
+msgstr "가져올 파일을 선택해 주시기 바랍니다"
 
 #: js/messages.php:216
 msgid "Analyse Query"
@@ -1644,7 +1637,7 @@ msgstr "가능한 성능 문제"
 
 #: js/messages.php:222
 msgid "Issue"
-msgstr ""
+msgstr "이슈"
 
 #: js/messages.php:223
 msgid "Recommendation"
@@ -1676,15 +1669,15 @@ msgstr "취소"
 
 #: js/messages.php:235
 msgid "Loading"
-msgstr "불러오고 있습니다."
+msgstr "불러오는 중"
 
 #: js/messages.php:236
 msgid "Processing Request"
-msgstr "요청을 처리중입니다."
+msgstr "요청을 처리중입니다"
 
 #: js/messages.php:237 libraries/rte/rte_export.lib.php:41
 msgid "Error in Processing Request"
-msgstr "요청 처리중 에러가 발생했습니다."
+msgstr "요청 처리중 에러가 발생했습니다"
 
 #: js/messages.php:238 server_databases.php:90
 msgid "No databases selected."
@@ -1692,11 +1685,11 @@ msgstr "데이터베이스를 선택하지 않았습니다."
 
 #: js/messages.php:239
 msgid "Dropping Column"
-msgstr "열을 삭제하고 있습니다."
+msgstr "열을 삭제하고 있습니다"
 
 #: js/messages.php:240
 msgid "Adding Primary Key"
-msgstr "기본 키를 추가하고 있습니다."
+msgstr "기본 키를 추가하고 있습니다"
 
 #: js/messages.php:241 pmd_general.php:415 pmd_general.php:572
 #: pmd_general.php:620 pmd_general.php:696 pmd_general.php:750
@@ -1706,27 +1699,27 @@ msgstr "확인"
 
 #: js/messages.php:242
 msgid "Click to dismiss this notification"
-msgstr "클릭하면 이 알림을 받지 않습니다."
+msgstr "클릭하면 이 알림을 받지 않습니다"
 
 #: js/messages.php:245
 msgid "Renaming Databases"
-msgstr "데이터베이스 이름을 변경중입니다."
+msgstr "데이터베이스 이름을 변경중입니다"
 
 #: js/messages.php:246
 msgid "Reload Database"
-msgstr "데이터베이스를 다시 불러오고 있습니다."
+msgstr "데이터베이스를 다시 불러오기"
 
 #: js/messages.php:247
 msgid "Copying Database"
-msgstr "데이터베이스를 복사중입니다."
+msgstr "데이터베이스를 복사중입니다"
 
 #: js/messages.php:248
 msgid "Changing Charset"
-msgstr "언어를 변경하고 있습니다."
+msgstr "언어를 변경하고 있습니다"
 
 #: js/messages.php:249
 msgid "Table must have at least one column"
-msgstr "테이블은 적어도 1개 이상의 컬럼이 있어야 합니다."
+msgstr "테이블은 적어도 1개 이상의 컬럼이 있어야 합니다"
 
 #: js/messages.php:254
 msgid "Insert Table"
@@ -1809,7 +1802,7 @@ msgstr "%d 값 추가"
 #: js/messages.php:279
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one"
-msgstr "참고: 파일에 여러 테이블이 포함되어 있다면, 하나로 결합됩니다."
+msgstr "참고: 파일에 여러 테이블이 포함되어 있다면, 하나로 결합됩니다"
 
 #: js/messages.php:282
 msgid "Hide query box"
@@ -1821,7 +1814,7 @@ msgstr "질의 상자 보이기"
 
 #: js/messages.php:285 tbl_row_action.php:21
 msgid "No rows selected"
-msgstr "선택된 행이 없습니다."
+msgstr "선택된 행이 없습니다"
 
 #: js/messages.php:286 libraries/DisplayResults.class.php:4320
 #: querywindow.php:84 tbl_structure.php:148 tbl_structure.php:577
@@ -1836,7 +1829,7 @@ msgstr "질의 실행 시간"
 #: libraries/DisplayResults.class.php:531
 #, php-format
 msgid "%d is not valid row number."
-msgstr ""
+msgstr "%d는 올바른 행번호가 아닙니다."
 
 #: js/messages.php:291 libraries/config/FormDisplay.tpl.php:387
 #: libraries/insert_edit.lib.php:1487
@@ -1862,7 +1855,6 @@ msgid "Zoom Search"
 msgstr "추가 검색"
 
 #: js/messages.php:300
-#, fuzzy
 msgid "Each point represents a data row."
 msgstr "각 포인트는 데이터 행을 나타냅니다."
 
