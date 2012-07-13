@@ -29,7 +29,8 @@ class Node_View_Container extends Node
         );
         $this->real_name = 'views';
 
-        $new = new Node(__('New'));
+        $new        = new Node(__('New'));
+        $new->isNew = true;
         $new->icon  = $this->_commonFunctions->getImage('b_view_add.png', '');
         $new->links = array(
             'text' => 'view_create.php?server=' . $GLOBALS['server']

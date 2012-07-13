@@ -678,7 +678,8 @@ class PMA_NavigationTree
                 'indexes'
             );
             if (($GLOBALS['is_ajax_request'] || $hasChildren || $GLOBALS['cfg']['LeftFrameLight'])
-                && ! in_array($node->parent->real_name, $sterile) && ! preg_match('/^' . __('New') . '/', $node->real_name)
+                && ! in_array($node->parent->real_name, $sterile)
+                && ! $node->isNew
             ) {
                 $loaded = '';
                 if ($node->is_group || $GLOBALS['cfg']['LeftFrameLight'] != true) {
@@ -959,13 +960,9 @@ class PMA_NavigationTree
      */
     static public function sortNode($a, $b)
     {
-        if (property_exists($a, 'classes')
-            && strpos($a->classes, 'new') === 0
-        ) {
+        if ($a->isNew) {
             return -1;
-        } else if (property_exists($b, 'classes')
-            && strpos($b->classes, 'new') === 0
-        ) {
+        } else if ($b->isNew) {
             return 1;
         }
         if ($GLOBALS['cfg']['NaturalOrder']) {

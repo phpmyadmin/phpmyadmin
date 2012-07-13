@@ -92,6 +92,11 @@ class Node
     public $classes = '';
 
     /**
+     * @var string Whether this node is a link for creating new objects
+     */
+    public $isNew = false;
+
+    /**
      * @var int The position for the pagination of
      *          the branch at the second level of the tree
      */

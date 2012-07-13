@@ -31,7 +31,8 @@ class Node_Table_Container extends Node
         $this->separator_depth = (int)($GLOBALS['cfg']['LeftFrameTableLevel']);
         $this->real_name       = 'tables';
 
-        $new = new Node(__('New'));
+        $new        = new Node(__('New'));
+        $new->isNew = true;
         $new->icon  = $this->_commonFunctions->getImage('b_table_add.png', '');
         $new->links = array(
             'text' => 'tbl_create.php?server=' . $GLOBALS['server']

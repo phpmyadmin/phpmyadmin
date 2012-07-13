@@ -29,7 +29,8 @@ class Node_Event_Container extends Node
         );
         $this->real_name = 'events';
 
-        $new = new Node(__('New'));
+        $new        = new Node(__('New'));
+        $new->isNew = true;
         $new->icon  = $this->_commonFunctions->getImage('b_event_add.png', '');
         $new->links = array(
             'text' => 'db_events.php?server=' . $GLOBALS['server']

@@ -31,7 +31,8 @@ class Node_Index_Container extends Node
         );
         $this->real_name = 'indexes';
 
-        $new = new Node(__('New'));
+        $new        = new Node(__('New'));
+        $new->isNew = true;
         $new->icon  = $this->_commonFunctions->getImage('b_index_add.png', '');
         $new->links = array(
             'text' => 'tbl_indexes.php?server=' . $GLOBALS['server']

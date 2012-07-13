@@ -32,6 +32,7 @@ class Node_Column_Container extends Node
         $this->real_name = 'columns';
 
         $new        = new Node(__('New'));
+        $new->isNew = true;
         $new->icon  = $this->_commonFunctions->getImage('b_column_add.png', '');
         $new->links = array(
             'text' => 'tbl_addfield.php?server=' . $GLOBALS['server']

@@ -29,7 +29,8 @@ class Node_Trigger_Container extends Node
         );
         $this->real_name = 'triggers';
 
-        $new = new Node(__('New'));
+        $new        = new Node(__('New'));
+        $new->isNew = true;
         $new->icon  = $this->_commonFunctions->getImage('b_trigger_add.png', '');
         $new->links = array(
             'text' => 'db_triggers.php?server=' . $GLOBALS['server']
