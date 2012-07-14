@@ -1184,33 +1184,27 @@ function PMA_getMessageAndSqlQueryForPrivilegesRevoke($db_and_table, $dbname,
  */
 function PMA_getWithClauseForAddUserAndUpdatePrivs()
 {
-    $isWith = false;
     $sql_query = '';
     if (isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y') {
         $sql_query .= ' GRANT OPTION';
-        $isWith = true;
     }
     if (isset($_POST['max_questions'])) {
         $max_questions = max(0, (int)$_POST['max_questions']);
         $sql_query .= ' MAX_QUERIES_PER_HOUR ' . $max_questions;
-        $isWith = true;
     }
     if (isset($_POST['max_connections'])) {
         $max_connections = max(0, (int)$_POST['max_connections']);
         $sql_query .= ' MAX_CONNECTIONS_PER_HOUR ' . $max_connections;
-        $isWith = true;
     }
     if (isset($_POST['max_updates'])) {
         $max_updates = max(0, (int)$_POST['max_updates']);
         $sql_query .= ' MAX_UPDATES_PER_HOUR ' . $max_updates;
-        $isWith = true;
     }
     if (isset($_POST['max_user_connections'])) {
         $max_user_connections = max(0, (int)$_POST['max_user_connections']);
         $sql_query .= ' MAX_USER_CONNECTIONS ' . $max_user_connections;
-        $isWith = true;
     }
-    return ($isWith ? 'WITH' . $sql_query : $sql_query);
+    return ((!empty($sql_query)) ? 'WITH' . $sql_query : $sql_query);
 }
 
 /**
