@@ -22,24 +22,24 @@ $(function() {
      * opens/closes (hides/shows) tree elements
      * loads data via ajax
      */
-	$('#pma_navigation_tree a.expander').live('click', function(event) {
+    $('#pma_navigation_tree a.expander').live('click', function(event) {
         event.preventDefault();
         event.stopImmediatePropagation();
         var $this = $(this);
         var $children = $this.closest('li').children('div.list_container');
         var $icon = $this.find('img');
         if ($this.hasClass('loaded')) {
-	        if ($icon.is('.ic_b_plus')) {
-		        $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
-		        $children.show('fast', function () {
+            if ($icon.is('.ic_b_plus')) {
+                $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
+                $children.show('fast', function () {
                     ScrollHandler.displayScrollbar();
                 });
-	        } else {
-		        $icon.removeClass('ic_b_minus').addClass('ic_b_plus');
-		        $children.hide('fast', function () {
+            } else {
+                $icon.removeClass('ic_b_minus').addClass('ic_b_plus');
+                $children.hide('fast', function () {
                     ScrollHandler.displayScrollbar();
                 });
-	        }
+            }
         } else {
             var $destination = $this.closest('li');
             var $throbber = $('#pma_navigation .throbber')
@@ -83,8 +83,8 @@ $(function() {
                     $this.addClass('loaded');
                     $destination.find('div.list_container').remove(); // FIXME: Hack, there shouldn't be a list container there
                     $destination.append(data.message);
-	                $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
-	                $destination
+                    $icon.removeClass('ic_b_plus').addClass('ic_b_minus');
+                    $destination
                         .children('div.list_container')
                         .show(
                             'fast',
@@ -105,7 +105,7 @@ $(function() {
             });
         }
         $(this).blur();
-	});
+    });
 
     /**
      * Register event handler for click on the reload
@@ -181,7 +181,7 @@ $(function() {
     /**
      * Node highlighting
      */
-	$('#pma_navigation_tree.highlight li:not(.fast_filter)').live(
+    $('#pma_navigation_tree.highlight li:not(.fast_filter)').live(
         'mouseover',
         function () {
             if ($('li:visible', this).length == 0) {
@@ -189,7 +189,7 @@ $(function() {
             }
         }
     );
-	$('#pma_navigation_tree.highlight li:not(.fast_filter)').live(
+    $('#pma_navigation_tree.highlight li:not(.fast_filter)').live(
         'mouseout',
         function () {
             $(this).css('background', '');

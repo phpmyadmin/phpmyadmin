@@ -1839,7 +1839,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         user-defined.<br />
         See the <a href="http://dev.mysql.com/doc/mysql/en/charset-charsets.html">MySQL
         documentation</a> for list of possible values. This setting is ignored when
-		connected to Drizzle server.</dd>
+        connected to Drizzle server.</dd>
 
     <dt id="cfg_Lang">$cfg['Lang'] string</dt>
     <dd>Force language to use.<br />
@@ -2518,7 +2518,7 @@ setfacl -d -m "g:www-data:rwx" tmp
 
 <p> The file name convention is
     <code>[Mimetype]_[Subtype]_[Transformation Name].class.php</code>,<br />
-    while the abtract class that it extends has the name 
+    while the abtract class that it extends has the name
     <code>[Transformation Name]TransformationsPlugin</code>.<br /><br />
     All of the methods that have to be implemented by a transformations plug-in are: <Br />
     <ol>
@@ -2526,14 +2526,14 @@ setfacl -d -m "g:www-data:rwx" tmp
         <li>getName(), getInfo() and applyTransformation() in the abstract class it extends.</li>
     </ol>
     </p>
-    
+
 <p>The getMIMEType(), getMIMESubtype() and getName() methods return the name of the
     MIME type, MIME Subtype and transformation accordingly. getInfo() returns the
     transformation's description and possible options it may receive and
     applyTransformation() is the method that does the actual work of the
-    transformation plug-in.</p>   
+    transformation plug-in.</p>
 
-<p> Please see the libraries/plugins/transformations/TEMPLATE and 
+<p> Please see the libraries/plugins/transformations/TEMPLATE and
     libraries/plugins/transformations/TEMPLATE_ABSTRACT
     files for adding your own transformation plug-in. You can also generate a
     new transformation plug-in (with or without the abstract transformation class),
