@@ -289,7 +289,7 @@ if (isset($criteriaColumn) && count($criteriaColumn) > 0) {
                 // we can check which of our columns has a where clause
                 if (! empty($criteria[$column_index])) {
                     if (substr($criteria[$column_index], 0, 1) == '=' || stristr($criteria[$column_index], 'is')) {
-                        $col_where[$criteria_column_count] = $col1;
+                        $col_where[$col1] = $col1;
                         $tab_wher[$tab]  = $tab;
                     }
                 } // end if
@@ -353,13 +353,13 @@ if (isset($criteriaColumn) && count($criteriaColumn) > 0) {
             // (that would mean that they were also found in the whereclauses
             // which would be great). if yes, we take only those
             if ($needsort == 1) {
-                foreach ($col_cand as $criteria_column_count => $is_where) {
-                    $tab           = explode('.', $criteria_column_count);
+                foreach ($col_cand as $col1 => $is_where) {
+                    $tab           = explode('.', $col1);
                     $tab           = $tab[0];
                     if ($is_where == 'Y') {
-                        $vg[$criteria_column_count]  = $tab;
+                        $vg[$col1]  = $tab;
                     } else {
-                        $sg[$criteria_column_count]  = $tab;
+                        $sg[$col1]  = $tab;
                     }
                 }
                 if (isset($vg)) {
