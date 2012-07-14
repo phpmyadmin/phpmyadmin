@@ -162,7 +162,6 @@ $forms['Sql_queries']['Sql_validator'] = array('SQLValidator' => array(
     'username',
     'password'));
 $forms['Left_frame']['Left_frame'] = array(
-    'LeftFrameLight',
     'LeftDisplayLogo',
     'LeftLogoLink',
     'LeftLogoLinkWindow',

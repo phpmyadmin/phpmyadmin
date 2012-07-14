@@ -784,13 +784,6 @@ $cfg['Error_Handler']['gather'] = false;
  */
 
 /**
- * use a select-based menu and display only the current tables in the left frame.
- *
- * @global boolean $cfg['LeftFrameLight']
- */
-$cfg['LeftFrameLight'] = true;
-
-/**
  * turn the select-based light menu into a tree
  *
  * @global boolean $cfg['LeftFrameDBTree']
@@ -2313,7 +2306,6 @@ $cfg['AvailableCharsets'] = array(
 
 /**
  * enable the left panel pointer
- * (used when LeftFrameLight is false)
  * see also LeftPointerColor
  * in layout.inc.php
  *

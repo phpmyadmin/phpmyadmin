@@ -78,7 +78,6 @@ $forms['Sql_queries']['Sql_box'] = array(
     'SQLQuery/Validate',
     'SQLQuery/Refresh');
 $forms['Left_frame']['Left_frame'] = array(
-    'LeftFrameLight',
     'LeftDisplayLogo',
     'LeftLogoLink',
     'LeftLogoLinkWindow',

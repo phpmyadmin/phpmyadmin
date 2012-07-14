@@ -1521,13 +1521,6 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dt id ="cfg_Error_Handler_gather">$cfg['Error_Handler']['gather'] boolean</dt>
     <dd>Whether to gather errors from PHP or not.</dd>
 
-    <dt id="cfg_LeftFrameLight">$cfg['LeftFrameLight'] boolean</dt>
-    <dd>Defines whether to use a select-based menu and display only the current
-        tables in the left frame (smaller page). Only in Non-Lightmode you can
-        use the feature to display nested folders using
-        <a href="#cfg_LeftFrameTableSeparator" class="configrule">$cfg['LeftFrameTableSeparator']</a>
-    </dd>
-
     <dt id="cfg_LeftFrameDBTree">$cfg['LeftFrameDBTree'] boolean</dt>
     <dd>Defines whether to display the names of databases (in the
         selector) using a tree, see also
@@ -1946,8 +1939,7 @@ $cfg['TrustedProxies'] =
         See <code>themes/themename/layout.inc.php</code>.</dd>
 
     <dt id="cfg_LeftPointerEnable">$cfg['LeftPointerEnable'] boolean</dt>
-    <dd>A value of <code>TRUE</code> activates the navi pointer (when LeftFrameLight
-        is <code>FALSE</code>).</dd>
+    <dd>A value of <code>TRUE</code> activates the navi pointer.</dd>
 
     <dt id="cfg_Border">$cfg['Border'] integer</dt>
     <dd>The size of a table's border. See <code>themes/themename/layout.inc.php</code>.

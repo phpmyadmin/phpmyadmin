@@ -658,7 +658,6 @@ class PMA_NavigationTree
             if (   $node->type == Node::CONTAINER
                 && count($node->children) == 0
                 && $GLOBALS['is_ajax_request'] != true
-                && $GLOBALS['cfg']['LeftFrameLight'] != true
             ) {
                 return '';
             }
@@ -677,12 +676,11 @@ class PMA_NavigationTree
                 'columns',
                 'indexes'
             );
-            if (($GLOBALS['is_ajax_request'] || $hasChildren || $GLOBALS['cfg']['LeftFrameLight'])
-                && ! in_array($node->parent->real_name, $sterile)
+            if (   ! in_array($node->parent->real_name, $sterile)
                 && ! $node->isNew
             ) {
                 $loaded = '';
-                if ($node->is_group || $GLOBALS['cfg']['LeftFrameLight'] != true) {
+                if ($node->is_group) {
                     $loaded = ' loaded';
                 }
                 $container = '';
