@@ -34,6 +34,7 @@ class Node_Procedure extends Node
                     . '&amp;db=%2$s&amp;item_name=%1$s&amp;item_type=PROCEDURE'
                     . '&amp;export_item=1&amp;token=' . $GLOBALS['token']
         );
+        $this->classes = 'procedure';
     }
 }
 

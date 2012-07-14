@@ -35,10 +35,10 @@ class Node_Function_Container extends Node
         $new->links = array(
             'text' => 'db_routines.php?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;token=' . $GLOBALS['token']
-                    . '&add_item=1',
+                    . '&add_item=1&amp;item_type=FUNCTION',
             'icon' => 'db_routines.php?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;token=' . $GLOBALS['token']
-                    . '&add_item=1',
+                    . '&add_item=1&amp;item_type=FUNCTION',
         );
         $new->classes = 'new_function italics';
         $this->addChild($new);

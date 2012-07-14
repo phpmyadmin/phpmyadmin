@@ -698,7 +698,6 @@ class PMA_NavigationTree
                 if (strpos($class, 'last') === false) {
                     $retval .= "<b></b>";
                 }
-
                 $icon  = $this->_commonFunctions->getImage('b_plus.png');
                 $match = 1;
                 foreach ($this->_aPath as $path) {
@@ -762,6 +761,20 @@ class PMA_NavigationTree
                 $retval .= "</div>";
             }
 
+            $linkClass = '';
+            $haveAjax = array(
+                'functions',
+                'procedures',
+                'events',
+                'triggers'
+            );
+            $parent = $node->parents(false, true);
+            if ($parent[0]->type == Node::CONTAINER
+                && in_array($parent[0]->real_name, $haveAjax)
+            ) {
+                $linkClass = ' class="ajax"';
+            }
+
             if ($node->type == Node::CONTAINER) {
                 $retval .= "<i>";
             }
@@ -773,7 +786,7 @@ class PMA_NavigationTree
                         $args[] = urlencode($parent->real_name);
                     }
                     $link = vsprintf($node->links['icon'], $args);
-                    $retval .= "<a href='$link'>{$node->icon}</a>";
+                    $retval .= "<a$linkClass href='$link'>{$node->icon}</a>";
                 } else {
                     $retval .= "<a>{$node->icon}</a>";
                 }
@@ -790,7 +803,7 @@ class PMA_NavigationTree
                     $retval .= htmlspecialchars($node->name);
                     $retval .= "</a>";
                 } else {
-                    $retval .= "<a href='$link'>";
+                    $retval .= "<a$linkClass href='$link'>";
                     $retval .= htmlspecialchars($node->real_name);
                     $retval .= "</a>";
                 }
