@@ -171,7 +171,6 @@ $forms['Left_frame']['Left_servers'] = array(
     'LeftDisplayServers',
     'DisplayServersList');
 $forms['Left_frame']['Left_databases'] = array(
-    'DisplayDatabasesList',
     'LeftFrameDBTree',
     'LeftFrameDBSeparator',
     'ShowTooltipAliasDB');

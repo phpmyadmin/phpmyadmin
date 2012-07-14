@@ -51,6 +51,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 - bug #3526598 [interface] SQL query not shown when creating table
 + Dropped configuration directive: AllowThirdPartyFraming
 + Dropped configuration directive: LeftFrameLight
++ Dropped configuration directive: DisplayDatabasesList
 
 3.5.4.0 (not yet released)
 - bug #3570212 [edit] uuid_short() is a no-arguments function

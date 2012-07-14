@@ -888,13 +888,6 @@ $cfg['LeftDisplayServers'] = false;
 $cfg['DisplayServersList'] = false;
 
 /**
- * database choice in light as links
- *
- * @global boolean $cfg['DisplayDatabasesList']
- */
-$cfg['DisplayDatabasesList'] = 'auto';
-
-/**
  * display a JavaScript database filter in the left frame
  * when more then x databases are present
  *

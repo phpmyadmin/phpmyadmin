@@ -85,7 +85,6 @@ $forms['Left_frame']['Left_frame'] = array(
     'LeftRecentTable');
 $forms['Left_frame']['Left_databases'] = array(
     'LeftDisplayDatabaseFilterMinimum',
-    'DisplayDatabasesList',
     'LeftFrameDBTree',
     'LeftFrameDBSeparator',
     'ShowTooltipAliasDB');
