@@ -149,6 +149,7 @@ class PMA_Header
         $this->_scripts->addFile('jquery/jquery.cookie.js');
         $this->_scripts->addFile('jquery/jquery.mousewheel.js');
         $this->_scripts->addFile('jquery/jquery.event.drag-2.0.js');
+        $this->_scripts->addFile('jquery/timepicker.js');
         $this->_scripts->addFile('update-location.js');
 
         $this->_scripts->addFile('jquery/jquery.qtip-1.0.0-rc3.js');
@@ -156,10 +157,14 @@ class PMA_Header
             $this->_scripts->addFile('codemirror/lib/codemirror.js');
             $this->_scripts->addFile('codemirror/mode/mysql/mysql.js');
         }
+
         // Cross-framing protection
         if ($GLOBALS['cfg']['AllowThirdPartyFraming'] === false) {
             $this->_scripts->addFile('cross_framing_protection.js');
         }
+
+        $this->_scripts->addFile('rte.js');
+
         // Localised strings
         $params = array('lang' => $GLOBALS['lang']);
         if (isset($GLOBALS['db'])) {
