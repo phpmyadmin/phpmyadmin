@@ -105,6 +105,58 @@ class PMA_NavigationHeader
     }
 
     /**
+     * Renders a single link for the top of the navigation panel
+     *
+     * @param string $link        The url for the link
+     * @param bool   $showText    Whether to show the text or to
+     *                            only use it for title attributes
+     * @param string $text        The text to display and use for title attributes
+     * @param bool   $showIcon    Whether to show the icon
+     * @param string $icon        The filename of the icon to show
+     * @param string $linkId      Value to use for the ID attribute
+     * @param string $disableAjax Whether to disable ajax page loading for this link
+     * @param string $linkTarget  The name of the target frame for the link
+     *
+     * @return string HTML code for one link
+     */
+    private function _getLink(
+        $link,
+        $showText,
+        $text,
+        $showIcon,
+        $icon,
+        $linkId = '',
+        $disableAjax = false,
+        $linkTarget = ''
+    ) {
+        $retval  = '<a href="' . $link . '"';
+        if (! empty($linkId)) {
+            $retval  .= ' id="' . $linkId . '"';
+        }
+        if (! empty($linkTarget)) {
+            $retval  .= ' target="' . $linkTarget . '"';
+        }
+        if ($disableAjax) {
+            $retval  .= ' class="disableAjax"';
+        }
+        $retval .= ' title="' . $text . '">';
+        if ($showIcon) {
+            $retval .= $this->_commonFunctions->getImage(
+                $icon,
+                $text
+            );
+        }
+        if ($showText) {
+            $retval .= $text;
+        }
+        $retval .= '</a>';
+        if ($showText) {
+            $retval .= '<br />';
+        }
+        return $retval;
+    }
+
+    /**
      * Creates the code for displaying the links
      * at the top of the navigation frame
      *
@@ -112,69 +164,61 @@ class PMA_NavigationHeader
      */
     private function _links()
     {
+        $iconicNav = $GLOBALS['cfg']['NavigationBarIconic'];
+        $showIcon = $iconicNav === true || $iconicNav === 'both';
+        $showText = $iconicNav === false || $iconicNav === 'both';
+
         $retval  = '<!-- LINKS START -->';
         $retval .= '<div id="leftframelinks">';
-        $retval .= '<a href="index.php?' . PMA_generate_common_url() . '" ';
-        $retval .= ' title="' . __('Home') . '">';
-        if ($GLOBALS['cfg']['NavigationBarIconic']) {
-            $retval .= $this->_commonFunctions->getImage(
-                'b_home.png',
-                __('Home')
-            );
-            $retval .= '</a>';
-        } else {
-            $retval .= __('Home') . '</a>';
-            $retval .= '<br />';
-        }
+        $retval .= $this->_getLink(
+            'index.php?' . PMA_generate_common_url(),
+            $showText,
+            __('Home'),
+            $showIcon,
+            'b_home.png'
+        );
         // if we have chosen server
         if ($GLOBALS['server'] != 0) {
             // Logout for advanced authentication
             if ($GLOBALS['cfg']['Server']['auth_type'] != 'config') {
-                $retval .= '    <a href="index.php?' . $GLOBALS['url_query'];
-                $retval .= '&amp;old_usr=' . urlencode($GLOBALS['PHP_AUTH_USER']);
-                $retval .= '" title="' . __('Log out') . '" class="disableAjax">';
-                if ($GLOBALS['cfg']['NavigationBarIconic']) {
-                    $retval .= $this->_commonFunctions->getImage(
-                        's_loggoff.png',
-                        __('Log out')
-                    );
-                    $retval .= '</a>';
-                } else {
-                    $retval .= __('Log out') . '</a>';
-                    $retval .= '<br />';
-                }
-            }
-            $retval .= '<a href="querywindow.php?';
-            $retval .= PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']);
-            $retval .= '&amp;no_js=true"';
-            $retval .= ' title="' . __('Query window') . '"';
-            $retval .= ' onclick="javascript:if (open_querywindow()) return false;">';
-            if ($GLOBALS['cfg']['NavigationBarIconic']) {
-                $retval .= $this->_commonFunctions->getImage(
-                    'b_selboard.png',
-                    __('Query window')
+                $link  = 'index.php?' . $GLOBALS['url_query'];
+                $link .= '&amp;old_usr=' . urlencode($GLOBALS['PHP_AUTH_USER']);
+                $retval .= $this->_getLink(
+                    $link,
+                    $showText,
+                    __('Log out'),
+                    $showIcon,
+                    's_loggoff.png',
+                    '',
+                    true
                 );
-                $retval .= '</a>';
-            } else {
-                $retval .= __('Query window') . '</a>';
-                $retval .= '<br />';
             }
-        }
-        $retval .= '<a href="Documentation.html" target="documentation"';
-        $retval .= ' title="' . __('phpMyAdmin documentation') . '" >';
-        if ($GLOBALS['cfg']['NavigationBarIconic']) {
-            $retval .= $this->_commonFunctions->getImage(
-                'b_docs.png',
-                __('phpMyAdmin documentation')
+            $link  = 'querywindow.php?';
+            $link .= PMA_generate_common_url($GLOBALS['db'], $GLOBALS['table']);
+            $link .= '&amp;no_js=true';
+            $retval .= $this->_getLink(
+                $link,
+                $showText,
+                __('Query window'),
+                $showIcon,
+                'b_selboard.png',
+                'pma_open_querywindow'
             );
-            $retval .= '</a>';
-        } else {
-            $retval .= __('phpMyAdmin documentation') . '</a>';
-            $retval .= '<br />';
         }
-        if ($GLOBALS['cfg']['NavigationBarIconic']) {
+        $retval .= $this->_getLink(
+            'Documentation.html',
+            $showText,
+            __('phpMyAdmin documentation'),
+            $showIcon,
+            'b_docs.png',
+            '',
+            false,
+            'documentation'
+        );
+        if ($showIcon) {
             $retval .= $this->_commonFunctions->showMySQLDocu('', '', true);
-        } else {
+        }
+        if ($showText) {
             // PMA_showMySQLDocu always spits out an icon,
             // we just replace it with some perl regexp.
             $link = preg_replace(
@@ -185,17 +229,14 @@ class PMA_NavigationHeader
             $retval .= $link;
             $retval .= '<br />';
         }
-        $retval .= '<a href="#" id="pma_navigation_reload">';
-        if ($GLOBALS['cfg']['NavigationBarIconic']) {
-            $retval .= $this->_commonFunctions->getImage(
-                's_reload.png',
-                __('Reload navigation frame')
-            );
-            $retval .= '</a>';
-        } else {
-            $retval .= __('Reload navigation frame') . '</a>';
-            $retval .= '<br />';
-        }
+        $retval .= $this->_getLink(
+            '#',
+            $showText,
+            __('Reload navigation frame'),
+            $showIcon,
+            's_reload.png',
+            'pma_navigation_reload'
+        );
         $retval .= '</div>';
         $retval .= '<!-- LINKS ENDS -->';
         return $retval;
