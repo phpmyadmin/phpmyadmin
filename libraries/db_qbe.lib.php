@@ -690,4 +690,111 @@ function PMA_dbQbeGetOrderByClause($criteria_column_count)
     }
     return $orderby_clause;
 }
+
+/**
+ * Provides UNIQUE columns and INDEX columns present in criteria tables
+ *
+ * @param array $db                   Selected database
+ * @param array $all_tables           Tables involved in the search
+ * @param array $all_columns          Columns involved in the search
+ * @param array $where_clause_columns Columns having criteria where clause
+ *
+ * @return array having UNIQUE and INDEX columns
+ */
+function PMA_dbQbeGetIndexes($db, $all_tables, $all_columns, $where_clause_columns
+) {
+    $unique_columns = array();
+    $index_columns = array();
+
+    foreach ($all_tables as $table) {
+        $indexes = PMA_DBI_get_table_indexes($db, $table);
+        foreach ($indexes as $index) {
+            $column = $table . '.' . $index['Column_name'];
+            if (isset($all_columns[$column])) {
+                if ($index['Non_unique'] == 0) {
+                    if (isset($where_clause_columns[$column])) {
+                        $unique_columns[$column] = 'Y';
+                    } else {
+                        $unique_columns[$column] = 'N';
+                    }
+                } else {
+                    if (isset($where_clause_columns[$column])) {
+                        $index_columns[$column] = 'Y';
+                    } else {
+                        $index_columns[$column] = 'N';
+                    }
+                }
+            }
+        } // end while (each index of a table)
+    } // end while (each table)
+
+    return array(
+        'unique' => $unique_columns,
+        'index' => $index_columns
+    );
+}
+
+/**
+ * Provides UNIQUE columns and INDEX columns present in criteria tables
+ *
+ * @param array $db                   Selected database
+ * @param array $all_tables           Tables involved in the search
+ * @param array $all_columns          Columns involved in the search
+ * @param array $where_clause_columns Columns having criteria where clause
+ *
+ * @return array having UNIQUE and INDEX columns
+ */
+function PMA_dbQbeGetLeftJoinColumnCandidates($db, $all_tables, $all_columns,
+    $where_clause_columns
+) {
+    PMA_DBI_select_db($db);
+    $candidate_columns = array();
+
+    // Get unique columns and index columns
+    $indexes = PMA_dbQbeGetIndexes(
+        $db, $all_tables, $all_columns, $where_clause_columns
+    );
+    $unique_columns = $indexes['unique'];
+    $index_columns = $indexes['index'];
+
+    // now we want to find the best.
+    if (isset($unique_columns) && count($unique_columns) > 0) {
+        $candidate_columns = $unique_columns;
+        $needsort = 1;
+    } elseif (isset($index_columns) && count($index_columns) > 0) {
+        $candidate_columns = $index_columns;
+        $needsort = 1;
+    } elseif (isset($where_clause_columns) && count($where_clause_columns) > 0) {
+        $candidate_columns = $tab_wher;
+        $needsort = 0;
+    } else {
+        $candidate_columns = $all_tables;
+        $needsort = 0;
+    }
+
+    // If we came up with $unique_columns (very good) or $index_columns (still
+    // good) as $candidate_columns we want to check if we have any 'Y' there
+    // (that would mean that they were also found in the whereclauses
+    // which would be great). if yes, we take only those
+    if ($needsort == 1) {
+        foreach ($candidate_columns as $column => $is_where) {
+            $table = explode('.', $column);
+            $table = $table[0];
+            if ($is_where == 'Y') {
+                $vg[$column] = $table;
+            } else {
+                $sg[$column] = $table;
+            }
+        }
+        if (isset($vg)) {
+            $candidate_columns = $vg;
+            // Candidates restricted in index+where
+        } else {
+            $candidate_columns = $sg;
+            // None of the candidates where in a where-clause
+        }
+    }
+
+    return $candidate_columns;
+}
 ?>

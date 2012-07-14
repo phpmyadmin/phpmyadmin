@@ -310,66 +310,9 @@ if (isset($criteriaColumn) && count($criteriaColumn) > 0) {
             // (When the control user is the same as the normal user
             // because he is using one of his databases as pmadb,
             // the last db selected is not always the one where we need to work)
-            PMA_DBI_select_db($db);
-
-            foreach ($tab_all as $tab) {
-                $indexes = PMA_DBI_get_table_indexes($db, $tab);
-                foreach ($indexes as $ind) {
-                    $col1 = $tab . '.' . $ind['Column_name'];
-                    if (isset($col_all[$col1])) {
-                        if ($ind['Non_unique'] == 0) {
-                            if (isset($col_where[$col1])) {
-                                $col_unique[$col1] = 'Y';
-                            } else {
-                                $col_unique[$col1] = 'N';
-                            }
-                        } else {
-                            if (isset($col_where[$col1])) {
-                                $col_index[$col1] = 'Y';
-                            } else {
-                                $col_index[$col1] = 'N';
-                            }
-                        }
-                    }
-                } // end while (each col of tab)
-            } // end while (each tab)
-            // now we want to find the best.
-            if (isset($col_unique) && count($col_unique) > 0) {
-                $col_cand = $col_unique;
-                $needsort = 1;
-            } elseif (isset($col_index) && count($col_index) > 0) {
-                $col_cand = $col_index;
-                $needsort = 1;
-            } elseif (isset($col_where) && count($col_where) > 0) {
-                $col_cand = $tab_wher;
-                $needsort = 0;
-            } else {
-                $col_cand = $tab_all;
-                $needsort = 0;
-            }
-
-            // If we came up with $col_unique (very good) or $col_index (still
-            // good) as $col_cand we want to check if we have any 'Y' there
-            // (that would mean that they were also found in the whereclauses
-            // which would be great). if yes, we take only those
-            if ($needsort == 1) {
-                foreach ($col_cand as $col1 => $is_where) {
-                    $tab           = explode('.', $col1);
-                    $tab           = $tab[0];
-                    if ($is_where == 'Y') {
-                        $vg[$col1]  = $tab;
-                    } else {
-                        $sg[$col1]  = $tab;
-                    }
-                }
-                if (isset($vg)) {
-                    $col_cand      = $vg;
-                    // Candidates restricted in index+where
-                } else {
-                    $col_cand      = $sg;
-                    // None of the candidates where in a where-clause
-                }
-            }
+            $col_cand = PMA_dbQbeGetLeftJoinColumnCandidates(
+                $db, $tab_all, $col_all, $col_where
+            );
 
             // If our array of candidates has more than one member we'll just
             // find the smallest table.
