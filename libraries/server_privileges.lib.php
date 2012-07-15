@@ -1155,7 +1155,7 @@ function PMA_getMessageForUpdatePassword($pma_pw, $pma_pw2, $err_url, $username,
 function PMA_getMessageAndSqlQueryForPrivilegesRevoke($db_and_table, $dbname,
     $tablename, $username, $hostname
 ) {
-    $db_and_table = PMA_wildcardEscapeForGrant($dbname, isset($tablename) ? $tablename : '');
+    $db_and_table = PMA_wildcardEscapeForGrant($dbname, $tablename);
 
     $sql_query0 = 'REVOKE ALL PRIVILEGES ON ' . $db_and_table
         . ' FROM \'' . PMA_CommonFunctions::getInstance()->sqlAddSlashes($username) . '\'@\''
@@ -1710,7 +1710,7 @@ function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
         . PMA_CommonFunctions::getInstance()->getTitleForTarget($GLOBALS['cfg']['DefaultTabDatabase'])
         . "</a> ]\n";
 
-    if (isset($tablename)) {
+    if (strlen($tablename)) {
         $html_output .= ' [ ' . __('Table') . ' <a href="'
             . $GLOBALS['cfg']['DefaultTabTable'] . '?' . $GLOBALS['url_query']
             . '&amp;db=' . $url_dbname . '&amp;table=' . htmlspecialchars(urlencode($tablename))
@@ -1734,16 +1734,11 @@ function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
  * 
  * @return array $db_rights             database rights
  */
-function PMA_getUserSpecificRights($tables, $user_host_condition)
+function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
 {
     $common_functions = PMA_CommonFunctions::getInstance();
 
-    if (PMA_isValid($_REQUEST['pred_dbname'])) {
-        $dbname = $_REQUEST['pred_dbname'];
-    } elseif (PMA_isValid($_REQUEST['dbname'])) {
-        $dbname = $_REQUEST['dbname'];
-    }
-    if (! isset($dbname)) {
+    if (! strlen($dbname)) {
         $tables_to_search_for_users = array(
             'tables_priv', 'columns_priv',
         );
@@ -1783,7 +1778,7 @@ function PMA_getUserSpecificRights($tables, $user_host_condition)
 
     while ($db_rights_row = PMA_DBI_fetch_assoc($db_rights_result)) {
         $db_rights_row = array_merge($user_defaults, $db_rights_row);
-         if (! isset($dbname)) {
+         if (! strlen($dbname)) {
             // only Db names in the table `mysql`.`db` uses wildcards
             // as we are in the db specific rights display we want
             // all db names escaped, also from other sources
@@ -1796,7 +1791,7 @@ function PMA_getUserSpecificRights($tables, $user_host_condition)
 
     PMA_DBI_free_result($db_rights_result);
 
-    if (! isset($dbname)) {
+    if (! strlen($dbname)) {
         $sql_query = 'SELECT * FROM `mysql`.`db`' . $user_host_condition . ' ORDER BY `Db` ASC';
     } else {
         $sql_query = 'SELECT `Table_name`,'
@@ -1817,7 +1812,7 @@ function PMA_getUserSpecificRights($tables, $user_host_condition)
         } else {
             $db_rights[$row[$dbOrTableName]] = $row;
         }
-        if (! isset($dbname)) {
+        if (! strlen($dbname)) {
             // there are db specific rights for this user
             // so we can drop this db rights
             $db_rights[$row['Db']]['can_delete'] = true;
@@ -1838,14 +1833,9 @@ function PMA_getUserSpecificRights($tables, $user_host_condition)
  * 
  * @return array $found_rows, $html_output
  */
-function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $link_edit,
+function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $link_edit, $dbname,
     $link_revoke, $hostname, $username
 ) {
-    if (PMA_isValid($_REQUEST['pred_dbname'])) {
-        $dbname = $_REQUEST['pred_dbname'];
-    } elseif (PMA_isValid($_REQUEST['dbname'])) {
-        $dbname = $_REQUEST['dbname'];
-    }
     $html_output = '';
     $found_rows = array();
     // display rows
@@ -1857,11 +1847,11 @@ function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $link_edit,
         $odd_row = true;
         //while ($row = PMA_DBI_fetch_assoc($res)) {
         foreach ($db_rights as $row) {
-            $found_rows[] = (! isset($dbname)) ? $row['Db'] : $row['Table_name'];
+            $found_rows[] = (! strlen($dbname)) ? $row['Db'] : $row['Table_name'];
 
             $html_output .= '<tr class="' . ($odd_row ? 'odd' : 'even') . '">' . "\n"
                 . '<td>'  
-                . htmlspecialchars((! isset($dbname))
+                . htmlspecialchars((! strlen($dbname))
                     ? $row['Db']
                     : $row['Table_name'])
                 . '</td>' . "\n"
@@ -1869,8 +1859,8 @@ function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $link_edit,
                 . '        ' . join(',' . "\n" . '            ', PMA_extractPrivInfo($row, true)) . "\n"
                 . '</code></td>' . "\n"
                 . '<td>' 
-                    . ((((! isset($dbname)) && $row['Grant_priv'] == 'Y')
-                        || (isset($dbname) && in_array('Grant', explode(',', $row['Table_priv']))))
+                    . ((((! strlen($dbname)) && $row['Grant_priv'] == 'Y')
+                        || (strlen($dbname) && in_array('Grant', explode(',', $row['Table_priv']))))
                     ? __('Yes')
                     : __('No'))
                 . '</td>' . "\n"
@@ -1886,8 +1876,8 @@ function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $link_edit,
                 $link_edit,
                 htmlspecialchars(urlencode($username)),
                 urlencode(htmlspecialchars($hostname)),
-                urlencode((! isset($dbname)) ? $row['Db'] : htmlspecialchars($dbname)),
-                urlencode((! isset($dbname)) ? '' : $row['Table_name'])
+                urlencode((! strlen($dbname)) ? $row['Db'] : htmlspecialchars($dbname)),
+                urlencode((! strlen($dbname)) ? '' : $row['Table_name'])
             );
             $html_output .= '</td>' . "\n"
                . '    <td>';
@@ -1899,8 +1889,8 @@ function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $link_edit,
                     $link_revoke,
                     htmlspecialchars(urlencode($username)),
                     urlencode(htmlspecialchars($hostname)),
-                    urlencode((! isset($dbname)) ? $row['Db'] : htmlspecialchars($dbname)),
-                    urlencode((! isset($dbname)) ? '' : $row['Table_name'])
+                    urlencode((! strlen($dbname)) ? $row['Db'] : htmlspecialchars($dbname)),
+                    urlencode((! strlen($dbname)) ? '' : $row['Table_name'])
                 );
             }
             $html_output .= '</td>' . "\n"
@@ -1923,28 +1913,23 @@ function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $link_edit,
  * @return array $html_output, $found_rows
  */
 function PMA_getTableForDisplayAllTableSpecificRights($username, $hostname
-    , $link_edit, $link_revoke
+    , $link_edit, $link_revoke, $dbname
 ) {
-    if (PMA_isValid($_REQUEST['pred_dbname'])) {
-        $dbname = $_REQUEST['pred_dbname'];
-    } elseif (PMA_isValid($_REQUEST['dbname'])) {
-        $dbname = $_REQUEST['dbname'];
-    }
     // table header
     $html_output = PMA_generate_common_hidden_inputs('', '')
         . '<input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n"
         . '<input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n"
         . '<fieldset>' . "\n"
         . '<legend>'
-        . (! isset($dbname) ? __('Database-specific privileges') : __('Table-specific privileges'))
+        . (! strlen($dbname) ? __('Database-specific privileges') : __('Table-specific privileges'))
         . '</legend>' . "\n"
         . '<table class="data">' . "\n"
         . '<thead>' . "\n"
-        . '<tr><th>' . (! isset($dbname) ? __('Database') : __('Table')) . '</th>' . "\n"
+        . '<tr><th>' . (! strlen($dbname) ? __('Database') : __('Table')) . '</th>' . "\n"
         . '<th>' . __('Privileges') . '</th>' . "\n"
         . '<th>' . __('Grant') . '</th>' . "\n"
         . '<th>' 
-        . (! isset($dbname) ? __('Table-specific privileges') : __('Column-specific privileges'))
+        . (! strlen($dbname) ? __('Table-specific privileges') : __('Column-specific privileges'))
         . '</th>' . "\n"
         . '<th colspan="2">' . __('Action') . '</th>' . "\n"
         . '</tr>' . "\n"
@@ -1965,14 +1950,14 @@ function PMA_getTableForDisplayAllTableSpecificRights($username, $hostname
      * no db name given, so we want all privs for the given user
      * db name was given, so we want all user specific rights for this db
      */
-    $db_rights = PMA_getUserSpecificRights($tables, $user_host_condition);
+    $db_rights = PMA_getUserSpecificRights($tables, $user_host_condition, $dbname);
 
     ksort($db_rights);
     
     $html_output .= '<tbody>' . "\n";
     // display rows
     list ($found_rows, $html_out) =  PMA_getHtmlForDisplayUserRightsInRows(
-        $db_rights, $link_edit, $link_revoke, $hostname, $username
+        $db_rights, $link_edit, $dbname, $link_revoke, $hostname, $username
     );
 
     $html_output .= $html_out;
@@ -2417,23 +2402,11 @@ function PMA_deleteUser($queries)
  * 
  * @return PMA_message success message or error message for update
  */
-function PMA_updatePrivileges($username, $hostname)
+function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
 {
     $common_functions = PMA_CommonFunctions::getInstance();
-    
-    if (PMA_isValid($_REQUEST['pred_tablename'])) {
-        $tablename = $_REQUEST['pred_tablename'];
-    } elseif (PMA_isValid($_REQUEST['tablename'])) {
-        $tablename = $_REQUEST['tablename'];
-    }
-    if (PMA_isValid($_REQUEST['pred_dbname'])) {
-        $dbname = $_REQUEST['pred_dbname'];
-    } elseif (PMA_isValid($_REQUEST['dbname'])) {
-        $dbname = $_REQUEST['dbname'];
-    }
-    $db_and_table = PMA_wildcardEscapeForGrant(
-        $dbname, (isset($tablename) ? $tablename : '')
-    );
+
+    $db_and_table = PMA_wildcardEscapeForGrant($dbname, $tablename);
 
     $sql_query0 = 'REVOKE ALL PRIVILEGES ON ' . $db_and_table
         . ' FROM \'' . $common_functions->sqlAddSlashes($username)
@@ -2449,14 +2422,14 @@ function PMA_updatePrivileges($username, $hostname)
 
     // Should not do a GRANT USAGE for a table-specific privilege, it
     // causes problems later (cannot revoke it)
-    if (! (isset($tablename) && 'USAGE' == implode('', PMA_extractPrivInfo()))) {
+    if (! (strlen($tablename) && 'USAGE' == implode('', PMA_extractPrivInfo()))) {
         $sql_query2 = 'GRANT ' . join(', ', PMA_extractPrivInfo())
             . ' ON ' . $db_and_table
             . ' TO \'' . $common_functions->sqlAddSlashes($username) . '\'@\''
             . $common_functions->sqlAddSlashes($hostname) . '\'';
 
         if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')
-            || (! isset($dbname)
+            || (! strlen($dbname)
             && (isset($_POST['max_questions']) || isset($_POST['max_connections'])
             || isset($_POST['max_updates']) || isset($_POST['max_user_connections'])))
         ) {
@@ -2715,18 +2688,8 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
  * @return string $html_output
  */
 function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
-    $random_n, $username, $hostname, $link_edit, $link_revoke
+    $random_n, $username, $hostname, $link_edit, $link_revoke, $dbname, $tablename
 ) {
-    if (PMA_isValid($_REQUEST['pred_dbname'])) {
-        $dbname = $_REQUEST['pred_dbname'];
-    } elseif (PMA_isValid($_REQUEST['dbname'])) {
-        $dbname = $_REQUEST['dbname'];
-    }
-    if (PMA_isValid($_REQUEST['pred_tablename'])) {
-        $tablename = $_REQUEST['pred_tablename'];
-    } elseif (PMA_isValid($_REQUEST['tablename'])) {
-        $tablename = $_REQUEST['tablename'];
-    }
     $html_output = PMA_getHtmlHeaderForDisplayUserProperties($dbname_is_wildcard, $url_dbname);
 
     $sql = "SELECT '1' FROM `mysql`.`user`"
@@ -2750,9 +2713,9 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
         'username' => $username,
         'hostname' => $hostname,
     );
-    if (isset($dbname)) {
+    if (strlen($dbname)) {
         $_params['dbname'] = $dbname;
-        if (isset($tablename)) {
+        if (strlen($tablename)) {
             $_params['tablename'] = $tablename;
         }
     }
@@ -2766,7 +2729,7 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
 
     $html_output .= '</form>' . "\n";
 
-    if (! isset($tablename) && empty($dbname_is_wildcard)) {
+    if (! strlen($tablename) && empty($dbname_is_wildcard)) {
 
         // no table name was given, display all table specific rights
         // but only if $dbname contains no wildcards
@@ -2774,11 +2737,11 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
         $html_output .= '<form action="server_privileges.php" id="db_or_table_specific_priv" method="post">' . "\n";
 
         list($html_rightsTable, $found_rows) = PMA_getTableForDisplayAllTableSpecificRights(
-            $username, $hostname, $link_edit, $link_revoke
+            $username, $hostname, $link_edit, $link_revoke, $dbname
         );
         $html_output .= $html_rightsTable;
 
-        if (! isset($dbname)) {
+        if (! strlen($dbname)) {
             // no database name was given, display select db
             $html_output .= PMA_getHTmlForDisplaySelectDbInEditPrivs($found_rows);
 
@@ -2794,12 +2757,12 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
     }
 
     // Provide a line with links to the relevant database and table
-    if (isset($dbname) && empty($dbname_is_wildcard)) {
+    if (strlen($dbname) && empty($dbname_is_wildcard)) {
         $html_output .= PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename);
 
     }
 
-    if (! isset($dbname) && ! $user_does_not_exists) {
+    if (! strlen($dbname) && ! $user_does_not_exists) {
         //change login information
         include_once 'libraries/display_change_password.lib.php';
         $html_output .= PMA_getChangeLoginInformationHtmlForm($username, $hostname);

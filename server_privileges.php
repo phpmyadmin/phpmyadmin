@@ -333,7 +333,12 @@ if (isset($_REQUEST['change_copy'])) {
  * Updates privileges
  */
 if (! empty($update_privs)) {
-    list($sql_query, $message) = PMA_updatePrivileges($username, $hostname);
+    list($sql_query, $message) = PMA_updatePrivileges(
+        $username,
+        $hostname,
+        (isset($tablename) ? $tablename : ''),
+        (isset($dbname) ? $dbname : '')
+    );
 }
 
 /**
@@ -341,7 +346,10 @@ if (! empty($update_privs)) {
  */
 if (isset($_REQUEST['revokeall'])) {
     list ($message, $sql_query) = PMA_getMessageAndSqlQueryForPrivilegesRevoke(
-        $db_and_table, $dbname, $tablename, $username, $hostname
+        $db_and_table,
+        (isset($dbename) ? $dbname : ''),
+        (isset($tablename) ? $tablename : ''),
+        $username, $hostname
     );
 }
 
@@ -514,7 +522,9 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
         );
         $response->addHTML(
             PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
-                $random_n, $username, $hostname, $link_edit, $link_revoke
+                $random_n, $username, $hostname, $link_edit, $link_revoke,
+                (isset($dbename) ? $dbname : ''),
+                (isset($tablename) ? $tablename : '')
             )
         );
     }
