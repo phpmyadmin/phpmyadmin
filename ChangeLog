@@ -40,8 +40,8 @@ VerboseMultiSubmit, ReplaceHelpImg
 + rfe #3517835 [structure] Move columns easily
 + Ajaxified "Create View" functionality
 + [import] New plugin: import mediawiki
-+ Add Ajax support to Fast filter in order to search the term in all database tables
-- bug #3535015 [navi] DbFilter, TableFilter clear button hidden on Chrome
++ New navigation system
++ Discontinued the use of a frame-based layout
 + rfe #3528994 [interface] Allow wrapping possibly long values in replication-status table
 + [interface] Autoselect username input on cookie login page
 - bug #3563799 [interface] Grid editing destroying huge amount of data
