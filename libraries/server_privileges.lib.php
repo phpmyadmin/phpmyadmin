@@ -1204,7 +1204,7 @@ function PMA_getWithClauseForAddUserAndUpdatePrivs()
         $max_user_connections = max(0, (int)$_POST['max_user_connections']);
         $sql_query .= ' MAX_USER_CONNECTIONS ' . $max_user_connections;
     }
-    return ((!empty($sql_query)) ? 'WITH' . $sql_query : $sql_query);
+    return ((!empty($sql_query)) ? 'WITH' . $sql_query : '');
 }
 
 /**
