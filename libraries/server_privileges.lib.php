@@ -2774,7 +2774,7 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
         $html_output .= '<form action="server_privileges.php" id="db_or_table_specific_priv" method="post">' . "\n";
 
         list($html_rightsTable, $found_rows) = PMA_getTableForDisplayAllTableSpecificRights(
-            $username, $hostname, $dbname, $link_edit, $link_revoke
+            $username, $hostname, $link_edit, $link_revoke
         );
         $html_output .= $html_rightsTable;
 
