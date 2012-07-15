@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-07-11 04:43+0200\n"
+"PO-Revision-Date: 2012-07-15 16:37+0200\n"
 "Last-Translator: Anderson Diego Kulpa Fachini <anderson.dkfachini@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -6865,12 +6865,14 @@ msgstr ""
 
 #: libraries/import.lib.php:1101
 msgid "View a structure's contents by clicking on its name"
-msgstr ""
+msgstr "Visualize o conteúdo da estrutura clicando neste nome"
 
 #: libraries/import.lib.php:1102
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link"
 msgstr ""
+"Altere qualquer uma destas configurações clicando no link \"Opções\" "
+"correspondente"
 
 #: libraries/import.lib.php:1103
 msgid "Edit structure by following the \"Structure\" link"
@@ -6908,6 +6910,8 @@ msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
+"A primeira linha do arquivo contem os nomes da colunas da tabela <i>(se não "
+"estiver checado, a primeira linha irá torna-se parte dos dados)</i>"
 
 #: libraries/import/csv.php:40
 msgid ""
@@ -6915,6 +6919,9 @@ msgid ""
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
+"Se os dados em cada linha do arquivo não estiverem na mesma ordem que no "
+"banco de dados, liste os nomes correspondestes da colunas aqui. Os nomes das "
+"colunas devem estar separados por vírgulas e não deve conter aspas."
 
 #: libraries/import/csv.php:42
 #| msgid "Column names"
