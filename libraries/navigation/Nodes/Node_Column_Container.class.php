@@ -37,12 +37,12 @@ class Node_Column_Container extends Node
         $new->links = array(
             'text' => 'tbl_addfield.php?server=' . $GLOBALS['server']
                     . '&amp;db=%3$s&amp;table=%2$s'
-                    . '&amp;field_where=&after_field=&amp;'
-                    . 'token=' . $GLOBALS['token'],
+                    . '&amp;field_where=last&after_field='
+                    . '&amp;token=' . $GLOBALS['token'],
             'icon' => 'tbl_addfield.php?server=' . $GLOBALS['server']
                     . '&amp;db=%3$s&amp;table=%2$s'
-                    . '&amp;field_where=&after_field=&amp;'
-                    . 'token=' . $GLOBALS['token'],
+                    . '&amp;field_where=last&after_field='
+                    . '&amp;token=' . $GLOBALS['token'],
         );
         $new->classes = 'new_column italics';
         $this->addChild($new);
