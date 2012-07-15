@@ -49,6 +49,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 - bug #3534979 [interface] Copy Database Ajax feedback vanishes long before copying is done
 - bug #3527531 [interface] GC-maxlifetime warning incorrectly displayed
 - bug #3526916 [interface] Search fails with JS error when tooltips disabled
+- bug #3544366 [interface] Event comments not saved
 
 3.5.2.0 (2012-07-07)
 - bug #3521416 [interface] JS error when editing index
