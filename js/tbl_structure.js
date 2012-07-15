@@ -78,6 +78,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
                     $curr_row.hide("medium").remove();
                     // refresh the list of indexes (comes from sql.php)
                     $('#indexes').html(data.indexes_list);
+                    PMA_reloadNavigation();
                 } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
@@ -117,6 +118,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
                     if (typeof data.reload != 'undefined') {
                         window.parent.frame_content.location.reload();
                     }
+                    PMA_reloadNavigation();
                 } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }
@@ -170,6 +172,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
                             $(this).remove();
                         });
                     }
+                    PMA_reloadNavigation();
                 } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }

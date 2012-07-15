@@ -401,6 +401,7 @@ AJAX.registerOnload('db_structure.js', function() {
                     if (window.parent && window.parent.frame_navigation) {
                         window.parent.frame_navigation.location.reload();
                     }
+                    PMA_reloadNavigation();
                 } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);
                 }

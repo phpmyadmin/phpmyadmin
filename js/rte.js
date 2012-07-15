@@ -283,6 +283,7 @@ RTE.COMMON = {
                                         $('table.data').show("slow");
                                     });
                                 }
+                                PMA_reloadNavigation();
                             } else {
                                 PMA_ajaxShowMessage(data.error, false);
                             }
@@ -405,6 +406,7 @@ RTE.COMMON = {
                     PMA_ajaxRemoveMessage($msg);
                     // Show the query that we just executed
                     PMA_slidingMessage(data.sql_query);
+                    PMA_reloadNavigation();
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
                 }
