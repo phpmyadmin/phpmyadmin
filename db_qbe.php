@@ -259,20 +259,13 @@ if (isset($criteriaColumn) && count($criteriaColumn) > 0) {
 
     // We only start this if we have fields, otherwise it would be dumb
     foreach ($criteriaColumn as $value) {
-        $parts             = explode('.', $value);
+        $parts = explode('.', $value);
         if (! empty($parts[0]) && ! empty($parts[1])) {
-            $tab_raw       = $parts[0];
-            $table = str_replace('`', '', $tab_raw);
+            $table = str_replace('`', '', $parts[0]);
             $all_tables[$table] = $table;
-
-            $col_raw       = $parts[1];
-            $all_columns[]     = $table . '.' . str_replace('`', '', $col_raw);
+            $all_columns[] = $table . '.' . str_replace('`', '', $parts[1]);
         }
     } // end while
-    // Cleans temp vars w/o further use
-    unset($tab_raw);
-    unset($col_raw);
-    unset($col1);
 
     // Check 'where' clauses
     if ($cfgRelation['relwork'] && count($all_tables) > 0) {
