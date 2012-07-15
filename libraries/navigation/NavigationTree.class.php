@@ -808,7 +808,11 @@ class PMA_NavigationTree
                     $retval .= htmlspecialchars($node->name);
                     $retval .= "</a>";
                 } else {
-                    $retval .= "<a$linkClass href='$link'>";
+                    $title = $node->getComment();
+                    if ($title) {
+                        $title = " title='" . htmlentities($title, ENT_QUOTES) . "'";
+                    }
+                    $retval .= "<a$linkClass$title href='$link'>";
                     $retval .= htmlspecialchars($node->real_name);
                     $retval .= "</a>";
                 }

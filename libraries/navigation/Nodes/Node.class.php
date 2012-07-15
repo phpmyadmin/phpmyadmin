@@ -365,6 +365,17 @@ class Node
     }
 
     /**
+     * Returns the comment associated with node
+     * This method should be overridden by specific type of nodes
+     *
+     * @return string
+     */
+    public function getComment()
+    {
+        return '';
+    }
+
+    /**
      * Returns the number of children of type $type present inside this container
      * This method is overridden by the Node_Database and Node_Table classes
      *

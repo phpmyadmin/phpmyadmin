@@ -35,6 +35,31 @@ class Node_Column extends Node
                     . '&amp;token=' . $GLOBALS['token']
         );
     }
+
+    /**
+     * Returns the comment associated with node
+     * This method should be overridden by specific type of nodes
+     *
+     * @return string
+     */
+    public function getComment()
+    {
+        $db    = $this->_commonFunctions->sqlAddSlashes(
+            $this->realParent()->realParent()->real_name
+        );
+        $table = $this->_commonFunctions->sqlAddSlashes(
+            $this->realParent()->real_name
+        );
+        $column = $this->_commonFunctions->sqlAddSlashes(
+            $this->real_name
+        );
+        $query  = "SELECT `COLUMN_COMMENT` ";
+        $query .= "FROM `INFORMATION_SCHEMA`.`COLUMNS` ";
+        $query .= "WHERE `TABLE_SCHEMA`='$db' ";
+        $query .= "AND `TABLE_NAME`='$table' ";
+        $query .= "AND `COLUMN_NAME`='$column' ";
+        return PMA_DBI_fetch_value($query);
+    }
 }
 
 ?>

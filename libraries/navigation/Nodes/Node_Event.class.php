@@ -36,6 +36,27 @@ class Node_Event extends Node
         );
         $this->classes = 'event';
     }
+
+    /**
+     * Returns the comment associated with node
+     * This method should be overridden by specific type of nodes
+     *
+     * @return string
+     */
+    public function getComment()
+    {
+        $db    = $this->_commonFunctions->sqlAddSlashes(
+            $this->realParent()->real_name
+        );
+        $event = $this->_commonFunctions->sqlAddSlashes(
+            $this->real_name
+        );
+        $query  = "SELECT `EVENT_COMMENT` ";
+        $query .= "FROM `INFORMATION_SCHEMA`.`EVENTS` ";
+        $query .= "WHERE `EVENT_SCHEMA`='$db' ";
+        $query .= "AND `EVENT_NAME`='$event' ";
+        return PMA_DBI_fetch_value($query);
+    }
 }
 
 ?>

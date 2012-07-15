@@ -36,6 +36,28 @@ class Node_Function extends Node
         );
         $this->classes = 'function';
     }
+
+    /**
+     * Returns the comment associated with node
+     * This method should be overridden by specific type of nodes
+     *
+     * @return string
+     */
+    public function getComment()
+    {
+        $db      = $this->_commonFunctions->sqlAddSlashes(
+            $this->realParent()->real_name
+        );
+        $routine = $this->_commonFunctions->sqlAddSlashes(
+            $this->real_name
+        );
+        $query  = "SELECT `ROUTINE_COMMENT` ";
+        $query .= "FROM `INFORMATION_SCHEMA`.`ROUTINES` ";
+        $query .= "WHERE `ROUTINE_SCHEMA`='$db' ";
+        $query .= "AND `ROUTINE_NAME`='$routine' ";
+        $query .= "AND `ROUTINE_TYPE`='FUNCTION' ";
+        return PMA_DBI_fetch_value($query);
+    }
 }
 
 ?>
