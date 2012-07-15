@@ -30,20 +30,6 @@ var codemirror_editor = false;
 var chart_activeTimeouts = new Object();
 
 /**
- * Returns browser's viewport size, without accounting for scrollbars
- *
- * @param window wnd
- */
-function getWindowSize(wnd) {
-    var vp = wnd || window;
-    return {
-        // most browsers || IE6-8 strict || failsafe
-        width: vp.innerWidth || (vp.documentElement !== undefined ? vp.documentElement.clientWidth : false) || $(vp).width(),
-        height: vp.innerHeight || (vp.documentElement !== undefined ? vp.documentElement.clientHeight : false) || $(vp).height()
-    };
-}
-
-/**
  * Make sure that ajax requests will not be cached
  * by appending a random variable to their parameters
  */
@@ -1589,116 +1575,6 @@ function PMA_showNoticeForEnum(selectElement)
     }
 }
 
-/**
- * Generates a dialog box to pop up the create_table form
- */
-function PMA_createTableDialog( $div, url , target)
-{
-     /**
-      * @var    button_options  Object that stores the options passed to jQueryUI
-      *                          dialog
-      */
-     var button_options = {};
-     // in the following function we need to use $(this)
-     button_options[PMA_messages['strCancel']] = function() {
-         $(this).closest('.ui-dialog-content').dialog('close');
-     };
-
-     var button_options_error = {};
-     button_options_error[PMA_messages['strOK']] = function() {
-         $(this).closest('.ui-dialog-content').dialog('close');
-     };
-
-     // allow create-table form only once
-     if ($('#create_table_form').length) {
-        $('#create_table_form input[autofocus]').focus();
-        return;
-     }
-
-     var $msgbox = PMA_ajaxShowMessage();
-
-     $.get(target, url, function(data) {
-      //in the case of an error, show the error message returned.
-         if (data.success != undefined && data.success == false) {
-             $div
-             .append(data.error)
-             .dialog({
-                 height: 230,
-                 width: 900,
-                 open: PMA_verifyColumnsProperties,
-                 close: function() {
-                     $(this).remove();
-                 },
-                 buttons : button_options_error
-             })// end dialog options
-             //remove the redundant [Back] link in the error message.
-             .find('fieldset').remove();
-         } else {
-             var size = getWindowSize();
-             var timeout;
-             $div
-             .append(data.message)
-             .dialog({
-                 dialogClass: 'create-table',
-                 resizable: false,
-                 draggable: false,
-                 modal: true,
-                 stack: false,
-                 position: ['left','top'],
-                 width: size.width-10,
-                 height: size.height-10,
-                 open: function() {
-                     var dialog_id = $(this).attr('id');
-                     $(window).bind('resize.dialog-resizer', function() {
-                         clearTimeout(timeout);
-                         timeout = setTimeout(function() {
-                             var size = getWindowSize();
-                             $('#'+dialog_id).dialog('option', {
-                                 width: size.width-10,
-                                 height: size.height-10
-                             });
-                         }, 50);
-                     });
-
-                     var $wrapper = $('<div>', {'id': 'content-hide'}).hide();
-                     $('body > *:not(.ui-dialog)').wrapAll($wrapper);
-
-                     $(this)
-                         .scrollTop(0) // for Chrome
-                         .closest('div.ui-dialog').css({
-                             left: 0,
-                             top: 0
-                         });
-
-                     PMA_verifyColumnsProperties();
-
-                     // move the Cancel button next to the Save button
-                     var $button_pane = $('div.ui-dialog-buttonpane');
-                     var $cancel_button = $button_pane.find('.ui-button');
-                     var $save_button  = $('#create_table_form').find("input[name='do_save_data']");
-                     $cancel_button.insertAfter($save_button);
-                     $button_pane.hide();
-
-                     // focus table name input
-                     $(this).find("input[autofocus]").focus();
-                 },
-                 close: function() {
-                     $(window).unbind('resize.dialog-resizer');
-                     $('#content-hide > *').unwrap();
-                     // resize topmenu
-                     menuResize();
-                     menuResize(); // somehow need to call it twice to work
-                     $(this).remove();
-                 },
-                 buttons: button_options
-             }); // end dialog options
-         }
-        PMA_showHints($div);
-        PMA_ajaxRemoveMessage($msgbox);
-     }); // end $.get()
-
-}
-
 /*
  * Creates a Profiling Chart with jqplot. Used in sql.js
  * and in server_status_monitor.js
@@ -2015,8 +1891,9 @@ jQuery.fn.PMA_sort_table = function(text_selector) {
  */
 AJAX.registerTeardown('functions.js', function() {
     $("#create_table_form_minimal.ajax").die('submit');
-    $("#create_table_form input[name=do_save_data]").die('click');
-    $("#create_table_form.ajax input[name=submit_num_fields]").die('click');
+    $("form.create_table_form.ajax").die('submit');
+    $("form.create_table_form.ajax input[name=submit_num_fields]").die('click');
+    $("form.create_table_form.ajax input").die('keyup');
 });
 
 /**
@@ -2027,41 +1904,16 @@ AJAX.registerTeardown('functions.js', function() {
  * Attach Ajax Event handlers for Create Table
  */
 AJAX.registerOnload('functions.js', function() {
-
-     /**
-     * Attach event handler to the submit action of the create table minimal form
-     * and retrieve the full table form and display it in a dialog
-     */
-    $("#create_table_form_minimal.ajax").live('submit', function(event) {
-        event.preventDefault();
-        $form = $(this);
-        PMA_prepareForAjaxRequest($form);
-
-        /*variables which stores the common attributes*/
-        var url = $form.serialize();
-        var action = $form.attr('action');
-        var $div =  $('<div id="create_table_dialog"></div>');
-
-        /*Calling to the createTableDialog function*/
-        PMA_createTableDialog($div, url, action);
-
-        // empty table name and number of columns from the minimal form
-        $form.find('input[name=table],input[name=num_fields]').val('');
-    });
-
     /**
      * Attach event handler for submission of create table form (save)
-     *
-     *
      */
-    // .live() must be called after a selector, see http://api.jquery.com/live
-    $("#create_table_form input[name=do_save_data]").live('click', function(event) {
+    $("form.create_table_form.ajax").live('submit', function(event) {
         event.preventDefault();
 
         /**
          * @var    the_form    object referring to the create table form
          */
-        var $form = $("#create_table_form");
+        var $form = $(this);
 
         /*
          * First validate the form; if there is a problem, avoid submitting it
@@ -2072,118 +1924,111 @@ AJAX.registerOnload('functions.js', function() {
          */
 
         if (checkTableEditForm($form[0], $form.find('input[name=orig_num_fields]').val())) {
-            // OK, form passed validation step
-            if ($form.hasClass('ajax')) {
-                PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
-                PMA_prepareForAjaxRequest($form);
-                //User wants to submit the form
-                $.post($form.attr('action'), $form.serialize() + "&do_save_data=" + $(this).val(), function(data) {
-                    if (data.success == true) {
-                        $('#properties_message')
-                         .removeClass('error')
-                         .html('');
-                        PMA_ajaxShowMessage(data.message);
-                        // Only if the create table dialog (distinct panel) exists
-                        if ($("#create_table_dialog").length > 0) {
-                            $("#create_table_dialog").dialog("close").remove();
-                        }
-                        $('#tableslistcontainer').before(data.formatted_sql);
-
-                        /**
-                         * @var tables_table    Object referring to the <tbody> element that holds the list of tables
-                         */
-                        var tables_table = $("#tablesForm").find("tbody").not("#tbl_summary_row");
-                        // this is the first table created in this db
-                        if (tables_table.length == 0) {
-                            if (window.parent && window.parent.frame_content) {
-                                window.parent.frame_content.location.reload();
-                            }
-                        } else {
-                            /**
-                             * @var curr_last_row   Object referring to the last <tr> element in {@link tables_table}
-                             */
-                            var curr_last_row = $(tables_table).find('tr:last');
-                            /**
-                             * @var curr_last_row_index_string   String containing the index of {@link curr_last_row}
-                             */
-                            var curr_last_row_index_string = $(curr_last_row).find('input:checkbox').attr('id').match(/\d+/)[0];
-                            /**
-                             * @var curr_last_row_index Index of {@link curr_last_row}
-                             */
-                            var curr_last_row_index = parseFloat(curr_last_row_index_string);
-                            /**
-                             * @var new_last_row_index   Index of the new row to be appended to {@link tables_table}
-                             */
-                            var new_last_row_index = curr_last_row_index + 1;
-                            /**
-                             * @var new_last_row_id String containing the id of the row to be appended to {@link tables_table}
-                             */
-                            var new_last_row_id = 'checkbox_tbl_' + new_last_row_index;
-
-                            data.new_table_string = data.new_table_string.replace(/checkbox_tbl_/, new_last_row_id);
-                            //append to table
-                            $(data.new_table_string)
-                             .appendTo(tables_table);
-
-                            //Sort the table
-                            $(tables_table).PMA_sort_table('th');
-
-                            // Adjust summary row
-                            PMA_adjustTotals();
-                        }
-
-                        //Refresh navigation as a new table has been added
-                        PMA_reloadNavigation();
-                    } else {
-                        $('#properties_message')
-                         .addClass('error')
-                         .html(data.error);
-                        // scroll to the div containing the error message
-                        $('#properties_message')[0].scrollIntoView();
+            PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
+            PMA_prepareForAjaxRequest($form);
+            //User wants to submit the form
+            $.post($form.attr('action'), $form.serialize() + "&do_save_data=1", function(data) {
+                if (data.success == true) {
+                    $('#properties_message')
+                     .removeClass('error')
+                     .html('');
+                    PMA_ajaxShowMessage(data.message);
+                    // Only if the create table dialog (distinct panel) exists
+                    if ($("#create_table_dialog").length > 0) {
+                        $("#create_table_dialog").dialog("close").remove();
                     }
-                }); // end $.post()
-            } // end if ($form.hasClass('ajax')
-            else {
-                // non-Ajax submit
-                $form.append('<input type="hidden" name="do_save_data" value="save" />');
-                $form.submit();
-            }
+                    $('#tableslistcontainer').before(data.formatted_sql);
+
+                    /**
+                     * @var tables_table    Object referring to the <tbody> element that holds the list of tables
+                     */
+                    var tables_table = $("#tablesForm").find("tbody").not("#tbl_summary_row");
+                    // this is the first table created in this db
+                    if (tables_table.length == 0) {
+                        if (window.parent && window.parent.frame_content) {
+                            window.parent.frame_content.location.reload();
+                        }
+                    } else {
+                        /**
+                         * @var curr_last_row   Object referring to the last <tr> element in {@link tables_table}
+                         */
+                        var curr_last_row = $(tables_table).find('tr:last');
+                        /**
+                         * @var curr_last_row_index_string   String containing the index of {@link curr_last_row}
+                         */
+                        var curr_last_row_index_string = $(curr_last_row).find('input:checkbox').attr('id').match(/\d+/)[0];
+                        /**
+                         * @var curr_last_row_index Index of {@link curr_last_row}
+                         */
+                        var curr_last_row_index = parseFloat(curr_last_row_index_string);
+                        /**
+                         * @var new_last_row_index   Index of the new row to be appended to {@link tables_table}
+                         */
+                        var new_last_row_index = curr_last_row_index + 1;
+                        /**
+                         * @var new_last_row_id String containing the id of the row to be appended to {@link tables_table}
+                         */
+                        var new_last_row_id = 'checkbox_tbl_' + new_last_row_index;
+
+                        data.new_table_string = data.new_table_string.replace(/checkbox_tbl_/, new_last_row_id);
+                        //append to table
+                        $(data.new_table_string)
+                         .appendTo(tables_table);
+
+                        //Sort the table
+                        $(tables_table).PMA_sort_table('th');
+
+                        // Adjust summary row
+                        PMA_adjustTotals();
+                    }
+
+                    //Refresh navigation as a new table has been added
+                    PMA_reloadNavigation();
+                } else {
+                    PMA_ajaxShowMessage(
+                        '<div class="error">' + data.error + '</div>',
+                        false
+                    );
+                }
+            }); // end $.post()
         } // end if (checkTableEditForm() )
     }); // end create table form (save)
 
     /**
      * Attach event handler for create table form (add fields)
-     *
-     *
      */
-    // .live() must be called after a selector, see http://api.jquery.com/live
-    $("#create_table_form.ajax input[name=submit_num_fields]").live('click', function(event) {
+    $("form.create_table_form.ajax input[name=submit_num_fields]").live('click', function(event) {
         event.preventDefault();
-
         /**
          * @var    the_form    object referring to the create table form
          */
-        var $form = $("#create_table_form");
+        var $form = $(this).closest('form');
 
         var $msgbox = PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
         PMA_prepareForAjaxRequest($form);
 
         //User wants to add more fields to the table
-        $.post($form.attr('action'), $form.serialize() + "&submit_num_fields=" + $(this).val(), function(data) {
-            // if 'create_table_dialog' exists
-            if ($("#create_table_dialog").length > 0) {
-                $("#create_table_dialog").html(data.message);
+        $.post($form.attr('action'), $form.serialize() + "&submit_num_fields=1", function(data) {
+            if (data.success) {
+                $("#page_content").html(data.message);
+                PMA_verifyColumnsProperties();
+                PMA_ajaxRemoveMessage($msgbox);
+            } else {
+                PMA_ajaxShowMessage(data.error);
             }
-            // if 'create_table_div' exists
-            if ($("#create_table_div").length > 0) {
-                $("#create_table_div").html(data.message);
-            }
-            PMA_verifyColumnsProperties();
-            PMA_ajaxRemoveMessage($msgbox);
         }); //end $.post()
-
     }); // end create table form (add fields)
 
+    $("form.create_table_form.ajax input").live('keydown', function (event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            $(this)
+                .closest('form')
+                .append('<input type="hidden" name="do_save_data" value="1" />')
+                .submit();
+        }
+    });
 });
 
 
