@@ -3803,54 +3803,7 @@ AJAX.registerOnload('functions.js', function() {
      */
     $('span a.create_view.ajax').live('click', function (e) {
         e.preventDefault();
-        var $msg = PMA_ajaxShowMessage();
-        var syntaxHighlighter = null;
-        $.get($(this).attr('href') + '&ajax_request=1', function (data) {
-            if (data.success == true) {
-                PMA_ajaxRemoveMessage($msg);
-                var buttonOptions = {};
-                buttonOptions[PMA_messages['strGo']] = function () {
-                    if (typeof CodeMirror !== 'undefined') {
-                        syntaxHighlighter.save();
-                    }
-                    $msg = PMA_ajaxShowMessage();
-                    $.get('view_create.php', $('#createViewDialog').find('form').serialize(), function (data) {
-                        PMA_ajaxRemoveMessage($msg);
-                        if (data.success === true) {
-                            $('#createViewDialog').dialog("close");
-                            $('#result_query').html(data.message);
-                            PMA_reloadNavigation();
-                        } else {
-                            PMA_ajaxShowMessage(data.error, false);
-                        }
-                    });
-                };
-                buttonOptions[PMA_messages['strClose']] = function () {
-                    $(this).dialog("close");
-                };
-                var $dialog = $('<div/>').attr('id', 'createViewDialog').append(data.message).dialog({
-                    width: 500,
-                    minWidth: 300,
-                    maxWidth: 620,
-                    modal: true,
-                    buttons: buttonOptions,
-                    title: $('legend', $(data.message)).html(),
-                    close: function () {
-                        $(this).remove();
-                    }
-                });
-                $dialog.find('legend').remove();
-                // Attach syntax highlited editor
-                if (typeof CodeMirror !== 'undefined') {
-                    var $elm = $dialog.find('textarea');
-                    var opts = {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql"};
-                    syntaxHighlighter = CodeMirror.fromTextArea($elm[0], opts);
-                }
-                $('input:visible[type=text]', $dialog).first().focus();
-            } else {
-                PMA_ajaxShowMessage(data.error);
-            }
-        });
+        PMA_createViewDialog($(this));
     });
     /**
      * Attach Ajax event handlers for input fields in the editor
@@ -3863,6 +3816,58 @@ AJAX.registerOnload('functions.js', function() {
         }
     }); // end $.live()
 });
+
+function PMA_createViewDialog($this)
+{
+    var $msg = PMA_ajaxShowMessage();
+    var syntaxHighlighter = null;
+    $.get($this.attr('href') + '&ajax_request=1', function (data) {
+        if (data.success == true) {
+            PMA_ajaxRemoveMessage($msg);
+            var buttonOptions = {};
+            buttonOptions[PMA_messages['strGo']] = function () {
+                if (typeof CodeMirror !== 'undefined') {
+                    syntaxHighlighter.save();
+                }
+                $msg = PMA_ajaxShowMessage();
+                $.get('view_create.php', $('#createViewDialog').find('form').serialize(), function (data) {
+                    PMA_ajaxRemoveMessage($msg);
+                    if (data.success === true) {
+                        $('#createViewDialog').dialog("close");
+                        $('#result_query').html(data.message);
+                        PMA_reloadNavigation();
+                    } else {
+                        PMA_ajaxShowMessage(data.error, false);
+                    }
+                });
+            };
+            buttonOptions[PMA_messages['strClose']] = function () {
+                $(this).dialog("close");
+            };
+            var $dialog = $('<div/>').attr('id', 'createViewDialog').append(data.message).dialog({
+                width: 500,
+                minWidth: 300,
+                maxWidth: 620,
+                modal: true,
+                buttons: buttonOptions,
+                title: $('legend', $(data.message)).html(),
+                close: function () {
+                    $(this).remove();
+                }
+            });
+            $dialog.find('legend').remove();
+            // Attach syntax highlited editor
+            if (typeof CodeMirror !== 'undefined') {
+                var $elm = $dialog.find('textarea');
+                var opts = {lineNumbers: true, matchBrackets: true, indentUnit: 4, mode: "text/x-mysql"};
+                syntaxHighlighter = CodeMirror.fromTextArea($elm[0], opts);
+            }
+            $('input:visible[type=text]', $dialog).first().focus();
+        } else {
+            PMA_ajaxShowMessage(data.error);
+        }
+    });
+}
 
 /**
  * Watches checkboxes in a form to set the checkall box accordingly

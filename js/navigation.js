@@ -269,6 +269,12 @@ $(function() {
         var title = PMA_messages['strEditIndex'];
         indexEditorDialog(url, title);
     });
+
+    /** New view */
+    $('li.new_view a.ajax').live('click', function (event) {
+        event.preventDefault();
+        PMA_createViewDialog($(this));
+    });
 });
 
 /**

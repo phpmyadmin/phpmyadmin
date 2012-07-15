@@ -771,7 +771,11 @@ class PMA_NavigationTree
             );
             $parent = $node->parents(false, true);
             if ($parent[0]->type == Node::CONTAINER
-                && in_array($parent[0]->real_name, $haveAjax)
+                && (in_array($parent[0]->real_name, $haveAjax)
+                    || ($parent[0]->real_name == 'views'
+                        && $node->isNew == true
+                    )
+                )
             ) {
                 $linkClass = ' class="ajax"';
             }
