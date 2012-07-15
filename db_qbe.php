@@ -251,10 +251,10 @@ echo PMA_dbQbeGetSelectClause($criteria_column_count);
 // all Tables.
 if (isset($criteriaColumn) && count($criteriaColumn) > 0) {
     // Initialize some variables
-    $tab_all    = array();
-    $col_all    = array();
+    $all_tables = array();
+    $all_columns = array();
     $tab_know   = array();
-    $tab_left   = array();
+    $left_tables   = array();
     $fromclause = '';
 
     // We only start this if we have fields, otherwise it would be dumb
@@ -262,11 +262,11 @@ if (isset($criteriaColumn) && count($criteriaColumn) > 0) {
         $parts             = explode('.', $value);
         if (! empty($parts[0]) && ! empty($parts[1])) {
             $tab_raw       = $parts[0];
-            $tab           = str_replace('`', '', $tab_raw);
-            $tab_all[$tab] = $tab;
+            $table = str_replace('`', '', $tab_raw);
+            $all_tables[$table] = $table;
 
             $col_raw       = $parts[1];
-            $col_all[]     = $tab . '.' . str_replace('`', '', $col_raw);
+            $all_columns[]     = $table . '.' . str_replace('`', '', $col_raw);
         }
     } // end while
     // Cleans temp vars w/o further use
@@ -275,7 +275,7 @@ if (isset($criteriaColumn) && count($criteriaColumn) > 0) {
     unset($col1);
 
     // Check 'where' clauses
-    if ($cfgRelation['relwork'] && count($tab_all) > 0) {
+    if ($cfgRelation['relwork'] && count($all_tables) > 0) {
         // Get tables and columns with valid where clauses
         $valid_where_clauses = getWhereClauseTablesAndColumns(
             $criteriaColumn, $criteria
@@ -284,15 +284,15 @@ if (isset($criteriaColumn) && count($criteriaColumn) > 0) {
         $where_clause_columns = $valid_where_clauses['where_clause_columns'];
         // Get master table
         $master = PMA_dbQbeGetMasterTable(
-            $db, $tab_all, $col_all, $where_clause_columns, $where_clause_tables
+            $db, $all_tables, $all_columns, $where_clause_columns, $where_clause_tables
         );
-        $tab_left = $tab_all;
-        unset($tab_left[$master]);
+        $left_tables = $all_tables;
+        unset($left_tables[$master]);
         $tab_know[$master] = $master;
 
         $run   = 0;
         $emerg = '';
-        while (count($tab_left) > 0) {
+        while (count($left_tables) > 0) {
             if ($run % 2 == 0) {
                 PMA_getRelatives('master');
             } else {
@@ -301,22 +301,22 @@ if (isset($criteriaColumn) && count($criteriaColumn) > 0) {
             $run++;
             if ($run > 5) {
 
-                foreach ($tab_left as $tab) {
-                    $emerg .= ', ' . $common_functions->backquote($tab);
-                    unset($tab_left[$tab]);
+                foreach ($left_tables as $table) {
+                    $emerg .= ', ' . $common_functions->backquote($table);
+                    unset($left_tables[$table]);
                 }
             }
         } // end while
         $qry_from = $common_functions->backquote($master) . $emerg . $fromclause;
-    } // end if ($cfgRelation['relwork'] && count($tab_all) > 0)
+    } // end if ($cfgRelation['relwork'] && count($all_tables) > 0)
 
 } // end count($criteriaColumn) > 0
 
 // In case relations are not defined, just generate the FROM clause
 // from the list of tables, however we don't generate any JOIN
 
-if (empty($qry_from) && isset($tab_all)) {
-    $qry_from = implode(', ', $tab_all);
+if (empty($qry_from) && isset($all_tables)) {
+    $qry_from = implode(', ', $all_tables);
 }
 // Now let's see what we got
 if (! empty($qry_from)) {
