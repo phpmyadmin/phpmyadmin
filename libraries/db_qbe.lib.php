@@ -850,4 +850,41 @@ function PMA_dbQbeGetMasterTable($db, $all_tables, $all_columns,
     } // end if (exactly one where clause)
     return $master;
 }
+
+/**
+ * Provides columns and tables that have valid where clause criteria
+ *
+ * @param string $criteriaColumn Selected table.columns
+ * @param string $criteria       Already Filled criteria
+ *
+ * @return array
+ */
+function getWhereClauseTablesAndColumns($criteriaColumn, $criteria) {
+    $where_clause_columns = array();
+    $where_clause_tables = array();
+    // Now we need all tables that we have in the where clause
+    for ($column_index = 0; $column_index < count($criteria); $column_index++) {
+        $current_table = explode('.', $criteriaColumn[$column_index]);
+        if (empty($current_table[0]) || empty($current_table[1])) {
+            continue;
+        } // end if
+        $table = str_replace('`', '', $current_table[0]);
+        $column = str_replace('`', '', $current_table[1]);
+        $column = $table . '.' . $column;
+        // Now we know that our array has the same numbers as $criteria
+        // we can check which of our columns has a where clause
+        if (! empty($criteria[$column_index])) {
+            if (substr($criteria[$column_index], 0, 1) == '='
+                || stristr($criteria[$column_index], 'is')
+            ) {
+                $where_clause_columns[$column] = $column;
+                $where_clause_tables[$table]  = $table;
+            }
+        } // end if
+    } // end for
+    return array(
+        'where_clause_tables' => $where_clause_tables,
+        'where_clause_columns' => $where_clause_columns
+    );
+}
 ?>

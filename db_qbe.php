@@ -253,10 +253,8 @@ if (isset($criteriaColumn) && count($criteriaColumn) > 0) {
     // Initialize some variables
     $tab_all    = array();
     $col_all    = array();
-    $tab_wher   = array();
     $tab_know   = array();
     $tab_left   = array();
-    $col_where  = array();
     $fromclause = '';
 
     // We only start this if we have fields, otherwise it would be dumb
@@ -271,37 +269,22 @@ if (isset($criteriaColumn) && count($criteriaColumn) > 0) {
             $col_all[]     = $tab . '.' . str_replace('`', '', $col_raw);
         }
     } // end while
+    // Cleans temp vars w/o further use
+    unset($tab_raw);
+    unset($col_raw);
+    unset($col1);
 
     // Check 'where' clauses
     if ($cfgRelation['relwork'] && count($tab_all) > 0) {
-        // Now we need all tables that we have in the where clause
-        $crit_cnt         = count($criteria);
-        for ($column_index = 0; $column_index < $crit_cnt; $column_index++) {
-            $curr_tab     = explode('.', $criteriaColumn[$column_index]);
-            if (! empty($curr_tab[0]) && ! empty($curr_tab[1])) {
-                $tab_raw  = $curr_tab[0];
-                $tab      = str_replace('`', '', $tab_raw);
-
-                $col_raw  = $curr_tab[1];
-                $col1     = str_replace('`', '', $col_raw);
-                $col1     = $tab . '.' . $col1;
-                // Now we know that our array has the same numbers as $criteria
-                // we can check which of our columns has a where clause
-                if (! empty($criteria[$column_index])) {
-                    if (substr($criteria[$column_index], 0, 1) == '=' || stristr($criteria[$column_index], 'is')) {
-                        $col_where[$col1] = $col1;
-                        $tab_wher[$tab]  = $tab;
-                    }
-                } // end if
-            } // end if
-        } // end for
-
-        // Cleans temp vars w/o further use
-        unset($tab_raw);
-        unset($col_raw);
-        unset($col1);
+        // Get tables and columns with valid where clauses
+        $valid_where_clauses = getWhereClauseTablesAndColumns(
+            $criteriaColumn, $criteria
+        );
+        $where_clause_tables = $valid_where_clauses['where_clause_tables'];
+        $where_clause_columns = $valid_where_clauses['where_clause_columns'];
+        // Get master table
         $master = PMA_dbQbeGetMasterTable(
-            $db, $tab_all, $col_all, $col_where, $tab_wher
+            $db, $tab_all, $col_all, $where_clause_columns, $where_clause_tables
         );
         $tab_left = $tab_all;
         unset($tab_left[$master]);
