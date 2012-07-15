@@ -255,7 +255,7 @@ if (isset($criteriaColumn) && count($criteriaColumn) > 0) {
     $all_columns = array();
     $tab_know   = array();
     $left_tables   = array();
-    $fromclause = '';
+    $left_join = '';
 
     // We only start this if we have fields, otherwise it would be dumb
     foreach ($criteriaColumn as $value) {
@@ -287,20 +287,19 @@ if (isset($criteriaColumn) && count($criteriaColumn) > 0) {
         $emerg = '';
         while (count($left_tables) > 0) {
             if ($run % 2 == 0) {
-                PMA_getRelatives('master');
+                $left_join .= PMA_getRelatives('master', $left_tables, $tab_know);
             } else {
-                PMA_getRelatives('foreign');
+                $left_join .= PMA_getRelatives('foreign', $left_tables, $tab_know);
             }
             $run++;
             if ($run > 5) {
-
                 foreach ($left_tables as $table) {
                     $emerg .= ', ' . $common_functions->backquote($table);
                     unset($left_tables[$table]);
                 }
             }
         } // end while
-        $qry_from = $common_functions->backquote($master) . $emerg . $fromclause;
+        $qry_from = $common_functions->backquote($master) . $emerg . $left_join;
     } // end if ($cfgRelation['relwork'] && count($all_tables) > 0)
 
 } // end count($criteriaColumn) > 0
