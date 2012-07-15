@@ -34,6 +34,7 @@ class Node_Index extends Node
                     . '&amp;db=%3$s&amp;table=%2$s&amp;index=%1$s'
                     . '&amp;token=' . $GLOBALS['token']
         );
+        $this->classes = 'index';
     }
 }
 

@@ -766,7 +766,8 @@ class PMA_NavigationTree
                 'functions',
                 'procedures',
                 'events',
-                'triggers'
+                'triggers',
+                'indexes'
             );
             $parent = $node->parents(false, true);
             if ($parent[0]->type == Node::CONTAINER

@@ -581,6 +581,9 @@ class PMA_Index
                 $this_params = $GLOBALS['url_params'];
                 $this_params['index'] = $index->getName();
                 $r .= '<td class="edit_index';
+                if ($GLOBALS['cfg']['AjaxEnable']) {
+                    $r .= ' ajax';
+                }
                 $r .= '" ' . $row_span . '>'
                    . '    <a class="';
                 if ($GLOBALS['cfg']['AjaxEnable']) {

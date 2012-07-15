@@ -249,6 +249,26 @@ $(function() {
         var dialog = new RTE.object();
         dialog.exportDialog($(this).parent())
     });
+
+    /** New index */
+    $('li.new_index a.ajax').live('click', function (event) {
+        event.preventDefault();
+        var url = $(this).attr('href').substr(
+            $(this).attr('href').indexOf('?') + 1
+        ) + '&ajax_request=true';
+        var title = PMA_messages['strAddIndex'];
+        indexEditorDialog(url, title);
+    });
+
+    /** Edit index */
+    $('li.index a.ajax').live('click', function (event) {
+        event.preventDefault();
+        var url = $(this).attr('href').substr(
+            $(this).attr('href').indexOf('?') + 1
+        ) + '&ajax_request=true';
+        var title = PMA_messages['strEditIndex'];
+        indexEditorDialog(url, title);
+    });
 });
 
 /**
