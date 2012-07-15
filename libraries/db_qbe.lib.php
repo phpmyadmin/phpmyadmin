@@ -797,4 +797,57 @@ function PMA_dbQbeGetLeftJoinColumnCandidates($db, $all_tables, $all_columns,
 
     return $candidate_columns;
 }
+
+/**
+ * Provides the main table to form the LEFT JOIN clause
+ *
+ * @param array $db                   Selected database
+ * @param array $all_tables           Tables involved in the search
+ * @param array $all_columns          Columns involved in the search
+ * @param array $where_clause_columns Columns having criteria where clause
+ * @param array $where_clause_tables  Tables having criteria where clause
+ *
+ * @return string table name
+ */
+function PMA_dbQbeGetMasterTable($db, $all_tables, $all_columns,
+    $where_clause_columns, $where_clause_tables
+) {
+    $master = '';
+    if (count($where_clause_tables) == 1) {
+        // If there is exactly one column that has a decent where-clause
+        // we will just use this
+        $master = key($where_clause_tables);
+    } else {
+        // Now let's find out which of the tables has an index
+        // (When the control user is the same as the normal user
+        // because he is using one of his databases as pmadb,
+        // the last db selected is not always the one where we need to work)
+        $candidate_columns = PMA_dbQbeGetLeftJoinColumnCandidates(
+            $db, $all_tables, $all_columns, $where_clause_columns
+        );
+        // If our array of candidates has more than one member we'll just
+        // find the smallest table.
+        // Of course the actual query would be faster if we check for
+        // the Criteria which gives the smallest result set in its table,
+        // but it would take too much time to check this
+        if (count($candidate_columns) > 1) {
+            // Of course we only want to check each table once
+            $checked_tables = $candidate_columns;
+            foreach ($candidate_columns as $table) {
+                if ($checked_tables[$table] != 1) {
+                    $tsize[$table] = PMA_Table::countRecords($db, $table, false);
+                    $checked_tables[$table] = 1;
+                }
+                $csize[$table] = $tsize[$table];
+            }
+            asort($csize);
+            reset($csize);
+            $master = key($csize); // Smallest
+        } else {
+            reset($candidate_columns);
+            $master = current($candidate_columns); // Only one single candidate
+        }
+    } // end if (exactly one where clause)
+    return $master;
+}
 ?>

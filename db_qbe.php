@@ -300,44 +300,9 @@ if (isset($criteriaColumn) && count($criteriaColumn) > 0) {
         unset($tab_raw);
         unset($col_raw);
         unset($col1);
-
-        if (count($tab_wher) == 1) {
-            // If there is exactly one column that has a decent where-clause
-            // we will just use this
-            $master = key($tab_wher);
-        } else {
-            // Now let's find out which of the tables has an index
-            // (When the control user is the same as the normal user
-            // because he is using one of his databases as pmadb,
-            // the last db selected is not always the one where we need to work)
-            $col_cand = PMA_dbQbeGetLeftJoinColumnCandidates(
-                $db, $tab_all, $col_all, $col_where
-            );
-
-            // If our array of candidates has more than one member we'll just
-            // find the smallest table.
-            // Of course the actual query would be faster if we check for
-            // the Criteria which gives the smallest result set in its table,
-            // but it would take too much time to check this
-            if (count($col_cand) > 1) {
-                // Of course we only want to check each table once
-                $checked_tables = $col_cand;
-                foreach ($col_cand as $tab) {
-                    if ($checked_tables[$tab] != 1) {
-                        $tsize[$tab] = PMA_Table::countRecords($db, $tab, false);
-                        $checked_tables[$tab] = 1;
-                    }
-                    $csize[$tab] = $tsize[$tab];
-                }
-                asort($csize);
-                reset($csize);
-                $master = key($csize); // Smallest
-            } else {
-                reset($col_cand);
-                $master = current($col_cand); // Only one single candidate
-            }
-        } // end if (exactly one where clause)
-
+        $master = PMA_dbQbeGetMasterTable(
+            $db, $tab_all, $col_all, $col_where, $tab_wher
+        );
         $tab_left = $tab_all;
         unset($tab_left[$master]);
         $tab_know[$master] = $master;
