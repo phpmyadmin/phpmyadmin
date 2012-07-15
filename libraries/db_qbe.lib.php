@@ -887,4 +887,74 @@ function getWhereClauseTablesAndColumns($criteriaColumn, $criteria) {
         'where_clause_columns' => $where_clause_columns
     );
 }
+
+/**
+ * Provides FROM clause for building SQL query
+ *
+ * @param string $criteriaColumn Selected table.columns
+ * @param string $criteria       Already Filled criteria
+ *
+ * @return FROM clause
+ */
+function PMA_dbQbeGetFromClause($criteriaColumn, $criteria, $cfgRelation)
+{
+    $from_clause = '';
+    if (isset($criteriaColumn) && count($criteriaColumn) > 0) {
+        // Initialize some variables
+        $all_tables = $all_columns = $tab_know = $left_tables = array();
+        $left_join = '';
+
+        // We only start this if we have fields, otherwise it would be dumb
+        foreach ($criteriaColumn as $value) {
+            $parts = explode('.', $value);
+            if (! empty($parts[0]) && ! empty($parts[1])) {
+                $table = str_replace('`', '', $parts[0]);
+                $all_tables[$table] = $table;
+                $all_columns[] = $table . '.' . str_replace('`', '', $parts[1]);
+            }
+        } // end while
+
+        // Create LEFT JOINS out of Relations
+        if ($cfgRelation['relwork'] && count($all_tables) > 0) {
+            // Get tables and columns with valid where clauses
+            $valid_where_clauses = getWhereClauseTablesAndColumns(
+                $criteriaColumn, $criteria
+            );
+            $where_clause_tables = $valid_where_clauses['where_clause_tables'];
+            $where_clause_columns = $valid_where_clauses['where_clause_columns'];
+            // Get master table
+            $master = PMA_dbQbeGetMasterTable(
+                $db, $all_tables, $all_columns, $where_clause_columns, $where_clause_tables
+            );
+            $left_tables = $all_tables;
+            unset($left_tables[$master]);
+            $tab_know[$master] = $master;
+
+            $run = 0;
+            $emerg = '';
+            while (count($left_tables) > 0) {
+                if ($run % 2 == 0) {
+                    $left_join .= PMA_getRelatives('master', $left_tables, $tab_know);
+                } else {
+                    $left_join .= PMA_getRelatives('foreign', $left_tables, $tab_know);
+                }
+                $run++;
+                if ($run > 5) {
+                    foreach ($left_tables as $table) {
+                        $emerg .= ', ' . $common_functions->backquote($table);
+                        unset($left_tables[$table]);
+                    }
+                }
+            } // end while
+            $from_clause = $common_functions->backquote($master) . $emerg . $left_join;
+        } // end if ($cfgRelation['relwork'] && count($all_tables) > 0)
+    } // end count($criteriaColumn) > 0
+
+    // In case relations are not defined, just generate the FROM clause
+    // from the list of tables, however we don't generate any JOIN
+    if (empty($from_clause) && isset($all_tables)) {
+        $from_clause = implode(', ', $all_tables);
+    }
+    return $from_clause;
+}
 ?>

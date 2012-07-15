@@ -242,82 +242,12 @@ echo PMA_dbQbeGetTablesList($tbl_names);
 // 1. SELECT
 echo PMA_dbQbeGetSelectClause($criteria_column_count);
 // 2. FROM
-
-// Create LEFT JOINS out of Relations
-// If we can use Relations we could make some left joins.
-// First find out if relations are available in this database.
-
-// First we need the really needed Tables - those in TableList might still be
-// all Tables.
-if (isset($criteriaColumn) && count($criteriaColumn) > 0) {
-    // Initialize some variables
-    $all_tables = array();
-    $all_columns = array();
-    $tab_know   = array();
-    $left_tables   = array();
-    $left_join = '';
-
-    // We only start this if we have fields, otherwise it would be dumb
-    foreach ($criteriaColumn as $value) {
-        $parts = explode('.', $value);
-        if (! empty($parts[0]) && ! empty($parts[1])) {
-            $table = str_replace('`', '', $parts[0]);
-            $all_tables[$table] = $table;
-            $all_columns[] = $table . '.' . str_replace('`', '', $parts[1]);
-        }
-    } // end while
-
-    // Check 'where' clauses
-    if ($cfgRelation['relwork'] && count($all_tables) > 0) {
-        // Get tables and columns with valid where clauses
-        $valid_where_clauses = getWhereClauseTablesAndColumns(
-            $criteriaColumn, $criteria
-        );
-        $where_clause_tables = $valid_where_clauses['where_clause_tables'];
-        $where_clause_columns = $valid_where_clauses['where_clause_columns'];
-        // Get master table
-        $master = PMA_dbQbeGetMasterTable(
-            $db, $all_tables, $all_columns, $where_clause_columns, $where_clause_tables
-        );
-        $left_tables = $all_tables;
-        unset($left_tables[$master]);
-        $tab_know[$master] = $master;
-
-        $run   = 0;
-        $emerg = '';
-        while (count($left_tables) > 0) {
-            if ($run % 2 == 0) {
-                $left_join .= PMA_getRelatives('master', $left_tables, $tab_know);
-            } else {
-                $left_join .= PMA_getRelatives('foreign', $left_tables, $tab_know);
-            }
-            $run++;
-            if ($run > 5) {
-                foreach ($left_tables as $table) {
-                    $emerg .= ', ' . $common_functions->backquote($table);
-                    unset($left_tables[$table]);
-                }
-            }
-        } // end while
-        $qry_from = $common_functions->backquote($master) . $emerg . $left_join;
-    } // end if ($cfgRelation['relwork'] && count($all_tables) > 0)
-
-} // end count($criteriaColumn) > 0
-
-// In case relations are not defined, just generate the FROM clause
-// from the list of tables, however we don't generate any JOIN
-
-if (empty($qry_from) && isset($all_tables)) {
-    $qry_from = implode(', ', $all_tables);
+$from_clause = PMA_dbQbeGetFromClause($criteriaColumn, $criteria, $cfgRelation);
+if (! empty($from_clause)) {
+    echo 'FROM ' . htmlspecialchars($from_clause) . "\n";
 }
-// Now let's see what we got
-if (! empty($qry_from)) {
-    echo 'FROM ' . htmlspecialchars($qry_from) . "\n";
-}
-
 // 3. WHERE
 echo PMA_dbQbeGetWhereClause($criteria_column_count, $criteria_row_count);
-
 // 4. ORDER BY
 echo PMA_dbQbeGetOrderByClause($criteria_column_count);
 ?>
