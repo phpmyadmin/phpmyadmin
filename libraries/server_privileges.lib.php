@@ -1340,7 +1340,7 @@ function PMA_getHtmlForSpecificDbPrivileges($dbToCheck, $link_edit, $conditional
         . '    '
         . sprintf(
            __('Users having access to &quot;%s&quot;'),
-           '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url($dbToCheck) . '">' .  htmlspecialchars($checkprivs) . '</a>'
+           '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url($dbToCheck) . '">' .  htmlspecialchars($dbToCheck) . '</a>'
         )
         . "\n"
         . '</legend>' . "\n";
