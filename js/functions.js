@@ -3949,3 +3949,61 @@ AJAX.registerOnload('functions.js', function () {
     $loginform.find('.js-show').show();
     $loginform.find('#input_username').select();
 });
+
+/**
+ * jQuery coding for 'Change Table' and 'Add Column'.  Used on tbl_structure.php *
+ * Attach Ajax Event handlers for Change Table
+ */
+$(function () {
+    /**
+     *Ajax action for submitting the "Column Change" and "Add Column" form
+    **/
+    $(".append_fields_form.ajax").live('submit', function(event) {
+        event.preventDefault();
+        /**
+         * @var    the_form    object referring to the export form
+         */
+        var $form = $(this);
+
+        /*
+         * First validate the form; if there is a problem, avoid submitting it
+         *
+         * checkTableEditForm() needs a pure element and not a jQuery object,
+         * this is why we pass $form[0] as a parameter (the jQuery object
+         * is actually an array of DOM elements)
+         */
+        if (checkTableEditForm($form[0], $form.find('input[name=orig_num_fields]').val())) {
+            // OK, form passed validation step
+            PMA_prepareForAjaxRequest($form);
+            //User wants to submit the form
+            PMA_ajaxShowMessage();
+            $.post($form.attr('action'), $form.serialize() + '&do_save_data=1', function(data) {
+                if ($("#sqlqueryresults").length != 0) {
+                    $("#sqlqueryresults").remove();
+                } else if ($(".error").length != 0) {
+                    $(".error").remove();
+                }
+                if (data.success == true) {
+                    $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
+                    $("#sqlqueryresults").html(data.sql_query);
+                    $("#result_query .notice").remove();
+                    $("#result_query").prepend(data.message);
+                    if ($("#change_column_dialog").length > 0) {
+                        $("#change_column_dialog").dialog("close").remove();
+                    } else if ($("#add_columns").length > 0) {
+                        $("#add_columns").dialog("close").remove();
+                    }
+                    /* Reload the field form */
+                    if ($("#fieldsForm").length) {
+                        reloadFieldForm(data.message);
+                    } else {
+                        PMA_ajaxShowMessage(data.message);
+                    }
+                    PMA_reloadNavigation();
+                } else {
+                    PMA_ajaxShowMessage(data.error, false);
+                }
+            }); // end $.post()
+        }
+    }); // end change table button "do_save_data"
+});

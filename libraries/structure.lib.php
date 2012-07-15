@@ -1540,7 +1540,6 @@ function PMA_getHtmlForAddColumn($columns_list)
 {
     $html_output = '<form method="post" action="tbl_addfield.php" '
         . 'id="addColumns" name="addColumns" '
-        . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '')
         . 'onsubmit="return checkFormElementInRange('
             . 'this, \'num_fields\', \'' . str_replace(
                 '\'',

@@ -242,7 +242,7 @@ if (isset($_REQUEST['do_save_data'])) {
             }
         }
 
-        if ($_REQUEST['ajax_request'] == true) {
+        if ($GLOBALS['is_ajax_request']) {
             $response = PMA_Response::getInstance();
             $response->isSuccess($message->isSuccess());
             $response->addJSON('message', $message);
