@@ -317,7 +317,7 @@ class Advisor
 
         // Actually evaluate the code
         ob_start();
-        eval('$value = '.$expr.';');
+        eval('$value = ' . $expr . ';');
         $err = ob_get_contents();
         ob_end_clean();
 
