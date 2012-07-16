@@ -71,81 +71,85 @@ class PMA_DisplayResults
     // Declare global fields
     /** PMA_CommonFunctions object */
     private $_common_functions;
-
-    /** string Database name */
-    private $_db;
-
-    /** string Table name */
-    private $_table;
-
-    /** string the URL to go back in case of errors */
-    private $_goto;
-
-    /** string the SQL query */
-    private $_sql_query;
-
-    /**
-     * integer the total number of rows returned by the SQL query without any
-     *         appended "LIMIT" clause programmatically
-     */
-    private $_unlim_num_rows;
-
-    /** array meta information about fields */
-    private $_fields_meta;
-
-    /** boolean */
-    private $_is_count;
-
-    /** integer */
-    private $_is_export;
-
-    /** boolean */
-    private $_is_func;
-
-    /** integer */
-    private $_is_analyse;
-
-    /** integer the total number of rows returned by the SQL query */
-    private $_num_rows;
-
-    /** array table definitions */
-    private $_showtable;
-
-    /** array column names to highlight */
-    private $_highlight_columns;
-
-    /** array informations used with vertical display mode */
-    private $_vertical_display;
-
-    /** integer the total number of fields returned by the SQL query */
-    private $_fields_cnt;
-
-    /** string */
-    private $_printview;
-
-    /** double time taken for execute the SQL query */
-    private $_querytime;
-
-    /** string path for theme images directory */
-    private $_pma_theme_image;
-
-    /** string */
-    private $_text_dir;
-
-    /** string URL query */
-    private $_url_query;
-
-    /** boolean */
-    private $_is_maint;
-
-    /** boolean */
-    private $_is_explain;
-
-    /** boolean */
-    private $_is_show;
-
-    /** array mime types information of fields */
-    private $_mime_map;
+    
+    /** array with properties of the class */
+    private $_property_array = array(
+        
+        /** string Database name */
+        '_db' => null,
+        
+        /** string Table name */
+        '_table' => null,
+        
+        /** string the URL to go back in case of errors */
+        '_goto' => null,
+        
+        /** string the SQL query */
+        '_sql_query' => null,
+        
+        /**
+         * integer the total number of rows returned by the SQL query without any
+         *         appended "LIMIT" clause programmatically
+         */
+        '_unlim_num_rows' => null,
+        
+        /** array meta information about fields */
+        '_fields_meta' => null,
+        
+        /** boolean */
+        '_is_count' => null,
+        
+        /** integer */
+        '_is_export' => null,
+        
+        /** boolean */
+        '_is_func' => null,
+        
+        /** integer */
+        '_is_analyse' => null,
+        
+        /** integer the total number of rows returned by the SQL query */
+        '_num_rows' => null,
+        
+        /** integer the total number of fields returned by the SQL query */
+        '_fields_cnt' => null,
+        
+        /** double time taken for execute the SQL query */
+        '_querytime' => null,
+        
+        /** string path for theme images directory */
+        '_pma_theme_image' => null,
+        
+        /** string */
+        '_text_dir' => null,
+        
+        /** boolean */
+        '_is_maint' => null,
+        
+        /** boolean */
+        '_is_explain' => null,
+        
+        /** boolean */
+        '_is_show' => null,
+        
+        /** array table definitions */
+        '_showtable' => null,
+        
+        /** string */
+        '_printview' => null,
+        
+        /** string URL query */
+        '_url_query' => null,
+        
+        /** array column names to highlight */
+        '_highlight_columns' => null,
+        
+        /** array informations used with vertical display mode */
+        '_vertical_display' => null,
+        
+        /** array mime types information of fields */
+        '_mime_map' => null
+    );
 
 
     /**
@@ -157,8 +161,8 @@ class PMA_DisplayResults
      */
     public function __get($property)
     {
-        if (property_exists($this, $property)) {
-            return $this->$property;
+        if(array_key_exists($property, $this->_property_array)) {
+            return $this->_property_array[$property];
         }
     }
 
@@ -172,9 +176,9 @@ class PMA_DisplayResults
      * @return void
      */
     public function __set($property, $value)
-    {
-        if (property_exists($this, $property)) {
-            $this->$property = $value;
+    {        
+        if(array_key_exists($property, $this->_property_array)) {
+            $this->_property_array[$property] = $value;
         }
     }
 
