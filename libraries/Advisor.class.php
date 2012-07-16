@@ -324,7 +324,7 @@ class Advisor
         // Error handling
         if ($err) {
             throw new Exception(
-                strip_tags($err) . '<br />Executed code: $value = ' . $expr . ';'
+                strip_tags($err) . '<br />Executed code: $value = ' . htmlspecialchars($expr) . ';'
             );
         }
         return $value;
