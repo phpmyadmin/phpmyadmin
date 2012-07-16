@@ -1588,10 +1588,10 @@ function PMA_getStandardLinks($conditional_class)
  * 
  * @return array $extra_data
  */
-function PMA_getExtraDataForAjaxBehavior( $password, $sql_query,$link_edit,
-    $dbname_is_wildcard, $link_export
+function PMA_getExtraDataForAjaxBehavior($password, $link_export, $sql_query,
+    $link_edit, $dbname_is_wildcard
 ) {
-    if (isset($sql_query)) {
+    if (strlen($sql_query)) {
         $extra_data['sql_query'] 
             = PMA_CommonFunctions::getInstance()->getMessage(null, $sql_query);
     }

@@ -446,8 +446,8 @@ if ($GLOBALS['is_ajax_request']
     if (isset($password)) {
         $isPass = true;
     }
-    $extra_data = PMA_getExtraDataForAjaxBehavior( $isPass,
-        $sql_query, $link_edit, $dbname_is_wildcard, $link_export
+    $extra_data = PMA_getExtraDataForAjaxBehavior($isPass, $link_export,
+        (isset($sql_query) ? $sql_query : ''), $link_edit, $dbname_is_wildcard
     );
 
     if ($message instanceof PMA_Message) {
