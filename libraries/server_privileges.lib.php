@@ -2066,7 +2066,7 @@ function PMA_displayTablesInEditPrivs($dbname, $found_rows)
     $common_functions = PMA_CommonFunctions::getInstance();
     
     $html_output = '<input type="hidden" name="dbname"
-        '. 'value="' . htmlspecialchars($dbname) . '"/>' . "\n"
+        '. 'value="' . htmlspecialchars($dbname) . '"/>' . "\n";
     $html_output .= '<label for="text_tablename">' 
         . __('Add privileges on the following table') . ':</label>' . "\n";
     
