@@ -120,7 +120,7 @@ class PMA_List_Database_test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ShowTooltip'] = true;
         $GLOBALS['cfgRelation']['commwork'] = true;
         $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['LeftFrameDBTree'] = true;
+        $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
         $GLOBALS['cfg']['LeftFrameDBSeparator'] = array('|',',');
 
         $this->assertEquals(
@@ -139,7 +139,7 @@ class PMA_List_Database_test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ShowTooltip'] = true;
         $GLOBALS['cfgRelation']['commwork'] = true;
         $GLOBALS['server'] = 1;
-        $GLOBALS['cfg']['LeftFrameDBTree'] = true;
+        $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
         $GLOBALS['cfg']['LeftFrameDBSeparator'] = array('|',',');
 
         $this->assertEquals(

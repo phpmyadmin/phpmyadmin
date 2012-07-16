@@ -131,7 +131,7 @@ class PMA_NavigationTree
         // Initialise the tree by creating a root node
         $node = new Node('root', Node::CONTAINER);
         $this->_tree = $node;
-        if ($GLOBALS['cfg']['LeftFrameDBTree']) {
+        if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
             $this->_tree->separator = $GLOBALS['cfg']['LeftFrameDBSeparator'];
             $this->_tree->separator_depth = 10000;
         }

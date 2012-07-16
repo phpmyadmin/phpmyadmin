@@ -796,7 +796,7 @@ class PMA_Util
 
             // in $group we save the reference to the place in $table_groups
             // where to store the table info
-            if ($GLOBALS['cfg']['LeftFrameDBTree']
+            if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']
                 && $sep && strstr($table_name, $sep)
             ) {
                 $parts = explode($sep, $table_name);

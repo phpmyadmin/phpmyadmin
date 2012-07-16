@@ -255,7 +255,7 @@ class PMA_List_Database extends PMA_List
             $db_tooltips = PMA_getDbComments();
         }
 
-        if (!$GLOBALS['cfg']['LeftFrameDBTree']) {
+        if (!$GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
             $separators = array();
         } elseif (is_array($GLOBALS['cfg']['LeftFrameDBSeparator'])) {
             $separators = $GLOBALS['cfg']['LeftFrameDBSeparator'];

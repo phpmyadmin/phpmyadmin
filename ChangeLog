@@ -55,6 +55,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 + Dropped configuration directives: ShowTooltipAliasDB and ShowTooltipAliasTB
 + Dropped configuration directive: NaviDatabaseNameColor
 + Added configuration directive: MaxNavigationItems
++ Renamed configuration directive: LeftFrameDBTree => NavigationTreeEnableGrouping
 
 3.5.4.0 (not yet released)
 - bug #3570212 [edit] uuid_short() is a no-arguments function

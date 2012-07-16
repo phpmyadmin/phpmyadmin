@@ -167,12 +167,12 @@ $forms['Left_frame']['Left_frame'] = array(
     'LeftLogoLinkWindow',
     'LeftPointerEnable',
     'LeftRecentTable',
-    'MaxNavigationItems');
+    'MaxNavigationItems',
+    'NavigationTreeEnableGrouping');
 $forms['Left_frame']['Left_servers'] = array(
     'LeftDisplayServers',
     'DisplayServersList');
 $forms['Left_frame']['Left_databases'] = array(
-    'LeftFrameDBTree',
     'LeftFrameDBSeparator');
 $forms['Left_frame']['Left_tables'] = array(
     'LeftDisplayTableFilterMinimum',

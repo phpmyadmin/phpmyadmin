@@ -793,9 +793,9 @@ $cfg['Error_Handler']['gather'] = false;
 /**
  * turn the select-based light menu into a tree
  *
- * @global boolean $cfg['LeftFrameDBTree']
+ * @global boolean $cfg['NavigationTreeEnableGrouping']
  */
-$cfg['LeftFrameDBTree'] = true;
+$cfg['NavigationTreeEnableGrouping'] = true;
 
 /**
  * the separator to sub-tree the select-based light menu tree
