@@ -15,6 +15,7 @@ class PMA_SQL_parser_test extends PHPUnit_Framework_TestCase
 {
     private function assertParser($sql, $expected, $error = '')
     {
+        PMA_SQP_resetError();
         $parsed_sql = PMA_SQP_parse($sql);
         $this->assertEquals($error, PMA_SQP_getErrorString());
         $this->assertEquals($expected, $parsed_sql);
