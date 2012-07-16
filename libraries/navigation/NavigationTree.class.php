@@ -77,17 +77,19 @@ class PMA_NavigationTree
     /**
      * Initialises the class
      *
-     * @param int $pos Position in the list of databases,
-     *                 used for pagination
-     *
      * @return void
      */
-    public function __construct($pos)
+    public function __construct()
     {
         $this->_commonFunctions = PMA_commonFunctions::getInstance();
 
         // Save the position at which we are in the database list
-        $this->_pos = $pos;
+        if (isset($_REQUEST['pos'])) {
+            $this->_pos = (int) $_REQUEST['pos'];
+        }
+        if (! isset($this->_pos)) {
+            $this->_pos = $this->_getNavigationDbPos();
+        }
         // Get the active node
         if (isset($_REQUEST['aPath'])) {
             $this->_aPath[0]      = $this->_parsePath($_REQUEST['aPath']);
@@ -135,6 +137,31 @@ class PMA_NavigationTree
             $this->_tree->separator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
             $this->_tree->separator_depth = 10000;
         }
+    }
+
+    /**
+     * Returns the database position for the page selector
+     *
+     * @return int
+     */
+    private function _getNavigationDbPos()
+    {
+        $retval = 0;
+        if (! empty($GLOBALS['db'])) {
+            $query  = "SELECT (COUNT(`SCHEMA_NAME`) DIV %d) * %d ";
+            $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
+            $query .= "WHERE `SCHEMA_NAME` < '%s' ";
+            $query .= "ORDER BY `SCHEMA_NAME` ASC";
+            $retval = PMA_DBI_fetch_value(
+                sprintf(
+                    $query,
+                    (int)$GLOBALS['cfg']['MaxNavigationItems'],
+                    (int)$GLOBALS['cfg']['MaxNavigationItems'],
+                    PMA_CommonFunctions::getInstance()->sqlAddSlashes($GLOBALS['db'])
+                )
+            );
+        }
+        return $retval;
     }
 
     /**
@@ -526,8 +553,19 @@ class PMA_NavigationTree
         if ($node === false) {
             $retval = false;
         } else {
+            $retval .= PMA_commonFunctions::getInstance()->getListNavigator(
+                $this->_tree->getPresence(),
+                $this->_pos,
+                array('server' => $GLOBALS['server']),
+                'navigation.php',
+                'frame_navigation',
+                $GLOBALS['cfg']['MaxNavigationItems'],
+                'pos',
+                array('dbselector')
+            );
+
             $this->groupTree();
-            $retval  = $this->_commonFunctions->getImage(
+            $retval .= $this->_commonFunctions->getImage(
                 'ajax_clock_small.gif',
                 __('Loading'),
                 array('style' => 'visibility: hidden;', 'class' => 'throbber')

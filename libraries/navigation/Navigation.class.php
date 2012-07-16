@@ -42,12 +42,6 @@ require_once 'libraries/navigation/NavigationHeader.class.php';
 class PMA_Navigation
 {
     /**
-     * @var int Position in the list of databases,
-     *          used for pagination
-     */
-    private $_pos;
-
-    /**
      * Initialises the class, handles incoming requests
      * and fires up rendering of the output
      *
@@ -55,35 +49,9 @@ class PMA_Navigation
      */
     public function __construct()
     {
-        $GLOBALS['token'] = $_SESSION[' PMA_token '];
-
-        if (isset($_REQUEST['pos'])) {
-            $this->_pos = (int) $_REQUEST['pos'];
+        if (empty($GLOBALS['token'])) {
+            $GLOBALS['token'] = $_SESSION[' PMA_token '];
         }
-        if (! isset($this->_pos)) {
-            $this->_pos = $this->_getNavigationDbPos();
-        }
-    }
-
-    /**
-     * Returns the database position for the page selector
-     *
-     * @return int
-     */
-    private function _getNavigationDbPos()
-    {
-        $query  = "SELECT (COUNT(`SCHEMA_NAME`) DIV %d) * %d ";
-        $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
-        $query .= "WHERE `SCHEMA_NAME` < '%s' ";
-        $query .= "ORDER BY `SCHEMA_NAME` ASC";
-        return PMA_DBI_fetch_value(
-            sprintf(
-                $query,
-                (int)$GLOBALS['cfg']['MaxNavigationItems'],
-                (int)$GLOBALS['cfg']['MaxNavigationItems'],
-                PMA_CommonFunctions::getInstance()->sqlAddSlashes($GLOBALS['db'])
-            )
-        );
     }
 
     /**
@@ -99,25 +67,11 @@ class PMA_Navigation
             $header = new PMA_NavigationHeader();
             $retval = $header->getDisplay();
         }
-        $tree = new PMA_NavigationTree($this->_pos);
+        $tree = new PMA_NavigationTree();
         if (! PMA_Response::getInstance()->isAjax()
             || ! empty($_REQUEST['full'])
             || ! empty($_REQUEST['reload'])
         ) {
-            $_url_params = array('server' => $GLOBALS['server']);
-            $num_db      = PMA_DBI_fetch_value(
-                "SELECT COUNT(*) FROM `INFORMATION_SCHEMA`.`SCHEMATA`"
-            );
-            $retval .= PMA_commonFunctions::getInstance()->getListNavigator(
-                $num_db,
-                $this->_pos,
-                $_url_params,
-                'navigation.php',
-                'frame_navigation',
-                $GLOBALS['cfg']['MaxNavigationItems'],
-                'pos',
-                array('dbselector')
-            );
             $treeRender = $tree->renderState();
         } else {
             $treeRender = $tree->renderPath();
@@ -132,6 +86,7 @@ class PMA_Navigation
         }
 
         if (! PMA_Response::getInstance()->isAjax()) {
+            // closes the tags that were opened by the navigation header
             $retval .= '</div>';
             $retval .= '</div>';
             $retval .= '</div>';

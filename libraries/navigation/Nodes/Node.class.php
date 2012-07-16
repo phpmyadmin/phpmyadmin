@@ -385,9 +385,17 @@ class Node
      *
      * @return int
      */
-    public function getPresence($type, $searchClause = '')
+    public function getPresence($type = '', $searchClause = '')
     {
-        return 0;
+        if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
+            $query  = "SELECT COUNT(*) ";
+            $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
+            $retval = (int)PMA_DBI_fetch_value($query);
+        } else {
+            $query  = "SHOW DATABASES ";
+            $retval = PMA_DBI_num_rows(PMA_DBI_try_query($query));
+        }
+        return $retval;
     }
 }
 ?>
