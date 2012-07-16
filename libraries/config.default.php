@@ -821,22 +821,6 @@ $cfg['LeftFrameTableLevel'] = 1;
 $cfg['ShowTooltip'] = true;
 
 /**
- * if ShowToolTip is enabled, this defines that table/db comments
- *
- * @global boolean $cfg['ShowTooltipAliasDB']
- */
-$cfg['ShowTooltipAliasDB'] = false;
-
-/**
- * are shown (in the left menu and db_structure) instead of table/db names.
- * Setting ShowTooltipAliasTB to 'nested' will only use the Aliases for nested
- * descriptors, not the table itself.
- *
- * @global boolean $cfg['ShowTooltipAliasTB']
- */
-$cfg['ShowTooltipAliasTB'] = false;
-
-/**
  * display logo at top of left frame
  *
  * @global boolean $cfg['LeftDisplayLogo']

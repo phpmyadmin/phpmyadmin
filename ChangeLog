@@ -52,6 +52,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 + Dropped configuration directive: AllowThirdPartyFraming
 + Dropped configuration directive: LeftFrameLight
 + Dropped configuration directive: DisplayDatabasesList
++ Dropped configuration directives: ShowTooltipAliasDB and ShowTooltipAliasTB
 
 3.5.4.0 (not yet released)
 - bug #3570212 [edit] uuid_short() is a no-arguments function

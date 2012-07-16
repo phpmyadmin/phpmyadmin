@@ -35,7 +35,6 @@ $cfg_db['Servers'] = array(
 $cfg_db['RecodingEngine'] = array('auto', 'iconv', 'recode', 'none');
 $cfg_db['OBGzip'] = array('auto', true, false);
 $cfg_db['MemoryLimit'] = 'short_string';
-$cfg_db['ShowTooltipAliasTB'] = array('nested', true, false);
 $cfg_db['LeftLogoLinkWindow'] = array('main', 'new');
 $cfg_db['LeftDefaultTabTable'] = array(
     'tbl_structure.php', // fields list

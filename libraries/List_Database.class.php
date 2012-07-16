@@ -296,11 +296,6 @@ class PMA_List_Database extends PMA_List
             }
 
             $disp_name  = $db;
-            if ($db_tooltip && $GLOBALS['cfg']['ShowTooltipAliasDB']) {
-                $disp_name      = $db_tooltip;
-                $disp_name_cut  = $db_tooltip;
-                $db_tooltip     = $db;
-            }
 
             $dbgroups[$group][$db] = array(
                 'name'          => $db,

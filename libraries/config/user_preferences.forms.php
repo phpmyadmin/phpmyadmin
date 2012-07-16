@@ -86,15 +86,13 @@ $forms['Left_frame']['Left_frame'] = array(
 $forms['Left_frame']['Left_databases'] = array(
     'LeftDisplayDatabaseFilterMinimum',
     'LeftFrameDBTree',
-    'LeftFrameDBSeparator',
-    'ShowTooltipAliasDB');
+    'LeftFrameDBSeparator');
 $forms['Left_frame']['Left_tables'] = array(
     'LeftDisplayTableFilterMinimum',
     'LeftDefaultTabTable',
     'LeftFrameTableSeparator',
     'LeftFrameTableLevel',
-    'ShowTooltip',
-    'ShowTooltipAliasTB');
+    'ShowTooltip');
 $forms['Main_frame']['Startup'] = array(
     'ShowCreateDb',
     'ShowStats',

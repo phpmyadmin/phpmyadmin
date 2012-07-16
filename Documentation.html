@@ -1554,22 +1554,6 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dd>Defines whether to display table comment as tool-tip in left frame or
         not.</dd>
 
-    <dt id="cfg_ShowTooltipAliasDB">$cfg['ShowTooltipAliasDB'] boolean</dt>
-    <dd>If tool-tips are enabled and a DB comment is set, this will flip the
-        comment and the real name. That means that if you have a database called
-        'user0001' and add the comment 'MyName' on it, you will see the name
-        'MyName' used consequently in the left frame and the tool-tip shows
-        the real name of the DB.</dd>
-
-    <dt id="cfg_ShowTooltipAliasTB">$cfg['ShowTooltipAliasTB'] boolean/string</dt>
-    <dd>Same as <a href="#cfg_ShowTooltipAliasDB" class="configrule">$cfg['ShowTooltipAliasDB']</a>, except this works for table names.
-
-        When setting this to 'nested', the Alias of the Tablename is only used
-        to split/nest the tables according to the
-        <a href="#cfg_LeftFrameTableSeparator" class="configrule">$cfg['LeftFrameTableSeparator']</a>
-        directive. So only the folder is called like the Alias, the tablename itself
-        stays the real tablename.</dd>
-
     <dt id="cfg_LeftDisplayLogo">$cfg['LeftDisplayLogo'] boolean</dt>
     <dd>Defines whether or not to display the phpMyAdmin logo at the top of the left frame.
         Defaults to <code>TRUE</code>.</dd>

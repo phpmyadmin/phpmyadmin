@@ -62,15 +62,8 @@ function PMA_fillTooltip(&$tooltip_truename, &$tooltip_aliasname, $table)
         $table['Comment'] .= ' ';
     }
 
-    if ($GLOBALS['cfg']['ShowTooltipAliasTB']
-        && $GLOBALS['cfg']['ShowTooltipAliasTB'] !== 'nested'
-    ) {
-        $tooltip_truename[$table['Name']] = $table['Comment'];
-        $tooltip_aliasname[$table['Name']] = $table['Name'];
-    } else {
-        $tooltip_truename[$table['Name']] = $table['Name'];
-        $tooltip_aliasname[$table['Name']] = $table['Comment'];
-    }
+    $tooltip_truename[$table['Name']] = $table['Name'];
+    $tooltip_aliasname[$table['Name']] = $table['Comment'];
 
     if (isset($table['Create_time']) && !empty($table['Create_time'])) {
         $tooltip_aliasname[$table['Name']] .= ', ' . __('Creation')
@@ -115,7 +108,7 @@ $tables = array();
 
 // When used in Nested table group mode,
 // only show tables matching the given groupname
-if (PMA_isValid($tbl_group) && !$cfg['ShowTooltipAliasTB']) {
+if (PMA_isValid($tbl_group)) {
     $tbl_group_sql = ' LIKE "'
         . PMA_Util::escapeMysqlWildcards($tbl_group)
         . '%"';
@@ -165,7 +158,6 @@ if (true === $cfg['SkipLockedTables']) {
                         }
 
                         if (! empty($tbl_group)
-                            && $cfg['ShowTooltipAliasTB']
                             && ! preg_match('@' . preg_quote($tbl_group, '@') . '@i', $sts_tmp['Comment'])
                         ) {
                             continue;
@@ -226,16 +218,10 @@ if (! isset($sot_ready)) {
         }
     }
 
-    if (! empty($tbl_group) && ! $cfg['ShowTooltipAliasTB']) {
+    if (! empty($tbl_group)) {
         // only tables for selected group
         $tables = PMA_DBI_get_tables_full(
             $db, $tbl_group, true, null, 0, false, $sort, $sort_order
-        );
-    } elseif (! empty($tbl_group) && $cfg['ShowTooltipAliasTB']) {
-        // only tables for selected group,
-        // but grouping is done on comment ...
-        $tables = PMA_DBI_get_tables_full(
-            $db, $tbl_group, 'comment', null, 0, false, $sort, $sort_order
         );
     } else {
         // all tables in db

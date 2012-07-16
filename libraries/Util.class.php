@@ -844,18 +844,7 @@ class PMA_Util
                 $group =& $table_groups;
             }
 
-            if ($GLOBALS['cfg']['ShowTooltipAliasTB']
-                && $GLOBALS['cfg']['ShowTooltipAliasTB'] !== 'nested'
-                && $table['Comment'] // do not switch if the comment is empty
-                && $table['Comment'] != 'VIEW' // happens in MySQL 5.1
-            ) {
-                // switch tooltip and name
-                $table['disp_name'] = $table['Comment'];
-                $table['Comment'] = $table['Name'];
-            } else {
-                $table['disp_name'] = $table['Name'];
-            }
-
+            $table['disp_name'] = $table['Name'];
             $group[$table_name] = array_merge($default, $table);
         }
 
