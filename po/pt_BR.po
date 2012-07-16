@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-07-15 16:37+0200\n"
+"PO-Revision-Date: 2012-07-15 19:40+0200\n"
 "Last-Translator: Anderson Diego Kulpa Fachini <anderson.dkfachini@gmail.com>\n"
 "Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
 "Language: pt_BR\n"
@@ -6486,6 +6486,9 @@ msgid ""
 "The engine allocates one buffer per thread, but only if the thread is "
 "required to write a data log."
 msgstr ""
+"Tamanho de buffer usado quando escreve dados no log. O padrão é 256MB. A "
+"engine aloca um buffer por thread, mas apenas se a thread requisitar escrita "
+"de dados de log."
 
 #: libraries/engines/pbxt.lib.php:67
 msgid "Data file grow size"
@@ -6514,6 +6517,10 @@ msgid ""
 "will be deleted, otherwise they are renamed and given the next highest "
 "number."
 msgstr ""
+"Este é o número de arquivos de log de transação (pbxt/system/xlog*.xt) que o "
+"sistema irá manter. Se o número de logs exceder esse valor, os arquivos de "
+"log antigos serão deletados, ou então eles serão renomeados e terão o "
+"próximo número maior."
 
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
@@ -6558,6 +6565,7 @@ msgstr "Substituir NULL com:"
 #: libraries/export/csv.php:29 libraries/export/excel.php:24
 msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
+"Remover retorno do carro/caractere de alimentação de linha dentro de colunas"
 
 #: libraries/export/excel.php:33
 msgid "Excel edition:"
@@ -6685,6 +6693,8 @@ msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
+"Incluir data e hora quando bancos de dados forem criados, atualizados pela "
+"última vez e checados pela última vez."
 
 #: libraries/export/sql.php:100
 msgid ""
@@ -6821,7 +6831,7 @@ msgstr "XML"
 
 #: libraries/export/xml.php:34
 msgid "Object creation options (all are recommended)"
-msgstr ""
+msgstr "Opções de criação de objeto (todas são recomendadas)"
 
 #: libraries/export/xml.php:62
 #| msgid "View"
@@ -6876,7 +6886,7 @@ msgstr ""
 
 #: libraries/import.lib.php:1103
 msgid "Edit structure by following the \"Structure\" link"
-msgstr ""
+msgstr "Edite a estrutura clicando em \"Estrutura\""
 
 #: libraries/import.lib.php:1106
 #, php-format
@@ -6940,6 +6950,8 @@ msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
+"Coluna inválida (%s) especificada. Assegure-se que o nome desta coluna está "
+"escrito corretamente, separado por vírgulas e entre aspas."
 
 #: libraries/import/csv.php:191 libraries/import/csv.php:451
 #, php-format
@@ -6972,11 +6984,11 @@ msgstr "Esse plugin não suporta importações comprimidas!"
 
 #: libraries/import/ods.php:35
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
-msgstr ""
+msgstr "Importar percentuais com decimais adequados <i>(ex. 12.00% to .12)</i>"
 
 #: libraries/import/ods.php:36
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr ""
+msgstr "Importar moedas <i>(ex. R$5.00 para 5.00)</i>"
 
 #: libraries/import/ods.php:88 libraries/import/xml.php:83
 #: libraries/import/xml.php:139
@@ -6984,26 +6996,30 @@ msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
 msgstr ""
+"O arquivo XML especificado está mal formado ou incompleto. Favor corrigir o "
+"problema e tentar novamente."
 
 #: libraries/import/shp.php:19
 msgid "ESRI Shape File"
-msgstr ""
+msgstr "Arquivo em formato ESRI"
 
 #: libraries/import/shp.php:280
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr ""
+msgstr "Ocorreu um erro ao importar o arquivo do tipo ESRI: \"%s\"."
 
 #: libraries/import/shp.php:336
 msgid ""
 "You tried to import an invalid file or the imported file contains invalid "
 "data"
 msgstr ""
+"Você tentou importar um arquivo inválido ou o arquivo importado contém dados "
+"inválidos"
 
 #: libraries/import/shp.php:338
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
-msgstr ""
+msgstr "Extensão Espacial MySQL não suporta o tipo ESRI \"%s\"."
 
 #: libraries/import/shp.php:376
 #| msgid "File %s does not contain any key id"
@@ -7016,7 +7032,7 @@ msgstr "Modo de compatibilidade SQL:"
 
 #: libraries/import/sql.php:43
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
-msgstr ""
+msgstr "Não use <code>AUTO_INCREMENT</code> para valores zerados"
 
 #: libraries/kanji-encoding.lib.php:147
 #| msgid "None"
@@ -7027,7 +7043,7 @@ msgstr "Nenhuma"
 #. l10n: This is currently used only in Japanese locales
 #: libraries/kanji-encoding.lib.php:153
 msgid "Convert to Kana"
-msgstr ""
+msgstr "Converter para Kana"
 
 #: libraries/mult_submits.inc.php:254
 #| msgid "Fri"
@@ -7036,7 +7052,7 @@ msgstr "Do"
 
 #: libraries/mult_submits.inc.php:257
 msgid "To"
-msgstr ""
+msgstr "Para"
 
 #: libraries/mult_submits.inc.php:262 libraries/mult_submits.inc.php:275
 #: libraries/sql_query_form.lib.php:403
@@ -7045,7 +7061,7 @@ msgstr "Submeter"
 
 #: libraries/mult_submits.inc.php:267
 msgid "Add table prefix"
-msgstr ""
+msgstr "Adicionar prefixo de tabela"
 
 #: libraries/mult_submits.inc.php:270
 #| msgid "Add index"
@@ -7259,7 +7275,7 @@ msgstr "Sair"
 #: libraries/navigation_header.inc.php:117
 #: libraries/navigation_header.inc.php:119
 msgid "Reload navigation frame"
-msgstr ""
+msgstr "Recarregar frame de navegação"
 
 #: libraries/plugin_interface.lib.php:309
 #| msgid "This format has no options"
@@ -7317,34 +7333,40 @@ msgstr "Tabelas persistentes recentemente usadas"
 
 #: libraries/relation.lib.php:140
 msgid "Persistent tables' UI preferences"
-msgstr ""
+msgstr "Persistir tabelas de preferência de UI"
 
 #: libraries/relation.lib.php:148
 msgid "User preferences"
-msgstr ""
+msgstr "Preferências do usuário"
 
 #: libraries/relation.lib.php:152
 msgid "Quick steps to setup advanced features:"
-msgstr ""
+msgstr "Passos rápidos para a instalação de recursos avançados:"
 
 #: libraries/relation.lib.php:154
 msgid ""
 "Create the needed tables with the <code>examples/create_tables.sql</code>."
 msgstr ""
+"Criar tabelas necessárias com o <code>examples/create_tables.sql</code>."
 
 #: libraries/relation.lib.php:155
 msgid "Create a pma user and give access to these tables."
-msgstr ""
+msgstr "Criar um usuário pma e dar acesso a essas tabelas."
 
 #: libraries/relation.lib.php:156
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
+"Ativar recursos avançados no arquivo de configuração "
+"(<code>config.inc.php</code>), por exemplo iniciando em "
+"<code>config.sample.inc.php</code>."
 
 #: libraries/relation.lib.php:157
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
+"Logar novamente no phpMyAdmin para carregar o arquivo de configuração "
+"atualizado."
 
 #: libraries/relation.lib.php:1130
 msgid "no description"
@@ -7352,17 +7374,20 @@ msgstr "sem Descrição"
 
 #: libraries/replication_gui.lib.php:54
 msgid "Slave configuration"
-msgstr ""
+msgstr "Configuração do escravo"
 
 #: libraries/replication_gui.lib.php:54 server_replication.php:353
 msgid "Change or reconfigure master server"
-msgstr ""
+msgstr "Alterar ou reconfigurar o servidor mestre"
 
 #: libraries/replication_gui.lib.php:55
 msgid ""
 "Make sure, you have unique server-id in your configuration file (my.cnf). If "
 "not, please add the following line into [mysqld] section:"
 msgstr ""
+"Certifique-se de que você tem um ID de servidor único no seu arquivo de "
+"configuração (my.cfn). Senão, favor adicionar a seguinte linha dentro da "
+"seção [mysqld]:"
 
 #: libraries/replication_gui.lib.php:58 libraries/replication_gui.lib.php:59
 #: libraries/replication_gui.lib.php:255 libraries/replication_gui.lib.php:258
@@ -7402,10 +7427,12 @@ msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
+"Apenas os escravos iniciados com a opção --report-host=host_name estão "
+"visíveis nesta lista."
 
 #: libraries/replication_gui.lib.php:246 server_replication.php:192
 msgid "Add slave replication user"
-msgstr ""
+msgstr "Adicionar escravo de replicação de usuário"
 
 #: libraries/replication_gui.lib.php:260 server_privileges.php:799
 msgid "Any user"
@@ -7439,6 +7466,8 @@ msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
 msgstr ""
+"Quanto a tabela Host é usada, este campo é ignorado e os valores armazenados "
+"na tabela Host são usados no lugar."
 
 #: libraries/replication_gui.lib.php:366
 msgid "Generate Password"
@@ -7550,48 +7579,48 @@ msgstr "Após a conclusão manter"
 #: libraries/rte/rte_events.lib.php:475 libraries/rte/rte_routines.lib.php:933
 #: libraries/rte/rte_triggers.lib.php:360
 msgid "Definer"
-msgstr ""
+msgstr "Definidor"
 
 #: libraries/rte/rte_events.lib.php:518 libraries/rte/rte_routines.lib.php:997
 #: libraries/rte/rte_triggers.lib.php:398
 msgid "The definer must be in the \"username@hostname\" format"
-msgstr ""
+msgstr "O definidor deve estar no formato \"username@hostname\""
 
 #: libraries/rte/rte_events.lib.php:525
 msgid "You must provide an event name"
-msgstr ""
+msgstr "Você deve informar o nome do evento"
 
 #: libraries/rte/rte_events.lib.php:537
 msgid "You must provide a valid interval value for the event."
-msgstr ""
+msgstr "Você deve informar um valor de intervalo válido para o evento."
 
 #: libraries/rte/rte_events.lib.php:549
 msgid "You must provide a valid execution time for the event."
-msgstr ""
+msgstr "Você deve informar um tempo de execução válido para o evento."
 
 #: libraries/rte/rte_events.lib.php:553
 msgid "You must provide a valid type for the event."
-msgstr ""
+msgstr "Você deve informar um tipo válido para o evento."
 
 #: libraries/rte/rte_events.lib.php:572
 msgid "You must provide an event definition."
-msgstr ""
+msgstr "Você deve informar uma definição do evento."
 
 #: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2411
 msgid "New"
-msgstr ""
+msgstr "Novo"
 
 #: libraries/rte/rte_footer.lib.php:91
 msgid "OFF"
-msgstr ""
+msgstr "Desligado"
 
 #: libraries/rte/rte_footer.lib.php:96
 msgid "ON"
-msgstr ""
+msgstr "Ligado"
 
 #: libraries/rte/rte_footer.lib.php:108
 msgid "Event scheduler status"
-msgstr ""
+msgstr "Status do agendador de eventos"
 
 #: libraries/rte/rte_list.lib.php:54
 #| msgid "Return type"
@@ -7644,7 +7673,7 @@ msgstr "Nome das rotinas"
 
 #: libraries/rte/rte_routines.lib.php:854
 msgid "Parameters"
-msgstr ""
+msgstr "Parâmetros"
 
 #: libraries/rte/rte_routines.lib.php:859
 #| msgid "Direct links"
@@ -7681,7 +7710,7 @@ msgstr "Opções de retorno"
 
 #: libraries/rte/rte_routines.lib.php:929
 msgid "Is deterministic"
-msgstr ""
+msgstr "É determinístico"
 
 #: libraries/rte/rte_routines.lib.php:938
 #| msgid "Security"
@@ -7690,16 +7719,16 @@ msgstr "Tipo de segurança"
 
 #: libraries/rte/rte_routines.lib.php:945
 msgid "SQL data access"
-msgstr ""
+msgstr "Acesso de dados SQL"
 
 #: libraries/rte/rte_routines.lib.php:1010
 msgid "You must provide a routine name"
-msgstr ""
+msgstr "Você deve informar o nome da rotina"
 
 #: libraries/rte/rte_routines.lib.php:1036
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
-msgstr ""
+msgstr "Direção inválida \"%s\" dada para o parâmetro."
 
 #: libraries/rte/rte_routines.lib.php:1048
 #: libraries/rte/rte_routines.lib.php:1086
@@ -7707,18 +7736,20 @@ msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
+"Você deve informar tamanhos/comprimentos para os parâmetros de rotina do "
+"tipo ENUM, SET, VARCHAR and VARBINARY."
 
 #: libraries/rte/rte_routines.lib.php:1066
 msgid "You must provide a name and a type for each routine parameter."
-msgstr ""
+msgstr "Você deve informar um nome e um tipo para cada parâmetro de rotina."
 
 #: libraries/rte/rte_routines.lib.php:1076
 msgid "You must provide a valid return type for the routine."
-msgstr ""
+msgstr "Você deve informar um tipo de retorno válido para a rotina."
 
 #: libraries/rte/rte_routines.lib.php:1120
 msgid "You must provide a routine definition."
-msgstr ""
+msgstr "Você deve informar uma definição da rotina."
 
 #: libraries/rte/rte_routines.lib.php:1210
 #, php-format
@@ -7783,15 +7814,15 @@ msgstr "Tempo"
 
 #: libraries/rte/rte_triggers.lib.php:405
 msgid "You must provide a trigger name"
-msgstr ""
+msgstr "Você deve informar o nome da trigger"
 
 #: libraries/rte/rte_triggers.lib.php:410
 msgid "You must provide a valid timing for the trigger"
-msgstr ""
+msgstr "Você deve informar um tempo válido para a trigger"
 
 #: libraries/rte/rte_triggers.lib.php:415
 msgid "You must provide a valid event for the trigger"
-msgstr ""
+msgstr "Você deve informar um evento válido para a trigger"
 
 #: libraries/rte/rte_triggers.lib.php:421
 #| msgid "Invalid table name"
@@ -7800,7 +7831,7 @@ msgstr "Você precisa colocar um nome de tabela válido"
 
 #: libraries/rte/rte_triggers.lib.php:427
 msgid "You must provide a trigger definition."
-msgstr ""
+msgstr "Você deve informar uma definição para a trigger."
 
 #: libraries/rte/rte_words.lib.php:18
 #| msgid "Add index"
@@ -7883,10 +7914,10 @@ msgid "You do not have the necessary privileges to create an event"
 msgstr "Você não tem permissões suficientes para criar um novo evento"
 
 #: libraries/rte/rte_words.lib.php:47
-#, fuzzy, php-format
+#, php-format
 #| msgid "No tables found in database"
 msgid "No event with name %1$s found in database %2$s"
-msgstr "Nenhuma tabela encontrada no banco de dados"
+msgstr "Nenhum evento com o nome %1$s foi encontrado no banco de dados %2$s"
 
 #: libraries/rte/rte_words.lib.php:48
 msgid "There are no events to display."
@@ -7922,11 +7953,11 @@ msgstr "Esquema do Banco de Dados \"%s\" - Página %s"
 
 #: libraries/schema/Export_Relation_Schema.class.php:200
 msgid "This page does not contain any tables!"
-msgstr ""
+msgstr "Esta página não contem todas tabelas!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:228
 msgid "SCHEMA ERROR: "
-msgstr ""
+msgstr "ERRO DE ESQUEMA:"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:858
 #: libraries/schema/Pdf_Relation_Schema.class.php:1171
@@ -7958,10 +7989,9 @@ msgid "Page name"
 msgstr "Numero da página"
 
 #: libraries/schema/User_Schema.class.php:126
-#, fuzzy
 #| msgid "Automatic layout"
 msgid "Automatic layout based on"
-msgstr "Leiaute automático"
+msgstr "Leiaute automático baseado em"
 
 #: libraries/schema/User_Schema.class.php:129
 msgid "Internal relations"
@@ -7969,31 +7999,29 @@ msgstr "Relações internas"
 
 #: libraries/schema/User_Schema.class.php:139
 msgid "FOREIGN KEY"
-msgstr ""
+msgstr "CHAVE ESTRANGEIRA"
 
 #: libraries/schema/User_Schema.class.php:173
 msgid "Please choose a page to edit"
 msgstr "Escolha a página para editar"
 
 #: libraries/schema/User_Schema.class.php:178
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Select page"
-msgstr "Tabelas selecionadas"
+msgstr "Selecionar página"
 
 #: libraries/schema/User_Schema.class.php:244
 msgid "Select Tables"
 msgstr "Tabelas selecionadas"
 
 #: libraries/schema/User_Schema.class.php:382
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Display relational schema"
-msgstr "Esquema relacional"
+msgstr "Mostrar esquema relacional"
 
 #: libraries/schema/User_Schema.class.php:392
 msgid "Select Export Relational Type"
-msgstr ""
+msgstr "Selecione o Tipo de Exportação Relacional"
 
 #: libraries/schema/User_Schema.class.php:413
 msgid "Show grid"
@@ -8013,7 +8041,7 @@ msgstr "Mostrar todas as tabelas com o mesmo tamanho"
 
 #: libraries/schema/User_Schema.class.php:425
 msgid "Only show keys"
-msgstr ""
+msgstr "Mostrar apenas chaves"
 
 #: libraries/schema/User_Schema.class.php:427
 msgid "Landscape"
@@ -8024,10 +8052,9 @@ msgid "Portrait"
 msgstr "Retrato"
 
 #: libraries/schema/User_Schema.class.php:430
-#, fuzzy
 #| msgid "Creation"
 msgid "Orientation"
-msgstr "Criação"
+msgstr "Orientação"
 
 #: libraries/schema/User_Schema.class.php:443
 msgid "Paper size"
@@ -8057,21 +8084,19 @@ msgid "Unknown language: %1$s."
 msgstr "Linguagem desconhecida: %1$s."
 
 #: libraries/select_server.lib.php:32 libraries/select_server.lib.php:37
-#, fuzzy
 #| msgid "Server"
 msgid "Current Server"
-msgstr "Servidor"
+msgstr "Servidor Atual"
 
 #: libraries/server_links.inc.php:60
-#, fuzzy
 #| msgid "User"
 msgid "Users"
-msgstr "Usuário"
+msgstr "Usuários"
 
 #: libraries/server_links.inc.php:79 server_synchronize.php:1154
 #: server_synchronize.php:1162
 msgid "Synchronize"
-msgstr ""
+msgstr "Sincronizar"
 
 #: libraries/server_links.inc.php:84 server_binlog.php:77
 #: server_status.php:595
@@ -8104,16 +8129,16 @@ msgstr "Procurar no Banco de Dados"
 #: libraries/server_synchronize.lib.php:1303
 #: libraries/server_synchronize.lib.php:1311
 msgid "Current server"
-msgstr ""
+msgstr "Servidor atual"
 
 #: libraries/server_synchronize.lib.php:1305
 #: libraries/server_synchronize.lib.php:1313
 msgid "Remote server"
-msgstr ""
+msgstr "Servidor remoto"
 
 #: libraries/server_synchronize.lib.php:1308
 msgid "Difference"
-msgstr ""
+msgstr "Diferença"
 
 #: libraries/server_synchronize.lib.php:1309 server_synchronize.php:1188
 #, fuzzy
