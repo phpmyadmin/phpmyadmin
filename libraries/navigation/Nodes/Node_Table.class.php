@@ -122,7 +122,7 @@ class Node_Table extends Node
                 $query .= "WHERE `TABLE_NAME`='$table' ";
                 $query .= "AND `TABLE_SCHEMA`='$db' ";
                 $query .= "ORDER BY `COLUMN_NAME` ASC ";
-                $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxTableList']}";
+                $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxNavigationItems']}";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $db     = $this->_commonFunctions->backquote($db);
@@ -132,7 +132,7 @@ class Node_Table extends Node
                 if ($handle !== false) {
                     $count = 0;
                     while ($arr = PMA_DBI_fetch_array($handle)) {
-                        if ($pos <= 0 && $count < $GLOBALS['cfg']['MaxTableList']) {
+                        if ($pos <= 0 && $count < $GLOBALS['cfg']['MaxNavigationItems']) {
                             $retval[] = $arr['Field'];
                             $count++;
                         }
@@ -150,7 +150,7 @@ class Node_Table extends Node
                 $count = 0;
                 while ($arr = PMA_DBI_fetch_array($handle)) {
                     if (! in_array($arr['Key_name'], $retval)) {
-                        if ($pos <= 0 && $count < $GLOBALS['cfg']['MaxTableList']) {
+                        if ($pos <= 0 && $count < $GLOBALS['cfg']['MaxNavigationItems']) {
                             $retval[] = $arr['Key_name'];
                             $count++;
                         }
@@ -168,7 +168,7 @@ class Node_Table extends Node
                 $query .= "WHERE `EVENT_OBJECT_SCHEMA`='$db' ";
                 $query .= "AND `EVENT_OBJECT_TABLE`='$table' ";
                 $query .= "ORDER BY `TRIGGER_NAME` ASC ";
-                $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxTableList']}";
+                $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxNavigationItems']}";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $db     = $this->_commonFunctions->backquote($db);
@@ -178,7 +178,7 @@ class Node_Table extends Node
                 if ($handle !== false) {
                     $count = 0;
                     while ($arr = PMA_DBI_fetch_array($handle)) {
-                        if ($pos <= 0 && $count < $GLOBALS['cfg']['MaxTableList']) {
+                        if ($pos <= 0 && $count < $GLOBALS['cfg']['MaxNavigationItems']) {
                             $retval[] = $arr['Trigger'];
                             $count++;
                         }

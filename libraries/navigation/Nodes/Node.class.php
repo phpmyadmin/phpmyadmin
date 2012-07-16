@@ -360,7 +360,7 @@ class Node
         $query  = "SELECT `SCHEMA_NAME` ";
         $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
         $query .= "ORDER BY `SCHEMA_NAME` ASC ";
-        $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxDbList']}";
+        $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxNavigationItems']}";
         return PMA_DBI_fetch_result($query);
     }
 

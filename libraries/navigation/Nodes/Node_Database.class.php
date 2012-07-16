@@ -229,7 +229,7 @@ class Node_Database extends Node
                     $query .= "%'";
                 }
                 $query .= "ORDER BY `TABLE_NAME` ASC ";
-                $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxTableList']}";
+                $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxNavigationItems']}";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $query  = " SHOW FULL TABLES FROM ";
@@ -248,7 +248,7 @@ class Node_Database extends Node
                 if ($handle !== false) {
                     $count = 0;
                     while ($arr = PMA_DBI_fetch_array($handle)) {
-                        if ($pos <= 0 && $count < $GLOBALS['cfg']['MaxTableList']) {
+                        if ($pos <= 0 && $count < $GLOBALS['cfg']['MaxNavigationItems']) {
                             $retval[] = $arr[0];
                             $count++;
                         }
@@ -272,7 +272,7 @@ class Node_Database extends Node
                     $query .= "%'";
                 }
                 $query .= "ORDER BY `TABLE_NAME` ASC ";
-                $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxTableList']}";
+                $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxNavigationItems']}";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $query  = "SHOW FULL TABLES FROM ";
@@ -291,7 +291,7 @@ class Node_Database extends Node
                 if ($handle !== false) {
                     $count = 0;
                     while ($arr = PMA_DBI_fetch_array($handle)) {
-                        if ($pos <= 0 && $count < $GLOBALS['cfg']['MaxTableList']) {
+                        if ($pos <= 0 && $count < $GLOBALS['cfg']['MaxNavigationItems']) {
                             $retval[] = $arr[0];
                             $count++;
                         }
@@ -315,7 +315,7 @@ class Node_Database extends Node
                     $query .= "%'";
                 }
                 $query .= "ORDER BY `ROUTINE_NAME` ASC ";
-                $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxTableList']}";
+                $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxNavigationItems']}";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $db    = $this->_commonFunctions->sqlAddSlashes($db);
@@ -331,7 +331,7 @@ class Node_Database extends Node
                 if ($handle !== false) {
                     $count = 0;
                     while ($arr = PMA_DBI_fetch_array($handle)) {
-                        if ($pos <= 0 && $count < $GLOBALS['cfg']['MaxTableList']) {
+                        if ($pos <= 0 && $count < $GLOBALS['cfg']['MaxNavigationItems']) {
                             $retval[] = $arr['Name'];
                             $count++;
                         }
@@ -355,7 +355,7 @@ class Node_Database extends Node
                     $query .= "%'";
                 }
                 $query .= "ORDER BY `ROUTINE_NAME` ASC ";
-                $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxTableList']}";
+                $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxNavigationItems']}";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $db    = $this->_commonFunctions->sqlAddSlashes($db);
@@ -371,7 +371,7 @@ class Node_Database extends Node
                 if ($handle !== false) {
                     $count = 0;
                     while ($arr = PMA_DBI_fetch_array($handle)) {
-                        if ($pos <= 0 && $count < $GLOBALS['cfg']['MaxTableList']) {
+                        if ($pos <= 0 && $count < $GLOBALS['cfg']['MaxNavigationItems']) {
                             $retval[] = $arr['Name'];
                             $count++;
                         }
@@ -394,7 +394,7 @@ class Node_Database extends Node
                     $query .= "%'";
                 }
                 $query .= "ORDER BY `EVENT_NAME` ASC ";
-                $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxTableList']}";
+                $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxNavigationItems']}";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $db    = $this->_commonFunctions->backquote($db);
@@ -410,7 +410,7 @@ class Node_Database extends Node
                 if ($handle !== false) {
                     $count = 0;
                     while ($arr = PMA_DBI_fetch_array($handle)) {
-                        if ($pos <= 0 && $count < $GLOBALS['cfg']['MaxTableList']) {
+                        if ($pos <= 0 && $count < $GLOBALS['cfg']['MaxNavigationItems']) {
                             $retval[] = $arr['Name'];
                             $count++;
                         }

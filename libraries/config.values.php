@@ -212,6 +212,7 @@ $cfg_db['_validators'] = array(
     'LoginCookieValidity' => 'validate_positive_number',
     'LoginCookieStore' => 'validate_non_negative_number',
     'MaxDbList' => 'validate_positive_number',
+    'MaxNavigationItems' => 'validate_positive_number',
     'MaxCharactersInDisplayedSQL' => 'validate_positive_number',
     'MaxRows' => 'validate_positive_number',
     'MaxTableList' => 'validate_positive_number',

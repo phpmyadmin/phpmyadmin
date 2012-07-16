@@ -166,7 +166,8 @@ $forms['Left_frame']['Left_frame'] = array(
     'LeftLogoLink',
     'LeftLogoLinkWindow',
     'LeftPointerEnable',
-    'LeftRecentTable');
+    'LeftRecentTable',
+    'MaxNavigationItems');
 $forms['Left_frame']['Left_servers'] = array(
     'LeftDisplayServers',
     'DisplayServersList');

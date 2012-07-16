@@ -79,8 +79,8 @@ class PMA_Navigation
         return PMA_DBI_fetch_value(
             sprintf(
                 $query,
-                (int)$GLOBALS['cfg']['MaxDbList'],
-                (int)$GLOBALS['cfg']['MaxDbList'],
+                (int)$GLOBALS['cfg']['MaxNavigationItems'],
+                (int)$GLOBALS['cfg']['MaxNavigationItems'],
                 PMA_CommonFunctions::getInstance()->sqlAddSlashes($GLOBALS['db'])
             )
         );
@@ -114,7 +114,7 @@ class PMA_Navigation
                 $_url_params,
                 'navigation.php',
                 'frame_navigation',
-                $GLOBALS['cfg']['MaxDbList'],
+                $GLOBALS['cfg']['MaxNavigationItems'],
                 'pos',
                 array('dbselector')
             );

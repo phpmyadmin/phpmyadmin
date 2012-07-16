@@ -963,7 +963,7 @@ class PMA_NavigationTree
                 $_url_params,
                 'navigation.php',
                 'frame_navigation',
-                $GLOBALS['cfg']['MaxTableList'],
+                $GLOBALS['cfg']['MaxNavigationItems'],
                 'pos' . $level . '_value'
             );
         }

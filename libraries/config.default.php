@@ -566,11 +566,18 @@ $cfg['AjaxEnable'] = true;
 $cfg['VersionCheck'] = VERSION_CHECK_DEFAULT;
 
 /**
- * maximum number of db's displayed in left frame and database list
+ * maximum number of db's displayed in database list
  *
  * @global integer $cfg['MaxDbList']
  */
 $cfg['MaxDbList'] = 100;
+
+/**
+ * maximum number of items displayed in navigation panel
+ *
+ * @global integer $cfg['MaxDbList']
+ */
+$cfg['MaxNavigationItems'] = 25;
 
 /**
  * maximum number of tables displayed in table list
