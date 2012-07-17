@@ -90,7 +90,7 @@ $forms['Left_frame']['Left_databases'] = array(
     'NavigationTreeDbSeparator');
 $forms['Left_frame']['Left_tables'] = array(
     'LeftDisplayTableFilterMinimum',
-    'LeftDefaultTabTable',
+    'NavigationTreeDefaultTabTable',
     'NavigationTreeTableSeparator',
     'NavigationTreeTableLevel',
     'ShowTooltip');

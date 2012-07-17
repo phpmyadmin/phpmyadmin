@@ -1074,7 +1074,7 @@ ALTER TABLE `pma_column_comments`
         <a href="#cfg_LeftRecentTable" class="configrule">$cfg['LeftRecentTable']</a>
         you can configure the maximum number of recent tables shown. When you select a table
         from the list, it will jump to the page specified in
-        <a href="#cfg_LeftDefaultTabTable" class="configrule">$cfg['LeftDefaultTabTable']</a>.<br/><br/>
+        <a href="#cfg_NavigationTreeDefaultTabTable" class="configrule">$cfg['NavigationTreeDefaultTabTable']</a>.<br/><br/>
 
         Without configuring the storage, you can still access the recently used tables,
         but it will disappear after you logout.<br/><br/>
@@ -1584,7 +1584,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dd>Defines whether to display this server choice as links instead of in a drop-down.
         Defaults to FALSE (drop-down).</dd>
 
-    <dt id="cfg_LeftDefaultTabTable">$cfg['LeftDefaultTabTable'] string</dt>
+    <dt id="cfg_NavigationTreeDefaultTabTable">$cfg['NavigationTreeDefaultTabTable'] string</dt>
     <dd>Defines the tab displayed by default when clicking the small
         icon next to each table name in the navigation panel. Possible
         values: &quot;tbl_structure.php&quot;,

@@ -3274,7 +3274,7 @@ class PMA_Util
      * Get the action word corresponding to a script name
      * in order to display it as a title in navigation panel
      *
-     * @param string $target a valid value for $cfg['LeftDefaultTabTable'],
+     * @param string $target a valid value for $cfg['NavigationTreeDefaultTabTable'],
      *                       $cfg['DefaultTabTable'] or $cfg['DefaultTabDatabase']
      *
      * @return array

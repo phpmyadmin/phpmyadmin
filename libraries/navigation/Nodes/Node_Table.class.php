@@ -30,7 +30,7 @@ class Node_Table extends Node
             'text' => 'sql.php?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;table=%1$s'
                     . '&amp;pos=0&amp;token=' . $GLOBALS['token'],
-            'icon' => $GLOBALS['cfg']['LeftDefaultTabTable']
+            'icon' => $GLOBALS['cfg']['NavigationTreeDefaultTabTable']
                     . '?server=' . $GLOBALS['server']
                     . '&amp;db=%2$s&amp;table=%1$s&amp;token=' . $GLOBALS['token']
         );

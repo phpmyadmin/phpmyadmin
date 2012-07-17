@@ -274,7 +274,7 @@ class PMA_NavigationHeader
             $retval .= '<!-- RECENT START -->';
             $retval .= '<div id="recentTableList">';
             $retval .= '<form method="post" ';
-            $retval .= 'action="' . $GLOBALS['cfg']['LeftDefaultTabTable'] . '">';
+            $retval .= 'action="' . $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] . '">';
             $retval .= PMA_generate_common_hidden_inputs(
                 array(
                     'db' => '',

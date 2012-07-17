@@ -896,9 +896,9 @@ $cfg['LeftDisplayDatabaseFilterMinimum'] = 30;
  * 'tbl_change.php' = insert row page
  * 'sql.php' = browse page
  *
- * @global string $cfg['LeftDefaultTabTable']
+ * @global string $cfg['NavigationTreeDefaultTabTable']
  */
-$cfg['LeftDefaultTabTable'] = 'tbl_structure.php';
+$cfg['NavigationTreeDefaultTabTable'] = 'tbl_structure.php';
 
 
 /*******************************************************************************
