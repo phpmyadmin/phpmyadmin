@@ -168,14 +168,14 @@ $forms['Left_frame']['Left_frame'] = array(
     'NavigationTreePointerEnable',
     'LeftRecentTable',
     'MaxNavigationItems',
-    'NavigationTreeEnableGrouping');
+    'NavigationTreeEnableGrouping',
+    'NavigationTreeDisplayItemFilterMinimum');
 $forms['Left_frame']['Left_servers'] = array(
     'LeftDisplayServers',
     'DisplayServersList');
 $forms['Left_frame']['Left_databases'] = array(
     'NavigationTreeDbSeparator');
 $forms['Left_frame']['Left_tables'] = array(
-    'LeftDisplayTableFilterMinimum',
     'NavigationTreeDefaultTabTable',
     'NavigationTreeTableSeparator',
     'NavigationTreeTableLevel',

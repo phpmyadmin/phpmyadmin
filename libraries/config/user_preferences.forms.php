@@ -84,12 +84,12 @@ $forms['Left_frame']['Left_frame'] = array(
     'NavigationTreePointerEnable',
     'LeftRecentTable',
     'MaxNavigationItems',
-    'NavigationTreeEnableGrouping');
+    'NavigationTreeEnableGrouping',
+    'NavigationTreeDisplayItemFilterMinimum');
 $forms['Left_frame']['Left_databases'] = array(
     'LeftDisplayDatabaseFilterMinimum',
     'NavigationTreeDbSeparator');
 $forms['Left_frame']['Left_tables'] = array(
-    'LeftDisplayTableFilterMinimum',
     'NavigationTreeDefaultTabTable',
     'NavigationTreeTableSeparator',
     'NavigationTreeTableLevel',

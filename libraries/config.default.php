@@ -860,9 +860,9 @@ $cfg['LeftRecentTable'] = 10;
  * display a JavaScript table filter in the left frame
  * when more then x tables are present
  *
- * @global boolean $cfg['LeftDisplayTableFilterMinimum']
+ * @global boolean $cfg['NavigationTreeDisplayItemFilterMinimum']
  */
-$cfg['LeftDisplayTableFilterMinimum'] = 30;
+$cfg['NavigationTreeDisplayItemFilterMinimum'] = 30;
 
 /**
  * display server choice at top of left frame
