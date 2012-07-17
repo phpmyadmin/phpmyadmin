@@ -413,7 +413,6 @@ function PMA_pluginGetOptions($section, &$list)
         $plugin_name = strtolower(substr(get_class($plugin), strlen($section)));
         $ret .= '<div id="' . $plugin_name
             . '_options" class="format_specific_options">';
-        $count = 0;
         $ret .= '<h3>' . PMA_getString($plugin->getProperties()->getText())
             . '</h3>';
 
@@ -423,8 +422,15 @@ function PMA_pluginGetOptions($section, &$list)
             foreach ($plugin->getProperties()->getOptions()->getProperties()
                 as $propertyMainGroup
             ) {
-                // todo: check for hidden properties
-                $count++;
+                // check for hidden properties
+                $no_options = true;
+                foreach ($propertyMainGroup->getProperties() as $propertyItem) {
+                    if (strcmp("HiddenPropertyItem", get_class($propertyItem))) {
+                        $no_options = false;
+                        break;
+                    }
+                }
+
                 $ret .= PMA_pluginGetOneOption(
                     $section,
                     $plugin_name,
@@ -433,7 +439,7 @@ function PMA_pluginGetOptions($section, &$list)
             }
         }
 
-        if ($count == 0) {
+        if ($no_options) {
             $ret .= '<p>' . __('This format has no options') . '</p>';
         }
         $ret .= '</div>';
