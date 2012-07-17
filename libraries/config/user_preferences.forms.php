@@ -87,7 +87,7 @@ $forms['Left_frame']['Left_frame'] = array(
     'NavigationTreeEnableGrouping',
     'NavigationTreeDisplayItemFilterMinimum');
 $forms['Left_frame']['Left_databases'] = array(
-    'LeftDisplayDatabaseFilterMinimum',
+    'NavigationTreeDisplayDbFilterMinimum',
     'NavigationTreeDbSeparator');
 $forms['Left_frame']['Left_tables'] = array(
     'NavigationTreeDefaultTabTable',
