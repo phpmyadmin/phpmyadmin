@@ -504,7 +504,7 @@ function PMA_getHtmlForDisplayResourceLimits($row)
     $html_output .= '<div class="item">' . "\n"
        . '<label for="text_max_updates">'
        . '<code><dfn title="'
-       . __('Limits the number of commands that change any table or database the user may execute per hour.') . . '">'
+       . __('Limits the number of commands that change any table or database the user may execute per hour.') . '">'
        . 'MAX UPDATES PER HOUR'
        . '</dfn></code></label>' . "\n"
        . '<input type="text" name="max_updates" id="text_max_updates" '
