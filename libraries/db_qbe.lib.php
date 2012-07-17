@@ -854,17 +854,16 @@ function PMA_dbQbeGetMasterTable($db, $all_tables, $all_columns,
 /**
  * Provides columns and tables that have valid where clause criteria
  *
- * @param string $criteriaColumn Selected table.columns
  * @param string $criteria       Already Filled criteria
  *
  * @return array
  */
-function getWhereClauseTablesAndColumns($criteriaColumn, $criteria) {
+function getWhereClauseTablesAndColumns($criteria) {
     $where_clause_columns = array();
     $where_clause_tables = array();
     // Now we need all tables that we have in the where clause
     for ($column_index = 0; $column_index < count($criteria); $column_index++) {
-        $current_table = explode('.', $criteriaColumn[$column_index]);
+        $current_table = explode('.', $_POST['criteriaColumn'][$column_index]);
         if (empty($current_table[0]) || empty($current_table[1])) {
             continue;
         } // end if
@@ -891,21 +890,20 @@ function getWhereClauseTablesAndColumns($criteriaColumn, $criteria) {
 /**
  * Provides FROM clause for building SQL query
  *
- * @param string $criteriaColumn Selected table.columns
  * @param string $criteria       Already Filled criteria
  *
  * @return FROM clause
  */
-function PMA_dbQbeGetFromClause($criteriaColumn, $criteria, $cfgRelation)
+function PMA_dbQbeGetFromClause($criteria, $cfgRelation)
 {
     $from_clause = '';
-    if (isset($criteriaColumn) && count($criteriaColumn) > 0) {
+    if (isset($_POST['criteriaColumn']) && count($_POST['criteriaColumn']) > 0) {
         // Initialize some variables
         $all_tables = $all_columns = $known_tables = $remaining_tables = array();
         $left_join = '';
 
         // We only start this if we have fields, otherwise it would be dumb
-        foreach ($criteriaColumn as $value) {
+        foreach ($_POST['criteriaColumn'] as $value) {
             $parts = explode('.', $value);
             if (! empty($parts[0]) && ! empty($parts[1])) {
                 $table = str_replace('`', '', $parts[0]);
@@ -917,9 +915,7 @@ function PMA_dbQbeGetFromClause($criteriaColumn, $criteria, $cfgRelation)
         // Create LEFT JOINS out of Relations
         if ($cfgRelation['relwork'] && count($all_tables) > 0) {
             // Get tables and columns with valid where clauses
-            $valid_where_clauses = getWhereClauseTablesAndColumns(
-                $criteriaColumn, $criteria
-            );
+            $valid_where_clauses = getWhereClauseTablesAndColumns($criteria);
             $where_clause_tables = $valid_where_clauses['where_clause_tables'];
             $where_clause_columns = $valid_where_clauses['where_clause_columns'];
             // Get master table
@@ -949,7 +945,7 @@ function PMA_dbQbeGetFromClause($criteriaColumn, $criteria, $cfgRelation)
             $from_clause = PMA_CommonFunctions::getInstance()->backquote($master)
                 . $emerg . $left_join;
         } // end if ($cfgRelation['relwork'] && count($all_tables) > 0)
-    } // end count($criteriaColumn) > 0
+    } // end count($_POST['criteriaColumn']) > 0
 
     // In case relations are not defined, just generate the FROM clause
     // from the list of tables, however we don't generate any JOIN

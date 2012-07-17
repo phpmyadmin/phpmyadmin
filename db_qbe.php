@@ -11,19 +11,6 @@
  */
 require_once 'libraries/common.inc.php';
 require_once 'libraries/db_qbe.lib.php';
-/**
- * Sets globals from $_POST
- */
-$post_params = array(
-    'criteriaColumn',
-    'criteriaShow',
-    'criteriaSort'
-);
-foreach ($post_params as $one_post_param) {
-    if (isset($_POST[$one_post_param])) {
-        $GLOBALS[$one_post_param] = $_POST[$one_post_param];
-    }
-}
 
 /**
  * Sets globals from $_POST patterns, for Or* variables 
@@ -242,7 +229,7 @@ echo PMA_dbQbeGetTablesList($tbl_names);
 // 1. SELECT
 echo PMA_dbQbeGetSelectClause($criteria_column_count);
 // 2. FROM
-$from_clause = PMA_dbQbeGetFromClause($criteriaColumn, $criteria, $cfgRelation);
+$from_clause = PMA_dbQbeGetFromClause($criteria, $cfgRelation);
 if (! empty($from_clause)) {
     echo 'FROM ' . htmlspecialchars($from_clause) . "\n";
 }
