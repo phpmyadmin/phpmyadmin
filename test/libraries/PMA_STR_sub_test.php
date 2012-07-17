@@ -12,6 +12,10 @@ class PMA_STR_sub_test extends PHPUnit_Framework_TestCase
 {
     public function testMultiByte()
     {
+        /* The PDF testing seems to set mb encoding to ASCII */
+        if (function_exists('mb_internal_encoding')) {
+            mb_internal_encoding('utf-8');
+        }
         $this->assertEquals(
             'čšě',
             PMA_substr('čšěčščěš', 0, 3)
