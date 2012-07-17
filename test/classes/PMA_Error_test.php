@@ -49,7 +49,7 @@ class PMA_Error_test extends PHPUnit_Framework_TestCase
      */
     public function testSetBacktrace(){
         $this->object->setBacktrace(array('bt1','bt2'));
-        $this->assertEquals($this->object->getBacktrace(),array('bt1','bt2'));
+        $this->assertEquals(array('bt1','bt2'), $this->object->getBacktrace());
     }
 
     /**
@@ -57,7 +57,7 @@ class PMA_Error_test extends PHPUnit_Framework_TestCase
      */
     public function testSetLine(){
         $this->object->setLine(15);
-        $this->assertEquals($this->object->getLine(),15);
+        $this->assertEquals(15, $this->object->getLine());
     }
 
     /**
@@ -65,7 +65,7 @@ class PMA_Error_test extends PHPUnit_Framework_TestCase
      */
     public function testSetFile(){
         $this->object->setFile('/var/www/pma.txt');
-        $this->assertEquals($this->object->getFile(),'./../../..');
+        $this->assertEquals('./../../..', $this->object->getFile());
     }
 
     /**
@@ -93,13 +93,13 @@ class PMA_Error_test extends PHPUnit_Framework_TestCase
      * Test for getHtmlTitle
      */
     public function testGetHtmlTitle(){
-        $this->assertEquals($this->object->getHtmlTitle(),'Warning: Compile Error');
+        $this->assertEquals('Warning: Compile Error', $this->object->getHtmlTitle());
     }
 
     /**
      * Test for getTitle
      */
     public function testGetTitle(){
-        $this->assertEquals($this->object->getTitle(),'Warning: Compile Error');
+        $this->assertEquals('Warning: Compile Error', $this->object->getTitle());
     }
 }
