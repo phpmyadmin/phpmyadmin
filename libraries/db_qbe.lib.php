@@ -941,12 +941,13 @@ function PMA_dbQbeGetFromClause($criteriaColumn, $criteria, $cfgRelation)
                 $run++;
                 if ($run > 5) {
                     foreach ($left_tables as $table) {
-                        $emerg .= ', ' . $common_functions->backquote($table);
+                        $emerg .= ', ' . PMA_CommonFunctions::getInstance()->backquote($table);
                         unset($left_tables[$table]);
                     }
                 }
             } // end while
-            $from_clause = $common_functions->backquote($master) . $emerg . $left_join;
+            $from_clause = PMA_CommonFunctions::getInstance()->backquote($master)
+                . $emerg . $left_join;
         } // end if ($cfgRelation['relwork'] && count($all_tables) > 0)
     } // end count($criteriaColumn) > 0
 
