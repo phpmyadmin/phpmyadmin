@@ -14,12 +14,14 @@
  */
 require_once 'libraries/common.inc.php';
 
+$common_functions = PMA_CommonFunctions::getInstance();
+
 if (isset($_REQUEST['field'])) {
     $GLOBALS['field'] = $_REQUEST['field'];
 }
 
 // Check parameters
-PMA_checkParameters(array('db', 'table'));
+$common_functions->checkParameters(array('db', 'table'));
 
 /**
  * Gets tables informations
@@ -58,7 +60,7 @@ if (isset($_REQUEST['move_columns'])
 
         // it is not, let's move it to index $i
         $data = $columns[$column];
-        $extracted_columnspec = PMA_extractColumnSpec($data['Type']);
+        $extracted_columnspec = $common_functions->extractColumnSpec($data['Type']);
         if (isset($data['Extra']) && $data['Extra'] == 'on update CURRENT_TIMESTAMP') {
             $extracted_columnspec['attribute'] = $data['Extra'];
             unset($data['Extra']);
@@ -118,7 +120,7 @@ if (isset($_REQUEST['move_columns'])
         $response->isSuccess(false);
         exit;
     }
-    $move_query = 'ALTER TABLE ' . PMA_backquote($table) . ' ';
+    $move_query = 'ALTER TABLE ' . $common_functions->backquote($table) . ' ';
     $move_query .= implode(', ', $changes);
     // move columns
     $result = PMA_DBI_try_query($move_query);
@@ -187,7 +189,7 @@ if (isset($_REQUEST['do_save_data'])) {
         $fields = array();
         foreach ($key_fields as $each_field) {
             if (isset($_REQUEST['field_name'][$each_field]) && strlen($_REQUEST['field_name'][$each_field])) {
-                $fields[] = PMA_backquote($_REQUEST['field_name'][$each_field]);
+                $fields[] = PMA_CommonFunctions::getInstance()->backquote($_REQUEST['field_name'][$each_field]);
             }
         } // end for
         $key_query = ', ADD KEY (' . implode(', ', $fields) . ') ';
@@ -197,14 +199,14 @@ if (isset($_REQUEST['do_save_data'])) {
     // To allow replication, we first select the db to use and then run queries
     // on this db.
     if (! PMA_DBI_select_db($db)) {
-        PMA_mysqlDie(
+        $common_functions->mysqlDie(
             PMA_DBI_getError(),
-            'USE ' . PMA_backquote($db) . ';',
+            'USE ' . $common_functions->backquote($db) . ';',
             '',
             $err_url
         );
     }
-    $sql_query = 'ALTER TABLE ' . PMA_backquote($table) . ' ';
+    $sql_query = 'ALTER TABLE ' . $common_functions->backquote($table) . ' ';
     $sql_query .= implode(', ', $changes) . $key_query;
     $sql_query .= ';';
     $result    = PMA_DBI_try_query($sql_query);
@@ -221,7 +223,7 @@ if (isset($_REQUEST['do_save_data'])) {
          */
         include_once 'libraries/transformations.lib.php';
 
-        // updaet field names in relation
+        // update field names in relation
         if (isset($_REQUEST['field_orig']) && is_array($_REQUEST['field_orig'])) {
             foreach ($_REQUEST['field_orig'] as $fieldindex => $fieldcontent) {
                 if ($_REQUEST['field_name'][$fieldindex] != $fieldcontent) {
@@ -256,14 +258,17 @@ if (isset($_REQUEST['do_save_data'])) {
             $response = PMA_Response::getInstance();
             $response->isSuccess($message->isSuccess());
             $response->addJSON('message', $message);
-            $response->addJSON('sql_query', PMA_getMessage(null, $sql_query));
+            $response->addJSON(
+                'sql_query',
+                $common_functions->getMessage(null, $sql_query)
+            );
             exit;
         }
 
         $active_page = 'tbl_structure.php';
         include 'tbl_structure.php';
     } else {
-        PMA_mysqlDie('', '', '', $err_url, false);
+        $common_functions->mysqlDie('', '', '', $err_url, false);
         // An error happened while inserting/updating a table definition.
         // to prevent total loss of that data, we embed the form once again.
         // The variable $regenerate will be used to restore data in libraries/tbl_properties.inc.php
@@ -282,7 +287,7 @@ if (isset($_REQUEST['do_save_data'])) {
  */
 if ($abort == false) {
     if (! isset($selected)) {
-        PMA_checkParameters(array('field'));
+        $common_functions->checkParameters(array('field'));
         $selected[]   = $_REQUEST['field'];
         $selected_cnt = 1;
     } else { // from a multiple submit
@@ -313,7 +318,7 @@ if ($abort == false) {
     // in MySQL 4.0.25).
 
     $show_create_table = PMA_DBI_fetch_value(
-        'SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table),
+        'SHOW CREATE TABLE ' . $common_functions->backquote($db) . '.' . $common_functions->backquote($table),
         0, 1
     );
     $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));

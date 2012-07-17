@@ -24,62 +24,44 @@ if (version_compare(PHP_VERSION, '5.4.0', '>=')
     && ini_get('session.upload_progress.enabled')
 ) {
 
-    if (!isset($_POST['session_upload_progress'])) {
-        $sessionupload = array();
-        $prefix = ini_get('session.upload_progress.prefix');
+    $sessionupload = array();
+    define('UPLOAD_PREFIX', ini_get('session.upload_progress.prefix'));
 
-        session_start();
-        foreach ($_SESSION as $key => $value) {
-            // only copy session-prefixed data
-            if (substr($key, 0, strlen($prefix)) == $prefix) {
-                $sessionupload[$key] = $value;
-            }
+    session_start();
+    foreach ($_SESSION as $key => $value) {
+        // only copy session-prefixed data
+        if (substr($key, 0, strlen(UPLOAD_PREFIX)) == UPLOAD_PREFIX) {
+            $sessionupload[$key] = $value;
         }
-
-        // perform internal self-request
-        $url = 'http' .
-            ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 's' : '') .
-            '://' . $_SERVER['HTTP_HOST'] .
-            $_SERVER['REQUEST_URI'];
-
-        if (!function_exists('curl_exec') || !function_exists('getallheaders')) {
-            die();
-        }
-        $headers = @getallheaders();
-        if (!isset($headers['Cookie'])) {
-            die();
-        }
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt(
-            $ch, CURLOPT_POSTFIELDS,
-            'session_upload_progress=' . rawurlencode(serialize($sessionupload))
-        );
-        curl_setopt($ch, CURLOPT_COOKIE, $headers['Cookie']);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 3);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 3);
-
-        // to avoid problems with self-signed certs
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-
-        // show the result of the internal request
-        echo @curl_exec($ch);
-        die();
     }
+    // PMA will kill all variables, so let's use a constant
+    define('SESSIONUPLOAD', serialize($sessionupload));
+    session_write_close();
+
+    session_name('phpMyAdmin');
+    session_id($_COOKIE['phpMyAdmin']);
 }
+
+define('PMA_MINIMUM_COMMON', 1);
 
 require_once 'libraries/common.inc.php';
 require_once 'libraries/display_import_ajax.lib.php';
 
-if (isset($_POST['session_upload_progress'])) {
-    // this is the internal request response
-    // restore sessionupload from the POSTed data (see above),
-    // then write sessionupload back into the loaded session
+if (defined('SESSIONUPLOAD')) {
+    // write sessionupload back into the loaded PMA session
 
-    $sessionupload = unserialize($_POST['session_upload_progress']);
+    $sessionupload = unserialize(SESSIONUPLOAD);
     foreach ($sessionupload as $key => $value) {
         $_SESSION[$key] = $value;
+    }
+
+    // remove session upload data that are not set anymore
+    foreach ($_SESSION as $key => $value) {
+        if (substr($key, 0, strlen(UPLOAD_PREFIX)) == UPLOAD_PREFIX
+            && ! isset($sessionupload[$key])
+        ) {
+            unset($_SESSION[$key]);
+        }
     }
 }
 

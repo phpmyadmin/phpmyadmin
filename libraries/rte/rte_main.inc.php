@@ -63,7 +63,7 @@ if ($GLOBALS['cfg']['AjaxEnable']) {
 /**
  * Create labels for the list
  */
-$titles = PMA_buildActionTitles();
+$titles = PMA_CommonFunctions::getInstance()->buildActionTitles();
 
 /**
  * Keep a list of errors that occured while

@@ -76,10 +76,11 @@ function PMA_buildHtmlForDb(
     $column_order, $replication_types, $replication_info
 ) {
 
+    $common_functions = PMA_CommonFunctions::getInstance();
     $out = '';
     if ($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase']) {
         $out .= '<td class="tool">';
-        $out .= '<input type="checkbox" name="selected_dbs[]" '
+        $out .= '<input type="checkbox" name="selected_dbs[]" class="checkall" '
             . 'title="' . htmlspecialchars($current['SCHEMA_NAME']) . '" '
             . 'value="' . htmlspecialchars($current['SCHEMA_NAME']) . '" ';
 
@@ -111,9 +112,13 @@ function PMA_buildHtmlForDb(
                 $column_order[$stat_name]['footer'] += $current[$stat_name];
             }
             if ($stat['format'] === 'byte') {
-                list($value, $unit) = PMA_formatByteDown($current[$stat_name], 3, 1);
+                list($value, $unit) = $common_functions->formatByteDown(
+                    $current[$stat_name], 3, 1
+                );
             } elseif ($stat['format'] === 'number') {
-                $value = PMA_formatNumber($current[$stat_name], 0);
+                $value = $common_functions->formatNumber(
+                    $current[$stat_name], 0
+                );
             } else {
                 $value = htmlentities($current[$stat_name], 0);
             }
@@ -141,7 +146,7 @@ function PMA_buildHtmlForDb(
                 $replication_info[$type]['Ignore_DB']
             );
             if (strlen($key) > 0) {
-                $out .= PMA_getIcon('s_cancel.png',  __('Not replicated'));
+                $out .= $common_functions->getIcon('s_cancel.png',  __('Not replicated'));
             } else {
                 $key = array_search(
                     $current["SCHEMA_NAME"], $replication_info[$type]['Do_DB']
@@ -152,7 +157,7 @@ function PMA_buildHtmlForDb(
                     && count($replication_info[$type]['Do_DB']) == 1)
                 ) {
                     // if ($key != null) did not work for index "0"
-                    $out .= PMA_getIcon('s_success.png', __('Replicated'));
+                    $out .= $common_functions->getIcon('s_success.png', __('Replicated'));
                 }
             }
 
@@ -174,7 +179,7 @@ function PMA_buildHtmlForDb(
                )
                . '">'
                . ' '
-               . PMA_getIcon('s_rights.png', __('Check Privileges'))
+               . $common_functions->getIcon('s_rights.png', __('Check Privileges'))
                . '</a></td>';
     }
     return array($column_order, $out);

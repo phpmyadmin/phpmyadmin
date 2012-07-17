@@ -168,7 +168,9 @@ class PMA_Header
             . urlencode($_SESSION['PMA_Theme']->getId())
         );
         $this->_scripts->addFile('functions.js');
-        $this->_scripts->addCode(PMA_getReloadNavigationScript(true));
+        $this->_scripts->addCode(
+            PMA_CommonFunctions::getInstance()->getReloadNavigationScript(true)
+        );
     }
 
     /**
@@ -297,7 +299,8 @@ class PMA_Header
                 if (file_exists(CUSTOM_HEADER_FILE)) {
                     ob_start();
                     include CUSTOM_HEADER_FILE;
-                    $retval .= ob_end_clean();
+                    $retval .= ob_get_contents();
+                    ob_end_clean();
                 }
                 // offer to load user preferences from localStorage
                 if ($this->_userprefsOfferImport) {
@@ -334,7 +337,7 @@ class PMA_Header
          */
         $GLOBALS['now'] = gmdate('D, d M Y H:i:s') . ' GMT';
         /* Prevent against ClickJacking by allowing frames only from same origin */
-        if (! $GLOBALS['cfg']['AllowThirdPartyFraming']) {
+        if (! $GLOBALS['cfg']['AllowThirdPartyFraming'] && ! defined('TESTSUITE')) {
             header(
                 'X-Frame-Options: SAMEORIGIN'
             );
@@ -350,7 +353,7 @@ class PMA_Header
             );
         }
         PMA_noCacheHeader();
-        if (! defined('IS_TRANSFORMATION_WRAPPER')) {
+        if (! defined('IS_TRANSFORMATION_WRAPPER') && ! defined('TESTSUITE')) {
             // Define the charset to be used
             header('Content-Type: text/html; charset=utf-8');
         }
@@ -450,7 +453,7 @@ class PMA_Header
                     $temp_title = $GLOBALS['cfg']['TitleDefault'];
                 }
                 $this->_title = htmlspecialchars(
-                    PMA_expandUserString($temp_title)
+                    PMA_CommonFunctions::getInstance()->expandUserString($temp_title)
                 );
             } else {
                 $this->_title = 'phpMyAdmin';
@@ -494,7 +497,7 @@ class PMA_Header
             }
             $retval .= "<noscript>";
             $retval .= PMA_message::error(
-                    __("Javascript must be enabled past this point")
+                __("Javascript must be enabled past this point")
             )->getDisplay();
             $retval .= "</noscript>";
         }

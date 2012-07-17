@@ -23,7 +23,7 @@ $tabs_icons = array(
     'Import'      => 'b_import.png',
     'Export'      => 'b_export.png');
 echo '<ul id="topmenu2">';
-echo PMA_generateHtmlTab(
+echo PMA_CommonFunctions::getInstance()->getHtmlTab(
     array(
         'link' => 'prefs_manage.php',
         'text' => __('Manage your settings')
@@ -37,7 +37,7 @@ foreach (array_keys($forms) as $formset) {
         'text' => PMA_lang('Form_' . $formset),
         'icon' => $tabs_icons[$formset],
         'active' => ($script_name == 'prefs_forms.php' && $formset == $form_param));
-    echo PMA_generateHtmlTab($tab, array('form' => $formset)) . "\n";
+    echo PMA_CommonFunctions::getInstance()->getHtmlTab($tab, array('form' => $formset)) . "\n";
 }
 echo '</ul><div class="clearfloat"></div>';
 

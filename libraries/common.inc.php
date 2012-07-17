@@ -133,7 +133,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
     /**
      * common functions
      */
-    include_once './libraries/common.lib.php';
+    include_once './libraries/CommonFunctions.class.php';
 
     /**
      * JavaScript escaping.
@@ -839,21 +839,28 @@ if (! defined('PMA_MINIMUM_COMMON')) {
 
         // to allow HTTP or http
         $cfg['Server']['auth_type'] = strtolower($cfg['Server']['auth_type']);
-        if (! file_exists('./libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php')) {
-            PMA_fatalError(
-                __('Invalid authentication method set in configuration:') . ' ' . $cfg['Server']['auth_type']
-            );
-        }
+
         /**
          * the required auth type plugin
          */
-        include_once './libraries/auth/' . $cfg['Server']['auth_type'] . '.auth.lib.php';
-        if (! PMA_auth_check()) {
+        $auth_class = "Authentication" . ucfirst($cfg['Server']['auth_type']);
+        if (! file_exists('./libraries/plugins/auth/' . $auth_class . '.class.php')) {
+            PMA_fatalError(
+                __('Invalid authentication method set in configuration:')
+                . ' ' . $cfg['Server']['auth_type']
+            );
+        }
+        include_once  './libraries/plugins/auth/' . $auth_class . '.class.php';
+        // todo: add plugin manager
+        $plugin_manager = null;
+        $auth_plugin = new $auth_class($plugin_manager);
+
+        if (! $auth_plugin->authCheck()) {
             /* Force generating of new session on login */
             PMA_secureSession();
-            PMA_auth();
+            $auth_plugin->auth();
         } else {
-            PMA_auth_set_user();
+            $auth_plugin->authSetUser();
         }
 
          // Check IP-based Allow/Deny rules as soon as possible to reject the
@@ -897,7 +904,7 @@ if (! defined('PMA_MINIMUM_COMMON')) {
             // Ejects the user if banished
             if ($allowDeny_forbidden) {
                 PMA_log_user($cfg['Server']['user'], 'allow-denied');
-                PMA_auth_fails();
+                $auth_plugin->authFails();
             }
         } // end if
 
@@ -905,14 +912,14 @@ if (! defined('PMA_MINIMUM_COMMON')) {
         if (!$cfg['Server']['AllowRoot'] && $cfg['Server']['user'] == 'root') {
             $allowDeny_forbidden = true;
             PMA_log_user($cfg['Server']['user'], 'root-denied');
-            PMA_auth_fails();
+            $auth_plugin->authFails();
         }
 
         // is a login without password allowed?
         if (!$cfg['Server']['AllowNoPassword'] && $cfg['Server']['password'] == '') {
             $login_without_password_is_forbidden = true;
             PMA_log_user($cfg['Server']['user'], 'empty-denied');
-            PMA_auth_fails();
+            $auth_plugin->authFails();
         }
 
         // if using TCP socket is not needed
@@ -1017,7 +1024,9 @@ if (! defined('PMA_MINIMUM_COMMON')) {
      * check if profiling was requested and remember it
      * (note: when $cfg['ServerDefault'] = 0, constant is not defined)
      */
-    if (isset($_REQUEST['profiling']) && PMA_profilingSupported()) {
+    if (isset($_REQUEST['profiling'])
+        && PMA_CommonFunctions::getInstance()->profilingSupported()
+    ) {
         $_SESSION['profiling'] = true;
     } elseif (isset($_REQUEST['profiling_form'])) {
         // the checkbox was unchecked

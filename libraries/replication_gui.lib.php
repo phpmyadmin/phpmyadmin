@@ -143,7 +143,17 @@ function PMA_replication_print_status_table($type, $hidden = false, $title = tru
         } else {
             echo '<span>';
         }
-        echo ${"server_{$type}_replication"}[0][$variable];
+        // allow wrapping long table lists into multiple lines
+        static $variables_wrap = array(
+            'Replicate_Do_DB', 'Replicate_Ignore_DB',
+            'Replicate_Do_Table', 'Replicate_Ignore_Table',
+            'Replicate_Wild_Do_Table', 'Replicate_Wild_Ignore_Table');
+        if (in_array($variable, $variables_wrap)) {
+            echo str_replace(',', ', ', ${"server_{$type}_replication"}[0][$variable]);
+        }
+        else {
+            echo ${"server_{$type}_replication"}[0][$variable];
+        }
         echo '</span>';
 
         echo '  </td>';
@@ -334,7 +344,9 @@ function PMA_replication_gui_master_addslaveuser()
         . (isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '')
         . '" title="' . __('Host')
         . '" onchange="pred_hostname.value = \'userdefined\';" />'
-        . PMA_showHint(__('When Host table is used, this field is ignored and values stored in Host table are used instead.'))
+        . PMA_CommonFunctions::getInstance()->showHint(
+            __('When Host table is used, this field is ignored and values stored in Host table are used instead.')
+        )
         . '</div>'
         . '<div class="item">'
         . '<label for="select_pred_password">'

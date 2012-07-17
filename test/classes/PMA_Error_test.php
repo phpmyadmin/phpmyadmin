@@ -1,0 +1,105 @@
+<?php
+/**
+ * Tests for Error.class.php
+ *
+ * @package PhpMyAdmin-test
+ */
+
+/*
+ * Include to test.
+ */
+
+require_once 'libraries/Error.class.php';
+require_once 'libraries/Message.class.php';
+require_once 'libraries/sanitizing.lib.php';
+
+class PMA_Error_test extends PHPUnit_Framework_TestCase
+{
+    /**
+     * @access protected
+     */
+    protected $object;
+
+    /**
+     * Sets up the fixture, for example, opens a network connection.
+     * This method is called before a test is executed.
+     *
+     * @access protected
+     * @return void
+     */
+    protected function setUp()
+    {
+        $this->object = $this->getMockForAbstractClass('PMA_Error', array('2', 'Compile Error', 'error.txt', 15));
+    }
+
+    /**
+     * Tears down the fixture, for example, closes a network connection.
+     * This method is called after a test is executed.
+     *
+     * @access protected
+     * @return void
+     */
+    protected function tearDown()
+    {
+        unset($this->object);
+    }
+
+    /**
+     * Test for setBacktrace
+     */
+    public function testSetBacktrace(){
+        $this->object->setBacktrace(array('bt1','bt2'));
+        $this->assertEquals($this->object->getBacktrace(),array('bt1','bt2'));
+    }
+
+    /**
+     * Test for setLine
+     */
+    public function testSetLine(){
+        $this->object->setLine(15);
+        $this->assertEquals($this->object->getLine(),15);
+    }
+
+    /**
+     * Test for setFile
+     */
+    public function testSetFile(){
+        $this->object->setFile('/var/www/pma.txt');
+        $this->assertEquals($this->object->getFile(),'./../../..');
+    }
+
+    /**
+     * Test for getHash
+     */
+    public function testGetHash(){
+        $this->assertEquals(1, preg_match('/^([a-z0-9]*)$/', $this->object->getHash()));
+    }
+
+    /**
+     * Test for getBacktraceDisplay
+     */
+    public function testGetBacktraceDisplay(){
+        $this->assertTrue((strpos($this->object->getBacktraceDisplay(),'/usr/share/php/PHPUnit/Framework/TestCase.php#751: PHPUnit_Framework_TestResult->run(object)<br />') !== false));
+    }
+
+    /**
+     * Test for getDisplay
+     */
+    public function testGetDisplay(){
+        $this->assertTrue((strpos($this->object->getDisplay(),'<div class="error"><strong>Warning</strong>') !== false));
+    }
+
+    /**
+     * Test for getHtmlTitle
+     */
+    public function testGetHtmlTitle(){
+        $this->assertEquals($this->object->getHtmlTitle(),'Warning: Compile Error');
+    }
+
+    /**
+     * Test for getTitle
+     */
+    public function testGetTitle(){
+        $this->assertEquals($this->object->getTitle(),'Warning: Compile Error');
+    }
+}

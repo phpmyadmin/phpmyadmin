@@ -9,6 +9,8 @@
 
 require_once 'libraries/common.inc.php';
 
+$common_functions = PMA_CommonFunctions::getInstance();
+
 /**
  * Ajax request
  */
@@ -241,7 +243,10 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                     //Cut off big inserts and updates, but append byte count instead
                     if (strlen($row['sql_text']) > 220) {
                         $implode_sql_text = implode(
-                            ' ', PMA_formatByteDown(strlen($row['sql_text']), 2, 2)
+                            ' ',
+                            $common_functions->formatByteDown(
+                                strlen($row['sql_text']), 2, 2
+                            )
                         );
                         $row['sql_text'] = substr($row['sql_text'], 0, 200)
                             . '... [' . $implode_sql_text . ']';
@@ -325,7 +330,14 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                     if (strlen($row['argument']) > 220) {
                         $row['argument'] = substr($row['argument'], 0, 200)
                             . '... ['
-                            .  implode(' ', PMA_formatByteDown(strlen($row['argument'])), 2, 2)
+                            .  implode(
+                                ' ',
+                                $common_functions->formatByteDown(
+                                    strlen($row['argument'])
+                                ),
+                                2,
+                                2
+                            )
                             . ']';
                     }
                     break;
@@ -349,7 +361,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
     if (isset($_REQUEST['logging_vars'])) {
         if (isset($_REQUEST['varName']) && isset($_REQUEST['varValue'])) {
-            $value = PMA_sqlAddslashes($_REQUEST['varValue']);
+            $value = $common_functions->sqlAddSlashes($_REQUEST['varValue']);
             if (! is_numeric($value)) {
                 $value="'" . $value . "'";
             }
@@ -371,7 +383,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             PMA_DBI_select_db($_REQUEST['database']);
         }
 
-        if ($profiling = PMA_profilingSupported()) {
+        if ($profiling == $common_functions->profilingSupported()) {
             PMA_DBI_query('SET PROFILING=1;');
         }
 
@@ -758,11 +770,11 @@ PMA_addJSVar(
 );
 PMA_addJSVar(
     'profiling_docu',
-    PMA_showMySQLDocu('general-thread-states', 'general-thread-states')
+    $common_functions->showMySQLDocu('general-thread-states', 'general-thread-states')
 );
 PMA_addJSVar(
     'explain_docu',
-    PMA_showMySQLDocu('explain-output', 'explain-output')
+    $common_functions->showMySQLDocu('explain-output', 'explain-output')
 );
 
 /**
@@ -780,7 +792,7 @@ require 'libraries/server_common.inc.php';
 /**
  * Displays the sub-page heading
  */
-echo PMA_getImage('s_status.png');
+echo $common_functions->getImage('s_status.png');
 
 echo __('Runtime Information');
 
@@ -854,15 +866,14 @@ echo __('Runtime Information');
                 <div class="formelement">
                     <select id="filterCategory" name="filterCategory">
                         <option value=''><?php echo __('Filter by category...'); ?></option>
-                <?php
-                        foreach ($sections as $section_id => $section_name) {
-                            if (isset($categoryUsed[$section_id])) {
-                ?>
-                                <option value='<?php echo $section_id; ?>'><?php echo $section_name; ?></option>
-                <?php
-                            }
-                        }
-                ?>
+<?php
+foreach ($sections as $section_id => $section_name) {
+    if (isset($categoryUsed[$section_id])) {
+        echo '<option value="' . $section_id. '">'
+            . $section_name. '</option>'. "\n";
+    }
+}
+?>
                     </select>
                 </div>
                 <div class="formelement">
@@ -872,25 +883,27 @@ echo __('Runtime Information');
             </fieldset>
             <div id="linkSuggestions" class="defaultLinks" style="display:none">
                 <p class="notice"><?php echo __('Related links:'); ?>
-                <?php
-                foreach ($links as $section_name => $section_links) {
-                    echo '<span class="status_' . $section_name . '"> ';
-                    $i=0;
-                    foreach ($section_links as $link_name => $link_url) {
-                        if ($i > 0) {
-                            echo ', ';
+                
+                    <?php
+                    foreach ($links as $section_name => $section_links) {
+                        echo '<span class="status_' . $section_name . '"> ';
+                        $i=0;
+                        foreach ($section_links as $link_name => $link_url) {
+                            if ($i > 0) {
+                                echo ', ';
+                            }
+                            if ('doc' == $link_name) {
+                                echo $common_functions->showMySQLDocu($link_url, $link_url);
+                            } else {
+                                echo '<a href="' . $link_url . '">' . $link_name . '</a>';
+                            }
+                            $i++;
                         }
-                        if ('doc' == $link_name) {
-                            echo PMA_showMySQLDocu($link_url, $link_url);
-                        } else {
-                            echo '<a href="' . $link_url . '">' . $link_name . '</a>';
-                        }
-                        $i++;
+                        echo '</span>';
                     }
-                    echo '</span>';
-                }
-                unset($link_url, $link_name, $i);
-                ?>
+                    unset($link_url, $link_name, $i);
+                    ?>
+
                 </p>
             </div>
             <div class="tabInnerContent">
@@ -904,23 +917,23 @@ echo __('Runtime Information');
 
         <div id="statustabs_advisor" class="jsfeature">
             <div class="tabLinks">
-                <?php echo PMA_getImage('play.png'); ?> <a href="#startAnalyzer"><?php echo __('Run analyzer'); ?></a>
-                <?php echo PMA_getImage('b_help.png'); ?> <a href="#openAdvisorInstructions"><?php echo __('Instructions'); ?></a>
+                <?php echo $common_functions->getImage('play.png'); ?> <a href="#startAnalyzer"><?php echo __('Run analyzer'); ?></a>
+                <?php echo $common_functions->getImage('b_help.png'); ?> <a href="#openAdvisorInstructions"><?php echo __('Instructions'); ?></a>
             </div>
             <div class="tabInnerContent clearfloat">
             </div>
             <div id="advisorInstructionsDialog" style="display:none;">
-            <?php
-            echo '<p>';
-            echo __('The Advisor system can provide recommendations on server variables by analyzing the server status variables.');
-            echo '</p> <p>';
-            echo __('Do note however that this system provides recommendations based on simple calculations and by rule of thumb which may not necessarily apply to your system.');
-            echo '</p> <p>';
-            echo __('Prior to changing any of the configuration, be sure to know what you are changing (by reading the documentation) and how to undo the change. Wrong tuning can have a very negative effect on performance.');
-            echo '</p> <p>';
-            echo __('The best way to tune your system would be to change only one setting at a time, observe or benchmark your database, and undo the change if there was no clearly measurable improvement.');
-            echo '</p>';
-            ?>
+<?php
+echo '<p>';
+echo __('The Advisor system can provide recommendations on server variables by analyzing the server status variables.');
+echo '</p> <p>';
+echo __('Do note however that this system provides recommendations based on simple calculations and by rule of thumb which may not necessarily apply to your system.');
+echo '</p> <p>';
+echo __('Prior to changing any of the configuration, be sure to know what you are changing (by reading the documentation) and how to undo the change. Wrong tuning can have a very negative effect on performance.');
+echo '</p> <p>';
+echo __('The best way to tune your system would be to change only one setting at a time, observe or benchmark your database, and undo the change if there was no clearly measurable improvement.');
+echo '</p>';
+?>
             </div>
         </div>
     </div>
@@ -932,6 +945,7 @@ function printQueryStatistics()
 {
     global $server_status, $used_queries, $url_query, $PMA_PHP_SELF;
 
+    $common_functions = PMA_CommonFunctions::getInstance();
     $hour_factor   = 3600 / $server_status['Uptime'];
 
     $total_queries = array_sum($used_queries);
@@ -940,23 +954,23 @@ function printQueryStatistics()
     <h3 id="serverstatusqueries">
         <?php
         /* l10n: Questions is the name of a MySQL Status variable */
-        echo sprintf(__('Questions since startup: %s'), PMA_formatNumber($total_queries, 0)) . ' ';
-        echo PMA_showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_Questions');
+        echo sprintf(__('Questions since startup: %s'), $common_functions->formatNumber($total_queries, 0)) . ' ';
+        echo $common_functions->showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_Questions');
         ?>
         <br />
         <span>
         <?php
         echo '&oslash; ' . __('per hour') . ': ';
-        echo PMA_formatNumber($total_queries * $hour_factor, 0);
+        echo $common_functions->formatNumber($total_queries * $hour_factor, 0);
         echo '<br />';
 
         echo '&oslash; ' . __('per minute') . ': ';
-        echo PMA_formatNumber($total_queries * 60 / $server_status['Uptime'], 0);
+        echo $common_functions->formatNumber($total_queries * 60 / $server_status['Uptime'], 0);
         echo '<br />';
 
         if ($total_queries / $server_status['Uptime'] >= 1) {
             echo '&oslash; ' . __('per second') . ': ';
-            echo PMA_formatNumber($total_queries / $server_status['Uptime'], 0);
+            echo $common_functions->formatNumber($total_queries / $server_status['Uptime'], 0);
         }
         ?>
         </span>
@@ -1009,11 +1023,11 @@ function printQueryStatistics()
     ?>
             <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?>">
                 <th class="name"><?php echo htmlspecialchars($name); ?></th>
-                <td class="value"><?php echo htmlspecialchars(PMA_formatNumber($value, 5, 0, true)); ?></td>
+                <td class="value"><?php echo htmlspecialchars($common_functions->formatNumber($value, 5, 0, true)); ?></td>
                 <td class="value"><?php echo
-                    htmlspecialchars(PMA_formatNumber($value * $hour_factor, 4, 1, true)); ?></td>
+                    htmlspecialchars($common_functions->formatNumber($value * $hour_factor, 4, 1, true)); ?></td>
                 <td class="value"><?php echo
-                    htmlspecialchars(PMA_formatNumber($value * $perc_factor, 0, 2)); ?>%</td>
+                    htmlspecialchars($common_functions->formatNumber($value * $perc_factor, 0, 2)); ?>%</td>
             </tr>
     <?php
     }
@@ -1024,11 +1038,11 @@ function printQueryStatistics()
         <div id="serverstatusquerieschart">
             <span style="display:none;">
         <?php
-            if ($other_sum > 0) {
-                $chart_json[__('Other')] = $other_sum;
-            }
+        if ($other_sum > 0) {
+            $chart_json[__('Other')] = $other_sum;
+        }
 
-            echo json_encode($chart_json);
+        echo json_encode($chart_json);
         ?>
             </span>
         </div>
@@ -1039,7 +1053,8 @@ function printServerTraffic()
 {
     global $server_status, $PMA_PHP_SELF;
     global $server_master_status, $server_slave_status, $replication_types;
-
+    
+    $common_functions = PMA_CommonFunctions::getInstance();
     $hour_factor    = 3600 / $server_status['Uptime'];
 
     /**
@@ -1053,7 +1068,14 @@ function printServerTraffic()
     <h3><?php
     echo sprintf(
         __('Network traffic since startup: %s'),
-        implode(' ', PMA_formatByteDown($server_status['Bytes_received'] + $server_status['Bytes_sent'], 3, 1))
+        implode(
+            ' ',
+            $common_functions->formatByteDown(
+                $server_status['Bytes_received'] + $server_status['Bytes_sent'],
+                3,
+                1
+            )
+        )
     );
     ?>
     </h3>
@@ -1062,8 +1084,8 @@ function printServerTraffic()
     <?php
     echo sprintf(
         __('This MySQL server has been running for %1$s. It started up on %2$s.'),
-        PMA_timespanFormat($server_status['Uptime']),
-        PMA_localisedDate($start_time)
+        $common_functions->timespanFormat($server_status['Uptime']),
+        $common_functions->localisedDate($start_time)
     ) . "\n";
     ?>
     </p>
@@ -1103,7 +1125,7 @@ function printServerTraffic()
     <table id="serverstatustraffic" class="data noclick">
     <thead>
     <tr>
-        <th colspan="2"><?php echo __('Traffic') . '&nbsp;' . PMA_showHint(__('On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.')); ?></th>
+        <th colspan="2"><?php echo __('Traffic') . '&nbsp;' . $common_functions->showHint(__('On a busy server, the byte counters may overrun, so those statistics as reported by the MySQL server may be incorrect.')); ?></th>
         <th>&oslash; <?php echo __('per hour'); ?></th>
     </tr>
     </thead>
@@ -1112,22 +1134,34 @@ function printServerTraffic()
         <th class="name"><?php echo __('Received'); ?></th>
         <td class="value"><?php echo
             implode(
-                ' ', PMA_formatByteDown($server_status['Bytes_received'], 3, 1)
+                ' ',
+                $common_functions->formatByteDown(
+                    $server_status['Bytes_received'], 3, 1
+                )
             ); ?></td>
         <td class="value"><?php echo
             implode(
-                ' ', PMA_formatByteDown($server_status['Bytes_received'] * $hour_factor, 3, 1)
+                ' ',
+                $common_functions->formatByteDown(
+                    $server_status['Bytes_received'] * $hour_factor, 3, 1
+                )
             ); ?></td>
     </tr>
     <tr class="even">
         <th class="name"><?php echo __('Sent'); ?></th>
         <td class="value"><?php echo
             implode(
-                ' ', PMA_formatByteDown($server_status['Bytes_sent'], 3, 1)
+                ' ',
+                $common_functions->formatByteDown(
+                    $server_status['Bytes_sent'], 3, 1
+                )
             ); ?></td>
         <td class="value"><?php echo
             implode(
-                ' ', PMA_formatByteDown($server_status['Bytes_sent'] * $hour_factor, 3, 1)
+                ' ',
+                $common_functions->formatByteDown(
+                    $server_status['Bytes_sent'] * $hour_factor, 3, 1
+                )
             ); ?></td>
     </tr>
     <tr class="odd">
@@ -1135,14 +1169,14 @@ function printServerTraffic()
         <td class="value"><?php echo
             implode(
                 ' ',
-                PMA_formatByteDown(
+                $common_functions->formatByteDown(
                     $server_status['Bytes_received'] + $server_status['Bytes_sent'], 3, 1
                 )
             ); ?></td>
         <td class="value"><?php echo
             implode(
                 ' ',
-                PMA_formatByteDown(
+                $common_functions->formatByteDown(
                     ($server_status['Bytes_received'] + $server_status['Bytes_sent'])
                     * $hour_factor, 3, 1
                 )
@@ -1163,21 +1197,21 @@ function printServerTraffic()
     <tr class="odd">
         <th class="name"><?php echo __('max. concurrent connections'); ?></th>
         <td class="value"><?php echo
-            PMA_formatNumber($server_status['Max_used_connections'], 0); ?>  </td>
+            $common_functions->formatNumber($server_status['Max_used_connections'], 0); ?>  </td>
         <td class="value">--- </td>
         <td class="value">--- </td>
     </tr>
     <tr class="even">
         <th class="name"><?php echo __('Failed attempts'); ?></th>
         <td class="value"><?php echo
-            PMA_formatNumber($server_status['Aborted_connects'], 4, 1, true); ?></td>
+            $common_functions->formatNumber($server_status['Aborted_connects'], 4, 1, true); ?></td>
         <td class="value"><?php echo
-            PMA_formatNumber(
+            $common_functions->formatNumber(
                 $server_status['Aborted_connects'] * $hour_factor, 4, 2, true
             ); ?></td>
         <td class="value"><?php echo
             $server_status['Connections'] > 0
-            ? PMA_formatNumber(
+            ? $common_functions->formatNumber(
                 $server_status['Aborted_connects'] * 100 / $server_status['Connections'],
                 0, 2, true
             ) . '%'
@@ -1186,14 +1220,14 @@ function printServerTraffic()
     <tr class="odd">
         <th class="name"><?php echo __('Aborted'); ?></th>
         <td class="value"><?php echo
-            PMA_formatNumber($server_status['Aborted_clients'], 4, 1, true); ?></td>
+            $common_functions->formatNumber($server_status['Aborted_clients'], 4, 1, true); ?></td>
         <td class="value"><?php echo
-            PMA_formatNumber(
+            $common_functions->formatNumber(
                 $server_status['Aborted_clients'] * $hour_factor, 4, 2, true
             ); ?></td>
         <td class="value"><?php echo
             $server_status['Connections'] > 0
-            ? PMA_formatNumber(
+            ? $common_functions->formatNumber(
                 $server_status['Aborted_clients'] * 100 / $server_status['Connections'],
                 0, 2, true
             ) . '%'
@@ -1202,13 +1236,13 @@ function printServerTraffic()
     <tr class="even">
         <th class="name"><?php echo __('Total'); ?></th>
         <td class="value"><?php echo
-            PMA_formatNumber($server_status['Connections'], 4, 0); ?></td>
+            $common_functions->formatNumber($server_status['Connections'], 4, 0); ?></td>
         <td class="value"><?php echo
-            PMA_formatNumber(
+            $common_functions->formatNumber(
                 $server_status['Connections'] * $hour_factor, 4, 2
             ); ?></td>
         <td class="value"><?php echo
-            PMA_formatNumber(100, 0, 2); ?>%</td>
+            $common_functions->formatNumber(100, 0, 2); ?>%</td>
     </tr>
     </tbody>
     </table>
@@ -1266,7 +1300,9 @@ function printServerTraffic()
                 <img src="<?php echo $GLOBALS['pmaThemeImage'] . 's_' . ($show_full_sql ? 'partial' : 'full'); ?>text.png"
                 alt="<?php echo $show_full_sql ? __('Truncate Shown Queries') : __('Show Full Queries'); ?>" />
             </a>
-            <?php } ?>
+            <?php
+            }
+            ?>
         </th>
     </tr>
     </thead>
@@ -1312,6 +1348,9 @@ function printServerTraffic()
 function printVariablesTable()
 {
     global $server_status, $server_variables, $allocationMap, $links;
+    
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
     /**
      * Messages are built using the message name
      */
@@ -1466,20 +1505,24 @@ function printVariablesTable()
         'Table_locks_waited' => 0,
         'Qcache_lowmem_prunes' => 0,
 
-        'Qcache_free_blocks' => isset($server_status['Qcache_total_blocks']) ? $server_status['Qcache_total_blocks'] / 5 : 0,
+        'Qcache_free_blocks' => isset($server_status['Qcache_total_blocks'])
+            ? $server_status['Qcache_total_blocks'] / 5 : 0,
         'Slow_launch_threads' => 0,
 
         // depends on Key_read_requests
         // normaly lower then 1:0.01
-        'Key_reads' => isset($server_status['Key_read_requests']) ? (0.01 * $server_status['Key_read_requests']) : 0,
+        'Key_reads' => isset($server_status['Key_read_requests'])
+            ? (0.01 * $server_status['Key_read_requests']) : 0,
         // depends on Key_write_requests
         // normaly nearly 1:1
-        'Key_writes' => isset($server_status['Key_write_requests']) ? (0.9 * $server_status['Key_write_requests']) : 0,
+        'Key_writes' => isset($server_status['Key_write_requests'])
+            ? (0.9 * $server_status['Key_write_requests']) : 0,
 
         'Key_buffer_fraction' => 0.5,
 
         // alert if more than 95% of thread cache is in use
-        'Threads_cached' => isset($server_variables['thread_cache_size']) ? 0.95 * $server_variables['thread_cache_size'] : 0
+        'Threads_cached' => isset($server_variables['thread_cache_size'])
+            ? 0.95 * $server_variables['thread_cache_size'] : 0
 
         // higher is better
         // variable => min value
@@ -1510,7 +1553,7 @@ function printVariablesTable()
             echo htmlspecialchars(str_replace('_', ' ', $name));
             /* Fields containing % are calculated, they can not be described in MySQL documentation */
             if (strpos($name, '%') === false) {
-                 echo PMA_showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_' . $name);
+                 echo $common_functions->showMySQLDocu('server-status-variables', 'server-status-variables', false, 'statvar_' . $name);
             }
             ?>
             </th>
@@ -1523,15 +1566,17 @@ function printVariablesTable()
                 }
             }
             if ('%' === substr($name, -1, 1)) {
-                echo htmlspecialchars(PMA_formatNumber($value, 0, 2)) . ' %';
+                echo htmlspecialchars($common_functions->formatNumber($value, 0, 2)) . ' %';
             } elseif (strpos($name, 'Uptime') !== false) {
-                echo htmlspecialchars(PMA_timespanFormat($value));
+                echo htmlspecialchars(
+                    $common_functions->timespanFormat($value)
+                );
             } elseif (is_numeric($value) && $value == (int) $value && $value > 1000) {
-                echo htmlspecialchars(PMA_formatNumber($value, 3, 1));
+                echo htmlspecialchars($common_functions->formatNumber($value, 3, 1));
             } elseif (is_numeric($value) && $value == (int) $value) {
-                echo htmlspecialchars(PMA_formatNumber($value, 3, 0));
+                echo htmlspecialchars($common_functions->formatNumber($value, 3, 0));
             } elseif (is_numeric($value)) {
-                echo htmlspecialchars(PMA_formatNumber($value, 3, 1));
+                echo htmlspecialchars($common_functions->formatNumber($value, 3, 1));
             } else {
                 echo htmlspecialchars($value);
             }
@@ -1549,7 +1594,7 @@ function printVariablesTable()
             if (isset($links[$name])) {
                 foreach ($links[$name] as $link_name => $link_url) {
                     if ('doc' == $link_name) {
-                        echo PMA_showMySQLDocu($link_url, $link_url);
+                        echo $common_functions->showMySQLDocu($link_url, $link_url);
                     } else {
                         echo ' <a href="' . $link_url . '">' . $link_name . '</a>' .
                         "\n";
@@ -1571,34 +1616,41 @@ function printVariablesTable()
 function printMonitor()
 {
     global $server_status, $server_db_isLocal;
+    
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
 ?>
     <div class="tabLinks" style="display:none;">
         <a href="#pauseCharts">
-            <?php echo PMA_getImage('play.png'); ?>
+            <?php echo $common_functions->getImage('play.png'); ?>
             <?php echo __('Start Monitor'); ?>
         </a>
         <a href="#settingsPopup" class="popupLink" style="display:none;">
-            <?php echo PMA_getImage('s_cog.png'); ?>
+            <?php echo $common_functions->getImage('s_cog.png'); ?>
             <?php echo __('Settings'); ?>
         </a>
-        <?php if (! PMA_DRIZZLE) { ?>
+        <?php
+        if (! PMA_DRIZZLE) {
+            ?>
         <a href="#monitorInstructionsDialog">
-            <?php echo PMA_getImage('b_help.png'); ?>
+            <?php echo $common_functions->getImage('b_help.png'); ?>
             <?php echo __('Instructions/Setup'); ?>
         </a>
-        <?php } ?>
+        <?php
+        }
+        ?>
         <a href="#endChartEditMode" style="display:none;">
-            <?php echo PMA_getImage('s_okay.png'); ?>
+            <?php echo $common_functions->getImage('s_okay.png'); ?>
             <?php echo __('Done rearranging/editing charts'); ?>
         </a>
     </div>
 
     <div class="popupContent settingsPopup">
         <a href="#addNewChart">
-            <?php echo PMA_getImage('b_chart.png'); ?>
+            <?php echo $common_functions->getImage('b_chart.png'); ?>
             <?php echo __('Add chart'); ?>
         </a>
-        <a href="#rearrangeCharts"><?php echo PMA_getImage('b_tblops.png'); ?><?php echo __('Rearrange/edit charts'); ?></a>
+        <a href="#rearrangeCharts"><?php echo $common_functions->getImage('b_tblops.png'); ?><?php echo __('Rearrange/edit charts'); ?></a>
         <div class="clearfloat paddingtop"></div>
         <div class="floatleft">
             <?php
@@ -1623,7 +1675,7 @@ function printMonitor()
         </div>
 
         <div class="clearfloat paddingtop">
-        <b><?php echo __('Chart arrangement'); ?></b> <?php echo PMA_showHint(__('The arrangement of the charts is stored to the browsers local storage. You may want to export it if you have a complicated set up.')); ?><br/>
+            <b><?php echo __('Chart arrangement'); ?></b> <?php echo $common_functions->showHint(__('The arrangement of the charts is stored to the browsers local storage. You may want to export it if you have a complicated set up.')); ?><br/>
         <a href="#importMonitorConfig"><?php echo __('Import'); ?></a>&nbsp;&nbsp;<a href="#exportMonitorConfig"><?php echo __('Export'); ?></a>&nbsp;&nbsp;<a href="#clearMonitorConfig"><?php echo __('Reset to default'); ?></a>
         </div>
     </div>
@@ -1632,7 +1684,7 @@ function printMonitor()
         <?php echo __('The phpMyAdmin Monitor can assist you in optimizing the server configuration and track down time intensive queries. For the latter you will need to set log_output to \'TABLE\' and have either the slow_query_log or general_log enabled. Note however, that the general_log produces a lot of data and increases server load by up to 15%'); ?>
     <?php if (PMA_MYSQL_INT_VERSION < 50106) { ?>
         <p>
-        <?php echo PMA_getImage('s_attention.png'); ?>
+        <?php echo $common_functions->getImage('s_attention.png'); ?>
         <?php
             echo __('Unfortunately your Database server does not support logging to table, which is a requirement for analyzing the database logs with phpMyAdmin. Logging to table is supported by MySQL 5.1.6 and onwards. You may still use the server charting features however.');
         ?>
@@ -1655,7 +1707,7 @@ function printMonitor()
                 echo '</p>';
             ?>
             <p>
-            <?php echo PMA_getImage('s_attention.png'); ?>
+            <?php echo $common_functions->getImage('s_attention.png'); ?>
             <?php
                 echo '<strong>';
                 echo __('Please note:');
@@ -1664,7 +1716,9 @@ function printMonitor()
             ?>
             </p>
         </div>
-    <?php } ?>
+    <?php
+    }
+    ?>
     </div>
 
     <div id="addChartDialog" title="<?php echo __('Add chart'); ?>" style="display:none;">
@@ -1731,7 +1785,9 @@ function printMonitor()
     <div id="emptyDialog" title="Dialog" style="display:none;">
     </div>
 
-    <?php if (! PMA_DRIZZLE) { ?>
+    <?php
+    if (! PMA_DRIZZLE) {
+    ?>
     <div id="logAnalyseDialog" title="<?php echo __('Log statistics'); ?>" style="display:none;">
         <p> <?php echo __('Selected time range:'); ?>
         <input type="text" name="dateStart" class="datetimefield" value="" /> -
@@ -1760,7 +1816,9 @@ function printMonitor()
         <p></p>
         <div class="placeHolder"></div>
     </div>
-    <?php } ?>
+    <?php
+    }
+    ?>
 
     <table class="clearfloat" id="chartGrid">
 
@@ -1771,16 +1829,16 @@ function printMonitor()
 
     <script type="text/javascript">
         variableNames = [ <?php
-            $i=0;
-            foreach ($server_status as $name=>$value) {
-                if (is_numeric($value)) {
-                    if ($i++ > 0) {
-                        echo ", ";
-                    }
-                    echo "'" . $name . "'";
-                }
+    $i=0;
+    foreach ($server_status as $name=>$value) {
+        if (is_numeric($value)) {
+            if ($i++ > 0) {
+                echo ", ";
             }
-            ?> ];
+            echo "'" . $name . "'";
+        }
+    }
+    ?> ];
     </script>
 <?php
 }

@@ -159,7 +159,8 @@ class PMA_File
     /**
      * Gets file content
      *
-     * @return string  binary file content
+     * @return mixed   the binary file content as a string,
+     *                 or false if no content 
      *
      * @access  public
      */
@@ -419,7 +420,7 @@ class PMA_File
         }
 
         $this->setName(
-            PMA_userDir($GLOBALS['cfg']['UploadDir']) . PMA_securePath($name)
+            PMA_CommonFunctions::getInstance()->userDir($GLOBALS['cfg']['UploadDir']) . PMA_securePath($name)
         );
         if (! $this->isReadable()) {
             $this->_error_message = __('File could not be read');

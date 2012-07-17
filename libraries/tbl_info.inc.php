@@ -13,7 +13,7 @@ if (! defined('PHPMYADMIN')) {
 }
 
 // Check parameters
-PMA_checkParameters(array('db', 'table'));
+PMA_CommonFunctions::getInstance()->checkParameters(array('db', 'table'));
 
 /**
  * Defining global variables, in case this script is included by a function.

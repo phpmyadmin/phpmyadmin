@@ -5,10 +5,10 @@
 *
 * @package PhpMyAdmin
 */
-
-if (!defined('PHPMYADMIN')) {
+if (! defined('PHPMYADMIN')) {
     exit;
 }
+
 /**
   * constant for differenciating array in $_SESSION variable
   */
@@ -32,7 +32,7 @@ $upload_id = uniqid("");
   */
 $plugins = array(
    "session",
-   "uploadprogress",
+   "progress",
    "apc",
    "noplugin"
 );
@@ -42,8 +42,9 @@ foreach ($plugins as $plugin) {
     $check = "PMA_import_" . $plugin . "Check";
 
     if ($check()) {
-        $_SESSION[$SESSION_KEY]["handler"] = $plugin;
-        include_once "import/upload/" . $plugin . ".php";
+        $upload_class = "Upload" . ucwords($plugin);
+        $_SESSION[$SESSION_KEY]["handler"] = $upload_class;
+        include_once "plugins/import/upload/" . $upload_class . ".class.php";
         break;
     }
 }
@@ -71,7 +72,7 @@ function PMA_import_apcCheck()
   * @return boolean true if UploadProgress extension is available,
   *                 false if it is not
   */
-function PMA_import_uploadprogressCheck()
+function PMA_import_progressCheck()
 {
     if (! function_exists("uploadprogress_get_info")
         || ! function_exists('getallheaders')
@@ -83,8 +84,6 @@ function PMA_import_uploadprogressCheck()
 
 /**
   * Checks if PHP 5.4 session upload-progress feature is available.
-  * Due to a bug in PHP 5.4's session upload feature (see /import_status.php),
-  * we need to check for cURL support.
   *
   * @return boolean true if PHP 5.4 session upload-progress is available,
   *                 false if it is not
@@ -93,7 +92,6 @@ function PMA_import_sessionCheck()
 {
     if (PMA_PHP_INT_VERSION < 50400
         || ! ini_get('session.upload_progress.enabled')
-        || ! function_exists('curl_exec')
     ) {
         return false;
     }
@@ -123,6 +121,8 @@ function PMA_import_nopluginCheck()
 function PMA_importAjaxStatus($id)
 {
     header('Content-type: application/json');
-    echo json_encode(PMA_getUploadStatus($id));
+    echo json_encode(
+        $_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getUploadStatus($id)
+    );
 }
 ?>

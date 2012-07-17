@@ -151,7 +151,7 @@ function display_input($path, $name, $type, $value, $description = '',
         );
         if ($is_setup_script) {
             // When called from the setup script, we don't have access to the
-            // sprite-aware PMA_getImage() function because the PMA_theme class
+            // sprite-aware getImage() function because the PMA_theme class
             // has not been loaded, so we generate the img tags manually.
             foreach ($icon_init as $k => $v) {
                 $title = '';
@@ -166,9 +166,11 @@ function display_input($path, $name, $type, $value, $description = '',
                 );
             }
         } else {
-            // In this case we just use PMA_getImage() because it's available
+            // In this case we just use getImage() because it's available
             foreach ($icon_init as $k => $v) {
-                $icons[$k] = PMA_getImage($v[0], $v[1]);
+                $icons[$k] = PMA_CommonFunctions::getInstance()->getImage(
+                    $v[0], $v[1]
+                );
             }
         }
     }

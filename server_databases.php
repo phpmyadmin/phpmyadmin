@@ -13,6 +13,7 @@ $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('server_databases.js');
+$common_functions = PMA_CommonFunctions::getInstance();
 
 require 'libraries/server_common.inc.php';
 if (! PMA_DRIZZLE) {
@@ -128,7 +129,7 @@ if ((isset($_REQUEST['drop_selected_dbs']) || isset($_REQUEST['query_type']))
  * Displays the sub-page heading
  */
 echo '<h2>' . "\n"
-   . PMA_getImage('s_db.png')
+   . $common_functions->getImage('s_db.png')
    . ($dbstats ? __('Databases statistics') : __('Databases')) . "\n"
    .'</h2>' . "\n";
 
@@ -172,7 +173,10 @@ if ($databases_count > 0) {
         'sort_order' => $sort_order,
     );
 
-    PMA_listNavigator($databases_count, $pos, $_url_params, 'server_databases.php', 'frame_content', $GLOBALS['cfg']['MaxDbList']);
+    echo $common_functions->getListNavigator(
+        $databases_count, $pos, $_url_params, 'server_databases.php',
+        'frame_content', $GLOBALS['cfg']['MaxDbList']
+    );
 
     $_url_params['pos'] = $pos;
 
@@ -188,7 +192,7 @@ if ($databases_count > 0) {
        . ($is_superuser || $cfg['AllowUserDropDatabase'] ? '        <th></th>' . "\n" : '')
        . '    <th><a href="server_databases.php' . PMA_generate_common_url($_url_params) . '">' . "\n"
        . '            ' . __('Database') . "\n"
-       . ($sort_by == 'SCHEMA_NAME' ? '                ' . PMA_getImage('s_' . $sort_order . '.png', ($sort_order == 'asc' ? __('Ascending') : __('Descending'))) . "\n" : '')
+       . ($sort_by == 'SCHEMA_NAME' ? '                ' . $common_functions->getImage('s_' . $sort_order . '.png', ($sort_order == 'asc' ? __('Ascending') : __('Descending'))) . "\n" : '')
        . '        </a></th>' . "\n";
     $table_columns = 3;
     foreach ($column_order as $stat_name => $stat) {
@@ -205,7 +209,7 @@ if ($databases_count > 0) {
             echo '    <th' . $colspan . '>'
                 .'<a href="server_databases.php' . PMA_generate_common_url($_url_params) . '">' . "\n"
                 .'            ' . $stat['disp_name'] . "\n"
-                .($sort_by == $stat_name ? '            ' . PMA_getImage('s_' . $sort_order . '.png', ($sort_order == 'asc' ? __('Ascending') : __('Descending'))) . "\n" : '')
+                .($sort_by == $stat_name ? '            ' . $common_functions->getImage('s_' . $sort_order . '.png', ($sort_order == 'asc' ? __('Ascending') : __('Descending'))) . "\n" : '')
                 .'        </a></th>' . "\n";
         }
     }
@@ -246,7 +250,7 @@ if ($databases_count > 0) {
     } // end foreach ($databases as $key => $current)
     unset($current, $odd_row);
 
-    echo '<tr id="db_summary_row">' . "\n";
+    echo '</tbody><tfoot><tr>' . "\n";
     if ($is_superuser || $cfg['AllowUserDropDatabase']) {
         echo '    <th></th>' . "\n";
     }
@@ -254,9 +258,9 @@ if ($databases_count > 0) {
     foreach ($column_order as $stat_name => $stat) {
         if (array_key_exists($stat_name, $first_database)) {
             if ($stat['format'] === 'byte') {
-                list($value, $unit) = PMA_formatByteDown($stat['footer'], 3, 1);
+                list($value, $unit) = $common_functions->formatByteDown($stat['footer'], 3, 1);
             } elseif ($stat['format'] === 'number') {
-                $value = PMA_formatNumber($stat['footer'], 0);
+                $value = $common_functions->formatNumber($stat['footer'], 0);
             } else {
                 $value = htmlentities($stat['footer'], 0);
             }
@@ -285,19 +289,17 @@ if ($databases_count > 0) {
         echo '    <th></th>' . "\n";
     }
     echo '</tr>' . "\n";
-    echo '</tbody>' . "\n"
+    echo '</tfoot>' . "\n"
         .'</table>' . "\n";
     unset($column_order, $stat_name, $stat, $databases, $table_columns);
 
     if ($is_superuser || $cfg['AllowUserDropDatabase']) {
         $common_url_query = PMA_generate_common_url(array('sort_by' => $sort_by, 'sort_order' => $sort_order, 'dbstats' => $dbstats));
         echo '<img class="selectallarrow" src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" width="38" height="22" alt="' . __('With selected:') . '" />' . "\n"
-           . '<a href="server_databases.php' . $common_url_query . '&amp;checkall=1" onclick="if (markAllRows(\'tabledatabases\')) return false;">' . "\n"
-           . '    ' . __('Check All') . '</a> / ' . "\n"
-           . '<a href="server_databases.php' . $common_url_query . '" onclick="if (unMarkAllRows(\'tabledatabases\')) return false;">' . "\n"
-           . '    ' . __('Uncheck All') . '</a>' . "\n"
-           . '<i>' . __('With selected:') . '</i>' . "\n";
-        echo PMA_getButtonOrImage('drop_selected_dbs', 'mult_submit' . ($cfg['AjaxEnable'] ? ' ajax' : ''), 'drop_selected_dbs', __('Drop'), 'b_deltbl.png');
+           . '<input type="checkbox" id="checkall" title="' . __('Check All') . '" /> '
+           . '<label for="checkall">' . __('Check All') . '</label> '
+           . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
+        echo $common_functions->getButtonOrImage('drop_selected_dbs', 'mult_submit' . ($cfg['AjaxEnable'] ? ' ajax' : ''), 'drop_selected_dbs', __('Drop'), 'b_deltbl.png');
     }
 
     if (empty($dbstats)) {

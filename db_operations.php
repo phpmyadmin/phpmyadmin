@@ -20,9 +20,10 @@ require_once 'libraries/mysql_charsets.lib.php';
 
 // add a javascript file for jQuery functions to handle Ajax actions
 $response = PMA_Response::getInstance();
-$header   = $response->getHeader();
-$scripts  = $header->getScripts();
+$header = $response->getHeader();
+$scripts = $header->getScripts();
 $scripts->addFile('db_operations.js');
+$common_functions = PMA_CommonFunctions::getInstance();
 
 /**
  * Sets globals from $_REQUEST (we're using GET on ajax, POST otherwise)
@@ -77,7 +78,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
                 }
             }
 
-            $local_query = 'CREATE DATABASE ' . PMA_backquote($newname);
+            $local_query = 'CREATE DATABASE ' . $common_functions->backquote($newname);
             if (isset($db_collation)) {
                 $local_query .= ' DEFAULT' . PMA_generateCharsetQueryPart($db_collation);
             }
@@ -134,12 +135,23 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
         $tables_full = PMA_DBI_get_tables_full($db);
         $views = array();
 
+        require_once "libraries/plugin_interface.lib.php";
         // remove all foreign key constraints, otherwise we can get errors
-        include_once 'libraries/export/sql.php';
+        $export_sql_plugin = PMA_getPlugin(
+            "export",
+            "sql",    
+            'libraries/plugins/export/',
+            array(
+                'export_type' => $export_type,
+                'single_table' => isset($single_table)
+            )
+        );
         foreach ($tables_full as $each_table => $tmp) {
             $sql_constraints = '';
             $sql_drop_foreign_keys = '';
-            $sql_structure = PMA_getTableDef($db, $each_table, "\n", '', false, false);
+            $sql_structure = $export_sql_plugin->getTableDef(
+                $db, $each_table, "\n", '', false, false
+            );
             if ($move && ! empty($sql_drop_foreign_keys)) {
                 PMA_DBI_query($sql_drop_foreign_keys);
             }
@@ -157,7 +169,9 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             if (PMA_Table::isView($db, $each_table)) {
                 $views[] = $each_table;
                 // Create stand-in definition to resolve view dependencies
-                $sql_view_standin = PMA_getTableDefStandIn($db, $each_table, "\n");
+                $sql_view_standin = $export_sql_plugin->getTableDefStandIn(
+                    $db, $each_table, "\n"
+                );
                 PMA_DBI_select_db($newname);
                 PMA_DBI_query($sql_view_standin);
                 $GLOBALS['sql_query'] .= "\n" . $sql_view_standin;
@@ -271,7 +285,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             // the db name
             $event_names = PMA_DBI_fetch_result(
                 'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \''
-                . PMA_sqlAddSlashes($db, true) . '\';'
+                . $common_functions->sqlAddSlashes($db, true) . '\';'
             );
             if ($event_names) {
                 foreach ($event_names as $event_name) {
@@ -307,7 +321,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             PMA_relationsCleanupDatabase($db);
 
             // if someday the RENAME DATABASE reappears, do not DROP
-            $local_query = 'DROP DATABASE ' . PMA_backquote($db) . ';';
+            $local_query = 'DROP DATABASE ' . $common_functions->backquote($db) . ';';
             $sql_query .= "\n" . $local_query;
             PMA_DBI_query($local_query);
 
@@ -347,7 +361,10 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
         $response->isSuccess($message->isSuccess());
         $response->addJSON('message', $message);
         $response->addJSON('newname', $newname);
-        $response->addJSON('sql_query', PMA_getMessage(null, $sql_query));
+        $response->addJSON(
+            'sql_query',
+            $common_functions->getMessage(null, $sql_query)
+        );
         exit;
     }
 }
@@ -381,7 +398,7 @@ if (empty($is_info)) {
     echo "\n";
 
     if (isset($message)) {
-        echo PMA_getMessage($message, $sql_query);
+        echo $common_functions->getMessage($message, $sql_query);
         unset($message);
     }
 }
@@ -444,7 +461,7 @@ if ($db != 'mysql') {
         <legend>
     <?php
     if ($cfg['PropertiesIconic']) {
-        echo PMA_getImage('b_edit.png');
+        echo $common_functions->getImage('b_edit.png');
     }
     echo __('Rename database to') . ':';
     ?>
@@ -471,27 +488,27 @@ if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase'])
 <fieldset class="caution">
  <legend><?php
 if ($cfg['PropertiesIconic']) {
-    echo PMA_getImage('b_deltbl.png');
+    echo $common_functions->getImage('b_deltbl.png');
 }
 echo __('Remove database');
 ?></legend>
 
 <ul>
 <?php
-    $this_sql_query = 'DROP DATABASE ' . PMA_backquote($GLOBALS['db']);
+    $this_sql_query = 'DROP DATABASE ' . $common_functions->backquote($GLOBALS['db']);
     $this_url_params = array(
             'sql_query' => $this_sql_query,
             'back' => 'db_operations.php',
             'goto' => 'main.php',
             'reload' => '1',
             'purge' => '1',
-            'message_to_show' => sprintf(__('Database %s has been dropped.'), htmlspecialchars(PMA_backquote($db))),
+            'message_to_show' => sprintf(__('Database %s has been dropped.'), htmlspecialchars($common_functions->backquote($db))),
             'db' => null,
         );
     ?>
         <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'id="drop_db_anchor"' : ''); ?>>
             <?php echo __('Drop the database (DROP)'); ?></a>
-        <?php echo PMA_showMySQLDocu('SQL-Syntax', 'DROP_DATABASE'); ?>
+        <?php echo $common_functions->showMySQLDocu('SQL-Syntax', 'DROP_DATABASE'); ?>
     </li>
 </ul>
 </fieldset>
@@ -517,7 +534,7 @@ echo __('Remove database');
         <legend>
     <?php
     if ($cfg['PropertiesIconic']) {
-        echo PMA_getImage('b_edit.png');
+        echo $common_functions->getImage('b_edit.png');
     }
     echo __('Copy database to') . ':';
     $drop_clause = 'DROP TABLE / DROP VIEW';
@@ -529,7 +546,9 @@ echo __('Remove database');
             'structure' => __('Structure only'),
             'data'      => __('Structure and data'),
             'dataonly'  => __('Data only'));
-        echo PMA_getRadioFields('what', $choices, 'data', true);
+        echo $common_functions->getRadioFields(
+            'what', $choices, 'data', true
+        );
         unset($choices);
 ?>
         <input type="checkbox" name="create_database_before_copying" value="1"
@@ -583,7 +602,7 @@ echo __('Remove database');
        . '<fieldset>' . "\n"
        . '    <legend>';
     if ($cfg['PropertiesIconic']) {
-        echo PMA_getImage('s_asci.png');
+        echo $common_functions->getImage('s_asci.png');
     }
     echo '    <label for="select_db_collation">' . __('Collation') . ':</label>' . "\n"
        . '    </legend>' . "\n"
@@ -625,16 +644,17 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
 
     $test_query = '
          SELECT *
-           FROM ' . PMA_backquote($GLOBALS['cfgRelation']['db']) . '.' . PMA_backquote($cfgRelation['pdf_pages']) . '
-          WHERE db_name = \'' . PMA_sqlAddSlashes($db) . '\'';
-    $test_rs    = PMA_query_as_controluser($test_query, null, PMA_DBI_QUERY_STORE);
+           FROM ' . $common_functions->backquote($GLOBALS['cfgRelation']['db'])
+            . '.' . $common_functions->backquote($cfgRelation['pdf_pages']) . '
+          WHERE db_name = \'' . $common_functions->sqlAddSlashes($db) . '\'';
+    $test_rs    = PMA_queryAsControlUser($test_query, null, PMA_DBI_QUERY_STORE);
 
     /*
      * Export Relational Schema View
      */
     echo '<div class="operations_full_width"><fieldset><a href="schema_edit.php?' . $url_query . '">';
     if ($cfg['PropertiesIconic']) {
-        echo PMA_getImage('b_edit.png');
+        echo $common_functions->getImage('b_edit.png');
     }
     echo __('Edit or export relational schema') . '</a></fieldset></div>';
 } // end if

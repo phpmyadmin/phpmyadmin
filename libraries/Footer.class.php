@@ -106,7 +106,7 @@ class PMA_Footer
 
             // set current db, table and sql query in the querywindow
             $query = '';
-            if (strlen($GLOBALS['sql_query']) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
+            if (isset($GLOBALS['sql_query']) && strlen($GLOBALS['sql_query']) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
                 $query = PMA_escapeJsString($GLOBALS['sql_query']);
             }
             $this->_scripts->addCode("
@@ -172,7 +172,8 @@ class PMA_Footer
 
             ob_start();
             print_r($_SESSION['debug']);
-            $retval .= ob_end_clean();
+            $retval .= ob_get_contents();
+            ob_end_clean();
 
             $retval .= '</pre>';
             $retval .= '</div>';
@@ -195,7 +196,7 @@ class PMA_Footer
         $retval .= '<a href="index.php' . PMA_generate_common_url($url_params) . '"'
             . ' title="' . __('Open new phpMyAdmin window') . '" target="_blank">';
         if ($GLOBALS['cfg']['NavigationBarIconic']) {
-            $retval .= PMA_getImage(
+            $retval .= PMA_CommonFunctions::getInstance()->getImage(
                 'window-new.png',
                 __('Open new phpMyAdmin window')
             );
@@ -322,7 +323,8 @@ class PMA_Footer
                 if (file_exists(CUSTOM_FOOTER_FILE)) {
                     ob_start();
                     include CUSTOM_FOOTER_FILE;
-                    $retval .= ob_end_clean();
+                    $retval .= ob_get_contents();
+                    ob_end_clean();
                 }
             } else if (! $this->_isAjax) {
                 $retval .= "</body></html>";

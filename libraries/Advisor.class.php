@@ -437,7 +437,7 @@ function PMA_bytime($num, $precision)
     $num = round($num, $precision);
 
     if ($num == 0) {
-        $num = '<' . pow(10, -$precision);
+        $num = '<' . PMA_CommonFunctions::getInstance()->pow(10, -$precision);
     }
 
     return "$num $per";

@@ -124,7 +124,7 @@ class PMA_GIS_Visualization
      */
     private function _sanitizeName($file_name, $ext)
     {
-        $file_name = PMA_sanitize_filename($file_name);
+        $file_name = PMA_sanitizeFilename($file_name);
 
         // Check if the user already added extension;
         // get the substring where the extension would be if it was included
@@ -295,15 +295,19 @@ class PMA_GIS_Visualization
                 . 'units: "m",'
                 . 'numZoomLevels: 18,'
                 . 'maxResolution: 156543.0339,'
-                . 'maxExtent: new OpenLayers.Bounds(-20037508, -20037508, 20037508, 20037508),'
-                . 'restrictedExtent: new OpenLayers.Bounds(-20037508, -20037508, 20037508, 20037508)'
+                . 'maxExtent: new OpenLayers.Bounds('
+                . '-20037508, -20037508, 20037508, 20037508),'
+                . 'restrictedExtent: new OpenLayers.Bounds('
+                . '-20037508, -20037508, 20037508, 20037508)'
             . '};'
             . 'var map = new OpenLayers.Map("openlayersmap", options);'
-            . 'var layerNone = new OpenLayers.Layer.Boxes("None", {isBaseLayer: true});'
+            . 'var layerNone = new OpenLayers.Layer.Boxes('
+            . '"None", {isBaseLayer: true});'
             . 'var layerMapnik = new OpenLayers.Layer.OSM.Mapnik("Mapnik");'
-            . 'var layerOsmarender = new OpenLayers.Layer.OSM.Osmarender("Osmarender");'
+            . 'var layerOsmarender = new OpenLayers.Layer.OSM.Osmarender('
+            . '"Osmarender");'
             . 'var layerCycleMap = new OpenLayers.Layer.OSM.CycleMap("CycleMap");'
-            . 'map.addLayers([layerMapnik, layerOsmarender, layerCycleMap, layerNone]);'
+            . 'map.addLayers([layerMapnik,layerOsmarender,layerCycleMap,layerNone]);'
             . 'var vectorLayer = new OpenLayers.Layer.Vector("Data");'
             . 'var bound;';
         $output .= $this->_prepareDataSet($this->_data, $scale_data, 'ol', '');

@@ -48,7 +48,7 @@ class PMA_PDF extends TCPDF
             $this->SetY(-15);
             $this->SetFont(PMA_PDF_FONT, '', 14);
             $this->Cell(0, 6, __('Page number:') . ' ' . $this->getAliasNumPage() . '/' .  $this->getAliasNbPages(), 'T', 0, 'C');
-            $this->Cell(0, 6, PMA_localisedDate(), 0, 1, 'R');
+            $this->Cell(0, 6, PMA_CommonFunctions::getInstance()->localisedDate(), 0, 1, 'R');
             $this->SetY(20);
 
             // set footerset

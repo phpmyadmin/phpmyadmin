@@ -8,6 +8,7 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+$common_functions = PMA_CommonFunctions::getInstance();
 // Get relations & co. status
 $cfgRelation = PMA_getRelationsParam();
 
@@ -33,11 +34,20 @@ function PMA_exportIsActive($what, $val)
 }
 
 /* Scan for plugins */
-$export_list = PMA_getPlugins('./libraries/export/', array('export_type' => $export_type, 'single_table' => isset($single_table)));
+$export_list = PMA_getPlugins(
+    "export",
+    'libraries/plugins/export/',
+    array(
+        'export_type' => $export_type,
+        'single_table' => isset($single_table)
+    )
+);
 
 /* Fail if we didn't find any plugin */
 if (empty($export_list)) {
-    PMA_Message::error(__('Could not load export plugins, please check your installation!'))->display();
+    PMA_Message::error(__(
+        'Could not load export plugins, please check your installation!'
+    ))->display();
     exit;
 }
 ?>
@@ -79,7 +89,7 @@ if (isset($_GET['sql_query'])) {
 
 <div class="exportoptions" id="header">
     <h2>
-        <?php echo PMA_getImage('b_export.png', __('Export')); ?>
+        <?php echo $common_functions->getImage('b_export.png', __('Export')); ?>
         <?php
         if ($export_type == 'server') {
             echo __('Exporting databases from the current server');
@@ -183,7 +193,7 @@ if (isset($_GET['sql_query'])) {
                     id="checkbox_quick_dump_onserver"
                     <?php PMA_exportCheckboxCheck('quick_export_onserver'); ?> />
                 <label for="checkbox_quick_dump_onserver">
-                    <?php echo sprintf(__('Save on server in the directory <b>%s</b>'), htmlspecialchars(PMA_userDir($cfg['SaveDir']))); ?>
+                    <?php echo sprintf(__('Save on server in the directory <b>%s</b>'), htmlspecialchars($common_functions->userDir($cfg['SaveDir']))); ?>
                 </label>
             </li>
             <li>
@@ -209,7 +219,7 @@ if (isset($_GET['sql_query'])) {
                         id="checkbox_dump_onserver"
                         <?php PMA_exportCheckboxCheck('onserver'); ?> />
                     <label for="checkbox_dump_onserver">
-                        <?php echo sprintf(__('Save on server in the directory <b>%s</b>'), htmlspecialchars(PMA_userDir($cfg['SaveDir']))); ?>
+                        <?php echo sprintf(__('Save on server in the directory <b>%s</b>'), htmlspecialchars($common_functions->userDir($cfg['SaveDir']))); ?>
                     </label>
                 </li>
                 <li>
@@ -243,7 +253,7 @@ if (isset($_GET['sql_query'])) {
                     $msg->addParam('<a href="Documentation.html#faq6_27" target="documentation">', false);
                     $msg->addParam('</a>', false);
 
-                    echo PMA_showHint($msg);
+                    echo $common_functions->showHint($msg);
                     ?>
                     </label>
                     <input type="text" name="filename_template" id="filename_template"
@@ -360,7 +370,10 @@ if (isset($_GET['sql_query'])) {
 <?php } ?>
 
 <div class="exportoptions" id="submit">
-<?php PMA_externalBug(__('SQL compatibility mode'), 'mysql', '50027', '14515'); ?>
+<?php echo $common_functions->getExternalBug(
+        __('SQL compatibility mode'), 'mysql', '50027', '14515'
+    );
+?>
     <input type="submit" value="<?php echo __('Go'); ?>" id="buttonGo" />
 </div>
 </form>

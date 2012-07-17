@@ -17,6 +17,7 @@ $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('tbl_structure.js');
 $scripts->addFile('indexes.js');
+$common_functions = PMA_CommonFunctions::getInstance();
 
 /**
  * handle multiple field commands if required
@@ -56,15 +57,15 @@ if (! empty($submit_mult) && isset($_REQUEST['selected_fld'])) {
         $sql_query = '';
         foreach ($_REQUEST['selected_fld'] as $idx => $sval) {
             if ($sql_query == '') {
-                $sql_query .= 'SELECT ' . PMA_backquote($sval);
+                $sql_query .= 'SELECT ' . $common_functions->backquote($sval);
             } else {
-                $sql_query .=  ', ' . PMA_backquote($sval);
+                $sql_query .=  ', ' . $common_functions->backquote($sval);
             }
         }
 
         // what is this htmlspecialchars() for??
-        //$sql_query .= ' FROM ' . PMA_backquote(htmlspecialchars($table));
-        $sql_query .= ' FROM ' . PMA_backquote($db) . '.' . PMA_backquote($table);
+        //$sql_query .= ' FROM ' . backquote(htmlspecialchars($table));
+        $sql_query .= ' FROM ' . $common_functions->backquote($db) . '.' . $common_functions->backquote($table);
         include 'sql.php';
         exit;
     } else {
@@ -134,7 +135,7 @@ $fields = (array) PMA_DBI_get_columns($db, $table, null, true);
 // in MySQL 4.0.25 and 5.0.21, http://bugs.mysql.com/20910).
 
 $show_create_table = PMA_DBI_fetch_value(
-    'SHOW CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table),
+    'SHOW CREATE TABLE ' . $common_functions->backquote($db) . '.' . $common_functions->backquote($table),
     0, 1
 );
 $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
@@ -144,34 +145,34 @@ $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
  */
 // action titles (image or string)
 $titles = array();
-$titles['Change']               = PMA_getIcon('b_edit.png', __('Change'));
-$titles['Drop']                 = PMA_getIcon('b_drop.png', __('Drop'));
-$titles['NoDrop']               = PMA_getIcon('b_drop.png', __('Drop'));
-$titles['Primary']              = PMA_getIcon('b_primary.png', __('Primary'));
-$titles['Index']                = PMA_getIcon('b_index.png', __('Index'));
-$titles['Unique']               = PMA_getIcon('b_unique.png', __('Unique'));
-$titles['Spatial']              = PMA_getIcon('b_spatial.png', __('Spatial'));
-$titles['IdxFulltext']          = PMA_getIcon('b_ftext.png', __('Fulltext'));
-$titles['NoPrimary']            = PMA_getIcon('bd_primary.png', __('Primary'));
-$titles['NoIndex']              = PMA_getIcon('bd_index.png', __('Index'));
-$titles['NoUnique']             = PMA_getIcon('bd_unique.png', __('Unique'));
-$titles['NoSpatial']            = PMA_getIcon('bd_spatial.png', __('Spatial'));
-$titles['NoIdxFulltext']        = PMA_getIcon('bd_ftext.png', __('Fulltext'));
-$titles['DistinctValues']       = PMA_getIcon('b_browse.png', __('Distinct values'));
+$titles['Change']               = $common_functions->getIcon('b_edit.png', __('Change'));
+$titles['Drop']                 = $common_functions->getIcon('b_drop.png', __('Drop'));
+$titles['NoDrop']               = $common_functions->getIcon('b_drop.png', __('Drop'));
+$titles['Primary']              = $common_functions->getIcon('b_primary.png', __('Primary'));
+$titles['Index']                = $common_functions->getIcon('b_index.png', __('Index'));
+$titles['Unique']               = $common_functions->getIcon('b_unique.png', __('Unique'));
+$titles['Spatial']              = $common_functions->getIcon('b_spatial.png', __('Spatial'));
+$titles['IdxFulltext']          = $common_functions->getIcon('b_ftext.png', __('Fulltext'));
+$titles['NoPrimary']            = $common_functions->getIcon('bd_primary.png', __('Primary'));
+$titles['NoIndex']              = $common_functions->getIcon('bd_index.png', __('Index'));
+$titles['NoUnique']             = $common_functions->getIcon('bd_unique.png', __('Unique'));
+$titles['NoSpatial']            = $common_functions->getIcon('bd_spatial.png', __('Spatial'));
+$titles['NoIdxFulltext']        = $common_functions->getIcon('bd_ftext.png', __('Fulltext'));
+$titles['DistinctValues']       = $common_functions->getIcon('b_browse.png', __('Distinct values'));
 
 // hidden action titles (image and string)
 $hidden_titles = array();
-$hidden_titles['DistinctValues']       = PMA_getIcon('b_browse.png', __('Distinct values'), true);
-$hidden_titles['Primary']              = PMA_getIcon('b_primary.png', __('Add primary key'), true);
-$hidden_titles['NoPrimary']            = PMA_getIcon('bd_primary.png', __('Add primary key'), true);
-$hidden_titles['Index']                = PMA_getIcon('b_index.png', __('Add index'), true);
-$hidden_titles['NoIndex']              = PMA_getIcon('bd_index.png', __('Add index'), true);
-$hidden_titles['Unique']               = PMA_getIcon('b_unique.png', __('Add unique index'), true);
-$hidden_titles['NoUnique']             = PMA_getIcon('bd_unique.png', __('Add unique index'), true);
-$hidden_titles['Spatial']              = PMA_getIcon('b_spatial.png', __('Add SPATIAL index'), true);
-$hidden_titles['NoSpatial']            = PMA_getIcon('bd_spatial.png', __('Add SPATIAL index'), true);
-$hidden_titles['IdxFulltext']          = PMA_getIcon('b_ftext.png', __('Add FULLTEXT index'), true);
-$hidden_titles['NoIdxFulltext']        = PMA_getIcon('bd_ftext.png', __('Add FULLTEXT index'), true);
+$hidden_titles['DistinctValues']       = $common_functions->getIcon('b_browse.png', __('Distinct values'), true);
+$hidden_titles['Primary']              = $common_functions->getIcon('b_primary.png', __('Add primary key'), true);
+$hidden_titles['NoPrimary']            = $common_functions->getIcon('bd_primary.png', __('Add primary key'), true);
+$hidden_titles['Index']                = $common_functions->getIcon('b_index.png', __('Add index'), true);
+$hidden_titles['NoIndex']              = $common_functions->getIcon('bd_index.png', __('Add index'), true);
+$hidden_titles['Unique']               = $common_functions->getIcon('b_unique.png', __('Add unique index'), true);
+$hidden_titles['NoUnique']             = $common_functions->getIcon('bd_unique.png', __('Add unique index'), true);
+$hidden_titles['Spatial']              = $common_functions->getIcon('b_spatial.png', __('Add SPATIAL index'), true);
+$hidden_titles['NoSpatial']            = $common_functions->getIcon('bd_spatial.png', __('Add SPATIAL index'), true);
+$hidden_titles['IdxFulltext']          = $common_functions->getIcon('b_ftext.png', __('Add FULLTEXT index'), true);
+$hidden_titles['NoIdxFulltext']        = $common_functions->getIcon('bd_ftext.png', __('Add FULLTEXT index'), true);
 
 /**
  * Displays the table structure ('show table' works correct since 3.23.03)
@@ -255,7 +256,7 @@ foreach ($fields as $row) {
     $columns_list[]   = $row['Field'];
 
     $type             = $row['Type'];
-    $extracted_columnspec = PMA_extractColumnSpec($row['Type']);
+    $extracted_columnspec = $common_functions->extractColumnSpec($row['Type']);
 
     if ('set' == $extracted_columnspec['type']
         || 'enum' == $extracted_columnspec['type']
@@ -334,7 +335,7 @@ foreach ($fields as $row) {
     ?>
 <tr class="<?php echo $odd_row ? 'odd': 'even'; $odd_row = !$odd_row; ?>">
     <td class="center">
-        <input type="checkbox" name="selected_fld[]" value="<?php echo htmlspecialchars($row['Field']); ?>" id="checkbox_row_<?php echo $rownum; ?>" <?php echo $checked; ?> />
+        <input type="checkbox" class="checkall" name="selected_fld[]" value="<?php echo htmlspecialchars($row['Field']); ?>" id="checkbox_row_<?php echo $rownum; ?>" <?php echo $checked; ?> />
     </td>
     <td class="right">
         <?php echo $rownum; ?>
@@ -348,7 +349,7 @@ foreach ($fields as $row) {
     if (isset($row['Default'])) {
         if ($extracted_columnspec['type'] == 'bit') {
             // here, $row['Default'] contains something like b'010'
-            echo PMA_convertBitDefaultValue($row['Default']);
+            echo $common_functions->convertBitDefaultValue($row['Default']);
         } else {
             echo $row['Default'];
         }
@@ -362,7 +363,7 @@ foreach ($fields as $row) {
             <?php echo $titles['Change']; ?></a>
     </td>
     <td class="drop center">
-        <a <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="drop_column_anchor"' : ''); ?> href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' DROP ' . PMA_backquote($row['Field']) . ';'); ?>&amp;dropped_column=<?php echo urlencode($row['Field']); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('Column %s has been dropped'), htmlspecialchars($row['Field']))); ?>" >
+        <a <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="drop_column_anchor"' : ''); ?> href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . $common_functions->backquote($table) . ' DROP ' . $common_functions->backquote($row['Field']) . ';'); ?>&amp;dropped_column=<?php echo urlencode($row['Field']); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('Column %s has been dropped'), htmlspecialchars($row['Field']))); ?>" >
             <?php echo $titles['Drop']; ?></a>
     </td>
     <?php }
@@ -375,7 +376,7 @@ foreach ($fields as $row) {
         } else {
             echo "\n";
             ?>
-        <a class="add_primary_key_anchor" href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ($primary ? ' DROP PRIMARY KEY,' : '') . ' ADD PRIMARY KEY(' . PMA_backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('A primary key has been added on %s'), htmlspecialchars($row['Field']))); ?>" >
+        <a class="add_primary_key_anchor" href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . $common_functions->backquote($table) . ($primary ? ' DROP PRIMARY KEY,' : '') . ' ADD PRIMARY KEY(' . $common_functions->backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('A primary key has been added on %s'), htmlspecialchars($row['Field']))); ?>" >
             <?php echo $titles['Primary']; ?></a>
             <?php $primary_enabled = true;
         }
@@ -390,7 +391,7 @@ foreach ($fields as $row) {
         } else {
             echo "\n";
             ?>
-        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE(' . PMA_backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
+        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . $common_functions->backquote($table) . ' ADD UNIQUE(' . $common_functions->backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
             <?php echo $titles['Unique']; ?></a>
             <?php $unique_enabled = true;
         }
@@ -405,7 +406,7 @@ foreach ($fields as $row) {
         } else {
             echo "\n";
             ?>
-        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD INDEX(' . PMA_backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
+        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . $common_functions->backquote($table) . ' ADD INDEX(' . $common_functions->backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
             <?php echo $titles['Index']; ?></a>
             <?php
             $index_enabled = true;
@@ -428,7 +429,7 @@ foreach ($fields as $row) {
         } else {
             echo "\n";
             ?>
-        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD SPATIAL(' . PMA_backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
+        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . $common_functions->backquote($table) . ' ADD SPATIAL(' . $common_functions->backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
             <?php echo $titles['Spatial']; ?></a>
             <?php
             $spatial_enabled = true;
@@ -444,7 +445,7 @@ foreach ($fields as $row) {
             echo "\n";
             ?>
     <td class="fulltext replaced_by_more center nowrap">
-        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT(' . PMA_backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
+        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . $common_functions->backquote($table) . ' ADD FULLTEXT(' . $common_functions->backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
             <?php echo $titles['IdxFulltext']; ?></a>
             <?php $fulltext_enabled = true; ?>
     </td>
@@ -461,18 +462,18 @@ foreach ($fields as $row) {
         } // end if... else...
 ?>
     <td class="browse replaced_by_more center">
-        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT COUNT(*) AS ' . PMA_backquote(__('Rows')) . ', ' . PMA_backquote($row['Field']) . ' FROM ' . PMA_backquote($table) . ' GROUP BY ' . PMA_backquote($row['Field']) . ' ORDER BY ' . PMA_backquote($row['Field'])); ?>">            <?php echo $titles['DistinctValues']; ?></a>
+        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT COUNT(*) AS ' . $common_functions->backquote(__('Rows')) . ', ' . $common_functions->backquote($row['Field']) . ' FROM ' . $common_functions->backquote($table) . ' GROUP BY ' . $common_functions->backquote($row['Field']) . ' ORDER BY ' . $common_functions->backquote($row['Field'])); ?>">            <?php echo $titles['DistinctValues']; ?></a>
     </td>
         <?php
         if ($GLOBALS['cfg']['PropertiesIconic'] !== true && $GLOBALS['cfg']['HideStructureActions'] === true) { ?>
     <td class="more_opts" id="more_opts<?php echo $rownum; ?>">
-        <?php echo PMA_getImage('more.png', __('Show more actions')); ?> <?php echo __('More'); ?>
+        <?php echo $common_functions->getImage('more.png', __('Show more actions')); ?> <?php echo __('More'); ?>
         <div class="structure_actions_dropdown" id="row_<?php echo $rownum; ?>">
             <div  class="<?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'action_primary ' : ''); ?>replace_in_more">
                 <?php
                 if (isset($primary_enabled)) {
                      if ($primary_enabled) { ?>
-                          <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ($primary ? ' DROP PRIMARY KEY,' : '') . ' ADD PRIMARY KEY(' . PMA_backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('A primary key has been added on %s'), htmlspecialchars($row['Field']))); ?>">
+                          <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . $common_functions->backquote($table) . ($primary ? ' DROP PRIMARY KEY,' : '') . ' ADD PRIMARY KEY(' . $common_functions->backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('A primary key has been added on %s'), htmlspecialchars($row['Field']))); ?>">
                              <?php echo $hidden_titles['Primary']; ?>
                          </a>
                      <?php
@@ -485,7 +486,7 @@ foreach ($fields as $row) {
                 <?php
                 if (isset($unique_enabled)) {
                      if ($unique_enabled) { ?>
-                         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD UNIQUE(' . PMA_backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
+                         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . $common_functions->backquote($table) . ' ADD UNIQUE(' . $common_functions->backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
                              <?php echo $hidden_titles['Unique']; ?>
                          </a>
                      <?php
@@ -498,7 +499,7 @@ foreach ($fields as $row) {
                <?php
                 if (isset($index_enabled)) {
                      if ($index_enabled) { ?>
-                         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD INDEX(' . PMA_backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
+                         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . $common_functions->backquote($table) . ' ADD INDEX(' . $common_functions->backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
                              <?php echo $hidden_titles['Index']; ?>
                          </a>
                      <?php
@@ -512,7 +513,7 @@ foreach ($fields as $row) {
                 <?php
                 if (isset($spatial_enabled)) {
                     if ($spatial_enabled) { ?>
-                        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD SPATIAL(' . PMA_backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
+                        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . $common_functions->backquote($table) . ' ADD SPATIAL(' . $common_functions->backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
                             <?php echo $hidden_titles['Spatial']; ?>
                         </a>
                     <?php
@@ -525,7 +526,7 @@ foreach ($fields as $row) {
                 <?php
                 if (isset($fulltext_enabled)) {
                      if ($fulltext_enabled) { ?>
-                         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . PMA_backquote($table) . ' ADD FULLTEXT(' . PMA_backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
+                         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . $common_functions->backquote($table) . ' ADD FULLTEXT(' . $common_functions->backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
                              <?php echo $hidden_titles['IdxFulltext']; ?>
                          </a>
                      <?php
@@ -535,7 +536,7 @@ foreach ($fields as $row) {
                 } ?>
             </div>
             <div class="action_browse replace_in_more">
-                <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT COUNT(*) AS ' . PMA_backquote(__('Rows')) . ', ' . PMA_backquote($row['Field']) . ' FROM ' . PMA_backquote($table) . ' GROUP BY ' . PMA_backquote($row['Field']) . ' ORDER BY ' . PMA_backquote($row['Field'])); ?>&amp;browse_distinct=1">
+                <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT COUNT(*) AS ' . $common_functions->backquote(__('Rows')) . ', ' . $common_functions->backquote($row['Field']) . ' FROM ' . $common_functions->backquote($table) . ' GROUP BY ' . $common_functions->backquote($row['Field']) . ' ORDER BY ' . $common_functions->backquote($row['Field'])); ?>&amp;browse_distinct=1">
                     <?php echo $hidden_titles['DistinctValues']; ?>
                 </a>
             </div>
@@ -559,48 +560,43 @@ $checkall_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
 
 <img class="selectallarrow" src="<?php echo $pmaThemeImage . 'arrow_' . $text_dir . '.png'; ?>"
     width="38" height="22" alt="<?php echo __('With selected:'); ?>" />
-<a href="<?php echo $checkall_url; ?>&amp;checkall=1"
-    onclick="if (markAllRows('fieldsForm')) return false;">
-    <?php echo __('Check All'); ?></a>
-/
-<a href="<?php echo $checkall_url; ?>"
-    onclick="if (unMarkAllRows('fieldsForm')) return false;">
-    <?php echo __('Uncheck All'); ?></a>
+<input type="checkbox" id="checkall" title="<?php echo __('Check All'); ?>" />
+<label for="checkall"><?php echo __('Check All'); ?></label>
 
-<i><?php echo __('With selected:'); ?></i>
+<i style="margin-left: 2em"><?php echo __('With selected:'); ?></i>
 
 <?php
-echo PMA_getButtonOrImage(
-        'submit_mult', 'mult_submit', 'submit_mult_browse',
-        __('Browse'), 'b_browse.png', 'browse'
-    );
+echo $common_functions->getButtonOrImage(
+    'submit_mult', 'mult_submit', 'submit_mult_browse',
+    __('Browse'), 'b_browse.png', 'browse'
+);
 
 if (! $tbl_is_view && ! $db_is_information_schema) {
-    echo PMA_getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_change',
-            __('Change'), 'b_edit.png', 'change'
-        );
-    echo PMA_getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_drop',
-            __('Drop'), 'b_drop.png', 'drop'
-        );
+    echo $common_functions->getButtonOrImage(
+        'submit_mult', 'mult_submit', 'submit_mult_change',
+        __('Change'), 'b_edit.png', 'change'
+    );
+    echo $common_functions->getButtonOrImage(
+        'submit_mult', 'mult_submit', 'submit_mult_drop',
+        __('Drop'), 'b_drop.png', 'drop'
+    );
     if ('ARCHIVE' != $tbl_storage_engine) {
-        echo PMA_getButtonOrImage(
-                'submit_mult', 'mult_submit', 'submit_mult_primary',
-                __('Primary'), 'b_primary.png', 'primary'
-            );
-        echo PMA_getButtonOrImage(
-                'submit_mult', 'mult_submit', 'submit_mult_unique',
-                __('Unique'), 'b_unique.png', 'unique'
-            );
-        echo PMA_getButtonOrImage(
-                'submit_mult', 'mult_submit', 'submit_mult_index',
-                __('Index'), 'b_index.png', 'index'
-            );
+        echo $common_functions->getButtonOrImage(
+            'submit_mult', 'mult_submit', 'submit_mult_primary',
+            __('Primary'), 'b_primary.png', 'primary'
+        );
+        echo $common_functions->getButtonOrImage(
+            'submit_mult', 'mult_submit', 'submit_mult_unique',
+            __('Unique'), 'b_unique.png', 'unique'
+        );
+        echo $common_functions->getButtonOrImage(
+            'submit_mult', 'mult_submit', 'submit_mult_index',
+            __('Index'), 'b_index.png', 'index'
+        );
     }
 
     if (! empty($tbl_storage_engine) && $tbl_storage_engine == 'MYISAM') {
-        echo PMA_getButtonOrImage(
+        echo $common_functions->getButtonOrImage(
             'submit_mult', 'mult_submit', 'submit_mult_spatial',
             __('Spatial'), 'b_spatial.png', 'spatial'
         );
@@ -610,10 +606,10 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
         || $tbl_storage_engine == 'ARIA'
         || $tbl_storage_engine == 'MARIA')
     ) {
-        echo PMA_getButtonOrImage(
-                'submit_mult', 'mult_submit', 'submit_mult_fulltext',
-                __('Fulltext'), 'b_ftext.png', 'ftext'
-            );
+        echo $common_functions->getButtonOrImage(
+            'submit_mult', 'mult_submit', 'submit_mult_fulltext',
+            __('Fulltext'), 'b_ftext.png', 'ftext'
+        );
     }
 }
 ?>
@@ -639,7 +635,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
 if ($tbl_is_view) {
     $create_view = PMA_DBI_get_definition($db, 'VIEW', $table);
     $create_view = preg_replace('@^CREATE@', 'ALTER', $create_view);
-    echo PMA_linkOrButton(
+    echo $common_functions->linkOrButton(
         'tbl_sql.php' . PMA_generate_common_url(
             $url_params +
             array(
@@ -647,13 +643,13 @@ if ($tbl_is_view) {
                 'show_query' => '1',
             )
         ),
-        PMA_getIcon('b_edit.png', __('Edit view'), true)
+        $common_functions->getIcon('b_edit.png', __('Edit view'), true)
     );
 }
 ?>
 
 <a href="tbl_printview.php?<?php echo $url_query; ?>"><?php
-echo PMA_getIcon('b_print.png', __('Print view'), true);
+echo $common_functions->getIcon('b_print.png', __('Print view'), true);
 ?></a>
 
 <?php
@@ -661,31 +657,33 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
 
     // if internal relations are available, or foreign keys are supported
     // ($tbl_storage_engine comes from libraries/tbl_info.inc.php)
-    if ($cfgRelation['relwork'] || PMA_isForeignKeySupported($tbl_storage_engine)) {
+    if ($cfgRelation['relwork']
+        || $common_functions->isForeignKeySupported($tbl_storage_engine)
+    ) {
         ?>
 <a href="tbl_relation.php?<?php echo $url_query; ?>"><?php
-        echo PMA_getIcon('b_relations.png', __('Relation view'), true);
+        echo $common_functions->getIcon('b_relations.png', __('Relation view'), true);
         ?></a>
         <?php
     }
 
     if (!PMA_DRIZZLE) {
         ?>
-<a href="sql.php?<?php echo $url_query; ?>&amp;session_max_rows=all&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . PMA_backquote($table) . ' PROCEDURE ANALYSE()'); ?>"><?php
-        echo PMA_getIcon('b_tblanalyse.png', __('Propose table structure'), true);
+<a href="sql.php?<?php echo $url_query; ?>&amp;session_max_rows=all&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . $common_functions->backquote($table) . ' PROCEDURE ANALYSE()'); ?>"><?php
+        echo $common_functions->getIcon('b_tblanalyse.png', __('Propose table structure'), true);
         ?></a><?php
-        echo PMA_showMySQLDocu('Extending_MySQL', 'procedure_analyse') . "\n";
+        echo $common_functions->showMySQLDocu('Extending_MySQL', 'procedure_analyse') . "\n";
     }
 
     if (PMA_Tracker::isActive()) {
         echo '<a href="tbl_tracking.php?' . $url_query . '">';
-        echo PMA_getIcon('eye.png', __('Track table'), true);
+        echo $common_functions->getIcon('eye.png', __('Track table'), true);
         echo '</a>';
     }
     ?>
 
     <a href="#" id="move_columns_anchor"><?php
-    echo PMA_getIcon('b_move.png', __('Move columns'), true);
+    echo $common_functions->getIcon('b_move.png', __('Move columns'), true);
     ?></a>
 
     <br />
@@ -694,7 +692,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     <?php
     echo PMA_generate_common_hidden_inputs($db, $table);
     if ($cfg['PropertiesIconic']) {
-        echo PMA_getImage('b_insrow.png', __('Add column'));
+        echo $common_functions->getImage('b_insrow.png', __('Add column'));
     }
     echo sprintf(__('Add %s column(s)'), '<input type="text" name="num_fields" size="2" maxlength="2" value="1" onfocus="this.select()" />');
 
@@ -712,7 +710,9 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
         'first' => __('At Beginning of Table'),
         'after' => sprintf(__('After %s'), '')
     );
-    echo PMA_getRadioFields('field_where', $choices, 'last', false);
+    echo $common_functions->getRadioFields(
+        'field_where', $choices, 'last', false
+    );
     echo $column_selector;
     unset($column_selector, $choices);
     ?>
@@ -732,7 +732,8 @@ if (! $tbl_is_view
     && ! $db_is_information_schema
     && 'ARCHIVE' !=  $tbl_storage_engine
 ) {
-    echo PMA_getDivForSliderEffect('indexes', __('Indexes'));
+    echo $common_functions->getDivForSliderEffect('indexes', __('Indexes'));
+    
     /**
      * Display indexes
      */
@@ -784,11 +785,11 @@ if ($cfg['ShowStats']) {
     // this is to display for example 261.2 MiB instead of 268k KiB
     $max_digits = 3;
     $decimals = 1;
-    list($data_size, $data_unit) = PMA_formatByteDown(
+    list($data_size, $data_unit) = $common_functions->formatByteDown(
         $showtable['Data_length'], $max_digits, $decimals
     );
     if ($mergetable == false) {
-        list($index_size, $index_unit) = PMA_formatByteDown(
+        list($index_size, $index_unit) = $common_functions->formatByteDown(
             $showtable['Index_length'], $max_digits, $decimals
         );
     }
@@ -797,25 +798,25 @@ if ($cfg['ShowStats']) {
         && isset($showtable['Data_free'])
         && $showtable['Data_free'] > 0
     ) {
-        list($free_size, $free_unit) = PMA_formatByteDown(
+        list($free_size, $free_unit) = $common_functions->formatByteDown(
             $showtable['Data_free'], $max_digits, $decimals
         );
-        list($effect_size, $effect_unit) = PMA_formatByteDown(
+        list($effect_size, $effect_unit) = $common_functions->formatByteDown(
             $showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free'],
             $max_digits, $decimals
         );
     } else {
-        list($effect_size, $effect_unit) = PMA_formatByteDown(
+        list($effect_size, $effect_unit) = $common_functions->formatByteDown(
             $showtable['Data_length'] + $showtable['Index_length'],
             $max_digits, $decimals
         );
     }
-    list($tot_size, $tot_unit) = PMA_formatByteDown(
+    list($tot_size, $tot_unit) = $common_functions->formatByteDown(
         $showtable['Data_length'] + $showtable['Index_length'],
         $max_digits, $decimals
     );
     if ($table_info_num_rows > 0) {
-        list($avg_size, $avg_unit) = PMA_formatByteDown(
+        list($avg_size, $avg_unit) = $common_functions->formatByteDown(
             ($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows'], 6, 1
         );
     }
@@ -874,8 +875,8 @@ if ($cfg['ShowStats']) {
             ?>
     <tr class="tblFooters">
         <td colspan="3" class="center">
-            <a href="sql.php?<?php echo $url_query; ?>&pos=0&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . PMA_backquote($table)); ?>"><?php
-            echo PMA_getIcon('b_tbloptimize.png', __('Optimize table'));
+            <a href="sql.php?<?php echo $url_query; ?>&pos=0&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . $common_functions->backquote($table)); ?>"><?php
+            echo $common_functions->getIcon('b_tbloptimize.png', __('Optimize table'));
             ?></a>
         </td>
     </tr>
@@ -936,7 +937,7 @@ if ($cfg['ShowStats']) {
         ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
         <th class="name"><?php echo __('Rows'); ?></th>
-        <td class="value"><?php echo PMA_formatNumber($showtable['Rows'], 0); ?></td>
+        <td class="value"><?php echo $common_functions->formatNumber($showtable['Rows'], 0); ?></td>
     </tr>
         <?php
     }
@@ -944,7 +945,7 @@ if ($cfg['ShowStats']) {
         ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
         <th class="name"><?php echo __('Row length'); ?> &oslash;</th>
-        <td class="value"><?php echo PMA_formatNumber($showtable['Avg_row_length'], 0); ?></td>
+        <td class="value"><?php echo $common_functions->formatNumber($showtable['Avg_row_length'], 0); ?></td>
     </tr>
         <?php
     }
@@ -960,7 +961,7 @@ if ($cfg['ShowStats']) {
         ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
         <th class="name"><?php echo __('Next autoindex'); ?></th>
-        <td class="value"><?php echo PMA_formatNumber($showtable['Auto_increment'], 0); ?></td>
+        <td class="value"><?php echo $common_functions->formatNumber($showtable['Auto_increment'], 0); ?></td>
     </tr>
         <?php
     }
@@ -968,7 +969,7 @@ if ($cfg['ShowStats']) {
         ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
         <th class="name"><?php echo __('Creation'); ?></th>
-        <td class="value"><?php echo PMA_localisedDate(strtotime($showtable['Create_time'])); ?></td>
+        <td class="value"><?php echo $common_functions->localisedDate(strtotime($showtable['Create_time'])); ?></td>
     </tr>
         <?php
     }
@@ -976,7 +977,7 @@ if ($cfg['ShowStats']) {
         ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
         <th class="name"><?php echo __('Last update'); ?></th>
-        <td class="value"><?php echo PMA_localisedDate(strtotime($showtable['Update_time'])); ?></td>
+        <td class="value"><?php echo $common_functions->localisedDate(strtotime($showtable['Update_time'])); ?></td>
     </tr>
         <?php
     }
@@ -984,7 +985,7 @@ if ($cfg['ShowStats']) {
         ?>
     <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
         <th class="name"><?php echo __('Last check'); ?></th>
-        <td class="value"><?php echo PMA_localisedDate(strtotime($showtable['Check_time'])); ?></td>
+        <td class="value"><?php echo $common_functions->localisedDate(strtotime($showtable['Check_time'])); ?></td>
     </tr>
         <?php
     }

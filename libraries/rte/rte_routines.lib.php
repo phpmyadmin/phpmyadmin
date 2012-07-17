@@ -11,6 +11,8 @@ if (! defined('PHPMYADMIN')) {
 
 /**
  * Sets required globals
+ *
+ * @return nothing
  */
 function PMA_RTN_setGlobals()
 {
@@ -30,6 +32,8 @@ function PMA_RTN_setGlobals()
 
 /**
  * Main function for the routines functionality
+ *
+ * @return nothing
  */
 function PMA_RTN_main()
 {
@@ -47,7 +51,7 @@ function PMA_RTN_main()
      */
     $columns  = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`, ";
     $columns .= "`DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
-    $where    = "ROUTINE_SCHEMA='" . PMA_sqlAddSlashes($db) . "'";
+    $where    = "ROUTINE_SCHEMA='" . PMA_CommonFunctions::getInstance()->sqlAddSlashes($db) . "'";
     $items    = PMA_DBI_fetch_result(
         "SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;"
     );
@@ -78,7 +82,7 @@ function PMA_RTN_main()
  * as returned by PMA_RTN_parseAllParameters() and returns an array containing
  * the information about this parameter.
  *
- * @param string  $value    A string containing one parameter of a routine
+ * @param string $value A string containing one parameter of a routine
  *
  * @return array             Parsed information about the input parameter
  */
@@ -100,7 +104,9 @@ function PMA_RTN_parseOneParameter($value)
     if ($parsed_param[$pos]['type'] == 'alpha_identifier'
         || $parsed_param[$pos]['type'] == 'quote_backtick'
     ) {
-        $retval[1] = PMA_unQuote($parsed_param[$pos]['data']);
+        $retval[1] = PMA_CommonFunctions::getInstance()->unQuote(
+            $parsed_param[$pos]['data']
+        );
         $pos++;
     }
     $depth = 0;
@@ -111,17 +117,27 @@ function PMA_RTN_parseOneParameter($value)
             || $parsed_param[$i]['type'] == 'alpha_functionName') && $depth == 0 // "CHAR" seems to be mistaken for a function by the parser
         ) {
             $retval[2] = strtoupper($parsed_param[$i]['data']);
-        } else if ($parsed_param[$i]['type'] == 'punct_bracket_open_round' && $depth == 0) {
+        } else if ($parsed_param[$i]['type'] == 'punct_bracket_open_round'
+            && $depth == 0
+        ) {
             $depth = 1;
-        } else if ($parsed_param[$i]['type'] == 'punct_bracket_close_round' && $depth == 1) {
+        } else if ($parsed_param[$i]['type'] == 'punct_bracket_close_round'
+            && $depth == 1
+        ) {
             $depth = 0;
         } else if ($depth == 1) {
             $param_length .= $parsed_param[$i]['data'];
-        } else if ($parsed_param[$i]['type'] == 'alpha_reservedWord' && strtoupper($parsed_param[$i]['data']) == 'CHARSET' && $depth == 0) {
-            if ($parsed_param[$i+1]['type'] == 'alpha_charset' || $parsed_param[$i+1]['type'] == 'alpha_identifier') {
+        } else if ($parsed_param[$i]['type'] == 'alpha_reservedWord'
+            && strtoupper($parsed_param[$i]['data']) == 'CHARSET' && $depth == 0
+        ) {
+            if ($parsed_param[$i+1]['type'] == 'alpha_charset'
+                || $parsed_param[$i+1]['type'] == 'alpha_identifier'
+            ) {
                 $param_opts[] = strtolower($parsed_param[$i+1]['data']);
             }
-        } else if ($parsed_param[$i]['type'] == 'alpha_columnAttrib' && $depth == 0) {
+        } else if ($parsed_param[$i]['type'] == 'alpha_columnAttrib'
+            && $depth == 0
+        ) {
             $param_opts[] = strtoupper($parsed_param[$i]['data']);
         }
     }
@@ -137,8 +153,8 @@ function PMA_RTN_parseOneParameter($value)
  * SHOW CREATE [PROCEDURE | FUNCTION] query and extracts
  * information about the routine's parameters.
  *
- * @param array   $parsed_query  Parsed query, returned by by PMA_SQP_parse()
- * @param string  $routine_type  Routine type: 'PROCEDURE' or 'FUNCTION'
+ * @param array  $parsed_query Parsed query, returned by by PMA_SQP_parse()
+ * @param string $routine_type Routine type: 'PROCEDURE' or 'FUNCTION'
  *
  * @return array   Information about the parameteres of a routine.
  */
@@ -153,14 +169,20 @@ function PMA_RTN_parseAllParameters($parsed_query, $routine_type)
     $fetching = false;
     $depth = 0;
     for ($i=0; $i<$parsed_query['len']; $i++) {
-        if ($parsed_query[$i]['type'] == 'alpha_reservedWord' && $parsed_query[$i]['data'] == $routine_type) {
+        if ($parsed_query[$i]['type'] == 'alpha_reservedWord'
+            && $parsed_query[$i]['data'] == $routine_type
+        ) {
             $fetching = true;
-        } else if ($fetching == true && $parsed_query[$i]['type'] == 'punct_bracket_open_round') {
+        } else if ($fetching == true
+            && $parsed_query[$i]['type'] == 'punct_bracket_open_round'
+        ) {
             $depth++;
             if ($depth > 1) {
                 $buffer .= $parsed_query[$i]['data'] . ' ';
             }
-        } else if ($fetching == true && $parsed_query[$i]['type'] == 'punct_bracket_close_round') {
+        } else if ($fetching == true
+            && $parsed_query[$i]['type'] == 'punct_bracket_close_round'
+        ) {
             $depth--;
             if ($depth > 0) {
                 $buffer .= $parsed_query[$i]['data'] . ' ';
@@ -203,7 +225,7 @@ function PMA_RTN_parseAllParameters($parsed_query, $routine_type)
  * SHOW CREATE [PROCEDURE | FUNCTION] query and extracts
  * information about the routine's definer.
  *
- * @param array   $parsed_query   Parsed query, returned by PMA_SQP_parse()
+ * @param array $parsed_query Parsed query, returned by PMA_SQP_parse()
  *
  * @return string  The definer of a routine.
  */
@@ -212,12 +234,21 @@ function PMA_RTN_parseRoutineDefiner($parsed_query)
     $retval = '';
     $fetching = false;
     for ($i=0; $i<$parsed_query['len']; $i++) {
-        if ($parsed_query[$i]['type'] == 'alpha_reservedWord' && $parsed_query[$i]['data'] == 'DEFINER') {
+        if ($parsed_query[$i]['type'] == 'alpha_reservedWord'
+            && $parsed_query[$i]['data'] == 'DEFINER'
+        ) {
             $fetching = true;
-        } else if ($fetching == true && ($parsed_query[$i]['type'] != 'quote_backtick' && substr($parsed_query[$i]['type'], 0, 5) != 'punct')) {
+        } else if ($fetching == true
+            && $parsed_query[$i]['type'] != 'quote_backtick'
+            && substr($parsed_query[$i]['type'], 0, 5) != 'punct'
+        ) {
             break;
-        } else if ($fetching == true && $parsed_query[$i]['type'] == 'quote_backtick') {
-            $retval .= PMA_unQuote($parsed_query[$i]['data']);
+        } else if ($fetching == true
+            && $parsed_query[$i]['type'] == 'quote_backtick'
+        ) {
+            $retval .= PMA_CommonFunctions::getInstance()->unQuote(
+                $parsed_query[$i]['data']
+            );
         } else if ($fetching == true && $parsed_query[$i]['type'] == 'punct_user') {
             $retval .= $parsed_query[$i]['data'];
         }
@@ -227,10 +258,14 @@ function PMA_RTN_parseRoutineDefiner($parsed_query)
 
 /**
  * Handles editor requests for adding or editing an item
+ *
+ * @return Does not return
  */
 function PMA_RTN_handleEditor()
 {
     global $_GET, $_POST, $_REQUEST, $GLOBALS, $db, $errors;
+    
+    $common_functions = PMA_CommonFunctions::getInstance();
 
     if (! empty($_REQUEST['editor_process_add'])
         || ! empty($_REQUEST['editor_process_edit'])
@@ -248,7 +283,7 @@ function PMA_RTN_handleEditor()
                 } else {
                     // Backup the old routine, in case something goes wrong
                     $create_routine = PMA_DBI_get_definition($db, $_REQUEST['item_original_type'], $_REQUEST['item_original_name']);
-                    $drop_routine = "DROP {$_REQUEST['item_original_type']} " . PMA_backquote($_REQUEST['item_original_name']) . ";\n";
+                    $drop_routine = "DROP {$_REQUEST['item_original_type']} " . $common_functions->backquote($_REQUEST['item_original_name']) . ";\n";
                     $result = PMA_DBI_try_query($drop_routine);
                     if (! $result) {
                         $errors[] = sprintf(__('The following query has failed: "%s"'), $drop_routine) . '<br />'
@@ -271,7 +306,7 @@ function PMA_RTN_handleEditor()
                             }
                         } else {
                             $message = PMA_Message::success(__('Routine %1$s has been modified.'));
-                            $message->addParam(PMA_backquote($_REQUEST['item_name']));
+                            $message->addParam($common_functions->backquote($_REQUEST['item_name']));
                             $sql_query = $drop_routine . $routine_query;
                         }
                     }
@@ -280,18 +315,27 @@ function PMA_RTN_handleEditor()
                 // 'Add a new routine' mode
                 $result = PMA_DBI_try_query($routine_query);
                 if (! $result) {
-                    $errors[] = sprintf(__('The following query has failed: "%s"'), $routine_query) . '<br /><br />'
-                                      . __('MySQL said: ') . PMA_DBI_getError(null);
+                    $errors[] = sprintf(
+                        __('The following query has failed: "%s"'),
+                        $routine_query
+                    ) . '<br /><br />'
+                        . __('MySQL said: ') . PMA_DBI_getError(null);
                 } else {
-                    $message = PMA_Message::success(__('Routine %1$s has been created.'));
-                    $message->addParam(PMA_backquote($_REQUEST['item_name']));
+                    $message = PMA_Message::success(
+                        __('Routine %1$s has been created.')
+                    );
+                    $message->addParam(
+                        $common_functions->backquote($_REQUEST['item_name'])
+                    );
                     $sql_query = $routine_query;
                 }
             }
         }
 
         if (count($errors)) {
-            $message = PMA_Message::error(__('<b>One or more errors have occured while processing your request:</b>'));
+            $message = PMA_Message::error(
+                __('<b>One or more errors have occured while processing your request:</b>')
+            );
             $message->addString('<ul>');
             foreach ($errors as $string) {
                 $message->addString('<li>' . $string . '</li>');
@@ -299,14 +343,14 @@ function PMA_RTN_handleEditor()
             $message->addString('</ul>');
         }
 
-        $output = PMA_getMessage($message, $sql_query);
+        $output = $common_functions->getMessage($message, $sql_query);
         if ($GLOBALS['is_ajax_request']) {
             $response = PMA_Response::getInstance();
             if ($message->isSuccess()) {
                 $columns  = "`SPECIFIC_NAME`, `ROUTINE_NAME`, `ROUTINE_TYPE`, `DTD_IDENTIFIER`, `ROUTINE_DEFINITION`";
-                $where    = "ROUTINE_SCHEMA='" . PMA_sqlAddSlashes($db) . "' "
-                          . "AND ROUTINE_NAME='" . PMA_sqlAddSlashes($_REQUEST['item_name']) . "'"
-                          . "AND ROUTINE_TYPE='" . PMA_sqlAddSlashes($_REQUEST['item_type']) . "'";
+                $where    = "ROUTINE_SCHEMA='" . $common_functions->sqlAddSlashes($db) . "' "
+                          . "AND ROUTINE_NAME='" . $common_functions->sqlAddSlashes($_REQUEST['item_name']) . "'"
+                          . "AND ROUTINE_TYPE='" . $common_functions->sqlAddSlashes($_REQUEST['item_type']) . "'";
                 $routine  = PMA_DBI_fetch_single_row("SELECT $columns FROM `INFORMATION_SCHEMA`.`ROUTINES` WHERE $where;");
                 $response->addJSON('name', htmlspecialchars(strtoupper($_REQUEST['item_name'])));
                 $response->addJSON('new_row', PMA_RTN_getRowForList($routine));
@@ -373,8 +417,8 @@ function PMA_RTN_handleEditor()
             $message  = __('Error in processing request') . ' : ';
             $message .= sprintf(
                 PMA_RTE_getWord('not_found'),
-                htmlspecialchars(PMA_backquote($_REQUEST['item_name'])),
-                htmlspecialchars(PMA_backquote($db))
+                htmlspecialchars($common_functions->backquote($_REQUEST['item_name'])),
+                htmlspecialchars($common_functions->backquote($db))
             );
             $message = PMA_message::error($message);
             if ($GLOBALS['is_ajax_request']) {
@@ -399,6 +443,8 @@ function PMA_RTN_handleEditor()
 function PMA_RTN_getDataFromRequest()
 {
     global $_REQUEST, $param_directions, $param_sqldataaccess;
+    
+    $common_functions = PMA_CommonFunctions::getInstance();
 
     $retval = array();
     $indices = array('item_name',
@@ -454,7 +500,7 @@ function PMA_RTN_getDataFromRequest()
         $retval['item_param_name'] = $_REQUEST['item_param_name'];
         $retval['item_param_type'] = $_REQUEST['item_param_type'];
         foreach ($retval['item_param_type'] as $key => $value) {
-            if (! in_array($value, PMA_getSupportedDatatypes(), true)) {
+            if (! in_array($value, $common_functions->getSupportedDatatypes(), true)) {
                 $retval['item_param_type'][$key] = '';
             }
         }
@@ -471,7 +517,7 @@ function PMA_RTN_getDataFromRequest()
     }
     $retval['item_returntype'] = '';
     if (isset($_REQUEST['item_returntype'])
-        && in_array($_REQUEST['item_returntype'], PMA_getSupportedDatatypes())
+        && in_array($_REQUEST['item_returntype'], $common_functions->getSupportedDatatypes())
     ) {
         $retval['item_returntype'] = $_REQUEST['item_returntype'];
     }
@@ -505,10 +551,10 @@ function PMA_RTN_getDataFromRequest()
  * This function will generate the values that are required to complete
  * the "Edit routine" form given the name of a routine.
  *
- * @param string   $name   The name of the routine.
- * @param string   $type   Type of routine (ROUTINE|PROCEDURE)
- * @param bool     $all    Whether to return all data or just
- *                           the info about parameters.
+ * @param string $name The name of the routine.
+ * @param string $type Type of routine (ROUTINE|PROCEDURE)
+ * @param bool   $all  Whether to return all data or just
+ *                     the info about parameters.
  *
  * @return array    Data necessary to create the routine editor.
  */
@@ -516,15 +562,16 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
 {
     global $db;
 
+    $common_functions = PMA_CommonFunctions::getInstance();
     $retval  = array();
 
     // Build and execute the query
     $fields  = "SPECIFIC_NAME, ROUTINE_TYPE, DTD_IDENTIFIER, "
              . "ROUTINE_DEFINITION, IS_DETERMINISTIC, SQL_DATA_ACCESS, "
              . "ROUTINE_COMMENT, SECURITY_TYPE";
-    $where   = "ROUTINE_SCHEMA='" . PMA_sqlAddSlashes($db) . "' "
-             . "AND SPECIFIC_NAME='" . PMA_sqlAddSlashes($name) . "'"
-             . "AND ROUTINE_TYPE='" . PMA_sqlAddSlashes($type) . "'";
+    $where   = "ROUTINE_SCHEMA='" . $common_functions->sqlAddSlashes($db) . "' "
+             . "AND SPECIFIC_NAME='" . $common_functions->sqlAddSlashes($name) . "'"
+             . "AND ROUTINE_TYPE='" . $common_functions->sqlAddSlashes($type) . "'";
     $query   = "SELECT $fields FROM INFORMATION_SCHEMA.ROUTINES WHERE $where;";
 
     $routine = PMA_DBI_fetch_single_row($query);
@@ -577,7 +624,9 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
                         && strtoupper($parsed_query[$i]['data']) == 'RETURNS'
                     ) {
                         $fetching = true;
-                    } else if ($fetching == true && $parsed_query[$i]['type'] == 'alpha_reservedWord') {
+                    } else if ($fetching == true
+                        && $parsed_query[$i]['type'] == 'alpha_reservedWord'
+                    ) {
                         // We will not be looking for options such as UNSIGNED
                         // or ZEROFILL because there is no way that a numeric
                         // field's DTD_IDENTIFIER can be longer than 64
@@ -604,8 +653,8 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
             $retval['item_returnopts_num']  = $returnparam[4];
             $retval['item_returnopts_text'] = $returnparam[4];
         }
-        $retval['item_definer']         = PMA_RTN_parseRoutineDefiner($parsed_query);
-        $retval['item_definition']      = $routine['ROUTINE_DEFINITION'];
+        $retval['item_definer'] = PMA_RTN_parseRoutineDefiner($parsed_query);
+        $retval['item_definition'] = $routine['ROUTINE_DEFINITION'];
         $retval['item_isdeterministic'] = '';
         if ($routine['IS_DETERMINISTIC'] == 'YES') {
             $retval['item_isdeterministic'] = " checked='checked'";
@@ -627,19 +676,21 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
 /**
  * Creates one row for the parameter table used in the routine editor.
  *
- * @param array    $routine    Data for the routine returned by
- *                               PMA_RTN_getDataFromRequest() or
- *                               PMA_RTN_getDataFromName()
- * @param mixed    $index      Either a numeric index of the row being processed
- *                               or NULL to create a template row for AJAX request
- * @param string   $class      Class used to hide the direction column, if the
- *                               row is for a stored function.
+ * @param array  $routine Data for the routine returned by
+ *                        PMA_RTN_getDataFromRequest() or
+ *                        PMA_RTN_getDataFromName()
+ * @param mixed  $index   Either a numeric index of the row being processed
+ *                        or NULL to create a template row for AJAX request
+ * @param string $class   Class used to hide the direction column, if the
+ *                        row is for a stored function.
  *
  * @return string    HTML code of one row of parameter table for the editor.
  */
 function PMA_RTN_getParameterRow($routine = array(), $index = null, $class = '')
 {
     global $param_directions, $param_opts_num, $titles;
+    
+    $common_functions = PMA_CommonFunctions::getInstance();
 
     if ($index === null) {
         // template row for AJAX request
@@ -683,7 +734,9 @@ function PMA_RTN_getParameterRow($routine = array(), $index = null, $class = '')
     $retval .= "            <td><input name='item_param_name[$index]' type='text'\n";
     $retval .= "                       value='{$routine['item_param_name'][$i]}' /></td>\n";
     $retval .= "            <td><select name='item_param_type[$index]'>";
-    $retval .= PMA_getSupportedDatatypes(true, $routine['item_param_type'][$i]) . "\n";
+    $retval .= $common_functions->getSupportedDatatypes(
+        true, $routine['item_param_type'][$i]
+    ) . "\n";
     $retval .= "            </select></td>\n";
     $retval .= "            <td>\n";
     $retval .= "                <input id='item_param_length_$index'\n";
@@ -691,7 +744,7 @@ function PMA_RTN_getParameterRow($routine = array(), $index = null, $class = '')
     $retval .= "                       value='{$routine['item_param_length'][$i]}' />\n";
     $retval .= "                <div class='enum_hint'>\n";
     $retval .= "                    <a href='#' class='open_enum_editor'>\n";
-    $retval .= "                        " . PMA_getImage('b_edit', '', array('title'=>__('ENUM/SET editor'))) . "\n";
+    $retval .= "                        " . $common_functions->getImage('b_edit', '', array('title'=>__('ENUM/SET editor'))) . "\n";
     $retval .= "                    </a>\n";
     $retval .= "                </div>\n";
     $retval .= "            </td>\n";
@@ -732,14 +785,14 @@ function PMA_RTN_getParameterRow($routine = array(), $index = null, $class = '')
 /**
  * Displays a form used to add/edit a routine
  *
- * @param string   $mode         If the editor will be used edit a routine
- *                                 or add a new one: 'edit' or 'add'.
- * @param string   $operation    If the editor was previously invoked with
- *                                 JS turned off, this will hold the name of
- *                                 the current operation
- * @param array    $routine      Data for the routine returned by
- *                                 PMA_RTN_getDataFromRequest() or
- *                                 PMA_RTN_getDataFromName()
+ * @param string $mode      If the editor will be used edit a routine
+ *                          or add a new one: 'edit' or 'add'.
+ * @param string $operation If the editor was previously invoked with
+ *                          JS turned off, this will hold the name of
+ *                          the current operation
+ * @param array  $routine   Data for the routine returned by
+ *                          PMA_RTN_getDataFromRequest() or
+ *                          PMA_RTN_getDataFromName()
  *
  * @return string   HTML code for the editor.
  */
@@ -779,7 +832,9 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
             $routine['item_type']        = 'PROCEDURE';
             $routine['item_type_toggle'] = 'FUNCTION';
         }
-    } else if ($operation == 'add' || ($routine['item_num_params'] == 0 && $mode == 'add' && ! $errors)) {
+    } else if ($operation == 'add'
+        || ($routine['item_num_params'] == 0 && $mode == 'add' && ! $errors)
+    ) {
         $routine['item_param_dir'][]       = '';
         $routine['item_param_name'][]      = '';
         $routine['item_param_type'][]      = '';
@@ -889,7 +944,8 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
     $retval .= "<tr class='routine_return_row$isfunction_class'>\n";
     $retval .= "    <td>" . __('Return type') . "</td>\n";
     $retval .= "    <td><select name='item_returntype'>\n";
-    $retval .= PMA_getSupportedDatatypes(true, $routine['item_returntype']) . "\n";
+    $retval .= PMA_CommonFunctions::getInstance()
+        ->getSupportedDatatypes(true, $routine['item_returntype']) . "\n";
     $retval .= "    </select></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr class='routine_return_row$isfunction_class'>\n";
@@ -989,14 +1045,16 @@ function PMA_RTN_getQueryFromRequest()
 {
     global $_REQUEST, $errors, $param_sqldataaccess, $param_directions;
 
-    $_REQUEST['item_type'] = isset($_REQUEST['item_type']) ? $_REQUEST['item_type'] : '';
+    $common_functions = PMA_CommonFunctions::getInstance();    
+    $_REQUEST['item_type'] = isset($_REQUEST['item_type'])
+        ? $_REQUEST['item_type'] : '';
 
     $query = 'CREATE ';
     if (! empty($_REQUEST['item_definer'])) {
         if (strpos($_REQUEST['item_definer'], '@') !== false) {
             $arr = explode('@', $_REQUEST['item_definer']);
-            $query .= 'DEFINER=' . PMA_backquote($arr[0]);
-            $query .= '@' . PMA_backquote($arr[1]) . ' ';
+            $query .= 'DEFINER=' . $common_functions->backquote($arr[0]);
+            $query .= '@' . $common_functions->backquote($arr[1]) . ' ';
         } else {
             $errors[] = __('The definer must be in the "username@hostname" format');
         }
@@ -1006,10 +1064,13 @@ function PMA_RTN_getQueryFromRequest()
     ) {
         $query .= $_REQUEST['item_type'] . ' ';
     } else {
-        $errors[] = sprintf(__('Invalid routine type: "%s"'), htmlspecialchars($_REQUEST['item_type']));
+        $errors[] = sprintf(
+            __('Invalid routine type: "%s"'),
+            htmlspecialchars($_REQUEST['item_type'])
+        );
     }
     if (! empty($_REQUEST['item_name'])) {
-        $query .= PMA_backquote($_REQUEST['item_name']);
+        $query .= $common_functions->backquote($_REQUEST['item_name']);
     } else {
         $errors[] = __('You must provide a routine name');
     }
@@ -1030,10 +1091,10 @@ function PMA_RTN_getQueryFromRequest()
                     && ! empty($_REQUEST['item_param_dir'][$i])
                     && in_array($_REQUEST['item_param_dir'][$i], $param_directions)
                 ) {
-                    $params .= $_REQUEST['item_param_dir'][$i] . " " . PMA_backquote($_REQUEST['item_param_name'][$i]) . " "
+                    $params .= $_REQUEST['item_param_dir'][$i] . " " . $common_functions->backquote($_REQUEST['item_param_name'][$i]) . " "
                             . $_REQUEST['item_param_type'][$i];
                 } else if ($_REQUEST['item_type'] == 'FUNCTION') {
-                    $params .= PMA_backquote($_REQUEST['item_param_name'][$i]) . " " . $_REQUEST['item_param_type'][$i];
+                    $params .= $common_functions->backquote($_REQUEST['item_param_name'][$i]) . " " . $_REQUEST['item_param_type'][$i];
                 } else if (! $warned_about_dir) {
                     $warned_about_dir = true;
                     $errors[] = sprintf(
@@ -1076,7 +1137,9 @@ function PMA_RTN_getQueryFromRequest()
     }
     $query .= "(" . $params . ") ";
     if ($_REQUEST['item_type'] == 'FUNCTION') {
-        if (! empty($_REQUEST['item_returntype']) && in_array($_REQUEST['item_returntype'], PMA_getSupportedDatatypes())) {
+        if (! empty($_REQUEST['item_returntype'])
+            && in_array($_REQUEST['item_returntype'], $common_functions->getSupportedDatatypes())
+        ) {
             $query .= "RETURNS {$_REQUEST['item_returntype']}";
         } else {
             $errors[] = __('You must provide a valid return type for the routine.');
@@ -1107,7 +1170,7 @@ function PMA_RTN_getQueryFromRequest()
         $query .= ' ';
     }
     if (! empty($_REQUEST['item_comment'])) {
-        $query .= "COMMENT '" . PMA_sqlAddslashes($_REQUEST['item_comment']) . "' ";
+        $query .= "COMMENT '" . $common_functions->sqlAddslashes($_REQUEST['item_comment']) . "' ";
     }
     if (isset($_REQUEST['item_isdeterministic'])) {
         $query .= 'DETERMINISTIC ';
@@ -1133,10 +1196,14 @@ function PMA_RTN_getQueryFromRequest()
 
 /**
  * Handles requests for executing a routine
+ *
+ * @return Does not return
  */
 function PMA_RTN_handleExecute()
 {
     global $_GET, $_POST, $_REQUEST, $GLOBALS, $db;
+    
+    $common_functions = PMA_CommonFunctions::getInstance();
 
     /**
      * Handle all user requests other than the default of listing routines
@@ -1155,7 +1222,7 @@ function PMA_RTN_handleExecute()
                     if (is_array($value)) { // is SET type
                         $value = implode(',', $value);
                     }
-                    $value = PMA_sqlAddSlashes($value);
+                    $value = $common_functions->sqlAddSlashes($value);
                     if (! empty($_REQUEST['funcs'][$routine['item_param_name'][$i]])
                         && in_array($_REQUEST['funcs'][$routine['item_param_name'][$i]], $all_functions)
                     ) {
@@ -1171,20 +1238,20 @@ function PMA_RTN_handleExecute()
                     if ($routine['item_param_dir'][$i] == 'OUT'
                         || $routine['item_param_dir'][$i] == 'INOUT'
                     ) {
-                        $end_query[] = "@p$i AS " . PMA_backquote($routine['item_param_name'][$i]);
+                        $end_query[] = "@p$i AS " . $common_functions->backquote($routine['item_param_name'][$i]);
                     }
                 }
             }
             if ($routine['item_type'] == 'PROCEDURE') {
-                $queries[] = "CALL " . PMA_backquote($routine['item_name'])
+                $queries[] = "CALL " . $common_functions->backquote($routine['item_name'])
                            . "(" . implode(', ', $args) . ");\n";
                 if (count($end_query)) {
                     $queries[] = "SELECT " . implode(', ', $end_query) . ";\n";
                 }
             } else {
-                $queries[] = "SELECT " . PMA_backquote($routine['item_name'])
+                $queries[] = "SELECT " . $common_functions->backquote($routine['item_name'])
                            . "(" . implode(', ', $args) . ") "
-                           . "AS " . PMA_backquote($routine['item_name']) . ";\n";
+                           . "AS " . $common_functions->backquote($routine['item_name']) . ";\n";
             }
             // Execute the queries
             $affected = 0;
@@ -1233,7 +1300,7 @@ function PMA_RTN_handleExecute()
                     $output .= "<fieldset><legend>";
                     $output .= sprintf(
                         __('Execution results of routine %s'),
-                        PMA_backquote(htmlspecialchars($routine['item_name']))
+                        $common_functions->backquote(htmlspecialchars($routine['item_name']))
                     );
                     $output .= "</legend>";
                     $output .= "<table><tr>";
@@ -1290,8 +1357,8 @@ function PMA_RTN_handleExecute()
             $message  = __('Error in processing request') . ' : ';
             $message .= sprintf(
                 PMA_RTE_getWord('not_found'),
-                htmlspecialchars(PMA_backquote($_REQUEST['item_name'])),
-                htmlspecialchars(PMA_backquote($db))
+                htmlspecialchars($common_functions->backquote($_REQUEST['item_name'])),
+                htmlspecialchars($common_functions->backquote($db))
             );
             $message = PMA_message::error($message);
             if ($GLOBALS['is_ajax_request']) {
@@ -1312,7 +1379,7 @@ function PMA_RTN_handleExecute()
         if ($routine !== false) {
             $form = PMA_RTN_getExecuteForm($routine);
             if ($GLOBALS['is_ajax_request'] == true) {
-                $title = __("Execute routine") . " " . PMA_backquote(
+                $title = __("Execute routine") . " " . $common_functions->backquote(
                     htmlentities($_GET['item_name'], ENT_QUOTES)
                 );
                 $response = PMA_Response::getInstance();
@@ -1328,8 +1395,8 @@ function PMA_RTN_handleExecute()
             $message  = __('Error in processing request') . ' : ';
             $message .= sprintf(
                 PMA_RTE_getWord('not_found'),
-                htmlspecialchars(PMA_backquote($_REQUEST['item_name'])),
-                htmlspecialchars(PMA_backquote($db))
+                htmlspecialchars($common_functions->backquote($_REQUEST['item_name'])),
+                htmlspecialchars($common_functions->backquote($db))
             );
             $message = PMA_message::error($message);
 
@@ -1344,14 +1411,16 @@ function PMA_RTN_handleExecute()
 /**
  * Creates the HTML code that shows the routine execution dialog.
  *
- * @param array    $routine      Data for the routine returned by
- *                                 PMA_RTN_getDataFromName()
+ * @param array $routine Data for the routine returned by
+ *                       PMA_RTN_getDataFromName()
  *
  * @return string   HTML code for the routine execution dialog.
  */
 function PMA_RTN_getExecuteForm($routine)
 {
     global $db, $cfg;
+    
+    $common_functions = PMA_CommonFunctions::getInstance();
 
     // Escape special characters
     $routine['item_name'] = htmlentities($routine['item_name'], ENT_QUOTES);
@@ -1391,7 +1460,7 @@ function PMA_RTN_getExecuteForm($routine)
     $retval .= "<th>" . __('Value')    . "</th>\n";
     $retval .= "</tr>\n";
     // Get a list of data types that are not yet supported.
-    $no_support_types = PMA_unsupportedDatatypes();
+    $no_support_types = $common_functions->unsupportedDatatypes();
     for ($i=0; $i<$routine['item_num_params']; $i++) { // Each parameter
         if ($routine['item_type'] == 'PROCEDURE'
             && $routine['item_param_dir'][$i] == 'OUT'
@@ -1419,7 +1488,7 @@ function PMA_RTN_getExecuteForm($routine)
                     'first_timestamp' => false
                 );
                 $retval .= "<select name='funcs[{$routine['item_param_name'][$i]}]'>";
-                $retval .= PMA_getFunctionsForField($field, false);
+                $retval .= $common_functions->getFunctionsForField($field, false);
                 $retval .= "</select>";
             }
             $retval .= "</td>\n";
@@ -1445,7 +1514,7 @@ function PMA_RTN_getExecuteForm($routine)
             for ($j=0; $j<$tokens['len']; $j++) {
                 if ($tokens[$j]['type'] != 'punct_listsep') {
                     $tokens[$j]['data'] = htmlentities(
-                        PMA_unquote($tokens[$j]['data']),
+                        $common_functions->unquote($tokens[$j]['data']),
                         ENT_QUOTES
                     );
                     $retval .= "<input name='params[{$routine['item_param_name'][$i]}][]' "

@@ -10,6 +10,7 @@
  * Include to test.
  */
 require_once 'libraries/blowfish.php';
+require_once 'libraries/plugins/auth/HordeCipherBlowfishOperations.class.php';
 
 class PMA_blowfish_test extends PHPUnit_Framework_TestCase
 {
@@ -19,7 +20,10 @@ class PMA_blowfish_test extends PHPUnit_Framework_TestCase
         $string = '12345678';
         $this->assertEquals(
             $string,
-            PMA_blowfish_decrypt(PMA_blowfish_encrypt($string, $secret), $secret)
+            HordeCipherBlowfishOperations::blowfishDecrypt(
+                HordeCipherBlowfishOperations::blowfishEncrypt($string, $secret),
+                $secret
+            )
         );
     }
 
@@ -29,7 +33,10 @@ class PMA_blowfish_test extends PHPUnit_Framework_TestCase
         $string = 'abcDEF012!"§$%&/()=?`´"\',.;:-_#+*~öäüÖÄÜ^°²³';
         $this->assertEquals(
             $string,
-            PMA_blowfish_decrypt(PMA_blowfish_encrypt($string, $secret), $secret)
+            HordeCipherBlowfishOperations::blowfishDecrypt(
+                HordeCipherBlowfishOperations::blowfishEncrypt($string, $secret),
+                $secret
+            )
         );
     }
 
@@ -39,7 +46,10 @@ class PMA_blowfish_test extends PHPUnit_Framework_TestCase
         $secret = '$%ÄüfuDFRR';
         $decrypted = '12345678';
         $encrypted = 'kO/kc4j/nyk=';
-        $this->assertEquals($encrypted, PMA_blowfish_encrypt($decrypted, $secret));
+        $this->assertEquals(
+            $encrypted,
+            HordeCipherBlowfishOperations::blowfishEncrypt($decrypted, $secret)
+        );
     }
 
     public function testDecrypt()
@@ -47,7 +57,10 @@ class PMA_blowfish_test extends PHPUnit_Framework_TestCase
         $secret = '$%ÄüfuDFRR';
         $encrypted = 'kO/kc4j/nyk=';
         $decrypted = '12345678';
-        $this->assertEquals($decrypted, PMA_blowfish_decrypt($encrypted, $secret));
+        $this->assertEquals(
+            $decrypted,
+            HordeCipherBlowfishOperations::blowfishDecrypt($encrypted, $secret)
+        );
     }
     */
 

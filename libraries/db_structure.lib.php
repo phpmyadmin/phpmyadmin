@@ -40,7 +40,9 @@ function PMA_TableHeader($db_is_information_schema = false, $replication = false
         .'    </th>'
         // larger values are more interesting so default sort order is DESC
         .'    <th>' . PMA_SortableTableHeader(__('Rows'), 'records', 'DESC')
-        .PMA_showHint(PMA_sanitize(__('May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a]'))) . "\n"
+        .  PMA_CommonFunctions::getInstance()->showHint(
+            PMA_sanitize(__('May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a]'))
+        ) . "\n"
         .'    </th>' . "\n";
     if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
         echo '    <th>' . PMA_SortableTableHeader(__('Type'), 'type') . '</th>' . "\n";
@@ -88,6 +90,8 @@ function PMA_TableHeader($db_is_information_schema = false, $replication = false
  */
 function PMA_SortableTableHeader($title, $sort, $initial_sort_order = 'ASC')
 {
+    
+    $common_functions = PMA_CommonFunctions::getInstance();
     // Set some defaults
     $requested_sort = 'table';
     $requested_sort_order = $future_sort_order = $initial_sort_order;
@@ -110,8 +114,8 @@ function PMA_SortableTableHeader($title, $sort, $initial_sort_order = 'ASC')
         if ($requested_sort_order == 'ASC') {
             $future_sort_order = 'DESC';
             // current sort order is ASC
-            $order_img  = ' ' . PMA_getImage('s_asc.png', __('Ascending'), array('class' => 'sort_arrow', 'title' => ''));
-            $order_img .= ' ' . PMA_getImage('s_desc.png', __('Descending'), array('class' => 'sort_arrow hide', 'title' => ''));
+            $order_img  = ' ' . $common_functions->getImage('s_asc.png', __('Ascending'), array('class' => 'sort_arrow', 'title' => ''));
+            $order_img .= ' ' . $common_functions->getImage('s_desc.png', __('Descending'), array('class' => 'sort_arrow hide', 'title' => ''));
             // but on mouse over, show the reverse order (DESC)
             $order_link_params['onmouseover'] = "$('.sort_arrow').toggle();";
             // on mouse out, show current sort order (ASC)
@@ -119,8 +123,8 @@ function PMA_SortableTableHeader($title, $sort, $initial_sort_order = 'ASC')
         } else {
             $future_sort_order = 'ASC';
             // current sort order is DESC
-            $order_img  = ' ' . PMA_getImage('s_asc.png', __('Ascending'), array('class' => 'sort_arrow hide', 'title' => ''));
-            $order_img .= ' ' . PMA_getImage('s_desc.png', __('Descending'), array('class' => 'sort_arrow', 'title' => ''));
+            $order_img  = ' ' . $common_functions->getImage('s_asc.png', __('Ascending'), array('class' => 'sort_arrow hide', 'title' => ''));
+            $order_img .= ' ' . $common_functions->getImage('s_desc.png', __('Descending'), array('class' => 'sort_arrow', 'title' => ''));
             // but on mouse over, show the reverse order (ASC)
             $order_link_params['onmouseover'] = "$('.sort_arrow').toggle();";
             // on mouse out, show current sort order (DESC)
@@ -136,6 +140,8 @@ function PMA_SortableTableHeader($title, $sort, $initial_sort_order = 'ASC')
     // We set the position back to 0 every time they sort.
     $url .= "&amp;pos=0&amp;sort=$sort&amp;sort_order=$future_sort_order";
 
-    return PMA_linkOrButton($url, $title . $order_img, $order_link_params);
+    return PMA_CommonFunctions::getInstance()->linkOrButton(
+        $url, $title . $order_img, $order_link_params
+    );
 } // end function PMA_SortableTableHeader()
 ?>

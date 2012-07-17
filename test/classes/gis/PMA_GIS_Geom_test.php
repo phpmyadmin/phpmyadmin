@@ -15,28 +15,6 @@ require_once 'libraries/gis/pma_gis_geometry.php';
  */
 abstract class PMA_GIS_GeomTest extends PHPUnit_Framework_TestCase
 {
-    /**
-     * test generateWkt method
-     *
-     * @param array  $gis_data array of GIS data
-     * @param int    $index    index
-     * @param string $empty    string to be insterted in place of missing values
-     * @param string $wkt      expected WKT
-     *
-     * @return void
-     * @dataProvider providerForTestGenerateWkt
-     */
-    public function testGenerateWkt($gis_data, $index, $empty, $wkt)
-    {
-        if ($empty == null) {
-            $this->assertEquals($this->object->generateWkt($gis_data, $index), $wkt);
-        } else {
-            $this->assertEquals(
-                $this->object->generateWkt($gis_data, $index, $empty),
-                $wkt
-            );
-        }
-    }
 
     /**
      * test generateParams method

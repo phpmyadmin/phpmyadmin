@@ -7,16 +7,49 @@
  */
 
 /**
- * Reads all plugin information from directory $plugins_dir.
+ * Includes and instantiates the specified plugin type for a certain format
  *
- * @param string $plugins_dir  directrory with plugins
- * @param mixed  $plugin_param parameter to plugin by which they can
- *                             decide whether they can work
+ * @param string $plugin_type   the type of the plugin (import, export, etc)
+ * @param string $plugin_format the format of the plugin (sql, xml, et )
+ * @param string $plugins_dir   directrory with plugins
+ * @param mixed  $plugin_param  parameter to plugin by which they can
+ *                              decide whether they can work
  *
- * @return array  list of plugins
+ * @return new plugin instance
  */
-function PMA_getPlugins($plugins_dir, $plugin_param)
+function PMA_getPlugin(
+    $plugin_type,
+    $plugin_format,
+    $plugins_dir,
+    $plugin_param = false
+){
+    $GLOBALS['plugin_param'] = $plugin_param;
+    $class_name = strtoupper($plugin_type[0])
+        . strtolower(substr($plugin_type, 1))
+        . strtoupper($plugin_format[0])
+        . strtolower(substr($plugin_format, 1));
+    $file = $class_name . ".class.php";
+    if (is_file($plugins_dir . $file)) {
+        include_once $plugins_dir . $file;
+        return new $class_name;
+    }
+
+    return null;
+}
+
+/**
+ * Reads all plugin information from directory $plugins_dir
+ *
+ * @param string $plugin_type   the type of the plugin (import, export, etc)
+ * @param string $plugins_dir   directrory with plugins
+ * @param mixed  $plugin_param  parameter to plugin by which they can
+ *                              decide whether they can work
+ *
+ * @return array list of plugin instances
+ */
+function PMA_getPlugins($plugin_type, $plugins_dir, $plugin_param)
 {
+    $GLOBALS['plugin_param'] = $plugin_param;
     /* Scan for plugins */
     $plugin_list = array();
     if ($handle = @opendir($plugins_dir)) {
@@ -25,8 +58,21 @@ function PMA_getPlugins($plugins_dir, $plugin_param)
             // (for example ._csv.php) so the following regexp
             // matches a file which does not start with a dot but ends
             // with ".php"
-            if (is_file($plugins_dir . $file) && preg_match('@^[^\.](.)*\.php$@i', $file)) {
+            $class_type = strtoupper($plugin_type[0])
+                . strtolower(substr($plugin_type, 1));
+            if (is_file($plugins_dir . $file)
+                && preg_match(
+                    '@^' . $class_type . '(.+)\.class\.php$@i',
+                    $file,
+                    $matches
+                )
+            ) {
+                $GLOBALS['skip_import'] = false;
                 include_once $plugins_dir . $file;
+                if (! $GLOBALS['skip_import']) {
+                    $class_name = $class_type . $matches[1];
+                    $plugin_list [] = new $class_name;
+                }
             }
         }
     }
@@ -61,8 +107,11 @@ function PMA_pluginCheckboxCheck($section, $opt)
     // If the form is being repopulated using $_GET data, that is priority
     if (isset($_GET[$opt])
         || ! isset($_GET['repopulate'])
-        && ((isset($GLOBALS['timeout_passed']) && $GLOBALS['timeout_passed'] && isset($_REQUEST[$opt]))
-            || (isset($GLOBALS['cfg'][$section][$opt]) && $GLOBALS['cfg'][$section][$opt]))
+        && ((isset($GLOBALS['timeout_passed'])
+            && $GLOBALS['timeout_passed']
+            && isset($_REQUEST[$opt]))
+            || (isset($GLOBALS['cfg'][$section][$opt])
+                && $GLOBALS['cfg'][$section][$opt]))
     ) {
         return ' checked="checked"';
     }
@@ -109,7 +158,7 @@ function PMA_pluginGetDefault($section, $opt)
  * @param string $section name of config section in
  *                        $GLOBALS['cfg'][$section] for plugin
  * @param string $name    name of select element
- * @param array  &$list   array with plugin configuration defined in plugin file
+ * @param array  &$list   array with plugin instances
  * @param string $cfgname name of config value, if none same as $name
  *
  * @return string  html select tag
@@ -121,20 +170,30 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
     }
     $ret = '<select id="plugins" name="' . $name . '">';
     $default = PMA_pluginGetDefault($section, $cfgname);
-    foreach ($list as $plugin_name => $val) {
+    foreach ($list as $plugin) {
+        $plugin_name = strtolower(substr(get_class($plugin), strlen($section)));
+        $properties = $plugin->getProperties();
         $ret .= '<option';
          // If the form is being repopulated using $_GET data, that is priority
-        if (isset($_GET[$name]) && $plugin_name == $_GET[$name] || ! isset($_GET[$name]) && $plugin_name == $default) {
+        if (isset($_GET[$name])
+            && $plugin_name == $_GET[$name]
+            || ! isset($_GET[$name])
+            && $plugin_name == $default
+        ) {
             $ret .= ' selected="selected"';
         }
-         $ret .= ' value="' . $plugin_name . '">' . PMA_getString($val['text']) . '</option>' . "\n";
+        $ret .= ' value="' . $plugin_name . '">'
+           . PMA_getString($properties['text'])
+           . '</option>' . "\n";
     }
     $ret .= '</select>' . "\n";
 
     // Whether each plugin has to be saved as a file
-    foreach ($list as $plugin_name => $val) {
+    foreach ($list as $plugin) {
+        $plugin_name = strtolower(substr(get_class($plugin), strlen($section)));
+        $properties = $plugin->getProperties();
         $ret .= '<input type="hidden" id="force_file_' . $plugin_name . '" value="';
-        if (isset($val['force_file'])) {
+        if (isset($properties['force_file'])) {
             $ret .= 'true';
         } else {
             $ret .= 'false';
@@ -239,11 +298,11 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
     }
     if (isset($opt['doc'])) {
         if (count($opt['doc']) == 3) {
-            $ret .= PMA_showMySQLDocu($opt['doc'][0], $opt['doc'][1], false, $opt['doc'][2]);
+            $ret .= PMA_CommonFunctions::getInstance()->showMySQLDocu($opt['doc'][0], $opt['doc'][1], false, $opt['doc'][2]);
         } elseif (count($opt['doc']) == 1) {
-            $ret .= PMA_showDocu($opt['doc'][0]);
+            $ret .= PMA_CommonFunctions::getInstance()->showDocu($opt['doc'][0]);
         } else {
-            $ret .= PMA_showMySQLDocu($opt['doc'][0], $opt['doc'][1]);
+            $ret .= PMA_CommonFunctions::getInstance()->showMySQLDocu($opt['doc'][0], $opt['doc'][1]);
         }
     }
 
@@ -259,7 +318,7 @@ function PMA_pluginGetOneOption($section, $plugin_name, $id, &$opt)
  * Returns html div with editable options for plugin
  *
  * @param string $section name of config section in $GLOBALS['cfg'][$section]
- * @param array  &$list   array with plugin configuration defined in plugin file
+ * @param array  &$list   array with plugin instances
  *
  * @return string  html fieldset with plugin options
  */
@@ -268,13 +327,20 @@ function PMA_pluginGetOptions($section, &$list)
     $ret = '';
     $default = PMA_pluginGetDefault('Export', 'format');
     // Options for plugins that support them
-    foreach ($list as $plugin_name => $val) {
+    foreach ($list as $plugin) {
+        $plugin_name = strtolower(substr(get_class($plugin), strlen($section)));
+        $properties = $plugin->getProperties();
         $ret .= '<div id="' . $plugin_name . '_options" class="format_specific_options">';
         $count = 0;
-            $ret .= '<h3>' . PMA_getString($val['text']) . '</h3>';
-        if (isset($val['options']) && count($val['options']) > 0) {
-            foreach ($val['options'] as $id => $opt) {
-                if ($opt['type'] != 'hidden' && $opt['type'] != 'begin_group' && $opt['type'] != 'end_group' && $opt['type'] != 'begin_subgroup' && $opt['type'] != 'end_subgroup') {
+        $ret .= '<h3>' . PMA_getString($properties['text']) . '</h3>';
+        if (isset($properties['options']) && count($properties['options']) > 0) {
+            foreach ($properties['options'] as $id => $opt) {
+                if ($opt['type'] != 'hidden'
+                    && $opt['type'] != 'begin_group'
+                    && $opt['type'] != 'end_group'
+                    && $opt['type'] != 'begin_subgroup'
+                    && $opt['type'] != 'end_subgroup'
+                ) {
                     $count++;
                 }
                 $ret .= PMA_pluginGetOneOption($section, $plugin_name, $id, $opt);

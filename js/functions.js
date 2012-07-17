@@ -558,7 +558,7 @@ $(function() {
                 var checked = $checkbox.prop('checked');
                 if (!$(e.target).is(':checkbox, label')) {
                     checked = !checked;
-                    $checkbox.prop('checked', checked);
+                    $checkbox.prop('checked', checked).trigger('change');
                 }
                 if (checked) {
                     $tr.addClass('marked');
@@ -593,7 +593,8 @@ $(function() {
                     .slice(start, end + 1)
                     .removeClass('marked')
                     .find(':checkbox')
-                    .prop('checked', false);
+                    .prop('checked', false)
+                    .trigger('change');
             }
 
             // handle new shift click
@@ -609,7 +610,8 @@ $(function() {
                 .slice(start, end + 1)
                 .addClass('marked')
                 .find(':checkbox')
-                .prop('checked', true);
+                .prop('checked', true)
+                .trigger('change');
 
             // remember the last shift clicked row
             last_shift_clicked_row = curr_row;
@@ -617,7 +619,7 @@ $(function() {
     });
 
     addDateTimePicker();
-   
+
     /**
      * Add attribute to text boxes for iOS devices (based on bugID: 3508912)
      */
@@ -669,6 +671,7 @@ function markAllRows(container_id)
 {
 
     $("#" + container_id).find("input:checkbox:enabled").prop('checked', true)
+    .trigger("change")
     .parents("tr").addClass("marked");
     return true;
 }
@@ -683,6 +686,7 @@ function unMarkAllRows(container_id)
 {
 
     $("#" + container_id).find("input:checkbox:enabled").prop('checked', false)
+    .trigger("change")
     .parents("tr").removeClass("marked");
     return true;
 }
@@ -1520,10 +1524,12 @@ function PMA_ajaxRemoveMessage($this_msgbox)
         .stop(true, true)
         .fadeOut('medium');
         if ($this_msgbox.is('.dismissable')) {
-            // Here we should destroy the qtip instance, but
-            // due to a bug in qtip's implementation we can
-            // only hide it without throwing JS errors.
-            $this_msgbox.qtip('hide');
+            if ($('#no_hint').length < 0) {
+                // Here we should destroy the qtip instance, but
+                // due to a bug in qtip's implementation we can
+                // only hide it without throwing JS errors.
+                $this_msgbox.qtip('hide');
+            }
         } else {
             $this_msgbox.remove();
         }
@@ -1879,7 +1885,7 @@ function PMA_createProfilingChartJqplot(target, data)
             seriesDefaults: {
                 renderer: $.jqplot.PieRenderer,
                 rendererOptions: {
-                    showDataLabels:  true 
+                    showDataLabels:  true
                 }
             },
             legend: {
@@ -2495,49 +2501,6 @@ $(function() {
 }); // end of $() for Drop Database
 
 /**
- * Attach Ajax event handlers for 'Create Database'.  Used wherever libraries/
- * display_create_database.lib.php is used, ie main.php and server_databases.php
- *
- * @see $cfg['AjaxEnable']
- */
-$(function() {
-
-    $('#create_database_form.ajax').live('submit', function(event) {
-        event.preventDefault();
-
-        $form = $(this);
-
-        PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
-        PMA_prepareForAjaxRequest($form);
-
-        $.post($form.attr('action'), $form.serialize(), function(data) {
-            if (data.success == true) {
-                PMA_ajaxShowMessage(data.message);
-
-                //Append database's row to table
-                $("#tabledatabases")
-                .find('tbody')
-                .append(data.new_db_string)
-                .PMA_sort_table('.name')
-                .find('#db_summary_row')
-                .appendTo('#tabledatabases tbody')
-                .removeClass('odd even');
-
-                var $databases_count_object = $('#databases_count');
-                var databases_count = parseInt($databases_count_object.text()) + 1;
-                $databases_count_object.text(databases_count);
-                //Refresh navigation frame as a new database has been added
-                if (window.parent && window.parent.frame_navigation) {
-                    window.parent.frame_navigation.location.reload();
-                }
-            } else {
-                PMA_ajaxShowMessage(data.error, false);
-            }
-        }); // end $.post()
-    }); // end $().live()
-});  // end $() for Create Database
-
-/**
  * Validates the password field in a form
  *
  * @see    PMA_messages['strPasswordEmpty']
@@ -2944,7 +2907,7 @@ function checkIndexName(form_id)
 
 /**
  * Function to display tooltips that were
- * generated on the PHP side by PMA_showHint()
+ * generated on the PHP side by CommonFunctions::showHint()
  *
  * @param object $div a div jquery object which specifies the
  *                    domain for searching for tooltips. If we
@@ -3357,7 +3320,7 @@ $(function() {
     PMA_init_slider();
 
     /**
-     * Enables the text generated by PMA_linkOrButton() to be clickable
+     * Enables the text generated by CommonFunctions::linkOrButton() to be clickable
      */
     $('a.formLinkSubmit').live('click', function(e) {
 
@@ -3823,6 +3786,33 @@ $(document).ready(function () {
             $(this).closest('.ui-dialog').find('.ui-button:first').click();
         }
     }); // end $.live()
+});
+
+/**
+ * Watches checkboxes in a form to set the checkall box accordingly
+ */
+var checkboxes_sel = "input.checkall:checkbox:enabled";
+$(checkboxes_sel).live("change", function () {
+    var $form = $(this.form);
+    // total number of checkboxes in current form
+    var total_boxes = $form.find(checkboxes_sel).length;
+    // number of checkboxes checked in current form
+    var checked_boxes = $form.find(checkboxes_sel + ":checked").length;
+    var $checkall = $form.find("input#checkall");
+    if (total_boxes == checked_boxes) {
+        $checkall.prop({checked: true, indeterminate: false});
+    }
+    else if (checked_boxes > 0) {
+        $checkall.prop({checked: true, indeterminate: true});
+    }
+    else {
+        $checkall.prop({checked: false, indeterminate: false});
+    }
+});
+$("input#checkall").live("change", function() {
+    var is_checked = $(this).is(":checked");
+    $(this.form).find(checkboxes_sel).prop("checked", is_checked)
+    .parents("tr").toggleClass("marked", is_checked);
 });
 
 /**

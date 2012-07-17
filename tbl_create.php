@@ -10,15 +10,16 @@
 require_once 'libraries/common.inc.php';
 
 $action = 'tbl_create.php';
+$common_functions = PMA_CommonFunctions::getInstance();
 
-$titles = PMA_buildActionTitles();
+$titles = $common_functions->buildActionTitles();
 
 // Check parameters
-PMA_checkParameters(array('db'));
+$common_functions->checkParameters(array('db'));
 
 /* Check if database name is empty */
 if (strlen($db) == 0) {
-    PMA_mysqlDie(__('The database name is empty!'), '', '', 'main.php');
+    $common_functions->mysqlDie(__('The database name is empty!'), '', '', 'main.php');
 }
 
 /**
@@ -26,7 +27,7 @@ if (strlen($db) == 0) {
  */
 if (PMA_DBI_get_columns($db, $table)) {
     // table exists already
-    PMA_mysqlDie(
+    $common_functions->mysqlDie(
         sprintf(__('Table %s already exists!'), htmlspecialchars($table)),
         '',
         '',
@@ -50,7 +51,7 @@ if (isset($_REQUEST['submit_num_fields'])) {
  * Selects the database to work with
  */
 if (!PMA_DBI_select_db($db)) {
-    PMA_mysqlDie(
+    $common_functions->mysqlDie(
         sprintf(__('\'%s\' database does not exist.'), htmlspecialchars($db)),
         '',
         '',
@@ -123,7 +124,7 @@ if (isset($_REQUEST['do_save_data'])) {
     for ($i = 0; $i < $primary_cnt; $i++) {
         $j = $field_primary[$i];
         if (isset($_REQUEST['field_name'][$j]) && strlen($_REQUEST['field_name'][$j])) {
-            $primary .= PMA_backquote($_REQUEST['field_name'][$j]) . ', ';
+            $primary .= $common_functions->backquote($_REQUEST['field_name'][$j]) . ', ';
         }
     } // end for
     unset($primary_cnt);
@@ -139,7 +140,7 @@ if (isset($_REQUEST['do_save_data'])) {
     for ($i = 0;$i < $index_cnt; $i++) {
         $j = $field_index[$i];
         if (isset($_REQUEST['field_name'][$j]) && strlen($_REQUEST['field_name'][$j])) {
-            $index .= PMA_backquote($_REQUEST['field_name'][$j]) . ', ';
+            $index .= $common_functions->backquote($_REQUEST['field_name'][$j]) . ', ';
         }
     } // end for
     unset($index_cnt);
@@ -155,7 +156,7 @@ if (isset($_REQUEST['do_save_data'])) {
     for ($i = 0; $i < $unique_cnt; $i++) {
         $j = $field_unique[$i];
         if (isset($_REQUEST['field_name'][$j]) && strlen($_REQUEST['field_name'][$j])) {
-           $unique .= PMA_backquote($_REQUEST['field_name'][$j]) . ', ';
+           $unique .= $common_functions->backquote($_REQUEST['field_name'][$j]) . ', ';
         }
     } // end for
     unset($unique_cnt);
@@ -171,7 +172,7 @@ if (isset($_REQUEST['do_save_data'])) {
     for ($i = 0; $i < $fulltext_cnt; $i++) {
         $j = $field_fulltext[$i];
         if (isset($_REQUEST['field_name'][$j]) && strlen($_REQUEST['field_name'][$j])) {
-           $fulltext .= PMA_backquote($_REQUEST['field_name'][$j]) . ', ';
+           $fulltext .= $common_functions->backquote($_REQUEST['field_name'][$j]) . ', ';
         }
     } // end for
 
@@ -182,7 +183,7 @@ if (isset($_REQUEST['do_save_data'])) {
     unset($fulltext);
 
     // Builds the 'create table' statement
-    $sql_query = 'CREATE TABLE ' . PMA_backquote($db) . '.' . PMA_backquote($table)
+    $sql_query = 'CREATE TABLE ' . $common_functions->backquote($db) . '.' . PMA_CommonFunctions::getInstance()->backquote($table)
      . ' (' . $sql_query . ')';
 
     // Adds table type, character set, comments and partition definition
@@ -193,10 +194,10 @@ if (isset($_REQUEST['do_save_data'])) {
         $sql_query .= PMA_generateCharsetQueryPart($_REQUEST['tbl_collation']);
     }
     if (!empty($_REQUEST['comment'])) {
-        $sql_query .= ' COMMENT = \'' . PMA_sqlAddSlashes($_REQUEST['comment']) . '\'';
+        $sql_query .= ' COMMENT = \'' . $common_functions->sqlAddSlashes($_REQUEST['comment']) . '\'';
     }
     if (!empty($_REQUEST['partition_definition'])) {
-        $sql_query .= ' ' . PMA_sqlAddSlashes($_REQUEST['partition_definition']);
+        $sql_query .= ' ' . $common_functions->sqlAddSlashes($_REQUEST['partition_definition']);
     }
     $sql_query .= ';';
 
@@ -227,7 +228,7 @@ if (isset($_REQUEST['do_save_data'])) {
         }
 
         $message = PMA_Message::success(__('Table %1$s has been created.'));
-        $message->addParam(PMA_backquote($db) . '.' . PMA_backquote($table));
+        $message->addParam($common_functions->backquote($db) . '.' . PMA_CommonFunctions::getInstance()->backquote($table));
 
         if ($GLOBALS['is_ajax_request'] == true) {
 
@@ -244,8 +245,8 @@ if (isset($_REQUEST['do_save_data'])) {
             $is_show_stats = $cfg['ShowStats'];
 
             $tbl_stats_result = PMA_DBI_query(
-                'SHOW TABLE STATUS FROM ' . PMA_backquote($db)
-                . ' LIKE \'' . PMA_sqlAddSlashes($table, true) . '\';'
+                'SHOW TABLE STATUS FROM ' . $common_functions->backquote($db)
+                . ' LIKE \'' . $common_functions->sqlAddSlashes($table, true) . '\';'
             );
             $tbl_stats = PMA_DBI_fetch_assoc($tbl_stats_result);
             PMA_DBI_free_result($tbl_stats_result);
@@ -258,9 +259,9 @@ if (isset($_REQUEST['do_save_data'])) {
 
                 $tblsize                    =  doubleval($tbl_stats['Data_length']) + doubleval($tbl_stats['Index_length']);
                 $sum_size                   += $tblsize;
-                list($formatted_size, $unit) =  PMA_formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
+                list($formatted_size, $unit) =  $common_functions->formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
                 if (isset($tbl_stats['Data_free']) && $tbl_stats['Data_free'] > 0) {
-                    list($formatted_overhead, $overhead_unit)     = PMA_formatByteDown($tbl_stats['Data_free'], 3, ($tbl_stats['Data_free'] > 0) ? 1 : 0);
+                    list($formatted_overhead, $overhead_unit)     = $common_functions->formatByteDown($tbl_stats['Data_free'], 3, ($tbl_stats['Data_free'] > 0) ? 1 : 0);
                     $overhead_size           += $tbl_stats['Data_free'];
                 }
 
@@ -282,10 +283,10 @@ if (isset($_REQUEST['do_save_data'])) {
                 $truename = str_replace(' ', '&nbsp;', htmlspecialchars($table));
                 if (PMA_Tracker::isTracked($db, $truename)) {
                     $new_table_string .= '<a href="tbl_tracking.php' . PMA_generate_common_url($tbl_url_params) . '">';
-                    $new_table_string .= PMA_getImage('eye.png', __('Tracking is active.'));
+                    $new_table_string .= $common_functions->getImage('eye.png', __('Tracking is active.'));
                 } elseif (PMA_Tracker::getVersion($db, $truename) > 0) {
                     $new_table_string .= '<a href="tbl_tracking.php' . PMA_generate_common_url($tbl_url_params) . '">';
-                    $new_table_string .= PMA_getImage('eye_grey.png', __('Tracking is not active.'));
+                    $new_table_string .= $common_functions->getImage('eye_grey.png', __('Tracking is not active.'));
                 }
                 unset($truename);
             }
@@ -302,7 +303,7 @@ if (isset($_REQUEST['do_save_data'])) {
             $new_table_string .= '<td>' . $titles['NoEmpty'] . '</td>' . "\n";
 
             $new_table_string .= '<td><a class="drop_table_anchor" href="sql.php' . PMA_generate_common_url($tbl_url_params) . '&amp;sql_query=';
-            $new_table_string .= urlencode('DROP TABLE ' . PMA_backquote($table));
+            $new_table_string .= urlencode('DROP TABLE ' . $common_functions->backquote($table));
             $new_table_string .= '">';
             $new_table_string .= $titles['Drop'];
             $new_table_string .= '</a></td>' . "\n";
@@ -346,7 +347,7 @@ if (isset($_REQUEST['do_save_data'])) {
             $response->isSuccess(false);
             $response->addJSON('message', PMA_DBI_getError());
         } else {
-            PMA_mysqlDie('', '', '', $err_url, false);
+            $common_functions->mysqlDie('', '', '', $err_url, false);
             // An error happened while inserting/updating a table definition.
             // to prevent total loss of that data, we embed the form once again.
             // The variable $regenerate will be used to restore data in libraries/tbl_properties.inc.php

@@ -301,7 +301,7 @@ function PMA_warnMissingExtension($extension, $fatal = false, $extra = '')
 function PMA_getTableCount($db)
 {
     $tables = PMA_DBI_try_query(
-        'SHOW TABLES FROM ' . PMA_backquote($db) . ';',
+        'SHOW TABLES FROM ' . PMA_CommonFunctions::getInstance()->backquote($db) . ';',
         null, PMA_DBI_QUERY_STORE
     );
     if ($tables) {
@@ -575,6 +575,9 @@ function PMA_sendHeaderLocation($uri, $use_refresh = false)
  */
 function PMA_noCacheHeader()
 {
+    if (defined('TESTSUITE')) {
+        return;
+    }
     // rfc2616 - Section 14.21
     header('Expires: ' . date(DATE_RFC1123));
     // HTTP/1.1

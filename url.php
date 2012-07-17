@@ -18,4 +18,5 @@ if (! PMA_isValid($_GET['url'])
 } else {
     header('Location: ' . $_GET['url']);
 }
+die();
 ?>

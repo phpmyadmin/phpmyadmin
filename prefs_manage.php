@@ -235,7 +235,7 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
             <h2><?php echo __('Import') ?></h2>
             <form class="group-cnt prefs-form" name="prefs_import" action="prefs_manage.php" method="post" enctype="multipart/form-data">
                 <?php
-                echo PMA_generateHiddenMaxFileSize($max_upload_size) . "\n";
+                echo PMA_CommonFunctions::getInstance()->generateHiddenMaxFileSize($max_upload_size) . "\n";
                 echo PMA_generate_common_hidden_inputs() . "\n";
                 ?>
                 <input type="hidden" name="json" value="" />
@@ -279,7 +279,7 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
             <div class="group-cnt">
                 <?php
                 echo sprintf(__('You can set more settings by modifying config.inc.php, eg. by using %sSetup script%s.'), '<a href="setup/index.php">', '</a>');
-                echo PMA_showDocu('setup_script');
+                echo PMA_CommonFunctions::getInstance()->showDocu('setup_script');
                 ?>
             </div>
         </div>

@@ -41,8 +41,17 @@ VerboseMultiSubmit, ReplaceHelpImg
 + Ajaxified "Create View" functionality
 + [import] New plugin: import mediawiki
 + Add Ajax support to Fast filter in order to search the term in all database tables
+- bug #3535015 [navi] DbFilter, TableFilter clear button hidden on Chrome
++ rfe #3528994 [interface] Allow wrapping possibly long values in replication-status table
 
-3.5.2.0 (not yet released)
+3.5.3.0 (not yet released)
+- bug #3539044 [interface] Browse mode "Show" button gives blank page if no results anymore
+- bug #3534979 [interface] Copy Database Ajax feedback vanishes long before copying is done
+- bug #3527531 [interface] GC-maxlifetime warning incorrectly displayed
+- bug #3526916 [interface] Search fails with JS error when tooltips disabled
+- bug #3544366 [interface] Event comments not saved
+
+3.5.2.0 (2012-07-07)
 - bug #3521416 [interface] JS error when editing index
 - bug #3521313 [core] Call to undefined function __()
 - bug #3521016 [edit] NOW() function incorrectly selected
@@ -56,6 +65,9 @@ VerboseMultiSubmit, ReplaceHelpImg
 - bug #3531586 [unterface] Add user form prints JSON when user presses enter
 - bug #3534121 [config] duplicate line in config.sample.inc.php
 - bug #3534311 [interface] Grid editing incorrectly parses ENUM/SET values
+- bug #3510196 [core] More clever URL rewriting with ForceSSL
+- bug #3539044 [interface] Browse mode "Show" button gives blank page if no results anymore
+- bug #3534979 [interface] Copy Database Ajax feedback vanishes long before copying is done
 
 3.5.1.0 (2012-05-03)
 - bug #3510784 [edit] Limit clause ignored when sort order is remembered
