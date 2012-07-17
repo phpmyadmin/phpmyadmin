@@ -931,8 +931,20 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
                 $message, $GLOBALS['sql_query'], 'success'
             );
         }
+
+        // Should be initialized these parameters before parsing
+        $showtable = isset($showtable) ? $showtable : null;
+        $printview = isset($printview) ? $printview : null;
+        $url_query = isset($url_query) ? $url_query : null;
+    
+        $displayResultsObject->setProperties(
+            $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
+            $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage, $text_dir,
+            $is_maint, $is_explain, $is_show, $showtable, $printview, $url_query
+        );
         echo $displayResultsObject->getTable($result, $disp_mode, $analyzed_sql);
         exit();
+        
     }
 
     // Displays the headers
@@ -1080,6 +1092,16 @@ $(makeProfilingChart);
         $message->display();
     }
 
+    // Should be initialized these parameters before parsing
+    $showtable = isset($showtable) ? $showtable : null;
+    $printview = isset($printview) ? $printview : null;
+    $url_query = isset($url_query) ? $url_query : null;
+    
+    $displayResultsObject->setProperties(
+        $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
+        $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage, $text_dir,
+        $is_maint, $is_explain, $is_show, $showtable, $printview, $url_query
+    );
     echo $displayResultsObject->getTable($result, $disp_mode, $analyzed_sql);
     PMA_DBI_free_result($result);
 
