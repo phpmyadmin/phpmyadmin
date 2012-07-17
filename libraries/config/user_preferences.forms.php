@@ -79,7 +79,7 @@ $forms['Sql_queries']['Sql_box'] = array(
     'SQLQuery/Refresh');
 $forms['Left_frame']['Left_frame'] = array(
     'NavigationDisplayLogo',
-    'LeftLogoLink',
+    'NavigationLogoLink',
     'LeftLogoLinkWindow',
     'NavigationTreePointerEnable',
     'LeftRecentTable',

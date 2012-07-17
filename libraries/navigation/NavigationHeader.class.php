@@ -76,9 +76,9 @@ class PMA_NavigationHeader
                     . 'alt="' . $logo . '" id="imgpmalogo" />';
             }
             $retval .= '<div id="pmalogo">';
-            if ($GLOBALS['cfg']['LeftLogoLink']) {
+            if ($GLOBALS['cfg']['NavigationLogoLink']) {
                 $retval .= '    <a href="' . htmlspecialchars(
-                    $GLOBALS['cfg']['LeftLogoLink']
+                    $GLOBALS['cfg']['NavigationLogoLink']
                 );
                 switch ($GLOBALS['cfg']['LeftLogoLinkWindow']) {
                 case 'new':
@@ -86,7 +86,7 @@ class PMA_NavigationHeader
                     break;
                 case 'main':
                     // do not add our parameters for an external link
-                    if (substr(strtolower($GLOBALS['cfg']['LeftLogoLink']), 0, 4) !== '://') {
+                    if (substr(strtolower($GLOBALS['cfg']['NavigationLogoLink']), 0, 4) !== '://') {
                         $retval .= '?' . $GLOBALS['url_query'] . '"';
                     } else {
                         $retval .= '" target="_blank"';

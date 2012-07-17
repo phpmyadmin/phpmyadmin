@@ -837,9 +837,9 @@ $cfg['NavigationDisplayLogo'] = true;
 /**
  * where should logo link point to (can also contain an external URL)
  *
- * @global string $cfg['LeftLogoLink']
+ * @global string $cfg['NavigationLogoLink']
  */
-$cfg['LeftLogoLink'] = 'index.php';
+$cfg['NavigationLogoLink'] = 'index.php';
 
 /**
  * whether to open the linked page in the main window ('main') or
