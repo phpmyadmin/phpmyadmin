@@ -436,7 +436,9 @@ function PMA_getHtmlToDisplayPrivilegesTable($random_n, $db = '*', $table = '*',
         // get columns
         $res = PMA_DBI_try_query(
             'SHOW COLUMNS FROM '
-            . PMA_CommonFunctions::getInstance()->backquote(PMA_CommonFunctions::getInstance()->unescapeMysqlWildcards($db))
+            . PMA_CommonFunctions::getInstance()->backquote(
+                PMA_CommonFunctions::getInstance()->unescapeMysqlWildcards($db)
+            )
             . '.' . PMA_CommonFunctions::getInstance()->backquote($table) . ';'
         );
         $columns = array();
@@ -480,34 +482,63 @@ function PMA_getHtmlToDisplayPrivilegesTable($random_n, $db = '*', $table = '*',
  */
 function PMA_getHtmlForDisplayResourceLimits($row)
 {
-    return '<fieldset>' . "\n"
+    $html_output = '<fieldset>' . "\n"
        . '<legend>' . __('Resource limits') . '</legend>' . "\n"
-       . '<p><small><i>' . __('Note: Setting these options to 0 (zero) removes the limit.') . '</i></small></p>' . "\n"
-       . '<div class="item">' . "\n"
-       . '<label for="text_max_questions"><code><dfn title="'
-       . __('Limits the number of queries the user may send to the server per hour.') . '">MAX QUERIES PER HOUR</dfn></code></label>' . "\n"
-       . '<input type="text" name="max_questions" id="text_max_questions" value="'
-       . $row['max_questions'] . '" size="11" maxlength="11" title="' . __('Limits the number of queries the user may send to the server per hour.') . '" />' . "\n"
-       . '</div>' . "\n"
-       . '<div class="item">' . "\n"
-       . '<label for="text_max_updates"><code><dfn title="'
-       . __('Limits the number of commands that change any table or database the user may execute per hour.') . '">MAX UPDATES PER HOUR</dfn></code></label>' . "\n"
-       . '<input type="text" name="max_updates" id="text_max_updates" value="'
-       . $row['max_updates'] . '" size="11" maxlength="11" title="' . __('Limits the number of commands that change any table or database the user may execute per hour.') . '" />' . "\n"
-       . '</div>' . "\n"
-       . '<div class="item">' . "\n"
-       . '<label for="text_max_connections"><code><dfn title="'
-       . __('Limits the number of new connections the user may open per hour.') . '">MAX CONNECTIONS PER HOUR</dfn></code></label>' . "\n"
-       . '<input type="text" name="max_connections" id="text_max_connections" value="'
-       . $row['max_connections'] . '" size="11" maxlength="11" title="' . __('Limits the number of new connections the user may open per hour.') . '" />' . "\n"
-       . '</div>' . "\n"
-       . '<div class="item">' . "\n"
-       . '<label for="text_max_user_connections"><code><dfn title="'
-       . __('Limits the number of simultaneous connections the user may have.') . '">MAX USER_CONNECTIONS</dfn></code></label>' . "\n"
-       . '<input type="text" name="max_user_connections" id="text_max_user_connections" value="'
-       . $row['max_user_connections'] . '" size="11" maxlength="11" title="' . __('Limits the number of simultaneous connections the user may have.') . '" />' . "\n"
-       . '</div>' . "\n"
-       . '</fieldset>' . "\n";
+       . '<p><small>'
+       . '<i>' . __('Note: Setting these options to 0 (zero) removes the limit.')
+       . '</i></small></p>' . "\n";
+       
+    $html_output .= '<div class="item">' . "\n"
+       . '<label for="text_max_questions">'
+       . '<code><dfn title="' 
+       . __('Limits the number of queries the user may send to the server per hour.'). '">'
+       . 'MAX QUERIES PER HOUR'
+       . '</dfn></code></label>' . "\n"
+       . '<input type="text" name="max_questions" id="text_max_questions" '
+       . 'value="' . $row['max_questions'] . '" '
+       . 'size="11" maxlength="11" '
+       . 'title="'
+       . __('Limits the number of queries the user may send to the server per hour.') . '" />' . "\n"
+       . '</div>' . "\n";
+       
+    $html_output .= '<div class="item">' . "\n"
+       . '<label for="text_max_updates">'
+       . '<code><dfn title="'
+       . __('Limits the number of commands that change any table or database the user may execute per hour.') . . '">'
+       . 'MAX UPDATES PER HOUR'
+       . '</dfn></code></label>' . "\n"
+       . '<input type="text" name="max_updates" id="text_max_updates" '
+       . 'value="' . $row['max_updates'] . '" size="11" maxlength="11" '
+       . 'title="'
+       . __('Limits the number of commands that change any table or database the user may execute per hour.')
+       . '" />' . "\n"
+       . '</div>' . "\n";
+       
+    $html_output .= '<div class="item">' . "\n"
+       . '<label for="text_max_connections">'
+       . '<code><dfn title="'
+       . __('Limits the number of new connections the user may open per hour.') . '">'
+       . 'MAX CONNECTIONS PER HOUR'
+       . '</dfn></code></label>' . "\n"
+       . '<input type="text" name="max_connections" id="text_max_connections" '
+       . 'value="' . $row['max_connections'] . '" size="11" maxlength="11" '
+       . 'title="' . __('Limits the number of new connections the user may open per hour.') . '" />' . "\n"
+       . '</div>' . "\n";
+       
+    $html_output .= '<div class="item">' . "\n"
+       . '<label for="text_max_user_connections">'
+       . '<code><dfn title="'
+       . __('Limits the number of simultaneous connections the user may have.') . '">'
+       . 'MAX USER_CONNECTIONS'
+       . '</dfn></code></label>' . "\n"
+       . '<input type="text" name="max_user_connections" id="text_max_user_connections" '
+       . 'value="' . $row['max_user_connections'] . '" size="11" maxlength="11" '
+       . 'title="' . __('Limits the number of simultaneous connections the user may have.') . '" />' . "\n"
+       . '</div>' . "\n";
+       
+    $html_output .= '</fieldset>' . "\n";
+    
+    return $html_output;
 }
 
 /**
