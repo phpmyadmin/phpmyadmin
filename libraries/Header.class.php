@@ -542,7 +542,7 @@ class PMA_Header
     private function _addRecentTable($db, $table)
     {
         $retval = '';
-        if ($this->_menuEnabled && strlen($table) && $GLOBALS['cfg']['LeftRecentTable'] > 0) {
+        if ($this->_menuEnabled && strlen($table) && $GLOBALS['cfg']['NumRecentTables'] > 0) {
             $tmp_result = PMA_RecentTable::getInstance()->add($db, $table);
             if ($tmp_result === true) {
                 $params = array('ajax_request' => true, 'recent_table' => true);

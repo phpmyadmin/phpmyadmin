@@ -122,13 +122,13 @@ class PMA_RecentTable
     }
 
     /**
-     * Trim recent table according to the LeftRecentTable configuration.
+     * Trim recent table according to the NumRecentTables configuration.
      *
      * @return boolean True if trimming occurred
      */
     public function trim()
     {
-        $max = max($GLOBALS['cfg']['LeftRecentTable'], 0);
+        $max = max($GLOBALS['cfg']['NumRecentTables'], 0);
         $trimming_occured = count($this->tables) > $max;
         while (count($this->tables) > $max) {
             array_pop($this->tables);

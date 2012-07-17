@@ -270,7 +270,7 @@ class PMA_NavigationHeader
     {
         $retval = '';
         // display recently used tables
-        if ($GLOBALS['cfg']['LeftRecentTable'] > 0) {
+        if ($GLOBALS['cfg']['NumRecentTables'] > 0) {
             $retval .= '<!-- RECENT START -->';
             $retval .= '<div id="recentTableList">';
             $retval .= '<form method="post" ';

@@ -1068,10 +1068,10 @@ ALTER TABLE `pma_column_comments`
         <span id="cfg_Servers_recent">$cfg['Servers'][$i]['recent']</span> string
     </dt>
     <dd>
-        Since release 3.5.0 you can show recently used tables in the left navigation frame.
+        Since release 3.5.0 you can show recently used tables in the left navigation panel.
         It helps you to jump across table directly, without the need to select the database,
         and then select the table. Using
-        <a href="#cfg_LeftRecentTable" class="configrule">$cfg['LeftRecentTable']</a>
+        <a href="#cfg_NumRecentTables" class="configrule">$cfg['NumRecentTables']</a>
         you can configure the maximum number of recent tables shown. When you select a table
         from the list, it will jump to the page specified in
         <a href="#cfg_NavigationTreeDefaultTabTable" class="configrule">$cfg['NavigationTreeDefaultTabTable']</a>.<br/><br/>
@@ -1549,7 +1549,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
     <dd>Defines how many sublevels should be displayed when splitting
         up tables by the above separator.</dd>
 
-    <dt id="cfg_LeftRecentTable">$cfg['LeftRecentTable'] integer</dt>
+    <dt id="cfg_NumRecentTables">$cfg['NumRecentTables'] integer</dt>
     <dd>The maximum number of recently used tables shown in the left navigation
         frame. Set this to 0 (zero) to disable the listing of recent tables.</dd>
 

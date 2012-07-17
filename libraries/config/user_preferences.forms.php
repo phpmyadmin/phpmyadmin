@@ -33,6 +33,7 @@ $forms['Features']['General'] = array(
     'DisableMultiTableMaintenance',
     'MaxDbList',
     'MaxTableList',
+    'NumRecentTables',
     'ShowHint');
 $forms['Features']['Text_fields'] = array(
     'CharEditing',
@@ -82,7 +83,6 @@ $forms['Left_frame']['Left_frame'] = array(
     'NavigationLogoLink',
     'NavigationLogoLinkWindow',
     'NavigationTreePointerEnable',
-    'LeftRecentTable',
     'MaxNavigationItems',
     'NavigationTreeEnableGrouping',
     'NavigationTreeDisplayItemFilterMinimum');

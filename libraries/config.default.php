@@ -852,9 +852,9 @@ $cfg['NavigationLogoLinkWindow'] = 'main';
 /**
  * number of recently used tables displayed in the navigation frame
  *
- * @global integer $cfg['LeftRecentTable']
+ * @global integer $cfg['NumRecentTables']
  */
-$cfg['LeftRecentTable'] = 10;
+$cfg['NumRecentTables'] = 10;
 
 /**
  * display a JavaScript table filter in the left frame

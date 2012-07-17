@@ -130,6 +130,7 @@ $forms['Features']['Other_core_settings'] = array(
     'InitialSlidersState',
     'MaxDbList',
     'MaxTableList',
+    'NumRecentTables',
     'ShowHint',
     'OBGzip',
     'PersistentConnections',
@@ -166,7 +167,6 @@ $forms['Left_frame']['Left_frame'] = array(
     'NavigationLogoLink',
     'NavigationLogoLinkWindow',
     'NavigationTreePointerEnable',
-    'LeftRecentTable',
     'MaxNavigationItems',
     'NavigationTreeEnableGrouping',
     'NavigationTreeDisplayItemFilterMinimum');
