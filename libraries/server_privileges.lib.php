@@ -372,8 +372,9 @@ function PMA_getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname)
  *
  * @return string html snippet
  */
-function PMA_getHtmlToDisplayPrivilegesTable($random_n, $db = '*', $table = '*', $submit = true)
-{
+function PMA_getHtmlToDisplayPrivilegesTable($random_n, $db = '*',
+     $table = '*', $submit = true
+) {
     $html_output = '';
     
     if ($db == '*') {
@@ -383,7 +384,9 @@ function PMA_getHtmlToDisplayPrivilegesTable($random_n, $db = '*', $table = '*',
     if (isset($GLOBALS['username'])) {
         $username = $GLOBALS['username'];
         $hostname = $GLOBALS['hostname'];
-        $sql_query = PMA_getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname);
+        $sql_query = PMA_getSqlQueryForDisplayPrivTable(
+            $db, $table, $username, $hostname
+        );
         $row = PMA_DBI_fetch_single_row($sql_query);
     }
     if (empty($row)) {
@@ -552,8 +555,9 @@ function PMA_getHtmlForDisplayResourceLimits($row)
  * 
  * @return string $html_output
  */
-function PMA_getHtmlForTableSpecificPrivileges($username, $hostname, $db, $table, $columns,$row)
-{
+function PMA_getHtmlForTableSpecificPrivileges($username, $hostname, $db
+    , $table, $columns,$row
+) {
     $common_functions = PMA_CommonFunctions::getInstance();
     $res = PMA_DBI_query(
         'SELECT `Column_name`, `Column_priv`'
@@ -563,7 +567,9 @@ function PMA_getHtmlForTableSpecificPrivileges($username, $hostname, $db, $table
         .' AND `Host`'
         .' = \'' . $common_functions->sqlAddSlashes($hostname) . "'"
         .' AND `Db`'
-        .' = \'' . $common_functions->sqlAddSlashes($common_functions->unescapeMysqlWildcards($db)) . "'"
+        .' = \'' . $common_functions->sqlAddSlashes(
+            $common_functions->unescapeMysqlWildcards($db)
+        ) . "'"
         .' AND `Table_name`'
         .' = \'' . $common_functions->sqlAddSlashes($table) . '\';'
     );
@@ -669,16 +675,32 @@ function PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
            . ($current_grant_value == 'Y' ? 'checked="checked" ' : '')
            . 'title="';
 
-        $html_output .= (isset($GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))])
-            ? $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))]
-            : $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5)) . 'Tbl']) . '"/>' . "\n";
+        $html_output .= (isset($GLOBALS[
+                    'strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))
+                    ] )
+                ? $GLOBALS[
+                    'strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))
+                ]
+                : $GLOBALS[
+                    'strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5)) . 'Tbl'
+                ]
+            )
+            . '"/>' . "\n";
 
         $html_output .= '<label for="checkbox_' . $current_grant
             . '"><code><dfn title="'
-            . (isset($GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))])
-                ? $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))]
-                : $GLOBALS['strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5)) . 'Tbl'])
-            . '">' . strtoupper(substr($current_grant, 0, strlen($current_grant) - 5)) . '</dfn></code></label>' . "\n"
+            . (isset($GLOBALS[
+                    'strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))
+                ])
+                ? $GLOBALS[
+                    'strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5))
+                ]
+                : $GLOBALS[
+                    'strPrivDesc' . substr($tmp_current_grant, 0, (strlen($tmp_current_grant) - 5)) . 'Tbl'
+                ]
+            )
+            . '">' . strtoupper(substr($current_grant, 0, strlen($current_grant) - 5))
+            . '</dfn></code></label>' . "\n"
             . '</div>' . "\n";
     } // end foreach ()
     return $html_output;
@@ -697,7 +719,10 @@ function PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
  */
 function PMA_getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row, $random_n)
 {
-    $privTable_names = array(0 => __('Data'), 1 => __('Structure'), 2 => __('Administration'));
+    $privTable_names = array(0 => __('Data'),
+        1 => __('Structure'),
+        2 => __('Administration')
+    );
     $privTable = array();
     // d a t a
     $privTable[0] = PMA_getDataPrivilegeTable($db);
@@ -709,7 +734,11 @@ function PMA_getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row, $random_n)
     $privTable[2] = PMA_getAdministrationPrivilegeTable($db);
     
     $html_output = '<input type="hidden" name="grant_count" value="'
-        . (count($privTable[0]) + count($privTable[1]) + count($privTable[2]) - (isset($row['Grant_priv']) ? 1 : 0))
+        . (count($privTable[0])
+            + count($privTable[1])
+            + count($privTable[2])
+            - (isset($row['Grant_priv']) ? 1 : 0)
+        )
         . '" />' . "\n"
         . '<fieldset id="fieldset_user_global_rights">' . "\n"
         . '<legend>' . "\n"
@@ -720,16 +749,22 @@ function PMA_getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row, $random_n)
                 ? __('Database-specific privileges')
                 : __('Table-specific privileges'))) . "\n"
         . '(<a href="server_privileges.php?'
-        . $GLOBALS['url_query'] . '&amp;checkall=1" onclick="setCheckboxes(\'addUsersForm_' . $random_n . '\', true); return false;">'
+        . $GLOBALS['url_query'] . '&amp;checkall=1" '
+        . 'onclick="setCheckboxes(\'addUsersForm_' . $random_n . '\', true); return false;">'
         . __('Check All') . '</a> /' . "\n"
         . '<a href="server_privileges.php?'
-        . $GLOBALS['url_query'] . '" onclick="setCheckboxes(\'addUsersForm_' . $random_n . '\', false); return false;">'
+        . $GLOBALS['url_query'] . '" '
+        . 'onclick="setCheckboxes(\'addUsersForm_' . $random_n . '\', false); return false;">'
         . __('Uncheck All') . '</a>)' . "\n"
         . '</legend>' . "\n"
-        . '<p><small><i>' . __('Note: MySQL privilege names are expressed in English') . '</i></small></p>' . "\n";
+        . '<p><small><i>' 
+        . __('Note: MySQL privilege names are expressed in English') 
+        . '</i></small></p>' . "\n";
 
     // Output the Global privilege tables with checkboxes
-    $html_output .= PMA_getHtmlForGlobalPrivTableWithCheckboxes($privTable, $privTable_names, $row);
+    $html_output .= PMA_getHtmlForGlobalPrivTableWithCheckboxes(
+        $privTable, $privTable_names, $row
+    );
 
     // The "Resource limits" box is not displayed for db-specific privs
     if ($db == '*') {
@@ -852,7 +887,10 @@ function PMA_getStructurePrivilegeTable($table, $row)
 function PMA_getAdministrationPrivilegeTable($db)
 {
     $administration_privTable = array(
-        array('Grant', 'GRANT', __('Allows adding users and privileges without reloading the privilege tables.')),
+        array('Grant',
+            'GRANT',
+            __('Allows adding users and privileges without reloading the privilege tables.')
+        ),
     );
     if ($db == '*') {
         $administration_privTable[] = array('Super',
@@ -921,7 +959,10 @@ function PMA_getHtmlForGlobalPrivTableWithCheckboxes($privTable, $privTable_name
                 . '<input type="checkbox"'
                 . ' name="' . $priv[0] . '_priv" id="checkbox_' . $priv[0] . '_priv"'
                 . ' value="Y" title="' . $priv[2] . '"'
-                . ((! empty($GLOBALS['checkall']) || $row[$priv[0] . '_priv'] == 'Y') ?  ' checked="checked"' : '')
+                . ((! empty($GLOBALS['checkall']) || $row[$priv[0] . '_priv'] == 'Y')
+                    ?  ' checked="checked"'
+                    : ''
+                )
                 . '/>' . "\n"
                 . '<label for="checkbox_' . $priv[0] . '_priv"><code><dfn title="' . $priv[2] . '">'
                 . $priv[1] . '</dfn></code></label>' . "\n"
@@ -952,46 +993,90 @@ function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
         $GLOBALS['pred_username'] = 'any';
     }
     $html_output = '<fieldset id="fieldset_add_user_login">' . "\n"
-       . '<legend>' . __('Login Information') . '</legend>' . "\n"
-       . '<div class="item">' . "\n"
-       . '<label for="select_pred_username">' . "\n"
-       . '    ' . __('User name') . ':' . "\n"
-       . '</label>' . "\n"
-       . '<span class="options">' . "\n"
-       . '<select name="pred_username" id="select_pred_username" title="' . __('User name') . '"' . "\n"
-       . '        onchange="if (this.value == \'any\') { username.value = \'\'; } else if (this.value == \'userdefined\') { username.focus(); username.select(); }">' . "\n"
-       . '<option value="any"' . ((isset($GLOBALS['pred_username']) && $GLOBALS['pred_username'] == 'any') ? ' selected="selected"' : '') . '>' . __('Any user') . '</option>' . "\n"
-       . '<option value="userdefined"' . ((! isset($GLOBALS['pred_username']) || $GLOBALS['pred_username'] == 'userdefined') ? ' selected="selected"' : '') . '>' . __('Use text field') . ':</option>' . "\n"
-       . '</select>' . "\n"
-       . '</span>' . "\n"
-       . '<input type="text" name="username" maxlength="'
-       . $username_length . '" title="' . __('User name') . '"'
-       . (empty($GLOBALS['username'])
+        . '<legend>' . __('Login Information') . '</legend>' . "\n"
+        . '<div class="item">' . "\n"
+        . '<label for="select_pred_username">' . "\n"
+        . '    ' . __('User name') . ':' . "\n"
+        . '</label>' . "\n"
+        . '<span class="options">' . "\n";
+    
+    $html_output .= '<select name="pred_username" id="select_pred_username" '
+        . 'title="' . __('User name') . '"' . "\n";
+    
+    
+    $html_output .= '        onchange="'
+        . 'if (this.value == \'any\') {'
+        . '    username.value = \'\'; '
+        . '} else if (this.value == \'userdefined\') {'
+        . '    username.focus(); username.select(); '
+        . '}">' . "\n";
+    
+    $html_output .= '<option value="any"'
+        . ((isset($GLOBALS['pred_username']) && $GLOBALS['pred_username'] == 'any')
+            ? ' selected="selected"' 
+            : '') . '>'
+        . __('Any user')
+        . '</option>' . "\n";
+    
+    $html_output .= '<option value="userdefined"'
+        . ((! isset($GLOBALS['pred_username']) || $GLOBALS['pred_username'] == 'userdefined')
+            ? ' selected="selected"'
+            : '') . '>'
+        . __('Use text field')
+        . ':</option>' . "\n";
+    
+    $html_output .= '</select>' . "\n"
+        . '</span>' . "\n";
+    
+    $html_output .= '<input type="text" name="username" maxlength="'
+        . $username_length . '" title="' . __('User name') . '"'
+        . (empty($GLOBALS['username'])
            ? ''
            : ' value="' . htmlspecialchars(
                isset($GLOBALS['new_username'])
                ? $GLOBALS['new_username']
                : $GLOBALS['username']
            ) . '"'
-       )
-       . ' onchange="pred_username.value = \'userdefined\';" autofocus="autofocus" />' . "\n"
-       . '</div>' . "\n"
-       . '<div class="item">' . "\n"
-       . '<label for="select_pred_hostname">' . "\n"
-       . '    ' . __('Host') . ':' . "\n"
-       . '</label>' . "\n"
-       . '<span class="options">' . "\n"
-       . '    <select name="pred_hostname" id="select_pred_hostname" title="' . __('Host') . '"' . "\n";
+        )
+        . ' onchange="pred_username.value = \'userdefined\';" autofocus="autofocus" />' . "\n"
+        . '</div>' . "\n";
+    
+    $html_output .= '<div class="item">' . "\n"
+        . '<label for="select_pred_hostname">' . "\n"
+        . '    ' . __('Host') . ':' . "\n"
+        . '</label>' . "\n";
+    
+    $html_output .= '<span class="options">' . "\n"
+        . '    <select name="pred_hostname" id="select_pred_hostname" '
+        . 'title="' . __('Host') . '"' . "\n";
     $_current_user = PMA_DBI_fetch_value('SELECT USER();');
     if (! empty($_current_user)) {
-        $thishost = str_replace("'", '', substr($_current_user, (strrpos($_current_user, '@') + 1)));
+        $thishost = str_replace("'",
+            '',
+            substr($_current_user,
+            (strrpos($_current_user, '@') + 1))
+        );
         if ($thishost == 'localhost' || $thishost == '127.0.0.1') {
             unset($thishost);
         }
     }
-    $html_output .= '    onchange="if (this.value == \'any\') { hostname.value = \'%\'; } else if (this.value == \'localhost\') { hostname.value = \'localhost\'; } '
-       . (empty($thishost) ? '' : 'else if (this.value == \'thishost\') { hostname.value = \'' . addslashes(htmlspecialchars($thishost)) . '\'; } ')
-       . 'else if (this.value == \'hosttable\') { hostname.value = \'\'; } else if (this.value == \'userdefined\') { hostname.focus(); hostname.select(); }">' . "\n";
+    $html_output .= '    onchange="'
+        . 'if (this.value == \'any\') { '
+        . '     hostname.value = \'%\'; '
+        . '} else if (this.value == \'localhost\') { '
+        . '    hostname.value = \'localhost\'; '
+        . '} '
+        . (empty($thishost)
+            ? ''
+            : 'else if (this.value == \'thishost\') { '
+            . '    hostname.value = \'' . addslashes(htmlspecialchars($thishost)) . '\'; '
+            . '} '
+        )
+        . 'else if (this.value == \'hosttable\') { '
+        . '    hostname.value = \'\'; '
+        . '} else if (this.value == \'userdefined\') {'
+        . '    hostname.focus(); hostname.select(); '
+        . '}">' . "\n";
     unset($_current_user);
 
     // when we start editing a user, $GLOBALS['pred_hostname'] is not defined
@@ -1009,64 +1094,95 @@ function PMA_getHtmlForDisplayLoginInformationFields($mode = 'new')
             break;
         }
     }
-    $html_output .=  '        <option value="any"'
+    $html_output .=  '<option value="any"'
         . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'any')
-            ? ' selected="selected"' : '') . '>' . __('Any host')
+            ? ' selected="selected"'
+            : '') . '>' 
+        . __('Any host')
         . '</option>' . "\n"
         . '<option value="localhost"'
         . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'localhost')
-            ? ' selected="selected"' : '') . '>' . __('Local')
+            ? ' selected="selected"'
+            : '') . '>'
+        . __('Local')
         . '</option>' . "\n";
     if (! empty($thishost)) {
-        $html_output .= '        <option value="thishost"'
+        $html_output .= '<option value="thishost"'
             . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'thishost')
-                ? ' selected="selected"' : '') . '>' . __('This Host')
+                ? ' selected="selected"' 
+                : '') . '>' 
+            . __('This Host')
             . '</option>' . "\n";
     }
     unset($thishost);
-    $html_output .= '        <option value="hosttable"'
+    $html_output .= '<option value="hosttable"'
         . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'hosttable')
-            ? ' selected="selected"' : '') . '>' . __('Use Host Table')
-        . '</option>' . "\n"
-        . '        <option value="userdefined"'
+            ? ' selected="selected"'
+            : '') . '>'
+        . __('Use Host Table')
+        . '</option>' . "\n";
+    
+    $html_output .= '<option value="userdefined"'
         . ((isset($GLOBALS['pred_hostname']) && $GLOBALS['pred_hostname'] == 'userdefined')
-            ? ' selected="selected"' : '')
-        . '>' . __('Use text field') . ':</option>' . "\n"
+            ? ' selected="selected"'
+            : '') . '>' 
+        . __('Use text field') . ':</option>' . "\n"
         . '</select>' . "\n"
-        . '</span>' . "\n"
-        . '<input type="text" name="hostname" maxlength="'
+        . '</span>' . "\n";
+    
+    $html_output .= '<input type="text" name="hostname" maxlength="'
         . $hostname_length . '" value="'
         . htmlspecialchars(isset($GLOBALS['hostname']) ? $GLOBALS['hostname'] : '')
         . '" title="' . __('Host')
         . '" onchange="pred_hostname.value = \'userdefined\';" />' . "\n"
-        . PMA_CommonFunctions::getInstance()->showHint(__('When Host table is used, this field is ignored and values stored in Host table are used instead.'))
-        . '</div>' . "\n"
-        . '<div class="item">' . "\n"
+        . PMA_CommonFunctions::getInstance()->showHint(
+            __('When Host table is used, this field is ignored and values stored in Host table are used instead.')
+        )
+        . '</div>' . "\n";
+    
+    $html_output .= '<div class="item">' . "\n"
         . '<label for="select_pred_password">' . "\n"
         . '    ' . __('Password') . ':' . "\n"
         . '</label>' . "\n"
         . '<span class="options">' . "\n"
         . '<select name="pred_password" id="select_pred_password" title="'
-        . __('Password') . '"' . "\n"
-        . '            onchange="if (this.value == \'none\') { pma_pw.value = \'\'; pma_pw2.value = \'\'; } else if (this.value == \'userdefined\') { pma_pw.focus(); pma_pw.select(); }">' . "\n"
-        . ($mode == 'change' ? '            <option value="keep" selected="selected">' . __('Do not change the password') . '</option>' . "\n" : '')
+        . __('Password') . '"' . "\n";
+    
+    $html_output .= '            onchange="'
+        . 'if (this.value == \'none\') { '
+        . '    pma_pw.value = \'\'; pma_pw2.value = \'\'; '
+        . '} else if (this.value == \'userdefined\') { '
+        . '    pma_pw.focus(); pma_pw.select(); '
+        . '}">' . "\n"
+        . ($mode == 'change' ? '            <option value="keep" selected="selected">'
+            . __('Do not change the password')
+            . '</option>' . "\n" : '')
         . '<option value="none"';
+    
     if (isset($GLOBALS['username']) && $mode != 'change') {
         $html_output .= '  selected="selected"';
     }
     $html_output .= '>' . __('No Password') . '</option>' . "\n"
-       . '<option value="userdefined"' . (isset($GLOBALS['username']) ? '' : ' selected="selected"') . '>' . __('Use text field') . ':</option>' . "\n"
-       . '</select>' . "\n"
-       . '</span>' . "\n"
-       . '<input type="password" id="text_pma_pw" name="pma_pw" title="' . __('Password') . '" onchange="pred_password.value = \'userdefined\';" />' . "\n"
-       . '</div>' . "\n"
-       . '<div class="item" id="div_element_before_generate_password">' . "\n"
-       . '<label for="text_pma_pw2">' . "\n"
-       . '    ' . __('Re-type') . ':' . "\n"
-       . '</label>' . "\n"
-       . '<span class="options">&nbsp;</span>' . "\n"
-       . '<input type="password" name="pma_pw2" id="text_pma_pw2" title="' . __('Re-type') . '" onchange="pred_password.value = \'userdefined\';" />' . "\n"
-       . '</div>' . "\n"
+        . '<option value="userdefined"'
+        . (isset($GLOBALS['username']) ? '' : ' selected="selected"') . '>'
+        . __('Use text field')
+        . ':</option>' . "\n"
+        . '</select>' . "\n"
+        . '</span>' . "\n"
+        . '<input type="password" id="text_pma_pw" name="pma_pw" '
+        . 'title="' . __('Password') . '" '
+        . 'onchange="pred_password.value = \'userdefined\';" />' . "\n"
+        . '</div>' . "\n";
+    
+    $html_output .= '<div class="item" id="div_element_before_generate_password">' . "\n"
+        . '<label for="text_pma_pw2">' . "\n"
+        . '    ' . __('Re-type') . ':' . "\n"
+        . '</label>' . "\n"
+        . '<span class="options">&nbsp;</span>' . "\n"
+        . '<input type="password" name="pma_pw2" id="text_pma_pw2" '
+        . 'title="' . __('Re-type') . '" '
+        . 'onchange="pred_password.value = \'userdefined\';" />' . "\n"
+        . '</div>' . "\n"
        // Generate password added here via jQuery
        . '</fieldset>' . "\n";
     
