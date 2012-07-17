@@ -78,6 +78,8 @@ class PMA_Footer_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getDebugMessage
+     *
+     * @group medium
      */
     public function testGetDebugMessage(){
 

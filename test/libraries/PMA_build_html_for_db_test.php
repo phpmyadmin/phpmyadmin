@@ -86,6 +86,8 @@ class PMA_build_html_for_db_test extends PHPUnit_Framework_TestCase
      * @param $output
      *
      * @dataProvider providerForTestPMA_buildHtmlForDb
+     *
+     * @group medium
      */
     public function testPMA_buildHtmlForDb($current, $is_superuser, $checkall, $url_query,$column_order, $replication_types, $replication_info, $output){
 

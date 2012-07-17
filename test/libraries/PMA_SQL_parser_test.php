@@ -125,6 +125,10 @@ class PMA_SQL_parser_test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     *
+     * @group medium
+     */
     public function testParse_4()
     {
         $GLOBALS['is_ajax_request'] = true;
