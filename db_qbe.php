@@ -179,62 +179,8 @@ if ($cfgRelation['designerwork']) {
         )
     )->display();
 }
-?>
-<form action="db_qbe.php" method="post">
-<fieldset>
-<table class="data" style="width: 100%;">
-<?php
-echo PMA_dbQbegetColumnNamesRow(
-    $criteria_column_count, $fld, $criteriaColumnInsert, $criteriaColumnDelete
-);
-echo PMA_dbQbegetSortRow(
-    $criteria_column_count, $realwidth, $criteriaColumnInsert, $criteriaColumnDelete
-);
-echo PMA_dbQbegetShowRow(
-    $criteria_column_count, $criteriaColumnInsert, $criteriaColumnDelete
-);
-echo PMA_dbQbegetCriteriaInputboxRow(
-    $criteria_column_count, $realwidth, $criteria, $prev_criteria, $criteriaColumnInsert, $criteriaColumnDelete
-);
-echo PMA_dbQbeGetInsDelAndOrCriteriaRows($criteria_row_count, $criteria_column_count, $realwidth,
-    $criteriaColumnInsert, $criteriaColumnDelete, $criteriaAndOrRow
-);
-echo PMA_dbQbeGetModifyColumnsRow(
-    $criteria_column_count, $criteriaAndOrColumn, $criteriaColumnInsert, $criteriaColumnDelete 
+echo PMA_dbQbeGetSelectionForm($db, $tbl_names, $fld, $criteria_column_count, $criteria_row_count,
+    $criteriaColumnInsert, $criteriaColumnDelete, $realwidth, $criteria, $prev_criteria,
+    $criteriaAndOrRow, $criteriaAndOrColumn, $cfgRelation
 );
 ?>
-</table>
-<?php
-$new_row_count--;
-$url_params['db']       = $db;
-$url_params['criteriaColumnCount']  = $new_column_count;
-$url_params['rows']     = $new_row_count;
-echo PMA_generate_common_hidden_inputs($url_params);
-?>
-</fieldset>
-
-<?php
-echo PMA_dbQbeGetTableFooters();
-echo PMA_dbQbeGetTablesList($tbl_names);
-?>
-
-<div class="floatleft">
-    <fieldset>
-        <legend><?php echo sprintf(__('SQL query on database <b>%s</b>:'), $common_functions->getDbLink($db)); ?>
-            </legend>
-        <textarea cols="80" name="sql_query" id="textSqlquery"
-            rows="<?php echo ($numTableListOptions > 30) ? '15' : '7'; ?>"
-            dir="<?php echo $text_dir; ?>">
-<?php
-echo PMA_dbQbeGetSQLQuery(
-    $criteria_column_count, $criteria_row_count, $criteria, $cfgRelation
-);
-?>
-    </textarea>
-    </fieldset>
-    <fieldset class="tblFooters">
-        <input type="submit" name="submit_sql" value="<?php echo __('Submit Query'); ?>" />
-    </fieldset>
-</div>
-</form>
-

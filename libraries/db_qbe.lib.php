@@ -979,4 +979,87 @@ function PMA_dbQbeGetSQLQuery($criteria_column_count, $criteria_row_count, $crit
     $sql_query .= PMA_dbQbeGetOrderByClause($criteria_column_count);
     return $sql_query;
 }
+
+/**
+ * Provides the generated QBE form
+ *
+ * @param array   $db                    Selected Database
+ * @param array   $tbl_names             Number of tables
+ * @param array   $criteria_column_count Number of criteria columns
+ * @param integer $criteria_row_count    Number of criteria rows
+ * @param string  $criteriaColumnInsert  If a new criteria column is needed
+ * @param string  $criteriaColumnDelete  If a criteria column is to be deleted
+ * @param string  $realwidth             Largest column width found
+ * @param string  $criteria              Already Filled criteria
+ * @param string  $prev_criteria         Previously filled criteria(hidden form field)
+ * @param string  $criteriaAndOrRow      If AND or OR is to be checked among rows
+ * @param string  $criteriaAndOrColumn   If AND or OR is to be checked among columns
+ *
+ * @return string QBE form
+ */
+function PMA_dbQbeGetSelectionForm($db, $tbl_names, $fld, $criteria_column_count, $criteria_row_count,
+    $criteriaColumnInsert, $criteriaColumnDelete, $realwidth, $criteria, $prev_criteria,
+    $criteriaAndOrRow, $criteriaAndOrColumn, $cfgRelation
+) {
+    $html_output = '<form action="db_qbe.php" method="post">';
+    $html_output .= '<fieldset>';
+    $html_output .= '<table class="data" style="width: 100%;">';
+    // Get table's <tr> elements
+    $html_output .= PMA_dbQbegetColumnNamesRow(
+        $criteria_column_count, $fld, $criteriaColumnInsert, $criteriaColumnDelete
+    );
+    $html_output .= PMA_dbQbegetSortRow(
+        $criteria_column_count, $realwidth, $criteriaColumnInsert, $criteriaColumnDelete
+    );
+    $html_output .= PMA_dbQbegetShowRow(
+        $criteria_column_count, $criteriaColumnInsert, $criteriaColumnDelete
+    );
+    $html_output .= PMA_dbQbegetCriteriaInputboxRow(
+        $criteria_column_count, $realwidth, $criteria, $prev_criteria,
+        $criteriaColumnInsert, $criteriaColumnDelete
+    );
+    $html_output .= PMA_dbQbeGetInsDelAndOrCriteriaRows($criteria_row_count,
+        $criteria_column_count, $realwidth, $criteriaColumnInsert,
+        $criteriaColumnDelete, $criteriaAndOrRow
+    );
+    $html_output .= PMA_dbQbeGetModifyColumnsRow(
+        $criteria_column_count, $criteriaAndOrColumn, $criteriaColumnInsert,
+        $criteriaColumnDelete 
+    );
+    $html_output .= '</table>';
+    $new_row_count--;
+    $url_params['db'] = $db;
+    $url_params['criteriaColumnCount'] = $new_column_count;
+    $url_params['rows'] = $new_row_count;
+    $html_output .= PMA_generate_common_hidden_inputs($url_params);
+    $html_output .= '</fieldset>';
+    // get footers
+    $html_output .= PMA_dbQbeGetTableFooters();
+    // get tables select list
+    $html_output .= PMA_dbQbeGetTablesList($tbl_names);
+    // get SQL query
+    $html_output .= '<div class="floatleft">';
+    $html_output .= '<fieldset>';
+    $html_output .= '<legend>'
+        . sprintf(
+            __('SQL query on database <b>%s</b>:'), PMA_CommonFunctions::getInstance()->getDbLink($db)
+        );
+    $html_output .= '</legend>';
+    $html_output .= '<textarea cols="80" name="sql_query" id="textSqlquery"'
+        . ' rows="' . (($numTableListOptions > 30) ? '15' : '7') . '"'
+        . ' dir="' . $text_dir . '">';
+    $html_output .= PMA_dbQbeGetSQLQuery(
+        $criteria_column_count, $criteria_row_count, $criteria, $cfgRelation
+    );
+    $html_output .= '</textarea>';
+    $html_output .= '</fieldset>';
+    // displays form's footers
+    $html_output .= '<fieldset class="tblFooters">';
+    $html_output .= '<input type="submit" name="submit_sql"'
+        . ' value="' . __('Submit Query') . '" />';
+    $html_output .= '</fieldset>';
+    $html_output .= '</div>';
+    $html_output .= '</form>';
+    return $html_output;
+}
 ?>
