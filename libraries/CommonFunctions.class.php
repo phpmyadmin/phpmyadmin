@@ -168,7 +168,7 @@ class PMA_CommonFunctions
     public function getImage($image, $alternate = '', $attributes = array())
     {
         static $sprites; // cached list of available sprites (if any)
-        if (defined(TESTSUITE)) {
+        if (defined('TESTSUITE')) {
             // prevent caching in testsuite
             unset($sprites);
         }
