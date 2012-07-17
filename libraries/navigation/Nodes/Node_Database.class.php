@@ -42,7 +42,7 @@ class Node_Database extends Node
      *
      * @return int
      */
-    public function getPresence($type, $searchClause = '')
+    public function getPresence($type = '', $searchClause = '')
     {
         $retval = 0;
         $db     = $this->real_name;

@@ -550,10 +550,9 @@ class PMA_NavigationTree
     public function renderState()
     {
         $node = $this->_buildPath();
-        if ($node === false) {
-            $retval = false;
-        } else {
-            $retval .= PMA_commonFunctions::getInstance()->getListNavigator(
+        $retval = false;
+        if ($node !== false) {
+            $retval = PMA_commonFunctions::getInstance()->getListNavigator(
                 $this->_tree->getPresence(),
                 $this->_pos,
                 array('server' => $GLOBALS['server']),
