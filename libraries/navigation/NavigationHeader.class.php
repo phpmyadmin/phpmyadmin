@@ -250,7 +250,7 @@ class PMA_NavigationHeader
     private function _serverChoice()
     {
         $retval = '';
-        if ($GLOBALS['cfg']['LeftDisplayServers']) {
+        if ($GLOBALS['cfg']['NavigationDisplayServers']) {
             include_once './libraries/select_server.lib.php';
             $retval .= '<!-- SERVER CHOICE START -->';
             $retval .= '<div id="serverChoice">';

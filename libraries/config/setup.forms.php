@@ -171,7 +171,7 @@ $forms['Left_frame']['Left_frame'] = array(
     'NavigationTreeEnableGrouping',
     'NavigationTreeDisplayItemFilterMinimum');
 $forms['Left_frame']['Left_servers'] = array(
-    'LeftDisplayServers',
+    'NavigationDisplayServers',
     'DisplayServersList');
 $forms['Left_frame']['Left_databases'] = array(
     'NavigationTreeDbSeparator');

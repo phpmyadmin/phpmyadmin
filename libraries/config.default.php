@@ -867,9 +867,9 @@ $cfg['NavigationTreeDisplayItemFilterMinimum'] = 30;
 /**
  * display server choice at top of left frame
  *
- * @global boolean $cfg['LeftDisplayServers']
+ * @global boolean $cfg['NavigationDisplayServers']
  */
-$cfg['LeftDisplayServers'] = false;
+$cfg['NavigationDisplayServers'] = false;
 
 /**
  * server choice as links
