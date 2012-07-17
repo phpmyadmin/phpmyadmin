@@ -91,7 +91,7 @@ $forms['Left_frame']['Left_databases'] = array(
 $forms['Left_frame']['Left_tables'] = array(
     'LeftDisplayTableFilterMinimum',
     'LeftDefaultTabTable',
-    'LeftFrameTableSeparator',
+    'NavigationTreeTableSeparator',
     'LeftFrameTableLevel',
     'ShowTooltip');
 $forms['Main_frame']['Startup'] = array(

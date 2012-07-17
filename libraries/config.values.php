@@ -44,7 +44,7 @@ $cfg_db['LeftDefaultTabTable'] = array(
     'sql.php'            // browse page
 );
 $cfg_db['NavigationTreeDbSeparator'] = 'short_string';
-$cfg_db['LeftFrameTableSeparator'] = 'short_string';
+$cfg_db['NavigationTreeTableSeparator'] = 'short_string';
 $cfg_db['NavigationBarIconic'] = array(
     true   => __('Yes'),
     false  => __('No'),

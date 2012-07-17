@@ -154,7 +154,7 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
 <?php
 }
 
-$sep = $GLOBALS['cfg']['LeftFrameTableSeparator'];
+$sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
 
 // Get list of tables
 $table_list = PMA_Util::getTableList($GLOBALS['db']);

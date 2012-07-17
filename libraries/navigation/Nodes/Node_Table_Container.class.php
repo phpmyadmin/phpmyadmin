@@ -27,8 +27,10 @@ class Node_Table_Container extends Node
             'icon' => 'db_structure.php?server=' . $GLOBALS['server']
                     . '&amp;db=%1$s&amp;token=' . $GLOBALS['token'],
         );
-        $this->separator       = $GLOBALS['cfg']['LeftFrameTableSeparator'];
-        $this->separator_depth = (int)($GLOBALS['cfg']['LeftFrameTableLevel']);
+        if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
+            $this->separator       = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
+            $this->separator_depth = (int)($GLOBALS['cfg']['LeftFrameTableLevel']);
+        }
         $this->real_name       = 'tables';
 
         $new        = new Node(__('New'));

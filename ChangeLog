@@ -57,6 +57,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 + Added configuration directive: MaxNavigationItems
 + Renamed configuration directive: LeftFrameDBTree => NavigationTreeEnableGrouping
 + Renamed configuration directive: LeftFrameDBSeparator => NavigationTreeDbSeparator
++ Renamed configuration directive: LeftFrameTableSeparator => NavigationTreeTableSeparator
 
 3.5.4.0 (not yet released)
 - bug #3570212 [edit] uuid_short() is a no-arguments function

@@ -808,9 +808,9 @@ $cfg['NavigationTreeDbSeparator'] = '_';
  * Which string will be used to generate table prefixes
  * to split/nest tables into multiple categories
  *
- * @global string $cfg['LeftFrameTableSeparator']
+ * @global string $cfg['NavigationTreeTableSeparator']
  */
-$cfg['LeftFrameTableSeparator']= '__';
+$cfg['NavigationTreeTableSeparator'] = '__';
 
 /**
  * How many sublevels should be displayed when splitting up tables

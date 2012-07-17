@@ -1536,7 +1536,7 @@ CREATE DATABASE,ALTER DATABASE,DROP DATABASE</pre>
         them in a tree. Alternatively you can specify more strings in an array
         and all of them will be used as a separator.</dd>
 
-    <dt id="cfg_LeftFrameTableSeparator">$cfg['LeftFrameTableSeparator'] string</dt>
+    <dt id="cfg_NavigationTreeTableSeparator">$cfg['NavigationTreeTableSeparator'] string</dt>
     <dd>Defines a string to be used to nest table spaces. Defaults to '__'.
         This means if you have tables like 'first__second__third' this will be
         shown as a three-level hierarchy like: first &gt; second &gt; third.
@@ -3341,8 +3341,8 @@ RewriteRule .* - [F]
 
 <h4 id="faq3_5">
     <a href="#faq3_5">3.5 When using nested folders there are some multiple hierarchies
-    displayed in a wrong manner?!</a> (<a href="#cfg_LeftFrameTableSeparator"
-    class="configrule">$cfg['LeftFrameTableSeparator']</a>)</h4>
+    displayed in a wrong manner?!</a> (<a href="#cfg_NavigationTreeTableSeparator"
+    class="configrule">$cfg['NavigationTreeTableSeparator']</a>)</h4>
 
 <p> Please note that you should not use the separating string multiple times
     without any characters between them, or at the beginning/end of your table

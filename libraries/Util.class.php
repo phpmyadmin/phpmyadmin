@@ -746,7 +746,7 @@ class PMA_Util
     public static function getTableList(
         $db, $tables = null, $limit_offset = 0, $limit_count = false
     ) {
-        $sep = $GLOBALS['cfg']['LeftFrameTableSeparator'];
+        $sep = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
 
         if ($tables === null) {
             $tables = PMA_DBI_get_tables_full(
