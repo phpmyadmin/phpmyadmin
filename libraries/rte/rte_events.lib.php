@@ -575,6 +575,11 @@ function PMA_EVN_getQueryFromRequest()
             }
         }
     }
+    if (! empty($_REQUEST['item_comment'])) {
+        $query .= "COMMENT '" . $common_functions->sqlAddslashes(
+            $_REQUEST['item_comment']
+        ) . "' ";
+    }
     $query .= 'DO ';
     if (! empty($_REQUEST['item_definition'])) {
         $query .= $_REQUEST['item_definition'];
