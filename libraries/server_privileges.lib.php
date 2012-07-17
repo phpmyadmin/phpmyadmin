@@ -1249,8 +1249,9 @@ function PMA_getGrants($user, $host)
  * 
  * @return string $message  success or error message after updating password
  */
-function PMA_getMessageForUpdatePassword($pma_pw, $pma_pw2, $err_url, $username, $hostname)
-{
+function PMA_getMessageForUpdatePassword($pma_pw, $pma_pw2, $err_url
+    , $username, $hostname
+) {
     // similar logic in user_password.php
     $message = '';
     
@@ -1498,9 +1499,11 @@ function PMA_getHtmlForSpecificDbPrivileges($dbToCheck, $link_edit, $conditional
         . $common_functions->getIcon('b_usrcheck.png')
         . '    '
         . sprintf(
-           __('Users having access to &quot;%s&quot;'),
-           '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' . PMA_generate_common_url($dbToCheck) . '">'
-                .  htmlspecialchars($dbToCheck) . '</a>'
+            __('Users having access to &quot;%s&quot;'),
+            '<a href="' . $GLOBALS['cfg']['DefaultTabDatabase'] . '?' 
+                . PMA_generate_common_url($dbToCheck) . '">'
+                .  htmlspecialchars($dbToCheck)
+            . '</a>'
         )
         . "\n"
         . '</legend>' . "\n";
@@ -1556,8 +1559,10 @@ function PMA_getHtmlForSpecificDbPrivileges($dbToCheck, $link_edit, $conditional
            . '<legend>' . __('New') . '</legend>' . "\n";
         
         $html_output .= '<a href="server_privileges.php?'
-            . $GLOBALS['url_query'] . '&amp;adduser=1&amp;dbname=' . htmlspecialchars($dbToCheck)
-            .'" rel="'.'checkprivs='.htmlspecialchars($dbToCheck). '&amp;'.$GLOBALS['url_query']
+            . $GLOBALS['url_query'] . '&amp;adduser=1&amp;'
+            . 'dbname=' . htmlspecialchars($dbToCheck)
+            .'" rel="'
+            .'checkprivs='.htmlspecialchars($dbToCheck). '&amp;'.$GLOBALS['url_query']
             . '" class="'.$conditional_class
             .'" name="db_specific">' . "\n"
             . $common_functions->getIcon('b_usradd.png')
@@ -1580,8 +1585,9 @@ function PMA_getHtmlForSpecificDbPrivileges($dbToCheck, $link_edit, $conditional
  *            
  * @return string $html_output
  */
-function PMA_getHtmlTableBodyForSpecificDbPrivs($found, $row, $odd_row, $link_edit, $res, $dbToCheck)
-{
+function PMA_getHtmlTableBodyForSpecificDbPrivs($found, $row, $odd_row,
+    $link_edit, $res, $dbToCheck
+) {
     $html_output = '<tbody>' . "\n";
     if ($found) {
         while (true) {
@@ -1589,7 +1595,10 @@ function PMA_getHtmlTableBodyForSpecificDbPrivs($found, $row, $odd_row, $link_ed
             $current_privileges = array();
             $current_user = $row['User'];
             $current_host = $row['Host'];
-            while ($row && $current_user == $row['User'] && $current_host == $row['Host']) {
+            while ($row
+                    && $current_user == $row['User']
+                    && $current_host == $row['Host']
+            ) {
                 $current_privileges[] = $row;
                 $row = PMA_DBI_fetch_assoc($res);
             }
@@ -2286,7 +2295,9 @@ function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
         . '<th>' . __('Host') . '</th>' . "\n"
         . '<th>' . __('Password') . '</th>' . "\n"
         . '<th>' . __('Global privileges') . ' '
-        . $common_functions->showHint(__('Note: MySQL privilege names are expressed in English'))
+        . $common_functions->showHint(
+            __('Note: MySQL privilege names are expressed in English')
+        )
         . '</th>' . "\n"
         . '<th>' . __('Grant') . '</th>' . "\n"
         . '<th colspan="2">' . __('Action') . '</th>' . "\n"
@@ -2294,7 +2305,9 @@ function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
         . '</thead>' . "\n";
     
     $html_output .= '<tbody>' . "\n";
-    $html_output .= PMA_getTableBodyForUserRightsTable($db_rights, $link_edit, $link_export);
+    $html_output .= PMA_getTableBodyForUserRightsTable(
+        $db_rights, $link_edit, $link_export
+    );
     $html_output .= '</tbody>'
         . '</table>' . "\n";
     
