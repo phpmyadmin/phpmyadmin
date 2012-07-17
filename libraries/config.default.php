@@ -816,9 +816,9 @@ $cfg['NavigationTreeTableSeparator'] = '__';
  * How many sublevels should be displayed when splitting up tables
  * by the above Separator
  *
- * @global integer $cfg['LeftFrameTableLevel']
+ * @global integer $cfg['NavigationTreeTableLevel']
  */
-$cfg['LeftFrameTableLevel'] = 1;
+$cfg['NavigationTreeTableLevel'] = 1;
 
 /**
  * display table comment as tooltip in left frame

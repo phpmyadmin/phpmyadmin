@@ -807,7 +807,7 @@ class PMA_Util
                 $parts_cnt = count($parts) - 1;
 
                 while (($i < $parts_cnt)
-                    && ($i < $GLOBALS['cfg']['LeftFrameTableLevel'])
+                    && ($i < $GLOBALS['cfg']['NavigationTreeTableLevel'])
                 ) {
                     $group_name = $parts[$i] . $sep;
                     $group_name_full .= $group_name;

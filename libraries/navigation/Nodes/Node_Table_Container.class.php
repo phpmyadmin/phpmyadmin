@@ -29,7 +29,7 @@ class Node_Table_Container extends Node
         );
         if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
             $this->separator       = $GLOBALS['cfg']['NavigationTreeTableSeparator'];
-            $this->separator_depth = (int)($GLOBALS['cfg']['LeftFrameTableLevel']);
+            $this->separator_depth = (int)($GLOBALS['cfg']['NavigationTreeTableLevel']);
         }
         $this->real_name       = 'tables';
 
