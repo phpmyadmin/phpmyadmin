@@ -12,7 +12,7 @@
  * navi frame
  */
 // navi frame width
-$GLOBALS['cfg']['NaviWidth']                = 200;
+$GLOBALS['cfg']['NaviWidth']                = 240;
 
 // foreground (text) color for the navi frame
 $GLOBALS['cfg']['NaviColor']                = '#000000';

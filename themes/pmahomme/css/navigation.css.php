@@ -17,7 +17,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 /* Navigation */
 
 #pma_navigation {
-    width: 240px;
+    width: <?php echo $GLOBALS['cfg']['NaviWidth']; ?>px;
     overflow: hidden;
     position: fixed;
     top: 0;
@@ -228,7 +228,7 @@ li.fast_filter span {
     display: none;
     position: fixed;
     top: 25px;
-    <?php echo $left; ?>: 220px;
+    <?php echo $left; ?>: <?php echo $GLOBALS['cfg']['NaviWidth'] - 20; ?>px;
     width: 20px;
     background: #ddd;
     height: 100%;

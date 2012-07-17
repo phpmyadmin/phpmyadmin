@@ -17,9 +17,9 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 /* Navigation */
 
 #pma_navigation {
-    background:         <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
-    color:              <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
-    width: 240px;
+    background: <?php echo $GLOBALS['cfg']['NaviBackground']; ?>;
+    color: <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
+    width: <?php echo $GLOBALS['cfg']['NaviWidth']; ?>px;
     overflow: hidden;
     position: fixed;
     top: 0;
@@ -219,7 +219,7 @@ li.fast_filter span {
     font-weight: bold;
     position: fixed;
     top: 0;
-    <?php echo $left; ?>: 220px;
+    <?php echo $left; ?>: <?php echo $GLOBALS['cfg']['NaviWidth'] - 20; ?>px;
     text-align: center;
     cursor: pointer;
     z-index: 800;
