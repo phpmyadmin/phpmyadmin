@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-03 09:19+0200\n"
-"PO-Revision-Date: 2012-06-29 16:10+0200\n"
-"Last-Translator: Michal Remiš <michal.remis@gmail.com>\n"
+"PO-Revision-Date: 2012-07-13 13:53+0200\n"
+"Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -280,16 +280,16 @@ msgid "The database name is empty!"
 msgstr "Meno databázy je prázdne!"
 
 #: db_operations.php:328
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "Databáza %s bola premenovaná na %s"
+msgstr "Databáza %1$s bola premenovaná na %2$s"
 
 #: db_operations.php:332
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "Databáza %s bola skopírovaná do %s"
+msgstr "Databáza %1$s bola skopírovaná do %2$s"
 
 #: db_operations.php:466
 msgid "Rename database to"
@@ -995,10 +995,10 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Príkaz \"DROP DATABASE\" je zakázaný."
 
 #: js/messages.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to "
 msgid "Do you really want to execute \"%s\"?"
-msgstr "Skutočne chcete vykonať príkaz "
+msgstr "Skutočne chcete vykonať príkaz \"%s\"?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:307 sql.php:414
 msgid "You are about to DESTROY a complete database!"
@@ -1508,7 +1508,6 @@ msgid "Jump to Log table"
 msgstr "Prejsť na tabuľku so záznamami"
 
 #: js/messages.php:180
-#, fuzzy
 #| msgid "No data"
 msgid "No data found"
 msgstr "Žiadne dáta"
@@ -1553,15 +1552,13 @@ msgid "Chart"
 msgstr "Graf"
 
 #: js/messages.php:191
-#, fuzzy
 msgid "Edit chart"
-msgstr "Odstrániť index/indexy"
+msgstr "Upraviť graf"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Series:"
 msgid "Series"
-msgstr "Série:"
+msgstr "Série"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
@@ -1753,22 +1750,19 @@ msgid "Show indexes"
 msgstr "Zobraziť indexy"
 
 #: js/messages.php:257 libraries/mult_submits.inc.php:317
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Foreign key check:"
-msgstr "Vypnúť kontrolu cudzích kľúčov"
+msgstr "Kontrola cudzích kľúčov:"
 
 #: js/messages.php:258 libraries/mult_submits.inc.php:321
-#, fuzzy
 #| msgid "Enabled"
 msgid "(Enabled)"
-msgstr "Zapnuté"
+msgstr "(Zapnuté)"
 
 #: js/messages.php:259 libraries/mult_submits.inc.php:321
-#, fuzzy
 #| msgid "Disabled"
 msgid "(Disabled)"
-msgstr "Vypnuté"
+msgstr "(Vypnuté)"
 
 #: js/messages.php:262
 msgid "Searching"
@@ -1999,20 +1993,18 @@ msgid "Go to link"
 msgstr "Prejsť na odkaz"
 
 #: js/messages.php:358
-#, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
-msgstr "Názvy stĺpcov"
+msgstr "Kopírovať názov stĺpca"
 
 #: js/messages.php:359
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
 #: js/messages.php:360
-#, fuzzy
 #| msgid "Update row(s)"
 msgid "Show data row(s)"
-msgstr "Upraviť riadky"
+msgstr "Zobraziť riadky"
 
 #: js/messages.php:363
 msgid "Generate password"
@@ -2046,7 +2038,7 @@ msgstr ", posledná stabilná verzia:"
 
 #: js/messages.php:374
 msgid "up to date"
-msgstr "aktuálne"
+msgstr "aktuálna"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:393
@@ -13271,10 +13263,9 @@ msgid "Rate of table open"
 msgstr "Vytvoriť tabuľku"
 
 #: libraries/advisory_rules.txt:323
-#, fuzzy
 #| msgid "The current number of pending writes."
 msgid "The rate of opening tables is high."
-msgstr "Počet aktuálne prebiehajúcich zápisov."
+msgstr "Frekvencia otvárania tabuliek je vysoká."
 
 #: libraries/advisory_rules.txt:324
 msgid ""

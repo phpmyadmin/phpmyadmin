@@ -267,8 +267,8 @@ class PMA_Types_MySQL_test extends PHPUnit_Framework_TestCase
         }
 
         $this->assertEquals(
-            $this->object->getFunctionsClass($class),
-            $output
+            $output,
+            $this->object->getFunctionsClass($class)
         );
     }
 

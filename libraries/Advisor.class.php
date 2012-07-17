@@ -317,14 +317,14 @@ class Advisor
 
         // Actually evaluate the code
         ob_start();
-        eval('$value = '.$expr.';');
+        eval('$value = ' . $expr . ';');
         $err = ob_get_contents();
         ob_end_clean();
 
         // Error handling
         if ($err) {
             throw new Exception(
-                strip_tags($err) . '<br />Executed code: $value = ' . $expr . ';'
+                strip_tags($err) . '<br />Executed code: $value = ' . htmlspecialchars($expr) . ';'
             );
         }
         return $value;
