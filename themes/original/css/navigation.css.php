@@ -53,9 +53,6 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 }
 
 /******************************************************************************/
-/* classes */
-
-/******************************************************************************/
 /* specific elements */
 
 #pma_navigation div.pageselector {

@@ -51,14 +51,6 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 }
 
 /******************************************************************************/
-/* classes */
-
-#pma_navigation .navi_dbName {
-    font-weight: bold;
-    color: <?php echo $GLOBALS['cfg']['NaviDatabaseNameColor']; ?>;
-}
-
-/******************************************************************************/
 /* specific elements */
 
 #pma_navigation div.pageselector {
