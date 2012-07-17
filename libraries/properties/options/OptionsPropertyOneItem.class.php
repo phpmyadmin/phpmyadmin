@@ -16,7 +16,6 @@ require_once "OptionsPropertyItem.class.php";
  * Parents only single property items (not groups).
  * Defines possible options and getters and setters for them.
  *
- * @todo modify descriptions if needed, when the options are integrated
  * @package PhpMyAdmin
  */
 abstract class OptionsPropertyOneItem extends OptionsPropertyItem
@@ -41,6 +40,20 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
      * @var string
      */
     private $_doc;
+
+    /**
+     * Length
+     *
+     * @var int
+     */
+    private $_len;
+
+    /**
+     * Size
+     *
+     * @var int
+     */
+    private $_size;
 
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
@@ -110,6 +123,50 @@ abstract class OptionsPropertyOneItem extends OptionsPropertyItem
     public function setDoc($doc)
     {
         $this->_doc = $doc;
+    }
+
+    /**
+     * Gets the length
+     *
+     * @return int
+     */
+    public function getLen()
+    {
+        return $this->_len;
+    }
+
+    /**
+     * Sets the length
+     *
+     * @param int $len length
+     *
+     * @return void
+     */
+    public function setLen($len)
+    {
+        $this->_len = $len;
+    }
+
+    /**
+     * Gets the size
+     *
+     * @return int
+     */
+    public function getSize()
+    {
+        return $this->_size;
+    }
+
+    /**
+     * Sets the size
+     *
+     * @param int $size size
+     *
+     * @return void
+     */
+    public function setSize($size)
+    {
+        $this->_size = $size;
     }
 }
 ?>

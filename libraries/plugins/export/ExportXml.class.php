@@ -64,81 +64,88 @@ class ExportXml extends ExportPlugin
      */
     protected function setProperties()
     {
-        $this->properties = array(
-            'text' => __('XML'),
-            'extension' => 'xml',
-            'mime_type' => 'text/xml',
-            'options' => array(),
-            'options_text' => __('Options')
-        );
+        require_once "libraries/properties/plugins/ExportPluginProperties.class.php";
+        require_once "libraries/properties/options/groups/OptionsPropertyRootGroup.class.php";
+        require_once "libraries/properties/options/groups/OptionsPropertyMainGroup.class.php";
+        require_once "libraries/properties/options/items/BoolPropertyItem.class.php";
+        require_once "libraries/properties/options/items/HiddenPropertyItem.class.php";
 
-        $this->properties['options'] = array(
-            array(
-                'type' => 'begin_group',
-                'name' => 'general_opts'
-            ),
-            array(
-                'type' => 'hidden',
-                'name' => 'structure_or_data'
-            ),
-            array(
-                'type' => 'end_group'
-            )
-        );
+        // create the export plugin property item
+        $exportPluginProperties = new ExportPluginProperties();
+        $exportPluginProperties->setText('XML');
+        $exportPluginProperties->setExtension('xml');
+        $exportPluginProperties->setMimeType('text/xml');
+        $exportPluginProperties->setOptionsText(__('Options'));
+
+        // create the root group that will be the options field for
+        // $exportPluginProperties
+        // this will be shown as "Format specific options"
+        $exportSpecificOptions = new OptionsPropertyRootGroup();
+        $exportSpecificOptions->setName("Format Specific Options");
+
+        // add the actual properties to the group
+        $generalOptions = new OptionsPropertyMainGroup();
+        $generalOptions->setName("general_opts");
+
+        // create primary item and add it to the group
+        $hiddenProperty = new HiddenPropertyItem();
+        $hiddenProperty->setName("structure_or_data");
+        $generalOptions->addProperty($hiddenProperty);
+        // add the main group to the root group
+        $exportSpecificOptions->addProperty($generalOptions);
 
         /* Export structure */
-        $this->properties['options'][] = array(
-            'type' => 'begin_group',
-            'name' => 'structure',
-            'text' => __('Object creation options (all are recommended)')
-        );
+        $structure = new OptionsPropertyMainGroup();
+        $structure->setName("structure");
+        $structure->setText(__('Object creation options (all are recommended)'));
+
         if (! PMA_DRIZZLE) {
-            $this->properties['options'][] = array(
-                'type' => 'bool',
-                'name' => 'export_functions',
-                'text' => __('Functions')
-            );
-            $this->properties['options'][] = array(
-                'type' => 'bool',
-                'name' => 'export_procedures',
-                'text' => __('Procedures')
-            );
+            $exportFunctions = new BoolPropertyItem();
+            $exportFunctions->setName("export_functions");
+            $exportFunctions->setText(__('Functions'));
+            $structure->addProperty($exportFunctions);
+
+            $exportProcedures = new BoolPropertyItem();
+            $exportProcedures->setName("export_procedures");
+            $exportProcedures->setText(__('Procedures'));
+            $structure->addProperty($exportProcedures);
         }
-        $this->properties['options'][] = array(
-            'type' => 'bool',
-            'name' => 'export_tables',
-            'text' => __('Tables')
-        );
+
+        $exportTables = new BoolPropertyItem();
+        $exportTables->setName("export_tables");
+        $exportTables->setText(__('Tables'));
+        $structure->addProperty($exportTables);
+
         if (! PMA_DRIZZLE) {
-            $this->properties['options'][] = array(
-                'type' => 'bool',
-                'name' => 'export_triggers',
-                'text' => __('Triggers')
-            );
-            $this->properties['options'][] = array(
-                'type' => 'bool',
-                'name' => 'export_views',
-                'text' => __('Views')
-            );
+            $exportTriggers = new BoolPropertyItem();
+            $exportTriggers->setName("export_triggers");
+            $exportTriggers->setText(__('Triggers'));
+            $structure->addProperty($exportTriggers);
+
+            $exportViews = new BoolPropertyItem();
+            $exportViews->setName("export_views");
+            $exportViews->setText(__('Views'));
+            $structure->addProperty($exportViews);
         }
-        $this->properties['options'][] = array(
-            'type' => 'end_group'
-        );
+
+        $exportSpecificOptions->addProperty($structure);
 
         /* Data */
-        $this->properties['options'][] = array(
-            'type' => 'begin_group',
-            'name' => 'data',
-            'text' => __('Data dump options')
-        );
-        $this->properties['options'][] = array(
-            'type' => 'bool',
-            'name' => 'export_contents',
-            'text' => __('Export contents')
-        );
-        $this->properties['options'][] = array(
-            'type' => 'end_group'
-        );
+        $data = new OptionsPropertyMainGroup();
+        $data->setName("data");
+        $data->setText(__('Data dump options'));
+
+        $exportContents = new BoolPropertyItem();
+        $exportContents->setName("export_contents");
+        $exportContents->setText(__('Export contents'));
+        $data->addProperty($exportContents);
+
+        $exportSpecificOptions->addProperty($data);
+
+        // set the options for the export plugin property item
+        $exportPluginProperties->setOptions($exportSpecificOptions);
+
+        $this->properties = $exportPluginProperties;
     }
 
     /**

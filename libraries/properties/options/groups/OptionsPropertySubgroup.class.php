@@ -20,6 +20,17 @@ require_once "libraries/properties/options/OptionsPropertyGroup.class.php";
 class OptionsPropertySubgroup extends OptionsPropertyGroup
 {
     /**
+     * Subgroup Header
+     *
+     * @var string
+     */
+    private $_subgroupHeader;
+
+
+    /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
+
+
+    /**
      * Returns the property item type of either an instance of
      *  - OptionsPropertyOneItem ( f.e. "bool", "text", "radio", etc ) or
      *  - OptionsPropertyGroup   ( "root", "main" or "subgroup" )
@@ -30,6 +41,28 @@ class OptionsPropertySubgroup extends OptionsPropertyGroup
     public function getItemType()
     {
         return "subgroup";
+    }
+
+    /**
+     * Gets the subgroup header
+     *
+     * @return string
+     */
+    public function getSubgroupHeader()
+    {
+        return $this->_subgroupHeader;
+    }
+
+    /**
+     * Sets the subgroup header
+     *
+     * @param string $subgroupHeader subgroup header
+     *
+     * @return void
+     */
+    public function setSubgroupHeader($subgroupHeader)
+    {
+        $this->_subgroupHeader = $subgroupHeader;
     }
 }
 ?>
