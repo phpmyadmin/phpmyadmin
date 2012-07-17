@@ -830,9 +830,9 @@ $cfg['ShowTooltip'] = true;
 /**
  * display logo at top of left frame
  *
- * @global boolean $cfg['LeftDisplayLogo']
+ * @global boolean $cfg['NavigationDisplayLogo']
  */
-$cfg['LeftDisplayLogo'] = true;
+$cfg['NavigationDisplayLogo'] = true;
 
 /**
  * where should logo link point to (can also contain an external URL)

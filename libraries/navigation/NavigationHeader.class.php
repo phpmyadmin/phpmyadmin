@@ -65,8 +65,8 @@ class PMA_NavigationHeader
     private function _logo()
     {
         $retval = '<!-- LOGO START -->';
-        // display Logo, depending on $GLOBALS['cfg']['LeftDisplayLogo']
-        if ($GLOBALS['cfg']['LeftDisplayLogo']) {
+        // display Logo, depending on $GLOBALS['cfg']['NavigationDisplayLogo']
+        if ($GLOBALS['cfg']['NavigationDisplayLogo']) {
             $logo = 'phpMyAdmin';
             if (@file_exists($GLOBALS['pmaThemeImage'] . 'logo_left.png')) {
                 $logo = '<img src="' . $GLOBALS['pmaThemeImage'] . 'logo_left.png" '
