@@ -80,7 +80,7 @@ $forms['Sql_queries']['Sql_box'] = array(
 $forms['Left_frame']['Left_frame'] = array(
     'NavigationDisplayLogo',
     'NavigationLogoLink',
-    'LeftLogoLinkWindow',
+    'NavigationLogoLinkWindow',
     'NavigationTreePointerEnable',
     'LeftRecentTable',
     'MaxNavigationItems',

@@ -845,9 +845,9 @@ $cfg['NavigationLogoLink'] = 'index.php';
  * whether to open the linked page in the main window ('main') or
  * in a new window ('new')
  *
- * @global string $cfg['LeftLogoLinkWindow']
+ * @global string $cfg['NavigationLogoLinkWindow']
  */
-$cfg['LeftLogoLinkWindow'] = 'main';
+$cfg['NavigationLogoLinkWindow'] = 'main';
 
 /**
  * number of recently used tables displayed in the navigation frame

@@ -164,7 +164,7 @@ $forms['Sql_queries']['Sql_validator'] = array('SQLValidator' => array(
 $forms['Left_frame']['Left_frame'] = array(
     'NavigationDisplayLogo',
     'NavigationLogoLink',
-    'LeftLogoLinkWindow',
+    'NavigationLogoLinkWindow',
     'NavigationTreePointerEnable',
     'LeftRecentTable',
     'MaxNavigationItems',

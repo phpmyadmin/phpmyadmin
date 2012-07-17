@@ -64,6 +64,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 + Renamed configuration directive: LeftDisplayTableFilterMinimum => NavigationTreeDisplayTableFilterMinimum
 + Renamed configuration directive: LeftDisplayLogo => NavigationDisplayLogo
 + Renamed configuration directive: LeftLogoLink => NavigationLogoLink
++ Renamed configuration directive: LeftLogoLinkWindow => NavigationLogoLinkWindow
 
 3.5.4.0 (not yet released)
 - bug #3570212 [edit] uuid_short() is a no-arguments function

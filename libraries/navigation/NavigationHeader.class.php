@@ -80,7 +80,7 @@ class PMA_NavigationHeader
                 $retval .= '    <a href="' . htmlspecialchars(
                     $GLOBALS['cfg']['NavigationLogoLink']
                 );
-                switch ($GLOBALS['cfg']['LeftLogoLinkWindow']) {
+                switch ($GLOBALS['cfg']['NavigationLogoLinkWindow']) {
                 case 'new':
                     $retval .= '" target="_blank"';
                     break;

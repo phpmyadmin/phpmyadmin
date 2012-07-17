@@ -35,7 +35,7 @@ $cfg_db['Servers'] = array(
 $cfg_db['RecodingEngine'] = array('auto', 'iconv', 'recode', 'none');
 $cfg_db['OBGzip'] = array('auto', true, false);
 $cfg_db['MemoryLimit'] = 'short_string';
-$cfg_db['LeftLogoLinkWindow'] = array('main', 'new');
+$cfg_db['NavigationLogoLinkWindow'] = array('main', 'new');
 $cfg_db['NavigationTreeDefaultTabTable'] = array(
     'tbl_structure.php', // fields list
     'tbl_sql.php',       // SQL form
