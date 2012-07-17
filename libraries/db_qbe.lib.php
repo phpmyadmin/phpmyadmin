@@ -954,4 +954,29 @@ function PMA_dbQbeGetFromClause($criteria, $cfgRelation)
     }
     return $from_clause;
 }
+
+/**
+ * Provides the generated SQL query
+ *
+ * @param string $criteria       Already Filled criteria
+ *
+ * @return string SQL query
+ */
+function PMA_dbQbeGetSQLQuery($criteria_column_count, $criteria_row_count, $criteria,
+    $cfgRelation
+) {
+    $sql_query = '';
+    // get SELECT clause
+    $sql_query .= PMA_dbQbeGetSelectClause($criteria_column_count);
+    // get FROM clause
+    $from_clause = PMA_dbQbeGetFromClause($criteria, $cfgRelation);
+    if (! empty($from_clause)) {
+        $sql_query .= 'FROM ' . htmlspecialchars($from_clause) . "\n";
+    }
+    // get WHERE clause
+    $sql_query .= PMA_dbQbeGetWhereClause($criteria_column_count, $criteria_row_count);
+    // get ORDER BY clause
+    $sql_query .= PMA_dbQbeGetOrderByClause($criteria_column_count);
+    return $sql_query;
+}
 ?>

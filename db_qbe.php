@@ -226,17 +226,9 @@ echo PMA_dbQbeGetTablesList($tbl_names);
             rows="<?php echo ($numTableListOptions > 30) ? '15' : '7'; ?>"
             dir="<?php echo $text_dir; ?>">
 <?php
-// 1. SELECT
-echo PMA_dbQbeGetSelectClause($criteria_column_count);
-// 2. FROM
-$from_clause = PMA_dbQbeGetFromClause($criteria, $cfgRelation);
-if (! empty($from_clause)) {
-    echo 'FROM ' . htmlspecialchars($from_clause) . "\n";
-}
-// 3. WHERE
-echo PMA_dbQbeGetWhereClause($criteria_column_count, $criteria_row_count);
-// 4. ORDER BY
-echo PMA_dbQbeGetOrderByClause($criteria_column_count);
+echo PMA_dbQbeGetSQLQuery(
+    $criteria_column_count, $criteria_row_count, $criteria, $cfgRelation
+);
 ?>
     </textarea>
     </fieldset>
