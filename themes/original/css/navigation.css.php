@@ -93,7 +93,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 /* Navigation tree*/
 #pma_navigation_tree {
     margin: 0.5em 0 0 1em;
-    color: black;
+    color: #444;
 }
 #pma_navigation_tree a {
     color: <?php echo $GLOBALS['cfg']['NaviColor']; ?>;
