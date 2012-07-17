@@ -901,7 +901,7 @@ function PMA_dbQbeGetFromClause($criteriaColumn, $criteria, $cfgRelation)
     $from_clause = '';
     if (isset($criteriaColumn) && count($criteriaColumn) > 0) {
         // Initialize some variables
-        $all_tables = $all_columns = $tab_know = $left_tables = array();
+        $all_tables = $all_columns = $known_tables = $remaining_tables = array();
         $left_join = '';
 
         // We only start this if we have fields, otherwise it would be dumb
@@ -926,23 +926,23 @@ function PMA_dbQbeGetFromClause($criteriaColumn, $criteria, $cfgRelation)
             $master = PMA_dbQbeGetMasterTable(
                 $db, $all_tables, $all_columns, $where_clause_columns, $where_clause_tables
             );
-            $left_tables = $all_tables;
-            unset($left_tables[$master]);
-            $tab_know[$master] = $master;
+            $remaining_tables = $all_tables;
+            unset($remaining_tables[$master]);
+            $known_tables[$master] = $master;
 
             $run = 0;
             $emerg = '';
-            while (count($left_tables) > 0) {
+            while (count($remaining_tables) > 0) {
                 if ($run % 2 == 0) {
-                    $left_join .= PMA_getRelatives('master', $left_tables, $tab_know);
+                    $left_join .= PMA_getRelatives('master', $remaining_tables, $known_tables);
                 } else {
-                    $left_join .= PMA_getRelatives('foreign', $left_tables, $tab_know);
+                    $left_join .= PMA_getRelatives('foreign', $remaining_tables, $known_tables);
                 }
                 $run++;
                 if ($run > 5) {
-                    foreach ($left_tables as $table) {
+                    foreach ($remaining_tables as $table) {
                         $emerg .= ', ' . PMA_CommonFunctions::getInstance()->backquote($table);
-                        unset($left_tables[$table]);
+                        unset($remaining_tables[$table]);
                     }
                 }
             } // end while

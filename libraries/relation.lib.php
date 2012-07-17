@@ -1161,14 +1161,14 @@ function PMA_getForeignData($foreigners, $field, $override_total, $foreign_filte
 /**
  * Finds all related tables
  *
- * @param string $from        Whether to go from master to foreign or vice versa
- * @param array  $left_tables The list of tables that we still couldn't connect
- * @param array  $tab_know    The list of allready connected tables
+ * @param string $from             Whether to go from master to foreign or vice versa
+ * @param array  $remaining_tables The list of tables that we still couldn't connect
+ * @param array  $known_tables     The list of allready connected tables
  *
  * @return string LEFT JOIN
  * @access  private
  */
-function PMA_getRelatives($from, $left_tables, $tab_know)
+function PMA_getRelatives($from, $remaining_tables, $known_tables)
 {
     $fromclause = '';
     $common_functions = PMA_CommonFunctions::getInstance();
@@ -1178,8 +1178,8 @@ function PMA_getRelatives($from, $left_tables, $tab_know)
     } else {
         $to    = 'master';
     }
-    $in_know = '(\'' . implode('\', \'', $tab_know) . '\')';
-    $in_left = '(\'' . implode('\', \'', $left_tables) . '\')';
+    $in_know = '(\'' . implode('\', \'', $known_tables) . '\')';
+    $in_left = '(\'' . implode('\', \'', $remaining_tables) . '\')';
 
     $rel_query = 'SELECT *'
                . '  FROM ' . $common_functions->backquote($GLOBALS['cfgRelation']['db'])
@@ -1191,7 +1191,7 @@ function PMA_getRelatives($from, $left_tables, $tab_know)
     $relations = @PMA_DBI_query($rel_query, $GLOBALS['controllink']);
     while ($row = PMA_DBI_fetch_assoc($relations)) {
         $found_table                = $row[$to . '_table'];
-        if (isset($left_tables[$found_table])) {
+        if (isset($remaining_tables[$found_table])) {
             $fromclause
                 .= "\n" . ' LEFT JOIN '
                 . $common_functions->backquote($GLOBALS['db']) . '.' . $common_functions->backquote($row[$to . '_table']) . ' ON '
@@ -1199,8 +1199,8 @@ function PMA_getRelatives($from, $left_tables, $tab_know)
                 . $common_functions->backquote($row[$from . '_field']) . ' = '
                 . $common_functions->backquote($row[$to . '_table']) . '.'
                 . $common_functions->backquote($row[$to . '_field']) . ' ';
-            $tab_know[$found_table] = $found_table;
-            unset($left_tables[$found_table]);
+            $known_tables[$found_table] = $found_table;
+            unset($remaining_tables[$found_table]);
         }
     } // end while
 
