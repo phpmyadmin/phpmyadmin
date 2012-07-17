@@ -185,14 +185,14 @@ $(function() {
         'mouseover',
         function () {
             if ($('li:visible', this).length == 0) {
-                $(this).css('background', '#ddd');
+                $(this).addClass('activePointer');
             }
         }
     );
     $('#pma_navigation_tree.highlight li:not(.fast_filter)').live(
         'mouseout',
         function () {
-            $(this).css('background', '');
+            $(this).removeClass('activePointer');
         }
     );
 
