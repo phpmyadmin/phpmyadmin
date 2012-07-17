@@ -63,22 +63,21 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     <?php //better echo $GLOBALS['cfg']['logoBGC']; ?>
 }
 
-#pma_navigation div#recentTableList {
-    text-align: center;
-    margin: 20px 10px 0px 10px;
-}
-
-#pma_navigation div#recentTableList select {
-    width: 80%;
-}
-
-#pma_navigation div#pmalogo,
-#pma_navigation div#leftframelinks,
-#pma_navigation div#databaseList,
+#pma_navigation #pmalogo,
+#pma_navigation #serverChoice,
+#pma_navigation #leftframelinks,
+#pma_navigation #recentTableList,
+#pma_navigation #databaseList,
 #pma_navigation div.pageselector.dbselector {
     text-align: center;
     margin: 5px 10px 0px 10px;
     border: 0;
+}
+
+#pma_navigation #recentTableList select,
+#pma_navigation #serverChoice select
+ {
+    width: 80%;
 }
 
 /* Navigation tree*/
@@ -108,7 +107,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     min-height: 16px;
 }
 #pma_navigation_tree img {
-	margin: 0;
+    margin: 0;
 }
 #pma_navigation_tree div.block {
     position: relative;

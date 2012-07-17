@@ -216,7 +216,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             echo '>';
 
             include_once './libraries/select_server.lib.php';
-            PMA_selectServer(false, false);
+            echo PMA_selectServer(false, false);
 
             echo '</select></div>';
         } else {

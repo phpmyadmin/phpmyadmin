@@ -122,7 +122,7 @@ if ($server > 0
     ) {
         echo '<li id="li_select_server">';
         include_once 'libraries/select_server.lib.php';
-        PMA_selectServer(true, true);
+        echo PMA_selectServer(true, true);
         echo '</li>';
     }
 
