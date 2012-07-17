@@ -257,10 +257,10 @@ class PMA_List_Database extends PMA_List
 
         if (!$GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
             $separators = array();
-        } elseif (is_array($GLOBALS['cfg']['LeftFrameDBSeparator'])) {
-            $separators = $GLOBALS['cfg']['LeftFrameDBSeparator'];
-        } elseif (!empty($GLOBALS['cfg']['LeftFrameDBSeparator'])) {
-            $separators = array($GLOBALS['cfg']['LeftFrameDBSeparator']);
+        } elseif (is_array($GLOBALS['cfg']['NavigationTreeDbSeparator'])) {
+            $separators = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
+        } elseif (!empty($GLOBALS['cfg']['NavigationTreeDbSeparator'])) {
+            $separators = array($GLOBALS['cfg']['NavigationTreeDbSeparator']);
         } else {
             $separators = array();
         }

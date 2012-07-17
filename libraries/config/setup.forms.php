@@ -173,7 +173,7 @@ $forms['Left_frame']['Left_servers'] = array(
     'LeftDisplayServers',
     'DisplayServersList');
 $forms['Left_frame']['Left_databases'] = array(
-    'LeftFrameDBSeparator');
+    'NavigationTreeDbSeparator');
 $forms['Left_frame']['Left_tables'] = array(
     'LeftDisplayTableFilterMinimum',
     'LeftDefaultTabTable',

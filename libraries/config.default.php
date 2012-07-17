@@ -800,9 +800,9 @@ $cfg['NavigationTreeEnableGrouping'] = true;
 /**
  * the separator to sub-tree the select-based light menu tree
  *
- * @global string $cfg['LeftFrameDBSeparator']
+ * @global string $cfg['NavigationTreeDbSeparator']
  */
-$cfg['LeftFrameDBSeparator'] = '_';
+$cfg['NavigationTreeDbSeparator'] = '_';
 
 /**
  * Which string will be used to generate table prefixes

@@ -43,7 +43,7 @@ $cfg_db['LeftDefaultTabTable'] = array(
     'tbl_change.php',    // insert row page
     'sql.php'            // browse page
 );
-$cfg_db['LeftFrameDBSeparator'] = 'short_string';
+$cfg_db['NavigationTreeDbSeparator'] = 'short_string';
 $cfg_db['LeftFrameTableSeparator'] = 'short_string';
 $cfg_db['NavigationBarIconic'] = array(
     true   => __('Yes'),

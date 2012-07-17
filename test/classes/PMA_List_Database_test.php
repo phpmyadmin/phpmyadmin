@@ -121,7 +121,7 @@ class PMA_List_Database_test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfgRelation']['commwork'] = true;
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
-        $GLOBALS['cfg']['LeftFrameDBSeparator'] = array('|',',');
+        $GLOBALS['cfg']['NavigationTreeDbSeparator'] = array('|',',');
 
         $this->assertEquals(
             $this->object->getGroupedDetails(10, 100),
@@ -140,7 +140,7 @@ class PMA_List_Database_test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfgRelation']['commwork'] = true;
         $GLOBALS['server'] = 1;
         $GLOBALS['cfg']['NavigationTreeEnableGrouping'] = true;
-        $GLOBALS['cfg']['LeftFrameDBSeparator'] = array('|',',');
+        $GLOBALS['cfg']['NavigationTreeDbSeparator'] = array('|',',');
 
         $this->assertEquals(
             $this->object->getHtmlListGrouped(true, 5, 5),

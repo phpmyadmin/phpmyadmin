@@ -132,7 +132,7 @@ class PMA_NavigationTree
         $node = new Node('root', Node::CONTAINER);
         $this->_tree = $node;
         if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
-            $this->_tree->separator = $GLOBALS['cfg']['LeftFrameDBSeparator'];
+            $this->_tree->separator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
             $this->_tree->separator_depth = 10000;
         }
     }
