@@ -165,7 +165,7 @@ $forms['Left_frame']['Left_frame'] = array(
     'LeftDisplayLogo',
     'LeftLogoLink',
     'LeftLogoLinkWindow',
-    'LeftPointerEnable',
+    'NavigationTreePointerEnable',
     'LeftRecentTable',
     'MaxNavigationItems',
     'NavigationTreeEnableGrouping');

@@ -2293,9 +2293,9 @@ $cfg['AvailableCharsets'] = array(
  * see also LeftPointerColor
  * in layout.inc.php
  *
- * @global boolean $cfg['LeftPointerEnable']
+ * @global boolean $cfg['NavigationTreePointerEnable']
  */
-$cfg['LeftPointerEnable'] = true;
+$cfg['NavigationTreePointerEnable'] = true;
 
 /**
  * enable the browse pointer

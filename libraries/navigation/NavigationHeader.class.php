@@ -33,7 +33,7 @@ class PMA_NavigationHeader
             )
         );
         $highlight = '';
-        if ($GLOBALS['cfg']['LeftPointerEnable']) {
+        if ($GLOBALS['cfg']['NavigationTreePointerEnable']) {
             $highlight = ' class="highlight"';
         }
         $buffer  = '<div id="pma_navigation">';
