@@ -35,27 +35,40 @@ class ExportJson extends ExportPlugin
      */
     protected function setProperties()
     {
-        $this->properties = array(
-            'text' => 'JSON',
-            'extension' => 'json',
-            'mime_type' => 'text/plain',
-            'options' => array(),
-            'options_text' => __('Options')
-        );
+        $props = 'libraries/properties/';
+        require_once "$props/plugins/ExportPluginProperties.class.php";
+        require_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
+        require_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
+        require_once "$props/options/items/HiddenPropertyItem.class.php";
 
-        $this->properties['options'] = array(
-            array(
-                'type' => 'begin_group',
-                'name' => 'general_opts'
-            ),
-            array(
-                'type' => 'hidden',
-                'name' => 'structure_or_data',
-            ),
-            array(
-                'type' => 'end_group'
-            )
-        );
+        $exportPluginProperties = new ExportPluginProperties();
+        $exportPluginProperties->setText('JSON');
+        $exportPluginProperties->setExtension('json');
+        $exportPluginProperties->setMimeType('text/plain');
+        $exportPluginProperties->setOptionsText(__('Options'));
+
+        // create the root group that will be the options field for
+        // $exportPluginProperties
+        // this will be shown as "Format specific options"
+        $exportSpecificOptions = new OptionsPropertyRootGroup();
+        $exportSpecificOptions->setName("Format Specific Options");
+
+        // add the actual properties to the group
+        $generalOptions = new OptionsPropertyMainGroup();
+        $generalOptions->setName("general_opts");
+
+        // create primary item and add it to the group
+        $hiddenProperty = new HiddenPropertyItem();
+        $hiddenProperty->setName("structure_or_data");
+        $generalOptions->addProperty($hiddenProperty);
+
+        // add the main group to the root group
+        $exportSpecificOptions->addProperty($generalOptions);
+
+        // set the options for the export plugin property item
+        $exportPluginProperties->setOptions($exportSpecificOptions);
+
+        $this->properties = $exportPluginProperties;
     }
 
     /**
