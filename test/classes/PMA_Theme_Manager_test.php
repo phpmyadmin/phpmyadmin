@@ -26,6 +26,7 @@ class PMA_Theme_Manager_test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['ThemeDefault'] = 'pmahomme';
         $GLOBALS['cfg']['ServerDefault'] = 0;
         $GLOBALS['server'] = 99;
+        $GLOBALS['lang'] = 'en';
         $_SESSION[' PMA_token '] = 'token';
         $GLOBALS['PMA_Config'] = new PMA_Config();
         $GLOBALS['collation_connection'] = 'utf8_general_ci';
@@ -90,7 +91,7 @@ class PMA_Theme_Manager_test extends PHPUnit_Framework_TestCase
     public function testGetPrintPreviews(){
         $tm = new PMA_Theme_Manager();
         $this->assertEquals(
-            '<div class="theme_preview"><h2>Original (2.9) </h2><p><a target="_top" class="take_theme" name="original" href="index.php?set_theme=original&amp;server=99&amp;collation_connection=utf8_general_ci&amp;token=token"><img src="./themes/original/screen.png" border="1" alt="Original" title="Original" /><br />[ <strong>take it</strong> ]</a></p></div><div class="theme_preview"><h2>pmahomme (1.1) </h2><p><a target="_top" class="take_theme" name="pmahomme" href="index.php?set_theme=pmahomme&amp;server=99&amp;collation_connection=utf8_general_ci&amp;token=token"><img src="./themes/pmahomme/screen.png" border="1" alt="pmahomme" title="pmahomme" /><br />[ <strong>take it</strong> ]</a></p></div>',
+            '<div class="theme_preview"><h2>Original (2.9) </h2><p><a target="_top" class="take_theme" name="original" href="index.php?set_theme=original&amp;server=99&amp;lang=en&amp;collation_connection=utf8_general_ci&amp;token=token"><img src="./themes/original/screen.png" border="1" alt="Original" title="Original" /><br />[ <strong>take it</strong> ]</a></p></div><div class="theme_preview"><h2>pmahomme (1.1) </h2><p><a target="_top" class="take_theme" name="pmahomme" href="index.php?set_theme=pmahomme&amp;server=99&amp;lang=en&amp;collation_connection=utf8_general_ci&amp;token=token"><img src="./themes/pmahomme/screen.png" border="1" alt="pmahomme" title="pmahomme" /><br />[ <strong>take it</strong> ]</a></p></div>',
             $tm->getPrintPreviews()
         );
     }
