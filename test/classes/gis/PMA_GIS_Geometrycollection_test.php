@@ -61,7 +61,7 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
     public function testScaleRow($spatial, $output)
     {
 
-        $this->assertEquals($this->object->scaleRow($spatial), $output);
+        $this->assertEquals($output, $this->object->scaleRow($spatial));
     }
 
     public function providerForScaleRow()
@@ -95,7 +95,7 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
     public function testGenerateWkt($gis_data, $index, $empty, $output)
     {
 
-        $this->assertEquals($this->object->generateWkt($gis_data, $index, $empty = ''), $output);
+        $this->assertEquals($output, $this->object->generateWkt($gis_data, $index, $empty = ''));
     }
 
     public function providerForGenerateWkt()
@@ -135,7 +135,7 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
     public function testGenerateParams($value, $output)
     {
 
-        $this->assertEquals($this->object->generateParams($value), $output);
+        $this->assertEquals($output, $this->object->generateParams($value));
     }
 
     public function providerForGenerateParams()
@@ -267,7 +267,7 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
 
         $string = $this->object->prepareRowAsSvg($spatial, $label, $line_color, $scale_data);
         $this->assertEquals(1, preg_match($output, $string));
-//        $this->assertEquals($this->object->prepareRowAsSvg($spatial, $label, $line_color, $scale_data) , $output);
+//        $this->assertEquals($output, $this->object->prepareRowAsSvg($spatial, $label, $line_color, $scale_data) );
     }
 
     public function providerForPrepareRowAsSvg()
@@ -306,7 +306,7 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
     public function testPrepareRowAsOl($spatial, $srid, $label, $line_color, $scale_data, $output)
     {
 
-        $this->assertEquals($this->object->prepareRowAsOl($spatial, $srid, $label, $line_color, $scale_data), $output);
+        $this->assertEquals($output, $this->object->prepareRowAsOl($spatial, $srid, $label, $line_color, $scale_data));
     }
 
     public function providerForPrepareRowAsOl()
