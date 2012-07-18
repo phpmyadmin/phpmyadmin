@@ -39,6 +39,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             'PMA_DisplayResults',
             array('as', '','','')
         );
+        $SESSION[' PMA_Token '] = 'token';
+        $GLOBALS['lang'] = 'en';
 
     }
 
@@ -359,7 +361,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                 'Submit',
                 1,
                 'SELECT * FROM `pma_bookmark` WHERE 1',
-                '<td><form action="sql.php" method="post" ><input type="hidden" name="db" value="as" /><input type="hidden" name="token" value="token" /><input type="hidden" name="sql_query" value="SELECT * FROM `pma_bookmark` WHERE 1" /><input type="hidden" name="pos" value="1" /><input type="hidden" name="goto" value="" /><input type="submit" name="navig" class="ajax" value="btn"  title="Submit" /></form></td>'
+                '<td><form action="sql.php" method="post" ><input type="hidden" name="db" value="as" /><input type="hidden" name="lang" value="en" /><input type="hidden" name="token" value="token" /><input type="hidden" name="sql_query" value="SELECT * FROM `pma_bookmark` WHERE 1" /><input type="hidden" name="pos" value="1" /><input type="hidden" name="goto" value="" /><input type="submit" name="navig" class="ajax" value="btn"  title="Submit" /></form></td>'
             )
         );
     }
@@ -412,7 +414,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                 41,
                 '123',
                 false,
-                '309'
+                '330'
             )
         );
     }
