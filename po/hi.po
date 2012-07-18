@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-18 11:12+0200\n"
-"PO-Revision-Date: 2012-07-18 14:26+0200\n"
+"PO-Revision-Date: 2012-07-18 14:31+0200\n"
 "Last-Translator: rajnikant sharma <rajtrivedi2001@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -864,19 +864,17 @@ msgstr "नया आंतरिक वृत्त जोडें"
 
 #: gis_data_editor.php:255 js/messages.php:325
 msgid "Polygon"
-msgstr ""
+msgstr "बहुभुज"
 
 #: gis_data_editor.php:295 js/messages.php:331
-#, fuzzy
 #| msgid "Add column"
 msgid "Add a polygon"
-msgstr "नया काँलम जोडें"
+msgstr "नया बहुभुज जोडें"
 
 #: gis_data_editor.php:299
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add geometry"
-msgstr "एक नया सर्वर जोडें"
+msgstr "ज्यामिति जोडें"
 
 #: gis_data_editor.php:306
 msgid "Output"
