@@ -476,7 +476,7 @@ if ($GLOBALS['is_ajax_request']
  * Displays the links
  */
 if (isset($viewing_mode) && $viewing_mode == 'db') {
-    $db = $checkprivs;
+    $db = $_REQUEST['checkprivs'];
     $url_query .= '&amp;goto=db_operations.php';
 
     // Gets the database structure
@@ -512,7 +512,10 @@ if (isset($_REQUEST['export'])
     }
 }
 
-if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs))) {
+if (empty($_REQUEST['adduser'])
+    && (! isset($_REQUEST['checkprivs'])
+    || ! strlen($_REQUEST['checkprivs']))
+) { 
     if (! isset($username)) {
         // No username is given --> display the overview
         $response->addHTML(
@@ -549,7 +552,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
 } else {
     // check the privileges for a particular database.
     $response->addHTML(
-        PMA_getHtmlForSpecificDbPrivileges($checkprivs, $link_edit, $conditional_class)
+        PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
     );    
 } // end if (empty($_REQUEST['adduser']) && empty($checkprivs)) ... elseif ... else ...
 
