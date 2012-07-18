@@ -65,7 +65,7 @@ class PMA_Error_test extends PHPUnit_Framework_TestCase
      */
     public function testSetFile(){
         $this->object->setFile('./pma.txt');
-        $this->assertEquals('./../../../../..', $this->object->getFile());
+        $this->assertStringStartsWith('./../../', $this->object->getFile());
     }
 
     /**
