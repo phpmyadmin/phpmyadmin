@@ -16,12 +16,16 @@ require_once 'libraries/Config.class.php';
 
 /**
  * Test for PMA_CommonFunctions::expandUserString function.
+ *
+ * @package PhpMyAdmin-test
  */
 class PMA_expandUserString_test extends PHPUnit_Framework_TestCase
 {
 
     /**
      * Setup variables needed by test.
+     *
+     * @return void
      */
     public function setup()
     {
@@ -39,6 +43,11 @@ class PMA_expandUserString_test extends PHPUnit_Framework_TestCase
     /**
      * Test case for expanding strings
      *
+     * @param string $in  string to evaluate
+     * @param string $out expected output
+     *
+     * @return void
+     *
      * @dataProvider provider
      */
     public function testExpand($in, $out)
@@ -52,6 +61,11 @@ class PMA_expandUserString_test extends PHPUnit_Framework_TestCase
     /**
      * Test case for expanding strings with escaping
      *
+     * @param string $in  string to evaluate
+     * @param string $out expected output
+     *
+     * @return void
+     *
      * @dataProvider provider
      */
     public function testExpandEscape($in, $out)
@@ -59,8 +73,9 @@ class PMA_expandUserString_test extends PHPUnit_Framework_TestCase
         $out = str_replace('PMA_VERSION', PMA_VERSION, $out);
         $this->assertEquals(
             htmlspecialchars($out),
-            PMA_CommonFunctions::getInstance()
-                ->expandUserString($in, 'htmlspecialchars')
+            PMA_CommonFunctions::getInstance()->expandUserString(
+                $in, 'htmlspecialchars'
+            )
         );
     }
 
