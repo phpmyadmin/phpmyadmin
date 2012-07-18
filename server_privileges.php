@@ -476,7 +476,7 @@ if ($GLOBALS['is_ajax_request']
  * Displays the links
  */
 if (isset($viewing_mode) && $viewing_mode == 'db') {
-    $db = $_REQUEST['checkprivs'];
+    $_REQUEST['db'] = $_REQUEST['checkprivs'];
     $url_query .= '&amp;goto=db_operations.php';
 
     // Gets the database structure
