@@ -29,7 +29,10 @@ class PMA_Error_test extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = $this->getMockForAbstractClass('PMA_Error', array('2', 'Compile Error', 'error.txt', 15));
+        $this->object = $this->getMockForAbstractClass(
+            'PMA_Error',
+            array('2', 'Compile Error', 'error.txt', 15)
+        );
     }
 
     /**
@@ -47,7 +50,8 @@ class PMA_Error_test extends PHPUnit_Framework_TestCase
     /**
      * Test for setBacktrace
      */
-    public function testSetBacktrace(){
+    public function testSetBacktrace()
+    {
         $this->object->setBacktrace(array('bt1','bt2'));
         $this->assertEquals(array('bt1','bt2'), $this->object->getBacktrace());
     }
@@ -55,7 +59,8 @@ class PMA_Error_test extends PHPUnit_Framework_TestCase
     /**
      * Test for setLine
      */
-    public function testSetLine(){
+    public function testSetLine()
+    {
         $this->object->setLine(15);
         $this->assertEquals(15, $this->object->getLine());
     }
@@ -63,7 +68,8 @@ class PMA_Error_test extends PHPUnit_Framework_TestCase
     /**
      * Test for setFile
      */
-    public function testSetFile(){
+    public function testSetFile()
+    {
         $this->object->setFile('./pma.txt');
         $this->assertStringStartsWith('./../../', $this->object->getFile());
     }
@@ -71,35 +77,49 @@ class PMA_Error_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getHash
      */
-    public function testGetHash(){
-        $this->assertEquals(1, preg_match('/^([a-z0-9]*)$/', $this->object->getHash()));
+    public function testGetHash()
+    {
+        $this->assertEquals(
+            1,
+            preg_match('/^([a-z0-9]*)$/', $this->object->getHash())
+        );
     }
 
     /**
      * Test for getBacktraceDisplay
      */
-    public function testGetBacktraceDisplay(){
-        $this->assertTrue((strpos($this->object->getBacktraceDisplay(),'/usr/share/php/PHPUnit/Framework/TestCase.php#751: PHPUnit_Framework_TestResult->run(object)<br />') !== false));
+    public function testGetBacktraceDisplay()
+    {
+        $this->assertContains(
+            'PHPUnit/Framework/TestCase.php#751: PHPUnit_Framework_TestResult->run(object)<br />',
+            $this->object->getBacktraceDisplay()
+        );
     }
 
     /**
      * Test for getDisplay
      */
-    public function testGetDisplay(){
-        $this->assertTrue((strpos($this->object->getDisplay(),'<div class="error"><strong>Warning</strong>') !== false));
+    public function testGetDisplay()
+    {
+        $this->assertContains(
+            '<div class="error"><strong>Warning</strong>',
+            $this->object->getDisplay()
+        );
     }
 
     /**
      * Test for getHtmlTitle
      */
-    public function testGetHtmlTitle(){
+    public function testGetHtmlTitle()
+    {
         $this->assertEquals('Warning: Compile Error', $this->object->getHtmlTitle());
     }
 
     /**
      * Test for getTitle
      */
-    public function testGetTitle(){
+    public function testGetTitle()
+    {
         $this->assertEquals('Warning: Compile Error', $this->object->getTitle());
     }
 }
