@@ -84,68 +84,60 @@ class ExportXml extends ExportPlugin
         $exportSpecificOptions = new OptionsPropertyRootGroup();
         $exportSpecificOptions->setName("Format Specific Options");
 
-        // add the actual properties to the group
+        // general options main group
         $generalOptions = new OptionsPropertyMainGroup();
         $generalOptions->setName("general_opts");
-
-        // create primary item and add it to the group
-        $hiddenProperty = new HiddenPropertyItem();
-        $hiddenProperty->setName("structure_or_data");
-        $generalOptions->addProperty($hiddenProperty);
+        // create primary items and add them to the group
+        $leaf = new HiddenPropertyItem();
+        $leaf->setName("structure_or_data");
+        $generalOptions->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($generalOptions);
 
-        /* Export structure */
+        // export structure main group
         $structure = new OptionsPropertyMainGroup();
         $structure->setName("structure");
         $structure->setText(__('Object creation options (all are recommended)'));
-
+        // create primary items and add them to the group
         if (! PMA_DRIZZLE) {
-            $exportFunctions = new BoolPropertyItem();
-            $exportFunctions->setName("export_functions");
-            $exportFunctions->setText(__('Functions'));
-            $structure->addProperty($exportFunctions);
-
-            $exportProcedures = new BoolPropertyItem();
-            $exportProcedures->setName("export_procedures");
-            $exportProcedures->setText(__('Procedures'));
-            $structure->addProperty($exportProcedures);
+            $leaf = new BoolPropertyItem();
+            $leaf->setName("export_functions");
+            $leaf->setText(__('Functions'));
+            $structure->addProperty($leaf);
+            $leaf = new BoolPropertyItem();
+            $leaf->setName("export_procedures");
+            $leaf->setText(__('Procedures'));
+            $structure->addProperty($leaf);
         }
-
-        $exportTables = new BoolPropertyItem();
-        $exportTables->setName("export_tables");
-        $exportTables->setText(__('Tables'));
-        $structure->addProperty($exportTables);
-
+        $leaf = new BoolPropertyItem();
+        $leaf->setName("export_tables");
+        $leaf->setText(__('Tables'));
+        $structure->addProperty($leaf);
         if (! PMA_DRIZZLE) {
-            $exportTriggers = new BoolPropertyItem();
-            $exportTriggers->setName("export_triggers");
-            $exportTriggers->setText(__('Triggers'));
-            $structure->addProperty($exportTriggers);
-
-            $exportViews = new BoolPropertyItem();
-            $exportViews->setName("export_views");
-            $exportViews->setText(__('Views'));
-            $structure->addProperty($exportViews);
+            $leaf = new BoolPropertyItem();
+            $leaf->setName("export_triggers");
+            $leaf->setText(__('Triggers'));
+            $structure->addProperty($leaf);
+            $leaf = new BoolPropertyItem();
+            $leaf->setName("export_views");
+            $leaf->setText(__('Views'));
+            $structure->addProperty($leaf);
         }
-
         $exportSpecificOptions->addProperty($structure);
 
-        /* Data */
+        // data main group
         $data = new OptionsPropertyMainGroup();
         $data->setName("data");
         $data->setText(__('Data dump options'));
-
-        $exportContents = new BoolPropertyItem();
-        $exportContents->setName("export_contents");
-        $exportContents->setText(__('Export contents'));
-        $data->addProperty($exportContents);
-
+        // create primary items and add them to the group
+        $leaf = new BoolPropertyItem();
+        $leaf->setName("export_contents");
+        $leaf->setText(__('Export contents'));
+        $data->addProperty($leaf);
         $exportSpecificOptions->addProperty($data);
 
         // set the options for the export plugin property item
         $exportPluginProperties->setOptions($exportSpecificOptions);
-
         $this->properties = $exportPluginProperties;
     }
 

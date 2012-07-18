@@ -94,28 +94,23 @@ class ExportCodegen extends ExportPlugin
         $exportSpecificOptions = new OptionsPropertyRootGroup();
         $exportSpecificOptions->setName("Format Specific Options");
         
-        // add the actual properties to the group
+        // general options main group
         $generalOptions = new OptionsPropertyMainGroup();
         $generalOptions->setName("general_opts");
-
-        // create primary item and add it to the group
-        $hiddenProperty = new HiddenPropertyItem();
-        $hiddenProperty->setName("structure_or_data");
-        $generalOptions->addProperty($hiddenProperty);
-        
-        // create primary item and add it to the group
-        $selectProperty = new SelectPropertyItem();
-        $selectProperty->setName("format");
-        $selectProperty->setText(__('Format:'));
-        $selectProperty->setValues($this->_getCgFormats());
-        $generalOptions->addProperty($selectProperty);
-        
+        // create primary items and add them to the group
+        $leaf = new HiddenPropertyItem();
+        $leaf->setName("structure_or_data");
+        $generalOptions->addProperty($leaf);
+        $leaf = new SelectPropertyItem();
+        $leaf->setName("format");
+        $leaf->setText(__('Format:'));
+        $leaf->setValues($this->_getCgFormats());
+        $generalOptions->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($generalOptions);
         
         // set the options for the export plugin property item
         $exportPluginProperties->setOptions($exportSpecificOptions);
-
         $this->properties = $exportPluginProperties;
     }
 
