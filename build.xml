@@ -24,6 +24,12 @@
   </exec>
  </target>
 
+ <target name="phpunit-nocoverage" description="Run unit tests using PHPUnit and generates junit.xml">
+  <exec executable="phpunit">
+      <arg line="--configuration phpunit.xml.nocoverage"/>
+  </exec>
+ </target>
+
  <target name="pdepend" description="Generate jdepend.xml and software metrics charts using PHP_Depend">
   <exec executable="pdepend">
    <arg line="--jdepend-xml=${basedir}/build/logs/jdepend.xml
