@@ -250,16 +250,22 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
         $_add_user_error = true;
     } else {
 
-        $create_user_real = 'CREATE USER \'' . $common_functions->sqlAddSlashes($username) . '\'@\'' . $common_functions->sqlAddSlashes($hostname) . '\'';
+        $create_user_real = 'CREATE USER \'' 
+            . $common_functions->sqlAddSlashes($username) . '\'@\'' 
+            . $common_functions->sqlAddSlashes($hostname) . '\'';
 
         $real_sql_query = 'GRANT ' . join(', ', PMA_extractPrivInfo()) . ' ON *.* TO \''
-            . $common_functions->sqlAddSlashes($username) . '\'@\'' . $common_functions->sqlAddSlashes($hostname) . '\'';
+            . $common_functions->sqlAddSlashes($username) . '\'@\'' 
+            . $common_functions->sqlAddSlashes($hostname) . '\'';
+        
         if ($pred_password != 'none' && $pred_password != 'keep') {
             $sql_query = $real_sql_query . ' IDENTIFIED BY \'***\'';
-            $real_sql_query .= ' IDENTIFIED BY \'' . $common_functions->sqlAddSlashes($pma_pw) . '\'';
+            $real_sql_query .= ' IDENTIFIED BY \'' 
+                . $common_functions->sqlAddSlashes($pma_pw) . '\'';
             if (isset($create_user_real)) {
                 $create_user_show = $create_user_real . ' IDENTIFIED BY \'***\'';
-                $create_user_real .= ' IDENTIFIED BY \'' . $common_functions->sqlAddSlashes($pma_pw) . '\'';
+                $create_user_real .= ' IDENTIFIED BY \''
+                    . $common_functions->sqlAddSlashes($pma_pw) . '\'';
             }
         } else {
             if ($pred_password == 'keep' && ! empty($password)) {
@@ -370,15 +376,22 @@ if (isset($_REQUEST['delete'])
     || (isset($_REQUEST['change_copy']) && $_REQUEST['mode'] < 4)
 ) {
     if (isset($_REQUEST['change_copy'])) {
-        $selected_usr = array($_REQUEST['old_username'] . '&amp;#27;' . $_REQUEST['old_hostname']);
+        $selected_usr = array(
+            $_REQUEST['old_username'] . '&amp;#27;' . $_REQUEST['old_hostname']
+        );
     } else {
         $selected_usr = $_REQUEST['selected_usr'];
         $queries = array();
     }
     foreach ($selected_usr as $each_user) {
         list($this_user, $this_host) = explode('&amp;#27;', $each_user);
-        $queries[] = '# ' . sprintf(__('Deleting %s'), '\'' . $this_user . '\'@\'' . $this_host . '\'') . ' ...';
-        $queries[] = 'DROP USER \'' . $common_functions->sqlAddSlashes($this_user) . '\'@\'' . $common_functions->sqlAddSlashes($this_host) . '\';';
+        $queries[] = '# ' 
+            . sprintf(__('Deleting %s'),
+                '\'' . $this_user . '\'@\'' . $this_host . '\''
+            ) . ' ...';
+        $queries[] = 'DROP USER \'' 
+            . $common_functions->sqlAddSlashes($this_user) 
+            . '\'@\'' . $common_functions->sqlAddSlashes($this_host) . '\';';
 
         if (isset($_REQUEST['drop_users_db'])) {
             $queries[] = 'DROP DATABASE IF EXISTS ' . $common_functions->backquote($this_user) . ';';
