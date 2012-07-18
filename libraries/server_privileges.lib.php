@@ -1486,7 +1486,7 @@ function PMA_getListOfPrivilegesAndComparedPrivileges()
  * 
  * @return string $html_output
  */
-function PMA_getHtmlForSpecificDbPrivileges($dbToCheck, $link_edit, $conditional_class)
+function PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
 {
     $common_functions = PMA_CommonFunctions::getInstance();
     // check the privileges for a particular database.
