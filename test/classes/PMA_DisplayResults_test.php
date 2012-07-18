@@ -86,7 +86,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      */
     public function testSetDisplayModeCase1($the_disp_mode, $the_total, $output)
     {
-             
+
         if (!isset($GLOBALS['fields_meta'])) {
             $fields_meta = array();
             $fields_meta[0] = new stdClass();
@@ -94,7 +94,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
         } else {
             $fields_meta = $GLOBALS['fields_meta'];
         }
-        
+
         $this->object->setProperties(
             null, $fields_meta, true, null, null,
             null, null, null, null, null, null,
@@ -102,11 +102,11 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals(
+            $output,
             $this->_callPrivateFunction(
                 '_setDisplayMode',
                 array(&$the_disp_mode, &$the_total)
-            ),
-            $output
+            )
         );
     }
 
@@ -163,7 +163,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      */
     public function testSetDisplayModeCase2($the_disp_mode, $the_total, $output)
     {
-        
+
         if (!isset($GLOBALS['fields_meta'])) {
             $fields_meta = array();
             $fields_meta[0] = new stdClass();
@@ -171,21 +171,21 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
         } else {
             $fields_meta = $GLOBALS['fields_meta'];
         }
-        
+
         $this->object->setProperties(
             1, $fields_meta, false, null, null,
             false, null, null, null, null, null,
             false, false, true, null, null, null
         );
-        
+
         $this->object->__set('_sql_query', 'SELECT * FROM `pma_bookmark` WHERE 1');
 
         $this->assertEquals(
+            $output,
             $this->_callPrivateFunction(
                 '_setDisplayMode',
                 array(&$the_disp_mode, &$the_total)
-            ),
-            $output
+            )
         );
     }
 
@@ -242,7 +242,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      */
     public function testSetDisplayModeCase3($the_disp_mode, $the_total, $output)
     {
-        
+
         if (!isset($GLOBALS['fields_meta'])) {
             $fields_meta = array();
             $fields_meta[0] = new stdClass();
@@ -250,7 +250,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
         } else {
             $fields_meta = $GLOBALS['fields_meta'];
         }
-        
+
         $this->object->setProperties(
             1, $fields_meta, false, null, null,
             false, null, null, null, null, null,
@@ -258,11 +258,11 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals(
+            $output,
             $this->_callPrivateFunction(
                 '_setDisplayMode',
                 array(&$the_disp_mode, &$the_total)
-            ),
-            $output
+            )
         );
     }
 
@@ -340,11 +340,11 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
         $_SESSION[' PMA_token '] = 'token';
 
         $this->assertEquals(
+            $output,
             $this->_callPrivateFunction(
                 '_getTableNavigationButton',
                 array(&$caption, $title, $pos, $html_sql_query)
-            ),
-            $output
+            )
         );
     }
 
@@ -389,6 +389,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
         $_SESSION['tmp_user_values']['disp_direction'] = '1';
 
         $this->assertEquals(
+            $output,
             str_word_count(
                 $this->_callPrivateFunction(
                     '_getTableNavigation',
@@ -396,8 +397,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                         $pos_next, $pos_prev, $id_for_direction_dropdown, $is_innodb
                     )
                 )
-            ),
-            $output
+            )
         );
     }
 
@@ -454,21 +454,21 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
         $grid_edit_class, $not_null_class, $relation_class,
         $hide_class, $field_type_class, $row_no, $output
     ) {
-        
+
         $GLOBALS['cfg']['BrowsePointerEnable'] = true;
         $GLOBALS['cfg']['BrowseMarkerEnable'] = true;
         $_SESSION['tmp_user_values']['disp_direction']
             = PMA_DisplayResults::DISP_DIR_VERTICAL;
 
         $this->assertEquals(
+            $output,
             $this->_callPrivateFunction(
                 '_getResettedClassForInlineEdit',
                 array(
                     $grid_edit_class, $not_null_class, $relation_class,
                     $hide_class, $field_type_class, $row_no
                 )
-            ),
-            $output
+            )
         );
     }
 
@@ -478,11 +478,11 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     public function testGetClassForDateTimeRelatedFieldsCase1()
     {
         $this->assertEquals(
+            'datetimefield',
             $this->_callPrivateFunction(
                 '_getClassForDateTimeRelatedFields',
                 array(PMA_DisplayResults::DATETIME_FIELD)
-            ),
-            'datetimefield'
+            )
         );
     }
 
@@ -492,11 +492,11 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     public function testGetClassForDateTimeRelatedFieldsCase2()
     {
         $this->assertEquals(
+            'datefield',
             $this->_callPrivateFunction(
                 '_getClassForDateTimeRelatedFields',
                 array(PMA_DisplayResults::DATE_FIELD)
-            ),
-            'datefield'
+            )
         );
     }
 
@@ -506,11 +506,11 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     public function testGetClassForDateTimeRelatedFieldsCase3()
     {
         $this->assertEquals(
+            '',
             $this->_callPrivateFunction(
                 '_getClassForDateTimeRelatedFields',
                 array(PMA_DisplayResults::STRING_FIELD)
-            ),
-            ''
+            )
         );
     }
 
@@ -542,7 +542,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     public function testGetOperationLinksForVerticleTableCase1(
         $operation, $output
     ) {
-        
+
         $vertical_display = array(
             'row_delete' => array(),
             'textbtn' => '<th  rowspan="4" class="vmiddle">\n        \n    </th>\n',
@@ -556,15 +556,15 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                 '<td class="even row_1 vpointer vmarker center"  >\n<a href="sql.php?db=Data&amp;table=cars&amp;sql_query=DELETE+FROM+%60Data%60.%60cars%60+WHERE+%60cars%60.%60id%60+%3D+9&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3DData%26table%3Dcars%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560cars%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3D466f137b5f4556e43103245a086fc001&amp;token=466f137b5f4556e43103245a086fc001" onclick="return confirmLink(this'
             )
         );
-        
+
         $this->object->__set('_vertical_display', $vertical_display);
-        
+
         $this->assertEquals(
+            $output,
             $this->_callPrivateFunction(
                 '_getOperationLinksForVerticleTable',
                 array($operation)
-            ),
-            $output
+            )
         );
     }
 
@@ -576,7 +576,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     public function dataProviderForTestGetOperationLinksForVerticleTableCase2()
     {
         return array(
-            array(                
+            array(
                 'copy',
                 '<tr>
 <td class="odd row_0 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=Data&amp;table=cars&amp;where_clause=%60cars%60.%60id%60+%3D+3&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60cars%60&amp;goto=sql.php&amp;default_action=insert&amp;token=466f137b5f4556e43103245a086fc001" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>\n<input type="hidden" class="where_clause" value="%60cars%60.%60id%60+%3D+3" /></spa<td class="even row_1 vpointer vmarker center"  ><span class="nowrap">\n<a href="tbl_change.php?db=Data&amp;table=cars&amp;where_clause=%60cars%60.%60id%60+%3D+9&amp;clause_is_unique=1&amp;sql_query=SELECT+%2A+FROM+%60cars%60&amp;goto=sql.php&amp;default_action=insert&amp;token=466f137b5f4556e43103245a086fc001" ><span class="nowrap"><img src="themes/dot.gif" title="Copy" alt="Copy" class="icon ic_b_insrow" /> Copy</span></a>\n<input type="hidden" class="where_clause" value="%60cars%60.%60id%60+%3D+9" /></sp</tr>
@@ -596,7 +596,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     public function testGetOperationLinksForVerticleTableCase2(
         $operation, $output
     ) {
-        
+
         $vertical_display = array(
             'row_delete' => array(),
             'textbtn' => '<th  rowspan="4" class="vmiddle">\n        \n    </th>\n',
@@ -610,15 +610,15 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                 '<td class="even row_1 vpointer vmarker center"  >\n<a href="sql.php?db=Data&amp;table=cars&amp;sql_query=DELETE+FROM+%60Data%60.%60cars%60+WHERE+%60cars%60.%60id%60+%3D+9&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3DData%26table%3Dcars%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560cars%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3D466f137b5f4556e43103245a086fc001&amp;token=466f137b5f4556e43103245a086fc001" onclick="return confirmLink(this'
             )
         );
-        
+
         $this->object->__set('_vertical_display', $vertical_display);
-        
+
         $this->assertEquals(
+            $output,
             $this->_callPrivateFunction(
                 '_getOperationLinksForVerticleTable',
                 array($operation)
-            ),
-            $output
+            )
         );
     }
 
@@ -651,7 +651,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     public function testGetOperationLinksForVerticleTableCase3(
         $operation, $output
     ) {
-        
+
         $vertical_display = array(
             'row_delete' => array(),
             'textbtn' => '<th  rowspan="4" class="vmiddle">\n        \n    </th>\n',
@@ -665,15 +665,15 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                 '<td class="even row_1 vpointer vmarker center"  >\n<a href="sql.php?db=Data&amp;table=cars&amp;sql_query=DELETE+FROM+%60Data%60.%60cars%60+WHERE+%60cars%60.%60id%60+%3D+9&amp;message_to_show=The+row+has+been+deleted&amp;goto=sql.php%3Fdb%3DData%26table%3Dcars%26sql_query%3DSELECT%2B%252A%2BFROM%2B%2560cars%2560%26message_to_show%3DThe%2Brow%2Bhas%2Bbeen%2Bdeleted%26goto%3Dtbl_structure.php%26token%3D466f137b5f4556e43103245a086fc001&amp;token=466f137b5f4556e43103245a086fc001" onclick="return confirmLink(this'
             )
         );
-        
+
         $this->object->__set('_vertical_display', $vertical_display);
-        
+
         $this->assertEquals(
+            $output,
             $this->_callPrivateFunction(
                 '_getOperationLinksForVerticleTable',
                 array($operation)
-            ),
-            $output
+            )
         );
     }
 
@@ -704,23 +704,23 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     public function testGetCheckBoxesForMultipleRowOperations(
         $dir, $output
     ) {
-        
+
         $vertical_display = array(
             'row_delete' => array(
                 '<td class="odd row_0 vpointer vmarker" class="center"><input type="checkbox" id="id_rows_to_delete0[%_PMA_CHECKBOX_DIR_%]" name="rows_to_delete[0]" class="multi_checkbox" value="%60cars%60.%60id%60+%3D+3"  /><input type="hidden" class="condition_array" value="{&quot;`cars`.`id`&quot;:&quot;= 3&quot;}" />    </td>',
                 '<td class="even row_1 vpointer vmarker" class="center"><input type="checkbox" id="id_rows_to_delete1[%_PMA_CHECKBOX_DIR_%]" name="rows_to_delete[1]" class="multi_checkbox" value="%60cars%60.%60id%60+%3D+9"  /><input type="hidden" class="condition_array" value="{&quot;`cars`.`id`&quot;:&quot;= 9&quot;}" />    </td>'
             )
         );
-        
+
         $this->object->__set('_vertical_display', $vertical_display);
-        
+
         $_SESSION['tmp_user_values']['repeat_cells'] = 0;
         $this->assertEquals(
+            $output,
             $this->_callPrivateFunction(
                 '_getCheckBoxesForMultipleRowOperations',
                 array($dir)
-            ),
-            $output
+            )
         );
     }
 
@@ -731,8 +731,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     {
         $_SESSION['tmp_user_values']['max_rows'] = PMA_DisplayResults::ALL_ROWS;
         $this->assertEquals(
-            $this->_callPrivateFunction('_getOffsets', array()),
-            array(0, 0)
+            array(0, 0),
+            $this->_callPrivateFunction('_getOffsets', array())
         );
     }
 
@@ -744,8 +744,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
         $_SESSION['tmp_user_values']['max_rows'] = 5;
         $_SESSION['tmp_user_values']['pos'] = 4;
         $this->assertEquals(
-            $this->_callPrivateFunction('_getOffsets', array()),
-            array(9, 0)
+            array(9, 0),
+            $this->_callPrivateFunction('_getOffsets', array())
         );
     }
 
@@ -772,10 +772,10 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     public function testGetSortParamsCase1($order_by_clause, $output)
     {
         $this->assertEquals(
+            $output,
             $this->_callPrivateFunction(
                 '_getSortParams', array($order_by_clause)
-            ),
-            $output
+            )
         );
     }
 
@@ -809,10 +809,10 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     public function testGetSortParamsCase2($order_by_clause, $output)
     {
         $this->assertEquals(
+            $output,
             $this->_callPrivateFunction(
                 '_getSortParams', array($order_by_clause)
-            ),
-            $output
+            )
         );
     }
 
@@ -869,14 +869,14 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
         $del_query, $id_suffix, $class, $output
     ) {
         $this->assertEquals(
+            $output,
             $this->_callPrivateFunction(
                 '_getCheckboxForMultiRowSubmissions',
                 array(
                     $del_url, $is_display, $row_no, $where_clause_html,
                     $condition_array, $del_query, $id_suffix, $class
                 )
-            ),
-            $output
+            )
         );
     }
 
@@ -921,13 +921,13 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['LinkLengthLimit'] = 1000;
 
         $this->assertEquals(
+            $output,
             $this->_callPrivateFunction(
                 '_getEditLink',
                 array(
                     $edit_url, $class, $edit_str, $where_clause, $where_clause_html
                 )
-            ),
-            $output
+            )
         );
 
     }
@@ -973,13 +973,13 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['LinkLengthLimit'] = 1000;
 
         $this->assertEquals(
+            $output,
             $this->_callPrivateFunction(
                 '_getCopyLink',
                 array(
                     $copy_url, $copy_str, $where_clause, $where_clause_html, $class
                 )
-            ),
-            $output
+            )
         );
     }
 
@@ -1022,13 +1022,13 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['LinkLengthLimit'] = 1000;
 
         $this->assertEquals(
+            $output,
             $this->_callPrivateFunction(
                 '_getDeleteLink',
                 array(
                     $del_url, $del_str, $js_conf, $class
                 )
-            ),
-            $output
+            )
         );
     }
 
@@ -1110,6 +1110,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     ) {
 
         $this->assertEquals(
+            $output,
             $this->_callPrivateFunction(
                 '_getCheckboxAndLinks',
                 array(
@@ -1118,8 +1119,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                     $id_suffix, $edit_url, $copy_url, $class, $edit_str,
                     $copy_str, $del_str, $js_conf
                 )
-            ),
-            $output
+            )
         );
     }
 
@@ -1201,6 +1201,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     ) {
 
         $this->assertEquals(
+            $output,
             $this->_callPrivateFunction(
                 '_getCheckboxAndLinks',
                 array(
@@ -1209,8 +1210,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                     $id_suffix, $edit_url, $copy_url, $class, $edit_str,
                     $copy_str, $del_str, $js_conf
                 )
-            ),
-            $output
+            )
         );
     }
 
@@ -1286,6 +1286,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     ) {
 
         $this->assertEquals(
+            $output,
             $this->_callPrivateFunction(
                 '_getCheckboxAndLinks',
                 array(
@@ -1294,8 +1295,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                     $id_suffix, $edit_url, $copy_url, $class, $edit_str,
                     $copy_str, $del_str, $js_conf
                 )
-            ),
-            $output
+            )
         );
     }
 
@@ -1305,11 +1305,11 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     public function testMimeDefaultFunction()
     {
         $this->assertEquals(
+            "A 'quote' is &lt;b&gt;bold&lt;/b&gt;",
             $this->_callPrivateFunction(
                 '_mimeDefaultFunction',
                 array("A 'quote' is <b>bold</b>")
-            ),
-            "A 'quote' is &lt;b&gt;bold&lt;/b&gt;"
+            )
         );
     }
 
@@ -1383,6 +1383,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
         $edit_anchor_class, $edit_str, $copy_str, $del_str, $js_conf, $output
     ) {
         $this->assertEquals(
+            $output,
             $this->_callPrivateFunction(
                 '_getPlacedLinks',
                 array(
@@ -1391,8 +1392,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                     $dir_letter, $edit_url, $copy_url, $edit_anchor_class,
                     $edit_str, $copy_str, $del_str, $js_conf
                 )
-            ),
-            $output
+            )
         );
     }
 
