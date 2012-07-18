@@ -186,7 +186,8 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
     {
 
         $return = $this->object->prepareRowAsPng($spatial, $label, $line_color, $scale_data, $image);
-        $this->assertTrue(true);
+        $this->assertEquals(120, imagesx($return));
+        $this->assertEquals(150, imagesy($return));
     }
 
     public function providerForPrepareRowAsPng()
