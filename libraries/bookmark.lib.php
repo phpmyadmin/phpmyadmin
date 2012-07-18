@@ -53,7 +53,7 @@ function PMA_Bookmark_getParams()
 function PMA_Bookmark_getList($db)
 {
     global $controllink;
-    
+
     $common_functions = PMA_CommonFunctions::getInstance();
     $cfgBookmark = PMA_Bookmark_getParams();
 
@@ -132,7 +132,7 @@ function PMA_Bookmark_get($db, $id, $id_field = 'id', $action_bookmark_all = fal
         $query .= ')';
     }
 
-    $query .= ' AND ' . PMA_CommonFunctions::getInstance()->backquote($id_field) . ' = ' . $id;
+    $query .= ' AND ' . $common_functions->backquote($id_field) . ' = ' . $id;
 
     return PMA_DBI_fetch_value($query, 0, 0, $controllink);
 } // end of the 'PMA_Bookmark_get()' function

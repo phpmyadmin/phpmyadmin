@@ -15,9 +15,10 @@ class PMA_SQL_parser_test extends PHPUnit_Framework_TestCase
 {
     private function assertParser($sql, $expected, $error = '')
     {
+        PMA_SQP_resetError();
         $parsed_sql = PMA_SQP_parse($sql);
-        $this->assertEquals(PMA_SQP_getErrorString(), $error);
-        $this->assertEquals($parsed_sql, $expected);
+        $this->assertEquals($error, PMA_SQP_getErrorString());
+        $this->assertEquals($expected, $parsed_sql);
     }
 
     public function testParse_1()
@@ -124,6 +125,10 @@ class PMA_SQL_parser_test extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     *
+     * @group medium
+     */
     public function testParse_4()
     {
         $GLOBALS['is_ajax_request'] = true;
