@@ -49,15 +49,19 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for scaleRow
      *
-     * @param type $spatial
+     * @param string $spatial string to parse
+     * @param array  $output  expected parsed output
+     *
+     * @return void
      *
      * @dataProvider providerForScaleRow
      */
     public function testScaleRow($spatial, $output)
     {
 
-        $this->assertEquals($this->object->scaleRow($spatial), $output);
+        $this->assertEquals($output, $this->object->scaleRow($spatial));
     }
 
     public function providerForScaleRow()
@@ -77,18 +81,24 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for generateWkt
      *
-     * @param type $gis_data
-     * @param type $index
-     * @param string $empty
-     * @param type $output
+     * @param array   $gis_data array of GIS data
+     * @param integer $index    index in $gis_data
+     * @param string  $empty    empty parameter
+     * @param string  $output   expected output
+     *
+     * @return void
      *
      * @dataProvider providerForGenerateWkt
      */
     public function testGenerateWkt($gis_data, $index, $empty, $output)
     {
 
-        $this->assertEquals($this->object->generateWkt($gis_data, $index, $empty = ''), $output);
+        $this->assertEquals(
+            $output,
+            $this->object->generateWkt($gis_data, $index, $empty = '')
+        );
     }
 
     public function providerForGenerateWkt()
@@ -116,15 +126,19 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param $value
-     * @param $output
+     * Test for generateParams
+     *
+     * @param string $value  string to parse
+     * @param array  $output expected parsed output
+     *
+     * @return void
      *
      * @dataProvider providerForGenerateParams
      */
     public function testGenerateParams($value, $output)
     {
 
-        $this->assertEquals($this->object->generateParams($value), $output);
+        $this->assertEquals($output, $this->object->generateParams($value));
     }
 
     public function providerForGenerateParams()
@@ -158,21 +172,28 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for prepareRowAsPng
      *
-     * @param type $spatial
-     * @param type $label
-     * @param type $line_color
-     * @param type $scale_data
-     * @param type $image
-     * @param type $output
+     * @param string   $spatial    string to parse
+     * @param string   $label      field label
+     * @param string   $line_color line color
+     * @param array    $scale_data scaling parameters
+     * @param resource $image      initial image
+     * @param string   $output     expected output
+     *
+     * @return void
      *
      * @dataProvider providerForPrepareRowAsPng
      */
-    public function testPrepareRowAsPng($spatial, $label, $line_color, $scale_data, $image, $output)
-    {
+    public function testPrepareRowAsPng(
+        $spatial, $label, $line_color, $scale_data, $image, $output
+    ) {
 
-        $return = $this->object->prepareRowAsPng($spatial, $label, $line_color, $scale_data, $image);
-        $this->assertTrue(true);
+        $return = $this->object->prepareRowAsPng(
+            $spatial, $label, $line_color, $scale_data, $image
+        );
+        $this->assertEquals(120, imagesx($return));
+        $this->assertEquals(150, imagesy($return));
     }
 
     public function providerForPrepareRowAsPng()
@@ -196,19 +217,25 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for prepareRowAsPdf
      *
-     * @param type $spatial
-     * @param type $label
-     * @param type $line_color
-     * @param type $scale_data
-     * @param type $pdf
+     * @param string $spatial    string to parse
+     * @param string $label      field label
+     * @param string $line_color line color
+     * @param array  $scale_data scaling parameters
+     * @param string $pdf        expected output
+     *
+     * @return void
      *
      * @dataProvider providerForPrepareRowAsPdf
      */
-    public function testPrepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf)
-    {
+    public function testPrepareRowAsPdf(
+        $spatial, $label, $line_color, $scale_data, $pdf
+    ) {
 
-        $return = $this->object->prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf);
+        $return = $this->object->prepareRowAsPdf(
+            $spatial, $label, $line_color, $scale_data, $pdf
+        );
         $this->assertTrue($return instanceof TCPDF);
     }
 
@@ -232,21 +259,32 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for prepareRowAsSvg
      *
-     * @param type $spatial
-     * @param type $label
-     * @param type $line_color
-     * @param type $scale_data
-     * @param type $output
+     * @param string $spatial    string to parse
+     * @param string $label      field label
+     * @param string $line_color line color
+     * @param array  $scale_data scaling parameters
+     * @param string $output     expected output
+     *
+     * @return void
      *
      * @dataProvider providerForPrepareRowAsSvg
      */
-    public function testPrepareRowAsSvg($spatial, $label, $line_color, $scale_data, $output)
-    {
+    public function testPrepareRowAsSvg(
+        $spatial, $label, $line_color, $scale_data, $output
+    ) {
 
-        $string = $this->object->prepareRowAsSvg($spatial, $label, $line_color, $scale_data);
+        $string = $this->object->prepareRowAsSvg(
+            $spatial, $label, $line_color, $scale_data
+        );
         $this->assertEquals(1, preg_match($output, $string));
-//        $this->assertEquals($this->object->prepareRowAsSvg($spatial, $label, $line_color, $scale_data) , $output);
+        $this->assertRegExp(
+            $output,
+            $this->object->prepareRowAsSvg(
+                $spatial, $label, $line_color, $scale_data
+            )
+        );
     }
 
     public function providerForPrepareRowAsSvg()
@@ -269,20 +307,29 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for prepareRowAsOl
      *
-     * @param type $spatial
-     * @param type $srid
-     * @param type $label
-     * @param type $line_color
-     * @param type $scale_data
-     * @param type $output
+     * @param string  $spatial    string to parse
+     * @param integer $srid       SRID
+     * @param string  $label      field label
+     * @param string  $line_color line color
+     * @param array   $scale_data scaling parameters
+     * @param string  $output     expected output
+     *
+     * @return void
      *
      * @dataProvider providerForPrepareRowAsOl
      */
-    public function testPrepareRowAsOl($spatial, $srid, $label, $line_color, $scale_data, $output)
-    {
+    public function testPrepareRowAsOl(
+        $spatial, $srid, $label, $line_color, $scale_data, $output
+    ) {
 
-        $this->assertEquals($this->object->prepareRowAsOl($spatial, $srid, $label, $line_color, $scale_data), $output);
+        $this->assertEquals(
+            $output,
+            $this->object->prepareRowAsOl(
+                $spatial, $srid, $label, $line_color, $scale_data
+            )
+        );
     }
 
     public function providerForPrepareRowAsOl()
