@@ -1,17 +1,17 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
+"Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-18 11:12+0200\n"
-"PO-Revision-Date: 2012-07-18 23:45+0200\n"
+"PO-Revision-Date: 2012-07-19 00:37+0200\n"
 "Last-Translator: Xosé <xosecalvo@gmail.com>\n"
 "Language-Team: Galician <kde-i18n-doc@kde.org>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.1\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
@@ -3914,7 +3914,7 @@ msgstr ""
 "Activar isto permite que unha páxina situada nun dominio diferente poida "
 "chamar o phpMyAdmin desde dentro dunha moldura, o que constitúe un "
 "[strong]furado de seguranza[/strong] potencial que permitiría ataques con "
-"scripts entre molduras."
+"scripts entre molduras"
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
@@ -7160,7 +7160,7 @@ msgstr "Esperanto"
 
 #: libraries/mysql_charsets.lib.php:262
 msgid "Estonian"
-msgstr "Estoniano"
+msgstr "Estonio"
 
 #: libraries/mysql_charsets.lib.php:265 libraries/mysql_charsets.lib.php:268
 msgid "German"
@@ -7282,7 +7282,7 @@ msgstr "Árabe"
 
 #: libraries/mysql_charsets.lib.php:392
 msgid "Hebrew"
-msgstr "Hebreo"
+msgstr "Hebreu"
 
 #: libraries/mysql_charsets.lib.php:395
 msgid "Georgian"
@@ -8188,8 +8188,8 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
-"Enable advanced features in configuration file "
-"(<code>config.inc.php</code>), for example by starting from "
+"Active as funcionalidades avanzadas no ficheiro de configuración "
+"(<code>config.inc.php</code>) comezando, por exemplo con "
 "<code>config.sample.inc.php</code>."
 
 #: libraries/relation.lib.php:278
@@ -9726,7 +9726,7 @@ msgstr "Autor"
 
 #: server_plugins.php:100 server_plugins.php:135
 msgid "License"
-msgstr "Licenza"
+msgstr "Licen"
 
 #: server_plugins.php:166
 msgid "disabled"
@@ -10614,7 +10614,7 @@ msgstr ""
 #: server_status.php:1359
 #| msgid "Could not connect to MySQL server"
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr "O número de intentos de conexión co servidor de MySQL falidos"
+msgstr "O número de intentos de conexión co servidor de MySQL falidos."
 
 #: server_status.php:1360
 msgid ""
@@ -11368,7 +11368,7 @@ msgstr ""
 "e vixiar as consultas que leven moito tempo. Para isto último hai que "
 "configurar log_output en «TABLE» e ter activado slow_query_log ou "
 "general_log. Lembre, porén, que general_log produce moitos datos e "
-"incrementa a carga do servidor nun 15%."
+"incrementa a carga do servidor nun 15%"
 
 #: server_status.php:1689
 msgid ""
@@ -11889,7 +11889,7 @@ msgid ""
 "invalidation if %ssession.gc_maxlifetime%s is lower than its value "
 "(currently %d)."
 msgstr ""
-"Unha %validez das cookies de rexistro%s maior de 1 440 segundos pode causar "
+"Unha %svalidez das cookies de rexistro%s maior de 1 440 segundos pode causar "
 "invalidacións aleatorias da sesión se %session.gc_maxlifetime%s for máis "
 "pequeno que o seu valor (actualmente %d)."
 
@@ -11913,8 +11913,8 @@ msgid ""
 "If using cookie authentication and %sLogin cookie store%s is not 0, %sLogin "
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
-"Se se emprega a autenticación mediante cookies e %o almacén de cookies de "
-"entrada% non é 0, %a validez das cookies de entrada% ten que ter un valor "
+"Se se emprega a autenticación mediante cookies e %so almacén de cookies de "
+"entrada%s non é 0, %sa validez das cookies de entrada%s ten que ter un valor "
 "menor ou igual a el."
 
 #: setup/lib/index.lib.php:310
@@ -12800,7 +12800,7 @@ msgstr "Serie de versións"
 
 #: libraries/advisory_rules.txt:96
 msgid "The MySQL server version less than 5.1."
-msgstr "A versión do servidor de MySQL é anterior á 5.1"
+msgstr "A versión do servidor de MySQL é anterior á 5.1."
 
 #: libraries/advisory_rules.txt:97
 msgid ""
@@ -12889,7 +12889,7 @@ msgstr "A documentación de Drizzle está en http://docs.drizzle.org/"
 #: libraries/advisory_rules.txt:133
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
-msgstr "A cadea da versión (%) coincide co esquema de versións de Drizzle"
+msgstr "A cadea da versión (%s) coincide co esquema de versións de Drizzle"
 
 #: libraries/advisory_rules.txt:135
 msgid "MySQL Architecture"
@@ -12948,7 +12948,7 @@ msgstr "Método de caché das consultas"
 #: libraries/advisory_rules.txt:156
 #| msgid "Query caching method"
 msgid "Suboptimal caching method."
-msgstr "O método para a caché non é o máis óptimo"
+msgstr "O método para a caché non é o máis óptimo."
 
 #: libraries/advisory_rules.txt:157
 msgid ""
@@ -13018,7 +13018,7 @@ msgid ""
 "%%. It should be above 80%%"
 msgstr ""
 "A relación actual da memoria da caché de consultas e o tamaño total da caché "
-"de consultas é de %s%%. Debería superar o 80%%."
+"de consultas é de %s%%. Debería superar o 80%%"
 
 #: libraries/advisory_rules.txt:174
 msgid "Query cache fragmentation"
@@ -13210,7 +13210,7 @@ msgstr ""
 "Aínda que non hai nada malo cunha cantidade grande de ordenación de "
 "fileiras, habería que asegurarse de que as consultas que requiren moitos "
 "ordenamentos empregan columnas indexadas na cláusula ORDER BY, dado que isto "
-"resulta en ordenamentos máis rápidos."
+"resulta en ordenamentos máis rápidos"
 
 #: libraries/advisory_rules.txt:223
 #, php-format
@@ -13232,7 +13232,7 @@ msgid ""
 msgstr ""
 "Isto significa que as unións están analizando táboas enteiras. Engadir "
 "índices ás columnas que se empregan nas condicións de unión aumenta moito as "
-"velocidade das unións de táboas."
+"velocidade das unións de táboas"
 
 #: libraries/advisory_rules.txt:231
 #, php-format
@@ -13398,7 +13398,7 @@ msgid ""
 "below 25%%"
 msgstr ""
 "Estanse a escribir no disco o %s%% de todas as táboas temporais; este valor "
-"debería estar por debaixo do 25%%."
+"debería estar por debaixo do 25%%"
 
 #: libraries/advisory_rules.txt:269
 msgid "Temp disk rate"
