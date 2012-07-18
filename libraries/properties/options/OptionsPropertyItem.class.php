@@ -36,6 +36,13 @@ abstract class OptionsPropertyItem extends PropertyItem
      */
     private $_text;
 
+    /**
+     * What to force
+     *
+     * @var string
+     */
+    private $_force;
+
 
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
@@ -83,6 +90,28 @@ abstract class OptionsPropertyItem extends PropertyItem
     public function setText($text)
     {
         $this->_text = $text;
+    }
+
+    /**
+     * Gets the force parameter
+     *
+     * @return string
+     */
+    public function getForce()
+    {
+        return $this->_force;
+    }
+
+    /**
+     * Sets the force paramter
+     *
+     * @param string $force force parameter
+     *
+     * @return void
+     */
+    public function setForce($force)
+    {
+        $this->_force = $force;
     }
 
     /**
