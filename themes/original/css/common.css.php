@@ -475,7 +475,7 @@ div.error {
 h1.success,
 div.success {
     border-color:       #00FF00;
-    background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_success.png);
+    background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_success.png');?>);
     background-repeat:  no-repeat;
         <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
     background-position: 5px 50%;
@@ -496,7 +496,7 @@ div.success {
 h1.notice,
 div.notice {
     border-color:       #FFD700;
-    background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_notice.png);
+    background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_notice.png');?>);
     background-repeat:  no-repeat;
         <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
     background-position: 5px 50%;
@@ -518,7 +518,7 @@ div.notice {
 h1.error,
 div.error {
     border-color:       #ff0000;
-    background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_error.png);
+    background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_error.png');?>);
     background-repeat:  no-repeat;
         <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
     background-position: 5px 50%;
@@ -542,7 +542,7 @@ fieldset.confirmation legend {
     border-left:        0.1em solid #FF0000;
     border-right:       0.1em solid #FF0000;
     font-weight:        bold;
-    background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_really.png);
+    background-image:   url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_really.png');?>);
     background-repeat:  no-repeat;
         <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
     background-position: 5px 50%;
@@ -830,7 +830,7 @@ ul#topmenu > li.active {
 /* disabled tabs */
 ul#topmenu span.tab,
 a.error {
-    cursor:             url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>error.ico), default;
+    cursor:             url(<?php echo $_SESSION['PMA_Theme']->getImgPath('error.ico');?>), default;
 }
 /* end topmenu */
 
@@ -1244,7 +1244,7 @@ div#queryboxcontainer div#bookmarkoptions {
 
 /* main page */
 #maincontainer {
-    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>logo_right.png);
+    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('logo_right.png');?>);
     background-position: <?php echo $right; ?> bottom;
     background-repeat: no-repeat;
 }
@@ -1268,83 +1268,83 @@ div#queryboxcontainer div#bookmarkoptions {
 
 /* iconic view for ul items */
 li#li_create_database {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_newdb.png);
+    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('b_newdb.png');?>);
 }
 
 li#li_select_lang {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_lang.png);
+    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_lang.png');?>);
 }
 
 li#li_select_mysql_collation {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_asci.png);
+    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_asci.png');?>);
 }
 
 li#li_select_theme {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_theme.png);
+    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_theme.png');?>);
 }
 
 li#li_user_info {
-    /* list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_rights.png); */
+    /* list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_rights.png');?>); */
 }
 
 li#li_mysql_status {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_status.png);
+    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_status.png');?>);
 }
 
 li#li_mysql_variables {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_vars.png);
+    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_vars.png');?>);
 }
 
 li#li_mysql_processes {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_process.png);
+    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_process.png');?>);
 }
 
 li#li_mysql_collations {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_asci.png);
+    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_asci.png');?>);
 }
 
 li#li_mysql_engines {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_engine.png);
+    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('b_engine.png');?>);
 }
 
 li#li_mysql_binlogs {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_tbl.png);
+    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_tbl.png');?>);
 }
 
 li#li_mysql_databases {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_db.png);
+    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_db.png');?>);
 }
 
 li#li_export {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_export.png);
+    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('b_export.png');?>);
 }
 
 li#li_import {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_import.png);
+    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('b_import.png');?>);
 }
 
 li#li_change_password {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_passwd.png);
+    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_passwd.png');?>);
 }
 
 li#li_log_out {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_loggoff.png);
+    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_loggoff.png');?>);
 }
 
 li#li_mysql_privilegs {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_rights.png);
+    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_rights.png');?>);
 }
 
 li#li_switch_dbstats {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_dbstatistics.png);
+    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('b_dbstatistics.png');?>);
 }
 
 li#li_flush_privileges {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_reload.png);
+    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_reload.png');?>);
 }
 
 li#li_user_preferences {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>b_tblops.png);
+    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('b_tblops.png');?>);
 }
 /* END iconic view for ul items */
 
@@ -1476,7 +1476,7 @@ textarea#partitiondefinition {
 }
 
 #li_select_server {
-    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>s_host.png);
+    list-style-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('s_host.png');?>);
 }
 
 #list_server {
@@ -1563,7 +1563,7 @@ input[type=text].invalid_value,
     display: block;
     left: 0;
     right: 0;
-    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>ajax_clock_small.gif);
+    background-image: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif');?>);
     background-repeat: no-repeat;
     background-position: 2%;
  }
@@ -2165,7 +2165,7 @@ fieldset .disabled-field td {
 }
 
 .cPointer {
-    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>col_pointer.png);
+    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('col_pointer.png');?>);
     height: 20px;
     margin-left: -5px;  /* must be minus half of its width */
     margin-top: -10px;
@@ -2199,7 +2199,7 @@ fieldset .disabled-field td {
     width: 100%;
 }
 .cHide {
-    background: #D3DCE3 url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>col_hide.png);
+    background: #D3DCE3 url(<?php echo $_SESSION['PMA_Theme']->getImgPath('col_hide.png');?>);
     color: #CCC;
     cursor: pointer;
     height: 16px;
@@ -2220,7 +2220,7 @@ fieldset .disabled-field td {
 }
 
 .coldrop {
-    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>col_drop.png);
+    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('col_drop.png');?>);
     cursor: pointer;
     height: 16px;
     margin-left: 0.5em;
@@ -2344,12 +2344,12 @@ fieldset .disabled-field td {
 }
 
 .cEdit .edit_box_posting {
-    background: #FFF url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>ajax_clock_small.gif) no-repeat right center;
+    background: #FFF url(<?php echo $_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif');?>) no-repeat right center;
     padding-right: 1.5em;
 }
 
 .cEdit .edit_area_loading {
-    background: #FFF url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>ajax_clock_small.gif) no-repeat center;
+    background: #FFF url(<?php echo $_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif');?>) no-repeat center;
     height: 10em;
 }
 
@@ -2360,7 +2360,7 @@ fieldset .disabled-field td {
 }
 
 .saving_edited_data {
-    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath(); ?>ajax_clock_small.gif) no-repeat left;
+    background: url(<?php echo $_SESSION['PMA_Theme']->getImgPath('ajax_clock_small.gif');?>) no-repeat left;
     padding-left: 20px;
 }
 
