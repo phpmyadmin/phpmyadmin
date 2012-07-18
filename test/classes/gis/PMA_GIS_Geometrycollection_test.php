@@ -49,8 +49,12 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for scaleRow
      *
-     * @param type $spatial
+     * @param string $spatial string to parse
+     * @param array  $output  expected parsed output
+     *
+     * @return void
      *
      * @dataProvider providerForScaleRow
      */
@@ -77,11 +81,14 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for generateWkt
      *
-     * @param type $gis_data
-     * @param type $index
-     * @param string $empty
-     * @param type $output
+     * @param array   $gis_data array of GIS data
+     * @param integer $index    index in $gis_data
+     * @param string  $empty    empty parameter
+     * @param string  $output   expected output
+     *
+     * @return void
      *
      * @dataProvider providerForGenerateWkt
      */
@@ -116,8 +123,12 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param $value
-     * @param $output
+     * Test for generateParams
+     *
+     * @param string $value  string to parse
+     * @param array  $output expected parsed output
+     *
+     * @return void
      *
      * @dataProvider providerForGenerateParams
      */
@@ -158,13 +169,16 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for prepareRowAsPng
      *
-     * @param type $spatial
-     * @param type $label
-     * @param type $line_color
-     * @param type $scale_data
-     * @param type $image
-     * @param type $output
+     * @param string   $spatial    string to parse
+     * @param string   $label      field label
+     * @param string   $line_color line color
+     * @param array    $scale_data scaling parameters
+     * @param resource $image      initial image
+     * @param string   $output     expected output
+     *
+     * @return void
      *
      * @dataProvider providerForPrepareRowAsPng
      */
@@ -196,12 +210,15 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for prepareRowAsPdf
      *
-     * @param type $spatial
-     * @param type $label
-     * @param type $line_color
-     * @param type $scale_data
-     * @param type $pdf
+     * @param string $spatial    string to parse
+     * @param string $label      field label
+     * @param string $line_color line color
+     * @param array  $scale_data scaling parameters
+     * @param string $pdf        expected output
+     *
+     * @return void
      *
      * @dataProvider providerForPrepareRowAsPdf
      */
@@ -232,12 +249,15 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for prepareRowAsSvg
      *
-     * @param type $spatial
-     * @param type $label
-     * @param type $line_color
-     * @param type $scale_data
-     * @param type $output
+     * @param string $spatial    string to parse
+     * @param string $label      field label
+     * @param string $line_color line color
+     * @param array  $scale_data scaling parameters
+     * @param string $output     expected output
+     *
+     * @return void
      *
      * @dataProvider providerForPrepareRowAsSvg
      */
@@ -269,13 +289,16 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test for prepareRowAsOl
      *
-     * @param type $spatial
-     * @param type $srid
-     * @param type $label
-     * @param type $line_color
-     * @param type $scale_data
-     * @param type $output
+     * @param string  $spatial    string to parse
+     * @param integer $srid       SRID
+     * @param string  $label      field label
+     * @param string  $line_color line color
+     * @param array   $scale_data scaling parameters
+     * @param string  $output     expected output
+     *
+     * @return void
      *
      * @dataProvider providerForPrepareRowAsOl
      */
