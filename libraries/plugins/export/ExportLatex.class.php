@@ -152,7 +152,7 @@ class ExportLatex extends ExportPlugin
         $dataOptions = new OptionsPropertyMainGroup();
         $dataOptions->setName("data");
         $dataOptions->setText(__('Data dump options'));
-        $dataOptions->setForce(structure);
+        $dataOptions->setForce('structure');
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem();
         $leaf->setName("columns");
