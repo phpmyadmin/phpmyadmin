@@ -364,7 +364,7 @@ if (isset($_REQUEST['revokeall'])) {
  */
 if (isset($_REQUEST['change_pw'])) {
     $message = PMA_getMessageForUpdatePassword(
-        $pma_pw2, $err_url, $username, $hostname
+        $err_url, $username, $hostname
     );
 }
 

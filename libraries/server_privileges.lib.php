@@ -1240,25 +1240,22 @@ function PMA_getGrants($user, $host)
 
 /**
  * Update password and get message for password updating
- * 
- * @param string $pma_pw    password that user entered for change, comming from request
- * @param string $pma_pw2   Re typed password, comming from request
+ *
  * @param string $err_url   error url
  * @param string $username  username
  * @param string $hostname  hostname
  * 
  * @return string $message  success or error message after updating password
  */
-function PMA_getMessageForUpdatePassword($pma_pw2, $err_url
-    , $username, $hostname
-) {
+function PMA_getMessageForUpdatePassword($err_url, $username, $hostname)
+{
     // similar logic in user_password.php
     $message = '';
     
-    if (empty($_REQUEST['nopass']) && isset($_POST['pma_pw']) && isset($pma_pw2)) {
-        if ($_POST['pma_pw'] != $pma_pw2) {
+    if (empty($_REQUEST['nopass']) && isset($_POST['pma_pw']) && isset($_POST['pma_pw2'])) {
+        if ($_POST['pma_pw'] != $_POST['pma_pw2']) {
             $message = PMA_Message::error(__('The passwords aren\'t the same!'));
-        } elseif (empty($_POST['pma_pw']) || empty($pma_pw2)) {
+        } elseif (empty($_POST['pma_pw']) || empty($_POST['pma_pw2'])) {
             $message = PMA_Message::error(__('The password is empty!'));
         }
     }
