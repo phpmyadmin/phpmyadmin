@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-18 11:12+0200\n"
-"PO-Revision-Date: 2012-03-27 16:58+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-07-18 14:26+0200\n"
+"Last-Translator: rajnikant sharma <rajtrivedi2001@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.8\n"
+"X-Generator: Weblate 1.1\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:790 server_privileges.php:1851
@@ -751,10 +751,9 @@ msgid "Database Log"
 msgstr "डेटाबेस का रोजनामचा"
 
 #: export.php:44
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "पट्टी प्रकार"
+msgstr "बुरा प्रकार"
 
 #: export.php:97
 msgid "Selected export type has to be saved in file!"
@@ -811,11 +810,11 @@ msgstr ""
 #: gis_data_editor.php:141 js/messages.php:326
 #: libraries/DisplayResults.class.php:1619
 msgid "Geometry"
-msgstr ""
+msgstr "ज्यामिति"
 
 #: gis_data_editor.php:161 js/messages.php:322
 msgid "Point"
-msgstr ""
+msgstr "बिन्दु"
 
 #: gis_data_editor.php:162 gis_data_editor.php:186 gis_data_editor.php:234
 #: gis_data_editor.php:286 js/messages.php:320
@@ -831,14 +830,13 @@ msgstr ""
 #: js/messages.php:323
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "बिंदु %d"
 
 #: gis_data_editor.php:193 gis_data_editor.php:239 gis_data_editor.php:291
 #: js/messages.php:329
-#, fuzzy
 #| msgid "Add index"
 msgid "Add a point"
-msgstr "अनुक्रमणिका जोड़"
+msgstr "एक बिंदु जोड़ें"
 
 #: gis_data_editor.php:209 js/messages.php:324
 #, fuzzy
@@ -848,23 +846,21 @@ msgstr "लाईन समाप्त होता है"
 
 #: gis_data_editor.php:212 gis_data_editor.php:268 js/messages.php:328
 msgid "Outer Ring"
-msgstr ""
+msgstr "बाहरी वृत्त"
 
 #: gis_data_editor.php:214 gis_data_editor.php:270 js/messages.php:327
 msgid "Inner Ring"
-msgstr ""
+msgstr "आंतरिक वृत्त"
 
 #: gis_data_editor.php:241
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "नया यूसर जोडें"
+msgstr ""
 
 #: gis_data_editor.php:241 gis_data_editor.php:293 js/messages.php:330
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "नया यूसर जोडें"
+msgstr "नया आंतरिक वृत्त जोडें"
 
 #: gis_data_editor.php:255 js/messages.php:325
 msgid "Polygon"
