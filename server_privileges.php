@@ -26,49 +26,11 @@ $common_functions = PMA_CommonFunctions::getInstance();
 
 $_add_user_error = false;
 
-/**
- * Sets globals from $_GET
- */
-
-$get_params = array(
-    'checkprivs',
-    'db',
-    'dbname',
-    'hostname',
-    'initial',
-    'old_username',
-    'old_hostname',
-    'tablename',
-    'username',
-    'viewing_mode'
-);
-foreach ($get_params as $one_get_param) {
-    if (isset($_REQUEST[$one_get_param])) {
-        $GLOBALS[$one_get_param] = $_REQUEST[$one_get_param];
-    }
+if (isset ($_REQUEST['username'])) {
+    $username = $_REQUEST['username'];
 }
-/**
- * Sets globals from $_POST
- */
-
-$post_params = array(
-    'createdb-1',
-    'createdb-2',
-    'createdb-3',
-    'grant_count',
-    'hostname',
-    'pma_pw',
-    'pma_pw2',
-    'pred_hostname',
-    'pred_password',
-    'pred_username',
-    'update_privs',
-    'username'
-);
-foreach ($post_params as $one_post_param) {
-    if (isset($_POST[$one_post_param])) {
-        $GLOBALS[$one_post_param] = $_POST[$one_post_param];
-    }
+if (isset ($_REQUEST['hostname'])) {
+    $hostname = $_REQUEST['hostname'];
 }
 
 /**
@@ -221,10 +183,10 @@ if (isset($_REQUEST['change_copy'])) {
  */
 if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
     $sql_query = '';
-    if ($pred_username == 'any') {
+    if ($_POST['pred_username'] == 'any') {
         $username = '';
     }
-    switch ($pred_hostname) {
+    switch ($_POST['pred_hostname']) {
     case 'any':
         $hostname = '%';
         break;
@@ -258,7 +220,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
             . $common_functions->sqlAddSlashes($username) . '\'@\'' 
             . $common_functions->sqlAddSlashes($hostname) . '\'';
         
-        if ($pred_password != 'none' && $pred_password != 'keep') {
+        if ($_POST['pred_password'] != 'none' && $_POST['pred_password'] != 'keep') {
             $sql_query = $real_sql_query . ' IDENTIFIED BY \'***\'';
             $real_sql_query .= ' IDENTIFIED BY \'' 
                 . $common_functions->sqlAddSlashes($_POST['pma_pw']) . '\'';
@@ -268,7 +230,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
                     . $common_functions->sqlAddSlashes($_POST['pma_pw']) . '\'';
             }
         } else {
-            if ($pred_password == 'keep' && ! empty($password)) {
+            if ($_POST['pred_password'] == 'keep' && ! empty($password)) {
                 $real_sql_query .= ' IDENTIFIED BY PASSWORD \'' . $password . '\'';
                 if (isset($create_user_real)) {
                     $create_user_real .= ' IDENTIFIED BY PASSWORD \'' . $password . '\'';
@@ -338,7 +300,7 @@ if (isset($_REQUEST['change_copy'])) {
 /**
  * Updates privileges
  */
-if (! empty($update_privs)) {
+if (! empty($_POST['update_privs'])) {
     list($sql_query, $message) = PMA_updatePrivileges(
         $username,
         $hostname,
@@ -477,6 +439,7 @@ if ($GLOBALS['is_ajax_request']
  */
 if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
     $_REQUEST['db'] = $_REQUEST['checkprivs'];
+    
     $url_query .= '&amp;goto=db_operations.php';
 
     // Gets the database structure

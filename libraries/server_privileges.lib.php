@@ -138,8 +138,8 @@ function PMA_extractPrivInfo($row = '', $enableHTML = false)
             $privs[] = 'USAGE';
         }
     } elseif ($allPrivileges
-            && (! isset($GLOBALS['grant_count'])
-            || count($privs) == $GLOBALS['grant_count'])
+            && (! isset($_POST['grant_count'])
+            || count($privs) == $_POST['grant_count'])
         ) {
         if ($enableHTML) {
             $privs = array('<dfn title="'
