@@ -1249,16 +1249,16 @@ function PMA_getGrants($user, $host)
  * 
  * @return string $message  success or error message after updating password
  */
-function PMA_getMessageForUpdatePassword($pma_pw, $pma_pw2, $err_url
+function PMA_getMessageForUpdatePassword($pma_pw2, $err_url
     , $username, $hostname
 ) {
     // similar logic in user_password.php
     $message = '';
     
-    if (empty($_REQUEST['nopass']) && isset($pma_pw) && isset($pma_pw2)) {
-        if ($pma_pw != $pma_pw2) {
+    if (empty($_REQUEST['nopass']) && isset($_POST['pma_pw']) && isset($pma_pw2)) {
+        if ($_POST['pma_pw'] != $pma_pw2) {
             $message = PMA_Message::error(__('The passwords aren\'t the same!'));
-        } elseif (empty($pma_pw) || empty($pma_pw2)) {
+        } elseif (empty($_POST['pma_pw']) || empty($pma_pw2)) {
             $message = PMA_Message::error(__('The password is empty!'));
         }
     }
@@ -1278,15 +1278,15 @@ function PMA_getMessageForUpdatePassword($pma_pw, $pma_pw2, $err_url
         $sql_query        = 'SET PASSWORD FOR \'' 
             . $common_functions->sqlAddSlashes($username) 
             . '\'@\'' . $common_functions->sqlAddSlashes($hostname) . '\' = ' 
-            . (($pma_pw == '') 
+            . (($_POST['pma_pw'] == '') 
                 ? '\'\'' 
-                : $hashing_function . '(\'' . preg_replace('@.@s', '*', $pma_pw) . '\')');
+                : $hashing_function . '(\'' . preg_replace('@.@s', '*', $_POST['pma_pw']) . '\')');
         
         $local_query      = 'SET PASSWORD FOR \'' 
             . $common_functions->sqlAddSlashes($username)
             . '\'@\'' . $common_functions->sqlAddSlashes($hostname) . '\' = '
-            . (($pma_pw == '') ? '\'\'' : $hashing_function 
-            . '(\'' . $common_functions->sqlAddSlashes($pma_pw) . '\')');
+            . (($_POST['pma_pw'] == '') ? '\'\'' : $hashing_function 
+            . '(\'' . $common_functions->sqlAddSlashes($_POST['pma_pw']) . '\')');
         
         PMA_DBI_try_query($local_query)
             or $common_functions->mysqlDie(PMA_DBI_getError(), $sql_query, false, $err_url);

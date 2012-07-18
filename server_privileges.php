@@ -261,11 +261,11 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
         if ($pred_password != 'none' && $pred_password != 'keep') {
             $sql_query = $real_sql_query . ' IDENTIFIED BY \'***\'';
             $real_sql_query .= ' IDENTIFIED BY \'' 
-                . $common_functions->sqlAddSlashes($pma_pw) . '\'';
+                . $common_functions->sqlAddSlashes($_POST['pma_pw']) . '\'';
             if (isset($create_user_real)) {
                 $create_user_show = $create_user_real . ' IDENTIFIED BY \'***\'';
                 $create_user_real .= ' IDENTIFIED BY \''
-                    . $common_functions->sqlAddSlashes($pma_pw) . '\'';
+                    . $common_functions->sqlAddSlashes($_POST['pma_pw']) . '\'';
             }
         } else {
             if ($pred_password == 'keep' && ! empty($password)) {
@@ -364,7 +364,7 @@ if (isset($_REQUEST['revokeall'])) {
  */
 if (isset($_REQUEST['change_pw'])) {
     $message = PMA_getMessageForUpdatePassword(
-        $pma_pw, $pma_pw2, $err_url, $username, $hostname
+        $pma_pw2, $err_url, $username, $hostname
     );
 }
 
