@@ -196,9 +196,9 @@ $random_n = mt_rand(0, 1000000);
  */
 if (isset($_REQUEST['change_copy'])) {
     $user_host_condition = ' WHERE `User`'
-        .' = \'' . $common_functions->sqlAddSlashes($old_username) . "'"
+        .' = \'' . $common_functions->sqlAddSlashes($_REQUEST['old_username']) . "'"
         .' AND `Host`'
-        .' = \'' . $common_functions->sqlAddSlashes($old_hostname) . '\';';
+        .' = \'' . $common_functions->sqlAddSlashes($_REQUEST['old_hostname']) . '\';';
     $row = PMA_DBI_fetch_single_row('SELECT * FROM `mysql`.`user` ' . $user_host_condition);
     if (! $row) {
         PMA_Message::notice(__('No user found.'))->display();
@@ -475,7 +475,7 @@ if ($GLOBALS['is_ajax_request']
 /**
  * Displays the links
  */
-if (isset($viewing_mode) && $viewing_mode == 'db') {
+if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
     $_REQUEST['db'] = $_REQUEST['checkprivs'];
     $url_query .= '&amp;goto=db_operations.php';
 
