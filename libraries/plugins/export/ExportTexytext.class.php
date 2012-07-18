@@ -35,53 +35,62 @@ class ExportTexytext extends ExportPlugin
      */
     protected function setProperties()
     {
-        $this->properties = array(
-            'text' => __('Texy! text'),
-            'extension' => 'txt',
-            'mime_type' => 'text/plain',
-            'options' => array(),
-            'options_text' => __('Options')
-        );
+        $props = 'libraries/properties/';
+        require_once "$props/plugins/ExportPluginProperties.class.php";
+        require_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
+        require_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
+        require_once "$props/options/items/RadioPropertyItem.class.php";
+        require_once "$props/options/items/BoolPropertyItem.class.php";
+        require_once "$props/options/items/TextPropertyItem.class.php";
 
-        $this->properties['options'] = array(
-            /* what to dump (structure/data/both) */
-            array(
-                'type' => 'begin_group',
-                'text' => __('Dump table'),
-                'name' => 'general_opts'
-            ),
-            array(
-                'type' => 'radio',
-                'name' => 'structure_or_data',
-                'values' => array(
-                    'structure' => __('structure'),
-                    'data' => __('data'),
-                    'structure_and_data' => __('structure and data')
-                )
-            ),
-            array(
-                'type' => 'end_group'
-            ),
-            array(
-                'type' => 'begin_group',
-                'name' => 'data',
-                'text' => __('Data dump options'),
-                'force' => 'structure'
-            ),
-            array(
-                'type' => 'text',
-                'name' => 'null',
-                'text' => __('Replace NULL by')
-            ),
-            array(
-                'type' => 'bool',
-                'name' => 'columns',
-                'text' => __('Put columns names in the first row')
-            ),
-            array(
-                'type' => 'end_group'
-            )
-        );
+        $exportPluginProperties = new ExportPluginProperties();
+        $exportPluginProperties->setText('Texy! text');
+        $exportPluginProperties->setExtension('txt');
+        $exportPluginProperties->setMimeType('text/plain');
+        $exportPluginProperties->setOptionsText(__('Options'));
+
+        // create the root group that will be the options field for
+        // $exportPluginProperties
+        // this will be shown as "Format specific options"
+        $exportSpecificOptions = new OptionsPropertyRootGroup();
+        $exportSpecificOptions->setName("Format Specific Options");
+
+        // what to dump (structure/data/both) main group
+        $dumpWhat = new OptionsPropertyMainGroup();
+        $dumpWhat->setName("general_opts");
+        $dumpWhat->setText(__('Dump table'));
+        // create primary items and add them to the group
+        $leaf = new RadioPropertyItem();
+        $leaf->setName("structure_or_data");
+        $leaf->setValues(array(
+            'structure' => __('structure'),
+            'data' => __('data'),
+            'structure_and_data' => __('structure and data')
+        ));
+        $dumpWhat->addProperty($leaf);
+        // add the main group to the root group
+        $exportSpecificOptions->addProperty($dumpWhat);
+
+        // set the options for the export plugin property item
+        $exportPluginProperties->setOptions($exportSpecificOptions);
+        $this->properties = $exportPluginProperties;
+
+        // data options main group
+        $dataOptions = new OptionsPropertyMainGroup();
+        $dataOptions->setName("data");
+        $dataOptions->setText(__('Data dump options'));
+        $dataOptions->setForce('structure');
+        // create primary items and add them to the group
+        $leaf = new BoolPropertyItem();
+        $leaf->setName("columns");
+        $leaf->setText(__('Put columns names in the first row'));
+        $dataOptions->addProperty($leaf);
+        $leaf = new TextPropertyItem();
+        $leaf->setName('null');
+        $leaf->setText(__('Replace NULL with:'));
+        $dataOptions->addProperty($leaf);
+        // add the main group to the root group
+        $exportSpecificOptions->addProperty($dataOptions);
     }
 
     /**
