@@ -109,7 +109,7 @@ $criteria_row_count = max($rows + $criteriaRowAdd, 0);
 // The tables list sent by a previously submitted form
 if (PMA_isValid($_REQUEST['TableList'], 'array')) {
     foreach ($_REQUEST['TableList'] as $each_table) {
-        $tbl_names[$each_table] = ' selected="selected"';
+        $criteriaTables[$each_table] = ' selected="selected"';
     }
 } // end if
 
@@ -122,40 +122,40 @@ if (PMA_isValid($_REQUEST['TableList'], 'array')) {
 /**
  * Prepares the form
  */
-$tbl_result = PMA_DBI_query(
+$all_tables = PMA_DBI_query(
     'SHOW TABLES FROM ' . $common_functions->backquote($db) . ';',
     null, PMA_DBI_QUERY_STORE
 );
-$tbl_result_cnt = PMA_DBI_num_rows($tbl_result);
-if (0 == $tbl_result_cnt) {
+$all_tables_count = PMA_DBI_num_rows($all_tables);
+if (0 == $all_tables_count) {
     PMA_Message::error(__('No tables found in database.'))->display();
     exit;
 }
 
 // The tables list gets from MySQL
-while (list($tbl) = PMA_DBI_fetch_row($tbl_result)) {
-    $fld_results = PMA_DBI_get_columns($db, $tbl);
+while (list($table) = PMA_DBI_fetch_row($all_tables)) {
+    $columns = PMA_DBI_get_columns($db, $table);
 
-    if (empty($tbl_names[$tbl]) && ! empty($_REQUEST['TableList'])) {
-        $tbl_names[$tbl] = '';
+    if (empty($criteriaTables[$table]) && ! empty($_REQUEST['TableList'])) {
+        $criteriaTables[$table] = '';
     } else {
-        $tbl_names[$tbl] = ' selected="selected"';
+        $criteriaTables[$table] = ' selected="selected"';
     } //  end if
 
     // The fields list per selected tables
-    if ($tbl_names[$tbl] == ' selected="selected"') {
-        $each_table = $common_functions->backquote($tbl);
-        $fld[]  = $each_table . '.*';
-        foreach ($fld_results as $each_field) {
-            $each_field = $each_table . '.' . $common_functions->backquote($each_field['Field']);
-            $fld[] = $each_field;
+    if ($criteriaTables[$table] == ' selected="selected"') {
+        $each_table = $common_functions->backquote($table);
+        $columnNames[]  = $each_table . '.*';
+        foreach ($columns as $each_column) {
+            $each_column = $each_table . '.' . $common_functions->backquote($each_column['Field']);
+            $columnNames[] = $each_column;
 
             // increase the width if necessary
-            $form_column_width = max(strlen($each_field), $form_column_width);
+            $form_column_width = max(strlen($each_column), $form_column_width);
         } // end foreach
     } // end if
 } // end while
-PMA_DBI_free_result($tbl_result);
+PMA_DBI_free_result($all_tables);
 
 // largest width found
 $realwidth = $form_column_width . 'ex';
@@ -179,7 +179,7 @@ if ($cfgRelation['designerwork']) {
         )
     )->display();
 }
-echo PMA_dbQbeGetSelectionForm($db, $tbl_names, $fld, $criteria_column_count, $criteria_row_count,
+echo PMA_dbQbeGetSelectionForm($db, $criteriaTables, $columnNames, $criteria_column_count, $criteria_row_count,
     $criteriaColumnInsert, $criteriaColumnDelete, $realwidth, $criteria, $prev_criteria,
     $criteriaAndOrRow, $criteriaAndOrColumn, $cfgRelation
 );

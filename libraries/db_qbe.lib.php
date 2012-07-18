@@ -997,7 +997,7 @@ function PMA_dbQbeGetSQLQuery($criteria_column_count, $criteria_row_count, $crit
  *
  * @return string QBE form
  */
-function PMA_dbQbeGetSelectionForm($db, $tbl_names, $fld, $criteria_column_count, $criteria_row_count,
+function PMA_dbQbeGetSelectionForm($db, $tbl_names, $columnNames, $criteria_column_count, $criteria_row_count,
     $criteriaColumnInsert, $criteriaColumnDelete, $realwidth, $criteria, $prev_criteria,
     $criteriaAndOrRow, $criteriaAndOrColumn, $cfgRelation
 ) {
@@ -1006,7 +1006,7 @@ function PMA_dbQbeGetSelectionForm($db, $tbl_names, $fld, $criteria_column_count
     $html_output .= '<table class="data" style="width: 100%;">';
     // Get table's <tr> elements
     $html_output .= PMA_dbQbegetColumnNamesRow(
-        $criteria_column_count, $fld, $criteriaColumnInsert, $criteriaColumnDelete
+        $criteria_column_count, $columnNames, $criteriaColumnInsert, $criteriaColumnDelete
     );
     $html_output .= PMA_dbQbegetSortRow(
         $criteria_column_count, $realwidth, $criteriaColumnInsert, $criteriaColumnDelete
