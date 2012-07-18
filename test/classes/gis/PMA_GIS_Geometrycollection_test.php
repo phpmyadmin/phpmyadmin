@@ -267,7 +267,7 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
 
         $string = $this->object->prepareRowAsSvg($spatial, $label, $line_color, $scale_data);
         $this->assertEquals(1, preg_match($output, $string));
-//        $this->assertEquals($output, $this->object->prepareRowAsSvg($spatial, $label, $line_color, $scale_data) );
+        $this->assertRegExp($output, $this->object->prepareRowAsSvg($spatial, $label, $line_color, $scale_data));
     }
 
     public function providerForPrepareRowAsSvg()
