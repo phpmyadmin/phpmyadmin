@@ -90,7 +90,10 @@ class PMA_Error_test extends PHPUnit_Framework_TestCase
      */
     public function testGetBacktraceDisplay()
     {
-        $this->assertTrue((strpos($this->object->getBacktraceDisplay(), '/usr/share/php/PHPUnit/Framework/TestCase.php#751: PHPUnit_Framework_TestResult->run(object)<br />') !== false));
+        $this->assertContains(
+            'PHPUnit/Framework/TestCase.php#751: PHPUnit_Framework_TestResult->run(object)<br />',
+            $this->object->getBacktraceDisplay()
+        );
     }
 
     /**
@@ -98,7 +101,10 @@ class PMA_Error_test extends PHPUnit_Framework_TestCase
      */
     public function testGetDisplay()
     {
-        $this->assertTrue((strpos($this->object->getDisplay(),'<div class="error"><strong>Warning</strong>') !== false));
+        $this->assertContains(
+            '<div class="error"><strong>Warning</strong>',
+            $this->object->getDisplay()
+        );
     }
 
     /**
