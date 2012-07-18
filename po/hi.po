@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-18 11:12+0200\n"
-"PO-Revision-Date: 2012-07-18 14:31+0200\n"
+"PO-Revision-Date: 2012-07-18 14:49+0200\n"
 "Last-Translator: rajnikant sharma <rajtrivedi2001@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -932,6 +932,8 @@ msgstr ""
 msgid ""
 "Cannot convert file's character set without character set conversion library"
 msgstr ""
+"अक्षर सेट रूपांतरण पुस्तकालय के बिना फ़ाइल के अक्षर सेट को परिवर्तित नहीं कर "
+"सकते"
 
 #: import.php:444 libraries/display_import.lib.php:29
 msgid "Could not load import plugins, please check your installation!"
@@ -983,10 +985,10 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" बयान अक्षम हैं."
 
 #: js/messages.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to "
 msgid "Do you really want to execute \"%s\"?"
-msgstr "क्या आप सचमुच चाहते है की"
+msgstr "क्या आप सचमुच \"%s\" निष्पादित चाहते है?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:307 sql.php:414
 msgid "You are about to DESTROY a complete database!"
