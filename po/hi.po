@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-03-27 16:58+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-07-19 08:56+0200\n"
+"Last-Translator: rajnikant sharma <rajtrivedi2001@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.8\n"
+"X-Generator: Weblate 1.1\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -822,10 +822,9 @@ msgid "Values for column %s"
 msgstr "\"%s\" काँलम के लिए मान "
 
 #: enum_editor.php:34 js/messages.php:275
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
-msgstr "हर एक मान अलग क्षेत्र में दर्ज करें."
+msgstr "हर एक मान अलग क्षेत्र में दर्ज करें"
 
 #: enum_editor.php:123
 #, fuzzy
@@ -842,10 +841,9 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "\"लंबाई / मान\" क्षेत्र में शामिल हो गए मान कॉपी और पेस्ट"
 
 #: export.php:29
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "पट्टी प्रकार"
+msgstr "बुरा प्रकार"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
@@ -902,11 +900,11 @@ msgstr ""
 #: gis_data_editor.php:151 js/messages.php:326
 #: libraries/display_tbl.lib.php:693
 msgid "Geometry"
-msgstr ""
+msgstr "ज्यामिति"
 
 #: gis_data_editor.php:172 js/messages.php:322
 msgid "Point"
-msgstr ""
+msgstr "बिन्दु"
 
 #: gis_data_editor.php:173 gis_data_editor.php:197 gis_data_editor.php:245
 #: gis_data_editor.php:297 js/messages.php:320
@@ -922,14 +920,13 @@ msgstr ""
 #: js/messages.php:323
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "बिंदु %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:329
-#, fuzzy
 #| msgid "Add index"
 msgid "Add a point"
-msgstr "अनुक्रमणिका जोड़"
+msgstr "एक बिंदु जोड़ें"
 
 #: gis_data_editor.php:220 js/messages.php:324
 #, fuzzy
@@ -939,39 +936,35 @@ msgstr "लाईन समाप्त होता है"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:328
 msgid "Outer Ring"
-msgstr ""
+msgstr "बाहरी वृत्त"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:327
 msgid "Inner Ring"
-msgstr ""
+msgstr "आंतरिक वृत्त"
 
 #: gis_data_editor.php:252
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "नया यूसर जोडें"
+msgstr ""
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:330
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "नया यूसर जोडें"
+msgstr "नया आंतरिक वृत्त जोडें"
 
 #: gis_data_editor.php:266 js/messages.php:325
 msgid "Polygon"
-msgstr ""
+msgstr "बहुभुज"
 
 #: gis_data_editor.php:306 js/messages.php:331
-#, fuzzy
 #| msgid "Add column"
 msgid "Add a polygon"
-msgstr "नया काँलम जोडें"
+msgstr "नया बहुभुज जोडें"
 
 #: gis_data_editor.php:310
-#, fuzzy
 #| msgid "Add a new server"
 msgid "Add geometry"
-msgstr "एक नया सर्वर जोडें"
+msgstr "ज्यामिति जोडें"
 
 #: gis_data_editor.php:318
 msgid ""
@@ -1026,6 +1019,8 @@ msgstr ""
 msgid ""
 "Cannot convert file's character set without character set conversion library"
 msgstr ""
+"अक्षर सेट रूपांतरण पुस्तकालय के बिना फ़ाइल के अक्षर सेट को परिवर्तित नहीं कर "
+"सकते"
 
 #: import.php:390 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
