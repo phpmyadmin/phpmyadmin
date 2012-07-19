@@ -57,7 +57,7 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
 
 #pma_navigation div.pageselector {
     text-align: center;
-    margin: 0px 10px 0px 10px;
+    margin: 0 0 0 0.75em;
     border-left: 1px solid #666;
 }
 
