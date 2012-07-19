@@ -114,6 +114,41 @@ class PMA_DbQbe
      * @var string
      */
     private $_form_column_width;
+    /**
+     * Current criteria field
+     *
+     * @access private
+     * @var array
+     */
+    private $_curField;
+    /**
+     * Current criteria Sort options
+     *
+     * @access private
+     * @var array
+     */
+    private $_curSort;
+    /**
+     * Current criteria Show options
+     *
+     * @access private
+     * @var array
+     */
+    private $_curShow;
+    /**
+     * Current criteria values
+     *
+     * @access private
+     * @var array
+     */
+    private $_curCriteria;
+    /**
+     * Current criteria AND/OR column realtions
+     *
+     * @access private
+     * @var array
+     */
+    private $_curAndOrCol;
 
     /**
      * Public Constructor
@@ -182,6 +217,12 @@ class PMA_DbQbe
             : array_fill(0, $criteriaColumnCount, '');
         // sets minimum width
         $this->_form_column_width = 12;
+        $this->_curField = array();
+        $this->_curSort = array();
+        $this->_curShow = array();
+        $this->_curCriteria = array();
+        $this->_curAndOrRow = array();
+        $this->_curAndOrCol = array();
     }
 
     /**
@@ -311,7 +352,7 @@ class PMA_DbQbe
             $selected = '';
             if (isset($_REQUEST['criteriaColumn'][$column_index])) {
                 $selected = $_REQUEST['criteriaColumn'][$column_index];
-                $GLOBALS['curField'][$new_column_count] = $_REQUEST['criteriaColumn'][$column_index];
+                $this->_curField[$new_column_count] = $_REQUEST['criteriaColumn'][$column_index];
             }
             $html_output .= $this->_showColumnSelectCell($columns, $new_column_count, $selected);
             $new_column_count++;
@@ -356,14 +397,14 @@ class PMA_DbQbe
             } //end if
             // Set asc_selected
             if (isset($_REQUEST['criteriaSort'][$column_index]) && $_REQUEST['criteriaSort'][$column_index] == 'ASC') {
-                $GLOBALS['curSort'][$new_column_count] = $_REQUEST['criteriaSort'][$column_index];
+                $this->_curSort[$new_column_count] = $_REQUEST['criteriaSort'][$column_index];
                 $asc_selected = ' selected="selected"';
             } else {
                 $asc_selected = '';
             } // end if
             // Set desc selected
             if (isset($_REQUEST['criteriaSort'][$column_index]) && $_REQUEST['criteriaSort'][$column_index] == 'DESC') {
-                $GLOBALS['curSort'][$new_column_count] = $_REQUEST['criteriaSort'][$column_index];
+                $this->_curSort[$new_column_count] = $_REQUEST['criteriaSort'][$column_index];
                 $desc_selected = ' selected="selected"';
             } else {
                 $desc_selected = '';
@@ -406,7 +447,7 @@ class PMA_DbQbe
             }
             if (isset($_REQUEST['criteriaShow'][$column_index])) {
                 $checked_options = ' checked="checked"';
-                $GLOBALS['curShow'][$new_column_count] = $_REQUEST['criteriaShow'][$column_index];
+                $this->_curShow[$new_column_count] = $_REQUEST['criteriaShow'][$column_index];
             } else {
                 $checked_options = '';
             }
@@ -456,13 +497,13 @@ class PMA_DbQbe
                 || ! isset($this->_prev_criteria[$column_index]))
                 || $this->_prev_criteria[$column_index] != htmlspecialchars($tmp_criteria)
             ) {
-                $GLOBALS['curCriteria'][$new_column_count]   = $tmp_criteria;
+                $this->_curCriteria[$new_column_count]   = $tmp_criteria;
             } else {
-                $GLOBALS['curCriteria'][$new_column_count]   = $this->_prev_criteria[$column_index];
+                $this->_curCriteria[$new_column_count]   = $this->_prev_criteria[$column_index];
             }
             $html_output .= '<td class="center">';
             $html_output .= '<input type="hidden" name="prev_criteria[' . $new_column_count . ']"'
-                . ' value="' . htmlspecialchars($GLOBALS['curCriteria'][$new_column_count]) . '" />';
+                . ' value="' . htmlspecialchars($this->_curCriteria[$new_column_count]) . '" />';
             $html_output .= '<input type="text" name="criteria[' . $new_column_count . ']"'
             . ' value="' . htmlspecialchars($tmp_criteria) . '" class="textfield"'
             . ' style="width: ' . $this->_realwidth . '" size="20" />';
@@ -602,7 +643,7 @@ class PMA_DbQbe
             }
 
             if (isset($this->_criteriaAndOrColumn[$column_index])) {
-                $GLOBALS['curAndOrCol'][$new_column_count] = $this->_criteriaAndOrColumn[$column_index];
+                $this->_curAndOrCol[$new_column_count] = $this->_criteriaAndOrColumn[$column_index];
             }
             if (isset($this->_criteriaAndOrColumn[$column_index])
                 && $this->_criteriaAndOrColumn[$column_index] == 'or'
@@ -754,7 +795,7 @@ class PMA_DbQbe
                 continue;
             }
             if (isset($this->_criteriaAndOrRow[$row_index])) {
-                $GLOBALS['curAndOrRow'][$new_row_count] = $this->_criteriaAndOrRow[$row_index];
+                $this->_curAndOrRow[$new_row_count] = $this->_criteriaAndOrRow[$row_index];
             }
             if (isset($this->_criteriaAndOrRow[$row_index])
                 && $this->_criteriaAndOrRow[$row_index] == 'and'
@@ -788,11 +829,11 @@ class PMA_DbQbe
         $select_clause = '';
         $select_clauses = array();
         for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
-            if (! empty($GLOBALS['curField'][$column_index])
-                && isset($GLOBALS['curShow'][$column_index])
-                && $GLOBALS['curShow'][$column_index] == 'on')
+            if (! empty($this->_curField[$column_index])
+                && isset($this->_curShow[$column_index])
+                && $this->_curShow[$column_index] == 'on')
             {
-                $select_clauses[] = $GLOBALS['curField'][$column_index];
+                $select_clauses[] = $this->_curField[$column_index];
             }
         } // end for
         if ($select_clauses) {
@@ -811,16 +852,16 @@ class PMA_DbQbe
         $where_clause = '';
         $criteria_cnt = 0;
         for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
-            if (! empty($GLOBALS['curField'][$column_index])
-                && ! empty($GLOBALS['curCriteria'][$column_index])
+            if (! empty($this->_curField[$column_index])
+                && ! empty($this->_curCriteria[$column_index])
                 && $column_index
                 && isset($last_where)
-                && isset($GLOBALS['curAndOrCol'])) {
-                $where_clause .= ' ' . strtoupper($GLOBALS['curAndOrCol'][$last_where]) . ' ';
+                && isset($this->_curAndOrCol)) {
+                $where_clause .= ' ' . strtoupper($this->_curAndOrCol[$last_where]) . ' ';
             }
-            if (! empty($GLOBALS['curField'][$column_index]) && ! empty($GLOBALS['curCriteria'][$column_index])) {
-                $where_clause .= '(' . $GLOBALS['curField'][$column_index] . ' '
-                    . $GLOBALS['curCriteria'][$column_index] . ')';
+            if (! empty($this->_curField[$column_index]) && ! empty($this->_curCriteria[$column_index])) {
+                $where_clause .= '(' . $this->_curField[$column_index] . ' '
+                    . $this->_curCriteria[$column_index] . ')';
                 $last_where = $column_index;
                 $criteria_cnt++;
             }
@@ -829,24 +870,24 @@ class PMA_DbQbe
             $where_clause = '(' . $where_clause . ')';
         }
         // OR rows ${'cur' . $or}[$column_index]
-        if (! isset($GLOBALS['curAndOrRow'])) {
-            $GLOBALS['curAndOrRow'] = array();
+        if (! isset($this->_curAndOrRow)) {
+            $this->_curAndOrRow = array();
         }
         for ($row_index = 0; $row_index <= $this->_criteria_row_count; $row_index++) {
             $criteria_cnt = 0;
             $qry_orwhere = '';
             $last_orwhere = '';
             for ($column_index = 0; $column_index < $this->_criteria_column_count; $column_index++) {
-                if (! empty($GLOBALS['curField'][$column_index])
+                if (! empty($this->_curField[$column_index])
                     && ! empty(${'curOr' . $row_index}[$column_index])
                     && $column_index
                 ) {
-                    $qry_orwhere .= ' ' . strtoupper($GLOBALS['curAndOrCol'][$last_orwhere]) . ' ';
+                    $qry_orwhere .= ' ' . strtoupper($this->_curAndOrCol[$last_orwhere]) . ' ';
                 }
-                if (! empty($GLOBALS['curField'][$column_index])
+                if (! empty($this->_curField[$column_index])
                     && ! empty(${'curOr' . $row_index}[$column_index])
                 ) {
-                    $qry_orwhere .= '(' . $GLOBALS['curField'][$column_index]
+                    $qry_orwhere .= '(' . $this->_curField[$column_index]
                         .  ' '
                         .  ${'curOr' . $row_index}[$column_index]
                         .  ')';
@@ -859,7 +900,7 @@ class PMA_DbQbe
             }
             if (! empty($qry_orwhere)) {
                 $where_clause .= "\n"
-                    .  strtoupper(isset($GLOBALS['curAndOrRow'][$row_index]) ? $GLOBALS['curAndOrRow'][$row_index] . ' ' : '')
+                    .  strtoupper(isset($this->_curAndOrRow[$row_index]) ? $this->_curAndOrRow[$row_index] . ' ' : '')
                     .  $qry_orwhere;
             } // end if
         } // end for
@@ -883,14 +924,14 @@ class PMA_DbQbe
         {
             // if all columns are chosen with * selector, then sorting isn't available
             // Fix for Bug #570698
-            if (! empty($GLOBALS['curField'][$column_index])
-                && ! empty($GLOBALS['curSort'][$column_index])
+            if (! empty($this->_curField[$column_index])
+                && ! empty($this->_curSort[$column_index])
             ) {
-                if (substr($GLOBALS['curField'][$column_index], -2) == '.*') {
+                if (substr($this->_curField[$column_index], -2) == '.*') {
                     continue;
                 }
-                $orderby_clauses[] = $GLOBALS['curField'][$column_index] . ' '
-                    . $GLOBALS['curSort'][$column_index];
+                $orderby_clauses[] = $this->_curField[$column_index] . ' '
+                    . $this->_curSort[$column_index];
             }
         } // end for
         if ($orderby_clauses) {
