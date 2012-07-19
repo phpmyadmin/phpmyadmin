@@ -149,6 +149,13 @@ class PMA_DbQbe
      * @var array
      */
     private $_curAndOrCol;
+    /**
+     * PMA_CommonFunctions object
+     *
+     * @access private
+     * @var object
+     */
+    private $_common_functions;
 
     /**
      * Public Constructor
@@ -238,7 +245,7 @@ class PMA_DbQbe
             }
         } // end if
         $all_tables = PMA_DBI_query(
-            'SHOW TABLES FROM ' . $common_functions->backquote($db) . ';',
+            'SHOW TABLES FROM ' . $this->_getCommonFunctions->backquote($db) . ';',
             null, PMA_DBI_QUERY_STORE
         );
         $all_tables_count = PMA_DBI_num_rows($all_tables);
@@ -258,10 +265,10 @@ class PMA_DbQbe
 
             // The fields list per selected tables
             if ($this->_criteriaTables[$table] == ' selected="selected"') {
-                $each_table = $common_functions->backquote($table);
+                $each_table = $this->_getCommonFunctions->backquote($table);
                 $this->_columnNames[]  = $each_table . '.*';
                 foreach ($columns as $each_column) {
-                    $each_column = $each_table . '.' . $common_functions->backquote($each_column['Field']);
+                    $each_column = $each_table . '.' . $this->_getCommonFunctions->backquote($each_column['Field']);
                     $this->_columnNames[] = $each_column;
                     // increase the width if necessary
                     $this->_form_column_width = max(strlen($each_column), $this->_form_column_width);
@@ -1184,12 +1191,12 @@ class PMA_DbQbe
                     $run++;
                     if ($run > 5) {
                         foreach ($remaining_tables as $table) {
-                            $emerg .= ', ' . PMA_CommonFunctions::getInstance()->backquote($table);
+                            $emerg .= ', ' . $this->_getCommonFunctions->backquote($table);
                             unset($remaining_tables[$table]);
                         }
                     }
                 } // end while
-                $from_clause = PMA_CommonFunctions::getInstance()->backquote($master)
+                $from_clause = $this->_getCommonFunctions->backquote($master)
                     . $emerg . $left_join;
             } // end if ($cfgRelation['relwork'] && count($all_tables) > 0)
         } // end count($_POST['criteriaColumn']) > 0
@@ -1257,7 +1264,7 @@ class PMA_DbQbe
         $html_output .= '<fieldset>';
         $html_output .= '<legend>'
             . sprintf(
-                __('SQL query on database <b>%s</b>:'), PMA_CommonFunctions::getInstance()->getDbLink($db)
+                __('SQL query on database <b>%s</b>:'), $this->_getCommonFunctions->getDbLink($db)
             );
         $html_output .= '</legend>';
         $html_output .= '<textarea cols="80" name="sql_query" id="textSqlquery"'
