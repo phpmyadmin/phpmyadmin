@@ -128,7 +128,7 @@ class Node_Database extends Node
                 $db    = $this->_commonFunctions->sqlAddSlashes($db);
                 $query = "SHOW PROCEDURE STATUS WHERE `Db`='$db' ";
                 if (! empty($searchClause)) {
-                    $query .= "WHERE `Name` LIKE '%";
+                    $query .= "AND `Name` LIKE '%";
                     $query .= $this->_commonFunctions->sqlAddSlashes(
                         $searchClause, true
                     );
@@ -156,7 +156,7 @@ class Node_Database extends Node
                 $db    = $this->_commonFunctions->sqlAddSlashes($db);
                 $query = "SHOW FUNCTION STATUS WHERE `Db`='$db' ";
                 if (! empty($searchClause)) {
-                    $query .= "WHERE `Name` LIKE '%";
+                    $query .= "AND `Name` LIKE '%";
                     $query .= $this->_commonFunctions->sqlAddSlashes(
                         $searchClause, true
                     );
@@ -321,7 +321,7 @@ class Node_Database extends Node
                 $db    = $this->_commonFunctions->sqlAddSlashes($db);
                 $query = "SHOW PROCEDURE STATUS WHERE `Db`='$db' ";
                 if (! empty($searchClause)) {
-                    $query .= "WHERE `Name` LIKE '%";
+                    $query .= "AND `Name` LIKE '%";
                     $query .= $this->_commonFunctions->sqlAddSlashes(
                         $searchClause, true
                     );
@@ -361,7 +361,7 @@ class Node_Database extends Node
                 $db    = $this->_commonFunctions->sqlAddSlashes($db);
                 $query = "SHOW FUNCTION STATUS WHERE `Db`='$db' ";
                 if (! empty($searchClause)) {
-                    $query .= "WHERE `Name` LIKE '%";
+                    $query .= "AND `Name` LIKE '%";
                     $query .= $this->_commonFunctions->sqlAddSlashes(
                         $searchClause, true
                     );
