@@ -51,7 +51,7 @@ rule 'Uptime below one day'
 	value < 86400
 	Uptime is less than 1 day, performance tuning may not be accurate.
 	To have more accurate averages it is recommended to let the server run for longer than a day before running this analyzer
-	The uptime is only %s | PMA_timespanFormat(Uptime)
+	The uptime is only %s | ADVISOR_timespanFormat(Uptime)
 
 rule 'Questions below 1,000'
 	Questions
@@ -72,7 +72,7 @@ rule 'Slow query rate' [Questions > 0]
 	value * 60 * 60 > 1
 	There is a high percentage of slow queries compared to the server uptime.
 	You might want to increase {long_query_time} or optimize the queries listed in the slow query log
-	You have a slow query rate of %s per hour, you should have less than 1% per hour. | PMA_bytime(value,2)
+	You have a slow query rate of %s per hour, you should have less than 1% per hour. | ADVISOR_bytime(value,2)
 
 rule 'Long query time' [!PMA_DRIZZLE]
 	long_query_time
@@ -137,7 +137,7 @@ rule 'MySQL Architecture'
 	value > 3072*1024 && !preg_match('/64/',version_compile_machine) && !preg_match('/64/',version_compile_os)
 	MySQL is not compiled as a 64-bit package.
 	Your memory capacity is above 3 GiB (assuming the Server is on localhost), so MySQL might not be able to access all of your memory. You might want to consider installing the 64-bit version of MySQL.
-	Available memory on this host: %s | implode(' ',PMA_formatByteDown(value*1024, 2, 2))
+	Available memory on this host: %s | implode(' ',ADVISOR_formatByteDown(value*1024, 2, 2))
 
 #
 # Query cache
@@ -190,7 +190,7 @@ rule 'Query cache max size' [!fired('Query cache disabled')]
 	value > 1024 * 128
 	The query cache size is above 128 MiB. Big query caches may cause significant overhead that is required to maintain the cache.
 	Depending on your environment, it might be performance increasing to reduce this value.
-	Current query cache size: %s | implode(' ',PMA_formatByteDown(value, 2, 2))
+	Current query cache size: %s | implode(' ',ADVISOR_formatByteDown(value, 2, 2))
 
 rule 'Query cache min result size' [!fired('Query cache disabled')]
 	value == 1024*1024
@@ -213,14 +213,14 @@ rule 'Rate of sorts that cause temporary tables'
 	value * 60 * 60 > 1
 	Too many sorts are causing temporary tables.
 	Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending on your system memory limits
-	Temporary tables average: %s, this value should be less than 1 per hour. | PMA_bytime(value,2)
+	Temporary tables average: %s, this value should be less than 1 per hour. | ADVISOR_bytime(value,2)
 
 rule 'Sort rows'
 	Sort_rows / Uptime
 	value * 60 >= 1
 	There are lots of rows being sorted.
 	While there is nothing wrong with a high amount of row sorting, you might want to make sure that the queries which require a lot of sorting use indexed columns in the ORDER BY clause, as this will result in much faster sorting
-	Sorted rows average: %s | PMA_bytime(value,2)
+	Sorted rows average: %s | ADVISOR_bytime(value,2)
 
 # Joins, scans
 rule 'Rate of joins without indexes'
@@ -228,28 +228,28 @@ rule 'Rate of joins without indexes'
 	value * 60 * 60 > 1
 	There are too many joins without indexes.
 	This means that joins are doing full table scans. Adding indexes for the columns being used in the join conditions will greatly speed up table joins
-	Table joins average: %s, this value should be less than 1 per hour | PMA_bytime(value,2)
+	Table joins average: %s, this value should be less than 1 per hour | ADVISOR_bytime(value,2)
 
 rule 'Rate of reading first index entry'
 	Handler_read_first / Uptime
 	value * 60 * 60 > 1
 	The rate of reading the first index entry is high.
 	This usually indicates frequent full index scans. Full index scans are faster than table scans but require lots of CPU cycles in big tables, if those tables that have or had high volumes of UPDATEs and DELETEs, running 'OPTIMIZE TABLE' might reduce the amount of and/or speed up full index scans. Other than that full index scans can only be reduced by rewriting queries.
-	Index scans average: %s, this value should be less than 1 per hour | PMA_bytime(value,2)
+	Index scans average: %s, this value should be less than 1 per hour | ADVISOR_bytime(value,2)
 
 rule 'Rate of reading fixed position'
 	Handler_read_rnd / Uptime
 	value * 60 * 60 > 1
 	The rate of reading data from a fixed position is high.
 	This indicates that many queries need to sort results and/or do a full table scan, including join queries that do not use indexes. Add indexes where applicable.
-	Rate of reading fixed position average: %s, this value should be less than 1 per hour | PMA_bytime(value,2)
+	Rate of reading fixed position average: %s, this value should be less than 1 per hour | ADVISOR_bytime(value,2)
 
 rule 'Rate of reading next table row'
 	Handler_read_rnd_next / Uptime
 	value * 60 * 60 > 1
 	The rate of reading the next table row is high.
 	This indicates that many queries are doing full table scans. Add indexes where applicable.
-	Rate of reading next table row: %s, this value should be less than 1 per hour | PMA_bytime(value,2)
+	Rate of reading next table row: %s, this value should be less than 1 per hour | ADVISOR_bytime(value,2)
 
 # temp tables
 rule 'tmp_table_size vs. max_heap_table_size'
@@ -257,7 +257,7 @@ rule 'tmp_table_size vs. max_heap_table_size'
 	value !=0
 	tmp_table_size and max_heap_table_size are not the same.
 	If you have deliberately changed one of either: The server uses the lower value of either to determine the maximum size of in-memory tables. So if you wish to increase the in-memory table limit you will have to increase the other value as well.
-	Current values are tmp_table_size: %s, max_heap_table_size: %s | implode(' ',PMA_formatByteDown(tmp_table_size, 2, 2)), implode(' ',PMA_formatByteDown(max_heap_table_size, 2, 2))
+	Current values are tmp_table_size: %s, max_heap_table_size: %s | implode(' ',ADVISOR_formatByteDown(tmp_table_size, 2, 2)), implode(' ',ADVISOR_formatByteDown(max_heap_table_size, 2, 2))
 
 rule 'Percentage of temp tables on disk' [Created_tmp_tables + Created_tmp_disk_tables > 0]
 	Created_tmp_disk_tables / (Created_tmp_tables + Created_tmp_disk_tables) * 100
@@ -271,7 +271,7 @@ rule 'Temp disk rate' [!fired('Percentage of temp tables on disk')]
 	value * 60 * 60 > 1
 	Many temporary tables are being written to disk instead of being kept in memory.
 	Increasing {max_heap_table_size} and {tmp_table_size} might help. However some temporary tables are always being written to disk, independent of the value of these variables. To eliminate these you will have to rewrite your queries to avoid those conditions (Within a temporary table: Presence of a BLOB or TEXT column or presence of a column bigger than 512 bytes) as mentioned in the <a href="http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables.html">MySQL Documentation</a>
-	Rate of temporary tables being written to disk: %s, this value should be less than 1 per hour | PMA_bytime(value,2)
+	Rate of temporary tables being written to disk: %s, this value should be less than 1 per hour | ADVISOR_bytime(value,2)
 
 # I couldn't find any source on the internet that suggests a direct relation between high counts of temporary tables and any of these variables.
 # Several independent Blog entries suggest (http://ronaldbradford.com/blog/more-on-understanding-sort_buffer_size-2010-05-10/ and http://www.xaprb.com/blog/2010/05/09/how-to-tune-mysqls-sort_buffer_size/)
@@ -322,7 +322,7 @@ rule 'Rate of table open' [!PMA_DRIZZLE]
 	value*60*60 > 10
 	The rate of opening tables is high.
 	Opening tables requires disk I/O which is costly. Increasing {table_open_cache} might avoid this.
-	Opened table rate: %s, this value should be less than 10 per hour | PMA_bytime(value,2)
+	Opened table rate: %s, this value should be less than 10 per hour | ADVISOR_bytime(value,2)
 
 rule 'Percentage of used open files limit' [!PMA_DRIZZLE]
 	Open_files / open_files_limit * 100
@@ -336,7 +336,7 @@ rule 'Rate of open files' [!PMA_DRIZZLE]
 	value * 60 * 60 > 5
 	The rate of opening files is high.
 	Consider increasing {open_files_limit}, and check the error log when restarting after changing open_files_limit.
-	Opened files rate: %s, this value should be less than 5 per hour | PMA_bytime(value,2)
+	Opened files rate: %s, this value should be less than 5 per hour | ADVISOR_bytime(value,2)
 
 rule 'Immediate table locks %' [Table_locks_waited + Table_locks_immediate > 0]
 	Table_locks_immediate / (Table_locks_waited + Table_locks_immediate) * 100
@@ -350,7 +350,7 @@ rule 'Table lock wait rate'
 	value * 60 * 60 > 1
 	Too many table locks were not granted immediately.
 	Optimize queries and/or use InnoDB to reduce lock wait.
-	Table lock wait rate: %s, this value should be less than 1 per hour | PMA_bytime(value,2)
+	Table lock wait rate: %s, this value should be less than 1 per hour | ADVISOR_bytime(value,2)
 
 rule 'Thread cache' [!PMA_DRIZZLE]
 	thread_cache_size
@@ -401,7 +401,7 @@ rule 'Rate of aborted connections'
 	value * 60 * 60 > 1
 	Too many connections are aborted.
 	Connections are usually aborted when they cannot be authorized. <a href="http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-source-of-aborted_connects/">This article</a> might help you track down the source.
-	Aborted connections rate is at %s, this value should be less than 1 per hour | PMA_bytime(value,2)
+	Aborted connections rate is at %s, this value should be less than 1 per hour | ADVISOR_bytime(value,2)
 
 rule 'Percentage of aborted clients'
 	Aborted_clients / Connections * 100
@@ -415,7 +415,7 @@ rule 'Rate of aborted clients'
 	value * 60 * 60 > 1
 	Too many clients are aborted.
 	Clients are usually aborted when they did not close their connection to MySQL properly. This can be due to network issues or code not closing a database handler properly. Check your network and code.
-	Aborted client rate is at %s, this value should be less than 1 per hour | PMA_bytime(value,2)
+	Aborted client rate is at %s, this value should be less than 1 per hour | ADVISOR_bytime(value,2)
 
 #
 # InnoDB

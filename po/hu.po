@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-18 11:12+0200\n"
-"PO-Revision-Date: 2012-05-28 00:57+0200\n"
-"Last-Translator: Róbert Nagy <vrnagy@gmail.com>\n"
+"PO-Revision-Date: 2012-07-19 09:42+0200\n"
+"Last-Translator: Akos Eros <erosakos02@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.0\n"
+"X-Generator: Weblate 1.1\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:790 server_privileges.php:1851
@@ -273,7 +273,7 @@ msgstr "Mind kijelölése"
 
 #: db_export.php:44 libraries/DbSearch.class.php:465 server_export.php:28
 msgid "Unselect All"
-msgstr "Mind törlése"
+msgstr "Minden kijelölés törlése"
 
 #: db_operations.php:63 tbl_create.php:22
 msgid "The database name is empty!"
@@ -13695,7 +13695,7 @@ msgstr "Rendezőpuffer mérete"
 
 #: libraries/advisory_rules.txt:422
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "Le van tiltva a InnoDB?"
 
 #: libraries/advisory_rules.txt:425
 #, fuzzy
