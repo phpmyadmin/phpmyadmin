@@ -36,8 +36,9 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
             function PMA_DBI_fetch_result($query)
             {
                 return array(
-                    'dummy' =>'table1',
-                    'table`2');
+                    'dummy' => 'table1',
+                    'engine' => 'table`2'
+                );
             }
         }
         $this->object = $this->getMockForAbstractClass('PMA_StorageEngine', array('dummy'));
@@ -64,7 +65,7 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
             $this->object->getStorageEngines(),
             array(
                 'dummy' => 'table1',
-                0 => 'table`2'
+                'engine' => 'table`2'
             )
         );
     }
@@ -80,7 +81,7 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
     <option value="dummy" title="t">
         t
     </option>
-    <option value="0" title="t">
+    <option value="engine" title="t">
         t
     </option>
 </select>

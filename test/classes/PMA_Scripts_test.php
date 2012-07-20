@@ -111,13 +111,11 @@ class PMA_Scripts_test extends PHPUnit_Framework_TestCase
         $this->object->addFile('common.js');
         $this->object->addEvent('onClick', 'doSomething');
 
-        $this->assertEquals(
-            $this->object->getDisplay(),
-            '<script src="js/common.js?ts=1339744334" type="text/javascript"></script>
-<script type="text/javascript">// <![CDATA[
+        $this->assertTrue((strpos($this->object->getDisplay(),'<script src="js/common.js?ts=') !== false));
+        $this->assertTrue((strpos($this->object->getDisplay(),'type="text/javascript"></script>') !== false));
+        $this->assertTrue((strpos($this->object->getDisplay(),'<script type="text/javascript">// <![CDATA[
 $(window.parent).bind(\'onClick\', doSomething);
-// ]]></script>'
-        );
+// ]]></script>') !== false));
     }
 
     /**
