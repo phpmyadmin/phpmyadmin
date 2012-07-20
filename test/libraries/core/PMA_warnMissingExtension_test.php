@@ -10,12 +10,38 @@
 /*
  * Include to test.
  */
+require_once 'libraries/vendor_config.php';
 require_once 'libraries/core.lib.php';
+require_once 'libraries/select_lang.lib.php';
+require_once 'libraries/Config.class.php';
+require_once 'libraries/Theme.class.php';
+require_once 'libraries/CommonFunctions.class.php';
+require_once 'libraries/js_escape.lib.php';
+require_once 'libraries/sanitizing.lib.php';
 
 class PMA_warnMissingExtension_test extends PHPUnit_Framework_TestCase
 {
+    public function setup()
+    {
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['PMA_Config'] = new PMA_Config();
+        $GLOBALS['PMA_Config']->enableBc();
+        $GLOBALS['cfg']['Server'] = array(
+            'host' => 'host',
+            'verbose' => 'verbose',
+        );
+        $GLOBALS['cfg']['OBGzip'] = false;
+        $_SESSION['PMA_Theme'] = new PMA_Theme();
+        $_SESSION[' PMA_token '] = 'token';
+        $GLOBALS['pmaThemeImage'] = 'theme/';
+        $GLOBALS['pmaThemePath'] = $_SESSION['PMA_Theme']->getPath();
+        $GLOBALS['server'] = 1;
+        $GLOBALS['db'] = '';
+        $GLOBALS['table'] = '';
 
-    function testMissingExtention()
+    }
+
+    function testMissingExtension()
     {
         $ext = 'php_ext';
         $this->setExpectedException(
@@ -25,7 +51,7 @@ class PMA_warnMissingExtension_test extends PHPUnit_Framework_TestCase
         PMA_warnMissingExtension($ext);
     }
 
-    function testMissingExtentionFatal()
+    function testMissingExtensionFatal()
     {
         $ext = 'php_ext';
         $warn = 'The <a href="' . PMA_getPHPDocLink('book.' . $ext . '.php') . '" target="Documentation"><em>'.$ext.'</em></a> extension is missing. Please check your PHP configuration.';
@@ -38,7 +64,7 @@ class PMA_warnMissingExtension_test extends PHPUnit_Framework_TestCase
         $this->assertGreaterThan(0, strpos($printed, $warn));
     }
 
-    function testMissingExtentionFatalWithExtra()
+    function testMissingExtensionFatalWithExtra()
     {
         $ext = 'php_ext';
         $extra = 'Appended Extra String';
@@ -53,7 +79,7 @@ class PMA_warnMissingExtension_test extends PHPUnit_Framework_TestCase
         $this->assertGreaterThan(0, strpos($printed, $warn));
     }
 
-    function testMissingExtentionWithExtra()
+    function testMissingExtensionWithExtra()
     {
         $ext = 'php_ext';
         $extra = 'Appended Extra String';

@@ -317,14 +317,14 @@ class Advisor
 
         // Actually evaluate the code
         ob_start();
-        eval('$value = '.$expr.';');
+        eval('$value = ' . $expr . ';');
         $err = ob_get_contents();
         ob_end_clean();
 
         // Error handling
         if ($err) {
             throw new Exception(
-                strip_tags($err) . '<br />Executed code: $value = ' . $expr . ';'
+                strip_tags($err) . '<br />Executed code: $value = ' . htmlspecialchars($expr) . ';'
             );
         }
         return $value;
@@ -418,7 +418,7 @@ class Advisor
     }
 }
 
-function PMA_bytime($num, $precision)
+function ADVISOR_bytime($num, $precision)
 {
     $per = '';
     if ($num >= 1) { // per second
@@ -441,6 +441,16 @@ function PMA_bytime($num, $precision)
     }
 
     return "$num $per";
+}
+
+function ADVISOR_timespanFormat($val)
+{
+    return PMA_CommonFunctions::getInstance()->timespanFormat($val);
+}
+
+function ADVISOR_formatByteDown($value, $limes = 6, $comma = 0)
+{
+    return PMA_CommonFunctions::getInstance()->formatByteDown($value, $limes, $comma);
 }
 
 ?>

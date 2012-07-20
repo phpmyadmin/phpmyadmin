@@ -20,6 +20,7 @@ require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/Theme.class.php';
 require_once 'libraries/Table.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
+require_once 'libraries/Response.class.php';
 
 /**
  * Test function sending headers.
@@ -286,10 +287,10 @@ class PMA_headerLocation_test extends PHPUnit_Framework_TestCase
         $url = './navigation.php?'.PMA_generate_common_url($GLOBALS['db'], '', '&');
         $write = '<script type="text/javascript">' . PHP_EOL .
                     '//<![CDATA[' . PHP_EOL .
-                    'if (typeof(window.parent) != \'undefined\'' . PHP_EOL .
-                    '    && typeof(window.parent.frame_navigation) != \'undefined\'' . PHP_EOL .
+                    'if (typeof(window.parent) != "undefined"' . PHP_EOL .
+                    '    && typeof(window.parent.frame_navigation) != "undefined"' . PHP_EOL .
                     '    && window.parent.goTo) {' . PHP_EOL .
-                    '    window.parent.goTo(\'' . $url . '\');' . PHP_EOL .
+                    '    window.parent.goTo("' . $url . '");' . PHP_EOL .
                     '}' . PHP_EOL .
                     '//]]>' . PHP_EOL .
                     '</script>' . PHP_EOL;

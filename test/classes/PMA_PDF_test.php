@@ -12,13 +12,16 @@
 require_once 'libraries/CommonFunctions.class.php';
 require_once 'libraries/PDF.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
-
-if (!defined('PMA_VERSION')) {
-    define('PMA_VERSION', 'TEST');
-}
+require_once 'libraries/core.lib.php';
+require_once 'libraries/Config.class.php';
 
 class PMA_PDF_test extends PHPUnit_Framework_TestCase
 {
+    public function setup()
+    {
+        $GLOBALS['PMA_Config'] = new PMA_Config();
+        $GLOBALS['PMA_Config']->enableBc();
+    }
     /**
      * @group large
      */
