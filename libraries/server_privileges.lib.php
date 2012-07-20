@@ -3202,4 +3202,70 @@ function PMA_addUserAndCreateDatabase($_error, $real_sql_query, $sql_query,
     }
     return array($sql_query, $message);
 }
+
+/**
+ * Get SQL queries for Display and Add user
+ * 
+ * @param string $username  usernam
+ * @param string $hostname  host name
+ * @param string $password  password
+ * 
+ * @return array ($create_user_real, $create_user_show,$real_sql_query, $sql_query)
+ */
+function PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password)
+{   
+    $common_functions = PMA_CommonFunctions::getInstance();
+    $sql_query = '';
+    $create_user_real = 'CREATE USER \'' 
+        . $common_functions->sqlAddSlashes($username) . '\'@\'' 
+        . $common_functions->sqlAddSlashes($hostname) . '\'';
+
+    $real_sql_query = 'GRANT ' . join(', ', PMA_extractPrivInfo()) . ' ON *.* TO \''
+        . $common_functions->sqlAddSlashes($username) . '\'@\'' 
+        . $common_functions->sqlAddSlashes($hostname) . '\'';
+
+    if ($_POST['pred_password'] != 'none' && $_POST['pred_password'] != 'keep') {
+        $sql_query = $real_sql_query . ' IDENTIFIED BY \'***\'';
+        $real_sql_query .= ' IDENTIFIED BY \'' 
+            . $common_functions->sqlAddSlashes($_POST['pma_pw']) . '\'';
+        if (isset($create_user_real)) {
+            $create_user_show = $create_user_real . ' IDENTIFIED BY \'***\'';
+            $create_user_real .= ' IDENTIFIED BY \''
+                . $common_functions->sqlAddSlashes($_POST['pma_pw']) . '\'';
+        }
+    } else {
+        if ($_POST['pred_password'] == 'keep' && ! empty($password)) {
+            $real_sql_query .= ' IDENTIFIED BY PASSWORD \'' . $password . '\'';
+            if (isset($create_user_real)) {
+                $create_user_real .= ' IDENTIFIED BY PASSWORD \'' . $password . '\'';
+            }
+        }
+        $sql_query = $real_sql_query;
+        if (isset($create_user_real)) {
+            $create_user_show = $create_user_real;
+        }
+    }
+
+    if ((isset($_POST['Grant_priv']) && $_POST['Grant_priv'] == 'Y')
+        || (isset($_POST['max_questions']) || isset($_POST['max_connections'])
+        || isset($_POST['max_updates']) || isset($_POST['max_user_connections']))
+    ) {
+        $with_clause = PMA_getWithClauseForAddUserAndUpdatePrivs();
+        $real_sql_query .= $with_clause;
+        $sql_query .= $with_clause;
+    }
+
+    if (isset($create_user_real)) {
+        $create_user_real .= ';';
+        $create_user_show .= ';';
+    }
+    $real_sql_query .= ';';
+    $sql_query .= ';';
+    
+    return array($create_user_real, 
+        $create_user_show,
+        $real_sql_query,
+        $sql_query
+    );
+}
 ?>

@@ -211,52 +211,9 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
         $_REQUEST['adduser'] = true;
         $_add_user_error = true;
     } else {
-
-        $create_user_real = 'CREATE USER \'' 
-            . $common_functions->sqlAddSlashes($username) . '\'@\'' 
-            . $common_functions->sqlAddSlashes($hostname) . '\'';
-
-        $real_sql_query = 'GRANT ' . join(', ', PMA_extractPrivInfo()) . ' ON *.* TO \''
-            . $common_functions->sqlAddSlashes($username) . '\'@\'' 
-            . $common_functions->sqlAddSlashes($hostname) . '\'';
+        list($create_user_real, $create_user_show, $real_sql_query, $sql_query)
+            = PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password);
         
-        if ($_POST['pred_password'] != 'none' && $_POST['pred_password'] != 'keep') {
-            $sql_query = $real_sql_query . ' IDENTIFIED BY \'***\'';
-            $real_sql_query .= ' IDENTIFIED BY \'' 
-                . $common_functions->sqlAddSlashes($_POST['pma_pw']) . '\'';
-            if (isset($create_user_real)) {
-                $create_user_show = $create_user_real . ' IDENTIFIED BY \'***\'';
-                $create_user_real .= ' IDENTIFIED BY \''
-                    . $common_functions->sqlAddSlashes($_POST['pma_pw']) . '\'';
-            }
-        } else {
-            if ($_POST['pred_password'] == 'keep' && ! empty($password)) {
-                $real_sql_query .= ' IDENTIFIED BY PASSWORD \'' . $password . '\'';
-                if (isset($create_user_real)) {
-                    $create_user_real .= ' IDENTIFIED BY PASSWORD \'' . $password . '\'';
-                }
-            }
-            $sql_query = $real_sql_query;
-            if (isset($create_user_real)) {
-                $create_user_show = $create_user_real;
-            }
-        }
-
-        if ((isset($Grant_priv) && $Grant_priv == 'Y')
-            || (isset($max_questions) || isset($max_connections)
-            || isset($max_updates) || isset($max_user_connections))
-        ) {
-            $with_clause = PMA_getWithClauseForAddUserAndUpdatePrivs();
-            $real_sql_query .= $with_clause;
-            $sql_query .= $with_clause;
-        }
-
-        if (isset($create_user_real)) {
-            $create_user_real .= ';';
-            $create_user_show .= ';';
-        }
-        $real_sql_query .= ';';
-        $sql_query .= ';';
         if (empty($_REQUEST['change_copy'])) {
             $_error = false;
 
