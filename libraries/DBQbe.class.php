@@ -283,19 +283,18 @@ class PMA_DbQbe
     /**
      * Provides select options list containing column names
      *
-     * @param array   $columns       All Column Names
      * @param integer $column_number Column Number (0,1,2) or more
      * @param string  $selected      Selected criteria column name
      *
      * @return HTML for select options
      */
-    private function _showColumnSelectCell($columns, $column_number, $selected = '')
+    private function _showColumnSelectCell($column_number, $selected = '')
     {
         $html_output = '';
         $html_output .= '<td class="center">';
         $html_output .= '<select name="criteriaColumn[' . $column_number . ']" size="1">';
         $html_output .= '<option value="">&nbsp;</option>';
-        foreach ($columns as $column) {
+        foreach ($this->_columnNames as $column) {
             $html_output .= '<option value="' . htmlspecialchars($column) . '"'
                 . (($column === $selected) ? ' selected="selected"' : '') . '>'
                 . str_replace(' ', '&nbsp;', htmlspecialchars($column)) . '</option>';
@@ -333,11 +332,9 @@ class PMA_DbQbe
     /**
      * Provides search form's row containing column select options
      *
-     * @param integer $columns               All column names
-     *
      * @return HTML for search table's row
      */
-    private function _getColumnNamesRow($columns)
+    private function _getColumnNamesRow()
     {
         $html_output = '<tr class="odd noclick">';
         $html_output .= '<th>' . __('Column') . ':</th>';
@@ -347,7 +344,7 @@ class PMA_DbQbe
             if (isset($this->_criteriaColumnInsert[$column_index])
                     && $this->_criteriaColumnInsert[$column_index] == 'on'
             ) {
-                $html_output .= showColumnSelectCell($columns, $new_column_count);
+                $html_output .= showColumnSelectCell($new_column_count);
                 $new_column_count++;
             }
             if (! empty($this->_criteriaColumnDelete)
@@ -361,7 +358,7 @@ class PMA_DbQbe
                 $selected = $_REQUEST['criteriaColumn'][$column_index];
                 $this->_curField[$new_column_count] = $_REQUEST['criteriaColumn'][$column_index];
             }
-            $html_output .= $this->_showColumnSelectCell($columns, $new_column_count, $selected);
+            $html_output .= $this->_showColumnSelectCell($new_column_count, $selected);
             $new_column_count++;
         } // end for
         $html_output .= '</tr>';
