@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-07-05 21:15+0200\n"
+"PO-Revision-Date: 2012-07-20 01:01+0200\n"
 "Last-Translator: Ashiyane Digital Security Team <HeXa.ashiyane@gmail.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
@@ -12055,7 +12055,7 @@ msgstr ""
 
 #: po/advisory_rules.php:100
 msgid "Query cache max size"
-msgstr ""
+msgstr " حداکثر اندازه حافظه پنهان جست جو"
 
 #: po/advisory_rules.php:101
 msgid ""
@@ -12136,7 +12136,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Start"
 msgid "Sort rows"
-msgstr "شنبه"
+msgstr "مرتب کردن بر اساس ردیف"
 
 #: po/advisory_rules.php:121
 msgid "There are lots of rows being sorted."
@@ -12241,7 +12241,7 @@ msgstr ""
 
 #: po/advisory_rules.php:145
 msgid "tmp_table_size vs. max_heap_table_size"
-msgstr ""
+msgstr "tmp_table_size در مقابل max_heap_table_size"
 
 #: po/advisory_rules.php:146
 msgid "tmp_table_size and max_heap_table_size are not the same."
@@ -12262,7 +12262,7 @@ msgstr ""
 
 #: po/advisory_rules.php:150
 msgid "Percentage of temp tables on disk"
-msgstr ""
+msgstr "درصد جداول موقت روی دیسک"
 
 #: po/advisory_rules.php:151 po/advisory_rules.php:156
 msgid ""
@@ -12329,7 +12329,7 @@ msgstr ""
 
 #: po/advisory_rules.php:163
 msgid "key_buffer_size is 0"
-msgstr ""
+msgstr " است key_buffer_size 0"
 
 #: po/advisory_rules.php:165
 #, php-format
@@ -12365,7 +12365,7 @@ msgstr ""
 
 #: po/advisory_rules.php:175
 msgid "Percentage of index reads from memory"
-msgstr ""
+msgstr "درصد index از حافظه خوانده شده"
 
 #: po/advisory_rules.php:176
 #, php-format
@@ -12374,7 +12374,7 @@ msgstr ""
 
 #: po/advisory_rules.php:177
 msgid "You may need to increase {key_buffer_size}."
-msgstr ""
+msgstr "شما ممکن است نیاز به افزایش  key_buffer_size داشته باشید."
 
 #: po/advisory_rules.php:178
 #, php-format
