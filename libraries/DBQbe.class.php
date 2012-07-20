@@ -245,7 +245,7 @@ class PMA_DbQbe
             }
         } // end if
         $all_tables = PMA_DBI_query(
-            'SHOW TABLES FROM ' . $this->getCommonFunctions->backquote($db) . ';',
+            'SHOW TABLES FROM ' . $this->getCommonFunctions()->backquote($this->_db) . ';',
             null, PMA_DBI_QUERY_STORE
         );
         $all_tables_count = PMA_DBI_num_rows($all_tables);
@@ -265,10 +265,10 @@ class PMA_DbQbe
 
             // The fields list per selected tables
             if ($this->_criteriaTables[$table] == ' selected="selected"') {
-                $each_table = $this->getCommonFunctions->backquote($table);
+                $each_table = $this->getCommonFunctions()->backquote($table);
                 $this->_columnNames[]  = $each_table . '.*';
                 foreach ($columns as $each_column) {
-                    $each_column = $each_table . '.' . $this->getCommonFunctions->backquote($each_column['Field']);
+                    $each_column = $each_table . '.' . $this->getCommonFunctions()->backquote($each_column['Field']);
                     $this->_columnNames[] = $each_column;
                     // increase the width if necessary
                     $this->_form_column_width = max(strlen($each_column), $this->_form_column_width);
@@ -1191,12 +1191,12 @@ class PMA_DbQbe
                     $run++;
                     if ($run > 5) {
                         foreach ($remaining_tables as $table) {
-                            $emerg .= ', ' . $this->getCommonFunctions->backquote($table);
+                            $emerg .= ', ' . $this->getCommonFunctions()->backquote($table);
                             unset($remaining_tables[$table]);
                         }
                     }
                 } // end while
-                $from_clause = $this->getCommonFunctions->backquote($master)
+                $from_clause = $this->getCommonFunctions()->backquote($master)
                     . $emerg . $left_join;
             } // end if ($cfgRelation['relwork'] && count($all_tables) > 0)
         } // end count($_POST['criteriaColumn']) > 0
@@ -1264,7 +1264,7 @@ class PMA_DbQbe
         $html_output .= '<fieldset>';
         $html_output .= '<legend>'
             . sprintf(
-                __('SQL query on database <b>%s</b>:'), $this->getCommonFunctions->getDbLink($db)
+                __('SQL query on database <b>%s</b>:'), $this->getCommonFunctions()->getDbLink($this->_db)
             );
         $html_output .= '</legend>';
         $html_output .= '<textarea cols="80" name="sql_query" id="textSqlquery"'
