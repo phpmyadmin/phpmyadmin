@@ -254,6 +254,19 @@ function PMA_DBI_real_query($query, $link, $options)
 }
 
 /**
+ * Run the multi query and output the results
+ *
+ * @param mysqli $link  mysqli object
+ * @param string $query multi query statement to execute
+ *
+ * @return mysqli_result collection | boolean(false)
+ */
+function PMA_DBI_real_muli_query($link, $query)
+{
+    return mysqli_multi_query($link, $query);
+}
+
+/**
  * returns array of rows with associative and numeric keys from $result
  *
  * @param mysqli_result $result result set identifier

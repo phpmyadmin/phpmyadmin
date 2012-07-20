@@ -464,32 +464,11 @@ if (empty($reload)
  * @todo detect all this with the parser, to avoid problems finding
  * those strings in comments or backquoted identifiers
  */
-
-$is_explain = $is_count = $is_export = $is_delete = $is_insert = $is_affected = $is_show = $is_maint = $is_analyse = $is_group = $is_func = $is_replace = false;
-if ($is_select) { // see line 141
-    $is_group = preg_match('@(GROUP[[:space:]]+BY|HAVING|SELECT[[:space:]]+DISTINCT)[[:space:]]+@i', $sql_query);
-    $is_func =  ! $is_group && (preg_match('@[[:space:]]+(SUM|AVG|STD|STDDEV|MIN|MAX|BIT_OR|BIT_AND)\s*\(@i', $sql_query));
-    $is_count = ! $is_group && (preg_match('@^SELECT[[:space:]]+COUNT\((.*\.+)?.*\)@i', $sql_query));
-    $is_export   = (preg_match('@[[:space:]]+INTO[[:space:]]+OUTFILE[[:space:]]+@i', $sql_query));
-    $is_analyse  = (preg_match('@[[:space:]]+PROCEDURE[[:space:]]+ANALYSE@i', $sql_query));
-} elseif (preg_match('@^EXPLAIN[[:space:]]+@i', $sql_query)) {
-    $is_explain  = true;
-} elseif (preg_match('@^DELETE[[:space:]]+@i', $sql_query)) {
-    $is_delete   = true;
-    $is_affected = true;
-} elseif (preg_match('@^(INSERT|LOAD[[:space:]]+DATA|REPLACE)[[:space:]]+@i', $sql_query)) {
-    $is_insert   = true;
-    $is_affected = true;
-    if (preg_match('@^(REPLACE)[[:space:]]+@i', $sql_query)) {
-        $is_replace = true;
-    }
-} elseif (preg_match('@^UPDATE[[:space:]]+@i', $sql_query)) {
-    $is_affected = true;
-} elseif (preg_match('@^[[:space:]]*SHOW[[:space:]]+@i', $sql_query)) {
-    $is_show     = true;
-} elseif (preg_match('@^(CHECK|ANALYZE|REPAIR|OPTIMIZE)[[:space:]]+TABLE[[:space:]]+@i', $sql_query)) {
-    $is_maint    = true;
-}
+list($is_group, $is_func, $is_count, $is_export, $is_analyse, $is_explain,
+    $is_delete, $is_affected, $is_insert, $is_replace, $is_show, $is_maint)
+        = PMA_getDisplayPropertyParams(
+            $sql_query, $is_select
+        );
 
 // assign default full_sql_query
 $full_sql_query = $sql_query;
@@ -937,13 +916,24 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         $printview = isset($printview) ? $printview : null;
         $url_query = isset($url_query) ? $url_query : null;
     
-        $displayResultsObject->setProperties(
-            $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
-            $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage, $text_dir,
-            $is_maint, $is_explain, $is_show, $showtable, $printview, $url_query
-        );
-        echo $displayResultsObject->getTable($result, $disp_mode, $analyzed_sql);
-        exit();
+        if (!empty($sql_data) && ($sql_data['valid_queries'] > 1)) {
+
+            echo getTableHtmlForMultipleQueries(
+                $displayResultsObject, $db, $sql_data, $goto,
+                $pmaThemeImage, $text_dir, $printview, $url_query, $disp_mode
+            );
+
+        } else {
+
+            $displayResultsObject->setProperties(
+                $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
+                $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage, $text_dir,
+                $is_maint, $is_explain, $is_show, $showtable, $printview, $url_query
+            );
+
+            echo $displayResultsObject->getTable($result, $disp_mode, $analyzed_sql);
+            exit();
+        }        
         
     }
 
@@ -1032,7 +1022,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     }
 
     // Display previous update query (from tbl_replace)
-    if (isset($disp_query) && $cfg['ShowSQL'] == true) {
+    if (isset($disp_query) && ($cfg['ShowSQL'] == true) && empty($sql_data)) {
         echo $common_functions->getMessage($disp_message, $disp_query, 'success');
     }
 
@@ -1097,13 +1087,24 @@ $(makeProfilingChart);
     $printview = isset($printview) ? $printview : null;
     $url_query = isset($url_query) ? $url_query : null;
     
-    $displayResultsObject->setProperties(
-        $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
-        $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage, $text_dir,
-        $is_maint, $is_explain, $is_show, $showtable, $printview, $url_query
-    );
-    echo $displayResultsObject->getTable($result, $disp_mode, $analyzed_sql);
-    PMA_DBI_free_result($result);
+    if (!empty($sql_data) && ($sql_data['valid_queries'] > 1)) {
+        
+        echo getTableHtmlForMultipleQueries(
+            $displayResultsObject, $db, $sql_data, $goto,
+            $pmaThemeImage, $text_dir, $printview, $url_query, $disp_mode
+        );
+        
+    } else {
+        
+        $displayResultsObject->setProperties(
+            $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
+            $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage, $text_dir,
+            $is_maint, $is_explain, $is_show, $showtable, $printview, $url_query
+        );
+        
+        echo $displayResultsObject->getTable($result, $disp_mode, $analyzed_sql);
+        PMA_DBI_free_result($result);
+    }
 
     // BEGIN INDEX CHECK See if indexes should be checked.
     if (isset($query_type) && $query_type == 'check_tbl' && isset($selected) && is_array($selected)) {
@@ -1176,4 +1177,169 @@ $(makeProfilingChart);
 if (! isset($_REQUEST['table_maintenance'])) {
     exit;
 }
+
+
+// These functions will need for use set the required parameters for display results
+
+/**
+ * Initialize some parameters needed to display results
+ *
+ * @param string  $sql_query SQL statement
+ * @param boolean $is_select select query or not
+ * 
+ * @return  array set of parameters
+ * 
+ * @access  public 
+ */
+function PMA_getDisplayPropertyParams($sql_query, $is_select)
+{
+    
+    $is_explain = $is_count = $is_export = $is_delete = $is_insert = $is_affected = $is_show = $is_maint = $is_analyse = $is_group = $is_func = $is_replace = false;
+    
+    if ($is_select) {
+        $is_group = preg_match('@(GROUP[[:space:]]+BY|HAVING|SELECT[[:space:]]+DISTINCT)[[:space:]]+@i', $sql_query);
+        $is_func =  ! $is_group && (preg_match('@[[:space:]]+(SUM|AVG|STD|STDDEV|MIN|MAX|BIT_OR|BIT_AND)\s*\(@i', $sql_query));
+        $is_count = ! $is_group && (preg_match('@^SELECT[[:space:]]+COUNT\((.*\.+)?.*\)@i', $sql_query));
+        $is_export   = (preg_match('@[[:space:]]+INTO[[:space:]]+OUTFILE[[:space:]]+@i', $sql_query));
+        $is_analyse  = (preg_match('@[[:space:]]+PROCEDURE[[:space:]]+ANALYSE@i', $sql_query));
+    } elseif (preg_match('@^EXPLAIN[[:space:]]+@i', $sql_query)) {
+        $is_explain  = true;
+    } elseif (preg_match('@^DELETE[[:space:]]+@i', $sql_query)) {
+        $is_delete   = true;
+        $is_affected = true;
+    } elseif (preg_match('@^(INSERT|LOAD[[:space:]]+DATA|REPLACE)[[:space:]]+@i', $sql_query)) {
+        $is_insert   = true;
+        $is_affected = true;
+        if (preg_match('@^(REPLACE)[[:space:]]+@i', $sql_query)) {
+            $is_replace = true;
+        }
+    } elseif (preg_match('@^UPDATE[[:space:]]+@i', $sql_query)) {
+        $is_affected = true;
+    } elseif (preg_match('@^[[:space:]]*SHOW[[:space:]]+@i', $sql_query)) {
+        $is_show     = true;
+    } elseif (preg_match('@^(CHECK|ANALYZE|REPAIR|OPTIMIZE)[[:space:]]+TABLE[[:space:]]+@i', $sql_query)) {
+        $is_maint    = true;
+    }
+    
+    return array(
+        $is_group, $is_func, $is_count, $is_export, $is_analyse, $is_explain,
+        $is_delete, $is_affected, $is_insert, $is_replace,$is_show, $is_maint
+    );
+    
+}
+
+/**
+ * Get the table name in a sql query
+ * If there are several tables in the SQL query,
+ * first table wil lreturn
+ *
+ * @param string $sql    SQL query
+ * @param array  $tables array of names in current database
+ * 
+ * @return string $table table name 
+ */
+function PMA_getTableNameBySQL($sql, $tables)
+{
+    
+    $table = '';
+    
+    // loop through all the tables in the database
+    foreach($tables as $tbl){
+        if(strpos($sql,$tbl)){
+            $table .= ' ' . $tbl;
+        }
+    }
+    
+    if (count(explode(' ', trim($table))) > 1) {
+        $tmp_array = explode(' ', trim($table));
+        return $tmp_array[0];
+    }
+    
+    return trim($table);
+    
+}
+
+
+/**
+ * Generate table html when SQL statement have multiple queries
+ * which return displayable results
+ *
+ * @param PMA_DisplayResults $displayResultsObject object
+ * @param string             $db                   database name
+ * @param array              $sql_data             information about SQL statement
+ * @param string             $goto                 the URL to go back in case of errors
+ * @param string             $pmaThemeImage        path for theme images directory
+ * @param string             $text_dir             
+ * @param string             $printview            
+ * @param string             $url_query            URL query
+ * @param array              $disp_mode            the display mode
+ *
+ * @return string   $table_html   html content
+ */
+function getTableHtmlForMultipleQueries(
+    $displayResultsObject, $db, $sql_data, $goto, $pmaThemeImage,
+    $text_dir, $printview, $url_query, $disp_mode
+) {
+    
+    $table_html = '';
+        
+    $tables_array = PMA_DBI_get_tables($db);
+    $multi_sql = implode(";", $sql_data['valid_sql']);
+
+    $querytime_before = array_sum(explode(' ', microtime()));
+
+    $multiple_results = @PMA_DBI_try_multi_query($multi_sql);
+
+    $querytime_after = array_sum(explode(' ', microtime()));
+    $querytime = $querytime_after - $querytime_before;        
+    $sql_no = 0;
+
+    do {
+
+        $table = PMA_getTableNameBySQL($sql_data['valid_sql'][$sql_no], $tables_array);            
+        $result = mysqli_store_result($GLOBALS['userlink']);
+        $fields_meta = PMA_DBI_get_fields_meta($result);
+        $fields_cnt  = count($fields_meta);
+        $parsed_sql = PMA_SQP_parse($sql_query);
+        $analyzed_sql = PMA_SQP_analyze($parsed_sql);    
+        $is_select = isset($analyzed_sql[0]['queryflags']['select_from']);            
+        $unlim_num_rows = PMA_Table::countRecords($db, $table, $force_exact = true);
+        $showtable = PMA_Table::sGetStatusInfo($db, $table, null, true);
+        $url_query = PMA_generate_common_url($db, $table);
+
+        list($is_group, $is_func, $is_count, $is_export, $is_analyse,
+            $is_explain, $is_delete, $is_affected, $is_insert, $is_replace,
+            $is_show, $is_maint)
+                = PMA_getDisplayPropertyParams(
+                    $sql_data['valid_sql'][$sql_no], $is_select
+                );
+
+        if (! $is_affected) {
+            $num_rows = ($result) ? @PMA_DBI_num_rows($result) : 0;
+        } elseif (! isset($num_rows)) {
+            $num_rows = @PMA_DBI_affected_rows();
+        }
+
+        $displayResultsObject->__set('_db', $db);
+        $displayResultsObject->__set('_table', $table);
+        $displayResultsObject->__set('_goto', $goto);
+        $displayResultsObject->__set('_sql_query', $sql_data['valid_sql'][$sql_no]);
+
+        $displayResultsObject->setProperties(
+            $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
+            $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage, $text_dir,
+            $is_maint, $is_explain, $is_show, $showtable, $printview, $url_query
+        );
+
+        $table_html .= $displayResultsObject->getTable($result, $disp_mode, $analyzed_sql);            
+        unset($result);
+        $sql_no++;
+
+    } while (mysqli_next_result($GLOBALS['userlink']));
+    
+    return $table_html;
+    
+}
+
+
 ?>
