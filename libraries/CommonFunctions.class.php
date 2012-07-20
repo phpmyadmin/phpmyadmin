@@ -9,12 +9,12 @@
 
 /**
  * Misc functions used all over the scripts.
- * 
+ *
  * @package PhpMyAdmin
  */
 class PMA_CommonFunctions
 {
-    
+
     /**
      * PMA_CommonFunctions instance
      *
@@ -23,8 +23,8 @@ class PMA_CommonFunctions
      * @var object
      */
     private static $_instance;
-    
-    
+
+
     /**
      * Creates a new class instance
      *
@@ -33,8 +33,8 @@ class PMA_CommonFunctions
     private function __construct()
     {
     }
-    
-    
+
+
     /**
      * Returns the singleton PMA_CommonFunctions object
      *
@@ -47,7 +47,7 @@ class PMA_CommonFunctions
         }
         return self::$_instance;
     }
-    
+
 
     /**
      * Detects which function to use for pow.
@@ -168,6 +168,10 @@ class PMA_CommonFunctions
     public function getImage($image, $alternate = '', $attributes = array())
     {
         static $sprites; // cached list of available sprites (if any)
+        if (defined('TESTSUITE')) {
+            // prevent caching in testsuite
+            unset($sprites);
+        }
 
         $url       = '';
         $is_sprite = false;
@@ -1306,10 +1310,10 @@ class PMA_CommonFunctions
                 $php_link = ' [' . $this->linkOrButton($php_link, $_message) . ']';
 
                 if (isset($GLOBALS['show_as_php'])) {
-                    
+
                     $runquery_link = 'import.php'
                         . PMA_generate_common_url($url_params);
-                    
+
                     $php_link .= ' ['
                         . $this->linkOrButton($runquery_link, __('Submit Query'))
                         . ']';
@@ -2172,7 +2176,7 @@ class PMA_CommonFunctions
      * would have to check if the error message file is always available
      *
      * @param array $params  The names of the parameters needed by the calling script
-     * @param bool  $request Whether to include this list in checking for 
+     * @param bool  $request Whether to include this list in checking for
      *                       special params
      *
      * @return void
@@ -2348,19 +2352,19 @@ class PMA_CommonFunctions
                 } else {
                     $con_val = '= \''
                         . $this->sqlAddSlashes($row[$i], false, true) . '\'';
-                }            
+                }
             }
 
             if ($con_val != null) {
 
                 $condition .= $con_val . ' AND';
 
-                if ($meta->primary_key > 0) {                
+                if ($meta->primary_key > 0) {
                     $primary_key .= $condition;
-                    $primary_key_array[$con_key] = $con_val;                
-                } elseif ($meta->unique_key > 0) {                
+                    $primary_key_array[$con_key] = $con_val;
+                } elseif ($meta->unique_key > 0) {
                     $unique_key  .= $condition;
-                    $unique_key_array[$con_key] = $con_val;                
+                    $unique_key_array[$con_key] = $con_val;
                 }
 
                 $nonprimary_condition .= $condition;
@@ -2373,18 +2377,18 @@ class PMA_CommonFunctions
         // but use conjunction of all values if no primary key
         $clause_is_unique = true;
 
-        if ($primary_key) {        
+        if ($primary_key) {
             $preferred_condition = $primary_key;
             $condition_array = $primary_key_array;
 
-        } elseif ($unique_key) {        
+        } elseif ($unique_key) {
             $preferred_condition = $unique_key;
             $condition_array = $unique_key_array;
 
-        } elseif (! $force_unique) {        
+        } elseif (! $force_unique) {
             $preferred_condition = $nonprimary_condition;
             $condition_array = $nonprimary_condition_array;
-            $clause_is_unique = false;        
+            $clause_is_unique = false;
         }
 
         $where_clause = trim(preg_replace('|\s?AND$|', '', $preferred_condition));
@@ -2636,7 +2640,7 @@ class PMA_CommonFunctions
                     . PMA_generate_common_url($_url_params) . '" target="'
                     . $frame . '">' . $caption1 . '</a>';
 
-                $_url_params['pos'] = $pos - $max_count;            
+                $_url_params['pos'] = $pos - $max_count;
                 $list_navigator_html .= '<a' . $title2 . ' href="' . $script
                     . PMA_generate_common_url($_url_params) . '" target="'
                     . $frame . '">' . $caption2 . '</a>';
@@ -2758,8 +2762,8 @@ class PMA_CommonFunctions
      */
     public function getExternalBug(
         $functionality, $component, $minimum_version, $bugref
-    ) {    
-        $ext_but_html = '';    
+    ) {
+        $ext_but_html = '';
         if (($component == 'mysql') && (PMA_MYSQL_INT_VERSION < $minimum_version)) {
             $ext_but_html .= $this->showHint(
                 sprintf(
@@ -2768,7 +2772,7 @@ class PMA_CommonFunctions
                     PMA_linkURL('http://bugs.mysql.com/') . $bugref
                 )
             );
-        }    
+        }
         return $ext_but_html;
     }
 
@@ -3447,7 +3451,7 @@ class PMA_CommonFunctions
 
         /* Optional escaping */
         if (! is_null($escape)) {
-            foreach ($replace as $key => $val) {                 
+            foreach ($replace as $key => $val) {
                 $replace[$key] = ($escape == 'backquote')
                     ? $this->$escape($val)
                     : $escape($val);
@@ -4199,7 +4203,7 @@ class PMA_CommonFunctions
 
         return $values;
     }
-    
+
 }
 
 ?>

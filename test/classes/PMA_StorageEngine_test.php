@@ -72,6 +72,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for getHtmlSelect
+     *
+     * @group medium
      */
     public function testGetHtmlSelect(){
 

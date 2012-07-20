@@ -53,12 +53,12 @@ class PMA_bookmark_test extends PHPUnit_Framework_TestCase
     public function testPMA_Bookmark_getParams(){
 
         $this->assertEquals(
-            PMA_Bookmark_getParams(),
             array(
                 'user' => 'root',
                 'db'   => 'phpmyadmin',
                 'table'=> 'pma_bookmark'
-            )
+            ),
+            PMA_Bookmark_getParams()
         );
     }
 
@@ -67,11 +67,11 @@ class PMA_bookmark_test extends PHPUnit_Framework_TestCase
      */
     public function testPMA_Bookmark_getList(){
         $this->assertEquals(
-            PMA_Bookmark_getList('phpmyadmin'),
             array(
                 'id' => 'id (shared)',
                 'label' => 'label (shared)'
-            )
+            ),
+            PMA_Bookmark_getList('phpmyadmin')
         );
     }
 
@@ -86,8 +86,8 @@ class PMA_bookmark_test extends PHPUnit_Framework_TestCase
             }
         }
         $this->assertEquals(
-            PMA_Bookmark_get('phpmyadmin', '1'),
-            "SELECT query FROM `phpmyadmin`.`pma_bookmark` WHERE dbase = 'phpmyadmin' AND (user = 'root' OR user = '') AND `id` = 1"
+            "SELECT query FROM `phpmyadmin`.`pma_bookmark` WHERE dbase = 'phpmyadmin' AND (user = 'root' OR user = '') AND `id` = 1",
+            PMA_Bookmark_get('phpmyadmin', '1')
         );
     }
 
@@ -101,14 +101,13 @@ class PMA_bookmark_test extends PHPUnit_Framework_TestCase
                 return true;
             }
         }
-        $this->assertEquals(
+        $this->assertTrue(
             PMA_Bookmark_save(array(
                 'dbase' => 'phpmyadmin',
                 'user' => 'phpmyadmin',
                 'query' => 'SELECT "phpmyadmin"',
                 'label' => 'phpmyadmin',
-            )),
-            true
+            ))
         );
     }
 
@@ -122,9 +121,8 @@ class PMA_bookmark_test extends PHPUnit_Framework_TestCase
                 return true;
             }
         }
-        $this->assertEquals(
-            PMA_Bookmark_delete('phpmyadmin', '1'),
-            true
+        $this->assertTrue(
+            PMA_Bookmark_delete('phpmyadmin', '1')
         );
     }
 }
