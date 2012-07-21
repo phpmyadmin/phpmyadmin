@@ -33,7 +33,7 @@ class Node_Event_Container extends Node
         );
         $this->real_name = 'events';
 
-        $new        = new Node(__('New'));
+        $new        = PMA_NodeFactory::getInstance('Node', __('New'));
         $new->isNew = true;
         $new->icon  = $this->_commonFunctions->getImage('b_event_add.png', '');
         $new->links = array(

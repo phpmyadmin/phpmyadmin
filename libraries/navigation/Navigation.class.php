@@ -10,32 +10,9 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-// The Nodes are the building blocks for the navigation tree
-require_once 'libraries/navigation/Nodes/Node.class.php';
-// All of the below Nodes inherit from the base Node
-require_once 'libraries/navigation/Nodes/Node_Column.class.php';
-require_once 'libraries/navigation/Nodes/Node_Database.class.php';
-require_once 'libraries/navigation/Nodes/Node_Event.class.php';
-require_once 'libraries/navigation/Nodes/Node_Function.class.php';
-require_once 'libraries/navigation/Nodes/Node_Index.class.php';
-require_once 'libraries/navigation/Nodes/Node_Procedure.class.php';
-require_once 'libraries/navigation/Nodes/Node_Table.class.php';
-require_once 'libraries/navigation/Nodes/Node_Trigger.class.php';
-require_once 'libraries/navigation/Nodes/Node_View.class.php';
-// Containers. Also inherit from the base Node
-require_once 'libraries/navigation/Nodes/Node_Column_Container.class.php';
-require_once 'libraries/navigation/Nodes/Node_Event_Container.class.php';
-require_once 'libraries/navigation/Nodes/Node_Function_Container.class.php';
-require_once 'libraries/navigation/Nodes/Node_Index_Container.class.php';
-require_once 'libraries/navigation/Nodes/Node_Procedure_Container.class.php';
-require_once 'libraries/navigation/Nodes/Node_Table_Container.class.php';
-require_once 'libraries/navigation/Nodes/Node_Trigger_Container.class.php';
-require_once 'libraries/navigation/Nodes/Node_View_Container.class.php';
-
-// Generates a collapsible tree of database objects
-require_once 'libraries/navigation/NavigationTree.class.php';
-
+require_once 'libraries/navigation/NodeFactory.class.php';
 require_once 'libraries/navigation/NavigationHeader.class.php';
+require_once 'libraries/navigation/NavigationTree.class.php';
 
 /**
  * The navigation panel - displays server, db and table selection tree

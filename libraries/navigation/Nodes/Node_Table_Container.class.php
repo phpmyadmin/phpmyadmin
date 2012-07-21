@@ -37,7 +37,7 @@ class Node_Table_Container extends Node
         }
         $this->real_name       = 'tables';
 
-        $new        = new Node(__('New'));
+        $new        = PMA_NodeFactory::getInstance('Node', __('New'));
         $new->isNew = true;
         $new->icon  = $this->_commonFunctions->getImage('b_table_add.png', '');
         $new->links = array(

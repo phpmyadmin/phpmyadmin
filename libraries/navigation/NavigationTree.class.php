@@ -146,7 +146,7 @@ class PMA_NavigationTree
             $this->_searchClause2 = $_REQUEST['searchClause2'];
         }
         // Initialise the tree by creating a root node
-        $node = new Node('root', Node::CONTAINER);
+        $node = PMA_NodeFactory::getInstance('Node', 'root', Node::CONTAINER);
         $this->_tree = $node;
         if ($GLOBALS['cfg']['NavigationTreeEnableGrouping']) {
             $this->_tree->separator = $GLOBALS['cfg']['NavigationTreeDbSeparator'];
@@ -206,7 +206,7 @@ class PMA_NavigationTree
 
         // Add all databases unconditionally
         foreach ($this->_tree->getData('databases', $this->_pos, $this->_searchClause) as $db) {
-            $node = new Node_Database($db);
+            $node = PMA_NodeFactory::getInstance('Node_Database', $db);
             $this->_tree->addChild($node);
         }
 
@@ -278,19 +278,19 @@ class PMA_NavigationTree
                     foreach ($dbData as $item) {
                         switch ($container->real_name) {
                         case 'events':
-                            $node = new Node_Event($item);
+                            $node = PMA_NodeFactory::getInstance('Node_Event', $item);
                             break;
                         case 'functions':
-                            $node = new Node_Function($item);
+                            $node = PMA_NodeFactory::getInstance('Node_Function', $item);
                             break;
                         case 'procedures':
-                            $node = new Node_Procedure($item);
+                            $node = PMA_NodeFactory::getInstance('Node_Procedure', $item);
                             break;
                         case 'tables':
-                            $node = new Node_Table($item);
+                            $node = PMA_NodeFactory::getInstance('Node_Table', $item);
                             break;
                         case 'views':
-                            $node = new Node_View($item);
+                            $node = PMA_NodeFactory::getInstance('Node_View', $item);
                             break;
                         default:
                             break;
@@ -332,13 +332,14 @@ class PMA_NavigationTree
                             foreach ($tableData as $item) {
                                 switch ($container->real_name) {
                                 case 'indexes':
-                                    $node = new Node_Index($item);
+                                    $node = PMA_NodeFactory::getInstance('Node_Index', $item);
+
                                     break;
                                 case 'columns':
-                                    $node = new Node_Column($item);
+                                    $node = PMA_NodeFactory::getInstance('Node_Column', $item);
                                     break;
                                 case 'triggers':
-                                    $node = new Node_Trigger($item);
+                                    $node = PMA_NodeFactory::getInstance('Node_Trigger', $item);
                                     break;
                                 default:
                                     break;
@@ -381,13 +382,13 @@ class PMA_NavigationTree
         $retval = array();
         if ($table->hasChildren(true) == 0) {
             if ($table->getPresence('columns')) {
-                $retval['columns'] = new Node_Column_Container();
+                $retval['columns'] = PMA_NodeFactory::getInstance('Node_Column_Container');
             }
             if ($table->getPresence('indexes')) {
-                $retval['indexes'] = new Node_Index_Container();
+                $retval['indexes'] = PMA_NodeFactory::getInstance('Node_Index_Container');
             }
             if ($table->getPresence('triggers')) {
-                $retval['triggers'] = new Node_Trigger_Container();
+                $retval['triggers'] = PMA_NodeFactory::getInstance('Node_Trigger_Container');
             }
             // Add all new Nodes to the tree
             foreach ($retval as $node) {
@@ -428,19 +429,19 @@ class PMA_NavigationTree
         $retval = array();
         if ($db->hasChildren(true) == 0) {
             if ($db->getPresence('tables')) {
-                $retval['tables'] = new Node_Table_Container();
+                $retval['tables'] = PMA_NodeFactory::getInstance('Node_Table_Container');
             }
             if ($db->getPresence('views')) {
-                $retval['views'] = new Node_View_Container();
+                $retval['views'] = PMA_NodeFactory::getInstance('Node_View_Container');
             }
             if ($db->getPresence('functions')) {
-                $retval['functions'] = new Node_Function_Container();
+                $retval['functions'] = PMA_NodeFactory::getInstance('Node_Function_Container');
             }
             if ($db->getPresence('procedures')) {
-                $retval['procedures'] = new Node_Procedure_Container();
+                $retval['procedures'] = PMA_NodeFactory::getInstance('Node_Procedure_Container');
             }
             if ($db->getPresence('events')) {
-                $retval['events'] = new Node_Event_Container();
+                $retval['events'] = PMA_NodeFactory::getInstance('Node_Event_Container');
             }
             // Add all new Nodes to the tree
             foreach ($retval as $node) {
@@ -533,7 +534,8 @@ class PMA_NavigationTree
                             && $child->type == Node::OBJECT
                         ) {
                             $class = get_class($child);
-                            $new_child = new $class(
+                            $new_child = PMA_NodeFactory::getInstance(
+                                $class,
                                 substr($child->name, strlen($key))
                             );
                             $new_child->real_name = $child->real_name;

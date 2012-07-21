@@ -33,7 +33,7 @@ class Node_View_Container extends Node
         );
         $this->real_name = 'views';
 
-        $new        = new Node(__('New'));
+        $new        = PMA_NodeFactory::getInstance('Node', __('New'));
         $new->isNew = true;
         $new->icon  = $this->_commonFunctions->getImage('b_view_add.png', '');
         $new->links = array(
