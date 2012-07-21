@@ -1825,6 +1825,7 @@ function PMA_getExtraDataForAjaxBehavior($password, $link_export, $sql_query,
         }
     }
 
+    $extra_data = array();
     if (strlen($sql_query)) {
         $extra_data['sql_query']
             = PMA_Util::getMessage(null, $sql_query);
@@ -2986,9 +2987,6 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
             );
             $flushnote->addParam('</a>', false);
             $html_output .= $flushnote->getDisplay();
-        }
-        if ($GLOBALS['is_ajax_request']) {
-            exit;
         }
         return $html_output;
     }

@@ -378,6 +378,7 @@ list($link_edit, $link_revoke, $link_export)
  * Flush Privileges, show $message and exit.
  */
 if ($GLOBALS['is_ajax_request']
+    && empty($_REQUEST['ajax_page_request'])
     && ! isset($_REQUEST['export'])
     && (! isset($_REQUEST['submit_mult']) || $_REQUEST['submit_mult'] != 'export')
     && (! isset($_REQUEST['adduser']) || $_add_user_error)
