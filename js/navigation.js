@@ -49,25 +49,8 @@ $(function() {
             $icon.hide();
             $throbber.insertBefore($icon);
 
-            var $filterContainer = $(this).closest('div.list_container');
-            var $filterInput = $([]);
-            while (1) {
-                if ($filterContainer.find('li.fast_filter input.searchClause').length != 0) {
-                    $filterInput = $filterContainer.find('li.fast_filter input.searchClause');
-                    break;
-                } else if (! $filterContainer.is('div.list_container')) {
-                    break;
-                }
-                $filterContainer = $filterContainer
-                    .parent()
-                    .closest('div.list_container');
-            }
-            var searchClause = '';
-            if ($filterInput.length != 0
-                && $filterInput.val() != $filterInput[0].defaultValue
-            ) {
-                searchClause = $filterInput.val();
-            }
+            var searchClause = PMA_fastFilter.getSearchClause();
+            var searchClause2 = PMA_fastFilter.getSearchClause2($(this));
 
             var params = {
                 aPath: $(this).find('span.aPath').text(),
@@ -75,7 +58,8 @@ $(function() {
                 pos: $(this).find('span.pos').text(),
                 pos2_name: $(this).find('span.pos2_name').text(),
                 pos2_value: $(this).find('span.pos2_value').text(),
-                searchClause: searchClause
+                searchClause: searchClause,
+                searchClause2: searchClause2
             };
             var url = $('#pma_navigation').find('a.navigation_url').attr('href');
             $.get(url, params, function (data) {
@@ -130,52 +114,7 @@ $(function() {
      */
     $('#pma_navigation_tree div.pageselector a.ajax').live('click', function (event) {
         event.preventDefault();
-        var $this = $(this);
-        var isDbSelector = $this.closest('.pageselector').is('.dbselector');
-        var $msgbox = PMA_ajaxShowMessage();
-        var params = {ajax_request: true};
-        if (isDbSelector) {
-            params['full'] = true;
-        } else {
-            var $input = $this
-                .closest('div.list_container')
-                .find('li.fast_filter input.searchClause');
-            if ($input.length && $input.val() != $input[0].defaultValue) {
-                params['searchClause'] = $input.val();
-            }
-        }
-        $.get($this.attr('href'), params, function (data) {
-            PMA_ajaxRemoveMessage($msgbox);
-            if (data.success) {
-                if (isDbSelector) {
-                    $('#pma_navigation_tree')
-                        .html(data.message)
-                        .children('div')
-                        .show();
-                } else {
-                    var $parent = $this.closest('div.list_container').parent();
-                    var $input = $this
-                        .closest('div.list_container')
-                        .find('li.fast_filter input.searchClause');
-                    var val = '';
-                    if ($input.length) {
-                        val = $input.val();
-                    }
-                    $this.closest('div.list_container').html(
-                        $(data.message).children().show()
-                    );
-                    $parent.find('li.fast_filter input.searchClause').val(val);
-                    $parent.find('span.pos2_value:first').text(
-                        $parent.find('span.pos2_value:last').text()
-                    );
-                    $parent.find('span.pos3_value:first').text(
-                        $parent.find('span.pos3_value:last').text()
-                    );
-                }
-            } else {
-                PMA_ajaxShowMessage(data.error);
-            }
-        });
+        PMA_navigationTreePagination($(this));
     });
 
     /**
@@ -328,6 +267,76 @@ function PMA_reloadNavigation() {
         $throbber.css('visibility', 'hidden');
         if (data.success) {
             $('#pma_navigation_tree').html(data.message).children('div').show();
+        } else {
+            PMA_ajaxShowMessage(data.error);
+        }
+    });
+};
+
+
+/**
+ * Handles any requests to change the page in a branch of a tree
+ *
+ * This can be called from link click or select change event handlers
+ *
+ * @param object $this A jQuery object that points to the element that
+ * initiated the action of changing the page
+ *
+ * @return void
+ */
+function PMA_navigationTreePagination($this)
+{
+    var $msgbox = PMA_ajaxShowMessage();
+    var isDbSelector = $this.closest('div.pageselector').is('.dbselector');
+    if ($this[0].tagName == 'A') {
+        var url = $this.attr('href');
+        var params = 'ajax_request=true';
+    } else { // tagName == 'SELECT'
+        var url = 'navigation.php';
+        var params = $this.closest("form").serialize() + '&ajax_request=true';
+    }
+    var searchClause = PMA_fastFilter.getSearchClause();
+    if (searchClause) {
+        params += '&searchClause=' + encodeURIComponent(searchClause);
+    }
+    if (isDbSelector) {
+        params += '&full=true';
+    } else {
+        var searchClause2 = PMA_fastFilter.getSearchClause2($this);
+        if (searchClause2) {
+            params += '&searchClause2=' + encodeURIComponent(searchClause2);
+        }
+    }
+    $.post(url, params, function (data) {
+        PMA_ajaxRemoveMessage($msgbox);
+        if (data.success) {
+            if (isDbSelector) {
+                var val = PMA_fastFilter.getSearchClause();
+                $('#pma_navigation_tree')
+                    .html(data.message)
+                    .children('div')
+                    .show();
+                if (val) {
+                    $('#pma_navigation_tree')
+                        .find('li.fast_filter input.searchClause')
+                        .val(val);
+                }
+            } else {
+                var $parent = $this.closest('div.list_container').parent();
+                var val = PMA_fastFilter.getSearchClause2($this);
+                $this.closest('div.list_container').html(
+                    $(data.message).children().show()
+                );
+                if (val) {
+                    $parent.find('li.fast_filter input.searchClause').val(val);
+                }
+                $parent.find('span.pos2_value:first').text(
+                    $parent.find('span.pos2_value:last').text()
+                );
+                $parent.find('span.pos3_value:first').text(
+                    $parent.find('span.pos3_value:last').text()
+                );
+            }
         } else {
             PMA_ajaxShowMessage(data.error);
         }
@@ -659,6 +668,48 @@ var PMA_fastFilter = {
         }
     },
     /**
+     * Gets the query string from the database fast filter form
+     *
+     * @return string
+     */
+    getSearchClause: function () {
+        var retval = '';
+        var $input = $('#pma_navigation_tree')
+            .find('li.fast_filter.db_fast_filter input.searchClause');
+        if ($input.length && $input.val() != $input[0].defaultValue) {
+            retval = $input.val();
+        }
+        return retval;
+    },
+    /**
+     * Gets the query string from a second level item's fast filter form
+     * The retrieval is done by trasversing the navigation tree backwards
+     *
+     * @return string
+     */
+    getSearchClause2: function ($this) {
+        var $filterContainer = $this.closest('div.list_container');
+        var $filterInput = $([]);
+        while (1) {
+            if ($filterContainer.find('li.fast_filter:not(.db_fast_filter) input.searchClause').length != 0) {
+                $filterInput = $filterContainer.find('li.fast_filter:not(.db_fast_filter) input.searchClause');
+                break;
+            } else if (! $filterContainer.is('div.list_container')) {
+                break;
+            }
+            $filterContainer = $filterContainer
+                .parent()
+                .closest('div.list_container');
+        }
+        var searchClause2 = '';
+        if ($filterInput.length != 0
+            && $filterInput.first().val() != $filterInput[0].defaultValue
+        ) {
+            searchClause2 = $filterInput.val();
+        }
+        return searchClause2;
+    },
+    /**
      * @var hash events A list of functions that are further
      *                  down the page bound to DOM events
      */
@@ -769,8 +820,14 @@ PMA_fastFilter.filter.prototype.request = function ()
             that.xhr.abort();
         }
         var url = $('#pma_navigation').find('a.navigation_url').attr('href');
-        var results = that.$this.find('li:visible:not(.fast_filter)').length;
-        var params = that.$this.find('form.fast_filter').serialize() + "&results=" + results;
+        var results = that.$this.find('li:not(.hidden):not(.fast_filter):not(.navGroup)').not('[class^=new]').length;
+        var params = that.$this.find('> ul > li > form.fast_filter').first().serialize() + "&results=" + results;
+        if (that.$this.find('> ul > li > form.fast_filter:first input[name=searchClause]').length == 0) {
+            var $input = $('#pma_navigation_tree').find('li.fast_filter.db_fast_filter input.searchClause');
+            if ($input.length && $input.val() != $input[0].defaultValue) {
+                params += '&searchClause=' + encodeURIComponent($input.val());
+            }
+        }
         that.xhr = $.ajax({
             url: url,
             type: 'post',
@@ -791,7 +848,7 @@ PMA_fastFilter.filter.prototype.request = function ()
                 }
             }
         });
-    }, 500);
+    }, 250);
 };
 /**
  * Replaces the contents of the navigation branch with the search results

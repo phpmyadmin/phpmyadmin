@@ -3167,44 +3167,12 @@ AJAX.registerOnload('functions.js', function() {
     $('select.pageselector').live('change', function(event) {
         event.stopPropagation();
         // Check where to load the new content
-        // For the main page we don't need to do anything,
-        // but for the navigation we need to manually replace the content
-        if ($(this).closest("div#pma_navigation").length == 0) {
+        if ($(this).closest("#pma_navigation").length == 0) {
+            // For the main page we don't need to do anything,
             $(this).closest("form").submit();
         } else {
-            var $this = $(this);
-            var $msgbox = PMA_ajaxShowMessage();
-            var isDbSelector = $this.parent().closest('.pageselector').is('.dbselector');
-            var params = $(this).closest("form").serialize() + '&ajax_request=true';
-            if (isDbSelector) {
-                params += '&full=true';
-            } else {
-                var $input = $this.closest('.list_container').find('.fast_filter input.searchClause');
-                if ($input.length && $input.val() != $input[0].defaultValue) {
-                    params += "&searchClause=" + $input.val();
-                }
-            }
-            $.get('navigation.php', params, function (data) {
-                if (data.success) {
-                    PMA_ajaxRemoveMessage($msgbox);
-                    if (isDbSelector) {
-                        $('#pma_navigation_tree').html(data.message).children('div').show();
-                    } else {
-                        var $parent = $this.closest('.list_container').parent();
-                        var $input = $this.closest('.list_container').find('.fast_filter input.searchClause');
-                        var val = '';
-                        if ($input.length) {
-                            val = $input.val();
-                        }
-                        $this.closest('.list_container').html($(data.message).children().show());
-                        $parent.find('.fast_filter input.searchClause').val(val);
-                        $parent.find('span.pos2_value:first').text($parent.find('span.pos2_value:last').text());
-                        $parent.find('span.pos3_value:first').text($parent.find('span.pos3_value:last').text());
-                    }
-                } else {
-                    PMA_ajaxShowMessage(data.error);
-                }
-            });
+            // but for the navigation we need to manually replace the content
+            PMA_navigationTreePagination($(this));
         }
     });
 

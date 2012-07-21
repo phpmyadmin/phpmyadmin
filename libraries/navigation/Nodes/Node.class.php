@@ -359,6 +359,13 @@ class Node
     {
         $query  = "SELECT `SCHEMA_NAME` ";
         $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
+        if (! empty($searchClause)) {
+            $query .= "WHERE `SCHEMA_NAME` LIKE '%";
+            $query .= $this->_commonFunctions->sqlAddSlashes(
+                $searchClause, true
+            );
+            $query .= "%' ";
+        }
         $query .= "ORDER BY `SCHEMA_NAME` ASC ";
         $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxNavigationItems']}";
         return PMA_DBI_fetch_result($query);
@@ -390,9 +397,23 @@ class Node
         if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
             $query  = "SELECT COUNT(*) ";
             $query .= "FROM `INFORMATION_SCHEMA`.`SCHEMATA` ";
+            if (! empty($searchClause)) {
+                $query .= "WHERE `SCHEMA_NAME` LIKE '%";
+                $query .= $this->_commonFunctions->sqlAddSlashes(
+                    $searchClause, true
+                );
+                $query .= "%' ";
+            }
             $retval = (int)PMA_DBI_fetch_value($query);
         } else {
             $query  = "SHOW DATABASES ";
+            if (! empty($searchClause)) {
+                $query .= "LIKE '%";
+                $query .= $this->_commonFunctions->sqlAddSlashes(
+                    $searchClause, true
+                );
+                $query .= "%' ";
+            }
             $retval = PMA_DBI_num_rows(PMA_DBI_try_query($query));
         }
         return $retval;

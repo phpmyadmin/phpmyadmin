@@ -201,6 +201,9 @@ li.fast_filter span {
     font-weight: bold;
     color: #800;
 }
+li.fast_filter.db_fast_filter {
+    border: 0;
+}
 
 /* Resize handler */
 #pma_navigation_resizer {

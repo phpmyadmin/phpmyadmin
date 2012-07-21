@@ -64,10 +64,18 @@ class PMA_NavigationTree
     private $_pos3_value = array();
 
     /**
-     * @var string The search clause to use in SQL queries for fetching nodes
+     * @var string The search clause to use in SQL queries for
+     *             fetching databases
      *             Used by the asynchronous fast filter
      */
     private $_searchClause = '';
+
+    /**
+     * @var string The search clause to use in SQL queries for
+     *             fetching nodes
+     *             Used by the asynchronous fast filter
+     */
+    private $_searchClause2 = '';
 
     /**
      * @var object A reference to the common functions object
@@ -130,6 +138,9 @@ class PMA_NavigationTree
         if (isset($_REQUEST['searchClause'])) {
             $this->_searchClause = $_REQUEST['searchClause'];
         }
+        if (isset($_REQUEST['searchClause2'])) {
+            $this->_searchClause2 = $_REQUEST['searchClause2'];
+        }
         // Initialise the tree by creating a root node
         $node = new Node('root', Node::CONTAINER);
         $this->_tree = $node;
@@ -190,7 +201,7 @@ class PMA_NavigationTree
         $retval = $this->_tree;
 
         // Add all databases unconditionally
-        foreach ($this->_tree->getData('', $this->_pos) as $db) {
+        foreach ($this->_tree->getData('databases', $this->_pos, $this->_searchClause) as $db) {
             $node = new Node_Database($db);
             $this->_tree->addChild($node);
         }
@@ -258,7 +269,7 @@ class PMA_NavigationTree
                     $dbData = $db->getData(
                         $container->real_name,
                         $pos2,
-                        $this->_searchClause
+                        $this->_searchClause2
                     );
                     foreach ($dbData as $item) {
                         switch ($container->real_name) {
@@ -536,6 +547,7 @@ class PMA_NavigationTree
                 }
                 foreach ($prefixes as $key => $value) {
                     $this->groupNode($groups[$key]);
+                    $groups[$key]->classes = "navGroup";
                 }
             }
         }
@@ -552,23 +564,9 @@ class PMA_NavigationTree
         $node = $this->_buildPath();
         $retval = false;
         if ($node !== false) {
-            $retval = PMA_commonFunctions::getInstance()->getListNavigator(
-                $this->_tree->getPresence(),
-                $this->_pos,
-                array('server' => $GLOBALS['server']),
-                'navigation.php',
-                'frame_navigation',
-                $GLOBALS['cfg']['MaxNavigationItems'],
-                'pos',
-                array('dbselector')
-            );
-
+            $retval  = $this->_fastFilterHtml($this->_tree);
+            $retval .= $this->_getPageSelector($this->_tree);
             $this->groupTree();
-            $retval .= $this->_commonFunctions->getImage(
-                'ajax_clock_small.gif',
-                __('Loading'),
-                array('style' => 'visibility: hidden;', 'class' => 'throbber')
-            );
             $retval .= "<div><ul>";
             $children = $this->_tree->children;
             usort($children, array('PMA_NavigationTree', 'sortNode'));
@@ -616,11 +614,20 @@ class PMA_NavigationTree
             $retval .= "</ul>";
             $retval .= "</div>";
         }
-        if (! empty($this->_searchClause)) {
-            $results = $node->realParent()->getPresence(
-                $node->real_name,
-                $this->_searchClause
-            );
+
+        if (! empty($this->_searchClause) || ! empty($this->_searchClause2)) {
+            if (! empty($this->_searchClause2)) {
+                $results = $node->realParent()->getPresence(
+                    $node->real_name,
+                    $this->_searchClause2
+                );
+            } else {
+                $results = $this->_tree->getPresence(
+                    'databases',
+                    $this->_searchClause
+                );
+            }
+
             $clientResults = 0;
             if (! empty($_REQUEST['results'])) {
                 $clientResults = (int)$_REQUEST['results'];
@@ -691,7 +698,7 @@ class PMA_NavigationTree
     {
         $retval = '';
         $paths  = $node->getPaths();
-        if ($node->hasSiblings()) {
+        if ($node->hasSiblings() || isset($_REQUEST['results'])) {
             if (   $node->type == Node::CONTAINER
                 && count($node->children) == 0
                 && $GLOBALS['is_ajax_request'] != true
@@ -879,13 +886,13 @@ class PMA_NavigationTree
                     $buffer .= $this->_renderNode(
                         $children[$i],
                         true,
-                        $node->classes
+                        $children[$i]->classes
                     );
                 } else {
                     $buffer .= $this->_renderNode(
                         $children[$i],
                         true,
-                        $node->classes . ' last'
+                        $children[$i]->classes . ' last'
                     );
                 }
             }
@@ -901,7 +908,9 @@ class PMA_NavigationTree
                 }
             }
         }
-        $retval .= "</li>";
+        if ($node->hasSiblings() || isset($_REQUEST['results'])) {
+            $retval .= "</li>";
+        }
         return $retval;
     }
 
@@ -934,7 +943,23 @@ class PMA_NavigationTree
     private function _fastFilterHtml($node)
     {
         $retval = '';
-        if (($node->type == Node::CONTAINER
+        if ($node === $this->_tree
+            && $this->_tree->getPresence() >= (int)$GLOBALS['cfg']['NavigationTreeDisplayDbFilterMinimum']
+        ) {
+            $url_params = array(
+                'pos' => 0
+            );
+            $retval .= "<ul>";
+            $retval .= "<li class='fast_filter db_fast_filter'>";
+            $retval .= "<form class='ajax fast_filter'>";
+            $retval .= PMA_getHiddenFields($url_params);
+            $retval .= "<input class='searchClause' name='searchClause'";
+            $retval .= " value='" . __('filter databases by name') . "' />";
+            $retval .= "<span title='" . __('Clear Fast Filter') . "'>X</span>";
+            $retval .= "</form>";
+            $retval .= "</li>";
+            $retval .= "</ul>";
+        } else if (($node->type == Node::CONTAINER
             && (   $node->real_name == 'tables'
                 || $node->real_name == 'views'
                 || $node->real_name == 'functions'
@@ -954,8 +979,8 @@ class PMA_NavigationTree
             $retval .= "<li class='fast_filter'>";
             $retval .= "<form class='ajax fast_filter'>";
             $retval .= PMA_getHiddenFields($url_params);
-            $retval .= "<input class='searchClause' name='searchClause'";
-            $retval .= " value='" . __('filter tables by name') . "' />";
+            $retval .= "<input class='searchClause' name='searchClause2'";
+            $retval .= " value='" . __('filter items by name') . "' />";
             $retval .= "<span title='" . __('Clear Fast Filter') . "'>X</span>";
             $retval .= "</form>";
             $retval .= "</li>";
@@ -974,7 +999,18 @@ class PMA_NavigationTree
     private function _getPageSelector($node)
     {
         $retval = '';
-        if ($node->type == Node::CONTAINER && ! $node->is_group) {
+        if ($node === $this->_tree) {
+             $retval .= PMA_commonFunctions::getInstance()->getListNavigator(
+                $this->_tree->getPresence('databases', $this->_searchClause),
+                $this->_pos,
+                array('server' => $GLOBALS['server']),
+                'navigation.php',
+                'frame_navigation',
+                $GLOBALS['cfg']['MaxNavigationItems'],
+                'pos',
+                array('dbselector')
+            );
+        } else if ($node->type == Node::CONTAINER && ! $node->is_group) {
             $paths = $node->getPaths();
 
             $level = isset($paths['aPath_clean'][4]) ? 3 : 2;
@@ -994,9 +1030,9 @@ class PMA_NavigationTree
             }
             $num = $node->realParent()->getPresence(
                 $node->real_name,
-                $this->_searchClause
+                $this->_searchClause2
             );
-            $retval = $this->_commonFunctions->getListNavigator(
+            $retval .= $this->_commonFunctions->getListNavigator(
                 $num,
                 $pos,
                 $_url_params,

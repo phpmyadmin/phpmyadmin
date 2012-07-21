@@ -32,10 +32,11 @@ class PMA_NavigationHeader
                 'ajax_request' => true
             )
         );
-        $highlight = '';
+        $class = ' class="list_container';
         if ($GLOBALS['cfg']['NavigationTreePointerEnable']) {
-            $highlight = ' class="highlight"';
+            $class .= ' highlight';
         }
+        $class .= '"';
         $buffer  = '<div id="pma_navigation">';
         $buffer .= '<div id="pma_navigation_resizer"></div>';
         $buffer .= '<div id="pma_navigation_collapser"></div>';
@@ -52,7 +53,12 @@ class PMA_NavigationHeader
         $buffer .= $this->_links();
         $buffer .= $this->_serverChoice();
         $buffer .= $this->_recent();
-        $buffer .= '<div id="pma_navigation_tree"' . $highlight . '>';
+        $buffer .= $this->_commonFunctions->getImage(
+            'ajax_clock_small.gif',
+            __('Loading'),
+            array('style' => 'visibility: hidden;', 'class' => 'throbber')
+        );
+        $buffer .= '<div id="pma_navigation_tree"' . $class . '>';
         return $buffer;
     }
 
