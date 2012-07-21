@@ -40,5 +40,43 @@ function PMA_getHtmlForDatabaseComment()
     return $html_output;
 }
 
+/**
+ * Get HTML output for rename database
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForRenameDatabase()
+{
+    $html_output = '<div class="operations_half_width">'
+        . '<form id="rename_db_form" ' . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax" ' : '')
+        . 'method="post" action="db_operations.php"'
+        . 'onsubmit="return emptyFormElements(this, ' . "'newname'" . ')">';
+    if (isset($_REQUEST['db_collation'])) {
+        $html_output .= '<input type="hidden" name="db_collation" value="' . $_REQUEST['db_collation']
+            .'" />' . "\n";
+    }
+    $html_output .= '<input type="hidden" name="what" value="data" />'
+        . '<input type="hidden" name="db_rename" value="true" />'
+        . PMA_generate_common_hidden_inputs($GLOBALS['db'])
+        . '<fieldset>'
+        . '<legend>';
+
+    if ($GLOBALS['cfg']['PropertiesIconic']) {
+        $html_output .= PMA_CommonFunctions::getInstance()->getImage('b_edit.png');
+    }
+    $html_output .= __('Rename database to') . ':'
+        . '</legend>';
+    
+    $html_output .= '<input id="new_db_name" type="text" name="newname" ' 
+        . 'size="30" class="textfield" value="" />'
+        . '</fieldset>'
+        . '<fieldset class="tblFooters">'
+        . '<input id="rename_db_input" type="submit" value="' . __('Go') . '" />'
+        . '</fieldset>'
+        . '</form>'
+        . '</div>';
+
+    return $html_output;
+}
 
 ?>

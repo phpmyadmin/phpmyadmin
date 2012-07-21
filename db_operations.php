@@ -18,6 +18,11 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/mysql_charsets.lib.php';
 
+/**
+ * functions implementation for this script
+ */
+require_once 'libraries/db_operations.lib.php';
+
 // add a javascript file for jQuery functions to handle Ajax actions
 $response = PMA_Response::getInstance();
 $header = $response->getHeader();
@@ -421,38 +426,9 @@ if (!$is_information_schema) {
     /**
      * rename database
      */
-if ($db != 'mysql') {
-    ?>
-        <div class="operations_half_width">
-        <form id="rename_db_form" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax" ' : ''); ?>method="post" action="db_operations.php"
-        onsubmit="return emptyFormElements(this, 'newname')">
-        <?php
-    if (isset($db_collation)) {
-        echo '<input type="hidden" name="db_collation" value="' . $db_collation
-            .'" />' . "\n";
+    if ($db != 'mysql') {
+        echo PMA_getHtmlForRenameDatabase();
     }
-        ?>
-    <input type="hidden" name="what" value="data" />
-    <input type="hidden" name="db_rename" value="true" />
-    <?php echo PMA_generate_common_hidden_inputs($db); ?>
-    <fieldset>
-        <legend>
-    <?php
-    if ($cfg['PropertiesIconic']) {
-        echo $common_functions->getImage('b_edit.png');
-    }
-    echo __('Rename database to') . ':';
-    ?>
-        </legend>
-        <input id="new_db_name" type="text" name="newname" size="30" class="textfield" value="" />
-    </fieldset>
-    <fieldset class="tblFooters">
-        <input id="rename_db_input" type="submit" value="<?php echo __('Go'); ?>" />
-    </fieldset>
-    </form>
-    </div>
-<?php
-} // end if
 
 // Drop link if allowed
 // Don't even try to drop information_schema. You won't be able to. Believe me. You won't.
