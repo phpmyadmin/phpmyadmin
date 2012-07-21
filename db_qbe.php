@@ -15,21 +15,6 @@ $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 
-/**
- * Sets globals from $_POST patterns, for Or* variables 
- * (additional criteria lines)
- */
-
-$post_patterns = array(
-    '/^Or/i'
-);
-foreach (array_keys($_POST) as $post_key) {
-    foreach ($post_patterns as $one_post_pattern) {
-        if (preg_match($one_post_pattern, $post_key)) {
-            $GLOBALS[$post_key] = $_POST[$post_key];
-        }
-    }
-}
 
 // create new qbe search instance
 $db_qbe = new PMA_DBQbe($GLOBALS['db']);
