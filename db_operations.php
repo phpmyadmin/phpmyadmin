@@ -416,7 +416,7 @@ if (!$is_information_schema) {
         /**
          * database comment
          */
-        echo PMA_getHtmlForDatabaseComment();
+        $response->addHTML(PMA_getHtmlForDatabaseComment());
     }
     ?>
     <div class="operations_half_width">
@@ -427,7 +427,7 @@ if (!$is_information_schema) {
      * rename database
      */
     if ($db != 'mysql') {
-        echo PMA_getHtmlForRenameDatabase();
+        $response->addHTML(PMA_getHtmlForRenameDatabase());
     }
 
 // Drop link if allowed
@@ -437,7 +437,7 @@ if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase'])
     && ! $db_is_information_schema
     && (PMA_DRIZZLE || $db != 'mysql')
 ) {
-    echo PMA_getHtmlForDropDatabaseLink();
+    $response->addHTML(PMA_getHtmlForDropDatabaseLink());
 }
 /**
  * Copy database
