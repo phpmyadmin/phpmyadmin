@@ -411,29 +411,7 @@ if (!$is_information_schema) {
         /**
          * database comment
          */
-        ?>
-    <div class="operations_half_width">
-    <form method="post" action="db_operations.php">
-    <?php echo PMA_generate_common_hidden_inputs($db); ?>
-    <fieldset>
-        <legend>
-        <?php
-        if ($cfg['PropertiesIconic']) {
-            echo '<img class="icon ic_b_comment" src="themes/dot.gif" alt="" />';
-        }
-        echo __('Database comment: ');
-        ?>
-        </legend>
-        <input type="text" name="comment" class="textfield" size="30"
-            value="<?php
-            echo htmlspecialchars(PMA_getDBComment($db)); ?>" />
-    </fieldset>
-    <fieldset class="tblFooters">
-        <input type="submit" value="<?php echo __('Go'); ?>" />
-    </fieldset>
-    </form>
-    </div>
-        <?php
+        echo PMA_getHtmlForDatabaseComment();
     }
     ?>
     <div class="operations_half_width">
