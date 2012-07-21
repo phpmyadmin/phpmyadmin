@@ -5,6 +5,10 @@
  *
  * @package PhpMyAdmin-Navigation
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * Displays a collapsible of database objects in the navigation frame
  *

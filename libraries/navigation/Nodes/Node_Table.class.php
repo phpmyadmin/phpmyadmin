@@ -5,6 +5,10 @@
  *
  * @package PhpMyAdmin-Navigation
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
+
 /**
  * Represents a columns node in the navigation tree
  *

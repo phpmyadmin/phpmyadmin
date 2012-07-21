@@ -5,6 +5,9 @@
  *
  * @package PhpMyAdmin-Navigation
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * This class renders the logo, links, server selection and recent tables,

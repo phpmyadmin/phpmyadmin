@@ -6,6 +6,9 @@
  *
  * @package PhpMyAdmin-navigation
  */
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 // The Nodes are the building blocks for the navigation tree
 require_once 'libraries/navigation/Nodes/Node.class.php';
