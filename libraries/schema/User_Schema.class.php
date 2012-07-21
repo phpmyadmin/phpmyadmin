@@ -392,7 +392,7 @@ class PMA_User_Schema
     {
         global $cfg,$db,$test_rs,$chpage;
         ?>
-        <form method="post" action="schema_export.php">
+        <form class="disableAjax" method="post" action="schema_export.php">
             <fieldset>
             <legend>
             <?php
