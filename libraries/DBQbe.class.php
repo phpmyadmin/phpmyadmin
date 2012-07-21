@@ -150,6 +150,20 @@ class PMA_DbQbe
      */
     private $_curAndOrCol;
     /**
+     * New column count in case of add/delete
+     *
+     * @access private
+     * @var integer
+     */
+    private $_new_column_count;
+    /**
+     * New row count in case of add/delete
+     *
+     * @access private
+     * @var integer
+     */
+    private $_new_row_count;
+    /**
      * PMA_CommonFunctions object
      *
      * @access private
@@ -361,6 +375,7 @@ class PMA_DbQbe
             $html_output .= $this->_showColumnSelectCell($new_column_count, $selected);
             $new_column_count++;
         } // end for
+        $this->_new_column_count = $new_column_count;
         $html_output .= '</tr>';
         return $html_output;
     }
@@ -821,6 +836,7 @@ class PMA_DbQbe
             $html_output .= '</tr>';
             $odd_row =! $odd_row;
         } // end for
+        $this->_new_row_count = $new_row_count;
         return $html_output;
     }
 
@@ -1233,7 +1249,7 @@ class PMA_DbQbe
      *
      * @return string QBE form
      */
-    public function getSelectionForm()
+    public function getSelectionForm($cfgRelation)
     {
         $html_output = '<form action="db_qbe.php" method="post">';
         $html_output .= '<fieldset>';
@@ -1246,10 +1262,10 @@ class PMA_DbQbe
         $html_output .= $this->_getInsDelAndOrCriteriaRows();
         $html_output .= $this->_getModifyColumnsRow();
         $html_output .= '</table>';
-        $new_row_count--;
+        $this->_new_row_count--;
         $url_params['db'] = $this->_db;
-        $url_params['criteriaColumnCount'] = $new_column_count;
-        $url_params['rows'] = $new_row_count;
+        $url_params['criteriaColumnCount'] = $this->_new_column_count;
+        $url_params['rows'] = $this->_new_row_count;
         $html_output .= PMA_generate_common_hidden_inputs($url_params);
         $html_output .= '</fieldset>';
         // get footers
@@ -1264,8 +1280,9 @@ class PMA_DbQbe
                 __('SQL query on database <b>%s</b>:'), $this->getCommonFunctions()->getDbLink($this->_db)
             );
         $html_output .= '</legend>';
+        $text_dir = 'ltr';
         $html_output .= '<textarea cols="80" name="sql_query" id="textSqlquery"'
-            . ' rows="' . (($numTableListOptions > 30) ? '15' : '7') . '"'
+            . ' rows="' . ((count($this->_criteriaTables) > 30) ? '15' : '7') . '"'
             . ' dir="' . $text_dir . '">';
         $html_output .= $this->_getSQLQuery($cfgRelation);
         $html_output .= '</textarea>';
