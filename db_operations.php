@@ -437,37 +437,7 @@ if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase'])
     && ! $db_is_information_schema
     && (PMA_DRIZZLE || $db != 'mysql')
 ) {
-?>
-<div class="operations_half_width">
-<fieldset class="caution">
- <legend><?php
-if ($cfg['PropertiesIconic']) {
-    echo $common_functions->getImage('b_deltbl.png');
-}
-echo __('Remove database');
-?></legend>
-
-<ul>
-<?php
-    $this_sql_query = 'DROP DATABASE ' . $common_functions->backquote($GLOBALS['db']);
-    $this_url_params = array(
-            'sql_query' => $this_sql_query,
-            'back' => 'db_operations.php',
-            'goto' => 'main.php',
-            'reload' => '1',
-            'purge' => '1',
-            'message_to_show' => sprintf(__('Database %s has been dropped.'), htmlspecialchars($common_functions->backquote($db))),
-            'db' => null,
-        );
-    ?>
-        <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'id="drop_db_anchor"' : ''); ?>>
-            <?php echo __('Drop the database (DROP)'); ?></a>
-        <?php echo $common_functions->showMySQLDocu('SQL-Syntax', 'DROP_DATABASE'); ?>
-    </li>
-</ul>
-</fieldset>
-</div>
-<?php
+    echo PMA_getHtmlForDropDatabaseLink();
 }
 /**
  * Copy database

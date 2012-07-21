@@ -79,4 +79,49 @@ function PMA_getHtmlForRenameDatabase()
     return $html_output;
 }
 
+/**
+ * Get HTML for database drop link
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForDropDatabaseLink()
+{
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
+    $this_sql_query = 'DROP DATABASE ' . $common_functions->backquote($GLOBALS['db']);
+    $this_url_params = array(
+            'sql_query' => $this_sql_query,
+            'back' => 'db_operations.php',
+            'goto' => 'main.php',
+            'reload' => '1',
+            'purge' => '1',
+            'message_to_show' => sprintf(
+                __('Database %s has been dropped.')
+                , htmlspecialchars($common_functions->backquote($GLOBALS['db']))
+            ),
+            'db' => null,
+        );
+    
+    $html_output = '<div class="operations_half_width">'
+        . '<fieldset class="caution">';
+    $html_output .= '<legend>';
+    if ($GLOBALS['cfg']['PropertiesIconic']) {
+        $html_output .= $common_functions->getImage('b_deltbl.png');
+    }
+    $html_output .= __('Remove database')
+        . '</legend>';
+    $html_output .= '<ul>';
+    $html_output .= '<li>' 
+        . '<a href="sql.php' . PMA_generate_common_url($this_url_params) . '"' 
+        . ($GLOBALS['cfg']['AjaxEnable'] ? 'id="drop_db_anchor"' : '') . '>'
+        . __('Drop the database (DROP)')
+        . '</a>'
+        .  $common_functions->showMySQLDocu('SQL-Syntax', 'DROP_DATABASE')
+        . '</li>'
+        . '</ul></fieldset>'
+        . '</div>';
+    
+    return $html_output;
+}
+
 ?>
