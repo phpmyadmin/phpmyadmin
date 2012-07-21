@@ -10,7 +10,7 @@
  * requirements
  */
 require_once 'libraries/common.inc.php';
-require_once 'libraries/DbQbe.class.php';
+require_once 'libraries/DBQbe.class.php';
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
