@@ -182,6 +182,7 @@ class PMA_SVG extends XMLWriter
     {
         //ob_get_clean();
         $output = $this->flush();
+        PMA_Response::getInstance()->disable();
         PMA_downloadHeader($fileName . '.svg', 'image/svg+xml', strlen($output));
         print $output;
     }
