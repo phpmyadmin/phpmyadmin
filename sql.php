@@ -1222,6 +1222,27 @@ function PMA_getDisplayPropertyParams($sql_query, $is_select)
 }
 
 /**
+ * Get the database name inside a USE query
+ *
+ * @param string $sql       SQL query
+ * @param array  $databases array with all databases
+ *
+ * @return strin $db new database name 
+ */
+function PMA_getNewDatabase($sql, $databases)
+{    
+    $db = '';
+    // loop through all the databases
+    foreach ($databases as $database){
+        if (strpos($sql,$database['SCHEMA_NAME']) !== false) {
+            $db = $database;
+            break;
+        }
+    }    
+    return $db;
+}
+
+/**
  * Get the table name in a sql query
  * If there are several tables in the SQL query,
  * first table wil lreturn
@@ -1237,8 +1258,8 @@ function PMA_getTableNameBySQL($sql, $tables)
     $table = '';
     
     // loop through all the tables in the database
-    foreach($tables as $tbl){
-        if(strpos($sql,$tbl)){
+    foreach ($tables as $tbl) {
+        if (strpos($sql,$tbl)) {
             $table .= ' ' . $tbl;
         }
     }
@@ -1277,8 +1298,8 @@ function getTableHtmlForMultipleQueries(
     $table_html = '';
         
     $tables_array = PMA_DBI_get_tables($db);
-    $multi_sql = implode(";", $sql_data['valid_sql']);
-
+    $databases_array = PMA_DBI_get_databases_full();
+    $multi_sql = implode(";", $sql_data['valid_sql']);    
     $querytime_before = array_sum(explode(' ', microtime()));
 
     // Assignment for variable is not needed since the results are
@@ -1292,6 +1313,12 @@ function getTableHtmlForMultipleQueries(
     do {
 
         // Initialize needed params related to each query
+        
+        // Use query can change the database
+        if (stripos($sql_data['valid_sql'][$sql_no], "use ")) {
+            $db = PMA_getNewDatabase($sql_data['valid_sql'][$sql_no], $databases_array);
+        }        
+        
         $table = PMA_getTableNameBySQL($sql_data['valid_sql'][$sql_no], $tables_array);            
         $result = PMA_DBI_store_result();
         $fields_meta = PMA_DBI_get_fields_meta($result);

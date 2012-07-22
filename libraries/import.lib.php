@@ -97,6 +97,14 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false, &$sql_d
             if (! empty($import_run_buffer['sql'])
                 && trim($import_run_buffer['sql']) != ''
             ) {
+                
+                // USE query changes the database, son need to track
+                // while running multiple queries
+                $is_use_query
+                    = (stripos($import_run_buffer['sql'], "use ") !== false)
+                        ? true
+                        : false;
+                
                 $max_sql_len = max($max_sql_len, strlen($import_run_buffer['sql']));
                 if (! $sql_query_disabled) {
                     $sql_query .= $import_run_buffer['full'];
@@ -170,14 +178,18 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false, &$sql_d
                             if ($a_num_rows > 0) {
                                 $msg .= __('Rows'). ': ' . $a_num_rows;
                                 $last_query_with_results = $import_run_buffer['sql'];
-                                $sql_data['valid_sql'][] = $import_run_buffer['sql'];
-                                $sql_data['valid_queries']++;
                             } elseif ($a_aff_rows > 0) {
                                 $message = PMA_Message::affected_rows($a_aff_rows);
                                 $msg .= $message->getMessage();
                             } else {
                                 $msg .= __('MySQL returned an empty result set (i.e. zero rows).');
                             }
+                            
+                            if (($a_num_rows > 0) || $is_use_query) {
+                                $sql_data['valid_sql'][] = $import_run_buffer['sql'];
+                                $sql_data['valid_queries']++;
+                            }
+                            
                         }
                         if (! $sql_query_disabled) {
                             $sql_query .= $msg . "\n";
