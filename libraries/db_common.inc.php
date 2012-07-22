@@ -50,7 +50,16 @@ if (! isset($is_db) || ! $is_db) {
         . PMA_generate_common_url('', '', '&')
         . (isset($message) ? '&message=' . urlencode($message) : '') . '&reload=1';
     if (! strlen($db) || ! $is_db) {
-        PMA_sendHeaderLocation($uri);
+        $response = PMA_Response::getInstance();
+        if ($response->isAjax()) {
+            $response->isSuccess(false);
+            $response->addJSON(
+                'message',
+                PMA_Message::error(__('No databases selected.'))
+            );
+        } else {
+            PMA_sendHeaderLocation($uri);
+        }
         exit;
     }
 } // end if (ensures db exists)
