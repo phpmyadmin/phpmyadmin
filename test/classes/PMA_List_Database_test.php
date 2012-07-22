@@ -78,7 +78,7 @@ class PMA_List_Database_test extends PHPUnit_Framework_TestCase
      */
     public function testCheckHideDatabase()
     {
-        $GLOBALS['cfg']['Server']['hide_db'] = array('single\\_db');
+        $GLOBALS['cfg']['Server']['hide_db'] = 'single\\_db';
         $this->assertEquals(
             $this->_callProtectedFunction(
                 'checkHideDatabase',
