@@ -111,14 +111,6 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false, &$sql_d
                     
                     $executed_queries++;
                     
-                    if ($controluser) {
-                        $result = PMA_queryAsControlUser(
-                            $import_run_buffer['sql']
-                        );
-                    } else {
-                        $result = PMA_DBI_try_query($import_run_buffer['sql']);
-                    }
-                    
                     if ($run_query
                         && $GLOBALS['finished']
                         && empty($sql)
@@ -136,11 +128,8 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false, &$sql_d
                             $display_query = '';
                         }
                         $sql_query = $import_run_buffer['sql'];
-                        
-                        if ($result !== false) {
-                            $sql_data['valid_sql'][] = $import_run_buffer['full'];
-                            $sql_data['valid_queries']++;
-                        }
+                        $sql_data['valid_sql'][] = $import_run_buffer['sql'];
+                        $sql_data['valid_queries']++;
                         
                         // If a 'USE <db>' SQL-clause was found,
                         // set our current $db to the new one
@@ -150,6 +139,14 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false, &$sql_d
                             $reload
                         );
                     } elseif ($run_query) {
+                        
+                        if ($controluser) {
+                            $result = PMA_queryAsControlUser(
+                                $import_run_buffer['sql']
+                            );
+                        } else {
+                            $result = PMA_DBI_try_query($import_run_buffer['sql']);
+                        }
                         
                         $msg = '# ';
                         if ($result === false) { // execution failed

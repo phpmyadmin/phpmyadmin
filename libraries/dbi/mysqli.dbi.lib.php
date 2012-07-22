@@ -368,6 +368,23 @@ function PMA_DBI_next_result($link = null)
 }
 
 /**
+ * Store the result returned from multi query
+ *
+ * @return mixed false when empty results / result set when not empty 
+ */
+function PMA_DBI_store_result()
+{
+    if (empty($link)) {
+        if (isset($GLOBALS['userlink'])) {
+            $link = $GLOBALS['userlink'];
+        } else {
+            return false;
+        }
+    }
+    return mysqli_store_result($link);
+}
+
+/**
  * Returns a string representing the type of connection used
  *
  * @param resource $link mysql link

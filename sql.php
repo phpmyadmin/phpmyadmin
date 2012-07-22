@@ -476,28 +476,18 @@ $full_sql_query = $sql_query;
 // Handle remembered sorting order, only for single table query
 if ($GLOBALS['cfg']['RememberSorting']
     && ! ($is_count || $is_export || $is_func || $is_analyse)
-    && count($analyzed_sql[0]['select_expr']) == 0
+    && isset($analyzed_sql[0]['select_expr'])
+    && (count($analyzed_sql[0]['select_expr']) == 0)
     && isset($analyzed_sql[0]['queryflags']['select_from'])
     && count($analyzed_sql[0]['table_ref']) == 1
-) {
-    $pmatable = new PMA_Table($table, $db);
-    if (empty($analyzed_sql[0]['order_by_clause'])) {
-        $sorted_col = $pmatable->getUiProp(PMA_Table::PROP_SORTED_COLUMN);
-        if ($sorted_col) {
-            // retrieve the remembered sorting order for current table
-            $sql_order_to_append = ' ORDER BY ' . $sorted_col . ' ';
-            $full_sql_query = $analyzed_sql[0]['section_before_limit'] . $sql_order_to_append
-                . $analyzed_sql[0]['limit_clause'] . ' ' . $analyzed_sql[0]['section_after_limit'];
-
-            // update the $analyzed_sql
-            $analyzed_sql[0]['section_before_limit'] .= $sql_order_to_append;
-            $analyzed_sql[0]['order_by_clause'] = $sorted_col;
-        }
-    } else {
-        // store the remembered table into session
-        $pmatable->setUiProp(PMA_Table::PROP_SORTED_COLUMN, $analyzed_sql[0]['order_by_clause']);
-    }
+) {    
+    
+    PMA_handleSortOrder($db, $table, $analyzed_sql, $full_sql_query);   
+    
 }
+
+$sql_limit_to_append = ' LIMIT ' . $_SESSION['tmp_user_values']['pos']
+        . ', ' . $_SESSION['tmp_user_values']['max_rows'] . " ";
 
 // Do append a "LIMIT" clause?
 if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
@@ -505,12 +495,10 @@ if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
     && isset($analyzed_sql[0]['queryflags']['select_from'])
     && ! isset($analyzed_sql[0]['queryflags']['offset'])
     && empty($analyzed_sql[0]['limit_clause'])
-) {
-    $sql_limit_to_append = ' LIMIT ' . $_SESSION['tmp_user_values']['pos']
-        . ', ' . $_SESSION['tmp_user_values']['max_rows'] . " ";
+) {  
 
-    $full_sql_query  = $analyzed_sql[0]['section_before_limit'] . "\n"
-        . $sql_limit_to_append . $analyzed_sql[0]['section_after_limit'];
+    $full_sql_query = PMA_getSqlWithLimitClause($full_sql_query, $analyzed_sql, $sql_limit_to_append);
+    
     /**
      * @todo pretty printing of this modified query
      */
@@ -553,11 +541,16 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
 
     // If a stored procedure was called, there may be more results that are
     // queued up and waiting to be flushed from the buffer. So let's do that.
-    while (true) {
+    do {
+        PMA_DBI_store_result();
         if (! PMA_DBI_more_results()) {
             break;
         }
-        PMA_DBI_next_result();
+    } while (PMA_DBI_next_result());    
+    
+    $is_procedure = false;
+    if (stripos($full_sql_query, 'call') !== false) {
+        $is_procedure = true;
     }
 
     $querytime_after = array_sum(explode(' ', microtime()));
@@ -920,7 +913,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
 
             echo getTableHtmlForMultipleQueries(
                 $displayResultsObject, $db, $sql_data, $goto,
-                $pmaThemeImage, $text_dir, $printview, $url_query, $disp_mode
+                $pmaThemeImage, $text_dir, $printview, $url_query, $disp_mode, $sql_limit_to_append
             );
 
         } else {
@@ -1087,11 +1080,11 @@ $(makeProfilingChart);
     $printview = isset($printview) ? $printview : null;
     $url_query = isset($url_query) ? $url_query : null;
     
-    if (!empty($sql_data) && ($sql_data['valid_queries'] > 1)) {
+    if (!empty($sql_data) && ($sql_data['valid_queries'] > 1) || $is_procedure) {
         
         echo getTableHtmlForMultipleQueries(
             $displayResultsObject, $db, $sql_data, $goto,
-            $pmaThemeImage, $text_dir, $printview, $url_query, $disp_mode
+            $pmaThemeImage, $text_dir, $printview, $url_query, $disp_mode, $sql_limit_to_append
         );
         
     } else {
@@ -1278,7 +1271,7 @@ function PMA_getTableNameBySQL($sql, $tables)
  */
 function getTableHtmlForMultipleQueries(
     $displayResultsObject, $db, $sql_data, $goto, $pmaThemeImage,
-    $text_dir, $printview, $url_query, $disp_mode
+    $text_dir, $printview, $url_query, $disp_mode, $sql_limit_to_append
 ) {
     
     $table_html = '';
@@ -1288,7 +1281,9 @@ function getTableHtmlForMultipleQueries(
 
     $querytime_before = array_sum(explode(' ', microtime()));
 
-    $multiple_results = @PMA_DBI_try_multi_query($multi_sql);
+    // Assignment for variable is not needed since the results are
+    // looiping using the connection
+    @PMA_DBI_try_multi_query($multi_sql);
 
     $querytime_after = array_sum(explode(' ', microtime()));
     $querytime = $querytime_after - $querytime_before;        
@@ -1296,13 +1291,15 @@ function getTableHtmlForMultipleQueries(
 
     do {
 
+        // Initialize needed params related to each query
         $table = PMA_getTableNameBySQL($sql_data['valid_sql'][$sql_no], $tables_array);            
-        $result = mysqli_store_result($GLOBALS['userlink']);
+        $result = PMA_DBI_store_result();
         $fields_meta = PMA_DBI_get_fields_meta($result);
         $fields_cnt  = count($fields_meta);
-        $parsed_sql = PMA_SQP_parse($sql_query);
-        $analyzed_sql = PMA_SQP_analyze($parsed_sql);    
-        $is_select = isset($analyzed_sql[0]['queryflags']['select_from']);            
+        $parsed_sql = PMA_SQP_parse($sql_data['valid_sql'][$sql_no]);
+
+        $analyzed_sql = PMA_SQP_analyze($parsed_sql);
+        $is_select = isset($analyzed_sql[0]['queryflags']['select_from']);        
         $unlim_num_rows = PMA_Table::countRecords($db, $table, $force_exact = true);
         $showtable = PMA_Table::sGetStatusInfo($db, $table, null, true);
         $url_query = PMA_generate_common_url($db, $table);
@@ -1314,12 +1311,40 @@ function getTableHtmlForMultipleQueries(
                     $sql_data['valid_sql'][$sql_no], $is_select
                 );
 
+        // Handle remembered sorting order, only for single table query
+        if ($GLOBALS['cfg']['RememberSorting']
+            && ! ($is_count || $is_export || $is_func || $is_analyse)
+            && isset($analyzed_sql[0]['select_expr'])
+            && (count($analyzed_sql[0]['select_expr']) == 0)
+            && isset($analyzed_sql[0]['queryflags']['select_from'])
+            && count($analyzed_sql[0]['table_ref']) == 1
+        ) {
+            PMA_handleSortOrder($db, $table, $analyzed_sql, $sql_data['valid_sql'][$sql_no]);
+        }
+        
+        // Do append a "LIMIT" clause?
+        if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
+            && ! ($is_count || $is_export || $is_func || $is_analyse)
+            && isset($analyzed_sql[0]['queryflags']['select_from'])
+            && ! isset($analyzed_sql[0]['queryflags']['offset'])
+            && empty($analyzed_sql[0]['limit_clause'])
+        ) {            
+            $sql_data['valid_sql'][$sql_no] = PMA_getSqlWithLimitClause(
+                $sql_data['valid_sql'][$sql_no], $analyzed_sql, $sql_limit_to_append
+            );            
+        }
+        
         if (! $is_affected) {
             $num_rows = ($result) ? @PMA_DBI_num_rows($result) : 0;
         } elseif (! isset($num_rows)) {
             $num_rows = @PMA_DBI_affected_rows();
         }
 
+        if ($num_rows == 0) {
+            continue;
+        }
+        
+        // Set the needed properties related to executing sql query
         $displayResultsObject->__set('_db', $db);
         $displayResultsObject->__set('_table', $table);
         $displayResultsObject->__set('_goto', $goto);
@@ -1331,15 +1356,67 @@ function getTableHtmlForMultipleQueries(
             $is_maint, $is_explain, $is_show, $showtable, $printview, $url_query
         );
 
-        $table_html .= $displayResultsObject->getTable($result, $disp_mode, $analyzed_sql);            
-        unset($result);
+        // Collect the tables
+        $table_html .= $displayResultsObject->getTable($result, $disp_mode, $analyzed_sql);
         $sql_no++;
+        
+        // Free the result to save the memory
+        PMA_DBI_free_result($result);
+        
+        if (! PMA_DBI_more_results()) {
+            break;
+        }
 
-    } while (mysqli_next_result($GLOBALS['userlink']));
+    } while (PMA_DBI_next_result());
     
     return $table_html;
     
 }
 
+/**
+ * Handle remembered sorting order, only for single table query
+ *
+ * @param string $db             database name
+ * @param string $table          table name
+ * @param array  $analyzed_sql   the analyzed query
+ * @param string $full_sql_query SQL query
+ */
+function PMA_handleSortOrder($db, $table, &$analyzed_sql, &$full_sql_query)
+{
+    
+    $pmatable = new PMA_Table($table, $db);
+    if (empty($analyzed_sql[0]['order_by_clause'])) {
+        $sorted_col = $pmatable->getUiProp(PMA_Table::PROP_SORTED_COLUMN);
+        if ($sorted_col) {
+            // retrieve the remembered sorting order for current table
+            $sql_order_to_append = ' ORDER BY ' . $sorted_col . ' ';
+            $full_sql_query = $analyzed_sql[0]['section_before_limit'] . $sql_order_to_append
+                . $analyzed_sql[0]['limit_clause'] . ' ' . $analyzed_sql[0]['section_after_limit'];
 
+            // update the $analyzed_sql
+            $analyzed_sql[0]['section_before_limit'] .= $sql_order_to_append;
+            $analyzed_sql[0]['order_by_clause'] = $sorted_col;
+        }
+    } else {
+        // store the remembered table into session
+        $pmatable->setUiProp(PMA_Table::PROP_SORTED_COLUMN, $analyzed_sql[0]['order_by_clause']);
+    }
+    
+}
+
+/**
+ * Append limit clause to SQL query
+ *
+ * @param string $full_sql_query      SQL query
+ * @param array  $analyzed_sql        the analyzed query
+ * @param string $sql_limit_to_append clause to append
+ * 
+ * @return string limit clause appended SQL query 
+ */
+function PMA_getSqlWithLimitClause($full_sql_query, $analyzed_sql, $sql_limit_to_append)
+{    
+    return $analyzed_sql[0]['section_before_limit'] . "\n"
+        . $sql_limit_to_append . $analyzed_sql[0]['section_after_limit'];    
+}
+        
 ?>
