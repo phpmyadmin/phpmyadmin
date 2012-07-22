@@ -155,6 +155,10 @@ var AJAX = {
 
             AJAX.scriptHandler.reset();
 
+            if (data._title) {
+                $('title').replaceWith(data._title);
+            }
+
             if (data._menu) {
                 $('#floating_menubar').html(data._menu)
                     .children().first().remove(); // Remove duplicate wrapper (TODO: don't send it in the response)

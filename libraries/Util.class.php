@@ -1056,22 +1056,6 @@ class PMA_Util
             unset($GLOBALS['using_bookmark_message']);
         }
 
-        // Corrects the tooltip text via JS if required
-        // @todo this is REALLY the wrong place to do this - very unexpected here
-        if (! $is_view && strlen($GLOBALS['table']) && $cfg['ShowTooltip']) {
-            $tooltip = PMA_Table::sGetToolTip($GLOBALS['db'], $GLOBALS['table']);
-            $uni_tbl = PMA_jsFormat($GLOBALS['db'] . '.' . $GLOBALS['table'], false);
-            $retval .= "\n";
-            $retval .= '<script type="text/javascript">' . "\n";
-            $retval .= '//<![CDATA[' . "\n";
-            $retval .= 'if (window.parent.updateTableTitle) {' . "\n";
-            $retval .= "    window.parent.updateTableTitle('"
-                . $uni_tbl . "', '" . PMA_jsFormat($tooltip, false) . "');" . "\n";
-            $retval .= '}' . "\n";
-            $retval .= '//]]>' . "\n";
-            $retval .= '</script>' . "\n";
-        } // end if ... elseif
-
         // In an Ajax request, $GLOBALS['cell_align_left'] may not be defined. Hence,
         // check for it's presence before using it
         $retval .= '<div id="result_query"'

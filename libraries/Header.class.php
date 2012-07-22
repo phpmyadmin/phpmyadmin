@@ -293,7 +293,7 @@ class PMA_Header
                 $retval .= $this->_getHtmlStart();
                 $retval .= $this->_getMetaTags();
                 $retval .= $this->_getLinkTags();
-                $retval .= $this->_getTitleTag();
+                $retval .= $this->getTitleTag();
                 $title = PMA_sanitize(
                     PMA_escapeJsString($this->_getPageTitle()),
                     false,
@@ -452,7 +452,7 @@ class PMA_Header
      *
      * @return string the TITLE tag
      */
-    private function _getTitleTag()
+    public function getTitleTag()
     {
         $retval  = "<title>";
         $retval .= $this->_getPageTitle();

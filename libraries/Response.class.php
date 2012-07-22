@@ -291,6 +291,7 @@ class PMA_Response
         }
 
         if ($this->_isAjaxPage) {
+            $this->addJSON('_title', $this->getHeader()->getTitleTag());
             $this->addJSON('_menu', $this->getHeader()->getMenu()->getDisplay());
             $this->addJSON('_scripts', $this->getHeader()->getScripts()->getFiles());
             $url = basename(PMA_getenv('SCRIPT_NAME')) . '?' . PMA_generate_common_url();
