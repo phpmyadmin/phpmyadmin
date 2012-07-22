@@ -34,10 +34,6 @@ function setDb(new_db)
             // happens when LeftFrameLight is true
             // db is unknown, reload complete left frame
             refreshNavigation();
-        } else {
-            // happens when LeftFrameLight is false
-            unmarkDbTable(old_db);
-            markDbTable(db);
         }
 
         // TODO: add code to expand db in lightview mode
@@ -95,43 +91,6 @@ function refreshNavigation(force)
     PMA_reloadNavigation();
 }
 
-function unmarkDbTable(db, table)
-{
-    var element_reference = window.frame_navigation.document.getElementById(db);
-    if (element_reference != null) {
-        $(element_reference).parent().removeClass('marked');
-    }
-
-    element_reference = window.frame_navigation.document.getElementById(db + '.' + table);
-    if (element_reference != null) {
-        $(element_reference).parent().removeClass('marked');
-    }
-}
-
-function markDbTable(db, table)
-{
-    var element_reference = window.frame_navigation.document.getElementById(db);
-    if (element_reference != null) {
-        $(element_reference).parent().addClass('marked');
-        // scrolldown
-        element_reference.focus();
-        // opera marks the text, we dont want this ...
-        element_reference.blur();
-    }
-
-    element_reference = window.frame_navigation.document.getElementById(db + '.' + table);
-    if (element_reference != null) {
-        $(element_reference).parent().addClass('marked');
-        // scrolldown
-        element_reference.focus();
-        // opera marks the text, we dont want this ...
-        element_reference.blur();
-    }
-
-    // return to main frame ...
-    window.frame_content.focus();
-}
-
 /**
  * sets current selected server, table and db (called from the footer)
  */
@@ -158,9 +117,6 @@ function setAll( new_lang, new_collation_connection, new_server, new_db, new_tab
           && window.frame_navigation.document.getElementById(db + '.' + table) == null ) {
             // table or db is unknown, reload complete left frame
             refreshNavigation();
-        } else {
-            unmarkDbTable(old_db, old_table);
-            markDbTable(db, table);
         }
 
         // TODO: add code to expand db in lightview mode
