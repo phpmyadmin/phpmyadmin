@@ -1100,7 +1100,7 @@ class PMA_DbQbe
                 $checked_tables = $candidate_columns;
                 foreach ($candidate_columns as $table) {
                     if ($checked_tables[$table] != 1) {
-                        $tsize[$table] = PMA_Table::countRecords($db, $table, false);
+                        $tsize[$table] = PMA_Table::countRecords($this->_db, $table, false);
                         $checked_tables[$table] = 1;
                     }
                     $csize[$table] = $tsize[$table];
@@ -1186,28 +1186,9 @@ class PMA_DbQbe
                 $master = $this->_getMasterTable(
                     $all_tables, $all_columns, $where_clause_columns, $where_clause_tables
                 );
-                $remaining_tables = $all_tables;
-                unset($remaining_tables[$master]);
-                $known_tables[$master] = $master;
-
-                $run = 0;
-                $emerg = '';
-                while (count($remaining_tables) > 0) {
-                    if ($run % 2 == 0) {
-                        $left_join .= PMA_getRelatives('master', $remaining_tables, $known_tables);
-                    } else {
-                        $left_join .= PMA_getRelatives('foreign', $remaining_tables, $known_tables);
-                    }
-                    $run++;
-                    if ($run > 5) {
-                        foreach ($remaining_tables as $table) {
-                            $emerg .= ', ' . $this->getCommonFunctions()->backquote($table);
-                            unset($remaining_tables[$table]);
-                        }
-                    }
-                } // end while
                 $from_clause = $this->getCommonFunctions()->backquote($master)
-                    . $emerg . $left_join;
+                    . PMA_getRelatives($all_tables, $master);
+
             } // end if ($cfgRelation['relwork'] && count($all_tables) > 0)
         } // end count($_POST['criteriaColumn']) > 0
 
