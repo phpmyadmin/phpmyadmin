@@ -1214,7 +1214,7 @@ function PMA_getRelatives($all_tables, $master)
         $run++;
         if ($run > 5) {
             foreach ($remaining_tables as $table) {
-                $emerg .= ', ' . $this->getCommonFunctions()->backquote($table);
+                $emerg .= ', ' . $common_functions->backquote($table);
                 unset($remaining_tables[$table]);
             }
         }
