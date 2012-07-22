@@ -86,14 +86,6 @@ class PMA_Footer
                 }
                 });"
             );
-            if (! empty($GLOBALS['reload'])) {
-                $this->_scripts->addCode(
-                    "// refresh navigation frame content
-                    if (window.parent.refreshNavigation) {
-                        window.parent.refreshNavigation();
-                    }"
-                );
-            }
 
             // set current db, table and sql query in the querywindow
             $query = '';

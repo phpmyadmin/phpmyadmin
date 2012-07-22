@@ -300,6 +300,9 @@ class PMA_Response
             if (strlen($errors)) {
                 $this->addJSON('_errors', $errors);
             }
+            if (empty($GLOBALS['error_message']) && ! empty($GLOBALS['reload'])) {
+                $this->addJSON('_reloadNavigation', 1);
+            }
         }
 
         // Set the Content-Type header to JSON so that jQuery parses the

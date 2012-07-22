@@ -155,6 +155,10 @@ var AJAX = {
 
             AJAX.scriptHandler.reset();
 
+            if (data._reloadNavigation) {
+                PMA_reloadNavigation();
+            }
+
             if (data._title) {
                 $('title').replaceWith(data._title);
             }
