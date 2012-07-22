@@ -238,7 +238,7 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
     <div id="main_pane_left">
         <div class="group">
             <h2><?php echo __('Import') ?></h2>
-            <form class="group-cnt prefs-form" name="prefs_import" action="prefs_manage.php" method="post" enctype="multipart/form-data">
+            <form class="group-cnt prefs-form disableAjax" name="prefs_import" action="prefs_manage.php" method="post" enctype="multipart/form-data">
                 <?php
                 echo PMA_Util::generateHiddenMaxFileSize($max_upload_size) . "\n";
                 echo PMA_generate_common_hidden_inputs() . "\n";
@@ -300,7 +300,7 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
                 PMA_Message::rawSuccess(__('Configuration has been saved'))->display();
                 ?>
             </div>
-            <form class="group-cnt prefs-form" name="prefs_export" action="prefs_manage.php" method="post">
+            <form class="group-cnt prefs-form disableAjax" name="prefs_export" action="prefs_manage.php" method="post">
             <?php echo PMA_generate_common_hidden_inputs() . "\n" ?>
                 <div style="padding-bottom:0.5em">
                     <input type="radio" id="export_text_file" name="export_type" value="text_file" checked="checked" />
@@ -326,7 +326,7 @@ PMA_printJsValue("PMA_messages['strSavedOn']", __('Saved on: @DATE@'));
         </div>
         <div class="group">
             <h2><?php echo __('Reset') ?></h2>
-            <form class="group-cnt prefs-form" name="prefs_reset" action="prefs_manage.php" method="post">
+            <form class="group-cnt prefs-form disableAjax" name="prefs_reset" action="prefs_manage.php" method="post">
             <?php echo PMA_generate_common_hidden_inputs() . "\n" ?>
                 <?php echo __('You can reset all your settings and restore them to default values.') ?>
                 <br /><br />
