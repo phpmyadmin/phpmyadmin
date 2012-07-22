@@ -1382,9 +1382,15 @@ function getTableHtmlForMultipleQueries(
             $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage, $text_dir,
             $is_maint, $is_explain, $is_show, $showtable, $printview, $url_query
         );
-
+        
+        // With multiple results, operations are limied
+        $disp_mode = 'nnnn000000';
+        $is_limited_display = true;
+        
         // Collect the tables
-        $table_html .= $displayResultsObject->getTable($result, $disp_mode, $analyzed_sql);
+        $table_html .= $displayResultsObject->getTable(
+            $result, $disp_mode, $analyzed_sql, $is_limited_display
+        );
         $sql_no++;
         
         // Free the result to save the memory
