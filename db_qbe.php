@@ -12,9 +12,9 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/DBQbe.class.php';
 $response = PMA_Response::getInstance();
-$header   = $response->getHeader();
-$scripts  = $header->getScripts();
 
+// Gets the relation settings
+$cfgRelation = PMA_getRelationsParam();
 
 // create new qbe search instance
 $db_qbe = new PMA_DBQbe($GLOBALS['db']);
@@ -22,7 +22,6 @@ $db_qbe = new PMA_DBQbe($GLOBALS['db']);
 /**
  * Displays the Query by example form
  */
-
 if ($cfgRelation['designerwork']) {
     $url = 'pmd_general.php' . PMA_generate_common_url(
         array_merge(
