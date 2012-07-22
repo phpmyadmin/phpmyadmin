@@ -124,4 +124,84 @@ function PMA_getHtmlForDropDatabaseLink()
     return $html_output;
 }
 
+/**
+ * Get HTML snippet for copy database
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForCopyDatabase()
+{
+    $drop_clause = 'DROP TABLE / DROP VIEW';
+    $choices = array(
+        'structure' => __('Structure only'),
+        'data'      => __('Structure and data'),
+        'dataonly'  => __('Data only')
+    );
+        
+    if (isset($_COOKIE)
+        && isset($_COOKIE['pma_switch_to_new'])
+        && $_COOKIE['pma_switch_to_new'] == 'true'
+    ) {
+        $pma_switch_to_new = 'true';
+    }
+    
+    $html_output = '<div class="operations_half_width clearfloat">';
+    $html_output .= '<form id="copy_db_form" '
+        . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax" ' : '')
+        . 'method="post" action="db_operations.php"'
+        . 'onsubmit="return emptyFormElements(this' . "'newname'" . ')">';
+    
+    if (isset($_REQUEST['db_collation'])) {
+        $html_output .= '<input type="hidden" name="db_collation" ' 
+        . 'value="' . $_REQUEST['db_collation'] .'" />' . "\n";
+    }
+    $html_output .= '<input type="hidden" name="db_copy" value="true" />' . "\n"
+        . PMA_generate_common_hidden_inputs($GLOBALS['db']);
+    $html_output .= '<fieldset>'
+        . '<legend>';
+    
+    if ($GLOBALS['cfg']['PropertiesIconic']) {
+        $html_output .= PMA_CommonFunctions::getInstance()->getImage('b_edit.png');
+    }
+    $html_output .= __('Copy database to') . ':'
+        . '</legend>'
+        . '<input type="text" name="newname" size="30" class="textfield" value="" /><br />'
+        . PMA_CommonFunctions::getInstance()->getRadioFields(
+            'what', $choices, 'data', true
+        );
+    $html_output .= '<input type="checkbox" name="create_database_before_copying" '
+        . 'value="1" id="checkbox_create_database_before_copying"'
+        . 'checked="checked" />';
+    $html_output .= '<label for="checkbox_create_database_before_copying">'
+        . __('CREATE DATABASE before copying') . '</label><br />';
+    $html_output .= '<input type="checkbox" name="drop_if_exists" value="true"'
+        . 'id="checkbox_drop" />';
+    $html_output .= '<label for="checkbox_drop">'
+        . sprintf(__('Add %s'), $drop_clause)
+        . '</label><br />';
+    $html_output .= '<input type="checkbox" name="sql_auto_increment" value="1" '
+        . 'checked="checked" id="checkbox_auto_increment" />';
+    $html_output .= '<label for="checkbox_auto_increment">'
+        . __('Add AUTO_INCREMENT value') . '</label><br />';
+    $html_output .= '<input type="checkbox" name="add_constraints" value="1"'
+        . 'id="checkbox_constraints" />';
+    $html_output .= '<label for="checkbox_constraints">'
+        . __('Add constraints') . '</label><br />';
+    $html_output .= '<input type="checkbox" name="switch_to_new" value="true"'
+        . 'id="checkbox_switch"'
+        . ((isset($pma_switch_to_new) && $pma_switch_to_new == 'true')
+            ? ' checked="checked"' 
+            : '')
+        . '/>';
+    $html_output .= '<label for="checkbox_switch">'
+        . ('Switch to copied database') . '</label>'
+        . '</fieldset>';
+    $html_output .= '<fieldset class="tblFooters">'
+        . '<input type="submit" name="submit_copy" value="' . __('Go') . '" />'
+        . '</fieldset>'
+        . '</form>'
+        . '</div>';
+    
+    return $html_output;
+}
 ?>

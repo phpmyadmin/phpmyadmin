@@ -416,7 +416,7 @@ if (!$is_information_schema) {
         /**
          * database comment
          */
-        $response->addHTML(PMA_getHtmlForDatabaseComment());
+        echo PMA_getHtmlForDatabaseComment();
     }
     ?>
     <div class="operations_half_width">
@@ -427,7 +427,7 @@ if (!$is_information_schema) {
      * rename database
      */
     if ($db != 'mysql') {
-        $response->addHTML(PMA_getHtmlForRenameDatabase());
+        echo PMA_getHtmlForRenameDatabase();
     }
 
 // Drop link if allowed
@@ -437,82 +437,12 @@ if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase'])
     && ! $db_is_information_schema
     && (PMA_DRIZZLE || $db != 'mysql')
 ) {
-    $response->addHTML(PMA_getHtmlForDropDatabaseLink());
+    echo PMA_getHtmlForDropDatabaseLink();
 }
 /**
  * Copy database
  */
-?>
-        <div class="operations_half_width clearfloat">
-        <form id="copy_db_form" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax" ' : ''); ?>method="post" action="db_operations.php"
-        onsubmit="return emptyFormElements(this, 'newname')">
-    <?php
-    if (isset($db_collation)) {
-        echo '<input type="hidden" name="db_collation" value="' . $db_collation
-            .'" />' . "\n";
-    }
-    echo '<input type="hidden" name="db_copy" value="true" />' . "\n";
-    echo PMA_generate_common_hidden_inputs($db);
-    ?>
-    <fieldset>
-        <legend>
-    <?php
-    if ($cfg['PropertiesIconic']) {
-        echo $common_functions->getImage('b_edit.png');
-    }
-    echo __('Copy database to') . ':';
-    $drop_clause = 'DROP TABLE / DROP VIEW';
-    ?>
-        </legend>
-        <input type="text" name="newname" size="30" class="textfield" value="" /><br />
-<?php
-        $choices = array(
-            'structure' => __('Structure only'),
-            'data'      => __('Structure and data'),
-            'dataonly'  => __('Data only'));
-        echo $common_functions->getRadioFields(
-            'what', $choices, 'data', true
-        );
-        unset($choices);
-?>
-        <input type="checkbox" name="create_database_before_copying" value="1"
-            id="checkbox_create_database_before_copying"
-            checked="checked" />
-        <label for="checkbox_create_database_before_copying">
-            <?php echo __('CREATE DATABASE before copying'); ?></label><br />
-        <input type="checkbox" name="drop_if_exists" value="true"
-            id="checkbox_drop" />
-        <label for="checkbox_drop"><?php echo sprintf(__('Add %s'), $drop_clause); ?></label><br />
-        <input type="checkbox" name="sql_auto_increment" value="1" checked="checked"
-            id="checkbox_auto_increment" />
-        <label for="checkbox_auto_increment">
-            <?php echo __('Add AUTO_INCREMENT value'); ?></label><br />
-        <input type="checkbox" name="add_constraints" value="1"
-            id="checkbox_constraints" />
-        <label for="checkbox_constraints">
-            <?php echo __('Add constraints'); ?></label><br />
-    <?php
-    unset($drop_clause);
-
-    if (isset($_COOKIE)
-        && isset($_COOKIE['pma_switch_to_new'])
-        && $_COOKIE['pma_switch_to_new'] == 'true'
-    ) {
-        $pma_switch_to_new = 'true';
-    }
-    ?>
-        <input type="checkbox" name="switch_to_new" value="true"
-            id="checkbox_switch"
-            <?php echo ((isset($pma_switch_to_new) && $pma_switch_to_new == 'true') ? ' checked="checked"' : ''); ?>
-            />
-        <label for="checkbox_switch"><?php echo __('Switch to copied database'); ?></label>
-    </fieldset>
-    <fieldset class="tblFooters">
-        <input type="submit" name="submit_copy" value="<?php echo __('Go'); ?>" />
-    </fieldset>
-    </form>
-    </div>
-    <?php
+echo PMA_getHtmlForCopyDatabase();
 
     /**
      * Change database charset
