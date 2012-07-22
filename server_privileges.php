@@ -325,12 +325,6 @@ if (isset($_REQUEST['delete'])
             $queries[] = 'DROP DATABASE IF EXISTS '
                 . PMA_Util::backquote($this_user) . ';';
             $GLOBALS['reload'] = true;
-
-            if ($GLOBALS['is_ajax_request'] != true) {
-                $response->addHTML(
-                    PMA_Util::getReloadNavigationScript()
-                );
-            }
         }
     }
     if (empty($_REQUEST['change_copy'])) {

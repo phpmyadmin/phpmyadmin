@@ -3250,14 +3250,10 @@ function PMA_addUserAndCreateDatabase($_error, $real_sql_query, $sql_query,
         }
 
         /**
-         * If we are not in an Ajax request, we can't reload navigation now
+         * Reload the navigation
          */
-        if ($GLOBALS['is_ajax_request'] != true) {
-            // this is needed in case tracking is on:
-            $GLOBALS['db'] = $username;
-            $GLOBALS['reload'] = true;
-            echo PMA_Util::getReloadNavigationScript();
-        }
+        $GLOBALS['reload'] = true;
+        $GLOBALS['db'] = $username;
 
         $q = 'GRANT ALL PRIVILEGES ON '
             . PMA_Util::backquote(

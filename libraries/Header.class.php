@@ -175,9 +175,6 @@ class PMA_Header
         $this->_scripts->addFile('functions.js');
         $this->_scripts->addFile('navigation.js');
         $this->_scripts->addFile('indexes.js');
-        $this->_scripts->addCode(
-            PMA_Util::getReloadNavigationScript(true)
-        );
     }
 
     /**
