@@ -239,7 +239,11 @@ class Node
     public function realParent()
     {
         $retval = $this->parents();
-        return $retval[0];
+        if (count($retval) > 0) {
+            return $retval[0];
+        } else {
+            return false;
+        }
     }
 
     /**

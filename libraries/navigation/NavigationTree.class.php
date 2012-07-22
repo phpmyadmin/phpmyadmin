@@ -242,6 +242,7 @@ class PMA_NavigationTree
      */
     private function _buildPathPart($path, $type2, $pos2, $type3, $pos3)
     {
+        $retval = true;
         if (count($path) > 1) {
             array_shift($path); // remove 'root'
             $db = $this->_tree->getChild($path[0]);
@@ -478,7 +479,6 @@ class PMA_NavigationTree
         }
         $this->groupNode($node);
         foreach ($node->children as $child) {
-            $this->groupNode($child);
             $this->groupTree($child);
         }
     }
@@ -704,7 +704,10 @@ class PMA_NavigationTree
     {
         $retval = '';
         $paths  = $node->getPaths();
-        if ($node->hasSiblings() || isset($_REQUEST['results'])) {
+        if ($node->hasSiblings()
+            || isset($_REQUEST['results'])
+            || $node->realParent() === false
+        ) {
             if (   $node->type == Node::CONTAINER
                 && count($node->children) == 0
                 && $GLOBALS['is_ajax_request'] != true
@@ -841,7 +844,7 @@ class PMA_NavigationTree
                     $link = vsprintf($node->links['icon'], $args);
                     $retval .= "<a$linkClass href='$link'>{$node->icon}</a>";
                 } else {
-                    $retval .= "<a>{$node->icon}</a>";
+                    $retval .= "<a href='#'>{$node->icon}</a>";
                 }
                 $retval .= "</div>";
             }
