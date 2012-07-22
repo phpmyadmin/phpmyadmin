@@ -357,6 +357,7 @@ class PMA_EPS
             //ob_end_clean();
         //}
         $output = $this->stringCommands;
+        PMA_Response::getInstance()->disable();
         PMA_downloadHeader($fileName . '.eps', 'image/x-eps', strlen($output));
         print $output;
     }
