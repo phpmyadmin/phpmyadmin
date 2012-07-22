@@ -493,14 +493,28 @@ class PMA_NavigationTree
     public function groupNode($node)
     {
         if ($node->type == Node::CONTAINER) {
+            $separators = array();
+            if (is_array($node->separator)) {
+                $separators = $node->separator;
+            } else if (strlen($node->separator)) {
+                $separators[] = $node->separator;
+            }
             $prefixes = array();
-            foreach ($node->children as $child) {
-                if (strlen($node->separator) && $node->separator_depth > 0) {
-                    $separator = $node->separator;
-                    $sep_pos = strpos($child->name, $separator);
-                    if ($sep_pos != false && $sep_pos != strlen($child->name)) {
-                        $sep_pos++;
-                        $prefix = substr($child->name, 0, $sep_pos);
+            if ($node->separator_depth > 0) {
+                foreach ($node->children as $child) {
+                    $prefix_pos = false;
+                    foreach ($separators as $separator) {
+                        $sep_pos = strpos($child->name, $separator);
+                        if ($sep_pos != false
+                            && $sep_pos != strlen($child->name)
+                            && $sep_pos != 0
+                            && ($prefix_pos == false || $sep_pos < $prefix_pos)
+                        ) {
+                            $prefix_pos = $sep_pos;
+                        }
+                    }
+                    if ($prefix_pos !== false) {
+                        $prefix = substr($child->name, 0, $prefix_pos);
                         if (! isset($prefixes[$prefix])) {
                             $prefixes[$prefix] = 1;
                         } else {
@@ -517,7 +531,11 @@ class PMA_NavigationTree
             if (count($prefixes)) {
                 $groups = array();
                 foreach ($prefixes as $key => $value) {
-                    $groups[$key] = new Node($key, Node::CONTAINER, true);
+                    $groups[$key] = new Node(
+                        $key,
+                        Node::CONTAINER,
+                        true
+                    );
                     $groups[$key]->separator = $node->separator;
                     $groups[$key]->separator_depth = $node->separator_depth - 1;
                     $groups[$key]->icon = '';
@@ -529,25 +547,27 @@ class PMA_NavigationTree
                     $groups[$key]->pos2 = $node->pos2;
                     $groups[$key]->pos3 = $node->pos3;
                     $node->addChild($groups[$key]);
-                    foreach ($node->children as $child) { // FIXME: this could be more efficient
-                        if (substr($child->name, 0, strlen($key)) == $key
-                            && $child->type == Node::OBJECT
-                        ) {
-                            $class = get_class($child);
-                            $new_child = PMA_NodeFactory::getInstance(
-                                $class,
-                                substr($child->name, strlen($key))
-                            );
-                            $new_child->real_name = $child->real_name;
-                            $new_child->icon = $child->icon;
-                            $new_child->links = $child->links;
-                            $new_child->pos2 = $child->pos2;
-                            $new_child->pos3 = $child->pos3;
-                            $groups[$key]->addChild($new_child);
-                            foreach ($child->children as $elm) {
-                                $new_child->addChild($elm);
+                    foreach ($separators as $separator) {
+                        foreach ($node->children as $child) { // FIXME: this could be more efficient
+                            if (substr($child->name, 0, strlen($key) + strlen($separator)) == $key . $separator
+                                && $child->type == Node::OBJECT
+                            ) {
+                                $class = get_class($child);
+                                $new_child = PMA_NodeFactory::getInstance(
+                                    $class,
+                                    substr($child->name, strlen($key) + strlen($separator))
+                                );
+                                $new_child->real_name = $child->real_name;
+                                $new_child->icon = $child->icon;
+                                $new_child->links = $child->links;
+                                $new_child->pos2 = $child->pos2;
+                                $new_child->pos3 = $child->pos3;
+                                $groups[$key]->addChild($new_child);
+                                foreach ($child->children as $elm) {
+                                    $new_child->addChild($elm);
+                                }
+                                $node->removeChild($child->name);
                             }
-                            $node->removeChild($child->name);
                         }
                     }
                 }
@@ -729,8 +749,13 @@ class PMA_NavigationTree
                 'columns',
                 'indexes'
             );
-            if (   ! in_array($node->parent->real_name, $sterile)
-                && ! $node->isNew
+            $parentName = '';
+            $parents = $node->parents(false, true);
+            if (count($parents)) {
+                $parentName = $parents[0]->real_name;
+            }
+            if ($node->is_group
+                || (! in_array($parentName, $sterile) && ! $node->isNew)
             ) {
                 $loaded = '';
                 if ($node->is_group) {
