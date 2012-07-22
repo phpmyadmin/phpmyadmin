@@ -52,15 +52,15 @@ if (isset($_POST['revert'])) {
 $error = null;
 if ($form_display->process(false) && !$form_display->hasErrors()) {
     // save settings
-    $old_settings = PMA_loadUserprefs();
     $result = PMA_saveUserprefs(ConfigFile::getInstance()->getConfigArray());
     if ($result === true) {
         // reload config
         $GLOBALS['PMA_Config']->loadUserPreferences();
         $hash = ltrim(filter_input(INPUT_POST, 'tab_hash'), '#');
         PMA_userprefsRedirect(
-            $forms, $old_settings, 'prefs_forms.php',
-            array('form' => $form_param), $hash
+            'prefs_forms.php',
+            array('form' => $form_param),
+            $hash
         );
         exit;
     } else {

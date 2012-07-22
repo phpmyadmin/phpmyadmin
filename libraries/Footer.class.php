@@ -93,15 +93,6 @@ class PMA_Footer
                         window.parent.refreshNavigation();
                     }"
                 );
-            } else if (isset($_GET['reload_left_frame'])
-                && $_GET['reload_left_frame'] == '1'
-            ) {
-                // reload left frame (used by user preferences)
-                $this->_scripts->addCode(
-                    "if (window.parent && window.parent.frame_navigation) {
-                        window.parent.frame_navigation.location.reload();
-                    }"
-                );
             }
 
             // set current db, table and sql query in the querywindow

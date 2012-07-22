@@ -142,29 +142,24 @@ if (isset($_POST['submit_export'])
         ) {
             $_SESSION['PMA_Theme_Manager']->setActiveTheme($config['ThemeDefault']);
             $_SESSION['PMA_Theme_Manager']->setThemeCookie();
-            $params['reload_left_frame'] = true;
         }
         if (isset($config['fontsize'])
             && $config['fontsize'] != $GLOBALS['PMA_Config']->get('fontsize')
         ) {
             $params['set_fontsize'] = $config['fontsize'];
-            $params['reload_left_frame'] = true;
         }
         if (isset($config['lang'])
             && $config['lang'] != $GLOBALS['lang']
         ) {
             $params['lang'] = $config['lang'];
-            $params['reload_left_frame'] = true;
         }
         if (isset($config['collation_connection'])
             && $config['collation_connection'] != $GLOBALS['collation_connection']
         ) {
             $params['collation_connection'] = $config['collation_connection'];
-            $params['reload_left_frame'] = true;
         }
 
         // save settings
-        $old_settings = PMA_loadUserprefs();
         $result = PMA_saveUserprefs($cf->getConfigArray());
         if ($result === true) {
             if ($return_url) {
@@ -183,14 +178,13 @@ if (isset($_POST['submit_export'])
             }
             // reload config
             $GLOBALS['PMA_Config']->loadUserPreferences();
-            PMA_userprefsRedirect($forms, $old_settings, $return_url, $params);
+            PMA_userprefsRedirect($return_url, $params);
             exit;
         } else {
             $error = $result;
         }
     }
 } else if (isset($_POST['submit_clear'])) {
-    $old_settings = PMA_loadUserprefs();
     $result = PMA_saveUserprefs(array());
     if ($result === true) {
         $params = array();
@@ -200,15 +194,13 @@ if (isset($_POST['submit_export'])
             );
             unset($_SESSION['PMA_Theme_Manager']);
             unset($_SESSION['PMA_Theme']);
-            $params['reload_left_frame'] = true;
         }
         if ($GLOBALS['PMA_Config']->get('fontsize') != '82%') {
             $GLOBALS['PMA_Config']->removeCookie('pma_fontsize');
-            $params['reload_left_frame'] = true;
         }
         $GLOBALS['PMA_Config']->removeCookie('pma_collaction_connection');
         $GLOBALS['PMA_Config']->removeCookie('pma_lang');
-        PMA_userprefsRedirect($forms, $old_settings, 'prefs_manage.php', $params);
+        PMA_userprefsRedirect('prefs_manage.php', $params);
         exit;
     } else {
         $error = $result;
