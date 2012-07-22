@@ -87,21 +87,6 @@ class PMA_Footer
                 });"
             );
 
-            // set current db, table and sql query in the querywindow
-            $query = '';
-            if (isset($GLOBALS['sql_query']) && strlen($GLOBALS['sql_query']) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
-                $query = PMA_escapeJsString($GLOBALS['sql_query']);
-            }
-            $this->_scripts->addCode(
-                "if (window.parent.reload_querywindow) {
-                    window.parent.reload_querywindow(
-                        '" . PMA_escapeJsString(PMA_ifSetOr($GLOBALS['db'], '')) . "',
-                        '" . PMA_escapeJsString(PMA_ifSetOr($GLOBALS['table'], '')) . "',
-                        '" . $query . "'
-                    );
-                }"
-            );
-
             if (! empty($GLOBALS['focus_querywindow'])) {
                 // set focus to the querywindow
                 $this->_scripts->addCode(

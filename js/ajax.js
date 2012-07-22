@@ -158,6 +158,14 @@ var AJAX = {
             if (data._reloadNavigation) {
                 PMA_reloadNavigation();
             }
+            if (data._reloadQuerywindow) {
+                var params = data._reloadQuerywindow;
+                reload_querywindow(
+                    params.db,
+                    params.table,
+                    params.sql_query
+                );
+            }
 
             if (data._title) {
                 $('title').replaceWith(data._title);
