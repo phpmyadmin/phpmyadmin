@@ -242,4 +242,25 @@ function PMA_getHtmlForChangeDatabaseCharset()
     
     return $html_output;
 }
+
+/**
+ * Get HTML snippet for export relational schema view
+ * 
+ * @param string $url_query
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForExportRelationalSchemaView($url_query)
+{
+    $html_output = '<div class="operations_full_width">' 
+        . '<fieldset><a href="schema_edit.php?' . $url_query . '">';
+    if ($GLOBALS['cfg']['PropertiesIconic']) {
+        $html_output .= PMA_CommonFunctions::getInstance()->getImage('b_edit.png');
+    }
+    $html_output .= __('Edit or export relational schema') 
+        . '</a></fieldset>'
+        . '</div>';
+    
+    return $html_output;
+}
 ?>

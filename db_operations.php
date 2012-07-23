@@ -453,8 +453,13 @@ if (!$is_information_schema) {
         && ! $cfgRelation['allworks']
         && $cfg['PmaNoRelation_DisableWarning'] == false
     ) {
-        $message = PMA_Message::notice(__('The phpMyAdmin configuration storage has been deactivated. To find out why click %shere%s.'));
-        $message->addParam('<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $url_query . '">', false);
+        $message = PMA_Message::notice(
+            __('The phpMyAdmin configuration storage has been deactivated. To find out why click %shere%s.')
+        );
+        $message->addParam(
+            '<a href="' . $cfg['PmaAbsoluteUri'] . 'chk_rel.php?' . $url_query . '">',
+            false
+        );
         $message->addParam('</a>', false);
         /* Show error if user has configured something, notice elsewhere */
         if (!empty($cfg['Servers'][$server]['pmadb'])) {
@@ -468,12 +473,8 @@ if (!$is_information_schema) {
 
 
 // not sure about displaying the PDF dialog in case db is information_schema
-if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
-    <!-- Work on PDF Pages -->
-
-    <?php
+if ($cfgRelation['pdfwork'] && $num_tables > 0) {
     // We only show this if we find something in the new pdf_pages table
-
     $test_query = '
          SELECT *
            FROM ' . $common_functions->backquote($GLOBALS['cfgRelation']['db'])
@@ -484,11 +485,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) { ?>
     /*
      * Export Relational Schema View
      */
-    echo '<div class="operations_full_width"><fieldset><a href="schema_edit.php?' . $url_query . '">';
-    if ($cfg['PropertiesIconic']) {
-        echo $common_functions->getImage('b_edit.png');
-    }
-    echo __('Edit or export relational schema') . '</a></fieldset></div>';
+    echo PMA_getHtmlForExportRelationalSchemaView($url_query);
 } // end if
 
 ?>
