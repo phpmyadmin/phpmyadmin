@@ -298,5 +298,43 @@ function PMA_runProcedureAndFunctionDefinitions()
     }
 }
 
+/**
+ * Get sql query and create database before copy
+ * 
+ * @return string $sql_query
+ */
+function PMA_getSqlQueryAndCreateDbBeforeCopy()
+{
+    // lower_case_table_names=1 `DB` becomes `db`
+    if (! PMA_DRIZZLE) {
+        $lower_case_table_names = PMA_DBI_fetch_value(
+            'SHOW VARIABLES LIKE "lower_case_table_names"', 0, 1
+        );
+        if ($lower_case_table_names === '1') {
+            $_REQUEST['newname'] = PMA_strtolower($_REQUEST['newname']);
+        }
+    }
+
+    $local_query = 'CREATE DATABASE ' 
+        . PMA_CommonFunctions::getInstance()->backquote($_REQUEST['newname']);
+    if (isset($_REQUEST['db_collation'])) {
+        $local_query .= ' DEFAULT' 
+            . PMA_generateCharsetQueryPart($_REQUEST['db_collation']);
+    }
+    $local_query .= ';';
+    $sql_query = $local_query;
+    // save the original db name because Tracker.class.php which
+    // may be called under PMA_DBI_query() changes $GLOBALS['db']
+    // for some statements, one of which being CREATE DATABASE
+    $original_db = $GLOBALS['db'];
+    PMA_DBI_query($local_query);
+    $GLOBALS['db'] = $original_db;
+
+    // rebuild the database list because PMA_Table::moveCopy
+    // checks in this list if the target db exists
+    $GLOBALS['pma']->databases->build();
+    
+    return $sql_query;
+}
 
 ?>

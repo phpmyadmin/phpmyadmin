@@ -73,33 +73,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             || (isset($create_database_before_copying)
             && $create_database_before_copying)
         ) {
-            // lower_case_table_names=1 `DB` becomes `db`
-            if (! PMA_DRIZZLE) {
-                $lower_case_table_names = PMA_DBI_fetch_value(
-                    'SHOW VARIABLES LIKE "lower_case_table_names"', 0, 1
-                );
-                if ($lower_case_table_names === '1') {
-                    $newname = PMA_strtolower($newname);
-                }
-            }
-
-            $local_query = 'CREATE DATABASE ' . $common_functions->backquote($newname);
-            if (isset($db_collation)) {
-                $local_query .= ' DEFAULT' . PMA_generateCharsetQueryPart($db_collation);
-            }
-            $local_query .= ';';
-            $sql_query = $local_query;
-            // save the original db name because Tracker.class.php which
-            // may be called under PMA_DBI_query() changes $GLOBALS['db']
-            // for some statements, one of which being CREATE DATABASE
-            $original_db = $db;
-            PMA_DBI_query($local_query);
-            $db = $original_db;
-            unset($original_db);
-
-            // rebuild the database list because PMA_Table::moveCopy
-            // checks in this list if the target db exists
-            $GLOBALS['pma']->databases->build();
+            $sql_query = PMA_getSqlQueryAndCreateDbBeforeCopy();
         }
 
         // here I don't use DELIMITER because it's not part of the
