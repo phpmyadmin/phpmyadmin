@@ -57,13 +57,13 @@ class PMA_User_Schema
      */
     public function processUserChoice()
     {
-        global $action_choose, $db, $cfgRelation;
+        global $db, $cfgRelation;
 
         if (isset($this->action)) {
             switch ($this->action) {
             case 'selectpage':
                 $this->chosenPage = $_REQUEST['chpage'];
-                if ($action_choose=="1") {
+                if ('1' == $_REQUEST['action_choose']) {
                     $this->deleteCoordinates(
                         $db,
                         $cfgRelation,
@@ -856,9 +856,8 @@ class PMA_User_Schema
     private function _editCoordinates($db, $cfgRelation)
     {
         for ($i = 0; $i < $this->c_table_rows; $i++) {
-            $arrvalue = 'c_table_' . $i;
-            global $$arrvalue;
-            $arrvalue = $$arrvalue;
+            $arrvalue = $_POST['c_table_' . $i];
+
             if (! isset($arrvalue['x']) || $arrvalue['x'] == '') {
                 $arrvalue['x'] = 0;
             }
