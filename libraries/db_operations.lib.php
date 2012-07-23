@@ -263,4 +263,40 @@ function PMA_getHtmlForExportRelationalSchemaView($url_query)
     
     return $html_output;
 }
+
+/**
+ * Run the Procedure definitions and function definitions
+ * 
+ * to avoid selecting alternatively the current and new db
+ * we would need to modify the CREATE definitions to qualify
+ * the db name
+ */
+function PMA_runProcedureAndFunctionDefinitions()
+{
+    $procedure_names = PMA_DBI_get_procedures_or_functions($GLOBALS['db'], 'PROCEDURE');
+    if ($procedure_names) {
+        foreach ($procedure_names as $procedure_name) {
+            PMA_DBI_select_db($GLOBALS['db']);
+            $tmp_query = PMA_DBI_get_definition($GLOBALS['db'], 'PROCEDURE', $procedure_name);
+            // collect for later display
+            $GLOBALS['sql_query'] .= "\n" . $tmp_query;
+            PMA_DBI_select_db($_REQUEST['newname']);
+            PMA_DBI_query($tmp_query);
+        }
+    }
+
+    $function_names = PMA_DBI_get_procedures_or_functions($GLOBALS['db'], 'FUNCTION');
+    if ($function_names) {
+        foreach ($function_names as $function_name) {
+            PMA_DBI_select_db($GLOBALS['db']);
+            $tmp_query = PMA_DBI_get_definition($GLOBALS['db'], 'FUNCTION', $function_name);
+            // collect for later display
+            $GLOBALS['sql_query'] .= "\n" . $tmp_query;
+            PMA_DBI_select_db($_REQUEST['newname']);
+            PMA_DBI_query($tmp_query);
+        }
+    }
+}
+
+
 ?>
