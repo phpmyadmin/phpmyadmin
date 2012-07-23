@@ -90,7 +90,6 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
         $GLOBALS['sql_constraints_query_full_db'] = array();
 
         $tables_full = PMA_DBI_get_tables_full($db);
-        $views = array();
 
         require_once "libraries/plugin_interface.lib.php";
         // remove all foreign key constraints, otherwise we can get errors
@@ -105,21 +104,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
         );
         PMA_removeAllForeignKeyConstraints($tables_full, $export_sql_plugin, $move);
 
-        foreach ($tables_full as $each_table => $tmp) {
-            // to be able to rename a db containing views,
-            // first all the views are collected and a stand-in is created
-            // the real views are created after the tables
-            if (PMA_Table::isView($db, $each_table)) {
-                $views[] = $each_table;
-                // Create stand-in definition to resolve view dependencies
-                $sql_view_standin = $export_sql_plugin->getTableDefStandIn(
-                    $db, $each_table, "\n"
-                );
-                PMA_DBI_select_db($newname);
-                PMA_DBI_query($sql_view_standin);
-                $GLOBALS['sql_query'] .= "\n" . $sql_view_standin;
-            }
-        }
+        $views = PMA_getViewsAndCreateSqlViewStandIn($tables_full, $export_sql_plugin);
 
         foreach ($tables_full as $each_table => $tmp) {
             // skip the views; we have creted stand-in definitions

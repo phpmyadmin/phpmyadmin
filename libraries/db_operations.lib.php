@@ -361,4 +361,33 @@ function PMA_removeAllForeignKeyConstraints($tables_full, $export_sql_plugin, $m
         }
     }
 }
+
+/**
+ * Get views as an array and create SQL view stand-in
+ * 
+ * @param array $tables_full            array of all tables in given db or dbs
+ * @param instance $export_sql_plugin   export plugin instance
+ * 
+ * @return array $views
+ */
+function PMA_getViewsAndCreateSqlViewStandIn($tables_full, $export_sql_plugin)
+{
+    $views = array();
+    foreach ($tables_full as $each_table => $tmp) {
+        // to be able to rename a db containing views,
+        // first all the views are collected and a stand-in is created
+        // the real views are created after the tables
+        if (PMA_Table::isView($GLOBALS['db'], $each_table)) {
+            $views[] = $each_table;
+            // Create stand-in definition to resolve view dependencies
+            $sql_view_standin = $export_sql_plugin->getTableDefStandIn(
+                $GLOBALS['db'], $each_table, "\n"
+            );
+            PMA_DBI_select_db($_REQUEST['newname']);
+            PMA_DBI_query($sql_view_standin);
+            $GLOBALS['sql_query'] .= "\n" . $sql_view_standin;
+        }
+    }
+    return $views;
+}
 ?>
