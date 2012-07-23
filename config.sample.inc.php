@@ -86,6 +86,22 @@ $cfg['SaveDir'] = '';
 //$cfg['MaxRows'] = 50;
 
 /**
+ * For InnoDB tables, determines for how large tables phpMyAdmin should 
+ * get the exact row count using SELECT COUNT. If the approximate row 
+ * count as returned by SHOW TABLE STATUS is smaller than this value, 
+ * SELECT COUNT will be used, otherwise the approximate count will be used.
+*/
+$cfg['MaxExactCount'] = 0;
+
+/** 
+ * For VIEWs, since obtaining the exact count could have an impact on
+ * performance, this value is the maximum to be displayed, using a 
+ * SELECT COUNT ... LIMIT. 
+ * Setting this to 0 bypasses any row counting.
+ */
+$cfg['MaxExactCountViews'] = 0;
+
+/**
  * disallow editing of binary fields
  * valid values are:
  *   false    allow editing
