@@ -30,8 +30,8 @@ class PMA_bookmark_test extends PHPUnit_Framework_TestCase
             function PMA_DBI_fetch_result()
             {
                 return array(
-                    'id' => 'id',
-                    'label' => 'label'
+                    'table1',
+                    'table2'
                 );
             }
         }
@@ -68,8 +68,8 @@ class PMA_bookmark_test extends PHPUnit_Framework_TestCase
     public function testPMA_Bookmark_getList(){
         $this->assertEquals(
             array(
-                'id' => 'id (shared)',
-                'label' => 'label (shared)'
+                0 => 'table1 (shared)',
+                1 => 'table2 (shared)'
             ),
             PMA_Bookmark_getList('phpmyadmin')
         );
