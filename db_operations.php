@@ -430,46 +430,24 @@ if (!$is_information_schema) {
         echo PMA_getHtmlForRenameDatabase();
     }
 
-// Drop link if allowed
-// Don't even try to drop information_schema. You won't be able to. Believe me. You won't.
-// Don't allow to easily drop mysql database, RFE #1327514.
-if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase'])
-    && ! $db_is_information_schema
-    && (PMA_DRIZZLE || $db != 'mysql')
-) {
-    echo PMA_getHtmlForDropDatabaseLink();
-}
-/**
- * Copy database
- */
-echo PMA_getHtmlForCopyDatabase();
+    // Drop link if allowed
+    // Don't even try to drop information_schema. You won't be able to. Believe me. You won't.
+    // Don't allow to easily drop mysql database, RFE #1327514.
+    if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase'])
+        && ! $db_is_information_schema
+        && (PMA_DRIZZLE || $db != 'mysql')
+    ) {
+        echo PMA_getHtmlForDropDatabaseLink();
+    }
+    /**
+     * Copy database
+     */
+    echo PMA_getHtmlForCopyDatabase();
 
     /**
      * Change database charset
      */
-    echo '<div class="operations_half_width"><form id="change_db_charset_form" ';
-    if ($GLOBALS['cfg']['AjaxEnable']) {
-        echo ' class="ajax" ';
-    }
-    echo 'method="post" action="db_operations.php">'
-       . PMA_generate_common_hidden_inputs($db, $table)
-       . '<fieldset>' . "\n"
-       . '    <legend>';
-    if ($cfg['PropertiesIconic']) {
-        echo $common_functions->getImage('s_asci.png');
-    }
-    echo '    <label for="select_db_collation">' . __('Collation') . ':</label>' . "\n"
-       . '    </legend>' . "\n"
-       . PMA_generateCharsetDropdownBox(
-           PMA_CSDROPDOWN_COLLATION, 'db_collation',
-           'select_db_collation', $db_collation, false, 3
-       )
-       . '</fieldset>'
-       . '<fieldset class="tblFooters">'
-       . '    <input type="submit" name="submitcollation"'
-       . ' value="' . __('Go') . '" />' . "\n"
-       . '</fieldset>' . "\n"
-       . '</form></div>' . "\n";
+    echo PMA_getHtmlForChangeDatabaseCharset();
 
     if ($num_tables > 0
         && ! $cfgRelation['allworks']

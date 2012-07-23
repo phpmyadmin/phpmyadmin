@@ -204,4 +204,42 @@ function PMA_getHtmlForCopyDatabase()
     
     return $html_output;
 }
+
+/**
+ * Get HTML snippet for change database charset
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForChangeDatabaseCharset()
+{
+    $html_output = '<div class="operations_half_width"><form id="change_db_charset_form" ';
+    if ($GLOBALS['cfg']['AjaxEnable']) {
+        $html_output .= ' class="ajax" ';
+    }
+    $html_output .= 'method="post" action="db_operations.php">';
+    
+    $html_output .= PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']);
+    
+    $html_output .= '<fieldset>' . "\n"
+       . '    <legend>';
+    if ($GLOBALS['cfg']['PropertiesIconic']) {
+        $html_output .= PMA_CommonFunctions::getInstance()->getImage('s_asci.png');
+    }
+    $html_output .= '<label for="select_db_collation">' . __('Collation') . ':</label>' . "\n"
+       . '</legend>' . "\n"
+       . PMA_generateCharsetDropdownBox(
+           PMA_CSDROPDOWN_COLLATION, 'db_collation',
+           'select_db_collation',
+           (isset ($_REQUEST['db_collation']) ? $_REQUEST['db_collation'] : ''),
+           false, 3
+       )
+       . '</fieldset>'
+       . '<fieldset class="tblFooters">'
+       . '<input type="submit" name="submitcollation"'
+       . ' value="' . __('Go') . '" />' . "\n"
+       . '</fieldset>' . "\n"
+       . '</form></div>' . "\n";
+    
+    return $html_output;
+}
 ?>
