@@ -337,4 +337,28 @@ function PMA_getSqlQueryAndCreateDbBeforeCopy()
     return $sql_query;
 }
 
+/**
+ * remove all foreign key constraints
+ * 
+ * @param array $tables_full            array of all tables in given db or dbs
+ * @param instance $export_sql_plugin   export plugin instance
+ * @param boolean $move                 whether databse name is empty or not
+ */
+function PMA_removeAllForeignKeyConstraints($tables_full, $export_sql_plugin, $move)
+{
+    foreach ($tables_full as $each_table => $tmp) {
+        $sql_constraints = '';
+        $sql_drop_foreign_keys = '';
+        $sql_structure = $export_sql_plugin->getTableDef(
+            $GLOBALS['db'], $each_table, "\n", '', false, false
+        );
+        if ($move && ! empty($sql_drop_foreign_keys)) {
+            PMA_DBI_query($sql_drop_foreign_keys);
+        }
+        // keep the constraint we just dropped
+        if (! empty($sql_constraints)) {
+            $GLOBALS['sql_constraints_query_full_db'][] = $sql_constraints;
+        }
+    }
+}
 ?>
