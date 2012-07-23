@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-07-12 23:10+0200\n"
+"PO-Revision-Date: 2012-07-23 04:24+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -1654,7 +1654,7 @@ msgstr "Indstillinger for filtre på logtabel"
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:201
 msgid "Filter"
-msgstr "Filter"
+msgstr "Filtrér"
 
 #: js/messages.php:202
 msgid "Filter queries by word/regexp:"
@@ -5184,10 +5184,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:474 libraries/sql_query_form.lib.php:352
-#, fuzzy
 #| msgid "Hide query box"
 msgid "Retain query box"
-msgstr "Skjul forespørgeselsboks"
+msgstr "Bevar forespørgeselsboks"
 
 #: libraries/config/messages.inc.php:475
 msgid "Allow to display database and table statistics (eg. space usage)"
@@ -6149,7 +6148,7 @@ msgstr "Write-anmodninger"
 
 #: libraries/engines/innodb.lib.php:230
 msgid "Read misses"
-msgstr "Read misses"
+msgstr "Missede læsninger"
 
 #: libraries/engines/innodb.lib.php:236
 msgid "Write waits"
@@ -6636,7 +6635,7 @@ msgstr "Rapporttitel:"
 
 #: libraries/export/php_array.php:18
 msgid "PHP array"
-msgstr "PHP array"
+msgstr "PHP-array"
 
 #: libraries/export/sql.php:40
 msgid ""
@@ -7270,7 +7269,7 @@ msgstr "Viser kolonne-kommentarer"
 #: libraries/relation.lib.php:116 libraries/tbl_properties.inc.php:136
 #: transformation_overview.php:46
 msgid "Browser transformation"
-msgstr "Browser transformation"
+msgstr "Browser-transformation"
 
 #: libraries/relation.lib.php:119
 msgid ""
@@ -7377,7 +7376,7 @@ msgstr "Værdi"
 
 #: libraries/replication_gui.lib.php:178 server_binlog.php:183
 msgid "Server ID"
-msgstr "Server ID"
+msgstr "Server-ID"
 
 #: libraries/replication_gui.lib.php:197
 msgid ""
@@ -8496,7 +8495,7 @@ msgstr "Flere indstillinger"
 
 #: main.php:169
 msgid "Database server"
-msgstr "Database server"
+msgstr "Database-server"
 
 #: main.php:172
 msgid "Software"
@@ -8714,10 +8713,9 @@ msgid "Toggle small/big"
 msgstr "Skift mellem små/store"
 
 #: pmd_general.php:99
-#, fuzzy
 #| msgid "To select relation, click :"
 msgid "Toggle relation lines"
-msgstr "For at vælge relation, klik :"
+msgstr "Slå relationslinjer til eller fra"
 
 #: pmd_general.php:104 pmd_pdf.php:76
 msgid "Import/Export coordinates for PDF schema"
@@ -9346,10 +9344,9 @@ msgid "Any"
 msgstr "Enhver"
 
 #: server_privileges.php:1565
-#, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
-msgstr "Brugeroversigt"
+msgstr "Oversigt over brugere"
 
 #: server_privileges.php:1705 server_privileges.php:1899
 #: server_privileges.php:2258
@@ -9732,7 +9729,7 @@ msgstr "Alle statusvariable"
 
 #: server_status.php:790
 msgid "Monitor"
-msgstr "Monitor"
+msgstr "Monitorering"
 
 #: server_status.php:791
 msgid "Advisor"
@@ -10576,7 +10573,7 @@ msgstr "Antallet af tråde, der ikke sover."
 
 #: server_status.php:1560
 msgid "Start Monitor"
-msgstr "Start Monitor"
+msgstr "Start monitorering"
 
 #: server_status.php:1569
 msgid "Instructions/Setup"
@@ -11592,7 +11589,7 @@ msgstr "Vedligehold af partition"
 #: tbl_operations.php:766
 #, php-format
 msgid "Partition %s"
-msgstr "Partition %s"
+msgstr "Partitionen %s"
 
 #: tbl_operations.php:769
 msgid "Analyze"
@@ -11600,7 +11597,7 @@ msgstr "Analyser"
 
 #: tbl_operations.php:770
 msgid "Check"
-msgstr "Check"
+msgstr "Tjek"
 
 #: tbl_operations.php:771
 msgid "Optimize"
@@ -11757,7 +11754,7 @@ msgstr "Rediger view"
 
 #: tbl_structure.php:640
 msgid "Relation view"
-msgstr "Relation view"
+msgstr "Relations-visning"
 
 #: tbl_structure.php:648
 msgid "Propose table structure"
@@ -11881,7 +11878,7 @@ msgstr "SQL-udtræk (hentning af fil)"
 
 #: tbl_tracking.php:565
 msgid "SQL dump"
-msgstr "SQL dump"
+msgstr "SQL-dump"
 
 #: tbl_tracking.php:566
 msgid "This option will replace your table and contained data."
