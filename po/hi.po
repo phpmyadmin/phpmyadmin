@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-18 11:12+0200\n"
-"PO-Revision-Date: 2012-07-18 14:49+0200\n"
+"PO-Revision-Date: 2012-07-19 08:56+0200\n"
 "Last-Translator: rajnikant sharma <rajtrivedi2001@gmail.com>\n"
 "Language-Team: hindi <hi@li.org>\n"
 "Language: hi\n"
@@ -1883,10 +1883,9 @@ msgid "Values for a new column"
 msgstr "\"%s\" काँलम के लिए मान "
 
 #: js/messages.php:275
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
-msgstr "हर एक मान अलग क्षेत्र में दर्ज करें."
+msgstr "हर एक मान अलग क्षेत्र में दर्ज करें"
 
 #: js/messages.php:276
 #, fuzzy, php-format

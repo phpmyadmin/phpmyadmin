@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-18 11:12+0200\n"
-"PO-Revision-Date: 2012-07-05 21:15+0200\n"
+"PO-Revision-Date: 2012-07-22 18:51+0200\n"
 "Last-Translator: Ashiyane Digital Security Team <HeXa.ashiyane@gmail.com>\n"
 "Language-Team: persian <fa@li.org>\n"
 "Language: fa\n"
@@ -2888,11 +2888,11 @@ msgstr ""
 
 #: libraries/File.class.php:282
 msgid "Missing a temporary folder."
-msgstr ""
+msgstr "از دست دادن یک پوشه موقت."
 
 #: libraries/File.class.php:285
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "برای نوشتن فایل بر روی دیسک شکست خورده."
 
 #: libraries/File.class.php:288
 msgid "File upload stopped by extension."
@@ -2900,7 +2900,7 @@ msgstr ""
 
 #: libraries/File.class.php:291
 msgid "Unknown error in file upload."
-msgstr ""
+msgstr "خطای ناشناخته در آپلود فایل."
 
 #: libraries/File.class.php:467
 msgid ""
@@ -12475,10 +12475,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:188
-#, fuzzy
 #| msgid "Space usage"
 msgid "Query cache max size"
-msgstr "فضاي استفاده‌شده"
+msgstr " حداکثر اندازه حافظه پنهان جست جو"
 
 #: libraries/advisory_rules.txt:191
 msgid ""
@@ -12562,7 +12561,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Start"
 msgid "Sort rows"
-msgstr "شنبه"
+msgstr "مرتب کردن بر اساس ردیف"
 
 #: libraries/advisory_rules.txt:221
 msgid "There are lots of rows being sorted."
@@ -12673,7 +12672,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:255
 msgid "tmp_table_size vs. max_heap_table_size"
-msgstr ""
+msgstr "tmp_table_size در مقابل max_heap_table_size"
 
 #: libraries/advisory_rules.txt:258
 msgid "tmp_table_size and max_heap_table_size are not the same."
@@ -12693,9 +12692,8 @@ msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:262
-#, fuzzy
 msgid "Percentage of temp tables on disk"
-msgstr "توضيحات جدول"
+msgstr "درصد جداول موقت روی دیسک"
 
 #: libraries/advisory_rules.txt:265 libraries/advisory_rules.txt:272
 msgid ""
@@ -12763,7 +12761,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:294
 msgid "key_buffer_size is 0"
-msgstr ""
+msgstr " است key_buffer_size 0"
 
 #: libraries/advisory_rules.txt:296
 #, fuzzy, php-format
@@ -12799,9 +12797,8 @@ msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:311
-#, fuzzy
 msgid "Percentage of index reads from memory"
-msgstr "پرس و جوي SQL"
+msgstr "درصد index از حافظه خوانده شده"
 
 #: libraries/advisory_rules.txt:314
 #, php-format
@@ -12810,7 +12807,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:315
 msgid "You may need to increase {key_buffer_size}."
-msgstr ""
+msgstr "شما ممکن است نیاز به افزایش  key_buffer_size داشته باشید."
 
 #: libraries/advisory_rules.txt:316
 #, php-format

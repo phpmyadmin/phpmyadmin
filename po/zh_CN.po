@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-18 11:12+0200\n"
-"PO-Revision-Date: 2012-04-09 07:19+0200\n"
-"Last-Translator: Vian Zhao <brovian@gmail.com>\n"
+"PO-Revision-Date: 2012-07-21 08:15+0200\n"
+"Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 0.8\n"
+"X-Generator: Weblate 1.1\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:790 server_privileges.php:1851
@@ -109,7 +109,7 @@ msgstr "创建数据库 %1$s 成功。"
 
 #: db_datadict.php:49 db_operations.php:424
 msgid "Database comment: "
-msgstr "数据库注释："
+msgstr "数据库注释: "
 
 #: db_datadict.php:154 libraries/schema/Pdf_Relation_Schema.class.php:1365
 #: libraries/tbl_properties.inc.php:828 tbl_operations.php:378
@@ -257,7 +257,7 @@ msgstr "是"
 
 #: db_export.php:29
 msgid "View dump (schema) of database"
-msgstr "查看数据库的转存(大纲)。"
+msgstr "查看数据库的转储(大纲)"
 
 #: db_export.php:33 db_printview.php:93 db_qbe.php:144 db_tracking.php:52
 #: export.php:414 navigation.php:280
@@ -530,7 +530,7 @@ msgstr "未知"
 #: db_structure.php:372 tbl_operations.php:729
 #, php-format
 msgid "Table %s has been emptied"
-msgstr "已清空表 %s "
+msgstr "已清空表 %s"
 
 #: db_structure.php:389 tbl_operations.php:748
 #, php-format
@@ -540,7 +540,7 @@ msgstr "已删除视图 %s"
 #: db_structure.php:389 tbl_operations.php:748
 #, php-format
 msgid "Table %s has been dropped"
-msgstr "已删除表 %s "
+msgstr "已删除表 %s"
 
 #: db_structure.php:399 tbl_create.php:286
 msgid "Tracking is active."
@@ -797,7 +797,7 @@ msgstr "SRID"
 #: gis_data_editor.php:141 js/messages.php:326
 #: libraries/DisplayResults.class.php:1619
 msgid "Geometry"
-msgstr "几何学"
+msgstr "几何体"
 
 #: gis_data_editor.php:161 js/messages.php:322
 msgid "Point"
@@ -825,10 +825,9 @@ msgid "Add a point"
 msgstr "添加点"
 
 #: gis_data_editor.php:209 js/messages.php:324
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "换行符"
+msgstr "线"
 
 #: gis_data_editor.php:212 gis_data_editor.php:268 js/messages.php:328
 msgid "Outer Ring"
@@ -839,16 +838,14 @@ msgid "Inner Ring"
 msgstr "内环"
 
 #: gis_data_editor.php:241
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "添加新用户"
+msgstr "添加线"
 
 #: gis_data_editor.php:241 gis_data_editor.php:293 js/messages.php:330
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "添加新用户"
+msgstr "添加内环"
 
 #: gis_data_editor.php:255 js/messages.php:325
 msgid "Polygon"
@@ -859,10 +856,9 @@ msgid "Add a polygon"
 msgstr "添加多边形"
 
 #: gis_data_editor.php:299
-#, fuzzy
 #| msgid "Add event"
 msgid "Add geometry"
-msgstr "添加事件"
+msgstr "添加几何体"
 
 #: gis_data_editor.php:306
 msgid "Output"
@@ -872,7 +868,7 @@ msgstr "输出"
 msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
-msgstr ""
+msgstr "从 \"函数\" 列中选择 \"GeomFromText\" 并粘贴下列内容到 \"值\" 列中"
 
 #: import.php:88
 #, php-format
@@ -1420,7 +1416,7 @@ msgstr "除以 %s"
 
 #: js/messages.php:168
 msgid "Unit"
-msgstr ""
+msgstr "单位"
 
 #: js/messages.php:170
 msgid "From slow log"
@@ -1431,10 +1427,9 @@ msgid "From general log"
 msgstr "从通用日志"
 
 #: js/messages.php:172
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "正在加载日志"
+msgstr "正在分析日志"
 
 #: js/messages.php:173
 msgid "Analysing & loading logs. This may take a while."
@@ -1467,10 +1462,9 @@ msgid "Jump to Log table"
 msgstr "转到日志表"
 
 #: js/messages.php:180
-#, fuzzy
 #| msgid "No data"
 msgid "No data found"
-msgstr "无数据"
+msgstr "未找到数据"
 
 #: js/messages.php:181
 msgid "Log analysed, but no data found in this time span."
@@ -1481,10 +1475,9 @@ msgid "Analyzing..."
 msgstr "正在分析。。。"
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
-msgstr "解释 SQL"
+msgstr "分析输出"
 
 #: js/messages.php:186 js/messages.php:516
 #: libraries/plugins/export/ExportHtmlword.class.php:477
@@ -1516,16 +1509,14 @@ msgid "Chart"
 msgstr "图表"
 
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Add chart"
 msgid "Edit chart"
-msgstr "添加图表"
+msgstr "编辑图表"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Series:"
 msgid "Series"
-msgstr "数据:"
+msgstr "数据"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
@@ -1576,7 +1567,7 @@ msgstr "重新载入页面"
 
 #: js/messages.php:208
 msgid "Affected rows:"
-msgstr "影响的行数: "
+msgstr "影响的行数:"
 
 #: js/messages.php:210
 msgid "Failed parsing config file. It doesn't seem to be valid JSON code."
@@ -1596,16 +1587,14 @@ msgid "Import"
 msgstr "导入"
 
 #: js/messages.php:213
-#, fuzzy
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
-msgstr "无法导入设置"
+msgstr "导入监控设置"
 
 #: js/messages.php:214
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "请选择主键或唯一键"
+msgstr "请选择要导入的文件"
 
 #: js/messages.php:216
 msgid "Analyse Query"
@@ -1703,7 +1692,7 @@ msgstr "正在修改字符集"
 
 #: js/messages.php:249
 msgid "Table must have at least one column"
-msgstr "数据表至少要有一个字段。"
+msgstr "数据表至少要有一个字段"
 
 #: js/messages.php:254
 msgid "Insert Table"
@@ -1831,10 +1820,9 @@ msgid "Show search criteria"
 msgstr "显示搜索条件"
 
 #: js/messages.php:298 libraries/TableSearch.class.php:225
-#, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
-msgstr "搜索"
+msgstr "缩放搜索"
 
 #: js/messages.php:300
 msgid "Each point represents a data row."
@@ -1842,11 +1830,11 @@ msgstr "每个点代表一个数据行。"
 
 #: js/messages.php:302
 msgid "Hovering over a point will show its label."
-msgstr "悬浮至一个点上会显示它的标签"
+msgstr "悬浮至一个点上会显示它的标签。"
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "要放大，请用鼠标选择图表的一块区域。"
 
 #: js/messages.php:306
 #, fuzzy
@@ -1856,11 +1844,11 @@ msgstr "点击重置缩放连接以回到初始状态"
 
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."
-msgstr ""
+msgstr "点击数据点以查看或编辑数据行。"
 
 #: js/messages.php:310
 msgid "The plot can be resized by dragging it along the bottom right corner."
-msgstr "拖拽右下角以改变图表大小"
+msgstr "拖拽右下角以改变图表大小。"
 
 #: js/messages.php:312
 msgid "Select two columns"
@@ -1956,7 +1944,7 @@ msgstr ""
 #: js/messages.php:356
 msgid ""
 "You can also edit most columns<br />by clicking directly on their content."
-msgstr "你可以通过直接点击它们的内容以编辑绝大部分列"
+msgstr "您可以通过直接点击内容以编辑绝大部分字段。"
 
 #: js/messages.php:357
 msgid "Go to link"
@@ -2004,7 +1992,7 @@ msgstr "有新的 phpMyAdmin 可用，请考虑升级。最新的版本是 %s，
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:373
 msgid ", latest stable version:"
-msgstr "，最新稳定版本: "
+msgstr "，最新稳定版本:"
 
 #: js/messages.php:374
 msgid "up to date"
@@ -2249,11 +2237,10 @@ msgstr "日历-月-年"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:508
-#, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
-msgstr "无"
+msgstr "年"
 
 #: js/messages.php:517
 msgid "Hour"
@@ -2388,7 +2375,7 @@ msgstr "SQL 查询"
 #: libraries/rte/rte_triggers.lib.php:91
 #: libraries/rte/rte_triggers.lib.php:104
 msgid "MySQL said: "
-msgstr "MySQL 返回："
+msgstr "MySQL 返回: "
 
 #: libraries/CommonFunctions.class.php:1214
 msgid "Failed to connect to SQL validator!"
@@ -2774,11 +2761,11 @@ msgstr "隐藏浏览器转换"
 
 #: libraries/DisplayResults.class.php:1620
 msgid "Well Known Text"
-msgstr ""
+msgstr "文本表达式 (WKT)"
 
 #: libraries/DisplayResults.class.php:1621
 msgid "Well Known Binary"
-msgstr ""
+msgstr "二进制表达式 (WKB)"
 
 #: libraries/DisplayResults.class.php:3150
 #: libraries/DisplayResults.class.php:3166
@@ -2881,8 +2868,7 @@ msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr ""
-"移动上传文件时发生错误，参见 [a@./Documentation.html#faq1_11@Documentation]"
-"FAQ 1.11[/a]。"
+"移动上传文件时发生错误，参见 [a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]"
 
 #: libraries/File.class.php:485
 msgid "Error while moving uploaded file."
@@ -2946,14 +2932,14 @@ msgstr "已删除主键"
 #: libraries/Index.class.php:509
 #, php-format
 msgid "Index %s has been dropped"
-msgstr "已删除索引 %s "
+msgstr "已删除索引 %s"
 
 #: libraries/Index.class.php:632
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
-msgstr "索引 %1$s 和 %2$s 可能是相同的，其中一个将可能被删除"
+msgstr "索引 %1$s 和 %2$s 可能是相同的，其中一个将可能被删除。"
 
 #: libraries/List_Database.class.php:404 libraries/Menu.class.php:457
 #: libraries/config/messages.inc.php:181 server_databases.php:133
@@ -3232,10 +3218,9 @@ msgid "How to use"
 msgstr "如何使用"
 
 #: libraries/TableSearch.class.php:1210
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "重置"
+msgstr "重置缩放"
 
 #: libraries/Theme.class.php:169
 #, php-format
@@ -3263,7 +3248,7 @@ msgstr "未找到主题 %s ！"
 #: libraries/Theme_Manager.class.php:271
 #, php-format
 msgid "Theme path not found for theme %s!"
-msgstr "找不到主题 %s 的路径"
+msgstr "找不到主题 %s 的路径！"
 
 #: libraries/Theme_Manager.class.php:363 themes.php:16 themes.php:21
 msgid "Theme"
@@ -3947,7 +3932,7 @@ msgstr ""
 msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns"
-msgstr ""
+msgstr "定义编辑 CHAR 和 VARCHAR 字段时所使用输入框的最小大小"
 
 #: libraries/config/messages.inc.php:37
 msgid "Minimum size for input field"
@@ -3957,11 +3942,11 @@ msgstr "输入框最小大小"
 msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns"
-msgstr "为CHAR和VARCHAR列声明输入区域最大大小"
+msgstr "定义编辑 CHAR 和 VARCHAR 字段时所使用输入框的最大大小"
 
 #: libraries/config/messages.inc.php:39
 msgid "Maximum size for input field"
-msgstr "输入区域最大大小"
+msgstr "输入框最大大小"
 
 #: libraries/config/messages.inc.php:40
 msgid "Number of columns for CHAR/VARCHAR textareas"
@@ -5301,7 +5286,7 @@ msgstr "禁止使用 INFORMATION_SCHEMA"
 
 #: libraries/config/messages.inc.php:395
 msgid "What PHP extension to use; you should use mysqli if supported"
-msgstr "要使用的 PHP 扩展，如果支持，推荐使用 mysqli。"
+msgstr "要使用的 PHP 扩展，如果支持，推荐使用 mysqli"
 
 #: libraries/config/messages.inc.php:396
 msgid "PHP extension to use"
@@ -5595,9 +5580,7 @@ msgid ""
 "Please note that enabling this has no effect with [kbd]config[/kbd] "
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly"
-msgstr ""
-"注意：该选项不影响 [kbd]config[/kbd] 认证方式，因为密码是保存在配置文件中，该"
-"选项也不限制直接执行可实现相同功能的命令。"
+msgstr "注意：该选项不影响 [kbd]config[/kbd] 认证方式，因为密码是保存在配置文件中，该选项也不限制直接执行可实现相同功能的命令"
 
 #: libraries/config/messages.inc.php:458
 msgid "Show password change form"
@@ -5964,7 +5947,7 @@ msgstr "MS Excel 的 CSV 格式"
 #: libraries/config/user_preferences.forms.php:248
 #: libraries/plugins/export/ExportHtmlword.class.php:39
 msgid "Microsoft Word 2000"
-msgstr "Microsoft Word 2000"
+msgstr "微软 Word 2000"
 
 #: libraries/config/setup.forms.php:356
 #: libraries/config/user_preferences.forms.php:257
@@ -6028,7 +6011,7 @@ msgstr "可能的深度递归攻击"
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
-msgstr "服务器无响应(或者本地 MySQL 服务器的套接字没有正确配置)"
+msgstr "服务器无响应(或者本地 MySQL 服务器的套接字没有正确配置)。"
 
 #: libraries/database_interface.lib.php:1969
 msgid "The server is not responding."
@@ -6125,7 +6108,7 @@ msgstr "正在导出数据表“%s”中的记录"
 
 #: libraries/display_export.lib.php:105
 msgid "Export Method:"
-msgstr "导出方式"
+msgstr "导出方式:"
 
 #: libraries/display_export.lib.php:121
 msgid "Quick - display only the minimal options"
@@ -6381,7 +6364,7 @@ msgstr "格式特定选项："
 #: libraries/display_select_lang.lib.php:52
 #: libraries/display_select_lang.lib.php:53 setup/frames/index.inc.php:75
 msgid "Language"
-msgstr "Language"
+msgstr "语言"
 
 #: libraries/engines/bdb.lib.php:25 main.php:281
 msgid "Version information"
@@ -6520,8 +6503,8 @@ msgid ""
 "creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA "
 "INFILE)."
 msgstr ""
-"重建 MyISAM 索引时 MySQL 最多可以使用的临时文件大小 (在 REPAIR TABLE、ALTER "
-"TABLE 或 LOAD DATA INFILE 时)"
+"重建 MyISAM 索引时 MySQL 最多可以使用的临时文件大小 (在 REPAIR TABLE、ALTER TABLE 或 LOAD DATA "
+"INFILE 时)。"
 
 #: libraries/engines/myisam.lib.php:42
 msgid "Maximum size for temporary files on index creation"
@@ -6544,9 +6527,7 @@ msgstr "修复线程"
 msgid ""
 "If this value is greater than 1, MyISAM table indexes are created in "
 "parallel (each index in its own thread) during the repair by sorting process."
-msgstr ""
-"如果该值大于 1，在进行排序过程的修复操作时 MyISAM 表的索引将会并发 (每个索引"
-"都有自己的线程) 创建"
+msgstr "如果该值大于 1，在进行排序过程的修复操作时 MyISAM 表的索引将会并发 (每个索引都有自己的线程) 创建。"
 
 #: libraries/engines/myisam.lib.php:52
 msgid "Sort buffer size"
@@ -6769,7 +6750,7 @@ msgstr "二进制"
 
 #: libraries/insert_edit.lib.php:675
 msgid "Because of its length,<br /> this column might not be editable"
-msgstr "因长度问题，<br /> 该字段可能无法编辑 "
+msgstr "因长度问题，<br /> 该字段可能无法编辑"
 
 #: libraries/insert_edit.lib.php:1109
 msgid "Binary - do not edit"
@@ -7108,7 +7089,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:42
 msgid "Failed to use Blowfish from mcrypt!"
-msgstr "mcrypt使用BlowFish失败"
+msgstr "使用 mcrypt 进行 Blowfish 失败！"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:81
 msgid "Your session has expired. Please login again."
@@ -7219,7 +7200,7 @@ msgstr "删除字段中的回车换行符"
 
 #: libraries/plugins/export/ExportExcel.class.php:67
 msgid "Excel edition:"
-msgstr "Excel 版本"
+msgstr "Excel 版本:"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:71
 #: libraries/plugins/export/ExportLatex.class.php:158
@@ -7553,7 +7534,7 @@ msgstr ""
 
 #: libraries/plugins/import/ImportCsv.class.php:126
 msgid "Column names: "
-msgstr "字段名："
+msgstr "字段名: "
 
 #: libraries/plugins/import/ImportCsv.class.php:171
 #: libraries/plugins/import/ImportCsv.class.php:186
@@ -7626,12 +7607,12 @@ msgstr "该 XML 文件有错误或者不完整。请修复错误后重试。"
 
 #: libraries/plugins/import/ImportShp.class.php:49
 msgid "ESRI Shape File"
-msgstr ""
+msgstr "ESRI 图形文件"
 
 #: libraries/plugins/import/ImportShp.class.php:149
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr ""
+msgstr "导入 ESRI 图形文件时出错: \"%s\"。"
 
 #: libraries/plugins/import/ImportShp.class.php:202
 msgid ""
@@ -7642,7 +7623,7 @@ msgstr "您要导入的文件无效或文件中含有无效数据"
 #: libraries/plugins/import/ImportShp.class.php:208
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
-msgstr ""
+msgstr "MySQL Spatial 扩展不支持 ESRI 类型 \"%s\"。"
 
 #: libraries/plugins/import/ImportShp.class.php:256
 msgid "The imported file does not contain any data"
@@ -8342,7 +8323,7 @@ msgstr "你不具有创建触发器的必要权限"
 #: libraries/rte/rte_words.lib.php:39
 #, php-format
 msgid "No trigger with name %1$s found in database %2$s"
-msgstr "在数据库 %2$s 中找不到名为 %1$s 的触发器 "
+msgstr "在数据库 %2$s 中找不到名为 %1$s 的触发器"
 
 #: libraries/rte/rte_words.lib.php:40
 msgid "There are no triggers to display."
@@ -8598,7 +8579,7 @@ msgstr "语句定界符"
 
 #: libraries/sql_query_form.lib.php:368
 msgid "Show this query here again"
-msgstr "在此再次显示此查询 "
+msgstr "在此再次显示此查询"
 
 #: libraries/sql_query_form.lib.php:427
 msgid "View only"
@@ -8608,9 +8589,7 @@ msgstr "仅查看"
 msgid ""
 "There seems to be an error in your SQL query. The MySQL server error output "
 "below, if there is any, may also help you in diagnosing the problem"
-msgstr ""
-"您的 SQL 查询可能有错。如果可能的话，以下会列出 MySQL 服务器的错误输出，这可"
-"能对您解决问题有一定的帮助。"
+msgstr "您的 SQL 查询可能有错。如果可能的话，以下会列出 MySQL 服务器的错误输出，这可能对您解决问题有一定的帮助"
 
 #: libraries/sqlparser.lib.php:171
 msgid ""
@@ -9138,11 +9117,11 @@ msgstr "推荐"
 
 #: pmd_relation_new.php:36
 msgid "Error: relation already exists."
-msgstr "错误：关系已存在"
+msgstr "错误：关系已存在。"
 
 #: pmd_relation_new.php:78 pmd_relation_new.php:103
 msgid "Error: Relation not added."
-msgstr "错误：关系未添加"
+msgstr "错误：关系未添加。"
 
 #: pmd_relation_new.php:79
 msgid "FOREIGN KEY relation added"
@@ -9162,7 +9141,7 @@ msgstr "保存设计器坐标时出错。"
 
 #: pmd_save_pos.php:79
 msgid "Modifications have been saved"
-msgstr "已保存修改。"
+msgstr "已保存修改"
 
 #: prefs_forms.php:85
 msgid "Cannot save settings, submitted form contains errors"
@@ -9559,7 +9538,7 @@ msgstr "按表指定权限"
 #: server_privileges.php:646 server_privileges.php:799
 #: server_privileges.php:1878
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "注意：MySQL 权限名称会以英文显示 "
+msgstr "注意：MySQL 权限名称会以英文显示"
 
 #: server_privileges.php:724
 msgid "Administration"
@@ -9761,7 +9740,7 @@ msgstr "给以 用户名_ 开头的数据库 (username\\_%) 授予所有权限"
 #: server_privileges.php:2419
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
-msgstr "授予数据库“%s”的所有权限。"
+msgstr "授予数据库 &quot;%s&quot; 的所有权限"
 
 #: server_privileges.php:2435
 #, php-format
@@ -10053,7 +10032,7 @@ msgstr "仅显示报警值"
 
 #: server_status.php:868
 msgid "Filter by category..."
-msgstr "按分类显示"
+msgstr "按分类显示。。。"
 
 #: server_status.php:881
 msgid "Show unformatted values"
@@ -10159,9 +10138,7 @@ msgstr "复制状态"
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
-msgstr ""
-"在高负载的服务器上，字节计数器可能会溢出，因此由 MySQL 返回的统计值可能会不正"
-"确"
+msgstr "在高负载的服务器上，字节计数器可能会溢出，因此由 MySQL 返回的统计值可能会不正确。"
 
 #: server_status.php:1134
 msgid "Received"
@@ -10808,9 +10785,8 @@ msgid ""
 "doesn't give a notable performance improvement if you have a good thread "
 "implementation.)"
 msgstr ""
-"当前用于控制连接的线程数。如果 Threads_created 很大，您可能需要增加 "
-"thread_cache_size 的值 (如果线程状况良好，这么做通常并不会带来显著的性能提"
-"升)。"
+"当前用于控制连接的线程数。如果 Threads_created 很大，您可能需要增加 thread_cache_size "
+"的值。(如果线程状况良好，这么做通常并不会带来显著的性能提升。)"
 
 #: server_status.php:1470
 #, fuzzy
@@ -11144,7 +11120,7 @@ msgstr "下载"
 
 #: setup/frames/form.inc.php:25
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
-msgstr ""
+msgstr "不正确的表单集，请检查 setup/frames/form.inc.php 中的 $formsets 数组"
 
 #: setup/frames/index.inc.php:51
 msgid "Cannot load or save configuration"
@@ -11251,7 +11227,7 @@ msgstr "添加服务器"
 
 #: setup/index.php:22
 msgid "Wrong GET file attribute value"
-msgstr ""
+msgstr "GET 文件属性值错误"
 
 #: setup/lib/form_processing.lib.php:43
 msgid "Warning"
@@ -11482,7 +11458,7 @@ msgstr "标签"
 #: tbl_addfield.php:190 tbl_alter.php:216 tbl_indexes.php:107
 #, php-format
 msgid "Table %1$s has been altered successfully"
-msgstr "已成功修改表 %1$s "
+msgstr "已成功修改表 %1$s"
 
 #: tbl_alter.php:133
 #, fuzzy
@@ -11559,7 +11535,7 @@ msgstr "创建数据表 %1$s 成功。"
 
 #: tbl_export.php:27
 msgid "View dump (schema) of table"
-msgstr "查看数据表的转存(大纲)。"
+msgstr "查看数据表的转储(大纲)"
 
 #: tbl_gis_visualization.php:108
 msgid "Display GIS Visualization"
@@ -11696,7 +11672,7 @@ msgstr "整理表碎片"
 #: tbl_operations.php:700
 #, php-format
 msgid "Table %s has been flushed"
-msgstr "已强制更新表 %s "
+msgstr "已强制更新表 %s"
 
 #: tbl_operations.php:708
 msgid "Flush the table (FLUSH)"
@@ -11781,7 +11757,7 @@ msgstr "行长度"
 
 #: tbl_printview.php:396 tbl_structure.php:955
 msgid "Row size"
-msgstr "行大小 "
+msgstr "行大小"
 
 #: tbl_printview.php:406 tbl_structure.php:963
 msgid "Next autoindex"
@@ -11800,7 +11776,7 @@ msgstr "内联"
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
-msgstr "不需要一个和外键关系一致的内联关系"
+msgstr "不需要一个和外键关系一致的内联关系。"
 
 #: tbl_relation.php:420
 msgid "Foreign key constraint"
@@ -11840,7 +11816,7 @@ msgstr "无"
 #: tbl_structure.php:366
 #, php-format
 msgid "Column %s has been dropped"
-msgstr "已删除字段 %s "
+msgstr "已删除字段 %s"
 
 #: tbl_structure.php:379 tbl_structure.php:476
 #, php-format
@@ -12235,7 +12211,7 @@ msgstr "子版本"
 
 #: libraries/advisory_rules.txt:103
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr "版本低于 5.1.30 (5.1 的第一个 GA 版本)"
+msgstr "版本低于 5.1.30 (5.1 的第一个 GA 版本)。"
 
 #: libraries/advisory_rules.txt:104
 msgid ""
@@ -12245,11 +12221,11 @@ msgstr "您应该升级到最新的 MySQL 5.1 或 5.5，以获得新版本的更
 
 #: libraries/advisory_rules.txt:110
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr "版本低于 5.5.8 (5.5 的第一个 GA 版本)"
+msgstr "版本低于 5.5.8 (5.5 的第一个 GA 版本)。"
 
 #: libraries/advisory_rules.txt:111
 msgid "You should upgrade, to a stable version of MySQL 5.5"
-msgstr "您应升级到 MySQL 5.5 的稳定版本。"
+msgstr "您应升级到 MySQL 5.5 的稳定版本"
 
 #: libraries/advisory_rules.txt:114 libraries/advisory_rules.txt:121
 #: libraries/advisory_rules.txt:128
@@ -12258,7 +12234,7 @@ msgstr "发行"
 
 #: libraries/advisory_rules.txt:117
 msgid "Version is compiled from source, not a MySQL official binary."
-msgstr ""
+msgstr "从源代码编译，不是 MySQL 官方二进制。"
 
 #: libraries/advisory_rules.txt:118
 msgid ""
@@ -12266,31 +12242,33 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
+"如果您没有从源代码编译，您可能使用了再发行的修改版本。MySQL 手册仅适用于官方二进制，而非其它再发行包 (如 "
+"RedHat、Debian/Ubuntu 等等)。"
 
 #: libraries/advisory_rules.txt:119
 msgid "'source' found in version_comment"
-msgstr ""
+msgstr "版本注释中含有 'source'"
 
 #: libraries/advisory_rules.txt:124 libraries/advisory_rules.txt:131
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr ""
+msgstr "MySQL 手册仅适用于官方二进制。"
 
 #: libraries/advisory_rules.txt:125
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
-msgstr ""
+msgstr "Percona 文档位于 http://www.percona.com/docs/wiki/"
 
 #: libraries/advisory_rules.txt:126
 msgid "'percona' found in version_comment"
-msgstr ""
+msgstr "版本注释中含有 'percona'"
 
 #: libraries/advisory_rules.txt:132
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
-msgstr ""
+msgstr "Drizzle 文档位于 http://docs.drizzle.org/"
 
 #: libraries/advisory_rules.txt:133
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
-msgstr ""
+msgstr "版本号 (%s) 符合 Drizzle 版本格式"
 
 #: libraries/advisory_rules.txt:135
 msgid "MySQL Architecture"
@@ -12305,12 +12283,12 @@ msgid ""
 "Your memory capacity is above 3 GiB (assuming the Server is on localhost), "
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
-msgstr ""
+msgstr "您的内存大小超过 3 GB (若服务器就在本地)，MySQL 可能无法访问所有内存。您需要考虑安装 64 位版本的 MySQL。"
 
 #: libraries/advisory_rules.txt:140
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "此服务器上的可用内存: %s"
 
 #: libraries/advisory_rules.txt:146
 msgid "Query cache disabled"
@@ -12327,6 +12305,8 @@ msgid ""
 "and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
 "memcached, ignore this recommendation."
 msgstr ""
+"若正确设置查询缓存将带来性能上的极大提升。您可以通过设置 {query_cache_size} 为 2 位数的 MB 值和设置 "
+"{query_cache_type} 为 'ON'。<b>注意:</b> 若您正在使用 memcached，请忽略此建议。"
 
 #: libraries/advisory_rules.txt:151
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
@@ -12349,6 +12329,9 @@ msgid ""
 "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
+"您正在一台具有相当高流量的数据库中使用 MySQL 查询缓存。除非您有多台从服务器，使用 <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/ha-"
+"memcached.html\">memcached</a> 代替 MySQL 查询缓存将更好。"
 
 #: libraries/advisory_rules.txt:158
 #, php-format
@@ -12469,19 +12452,18 @@ msgstr ""
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
-msgstr ""
+msgstr "根据您的环境，减小该值可能会带来性能上的提升。"
 
 #: libraries/advisory_rules.txt:193
-#, fuzzy, php-format
+#, php-format
 #| msgid "Current version: %s"
 msgid "Current query cache size: %s"
-msgstr "当前版本：%s"
+msgstr "当前查询缓存大小: %s"
 
 #: libraries/advisory_rules.txt:195
-#, fuzzy
 #| msgid "Query results"
 msgid "Query cache min result size"
-msgstr "查询结果"
+msgstr "查询缓存结果最小大小"
 
 #: libraries/advisory_rules.txt:198
 msgid ""
@@ -12502,7 +12484,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:200
 msgid "query_cache_limit is set to 1 MiB"
-msgstr ""
+msgstr "query_cache_limit 已被设为 1 MB"
 
 #: libraries/advisory_rules.txt:204
 msgid "Percentage of sorts that cause temporary tables"
@@ -12533,7 +12515,7 @@ msgstr "排序使用临时表的创建率"
 #, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
-msgstr "临时表创建率: %s，该值应低于 1 每小时"
+msgstr "临时表创建率: %s，该值应低于 1 每小时。"
 
 #: libraries/advisory_rules.txt:218
 msgid "Sort rows"
@@ -12541,7 +12523,7 @@ msgstr "行排序"
 
 #: libraries/advisory_rules.txt:221
 msgid "There are lots of rows being sorted."
-msgstr "大量行被排序"
+msgstr "大量行被排序。"
 
 #: libraries/advisory_rules.txt:222
 msgid ""
@@ -12564,7 +12546,7 @@ msgstr "无索引联合查询率"
 
 #: libraries/advisory_rules.txt:229
 msgid "There are too many joins without indexes."
-msgstr "有太多的联合查询未使用索引"
+msgstr "有太多的联合查询未使用索引。"
 
 #: libraries/advisory_rules.txt:230
 msgid ""
@@ -12701,11 +12683,10 @@ msgid ""
 msgstr "%s%% 的临时表被创建在磁盘上，该值应低于 25%%"
 
 #: libraries/advisory_rules.txt:269
-#, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "Temp disk rate"
-msgstr "%s 张表"
+msgstr "临时磁盘使用率"
 
 #: libraries/advisory_rules.txt:273
 msgid ""
@@ -12793,7 +12774,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:315
 msgid "You may need to increase {key_buffer_size}."
-msgstr "你需要增大 {key_buffer_size}"
+msgstr "你需要增大 {key_buffer_size}。"
 
 #: libraries/advisory_rules.txt:316
 #, php-format
@@ -12849,7 +12830,7 @@ msgstr "打开文件的比率"
 
 #: libraries/advisory_rules.txt:337
 msgid "The rate of opening files is high."
-msgstr "当前打开文件数比率很高"
+msgstr "当前打开文件数比率很高。"
 
 #: libraries/advisory_rules.txt:339
 #, php-format
@@ -12983,16 +12964,14 @@ msgid ""
 msgstr "Max_used_connections 为 max_connections 的 %s%%，该值应低于 80%%"
 
 #: libraries/advisory_rules.txt:392
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Percentage of aborted connections"
-msgstr "持久连接"
+msgstr "已中止连接率"
 
 #: libraries/advisory_rules.txt:395 libraries/advisory_rules.txt:402
-#, fuzzy
 #| msgid "Too many clients are aborted."
 msgid "Too many connections are aborted."
-msgstr "太多的客户端已放弃"
+msgstr "太多连接已中止。"
 
 #: libraries/advisory_rules.txt:396 libraries/advisory_rules.txt:403
 msgid ""
@@ -13003,16 +12982,15 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:397
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
-msgstr "%s%% 的客户端已取消。此值不应高于 2%%"
+msgstr "%s%% 的连接已中止。该值应低于 1%%"
 
 #: libraries/advisory_rules.txt:399
-#, fuzzy
 #| msgid "Persistent connections"
 msgid "Rate of aborted connections"
-msgstr "持久连接"
+msgstr "已中止连接的比例"
 
 #: libraries/advisory_rules.txt:404
 #, fuzzy, php-format
@@ -13023,21 +13001,20 @@ msgid ""
 msgstr "客户端取消率为 %s，此值应低于 1 每小时"
 
 #: libraries/advisory_rules.txt:406
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of aborted clients"
-msgstr "导入文件的格式"
+msgstr "已中止客户端比例"
 
 #: libraries/advisory_rules.txt:409 libraries/advisory_rules.txt:416
 msgid "Too many clients are aborted."
-msgstr "太多的客户端已放弃"
+msgstr "太多的客户端已中止。"
 
 #: libraries/advisory_rules.txt:410 libraries/advisory_rules.txt:417
 msgid ""
 "Clients are usually aborted when they did not close their connection to "
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
-msgstr ""
+msgstr "客户端中止通常是因为它们没有正确关闭到 MySQL 服务器的连接。这可能由网络问题或代码中没有正确关闭数据库连接引起。请检查您的网络和代码。"
 
 #: libraries/advisory_rules.txt:411
 #, php-format
@@ -13059,11 +13036,11 @@ msgstr "InnoDB是否不可用？"
 
 #: libraries/advisory_rules.txt:425
 msgid "You do not have InnoDB enabled."
-msgstr "您没有启用InnoDB"
+msgstr "您没有启用 InnoDB。"
 
 #: libraries/advisory_rules.txt:426
 msgid "InnoDB is usually the better choice for table engines."
-msgstr "对于表引擎来说，InnoDB是一个更好的选择"
+msgstr "对于表引擎来说，InnoDB 是一个更好的选择。"
 
 #: libraries/advisory_rules.txt:427
 msgid "have_innodb is set to 'value'"
@@ -13077,7 +13054,7 @@ msgstr "InnoDB的日志大小"
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
-msgstr "InnoDB日志文件大小不合适，此关系到InnoDB缓冲池"
+msgstr "InnoDB 日志文件大小不合适，此关系到 InnoDB 缓冲池。"
 
 #: libraries/advisory_rules.txt:433
 #, fuzzy, php-format
@@ -13123,7 +13100,7 @@ msgstr "InnoDB日志最大大小"
 
 #: libraries/advisory_rules.txt:439
 msgid "The InnoDB log file size is inadequately large."
-msgstr "InnoDB日志文件大小设置的不够大"
+msgstr "InnoDB 日志文件大小设置的不够大。"
 
 #: libraries/advisory_rules.txt:440
 #, php-format
@@ -13157,7 +13134,7 @@ msgstr "InnoDB缓冲池大小"
 
 #: libraries/advisory_rules.txt:446
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr "你的InnoDB缓冲池相当小"
+msgstr "你的 InnoDB 缓冲池相当小。"
 
 #: libraries/advisory_rules.txt:447
 #, php-format

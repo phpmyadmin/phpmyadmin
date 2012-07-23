@@ -41,7 +41,7 @@ class PMA_warnMissingExtension_test extends PHPUnit_Framework_TestCase
 
     }
 
-    function testMissingExtention()
+    function testMissingExtension()
     {
         $ext = 'php_ext';
         $this->setExpectedException(
@@ -51,7 +51,7 @@ class PMA_warnMissingExtension_test extends PHPUnit_Framework_TestCase
         PMA_warnMissingExtension($ext);
     }
 
-    function testMissingExtentionFatal()
+    function testMissingExtensionFatal()
     {
         $ext = 'php_ext';
         $warn = 'The <a href="' . PMA_getPHPDocLink('book.' . $ext . '.php') . '" target="Documentation"><em>'.$ext.'</em></a> extension is missing. Please check your PHP configuration.';
@@ -64,7 +64,7 @@ class PMA_warnMissingExtension_test extends PHPUnit_Framework_TestCase
         $this->assertGreaterThan(0, strpos($printed, $warn));
     }
 
-    function testMissingExtentionFatalWithExtra()
+    function testMissingExtensionFatalWithExtra()
     {
         $ext = 'php_ext';
         $extra = 'Appended Extra String';
@@ -79,7 +79,7 @@ class PMA_warnMissingExtension_test extends PHPUnit_Framework_TestCase
         $this->assertGreaterThan(0, strpos($printed, $warn));
     }
 
-    function testMissingExtentionWithExtra()
+    function testMissingExtensionWithExtra()
     {
         $ext = 'php_ext';
         $extra = 'Appended Extra String';

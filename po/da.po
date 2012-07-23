@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-18 11:12+0200\n"
-"PO-Revision-Date: 2012-07-12 23:18+0200\n"
+"PO-Revision-Date: 2012-07-23 04:24+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: danish <da@li.org>\n"
 "Language: da\n"
@@ -1546,7 +1546,7 @@ msgstr "Indstillinger for filtre på logtabel"
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:197
 msgid "Filter"
-msgstr "Filter"
+msgstr "Filtrér"
 
 #: js/messages.php:198
 msgid "Filter queries by word/regexp:"
@@ -3465,30 +3465,40 @@ msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Ligner typen VARCHAR, men lagrer binære byte-strenge frem for ikkebinære "
+"tegn-strenge"
 
 #: libraries/Types.class.php:345
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
+"En BLOB-kolonne med en maksimal længde på 255 (2^8 - 1) byte, lagret med et "
+"præfiks på én byte som indikerer længden af værdien"
 
 #: libraries/Types.class.php:347
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
+"En BLOB-kolonne med en maksimal længde på 16.777.215 (2^24 - 1) byte, lagret "
+"med et præfiks på tre byte som indikerer længden af værdien"
 
 #: libraries/Types.class.php:349
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
 msgstr ""
+"En BLOB-kolonne med en maksimal længde på 65.535 (2^16 - 1) byte, lagret med "
+"et præfiks på to byte som indikerer længden af værdien"
 
 #: libraries/Types.class.php:351
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
+"En BLOB-kolonne med en maksimal længde på 4.294.967.295 (2^32 - 1) byte, "
+"lagret med et præfiks på fire byte som indikerer længden af værdien"
 
 #: libraries/Types.class.php:353
 msgid ""
@@ -3502,15 +3512,15 @@ msgstr ""
 
 #: libraries/Types.class.php:357
 msgid "A type that can store a geometry of any type"
-msgstr ""
+msgstr "En type som kan lagre en hvilken som helst type geometri"
 
 #: libraries/Types.class.php:359
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "Et punkt i et 2-dimensionelt rum"
 
 #: libraries/Types.class.php:361
 msgid "A curve with linear interpolation between points"
-msgstr ""
+msgstr "En kurve med lineær interpolering mellem punkterne"
 
 #: libraries/Types.class.php:363
 msgid "A polygon"
@@ -3518,24 +3528,24 @@ msgstr "En polygon"
 
 #: libraries/Types.class.php:365
 msgid "A collection of points"
-msgstr ""
+msgstr "En samling af punkter"
 
 #: libraries/Types.class.php:367
 msgid "A collection of curves with linear interpolation between points"
-msgstr ""
+msgstr "En samling af kurver med lineære interpoleringer mellem punkterne"
 
 #: libraries/Types.class.php:369
 msgid "A collection of polygons"
-msgstr ""
+msgstr "En samling af polygoner"
 
 #: libraries/Types.class.php:371
 msgid "A collection of geometry objects of any type"
-msgstr ""
+msgstr "En samling af geometriske objekter af enhver type"
 
 #: libraries/Types.class.php:623 libraries/Types.class.php:973
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "Numerisk"
 
 #: libraries/Types.class.php:642 libraries/Types.class.php:976
 msgctxt "date and time types"
@@ -3554,13 +3564,15 @@ msgstr "Spatial"
 
 #: libraries/Types.class.php:707
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
-msgstr ""
+msgstr "Et heltal på 4 byte, intervallet er -2.147.483.648 to 2.147.483.647"
 
 #: libraries/Types.class.php:709
 msgid ""
 "An 8-byte integer, range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807"
 msgstr ""
+"Et heltal på 8 byte, intervallet er -9.223.372.036.854.775.808 to "
+"9.223.372.036.854.775.807"
 
 #: libraries/Types.class.php:713
 msgid "A system's default double-precision floating-point number"
@@ -3568,15 +3580,15 @@ msgstr ""
 
 #: libraries/Types.class.php:715
 msgid "True or false"
-msgstr ""
+msgstr "Sand eller falsk"
 
 #: libraries/Types.class.php:717
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "Et alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/Types.class.php:719
 msgid "Stores a Universally Unique Identifier (UUID)"
-msgstr ""
+msgstr "Lagrer en Universally Unique Identifier (UUID)"
 
 #: libraries/Types.class.php:725
 msgid ""
@@ -5818,10 +5830,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:480 libraries/sql_query_form.lib.php:377
-#, fuzzy
 #| msgid "Hide query box"
 msgid "Retain query box"
-msgstr "Skjul forespørgeselsboks"
+msgstr "Bevar forespørgeselsboks"
 
 #: libraries/config/messages.inc.php:481
 msgid "Allow to display database and table statistics (eg. space usage)"
@@ -6615,7 +6626,7 @@ msgstr "Write-anmodninger"
 
 #: libraries/engines/innodb.lib.php:264
 msgid "Read misses"
-msgstr "Read misses"
+msgstr "Missede læsninger"
 
 #: libraries/engines/innodb.lib.php:272
 msgid "Write waits"
@@ -7543,7 +7554,7 @@ msgstr "Rapporttitel:"
 
 #: libraries/plugins/export/ExportPhparray.class.php:39
 msgid "PHP array"
-msgstr "PHP array"
+msgstr "PHP-array"
 
 #: libraries/plugins/export/ExportSql.class.php:152
 msgid ""
@@ -8029,7 +8040,7 @@ msgstr "Viser kolonne-kommentarer"
 #: libraries/relation.lib.php:167 libraries/tbl_properties.inc.php:143
 #: transformation_overview.php:38
 msgid "Browser transformation"
-msgstr "Browser transformation"
+msgstr "Browser-transformation"
 
 #: libraries/relation.lib.php:173
 msgid ""
@@ -8136,7 +8147,7 @@ msgstr "Variabel"
 
 #: libraries/replication_gui.lib.php:188 server_binlog.php:188
 msgid "Server ID"
-msgstr "Server ID"
+msgstr "Server-ID"
 
 #: libraries/replication_gui.lib.php:207
 msgid ""
@@ -8325,7 +8336,6 @@ msgid "Returns"
 msgstr "Returværdier"
 
 #: libraries/rte/rte_routines.lib.php:69
-#, fuzzy
 #| msgid ""
 #| "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 #| "handling multi queries. <b>The execution of some stored routines may fail!"
@@ -8336,9 +8346,9 @@ msgid ""
 "fail![/strong] Please use the improved 'mysqli' extension to avoid any "
 "problems."
 msgstr ""
-"Du bruger en forældet PHP 'mysql' udvidelse, som ikke er i stand til at "
-"håndtere multiforespørgsler. <b> Eksekveringen af nogle lagrede rutiner kan "
-"mislykkes! </ b> Brug den forbedrede 'mysqli \"udvidelse for at undgå "
+"Du bruger en forældet PHP 'mysql'-udvidelse, som ikke er i stand til at "
+"håndtere multiforespørgsler. [strong]Eksekveringen af nogle lagrede rutiner "
+"kan mislykkes![/strong] Brug den forbedrede 'mysqli'-udvidelse for at undgå "
 "eventuelle problemer."
 
 #: libraries/rte/rte_routines.lib.php:282
@@ -8898,10 +8908,10 @@ msgstr ""
 "nødvendige PHP-udvidelser installeret som beskrevet i %sdokumentationen%s."
 
 #: libraries/tbl_common.inc.php:53
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking of %s is activated."
-msgstr "Sporing af %s.%s er aktiveret."
+msgstr "Sporing af %s er aktiveret."
 
 #: libraries/tbl_properties.inc.php:90
 msgid ""
@@ -8930,10 +8940,9 @@ msgid "Index"
 msgstr "Indeks"
 
 #: libraries/tbl_properties.inc.php:123
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move column"
-msgstr "Fjern kolonne(r)"
+msgstr "Fjern kolonne"
 
 #: libraries/tbl_properties.inc.php:132
 #, php-format
@@ -8992,10 +9001,10 @@ msgid "first"
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:613
-#, fuzzy, php-format
+#, php-format
 #| msgid "After %s"
 msgid "after %s"
-msgstr "Efter %s"
+msgstr "efter %s"
 
 #: libraries/tbl_properties.inc.php:729 tbl_structure.php:697
 #, php-format
@@ -9071,7 +9080,7 @@ msgstr "Flere indstillinger"
 
 #: main.php:193
 msgid "Database server"
-msgstr "Database server"
+msgstr "Database-server"
 
 #: main.php:200
 msgid "Software"
@@ -9226,10 +9235,9 @@ msgid "No databases"
 msgstr "Ingen databaser"
 
 #: navigation.php:171
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "Filter databases by name"
-msgstr "filtrer tabeller efter navn"
+msgstr "filtrer databaser efter navn"
 
 #: navigation.php:243
 msgid "Filter tables by name"
@@ -9285,10 +9293,9 @@ msgid "Toggle small/big"
 msgstr "Skift mellem små/store"
 
 #: pmd_general.php:122
-#, fuzzy
 #| msgid "To select relation, click :"
 msgid "Toggle relation lines"
-msgstr "For at vælge relation, klik :"
+msgstr "Slå relationslinjer til eller fra"
 
 #: pmd_general.php:128 pmd_pdf.php:99
 msgid "Import/Export coordinates for PDF schema"
@@ -9538,12 +9545,12 @@ msgid "Character Sets and Collations"
 msgstr "Tegnsæt og kollationer"
 
 #: server_databases.php:116
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s databases have been dropped successfully."
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
-msgstr[0] "%s databaser er blevet droppet korrekt."
-msgstr[1] "%s databaser er blevet droppet korrekt."
+msgstr[0] "%1$d databaser er blevet droppet korrekt."
+msgstr[1] "%1$d databaser er blevet droppet korrekt."
 
 #: server_databases.php:133
 msgid "Databases statistics"
@@ -9906,10 +9913,9 @@ msgid "Revoke"
 msgstr "Tilbagekald"
 
 #: server_privileges.php:1589
-#, fuzzy
 #| msgid "Export"
 msgid "Export all"
-msgstr "Eksporter"
+msgstr "Eksportér alle"
 
 #: server_privileges.php:1608 server_privileges.php:1901
 #: server_privileges.php:2532
@@ -9917,22 +9923,20 @@ msgid "Any"
 msgstr "Enhver"
 
 #: server_privileges.php:1695
-#, fuzzy
 #| msgid "Privileges"
 msgid "Privileges for all users"
-msgstr "Privilegier"
+msgstr "Privilegier for alle brugere"
 
 #: server_privileges.php:1708
-#, fuzzy, php-format
+#, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
-msgstr "Privilegier"
+msgstr "Privilegier for %s"
 
 #: server_privileges.php:1739
-#, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
-msgstr "Brugeroversigt"
+msgstr "Oversigt over brugere"
 
 #: server_privileges.php:1879 server_privileges.php:2091
 #: server_privileges.php:2443
@@ -10310,7 +10314,7 @@ msgstr "Alle statusvariable"
 
 #: server_status.php:805
 msgid "Monitor"
-msgstr "Monitor"
+msgstr "Monitorering"
 
 #: server_status.php:806
 msgid "Advisor"
@@ -10900,10 +10904,9 @@ msgstr ""
 "været i brug på en gang."
 
 #: server_status.php:1428
-#, fuzzy
 #| msgid "Percentage of used open files limit"
 msgid "Percentage of used key cache (calculated value)"
-msgstr "Procentdel af grænse for brugte åbne filer"
+msgstr "Procentdel af anvende nøgle-cache (beregnet værdi)"
 
 #: server_status.php:1429
 msgid "The number of requests to read a key block from the cache."
@@ -11177,7 +11180,7 @@ msgstr "Antallet af tråde, der ikke sover."
 
 #: server_status.php:1626
 msgid "Start Monitor"
-msgstr "Start Monitor"
+msgstr "Start monitorering"
 
 #: server_status.php:1637
 msgid "Instructions/Setup"
@@ -12136,7 +12139,7 @@ msgstr "Vedligehold af partition"
 #: tbl_operations.php:786
 #, php-format
 msgid "Partition %s"
-msgstr "Partition %s"
+msgstr "Partitionen %s"
 
 #: tbl_operations.php:789
 msgid "Analyze"
@@ -12144,7 +12147,7 @@ msgstr "Analyser"
 
 #: tbl_operations.php:790
 msgid "Check"
-msgstr "Check"
+msgstr "Tjek"
 
 #: tbl_operations.php:791
 msgid "Optimize"
@@ -12293,7 +12296,7 @@ msgstr "Rediger view"
 
 #: tbl_structure.php:665
 msgid "Relation view"
-msgstr "Relation view"
+msgstr "Relations-visning"
 
 #: tbl_structure.php:673
 msgid "Propose table structure"
@@ -12421,7 +12424,7 @@ msgstr "SQL-udtræk (hentning af fil)"
 
 #: tbl_tracking.php:635
 msgid "SQL dump"
-msgstr "SQL dump"
+msgstr "SQL-dump"
 
 #: tbl_tracking.php:636
 msgid "This option will replace your table and contained data."
