@@ -196,7 +196,7 @@ function PMA_DBI_try_multi_query($multi_query = '', $link = null)
         }
     }
     
-    return mysqli_multi_query($link, $multi_query);
+    return PMA_DBI_real_multi_query($link, $multi_query);
     
 }
 

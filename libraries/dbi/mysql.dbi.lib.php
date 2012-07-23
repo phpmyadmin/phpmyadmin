@@ -54,6 +54,24 @@ function PMA_DBI_real_connect($server, $user, $password, $client_flags, $persist
 }
 
 /**
+ * Run the multi query and output the results
+ *
+ * @param mysqli $link  mysqli object
+ * @param string $query multi query statement to execute
+ *
+ * @return boolean false always false since mysql extention not support
+ *                       for multi query executions
+ */
+function PMA_DBI_real_multi_query($link, $query)
+{
+    // N.B.: PHP's 'mysql' extension does not support
+    // multi_queries so this function will always
+    // return false. Use the 'mysqli' extension, if
+    // you need support for multi_queries.
+    return false;
+}
+
+/**
  * connects to the database server
  *
  * @param string $user                 mysql user name
