@@ -5,6 +5,11 @@
  */
 
 /**
+ * @var $table_clone reference to the action links on the tbl_structure page
+ */
+var $table_clone = false;
+
+/**
  * @var sql_box_locked lock for the sqlbox textarea in the querybox/querywindow
  */
 var sql_box_locked = false;

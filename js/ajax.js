@@ -145,6 +145,7 @@ var AJAX = {
 
     responseHandler: function (data) {
         if (data.success) {
+            $table_clone = false;
             PMA_ajaxRemoveMessage(AJAX.$msgbox);
 
             if (data._redirect) {
@@ -185,7 +186,6 @@ var AJAX = {
             }
 
             $('body').children().not('#pma_navigation').not('#floating_menubar').not('#page_content').not('#selflink').remove();
-
             $('#page_content').replaceWith("<div id='page_content'>" + data.message + "</div>");
             if (data.sql_query) {
                 var $sql = $(data.sql_query);

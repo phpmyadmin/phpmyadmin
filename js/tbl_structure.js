@@ -353,9 +353,6 @@ function reloadFieldForm(message) {
  * with the word "More". They are displayed in a dropdown
  * menu when the user hovers over the word "More."
  */
-
-var $table_clone = false;
-
 function moreOptsMenuResize() {
     var $table = $("table#tablestructure");
 
@@ -387,7 +384,9 @@ function moreOptsMenuResize() {
     };
 
     // get window width
-    var window_width = $(window).width();
+    var window_width = $(window).width()
+        - $('#pma_navigation').width()
+        - $('#pma_navigation_resizer').width();
 
     // find out maximum action links width
     var max_width = window_width;
