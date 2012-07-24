@@ -466,4 +466,30 @@ function PMA_getSqlQueryForCopyTable($tables_full, $sql_query, $move)
     }
     return array($sql_query, $error);
 }
+
+/**
+ * Run the EVENT definition for selected database
+ * 
+ * to avoid selecting alternatively the current and new db
+ * we would need to modify the CREATE definitions to qualify
+ * the db name
+ */
+function PMA_runEventDefinitionsForDb()
+{
+    $event_names = PMA_DBI_fetch_result(
+        'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \''
+        . $common_functions->sqlAddSlashes($GLOBALS['db'], true) . '\';'
+    );
+    if ($event_names) {
+        foreach ($event_names as $event_name) {
+            PMA_DBI_select_db($GLOBALS['db']);
+            $tmp_query = PMA_DBI_get_definition($GLOBALS['db'], 'EVENT', $event_name);
+            // collect for later display
+            $GLOBALS['sql_query'] .= "\n" . $tmp_query;
+            PMA_DBI_select_db($_REQUEST['newname']);
+            PMA_DBI_query($tmp_query);
+        }
+    }
+}
+
 ?>
