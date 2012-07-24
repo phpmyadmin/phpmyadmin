@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-18 11:12+0200\n"
-"PO-Revision-Date: 2012-07-23 19:18-0000\n"
-"Last-Translator: Xullo Guerra <xullo123@hotmail.com>\n"
+"PO-Revision-Date: 2012-07-23 20:21+0200\n"
+"Last-Translator: Julio Guerra <xullo123@hotmail.com>\n"
 "Language-Team: Galician <kde-i18n-doc@kde.org>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.1\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
@@ -1989,7 +1989,7 @@ msgstr "Copiar nome da columna"
 
 #: js/messages.php:359
 msgid "Right-click the column name to copy it to your clipboard."
-msgstr "Prema co botón dereito para copiar o nome da columna o portapapeis"
+msgstr "Prema co botón dereito para copiar o nome da columna o portapapeis."
 
 #: js/messages.php:360
 msgid "Show data row(s)"
