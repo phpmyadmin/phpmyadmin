@@ -83,64 +83,68 @@ class ExportCsv extends ExportPlugin
      */
     protected function setProperties()
     {
-        $this->properties = array(
-            'text' => __('CSV'),
-            'extension' => 'csv',
-            'mime_type' => 'text/comma-separated-values',
-            'options' => array(),
-            'options_text' => __('Options')
-        );
+        $props = 'libraries/properties/';
+        require_once "$props/plugins/ExportPluginProperties.class.php";
+        require_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
+        require_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
+        require_once "$props/options/items/TextPropertyItem.class.php";
+        require_once "$props/options/items/BoolPropertyItem.class.php";
+        require_once "$props/options/items/HiddenPropertyItem.class.php";
 
-        $this->properties['options'] = array(
-            array(
-                'type' => 'begin_group',
-                'name' => 'general_opts'
-            ),
-            array(
-                'type' => 'text',
-                'name' => 'separator',
-                'text' => __('Columns separated with:')
-            ),
-            array(
-                'type' => 'text',
-                'name' => 'enclosed',
-                'text' => __('Columns enclosed with:')
-            ),
-            array(
-                'type' => 'text',
-                'name' => 'escaped',
-                'text' => __('Columns escaped with:')
-            ),
-            array(
-                'type' => 'text',
-                'name' => 'terminated',
-                'text' => __('Lines terminated with:')
-            ),
-            array(
-                'type' => 'text',
-                'name' => 'null',
-                'text' => __('Replace NULL with:')
-            ),
-            array(
-                'type' => 'bool',
-                'name' => 'removeCRLF',
-                'text' => __(
-                    'Remove carriage return/line feed characters within columns'
-                )
-            ),
-            array(
-                'type' => 'bool',
-                'name' => 'columns',
-                'text' => __('Put columns names in the first row')
-            ),
-            array(
-                'type' => 'hidden',
-                'name' => 'structure_or_data'
-            ),
-            array(
-                'type' => 'end_group'
-            )
-        );
+        $exportPluginProperties = new ExportPluginProperties();
+        $exportPluginProperties->setText('CSV');
+        $exportPluginProperties->setExtension('csv');
+        $exportPluginProperties->setMimeType('text/comma-separated-values');
+        $exportPluginProperties->setOptionsText(__('Options'));
+
+        // create the root group that will be the options field for
+        // $exportPluginProperties
+        // this will be shown as "Format specific options"
+        $exportSpecificOptions = new OptionsPropertyRootGroup();
+        $exportSpecificOptions->setName("Format Specific Options");
+
+        // general options main group
+        $generalOptions = new OptionsPropertyMainGroup();
+        $generalOptions->setName("general_opts");
+        // create leaf items and add them to the group
+        $leaf = new TextPropertyItem();
+        $leaf->setName("separator");
+        $leaf->setText(__('Columns separated with:'));
+        $generalOptions->addProperty($leaf);
+        $leaf = new TextPropertyItem();
+        $leaf->setName("enclosed");
+        $leaf->setText(__('Columns enclosed with:'));
+        $generalOptions->addProperty($leaf);
+        $leaf = new TextPropertyItem();
+        $leaf->setName("escaped");
+        $leaf->setText(__('Columns escaped with:'));
+        $generalOptions->addProperty($leaf);
+        $leaf = new TextPropertyItem();
+        $leaf->setName("terminated");
+        $leaf->setText(__('Lines terminated with:'));
+        $generalOptions->addProperty($leaf);
+        $leaf = new TextPropertyItem();
+        $leaf->setName('null');
+        $leaf->setText(__('Replace NULL with:'));
+        $generalOptions->addProperty($leaf);
+        $leaf = new BoolPropertyItem();
+        $leaf->setName('removeCRLF');
+        $leaf->setText(__(
+            'Remove carriage return/line feed characters within columns'
+        ));
+        $leaf = new BoolPropertyItem();
+        $leaf->setName('columns');
+        $leaf->setText(__('Put columns names in the first row'));
+        $generalOptions->addProperty($leaf);
+        $leaf = new HiddenPropertyItem();
+        $leaf->setName('structure_or_data');
+        $generalOptions->addProperty($leaf);
+        // add the main group to the root group
+        $exportSpecificOptions->addProperty($generalOptions);
+
+        // set the options for the export plugin property item
+        $exportPluginProperties->setOptions($exportSpecificOptions);
+        $this->properties = $exportPluginProperties;
     }
 
     /**
