@@ -160,10 +160,16 @@ var AJAX = {
             }
             if (data._reloadQuerywindow) {
                 var params = data._reloadQuerywindow;
-                reload_querywindow(
+                PMA_querywindow.reload(
                     params.db,
                     params.table,
                     params.sql_query
+                );
+            }
+
+            if (data._focusQuerywindow) {
+                PMA_querywindow.focus(
+                    data._focusQuerywindow
                 );
             }
 
@@ -197,6 +203,9 @@ var AJAX = {
                 AJAX.scriptHandler.load(data._scripts, 1);
             }
 
+            if (data._params) {
+                PMA_commonParams.setAll(data._params);
+            }
             $('#pma_errors').remove();
             if (data._errors) {
                 $('<div/>', {id:'pma_errors'})

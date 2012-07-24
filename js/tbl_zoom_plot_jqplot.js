@@ -148,11 +148,11 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
         $.post('tbl_zoom_select.php',{
             'ajax_request' : true,
             'change_tbl_info' : true,
-            'db' : window.parent.db,
-            'table' : window.parent.table,
+            'db' : PMA_commonParams('db'),
+            'table' : PMA_commonParams('table'),
             'field' : $('#tableid_0').val(),
             'it' : 0,
-            'token' : window.parent.token
+            'token' : PMA_commonParams('token')
         },function(data) {
             $('#tableFieldsId tr:eq(1) td:eq(0)').html(data.field_type);
             $('#tableFieldsId tr:eq(1) td:eq(1)').html(data.field_collation);
@@ -172,11 +172,11 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
     $.post('tbl_zoom_select.php',{
             'ajax_request' : true,
             'change_tbl_info' : true,
-            'db' : window.parent.db,
-            'table' : window.parent.table,
+            'db' : PMA_commonParams('db'),
+            'table' : PMA_commonParams('table'),
             'field' : $('#tableid_1').val(),
             'it' : 1,
-            'token' : window.parent.token
+            'token' : PMA_commonParams('token')
         },function(data) {
             $('#tableFieldsId tr:eq(3) td:eq(0)').html(data.field_type);
             $('#tableFieldsId tr:eq(3) td:eq(1)').html(data.field_collation);
@@ -195,11 +195,11 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
     $.post('tbl_zoom_select.php',{
             'ajax_request' : true,
             'change_tbl_info' : true,
-            'db' : window.parent.db,
-            'table' : window.parent.table,
+            'db' : PMA_commonParams('db'),
+            'table' : PMA_commonParams('table'),
             'field' : $('#tableid_2').val(),
             'it' : 2,
-            'token' : window.parent.token
+            'token' : PMA_commonParams('token')
         },function(data) {
             $('#tableFieldsId tr:eq(6) td:eq(0)').html(data.field_type);
             $('#tableFieldsId tr:eq(6) td:eq(1)').html(data.field_collation);
@@ -216,11 +216,11 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
     $.post('tbl_zoom_select.php',{
             'ajax_request' : true,
             'change_tbl_info' : true,
-            'db' : window.parent.db,
-            'table' : window.parent.table,
+            'db' : PMA_commonParams('db'),
+            'table' : PMA_commonParams('table'),
             'field' : $('#tableid_3').val(),
             'it' : 3,
-            'token' : window.parent.token
+            'token' : PMA_commonParams('token')
         },function(data) {
             $('#tableFieldsId tr:eq(8) td:eq(0)').html(data.field_type);
             $('#tableFieldsId tr:eq(8) td:eq(1)').html(data.field_collation);
@@ -308,7 +308,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
 
         //Update the chart series and replot
         if (xChange || yChange) {
-            //Logic similar to plot generation, replot only if xAxis changes or yAxis changes. 
+            //Logic similar to plot generation, replot only if xAxis changes or yAxis changes.
             //Code includes a lot of checks so as to replot only when necessary
             if (xChange) {
                 xCord[searchedDataKey] = selectedRow[xLabel];
@@ -316,7 +316,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
                 if (xType == 'numeric') {
                     series[0][searchedDataKey][0] = selectedRow[xLabel];
                 } else if (xType == 'time') {
-                    series[0][searchedDataKey][0] = 
+                    series[0][searchedDataKey][0] =
                         getTimeStamp(selectedRow[xLabel], $('#types_0').val());
                 } else {
                     // todo: text values
@@ -332,7 +332,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
                 if (yType == 'numeric') {
                     series[0][searchedDataKey][1] = selectedRow[yLabel];
                 } else if (yType == 'time') {
-                    series[0][searchedDataKey][1] = 
+                    series[0][searchedDataKey][1] =
                         getTimeStamp(selectedRow[yLabel], $('#types_1').val());
                 } else {
                     // todo: text values
@@ -345,7 +345,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
 
         //Generate SQL query for update
         if (!isEmpty(newValues)) {
-            var sql_query = 'UPDATE `' + window.parent.table + '` SET ';
+            var sql_query = 'UPDATE `' + PMA_commonParams('table') + '` SET ';
             for (key in newValues) {
                 sql_query += '`' + key + '`=' ;
                 var value = newValues[key];
@@ -380,8 +380,8 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
 
             //Post SQL query to sql.php
             $.post('sql.php', {
-                    'token' : window.parent.token,
-                    'db' : window.parent.db,
+                    'token' : PMA_commonParams('token')
+                    'db' : PMA_commonParams('db'),
                     'ajax_request' : true,
                     'sql_query' : sql_query,
                     'inline_edit' : false
@@ -425,7 +425,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
 
 
     /*
-     * Generate plot using jqplot 
+     * Generate plot using jqplot
      */
 
     if (searchedData != null) {
@@ -460,11 +460,11 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
             axes: {
                 xaxis: {
                     label: $('#tableid_0').val(),
-                    labelRenderer: $.jqplot.CanvasAxisLabelRenderer 
+                    labelRenderer: $.jqplot.CanvasAxisLabelRenderer
                 },
                 yaxis: {
                     label: $('#tableid_1').val(),
-                    labelRenderer: $.jqplot.CanvasAxisLabelRenderer 
+                    labelRenderer: $.jqplot.CanvasAxisLabelRenderer
                 }
             },
             highlighter: {
@@ -497,7 +497,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
             originalXType = $('#types_0').val();
             if (originalXType == 'date') {
                 format = '%Y-%m-%d';
-            } 
+            }
             // todo: does not seem to work
             //else if (originalXType == 'time') {
               //  format = '%H:%M';
@@ -507,7 +507,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
             $.extend(options.axes.xaxis, {
                 renderer:$.jqplot.DateAxisRenderer,
                 tickOptions: {
-                    formatString: format 
+                    formatString: format
                 }
             });
         }
@@ -515,15 +515,15 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
             originalYType = $('#types_1').val();
             if (originalYType == 'date') {
                 format = '%Y-%m-%d';
-            } 
+            }
             $.extend(options.axes.yaxis, {
                 renderer:$.jqplot.DateAxisRenderer,
                 tickOptions: {
-                    formatString: format 
+                    formatString: format
                 }
             });
         }
-        
+
         $.each(searchedData, function(key, value) {
             if (xType == 'numeric') {
                 var xVal = parseFloat(value[xLabel]);
@@ -538,8 +538,8 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
                 var yVal = getTimeStamp(value[yLabel], originalYType);
             }
             series[0].push([
-                xVal, 
-                yVal, 
+                xVal,
+                yVal,
                 // extra Y values
                 value[dataLabel], // for highlighter
                                   // (may set an undefined value)
@@ -548,7 +548,7 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
             ]);
         });
 
-        // under IE 8, the initial display is mangled; after a manual 
+        // under IE 8, the initial display is mangled; after a manual
         // resizing, it's ok
         // under IE 9, everything is fine
         currentChart = $.jqplot('querychart', series, options);
@@ -574,14 +574,14 @@ AJAX.registerOnload('tbl_zoom_plot_jqplot.js', function() {
                 var post_params = {
                     'ajax_request' : true,
                     'get_data_row' : true,
-                    'db' : window.parent.db,
-                    'table' : window.parent.table,
+                    'db' : PMA_commonParams('db'),
+                    'table' : PMA_commonParams('table'),
                     'where_clause' : data[3],
-                    'token' : window.parent.token
+                    'token' : PMA_commonParams('token')
                 };
 
                 $.post('tbl_zoom_select.php', post_params, function(data) {
-                    // Row is contained in data.row_info, 
+                    // Row is contained in data.row_info,
                     // now fill the displayResultForm with row values
                     for (key in data.row_info) {
                         $field = $('#edit_fieldID_' + field_id);

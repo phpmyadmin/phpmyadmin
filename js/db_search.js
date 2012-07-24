@@ -53,9 +53,6 @@ function loadResult(result_path, table_name, link, ajaxEnable)
                         scrollTop: $("#browse-results").offset().top
                     }, 1000);
                 PMA_ajaxRemoveMessage($msg);
-                // because under db_search, window.parent.table is not defined yet,
-                // we assign it manually from #table-link
-                window.parent.table = $('#table-link').text().trim();
                 PMA_makegrid($('#table_results')[0], true, true, true, true);
             }).show();
         } else {

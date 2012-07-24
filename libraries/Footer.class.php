@@ -60,61 +60,6 @@ class PMA_Footer
         $this->_isEnabled = true;
         $this->_scripts   = new PMA_Scripts();
         $this->_isMinimal = false;
-        $this->_addDefaultScripts();
-    }
-
-    /**
-     * Loads common scripts
-     *
-     * @return void
-     */
-    private function _addDefaultScripts()
-    {
-        if (empty($GLOBALS['error_message'])) {
-            $this->_scripts->addCode(
-                "$(function() {
-                // updates current settings
-                if (window.parent.setAll) {
-                    window.parent.setAll(
-                        '" . PMA_escapeJsString($GLOBALS['lang']) . "',
-                        '" . PMA_escapeJsString($GLOBALS['collation_connection']) . "',
-                        '" . PMA_escapeJsString($GLOBALS['server']) . "',
-                        '" . PMA_escapeJsString(PMA_ifSetOr($GLOBALS['db'], '')) . "',
-                        '" . PMA_escapeJsString(PMA_ifSetOr($GLOBALS['table'], '')) . "',
-                        '" . PMA_escapeJsString($_SESSION[' PMA_token ']) . "'
-                    );
-                }
-                });"
-            );
-
-            if (! empty($GLOBALS['focus_querywindow'])) {
-                // set focus to the querywindow
-                $this->_scripts->addCode(
-                    "if (parent.querywindow && !parent.querywindow.closed
-                        && parent.querywindow.location
-                    ) {
-                        self.focus();
-                    }"
-                );
-            }
-            $this->_scripts->addCode(
-                "if (window.parent.frame_content) {
-                    // reset content frame name, as querywindow needs
-                    // to set a unique name before submitting form data,
-                    // and navigation frame needs the original name
-                    if (typeof(window.parent.frame_content.name) != 'undefined'
-                     && window.parent.frame_content.name != 'frame_content') {
-                        window.parent.frame_content.name = 'frame_content';
-                    }
-                    if (typeof(window.parent.frame_content.id) != 'undefined'
-                     && window.parent.frame_content.id != 'frame_content') {
-                        window.parent.frame_content.id = 'frame_content';
-                    }
-                    //window.parent.frame_content.setAttribute('name', 'frame_content');
-                    //window.parent.frame_content.setAttribute('id', 'frame_content');
-                }"
-            );
-        }
     }
 
     /**

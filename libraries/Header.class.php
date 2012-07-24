@@ -101,6 +101,10 @@ class PMA_Header
      * @var bool
      */
     private $_headerIsSent;
+    /**
+     * @var object A reference to the common functions object
+     */
+    private $_commonFunctions;
 
     /**
      * Creates a new class instance
@@ -109,6 +113,7 @@ class PMA_Header
      */
     public function __construct()
     {
+        $this->_commonFunctions = PMA_commonFunctions::getInstance();
         $this->_isEnabled = true;
         $this->_isAjax = false;
         $this->_bodyId = '';
@@ -175,6 +180,43 @@ class PMA_Header
         $this->_scripts->addFile('functions.js');
         $this->_scripts->addFile('navigation.js');
         $this->_scripts->addFile('indexes.js');
+        $this->_scripts->addFile('common.js');
+        $this->_scripts->addCode($this->getJsParamsCode());
+    }
+
+    public function getJsParams()
+    {
+        return array(
+            'common_query' => PMA_generate_common_url('', '', '&'),
+            'opendb_url' => $GLOBALS['cfg']['DefaultTabDatabase'],
+            'safari_browser' => PMA_USR_BROWSER_AGENT == 'SAFARI' ? 'true' : 'false',
+            'querywindow_height' => $GLOBALS['cfg']['QueryWindowHeight'],
+            'querywindow_width' => $GLOBALS['cfg']['QueryWindowWidth'],
+            'collation_connection' => $GLOBALS['collation_connection'],
+            'lang' => $GLOBALS['lang'],
+            'server' => $GLOBALS['server'],
+            'table' => $GLOBALS['table'],
+            'db'    => $GLOBALS['db'],
+            'token' => $_SESSION[' PMA_token '],
+            'text_dir' => $GLOBALS['text_dir'],
+            'pma_absolute_uri' => $GLOBALS['cfg']['PmaAbsoluteUri'],
+            'pma_text_default_tab' => $this->_commonFunctions->getTitleForTarget(
+                $GLOBALS['cfg']['DefaultTabTable']
+            ),
+            'pma_text_left_default_tab' => $this->_commonFunctions->getTitleForTarget(
+                $GLOBALS['cfg']['NavigationTreeDefaultTabTable']
+            )
+        );
+    }
+
+
+    public function getJsParamsCode()
+    {
+        $params = $this->getJsParams();
+        foreach ($params as $key => $value) {
+            $params[$key] = $key . ':"' . PMA_escapeJsString($value) . '"';
+        }
+        return 'PMA_commonParams.setAll({' . implode(',', $params) . '});';
     }
 
     /**

@@ -294,7 +294,14 @@ class PMA_Response
             $this->addJSON('_title', $this->getHeader()->getTitleTag());
             $this->addJSON('_menu', $this->getHeader()->getMenu()->getDisplay());
             $this->addJSON('_scripts', $this->getHeader()->getScripts()->getFiles());
-            $url = basename(PMA_getenv('SCRIPT_NAME')) . '?' . PMA_generate_common_url();
+            $url = basename(PMA_getenv('SCRIPT_NAME')) . PMA_generate_common_url(
+                array(
+                    'db' => $GLOBALS['db'],
+                    'table' => $GLOBALS['table'],
+                    'server' => $GLOBALS['server']
+                ),
+                'unencoded'
+            );
             $this->addJSON('_selflink', $url);
             $errors = $this->_footer->getErrorMessages();
             if (strlen($errors)) {
@@ -316,9 +323,13 @@ class PMA_Response
                         'sql_query' => $query
                     )
                 );
+                if (! empty($GLOBALS['focus_querywindow'])) {
+                    $this->addJSON('_focusQuerywindow', $query);
+                }
                 if (! empty($GLOBALS['reload'])) {
                     $this->addJSON('_reloadNavigation', 1);
                 }
+                $this->addJSON('_params', $this->getHeader()->getJsParams());
             }
         }
 

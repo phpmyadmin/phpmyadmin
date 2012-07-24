@@ -259,7 +259,7 @@ echo sprintf(
 </code>
 <div class="tools">
 [
-<a href="tbl_sql.php?db=test;table=test;sql_query=SELECT+%2A+FROM+%60test%60;show_query=1;token=266edabf70fa6368498d89b4054d01bf#querybox" onclick="window.parent.focus_querywindow('SELECT * FROM `test`'); return false;">Bearbeiten</a>
+<a href="tbl_sql.php?db=test;table=test;sql_query=SELECT+%2A+FROM+%60test%60;show_query=1;token=266edabf70fa6368498d89b4054d01bf#querybox" onclick="PMA_querywindow.focus('SELECT * FROM `test`'); return false;">Bearbeiten</a>
 ] [
 <a href="import.php?db=test;table=test;sql_query=EXPLAIN+SELECT+%2A+FROM+%60test%60;token=266edabf70fa6368498d89b4054d01bf" >SQL erklären</a>
 ] [

@@ -116,7 +116,7 @@ AJAX.registerOnload('tbl_structure.js', function() {
                     PMA_ajaxShowMessage(data.message);
                     $(this).remove();
                     if (typeof data.reload != 'undefined') {
-                        window.parent.frame_content.location.reload();
+                        PMA_commonActions.refreshMain();
                     }
                     PMA_reloadNavigation();
                 } else {

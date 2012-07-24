@@ -397,10 +397,6 @@ AJAX.registerOnload('db_structure.js', function() {
                     toggleRowColors($curr_row.next());
                     $curr_row.hide("medium").remove();
                     PMA_adjustTotals();
-
-                    if (window.parent && window.parent.frame_navigation) {
-                        window.parent.frame_navigation.location.reload();
-                    }
                     PMA_reloadNavigation();
                 } else {
                     PMA_ajaxShowMessage(PMA_messages['strErrorProcessingRequest'] + " : " + data.error, false);

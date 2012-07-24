@@ -211,7 +211,8 @@ class PMA_NavigationHeader
                 __('Query window'),
                 $showIcon,
                 'b_selboard.png',
-                'pma_open_querywindow'
+                'pma_open_querywindow',
+                true
             );
         }
         $retval .= $this->_getLink(

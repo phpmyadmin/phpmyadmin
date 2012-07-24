@@ -225,7 +225,7 @@ class PMA_Scripts
         $retval .= $this->_code;
         foreach ($this->_events as $js_event) {
             $retval .= sprintf(
-                "$(window.parent).bind('%s', %s);\n",
+                "$(window).bind('%s', %s);\n",
                 $js_event['event'],
                 $js_event['function']
             );

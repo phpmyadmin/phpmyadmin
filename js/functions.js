@@ -1945,9 +1945,9 @@ AJAX.registerOnload('functions.js', function() {
                     var tables_table = $("#tablesForm").find("tbody").not("#tbl_summary_row");
                     // this is the first table created in this db
                     if (tables_table.length == 0) {
-                        if (window.parent && window.parent.frame_content) {
-                            window.parent.frame_content.location.reload();
-                        }
+                        PMA_commonActions.refreshMain(
+                            PMA_commonParams.get('opendb_url')
+                        );
                     } else {
                         /**
                          * @var curr_last_row   Object referring to the last <tr> element in {@link tables_table}
@@ -2169,25 +2169,24 @@ AJAX.registerTeardown('functions.js', function() {
 AJAX.registerOnload('functions.js', function() {
     $("#drop_db_anchor.ajax").live('click', function(event) {
         event.preventDefault();
-
-        //context is top.frame_content, so we need to use window.parent.db to access the db var
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question =
-            PMA_messages.strDropDatabaseStrongWarning + ' '
-            + $.sprintf(PMA_messages.strDoYouReally, 'DROP DATABASE ' + escapeHtml(window.parent.db));
-
+        var question = PMA_messages.strDropDatabaseStrongWarning + ' ';
+        question += $.sprintf(
+            PMA_messages.strDoYouReally,
+            'DROP DATABASE ' + escapeHtml(PMA_commonParams.get('db'))
+        );
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
-
             PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
             $.get(url, {'is_js_confirmed': '1', 'ajax_request': true}, function(data) {
                 //Database deleted successfully, refresh both the frames
                 PMA_reloadNavigation();
-                window.parent.refreshMain();
-            }); // end $.get()
-        }); // end $.PMA_confirm()
-    }); //end of Drop Database Ajax action
+                PMA_commonParams.set('db', '');
+                PMA_commonActions.refreshMain('index.php');
+            });
+        });
+    });
 }); // end of $() for Drop Database
 
 /**
@@ -3311,14 +3310,14 @@ AJAX.registerTeardown('functions.js', function() {
 AJAX.registerOnload('functions.js', function() {
     $("#drop_tbl_anchor.ajax").live('click', function(event) {
         event.preventDefault();
-
-        //context is top.frame_content, so we need to use window.parent.table to access the table var
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question =
-            PMA_messages.strDropTableStrongWarning + ' '
-            + $.sprintf(PMA_messages.strDoYouReally, 'DROP TABLE ' + window.parent.table);
+        var question = PMA_messages.strDropTableStrongWarning + ' ';
+        question += $.sprintf(
+            PMA_messages.strDoYouReally,
+            'DROP TABLE ' + PMA_commonParams.get('table')
+        );
 
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
 
@@ -3328,7 +3327,10 @@ AJAX.registerOnload('functions.js', function() {
                     PMA_ajaxRemoveMessage($msgbox);
                     // Table deleted successfully, refresh both the frames
                     PMA_reloadNavigation();
-                    window.parent.refreshMain();
+                    PMA_commonParams.set('table', '');
+                    PMA_commonActions.refreshMain(
+                        PMA_commonParams.get('opendb_url')
+                    );
                 } else {
                     PMA_ajaxShowMessage(data.error, false);
                 }
@@ -3338,17 +3340,15 @@ AJAX.registerOnload('functions.js', function() {
 
     $("#truncate_tbl_anchor.ajax").live('click', function(event) {
         event.preventDefault();
-
-      //context is top.frame_content, so we need to use window.parent.table to access the table var
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question =
-            PMA_messages.strTruncateTableStrongWarning + ' '
-            + $.sprintf(PMA_messages.strDoYouReally, 'TRUNCATE ' + window.parent.table);
-
+        var question = PMA_messages.strTruncateTableStrongWarning + ' ';
+        question += $.sprintf(
+            PMA_messages.strDoYouReally,
+            'TRUNCATE ' + PMA_commonParams.get('table')
+        );
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
-
             PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
             $.get(url, {'is_js_confirmed': '1', 'ajax_request': true}, function(data) {
                 if ($("#sqlqueryresults").length != 0) {

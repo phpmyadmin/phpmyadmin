@@ -161,7 +161,7 @@ function PMA_buildHtmlForDb(
     if ($is_superuser && !PMA_DRIZZLE) {
         $out .= '<td class="tool">'
                . '<a onclick="'
-               . 'if (window.parent.setDb) window.parent.setDb(\''
+               . 'PMA_commonActions.setDb(\''
                . PMA_jsFormat($current['SCHEMA_NAME']) . '\');'
                . '" href="server_privileges.php?' . $url_query
                . '&amp;checkprivs=' . urlencode($current['SCHEMA_NAME'])

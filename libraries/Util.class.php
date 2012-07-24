@@ -1193,7 +1193,7 @@ class PMA_Util
             // to edit it (unless it's enormous, see linkOrButton() )
             if (! empty($cfg['SQLQuery']['Edit'])) {
                 if ($cfg['EditInWindow'] == true) {
-                    $onclick = 'window.parent.focus_querywindow(\''
+                    $onclick = 'PMA_querywindow.focus(\''
                         . PMA_jsFormat($sql_query, false) . '\'); return false;';
                 } else {
                     $onclick = '';

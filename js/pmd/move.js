@@ -610,12 +610,14 @@ function New_relation()
 
 function Start_table_new()
 {
-    window.location.href = 'tbl_create.php?server=' + server + '&db=' + db + '&token=' + token;
+    PMA_commonParams.set('table', '');
+    PMA_commonActions.refreshMain('tbl_create.php');
 }
 
 function Start_tab_upd(table)
 {
-    window.location.href = 'tbl_structure.php?server=' + server + '&db=' + db + '&token=' + token + '&table=' + table;
+    PMA_commonParams.set('table', table);
+    PMA_commonActions.refreshMain('tbl_structure.php');
 }
 //--------------------------- hide tables --------------------------------------
 

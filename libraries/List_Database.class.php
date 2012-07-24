@@ -394,7 +394,7 @@ class PMA_List_Database extends PMA_List
         }
 
         $return = '<select name="db" id="lightm_db" lang="en" dir="ltr"'
-            . ' onchange="if (this.value != \'\') window.parent.openDb(this.value);">' . "\n"
+            . ' onchange="if (this.value != \'\') PMA_commonActions.openDb(this.value);">' . "\n"
             . '<option value="" dir="' . htmlspecialchars($GLOBALS['text_dir']) . '">'
             . '(' . __('Databases') . ') ...</option>' . "\n";
         foreach ($this->getGroupedDetails($offset, $count) as $group => $dbs) {
