@@ -354,7 +354,7 @@ function reloadFieldForm(message) {
  * menu when the user hovers over the word "More."
  */
 function moreOptsMenuResize() {
-    var $table = $("table#tablestructure");
+    var $table = $("#tablestructure");
 
     // don't use More menu if we're only showing icons and no text
     if ($table.length == 0 || $table.hasClass("PropertiesIconic")) {
