@@ -59,136 +59,130 @@ class ExportLatex extends ExportPlugin
             $hide_structure = true;
         }
 
-        $this->properties = array(
-            'text' => __('LaTeX'),
-            'extension' => 'tex',
-            'mime_type' => 'application/x-tex',
-            'options' => array(),
-            'options_text' => __('Options')
-        );
+        $props = 'libraries/properties/';
+        require_once "$props/plugins/ExportPluginProperties.class.php";
+        require_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
+        require_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
+        require_once "$props/options/items/BoolPropertyItem.class.php";
+        require_once "$props/options/items/RadioPropertyItem.class.php";
+        require_once "$props/options/items/TextPropertyItem.class.php";
 
-        $this->properties['options'] = array(
-            array(
-                'type' => 'begin_group',
-                'name' => 'general_opts'
-            ),
-            array(
-                'type' => 'bool',
-                'name' => 'caption',
-                'text' => __('Include table caption')
-            ),
-            array(
-                'type' => 'end_group'
-            )
-        );
+        $exportPluginProperties = new ExportPluginProperties();
+        $exportPluginProperties->setText('LaTeX');
+        $exportPluginProperties->setExtension('tex');
+        $exportPluginProperties->setMimeType('application/x-tex');
+        $exportPluginProperties->setOptionsText(__('Options'));
 
-        /* what to dump (structure/data/both) */
-        $this->properties['options'][] = array(
-            'type' => 'begin_group',
-            'name' => 'dump_what',
-            'text' => __('Dump table')
-        );
-        $this->properties['options'][] = array(
-            'type' => 'radio',
-            'name' => 'structure_or_data',
-            'values' => array(
-                'structure' => __('structure'),
-                'data' => __('data'),
-                'structure_and_data' => __('structure and data')
-            )
-        );
-        $this->properties['options'][] = array(
-            'type' => 'end_group'
-        );
+        // create the root group that will be the options field for
+        // $exportPluginProperties
+        // this will be shown as "Format specific options"
+        $exportSpecificOptions = new OptionsPropertyRootGroup();
+        $exportSpecificOptions->setName("Format Specific Options");
 
-        /* Structure options */
+        // general options main group
+        $generalOptions = new OptionsPropertyMainGroup();
+        $generalOptions->setName("general_opts");
+        // create primary items and add them to the group
+        $leaf = new BoolPropertyItem();
+        $leaf->setName("caption");
+        $leaf->setText(__('Include table caption'));
+        $generalOptions->addProperty($leaf);
+        // add the main group to the root group
+        $exportSpecificOptions->addProperty($generalOptions);
+
+        // what to dump (structure/data/both) main group
+        $dumpWhat = new OptionsPropertyMainGroup();
+        $dumpWhat->setName("dump_what");
+        $dumpWhat->setText(__('Dump table'));
+        // create primary items and add them to the group
+        $leaf = new RadioPropertyItem();
+        $leaf->setName("structure_or_data");
+        $leaf->setValues(array(
+            'structure' => __('structure'),
+            'data' => __('data'),
+            'structure_and_data' => __('structure and data')
+        ));
+        $dumpWhat->addProperty($leaf);
+        // add the main group to the root group
+        $exportSpecificOptions->addProperty($dumpWhat);
+
+        // structure options main group
         if (! $hide_structure) {
-            $this->properties['options'][] = array(
-                'type' => 'begin_group',
-                'name' => 'structure',
-                'text' => __('Object creation options'),
-                'force' => 'data'
-            );
-            $this->properties['options'][] = array(
-                'type' => 'text',
-                'name' => 'structure_caption',
-                'text' => __('Table caption'),
-                'doc' => 'faq6_27'
-            );
-            $this->properties['options'][] = array(
-                'type' => 'text',
-                'name' => 'structure_continued_caption',
-                'text' => __('Table caption (continued)'),
-                'doc' => 'faq6_27'
-            );
-            $this->properties['options'][] = array(
-                'type' => 'text',
-                'name' => 'structure_label',
-                'text' => __('Label key'),
-                'doc' => 'faq6_27'
-            );
+            $structureOptions = new OptionsPropertyMainGroup();
+            $structureOptions->setName("structure");
+            $structureOptions->setText(__('Object creation options'));
+            $structureOptions->setForce('data');
+            // create primary items and add them to the group
+            $leaf = new TextPropertyItem();
+            $leaf->setName("structure_caption");
+            $leaf->setText(__('Table caption'));
+            $leaf->setDoc('faq6_27');
+            $structureOptions->addProperty($leaf);
+            $leaf = new TextPropertyItem();
+            $leaf->setName("structure_continued_caption");
+            $leaf->setText(__('Table caption (continued)'));
+            $leaf->setDoc('faq6_27');
+            $structureOptions->addProperty($leaf);
+            $leaf = new TextPropertyItem();
+            $leaf->setName("structure_label");
+            $leaf->setText(__('Label key'));
+            $leaf->setDoc('faq6_27');
+            $structureOptions->addProperty($leaf);
             if (! empty($GLOBALS['cfgRelation']['relation'])) {
-                $this->properties['options'][] = array(
-                    'type' => 'bool',
-                    'name' => 'relation',
-                    'text' => __('Display foreign key relationships')
-                );
+                $leaf = new BoolPropertyItem();
+                $leaf->setName("relation");
+                $leaf->setText(__('Display foreign key relationships'));
+                $structureOptions->addProperty($leaf);
             }
-            $this->properties['options'][] = array(
-                'type' => 'bool',
-                'name' => 'comments',
-                'text' => __('Display comments')
-            );
+            $leaf = new BoolPropertyItem();
+            $leaf->setName("comments");
+            $leaf->setText(__('Display comments'));
+            $structureOptions->addProperty($leaf);
             if (! empty($GLOBALS['cfgRelation']['mimework'])) {
-                $this->properties['options'][] = array(
-                    'type' => 'bool',
-                    'name' => 'mime',
-                    'text' => __('Display MIME types')
-                );
+                $leaf = new BoolPropertyItem();
+                $leaf->setName("mime");
+                $leaf->setText(__('Display MIME types'));
+                $structureOptions->addProperty($leaf);
             }
-            $this->properties['options'][] = array(
-                'type' => 'end_group'
-            );
+            // add the main group to the root group
+            $exportSpecificOptions->addProperty($structureOptions);
         }
 
-        /* Data */
-        $this->properties['options'][] = array(
-            'type' => 'begin_group',
-            'name' => 'data',
-            'text' => __('Data dump options'),
-            'force' => 'structure'
-        );
-        $this->properties['options'][] = array(
-            'type' => 'bool',
-            'name' => 'columns',
-            'text' => __('Put columns names in the first row')
-        );
-        $this->properties['options'][] = array(
-            'type' => 'text',
-            'name' => 'data_caption',
-            'text' => __('Table caption'),
-            'doc' => 'faq6_27'
-        );
-        $this->properties['options'][] = array(
-            'type' => 'text',
-            'name' => 'data_continued_caption',
-            'text' => __('Table caption (continued)'),
-            'doc' => 'faq6_27'
-        );
-        $this->properties['options'][] = array(
-            'type' => 'text',
-            'name' => 'data_label',
-            'text' => __('Label key'),
-            'doc' => 'faq6_27'
-        );
-        $this->properties['options'][] = array(
-            'type' => 'text',
-            'name' => 'null',
-            'text' => __('Replace NULL with:')
-        );
-        $this->properties['options'][] = array(
-            'type' => 'end_group'
-        );
+        // data options main group
+        $dataOptions = new OptionsPropertyMainGroup();
+        $dataOptions->setName("data");
+        $dataOptions->setText(__('Data dump options'));
+        $dataOptions->setForce('structure');
+        // create primary items and add them to the group
+        $leaf = new BoolPropertyItem();
+        $leaf->setName("columns");
+        $leaf->setText(__('Put columns names in the first row'));
+        $dataOptions->addProperty($leaf);
+        $leaf = new TextPropertyItem();
+        $leaf->setName("data_caption");
+        $leaf->setText(__('Table caption'));
+        $leaf->setDoc('faq6_27');
+        $dataOptions->addProperty($leaf);
+        $leaf = new TextPropertyItem();
+        $leaf->setName("data_continued_caption");
+        $leaf->setText(__('Table caption (continued)'));
+        $leaf->setDoc('faq6_27');
+        $dataOptions->addProperty($leaf);
+        $leaf = new TextPropertyItem();
+        $leaf->setName("data_label");
+        $leaf->setText(__('Label key'));
+        $leaf->setDoc('faq6_27');
+        $dataOptions->addProperty($leaf);
+        $leaf = new TextPropertyItem();
+        $leaf->setName('null');
+        $leaf->setText(__('Replace NULL with:'));
+        $dataOptions->addProperty($leaf);
+        // add the main group to the root group
+        $exportSpecificOptions->addProperty($dataOptions);
+
+        // set the options for the export plugin property item
+        $exportPluginProperties->setOptions($exportSpecificOptions);
+        $this->properties = $exportPluginProperties;
     }
 
     /**
@@ -442,7 +436,7 @@ class ExportLatex extends ExportPlugin
         $dates = false
     ) {
         global $cfgRelation;
-        
+
         $common_functions = PMA_CommonFunctions::getInstance();
         $this->setCfgRelation($cfgRelation);
 
