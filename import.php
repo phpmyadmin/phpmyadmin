@@ -430,6 +430,10 @@ if (! $error && isset($skip)) {
     unset($skip);
 }
 
+// This array contain the data like numberof valid sql queries in the statement
+// and complete valid sql statement (which affected for rows)
+$sql_data = array('valid_sql' => array(), 'valid_queries' => 0);
+
 if (! $error) {
     // Check for file existance
     require_once("libraries/plugin_interface.lib.php");
@@ -445,7 +449,7 @@ if (! $error) {
         );
     } else {
         // Do the real import
-        $import_plugin->doImport();
+        $import_plugin->doImport($sql_data);
     }
 }
 

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-18 11:12+0200\n"
-"PO-Revision-Date: 2012-07-05 17:22+0200\n"
+"PO-Revision-Date: 2012-07-23 17:19+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -3075,7 +3075,7 @@ msgstr "Jocs de caràcters"
 
 #: libraries/Menu.class.php:516 server_plugins.php:33 server_plugins.php:66
 msgid "Plugins"
-msgstr ""
+msgstr "Complements"
 
 #: libraries/Menu.class.php:520
 msgid "Engines"
@@ -8562,15 +8562,15 @@ msgstr "Temps"
 
 #: libraries/rte/rte_triggers.lib.php:414
 msgid "You must provide a trigger name"
-msgstr ""
+msgstr "Has de proveïr un nom de disparador"
 
 #: libraries/rte/rte_triggers.lib.php:419
 msgid "You must provide a valid timing for the trigger"
-msgstr ""
+msgstr "Has de proveïr una sincronització vàlida pel disparador"
 
 #: libraries/rte/rte_triggers.lib.php:424
 msgid "You must provide a valid event for the trigger"
-msgstr ""
+msgstr "Has de proveïr un event vàlid pel disparador"
 
 #: libraries/rte/rte_triggers.lib.php:430
 msgid "You must provide a valid table name"
@@ -8578,7 +8578,7 @@ msgstr "Has de donar un nom de taula vàlid"
 
 #: libraries/rte/rte_triggers.lib.php:436
 msgid "You must provide a trigger definition."
-msgstr ""
+msgstr "Has de proveïr una definició de disparador."
 
 #: libraries/rte/rte_words.lib.php:22
 msgid "Add routine"
@@ -9142,7 +9142,7 @@ msgstr "Servidor de base de dades"
 
 #: main.php:200
 msgid "Software"
-msgstr ""
+msgstr "Programari"
 
 #: main.php:204
 msgid "Software version"
@@ -9649,7 +9649,7 @@ msgstr "Veure volcat (esquema) de les bases de dades"
 
 #: server_plugins.php:67
 msgid "Modules"
-msgstr ""
+msgstr "Mòduls"
 
 #: server_plugins.php:88
 msgid "Begin"
@@ -9657,15 +9657,15 @@ msgstr "Inici"
 
 #: server_plugins.php:95
 msgid "Plugin"
-msgstr ""
+msgstr "Complement"
 
 #: server_plugins.php:96 server_plugins.php:130
 msgid "Module"
-msgstr ""
+msgstr "Mòdul"
 
 #: server_plugins.php:97 server_plugins.php:132
 msgid "Library"
-msgstr ""
+msgstr "Llibreria"
 
 #: server_plugins.php:98 server_plugins.php:133 tbl_tracking.php:720
 msgid "Version"
@@ -9673,11 +9673,11 @@ msgstr "Versió"
 
 #: server_plugins.php:99 server_plugins.php:134
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: server_plugins.php:100 server_plugins.php:135
 msgid "License"
-msgstr ""
+msgstr "Licència"
 
 #: server_plugins.php:166
 msgid "disabled"
@@ -10379,11 +10379,11 @@ msgstr "Totes les variables d'estat"
 
 #: server_status.php:805
 msgid "Monitor"
-msgstr ""
+msgstr "Monitorització"
 
 #: server_status.php:806
 msgid "Advisor"
-msgstr ""
+msgstr "Assessorament"
 
 #: server_status.php:816 server_status.php:838
 msgid "Refresh rate: "
@@ -10403,7 +10403,7 @@ msgstr "Mostra només valors d'alerta"
 
 #: server_status.php:868
 msgid "Filter by category..."
-msgstr ""
+msgstr "Filtrar per categoria..."
 
 #: server_status.php:881
 msgid "Show unformatted values"

@@ -32,6 +32,7 @@ class AllSeleniumTests
         $suite->addTestSuite('PmaSeleniumLoginTest');
         $suite->addTestSuite('PmaSeleniumXssTest');
         $suite->addTestSuite('PmaSeleniumPrivilegesTest');
+        $suite->addTestSuite('PmaSeleniumCreateDropDatabaseTest');
         return $suite;
     }
 }

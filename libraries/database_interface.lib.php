@@ -178,6 +178,29 @@ function PMA_DBI_try_query($query, $link = null, $options = 0,
 }
 
 /**
+ * Run multi query statement and return results
+ *
+ * @param string $multi_query multi query statement to execute
+ * @param mysqli $link  mysqli object
+ *
+ * @return mysqli_result collection | boolean(false) 
+ */
+function PMA_DBI_try_multi_query($multi_query = '', $link = null)
+{
+    
+    if (empty($link)) {
+        if (isset($GLOBALS['userlink'])) {
+            $link = $GLOBALS['userlink'];
+        } else {
+            return false;
+        }
+    }
+    
+    return PMA_DBI_real_multi_query($link, $multi_query);
+    
+}
+
+/**
  * converts charset of a mysql message, usually coming from mysql_error(),
  * into PMA charset, usally UTF-8
  * uses language to charset mapping from mysql/share/errmsg.txt

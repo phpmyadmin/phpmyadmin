@@ -93,10 +93,12 @@ class ImportSql extends ImportPlugin
 
     /**
      * Handles the whole import logic
+     * 
+     * @param &$sql_data array 2-element array with sql data
      *
      * @return void
      */
-    public function doImport()
+    public function doImport(&$sql_data = array())
     {
         global $error, $timeout_passed;
 
@@ -384,7 +386,9 @@ class ImportSql extends ImportPlugin
                         $sql = $tmp_sql;
                         PMA_importRunQuery(
                             $sql,
-                            substr($buffer, 0, $i + strlen($sql_delimiter))
+                            substr($buffer, 0, $i + strlen($sql_delimiter)),
+                            false,
+                            $sql_data
                         );
                         $buffer = substr($buffer, $i + strlen($sql_delimiter));
                         // Reset parser:
@@ -408,7 +412,7 @@ class ImportSql extends ImportPlugin
             } // End of parser loop
         } // End of import loop
         // Commit any possible data in buffers
-        PMA_importRunQuery('', substr($buffer, 0, $len));
-        PMA_importRunQuery();
+        PMA_importRunQuery('', substr($buffer, 0, $len), false, $sql_data);
+        PMA_importRunQuery('', '', false, $sql_data);
     }
 }
