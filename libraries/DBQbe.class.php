@@ -1031,7 +1031,7 @@ class PMA_DbQbe
             $candidate_columns = $index_columns;
             $needsort = 1;
         } elseif (isset($where_clause_columns) && count($where_clause_columns) > 0) {
-            $candidate_columns = $tab_wher;
+            $candidate_columns = $where_clause_columns;
             $needsort = 0;
         } else {
             $candidate_columns = $all_tables;
