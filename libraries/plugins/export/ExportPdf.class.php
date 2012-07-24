@@ -65,40 +65,50 @@ class ExportPdf extends ExportPlugin
      */
     protected function setProperties()
     {
-        $this->properties = array(
-            'text' => __('PDF'),
-            'extension' => 'pdf',
-            'mime_type' => 'application/pdf',
-            'force_file' => true,
-            'options' => array(),
-            'options_text' => __('Options')
-        );
+        $props = 'libraries/properties/';
+        require_once "$props/plugins/ExportPluginProperties.class.php";
+        require_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
+        require_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
+        require_once "$props/options/items/MessageOnlyPropertyItem.class.php";
+        require_once "$props/options/items/TextPropertyItem.class.php";
+        require_once "$props/options/items/HiddenPropertyItem.class.php";
 
-        $this->properties['options'] = array(
-            array(
-                'type' => 'begin_group',
-                'name' => 'general_opts'
-            ),
-            array(
-                'type' => 'message_only',
-                'name' => 'explanation',
-                'text' => __(
-                    '(Generates a report containing the data of a single table)'
-                )
-            ),
-            array(
-                'type' => 'text',
-                'name' => 'report_title',
-                'text' => __('Report title:')
-            ),
-            array(
-                'type' => 'hidden',
-                'name' => 'structure_or_data'
-            ),
-            array(
-                'type' => 'end_group'
-            )
-        );
+        $exportPluginProperties = new ExportPluginProperties();
+        $exportPluginProperties->setText('PDF');
+        $exportPluginProperties->setExtension('pdf');
+        $exportPluginProperties->setMimeType('application/pdf');
+        $exportPluginProperties->setForceFile(true);
+        $exportPluginProperties->setOptionsText(__('Options'));
+
+        // create the root group that will be the options field for
+        // $exportPluginProperties
+        // this will be shown as "Format specific options"
+        $exportSpecificOptions = new OptionsPropertyRootGroup();
+        $exportSpecificOptions->setName("Format Specific Options");
+
+        // general options main group
+        $generalOptions = new OptionsPropertyMainGroup();
+        $generalOptions->setName("general_opts");
+        // create primary items and add them to the group
+        $leaf = new MessageOnlyPropertyItem();
+        $leaf->setName("explanation");
+        $leaf->setText(__(
+            '(Generates a report containing the data of a single table)'
+        ));
+        $generalOptions->addProperty($leaf);
+        $leaf = new TextPropertyItem();
+        $leaf->setName("report_title");
+        $leaf->setText(__('Report title:'));
+        $generalOptions->addProperty($leaf);
+        $leaf = new HiddenPropertyItem();
+        $leaf->setName("structure_or_data");
+        $generalOptions->addProperty($leaf);
+        // add the main group to the root group
+        $exportSpecificOptions->addProperty($generalOptions);
+
+        // set the options for the export plugin property item
+        $exportPluginProperties->setOptions($exportSpecificOptions);
+        $this->properties = $exportPluginProperties;
     }
 
     /**

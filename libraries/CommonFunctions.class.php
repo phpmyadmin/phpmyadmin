@@ -3541,8 +3541,7 @@ class PMA_CommonFunctions
             if (! empty($extensions)) {
                 $extensions .= '|';
             }
-            $properties = $import_plugin->getProperties();
-            $extensions .= $properties['extension'];
+            $extensions .= $import_plugin->getProperties()->getExtension();
         }
 
         $matcher = '@\.(' . $extensions . ')(\.('

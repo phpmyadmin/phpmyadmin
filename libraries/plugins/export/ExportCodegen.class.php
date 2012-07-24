@@ -75,33 +75,43 @@ class ExportCodegen extends ExportPlugin
      */
     protected function setProperties()
     {
-        $this->properties = array(
-            'text' => 'CodeGen',
-            'extension' => 'cs',
-            'mime_type' => 'text/cs',
-            'options' => array(),
-            'options_text' => __('Options')
-        );
+        $props = 'libraries/properties/';
+        require_once "$props/plugins/ExportPluginProperties.class.php";
+        require_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
+        require_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
+        require_once "$props/options/items/HiddenPropertyItem.class.php";
+        require_once "$props/options/items/SelectPropertyItem.class.php";
 
-        $this->properties['options'] = array(
-            array(
-                'type' => 'begin_group',
-                'name' => 'general_opts'
-            ),
-            array(
-                'type' => 'hidden',
-                'name' => 'structure_or_data'
-            ),
-            array(
-                'type' => 'select',
-                'name' => 'format',
-                'text' => __('Format:'),
-                'values' => $this->_getCgFormats()
-            ),
-            array(
-                'type' => 'end_group'
-            )
-        );
+        $exportPluginProperties = new ExportPluginProperties();
+        $exportPluginProperties->setText('CodeGen');
+        $exportPluginProperties->setExtension('cs');
+        $exportPluginProperties->setMimeType('text/cs');
+        $exportPluginProperties->setOptionsText(__('Options'));
+        
+        // create the root group that will be the options field for
+        // $exportPluginProperties
+        // this will be shown as "Format specific options"
+        $exportSpecificOptions = new OptionsPropertyRootGroup();
+        $exportSpecificOptions->setName("Format Specific Options");
+        
+        // general options main group
+        $generalOptions = new OptionsPropertyMainGroup();
+        $generalOptions->setName("general_opts");
+        // create primary items and add them to the group
+        $leaf = new HiddenPropertyItem();
+        $leaf->setName("structure_or_data");
+        $generalOptions->addProperty($leaf);
+        $leaf = new SelectPropertyItem();
+        $leaf->setName("format");
+        $leaf->setText(__('Format:'));
+        $leaf->setValues($this->_getCgFormats());
+        $generalOptions->addProperty($leaf);
+        // add the main group to the root group
+        $exportSpecificOptions->addProperty($generalOptions);
+        
+        // set the options for the export plugin property item
+        $exportPluginProperties->setOptions($exportSpecificOptions);
+        $this->properties = $exportPluginProperties;
     }
 
     /**

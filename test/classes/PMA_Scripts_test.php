@@ -111,6 +111,7 @@ class PMA_Scripts_test extends PHPUnit_Framework_TestCase
         $this->object->addFile('common.js');
         $this->object->addEvent('onClick', 'doSomething');
 
+
         $this->assertRegExp(
             '@<script src="js/common.js\\?ts=[0-9]*" type="text/javascript"></script>
 <script type="text/javascript">// <!\\[CDATA\\[
@@ -118,6 +119,7 @@ class PMA_Scripts_test extends PHPUnit_Framework_TestCase
 // ]]></script>@',
             $this->object->getDisplay()
         );
+
     }
 
     /**

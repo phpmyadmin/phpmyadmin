@@ -263,7 +263,7 @@ class PMA_Types_MySQL_test extends PHPUnit_Framework_TestCase
     public function testGetFunctionsClass($class, $output){
 
         if (! defined('PMA_MYSQL_INT_VERSION')) {
-            define('PMA_MYSQL_INT_VERSION', 50000);
+            define('PMA_MYSQL_INT_VERSION', 60000);
         }
 
         $this->assertEquals(
@@ -398,9 +398,11 @@ class PMA_Types_MySQL_test extends PHPUnit_Framework_TestCase
                     '39' => 'SQRT',
                     '40' => 'TAN',
                     '41' => 'TO_DAYS',
+                    '42' => 'TO_SECONDS',
                     '43' => 'TIME_TO_SEC',
                     '44' => 'UNCOMPRESSED_LENGTH',
                     '45' => 'UNIX_TIMESTAMP',
+                    '46' => 'UUID_SHORT',
                     '47' => 'WEEK',
                     '48' => 'WEEKDAY',
                     '49' => 'WEEKOFYEAR',

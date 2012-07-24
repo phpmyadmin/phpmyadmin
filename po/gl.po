@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-18 11:12+0200\n"
-"PO-Revision-Date: 2012-07-19 15:41+0200\n"
-"Last-Translator: Xosé <xosecalvo@gmail.com>\n"
+"PO-Revision-Date: 2012-07-23 20:21+0200\n"
+"Last-Translator: Julio Guerra <xullo123@hotmail.com>\n"
 "Language-Team: Galician <kde-i18n-doc@kde.org>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.1\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
@@ -1862,7 +1862,7 @@ msgstr "Par achegarse, escolla unha sección da gráfica co rato."
 
 #: js/messages.php:306
 msgid "Click reset zoom button to come back to original state."
-msgstr ""
+msgstr "Prema o botón de restaurar a amplación para voltar o estado orixinal."
 
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."
@@ -1956,7 +1956,7 @@ msgstr "Prema para marcar/desmarcar"
 
 #: js/messages.php:352
 msgid "Double-click to copy column name"
-msgstr ""
+msgstr "Prema duas veces para copiar o nome da columna"
 
 #: js/messages.php:353
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
@@ -1989,7 +1989,7 @@ msgstr "Copiar nome da columna"
 
 #: js/messages.php:359
 msgid "Right-click the column name to copy it to your clipboard."
-msgstr ""
+msgstr "Prema co botón dereito para copiar o nome da columna o portapapeis."
 
 #: js/messages.php:360
 msgid "Show data row(s)"
@@ -2287,7 +2287,7 @@ msgstr "Segundo"
 #: libraries/Advisor.class.php:67
 #, php-format
 msgid "PHP threw following error: %s"
-msgstr ""
+msgstr "PHP mostrou o seguinte erro:%s"
 
 #: libraries/Advisor.class.php:89
 #, php-format
@@ -3494,7 +3494,7 @@ msgstr ""
 
 #: libraries/Types.class.php:359
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "Un punto nun espacio bidimensonal"
 
 #: libraries/Types.class.php:361
 msgid "A curve with linear interpolation between points"
@@ -3508,15 +3508,15 @@ msgstr "Engadir un polígono"
 
 #: libraries/Types.class.php:365
 msgid "A collection of points"
-msgstr ""
+msgstr "Unha colección de puntos"
 
 #: libraries/Types.class.php:367
 msgid "A collection of curves with linear interpolation between points"
-msgstr ""
+msgstr "Unha coleccción de curvas con interpolación lineal entre puntos"
 
 #: libraries/Types.class.php:369
 msgid "A collection of polygons"
-msgstr ""
+msgstr "Unha colección de poligonos"
 
 #: libraries/Types.class.php:371
 msgid "A collection of geometry objects of any type"
@@ -3525,7 +3525,7 @@ msgstr ""
 #: libraries/Types.class.php:623 libraries/Types.class.php:973
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "Numérico"
 
 #: libraries/Types.class.php:642 libraries/Types.class.php:976
 #, fuzzy
@@ -3564,7 +3564,7 @@ msgstr ""
 
 #: libraries/Types.class.php:715
 msgid "True or false"
-msgstr ""
+msgstr "Verdadeiro ou falso"
 
 #: libraries/Types.class.php:717
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
@@ -9098,7 +9098,7 @@ msgstr "Texto completo"
 
 #: libraries/tbl_properties.inc.php:603
 msgid "first"
-msgstr ""
+msgstr "Primeiro"
 
 #: libraries/tbl_properties.inc.php:613
 #, fuzzy, php-format
@@ -14003,7 +14003,6 @@ msgstr "concurrent_insert está definido como 0"
 #~ msgid "Click and drag the mouse to navigate the plot."
 #~ msgstr "Prema e arrastre o rato para navegar na gráfica ."
 
-#, fuzzy
 #~| msgid "Linestring"
 #~ msgid "String"
 #~ msgstr "Cadea de liñas"
@@ -14029,7 +14028,6 @@ msgstr "concurrent_insert está definido como 0"
 #~ msgid "Verbose multiple statements"
 #~ msgstr "Instrucións múltiplas extensas"
 
-#, fuzzy
 #~| msgid "Data only"
 #~ msgid "Dates only."
 #~ msgstr "Só os datos"
