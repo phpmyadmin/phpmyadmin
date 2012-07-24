@@ -87,8 +87,6 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
         // go back to current db, just in case
         PMA_DBI_select_db($db);
 
-        $GLOBALS['sql_constraints_query_full_db'] = array();
-
         $tables_full = PMA_DBI_get_tables_full($db);
 
         require_once "libraries/plugin_interface.lib.php";
@@ -102,7 +100,10 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
                 'single_table' => isset($single_table)
             )
         );
-        PMA_removeAllForeignKeyConstraints($tables_full, $export_sql_plugin, $move);
+        $GLOBALS['sql_constraints_query_full_db'] = 
+            PMA_getSqlConstraintsQueryForFullDb(
+                $tables_full, $export_sql_plugin, $move
+            );
 
         $views = PMA_getViewsAndCreateSqlViewStandIn($tables_full, $export_sql_plugin);
 
