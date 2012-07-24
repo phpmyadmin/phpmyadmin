@@ -940,7 +940,7 @@ class PMA_DisplayResults
     private function _getTableHeaders(
         &$is_display, $analyzed_sql = '',
         $sort_expression = '', $sort_expression_nodirection = '',
-        $sort_direction = ''
+        $sort_direction = '', $is_limited_display = false
     ) {
 
         $table_headers_html = '';
@@ -1002,7 +1002,7 @@ class PMA_DisplayResults
         $this->__set('_vertical_display', $vertical_display);
 
         // Display options (if we are not in print view)
-        if (! (isset($printview) && ($printview == '1'))) {
+        if (! (isset($printview) && ($printview == '1')) && ! $is_limited_display) {
 
             $table_headers_html .= $this->_getOptionsBlock();
 
@@ -2422,8 +2422,9 @@ class PMA_DisplayResults
      *
      * @see     getTable()
      */
-    private function _getTableBody(&$dt_result, &$is_display, $map, $analyzed_sql)
-    {
+    private function _getTableBody(
+        &$dt_result, &$is_display, $map, $analyzed_sql, $is_limited_display = false
+    ) {
 
         global $row; // mostly because of browser transformations,
                      // to make the row-data accessible in a plugin
@@ -2447,8 +2448,9 @@ class PMA_DisplayResults
         $vertical_display['data']       = array();
         $vertical_display['row_delete'] = array();
         $this->__set('_vertical_display', $vertical_display);
+        
         // name of the class added to all grid editable elements
-        $grid_edit_class = 'grid_edit';
+        $grid_edit_class = $is_limited_display ? '' : 'grid_edit';
 
         // prepare to get the column order, if available
         list($col_order, $col_visib) = $this->_getColumnParams($analyzed_sql);
@@ -4246,9 +4248,10 @@ class PMA_DisplayResults
      *
      * @see     sql.php file
      */
-    public function getTable(&$dt_result, &$the_disp_mode, $analyzed_sql)
-    {
-
+    public function getTable(
+        &$dt_result, &$the_disp_mode, $analyzed_sql, $is_limited_display = false
+    ) {
+        
         $table_html = '';
         // Following variable are needed for use in isset/empty or
         // use with array indexes/safe use in foreach
@@ -4394,13 +4397,13 @@ class PMA_DisplayResults
         // 3. ----- Prepare the results table -----
         $table_html .= $this->_getTableHeaders(
             $is_display, $analyzed_sql, $sort_expression,
-            $sort_expression_nodirection, $sort_direction
+            $sort_expression_nodirection, $sort_direction, $is_limited_display
         )
         . '<tbody>' . "\n";
 
         $url_query = '';
         $table_html .= $this->_getTableBody(
-            $dt_result, $is_display, $map, $analyzed_sql
+            $dt_result, $is_display, $map, $analyzed_sql, $is_limited_display
         );
 
         // vertical output case
@@ -4439,7 +4442,7 @@ class PMA_DisplayResults
 
 
         // 6. ----- Prepare "Query results operations"
-        if (! isset($printview) || ($printview != '1')) {
+        if ((! isset($printview) || ($printview != '1')) && ! $is_limited_display) {
             $table_html .= $this->_getResultsOperations(
                 $the_disp_mode, $analyzed_sql
             );
