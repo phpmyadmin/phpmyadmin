@@ -392,4 +392,78 @@ function PMA_getViewsAndCreateSqlViewStandIn($tables_full, $export_sql_plugin)
     }
     return $views;
 }
+
+/**
+ * Get sql query for copy/rename table and boolean for whether copy/rename or not
+ * 
+ * @param array $tables_full    array of all tables in given db or dbs
+ * @param string $sql_query     sql query for all operations
+ * @param boolean $move         whether databse name is empty or not
+ * 
+ * @return array  ($sql_query, $error)
+ */
+function PMA_getSqlQueryForCopyTable($tables_full, $sql_query, $move)
+{
+    $error = false;
+    foreach ($tables_full as $each_table => $tmp) {
+        // skip the views; we have creted stand-in definitions
+        if (PMA_Table::isView($GLOBALS['db'], $each_table)) {
+            continue;
+        }
+        $back = $sql_query;
+        $sql_query = '';
+
+        // value of $what for this table only
+        $this_what = $_REQUEST['what'];
+
+        // do not copy the data from a Merge table
+        // note: on the calling FORM, 'data' means 'structure and data'
+        if (PMA_Table::isMerge($GLOBALS['db'], $each_table)) {
+            if ($this_what == 'data') {
+                $this_what = 'structure';
+            }
+            if ($this_what == 'dataonly') {
+                $this_what = 'nocopy';
+            }
+        }
+
+        if ($this_what != 'nocopy') {
+            // keep the triggers from the original db+table
+            // (third param is empty because delimiters are only intended
+            //  for importing via the mysql client or our Import feature)
+            $triggers = PMA_DBI_get_triggers($GLOBALS['db'], $each_table, '');
+
+            if (! PMA_Table::moveCopy(
+                $GLOBALS['db'], $each_table, $_REQUEST['newname'], $each_table,
+                isset($this_what) ? $this_what : 'data',
+                $move, 'db_copy'
+            )) {
+                $error = true;
+                // $sql_query is filled by PMA_Table::moveCopy()
+                $sql_query = $back . $sql_query;
+                break;
+            }
+            // apply the triggers to the destination db+table
+            if ($triggers) {
+                PMA_DBI_select_db($_REQUEST['newname']);
+                foreach ($triggers as $trigger) {
+                    PMA_DBI_query($trigger['create']);
+                    $GLOBALS['sql_query'] .= "\n" . $trigger['create'] . ';';
+                }
+            }
+
+            // this does not apply to a rename operation
+            if (isset($GLOBALS['add_constraints'])
+                && ! empty($GLOBALS['sql_constraints_query'])
+            ) {
+                $GLOBALS['sql_constraints_query_full_db'][]
+                    = $GLOBALS['sql_constraints_query'];
+                unset($GLOBALS['sql_constraints_query']);
+            }
+        }
+        // $sql_query is filled by PMA_Table::moveCopy()
+        $sql_query = $back . $sql_query;
+    }
+    return array($sql_query, $error);
+}
 ?>
