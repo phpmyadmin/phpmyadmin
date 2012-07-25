@@ -546,4 +546,22 @@ function PMA_createAllAccumulatedConstraints()
     unset($GLOBALS['sql_constraints_query_full_db']);
 }
 
+/**
+ * Duplicate the bookmarks for the db (done once for each db)
+ * 
+ * @param boolean $_error   whether table rename/copy or not
+ * @param string $db        database name
+ */
+function PMA_duplicateBookmarks($_error, $db)
+{
+    if (! $_error && $db != $_REQUEST['newname']) {
+        $get_fields = array('user', 'label', 'query');
+        $where_fields = array('dbase' => $db);
+        $new_fields = array('dbase' => $_REQUEST['newname']);
+        PMA_Table::duplicateInfo(
+            'bookmarkwork', 'bookmark', $get_fields,
+            $where_fields, $new_fields
+        );
+    }
+}
 ?>

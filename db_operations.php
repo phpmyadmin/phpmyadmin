@@ -112,16 +112,8 @@ if (strlen($db) && (! empty($_REQUEST['db_rename']) || ! empty($_REQUEST['db_cop
         PMA_DBI_select_db($db);
 
         // Duplicate the bookmarks for this db (done once for each db)
-        if (! $_error && $db != $_REQUEST['newname']) {
-            $get_fields = array('user', 'label', 'query');
-            $where_fields = array('dbase' => $db);
-            $new_fields = array('dbase' => $_REQUEST['newname']);
-            PMA_Table::duplicateInfo(
-                'bookmarkwork', 'bookmark', $get_fields,
-                $where_fields, $new_fields
-            );
-        }
-
+        PMA_duplicateBookmarks($_error, $db);
+        
         if (! $_error && $move) {
             /**
              * cleanup pmadb stuff for this db
