@@ -3867,6 +3867,7 @@ $(function () {
  * Reveal the login form to users with JS enabled
  */
 $(function () {
-    $('.js-show').show();
-    $('#loginform #input_username').select();
+    var $loginform = $('#loginform');
+    $loginform.find('.js-show').show();
+    $loginform.find('#input_username').select();
 });
