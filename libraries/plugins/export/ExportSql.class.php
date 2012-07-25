@@ -136,6 +136,7 @@ class ExportSql extends ExportPlugin
             require_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
             require_once "$props/options/groups/OptionsPropertySubgroup.class.php";
             require_once "$props/options/items/BoolPropertyItem.class.php";
+            require_once "$props/options/items/MessageOnlyPropertyItem.class.php";
             require_once "$props/options/items/RadioPropertyItem.class.php";
             require_once "$props/options/items/SelectPropertyItem.class.php";
             require_once "$props/options/items/TextPropertyItem.class.php";
@@ -156,51 +157,43 @@ class ExportSql extends ExportPlugin
             $generalOptions = new OptionsPropertyMainGroup();
             $generalOptions->setName("general_opts");
 
+            // comments
+            $subgroup = new OptionsPropertySubgroup();
+            $subgroup->setName("include_comments");
+            $leaf = new BoolPropertyItem();
+            $leaf->setName('include_comments');
+            $leaf->setText(__(
+                'Display comments <i>(includes info such as export'
+                . ' timestamp, PHP version, and server version)</i>'
+            ));
+            $subgroup->setSubgroupHeader($leaf);
 
-
-//            /* comments */
-//            $this->properties['options'][] = array(
-//                'type' => 'begin_subgroup',
-//                'subgroup_header' => array(
-//                    'type' => 'bool',
-//                    'name' => 'include_comments',
-//                    'text' => __(
-//                        'Display comments <i>(includes info such as export'
-//                        . ' timestamp, PHP version, and server version)</i>'
-//                    )
-//                )
-//            );
-//            $this->properties['options'][] = array(
-//                'type' => 'text',
-//                'name' => 'header_comment',
-//                'text' => __('Additional custom header comment (\n splits lines):')
-//            );
-//            $this->properties['options'][] = array(
-//                'type' => 'bool',
-//                'name' => 'dates',
-//                'text' => __(
-//                    'Include a timestamp of when databases were created, last'
-//                    . ' updated, and last checked'
-//                )
-//            );
-//            if (! empty($GLOBALS['cfgRelation']['relation'])) {
-//                $this->properties['options'][] = array(
-//                    'type' => 'bool',
-//                    'name' => 'relation',
-//                    'text' => __('Display foreign key relationships')
-//                );
-//            }
-//            if (! empty($GLOBALS['cfgRelation']['mimework'])) {
-//                $this->properties['options'][] = array(
-//                    'type' => 'bool',
-//                    'name' => 'mime',
-//                    'text' => __('Display MIME types')
-//                );
-//            }
-//            $this->properties['options'][] = array(
-//                'type' => 'end_subgroup'
-//            );
-//            /* end comments */
+            $leaf = new TextPropertyItem();
+            $leaf->setName('header_comment');
+            $leaf->setText(__(
+                'Additional custom header comment (\n splits lines):'
+            ));
+            $subgroup->addProperty($leaf);
+            $leaf = new BoolPropertyItem();
+            $leaf->setName('dates');
+            $leaf->setText(__(
+                'Include a timestamp of when databases were created, last'
+                . ' updated, and last checked'
+            ));
+            $subgroup->addProperty($leaf);
+            if (! empty($GLOBALS['cfgRelation']['relation'])) {
+                $leaf = new BoolPropertyItem();
+                $leaf->setName('relation');
+                $leaf->setText(__('Display foreign key relationships'));
+                $subgroup->addProperty($leaf);
+            }
+            if (! empty($GLOBALS['cfgRelation']['mimework'])) {
+                $leaf = new BoolPropertyItem();
+                $leaf->setName('mime');
+                $leaf->setText(__('Display MIME types'));
+                $subgroup->addProperty($leaf);
+            }
+            $generalOptions->addProperty($subgroup);
 
             // enclose in a transaction
             $leaf = new BoolPropertyItem();
@@ -260,6 +253,8 @@ class ExportSql extends ExportPlugin
 
             // what to dump (structure/data/both)
             $subgroup = new OptionsPropertySubgroup();
+            $subgroup->setName("dump_table");
+            $subgroup->setText("Dump table");
             $leaf = new RadioPropertyItem();
             $leaf->setName('structure_or_data');
             $leaf->setValues(array(
@@ -267,7 +262,7 @@ class ExportSql extends ExportPlugin
                 'data' => __('data'),
                 'structure_and_data' => __('structure and data')
             ));
-            $subgroup->addProperty($leaf);
+            $subgroup->setSubgroupHeader($leaf);
             $generalOptions->addProperty($subgroup);
 
             // add the main group to the root group
@@ -281,79 +276,62 @@ class ExportSql extends ExportPlugin
                 $structureOptions->setText(__('Object creation options'));
                 $structureOptions->setForce('data');
 
-//                // begin SQL Statements
-//                $this->properties['options'][] = array(
-//                    'type' => 'begin_subgroup',
-//                    'subgroup_header' => array(
-//                        'type' => 'message_only',
-//                        'name' => 'add_statements',
-//                        'text' => __('Add statements:')
-//                    )
-//                );
-//                if ($plugin_param['export_type'] == 'table') {
-//                    if (PMA_Table::isView($GLOBALS['db'], $GLOBALS['table'])) {
-//                        $drop_clause = '<code>DROP VIEW</code>';
-//                    } else {
-//                        $drop_clause = '<code>DROP TABLE</code>';
-//                    }
-//                } else {
-//                    if (PMA_DRIZZLE) {
-//                        $drop_clause = '<code>DROP TABLE</code>';
-//                    } else {
-//                        $drop_clause = '<code>DROP TABLE / VIEW / PROCEDURE'
-//                            . ' / FUNCTION</code>';
-//                        if (PMA_MYSQL_INT_VERSION > 50100) {
-//                            $drop_clause .= '<code> / EVENT</code>';
-//                        }
-//                    }
-//                }
-//                $this->properties['options'][] = array(
-//                    'type' => 'bool',
-//                    'name' => 'drop_table',
-//                    'text' => sprintf(__('Add %s statement'), $drop_clause)
-//                );
-//                // Drizzle doesn't support procedures and functions
-//                if (! PMA_DRIZZLE) {
-//                    $this->properties['options'][] = array(
-//                        'type' => 'bool',
-//                        'name' => 'procedure_function',
-//                        'text' => sprintf(
-//                            __('Add %s statement'),
-//                            '<code>CREATE PROCEDURE / FUNCTION'
-//                            . (PMA_MYSQL_INT_VERSION > 50100
-//                            ? ' / EVENT</code>' : '</code>')
-//                        )
-//                    );
-//                }
-//
-//                /* begin CREATE TABLE statements*/
-//                $this->properties['options'][] = array(
-//                    'type' => 'begin_subgroup',
-//                    'subgroup_header' => array(
-//                        'type' => 'bool',
-//                        'name' => 'create_table_statements',
-//                        'text' => __('<code>CREATE TABLE</code> options:')
-//                    )
-//                );
-//                $this->properties['options'][] = array(
-//                    'type' => 'bool',
-//                    'name' => 'if_not_exists',
-//                    'text' => '<code>IF NOT EXISTS</code>'
-//                );
-//                $this->properties['options'][] = array(
-//                    'type' => 'bool',
-//                    'name' => 'auto_increment',
-//                    'text' => '<code>AUTO_INCREMENT</code>'
-//                );
-//                $this->properties['options'][] = array(
-//                    'type' => 'end_subgroup'
-//                );
-//                /* end CREATE TABLE statements */
-//
-//                $this->properties['options'][] = array(
-//                    'type' => 'end_subgroup'
-//                );
-//                /* end SQL statements */
+                // begin SQL Statements
+                $subgroup = new OptionsPropertySubgroup();
+                $leaf = new MessageOnlyPropertyItem();
+                $leaf->setName('add_statements');
+                $leaf->setText(__('Add statements:'));
+                $subgroup->setSubgroupHeader($leaf);
+                if ($plugin_param['export_type'] == 'table') {
+                    if (PMA_Table::isView($GLOBALS['db'], $GLOBALS['table'])) {
+                        $drop_clause = '<code>DROP VIEW</code>';
+                    } else {
+                        $drop_clause = '<code>DROP TABLE</code>';
+                    }
+                } else {
+                    if (PMA_DRIZZLE) {
+                        $drop_clause = '<code>DROP TABLE</code>';
+                    } else {
+                        $drop_clause = '<code>DROP TABLE / VIEW / PROCEDURE'
+                            . ' / FUNCTION</code>';
+                        if (PMA_MYSQL_INT_VERSION > 50100) {
+                            $drop_clause .= '<code> / EVENT</code>';
+                        }
+                    }
+                }
+                $leaf = new BoolPropertyItem();
+                $leaf->setName('drop_table');
+                $leaf->setText(sprintf(__('Add %s statement'), $drop_clause));
+                $subgroup->addProperty($leaf);
+                // Drizzle doesn't support procedures and functions
+                if (! PMA_DRIZZLE) {
+                    $leaf = new BoolPropertyItem();
+                    $leaf->setName('procedure_function');
+                    $leaf->setText(sprintf(
+                        __('Add %s statement'),
+                        '<code>CREATE PROCEDURE / FUNCTION'
+                        . (PMA_MYSQL_INT_VERSION > 50100
+                        ? ' / EVENT</code>' : '</code>')
+                    ));
+                    $subgroup->addProperty($leaf);
+                }
+
+                // begin CREATE TABLE statements
+                $subgroup_create_table = new OptionsPropertySubgroup();
+                $leaf = new BoolPropertyItem();
+                $leaf->setName('create_table_statements');
+                $leaf->setText(__('<code>CREATE TABLE</code> options:'));
+                $subgroup_create_table->setSubgroupHeader($leaf);
+                $leaf = new BoolPropertyItem();
+                $leaf->setName('if_not_exists');
+                $leaf->setText('<code>IF NOT EXISTS</code>');
+                $subgroup_create_table->addProperty($leaf);
+                $leaf = new BoolPropertyItem();
+                $leaf->setName('auto_increment');
+                $leaf->setText('<code>AUTO_INCREMENT</code>');
+                $subgroup_create_table->addProperty($leaf);
+                $subgroup->addProperty($subgroup_create_table);
+                $structureOptions->addProperty($subgroup);
 
                 $leaf = new BoolPropertyItem();
                 $leaf->setName("backquotes");
@@ -375,45 +353,36 @@ class ExportSql extends ExportPlugin
             $dataOptions->setName("data");
             $dataOptions->setText(__('Data creation options'));
             $dataOptions->setForce('structure');
-
             $leaf = new BoolPropertyItem();
             $leaf->setName("truncate");
             $leaf->setText(__('Truncate table before insert'));
             $dataOptions->addProperty($leaf);
 
-//            /* begin SQL statements */
-//            $this->properties['options'][] = array(
-//                'type' => 'begin_subgroup',
-//                'subgroup_header' => array(
-//                    'type' => 'message_only',
-//                    'text' => __('Instead of <code>INSERT</code> statements, use:')
-//                )
-//            );
-//            // Not supported in Drizzle
-//            if (! PMA_DRIZZLE) {
-//                $this->properties['options'][] = array(
-//                    'type' => 'bool',
-//                    'name' => 'delayed',
-//                    'text' => __('<code>INSERT DELAYED</code> statements'),
-//                    'doc' => array(
-//                        'manual_MySQL_Database_Administration',
-//                        'insert_delayed'
-//                    )
-//                );
-//            }
-//            $this->properties['options'][] = array(
-//                'type' => 'bool',
-//                'name' => 'ignore',
-//                'text' => __('<code>INSERT IGNORE</code> statements'),
-//                'doc' => array(
-//                    'manual_MySQL_Database_Administration',
-//                    'insert'
-//                )
-//            );
-//            $this->properties['options'][] = array(
-//                'type' => 'end_subgroup'
-//            );
-//            /* end SQL statements */
+            // begin SQL Statements
+            $subgroup = new OptionsPropertySubgroup();
+            $leaf = new MessageOnlyPropertyItem();
+            $leaf->setText(__('Instead of <code>INSERT</code> statements, use:'));
+            $subgroup->setSubgroupHeader($leaf);
+            // Not supported in Drizzle
+            if (! PMA_DRIZZLE) {
+                $leaf = new BoolPropertyItem();
+                $leaf->setName("delayed");
+                $leaf->setText(__('<code>INSERT DELAYED</code> statements'));
+                $leaf->setDoc(array(
+                    'manual_MySQL_Database_Administration',
+                    'insert_delayed'
+                ));
+                $subgroup->addProperty($leaf);
+            }
+            $leaf = new BoolPropertyItem();
+            $leaf->setName("ignore");
+            $leaf->setText(__('<code>INSERT IGNORE</code> statements'));
+            $leaf->setDoc(array(
+                    'manual_MySQL_Database_Administration',
+                    'insert'
+            ));
+            $subgroup->addProperty($leaf);
+            $dataOptions->addProperty($subgroup);
 
             // Function to use when dumping dat
             $leaf = new SelectPropertyItem();
@@ -426,42 +395,37 @@ class ExportSql extends ExportPlugin
             ));
             $dataOptions->addProperty($leaf);
 
-//            /* Syntax to use when inserting data */
-//            $this->properties['options'][] = array(
-//                'type' => 'begin_subgroup',
-//                'subgroup_header' => array(
-//                    'type' => 'message_only',
-//                    'text' => __('Syntax to use when inserting data:')
-//                )
-//            );
-//            $this->properties['options'][] = array(
-//                'type' => 'radio',
-//                'name' => 'insert_syntax',
-//                'values' => array(
-//                    'complete' => __(
-//                        'include column names in every <code>INSERT</code> statement'
-//                        . ' <br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO'
-//                        . ' tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>'
-//                    ),
-//                    'extended' => __(
-//                        'insert multiple rows in every <code>INSERT</code> statement'
-//                        . '<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO'
-//                        . ' tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>'
-//                    ),
-//                    'both' => __(
-//                        'both of the above<br /> &nbsp; &nbsp; &nbsp; Example:'
-//                        . ' <code>INSERT INTO tbl_name (col_A,col_B) VALUES (1,2,3),'
-//                        . ' (4,5,6), (7,8,9)</code>'
-//                    ),
-//                    'none' => __(
-//                        'neither of the above<br /> &nbsp; &nbsp; &nbsp; Example:'
-//                        . ' <code>INSERT INTO tbl_name VALUES (1,2,3)</code>'
-//                    )
-//                )
-//            );
-//              $this->properties['options'][] = array(
-//                'type' => 'end_subgroup'
-//              );
+            /* Syntax to use when inserting data */
+            $subgroup = new OptionsPropertySubgroup();
+            $leaf = new MessageOnlyPropertyItem();
+            $leaf->setText(__('Syntax to use when inserting data:'));
+            $subgroup->setSubgroupHeader($leaf);
+            $leaf = new RadioPropertyItem();
+            $leaf->setName("insert_syntax");
+            $leaf->setText(__('<code>INSERT IGNORE</code> statements'));
+            $leaf->setValues(array(
+                'complete' => __(
+                    'include column names in every <code>INSERT</code> statement'
+                    . ' <br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO'
+                    . ' tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>'
+                ),
+                'extended' => __(
+                    'insert multiple rows in every <code>INSERT</code> statement'
+                    . '<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO'
+                    . ' tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>'
+                ),
+                'both' => __(
+                    'both of the above<br /> &nbsp; &nbsp; &nbsp; Example:'
+                    . ' <code>INSERT INTO tbl_name (col_A,col_B) VALUES (1,2,3),'
+                    . ' (4,5,6), (7,8,9)</code>'
+                ),
+                'none' => __(
+                    'neither of the above<br /> &nbsp; &nbsp; &nbsp; Example:'
+                    . ' <code>INSERT INTO tbl_name VALUES (1,2,3)</code>'
+                )
+            ));
+            $subgroup->addProperty($leaf);
+            $dataOptions->addProperty($subgroup);
 
             // Max length of query
             $leaf = new TextPropertyItem();
