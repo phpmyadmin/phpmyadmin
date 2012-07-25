@@ -31,47 +31,24 @@ $scripts->addFile('db_operations.js');
 $common_functions = PMA_CommonFunctions::getInstance();
 
 /**
- * Sets globals from $_REQUEST (we're using GET on ajax, POST otherwise)
- */
-$request_params = array(
-    'add_constraints',
-    'comment',
-    'create_database_before_copying',
-    'db_collation',
-    'db_copy',
-    'db_rename',
-    'drop_if_exists',
-    'newname',
-    'sql_auto_increment',
-    'submitcollation',
-    'switch_to_new',
-    'what'
-);
-foreach ($request_params as $one_request_param) {
-    if (isset($_REQUEST[$one_request_param])) {
-        $GLOBALS[$one_request_param] = $_REQUEST[$one_request_param];
-    }
-}
-
-/**
  * Rename/move or copy database
  */
-if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
+if (strlen($db) && (! empty($_REQUEST['db_rename']) || ! empty($_REQUEST['db_copy']))) {
 
-    if (! empty($db_rename)) {
+    if (! empty($_REQUEST['db_rename'])) {
         $move = true;
     } else {
         $move = false;
     }
 
-    if (! isset($newname) || ! strlen($newname)) {
+    if (! isset($_REQUEST['newname']) || ! strlen($_REQUEST['newname'])) {
         $message = PMA_Message::error(__('The database name is empty!'));
     } else {
         $sql_query = ''; // in case target db exists
         $_error = false;
         if ($move
-            || (isset($create_database_before_copying)
-            && $create_database_before_copying)
+            || (isset($_REQUEST['create_database_before_copying'])
+            && $_REQUEST['create_database_before_copying'])
         ) {
             $sql_query = PMA_getSqlQueryAndCreateDbBeforeCopy();
         }
@@ -135,10 +112,10 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
         PMA_DBI_select_db($db);
 
         // Duplicate the bookmarks for this db (done once for each db)
-        if (! $_error && $db != $newname) {
+        if (! $_error && $db != $_REQUEST['newname']) {
             $get_fields = array('user', 'label', 'query');
             $where_fields = array('dbase' => $db);
-            $new_fields = array('dbase' => $newname);
+            $new_fields = array('dbase' => $_REQUEST['newname']);
             PMA_Table::duplicateInfo(
                 'bookmarkwork', 'bookmark', $get_fields,
                 $where_fields, $new_fields
@@ -159,21 +136,21 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
 
             $message = PMA_Message::success(__('Database %1$s has been renamed to %2$s'));
             $message->addParam($db);
-            $message->addParam($newname);
+            $message->addParam($_REQUEST['newname']);
         } elseif (! $_error) {
             $message = PMA_Message::success(__('Database %1$s has been copied to %2$s'));
             $message->addParam($db);
-            $message->addParam($newname);
+            $message->addParam($_REQUEST['newname']);
         }
         $reload     = true;
 
         /* Change database to be used */
         if (! $_error && $move) {
-            $db = $newname;
+            $db = $_REQUEST['newname'];
         } elseif (! $_error) {
-            if (isset($switch_to_new) && $switch_to_new == 'true') {
+            if (isset($_REQUEST['switch_to_new']) && $_REQUEST['switch_to_new'] == 'true') {
                 $GLOBALS['PMA_Config']->setCookie('pma_switch_to_new', 'true');
-                $db = $newname;
+                $db = $_REQUEST['newname'];
             } else {
                 $GLOBALS['PMA_Config']->setCookie('pma_switch_to_new', '');
             }
@@ -192,7 +169,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
         $response = PMA_Response::getInstance();
         $response->isSuccess($message->isSuccess());
         $response->addJSON('message', $message);
-        $response->addJSON('newname', $newname);
+        $response->addJSON('newname', $_REQUEST['newname']);
         $response->addJSON(
             'sql_query',
             $common_functions->getMessage(null, $sql_query)
@@ -213,7 +190,7 @@ $cfgRelation = PMA_getRelationsParam();
  * (must be done before displaying the menu tabs)
  */
 if (isset($_REQUEST['comment'])) {
-    PMA_setDbComment($db, $comment);
+    PMA_setDbComment($db, $_REQUEST['comment']);
 }
 
 /**
