@@ -526,4 +526,18 @@ function PMA_handleTheViews($views, $move)
     return $_error;
 }
 
+/**
+ * Create all accumulated constraaints
+ */
+function PMA_createAllAccumulatedConstraints()
+{
+    PMA_DBI_select_db($_REQUEST['newname']);
+    foreach ($GLOBALS['sql_constraints_query_full_db'] as $one_query) {
+        PMA_DBI_query($one_query);
+        // and prepare to display them
+        $GLOBALS['sql_query'] .= "\n" . $one_query;
+    }
+    unset($GLOBALS['sql_constraints_query_full_db']);
+}
+
 ?>

@@ -121,14 +121,7 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
 
         // now that all tables exist, create all the accumulated constraints
         if (! $_error && count($GLOBALS['sql_constraints_query_full_db']) > 0) {
-            PMA_DBI_select_db($newname);
-            foreach ($GLOBALS['sql_constraints_query_full_db'] as $one_query) {
-                PMA_DBI_query($one_query);
-                // and prepare to display them
-                $GLOBALS['sql_query'] .= "\n" . $one_query;
-            }
-
-            unset($GLOBALS['sql_constraints_query_full_db'], $one_query);
+            PMA_createAllAccumulatedConstraints();
         }
 
         if (! PMA_DRIZZLE && PMA_MYSQL_INT_VERSION >= 50100) {
