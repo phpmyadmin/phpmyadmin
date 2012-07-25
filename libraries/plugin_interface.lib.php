@@ -244,10 +244,10 @@ function PMA_pluginGetOneOption(
 
 
     if ($properties == null) {
+        $not_subgroup_header = true;
         $properties = $propertyGroup->getProperties();
     }
-    if (! strpos(get_class($propertyGroup), "PropertyItem"))
-    foreach ($propertyGroup->getProperties() as $propertyItem) {
+    foreach ($properties as $propertyItem) {
         $property_class = get_class($propertyItem);
         // if the property is a subgroup, we deal with it recursively
         if (strpos($property_class, "Subgroup")) {
@@ -382,7 +382,8 @@ function PMA_pluginGetOneOption(
         $ret .= '</ul></li>';
     } else {
         // end main group
-        $ret .= '</ul></div>';
+        if ($not_subgroup_header)
+            $ret .= '</ul></div>';
     }
 
     if (method_exists($propertyGroup, "getDoc")){
