@@ -3868,4 +3868,5 @@ $(function () {
  */
 $(function () {
     $('.js-show').show();
+    $('#loginform #input_username').select();
 });
