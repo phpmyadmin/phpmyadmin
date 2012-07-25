@@ -115,27 +115,9 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
 
         // handle the views
         if (! $_error) {
-            // temporarily force to add DROP IF EXIST to CREATE VIEW query,
-            // to remove stand-in VIEW that was created earlier
-            if (isset($GLOBALS['drop_if_exists'])) {
-                $temp_drop_if_exists = $GLOBALS['drop_if_exists'];
-            }
-            $GLOBALS['drop_if_exists'] = 'true';
-
-            foreach ($views as $view) {
-                if (! PMA_Table::moveCopy($db, $view, $newname, $view, 'structure', $move, 'db_copy')) {
-                    $_error = true;
-                    break;
-                }
-            }
-            unset($GLOBALS['drop_if_exists']);
-            if (isset($temp_drop_if_exists)) {
-                // restore previous value
-                $GLOBALS['drop_if_exists'] = $temp_drop_if_exists;
-                unset($temp_drop_if_exists);
-            }
+            $_error = PMA_handleTheViews($views, $move);
         }
-        unset($view, $views);
+        unset($views);
 
         // now that all tables exist, create all the accumulated constraints
         if (! $_error && count($GLOBALS['sql_constraints_query_full_db']) > 0) {

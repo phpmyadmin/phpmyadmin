@@ -492,4 +492,38 @@ function PMA_runEventDefinitionsForDb()
     }
 }
 
+/**
+ * Handle the views, return the boolean value whether table rename/copy or not
+ * 
+ * @param array $views      views as an array
+ * @param boolean $move     whether databse name is empty or not
+ * 
+ * @return boolean $_error  whether table rename/copy or not
+ */
+function PMA_handleTheViews($views, $move)
+{
+    $_error = false;
+    // temporarily force to add DROP IF EXIST to CREATE VIEW query,
+    // to remove stand-in VIEW that was created earlier
+    if (isset($GLOBALS['drop_if_exists'])) {
+        $temp_drop_if_exists = $GLOBALS['drop_if_exists'];
+    }
+    $GLOBALS['drop_if_exists'] = 'true';
+
+    foreach ($views as $view) {
+        if (! PMA_Table::moveCopy($GLOBALS['db'], $view, $_REQUEST['newname'],
+            $view, 'structure', $move, 'db_copy')
+        ) {
+            $_error = true;
+            break;
+        }
+    }
+    unset($GLOBALS['drop_if_exists']);
+    if (isset($temp_drop_if_exists)) {
+        // restore previous value
+        $GLOBALS['drop_if_exists'] = $temp_drop_if_exists;
+    }
+    return $_error;
+}
+
 ?>
