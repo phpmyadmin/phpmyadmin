@@ -220,7 +220,7 @@ if (!$is_information_schema) {
         /**
          * database comment
          */
-        echo PMA_getHtmlForDatabaseComment();
+        echo PMA_getHtmlForDatabaseComment($db);
     }
     ?>
     <div class="operations_half_width">
@@ -231,7 +231,7 @@ if (!$is_information_schema) {
      * rename database
      */
     if ($db != 'mysql') {
-        echo PMA_getHtmlForRenameDatabase();
+        echo PMA_getHtmlForRenameDatabase($db);
     }
 
     // Drop link if allowed
@@ -241,7 +241,7 @@ if (!$is_information_schema) {
         && ! $db_is_information_schema
         && (PMA_DRIZZLE || $db != 'mysql')
     ) {
-        echo PMA_getHtmlForDropDatabaseLink();
+        echo PMA_getHtmlForDropDatabaseLink($db);
     }
     /**
      * Copy database

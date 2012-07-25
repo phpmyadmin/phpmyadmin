@@ -14,13 +14,15 @@ if (! defined('PHPMYADMIN')) {
 /**
  * Get HTML output for database comment
  * 
+ * @param $db       database name
+ * 
  * @return string $html_output
  */
-function PMA_getHtmlForDatabaseComment()
+function PMA_getHtmlForDatabaseComment($db)
 {
     $html_output = '<div class="operations_half_width">'
         . '<form method="post" action="db_operations.php">'
-        . PMA_generate_common_hidden_inputs($GLOBALS['db'])
+        . PMA_generate_common_hidden_inputs($db)
         . '<fieldset>'
         . '<legend>';
     if ($GLOBALS['cfg']['PropertiesIconic']) {
@@ -29,7 +31,7 @@ function PMA_getHtmlForDatabaseComment()
     $html_output .=  __('Database comment: ');
     $html_output .= '</legend>';
     $html_output .= '<input type="text" name="comment" class="textfield" size="30"'
-        . 'value="' . htmlspecialchars(PMA_getDBComment($GLOBALS['db'])) . '" />'
+        . 'value="' . htmlspecialchars(PMA_getDBComment($db)) . '" />'
         . '</fieldset>';
     $html_output .= '<fieldset class="tblFooters">'
         . '<input type="submit" value="' . __('Go') . '" />'
@@ -43,9 +45,11 @@ function PMA_getHtmlForDatabaseComment()
 /**
  * Get HTML output for rename database
  * 
+ * @param $db       database name
+ * 
  * @return string $html_output
  */
-function PMA_getHtmlForRenameDatabase()
+function PMA_getHtmlForRenameDatabase($db)
 {
     $html_output = '<div class="operations_half_width">'
         . '<form id="rename_db_form" ' . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax" ' : '')
@@ -57,7 +61,7 @@ function PMA_getHtmlForRenameDatabase()
     }
     $html_output .= '<input type="hidden" name="what" value="data" />'
         . '<input type="hidden" name="db_rename" value="true" />'
-        . PMA_generate_common_hidden_inputs($GLOBALS['db'])
+        . PMA_generate_common_hidden_inputs($db)
         . '<fieldset>'
         . '<legend>';
 
@@ -82,13 +86,15 @@ function PMA_getHtmlForRenameDatabase()
 /**
  * Get HTML for database drop link
  * 
+ * @param $db       database name
+ * 
  * @return string $html_output
  */
-function PMA_getHtmlForDropDatabaseLink()
+function PMA_getHtmlForDropDatabaseLink($db)
 {
     $common_functions = PMA_CommonFunctions::getInstance();
     
-    $this_sql_query = 'DROP DATABASE ' . $common_functions->backquote($GLOBALS['db']);
+    $this_sql_query = 'DROP DATABASE ' . $common_functions->backquote($db);
     $this_url_params = array(
             'sql_query' => $this_sql_query,
             'back' => 'db_operations.php',
@@ -97,7 +103,7 @@ function PMA_getHtmlForDropDatabaseLink()
             'purge' => '1',
             'message_to_show' => sprintf(
                 __('Database %s has been dropped.')
-                , htmlspecialchars($common_functions->backquote($GLOBALS['db']))
+                , htmlspecialchars($common_functions->backquote($db))
             ),
             'db' => null,
         );
