@@ -59,12 +59,10 @@ class ExportMediawiki extends ExportPlugin
         // general options main group
         $generalOptions = new OptionsPropertyMainGroup();
         $generalOptions->setName("general_opts");
+        $generalOptions->setText(__('Dump table'));
 
         // what to dump (structure/data/both)
         $subgroup = new OptionsPropertySubgroup();
-        $leaf = new MessageOnlyPropertyItem();
-        $leaf->setText(__('Dump table'));
-        $subgroup->setSubgroupHeader($leaf);
         $leaf = new RadioPropertyItem();
         $leaf->setName('structure_or_data');
         $leaf->setValues(array(
@@ -80,12 +78,13 @@ class ExportMediawiki extends ExportPlugin
         $leaf->setName("caption");
         $leaf->setText(__('Export table names'));
         $generalOptions->addProperty($leaf);
+
         // export table headers
         $leaf = new BoolPropertyItem();
         $leaf->setName("caption");
         $leaf->setText(__('Export table headers'));
         $generalOptions->addProperty($leaf);
-        // add the main group to the root group
+        //add the main group to the root group
         $exportSpecificOptions->addProperty($generalOptions);
 
         // set the options for the export plugin property item
