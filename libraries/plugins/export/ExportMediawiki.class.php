@@ -63,6 +63,8 @@ class ExportMediawiki extends ExportPlugin
 
         // what to dump (structure/data/both)
         $subgroup = new OptionsPropertySubgroup();
+        $subgroup->setName("dump_table");
+        $subgroup->setText("Dump table");
         $leaf = new RadioPropertyItem();
         $leaf->setName('structure_or_data');
         $leaf->setValues(array(
@@ -70,7 +72,7 @@ class ExportMediawiki extends ExportPlugin
             'data' => __('data'),
             'structure_and_data' => __('structure and data')
         ));
-        $subgroup->addProperty($leaf);
+        $subgroup->setSubgroupHeader($leaf);
         $generalOptions->addProperty($subgroup);
 
         // export table name
