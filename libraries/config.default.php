@@ -2490,14 +2490,14 @@ $cfg['BrowseMIME'] = true;
  *
  * @global integer $cfg['MaxExactCount']
  */
-$cfg['MaxExactCount'] = 20000;
+$cfg['MaxExactCount'] = 0;
 
 /**
  * Zero means that no row count is done for views; see the doc
  *
  * @global integer $cfg['MaxExactCountViews']
  */
-$cfg['MaxExactCountViews'] = 100000;
+$cfg['MaxExactCountViews'] = 0;
 
 /**
  * Sort table and database in natural order
