@@ -35,59 +35,63 @@ class ExportMediawiki extends ExportPlugin
      */
     protected function setProperties()
     {
-        $this->properties = array(
-            'text' => __('MediaWiki Table'),
-            'extension' => 'mediawiki',
-            'mime_type' => 'text/plain',
-            'options' => array(),
-            'options_text' => __('Options')
-        );
+        $props = 'libraries/properties/';
+        require_once "$props/plugins/ExportPluginProperties.class.php";
+        require_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
+        require_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
+        require_once "$props/options/groups/OptionsPropertySubgroup.class.php";
+        require_once "$props/options/items/MessageOnlyPropertyItem.class.php";
+        require_once "$props/options/items/RadioPropertyItem.class.php";
+        require_once "$props/options/items/BoolPropertyItem.class.php";
 
-        // general options
-        $this->properties['options'][] = array(
-            'type' => 'begin_group',
-            'name' => 'general_opts'
-        );
+        $exportPluginProperties = new ExportPluginProperties();
+        $exportPluginProperties->setText('MediaWiki Table');
+        $exportPluginProperties->setExtension('mediawiki');
+        $exportPluginProperties->setMimeType('text/plain');
+        $exportPluginProperties->setOptionsText(__('Options'));
+
+        // create the root group that will be the options field for
+        // $exportPluginProperties
+        // this will be shown as "Format specific options"
+        $exportSpecificOptions = new OptionsPropertyRootGroup();
+        $exportSpecificOptions->setName("Format Specific Options");
+
+        // general options main group
+        $generalOptions = new OptionsPropertyMainGroup();
+        $generalOptions->setName("general_opts");
+        $generalOptions->setText(__('Dump table'));
 
         // what to dump (structure/data/both)
-        $this->properties['options'][] = array(
-            'type' => 'begin_subgroup',
-            'subgroup_header' => array(
-                'type' => 'message_only',
-                'text' => __('Dump table')
-            )
-        );
-        $this->properties['options'][] = array(
-            'type' => 'radio',
-            'name' => 'structure_or_data',
-            'values' => array(
-                'structure' => __('structure'),
-                'data' => __('data'),
-                'structure_and_data' => __('structure and data')
-            )
-        );
-        $this->properties['options'][] = array(
-            'type' => 'end_subgroup'
-        );
+        $subgroup = new OptionsPropertySubgroup();
+        $subgroup->setName("dump_table");
+        $subgroup->setText("Dump table");
+        $leaf = new RadioPropertyItem();
+        $leaf->setName('structure_or_data');
+        $leaf->setValues(array(
+            'structure' => __('structure'),
+            'data' => __('data'),
+            'structure_and_data' => __('structure and data')
+        ));
+        $subgroup->setSubgroupHeader($leaf);
+        $generalOptions->addProperty($subgroup);
 
         // export table name
-        $this->properties['options'][] = array(
-            'type' => 'bool',
-            'name' => 'caption',
-            'text' => __('Export table names')
-        );
+        $leaf = new BoolPropertyItem();
+        $leaf->setName("caption");
+        $leaf->setText(__('Export table names'));
+        $generalOptions->addProperty($leaf);
 
         // export table headers
-        $this->properties['options'][] = array(
-            'type' => 'bool',
-            'name' => 'headers',
-            'text' => __('Export table headers')
-        );
+        $leaf = new BoolPropertyItem();
+        $leaf->setName("caption");
+        $leaf->setText(__('Export table headers'));
+        $generalOptions->addProperty($leaf);
+        //add the main group to the root group
+        $exportSpecificOptions->addProperty($generalOptions);
 
-        // end general options
-        $this->properties['options'][] = array(
-            'type' => 'end_group'
-        );
+        // set the options for the export plugin property item
+        $exportPluginProperties->setOptions($exportSpecificOptions);
+        $this->properties = $exportPluginProperties;
     }
 
     /**

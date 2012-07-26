@@ -142,7 +142,6 @@ if (strlen($db) && (! empty($db_rename) || ! empty($db_copy))) {
             "sql",    
             'libraries/plugins/export/',
             array(
-                'export_type' => $export_type,
                 'single_table' => isset($single_table)
             )
         );

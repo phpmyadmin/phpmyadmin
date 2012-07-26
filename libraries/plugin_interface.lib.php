@@ -228,33 +228,53 @@ function PMA_pluginGetOneOption(
     $ret = "\n";
 
     if (! $is_subgroup) {
-        // for main groups
-        $ret .= '<div class="export_sub_options" id="' . $plugin_name . '_'
-            . $propertyGroup->getName() . '">';
-        if ($propertyGroup->getText() != null) {
-            $ret .= '<h4>' . PMA_getString($propertyGroup->getText()) . '</h4>';
+        // for subgroup headers
+        if (strpos(get_class($propertyGroup), "PropertyItem")) {
+            $properties = array($propertyGroup);
+        } else {
+            // for main groups
+            $ret .= '<div class="export_sub_options" id="' . $plugin_name . '_'
+                . $propertyGroup->getName() . '">';
+            if ($propertyGroup->getText() != null) {
+                $ret .= '<h4>' . PMA_getString($propertyGroup->getText()) . '</h4>';
+            }
+            $ret .= '<ul>';
         }
-        $ret .= '<ul>';
     }
 
-    foreach ($propertyGroup->getProperties() as $propertyItem) {
+
+    if ($properties == null) {
+        $not_subgroup_header = true;
+        $properties = $propertyGroup->getProperties();
+    }
+    foreach ($properties as $propertyItem) {
         $property_class = get_class($propertyItem);
         // if the property is a subgroup, we deal with it recursively
-        if (strpos("group", $property_class)) {
+        if (strpos($property_class, "Subgroup")) {
             // for subgroups
             // each subgroup can have a header, which may also be a form element
             $subgroup_header = $propertyItem->getSubgroupHeader();
+            if (isset($subgroup_header)) {
+                $ret .= PMA_pluginGetOneOption(
+                    $section,
+                    $plugin_name,
+                    $subgroup_header
+                );
+            }
+
+            $ret .= '<li class="subgroup"><ul';
+            if (isset($subgroup_header)) {
+                $ret .= ' id="ul_' . $subgroup_header->getName() . '">';
+            } else {
+                $ret .= '>';
+            }
+
             $ret .=  PMA_pluginGetOneOption(
                 $section,
                 $plugin_name,
                 $propertyItem,
                 true
-            ) . '<li class="subgroup"><ul';
-            if (isset($subgroup_header['name'])) {
-                $ret .= ' id="ul_' . $subgroup_header['name'] . '">';
-            } else {
-                $ret .= '>';
-            }
+            );
         } else {
             // single property item
             switch ($property_class) {
@@ -362,25 +382,28 @@ function PMA_pluginGetOneOption(
         $ret .= '</ul></li>';
     } else {
         // end main group
-        $ret .= '</ul></div>';
+        if ($not_subgroup_header)
+            $ret .= '</ul></div>';
     }
 
-    $doc = $propertyItem->getDoc();
-    if (isset($doc)) {
-        if (count($doc) == 3) {
-            $ret .= PMA_CommonFunctions::getInstance()->showMySQLDocu(
-                $doc[0],
-                $doc[1],
-                false,
-                $doc[2]
-            );
-        } elseif (count($doc) == 1) {
-            $ret .= PMA_CommonFunctions::getInstance()->showDocu($doc[0]);
-        } else {
-            $ret .= PMA_CommonFunctions::getInstance()->showMySQLDocu(
-                $doc[0],
-                $doc[1]
-            );
+    if (method_exists($propertyGroup, "getDoc")){
+        $doc = $propertyGroup->getDoc();
+        if ($doc != null) {
+            if (count($doc) == 3) {
+                $ret .= PMA_CommonFunctions::getInstance()->showMySQLDocu(
+                    $doc[0],
+                    $doc[1],
+                    false,
+                    $doc[2]
+                );
+            } elseif (count($doc) == 1) {
+                $ret .= PMA_CommonFunctions::getInstance()->showDocu($doc[0]);
+            } else {
+                $ret .= PMA_CommonFunctions::getInstance()->showMySQLDocu(
+                    $doc[0],
+                    $doc[1]
+                );
+            }
         }
     }
 
