@@ -49,6 +49,12 @@ $_SESSION['Import_message']['go_back_url'] = null;
 // default values
 $GLOBALS['reload'] = false;
 
+// Use to identify curren cycle is executing
+// a multiquery statement or stored routine
+if (!isset($_SESSION['is_multi_query'])) {
+    $_SESSION['is_multi_query'] = false;
+}
+
 // Are we just executing plain query or sql file?
 // (eg. non import, but query box/window run)
 if (! empty($sql_query)) {

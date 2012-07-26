@@ -517,7 +517,10 @@ function PMA_getForeigners($db, $table, $column = '', $source = 'both')
         $foreign = PMA_DBI_fetch_result($rel_query, 'master_field', null, $GLOBALS['controllink']);
     }
 
-    if (($source == 'both' || $source == 'foreign') && strlen($table)) {
+    if (($source == 'both' || $source == 'foreign') && strlen($table)
+        && isset($analyzed_sql[0]['foreign_keys'])
+    ) {
+        
         $show_create_table_query = 'SHOW CREATE TABLE '
             . $common_functions->backquote($db) . '.' . $common_functions->backquote($table);
         $show_create_table = PMA_DBI_fetch_value($show_create_table_query, 0, 1);

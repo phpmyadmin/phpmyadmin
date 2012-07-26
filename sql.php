@@ -74,6 +74,10 @@ if (isset($_SESSION['profiling'])) {
     $scripts->addFile('canvg/canvg.js');
 }
 
+if (!isset($_SESSION['is_multi_query'])) {
+    $_SESSION['is_multi_query'] = false;
+}
+
 /**
  * Defines the url to return to in case of error in a sql statement
  */
@@ -911,12 +915,16 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
     
         if (!empty($sql_data) && ($sql_data['valid_queries'] > 1)) {
 
+            $_SESSION['is_multi_query'] = true;
+            
             echo getTableHtmlForMultipleQueries(
                 $displayResultsObject, $db, $sql_data, $goto,
                 $pmaThemeImage, $text_dir, $printview, $url_query, $disp_mode, $sql_limit_to_append
             );
 
         } else {
+            
+            $_SESSION['is_multi_query'] = false;
 
             $displayResultsObject->setProperties(
                 $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
@@ -1082,12 +1090,16 @@ $(makeProfilingChart);
     
     if (!empty($sql_data) && ($sql_data['valid_queries'] > 1) || $is_procedure) {
         
+        $_SESSION['is_multi_query'] = true;
+        
         echo getTableHtmlForMultipleQueries(
             $displayResultsObject, $db, $sql_data, $goto,
             $pmaThemeImage, $text_dir, $printview, $url_query, $disp_mode, $sql_limit_to_append
         );
         
     } else {
+        
+        $_SESSION['is_multi_query'] = false;
         
         $displayResultsObject->setProperties(
             $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
@@ -1163,6 +1175,8 @@ $(makeProfilingChart);
         echo '</div>'; // end sqlqueryresults div
     }
 } // end rows returned
+
+$_SESSION['is_multi_query'] = false;
 
 /**
  * Displays the footer
@@ -1312,53 +1326,64 @@ function getTableHtmlForMultipleQueries(
 
     do {
 
-        // Initialize needed params related to each query
+        $analyzed_sql = array();
+        $is_affected = false;
         
-        // Use query can change the database
-        if (stripos($sql_data['valid_sql'][$sql_no], "use ")) {
-            $db = PMA_getNewDatabase($sql_data['valid_sql'][$sql_no], $databases_array);
-        }        
-        
-        $table = PMA_getTableNameBySQL($sql_data['valid_sql'][$sql_no], $tables_array);            
         $result = PMA_DBI_store_result();
-        $fields_meta = PMA_DBI_get_fields_meta($result);
+        $fields_meta = ($result !== false) ? PMA_DBI_get_fields_meta($result) : array();
         $fields_cnt  = count($fields_meta);
-        $parsed_sql = PMA_SQP_parse($sql_data['valid_sql'][$sql_no]);
-
-        $analyzed_sql = PMA_SQP_analyze($parsed_sql);
-        $is_select = isset($analyzed_sql[0]['queryflags']['select_from']);        
-        $unlim_num_rows = PMA_Table::countRecords($db, $table, $force_exact = true);
-        $showtable = PMA_Table::sGetStatusInfo($db, $table, null, true);
-        $url_query = PMA_generate_common_url($db, $table);
-
-        list($is_group, $is_func, $is_count, $is_export, $is_analyse,
-            $is_explain, $is_delete, $is_affected, $is_insert, $is_replace,
-            $is_show, $is_maint)
-                = PMA_getDisplayPropertyParams(
-                    $sql_data['valid_sql'][$sql_no], $is_select
-                );
-
-        // Handle remembered sorting order, only for single table query
-        if ($GLOBALS['cfg']['RememberSorting']
-            && ! ($is_count || $is_export || $is_func || $is_analyse)
-            && isset($analyzed_sql[0]['select_expr'])
-            && (count($analyzed_sql[0]['select_expr']) == 0)
-            && isset($analyzed_sql[0]['queryflags']['select_from'])
-            && count($analyzed_sql[0]['table_ref']) == 1
-        ) {
-            PMA_handleSortOrder($db, $table, $analyzed_sql, $sql_data['valid_sql'][$sql_no]);
-        }
         
-        // Do append a "LIMIT" clause?
-        if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
-            && ! ($is_count || $is_export || $is_func || $is_analyse)
-            && isset($analyzed_sql[0]['queryflags']['select_from'])
-            && ! isset($analyzed_sql[0]['queryflags']['offset'])
-            && empty($analyzed_sql[0]['limit_clause'])
-        ) {            
-            $sql_data['valid_sql'][$sql_no] = PMA_getSqlWithLimitClause(
-                $sql_data['valid_sql'][$sql_no], $analyzed_sql, $sql_limit_to_append
-            );            
+        // Initialize needed params related to each query in multiquery statement
+        if (isset($sql_data['valid_sql'][$sql_no])) {
+            
+            // 'Use' query can change the database
+            if (stripos($sql_data['valid_sql'][$sql_no], "use ")) {
+                $db = PMA_getNewDatabase($sql_data['valid_sql'][$sql_no], $databases_array);
+            }
+            $parsed_sql = PMA_SQP_parse($sql_data['valid_sql'][$sql_no]);
+            $table = PMA_getTableNameBySQL($sql_data['valid_sql'][$sql_no], $tables_array);            
+            
+            $analyzed_sql = PMA_SQP_analyze($parsed_sql);
+            $is_select = isset($analyzed_sql[0]['queryflags']['select_from']);        
+            $unlim_num_rows = PMA_Table::countRecords($db, $table, $force_exact = true);
+            $showtable = PMA_Table::sGetStatusInfo($db, $table, null, true);
+            $url_query = PMA_generate_common_url($db, $table);
+            
+            list($is_group, $is_func, $is_count, $is_export, $is_analyse,
+                $is_explain, $is_delete, $is_affected, $is_insert, $is_replace,
+                $is_show, $is_maint)
+                    = PMA_getDisplayPropertyParams(
+                        $sql_data['valid_sql'][$sql_no], $is_select
+                    );
+            
+            // Handle remembered sorting order, only for single table query
+            if ($GLOBALS['cfg']['RememberSorting']
+                && ! ($is_count || $is_export || $is_func || $is_analyse)
+                && isset($analyzed_sql[0]['select_expr'])
+                && (count($analyzed_sql[0]['select_expr']) == 0)
+                && isset($analyzed_sql[0]['queryflags']['select_from'])
+                && count($analyzed_sql[0]['table_ref']) == 1
+            ) {
+                PMA_handleSortOrder($db, $table, $analyzed_sql, $sql_data['valid_sql'][$sql_no]);
+            }
+
+            // Do append a "LIMIT" clause?
+            if (($_SESSION['tmp_user_values']['max_rows'] != 'all')
+                && ! ($is_count || $is_export || $is_func || $is_analyse)
+                && isset($analyzed_sql[0]['queryflags']['select_from'])
+                && ! isset($analyzed_sql[0]['queryflags']['offset'])
+                && empty($analyzed_sql[0]['limit_clause'])
+            ) {            
+                $sql_data['valid_sql'][$sql_no] = PMA_getSqlWithLimitClause(
+                    $sql_data['valid_sql'][$sql_no], $analyzed_sql, $sql_limit_to_append
+                );            
+            }
+            
+            // Set the needed properties related to executing sql query
+            $displayResultsObject->__set('_db', $db);
+            $displayResultsObject->__set('_table', $table);
+            $displayResultsObject->__set('_goto', $goto);
+            
         }
         
         if (! $is_affected) {
@@ -1367,41 +1392,37 @@ function getTableHtmlForMultipleQueries(
             $num_rows = @PMA_DBI_affected_rows();
         }
 
+        if (isset($sql_data['valid_sql'][$sql_no])) {
+            
+            $displayResultsObject->__set('_sql_query', $sql_data['valid_sql'][$sql_no]);
+            $displayResultsObject->setProperties(
+                $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
+                $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage, $text_dir,
+                $is_maint, $is_explain, $is_show, $showtable, $printview, $url_query
+            );
+            
+        }
+
         if ($num_rows == 0) {
             continue;
         }
-        
-        // Set the needed properties related to executing sql query
-        $displayResultsObject->__set('_db', $db);
-        $displayResultsObject->__set('_table', $table);
-        $displayResultsObject->__set('_goto', $goto);
-        $displayResultsObject->__set('_sql_query', $sql_data['valid_sql'][$sql_no]);
 
-        $displayResultsObject->setProperties(
-            $unlim_num_rows, $fields_meta, $is_count, $is_export, $is_func,
-            $is_analyse, $num_rows, $fields_cnt, $querytime, $pmaThemeImage, $text_dir,
-            $is_maint, $is_explain, $is_show, $showtable, $printview, $url_query
-        );
-        
         // With multiple results, operations are limied
         $disp_mode = 'nnnn000000';
         $is_limited_display = true;
-        
+
         // Collect the tables
         $table_html .= $displayResultsObject->getTable(
             $result, $disp_mode, $analyzed_sql, $is_limited_display
         );
-        $sql_no++;
-        
+
         // Free the result to save the memory
         PMA_DBI_free_result($result);
         
-        if (! PMA_DBI_more_results()) {
-            break;
-        }
+        $sql_no++;
+        
+    } while (PMA_DBI_more_results() && PMA_DBI_next_result());
 
-    } while (PMA_DBI_next_result());
-    
     return $table_html;
     
 }
