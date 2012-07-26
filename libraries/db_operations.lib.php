@@ -133,9 +133,11 @@ function PMA_getHtmlForDropDatabaseLink($db)
 /**
  * Get HTML snippet for copy database
  * 
+ * @param $db       database name
+ * 
  * @return string $html_output
  */
-function PMA_getHtmlForCopyDatabase()
+function PMA_getHtmlForCopyDatabase($db)
 {
     $drop_clause = 'DROP TABLE / DROP VIEW';
     $choices = array(
@@ -162,7 +164,7 @@ function PMA_getHtmlForCopyDatabase()
         . 'value="' . $_REQUEST['db_collation'] .'" />' . "\n";
     }
     $html_output .= '<input type="hidden" name="db_copy" value="true" />' . "\n"
-        . PMA_generate_common_hidden_inputs($GLOBALS['db']);
+        . PMA_generate_common_hidden_inputs($db);
     $html_output .= '<fieldset>'
         . '<legend>';
     
@@ -214,9 +216,12 @@ function PMA_getHtmlForCopyDatabase()
 /**
  * Get HTML snippet for change database charset
  * 
+ * @param $db       database name
+ * @param $table    tabel name
+ * 
  * @return string $html_output
  */
-function PMA_getHtmlForChangeDatabaseCharset()
+function PMA_getHtmlForChangeDatabaseCharset($db, $table)
 {
     $html_output = '<div class="operations_half_width"><form id="change_db_charset_form" ';
     if ($GLOBALS['cfg']['AjaxEnable']) {
@@ -224,7 +229,7 @@ function PMA_getHtmlForChangeDatabaseCharset()
     }
     $html_output .= 'method="post" action="db_operations.php">';
     
-    $html_output .= PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']);
+    $html_output .= PMA_generate_common_hidden_inputs($db, $table);
     
     $html_output .= '<fieldset>' . "\n"
        . '    <legend>';
@@ -276,14 +281,16 @@ function PMA_getHtmlForExportRelationalSchemaView($url_query)
  * to avoid selecting alternatively the current and new db
  * we would need to modify the CREATE definitions to qualify
  * the db name
+ * 
+ * @param $db       database name
  */
-function PMA_runProcedureAndFunctionDefinitions()
+function PMA_runProcedureAndFunctionDefinitions($db)
 {
-    $procedure_names = PMA_DBI_get_procedures_or_functions($GLOBALS['db'], 'PROCEDURE');
+    $procedure_names = PMA_DBI_get_procedures_or_functions($db, 'PROCEDURE');
     if ($procedure_names) {
         foreach ($procedure_names as $procedure_name) {
-            PMA_DBI_select_db($GLOBALS['db']);
-            $tmp_query = PMA_DBI_get_definition($GLOBALS['db'], 'PROCEDURE', $procedure_name);
+            PMA_DBI_select_db($db);
+            $tmp_query = PMA_DBI_get_definition($db, 'PROCEDURE', $procedure_name);
             // collect for later display
             $GLOBALS['sql_query'] .= "\n" . $tmp_query;
             PMA_DBI_select_db($_REQUEST['newname']);
@@ -291,11 +298,11 @@ function PMA_runProcedureAndFunctionDefinitions()
         }
     }
 
-    $function_names = PMA_DBI_get_procedures_or_functions($GLOBALS['db'], 'FUNCTION');
+    $function_names = PMA_DBI_get_procedures_or_functions($db, 'FUNCTION');
     if ($function_names) {
         foreach ($function_names as $function_name) {
-            PMA_DBI_select_db($GLOBALS['db']);
-            $tmp_query = PMA_DBI_get_definition($GLOBALS['db'], 'FUNCTION', $function_name);
+            PMA_DBI_select_db($db);
+            $tmp_query = PMA_DBI_get_definition($db, 'FUNCTION', $function_name);
             // collect for later display
             $GLOBALS['sql_query'] .= "\n" . $tmp_query;
             PMA_DBI_select_db($_REQUEST['newname']);
@@ -349,15 +356,16 @@ function PMA_getSqlQueryAndCreateDbBeforeCopy()
  * @param array $tables_full            array of all tables in given db or dbs
  * @param instance $export_sql_plugin   export plugin instance
  * @param boolean $move                 whether databse name is empty or not
+ * @param $db                           database name
  */
-function PMA_getSqlConstraintsQueryForFullDb($tables_full, $export_sql_plugin, $move)
+function PMA_getSqlConstraintsQueryForFullDb($tables_full, $export_sql_plugin, $move, $db)
 {
     $sql_constraints_query_full_db = array();
     foreach ($tables_full as $each_table => $tmp) {
         $sql_constraints = '';
         $sql_drop_foreign_keys = '';
         $sql_structure = $export_sql_plugin->getTableDef(
-            $GLOBALS['db'], $each_table, "\n", '', false, false
+            $db, $each_table, "\n", '', false, false
         );
         if ($move && ! empty($sql_drop_foreign_keys)) {
             PMA_DBI_query($sql_drop_foreign_keys);
@@ -375,21 +383,22 @@ function PMA_getSqlConstraintsQueryForFullDb($tables_full, $export_sql_plugin, $
  * 
  * @param array $tables_full            array of all tables in given db or dbs
  * @param instance $export_sql_plugin   export plugin instance
+ * @param $db                           database name
  * 
  * @return array $views
  */
-function PMA_getViewsAndCreateSqlViewStandIn($tables_full, $export_sql_plugin)
+function PMA_getViewsAndCreateSqlViewStandIn($tables_full, $export_sql_plugin, $db)
 {
     $views = array();
     foreach ($tables_full as $each_table => $tmp) {
         // to be able to rename a db containing views,
         // first all the views are collected and a stand-in is created
         // the real views are created after the tables
-        if (PMA_Table::isView($GLOBALS['db'], $each_table)) {
+        if (PMA_Table::isView($db, $each_table)) {
             $views[] = $each_table;
             // Create stand-in definition to resolve view dependencies
             $sql_view_standin = $export_sql_plugin->getTableDefStandIn(
-                $GLOBALS['db'], $each_table, "\n"
+                $db, $each_table, "\n"
             );
             PMA_DBI_select_db($_REQUEST['newname']);
             PMA_DBI_query($sql_view_standin);
@@ -405,15 +414,16 @@ function PMA_getViewsAndCreateSqlViewStandIn($tables_full, $export_sql_plugin)
  * @param array $tables_full    array of all tables in given db or dbs
  * @param string $sql_query     sql query for all operations
  * @param boolean $move         whether databse name is empty or not
+ * @param $db                   database name
  * 
  * @return array  ($sql_query, $error)
  */
-function PMA_getSqlQueryForCopyTable($tables_full, $sql_query, $move)
+function PMA_getSqlQueryForCopyTable($tables_full, $sql_query, $move, $db)
 {
     $error = false;
     foreach ($tables_full as $each_table => $tmp) {
         // skip the views; we have creted stand-in definitions
-        if (PMA_Table::isView($GLOBALS['db'], $each_table)) {
+        if (PMA_Table::isView($db, $each_table)) {
             continue;
         }
         $back = $sql_query;
@@ -424,7 +434,7 @@ function PMA_getSqlQueryForCopyTable($tables_full, $sql_query, $move)
 
         // do not copy the data from a Merge table
         // note: on the calling FORM, 'data' means 'structure and data'
-        if (PMA_Table::isMerge($GLOBALS['db'], $each_table)) {
+        if (PMA_Table::isMerge($db, $each_table)) {
             if ($this_what == 'data') {
                 $this_what = 'structure';
             }
@@ -437,10 +447,10 @@ function PMA_getSqlQueryForCopyTable($tables_full, $sql_query, $move)
             // keep the triggers from the original db+table
             // (third param is empty because delimiters are only intended
             //  for importing via the mysql client or our Import feature)
-            $triggers = PMA_DBI_get_triggers($GLOBALS['db'], $each_table, '');
+            $triggers = PMA_DBI_get_triggers($db, $each_table, '');
 
             if (! PMA_Table::moveCopy(
-                $GLOBALS['db'], $each_table, $_REQUEST['newname'], $each_table,
+                $db, $each_table, $_REQUEST['newname'], $each_table,
                 isset($this_what) ? $this_what : 'data',
                 $move, 'db_copy'
             )) {
@@ -479,17 +489,19 @@ function PMA_getSqlQueryForCopyTable($tables_full, $sql_query, $move)
  * to avoid selecting alternatively the current and new db
  * we would need to modify the CREATE definitions to qualify
  * the db name
+ * 
+ * @param $db   database name
  */
-function PMA_runEventDefinitionsForDb()
+function PMA_runEventDefinitionsForDb($db)
 {
     $event_names = PMA_DBI_fetch_result(
         'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \''
-        . $common_functions->sqlAddSlashes($GLOBALS['db'], true) . '\';'
+        . $common_functions->sqlAddSlashes($db, true) . '\';'
     );
     if ($event_names) {
         foreach ($event_names as $event_name) {
-            PMA_DBI_select_db($GLOBALS['db']);
-            $tmp_query = PMA_DBI_get_definition($GLOBALS['db'], 'EVENT', $event_name);
+            PMA_DBI_select_db($db);
+            $tmp_query = PMA_DBI_get_definition($db, 'EVENT', $event_name);
             // collect for later display
             $GLOBALS['sql_query'] .= "\n" . $tmp_query;
             PMA_DBI_select_db($_REQUEST['newname']);
@@ -503,10 +515,11 @@ function PMA_runEventDefinitionsForDb()
  * 
  * @param array $views      views as an array
  * @param boolean $move     whether databse name is empty or not
+ * @param $db               database name
  * 
  * @return boolean $_error  whether table rename/copy or not
  */
-function PMA_handleTheViews($views, $move)
+function PMA_handleTheViews($views, $move, $db)
 {
     $_error = false;
     // temporarily force to add DROP IF EXIST to CREATE VIEW query,
@@ -517,7 +530,7 @@ function PMA_handleTheViews($views, $move)
     $GLOBALS['drop_if_exists'] = 'true';
 
     foreach ($views as $view) {
-        if (! PMA_Table::moveCopy($GLOBALS['db'], $view, $_REQUEST['newname'],
+        if (! PMA_Table::moveCopy($db, $view, $_REQUEST['newname'],
             $view, 'structure', $move, 'db_copy')
         ) {
             $_error = true;

@@ -59,7 +59,7 @@ if (strlen($db) && (! empty($_REQUEST['db_rename']) || ! empty($_REQUEST['db_cop
         // to avoid selecting alternatively the current and new db
         // we would need to modify the CREATE definitions to qualify
         // the db name
-        PMA_runProcedureAndFunctionDefinitions();
+        PMA_runProcedureAndFunctionDefinitions($db);
 
         // go back to current db, just in case
         PMA_DBI_select_db($db);
@@ -79,7 +79,7 @@ if (strlen($db) && (! empty($_REQUEST['db_rename']) || ! empty($_REQUEST['db_cop
         );
         $GLOBALS['sql_constraints_query_full_db'] = 
             PMA_getSqlConstraintsQueryForFullDb(
-                $tables_full, $export_sql_plugin, $move
+                $tables_full, $export_sql_plugin, $move, $db
             );
 
         $views = PMA_getViewsAndCreateSqlViewStandIn(
@@ -87,12 +87,12 @@ if (strlen($db) && (! empty($_REQUEST['db_rename']) || ! empty($_REQUEST['db_cop
         );
 
         list($sql_query, $_error) = PMA_getSqlQueryForCopyTable(
-            $tables_full, $sql_query, $move
+            $tables_full, $sql_query, $move, $db
         );
 
         // handle the views
         if (! $_error) {
-            $_error = PMA_handleTheViews($views, $move);
+            $_error = PMA_handleTheViews($views, $move, $db);
         }
         unset($views);
 
@@ -105,7 +105,7 @@ if (strlen($db) && (! empty($_REQUEST['db_rename']) || ! empty($_REQUEST['db_cop
             // here DELIMITER is not used because it's not part of the
             // language; each statement is sent one by one
 
-            PMA_runEventDefinitionsForDb();
+            PMA_runEventDefinitionsForDb($db);
         }
 
         // go back to current db, just in case
@@ -214,6 +214,7 @@ if (!$is_information_schema) {
          */
         echo PMA_getHtmlForDatabaseComment($db);
     }
+    
     ?>
     <div class="operations_half_width">
     <?php include 'libraries/display_create_table.lib.php'; ?>
@@ -238,12 +239,12 @@ if (!$is_information_schema) {
     /**
      * Copy database
      */
-    echo PMA_getHtmlForCopyDatabase();
+    echo PMA_getHtmlForCopyDatabase($db);
 
     /**
      * Change database charset
      */
-    echo PMA_getHtmlForChangeDatabaseCharset();
+    echo PMA_getHtmlForChangeDatabaseCharset($db, $table);
 
     if ($num_tables > 0
         && ! $cfgRelation['allworks']
