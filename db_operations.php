@@ -204,7 +204,7 @@ if (empty($is_info)) {
     }
 }
 
-$db_collation = PMA_getDbCollation($db);
+$_REQUEST['db_collation'] = PMA_getDbCollation($db);
 $is_information_schema = PMA_is_system_schema($db);
 
 if (!$is_information_schema) {
