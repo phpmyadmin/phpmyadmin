@@ -1267,22 +1267,7 @@ function PMA_RTN_handleExecute()
             
             // Generate output
             if ($outcome) {
-                $message = __('Your SQL query has been executed successfully');
-                if ($routine['item_type'] == 'PROCEDURE') {
-                    $message .= '<br />';
-                    
-                    // TODO : message need to be modified according to the 
-                    // output from the routine
-                    $message .= sprintf(
-                        _ngettext(
-                            '%d row affected by the last statement inside the procedure',
-                            '%d rows affected by the last statement inside the procedure',
-                            $affected
-                        ),
-                        $affected
-                    );
-                }
-                $message = PMA_message::success($message);
+                
                 // Pass the SQL queries through the "pretty printer"
                 $output  = '<code class="sql" style="margin-bottom: 1em;">';
                 $output .= PMA_SQP_formatHtml(PMA_SQP_parse(implode($queries)));
@@ -1331,6 +1316,7 @@ function PMA_RTN_handleExecute()
                         
                         $output .= "</table>";
                         $num_of_rusults_set_to_display++;
+                        $affected = $num_rows;
                         
                     }
                     
@@ -1345,6 +1331,23 @@ function PMA_RTN_handleExecute()
                 } while (PMA_DBI_next_result());
                 
                 $output .= "</fieldset>";
+                
+                $message = __('Your SQL query has been executed successfully');
+                if ($routine['item_type'] == 'PROCEDURE') {
+                    $message .= '<br />';
+                    
+                    // TODO : message need to be modified according to the 
+                    // output from the routine
+                    $message .= sprintf(
+                        _ngettext(
+                            '%d row affected by the last statement inside the procedure',
+                            '%d rows affected by the last statement inside the procedure',
+                            $affected
+                        ),
+                        $affected
+                    );
+                }
+                $message = PMA_message::success($message);
                 
                 if ($num_of_rusults_set_to_display == 0) {
                     $notice = __('MySQL returned an empty result set (i.e. zero rows).');
