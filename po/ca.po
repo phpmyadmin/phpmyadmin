@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-07-05 17:22+0200\n"
+"PO-Revision-Date: 2012-07-26 17:20+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -7762,15 +7762,15 @@ msgstr "Temps"
 
 #: libraries/rte/rte_triggers.lib.php:405
 msgid "You must provide a trigger name"
-msgstr ""
+msgstr "Has de proveïr un nom de disparador"
 
 #: libraries/rte/rte_triggers.lib.php:410
 msgid "You must provide a valid timing for the trigger"
-msgstr ""
+msgstr "Has de proveïr una sincronització vàlida pel disparador"
 
 #: libraries/rte/rte_triggers.lib.php:415
 msgid "You must provide a valid event for the trigger"
-msgstr ""
+msgstr "Has de proveïr un event vàlid pel disparador"
 
 #: libraries/rte/rte_triggers.lib.php:421
 msgid "You must provide a valid table name"
@@ -7778,7 +7778,7 @@ msgstr "Has de donar un nom de taula vàlid"
 
 #: libraries/rte/rte_triggers.lib.php:427
 msgid "You must provide a trigger definition."
-msgstr ""
+msgstr "Has de proveïr una definició de disparador."
 
 #: libraries/rte/rte_words.lib.php:18
 msgid "Add routine"
@@ -8042,7 +8042,7 @@ msgstr "Jocs de caràcters"
 #: libraries/server_links.inc.php:104 server_plugins.php:47
 #: server_plugins.php:80
 msgid "Plugins"
-msgstr ""
+msgstr "Complements"
 
 #: libraries/server_links.inc.php:108
 msgid "Engines"
@@ -8519,7 +8519,7 @@ msgstr "Servidor de base de dades"
 
 #: main.php:172
 msgid "Software"
-msgstr ""
+msgstr "Programari"
 
 #: main.php:173
 msgid "Software version"
@@ -9035,7 +9035,7 @@ msgstr "Veure volcat (esquema) de les bases de dades"
 
 #: server_plugins.php:81
 msgid "Modules"
-msgstr ""
+msgstr "Mòduls"
 
 #: server_plugins.php:102
 msgid "Begin"
@@ -9043,15 +9043,15 @@ msgstr "Inici"
 
 #: server_plugins.php:111
 msgid "Plugin"
-msgstr ""
+msgstr "Complement"
 
 #: server_plugins.php:112 server_plugins.php:146
 msgid "Module"
-msgstr ""
+msgstr "Mòdul"
 
 #: server_plugins.php:113 server_plugins.php:148
 msgid "Library"
-msgstr ""
+msgstr "Llibreria"
 
 #: server_plugins.php:114 server_plugins.php:149 tbl_tracking.php:650
 msgid "Version"
@@ -9059,11 +9059,11 @@ msgstr "Versió"
 
 #: server_plugins.php:115 server_plugins.php:150
 msgid "Author"
-msgstr ""
+msgstr "Autor"
 
 #: server_plugins.php:116 server_plugins.php:151
 msgid "License"
-msgstr ""
+msgstr "Licència"
 
 #: server_plugins.php:182
 msgid "disabled"
@@ -9752,11 +9752,11 @@ msgstr "Totes les variables d'estat"
 
 #: server_status.php:790
 msgid "Monitor"
-msgstr ""
+msgstr "Monitorització"
 
 #: server_status.php:791
 msgid "Advisor"
-msgstr ""
+msgstr "Assessorament"
 
 #: server_status.php:801 server_status.php:823
 msgid "Refresh rate: "
@@ -9776,7 +9776,7 @@ msgstr "Mostra només valors d'alerta"
 
 #: server_status.php:853
 msgid "Filter by category..."
-msgstr ""
+msgstr "Filtrar per categoria..."
 
 #: server_status.php:867
 msgid "Show unformatted values"
@@ -9834,17 +9834,18 @@ msgstr "Sentències"
 #. l10n: # = Amount of queries
 #: server_status.php:979
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: server_status.php:1052
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr ""
+msgstr "tràfic de xarxa des de l'inici: %s"
 
 #: server_status.php:1061
 #, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Aquest servidor MySQL és en marxa durant %1$s. Es va iniciar en %2$s."
+msgstr ""
+"Aquest servidor MySQL ha estat actiu durant %1$s. Es va iniciar el %2$s."
 
 #: server_status.php:1072
 msgid ""
@@ -9919,6 +9920,8 @@ msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr ""
+"El nombre de connexions que van ser avortades pel fet que el client va morir "
+"sense tancar la connexió correctament."
 
 #: server_status.php:1306
 msgid "The number of failed attempts to connect to the MySQL server."
@@ -9942,7 +9945,7 @@ msgstr ""
 #: server_status.php:1309
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
-msgstr ""
+msgstr "El nombre d'intents de connexió (amb èxit o no) amb el servidor MySQL."
 
 #: server_status.php:1310
 msgid ""
@@ -10372,6 +10375,8 @@ msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
+"El nombre màxim de connexions que han estat en ús a la vegada des de que el "
+"servidor s'ha iniciat."
 
 #: server_status.php:1381
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
@@ -10404,6 +10409,9 @@ msgid ""
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
+"El nombre de blocs de memòria lliures en memòria cau de consultes. Els "
+"números alts poden indicar problemes de fragmentació, que poden ser resolts "
+"mitjançant una ordre FLUSH QUERY CACHE."
 
 #: server_status.php:1387
 msgid "The amount of free memory for query cache."
@@ -10589,11 +10597,11 @@ msgstr "Començar monitorització"
 
 #: server_status.php:1569
 msgid "Instructions/Setup"
-msgstr ""
+msgstr "Instruccions/configuració"
 
 #: server_status.php:1574
 msgid "Done rearranging/editing charts"
-msgstr ""
+msgstr "Reorganització acabada/edició de gràfics"
 
 #: server_status.php:1581 server_status.php:1652
 msgid "Add chart"
@@ -10601,7 +10609,7 @@ msgstr "Afegir gràfic"
 
 #: server_status.php:1583
 msgid "Rearrange/edit charts"
-msgstr ""
+msgstr "Reorganitzar/editar gràfics"
 
 #: server_status.php:1587
 msgid "Refresh rate"
@@ -10620,6 +10628,9 @@ msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
+"La disposició dels gràfics s'emmagatzema en l'emmagatzematge local dels "
+"navegadors. Pots voler exportar-ho, si tens una configuració prou "
+"complicada."
 
 #: server_status.php:1609
 msgid "Reset to default"
