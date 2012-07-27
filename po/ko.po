@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-07-19 06:59+0200\n"
-"Last-Translator: Mog Kim <admin@mog422.net>\n"
+"PO-Revision-Date: 2012-07-26 08:31+0200\n"
+"Last-Translator: Hyun-Sung Yun <bemax38@gmail.com>\n"
 "Language-Team: korean <ko@li.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -1366,9 +1366,8 @@ msgstr "%d개 테이블(s)"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:135
-#, fuzzy
 msgid "Questions"
-msgstr "테이블 작업"
+msgstr "질의"
 
 #: js/messages.php:136 server_status.php:1103
 msgid "Traffic"
@@ -1416,7 +1415,6 @@ msgid "general_log and slow_query_log are enabled."
 msgstr "general_log 와 slow_query_log 가 활성화 되었습니다."
 
 #: js/messages.php:148
-#, fuzzy
 msgid "general_log is enabled."
 msgstr "general_log 가 활성화 되었습니다."
 
@@ -1549,7 +1547,7 @@ msgid ""
 "Since grouping of INSERTs queries has been selected, INSERT queries into the "
 "same table are also being grouped together, disregarding of the inserted "
 "data."
-msgstr ""
+msgstr "INSERT 쿼리들만 선택되었기 때문에, 입력하는 데이터에 상관없이 같은 테이블을 대상으로 하는 쿼리들끼리 또 분류되었습니다."
 
 #: js/messages.php:181
 msgid "Log data loaded. Queries executed in this time span:"
@@ -1605,9 +1603,8 @@ msgid "Edit chart"
 msgstr "차트 편집"
 
 #: js/messages.php:196
-#, fuzzy
 msgid "Series"
-msgstr "SQL 질의"
+msgstr "시리즈"
 
 #. l10n: A collection of available filters
 #: js/messages.php:199
@@ -1625,7 +1622,7 @@ msgstr "단어/정규식에 의한 필터 질의:"
 
 #: js/messages.php:203
 msgid "Group queries, ignoring variable data in WHERE clauses"
-msgstr ""
+msgstr "그룹 쿼리, WHERE 절 변수 데이터를 무시합니다"
 
 #: js/messages.php:204
 msgid "Sum of grouped rows:"
@@ -1712,10 +1709,9 @@ msgid "Rule details"
 msgstr "규칙 세부 사항"
 
 #: js/messages.php:229
-#, fuzzy
 #| msgid "Authenticating..."
 msgid "Justification"
-msgstr "인증중입니다..."
+msgstr "인증"
 
 #: js/messages.php:230
 msgid "Used variable / formula"
@@ -1806,7 +1802,6 @@ msgid "Show search results"
 msgstr "검색 결과 보이기"
 
 #: js/messages.php:265
-#, fuzzy
 #| msgid "Browse"
 msgid "Browsing"
 msgstr "보기"
@@ -1873,7 +1868,6 @@ msgid "Show search criteria"
 msgstr "검색 조건 보이기"
 
 #: js/messages.php:298 libraries/tbl_select.lib.php:110
-#, fuzzy
 #| msgid "Search"
 msgid "Zoom Search"
 msgstr "추가 검색"
