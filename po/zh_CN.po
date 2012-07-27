@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-07-21 08:15+0200\n"
+"PO-Revision-Date: 2012-07-23 19:45+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: chinese_simplified <zh_CN@li.org>\n"
 "Language: zh_CN\n"
@@ -11743,7 +11743,7 @@ msgstr ""
 msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
-msgstr ""
+msgstr "查询缓存已启用且服务器每秒收到 %d 个查询。该规则在每秒超过 100 个查询时被触发。"
 
 #: po/advisory_rules.php:80
 #, php-format
@@ -11770,20 +11770,20 @@ msgstr "查询缓存使用率"
 #: po/advisory_rules.php:86
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
-msgstr ""
+msgstr "查询缓存使用不到 80%%。"
 
 #: po/advisory_rules.php:87
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
-msgstr ""
+msgstr "这可能是因为 {query_cache_limit} 太低所导致。刷新查询缓存可能会有帮助。"
 
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
 "%%. It should be above 80%%"
-msgstr ""
+msgstr "当前空闲查询缓存内存为总查询缓存大小的 %s%%。此值应高于 80%%"
 
 #: po/advisory_rules.php:90
 msgid "Query cache fragmentation"
@@ -11791,7 +11791,7 @@ msgstr "查询缓存碎片"
 
 #: po/advisory_rules.php:91
 msgid "The query cache is considerably fragmented."
-msgstr ""
+msgstr "查询缓存碎片化相当严重。"
 
 #: po/advisory_rules.php:92
 msgid ""
