@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-27 10:40+0200\n"
-"PO-Revision-Date: 2012-07-09 17:51+0200\n"
+"PO-Revision-Date: 2012-07-27 18:07+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: spanish <es@li.org>\n"
 "Language: es\n"
@@ -7772,10 +7772,9 @@ msgstr ""
 "clave)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:354
-#, fuzzy
 #| msgid "Object creation options"
 msgid "Data creation options"
-msgstr "Opciones de creación de objetos"
+msgstr "Opciones de creación de datos"
 
 #: libraries/plugins/export/ExportSql.class.php:358
 #: libraries/plugins/export/ExportSql.class.php:1573
