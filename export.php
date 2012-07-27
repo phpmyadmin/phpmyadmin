@@ -42,8 +42,6 @@ $type = $what;
 // Check export type
 if (! isset($export_plugin)) {
     PMA_fatalError(__('Bad type!'));
-} else {
-    $export_plugin_properties = $export_plugin->getProperties();
 }
 
 /**
@@ -92,9 +90,10 @@ if ($_REQUEST['output_format'] == 'astext') {
 }
 
 // Does export require to be into file?
-if (isset($export_plugin_properties['force_file']) && ! $asfile) {
-
-    $message = PMA_Message::error(__('Selected export type has to be saved in file!'));
+if ($export_plugin->getProperties()->getForceFile() != null && ! $asfile) {
+    $message = PMA_Message::error(
+        __('Selected export type has to be saved in file!')
+    );
     if ($export_type == 'server') {
         $active_page = 'server_export.php';
         include 'server_export.php';
@@ -326,13 +325,15 @@ if ($asfile) {
 
     // Grab basic dump extension and mime type
     // Check if the user already added extension; get the substring where the extension would be if it was included
-    $extension_start_pos = strlen($filename) - strlen($export_plugin_properties['extension']) - 1;
+    $extension_start_pos = strlen($filename) - strlen(
+        $export_plugin->getProperties()->getExtension()
+    ) - 1;
     $user_extension = substr($filename, $extension_start_pos, strlen($filename));
-    $required_extension = "." . $export_plugin_properties['extension'];
+    $required_extension = "." . $export_plugin->getProperties()->getExtension();
     if (strtolower($user_extension) != $required_extension) {
         $filename  .= $required_extension;
     }
-    $mime_type  = $export_plugin_properties['mime_type'];
+    $mime_type  = $export_plugin->getProperties()->getMimeType();
 
     // If dump is going to be compressed, set correct mime_type and add
     // compression to extension

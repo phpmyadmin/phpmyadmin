@@ -49,6 +49,12 @@ $_SESSION['Import_message']['go_back_url'] = null;
 // default values
 $GLOBALS['reload'] = false;
 
+// Use to identify curren cycle is executing
+// a multiquery statement or stored routine
+if (!isset($_SESSION['is_multi_query'])) {
+    $_SESSION['is_multi_query'] = false;
+}
+
 // Are we just executing plain query or sql file?
 // (eg. non import, but query box/window run)
 if (! empty($sql_query)) {
@@ -430,6 +436,10 @@ if (! $error && isset($skip)) {
     unset($skip);
 }
 
+// This array contain the data like numberof valid sql queries in the statement
+// and complete valid sql statement (which affected for rows)
+$sql_data = array('valid_sql' => array(), 'valid_queries' => 0);
+
 if (! $error) {
     // Check for file existance
     require_once("libraries/plugin_interface.lib.php");
@@ -445,7 +455,7 @@ if (! $error) {
         );
     } else {
         // Do the real import
-        $import_plugin->doImport();
+        $import_plugin->doImport($sql_data);
     }
 }
 

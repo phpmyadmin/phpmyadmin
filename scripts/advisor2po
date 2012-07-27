@@ -16,7 +16,8 @@ function add_message($rules, $idx, $type) {
     global $messages, $locations;
     // Get message text
     if ($type == 'justification') {
-        $msg = Advisor::splitJustification($rules['rules'][$idx])[0];
+        $msgs = Advisor::splitJustification($rules['rules'][$idx]);
+        $msg = $msgs[0];
     } else {
         $msg = $rules['rules'][$idx][$type];
     }

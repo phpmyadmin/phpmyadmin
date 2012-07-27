@@ -35,56 +35,63 @@ class ExportHtmlword extends ExportPlugin
      */
     protected function setProperties()
     {
-        $this->properties = array(
-            'text' => __('Microsoft Word 2000'),
-            'extension' => 'doc',
-            'mime_type' => 'application/vnd.ms-word',
-            'force_file' => true,
-            'options' => array(),
-            'options_text' => __('Options')
-        );
+        $props = 'libraries/properties/';
+        require_once "$props/plugins/ExportPluginProperties.class.php";
+        require_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
+        require_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
+        require_once "$props/options/items/RadioPropertyItem.class.php";
+        require_once "$props/options/items/TextPropertyItem.class.php";
+        require_once "$props/options/items/BoolPropertyItem.class.php";
 
-        $this->properties['options'] = array(
-            /* what to dump (structure/data/both) */
-            array(
-                'type' => 'begin_group',
-                'name' => 'dump_what',
-                'text' => __('Dump table')
-            ),
-            array(
-                'type' => 'radio',
-                'name' => 'structure_or_data',
-                'values' => array(
-                    'structure' => __('structure'),
-                    'data' => __('data'),
-                    'structure_and_data' => __('structure and data')
-                )
-            ),
-            array(
-                'type' => 'end_group'
-            ),
+        $exportPluginProperties = new ExportPluginProperties();
+        $exportPluginProperties->setText('Microsoft Word 2000');
+        $exportPluginProperties->setExtension('doc');
+        $exportPluginProperties->setMimeType('application/vnd.ms-word');
+        $exportPluginProperties->setForceFile(true);
+        $exportPluginProperties->setOptionsText(__('Options'));
 
-            /* data options */
-            array(
-                'type' => 'begin_group',
-                'name' => 'data',
-                'text' => __('Data dump options'),
-                'force' => 'structure'
-            ),
-            array(
-                'type' => 'text',
-                'name' => 'null',
-                'text' => __('Replace NULL with:')
-            ),
-            array(
-                'type' => 'bool',
-                'name' => 'columns',
-                'text' => __('Put columns names in the first row')
-            ),
-            array(
-                'type' => 'end_group'
-            )
-        );
+        // create the root group that will be the options field for
+        // $exportPluginProperties
+        // this will be shown as "Format specific options"
+        $exportSpecificOptions = new OptionsPropertyRootGroup();
+        $exportSpecificOptions->setName("Format Specific Options");
+
+        // what to dump (structure/data/both)
+        $dumpWhat = new OptionsPropertyMainGroup();
+        $dumpWhat->setName("dump_what");
+        $dumpWhat->setText(__('Dump table'));
+        // create primary items and add them to the group
+        $leaf = new RadioPropertyItem();
+        $leaf->setName("structure_or_data");
+        $leaf->setValues(array(
+            'structure' => __('structure'),
+            'data' => __('data'),
+            'structure_and_data' => __('structure and data')
+        ));
+        $dumpWhat->addProperty($leaf);
+        // add the main group to the root group
+        $exportSpecificOptions->addProperty($dumpWhat);
+
+        // data options main group
+        $dataOptions = new OptionsPropertyMainGroup();
+        $dataOptions->setName("dump_what");
+        $dataOptions->setText(__('Data dump options'));
+        $dataOptions->setForce('structure');
+        // create primary items and add them to the group
+        $leaf = new TextPropertyItem();
+        $leaf->setName("null");
+        $leaf->setText(__('Replace NULL with:'));
+        $dataOptions->addProperty($leaf);
+        $leaf = new BoolPropertyItem();
+        $leaf->setName("columns");
+        $leaf->setText(__('Put columns names in the first row'));
+        $dataOptions->addProperty($leaf);
+        // add the main group to the root group
+        $exportSpecificOptions->addProperty($dataOptions);
+
+        // set the options for the export plugin property item
+        $exportPluginProperties->setOptions($exportSpecificOptions);
+        $this->properties = $exportPluginProperties;
     }
 
     /**
@@ -590,10 +597,10 @@ class ExportHtmlword extends ExportPlugin
         $column, $unique_keys
     ) {
         $definition = '<tr class="print-category">';
-        
+
         $extracted_columnspec
             = PMA_CommonFunctions::getInstance()->extractColumnSpec($column['Type']);
-        
+
         $type = htmlspecialchars($extracted_columnspec['print_type']);
         if (empty($type)) {
             $type = '&nbsp;';

@@ -1253,34 +1253,91 @@ function PMA_RTN_handleExecute()
                            . "(" . implode(', ', $args) . ") "
                            . "AS " . $common_functions->backquote($routine['item_name']) . ";\n";
             }
-            // Execute the queries
-            $affected = 0;
-            $result = null;
+            
+            // Get all the queries as one SQL statement
+            $multiple_query = implode("", $queries);
+            
             $outcome = true;
-            foreach ($queries as $query) {
-                $resource = PMA_DBI_try_query($query);
-                if ($resource === false) {
-                    $outcome = false;
-                    break;
-                }
-                while (true) {
+            $affected = 0;
+            
+            // Execute query
+            if (! PMA_DBI_try_multi_query($multiple_query)) {
+                $outcome = false;
+            }
+            
+            // Generate output
+            if ($outcome) {
+                
+                // Pass the SQL queries through the "pretty printer"
+                $output  = '<code class="sql" style="margin-bottom: 1em;">';
+                $output .= PMA_SQP_formatHtml(PMA_SQP_parse(implode($queries)));
+                $output .= '</code>';
+				
+                // Display results
+                $output .= "<fieldset><legend>";
+                $output .= sprintf(
+                    __('Execution results of routine %s'),
+                    $common_functions->backquote(htmlspecialchars($routine['item_name']))
+                );
+                $output .= "</legend>";
+                
+                $num_of_rusults_set_to_display = 0;
+                
+                do {
+                    
+                    $result = PMA_DBI_store_result();
+                    $num_rows = PMA_DBI_num_rows($result);
+                    
+                    if (($result !== false) && ($num_rows > 0)) {
+                        
+                        $output .= "<table><tr>";                        
+                        foreach (PMA_DBI_get_fields_meta($result) as $key => $field) {
+                            $output .= "<th>";
+                            $output .= htmlspecialchars($field->name);
+                            $output .= "</th>";
+                        }                        
+                        $output .= "</tr>";
+                        
+                        $color_class = 'odd';
+                        
+                        while ($row = PMA_DBI_fetch_assoc($result)) {
+                            $output .= "<tr>";
+                            foreach ($row as $key => $value) {
+                                if ($value === null) {
+                                    $value = '<i>NULL</i>';
+                                } else {
+                                    $value = htmlspecialchars($value);
+                                }
+                                $output .= "<td class='" . $color_class . "'>" . $value . "</td>";
+                            }
+                            $output .= "</tr>";
+                            $color_class = ($color_class == 'odd') ? 'even' : 'odd';
+                        }
+                        
+                        $output .= "</table>";
+                        $num_of_rusults_set_to_display++;
+                        $affected = $num_rows;
+                        
+                    }
+                    
                     if (! PMA_DBI_more_results()) {
                         break;
                     }
-                    PMA_DBI_next_result();
-                }
-                if (substr($query, 0, 6) == 'SELECT') {
-                    $result = $resource;
-                } else if (substr($query, 0, 4) == 'CALL') {
-                    $result = $resource ? $resource : $result;
-                    $affected = PMA_DBI_affected_rows() - PMA_DBI_num_rows($resource);
-                }
-            }
-            // Generate output
-            if ($outcome) {
+                    
+                    $output .= "<br/>";
+                    
+                    PMA_DBI_free_result($result);
+                    
+                } while (PMA_DBI_next_result());
+                
+                $output .= "</fieldset>";
+                
                 $message = __('Your SQL query has been executed successfully');
                 if ($routine['item_type'] == 'PROCEDURE') {
                     $message .= '<br />';
+                    
+                    // TODO : message need to be modified according to the 
+                    // output from the routine
                     $message .= sprintf(
                         _ngettext(
                             '%d row affected by the last statement inside the procedure',
@@ -1291,40 +1348,12 @@ function PMA_RTN_handleExecute()
                     );
                 }
                 $message = PMA_message::success($message);
-                // Pass the SQL queries through the "pretty printer"
-                $output  = '<code class="sql" style="margin-bottom: 1em;">';
-                $output .= PMA_SQP_formatHtml(PMA_SQP_parse(implode($queries)));
-                $output .= '</code>';
-                // Display results
-                if ($result) {
-                    $output .= "<fieldset><legend>";
-                    $output .= sprintf(
-                        __('Execution results of routine %s'),
-                        $common_functions->backquote(htmlspecialchars($routine['item_name']))
-                    );
-                    $output .= "</legend>";
-                    $output .= "<table><tr>";
-                    foreach (PMA_DBI_get_fields_meta($result) as $key => $field) {
-                        $output .= "<th>";
-                        $output .= htmlspecialchars($field->name);
-                        $output .= "</th>";
-                    }
-                    $output .= "</tr>";
-                    // Stored routines can only ever return ONE ROW.
-                    $data = PMA_DBI_fetch_single_row($result);
-                    foreach ($data as $key => $value) {
-                        if ($value === null) {
-                            $value = '<i>NULL</i>';
-                        } else {
-                            $value = htmlspecialchars($value);
-                        }
-                        $output .= "<td class='odd'>" . $value . "</td>";
-                    }
-                    $output .= "</table></fieldset>";
-                } else {
+                
+                if ($num_of_rusults_set_to_display == 0) {
                     $notice = __('MySQL returned an empty result set (i.e. zero rows).');
                     $output .= PMA_message::notice($notice)->getDisplay();
                 }
+                
             } else {
                 $output = '';
                 $message = PMA_message::error(
@@ -1336,6 +1365,7 @@ function PMA_RTN_handleExecute()
                     . __('MySQL said: ') . PMA_DBI_getError(null)
                 );
             }
+            
             // Print/send output
             if ($GLOBALS['is_ajax_request']) {
                 $response = PMA_Response::getInstance();
