@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-07-13 13:51+0200\n"
+"PO-Revision-Date: 2012-07-24 11:02+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
 "Language: sk\n"
@@ -3356,10 +3356,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:35
-#, fuzzy
 #| msgid "Customize text input fields"
 msgid "Minimum size for input field"
-msgstr "Prispôsobenie vstupných textových polí"
+msgstr "Minimálna veľkosť vstupného poľa"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
@@ -3368,10 +3367,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:37
-#, fuzzy
 #| msgid "Maximum size for temporary sort files"
 msgid "Maximum size for input field"
-msgstr "Maximálna veľkosť dočasných zoraďovacích súborov"
+msgstr "Maximálna veľkosť vstupného poľa"
 
 #: libraries/config/messages.inc.php:38
 msgid "Number of columns for CHAR/VARCHAR textareas"
@@ -4400,10 +4398,9 @@ msgid "Memory limit"
 msgstr "Obmedzenie pamäte"
 
 #: libraries/config/messages.inc.php:321
-#, fuzzy
 #| msgid "These are Edit, Inline edit, Copy and Delete links"
 msgid "These are Edit, Copy and Delete links"
-msgstr "Toto sú odkazy na Upraviť, Upraviť tu, Kopírovať a Odstrániť"
+msgstr "Toto sú odkazy na Upraviť, Kopírovať a Odstrániť"
 
 #: libraries/config/messages.inc.php:322
 msgid "Where to show the table row links"
@@ -5015,7 +5012,6 @@ msgid "Automatically create versions"
 msgstr "Automaticky vytvárať verzie"
 
 #: libraries/config/messages.inc.php:447
-#, fuzzy
 #| msgid ""
 #| "ve blank for no user preferences storage in database, suggested: [kbd]"
 #| "_config[/kbd]"
@@ -5024,7 +5020,7 @@ msgid ""
 "pma_userconfig[/kbd]"
 msgstr ""
 "Nechajte prázdne pre vypnutie možnosti ukladania užívateľských nastavení v "
-"databáze. Odporúčaná hodnota: [kbd]pma_config[/kbd]"
+"databáze. Odporúčaná hodnota: [kbd]pma_userconfig[/kbd]"
 
 #: libraries/config/messages.inc.php:448
 msgid "User preferences storage table"
@@ -5773,7 +5769,7 @@ msgstr "Formát:"
 
 #: libraries/display_export.lib.php:333
 msgid "Format-specific options:"
-msgstr "Voľby špecifické pre formáty:"
+msgstr "Formát - špecifické voľby:"
 
 #: libraries/display_export.lib.php:334
 msgid ""
@@ -5872,7 +5868,7 @@ msgstr "Počet riadkov od začiatku, ktoré sa majú preskočiť:"
 
 #: libraries/display_import.lib.php:250
 msgid "Format-Specific Options:"
-msgstr ""
+msgstr "Formát - špecifické voľby:"
 
 #: libraries/display_select_lang.lib.php:46
 #: libraries/display_select_lang.lib.php:47 setup/frames/index.inc.php:72
@@ -5880,10 +5876,9 @@ msgid "Language"
 msgstr "Jazyk"
 
 #: libraries/display_tbl.lib.php:406
-#, fuzzy
 #| msgid "Save directory"
 msgid "Save edited data"
-msgstr "Adresár pre ukladanie"
+msgstr "Uložiť zmeny"
 
 #: libraries/display_tbl.lib.php:412
 msgid "Restore column order"
@@ -5964,17 +5959,15 @@ msgid "Show BLOB contents"
 msgstr "Zobraziť obsah BLOBu"
 
 #: libraries/display_tbl.lib.php:687
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
-msgstr "Transformácia pri prehliadaní"
+msgstr "Skryť transformácie prehliadača"
 
 #: libraries/display_tbl.lib.php:694
 msgid "Well Known Text"
 msgstr "Text (Well Known Text)"
 
 #: libraries/display_tbl.lib.php:695
-#, fuzzy
 msgid "Well Known Binary"
 msgstr "Well Known Binary"
 
@@ -7953,10 +7946,9 @@ msgid "Current Server"
 msgstr "Aktuálny server"
 
 #: libraries/server_links.inc.php:60
-#, fuzzy
 #| msgid "User"
 msgid "Users"
-msgstr "Používateľ"
+msgstr "Používatelia"
 
 #: libraries/server_links.inc.php:79 server_synchronize.php:1154
 #: server_synchronize.php:1162
@@ -8248,16 +8240,14 @@ msgid "Operator"
 msgstr "Operátor"
 
 #: libraries/tbl_select.lib.php:103
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "Hľadať"
+msgstr "Hľadať v tabuľke"
 
 #: libraries/tbl_select.lib.php:175 tbl_change.php:1000
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "Vložiť"
+msgstr "Upraviť/Vložiť"
 
 #: libraries/transformations.lib.php:134
 #, php-format
@@ -8427,10 +8417,9 @@ msgid "General Settings"
 msgstr "Všeobecné nastavenia"
 
 #: main.php:109
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "Overenie MySQL spojenia"
+msgstr "Znaková sada pre pripojenie k serveru"
 
 #: main.php:124
 msgid "Appearance Settings"
@@ -9225,7 +9214,7 @@ msgstr ""
 
 #: server_privileges.php:791
 msgid "Login Information"
-msgstr "Prihlásenie"
+msgstr "Prihlasovacie informácie"
 
 #: server_privileges.php:885
 msgid "Do not change the password"
@@ -9294,10 +9283,9 @@ msgid "Any"
 msgstr "Akýkoľvek"
 
 #: server_privileges.php:1565
-#, fuzzy
 #| msgid "User overview"
 msgid "Users overview"
-msgstr "Prehľad používatelov"
+msgstr "Zoznam používatelov"
 
 #: server_privileges.php:1705 server_privileges.php:1899
 #: server_privileges.php:2258
@@ -9668,24 +9656,23 @@ msgstr "Stav serveru"
 
 #: server_status.php:789
 msgid "All status variables"
-msgstr ""
+msgstr "Stav všetkých premenných"
 
 #: server_status.php:790
 msgid "Monitor"
-msgstr ""
+msgstr "Monitor"
 
 #: server_status.php:791
 msgid "Advisor"
-msgstr ""
+msgstr "Poradca"
 
 #: server_status.php:801 server_status.php:823
 msgid "Refresh rate: "
 msgstr "Obnovovacia frekvencia: "
 
 #: server_status.php:842 server_variables.php:115
-#, fuzzy
 msgid "Filters"
-msgstr "Filter"
+msgstr "Filtre"
 
 #: server_status.php:844 server_variables.php:117
 msgid "Containing the word:"
@@ -9712,16 +9699,14 @@ msgid "Related links:"
 msgstr "Súvisiace odkazy:"
 
 #: server_status.php:904
-#, fuzzy
 #| msgid "Query type"
 msgid "Run analyzer"
-msgstr "Typ dopytu"
+msgstr "Spustiť analyzátor"
 
 #: server_status.php:905
-#, fuzzy
 #| msgid "Introduction"
 msgid "Instructions"
-msgstr "Úvod"
+msgstr "Inštrukcie"
 
 #: server_status.php:912
 msgid ""
@@ -10790,7 +10775,6 @@ msgid "Target database has been synchronized with source database"
 msgstr ""
 
 #: server_synchronize.php:1046
-#, fuzzy
 #| msgid "Issued queries"
 msgid "Executed queries"
 msgstr "Vykonaných dopytov"
@@ -11829,23 +11813,21 @@ msgid "Create version"
 msgstr "Vytvoriť verziu"
 
 #: tbl_zoom_select.php:142
-#, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "Vykonať \"dopyt podľa príkladu\" (nahradzujúci znak: \"%\")"
+msgstr ""
+"Vykonať \"dopyt podľa príkladu\" (nahradzujúci znak: \"%\") pre dva rôzne stĺpce"
 
 #: tbl_zoom_select.php:152
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Additional search criteria"
-msgstr "Skryť parametre vyhľadávania"
+msgstr "Rozšírené parametre vyhľadávania"
 
 #: tbl_zoom_select.php:283
 msgid "Use this column to label each point"
 msgstr ""
 
 #: tbl_zoom_select.php:303
-#, fuzzy
 #| msgid "Maximum number of rows to display"
 msgid "Maximum rows to plot"
 msgstr "Maximálny počet zobrazených riadkov"
@@ -11861,10 +11843,9 @@ msgid "How to use"
 msgstr "Kontrolný užívateľ"
 
 #: tbl_zoom_select.php:431
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Vynulovať"
+msgstr "Zrušiť zoom"
 
 #: themes.php:28
 msgid "Get more themes!"
