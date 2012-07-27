@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-27 10:40+0200\n"
-"PO-Revision-Date: 2012-07-09 15:14+0200\n"
+"PO-Revision-Date: 2012-07-27 11:52+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: czech <cs@li.org>\n"
 "Language: cs\n"
@@ -7603,10 +7603,9 @@ msgstr ""
 "názvů obsahujících speciální znaky nebo klíčová slova)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:354
-#, fuzzy
 #| msgid "Object creation options"
 msgid "Data creation options"
-msgstr "Nastavení vytváření objektů"
+msgstr "Možnosti vytváření dat"
 
 #: libraries/plugins/export/ExportSql.class.php:358
 #: libraries/plugins/export/ExportSql.class.php:1573
