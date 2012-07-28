@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-07-09 16:04+0200\n"
-"Last-Translator: Nicholas Arnesen <baretester@live.no>\n"
+"PO-Revision-Date: 2012-07-28 15:32+0200\n"
+"Last-Translator: Stian Berg <mail.to.stian@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
@@ -11592,7 +11592,7 @@ msgstr "Navn"
 #: tbl_addfield.php:185 tbl_alter.php:99 tbl_indexes.php:98
 #, php-format
 msgid "Table %1$s has been altered successfully"
-msgstr "Tabellen %1$s har blitt endrett"
+msgstr "Tabellen %1$s har blitt endret"
 
 #: tbl_change.php:699
 msgid "Because of its length,<br /> this column might not be editable"
