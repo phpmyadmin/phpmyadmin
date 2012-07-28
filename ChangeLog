@@ -8,6 +8,7 @@ phpMyAdmin - ChangeLog
 - bug #3526916 [interface] Search fails with JS error when tooltips disabled
 - bug #3544366 [interface] Event comments not saved
 - bug #3549084 [edit] Can't enter date directly when editing inline
+- bug #3548491 [interface] Inline query editor doesn't work from search results
 
 3.5.2.0 (2012-07-07)
 - bug #3521416 [interface] JS error when editing index
