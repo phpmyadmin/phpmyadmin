@@ -1619,7 +1619,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         e.stopPropagation();
                     }
                     // prevent default action when clicking on "link" in a table
-                    if ($(e.target).is('a')) {
+                    if ($(e.target).is('.grid_edit a')) {
                         e.preventDefault();
                     }
                 });
