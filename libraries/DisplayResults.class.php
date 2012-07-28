@@ -71,82 +71,82 @@ class PMA_DisplayResults
     // Declare global fields
     /** PMA_CommonFunctions object */
     private $_common_functions;
-    
+
     /** array with properties of the class */
     private $_property_array = array(
-        
+
         /** string Database name */
         '_db' => null,
-        
+
         /** string Table name */
         '_table' => null,
-        
+
         /** string the URL to go back in case of errors */
         '_goto' => null,
-        
+
         /** string the SQL query */
         '_sql_query' => null,
-        
+
         /**
          * integer the total number of rows returned by the SQL query without any
          *         appended "LIMIT" clause programmatically
          */
         '_unlim_num_rows' => null,
-        
+
         /** array meta information about fields */
         '_fields_meta' => null,
-        
+
         /** boolean */
         '_is_count' => null,
-        
+
         /** integer */
         '_is_export' => null,
-        
+
         /** boolean */
         '_is_func' => null,
-        
+
         /** integer */
         '_is_analyse' => null,
-        
+
         /** integer the total number of rows returned by the SQL query */
         '_num_rows' => null,
-        
+
         /** integer the total number of fields returned by the SQL query */
         '_fields_cnt' => null,
-        
+
         /** double time taken for execute the SQL query */
         '_querytime' => null,
-        
+
         /** string path for theme images directory */
         '_pma_theme_image' => null,
-        
+
         /** string */
         '_text_dir' => null,
-        
+
         /** boolean */
         '_is_maint' => null,
-        
+
         /** boolean */
         '_is_explain' => null,
-        
+
         /** boolean */
         '_is_show' => null,
-        
+
         /** array table definitions */
         '_showtable' => null,
-        
+
         /** string */
         '_printview' => null,
-        
+
         /** string URL query */
         '_url_query' => null,
-        
+
         /** array column names to highlight */
         '_highlight_columns' => null,
-        
+
         /** array informations used with vertical display mode */
         '_vertical_display' => null,
-        
+
         /** array mime types information of fields */
         '_mime_map' => null
     );
@@ -176,7 +176,7 @@ class PMA_DisplayResults
      * @return void
      */
     public function __set($property, $value)
-    {        
+    {
         if(array_key_exists($property, $this->_property_array)) {
             $this->_property_array[$property] = $value;
         }
@@ -266,7 +266,7 @@ class PMA_DisplayResults
         $this->__set('_showtable', $showtable);
         $this->__set('_printview', $printview);
         $this->__set('_url_query', $url_query);
-        
+
     } // end of the 'setProperties()' function
 
 
@@ -338,7 +338,7 @@ class PMA_DisplayResults
                 $do_display['bkm_form']  = (string) '0';
                 $do_display['text_btn']  = (string) '0';
                 $do_display['pview_lnk'] = (string) '0';
-                
+
             } elseif ($this->__get('_is_count') || $this->__get('_is_analyse')
                 || $this->__get('_is_maint') || $this->__get('_is_explain')
             ) {
@@ -351,7 +351,7 @@ class PMA_DisplayResults
                 $do_display['nav_bar']   = (string) '0';
                 $do_display['ins_row']   = (string) '0';
                 $do_display['bkm_form']  = (string) '1';
-                
+
                 if ($this->__get('_is_maint')) {
                     $do_display['text_btn']  = (string) '1';
                 } else {
@@ -488,7 +488,7 @@ class PMA_DisplayResults
         if (!isset($analyzed_sql[0]['select_expr'])) {
             $analyzed_sql[0]['select_expr'] = 0;
         }
-        
+
         return ! ($this->__get('_is_count') || $this->__get('_is_export')
             || $this->__get('_is_func') || $this->__get('_is_analyse'))
             && (count($analyzed_sql[0]['select_expr']) == 0)
@@ -2453,7 +2453,7 @@ class PMA_DisplayResults
         $vertical_display['data']       = array();
         $vertical_display['row_delete'] = array();
         $this->__set('_vertical_display', $vertical_display);
-        
+
         // name of the class added to all grid editable elements
         $grid_edit_class = $is_limited_display ? '' : 'grid_edit';
 
@@ -3650,6 +3650,12 @@ class PMA_DisplayResults
     ) {
 
         $is_analyse = $this->__get('_is_analyse');
+        $field_flags = PMA_DBI_field_flags($dt_result, $col_index);
+        if (stristr($field_flags, self::BINARY_FIELD)
+            && $GLOBALS['cfg']['ProtectBinary'] === 'all'
+        ) {
+            $class = str_replace('grid_edit', '', $class);
+        }
 
         if (! isset($column) || is_null($column)) {
 
@@ -3669,10 +3675,7 @@ class PMA_DisplayResults
                 $is_field_truncated = true;
             }
 
-            // displays special characters from binaries
-            $field_flags = PMA_DBI_field_flags($dt_result, $col_index);
             $formatted = false;
-
             if (isset($meta->_type) && $meta->_type === MYSQLI_TYPE_BIT) {
 
                 $column = $this->getCommonFunctions()->printableBitValue(
@@ -4256,7 +4259,7 @@ class PMA_DisplayResults
     public function getTable(
         &$dt_result, &$the_disp_mode, $analyzed_sql, $is_limited_display = false
     ) {
-        
+
         $table_html = '';
         // Following variable are needed for use in isset/empty or
         // use with array indexes/safe use in foreach
