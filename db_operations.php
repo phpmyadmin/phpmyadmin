@@ -21,7 +21,7 @@ require_once 'libraries/mysql_charsets.lib.php';
 /**
  * functions implementation for this script
  */
-require_once 'libraries/db_operations.lib.php';
+require_once 'libraries/operations.lib.php';
 
 // add a javascript file for jQuery functions to handle Ajax actions
 $response = PMA_Response::getInstance();
