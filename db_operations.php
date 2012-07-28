@@ -170,7 +170,6 @@ if (strlen($db) && (! empty($_REQUEST['db_rename']) || ! empty($_REQUEST['db_cop
     }
 }
 
-
 /**
  * Settings for relations stuff
  */
@@ -212,14 +211,13 @@ if (!$is_information_schema) {
         /**
          * database comment
          */
-        echo PMA_getHtmlForDatabaseComment($db);
+        $response->addHTML(PMA_getHtmlForDatabaseComment($db));
     }
     
-    ?>
-    <div class="operations_half_width">
-    <?php include 'libraries/display_create_table.lib.php'; ?>
-    </div>
-    <?php
+    echo '<div class="operations_half_width">';
+        include 'libraries/display_create_table.lib.php';
+    echo '</div>';
+
     /**
      * rename database
      */
