@@ -5491,7 +5491,7 @@ class PMA_DisplayResults
                 . '<input type="checkbox" id="id_rows_to_delete'
                 . $row_no . $id_suffix
                 . '" name="rows_to_delete[' . $row_no . ']"'
-                . ' class="multi_checkbox"'
+                . ' class="multi_checkbox checkall"'
                 . ' value="' . $where_clause_html . '" '
                 . (isset($GLOBALS['checkall'])
                     ? 'checked="checked"'
