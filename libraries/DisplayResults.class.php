@@ -3650,6 +3650,12 @@ class PMA_DisplayResults
     ) {
 
         $is_analyse = $this->__get('_is_analyse');
+        $field_flags = PMA_DBI_field_flags($dt_result, $col_index);
+        if (stristr($field_flags, self::BINARY_FIELD)
+            && $GLOBALS['cfg']['ProtectBinary'] === 'all'
+        ) {
+            $class = str_replace('grid_edit', '', $class);
+        }
 
         if (! isset($column) || is_null($column)) {
 
@@ -3669,10 +3675,7 @@ class PMA_DisplayResults
                 $is_field_truncated = true;
             }
 
-            // displays special characters from binaries
-            $field_flags = PMA_DBI_field_flags($dt_result, $col_index);
             $formatted = false;
-
             if (isset($meta->_type) && $meta->_type === MYSQLI_TYPE_BIT) {
 
                 $column = $this->getCommonFunctions()->printableBitValue(
