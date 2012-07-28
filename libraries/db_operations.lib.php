@@ -496,7 +496,7 @@ function PMA_runEventDefinitionsForDb($db)
 {
     $event_names = PMA_DBI_fetch_result(
         'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \''
-        . $common_functions->sqlAddSlashes($db, true) . '\';'
+        . PMA_CommonFunctions::getInstance()->sqlAddSlashes($db, true) . '\';'
     );
     if ($event_names) {
         foreach ($event_names as $event_name) {
