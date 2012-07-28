@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-27 10:40+0200\n"
-"PO-Revision-Date: 2012-07-28 15:32+0200\n"
+"PO-Revision-Date: 2012-07-28 16:33+0200\n"
 "Last-Translator: Stian Berg <mail.to.stian@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -5185,6 +5185,8 @@ msgid ""
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found"
 msgstr ""
+"Deaktiver varselet som vises på databasedetaljsiden Struktur om det er noen "
+"påkrevde tabeller for phpMyAdmins konfigurasjonslager som ikke ble funnet"
 
 #: libraries/config/messages.inc.php:338
 msgid "Missing phpMyAdmin configuration storage tables"
@@ -5240,10 +5242,9 @@ msgid "Query window height"
 msgstr "Høyde på spørringsvindu"
 
 #: libraries/config/messages.inc.php:352
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width (in pixels)"
-msgstr "Spørringsvindu"
+msgstr "Bredde på spørringsvindu (i piksler)"
 
 #: libraries/config/messages.inc.php:353
 msgid "Query window width"
