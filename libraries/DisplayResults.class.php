@@ -3652,7 +3652,8 @@ class PMA_DisplayResults
         $is_analyse = $this->__get('_is_analyse');
         $field_flags = PMA_DBI_field_flags($dt_result, $col_index);
         if (stristr($field_flags, self::BINARY_FIELD)
-            && $GLOBALS['cfg']['ProtectBinary'] === 'all'
+            && ($GLOBALS['cfg']['ProtectBinary'] == 'all'
+            || $GLOBALS['cfg']['ProtectBinary'] == 'noblob')
         ) {
             $class = str_replace('grid_edit', '', $class);
         }
