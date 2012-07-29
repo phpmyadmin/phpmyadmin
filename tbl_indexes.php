@@ -22,7 +22,7 @@ foreach (PMA_DBI_get_columns_full($db, $table) as $row) {
         $tmp[2] = substr(
             preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]), 1
         );
-        $fields[$row['Field']] = $tmp[1] . '(' 
+        $fields[$row['Field']] = $tmp[1] . '('
             . str_replace(',', ', ', $tmp[2]) . ')';
     } else {
         $fields[$row['Field']] = $row['Type'];
@@ -50,39 +50,41 @@ if (isset($_REQUEST['do_save_data'])) {
     $error = false;
 
     // $sql_query is the one displayed in the query box
-    $sql_query = 'ALTER TABLE ' . $common_functions->backquote($db) . '.' . $common_functions->backquote($table);
+    $sql_query = 'ALTER TABLE ' . $common_functions->backquote($db)
+        . '.' . $common_functions->backquote($table);
 
     // Drops the old index
     if (! empty($_REQUEST['old_index'])) {
         if ($_REQUEST['old_index'] == 'PRIMARY') {
             $sql_query .= ' DROP PRIMARY KEY,';
         } else {
-            $sql_query .= ' DROP INDEX ' 
+            $sql_query .= ' DROP INDEX '
                 . $common_functions->backquote($_REQUEST['old_index']) . ',';
         }
     } // end if
 
     // Builds the new one
     switch ($index->getType()) {
-        case 'PRIMARY':
-            if ($index->getName() == '') {
-                $index->setName('PRIMARY');
-            } elseif ($index->getName() != 'PRIMARY') {
-                $error = PMA_Message::error(__(
-                    'The name of the primary key must be "PRIMARY"!'));
-            }
-            $sql_query .= ' ADD PRIMARY KEY';
-            break;
-        case 'FULLTEXT':
-        case 'UNIQUE':
-        case 'INDEX':
-        case 'SPATIAL':
-            if ($index->getName() == 'PRIMARY') {
-                $error = PMA_Message::error(__('Can\'t rename index to PRIMARY!'));
-            }
-            $sql_query .= ' ADD ' . $index->getType() . ' '
-                . ($index->getName() ? $common_functions->backquote($index->getName()) : '');
-            break;
+    case 'PRIMARY':
+        if ($index->getName() == '') {
+            $index->setName('PRIMARY');
+        } elseif ($index->getName() != 'PRIMARY') {
+            $error = PMA_Message::error(
+                __('The name of the primary key must be "PRIMARY"!')
+            );
+        }
+        $sql_query .= ' ADD PRIMARY KEY';
+        break;
+    case 'FULLTEXT':
+    case 'UNIQUE':
+    case 'INDEX':
+    case 'SPATIAL':
+        if ($index->getName() == 'PRIMARY') {
+            $error = PMA_Message::error(__('Can\'t rename index to PRIMARY!'));
+        }
+        $sql_query .= ' ADD ' . $index->getType() . ' '
+            . ($index->getName() ? $common_functions->backquote($index->getName()) : '');
+        break;
     } // end switch
 
     $index_fields = array();
@@ -103,8 +105,9 @@ if (isset($_REQUEST['do_save_data'])) {
 
     if (! $error) {
         PMA_DBI_query($sql_query);
-        $message = PMA_Message::success(__(
-            'Table %1$s has been altered successfully'));
+        $message = PMA_Message::success(
+            __('Table %1$s has been altered successfully')
+        );
         $message->addParam($table);
 
         if ($GLOBALS['is_ajax_request'] == true) {
@@ -161,8 +164,8 @@ if (isset($_REQUEST['index']) && is_array($_REQUEST['index'])) {
 ?>
 
 <form action="tbl_indexes.php" method="post" name="index_frm" id="index_frm" <?php
-    echo ($GLOBALS['cfg']['AjaxEnable'] 
-        ? ' class="ajax"' 
+    echo ($GLOBALS['cfg']['AjaxEnable']
+        ? ' class="ajax"'
         : ''); ?>
     onsubmit="if (typeof(this.elements['index[Key_name]'].disabled) != 'undefined') {
         this.elements['index[Key_name]'].disabled = false}">
@@ -249,16 +252,16 @@ foreach ($index->getColumns() as $column) {
             <option value="">-- <?php echo __('Ignore'); ?> --</option>
     <?php
     foreach ($fields as $field_name => $field_type) {
-        if (($index->getType() != 'FULLTEXT' 
+        if (($index->getType() != 'FULLTEXT'
                 || preg_match('/(char|text)/i', $field_type))
-            && ($index->getType() != 'SPATIAL' 
+            && ($index->getType() != 'SPATIAL'
                 || in_array($field_type, $spatial_types))
         ) {
             echo '<option value="' . htmlspecialchars($field_name) . '"'
-                 . (($field_name == $column->getName()) 
-                    ? ' selected="selected"' 
+                 . (($field_name == $column->getName())
+                    ? ' selected="selected"'
                     : '') . '>'
-                 . htmlspecialchars($field_name) . ' [' 
+                 . htmlspecialchars($field_name) . ' ['
                  . htmlspecialchars($field_type) . ']'
                  . '</option>' . "\n";
         }
@@ -285,7 +288,7 @@ for ($i = 0; $i < $add_fields; $i++) {
     <?php
     foreach ($fields as $field_name => $field_type) {
         echo '<option value="' . htmlspecialchars($field_name) . '">'
-             . htmlspecialchars($field_name) . ' [' 
+             . htmlspecialchars($field_name) . ' ['
              . htmlspecialchars($field_type) . ']'
              . '</option>' . "\n";
     } // end foreach $fields
