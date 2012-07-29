@@ -141,7 +141,7 @@ class ConfigGenerator
             // more than 4 values - value per line
             $imax = count($retv)-1;
             for ($i = 0; $i <= $imax; $i++) {
-                $ret .= ($i < $imax ? ($i > 0 ? ',' : '') : '') . $crlf . '    ' . $retv[$i];
+                $ret .= ($i > 0 ? ',' : '') . $crlf . '    ' . $retv[$i];
             }
         }
         $ret .= ')';
