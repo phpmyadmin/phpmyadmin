@@ -253,28 +253,6 @@ abstract class ExportPlugin extends PluginObserver
     abstract protected function setProperties();
 
     /**
-     * Gets the type of the export plugin
-     *
-     * @return string
-     */
-    protected function getWhat()
-    {
-        return $this->_what;
-    }
-
-    /**
-     * Sets the type of the export plugin
-     *
-     * @param string $what type of the export plugin
-     *
-     * @return void
-     */
-    protected function setWhat($what)
-    {
-        $this->_what = $what;
-    }
-
-    /**
      * Gets the parameter to plugin by which it can decide whether it can work
      *
      * @return mixed

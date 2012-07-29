@@ -177,7 +177,6 @@ class ExportTexytext extends ExportPlugin
     public function exportData($db, $table, $crlf, $error_url, $sql_query)
     {
         global $what;
-        $this->setWhat($what);
 
         if (! PMA_exportOutputHandler(
             '== ' . __('Dumping data for table') . ' ' . $table . "\n\n"
