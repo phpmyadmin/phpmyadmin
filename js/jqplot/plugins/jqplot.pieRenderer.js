@@ -2,7 +2,8 @@
  * jqPlot
  * Pure JavaScript plotting plugin using jQuery
  *
- * Version: 1.0.0b2_r1012
+ * Version: 1.0.2
+ * Revision: 1108
  *
  * Copyright (c) 2009-2011 Chris Leonello
  * jqPlot is currently available for use in all personal or commercial projects 
@@ -800,6 +801,7 @@
             plot.target.trigger(evt1, ins);
             if (plot.series[ins[0]].highlightMouseOver && !(ins[0] == plot.plugins.pieRenderer.highlightedSeriesIndex && ins[1] == plot.series[ins[0]]._highlightedPoint)) {
                 var evt = jQuery.Event('jqplotDataHighlight');
+		evt.which = ev.which;
                 evt.pageX = ev.pageX;
                 evt.pageY = ev.pageY;
                 plot.target.trigger(evt, ins);
@@ -816,6 +818,7 @@
             var ins = [neighbor.seriesIndex, neighbor.pointIndex, neighbor.data];
             if (plot.series[ins[0]].highlightMouseDown && !(ins[0] == plot.plugins.pieRenderer.highlightedSeriesIndex && ins[1] == plot.series[ins[0]]._highlightedPoint)) {
                 var evt = jQuery.Event('jqplotDataHighlight');
+		evt.which = ev.which;
                 evt.pageX = ev.pageX;
                 evt.pageY = ev.pageY;
                 plot.target.trigger(evt, ins);
@@ -838,6 +841,7 @@
         if (neighbor) {
             var ins = [neighbor.seriesIndex, neighbor.pointIndex, neighbor.data];
             var evt = jQuery.Event('jqplotDataClick');
+	    evt.which = ev.which;
             evt.pageX = ev.pageX;
             evt.pageY = ev.pageY;
             plot.target.trigger(evt, ins);
@@ -852,6 +856,7 @@
                 unhighlight(plot);
             }
             var evt = jQuery.Event('jqplotDataRightClick');
+	    evt.which = ev.which;
             evt.pageX = ev.pageX;
             evt.pageY = ev.pageY;
             plot.target.trigger(evt, ins);

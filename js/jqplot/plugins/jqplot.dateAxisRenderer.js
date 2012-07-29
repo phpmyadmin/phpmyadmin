@@ -2,7 +2,8 @@
  * jqPlot
  * Pure JavaScript plotting plugin using jQuery
  *
- * Version: 1.0.0b2_r1012
+ * Version: 1.0.2
+ * Revision: 1108
  *
  * Copyright (c) 2009-2011 Chris Leonello
  * jqPlot is currently available for use in all personal or commercial projects 
@@ -400,9 +401,43 @@
         // We don't have any ticks yet, let's make some!
         ////////
 
+        // special case when there is only one point, make three tick marks to center the point
+        else if (this.min == null && this.max == null && db.min == db.max)
+        {
+             var onePointOpts = $.extend(true, {}, this.tickOptions, {name: this.name, value: null});
+             var delta = 300000;
+             this.min = db.min - delta;
+             this.max = db.max + delta;
+             this.numberTicks = 3;
+
+             for(var i=this.min;i<=this.max;i+= delta)
+             {
+                 onePointOpts.value = i;
+
+                 var t = new this.tickRenderer(onePointOpts);
+
+                 if (this._overrideFormatString && this._autoFormatString != '') {
+                    t.formatString = this._autoFormatString;
+                 }
+
+                 t.showLabel = false;
+                 t.showMark = false;
+
+                 this._ticks.push(t);
+             }
+
+             if(this.showTicks) {
+                 this._ticks[1].showLabel = true;
+             }
+             if(this.showTickMarks) {
+                 this._ticks[1].showTickMarks = true;
+             }                   
+        }
         // if user specified min and max are null, we set those to make best ticks.
         else if (this.min == null && this.max == null) {
+
             var opts = $.extend(true, {}, this.tickOptions, {name: this.name, value: null});
+
             // want to find a nice interval 
             var nttarget,
                 titarget;

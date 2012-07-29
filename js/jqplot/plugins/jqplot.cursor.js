@@ -2,7 +2,8 @@
  * jqPlot
  * Pure JavaScript plotting plugin using jQuery
  *
- * Version: 1.0.0b2_r1012
+ * Version: 1.0.2
+ * Revision: 1108
  *
  * Copyright (c) 2009-2011 Chris Leonello
  * jqPlot is currently available for use in all personal or commercial projects 
@@ -480,11 +481,14 @@
                     s += '<br />';
                 }
                 if (c.useAxesFormatters) {
-                    var xf = plot.axes[g[0]]._ticks[0].formatter;
-                    var yf = plot.axes[g[1]]._ticks[0].formatter;
-                    var xfstr = plot.axes[g[0]]._ticks[0].formatString;
-                    var yfstr = plot.axes[g[1]]._ticks[0].formatString;
-                    s += xf(xfstr, datapos[g[0]]) + ', '+ yf(yfstr, datapos[g[1]]);
+                    for (var j=0; j<g.length; j++) {
+                        if (j) {
+                            s += ', ';
+                        }
+                        var af = plot.axes[g[j]]._ticks[0].formatter;
+                        var afstr = plot.axes[g[j]]._ticks[0].formatString;
+                        s += af(afstr, datapos[g[j]]);
+                    }
                 }
                 else {
                     s += $.jqplot.sprintf(c.tooltipFormatString, datapos[g[0]], datapos[g[1]]);
@@ -752,6 +756,7 @@
         if (c.show) {
             $(ev.target).css('cursor', c.previousCursor);
             if (c.showTooltip && !(c._zoom.zooming && c.showTooltipOutsideZoom && !c.constrainOutsideZoom)) {
+                c._tooltipElem.empty();
                 c._tooltipElem.hide();
             }
             if (c.zoom) {
@@ -845,6 +850,7 @@
         var c = plot.plugins.cursor;
         // don't do anything if not on grid.
         if (c.show && c.zoom && c._zoom.started && !c.zoomTarget) {
+            ev.preventDefault();
             var ctx = c.zoomCanvas._ctx;
             var positions = getEventPosition(ev);
             var gridpos = positions.gridPos;
@@ -886,7 +892,11 @@
     
     function handleMouseDown(ev, gridpos, datapos, neighbor, plot) {
         var c = plot.plugins.cursor;
-        $(document).one('mouseup.jqplot_cursor', {plot:plot}, handleMouseUp);
+        if(plot.plugins.mobile){
+            $(document).one('vmouseup.jqplot_cursor', {plot:plot}, handleMouseUp);
+        } else {
+            $(document).one('mouseup.jqplot_cursor', {plot:plot}, handleMouseUp);
+        }
         var axes = plot.axes;
         if (document.onselectstart != undefined) {
             c._oldHandlers.onselectstart = document.onselectstart;
@@ -920,7 +930,12 @@
                 // get zoom starting position.
                 c._zoom.axes.start[ax] = datapos[ax];
             }  
-            $(document).bind('mousemove.jqplotCursor', {plot:plot}, handleZoomMove);              
+           if(plot.plugins.mobile){
+                $(document).bind('vmousemove.jqplotCursor', {plot:plot}, handleZoomMove);              
+            } else {
+                $(document).bind('mousemove.jqplotCursor', {plot:plot}, handleZoomMove);              
+            }
+
         }
     }
     
