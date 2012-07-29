@@ -115,7 +115,6 @@ class ExportHtmlword extends ExportPlugin
     public function exportHeader ()
     {
         global $charset_of_file;
-        $this->setCharsetOfFile($charset_of_file);
 
         return PMA_exportOutputHandler(
             '<html xmlns:o="urn:schemas-microsoft-com:office:office"
@@ -195,7 +194,6 @@ class ExportHtmlword extends ExportPlugin
     public function exportData($db, $table, $crlf, $error_url, $sql_query)
     {
         global $what;
-        $this->setWhat($what);
 
         if (! PMA_exportOutputHandler(
             '<h2>'
@@ -346,7 +344,6 @@ class ExportHtmlword extends ExportPlugin
         // set $cfgRelation here, because there is a chance that it's modified
         // since the class initialization
         global $cfgRelation;
-        $this->setCfgRelation($cfgRelation);
 
         $schema_insert = '';
 
@@ -466,7 +463,7 @@ class ExportHtmlword extends ExportPlugin
 
         $schema_insert .= '</table>';
         return $schema_insert;
-    } // end of the 'PMA_getTableDef()' function
+    }
 
     /**
      * Outputs triggers
