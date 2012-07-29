@@ -253,28 +253,6 @@ abstract class ExportPlugin extends PluginObserver
     abstract protected function setProperties();
 
     /**
-     * Gets the database name
-     *
-     * @return string
-     */
-    protected function getDb()
-    {
-        return $this->_db;
-    }
-
-    /**
-     * Sets the database name
-     *
-     * @param String $db database name
-     *
-     * @return void
-     */
-    protected function setDb($db)
-    {
-        $this->_db = $db;
-    }
-
-    /**
      * Gets the configuration settings
      *
      * @return array

@@ -165,7 +165,6 @@ class ExportXml extends ExportPlugin
         $this->initSpecificVariables();
         global $crlf, $cfg, $db;
         $this->setCfg($cfg);
-        $this->setDb($db);
         $table = $this->_getTable();
         $tables = $this->_getTables();
 
