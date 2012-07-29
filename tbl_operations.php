@@ -10,6 +10,11 @@
  */
 require_once 'libraries/common.inc.php';
 
+/**
+ * functions implementation for this script
+ */
+require_once 'libraries/operations.lib.php';
+
 $pma_table = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
 $common_functions = PMA_CommonFunctions::getInstance();
 
@@ -271,71 +276,16 @@ $columns = PMA_DBI_get_columns($GLOBALS['db'], $GLOBALS['table']);
 /**
  * Displays the page
  */
-?>
-<!-- Order the table -->
-<div class="operations_half_width">
-<form method="post" id="alterTableOrderby" action="tbl_operations.php" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '');?>>
-<?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
-<fieldset id="fieldset_table_order">
-    <legend><?php echo __('Alter table order by'); ?></legend>
-    <select name="order_field">
-<?php
-foreach ($columns as $fieldname) {
-    echo '            <option value="' . htmlspecialchars($fieldname['Field']) . '">'
-        . htmlspecialchars($fieldname['Field']) . '</option>' . "\n";
-}
-unset($columns);
-?>
-    </select> <?php echo __('(singly)'); ?>
-    <select name="order_order">
-        <option value="asc"><?php echo __('Ascending'); ?></option>
-        <option value="desc"><?php echo __('Descending'); ?></option>
-    </select>
-</fieldset>
-<fieldset class="tblFooters">
-    <input type="submit" name="submitorderby" value="<?php echo __('Go'); ?>" />
-</fieldset>
-</form>
-</div>
+/**
+ * Order the table
+ */
+echo PMA_getHtmlForOrderTheTable($columns);
 
-<!-- Move table -->
-<div class="operations_half_width">
-<form method="post" action="tbl_operations.php"
-    onsubmit="return emptyFormElements(this, 'new_name')">
-<?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
-<input type="hidden" name="reload" value="1" />
-<input type="hidden" name="what" value="data" />
-<fieldset id="fieldset_table_rename">
-    <legend><?php echo __('Move table to (database<b>.</b>table):'); ?></legend>
-<?php if (count($GLOBALS['pma']->databases) > $GLOBALS['cfg']['MaxDbList']) {
-?>
-    <input type="text" maxlength="100" size="30" name="target_db" value="<?php echo htmlspecialchars($GLOBALS['db']); ?>"/>
-<?php
-    } else {
-?>
-    <select name="target_db">
-        <?php echo $GLOBALS['pma']->databases->getHtmlOptions(true, false); ?>
-    </select>
-<?php
-    } // end if
-?>
-    &nbsp;<strong>.</strong>&nbsp;
-    <input type="text" size="20" name="new_name" onfocus="this.select()"
-value="<?php echo htmlspecialchars($GLOBALS['table']); ?>" /><br />
-    <?php
-    // starting with MySQL 5.0.24, SHOW CREATE TABLE includes the AUTO_INCREMENT
-    // next value but users can decide if they want it or not for the operation
-    ?>
-    <input type="checkbox" name="sql_auto_increment" value="1" id="checkbox_auto_increment_mv" checked="checked" />
-    <label for="checkbox_auto_increment_mv"><?php echo __('Add AUTO_INCREMENT value'); ?></label><br />
-</fieldset>
-<fieldset class="tblFooters">
-    <input type="submit" name="submit_move" value="<?php echo __('Go'); ?>" />
-</fieldset>
-</form>
-</div>
+/**
+ * Move table
+ */
+echo PMA_getHtmlForMoveTable();
 
-<?php
 if (strstr($show_comment, '; InnoDB free') === false) {
     if (strstr($show_comment, 'InnoDB free') === false) {
         // only user entered comment
@@ -356,259 +306,18 @@ if (strstr($show_comment, '; InnoDB free') === false) {
 // Here should be version check for InnoDB, however it is supported
 // in >5.0.4, >4.1.12 and >4.0.11, so I decided not to
 // check for version
-?>
 
-<!-- Table options -->
-<div class="operations_half_width clearfloat">
-<form method="post" action="tbl_operations.php">
-<?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
-<input type="hidden" name="reload" value="1" />
-<fieldset>
-    <legend><?php echo __('Table options'); ?></legend>
-
-    <table>
-    <!-- Change table name -->
-    <tr><td><?php echo __('Rename table to'); ?></td>
-        <td><input type="text" size="20" name="new_name" onfocus="this.select()"
-                value="<?php echo htmlspecialchars($GLOBALS['table']); ?>" />
-        </td>
-    </tr>
-
-    <!-- Table comments -->
-    <tr><td><?php echo __('Table comments'); ?></td>
-        <td><input type="text" name="comment" maxlength="60" size="30"
-                value="<?php echo htmlspecialchars($comment); ?>" onfocus="this.select()" />
-            <input type="hidden" name="prev_comment" value="<?php echo htmlspecialchars($comment); ?>" />
-        </td>
-    </tr>
-
-    <!-- Storage engine -->
-    <tr><td><?php echo __('Storage Engine'); ?>
-            <?php echo $common_functions->showMySQLDocu('Storage_engines', 'Storage_engines'); ?>
-        </td>
-        <td><?php echo PMA_StorageEngine::getHtmlSelect('new_tbl_storage_engine', null, $tbl_storage_engine); ?>
-        </td>
-    </tr>
-
-    <!-- Table character set -->
-    <tr><td><?php echo __('Collation'); ?></td>
-        <td><?php echo PMA_generateCharsetDropdownBox(
-                PMA_CSDROPDOWN_COLLATION,
-                'tbl_collation', null, $tbl_collation, false, 3
-            ); ?>
-        </td>
-    </tr>
-<?php
-if ($is_myisam_or_aria || $is_isam) {
-    ?>
-    <tr>
-        <td><label for="new_pack_keys">PACK_KEYS</label></td>
-        <td><select name="new_pack_keys" id="new_pack_keys">
-                <option value="DEFAULT" <?php
-    if ($pack_keys == 'DEFAULT') {
-        echo 'selected="selected"';
-    } ?>>DEFAULT</option>
-                <option value="0" <?php
-    if ($pack_keys == '0') {
-        echo 'selected="selected"';
-    } ?>>0</option>
-                <option value="1" <?php
-    if ($pack_keys == '1') {
-        echo 'selected="selected"';
-    } ?>>1</option>
-            </select>
-        </td>
-    </tr>
-    <?php
-} // end if (MYISAM|ISAM)
-
-if ($is_myisam_or_aria) {
-    ?>
-    <tr><td><label for="new_checksum">CHECKSUM</label></td>
-        <td><input type="checkbox" name="new_checksum" id="new_checksum"
-                value="1"
-    <?php echo (isset($checksum) && $checksum == 1)
-        ? ' checked="checked"'
-        : ''; ?> />
-        </td>
-    </tr>
-
-    <tr><td><label for="new_delay_key_write">DELAY_KEY_WRITE</label></td>
-        <td><input type="checkbox" name="new_delay_key_write" id="new_delay_key_write"
-                value="1"
-    <?php echo (isset($delay_key_write) && $delay_key_write == 1)
-        ? ' checked="checked"'
-        : ''; ?> />
-        </td>
-    </tr>
-
-    <?php
-} // end if (MYISAM)
-
-if ($is_aria) {
-    ?>
-    <tr><td><label for="new_transactional">TRANSACTIONAL</label></td>
-        <td><input type="checkbox" name="new_transactional" id="new_transactional"
-                value="1"
-    <?php echo (isset($transactional) && $transactional == 1)
-        ? ' checked="checked"'
-        : ''; ?> />
-        </td>
-    </tr>
-
-    <tr><td><label for="new_page_checksum">PAGE_CHECKSUM</label></td>
-        <td><input type="checkbox" name="new_page_checksum" id="new_page_checksum"
-                value="1"
-    <?php echo (isset($page_checksum) && $page_checksum == 1)
-        ? ' checked="checked"'
-        : ''; ?> />
-        </td>
-    </tr>
-
-    <?php
-} // end if (ARIA)
-
-if (isset($auto_increment) && strlen($auto_increment) > 0
-    && ($is_myisam_or_aria || $is_innodb || $is_pbxt)
-) {
-    ?>
-    <tr><td><label for="auto_increment_opt">AUTO_INCREMENT</label></td>
-        <td><input type="text" name="new_auto_increment" id="auto_increment_opt"
-                value="<?php echo $auto_increment; ?>" /></td>
-    </tr>
-    <?php
-} // end if (MYISAM|INNODB)
-
-// the outer array is for engines, the inner array contains the dropdown
-// option values as keys then the dropdown option labels
-
-$possible_row_formats = array(
-     'ARIA'  => array(
-        'FIXED'     => 'FIXED',
-        'DYNAMIC'   => 'DYNAMIC',
-        'PAGE'      => 'PAGE'
-            ),
-     'MARIA'  => array(
-        'FIXED'     => 'FIXED',
-        'DYNAMIC'   => 'DYNAMIC',
-        'PAGE'      => 'PAGE'
-            ),
-     'MYISAM' => array(
-         'FIXED'    => 'FIXED',
-         'DYNAMIC'  => 'DYNAMIC'
-     ),
-     'PBXT'   => array(
-         'FIXED'    => 'FIXED',
-         'DYNAMIC'  => 'DYNAMIC'
-     ),
-     'INNODB' => array(
-         'COMPACT'  => 'COMPACT',
-         'REDUNDANT' => 'REDUNDANT')
+echo PMA_getTableOptionDiv($comment, $tbl_collation, $tbl_storage_engine,
+    $is_myisam_or_aria, $is_isam, $pack_keys, $delay_key_write, $auto_increment,
+    $transactional, $page_checksum, $is_innodb, $is_pbxt, $is_aria
 );
 
-$innodb_engine_plugin = PMA_StorageEngine::getEngine('innodb');
-$innodb_plugin_version = $innodb_engine_plugin->getInnodbPluginVersion();
-if (!empty($innodb_plugin_version)) {
-    $innodb_file_format = $innodb_engine_plugin->getInnodbFileFormat();
-} else {
-    $innodb_file_format = '';
-}
-if ('Barracuda' == $innodb_file_format && $innodb_engine_plugin->supportsFilePerTable()) {
-    $possible_row_formats['INNODB']['DYNAMIC'] = 'DYNAMIC';
-    $possible_row_formats['INNODB']['COMPRESSED'] = 'COMPRESSED';
-}
-unset($innodb_engine_plugin, $innodb_plugin_version, $innodb_file_format);
+/**
+ * Copy table
+ */
+echo PMA_getHtmlForCopytable();
 
-// for MYISAM there is also COMPRESSED but it can be set only by the
-// myisampack utility, so don't offer here the choice because if we
-// try it inside an ALTER TABLE, MySQL (at least in 5.1.23-maria)
-// does not return a warning
-// (if the table was compressed, it can be seen on the Structure page)
-
-if (isset($possible_row_formats[$tbl_storage_engine])) {
-    $current_row_format = strtoupper($showtable['Row_format']);
-    echo '<tr><td><label for="new_row_format">ROW_FORMAT</label></td>';
-    echo '<td>';
-    echo $common_functions->getDropdown(
-        'new_row_format', $possible_row_formats[$tbl_storage_engine],
-        $current_row_format, 'new_row_format'
-    );
-    unset($possible_row_formats, $current_row_format);
-    echo '</td>';
-    echo '</tr>';
-}
 ?>
-    </table>
-</fieldset>
-<fieldset class="tblFooters">
-        <input type="submit" name="submitoptions" value="<?php echo __('Go'); ?>" />
-</fieldset>
-</form>
-</div>
-
-<!-- Copy table -->
-<div class="operations_half_width">
-<form method="post" action="tbl_operations.php" name="copyTable" id="copyTable" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '');?>
-    onsubmit="return emptyFormElements(this, 'new_name')">
-<?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
-<input type="hidden" name="reload" value="1" />
-<fieldset>
-    <legend><?php echo __('Copy table to (database<b>.</b>table):'); ?></legend>
-<?php if (count($GLOBALS['pma']->databases) > $GLOBALS['cfg']['MaxDbList']) {
-?>
-    <input type="text" maxlength="100" size="30" name="target_db" value="<?php echo htmlspecialchars($GLOBALS['db']); ?>"/>
-<?php
-    } else {
-?>
-    <select name="target_db">
-        <?php echo $GLOBALS['pma']->databases->getHtmlOptions(true, false); ?>
-    </select>
-<?php
-    } // end if
-?>
-    &nbsp;<strong>.</strong>&nbsp;
-    <input type="text" size="20" name="new_name" onfocus="this.select()" value="<?php echo htmlspecialchars($GLOBALS['table']); ?>"/><br />
-<?php
-        $choices = array(
-            'structure' => __('Structure only'),
-            'data'      => __('Structure and data'),
-            'dataonly'  => __('Data only'));
-        echo $common_functions->getRadioFields('what', $choices, 'data', true);
-        unset($choices);
-?>
-
-    <input type="checkbox" name="drop_if_exists" value="true" id="checkbox_drop" />
-    <label for="checkbox_drop"><?php echo sprintf(__('Add %s'), 'DROP TABLE'); ?></label><br />
-    <input type="checkbox" name="sql_auto_increment" value="1" id="checkbox_auto_increment_cp" />
-    <label for="checkbox_auto_increment_cp"><?php echo __('Add AUTO_INCREMENT value'); ?></label><br />
-    <?php
-        // display "Add constraints" choice only if there are
-        // foreign keys
-        if (PMA_getForeigners($GLOBALS['db'], $GLOBALS['table'], '', 'foreign')) {
-        ?>
-    <input type="checkbox" name="add_constraints" value="1" id="checkbox_constraints" />
-    <label for="checkbox_constraints"><?php echo __('Add constraints'); ?></label><br />
-        <?php
-        } // endif
-        if (isset($_COOKIE['pma_switch_to_new'])
-            && $_COOKIE['pma_switch_to_new'] == 'true'
-        ) {
-            $pma_switch_to_new = 'true';
-        }
-    ?>
-    <input type="checkbox" name="switch_to_new" value="true"
-        id="checkbox_switch"<?php echo
-            isset($pma_switch_to_new) && $pma_switch_to_new == 'true'
-            ? ' checked="checked"'
-            : ''; ?> />
-    <label for="checkbox_switch"><?php echo __('Switch to copied table'); ?></label>
-</fieldset>
-<fieldset class="tblFooters">
-    <input type="submit" name="submit_copy" value="<?php echo __('Go'); ?>" />
-</fieldset>
-</form>
-</div>
-
 <br class="clearfloat"/>
 
 <div class="operations_half_width">
