@@ -38,7 +38,7 @@ class ExportOdt extends ExportPlugin
      */
     protected function setProperties()
     {
-        $plugin_param = $this->getPluginParam();
+        global $plugin_param;
         $hide_structure = false;
         if ($plugin_param['export_type'] == 'table'
             && ! $plugin_param['single_table']

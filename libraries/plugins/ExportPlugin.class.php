@@ -253,28 +253,6 @@ abstract class ExportPlugin extends PluginObserver
     abstract protected function setProperties();
 
     /**
-     * Gets the parameter to plugin by which it can decide whether it can work
-     *
-     * @return mixed
-     */
-    protected function getPluginParam()
-    {
-        return $this->_pluginParam;
-    }
-
-    /**
-     * Sets the parameter to plugin by which it can decide whether it can work
-     *
-     * @param mixed $pluginParam plugin parameter
-     *
-     * @return void
-     */
-    protected function setPluginParam($pluginParam)
-    {
-        $this->_pluginParam = $pluginParam;
-    }
-
-    /**
      * Gets the file charset
      *
      * @return string
