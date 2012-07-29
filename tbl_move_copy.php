@@ -58,13 +58,17 @@ if (PMA_isValid($_REQUEST['new_name'])) {
         } else {
             $message = PMA_Message::success(__('Table %s has been copied to %s.'));
         }
-        $old = $common_functions->backquote($db) . '.' . $common_functions->backquote($table);
+        $old = $common_functions->backquote($db) . '.'
+            . $common_functions->backquote($table);
         $message->addParam($old);
-        $new = $common_functions->backquote($_REQUEST['target_db']) . '.' . $common_functions->backquote($_REQUEST['new_name']);
+        $new = $common_functions->backquote($_REQUEST['target_db']) . '.'
+            . $common_functions->backquote($_REQUEST['new_name']);
         $message->addParam($new);
 
         /* Check: Work on new table or on old table? */
-        if (isset($_REQUEST['submit_move']) || PMA_isValid($_REQUEST['switch_to_new'])) {
+        if (isset($_REQUEST['submit_move'])
+            || PMA_isValid($_REQUEST['switch_to_new'])
+        ) {
             $db    = $_REQUEST['target_db'];
             $table = $_REQUEST['new_name'];
         }

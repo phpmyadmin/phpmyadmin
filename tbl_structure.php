@@ -65,7 +65,8 @@ if (! empty($submit_mult) && isset($_REQUEST['selected_fld'])) {
 
         // what is this htmlspecialchars() for??
         //$sql_query .= ' FROM ' . backquote(htmlspecialchars($table));
-        $sql_query .= ' FROM ' . $common_functions->backquote($db) . '.' . $common_functions->backquote($table);
+        $sql_query .= ' FROM ' . $common_functions->backquote($db)
+            . '.' . $common_functions->backquote($table);
         include 'sql.php';
         exit;
     } else {
@@ -733,7 +734,7 @@ if (! $tbl_is_view
     && 'ARCHIVE' !=  $tbl_storage_engine
 ) {
     echo $common_functions->getDivForSliderEffect('indexes', __('Indexes'));
-    
+
     /**
      * Display indexes
      */
