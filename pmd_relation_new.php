@@ -35,14 +35,14 @@ if ($common_functions->isForeignKeySupported($type_T1)
     ) {
          PMD_return_new(0, __('Error: relation already exists.'));
     }
-// note: in InnoDB, the index does not requires to be on a PRIMARY
-// or UNIQUE key
-// improve: check all other requirements for InnoDB relations
+    // note: in InnoDB, the index does not requires to be on a PRIMARY
+    // or UNIQUE key
+    // improve: check all other requirements for InnoDB relations
     $result = PMA_DBI_query(
         'SHOW INDEX FROM ' . $common_functions->backquote($db)
         . '.' . $common_functions->backquote($T1) . ';'
     );
-    $index_array1   = array(); // will be use to emphasis prim. keys in the table view
+    $index_array1 = array(); // will be use to emphasis prim. keys in the table view
     while ($row = PMA_DBI_fetch_assoc($result)) {
         $index_array1[$row['Column_name']] = 1;
     }
@@ -52,7 +52,7 @@ if ($common_functions->isForeignKeySupported($type_T1)
         'SHOW INDEX FROM ' . $common_functions->backquote($db)
         . '.' . $common_functions->backquote($T2) . ';'
     );
-    $index_array2  = array(); // will be used to emphasis prim. keys in the table view
+    $index_array2 = array(); // will be used to emphasis prim. keys in the table view
     while ($row = PMA_DBI_fetch_assoc($result)) {
         $index_array2[$row['Column_name']] = 1;
     }
@@ -76,11 +76,9 @@ if ($common_functions->isForeignKeySupported($type_T1)
         }
         $upd_query .= ';';
         PMA_DBI_try_query($upd_query) or PMD_return_new(0, __('Error: Relation not added.'));
-    PMD_return_new(1, __('FOREIGN KEY relation added'));
+        PMD_return_new(1, __('FOREIGN KEY relation added'));
     }
-
-// internal (pmadb) relation
-} else {
+} else { // internal (pmadb) relation
     if ($GLOBALS['cfgRelation']['relwork'] == false) {
         PMD_return_new(0, _('General relation features') . ':' . _('Disabled'));
     } else {
@@ -102,7 +100,7 @@ if ($common_functions->isForeignKeySupported($type_T1)
         } else {
             PMD_return_new(0, __('Error: Relation not added.'));
         }
-   }
+    }
 }
 
 function PMD_return_new($b,$ret)
