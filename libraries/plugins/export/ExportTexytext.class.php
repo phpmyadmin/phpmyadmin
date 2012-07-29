@@ -314,7 +314,6 @@ class ExportTexytext extends ExportPlugin
         $view = false
     ) {
         global $cfgRelation;
-        $this->setCfgRelation($cfgRelation);
 
         $text_output = '';
 

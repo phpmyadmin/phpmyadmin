@@ -253,28 +253,6 @@ abstract class ExportPlugin extends PluginObserver
     abstract protected function setProperties();
 
     /**
-     * Gets the relation configuration
-     *
-     * @return array
-     */
-    protected function getCfgRelation()
-    {
-        return $this->_cfgRelation;
-    }
-
-    /**
-     * Sets the relation configuration
-     *
-     * @param array $cfgRelation relation configuration
-     *
-     * @return array
-     */
-    protected function setCfgRelation($cfgRelation)
-    {
-        $this->_cfgRelation = $cfgRelation;
-    }
-
-    /**
      * Gets the type of the export plugin
      *
      * @return string

@@ -1261,7 +1261,6 @@ class ExportSql extends ExportPlugin
         global $cfgRelation;
 
         $common_functions = PMA_CommonFunctions::getInstance();
-        $this->setCfgRelation($cfgRelation);
         $sql_backquotes = $this->_getSqlBackquotes();
 
         $schema_create = '';

@@ -407,7 +407,6 @@ class ExportOdt extends ExportPlugin
         $view = false
     ) {
         global $cfgRelation;
-        $this->setCfgRelation($cfgRelation);
 
         /**
          * Gets fields properties
