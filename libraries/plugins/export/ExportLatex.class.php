@@ -51,7 +51,7 @@ class ExportLatex extends ExportPlugin
      */
     protected function setProperties()
     {
-        $plugin_param = $this->getPluginParam();
+        global $plugin_param;
         $hide_structure = false;
         if ($plugin_param['export_type'] == 'table'
             && ! $plugin_param['single_table']
@@ -207,8 +207,6 @@ class ExportLatex extends ExportPlugin
     {
         global $crlf;
         global $cfg;
-        $this->setCrlf($crlf);
-        $this->setCfg($cfg);
 
         $head = '% phpMyAdmin LaTeX Dump' . $crlf
             . '% version ' . PMA_VERSION . $crlf
@@ -436,9 +434,7 @@ class ExportLatex extends ExportPlugin
         $dates = false
     ) {
         global $cfgRelation;
-
         $common_functions = PMA_CommonFunctions::getInstance();
-        $this->setCfgRelation($cfgRelation);
 
         /**
          * Get the unique keys in the table
