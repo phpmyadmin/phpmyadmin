@@ -36,13 +36,13 @@ class ExportMediawiki extends ExportPlugin
     protected function setProperties()
     {
         $props = 'libraries/properties/';
-        require_once "$props/plugins/ExportPluginProperties.class.php";
-        require_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
-        require_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
-        require_once "$props/options/groups/OptionsPropertySubgroup.class.php";
-        require_once "$props/options/items/MessageOnlyPropertyItem.class.php";
-        require_once "$props/options/items/RadioPropertyItem.class.php";
-        require_once "$props/options/items/BoolPropertyItem.class.php";
+        include_once "$props/plugins/ExportPluginProperties.class.php";
+        include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
+        include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
+        include_once "$props/options/groups/OptionsPropertySubgroup.class.php";
+        include_once "$props/options/items/MessageOnlyPropertyItem.class.php";
+        include_once "$props/options/items/RadioPropertyItem.class.php";
+        include_once "$props/options/items/BoolPropertyItem.class.php";
 
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('MediaWiki Table');
