@@ -22,55 +22,6 @@ require_once "libraries/plugins/ExportPlugin.class.php";
 class ExportSql extends ExportPlugin
 {
     /**
-     * MySQL charset map
-     *
-     * @var array
-     */
-    private $_mysqlCharsetMap;
-
-    /**
-     * SQL for dropping a table
-     *
-     * @var string
-     */
-    private $_sqlDropTable;
-
-    /**
-     * SQL Backquotes
-     *
-     * @var bool
-     */
-    private $_sqlBackquotes;
-
-    /**
-     * SQL Constraints
-     *
-     * @var string
-     */
-    private $_sqlConstraints;
-
-    /**
-     * The text of the SQL query
-     *
-     * @var string
-     */
-    private $_sqlConstraintsQuery;
-
-    /**
-     * SQL for dropping foreign keys
-     *
-     * @var string
-     */
-    private $_sqlDropForeignKeys;
-
-    /**
-     * The number of the current row
-     *
-     * @var int
-     */
-    private $_currentRow;
-
-    /**
      * Constructor
      */
     public function __construct()
@@ -84,33 +35,6 @@ class ExportSql extends ExportPlugin
     }
 
     /**
-     * Initialize the local variables that are used specific for export SQL
-     *
-     * @global array  $mysql_charset_map
-     * @global string $sql_drop_table
-     * @global bool   $sql_backquotes
-     * @global string $sql_constraints
-     * @global string $sql_constraints_query
-     * @global string $sql_drop_foreign_keys
-     * @global int    $current_row
-     *
-     * @return void
-     */
-    protected function initSpecificVariables()
-    {
-        global $sql_drop_table;
-        global $sql_backquotes;
-        global $sql_constraints;
-        global $sql_constraints_query;
-        global $sql_drop_foreign_keys;
-        $this->_setSqlDropTable($sql_drop_table);
-        $this->_setSqlBackquotes($sql_backquotes);
-        $this->_setSqlConstraints($sql_constraints);
-        $this->_setSqlConstraintsQuery($sql_constraints_query);
-        $this->_setSqlDropForeignKeys($sql_drop_foreign_keys);
-    }
-
-    /**
      * Sets the export SQL properties
      *
      * @return void
@@ -118,7 +42,6 @@ class ExportSql extends ExportPlugin
     protected function setProperties()
     {
         global $plugin_param;
-        $this->setPluginParam($plugin_param);
 
         $hide_sql = false;
         $hide_structure = false;
@@ -587,8 +510,7 @@ class ExportSql extends ExportPlugin
      */
     public function exportFooter()
     {
-        global $crlf;
-        $mysql_charset_map = $this->_getMysqlCharsetMap();
+        global $crlf, $mysql_charset_map;
 
         $foot = '';
 
@@ -634,7 +556,6 @@ class ExportSql extends ExportPlugin
     {
         global $crlf, $cfg;
         global $mysql_charset_map;
-        $this->_setMysqlCharsetMap($mysql_charset_map);
 
         if (isset($GLOBALS['sql_compatibility'])) {
             $tmp_compat = $GLOBALS['sql_compatibility'];
@@ -928,13 +849,8 @@ class ExportSql extends ExportPlugin
         $add_semicolon = true,
         $view = false
     ) {
-        $this->initSpecificVariables();
-
-        $sql_drop_table = $this->_getSqlDropTable();
-        $sql_backquotes = $this->_getSqlBackquotes();
-        $sql_constraints = $this->_getSqlConstraints();
-        $sql_constraints_query = $this->_getSqlConstraintsQuery();
-        $sql_drop_foreign_keys = $this->_getSqlDropForeignKeys();
+        global $sql_drop_table, $sql_backquotes, $sql_constraints,
+            $sql_constraints_query, $sql_drop_foreign_keys;
 
         $common_functions = PMA_CommonFunctions::getInstance();
         $schema_create = '';
@@ -1258,11 +1174,9 @@ class ExportSql extends ExportPlugin
         $do_relation = false,
         $do_mime = false
     ) {
-        global $cfgRelation;
+        global $cfgRelation, $sql_backquotes;
 
         $common_functions = PMA_CommonFunctions::getInstance();
-        $sql_backquotes = $this->_getSqlBackquotes();
-
         $schema_create = '';
 
         // Check if we can use Relations
@@ -1454,9 +1368,7 @@ class ExportSql extends ExportPlugin
      */
     public function exportData($db, $table, $crlf, $error_url, $sql_query)
     {
-        global $current_row;
-        $this->_setCurrentRow($current_row);
-        $sql_backquotes = $this->_getSqlBackquotes();
+        global $current_row, $sql_backquotes;
 
         $common_functions = PMA_CommonFunctions::getInstance();
         $formatted_table_name = (isset($GLOBALS['sql_backquotes']))
@@ -1748,161 +1660,4 @@ class ExportSql extends ExportPlugin
 
         return true;
     } // end of the 'exportData()' function
-
-
-    /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
-
-    /**
-     * Gets the MySQL charset map
-     *
-     * @return array
-     */
-    private function _getMysqlCharsetMap()
-    {
-        return $this->_mysqlCharsetMap;
-    }
-
-    /**
-     * Sets the MySQL charset map
-     *
-     * @param string $mysqlCharsetMap file charset
-     *
-     * @return void
-     */
-    private function _setMysqlCharsetMap($mysqlCharsetMap)
-    {
-        $this->_mysqlCharsetMap = $mysqlCharsetMap;
-    }
-
-    /**
-     * Gets the SQL for dropping a table
-     *
-     * @return string
-     */
-    private function _getSqlDropTable()
-    {
-        return $this->_sqlDropTable;
-    }
-
-    /**
-     * Sets the SQL for dropping a table
-     *
-     * @param string $sqlDropTable SQL for dropping a table
-     *
-     * @return void
-     */
-    private function _setSqlDropTable($sqlDropTable)
-    {
-        $this->_sqlDropTable = $sqlDropTable;
-    }
-
-    /**
-     * Gets the SQL Backquotes
-     *
-     * @return bool
-     */
-    private function _getSqlBackquotes()
-    {
-        return $this->_sqlBackquotes;
-    }
-
-    /**
-     * Sets the SQL Backquotes
-     *
-     * @param string $sqlBackquotes SQL Backquotes
-     *
-     * @return void
-     */
-    private function _setSqlBackquotes($sqlBackquotes)
-    {
-        $this->_sqlBackquotes = $sqlBackquotes;
-    }
-
-    /**
-     * Gets the SQL Constraints
-     *
-     * @return void
-     */
-    private function _getSqlConstraints()
-    {
-        return $this->_sqlConstraints;
-    }
-
-    /**
-     * Sets the SQL Constraints
-     *
-     * @param string $sqlConstraints SQL Constraints
-     *
-     * @return void
-     */
-    private function _setSqlConstraints($sqlConstraints)
-    {
-        $this->_sqlConstraints = $sqlConstraints;
-    }
-
-    /**
-     * Gets the text of the SQL constraints query
-     *
-     * @return void
-     */
-    private function _getSqlConstraintsQuery()
-    {
-        return $this->_sqlConstraintsQuery;
-    }
-
-    /**
-     * Sets the text of the SQL constraints query
-     *
-     * @param string $sqlConstraintsQuery text of the SQL constraints query
-     *
-     * @return void
-     */
-    private function _setSqlConstraintsQuery($sqlConstraintsQuery)
-    {
-        $this->_sqlConstraintsQuery = $sqlConstraintsQuery;
-    }
-
-    /**
-     * Gets the SQL for dropping foreign keys
-     *
-     * @return void
-     */
-    private function _getSqlDropForeignKeys()
-    {
-        return $this->_sqlDropForeignKeys;
-    }
-
-    /**
-     * Sets the SQL SQL for dropping foreign keys
-     *
-     * @param string $sqlDropForeignKeys SQL for dropping foreign keys
-     *
-     * @return void
-     */
-    private function _setSqlDropForeignKeys($sqlDropForeignKeys)
-    {
-        $this->_sqlDropForeignKeys = $sqlDropForeignKeys;
-    }
-
-    /**
-     * The number of the current row
-     *
-     * @return int
-     */
-    private function _getCurrentRow()
-    {
-        return $this->_currentRow;
-    }
-
-    /**
-     * Sets the number of the current row
-     *
-     * @param string $currentRow number of the current row
-     *
-     * @return void
-     */
-    private function _setCurrentRow($currentRow)
-    {
-        $this->_currentRow = $currentRow;
-    }
 }
