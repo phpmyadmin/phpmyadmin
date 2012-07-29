@@ -164,7 +164,6 @@ class ExportXml extends ExportPlugin
     {
         $this->initSpecificVariables();
         global $crlf, $cfg, $db;
-        $this->setCrlf($crlf);
         $this->setCfg($cfg);
         $this->setDb($db);
         $table = $this->_getTable();
@@ -382,7 +381,7 @@ class ExportXml extends ExportPlugin
      */
     public function exportDBHeader ($db)
     {
-        $crlf = $this->getCrlf();
+        global $crlf;
 
         if (isset($GLOBALS['xml_export_contents'])
             && $GLOBALS['xml_export_contents']
@@ -407,7 +406,7 @@ class ExportXml extends ExportPlugin
      */
     public function exportDBFooter ($db)
     {
-        $crlf = $this->getCrlf();
+        global $crlf;
 
         if (isset($GLOBALS['xml_export_contents'])
             && $GLOBALS['xml_export_contents']

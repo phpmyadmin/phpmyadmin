@@ -243,7 +243,7 @@ class ExportLatex extends ExportPlugin
      */
     public function exportDBHeader ($db)
     {
-        $crlf = $this->getCrlf();
+        global $crlf;
         $head = '% ' . $crlf
             . '% ' . __('Database') . ': ' . '\'' . $db . '\'' . $crlf
             . '% ' . $crlf;

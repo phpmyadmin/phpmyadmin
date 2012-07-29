@@ -487,7 +487,6 @@ class ExportSql extends ExportPlugin
     public function exportRoutines($db)
     {
         global $crlf;
-        $this->setCrlf($crlf);
 
         $common_functions = PMA_CommonFunctions::getInstance();
         $text = '';
@@ -589,7 +588,6 @@ class ExportSql extends ExportPlugin
     public function exportFooter()
     {
         global $crlf;
-        $this->setCrlf($crlf);
         $mysql_charset_map = $this->_getMysqlCharsetMap();
 
         $foot = '';
@@ -636,7 +634,6 @@ class ExportSql extends ExportPlugin
     {
         global $crlf, $cfg;
         global $mysql_charset_map;
-        $this->setCrlf($crlf);
         $this->setCfg($cfg);
         $this->_setMysqlCharsetMap($mysql_charset_map);
 
@@ -746,7 +743,6 @@ class ExportSql extends ExportPlugin
         global $crlf;
 
         $common_functions = PMA_CommonFunctions::getInstance();
-        $this->setCrlf($crlf);
 
         if (isset($GLOBALS['sql_drop_database'])) {
             if (! PMA_exportOutputHandler(
@@ -820,7 +816,6 @@ class ExportSql extends ExportPlugin
     public function exportDBFooter($db)
     {
         global $crlf;
-        $this->setCrlf($crlf);
 
         $common_functions = PMA_CommonFunctions::getInstance();
         $result = true;

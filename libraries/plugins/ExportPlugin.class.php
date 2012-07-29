@@ -253,28 +253,6 @@ abstract class ExportPlugin extends PluginObserver
     abstract protected function setProperties();
 
     /**
-     * Gets the type of the newline character
-     *
-     * @return string
-     */
-    protected function getCrlf()
-    {
-        return $this->_crlf;
-    }
-
-    /**
-     * Sets the type of the newline character
-     *
-     * @param String $crlf type of the newline character
-     *
-     * @return void
-     */
-    protected function setCrlf($crlf)
-    {
-        $this->_crlf = $crlf;
-    }
-
-    /**
      * Gets the database name
      *
      * @return string
