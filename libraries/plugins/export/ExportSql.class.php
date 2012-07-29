@@ -634,7 +634,6 @@ class ExportSql extends ExportPlugin
     {
         global $crlf, $cfg;
         global $mysql_charset_map;
-        $this->setCfg($cfg);
         $this->_setMysqlCharsetMap($mysql_charset_map);
 
         if (isset($GLOBALS['sql_compatibility'])) {
