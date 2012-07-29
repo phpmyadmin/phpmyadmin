@@ -1456,7 +1456,10 @@ class PMA_DisplayResults
             && ($direction != self::DISP_DIR_HORIZONTAL_FLIPPED)
         ) {
             $comments_map = array();
-            if (isset($analyzed_sql[0]) && is_array($analyzed_sql[0]) && isset($analyzed_sql[0]['table_ref'])) {
+            if (isset($analyzed_sql[0])
+                && is_array($analyzed_sql[0])
+                && isset($analyzed_sql[0]['table_ref'])
+            ) {
                 foreach ($analyzed_sql[0]['table_ref'] as $tbl) {
                     $tb = $tbl['table_true_name'];
                     $comments_map[$tb] = PMA_getComments($this->__get('_db'), $tb);
@@ -3790,7 +3793,8 @@ class PMA_DisplayResults
         $is_analyse = $this->__get('_is_analyse');
         $field_flags = PMA_DBI_field_flags($dt_result, $col_index);
         if (stristr($field_flags, self::BINARY_FIELD)
-            && $GLOBALS['cfg']['ProtectBinary'] === 'all'
+            && ($GLOBALS['cfg']['ProtectBinary'] == 'all'
+            || $GLOBALS['cfg']['ProtectBinary'] == 'noblob')
         ) {
             $class = str_replace('grid_edit', '', $class);
         }

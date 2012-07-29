@@ -29,7 +29,9 @@ if (! isset($_REQUEST['pos'])) {
     $pos = (int) $_REQUEST['pos'];
 }
 
-if (! isset($_REQUEST['log']) || ! array_key_exists($_REQUEST['log'], $binary_logs)) {
+if (! isset($_REQUEST['log'])
+    || ! array_key_exists($_REQUEST['log'], $binary_logs)
+) {
     $_REQUEST['log'] = '';
 } else {
     $url_params['log'] = $_REQUEST['log'];

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-27 10:40+0200\n"
-"PO-Revision-Date: 2012-07-26 17:20+0200\n"
+"PO-Revision-Date: 2012-07-27 16:04+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -3266,7 +3266,7 @@ msgstr "Ordre del llistat:"
 
 #: libraries/TableSearch.class.php:856
 msgid "Use this column to label each point"
-msgstr ""
+msgstr "Utilitza aquesta columna per etiquetar cada punt"
 
 #: libraries/TableSearch.class.php:877
 msgid "Maximum rows to plot"
@@ -3293,7 +3293,7 @@ msgstr "Fer una \"petició segons exemple\" (comodí: \"%\")"
 
 #: libraries/TableSearch.class.php:1198
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "Veure/editar els punts"
 
 #: libraries/TableSearch.class.php:1205
 msgid "How to use"
@@ -10474,6 +10474,8 @@ msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
 msgstr ""
+"El sistema de consells pot proporcionar recomanacions sobre les variables "
+"del servidor mitjançant l'anàlisi de les variables d'estat del servidor."
 
 #: server_status.php:930
 msgid ""
@@ -10481,6 +10483,9 @@ msgid ""
 "calculations and by rule of thumb which may not necessarily apply to your "
 "system."
 msgstr ""
+"Tingues en compte però que aquest sistema ofereix recomanacions basades en "
+"càlculs senzills i regles generals que no necessàriament s'apliquen al seu "
+"sistema."
 
 #: server_status.php:932
 msgid ""
@@ -10488,6 +10493,10 @@ msgid ""
 "changing (by reading the documentation) and how to undo the change. Wrong "
 "tuning can have a very negative effect on performance."
 msgstr ""
+"Abans de canviar qualsevol configuració, assegura't de saber què estàs "
+"canviant (mitjançant la lectura de la documentació) i cóm desfer el canvi. "
+"Establir ajustaments incorrectes pot tenir un efecte molt negatiu en el "
+"rendiment."
 
 #: server_status.php:934
 msgid ""
@@ -10495,6 +10504,9 @@ msgid ""
 "time, observe or benchmark your database, and undo the change if there was "
 "no clearly measurable improvement."
 msgstr ""
+"La millor manera d'ajustar el sistema seria canviar només una configuració "
+"al mateix temps, observar o mesurar la teva base de dades, i desfer el canvi "
+"si no hi ha una millora clarament mesurable."
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: server_status.php:957
@@ -11345,6 +11357,11 @@ msgid ""
 "enabled. Note however, that the general_log produces a lot of data and "
 "increases server load by up to 15%"
 msgstr ""
+"El monitor de phpMyAdmin pot ajudar a optimitzar la configuració del "
+"servidor i localitzar a temps les consultes intensives. En aquest darrer cas "
+"s'haurà d'establir log_output a 'TABLE' i tenir el slow_query_log o "
+"general_log habilitat. Noteu però, que la general_log produeix una gran "
+"quantitat de dades i augmenta la càrrega del servidor fins en un 15%"
 
 #: server_status.php:1689
 msgid ""
@@ -11353,10 +11370,15 @@ msgid ""
 "table is supported by MySQL 5.1.6 and onwards. You may still use the server "
 "charting features however."
 msgstr ""
+"Lamentablement, el teu servidor de bases de dades no és compatible amb el "
+"registre a la taula, que és un requisit per a l'anàlisi dels registres de "
+"base de dades amb phpMyAdmin. El registre a la taula se suporta a partir de "
+"MySQL 5.1.6 i següents. Pots seguir utilitzant però les funcions de gràfics "
+"de servidor."
 
 #: server_status.php:1702
 msgid "Using the monitor:"
-msgstr ""
+msgstr "Utilitzant el monitor:"
 
 #: server_status.php:1704
 msgid ""
@@ -11364,6 +11386,10 @@ msgid ""
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
+"El teu navegador actualitzarà tots els gràfics que es mostren en un interval "
+"regular. Pots afegir gràfics i canviar la freqüència d'actualització a la "
+"secció 'Configuració', o eliminar qualsevol gràfic amb la icona d'engranatge "
+"en cada gràfic corresponent."
 
 #: server_status.php:1706
 msgid ""
@@ -11372,10 +11398,15 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occuring SELECT statements to further analyze them."
 msgstr ""
+"Per mostrar les consultes dels registres, selecciona l'interval de temps "
+"rellevant en qualsevol gràfic mantenint premut el botó esquerre del ratolí i "
+"arrosegant  sobre el gràfic. Un cop confirmat, això carregarà una taula de "
+"consultes agrupades, on podràs clicar en qualsevol de les instruccions "
+"SELECT per analitzar-la amb més detall."
 
 #: server_status.php:1713
 msgid "Please note:"
-msgstr ""
+msgstr "Tingueu en compte:"
 
 #: server_status.php:1715
 msgid ""
@@ -11384,6 +11415,11 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
+"Activar el general_log pot augmentar la càrrega del servidor en un 5-15%. "
+"També tingues en compte que la generació d'estadístiques dels registres és "
+"una tasca de càrrega intensiva, pel que és aconsellable seleccionar només un "
+"lapse de temps petit i per desactivar el general_log i buidar la taula una "
+"vegada que el monitoratge no es requereixi més."
 
 #: server_status.php:1729
 msgid "Preset chart"
@@ -11399,7 +11435,7 @@ msgstr "Seleccionar series:"
 
 #: server_status.php:1737
 msgid "Commonly monitored"
-msgstr ""
+msgstr "Comunment monitoritzat"
 
 #: server_status.php:1752
 msgid "or type variable name:"
@@ -11407,15 +11443,15 @@ msgstr "o escriu el nom de variable:"
 
 #: server_status.php:1756
 msgid "Display as differential value"
-msgstr ""
+msgstr "Mostra com a valor diferencial"
 
 #: server_status.php:1758
 msgid "Apply a divisor"
-msgstr ""
+msgstr "Aplicar un divisor"
 
 #: server_status.php:1765
 msgid "Append unit to data values"
-msgstr ""
+msgstr "Afegir unitat als valors"
 
 #: server_status.php:1771
 msgid "Add this series"
@@ -11423,7 +11459,7 @@ msgstr "Afegir aquesta serie"
 
 #: server_status.php:1773
 msgid "Clear series"
-msgstr ""
+msgstr "Buidar sèrie"
 
 #: server_status.php:1776
 msgid "Series in Chart:"
@@ -11439,19 +11475,21 @@ msgstr "Rang de temps seleccionat:"
 
 #: server_status.php:1797
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
-msgstr ""
+msgstr "Només recuperar instruccions SELECT, INSERT, UPDATE i DELETE"
 
 #: server_status.php:1802
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
+"Elimina dades variables en les instruccions INSERT per a una millor "
+"agrupació"
 
 #: server_status.php:1807
 msgid "Choose from which log you want the statistics to be generated from."
-msgstr ""
+msgstr "Tria de quin registre vols que es generin les estadístiques."
 
 #: server_status.php:1809
 msgid "Results are grouped by query text."
-msgstr ""
+msgstr "Els resultats s'agrupen pel text de la consulta."
 
 #: server_status.php:1814
 msgid "Query analyzer"
@@ -11587,7 +11625,7 @@ msgstr ""
 
 #: server_variables.php:87
 msgid "Setting variable failed"
-msgstr ""
+msgstr "Errada a la configuració de la variable"
 
 #: server_variables.php:100
 msgid "Server variables and settings"
@@ -11608,6 +11646,8 @@ msgstr "Descarrega"
 #: setup/frames/form.inc.php:25
 msgid "Incorrect formset, check $formsets array in setup/frames/form.inc.php"
 msgstr ""
+"Conjunt de formularis incorrecte, comprova l'array $formsets a l'arxiu "
+"setup/frames/form.inc.php"
 
 #: setup/frames/index.inc.php:51
 msgid "Cannot load or save configuration"
@@ -11655,6 +11695,9 @@ msgid ""
 "Configuration saved to file config/config.inc.php in phpMyAdmin top level "
 "directory, copy it to top level one and delete directory config to use it."
 msgstr ""
+"Configuració desada a l'arxiu config/config.inc.php dins el directori arrel "
+"de  phpMyAdmin, copia'l al nivell superior i elimina el directori de "
+"configuració per utilitzar-lo."
 
 #: setup/frames/index.inc.php:107 setup/frames/menu.inc.php:16
 msgid "Overview"
@@ -11718,7 +11761,7 @@ msgstr "Afegir un nou servidor"
 
 #: setup/index.php:22
 msgid "Wrong GET file attribute value"
-msgstr ""
+msgstr "Valor incorrecte d'atribut d'arxiu en GET"
 
 #: setup/lib/form_processing.lib.php:43
 msgid "Warning"
@@ -12016,7 +12059,7 @@ msgstr "Títol del gràfic"
 
 #: tbl_chart.php:106
 msgid "X-Axis:"
-msgstr ""
+msgstr "Eix X:"
 
 #: tbl_chart.php:121
 msgid "Series:"
@@ -12278,7 +12321,7 @@ msgstr "Mida de fila"
 
 #: tbl_printview.php:406 tbl_structure.php:963
 msgid "Next autoindex"
-msgstr ""
+msgstr "AUTOINDEX Següent"
 
 #: tbl_relation.php:281
 #, php-format
@@ -12304,7 +12347,7 @@ msgstr "Límit de clau externa"
 
 #: tbl_structure.php:154 tbl_structure.php:159 tbl_structure.php:601
 msgid "Spatial"
-msgstr ""
+msgstr "Espacial"
 
 #: tbl_structure.php:161 tbl_structure.php:165
 #, fuzzy
@@ -12590,22 +12633,26 @@ msgstr "Reanomena la vista a"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Temps d'activitat per sota d'un dia"
 
 #: libraries/advisory_rules.txt:52
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
+"El temps d'activitat és inferior a 1 dia, l'optimització del rendiment pot "
+"no ser exacta."
 
 #: libraries/advisory_rules.txt:53
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"Per tenir unes mitjanes més exactes, es recomana deixar que el servidor "
+"funcioni durant més d'un dia abans d'executar aquest analitzador"
 
 #: libraries/advisory_rules.txt:54
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "El temps d'activitat només és de %s"
 
 #: libraries/advisory_rules.txt:56
 msgid "Questions below 1,000"
@@ -12616,12 +12663,16 @@ msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
+"S'han fet menys de 1.000 consultes en aquest servidor. Les recomanacions "
+"poden no ser exactes."
 
 #: libraries/advisory_rules.txt:60
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
+"Deixa que el servidor s'executi per més temps fins que s'hagi dut a terme "
+"una major quantitat de consultes."
 
 #: libraries/advisory_rules.txt:61
 #, php-format
@@ -12636,17 +12687,22 @@ msgstr "Percentatge de consultes lentes"
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
 msgstr ""
+"Hi ha una gran quantitat de consultes lentes (slow-queries) en comparació "
+"amb la quantitat total de consultes."
 
 #: libraries/advisory_rules.txt:67 libraries/advisory_rules.txt:74
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
+"Podries augmentar la variable {long_query_time} o optimitzar les consultes "
+"que figuren en el registre de consultes lentes"
 
 #: libraries/advisory_rules.txt:68
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
+"La taxa de consultes lentes ha de ser inferior al 5%%, el teu valor és %s%%."
 
 #: libraries/advisory_rules.txt:70
 msgid "Slow query rate"
@@ -12656,6 +12712,8 @@ msgstr "Freqüència de consultes lentes"
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"Hi ha un alt percentatge de consultes lentes en comparació amb el temps "
+"d'activitat del servidor."
 
 #: libraries/advisory_rules.txt:75
 #, php-format
@@ -12663,6 +12721,8 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
+"Tens una taxa de consultes lentes de %s per hora, hauries de tenir menys de "
+"l'1%% per hora."
 
 #: libraries/advisory_rules.txt:77
 msgid "Long query time"
@@ -12673,40 +12733,44 @@ msgid ""
 "long_query_time is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"long_query_time s'estableix en 10 segons o més, per tant, només entrarà les "
+"consultes lentes que triguin més de 10 segons."
 
 #: libraries/advisory_rules.txt:81
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"Es suggereix establir {long_query_time} a un valor inferior, depenent del "
+"teu entorn. En general, es recomana un valor de 1-5 segons."
 
 #: libraries/advisory_rules.txt:82
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "long_query_time is currently set to %ds."
-msgstr "«long_query_time» està configurat a %d segon(s)."
+msgstr "long_query_time està configurat a %ds."
 
 #: libraries/advisory_rules.txt:84
 msgid "Slow query logging"
 msgstr "Registre de consultes lentes"
 
 #: libraries/advisory_rules.txt:87
-#, fuzzy
 #| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
-msgstr "«slow_query_log» està actiu."
+msgstr "El registre de consultes lentes està desactivat."
 
 #: libraries/advisory_rules.txt:88
 msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"Habilita el registre de consultes lentes establint {log_slow_queries} a "
+"'ON'. Això t'ajudarà a solucionar les consultes amb mal rendiment."
 
 #: libraries/advisory_rules.txt:89
-#, fuzzy
 #| msgid "long_query_time is set to %d second(s)."
 msgid "log_slow_queries is set to 'OFF'"
-msgstr "«long_query_time» està configurat a %d segon(s)."
+msgstr "log_slow_queries està a 'OFF'"
 
 #: libraries/advisory_rules.txt:93
 msgid "Release Series"
@@ -12714,13 +12778,15 @@ msgstr "Serie de versions"
 
 #: libraries/advisory_rules.txt:96
 msgid "The MySQL server version less than 5.1."
-msgstr ""
+msgstr "La versió del servidor MySQL és inferior a 5.1."
 
 #: libraries/advisory_rules.txt:97
 msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
+"Hauries d'actualitzar, ja que MySQL 5.1 té millor rendiment, i encara és "
+"millor en MySQL 5.5."
 
 #: libraries/advisory_rules.txt:98 libraries/advisory_rules.txt:105
 #: libraries/advisory_rules.txt:112
@@ -12734,17 +12800,19 @@ msgstr "Versió menor"
 
 #: libraries/advisory_rules.txt:103
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
+msgstr "Versió inferior a 5.1.30 (la primera versió disponible pública de 5.1)."
 
 #: libraries/advisory_rules.txt:104
 msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
+"Hauries d'actualitzar, ja que les darreres versions de MySQL 5.1 tenen "
+"millor rendiment, i MySQL 5.05 encara més."
 
 #: libraries/advisory_rules.txt:110
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr ""
+msgstr "Versió inferior a 5.5.8 (la primera versió disponible pública de 5.5)."
 
 #: libraries/advisory_rules.txt:111
 msgid "You should upgrade, to a stable version of MySQL 5.5"
@@ -12757,7 +12825,7 @@ msgstr "Distribució"
 
 #: libraries/advisory_rules.txt:117
 msgid "Version is compiled from source, not a MySQL official binary."
-msgstr ""
+msgstr "Versió compilada des del codi font, no és un binari oficial de MySQL."
 
 #: libraries/advisory_rules.txt:118
 msgid ""
@@ -12765,31 +12833,39 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
+"Si no vas compilar des del codi font, potser estàs utilitzant un paquet "
+"modificat per una distribució. El manual de MySQL només és exacte per als "
+"binaris de MySQL oficials, no per els paquets de distribucions (com RedHat, "
+"Debian/Ubuntu, etc)."
 
 #: libraries/advisory_rules.txt:119
 msgid "'source' found in version_comment"
 msgstr ""
+"S'ha trobat \"font\" (\"source\") en el comentari de la versió "
+"(\"version_comment\")"
 
 #: libraries/advisory_rules.txt:124 libraries/advisory_rules.txt:131
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr ""
+msgstr "El manual de MySQL només és exacte per als binaris oficials de MySQL."
 
 #: libraries/advisory_rules.txt:125
 msgid "Percona documentation is at http://www.percona.com/docs/wiki/"
-msgstr ""
+msgstr "La documentació de Percona es troba a http://www.percona.com/docs/wiki/"
 
 #: libraries/advisory_rules.txt:126
 msgid "'percona' found in version_comment"
-msgstr ""
+msgstr "S'ha trobat 'percona' als comentaris de la versió (\"version_comment\")"
 
 #: libraries/advisory_rules.txt:132
 msgid "Drizzle documentation is at http://docs.drizzle.org/"
-msgstr ""
+msgstr "La documentació de Drizzle es troba a http://docs.drizzle.org/"
 
 #: libraries/advisory_rules.txt:133
 #, php-format
 msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr ""
+"La cadena de la versió (%s) coincideix amb el sistema de control de versions "
+"de Drizzle"
 
 #: libraries/advisory_rules.txt:135
 msgid "MySQL Architecture"
@@ -12797,7 +12873,7 @@ msgstr "Arquitectura MySQL"
 
 #: libraries/advisory_rules.txt:138
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "MySQL no s'ha compilat com a paquet de 64 bits."
 
 #: libraries/advisory_rules.txt:139
 msgid ""
@@ -12805,11 +12881,15 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
+"La teva capacitat de memòria és superior a 3 GiB (suposant que el servidor "
+"està en localhost), de manera que MySQL no podria ser capaç d'accedir a la "
+"totalitat de la seva memòria. És possible que vulgueu considerar la "
+"instal·lació de la versió de 64 bits de MySQL."
 
 #: libraries/advisory_rules.txt:140
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "Memòria disponible en aquest servidor: %s"
 
 #: libraries/advisory_rules.txt:146
 msgid "Query cache disabled"
@@ -12826,20 +12906,23 @@ msgid ""
 "and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
 "memcached, ignore this recommendation."
 msgstr ""
+"Se sap que la memòria cau de consultes millora en gran mesura el rendiment "
+"si s'ha configurat correctament. Activa'l mitjançant l'establiment de "
+"{query_cache_size} a un valor MIB de 2 dígits i ajusta {query_cache_type} a "
+"'ON'. <b>Nota:</b> Si utilitzes memcached, ignora aquesta recomanació."
 
 #: libraries/advisory_rules.txt:151
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
-msgstr ""
+msgstr "query_cache_size s'estableix a 0 o query_cache_type està a 'OFF'"
 
 #: libraries/advisory_rules.txt:153
 msgid "Query caching method"
 msgstr "Mètode de cau de consultes"
 
 #: libraries/advisory_rules.txt:156
-#, fuzzy
 #| msgid "Query cache"
 msgid "Suboptimal caching method."
-msgstr "Memòria cau de consultes"
+msgstr "Mètode d'emmagatzematge en memòria cau subòptima."
 
 #: libraries/advisory_rules.txt:157
 msgid ""
@@ -12848,6 +12931,11 @@ msgid ""
 "refman/5.5/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
+"Estàs utilitzant la memòria cau de consultes de MySQL amb una base de dades "
+"de força transit. Valdria la pena considerar l'ús <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/ha-"
+"memcached.html\">memcached</a> en lloc de la memòria cau de consultes de "
+"MySQL, especialment si tens diversos servidors esclaus."
 
 #: libraries/advisory_rules.txt:158
 #, php-format
@@ -12855,6 +12943,8 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
+"La memòria cau de consultes està activat i el servidor rep %d consultes per "
+"segon. Aquesta regla es dispara si hi ha més de 100 consultes per segon."
 
 #: libraries/advisory_rules.txt:160
 #, php-format
@@ -12864,16 +12954,19 @@ msgstr "Eficiència del cau de consultes (%%)"
 #: libraries/advisory_rules.txt:163
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr ""
+"La memòria cau de consulta no s'executa de manera eficient, té una taxa "
+"d'èxit baixa."
 
 #: libraries/advisory_rules.txt:164
 msgid "Consider increasing {query_cache_limit}."
-msgstr ""
+msgstr "Pensa en la possibilitat d'augmentar {query_cache_limit}."
 
 #: libraries/advisory_rules.txt:165
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr "Tamany de l'àrea de classificació"
+msgstr ""
+"L'actual taxa d'èxit de la memòria cau de consultes %s%% és inferior al 20%%"
 
 #: libraries/advisory_rules.txt:167
 msgid "Query Cache usage"
@@ -12882,13 +12975,15 @@ msgstr "Ús del cau de consultes"
 #: libraries/advisory_rules.txt:170
 #, php-format
 msgid "Less than 80%% of the query cache is being utilized."
-msgstr ""
+msgstr "S'utilitza menys del 80%% de la memòria cau de consultes."
 
 #: libraries/advisory_rules.txt:171
 msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
 msgstr ""
+"Això pot ser causat perque el valor de {query_cache_limit} és massa baix. "
+"Buidar la memòria cau de consulta també pot ajudar."
 
 #: libraries/advisory_rules.txt:172
 #, php-format
@@ -12896,16 +12991,17 @@ msgid ""
 "The current ratio of free query cache memory to total query cache size is %s"
 "%%. It should be above 80%%"
 msgstr ""
+"La taxa actual de memòria lluire del cau de consultes respecte la mida total "
+"és de %s%%. Hauria de estar per sobre de 80%%"
 
 #: libraries/advisory_rules.txt:174
 msgid "Query cache fragmentation"
 msgstr "Fragmentació del cau de consultes"
 
 #: libraries/advisory_rules.txt:177
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The query cache is considerably fragmented."
-msgstr "El servidor no respon"
+msgstr "La memòria cau de consultes està bastant fragmentada."
 
 #: libraries/advisory_rules.txt:178
 msgid ""

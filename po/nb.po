@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-27 10:40+0200\n"
-"PO-Revision-Date: 2012-07-09 16:04+0200\n"
-"Last-Translator: Nicholas Arnesen <baretester@live.no>\n"
+"PO-Revision-Date: 2012-07-28 19:19+0200\n"
+"Last-Translator: Stian Berg <mail.to.stian@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
@@ -2708,16 +2708,14 @@ msgid "Inside column:"
 msgstr "I kolonne:"
 
 #: libraries/DisplayResults.class.php:683
-#, fuzzy
 #| msgid "Save directory"
 msgid "Save edited data"
-msgstr "Lagringsmappe"
+msgstr "Lagre redigerte data"
 
 #: libraries/DisplayResults.class.php:689
-#, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Restore column order"
-msgstr "CHAR textarea kolonner"
+msgstr "Tilbakestill kolonnerekkefølge"
 
 #: libraries/DisplayResults.class.php:889
 #, fuzzy
@@ -2726,16 +2724,14 @@ msgid "Start row"
 msgstr "CHAR textarea rader"
 
 #: libraries/DisplayResults.class.php:893
-#, fuzzy
 #| msgid "Number of rows:"
 msgid "Number of rows"
-msgstr "Antall rader:"
+msgstr "Antall rader"
 
 #: libraries/DisplayResults.class.php:902
-#, fuzzy
 #| msgid "More"
 msgid "Mode"
-msgstr "Mer"
+msgstr "Modus"
 
 #: libraries/DisplayResults.class.php:904
 msgid "horizontal"
@@ -2752,7 +2748,7 @@ msgstr "loddrett"
 #: libraries/DisplayResults.class.php:918
 #, php-format
 msgid "Headers every %s rows"
-msgstr ""
+msgstr "Topptekst hver %s. rad"
 
 #: libraries/DisplayResults.class.php:1214
 msgid "Sort by key"
@@ -2789,10 +2785,9 @@ msgstr "Innstillinger"
 
 #: libraries/DisplayResults.class.php:1567
 #: libraries/DisplayResults.class.php:1673
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
-msgstr "Delvis tekst"
+msgstr "Delvise tekster"
 
 #: libraries/DisplayResults.class.php:1568
 #: libraries/DisplayResults.class.php:1677
@@ -2830,11 +2825,11 @@ msgstr "Nettvisertransformasjon"
 
 #: libraries/DisplayResults.class.php:1625
 msgid "Well Known Text"
-msgstr ""
+msgstr "Velkjent Tekst"
 
 #: libraries/DisplayResults.class.php:1626
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Velkjent Binær"
 
 #: libraries/DisplayResults.class.php:3157
 #: libraries/DisplayResults.class.php:3173
@@ -2885,13 +2880,12 @@ msgstr "Vis PDF-skjema"
 
 #: libraries/DisplayResults.class.php:5109
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "Visualiser GIS data"
 
 #: libraries/DisplayResults.class.php:5142 view_create.php:122
-#, fuzzy
 #| msgid "Create User"
 msgid "Create view"
-msgstr "Opprett bruker"
+msgstr "Opprett view"
 
 #: libraries/DisplayResults.class.php:5335
 msgid "Link not found"
@@ -5185,6 +5179,8 @@ msgid ""
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found"
 msgstr ""
+"Deaktiver varselet som vises på databasedetaljsiden Struktur om det er noen "
+"påkrevde tabeller for phpMyAdmins konfigurasjonslager som ikke ble funnet"
 
 #: libraries/config/messages.inc.php:338
 msgid "Missing phpMyAdmin configuration storage tables"
@@ -5240,10 +5236,9 @@ msgid "Query window height"
 msgstr "Høyde på spørringsvindu"
 
 #: libraries/config/messages.inc.php:352
-#, fuzzy
 #| msgid "Query window"
 msgid "Query window width (in pixels)"
-msgstr "Spørringsvindu"
+msgstr "Bredde på spørringsvindu (i piksler)"
 
 #: libraries/config/messages.inc.php:353
 msgid "Query window width"
@@ -5278,7 +5273,7 @@ msgstr "Gjenta topptekst"
 
 #: libraries/config/messages.inc.php:361
 msgid "Save all edited cells at once"
-msgstr ""
+msgstr "Ikke lagre endrede celler umiddelbart"
 
 #: libraries/config/messages.inc.php:362
 msgid "Directory where exports can be saved on server"
@@ -5293,20 +5288,18 @@ msgid "Leave blank if not used"
 msgstr "La stå tom hvis ikke brukt"
 
 #: libraries/config/messages.inc.php:365
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "Host authorization order"
-msgstr "Rekkefølge for vertsautentisering"
+msgstr "Rekkefølge for vertsautorisering"
 
 #: libraries/config/messages.inc.php:366
 msgid "Leave blank for defaults"
 msgstr "La stå tom for standard"
 
 #: libraries/config/messages.inc.php:367
-#, fuzzy
 #| msgid "Host authentication rules"
 msgid "Host authorization rules"
-msgstr "Vertsautentiseringsregler"
+msgstr "Regler for vertsautorisering"
 
 #: libraries/config/messages.inc.php:368
 msgid "Allow logins without a password"
@@ -5574,10 +5567,9 @@ msgstr ""
 "La stå tom for ingen SQL spørringshistorie, anbefalt: [kbd]pma_tracking[/kbd]"
 
 #: libraries/config/messages.inc.php:419
-#, fuzzy
 #| msgid "Recall user name"
 msgid "Recently used table"
-msgstr "Husk brukernavn"
+msgstr "Nylig brukt tabell"
 
 #: libraries/config/messages.inc.php:420
 msgid ""
@@ -5858,10 +5850,9 @@ msgid "Whether to show hint or not"
 msgstr ""
 
 #: libraries/config/messages.inc.php:473
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show hint"
-msgstr "Vis rutenett"
+msgstr "Vis hint"
 
 #: libraries/config/messages.inc.php:474
 msgid ""
@@ -6116,10 +6107,9 @@ msgid "Cookie authentication"
 msgstr "Autentisering informasjonskapsler"
 
 #: libraries/config/setup.forms.php:48
-#, fuzzy
 #| msgid "Host authentication order"
 msgid "HTTP authentication"
-msgstr "Rekkefølge for vertsautentisering"
+msgstr "HTTP autentisering"
 
 #: libraries/config/setup.forms.php:51
 #, fuzzy
@@ -6143,7 +6133,7 @@ msgstr "Open Document regneark"
 #: libraries/config/setup.forms.php:266
 #: libraries/config/user_preferences.forms.php:168
 msgid "Quick"
-msgstr ""
+msgstr "Rask"
 
 #: libraries/config/setup.forms.php:270
 #: libraries/config/user_preferences.forms.php:172
@@ -6175,10 +6165,9 @@ msgid "Could not initialize Drizzle connection library"
 msgstr ""
 
 #: libraries/config/validate.lib.php:221 libraries/config/validate.lib.php:229
-#, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "Could not connect to Drizzle server"
-msgstr "Kunne ikke koble til MySQL tjener"
+msgstr "Kunne ikke koble til Drizzle tjener"
 
 #: libraries/config/validate.lib.php:240 libraries/config/validate.lib.php:247
 msgid "Could not connect to MySQL server"
@@ -6225,18 +6214,18 @@ msgid "possible deep recursion attack"
 msgstr ""
 
 #: libraries/database_interface.lib.php:1989
-#, fuzzy
 #| msgid " the local MySQL server's socket is not correctly configured)"
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
-msgstr "(eller den lokale MySQL tjenerens sokkel er ikke korrekt konfigurert)"
+msgstr ""
+"Tjeneren svarer ikke (eller den lokale MySQL tjenerens sokkel er ikke "
+"korrekt konfigurert)."
 
 #: libraries/database_interface.lib.php:1992
-#, fuzzy
 #| msgid "The server is not responding"
 msgid "The server is not responding."
-msgstr "Tjeneren svarer ikke"
+msgstr "Tjeneren svarer ikke."
 
 #: libraries/database_interface.lib.php:1997
 msgid "Please check privileges of directory containing database."
@@ -6280,7 +6269,6 @@ msgstr "MySQL 4.0 kompatibel"
 
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
-#, fuzzy
 #| msgid "Create new database"
 msgid "Create database"
 msgstr "Opprett ny database"
@@ -6375,7 +6363,7 @@ msgstr "Dump alle rader"
 
 #: libraries/display_export.lib.php:189 libraries/display_export.lib.php:210
 msgid "Output:"
-msgstr ""
+msgstr "Utskrift:"
 
 #: libraries/display_export.lib.php:196 libraries/display_export.lib.php:222
 #, php-format
@@ -6435,10 +6423,9 @@ msgid "zipped"
 msgstr "Pakket (zip)"
 
 #: libraries/display_export.lib.php:337
-#, fuzzy
 #| msgid "\"gzipped\""
 msgid "gzipped"
-msgstr "Komprimert (gz)"
+msgstr "gzippet"
 
 #: libraries/display_export.lib.php:339
 #, fuzzy
@@ -6447,17 +6434,15 @@ msgid "bzipped"
 msgstr "Komprimert (bz2)"
 
 #: libraries/display_export.lib.php:348
-#, fuzzy
 #| msgid "Save as file"
 msgid "View output as text"
-msgstr "Lagre som fil"
+msgstr "Vis utskrift som tekst"
 
 #: libraries/display_export.lib.php:353 libraries/display_import.lib.php:311
 #: libraries/plugins/export/ExportCodegen.class.php:106
-#, fuzzy
 #| msgid "Format"
 msgid "Format:"
-msgstr "Format"
+msgstr "Format:"
 
 #: libraries/display_export.lib.php:358
 msgid "Format-specific options:"
@@ -6468,12 +6453,13 @@ msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
 msgstr ""
+"Bla ned for å fylle ut valgene for det valgte formatet og ignorere valgene "
+"for andre formater."
 
 #: libraries/display_export.lib.php:367 libraries/display_import.lib.php:326
-#, fuzzy
 #| msgid "Encoding conversion"
 msgid "Encoding Conversion:"
-msgstr "Kodingskonvertering"
+msgstr "Kodingskonvertering:"
 
 #: libraries/display_git_revision.lib.php:59
 #, php-format
@@ -6579,10 +6565,9 @@ msgid "File uploads are not allowed on this server."
 msgstr "Filopplastinger er ikke tillatt på denne tjeneren."
 
 #: libraries/display_import.lib.php:275
-#, fuzzy
 #| msgid "Partial import"
 msgid "Partial Import:"
-msgstr "Delvis importering"
+msgstr "Delvis importering:"
 
 #: libraries/display_import.lib.php:281
 #, php-format
@@ -6613,7 +6598,7 @@ msgstr "Antall rader å hoppe over, fra første rad:"
 
 #: libraries/display_import.lib.php:317
 msgid "Format-Specific Options:"
-msgstr ""
+msgstr "Format-spesifikke valg:"
 
 #: libraries/display_select_lang.lib.php:52
 #: libraries/display_select_lang.lib.php:53 setup/frames/index.inc.php:75
@@ -12245,7 +12230,7 @@ msgstr "Navn"
 #: tbl_addfield.php:190 tbl_alter.php:216 tbl_indexes.php:107
 #, php-format
 msgid "Table %1$s has been altered successfully"
-msgstr "Tabellen %1$s har blitt endrett"
+msgstr "Tabellen %1$s har blitt endret"
 
 #: tbl_alter.php:133
 #, fuzzy
