@@ -214,15 +214,19 @@ if (!$is_information_schema) {
         $response->addHTML(PMA_getHtmlForDatabaseComment($db));
     }
     
-    echo '<div class="operations_half_width">';
-        include 'libraries/display_create_table.lib.php';
-    echo '</div>';
+    $response->addHTML('<div class="operations_half_width">');
+    ob_start();
+    include 'libraries/display_create_table.lib.php';
+    $content = ob_get_contents();
+    ob_end_clean();
+    $response->addHTML($content);
+    $response->addHTML('</div>');
 
     /**
      * rename database
      */
     if ($db != 'mysql') {
-        echo PMA_getHtmlForRenameDatabase($db);
+        $response->addHTML(PMA_getHtmlForRenameDatabase($db));
     }
 
     // Drop link if allowed
@@ -232,17 +236,17 @@ if (!$is_information_schema) {
         && ! $db_is_information_schema
         && (PMA_DRIZZLE || $db != 'mysql')
     ) {
-        echo PMA_getHtmlForDropDatabaseLink($db);
+        $response->addHTML(PMA_getHtmlForDropDatabaseLink($db));
     }
     /**
      * Copy database
      */
-    echo PMA_getHtmlForCopyDatabase($db);
+    $response->addHTML(PMA_getHtmlForCopyDatabase($db));
 
     /**
      * Change database charset
      */
-    echo PMA_getHtmlForChangeDatabaseCharset($db, $table);
+    $response->addHTML(PMA_getHtmlForChangeDatabaseCharset($db, $table));
 
     if ($num_tables > 0
         && ! $cfgRelation['allworks']
@@ -260,9 +264,9 @@ if (!$is_information_schema) {
         if (!empty($cfg['Servers'][$server]['pmadb'])) {
             $message->isError(true);
         }
-        echo '<div class="operations_full_width">';
-        $message->display();
-        echo '</div>';
+        $response->addHTML('<div class="operations_full_width">');
+        $response->addHTML($message->getDisplay());
+        $response->addHTML('</div>');
     } // end if
 } // end if (!$is_information_schema)
 
@@ -280,7 +284,7 @@ if ($cfgRelation['pdfwork'] && $num_tables > 0) {
     /*
      * Export Relational Schema View
      */
-    echo PMA_getHtmlForExportRelationalSchemaView($url_query);
+    $response->addHTML(PMA_getHtmlForExportRelationalSchemaView($url_query));
 } // end if
 
 ?>
