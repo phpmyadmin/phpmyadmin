@@ -30,56 +30,6 @@ abstract class ExportPlugin extends PluginObserver
     protected $properties;
 
     /**
-     * Type of the newline character
-     *
-     * @var string
-     */
-    private $_crlf;
-
-    /**
-     * Database name
-     *
-     * @var string
-     */
-    private $_db;
-
-    /**
-     * Contains configuration settings
-     *
-     * @var array
-     */
-    private $_cfg;
-
-
-    /**
-     * Relation configuration
-     *
-     * @var array
-     */
-    private $_cfgRelation;
-
-    /**
-     * The type of the export plugin
-     *
-     * @var string
-     */
-    private $_what;
-
-    /**
-     * Parameter to plugin by which it can decide whether it can work
-     *
-     * @var mixed
-     */
-    private $_pluginParam;
-
-    /**
-     * File Charset
-     *
-     * @var type String
-     */
-    private $_charsetOfFile;
-
-    /**
      * Common methods, must be overwritten by all export plugins
      */
 
