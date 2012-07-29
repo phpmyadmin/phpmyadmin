@@ -67,11 +67,13 @@ class ExportMediawiki extends ExportPlugin
         $subgroup->setText("Dump table");
         $leaf = new RadioPropertyItem();
         $leaf->setName('structure_or_data');
-        $leaf->setValues(array(
-            'structure' => __('structure'),
-            'data' => __('data'),
-            'structure_and_data' => __('structure and data')
-        ));
+        $leaf->setValues(
+            array(
+                'structure' => __('structure'),
+                'data' => __('data'),
+                'structure_and_data' => __('structure and data')
+            )
+        );
         $subgroup->setSubgroupHeader($leaf);
         $generalOptions->addProperty($subgroup);
 

@@ -57,7 +57,9 @@ class ExportOdt extends ExportPlugin
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('Open Document Text');
         $exportPluginProperties->setExtension('odt');
-        $exportPluginProperties->setMimeType('application/vnd.oasis.opendocument.text');
+        $exportPluginProperties->setMimeType(
+            'application/vnd.oasis.opendocument.text'
+        );
         $exportPluginProperties->setForceFile(true);
         $exportPluginProperties->setOptionsText(__('Options'));
 
@@ -74,11 +76,13 @@ class ExportOdt extends ExportPlugin
         // create primary items and add them to the group
         $leaf = new RadioPropertyItem();
         $leaf->setName("structure_or_data");
-        $leaf->setValues(array(
-            'structure' => __('structure'),
-            'data' => __('data'),
-            'structure_and_data' => __('structure and data')
-        ));
+        $leaf->setValues(
+            array(
+                'structure' => __('structure'),
+                'data' => __('data'),
+                'structure_and_data' => __('structure and data')
+            )
+        );
         $dumpWhat->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($dumpWhat);

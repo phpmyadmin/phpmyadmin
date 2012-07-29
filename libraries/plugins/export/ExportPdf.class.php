@@ -92,9 +92,9 @@ class ExportPdf extends ExportPlugin
         // create primary items and add them to the group
         $leaf = new MessageOnlyPropertyItem();
         $leaf->setName("explanation");
-        $leaf->setText(__(
-            '(Generates a report containing the data of a single table)'
-        ));
+        $leaf->setText(
+            __('(Generates a report containing the data of a single table)')
+        );
         $generalOptions->addProperty($leaf);
         $leaf = new TextPropertyItem();
         $leaf->setName("report_title");

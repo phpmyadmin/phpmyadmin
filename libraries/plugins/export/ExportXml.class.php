@@ -211,7 +211,8 @@ class ExportXml extends ExportPlugin
                         'utf8' AS DEFAULT_CHARACTER_SET_NAME,
                         DEFAULT_COLLATION_NAME
                     FROM data_dictionary.SCHEMAS
-                    WHERE SCHEMA_NAME = '" . $common_functions->sqlAddSlashes($db) . "'"
+                    WHERE SCHEMA_NAME = '"
+                    . $common_functions->sqlAddSlashes($db) . "'"
                 );
             } else {
                 $result = PMA_DBI_fetch_result(

@@ -110,9 +110,9 @@ class ExportCsv extends ExportPlugin
         $generalOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem();
         $leaf->setName('removeCRLF');
-        $leaf->setText(__(
-            'Remove carriage return/line feed characters within columns'
-        ));
+        $leaf->setText(
+            __('Remove carriage return/line feed characters within columns')
+        );
         $leaf = new BoolPropertyItem();
         $leaf->setName('columns');
         $leaf->setText(__('Put columns names in the first row'));
