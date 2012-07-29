@@ -186,4 +186,18 @@ class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
 </td></tr><tr><td class="right vtop">Inside tables:</td><td rowspan="2"><select name="criteriaTables[]" size="6" multiple="multiple"><option value="table1">table1</option><option value="table2">table2</option></select></td></tr><tr><td class="right vbottom"><a href="db_search.php?0=param1&amp;1=param2&amp;selectall=1&amp;server=0&amp;lang=en&amp;token=token#db_search" onclick="setSelectOptions(\'db_search\', \'criteriaTables[]\', true); return false;">Select All</a> &nbsp;/&nbsp;<a href="db_search.php?0=param1&amp;1=param2&amp;unselectall=1&amp;server=0&amp;lang=en&amp;token=token#db_search" onclick="setSelectOptions(\'db_search\', \'criteriaTables[]\', false); return false;">Unselect All</a></td></tr><tr><td class="right">Inside column:</td><td><input type="text" name="criteriaColumnName" size="60"value="" /></td></tr></table></fieldset><fieldset class="tblFooters"><input type="submit" name="submit_search" value="Go" id="buttonGo" /></fieldset></form><!-- These two table-image and table-link elements display the table name in browse search results  --><div id="table-info"><a class="item" id="table-link" ></a></div><div id="browse-results"><!-- this browse-results div is used to load the browse and delete results in the db search --></div><br class="clearfloat" /><div id="sqlqueryform"><!-- this sqlqueryform div is used to load the delete form in the db search --></div><!--  toggle query box link--><a id="togglequerybox"></a>'
         );
     }
+
+    /**
+     * Test for _getResultDivs
+     */
+    public function testGetResultDivs(){
+        $this->assertEquals(
+            $this->_callProtectedFunction(
+                '_getResultDivs',
+                array()
+            ),
+            '<!-- These two table-image and table-link elements display the table name in browse search results  --><div id="table-info"><a class="item" id="table-link" ></a></div><div id="browse-results"><!-- this browse-results div is used to load the browse and delete results in the db search --></div><br class="clearfloat" /><div id="sqlqueryform"><!-- this sqlqueryform div is used to load the delete form in the db search --></div><!--  toggle query box link--><a id="togglequerybox"></a>'
+        );
+    }
+
 }
