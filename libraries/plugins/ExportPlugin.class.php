@@ -251,27 +251,5 @@ abstract class ExportPlugin extends PluginObserver
      * @return void
      */
     abstract protected function setProperties();
-
-    /**
-     * Gets the file charset
-     *
-     * @return string
-     */
-    protected function getCharsetOfFile()
-    {
-        return $this->_charsetOfFile;
-    }
-
-    /**
-     * Sets the file charset
-     *
-     * @param string $charsetOfFile file charset
-     *
-     * @return void
-     */
-    protected function setCharsetOfFile($charsetOfFile)
-    {
-        $this->_charsetOfFile = $charsetOfFile;
-    }
 }
 ?>
