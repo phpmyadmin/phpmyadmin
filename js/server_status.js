@@ -361,7 +361,7 @@ $(function() {
                         label: PMA_messages['strChartIssuedQueries'],
                         labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
                         renderer: $.jqplot.DateAxisRenderer,
-                        tickInterval: 300000,
+                        //tickInterval: 300000,
                         //min: '2008-06-30 08:00:00',
                         //min: '2012-06-07 12:00:00',
                         //min: '1970-01-01 12:00:00',
@@ -375,8 +375,9 @@ $(function() {
                 .hide()
                 .after('<div class="liveChart" id="' + $tab.attr('id') + '_chart_cnt"></div>');
             //currentChart = $.jqplot($tab.attr('id') + '_chart_cnt', [[null]], settings);
-            currentChart = $.jqplot($tab.attr('id') + '_chart_cnt', [[['2008-06-30 08:00:00',4], ['2008-06-30 08:00:05',6.5], ['2008-06-30 08:00:10',5.7], ['2008-06-30 08:00:15',9], ['2008-06-30 08:00:20',8.2]]], settings);
-            recursiveTimer(); 
+            //currentChart = $.jqplot($tab.attr('id') + '_chart_cnt', [[['2008-06-30 08:00:00',4], ['2008-06-30 08:00:05',6.5], ['2008-06-30 08:00:10',5.7], ['2008-06-30 08:00:15',9], ['2008-06-30 08:00:20',8.2]]], settings);
+            currentChart = $.jqplot($tab.attr('id') + '_chart_cnt', [[['2008-06-30 08:00:00',4], ['2008-07-30 08:00:05',6.5], ['2008-08-30 08:00:10',5.7], ['2008-09-30 08:00:15',9], ['2008-10-30 08:00:20',8.2]]], settings);
+            //recursiveTimer(); 
 
         } else {
             $(this).html(PMA_messages['strLiveQueryChart']);
