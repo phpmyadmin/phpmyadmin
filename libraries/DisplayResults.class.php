@@ -150,6 +150,25 @@ class PMA_DisplayResults
         /** array mime types information of fields */
         '_mime_map' => null
     );
+    
+    /**
+     * This global variable represent the columns which needs to be syntax
+     * highlighted in each database tables
+     * One element of this array represent all relavant columns in all tables in
+     * one specific database
+     */
+    public $sytax_highlighting_column_info = array(
+        'information_schema' => array(
+            'processlist' => array(
+                'info' => array(
+                    'libraries/plugins/transformations/Text_Plain_Formatted.class.php',
+                    'Text_Plain_Formatted',
+                    'Text_Plain'
+                )
+            )
+        )
+        
+    );
 
 
     /**
@@ -2762,7 +2781,33 @@ class PMA_DisplayResults
             $transform_options['wrapper_link']
                 = PMA_generate_common_url($_url_params);
 
-            $vertical_display = $this->__get('_vertical_display');
+            $vertical_display = $this->__get('_vertical_display');            
+            
+            // Check whether the field needs to display with syntax highlighting
+            if ($this->_isNeedToSytaxHighliight($meta->name)
+                && (trim($row[$i]) != '')
+            ) {
+                
+                $parsed_sql = PMA_SQP_parse($row[$i]);                
+                $row[$i] = PMA_CommonFunctions::getInstance()->formatSql($parsed_sql, $row[$i]);
+                include_once $this->sytax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($meta->name)][0];
+                $transformation_plugin = new $this->sytax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($meta->name)][1](null);
+                
+                $transform_options  = PMA_transformation_getOptions(
+                    isset($mime_map[$meta->name]
+                        ['transformation_options']
+                    )
+                    ? $mime_map[$meta->name]
+                    ['transformation_options']
+                   : ''
+                );
+
+                $meta->mimetype = str_replace(
+                    '_', '/',
+                    $this->sytax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($meta->name)][2]
+                );
+                
+            }            
 
             if ($meta->numeric == 1) {
                 // n u m e r i c
@@ -2954,6 +2999,21 @@ class PMA_DisplayResults
 
     } // end of the '_gatherLinksForLaterOutputs()' function
 
+    
+    /**
+     * Check whether any field is marked as need to syntax highlight
+     *
+     * @param string $field field to check
+     *
+     * @return boolean 
+     */
+    private function _isNeedToSytaxHighliight($field) {
+        if (! empty($this->sytax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($field)])) {
+            return true;
+        }
+        return false;
+    }
+     
 
     /**
      * Get url sql query without conditions to shorten URLs
@@ -3460,6 +3520,7 @@ class PMA_DisplayResults
                 // replacements will be made
                 if ((PMA_strlen($column) > $GLOBALS['cfg']['LimitChars'])
                     && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
+                    && ! $this->_isNeedToSytaxHighliight(strtolower($meta->name))
                 ) {
                     $column = PMA_substr($column, 0, $GLOBALS['cfg']['LimitChars'])
                         . '...';
