@@ -442,6 +442,7 @@ function PMA_pluginGetOptions($section, &$list)
         $ret .= '<h3>' . PMA_getString($plugin->getProperties()->getText())
             . '</h3>';
 
+        $no_options = true;
         if ($plugin->getProperties()->getOptions() != null
             && count($plugin->getProperties()->getOptions()) > 0
         ) {
