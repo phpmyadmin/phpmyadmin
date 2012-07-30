@@ -79,7 +79,7 @@ class ImportLdi extends ImportPlugin
         $generalOptions->setName("general_opts");
         // create primary items and add them to the group
         $leaf = new BoolPropertyItem();
-        $leaf->setName("replacxe");
+        $leaf->setName("replace");
         $leaf->setText(__('Replace table data with file'));
         $generalOptions->addProperty($leaf);
 
