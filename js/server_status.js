@@ -326,6 +326,7 @@ $(function() {
         return false;
     });
 
+    var previous = 0;
     // Live query statistics
     $('.buttonlinks a.livequeriesLink').click(function() {
         var $tab = $(this).parents('div.ui-tabs-panel');
@@ -360,7 +361,7 @@ $(function() {
                     xaxis: {
                         label: PMA_messages['strChartIssuedQueries'],
                         labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
-                        renderer: $.jqplot.DateAxisRenderer,
+                        renderer: $.jqplot.DateAxisRenderer,                       
                         //tickInterval: 300000,
                         //min: '2008-06-30 08:00:00',
                         //min: '2012-06-07 12:00:00',
@@ -375,9 +376,10 @@ $(function() {
                 .hide()
                 .after('<div class="liveChart" id="' + $tab.attr('id') + '_chart_cnt"></div>');
             //currentChart = $.jqplot($tab.attr('id') + '_chart_cnt', [[null]], settings);
-            currentChart = $.jqplot($tab.attr('id') + '_chart_cnt', [[['2008-06-30 08:00:00',4], ['2008-06-30 08:00:02',6.5], ['2008-06-30 08:00:04',5.7], ['2008-06-30 08:00:06',9], ['2008-06-30 08:00:08',8.2], ['2008-06-30 08:00:10',4], ['2008-06-30 08:00:12',6.5], ['2008-06-30 08:00:14',5.7], ['2008-06-30 08:00:16',9], ['2008-06-30 08:00:18',8.2]]], settings);
+            //currentChart = $.jqplot($tab.attr('id') + '_chart_cnt', [[['2008-06-30 08:00:00',4], ['2008-06-30 08:00:02',6.5], ['2008-06-30 08:00:04',5.7], ['2008-06-30 08:00:06',9], ['2008-06-30 08:00:08',8.2], ['2008-06-30 08:00:10',4], ['2008-06-30 08:00:12',6.5], ['2008-06-30 08:00:14',5.7], ['2008-06-30 08:00:16',9], ['2008-06-30 08:00:18',8.2]]], settings);
             //currentChart = $.jqplot($tab.attr('id') + '_chart_cnt', [[['2008-06-30 08:00:00',4], ['2008-07-30 08:00:05',6.5], ['2008-08-30 08:00:10',5.7], ['2008-09-30 08:00:15',9], ['2008-10-30 08:00:20',8.2]]], settings);
-            //recursiveTimer(); 
+            var set_previous = getCurrentQueryStats();
+            recursiveTimer();
 
         } else {
             $(this).html(PMA_messages['strLiveQueryChart']);
@@ -389,18 +391,18 @@ $(function() {
     });
 
     var t;
-    var currentChart;
     var series = new Array();
     series[0] = new Array();
 
     function recursiveTimer() {
         ajaxGetStatus();
         t = setTimeout(function() {
-                recursiveTimer() }, 5000);
+                recursiveTimer() }, 2000);
     }
 
-    function ajaxGetStatus() {
+    function getCurrentQueryStats() {
         var ret = null;
+        var retval = null;
         $.ajax({
             async: false,
             url: 'server_status.php',
@@ -416,16 +418,37 @@ $(function() {
             ret = data;
             }
         });
+        retval = [ret.x,ret.y-previous];
+        previous = ret.y;
+        return retval;
+    }
+
+    function ajaxGetStatus() {
         
-        series[0].push([
-            //ret.x,
-            new Date().getTime(),
-            //getDateFromFormat('1970-01-01 12:15:00', 'yyyy-MM-dd HH:mm:ss'),
-            //-344401659000,
-            ret.y
-        ]); 
-        currentChart.series[0].data = series[0];
-        currentChart.replot();
+        var tab1 = document.getElementById('statustabs_queries_chart_cnt');
+        series[0].push(getCurrentQueryStats());
+        var settings = {
+                title: PMA_messages['strChartIssuedQueriesTitle'],
+                axes: {
+                    xaxis: {
+                        label: PMA_messages['strChartIssuedQueries'],
+                        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+                        renderer: $.jqplot.DateAxisRenderer,
+                        axes:{xaxis:{autoscale:true}},
+                        //tickInterval: 300000,
+                        //min: '2008-06-30 08:00:00',
+                        //min: '2012-06-07 12:00:00',
+                        //min: '1970-01-01 12:00:00',
+                        tickOptions: {
+                            formatString: '%s'
+                        }
+                    }
+                }
+        };
+       // currentChart.series[0].data = series[0];
+       //jQuery("#statustabs_queries_chart_cnt").html('');
+       $.jqplot('statustabs_queries_chart_cnt', [series[0]], settings).replot();
+       // currentChart.replot();
    };
 
     function setupLiveChart($tab, link, settings) {
