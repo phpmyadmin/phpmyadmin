@@ -32,7 +32,9 @@ if (!PMA_DBI_get_columns($db, $table)) {
 }
 
 /* Grab data */
-$sql = 'SELECT ' . $common_functions->backquote($transform_key) . ' FROM ' . $common_functions->backquote($table) . ' WHERE ' . $where_clause . ';';
+$sql = 'SELECT ' . $common_functions->backquote($transform_key)
+    . ' FROM ' . $common_functions->backquote($table)
+    . ' WHERE ' . $where_clause . ';';
 $result = PMA_DBI_fetch_value($sql);
 
 /* Check return code */

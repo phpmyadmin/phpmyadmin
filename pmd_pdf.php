@@ -40,8 +40,10 @@ if (isset($mode)) {
         die("<script>alert('Pages not found!');history.go(-2);</script>");
     }
 
-    $pmd_table = $common_functions->backquote($GLOBALS['cfgRelation']['db']) . '.' . $common_functions->backquote($GLOBALS['cfgRelation']['designer_coords']);
-    $pma_table = $common_functions->backquote($GLOBALS['cfgRelation']['db']) . '.' . $common_functions->backquote($cfgRelation['table_coords']);
+    $pmd_table = $common_functions->backquote($GLOBALS['cfgRelation']['db']) . '.'
+        . $common_functions->backquote($GLOBALS['cfgRelation']['designer_coords']);
+    $pma_table = $common_functions->backquote($GLOBALS['cfgRelation']['db']) . '.'
+        . $common_functions->backquote($cfgRelation['table_coords']);
     $scale_q = $common_functions->sqlAddSlashes($scale);
 
     if ('create_export' == $mode) {
@@ -57,7 +59,12 @@ if (isset($mode)) {
     $pdf_page_number_q = $common_functions->sqlAddSlashes($pdf_page_number);
 
     if ('export' == $mode) {
-        $sql = "REPLACE INTO " . $pma_table . " (db_name, table_name, pdf_page_number, x, y) SELECT db_name, table_name, " . $pdf_page_number_q . ", ROUND(x/" . $scale_q . ") , ROUND(y/" . $scale_q . ") y FROM " . $pmd_table . " WHERE db_name = '" . $common_functions->sqlAddSlashes($db) . "'";
+        $sql = "REPLACE INTO " . $pma_table
+            . " (db_name, table_name, pdf_page_number, x, y)"
+            . " SELECT db_name, table_name, " . $pdf_page_number_q . ","
+            . " ROUND(x/" . $scale_q . ") , ROUND(y/" . $scale_q . ") y"
+            . " FROM " . $pmd_table
+            . " WHERE db_name = '" . $common_functions->sqlAddSlashes($db) . "'";
 
         PMA_queryAsControlUser($sql, true, PMA_DBI_QUERY_STORE);
     }
@@ -72,7 +79,7 @@ if (isset($mode)) {
             AND
             ' . $pmd_table . '.`table_name` = ' . $pma_table . '.`table_name`
             AND
-            ' . $pmd_table . '.`db_name`=\''. $common_functions->sqlAddSlashes($db) .'\'
+            ' . $pmd_table . '.`db_name`=\''. $common_functions->sqlAddSlashes($db) . '\'
             AND pdf_page_number = ' . $pdf_page_number_q . ';',
             true, PMA_DBI_QUERY_STORE
         );
