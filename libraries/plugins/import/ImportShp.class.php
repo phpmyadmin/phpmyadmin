@@ -45,12 +45,16 @@ class ImportShp extends ImportPlugin
      */
     protected function setProperties()
     {
-        $this->properties = array(
-            'text' => __('ESRI Shape File'),
-            'extension' => 'shp',
-            'options' => array(),
-            'options_text' => __('Options'),
-        );
+        $props = 'libraries/properties/';
+        include_once "$props/plugins/ImportPluginProperties.class.php";
+
+        $importPluginProperties = new ImportPluginProperties();
+        $importPluginProperties->setText(__('ESRI Shape File'));
+        $importPluginProperties->setExtension('shp');
+        $importPluginProperties->setOptions(array());
+        $importPluginProperties->setOptionsText(__('Options'));
+
+        $this->properties = $importPluginProperties;
     }
 
     /**
@@ -312,7 +316,7 @@ class ImportShp extends ImportPlugin
      * Sets $eof when $GLOBALS['finished'] is set and the buffer falls short.
      *
      * @param int $length number of bytes
-     * 
+     *
      * @return string
      */
     public static function readFromBuffer($length)
