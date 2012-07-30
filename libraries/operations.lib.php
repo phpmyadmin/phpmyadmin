@@ -1018,4 +1018,158 @@ function PMA_getHtmlForCopytable()
     return $html_output;
 }
 
+function PMA_getHtmlForTableMaintenance(
+    $is_myisam_or_aria, $is_innodb, $is_berkeleydb, $url_params
+) {
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
+    $html_output = '<div class="operations_half_width">';
+    $html_output .= '<fieldset>'
+        . '<legend>' . __('Table maintenance') . '</legend>';
+    $html_output .= '<ul id="tbl_maintenance" ' 
+        . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '') .'>';
+    
+    // Note: BERKELEY (BDB) is no longer supported, starting with MySQL 5.1
+    if ($is_myisam_or_aria || $is_innodb || $is_berkeleydb) {
+        if ($is_myisam_or_aria || $is_innodb) {
+            $this_url_params = array_merge(
+                $url_params,
+                array(
+                    'sql_query' => 'CHECK TABLE ' 
+                        . $common_functions->backquote($GLOBALS['table']),
+                    'table_maintenance' => 'Go',
+                    )
+            );
+            $html_output .= '<li>' 
+                . '<a class="maintain_action" '
+                . 'href="tbl_operations.php' 
+                . PMA_generate_common_url($this_url_params) .'">'
+                . __('Check table')
+                . '</a>';
+            $html_output .= $common_functions->showMySQLDocu(
+                'MySQL_Database_Administration',
+                'CHECK_TABLE'
+            );
+            $html_output .= '</li>';
+        }
+        
+        if ($is_innodb) {
+            $this_url_params = array_merge(
+                $url_params,
+                array('sql_query' => 'ALTER TABLE ' 
+                    . $common_functions->backquote($GLOBALS['table']) 
+                    . ' ENGINE = InnoDB;'
+                    )
+            );
+            $html_output .= '<li>' 
+                . '<a class="maintain_action" '
+                . 'href="sql.php' . PMA_generate_common_url($this_url_params) .'">'
+                . __('Defragment table')
+                . '</a>'
+                . $common_functions->showMySQLDocu(
+                    'Table_types',
+                    'InnoDB_File_Defragmenting'
+                    )
+                . '</li>';
+        }
+        
+        if ($is_myisam_or_aria || $is_berkeleydb) {
+            $this_url_params = array_merge(
+                $url_params,
+                array(
+                    'sql_query' => 'ANALYZE TABLE ' 
+                        . $common_functions->backquote($GLOBALS['table']),
+                    'table_maintenance' => 'Go',
+                    )
+            );
+        $html_output .= '<li>'
+            . '<a class="maintain_action" '
+            . 'href="tbl_operations.php' 
+            . PMA_generate_common_url($this_url_params) . '">'    
+            . __('Analyze table')
+            . '</a>'
+            . $common_functions->showMySQLDocu(
+                'MySQL_Database_Administration',
+                'ANALYZE_TABLE'
+                )
+            . '</li>';
+        }
+        
+        if ($is_myisam_or_aria && !PMA_DRIZZLE) {
+            $this_url_params = array_merge(
+                $url_params,
+                array(
+                    'sql_query' => 'REPAIR TABLE ' 
+                        . $common_functions->backquote($GLOBALS['table']),
+                    'table_maintenance' => 'Go',
+                    )
+            );
+            $html_output .= '<li>'
+                . '<a class="maintain_action" '
+                . 'href="tbl_operations.php' 
+                . PMA_generate_common_url($this_url_params) .'">'
+                . __('Repair table')
+                . '</a>'
+                . $common_functions->showMySQLDocu(
+                    'MySQL_Database_Administration',
+                    'REPAIR_TABLE'
+                    )
+                . '</li>';
+            
+        }
+
+        if (($is_myisam_or_aria || $is_innodb || $is_berkeleydb) && !PMA_DRIZZLE) {
+            $this_url_params = array_merge(
+                $url_params,
+                array(
+                    'sql_query' => 'OPTIMIZE TABLE ' 
+                        . $common_functions->backquote($GLOBALS['table']),
+                    'table_maintenance' => 'Go',
+                    )
+            );
+        
+         $html_output .= '<li>' 
+            . '<a class="maintain_action" '
+            . 'href="tbl_operations.php' 
+            . PMA_generate_common_url($this_url_params) .'">'
+            . __('Optimize table')
+            . '</a>'
+            . $common_functions->showMySQLDocu(
+                'MySQL_Database_Administration',
+                'OPTIMIZE_TABLE'
+                )
+            . '</li>';
+        }
+    } // end MYISAM or BERKELEYDB case
+
+    $this_url_params = array_merge(
+        $url_params,
+        array(
+            'sql_query' => 'FLUSH TABLE ' 
+                . $common_functions->backquote($GLOBALS['table']),
+            'message_to_show' => sprintf(
+                __('Table %s has been flushed'),
+                htmlspecialchars($GLOBALS['table'])
+            ),
+            'reload'    => 1,
+        )
+    );
+    
+    $html_output .= '<li><a class="maintain_action" '
+        . 'href="sql.php' . PMA_generate_common_url($this_url_params) . '">'
+        . __('Flush the table (FLUSH)')
+        . '</a>'
+        . $common_functions->showMySQLDocu(
+            'MySQL_Database_Administration'
+            , 'FLUSH'
+            )
+        . '</li>';
+    
+    $html_output .= '</ul>'
+        . '</fieldset>'
+        . '</div>';
+    
+    return $html_output;
+}
+
 ?>

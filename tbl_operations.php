@@ -317,109 +317,16 @@ echo PMA_getTableOptionDiv($comment, $tbl_collation, $tbl_storage_engine,
  */
 echo PMA_getHtmlForCopytable();
 
-?>
-<br class="clearfloat"/>
+echo '<br class="clearfloat"/>';
 
-<div class="operations_half_width">
-<fieldset>
- <legend><?php echo __('Table maintenance'); ?></legend>
+/**
+ * Table mainatenance
+ */
+echo PMA_getHtmlForTableMaintenance($is_myisam_or_aria, $is_innodb,
+    $is_berkeleydb, $url_params
+    );
 
-<ul id="tbl_maintenance" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '');?>>
-<?php
-// Note: BERKELEY (BDB) is no longer supported, starting with MySQL 5.1
-if ($is_myisam_or_aria || $is_innodb || $is_berkeleydb) {
-    if ($is_myisam_or_aria || $is_innodb) {
-        $this_url_params = array_merge(
-            $url_params,
-            array(
-                'sql_query' => 'CHECK TABLE ' . $common_functions->backquote($GLOBALS['table']),
-                'table_maintenance' => 'Go',
-                )
-        );
-        ?>
-    <li><a class='maintain_action' href="tbl_operations.php<?php echo PMA_generate_common_url($this_url_params); ?>">
-            <?php echo __('Check table'); ?></a>
-        <?php echo $common_functions->showMySQLDocu('MySQL_Database_Administration', 'CHECK_TABLE'); ?>
-    </li>
-        <?php
-    }
-    if ($is_innodb) {
-        $this_url_params = array_merge(
-            $url_params,
-            array('sql_query' => 'ALTER TABLE ' . $common_functions->backquote($GLOBALS['table']) . ' ENGINE = InnoDB;')
-        );
-        ?>
-    <li><a class='maintain_action' href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>">
-            <?php echo __('Defragment table'); ?></a>
-        <?php echo $common_functions->showMySQLDocu('Table_types', 'InnoDB_File_Defragmenting'); ?>
-    </li>
-        <?php
-    }
-    if ($is_myisam_or_aria || $is_berkeleydb) {
-        $this_url_params = array_merge(
-            $url_params,
-            array(
-                'sql_query' => 'ANALYZE TABLE ' . $common_functions->backquote($GLOBALS['table']),
-                'table_maintenance' => 'Go',
-                )
-        );
-        ?>
-    <li><a class='maintain_action' href="tbl_operations.php<?php echo PMA_generate_common_url($this_url_params); ?>">
-            <?php echo __('Analyze table'); ?></a>
-        <?php echo $common_functions->showMySQLDocu('MySQL_Database_Administration', 'ANALYZE_TABLE');?>
-    </li>
-        <?php
-    }
-    if ($is_myisam_or_aria && !PMA_DRIZZLE) {
-        $this_url_params = array_merge(
-            $url_params,
-            array(
-                'sql_query' => 'REPAIR TABLE ' . $common_functions->backquote($GLOBALS['table']),
-                'table_maintenance' => 'Go',
-                )
-        );
-        ?>
-    <li><a class='maintain_action' href="tbl_operations.php<?php echo PMA_generate_common_url($this_url_params); ?>">
-            <?php echo __('Repair table'); ?></a>
-        <?php echo $common_functions->showMySQLDocu('MySQL_Database_Administration', 'REPAIR_TABLE'); ?>
-    </li>
-        <?php
-    }
-    if (($is_myisam_or_aria || $is_innodb || $is_berkeleydb) && !PMA_DRIZZLE) {
-        $this_url_params = array_merge(
-            $url_params,
-            array(
-                'sql_query' => 'OPTIMIZE TABLE ' . $common_functions->backquote($GLOBALS['table']),
-                'table_maintenance' => 'Go',
-                )
-        );
-        ?>
-    <li><a class='maintain_action' href="tbl_operations.php<?php echo PMA_generate_common_url($this_url_params); ?>">
-            <?php echo __('Optimize table'); ?></a>
-        <?php echo $common_functions->showMySQLDocu('MySQL_Database_Administration', 'OPTIMIZE_TABLE'); ?>
-    </li>
-        <?php
-    }
-} // end MYISAM or BERKELEYDB case
-$this_url_params = array_merge(
-    $url_params,
-    array(
-        'sql_query' => 'FLUSH TABLE ' . $common_functions->backquote($GLOBALS['table']),
-        'message_to_show' => sprintf(
-            __('Table %s has been flushed'),
-            htmlspecialchars($GLOBALS['table'])
-        ),
-        'reload'    => 1,
-    )
-);
 ?>
-    <li><a class='maintain_action' href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>">
-            <?php echo __('Flush the table (FLUSH)'); ?></a>
-        <?php echo $common_functions->showMySQLDocu('MySQL_Database_Administration', 'FLUSH'); ?>
-    </li>
-</ul>
-</fieldset>
-</div>
 <?php if (! (isset($db_is_information_schema) && $db_is_information_schema)) { ?>
 <div class="operations_half_width">
 <fieldset class="caution">
