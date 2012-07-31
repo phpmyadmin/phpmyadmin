@@ -1,6 +1,9 @@
 phpMyAdmin - ChangeLog
 ======================
 
+3.5.2.1 (not yet released)
+- [security] Fixed local path disclosure vulnerability, see PMASA-2012-3
+
 3.5.2.0 (2012-07-07)
 - bug #3521416 [interface] JS error when editing index
 - bug #3521313 [core] Call to undefined function __()
@@ -107,11 +110,11 @@ phpMyAdmin - ChangeLog
 + patch #3303195 [interface] Checkbox to have SQL input remain
 - patch #3472899 [export] Fixed CSV escape for the export
 - patch #3475424 [import] Fixed CSV escape for the import
-- bug #3482734 [interface] No warning on syntax error in search form 
+- bug #3482734 [interface] No warning on syntax error in search form
 - bug #3423717 [core] Improved detection of SSL connection
 + FULLTEXT support for InnoDB, starting with MySQL 5.6.4
 - bug #3497151 [interface] Duplicate inline query edit box
-- bug #3504567 [mime] Description of the transformation missing in the tooltip 
+- bug #3504567 [mime] Description of the transformation missing in the tooltip
 
 3.4.11.0 (2012-04-14)
 - bug #3486970 [import] Exception on XML import
@@ -194,7 +197,7 @@ phpMyAdmin - ChangeLog
 - bug #3403165 [interface] Collation not displayed for long enum fields
 - bug #3399951 [export] Config for export compression not used
 - bug #3400690 [privileges] DB-specific privileges won't submit
-- bug #3410604 [config] Configuration storage incorrect suggested table name 
+- bug #3410604 [config] Configuration storage incorrect suggested table name
 - bug #3383572 [interface] Cannot execute saved query
 - bug #3411535 [display] Full text button unchecks results display options
 - bug #3411224 [display] Broken binary column when 'Show binary contents' is not set
@@ -221,7 +224,7 @@ phpMyAdmin - ChangeLog
 - [import] Remove native Excel import modules (xls and xlsx formats)
 - bug #3392920 [edit] BLOB emptied after editing another column
 - [security] Fixed XSS in Inline Edit on save action, see PMASA-2011-14
-- [security] Fixed XSS with db/table/column names, see PMASA-2011-14 
+- [security] Fixed XSS with db/table/column names, see PMASA-2011-14
 
 3.4.4.0 (2011-08-24)
 - bug #3323060 [parser] SQL parser breaks AJAX requests if query has unclosed quotes
@@ -295,8 +298,8 @@ phpMyAdmin - ChangeLog
 - [security] Make redirector require valid token
 
 3.4.0.0 (2011-05-11)
-+ rfe #2890226 [view] Enable VIEW rename 
-+ rfe #838637 [privileges] Export a user's privileges 
++ rfe #2890226 [view] Enable VIEW rename
++ rfe #838637 [privileges] Export a user's privileges
 - [core] Updated mootools to fix some glitches with Safari.
 + rfe #2816943 [interface] Add REGEXP ^...$ to select dialog.
 + rfe #2924956 [interface] Add insert ignore option to editing row.
@@ -315,7 +318,7 @@ phpMyAdmin - ChangeLog
 + rfe #1186511 [inrerface] Add link to reload navigation frame.
 + rfe #2936156 [auth] Signon authentication forwards error message through session data.
 + rfe #2835109 [interface] Move ^1 to the end of message.
-+ rfe #854911  [interface] Grey out non applicable actions in structure 
++ rfe #854911  [interface] Grey out non applicable actions in structure
 + [interface] Allow to create new table from navigation frame (in light mode).
 + rfe #1025696 [browse] Add direct download of binary fields.
 - [browse] Properly display NULL value for BLOB.
@@ -334,13 +337,13 @@ phpMyAdmin - ChangeLog
 + patch #2948421 [auth] HTTP Basic auth realm name,
   thanks to Harald Jenny - haraldj
 - bug #2954916 [interface] Do not insert doc links to not formatted SQL.
-+ [lang] Chinese Simplified update, thanks to Shanyan Baishui - rimyxp 
++ [lang] Chinese Simplified update, thanks to Shanyan Baishui - rimyxp
 + [lang] Turkish update, thanks to Burak Yavuz
 + rfe #2963310 [interface] Focus TEXTAREA "sql_query" on click on "SQL" link
 + [lang] Uzbek update, thanks to Orzu Samarqandiy
 + rfe #2958013 [import] After import, also list uploaded filename, thanks
   to Pavel Konnikov and Herman van Rink
-+ patch #2974341 [structure] Clicking on table name in db Structure should 
++ patch #2974341 [structure] Clicking on table name in db Structure should
   Browse the table if possible, thanks to bhdouglass - dougboybhd
 + patch #2975533 [search] New search operators, thanks to
   Martynas Mickevičius
@@ -349,7 +352,7 @@ phpMyAdmin - ChangeLog
 - [core] Provide way for vendors to easily change paths to config files.
 + patch #2979922, rfe #2804874 [interface] Add inline query editing, thanks to Muhammd Adnan.
 - bug #2966752 [setup] Allow to configure changes tracking in setup script.
-+ patch #2981165 [edit] Optionally disable the Type column, 
++ patch #2981165 [edit] Optionally disable the Type column,
   thanks to Brian Douglass - bhdouglass
 + patch #2984058 [edit] Buttons for quicky creating common SQL queries, thanks
   to sutharshan.
@@ -366,14 +369,14 @@ phpMyAdmin - ChangeLog
 + rfe #2964518 [interface] Allow to choose servers from configuration for
   synchronisation.
 + rfe #2988633 [relation] Improve ON DELETE/ON UPDATE drop-downs
-+ rfe #2988629 [relation] Improve labels in relation view 
++ rfe #2988629 [relation] Improve labels in relation view
 + rfe #2983207, patch #2988715 [interface] Use jQuery calendar dialog, thanks
   to Muhammad Adnan.
 + [doc] Incorporate synchronisation docs into main document.
 + [core] Include Content Security Policy HTTP headers.
 - bug #3004216 [CSS] Field attributes use inline CSS
 - patch #2999595, rfe #2998130 [interface] Cleanup navigation frame.
-- patch #3025161 [core] Prevent sending of unnecessary cookies, 
+- patch #3025161 [core] Prevent sending of unnecessary cookies,
   thanks to Piotr Przybylski  - crackpl
 - bug [password] Generate password only available if JS is enabled
   (fixed for Privileges and Change password)
@@ -392,7 +395,7 @@ phpMyAdmin - ChangeLog
 - [interface] Fixed rendering of error/notice/info titles background.
 - patch #3038293 [doc] Language and grammar fixes,
   thanks to Isaac Bennetch - ibennetch
-- patch #3038312 [export] JSON export, 
+- patch #3038312 [export] JSON export,
   thanks to Hauke Henningsen - blubberkeks152
 - rfe #1494550 [interface] Editor for SET/ENUM fields.
 - rfe #2649375 [interface] Simplified interface to backup/restore.
@@ -400,10 +403,10 @@ phpMyAdmin - ChangeLog
 - [relations] Dropped WYSIWYG-PDF configuration variable.
 - rfe #806035, #686260 [relations] Export relations to Dia, SVG and others
 + [interface] Added charts to status tab, profiling page and query results
-+ [interface] AJAXification on various pages 
++ [interface] AJAXification on various pages
 - [core] Remove last remaining parts of profiling code which was removed in 2006.
 - bug #3042665 [parser] Add workaround for MySQL way of handling backtick.
-- bug #3056610 [interface] Removed modification options for information_schema 
+- bug #3056610 [interface] Removed modification options for information_schema
 + patch #3055886 [config] Add Left frame table filter visibility config option, thanks to eesau
 - [core] Force generating of new session on login
 + rfe #1105678 [interface] Drop page-break-before as it is useless for smaller
@@ -418,7 +421,7 @@ phpMyAdmin - ChangeLog
   thanks to garas - garas
 - bug #3123433 [interface] Avoid double escaping of MySQL errors.
 - [interface] Use less noisy message and remove disable link on server charts and database statistics.
-+ rfe #3141330 [relation] When displaying results, show a link to the foreign 
++ rfe #3141330 [relation] When displaying results, show a link to the foreign
   table even when phpMyAdmin configuration storage is not active
 - bug #3141327 [relation] Foreign key input options
 - [export] Better handling of export to PHP array.
@@ -458,8 +461,8 @@ phpMyAdmin - ChangeLog
 - patch #3147400 [structure] Aria table size printed as unknown,
   thanks to erickoh75 - erickoh75
 - patch #3150164 [structure] Ordering by size gives incorrect results,
-  thanks to Madhura Jayaratne - madhuracj 
-- bug #3153409 [core] 0 row(s) affected 
+  thanks to Madhura Jayaratne - madhuracj
+- bug #3153409 [core] 0 row(s) affected
 - bug #3155842 [core] Edit relational page and page number
 - [security] Minor security fixes, see PMASA-2010-9 and PMASA-2010-10
 - [lang] German update, thanks to to jannicars@users.sourceforge.net.
