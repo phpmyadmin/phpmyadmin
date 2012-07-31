@@ -5,11 +5,14 @@
  *
  * includes phpMyAdmin relations and InnoDB relations
  *
- * @todo fix name handling: currently names with dots (.) are not properly handled for internal relations (but foreign keys relations are correct)
+ * @todo fix name handling: currently names with dots (.) are not properly handled
+ * for internal relations (but foreign keys relations are correct)
  * @todo foreign key constraints require both fields being of equal type and size
  * @todo check foreign fields to be from same type and size, all other makes no sense
- * @todo add an link to create an index required for constraints, or an option to do automatically
- * @todo if above todos are fullfilled we can add all fields meet requirements in the select dropdown
+ * @todo add an link to create an index required for constraints,
+ * or an option to do automatically
+ * @todo if above todos are fullfilled we can add all fields meet requirements
+ * in the select dropdown
  * @package PhpMyAdmin
  */
 
@@ -108,7 +111,9 @@ function PMA_backquote_split($text)
         if (false === $first_backquote || false === $second_backquote) {
             break;
         }
-        $elements[] = substr($text, $first_backquote, $second_backquote - $first_backquote + 1);
+        $elements[] = substr(
+            $text, $first_backquote, $second_backquote - $first_backquote + 1
+        );
         $pos = $second_backquote + 1;
     }
     return($elements);
@@ -361,15 +366,15 @@ if ($cfgRelation['relwork']
     // same engine.
 
     if ($common_functions->isForeignKeySupported($tbl_storage_engine)) {
-        $tab_query           = 'SHOW TABLE STATUS FROM ' . $common_functions->backquote($db);
+        $tab_query = 'SHOW TABLE STATUS FROM ' . $common_functions->backquote($db);
         // [0] of the row is the name
         // [1] is the type
     } else {
-        $tab_query           = 'SHOW TABLES FROM ' . $common_functions->backquote($db);
+        $tab_query = 'SHOW TABLES FROM ' . $common_functions->backquote($db);
         // [0] of the row is the name
     }
 
-    $tab_rs              = PMA_DBI_query($tab_query, null, PMA_DBI_QUERY_STORE);
+    $tab_rs = PMA_DBI_query($tab_query, null, PMA_DBI_QUERY_STORE);
     $selectboxall[] = '';
     $selectboxall_foreign[] = '';
 
@@ -377,7 +382,10 @@ if ($cfgRelation['relwork']
         $current_table = new PMA_Table($curr_table[0], $db);
 
         // explicitely ask for non-quoted list of indexed columns
-        $selectboxall = array_merge($selectboxall, $current_table->getUniqueColumns($backquoted = false));
+        $selectboxall = array_merge(
+            $selectboxall,
+            $current_table->getUniqueColumns($backquoted = false)
+        );
 
         // if foreign keys are supported, collect all keys from other
         // tables of the same engine
@@ -387,7 +395,10 @@ if ($cfgRelation['relwork']
         ) {
              // explicitely ask for non-quoted list of indexed columns
              // need to obtain backquoted values to support dots inside values
-             $selectboxall_foreign = array_merge($selectboxall_foreign, $current_table->getIndexedColumns($backquoted = true));
+             $selectboxall_foreign = array_merge(
+                 $selectboxall_foreign,
+                 $current_table->getIndexedColumns($backquoted = true)
+             );
         }
     } // end while over tables
 } // end if

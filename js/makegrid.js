@@ -990,6 +990,12 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         $input_field.val('');
                     }
                     $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
+
+                    // remove {cursor: 'pointer'} added inside timepicker.js
+                    $input_field.css('cursor', '');
+                    // make the cell editable, so one can can bypass the timepicker
+                    // and enter date/time value manually
+                    g.isEditCellTextEditable = true;
                 } else {
                     g.isEditCellTextEditable = true;
                     // only append edit area hint if there is a null checkbox
@@ -1613,7 +1619,7 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         e.stopPropagation();
                     }
                     // prevent default action when clicking on "link" in a table
-                    if ($(e.target).is('a')) {
+                    if ($(e.target).is('.grid_edit a')) {
                         e.preventDefault();
                     }
                 });

@@ -39,17 +39,19 @@ class ExportOds extends ExportPlugin
     protected function setProperties()
     {
         $props = 'libraries/properties/';
-        require_once "$props/plugins/ExportPluginProperties.class.php";
-        require_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
-        require_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
-        require_once "$props/options/items/TextPropertyItem.class.php";
-        require_once "$props/options/items/BoolPropertyItem.class.php";
-        require_once "$props/options/items/HiddenPropertyItem.class.php";
+        include_once "$props/plugins/ExportPluginProperties.class.php";
+        include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
+        include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
+        include_once "$props/options/items/TextPropertyItem.class.php";
+        include_once "$props/options/items/BoolPropertyItem.class.php";
+        include_once "$props/options/items/HiddenPropertyItem.class.php";
 
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('Open Document Spreadsheet');
         $exportPluginProperties->setExtension('ods');
-        $exportPluginProperties->setMimeType('application/vnd.oasis.opendocument.spreadsheet');
+        $exportPluginProperties->setMimeType(
+            'application/vnd.oasis.opendocument.spreadsheet'
+        );
         $exportPluginProperties->setForceFile(true);
         $exportPluginProperties->setOptionsText(__('Options'));
 
@@ -221,7 +223,6 @@ class ExportOds extends ExportPlugin
     public function exportData($db, $table, $crlf, $error_url, $sql_query)
     {
         global $what;
-        $this->setWhat($what);
 
         // Gets the data from the database
         $result = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);

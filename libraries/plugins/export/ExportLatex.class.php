@@ -51,7 +51,7 @@ class ExportLatex extends ExportPlugin
      */
     protected function setProperties()
     {
-        $plugin_param = $this->getPluginParam();
+        global $plugin_param;
         $hide_structure = false;
         if ($plugin_param['export_type'] == 'table'
             && ! $plugin_param['single_table']
@@ -60,12 +60,12 @@ class ExportLatex extends ExportPlugin
         }
 
         $props = 'libraries/properties/';
-        require_once "$props/plugins/ExportPluginProperties.class.php";
-        require_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
-        require_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
-        require_once "$props/options/items/BoolPropertyItem.class.php";
-        require_once "$props/options/items/RadioPropertyItem.class.php";
-        require_once "$props/options/items/TextPropertyItem.class.php";
+        include_once "$props/plugins/ExportPluginProperties.class.php";
+        include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
+        include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
+        include_once "$props/options/items/BoolPropertyItem.class.php";
+        include_once "$props/options/items/RadioPropertyItem.class.php";
+        include_once "$props/options/items/TextPropertyItem.class.php";
 
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('LaTeX');
@@ -97,11 +97,13 @@ class ExportLatex extends ExportPlugin
         // create primary items and add them to the group
         $leaf = new RadioPropertyItem();
         $leaf->setName("structure_or_data");
-        $leaf->setValues(array(
-            'structure' => __('structure'),
-            'data' => __('data'),
-            'structure_and_data' => __('structure and data')
-        ));
+        $leaf->setValues(
+            array(
+                'structure' => __('structure'),
+                'data' => __('data'),
+                'structure_and_data' => __('structure and data')
+            )
+        );
         $dumpWhat->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($dumpWhat);
@@ -207,8 +209,6 @@ class ExportLatex extends ExportPlugin
     {
         global $crlf;
         global $cfg;
-        $this->setCrlf($crlf);
-        $this->setCfg($cfg);
 
         $head = '% phpMyAdmin LaTeX Dump' . $crlf
             . '% version ' . PMA_VERSION . $crlf
@@ -245,7 +245,7 @@ class ExportLatex extends ExportPlugin
      */
     public function exportDBHeader ($db)
     {
-        $crlf = $this->getCrlf();
+        global $crlf;
         $head = '% ' . $crlf
             . '% ' . __('Database') . ': ' . '\'' . $db . '\'' . $crlf
             . '% ' . $crlf;
@@ -436,9 +436,7 @@ class ExportLatex extends ExportPlugin
         $dates = false
     ) {
         global $cfgRelation;
-
         $common_functions = PMA_CommonFunctions::getInstance();
-        $this->setCfgRelation($cfgRelation);
 
         /**
          * Get the unique keys in the table
@@ -553,7 +551,9 @@ class ExportLatex extends ExportPlugin
         $fields = PMA_DBI_get_columns($db, $table);
         foreach ($fields as $row) {
             $extracted_columnspec
-                = PMA_CommonFunctions::getInstance()->extractColumnSpec($row['Type']);
+                = PMA_CommonFunctions::getInstance()->extractColumnSpec(
+                    $row['Type']
+                );
             $type = $extracted_columnspec['print_type'];
             if (empty($type)) {
                 $type = ' ';

@@ -319,6 +319,11 @@ class PMA_Table
     static public function sGetStatusInfo($db, $table, $info = null,
         $force_read = false, $disable_error = false
     ) {
+        
+        if ($_SESSION['is_multi_query']) {
+            $disable_error = true;
+        }
+        
         if (! isset(PMA_Table::$cache[$db][$table]) || $force_read) {
             PMA_DBI_get_tables_full($db, $table);
         }

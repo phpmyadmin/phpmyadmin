@@ -66,12 +66,12 @@ class ExportPdf extends ExportPlugin
     protected function setProperties()
     {
         $props = 'libraries/properties/';
-        require_once "$props/plugins/ExportPluginProperties.class.php";
-        require_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
-        require_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
-        require_once "$props/options/items/MessageOnlyPropertyItem.class.php";
-        require_once "$props/options/items/TextPropertyItem.class.php";
-        require_once "$props/options/items/HiddenPropertyItem.class.php";
+        include_once "$props/plugins/ExportPluginProperties.class.php";
+        include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
+        include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
+        include_once "$props/options/items/MessageOnlyPropertyItem.class.php";
+        include_once "$props/options/items/TextPropertyItem.class.php";
+        include_once "$props/options/items/HiddenPropertyItem.class.php";
 
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('PDF');
@@ -92,9 +92,9 @@ class ExportPdf extends ExportPlugin
         // create primary items and add them to the group
         $leaf = new MessageOnlyPropertyItem();
         $leaf->setName("explanation");
-        $leaf->setText(__(
-            '(Generates a report containing the data of a single table)'
-        ));
+        $leaf->setText(
+            __('(Generates a report containing the data of a single table)')
+        );
         $generalOptions->addProperty($leaf);
         $leaf = new TextPropertyItem();
         $leaf->setName("report_title");

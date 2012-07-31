@@ -54,26 +54,7 @@ class ExportCsv extends ExportPlugin
      */
     public function __construct()
     {
-        // initialize the specific export csv variables
-        $this->initSpecificVariables();
         $this->setProperties();
-    }
-
-    /**
-     * Initialize the variables that are used for export CSV
-     *
-     * @return void
-     */
-    protected function initSpecificVariables()
-    {
-        global $csv_terminated;
-        global $csv_separator;
-        global $csv_enclosed;
-        global $csv_escaped;
-        $this->setCsvTerminated($csv_terminated);
-        $this->setCsvSeparator($csv_separator);
-        $this->setCsvEnclosed($csv_enclosed);
-        $this->setCsvEscaped($csv_escaped);
     }
 
     /**
@@ -84,12 +65,12 @@ class ExportCsv extends ExportPlugin
     protected function setProperties()
     {
         $props = 'libraries/properties/';
-        require_once "$props/plugins/ExportPluginProperties.class.php";
-        require_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
-        require_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
-        require_once "$props/options/items/TextPropertyItem.class.php";
-        require_once "$props/options/items/BoolPropertyItem.class.php";
-        require_once "$props/options/items/HiddenPropertyItem.class.php";
+        include_once "$props/plugins/ExportPluginProperties.class.php";
+        include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
+        include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
+        include_once "$props/options/items/TextPropertyItem.class.php";
+        include_once "$props/options/items/BoolPropertyItem.class.php";
+        include_once "$props/options/items/HiddenPropertyItem.class.php";
 
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('CSV');
@@ -129,9 +110,9 @@ class ExportCsv extends ExportPlugin
         $generalOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem();
         $leaf->setName('removeCRLF');
-        $leaf->setText(__(
-            'Remove carriage return/line feed characters within columns'
-        ));
+        $leaf->setText(
+            __('Remove carriage return/line feed characters within columns')
+        );
         $leaf = new BoolPropertyItem();
         $leaf->setName('columns');
         $leaf->setText(__('Put columns names in the first row'));
@@ -167,16 +148,7 @@ class ExportCsv extends ExportPlugin
      */
     public function exportHeader ()
     {
-        // The type of the export plugin only has to be set once and then
-        // it will remain unchanged. This is the first time
-        global $what;
-        $this->setWhat($what);
-
-        $csv_terminated = $this->getCsvTerminated();
-        $csv_separator = $this->getCsvSeparator();
-        $csv_enclosed = $this->getCsvEnclosed();
-        $csv_escaped = $this->getCsvEscaped();
-
+        global $what, $csv_terminated, $csv_separator, $csv_enclosed, $csv_escaped;
 
         // Here we just prepare some values for export
         if ($what == 'excel') {
@@ -208,12 +180,6 @@ class ExportCsv extends ExportPlugin
             } // end if
             $csv_separator = str_replace('\\t', "\011", $csv_separator);
         }
-
-        // remember the modifications
-        $this->setCsvTerminated($csv_terminated);
-        $this->setCsvSeparator($csv_separator);
-        $this->setCsvEnclosed($csv_enclosed);
-        $this->setCsvEscaped($csv_escaped);
 
         return true;
     }
@@ -277,11 +243,7 @@ class ExportCsv extends ExportPlugin
      */
     public function exportData($db, $table, $crlf, $error_url, $sql_query)
     {
-        $what = $this->getWhat();
-        $csv_terminated = $this->getCsvTerminated();
-        $csv_separator = $this->getCsvSeparator();
-        $csv_enclosed = $this->getCsvEnclosed();
-        $csv_escaped = $this->getCsvEscaped();
+        global $what, $csv_terminated, $csv_separator, $csv_enclosed, $csv_escaped;
 
         // Gets the data from the database
         $result = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
@@ -377,98 +339,6 @@ class ExportCsv extends ExportPlugin
         PMA_DBI_free_result($result);
 
         return true;
-    }
-
-
-    /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
-
-
-    /**
-     * Gets the string used to terminate lines
-     *
-     * @return string
-     */
-    protected function getCsvTerminated()
-    {
-        return $this->_csvTerminated;
-    }
-
-    /**
-     * Sets the string used to terminate lines
-     *
-     * @param string $csvTerminated lines terminator
-     *
-     * @return void
-     */
-    protected function setCsvTerminated($csvTerminated)
-    {
-        $this->_csvTerminated = $csvTerminated;
-    }
-
-    /**
-     * Gets the string used to separate columns
-     *
-     * @return string
-     */
-    protected function getCsvSeparator()
-    {
-        return $this->_csvSeparator;
-    }
-
-    /**
-     * Sets the string used to separate columns
-     *
-     * @param string $csvSeparator columns separator
-     *
-     * @return void
-     */
-    protected function setCsvSeparator($csvSeparator)
-    {
-        $this->_csvSeparator = $csvSeparator;
-    }
-
-    /**
-     * Gets the string used to enclose columns
-     *
-     * @return string
-     */
-    protected function getCsvEnclosed()
-    {
-        return $this->_csvEnclosed;
-    }
-
-    /**
-     * Sets the string used to enclose columns
-     *
-     * @param string $csvEnclosed columns encloser
-     *
-     * @return void
-     */
-    protected function setCsvEnclosed($csvEnclosed)
-    {
-        $this->_csvEnclosed = $csvEnclosed;
-    }
-
-    /**
-     * Gets the string used to escape columns
-     *
-     * @return string
-     */
-    protected function getCsvEscaped()
-    {
-        return $this->_csvEscaped;
-    }
-
-    /**
-     * Sets the string used to escape columns
-     *
-     * @param string $csvEscaped columns escaper
-     *
-     * @return void
-     */
-    protected function setCsvEscaped($csvEscaped)
-    {
-        $this->_csvEscaped = $csvEscaped;
     }
 }
 ?>

@@ -36,10 +36,10 @@ class ExportPhparray extends ExportPlugin
     protected function setProperties()
     {
         $props = 'libraries/properties/';
-        require_once "$props/plugins/ExportPluginProperties.class.php";
-        require_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
-        require_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
-        require_once "$props/options/items/HiddenPropertyItem.class.php";
+        include_once "$props/plugins/ExportPluginProperties.class.php";
+        include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
+        include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
+        include_once "$props/options/items/HiddenPropertyItem.class.php";
 
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('PHP array');
@@ -119,8 +119,8 @@ class ExportPhparray extends ExportPlugin
     {
         PMA_exportOutputHandler(
             '//' . $GLOBALS['crlf']
-            . '// Database ' . PMA_CommonFunctions::getInstance()->backquote($db) . $GLOBALS['crlf']
-            . '//' . $GLOBALS['crlf']
+            . '// Database ' . PMA_CommonFunctions::getInstance()->backquote($db)
+            . $GLOBALS['crlf'] . '//' . $GLOBALS['crlf']
         );
         return true;
     }
@@ -195,7 +195,8 @@ class ExportPhparray extends ExportPlugin
 
             // Output table name as comment if it's the first record of the table
             if ($record_cnt == 1) {
-                $buffer .= $crlf . '// '. PMA_CommonFunctions::getInstance()->backquote($db) . '.'
+                $buffer .= $crlf . '// '
+                    . PMA_CommonFunctions::getInstance()->backquote($db) . '.'
                     . PMA_CommonFunctions::getInstance()->backquote($table) . $crlf;
                 $buffer .= '$' . $tablefixed . ' = array(' . $crlf;
                 $buffer .= '  array(';

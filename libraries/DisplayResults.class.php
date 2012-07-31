@@ -71,84 +71,103 @@ class PMA_DisplayResults
     // Declare global fields
     /** PMA_CommonFunctions object */
     private $_common_functions;
-    
+
     /** array with properties of the class */
     private $_property_array = array(
-        
+
         /** string Database name */
         '_db' => null,
-        
+
         /** string Table name */
         '_table' => null,
-        
+
         /** string the URL to go back in case of errors */
         '_goto' => null,
-        
+
         /** string the SQL query */
         '_sql_query' => null,
-        
+
         /**
          * integer the total number of rows returned by the SQL query without any
          *         appended "LIMIT" clause programmatically
          */
         '_unlim_num_rows' => null,
-        
+
         /** array meta information about fields */
         '_fields_meta' => null,
-        
+
         /** boolean */
         '_is_count' => null,
-        
+
         /** integer */
         '_is_export' => null,
-        
+
         /** boolean */
         '_is_func' => null,
-        
+
         /** integer */
         '_is_analyse' => null,
-        
+
         /** integer the total number of rows returned by the SQL query */
         '_num_rows' => null,
-        
+
         /** integer the total number of fields returned by the SQL query */
         '_fields_cnt' => null,
-        
+
         /** double time taken for execute the SQL query */
         '_querytime' => null,
-        
+
         /** string path for theme images directory */
         '_pma_theme_image' => null,
-        
+
         /** string */
         '_text_dir' => null,
-        
+
         /** boolean */
         '_is_maint' => null,
-        
+
         /** boolean */
         '_is_explain' => null,
-        
+
         /** boolean */
         '_is_show' => null,
-        
+
         /** array table definitions */
         '_showtable' => null,
-        
+
         /** string */
         '_printview' => null,
-        
+
         /** string URL query */
         '_url_query' => null,
-        
+
         /** array column names to highlight */
         '_highlight_columns' => null,
-        
+
         /** array informations used with vertical display mode */
         '_vertical_display' => null,
-        
+
         /** array mime types information of fields */
         '_mime_map' => null
+    );
+    
+    /**
+     * This global variable represent the columns which needs to be syntax
+     * highlighted in each database tables
+     * One element of this array represent all relavant columns in all tables in
+     * one specific database
+     */
+    public $sytax_highlighting_column_info = array(
+        'information_schema' => array(
+            'processlist' => array(
+                'info' => array(
+                    'libraries/plugins/transformations/Text_Plain_Formatted.class.php',
+                    'Text_Plain_Formatted',
+                    'Text_Plain'
+                )
+            )
+        )
+        
     );
 
 
@@ -176,7 +195,7 @@ class PMA_DisplayResults
      * @return void
      */
     public function __set($property, $value)
-    {        
+    {
         if(array_key_exists($property, $this->_property_array)) {
             $this->_property_array[$property] = $value;
         }
@@ -266,7 +285,7 @@ class PMA_DisplayResults
         $this->__set('_showtable', $showtable);
         $this->__set('_printview', $printview);
         $this->__set('_url_query', $url_query);
-        
+
     } // end of the 'setProperties()' function
 
 
@@ -338,7 +357,7 @@ class PMA_DisplayResults
                 $do_display['bkm_form']  = (string) '0';
                 $do_display['text_btn']  = (string) '0';
                 $do_display['pview_lnk'] = (string) '0';
-                
+
             } elseif ($this->__get('_is_count') || $this->__get('_is_analyse')
                 || $this->__get('_is_maint') || $this->__get('_is_explain')
             ) {
@@ -351,7 +370,7 @@ class PMA_DisplayResults
                 $do_display['nav_bar']   = (string) '0';
                 $do_display['ins_row']   = (string) '0';
                 $do_display['bkm_form']  = (string) '1';
-                
+
                 if ($this->__get('_is_maint')) {
                     $do_display['text_btn']  = (string) '1';
                 } else {
@@ -485,6 +504,10 @@ class PMA_DisplayResults
      */
     private function _isSelect($analyzed_sql)
     {
+        if (!isset($analyzed_sql[0]['select_expr'])) {
+            $analyzed_sql[0]['select_expr'] = 0;
+        }
+
         return ! ($this->__get('_is_count') || $this->__get('_is_export')
             || $this->__get('_is_func') || $this->__get('_is_analyse'))
             && (count($analyzed_sql[0]['select_expr']) == 0)
@@ -954,8 +977,9 @@ class PMA_DisplayResults
         // required to generate sort links that will remember whether the
         // "Show all" button has been clicked
         $sql_md5 = md5($this->__get('_sql_query'));
-        $session_max_rows
-            = $_SESSION['tmp_user_values']['query'][$sql_md5]['max_rows'];
+        $session_max_rows = $is_limited_display
+            ? 0
+            : $_SESSION['tmp_user_values']['query'][$sql_md5]['max_rows'];
 
         $direction = isset($_SESSION['tmp_user_values']['disp_direction'])
             ? $_SESSION['tmp_user_values']['disp_direction']
@@ -1069,7 +1093,7 @@ class PMA_DisplayResults
 
             $vertical_display = $this->__get('_vertical_display');
 
-            if ($is_display['sort_lnk'] == '1') {
+            if (($is_display['sort_lnk'] == '1') && ! $is_limited_display) {
 
                 list($order_link, $sorted_headrer_html)
                     = $this->_getOrderLinkAndSortedHeaderHtml(
@@ -1426,7 +1450,10 @@ class PMA_DisplayResults
             && ($direction != self::DISP_DIR_HORIZONTAL_FLIPPED)
         ) {
             $comments_map = array();
-            if (isset($analyzed_sql[0]) && is_array($analyzed_sql[0])) {
+            if (isset($analyzed_sql[0])
+                && is_array($analyzed_sql[0])
+                && isset($analyzed_sql[0]['table_ref'])
+            ) {
                 foreach ($analyzed_sql[0]['table_ref'] as $tbl) {
                     $tb = $tbl['table_true_name'];
                     $comments_map[$tb] = PMA_getComments($this->__get('_db'), $tb);
@@ -2448,7 +2475,7 @@ class PMA_DisplayResults
         $vertical_display['data']       = array();
         $vertical_display['row_delete'] = array();
         $this->__set('_vertical_display', $vertical_display);
-        
+
         // name of the class added to all grid editable elements
         $grid_edit_class = $is_limited_display ? '' : 'grid_edit';
 
@@ -2754,7 +2781,33 @@ class PMA_DisplayResults
             $transform_options['wrapper_link']
                 = PMA_generate_common_url($_url_params);
 
-            $vertical_display = $this->__get('_vertical_display');
+            $vertical_display = $this->__get('_vertical_display');            
+            
+            // Check whether the field needs to display with syntax highlighting
+            if ($this->_isNeedToSytaxHighliight($meta->name)
+                && (trim($row[$i]) != '')
+            ) {
+                
+                $parsed_sql = PMA_SQP_parse($row[$i]);                
+                $row[$i] = PMA_CommonFunctions::getInstance()->formatSql($parsed_sql, $row[$i]);
+                include_once $this->sytax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($meta->name)][0];
+                $transformation_plugin = new $this->sytax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($meta->name)][1](null);
+                
+                $transform_options  = PMA_transformation_getOptions(
+                    isset($mime_map[$meta->name]
+                        ['transformation_options']
+                    )
+                    ? $mime_map[$meta->name]
+                    ['transformation_options']
+                   : ''
+                );
+
+                $meta->mimetype = str_replace(
+                    '_', '/',
+                    $this->sytax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($meta->name)][2]
+                );
+                
+            }            
 
             if ($meta->numeric == 1) {
                 // n u m e r i c
@@ -2946,6 +2999,21 @@ class PMA_DisplayResults
 
     } // end of the '_gatherLinksForLaterOutputs()' function
 
+    
+    /**
+     * Check whether any field is marked as need to syntax highlight
+     *
+     * @param string $field field to check
+     *
+     * @return boolean 
+     */
+    private function _isNeedToSytaxHighliight($field) {
+        if (! empty($this->sytax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($field)])) {
+            return true;
+        }
+        return false;
+    }
+     
 
     /**
      * Get url sql query without conditions to shorten URLs
@@ -3452,6 +3520,7 @@ class PMA_DisplayResults
                 // replacements will be made
                 if ((PMA_strlen($column) > $GLOBALS['cfg']['LimitChars'])
                     && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
+                    && ! $this->_isNeedToSytaxHighliight(strtolower($meta->name))
                 ) {
                     $column = PMA_substr($column, 0, $GLOBALS['cfg']['LimitChars'])
                         . '...';
@@ -3645,6 +3714,13 @@ class PMA_DisplayResults
     ) {
 
         $is_analyse = $this->__get('_is_analyse');
+        $field_flags = PMA_DBI_field_flags($dt_result, $col_index);
+        if (stristr($field_flags, self::BINARY_FIELD)
+            && ($GLOBALS['cfg']['ProtectBinary'] == 'all'
+            || $GLOBALS['cfg']['ProtectBinary'] == 'noblob')
+        ) {
+            $class = str_replace('grid_edit', '', $class);
+        }
 
         if (! isset($column) || is_null($column)) {
 
@@ -3664,10 +3740,7 @@ class PMA_DisplayResults
                 $is_field_truncated = true;
             }
 
-            // displays special characters from binaries
-            $field_flags = PMA_DBI_field_flags($dt_result, $col_index);
             $formatted = false;
-
             if (isset($meta->_type) && $meta->_type === MYSQLI_TYPE_BIT) {
 
                 $column = $this->getCommonFunctions()->printableBitValue(
@@ -4251,7 +4324,7 @@ class PMA_DisplayResults
     public function getTable(
         &$dt_result, &$the_disp_mode, $analyzed_sql, $is_limited_display = false
     ) {
-        
+
         $table_html = '';
         // Following variable are needed for use in isset/empty or
         // use with array indexes/safe use in foreach
@@ -4298,6 +4371,9 @@ class PMA_DisplayResults
         if ($is_display['nav_bar'] == '1') {
             list($pos_next, $pos_prev) = $this->_getOffsets();
         } // end if
+        if (!isset($analyzed_sql[0]['order_by_clause'])) {
+            $analyzed_sql[0]['order_by_clause'] = "";
+        }
 
         // 1.3 Find the sort expression
         // we need $sort_expression and $sort_expression_nodirection
@@ -5480,7 +5556,7 @@ class PMA_DisplayResults
                 . '<input type="checkbox" id="id_rows_to_delete'
                 . $row_no . $id_suffix
                 . '" name="rows_to_delete[' . $row_no . ']"'
-                . ' class="multi_checkbox"'
+                . ' class="multi_checkbox checkall"'
                 . ' value="' . $where_clause_html . '" '
                 . (isset($GLOBALS['checkall'])
                     ? 'checked="checked"'

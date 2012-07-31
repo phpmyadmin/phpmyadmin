@@ -36,12 +36,12 @@ class ExportHtmlword extends ExportPlugin
     protected function setProperties()
     {
         $props = 'libraries/properties/';
-        require_once "$props/plugins/ExportPluginProperties.class.php";
-        require_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
-        require_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
-        require_once "$props/options/items/RadioPropertyItem.class.php";
-        require_once "$props/options/items/TextPropertyItem.class.php";
-        require_once "$props/options/items/BoolPropertyItem.class.php";
+        include_once "$props/plugins/ExportPluginProperties.class.php";
+        include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
+        include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
+        include_once "$props/options/items/RadioPropertyItem.class.php";
+        include_once "$props/options/items/TextPropertyItem.class.php";
+        include_once "$props/options/items/BoolPropertyItem.class.php";
 
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('Microsoft Word 2000');
@@ -63,11 +63,13 @@ class ExportHtmlword extends ExportPlugin
         // create primary items and add them to the group
         $leaf = new RadioPropertyItem();
         $leaf->setName("structure_or_data");
-        $leaf->setValues(array(
-            'structure' => __('structure'),
-            'data' => __('data'),
-            'structure_and_data' => __('structure and data')
-        ));
+        $leaf->setValues(
+            array(
+                'structure' => __('structure'),
+                'data' => __('data'),
+                'structure_and_data' => __('structure and data')
+            )
+        );
         $dumpWhat->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($dumpWhat);
@@ -115,7 +117,6 @@ class ExportHtmlword extends ExportPlugin
     public function exportHeader ()
     {
         global $charset_of_file;
-        $this->setCharsetOfFile($charset_of_file);
 
         return PMA_exportOutputHandler(
             '<html xmlns:o="urn:schemas-microsoft-com:office:office"
@@ -195,7 +196,6 @@ class ExportHtmlword extends ExportPlugin
     public function exportData($db, $table, $crlf, $error_url, $sql_query)
     {
         global $what;
-        $this->setWhat($what);
 
         if (! PMA_exportOutputHandler(
             '<h2>'
@@ -346,7 +346,6 @@ class ExportHtmlword extends ExportPlugin
         // set $cfgRelation here, because there is a chance that it's modified
         // since the class initialization
         global $cfgRelation;
-        $this->setCfgRelation($cfgRelation);
 
         $schema_insert = '';
 
@@ -466,7 +465,7 @@ class ExportHtmlword extends ExportPlugin
 
         $schema_insert .= '</table>';
         return $schema_insert;
-    } // end of the 'PMA_getTableDef()' function
+    }
 
     /**
      * Outputs triggers

@@ -28,13 +28,13 @@ class ExportExcel extends ExportCsv
     protected function setProperties()
     {
         $props = 'libraries/properties/';
-        require_once "$props/plugins/ExportPluginProperties.class.php";
-        require_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
-        require_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
-        require_once "$props/options/items/TextPropertyItem.class.php";
-        require_once "$props/options/items/BoolPropertyItem.class.php";
-        require_once "$props/options/items/SelectPropertyItem.class.php";
-        require_once "$props/options/items/HiddenPropertyItem.class.php";
+        include_once "$props/plugins/ExportPluginProperties.class.php";
+        include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
+        include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
+        include_once "$props/options/items/TextPropertyItem.class.php";
+        include_once "$props/options/items/BoolPropertyItem.class.php";
+        include_once "$props/options/items/SelectPropertyItem.class.php";
+        include_once "$props/options/items/HiddenPropertyItem.class.php";
 
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('CSV for MS Excel');
@@ -58,20 +58,22 @@ class ExportExcel extends ExportCsv
         $generalOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem();
         $leaf->setName('removeCRLF');
-        $leaf->setText(__(
-            'Remove carriage return/line feed characters within columns'
-        ));
+        $leaf->setText(
+            __('Remove carriage return/line feed characters within columns')
+        );
         $leaf = new BoolPropertyItem();
         $leaf->setName('columns');
         $leaf->setText(__('Put columns names in the first row'));
         $generalOptions->addProperty($leaf);
         $leaf = new SelectPropertyItem();
         $leaf->setName('edition');
-        $leaf->setValues(array(
-            'win' => 'Windows',
-            'mac_excel2003' => 'Excel 2003 / Macintosh',
-            'mac_excel2008' => 'Excel 2008 / Macintosh'
-        ));
+        $leaf->setValues(
+            array(
+                'win' => 'Windows',
+                'mac_excel2003' => 'Excel 2003 / Macintosh',
+                'mac_excel2008' => 'Excel 2008 / Macintosh'
+            )
+        );
         $leaf->setText(__('Excel edition:'));
         $generalOptions->addProperty($leaf);
         $leaf = new HiddenPropertyItem();

@@ -65,11 +65,11 @@ class ExportXml extends ExportPlugin
     protected function setProperties()
     {
         $props = 'libraries/properties/';
-        require_once "$props/plugins/ExportPluginProperties.class.php";
-        require_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
-        require_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
-        require_once "$props/options/items/HiddenPropertyItem.class.php";
-        require_once "$props/options/items/BoolPropertyItem.class.php";
+        include_once "$props/plugins/ExportPluginProperties.class.php";
+        include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
+        include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
+        include_once "$props/options/items/HiddenPropertyItem.class.php";
+        include_once "$props/options/items/BoolPropertyItem.class.php";
 
         // create the export plugin property item
         $exportPluginProperties = new ExportPluginProperties();
@@ -164,9 +164,6 @@ class ExportXml extends ExportPlugin
     {
         $this->initSpecificVariables();
         global $crlf, $cfg, $db;
-        $this->setCrlf($crlf);
-        $this->setCfg($cfg);
-        $this->setDb($db);
         $table = $this->_getTable();
         $tables = $this->_getTables();
 
@@ -214,7 +211,8 @@ class ExportXml extends ExportPlugin
                         'utf8' AS DEFAULT_CHARACTER_SET_NAME,
                         DEFAULT_COLLATION_NAME
                     FROM data_dictionary.SCHEMAS
-                    WHERE SCHEMA_NAME = '" . $common_functions->sqlAddSlashes($db) . "'"
+                    WHERE SCHEMA_NAME = '"
+                    . $common_functions->sqlAddSlashes($db) . "'"
                 );
             } else {
                 $result = PMA_DBI_fetch_result(
@@ -382,7 +380,7 @@ class ExportXml extends ExportPlugin
      */
     public function exportDBHeader ($db)
     {
-        $crlf = $this->getCrlf();
+        global $crlf;
 
         if (isset($GLOBALS['xml_export_contents'])
             && $GLOBALS['xml_export_contents']
@@ -407,7 +405,7 @@ class ExportXml extends ExportPlugin
      */
     public function exportDBFooter ($db)
     {
-        $crlf = $this->getCrlf();
+        global $crlf;
 
         if (isset($GLOBALS['xml_export_contents'])
             && $GLOBALS['xml_export_contents']
