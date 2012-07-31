@@ -667,7 +667,7 @@ function PMA_getHtmlForMoveTable()
 }
 
 /**
- * Get the HTML div for Table opption
+ * Get the HTML div for Table option
  * 
  * @param string $comment               Comment
  * @param array $tbl_collation          table collation
