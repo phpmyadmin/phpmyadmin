@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-27 10:40+0200\n"
-"PO-Revision-Date: 2012-07-27 16:04+0200\n"
+"PO-Revision-Date: 2012-07-30 17:15+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: catalan <ca@li.org>\n"
 "Language: ca\n"
@@ -13014,6 +13014,15 @@ msgid ""
 "using this formula: (query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 msgstr ""
+"Una alta fragmentació és probable que augmenti (més) \"Qcache_lowmem_prunes\". "
+"Això podria ser causat per moltes reduccions fetes a la memòria cau de "
+"consultes per falta de memòria, pel fet que {query_cache_size} és massa "
+"petit. Una solució immediata però a curt plaç és que pots buidar la memòria "
+"cau de consultes (pot bloquejar la memòria cau de consultes durant molt de "
+"temps). Ajustar acuradament {query_cache_min_res_unit} a un valor inferior "
+"podria ajudar també, per exemple,  pots configurar-lo a la mida mitjana de "
+"les consultes en la memòria cau mitjançant la fórmula: (query_cache_size - "
+"qcache_free_memory) / qcache_queries_in_cache"
 
 #: libraries/advisory_rules.txt:179
 #, php-format
@@ -13022,12 +13031,14 @@ msgid ""
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
+"La memòria cau està %s%% fragmentada actualment. Una fragmentació del 100%% "
+"significa que la memòria cau de consultes és un patró d'alternança de blocs "
+"lliures i usats. Aquest valor ha de ser inferior al 20%%."
 
 #: libraries/advisory_rules.txt:181
-#, fuzzy
 #| msgid "Query cache used"
 msgid "Query cache low memory prunes"
-msgstr "Memòria cau de consultes utilitzada"
+msgstr "Reduccions a memòria cau per falta de memòria"
 
 #: libraries/advisory_rules.txt:184
 msgid ""
@@ -13043,6 +13054,10 @@ msgid ""
 "overhead of maintaining the cache is likely to increase with its size, so do "
 "this in small increments and monitor the results."
 msgstr ""
+"És possible que vulguis augmentar {query_cache_size}, però tingues en compte "
+"que la sobrecàrrega de mantenir la memòria cau és probable que augmenti amb "
+"la seva grandària, així que es recomana fer això en petits increments i "
+"supervisar els resultats."
 
 #: libraries/advisory_rules.txt:186
 #, php-format
@@ -13050,6 +13065,9 @@ msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
+"La proporció de consultes eliminades respecte a les inserides és %s%%. Com "
+"més baix sigui aquest valor, millor (el límit d'activació de la regla és: "
+"0,1%%)"
 
 #: libraries/advisory_rules.txt:188
 msgid "Query cache max size"
@@ -13060,18 +13078,22 @@ msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
+"La mida de la memòria cau de consultes està per sobre de 128 MiB. Grans caus "
+"de consultes poden causar una sobrecàrrega significativa per mantenir la "
+"memòria cau."
 
 #: libraries/advisory_rules.txt:192
 msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
 msgstr ""
+"Depenent del teu entorn, reduir aquest valor podria augmentar el rendiment."
 
 #: libraries/advisory_rules.txt:193
-#, fuzzy, php-format
+#, php-format
 #| msgid "Current version: %s"
 msgid "Current query cache size: %s"
-msgstr "Versió actual: %s"
+msgstr "La mida actual de la memòria cau de consultes: %s"
 
 #: libraries/advisory_rules.txt:195
 msgid "Query cache min result size"
@@ -13081,6 +13103,8 @@ msgstr "Tamany minim de resultats del cau de consultes"
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
+"La mida màxima del conjunt de resultats en la memòria cau de consultes és el "
+"valor predeterminat d'1 MiB."
 
 #: libraries/advisory_rules.txt:199
 msgid ""
@@ -13093,10 +13117,19 @@ msgid ""
 "(often invalidated due to table updates) increasing {query_cache_limit} "
 "might reduce efficiency."
 msgstr ""
+"Canviant {query_cache_limit} (normalment mitjançant l'augment) pot augmentar "
+"l'eficiència. Aquest paràmetre defineix la mida màxima que un resultat de "
+"la consulta pot tenir per ser inserit en la memòria cau de consultes. Si hi "
+"ha molts resultats de la consulta de més d'1 MIB que són candidats al cau "
+"(moltes lectures, poques escritures), llavors augmentar {query_cache_limit} "
+"incrementarà l'eficiència. Mentre que en el cas de molts resultats de la "
+"consulta per sobre d'1 MIB que no són útils al cau (sovint invalidades a "
+"causa de les actualitzacions de la taula) augmentat {query_cache_limit} "
+"podria reduir l'eficiència."
 
 #: libraries/advisory_rules.txt:200
 msgid "query_cache_limit is set to 1 MiB"
-msgstr ""
+msgstr "query_cache_limit establert en 1 MiB"
 
 #: libraries/advisory_rules.txt:204
 msgid "Percentage of sorts that cause temporary tables"
@@ -13111,6 +13144,8 @@ msgid ""
 "Consider increasing sort_buffer_size and/or read_rnd_buffer_size, depending "
 "on your system memory limits"
 msgstr ""
+"Pensa en la possibilitat d'augmentar \"sort_buffer_size\" i/o "
+"\"read_rnd_buffer_size\" en funció dels límits de memòria del sistema"
 
 #: libraries/advisory_rules.txt:209
 #, php-format
@@ -13118,17 +13153,21 @@ msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr ""
+"%s%% de totes les ordenacions causen taules temporals, aquest valor ha de "
+"ser inferior al 10%%."
 
 #: libraries/advisory_rules.txt:211
 msgid "Rate of sorts that cause temporary tables"
 msgstr "Rati de classificacions que provoquen taules temporals"
 
 #: libraries/advisory_rules.txt:216
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
-msgstr "Tamany de l'àrea de classificació"
+msgstr ""
+"Mitjana de taules temporals: %s, aquest valor ha de ser inferior a 1 per "
+"hora."
 
 #: libraries/advisory_rules.txt:218
 msgid "Sort rows"
@@ -13136,7 +13175,7 @@ msgstr "Files classificades"
 
 #: libraries/advisory_rules.txt:221
 msgid "There are lots of rows being sorted."
-msgstr ""
+msgstr "Hi ha massa files que s'estan ordenant."
 
 #: libraries/advisory_rules.txt:222
 msgid ""
@@ -13145,11 +13184,15 @@ msgid ""
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting"
 msgstr ""
+"Encara que no hi ha res dolent en ordenar una gran quantitat de files, "
+"potser voldries assegurar-te que les consultes que requereixen una gran "
+"quantitat d'ordenacions utilitzin columnes indexades a la clàusula ORDER BY, "
+"ja que això donarà lloc a una ordenació més ràpida"
 
 #: libraries/advisory_rules.txt:223
 #, php-format
 msgid "Sorted rows average: %s"
-msgstr ""
+msgstr "Mitjana de files ordenades: %s"
 
 #: libraries/advisory_rules.txt:226
 msgid "Rate of joins without indexes"
@@ -13164,24 +13207,26 @@ msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins"
 msgstr ""
+"Això significa que les unions \"JOIN\" que estan fent consultes completes de "
+"taula. Afegir índexs per a les columnes que s'utilitzen en les condicions de "
+"combinació, accelerarà el procés d'unió"
 
 #: libraries/advisory_rules.txt:231
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Table joins average: %s, this value should be less than 1 per hour"
-msgstr "Tamany de l'àrea de classificació"
+msgstr ""
+"Mitjana dúnions \"JOIN\": %s, aquest valor ha de ser inferior a 1 per hora"
 
 #: libraries/advisory_rules.txt:233
-#, fuzzy
 #| msgid "There are no files to upload"
 msgid "Rate of reading first index entry"
-msgstr "No hi ha cap arxiu per pujar"
+msgstr "Taxa de lectura del primer índex"
 
 #: libraries/advisory_rules.txt:236
-#, fuzzy
 #| msgid "The number of pending log file fsyncs."
 msgid "The rate of reading the first index entry is high."
-msgstr "El nombre d'operacions fsync pendents a l'arxiu de registre."
+msgstr "La taxa de lectura del primer índex és alta."
 
 #: libraries/advisory_rules.txt:237
 msgid ""
@@ -13192,24 +13237,31 @@ msgid ""
 "scans. Other than that full index scans can only be reduced by rewriting "
 "queries."
 msgstr ""
+"Això normalment significa freqüents exploracions d'índexs complets. "
+"Escaneigs complets de l'índex són més ràpids que els recorreguts de taules, "
+"però requereixen gran quantitat de cicles de CPU en taules grans, si les "
+"taules que tenen o han tingut un gran volum d'actualitzacions i "
+"eliminacions, executar \"Optimize TABLE\" pot reduir la quantitat  i/o la "
+"velocitat de l'examen complet de l'índex. A part que les exploracions "
+"d'índexs complets només es pot reduir per la reescriptura de consultes."
 
 #: libraries/advisory_rules.txt:238
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Index scans average: %s, this value should be less than 1 per hour"
-msgstr "Tamany de l'àrea de classificació"
+msgstr ""
+"Mitjana de escaneigs d'Índex: %s, aquest valor ha de ser inferior a 1 per "
+"hora"
 
 #: libraries/advisory_rules.txt:240
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of reading fixed position"
-msgstr "Format de l'arxiu importat"
+msgstr "Taxa de lectura de posició fix"
 
 #: libraries/advisory_rules.txt:243
-#, fuzzy
 #| msgid "The number of pending log file fsyncs."
 msgid "The rate of reading data from a fixed position is high."
-msgstr "El nombre d'operacions fsync pendents a l'arxiu de registre."
+msgstr "La taxa de lectura de dades d'una posició fixa és alta."
 
 #: libraries/advisory_rules.txt:244
 msgid ""
@@ -13217,6 +13269,9 @@ msgid ""
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
+"Això indica que moltes consultes necessiten ordenar resultats i/o fer un "
+"escaneig complet de taula, incloent consultes amb unions \"JOIN\" que no "
+"utilitzen índexs. Afegieix índexs ón calgui."
 
 #: libraries/advisory_rules.txt:245
 #, php-format
@@ -13224,39 +13279,43 @@ msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr ""
+"Taxa de lectura d'una posició fixa: %s, aquest valor ha de ser inferior a 1 "
+"per hora"
 
 #: libraries/advisory_rules.txt:247
-#, fuzzy
 #| msgid "Create table"
 msgid "Rate of reading next table row"
-msgstr "Crea una taula"
+msgstr "Taxa de lectura de la següent fila d'una taula"
 
 #: libraries/advisory_rules.txt:250
-#, fuzzy
 #| msgid "The current number of pending writes."
 msgid "The rate of reading the next table row is high."
-msgstr "El nombre actual d'escritures pendents."
+msgstr "La taxa de lectura de la següent fila de la taula és alta."
 
 #: libraries/advisory_rules.txt:251
 msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
 msgstr ""
+"Això indica que les consultes que estan fent molts escanejos complets de la "
+"taula. Afegeix índexs on calgui."
 
 #: libraries/advisory_rules.txt:252
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
-msgstr "Tamany de l'àrea de classificació"
+msgstr ""
+"Taxa de lectura de la següent fila d'una taula: %s, aquest valor ha de ser "
+"inferior a 1 per hora"
 
 #: libraries/advisory_rules.txt:255
 msgid "tmp_table_size vs. max_heap_table_size"
-msgstr ""
+msgstr "\"tmp_table_size\" vs. \"max_heap_table_size\""
 
 #: libraries/advisory_rules.txt:258
 msgid "tmp_table_size and max_heap_table_size are not the same."
-msgstr ""
+msgstr "\"tmp_table_size\" i \"max_heap_table_size\" no són iguals."
 
 #: libraries/advisory_rules.txt:259
 msgid ""
@@ -13265,23 +13324,27 @@ msgid ""
 "wish to increase the in-memory table limit you will have to increase the "
 "other value as well."
 msgstr ""
+"Si has canviat deliberadament un d'aquests: El servidor utilitza el valor "
+"més baix de qualsevol d'ells per determinar la mida màxima de les taules en "
+"memòria. Així que si vols augmentar el límit de taules en memòria hauràs "
+"d'augmentar l'altre valor també."
 
 #: libraries/advisory_rules.txt:260
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr ""
+msgstr "Els valors actuals són tmp_table_size: %s, max_heap_table_size: %s"
 
 #: libraries/advisory_rules.txt:262
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of temp tables on disk"
-msgstr "Format de l'arxiu importat"
+msgstr "Percentatge de taules temporals en el disc"
 
 #: libraries/advisory_rules.txt:265 libraries/advisory_rules.txt:272
 msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr ""
+"Masses taules temporals s'escriuen en el disc en lloc d'estar en memòria."
 
 #: libraries/advisory_rules.txt:266
 msgid ""
@@ -13293,6 +13356,14 @@ msgid ""
 "mentioned in the beginning of an <a href=\"http://www.facebook.com/note.php?"
 "note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
+"Augmentar {max_heap_table_size} i {tmp_table_size} podria ajudar. No obstant "
+"això, algunes taules temporals s'escriuen sempre en disc, independent del "
+"valor d'aquestes variables. Per eliminar-les hauràs de re-escriure les teves "
+"consultes per evitar aquestes condicions (dins d'una taula temporal: La "
+"presència d'una columna BLOB o TEXT o la presència d'una columna més gran "
+"que 512 bytes) com s'esmenta al començament d'un <a href=\"http://www.faceboo"
+"k.com/note.php?note_id=10150111255065841&comments\">Article de the Pythian "
+"Group</a>"
 
 #: libraries/advisory_rules.txt:267
 #, php-format
@@ -13300,6 +13371,8 @@ msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
+"%s%% de totes les taules temporals s'escriuen en el disc, aquest valor ha de "
+"ser inferior al 25%%"
 
 #: libraries/advisory_rules.txt:269
 msgid "Temp disk rate"
@@ -13315,6 +13388,14 @@ msgid ""
 "mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
+"Augmentar {max_heap_table_size} i {tmp_table_size} podria ajudar. No obstant "
+"això, algunes taules temporals s'escriuen sempre en disc, independent del "
+"valor d'aquestes variables. Per eliminar-les hauràs de re-escriure les teves "
+"consultes per evitar aquestes condicions (dins d'una taula temporal: La "
+"presència d'una columna BLOB o TEXT o la presència d'una columna més gran "
+"que 512 bytes) tal com s'esmenta a la <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-"
+"tables.html\">documentació de MySQL</a>"
 
 #: libraries/advisory_rules.txt:274
 #, php-format
@@ -13322,6 +13403,8 @@ msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
 msgstr ""
+"Índex de taules temporals que s'escriuen en el disc: %s, aquest valor ha de "
+"ser inferior a 1 per hora"
 
 #: libraries/advisory_rules.txt:289
 msgid "MyISAM key buffer size"
@@ -13330,18 +13413,21 @@ msgstr "Tamany de l'àrea de claus MyISAM"
 #: libraries/advisory_rules.txt:292
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
+"El buffer de claus no s'ha inicialitzat. No s'utilitzarà una memòria cau de "
+"claus MyISAM."
 
 #: libraries/advisory_rules.txt:293
 msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
+"Defineix {key_buffer_size} en funció de la  mida dels índexs MyISAM. 64M és "
+"un bon començament."
 
 #: libraries/advisory_rules.txt:294
-#, fuzzy
 #| msgid "Sort buffer size"
 msgid "key_buffer_size is 0"
-msgstr "Tamany de l'àrea de classificació"
+msgstr "key_buffer_size és 0"
 
 #: libraries/advisory_rules.txt:296
 #, php-format
@@ -13359,6 +13445,9 @@ msgid ""
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
+"Podries necessitar reduir la mida de {key_buffer_size}, revisa les taules "
+"per veure si s'han eliminat índexs, o les consultes i les expectatives d'ús "
+"dels índexs."
 
 #: libraries/advisory_rules.txt:301
 #, php-format
@@ -13373,31 +13462,35 @@ msgid "Percentage of MyISAM key buffer used"
 msgstr "Percentatge usat de l'àrea de claus MyISAM"
 
 #: libraries/advisory_rules.txt:309
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
-msgstr "Tamany de l'àrea de classificació"
+msgstr ""
+"%% utilitzat de memòria intermèdia de claus MyISAM : %s%%, aquest valor ha "
+"d'estar per sobre del 95%%"
 
 #: libraries/advisory_rules.txt:311
-#, fuzzy
 #| msgid "Percentage of slow queries"
 msgid "Percentage of index reads from memory"
-msgstr "Percentatge de consultes lentes"
+msgstr "Percentatge d'índex llegits des de la memòria"
 
 #: libraries/advisory_rules.txt:314
 #, php-format
 msgid "The %% of indexes that use the MyISAM key buffer is low."
 msgstr ""
+"El %% dels índexs que utilitzen la memòria intermedia de claus de MyISAM és "
+"baixa."
 
 #: libraries/advisory_rules.txt:315
 msgid "You may need to increase {key_buffer_size}."
-msgstr ""
+msgstr "Potser hauries d'augmentar {key_buffer_size}."
 
 #: libraries/advisory_rules.txt:316
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr "Tamany de l'àrea de classificació"
+msgstr ""
+"Índex llegits de la memòria: %s%%, aquest valor ha de ser superior al 95%%"
 
 #: libraries/advisory_rules.txt:320
 msgid "Rate of table open"
@@ -13412,12 +13505,15 @@ msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
+"Obrir taules requereix operacions de E/S de disc, que és costós. L'augment "
+"de {table_open_cache} pot evitar això."
 
 #: libraries/advisory_rules.txt:325
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
-msgstr "Tamany de l'àrea de classificació"
+msgstr ""
+"Taxa d'apertura de taules: %s, aquest valor ha de ser inferior a 10 per hora"
 
 #: libraries/advisory_rules.txt:327
 msgid "Percentage of used open files limit"
@@ -13428,6 +13524,9 @@ msgid ""
 "The number of open files is approaching the max number of open files.  You "
 "may get a \"Too many open files\" error."
 msgstr ""
+"El nombre d'arxius oberts s'està acostant al nombre màxim d'arxius oberts. "
+"Pots arribar a obtenir un avís d'error \"Massa arxius oberts\" (\"Too many open "
+"files\")."
 
 #: libraries/advisory_rules.txt:331 libraries/advisory_rules.txt:338
 msgid ""
