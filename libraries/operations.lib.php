@@ -1018,6 +1018,16 @@ function PMA_getHtmlForCopytable()
     return $html_output;
 }
 
+/**
+ * Get HTML snippet for table maintaince
+ * 
+ * @param boolean $is_myisam_or_aria    whether MYISAM | ARIA or not
+ * @param boolean $is_innodb            whether innodb or not
+ * @param boolean $is_berkeleydb        whether  berkeleydb or not
+ * @param array $url_params             array of URL parameters
+ * 
+ * @return string $html_output
+ */
 function PMA_getHtmlForTableMaintenance(
     $is_myisam_or_aria, $is_innodb, $is_berkeleydb, $url_params
 ) {
@@ -1030,6 +1040,33 @@ function PMA_getHtmlForTableMaintenance(
         . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '') .'>';
     
     // Note: BERKELEY (BDB) is no longer supported, starting with MySQL 5.1
+    $html_output .= PMA_getListofMaintainActionLink($is_myisam_or_aria,
+        $is_innodb, $url_params, $is_berkeleydb
+    );
+    
+    $html_output .= '</ul>'
+        . '</fieldset>'
+        . '</div>';
+    
+    return $html_output;
+}
+
+/**
+ * Get HTML 'li' having a link of maintain action
+ * 
+ * @param boolean $is_myisam_or_aria    whether MYISAM | ARIA or not
+ * @param boolean $is_innodb            whether innodb or not
+ * @param array $url_params             array of URL parameters
+ * @param boolean $is_berkeleydb        whether  berkeleydb or not
+ * 
+ * @return string $html_output
+ */
+function PMA_getListofMaintainActionLink($is_myisam_or_aria,
+    $is_innodb, $url_params, $is_berkeleydb
+) {
+    $common_functions = PMA_CommonFunctions::getInstance();
+    $html_output = '';
+    
     if ($is_myisam_or_aria || $is_innodb || $is_berkeleydb) {
         if ($is_myisam_or_aria || $is_innodb) {
             $this_url_params = array_merge(
@@ -1045,14 +1082,14 @@ function PMA_getHtmlForTableMaintenance(
                 . 'href="tbl_operations.php' 
                 . PMA_generate_common_url($this_url_params) .'">'
                 . __('Check table')
-                . '</a>';
-            $html_output .= $common_functions->showMySQLDocu(
-                'MySQL_Database_Administration',
-                'CHECK_TABLE'
-            );
-            $html_output .= '</li>';
+                . '</a>'
+                . $common_functions->showMySQLDocu(
+                    'MySQL_Database_Administration',
+                    'CHECK_TABLE'
+                )
+                . '</li>';
         }
-        
+
         if ($is_innodb) {
             $this_url_params = array_merge(
                 $url_params,
@@ -1072,7 +1109,7 @@ function PMA_getHtmlForTableMaintenance(
                     )
                 . '</li>';
         }
-        
+
         if ($is_myisam_or_aria || $is_berkeleydb) {
             $this_url_params = array_merge(
                 $url_params,
@@ -1082,19 +1119,19 @@ function PMA_getHtmlForTableMaintenance(
                     'table_maintenance' => 'Go',
                     )
             );
-        $html_output .= '<li>'
-            . '<a class="maintain_action" '
-            . 'href="tbl_operations.php' 
-            . PMA_generate_common_url($this_url_params) . '">'    
-            . __('Analyze table')
-            . '</a>'
-            . $common_functions->showMySQLDocu(
-                'MySQL_Database_Administration',
-                'ANALYZE_TABLE'
-                )
-            . '</li>';
+            $html_output .= '<li>'
+                . '<a class="maintain_action" '
+                . 'href="tbl_operations.php' 
+                . PMA_generate_common_url($this_url_params) . '">'    
+                . __('Analyze table')
+                . '</a>'
+                . $common_functions->showMySQLDocu(
+                    'MySQL_Database_Administration',
+                    'ANALYZE_TABLE'
+                    )
+                . '</li>';
         }
-        
+
         if ($is_myisam_or_aria && !PMA_DRIZZLE) {
             $this_url_params = array_merge(
                 $url_params,
@@ -1115,7 +1152,7 @@ function PMA_getHtmlForTableMaintenance(
                     'REPAIR_TABLE'
                     )
                 . '</li>';
-            
+
         }
 
         if (($is_myisam_or_aria || $is_innodb || $is_berkeleydb) && !PMA_DRIZZLE) {
@@ -1127,7 +1164,7 @@ function PMA_getHtmlForTableMaintenance(
                     'table_maintenance' => 'Go',
                     )
             );
-        
+
          $html_output .= '<li>' 
             . '<a class="maintain_action" '
             . 'href="tbl_operations.php' 
@@ -1164,10 +1201,6 @@ function PMA_getHtmlForTableMaintenance(
             , 'FLUSH'
             )
         . '</li>';
-    
-    $html_output .= '</ul>'
-        . '</fieldset>'
-        . '</div>';
     
     return $html_output;
 }

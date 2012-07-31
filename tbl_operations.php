@@ -320,7 +320,7 @@ echo PMA_getHtmlForCopytable();
 echo '<br class="clearfloat"/>';
 
 /**
- * Table mainatenance
+ * Table maintenance
  */
 echo PMA_getHtmlForTableMaintenance($is_myisam_or_aria, $is_innodb,
     $is_berkeleydb, $url_params
