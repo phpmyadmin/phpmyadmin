@@ -597,7 +597,7 @@ function PMA_getHtmlForOrderTheTable($columns)
         . '<select name="order_field">';
     
     foreach ($columns as $fieldname) {
-        $html_output .= '            <option value="' . htmlspecialchars($fieldname['Field']) . '">'
+        $html_output .= '<option value="' . htmlspecialchars($fieldname['Field']) . '">'
             . htmlspecialchars($fieldname['Field']) . '</option>' . "\n";
     }
     $html_output .= '</select> ' . __('(singly)')
