@@ -1116,9 +1116,13 @@ EOT;
         $url_params['db'] = $this->_db;
         $url_params['table'] = $this->_table;
 
-        $html_output = $this->getCommonFunctions()->getHtmlTabs(
-            $this->_getSubTabs(), $url_params, 'topmenu2'
-        );
+        $html_output = '<ul id="topmenu2">';
+        foreach ($this->_getSubTabs() as $tab) {
+            $html_output .= PMA_CommonFunctions::getInstance()->getHtmlTab($tab, $url_params);
+        }
+        $html_output .= '</ul>';
+        $html_output .= '<div class="clearfloat"></div>';
+
         $html_output .= $this->_getFormTag($goto);
 
         if ($this->_searchType == 'zoom') {
