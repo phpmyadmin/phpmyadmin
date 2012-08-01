@@ -1121,37 +1121,24 @@ EOT;
         );
         $html_output .= $this->_getFormTag($goto);
 
-        $html_output .= '<fieldset id='
-            . ($this->_searchType == 'zoom' ? '"inputSection"' : '"fieldset_table_search"') . '>';
-        $html_output .= ($this->_searchType == 'zoom'
-            ? '' : '<fieldset id="fieldset_table_qbe">');
-
-        // Set caption for fieldset
         if ($this->_searchType == 'zoom') {
+            $html_output .= '<fieldset id="inputSection">';
             $html_output .= '<legend>'
                 . __('Do a "query by example" (wildcard: "%") for two different columns')
                 . '</legend>';
-        } else {
-            $html_output .= '<legend>'
-                . __('Do a "query by example" (wildcard: "%")')
-                . '</legend>';
-        }
-
-        /**
-         * Displays fields table in search form
-         */
-        $html_output .= $this->_getFieldsTableHtml();
-
-        /**
-         * Displays more search options
-         */
-        if ($this->_searchType == 'zoom') {
+            $html_output .= $this->_getFieldsTableHtml();
             $html_output .= $this->_getOptionsZoom($dataLabel);
             $html_output .= '</fieldset>';
         } else {
-            $html_output .= '<div id="gis_editor"></div>'
-                . '<div id="popup_background"></div>'
-                . '</fieldset>';
+            $html_output .= '<fieldset id="fieldset_table_search">';
+            $html_output .= '<fieldset id="fieldset_table_qbe">';
+            $html_output .= '<legend>'
+                . __('Do a "query by example" (wildcard: "%")')
+                . '</legend>';
+            $html_output .= $this->_getFieldsTableHtml();
+            $html_output .= '<div id="gis_editor"></div>';
+            $html_output .= '<div id="popup_background"></div>';
+            $html_output .= '</fieldset>';
             $html_output .= $this->_getOptions();
             $html_output .= '</fieldset>';
         }
