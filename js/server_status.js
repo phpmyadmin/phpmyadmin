@@ -327,6 +327,9 @@ $(function() {
     });
 
     var previous = 0;
+    var series = new Array();
+    series[0] = new Array();
+
     // Live query statistics
     $('.buttonlinks a.livequeriesLink').click(function() {
         var $tab = $(this).parents('div.ui-tabs-panel');
@@ -357,11 +360,29 @@ $(function() {
             $tab.find('.tabInnerContent')
                 .hide()
                 .after('<div class="liveChart" id="' + $tab.attr('id') + '_chart_cnt"></div>');
-            //currentChart = $.jqplot($tab.attr('id') + '_chart_cnt', [[null]], settings);
-            //currentChart = $.jqplot($tab.attr('id') + '_chart_cnt', [[['2008-06-30 08:00:00',4], ['2008-06-30 08:00:02',6.5], ['2008-06-30 08:00:04',5.7], ['2008-06-30 08:00:06',9], ['2008-06-30 08:00:08',8.2], ['2008-06-30 08:00:10',4], ['2008-06-30 08:00:12',6.5], ['2008-06-30 08:00:14',5.7], ['2008-06-30 08:00:16',9], ['2008-06-30 08:00:18',8.2]]], settings);
-            //currentChart = $.jqplot($tab.attr('id') + '_chart_cnt', [[['2008-06-30 08:00:00',4], ['2008-07-30 08:00:05',6.5], ['2008-08-30 08:00:10',5.7], ['2008-09-30 08:00:15',9], ['2008-10-30 08:00:20',8.2]]], settings);
+            
+            var chartId = 'statustabs_queries_chart_cnt';
+            var settings = {
+                    title: PMA_messages['strChartIssuedQueriesTitle'],
+                    axes: {
+                        xaxis: {
+                            label: PMA_messages['strChartIssuedQueries'],
+                            labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+                            renderer: $.jqplot.DateAxisRenderer,
+                            axes:{xaxis:{autoscale:true}},
+                            //tickInterval: 300000,
+                            //min: '2008-06-30 08:00:00',
+                            //min: '2012-06-07 12:00:00',
+                            //min: '1970-01-01 12:00:00',
+                            tickOptions: {
+                                formatString: '%s'
+                            }
+                        }
+                    }
+            };
             var set_previous = getCurrentQueryStats();
-            recursiveTimer();
+            initiateChartData(chartId, settings);
+            recursiveTimer(chartId, settings);
 
         } else {
             $(this).html(PMA_messages['strLiveQueryChart']);
@@ -373,13 +394,11 @@ $(function() {
     });
 
     var t;
-    var series = new Array();
-    series[0] = new Array();
 
-    function recursiveTimer() {
-        replotQueryStatsChart();
-        t = setTimeout(function() {
-                recursiveTimer() }, 2000);
+    function recursiveTimer(chartId, settings) {
+            replotQueryStatsChart(chartId, settings);
+            t = setTimeout(function() {
+                recursiveTimer(chartId, settings) }, 2000);
     }
 
     function getCurrentQueryStats() {
@@ -405,30 +424,19 @@ $(function() {
         return retval;
     }
 
-    function replotQueryStatsChart() {
-        
-        var chartId = 'statustabs_queries_chart_cnt';
+    function initiateChartData(chartId, settings) {
+        var current_time = new Date().getTime();
+        for(var i = -20000; i < 0; i += 2000) {
+            series[0].push([(current_time+i),4]);
+        }
+        $.jqplot(chartId, [series[0]], settings);
+    }
+
+    function replotQueryStatsChart(chartId, settings) {
+        series[0].splice(0,1);
         series[0].push(getCurrentQueryStats());
-        var settings = {
-                title: PMA_messages['strChartIssuedQueriesTitle'],
-                axes: {
-                    xaxis: {
-                        label: PMA_messages['strChartIssuedQueries'],
-                        labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
-                        renderer: $.jqplot.DateAxisRenderer,
-                        axes:{xaxis:{autoscale:true}},
-                        //tickInterval: 300000,
-                        //min: '2008-06-30 08:00:00',
-                        //min: '2012-06-07 12:00:00',
-                        //min: '1970-01-01 12:00:00',
-                        tickOptions: {
-                            formatString: '%s'
-                        }
-                    }
-                }
-        };
-       $.jqplot(chartId, [series[0]], settings).replot();
-   };
+        $.jqplot(chartId, [series[0]], settings).replot();
+    }
 
     function setupLiveChart($tab, link, settings) {
         if (settings != null) {
