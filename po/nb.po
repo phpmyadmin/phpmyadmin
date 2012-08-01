@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-07-28 19:19+0200\n"
+"PO-Revision-Date: 2012-07-30 14:59+0200\n"
 "Last-Translator: Stian Berg <mail.to.stian@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -1617,10 +1617,9 @@ msgid "Total time:"
 msgstr "Total tid:"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Profiling"
 msgid "Profiling results"
-msgstr "Profiliserer resultater"
+msgstr "Profileringsresultater"
 
 #: js/messages.php:193
 #| msgid "Table"
@@ -2608,7 +2607,7 @@ msgstr "Tabellen %s har fått nytt navn %s"
 
 #: libraries/Table.class.php:1384
 msgid "Could not save table UI preferences"
-msgstr ""
+msgstr "Kunne ikke lagre preferanser for tabellgrensesnitt"
 
 #: libraries/Table.class.php:1407
 #, php-format
@@ -2616,6 +2615,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
+"Feil ved opprydning av preferansene for tabellgrensesnitt (se "
+"$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.class.php:1533
 #, php-format
@@ -2868,7 +2869,7 @@ msgstr "mulig sikkerhetshull"
 
 #: libraries/common.inc.php:160
 msgid "numeric key detected"
-msgstr ""
+msgstr "numerisk nøkkel oppdaget"
 
 #: libraries/common.inc.php:607
 #| msgid "Could not save configuration"
@@ -3546,6 +3547,8 @@ msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
 msgstr ""
+"Deaktiver masseoperasjoner for tabellvedlikehold, som optimalisering eller "
+"reparasjon av de valgte tabellene til en database."
 
 #: libraries/config/messages.inc.php:63
 #| msgid "Table maintenance"
@@ -3997,7 +4000,6 @@ msgid "Configuration storage"
 msgstr "Konfigurasjonslager"
 
 #: libraries/config/messages.inc.php:207
-#, fuzzy
 #| msgid ""
 #| "ure phpMyAdmin database to gain access to additional features, see "
 #| "Documentation.html#linked-tables]linked-tables infrastructure[/a] "
@@ -4007,22 +4009,22 @@ msgid ""
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
-"Konfigurer phpMyAdmin databasen for å få tilgang til ekstra egenskaper, se "
-"[a@../Documentation.html#linked-tables]lenkede-tabeller infrastruktur[/a] i "
-"dokumentasjonen"
+"Sett opp phpMyAdmin konfigurasjonslager for å få tilgang til ekstra "
+"funksjonalitet, se [a@../Documentation.html#linked-tables]phpMyAdming "
+"konfigurasjonslager[/a] i dokumentasjonen"
 
 #: libraries/config/messages.inc.php:208
 msgid "Changes tracking"
 msgstr "Endringssporing"
 
 #: libraries/config/messages.inc.php:209
-#, fuzzy
 #| msgid "ng of changes made in database. Requires configured PMA database."
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
-"Sporing av endringer utført i databasen. PMA database må være konfigurert."
+"Sporing av endringer utført i databasen. Krever at phpMyAdming "
+"konfigurasjonslager er satt opp."
 
 #: libraries/config/messages.inc.php:210
 msgid "Customize export options"
@@ -4316,10 +4318,9 @@ msgid "Enable highlighting"
 msgstr "Aktiver utheving"
 
 #: libraries/config/messages.inc.php:290
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr "Maks antall tabeller vist i tabellista"
+msgstr "Maksimalt antall nylig brukte tabeller; sett til 0 for å deaktivere"
 
 #: libraries/config/messages.inc.php:291
 #| msgid "Untracked tables"
@@ -4613,16 +4614,16 @@ msgstr "Rekodingsmotor"
 #: libraries/config/messages.inc.php:352
 msgid "When browsing tables, the sorting of each table is remembered"
 msgstr ""
+"Ved visning av tabeller vil sorteringen av hver enkelt tabell bli husket"
 
 #: libraries/config/messages.inc.php:353
-#, fuzzy
 #| msgid "Rename table to"
 msgid "Remember table's sorting"
-msgstr "Endre tabellens navn"
+msgstr "Husk tabellens sortering"
 
 #: libraries/config/messages.inc.php:354
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
-msgstr ""
+msgstr "Gjenta topptekst hver n. rad; [kbd]0[/kbd] deaktiverer funksjonen"
 
 #: libraries/config/messages.inc.php:355
 msgid "Repeat headers"
@@ -4765,6 +4766,8 @@ msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
 msgstr ""
+"En alternativ vert til å holde konfigurasjonslageret; la være tom for å "
+"bruke den allerede definerte verten"
 
 #: libraries/config/messages.inc.php:386
 #, fuzzy
@@ -5977,10 +5980,9 @@ msgid "Restore column order"
 msgstr "Tilbakestill kolonnerekkefølge"
 
 #: libraries/display_tbl.lib.php:428
-#, fuzzy
 #| msgid "CHAR textarea rows"
 msgid "Start row"
-msgstr "CHAR textarea rader"
+msgstr "Startrad"
 
 #: libraries/display_tbl.lib.php:430
 #| msgid "Number of rows:"
@@ -6061,7 +6063,7 @@ msgstr "Vis BLOB innhold"
 #, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
-msgstr "Nettvisertransformasjon"
+msgstr "Skjul nettlesertransformasjon"
 
 #: libraries/display_tbl.lib.php:694
 msgid "Well Known Text"
@@ -6106,10 +6108,9 @@ msgid "Print view (with full texts)"
 msgstr "Forhåndsvisning (med all tekst)"
 
 #: libraries/display_tbl.lib.php:2664 tbl_chart.php:86
-#, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
-msgstr "Vis PDF-skjema"
+msgstr "Vis diagram"
 
 #: libraries/display_tbl.lib.php:2680
 msgid "Visualize GIS data"
@@ -8163,10 +8164,9 @@ msgid "Current Server"
 msgstr "Gjeldende tjener"
 
 #: libraries/server_links.inc.php:60
-#, fuzzy
 #| msgid "User"
 msgid "Users"
-msgstr "Bruker"
+msgstr "Brukere"
 
 #: libraries/server_links.inc.php:79 server_synchronize.php:1154
 #: server_synchronize.php:1162
@@ -8190,7 +8190,7 @@ msgstr "Tegnsett"
 #: libraries/server_links.inc.php:104 server_plugins.php:47
 #: server_plugins.php:80
 msgid "Plugins"
-msgstr ""
+msgstr "Programtillegg"
 
 #: libraries/server_links.inc.php:108
 msgid "Engines"
@@ -8459,16 +8459,14 @@ msgid "Operator"
 msgstr "Operatør"
 
 #: libraries/tbl_select.lib.php:103
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "Søk"
+msgstr "Tabellsøk"
 
 #: libraries/tbl_select.lib.php:175 tbl_change.php:1000
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "Sett inn"
+msgstr "Rediger/Sett inn"
 
 #: libraries/transformations.lib.php:134
 #, php-format
@@ -12280,16 +12278,16 @@ msgid "Create version"
 msgstr "Opprett versjon"
 
 #: tbl_zoom_select.php:142
-#, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "Utfør en \"spørring ved eksempel\" (jokertegn: \"%\")"
+msgstr ""
+"Utfør en \"spørring ved eksempel\" (jokertegn: \"%\") for to forskjellige "
+"kolonner"
 
 #: tbl_zoom_select.php:152
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Additional search criteria"
-msgstr "Skjul søkekriterier"
+msgstr "Ytterligere søkekriterier"
 
 #: tbl_zoom_select.php:283
 msgid "Use this column to label each point"
@@ -12306,16 +12304,14 @@ msgid "Browse/Edit the points"
 msgstr ""
 
 #: tbl_zoom_select.php:424
-#, fuzzy
 #| msgid "Control user"
 msgid "How to use"
-msgstr "Kontrollbruker"
+msgstr "Bruksforklaring"
 
 #: tbl_zoom_select.php:431
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Tilbakestill"
+msgstr "Tilbakestill zoom"
 
 #: themes.php:28
 msgid "Get more themes!"
