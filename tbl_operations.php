@@ -326,62 +326,46 @@ echo PMA_getHtmlForTableMaintenance($is_myisam_or_aria, $is_innodb,
     $is_berkeleydb, $url_params
     );
 
-?>
-<?php if (! (isset($db_is_information_schema) && $db_is_information_schema)) { ?>
-<div class="operations_half_width">
-<fieldset class="caution">
- <legend><?php echo __('Delete data or table'); ?></legend>
-
-<ul>
-<?php
-if (! $tbl_is_view && ! (isset($db_is_information_schema) && $db_is_information_schema)) {
-    $this_sql_query = 'TRUNCATE TABLE ' . $common_functions->backquote($GLOBALS['table']);
-    $this_url_params = array_merge(
-        $url_params,
-        array(
-            'sql_query' => $this_sql_query,
-            'goto' => 'tbl_structure.php',
-            'reload' => '1',
-            'message_to_show' => sprintf(__('Table %s has been emptied'), htmlspecialchars($table)),
-        )
-    );
-    ?>
-    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'id="truncate_tbl_anchor" class="ajax"' : ''); ?>>
-            <?php echo __('Empty the table (TRUNCATE)'); ?></a>
-        <?php echo $common_functions->showMySQLDocu('SQL-Syntax', 'TRUNCATE_TABLE'); ?>
-    </li>
-<?php
-}
 if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
-    $this_sql_query = 'DROP TABLE ' . $common_functions->backquote($GLOBALS['table']);
-    $this_url_params = array_merge(
-        $url_params,
-        array(
-            'sql_query' => $this_sql_query,
-            'goto' => 'db_operations.php',
-            'reload' => '1',
-            'purge' => '1',
-            'message_to_show' => sprintf(($tbl_is_view ? __('View %s has been dropped') : __('Table %s has been dropped')), htmlspecialchars($table)),
-            // table name is needed to avoid running
-            // PMA_relationsCleanupDatabase() on the whole db later
-            'table' => $GLOBALS['table'],
-        )
+    $truncate_table_url_params = array();
+    $drop_table_url_params = array();
+    
+    if (! $tbl_is_view && ! (isset($db_is_information_schema) && $db_is_information_schema)) {
+        $this_sql_query = 'TRUNCATE TABLE ' . $common_functions->backquote($GLOBALS['table']);
+        $truncate_table_url_params = array_merge(
+            $url_params,
+            array(
+                'sql_query' => $this_sql_query,
+                'goto' => 'tbl_structure.php',
+                'reload' => '1',
+                'message_to_show' => sprintf(__('Table %s has been emptied'), htmlspecialchars($table)),
+            )
+        );
+    }
+    if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
+        $this_sql_query = 'DROP TABLE ' . $common_functions->backquote($GLOBALS['table']);
+        $drop_table_url_params = array_merge(
+            $url_params,
+            array(
+                'sql_query' => $this_sql_query,
+                'goto' => 'db_operations.php',
+                'reload' => '1',
+                'purge' => '1',
+                'message_to_show' => sprintf(($tbl_is_view ? __('View %s has been dropped') : __('Table %s has been dropped')), htmlspecialchars($table)),
+                // table name is needed to avoid running
+                // PMA_relationsCleanupDatabase() on the whole db later
+                'table' => $GLOBALS['table'],
+            )
+        );
+    }
+    echo PMA_getHtmlForDeleteDataOrTable($truncate_table_url_params,
+        $drop_table_url_params
     );
-    ?>
-    <li><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'id="drop_tbl_anchor"' : ''); ?>>
-            <?php echo __('Delete the table (DROP)'); ?></a>
-        <?php echo $common_functions->showMySQLDocu('SQL-Syntax', 'DROP_TABLE'); ?>
-    </li>
-<?php
 }
+echo '<br class="clearfloat">';
+
+
 ?>
-</ul>
-</fieldset>
-</div>
-<?php
-}
-?>
-<br class="clearfloat">
 <?php if (PMA_Partition::havePartitioning()) {
     $partition_names = PMA_Partition::getPartitionNames($db, $table);
     // show the Partition maintenance section only if we detect a partition

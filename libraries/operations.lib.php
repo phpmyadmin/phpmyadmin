@@ -1187,4 +1187,52 @@ function PMA_getMaitainActionlink($action, $params, $url_params, $link,
         . '</li>';
 }
 
+/**
+ * Get HTML for Delete data or table (truncate table, drop table)
+ * 
+ * @param array $truncate_table_url_params  url parameter array for truncate table
+ * @param array $drop_table_url_params      url parameter array for drop table          
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForDeleteDataOrTable(
+    $truncate_table_url_params,
+    $drop_table_url_params
+) {
+    $html_output = '<div class="operations_half_width">'
+        . '<fieldset class="caution">'
+        . '<legend>' . __('Delete data or table') . '</legend>';
+    
+     $html_output .= '<ul>';
+     
+     if (!empty ($truncate_table_url_params)){
+         $html_output .= '<li><a ' 
+            . 'href="sql.php' . PMA_generate_common_url($truncate_table_url_params) . '"'
+            . ($GLOBALS['cfg']['AjaxEnable'] 
+                ? 'id="truncate_tbl_anchor" class="ajax"' 
+                : ''
+            ) . '>'
+            . __('Empty the table (TRUNCATE)') . '</a>'
+            . PMA_CommonFunctions::getInstance()->showMySQLDocu(
+                'SQL-Syntax', 'TRUNCATE_TABLE'
+            )
+            . '</li>';
+     }
+     if (!empty ($drop_table_url_params)) {
+         $html_output .= '<li><a ' 
+            . 'href="sql.php' . PMA_generate_common_url($drop_table_url_params) . '"' 
+            . ($GLOBALS['cfg']['AjaxEnable'] ? 'id="drop_tbl_anchor"' : '') . '>'
+            . __('Delete the table (DROP)') . '</a>'
+            . PMA_CommonFunctions::getInstance()->showMySQLDocu(
+                    'SQL-Syntax', 'DROP_TABLE'
+            )
+            . '</li>';
+     }
+     $html_output .= '</ul></fieldset></div>';
+     
+     return $html_output;
+}
+
+
+
 ?>
