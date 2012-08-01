@@ -1233,6 +1233,60 @@ function PMA_getHtmlForDeleteDataOrTable(
      return $html_output;
 }
 
-
+function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
+{
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
+    $choices = array(
+        'ANALYZE' => __('Analyze'),
+        'CHECK' => __('Check'),
+        'OPTIMIZE' => __('Optimize'),
+        'REBUILD' => __('Rebuild'),
+        'REPAIR' => __('Repair')
+    );
+    
+    $html_output = '<div class="operations_half_width">'
+        . '<form method="post" action="tbl_operations.php">'
+        . PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table'])
+        . '<fieldset>'
+        . '<legend>' . __('Partition maintenance') . '</legend>';
+    
+    $html_select = '<select name="partition_name">' . "\n";
+    foreach ($partition_names as $one_partition) {
+        $one_partition = htmlspecialchars($one_partition);
+        $html_select .= '<option value="' . $one_partition . '">' 
+            . $one_partition . '</option>' . "\n";
+    }
+    $html_select .= '</select>' . "\n";
+    $html_output .= sprintf(__('Partition %s'), $html_select);
+    
+    $html_output .= $common_functions->getRadioFields(
+        'partition_operation', $choices, '', false
+    );
+    $html_output .= $common_functions->showMySQLDocu(
+        'partitioning_maintenance',
+        'partitioning_maintenance'
+    );
+    $this_url_params = array_merge(
+        $url_params,
+        array(
+            'sql_query' => 'ALTER TABLE ' 
+                . $common_functions->backquote($GLOBALS['table']) 
+                . ' REMOVE PARTITIONING;'
+            )
+    );
+    $html_output .= '<br /><a href="sql.php' 
+        . PMA_generate_common_url($this_url_params) . '">'
+        . __('Remove partitioning') . '</a>';
+    
+    $html_output .= '</fieldset>'
+        . '<fieldset class="tblFooters">'
+        . '<input type="submit" name="submit_partition" value="' . __('Go') . '" />'
+        . '</fieldset>'
+        . '</form>'
+        . '</div>';
+    
+    return $html_output;
+}
 
 ?>

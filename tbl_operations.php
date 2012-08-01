@@ -364,56 +364,14 @@ if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
 }
 echo '<br class="clearfloat">';
 
-
-?>
-<?php if (PMA_Partition::havePartitioning()) {
+if (PMA_Partition::havePartitioning()) {
     $partition_names = PMA_Partition::getPartitionNames($db, $table);
     // show the Partition maintenance section only if we detect a partition
     if (! is_null($partition_names[0])) {
-    ?>
-<div class="operations_half_width">
-<form method="post" action="tbl_operations.php">
-<?php echo PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']); ?>
-<fieldset>
- <legend><?php echo __('Partition maintenance'); ?></legend>
-<?php
-        $html_select = '<select name="partition_name">' . "\n";
-        foreach ($partition_names as $one_partition) {
-            $one_partition = htmlspecialchars($one_partition);
-            $html_select .= '<option value="' . $one_partition . '">' . $one_partition . '</option>' . "\n";
-        }
-        $html_select .= '</select>' . "\n";
-        printf(__('Partition %s'), $html_select);
-        unset($partition_names, $one_partition, $html_select);
-        $choices = array(
-            'ANALYZE' => __('Analyze'),
-            'CHECK' => __('Check'),
-            'OPTIMIZE' => __('Optimize'),
-            'REBUILD' => __('Rebuild'),
-            'REPAIR' => __('Repair'));
-        echo $common_functions->getRadioFields('partition_operation', $choices, '', false);
-        unset($choices);
-        echo $common_functions->showMySQLDocu('partitioning_maintenance', 'partitioning_maintenance');
-        // I'm not sure of the best way to display that; this link does
-        // not depend on the Go button
-    $this_url_params = array_merge(
-        $url_params,
-        array(
-            'sql_query' => 'ALTER TABLE ' . $common_functions->backquote($GLOBALS['table']) . ' REMOVE PARTITIONING;'
-            )
-        );
-?>
-    <br /><a href="sql.php<?php echo PMA_generate_common_url($this_url_params); ?>">
-            <?php echo __('Remove partitioning'); ?></a>
-</fieldset>
-<fieldset class="tblFooters">
-    <input type="submit" name="submit_partition" value="<?php echo __('Go'); ?>" />
-</fieldset>
-</form>
-</div>
-<?php
-        } // end if
+        echo PMA_getHtmlForPartitionMaintenance($partition_names, $url_params);
     } // end if
+} // end if
+unset($partition_names);
 
 // Referential integrity check
 // The Referential integrity check was intended for the non-InnoDB
