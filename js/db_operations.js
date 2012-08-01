@@ -122,13 +122,10 @@ AJAX.registerOnload('db_operations.js', function() {
      */
     $("#change_db_charset_form.ajax").live('submit', function(event) {
         event.preventDefault();
-
         var $form = $(this);
-
         PMA_prepareForAjaxRequest($form);
-
         PMA_ajaxShowMessage(PMA_messages['strChangingCharset']);
-        $.get($form.attr('action'), $form.serialize() + "&submitcollation=" + $form.find("input[name=submitcollation]").val(), function(data) {
+        $.get($form.attr('action'), $form.serialize() + "&submitcollation=1", function(data) {
             if(data.success == true) {
                 PMA_ajaxShowMessage(data.message);
             } else {
