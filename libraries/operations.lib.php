@@ -1019,7 +1019,7 @@ function PMA_getHtmlForCopytable()
 }
 
 /**
- * Get HTML snippet for table maintaince
+ * Get HTML snippet for table maintence
  * 
  * @param boolean $is_myisam_or_aria    whether MYISAM | ARIA or not
  * @param boolean $is_innodb            whether innodb or not
@@ -1069,140 +1069,116 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
     
     if ($is_myisam_or_aria || $is_innodb || $is_berkeleydb) {
         if ($is_myisam_or_aria || $is_innodb) {
-            $this_url_params = array_merge(
+            $params = array(
+                'sql_query' => 'CHECK TABLE ' 
+                    . $common_functions->backquote($GLOBALS['table']),
+                'table_maintenance' => 'Go',
+                );
+            $html_output .= PMA_getMaitainActionlink(
+                'Check table',
+                $params,
                 $url_params,
-                array(
-                    'sql_query' => 'CHECK TABLE ' 
-                        . $common_functions->backquote($GLOBALS['table']),
-                    'table_maintenance' => 'Go',
-                    )
-            );
-            $html_output .= '<li>' 
-                . '<a class="maintain_action" '
-                . 'href="tbl_operations.php' 
-                . PMA_generate_common_url($this_url_params) .'">'
-                . __('Check table')
-                . '</a>'
-                . $common_functions->showMySQLDocu(
-                    'MySQL_Database_Administration',
-                    'CHECK_TABLE'
-                )
-                . '</li>';
+                'CHECK_TABLE'
+                );
         }
-
         if ($is_innodb) {
-            $this_url_params = array_merge(
+           $params = array(
+                'sql_query' => 'ALTER TABLE ' 
+                . $common_functions->backquote($GLOBALS['table']) 
+                . ' ENGINE = InnoDB;'
+                );
+           $html_output .= PMA_getMaitainActionlink(
+                'Defragment table',
+                $params,
                 $url_params,
-                array('sql_query' => 'ALTER TABLE ' 
-                    . $common_functions->backquote($GLOBALS['table']) 
-                    . ' ENGINE = InnoDB;'
-                    )
-            );
-            $html_output .= '<li>' 
-                . '<a class="maintain_action" '
-                . 'href="sql.php' . PMA_generate_common_url($this_url_params) .'">'
-                . __('Defragment table')
-                . '</a>'
-                . $common_functions->showMySQLDocu(
-                    'Table_types',
-                    'InnoDB_File_Defragmenting'
-                    )
-                . '</li>';
+                'InnoDB_File_Defragmenting',
+                'Table_types'
+                );
         }
-
         if ($is_myisam_or_aria || $is_berkeleydb) {
-            $this_url_params = array_merge(
+            $params = array(
+                'sql_query' => 'ANALYZE TABLE ' 
+                    . $common_functions->backquote($GLOBALS['table']),
+                'table_maintenance' => 'Go',
+                );
+            $html_output .= PMA_getMaitainActionlink(
+                'Analyze table',
+                $params,
                 $url_params,
-                array(
-                    'sql_query' => 'ANALYZE TABLE ' 
-                        . $common_functions->backquote($GLOBALS['table']),
-                    'table_maintenance' => 'Go',
-                    )
-            );
-            $html_output .= '<li>'
-                . '<a class="maintain_action" '
-                . 'href="tbl_operations.php' 
-                . PMA_generate_common_url($this_url_params) . '">'    
-                . __('Analyze table')
-                . '</a>'
-                . $common_functions->showMySQLDocu(
-                    'MySQL_Database_Administration',
-                    'ANALYZE_TABLE'
-                    )
-                . '</li>';
+                'ANALYZE_TABLE'
+                );
         }
-
         if ($is_myisam_or_aria && !PMA_DRIZZLE) {
-            $this_url_params = array_merge(
+            $params = array(
+                'sql_query' => 'REPAIR TABLE ' 
+                    . $common_functions->backquote($GLOBALS['table']),
+                'table_maintenance' => 'Go',
+                );
+            $html_output .= PMA_getMaitainActionlink(
+                'Repair table',
+                $params,
                 $url_params,
-                array(
-                    'sql_query' => 'REPAIR TABLE ' 
-                        . $common_functions->backquote($GLOBALS['table']),
-                    'table_maintenance' => 'Go',
-                    )
-            );
-            $html_output .= '<li>'
-                . '<a class="maintain_action" '
-                . 'href="tbl_operations.php' 
-                . PMA_generate_common_url($this_url_params) .'">'
-                . __('Repair table')
-                . '</a>'
-                . $common_functions->showMySQLDocu(
-                    'MySQL_Database_Administration',
-                    'REPAIR_TABLE'
-                    )
-                . '</li>';
-
+                'REPAIR_TABLE'
+                );
         }
-
         if (($is_myisam_or_aria || $is_innodb || $is_berkeleydb) && !PMA_DRIZZLE) {
-            $this_url_params = array_merge(
+            $params = array(
+                'sql_query' => 'OPTIMIZE TABLE ' 
+                    . $common_functions->backquote($GLOBALS['table']),
+                'table_maintenance' => 'Go',
+                );
+            $html_output .= PMA_getMaitainActionlink(
+                'Optimize table',
+                $params,
                 $url_params,
-                array(
-                    'sql_query' => 'OPTIMIZE TABLE ' 
-                        . $common_functions->backquote($GLOBALS['table']),
-                    'table_maintenance' => 'Go',
-                    )
-            );
-
-         $html_output .= '<li>' 
-            . '<a class="maintain_action" '
-            . 'href="tbl_operations.php' 
-            . PMA_generate_common_url($this_url_params) .'">'
-            . __('Optimize table')
-            . '</a>'
-            . $common_functions->showMySQLDocu(
-                'MySQL_Database_Administration',
                 'OPTIMIZE_TABLE'
-                )
-            . '</li>';
+                );
         }
     } // end MYISAM or BERKELEYDB case
 
-    $this_url_params = array_merge(
-        $url_params,
-        array(
-            'sql_query' => 'FLUSH TABLE ' 
-                . $common_functions->backquote($GLOBALS['table']),
-            'message_to_show' => sprintf(
-                __('Table %s has been flushed'),
-                htmlspecialchars($GLOBALS['table'])
-            ),
-            'reload'    => 1,
-        )
+    $params = array(
+        'sql_query' => 'FLUSH TABLE ' 
+            . $common_functions->backquote($GLOBALS['table']),
+        'message_to_show' => sprintf(
+            __('Table %s has been flushed'),
+            htmlspecialchars($GLOBALS['table'])
+        ),
+        'reload'    => 1,
     );
     
-    $html_output .= '<li><a class="maintain_action" '
-        . 'href="sql.php' . PMA_generate_common_url($this_url_params) . '">'
-        . __('Flush the table (FLUSH)')
-        . '</a>'
-        . $common_functions->showMySQLDocu(
-            'MySQL_Database_Administration'
-            , 'FLUSH'
-            )
-        . '</li>';
+    $html_output .= PMA_getMaitainActionlink(
+        'Flush the table (FLUSH)',
+        $params,
+        $url_params,
+        'FLUSH'
+        );
     
     return $html_output;
+}
+
+/**
+ * Get maintain action HTML link
+ * 
+ * @param array $params     url parameters array
+ * @param string $link      contains name of page/anchor that is being linked
+ * @param string $chapter   chapter of "HTML, one page per chapter" documentation
+ * 
+ * @return string $html_output 
+ */
+function PMA_getMaitainActionlink($action, $params, $url_params, $link,
+    $chapter = 'MySQL_Database_Administration'
+) {
+    return '<li>'
+        . '<a class="maintain_action" '
+        . 'href="tbl_operations.php' 
+        . PMA_generate_common_url(array_merge($url_params, $params)) .'">'
+        . __($action)
+        . '</a>'
+        . PMA_CommonFunctions::getInstance()->showMySQLDocu(
+            $chapter,
+            $link
+            )
+        . '</li>';
 }
 
 ?>
