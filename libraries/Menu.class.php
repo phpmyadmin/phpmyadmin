@@ -273,6 +273,10 @@ class PMA_Menu
         $tabs['search']['icon'] = 'b_search.png';
         $tabs['search']['text'] = __('Search');
         $tabs['search']['link'] = 'tbl_select.php';
+        $tabs['search']['active'] = in_array(
+            basename($GLOBALS['PMA_PHP_SELF']),
+            array('tbl_select.php', 'tbl_zoom_select.php')
+        );
 
         if (! $db_is_information_schema) {
             $tabs['insert']['icon'] = 'b_insrow.png';

@@ -834,7 +834,7 @@ EOT;
         );
         unset($choices);
 
-        $html_output .= '</fieldset><br style="clear: both;"/></div></fieldset>';
+        $html_output .= '</fieldset><br style="clear: both;"/></div>';
         return $html_output;
     }
 
@@ -1112,48 +1112,41 @@ EOT;
      */
     public function getSelectionForm($goto, $dataLabel = null)
     {
-        $html_output = '';
-        $html_output .= '<fieldset id="fieldset_subtab">';
         $url_params = array();
         $url_params['db'] = $this->_db;
         $url_params['table'] = $this->_table;
 
-        $html_output .= $this->getCommonFunctions()->getHtmlTabs(
-            $this->_getSubTabs(), $url_params, 'topmenu2'
-        );
+        $html_output = '<ul id="topmenu2">';
+        foreach ($this->_getSubTabs() as $tab) {
+            $html_output .= PMA_CommonFunctions::getInstance()->getHtmlTab($tab, $url_params);
+        }
+        $html_output .= '</ul>';
+        $html_output .= '<div class="clearfloat"></div>';
+
         $html_output .= $this->_getFormTag($goto);
 
-        $html_output .= '<fieldset id='
-            . ($this->_searchType == 'zoom' ? '"inputSection"' : '"fieldset_table_search"') . '>';
-        $html_output .= ($this->_searchType == 'zoom'
-            ? '' : '<fieldset id="fieldset_table_qbe">');
-
-        // Set caption for fieldset
         if ($this->_searchType == 'zoom') {
+            $html_output .= '<fieldset id="fieldset_zoom_search">';
+            $html_output .= '<fieldset id="inputSection">';
             $html_output .= '<legend>'
                 . __('Do a "query by example" (wildcard: "%") for two different columns')
                 . '</legend>';
+            $html_output .= $this->_getFieldsTableHtml();
+            $html_output .= $this->_getOptionsZoom($dataLabel);
+            $html_output .= '</fieldset>';
+            $html_output .= '</fieldset>';
         } else {
+            $html_output .= '<fieldset id="fieldset_table_search">';
+            $html_output .= '<fieldset id="fieldset_table_qbe">';
             $html_output .= '<legend>'
                 . __('Do a "query by example" (wildcard: "%")')
                 . '</legend>';
-        }
-
-        /**
-         * Displays fields table in search form
-         */
-        $html_output .= $this->_getFieldsTableHtml();
-
-        /**
-         * Displays more search options
-         */
-        if ($this->_searchType == 'zoom') {
-            $html_output .= $this->_getOptionsZoom($dataLabel);
-        } else {
-            $html_output .= '<div id="gis_editor"></div>'
-                . '<div id="popup_background"></div>'
-                . '</fieldset>';
+            $html_output .= $this->_getFieldsTableHtml();
+            $html_output .= '<div id="gis_editor"></div>';
+            $html_output .= '<div id="popup_background"></div>';
+            $html_output .= '</fieldset>';
             $html_output .= $this->_getOptions();
+            $html_output .= '</fieldset>';
         }
 
         /**
@@ -1165,12 +1158,7 @@ EOT;
             . ($this->_searchType == 'zoom' ? '" id="inputFormSubmitId"' : '" ')
             . 'value="' . __('Go') . '" />';
         $html_output .= '</fieldset></form>';
-        if ($this->_searchType == 'zoom') {
-            $html_output = '<div id="sqlqueryresults"></div>'
-                . $html_output . '</fieldset>';
-        } else {
-            $html_output .= '<div id="sqlqueryresults"></div></fieldset>';
-        }
+        $html_output .= '<div id="sqlqueryresults"></div>';
         return $html_output;
     }
 
