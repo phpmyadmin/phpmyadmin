@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-27 10:40+0200\n"
-"PO-Revision-Date: 2012-07-28 19:19+0200\n"
+"PO-Revision-Date: 2012-07-30 14:59+0200\n"
 "Last-Translator: Stian Berg <mail.to.stian@gmail.com>\n"
 "Language-Team: norwegian <no@li.org>\n"
 "Language: nb\n"
@@ -288,16 +288,16 @@ msgid "The database name is empty!"
 msgstr "Databasen er uten navn!"
 
 #: db_operations.php:327
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "Databasen %s har endret navn til %s"
+msgstr "Databasen %1$s har endret navn til %2$s"
 
 #: db_operations.php:331
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "Databasen %s har blitt kopiert til %s"
+msgstr "Databasen %1$s har blitt kopiert til %2$s"
 
 #: db_operations.php:465
 msgid "Rename database to"
@@ -920,10 +920,10 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\"-uttrykk er avslått."
 
 #: js/messages.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to "
 msgid "Do you really want to execute \"%s\"?"
-msgstr "Vil du virkelig "
+msgstr "Vil du virkelig utføre \"%s\"?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:307 sql.php:418
 msgid "You are about to DESTROY a complete database!"
@@ -1468,10 +1468,9 @@ msgid "Total time:"
 msgstr "Total tid:"
 
 #: js/messages.php:188
-#, fuzzy
 #| msgid "Profiling"
 msgid "Profiling results"
-msgstr "Profiliserer resultater"
+msgstr "Profileringsresultater"
 
 #: js/messages.php:189
 msgctxt "Display format"
@@ -1681,22 +1680,19 @@ msgid "Show indexes"
 msgstr "Vis indekser"
 
 #: js/messages.php:257 libraries/mult_submits.inc.php:317
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Foreign key check:"
-msgstr "Slå av kontroll av fremmednøkler"
+msgstr "Kontroll av fremmednøkler:"
 
 #: js/messages.php:258 libraries/mult_submits.inc.php:321
-#, fuzzy
 #| msgid "Enabled"
 msgid "(Enabled)"
-msgstr "Påslått"
+msgstr "(Aktivert)"
 
 #: js/messages.php:259 libraries/mult_submits.inc.php:321
-#, fuzzy
 #| msgid "Disabled"
 msgid "(Disabled)"
-msgstr "Avslått"
+msgstr "(Deaktivert)"
 
 #: js/messages.php:262
 msgid "Searching"
@@ -1908,7 +1904,7 @@ msgstr "Klikk for å markere/ta vekk markering"
 
 #: js/messages.php:352
 msgid "Double-click to copy column name"
-msgstr ""
+msgstr "Dobbelklikk for å kopiere kolonnenavn"
 
 #: js/messages.php:353
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
@@ -1932,20 +1928,18 @@ msgid "Go to link"
 msgstr "Gå til link"
 
 #: js/messages.php:358
-#, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
-msgstr "Kolonnenavn"
+msgstr "Kopier kolonnenavn"
 
 #: js/messages.php:359
 msgid "Right-click the column name to copy it to your clipboard."
-msgstr ""
+msgstr "Høyreklikk på kolonnenavnet for å kopiere det til utklippstavlen."
 
 #: js/messages.php:360
-#, fuzzy
 #| msgid "Update row(s)"
 msgid "Show data row(s)"
-msgstr "Oppdater rad(er)"
+msgstr "Vis datarad(er)"
 
 #: js/messages.php:363
 msgid "Generate password"
@@ -2239,7 +2233,7 @@ msgstr "Sekund"
 #: libraries/Advisor.class.php:67
 #, php-format
 msgid "PHP threw following error: %s"
-msgstr ""
+msgstr "PHP kastet følgende feil: %s"
 
 #: libraries/Advisor.class.php:89
 #, php-format
@@ -2249,17 +2243,17 @@ msgstr ""
 #: libraries/Advisor.class.php:106
 #, php-format
 msgid "Failed calculating value for rule '%s'"
-msgstr ""
+msgstr "Feil ved kalkulering av verdi for regel \"%s\""
 
 #: libraries/Advisor.class.php:125
 #, php-format
 msgid "Failed running test for rule '%s'"
-msgstr ""
+msgstr "Feil ved kjøring av test for regel \"%s\""
 
 #: libraries/Advisor.class.php:207
 #, php-format
 msgid "Failed formatting string for rule '%s'."
-msgstr ""
+msgstr "Feil ved formattering av streng for regel \"%s\"."
 
 #: libraries/Advisor.class.php:361
 #, php-format
@@ -2268,20 +2262,20 @@ msgid ""
 msgstr ""
 
 #: libraries/Advisor.class.php:378
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid rule declaration on line %s"
-msgstr "Ugyldig format i CSV importen i linje %d."
+msgstr "Ugyldig deklarasjon av regel på linje %s"
 
 #: libraries/Advisor.class.php:386
 #, php-format
 msgid "Unexpected characters on line %s"
-msgstr ""
+msgstr "Uventede karakterer på linje %s"
 
 #: libraries/Advisor.class.php:400
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
-msgstr ""
+msgstr "Uventet karakter på linje %1$s. Forventet \"tab\", men fant \"%2$s\""
 
 #: libraries/Advisor.class.php:425 server_status.php:972
 msgid "per second"
@@ -2658,13 +2652,13 @@ msgstr[0] "<b>Totalt:</b> <i>%s</i> treff"
 msgstr[1] "<b>Totalt:</b> <i>%s</i> treff"
 
 #: libraries/DbSearch.class.php:351
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s match inside table <i>%s</i>"
 #| msgid_plural "%s matches inside table <i>%s</i>"
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%s treff i tabell <i>%s</i>"
-msgstr[1] "%s treff i tabell <i>%s</i>"
+msgstr[0] "%1$s treff i <strong>%2$s</strong>"
+msgstr[1] "%1$s treff i <strong>%2$s</strong>"
 
 #: libraries/DbSearch.class.php:373
 #, php-format
@@ -2718,10 +2712,9 @@ msgid "Restore column order"
 msgstr "Tilbakestill kolonnerekkefølge"
 
 #: libraries/DisplayResults.class.php:889
-#, fuzzy
 #| msgid "CHAR textarea rows"
 msgid "Start row"
-msgstr "CHAR textarea rader"
+msgstr "Startrad"
 
 #: libraries/DisplayResults.class.php:893
 #| msgid "Number of rows:"
@@ -2821,7 +2814,7 @@ msgstr "Vis binært innhold som HEX"
 #, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
-msgstr "Nettvisertransformasjon"
+msgstr "Skjul nettlesertransformasjon"
 
 #: libraries/DisplayResults.class.php:1625
 msgid "Well Known Text"
@@ -2873,10 +2866,9 @@ msgid "Print view (with full texts)"
 msgstr "Forhåndsvisning (med all tekst)"
 
 #: libraries/DisplayResults.class.php:5084 tbl_chart.php:80
-#, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
-msgstr "Vis PDF-skjema"
+msgstr "Vis diagram"
 
 #: libraries/DisplayResults.class.php:5109
 msgid "Visualize GIS data"
@@ -2960,10 +2952,9 @@ msgstr "Cookies må være slått på forbi dette punkt."
 
 #: libraries/Header.class.php:500
 #: libraries/plugins/auth/AuthenticationCookie.class.php:152
-#, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point"
-msgstr "Cookies må være slått på forbi dette punkt."
+msgstr "JavaScript må være slått på forbi dette punktet"
 
 #: libraries/Index.class.php:433 tbl_relation.php:540
 msgid "No index defined!"
@@ -3074,10 +3065,9 @@ msgid "Designer"
 msgstr "Designer"
 
 #: libraries/Menu.class.php:470
-#, fuzzy
 #| msgid "User"
 msgid "Users"
-msgstr "Bruker"
+msgstr "Brukere"
 
 #: libraries/Menu.class.php:491 server_synchronize.php:1320
 #: server_synchronize.php:1327
@@ -3099,7 +3089,7 @@ msgstr "Tegnsett"
 
 #: libraries/Menu.class.php:516 server_plugins.php:33 server_plugins.php:66
 msgid "Plugins"
-msgstr ""
+msgstr "Programtillegg"
 
 #: libraries/Menu.class.php:520
 msgid "Engines"
@@ -3168,16 +3158,16 @@ msgid "unknown table status: "
 msgstr "ukjent tabellstatus: "
 
 #: libraries/Table.class.php:757
-#, fuzzy, php-format
+#, php-format
 #| msgid "Source database"
 msgid "Source database `%s` was not found!"
-msgstr "Kildedatabase"
+msgstr "Kildedatabasen \"%s\" ble ikke funnet!"
 
 #: libraries/Table.class.php:765
-#, fuzzy, php-format
+#, php-format
 #| msgid "Theme %s not found!"
 msgid "Target database `%s` was not found!"
-msgstr "Stilen %s ble ikke funnet!"
+msgstr "Måldatabasen %s ble ikke funnet!"
 
 #: libraries/Table.class.php:1192
 msgid "Invalid database"
@@ -3193,14 +3183,14 @@ msgid "Error renaming table %1$s to %2$s"
 msgstr "Feil oppstond med endring av tabellnavn fra %1$s til %2$s"
 
 #: libraries/Table.class.php:1257
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been renamed to %s"
 msgid "Table %1$s has been renamed to %2$s."
-msgstr "Tabellen %s har fått nytt navn %s"
+msgstr "Tabellen %1$s har endret navn til %2$s."
 
 #: libraries/Table.class.php:1401
 msgid "Could not save table UI preferences"
-msgstr ""
+msgstr "Kunne ikke lagre preferanser for tabellgrensesnitt"
 
 #: libraries/Table.class.php:1425
 #, php-format
@@ -3208,6 +3198,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
+"Feil ved opprydning av preferansene for tabellgrensesnitt (se "
+"$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.class.php:1563
 #, php-format
@@ -3237,16 +3229,14 @@ msgid "Value"
 msgstr "Verdi"
 
 #: libraries/TableSearch.class.php:218
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "Søk"
+msgstr "Tabellsøk"
 
 #: libraries/TableSearch.class.php:247 libraries/insert_edit.lib.php:1373
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "Sett inn"
+msgstr "Rediger/Sett inn"
 
 #: libraries/TableSearch.class.php:778
 msgid "Select columns (at least one):"
@@ -3280,16 +3270,16 @@ msgid "Browse foreign values"
 msgstr "Se de eksterne verdiene"
 
 #: libraries/TableSearch.class.php:994
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Additional search criteria"
-msgstr "Skjul søkekriterier"
+msgstr "Ytterligere søkekriterier"
 
 #: libraries/TableSearch.class.php:1134
-#, fuzzy
 #| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
-msgstr "Utfør en \"spørring ved eksempel\" (jokertegn: \"%\")"
+msgstr ""
+"Utfør en \"spørring ved eksempel\" (jokertegn: \"%\") for to forskjellige "
+"kolonner"
 
 #: libraries/TableSearch.class.php:1138
 msgid "Do a \"query by example\" (wildcard: \"%\")"
@@ -3300,16 +3290,14 @@ msgid "Browse/Edit the points"
 msgstr ""
 
 #: libraries/TableSearch.class.php:1205
-#, fuzzy
 #| msgid "Control user"
 msgid "How to use"
-msgstr "Kontrollbruker"
+msgstr "Bruksforklaring"
 
 #: libraries/TableSearch.class.php:1210
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Tilbakestill"
+msgstr "Tilbakestill zoom"
 
 #: libraries/Theme.class.php:169
 #, php-format
@@ -3431,10 +3419,10 @@ msgid ""
 msgstr ""
 
 #: libraries/Types.class.php:325 libraries/Types.class.php:727
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "A time, range is %1$s to %2$s"
-msgstr "Feil oppstond med endring av tabellnavn fra %1$s til %2$s"
+msgstr "Et klokkeslett, rekkevidde er %1$s til %2$s"
 
 #: libraries/Types.class.php:327
 msgid ""
@@ -3539,14 +3527,13 @@ msgid "A curve with linear interpolation between points"
 msgstr ""
 
 #: libraries/Types.class.php:363
-#, fuzzy
 #| msgid "Add a polygon"
 msgid "A polygon"
-msgstr "Legg til polygon"
+msgstr "En polygon"
 
 #: libraries/Types.class.php:365
 msgid "A collection of points"
-msgstr ""
+msgstr "En samling av punkter"
 
 #: libraries/Types.class.php:367
 msgid "A collection of curves with linear interpolation between points"
@@ -3554,23 +3541,22 @@ msgstr ""
 
 #: libraries/Types.class.php:369
 msgid "A collection of polygons"
-msgstr ""
+msgstr "En samling av polygoner"
 
 #: libraries/Types.class.php:371
 msgid "A collection of geometry objects of any type"
-msgstr ""
+msgstr "En samling av geometriobjekter av enhver type"
 
 #: libraries/Types.class.php:623 libraries/Types.class.php:973
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "Numerisk"
 
 #: libraries/Types.class.php:642 libraries/Types.class.php:976
-#, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "Lag en ny indeks"
+msgstr "Dato og tid"
 
 #: libraries/Types.class.php:651 libraries/Types.class.php:979
 #, fuzzy
@@ -3602,15 +3588,15 @@ msgstr ""
 
 #: libraries/Types.class.php:715
 msgid "True or false"
-msgstr ""
+msgstr "True eller false"
 
 #: libraries/Types.class.php:717
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "Et alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/Types.class.php:719
 msgid "Stores a Universally Unique Identifier (UUID)"
-msgstr ""
+msgstr "Lagrer en Universally Unique Identifier (UUID)"
 
 #: libraries/Types.class.php:725
 msgid ""
@@ -3702,7 +3688,6 @@ msgid "Could not load default configuration from: %1$s"
 msgstr "Kunne ikke laste standard konfigurasjonsfil fra: %1$s"
 
 #: libraries/common.inc.php:588
-#, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 #| "configuration file!"
@@ -3710,7 +3695,7 @@ msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"<code>$cfg['PmaAbsoluteUri']</code> variabelen MÅ være innstilt i din "
+"[code]$cfg['PmaAbsoluteUri'][/code] variabelen MÅ være innstilt i din "
 "konfigurasjonsfil!"
 
 #: libraries/common.inc.php:621
@@ -3742,7 +3727,7 @@ msgstr "mulig sikkerhetshull"
 
 #: libraries/common.inc.php:1092
 msgid "numeric key detected"
-msgstr ""
+msgstr "numerisk nøkkel oppdaget"
 
 #: libraries/config.values.php:53 libraries/config.values.php:60
 #: libraries/config.values.php:68
@@ -4027,7 +4012,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:35
 msgid "Enable CodeMirror"
-msgstr ""
+msgstr "Aktiver CodeMirror"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
@@ -4169,6 +4154,8 @@ msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
 msgstr ""
+"Deaktiver masseoperasjoner for tabellvedlikehold, som optimalisering eller "
+"reparasjon av de valgte tabellene til en database."
 
 #: libraries/config/messages.inc.php:67
 msgid "Disable multi table maintenance"
@@ -4629,7 +4616,6 @@ msgid "Configuration storage"
 msgstr "Konfigurasjonslager"
 
 #: libraries/config/messages.inc.php:209
-#, fuzzy
 #| msgid ""
 #| "ure phpMyAdmin database to gain access to additional features, see "
 #| "Documentation.html#linked-tables]linked-tables infrastructure[/a] "
@@ -4639,22 +4625,22 @@ msgid ""
 "features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
 "storage[/a] in documentation"
 msgstr ""
-"Konfigurer phpMyAdmin databasen for å få tilgang til ekstra egenskaper, se "
-"[a@../Documentation.html#linked-tables]lenkede-tabeller infrastruktur[/a] i "
-"dokumentasjonen"
+"Sett opp phpMyAdmin konfigurasjonslager for å få tilgang til ekstra "
+"funksjonalitet, se [a@../Documentation.html#linked-tables]phpMyAdming "
+"konfigurasjonslager[/a] i dokumentasjonen"
 
 #: libraries/config/messages.inc.php:210
 msgid "Changes tracking"
 msgstr "Endringssporing"
 
 #: libraries/config/messages.inc.php:211
-#, fuzzy
 #| msgid "ng of changes made in database. Requires configured PMA database."
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
-"Sporing av endringer utført i databasen. PMA database må være konfigurert."
+"Sporing av endringer utført i databasen. Krever at phpMyAdming "
+"konfigurasjonslager er satt opp."
 
 #: libraries/config/messages.inc.php:212
 msgid "Customize export options"
@@ -4715,20 +4701,18 @@ msgid "Customize startup page"
 msgstr "Endre oppstartssiden"
 
 #: libraries/config/messages.inc.php:228
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database structure"
-msgstr "Brukerdatabase"
+msgstr "Databasestruktur"
 
 #: libraries/config/messages.inc.php:229
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:230
-#, fuzzy
 #| msgid "Database for user"
 msgid "Table structure"
-msgstr "Brukerdatabase"
+msgstr "Tabellstruktur"
 
 #: libraries/config/messages.inc.php:231
 msgid "Settings for the table structure (list of columns)"
@@ -4976,10 +4960,9 @@ msgid "Enable highlighting"
 msgstr "Aktiver utheving"
 
 #: libraries/config/messages.inc.php:297
-#, fuzzy
 #| msgid "Maximum number of tables displayed in table list"
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr "Maks antall tabeller vist i tabellista"
+msgstr "Maksimalt antall nylig brukte tabeller; sett til 0 for å deaktivere"
 
 #: libraries/config/messages.inc.php:298
 msgid "Recently used tables"
@@ -5256,16 +5239,16 @@ msgstr "Rekodingsmotor"
 #: libraries/config/messages.inc.php:356
 msgid "When browsing tables, the sorting of each table is remembered"
 msgstr ""
+"Ved visning av tabeller vil sorteringen av hver enkelt tabell bli husket"
 
 #: libraries/config/messages.inc.php:357
-#, fuzzy
 #| msgid "Rename table to"
 msgid "Remember table's sorting"
-msgstr "Endre tabellens navn"
+msgstr "Husk tabellens sortering"
 
 #: libraries/config/messages.inc.php:358
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
-msgstr ""
+msgstr "Gjenta topptekst hver n. rad; [kbd]0[/kbd] deaktiverer funksjonen"
 
 #: libraries/config/messages.inc.php:359
 msgid "Repeat headers"
@@ -5400,6 +5383,8 @@ msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
 msgstr ""
+"En alternativ vert til å holde konfigurasjonslageret; la være tom for å "
+"bruke den allerede definerte verten"
 
 #: libraries/config/messages.inc.php:388
 #, fuzzy

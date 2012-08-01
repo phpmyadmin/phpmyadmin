@@ -74,8 +74,8 @@ class PMA_TRI_getQueryFromRequest_test extends PHPUnit_Framework_TestCase
                 'INSERT',
                 'table`2',
                 'SET @A=NULL',
-                'CREATE TRIGGER `trigger` BEFORE INSERT ON `table``2` FOR EACH ROW SET @A=NULL',
-                1
+                'CREATE TRIGGER `trigger` BEFORE INSERT ON  FOR EACH ROW SET @A=NULL',
+                2
             ),
             array(
                 'foo`s@host',

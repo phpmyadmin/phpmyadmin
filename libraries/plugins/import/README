@@ -48,32 +48,56 @@ class Import[Name] extends ImportPlugin
      */
     protected function setProperties()
     {
-        // optional - get globals
-
         // set properties
-        $this->properties = array(  // set name of your plugin
-            'text' => __('[Name]'), // text to be displayed as choice
-            'extension' => '[ext]', // extension this plugin can handle
-            'options' => array(),   // array of options
-            'options_text' => __('Options')
-        );
+        $props = 'libraries/properties/';
+        // include the main class for properties for the import plug-ins
+        include_once "$props/plugins/ImportPluginProperties.class.php";
+        // include the group properties classes
+        include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
+        include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
+        // include the needed single property items
+        include_once "$props/options/items/RadioPropertyItem.class.php";
+
+        $importPluginProperties = new ImportPluginProperties();
+        $importPluginProperties->setText('[name]');             // the name of your plug-in
+        $importPluginProperties->setExtension('[ext]');         // extension this plug-in can handle
+        $importPluginProperties->setOptionsText(__('Options'));
+
+        // create the root group that will be the options field for
+        // $importPluginProperties
+        // this will be shown as "Format specific options"
+        $importSpecificOptions = new OptionsPropertyRootGroup();
+        $importSpecificOptions->setName("Format Specific Options");
+
+        // general options main group
+        $generalOptions = new OptionsPropertyMainGroup();
+        $generalOptions->setName("general_opts");
 
         // optional :
-        // type - bool or text, or begin/end group_subgroup
+        // create primary items and add them to the group
+        // type - one of the classes listed in libraries/properties/options/items/
         // name - form element name
         // text - description in GUI
-        // size - size of text element (optional)
-        // len  - maximal size of input (optional)
-        $this->properties['options'] = array(
+        // size - size of text element
+        // len  - maximal size of input
+        // values - possible values of the item
+        $leaf = new RadioPropertyItem();
+        $leaf->setName("structure_or_data");
+        $leaf->setValues(
             array(
-                'type' => 'begin_group',
-                'name' => 'general_opts'
-            ),
-            [..],
-            array(
-                'type' => 'end_group'
+                'structure' => __('structure'),
+                'data' => __('data'),
+                'structure_and_data' => __('structure and data')
             )
         );
+        $generalOptions->addProperty($leaf);
+
+        // add the main group to the root group
+        $importSpecificOptions->addProperty($generalOptions);
+
+        // set the options for the import plugin property item
+        $importPluginProperties->setOptions($importSpecificOptions);
+        $this->properties = $importPluginProperties;
     }
 
     /**
