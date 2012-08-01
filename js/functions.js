@@ -2041,7 +2041,6 @@ AJAX.registerOnload('functions.js', function() {
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('functions.js', function() {
-    $("#alterTableOrderby.ajax").die('submit');
     $("#copyTable.ajax input[name='submit_copy']").die('click');
     $("#tbl_maintenance li a.maintain_action.ajax").die('click');
 });
@@ -2050,37 +2049,6 @@ AJAX.registerTeardown('functions.js', function() {
  * Attach Ajax Event handlers for Table operations
  */
 AJAX.registerOnload('functions.js', function() {
-    /**
-     *Ajax action for submitting the "Alter table order by"
-    **/
-    $("#alterTableOrderby.ajax").live('submit', function(event) {
-        event.preventDefault();
-        var $form = $(this);
-
-        PMA_prepareForAjaxRequest($form);
-        /*variables which stores the common attributes*/
-        $.post($form.attr('action'), $form.serialize()+"&submitorderby=Go", function(data) {
-            if ($("#sqlqueryresults").length != 0) {
-                $("#sqlqueryresults").remove();
-            }
-            if ($("#result_query").length != 0) {
-                $("#result_query").remove();
-            }
-            if (data.success == true) {
-                PMA_ajaxShowMessage(data.message);
-                $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
-                $("#sqlqueryresults").html(data.sql_query);
-                $("#result_query .notice").remove();
-                $("#result_query").prepend(data.message);
-            } else {
-                var $temp_div = $("<div id='temp_div'></div>");
-                $temp_div.html(data.error);
-                var $error = $temp_div.find("code").addClass("error");
-                PMA_ajaxShowMessage($error, false);
-            }
-        }); // end $.post()
-    });//end of alterTableOrderby ajax submit
-
     /**
      *Ajax action for submitting the "Copy table"
     **/

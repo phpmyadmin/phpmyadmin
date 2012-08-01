@@ -614,8 +614,7 @@ function PMA_getHtmlForOrderTheTable($columns)
 {
     $html_output = '<div class="operations_half_width">';
     $html_output .= '<form method="post" id="alterTableOrderby" '
-        . 'action="tbl_operations.php" '
-        . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '') . '>';
+        . 'action="tbl_operations.php">';
     $html_output .= PMA_generate_common_hidden_inputs(
         $GLOBALS['db'], $GLOBALS['table']
     );
@@ -635,7 +634,8 @@ function PMA_getHtmlForOrderTheTable($columns)
         . '</select>'
         . '</fieldset>'
         . '<fieldset class="tblFooters">'
-        . '<input type="submit" name="submitorderby" value="' . __('Go') . '" />'
+        . '<input type="hidden" name="submitorderby" value="1" />'
+        . '<input type="submit" value="' . __('Go') . '" />'
         . '</fieldset>'
         . '</form>'
         . '</div>';
