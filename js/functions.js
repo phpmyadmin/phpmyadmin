@@ -2150,7 +2150,9 @@ AJAX.registerOnload('functions.js', function() {
                 //Database deleted successfully, refresh both the frames
                 PMA_reloadNavigation();
                 PMA_commonParams.set('db', '');
-                PMA_commonActions.refreshMain('index.php');
+                PMA_commonActions.refreshMain('index.php', function () {
+                    PMA_ajaxShowMessage(data.message);
+                });
             });
         });
     });
