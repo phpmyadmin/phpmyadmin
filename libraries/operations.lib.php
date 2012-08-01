@@ -881,7 +881,7 @@ function PMA_getTableRow($attribute, $label, $val)
         . '<td><input type="checkbox" name="'. $attribute .'" '
         . 'id="' . $attribute .'"'
         . 'value="1"'
-        . (isset($val) && $val == 1)
+        . (!empty($val) && $val == 1)
             ? ' checked="checked"'
             : ''
         . '/>'
