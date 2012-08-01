@@ -96,6 +96,23 @@ class PMA_Footer
     }
 
     /**
+     * Returns the url of the current page
+     *
+     * @return string
+     */
+    public function getSelfUrl($encoding = null)
+    {
+        return basename(PMA_getenv('SCRIPT_NAME')) . PMA_generate_common_url(
+            array(
+                'db' => $GLOBALS['db'],
+                'table' => $GLOBALS['table'],
+                'server' => $GLOBALS['server']
+            ),
+            $encoding
+        );
+    }
+
+    /**
      * Renders the link to open a new page
      *
      * @param string $url The url of the page
@@ -214,16 +231,12 @@ class PMA_Footer
                 $retval .= "</div>";
             }
             if (! $this->_isAjax && ! $this->_isMinimal) {
-                // Link to itself to replicate windows including frameset
-                if (! isset($GLOBALS['checked_special'])) {
-                    $GLOBALS['checked_special'] = false;
-                }
                 if (PMA_getenv('SCRIPT_NAME')
                     && empty($_POST)
-                    && ! $GLOBALS['checked_special']
+                    && empty($GLOBALS['checked_special'])
                     && ! $this->_isAjax
                 ) {
-                    $url = basename(PMA_getenv('SCRIPT_NAME')) . '?' . PMA_generate_common_url();
+                    $url = $this->getSelfUrl();
                     $this->_scripts->addCode("
                         // Store current location in hash part
                         // of URL to allow direct bookmarking

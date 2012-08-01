@@ -294,15 +294,7 @@ class PMA_Response
             $this->addJSON('_title', $this->getHeader()->getTitleTag());
             $this->addJSON('_menu', $this->getHeader()->getMenu()->getDisplay());
             $this->addJSON('_scripts', $this->getHeader()->getScripts()->getFiles());
-            $url = basename(PMA_getenv('SCRIPT_NAME')) . PMA_generate_common_url(
-                array(
-                    'db' => $GLOBALS['db'],
-                    'table' => $GLOBALS['table'],
-                    'server' => $GLOBALS['server']
-                ),
-                'unencoded'
-            );
-            $this->addJSON('_selflink', $url);
+            $this->addJSON('_selflink', $this->getFooter()->getSelfUrl('unencoded'));
             $errors = $this->_footer->getErrorMessages();
             if (strlen($errors)) {
                 $this->addJSON('_errors', $errors);
