@@ -80,12 +80,12 @@ class PMA_TableSearch
      * @var array
      */
     private $_foreigners;
-    
+
     private $_common_functions;
-    
+
     /**
      * Get CommmonFunctions
-     * 
+     *
      * @return CommonFunctions object
      */
     public function getCommonFunctions()
@@ -95,7 +95,7 @@ class PMA_TableSearch
         }
         return $this->_common_functions;
     }
-    
+
 
     /**
      * Public Constructor
@@ -548,9 +548,9 @@ EOT;
     private function _getWhereClause($criteriaValues, $names, $types, $collations,
         $func_type, $unaryFlag, $geom_func = null
     ) {
-        
+
         $common_functions = PMA_CommonFunctions::getInstance();
-        
+
         // If geometry function is set
         if ($geom_func != null && trim($geom_func) != '') {
             return $this->_getGeomWhereClause(
@@ -770,7 +770,7 @@ EOT;
         $html_output .= $this->getCommonFunctions()->getDivForSliderEffect(
             'searchoptions', __('Options')
         );
-        
+
         /**
          * Displays columns select list for selecting distinct columns in the search
          */

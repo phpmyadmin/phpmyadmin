@@ -48,6 +48,13 @@ class ImportPluginProperties extends PluginPropertyItem
      */
     private $_optionsText;
 
+    /**
+     * MIME Type
+     *
+     * @var string
+     */
+    private $_mimeType;
+
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
@@ -151,6 +158,28 @@ public function getItemType()
     public function setOptionsText($optionsText)
     {
         $this->_optionsText = $optionsText;
+    }
+
+    /**
+     * Gets the MIME type
+     *
+     * @return string
+     */
+    public function getMimeType()
+    {
+        return $this->_mimeType;
+    }
+
+    /**
+     * Sets the MIME type
+     *
+     * @param string $mimeType MIME type
+     *
+     * @return void
+     */
+    public function setMimeType($mimeType)
+    {
+        $this->_mimeType = $mimeType;
     }
 }
 ?>
