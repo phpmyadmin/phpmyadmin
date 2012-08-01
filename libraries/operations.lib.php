@@ -1233,6 +1233,14 @@ function PMA_getHtmlForDeleteDataOrTable(
      return $html_output;
 }
 
+/**
+ * Get HTML snippet for partition maintenance
+ * 
+ * @param array $partition_names    array of partition names for a specific db/table
+ * @param array $url_params         url parameters
+ * 
+ * @return string $html_output
+ */
 function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
 {
     $common_functions = PMA_CommonFunctions::getInstance();
