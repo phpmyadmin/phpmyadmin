@@ -66,6 +66,12 @@ class PMA_DisplayResults
     const TABLE_TYPE_INNO_DB = 'InnoDB';
     const ALL_ROWS = 'all';
     const QUERY_TYPE_SELECT = 'SELECT';
+    
+    const MYSQL_SCHEMA = 'mysql';
+    const USER_FIELD = 'user';
+    const HOST_FIELD = 'host';
+    const USER_TABLE = 'user';
+    const DB_TABLE = 'db';
 
 
     // Declare global fields
@@ -149,6 +155,25 @@ class PMA_DisplayResults
 
         /** array mime types information of fields */
         '_mime_map' => null
+    );
+    
+    /**
+     * This global variable represent the columns which needs to be syntax
+     * highlighted in each database tables
+     * One element of this array represent all relavant columns in all tables in
+     * one specific database
+     */
+    public $sytax_highlighting_column_info = array(
+        'information_schema' => array(
+            'processlist' => array(
+                'info' => array(
+                    'libraries/plugins/transformations/Text_Plain_Formatted.class.php',
+                    'Text_Plain_Formatted',
+                    'Text_Plain'
+                )
+            )
+        )
+        
     );
 
 
@@ -1431,7 +1456,10 @@ class PMA_DisplayResults
             && ($direction != self::DISP_DIR_HORIZONTAL_FLIPPED)
         ) {
             $comments_map = array();
-            if (isset($analyzed_sql[0]) && is_array($analyzed_sql[0]) && isset($analyzed_sql[0]['table_ref'])) {
+            if (isset($analyzed_sql[0])
+                && is_array($analyzed_sql[0])
+                && isset($analyzed_sql[0]['table_ref'])
+            ) {
                 foreach ($analyzed_sql[0]['table_ref'] as $tbl) {
                     $tb = $tbl['table_true_name'];
                     $comments_map[$tb] = PMA_getComments($this->__get('_db'), $tb);
@@ -2663,6 +2691,7 @@ class PMA_DisplayResults
         $fields_meta = $this->__get('_fields_meta');
         $highlight_columns = $this->__get('_highlight_columns');
         $mime_map = $this->__get('_mime_map');
+        $host = '';
 
         for ($j = 0; $j < $this->__get('_fields_cnt'); ++$j) {
 
@@ -2759,8 +2788,89 @@ class PMA_DisplayResults
             $transform_options['wrapper_link']
                 = PMA_generate_common_url($_url_params);
 
-            $vertical_display = $this->__get('_vertical_display');
+            $vertical_display = $this->__get('_vertical_display');            
+            
+            // Check whether the field needs to display with syntax highlighting
+            if ($this->_isNeedToSytaxHighlight($meta->name)
+                && (trim($row[$i]) != '')
+            ) {
+                
+                $parsed_sql = PMA_SQP_parse($row[$i]);                
+                $row[$i] = PMA_CommonFunctions::getInstance()->formatSql($parsed_sql, $row[$i]);
+                include_once $this->sytax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($meta->name)][0];
+                $transformation_plugin = new $this->sytax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($meta->name)][1](null);
+                
+                $transform_options  = PMA_transformation_getOptions(
+                    isset($mime_map[$meta->name]
+                        ['transformation_options']
+                    )
+                    ? $mime_map[$meta->name]
+                    ['transformation_options']
+                   : ''
+                );
 
+                $meta->mimetype = str_replace(
+                    '_', '/',
+                    $this->sytax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($meta->name)][2]
+                );
+                
+            }
+            
+            // Check for the fields need to show as link in mysql schema
+            include_once 'libraries/mysql_schema_relation.lib.php';
+            
+            // Host should initialize for create link to edit user privilages page
+            if ((strtolower($this->__get('_db')) == self::MYSQL_SCHEMA)
+                && (strtolower($meta->name) == self::HOST_FIELD)
+            ) {
+                $host = $row[$i];
+            }
+            
+            if (isset($GLOBALS['mysql_schema_relation'])
+                && ($this->_isFieldNeedToLink(strtolower($meta->name)))
+                && (strtolower($this->__get('_db')) == self::MYSQL_SCHEMA)
+            ) {
+                
+                $linking_url_params = array();                
+                $link_relations = $GLOBALS['mysql_schema_relation'][strtolower($this->__get('_table'))][strtolower($meta->name)];
+                
+                foreach ($link_relations['link_params'] as $link_param) {
+
+                    // If link param is an array, set the key and value
+                    // from that array
+                    if (is_array($link_param)) {
+                        $linking_url_params[$link_param[0]] = $link_param[1];
+                    } else {
+                        $linking_url_params[$link_param] = $row[$i];
+
+                        // To create link to edit user privilages page 
+                        if ((strtolower($meta->name) == self::USER_FIELD)
+                            && ((strtolower($this->__get('_table') == self::USER_TABLE))
+                            || (strtolower($this->__get('_table') == self::DB_TABLE)))
+                        ) {
+                            $linking_url_params['hostname'] = $host;
+                        }
+                    }
+
+                }
+                
+                $linking_url = $link_relations['default_page']
+                    . PMA_generate_common_url($linking_url_params);
+                include_once "libraries/plugins/transformations/Text_Plain_Link.class.php";
+                $transformation_plugin = new Text_Plain_Link(null);
+                
+                $transform_options  = array(
+                    0 => $linking_url,
+                    2 => true
+                );
+
+                $meta->mimetype = str_replace(
+                    '_', '/',
+                    'Text/Plain'
+                );
+                
+            }
+            
             if ($meta->numeric == 1) {
                 // n u m e r i c
 
@@ -2950,6 +3060,36 @@ class PMA_DisplayResults
         $this->__set('_vertical_display', $vertical_display);
 
     } // end of the '_gatherLinksForLaterOutputs()' function
+
+    
+    /**
+     * Check whether any field is marked as need to syntax highlight
+     *
+     * @param string $field field to check
+     *
+     * @return boolean 
+     */
+    private function _isNeedToSytaxHighlight($field) {
+        if (! empty($this->sytax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($field)])) {
+            return true;
+        }
+        return false;
+    }
+    
+    
+    /**
+     * Check whether the field needs to be link
+     *
+     * @param string $field field to check
+     *
+     * @return boolean 
+     */
+    private function _isFieldNeedToLink($field) {
+        if (! empty($GLOBALS['mysql_schema_relation'][strtolower($this->__get('_table'))][$field])) {
+            return true;
+        }
+        return false;
+    }
 
 
     /**
@@ -3457,6 +3597,7 @@ class PMA_DisplayResults
                 // replacements will be made
                 if ((PMA_strlen($column) > $GLOBALS['cfg']['LimitChars'])
                     && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
+                    && ! $this->_isNeedToSytaxHighlight(strtolower($meta->name))
                 ) {
                     $column = PMA_substr($column, 0, $GLOBALS['cfg']['LimitChars'])
                         . '...';
@@ -3652,7 +3793,8 @@ class PMA_DisplayResults
         $is_analyse = $this->__get('_is_analyse');
         $field_flags = PMA_DBI_field_flags($dt_result, $col_index);
         if (stristr($field_flags, self::BINARY_FIELD)
-            && $GLOBALS['cfg']['ProtectBinary'] === 'all'
+            && ($GLOBALS['cfg']['ProtectBinary'] == 'all'
+            || $GLOBALS['cfg']['ProtectBinary'] == 'noblob')
         ) {
             $class = str_replace('grid_edit', '', $class);
         }

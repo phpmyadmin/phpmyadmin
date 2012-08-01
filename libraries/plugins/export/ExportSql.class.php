@@ -22,55 +22,6 @@ require_once "libraries/plugins/ExportPlugin.class.php";
 class ExportSql extends ExportPlugin
 {
     /**
-     * MySQL charset map
-     *
-     * @var array
-     */
-    private $_mysqlCharsetMap;
-
-    /**
-     * SQL for dropping a table
-     *
-     * @var string
-     */
-    private $_sqlDropTable;
-
-    /**
-     * SQL Backquotes
-     *
-     * @var bool
-     */
-    private $_sqlBackquotes;
-
-    /**
-     * SQL Constraints
-     *
-     * @var string
-     */
-    private $_sqlConstraints;
-
-    /**
-     * The text of the SQL query
-     *
-     * @var string
-     */
-    private $_sqlConstraintsQuery;
-
-    /**
-     * SQL for dropping foreign keys
-     *
-     * @var string
-     */
-    private $_sqlDropForeignKeys;
-
-    /**
-     * The number of the current row
-     *
-     * @var int
-     */
-    private $_currentRow;
-
-    /**
      * Constructor
      */
     public function __construct()
@@ -84,33 +35,6 @@ class ExportSql extends ExportPlugin
     }
 
     /**
-     * Initialize the local variables that are used specific for export SQL
-     *
-     * @global array  $mysql_charset_map
-     * @global string $sql_drop_table
-     * @global bool   $sql_backquotes
-     * @global string $sql_constraints
-     * @global string $sql_constraints_query
-     * @global string $sql_drop_foreign_keys
-     * @global int    $current_row
-     *
-     * @return void
-     */
-    protected function initSpecificVariables()
-    {
-        global $sql_drop_table;
-        global $sql_backquotes;
-        global $sql_constraints;
-        global $sql_constraints_query;
-        global $sql_drop_foreign_keys;
-        $this->_setSqlDropTable($sql_drop_table);
-        $this->_setSqlBackquotes($sql_backquotes);
-        $this->_setSqlConstraints($sql_constraints);
-        $this->_setSqlConstraintsQuery($sql_constraints_query);
-        $this->_setSqlDropForeignKeys($sql_drop_foreign_keys);
-    }
-
-    /**
      * Sets the export SQL properties
      *
      * @return void
@@ -118,7 +42,6 @@ class ExportSql extends ExportPlugin
     protected function setProperties()
     {
         global $plugin_param;
-        $this->setPluginParam($plugin_param);
 
         $hide_sql = false;
         $hide_structure = false;
@@ -131,15 +54,15 @@ class ExportSql extends ExportPlugin
 
         if (! $hide_sql) {
             $props = 'libraries/properties/';
-            require_once "$props/plugins/ExportPluginProperties.class.php";
-            require_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
-            require_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
-            require_once "$props/options/groups/OptionsPropertySubgroup.class.php";
-            require_once "$props/options/items/BoolPropertyItem.class.php";
-            require_once "$props/options/items/MessageOnlyPropertyItem.class.php";
-            require_once "$props/options/items/RadioPropertyItem.class.php";
-            require_once "$props/options/items/SelectPropertyItem.class.php";
-            require_once "$props/options/items/TextPropertyItem.class.php";
+            include_once "$props/plugins/ExportPluginProperties.class.php";
+            include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
+            include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
+            include_once "$props/options/groups/OptionsPropertySubgroup.class.php";
+            include_once "$props/options/items/BoolPropertyItem.class.php";
+            include_once "$props/options/items/MessageOnlyPropertyItem.class.php";
+            include_once "$props/options/items/RadioPropertyItem.class.php";
+            include_once "$props/options/items/SelectPropertyItem.class.php";
+            include_once "$props/options/items/TextPropertyItem.class.php";
 
             $exportPluginProperties = new ExportPluginProperties();
             $exportPluginProperties->setText('SQL');
@@ -162,24 +85,28 @@ class ExportSql extends ExportPlugin
             $subgroup->setName("include_comments");
             $leaf = new BoolPropertyItem();
             $leaf->setName('include_comments');
-            $leaf->setText(__(
-                'Display comments <i>(includes info such as export'
-                . ' timestamp, PHP version, and server version)</i>'
-            ));
+            $leaf->setText(
+                __(
+                    'Display comments <i>(includes info such as export'
+                    . ' timestamp, PHP version, and server version)</i>'
+                )
+            );
             $subgroup->setSubgroupHeader($leaf);
 
             $leaf = new TextPropertyItem();
             $leaf->setName('header_comment');
-            $leaf->setText(__(
-                'Additional custom header comment (\n splits lines):'
-            ));
+            $leaf->setText(
+                __('Additional custom header comment (\n splits lines):')
+            );
             $subgroup->addProperty($leaf);
             $leaf = new BoolPropertyItem();
             $leaf->setName('dates');
-            $leaf->setText(__(
-                'Include a timestamp of when databases were created, last'
-                . ' updated, and last checked'
-            ));
+            $leaf->setText(
+                __(
+                    'Include a timestamp of when databases were created, last'
+                    . ' updated, and last checked'
+                )
+            );
             $subgroup->addProperty($leaf);
             if (! empty($GLOBALS['cfgRelation']['relation'])) {
                 $leaf = new BoolPropertyItem();
@@ -199,22 +126,26 @@ class ExportSql extends ExportPlugin
             $leaf = new BoolPropertyItem();
             $leaf->setName("use_transaction");
             $leaf->setText(__('Enclose export in a transaction'));
-            $leaf->setDoc(array(
-                'programs',
-                'mysqldump',
-                'option_mysqldump_single-transaction'
-            ));
+            $leaf->setDoc(
+                array(
+                    'programs',
+                    'mysqldump',
+                    'option_mysqldump_single-transaction'
+                )
+            );
             $generalOptions->addProperty($leaf);
 
             // disable foreign key checks
             $leaf = new BoolPropertyItem();
             $leaf->setName("disable_fk");
             $leaf->setText(__('Disable foreign key checks'));
-            $leaf->setDoc(array(
-                'manual_MySQL_Database_Administration',
-                'server-system-variables',
-                'sysvar_foreign_key_checks'
-            ));
+            $leaf->setDoc(
+                array(
+                    'manual_MySQL_Database_Administration',
+                    'server-system-variables',
+                    'sysvar_foreign_key_checks'
+                )
+            );
             $generalOptions->addProperty($leaf);
 
             // compatibility maximization
@@ -227,15 +158,19 @@ class ExportSql extends ExportPlugin
 
                 $leaf = new SelectPropertyItem();
                 $leaf->setName("compatibility");
-                $leaf->setText(__(
-                    'Database system or older MySQL server to maximize output'
-                    . ' compatibility with:'
-                ));
+                $leaf->setText(
+                    __(
+                        'Database system or older MySQL server to maximize output'
+                        . ' compatibility with:'
+                    )
+                );
                 $leaf->setValues($values);
-                $leaf->setDoc(array(
-                    'manual_MySQL_Database_Administration',
-                    'Server_SQL_mode'
-                ));
+                $leaf->setDoc(
+                    array(
+                        'manual_MySQL_Database_Administration',
+                        'Server_SQL_mode'
+                    )
+                );
                 $generalOptions->addProperty($leaf);
 
                 unset($values);
@@ -245,9 +180,9 @@ class ExportSql extends ExportPlugin
             if ($plugin_param['export_type'] == 'server') {
                 $leaf = new BoolPropertyItem();
                 $leaf->setName("drop_database");
-                $leaf->setText(sprintf(
-                    __('Add %s statement'), '<code>DROP DATABASE</code>'
-                ));
+                $leaf->setText(
+                    sprintf(__('Add %s statement'), '<code>DROP DATABASE</code>')
+                );
                 $generalOptions->addProperty($leaf);
             }
 
@@ -257,11 +192,13 @@ class ExportSql extends ExportPlugin
             $subgroup->setText("Dump table");
             $leaf = new RadioPropertyItem();
             $leaf->setName('structure_or_data');
-            $leaf->setValues(array(
-                'structure' => __('structure'),
-                'data' => __('data'),
-                'structure_and_data' => __('structure and data')
-            ));
+            $leaf->setValues(
+                array(
+                    'structure' => __('structure'),
+                    'data' => __('data'),
+                    'structure_and_data' => __('structure and data')
+                )
+            );
             $subgroup->setSubgroupHeader($leaf);
             $generalOptions->addProperty($subgroup);
 
@@ -307,12 +244,14 @@ class ExportSql extends ExportPlugin
                 if (! PMA_DRIZZLE) {
                     $leaf = new BoolPropertyItem();
                     $leaf->setName('procedure_function');
-                    $leaf->setText(sprintf(
-                        __('Add %s statement'),
-                        '<code>CREATE PROCEDURE / FUNCTION'
-                        . (PMA_MYSQL_INT_VERSION > 50100
-                        ? ' / EVENT</code>' : '</code>')
-                    ));
+                    $leaf->setText(
+                        sprintf(
+                            __('Add %s statement'),
+                            '<code>CREATE PROCEDURE / FUNCTION'
+                            . (PMA_MYSQL_INT_VERSION > 50100
+                            ? ' / EVENT</code>' : '</code>')
+                        )
+                    );
                     $subgroup->addProperty($leaf);
                 }
 
@@ -335,11 +274,13 @@ class ExportSql extends ExportPlugin
 
                 $leaf = new BoolPropertyItem();
                 $leaf->setName("backquotes");
-                $leaf->setText(__(
-                    'Enclose table and column names with backquotes '
-                    . '<i>(Protects column and table names formed with'
-                    . ' special characters or keywords)</i>'
-                ));
+                $leaf->setText(
+                    __(
+                        'Enclose table and column names with backquotes '
+                        . '<i>(Protects column and table names formed with'
+                        . ' special characters or keywords)</i>'
+                    )
+                );
 
                 $structureOptions->addProperty($leaf);
 
@@ -368,19 +309,23 @@ class ExportSql extends ExportPlugin
                 $leaf = new BoolPropertyItem();
                 $leaf->setName("delayed");
                 $leaf->setText(__('<code>INSERT DELAYED</code> statements'));
-                $leaf->setDoc(array(
-                    'manual_MySQL_Database_Administration',
-                    'insert_delayed'
-                ));
+                $leaf->setDoc(
+                    array(
+                        'manual_MySQL_Database_Administration',
+                        'insert_delayed'
+                    )
+                );
                 $subgroup->addProperty($leaf);
             }
             $leaf = new BoolPropertyItem();
             $leaf->setName("ignore");
             $leaf->setText(__('<code>INSERT IGNORE</code> statements'));
-            $leaf->setDoc(array(
-                    'manual_MySQL_Database_Administration',
-                    'insert'
-            ));
+            $leaf->setDoc(
+                array(
+                        'manual_MySQL_Database_Administration',
+                        'insert'
+                )
+            );
             $subgroup->addProperty($leaf);
             $dataOptions->addProperty($subgroup);
 
@@ -388,11 +333,13 @@ class ExportSql extends ExportPlugin
             $leaf = new SelectPropertyItem();
             $leaf->setName("type");
             $leaf->setText(__('Function to use when dumping data:'));
-            $leaf->setValues(array(
-                'INSERT' => 'INSERT',
-                'UPDATE' => 'UPDATE',
-                'REPLACE' => 'REPLACE'
-            ));
+            $leaf->setValues(
+                array(
+                    'INSERT' => 'INSERT',
+                    'UPDATE' => 'UPDATE',
+                    'REPLACE' => 'REPLACE'
+                )
+            );
             $dataOptions->addProperty($leaf);
 
             /* Syntax to use when inserting data */
@@ -403,27 +350,29 @@ class ExportSql extends ExportPlugin
             $leaf = new RadioPropertyItem();
             $leaf->setName("insert_syntax");
             $leaf->setText(__('<code>INSERT IGNORE</code> statements'));
-            $leaf->setValues(array(
-                'complete' => __(
-                    'include column names in every <code>INSERT</code> statement'
-                    . ' <br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO'
-                    . ' tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>'
-                ),
-                'extended' => __(
-                    'insert multiple rows in every <code>INSERT</code> statement'
-                    . '<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO'
-                    . ' tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>'
-                ),
-                'both' => __(
-                    'both of the above<br /> &nbsp; &nbsp; &nbsp; Example:'
-                    . ' <code>INSERT INTO tbl_name (col_A,col_B) VALUES (1,2,3),'
-                    . ' (4,5,6), (7,8,9)</code>'
-                ),
-                'none' => __(
-                    'neither of the above<br /> &nbsp; &nbsp; &nbsp; Example:'
-                    . ' <code>INSERT INTO tbl_name VALUES (1,2,3)</code>'
+            $leaf->setValues(
+                array(
+                    'complete' => __(
+                        'include column names in every <code>INSERT</code> statement'
+                        . ' <br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO'
+                        . ' tbl_name (col_A,col_B,col_C) VALUES (1,2,3)</code>'
+                    ),
+                    'extended' => __(
+                        'insert multiple rows in every <code>INSERT</code> statement'
+                        . '<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO'
+                        . ' tbl_name VALUES (1,2,3), (4,5,6), (7,8,9)</code>'
+                    ),
+                    'both' => __(
+                        'both of the above<br /> &nbsp; &nbsp; &nbsp; Example:'
+                        . ' <code>INSERT INTO tbl_name (col_A,col_B) VALUES (1,2,3),'
+                        . ' (4,5,6), (7,8,9)</code>'
+                    ),
+                    'none' => __(
+                        'neither of the above<br /> &nbsp; &nbsp; &nbsp; Example:'
+                        . ' <code>INSERT INTO tbl_name VALUES (1,2,3)</code>'
+                    )
                 )
-            ));
+            );
             $subgroup->addProperty($leaf);
             $dataOptions->addProperty($subgroup);
 
@@ -436,10 +385,12 @@ class ExportSql extends ExportPlugin
             // Dump binary columns in hexadecimal
             $leaf = new BoolPropertyItem();
             $leaf->setName("hex_for_blob");
-            $leaf->setText(__(
-                'Dump binary columns in hexadecimal notation'
-                . ' <i>(for example, "abc" becomes 0x616263)</i>'
-            ));
+            $leaf->setText(
+                __(
+                    'Dump binary columns in hexadecimal notation'
+                    . ' <i>(for example, "abc" becomes 0x616263)</i>'
+                )
+            );
             $dataOptions->addProperty($leaf);
 
             // Drizzle works only with UTC timezone
@@ -447,11 +398,13 @@ class ExportSql extends ExportPlugin
                 // Dump time in UTC
                 $leaf = new BoolPropertyItem();
                 $leaf->setName("utc_time");
-                $leaf->setText(__(
-                    'Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns'
-                    . ' to be dumped and reloaded between servers in different'
-                    . ' time zones)</i>'
-                ));
+                $leaf->setText(
+                    __(
+                        'Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns'
+                        . ' to be dumped and reloaded between servers in different'
+                        . ' time zones)</i>'
+                    )
+                );
                 $dataOptions->addProperty($leaf);
             }
 
@@ -487,7 +440,6 @@ class ExportSql extends ExportPlugin
     public function exportRoutines($db)
     {
         global $crlf;
-        $this->setCrlf($crlf);
 
         $common_functions = PMA_CommonFunctions::getInstance();
         $text = '';
@@ -588,9 +540,7 @@ class ExportSql extends ExportPlugin
      */
     public function exportFooter()
     {
-        global $crlf;
-        $this->setCrlf($crlf);
-        $mysql_charset_map = $this->_getMysqlCharsetMap();
+        global $crlf, $mysql_charset_map;
 
         $foot = '';
 
@@ -636,9 +586,6 @@ class ExportSql extends ExportPlugin
     {
         global $crlf, $cfg;
         global $mysql_charset_map;
-        $this->setCrlf($crlf);
-        $this->setCfg($cfg);
-        $this->_setMysqlCharsetMap($mysql_charset_map);
 
         if (isset($GLOBALS['sql_compatibility'])) {
             $tmp_compat = $GLOBALS['sql_compatibility'];
@@ -746,7 +693,6 @@ class ExportSql extends ExportPlugin
         global $crlf;
 
         $common_functions = PMA_CommonFunctions::getInstance();
-        $this->setCrlf($crlf);
 
         if (isset($GLOBALS['sql_drop_database'])) {
             if (! PMA_exportOutputHandler(
@@ -759,7 +705,8 @@ class ExportSql extends ExportPlugin
             }
         }
         $create_query = 'CREATE DATABASE '
-            . (isset($GLOBALS['sql_backquotes']) ? $common_functions->backquote($db) : $db);
+            . (isset($GLOBALS['sql_backquotes']) 
+            ? $common_functions->backquote($db) : $db);
         $collation = PMA_getDbCollation($db);
         if (PMA_DRIZZLE) {
             $create_query .= ' COLLATE ' . $collation;
@@ -804,7 +751,8 @@ class ExportSql extends ExportPlugin
             . $this->_exportComment(
                 __('Database') . ': '
                 . (isset($GLOBALS['sql_backquotes'])
-                ? PMA_CommonFunctions::getInstance()->backquote($db) : '\'' . $db . '\'')
+                ? PMA_CommonFunctions::getInstance()->backquote($db)
+                : '\'' . $db . '\'')
             )
             . $this->_exportComment();
         return PMA_exportOutputHandler($head);
@@ -820,7 +768,6 @@ class ExportSql extends ExportPlugin
     public function exportDBFooter($db)
     {
         global $crlf;
-        $this->setCrlf($crlf);
 
         $common_functions = PMA_CommonFunctions::getInstance();
         $result = true;
@@ -858,7 +805,8 @@ class ExportSql extends ExportPlugin
 
                 foreach ($event_names as $event_name) {
                     if (! empty($GLOBALS['sql_drop_table'])) {
-                        $text .= 'DROP EVENT ' . $common_functions->backquote($event_name)
+                        $text .= 'DROP EVENT '
+                            . $common_functions->backquote($event_name)
                             . $delimiter . $crlf;
                     }
                     $text .= PMA_DBI_get_definition($db, 'EVENT', $event_name)
@@ -890,7 +838,8 @@ class ExportSql extends ExportPlugin
         $common_functions = PMA_CommonFunctions::getInstance();
         $create_query = '';
         if (! empty($GLOBALS['sql_drop_table'])) {
-            $create_query .= 'DROP VIEW IF EXISTS ' . $common_functions->backquote($view)
+            $create_query .= 'DROP VIEW IF EXISTS '
+                . $common_functions->backquote($view)
                 . ';' . $crlf;
         }
 
@@ -905,7 +854,8 @@ class ExportSql extends ExportPlugin
         $tmp = array();
         $columns = PMA_DBI_get_columns_full($db, $view);
         foreach ($columns as $column_name => $definition) {
-            $tmp[] = $common_functions->backquote($column_name) . ' ' . $definition['Type'] . $crlf;
+            $tmp[] = $common_functions->backquote($column_name) . ' ' .
+                $definition['Type'] . $crlf;
         }
         $create_query .= implode(',', $tmp) . ');';
         return($create_query);
@@ -918,7 +868,8 @@ class ExportSql extends ExportPlugin
      * @param string $table         the table name
      * @param string $crlf          the end of line sequence
      * @param string $error_url     the url to go back in case of error
-     * @param bool   $show_dates    whether to include creation/update/check dates
+     * @param bool   $show_dates    whether to include creation/update/check
+     *                              dates
      * @param bool   $add_semicolon whether to add semicolon and end-of-line at
      *                              the end
      * @param bool   $view          whether we're handling a view
@@ -934,13 +885,8 @@ class ExportSql extends ExportPlugin
         $add_semicolon = true,
         $view = false
     ) {
-        $this->initSpecificVariables();
-
-        $sql_drop_table = $this->_getSqlDropTable();
-        $sql_backquotes = $this->_getSqlBackquotes();
-        $sql_constraints = $this->_getSqlConstraints();
-        $sql_constraints_query = $this->_getSqlConstraintsQuery();
-        $sql_drop_foreign_keys = $this->_getSqlDropForeignKeys();
+        global $sql_drop_table, $sql_backquotes, $sql_constraints,
+            $sql_constraints_query, $sql_drop_foreign_keys;
 
         $common_functions = PMA_CommonFunctions::getInstance();
         $schema_create = '';
@@ -949,8 +895,8 @@ class ExportSql extends ExportPlugin
 
         // need to use PMA_DBI_QUERY_STORE with PMA_DBI_num_rows() in mysqli
         $result = PMA_DBI_query(
-            'SHOW TABLE STATUS FROM ' . $common_functions->backquote($db) . ' LIKE \''
-            . $common_functions->sqlAddSlashes($table, true) . '\'',
+            'SHOW TABLE STATUS FROM ' . $common_functions->backquote($db)
+            . ' LIKE \'' . $common_functions->sqlAddSlashes($table, true) . '\'',
             null,
             PMA_DBI_QUERY_STORE
         );
@@ -964,8 +910,10 @@ class ExportSql extends ExportPlugin
                             TABLE_CREATION_TIME AS Create_time,
                             TABLE_UPDATE_TIME AS Update_time
                         FROM data_dictionary.TABLES
-                        WHERE TABLE_SCHEMA = '" . $common_functions->sqlAddSlashes($db) . "'
-                          AND TABLE_NAME = '" . $common_functions->sqlAddSlashes($table) . "'";
+                        WHERE TABLE_SCHEMA = '"
+                        . $common_functions->sqlAddSlashes($db) . "'
+                          AND TABLE_NAME = '"
+                        . $common_functions->sqlAddSlashes($table) . "'";
                     $tmpres = array_merge(PMA_DBI_fetch_single_row($sql), $tmpres);
                 }
                 // Here we optionally add the AUTO_INCREMENT next value,
@@ -1027,7 +975,8 @@ class ExportSql extends ExportPlugin
         // no need to generate a DROP VIEW here, it was done earlier
         if (! empty($sql_drop_table) && ! PMA_Table::isView($db, $table)) {
             $schema_create .= 'DROP TABLE IF EXISTS '
-                . $common_functions->backquote($table, $sql_backquotes) . ';' . $crlf;
+                . $common_functions->backquote($table, $sql_backquotes) . ';'
+                . $crlf;
         }
 
         // Complete table dump,
@@ -1052,7 +1001,8 @@ class ExportSql extends ExportPlugin
         // produce a displayable result for the default value of a BIT
         // column, nor does the mysqldump command. See MySQL bug 35796
         $result = PMA_DBI_try_query(
-            'SHOW CREATE TABLE ' . $common_functions->backquote($db) . '.' . $common_functions->backquote($table)
+            'SHOW CREATE TABLE ' . $common_functions->backquote($db) . '.'
+            . $common_functions->backquote($table)
         );
         // an error can happen, for example the table is crashed
         $tmp_error = PMA_DBI_getError();
@@ -1264,12 +1214,9 @@ class ExportSql extends ExportPlugin
         $do_relation = false,
         $do_mime = false
     ) {
-        global $cfgRelation;
+        global $cfgRelation, $sql_backquotes;
 
         $common_functions = PMA_CommonFunctions::getInstance();
-        $this->setCfgRelation($cfgRelation);
-        $sql_backquotes = $this->_getSqlBackquotes();
-
         $schema_create = '';
 
         // Check if we can use Relations
@@ -1309,7 +1256,10 @@ class ExportSql extends ExportPlugin
                     )
                     . $this->_exportComment(
                         '      '
-                        . $common_functions->backquote($mime['mimetype'], $sql_backquotes)
+                        . $common_functions->backquote(
+                            $mime['mimetype'],
+                            $sql_backquotes
+                        )
                     );
             }
             $schema_create .= $this->_exportComment();
@@ -1331,9 +1281,15 @@ class ExportSql extends ExportPlugin
                     )
                     . $this->_exportComment(
                         '      '
-                        . $common_functions->backquote($rel['foreign_table'], $sql_backquotes)
+                        . $common_functions->backquote(
+                            $rel['foreign_table'],
+                            $sql_backquotes
+                        )
                         . ' -> '
-                        . $common_functions->backquote($rel['foreign_field'], $sql_backquotes)
+                        . $common_functions->backquote(
+                            $rel['foreign_field'],
+                            $sql_backquotes
+                        )
                     );
             }
             $schema_create .= $this->_exportComment();
@@ -1354,11 +1310,12 @@ class ExportSql extends ExportPlugin
      *                            'stand_in'
      * @param string $export_type 'server', 'database', 'table'
      * @param bool   $relation    whether to include relation comments
-     * @param bool   $comments    whether to include the pmadb-style column comments
-     *                            as comments in the structure; this is deprecated
-     *                            but the parameter is left here because export.php
-     *                            calls exportStructure() also for other export
-     *                            types which use this parameter
+     * @param bool   $comments    whether to include the pmadb-style column
+     *                            comments as comments in the structure; this is
+     *                            deprecated but the parameter is left here
+     *                            because export.php calls exportStructure()
+     *                            also for other export types which use this
+     *                            parameter
      * @param bool   $mime        whether to include mime comments
      * @param bool   $dates       whether to include creation/update/check dates
      *
@@ -1461,9 +1418,7 @@ class ExportSql extends ExportPlugin
      */
     public function exportData($db, $table, $crlf, $error_url, $sql_query)
     {
-        global $current_row;
-        $this->_setCurrentRow($current_row);
-        $sql_backquotes = $this->_getSqlBackquotes();
+        global $current_row, $sql_backquotes;
 
         $common_functions = PMA_CommonFunctions::getInstance();
         $formatted_table_name = (isset($GLOBALS['sql_backquotes']))
@@ -1535,7 +1490,10 @@ class ExportSql extends ExportPlugin
                     $schema_insert .= 'IGNORE ';
                 }
                 // avoid EOL blank
-                $schema_insert .= $common_functions->backquote($table, $sql_backquotes) . ' SET';
+                $schema_insert .= $common_functions->backquote(
+                    $table,
+                    $sql_backquotes
+                ) . ' SET';
             } else {
                 // insert or replace
                 if (isset($GLOBALS['sql_type'])
@@ -1566,7 +1524,10 @@ class ExportSql extends ExportPlugin
                     && $sql_command == 'INSERT'
                 ) {
                     $truncate = 'TRUNCATE TABLE '
-                        . $common_functions->backquote($table, $sql_backquotes) . ";";
+                        . $common_functions->backquote(
+                            $table,
+                            $sql_backquotes
+                        ) . ";";
                     $truncatehead = $this->_possibleCRLF()
                         . $this->_exportComment()
                         . $this->_exportComment(
@@ -1669,7 +1630,8 @@ class ExportSql extends ExportPlugin
                         // something else -> treat as a string
                         $values[] = '\''
                             . str_replace(
-                                $search, $replace, $common_functions->sqlAddSlashes($row[$j])
+                                $search, $replace,
+                                $common_functions->sqlAddSlashes($row[$j])
                             )
                             . '\'';
                     } // end if
@@ -1755,161 +1717,4 @@ class ExportSql extends ExportPlugin
 
         return true;
     } // end of the 'exportData()' function
-
-
-    /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
-
-    /**
-     * Gets the MySQL charset map
-     *
-     * @return array
-     */
-    private function _getMysqlCharsetMap()
-    {
-        return $this->_mysqlCharsetMap;
-    }
-
-    /**
-     * Sets the MySQL charset map
-     *
-     * @param string $mysqlCharsetMap file charset
-     *
-     * @return void
-     */
-    private function _setMysqlCharsetMap($mysqlCharsetMap)
-    {
-        $this->_mysqlCharsetMap = $mysqlCharsetMap;
-    }
-
-    /**
-     * Gets the SQL for dropping a table
-     *
-     * @return string
-     */
-    private function _getSqlDropTable()
-    {
-        return $this->_sqlDropTable;
-    }
-
-    /**
-     * Sets the SQL for dropping a table
-     *
-     * @param string $sqlDropTable SQL for dropping a table
-     *
-     * @return void
-     */
-    private function _setSqlDropTable($sqlDropTable)
-    {
-        $this->_sqlDropTable = $sqlDropTable;
-    }
-
-    /**
-     * Gets the SQL Backquotes
-     *
-     * @return bool
-     */
-    private function _getSqlBackquotes()
-    {
-        return $this->_sqlBackquotes;
-    }
-
-    /**
-     * Sets the SQL Backquotes
-     *
-     * @param string $sqlBackquotes SQL Backquotes
-     *
-     * @return void
-     */
-    private function _setSqlBackquotes($sqlBackquotes)
-    {
-        $this->_sqlBackquotes = $sqlBackquotes;
-    }
-
-    /**
-     * Gets the SQL Constraints
-     *
-     * @return void
-     */
-    private function _getSqlConstraints()
-    {
-        return $this->_sqlConstraints;
-    }
-
-    /**
-     * Sets the SQL Constraints
-     *
-     * @param string $sqlConstraints SQL Constraints
-     *
-     * @return void
-     */
-    private function _setSqlConstraints($sqlConstraints)
-    {
-        $this->_sqlConstraints = $sqlConstraints;
-    }
-
-    /**
-     * Gets the text of the SQL constraints query
-     *
-     * @return void
-     */
-    private function _getSqlConstraintsQuery()
-    {
-        return $this->_sqlConstraintsQuery;
-    }
-
-    /**
-     * Sets the text of the SQL constraints query
-     *
-     * @param string $sqlConstraintsQuery text of the SQL constraints query
-     *
-     * @return void
-     */
-    private function _setSqlConstraintsQuery($sqlConstraintsQuery)
-    {
-        $this->_sqlConstraintsQuery = $sqlConstraintsQuery;
-    }
-
-    /**
-     * Gets the SQL for dropping foreign keys
-     *
-     * @return void
-     */
-    private function _getSqlDropForeignKeys()
-    {
-        return $this->_sqlDropForeignKeys;
-    }
-
-    /**
-     * Sets the SQL SQL for dropping foreign keys
-     *
-     * @param string $sqlDropForeignKeys SQL for dropping foreign keys
-     *
-     * @return void
-     */
-    private function _setSqlDropForeignKeys($sqlDropForeignKeys)
-    {
-        $this->_sqlDropForeignKeys = $sqlDropForeignKeys;
-    }
-
-    /**
-     * The number of the current row
-     *
-     * @return int
-     */
-    private function _getCurrentRow()
-    {
-        return $this->_currentRow;
-    }
-
-    /**
-     * Sets the number of the current row
-     *
-     * @param string $currentRow number of the current row
-     *
-     * @return void
-     */
-    private function _setCurrentRow($currentRow)
-    {
-        $this->_currentRow = $currentRow;
-    }
 }

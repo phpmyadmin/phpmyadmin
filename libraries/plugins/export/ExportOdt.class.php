@@ -38,7 +38,7 @@ class ExportOdt extends ExportPlugin
      */
     protected function setProperties()
     {
-        $plugin_param = $this->getPluginParam();
+        global $plugin_param;
         $hide_structure = false;
         if ($plugin_param['export_type'] == 'table'
             && ! $plugin_param['single_table']
@@ -47,17 +47,19 @@ class ExportOdt extends ExportPlugin
         }
 
         $props = 'libraries/properties/';
-        require_once "$props/plugins/ExportPluginProperties.class.php";
-        require_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
-        require_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
-        require_once "$props/options/items/TextPropertyItem.class.php";
-        require_once "$props/options/items/BoolPropertyItem.class.php";
-        require_once "$props/options/items/HiddenPropertyItem.class.php";
+        include_once "$props/plugins/ExportPluginProperties.class.php";
+        include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
+        include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
+        include_once "$props/options/items/TextPropertyItem.class.php";
+        include_once "$props/options/items/BoolPropertyItem.class.php";
+        include_once "$props/options/items/HiddenPropertyItem.class.php";
 
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('Open Document Text');
         $exportPluginProperties->setExtension('odt');
-        $exportPluginProperties->setMimeType('application/vnd.oasis.opendocument.text');
+        $exportPluginProperties->setMimeType(
+            'application/vnd.oasis.opendocument.text'
+        );
         $exportPluginProperties->setForceFile(true);
         $exportPluginProperties->setOptionsText(__('Options'));
 
@@ -74,11 +76,13 @@ class ExportOdt extends ExportPlugin
         // create primary items and add them to the group
         $leaf = new RadioPropertyItem();
         $leaf->setName("structure_or_data");
-        $leaf->setValues(array(
-            'structure' => __('structure'),
-            'data' => __('data'),
-            'structure_and_data' => __('structure and data')
-        ));
+        $leaf->setValues(
+            array(
+                'structure' => __('structure'),
+                'data' => __('data'),
+                'structure_and_data' => __('structure and data')
+            )
+        );
         $dumpWhat->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($dumpWhat);
@@ -236,7 +240,6 @@ class ExportOdt extends ExportPlugin
     public function exportData($db, $table, $crlf, $error_url, $sql_query)
     {
         global $what;
-        $this->setWhat($what);
 
         // Gets the data from the database
         $result = PMA_DBI_query($sql_query, null, PMA_DBI_QUERY_UNBUFFERED);
@@ -407,7 +410,6 @@ class ExportOdt extends ExportPlugin
         $view = false
     ) {
         global $cfgRelation;
-        $this->setCfgRelation($cfgRelation);
 
         /**
          * Gets fields properties

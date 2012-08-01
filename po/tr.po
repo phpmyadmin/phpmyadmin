@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-27 10:40+0200\n"
-"PO-Revision-Date: 2012-07-26 02:11+0200\n"
+"PO-Revision-Date: 2012-07-27 17:50+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: turkish <tr@li.org>\n"
 "Language: tr\n"
@@ -7680,10 +7680,9 @@ msgstr ""
 "kelimelerle şekillendirilmiş sütun ve tablo adlarını korur)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:354
-#, fuzzy
 #| msgid "Object creation options"
 msgid "Data creation options"
-msgstr "Nesne oluşturma seçenekleri"
+msgstr "Veri oluşturma seçenekleri"
 
 #: libraries/plugins/export/ExportSql.class.php:358
 #: libraries/plugins/export/ExportSql.class.php:1573

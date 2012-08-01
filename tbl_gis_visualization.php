@@ -90,11 +90,14 @@ if (isset($_REQUEST['saveToFile'])) {
     exit();
 }
 
-$svg_support = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER <= 8) ? false : true;
+$svg_support = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER <= 8)
+    ? false : true;
 $format = $svg_support ? 'svg' : 'png';
 
 // get the chart and settings after chart generation
-$visualization = PMA_GIS_visualizationResults($data, $visualizationSettings, $format);
+$visualization = PMA_GIS_visualizationResults(
+    $data, $visualizationSettings, $format
+);
 
 /**
  * Displays the page

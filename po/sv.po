@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-27 10:40+0200\n"
-"PO-Revision-Date: 2012-07-01 18:04+0200\n"
+"PO-Revision-Date: 2012-07-29 13:55+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: swedish <sv@li.org>\n"
 "Language: sv\n"
@@ -7627,10 +7627,9 @@ msgstr ""
 "tabellnamn skapade med specialtecken eller nyckelord)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:354
-#, fuzzy
 #| msgid "Object creation options"
 msgid "Data creation options"
-msgstr "Alternativ för skapande av objekt"
+msgstr "Valmöjligheter vid skapande av data"
 
 #: libraries/plugins/export/ExportSql.class.php:358
 #: libraries/plugins/export/ExportSql.class.php:1573

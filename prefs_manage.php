@@ -21,7 +21,9 @@ require 'libraries/config/user_preferences.forms.php';
 PMA_userprefs_pageinit();
 
 $error = '';
-if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') == 'text_file') {
+if (isset($_POST['submit_export'])
+    && filter_input(INPUT_POST, 'export_type') == 'text_file'
+) {
     // export to JSON file
     PMA_Response::getInstance()->disable();
     $filename = 'phpMyAdmin-config-' . urlencode(PMA_getenv('HTTP_HOST')) . '.json';
@@ -78,7 +80,8 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
     if (! is_array($config)) {
         $error = __('Could not import configuration');
     } else {
-        // sanitize input values: treat them as though they came from HTTP POST request
+        // sanitize input values: treat them as though
+        // they came from HTTP POST request
         $form_display = new FormDisplay();
         foreach ($forms as $formset_id => $formset) {
             foreach ($formset as $form_name => $form) {
@@ -192,7 +195,9 @@ if (isset($_POST['submit_export']) && filter_input(INPUT_POST, 'export_type') ==
     if ($result === true) {
         $params = array();
         if ($_SESSION['PMA_Theme_Manager']->theme->getId() != 'original') {
-            $GLOBALS['PMA_Config']->removeCookie($_SESSION['PMA_Theme_Manager']->getThemeCookieName());
+            $GLOBALS['PMA_Config']->removeCookie(
+                $_SESSION['PMA_Theme_Manager']->getThemeCookieName()
+            );
             unset($_SESSION['PMA_Theme_Manager']);
             unset($_SESSION['PMA_Theme']);
             $params['reload_left_frame'] = true;
