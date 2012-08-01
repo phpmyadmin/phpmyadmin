@@ -149,7 +149,7 @@ class PMA_build_html_for_db_test extends PHPUnit_Framework_TestCase
                         'format' => 'byte',
                         'description_function' => 'onClick'
                     ),
-                    1 => '<td class="tool"><input type="checkbox" name="selected_dbs[]" class="checkall" title="pma" value="pma" /></td><td class="name">        <a onclick="if (window.parent.openDb &amp;&amp; window.parent.openDb(\'pma\')) return false;" href="index.php?target=main.php&amp;db=pma" title="Jump to database" target="_parent"> pma</a></td><td class="value"><dfn title="">pma</dfn></td><td class="tool" style="text-align: center;"><span class="nowrap"><img src="s_cancel.png" title="Not replicated" alt="Not replicated" /></span></td><td class="tool"><a onclick="if (window.parent.setDb) window.parent.setDb(\'`pma`\');" href="server_privileges.php?target=main.php&amp;checkprivs=pma" title="Check privileges for database &quot;pma&quot;."> <span class="nowrap"><img src="s_rights.png" title="Check Privileges" alt="Check Privileges" /></span></a></td>'
+                    1 => '<td class="tool"><input type="checkbox" name="selected_dbs[]" class="checkall" title="pma" value="pma" /></td><td class="name">        <a onclick="if (window.parent.openDb &amp;&amp; window.parent.openDb(\'pma\')) return false;" href="index.php?target=main.php&amp;db=pma" title="Jump to database" target="_parent"> pma</a></td><td class="value"><dfn title="">pma</dfn></td><td class="tool" style="text-align: center;"><span class="nowrap"><img src="s_cancel.png" title="Not replicated" alt="Not replicated" /></span></td>'
                 )
             )
         );
