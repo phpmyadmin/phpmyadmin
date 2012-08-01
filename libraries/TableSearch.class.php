@@ -1126,12 +1126,14 @@ EOT;
         $html_output .= $this->_getFormTag($goto);
 
         if ($this->_searchType == 'zoom') {
+            $html_output .= '<fieldset id="fieldset_zoom_search">';
             $html_output .= '<fieldset id="inputSection">';
             $html_output .= '<legend>'
                 . __('Do a "query by example" (wildcard: "%") for two different columns')
                 . '</legend>';
             $html_output .= $this->_getFieldsTableHtml();
             $html_output .= $this->_getOptionsZoom($dataLabel);
+            $html_output .= '</fieldset>';
             $html_output .= '</fieldset>';
         } else {
             $html_output .= '<fieldset id="fieldset_table_search">';
