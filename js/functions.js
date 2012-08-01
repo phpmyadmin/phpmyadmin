@@ -2052,39 +2052,33 @@ AJAX.registerOnload('functions.js', function() {
     /**
      *Ajax action for submitting the "Copy table"
     **/
-    $("#copyTable.ajax input[name='submit_copy']").live('click', function(event) {
+    $("#copyTable.ajax").live('submit', function(event) {
         event.preventDefault();
-        var $form = $("#copyTable");
-        if ($form.find("input[name='switch_to_new']").prop('checked')) {
-            $form.append('<input type="hidden" name="submit_copy" value="Go" />');
-            $form.removeClass('ajax');
-            $form.find("#ajax_request_hidden").remove();
-            $form.submit();
-        } else {
-            PMA_prepareForAjaxRequest($form);
-            /*variables which stores the common attributes*/
-            $.post($form.attr('action'), $form.serialize()+"&submit_copy=Go", function(data) {
-                if ($("#sqlqueryresults").length != 0) {
-                    $("#sqlqueryresults").remove();
-                }
-                if ($("#result_query").length != 0) {
-                    $("#result_query").remove();
-                }
-                if (data.success == true) {
-                    PMA_ajaxShowMessage(data.message);
-                    $("<div id='sqlqueryresults'></div>").insertAfter("#floating_menubar");
-                    $("#sqlqueryresults").html(data.sql_query);
-                    $("#result_query .notice").remove();
-                    $("#result_query").prepend(data.message);
-                    $("#copyTable").find("select[name='target_db'] option").filterByValue(data.db).prop('selected', true);
-
-                    // Refresh navigation when the table is coppied
-                    PMA_reloadNavigation();
+        var $form = $(this);
+        PMA_prepareForAjaxRequest($form);
+        $.post($form.attr('action'), $form.serialize()+"&submit_copy=Go", function(data) {
+            if (data.success == true) {
+                if ($form.find("input[name='switch_to_new']").prop('checked')) {
+                    PMA_commonParams.set(
+                        'db',
+                        data.db
+                    );
+                    PMA_commonParams.set(
+                        'table',
+                        $form.find("input[name='new_name']").val()
+                    );
+                    PMA_commonActions.refreshMain(false, function () {
+                        PMA_ajaxShowMessage(data.message);
+                    });
                 } else {
-                    PMA_ajaxShowMessage(data.error, false);
+                    PMA_ajaxShowMessage(data.message);
                 }
-            }); // end $.post()
-        }
+                // Refresh navigation when the table is copied
+                PMA_reloadNavigation();
+            } else {
+                PMA_ajaxShowMessage(data.error, false);
+            }
+        }); // end $.post()
     });//end of copyTable ajax submit
 
     /**
