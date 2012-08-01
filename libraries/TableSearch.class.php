@@ -1113,7 +1113,6 @@ EOT;
     public function getSelectionForm($goto, $dataLabel = null)
     {
         $html_output = '';
-        $html_output .= '<fieldset id="fieldset_subtab">';
         $url_params = array();
         $url_params['db'] = $this->_db;
         $url_params['table'] = $this->_table;
@@ -1169,7 +1168,7 @@ EOT;
             $html_output = '<div id="sqlqueryresults"></div>'
                 . $html_output . '</fieldset>';
         } else {
-            $html_output .= '<div id="sqlqueryresults"></div></fieldset>';
+            $html_output .= '<div id="sqlqueryresults"></div>';
         }
         return $html_output;
     }
