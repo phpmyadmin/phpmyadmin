@@ -286,10 +286,9 @@ $(function() {
     $('select[name="submit_type"]').bind('change', function (e) {
         var $table = $('table.insertRowTable');
         var auto_increment_column = $table.find('input[name^="auto_increment"]').attr('name');
-        var prev_value_field = $table.find('input[name="' + auto_increment_column.replace('auto_increment', 'fields_prev') + '"]');
-        var value_field = $table.find('input[name="' + auto_increment_column.replace('auto_increment', 'fields') + '"]');
-
         if (auto_increment_column) {
+            var prev_value_field = $table.find('input[name="' + auto_increment_column.replace('auto_increment', 'fields_prev') + '"]');
+            var value_field = $table.find('input[name="' + auto_increment_column.replace('auto_increment', 'fields') + '"]');
             var previous_value = $(prev_value_field).val();
             if (previous_value !== undefined) {
                 if ($(this).val() == 'insert' || $(this).val() == 'insertignore' || $(this).val() == 'showinsert' ) {
@@ -299,7 +298,6 @@ $(function() {
                 }
             }
         }
-
     });
 
 
