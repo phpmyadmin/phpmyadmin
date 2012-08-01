@@ -1112,12 +1112,11 @@ EOT;
      */
     public function getSelectionForm($goto, $dataLabel = null)
     {
-        $html_output = '';
         $url_params = array();
         $url_params['db'] = $this->_db;
         $url_params['table'] = $this->_table;
 
-        $html_output .= $this->getCommonFunctions()->getHtmlTabs(
+        $html_output = $this->getCommonFunctions()->getHtmlTabs(
             $this->_getSubTabs(), $url_params, 'topmenu2'
         );
         $html_output .= $this->_getFormTag($goto);
@@ -1148,6 +1147,7 @@ EOT;
          */
         if ($this->_searchType == 'zoom') {
             $html_output .= $this->_getOptionsZoom($dataLabel);
+            $html_output .= '</fieldset>';
         } else {
             $html_output .= '<div id="gis_editor"></div>'
                 . '<div id="popup_background"></div>'
@@ -1164,12 +1164,7 @@ EOT;
             . ($this->_searchType == 'zoom' ? '" id="inputFormSubmitId"' : '" ')
             . 'value="' . __('Go') . '" />';
         $html_output .= '</fieldset></form>';
-        if ($this->_searchType == 'zoom') {
-            $html_output = '<div id="sqlqueryresults"></div>'
-                . $html_output . '</fieldset>';
-        } else {
-            $html_output .= '<div id="sqlqueryresults"></div>';
-        }
+        $html_output .= '<div id="sqlqueryresults"></div>';
         return $html_output;
     }
 
