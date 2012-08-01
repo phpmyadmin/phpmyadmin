@@ -834,7 +834,7 @@ EOT;
         );
         unset($choices);
 
-        $html_output .= '</fieldset><br style="clear: both;"/></div></fieldset>';
+        $html_output .= '</fieldset><br style="clear: both;"/></div>';
         return $html_output;
     }
 
@@ -1153,6 +1153,7 @@ EOT;
                 . '<div id="popup_background"></div>'
                 . '</fieldset>';
             $html_output .= $this->_getOptions();
+            $html_output .= '</fieldset>';
         }
 
         /**
