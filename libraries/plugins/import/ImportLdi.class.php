@@ -56,71 +56,39 @@ class ImportLdi extends ImportPlugin
             unset($result);
         }
 
-        $this->properties = array(
-            'text' => __('CSV using LOAD DATA'),
-            // Following is nonsense, however we want to default to our
-            // parser for csv
-            'extension' => 'ldi',
-            'options' => array(),
-            'options_text' => __('Options'),
-        );
+        $props = 'libraries/properties/';
+        include_once "$props/plugins/ImportPluginProperties.class.php";
+        include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
+        include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
+        include_once "$props/options/items/BoolPropertyItem.class.php";
+        include_once "$props/options/items/TextPropertyItem.class.php";
 
-        $this->properties['options'] = array(
-            array(
-                'type' => 'begin_group',
-                'name' => 'general_opts'
-            ),
-            array(
-                'type' => 'bool',
-                'name' => 'replace',
-                'text' => __('Replace table data with file')
-            ),
-            array(
-                'type' => 'bool',
-                'name' => 'ignore',
-                'text' => __('Do not abort on INSERT error')
-            ),
-            array(
-                'type' => 'text',
-                'name' => 'terminated',
-                'text' => __('Columns terminated by'),
-                'size' => 2,
-                'len'  => 2
-            ),
-            array(
-                'type' => 'text',
-                'name' => 'enclosed',
-                'text' => __('Columns enclosed by'),
-                'size' => 2,
-                'len'  => 2
-            ),
-            array(
-                'type' => 'text',
-                'name' => 'escaped',
-                'text' => __('Columns escaped by'),
-                'size' => 2,
-                'len'  => 2
-            ),
-            array(
-                'type' => 'text',
-                'name' => 'new_line',
-                'text' => __('Lines terminated by'),
-                'size' => 2
-            ),
-            array(
-                'type' => 'text',
-                'name' => 'columns',
-                'text' => __('Column names')
-            ),
-            array(
-                'type' => 'bool',
-                'name' => 'local_option',
-                'text' => __('Use LOCAL keyword')
-            ),
-            array(
-                'type' => 'end_group'
-            )
-        );
+        $importPluginProperties = new ImportPluginProperties();
+        $importPluginProperties->setText('CSV using LOAD DATA');
+        $importPluginProperties->setExtension('ldi');
+        $importPluginProperties->setOptionsText(__('Options'));
+
+        // create the root group that will be the options field for
+        // $importPluginProperties
+        // this will be shown as "Format specific options"
+        $importSpecificOptions = new OptionsPropertyRootGroup();
+        $importSpecificOptions->setName("Format Specific Options");
+
+        // general options main group
+        $generalOptions = new OptionsPropertyMainGroup();
+        $generalOptions->setName("general_opts");
+        // create primary items and add them to the group
+        $leaf = new BoolPropertyItem();
+        $leaf->setName("replace");
+        $leaf->setText(__('Replace table data with file'));
+        $generalOptions->addProperty($leaf);
+
+        // add the main group to the root group
+        $importSpecificOptions->addProperty($generalOptions);
+
+        // set the options for the import plugin property item
+        $importPluginProperties->setOptions($importSpecificOptions);
+        $this->properties = $importPluginProperties;
     }
 
     /**
@@ -146,9 +114,9 @@ class ImportLdi extends ImportPlugin
         global $finished, $error, $import_file, $compression, $charset_conversion;
         global $ldi_local_option, $ldi_replace, $ldi_terminated, $ldi_enclosed,
             $ldi_escaped, $ldi_new_line, $skip_queries, $ldi_columns;
-        
+
         $common_functions = PMA_CommonFunctions::getInstance();
-        
+
         if ($import_file == 'none'
             || $compression != 'none'
             || $charset_conversion

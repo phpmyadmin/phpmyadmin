@@ -199,13 +199,16 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
         $plugin_name = strtolower(substr(get_class($plugin), strlen($section)));
         $ret .= '<input type="hidden" id="force_file_' . $plugin_name
             . '" value="';
-        if ($plugin->getProperties()->getForceFile() != null) {
+        if ( ! strcmp($section, 'Import') 
+            || $plugin->getProperties()->getForceFile() != null
+        ) {
             $ret .= 'true';
         } else {
             $ret .= 'false';
         }
         $ret .= '" />'. "\n";
     }
+    
     return $ret;
 }
 
@@ -439,6 +442,7 @@ function PMA_pluginGetOptions($section, &$list)
         $ret .= '<h3>' . PMA_getString($plugin->getProperties()->getText())
             . '</h3>';
 
+        $no_options = true;
         if ($plugin->getProperties()->getOptions() != null
             && count($plugin->getProperties()->getOptions()) > 0
         ) {

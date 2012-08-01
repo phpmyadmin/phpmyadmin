@@ -55,7 +55,6 @@ class ExportPluginProperties extends PluginPropertyItem
      */
     private $_mimeType;
 
-
     /**
      * Whether to force or not
      *

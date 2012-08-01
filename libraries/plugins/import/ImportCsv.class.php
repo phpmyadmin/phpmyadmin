@@ -27,7 +27,7 @@ class ImportCsv extends ImportPlugin
      * @var bool
      */
     private $_analyze;
-    
+
     /**
      * Constructor
      */
@@ -50,67 +50,67 @@ class ImportCsv extends ImportPlugin
             $this->_setAnalyze(true);
         }
 
-        $this->properties = array(
-            'text' => __('CSV'),
-            'extension' => 'csv',
-            'options' => array(),
-            'options_text' => __('Options')
-        );
+        $props = 'libraries/properties/';
+        include_once "$props/plugins/ImportPluginProperties.class.php";
+        include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
+        include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
+        include_once "$props/options/items/BoolPropertyItem.class.php";
+        include_once "$props/options/items/TextPropertyItem.class.php";
 
-        $this->properties['options'] = array(
-            array(
-                'type' => 'begin_group',
-                'name' => 'general_opts'
-            ),
-            array(
-                'type' => 'bool',
-                'name' => 'replace',
-                'text' => __('Replace table data with file')
-            ),
-            array(
-                'type' => 'bool',
-                'name' => 'ignore',
-                'text' => __('Do not abort on INSERT error')
-            ),
-            array(
-                'type' => 'text',
-                'name' => 'terminated',
-                'text' => __('Columns separated with:'),
-                'size' => 2,
-                'len' => 2
-            ),
-            array(
-                'type' => 'text',
-                'name' => 'enclosed',
-                'text' => __('Columns enclosed with:'),
-                'size' => 2,
-                'len' => 2
-            ),
-            array(
-                'type' => 'text',
-                'name' => 'escaped',
-                'text' => __('Columns escaped with:'),
-                'size' => 2,
-                'len' => 2
-            ),
-            array(
-                'type' => 'text',
-                'name' => 'new_line',
-                'text' => __('Lines terminated with:'),
-                'size' => 2
-            )
-        );
+        $importPluginProperties = new ImportPluginProperties();
+        $importPluginProperties->setText('CSV');
+        $importPluginProperties->setExtension('csv');
+        $importPluginProperties->setOptionsText(__('Options'));
+
+        // create the root group that will be the options field for
+        // $importPluginProperties
+        // this will be shown as "Format specific options"
+        $importSpecificOptions = new OptionsPropertyRootGroup();
+        $importSpecificOptions->setName("Format Specific Options");
+
+        // general options main group
+        $generalOptions = new OptionsPropertyMainGroup();
+        $generalOptions->setName("general_opts");
+        // create primary items and add them to the group
+        $leaf = new BoolPropertyItem();
+        $leaf->setName("replace");
+        $leaf->setText(__('Replace table data with file'));
+        $generalOptions->addProperty($leaf);
+        $leaf = new TextPropertyItem();
+        $leaf->setName("terminated");
+        $leaf->setText(__('Columns separated with:'));
+        $leaf->setSize(2);
+        $leaf->setLen(2);
+        $generalOptions->addProperty($leaf);
+        $leaf = new TextPropertyItem();
+        $leaf->setName("enclosed");
+        $leaf->setText(__('Columns enclosed with:'));
+        $leaf->setSize(2);
+        $leaf->setLen(2);
+        $generalOptions->addProperty($leaf);
+        $leaf = new TextPropertyItem();
+        $leaf->setName("escaped");
+        $leaf->setText(__('Columns escaped with:'));
+        $leaf->setSize(2);
+        $leaf->setLen(2);
+        $generalOptions->addProperty($leaf);
+        $leaf = new TextPropertyItem();
+        $leaf->setName("new_line");
+        $leaf->setText(__('Lines terminated with:'));
+        $leaf->setSize(2);
+        $generalOptions->addProperty($leaf);
 
         if ($GLOBALS['plugin_param'] !== 'table') {
-            $this->properties['options'][] = array(
-                'type' => 'bool',
-                'name' => 'col_names',
-                'text' => __(
-                    'The first line of the file contains the table column names <i>'
-                    . '(if this is unchecked, the first line will become part of the'
-                    . ' data)</i>'
+            $leaf = new BoolPropertyItem();
+            $leaf->setName("col_names");
+            $leaf->setText(
+                __(
+                    'The first line of the file contains the table column names'
+                    . ' <i>(if this is unchecked, the first line will become part'
+                    . ' of the data)</i>'
                 )
             );
+            $generalOptions->addProperty($leaf);
         } else {
             $hint = new PMA_Message(
                 __(
@@ -120,15 +120,21 @@ class ImportCsv extends ImportPlugin
                     . ' and not enclosed in quotations.'
                 )
             );
-            $this->properties['options'][] = array(
-                'type' => 'text',
-                'name' => 'columns',
-                'text' => __('Column names: ')
-                    . PMA_CommonFunctions::getInstance()->showHint($hint)
+            $leaf = new TextPropertyItem();
+            $leaf->setName("columns");
+            $leaf->setText(
+                __('Column names: ')
+                . PMA_CommonFunctions::getInstance()->showHint($hint)
             );
+            $generalOptions->addProperty($leaf);
         }
 
-        $this->properties['options'][] = array('type' => 'end_group');
+        // add the main group to the root group
+        $importSpecificOptions->addProperty($generalOptions);
+
+        // set the options for the import plugin property item
+        $importPluginProperties->setOptions($importSpecificOptions);
+        $this->properties = $importPluginProperties;
     }
 
     /**
@@ -146,7 +152,7 @@ class ImportCsv extends ImportPlugin
 
     /**
      * Handles the whole import logic
-     * 
+     *
      * @return void
      */
     public function doImport()
@@ -499,7 +505,7 @@ class ImportCsv extends ImportPlugin
                         $sql .= ')';
 
                         /**
-                         * @todo maybe we could add original line to verbose 
+                         * @todo maybe we could add original line to verbose
                          * SQL in comment
                          */
                         PMA_importRunQuery($sql, $sql);
@@ -597,11 +603,11 @@ class ImportCsv extends ImportPlugin
             $error = true;
         }
     }
-    
+
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
-    
+
     /**
      * Returns true if the table should be analyzed, false otherwise
      *

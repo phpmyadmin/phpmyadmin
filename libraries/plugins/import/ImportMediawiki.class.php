@@ -48,13 +48,17 @@ class ImportMediawiki extends ImportPlugin
             $this->_setAnalyze(true);
         }
 
-        $this->properties = array(
-            'text' => __('MediaWiki Table'),
-            'extension' => 'txt',
-            'mime_type' => 'text/plain',
-            'options' => array(),
-            'options_text' => __('Options'),
-        );
+        $props = 'libraries/properties/';
+        include_once "$props/plugins/ImportPluginProperties.class.php";
+
+        $importPluginProperties = new ImportPluginProperties();
+        $importPluginProperties->setText(__('MediaWiki Table'));
+        $importPluginProperties->setExtension('txt');
+        $importPluginProperties->setMimeType('text/plain');
+        $importPluginProperties->setOptions(array());
+        $importPluginProperties->setOptionsText(__('Options'));
+
+        $this->properties = $importPluginProperties;
     }
 
     /**

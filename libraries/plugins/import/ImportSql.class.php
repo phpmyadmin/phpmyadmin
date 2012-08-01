@@ -36,12 +36,17 @@ class ImportSql extends ImportPlugin
      */
     protected function setProperties()
     {
-        $this->properties = array(
-            'text' => __('SQL'),
-            'extension' => 'sql',
-            'options' => array(),
-            'options_text' => __('Options'),
-        );
+        $props = 'libraries/properties/';
+        include_once "$props/plugins/ImportPluginProperties.class.php";
+        include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
+        include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
+        include_once "$props/options/items/SelectPropertyItem.class.php";
+        include_once "$props/options/items/BoolPropertyItem.class.php";
+
+        $importPluginProperties = new ImportPluginProperties();
+        $importPluginProperties->setText('SQL');
+        $importPluginProperties->setExtension('sql');
+        $importPluginProperties->setOptionsText(__('Options'));
 
         $compats = PMA_DBI_getCompatibilities();
         if (count($compats) > 0) {
@@ -49,33 +54,49 @@ class ImportSql extends ImportPlugin
             foreach ($compats as $val) {
                 $values[$val] = $val;
             }
-            $this->properties['options'] = array(
-                array('type' => 'begin_group', 'name' => 'general_opts'),
+
+            // create the root group that will be the options field for
+            // $importPluginProperties
+            // this will be shown as "Format specific options"
+            $importSpecificOptions = new OptionsPropertyRootGroup();
+            $importSpecificOptions->setName("Format Specific Options");
+
+            // general options main group
+            $generalOptions = new OptionsPropertyMainGroup();
+            $generalOptions->setName("general_opts");
+            // create primary items and add them to the group
+            $leaf = new SelectPropertyItem();
+            $leaf->setName("compatibility");
+            $leaf->setText(__('SQL compatibility mode:'));
+            $leaf->setValues($values);
+            $leaf->setDoc(
                 array(
-                    'type' => 'select',
-                    'name' => 'compatibility',
-                    'text' => __('SQL compatibility mode:'),
-                    'values' => $values,
-                    'doc' => array(
-                        'manual_MySQL_Database_Administration',
-                        'Server_SQL_mode',
-                    ),
-                ),
-                array(
-                    'type' => 'bool',
-                    'name' => 'no_auto_value_on_zero',
-                    'text' => __(
-                        'Do not use <code>AUTO_INCREMENT</code> for zero values'
-                    ),
-                    'doc' => array(
-                        'manual_MySQL_Database_Administration',
-                        'Server_SQL_mode',
-                        'sqlmode_no_auto_value_on_zero'
-                    ),
-                ),
-                array('type' => 'end_group'),
+                    'manual_MySQL_Database_Administration',
+                    'Server_SQL_mode',
+                )
             );
+            $generalOptions->addProperty($leaf);
+            $leaf = new BoolPropertyItem();
+            $leaf->setName("no_auto_value_on_zero");
+            $leaf->setText(
+                __('Do not use <code>AUTO_INCREMENT</code> for zero values')
+            );
+            $leaf->setDoc(
+                array(
+                    'manual_MySQL_Database_Administration',
+                    'Server_SQL_mode',
+                    'sqlmode_no_auto_value_on_zero'
+                )
+            );
+            $generalOptions->addProperty($leaf);
+
+            // add the main group to the root group
+            $importSpecificOptions->addProperty($generalOptions);
+            // set the options for the import plugin property item
+            $importPluginProperties->setOptions($importSpecificOptions);
         }
+
+        $this->properties = $importPluginProperties;
     }
 
     /**
@@ -93,7 +114,7 @@ class ImportSql extends ImportPlugin
 
     /**
      * Handles the whole import logic
-     * 
+     *
      * @param &$sql_data array 2-element array with sql data
      *
      * @return void
