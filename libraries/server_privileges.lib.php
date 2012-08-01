@@ -1678,7 +1678,7 @@ function PMA_getHtmlTableBodyForSpecificDbPrivs($found, $row, $odd_row,
 
 /**
  * Define some standard links
- * $link_edit, $link_revoke, $link_export, $link_export_all
+ * $link_edit, $link_revoke, $link_export
  *
  * @param string $conditional_class     if ajaxable 'Ajax' otherwise ''
  *
@@ -1719,17 +1719,7 @@ function PMA_getStandardLinks($conditional_class)
         . $common_functions->getIcon('b_tblexport.png', __('Export'))
         . '</a>';
 
-    $link_export_all = '<a class="export_user_anchor ' . $conditional_class . '"'
-        . ' href="server_privileges.php?'
-        . str_replace('%', '%%', $GLOBALS['url_query'])
-        . '&amp;username=%s'
-        . '&amp;hostname=%s'
-        . '&amp;initial=%s'
-        . '&amp;export=1">'
-        . $common_functions->getIcon('b_tblexport.png', __('Export all'))
-        . '</a>';
-
-    return array($link_edit, $link_revoke, $link_export, $link_export_all);
+    return array($link_edit, $link_revoke, $link_export);
 }
 
 /**
@@ -2267,12 +2257,11 @@ function PMA_displayTablesInEditPrivs($dbname, $found_rows)
  * @param string $text_dir          text directory
  * @param string $conditional_class if ajaxable 'Ajax' otherwise ''
  * @param string $link_export       standard link to export privileges
- * @param string $link_export_all   standard link to export all privilegfes
  *
  * @return string HTML snippet
  */
 function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
-    $text_dir, $conditional_class, $link_export, $link_export_all
+    $text_dir, $conditional_class, $link_export
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
 
@@ -2308,8 +2297,7 @@ function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
     $html_output .= '</tbody>'
         . '</table>' . "\n";
 
-    $html_output .='<div>'
-        .'<div style="float:left;">'
+    $html_output .= '<div style="float:left;">'
         .'<img class="selectallarrow"'
         .' src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png"'
         .' width="38" height="22"'
@@ -2325,14 +2313,6 @@ function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
     $html_output .= '<input type="hidden" name="initial" '
         . 'value="' . (isset($_GET['initial']) ? $_GET['initial'] : '') . '" />';
     $html_output .= '</div>'
-        . '<div class="clear_both" style="clear:both"></div>'
-        . '<div style="float:left; padding-left:10px;">'
-        . sprintf($link_export_all,
-            urlencode('%'), urlencode('%'),
-            (isset($_GET['initial']) ? $_GET['initial'] : '')
-        );
-    $html_output .= '</div>'
-        . '</div>'
         . '<div class="clear_both" style="clear:both"></div>';
 
     // add/delete user fieldset
@@ -2353,8 +2333,6 @@ function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
  */
 function PMA_getTableBodyForUserRightsTable($db_rights, $link_edit, $link_export)
 {
-    $_SESSION['user_host_pairs'] = array();
-    $pair_count = 0;
     $odd_row = true;
     $index_checkbox = -1;
     $html_output = '';
@@ -2414,10 +2392,6 @@ function PMA_getTableBodyForUserRightsTable($db_rights, $link_edit, $link_export
             $html_output .= '</td>';
             $html_output .= '</tr>';
             $odd_row = ! $odd_row;
-
-            $_SESSION['user_host_pairs'][$pair_count]['user'] = $host['User'];
-            $_SESSION['user_host_pairs'][$pair_count]['host'] = $host['Host'];
-            $pair_count ++;
         }
     }
     return $html_output;
@@ -2690,14 +2664,7 @@ function PMA_getHtmlForExportUserDefinition($username, $hostname)
     $export = '<textarea class="export" cols="' . $GLOBALS['cfg']['TextareaCols']
         . '" rows="' . $GLOBALS['cfg']['TextareaRows'] . '">';
 
-    if ($username == '%') {
-        // export privileges for all users
-        $title = __('Privileges for all users');
-        foreach ($_SESSION['user_host_pairs'] as $pair) {
-            $export .= PMA_getGrants($pair['user'], $pair['host']);
-            $export .= "\n";
-        }
-    } elseif (isset($_REQUEST['selected_usr'])) {
+    if (isset($_REQUEST['selected_usr'])) {
         // export privileges for selected users
         $title = __('Privileges');
         foreach ($_REQUEST['selected_usr'] as $export_user) {
@@ -2800,12 +2767,11 @@ function PMA_getHtmlHeaderForDisplayUserProperties($dbname_is_wildcard, $url_dbn
  * @param string $text_dir          text directory
  * @param string $conditional_class if ajaxable 'Ajax' otherwise ''
  * @param string $link_export       standard link to export privileges
- * @param string $link_export_all   standard link to export all privilegfes
  *
  * @return string $html_output
  */
 function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
-    $text_dir, $conditional_class, $link_export, $link_export_all
+    $text_dir, $conditional_class, $link_export
 ) {
     $html_output = '<h2>' . "\n"
        . PMA_CommonFunctions::getInstance()->getIcon('b_usrlist.png')
@@ -2869,7 +2835,7 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
         ) {
             $html_output .= PMA_getUsersOverview($res, $db_rights,
                 $link_edit,$pmaThemeImage, $text_dir, $conditional_class,
-                $link_export, $link_export_all
+                $link_export
             );
         } else {
             $html_output .= PMA_getAddUserHtmlFieldset($conditional_class);

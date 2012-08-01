@@ -364,7 +364,7 @@ if (isset($_REQUEST['flush_privileges'])) {
 /**
  * some standard links
  */
-list($link_edit, $link_revoke, $link_export, $link_export_all)
+list($link_edit, $link_revoke, $link_export)
     = PMA_getStandardLinks($conditional_class);
 
 /**
@@ -449,7 +449,7 @@ if (empty($_REQUEST['adduser'])
         $response->addHTML(
             PMA_getHtmlForDisplayUserOverviewPage(
                 $link_edit, $pmaThemeImage, $text_dir,
-                $conditional_class, $link_export, $link_export_all
+                $conditional_class, $link_export
             )
         );
     } else {
