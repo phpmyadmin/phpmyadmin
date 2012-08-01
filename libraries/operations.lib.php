@@ -800,49 +800,31 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation, $tbl_storage_engin
     } // end if (MYISAM|ISAM)
     
     if ($is_myisam_or_aria) {
-        $html_output .= '<tr><td><label for="new_checksum">CHECKSUM</label></td>'
-            . '<td><input type="checkbox" name="new_checksum" id="new_checksum"'
-            . 'value="1"'
-            . ((isset($checksum) && $checksum == 1)
-                ? ' checked="checked"'
-                : '')
-            . '/>'
-            . '</td></tr>';
-        
-        $html_output .= '<tr><td>' 
-            . '<label for="new_delay_key_write">DELAY_KEY_WRITE</label></td>'
-            . '<td><input type="checkbox" name="new_delay_key_write" '
-            . 'id="new_delay_key_write"'
-            . 'value="1"'
-            . ((isset($delay_key_write) && $delay_key_write == 1)
-                ? ' checked="checked"'
-                : '')
-            . '/>'
-            . '</td></tr>';
+        $html_output .= getTableRow(
+            'new_checksum',
+            'CHECKSUM',
+            $checksum
+        );
+
+        $html_output .= getTableRow(
+            'new_delay_key_write',
+            'DELAY_KEY_WRITE',
+            $delay_key_write
+        );
     } // end if (MYISAM)
     
     if ($is_aria) {
-        $html_output .= '<tr><td>'
-            . '<label for="new_transactional">TRANSACTIONAL</label></td>'
-            . '<td><input type="checkbox" name="new_transactional" '
-            . 'id="new_transactional"'
-            . 'value="1"'
-            . (isset($transactional) && $transactional == 1)
-                ? ' checked="checked"'
-                : ''
-            . '/>'
-            . '</td></tr>';
+        $html_output .= getTableRow(
+            'new_transactional',
+            'TRANSACTIONAL',
+            $transactional
+        );
         
-        $html_output .= '<tr><td>'
-            . '<label for="new_page_checksum">PAGE_CHECKSUM</label></td>'
-            . '<td><input type="checkbox" name="new_page_checksum" '
-            . 'id="new_page_checksum"'
-            . 'value="1"'
-            . (isset($page_checksum) && $page_checksum == 1)
-                ? ' checked="checked"'
-                : ''
-            . '/>'
-            . '</td></tr>';
+        $html_output .= getTableRow(
+            'new_page_checksum',
+            'PAGE_CHECKSUM',
+            $page_checksum
+        );
     } // end if (ARIA)
     
     if (isset($_REQUEST['auto_increment']) 
@@ -880,6 +862,30 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation, $tbl_storage_engin
         . '</fieldset>';
     
     return $html_output;
+}
+
+/**
+ * Get the common HTML table row (tr) for new_checksum, new_delay_key_write,
+ * new_transactional and new_page_checksum
+ * 
+ * @param string $attribute     class, name and id attribute
+ * @param string $label         label value
+ * @param string $val           checksum, delay_key_write, transactional, page_checksum
+ * 
+ * @return string $html_output 
+ */
+function getTableRow($attribute, $label, $val)
+{
+    return '<tr><td>'
+        . '<label for="' . $attribute . '">' . $label . '</label></td>'
+        . '<td><input type="checkbox" name="'. $attribute .'" '
+        . 'id="' . $attribute .'"'
+        . 'value="1"'
+        . (isset($val) && $val == 1)
+            ? ' checked="checked"'
+            : ''
+        . '/>'
+        . '</td></tr>';
 }
 
 /**
