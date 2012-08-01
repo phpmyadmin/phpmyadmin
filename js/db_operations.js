@@ -92,26 +92,23 @@ AJAX.registerOnload('db_operations.js', function() {
      */
     $("#copy_db_form.ajax").live('submit', function(event) {
         event.preventDefault();
-
         PMA_ajaxShowMessage(PMA_messages['strCopyingDatabase'], false);
-
         var $form = $(this);
-
         PMA_prepareForAjaxRequest($form);
-
         $.get($form.attr('action'), $form.serialize(), function(data) {
             // use messages that stay on screen
             $('div.success, div.error').fadeOut();
             if(data.success == true) {
-                PMA_ajaxShowMessage(data.message);
                 PMA_commonParams.set('db', data.newname);
                 if( $("#checkbox_switch").is(":checked")) {
                     PMA_commonParams.set('db', data.newname);
-                    PMA_commonActions.refreshMain();
-                    PMA_reloadNavigation();
-               } else {
-                    PMA_reloadNavigation();
-               }
+                    PMA_commonActions.refreshMain(false, function () {
+                        PMA_ajaxShowMessage(data.message);
+                    });
+                } else {
+                    PMA_ajaxShowMessage(data.message);
+                }
+                PMA_reloadNavigation();
             } else {
                 PMA_ajaxShowMessage(data.error, false);
             }
