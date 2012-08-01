@@ -381,7 +381,7 @@ $(function() {
                     }
             };
             var set_previous = getCurrentQueryStats();
-            initiateChartData(chartId, settings);
+            //initiateChartData(chartId, settings);
             recursiveTimer(chartId, settings);
 
         } else {
@@ -433,7 +433,9 @@ $(function() {
     }
 
     function replotQueryStatsChart(chartId, settings) {
-        series[0].splice(0,1);
+        if(series[0].length >= 10) {
+            series[0].splice(0,1);
+        }
         series[0].push(getCurrentQueryStats());
         $.jqplot(chartId, [series[0]], settings).replot();
     }
