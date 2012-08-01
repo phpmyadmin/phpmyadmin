@@ -2147,12 +2147,16 @@ AJAX.registerOnload('functions.js', function() {
         $(this).PMA_confirm(question, $(this).attr('href'), function(url) {
             PMA_ajaxShowMessage(PMA_messages['strProcessingRequest']);
             $.get(url, {'is_js_confirmed': '1', 'ajax_request': true}, function(data) {
-                //Database deleted successfully, refresh both the frames
-                PMA_reloadNavigation();
-                PMA_commonParams.set('db', '');
-                PMA_commonActions.refreshMain('index.php', function () {
-                    PMA_ajaxShowMessage(data.message);
-                });
+                if (data.success) {
+                    //Database deleted successfully, refresh both the frames
+                    PMA_reloadNavigation();
+                    PMA_commonParams.set('db', '');
+                    PMA_commonActions.refreshMain('index.php', function () {
+                        PMA_ajaxShowMessage(data.message);
+                    });
+                } else {
+                    PMA_ajaxShowMessage(data.error, false);
+                }
             });
         });
     });
