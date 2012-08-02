@@ -283,7 +283,8 @@ if (!empty($submit_mult) && !empty($what)) {
                 </table>
         </fieldset>
         <fieldset class="tblFooters">
-                <button type="submit" name="mult_btn" value="<?php echo __('Yes'); ?>" id="buttonYes"><?php echo __('Submit'); ?></button>
+                <input type="hidden" name="mult_btn" value="<?php echo __('Yes'); ?>" />
+                <input type="submit" value="<?php echo __('Submit'); ?>" id="buttonYes" />
         </fieldset>
         </form>
     <?php
@@ -299,7 +300,8 @@ if (!empty($submit_mult) && !empty($what)) {
                 </table>
         </fieldset>
         <fieldset class="tblFooters">
-                <button type="submit" name="mult_btn" value="<?php echo __('Yes'); ?>" id="buttonYes"><?php echo __('Submit'); ?></button>
+                <input type="hidden" name="mult_btn" value="<?php echo __('Yes'); ?>" />
+                <input type="submit" value="<?php echo __('Submit'); ?>" id="buttonYes" />
         </fieldset>
         </form>
     <?php
