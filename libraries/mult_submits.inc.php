@@ -317,7 +317,7 @@ if (!empty($submit_mult) && !empty($what)) {
                 <span class="fkc_switch"><?php echo __('Foreign key check:'); ?></span>
                 <span class="checkbox"><input type="checkbox" name="fk_check" value="1" id="fkc_checkbox"<?php
                 $default_fk_check_value = (PMA_DBI_fetch_value('SHOW VARIABLES LIKE \'foreign_key_checks\';', 0, 1) == 'ON') ? 1 : 0;
-                echo ($default_fk_check_value) ? ' checked=\"checked\"' : '' ?>/></span>
+                echo ($default_fk_check_value) ? ' checked="checked"' : '' ?>/></span>
                 <span id="fkc_status" class="fkc_switch"><?php echo ($default_fk_check_value) ? __('(Enabled)') : __('(Disabled)'); ?></span>
                 </div><?php
             } ?>
