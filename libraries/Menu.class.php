@@ -36,13 +36,13 @@ class PMA_Menu
      * @access private
      * @var string
      */
-    private $_table;    
-    
+    private $_table;
+
     private $_common_functions;
-    
+
     /**
      * Get CommmonFunctions
-     * 
+     *
      * @return CommonFunctions object
      */
     public function getCommonFunctions()
@@ -351,15 +351,6 @@ class PMA_Menu
 
         $tabs = array();
 
-        /**
-         * export, search and qbe links if there is at least one table
-         */
-        if ($num_tables == 0) {
-            $tabs['qbe']['warning']    = __('Database seems to be empty!');
-            $tabs['search']['warning'] = __('Database seems to be empty!');
-            $tabs['export']['warning'] = __('Database seems to be empty!');
-        }
-
         $tabs['structure']['link'] = 'db_structure.php';
         $tabs['structure']['text'] = __('Structure');
         $tabs['structure']['icon'] = 'b_props.png';
@@ -372,14 +363,23 @@ class PMA_Menu
         $tabs['search']['text'] = __('Search');
         $tabs['search']['icon'] = 'b_search.png';
         $tabs['search']['link'] = 'db_search.php';
+        if ($num_tables == 0) {
+            $tabs['search']['warning'] = __('Database seems to be empty!');
+        }
 
         $tabs['qbe']['text'] = __('Query');
         $tabs['qbe']['icon'] = 's_db.png';
         $tabs['qbe']['link'] = 'db_qbe.php';
+        if ($num_tables == 0) {
+            $tabs['qbe']['warning'] = __('Database seems to be empty!');
+        }
 
         $tabs['export']['text'] = __('Export');
         $tabs['export']['icon'] = 'b_export.png';
         $tabs['export']['link'] = 'db_export.php';
+        if ($num_tables == 0) {
+            $tabs['export']['warning'] = __('Database seems to be empty!');
+        }
 
         if (! $db_is_information_schema) {
             $tabs['import']['link'] = 'db_import.php';
