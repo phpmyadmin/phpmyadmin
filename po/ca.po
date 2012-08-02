@@ -4,15 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-27 10:40+0200\n"
-"PO-Revision-Date: 2012-07-30 17:15+0200\n"
+"PO-Revision-Date: 2012-08-02 11:56+0200\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
-"Language-Team: catalan <ca@li.org>\n"
+"Language-Team: Catalan "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.1\n"
+"X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:794
@@ -3293,7 +3294,7 @@ msgstr "Fer una \"petició segons exemple\" (comodí: \"%\")"
 
 #: libraries/TableSearch.class.php:1198
 msgid "Browse/Edit the points"
-msgstr "Veure/editar els punts"
+msgstr "Veure / editar els punts"
 
 #: libraries/TableSearch.class.php:1205
 msgid "How to use"
@@ -13533,12 +13534,16 @@ msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing open_files_limit."
 msgstr ""
+"Pensa en augmentar {open_files_limit}, i comprovar el registre d'errors en "
+"reiniciar després de canviar aquesta variable."
 
 #: libraries/advisory_rules.txt:332
 #, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
+"El nombre d'arxius oberts es troba al %s%% del límit. Ha de estar per sota "
+"del 85%%"
 
 #: libraries/advisory_rules.txt:334
 msgid "Rate of open files"
@@ -13549,10 +13554,11 @@ msgid "The rate of opening files is high."
 msgstr "El rati d'arxius oberts és alt."
 
 #: libraries/advisory_rules.txt:339
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
-msgstr "Tamany de l'àrea de classificació"
+msgstr ""
+"Taxa d'apertura d'arxius:%s, aquest valor ha de ser inferior a 5 per hora"
 
 #: libraries/advisory_rules.txt:341
 #, php-format
@@ -13566,22 +13572,28 @@ msgstr "Masses bloquejos de taula no s'han fet immediatament."
 #: libraries/advisory_rules.txt:345 libraries/advisory_rules.txt:352
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
+"Optimitza les consultes i/o fes servir InnoDB per reduir el temps d'espera "
+"de bloqueig."
 
 #: libraries/advisory_rules.txt:346
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr "Tamany de l'àrea de classificació"
+msgstr ""
+"Bloquejos immediats de taula: %s%%, aquest valor ha d'estar per sobre del 95"
+"%%"
 
 #: libraries/advisory_rules.txt:348
 msgid "Table lock wait rate"
-msgstr ""
+msgstr "Taxa d'espera de bloqueig de taules"
 
 #: libraries/advisory_rules.txt:353
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
-msgstr "Tamany de l'àrea de classificació"
+msgstr ""
+"Taxa d'espera de bloqueig de taula: %s, aquest valor ha de ser inferior a 1 "
+"per hora"
 
 #: libraries/advisory_rules.txt:355
 msgid "Thread cache"
@@ -13592,16 +13604,17 @@ msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
 msgstr ""
+"La memòria cau de fils està desactivada, el que resulta en una major "
+"sobrecàrrega de les connexions noves a MySQL."
 
 #: libraries/advisory_rules.txt:359
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
-msgstr ""
+msgstr "Habilita la memòria cau de fils configurant {thread_cache_size} > 0."
 
 #: libraries/advisory_rules.txt:360
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "The thread cache is set to 0"
-msgstr "El seguiment no està actiu."
+msgstr "La memòria cau de fils està establerta a 0"
 
 #: libraries/advisory_rules.txt:362
 #, php-format
@@ -13614,19 +13627,20 @@ msgstr "El cau de fils no és eficient."
 
 #: libraries/advisory_rules.txt:366
 msgid "Increase {thread_cache_size}."
-msgstr ""
+msgstr "Augmenta {thread_cache_size}."
 
 #: libraries/advisory_rules.txt:367
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr "Tamany de l'àrea de classificació"
+msgstr ""
+"Taxa d'encert del cau de fils: %s%%, aquest valor ha d'estar per sobre del "
+"80%%"
 
 #: libraries/advisory_rules.txt:369
-#, fuzzy
 #| msgid "The number of threads that are not sleeping."
 msgid "Threads that are slow to launch"
-msgstr "El nombre de fils que no estàn dormint."
+msgstr "Fils que s'inicien lentament"
 
 #: libraries/advisory_rules.txt:372
 msgid "There are too many threads that are slow to launch."
@@ -13637,35 +13651,38 @@ msgid ""
 "This generally happens in case of general system overload as it is pretty "
 "simple operations. You might want to monitor your system load carefully."
 msgstr ""
+"En general, això succeeix en cas de sobrecàrrega del sistema, ja que és una "
+"operació relativament simple. Hauries de monitoritzar amb compte la càrrega "
+"del teu sistema."
 
 #: libraries/advisory_rules.txt:374
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
-msgstr ""
+msgstr "%s fil(s) van trigar més de %s segons en iniciar, hauria de ser 0"
 
 #: libraries/advisory_rules.txt:376
 msgid "Slow launch time"
-msgstr ""
+msgstr "Temps d'inici lent"
 
 #: libraries/advisory_rules.txt:379
-#, fuzzy
 #| msgid "long_query_time is set to %d second(s)."
 msgid "Slow_launch_threads is above 2s"
-msgstr "«long_query_time» està configurat a %d segon(s)."
+msgstr "{slow_launch_threads} està per sobre de 2s"
 
 #: libraries/advisory_rules.txt:380
-#, fuzzy
 #| msgid "The number of threads that are not sleeping."
 msgid ""
 "Set slow_launch_time to 1s or 2s to correctly count threads that are slow to "
 "launch"
-msgstr "El nombre de fils que no estàn dormint."
+msgstr ""
+"Estableix {slow_launch_time} a 1 o 2 segons per comptar correctament els "
+"fils que s'inicien lentamen"
 
 #: libraries/advisory_rules.txt:381
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "slow_launch_time is set to %s"
-msgstr "«long_query_time» està configurat a %d segon(s)."
+msgstr "{slow_launch_time} està establert a %s"
 
 #: libraries/advisory_rules.txt:385
 msgid "Percentage of used connections"
@@ -13676,6 +13693,8 @@ msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "max_connections."
 msgstr ""
+"La quantitat màxima de connexions utilitzades s'està acostant al valor de "
+"{max_connections}."
 
 #: libraries/advisory_rules.txt:389
 msgid ""
@@ -13683,22 +13702,27 @@ msgid ""
 "do not close database handlers properly get killed sooner. Make sure the "
 "code closes database handlers properly."
 msgstr ""
+"Augmenta {max_connections} o redueix {wait_timeout} de forma que les "
+"connexions que no alliberan correctament els controladors de base de dades "
+"s'eliminin abans. Assegura't que el teu codi tanqui els controladors de base "
+"de dades correctament."
 
 #: libraries/advisory_rules.txt:390
 #, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
+"{max_used_connections} és el %s%% de {max_connections}, hauria de ser "
+"inferior al 80%%"
 
 #: libraries/advisory_rules.txt:392
 msgid "Percentage of aborted connections"
 msgstr "Percentatge de connexions fallides"
 
 #: libraries/advisory_rules.txt:395 libraries/advisory_rules.txt:402
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many connections are aborted."
-msgstr "Permet crear taules temporals."
+msgstr "Massa connexions avortades."
 
 #: libraries/advisory_rules.txt:396 libraries/advisory_rules.txt:403
 msgid ""
@@ -13707,11 +13731,17 @@ msgid ""
 "source-of-aborted_connects/\">This article</a> might help you track down the "
 "source."
 msgstr ""
+"Les connexions s'avorten generalment quan no poden ser autoritzades. <a "
+"href=\"http://www.mysqlperformanceblog.com/2008/08/23/how-to-track-down-the-"
+"source-of-aborted_connects/\">Aquest article</a> pot ajudar a rastrejar el "
+"motiu."
 
 #: libraries/advisory_rules.txt:397
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
+"El %s%% de totes les connexions avorten. Aquest valor ha de ser inferior a "
+"l'1%%"
 
 #: libraries/advisory_rules.txt:399
 msgid "Rate of aborted connections"
@@ -13722,16 +13752,17 @@ msgstr "Rati de connexions fallides"
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"La taxa de connexions avortades és de %s, aquest valor ha de ser inferior a "
+"1 per hora"
 
 #: libraries/advisory_rules.txt:406
 msgid "Percentage of aborted clients"
 msgstr "Percentatge de clients avortats"
 
 #: libraries/advisory_rules.txt:409 libraries/advisory_rules.txt:416
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many clients are aborted."
-msgstr "Permet crear taules temporals."
+msgstr "Massa clients avortats."
 
 #: libraries/advisory_rules.txt:410 libraries/advisory_rules.txt:417
 msgid ""
@@ -13739,25 +13770,31 @@ msgid ""
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
+"Els clients solen avortar en no tancar la seva connexió a MySQL "
+"correctament. Això pot ser causa de problemes de xarxa o que el codi no "
+"tanca un gestor de bases de dades correctament. Comprova la xarxa i el codi."
 
 #: libraries/advisory_rules.txt:411
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
+"El %s%% de tots els clients avorten. Aquest valor ha de ser inferior al 2%%"
 
 #: libraries/advisory_rules.txt:413
 msgid "Rate of aborted clients"
 msgstr "Rati de clients avortats"
 
 #: libraries/advisory_rules.txt:418
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
-msgstr "Tamany de l'àrea de classificació"
+msgstr ""
+"La taxa de clients avortats és de %s, aquest valor ha de ser inferior a 1 "
+"per hora"
 
 #: libraries/advisory_rules.txt:422
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "InnoDB està desactivat?"
 
 #: libraries/advisory_rules.txt:425
 msgid "You do not have InnoDB enabled."
@@ -13765,11 +13802,11 @@ msgstr "El motor InnoDB no està activat."
 
 #: libraries/advisory_rules.txt:426
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "InnoDB és generalment la millor opció per als motors de taula."
 
 #: libraries/advisory_rules.txt:427
 msgid "have_innodb is set to 'value'"
-msgstr ""
+msgstr "{have_innodb} està establert a 'value'"
 
 #: libraries/advisory_rules.txt:429
 msgid "InnoDB log size"
@@ -13796,24 +13833,36 @@ msgid ""
 "fine. See also <a href=\"http://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
+"Sobretot en un sistema amb una gran quantitat d'escriptures en taules "
+"InnoDB, has d'establir {innodb_log_file_size} al 25%% de "
+"{innodb_buffer_pool_size}. No obstant això, com més gran és aquest valor, "
+"major serà el temps de recuperació després d'una caiguda de la base de "
+"dades, de manera que això no hauria de ser molt més alt de 256 MiB. Tingues "
+"en compte però que no es pot simplement canviar el valor d'aquesta variable. "
+"Cal parar el servidor, eliminar els arxius de registre d'InnoDB, definir el "
+"nou valor en l'arxiu my.cnf, iniciar el servidor, i comprovar immediatament "
+"els registres d'error per veure si tot ha anat bé. Consulta també <a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">aquest article</a>"
 
 #: libraries/advisory_rules.txt:434
-#, fuzzy, php-format
+#, php-format
 #| msgid "The number writes done to the InnoDB buffer pool."
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
-msgstr "El nombre d'escriptures fetes a la memòria cau d'InnoDB."
+msgstr ""
+"La mida del registre InnoDB és del %s%% en relació a la mida de la memòria "
+"intermèdia d'InnoDB, que no hauria de ser inferior al 20%%"
 
 #: libraries/advisory_rules.txt:436
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "Max InnoDB log size"
-msgstr "Tamany de la memòria cau"
+msgstr "Mida màxima del registre InnoDB"
 
 #: libraries/advisory_rules.txt:439
 msgid "The InnoDB log file size is inadequately large."
-msgstr ""
+msgstr "La mida de l'arxiu de registre InnoDB és inadequadament gran."
 
 #: libraries/advisory_rules.txt:440
 #, php-format
@@ -13828,21 +13877,31 @@ msgid ""
 "mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
 "proper-way.html\">this blog entry</a>"
 msgstr ""
+"Normalment és suficient establir {innodb_log_file_size} al 25%% de la mida "
+"de {innodb_buffer_pool_size}. Un valor de {innodb_log_file_size} molt gran "
+"alenteix el temps de recuperació després d'una caiguda de la base de dades "
+"de manera considerable. Consulta també el <a "
+"href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">present article</a>. Cal apagar el servidor, eliminar "
+"els arxius de registre d'InnoDB, definir el nou valor a l'arxiu my.cnf, "
+"iniciar el servidor, i comprovar immediatament els registres d'error per "
+"veure si tot ha anat bé. Consulta també <a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">aquest article</a>"
 
 #: libraries/advisory_rules.txt:441
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr ""
+msgstr "La mida absoluta del registre InnoDB és de %s MiB"
 
 #: libraries/advisory_rules.txt:443
 msgid "InnoDB buffer pool size"
 msgstr "Tamany del búfer d'InnoDB"
 
 #: libraries/advisory_rules.txt:446
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr "Tamany de la memòria cau"
+msgstr "La memòria intermèdia d'InnoDB és relativament petita."
 
 #: libraries/advisory_rules.txt:447
 #, php-format
@@ -13858,6 +13917,18 @@ msgid ""
 "\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
+"La memòria intermèdia d'InnoDB té un profund impacte en el rendiment de les "
+"taules InnoDB. Assigna tota la memòria disponible del sistema a aquesta "
+"memòria intermèdia. Per als servidors de bases de dades que utilitzen "
+"exclusivament com a motor d'emmagatzematge InnoDB i no tenen altres serveis "
+"funcionant simultàniament (per exemple un servidor web), es pot establir "
+"aquest valor fins al 80%% de la memòria disponible. Si aquest no és el cas, "
+"cal avaluar acuradament el consum de memòria dels altres serveis i taules "
+"amb altres motors i definir aquesta variable en conseqüència. Si és massa "
+"alt, el sistema començarà a utilitzar l'àrea d'intercanvi a disc, el que "
+"disminueix significativament el rendiment. Consulta també <a "
+"href=\"http://www.mysqlperformanceblog.com/2007/11/03/choosing-"
+"innodb_buffer_pool_size/\">aquest article</a>"
 
 #: libraries/advisory_rules.txt:448
 #, php-format
@@ -13867,16 +13938,19 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
+"Estàs utilitzant el %s%% de la teva memòria per a la memòria intermèdia "
+"d'InnoDB. Aquesta regla s'activa si estàs assignant menys del 60%%, però "
+"això pot ser perfectament adequat per al teu sistema si no tens moltes "
+"taules InnoDB o altres serveis que s'executin a la mateixa màquina."
 
 #: libraries/advisory_rules.txt:452
 msgid "MyISAM concurrent inserts"
 msgstr "Insercions MyISAM a l'hora"
 
 #: libraries/advisory_rules.txt:455
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "Enable concurrent_insert by setting it to 1"
-msgstr "max. connexions a la vegada"
+msgstr "Activa {concurrent_insert} establint el valor a 1"
 
 #: libraries/advisory_rules.txt:456
 msgid ""
@@ -13884,12 +13958,15 @@ msgid ""
 "writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
+"Establint {concurrent_insert} a 1 redueix la competència entre els lectors i "
+"escriptors de una mateixa taula. Consulta també la <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-"
+"inserts.html\">documentació de MySQL</a>"
 
 #: libraries/advisory_rules.txt:457
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
-msgstr "max. connexions a la vegada"
+msgstr "{concurrent_insert} està establert a 0"
 
 #~ msgid "PDF"
 #~ msgstr "PDF"
