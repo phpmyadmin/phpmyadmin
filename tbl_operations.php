@@ -384,48 +384,7 @@ if ($cfgRelation['relwork'] && ! $is_innodb) {
     $foreign = PMA_getForeigners($GLOBALS['db'], $GLOBALS['table']);
 
     if ($foreign) {
-        ?>
-    <!-- Referential integrity check -->
-<div class="operations_half_width">
-<fieldset>
- <legend><?php echo __('Check referential integrity:'); ?></legend>
-    <ul>
-        <?php
-        echo "\n";
-        foreach ($foreign AS $master => $arr) {
-            $join_query  = 'SELECT ' . $common_functions->backquote($GLOBALS['table']) . '.* FROM '
-                         . $common_functions->backquote($GLOBALS['table']) . ' LEFT JOIN '
-                         . $common_functions->backquote($arr['foreign_table']);
-            if ($arr['foreign_table'] == $GLOBALS['table']) {
-                $foreign_table = $GLOBALS['table'] . '1';
-                $join_query .= ' AS ' . $common_functions->backquote($foreign_table);
-            } else {
-                $foreign_table = $arr['foreign_table'];
-            }
-            $join_query .= ' ON '
-                         . $common_functions->backquote($GLOBALS['table']) . '.' . $common_functions->backquote($master)
-                         . ' = ' . $common_functions->backquote($foreign_table) . '.' . $common_functions->backquote($arr['foreign_field'])
-                         . ' WHERE '
-                         . $common_functions->backquote($foreign_table) . '.' . $common_functions->backquote($arr['foreign_field'])
-                         . ' IS NULL AND '
-                         . $common_functions->backquote($GLOBALS['table']) . '.' . $common_functions->backquote($master)
-                         . ' IS NOT NULL';
-            $this_url_params = array_merge(
-                $url_params,
-                array('sql_query' => $join_query)
-            );
-            echo '        <li>'
-                 . '<a href="sql.php'
-                 . PMA_generate_common_url($this_url_params)
-                 . '">' . $master . '&nbsp;->&nbsp;' . $arr['foreign_table'] . '.' . $arr['foreign_field']
-                 . '</a></li>' . "\n";
-        } //  foreach $foreign
-        unset($foreign_table, $join_query);
-        ?>
-    </ul>
-   </fieldset>
-  </div>
-        <?php
+        echo PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params);
     } // end if ($foreign)
 
 } // end  if (!empty($cfg['Server']['relation']))

@@ -1297,4 +1297,55 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
     return $html_output;
 }
 
+function PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params)
+{
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
+    $html_output = '<div class="operations_half_width">'
+        . '<fieldset>'
+        . '<legend>' . __('Check referential integrity:') . '</legend>';
+    
+    $html_output .= '<ul>' . '"\n"';
+    
+    foreach ($foreign AS $master => $arr) {
+        $join_query  = 'SELECT ' . $common_functions->backquote(
+            $GLOBALS['table']) . '.* FROM '
+                . $common_functions->backquote($GLOBALS['table']) . ' LEFT JOIN '
+                . $common_functions->backquote($arr['foreign_table']);
+        if ($arr['foreign_table'] == $GLOBALS['table']) {
+            $foreign_table = $GLOBALS['table'] . '1';
+            $join_query .= ' AS ' . $common_functions->backquote($foreign_table);
+        } else {
+            $foreign_table = $arr['foreign_table'];
+        }
+        $join_query .= ' ON '
+            . $common_functions->backquote($GLOBALS['table']) . '.' 
+            . $common_functions->backquote($master)
+            . ' = ' . $common_functions->backquote($foreign_table) . '.' 
+            . $common_functions->backquote($arr['foreign_field'])
+            . ' WHERE '
+            . $common_functions->backquote($foreign_table) . '.' 
+            . $common_functions->backquote($arr['foreign_field'])
+            . ' IS NULL AND '
+            . $common_functions->backquote($GLOBALS['table']) . '.' 
+            . $common_functions->backquote($master)
+            . ' IS NOT NULL';
+        $this_url_params = array_merge(
+            $url_params,
+            array('sql_query' => $join_query)
+        );
+        
+        $html_output .= '<li>'
+            . '<a href="sql.php'
+            . PMA_generate_common_url($this_url_params)
+            . '">' 
+            . $master . '&nbsp;->&nbsp;' . $arr['foreign_table'] . '.' 
+            . $arr['foreign_field']
+            . '</a></li>' . "\n";
+    } //  foreach $foreign
+    $html_output .= '</ul></fieldset></div>';
+    
+    return $html_output;
+}
+
 ?>
