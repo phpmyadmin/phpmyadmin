@@ -326,6 +326,7 @@ if (!empty($submit_mult) && !empty($what)) {
         </fieldset>
     <?php
     }
+    echo '</form>';
     exit;
 
 } elseif ($mult_btn == __('Yes')) {
