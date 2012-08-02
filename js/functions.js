@@ -3491,7 +3491,7 @@ AJAX.registerOnload('functions.js', function() {
      * Automatic form submission on change.
      */
     $('.autosubmit').change(function(e) {
-        e.target.form.submit();
+        $(this).closest('form').submit();
     });
 
     /**
