@@ -1738,7 +1738,7 @@ class ExportSql extends ExportPlugin
                 }
             }
         
-        // We need to SET IDENTITY_INSERT ON for MSSQL 
+        // We need to SET IDENTITY_INSERT OFF for MSSQL 
         if (isset($GLOBALS['sql_compatibility'])
              && $GLOBALS['sql_compatibility'] == 'MSSQL')
         if (! PMA_exportOutputHandler(
