@@ -36,22 +36,11 @@ class PMA_Menu
      * @access private
      * @var string
      */
-    private $_table;    
-    
-    private $_common_functions;
-    
+    private $_table;
     /**
-     * Get CommmonFunctions
-     * 
-     * @return CommonFunctions object
+     * @var object A reference to the common functions object
      */
-    public function getCommonFunctions()
-    {
-        if (is_null($this->_common_functions)) {
-            $this->_common_functions = PMA_CommonFunctions::getInstance();
-        }
-        return $this->_common_functions;
-    }
+    private $_commonFunctions;
 
     /**
      * Creates a new instance of PMA_Menu
@@ -67,6 +56,7 @@ class PMA_Menu
         $this->_server = $server;
         $this->_db     = $db;
         $this->_table  = $table;
+        $this->_commonFunctions = PMA_commonFunctions::getInstance();
     }
 
     /**
@@ -92,7 +82,7 @@ class PMA_Menu
             if (isset($GLOBALS['buffer_message'])) {
                 $buffer_message = $GLOBALS['buffer_message'];
             }
-            $retval .= $this->getCommonFunctions()->getMessage($GLOBALS['message']);
+            $retval .= $this->_commonFunctions->getMessage($GLOBALS['message']);
             unset($GLOBALS['message']);
             if (isset($buffer_message)) {
                 $GLOBALS['buffer_message'] = $buffer_message;
@@ -118,7 +108,7 @@ class PMA_Menu
         } else {
             $tabs = $this->_getServerTabs();
         }
-        return $this->getCommonFunctions()->getHtmlTabs($tabs, $url_params);
+        return $this->_commonFunctions->getHtmlTabs($tabs, $url_params);
     }
 
     /**
@@ -147,7 +137,7 @@ class PMA_Menu
         $retval .= "<div id='floating_menubar'></div>";
         $retval .= "<div id='serverinfo'>";
         if ($GLOBALS['cfg']['NavigationBarIconic']) {
-            $retval .= $this->getCommonFunctions()->getImage(
+            $retval .= $this->_commonFunctions->getImage(
                 's_host.png',
                 '',
                 array('class' => 'item')
@@ -164,7 +154,7 @@ class PMA_Menu
         if (strlen($this->_db)) {
             $retval .= $separator;
             if ($GLOBALS['cfg']['NavigationBarIconic']) {
-                $retval .= $this->getCommonFunctions()->getImage(
+                $retval .= $this->_commonFunctions->getImage(
                     's_db.png',
                     '',
                     array('class' => 'item')
@@ -187,7 +177,7 @@ class PMA_Menu
                 $retval .= $separator;
                 if ($GLOBALS['cfg']['NavigationBarIconic']) {
                     $icon = $tbl_is_view ? 'b_views.png' : 's_tbl.png';
-                    $retval .= $this->getCommonFunctions()->getImage(
+                    $retval .= $this->_commonFunctions->getImage(
                         $icon,
                         '',
                         array('class' => 'item')
@@ -309,7 +299,7 @@ class PMA_Menu
         }
         if (! $db_is_information_schema
             && ! PMA_DRIZZLE
-            && $this->getCommonFunctions()->currentUserHasPrivilege('TRIGGER', $this->_db, $this->_table)
+            && $this->_commonFunctions->currentUserHasPrivilege('TRIGGER', $this->_db, $this->_table)
             && ! $tbl_is_view
         ) {
             $tabs['triggers']['link'] = 'tbl_triggers.php';
@@ -351,15 +341,6 @@ class PMA_Menu
 
         $tabs = array();
 
-        /**
-         * export, search and qbe links if there is at least one table
-         */
-        if ($num_tables == 0) {
-            $tabs['qbe']['warning']    = __('Database seems to be empty!');
-            $tabs['search']['warning'] = __('Database seems to be empty!');
-            $tabs['export']['warning'] = __('Database seems to be empty!');
-        }
-
         $tabs['structure']['link'] = 'db_structure.php';
         $tabs['structure']['text'] = __('Structure');
         $tabs['structure']['icon'] = 'b_props.png';
@@ -372,14 +353,23 @@ class PMA_Menu
         $tabs['search']['text'] = __('Search');
         $tabs['search']['icon'] = 'b_search.png';
         $tabs['search']['link'] = 'db_search.php';
+        if ($num_tables == 0) {
+            $tabs['search']['warning'] = __('Database seems to be empty!');
+        }
 
         $tabs['qbe']['text'] = __('Query');
         $tabs['qbe']['icon'] = 's_db.png';
         $tabs['qbe']['link'] = 'db_qbe.php';
+        if ($num_tables == 0) {
+            $tabs['qbe']['warning'] = __('Database seems to be empty!');
+        }
 
         $tabs['export']['text'] = __('Export');
         $tabs['export']['icon'] = 'b_export.png';
         $tabs['export']['link'] = 'db_export.php';
+        if ($num_tables == 0) {
+            $tabs['export']['warning'] = __('Database seems to be empty!');
+        }
 
         if (! $db_is_information_schema) {
             $tabs['import']['link'] = 'db_import.php';
@@ -405,14 +395,14 @@ class PMA_Menu
             }
             if (PMA_MYSQL_INT_VERSION >= 50106
                 && ! PMA_DRIZZLE
-                && $this->getCommonFunctions()->currentUserHasPrivilege('EVENT', $this->_db)
+                && $this->_commonFunctions->currentUserHasPrivilege('EVENT', $this->_db)
             ) {
                 $tabs['events']['link'] = 'db_events.php';
                 $tabs['events']['text'] = __('Events');
                 $tabs['events']['icon'] = 'b_events.png';
             }
             if (! PMA_DRIZZLE
-                && $this->getCommonFunctions()->currentUserHasPrivilege('TRIGGER', $this->_db)
+                && $this->_commonFunctions->currentUserHasPrivilege('TRIGGER', $this->_db)
             ) {
                 $tabs['triggers']['link'] = 'db_triggers.php';
                 $tabs['triggers']['text'] = __('Triggers');
