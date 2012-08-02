@@ -458,21 +458,21 @@ if (!empty($submit_mult) && !empty($what)) {
             break;
 
         case 'add_prefix_tbl':
-            $newtablename = $add_prefix . $selected[$i];
+            $newtablename = $_POST['add_prefix'] . $selected[$i];
             $a_query = 'ALTER TABLE ' . $common_functions->backquote($selected[$i]) . ' RENAME ' . $common_functions->backquote($newtablename); // ADD PREFIX TO TABLE NAME
             $run_parts = true;
             break;
 
         case 'replace_prefix_tbl':
             $current = $selected[$i];
-            $newtablename = preg_replace("/^" . $from_prefix . "/", $to_prefix, $current);
+            $newtablename = preg_replace("/^" . $_POST['from_prefix'] . "/", $_POST['to_prefix'], $current);
             $a_query = 'ALTER TABLE ' . $common_functions->backquote($selected[$i]) . ' RENAME ' . $common_functions->backquote($newtablename); // CHANGE PREFIX PATTERN
             $run_parts = true;
             break;
 
         case 'copy_tbl_change_prefix':
             $current = $selected[$i];
-            $newtablename = preg_replace("/^" . $from_prefix . "/", $to_prefix, $current);
+            $newtablename = preg_replace("/^" . $_POST['from_prefix'] . "/", $_POST['to_prefix'], $current);
             $a_query = 'CREATE TABLE ' . $common_functions->backquote($newtablename) . ' SELECT * FROM ' . $common_functions->backquote($selected[$i]); // COPY TABLE AND CHANGE PREFIX PATTERN
             $run_parts = true;
             break;
