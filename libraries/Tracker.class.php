@@ -371,7 +371,7 @@ class PMA_Tracker
             . $common_functions->sqlAddSlashes($dbname) . "'"
             . " AND `table_name` = '"
             . $common_functions->sqlAddSlashes($tablename) . "'";
-        $result = PMA_query_as_controluser($sql_query);
+        $result = PMA_queryAsControlUser($sql_query);
 
         return $result;
     }
