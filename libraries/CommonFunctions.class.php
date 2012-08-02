@@ -977,7 +977,7 @@ class PMA_CommonFunctions
      * 
      * example:
      * <code>
-     * echo backquote_compat('owner`s db'); // `owner``s db`
+     * echo backquote('owner`s db'); // `owner``s db`
      *
      * </code>
      *
@@ -985,12 +985,13 @@ class PMA_CommonFunctions
      *                        or array of it
      * @param boolean $do_it  a flag to bypass this function (used by dump
      *                        functions)
-     *
+     * @param string  $compatibility string compatibility mode (used by dump
+     *                        functions)
      * @return mixed    the "backquoted" database, table or field name
      *
      * @access  public
      */
-    public function backquote_compat($a_name, $do_it = true)
+    public function backquote_compat($a_name, $do_it = true, $compatibility = 'MSSQL')
     {
 
         if (is_array($a_name)) {
@@ -1009,7 +1010,7 @@ class PMA_CommonFunctions
         }
     
         // @todo add more compatibility cases (ORACLE for example)
-        switch ($GLOBALS['sql_compatibility']) {
+        switch ($compatibility) {
             case 'MSSQL': $quote = '"'; break;
             default: (isset($GLOBALS['sql_backquotes'])) ? $quote = "`" : $quote = ''; break;
         }
