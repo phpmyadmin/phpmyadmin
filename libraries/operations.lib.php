@@ -1297,6 +1297,15 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
     return $html_output;
 }
 
+/**
+ * Get the HTML for Referential Integrity check
+ * 
+ * @param array $foreign        all Relations to foreign tables for a given table
+ *                              or optionally a given column in a table
+ * @param array $url_params     array of url parameters
+ * 
+ * @return string $html_output
+ */
 function PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params)
 {
     $common_functions = PMA_CommonFunctions::getInstance();
