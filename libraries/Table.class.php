@@ -320,7 +320,7 @@ class PMA_Table
         $force_read = false, $disable_error = false
     ) {
         
-        if ($_SESSION['is_multi_query']) {
+        if (isset($_SESSION['is_multi_query']) && $_SESSION['is_multi_query']) {
             $disable_error = true;
         }
         
