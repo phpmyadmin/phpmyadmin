@@ -11,6 +11,7 @@ phpMyAdmin - ChangeLog
 - bug #3548491 [interface] Inline query editor doesn't work from search results
 - bug #3547825 [edit] BLOB download no longer works
 - bug #3541966 [config] Error in generated configuration arrray
+- bug #3553551 [GUI] Invalid HTML code in multi submits confirmation form
 
 3.5.2.0 (2012-07-07)
 - bug #3521416 [interface] JS error when editing index

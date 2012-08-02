@@ -286,6 +286,7 @@ if (!empty($submit_mult) && !empty($what)) {
     </fieldset>
     <?php
     }
+    echo '</form>';
     include './libraries/footer.inc.php';
 
 } elseif ($mult_btn == __('Yes')) {
