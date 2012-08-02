@@ -974,7 +974,7 @@ class PMA_CommonFunctions
     /**
      * Adds quotes on both sides of a database, table or field name.
      * in compatibility mode
-     * 
+     *
      * example:
      * <code>
      * echo backquote('owner`s db'); // `owner``s db`
@@ -983,20 +983,20 @@ class PMA_CommonFunctions
      *
      * @param mixed   $a_name the database, table or field name to "backquote"
      *                        or array of it
-     * @param boolean $do_it  a flag to bypass this function (used by dump
-     *                        functions)
      * @param string  $compatibility string compatibility mode (used by dump
+     *                        functions)
+     * @param boolean $do_it  a flag to bypass this function (used by dump
      *                        functions)
      * @return mixed    the "backquoted" database, table or field name
      *
      * @access  public
      */
-    public function backquote_compat($a_name, $do_it = true, $compatibility = 'MSSQL')
+    public function backquote_compat($a_name, $compatibility = 'MSSQL', $do_it = true)
     {
 
         if (is_array($a_name)) {
             foreach ($a_name as &$data) {
-                $data = $this->backquote_compat($data, $do_it);
+                $data = $this->backquote_compat($data, $compatibility, $do_it);
             }
             return $a_name;
         }
@@ -1008,7 +1008,7 @@ class PMA_CommonFunctions
                 return $a_name;
             }
         }
-    
+
         // @todo add more compatibility cases (ORACLE for example)
         switch ($compatibility) {
             case 'MSSQL': $quote = '"'; break;
@@ -1022,7 +1022,7 @@ class PMA_CommonFunctions
             return $a_name;
         }
 
-    } // end of the 'backquote_compat()' function    
+    } // end of the 'backquote_compat()' function
 
     /**
      * Defines the <CR><LF> value depending on the user OS.
