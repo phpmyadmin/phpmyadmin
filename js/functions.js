@@ -2598,6 +2598,13 @@ $(function() {
             $(this).dialog('close');
         };
         $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
+            if (data.error) {
+                var $temp_div = $("<div id='temp_div'></div>");
+                $temp_div.html(data.error);
+                var $error = $temp_div.addClass("error");
+                PMA_ajaxShowMessage($temp_div, false);
+                return false;
+            }
             $('<div id="change_password_dialog"></div>')
             .dialog({
                 title: PMA_messages['strChangePassword'],
