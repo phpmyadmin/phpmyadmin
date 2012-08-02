@@ -977,7 +977,7 @@ class PMA_CommonFunctions
      * 
      * example:
      * <code>
-     * echo backquote('owner`s db'); // `owner``s db`
+     * echo backquote_compat('owner`s db'); // `owner``s db`
      *
      * </code>
      *
