@@ -735,7 +735,8 @@ function PMA_getTableOptionDiv($comment, $tbl_collation, $tbl_storage_engine,
     );
 
     $html_output .= '<fieldset class="tblFooters">'
-        . '<input type="submit" name="submitoptions" value="' . __('Go') . '" />'
+        . '<input type="hidden" name="submitoptions" value="1" />'
+        . '<input type="submit" value="' . __('Go') . '" />'
         . '</fieldset>'
         . '</form>'
         . '</div>';
