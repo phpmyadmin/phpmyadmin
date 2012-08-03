@@ -307,9 +307,14 @@ if (strstr($show_comment, '; InnoDB free') === false) {
 // in >5.0.4, >4.1.12 and >4.0.11, so I decided not to
 // check for version
 
-echo PMA_getTableOptionDiv($comment, $tbl_collation, $tbl_storage_engine,
-    $is_myisam_or_aria, $is_isam, $pack_keys, $delay_key_write, $auto_increment,
-    $transactional, $page_checksum, $is_innodb, $is_pbxt, $is_aria
+echo PMA_getTableOptionDiv(
+    $comment, $tbl_collation, $tbl_storage_engine,
+    $is_myisam_or_aria, $is_isam, $pack_keys,
+    $auto_increment,
+    (empty($delay_key_write) ? '0' : '1'),
+    ((isset($transactional) && $transactional == '0') ? '0' : '1'), 
+    ((isset($page_checksum)) ? $page_checksum : ''),
+    $is_innodb, $is_pbxt, $is_aria
 );
 
 /**
