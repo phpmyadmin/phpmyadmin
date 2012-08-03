@@ -45,40 +45,59 @@ class ImportOds extends ImportPlugin
      */
     protected function setProperties()
     {
-        $this->properties = array(
-            'text' => __('Open Document Spreadsheet'),
-            'extension' => 'ods',
-            'options' => array(),
-            'options_text' => __('Options'),
-        );
+        $props = 'libraries/properties/';
+        include_once "$props/plugins/ImportPluginProperties.class.php";
+        include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
+        include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
+        include_once "$props/options/items/BoolPropertyItem.class.php";
 
-        $this->properties['options'] = array(
-            array(
-                'type' => 'begin_group',
-                'name' => 'general_opts'
-            ),
-            array(
-                'type' => 'bool',
-                'name' => 'col_names',
-                'text' => __('The first line of the file contains the table column names <i>(if this is unchecked, the first line will become part of the data)</i>')
-            ),
-            array(
-                'type' => 'bool',
-                'name' => 'empty_rows',
-                'text' => __('Do not import empty rows')
-            ),
-            array(
-                'type' => 'bool',
-                'name' => 'recognize_percentages',
-                'text' => __('Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>')
-            ),
-            array(
-                'type' => 'bool',
-                'name' => 'recognize_currency',
-                'text' => __('Import currencies <i>(ex. $5.00 to 5.00)</i>')
-            ),
-            array('type' => 'end_group')
+        $importPluginProperties = new ImportPluginProperties();
+        $importPluginProperties->setText('Open Document Spreadsheet');
+        $importPluginProperties->setExtension('ods');
+        $importPluginProperties->setOptionsText(__('Options'));
+
+        // create the root group that will be the options field for
+        // $importPluginProperties
+        // this will be shown as "Format specific options"
+        $importSpecificOptions = new OptionsPropertyRootGroup();
+        $importSpecificOptions->setName("Format Specific Options");
+
+        // general options main group
+        $generalOptions = new OptionsPropertyMainGroup();
+        $generalOptions->setName("general_opts");
+        // create primary items and add them to the group
+        $leaf = new BoolPropertyItem();
+        $leaf->setName("col_names");
+        $leaf->setText(
+                __('The first line of the file contains the table column names'
+                    . ' <i>(if this is unchecked, the first line will become part'
+                    . ' of the data)</i>'
+                )
         );
+        $generalOptions->addProperty($leaf);
+        $leaf = new BoolPropertyItem();
+        $leaf->setName("empty_rows");
+        $leaf->setText(__('Do not import empty rows'));
+        $generalOptions->addProperty($leaf);
+        $leaf = new BoolPropertyItem();
+        $leaf->setName("recognize_percentages");
+        $leaf->setText(
+             __(
+                'Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>'
+             )
+        );
+        $generalOptions->addProperty($leaf);
+        $leaf = new BoolPropertyItem();
+        $leaf->setName("recognize_currency");
+        $leaf->setText(__('Import currencies <i>(ex. $5.00 to 5.00)</i>'));
+        $generalOptions->addProperty($leaf);
+
+        // add the main group to the root group
+        $importSpecificOptions->addProperty($generalOptions);
+
+        // set the options for the import plugin property item
+        $importPluginProperties->setOptions($importSpecificOptions);
+        $this->properties = $importPluginProperties;
     }
 
     /**

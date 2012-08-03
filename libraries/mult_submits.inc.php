@@ -317,7 +317,7 @@ if (!empty($submit_mult) && !empty($what)) {
                 <span class="fkc_switch"><?php echo __('Foreign key check:'); ?></span>
                 <span class="checkbox"><input type="checkbox" name="fk_check" value="1" id="fkc_checkbox"<?php
                 $default_fk_check_value = (PMA_DBI_fetch_value('SHOW VARIABLES LIKE \'foreign_key_checks\';', 0, 1) == 'ON') ? 1 : 0;
-                echo ($default_fk_check_value) ? ' checked=\"checked\"' : '' ?>/></span>
+                echo ($default_fk_check_value) ? ' checked="checked"' : '' ?>/></span>
                 <span id="fkc_status" class="fkc_switch"><?php echo ($default_fk_check_value) ? __('(Enabled)') : __('(Disabled)'); ?></span>
                 </div><?php
             } ?>
@@ -326,6 +326,7 @@ if (!empty($submit_mult) && !empty($what)) {
         </fieldset>
     <?php
     }
+    echo '</form>';
     exit;
 
 } elseif ($mult_btn == __('Yes')) {
@@ -457,21 +458,21 @@ if (!empty($submit_mult) && !empty($what)) {
             break;
 
         case 'add_prefix_tbl':
-            $newtablename = $add_prefix . $selected[$i];
+            $newtablename = $_POST['add_prefix'] . $selected[$i];
             $a_query = 'ALTER TABLE ' . $common_functions->backquote($selected[$i]) . ' RENAME ' . $common_functions->backquote($newtablename); // ADD PREFIX TO TABLE NAME
             $run_parts = true;
             break;
 
         case 'replace_prefix_tbl':
             $current = $selected[$i];
-            $newtablename = preg_replace("/^" . $from_prefix . "/", $to_prefix, $current);
+            $newtablename = preg_replace("/^" . $_POST['from_prefix'] . "/", $_POST['to_prefix'], $current);
             $a_query = 'ALTER TABLE ' . $common_functions->backquote($selected[$i]) . ' RENAME ' . $common_functions->backquote($newtablename); // CHANGE PREFIX PATTERN
             $run_parts = true;
             break;
 
         case 'copy_tbl_change_prefix':
             $current = $selected[$i];
-            $newtablename = preg_replace("/^" . $from_prefix . "/", $to_prefix, $current);
+            $newtablename = preg_replace("/^" . $_POST['from_prefix'] . "/", $_POST['to_prefix'], $current);
             $a_query = 'CREATE TABLE ' . $common_functions->backquote($newtablename) . ' SELECT * FROM ' . $common_functions->backquote($selected[$i]); // COPY TABLE AND CHANGE PREFIX PATTERN
             $run_parts = true;
             break;

@@ -18,7 +18,7 @@ if ($GLOBALS['plugin_param'] !== 'database') {
     $GLOBALS['skip_import'] = true;
     return;
 }
-            
+
 /**
  * Handles the import for the DocSQL format
  *
@@ -58,27 +58,38 @@ class ImportDocsql extends ImportPlugin
             return;
         }
 
-        $this->properties = array(
-            'text' => __('DocSQL'),
-            'extension' => '',
-            'options' => array(),
-            'options_text' => __('Options'),
-        );
+        $props = 'libraries/properties/';
+        include_once "$props/plugins/ImportPluginProperties.class.php";
+        include_once "$props/options/groups/OptionsPropertyRootGroup.class.php";
+        include_once "$props/options/groups/OptionsPropertyMainGroup.class.php";
+        include_once "$props/options/items/TextPropertyItem.class.php";
 
-        $this->properties['options'] = array(
-            array(
-                'type' => 'begin_group',
-                'name' => 'general_opts'
-            ),
-            array(
-                'type' => 'text',
-                'name' => 'table',
-                'text' => __('Table name')
-            ),
-            array(
-                'type' => 'end_group'
-            )
-        );
+        $importPluginProperties = new ImportPluginProperties();
+        $importPluginProperties->setText('DocSQL');
+        $importPluginProperties->setExtension('');
+        $importPluginProperties->setOptionsText(__('Options'));
+
+        // create the root group that will be the options field for
+        // $importPluginProperties
+        // this will be shown as "Format specific options"
+        $importSpecificOptions = new OptionsPropertyRootGroup();
+        $importSpecificOptions->setName("Format Specific Options");
+
+        // general options main group
+        $generalOptions = new OptionsPropertyMainGroup();
+        $generalOptions->setName("general_opts");
+        // create primary items and add them to the group
+        $leaf = new TextPropertyItem();
+        $leaf->setName("table");
+        $leaf->setText(__('Table name'));
+        $generalOptions->addProperty($leaf);
+
+        // add the main group to the root group
+        $importSpecificOptions->addProperty($generalOptions);
+
+        // set the options for the import plugin property item
+        $importPluginProperties->setOptions($importSpecificOptions);
+        $this->properties = $importPluginProperties;
     }
 
     /**
@@ -104,7 +115,7 @@ class ImportDocsql extends ImportPlugin
         global $error, $timeout_passed, $finished;
         $cfgRelation = $this->_getCfgRelation();
         $common_functions = PMA_CommonFunctions::getInstance();
-    
+
         $tab = $_POST['docsql_table'];
         $buffer = '';
 

@@ -11,6 +11,8 @@
  */
 require 'libraries/common.inc.php';
 
+$response = PMA_Response::getInstance()->disable();
+
 $filename = CHANGELOG_FILE;
 
 /**

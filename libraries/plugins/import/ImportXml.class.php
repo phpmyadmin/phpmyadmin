@@ -45,13 +45,17 @@ class ImportXml extends ImportPlugin
      */
     protected function setProperties()
     {
-        $this->properties = array(
-            'text' => __('XML'),
-            'extension' => 'xml',
-            'mime_type' => 'text/xml',
-            'options' => array(),
-            'options_text' => __('Options')
-        );
+        $props = 'libraries/properties/';
+        include_once "$props/plugins/ImportPluginProperties.class.php";
+
+        $importPluginProperties = new ImportPluginProperties();
+        $importPluginProperties->setText(__('XML'));
+        $importPluginProperties->setExtension('xml');
+        $importPluginProperties->setMimeType('text/xml');
+        $importPluginProperties->setOptions(array());
+        $importPluginProperties->setOptionsText(__('Options'));
+
+        $this->properties = $importPluginProperties;
     }
 
     /**

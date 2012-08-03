@@ -80,12 +80,12 @@ class PMA_TableSearch
      * @var array
      */
     private $_foreigners;
-    
+
     private $_common_functions;
-    
+
     /**
      * Get CommmonFunctions
-     * 
+     *
      * @return CommonFunctions object
      */
     public function getCommonFunctions()
@@ -95,7 +95,7 @@ class PMA_TableSearch
         }
         return $this->_common_functions;
     }
-    
+
 
     /**
      * Public Constructor
@@ -103,7 +103,6 @@ class PMA_TableSearch
      * @param string $db         Database name
      * @param string $table      Table name
      * @param string $searchType Whether normal or zoom search
-     *
      */
     public function __construct($db, $table, $searchType)
     {
@@ -134,6 +133,7 @@ class PMA_TableSearch
      * Gets all the columns of a table along with their types, collations
      * and whether null or not.
      *
+     * @return void
      */
     private function _loadTableInfo()
     {
@@ -445,38 +445,34 @@ EOT;
      */
     private function _getEnumWhereClause($criteriaValues, $func_type)
     {
-        $where = '';
         $common_functions = PMA_CommonFunctions::getInstance();
-        if (! empty($criteriaValues)) {
-            if (! is_array($criteriaValues)) {
-                $criteriaValues = explode(',', $criteriaValues);
-            }
-            $enum_selected_count = count($criteriaValues);
-            if ($func_type == '=' && $enum_selected_count > 1) {
-                $func_type    = 'IN';
-                $parens_open  = '(';
-                $parens_close = ')';
-
-            } elseif ($func_type == '!=' && $enum_selected_count > 1) {
-                $func_type    = 'NOT IN';
-                $parens_open  = '(';
-                $parens_close = ')';
-
-            } else {
-                $parens_open  = '';
-                $parens_close = '';
-            }
-            $enum_where = '\''
-                . $common_functions->sqlAddSlashes($criteriaValues[0]) . '\'';
-            for ($e = 1; $e < $enum_selected_count; $e++) {
-                $enum_where .= ', \''
-                    . $common_functions->sqlAddSlashes($criteriaValues[$e]) . '\'';
-            }
-
-            $where = ' ' . $func_type . ' ' . $parens_open
-                . $enum_where . $parens_close;
+        if (! is_array($criteriaValues)) {
+            $criteriaValues = explode(',', $criteriaValues);
         }
-        return $where;
+        $enum_selected_count = count($criteriaValues);
+        if ($func_type == '=' && $enum_selected_count > 1) {
+            $func_type    = 'IN';
+            $parens_open  = '(';
+            $parens_close = ')';
+
+        } elseif ($func_type == '!=' && $enum_selected_count > 1) {
+            $func_type    = 'NOT IN';
+            $parens_open  = '(';
+            $parens_close = ')';
+
+        } else {
+            $parens_open  = '';
+            $parens_close = '';
+        }
+        $enum_where = '\''
+            . $common_functions->sqlAddSlashes($criteriaValues[0]) . '\'';
+        for ($e = 1; $e < $enum_selected_count; $e++) {
+            $enum_where .= ', \''
+                . $common_functions->sqlAddSlashes($criteriaValues[$e]) . '\'';
+        }
+
+        return ' ' . $func_type . ' ' . $parens_open
+            . $enum_where . $parens_close;
     }
 
     /**
@@ -548,9 +544,9 @@ EOT;
     private function _getWhereClause($criteriaValues, $names, $types, $collations,
         $func_type, $unaryFlag, $geom_func = null
     ) {
-        
+
         $common_functions = PMA_CommonFunctions::getInstance();
-        
+
         // If geometry function is set
         if ($geom_func != null && trim($geom_func) != '') {
             return $this->_getGeomWhereClause(
@@ -564,7 +560,7 @@ EOT;
             $criteriaValues = '';
             $where = $backquoted_name . ' ' . $func_type;
 
-        } elseif (strncasecmp($types, 'enum', 4) == 0) {
+        } elseif (strncasecmp($types, 'enum', 4) == 0 && ! empty($criteriaValues)) {
             $where = $backquoted_name;
             $where .= $this->_getEnumWhereClause($criteriaValues, $func_type);
 
@@ -770,7 +766,7 @@ EOT;
         $html_output .= $this->getCommonFunctions()->getDivForSliderEffect(
             'searchoptions', __('Options')
         );
-        
+
         /**
          * Displays columns select list for selecting distinct columns in the search
          */
@@ -834,7 +830,7 @@ EOT;
         );
         unset($choices);
 
-        $html_output .= '</fieldset><br style="clear: both;"/></div></fieldset>';
+        $html_output .= '</fieldset><br style="clear: both;"/></div>';
         return $html_output;
     }
 
@@ -1112,48 +1108,41 @@ EOT;
      */
     public function getSelectionForm($goto, $dataLabel = null)
     {
-        $html_output = '';
-        $html_output .= '<fieldset id="fieldset_subtab">';
         $url_params = array();
         $url_params['db'] = $this->_db;
         $url_params['table'] = $this->_table;
 
-        $html_output .= $this->getCommonFunctions()->getHtmlTabs(
-            $this->_getSubTabs(), $url_params, 'topmenu2'
-        );
+        $html_output = '<ul id="topmenu2">';
+        foreach ($this->_getSubTabs() as $tab) {
+            $html_output .= PMA_CommonFunctions::getInstance()->getHtmlTab($tab, $url_params);
+        }
+        $html_output .= '</ul>';
+        $html_output .= '<div class="clearfloat"></div>';
+
         $html_output .= $this->_getFormTag($goto);
 
-        $html_output .= '<fieldset id='
-            . ($this->_searchType == 'zoom' ? '"inputSection"' : '"fieldset_table_search"') . '>';
-        $html_output .= ($this->_searchType == 'zoom'
-            ? '' : '<fieldset id="fieldset_table_qbe">');
-
-        // Set caption for fieldset
         if ($this->_searchType == 'zoom') {
+            $html_output .= '<fieldset id="fieldset_zoom_search">';
+            $html_output .= '<fieldset id="inputSection">';
             $html_output .= '<legend>'
                 . __('Do a "query by example" (wildcard: "%") for two different columns')
                 . '</legend>';
+            $html_output .= $this->_getFieldsTableHtml();
+            $html_output .= $this->_getOptionsZoom($dataLabel);
+            $html_output .= '</fieldset>';
+            $html_output .= '</fieldset>';
         } else {
+            $html_output .= '<fieldset id="fieldset_table_search">';
+            $html_output .= '<fieldset id="fieldset_table_qbe">';
             $html_output .= '<legend>'
                 . __('Do a "query by example" (wildcard: "%")')
                 . '</legend>';
-        }
-
-        /**
-         * Displays fields table in search form
-         */
-        $html_output .= $this->_getFieldsTableHtml();
-
-        /**
-         * Displays more search options
-         */
-        if ($this->_searchType == 'zoom') {
-            $html_output .= $this->_getOptionsZoom($dataLabel);
-        } else {
-            $html_output .= '<div id="gis_editor"></div>'
-                . '<div id="popup_background"></div>'
-                . '</fieldset>';
+            $html_output .= $this->_getFieldsTableHtml();
+            $html_output .= '<div id="gis_editor"></div>';
+            $html_output .= '<div id="popup_background"></div>';
+            $html_output .= '</fieldset>';
             $html_output .= $this->_getOptions();
+            $html_output .= '</fieldset>';
         }
 
         /**
@@ -1165,12 +1154,7 @@ EOT;
             . ($this->_searchType == 'zoom' ? '" id="inputFormSubmitId"' : '" ')
             . 'value="' . __('Go') . '" />';
         $html_output .= '</fieldset></form>';
-        if ($this->_searchType == 'zoom') {
-            $html_output = '<div id="sqlqueryresults"></div>'
-                . $html_output . '</fieldset>';
-        } else {
-            $html_output .= '<div id="sqlqueryresults"></div></fieldset>';
-        }
+        $html_output .= '<div id="sqlqueryresults"></div>';
         return $html_output;
     }
 

@@ -73,7 +73,6 @@ if (strlen($db) && (! empty($_REQUEST['db_rename']) || ! empty($_REQUEST['db_cop
             "sql",    
             'libraries/plugins/export/',
             array(
-                'export_type' => $export_type,
                 'single_table' => isset($single_table)
             )
         );

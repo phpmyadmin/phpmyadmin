@@ -21,7 +21,7 @@ class PMA_bookmark_test extends PHPUnit_Framework_TestCase
         if (! function_exists('PMA_getRelationsParam')) {
             function PMA_getRelationsParam()
             {
-                $cfgRelation['bookmarkwork'] = true;
+                $cfgRelation['bookmarkwork'] = false;
                 return $cfgRelation;
             }
         }
@@ -53,11 +53,7 @@ class PMA_bookmark_test extends PHPUnit_Framework_TestCase
     public function testPMA_Bookmark_getParams(){
 
         $this->assertEquals(
-            array(
-                'user' => 'root',
-                'db'   => 'phpmyadmin',
-                'table'=> 'pma_bookmark'
-            ),
+            false,
             PMA_Bookmark_getParams()
         );
     }
@@ -67,10 +63,7 @@ class PMA_bookmark_test extends PHPUnit_Framework_TestCase
      */
     public function testPMA_Bookmark_getList(){
         $this->assertEquals(
-            array(
-                0 => 'table1 (shared)',
-                1 => 'table2 (shared)'
-            ),
+            array(),
             PMA_Bookmark_getList('phpmyadmin')
         );
     }
@@ -82,11 +75,11 @@ class PMA_bookmark_test extends PHPUnit_Framework_TestCase
         if (! function_exists('PMA_DBI_fetch_value')) {
             function PMA_DBI_fetch_value()
             {
-                return "SELECT query FROM `phpmyadmin`.`pma_bookmark` WHERE dbase = 'phpmyadmin' AND (user = 'root' OR user = '') AND `id` = 1";
+                return '';
             }
         }
         $this->assertEquals(
-            "SELECT query FROM `phpmyadmin`.`pma_bookmark` WHERE dbase = 'phpmyadmin' AND (user = 'root' OR user = '') AND `id` = 1",
+            '',
             PMA_Bookmark_get('phpmyadmin', '1')
         );
     }
@@ -98,10 +91,10 @@ class PMA_bookmark_test extends PHPUnit_Framework_TestCase
         if (! function_exists('PMA_DBI_query')) {
             function PMA_DBI_query()
             {
-                return true;
+                return false;
             }
         }
-        $this->assertTrue(
+        $this->assertfalse(
             PMA_Bookmark_save(array(
                 'dbase' => 'phpmyadmin',
                 'user' => 'phpmyadmin',
@@ -118,10 +111,10 @@ class PMA_bookmark_test extends PHPUnit_Framework_TestCase
         if (! function_exists('PMA_DBI_try_query')) {
             function PMA_DBI_try_query()
             {
-                return true;
+                return false;
             }
         }
-        $this->assertTrue(
+        $this->assertFalse(
             PMA_Bookmark_delete('phpmyadmin', '1')
         );
     }

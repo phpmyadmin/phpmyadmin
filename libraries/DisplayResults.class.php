@@ -66,6 +66,9 @@ class PMA_DisplayResults
     const TABLE_TYPE_INNO_DB = 'InnoDB';
     const ALL_ROWS = 'all';
     const QUERY_TYPE_SELECT = 'SELECT';
+    
+    const ROUTINE_PROCEDURE = 'procedure';
+    const ROUTINE_FUNCTION = 'function';
 
 
     // Declare global fields
@@ -2685,7 +2688,9 @@ class PMA_DisplayResults
         $fields_meta = $this->__get('_fields_meta');
         $highlight_columns = $this->__get('_highlight_columns');
         $mime_map = $this->__get('_mime_map');
-
+        
+        $row_info = $this->_getRowInfoForSpecialLinks($row, $col_order);
+        
         for ($j = 0; $j < $this->__get('_fields_cnt'); ++$j) {
 
             // assign $i with appropriate column order
@@ -2784,7 +2789,8 @@ class PMA_DisplayResults
             $vertical_display = $this->__get('_vertical_display');            
             
             // Check whether the field needs to display with syntax highlighting
-            if ($this->_isNeedToSytaxHighliight($meta->name)
+
+            if ($this->_isNeedToSytaxHighlight($meta->name)
                 && (trim($row[$i]) != '')
             ) {
                 
@@ -2806,9 +2812,32 @@ class PMA_DisplayResults
                     '_', '/',
                     $this->sytax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($meta->name)][2]
                 );
-                
-            }            
 
+            }
+            
+            // Check for the predefined fields need to show as link in schemas
+            include_once 'libraries/special_schema_links.lib.php';
+            
+            if (isset($GLOBALS['special_schema_links'])
+                && ($this->_isFieldNeedToLink(strtolower($meta->name)))
+            ) {
+                
+                $linking_url = $this->_getSpecialLinkUrl($row[$i], $row_info, strtolower($meta->name));
+                include_once "libraries/plugins/transformations/Text_Plain_Link.class.php";
+                $transformation_plugin = new Text_Plain_Link(null);
+                
+                $transform_options  = array(
+                    0 => $linking_url,
+                    2 => true
+                );
+
+                $meta->mimetype = str_replace(
+                    '_', '/',
+                    'Text/Plain'
+                );
+                
+            }
+            
             if ($meta->numeric == 1) {
                 // n u m e r i c
 
@@ -3007,14 +3036,108 @@ class PMA_DisplayResults
      *
      * @return boolean 
      */
-    private function _isNeedToSytaxHighliight($field) {
+    private function _isNeedToSytaxHighlight($field) {
         if (! empty($this->sytax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($field)])) {
             return true;
         }
         return false;
     }
-     
+    
+    /**
+     * Check whether the field needs to be link
+     *
+     * @param string $field field to check
+     *
+     * @return boolean 
+     */
+    private function _isFieldNeedToLink($field) {
+        if (! empty($GLOBALS['special_schema_links'][strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][$field])) {
+            return true;
+        }
+        return false;
+    }
+    
+    
+    /**
+     * Get link for display special schema links
+     *
+     * @param string $column_value column value
+     * @param array  $row_info     information about row
+     * @param string $field_name   column name
+     *
+     * @return string generated link 
+     */
+    private function _getSpecialLinkUrl($column_value, $row_info, $field_name)
+    {
+        
+        $linking_url_params = array();
+        $link_relations = $GLOBALS['special_schema_links'][strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][$field_name];
+        
+        if (! is_array($link_relations['link_param'])) {
+            $linking_url_params[$link_relations['link_param']] = $column_value;
+        } else {
+            // Consider only the case of creating link for column field
+            // sql query need to be pass as url param
+            $sql = 'SELECT `'.$column_value.'` FROM `'. $row_info[$link_relations['link_param'][1]] .'`.`'. $row_info[$link_relations['link_param'][2]] .'`';            
+            $linking_url_params[$link_relations['link_param'][0]] = $sql;
+        }
+        
 
+        if (! empty($link_relations['link_dependancy_params'])) {
+
+            foreach ($link_relations['link_dependancy_params'] as $new_param) {
+
+                // If param_info is an array, set the key and value
+                // from that array
+                if (is_array($new_param['param_info'])) {
+                    $linking_url_params[$new_param['param_info'][0]] = $new_param['param_info'][1];                            
+                } else {
+                    $linking_url_params[$new_param['param_info']] = $row_info[strtolower($new_param['column_name'])];
+
+                    // Special case 1 - when executing routines, according
+                    // to the type of the routine, url param changes
+                    if (!empty($row_info['routine_type'])){
+                        if (strtolower($row_info['routine_type']) == self::ROUTINE_PROCEDURE) {
+                            $linking_url_params['execute_routine'] = 1;
+                        } else if (strtolower($row_info['routine_type']) == self::ROUTINE_FUNCTION) {
+                            $linking_url_params['execute_dialog'] = 1;
+                        }                                
+                    }
+                }
+
+            }
+
+        }
+        
+        return $link_relations['default_page'] . PMA_generate_common_url($linking_url_params);
+        
+    }
+    
+    
+    /**
+     * Prepare row information for display special links
+     *
+     * @param array $row       current row data
+     * @param array $col_order the column order
+     *
+     * @return array $row_info associative array with column nama -> value
+     */
+    private function _getRowInfoForSpecialLinks($row, $col_order)
+    {
+        
+        $row_info = array();
+        $fields_meta = $this->__get('_fields_meta');
+        
+        for ($n = 0; $n < $this->__get('_fields_cnt'); ++$n) {
+            $m = $col_order ? $col_order[$n] : $n;
+            $row_info[strtolower($fields_meta[$m]->name)] = $row[$m];
+        }
+        
+        return $row_info;
+        
+    }
+    
+    
     /**
      * Get url sql query without conditions to shorten URLs
      *
@@ -3520,7 +3643,8 @@ class PMA_DisplayResults
                 // replacements will be made
                 if ((PMA_strlen($column) > $GLOBALS['cfg']['LimitChars'])
                     && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
-                    && ! $this->_isNeedToSytaxHighliight(strtolower($meta->name))
+                    && ! $this->_isNeedToSytaxHighlight(strtolower($meta->name))
+
                 ) {
                     $column = PMA_substr($column, 0, $GLOBALS['cfg']['LimitChars'])
                         . '...';

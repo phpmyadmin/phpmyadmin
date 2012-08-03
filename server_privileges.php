@@ -119,7 +119,8 @@ if (PMA_isValid($_REQUEST['pred_dbname'])) {
 }
 
 if (isset($dbname)) {
-    $db_and_table = $common_functions->backquote($common_functions->unescapeMysqlWildcards($dbname)) . '.';
+    $unescaped_db = $common_functions->unescapeMysqlWildcards($dbname);
+    $db_and_table = $common_functions->backquote($unescaped_db) . '.';
     if (isset($tablename)) {
         $db_and_table .= $common_functions->backquote($tablename);
     } else {
@@ -157,11 +158,13 @@ $random_n = mt_rand(0, 1000000);
  * Changes / copies a user, part I
  */
 if (isset($_REQUEST['change_copy'])) {
-    $user_host_condition = ' WHERE `User`'
-        .' = \'' . $common_functions->sqlAddSlashes($_REQUEST['old_username']) . "'"
-        .' AND `Host`'
-        .' = \'' . $common_functions->sqlAddSlashes($_REQUEST['old_hostname']) . '\';';
-    $row = PMA_DBI_fetch_single_row('SELECT * FROM `mysql`.`user` ' . $user_host_condition);
+    $user_host_condition = ' WHERE `User` = '
+        . "'". $common_functions->sqlAddSlashes($_REQUEST['old_username']) . "'"
+        . ' AND `Host` = '
+        . "'" . $common_functions->sqlAddSlashes($_REQUEST['old_hostname']) . "';";
+    $row = PMA_DBI_fetch_single_row(
+        'SELECT * FROM `mysql`.`user` ' . $user_host_condition
+    );
     if (! $row) {
         PMA_Message::notice(__('No user found.'))->display();
         unset($_REQUEST['change_copy']);
@@ -213,7 +216,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
     } else {
         list($create_user_real, $create_user_show, $real_sql_query, $sql_query)
             = PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password);
-        
+
         if (empty($_REQUEST['change_copy'])) {
             $_error = false;
 
@@ -304,16 +307,19 @@ if (isset($_REQUEST['delete'])
     }
     foreach ($selected_usr as $each_user) {
         list($this_user, $this_host) = explode('&amp;#27;', $each_user);
-        $queries[] = '# ' 
-            . sprintf(__('Deleting %s'),
+        $queries[] = '# '
+            . sprintf(
+                __('Deleting %s'),
                 '\'' . $this_user . '\'@\'' . $this_host . '\''
-            ) . ' ...';
-        $queries[] = 'DROP USER \'' 
-            . $common_functions->sqlAddSlashes($this_user) 
+            )
+            . ' ...';
+        $queries[] = 'DROP USER \''
+            . $common_functions->sqlAddSlashes($this_user)
             . '\'@\'' . $common_functions->sqlAddSlashes($this_host) . '\';';
 
         if (isset($_REQUEST['drop_users_db'])) {
-            $queries[] = 'DROP DATABASE IF EXISTS ' . $common_functions->backquote($this_user) . ';';
+            $queries[] = 'DROP DATABASE IF EXISTS '
+                . $common_functions->backquote($this_user) . ';';
             $GLOBALS['reload'] = true;
 
             if ($GLOBALS['is_ajax_request'] != true) {
@@ -358,7 +364,7 @@ if (isset($_REQUEST['flush_privileges'])) {
 /**
  * some standard links
  */
-list($link_edit, $link_revoke, $link_export, $link_export_all)
+list($link_edit, $link_revoke, $link_export)
     = PMA_getStandardLinks($conditional_class);
 
 /**
@@ -372,15 +378,17 @@ if ($GLOBALS['is_ajax_request']
     && (! isset($_REQUEST['initial']) || empty($_REQUEST['initial']))
     && ! isset($_REQUEST['showall'])
     && ! isset($_REQUEST['edit_user_dialog'])
-    && ! isset($_REQUEST['db_specific']))
-{
+    && ! isset($_REQUEST['db_specific'])
+) {
     $isPass = false;
     if (isset($password)) {
         $isPass = true;
     }
-    $extra_data = PMA_getExtraDataForAjaxBehavior($isPass, $link_export,
-        (isset($sql_query) ? $sql_query : ''), $link_edit, $dbname_is_wildcard,
-        $hostname, $username
+
+    $extra_data = PMA_getExtraDataForAjaxBehavior(
+        $isPass, $link_export,
+        (isset($sql_query) ? $sql_query : ''),
+        $link_edit, $dbname_is_wildcard
     );
 
     if ($message instanceof PMA_Message) {
@@ -397,7 +405,7 @@ if ($GLOBALS['is_ajax_request']
  */
 if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
     $_REQUEST['db'] = $_REQUEST['checkprivs'];
-    
+
     $url_query .= '&amp;goto=db_operations.php';
 
     // Gets the database structure
@@ -420,9 +428,9 @@ if (isset($_REQUEST['export'])
     || (isset($_REQUEST['submit_mult']) && $_REQUEST['submit_mult'] == 'export')
 ) {
     list($title, $export) = PMA_getHtmlForExportUserDefinition($username, $hostname);
-    
+
     unset($username, $hostname, $grants, $one_grant);
-    
+
     $response = PMA_Response::getInstance();
     if ($GLOBALS['is_ajax_request']) {
         $response->addJSON('message', $export);
@@ -436,12 +444,13 @@ if (isset($_REQUEST['export'])
 if (empty($_REQUEST['adduser'])
     && (! isset($_REQUEST['checkprivs'])
     || ! strlen($_REQUEST['checkprivs']))
-) { 
+) {
     if (! isset($username)) {
         // No username is given --> display the overview
         $response->addHTML(
-            PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
-                $text_dir, $conditional_class, $link_export, $link_export_all
+            PMA_getHtmlForDisplayUserOverviewPage(
+                $link_edit, $pmaThemeImage, $text_dir,
+                $conditional_class, $link_export
             )
         );
     } else {
@@ -458,8 +467,9 @@ if (empty($_REQUEST['adduser'])
             )
         );
         $response->addHTML(
-            PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
-                $random_n, $username, $hostname, $link_edit, $link_revoke,
+            PMA_getHtmlForDisplayUserProperties(
+                $dbname_is_wildcard, $url_dbname, $random_n,
+                $username, $hostname, $link_edit, $link_revoke,
                 (isset($dbename) ? $dbname : ''),
                 (isset($tablename) ? $tablename : '')
             )
@@ -474,7 +484,7 @@ if (empty($_REQUEST['adduser'])
     // check the privileges for a particular database.
     $response->addHTML(
         PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
-    );    
-} // end if (empty($_REQUEST['adduser']) && empty($checkprivs)) ... elseif ... else ...
+    );
+} // end if (empty($_REQUEST['adduser']) && empty($checkprivs))... elseif... else...
 
 ?>

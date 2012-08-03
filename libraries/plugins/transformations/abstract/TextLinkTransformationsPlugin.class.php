@@ -45,11 +45,14 @@ abstract class TextLinkTransformationsPlugin extends TransformationsPlugin
      */
     public function applyTransformation($buffer, $options = array(), $meta = '')
     {
+    
+        $append_part = (isset($options[2]) && $options[2]) ? '' : $buffer;
+    
         $transform_options = array (
             'string' => '<a href="'
-                . PMA_linkURL((isset($options[0]) ? $options[0] : '') . $buffer)
+                . PMA_linkURL((isset($options[0]) ? $options[0] : '') . $append_part)
                 . '" title="' . (isset($options[1]) ? $options[1] : '')
-                . '">' . (isset($options[1]) ? $options[1] : $buffer) . '</a>'
+                . '" target="_new">' . (isset($options[1]) ? $options[1] : $buffer) . '</a>'
         );
 
         $buffer = PMA_transformation_global_html_replace(

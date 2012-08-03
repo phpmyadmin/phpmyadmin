@@ -2302,7 +2302,9 @@ class PMA_CommonFunctions
                 $con_key = $this->backquote($meta->table) . '.'
                     . $this->backquote($meta->orgname);
             } // end if... else...
-            $condition = ' ' . $con_key . ' ';
+            $condition = ($fields_cnt == 1)
+                ? ' CHAR_LENGTH(' . $con_key . ') '
+                : ' ' . $con_key . ' ';
 
             if (! isset($row[$i]) || is_null($row[$i])) {
                 $con_val = 'IS NULL';
@@ -2330,7 +2332,9 @@ class PMA_CommonFunctions
                         $con_val = '= CAST(0x' . bin2hex($row[$i]) . ' AS BINARY)';
                     } else {
                         // this blob won't be part of the final condition
-                        $con_val = null;
+                        $con_val = ($fields_cnt == 1)
+                            ? ' = '.  strlen($row[$i])
+                            : null;
                     }
 
                 } elseif (in_array($meta->type, $this->getGISDatatypes())
