@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 13:38+0200\n"
-"PO-Revision-Date: 2012-08-03 20:24+0200\n"
+"PO-Revision-Date: 2012-08-22 18:44+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/master/tr/"
-">\n"
+"Language-Team: Turkish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -10637,10 +10637,9 @@ msgid "Advisor"
 msgstr "Danışman"
 
 #: server_status.php:822 server_status.php:848
-#, fuzzy
 #| msgid "Number of rows:"
 msgid "Number of data points: "
-msgstr "Satır sayısı:"
+msgstr "Veri noktası sayısı: "
 
 #: server_status.php:826 server_status.php:852
 msgid "Refresh rate: "
