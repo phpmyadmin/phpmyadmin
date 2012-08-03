@@ -652,7 +652,8 @@ function PMA_getHtmlForMoveTable()
 {
     $html_output = '<div class="operations_half_width">';
     $html_output .= '<form method="post" action="tbl_operations.php"'
-        . 'onsubmit="return emptyFormElements(this, \'new_name\')">'
+        . ' id="moveTableForm" class="ajax"'
+        . ' onsubmit="return emptyFormElements(this, \'new_name\')">'
         . PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table']);
 
     $html_output .= '<input type="hidden" name="reload" value="1" />'

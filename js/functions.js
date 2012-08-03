@@ -2042,6 +2042,7 @@ AJAX.registerOnload('functions.js', function() {
  */
 AJAX.registerTeardown('functions.js', function() {
     $("#copyTable.ajax").die('submit');
+    $("#moveTableForm").die('submit');
     $("#tbl_maintenance li a.maintain_action.ajax").die('click');
 });
 /**
@@ -2080,6 +2081,30 @@ AJAX.registerOnload('functions.js', function() {
             }
         }); // end $.post()
     });//end of copyTable ajax submit
+
+    /**
+     *Ajax action for submitting the "Move table"
+     */
+    $("#moveTableForm").live('submit', function(event) {
+        event.preventDefault();
+        var $form = $(this);
+        var db = $form.find('select[name=target_db]').val();
+        var tbl = $form.find('input[name=new_name]').val();
+        PMA_prepareForAjaxRequest($form);
+        $.post($form.attr('action'), $form.serialize()+"&submit_move=1", function(data) {
+            if (data.success == true) {
+                PMA_commonParams.set('db', db);
+                PMA_commonParams.set('table', tbl);
+                PMA_commonActions.refreshMain(false, function () {
+                    PMA_ajaxShowMessage(data.message);
+                });
+                // Refresh navigation when the table is copied
+                PMA_reloadNavigation();
+            } else {
+                PMA_ajaxShowMessage(data.error, false);
+            }
+        }); // end $.post()
+    });
 
     /**
      *Ajax events for actions in the "Table maintenance"
