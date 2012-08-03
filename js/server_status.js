@@ -369,13 +369,8 @@ $(function() {
                             label: PMA_messages['strChartIssuedQueries'],
                             labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
                             renderer: $.jqplot.DateAxisRenderer,
-                            axes:{xaxis:{autoscale:true}},
-                            //tickInterval: 300000,
-                            //min: '2008-06-30 08:00:00',
-                            //min: '2012-06-07 12:00:00',
-                            //min: '1970-01-01 12:00:00',
                             tickOptions: {
-                                formatString: '%s'
+                                formatString: '%H:%M'
                             }
                         }
                     }
