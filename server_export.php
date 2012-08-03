@@ -18,17 +18,14 @@ $scripts->addFile('export.js');
 require 'libraries/server_common.inc.php';
 
 $export_page_title = __('View dump (schema) of databases') . "\n";
-$checkall_url = 'server_export.php?'
-              . PMA_generate_common_url()
-              . '&amp;goto=db_export.php';
 
 $multi_values = '<div style="text-align: left">';
-$multi_values .= '<a href="' . $checkall_url . '&amp;selectall=1"';
+$multi_values .= '<a href="#"';
 $multi_values .= ' onclick="setSelectOptions(\'dump\', \'db_select[]\', true); return false;">';
 $multi_values .= __('Select All');
 $multi_values .= '</a>';
 $multi_values .= ' / ';
-$multi_values .= '<a href="' . $checkall_url . '"'
+$multi_values .= '<a href="#"'
 $multi_values .= ' onclick="setSelectOptions(\'dump\', \'db_select[]\', false); return false;">';
 $multi_values .= __('Unselect All') . '</a><br />';
 
