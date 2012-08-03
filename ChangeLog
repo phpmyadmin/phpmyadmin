@@ -1,7 +1,7 @@
 phpMyAdmin - ChangeLog
 ======================
 
-3.5.2.1 (not yet released)
+3.5.2.1 (2012-08-03)
 - [security] Fixed local path disclosure vulnerability, see PMASA-2012-3
 
 3.5.2.0 (2012-07-07)
