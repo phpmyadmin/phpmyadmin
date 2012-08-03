@@ -103,7 +103,6 @@ class PMA_TableSearch
      * @param string $db         Database name
      * @param string $table      Table name
      * @param string $searchType Whether normal or zoom search
-     *
      */
     public function __construct($db, $table, $searchType)
     {
@@ -134,6 +133,7 @@ class PMA_TableSearch
      * Gets all the columns of a table along with their types, collations
      * and whether null or not.
      *
+     * @return void
      */
     private function _loadTableInfo()
     {
