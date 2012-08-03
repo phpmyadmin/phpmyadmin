@@ -1206,31 +1206,41 @@ function PMA_getHtmlForDeleteDataOrTable(
      $html_output .= '<ul>';
      
      if (!empty ($truncate_table_url_params)){
-         $html_output .= '<li><a ' 
-            . 'href="sql.php' . PMA_generate_common_url($truncate_table_url_params) . '"'
-            . ($GLOBALS['cfg']['AjaxEnable'] 
-                ? 'id="truncate_tbl_anchor" class="ajax"' 
-                : ''
-            ) . '>'
-            . __('Empty the table (TRUNCATE)') . '</a>'
-            . PMA_CommonFunctions::getInstance()->showMySQLDocu(
-                'SQL-Syntax', 'TRUNCATE_TABLE'
-            )
-            . '</li>';
+         $html_output .= PMA_getDeleteDataOrTablelink(
+             $truncate_table_url_params, 'TRUNCATE_TABLE'
+         );
      }
      if (!empty ($drop_table_url_params)) {
-         $html_output .= '<li><a ' 
-            . 'href="sql.php' . PMA_generate_common_url($drop_table_url_params) . '"' 
-            . ($GLOBALS['cfg']['AjaxEnable'] ? 'id="drop_tbl_anchor"' : '') . '>'
-            . __('Delete the table (DROP)') . '</a>'
-            . PMA_CommonFunctions::getInstance()->showMySQLDocu(
-                    'SQL-Syntax', 'DROP_TABLE'
-            )
-            . '</li>';
+         $html_output .= PMA_getDeleteDataOrTablelink(
+             $drop_table_url_params, 'DROP_TABLE'
+         );
      }
      $html_output .= '</ul></fieldset></div>';
      
      return $html_output;
+}
+
+/**
+ * Get the HTML link for Truncate table and Drop table
+ * 
+ * @param array $url_params     url parameter array for delete data or table
+ * @param string $syntax        TRUNCATE_TABLE or DROP_TABLE
+ * 
+ * @return String html output 
+ */
+function PMA_getDeleteDataOrTablelink($url_params, $syntax)
+{
+    return  '<li><a ' 
+        . 'href="sql.php' . PMA_generate_common_url($url_params) . '"'
+        . ($GLOBALS['cfg']['AjaxEnable'] 
+            ? 'id="truncate_tbl_anchor" class="ajax"' 
+            : ''
+        ) . '>'
+        . __('Empty the table (TRUNCATE)') . '</a>'
+        . PMA_CommonFunctions::getInstance()->showMySQLDocu(
+            'SQL-Syntax', $syntax
+        )
+        . '</li>';
 }
 
 /**
