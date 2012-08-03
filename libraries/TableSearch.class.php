@@ -445,38 +445,34 @@ EOT;
      */
     private function _getEnumWhereClause($criteriaValues, $func_type)
     {
-        $where = '';
         $common_functions = PMA_CommonFunctions::getInstance();
-        if (! empty($criteriaValues)) {
-            if (! is_array($criteriaValues)) {
-                $criteriaValues = explode(',', $criteriaValues);
-            }
-            $enum_selected_count = count($criteriaValues);
-            if ($func_type == '=' && $enum_selected_count > 1) {
-                $func_type    = 'IN';
-                $parens_open  = '(';
-                $parens_close = ')';
-
-            } elseif ($func_type == '!=' && $enum_selected_count > 1) {
-                $func_type    = 'NOT IN';
-                $parens_open  = '(';
-                $parens_close = ')';
-
-            } else {
-                $parens_open  = '';
-                $parens_close = '';
-            }
-            $enum_where = '\''
-                . $common_functions->sqlAddSlashes($criteriaValues[0]) . '\'';
-            for ($e = 1; $e < $enum_selected_count; $e++) {
-                $enum_where .= ', \''
-                    . $common_functions->sqlAddSlashes($criteriaValues[$e]) . '\'';
-            }
-
-            $where = ' ' . $func_type . ' ' . $parens_open
-                . $enum_where . $parens_close;
+        if (! is_array($criteriaValues)) {
+            $criteriaValues = explode(',', $criteriaValues);
         }
-        return $where;
+        $enum_selected_count = count($criteriaValues);
+        if ($func_type == '=' && $enum_selected_count > 1) {
+            $func_type    = 'IN';
+            $parens_open  = '(';
+            $parens_close = ')';
+
+        } elseif ($func_type == '!=' && $enum_selected_count > 1) {
+            $func_type    = 'NOT IN';
+            $parens_open  = '(';
+            $parens_close = ')';
+
+        } else {
+            $parens_open  = '';
+            $parens_close = '';
+        }
+        $enum_where = '\''
+            . $common_functions->sqlAddSlashes($criteriaValues[0]) . '\'';
+        for ($e = 1; $e < $enum_selected_count; $e++) {
+            $enum_where .= ', \''
+                . $common_functions->sqlAddSlashes($criteriaValues[$e]) . '\'';
+        }
+
+        return ' ' . $func_type . ' ' . $parens_open
+            . $enum_where . $parens_close;
     }
 
     /**
@@ -564,7 +560,7 @@ EOT;
             $criteriaValues = '';
             $where = $backquoted_name . ' ' . $func_type;
 
-        } elseif (strncasecmp($types, 'enum', 4) == 0) {
+        } elseif (strncasecmp($types, 'enum', 4) == 0 && ! empty($criteriaValues)) {
             $where = $backquoted_name;
             $where .= $this->_getEnumWhereClause($criteriaValues, $func_type);
 
