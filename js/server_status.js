@@ -372,6 +372,8 @@ $(function() {
                             tickOptions: {
                                 formatString: '%H:%M'
                             }
+                        },
+                        yaxis: { min:0
                         }
                     }
             };
