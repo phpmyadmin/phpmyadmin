@@ -134,6 +134,31 @@ function PMA_adjustTotals() {
 
 AJAX.registerOnload('db_structure.js', function() {
     /**
+     * Handler for the print view multisubmit.
+     * All other multi submits can be handled via ajax, but this one needs
+     * special treatment as the results need to open in another browser window
+     */
+    $('#tablesForm').submit(function (event) {
+        var $form = $(this);
+        if ($form.find('select[name=submit_mult]').val() === 'print') {
+            event.preventDefault();
+            event.stopPropagation();
+            $('form#clone').remove();
+            var $clone = $form
+                .clone()
+                .hide()
+                .appendTo('body');
+            $clone
+                .find('select[name=submit_mult]')
+                .val('print');
+            $clone
+                .attr('target', 'printview')
+                .attr('id', 'clone')
+                .submit();
+        }
+    });
+
+    /**
      * Ajax Event handler for 'Insert Table'
      *
      * @see     $cfg['AjaxEnable']
