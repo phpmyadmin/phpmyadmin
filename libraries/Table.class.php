@@ -65,12 +65,12 @@ class PMA_Table
      * @var array messages
      */
     var $messages = array();
-    
+
     private $_common_functions;
-    
+
     /**
      * Get CommmonFunctions
-     * 
+     *
      * @return CommonFunctions object
      */
     public function getCommonFunctions()
@@ -201,9 +201,9 @@ class PMA_Table
      */
     static public function isView($db = null, $table = null)
     {
-        
+
         $common_functions = PMA_CommonFunctions::getInstance();
-        
+
         if (empty($db) || empty($table)) {
             return false;
         }
@@ -319,11 +319,11 @@ class PMA_Table
     static public function sGetStatusInfo($db, $table, $info = null,
         $force_read = false, $disable_error = false
     ) {
-        
-        if ($_SESSION['is_multi_query']) {
+
+        if (! empty($_SESSION['is_multi_query'])) {
             $disable_error = true;
         }
-        
+
         if (! isset(PMA_Table::$cache[$db][$table]) || $force_read) {
             PMA_DBI_get_tables_full($db, $table);
         }
@@ -383,7 +383,7 @@ class PMA_Table
         $default_type = 'USER_DEFINED', $default_value = '',  $extra = '',
         $comment = '', &$field_primary = null, $move_to = ''
     ) {
-        
+
         $common_functions = PMA_CommonFunctions::getInstance();
         $is_timestamp = strpos(strtoupper($type), 'TIMESTAMP') !== false;
 
@@ -519,9 +519,9 @@ class PMA_Table
     static public function countRecords($db, $table, $force_exact = false,
         $is_view = null
     ) {
-        
+
         $common_functions = PMA_CommonFunctions::getInstance();
-        
+
         if (isset(PMA_Table::$cache[$db][$table]['ExactRows'])) {
             $row_count = PMA_Table::$cache[$db][$table]['ExactRows'];
         } else {
@@ -649,7 +649,7 @@ class PMA_Table
     static public function duplicateInfo($work, $pma_table, $get_fields,
         $where_fields, $new_fields
     ) {
-        
+
         $common_functions = PMA_CommonFunctions::getInstance();
         $last_id = -1;
 
@@ -732,7 +732,7 @@ class PMA_Table
         $target_table, $what, $move, $mode
     ) {
         global $err_url;
-        
+
         $common_functions = PMA_CommonFunctions::getInstance();
 
         /* Try moving table directly */
@@ -787,7 +787,7 @@ class PMA_Table
             // get Export SQL instance
             $export_sql_plugin = PMA_getPlugin(
                 "export",
-                "sql",    
+                "sql",
                 'libraries/plugins/export/',
                 array(
                     'export_type' => $export_type,

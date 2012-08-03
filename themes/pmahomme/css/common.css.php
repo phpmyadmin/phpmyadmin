@@ -1747,7 +1747,6 @@ li#li_user_preferences {
     display: block;
     margin-top: 1em;
     margin-bottom: 1em;
-    background: #f3f3f3;
     width: 100%;
     border-top: .1em solid silver;
     text-align: <?php echo $right; ?>;
