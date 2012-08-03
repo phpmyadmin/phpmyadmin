@@ -246,7 +246,7 @@ function PMA_pluginGetOneOption(
     }
 
 
-    if ($properties == null) {
+    if (! isset($properties)) {
         $not_subgroup_header = true;
         $properties = $propertyGroup->getProperties();
     }
@@ -385,8 +385,9 @@ function PMA_pluginGetOneOption(
         $ret .= '</ul></li>';
     } else {
         // end main group
-        if ($not_subgroup_header)
+        if (! empty($not_subgroup_header)) {
             $ret .= '</ul></div>';
+        }
     }
 
     if (method_exists($propertyGroup, "getDoc")){
@@ -411,12 +412,14 @@ function PMA_pluginGetOneOption(
     }
 
     // Close the list element after $doc link is displayed
-    if ($property_class == 'BoolPropertyItem'
-        || $property_class == 'MessageOnlyPropertyItem'
-        || $property_class == 'SelectPropertyItem'
-        || $property_class == 'TextPropertyItem'
-    ) {
-        $ret .= '</li>';
+    if (isset($property_class)) {
+        if ($property_class == 'BoolPropertyItem'
+            || $property_class == 'MessageOnlyPropertyItem'
+            || $property_class == 'SelectPropertyItem'
+            || $property_class == 'TextPropertyItem'
+        ) {
+            $ret .= '</li>';
+        }
     }
     $ret .= "\n";
     return $ret;
