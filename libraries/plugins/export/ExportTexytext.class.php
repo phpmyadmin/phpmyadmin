@@ -73,10 +73,6 @@ class ExportTexytext extends ExportPlugin
         // add the main group to the root group
         $exportSpecificOptions->addProperty($dumpWhat);
 
-        // set the options for the export plugin property item
-        $exportPluginProperties->setOptions($exportSpecificOptions);
-        $this->properties = $exportPluginProperties;
-
         // data options main group
         $dataOptions = new OptionsPropertyMainGroup();
         $dataOptions->setName("data");
@@ -93,6 +89,10 @@ class ExportTexytext extends ExportPlugin
         $dataOptions->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($dataOptions);
+
+        // set the options for the export plugin property item
+        $exportPluginProperties->setOptions($exportSpecificOptions);
+        $this->properties = $exportPluginProperties;
     }
 
     /**
