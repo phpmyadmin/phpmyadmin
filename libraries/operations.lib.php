@@ -686,7 +686,7 @@ function PMA_getHtmlForMoveTable()
  * @return string $html_output
  */
 function PMA_getTableOptionDiv($comment, $tbl_collation, $tbl_storage_engine,
-    $is_myisam_or_aria, $is_isam, $pack_keys, $delay_key_write, $auto_increment,
+    $is_myisam_or_aria, $is_isam, $pack_keys, $auto_increment, $delay_key_write, 
     $transactional, $page_checksum, $is_innodb, $is_pbxt, $is_aria
 ) {
     $html_output = '<div class="operations_half_width clearfloat">';
