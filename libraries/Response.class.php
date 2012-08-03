@@ -295,6 +295,7 @@ class PMA_Response
             $this->addJSON('_menu', $this->getHeader()->getMenu()->getDisplay());
             $this->addJSON('_scripts', $this->getHeader()->getScripts()->getFiles());
             $this->addJSON('_selflink', $this->getFooter()->getSelfUrl('unencoded'));
+            $this->addJSON('_displayMessage', $this->getHeader()->getMessage());
             $errors = $this->_footer->getErrorMessages();
             if (strlen($errors)) {
                 $this->addJSON('_errors', $errors);

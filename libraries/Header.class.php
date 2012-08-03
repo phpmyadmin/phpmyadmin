@@ -377,21 +377,36 @@ class PMA_Header
                     $retval .= $this->_menu->getDisplay();
                 }
                 $retval .= '<div id="page_content">';
-                if (! empty($GLOBALS['message'])) {
-                    if (isset($GLOBALS['buffer_message'])) {
-                        $buffer_message = $GLOBALS['buffer_message'];
-                    }
-                    $retval .= PMA_Util::getInstance()->getMessage($GLOBALS['message']);
-                    unset($GLOBALS['message']);
-                    if (isset($buffer_message)) {
-                        $GLOBALS['buffer_message'] = $buffer_message;
-                    }
-                }
+                $retval .= $this->getMessage();
             }
             $retval .= $this->_addRecentTable(
                 $GLOBALS['db'],
                 $GLOBALS['table']
             );
+        }
+        return $retval;
+    }
+
+    /**
+     * Returns the message to be displayed at the top of
+     * the page, including the executed SQL query, if any.
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        $retval = '';
+        if (! empty($GLOBALS['message'])) {
+            if (isset($GLOBALS['buffer_message'])) {
+                $buffer_message = $GLOBALS['buffer_message'];
+            }
+            $retval .= PMA_Util::getInstance()->getMessage(
+                $GLOBALS['message']
+            );
+            unset($GLOBALS['message']);
+            if (isset($buffer_message)) {
+                $GLOBALS['buffer_message'] = $buffer_message;
+            }
         }
         return $retval;
     }

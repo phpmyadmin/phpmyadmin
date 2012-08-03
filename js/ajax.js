@@ -187,13 +187,6 @@ var AJAX = {
 
             $('body').children().not('#pma_navigation').not('#floating_menubar').not('#page_content').not('#selflink').remove();
             $('#page_content').replaceWith("<div id='page_content'>" + data.message + "</div>");
-            if (data.sql_query) {
-                var $sql = $(data.sql_query);
-                $sql
-                    .find('div.error, div.success, div.notice')
-                    .remove();
-                $('#page_content').append($sql);
-            }
 
             if (data._selflink) {
                 $('#selflink > a').attr('href', data._selflink);
@@ -206,6 +199,11 @@ var AJAX = {
             if (data._params) {
                 PMA_commonParams.setAll(data._params);
             }
+
+            if (data._displayMessage) {
+                $('#page_content').prepend(data._displayMessage);
+            }
+
             $('#pma_errors').remove();
             if (data._errors) {
                 $('<div/>', {id:'pma_errors'})

@@ -925,7 +925,9 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         }
         $response = PMA_Response::getInstance();
         $response->isSuccess($message->isSuccess());
-        $response->addJSON('message', $message);
+        // No need to manually send the message
+        // The Response class will handle that automatically
+        // $response->addJSON('message', $message);
         $response->addJSON(isset($extra_data) ? $extra_data : array());
         exit;
     }
