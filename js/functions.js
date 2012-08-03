@@ -2598,40 +2598,37 @@ $(function() {
             $(this).dialog('close');
         };
         $.get($(this).attr('href'), {'ajax_request': true}, function(data) {
-            if (data.error) {
-                var $temp_div = $("<div id='temp_div'></div>");
-                $temp_div.html(data.error);
-                var $error = $temp_div.addClass("error");
-                PMA_ajaxShowMessage($temp_div, false);
-                return false;
+            if (data.success) {
+                $('<div id="change_password_dialog"></div>')
+                .dialog({
+                    title: PMA_messages['strChangePassword'],
+                    width: 600,
+                    close: function(ev, ui) {
+                        $(this).remove();
+                    },
+                    buttons : button_options,
+                    modal: true
+                })
+                .append(data.message);
+                // for this dialog, we remove the fieldset wrapping due to double headings
+                $("fieldset#fieldset_change_password")
+                .find("legend").remove().end()
+                .find("table.noclick").unwrap().addClass("some-margin")
+                .find("input#text_pma_pw").focus();
+                displayPasswordGenerateButton();
+                $('#fieldset_change_password_footer').hide();
+                PMA_ajaxRemoveMessage($msgbox);
+                $('#change_password_form').bind('submit', function (e) {
+                    e.preventDefault();
+                    $(this)
+                        .closest('.ui-dialog')
+                        .find('.ui-dialog-buttonpane .ui-button')
+                        .first()
+                        .click();
+                });
+            } else {
+                PMA_ajaxShowMessage(data.error, false);
             }
-            $('<div id="change_password_dialog"></div>')
-            .dialog({
-                title: PMA_messages['strChangePassword'],
-                width: 600,
-                close: function(ev, ui) {
-                    $(this).remove();
-                },
-                buttons : button_options,
-                modal: true
-            })
-            .append(data.message);
-            // for this dialog, we remove the fieldset wrapping due to double headings
-            $("fieldset#fieldset_change_password")
-            .find("legend").remove().end()
-            .find("table.noclick").unwrap().addClass("some-margin")
-            .find("input#text_pma_pw").focus();
-            displayPasswordGenerateButton();
-            $('#fieldset_change_password_footer').hide();
-            PMA_ajaxRemoveMessage($msgbox);
-            $('#change_password_form').bind('submit', function (e) {
-                e.preventDefault();
-                $(this)
-                    .closest('.ui-dialog')
-                    .find('.ui-dialog-buttonpane .ui-button')
-                    .first()
-                    .click();
-            });
         }); // end $.get()
     }); // end handler for change password anchor
 }); // end $() for Change Password
