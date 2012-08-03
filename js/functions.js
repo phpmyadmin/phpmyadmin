@@ -2041,7 +2041,7 @@ AJAX.registerOnload('functions.js', function() {
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('functions.js', function() {
-    $("#copyTable.ajax input[name='submit_copy']").die('click');
+    $("#copyTable.ajax").die('submit');
     $("#tbl_maintenance li a.maintain_action.ajax").die('click');
 });
 /**
