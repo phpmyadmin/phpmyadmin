@@ -333,7 +333,6 @@ $(function() {
     // Live query statistics
     $('.buttonlinks a.livequeriesLink').click(function() {
         var $tab = $(this).parents('div.ui-tabs-panel');
-
         if (tabStatus[$tab.attr('id')] == 'static') {
         /*
             settings = {
@@ -361,7 +360,6 @@ $(function() {
                 .hide()
                 .after('<div class="liveChart" id="' + $tab.attr('id') + '_chart_cnt"></div>');
             
-            var chartId = 'statustabs_queries_chart_cnt';
             var settings = {
                     title: PMA_messages['strChartIssuedQueriesTitle'],
                     axes: {
@@ -379,23 +377,22 @@ $(function() {
             };
             var set_previous = getCurrentQueryStats();
             //initiateChartData(chartId, settings);
-            recursiveTimer(chartId, settings);
+            recursiveTimer($tab, settings);
 
         } else {
             $(this).html(PMA_messages['strLiveQueryChart']);
         }
-
-        //setupLiveChart($tab, this, settings);
+        setupLiveChart($tab, this, settings);
         tabStatus[$tab.attr('id')] = 'livequeries';
         return false;
     });
 
     var t;
 
-    function recursiveTimer(chartId, settings) {
-            replotQueryStatsChart(chartId, settings);
+    function recursiveTimer($tab, settings) {
+            replotQueryStatsChart($tab, settings);
             t = setTimeout(function() {
-                recursiveTimer(chartId, settings) }, 2000);
+                recursiveTimer($tab, settings) }, 2000);
     }
 
     function getCurrentQueryStats() {
@@ -421,20 +418,20 @@ $(function() {
         return retval;
     }
 
-    function initiateChartData(chartId, settings) {
+    function initiateChartData($tab, settings) {
         var current_time = new Date().getTime();
         for(var i = -20000; i < 0; i += 2000) {
             series[0].push([(current_time+i),4]);
         }
-        $.jqplot(chartId, [series[0]], settings);
+        $.jqplot($tab.attr('id') + '_chart_cnt', [series[0]], settings).replot();
     }
 
-    function replotQueryStatsChart(chartId, settings) {
+    function replotQueryStatsChart($tab, settings) {
         if(series[0].length >= 10) {
             series[0].splice(0,1);
         }
         series[0].push(getCurrentQueryStats());
-        $.jqplot(chartId, [series[0]], settings).replot();
+        $.jqplot($tab.attr('id') + '_chart_cnt', [series[0]], settings).replot();
     }
 
     function setupLiveChart($tab, link, settings) {
