@@ -1076,7 +1076,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
                     . $common_functions->backquote($GLOBALS['table']),
                 'table_maintenance' => 'Go',
                 );
-            $html_output .= PMA_getMaitainActionlink(
+            $html_output .= PMA_getMaintainActionlink(
                 'Check table',
                 $params,
                 $url_params,
@@ -1089,7 +1089,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
                 . $common_functions->backquote($GLOBALS['table']) 
                 . ' ENGINE = InnoDB;'
                 );
-           $html_output .= PMA_getMaitainActionlink(
+           $html_output .= PMA_getMaintainActionlink(
                 'Defragment table',
                 $params,
                 $url_params,
@@ -1103,7 +1103,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
                     . $common_functions->backquote($GLOBALS['table']),
                 'table_maintenance' => 'Go',
                 );
-            $html_output .= PMA_getMaitainActionlink(
+            $html_output .= PMA_getMaintainActionlink(
                 'Analyze table',
                 $params,
                 $url_params,
@@ -1116,7 +1116,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
                     . $common_functions->backquote($GLOBALS['table']),
                 'table_maintenance' => 'Go',
                 );
-            $html_output .= PMA_getMaitainActionlink(
+            $html_output .= PMA_getMaintainActionlink(
                 'Repair table',
                 $params,
                 $url_params,
@@ -1129,7 +1129,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
                     . $common_functions->backquote($GLOBALS['table']),
                 'table_maintenance' => 'Go',
                 );
-            $html_output .= PMA_getMaitainActionlink(
+            $html_output .= PMA_getMaintainActionlink(
                 'Optimize table',
                 $params,
                 $url_params,
@@ -1148,7 +1148,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
         'reload'    => 1,
     );
     
-    $html_output .= PMA_getMaitainActionlink(
+    $html_output .= PMA_getMaintainActionlink(
         'Flush the table (FLUSH)',
         $params,
         $url_params,
@@ -1167,7 +1167,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
  * 
  * @return string $html_output 
  */
-function PMA_getMaitainActionlink($action, $params, $url_params, $link,
+function PMA_getMaintainActionlink($action, $params, $url_params, $link,
     $chapter = 'MySQL_Database_Administration'
 ) {
     return '<li>'
