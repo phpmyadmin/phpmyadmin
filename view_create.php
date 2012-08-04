@@ -63,6 +63,113 @@ if (isset($_REQUEST['createview'])) {
     }
 
     if (PMA_DBI_try_query($sql_query)) {
+        
+        // If different column names defined for VIEW
+        $view_columns = array();
+        if (isset($_REQUEST['view']['column_names'])) {
+            $view_columns = explode(',', $_REQUEST['view']['column_names']);
+        }
+        
+        $column_map = array();
+        // Select query which give results for VIEW
+        $real_source_result = PMA_DBI_try_query($_REQUEST['view']['as']);
+        
+        if ($real_source_result !== false) {
+            
+            $real_source_fields_meta = PMA_DBI_get_fields_meta($real_source_result);
+            
+            if (count($real_source_fields_meta) > 0) {
+                
+                for ($i=0; $i<count($real_source_fields_meta); $i++) {
+                    
+                    $map = array();
+                    $map['table_name'] = $real_source_fields_meta[$i]->table;
+                    $map['refering_column'] = $real_source_fields_meta[$i]->name;
+                    
+                    if (count($view_columns) > 1) {
+                        $map['real_column'] = $view_columns[$i];
+                    }
+                    
+                    $column_map[] = $map;
+                    
+                }
+                
+            }
+            
+        }        
+        unset($real_source_result);
+        
+        // Get the existing transformation details of the same database
+        // from pma_column_info table
+        $pma_transformation_sql = 'SELECT * FROM '
+            . $common_functions->backquote($cfgRelation['db']) . '.'
+            . $common_functions->backquote($cfgRelation['column_info'])
+            . ' WHERE `db_name` = \''
+            . $common_functions->sqlAddSlashes($GLOBALS['db']) . '\'';
+        
+        $pma_tranformation_data = PMA_DBI_try_query($pma_transformation_sql);
+        
+        if ($pma_tranformation_data !== false) {
+            
+            // Need to store new transformation details for VIEW
+            $new_transformations_sql = 'INSERT INTO '
+                . $common_functions->backquote($cfgRelation['db']) . '.'
+                . $common_functions->backquote($cfgRelation['column_info'])
+                . ' (`db_name`, `table_name`, `column_name`, `comment`, '
+                . '`mimetype`, `transformation`, `transformation_options`)'
+                . ' VALUES ';
+            
+            $column_count = 0;
+            $add_comma = false;
+            
+            while ($data_row = PMA_DBI_fetch_assoc($pma_tranformation_data)) {
+                
+                foreach ($column_map as $column) {
+                    
+                    if ($data_row['table_name'] == $column['table_name']
+                        && $data_row['column_name'] == $column['refering_column']
+                    ) {
+                        
+                        $new_transformations_sql .= $add_comma ? ', ' : '';
+                        
+                        $new_transformations_sql .= '('
+                            . '\'' . $GLOBALS['db'] . '\', '
+                            . '\'' . $_REQUEST['view']['name'] . '\', '
+                            . '\'';
+                        
+                        $new_transformations_sql .= (isset($column['real_column']))
+                                ? $column['real_column']
+                                : $column['refering_column'];
+                            
+                        $new_transformations_sql .= '\', '
+                            . '\'' . $data_row['comment'] . '\', '
+                            . '\'' . $data_row['mimetype'] . '\', '
+                            . '\'' . $data_row['transformation'] . '\', '
+                            . '\''
+                            . $common_functions->sqlAddSlashes(
+                                $data_row['transformation_options']
+                            )
+                            . '\')';
+                        
+                        $add_comma = true;
+                        $column_count++;
+                        break;
+                        
+                    }
+                    
+                }
+                
+                if ($column_count == count($column_map)) {
+                    break;
+                }
+                
+            }
+            
+            // Store new transformations
+            PMA_DBI_try_query($new_transformations_sql);
+            
+        }
+        
         if ($GLOBALS['is_ajax_request'] != true) {
             $message = PMA_Message::success();
             include './' . $cfg['DefaultTabDatabase'];
@@ -75,7 +182,9 @@ if (isset($_REQUEST['createview'])) {
                 )
             );
         }
+        
         exit;
+        
     } else {
         if ($GLOBALS['is_ajax_request'] != true) {
             $message = PMA_Message::rawError(PMA_DBI_getError());
