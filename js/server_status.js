@@ -384,12 +384,13 @@ $(function() {
             var set_previous = getCurrentQueryStats();
             //initiateChartData(chartId, settings);
             recursiveTimer($tab, settings);
+            setupLiveChart($tab, this, settings);
+            tabStatus[$tab.attr('id')] = 'livequeries';
 
         } else {
             $(this).html(PMA_messages['strLiveQueryChart']);
+            setupLiveChart($tab, this, settings);
         }
-        setupLiveChart($tab, this, settings);
-        tabStatus[$tab.attr('id')] = 'livequeries';
         return false;
     });
 
@@ -460,8 +461,13 @@ $(function() {
             $tab.find('.buttonlinks a.tabRefresh').hide();
             $tab.find('.buttonlinks .refreshList').show();
         } else {
-            clearTimeout(chart_activeTimeouts[$tab.attr('id') + "_chart_cnt"]);
-            chart_activeTimeouts[$tab.attr('id') + "_chart_cnt"] = null;
+            if(query_stats_jqplot_timer != null) {
+                clearTimeout(query_stats_jqplot_timer);
+            }
+            else {
+                clearTimeout(chart_activeTimeouts[$tab.attr('id') + "_chart_cnt"]);
+                chart_activeTimeouts[$tab.attr('id') + "_chart_cnt"] = null;
+            }
             $tab.find('.tabInnerContent').show();
             $tab.find('div#' + $tab.attr('id') + '_chart_cnt').remove();
             tabStatus[$tab.attr('id')] = 'static';
