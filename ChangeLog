@@ -12,6 +12,7 @@ phpMyAdmin - ChangeLog
 - bug #3547825 [edit] BLOB download no longer works
 - bug #3541966 [config] Error in generated configuration arrray
 - bug #3553551 [GUI] Invalid HTML code in multi submits confirmation form
+[interface] Designer sometimes places tables on the top menu
 
 3.5.2.1 (2012-08-03)
 - [security] Fixed local path disclosure vulnerability, see PMASA-2012-3
