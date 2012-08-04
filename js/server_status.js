@@ -113,6 +113,8 @@ $(function() {
     var text = ''; // Holds filter text
     var queryPieChart = null;
     var monitorLoaded = false;
+    var query_stats_jqplot_timer = null;
+    var refresh_rate = 5000;
 
     /* Chart configuration */
     // Defines what the tabs are currently displaying (realtime or data)
@@ -189,6 +191,10 @@ $(function() {
 
     // Handles refresh rate changing
     $('.buttonlinks select').change(function() {
+        if(query_stats_jqplot_timer != null) {
+            refresh_rate = 1000*parseInt(this.value);
+        }
+
         var chart = tabChart[$(this).parents('div.ui-tabs-panel').attr('id')];
 
         // Clear current timeout and set timeout with the new refresh rate
@@ -368,7 +374,7 @@ $(function() {
                             labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
                             renderer: $.jqplot.DateAxisRenderer,
                             tickOptions: {
-                                formatString: '%H:%M'
+                                formatString: '%H:%M:%S'
                             }
                         },
                         yaxis: { min:0
@@ -387,12 +393,10 @@ $(function() {
         return false;
     });
 
-    var t;
-
     function recursiveTimer($tab, settings) {
             replotQueryStatsChart($tab, settings);
-            t = setTimeout(function() {
-                recursiveTimer($tab, settings) }, 2000);
+            query_stats_jqplot_timer = setTimeout(function() {
+                recursiveTimer($tab, settings) }, refresh_rate);
     }
 
     function getCurrentQueryStats() {
