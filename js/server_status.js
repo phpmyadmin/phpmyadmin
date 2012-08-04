@@ -453,9 +453,11 @@ $(function() {
             if (! settings.chart) settings.chart = {};
             settings.chart.renderTo = $tab.attr('id') + "_chart_cnt";
 
-            $tab.find('.tabInnerContent')
-                .hide()
-                .after('<div class="liveChart" id="' + $tab.attr('id') + '_chart_cnt"></div>');
+            if($('#' + $tab.attr('id') + '_chart_cnt').length == 0) {
+                $tab.find('.tabInnerContent')
+                    .hide()
+                    .after('<div class="liveChart" id="' + $tab.attr('id') + '_chart_cnt"></div>');
+            }
             tabChart[$tab.attr('id')] = PMA_createChart(settings);
             $(link).html(PMA_messages['strStaticData']);
             $tab.find('.buttonlinks a.tabRefresh').hide();
