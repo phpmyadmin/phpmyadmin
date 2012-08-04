@@ -340,28 +340,6 @@ $(function() {
     $('.buttonlinks a.livequeriesLink').click(function() {
         var $tab = $(this).parents('div.ui-tabs-panel');
         if (tabStatus[$tab.attr('id')] == 'static') {
-        /*
-            settings = {
-                series: [ { name: PMA_messages['strChartIssuedQueries'], data: [] } ],
-                title: { text: PMA_messages['strChartIssuedQueriesTitle'] },
-                tooltip: { formatter: function() { return this.point.name; } },
-                realtime: { url: 'server_status.php?' + url_query,
-                          type: 'queries',
-                          callback: function(chartObj, curVal, lastVal, numLoadedPoints) {
-                                if (lastVal == null) { return; }
-                                chartObj.series[0].addPoint({
-                                        x: curVal.x,
-                                        y: curVal.y - lastVal.y,
-                                        name: sortedQueriesPointInfo(curVal, lastVal)
-                                    },
-                                    true,
-                                    numLoadedPoints >= chartObj.options.realtime.numMaxPoints
-                                );
-                            },
-                            error: function() { serverResponseError(); }
-                         }
-            };
-        */
             $tab.find('.tabInnerContent')
                 .hide()
                 .after('<div class="liveChart" id="' + $tab.attr('id') + '_chart_cnt"></div>');
