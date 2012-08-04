@@ -721,7 +721,8 @@ function PMA_getTableOptionDiv($comment, $tbl_collation, $tbl_storage_engine,
     $transactional, $page_checksum, $is_innodb, $is_pbxt, $is_aria, $checksum
 ) {
     $html_output = '<div class="operations_half_width clearfloat">';
-    $html_output .= '<form method="post" action="tbl_operations.php">';
+    $html_output .= '<form method="post" action="tbl_operations.php"';
+    $html_output .= ' id="tableOptionsForm" class="ajax">';
     $html_output .= PMA_generate_common_hidden_inputs(
         $GLOBALS['db'], $GLOBALS['table']
     );

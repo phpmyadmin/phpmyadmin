@@ -2043,6 +2043,7 @@ AJAX.registerOnload('functions.js', function() {
 AJAX.registerTeardown('functions.js', function() {
     $("#copyTable.ajax").die('submit');
     $("#moveTableForm").die('submit');
+    $("#tableOptionsForm").die('submit');
     $("#tbl_maintenance li a.maintain_action.ajax").die('click');
 });
 /**
@@ -2104,6 +2105,34 @@ AJAX.registerOnload('functions.js', function() {
                 PMA_ajaxShowMessage(data.error, false);
             }
         }); // end $.post()
+    });
+
+    /**
+     * Ajax action for submitting the "Table options"
+     */
+    $("#tableOptionsForm").live('submit', function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        var $form = $(this);
+        var $tblNameField = $form.find('input[name=new_name]');
+        if ($tblNameField.val() !== $tblNameField[0].defaultValue) {
+            // reload page and navigation if the table has been renamed
+            PMA_prepareForAjaxRequest($form);
+            var tbl = $tblNameField.val();
+            $.post($form.attr('action'), $form.serialize(), function(data) {
+                if (data.success == true) {
+                    PMA_commonParams.set('table', tbl);
+                    $('#page_content').replaceWith(
+                        "<div id='page_content'>" + data.message + "</div>"
+                    );
+                    $('html, body').animate({scrollTop: 0}, 'fast');
+                } else {
+                    PMA_ajaxShowMessage(data.error, false);
+                }
+            }); // end $.post()
+        } else {
+            $form.removeClass('ajax').submit().addClass('ajax');
+        }
     });
 
     /**
