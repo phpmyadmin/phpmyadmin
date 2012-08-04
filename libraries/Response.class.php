@@ -136,7 +136,7 @@ class PMA_Response
      * Returns true or false depending on whether
      * we are servicing an ajax request
      *
-     * @return void
+     * @return bool
      */
     public function isAjax()
     {
