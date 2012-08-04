@@ -117,15 +117,11 @@ function PMA_getHtmlForDropDatabaseLink($db)
     $html_output .= __('Remove database')
         . '</legend>';
     $html_output .= '<ul>';
-    $html_output .= '<li>' 
-        . '<a href="sql.php' . PMA_generate_common_url($this_url_params) . '"' 
-        . ($GLOBALS['cfg']['AjaxEnable'] ? 'id="drop_db_anchor"' : '') . '>'
-        . __('Drop the database (DROP)')
-        . '</a>'
-        .  $common_functions->showMySQLDocu('SQL-Syntax', 'DROP_DATABASE')
-        . '</li>'
-        . '</ul></fieldset>'
-        . '</div>';
+    $html_output .= PMA_getDeleteDataOrTablelink(
+        $this_url_params,
+        'DROP_DATABASE',
+        __('Drop the database (DROP)'),
+        'drop_db_anchor');
     
     return $html_output;
 }
@@ -1207,12 +1203,18 @@ function PMA_getHtmlForDeleteDataOrTable(
      
      if (!empty ($truncate_table_url_params)){
          $html_output .= PMA_getDeleteDataOrTablelink(
-             $truncate_table_url_params, 'TRUNCATE_TABLE'
+             $truncate_table_url_params,
+             'TRUNCATE_TABLE',
+             __('Empty the table (TRUNCATE)'),
+             'truncate_tbl_anchor'
          );
      }
      if (!empty ($drop_table_url_params)) {
          $html_output .= PMA_getDeleteDataOrTablelink(
-             $drop_table_url_params, 'DROP_TABLE'
+             $drop_table_url_params,
+             'DROP_TABLE',
+              __('Delete the table (DROP)'),
+              'drop_tbl_anchor'
          );
      }
      $html_output .= '</ul></fieldset></div>';
@@ -1221,22 +1223,23 @@ function PMA_getHtmlForDeleteDataOrTable(
 }
 
 /**
- * Get the HTML link for Truncate table and Drop table
+ * Get the HTML link for Truncate table, Drop table and Drop db
  * 
  * @param array $url_params     url parameter array for delete data or table
- * @param string $syntax        TRUNCATE_TABLE or DROP_TABLE
+ * @param string $syntax        TRUNCATE_TABLE or DROP_TABLE or DROP_DATABASE
+ * @param string $link          link to be shown
  * 
  * @return String html output 
  */
-function PMA_getDeleteDataOrTablelink($url_params, $syntax)
+function PMA_getDeleteDataOrTablelink($url_params, $syntax, $link, $id)
 {
     return  '<li><a ' 
         . 'href="sql.php' . PMA_generate_common_url($url_params) . '"'
         . ($GLOBALS['cfg']['AjaxEnable'] 
-            ? 'id="truncate_tbl_anchor" class="ajax"' 
+            ? 'id="' . $id . '" class="ajax"' 
             : ''
         ) . '>'
-        . __('Empty the table (TRUNCATE)') . '</a>'
+        . $link . '</a>'
         . PMA_CommonFunctions::getInstance()->showMySQLDocu(
             'SQL-Syntax', $syntax
         )
