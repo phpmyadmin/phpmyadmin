@@ -388,7 +388,8 @@ if ($GLOBALS['is_ajax_request']
     $extra_data = PMA_getExtraDataForAjaxBehavior(
         $isPass, $link_export,
         (isset($sql_query) ? $sql_query : ''),
-        $link_edit, $dbname_is_wildcard
+        $link_edit, $dbname_is_wildcard,
+        $hostname, $username
     );
 
     if ($message instanceof PMA_Message) {
