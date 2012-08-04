@@ -365,39 +365,22 @@ $(function() {
             $tab.find('.tabInnerContent')
                 .hide()
                 .after('<div class="liveChart" id="' + $tab.attr('id') + '_chart_cnt"></div>');
-            
-            var settings = {
-                    title: PMA_messages['strChartIssuedQueriesTitle'],
-                    axes: {
-                        xaxis: {
-                            label: PMA_messages['strChartIssuedQueries'],
-                            labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
-                            renderer: $.jqplot.DateAxisRenderer,
-                            tickOptions: {
-                                formatString: '%H:%M:%S'
-                            }
-                        },
-                        yaxis: { min:0
-                        }
-                    }
-            };
             var set_previous = getCurrentQueryStats();
-            //initiateChartData(chartId, settings);
-            recursiveTimer($tab, settings);
-            setupLiveChart($tab, this, settings);
+            recursiveTimer($tab);
+            setupLiveChart($tab, this, getSettings(10));
             tabStatus[$tab.attr('id')] = 'livequeries';
 
         } else {
             $(this).html(PMA_messages['strLiveQueryChart']);
-            setupLiveChart($tab, this, settings);
+            setupLiveChart($tab, this, null);
         }
         return false;
     });
 
-    function recursiveTimer($tab, settings) {
-            replotQueryStatsChart($tab, settings);
+    function recursiveTimer($tab) {
+            replotQueryStatsChart($tab);
             query_stats_jqplot_timer = setTimeout(function() {
-                recursiveTimer($tab, settings) }, refresh_rate);
+                recursiveTimer($tab) }, refresh_rate);
     }
 
     function getCurrentQueryStats() {
@@ -415,7 +398,7 @@ $(function() {
             },
             dataType: 'json',
             success: function(data) {
-            ret = data;
+            ret = data;            
             }
         });
         retval = [ret.x,ret.y-previous];
@@ -423,20 +406,34 @@ $(function() {
         return retval;
     }
 
-    function initiateChartData($tab, settings) {
+    function getSettings(num) {
         var current_time = new Date().getTime();
-        for(var i = -20000; i < 0; i += 2000) {
-            series[0].push([(current_time+i),4]);
-        }
-        $.jqplot($tab.attr('id') + '_chart_cnt', [series[0]], settings).replot();
+        // Min X would be decided based on refresh rate and number of data points
+        var minX = current_time - (refresh_rate * num);
+        var settings = {
+            title: PMA_messages['strChartIssuedQueriesTitle'],
+            axes: {
+                xaxis: {
+                    label: PMA_messages['strChartIssuedQueries'],
+                    labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+                    renderer: $.jqplot.DateAxisRenderer,
+                    tickOptions: {
+                        formatString: '%H:%M:%S'
+                    },
+                    min: minX,
+                    // Make the right boundary of chart as current time
+                    max: current_time
+                },
+                yaxis: { min:0
+                }
+            }
+        };
+        return settings;
     }
 
-    function replotQueryStatsChart($tab, settings) {
-        if(series[0].length >= 10) {
-            series[0].splice(0,1);
-        }
+    function replotQueryStatsChart($tab) {
         series[0].push(getCurrentQueryStats());
-        $.jqplot($tab.attr('id') + '_chart_cnt', [series[0]], settings).replot();
+        $.jqplot($tab.attr('id') + '_chart_cnt', [series[0]], getSettings(10)).replot();
     }
 
     function setupLiveChart($tab, link, settings) {
