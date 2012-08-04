@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-08-05 01:36+0200\n"
+"PO-Revision-Date: 2012-08-05 01:39+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/3-5/da/>\n"
 "Language: da\n"
@@ -5291,7 +5291,7 @@ msgid ""
 "possible) or keep the text field empty"
 msgstr ""
 "Foreslå et databasenavn på formularen for &quot;Opret database&quot; (hvis "
-"muligt) eller lad feltet være tomt "
+"muligt) eller lad feltet være tomt"
 
 #: libraries/config/messages.inc.php:496
 msgid "Suggest new database name"
@@ -6248,7 +6248,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:30
 msgid "Garbage Threshold"
-msgstr "Tærskel for garbage "
+msgstr "Tærskel for garbage"
 
 #: libraries/engines/pbms.lib.php:31
 msgid "The percentage of garbage in a repository file before it is compacted."
@@ -6267,7 +6267,7 @@ msgid ""
 "will disable HTTP communication with the daemon."
 msgstr ""
 "Porten for PBMS stream-baseret kommunikation. Sættes denne værdi til 0 vil "
-"HTTP-kommunikation med dæmonen deaktiveres.  "
+"HTTP-kommunikation med dæmonen deaktiveres."
 
 #: libraries/engines/pbms.lib.php:40
 msgid "Repository Threshold"
@@ -6281,7 +6281,7 @@ msgid ""
 msgstr ""
 "Den maksimale størrelse af en BLOB repositoryfil. Du kan bruge Kb, MB eller "
 "GB for at angive værdiens enhed. En værdi i bytes antages, når ingen enhed "
-"angives"
+"angives."
 
 #: libraries/engines/pbms.lib.php:45
 msgid "Temp Blob Timeout"
@@ -6307,7 +6307,7 @@ msgid ""
 msgstr ""
 "Den maksimale størrelse af en midlertidig BLOB logfil. Du kan bruge Kb, MB "
 "eller GB for at angive værdiens enhed. En værdi i bytes antages, når ingen "
-"enhed angives"
+"enhed angives."
 
 #: libraries/engines/pbms.lib.php:55
 msgid "Max Keep Alive"
@@ -8597,10 +8597,11 @@ msgid ""
 "validity configured in phpMyAdmin, because of this, your login will expire "
 "sooner than configured in phpMyAdmin."
 msgstr ""
-"Din PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] er mindre end cooki "
-"gyldighed konfigureret i phpMyAdmin; på grund af dette vil din login session "
-"udløbe tidligere end konfigureret i phpMyAdmin"
+"Din PHP parameter "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] er mindre end cooki gyldighed "
+"konfigureret i phpMyAdmin; på grund af dette vil din login session udløbe "
+"tidligere end konfigureret i phpMyAdmin."
 
 #: main.php:299
 msgid ""
