@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-06 11:49+0200\n"
-"PO-Revision-Date: 2012-08-27 11:46+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-09-12 23:27+0200\n"
+"Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/3-5/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -9675,10 +9675,9 @@ msgid "Advisor"
 msgstr "Rådgiver"
 
 #: server_status.php:807 server_status.php:833
-#, fuzzy
 #| msgid "Number of rows:"
 msgid "Number of data points: "
-msgstr "Antal rækker:"
+msgstr "Antal datapunkter:"
 
 #: server_status.php:811 server_status.php:837
 msgid "Refresh rate: "
