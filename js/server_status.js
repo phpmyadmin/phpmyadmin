@@ -402,7 +402,10 @@ $(function() {
                     // Make the right boundary of chart as current time
                     max: current_time
                 },
-                yaxis: { min:0
+                yaxis: {
+                    min:0,
+                    label: PMA_messages['strTotalCount'],
+                    labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
                 }
             }
         };
