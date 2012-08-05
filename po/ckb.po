@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-27 10:40+0200\n"
-"PO-Revision-Date: 2012-07-04 20:30+0200\n"
-"Last-Translator: Hunar kirkuk <huner.kurdish@gmail.com>\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2012-08-04 12:39+0200\n"
+"Last-Translator: renwar kurd <renwarkurd@yahoo.com>\n"
+"Language-Team: Kurdish Sorani "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ckb/>\n"
 "Language: ckb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.1\n"
+"X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:794
@@ -39,6 +40,8 @@ msgid ""
 "parent window, or your browser's security settings are configured to block "
 "cross-window updates."
 msgstr ""
+"ئەمو پەڕەیە ناتوانرێت تازە بکرێتەوە، لەوانەیە پەڕە کۆنەکەت داخستبێت، یان "
+"ڕێکخستنی پاراستنی وێبگەڕەکەت وا ڕیکخراوە کە ڕی لە تازەکردنەوە بگریت"
 
 #: browse_foreigners.php:168 libraries/CommonFunctions.class.php:3387
 #: libraries/CommonFunctions.class.php:3394
@@ -376,7 +379,7 @@ msgstr ""
 
 #: db_operations.php:658
 msgid "Edit or export relational schema"
-msgstr ""
+msgstr "دەستکاری کردن یان هەناردنی پەیوەندی نەخشە"
 
 #: db_printview.php:100 db_tracking.php:82 db_tracking.php:190
 #: libraries/Menu.class.php:201 libraries/config/messages.inc.php:514
@@ -447,7 +450,7 @@ msgstr "دەبێت لانیکەم ١ خانە هەڵبژێریت بۆ پیشان
 #: db_qbe.php:59
 #, php-format
 msgid "Switch to %svisual builder%s"
-msgstr ""
+msgstr "گۆڕین بۆ %svisual builder%s"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:80
 #: libraries/plugins/auth/AuthenticationConfig.class.php:95
@@ -514,7 +517,7 @@ msgstr "سەرجەم"
 #: db_structure.php:638 libraries/StorageEngine.class.php:352
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr ""
+msgstr "%s بیرگەی بزوێنەری سەرەکیە لەسەر ڕاژەکاری MySQL"
 
 #: db_structure.php:686 db_structure.php:698 db_structure.php:699
 #: libraries/DisplayResults.class.php:4851
@@ -568,7 +571,7 @@ msgstr "بەتاڵ"
 #: server_databases.php:302 tbl_structure.php:149 tbl_structure.php:150
 #: tbl_structure.php:581
 msgid "Drop"
-msgstr ""
+msgstr "فڕیدان"
 
 #: db_structure.php:711 tbl_operations.php:632
 msgid "Check table"
@@ -604,7 +607,7 @@ msgstr "فەرهەنگی زانیاریەکان"
 
 #: db_tracking.php:76
 msgid "Tracked tables"
-msgstr ""
+msgstr "شوێنکەوتەی خشتە"
 
 #: db_tracking.php:81 libraries/Menu.class.php:178
 #: libraries/config/messages.inc.php:508
@@ -659,7 +662,7 @@ msgstr "پیشاندان"
 
 #: db_tracking.php:98 js/messages.php:34
 msgid "Delete tracking data for this table"
-msgstr ""
+msgstr "سڕینەوە داتا شوێنکەوتووەکان لەم خشتەیەدا"
 
 #: db_tracking.php:120 tbl_tracking.php:675 tbl_tracking.php:733
 msgid "active"
@@ -675,7 +678,7 @@ msgstr "وەشانەکان"
 
 #: db_tracking.php:138 tbl_tracking.php:481 tbl_tracking.php:753
 msgid "Tracking report"
-msgstr ""
+msgstr "ڕاپۆرتە شوێنکەتووەکان"
 
 #: db_tracking.php:139 tbl_tracking.php:282 tbl_tracking.php:755
 msgid "Structure snapshot"
@@ -683,7 +686,7 @@ msgstr ""
 
 #: db_tracking.php:185
 msgid "Untracked tables"
-msgstr ""
+msgstr "خشتە شوێن نەکەوتوەکان"
 
 #: db_tracking.php:204 tbl_structure.php:680
 msgid "Track table"

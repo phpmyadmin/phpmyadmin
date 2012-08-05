@@ -4,15 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-27 10:40+0200\n"
-"PO-Revision-Date: 2012-07-23 19:45+0200\n"
+"PO-Revision-Date: 2012-08-04 06:39+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
-"Language-Team: chinese_simplified <zh_CN@li.org>\n"
+"Language-Team: Chinese (China) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.1\n"
+"X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:794
@@ -1877,7 +1878,7 @@ msgstr "点击下箭头以设置显示的字段"
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
-msgstr ""
+msgstr "该表没有唯一字段。单元格编辑、复选框、编辑、复制和删除链接相关功能可能无法正常使用。"
 
 #: js/messages.php:356
 msgid ""
@@ -3650,7 +3651,7 @@ msgstr "您应升级到 %s %s 或更高版本。"
 
 #: libraries/common.inc.php:1076
 msgid "GLOBALS overwrite attempt"
-msgstr ""
+msgstr "企图覆盖 GLOBALS"
 
 #: libraries/common.inc.php:1083
 msgid "possible exploit"
@@ -12364,10 +12365,9 @@ msgid "Query caching method"
 msgstr "查询缓存模式"
 
 #: libraries/advisory_rules.txt:156
-#, fuzzy
 #| msgid "Query caching method"
 msgid "Suboptimal caching method."
-msgstr "查询缓存模式"
+msgstr "最佳缓存模式。"
 
 #: libraries/advisory_rules.txt:157
 msgid ""
@@ -12449,6 +12449,10 @@ msgid ""
 "using this formula: (query_cache_size - qcache_free_memory) / "
 "qcache_queries_in_cache"
 msgstr ""
+"大量碎片很可能会增加 Qcache_lowmem_prunes 。这可能由 {query_cache_size} "
+"过小而导致大量查询缓存低内存清理。刷新查询缓存 (可能锁住查询缓存很长时间) 可以临时解决这个问题。仔细调整 "
+"{query_cache_min_res_unit} 到一个更小的值将会有所帮助，如您可以使用下列公式来计算并设置您查询缓存大小平均值: (查询缓存大小 "
+"- 查询缓存剩余大小) / 查询缓存中的查询数量"
 
 #: libraries/advisory_rules.txt:179
 #, php-format
@@ -12459,25 +12463,23 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
-#, fuzzy
 #| msgid "Query cache used"
 msgid "Query cache low memory prunes"
-msgstr "已用查询缓存"
+msgstr "查询缓存低内存清理"
 
 #: libraries/advisory_rules.txt:184
-#, fuzzy
 #| msgid "The amount of free memory for query cache."
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
-msgstr "查询缓存中空闲的内存总数。"
+msgstr "在查询缓存内存过低时会清理已缓存的查询。"
 
 #: libraries/advisory_rules.txt:185
 msgid ""
 "You might want to increase {query_cache_size}, however keep in mind that the "
 "overhead of maintaining the cache is likely to increase with its size, so do "
 "this in small increments and monitor the results."
-msgstr ""
+msgstr "您可能需要增加 {query_cache_size}，但请注意增加它可能会导致的维护开销，所以请慢慢增加并观察结果。"
 
 #: libraries/advisory_rules.txt:186
 #, php-format
@@ -12494,7 +12496,7 @@ msgstr "查询缓存最大值"
 msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
-msgstr ""
+msgstr "查询缓存超过 128 MB 。过大的查询缓存可能会引起额外的维护开销。"
 
 #: libraries/advisory_rules.txt:192
 msgid ""
@@ -12514,7 +12516,7 @@ msgstr "查询缓存结果最小大小"
 #: libraries/advisory_rules.txt:198
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
-msgstr ""
+msgstr "查询缓存结果最大大小已设为默认值 1 MB 。"
 
 #: libraries/advisory_rules.txt:199
 msgid ""
@@ -12527,6 +12529,9 @@ msgid ""
 "(often invalidated due to table updates) increasing {query_cache_limit} "
 "might reduce efficiency."
 msgstr ""
+"修改 {query_cache_limit} (通常是增加) 可能提升效率。该变量决定可能要插入到查询缓存中查询结果的最大大小。若多数超过 1 MB "
+"的查询结果能很好的缓存 (多读、少写) 则增加 {query_cache_limit} 将会提升效率。若多数超过 1 MB 的查询结果不能很好的缓存 "
+"(通常因为表更新而失效) 增加 {query_cache_limit} 将会降低效率。"
 
 #: libraries/advisory_rules.txt:200
 msgid "query_cache_limit is set to 1 MiB"
@@ -12671,13 +12676,13 @@ msgid ""
 msgstr "这说明很多查询都需要全表扫描。请在合适的地方添加索引。"
 
 #: libraries/advisory_rules.txt:252
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Rate of reading fixed position average: %s, this value should be less "
 #| "than 1 per hour"
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
-msgstr "固定位置读取率: %s，该值应低于 1 每小时"
+msgstr "下一行读取率: %s，该值应低于 1 每小时"
 
 #: libraries/advisory_rules.txt:255
 msgid "tmp_table_size vs. max_heap_table_size"
@@ -12693,7 +12698,7 @@ msgid ""
 "value of either to determine the maximum size of in-memory tables. So if you "
 "wish to increase the in-memory table limit you will have to increase the "
 "other value as well."
-msgstr ""
+msgstr "若您故意改变了其中一个值: 服务器使用较低的值来确定内存表的最大大小。如果您想增加内存表的大小您应该同时修改另一个值。"
 
 #: libraries/advisory_rules.txt:260
 #, php-format
@@ -12720,6 +12725,10 @@ msgid ""
 "mentioned in the beginning of an <a href=\"http://www.facebook.com/note.php?"
 "note_id=10150111255065841&comments\">Article by the Pythian Group</a>"
 msgstr ""
+"增加 {max_heap_table_size} 和 {tmp_table_size} "
+"可能会有帮助。但有些临时表总是会写入硬盘，和这些变量无关。要避免这些，您需要重写您的查询来避免 <a href=\"http://www.facebook"
+".com/note.php?note_id=10150111255065841&comments\">Pythian "
+"小组的文章</a>开头所提到的这些条件 (临时表内: 具有 BLOB 或 TEXT 字段或具有大于 512 字节的字段)"
 
 #: libraries/advisory_rules.txt:267
 #, php-format
@@ -12742,15 +12751,19 @@ msgid ""
 "mentioned in the <a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
+"增加 {max_heap_table_size} 和 {tmp_table_size} "
+"可能会有帮助。但有些临时表总是会写入硬盘，和这些变量无关。要避免这些，您需要重写您的查询来避免 <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-"
+"tables.html\">MySQL 文档</a>中所提到的这些条件 (临时表内: 具有 BLOB 或 TEXT 字段或具有大于 512 字节的字段)"
 
 #: libraries/advisory_rules.txt:274
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Temporary tables average: %s, this value should be less than 1 per hour."
 msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
-msgstr "临时表创建率: %s，该值应低于 1 每小时"
+msgstr "临时表硬盘写入率: %s，该值应低于 1 每小时"
 
 #: libraries/advisory_rules.txt:289
 msgid "MyISAM key buffer size"
@@ -12771,36 +12784,35 @@ msgid "key_buffer_size is 0"
 msgstr "key_buffer_size 为 0"
 
 #: libraries/advisory_rules.txt:296
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "排序缓存大小"
+msgstr "最大 %% MyISAM 索引缓存从未使用"
 
 #: libraries/advisory_rules.txt:299 libraries/advisory_rules.txt:307
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr "排序缓存大小"
+msgstr "MyISAM 索引缓存 %% 使用率低。"
 
 #: libraries/advisory_rules.txt:300 libraries/advisory_rules.txt:308
 msgid ""
 "You may need to decrease the size of {key_buffer_size}, re-examine your "
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
-msgstr ""
+msgstr "您可能需要减小 {key_buffer_size} 的大小，重新检查您的表是否删除了索引或检查查询期望使用的索引。"
 
 #: libraries/advisory_rules.txt:301
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
-msgstr "排序缓存大小"
+msgstr "最大 %% MyISAM 索引缓存从未使用: %s%%，该值应高于 95%%"
 
 #: libraries/advisory_rules.txt:304
-#, fuzzy
 #| msgid "Sort buffer size"
 msgid "Percentage of MyISAM key buffer used"
-msgstr "排序缓存大小"
+msgstr "MyISAM 索引缓存使用百分比"
 
 #: libraries/advisory_rules.txt:309
 #, php-format
@@ -13022,6 +13034,8 @@ msgid ""
 "source-of-aborted_connects/\">This article</a> might help you track down the "
 "source."
 msgstr ""
+"连接通常因为无法被授权而中止。<a href=\"http://www.mysqlperformanceblog.com/2008/08/23/how-"
+"to-track-down-the-source-of-aborted_connects/\">这篇文章</a>对您追踪来源可能有所帮助。"
 
 #: libraries/advisory_rules.txt:397
 #, php-format
@@ -13033,12 +13047,12 @@ msgid "Rate of aborted connections"
 msgstr "已中止连接的比例"
 
 #: libraries/advisory_rules.txt:404
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
-msgstr "客户端取消率为 %s，此值应低于 1 每小时"
+msgstr "已中止连接率为 %s，该值应低于 1 每小时"
 
 #: libraries/advisory_rules.txt:406
 msgid "Percentage of aborted clients"
@@ -13098,7 +13112,7 @@ msgid ""
 msgstr "InnoDB 日志文件大小不合适，此关系到 InnoDB 缓冲池。"
 
 #: libraries/advisory_rules.txt:433
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "It is usually sufficient to set innodb_log_file_size to 25%% of the size "
 #| "of {innodb_buffer_pool_size}. A very big innodb_log_file_size slows down "
@@ -13120,13 +13134,11 @@ msgid ""
 "fine. See also <a href=\"http://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"通常将 innodb_log_file_size 设置为 {innodb_buffer_pool_size} 的 25%% 已经足"
-"够。过大的 innodb_log_file_size 将会严重减慢数据库崩溃后的恢复时间。参见<a "
-"href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\">这篇文章</a>。您首先需要关闭服务器，移除 InnoDB 日志"
-"文件，然后在 my.cnf 中设置新的值，最后启动服务器，并检查错误日志确定一切都正"
-"常。参见<a href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/"
-"increase-innodblogfilesize-proper-way.html\">这篇博客</a>"
+"在一个 InnoDB 表写入很多的系统上您应该将 innodb_log_file_size 设为 {innodb_buffer_pool_size} 的 "
+"25%% 。因为该值越大，当数据库崩溃时恢复的时间就越长，所以该值不应高于 256 MB 。请注意您不能简单的修改该变量的值。您需要关闭服务器，删除 "
+"InnoDB 日志文件，在 my.cnf 中设置新的值，启动服务器，一切正常后再检查错误日志。参见<a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">这篇博客</a>"
 
 #: libraries/advisory_rules.txt:434
 #, php-format
@@ -13200,6 +13212,8 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
+"您当前的 InnoDB 缓冲池使用了内存的 %s%% 。此规则在您分配少于 60%% 时被触发，然而这也可能因为您没有太多 InnoDB "
+"表所以这样足够或者服务器上还运行了其它服务。"
 
 #: libraries/advisory_rules.txt:452
 msgid "MyISAM concurrent inserts"
@@ -13215,6 +13229,9 @@ msgid ""
 "writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
+"设置 {concurrent_insert} 为 1 可以减少在相同表上的读取和写入冲突。参见 <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">MySQL "
+"文档</a>"
 
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"

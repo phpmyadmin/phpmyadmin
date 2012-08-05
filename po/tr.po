@@ -4,15 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-27 10:40+0200\n"
-"PO-Revision-Date: 2012-07-27 17:50+0200\n"
+"PO-Revision-Date: 2012-08-03 20:24+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: turkish <tr@li.org>\n"
+"Language-Team: Turkish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.1\n"
+"X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:794
@@ -1600,7 +1601,7 @@ msgstr "Kullanılan değişken / formül"
 
 #: js/messages.php:227
 msgid "Test"
-msgstr "Sınama"
+msgstr "Deneme"
 
 #: js/messages.php:232 pmd_general.php:417 pmd_general.php:454
 #: pmd_general.php:574 pmd_general.php:622 pmd_general.php:698
@@ -13223,7 +13224,7 @@ msgstr "tmp_table_size 'a karşı max_heap_table_size"
 
 #: libraries/advisory_rules.txt:258
 msgid "tmp_table_size and max_heap_table_size are not the same."
-msgstr "tmp_table_size ve max_heap_table_size aynı şey değildir."
+msgstr "tmp_table_size ve max_heap_table_size aynı değiller."
 
 #: libraries/advisory_rules.txt:259
 msgid ""
