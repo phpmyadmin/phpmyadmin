@@ -138,24 +138,14 @@ if (isset($_REQUEST['submitoptions'])) {
     );
 
     if (count($table_alters) > 0) {
-        $sql_query      = 'ALTER TABLE ' . $common_functions->backquote($GLOBALS['table']);
+        $sql_query      = 'ALTER TABLE ' 
+            . $common_functions->backquote($GLOBALS['table']);
         $sql_query     .= "\r\n" . implode("\r\n", $table_alters);
         $sql_query     .= ';';
         $result        .= PMA_DBI_query($sql_query) ? true : false;
         $reread_info    = true;
         unset($table_alters);
-        foreach (PMA_DBI_get_warnings() as $warning) {
-            // In MariaDB 5.1.44, when altering a table from Maria to MyISAM
-            // and if TRANSACTIONAL was set, the system reports an error;
-            // I discussed with a Maria developer and he agrees that this
-            // should not be reported with a Level of Error, so here
-            // I just ignore it. But there are other 1478 messages
-            // that it's better to show.
-            if (! ($_REQUEST['new_tbl_storage_engine'] == 'MyISAM' && $warning['Code'] == '1478' && $warning['Level'] == 'Error')) {
-                $warning_messages[] = $warning['Level'] . ': #' . $warning['Code']
-                    . ' ' . $warning['Message'];
-            }
-        }
+        $warning_messages = PMA_getWarningMessagesArray();
     }
 }
 /**
