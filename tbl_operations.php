@@ -202,21 +202,20 @@ if (isset($_REQUEST['submitoptions'])) {
  * Reordering the table has been requested by the user
  */
 if (isset($_REQUEST['submitorderby']) && ! empty($_REQUEST['order_field'])) {
-    $sql_query = '
-        ALTER TABLE ' . $common_functions->backquote($GLOBALS['table']) . '
-        ORDER BY ' . $common_functions->backquote(urldecode($_REQUEST['order_field']));
-    if (isset($_REQUEST['order_order']) && $_REQUEST['order_order'] === 'desc') {
-        $sql_query .= ' DESC';
-    }
-    $sql_query .= ';';
-    $result = PMA_DBI_query($sql_query);
+    list($sql_query, $result) = PMA_getQueryAndResultForReorderingTable();
 } // end if
 
 /**
  * A partition operation has been requested by the user
  */
-if (isset($_REQUEST['submit_partition']) && ! empty($_REQUEST['partition_operation'])) {
-    $sql_query = 'ALTER TABLE ' . $common_functions->backquote($GLOBALS['table']) . ' ' . $_REQUEST['partition_operation'] . ' PARTITION ' . $_REQUEST['partition_name'] . ';';
+if (isset($_REQUEST['submit_partition']) 
+    && ! empty($_REQUEST['partition_operation'])
+) {
+    $sql_query = 'ALTER TABLE ' 
+        . $common_functions->backquote($GLOBALS['table']) . ' ' 
+        . $_REQUEST['partition_operation'] 
+        . ' PARTITION ' 
+        . $_REQUEST['partition_name'] . ';';
     $result = PMA_DBI_query($sql_query);
 } // end if
 

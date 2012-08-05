@@ -1372,4 +1372,21 @@ function PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params)
     return $html_output;
 }
 
+function PMA_getQueryAndResultForReorderingTable()
+{
+    $common_functions = PMA_CommonFunctions::getInstance();
+   
+    $sql_query = '
+        ALTER TABLE ' . $common_functions->backquote($GLOBALS['table']) . '
+        ORDER BY ' . $common_functions->backquote(urldecode($_REQUEST['order_field']));
+    if (isset($_REQUEST['order_order']) && $_REQUEST['order_order'] === 'desc') {
+        $sql_query .= ' DESC';
+    }
+    $sql_query .= ';';
+    $result = PMA_DBI_query($sql_query);
+    
+    return array($sql_query, $result);
+}
+
+
 ?>
