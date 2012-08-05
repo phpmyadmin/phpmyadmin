@@ -1388,5 +1388,111 @@ function PMA_getQueryAndResultForReorderingTable()
     return array($sql_query, $result);
 }
 
+/**
+ * Get table alters array 
+ * 
+ * @param boolean $is_myisam_or_aria    whether MYISAM | ARIA or not
+ * @param boolean $is_isam              whether ISAM or not
+ * @param string $pack_keys             pack keys
+ * @param string $checksum              value of checksum
+ * @param boolean $is_aria              whether ARIA or not
+ * @param string $page_checksum         value of page checksum
+ * @param string $delay_key_write       delay key write
+ * @param boolean $is_innodb            whether INNODB or not
+ * @param boolean $is_pbxt              whether PBXT or not
+ * @param string $row_format            row format
+ * @param string $tbl_storage_engine    table storage engine
+ * @param string $transactional         value of transactional
+ * 
+ * @return array  $table_alters
+ */
+function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
+    $checksum, $is_aria, $page_checksum, $delay_key_write, $is_innodb,
+    $is_pbxt, $row_format, $tbl_storage_engine, $transactional
+) {
+    $common_functions = PMA_CommonFunctions::getInstance();
+    $table_alters = array();
+    
+    if (isset($_REQUEST['comment'])
+        && urldecode($_REQUEST['prev_comment']) !== $_REQUEST['comment']
+    ) {
+        $table_alters[] = 'COMMENT = \'' 
+            . $common_functions->sqlAddSlashes($_REQUEST['comment']) . '\'';
+    }
+    if (! empty($_REQUEST['new_tbl_storage_engine'])
+        && strtolower($_REQUEST['new_tbl_storage_engine']) 
+        !== strtolower($tbl_storage_engine)
+    ) {
+        $table_alters[] = 'ENGINE = ' . $_REQUEST['new_tbl_storage_engine'];
+    }
+    if (! empty($_REQUEST['tbl_collation'])
+        && $_REQUEST['tbl_collation'] !== $tbl_collation
+    ) {
+        $table_alters[] = 'DEFAULT ' 
+            . PMA_generateCharsetQueryPart($_REQUEST['tbl_collation']);
+    }
+
+    if (($is_myisam_or_aria || $is_isam)
+        && isset($_REQUEST['new_pack_keys'])
+        && $_REQUEST['new_pack_keys'] != (string)$pack_keys
+    ) {
+        $table_alters[] = 'pack_keys = ' . $_REQUEST['new_pack_keys'];
+    }
+
+    $checksum = empty($checksum) ? '0' : '1';
+    $_REQUEST['new_checksum'] = empty($_REQUEST['new_checksum']) ? '0' : '1';
+    if ($is_myisam_or_aria
+        && $_REQUEST['new_checksum'] !== $checksum
+    ) {
+        $table_alters[] = 'checksum = ' . $_REQUEST['new_checksum'];
+    }
+
+    $_REQUEST['new_transactional'] = empty($_REQUEST['new_transactional']) ? '0' : '1';
+    if ($is_aria
+        && $_REQUEST['new_transactional'] !== $transactional
+    ) {
+        $table_alters[] = 'TRANSACTIONAL = ' . $_REQUEST['new_transactional'];
+    }
+
+    $_REQUEST['new_page_checksum'] = empty($_REQUEST['new_page_checksum']) ? '0' : '1';
+    if ($is_aria
+        && $_REQUEST['new_page_checksum'] !== $page_checksum
+    ) {
+        $table_alters[] = 'PAGE_CHECKSUM = ' . $_REQUEST['new_page_checksum'];
+    }
+
+    $delay_key_write = empty($delay_key_write) ? '0' : '1';
+    $_REQUEST['new_delay_key_write'] = 
+        empty($_REQUEST['new_delay_key_write']) ? '0' : '1';
+    if ($is_myisam_or_aria
+        && $_REQUEST['new_delay_key_write'] !== $delay_key_write
+    ) {
+        $table_alters[] = 'delay_key_write = ' . $_REQUEST['new_delay_key_write'];
+    }
+
+    if (($is_myisam_or_aria || $is_innodb || $is_pbxt)
+        &&  ! empty($_REQUEST['new_auto_increment'])
+        && (! isset($auto_increment) 
+            || $_REQUEST['new_auto_increment'] !== $auto_increment
+        )
+    ) {
+        $table_alters[] = 'auto_increment = ' 
+            . $common_functions->sqlAddSlashes($_REQUEST['new_auto_increment']);
+    }
+
+    if (($is_myisam_or_aria || $is_innodb || $is_pbxt)
+        &&  ! empty($_REQUEST['new_row_format'])
+        && (!strlen($row_format) 
+            || strtolower($_REQUEST['new_row_format']) 
+            !== strtolower($row_format)
+        )
+    ) {
+        $table_alters[] = 'ROW_FORMAT = ' 
+            . $common_functions->sqlAddSlashes($_REQUEST['new_row_format']);
+    }
+    
+    return $table_alters;
+}
+
 
 ?>
