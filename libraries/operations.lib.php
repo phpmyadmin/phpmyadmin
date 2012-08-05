@@ -122,6 +122,8 @@ function PMA_getHtmlForDropDatabaseLink($db)
         'DROP_DATABASE',
         __('Drop the database (DROP)'),
         'drop_db_anchor');
+    $html_output .= '</ul></fieldset>'
+        . '</div>';
     
     return $html_output;
 }
