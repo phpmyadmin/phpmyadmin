@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-27 10:40+0200\n"
-"PO-Revision-Date: 2012-07-23 04:24+0200\n"
+"PO-Revision-Date: 2012-08-05 02:30+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
-"Language-Team: danish <da@li.org>\n"
+"Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.1\n"
+"X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:794
@@ -3450,24 +3450,32 @@ msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr ""
+"En streng med variabel længde (%s). Den effektive, maksimale længde er "
+"subjektet for din maksimale rækkestørrelse"
 
 #: libraries/Types.class.php:333
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"En TEXT-kolonne med en maksimal længde på 255 (2^8 - 1) tegn, lagret med et "
+"præfiks på én byte, der indikerer længden af værdien i bytes"
 
 #: libraries/Types.class.php:335 libraries/Types.class.php:731
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"En TEXT-kolonne med en maksimal længde på 65.535 (2^16 - 1) tegn, lagret med "
+"et præfiks på to bytes, der indikerer længden af værdien i bytes"
 
 #: libraries/Types.class.php:337
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"En TEXT-kolonne med en maksimal længde på 16.777.215 (2^24 - 1) tegn, lagret "
+"med et præfiks på tre bytes, der indikerer længden af værdien i bytes"
 
 #: libraries/Types.class.php:339
 msgid ""
@@ -3475,12 +3483,17 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
+"En TEXT-kolonne med en maksimal længde på 4.294.967.295 (2^32 - 1) tegn, "
+"lagret med et præfiks på fire bytes, der indikerer længden af værdien i "
+"bytes"
 
 #: libraries/Types.class.php:341
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Ligner CHAR-typen, men lagrer binære byte-strenge i stedet for ikkebinære "
+"tegnstrenge"
 
 #: libraries/Types.class.php:343
 msgid ""
@@ -3527,10 +3540,12 @@ msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr ""
+"En optælling, udvalgt fra listen med op til 65.535 værdier eller den særlige "
+"''-fejlværdi"
 
 #: libraries/Types.class.php:355
 msgid "A single value chosen from a set of up to 64 members"
-msgstr ""
+msgstr "En enkelt værdi udvalgt fra et sæt på op til 64 medlemmer"
 
 #: libraries/Types.class.php:357
 msgid "A type that can store a geometry of any type"
@@ -4035,6 +4050,8 @@ msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"Definerer den mindste størrelse på input-felter som genereres for CHAR- og "
+"VARCHAR-kolonner"
 
 #: libraries/config/messages.inc.php:37
 msgid "Minimum size for input field"
@@ -4045,6 +4062,8 @@ msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"Definerer den maksimale størrelse på input-felter som genereres for CHAR- og "
+"VARCHAR-kolonner"
 
 #: libraries/config/messages.inc.php:39
 msgid "Maximum size for input field"
@@ -5377,6 +5396,8 @@ msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host"
 msgstr ""
+"En alternativ vært til lageropbevaring af konfiguration; lad stå tom for at "
+"benytte den vært som allerede er defineret"
 
 #: libraries/config/messages.inc.php:388
 msgid "Control host"
@@ -5460,6 +5481,8 @@ msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed"
 msgstr ""
+"Begrænser antallet af tabel-præferencer som lagres i databasen. De ældte "
+"poster fjernes automatisk"
 
 #: libraries/config/messages.inc.php:405
 msgid "Maximal number of table preferences to store"
@@ -5846,6 +5869,7 @@ msgstr "Vis SQL-forespørgsler"
 msgid ""
 "Defines whether the query box should stay on-screen after its submission"
 msgstr ""
+"Definerer som forespørgselsboksen skal forblive på siden efter indsendelse"
 
 #: libraries/config/messages.inc.php:480 libraries/sql_query_form.lib.php:377
 msgid "Retain query box"
@@ -6193,7 +6217,7 @@ msgstr "Serveren svarer ikke."
 
 #: libraries/database_interface.lib.php:1997
 msgid "Please check privileges of directory containing database."
-msgstr ""
+msgstr "Tjek venligst privilegier for mappen som indeholder databasen."
 
 #: libraries/database_interface.lib.php:2006
 msgid "Details..."
@@ -6896,7 +6920,7 @@ msgstr "Relaterede links"
 
 #: libraries/engines/pbxt.lib.php:137
 msgid "The PrimeBase XT Blog by Paul McCullagh"
-msgstr ""
+msgstr "Bloggen The PrimeBase XT af Paul McCullagh"
 
 #: libraries/gis_visualization.lib.php:135
 msgid "No data found for GIS visualization."
@@ -8523,7 +8547,6 @@ msgid "Trigger name"
 msgstr "Triggernavn"
 
 #: libraries/rte/rte_triggers.lib.php:334
-#, fuzzy
 #| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
@@ -9490,7 +9513,7 @@ msgstr "Datalager"
 
 #: libraries/tbl_properties.inc.php:871
 msgid "PARTITION definition"
-msgstr ""
+msgstr "PARTITION-definition"
 
 #: libraries/user_preferences.inc.php:29
 msgid "Manage your settings"
@@ -11289,7 +11312,6 @@ msgid "Using the monitor:"
 msgstr "Brug af monitor:"
 
 #: server_status.php:1704
-#, fuzzy
 #| msgid ""
 #| "Ok, you are good to go! Once you click 'Start monitor' your browser will "
 #| "refresh all displayed charts in a regular interval. You may add charts "
@@ -11300,10 +11322,10 @@ msgid ""
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
-"Når du klikker på 'Start monitor' vil din browser opdatere alle viste "
-"diagrammer regelmæssigt. Du kan tilføje diagrammer og ændre "
-"opdateringsfrekvensen under 'Indstilinger' eller fjerne diagrammer ved at "
-"bruge ikonet cog på det relevante diagram.        "
+"Din browser vil opdatere alle viste diagrammer i et regelmæssigt interval. "
+"Du kan tilføje diagrammer og ændre opdateringsfrekvensen under "
+"'Indstillinger', eller fjerne hvilket som helst diagram ved at bruge ikonet "
+"cog på det relevante diagram."
 
 #: server_status.php:1706
 msgid ""
@@ -11855,10 +11877,10 @@ msgstr ""
 "dette system."
 
 #: setup/lib/index.lib.php:344
-#, fuzzy
 #| msgid "You should use SSL connections if your web server supports it."
 msgid "You should use SSL connections if your database server supports it."
-msgstr "Du bør bruge en SSL-forbindelse, hvis din webserver understøtter det. "
+msgstr ""
+"Du bør bruge SSL-forbindelser, hvis din database-server understøtter det."
 
 #: setup/lib/index.lib.php:359
 msgid "You should use mysqli for performance reasons."
@@ -11928,39 +11950,34 @@ msgid "The columns have been moved successfully."
 msgstr "De valgte brugere er blevet korrekt slettet."
 
 #: tbl_chart.php:83
-#, fuzzy
 #| msgid "Bar"
 msgctxt "Chart type"
 msgid "Bar"
-msgstr "Søjle"
+msgstr "Bjælke"
 
 #: tbl_chart.php:85
-#, fuzzy
 #| msgid "Column"
 msgctxt "Chart type"
 msgid "Column"
-msgstr "Kolonnenavn"
+msgstr "Kolonne"
 
 #: tbl_chart.php:87
-#, fuzzy
 #| msgid "Line"
 msgctxt "Chart type"
 msgid "Line"
 msgstr "Linje"
 
 #: tbl_chart.php:89
-#, fuzzy
 #| msgid "Spline"
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "Spline"
 
 #: tbl_chart.php:92
-#, fuzzy
 #| msgid "Pie"
 msgctxt "Chart type"
 msgid "Pie"
-msgstr "Lagkage"
+msgstr "Cirkel"
 
 #: tbl_chart.php:96
 msgid "Stacked"
@@ -11997,7 +12014,7 @@ msgstr "Y-værdier"
 #: tbl_create.php:31
 #, php-format
 msgid "Table %s already exists!"
-msgstr ""
+msgstr "Tabellen %s eksisterer allerede!"
 
 #: tbl_create.php:230
 #, php-format
@@ -12061,10 +12078,9 @@ msgid "Add index"
 msgstr "Tilføj indeks"
 
 #: tbl_indexes.php:194
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit index"
-msgstr "Redigeringstilstand"
+msgstr "Redigér indeks"
 
 #: tbl_indexes.php:206
 msgid "Index name:"
@@ -12202,10 +12218,9 @@ msgid "Check referential integrity:"
 msgstr "Check reference-integriteten:"
 
 #: tbl_printview.php:66
-#, fuzzy
 #| msgid "Show tables"
 msgid "Showing tables"
-msgstr "Vis tabeller"
+msgstr "Viser tabeller"
 
 #: tbl_printview.php:294 tbl_structure.php:833
 msgid "Space usage"
@@ -12855,10 +12870,10 @@ msgstr ""
 "sekund."
 
 #: libraries/advisory_rules.txt:160
-#, fuzzy, php-format
+#, php-format
 #| msgid "Query cache efficiency (%)"
 msgid "Query cache efficiency (%%)"
-msgstr "Effektivitet (%) af forespørgselsmellemlager "
+msgstr "Effektiviteten af forespørgselsmellemlager (%%)"
 
 #: libraries/advisory_rules.txt:163
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -12962,7 +12977,7 @@ msgstr ""
 "og check resultatet."
 
 #: libraries/advisory_rules.txt:186
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "The ratio of removed queries to inserted queries is %s%%. The lower this "
 #| "value is, the better (This rules firing limit: 0.1%)"
@@ -12971,7 +12986,7 @@ msgid ""
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
 "Andelen af fjernede forespørgsler til indsatte forespørgsler er %s%%. Jo "
-"mindre denne værdi er des bedre. (Denne regel aktiveres ved 0,1%)"
+"mindre denne værdi er des bedre. (Denne regels aktiveringsgrænse: 0.1%%)"
 
 #: libraries/advisory_rules.txt:188
 msgid "Query cache max size"
@@ -13079,7 +13094,6 @@ msgid "There are lots of rows being sorted."
 msgstr "Der er mange rækker, der sorteres."
 
 #: libraries/advisory_rules.txt:222
-#, fuzzy
 #| msgid ""
 #| "there is nothing wrong with a high amount of row sorting, you might t to "
 #| "e sure that the queries which require a lot of sorting use exed fields "
@@ -13090,9 +13104,10 @@ msgid ""
 "indexed columns in the ORDER BY clause, as this will result in much faster "
 "sorting"
 msgstr ""
-"Selvom der intet er galt med en stor del rækkesorteringer, så bør "
-"forespørgsler, som har brug for meget sortering bruge indekserede felter i "
-"ORDER BY, da dette vil resultere i en meget hurtigere sortering."
+"Selvom der intet er galt med en stor del rækkesorteringer, så bør du "
+"eventuelt sikre, at forespørgsler som kræver meget sortering bruger "
+"indekserede kolonner i klausulen ORDER BY, da dette vil resultere i en meget "
+"hurtigere sortering"
 
 #: libraries/advisory_rules.txt:223
 #, php-format
@@ -13108,7 +13123,6 @@ msgid "There are too many joins without indexes."
 msgstr "Der er for mange joins uden indeks."
 
 #: libraries/advisory_rules.txt:230
-#, fuzzy
 #| msgid ""
 #| "eans that joins are doing full table scans. Adding indexes for the lds ng "
 #| "used in the join conditions will greatly speed up table joins"
@@ -13117,8 +13131,8 @@ msgid ""
 "columns being used in the join conditions will greatly speed up table joins"
 msgstr ""
 "Dette betyder, at joins foretager en fuld tabelskanning. Oprettelse af "
-"indeks for felter, der bruges i join-betingelserne vil forøge hastigheden af "
-"joins."
+"indeks for kolonner, der bruges i join-betingelserne vil forøge hastigheden "
+"af tabel-joins"
 
 #: libraries/advisory_rules.txt:231
 #, php-format
@@ -13274,7 +13288,6 @@ msgid "Temp disk rate"
 msgstr "Frekvens af midlertidig disk"
 
 #: libraries/advisory_rules.txt:273
-#, fuzzy
 #| msgid ""
 #| "sing {max_heap_table_size} and {tmp_table_size} might help. However e "
 #| "porary tables are always being written to disk, independent of  value of "
@@ -13296,12 +13309,12 @@ msgstr ""
 "skrives nogle midlertidige tabeller altid til disk uafhængig af disse "
 "variable. For at undgå disse skal man omskrive sine forespørgsler for at "
 "undgå disse betingelser (inden for en midlertidig tabel: Tilstedeværelse af "
-"BLOB eller TEXT felter eller et felt større end 512 bytes) som nævnt i <a "
-"href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-tables.html"
-"\">MySQL Documentation</a>"
+"BLOB eller TEXT-kolonne eller en kolonne større end 512 bytes) som nævnt i "
+"<a href=\"http://dev.mysql.com/doc/refman/5.5/en/internal-temporary-"
+"tables.html\">MySQL Documentation</a>"
 
 #: libraries/advisory_rules.txt:274
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "f temporay tables being written to disk: %s, this value should be s than "
 #| "er hour"
@@ -13309,8 +13322,8 @@ msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
 msgstr ""
-"Frekvens af midlertidige tabeller skrevet til disk: %s. Denne værdi bør være "
-"mindre end 1 pr time"
+"Frekvens af midlertidige tabeller som skrives til disk: %s. Denne værdi bør "
+"være mindre end 1 pr time"
 
 #: libraries/advisory_rules.txt:289
 msgid "MyISAM key buffer size"
@@ -13355,24 +13368,24 @@ msgstr ""
 "indeks der bruges."
 
 #: libraries/advisory_rules.txt:301
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "max %% MyISAM key buffer ever used: %s, this value should be above 95%%"
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
 msgstr ""
-"maksimal %% MyISAM nøglebuffer nogensinde brugt: %s. Denne værdi bør være "
-"over 95%%"
+"maksimal %% MyISAM-nøglebuffer som nogensinde bruges: %s%%. Denne værdi bør "
+"være over 95%%"
 
 #: libraries/advisory_rules.txt:304
 msgid "Percentage of MyISAM key buffer used"
 msgstr "Procentdel brugt af MyISAM nøglebuffer"
 
 #: libraries/advisory_rules.txt:309
-#, fuzzy, php-format
+#, php-format
 #| msgid "%% MyISAM key buffer used: %s, this value should be above 95%%"
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
-msgstr "%% MyISAM nøglebuffer brugt: %s. Denne værdi bør være over 95%%"
+msgstr "%% MyISAM-nøglebuffer som bruges: %s%%. Denne værdi bør være over 95%%"
 
 #: libraries/advisory_rules.txt:311
 msgid "Percentage of index reads from memory"
@@ -13692,7 +13705,7 @@ msgstr ""
 "buffer poolen."
 
 #: libraries/advisory_rules.txt:433
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "ally one a system with a lot of writes to InnoDB tables you should  "
 #| "odb_log_file_size to 25%% of {innodb_buffer_pool_size}. However  bigger s "
@@ -13714,12 +13727,13 @@ msgid ""
 "fine. See also <a href=\"http://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
-"Særligt på et system med mange skrivninger til InnoDB tabeller bør "
-"innodb_log_file_size sættes til 25%% af{innodb_buffer_pool_size}. Dog jo "
+"Særligt på et system med mange skrivninger til InnoDB-tabeller bør "
+"innodb_log_file_size sættes til 25%% af {innodb_buffer_pool_size}. Dog jo "
 "større værdi, jo længere er genoprettelsestiden ved databasenedbrud. Derfor "
 "bør værdien ikke være højere end 256 MiB. Bemærk, at man ikke bare kan ændre "
-"denne værdi. Man skal lukke serveren ned, fjerne InnoDB logfiler, sætte den "
-"nye værdi i my.cnf, starte serveren og checke logfiler for fejl. Se også <a "
+"denne værdi. Man skal lukke serveren ned, fjerne InnoDB-logfiler, sætte den "
+"nye værdi i my.cnf, starte serveren og tjekke at alt gik fint i "
+"fejlloggene. Se også <a "
 "href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">dette blogindlæg</a>"
 
@@ -13741,7 +13755,7 @@ msgid "The InnoDB log file size is inadequately large."
 msgstr "InnoDB logfilen er utilstrækkelig stor."
 
 #: libraries/advisory_rules.txt:440
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "usually sufficient to set innodb_log_file_size to 25%% of the size "
 #| "nodb_buffer_pool_size}. A very innodb_log_file_size slows down the overy "
@@ -13767,17 +13781,17 @@ msgstr ""
 "størrelsen af {innodb_buffer_pool_size}. En meget høj innodb_log_file_size "
 "reducerer genoprettelsestiden betydeligt efter et databasenedbrud. Se også "
 "<a href=\"http://www.mysqlperformanceblog.com/2006/07/03/choosing-proper-"
-"innodb_log_file_size/\">denne artikel</a>.Man skal lukke serveren ned, "
-"fjerne InnoDB logfiler, sætte den nye værdi i my.cnf, starte serveren og "
-"checke logfiler for fejl. Se også <a href=\"http://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">dette blogindlæg</a>"
+"innodb_log_file_size/\">denne artikel</a>.Man skal lukke serveren ned, fjerne "
+"InnoDB-logfiler, sætte den nye værdi i my.cnf, starte serveren og tjekke at "
+"alt gik godt i fejllogene. Se også <a "
+"href=\"http://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">dette blogindlæg</a>"
 
 #: libraries/advisory_rules.txt:441
-#, fuzzy, php-format
+#, php-format
 #| msgid "Your absolute InnoD log size is %s MiB"
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr "Din absolutte InnoDB logstørrelse er %s MiB"
+msgstr "Din absolutte InnoDB-logstørrelse er %s MiB"
 
 #: libraries/advisory_rules.txt:443
 msgid "InnoDB buffer pool size"
