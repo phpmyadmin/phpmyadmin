@@ -798,13 +798,13 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation, $tbl_storage_engin
     } // end if (MYISAM|ISAM)
     
     if ($is_myisam_or_aria) {
-        $html_output .= PMA_getTableRow(
+        $html_output .= PMA_getHtmlForTableRow(
             'new_checksum',
             'CHECKSUM',
             $checksum
         );
 
-        $html_output .= PMA_getTableRow(
+        $html_output .= PMA_getHtmlForTableRow(
             'new_delay_key_write',
             'DELAY_KEY_WRITE',
             $delay_key_write
@@ -812,13 +812,13 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation, $tbl_storage_engin
     } // end if (MYISAM)
     
     if ($is_aria) {
-        $html_output .= PMA_getTableRow(
+        $html_output .= PMA_getHtmlForTableRow(
             'new_transactional',
             'TRANSACTIONAL',
             $transactional
         );
         
-        $html_output .= PMA_getTableRow(
+        $html_output .= PMA_getHtmlForTableRow(
             'new_page_checksum',
             'PAGE_CHECKSUM',
             $page_checksum
@@ -872,7 +872,7 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation, $tbl_storage_engin
  * 
  * @return string $html_output 
  */
-function PMA_getTableRow($attribute, $label, $val)
+function PMA_getHtmlForTableRow($attribute, $label, $val)
 {
     return '<tr><td>'
         . '<label for="' . $attribute . '">' . $label . '</label></td>'
