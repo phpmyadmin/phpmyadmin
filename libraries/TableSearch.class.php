@@ -639,10 +639,9 @@ EOT;
         if (isset($_POST['zoom_submit'])) {
             $sql_query .= '* ';
         } else {
-            $sql_query .= (count($_POST['columnsToDisplay'])
-                == count($_POST['criteriaColumnNames'])
+            $sql_query .= ! empty($_POST['displayAllColumns'])
                 ? '* '
-                : implode(', ', $this->getCommonFunctions()->backquote($_POST['columnsToDisplay'])));
+                : implode(', ', $this->getCommonFunctions()->backquote($_POST['columnsToDisplay']));
         } // end if
 
         $sql_query .= ' FROM ' . $this->getCommonFunctions()->backquote($_POST['table']);
