@@ -81,8 +81,8 @@ if (strlen($db) && (! empty($_REQUEST['db_rename']) || ! empty($_REQUEST['db_cop
                 $tables_full, $export_sql_plugin, $move, $db
             );
 
-        $views = PMA_getViewsAndCreateSqlViewStandIn(
-            $tables_full, $export_sql_plugin
+            $views = PMA_getViewsAndCreateSqlViewStandIn(
+            $tables_full, $export_sql_plugin, $db
         );
 
         list($sql_query, $_error) = PMA_getSqlQueryForCopyTable(
