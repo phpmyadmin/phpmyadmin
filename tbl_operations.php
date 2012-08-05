@@ -48,13 +48,14 @@ PMA_DBI_select_db($GLOBALS['db']);
 /**
  * Gets tables informations
  */
-
 require 'libraries/tbl_info.inc.php';
 
-// define some globals here, for improved syntax in the conditionals
+// define some variables here, for improved syntax in the conditionals
 $is_myisam_or_aria = $is_isam = $is_innodb = $is_berkeleydb = $is_aria = $is_pbxt = false;
-// set initial value of these globals, based on the current table engine
-PMA_set_global_variables_for_engine($tbl_storage_engine);
+// set initial value of these variables, based on the current table engine
+list($is_myisam_or_aria, $is_innodb, $is_isam,
+    $is_berkeleydb, $is_aria, $is_pbxt
+) = PMA_setGlobalVariablesForEngine($tbl_storage_engine);
 
 if ($is_aria) {
     // the value for transactional can be implicit
@@ -62,7 +63,9 @@ if ($is_aria) {
     // or explicit (option found with a value of 0 or 1)
     // ($transactional may have been set by libraries/tbl_info.inc.php,
     // from the $create_options)
-    $transactional = (isset($transactional) && $transactional == '0') ? '0' : '1';
+    $transactional = (isset($transactional) && $transactional == '0')
+        ? '0' 
+        : '1';
     $page_checksum = (isset($page_checksum)) ? $page_checksum : '';
 }
 
@@ -104,21 +107,34 @@ if (isset($_REQUEST['submitoptions'])) {
     }
     
     if (! empty($_REQUEST['new_tbl_storage_engine'])
-        && strtolower($_REQUEST['new_tbl_storage_engine']) !== strtolower($tbl_storage_engine)
+        && strtolower($_REQUEST['new_tbl_storage_engine'])
+            !== strtolower($tbl_storage_engine)
     ) {
         $tbl_storage_engine = $_REQUEST['new_tbl_storage_engine'];
         // reset the globals for the new engine
-        PMA_set_global_variables_for_engine($tbl_storage_engine);
+        list($is_myisam_or_aria, $is_innodb, $is_isam,
+            $is_berkeleydb, $is_aria, $is_pbxt
+        ) = PMA_setGlobalVariablesForEngine($tbl_storage_engine);
+
         if ($is_aria) {
-            $transactional = (isset($transactional) && $transactional == '0') ? '0' : '1';
+            $transactional = 
+                (isset($transactional) && $transactional == '0')
+                ? '0' 
+                : '1';
             $page_checksum = (isset($page_checksum)) ? $page_checksum : '';
         }
     }
     
     $table_alters = PMA_getTableAltersArray(
-        $is_myisam_or_aria, $is_isam, $pack_keys, $checksum, $is_aria,
-        $page_checksum, $delay_key_write, $is_innodb, $is_pbxt, $row_format,
-        $tbl_storage_engine, $transactional
+        $is_myisam_or_aria, $is_isam, $pack_keys,
+        (empty($checksum) ? '0' : '1'),
+        $is_aria,
+        ((isset($page_checksum)) ? $page_checksum : ''),
+        (empty($delay_key_write) ? '0' : '1'),
+        $is_innodb, $is_pbxt, $row_format,
+        $tbl_storage_engine,
+        ((isset($transactional) && $transactional == '0') ? '0' : '1'),
+        $tbl_collation
     );
 
     if (count($table_alters) > 0) {
@@ -336,22 +352,5 @@ if ($cfgRelation['relwork'] && ! $is_innodb) {
     } // end if ($foreign)
 
 } // end  if (!empty($cfg['Server']['relation']))
-
-function PMA_set_global_variables_for_engine($tbl_storage_engine)
-{
-    global $is_myisam_or_aria, $is_innodb, $is_isam, $is_berkeleydb, $is_aria, $is_pbxt;
-
-    $is_myisam_or_aria = $is_isam = $is_innodb = $is_berkeleydb = $is_aria = $is_pbxt = false;
-    $upper_tbl_storage_engine = strtoupper($tbl_storage_engine);
-
-    //Options that apply to MYISAM usually apply to ARIA
-    $is_myisam_or_aria = ($upper_tbl_storage_engine == 'MYISAM' || $upper_tbl_storage_engine == 'ARIA' || $upper_tbl_storage_engine == 'MARIA');
-    $is_aria = ($upper_tbl_storage_engine == 'ARIA');
-
-    $is_isam = ($upper_tbl_storage_engine == 'ISAM');
-    $is_innodb = ($upper_tbl_storage_engine == 'INNODB');
-    $is_berkeleydb = ($upper_tbl_storage_engine == 'BERKELEYDB');
-    $is_pbxt = ($upper_tbl_storage_engine == 'PBXT');
-}
 
 ?>

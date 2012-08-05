@@ -1408,7 +1408,7 @@ function PMA_getQueryAndResultForReorderingTable()
  */
 function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
     $checksum, $is_aria, $page_checksum, $delay_key_write, $is_innodb,
-    $is_pbxt, $row_format, $tbl_storage_engine, $transactional
+    $is_pbxt, $row_format, $tbl_storage_engine, $transactional, $tbl_collation
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
     $table_alters = array();
@@ -1439,7 +1439,6 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
         $table_alters[] = 'pack_keys = ' . $_REQUEST['new_pack_keys'];
     }
 
-    $checksum = empty($checksum) ? '0' : '1';
     $_REQUEST['new_checksum'] = empty($_REQUEST['new_checksum']) ? '0' : '1';
     if ($is_myisam_or_aria
         && $_REQUEST['new_checksum'] !== $checksum
@@ -1461,7 +1460,6 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
         $table_alters[] = 'PAGE_CHECKSUM = ' . $_REQUEST['new_page_checksum'];
     }
 
-    $delay_key_write = empty($delay_key_write) ? '0' : '1';
     $_REQUEST['new_delay_key_write'] = 
         empty($_REQUEST['new_delay_key_write']) ? '0' : '1';
     if ($is_myisam_or_aria
@@ -1494,5 +1492,36 @@ function PMA_getTableAltersArray($is_myisam_or_aria, $is_isam, $pack_keys,
     return $table_alters;
 }
 
+/**
+ * set initial value of the set of variables, based on the current table engine
+ * 
+ * @param  string $tbl_storage_engine   table storage engine
+ * 
+ * @return array    ($is_myisam_or_aria, $is_innodb, $is_isam,
+                    $is_berkeleydb, $is_aria, $is_pbxt)
+ */
+function PMA_setGlobalVariablesForEngine($tbl_storage_engine)
+{
+    $is_myisam_or_aria = $is_isam = $is_innodb = $is_berkeleydb 
+        = $is_aria = $is_pbxt = false;
+    $upper_tbl_storage_engine = strtoupper($tbl_storage_engine);
+
+    //Options that apply to MYISAM usually apply to ARIA
+    $is_myisam_or_aria = ($upper_tbl_storage_engine == 'MYISAM' 
+        || $upper_tbl_storage_engine == 'ARIA' 
+        || $upper_tbl_storage_engine == 'MARIA'
+    );
+    $is_aria = ($upper_tbl_storage_engine == 'ARIA');
+
+    $is_isam = ($upper_tbl_storage_engine == 'ISAM');
+    $is_innodb = ($upper_tbl_storage_engine == 'INNODB');
+    $is_berkeleydb = ($upper_tbl_storage_engine == 'BERKELEYDB');
+    $is_pbxt = ($upper_tbl_storage_engine == 'PBXT');
+    
+    return array(
+        $is_myisam_or_aria, $is_innodb, $is_isam,
+        $is_berkeleydb, $is_aria, $is_pbxt
+    );
+}
 
 ?>
