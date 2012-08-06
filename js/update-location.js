@@ -22,30 +22,10 @@ function setURLHash(hash)
          */
         return;
     }
-    if (window.parent != window && window.parent.setURLHash) {
-        window.parent.setURLHash(hash);
+    if (hash_init_done) {
+        window.location.hash = "PMAURL:" + hash;
     } else {
-        /* Do not set if we're not updating frameset */
-        var path = window.location.pathname;
-        if (path.substring(path.length - 9, path.length) != "index.php") {
-            return;
-        }
-        if (hash_init_done) {
-            window.location.hash = "PMAURL:" + hash;
-            fix_favicon();
-        } else {
-            hash_to_set = "PMAURL:" + hash;
-        }
-    }
-}
-
-// Fix favicon disappearing in Firefox when setting location.hash
-// See bug #3448485
-function fix_favicon() {
-    if (jQuery.browser.mozilla) {
-        // Move the link tags for the favicon to the bottom
-        // of the head element to force a reload of the favicon
-        $('head > link[href=favicon\\.ico]').appendTo('head');
+        hash_to_set = "PMAURL:" + hash;
     }
 }
 
@@ -53,21 +33,16 @@ function fix_favicon() {
  * Handler for changing url according to the hash part, which is updated
  * on each page to allow bookmarks.
  */
-AJAX.registerOnload('update_location.js', function(){
-    /* Don't do anything if we're not root Window */
-    if (window.parent != window && window.parent.setURLHash) {
-        return;
-    }
+$(function(){
     /* Check if hash contains parameters */
     if (window.location.hash.substring(0, 8) == '#PMAURL:') {
-        window.location = 'index.php?' + window.location.hash.substring(8);
+        window.location = window.location.hash.substring(8);
         return;
     }
     /* Check if we should set URL */
     if (hash_to_set != "") {
         window.location.hash = hash_to_set;
         hash_to_set = "";
-        fix_favicon();
     }
     /* Indicate that we're done (and we are not going to change location */
     hash_init_done = 1;

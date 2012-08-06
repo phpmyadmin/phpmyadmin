@@ -236,12 +236,13 @@ class PMA_Footer
                     && empty($GLOBALS['checked_special'])
                     && ! $this->_isAjax
                 ) {
-                    $url = $this->getSelfUrl();
+                    $url = $this->getSelfUrl('unencoded');
                     $this->_scripts->addCode("
                         // Store current location in hash part
                         // of URL to allow direct bookmarking
                         setURLHash('$url');
                     ");
+                    $url = $this->getSelfUrl();
                     $retval .= $this->_getSelfLink($url);
                 }
                 $retval .= $this->_getDebugMessage();

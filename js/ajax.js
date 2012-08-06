@@ -190,6 +190,7 @@ var AJAX = {
 
             if (data._selflink) {
                 $('#selflink > a').attr('href', data._selflink);
+                setURLHash(data._selflink);
             }
 
             if (data._scripts) {
