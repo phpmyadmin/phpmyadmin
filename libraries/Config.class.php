@@ -445,8 +445,6 @@ class PMA_Config
         $this->checkPmaAbsoluteUri();
         $this->checkFontsize();
 
-        $this->checkPermissions();
-
         // Handling of the collation must be done after merging of $cfg
         // (from config.inc.php) so that $cfg['DefaultConnectionCollation']
         // can have an effect. Note that the presence of collation
