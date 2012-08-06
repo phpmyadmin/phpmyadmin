@@ -16,6 +16,7 @@ require_once 'libraries/common.inc.php';
 require_once 'libraries/operations.lib.php';
 
 $pma_table = new PMA_Table($GLOBALS['table'], $GLOBALS['db']);
+$response = PMA_Response::getInstance();
 $common_functions = PMA_CommonFunctions::getInstance();
 
 /**
@@ -178,10 +179,17 @@ if (isset($result) && empty($message_to_show)) {
     // (for example, a table rename)
     $_type = 'success';
     if (empty($_message)) {
-        $_message = $result ? $message = PMA_Message::success(__('Your SQL query has been executed successfully')) : PMA_Message::error(__('Error'));
+        $_message = $result 
+            ? $message = PMA_Message::success(
+                __('Your SQL query has been executed successfully')
+            )
+            : PMA_Message::error(__('Error'));
         // $result should exist, regardless of $_message
         $_type = $result ? 'success' : 'error';
-        if (isset($GLOBALS['ajax_request']) && $GLOBALS['ajax_request'] == true) {
+        
+        if (isset($GLOBALS['ajax_request'])
+            && $GLOBALS['ajax_request'] == true
+        ) {
             $response = PMA_Response::getInstance();
             $response->isSuccess($_message->isSuccess());
             $response->addJSON('message', $_message);
@@ -204,7 +212,9 @@ if (isset($result) && empty($message_to_show)) {
         unset($warning_messages);
     }
 
-    echo $common_functions->getMessage($_message, $sql_query, $_type);
+    $response->addHTML(
+        $common_functions->getMessage($_message, $sql_query, $_type)
+    );
     unset($_message, $_type);
 }
 
@@ -223,12 +233,12 @@ $columns = PMA_DBI_get_columns($GLOBALS['db'], $GLOBALS['table']);
 /**
  * Order the table
  */
-echo PMA_getHtmlForOrderTheTable($columns);
+$response->addHTML(PMA_getHtmlForOrderTheTable($columns));
 
 /**
  * Move table
  */
-echo PMA_getHtmlForMoveTable();
+$response->addHTML(PMA_getHtmlForMoveTable());
 
 if (strstr($show_comment, '; InnoDB free') === false) {
     if (strstr($show_comment, 'InnoDB free') === false) {
@@ -251,48 +261,59 @@ if (strstr($show_comment, '; InnoDB free') === false) {
 // in >5.0.4, >4.1.12 and >4.0.11, so I decided not to
 // check for version
 
-echo PMA_getTableOptionDiv(
-    $comment, $tbl_collation, $tbl_storage_engine,
-    $is_myisam_or_aria, $is_isam, $pack_keys,
-    $auto_increment,
-    (empty($delay_key_write) ? '0' : '1'),
-    ((isset($transactional) && $transactional == '0') ? '0' : '1'), 
-    ((isset($page_checksum)) ? $page_checksum : ''),
-    $is_innodb, $is_pbxt, $is_aria
+$response->addHTML(
+    PMA_getTableOptionDiv(
+        $comment, $tbl_collation, $tbl_storage_engine,
+        $is_myisam_or_aria, $is_isam, $pack_keys,
+        $auto_increment,
+        (empty($delay_key_write) ? '0' : '1'),
+        ((isset($transactional) && $transactional == '0') ? '0' : '1'), 
+        ((isset($page_checksum)) ? $page_checksum : ''),
+        $is_innodb, $is_pbxt, $is_aria
+    )
 );
 
 /**
  * Copy table
  */
-echo PMA_getHtmlForCopytable();
+$response->addHTML(PMA_getHtmlForCopytable());
 
-echo '<br class="clearfloat"/>';
+$response->addHTML('<br class="clearfloat"/>');
 
 /**
  * Table maintenance
  */
-echo PMA_getHtmlForTableMaintenance($is_myisam_or_aria, $is_innodb,
-    $is_berkeleydb, $url_params
-    );
+$response->addHTML(
+    PMA_getHtmlForTableMaintenance($is_myisam_or_aria, $is_innodb,
+        $is_berkeleydb, $url_params
+    )
+);
 
 if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
     $truncate_table_url_params = array();
     $drop_table_url_params = array();
     
-    if (! $tbl_is_view && ! (isset($db_is_information_schema) && $db_is_information_schema)) {
-        $this_sql_query = 'TRUNCATE TABLE ' . $common_functions->backquote($GLOBALS['table']);
+    if (! $tbl_is_view 
+        && ! (isset($db_is_information_schema) && $db_is_information_schema)
+    ) {
+        $this_sql_query = 'TRUNCATE TABLE ' 
+            . $common_functions->backquote($GLOBALS['table']);
         $truncate_table_url_params = array_merge(
             $url_params,
             array(
                 'sql_query' => $this_sql_query,
                 'goto' => 'tbl_structure.php',
                 'reload' => '1',
-                'message_to_show' => sprintf(__('Table %s has been emptied'), htmlspecialchars($table)),
+                'message_to_show' => sprintf(
+                    __('Table %s has been emptied'),
+                    htmlspecialchars($table)
+                ),
             )
         );
     }
     if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
-        $this_sql_query = 'DROP TABLE ' . $common_functions->backquote($GLOBALS['table']);
+        $this_sql_query = 'DROP TABLE ' 
+            . $common_functions->backquote($GLOBALS['table']);
         $drop_table_url_params = array_merge(
             $url_params,
             array(
@@ -300,24 +321,35 @@ if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
                 'goto' => 'db_operations.php',
                 'reload' => '1',
                 'purge' => '1',
-                'message_to_show' => sprintf(($tbl_is_view ? __('View %s has been dropped') : __('Table %s has been dropped')), htmlspecialchars($table)),
+                'message_to_show' => sprintf(
+                    ($tbl_is_view 
+                        ? __('View %s has been dropped') 
+                        : __('Table %s has been dropped')
+                    )
+                    , htmlspecialchars($table)
+                ),
                 // table name is needed to avoid running
                 // PMA_relationsCleanupDatabase() on the whole db later
                 'table' => $GLOBALS['table'],
             )
         );
     }
-    echo PMA_getHtmlForDeleteDataOrTable($truncate_table_url_params,
-        $drop_table_url_params
+    $response->addHTML(
+        PMA_getHtmlForDeleteDataOrTable(
+            $truncate_table_url_params,
+            $drop_table_url_params
+        )
     );
 }
-echo '<br class="clearfloat">';
+$response->addHTML('<br class="clearfloat">');
 
 if (PMA_Partition::havePartitioning()) {
     $partition_names = PMA_Partition::getPartitionNames($db, $table);
     // show the Partition maintenance section only if we detect a partition
     if (! is_null($partition_names[0])) {
-        echo PMA_getHtmlForPartitionMaintenance($partition_names, $url_params);
+        $response->addHTML(
+            PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
+        );
     } // end if
 } // end if
 unset($partition_names);
@@ -333,7 +365,9 @@ if ($cfgRelation['relwork'] && ! $is_innodb) {
     $foreign = PMA_getForeigners($GLOBALS['db'], $GLOBALS['table']);
 
     if ($foreign) {
-        echo PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params);
+        $response->addHTML(
+            PMA_getHtmlForReferentialIntegrityCheck($foreign, $url_params)
+        );
     } // end if ($foreign)
 
 } // end  if (!empty($cfg['Server']['relation']))
