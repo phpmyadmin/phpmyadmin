@@ -568,6 +568,8 @@ if ($GLOBALS['text_dir'] == 'ltr') {
  * check for errors occurred while loading configuration
  * this check is done here after loading language files to present errors in locale
  */
+$GLOBALS['PMA_Config']->checkPermissions();
+
 if ($GLOBALS['PMA_Config']->error_config_file) {
     $error = '[strong]' . __('Failed to read configuration file') . '[/strong]'
         . '[br][br]'
