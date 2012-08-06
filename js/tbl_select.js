@@ -53,7 +53,39 @@ $(document).ready(function() {
 
         PMA_prepareForAjaxRequest($search_form);
 
-        $.post($search_form.attr('action'), $search_form.serialize(), function(response) {
+        var values = {};
+        $search_form.find(':input').each(function() {
+            var $input = $(this);
+            if ($input.attr('type') == 'checkbox' || $input.attr('type') == 'radio') {
+                if ($input.is(':checked')) {
+                    values[this.name] = $input.val();
+                }
+            } else {
+                values[this.name] = $input.val();
+            }
+        });
+        var columnCount = $('select[name="param[]"] option').length;
+        // Submit values only for the columns that have a search criteria
+        for (var a = 0; a < columnCount; a++) {
+            if (values['fields[' + a + ']'] == '') {
+                delete values['fields[' + a + ']'];
+                delete values['func[' + a + ']'];
+                delete values['names[' + a + ']'];
+                delete values['types[' + a + ']'];
+                delete values['collations[' + a + ']'];
+            }
+        }
+        // If all columns are selected, use a single parameter to indicate that
+        if (values['param[]'] != null) {
+            if (values['param[]'].length == columnCount) {
+                delete values['param[]'];
+                values['displayAllColumns'] = true;
+            }
+        } else {
+            values['displayAllColumns'] = true;
+        }
+
+        $.post($search_form.attr('action'), values, function(response) {
             PMA_ajaxRemoveMessage($msgbox);
             if (typeof response == 'string') {
                 // found results
