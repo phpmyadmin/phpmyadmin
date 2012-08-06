@@ -111,4 +111,32 @@ function PMA_getHtmlForActionLinks($each_table, $table_is_view, $tbl_url_query,
     );
 }
 
+/**
+ * Get table drop query and drop message
+ * 
+ * @param boolean $table_is_view    Is table view or not
+ * @param string $each_table        current table
+ * 
+ * @return array    ($drop_query, $drop_message)
+ */
+function PMA_getTableDropQueryAndMessage($table_is_view, $each_table)
+{
+    $drop_query = 'DROP '
+        . (($table_is_view || $each_table['ENGINE'] == null) ? 'VIEW' : 'TABLE')
+        . ' ' . PMA_CommonFunctions::getInstance()->backquote(
+            $each_table['TABLE_NAME']
+        );
+    $drop_message = sprintf(
+        ($table_is_view || $each_table['ENGINE'] == null)
+            ? __('View %s has been dropped')
+            : __('Table %s has been dropped'),
+        str_replace(
+            ' ',
+            '&nbsp;',
+            htmlspecialchars($each_table['TABLE_NAME'])
+        )
+    );
+    return array($drop_query, $drop_message);
+}
+
 ?>

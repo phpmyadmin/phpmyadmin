@@ -350,13 +350,8 @@ foreach ($tables as $keyname => $each_table) {
         );
     
     if (! $db_is_information_schema) {
-        $drop_query = 'DROP '
-            . (($table_is_view || $each_table['ENGINE'] == null) ? 'VIEW' : 'TABLE')
-            . ' ' . $common_functions->backquote($each_table['TABLE_NAME']);
-        $drop_message = sprintf(
-            ($table_is_view || $each_table['ENGINE'] == null)? __('View %s has been dropped') : __('Table %s has been dropped'),
-            str_replace(' ', '&nbsp;', htmlspecialchars($each_table['TABLE_NAME']))
-        );
+        list($drop_query, $drop_message) 
+            = PMA_getTableDropQueryAndMessage($table_is_view, $each_table);
     }
 
     if ($num_columns > 0
