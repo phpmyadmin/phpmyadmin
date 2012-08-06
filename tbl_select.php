@@ -41,7 +41,7 @@ $table_search = new PMA_TableSearch($db, $table, "normal");
 /**
  * Not selection yet required -> displays the selection form
  */
-if (! isset($_POST['columnsToDisplay']) || $_POST['columnsToDisplay'][0] == '') {
+if (! isset($_POST['columnsToDisplay']) && ! isset($_POST['displayAllColumns'])) {
     // Gets some core libraries
     include_once 'libraries/tbl_common.inc.php';
     //$err_url   = 'tbl_select.php' . $err_url;
