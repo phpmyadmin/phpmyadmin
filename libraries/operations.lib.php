@@ -1550,4 +1550,22 @@ function PMA_getWarningMessagesArray()
     return $warning_messages;
 }
 
+/**
+ * Get SQL query and result after ran this SQL query for a partition operation 
+ * has been requested by the user
+ * 
+ * @return array $sql_query, $result
+ */
+function PMA_getQueryAndResultForPartition()
+{
+    $sql_query = 'ALTER TABLE ' 
+        . $common_functions->backquote($GLOBALS['table']) . ' ' 
+        . $_REQUEST['partition_operation'] 
+        . ' PARTITION ' 
+        . $_REQUEST['partition_name'] . ';';
+    $result = PMA_DBI_query($sql_query);
+
+    return array($sql_query, $result);
+}
+
 ?>

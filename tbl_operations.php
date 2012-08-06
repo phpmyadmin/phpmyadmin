@@ -161,12 +161,7 @@ if (isset($_REQUEST['submitorderby']) && ! empty($_REQUEST['order_field'])) {
 if (isset($_REQUEST['submit_partition']) 
     && ! empty($_REQUEST['partition_operation'])
 ) {
-    $sql_query = 'ALTER TABLE ' 
-        . $common_functions->backquote($GLOBALS['table']) . ' ' 
-        . $_REQUEST['partition_operation'] 
-        . ' PARTITION ' 
-        . $_REQUEST['partition_name'] . ';';
-    $result = PMA_DBI_query($sql_query);
+    list($sql_query, $result) = PMA_getQueryAndResultForPartition();
 } // end if
 
 if ($reread_info) {
