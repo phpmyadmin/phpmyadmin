@@ -33,7 +33,7 @@ $geom_types = PMA_getGISDatatypes();
 /**
  * Not selection yet required -> displays the selection form
  */
-if (! isset($param) || $param[0] == '') {
+if ((! isset($param) || $param[0] == '') && ! isset($displayAllColumns)) {
     // Gets some core libraries
     include_once './libraries/tbl_common.php';
     //$err_url   = 'tbl_select.php' . $err_url;
@@ -117,7 +117,7 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params, '', 'topmenu2');
             <th><?php echo htmlspecialchars($fields_list[$i]); ?></th>
             <td><?php echo htmlspecialchars($fields_type[$i]); ?></td>
             <td><?php echo $fields_collation[$i]; ?></td>
-            <td><select name="func[]">
+            <td><select name="func[<?php echo $i; ?>]">
         <?php
         if (strncasecmp($fields_type[$i], 'enum', 4) == 0) {
             foreach ($GLOBALS['cfg']['EnumOperators'] as $fc) {
@@ -258,7 +258,7 @@ echo PMA_generate_html_tabs(PMA_tbl_getSubTabs(), $url_params, '', 'topmenu2');
     // (more efficient and this helps prevent a problem in IE
     // if one of the rows is edited and we come back to the Select results)
 
-    if (count($param) == $max_number_of_fields) {
+    if (! empty($displayAllColumns) || count($param) == $max_number_of_fields) {
         $sql_query .= '* ';
     } else {
         $param = PMA_backquote($param);
