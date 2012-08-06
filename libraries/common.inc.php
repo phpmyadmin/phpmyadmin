@@ -618,6 +618,8 @@ require './libraries/select_lang.lib.php';
  * check for errors occurred while loading configuration
  * this check is done here after loading language files to present errors in locale
  */
+$GLOBALS['PMA_Config']->checkPermissions();
+
 if ($GLOBALS['PMA_Config']->error_config_file) {
     $error = '<h1>' . __('Failed to read configuration file') . '</h1>'
         . _('This usually means there is a syntax error in it, please check any errors shown below.')
