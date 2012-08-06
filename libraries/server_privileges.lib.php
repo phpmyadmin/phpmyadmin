@@ -1732,7 +1732,7 @@ function PMA_getStandardLinks($conditional_class)
  * @return array $extra_data
  */
 function PMA_getExtraDataForAjaxBehavior($password, $link_export, $sql_query,
-    $link_edit, $dbname_is_wildcard
+    $link_edit, $dbname_is_wildcard, $hostname, $username
 ) {
     if (strlen($sql_query)) {
         $extra_data['sql_query']
@@ -1745,16 +1745,16 @@ function PMA_getExtraDataForAjaxBehavior($password, $link_export, $sql_query,
          */
         $new_user_string = '<tr>'."\n"
             . '<td> <input type="checkbox" name="selected_usr[]" id="checkbox_sel_users_"'
-            . 'value="'
-            . htmlspecialchars($_REQUEST['username'])
-            . '&amp;#27;' . htmlspecialchars($_REQUEST['hostname']) . '" />'
+            . 'value="' 
+            . htmlspecialchars($username)
+            . '&amp;#27;' . htmlspecialchars($hostname) . '" />'
             . '</td>' . "\n"
             . '<td><label for="checkbox_sel_users_">'
             . (empty($_REQUEST['username'])
                     ? '<span style="color: #FF0000">' . __('Any') . '</span>'
-                    : htmlspecialchars($_REQUEST['username']) ) . '</label></td>' . "\n"
-            . '<td>' . htmlspecialchars($_REQUEST['hostname']) . '</td>' . "\n";
-
+                    : htmlspecialchars($username) ) . '</label></td>' . "\n"
+            . '<td>' . htmlspecialchars($hostname) . '</td>' . "\n";
+        
         $new_user_string .= '<td>';
 
         if (! empty($password) || isset($_POST['pma_pw'])) {
@@ -1781,15 +1781,15 @@ function PMA_getExtraDataForAjaxBehavior($password, $link_export, $sql_query,
 
         $new_user_string .= '<td>'
             . sprintf($link_edit,
-                urlencode($_REQUEST['username']),
-                urlencode($_REQUEST['hostname']),
+                urlencode($username),
+                urlencode($hostname),
                 '', ''
             )
             . '</td>' . "\n";
         $new_user_string .= '<td>'
             . sprintf($link_export,
-                urlencode($_REQUEST['username']),
-                urlencode($_REQUEST['hostname']),
+                urlencode($username),
+                urlencode($hostname),
                 (isset($_GET['initial']) ? $_GET['initial'] : '')
             )
             . '</td>' . "\n";
@@ -1802,7 +1802,7 @@ function PMA_getExtraDataForAjaxBehavior($password, $link_export, $sql_query,
          * Generate the string for this alphabet's initial, to update the user
          * pagination
          */
-        $new_user_initial = strtoupper(substr($_REQUEST['username'], 0, 1));
+        $new_user_initial = strtoupper(substr($username, 0, 1));
         $new_user_initial_string = '<a href="server_privileges.php?'
             . $GLOBALS['url_query'] . '&initial=' . $new_user_initial .'">'
             . $new_user_initial . '</a>';

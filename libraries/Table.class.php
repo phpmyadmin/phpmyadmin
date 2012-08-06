@@ -319,7 +319,6 @@ class PMA_Table
     static public function sGetStatusInfo($db, $table, $info = null,
         $force_read = false, $disable_error = false
     ) {
-
         if (! empty($_SESSION['is_multi_query'])) {
             $disable_error = true;
         }
