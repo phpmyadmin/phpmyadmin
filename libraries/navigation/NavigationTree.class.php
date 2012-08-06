@@ -587,27 +587,24 @@ class PMA_NavigationTree
      */
     public function renderState()
     {
-        $node = $this->_buildPath();
-        $retval = false;
-        if ($node !== false) {
-            $retval  = $this->_fastFilterHtml($this->_tree);
-            $retval .= $this->_getPageSelector($this->_tree);
-            $this->groupTree();
-            $retval .= "<div><ul>";
-            $children = $this->_tree->children;
-            usort($children, array('PMA_NavigationTree', 'sortNode'));
-            $this->_setVisibility();
-            for ($i=0; $i<count($children); $i++) {
-                if ($i == 0) {
-                    $retval .= $this->_renderNode($children[0], true, 'first');
-                } else if ($i + 1 != count($children)) {
-                    $retval .= $this->_renderNode($children[$i], true);
-                } else {
-                    $retval .= $this->_renderNode($children[$i], true, 'last');
-                }
+        $this->_buildPath();
+        $retval  = $this->_fastFilterHtml($this->_tree);
+        $retval .= $this->_getPageSelector($this->_tree);
+        $this->groupTree();
+        $retval .= "<div><ul>";
+        $children = $this->_tree->children;
+        usort($children, array('PMA_NavigationTree', 'sortNode'));
+        $this->_setVisibility();
+        for ($i=0; $i<count($children); $i++) {
+            if ($i == 0) {
+                $retval .= $this->_renderNode($children[0], true, 'first');
+            } else if ($i + 1 != count($children)) {
+                $retval .= $this->_renderNode($children[$i], true);
+            } else {
+                $retval .= $this->_renderNode($children[$i], true, 'last');
             }
-            $retval .= "</ul></div>";
         }
+        $retval .= "</ul></div>";
         return $retval;
     }
 
