@@ -365,4 +365,46 @@ function PMA_transformation_global_html_replace($buffer, $options = array())
     $return = str_replace("[__BUFFER__]", $buffer, $options['string']);
     return $return;
 }
+
+
+/**
+ * Delete related transformation details
+ * after deleting database. table or column
+ *
+ * @param string $db     Database name
+ * @param string $table  Table name
+ * @param string $column Column name
+ *
+ * @return boolean State of the query execution
+ */
+function PMA_clearTransformations($db, $table = '', $column = '')
+{
+    
+    $common_functions = PMA_CommonFunctions::getInstance();
+    $cfgRelation = PMA_getRelationsParam();
+    
+    $delete_sql = 'DELETE FROM '
+        . $common_functions->backquote($cfgRelation['db']) . '.'
+        . $common_functions->backquote($cfgRelation['column_info'])
+        . ' WHERE ';
+    
+    if (($column != '') && ($table != '')) {
+        
+        $delete_sql .= '`db_name` = \'' . $db . '\' AND '
+            . '`table_name` = \'' . $table . '\' AND '
+            . '`column_name` = \'' . $column . '\' ';
+        
+    } else if ($table != '') {
+        
+        $delete_sql .= '`db_name` = \'' . $db . '\' AND '
+            . '`table_name` = \'' . $table . '\' ';
+        
+    } else {
+        $delete_sql .= '`db_name` = \'' . $db . '\' ';
+    }
+    
+    return PMA_DBI_try_query($delete_sql);
+    
+}
+
 ?>
