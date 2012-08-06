@@ -766,6 +766,34 @@ if (isset($GLOBALS['show_as_php']) || ! empty($GLOBALS['validatequery'])) {
 
 // No rows returned -> move back to the calling page
 if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
+    
+    // Delete related tranformation information
+    if (!empty($analyzed_sql[0]['querytype'])
+        && (($analyzed_sql[0]['querytype'] == 'ALTER')
+        || ($analyzed_sql[0]['querytype'] == 'DROP'))
+    ) {
+        
+        require_once 'libraries/transformations.lib.php';
+        if ($analyzed_sql[0]['querytype'] == 'ALTER') {
+            
+            if (stripos($analyzed_sql[0]['unsorted_query'], 'DROP') !== false) {
+                
+                $drop_column = PMA_getColumnNameInColumnDropSql(
+                    $analyzed_sql[0]['unsorted_query']
+                );
+                
+                if ($drop_column != '') {
+                    PMA_clearTransformations($db, $table, $drop_column);
+                }
+                
+            }
+            
+        } else if (($analyzed_sql[0]['querytype'] == 'DROP') && ($table != '')) {
+            PMA_clearTransformations($db, $table);
+        }
+
+    }
+    
     if ($is_delete) {
         $message = PMA_Message::deleted_rows($num_rows);
     } elseif ($is_insert) {
@@ -1471,6 +1499,35 @@ function PMA_getSqlWithLimitClause($full_sql_query, $analyzed_sql, $sql_limit_to
 {    
     return $analyzed_sql[0]['section_before_limit'] . "\n"
         . $sql_limit_to_append . $analyzed_sql[0]['section_after_limit'];    
+}
+
+
+/**
+ * Get column name from a drop SQL statement
+ *
+ * @param string $sql SQL query
+ *
+ * @return string $drop_column Name of the column
+ */
+function PMA_getColumnNameInColumnDropSql($sql)
+{
+    
+    $tmpArray1 = explode('DROP', $sql);    
+    $str_to_check = trim($tmpArray1[1]);
+
+    if (stripos($str_to_check, 'COLUMN') !== false) {
+        $tmpArray2 = explode('COLUMN', $str_to_check);
+        $str_to_check = trim($tmpArray2[1]);
+    }
+
+    $tmpArray3 = explode(' ', $str_to_check);
+    $str_to_check = trim($tmpArray3[0]);
+
+    $drop_column = str_replace(';', '', trim($str_to_check));
+    $drop_column = str_replace('`', '', $drop_column);
+    
+    return $drop_column;
+    
 }
         
 ?>
