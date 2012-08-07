@@ -580,13 +580,7 @@ echo $common_functions->getListNavigator(
  */
 /* DATABASE WORK */
 /* Printable view of a table */
-echo '<p>';
-echo '<a href="db_printview.php?' . $url_query . '">';
-echo $common_functions->getIcon('b_print.png', __('Print view'), true) . '</a>';
-
-echo '<a href="db_datadict.php?' . $url_query . '">';
-echo $common_functions->getIcon('b_tblanalyse.png', __('Data Dictionary'), true) . '</a>';
-echo '</p>';
+echo PMA_getHtmlForPrintViewAndDataDictionaryLinks($url_query);
 
 if (empty($db_is_information_schema)) {
     include 'libraries/display_create_table.lib.php';

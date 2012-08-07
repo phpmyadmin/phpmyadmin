@@ -333,4 +333,33 @@ function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
     return $html_output;
 }
 
+/**
+ * Get HTML links for "Print view" and "Data Dictionary" options
+ * 
+ * @param string $url_query     url query
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForPrintViewAndDataDictionaryLinks($url_query)
+{
+    $common_functions = PMA_CommonFunctions::getInstance();
+    $html_output = '<p>'
+        . '<a href="db_printview.php?' . $url_query . '">'
+        . $common_functions->getIcon(
+            'b_print.png',
+            __('Print view'),
+            true
+        ) . '</a>';
+
+    $html_output .= '<a href="db_datadict.php?' . $url_query . '">'
+        . $common_functions->getIcon(
+            'b_tblanalyse.png',
+            __('Data Dictionary'),
+            true
+        ) . '</a>'
+        . '</p>';
+    
+    return $html_output;
+}
+
 ?>
