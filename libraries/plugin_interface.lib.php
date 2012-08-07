@@ -199,7 +199,7 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
         $plugin_name = strtolower(substr(get_class($plugin), strlen($section)));
         $ret .= '<input type="hidden" id="force_file_' . $plugin_name
             . '" value="';
-        if ( ! strcmp($section, 'Import') 
+        if ( ! strcmp($section, 'Import')
             || $plugin->getProperties()->getForceFile() != null
         ) {
             $ret .= 'true';
@@ -208,7 +208,7 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
         }
         $ret .= '" />'. "\n";
     }
-    
+
     return $ret;
 }
 
@@ -245,137 +245,141 @@ function PMA_pluginGetOneOption(
         }
     }
 
-
     if (! isset($properties)) {
         $not_subgroup_header = true;
-        $properties = $propertyGroup->getProperties();
+        if (method_exists($propertyGroup, 'getProperties')) {
+            $properties = $propertyGroup->getProperties();
+        }
     }
-    foreach ($properties as $propertyItem) {
-        $property_class = get_class($propertyItem);
-        // if the property is a subgroup, we deal with it recursively
-        if (strpos($property_class, "Subgroup")) {
-            // for subgroups
-            // each subgroup can have a header, which may also be a form element
-            $subgroup_header = $propertyItem->getSubgroupHeader();
-            if (isset($subgroup_header)) {
-                $ret .= PMA_pluginGetOneOption(
+
+    if (isset($properties)) {
+        foreach ($properties as $propertyItem) {
+            $property_class = get_class($propertyItem);
+            // if the property is a subgroup, we deal with it recursively
+            if (strpos($property_class, "Subgroup")) {
+                // for subgroups
+                // each subgroup can have a header, which may also be a form element
+                $subgroup_header = $propertyItem->getSubgroupHeader();
+                if (isset($subgroup_header)) {
+                    $ret .= PMA_pluginGetOneOption(
+                        $section,
+                        $plugin_name,
+                        $subgroup_header
+                    );
+                }
+
+                $ret .= '<li class="subgroup"><ul';
+                if (isset($subgroup_header)) {
+                    $ret .= ' id="ul_' . $subgroup_header->getName() . '">';
+                } else {
+                    $ret .= '>';
+                }
+
+                $ret .=  PMA_pluginGetOneOption(
                     $section,
                     $plugin_name,
-                    $subgroup_header
+                    $propertyItem,
+                    true
                 );
-            }
-
-            $ret .= '<li class="subgroup"><ul';
-            if (isset($subgroup_header)) {
-                $ret .= ' id="ul_' . $subgroup_header->getName() . '">';
             } else {
-                $ret .= '>';
-            }
+                // single property item
+                switch ($property_class) {
+                    case "BoolPropertyItem":
+                        $ret .= '<li>' . "\n";
+                        $ret .= '<input type="checkbox" name="' . $plugin_name . '_'
+                            . $propertyItem->getName() . '"'
+                            . ' value="something" id="checkbox_' . $plugin_name . '_'
+                            . $propertyItem->getName() . '"'
+                            . ' ' . PMA_pluginCheckboxCheck($section, $plugin_name . '_'
+                            . $propertyItem->getName());
 
-            $ret .=  PMA_pluginGetOneOption(
-                $section,
-                $plugin_name,
-                $propertyItem,
-                true
-            );
-        } else {
-            // single property item
-            switch ($property_class) {
-                case "BoolPropertyItem":
-                    $ret .= '<li>' . "\n";
-                    $ret .= '<input type="checkbox" name="' . $plugin_name . '_'
-                        . $propertyItem->getName() . '"'
-                        . ' value="something" id="checkbox_' . $plugin_name . '_'
-                        . $propertyItem->getName() . '"'
-                        . ' ' . PMA_pluginCheckboxCheck($section, $plugin_name . '_'
-                        . $propertyItem->getName());
-
-                    if ($propertyItem->getForce() != null) {
-                        // Same code is also few lines lower, update both if needed
-                        $ret .= ' onclick="if (!this.checked &amp;&amp; '
-                            . '(!document.getElementById(\'checkbox_' . $plugin_name
-                            . '_' . $propertyItem->getForce() . '\') '
-                            . '|| !document.getElementById(\'checkbox_'
-                            . $plugin_name . '_' . $propertyItem->getForce()
-                            . '\').checked)) '
-                            . 'return false; else return true;"';
-                    }
-                    $ret .= ' />';
-                    $ret .= '<label for="checkbox_' . $plugin_name . '_'
-                        . $propertyItem->getName() . '">'
-                        . PMA_getString($propertyItem->getText()) . '</label>';
-                    break;
-                case "DocPropertyItem":
-                    echo "DocPropertyItem";
-                    break;
-                case "HiddenPropertyItem":
-                    $ret .= '<li><input type="hidden" name="' . $plugin_name . '_'
-                        . $propertyItem->getName() . '"'
-                        . ' value="' . PMA_pluginGetDefault($section, $plugin_name
-                        . '_' . $propertyItem->getName()) . '"' . ' /></li>';
-                    break;
-                case "MessageOnlyPropertyItem":
-                    $ret .= '<li>' . "\n";
-                    $ret .= '<p>' . PMA_getString($propertyItem->getText()) . '</p>';
-                    break;
-                case "RadioPropertyItem":
-                    $default = PMA_pluginGetDefault($section, $plugin_name . '_'
-                        . $propertyItem->getName());
-                    foreach ($propertyItem->getValues() as $key => $val) {
-                        $ret .= '<li><input type="radio" name="' . $plugin_name
-                            . '_' . $propertyItem->getName() . '" value="' . $key
-                            . '" id="radio_' . $plugin_name . '_'
-                            . $propertyItem->getName() . '_' . $key . '"';
-                        if ($key == $default) {
-                            $ret .= ' checked="checked"';
+                        if ($propertyItem->getForce() != null) {
+                            // Same code is also few lines lower, update both if needed
+                            $ret .= ' onclick="if (!this.checked &amp;&amp; '
+                                . '(!document.getElementById(\'checkbox_' . $plugin_name
+                                . '_' . $propertyItem->getForce() . '\') '
+                                . '|| !document.getElementById(\'checkbox_'
+                                . $plugin_name . '_' . $propertyItem->getForce()
+                                . '\').checked)) '
+                                . 'return false; else return true;"';
                         }
-                        $ret .= ' />' . '<label for="radio_' . $plugin_name . '_'
-                            . $propertyItem->getName() . '_' . $key . '">'
-                            . PMA_getString($val) . '</label></li>';
-                    }
-                    break;
-                case "SelectPropertyItem":
-                    $ret .= '<li>' . "\n";
-                    $ret .= '<label for="select_' . $plugin_name . '_'
-                        . $propertyItem->getName() . '" class="desc">'
-                        . PMA_getString($propertyItem->getText()) . '</label>';
-                    $ret .= '<select name="' . $plugin_name . '_'
-                        . $propertyItem->getName() . '"'
-                        . ' id="select_' . $plugin_name . '_'
-                        . $propertyItem->getName() . '">';
-                    $default = PMA_pluginGetDefault(
-                        $section,
-                        $plugin_name . '_' . $propertyItem->getName()
-                    );
-                    foreach ($propertyItem->getValues() as $key => $val) {
-                        $ret .= '<option value="' . $key . '"';
-                        if ($key == $default) {
-                            $ret .= ' selected="selected"';
+                        $ret .= ' />';
+                        $ret .= '<label for="checkbox_' . $plugin_name . '_'
+                            . $propertyItem->getName() . '">'
+                            . PMA_getString($propertyItem->getText()) . '</label>';
+                        break;
+                    case "DocPropertyItem":
+                        echo "DocPropertyItem";
+                        break;
+                    case "HiddenPropertyItem":
+                        $ret .= '<li><input type="hidden" name="' . $plugin_name . '_'
+                            . $propertyItem->getName() . '"'
+                            . ' value="' . PMA_pluginGetDefault($section, $plugin_name
+                            . '_' . $propertyItem->getName()) . '"' . ' /></li>';
+                        break;
+                    case "MessageOnlyPropertyItem":
+                        $ret .= '<li>' . "\n";
+                        $ret .= '<p>' . PMA_getString($propertyItem->getText()) . '</p>';
+                        break;
+                    case "RadioPropertyItem":
+                        $default = PMA_pluginGetDefault($section, $plugin_name . '_'
+                            . $propertyItem->getName());
+                        foreach ($propertyItem->getValues() as $key => $val) {
+                            $ret .= '<li><input type="radio" name="' . $plugin_name
+                                . '_' . $propertyItem->getName() . '" value="' . $key
+                                . '" id="radio_' . $plugin_name . '_'
+                                . $propertyItem->getName() . '_' . $key . '"';
+                            if ($key == $default) {
+                                $ret .= ' checked="checked"';
+                            }
+                            $ret .= ' />' . '<label for="radio_' . $plugin_name . '_'
+                                . $propertyItem->getName() . '_' . $key . '">'
+                                . PMA_getString($val) . '</label></li>';
                         }
-                        $ret .= '>' . PMA_getString($val) . '</option>';
-                    }
-                    $ret .= '</select>';
-                    break;
-                case "TextPropertyItem":
-                    $ret .= '<li>' . "\n";
-                    $ret .= '<label for="text_' . $plugin_name . '_'
-                        . $propertyItem->getName() . '" class="desc">'
-                        . PMA_getString($propertyItem->getText()) . '</label>';
-                    $ret .= '<input type="text" name="' . $plugin_name . '_'
-                        . $propertyItem->getName() . '"'
-                        . ' value="' . PMA_pluginGetDefault($section, $plugin_name
-                        . '_' . $propertyItem->getName()) . '"'
-                        . ' id="text_' . $plugin_name . '_'
-                        . $propertyItem->getName() . '"'
-                        . ($propertyItem->getSize() != null
-                            ? ' size="' . $propertyItem->getSize() . '"'
-                            : '')
-                        . ($propertyItem->getLen() != null
-                            ? ' maxlength="' . $propertyItem->getLen() . '"'
-                            : '')
-                        . ' />';
-                    break;
-                default:;
+                        break;
+                    case "SelectPropertyItem":
+                        $ret .= '<li>' . "\n";
+                        $ret .= '<label for="select_' . $plugin_name . '_'
+                            . $propertyItem->getName() . '" class="desc">'
+                            . PMA_getString($propertyItem->getText()) . '</label>';
+                        $ret .= '<select name="' . $plugin_name . '_'
+                            . $propertyItem->getName() . '"'
+                            . ' id="select_' . $plugin_name . '_'
+                            . $propertyItem->getName() . '">';
+                        $default = PMA_pluginGetDefault(
+                            $section,
+                            $plugin_name . '_' . $propertyItem->getName()
+                        );
+                        foreach ($propertyItem->getValues() as $key => $val) {
+                            $ret .= '<option value="' . $key . '"';
+                            if ($key == $default) {
+                                $ret .= ' selected="selected"';
+                            }
+                            $ret .= '>' . PMA_getString($val) . '</option>';
+                        }
+                        $ret .= '</select>';
+                        break;
+                    case "TextPropertyItem":
+                        $ret .= '<li>' . "\n";
+                        $ret .= '<label for="text_' . $plugin_name . '_'
+                            . $propertyItem->getName() . '" class="desc">'
+                            . PMA_getString($propertyItem->getText()) . '</label>';
+                        $ret .= '<input type="text" name="' . $plugin_name . '_'
+                            . $propertyItem->getName() . '"'
+                            . ' value="' . PMA_pluginGetDefault($section, $plugin_name
+                            . '_' . $propertyItem->getName()) . '"'
+                            . ' id="text_' . $plugin_name . '_'
+                            . $propertyItem->getName() . '"'
+                            . ($propertyItem->getSize() != null
+                                ? ' size="' . $propertyItem->getSize() . '"'
+                                : '')
+                            . ($propertyItem->getLen() != null
+                                ? ' maxlength="' . $propertyItem->getLen() . '"'
+                                : '')
+                            . ' />';
+                        break;
+                    default:;
+                }
             }
         }
     }
