@@ -344,11 +344,11 @@ foreach ($tables as $keyname => $each_table) {
     ) {
         $row_count = 1;
         $odd_row = true;
-        ?>
-    </tr>
-</tbody>
-</table>
-        <?php
+
+        echo '</tr>'
+            . '</tbody>'
+            . '</table>';
+
         PMA_TableHeader(false, $server_slave_status);
     }
 
