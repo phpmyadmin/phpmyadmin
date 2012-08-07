@@ -362,4 +362,32 @@ function PMA_getHtmlForPrintViewAndDataDictionaryLinks($url_query)
     return $html_output;
 }
 
+/**
+ * Get Time for Create time, update time and check time
+ * 
+ * @param array $each_table     current table
+ * @param string $time_label    Create_time, Update_time, Check_time
+ * @param integer $time_all     time
+ * 
+ * @return array ($time, $time_all) 
+ */
+function PMA_getTimeForCreateUpdateCheck($each_table, $time_label, $time_all)
+{
+    $showtable = PMA_Table::sGetStatusInfo(
+        $GLOBALS['db'],
+        $each_table['TABLE_NAME'],
+        null,
+        true
+    );
+    $time = isset($showtable[$time_label]) 
+        ? $showtable[$time_label] 
+        : false;
+
+    // show oldest creation date in summary row
+    if ($time && (!$time_all || $time < $time_all)) {
+        $time_all = $time;
+    }
+    return array($time, $time_all);
+}
+
 ?>

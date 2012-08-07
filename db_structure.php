@@ -282,39 +282,23 @@ foreach ($tables as $keyname => $each_table) {
     unset($showtable);
 
     if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
-        $showtable = PMA_Table::sGetStatusInfo($db, $each_table['TABLE_NAME'], null, true);
-        $create_time = isset($showtable['Create_time']) ? $showtable['Create_time'] : false;
-
-        // show oldest creation date in summary row
-        if ($create_time && (!$create_time_all || $create_time < $create_time_all)) {
-            $create_time_all = $create_time;
-        }
+        list($create_time, $create_time_all) = PMA_getTimeForCreateUpdateCheck(
+            $each_table, 'Create_time', $create_time_all
+        );
     }
 
     if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
         // $showtable might already be set from ShowDbStructureCreation, see above
-        if (! isset($showtable)) {
-            $showtable = PMA_Table::sGetStatusInfo($db, $each_table['TABLE_NAME'], null, true);
-        }
-        $update_time = isset($showtable['Update_time']) ? $showtable['Update_time'] : false;
-
-        // show newest update date in summary row
-        if ($update_time && $update_time > $update_time_all) {
-            $update_time_all = $update_time;
-        }
+        list($update_time, $update_time_all) = PMA_getTimeForCreateUpdateCheck(
+            $each_table, 'Update_time', $update_time_all
+        );
     }
 
     if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
         // $showtable might already be set from ShowDbStructureCreation, see above
-        if (! isset($showtable)) {
-            $showtable = PMA_Table::sGetStatusInfo($db, $each_table['TABLE_NAME'], null, true);
-        }
-        $check_time = isset($showtable['Check_time']) ? $showtable['Check_time'] : false;
-
-        // show newest check date in summary row
-        if ($check_time && $check_time > $check_time_all) {
-            $check_time_all = $check_time;
-        }
+        list($check_time, $check_time_all) = PMA_getTimeForCreateUpdateCheck(
+            $each_table, 'Check_time', $check_time_all
+        );
     }
 
     $alias = (! empty($tooltip_aliasname) && isset($tooltip_aliasname[$each_table['TABLE_NAME']]))
