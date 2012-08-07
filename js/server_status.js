@@ -115,6 +115,7 @@ $(function() {
     var monitorLoaded = false;
     var query_stats_jqplot_timer = null;
     var refresh_rate = 5000;
+    var data_points = 10;
 
     /* Chart configuration */
     // Defines what the tabs are currently displaying (realtime or data)
@@ -189,8 +190,15 @@ $(function() {
         }, 0.5);
     });
 
+
+    $('.buttonlinks .dataPointsNumber').change(function() {
+        if(query_stats_jqplot_timer != null) {
+            data_points = parseInt(this.value);
+        }
+    });
+
     // Handles refresh rate changing
-    $('.buttonlinks select').change(function() {
+    $('.buttonlinks .refreshRate').change(function() {
         if(query_stats_jqplot_timer != null) {
             refresh_rate = 1000*parseInt(this.value);
         }
@@ -345,7 +353,7 @@ $(function() {
                 .after('<div class="liveChart" id="' + $tab.attr('id') + '_chart_cnt"></div>');
             var set_previous = getCurrentQueryStats();
             recursiveTimer($tab);
-            setupLiveChart($tab, this, getSettings(10));
+            setupLiveChart($tab, this, getSettings(data_points));
             tabStatus[$tab.attr('id')] = 'livequeries';
 
         } else {
@@ -388,6 +396,7 @@ $(function() {
         var current_time = new Date().getTime();
         // Min X would be decided based on refresh rate and number of data points
         var minX = current_time - (refresh_rate * num);
+        var interval = (((current_time - minX)/num) / 1000);
         var settings = {
             title: PMA_messages['strChartIssuedQueriesTitle'],
             axes: {
@@ -400,7 +409,8 @@ $(function() {
                     },
                     min: minX,
                     // Make the right boundary of chart as current time
-                    max: current_time
+                    max: current_time,
+                    tickInterval: interval + " seconds"
                 },
                 yaxis: {
                     min:0,
@@ -414,7 +424,7 @@ $(function() {
 
     function replotQueryStatsChart($tab) {
         series[0].push(getCurrentQueryStats());
-        $.jqplot($tab.attr('id') + '_chart_cnt', [series[0]], getSettings(10)).replot();
+        $.jqplot($tab.attr('id') + '_chart_cnt', [series[0]], getSettings(data_points)).replot();
     }
 
     function setupLiveChart($tab, link, settings) {
