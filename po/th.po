@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-27 10:40+0200\n"
-"PO-Revision-Date: 2012-04-21 15:20+0200\n"
-"Last-Translator: Setthawut Sawaengkit <defpico2@hotmail.com>\n"
-"Language-Team: thai <th@li.org>\n"
+"PO-Revision-Date: 2012-08-07 09:12+0200\n"
+"Last-Translator: jaideejung007 <jaideejung007@gmail.com>\n"
+"Language-Team: Thai <http://l10n.cihar.com/projects/phpmyadmin/master/th/>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 0.10\n"
+"X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:794
@@ -1751,7 +1751,7 @@ msgstr "เวลาที่ทำคำสั่ง"
 #: libraries/DisplayResults.class.php:714
 #, php-format
 msgid "%d is not valid row number."
-msgstr ""
+msgstr "﻿%d ไม่ใช่หมายเลขแถวที่ถูกต้อง"
 
 #: js/messages.php:291 libraries/config/FormDisplay.tpl.php:387
 #: libraries/insert_edit.lib.php:1483
@@ -1783,8 +1783,9 @@ msgid "Hovering over a point will show its label."
 msgstr "นำตัวชี้วางเพื่อแสดงคำกำกับ"
 
 #: js/messages.php:304
+#, fuzzy
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "﻿เมื่อต้องการย่อ/ขยาย เลือกส่วนของจุดโดยใช้เมาส์"
 
 #: js/messages.php:306
 #, fuzzy
@@ -1797,8 +1798,9 @@ msgid "Click a data point to view and possibly edit the data row."
 msgstr "คลิก จุดข้อมูล เพื่อดูหรือแก้ไขแถวข้อมูล"
 
 #: js/messages.php:310
+#, fuzzy
 msgid "The plot can be resized by dragging it along the bottom right corner."
-msgstr "ขนาดจุดสามารถเปลี่ยนได้ที่ขวาล่าง"
+msgstr "﻿จุดสามารถปรับขนาดได้ โดยการลากไปมุมขวาด้านล่าง"
 
 #: js/messages.php:312
 msgid "Select two columns"
@@ -2921,8 +2923,8 @@ msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr ""
-"มีข้อผิดพลาดขนาดย้ายไฟล์อัพหลด กรุณาดู [a@./Documentation.html#faq1_11@Documentation]"
-"FAQ 1.11[/a]"
+"มีข้อผิดพลาดระหว่างการอัพโหลด กรุณาดู "
+"[a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]"
 
 #: libraries/File.class.php:485
 msgid "Error while moving uploaded file."
@@ -3189,12 +3191,14 @@ msgstr ""
 "['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.class.php:1563
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
+"﻿ไม่สามารถบันทึกคุณสมบัติ UI \"% s\" ได้ การเปลี่ยนแปลงจะมีผล "
+"หลังจากคุณรีเฟรชหน้านี้ โปรดตรวจสอบหากมีการเปลี่ยนโครงสร้างของตาราง"
 
 #: libraries/TableSearch.class.php:194 libraries/insert_edit.lib.php:231
 #: libraries/insert_edit.lib.php:237 libraries/rte/rte_routines.lib.php:1488
@@ -3291,7 +3295,7 @@ msgstr "เริ่มใหม่"
 #: libraries/Theme.class.php:169
 #, php-format
 msgid "No valid image path for theme %s found!"
-msgstr ""
+msgstr "﻿ไม่มีเส้นทางรูปภาพที่ถูกต้องสำหรับชุดรูปแบบ %s ที่พบ"
 
 #: libraries/Theme.class.php:458
 msgid "No preview available."
@@ -3299,26 +3303,26 @@ msgstr "ไม่สามารถแสดงตัวอย่างได้
 
 #: libraries/Theme.class.php:460
 msgid "take it"
-msgstr ""
+msgstr "ลงมือ"
 
 #: libraries/Theme_Manager.class.php:137
-#, php-format
+#, fuzzy, php-format
 msgid "Default theme %s not found!"
-msgstr ""
+msgstr "﻿เริ่มต้นชุดรูปแบบ %s ไม่พบ"
 
 #: libraries/Theme_Manager.class.php:194
 #, php-format
 msgid "Theme %s not found!"
-msgstr ""
+msgstr "﻿ชุดรูปแบบ %s ไม่พบ"
 
 #: libraries/Theme_Manager.class.php:271
-#, php-format
+#, fuzzy, php-format
 msgid "Theme path not found for theme %s!"
-msgstr ""
+msgstr "﻿เส้นทางของชุดรูปแบบ %s ไม่พบ"
 
 #: libraries/Theme_Manager.class.php:363 themes.php:16 themes.php:21
 msgid "Theme"
-msgstr ""
+msgstr "﻿ชุดรูปแบบ"
 
 #: libraries/Types.class.php:295
 msgid ""
@@ -7209,7 +7213,7 @@ msgstr "รูปแบบนี้ไม่มีตัวเลือก"
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:73
 msgid "Cannot connect: invalid settings."
-msgstr ""
+msgstr "﻿ไม่สามารถเชื่อมต่อ: ตั้งค่าไม่ถูกต้อง"
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:85
 #: libraries/plugins/auth/AuthenticationCookie.class.php:140
@@ -7224,6 +7228,8 @@ msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
 msgstr ""
+"﻿คุณคงไม่ได้สร้างแฟ้มการกำหนดค่า คุณอาจต้องการใช้ %1$ssetup script%2$s "
+"เพื่อสร้างอย่างใดอย่างหนึ่ง"
 
 #: libraries/plugins/auth/AuthenticationConfig.class.php:121
 msgid ""
@@ -7232,6 +7238,10 @@ msgid ""
 "configuration and make sure that they correspond to the information given by "
 "the administrator of the MySQL server."
 msgstr ""
+"﻿phpMyAdmin พยายามเชื่อมต่อไปยังเซิร์ฟเวอร์ MySQL "
+"และเซิร์ฟเวอร์ได้ปฏิเสธการเชื่อมต่อดังกล่าว คุณควรตรวจสอบโฮสต์ "
+"ชื่อผู้ใช้และรหัสผ่านในการกำหนดค่าของคุณ และให้แน่ใจว่าค่าต่างๆ "
+"สอดคล้องกับข้อมูลที่กำหนดไว้ โดยผู้ดูแลระบบของเซิร์ฟเวอร์ MySQL แล้ว"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:42
 msgid "Failed to use Blowfish from mcrypt!"
@@ -7270,13 +7280,13 @@ msgstr "ตัวเลือกเซิร์ฟเวอร์"
 #: libraries/plugins/auth/AuthenticationSignon.class.php:249
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)"
-msgstr ""
+msgstr "﻿ห้ามกำหนดค่า สำหรับการเข้าสู่ระบบโดยไม่มีรหัสผ่าน (ดู AllowNoPassword)"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:578
 #: libraries/plugins/auth/AuthenticationSignon.class.php:256
 #, php-format
 msgid "No activity within %s seconds; please log in again"
-msgstr ""
+msgstr "﻿ไม่มีกิจกรรมภายใน %s วินาที กรุณาล็อกอินอีกครั้ง"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:591
 #: libraries/plugins/auth/AuthenticationCookie.class.php:593
@@ -7290,25 +7300,25 @@ msgstr "อนุญาตให้เข้าใช้ไม่ได้ ช�
 
 #: libraries/plugins/auth/AuthenticationSignon.class.php:102
 msgid "Can not find signon authentication script:"
-msgstr ""
+msgstr "﻿สามารถค้นหา signon สำหรับตรวจสอบสคริปต์:"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:132
 #, php-format
 msgid "File %s does not contain any key id"
-msgstr ""
+msgstr "﻿แฟ้ม %s ไม่ควรประกอบไปด้วยรหัสคีย์ใดๆ"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:174
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:194
 msgid "Hardware authentication failed"
-msgstr ""
+msgstr "﻿ตรวจสอบฮาร์ดแวร์ล้มเหลว"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:181
 msgid "No valid authentication key plugged"
-msgstr ""
+msgstr "ไม่มีคีย์รับรองความถูกต้อง"
 
 #: libraries/plugins/auth/swekey/swekey.auth.lib.php:214
 msgid "Authenticating..."
-msgstr ""
+msgstr "กำลังตรวจสอบ..."
 
 #: libraries/plugins/export/ExportCsv.class.php:112
 #: libraries/plugins/import/ImportCsv.class.php:78
