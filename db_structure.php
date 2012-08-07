@@ -558,61 +558,12 @@ echo PMA_getHtmlBodyForTableSummery(
     $update_time_all, $check_time_all, $sum_row_count_pre
 );
 echo '</table>';
+//check all
+echo PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir, 
+    $overhead_check, $db_is_information_schema, $hidden_fields
+);
+echo '</form>';
 
-?>
-<div class="clearfloat">
-<?php
-// Check all tables url
-$checkall_url = 'db_structure.php?' . PMA_generate_common_url($db);
-?>
-<img class="selectallarrow" src="<?php echo $pmaThemeImage .'arrow_'.$text_dir.'.png'; ?>"
-    width="38" height="22" alt="<?php echo __('With selected:'); ?>" />
-<input type="checkbox" id="checkall" title="<?php echo __('Check All'); ?>" />
-<label for="checkall"><?php echo __('Check All'); ?></label>
-<?php if ($overhead_check != '') { ?>
-/
-<a href="#" onclick="unMarkAllRows('tablesForm');
-    <?php echo $overhead_check; ?> return false;">
-    <?php echo __('Check tables having overhead'); ?></a>
-<?php } ?>
-
-<select name="submit_mult" class="autosubmit" style="margin: 0 3em 0 3em;">
-<?php
-echo '    <option value="' . __('With selected:') . '" selected="selected">'
-     . __('With selected:') . '</option>' . "\n";
-echo '    <option value="export" >'
-     . __('Export') . '</option>' . "\n";
-echo '    <option value="print" >'
-    . __('Print view') . '</option>' . "\n";
-
-if (!$db_is_information_schema && !$cfg['DisableMultiTableMaintenance']) {
-    echo '    <option value="empty_tbl" >'
-         . __('Empty') . '</option>' . "\n";
-    echo '    <option value="drop_tbl" >'
-         . __('Drop') . '</option>' . "\n";
-    echo '    <option value="check_tbl" >'
-         . __('Check table') . '</option>' . "\n";
-    if (!PMA_DRIZZLE) {
-        echo '    <option value="optimize_tbl" >'
-             . __('Optimize table') . '</option>' . "\n";
-        echo '    <option value="repair_tbl" >'
-             . __('Repair table') . '</option>' . "\n";
-    }
-    echo '    <option value="analyze_tbl" >'
-         . __('Analyze table') . '</option>' . "\n";
-    echo '    <option value="add_prefix_tbl" >'
-         . __('Add prefix to table') . '</option>' . "\n";
-    echo '    <option value="replace_prefix_tbl" >'
-         . __('Replace table prefix') . '</option>' . "\n";
-    echo '    <option value="copy_tbl_change_prefix" >'
-         . __('Copy table with prefix') . '</option>' . "\n";
-}
-?>
-</select>
-<?php echo implode("\n", $hidden_fields) . "\n"; ?>
-</div>
-</form>
-<?php
 // display again the table list navigator
 echo $common_functions->getListNavigator(
     $total_num_tables, $pos, $_url_params, 'db_structure.php',

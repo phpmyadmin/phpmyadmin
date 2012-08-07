@@ -260,4 +260,77 @@ function PMA_getHtmlBodyForTableSummery($num_tables, $server_slave_status,
     return $html_output;
 }
 
+/**
+ * Get HTML for "check all" check box with "with selected" dropdown
+ * 
+ * @param string $pmaThemeImage             pma theme image url
+ * @param string $text_dir                  url for text directory
+ * @param string $overhead_check            overhead check
+ * @param boolean $db_is_information_schema whether database is information schema or not
+ * @param string $hidden_fields             hidden fields
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
+    $overhead_check, $db_is_information_schema, $hidden_fields
+) {
+    $html_output = '<div class="clearfloat">';
+    $html_output .= '<img class="selectallarrow" '
+        . 'src="' .$pmaThemeImage .'arrow_'.$text_dir.'.png' . '"'
+        . 'width="38" height="22" alt="' . __('With selected:') . '" />';
+
+    $html_output .= '<input type="checkbox" id="checkall" '
+        . 'title="' . __('Check All') .'" />';
+    $html_output .= '<label for="checkall">' .__('Check All') . '</label>';
+    
+    if ($overhead_check != '') {
+        $html_output .= '/';
+        $html_output .= '<a href="#" onclick="unMarkAllRows(\'tablesForm\');'
+            . $overhead_check . 'return false;">'
+            . __('Check tables having overhead')
+            . '</a>';
+    }
+
+    $html_output .= '<select name="submit_mult" class="autosubmit" '
+        . 'style="margin: 0 3em 0 3em;">';
+
+    $html_output .= '<option value="' . __('With selected:') 
+        . '" selected="selected">'
+        . __('With selected:') . '</option>' . "\n";
+    $html_output .= '<option value="export" >'
+        . __('Export') . '</option>' . "\n";
+    $html_output .= '<option value="print" >'
+        . __('Print view') . '</option>' . "\n";
+
+    if (!$db_is_information_schema 
+        && !$GLOBALS['cfg']['DisableMultiTableMaintenance']
+    ) {
+        $html_output .= '<option value="empty_tbl" >'
+            . __('Empty') . '</option>' . "\n";
+        $html_output .= '<option value="drop_tbl" >'
+            . __('Drop') . '</option>' . "\n";
+        $html_output .= '<option value="check_tbl" >'
+            . __('Check table') . '</option>' . "\n";
+        if (!PMA_DRIZZLE) {
+            $html_output .= '<option value="optimize_tbl" >'
+                . __('Optimize table') . '</option>' . "\n";
+            $html_output .= '<option value="repair_tbl" >'
+                . __('Repair table') . '</option>' . "\n";
+        }
+        $html_output .= '<option value="analyze_tbl" >'
+            . __('Analyze table') . '</option>' . "\n";
+        $html_output .= '<option value="add_prefix_tbl" >'
+            . __('Add prefix to table') . '</option>' . "\n";
+        $html_output .= '<option value="replace_prefix_tbl" >'
+            . __('Replace table prefix') . '</option>' . "\n";
+        $html_output .= '<option value="copy_tbl_change_prefix" >'
+            . __('Copy table with prefix') . '</option>' . "\n";
+    }
+    $html_output .= '</select>'
+        . implode("\n", $hidden_fields) . "\n";
+    $html_output .= '</div>';
+    
+    return $html_output;
+}
+
 ?>
