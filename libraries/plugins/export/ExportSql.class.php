@@ -1055,19 +1055,34 @@ class ExportSql extends ExportPlugin
             // In MSSQL
             // 1. DATE field doesn't exist, we will use datetime instead
             // 2. UNSIGNED attribute doesn't exist
-            // 3. No length on int fields
+            // 3. No length on INT and FLOAT fields
+            // 4. No KEY and INDEX inside CREATE TABLE
             if ($compat == 'MSSQL') {
+                //first we need  to replace all lines ended with '" date ...,\n'
+                //last preg_replace preserve us from situation with date text inside DEFAULT field value
                 $create_query = str_ireplace( "\" date DEFAULT NULL,\n", '" datetime DEFAULT NULL,'."\n", $create_query);
                 $create_query = str_ireplace( "\" date NOT NULL,\n", '" datetime NOT NULL,'."\n", $create_query);
                 $create_query = preg_replace( '/" date NOT NULL DEFAULT \'([^\'])/', '" datetime NOT NULL DEFAULT \'$1', $create_query);
                 
+                //next we need to replace all lines ended with ') unsigned ...,"
+                //last preg_replace preserve us from situation with unsigned text inside DEFAULT field value
                 $create_query = str_ireplace( ") unsigned NOT NULL,\n", ') NOT NULL,'."\n", $create_query);
                 $create_query = str_ireplace( ") unsigned DEFAULT NULL,\n", ') DEFAULT NULL,'."\n", $create_query);
                 $create_query = preg_replace( '/\) unsigned NOT NULL DEFAULT \'([^\'])/', ') NOT NULL DEFAULT \'$1', $create_query);
                 
-                $create_query = preg_replace( '/" int\([0-9]*\) DEFAULT NULL,\n/', '" int DEFAULT NULL,'."\n", $create_query);
-                $create_query = preg_replace( '/" int\([0-9]*\) NOT NULL,\n/', '" int NOT NULL,'."\n", $create_query);
-                $create_query = preg_replace( '/" int\([0-9]*\) NOT NULL DEFAULT \'([^\'])/', '" int NOT NULL DEFAULT \'$1', $create_query);
+                // we need to replace all lines ended with '" int([0-9]{1,}) ...,"
+                //last preg_replace preserve us from situation with int([0-9]{1,}) text inside DEFAULT field value
+                $create_query = preg_replace( '/" int\([0-9]+\) DEFAULT NULL,\n/', '" int DEFAULT NULL,'."\n", $create_query);
+                $create_query = preg_replace( '/" int\([0-9]+\) NOT NULL,\n/', '" int NOT NULL,'."\n", $create_query);
+                $create_query = preg_replace( '/" int\([0-9]+\) NOT NULL DEFAULT \'([^\'])/', '" int NOT NULL DEFAULT \'$1', $create_query);
+                
+                // we need to replace all lines ended with '" float([0-9,]{1,}) ...,"
+                //last preg_replace preserve us from situation with float([0-9,]{1,}) text inside DEFAULT field value
+                $create_query = preg_replace( '/" float\([0-9,]+\) DEFAULT NULL,\n/', '" float DEFAULT NULL,'."\n", $create_query);
+                $create_query = preg_replace( '/" float\([0-9,]+\) NOT NULL,\n/', '" float NOT NULL,'."\n", $create_query);
+                $create_query = preg_replace( '/" float\([0-9,]+\) NOT NULL DEFAULT \'([^\'])/', '" float NOT NULL DEFAULT \'$1', $create_query);
+                
+                // @todo remove indexes from CREATE TABLE
             }
 
             // Drizzle (checked on 2011.03.13) returns ROW_FORMAT surrounded
