@@ -1055,31 +1055,31 @@ class ExportSql extends ExportPlugin
             // In MSSQL
             // 1. DATE field doesn't exist, we will use datetime instead
             // 2. UNSIGNED attribute doesn't exist
-            // 3. No length on INT and FLOAT fields
+            // 3. No length on INT, TINYINT and FLOAT fields
             // 4. No KEY and INDEX inside CREATE TABLE
             if ($compat == 'MSSQL') {
-                //first we need  to replace all lines ended with '" date ...,\n'
+                //first we need  to replace all lines ended with '" DATE ...,\n'
                 //last preg_replace preserve us from situation with date text inside DEFAULT field value
-                $create_query = str_ireplace( "\" date DEFAULT NULL,\n", '" datetime DEFAULT NULL,'."\n", $create_query);
-                $create_query = str_ireplace( "\" date NOT NULL,\n", '" datetime NOT NULL,'."\n", $create_query);
+                $create_query = preg_replace( "/\" date DEFAULT NULL(,)?\n/", '" datetime DEFAULT NULL$1'."\n", $create_query);
+                $create_query = preg_replace( "/\" date NOT NULL(,)?\n/", '" datetime NOT NULL$1'."\n", $create_query);
                 $create_query = preg_replace( '/" date NOT NULL DEFAULT \'([^\'])/', '" datetime NOT NULL DEFAULT \'$1', $create_query);
                 
-                //next we need to replace all lines ended with ') unsigned ...,"
+                //next we need to replace all lines ended with ') UNSIGNED ...,'
                 //last preg_replace preserve us from situation with unsigned text inside DEFAULT field value
-                $create_query = str_ireplace( ") unsigned NOT NULL,\n", ') NOT NULL,'."\n", $create_query);
-                $create_query = str_ireplace( ") unsigned DEFAULT NULL,\n", ') DEFAULT NULL,'."\n", $create_query);
+                $create_query = preg_replace( "/\) unsigned NOT NULL(,)?\n/", ') NOT NULL$1'."\n", $create_query);
+                $create_query = preg_replace( "/\) unsigned DEFAULT NULL(,)?\n/", ') DEFAULT NULL$1'."\n", $create_query);
                 $create_query = preg_replace( '/\) unsigned NOT NULL DEFAULT \'([^\'])/', ') NOT NULL DEFAULT \'$1', $create_query);
                 
-                // we need to replace all lines ended with '" int([0-9]{1,}) ...,"
+                // we need to replace all lines ended with '" INT|TINYINT([0-9]{1,}) ...,'
                 //last preg_replace preserve us from situation with int([0-9]{1,}) text inside DEFAULT field value
-                $create_query = preg_replace( '/" int\([0-9]+\) DEFAULT NULL,\n/', '" int DEFAULT NULL,'."\n", $create_query);
-                $create_query = preg_replace( '/" int\([0-9]+\) NOT NULL,\n/', '" int NOT NULL,'."\n", $create_query);
-                $create_query = preg_replace( '/" int\([0-9]+\) NOT NULL DEFAULT \'([^\'])/', '" int NOT NULL DEFAULT \'$1', $create_query);
+                $create_query = preg_replace( '/" (int|tinyint)\([0-9]+\) DEFAULT NULL(,)?\n/', '" $1 DEFAULT NULL$2'."\n", $create_query);
+                $create_query = preg_replace( '/" (int|tinyint)\([0-9]+\) NOT NULL(,)?\n/', '" $1 NOT NULL$2'."\n", $create_query);
+                $create_query = preg_replace( '/" (int|tinyint)\([0-9]+\) NOT NULL DEFAULT \'([^\'])/', '" $1 NOT NULL DEFAULT \'$2', $create_query);
                 
-                // we need to replace all lines ended with '" float([0-9,]{1,}) ...,"
+                // we need to replace all lines ended with '" FLOAT([0-9,]{1,}) ...,'
                 //last preg_replace preserve us from situation with float([0-9,]{1,}) text inside DEFAULT field value
-                $create_query = preg_replace( '/" float\([0-9,]+\) DEFAULT NULL,\n/', '" float DEFAULT NULL,'."\n", $create_query);
-                $create_query = preg_replace( '/" float\([0-9,]+\) NOT NULL,\n/', '" float NOT NULL,'."\n", $create_query);
+                $create_query = preg_replace( '/" float\([0-9,]+\) DEFAULT NULL(,)?\n/', '" float DEFAULT NULL$1'."\n", $create_query);
+                $create_query = preg_replace( '/" float\([0-9,]+\) NOT NULL(,)?\n/', '" float NOT NULL$1'."\n", $create_query);
                 $create_query = preg_replace( '/" float\([0-9,]+\) NOT NULL DEFAULT \'([^\'])/', '" float NOT NULL DEFAULT \'$1', $create_query);
                 
                 // @todo remove indexes from CREATE TABLE
