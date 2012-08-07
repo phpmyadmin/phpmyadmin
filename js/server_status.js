@@ -397,6 +397,7 @@ $(function() {
         // Min X would be decided based on refresh rate and number of data points
         var minX = current_time - (refresh_rate * num);
         var interval = (((current_time - minX)/num) / 1000);
+        interval = (num > 20) ? (((current_time - minX)/20) / 1000) : interval;
         var settings = {
             title: PMA_messages['strChartIssuedQueriesTitle'],
             axes: {
