@@ -77,13 +77,27 @@ class PMA_Menu
     }
 
     /**
+     * Returns hash for the menu and the breadcrumbs
+     *
+     * @return string
+     */
+    public function getHash()
+    {
+        return substr(
+            md5($this->_getMenu() . $this->_getBreadcrumbs()),
+            0,
+            8
+        );
+    }
+
+    /**
      * Returns the menu as HTML
      *
      * @return string HTML formatted menubar
      */
     private function _getMenu()
     {
-        $tabs = '';
+        $tabs = array();
         $url_params = array('db' => $this->_db);
         if (strlen($this->_table)) {
             $tabs = $this->_getTableTabs();

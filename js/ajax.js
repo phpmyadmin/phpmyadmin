@@ -1,3 +1,57 @@
+
+var menus = {
+    size: function(obj) {
+        var size = 0, key;
+        for (key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                size++;
+            }
+        }
+        return size;
+    },
+    data: {},
+    add: function (hash, content) {
+        console.log(this.size(this.data))
+        if (this.size(this.data) > 6) {
+            var oldest, key, init = 0;
+            for (var i in this.data) {
+                if (this.data[i]) {
+                    console.log(this.data[i].timestamp, oldest)
+                    if (! init || this.data[i].timestamp.getTime() < oldest.getTime()) {
+                        oldest = this.data[i].timestamp;
+                        key = i;
+                        init = 1;
+                    }
+                }
+            }
+            delete this.data[key];
+        }
+        this.data[hash] = {
+            content: content,
+            timestamp: new Date()
+        };
+    },
+    get: function (hash) {
+        if (this.data[hash]) {
+            return this.data[hash].content;
+        } else {
+            return '';
+        }
+    },
+    getRequestParam: function () {
+        var param = '';
+        var menuHashes = [];
+        for (var i in this.data) {
+            menuHashes.push(i);
+        }
+        var menuHashesParam = menuHashes.join('-');
+        if (menuHashesParam) {
+            param = '&menuHashes=' + menuHashesParam;
+        }
+        return param;
+    }
+};
+
 /**
  * This object handles ajax requests for pages. It also
  * handles the reloading of the main menu and scripts (TODO: navigation).
@@ -134,6 +188,8 @@ var AJAX = {
             params += '&' + $(this).serialize();
         }
 
+        params += menus.getRequestParam();
+
         if (isLink) {
             $.get(url, params, AJAX.responseHandler);
         } else {
@@ -180,6 +236,12 @@ var AJAX = {
 
             if (data._menu) {
                 $('#floating_menubar').html(data._menu)
+                    .children().first().remove(); // Remove duplicate wrapper (TODO: don't send it in the response)
+                menuPrepare();
+                menuResize();
+                menus.add(data._menuHash, data._menu);
+            } else if (data._menuHash) {
+                $('#floating_menubar').html(menus.get(data._menuHash))
                     .children().first().remove(); // Remove duplicate wrapper (TODO: don't send it in the response)
                 menuPrepare();
                 menuResize();

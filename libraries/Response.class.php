@@ -292,7 +292,17 @@ class PMA_Response
 
         if ($this->_isAjaxPage) {
             $this->addJSON('_title', $this->getHeader()->getTitleTag());
-            $this->addJSON('_menu', $this->getHeader()->getMenu()->getDisplay());
+            
+            $menuHash = $this->getHeader()->getMenu()->getHash();
+            $this->addJSON('_menuHash', $menuHash);
+            $hashes = array();
+            if (isset($_REQUEST['menuHashes'])) {
+                $hashes = explode('-', $_REQUEST['menuHashes']);
+            }
+            if (! in_array($menuHash, $hashes)) {
+                $this->addJSON('_menu', $this->getHeader()->getMenu()->getDisplay());
+            }
+
             $this->addJSON('_scripts', $this->getHeader()->getScripts()->getFiles());
             $this->addJSON('_selflink', $this->getFooter()->getSelfUrl('unencoded'));
             $this->addJSON('_displayMessage', $this->getHeader()->getMessage());
