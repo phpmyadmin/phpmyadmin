@@ -1057,13 +1057,17 @@ class ExportSql extends ExportPlugin
             // 2. UNSIGNED attribute doesn't exist
             // 3. No length on int fields
             if ($compat == 'MSSQL') {
-                $create_query = str_ireplace(' date ', ' datetime ', $create_query);
-                $create_query = str_ireplace(' unsigned ', ' ', $create_query);
-                $create_query = preg_replace(
-                    '/ int\([0-9]*\) /',
-                    ' int ',
-                    $create_query
-                );
+                $create_query = str_ireplace( "\" date DEFAULT NULL,\n", '" datetime DEFAULT NULL,'."\n", $create_query);
+                $create_query = str_ireplace( "\" date NOT NULL,\n", '" datetime NOT NULL,'."\n", $create_query);
+                $create_query = preg_replace( '/" date NOT NULL DEFAULT \'([^\'])/', '" datetime NOT NULL DEFAULT \'$1', $create_query);
+                
+                $create_query = str_ireplace( ") unsigned NOT NULL,\n", ') NOT NULL,'."\n", $create_query);
+                $create_query = str_ireplace( ") unsigned DEFAULT NULL,\n", ') DEFAULT NULL,'."\n", $create_query);
+                $create_query = preg_replace( '/\) unsigned NOT NULL DEFAULT \'([^\'])/', ') NOT NULL DEFAULT \'$1', $create_query);
+                
+                $create_query = preg_replace( '/" int\([0-9]*\) DEFAULT NULL,\n/', '" int DEFAULT NULL,'."\n", $create_query);
+                $create_query = preg_replace( '/" int\([0-9]*\) NOT NULL,\n/', '" int NOT NULL,'."\n", $create_query);
+                $create_query = preg_replace( '/" int\([0-9]*\) NOT NULL DEFAULT \'([^\'])/', '" int NOT NULL DEFAULT \'$1', $create_query);
             }
 
             // Drizzle (checked on 2011.03.13) returns ROW_FORMAT surrounded
