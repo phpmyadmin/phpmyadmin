@@ -551,80 +551,15 @@ foreach ($tables as $keyname => $each_table) {
 } // end foreach
 
 // Show Summary
-if ($is_show_stats) {
-    list($sum_formatted, $unit) = $common_functions->formatByteDown(
-        $sum_size, 3, 1
-    );
-    list($overhead_formatted, $overhead_unit)
-        = $common_functions->formatByteDown($overhead_size, 3, 1);
-}
-?>
-</tbody>
-<tbody id="tbl_summary_row">
-<tr><th></th>
-    <th class="tbl_num nowrap">
-        <?php
-            echo sprintf(
-                _ngettext('%s table', '%s tables', $num_tables),
-                $common_functions->formatNumber($num_tables, 0)
-            );
-        ?>
-    </th>
-    <?php
-        if ($server_slave_status) {
-            echo '    <th>' . __('Replication') . '</th>' . "\n";
-        }
-    ?>
-    <th colspan="<?php echo ($db_is_information_schema ? 3 : 6) ?>">
-        <?php echo __('Sum'); ?></th>
-    <th class="value tbl_rows"><?php echo $sum_row_count_pre . $common_functions->formatNumber($sum_entries, 0); ?></th>
-<?php
-if (!($cfg['PropertiesNumColumns'] > 1)) {
-    $default_engine = PMA_DBI_fetch_value('SHOW VARIABLES LIKE \'storage_engine\';', 0, 1);
-    echo '    <th class="center">' . "\n"
-       . '        <dfn title="'
-       . sprintf(__('%s is the default storage engine on this MySQL server.'), $default_engine)
-       . '">' .$default_engine . '</dfn></th>' . "\n";
-    // we got a case where $db_collation was empty
-    echo '    <th>' . "\n";
-    if (! empty($db_collation)) {
-        echo '        <dfn title="'
-            . PMA_getCollationDescr($db_collation) . ' (' . __('Default') . ')">' . $db_collation
-            . '</dfn>';
-    }
-    echo '</th>';
-}
-
-if ($is_show_stats) {
-    ?>
-    <th class="value tbl_size"><?php echo $sum_formatted . ' ' . $unit; ?></th>
-    <th class="value tbl_overhead"><?php echo $overhead_formatted . ' ' . $overhead_unit; ?></th>
-    <?php
-}
-
-if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
-    echo '    <th class="value tbl_creation">' . "\n"
-        . '        ' . ($create_time_all ? $common_functions->localisedDate(strtotime($create_time_all)) : '-')
-        . '    </th>';
-}
-
-if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
-    echo '    <th class="value tbl_last_update">' . "\n"
-        . '        ' . ($update_time_all ? $common_functions->localisedDate(strtotime($update_time_all)) : '-')
-        . '    </th>';
-}
-
-if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
-    echo '    <th class="value tbl_last_check">' . "\n"
-        . '        ' . ($check_time_all ? $common_functions->localisedDate(strtotime($check_time_all)) : '-')
-        . '    </th>';
-}
+echo '</tbody>';
+echo PMA_getHtmlBodyForTableSummery(
+    $num_tables, $server_slave_status, $db_is_information_schema, $sum_entries,
+    $db_collation, $is_show_stats, $sum_size, $overhead_size, $create_time_all,
+    $update_time_all, $check_time_all, $sum_row_count_pre
+);
+echo '</table>';
 
 ?>
-</tr>
-</tbody>
-</table>
-
 <div class="clearfloat">
 <?php
 // Check all tables url

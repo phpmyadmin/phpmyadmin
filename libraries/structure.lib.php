@@ -139,4 +139,125 @@ function PMA_getTableDropQueryAndMessage($table_is_view, $each_table)
     return array($drop_query, $drop_message);
 }
 
+/**
+ * Get HTML body for table summery
+ * 
+ * @param integer $num_tables                   number of tables
+ * @param boolean $server_slave_status          server slave state
+ * @param boolean $db_is_information_schema     whether database is information schema or not
+ * @param integer $sum_entries                  sum entries
+ * @param string $db_collation                  collation of given db
+ * @param boolean $is_show_stats                whether stats is show or not
+ * @param double $sum_size                      sum size
+ * @param double $overhead_size                 overhead size
+ * @param string $create_time_all               create time
+ * @param string $update_time_all               update time
+ * @param string $check_time_all                check time
+ * @param integer $sum_row_count_pre            sum row count pre
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlBodyForTableSummery($num_tables, $server_slave_status,
+    $db_is_information_schema, $sum_entries, $db_collation, $is_show_stats,
+    $sum_size, $overhead_size, $create_time_all, $update_time_all,
+    $check_time_all, $sum_row_count_pre
+) {
+    $common_functions = PMA_CommonFunctions::getInstance();
+
+    if ($is_show_stats) {
+        list($sum_formatted, $unit) = $common_functions->formatByteDown(
+            $sum_size, 3, 1
+        );
+        list($overhead_formatted, $overhead_unit)
+            = $common_functions->formatByteDown($overhead_size, 3, 1);
+    }
+
+    $html_output = '<tbody id="tbl_summary_row">'
+        . '<tr><th></th>';
+    $html_output .= '<th class="tbl_num nowrap">';
+    $html_output .= sprintf(
+        _ngettext('%s table', '%s tables', $num_tables),
+        $common_functions->formatNumber($num_tables, 0)
+    );
+    $html_output .= '</th>';
+
+    if ($server_slave_status) {
+        $html_output .= '<th>' . __('Replication') . '</th>' . "\n";
+    }
+    $html_output .= '<th colspan="'. ($db_is_information_schema ? 3 : 6) . '">'
+        . __('Sum')
+        . '</th>';
+    $html_output .= '<th class="value tbl_rows">'
+        . $sum_row_count_pre . $common_functions->formatNumber($sum_entries, 0)
+        . '</th>';
+
+    if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
+        $default_engine = PMA_DBI_fetch_value(
+            'SHOW VARIABLES LIKE \'storage_engine\';',
+            0,
+            1
+        );
+        $html_output .=  '<th class="center">' . "\n"
+            . '<dfn title="'
+            . sprintf(
+                __('%s is the default storage engine on this MySQL server.'),
+                $default_engine
+            )
+            . '">' .$default_engine . '</dfn></th>' . "\n";
+        // we got a case where $db_collation was empty
+        $html_output .= '<th>' . "\n";
+
+        if (! empty($db_collation)) {
+            $html_output .= '<dfn title="'
+                . PMA_getCollationDescr($db_collation) 
+                . ' (' . __('Default') . ')">' 
+                . $db_collation
+                . '</dfn>';
+        }
+        $html_output .= '</th>';
+    }
+    if ($is_show_stats) {
+        $html_output .= '<th class="value tbl_size">' 
+            . $sum_formatted . ' ' . $unit 
+            . '</th>';
+        $html_output .= '<th class="value tbl_overhead">' 
+            . $overhead_formatted . ' ' . $overhead_unit 
+            . '</th>';
+    }
+
+    if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
+        $html_output .= '<th class="value tbl_creation">' . "\n"
+            . '        ' 
+            . ($create_time_all 
+                ? $common_functions->localisedDate(strtotime($create_time_all)) 
+                : '-'
+            )
+            . '</th>';
+    }
+
+    if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
+        $html_output .= '<th class="value tbl_last_update">' . "\n"
+            . '        ' 
+            . ($update_time_all
+                ? $common_functions->localisedDate(strtotime($update_time_all)) 
+                : '-'
+            )
+            . '</th>';
+    }
+
+    if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
+        $html_output .= '<th class="value tbl_last_check">' . "\n"
+            . '        ' 
+            . ($check_time_all 
+                ? $common_functions->localisedDate(strtotime($check_time_all)) 
+                : '-'
+            )
+            . '</th>';
+    }
+    $html_output .= '</tr>'
+        . '</tbody>';
+
+    return $html_output;
+}
+
 ?>
