@@ -48,27 +48,27 @@ $scripts->addFile('pmd/ajax.js');
 $scripts->addFile('pmd/history.js');
 $scripts->addFile('pmd/move.js');
 $scripts->addFile('pmd/iecanvas.js', true);
-$scripts->addCode('
-    var server = "' . PMA_escapeJsString($server) . '";
+$scripts->addCode(
+    'var server = "' . PMA_escapeJsString($server) . '";
     var db = "' . PMA_escapeJsString($db) . '";
-    var token = "' . PMA_escapeJsString($token) . '";
-');
+    var token = "' . PMA_escapeJsString($token) . '";'
+);
 if (isset($_REQUEST['query'])) {
-    $scripts->addCode('
-    $(function() {
-        $(".trigger").click(function() {
-        $(".panel").toggle("fast");
-        $(this).toggleClass("active");
-        return false;
-        });
-    });
-    ');
+    $scripts->addCode(
+        '$(function() {
+            $(".trigger").click(function() {
+            $(".panel").toggle("fast");
+            $(this).toggleClass("active");
+            return false;
+            });
+        });'
+    );
 }
-$scripts->addCode('
-    $(function() {
+$scripts->addCode(
+    '$(function() {
         Main();
-    });
-');
+    });'
+);
 $scripts->addCode($script_tabs);
 $scripts->addCode($script_contr);
 $scripts->addCode($script_display_field);
@@ -78,55 +78,66 @@ require 'libraries/db_info.inc.php';
 
 ?>
 <div class="pmd_header" id="top_menu">
-    <a href="#"
-        onclick="Show_left_menu(document.getElementById('key_Show_left_menu')); return false" class="M_butt first" target="_self">
-        <img id='key_Show_left_menu' title="<?php echo __('Show/Hide left menu'); ?>"
-            alt="v" src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow2_m.png'); ?>" /></a>
-    <a href="#" onclick="Save2(); return false"
-        class="M_butt" target="_self"
-    ><img title="<?php echo __('Save position') ?>"
-        src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/save.png'); ?>" alt=""
-    /></a><a href="#" onclick="Start_table_new(); return false"
-        class="M_butt" target="_self"
-    ><img title="<?php echo __('Create table')?>" src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/table.png'); ?>" alt=""
-    /></a><a href="#" onclick="Start_relation(); return false"
-        class="M_butt" id="rel_button" target="_self"
-    ><img title="<?php echo __('Create relation') ?>" src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/relation.png'); ?>" alt=""
-    /></a><a href="#" onclick="Start_display_field(); return false"
-        class="M_butt" id="display_field_button" target="_self"
-    ><img title="<?php echo __('Choose column to display') ?>" src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/display_field.png'); ?>" alt=""
-    /></a><a href="#" onclick="location.reload(); return false"
-        class="M_butt" target="_self"
-    ><img title="<?php echo __('Reload'); ?>" src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/reload.png'); ?>" alt=""
-    /></a><a href="Documentation.html#faq6_31" target="documentation"
-        class="M_butt" target="_self"
-    ><img title="<?php echo __('Help'); ?>" src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/help.png'); ?>" alt=""
-    /></a><img class="M_bord" src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png'); ?>" alt=""
-    /><a href="#" onclick="Angular_direct(); return false"
-        class="M_butt" id="angular_direct_button" target="_self"
-    ><img title="<?php echo __('Angular links') . ' / ' . __('Direct links'); ?>"
-            src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/ang_direct.png'); ?>" alt=""
-    /></a><a href="#" onclick="Grid(); return false"
-        class="M_butt" id="grid_button" target="_self"
-    ><img title="<?php echo __('Snap to grid') ?>" src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/grid.png'); ?>" alt=""
-    /></a><img class="M_bord" src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png'); ?>" alt=""
-    /><a href="#"
-        onclick="Small_tab_all(document.getElementById('key_SB_all')); return false" class="M_butt" target="_self"
-    ><img id='key_SB_all' title="<?php echo __('Small/Big All'); ?>" alt="v"
-            src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow1.png'); ?>"
-    /></a>
-    <a href="#" onclick="Small_tab_invert(); return false" class="M_butt" target="_self" >
-    <img title="<?php echo __('Toggle small/big'); ?>" alt="key" src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/bottom.png'); ?>" />
+    <a href="#" onclick="Show_left_menu(document.getElementById('key_Show_left_menu')); return false"
+        class="M_butt first" target="_self">
+        <img id='key_Show_left_menu' title="<?php echo __('Show/Hide left menu'); ?>" alt="v"
+            src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow2_m.png'); ?>" />
     </a>
-    <a href="#" onclick="Relation_lines_invert(); return false" class="M_butt" target="_self" >
-    <img title="<?php echo __('Toggle relation lines'); ?>" alt="key" src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/toggle_lines.png'); ?>" />
+    <a href="#" onclick="Save2(); return false" class="M_butt" target="_self">
+        <img title="<?php echo __('Save position') ?>" alt=""
+            src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/save.png'); ?>" />
+    </a>
+    <a href="#" onclick="Start_table_new(); return false"
+        class="M_butt" target="_self">
+        <img title="<?php echo __('Create table')?>" alt=""
+            src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/table.png'); ?>" />
+    </a>
+    <a href="#" onclick="Start_relation(); return false" class="M_butt" id="rel_button" target="_self">
+        <img title="<?php echo __('Create relation') ?>" alt=""
+            src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/relation.png'); ?>" />
+    </a>
+    <a href="#" onclick="Start_display_field(); return false"
+        class="M_butt" id="display_field_button" target="_self">
+        <img title="<?php echo __('Choose column to display') ?>" alt=""
+            src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/display_field.png'); ?>" />
+    </a>
+    <a href="#" onclick="location.reload(); return false" class="M_butt" target="_self">
+        <img title="<?php echo __('Reload'); ?>" alt=""
+            src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/reload.png'); ?>" />
+    </a>
+    <a href="Documentation.html#faq6_31" target="documentation" class="M_butt" target="_self">
+        <img title="<?php echo __('Help'); ?>" alt=""
+            src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/help.png'); ?>" />
     </a>
     <img class="M_bord" src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png'); ?>" alt="" />
-    <a href="#" onclick="PDF_save(); return false"
-        class="M_butt" target="_self"
-    ><img src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/pdf.png'); ?>" alt="key" width="20" height="20"
-            title="<?php echo __('Import/Export coordinates for PDF schema'); ?>" /></a
-     >
+    <a href="#" onclick="Angular_direct(); return false"
+        class="M_butt" id="angular_direct_button" target="_self">
+        <img title="<?php echo __('Angular links') . ' / ' . __('Direct links'); ?>" alt=""
+            src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/ang_direct.png'); ?>" />
+    </a>
+    <a href="#" onclick="Grid(); return false" class="M_butt" id="grid_button" target="_self">
+        <img title="<?php echo __('Snap to grid') ?>"
+            src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/grid.png'); ?>" alt="" />
+    </a>
+    <img class="M_bord" src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png'); ?>" alt="" />
+    <a href="#" onclick="Small_tab_all(document.getElementById('key_SB_all')); return false"
+        class="M_butt" target="_self">
+        <img id='key_SB_all' title="<?php echo __('Small/Big All'); ?>" alt="v"
+            src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/downarrow1.png'); ?>" />
+    </a>
+    <a href="#" onclick="Small_tab_invert(); return false" class="M_butt" target="_self" >
+        <img title="<?php echo __('Toggle small/big'); ?>" alt="key"
+            src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/bottom.png'); ?>" />
+    </a>
+    <a href="#" onclick="Relation_lines_invert(); return false" class="M_butt" target="_self" >
+        <img title="<?php echo __('Toggle relation lines'); ?>" alt="key"
+            src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/toggle_lines.png'); ?>" />
+    </a>
+    <img class="M_bord" src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/bord.png'); ?>" alt="" />
+    <a href="#" onclick="PDF_save(); return false" class="M_butt" target="_self">
+        <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/pdf.png'); ?>" alt="key"
+            width="20" height="20" title="<?php echo __('Import/Export coordinates for PDF schema'); ?>" />
+    </a>
 <?php
 if (isset($_REQUEST['query'])) {
     echo '<a href="#" onclick="build_query(\'SQL Query on Database\', 0)" onmousedown="return false;"
@@ -136,10 +147,11 @@ if (isset($_REQUEST['query'])) {
     echo '"/></a>';
 }
 ?>
-    <a href="#"
-        onclick="Top_menu_right(document.getElementById('key_Left_Right')); return false" class="M_butt last" target="_self">
-        <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/2rightarrow_m.png'); ?>" id="key_Left_Right" alt=">"
-            title="<?php echo __('Move Menu'); ?>" /></a>
+    <a href="#" onclick="Top_menu_right(document.getElementById('key_Left_Right')); return false"
+        class="M_butt last" target="_self">
+        <img src="<?php echo $_SESSION['PMA_Theme']->getImgPath('pmd/2rightarrow_m.png'); ?>"
+            id="key_Left_Right" alt=">" title="<?php echo __('Move Menu'); ?>" />
+    </a>
 </div>
 
 <form action="" method="post" name="form1">
@@ -217,9 +229,9 @@ for ($i = 0; $i < count($GLOBALS['PMD']["TABLE_NAME"]); $i++) {
 <table id="<?php echo $t_n_url ?>" cellpadding="0" cellspacing="0" class="pmd_tab"
    style="position: absolute;
           left: <?php
-          echo isset($tab_pos[$t_n]) ? $tab_pos[$t_n]["X"] : rand(180, 800); ?>px;
+          echo isset($tab_pos[$t_n]) ? $tab_pos[$t_n]["X"] : rand(20, 700); ?>px;
           top: <?php
-          echo isset($tab_pos[$t_n]) ? $tab_pos[$t_n]["Y"] : rand(30, 500); ?>px;
+          echo isset($tab_pos[$t_n]) ? $tab_pos[$t_n]["Y"] : rand(90, 550); ?>px;
           visibility: <?php
           echo ! isset($tab_pos[$t_n]) || $tab_pos[$t_n]["H"]
             ? "visible"

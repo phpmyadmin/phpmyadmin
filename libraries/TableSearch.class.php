@@ -103,7 +103,6 @@ class PMA_TableSearch
      * @param string $db         Database name
      * @param string $table      Table name
      * @param string $searchType Whether normal or zoom search
-     *
      */
     public function __construct($db, $table, $searchType)
     {
@@ -134,6 +133,7 @@ class PMA_TableSearch
      * Gets all the columns of a table along with their types, collations
      * and whether null or not.
      *
+     * @return void
      */
     private function _loadTableInfo()
     {
@@ -445,38 +445,34 @@ EOT;
      */
     private function _getEnumWhereClause($criteriaValues, $func_type)
     {
-        $where = '';
         $common_functions = PMA_CommonFunctions::getInstance();
-        if (! empty($criteriaValues)) {
-            if (! is_array($criteriaValues)) {
-                $criteriaValues = explode(',', $criteriaValues);
-            }
-            $enum_selected_count = count($criteriaValues);
-            if ($func_type == '=' && $enum_selected_count > 1) {
-                $func_type    = 'IN';
-                $parens_open  = '(';
-                $parens_close = ')';
-
-            } elseif ($func_type == '!=' && $enum_selected_count > 1) {
-                $func_type    = 'NOT IN';
-                $parens_open  = '(';
-                $parens_close = ')';
-
-            } else {
-                $parens_open  = '';
-                $parens_close = '';
-            }
-            $enum_where = '\''
-                . $common_functions->sqlAddSlashes($criteriaValues[0]) . '\'';
-            for ($e = 1; $e < $enum_selected_count; $e++) {
-                $enum_where .= ', \''
-                    . $common_functions->sqlAddSlashes($criteriaValues[$e]) . '\'';
-            }
-
-            $where = ' ' . $func_type . ' ' . $parens_open
-                . $enum_where . $parens_close;
+        if (! is_array($criteriaValues)) {
+            $criteriaValues = explode(',', $criteriaValues);
         }
-        return $where;
+        $enum_selected_count = count($criteriaValues);
+        if ($func_type == '=' && $enum_selected_count > 1) {
+            $func_type    = 'IN';
+            $parens_open  = '(';
+            $parens_close = ')';
+
+        } elseif ($func_type == '!=' && $enum_selected_count > 1) {
+            $func_type    = 'NOT IN';
+            $parens_open  = '(';
+            $parens_close = ')';
+
+        } else {
+            $parens_open  = '';
+            $parens_close = '';
+        }
+        $enum_where = '\''
+            . $common_functions->sqlAddSlashes($criteriaValues[0]) . '\'';
+        for ($e = 1; $e < $enum_selected_count; $e++) {
+            $enum_where .= ', \''
+                . $common_functions->sqlAddSlashes($criteriaValues[$e]) . '\'';
+        }
+
+        return ' ' . $func_type . ' ' . $parens_open
+            . $enum_where . $parens_close;
     }
 
     /**
@@ -564,7 +560,7 @@ EOT;
             $criteriaValues = '';
             $where = $backquoted_name . ' ' . $func_type;
 
-        } elseif (strncasecmp($types, 'enum', 4) == 0) {
+        } elseif (strncasecmp($types, 'enum', 4) == 0 && ! empty($criteriaValues)) {
             $where = $backquoted_name;
             $where .= $this->_getEnumWhereClause($criteriaValues, $func_type);
 
@@ -643,10 +639,9 @@ EOT;
         if (isset($_POST['zoom_submit'])) {
             $sql_query .= '* ';
         } else {
-            $sql_query .= (count($_POST['columnsToDisplay'])
-                == count($_POST['criteriaColumnNames'])
+           $sql_query .= ! empty($_POST['displayAllColumns'])
                 ? '* '
-                : implode(', ', $this->getCommonFunctions()->backquote($_POST['columnsToDisplay'])));
+                : implode(', ', $this->getCommonFunctions()->backquote($_POST['columnsToDisplay']));
         } // end if
 
         $sql_query .= ' FROM ' . $this->getCommonFunctions()->backquote($_POST['table']);

@@ -63,6 +63,34 @@ if (isset($_REQUEST['createview'])) {
     }
 
     if (PMA_DBI_try_query($sql_query)) {
+        
+        require_once './libraries/tbl_views.lib.php';
+        
+        // If different column names defined for VIEW
+        $view_columns = array();
+        if (isset($_REQUEST['view']['column_names'])) {
+            $view_columns = explode(',', $_REQUEST['view']['column_names']);
+        }
+        
+        $column_map = PMA_getColumnMap($_REQUEST['view']['as'], $view_columns);        
+        $pma_tranformation_data = PMA_getExistingTranformationData($GLOBALS['db']);
+        
+        if ($pma_tranformation_data !== false) {
+            
+            // SQL for store new transformation details of VIEW
+            $new_transformations_sql = PMA_getNewTransformationDataSql(
+                $pma_tranformation_data, $column_map, $_REQUEST['view']['name'],
+                $GLOBALS['db']
+            );            
+            
+            // Store new transformations
+            if ($new_transformations_sql != '') {
+                PMA_DBI_try_query($new_transformations_sql);
+            }
+            
+        }
+        unset($pma_tranformation_data);
+        
         if ($GLOBALS['is_ajax_request'] != true) {
             $message = PMA_Message::success();
             include './' . $cfg['DefaultTabDatabase'];
@@ -75,7 +103,9 @@ if (isset($_REQUEST['createview'])) {
                 )
             );
         }
+        
         exit;
+        
     } else {
         if ($GLOBALS['is_ajax_request'] != true) {
             $message = PMA_Message::rawError(PMA_DBI_getError());

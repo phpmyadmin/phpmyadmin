@@ -2789,6 +2789,7 @@ class PMA_DisplayResults
             $vertical_display = $this->__get('_vertical_display');            
             
             // Check whether the field needs to display with syntax highlighting
+
             if ($this->_isNeedToSytaxHighlight($meta->name)
                 && (trim($row[$i]) != '')
             ) {
@@ -2811,7 +2812,7 @@ class PMA_DisplayResults
                     '_', '/',
                     $this->sytax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($meta->name)][2]
                 );
-                
+
             }
             
             // Check for the predefined fields need to show as link in schemas
@@ -3041,7 +3042,6 @@ class PMA_DisplayResults
         }
         return false;
     }
-    
     
     /**
      * Check whether the field needs to be link
@@ -3644,6 +3644,7 @@ class PMA_DisplayResults
                 if ((PMA_strlen($column) > $GLOBALS['cfg']['LimitChars'])
                     && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
                     && ! $this->_isNeedToSytaxHighlight(strtolower($meta->name))
+
                 ) {
                     $column = PMA_substr($column, 0, $GLOBALS['cfg']['LimitChars'])
                         . '...';

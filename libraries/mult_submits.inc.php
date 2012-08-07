@@ -8,6 +8,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
+require_once 'libraries/transformations.lib.php';
+
 $common_functions = PMA_CommonFunctions::getInstance();
 
 $request_params = array(
@@ -137,6 +139,7 @@ if (! empty($submit_mult)
     }
 } // end if
 
+$views = PMA_DBI_getVirtualTables($db);
 
 /**
  * Displays the confirmation form if required
@@ -487,6 +490,15 @@ if (!empty($submit_mult) && !empty($what)) {
                 PMA_DBI_select_db($db);
             }
             $result = PMA_DBI_query($a_query);
+            
+            if ($query_type == 'drop_db') {
+                PMA_clearTransformations($selected[$i]);
+            } elseif ($query_type == 'drop_tbl') {
+                PMA_clearTransformations($db, $selected[$i]);
+            } else if ($query_type == 'drop_fld') {
+                PMA_clearTransformations($db, $table ,$selected[$i]);
+            }
+            
         } // end if
     } // end for
 

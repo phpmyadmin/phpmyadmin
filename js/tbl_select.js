@@ -52,7 +52,39 @@ $(function() {
 
         PMA_prepareForAjaxRequest($search_form);
 
-        $.post($search_form.attr('action'), $search_form.serialize(), function(data) {
+        var values = {};
+        $search_form.find(':input').each(function() {
+            var $input = $(this);
+            if ($input.attr('type') == 'checkbox' || $input.attr('type') == 'radio') {
+                if ($input.is(':checked')) {
+                    values[this.name] = $input.val();
+                }
+            } else {
+                values[this.name] = $input.val();
+            }
+        });
+        var columnCount = $('select[name="columnsToDisplay[]"] option').length;
+        // Submit values only for the columns that have a search criteria
+        for (var a = 0; a < columnCount; a++) {
+            if (values['criteriaValues[' + a + ']'] == '') {
+                delete values['criteriaValues[' + a + ']'];
+                delete values['criteriaColumnOperators[' + a + ']'];
+                delete values['criteriaColumnNames[' + a + ']'];
+                delete values['criteriaColumnTypes[' + a + ']'];
+                delete values['criteriaColumnCollations[' + a + ']'];
+            }
+        }
+        // If all columns are selected, use a single parameter to indicate that
+        if (values['columnsToDisplay[]'] != null) {
+            if (values['columnsToDisplay[]'].length == columnCount) {
+                delete values['columnsToDisplay[]'];
+                values['displayAllColumns'] = true;
+            }
+        } else {
+            values['displayAllColumns'] = true;
+        }
+
+        $.post($search_form.attr('action'), values, function(data) {
             PMA_ajaxRemoveMessage($msgbox);
             if (data.success == true) {
                 // found results
