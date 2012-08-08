@@ -333,19 +333,6 @@ class PMA_Header
                 $retval .= $this->_getMetaTags();
                 $retval .= $this->_getLinkTags();
                 $retval .= $this->getTitleTag();
-                $title = PMA_sanitize(
-                    PMA_escapeJsString($this->_getPageTitle()),
-                    false,
-                    true
-                );
-                $this->_scripts->addCode(
-                    "if (typeof(parent.document) != 'undefined'"
-                    . " && typeof(parent.document) != 'unknown'"
-                    . " && typeof(parent.document.title) == 'string')"
-                    . "{"
-                    . "parent.document.title = '$title'"
-                    . "}"
-                );
                 if ($this->_userprefsOfferImport) {
                     $this->_scripts->addFile('config.js');
                 }
