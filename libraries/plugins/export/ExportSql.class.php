@@ -1053,10 +1053,11 @@ class ExportSql extends ExportPlugin
             }
 
             // In MSSQL
-            // 1. DATE field doesn't exist, we will use datetime instead
+            // 1. DATE field doesn't exists, we will use DATETIME instead
             // 2. UNSIGNED attribute doesn't exist
             // 3. No length on INT, TINYINT, SMALLINT, BIGINT and no precision on FLOAT fields
             // 4. No KEY and INDEX inside CREATE TABLE
+            // 5. DOUBLE field doesn't exists, we will use FLOAT instead
             if ($compat == 'MSSQL') {
                 //first we need  to replace all lines ended with '" DATE ...,\n'
                 //last preg_replace preserve us from situation with date text inside DEFAULT field value
@@ -1076,11 +1077,14 @@ class ExportSql extends ExportPlugin
                 $create_query = preg_replace( '/" (int|tinyint|smallint|bigint)\([0-9]+\) NOT NULL(,)?\n/', '" $1 NOT NULL$2'."\n", $create_query);
                 $create_query = preg_replace( '/" (int|tinyint|smallint|bigint)\([0-9]+\) NOT NULL DEFAULT \'([^\'])/', '" $1 NOT NULL DEFAULT \'$2', $create_query);
                 
-                // we need to replace all lines ended with '" FLOAT([0-9,]{1,}) ...,'
+                // we need to replace all lines ended with '" FLOAT|DOUBLE([0-9,]{1,}) ...,'
                 //last preg_replace preserve us from situation with float([0-9,]{1,}) text inside DEFAULT field value
                 $create_query = preg_replace( '/" float\([0-9]+,[0-9,]+\) DEFAULT NULL(,)?\n/', '" float DEFAULT NULL$1'."\n", $create_query);
                 $create_query = preg_replace( '/" float\([0-9,]+,[0-9,]+\) NOT NULL(,)?\n/', '" float NOT NULL$1'."\n", $create_query);
                 $create_query = preg_replace( '/" float\([0-9,]+,[0-9,]+\) NOT NULL DEFAULT \'([^\'])/', '" float NOT NULL DEFAULT \'$1', $create_query);
+                $create_query = preg_replace( '/" double DEFAULT NULL(,)?\n/', '" float DEFAULT NULL$1'."\n", $create_query);
+                $create_query = preg_replace( '/" double NOT NULL(,)?\n/', '" float NOT NULL$1'."\n", $create_query);
+                $create_query = preg_replace( '/" double NOT NULL DEFAULT \'([^\'])/', '" float NOT NULL DEFAULT \'$1', $create_query);
                 
                 // @todo remove indexes from CREATE TABLE 
             }
@@ -1636,7 +1640,11 @@ class ExportSql extends ExportPlugin
                 if (isset($GLOBALS['sql_compatibility'])
                     && $GLOBALS['sql_compatibility'] == 'MSSQL'
                     && $current_row == 0) {
-                    if (! PMA_exportOutputHandler('SET IDENTITY_INSERT '. $common_functions->backquote_compat($table, $compat). ' ON ;'.$crlf)) {
+                    if (! PMA_exportOutputHandler('SET IDENTITY_INSERT '
+                            . $common_functions->backquote_compat(
+                                    $table,
+                                    $compat)
+                            . ' ON ;'.$crlf)) {
                         return false;
                     }
                 }
@@ -1767,12 +1775,16 @@ class ExportSql extends ExportPlugin
                 }
             }
 
-        // We need to SET IDENTITY_INSERT ON for MSSQL
+        // We need to SET IDENTITY_INSERT OFF for MSSQL
         if (isset($GLOBALS['sql_compatibility'])
              && $GLOBALS['sql_compatibility'] == 'MSSQL'
              && $current_row > 0)
         if (! PMA_exportOutputHandler(
-            $crlf . 'SET IDENTITY_INSERT ' . $common_functions->backquote_compat($table, $compat) . ' OFF;' . $crlf
+            $crlf . 'SET IDENTITY_INSERT ' 
+                . $common_functions->backquote_compat(
+                        $table, 
+                        $compat) 
+                . ' OFF;' . $crlf
             )) {
             return false;
         }
