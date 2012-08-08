@@ -188,8 +188,12 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
         ) {
             $ret .= ' selected="selected"';
         }
+
+        if (method_exists($plugin->getProperties(), 'getText')) {
+            $text = $plugin->getProperties()->getText();
+        }
         $ret .= ' value="' . $plugin_name . '">'
-           . PMA_getString($plugin->getProperties()->getText())
+           . PMA_getString($text)
            . '</option>' . "\n";
     }
     $ret .= '</select>' . "\n";
