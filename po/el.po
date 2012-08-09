@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-27 10:40+0200\n"
-"PO-Revision-Date: 2012-08-08 14:01+0200\n"
+"PO-Revision-Date: 2012-08-09 08:45+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
 "Language: el\n"
@@ -289,16 +289,16 @@ msgid "The database name is empty!"
 msgstr "Το όνομα της βάσης δεδομένων είναι κενό!"
 
 #: db_operations.php:327
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "Η βάση δεδομένων %s μετονομάστηκε σε %s"
+msgstr "Η βάση δεδομένων %1$s μετονομάστηκε σε %2$s"
 
 #: db_operations.php:331
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "Η βάση δεδομένων %s αντιγράφηκε στη %s"
+msgstr "Η βάση δεδομένων %1$s αντιγράφηκε στη %2$s"
 
 #: db_operations.php:465
 msgid "Rename database to"
@@ -930,10 +930,10 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Οι εντολές «DROP DATABASE» έχουν απενεργοποιηθεί."
 
 #: js/messages.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to execute following query?"
 msgid "Do you really want to execute \"%s\"?"
-msgstr "Θέλετε να εκτελέσετε το ακόλουθο ερώτημα;"
+msgstr "Θέλετε να εκτελέσετε το ακόλουθο το «%s»;"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:307 sql.php:418
 msgid "You are about to DESTROY a complete database!"
@@ -1697,22 +1697,19 @@ msgid "Show indexes"
 msgstr "Εμφάνιση ευρετηρίων"
 
 #: js/messages.php:257 libraries/mult_submits.inc.php:317
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Foreign key check:"
-msgstr "Απενεργοποίηση ελέγχων μη διακριτών κλειδιών"
+msgstr "Έλεγχος μη διακριτού κλειδιού:"
 
 #: js/messages.php:258 libraries/mult_submits.inc.php:321
-#, fuzzy
 #| msgid "Enabled"
 msgid "(Enabled)"
-msgstr "Ενεργοποιημένη"
+msgstr "(Ενεργοποιημένη)"
 
 #: js/messages.php:259 libraries/mult_submits.inc.php:321
-#, fuzzy
 #| msgid "Disabled"
 msgid "(Disabled)"
-msgstr "Απενεργοποιημένη"
+msgstr "(Απενεργοποιημένη)"
 
 #: js/messages.php:262
 msgid "Searching"
@@ -1827,11 +1824,11 @@ msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "Για να εστιάσετε, επιλέξτε ένα τομέα της εκτύπωσης με το ποντίκι."
 
 #: js/messages.php:306
-#, fuzzy
 #| msgid "Click reset zoom link to come back to original state."
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
-"Πατήστε στην επαναφορά εστίασης για να επιστρέψετε στην αρχική κατάσταση."
+"Πατήστε το κουμπί επαναφοράς εστίασης για να επιστρέψετε στην αρχική "
+"κατάσταση."
 
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."
@@ -1927,7 +1924,7 @@ msgstr "Πατήστε για εναλλαγή επισήμανσης"
 
 #: js/messages.php:352
 msgid "Double-click to copy column name"
-msgstr ""
+msgstr "Διπλό κλικ για αντιγραφή ονόματος στήλης"
 
 #: js/messages.php:353
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
@@ -1954,20 +1951,18 @@ msgid "Go to link"
 msgstr "Μετάβαση στο σύνδεσμο"
 
 #: js/messages.php:358
-#, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
-msgstr "Ονόματα στηλών"
+msgstr "Αντιγραφή ονόματος στήλης"
 
 #: js/messages.php:359
 msgid "Right-click the column name to copy it to your clipboard."
-msgstr ""
+msgstr "Δεξί κλικ στο όνομα στήλης για αντιγραφή του στο πρόχειρο."
 
 #: js/messages.php:360
-#, fuzzy
 #| msgid "Update row(s)"
 msgid "Show data row(s)"
-msgstr "Ενημέρωση γραμμής(ών)"
+msgstr "Προβολή γραμμής(ών) δεδομένων"
 
 #: js/messages.php:363
 msgid "Generate password"
@@ -2261,53 +2256,55 @@ msgstr "Δευτερόλεπτο"
 #: libraries/Advisor.class.php:67
 #, php-format
 msgid "PHP threw following error: %s"
-msgstr ""
+msgstr "Η PHP έδωσε το ακόλουθο σφάλμα: %s"
 
 #: libraries/Advisor.class.php:89
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'"
-msgstr ""
+msgstr "Απέτυχε η αξιολόγηση προσυνθήκης για τον κανόνα «%s»"
 
 #: libraries/Advisor.class.php:106
 #, php-format
 msgid "Failed calculating value for rule '%s'"
-msgstr ""
+msgstr "Απέτυχε ο υπολογισμός τιμής για τον κανόνα «%s»"
 
 #: libraries/Advisor.class.php:125
 #, php-format
 msgid "Failed running test for rule '%s'"
-msgstr ""
+msgstr "Απέτυχε η εκτέλεση ελέγχου για τον κανόνα «%s»"
 
 #: libraries/Advisor.class.php:207
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgid "Failed formatting string for rule '%s'."
-msgstr ""
-"Αποτυχία διαμόρφωσης κειμένου για τον κανόνα «%s». Η PHP έδωσε το ακόλουθο "
-"σφάλμα: %s"
+msgstr "Αποτυχία διαμόρφωσης κειμένου για τον κανόνα «%s»."
 
 #: libraries/Advisor.class.php:361
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
 msgstr ""
+"Μη έγκυρη διακήρυξη κανόνα στη γραμμή %1$s, αναμενόμενη γραμμή %2$s από "
+"προηγούμενο κανόνα"
 
 #: libraries/Advisor.class.php:378
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid rule declaration on line %s"
-msgstr "Μη έγκυρη μορφή στο εισαχθέν CSV στη γραμμή %d."
+msgstr "Μη έγκυρη διακήρυξη κανόνα στη γραμμή %s"
 
 #: libraries/Advisor.class.php:386
 #, php-format
 msgid "Unexpected characters on line %s"
-msgstr ""
+msgstr "Μη έγκυρη χαρακτήρες στη γραμμή %s"
 
 #: libraries/Advisor.class.php:400
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
 msgstr ""
+"Μη έγκυρος χαρακτήρας στη γραμμή %1$s. Αναμενότας στηλοθέτης, αλλά βρέθηκε «"
+"%2$s»"
 
 #: libraries/Advisor.class.php:425 server_status.php:972
 msgid "per second"
@@ -2688,13 +2685,13 @@ msgstr[0] "<b>Σύνολο:</b> <i>%s</i> αποτέλεσμα"
 msgstr[1] "<b>Σύνολο:</b> <i>%s</i> αποτελέσματα"
 
 #: libraries/DbSearch.class.php:351
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$s match inside table <i>%2$s</i>"
 #| msgid_plural "%1$s matches inside table <i>%2$s</i>"
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s απατέλεσμα στον πίνακα <i>%2$s</i>"
-msgstr[1] "%1$s αποτελέσματα στον πίνακα <i>%2$s</i>"
+msgstr[0] "%1$s απατέλεσμα στο <strong>%2$s</strong>"
+msgstr[1] "%1$s αποτελέσματα στο <strong>%2$s</strong>"
 
 #: libraries/DbSearch.class.php:373
 #, php-format
@@ -2770,7 +2767,7 @@ msgid "vertical"
 msgstr "κάθετη"
 
 #: libraries/DisplayResults.class.php:918
-#, fuzzy, php-format
+#, php-format
 #| msgid "Headers every %s rows"
 msgid "Headers every %s rows"
 msgstr "Κεφαλίδες κάθε %s εγγραφές"
@@ -2980,10 +2977,9 @@ msgstr "Από αυτό το σημείο πρέπει να έχετε ενερ�
 
 #: libraries/Header.class.php:500
 #: libraries/plugins/auth/AuthenticationCookie.class.php:152
-#, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point"
-msgstr "Από αυτό το σημείο πρέπει να έχετε ενεργοποιημένα cookies."
+msgstr "Από αυτό το σημείο πρέπει να έχετε ενεργοποιημένη την Javascript"
 
 #: libraries/Index.class.php:433 tbl_relation.php:540
 msgid "No index defined!"
@@ -3187,16 +3183,16 @@ msgid "unknown table status: "
 msgstr "άγνωστη κατάσταση πίνακα: "
 
 #: libraries/Table.class.php:757
-#, fuzzy, php-format
+#, php-format
 #| msgid "Source database"
 msgid "Source database `%s` was not found!"
-msgstr "Βάση δεδομένων προέλευσης"
+msgstr "Η Βάση δεδομένων προέλευσης «%s» δεν βρέθηκε!"
 
 #: libraries/Table.class.php:765
-#, fuzzy, php-format
+#, php-format
 #| msgid "Theme %s not found!"
 msgid "Target database `%s` was not found!"
-msgstr "Το θέμα %s δεν βρέθηκε!"
+msgstr "Η βάση δεδομένων προορισμού «%s» δεν βρέθηκε!"
 
 #: libraries/Table.class.php:1192
 msgid "Invalid database"
@@ -3359,42 +3355,59 @@ msgstr "Θέμα"
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
+"Ένας ακέραιος 1-byte, εύρος με πρόσημο είναι -128 έως 127, εύρος χωρίς "
+"πρόσημο είναι 0 έως 255"
 
 #: libraries/Types.class.php:297
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
+"Ένας ακέραιος 2-byte, εύρος με πρόσημο είναι -32.768 έως 32.767, εύρος χωρίς "
+"πρόσημο είναι 0 έως 65.535"
 
 #: libraries/Types.class.php:299
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
 msgstr ""
+"Ένας ακέραιος 3-byte, εύρος με πρόσημο είναι -8.388.608 έως 8.388.607, εύρος "
+"χωρίς πρόσημο είναι 0 έως 16.777.215"
 
 #: libraries/Types.class.php:301
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295."
 msgstr ""
+"Ένας ακέραιος 4-byte, εύρος με πρόσημο είναι -2.147.483.648 έως "
+"2.147.483.647, εύρος χωρίς πρόσημο είναι 0 έως 4.294.967.295."
 
 #: libraries/Types.class.php:303
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
 msgstr ""
+"Ένας ακέραιος 8-byte, εύρος με πρόσημο είναι -9.223.372.036.854.775.808 έως "
+"9.223.372.036.854.775.807, εύρος χωρίς πρόσημο είναι 0 έως "
+"18.446.744.073.709.551.615"
 
 #: libraries/Types.class.php:305 libraries/Types.class.php:711
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
 msgstr ""
+"Ένας αριθμός σταθερής υποδιαστολής (Μ,Δ) - ο μέγιστος αριθμός ψηφίων (Μ) "
+"είναι 65 (προεπιλογή 10), ο μέγιστος αριθμός δεκαδικών είναι (Δ) είναι 30 "
+"(προεπιλογή 0)"
 
 #: libraries/Types.class.php:307
 msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to "
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
+"Ένας μικρός αριθμός κινητής υποδιαστολής, επιτρεπτές τιμές είναι "
+"-3.402823466E+38 έως -1.175494351E-38, 0, και 1.175494351E-38 έως "
+"3.402823466E+38"
 
 #: libraries/Types.class.php:309
 msgid ""
@@ -3402,63 +3415,81 @@ msgid ""
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
+"Ένας αριθμός κινητής υποδιαστολής διπλής ακρίβειας, επιτρεπτές τιμές είναι "
+"-1.7976931348623157E+308 έως -2.2250738585072014E-308, 0, και "
+"2.2250738585072014E-308 έως 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:311
 msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
 msgstr ""
+"Συνώνυμο για το DOUBLE (εξαίρεση: στην κατάσταση SQL REAL_AS_FLOAT είναι "
+"συνώνυμο με το FLOAT)"
 
 #: libraries/Types.class.php:313
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
 msgstr ""
+"Ένας τύπος πεδίου bit (M), αποθηκεύονται το πλήθος (M) των bits ανά τιμή "
+"(προεπιλογή είναι το 1, μέγιστο είναι το 64)"
 
 #: libraries/Types.class.php:315
 msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
 msgstr ""
+"Ένα συνώνυμο για το TINYINT(1), μια μηδενική τιμή θεωρείτε λάθος, μη "
+"μηδενικές τιμές θεωρούνται σωστές"
 
 #: libraries/Types.class.php:317
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "Μια ετικέτα για το BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 
 #: libraries/Types.class.php:319 libraries/Types.class.php:721
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %1$s of %2$s"
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "Δημιουργία έκδοσης %1$s του %2$s"
+msgstr "Μια ημερομηνία, υποστηριζόμενο εύρος είναι από %1$s έως %2$s"
 
 #: libraries/Types.class.php:321 libraries/Types.class.php:723
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr ""
+"Ένας συνδυασμός ημερομηνίας και ώρας, υποστηριζόμενο εύρος είναι από %1$s "
+"έως %2$s"
 
 #: libraries/Types.class.php:323
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
+"Μια χρονοσφραγίδα, εύρος από 1970-01-01 00:00:01 UTC έως 2038-01-09 03:14:07 "
+"UTC, αποπθηκεύεται ως ο αριθμός των δευτερολέπτων από την αρχή (1970-01-01 "
+"00:00:00 UTC)"
 
 #: libraries/Types.class.php:325 libraries/Types.class.php:727
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "A time, range is %1$s to %2$s"
-msgstr "Σφάλμα μετονομασίας του πίνακα %1$s σε %2$s"
+msgstr "Ένας χρόνος, εύρος είναι από %1$s έως %2$s"
 
 #: libraries/Types.class.php:327
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
 msgstr ""
+"Το έτος με τέσσερα ψηφία (4, προεπιλογή) ή μορφή 2 ψηφίων (2), οι επιτρεπτές "
+"τιμές είναι 70 (1970) έως 69 (2069) ή 1901 έως 2155 και 0000"
 
 #: libraries/Types.class.php:329
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
 msgstr ""
+"Ένα κείμενο σταθερού μήκους (0-255, προεπιλογή 1) που είναι πάντα δεξιά "
+"στοιχισμένο με κενά στο ορισμένο μήκος όταν αποθηεκύεται"
 
 #: libraries/Types.class.php:331 libraries/Types.class.php:729
 #, php-format
@@ -3466,24 +3497,32 @@ msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr ""
+"Ένα κείμενο μεταβλητού μήκους (%s), το δραστικό μέγιστο μήκος είναι σχετικό "
+"με το μέγιστο μέγεθος της εγγραφής"
 
 #: libraries/Types.class.php:333
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"Μια στήλη TEXT με μέγιστο μήκος 255 (2⁸ - 1) χαρακτήρες, αποθηκεύεται με "
+"πρόθεμα 1-byte δείχνοντας το μήκος της τιμής σε bytes"
 
 #: libraries/Types.class.php:335 libraries/Types.class.php:731
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"Μια στήλη TEXT με μέγιστο μήκος 65.535 (2¹⁶ - 1) χαρακτήρες, αποθηκεύεται με "
+"πρόθεμα 2-byte δείχνοντας το μήκος της τιμής σε bytes"
 
 #: libraries/Types.class.php:337
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"Μια στήλη TEXT με μέγιστο μήκος 16.777.215 (2²⁴ - 1) χαρακτήρες, "
+"αποθηκεύεται με πρόθεμα 3-byte δείχνοντας το μήκος της τιμής σε bytes"
 
 #: libraries/Types.class.php:339
 msgid ""
@@ -3491,108 +3530,120 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
+"Μια στήλη TEXT με μέγιστο μήκος 4.294.967.295 ή 4GB (2³² - 1) χαρακτήρες, "
+"αποθηκεύεται με πρόθεμα 4-byte δείχνοντας το μήκος της τιμής σε bytes"
 
 #: libraries/Types.class.php:341
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Παρόμοιο με τον τύπο CHAR, αλλά αποθηκεύει τα κείμενα δυαδικού byte παρά τα "
+"κείμενα με μη δυαδικούς χαρακτήρες"
 
 #: libraries/Types.class.php:343
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Παρόμοιο με τον τύπο VARCHAR, αλλά αποθηκεύει τα κείμενα δυαδικού byte παρά "
+"τα κείμενα με μη δυαδικούς χαρακτήρες"
 
 #: libraries/Types.class.php:345
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
+"Μια στήλη BLOB με μέγιστο μήκος 255 (2⁸ - 1) bytes, αποθηκεύεται με πρόθεμα "
+"2-byte δείχνοντας το μήκος της τιμής σε bytes"
 
 #: libraries/Types.class.php:347
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
+"Μια στήλη BLOB με μέγιστο μήκος 16.777.215 (2²⁴ - 1) χαρακτήρες, "
+"αποθηκεύεται με πρόθεμα 3-byte δείχνοντας το μήκος της τιμής σε bytes"
 
 #: libraries/Types.class.php:349
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
 msgstr ""
+"Μια στήλη BLOB με μέγιστο μήκος 65.535 (2¹⁶ - 1) χαρακτήρες, αποθηκεύεται με "
+"πρόθεμα 2-byte δείχνοντας το μήκος της τιμής σε bytes"
 
 #: libraries/Types.class.php:351
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
+"Μια στήλη BLOB με μέγιστο μήκος 4.294.967.295 ή 4GB (2³² - 1) χαρακτήρες, "
+"αποθηκεύεται με πρόθεμα 4-byte δείχνοντας το μήκος της τιμής σε bytes"
 
 #: libraries/Types.class.php:353
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr ""
+"Μια απαρίθμηση, η οποία έχει επιλεγεί από τη λίστα των έως και 65.535 τιμές "
+"ή τις ειδικές \" τιμή σφάλματος"
 
 #: libraries/Types.class.php:355
 msgid "A single value chosen from a set of up to 64 members"
-msgstr ""
+msgstr "Μία μόνο τιμή που επιλέγεται από ένα σύνολο έως και 64 μέλη"
 
 #: libraries/Types.class.php:357
 msgid "A type that can store a geometry of any type"
-msgstr ""
+msgstr "Ένας τύπος που μπορεί να αποθηκεύσει μια γεωμετρία οποιουδήποτε τύπου"
 
 #: libraries/Types.class.php:359
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "Ένα σημείο σε δισδιάστατο χώρο"
 
 #: libraries/Types.class.php:361
 msgid "A curve with linear interpolation between points"
-msgstr ""
+msgstr "Μια καμπύλη με γραμμική παρεμβολή μεταξύ σημείων"
 
 #: libraries/Types.class.php:363
-#, fuzzy
 #| msgid "Add a polygon"
 msgid "A polygon"
-msgstr "Προσθήκη πολυγώνου"
+msgstr "Ένα πολύγωνο"
 
 #: libraries/Types.class.php:365
 msgid "A collection of points"
-msgstr ""
+msgstr "Μια συλλογή από σημεία"
 
 #: libraries/Types.class.php:367
 msgid "A collection of curves with linear interpolation between points"
-msgstr ""
+msgstr "Μια συλλογή καμπυλών με γραμμική παρεμβολή μεταξύ σημείων"
 
 #: libraries/Types.class.php:369
 msgid "A collection of polygons"
-msgstr ""
+msgstr "Μια συλλογή πολυγώνων"
 
 #: libraries/Types.class.php:371
 msgid "A collection of geometry objects of any type"
-msgstr ""
+msgstr "Μια συλλογή γεωμετρικών αντικειμένων οποιουδήποτε τύπου"
 
 #: libraries/Types.class.php:623 libraries/Types.class.php:973
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "Αριθμητικό"
 
 #: libraries/Types.class.php:642 libraries/Types.class.php:976
-#, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "Δημιουργία ευρετηρίου"
+msgstr "Ημερομηνία και ώρα"
 
 #: libraries/Types.class.php:651 libraries/Types.class.php:979
-#, fuzzy
 #| msgid "Linestring"
 msgctxt "string types"
 msgid "String"
-msgstr "Κείμενο γραμμής"
+msgstr "Κείμενο"
 
 #: libraries/Types.class.php:672
-#, fuzzy
 #| msgid "Spatial"
 msgctxt "spatial types"
 msgid "Spatial"
@@ -3600,51 +3651,60 @@ msgstr "Χωρική"
 
 #: libraries/Types.class.php:707
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
-msgstr ""
+msgstr "Ένας ακέραιος 4-byte, εύρος είναι -2.147.483.648 έως 2.147.483.647"
 
 #: libraries/Types.class.php:709
 msgid ""
 "An 8-byte integer, range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807"
 msgstr ""
+"Ένας ακέραιος 8-byte, εύρος είναι -9.223.372.036.854.775.808 έως "
+"9.223.372.036.854.775.807"
 
 #: libraries/Types.class.php:713
 msgid "A system's default double-precision floating-point number"
 msgstr ""
+"Ένας προεπιλεγμένος αριθμός κινητής υποδιαστολής διπλής ακριβείας συστήματος"
 
 #: libraries/Types.class.php:715
 msgid "True or false"
-msgstr ""
+msgstr "Σωστό ή λάθος"
 
 #: libraries/Types.class.php:717
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
-msgstr ""
+msgstr "Μια ετικέτα για BIGINT NOT NULL AUTO_INCREMENT ΜΟΝΑΔΙΚΌ"
 
 #: libraries/Types.class.php:719
 msgid "Stores a Universally Unique Identifier (UUID)"
-msgstr ""
+msgstr "Αποθηκεύει ένα Καθολικά Μοναδικό Αναγνωριστικό (UUID)"
 
 #: libraries/Types.class.php:725
 msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
 msgstr ""
+"Μια χρονοσφραγίδα, εύρος είναι από «0001-01-01 00:00:00» UTC έως «9999-12-31 "
+"23:59:59» UTC; TIMESTAMP(6) μπορεί να αποθηκεύσει μικροδευτερόλεπτα"
 
 #: libraries/Types.class.php:733
 msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
 msgstr ""
+"Ένα κείμενο μεταβλητού μήκους (0-65.535), χρησιμοποιεί δυαδική συρραφή για "
+"όλες τις συγκρίσεις"
 
 #: libraries/Types.class.php:735
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a four-byte prefix indicating the length of the value"
 msgstr ""
+"Μια στήλη BLOB με μέγιστο μήκος 65.535 (2¹⁶ - 1) χαρακτήρες, αποθηκεύεται με "
+"πρόθεμα 4-byte δείχνοντας το μήκος της τιμής σε bytes"
 
 #: libraries/Types.class.php:737
 msgid "An enumeration, chosen from the list of defined values"
-msgstr ""
+msgstr "Μια απαρίθμηση, η οποία έχει επιλεγεί από τη λίστα ορισμένων τιμών"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
@@ -3714,7 +3774,6 @@ msgid "Could not load default configuration from: %1$s"
 msgstr "Αδύνατη η φόρτωση της προεπιλεγμένης ρύθμισης από: «%1$s»"
 
 #: libraries/common.inc.php:588
-#, fuzzy
 #| msgid ""
 #| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
 #| "configuration file!"
@@ -3722,7 +3781,7 @@ msgid ""
 "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
 "configuration file!"
 msgstr ""
-"Η εντολή <code>$cfg['PmaAbsoluteUri']</code> ΠΡΕΠΕΙ να οριστεί στο αρχείο "
+"Η πδηγία <code>$cfg['PmaAbsoluteUri']</code> ΠΡΕΠΕΙ να οριστεί στο αρχείο "
 "ρυθμίσεων!"
 
 #: libraries/common.inc.php:621
@@ -4040,10 +4099,13 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
 "CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
+"Χρησιμοποιήστε το φιλικό προς το χρήστη πρόγραμμα επεξεργασίας για την "
+"επεξεργασία ερωτημάτων SQL ([a@http://codemirror.net/]CodeMirror[/a]) με "
+"επισήμανση σύνταξης και αρίθμηση γραμμών"
 
 #: libraries/config/messages.inc.php:35
 msgid "Enable CodeMirror"
-msgstr ""
+msgstr "Ενεργοποίηση CodeMirror"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
@@ -4151,13 +4213,12 @@ msgstr "Προεπιλεγμένη καρτέλα πίνακα"
 
 #: libraries/config/messages.inc.php:58
 msgid "Whether the table structure actions should be hidden"
-msgstr ""
+msgstr "Αν θα πρέπει να αποκρυφτούν οι ενέργειες δομής πίνακα"
 
 #: libraries/config/messages.inc.php:59
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Hide table structure actions"
-msgstr "Προτεινόμενη δομή πίνακα"
+msgstr "Απόκρυψη ενεργειών δομής πίνακα"
 
 #: libraries/config/messages.inc.php:60
 msgid "Show binary contents as HEX by default"
@@ -4726,24 +4787,24 @@ msgid "Customize startup page"
 msgstr "Προσαρμογή σελίδας εκκίνησης"
 
 #: libraries/config/messages.inc.php:228
-#, fuzzy
 #| msgid "Database server"
 msgid "Database structure"
-msgstr "Διακομιστής βάσης δεδομένων"
+msgstr "Δομή βάσης δεδομένων"
 
 #: libraries/config/messages.inc.php:229
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
+"Επιλέξτε ποιες λεπτομέρειες θα προβάλονται στη δομή της βάσης δεδομένων "
+"(λίστα πινάκων)"
 
 #: libraries/config/messages.inc.php:230
-#, fuzzy
 #| msgid "Database server"
 msgid "Table structure"
-msgstr "Διακομιστής βάσης δεδομένων"
+msgstr "Δομή πίνακα"
 
 #: libraries/config/messages.inc.php:231
 msgid "Settings for the table structure (list of columns)"
-msgstr ""
+msgstr "Ρυθμίσεις για τη δομή του πίνακα (λίστα στηλών)"
 
 #: libraries/config/messages.inc.php:232
 msgid "Tabs"
@@ -4913,10 +4974,9 @@ msgid "Minimum number of tables to display the table filter box"
 msgstr "Ελάχιστος αριθμός πινάκων για προβολή του πλαισίου φίλτρου πίνακα"
 
 #: libraries/config/messages.inc.php:281
-#, fuzzy
 #| msgid "Minimum number of tables to display the table filter box"
 msgid "Minimum number of databases to display the database filter box"
-msgstr "Ελάχιστος αριθμός πινάκων για προβολή του πλαισίου φίλτρου πίνακα"
+msgstr "Ελάχιστος αριθμός πινάκων για προβολή στο πλαίσιο φίλτρου πίνακα"
 
 #: libraries/config/messages.inc.php:282
 msgid "String that separates databases into different tree levels"
@@ -5818,32 +5878,36 @@ msgstr "Εμφάνιση φόρμας δημιουργίας βάσης δεδο
 #: libraries/config/messages.inc.php:460
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
 msgstr ""
+"Εμφάνιση ή απόκρυψη μιας στήλης εμφανίζοντας τη χρονοσφραγίδα Δημιουργίας "
+"για όλους τους πίνακες"
 
 #: libraries/config/messages.inc.php:461
-#, fuzzy
 #| msgid "Show more actions"
 msgid "Show Creation timestamp"
-msgstr "Προβολή περισσοτέρων δράσεων"
+msgstr "Προβολή χρονοσφραγίδας δημιουργίας"
 
 #: libraries/config/messages.inc.php:462
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
 msgstr ""
+"Εμφάνιση ή απόκρυψη μιας στήλης που θα εμφανίζει τη χρονοσφραγίδα Τελευταίας "
+"ενημέρωσης για όλους τους πίνακες"
 
 #: libraries/config/messages.inc.php:463
 msgid "Show Last update timestamp"
-msgstr ""
+msgstr "Εμφάνιση χρονοσφραγίδας Τελευταίας ενημερώσης"
 
 #: libraries/config/messages.inc.php:464
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
 msgstr ""
+"Εμφάνιση ή απόκρυψη μιας στήλης που θα εμφανίζει τη χρονοσφραγίδα Τελευταίου "
+"ελέγχου για όλους τους πίνακες"
 
 #: libraries/config/messages.inc.php:465
-#, fuzzy
 #| msgid "Show master status"
 msgid "Show Last check timestamp"
-msgstr "Προβολή κατάστασης πρωτεύοντος"
+msgstr "Προβολή χρονοσφραγίδας τελευταίου ελέγχου"
 
 #: libraries/config/messages.inc.php:466
 msgid ""
@@ -6500,27 +6564,27 @@ msgstr "Μετατροπή κωδικοποίησης:"
 #: libraries/display_git_revision.lib.php:59
 #, php-format
 msgid "%1$s from %2$s branch"
-msgstr ""
+msgstr "%1$s από %2$s κλάδο"
 
 #: libraries/display_git_revision.lib.php:61
 msgid "no branch"
-msgstr ""
+msgstr "κανένας κλάδος"
 
 #: libraries/display_git_revision.lib.php:67
 msgid "Git revision"
-msgstr ""
+msgstr "Αναθεώρηση git"
 
 #: libraries/display_git_revision.lib.php:70
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %1$s of %2$s"
 msgid "committed on %1$s by %2$s"
-msgstr "Δημιουργία έκδοσης %1$s του %2$s"
+msgstr "έγινε την %1$s από %2$s"
 
 #: libraries/display_git_revision.lib.php:78
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %1$s of %2$s"
 msgid "authored on %1$s by %2$s"
-msgstr "Δημιουργία έκδοσης %1$s του %2$s"
+msgstr "δημιουργήθηκε την %1$s από %2$s"
 
 #: libraries/display_import.lib.php:68
 msgid ""
@@ -6535,26 +6599,25 @@ msgstr ""
 #: libraries/display_import.lib.php:76
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s από %s"
 
 #: libraries/display_import.lib.php:85
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Uploading your import file..."
-msgstr "Μορφή εισαχθέντος αρχείου"
+msgstr "Αποστολή του αρχείου εισαγωγής σας..."
 
 #: libraries/display_import.lib.php:93
 #, php-format
 msgid "%s/sec."
-msgstr ""
+msgstr "%s/δευτ."
 
 #: libraries/display_import.lib.php:100
 msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
+msgstr "Απομένουν περίπου %MIN λεπτά %SEC δευτερόλεπτα."
 
 #: libraries/display_import.lib.php:104
 msgid "About %SEC sec. remaining."
-msgstr ""
+msgstr "Απομένουν περίπου %SEC δευτερόλεπτα."
 
 #: libraries/display_import.lib.php:134
 msgid "The file is being processed, please be patient."
@@ -7157,7 +7220,6 @@ msgid "Add prefix"
 msgstr "Προσθήκη προθέματος"
 
 #: libraries/mult_submits.inc.php:309
-#, fuzzy
 #| msgid "Do you really want to execute following query?"
 msgid "Do you really want to execute the following query?"
 msgstr "Θέλετε να εκτελέσετε το ακόλουθο ερώτημα;"
@@ -7411,7 +7473,7 @@ msgstr "Αδύνατη η χρήση του Blowfish από το mcrypt!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:81
 msgid "Your session has expired. Please login again."
-msgstr ""
+msgstr "Η συνεδρία σας έληξε. Συνδεθείτε ξανά."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:170
 msgid "Log in"
@@ -7651,16 +7713,14 @@ msgid "PHP Version"
 msgstr "Έκδοση PHP"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:81
-#, fuzzy
 #| msgid "Export contents"
 msgid "Export table names"
-msgstr "Εξαγωγή περιεχομένων"
+msgstr "Εξαγωγή ονομάτων πινάκων"
 
 #: libraries/plugins/export/ExportMediawiki.class.php:87
-#, fuzzy
 #| msgid "horizontal (rotated headers)"
 msgid "Export table headers"
-msgstr "οριζόντια (στραμμένες επικεφαλίδες)"
+msgstr "Εξαγωγή κεφαλίδων πίνακα"
 
 #: libraries/plugins/export/ExportPdf.class.php:96
 msgid "(Generates a report containing the data of a single table)"
@@ -7719,10 +7779,9 @@ msgstr ""
 "λέξεις-κλειδιά)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:354
-#, fuzzy
 #| msgid "Object creation options"
 msgid "Data creation options"
-msgstr "Επιλογές μετατροπής αντικειμένου"
+msgstr "Επιλογές δημιουργίας δεδομένων"
 
 #: libraries/plugins/export/ExportSql.class.php:358
 #: libraries/plugins/export/ExportSql.class.php:1573
@@ -7920,10 +7979,10 @@ msgid "MediaWiki Table"
 msgstr "Πίνακας MediaWiki"
 
 #: libraries/plugins/import/ImportMediawiki.class.php:298
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid format of mediawiki input on line: <br />%s."
-msgstr "Μη έγκυρη μορφή στο εισαχθέν CSV στη γραμμή %d."
+msgstr "Μη έγκυρη μορφή του εισαγόμενου mediawiki στη γραμμή <br />%s."
 
 #: libraries/plugins/import/ImportOds.class.php:73
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -7984,13 +8043,16 @@ msgstr "Κώδικας XML"
 #: libraries/plugins/import/PMA_ShapeRecord.class.php:58
 #, php-format
 msgid "Geometry type '%s' is not supported by MySQL."
-msgstr ""
+msgstr "Ο τύπος γεωμετρίας «%s» δεν υποστηρίζεται από την MySQL."
 
 #: libraries/plugins/transformations/abstract/AppendTransformationsPlugin.class.php:31
 msgid ""
 "Appends text to a string. The only option is the text to be appended "
 "(enclosed in single quotes, default empty string)."
 msgstr ""
+"Προστίθεται κείμενο σε μια συμβολοσειρά. Η μοναδική επιλογή είναι το κείμενο "
+"να προσαρτηθεί (περικλειόμενο σε μονά εισαγωγικά, προεπιλογή η κενή "
+"συμβολοσειρά)."
 
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:31
 msgid ""
@@ -8026,7 +8088,6 @@ msgstr ""
 "επιλογή ως κενό."
 
 #: libraries/plugins/transformations/abstract/ExternalTransformationsPlugin.class.php:31
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the column data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -8053,15 +8114,15 @@ msgstr ""
 "ΜΟΝΟ ΓΙΑ LINUX: Εκτελεί μία εξωτερική εφαρμογή και στέλνει τα δεδομένα μέσω "
 "«βασικής εισαγωγής». Επιστρέφει το αποτέλεσμα της εφαρμογής. Προεπιλεγμένη "
 "τιμή είναι το Tidy, που τυπώνει μορφοποιημένο κώδικα HTML. Για λόγους "
-"ασφαλείες, πρέπει χειροκίνητα να αλλάξετε το αρχείο libraries/"
-"transformations/text_plain__external.inc.php και να εισάγετε τις εφαρμογές "
-"που εσείς επιτρέπετε να εκτελούνται. Η πρώτη επιλογή είναι ο αριθμός της "
-"εφαρμογής που θέλετε να χρησιμοποιήσετε και η δεύτερη επιλογή είναι οι "
-"παράμετροι της. Η τρίτη επιλογή, αν τεθεί σε 1 θα μετατρέψει το αποτέλεσμα "
-"χρησιμοποιώντας την εντολή htmlspecialchars() (Προεπιλεγμένη τιμή: 1). Η "
-"τέταρτη επιλογή, αν τεθεί σε 1 θα εισάγει NOWRAP στο κελί περιεχομένου ούτως "
-"ώστε όλο το αποτέλεσμα να εμφανιστεί χωρίς αλλαγές στην διάταξη "
-"(Προεπιλεγμένη τιμή: 1)."
+"ασφαλείας, πρέπει χειροκίνητα να αλλάξετε το αρχείο "
+"libraries/transformations/text_plain__external.inc.php και να εισάγετε τα "
+"εργαλεία που εσείς θέλετε να είναι διαθέσιμα. Η πρώτη επιλογή είναι ο "
+"αριθμός της εφαρμογής που θέλετε να χρησιμοποιήσετε και η δεύτερη επιλογή "
+"είναι οι παράμετροι της. Η τρίτη επιλογή, αν τεθεί σε 1 θα μετατρέψει το "
+"αποτέλεσμα χρησιμοποιώντας την εντολή htmlspecialchars() (Προεπιλεγμένη "
+"τιμή: 1). Η τέταρτη επιλογή, αν τεθεί σε 1 θα εισάγει NOWRAP στο κελί "
+"περιεχομένου ούτως ώστε όλο το αποτέλεσμα να εμφανιστεί χωρίς αλλαγές στην "
+"διάταξη (Προεπιλεγμένη τιμή: 1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
@@ -8486,7 +8547,6 @@ msgid "Returns"
 msgstr "Επιστροφές"
 
 #: libraries/rte/rte_routines.lib.php:69
-#, fuzzy
 #| msgid ""
 #| "You are using PHP's deprecated 'mysql' extension, which is not capable of "
 #| "handling multi queries. <b>The execution of some stored routines may fail!"
@@ -8498,9 +8558,9 @@ msgid ""
 "problems."
 msgstr ""
 "Χρησιμοποιείτε την μη υποστηριζόμενη πλέον επέκταση «mysql» της PHP, η οποία "
-"δεν μπορεί να διαχειριστεί πολλαπλά ερωτήματα. <b>Η εκτέλεση ορισμένων "
-"αποθηκευμένων ερωτημάτων ίσως αποτύχουν!</b> Χρησιμοποιήστε τη βελτιωμένη "
-"επέκταση «mysqli» για να αποφύγετε προβλήματα."
+"δεν μπορεί να διαχειριστεί πολλαπλά ερωτήματα. [strong]Η εκτέλεση ορισμένων "
+"αποθηκευμένων ερωτημάτων ίσως αποτύχουν![/strong] Χρησιμοποιήστε τη "
+"βελτιωμένη επέκταση «mysqli» για να αποφύγετε προβλήματα."
 
 #: libraries/rte/rte_routines.lib.php:282
 #: libraries/rte/rte_routines.lib.php:1068
@@ -9544,10 +9604,9 @@ msgid "Index"
 msgstr "Ευρετήριο"
 
 #: libraries/tbl_properties.inc.php:123
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move column"
-msgstr "Απομάκρυνση στήλης(ών)"
+msgstr "Απομάκρυνση στήλης"
 
 #: libraries/tbl_properties.inc.php:132
 #, php-format
@@ -9603,13 +9662,13 @@ msgstr "Πλήρες κείμενο"
 
 #: libraries/tbl_properties.inc.php:603
 msgid "first"
-msgstr ""
+msgstr "πρώτη"
 
 #: libraries/tbl_properties.inc.php:613
-#, fuzzy, php-format
+#, php-format
 #| msgid "After %s"
 msgid "after %s"
-msgstr "Μετά το %s"
+msgstr "μετά το %s"
 
 #: libraries/tbl_properties.inc.php:729 tbl_structure.php:697
 #, php-format
@@ -9839,10 +9898,9 @@ msgid "No databases"
 msgstr "Δεν υπάρχουν βάσεις δεδομένων"
 
 #: navigation.php:171
-#, fuzzy
 #| msgid "Filter tables by name"
 msgid "Filter databases by name"
-msgstr "Φιλτράρισμα πινάκων κατά όνομα"
+msgstr "Φιλτράρισμα βάσεων δεδομενων κατά όνομα"
 
 #: navigation.php:243
 msgid "Filter tables by name"
@@ -12128,10 +12186,9 @@ msgid "Table %1$s has been altered successfully"
 msgstr "Ο πίνακας %1$s αλλάχτηκε επιτυχώς"
 
 #: tbl_alter.php:133
-#, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
-msgstr "Οι επιλεγμένοι χρήστες διεγράφησαν επιτυχώς."
+msgstr "Οι στήλες μετακινήθηκαν επιτυχώς."
 
 #: tbl_chart.php:83
 msgctxt "Chart type"
@@ -12460,10 +12517,9 @@ msgid "Spatial"
 msgstr "Χωρική"
 
 #: tbl_structure.php:161 tbl_structure.php:165
-#, fuzzy
 #| msgid "Browse distinct values"
 msgid "Distinct values"
-msgstr "Αναζήτηση διακριτων τιμών"
+msgstr "Διακριτές τιμές"
 
 #: tbl_structure.php:166 tbl_structure.php:167
 msgid "Add primary key"
@@ -12508,14 +12564,13 @@ msgid "Show more actions"
 msgstr "Προβολή περισσοτέρων δράσεων"
 
 #: tbl_structure.php:619 tbl_structure.php:686
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move columns"
-msgstr "Απομάκρυνση στήλης(ών)"
+msgstr "Απομάκρυνση στήλης"
 
 #: tbl_structure.php:620
 msgid "Move the columns by dragging them up and down."
-msgstr ""
+msgstr "Μετακινήστε τις στήλες, σύροντας τες επάνω και κάτω."
 
 #: tbl_structure.php:646
 msgid "Edit view"
