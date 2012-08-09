@@ -1079,12 +1079,9 @@ class ExportSql extends ExportPlugin
                 
                 // we need to replace all lines ended with '" FLOAT|DOUBLE([0-9,]{1,}) ...,'
                 //last preg_replace preserve us from situation with float([0-9,]{1,}) text inside DEFAULT field value
-                $create_query = preg_replace( '/" float\([0-9]+,[0-9,]+\) DEFAULT NULL(,)?\n/', '" float DEFAULT NULL$1'."\n", $create_query);
-                $create_query = preg_replace( '/" float\([0-9,]+,[0-9,]+\) NOT NULL(,)?\n/', '" float NOT NULL$1'."\n", $create_query);
-                $create_query = preg_replace( '/" float\([0-9,]+,[0-9,]+\) NOT NULL DEFAULT \'([^\'])/', '" float NOT NULL DEFAULT \'$1', $create_query);
-                $create_query = preg_replace( '/" double DEFAULT NULL(,)?\n/', '" float DEFAULT NULL$1'."\n", $create_query);
-                $create_query = preg_replace( '/" double NOT NULL(,)?\n/', '" float NOT NULL$1'."\n", $create_query);
-                $create_query = preg_replace( '/" double NOT NULL DEFAULT \'([^\'])/', '" float NOT NULL DEFAULT \'$1', $create_query);
+                $create_query = preg_replace( '/" (float|double)(\([0-9]+,[0-9,]+\))? DEFAULT NULL(,)?\n/', '" float DEFAULT NULL$3'."\n", $create_query);
+                $create_query = preg_replace( '/" (float|double)(\([0-9,]+,[0-9,]+\))? NOT NULL(,)?\n/', '" float NOT NULL$3'."\n", $create_query);
+                $create_query = preg_replace( '/" (float|double)(\([0-9,]+,[0-9,]+\))? NOT NULL DEFAULT \'([^\'])/', '" float NOT NULL DEFAULT \'$3', $create_query);
                 
                 // @todo remove indexes from CREATE TABLE 
             }
