@@ -317,7 +317,9 @@ function PMA_TRI_getEditorForm($mode, $item)
         } else if ($mode == 'edit' && $value == $item['item_table']) {
             $selected = " selected='selected'";
         }
-        $retval .= "            <option$selected>$value</option>\n";
+        $retval .= "<option$selected>";
+        $retval .= htmlspecialchars($value);
+        $retval .= "</option>\n";
     }
     $retval .= "        </select>\n";
     $retval .= "    </td>\n";
