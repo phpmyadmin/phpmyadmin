@@ -63,14 +63,9 @@ if ($showtable) {
         $tbl_storage_engine = isset($showtable['Engine'])
             ? strtoupper($showtable['Engine'])
             : '';
-        // a new comment could be coming from tbl_operations.php
-        // and we want to show it in the header
-        if (isset($submitcomment) && isset($comment)) {
-            $show_comment = $comment;
-        } else {
-            $show_comment    = isset($showtable['Comment'])
-                ? $showtable['Comment']
-                : '';
+        $show_comment = '';
+        if (isset($showtable['Comment'])) {
+            $show_comment = $showtable['Comment'];
         }
     }
     $tbl_collation       = empty($showtable['Collation'])
