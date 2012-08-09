@@ -1,4 +1,8 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
+
+// TODO: merge this file into ajax.js
+
+
 /**
  * Scripts to update location to allow bookmarking of frameset
  * and restoring the bookmark once the page is loaded.
@@ -13,8 +17,9 @@ var hash_init_done = 0;
  * work itself. The hash is not set directly if we did not yet process old
  * one.
  */
-function setURLHash(hash)
+function setURLHash(index, hash)
 {
+    settingHash = true;
     if (jQuery.browser.webkit) {
         /*
          * Setting hash leads to reload in webkit:
@@ -23,9 +28,9 @@ function setURLHash(hash)
         return;
     }
     if (hash_init_done) {
-        window.location.hash = "PMAURL:" + hash;
+        window.location.hash = "PMAURL-" + index + ":" + hash;
     } else {
-        hash_to_set = "PMAURL:" + hash;
+        hash_to_set = "PMAURL-" + index + ":" + hash;
     }
 }
 
@@ -35,8 +40,11 @@ function setURLHash(hash)
  */
 $(function(){
     /* Check if hash contains parameters */
-    if (window.location.hash.substring(0, 8) == '#PMAURL:') {
-        window.location = window.location.hash.substring(8);
+    if (window.location.hash.substring(0, 8) == '#PMAURL-') {
+        // FIXME: don't if the page is the same
+        window.location = window.location.hash.substring(
+            window.location.hash.indexOf(':') + 1
+        );
         return;
     }
     /* Check if we should set URL */

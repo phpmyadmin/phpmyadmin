@@ -237,11 +237,21 @@ class PMA_Footer
                     && ! $this->_isAjax
                 ) {
                     $url = $this->getSelfUrl('unencoded');
-                    $this->_scripts->addCode("
-                        // Store current location in hash part
-                        // of URL to allow direct bookmarking
-                        setURLHash('$url');
-                    ");
+                    $header = PMA_Response::getInstance()->getHeader();
+                    $scripts = $header->getScripts()->getFiles();
+                    $menuHash = $header->getMenu()->getHash();
+                    $this->_scripts->addCode( // prime the client-side cache
+                        sprintf(
+                            'AJAX.cache.primer = {'
+                            . ' url: "%s",'
+                            . ' scripts: %s,'
+                            . ' menuHash: "%s"'
+                            . '};',
+                            PMA_escapeJsString($url),
+                            json_encode($scripts),
+                            PMA_escapeJsString($menuHash)
+                        )
+                    );
                     $url = $this->getSelfUrl();
                     $retval .= $this->_getSelfLink($url);
                 }

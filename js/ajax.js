@@ -1,60 +1,6 @@
-
-var menus = {
-    size: function(obj) {
-        var size = 0, key;
-        for (key in obj) {
-            if (obj.hasOwnProperty(key)) {
-                size++;
-            }
-        }
-        return size;
-    },
-    data: {},
-    add: function (hash, content) {
-        console.log(this.size(this.data))
-        if (this.size(this.data) > 6) {
-            var oldest, key, init = 0;
-            for (var i in this.data) {
-                if (this.data[i]) {
-                    console.log(this.data[i].timestamp, oldest)
-                    if (! init || this.data[i].timestamp.getTime() < oldest.getTime()) {
-                        oldest = this.data[i].timestamp;
-                        key = i;
-                        init = 1;
-                    }
-                }
-            }
-            delete this.data[key];
-        }
-        this.data[hash] = {
-            content: content,
-            timestamp: new Date()
-        };
-    },
-    get: function (hash) {
-        if (this.data[hash]) {
-            return this.data[hash].content;
-        } else {
-            return '';
-        }
-    },
-    getRequestParam: function () {
-        var param = '';
-        var menuHashes = [];
-        for (var i in this.data) {
-            menuHashes.push(i);
-        }
-        var menuHashesParam = menuHashes.join('-');
-        if (menuHashesParam) {
-            param = '&menuHashes=' + menuHashesParam;
-        }
-        return param;
-    }
-};
-
 /**
  * This object handles ajax requests for pages. It also
- * handles the reloading of the main menu and scripts (TODO: navigation).
+ * handles the reloading of the main menu and scripts.
  */
 var AJAX = {
     /**
@@ -188,7 +134,7 @@ var AJAX = {
             params += '&' + $(this).serialize();
         }
 
-        params += menus.getRequestParam();
+        params += AJAX.cache.menus.getRequestParam();
 
         if (isLink) {
             $.get(url, params, AJAX.responseHandler);
@@ -235,28 +181,30 @@ var AJAX = {
             }
 
             if (data._menu) {
-                $('#floating_menubar').html(data._menu)
-                    .children().first().remove(); // Remove duplicate wrapper (TODO: don't send it in the response)
-                menuPrepare();
-                menuResize();
-                menus.add(data._menuHash, data._menu);
+                AJAX.cache.menus.replace(data._menu);
+                AJAX.cache.menus.add(data._menuHash, data._menu);
             } else if (data._menuHash) {
-                $('#floating_menubar').html(menus.get(data._menuHash))
-                    .children().first().remove(); // Remove duplicate wrapper (TODO: don't send it in the response)
-                menuPrepare();
-                menuResize();
+                AJAX.cache.menus.replace(AJAX.cache.menus.get(data._menuHash));
             }
 
-            $('body').children().not('#pma_navigation').not('#floating_menubar').not('#page_content').not('#selflink').remove();
+            $('body').children()
+                .not('#pma_navigation')
+                .not('#floating_menubar')
+                .not('#page_content')
+                .not('#selflink')
+                .remove();
             $('#page_content').replaceWith("<div id='page_content'>" + data.message + "</div>");
 
             if (data._selflink) {
                 $('#selflink > a').attr('href', data._selflink);
-                setURLHash(data._selflink);
             }
 
             if (data._scripts) {
                 AJAX.scriptHandler.load(data._scripts, 1);
+            }
+
+            if (data._selflink && data._scripts && data._menuHash) {
+                AJAX.cache.add(data._selflink, data._scripts, data._menuHash);
             }
 
             if (data._params) {
@@ -384,6 +332,163 @@ var AJAX = {
         }
     }
 };
+
+AJAX.cache = {
+    /**
+     * An array used to prime the cache with data about the initially
+     * loaded page. This is set in the footer, and then loaded
+     * by a double-queued event further down this file.
+     */
+    primer: [],
+    pages: [],
+    current: 0,
+    add: function (hash, scripts, menu) {
+        //console.log(this.current)
+        while (this.current < this.pages.length) {
+            // trim the cache if we went back in the history
+            this.pages.pop();
+        }
+        if (typeof this.pages[this.current - 1] !== 'undefined'
+            && this.pages[this.current - 1].hash == hash
+        ) {
+            // we're on the same page
+            return;
+        }
+        this.pages.push({
+            hash: hash,
+            content: $('#page_content').html(),
+            scripts: scripts,
+            selflink: $('#selflink').html(),
+            menu: menu,
+            navigation: $('#pma_navigation').html()
+        });
+        setURLHash(this.current, hash);
+        this.current++;
+        //console.log(this.pages)
+    },
+    goto: function (index) {
+        if (index > this.pages.length) {
+            alert('The requested page was not found in the history');
+        } else {
+            this.update();
+            AJAX.active = true;
+            var record = this.pages[index];
+            AJAX.scriptHandler.reset();
+            $('#page_content').html(record.content);
+            $('#selflink').html(record.selflink);
+            $('#pma_navigation').html(record.navigation);
+            this.menus.replace(this.menus.get(record.menu));
+            AJAX.scriptHandler.load(record.scripts);
+            this.current = ++index;
+        }
+    },
+    update: function () {
+        var page = this.pages[this.current - 1];
+        if (page) {
+            page.content = $('#page_content').html();
+            page.navigation = $('#pma_navigation').html();
+        }
+    },
+    menus: {
+        size: function(obj) {
+            var size = 0, key;
+            for (key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    size++;
+                }
+            }
+            return size;
+        },
+        data: {},
+        add: function (hash, content) {
+            //console.log(this.size(this.data))
+            if (this.size(this.data) > 6) {
+                // when the cache grows, we remove the oldest entry
+                var oldest, key, init = 0;
+                for (var i in this.data) {
+                    if (this.data[i]) {
+                       // console.log(this.data[i].timestamp, oldest)
+                        if (! init || this.data[i].timestamp.getTime() < oldest.getTime()) {
+                            oldest = this.data[i].timestamp;
+                            key = i;
+                            init = 1;
+                        }
+                    }
+                }
+                delete this.data[key];
+            }
+            this.data[hash] = {
+                content: content,
+                timestamp: new Date()
+            };
+        },
+        get: function (hash) {
+            if (this.data[hash]) {
+                return this.data[hash].content;
+            } else {
+                return '';
+            }
+        },
+        getRequestParam: function () {
+            var param = '';
+            var menuHashes = [];
+            for (var i in this.data) {
+                menuHashes.push(i);
+            }
+            var menuHashesParam = menuHashes.join('-');
+            if (menuHashesParam) {
+                param = '&menuHashes=' + menuHashesParam;
+            }
+            return param;
+        },
+        replace: function (content) {
+            $('#floating_menubar').html(content)
+                // Remove duplicate wrapper
+                // TODO: don't send it in the response
+                .children().first().remove();
+            menuPrepare();
+            menuResize();
+        }
+    }
+};
+
+var settingHash = false;
+$(function () {
+    // Add the menu from the initial page into the cache
+    AJAX.cache.menus.add(
+        AJAX.cache.primer.menuHash,
+        $('<div></div>')
+            .append('<div></div>')
+            .append($('#serverinfo').clone())
+            .append($('#topmenucontainer').clone())
+            .html()
+    );
+    $(function () {
+        // Queue up this event twice to make sure that we get a copy
+        // of the page after all other onload events have been fired
+        AJAX.cache.add(
+            AJAX.cache.primer.url,
+            AJAX.cache.primer.scripts,
+            AJAX.cache.primer.menuHash
+        );
+    });
+    $(window).hashchange(function () {
+        // The settingHash flag is used to distinguish whether
+        // we have deliberately changed the hash of if the user
+        // clicked the back/forward button in the browser
+        if (settingHash) {
+            settingHash = false;
+            return;
+        }
+        if (/^#PMAURL-\d+:/.test(window.location.hash)) {
+            var index = window.location.hash.substring(
+                8, window.location.hash.indexOf(':')
+            );
+            AJAX.cache.goto(index);
+        }
+    });
+});
+
 /**
  * Attach a generic event handler to clicks
  * on pages and submissions of forms

@@ -156,6 +156,7 @@ class PMA_Header
         $this->_scripts->addFile('jquery/jquery.event.drag-2.0.js');
         $this->_scripts->addFile('jquery/timepicker.js');
         $this->_scripts->addFile('update-location.js');
+        $this->_scripts->addFile('jquery/jquery.ba-hashchange-1.3.js');
 
         $this->_scripts->addFile('jquery/jquery.qtip-1.0.0-rc3.js');
         if ($GLOBALS['cfg']['CodemirrorEnable']) {

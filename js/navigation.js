@@ -95,7 +95,7 @@ $(function() {
      * Register event handler for click on the reload
      * navigation icon at the top of the panel
      */
-    $('#pma_navigation_reload').click(function () {
+    $('#pma_navigation_reload').live('click', function () {
         PMA_reloadNavigation();
     });
 
@@ -138,7 +138,7 @@ $(function() {
     /**
      * Jump to recent table
      */
-    $('#recentTable').change(function() {
+    $('#recentTable').live('change', function() {
         if (this.value != '') {
             var arr = jQuery.parseJSON(this.value);
             var $form = $(this).closest('form');
@@ -398,7 +398,7 @@ var ScrollHandler = {
         };
         this.displayScrollbar();
         $(window).bind('resize', this.displayScrollbar);
-        this.elms.$handle.bind('drag', function (event, drag) {
+        this.elms.$handle.live('drag', function (event, drag) {
             var elms = ScrollHandler.elms;
             var scrollbarOffset = elms.$scrollbar.offset().top;
             var pos = drag.offsetY - scrollbarOffset;
@@ -407,7 +407,7 @@ var ScrollHandler = {
             ScrollHandler.setScrollbar(value);
             ScrollHandler.setContent(value);
         });
-        this.elms.$scrollbar.bind('click', function (event) {
+        this.elms.$scrollbar.live('click', function (event) {
             if($(event.target).attr('id') === $(this).attr('id')) {
                 var $scrollbar = ScrollHandler.elms.$scrollbar;
                 var $handle = ScrollHandler.elms.$handle;
@@ -418,7 +418,7 @@ var ScrollHandler = {
                 ScrollHandler.setContent(target);
             }
         });
-        $('#pma_navigation').bind(
+        $('#pma_navigation').live(
             'mousewheel',
             function(event, delta, deltaX, deltaY) {
                 event.preventDefault();
@@ -606,12 +606,12 @@ var ResizeHandler = function () {
     }
     // Register the events for the resizer and the collapser
     $('#pma_navigation_resizer')
-        .bind('mousedown', {'this':this}, this.mousedown);
+        .live('mousedown', {'this':this}, this.mousedown);
     $(document)
         .bind('mouseup', {'this':this}, this.mouseup)
         .bind('mousemove', {'this':this}, this.mousemove);
     var $collapser = $('#pma_navigation_collapser');
-    $collapser.bind('click', {'this':this}, this.collapse);
+    $collapser.live('click', {'this':this}, this.collapse);
     // Add the correct arrow symbol to the collapser
     $collapser.html(this.getSymbol($('#pma_navigation').width()));
 }; // End of ResizeHandler
