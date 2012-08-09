@@ -390,4 +390,271 @@ function PMA_getTimeForCreateUpdateCheck($each_table, $time_label, $time_all)
     return array($time, $time_all);
 }
 
+/**
+ * Get HTML for each table row of the database structure table
+ * 
+ * @param integer $curr                         current entry
+ * @param boolean $odd_row                      whether row is odd or not
+ * @param boolean $table_is_view                whether table is view or not
+ * @param array $each_table                     current table
+ * @param string $checked                       checked attribute
+ * @param string $browse_table_label            browse table label action link
+ * @param string $tracking_icon                 tracking icon
+ * @param boolean $server_slave_status          server slave state
+ * @param string $browse_table                  browse table action link
+ * @param string $tbl_url_query                 table url query
+ * @param string $search_table                  search table action link
+ * @param boolean $db_is_information_schema     whether db is information schema or not
+ * @param array $titles                         titles array
+ * @param string $empty_table                   empty table action link
+ * @param string $drop_query                    table dropt query
+ * @param string $drop_message                  table drop message
+ * @param string $collation                     collation
+ * @param string $formatted_size                formatted size
+ * @param string $unit                          unit
+ * @param string $overhead                      overhead
+ * @param string $create_time                   create time
+ * @param string $update_time                   last update time
+ * @param string $check_time                    last check time
+ * @param boolean $is_show_stats                whether stats is show or not
+ * @param boolean $ignored                      ignored
+ * @param boolean $do                           do
+ * @param intger $colspan_for_structure         colspan for structure
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForStructureTableRow($curr, $odd_row, $table_is_view, $each_table,
+    $checked, $browse_table_label, $tracking_icon,$server_slave_status,
+    $browse_table, $tbl_url_query, $search_table,
+    $db_is_information_schema,$titles, $empty_table, $drop_query, $drop_message,
+    $collation, $formatted_size, $unit, $overhead, $create_time, $update_time,
+    $check_time,$is_show_stats, $ignored, $do, $colspan_for_structure
+) {
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
+    $html_output = '<tr class="' . ($odd_row ? 'odd' : 'even');
+    $odd_row = ! $odd_row;
+    $html_output .= ($table_is_view ? ' is_view' : '')
+    .'"'
+    . 'id="row_tbl_' . $curr . '">';
+        
+    $html_output .= '<td class="center">'
+        . '<input type="checkbox" name="selected_tbl[]" class="checkall"'
+        . 'value="' . htmlspecialchars($each_table['TABLE_NAME']) . '"'
+        . 'id="checkbox_tbl_' . $curr .'"' . $checked .' /></td>';
+    
+    $html_output .= '<th>'
+        . $browse_table_label
+        . (! empty($tracking_icon) ? $tracking_icon : '')
+        . '</th>';
+    
+    if ($server_slave_status) {
+        $html_output .= '<td class="center">'
+            . ($ignored
+                ? $common_functions->getImage('s_cancel.png', 'NOT REPLICATED')
+                : '')
+            . ($do
+                ? $common_functions->getImage('s_success.png', 'REPLICATED')
+                : '')
+            . '</td>';
+    }
+    
+    $html_output .= '<td class="center">' . $browse_table . '</td>';
+    $html_output .= '<td class="center">'
+        . '<a href="tbl_structure.php?' . $tbl_url_query . '">'
+        . $titles['Structure'] . '</a></td>';
+    $html_output .= '<td class="center">' . $search_table . '</td>';
+    
+    if (! $db_is_information_schema) {
+        $html_output .= PMA_getHtmlForInsertEmptyDropActionLinks(
+            $tbl_url_query, $table_is_view,
+            $titles, $empty_table, $each_table, $drop_query, $drop_message
+        );
+    } // end if (! $db_is_information_schema)
+    
+    // there is a null value in the ENGINE
+    // - when the table needs to be repaired, or
+    // - when it's a view
+    //  so ensure that we'll display "in use" below for a table
+    //  that needs to be repaired
+    if (isset($each_table['TABLE_ROWS']) 
+        && ($each_table['ENGINE'] != null 
+        || $table_is_view)
+    ) {
+        $row_count_pre = '';
+        $show_superscript = '';
+        if ($table_is_view) {
+            // Drizzle views use FunctionEngine, and the only place where they are
+            // available are I_S and D_D schemas, where we do exact counting
+            if ($each_table['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews']
+                && $each_table['ENGINE'] != 'FunctionEngine'
+            ) {
+                $row_count_pre = '~';
+                $sum_row_count_pre = '~';
+                $show_superscript = $common_functions->showHint(
+                    PMA_sanitize(
+                        sprintf(
+                            __('This view has at least this number of rows. Please refer to %sdocumentation%s.'),
+                            '[a@./Documentation.html#cfg_MaxExactCountViews@_blank]',
+                            '[/a]'
+                        )
+                    )
+                );
+            }
+        } elseif ($each_table['ENGINE'] == 'InnoDB' 
+            && (! $each_table['COUNTED'])
+        ) {
+            // InnoDB table: we did not get an accurate row count
+            $row_count_pre = '~';
+            $sum_row_count_pre = '~';
+            $show_superscript = '';
+        }
+        
+        $html_output .= '<td class="value tbl_rows">'
+            . $row_count_pre . $common_functions->formatNumber(
+                $each_table['TABLE_ROWS'], 0
+            )
+            . $show_superscript . '</td>';
+        
+        if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
+            $html_output .= '<td class="nowrap">'
+                . ($table_is_view ? __('View') : $each_table['ENGINE'])
+                . '</td>';
+            if (isset($collation)) {
+                $html_output .= '<td class="nowrap">' . $collation . '</td>';
+            }
+        }
+        
+        if ($is_show_stats) {
+            $html_output .= PMA_getHtmlForShowStats(
+                $tbl_url_query, $formatted_size, $unit, $overhead
+            );
+        }
+        
+        $html_output .= PMA_getHtmlForStructureTimes(
+            $create_time, $update_time, $check_time
+        );
+    } elseif ($table_is_view) {
+        $html_output .= '<td class="value">-</td>'
+            . '<td>' . __('View') . '</td>'
+            . '<td>---</td>';
+        if ($is_show_stats) {
+            $html_output .= '<td class="value">-</td>'
+                . '<td class="value">-</td>';
+        }
+    }  else {
+        $html_output .= '<td colspan="'
+            . ($colspan_for_structure - ($db_is_information_schema ? 5 : 8)) . '"'
+            . 'class="center">'
+            . __('in use')
+            . '</td>';       
+    } // end if (isset($each_table['TABLE_ROWS'])) else
+    $html_output .= '</tr>';
+    
+    return $html_output;
+}
+
+/**
+ * Get HTML for Insert/Empty/Drop action links
+ * 
+ * @param string $tbl_url_query     table url query
+ * @param boolean $table_is_view    whether table is view or not
+ * @param array $titles             titles array
+ * @param string $empty_table       HTML link for empty table
+ * @param array $each_table         current table
+ * @param string $drop_query        query for drop table
+ * @param string $drop_message      table drop message
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForInsertEmptyDropActionLinks($tbl_url_query, $table_is_view,
+    $titles, $empty_table, $each_table, $drop_query, $drop_message
+) {
+    $html_output = '<td class="insert_table center">'
+        . '<a ' 
+        . ($GLOBALS['cfg']['AjaxEnable'] ? 'class="ajax"' : '') 
+        . ' href="tbl_change.php' . $tbl_url_query . '">'
+        . $titles['Insert']
+        . '</a></td>';
+    $html_output .= '<td class="center">' . $empty_table . '</td>';
+    $html_output .= '<td class="center">';
+    $html_output .= '<a ';
+    if ($GLOBALS['cfg']['AjaxEnable']) {
+        $html_output .= 'class="drop_table_anchor';
+        if ($table_is_view || $each_table['ENGINE'] == null) {
+            // this class is used in db_structure.js to display the
+            // correct confirmation message
+            $html_output .= ' view';
+        }
+        $html_output .= '"';
+      }
+    $html_output .= 'href="sql.php?' . $tbl_url_query
+        . '&amp;reload=1&amp;purge=1&amp;sql_query='
+        . urlencode($drop_query) . '&amp;message_to_show='
+        . urlencode($drop_message) . '" >'
+        . $titles['Drop'] . '</a></td>';
+    
+    return $html_output;
+}
+
+/**
+ * Get HTML for show stats
+ * 
+ * @param string $tbl_url_query     tabel url query
+ * @param string $formatted_size    formatted size
+ * @param string $unit              unit
+ * @param string $overhead          overhead
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForShowStats($tbl_url_query, $formatted_size,
+    $unit, $overhead
+) {
+     $html_output = '<td class="value tbl_size"><a'
+        . 'href="tbl_structure.php?' . $tbl_url_query . '#showusage" >'
+        . '<span>' . $formatted_size . '</span> '
+        . '<span class="unit">' . $unit . '</span>'
+        . '</a></td>';
+    $html_output .= '<td class="value tbl_overhead">' . $overhead . '</td>';
+    
+    return $html_output;
+}
+
+/**
+ * Get HTML to show database structure creation, last update and last checkx time
+ * 
+ * @param string $create_time   create time 
+ * @param string $update_time   last update time    
+ * @param string $check_time    last check time
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForStructureTimes($create_time, $update_time, $check_time)
+{
+    $common_functions = PMA_CommonFunctions::getInstance();
+    $html_output = '';
+    if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
+        $html_output .= '<td class="value tbl_creation">' 
+            . ($create_time 
+                ? $common_functions->localisedDate(strtotime($create_time)) 
+                : '-' )
+            . '</td>';
+    } // end if
+    if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
+        $html_output .= '<td class="value tbl_last_update">'
+            . ($update_time 
+                ? $common_functions->localisedDate(strtotime($update_time)) 
+                : '-' )
+            . '</td>';
+    } // end if
+    if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
+        $html_output .= '<td class="value tbl_last_check">'
+            . ($check_time 
+                ? $common_functions->localisedDate(strtotime($check_time)) 
+                : '-' )
+            . '</td>';
+    }
+    return $html_output;
+}
+
 ?>
