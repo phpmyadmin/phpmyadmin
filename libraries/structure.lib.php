@@ -573,7 +573,7 @@ function PMA_getHtmlForInsertEmptyDropActionLinks($tbl_url_query, $table_is_view
     $html_output = '<td class="insert_table center">'
         . '<a ' 
         . ($GLOBALS['cfg']['AjaxEnable'] ? 'class="ajax"' : '') 
-        . ' href="tbl_change.php' . $tbl_url_query . '">'
+        . ' href="tbl_change.php?' . $tbl_url_query . '">'
         . $titles['Insert']
         . '</a></td>';
     $html_output .= '<td class="center">' . $empty_table . '</td>';
@@ -587,7 +587,7 @@ function PMA_getHtmlForInsertEmptyDropActionLinks($tbl_url_query, $table_is_view
             $html_output .= ' view';
         }
         $html_output .= '"';
-      }
+    }
     $html_output .= 'href="sql.php?' . $tbl_url_query
         . '&amp;reload=1&amp;purge=1&amp;sql_query='
         . urlencode($drop_query) . '&amp;message_to_show='
