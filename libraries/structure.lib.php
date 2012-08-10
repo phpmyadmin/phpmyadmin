@@ -481,73 +481,17 @@ function PMA_getHtmlForStructureTableRow($curr, $odd_row, $table_is_view, $each_
         && ($each_table['ENGINE'] != null 
         || $table_is_view)
     ) {
-        $row_count_pre = '';
-        $show_superscript = '';
-        if ($table_is_view) {
-            // Drizzle views use FunctionEngine, and the only place where they are
-            // available are I_S and D_D schemas, where we do exact counting
-            if ($each_table['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews']
-                && $each_table['ENGINE'] != 'FunctionEngine'
-            ) {
-                $row_count_pre = '~';
-                $sum_row_count_pre = '~';
-                $show_superscript = $common_functions->showHint(
-                    PMA_sanitize(
-                        sprintf(
-                            __('This view has at least this number of rows. Please refer to %sdocumentation%s.'),
-                            '[a@./Documentation.html#cfg_MaxExactCountViews@_blank]',
-                            '[/a]'
-                        )
-                    )
-                );
-            }
-        } elseif ($each_table['ENGINE'] == 'InnoDB' 
-            && (! $each_table['COUNTED'])
-        ) {
-            // InnoDB table: we did not get an accurate row count
-            $row_count_pre = '~';
-            $sum_row_count_pre = '~';
-            $show_superscript = '';
-        }
-        
-        $html_output .= '<td class="value tbl_rows">'
-            . $row_count_pre . $common_functions->formatNumber(
-                $each_table['TABLE_ROWS'], 0
-            )
-            . $show_superscript . '</td>';
-        
-        if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
-            $html_output .= '<td class="nowrap">'
-                . ($table_is_view ? __('View') : $each_table['ENGINE'])
-                . '</td>';
-            if (isset($collation)) {
-                $html_output .= '<td class="nowrap">' . $collation . '</td>';
-            }
-        }
-        
-        if ($is_show_stats) {
-            $html_output .= PMA_getHtmlForShowStats(
-                $tbl_url_query, $formatted_size, $unit, $overhead
-            );
-        }
-        
-        $html_output .= PMA_getHtmlForStructureTimes(
-            $create_time, $update_time, $check_time
+        $html_output .= PMA_getHtmlForNotNullEngineViewTable(
+            $table_is_view, $each_table, $collation, $is_show_stats,
+            $tbl_url_query, $formatted_size, $unit, $overhead, $create_time,
+            $update_time, $check_time
         );
     } elseif ($table_is_view) {
-        $html_output .= '<td class="value">-</td>'
-            . '<td>' . __('View') . '</td>'
-            . '<td>---</td>';
-        if ($is_show_stats) {
-            $html_output .= '<td class="value">-</td>'
-                . '<td class="value">-</td>';
-        }
+        $html_output .= PMA_getHtmlForViewTable($is_show_stats);
     }  else {
-        $html_output .= '<td colspan="'
-            . ($colspan_for_structure - ($db_is_information_schema ? 5 : 8)) . '"'
-            . 'class="center">'
-            . __('in use')
-            . '</td>';       
+        $html_output .= PMA_getHtmlForRepairtable($colspan_for_structure,
+            $db_is_information_schema
+        );
     } // end if (isset($each_table['TABLE_ROWS'])) else
     $html_output .= '</tr>';
     
@@ -657,4 +601,121 @@ function PMA_getHtmlForStructureTimes($create_time, $update_time, $check_time)
     return $html_output;
 }
 
+/**
+ * Get HTML for ENGINE value not null or view tables that are not empty tables
+ * 
+ * @param boolean $table_is_view    whether table is view
+ * @param array $each_table         current table
+ * @param string $collation         collation
+ * @param boolean $is_show_stats    whether atats show or not
+ * @param string $tbl_url_query     table url query
+ * @param string $formatted_size    formatted size
+ * @param string $unit              unit
+ * @param string $overhead          overhead
+ * @param string $create_time       create time
+ * @param string $update_time       update time
+ * @param string $check_time        check time
+ * 
+ * @return string $html_output 
+ */
+function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $each_table,
+    $collation, $is_show_stats, $tbl_url_query, $formatted_size, $unit,
+    $overhead, $create_time, $update_time, $check_time
+) {
+    $common_functions = PMA_CommonFunctions::getInstance();
+    $html_output = '';
+    $row_count_pre = '';
+    $show_superscript = '';
+    if ($table_is_view) {
+        // Drizzle views use FunctionEngine, and the only place where they are
+        // available are I_S and D_D schemas, where we do exact counting
+        if ($each_table['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews']
+            && $each_table['ENGINE'] != 'FunctionEngine'
+        ) {
+            $row_count_pre = '~';
+            $sum_row_count_pre = '~';
+            $show_superscript = $common_functions->showHint(
+                PMA_sanitize(
+                    sprintf(
+                        __('This view has at least this number of rows. Please refer to %sdocumentation%s.'),
+                        '[a@./Documentation.html#cfg_MaxExactCountViews@_blank]',
+                        '[/a]'
+                    )
+                )
+            );
+        }
+    } elseif ($each_table['ENGINE'] == 'InnoDB' 
+        && (! $each_table['COUNTED'])
+    ) {
+        // InnoDB table: we did not get an accurate row count
+        $row_count_pre = '~';
+        $sum_row_count_pre = '~';
+        $show_superscript = '';
+    }
+
+    $html_output .= '<td class="value tbl_rows">'
+        . $row_count_pre . $common_functions->formatNumber(
+            $each_table['TABLE_ROWS'], 0
+        )
+        . $show_superscript . '</td>';
+
+    if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
+        $html_output .= '<td class="nowrap">'
+            . ($table_is_view ? __('View') : $each_table['ENGINE'])
+            . '</td>';
+        if (strlen($collation)) {
+            $html_output .= '<td class="nowrap">' . $collation . '</td>';
+        }
+    }
+
+    if ($is_show_stats) {
+        $html_output .= PMA_getHtmlForShowStats(
+            $tbl_url_query, $formatted_size, $unit, $overhead
+        );
+    }
+
+    $html_output .= PMA_getHtmlForStructureTimes(
+        $create_time, $update_time, $check_time
+    );
+    
+    return $html_output;
+}
+
+/**
+ * Get HTML snippet view table
+ * 
+ * @param type $is_show_stats   whether stats show or not
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForViewTable($is_show_stats)
+{
+    $html_output = '<td class="value">-</td>'
+        . '<td>' . __('View') . '</td>'
+        . '<td>---</td>';
+    if ($is_show_stats) {
+        $html_output .= '<td class="value">-</td>'
+            . '<td class="value">-</td>';
+    }
+    return $html_output;
+}
+
+/**
+ * display "in use" below for a table that needs to be repaired
+ * 
+ * @param integer $colspan_for_structure        colspan for structure
+ * @param boolean $db_is_information_schema     whether db is information schema or not
+ * 
+ * @return string HTML snippet 
+ */
+function PMA_getHtmlForRepairtable(
+    $colspan_for_structure,
+    $db_is_information_schema
+) {
+    return '<td colspan="'
+        . ($colspan_for_structure - ($db_is_information_schema ? 5 : 8)) . '"'
+        . 'class="center">'
+        . __('in use')
+        . '</td>';
+}
 ?>
