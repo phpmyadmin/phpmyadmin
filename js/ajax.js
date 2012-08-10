@@ -339,11 +339,10 @@ AJAX.cache = {
      * loaded page. This is set in the footer, and then loaded
      * by a double-queued event further down this file.
      */
-    primer: [],
+    primer: {},
     pages: [],
     current: 0,
     add: function (hash, scripts, menu) {
-        //console.log(this.current)
         while (this.current < this.pages.length) {
             // trim the cache if we went back in the history
             this.pages.pop();
@@ -455,22 +454,26 @@ AJAX.cache = {
 var settingHash = false;
 $(function () {
     // Add the menu from the initial page into the cache
-    AJAX.cache.menus.add(
-        AJAX.cache.primer.menuHash,
-        $('<div></div>')
-            .append('<div></div>')
-            .append($('#serverinfo').clone())
-            .append($('#topmenucontainer').clone())
-            .html()
-    );
+    if (AJAX.cache.primer.url) {
+        AJAX.cache.menus.add(
+            AJAX.cache.primer.menuHash,
+            $('<div></div>')
+                .append('<div></div>')
+                .append($('#serverinfo').clone())
+                .append($('#topmenucontainer').clone())
+                .html()
+        );
+    }
     $(function () {
         // Queue up this event twice to make sure that we get a copy
         // of the page after all other onload events have been fired
-        AJAX.cache.add(
-            AJAX.cache.primer.url,
-            AJAX.cache.primer.scripts,
-            AJAX.cache.primer.menuHash
-        );
+        if (AJAX.cache.primer.url) {
+            AJAX.cache.add(
+                AJAX.cache.primer.url,
+                AJAX.cache.primer.scripts,
+                AJAX.cache.primer.menuHash
+            );
+        }
     });
     $(window).hashchange(function () {
         // The settingHash flag is used to distinguish whether
