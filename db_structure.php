@@ -128,7 +128,7 @@ echo $common_functions->getListNavigator(
 <?php
 echo PMA_generate_common_hidden_inputs($db);
 
-PMA_TableHeader($db_is_information_schema, $server_slave_status);
+echo PMA_TableHeader($db_is_information_schema, $server_slave_status);
 
 $i = $sum_entries = 0;
 $sum_size       = (double) 0;
