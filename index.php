@@ -297,7 +297,9 @@ if ($GLOBALS['cfg']['ShowServerInfo'] || $GLOBALS['cfg']['ShowPhpInfo']) {
         PMA_printListItem(
             __('Show PHP information'),
             'li_phpinfo',
-            'phpinfo.php?' . $common_url_query
+            'phpinfo.php?' . $common_url_query,
+            null,
+            '_blank'
         );
     }
     echo '  </ul>';
