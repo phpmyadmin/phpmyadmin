@@ -334,6 +334,7 @@ var AJAX = {
 };
 
 AJAX.cache = {
+    MAX: 6,
     /**
      * An array used to prime the cache with data about the initially
      * loaded page. This is set in the footer, and then loaded
@@ -343,8 +344,16 @@ AJAX.cache = {
     pages: [],
     current: 0,
     add: function (hash, scripts, menu) {
+        if (this.pages.length > AJAX.cache.MAX) {
+            // Trim the cache, to the maximum number of allowed entries
+            // This way we will have a cached menu for every page
+            for (var i=0; i<this.pages.length-this.MAX; i++) {
+                delete this.pages[i];
+            }
+        }
         while (this.current < this.pages.length) {
             // trim the cache if we went back in the history
+            // and are now going forward again
             this.pages.pop();
         }
         if (typeof this.pages[this.current - 1] !== 'undefined'
@@ -363,11 +372,12 @@ AJAX.cache = {
         });
         setURLHash(this.current, hash);
         this.current++;
-        //console.log(this.pages)
     },
     goto: function (index) {
-        if (index > this.pages.length) {
-            alert('The requested page was not found in the history');
+        if (typeof this.pages[index] === 'undefined') {
+            PMA_ajaxShowMessage(
+                'The requested page was not found in the history' // FIXME: l10n
+            );
         } else {
             this.update();
             AJAX.active = true;
@@ -400,13 +410,11 @@ AJAX.cache = {
         },
         data: {},
         add: function (hash, content) {
-            //console.log(this.size(this.data))
-            if (this.size(this.data) > 6) {
+            if (this.size(this.data) > AJAX.cache.MAX) {
                 // when the cache grows, we remove the oldest entry
                 var oldest, key, init = 0;
                 for (var i in this.data) {
                     if (this.data[i]) {
-                       // console.log(this.data[i].timestamp, oldest)
                         if (! init || this.data[i].timestamp.getTime() < oldest.getTime()) {
                             oldest = this.data[i].timestamp;
                             key = i;
