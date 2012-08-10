@@ -172,7 +172,7 @@ class PMA_Menu
             if (strlen($this->_table)
                 && ! (isset($_REQUEST['purge']) && $_REQUEST['purge'] == '1')
             ) {
-                include_once './libraries/tbl_info.inc.php';
+                include './libraries/tbl_info.inc.php';
 
                 $retval .= $separator;
                 if ($GLOBALS['cfg']['NavigationBarIconic']) {

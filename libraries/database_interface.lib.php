@@ -743,6 +743,33 @@ function PMA_DBI_get_tables_full($database, $table = false,
     }
 }
 
+
+/**
+ * Get VIEWs in a particular database
+ *
+ * @param string $db Database name to look in
+ *
+ * @return array $views Set of VIEWs inside the database 
+ */
+function PMA_DBI_getVirtualTables($db)
+{
+    
+    $tables_full = PMA_DBI_get_tables_full($db);
+    $views = array();
+    
+    foreach ($tables_full as $table=>$tmp) {
+        
+        if (PMA_Table::isView($db, $table)) {
+            $views[] = $table;
+        }
+        
+    }
+    
+    return $views;
+    
+}
+
+
 /**
  * returns array with databases containing extended infos about them
  *

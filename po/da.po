@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-07-27 10:40+0200\n"
-"PO-Revision-Date: 2012-08-05 02:30+0200\n"
+"PO-Revision-Date: 2012-08-09 08:26+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/>\n"
 "Language: da\n"
@@ -3613,7 +3613,7 @@ msgstr ""
 
 #: libraries/Types.class.php:713
 msgid "A system's default double-precision floating-point number"
-msgstr ""
+msgstr "Et systems standard for flydepunktstal med dobbelt præcision"
 
 #: libraries/Types.class.php:715
 msgid "True or false"
@@ -3632,22 +3632,28 @@ msgid ""
 "A timestamp, range is '0001-01-01 00:00:00' UTC to '9999-12-31 23:59:59' "
 "UTC; TIMESTAMP(6) can store microseconds"
 msgstr ""
+"Et tidsstempel, intervallet er '0001-01-01 00:00:00' UTC til '9999-12-31 "
+"23:59:59' UTC; TIMESTAMP(6) kan lagre mikrosekunder"
 
 #: libraries/Types.class.php:733
 msgid ""
 "A variable-length (0-65,535) string, uses binary collation for all "
 "comparisons"
 msgstr ""
+"En streng med variabel længde (0-65.535), bruger binær sammenligning for "
+"alle sammenligninger"
 
 #: libraries/Types.class.php:735
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a four-byte prefix indicating the length of the value"
 msgstr ""
+"En BLOB-kolonne med en maksimal længde på 65.535 (2^16 - 1) bytes, lagret "
+"med et præfiks på fire byte som indikerer længden af værdien"
 
 #: libraries/Types.class.php:737
 msgid "An enumeration, chosen from the list of defined values"
-msgstr ""
+msgstr "En optælling, udvalgt fra listen med definerede værdier"
 
 #: libraries/bookmark.lib.php:83
 msgid "shared"
@@ -4040,10 +4046,13 @@ msgid ""
 "Use user-friendly editor for editing SQL queries ([a@http://codemirror.net/]"
 "CodeMirror[/a]) with syntax highlighting and line numbers"
 msgstr ""
+"Brug en brugervenlig redigering til redigering af SQL-forespørgsler, "
+"([a@http://codemirror.net/]CodeMirror[/a]) med fremhævelse af syntaks og "
+"linjenummerering"
 
 #: libraries/config/messages.inc.php:35
 msgid "Enable CodeMirror"
-msgstr ""
+msgstr "Slå CodeMirror til"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
@@ -4153,7 +4162,7 @@ msgstr "Standard tabel-fane"
 
 #: libraries/config/messages.inc.php:58
 msgid "Whether the table structure actions should be hidden"
-msgstr ""
+msgstr "Om hvorvidt handlinger for tabel-struktur skal være skjulte"
 
 #: libraries/config/messages.inc.php:59
 msgid "Hide table structure actions"
@@ -4732,6 +4741,8 @@ msgstr "Database-struktur"
 #: libraries/config/messages.inc.php:229
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
+"Vælg hvilke detaljer, der skal vises i database-strukturen (liste af "
+"tabeller)"
 
 #: libraries/config/messages.inc.php:230
 msgid "Table structure"
@@ -4739,7 +4750,7 @@ msgstr "Tabel-struktur"
 
 #: libraries/config/messages.inc.php:231
 msgid "Settings for the table structure (list of columns)"
-msgstr ""
+msgstr "Indstillinger for tabel-strukturen (liste af kolonner)"
 
 #: libraries/config/messages.inc.php:232
 msgid "Tabs"
@@ -5780,6 +5791,8 @@ msgstr "Vis formular til databaseoprettelse"
 #: libraries/config/messages.inc.php:460
 msgid "Show or hide a column displaying the Creation timestamp for all tables"
 msgstr ""
+"Vis eller skjul en kolonne, der viser oprettelses-tidsstempel for alle "
+"tabeller"
 
 #: libraries/config/messages.inc.php:461
 msgid "Show Creation timestamp"
@@ -5789,15 +5802,19 @@ msgstr "Vis tidsstempel for oprettelse"
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables"
 msgstr ""
+"Vis eller skjul en kolonne, der viser tidsstempel med seneste opdatering for "
+"alle tabeller"
 
 #: libraries/config/messages.inc.php:463
 msgid "Show Last update timestamp"
-msgstr ""
+msgstr "Vis tidsstempel med seneste opdatering"
 
 #: libraries/config/messages.inc.php:464
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables"
 msgstr ""
+"Vis eller skjul en kolonne, der viser tidsstempel med seneste tjek for alle "
+"tabeller"
 
 #: libraries/config/messages.inc.php:465
 msgid "Show Last check timestamp"
@@ -6441,15 +6458,15 @@ msgstr "Konvertering af indkodning:"
 #: libraries/display_git_revision.lib.php:59
 #, php-format
 msgid "%1$s from %2$s branch"
-msgstr ""
+msgstr "%1$s fra grenen %2$s"
 
 #: libraries/display_git_revision.lib.php:61
 msgid "no branch"
-msgstr ""
+msgstr "ingen gren"
 
 #: libraries/display_git_revision.lib.php:67
 msgid "Git revision"
-msgstr ""
+msgstr "Git-revision"
 
 #: libraries/display_git_revision.lib.php:70
 #, php-format
@@ -6474,7 +6491,7 @@ msgstr ""
 #: libraries/display_import.lib.php:76
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s af %s"
 
 #: libraries/display_import.lib.php:85
 msgid "Uploading your import file..."
@@ -6483,15 +6500,15 @@ msgstr "Overfører din importfil ..."
 #: libraries/display_import.lib.php:93
 #, php-format
 msgid "%s/sec."
-msgstr ""
+msgstr "%s/sek."
 
 #: libraries/display_import.lib.php:100
 msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
+msgstr "Omtrent %MIN min. %SEC sek. resterer."
 
 #: libraries/display_import.lib.php:104
 msgid "About %SEC sec. remaining."
-msgstr ""
+msgstr "Omtrent %SEC sek. resterer."
 
 #: libraries/display_import.lib.php:134
 msgid "The file is being processed, please be patient."
@@ -7333,7 +7350,7 @@ msgstr "Kunne ikke bruge Blowfish fra mcrypt!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:81
 msgid "Your session has expired. Please login again."
-msgstr ""
+msgstr "Din session er udløbet. Log venligst ind igen."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:170
 msgid "Log in"
@@ -7636,15 +7653,14 @@ msgstr ""
 "indeholdende specielle tegn og nøgleord)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:354
-#, fuzzy
 #| msgid "Object creation options"
 msgid "Data creation options"
-msgstr "Object oprettelsesindstillinger"
+msgstr "Indstillinger for oprettelse af data"
 
 #: libraries/plugins/export/ExportSql.class.php:358
 #: libraries/plugins/export/ExportSql.class.php:1573
 msgid "Truncate table before insert"
-msgstr ""
+msgstr "Trunkér tabel forud for indsættelse"
 
 #: libraries/plugins/export/ExportSql.class.php:364
 msgid "Instead of <code>INSERT</code> statements, use:"
@@ -7899,13 +7915,15 @@ msgstr "XML"
 #: libraries/plugins/import/PMA_ShapeRecord.class.php:58
 #, php-format
 msgid "Geometry type '%s' is not supported by MySQL."
-msgstr ""
+msgstr "Geometri-typen '%s' understøttes ikke af MySQL."
 
 #: libraries/plugins/transformations/abstract/AppendTransformationsPlugin.class.php:31
 msgid ""
 "Appends text to a string. The only option is the text to be appended "
 "(enclosed in single quotes, default empty string)."
 msgstr ""
+"Føjer tekst til en streng. Den eneste valgmulighed er at teksten føjes til "
+"(omsluttet af enkelte anførselstegn, standardindstilling er en tom streng)."
 
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:31
 msgid ""
@@ -7940,7 +7958,6 @@ msgstr ""
 "feltet i den første indstilling være sat til en tom streng."
 
 #: libraries/plugins/transformations/abstract/ExternalTransformationsPlugin.class.php:31
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the column data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -7964,16 +7981,17 @@ msgid ""
 "option, if set to 1, will prevent wrapping and ensure that the output "
 "appears all on one line (Default 1)."
 msgstr ""
-"KUN LINUX: Starter en ekstern applikation og føder feltdata via standard "
-"input. Returnerer standardoutputtet for applikationen. Standard er Tidy, for "
-"korrekt udskrivning af HTML-kode. Af sikkerhedsårsager er du nødt til "
-"manuelt at redigere filen libraries/transformations/text_plain__external.inc."
-"php og indsætte de værktøjer du vil tillade kørsel af. Første indstilling er "
-"så nummeret på det program du vil bruge og den anden indstilling er "
-"parametrene for dette program. Tredie parameter vil, hvis sat til 1, "
-"konvertere outputtet vha. htmlspecialchars() (Standard er 1). Et fjerde "
-"parameter vil, hvis sat til 1, sætte et NOWRAP om cellens indhold så hele "
-"outputtet bliver vist uden omformattering (Standard 1)."
+"KUN LINUX: Starter en ekstern applikation og føder feltdata via "
+"standardinput. Returnerer standardoutputtet for applikationen. Standard er "
+"Tidy, for korrekt udskrivning af HTML-kode. Af sikkerhedsårsager er du nødt "
+"til manuelt at redigere filen "
+"libraries/transformations/Text_Plain__External.class.php og indsætte de "
+"værktøjer du ønsker skal være tilgængelig. Første indstilling er så nummeret "
+"på det program du vil bruge og den anden indstilling er parametrene for "
+"dette program. Tredje parameter vil, hvis sat til 1, konvertere outputtet "
+"vha. htmlspecialchars() (Standard er 1). Det fjerde parameter vil, hvis sat "
+"til 1, forhindre ombrydning og sikre at alt outputtet vises på én linje "
+"(Standard 1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
 msgid ""
@@ -9490,7 +9508,7 @@ msgstr "Fuldtekst"
 
 #: libraries/tbl_properties.inc.php:603
 msgid "first"
-msgstr ""
+msgstr "første"
 
 #: libraries/tbl_properties.inc.php:613
 #, php-format
@@ -10982,6 +11000,8 @@ msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
 msgstr ""
+"Missede nøgle-mellemlagringer beregnet som raten af fysiske læsninger "
+"sammenlignet med læse-forespørgsler (beregnet værdi)"
 
 #: server_status.php:1432
 msgid "The number of requests to write a key block to the cache."
@@ -10995,6 +11015,8 @@ msgstr "Antallet af fysiske skrivninger af en nøgleblok til disk."
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
+"Procentdel af fysiske skrivninger sammenlignet med skrive-forespørgsler "
+"(beregnet værdi)"
 
 #: server_status.php:1435
 msgid ""
@@ -11224,10 +11246,9 @@ msgstr ""
 "tråd-implementering.)"
 
 #: server_status.php:1470
-#, fuzzy
 #| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate (calculated value)"
-msgstr "Frekvens for hits i trådmellemlager %%"
+msgstr "Frekvens for hits i trådmellemlager (beregnet værdi)"
 
 #: server_status.php:1471
 msgid "The number of threads that are not sleeping."
@@ -11908,10 +11929,9 @@ msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Bruger bogmærket \"%s\" som standard-forespørgsel til gennemsyn."
 
 #: sql.php:434
-#, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute following query?"
-msgstr "Er du sikker på at du vil "
+msgstr "Er du sikker på at du vil udføre følgende forespørsel?"
 
 #: sql.php:802
 msgid "Showing as PHP code"
@@ -11944,10 +11964,9 @@ msgid "Table %1$s has been altered successfully"
 msgstr "Tabel %1$s er blevet ændret"
 
 #: tbl_alter.php:133
-#, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
-msgstr "De valgte brugere er blevet korrekt slettet."
+msgstr "Flytning af kolonnen er blevet fuldført."
 
 #: tbl_chart.php:83
 #| msgid "Bar"
@@ -12280,10 +12299,9 @@ msgid "Spatial"
 msgstr "Spatial"
 
 #: tbl_structure.php:161 tbl_structure.php:165
-#, fuzzy
 #| msgid "Browse distinct values"
 msgid "Distinct values"
-msgstr "Gennemse bestemte værdier"
+msgstr "Distinkte værdier"
 
 #: tbl_structure.php:166 tbl_structure.php:167
 msgid "Add primary key"
@@ -12328,14 +12346,13 @@ msgid "Show more actions"
 msgstr "Vis flere operationer"
 
 #: tbl_structure.php:619 tbl_structure.php:686
-#, fuzzy
 #| msgid "Remove column(s)"
 msgid "Move columns"
-msgstr "Fjern kolonne(r)"
+msgstr "Flyt kolonner"
 
 #: tbl_structure.php:620
 msgid "Move the columns by dragging them up and down."
-msgstr ""
+msgstr "Flyt kolonnerne ved at trække dem op og ned."
 
 #: tbl_structure.php:646
 msgid "Edit view"
@@ -12381,22 +12398,22 @@ msgid "Tracking report for table `%s`"
 msgstr "Sporings rapport for tabel `%s`"
 
 #: tbl_tracking.php:198
-#, fuzzy, php-format
+#, php-format
 #| msgid "Version %s is created, tracking for %s.%s is activated."
 msgid "Version %1$s was created, tracking for %2$s is active."
-msgstr "Version %s er oprettet, sporing for %s.%s er aktiveret."
+msgstr "Version %1$s blev oprettet, sporing af %2$s er aktiv."
 
 #: tbl_tracking.php:215
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking for %1$s was deactivated at version %2$s."
-msgstr "Sporing af %s.%s er aktiveret."
+msgstr "Sporing af %1$s blev deaktiveret i version %2$s."
 
 #: tbl_tracking.php:232
-#, fuzzy, php-format
+#, php-format
 #| msgid "Tracking of %s.%s is activated."
 msgid "Tracking for %1$s was activated at version %2$s."
-msgstr "Sporing af %s.%s er aktiveret."
+msgstr "Sporing af %1$s blev aktiveret i version %2$s."
 
 #: tbl_tracking.php:246
 msgid "SQL statements executed."
@@ -12440,10 +12457,10 @@ msgid "Tracking statements"
 msgstr "Sporingskommandoer"
 
 #: tbl_tracking.php:499 tbl_tracking.php:631
-#, fuzzy, php-format
+#, php-format
 #| msgid "Show %s with dates from %s to %s by user %s %s"
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
-msgstr "Vis %s med datoer fra  %s til %s for bruger %s %s"
+msgstr "Vis %1$s med datoer fra %2$s til %3$s for brugeren %4$s %5$s"
 
 #: tbl_tracking.php:504
 msgid "Delete tracking data row from report"
@@ -12491,30 +12508,30 @@ msgid "Show versions"
 msgstr "Vis versioner"
 
 #: tbl_tracking.php:772
-#, fuzzy, php-format
+#, php-format
 #| msgid "Deactivate tracking for %s.%s"
 msgid "Deactivate tracking for %s"
-msgstr "Deaktiver sporing af %s.%s"
+msgstr "Deaktiver sporing af %s"
 
 #: tbl_tracking.php:774
 msgid "Deactivate now"
 msgstr "Deaktiver nu"
 
 #: tbl_tracking.php:785
-#, fuzzy, php-format
+#, php-format
 #| msgid "Activate tracking for %s.%s"
 msgid "Activate tracking for %s"
-msgstr "Aktiver sporing af %s.%s"
+msgstr "Aktiver sporing af %s"
 
 #: tbl_tracking.php:787
 msgid "Activate now"
 msgstr "Aktiver nu"
 
 #: tbl_tracking.php:800
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "Create version %1$s of %2$s"
-msgstr "Opret version %s af %s.%s"
+msgstr "Opret version %1$s af %2$s"
 
 #: tbl_tracking.php:804
 msgid "Track these data definition statements:"

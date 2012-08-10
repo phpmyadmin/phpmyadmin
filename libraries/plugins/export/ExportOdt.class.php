@@ -53,6 +53,7 @@ class ExportOdt extends ExportPlugin
         include_once "$props/options/items/TextPropertyItem.class.php";
         include_once "$props/options/items/BoolPropertyItem.class.php";
         include_once "$props/options/items/HiddenPropertyItem.class.php";
+        include_once "$props/options/items/RadioPropertyItem.class.php";
 
         $exportPluginProperties = new ExportPluginProperties();
         $exportPluginProperties->setText('Open Document Text');
