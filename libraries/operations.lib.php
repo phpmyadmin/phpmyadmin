@@ -206,7 +206,7 @@ function PMA_getHtmlForCopyDatabase($db)
             : '')
         . '/>';
     $html_output .= '<label for="checkbox_switch">'
-        . ('Switch to copied database') . '</label>'
+        . __('Switch to copied database') . '</label>'
         . '</fieldset>';
     $html_output .= '<fieldset class="tblFooters">'
         . '<input type="submit" name="submit_copy" value="' . __('Go') . '" />'
