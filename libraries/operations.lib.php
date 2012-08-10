@@ -1106,7 +1106,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
                 'table_maintenance' => 'Go',
                 );
             $html_output .= PMA_getMaintainActionlink(
-                'Check table',
+                __('Check table'),
                 $params,
                 $url_params,
                 'CHECK_TABLE'
@@ -1119,7 +1119,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
                 . ' ENGINE = InnoDB;'
                 );
            $html_output .= PMA_getMaintainActionlink(
-                'Defragment table',
+                __('Defragment table'),
                 $params,
                 $url_params,
                 'InnoDB_File_Defragmenting',
@@ -1133,7 +1133,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
                 'table_maintenance' => 'Go',
                 );
             $html_output .= PMA_getMaintainActionlink(
-                'Analyze table',
+                __('Analyze table'),
                 $params,
                 $url_params,
                 'ANALYZE_TABLE'
@@ -1146,7 +1146,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
                 'table_maintenance' => 'Go',
                 );
             $html_output .= PMA_getMaintainActionlink(
-                'Repair table',
+                __('Repair table'),
                 $params,
                 $url_params,
                 'REPAIR_TABLE'
@@ -1161,7 +1161,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
                 'table_maintenance' => 'Go',
                 );
             $html_output .= PMA_getMaintainActionlink(
-                'Optimize table',
+                __('Optimize table'),
                 $params,
                 $url_params,
                 'OPTIMIZE_TABLE'
@@ -1180,7 +1180,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
     );
     
     $html_output .= PMA_getMaintainActionlink(
-        'Flush the table (FLUSH)',
+        __('Flush the table (FLUSH)'),
         $params,
         $url_params,
         'FLUSH'
