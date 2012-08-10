@@ -367,8 +367,7 @@ AJAX.cache = {
             content: $('#page_content').html(),
             scripts: scripts,
             selflink: $('#selflink').html(),
-            menu: menu,
-            navigation: $('#pma_navigation').html()
+            menu: menu
         });
         setURLHash(this.current, hash);
         this.current++;
@@ -385,7 +384,6 @@ AJAX.cache = {
             AJAX.scriptHandler.reset();
             $('#page_content').html(record.content);
             $('#selflink').html(record.selflink);
-            $('#pma_navigation').html(record.navigation);
             this.menus.replace(this.menus.get(record.menu));
             AJAX.scriptHandler.load(record.scripts);
             this.current = ++index;
@@ -395,7 +393,6 @@ AJAX.cache = {
         var page = this.pages[this.current - 1];
         if (page) {
             page.content = $('#page_content').html();
-            page.navigation = $('#pma_navigation').html();
         }
     },
     menus: {
