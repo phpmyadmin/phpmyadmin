@@ -83,8 +83,6 @@ require_once 'libraries/bookmark.lib.php';
 require_once 'libraries/mysql_charsets.lib.php';
 $db_collation = PMA_getDbCollation($db);
 
-// in a separate file to avoid redeclaration of functions in some code paths
-require_once 'libraries/db_structure.lib.php';
 $titles = $common_functions->buildActionTitles();
 
 // 1. No tables
