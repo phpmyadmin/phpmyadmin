@@ -301,12 +301,10 @@ $(function() {
     $('.buttonlinks a.livequeriesLink').click(function() {
         var $tab = $(this).parents('div.ui-tabs-panel');
         if (tabStatus[$tab.attr('id')] == 'static') {
-            $tab.find('.tabInnerContent')
-                .hide()
-                .after('<div class="liveChart" id="' + $tab.attr('id') + '_chart_cnt"></div>');
+
+            setupLiveChart($tab, this, getSettings(data_points));
             var set_previous = getCurrentDataSet('queries');
             recursiveTimer($tab, 'queries');
-            setupLiveChart($tab, this, getSettings(data_points));
             tabStatus[$tab.attr('id')] = 'livequeries';
 
         } else {
