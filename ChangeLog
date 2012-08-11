@@ -15,6 +15,7 @@ phpMyAdmin - ChangeLog
 - [interface] Designer sometimes places tables on the top menu
 - bug #3546277 [core] Call to undefined function __() when config file has wrong permissions
 - bug #3540922 [edit] Error searching table with many fields
+- bug #3555104 [edit] Cannot copy a DB with table & views
 
 3.5.2.1 (2012-08-03)
 - [security] Fixed local path disclosure vulnerability, see PMASA-2012-3
