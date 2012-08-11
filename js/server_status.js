@@ -113,7 +113,8 @@ $(function() {
     var text = ''; // Holds filter text
     var queryPieChart = null;
     var monitorLoaded = false;
-    var query_stats_jqplot_timer = null;
+    var chart_replot_timer = null;
+    var is_timer_on = 0;
     var refresh_rate = 5000;
     var data_points = 10;
 
@@ -192,14 +193,14 @@ $(function() {
 
 
     $('.buttonlinks .dataPointsNumber').change(function() {
-        if(query_stats_jqplot_timer != null) {
+        if(is_timer_on) {
             data_points = parseInt(this.value);
         }
     });
 
     // Handles refresh rate changing
     $('.buttonlinks .refreshRate').change(function() {
-        if(query_stats_jqplot_timer != null) {
+        if(is_timer_on) {
             refresh_rate = 1000*parseInt(this.value);
         }
 
@@ -367,8 +368,9 @@ $(function() {
 
     function recursiveTimer($tab, type) {
             replotLiveChart($tab, type);
-            query_stats_jqplot_timer = setTimeout(function() {
+            chart_replot_timer = setTimeout(function() {
                 recursiveTimer($tab, type) }, refresh_rate);
+            is_timer_on = 1;
     }
 
     function getCurrentDataSet(type) {
@@ -486,8 +488,9 @@ $(function() {
             $tab.find('.buttonlinks a.tabRefresh').hide();
             $tab.find('.buttonlinks .refreshList').show();
         } else {
-            if(query_stats_jqplot_timer != null) {
-                clearTimeout(query_stats_jqplot_timer);
+            if(is_timer_on) {
+                clearTimeout(chart_replot_timer);
+                is_timer_on = 0;
             }
             else {
                 clearTimeout(chart_activeTimeouts[$tab.attr('id') + "_chart_cnt"]);
