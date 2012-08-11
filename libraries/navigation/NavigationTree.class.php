@@ -866,7 +866,7 @@ class PMA_NavigationTree
                     $link = vsprintf($node->links['icon'], $args);
                     $retval .= "<a$linkClass href='$link'>{$node->icon}</a>";
                 } else {
-                    $retval .= "<a href='#'>{$node->icon}</a>";
+                    $retval .= "<u>{$node->icon}</u>";
                 }
                 $retval .= "</div>";
             }

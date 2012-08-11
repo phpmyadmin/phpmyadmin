@@ -155,7 +155,8 @@ if (! defined('PMA_MINIMUM_COMMON') && ! defined('TESTSUITE')) {
     left: 0.75em;
     border-<?php echo $left; ?>: 1px solid #666;
 }
-#pma_navigation_tree div.block a {
+#pma_navigation_tree div.block a,
+#pma_navigation_tree div.block u {
     position: absolute;
     left: 50%;
     top: 50%;
