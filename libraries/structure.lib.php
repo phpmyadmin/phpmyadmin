@@ -966,4 +966,175 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename) {
     return array($do, $ignored);
 }
 
+/**
+ * Get the value set for ENGINE table,
+ * $each_table, $formatted_size, $unit, $formatted_overhead,
+ * $overhead_unit, $overhead_size, $table_is_view
+ * 
+ * @param array $each_table                 current table
+ * @param boolean $db_is_information_schema whether db is information schema or not
+ * @param boolean $is_show_stats            whether stats show or not
+ * 
+ * @return array 
+ */
+function PMA_getStuffForEnginetable($each_table, $db_is_information_schema,
+    $is_show_stats
+) {
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
+    $sum_size       = (double) 0;
+    $overhead_size  = (double) 0;
+    $formatted_size = '-';
+    $unit = '';
+    $formatted_overhead = '';
+    $overhead_unit = '';
+
+    switch ( $each_table['ENGINE']) {
+        // MyISAM, ISAM or Heap table: Row count, data size and index size
+        // are accurate; data size is accurate for ARCHIVE
+    case 'MyISAM' :
+    case 'ISAM' :
+    case 'HEAP' :
+    case 'MEMORY' :
+    case 'ARCHIVE' :
+    case 'Aria' :
+    case 'Maria' :
+        list($each_table, $formatted_size, $unit, $formatted_overhead,
+        $overhead_unit, $overhead_size) = PMA_getValuesForMariaTable(
+            $db_is_information_schema, $each_table,
+            $is_show_stats, $sum_size, $overhead_size
+        );
+        break;
+    case 'InnoDB' :
+    case 'PBMS' :
+        // InnoDB table: Row count is not accurate but data and index sizes are.
+        // PBMS table in Drizzle: TABLE_ROWS is taken from table cache,
+        // so it may be unavailable
+        list($each_table, $formatted_size, $unit, $sum_size)
+            = PMA_getValuesForPbmsTable($each_table, $is_show_stats, $sum_size);
+        //$display_rows                   =  ' - ';
+        break;
+    // Mysql 5.0.x (and lower) uses MRG_MyISAM 
+    // and MySQL 5.1.x (and higher) uses MRG_MYISAM
+    // Both are aliases for MERGE
+    case 'MRG_MyISAM' :
+    case 'MRG_MYISAM' :
+    case 'MERGE' :
+    case 'BerkeleyDB' :
+        // Merge or BerkleyDB table: Only row count is accurate.
+        if ($is_show_stats) {
+            $formatted_size =  ' - ';
+            $unit          =  '';
+        }
+        break;
+        // for a view, the ENGINE is sometimes reported as null,
+        // or on some servers it's reported as "SYSTEM VIEW"
+    case null :
+    case 'SYSTEM VIEW' :
+    case 'FunctionEngine' :
+        // if table is broken, Engine is reported as null, so one more test
+        if ($each_table['TABLE_TYPE'] == 'VIEW') {
+            // countRecords() takes care of $cfg['MaxExactCountViews']
+            $each_table['TABLE_ROWS'] = PMA_Table::countRecords(
+                $GLOBALS['db'], $each_table['TABLE_NAME'],
+                $force_exact = true, $is_view = true
+            );
+            $table_is_view = true;
+        }
+        break;
+    default :
+        // Unknown table type.
+        if ($is_show_stats) {
+            $formatted_size =  __('unknown');
+            $unit          =  '';
+        }
+    } // end switch
+    
+    return array($each_table, $formatted_size, $unit, $formatted_overhead,
+        $overhead_unit, $overhead_size, $table_is_view
+    );
+}
+
+/**
+ * Get values for MARIA tables
+ * $each_table, $formatted_size, $unit, $formatted_overhead,
+ * $overhead_unit, $overhead_size
+ * 
+ * @param boolean $db_is_information_schema whether db is information schema or not
+ * @param array $each_table                 current table
+ * @param boolean $is_show_stats            whether stats show or not
+ * @param double $sum_size                  sum size
+ * @param double $overhead_size             overhead size
+ * 
+ * @return array 
+ */
+function PMA_getValuesForMariaTable($db_is_information_schema, $each_table,
+    $is_show_stats, $sum_size, $overhead_size
+) {
+    $common_functions = PMA_CommonFunctions::getInstance();
+    if ($db_is_information_schema) {
+            $each_table['Rows'] = PMA_Table::countRecords(
+                $GLOBALS['db'], $each_table['Name']
+            );
+        }
+
+    if ($is_show_stats) {
+        $tblsize = doubleval($each_table['Data_length']) 
+            + doubleval($each_table['Index_length']);
+        $sum_size += $tblsize;
+        list($formatted_size, $unit) = $common_functions->formatByteDown(
+            $tblsize, 3, ($tblsize > 0) ? 1 : 0
+        );
+        if (isset($each_table['Data_free']) && $each_table['Data_free'] > 0) {
+            list($formatted_overhead, $overhead_unit)
+                = $common_functions->formatByteDown(
+                    $each_table['Data_free'], 3,
+                    ($each_table['Data_free'] > 0) ? 1 : 0
+                );
+            $overhead_size += $each_table['Data_free'];
+        }
+    }
+    return array($each_table, $formatted_size, $unit, $formatted_overhead,
+        $overhead_unit, $overhead_size
+    );
+}
+
+/**
+ * Get valuse for PBMS table
+ * $each_table, $formatted_size, $unit, $sum_size
+ * 
+ * @param array $each_table         current table
+ * @param boolean $is_show_stats    whether stats show or not
+ * @param double $sum_size          sum size
+ * 
+ * @return array 
+ */
+function PMA_getValuesForPbmsTable($each_table, $is_show_stats, $sum_size)
+{
+    $common_functions = PMA_CommonFunctions::getInstance();
+    if (($each_table['ENGINE'] == 'InnoDB'
+        && $each_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount'])
+        || !isset($each_table['TABLE_ROWS'])
+    ) {
+        $each_table['COUNTED'] = true;
+        $each_table['TABLE_ROWS'] = PMA_Table::countRecords(
+            $GLOBALS['db'], $each_table['TABLE_NAME'],
+            $force_exact = true, $is_view = false
+        );
+    } else {
+        $each_table['COUNTED'] = false;
+    }
+
+    // Drizzle doesn't provide data and index length, check for null
+    if ($is_show_stats && $each_table['Data_length'] !== null) {
+        $tblsize =  $each_table['Data_length'] + $each_table['Index_length'];
+        $sum_size += $tblsize;
+        list($formatted_size, $unit) = $common_functions->formatByteDown(
+            $tblsize, 3, ($tblsize > 0) ? 1 : 0
+        );
+    }
+    
+    return array($each_table, $formatted_size, $unit, $sum_size);
+}
+
 ?>

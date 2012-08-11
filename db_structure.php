@@ -111,8 +111,6 @@ echo PMA_generate_common_hidden_inputs($db);
 echo PMA_TableHeader($db_is_information_schema, $server_slave_status);
 
 $i = $sum_entries = 0;
-$sum_size       = (double) 0;
-$overhead_size  = (double) 0;
 $overhead_check = '';
 $create_time_all = '';
 $update_time_all = '';
@@ -136,103 +134,12 @@ foreach ($tables as $keyname => $each_table) {
     // Sets parameters for links
     $tbl_url_query = $url_query . '&amp;table=' . $table_encoded;
     // do not list the previous table's size info for a view
-    $formatted_size = '-';
-    $unit = '';
-
-    switch ( $each_table['ENGINE']) {
-        // MyISAM, ISAM or Heap table: Row count, data size and index size
-        // are accurate; data size is accurate for ARCHIVE
-    case 'MyISAM' :
-    case 'ISAM' :
-    case 'HEAP' :
-    case 'MEMORY' :
-    case 'ARCHIVE' :
-    case 'Aria' :
-    case 'Maria' :
-        if ($db_is_information_schema) {
-            $each_table['Rows'] = PMA_Table::countRecords(
-                $db, $each_table['Name']
+    
+    list($each_table, $formatted_size, $unit, $formatted_overhead,
+        $overhead_unit, $overhead_size, $table_is_view)
+            = PMA_getStuffForEnginetable($each_table, $db_is_information_schema,
+                $is_show_stats
             );
-        }
-
-        if ($is_show_stats) {
-            $tblsize = doubleval($each_table['Data_length']) + doubleval($each_table['Index_length']);
-            $sum_size += $tblsize;
-            list($formatted_size, $unit) = $common_functions->formatByteDown(
-                $tblsize, 3, ($tblsize > 0) ? 1 : 0
-            );
-            if (isset($each_table['Data_free']) && $each_table['Data_free'] > 0) {
-                list($formatted_overhead, $overhead_unit)
-                    = $common_functions->formatByteDown(
-                        $each_table['Data_free'], 3,
-                        ($each_table['Data_free'] > 0) ? 1 : 0
-                    );
-                $overhead_size += $each_table['Data_free'];
-            }
-        }
-        break;
-    case 'InnoDB' :
-    case 'PBMS' :
-        // InnoDB table: Row count is not accurate but data and index sizes are.
-        // PBMS table in Drizzle: TABLE_ROWS is taken from table cache, so it may be unavailable
-
-        if (($each_table['ENGINE'] == 'InnoDB'
-            && $each_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount'])
-            || !isset($each_table['TABLE_ROWS'])
-        ) {
-            $each_table['COUNTED'] = true;
-            $each_table['TABLE_ROWS'] = PMA_Table::countRecords(
-                $db, $each_table['TABLE_NAME'],
-                $force_exact = true, $is_view = false
-            );
-        } else {
-            $each_table['COUNTED'] = false;
-        }
-
-        // Drizzle doesn't provide data and index length, check for null
-        if ($is_show_stats && $each_table['Data_length'] !== null) {
-            $tblsize =  $each_table['Data_length'] + $each_table['Index_length'];
-            $sum_size += $tblsize;
-            list($formatted_size, $unit) = $common_functions->formatByteDown(
-                $tblsize, 3, ($tblsize > 0) ? 1 : 0
-            );
-        }
-        //$display_rows                   =  ' - ';
-        break;
-    // Mysql 5.0.x (and lower) uses MRG_MyISAM and MySQL 5.1.x (and higher) uses MRG_MYISAM
-    // Both are aliases for MERGE
-    case 'MRG_MyISAM' :
-    case 'MRG_MYISAM' :
-    case 'MERGE' :
-    case 'BerkeleyDB' :
-        // Merge or BerkleyDB table: Only row count is accurate.
-        if ($is_show_stats) {
-            $formatted_size =  ' - ';
-            $unit          =  '';
-        }
-        break;
-        // for a view, the ENGINE is sometimes reported as null,
-        // or on some servers it's reported as "SYSTEM VIEW"
-    case null :
-    case 'SYSTEM VIEW' :
-    case 'FunctionEngine' :
-        // if table is broken, Engine is reported as null, so one more test
-        if ($each_table['TABLE_TYPE'] == 'VIEW') {
-            // countRecords() takes care of $cfg['MaxExactCountViews']
-            $each_table['TABLE_ROWS'] = PMA_Table::countRecords(
-                $db, $each_table['TABLE_NAME'],
-                $force_exact = true, $is_view = true
-            );
-            $table_is_view = true;
-        }
-        break;
-    default :
-        // Unknown table type.
-        if ($is_show_stats) {
-            $formatted_size =  __('unknown');
-            $unit          =  '';
-        }
-    } // end switch
 
     if (! PMA_Table::isMerge($db, $each_table['TABLE_NAME'])) {
         $sum_entries += $each_table['TABLE_ROWS'];
