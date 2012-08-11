@@ -1257,6 +1257,45 @@ function printServerTraffic()
     } else {
         $full_text_link = 'server_status.php' . PMA_generate_common_url(array('full' => 1));
     }
+    
+    // This array contains display name and real column name of each
+    // sortable column in the table
+    $sortable_columns = array(
+        array(
+            'column_name' => __('ID'),
+            'order_by_field' => 'Id'
+        ),
+        array(
+            'column_name' => __('User'),
+            'order_by_field' => 'User'
+        ),
+        array(
+            'column_name' => __('Host'),
+            'order_by_field' => 'Host'
+        ),
+        array(
+            'column_name' => __('Database'),
+            'order_by_field' => 'db'
+        ),
+        array(
+            'column_name' => __('Command'),
+            'order_by_field' => 'Command'
+        ),
+        array(
+            'column_name' => __('Time'),
+            'order_by_field' => 'Time'
+        ),
+        array(
+            'column_name' => __('Status'),
+            'order_by_field' => 'State'
+        ),
+        array(
+            'column_name' => __('SQL query'),
+            'order_by_field' => 'Info'
+        )
+    );
+    $sortable_columns_count = count($sortable_columns);
+    
     if (PMA_DRIZZLE) {
         $sql_query = "SELECT
                 p.id       AS Id,
@@ -1269,47 +1308,102 @@ function printServerTraffic()
                 " . ($show_full_sql ? 's.query' : 'left(p.info, ' . (int)$GLOBALS['cfg']['MaxCharactersInDisplayedSQL'] . ')') . " AS Info
             FROM data_dictionary.PROCESSLIST p
                 " . ($show_full_sql ? 'LEFT JOIN data_dictionary.SESSIONS s ON s.session_id = p.id' : '');
+        if (!empty($_REQUEST['order_by_field'])
+            && !empty($_REQUEST['sort_order'])
+        ) {
+            $sql_query .= ' ORDER BY p.' . $_REQUEST['order_by_field'] . ' ' . $_REQUEST['sort_order'];
+        }
     } else {
         $sql_query = $show_full_sql
             ? 'SHOW FULL PROCESSLIST'
             : 'SHOW PROCESSLIST';
+        if (!empty($_REQUEST['order_by_field'])
+            && !empty($_REQUEST['sort_order'])
+        ) {
+            $sql_query = 'SELECT * FROM `INFORMATION_SCHEMA`.`PROCESSLIST` ORDER BY `'
+                . $_REQUEST['order_by_field'] . '` ' . $_REQUEST['sort_order'];
+        }
     }
+    
     $result = PMA_DBI_query($sql_query);
 
     /**
      * Displays the page
      */
     ?>
-    <table id="tableprocesslist" class="data clearfloat noclick">
+    <table id="tableprocesslist" class="data clearfloat noclick sortable">
     <thead>
-    <tr>
-        <th><?php echo __('Processes'); ?></th>
-        <th><?php echo __('ID'); ?></th>
-        <th><?php echo __('User'); ?></th>
-        <th><?php echo __('Host'); ?></th>
-        <th><?php echo __('Database'); ?></th>
-        <th><?php echo __('Command'); ?></th>
-        <th><?php echo __('Time'); ?></th>
-        <th><?php echo __('Status'); ?></th>
-        <th><?php
-            echo __('SQL query');
-            if (! PMA_DRIZZLE) {
+        <tr>
+            <th><?php echo __('Processes'); ?></th>
+            <?php foreach ($sortable_columns as $column): ?>
+
+                <?php
+                    $is_sorted = !empty($_REQUEST['order_by_field'])
+                        && !empty($_REQUEST['sort_order'])
+                        && ($_REQUEST['order_by_field'] == $column['order_by_field']);
+                    
+                    $column['sort_order'] = ($is_sorted
+                        && ($_REQUEST['sort_order'] == 'ASC'))
+                        ? 'DESC'
+                        : 'ASC';
+                    
+                    if ($is_sorted) {
+                        if ($_REQUEST['sort_order'] == 'ASC') {
+                           $asc_display_style = 'inline';
+                           $desc_display_style = 'none';
+                        } elseif ($_REQUEST['sort_order'] == 'DESC') {
+                            $desc_display_style = 'inline';
+                            $asc_display_style = 'none';
+                        }
+                    }
                 ?>
-            <a href="<?php echo $full_text_link; ?>"
-                title="<?php echo $show_full_sql ? __('Truncate Shown Queries') : __('Show Full Queries'); ?>">
-                <img src="<?php echo $GLOBALS['pmaThemeImage'] . 's_' . ($show_full_sql ? 'partial' : 'full'); ?>text.png"
-                alt="<?php echo $show_full_sql ? __('Truncate Shown Queries') : __('Show Full Queries'); ?>" />
-            </a>
-            <?php
-            }
-            ?>
-        </th>
-    </tr>
+
+                <th>
+                    <a href="server_status.php<?php echo PMA_generate_common_url($column) ?>"
+                        <?php if ($is_sorted): ?>
+                            onmouseout="$('.soimg').toggle()" onmouseover="$('.soimg').toggle()"
+                        <?php endif; ?>
+                    >
+                        
+                        <?php echo $column['column_name']; ?>
+                        
+                        <?php if ($is_sorted): ?>
+                            <img class="icon ic_s_desc soimg" alt="Descending" title="" src="themes/dot.gif" style="display: <?php echo $desc_display_style; ?>;" />
+                            <img class="icon ic_s_asc soimg hide" alt="Ascending" title="" src="themes/dot.gif" style="display: <?php echo $asc_display_style; ?>;" />
+                        <?php endif; ?>
+                        
+                    </a>
+
+                    <?php if (! PMA_DRIZZLE && (0 === --$sortable_columns_count)): ?>
+                        <a href="<?php echo $full_text_link; ?>"
+                            title="<?php echo $show_full_sql ? __('Truncate Shown Queries') : __('Show Full Queries'); ?>">
+                            <img src="<?php echo $GLOBALS['pmaThemeImage'] . 's_' . ($show_full_sql ? 'partial' : 'full'); ?>text.png"
+                            alt="<?php echo $show_full_sql ? __('Truncate Shown Queries') : __('Show Full Queries'); ?>" />
+                        </a>
+                    <?php endif; ?>
+
+                </th>
+
+            <?php endforeach; ?>
+        </tr>
     </thead>
     <tbody>
     <?php
     $odd_row = true;
     while ($process = PMA_DBI_fetch_assoc($result)) {
+    
+        // Array keys need to modify due to the way it has used
+        // to display column values
+        if (!empty($_REQUEST['order_by_field'])
+            && !empty($_REQUEST['sort_order'])
+        ) {
+            foreach (array_keys($process) as $key) {
+                $new_key = ucfirst(strtolower($key));
+                $process[$new_key] = $process[$key];
+                unset($process[$key]);
+            }
+        }
+        
         $url_params['kill'] = $process['Id'];
         $kill_process = 'server_status.php' . PMA_generate_common_url($url_params);
         ?>
