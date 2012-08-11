@@ -123,7 +123,6 @@ var AJAX = {
             AJAX.active = true;
         }
 
-        this._debug && console.log("Loading: " + url); // no need to translate
         this.$msgbox = PMA_ajaxShowMessage();
         $('html, body').animate({scrollTop: 0}, 'fast');
 
@@ -135,6 +134,8 @@ var AJAX = {
         }
 
         params += AJAX.cache.menus.getRequestParam();
+        
+        this._debug && console.log("Loading: " + url); // no need to translate
 
         if (isLink) {
             $.get(url, params, AJAX.responseHandler);
