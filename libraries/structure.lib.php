@@ -1060,7 +1060,7 @@ function PMA_getStuffForEnginetable($current_table, $db_is_information_schema,
     } // end switch
     
     return array($current_table, $formatted_size, $unit, $formatted_overhead,
-        $overhead_unit, $overhead_size, $table_is_view
+        $overhead_unit, $overhead_size, $table_is_view, $sum_size
     );
 }
 

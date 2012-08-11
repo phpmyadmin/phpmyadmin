@@ -148,7 +148,7 @@ foreach ($tables as $keyname => $current_table) {
     // do not list the previous table's size info for a view
     
     list($current_table, $formatted_size, $unit, $formatted_overhead,
-        $overhead_unit, $overhead_size, $table_is_view)
+        $overhead_unit, $overhead_size, $table_is_view, $sum_size)
             = PMA_getStuffForEnginetable($current_table, $db_is_information_schema,
                 $is_show_stats, $table_is_view
             );
