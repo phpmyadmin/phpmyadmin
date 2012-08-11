@@ -407,9 +407,9 @@ $(function() {
         }
         else if(type == 'traffic') {
             line1 = [ret.x, ret.y_sent - previous_line1];
-            line2 = [ret.x, ret.y_recieved - previous_line2];
+            line2 = [ret.x, ret.y_received - previous_line2];
             previous_line1 = ret.y_sent;
-            previous_line2 = ret.y_recieved;
+            previous_line2 = ret.y_received;
         }
 
         retval = [line1, line2];
