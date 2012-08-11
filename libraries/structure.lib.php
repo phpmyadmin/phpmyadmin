@@ -923,6 +923,14 @@ function PMA_getAliasAndTruename($tooltip_aliasname, $each_table,
     return array($alias, $truename);
 }
 
+/**
+ * Get the server slave state
+ * 
+ * @param boolean $server_slave_status  server slave state
+ * @param string $truename              true name
+ * 
+ * @return array ($do, $ignored)
+ */
 function PMA_getServerSlaveStatus($server_slave_status, $truename) {
     $ignored = false;
     $do = false;
