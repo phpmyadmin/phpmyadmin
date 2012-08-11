@@ -1008,7 +1008,7 @@ function PMA_getStuffForEnginetable($current_table, $db_is_information_schema,
     case 'Aria' :
     case 'Maria' :
         list($current_table, $formatted_size, $unit, $formatted_overhead,
-        $overhead_unit, $overhead_size) = PMA_getValuesForMariaTable(
+        $overhead_unit, $overhead_size) = PMA_getValuesForAriaTable(
             $db_is_information_schema, $current_table,
             $is_show_stats, $sum_size, $overhead_size
         );
@@ -1076,7 +1076,7 @@ function PMA_getStuffForEnginetable($current_table, $db_is_information_schema,
  * 
  * @return array 
  */
-function PMA_getValuesForMariaTable($db_is_information_schema, $current_table,
+function PMA_getValuesForAriaTable($db_is_information_schema, $current_table,
     $is_show_stats, $sum_size, $overhead_size
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
