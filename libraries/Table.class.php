@@ -782,7 +782,7 @@ class PMA_Table
 
         // do not create the table if dataonly
         if ($what != 'dataonly') {
-            require_once "libraries/plugin_interface.lib.php";
+            include_once "libraries/plugin_interface.lib.php";
             // get Export SQL instance
             $export_sql_plugin = PMA_getPlugin(
                 "export",
@@ -845,7 +845,7 @@ class PMA_Table
                 // this a view definition; we just found the first db name
                 // that follows DEFINER VIEW
                 // so change it for the new db name
-                        $parsed_sql[$i]['data'] = $target_for_view;
+                $parsed_sql[$i]['data'] = $target_for_view;
                 // then we have to find all references to the source db
                 // and change them to the target db, ensuring we stay into
                 // the $parsed_sql limits
@@ -854,6 +854,7 @@ class PMA_Table
                 for (++$i; $i <= $last; $i++) {
                     if ($parsed_sql[$i]['type'] == $table_delimiter
                         && $parsed_sql[$i]['data'] == $backquoted_source_db
+                        && $parsed_sql[$i - 1]['type'] != 'punct_qualifier'
                     ) {
                         $parsed_sql[$i]['data'] = $target_for_view;
                     }
