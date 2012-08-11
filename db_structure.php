@@ -138,29 +138,29 @@ $hidden_fields = array();
 $odd_row       = true;
 $sum_row_count_pre = '';
 
-foreach ($tables as $keyname => $each_table) {
+foreach ($tables as $keyname => $current_table) {
     // Get valid statistics whatever is the table type
 
     $table_is_view = false;
-    $table_encoded = urlencode($each_table['TABLE_NAME']);
+    $table_encoded = urlencode($current_table['TABLE_NAME']);
     // Sets parameters for links
     $tbl_url_query = $url_query . '&amp;table=' . $table_encoded;
     // do not list the previous table's size info for a view
     
-    list($each_table, $formatted_size, $unit, $formatted_overhead,
+    list($current_table, $formatted_size, $unit, $formatted_overhead,
         $overhead_unit, $overhead_size, $table_is_view)
-            = PMA_getStuffForEnginetable($each_table, $db_is_information_schema,
+            = PMA_getStuffForEnginetable($current_table, $db_is_information_schema,
                 $is_show_stats
             );
 
-    if (! PMA_Table::isMerge($db, $each_table['TABLE_NAME'])) {
-        $sum_entries += $each_table['TABLE_ROWS'];
+    if (! PMA_Table::isMerge($db, $current_table['TABLE_NAME'])) {
+        $sum_entries += $current_table['TABLE_ROWS'];
     }
 
-    if (isset($each_table['Collation'])) {
+    if (isset($current_table['Collation'])) {
         $collation = '<dfn title="'
-            . PMA_getCollationDescr($each_table['Collation']) . '">'
-            . $each_table['Collation'] . '</dfn>';
+            . PMA_getCollationDescr($current_table['Collation']) . '">'
+            . $current_table['Collation'] . '</dfn>';
     } else {
         $collation = '---';
     }
@@ -182,26 +182,26 @@ foreach ($tables as $keyname => $each_table) {
 
     if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
         list($create_time, $create_time_all) = PMA_getTimeForCreateUpdateCheck(
-            $each_table, 'Create_time', $create_time_all
+            $current_table, 'Create_time', $create_time_all
         );
     }
 
     if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
         // $showtable might already be set from ShowDbStructureCreation, see above
         list($update_time, $update_time_all) = PMA_getTimeForCreateUpdateCheck(
-            $each_table, 'Update_time', $update_time_all
+            $current_table, 'Update_time', $update_time_all
         );
     }
 
     if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
         // $showtable might already be set from ShowDbStructureCreation, see above
         list($check_time, $check_time_all) = PMA_getTimeForCreateUpdateCheck(
-            $each_table, 'Check_time', $check_time_all
+            $current_table, 'Check_time', $check_time_all
         );
     }
 
     list($alias, $truename) = PMA_getAliasAndTruename(
-        $tooltip_aliasname, $each_table, $tooltip_truename
+        $tooltip_aliasname, $current_table, $tooltip_truename
     );
 
     $i++;
@@ -209,7 +209,7 @@ foreach ($tables as $keyname => $each_table) {
     $row_count++;
     if ($table_is_view) {
         $hidden_fields[] = '<input type="hidden" name="views[]" value="'
-            .  htmlspecialchars($each_table['TABLE_NAME']) . '" />';
+            .  htmlspecialchars($current_table['TABLE_NAME']) . '" />';
     }
 
     /*
@@ -225,13 +225,13 @@ foreach ($tables as $keyname => $each_table) {
     list($browse_table, $search_table, $browse_table_label, $empty_table,
         $tracking_icon
     ) = PMA_getHtmlForActionLinks(
-            $each_table, $table_is_view, $tbl_url_query,
+            $current_table, $table_is_view, $tbl_url_query,
             $titles, $truename, $db_is_information_schema, $url_query
         );
     
     if (! $db_is_information_schema) {
         list($drop_query, $drop_message) 
-            = PMA_getTableDropQueryAndMessage($table_is_view, $each_table);
+            = PMA_getTableDropQueryAndMessage($table_is_view, $current_table);
     }
 
     if ($num_columns > 0
@@ -254,7 +254,7 @@ foreach ($tables as $keyname => $each_table) {
     
     $response->addHTML(
         PMA_getHtmlForStructureTableRow(
-            $i, $odd_row, $table_is_view, $each_table, $checked,
+            $i, $odd_row, $table_is_view, $current_table, $checked,
             $browse_table_label, $tracking_icon,$server_slave_status,
             $browse_table, $tbl_url_query, $search_table, $db_is_information_schema,
             $titles, $empty_table,$drop_query, $drop_message, $collation,

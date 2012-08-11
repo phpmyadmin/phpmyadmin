@@ -14,7 +14,7 @@ if (!defined('PHPMYADMIN')) {
  * Get the HTML links for action links
  * Actions are, Browse, Search, Browse table label, empty table
  * 
- * @param array $each_table                 current table
+ * @param array $current_table                 current table
  * @param boolean $table_is_view            Is table view or not
  * @param string $tbl_url_query             table url query
  * @param array $titles                     titles and icons for action links
@@ -25,12 +25,12 @@ if (!defined('PHPMYADMIN')) {
  * @return array ($browse_table, $search_table, $browse_table_label, $empty_table,
                     $tracking_icon)
  */
-function PMA_getHtmlForActionLinks($each_table, $table_is_view, $tbl_url_query,
+function PMA_getHtmlForActionLinks($current_table, $table_is_view, $tbl_url_query,
     $titles, $truename, $db_is_information_schema, $url_query
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
 
-    if ($each_table['TABLE_ROWS'] > 0 || $table_is_view) {
+    if ($current_table['TABLE_ROWS'] > 0 || $table_is_view) {
         $may_have_rows = true;
     } else {
         $may_have_rows = false;
@@ -64,12 +64,12 @@ function PMA_getHtmlForActionLinks($each_table, $table_is_view, $tbl_url_query,
             . '&amp;sql_query=';
         $empty_table .= urlencode(
             'TRUNCATE '
-                . $common_functions->backquote($each_table['TABLE_NAME'])
+                . $common_functions->backquote($current_table['TABLE_NAME'])
             )
             . '&amp;message_to_show='
             . urlencode(
                 sprintf(__('Table %s has been emptied'),
-                htmlspecialchars($each_table['TABLE_NAME']))
+                htmlspecialchars($current_table['TABLE_NAME']))
             )
             . '">';
         if ($may_have_rows) {
@@ -115,25 +115,25 @@ function PMA_getHtmlForActionLinks($each_table, $table_is_view, $tbl_url_query,
  * Get table drop query and drop message
  * 
  * @param boolean $table_is_view    Is table view or not
- * @param string $each_table        current table
+ * @param string $current_table        current table
  * 
  * @return array    ($drop_query, $drop_message)
  */
-function PMA_getTableDropQueryAndMessage($table_is_view, $each_table)
+function PMA_getTableDropQueryAndMessage($table_is_view, $current_table)
 {
     $drop_query = 'DROP '
-        . (($table_is_view || $each_table['ENGINE'] == null) ? 'VIEW' : 'TABLE')
+        . (($table_is_view || $current_table['ENGINE'] == null) ? 'VIEW' : 'TABLE')
         . ' ' . PMA_CommonFunctions::getInstance()->backquote(
-            $each_table['TABLE_NAME']
+            $current_table['TABLE_NAME']
         );
     $drop_message = sprintf(
-        ($table_is_view || $each_table['ENGINE'] == null)
+        ($table_is_view || $current_table['ENGINE'] == null)
             ? __('View %s has been dropped')
             : __('Table %s has been dropped'),
         str_replace(
             ' ',
             '&nbsp;',
-            htmlspecialchars($each_table['TABLE_NAME'])
+            htmlspecialchars($current_table['TABLE_NAME'])
         )
     );
     return array($drop_query, $drop_message);
@@ -365,17 +365,17 @@ function PMA_getHtmlForPrintViewAndDataDictionaryLinks($url_query)
 /**
  * Get Time for Create time, update time and check time
  * 
- * @param array $each_table     current table
+ * @param array $current_table     current table
  * @param string $time_label    Create_time, Update_time, Check_time
  * @param integer $time_all     time
  * 
  * @return array ($time, $time_all) 
  */
-function PMA_getTimeForCreateUpdateCheck($each_table, $time_label, $time_all)
+function PMA_getTimeForCreateUpdateCheck($current_table, $time_label, $time_all)
 {
     $showtable = PMA_Table::sGetStatusInfo(
         $GLOBALS['db'],
-        $each_table['TABLE_NAME'],
+        $current_table['TABLE_NAME'],
         null,
         true
     );
@@ -396,7 +396,7 @@ function PMA_getTimeForCreateUpdateCheck($each_table, $time_label, $time_all)
  * @param integer $curr                         current entry
  * @param boolean $odd_row                      whether row is odd or not
  * @param boolean $table_is_view                whether table is view or not
- * @param array $each_table                     current table
+ * @param array $current_table                     current table
  * @param string $checked                       checked attribute
  * @param string $browse_table_label            browse table label action link
  * @param string $tracking_icon                 tracking icon
@@ -423,7 +423,7 @@ function PMA_getTimeForCreateUpdateCheck($each_table, $time_label, $time_all)
  * 
  * @return string $html_output
  */
-function PMA_getHtmlForStructureTableRow($curr, $odd_row, $table_is_view, $each_table,
+function PMA_getHtmlForStructureTableRow($curr, $odd_row, $table_is_view, $current_table,
     $checked, $browse_table_label, $tracking_icon,$server_slave_status,
     $browse_table, $tbl_url_query, $search_table,
     $db_is_information_schema,$titles, $empty_table, $drop_query, $drop_message,
@@ -440,7 +440,7 @@ function PMA_getHtmlForStructureTableRow($curr, $odd_row, $table_is_view, $each_
         
     $html_output .= '<td class="center">'
         . '<input type="checkbox" name="selected_tbl[]" class="checkall"'
-        . 'value="' . htmlspecialchars($each_table['TABLE_NAME']) . '"'
+        . 'value="' . htmlspecialchars($current_table['TABLE_NAME']) . '"'
         . 'id="checkbox_tbl_' . $curr .'"' . $checked .' /></td>';
     
     $html_output .= '<th>'
@@ -468,7 +468,7 @@ function PMA_getHtmlForStructureTableRow($curr, $odd_row, $table_is_view, $each_
     if (! $db_is_information_schema) {
         $html_output .= PMA_getHtmlForInsertEmptyDropActionLinks(
             $tbl_url_query, $table_is_view,
-            $titles, $empty_table, $each_table, $drop_query, $drop_message
+            $titles, $empty_table, $current_table, $drop_query, $drop_message
         );
     } // end if (! $db_is_information_schema)
     
@@ -477,12 +477,12 @@ function PMA_getHtmlForStructureTableRow($curr, $odd_row, $table_is_view, $each_
     // - when it's a view
     //  so ensure that we'll display "in use" below for a table
     //  that needs to be repaired
-    if (isset($each_table['TABLE_ROWS']) 
-        && ($each_table['ENGINE'] != null 
+    if (isset($current_table['TABLE_ROWS']) 
+        && ($current_table['ENGINE'] != null 
         || $table_is_view)
     ) {
         $html_output .= PMA_getHtmlForNotNullEngineViewTable(
-            $table_is_view, $each_table, $collation, $is_show_stats,
+            $table_is_view, $current_table, $collation, $is_show_stats,
             $tbl_url_query, $formatted_size, $unit, $overhead, $create_time,
             $update_time, $check_time
         );
@@ -492,7 +492,7 @@ function PMA_getHtmlForStructureTableRow($curr, $odd_row, $table_is_view, $each_
         $html_output .= PMA_getHtmlForRepairtable($colspan_for_structure,
             $db_is_information_schema
         );
-    } // end if (isset($each_table['TABLE_ROWS'])) else
+    } // end if (isset($current_table['TABLE_ROWS'])) else
     $html_output .= '</tr>';
     
     return $html_output;
@@ -505,14 +505,14 @@ function PMA_getHtmlForStructureTableRow($curr, $odd_row, $table_is_view, $each_
  * @param boolean $table_is_view    whether table is view or not
  * @param array $titles             titles array
  * @param string $empty_table       HTML link for empty table
- * @param array $each_table         current table
+ * @param array $current_table         current table
  * @param string $drop_query        query for drop table
  * @param string $drop_message      table drop message
  * 
  * @return string $html_output
  */
 function PMA_getHtmlForInsertEmptyDropActionLinks($tbl_url_query, $table_is_view,
-    $titles, $empty_table, $each_table, $drop_query, $drop_message
+    $titles, $empty_table, $current_table, $drop_query, $drop_message
 ) {
     $html_output = '<td class="insert_table center">'
         . '<a ' 
@@ -525,7 +525,7 @@ function PMA_getHtmlForInsertEmptyDropActionLinks($tbl_url_query, $table_is_view
     $html_output .= '<a ';
     if ($GLOBALS['cfg']['AjaxEnable']) {
         $html_output .= 'class="drop_table_anchor';
-        if ($table_is_view || $each_table['ENGINE'] == null) {
+        if ($table_is_view || $current_table['ENGINE'] == null) {
             // this class is used in db_structure.js to display the
             // correct confirmation message
             $html_output .= ' view';
@@ -605,7 +605,7 @@ function PMA_getHtmlForStructureTimes($create_time, $update_time, $check_time)
  * Get HTML for ENGINE value not null or view tables that are not empty tables
  * 
  * @param boolean $table_is_view    whether table is view
- * @param array $each_table         current table
+ * @param array $current_table         current table
  * @param string $collation         collation
  * @param boolean $is_show_stats    whether atats show or not
  * @param string $tbl_url_query     table url query
@@ -618,7 +618,7 @@ function PMA_getHtmlForStructureTimes($create_time, $update_time, $check_time)
  * 
  * @return string $html_output 
  */
-function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $each_table,
+function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $current_table,
     $collation, $is_show_stats, $tbl_url_query, $formatted_size, $unit,
     $overhead, $create_time, $update_time, $check_time
 ) {
@@ -629,8 +629,8 @@ function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $each_table,
     if ($table_is_view) {
         // Drizzle views use FunctionEngine, and the only place where they are
         // available are I_S and D_D schemas, where we do exact counting
-        if ($each_table['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews']
-            && $each_table['ENGINE'] != 'FunctionEngine'
+        if ($current_table['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews']
+            && $current_table['ENGINE'] != 'FunctionEngine'
         ) {
             $row_count_pre = '~';
             $sum_row_count_pre = '~';
@@ -644,8 +644,8 @@ function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $each_table,
                 )
             );
         }
-    } elseif ($each_table['ENGINE'] == 'InnoDB' 
-        && (! $each_table['COUNTED'])
+    } elseif ($current_table['ENGINE'] == 'InnoDB' 
+        && (! $current_table['COUNTED'])
     ) {
         // InnoDB table: we did not get an accurate row count
         $row_count_pre = '~';
@@ -655,13 +655,13 @@ function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $each_table,
 
     $html_output .= '<td class="value tbl_rows">'
         . $row_count_pre . $common_functions->formatNumber(
-            $each_table['TABLE_ROWS'], 0
+            $current_table['TABLE_ROWS'], 0
         )
         . $show_superscript . '</td>';
 
     if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
         $html_output .= '<td class="nowrap">'
-            . ($table_is_view ? __('View') : $each_table['ENGINE'])
+            . ($table_is_view ? __('View') : $current_table['ENGINE'])
             . '</td>';
         if (strlen($collation)) {
             $html_output .= '<td class="nowrap">' . $collation . '</td>';
@@ -893,31 +893,31 @@ function PMA_SortableTableHeader($title, $sort, $initial_sort_order = 'ASC')
  * Get the alias ant truname
  * 
  * @param string $tooltip_aliasname tooltip alias name
- * @param array $each_table         current table
+ * @param array $current_table         current table
  * @param string $tooltip_truename  tooltip true name
  * 
  * @return array ($alias, $truename) 
  */
-function PMA_getAliasAndTruename($tooltip_aliasname, $each_table,
+function PMA_getAliasAndTruename($tooltip_aliasname, $current_table,
     $tooltip_truename
 ) {
     $alias = (! empty($tooltip_aliasname) 
-            && isset($tooltip_aliasname[$each_table['TABLE_NAME']])
+            && isset($tooltip_aliasname[$current_table['TABLE_NAME']])
         )
         ? str_replace(' ', '&nbsp;',
-            htmlspecialchars($tooltip_truename[$each_table['TABLE_NAME']])
+            htmlspecialchars($tooltip_truename[$current_table['TABLE_NAME']])
         )
         : str_replace(' ', '&nbsp;', 
-            htmlspecialchars($each_table['TABLE_NAME'])
+            htmlspecialchars($current_table['TABLE_NAME'])
         );
     $truename = (! empty($tooltip_truename) 
-            && isset($tooltip_truename[$each_table['TABLE_NAME']])
+            && isset($tooltip_truename[$current_table['TABLE_NAME']])
         )
         ? str_replace(' ', '&nbsp;',
-            htmlspecialchars($tooltip_truename[$each_table['TABLE_NAME']])
+            htmlspecialchars($tooltip_truename[$current_table['TABLE_NAME']])
         )
         : str_replace(' ', '&nbsp;',
-            htmlspecialchars($each_table['TABLE_NAME'])
+            htmlspecialchars($current_table['TABLE_NAME'])
         );
     
     return array($alias, $truename);
@@ -976,16 +976,16 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename) {
 
 /**
  * Get the value set for ENGINE table,
- * $each_table, $formatted_size, $unit, $formatted_overhead,
+ * $current_table, $formatted_size, $unit, $formatted_overhead,
  * $overhead_unit, $overhead_size, $table_is_view
  * 
- * @param array $each_table                 current table
+ * @param array $current_table                 current table
  * @param boolean $db_is_information_schema whether db is information schema or not
  * @param boolean $is_show_stats            whether stats show or not
  * 
  * @return array 
  */
-function PMA_getStuffForEnginetable($each_table, $db_is_information_schema,
+function PMA_getStuffForEnginetable($current_table, $db_is_information_schema,
     $is_show_stats
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
@@ -997,7 +997,7 @@ function PMA_getStuffForEnginetable($each_table, $db_is_information_schema,
     $formatted_overhead = '';
     $overhead_unit = '';
 
-    switch ( $each_table['ENGINE']) {
+    switch ( $current_table['ENGINE']) {
         // MyISAM, ISAM or Heap table: Row count, data size and index size
         // are accurate; data size is accurate for ARCHIVE
     case 'MyISAM' :
@@ -1007,9 +1007,9 @@ function PMA_getStuffForEnginetable($each_table, $db_is_information_schema,
     case 'ARCHIVE' :
     case 'Aria' :
     case 'Maria' :
-        list($each_table, $formatted_size, $unit, $formatted_overhead,
+        list($current_table, $formatted_size, $unit, $formatted_overhead,
         $overhead_unit, $overhead_size) = PMA_getValuesForMariaTable(
-            $db_is_information_schema, $each_table,
+            $db_is_information_schema, $current_table,
             $is_show_stats, $sum_size, $overhead_size
         );
         break;
@@ -1018,8 +1018,8 @@ function PMA_getStuffForEnginetable($each_table, $db_is_information_schema,
         // InnoDB table: Row count is not accurate but data and index sizes are.
         // PBMS table in Drizzle: TABLE_ROWS is taken from table cache,
         // so it may be unavailable
-        list($each_table, $formatted_size, $unit, $sum_size)
-            = PMA_getValuesForPbmsTable($each_table, $is_show_stats, $sum_size);
+        list($current_table, $formatted_size, $unit, $sum_size)
+            = PMA_getValuesForPbmsTable($current_table, $is_show_stats, $sum_size);
         //$display_rows                   =  ' - ';
         break;
     // Mysql 5.0.x (and lower) uses MRG_MyISAM 
@@ -1041,10 +1041,10 @@ function PMA_getStuffForEnginetable($each_table, $db_is_information_schema,
     case 'SYSTEM VIEW' :
     case 'FunctionEngine' :
         // if table is broken, Engine is reported as null, so one more test
-        if ($each_table['TABLE_TYPE'] == 'VIEW') {
+        if ($current_table['TABLE_TYPE'] == 'VIEW') {
             // countRecords() takes care of $cfg['MaxExactCountViews']
-            $each_table['TABLE_ROWS'] = PMA_Table::countRecords(
-                $GLOBALS['db'], $each_table['TABLE_NAME'],
+            $current_table['TABLE_ROWS'] = PMA_Table::countRecords(
+                $GLOBALS['db'], $current_table['TABLE_NAME'],
                 $force_exact = true, $is_view = true
             );
             $table_is_view = true;
@@ -1058,91 +1058,91 @@ function PMA_getStuffForEnginetable($each_table, $db_is_information_schema,
         }
     } // end switch
     
-    return array($each_table, $formatted_size, $unit, $formatted_overhead,
+    return array($current_table, $formatted_size, $unit, $formatted_overhead,
         $overhead_unit, $overhead_size, $table_is_view
     );
 }
 
 /**
  * Get values for MARIA tables
- * $each_table, $formatted_size, $unit, $formatted_overhead,
+ * $current_table, $formatted_size, $unit, $formatted_overhead,
  * $overhead_unit, $overhead_size
  * 
  * @param boolean $db_is_information_schema whether db is information schema or not
- * @param array $each_table                 current table
+ * @param array $current_table                 current table
  * @param boolean $is_show_stats            whether stats show or not
  * @param double $sum_size                  sum size
  * @param double $overhead_size             overhead size
  * 
  * @return array 
  */
-function PMA_getValuesForMariaTable($db_is_information_schema, $each_table,
+function PMA_getValuesForMariaTable($db_is_information_schema, $current_table,
     $is_show_stats, $sum_size, $overhead_size
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
     if ($db_is_information_schema) {
-            $each_table['Rows'] = PMA_Table::countRecords(
-                $GLOBALS['db'], $each_table['Name']
+            $current_table['Rows'] = PMA_Table::countRecords(
+                $GLOBALS['db'], $current_table['Name']
             );
         }
 
     if ($is_show_stats) {
-        $tblsize = doubleval($each_table['Data_length']) 
-            + doubleval($each_table['Index_length']);
+        $tblsize = doubleval($current_table['Data_length']) 
+            + doubleval($current_table['Index_length']);
         $sum_size += $tblsize;
         list($formatted_size, $unit) = $common_functions->formatByteDown(
             $tblsize, 3, ($tblsize > 0) ? 1 : 0
         );
-        if (isset($each_table['Data_free']) && $each_table['Data_free'] > 0) {
+        if (isset($current_table['Data_free']) && $current_table['Data_free'] > 0) {
             list($formatted_overhead, $overhead_unit)
                 = $common_functions->formatByteDown(
-                    $each_table['Data_free'], 3,
-                    ($each_table['Data_free'] > 0) ? 1 : 0
+                    $current_table['Data_free'], 3,
+                    ($current_table['Data_free'] > 0) ? 1 : 0
                 );
-            $overhead_size += $each_table['Data_free'];
+            $overhead_size += $current_table['Data_free'];
         }
     }
-    return array($each_table, $formatted_size, $unit, $formatted_overhead,
+    return array($current_table, $formatted_size, $unit, $formatted_overhead,
         $overhead_unit, $overhead_size
     );
 }
 
 /**
  * Get valuse for PBMS table
- * $each_table, $formatted_size, $unit, $sum_size
+ * $current_table, $formatted_size, $unit, $sum_size
  * 
- * @param array $each_table         current table
+ * @param array $current_table         current table
  * @param boolean $is_show_stats    whether stats show or not
  * @param double $sum_size          sum size
  * 
  * @return array 
  */
-function PMA_getValuesForPbmsTable($each_table, $is_show_stats, $sum_size)
+function PMA_getValuesForPbmsTable($current_table, $is_show_stats, $sum_size)
 {
     $common_functions = PMA_CommonFunctions::getInstance();
-    if (($each_table['ENGINE'] == 'InnoDB'
-        && $each_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount'])
-        || !isset($each_table['TABLE_ROWS'])
+    if (($current_table['ENGINE'] == 'InnoDB'
+        && $current_table['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount'])
+        || !isset($current_table['TABLE_ROWS'])
     ) {
-        $each_table['COUNTED'] = true;
-        $each_table['TABLE_ROWS'] = PMA_Table::countRecords(
-            $GLOBALS['db'], $each_table['TABLE_NAME'],
+        $current_table['COUNTED'] = true;
+        $current_table['TABLE_ROWS'] = PMA_Table::countRecords(
+            $GLOBALS['db'], $current_table['TABLE_NAME'],
             $force_exact = true, $is_view = false
         );
     } else {
-        $each_table['COUNTED'] = false;
+        $current_table['COUNTED'] = false;
     }
 
     // Drizzle doesn't provide data and index length, check for null
-    if ($is_show_stats && $each_table['Data_length'] !== null) {
-        $tblsize =  $each_table['Data_length'] + $each_table['Index_length'];
+    if ($is_show_stats && $current_table['Data_length'] !== null) {
+        $tblsize =  $current_table['Data_length'] + $current_table['Index_length'];
         $sum_size += $tblsize;
         list($formatted_size, $unit) = $common_functions->formatByteDown(
             $tblsize, 3, ($tblsize > 0) ? 1 : 0
         );
     }
     
-    return array($each_table, $formatted_size, $unit, $sum_size);
+    return array($current_table, $formatted_size, $unit, $sum_size);
 }
 
 /**
