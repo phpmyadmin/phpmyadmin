@@ -782,6 +782,7 @@ class PMA_Table
                 for (++$i; $i <= $last; $i++) {
                     if ($parsed_sql[$i]['type'] == $table_delimiter
                         && $parsed_sql[$i]['data'] == $backquoted_source_db
+                        && $parsed_sql[$i - 1]['type'] != 'punct_qualifier'
                     ) {
                         $parsed_sql[$i]['data'] = $target_for_view;
                     }
