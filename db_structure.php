@@ -150,7 +150,7 @@ foreach ($tables as $keyname => $current_table) {
     list($current_table, $formatted_size, $unit, $formatted_overhead,
         $overhead_unit, $overhead_size, $table_is_view)
             = PMA_getStuffForEnginetable($current_table, $db_is_information_schema,
-                $is_show_stats
+                $is_show_stats, $table_is_view
             );
 
     if (! PMA_Table::isMerge($db, $current_table['TABLE_NAME'])) {

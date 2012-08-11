@@ -979,14 +979,15 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename) {
  * $current_table, $formatted_size, $unit, $formatted_overhead,
  * $overhead_unit, $overhead_size, $table_is_view
  * 
- * @param array $current_table                 current table
+ * @param array $current_table              current table
  * @param boolean $db_is_information_schema whether db is information schema or not
  * @param boolean $is_show_stats            whether stats show or not
+ * @param boolean $table_is_view            whether table is view or not
  * 
  * @return array 
  */
 function PMA_getStuffForEnginetable($current_table, $db_is_information_schema,
-    $is_show_stats
+    $is_show_stats, $table_is_view
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
     
