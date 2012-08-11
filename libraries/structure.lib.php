@@ -889,4 +889,42 @@ function PMA_SortableTableHeader($title, $sort, $initial_sort_order = 'ASC')
     );
 }
 
+/**
+ * Get the alias ant truname
+ * 
+ * @param string $tooltip_aliasname tooltip alias name
+ * @param array $each_table         current table
+ * @param string $tooltip_truename  tooltip true name
+ * 
+ * @return array ($alias, $truename) 
+ */
+function PMA_getAliasAndTruename($tooltip_aliasname, $each_table,
+    $tooltip_truename
+) {
+    $alias = (! empty($tooltip_aliasname) 
+            && isset($tooltip_aliasname[$each_table['TABLE_NAME']])
+        )
+        ? str_replace(' ', '&nbsp;',
+            htmlspecialchars($tooltip_truename[$each_table['TABLE_NAME']])
+        )
+        : str_replace(' ', '&nbsp;', 
+            htmlspecialchars($each_table['TABLE_NAME'])
+        );
+    $truename = (! empty($tooltip_truename) 
+            && isset($tooltip_truename[$each_table['TABLE_NAME']])
+        )
+        ? str_replace(' ', '&nbsp;',
+            htmlspecialchars($tooltip_truename[$each_table['TABLE_NAME']])
+        )
+        : str_replace(' ', '&nbsp;',
+            htmlspecialchars($each_table['TABLE_NAME'])
+        );
+    
+    return array($alias, $truename);
+}
+
+
+
+
+
 ?>

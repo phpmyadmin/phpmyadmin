@@ -299,12 +299,9 @@ foreach ($tables as $keyname => $each_table) {
         );
     }
 
-    $alias = (! empty($tooltip_aliasname) && isset($tooltip_aliasname[$each_table['TABLE_NAME']]))
-               ? str_replace(' ', '&nbsp;', htmlspecialchars($tooltip_truename[$each_table['TABLE_NAME']]))
-               : str_replace(' ', '&nbsp;', htmlspecialchars($each_table['TABLE_NAME']));
-    $truename = (! empty($tooltip_truename) && isset($tooltip_truename[$each_table['TABLE_NAME']]))
-               ? str_replace(' ', '&nbsp;', htmlspecialchars($tooltip_truename[$each_table['TABLE_NAME']]))
-               : str_replace(' ', '&nbsp;', htmlspecialchars($each_table['TABLE_NAME']));
+    list($alias, $truename) = PMA_getAliasAndTruename(
+        $tooltip_aliasname, $each_table, $tooltip_truename
+    );
 
     $i++;
 
