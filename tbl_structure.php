@@ -203,13 +203,12 @@ if ($GLOBALS['cfg']['PropertiesIconic'] === true) {
     echo ' PropertiesIconic';
 } ?>">
 <?php
-    echo PMA_getHtmlForStructuretableTableHeader(
-        $db_is_information_schema,
-        $tbl_is_view
-    );
+echo PMA_getHtmlForTableStructureHeader(
+    $db_is_information_schema,
+    $tbl_is_view
+);
 ?>
 <tbody>
-    
 
 <?php
 unset($i);

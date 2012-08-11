@@ -1157,7 +1157,7 @@ function PMA_getValuesForPbmsTable($current_table, $is_show_stats, $sum_size)
  * 
  * @return string $html_output
  */
-function PMA_getHtmlForStructuretableTableHeader(
+function PMA_getHtmlForTableStructureHeader(
     $db_is_information_schema,
     $tbl_is_view
 ) {
