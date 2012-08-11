@@ -1145,4 +1145,52 @@ function PMA_getValuesForPbmsTable($each_table, $is_show_stats, $sum_size)
     return array($each_table, $formatted_size, $unit, $sum_size);
 }
 
+/**
+ * table structure
+ */
+
+/**
+ * Get the HTML snippet for structure table table header
+ * 
+ * @param type $db_is_information_schema    whether db is information schema or not
+ * @param type $tbl_is_view                 whether table is view or nt
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForStructuretableTableHeader(
+    $db_is_information_schema,
+    $tbl_is_view
+) {
+    $html_output = '<thead>';
+    $html_output .= '<tr>';
+    $html_output .= '<th></th>'
+        . '<th>#</th>'
+        . '<th>' . __('Name') . '</th>'
+        . '<th>' . __('Type'). '</th>'
+        . '<th>' . __('Collation') . '</th>'
+        . '<th>' . __('Attributes') . '</th>'
+        . '<th>' . __('Null') . '</th>'
+        . '<th>' . __('Default') . '</th>'
+        . '<th>' . __('Extra') . '</th>';
+    
+    if ($db_is_information_schema || $tbl_is_view) {
+        $html_output .= '<th>' . __('View') . '</th>';
+    }  else { /* see tbl_structure.js, function moreOptsMenuResize() */
+        $colspan = 9;
+        if (PMA_DRIZZLE) {
+            $colspan -= 2;
+        }
+        if ($GLOBALS['cfg']['PropertiesIconic']) {
+            $colspan--;
+        }
+        $html_output .= '<th colspan="' . $colspan . '" '
+            . 'class="action">' . __('Action') . '</th>';   
+    }
+    $html_output .= '</tr>'
+        . '</thead>';
+    
+    return $html_output;
+}
+
 ?>
+ 

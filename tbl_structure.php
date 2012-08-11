@@ -12,6 +12,11 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/mysql_charsets.lib.php';
 
+/**
+ * Function implementations for this script
+ */
+require_once 'libraries/structure.lib.php';
+
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
@@ -197,33 +202,14 @@ $i = 0;
 if ($GLOBALS['cfg']['PropertiesIconic'] === true) {
     echo ' PropertiesIconic';
 } ?>">
-<thead>
-<tr>
-    <th></th>
-    <th>#</th>
-    <th><?php echo __('Name'); ?></th>
-    <th><?php echo __('Type'); ?></th>
-    <th><?php echo __('Collation'); ?></th>
-    <th><?php echo __('Attributes'); ?></th>
-    <th><?php echo __('Null'); ?></th>
-    <th><?php echo __('Default'); ?></th>
-    <th><?php echo __('Extra'); ?></th>
-<?php if ($db_is_information_schema || $tbl_is_view) { ?>
-    <th><?php echo __('View'); ?></th>
-<?php } else { /* see tbl_structure.js, function moreOptsMenuResize() */ ?>
-    <th colspan="<?php
-    $colspan = 9;
-    if (PMA_DRIZZLE) {
-        $colspan -= 2;
-    }
-    if ($GLOBALS['cfg']['PropertiesIconic']) {
-        $colspan--;
-    }
-    echo $colspan; ?>" class="action"><?php echo __('Action'); ?></th>
-<?php } ?>
-</tr>
-</thead>
+<?php
+    echo PMA_getHtmlForStructuretableTableHeader(
+        $db_is_information_schema,
+        $tbl_is_view
+    );
+?>
 <tbody>
+    
 
 <?php
 unset($i);
