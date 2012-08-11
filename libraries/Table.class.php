@@ -782,7 +782,7 @@ class PMA_Table
 
         // do not create the table if dataonly
         if ($what != 'dataonly') {
-            require_once "libraries/plugin_interface.lib.php";
+            include_once "libraries/plugin_interface.lib.php";
             // get Export SQL instance
             $export_sql_plugin = PMA_getPlugin(
                 "export",
