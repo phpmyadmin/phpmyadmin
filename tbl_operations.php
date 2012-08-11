@@ -180,7 +180,7 @@ if (isset($result) && empty($message_to_show)) {
     $_type = 'success';
     if (empty($_message)) {
         $_message = $result 
-            ? $message = PMA_Message::success(
+            ? PMA_Message::success(
                 __('Your SQL query has been executed successfully')
             )
             : PMA_Message::error(__('Error'));
