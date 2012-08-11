@@ -248,11 +248,9 @@ $(function() {
 
     /** Realtime charting of variables **/
 
-    var previous_line1 = 0;
-    var previous_line2 = 0;
-    var series = new Array();
-    series[0] = new Array();
-    series[1] = new Array();
+    var previous_line1;
+    var previous_line2;
+    var series;
 
     // Live traffic charting
     $('.buttonlinks a.livetrafficLink').click(function() {
@@ -261,34 +259,10 @@ $(function() {
         var tabstat = tabStatus[$tab.attr('id')];
 
         if (tabstat == 'static' || tabstat == 'liveconnections') {
-            var settings = {
-                series: [
-                    { name: PMA_messages['strChartKBSent'], data: [] },
-                    { name: PMA_messages['strChartKBReceived'], data: [] }
-                ],
-                title: { text: PMA_messages['strChartServerTraffic'] },
-                realtime: { url: 'server_status.php?' + url_query,
-                           type: 'traffic',
-                           callback: function(chartObj, curVal, lastVal, numLoadedPoints) {
-                               if (lastVal == null) {
-                                   return;
-                                }
-                                chartObj.series[0].addPoint(
-                                    { x: curVal.x, y: (curVal.y_sent - lastVal.y_sent) / 1024 },
-                                    false,
-                                    numLoadedPoints >= chartObj.options.realtime.numMaxPoints
-                                );
-                                chartObj.series[1].addPoint(
-                                    { x: curVal.x, y: (curVal.y_received - lastVal.y_received) / 1024 },
-                                    true,
-                                    numLoadedPoints >= chartObj.options.realtime.numMaxPoints
-                                );
-                            },
-                            error: function() { serverResponseError(); }
-                         }
-            }
-
-            setupLiveChart($tab, this, settings);
+            
+            setupLiveChart($tab, this, getSettings(data_points));
+            var set_previous = getCurrentDataSet('traffic');
+            recursiveTimer($tab, 'traffic');
             if (tabstat == 'liveconnections') {
                 $tab.find('.buttonlinks a.liveconnectionsLink').html(PMA_messages['strLiveConnChart']);
             }
@@ -307,34 +281,10 @@ $(function() {
         var tabstat = tabStatus[$tab.attr('id')];
 
         if (tabstat == 'static' || tabstat == 'livetraffic') {
-            var settings = {
-                series: [
-                    { name: PMA_messages['strChartConnections'], data: [] },
-                    { name: PMA_messages['strChartProcesses'], data: [] }
-                ],
-                title: { text: PMA_messages['strChartConnectionsTitle'] },
-                realtime: { url: 'server_status.php?' + url_query,
-                           type: 'proc',
-                           callback: function(chartObj, curVal, lastVal, numLoadedPoints) {
-                                if (lastVal == null) {
-                                    return;
-                                }
-                                chartObj.series[0].addPoint(
-                                    { x: curVal.x, y: curVal.y_conn - lastVal.y_conn },
-                                    false,
-                                    numLoadedPoints >= chartObj.options.realtime.numMaxPoints
-                                );
-                                chartObj.series[1].addPoint(
-                                    { x: curVal.x, y: curVal.y_proc },
-                                    true,
-                                    numLoadedPoints >= chartObj.options.realtime.numMaxPoints
-                                );
-                            },
-                            error: function() { serverResponseError(); }
-                         }
-            };
 
-            setupLiveChart($tab, this, settings);
+            setupLiveChart($tab, this, getSettings(data_points));
+            var set_previous = getCurrentDataSet('proc');
+            recursiveTimer($tab, 'proc');
             if (tabstat == 'livetraffic') {
                 $tab.find('.buttonlinks a.livetrafficLink').html(PMA_messages['strLiveTrafficChart']);
             }
@@ -395,7 +345,7 @@ $(function() {
             }
         });
         // get data based on chart type
-        if(type == 'proc') {
+        if(type == 'proc') {            
             line1 = [ret.x, ret.y_proc - previous_line1];
             line2 = [ret.x, ret.y_conn - previous_line2];
             previous_line1 = ret.y_proc;
@@ -451,7 +401,7 @@ $(function() {
 
     function replotLiveChart($tab, type) {
         var data_set = getCurrentDataSet(type);
-        if(type == 'proc') {
+        if(type == 'proc' || type == 'traffic') {
             series[0].push(data_set[0]);
             series[1].push(data_set[1]);
         }
@@ -459,10 +409,7 @@ $(function() {
             // there is just one line to be plotted
             series[0].push(data_set[0]);
         }
-        else if(type == 'traffic') {
-            series[0].push(data_set[0]);
-            series[1].push(data_set[1]);
-        }
+
         $.jqplot($tab.attr('id') + '_chart_cnt', [series[0], series[1]], getSettings(data_points)).replot();
     }
 
@@ -506,6 +453,11 @@ $(function() {
             $tab.find('.buttonlinks select').get(0).selectedIndex = 2;
             $tab.find('.buttonlinks .refreshList').hide();
         }
+        previous_line1 = 0;
+        previous_line2 = 0;
+        series = new Array();
+        series[0] = new Array();
+        series[1] = new Array();
     }
 
     /* 3 Filtering functions */

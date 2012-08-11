@@ -804,6 +804,10 @@ echo __('Runtime Information');
                     <?php echo __('Refresh'); ?>
                 </a>
                 <span class="refreshList" style="display:none;">
+                    <label for="id_trafficChartDataPointsList"><?php echo __('Number of Data Points: '); ?></label>
+                       <?php echo getDataPointsNumberList('trafficChartDataPoints'); ?>
+                </span>
+                <span class="refreshList" style="display:none;">
                     <label for="id_trafficChartRefresh"><?php echo __('Refresh rate: '); ?></label>
                     <?php refreshList('trafficChartRefresh'); ?>
                 </span>
