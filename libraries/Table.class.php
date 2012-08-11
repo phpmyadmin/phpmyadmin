@@ -845,7 +845,7 @@ class PMA_Table
                 // this a view definition; we just found the first db name
                 // that follows DEFINER VIEW
                 // so change it for the new db name
-                        $parsed_sql[$i]['data'] = $target_for_view;
+                $parsed_sql[$i]['data'] = $target_for_view;
                 // then we have to find all references to the source db
                 // and change them to the target db, ensuring we stay into
                 // the $parsed_sql limits
