@@ -434,14 +434,8 @@ $(function() {
             $tab.find('.buttonlinks a.tabRefresh').hide();
             $tab.find('.buttonlinks .refreshList').show();
         } else {
-            if(is_timer_on) {
-                clearTimeout(chart_replot_timer);
-                is_timer_on = 0;
-            }
-            else {
-                clearTimeout(chart_activeTimeouts[$tab.attr('id') + "_chart_cnt"]);
-                chart_activeTimeouts[$tab.attr('id') + "_chart_cnt"] = null;
-            }
+            clearTimeout(chart_activeTimeouts[$tab.attr('id') + "_chart_cnt"]);
+            chart_activeTimeouts[$tab.attr('id') + "_chart_cnt"] = null;
             $tab.find('.tabInnerContent').show();
             $tab.find('div#' + $tab.attr('id') + '_chart_cnt').remove();
             tabStatus[$tab.attr('id')] = 'static';
@@ -449,6 +443,10 @@ $(function() {
             $tab.find('.buttonlinks a.tabRefresh').show();
             $tab.find('.buttonlinks select').get(0).selectedIndex = 2;
             $tab.find('.buttonlinks .refreshList').hide();
+        }
+        if(is_timer_on) {
+            clearTimeout(chart_replot_timer);
+            is_timer_on = 0;
         }
         previous_y_line1 = 0;
         previous_y_line2 = 0;
