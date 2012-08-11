@@ -247,6 +247,12 @@ $(function() {
 
     /** Realtime charting of variables **/
 
+    var previous_line1 = 0;
+    var previous_line2 = 0;
+    var series = new Array();
+    series[0] = new Array();
+    series[1] = new Array();
+
     // Live traffic charting
     $('.buttonlinks a.livetrafficLink').click(function() {
         // ui-tabs-panel class is added by the jquery tabs feature
@@ -340,12 +346,6 @@ $(function() {
         return false;
     });
 
-    var previous_line1 = 0;
-    var previous_line2 = 0;
-    var series = new Array();
-    series[0] = new Array();
-    series[1] = new Array();
-
     // Live query statistics
     $('.buttonlinks a.livequeriesLink').click(function() {
         var $tab = $(this).parents('div.ui-tabs-panel');
@@ -354,7 +354,7 @@ $(function() {
                 .hide()
                 .after('<div class="liveChart" id="' + $tab.attr('id') + '_chart_cnt"></div>');
             var set_previous = getCurrentDataSet('queries');
-            recursiveTimer($tab);
+            recursiveTimer($tab, 'queries');
             setupLiveChart($tab, this, getSettings(data_points));
             tabStatus[$tab.attr('id')] = 'livequeries';
 
@@ -365,10 +365,10 @@ $(function() {
         return false;
     });
 
-    function recursiveTimer($tab) {
-            replotQueryStatsChart($tab);
+    function recursiveTimer($tab, type) {
+            replotLiveChart($tab, type);
             query_stats_jqplot_timer = setTimeout(function() {
-                recursiveTimer($tab) }, refresh_rate);
+                recursiveTimer($tab, type) }, refresh_rate);
     }
 
     function getCurrentDataSet(type) {
@@ -445,11 +445,21 @@ $(function() {
         return settings;
     }
 
-    function replotQueryStatsChart($tab) {
-        var data_set = getCurrentDataSet('queries');
-        // there is just one line to be plotted
-        series[0].push(data_set[0]);
-        $.jqplot($tab.attr('id') + '_chart_cnt', [series[0]], getSettings(data_points)).replot();
+    function replotLiveChart($tab, type) {
+        var data_set = getCurrentDataSet(type);
+        if(type == 'proc') {
+            series[0].push(data_set[0]);
+            series[1].push(data_set[1]);
+        }
+        else if(type == 'queries') {
+            // there is just one line to be plotted
+            series[0].push(data_set[0]);
+        }
+        else if(type == 'traffic') {
+            series[0].push(data_set[0]);
+            series[1].push(data_set[1]);
+        }
+        $.jqplot($tab.attr('id') + '_chart_cnt', [series[0], series[1]], getSettings(data_points)).replot();
     }
 
     function setupLiveChart($tab, link, settings) {
