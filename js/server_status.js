@@ -406,6 +406,8 @@ $(function() {
             previous_line1 = ret.y;    
         }
         else if(type == 'traffic') {
+            ret.y_sent = ret.y_sent/1024;
+            ret.y_received = ret.y_received/1024;            
             line1 = [ret.x, ret.y_sent - previous_line1];
             line2 = [ret.x, ret.y_received - previous_line2];
             previous_line1 = ret.y_sent;
