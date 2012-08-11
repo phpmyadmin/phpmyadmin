@@ -260,7 +260,7 @@ $(function() {
 
         if (tabstat == 'static' || tabstat == 'liveconnections') {
             
-            setupLiveChart($tab, this, getSettings(data_points));
+            setupLiveChart($tab, this, getSettings(data_points, 'traffic'));
             var set_previous = getCurrentDataSet('traffic');
             recursiveTimer($tab, 'traffic');
             if (tabstat == 'liveconnections') {
@@ -282,7 +282,7 @@ $(function() {
 
         if (tabstat == 'static' || tabstat == 'livetraffic') {
 
-            setupLiveChart($tab, this, getSettings(data_points));
+            setupLiveChart($tab, this, getSettings(data_points, 'proc'));
             var set_previous = getCurrentDataSet('proc');
             recursiveTimer($tab, 'proc');
             if (tabstat == 'livetraffic') {
@@ -302,7 +302,7 @@ $(function() {
         var $tab = $(this).parents('div.ui-tabs-panel');
         if (tabStatus[$tab.attr('id')] == 'static') {
 
-            setupLiveChart($tab, this, getSettings(data_points));
+            setupLiveChart($tab, this, getSettings(data_points, 'queries'));
             var set_previous = getCurrentDataSet('queries');
             recursiveTimer($tab, 'queries');
             tabStatus[$tab.attr('id')] = 'livequeries';
@@ -365,14 +365,26 @@ $(function() {
         return retval;
     }
 
-    function getSettings(num) {
+    function getSettings(num, type) {
         var current_time = new Date().getTime();
         // Min X would be decided based on refresh rate and number of data points
         var minX = current_time - (refresh_rate * num);
         var interval = (((current_time - minX)/num) / 1000);
         interval = (num > 20) ? (((current_time - minX)/20) / 1000) : interval;
+
+        var title_message;
+        if(type == 'proc') {
+            title_message = PMA_messages['strChartConnectionsTitle'];
+        }
+        else if(type == 'queries') {
+            title_message = PMA_messages['strChartIssuedQueriesTitle'];
+        }
+        else if(type == 'traffic') {
+            title_message = PMA_messages['strChartServerTraffic'];
+        }
+        
         var settings = {
-            title: PMA_messages['strChartIssuedQueriesTitle'],
+            title: title_message,
             axes: {
                 xaxis: {
                     label: PMA_messages['strChartIssuedQueries'],
@@ -407,7 +419,7 @@ $(function() {
             series[0].push(data_set[0]);
         }
 
-        $.jqplot($tab.attr('id') + '_chart_cnt', [series[0], series[1]], getSettings(data_points)).replot();
+        $.jqplot($tab.attr('id') + '_chart_cnt', [series[0], series[1]], getSettings(data_points, type)).replot();
     }
 
     function setupLiveChart($tab, link, settings) {
