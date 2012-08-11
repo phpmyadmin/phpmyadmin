@@ -343,11 +343,10 @@ $(function() {
             }
         });
         // get data based on chart type
-        if(type == 'proc') {            
-            line1 = [ret.x, ret.y_proc - previous_line1];
-            line2 = [ret.x, ret.y_conn - previous_line2];
-            previous_line1 = ret.y_proc;
-            previous_line2 = ret.y_conn;
+        if(type == 'proc') {
+            line1 = [ret.x, ret.y_conn - previous_line1];
+            line2 = [ret.x, ret.y_proc];
+            previous_line1 = ret.y_conn;
         }
         else if(type == 'queries') {
             line1 = [ret.x, ret.y-previous_line1];
