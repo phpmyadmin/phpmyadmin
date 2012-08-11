@@ -271,7 +271,7 @@ foreach ($tables as $keyname => $each_table) {
 // Show Summary
 $response->addHTML('</tbody>');
 $response->addHTML(
-    PMA_getHtmlBodyForTableSummery(
+    PMA_getHtmlBodyForTableSummary(
         $num_tables, $server_slave_status, $db_is_information_schema, $sum_entries,
         $db_collation, $is_show_stats, $sum_size, $overhead_size, $create_time_all,
         $update_time_all, $check_time_all, $sum_row_count_pre
