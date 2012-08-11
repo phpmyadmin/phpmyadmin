@@ -95,7 +95,8 @@ $(function() {
      * Register event handler for click on the reload
      * navigation icon at the top of the panel
      */
-    $('#pma_navigation_reload').live('click', function () {
+    $('#pma_navigation_reload').live('click', function (event) {
+        event.preventDefault();
         PMA_reloadNavigation();
     });
 
