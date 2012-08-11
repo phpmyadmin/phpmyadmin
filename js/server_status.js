@@ -248,8 +248,8 @@ $(function() {
 
     /** Realtime charting of variables **/
 
-    var previous_line1;
-    var previous_line2;
+    var previous_y_line1;
+    var previous_y_line2;
     var series;
 
     // Live traffic charting
@@ -344,21 +344,21 @@ $(function() {
         });
         // get data based on chart type
         if(type == 'proc') {
-            line1 = [ret.x, ret.y_conn - previous_line1];
+            line1 = [ret.x, ret.y_conn - previous_y_line1];
             line2 = [ret.x, ret.y_proc];
-            previous_line1 = ret.y_conn;
+            previous_y_line1 = ret.y_conn;
         }
         else if(type == 'queries') {
-            line1 = [ret.x, ret.y-previous_line1];
-            previous_line1 = ret.y;    
+            line1 = [ret.x, ret.y-previous_y_line1];
+            previous_y_line1 = ret.y;    
         }
         else if(type == 'traffic') {
             ret.y_sent = ret.y_sent/1024;
             ret.y_received = ret.y_received/1024;            
-            line1 = [ret.x, ret.y_sent - previous_line1];
-            line2 = [ret.x, ret.y_received - previous_line2];
-            previous_line1 = ret.y_sent;
-            previous_line2 = ret.y_received;
+            line1 = [ret.x, ret.y_sent - previous_y_line1];
+            line2 = [ret.x, ret.y_received - previous_y_line2];
+            previous_y_line1 = ret.y_sent;
+            previous_y_line2 = ret.y_received;
         }
 
         retval = [line1, line2];
@@ -450,8 +450,8 @@ $(function() {
             $tab.find('.buttonlinks select').get(0).selectedIndex = 2;
             $tab.find('.buttonlinks .refreshList').hide();
         }
-        previous_line1 = 0;
-        previous_line2 = 0;
+        previous_y_line1 = 0;
+        previous_y_line2 = 0;
         series = new Array();
         series[0] = new Array();
         series[1] = new Array();
