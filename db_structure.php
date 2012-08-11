@@ -24,31 +24,13 @@ $scripts->addFile('jquery/timepicker.js');
 $common_functions = PMA_CommonFunctions::getInstance();
 
 /**
- * Sets globals from $_POST
- */
-$post_params = array(
-    'error',
-    'is_info',
-    'message',
-    'mult_btn',
-    'selected_tbl',
-    'submit_mult'
-);
-
-foreach ($post_params as $one_post_param) {
-    if (isset($_POST[$one_post_param])) {
-        $GLOBALS[$one_post_param] = $_POST[$one_post_param];
-    }
-}
-
-/**
  * Prepares the tables list if the user where not redirected to this script
  * because there is no table in the database ($is_info is true)
  */
-if (empty($is_info)) {
+if (empty($_POST['is_info'])) {
     // Drops/deletes/etc. multiple tables if required
-    if ((!empty($submit_mult) && isset($selected_tbl))
-        || isset($mult_btn)
+    if ((!empty($_POST['submit_mult']) && isset($_POST['selected_tbl']))
+        || isset($_POST['mult_btn'])
     ) {
         $action = 'db_structure.php';
         $err_url = 'db_structure.php?'. PMA_generate_common_url($db);
@@ -57,11 +39,11 @@ if (empty($is_info)) {
         // db_structure.php -> libraries/mult_submits.inc.php -> sql.php
         // -> db_structure.php and if we got an error on the multi submit,
         // we must display it here and not call again mult_submits.inc.php
-        if (! isset($error) || false === $error) {
+        if (! isset($_POST['error']) || false === $_POST['error']) {
             include 'libraries/mult_submits.inc.php';
         }
-        if (empty($message)) {
-            $message = PMA_Message::success();
+        if (empty($_POST['message'])) {
+            $_POST['message'] = PMA_Message::success();
         }
     }
     include 'libraries/db_common.inc.php';
