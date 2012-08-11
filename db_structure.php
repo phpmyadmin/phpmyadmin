@@ -70,10 +70,16 @@ $titles = $common_functions->buildActionTitles();
 // 1. No tables
 
 if ($num_tables == 0) {
-    echo '<p>' . __('No tables found in database') . '</p>' . "\n";
-
+    $response->addHTML(
+        '<p>' . __('No tables found in database') . '</p>' . "\n"
+    );
     if (empty($db_is_information_schema)) {
+        ob_start();
         include 'libraries/display_create_table.lib.php';
+        $content = ob_get_contents();
+        ob_end_clean();
+        $response->addHTML($content);
+        unset($content);
     } // end if (Create Table dialog)
     exit;
 }
@@ -84,7 +90,7 @@ if ($num_tables == 0) {
 /**
  * Displays the tables list
  */
-echo '<div id="tableslistcontainer">';
+$response->addHTML('<div id="tableslistcontainer">');
 $_url_params = array(
     'pos' => $pos,
     'db'  => $db);
@@ -98,17 +104,23 @@ if (isset($_REQUEST['sort_order'])) {
     $_url_params['sort_order'] = $_REQUEST['sort_order'];
 }
 
-echo $common_functions->getListNavigator(
-    $total_num_tables, $pos, $_url_params, 'db_structure.php',
-    'frame_content', $GLOBALS['cfg']['MaxTableList']
+$response->addHTML($common_functions->getListNavigator(
+        $total_num_tables, $pos, $_url_params, 'db_structure.php',
+        'frame_content', $GLOBALS['cfg']['MaxTableList']
+    )
 );
 
-?>
-<form method="post" action="db_structure.php" name="tablesForm" id="tablesForm">
-<?php
-echo PMA_generate_common_hidden_inputs($db);
+// tables form
+$response->addHTML(
+    '<form method="post" action="db_structure.php" '
+        . 'name="tablesForm" id="tablesForm">'
+);
 
-echo PMA_TableHeader($db_is_information_schema, $server_slave_status);
+$response->addHTML(PMA_generate_common_hidden_inputs($db));
+
+$response->addHTML(
+    PMA_TableHeader($db_is_information_schema, $server_slave_status)
+);
 
 $i = $sum_entries = 0;
 $overhead_check = '';
@@ -229,65 +241,74 @@ foreach ($tables as $keyname => $each_table) {
         $row_count = 1;
         $odd_row = true;
 
-        echo '</tr>'
+        $response->addHTML('</tr>'
             . '</tbody>'
-            . '</table>';
+            . '</table>');
 
-        echo PMA_TableHeader(false, $server_slave_status);
+        $response->addHTML(PMA_TableHeader(false, $server_slave_status));
     }
 
     list($do, $ignored) = PMA_getServerSlaveStatus(
         $server_slave_status, $truename
     );
     
-    echo PMA_getHtmlForStructureTableRow(
-        $i, $odd_row, $table_is_view, $each_table, $checked,
-        $browse_table_label, $tracking_icon,$server_slave_status,
-        $browse_table, $tbl_url_query, $search_table, $db_is_information_schema,
-        $titles, $empty_table,$drop_query, $drop_message, $collation,
-        $formatted_size, $unit, $overhead,
-        (isset ($create_time) ? $create_time : ''),
-        (isset ($update_time) ? $update_time : ''),
-        (isset ($check_time) ? $check_time : ''),
-        $is_show_stats, $ignored, $do, $colspan_for_structure
+    $response->addHTML(
+        PMA_getHtmlForStructureTableRow(
+            $i, $odd_row, $table_is_view, $each_table, $checked,
+            $browse_table_label, $tracking_icon,$server_slave_status,
+            $browse_table, $tbl_url_query, $search_table, $db_is_information_schema,
+            $titles, $empty_table,$drop_query, $drop_message, $collation,
+            $formatted_size, $unit, $overhead,
+            (isset ($create_time) ? $create_time : ''),
+            (isset ($update_time) ? $update_time : ''),
+            (isset ($check_time) ? $check_time : ''),
+            $is_show_stats, $ignored, $do, $colspan_for_structure
+        )
     );
     
 } // end foreach
 
 // Show Summary
-echo '</tbody>';
-echo PMA_getHtmlBodyForTableSummery(
-    $num_tables, $server_slave_status, $db_is_information_schema, $sum_entries,
-    $db_collation, $is_show_stats, $sum_size, $overhead_size, $create_time_all,
-    $update_time_all, $check_time_all, $sum_row_count_pre
+$response->addHTML('</tbody>');
+$response->addHTML(
+    PMA_getHtmlBodyForTableSummery(
+        $num_tables, $server_slave_status, $db_is_information_schema, $sum_entries,
+        $db_collation, $is_show_stats, $sum_size, $overhead_size, $create_time_all,
+        $update_time_all, $check_time_all, $sum_row_count_pre
+    )
 );
-echo '</table>';
+$response->addHTML('</table>');
 //check all
-echo PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir, 
-    $overhead_check, $db_is_information_schema, $hidden_fields
+$response->addHTML(
+    PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir, 
+        $overhead_check, $db_is_information_schema, $hidden_fields
+    )
 );
-echo '</form>';
+$response->addHTML('</form>'); //end of form
 
 // display again the table list navigator
-echo $common_functions->getListNavigator(
-    $total_num_tables, $pos, $_url_params, 'db_structure.php',
-    'frame_content', $GLOBALS['cfg']['MaxTableList']
+$response->addHTML(
+    $common_functions->getListNavigator(
+        $total_num_tables, $pos, $_url_params, 'db_structure.php',
+        'frame_content', $GLOBALS['cfg']['MaxTableList']
+    )
 );
-?>
-</div>
-<hr />
 
-<?php
+$response->addHTML('</div><hr />');
 
 /**
  * Work on the database
  */
 /* DATABASE WORK */
 /* Printable view of a table */
-echo PMA_getHtmlForPrintViewAndDataDictionaryLinks($url_query);
+$response->addHTML(PMA_getHtmlForPrintViewAndDataDictionaryLinks($url_query));
 
 if (empty($db_is_information_schema)) {
+    ob_start();
     include 'libraries/display_create_table.lib.php';
+    $content = ob_get_contents();
+    ob_end_clean();
+    $response->addHTML($content);
 } // end if (Create Table dialog)
 
 ?>
