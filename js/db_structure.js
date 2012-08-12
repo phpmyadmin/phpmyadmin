@@ -276,7 +276,7 @@ $(document).ready(function() {
         /**
          * @var question    String containing the question to be asked for confirmation
          */
-        var question = 'TRUNCATE ' + curr_table_name;
+        var question = 'TRUNCATE ' + escapeHtml(curr_table_name);
 
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function(url) {
 
