@@ -1329,5 +1329,81 @@ function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_information_schema,
     return $html_output;
 }
 
+/**
+ * Get HTML for "check all" check box with "with selected" actions in table structure
+ * 
+ * @param string $pmaThemeImage             pma theme image url
+ * @param string $text_dir                  test directory
+ * @param boolean $tbl_is_view              whether table is view or not
+ * @param boolean $db_is_information_schema whether db is information schema or not
+ * @param string $tbl_storage_engine        table storage engine
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForCheckAlltableColumn($pmaThemeImage, $text_dir,
+    $tbl_is_view, $db_is_information_schema, $tbl_storage_engine
+) {
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
+    $html_output = '<img class="selectallarrow" '
+        . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png' . '"'
+        . 'width="38" height="22" alt="' . __('With selected:') . '" />';
+    
+    $html_output .= '<input type="checkbox" id="checkall" '
+        . 'title="' . __('Check All') . '" />'
+        . '<label for="checkall">' . __('Check All') . '</label>';
+    
+    $html_output .= '<i style="margin-left: 2em">' 
+        . __('With selected:') . '</i>';
+    
+    $html_output .= $common_functions->getButtonOrImage(
+        'submit_mult', 'mult_submit', 'submit_mult_browse',
+        __('Browse'), 'b_browse.png', 'browse'
+    );
+
+    if (! $tbl_is_view && ! $db_is_information_schema) {
+        $html_output .= $common_functions->getButtonOrImage(
+            'submit_mult', 'mult_submit', 'submit_mult_change',
+            __('Change'), 'b_edit.png', 'change'
+        );
+        $html_output .= $common_functions->getButtonOrImage(
+            'submit_mult', 'mult_submit', 'submit_mult_drop',
+            __('Drop'), 'b_drop.png', 'drop'
+        );
+        if ('ARCHIVE' != $tbl_storage_engine) {
+            $html_output .= $common_functions->getButtonOrImage(
+                'submit_mult', 'mult_submit', 'submit_mult_primary',
+                __('Primary'), 'b_primary.png', 'primary'
+            );
+            $html_output .= $common_functions->getButtonOrImage(
+                'submit_mult', 'mult_submit', 'submit_mult_unique',
+                __('Unique'), 'b_unique.png', 'unique'
+            );
+            $html_output .= $common_functions->getButtonOrImage(
+                'submit_mult', 'mult_submit', 'submit_mult_index',
+                __('Index'), 'b_index.png', 'index'
+            );
+        }
+
+        if (! empty($tbl_storage_engine) && $tbl_storage_engine == 'MYISAM') {
+            $html_output .= $common_functions->getButtonOrImage(
+                'submit_mult', 'mult_submit', 'submit_mult_spatial',
+                __('Spatial'), 'b_spatial.png', 'spatial'
+            );
+        }
+        if (! empty($tbl_storage_engine)
+            && ($tbl_storage_engine == 'MYISAM'
+            || $tbl_storage_engine == 'ARIA'
+            || $tbl_storage_engine == 'MARIA')
+        ) {
+            $html_output .= $common_functions->getButtonOrImage(
+                'submit_mult', 'mult_submit', 'submit_mult_fulltext',
+                __('Fulltext'), 'b_ftext.png', 'ftext'
+            );
+        }
+    }
+    return $html_output;
+}
+
 ?>
  

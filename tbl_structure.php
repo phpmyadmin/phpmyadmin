@@ -516,63 +516,9 @@ foreach ($fields as $row) {
 echo '</tbody>' . "\n"
     .'</table>' . "\n";
 
-$checkall_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
-?>
-
-<img class="selectallarrow" src="<?php echo $pmaThemeImage . 'arrow_' . $text_dir . '.png'; ?>"
-    width="38" height="22" alt="<?php echo __('With selected:'); ?>" />
-<input type="checkbox" id="checkall" title="<?php echo __('Check All'); ?>" />
-<label for="checkall"><?php echo __('Check All'); ?></label>
-
-<i style="margin-left: 2em"><?php echo __('With selected:'); ?></i>
-
-<?php
-echo $common_functions->getButtonOrImage(
-    'submit_mult', 'mult_submit', 'submit_mult_browse',
-    __('Browse'), 'b_browse.png', 'browse'
+echo PMA_getHtmlForCheckAlltableColumn($pmaThemeImage, $text_dir,
+    $tbl_is_view, $db_is_information_schema, $tbl_storage_engine
 );
-
-if (! $tbl_is_view && ! $db_is_information_schema) {
-    echo $common_functions->getButtonOrImage(
-        'submit_mult', 'mult_submit', 'submit_mult_change',
-        __('Change'), 'b_edit.png', 'change'
-    );
-    echo $common_functions->getButtonOrImage(
-        'submit_mult', 'mult_submit', 'submit_mult_drop',
-        __('Drop'), 'b_drop.png', 'drop'
-    );
-    if ('ARCHIVE' != $tbl_storage_engine) {
-        echo $common_functions->getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_primary',
-            __('Primary'), 'b_primary.png', 'primary'
-        );
-        echo $common_functions->getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_unique',
-            __('Unique'), 'b_unique.png', 'unique'
-        );
-        echo $common_functions->getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_index',
-            __('Index'), 'b_index.png', 'index'
-        );
-    }
-
-    if (! empty($tbl_storage_engine) && $tbl_storage_engine == 'MYISAM') {
-        echo $common_functions->getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_spatial',
-            __('Spatial'), 'b_spatial.png', 'spatial'
-        );
-    }
-    if (! empty($tbl_storage_engine)
-        && ($tbl_storage_engine == 'MYISAM'
-        || $tbl_storage_engine == 'ARIA'
-        || $tbl_storage_engine == 'MARIA')
-    ) {
-        echo $common_functions->getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_fulltext',
-            __('Fulltext'), 'b_ftext.png', 'ftext'
-        );
-    }
-}
 ?>
 </form>
 <hr />
