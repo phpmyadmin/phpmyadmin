@@ -1195,5 +1195,138 @@ function PMA_getHtmlForTableStructureHeader(
     return $html_output;
 }
 
+/**
+ * Get HTML for structure table's rows and return $odd_row parameter also
+ * For "Action" Coulumn, this function contains only HTML code for "Change" and "Drop"
+ * 
+ * @param array $row                        current row
+ * @param boolean $odd_row                  whether current row is odd or even
+ * @param string $rownum                    row number
+ * @param string $checked                   checked
+ * @param string $displayed_field_name      displayed field name
+ * @param string $type_nowrap               type nowrap
+ * @param array $extracted_columnspec       associative array containing type, 
+ *                                          spec_in_brackets
+ *                                          and possibly enum_set_values (another array)
+ * @param string $type_mime                 mime type
+ * @param string $field_charset             field charset
+ * @param string $attribute                 attribute (BINARY, UNSIGNED, 
+ *                                          UNSIGNED ZEROFILL, on update CURRENT_TIMESTAMP)
+ * @param boolean $tbl_is_view              whether tables is view or not
+ * @param boolean $db_is_information_schema whether db is information schema or not
+ * @param string $url_query                 url query
+ * @param string $field_encoded             field encoded
+ * @param array $titles                     tittles array
+ * @param string $table                     table
+ * 
+ * @return array ($html_output, $odd_row)
+ */
+function PMA_getHtmlTableStructureRow($row, $odd_row, $rownum, $checked,
+    $displayed_field_name, $type_nowrap, $extracted_columnspec, $type_mime,
+    $field_charset, $attribute, $tbl_is_view, $db_is_information_schema,
+    $url_query, $field_encoded, $titles, $table
+) {
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
+    $html_output = '<tr class="' . ($odd_row ? 'odd': 'even') . '">';
+    $odd_row = !$odd_row; 
+    $html_output .= '<td class="center">'
+        . '<input type="checkbox" class="checkall" name="selected_fld[]" '
+        . 'value="' . htmlspecialchars($row['Field']) . '" '
+        . 'id="checkbox_row_' . $rownum . '"' . $checked . '/>'
+        . '</td>';
+    
+    $html_output .= '<td class="right">'
+        . $rownum
+        . '</td>';
+    
+    $html_output .= '<th class="nowrap">'
+        . '<label for="checkbox_row_' . $rownum . '">' 
+        . $displayed_field_name . '</label>'
+        . '</th>';
+    
+    $html_output .= '<td' . $type_nowrap . '>' 
+        .'<bdo dir="ltr" lang="en">'
+        . $extracted_columnspec['displayed_type'] . $type_mime 
+        . '</bdo></td>';
+    
+    $html_output .= '<td>' . 
+        (empty($field_charset) 
+            ? '' 
+            : '<dfn title="' . PMA_getCollationDescr($field_charset) . '">' 
+                . $field_charset . '</dfn>'
+        ) 
+        . '</td>';
+    
+    $html_output .= '<td class="column_attribute nowrap">'
+        . $attribute . '</td>';
+    $html_output .= '<td>' 
+        . (($row['Null'] == 'YES') ? __('Yes') : __('No')) . '  </td>';
+    
+    $html_output .= '<td class="nowrap">';
+    if (isset($row['Default'])) {
+        if ($extracted_columnspec['type'] == 'bit') {
+            // here, $row['Default'] contains something like b'010'
+            $html_output .= $common_functions->convertBitDefaultValue($row['Default']);
+        } else {
+            $html_output .= $row['Default'];
+        }
+    } else {
+        $html_output .= '<i>' . _pgettext('None for default', 'None') . '</i>';
+    }
+    $html_output .= '</td>';
+    
+    $html_output .= '<td class="nowrap">' . strtoupper($row['Extra']) . '</td>';
+    
+    $html_output .= PMA_getHtmlForDropColumn($tbl_is_view,
+        $db_is_information_schema, $url_query, $field_encoded,
+        $titles, $table, $row
+    );
+
+    return array($html_output, $odd_row);
+}
+
+/**
+ * Get HTML code for "Drop" Action link
+ * 
+ * @param boolean $tbl_is_view              whether tables is view or not
+ * @param boolean $db_is_information_schema whether db is information schema or not
+ * @param string $url_query                 url query
+ * @param string $field_encoded             field encoded
+ * @param array $titles                     tittles array
+ * @param string $table                     table
+ * @param array $row                        current row
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_information_schema,
+    $url_query, $field_encoded, $titles, $table, $row
+) {
+    $common_functions = PMA_CommonFunctions::getInstance();
+    $html_output = '';
+    
+    if (! $tbl_is_view && ! $db_is_information_schema) {
+        $html_output .= '<td class="edit center">'
+            . '<a href="tbl_alter.php?' . $url_query . '&amp;field=' . $field_encoded . '">'
+            . $titles['Change'] . '</a>' . '</td>';
+        $html_output .= '<td class="drop center">'
+            . '<a ' 
+            . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="drop_column_anchor"' : '') 
+            . ' href="sql.php?' . $url_query . '&amp;sql_query=' 
+            . urlencode('ALTER TABLE ' . $common_functions->backquote($table) 
+                . ' DROP ' . $common_functions->backquote($row['Field']) . ';'
+            ) 
+            . '&amp;dropped_column=' . urlencode($row['Field']) 
+            . '&amp;message_to_show=' . urlencode(sprintf(
+                __('Column %s has been dropped'),
+                htmlspecialchars($row['Field']))
+            ) . '" >'
+            . $titles['Drop'] . '</a>'
+            . '</td>';
+    }
+    
+    return $html_output;
+}
+
 ?>
  

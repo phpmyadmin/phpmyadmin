@@ -318,41 +318,16 @@ foreach ($fields as $row) {
         $displayed_field_name = '<u>' . $field_name . '</u>';
     }
     echo "\n";
-    ?>
-<tr class="<?php echo $odd_row ? 'odd': 'even'; $odd_row = !$odd_row; ?>">
-    <td class="center">
-        <input type="checkbox" class="checkall" name="selected_fld[]" value="<?php echo htmlspecialchars($row['Field']); ?>" id="checkbox_row_<?php echo $rownum; ?>" <?php echo $checked; ?> />
-    </td>
-    <td class="right">
-        <?php echo $rownum; ?>
-    </td>
-    <th class="nowrap"><label for="checkbox_row_<?php echo $rownum; ?>"><?php echo $displayed_field_name; ?></label></th>
-    <td<?php echo $type_nowrap; ?>><bdo dir="ltr" lang="en"><?php echo $extracted_columnspec['displayed_type']; echo $type_mime; ?></bdo></td>
-    <td><?php echo (empty($field_charset) ? '' : '<dfn title="' . PMA_getCollationDescr($field_charset) . '">' . $field_charset . '</dfn>'); ?></td>
-    <td class="column_attribute nowrap"><?php echo $attribute; ?></td>
-    <td><?php echo (($row['Null'] == 'YES') ? __('Yes') : __('No')); ?></td>
-    <td class="nowrap"><?php
-    if (isset($row['Default'])) {
-        if ($extracted_columnspec['type'] == 'bit') {
-            // here, $row['Default'] contains something like b'010'
-            echo $common_functions->convertBitDefaultValue($row['Default']);
-        } else {
-            echo $row['Default'];
-        }
-    } else {
-        echo '<i>' . _pgettext('None for default', 'None') . '</i>';
-    } ?></td>
-    <td class="nowrap"><?php echo strtoupper($row['Extra']); ?></td>
-    <?php if (! $tbl_is_view && ! $db_is_information_schema) { ?>
-    <td class="edit center">
-        <a href="tbl_alter.php?<?php echo $url_query; ?>&amp;field=<?php echo $field_encoded; ?>">
-            <?php echo $titles['Change']; ?></a>
-    </td>
-    <td class="drop center">
-        <a <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="drop_column_anchor"' : ''); ?> href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . $common_functions->backquote($table) . ' DROP ' . $common_functions->backquote($row['Field']) . ';'); ?>&amp;dropped_column=<?php echo urlencode($row['Field']); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('Column %s has been dropped'), htmlspecialchars($row['Field']))); ?>" >
-            <?php echo $titles['Drop']; ?></a>
-    </td>
-    <?php }
+    
+    list($html_output, $odd_row)
+        = PMA_getHtmlTableStructureRow($row, $odd_row, $rownum, $checked,
+            $displayed_field_name, $type_nowrap, $extracted_columnspec, $type_mime,
+            $field_charset, $attribute, $tbl_is_view, $db_is_information_schema,
+            $url_query, $field_encoded, $titles, $table
+        );
+    
+    echo $html_output;
+    
     if (! $tbl_is_view && ! $db_is_information_schema) { ?>
     <td class="primary replaced_by_more center">
         <?php
