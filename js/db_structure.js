@@ -335,7 +335,7 @@ $(document).ready(function() {
         } else {
             question += 'TABLE';
         }
-        question += ' ' + curr_table_name;
+        question += ' ' + escapeHtml(curr_table_name);
 
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function(url) {
 
