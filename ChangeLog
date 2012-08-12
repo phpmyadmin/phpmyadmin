@@ -116,6 +116,9 @@ phpMyAdmin - ChangeLog
 - bug #3497151 [interface] Duplicate inline query edit box
 - bug #3504567 [mime] Description of the transformation missing in the tooltip
 
+3.4.11.1 (2012-08-12)
+- [security] Fixed XSS vulnerabilities, see PMASA-2012-4
+
 3.4.11.0 (2012-04-14)
 - bug #3486970 [import] Exception on XML import
 - bug #3488777 [navi] $cfg['ShowTooltipAliasTB'] and blank names in navigation
