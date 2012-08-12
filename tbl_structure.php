@@ -529,18 +529,7 @@ echo PMA_getHtmlDivForMoveColumnsDialog();
  */
 
 if ($tbl_is_view) {
-    $create_view = PMA_DBI_get_definition($db, 'VIEW', $table);
-    $create_view = preg_replace('@^CREATE@', 'ALTER', $create_view);
-    echo $common_functions->linkOrButton(
-        'tbl_sql.php' . PMA_generate_common_url(
-            $url_params +
-            array(
-                'sql_query' => $create_view,
-                'show_query' => '1',
-            )
-        ),
-        $common_functions->getIcon('b_edit.png', __('Edit view'), true)
-    );
+    echo PMA_getHtmlForEditView($url_params);
 }
 ?>
 

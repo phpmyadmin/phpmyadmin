@@ -1429,6 +1429,31 @@ function PMA_getHtmlDivForMoveColumnsDialog()
     return $html_output;
 }
 
+/**
+ * Get HTML for edit views'
+ * 
+ * @param string $url_params
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForEditView($url_params)
+{
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
+    $create_view = PMA_DBI_get_definition($GLOBALS['db'], 'VIEW', $GLOBALS['table']);
+    $create_view = preg_replace('@^CREATE@', 'ALTER', $create_view);
+    $html_output = $common_functions->linkOrButton(
+        'tbl_sql.php' . PMA_generate_common_url(
+            $url_params +
+            array(
+                'sql_query' => $create_view,
+                'show_query' => '1',
+            )
+        ),
+        $common_functions->getIcon('b_edit.png', __('Edit view'), true)
+    );
+    return $html_output;
+}
 
 ?>
  
