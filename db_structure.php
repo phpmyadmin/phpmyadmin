@@ -132,7 +132,8 @@ $num_columns    = $cfg['PropertiesNumColumns'] > 1
     ? ceil($num_tables / $cfg['PropertiesNumColumns']) + 1
     : 0;
 $row_count      = 0;
-
+$sum_size       = (double) 0;
+$overhead_size  = (double) 0;
 
 $hidden_fields = array();
 $odd_row       = true;
@@ -141,6 +142,10 @@ $sum_row_count_pre = '';
 foreach ($tables as $keyname => $current_table) {
     // Get valid statistics whatever is the table type
 
+    $drop_query = '';
+    $drop_message = '';
+    $overhead = '';
+    
     $table_is_view = false;
     $table_encoded = urlencode($current_table['TABLE_NAME']);
     // Sets parameters for links
@@ -150,7 +155,7 @@ foreach ($tables as $keyname => $current_table) {
     list($current_table, $formatted_size, $unit, $formatted_overhead,
         $overhead_unit, $overhead_size, $table_is_view, $sum_size)
             = PMA_getStuffForEnginetable($current_table, $db_is_information_schema,
-                $is_show_stats, $table_is_view
+                $is_show_stats, $table_is_view, $sum_size, $overhead_size
             );
 
     if (! PMA_Table::isMerge($db, $current_table['TABLE_NAME'])) {

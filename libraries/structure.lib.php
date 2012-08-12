@@ -29,7 +29,8 @@ function PMA_getHtmlForActionLinks($current_table, $table_is_view, $tbl_url_quer
     $titles, $truename, $db_is_information_schema, $url_query
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
-
+    $empty_table = '';
+    
     if ($current_table['TABLE_ROWS'] > 0 || $table_is_view) {
         $may_have_rows = true;
     } else {
@@ -983,16 +984,15 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename) {
  * @param boolean $db_is_information_schema whether db is information schema or not
  * @param boolean $is_show_stats            whether stats show or not
  * @param boolean $table_is_view            whether table is view or not
+ * @param double $sum_size                  totla table size
+ * @param double $overhead_size             overhead size
  * 
  * @return array 
  */
 function PMA_getStuffForEnginetable($current_table, $db_is_information_schema,
-    $is_show_stats, $table_is_view
+    $is_show_stats, $table_is_view, $sum_size, $overhead_size
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
-    
-    $sum_size       = (double) 0;
-    $overhead_size  = (double) 0;
     $formatted_size = '-';
     $unit = '';
     $formatted_overhead = '';
@@ -1009,9 +1009,10 @@ function PMA_getStuffForEnginetable($current_table, $db_is_information_schema,
     case 'Aria' :
     case 'Maria' :
         list($current_table, $formatted_size, $unit, $formatted_overhead,
-        $overhead_unit, $overhead_size) = PMA_getValuesForAriaTable(
-            $db_is_information_schema, $current_table,
-            $is_show_stats, $sum_size, $overhead_size
+        $overhead_unit, $overhead_size, $sum_size) = PMA_getValuesForAriaTable(
+            $db_is_information_schema, $current_table, $is_show_stats,
+            $sum_size, $overhead_size, $formatted_size, $unit,
+            $formatted_overhead, $overhead_unit
         );
         break;
     case 'InnoDB' :
@@ -1078,7 +1079,8 @@ function PMA_getStuffForEnginetable($current_table, $db_is_information_schema,
  * @return array 
  */
 function PMA_getValuesForAriaTable($db_is_information_schema, $current_table,
-    $is_show_stats, $sum_size, $overhead_size
+    $is_show_stats, $sum_size, $overhead_size, $formatted_size, $unit,
+    $formatted_overhead, $overhead_unit
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
     if ($db_is_information_schema) {
@@ -1104,7 +1106,7 @@ function PMA_getValuesForAriaTable($db_is_information_schema, $current_table,
         }
     }
     return array($current_table, $formatted_size, $unit, $formatted_overhead,
-        $overhead_unit, $overhead_size
+        $overhead_unit, $overhead_size, $sum_size
     );
 }
 
