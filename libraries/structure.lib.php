@@ -1066,7 +1066,7 @@ function PMA_getStuffForEnginetable($current_table, $db_is_information_schema,
 }
 
 /**
- * Get values for ARIA tables
+ * Get values for ARIA/MARIA tables
  * $current_table, $formatted_size, $unit, $formatted_overhead,
  * $overhead_unit, $overhead_size
  * 
