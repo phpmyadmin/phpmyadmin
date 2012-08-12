@@ -1611,4 +1611,50 @@ function PMA_getHtmlForDisplayIndexes()
     return $html_output;
 }
 
+/**
+ * Get HTML snippet for table rows in the Information ->Space usage table
+ * 
+ * @param boolean $odd_row
+ * @param string $name
+ * @param string $value
+ * @param string $unit
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForSpaceUsageTableRow($odd_row, $name, $value, $unit)
+{
+    $html_output = '<tr class="' . (($odd_row = !$odd_row) ? 'odd' : 'even') . '">';
+    $html_output .= '<th class="name">' . $name . '</th>';
+    $html_output .= '<td class="value">' . $value . '</td>';
+    $html_output .= '<td class="unit">' . $unit . '</td>';
+    $html_output .= '</tr>';
+    
+    return $html_output;
+}
+
+/**
+ * Get HTML for Optimize link if overhead in Information fieldset
+ * 
+ * @param type $url_query   URL query
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForOptimizeLink($url_query)
+{
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
+    $html_output = '<tr class="tblFooters">';
+    $html_output .= '<td colspan="3" class="center">';
+    $html_output .= '<a href="sql.php?' . $url_query 
+        . '&pos=0&amp;sql_query=' . urlencode(
+            'OPTIMIZE TABLE ' . $common_functions->backquote($GLOBALS['table'])
+        )
+        . '">'
+        . $common_functions->getIcon('b_tbloptimize.png', __('Optimize table'))
+        . '</a>';
+    $html_output .= '</td>';
+    $html_output .= '</tr>';
+    
+    return $html_output;
+}
 ?>

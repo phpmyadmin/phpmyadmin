@@ -621,70 +621,52 @@ if ($cfg['ShowStats']) {
 
     // Displays them
     $odd_row = false;
-    ?>
 
-    <fieldset>
-    <legend><?php echo __('Information'); ?></legend>
-    <a id="showusage"></a>
-    <?php if (! $tbl_is_view && ! $db_is_information_schema) { ?>
-    <table id="tablespaceusage" class="data">
-    <caption class="tblHeaders"><?php echo __('Space usage'); ?></caption>
-    <tbody>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Data'); ?></th>
-        <td class="value"><?php echo $data_size; ?></td>
-        <td class="unit"><?php echo $data_unit; ?></td>
-    </tr>
-        <?php
+    echo '<fieldset>'
+        . '<legend>' . __('Information') . '</legend>'
+        . '<a id="showusage"></a>';
+    if (! $tbl_is_view && ! $db_is_information_schema) {
+        echo '<table id="tablespaceusage" class="data">'
+            . '<caption class="tblHeaders">' . __('Space usage') . '</caption>'
+            . '<tbody>';
+
+        echo PMA_getHtmlForSpaceUsageTableRow(
+            $odd_row, __('Data'), $data_size, $data_unit
+        );
+        
         if (isset($index_size)) {
-            ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Index'); ?></th>
-        <td class="value"><?php echo $index_size; ?></td>
-        <td class="unit"><?php echo $index_unit; ?></td>
-    </tr>
-            <?php
+            echo PMA_getHtmlForSpaceUsageTableRow(
+                $odd_row, __('Index'), $index_size, $index_unit
+            );
         }
+         
         if (isset($free_size)) {
-            ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?> error">
-        <th class="name"><?php echo __('Overhead'); ?></th>
-        <td class="value"><?php echo $free_size; ?></td>
-        <td class="unit"><?php echo $free_unit; ?></td>
-    </tr>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Effective'); ?></th>
-        <td class="value"><?php echo $effect_size; ?></td>
-        <td class="unit"><?php echo $effect_unit; ?></td>
-    </tr>
-            <?php
+            echo PMA_getHtmlForSpaceUsageTableRow(
+                $odd_row, __('Overhead'), $free_size, $free_unit
+            );
+            echo PMA_getHtmlForSpaceUsageTableRow(
+                $odd_row, __('Effective'), $effect_size, $effect_unit
+            );
         }
         if (isset($tot_size) && $mergetable == false) {
-            ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Total'); ?></th>
-        <td class="value"><?php echo $tot_size; ?></td>
-        <td class="unit"><?php echo $tot_unit; ?></td>
-    </tr>
-            <?php
+            echo PMA_getHtmlForSpaceUsageTableRow(
+                $odd_row, __('Total'), $tot_size, $tot_unit
+            );
         }
         // Optimize link if overhead
-        if (isset($free_size) && !PMA_DRIZZLE && ($tbl_storage_engine == 'MYISAM' || $tbl_storage_engine == 'ARIA' || $tbl_storage_engine == 'MARIA' || $tbl_storage_engine == 'BDB')) {
-            ?>
-    <tr class="tblFooters">
-        <td colspan="3" class="center">
-            <a href="sql.php?<?php echo $url_query; ?>&pos=0&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . $common_functions->backquote($table)); ?>"><?php
-            echo $common_functions->getIcon('b_tbloptimize.png', __('Optimize table'));
-            ?></a>
-        </td>
-    </tr>
-            <?php
+        if (isset($free_size) && !PMA_DRIZZLE 
+            && ($tbl_storage_engine == 'MYISAM' 
+                || $tbl_storage_engine == 'ARIA' 
+                || $tbl_storage_engine == 'MARIA' 
+                || $tbl_storage_engine == 'BDB'
+            )
+        ) {
+            echo PMA_getHtmlForOptimizeLink($url_query);
         }
-        ?>
-    </tbody>
-    </table>
-        <?php
+        echo '</tbody>'
+            . '</table>';
     }
+    
     $odd_row = false;
     ?>
     <table id="tablerowstats" class="data">
