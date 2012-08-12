@@ -116,7 +116,7 @@ $(function() {
     var chart_replot_timer = null;
     var is_timer_on = 0;
     var refresh_rate = 5000;
-    var data_points = 10;
+    var data_points = 12;
 
     /* Chart configuration */
     // Defines what the tabs are currently displaying (realtime or data)

@@ -1802,7 +1802,7 @@ function refreshList($name, $defaultRate=5, $refreshRates=Array(1, 2, 5, 10, 20,
 }
 
 /* Builds a <select> list for number of data points to be displayed */
-function getDataPointsNumberList($name, $defaultValue=10, $values=Array(10, 15, 20, 25, 30, 35, 40))
+function getDataPointsNumberList($name, $defaultValue=12, $values=Array(8, 10, 12, 15, 20, 25, 30, 40))
 {
     $html_output = '<select name="' . $name . '" id="id_' . $name . '" class="dataPointsNumber">';
             foreach ($values as $number) {
