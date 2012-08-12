@@ -1455,5 +1455,66 @@ function PMA_getHtmlForEditView($url_params)
     return $html_output;
 }
 
+/**
+ * Get HTML links for 'Print view', 'Relation view', 'Propose table structure',
+ * 'Track table' and 'Move columns'
+ * 
+ * @param string $url_query                 url query
+ * @param boolean $tbl_is_view              whether table is view or not
+ * @param boolean $db_is_information_schema whether db is information schema or not
+ * @param string $tbl_storage_engine        table storage engine
+ * @param array $cfgRelation                current relation parameters
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForSomeLinks($url_query, $tbl_is_view,
+    $db_is_information_schema, $tbl_storage_engine, $cfgRelation
+) {
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
+    $html_output = '<a href="tbl_printview.php?' . $url_query . '">'
+        . $common_functions->getIcon('b_print.png', __('Print view'), true)
+        . '</a>';
+    
+    if (! $tbl_is_view && ! $db_is_information_schema) {
+        // if internal relations are available, or foreign keys are supported
+        // ($tbl_storage_engine comes from libraries/tbl_info.inc.php
+        
+        if ($cfgRelation['relwork']
+            || $common_functions->isForeignKeySupported($tbl_storage_engine)
+        ) {
+            $html_output .= '<a href="tbl_relation.php?' . $url_query . '">'
+                . $common_functions->getIcon('b_relations.png', __('Relation view'), true)
+                . '</a>';
+        }
+        if (!PMA_DRIZZLE) {
+            $html_output .= '<a href="sql.php?' . $url_query 
+                . '&amp;session_max_rows=all&amp;sql_query=' . urlencode(
+                    'SELECT * FROM ' . $common_functions->backquote($GLOBALS['table']) 
+                        . ' PROCEDURE ANALYSE()'
+                ) . '">'
+                . $common_functions->getIcon(
+                    'b_tblanalyse.png', 
+                    __('Propose table structure'),
+                    true
+                )
+                . '</a>';
+            $html_output .= $common_functions->showMySQLDocu(
+                'Extending_MySQL', 'procedure_analyse'
+            ) . "\n";
+        }
+        if (PMA_Tracker::isActive()) {
+            $html_output .= '<a href="tbl_tracking.php?' . $url_query . '">'
+                . $common_functions->getIcon('eye.png', __('Track table'), true)
+                . '</a>';
+        }
+        $html_output .= '<a href="#" id="move_columns_anchor">'
+            . $common_functions->getIcon('b_move.png', __('Move columns'), true)
+            . '</a>';
+    }
+    
+    return $html_output;
+}
+
 ?>
  

@@ -531,46 +531,11 @@ echo PMA_getHtmlDivForMoveColumnsDialog();
 if ($tbl_is_view) {
     echo PMA_getHtmlForEditView($url_params);
 }
-?>
+echo PMA_getHtmlForSomeLinks($url_query, $tbl_is_view,
+    $db_is_information_schema, $tbl_storage_engine, $cfgRelation);
 
-<a href="tbl_printview.php?<?php echo $url_query; ?>"><?php
-echo $common_functions->getIcon('b_print.png', __('Print view'), true);
-?></a>
-
-<?php
 if (! $tbl_is_view && ! $db_is_information_schema) {
-
-    // if internal relations are available, or foreign keys are supported
-    // ($tbl_storage_engine comes from libraries/tbl_info.inc.php)
-    if ($cfgRelation['relwork']
-        || $common_functions->isForeignKeySupported($tbl_storage_engine)
-    ) {
-        ?>
-<a href="tbl_relation.php?<?php echo $url_query; ?>"><?php
-        echo $common_functions->getIcon('b_relations.png', __('Relation view'), true);
-        ?></a>
-        <?php
-    }
-
-    if (!PMA_DRIZZLE) {
-        ?>
-<a href="sql.php?<?php echo $url_query; ?>&amp;session_max_rows=all&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . $common_functions->backquote($table) . ' PROCEDURE ANALYSE()'); ?>"><?php
-        echo $common_functions->getIcon('b_tblanalyse.png', __('Propose table structure'), true);
-        ?></a><?php
-        echo $common_functions->showMySQLDocu('Extending_MySQL', 'procedure_analyse') . "\n";
-    }
-
-    if (PMA_Tracker::isActive()) {
-        echo '<a href="tbl_tracking.php?' . $url_query . '">';
-        echo $common_functions->getIcon('eye.png', __('Track table'), true);
-        echo '</a>';
-    }
-    ?>
-
-    <a href="#" id="move_columns_anchor"><?php
-    echo $common_functions->getIcon('b_move.png', __('Move columns'), true);
-    ?></a>
-
+?>
     <br />
 <form method="post" action="tbl_addfield.php" id="addColumns" name="addColumns" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '');?>
     onsubmit="return checkFormElementInRange(this, 'num_fields', '<?php echo str_replace('\'', '\\\'', __('You have to add at least one column.')); ?>', 1)">
