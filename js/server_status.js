@@ -372,23 +372,9 @@ $(function() {
         var interval = (((current_time - minX)/num) / 1000);
         interval = (num > 20) ? (((current_time - minX)/20) / 1000) : interval;
 
-        var title_message;
-        if(type == 'proc') {
-            title_message = PMA_messages['strChartConnectionsTitle'];
-        }
-        else if(type == 'queries') {
-            title_message = PMA_messages['strChartIssuedQueriesTitle'];
-        }
-        else if(type == 'traffic') {
-            title_message = PMA_messages['strChartServerTraffic'];
-        }
-        
         var settings = {
-            title: title_message,
             axes: {
                 xaxis: {
-                    label: PMA_messages['strChartIssuedQueries'],
-                    labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
                     renderer: $.jqplot.DateAxisRenderer,
                     tickOptions: {
                         formatString: '%H:%M:%S'
@@ -403,8 +389,36 @@ $(function() {
                     label: PMA_messages['strTotalCount'],
                     labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
                 }
+            },
+            legend: {
+                show: true,
+                location: 's',     // compass direction, nw, n, ne, e, se, s, sw, w.
+                xoffset: 12,        // pixel offset of the legend box from the x (or x2) axis.
+                yoffset: 12,        // pixel offset of the legend box from the y (or y2) axis.
             }
         };
+
+        var title_message;
+        var x_legend = new Array();
+        if(type == 'proc') {
+            title_message = PMA_messages['strChartConnectionsTitle'];
+            x_legend[0] = PMA_messages['strChartConnections'];
+            x_legend[1] = PMA_messages['strChartProcesses'];
+            settings.series = [ {label: x_legend[0]}, {label: x_legend[1]} ];
+        }
+        else if(type == 'queries') {
+            title_message = PMA_messages['strChartIssuedQueriesTitle'];
+            x_legend[0] = PMA_messages['strChartIssuedQueries'];
+            settings.series = [ {label: x_legend[0]} ];
+        }
+        else if(type == 'traffic') {
+            title_message = PMA_messages['strChartServerTraffic'];
+            x_legend[0] = PMA_messages['strChartKBSent'];
+            x_legend[1] = PMA_messages['strChartKBReceived'];
+            settings.series = [ {label: x_legend[0]}, {label: x_legend[1]} ];
+        }
+        settings.title = title_message;
+
         return settings;
     }
 
@@ -413,13 +427,13 @@ $(function() {
         if(type == 'proc' || type == 'traffic') {
             series[0].push(data_set[0]);
             series[1].push(data_set[1]);
+            $.jqplot($tab.attr('id') + '_chart_cnt', [series[0], series[1]], getSettings(data_points, type)).replot();
         }
         else if(type == 'queries') {
             // there is just one line to be plotted
             series[0].push(data_set[0]);
+            $.jqplot($tab.attr('id') + '_chart_cnt', [series[0]], getSettings(data_points, type)).replot();
         }
-
-        $.jqplot($tab.attr('id') + '_chart_cnt', [series[0], series[1]], getSettings(data_points, type)).replot();
     }
 
     function setupLiveChart($tab, link, settings) {
