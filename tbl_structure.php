@@ -537,11 +537,11 @@ echo PMA_getHtmlForSomeLinks($url_query, $tbl_is_view,
 if (! $tbl_is_view && ! $db_is_information_schema) {
     echo '<br />';
     echo PMA_getHtmlForAddColumn($columns_list);
-?>
-<iframe class="IE_hack"></iframe>
-<hr />
-<div id="index_div" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?> >
-    <?php
+    
+    echo '<iframe class="IE_hack"></iframe>'
+        . '<hr />';
+    echo '<div id="index_div" ' 
+        . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '') . ' >';
 }
 
 /**
@@ -552,29 +552,7 @@ if (! $tbl_is_view
     && ! $db_is_information_schema
     && 'ARCHIVE' !=  $tbl_storage_engine
 ) {
-    echo $common_functions->getDivForSliderEffect('indexes', __('Indexes'));
-
-    /**
-     * Display indexes
-     */
-    echo PMA_Index::getView($table, $db);
-    ?>
-        <fieldset class="tblFooters" style="text-align: left;">
-            <form action="tbl_indexes.php" method="post">
-                <?php
-                echo PMA_generate_common_hidden_inputs($db, $table);
-                echo sprintf(
-                    __('Create an index on &nbsp;%s&nbsp;columns'),
-                    '<input type="text" size="2" name="added_fields" value="1" />'
-                );
-                ?>
-                <input type="hidden" name="create_index" value="1" />
-                <input class="add_index<?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' ajax' : '');?>" type="submit" value="<?php echo __('Go'); ?>" />
-            </form>
-        </fieldset>
-    </div>
-</div>
-    <?php
+    echo PMA_getHtmlForDisplayIndexes();
 }
 
 /**
