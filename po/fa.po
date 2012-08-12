@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-10 12:59+0200\n"
-"PO-Revision-Date: 2012-08-03 00:13+0200\n"
+"PO-Revision-Date: 2012-08-11 04:26+0200\n"
 "Last-Translator: Ashiyane Digital Security Team <HeXa.ashiyane@gmail.com>\n"
-"Language-Team: Persian <http://l10n.cihar.com/projects/phpmyadmin/master/fa/"
-">\n"
+"Language-Team: Persian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2839,7 +2839,7 @@ msgstr ""
 
 #: libraries/File.class.php:279
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "فایل آپلود شده کاملا آپلود نشده."
 
 #: libraries/File.class.php:282
 msgid "Missing a temporary folder."
@@ -2865,7 +2865,7 @@ msgstr ""
 
 #: libraries/File.class.php:485
 msgid "Error while moving uploaded file."
-msgstr ""
+msgstr "خطا در موقع جابجا کردن فایل آپلود شده."
 
 #: libraries/File.class.php:493
 msgid "Cannot read (moved) upload file."
@@ -3059,11 +3059,11 @@ msgstr[1] ""
 
 #: libraries/PDF.class.php:88
 msgid "Error while creating PDF:"
-msgstr ""
+msgstr " PDF خطا در موقع درست کردن   "
 
 #: libraries/RecentTable.class.php:112
 msgid "Could not save recent table"
-msgstr ""
+msgstr "جدول اخیر ذخیره نشد"
 
 #: libraries/RecentTable.class.php:147
 msgid "Recent tables"
@@ -3071,7 +3071,7 @@ msgstr "جدول های اخیر"
 
 #: libraries/RecentTable.class.php:154
 msgid "There are no recent tables"
-msgstr ""
+msgstr "جدول های اخیری وجود ندارد."
 
 #: libraries/StorageEngine.class.php:214
 msgid ""
@@ -3095,7 +3095,7 @@ msgstr ""
 
 #: libraries/Table.class.php:345
 msgid "unknown table status: "
-msgstr ""
+msgstr " :وضعیت جدول ناشناس"
 
 #: libraries/Table.class.php:756
 #, fuzzy, php-format
@@ -3109,7 +3109,7 @@ msgstr "جستجو در پايگاه‌داده"
 
 #: libraries/Table.class.php:1191
 msgid "Invalid database"
-msgstr ""
+msgstr " پایگاه داده  نامعتبر "
 
 #: libraries/Table.class.php:1205 tbl_get_field.php:31
 msgid "Invalid table name"
