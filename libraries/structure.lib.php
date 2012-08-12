@@ -1405,5 +1405,30 @@ function PMA_getHtmlForCheckAlltableColumn($pmaThemeImage, $text_dir,
     return $html_output;
 }
 
+/**
+ * Get HTML for move columns dialog 
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlDivForMoveColumnsDialog()
+{
+    $html_output = '<div id="move_columns_dialog" ' 
+        . 'title="' . __('Move columns') . '" style="display: none">';
+    
+    $html_output .= '<p>'
+        . __('Move the columns by dragging them up and down.') . '</p>';
+
+    $html_output .= '<form action="tbl_alter.php">'
+        . '<div>'
+        . PMA_generate_common_hidden_inputs($GLOBALS['db'], $GLOBALS['table'])
+        . '<ul></ul>'
+        . '</div>'
+        . '</form>'
+        . '</div>';
+    
+    return $html_output;
+}
+
+
 ?>
  

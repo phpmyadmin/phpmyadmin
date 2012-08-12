@@ -519,22 +519,11 @@ echo '</tbody>' . "\n"
 echo PMA_getHtmlForCheckAlltableColumn($pmaThemeImage, $text_dir,
     $tbl_is_view, $db_is_information_schema, $tbl_storage_engine
 );
-?>
-</form>
-<hr />
 
-<div id="move_columns_dialog" title="<?php echo __('Move columns'); ?>" style="display: none">
-    <p><?php echo __('Move the columns by dragging them up and down.'); ?></p>
-    <form action="tbl_alter.php">
-        <div>
-            <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-            <ul>
-            </ul>
-        </div>
-    </form>
-</div>
+echo '</form>'
+    . '<hr />';
+echo PMA_getHtmlDivForMoveColumnsDialog();
 
-<?php
 /**
  * Work on the table
  */
