@@ -1198,7 +1198,7 @@ function PMA_getHtmlForTableStructureHeader(
 
 /**
  * Get HTML for structure table's rows and return $odd_row parameter also
- * For "Action" Coulumn, this function contains only HTML code for "Change" and "Drop"
+ * For "Action" Column, this function contains only HTML code for "Change" and "Drop"
  * 
  * @param array $row                        current row
  * @param boolean $odd_row                  whether current row is odd or even
