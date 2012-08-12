@@ -257,19 +257,18 @@ foreach ($tables as $keyname => $current_table) {
         $server_slave_status, $truename
     );
     
-    $response->addHTML(
-        PMA_getHtmlForStructureTableRow(
-            $i, $odd_row, $table_is_view, $current_table, $checked,
-            $browse_table_label, $tracking_icon,$server_slave_status,
-            $browse_table, $tbl_url_query, $search_table, $db_is_information_schema,
-            $titles, $empty_table,$drop_query, $drop_message, $collation,
-            $formatted_size, $unit, $overhead,
-            (isset ($create_time) ? $create_time : ''),
-            (isset ($update_time) ? $update_time : ''),
-            (isset ($check_time) ? $check_time : ''),
-            $is_show_stats, $ignored, $do, $colspan_for_structure
-        )
+    list($html_output, $odd_row) = PMA_getHtmlForStructureTableRow(
+        $i, $odd_row, $table_is_view, $current_table, $checked,
+        $browse_table_label, $tracking_icon,$server_slave_status,
+        $browse_table, $tbl_url_query, $search_table, $db_is_information_schema,
+        $titles, $empty_table,$drop_query, $drop_message, $collation,
+        $formatted_size, $unit, $overhead,
+        (isset ($create_time) ? $create_time : ''),
+        (isset ($update_time) ? $update_time : ''),
+        (isset ($check_time) ? $check_time : ''),
+        $is_show_stats, $ignored, $do, $colspan_for_structure
     );
+    $response->addHTML($html_output);
     
 } // end foreach
 

@@ -392,7 +392,8 @@ function PMA_getTimeForCreateUpdateCheck($current_table, $time_label, $time_all)
 }
 
 /**
- * Get HTML for each table row of the database structure table
+ * Get HTML for each table row of the database structure table,
+ * And this function returns $odd_row param also
  * 
  * @param integer $curr                         current entry
  * @param boolean $odd_row                      whether row is odd or not
@@ -422,7 +423,7 @@ function PMA_getTimeForCreateUpdateCheck($current_table, $time_label, $time_all)
  * @param boolean $do                           do
  * @param intger $colspan_for_structure         colspan for structure
  * 
- * @return string $html_output
+ * @return array $html_output, $odd_row
  */
 function PMA_getHtmlForStructureTableRow($curr, $odd_row, $table_is_view, $current_table,
     $checked, $browse_table_label, $tracking_icon,$server_slave_status,
@@ -496,7 +497,7 @@ function PMA_getHtmlForStructureTableRow($curr, $odd_row, $table_is_view, $curre
     } // end if (isset($current_table['TABLE_ROWS'])) else
     $html_output .= '</tr>';
     
-    return $html_output;
+    return array($html_output, $odd_row);
 }
 
 /**
