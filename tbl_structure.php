@@ -535,39 +535,9 @@ echo PMA_getHtmlForSomeLinks($url_query, $tbl_is_view,
     $db_is_information_schema, $tbl_storage_engine, $cfgRelation);
 
 if (! $tbl_is_view && ! $db_is_information_schema) {
+    echo '<br />';
+    echo PMA_getHtmlForAddColumn($columns_list);
 ?>
-    <br />
-<form method="post" action="tbl_addfield.php" id="addColumns" name="addColumns" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '');?>
-    onsubmit="return checkFormElementInRange(this, 'num_fields', '<?php echo str_replace('\'', '\\\'', __('You have to add at least one column.')); ?>', 1)">
-    <?php
-    echo PMA_generate_common_hidden_inputs($db, $table);
-    if ($cfg['PropertiesIconic']) {
-        echo $common_functions->getImage('b_insrow.png', __('Add column'));
-    }
-    echo sprintf(__('Add %s column(s)'), '<input type="text" name="num_fields" size="2" maxlength="2" value="1" onfocus="this.select()" />');
-
-    // I tried displaying the drop-down inside the label but with Firefox
-    // the drop-down was blinking
-    $column_selector = '<select name="after_field" onclick="this.form.field_where[2].checked=true" onchange="this.form.field_where[2].checked=true">';
-    foreach ($columns_list as $one_column_name) {
-        $column_selector .= '<option value="' . htmlspecialchars($one_column_name) . '">' . htmlspecialchars($one_column_name) . '</option>';
-    }
-    unset($columns_list, $one_column_name);
-    $column_selector .= '</select>';
-
-    $choices = array(
-        'last'  => __('At End of Table'),
-        'first' => __('At Beginning of Table'),
-        'after' => sprintf(__('After %s'), '')
-    );
-    echo $common_functions->getRadioFields(
-        'field_where', $choices, 'last', false
-    );
-    echo $column_selector;
-    unset($column_selector, $choices);
-    ?>
-<input type="submit" value="<?php echo __('Go'); ?>" />
-</form>
 <iframe class="IE_hack"></iframe>
 <hr />
 <div id="index_div" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?> >

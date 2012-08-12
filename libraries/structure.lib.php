@@ -1516,5 +1516,68 @@ function PMA_getHtmlForSomeLinks($url_query, $tbl_is_view,
     return $html_output;
 }
 
+/**
+ * Get HTML snippet for "Add column" feature in structure table
+ * 
+ * @param array $columns_list   column list array
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForAddColumn($columns_list)
+{
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
+    $html_output = '<form method="post" action="tbl_addfield.php" '
+        . 'id="addColumns" name="addColumns" ' 
+        . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '')
+        . 'onsubmit="return checkFormElementInRange('
+            . 'this, \'num_fields\', \'' . str_replace('\'',
+                '\\\'',
+                __('You have to add at least one column.')
+            ) . ', 1)'
+        . '">';
+    
+    $html_output .= PMA_generate_common_hidden_inputs(
+        $GLOBALS['db'],
+        $GLOBALS['table']
+    );
+    if ($GLOBALS['cfg']['PropertiesIconic']) {
+        $html_output .=$common_functions->getImage(
+            'b_insrow.png',
+            __('Add column')
+        );
+    }
+    $num_fields = '<input type="text" name="num_fields" size="2" '
+        . 'maxlength="2" value="1" onfocus="this.select()" />';
+    $html_output .= sprintf(__('Add %s column(s)'), $num_fields);
+    
+    // I tried displaying the drop-down inside the label but with Firefox
+    // the drop-down was blinking
+    $column_selector = '<select name="after_field" ' 
+        . 'onclick="this.form.field_where[2].checked=true" '
+        . 'onchange="this.form.field_where[2].checked=true">';
+    
+    foreach ($columns_list as $one_column_name) {
+        $column_selector .= '<option '
+            . 'value="' . htmlspecialchars($one_column_name) . '">' 
+            . htmlspecialchars($one_column_name) 
+            . '</option>';
+    }
+    $column_selector .= '</select>';
+
+    $choices = array(
+        'last'  => __('At End of Table'),
+        'first' => __('At Beginning of Table'),
+        'after' => sprintf(__('After %s'), '')
+    );
+    $html_output .= $common_functions->getRadioFields(
+        'field_where', $choices, 'last', false
+    );
+    $html_output .= $column_selector;
+    $html_output .= '<input type="submit" value="' . __('Go') . '" />'
+        . '</form>';
+    
+    return $html_output;
+}
+
 ?>
- 
