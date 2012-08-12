@@ -1614,10 +1614,10 @@ function PMA_getHtmlForDisplayIndexes()
 /**
  * Get HTML snippet for table rows in the Information ->Space usage table
  * 
- * @param boolean $odd_row
- * @param string $name
- * @param string $value
- * @param string $unit
+ * @param boolean $odd_row  whether current row is odd or even
+ * @param string $name      type of usage
+ * @param string $value     value of usage
+ * @param string $unit      unit
  * 
  * @return string $html_output
  */
@@ -1657,4 +1657,139 @@ function PMA_getHtmlForOptimizeLink($url_query)
     
     return $html_output;
 }
+
+/**
+ * Get HTML for 'Row statistics' table row
+ * 
+ * @param type $odd_row     whether current row is odd or even
+ * @param type $name        statement name
+ * @param type $value       value
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForRowStatstableRow($odd_row, $name, $value)
+{
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
+    $html_output = '<tr class="' . (($odd_row = !$odd_row) ? 'odd' : 'even') . '">';
+    $html_output .= '<th class="name">' . $name . '</th>';
+    $html_output .= '<td class="value">' . $value . '</td>';
+    $html_output .= '</tr>';
+    
+    return $html_output;
+}
+
+/**
+ * Get HTML snippet for display Row statistics table
+ * 
+ * @param array $showtable      show table array
+ * @param string $tbl_collation table collation
+ * @param boolean $is_innodb    whether table is innob or not
+ * @param boolean $mergetable   Checks if current table is a merge table
+ * 
+ * @return string $html_output
+ */
+function getHtmlForRowStatsTable($showtable, $tbl_collation,
+    $is_innodb, $mergetable
+) {
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
+    $odd_row = false;
+    $html_output = '<table id="tablerowstats" class="data">';
+    $html_output .= '<caption class="tblHeaders">' 
+        . __('Row Statistics') . '</caption>';
+    $html_output .= '<tbody>';
+    
+    if (isset($showtable['Row_format'])) {
+        if ($showtable['Row_format'] == 'Fixed') {
+            $value = __('static');
+        } elseif ($showtable['Row_format'] == 'Dynamic') {
+            $value = __('dynamic');
+        } else {
+            $value = $showtable['Row_format'];
+        }
+        $html_output .= PMA_getHtmlForRowStatstableRow(
+            $odd_row, __('Format'), $value
+        );
+        $odd_row = !$odd_row;
+    }
+    if (! empty($showtable['Create_options'])) {
+        if ($showtable['Create_options'] == 'partitioned') {
+            $value = __('partitioned');
+        } else {
+            $value = $showtable['Create_options'];
+        }
+        $html_output .= PMA_getHtmlForRowStatstableRow(
+            $odd_row, __('Options'), $value
+        );
+        $odd_row = !$odd_row;
+    }
+    if (!empty($tbl_collation)) {
+        $value = '<dfn title="' . PMA_getCollationDescr($tbl_collation) . '">' 
+            . $tbl_collation . '</dfn>';
+        $html_output .= PMA_getHtmlForRowStatstableRow(
+            $odd_row, __('Collation'), $value
+        );
+        $odd_row = !$odd_row;
+    }
+    if (!$is_innodb && isset($showtable['Rows'])) {
+        $html_output .= PMA_getHtmlForRowStatstableRow($odd_row,
+            __('Rows'), $common_functions->formatNumber($showtable['Rows'], 0)
+        );
+        $odd_row = !$odd_row;
+    }
+    if (!$is_innodb 
+        && isset($showtable['Avg_row_length']) 
+        && $showtable['Avg_row_length'] > 0
+    ) {
+        $html_output .= PMA_getHtmlForRowStatstableRow($odd_row, 
+            __('Row length'),
+            $common_functions->formatNumber($showtable['Avg_row_length'], 0)
+        );
+        $odd_row = !$odd_row;
+    }
+    if (!$is_innodb 
+        && isset($showtable['Data_length']) 
+        && $showtable['Rows'] > 0 
+        && $mergetable == false
+    ) {
+        $html_output .= PMA_getHtmlForRowStatstableRow($odd_row, 
+            __('Row size'), ($avg_size . ' ' . $avg_unit)
+        );
+        $odd_row = !$odd_row;
+    }
+    if (isset($showtable['Auto_increment'])) {
+        $html_output .= PMA_getHtmlForRowStatstableRow($odd_row, 
+            __('Next autoindex'),
+            $common_functions->formatNumber($showtable['Auto_increment'], 0)
+        );
+        $odd_row = !$odd_row;
+    }
+    if (isset($showtable['Create_time'])) {
+        $html_output .= PMA_getHtmlForRowStatstableRow($odd_row, 
+            __('Creation'),
+            $common_functions->localisedDate(strtotime($showtable['Create_time']))
+        );
+    }
+    if (isset($showtable['Update_time'])) {
+        $html_output .= PMA_getHtmlForRowStatstableRow($odd_row, 
+            __('Last update'),
+            $common_functions->localisedDate(strtotime($showtable['Update_time']))
+        );
+        $odd_row = !$odd_row;
+    }
+    if (isset($showtable['Check_time'])) {
+        $html_output .= PMA_getHtmlForRowStatstableRow($odd_row, 
+            __('Last check'),
+            $common_functions->localisedDate(strtotime($showtable['Check_time']))
+        );
+    }
+    $html_output .= '</tbody>'
+    . '</table>'
+    . '</fieldset>'
+    . '</div>';
+    
+    return $html_output;
+}
+
 ?>

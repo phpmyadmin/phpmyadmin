@@ -633,11 +633,13 @@ if ($cfg['ShowStats']) {
         echo PMA_getHtmlForSpaceUsageTableRow(
             $odd_row, __('Data'), $data_size, $data_unit
         );
+        $odd_row = !$odd_row;
         
         if (isset($index_size)) {
             echo PMA_getHtmlForSpaceUsageTableRow(
                 $odd_row, __('Index'), $index_size, $index_unit
             );
+            $odd_row = !$odd_row;
         }
          
         if (isset($free_size)) {
@@ -647,11 +649,13 @@ if ($cfg['ShowStats']) {
             echo PMA_getHtmlForSpaceUsageTableRow(
                 $odd_row, __('Effective'), $effect_size, $effect_unit
             );
+            $odd_row = !$odd_row;
         }
         if (isset($tot_size) && $mergetable == false) {
             echo PMA_getHtmlForSpaceUsageTableRow(
                 $odd_row, __('Total'), $tot_size, $tot_unit
             );
+            $odd_row = !$odd_row;
         }
         // Optimize link if overhead
         if (isset($free_size) && !PMA_DRIZZLE 
@@ -667,119 +671,12 @@ if ($cfg['ShowStats']) {
             . '</table>';
     }
     
-    $odd_row = false;
-    ?>
-    <table id="tablerowstats" class="data">
-    <caption class="tblHeaders"><?php echo __('Row Statistics'); ?></caption>
-    <tbody>
-    <?php
-    if (isset($showtable['Row_format'])) {
-        ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Format'); ?></th>
-        <td class="value"><?php
-        if ($showtable['Row_format'] == 'Fixed') {
-            echo __('static');
-        } elseif ($showtable['Row_format'] == 'Dynamic') {
-            echo __('dynamic');
-        } else {
-            echo $showtable['Row_format'];
-        }
-        ?></td>
-    </tr>
-        <?php
-    }
-    if (! empty($showtable['Create_options'])) {
-        ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Options'); ?></th>
-        <td class="value"><?php
-        if ($showtable['Create_options'] == 'partitioned') {
-            echo __('partitioned');
-        } else {
-            echo $showtable['Create_options'];
-        }
-        ?></td>
-    </tr>
-        <?php
-    }
-    if (!empty($tbl_collation)) {
-        ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Collation'); ?></th>
-        <td class="value"><?php
-            echo '<dfn title="' . PMA_getCollationDescr($tbl_collation) . '">' . $tbl_collation . '</dfn>';
-            ?></td>
-    </tr>
-        <?php
-    }
-    if (!$is_innodb && isset($showtable['Rows'])) {
-        ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Rows'); ?></th>
-        <td class="value"><?php echo $common_functions->formatNumber($showtable['Rows'], 0); ?></td>
-    </tr>
-        <?php
-    }
-    if (!$is_innodb && isset($showtable['Avg_row_length']) && $showtable['Avg_row_length'] > 0) {
-        ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Row length'); ?> &oslash;</th>
-        <td class="value"><?php echo $common_functions->formatNumber($showtable['Avg_row_length'], 0); ?></td>
-    </tr>
-        <?php
-    }
-    if (!$is_innodb && isset($showtable['Data_length']) && $showtable['Rows'] > 0 && $mergetable == false) {
-        ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Row size'); ?> &oslash;</th>
-        <td class="value"><?php echo $avg_size . ' ' . $avg_unit; ?></td>
-    </tr>
-        <?php
-    }
-    if (isset($showtable['Auto_increment'])) {
-        ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Next autoindex'); ?></th>
-        <td class="value"><?php echo $common_functions->formatNumber($showtable['Auto_increment'], 0); ?></td>
-    </tr>
-        <?php
-    }
-    if (isset($showtable['Create_time'])) {
-        ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Creation'); ?></th>
-        <td class="value"><?php echo $common_functions->localisedDate(strtotime($showtable['Create_time'])); ?></td>
-    </tr>
-        <?php
-    }
-    if (isset($showtable['Update_time'])) {
-        ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Last update'); ?></th>
-        <td class="value"><?php echo $common_functions->localisedDate(strtotime($showtable['Update_time'])); ?></td>
-    </tr>
-        <?php
-    }
-    if (isset($showtable['Check_time'])) {
-        ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Last check'); ?></th>
-        <td class="value"><?php echo $common_functions->localisedDate(strtotime($showtable['Check_time'])); ?></td>
-    </tr>
-        <?php
-    }
-    ?>
-    </tbody>
-    </table>
-    </fieldset>
-    <!-- close tablestatistics div -->
-    </div>
-
-    <?php
+    echo getHtmlForRowStatsTable($showtable, $tbl_collation,
+        $is_innodb, $mergetable
+    );
 }
 // END - Calc Table Space
 
 echo '<div class="clearfloat"></div>' . "\n";
-
+ 
 ?>
