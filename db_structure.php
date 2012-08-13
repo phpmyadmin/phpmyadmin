@@ -23,6 +23,19 @@ $scripts->addFile('tbl_change.js');
 $scripts->addFile('jquery/timepicker.js');
 $common_functions = PMA_CommonFunctions::getInstance();
 
+$post_params = array(
+    'error',
+    'is_info',
+    'message',
+    'mult_btn',
+    'selected_tbl',
+    'submit_mult'
+);
+foreach ($post_params as $one_post_param) {
+    if (isset($_POST[$one_post_param])) {
+        $GLOBALS[$one_post_param] = $_POST[$one_post_param];
+    }
+}
 /**
  * Prepares the tables list if the user where not redirected to this script
  * because there is no table in the database ($is_info is true)
