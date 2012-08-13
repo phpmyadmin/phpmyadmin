@@ -113,8 +113,6 @@ $(function() {
     var text = ''; // Holds filter text
     var queryPieChart = null;
     var monitorLoaded = false;
-    var chart_replot_timer = null;
-    var is_timer_on = 0;
     var refresh_rate = 5000;
     var data_points = 12;
 
@@ -123,6 +121,8 @@ $(function() {
     var tabStatus = new Object();
     // Holds the current chart instances for each tab
     var tabChart = new Object();
+    // Holds current live charts' timeouts
+    var chart_replot_timers = new Object();
 
     /*** Table sort tooltip ***/
     PMA_createqTip($('table.sortable thead th'), PMA_messages['strSortHint']);
@@ -193,16 +193,12 @@ $(function() {
 
 
     $('.buttonlinks .dataPointsNumber').change(function() {
-        if(is_timer_on) {
-            data_points = parseInt(this.value);
-        }
+        data_points = parseInt(this.value);
     });
 
     // Handles refresh rate changing
     $('.buttonlinks .refreshRate').change(function() {
-        if(is_timer_on) {
-            refresh_rate = 1000*parseInt(this.value);
-        }
+        refresh_rate = 1000*parseInt(this.value);
 
         var chart = tabChart[$(this).parents('div.ui-tabs-panel').attr('id')];
 
@@ -316,9 +312,8 @@ $(function() {
 
     function recursiveTimer($tab, type) {
             replotLiveChart($tab, type);
-            chart_replot_timer = setTimeout(function() {
+            chart_replot_timers[$tab.attr('id')] = setTimeout(function() {
                 recursiveTimer($tab, type) }, refresh_rate);
-            is_timer_on = 1;
     }
 
     function getCurrentDataSet(type) {
@@ -470,10 +465,7 @@ $(function() {
             $tab.find('.buttonlinks select').get(0).selectedIndex = 2;
             $tab.find('.buttonlinks .refreshList').hide();
         }
-        if(is_timer_on) {
-            clearTimeout(chart_replot_timer);
-            is_timer_on = 0;
-        }
+        clearTimeout(chart_replot_timers[$tab.attr('id')]);
         previous_y_line1 = 0;
         previous_y_line2 = 0;
         series = new Array();
