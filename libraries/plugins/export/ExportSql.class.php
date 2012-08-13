@@ -693,7 +693,11 @@ class ExportSql extends ExportPlugin
         global $crlf;
 
         $common_functions = PMA_CommonFunctions::getInstance();
-        $compat = (isset($GLOBALS['sql_compatibility'])) ? $GLOBALS['sql_compatibility'] : 'NONE';
+        if (isset($GLOBALS['sql_compatibility'])) {
+            $compat = $GLOBALS['sql_compatibility'];
+        } else {
+            $compat = 'NONE';
+        }
         if (isset($GLOBALS['sql_drop_database'])) {
             if (! PMA_exportOutputHandler(
                 'DROP DATABASE '
@@ -729,7 +733,8 @@ class ExportSql extends ExportPlugin
             || PMA_DRIZZLE)
         ) {
             $result = PMA_exportOutputHandler(
-                'USE ' . $common_functions->backquote_compat($db, $compat) . ';' . $crlf
+                'USE ' . $common_functions->backquote_compat($db, $compat)
+                . ';' . $crlf
             );
         } else {
             $result = PMA_exportOutputHandler('USE ' . $db . ';' . $crlf);
@@ -747,7 +752,11 @@ class ExportSql extends ExportPlugin
      */
     public function exportDBHeader($db)
     {
-        $compat = (isset($GLOBALS['sql_compatibility'])) ? $GLOBALS['sql_compatibility'] : 'NONE';
+        if (isset($GLOBALS['sql_compatibility'])) {
+            $compat = $GLOBALS['sql_compatibility'];
+        } else {
+            $compat = 'NONE';
+        }
         $head = $this->_exportComment()
             . $this->_exportComment(
                 __('Database') . ': '
@@ -894,7 +903,11 @@ class ExportSql extends ExportPlugin
         $auto_increment = '';
         $new_crlf = $crlf;
 
-        $compat = (isset($GLOBALS['sql_compatibility'])) ? $GLOBALS['sql_compatibility'] : 'NONE';
+        if (isset($GLOBALS['sql_compatibility'])) {
+            $compat = $GLOBALS['sql_compatibility'];
+        } else {
+            $compat = 'NONE';
+        }
 
         // need to use PMA_DBI_QUERY_STORE with PMA_DBI_num_rows() in mysqli
         $result = PMA_DBI_query(
@@ -1055,33 +1068,88 @@ class ExportSql extends ExportPlugin
             // In MSSQL
             // 1. DATE field doesn't exists, we will use DATETIME instead
             // 2. UNSIGNED attribute doesn't exist
-            // 3. No length on INT, TINYINT, SMALLINT, BIGINT and no precision on FLOAT fields
+            // 3. No length on INT, TINYINT, SMALLINT, BIGINT and no precision on
+            //    FLOAT fields
             // 4. No KEY and INDEX inside CREATE TABLE
             // 5. DOUBLE field doesn't exists, we will use FLOAT instead
             if ($compat == 'MSSQL') {
-                //first we need  to replace all lines ended with '" DATE ...,\n'
-                //last preg_replace preserve us from situation with date text inside DEFAULT field value
-                $create_query = preg_replace( "/\" date DEFAULT NULL(,)?\n/", '" datetime DEFAULT NULL$1'."\n", $create_query);
-                $create_query = preg_replace( "/\" date NOT NULL(,)?\n/", '" datetime NOT NULL$1'."\n", $create_query);
-                $create_query = preg_replace( '/" date NOT NULL DEFAULT \'([^\'])/', '" datetime NOT NULL DEFAULT \'$1', $create_query);
+                // first we need  to replace all lines ended with '" DATE ...,\n'
+                // last preg_replace preserve us from situation with date text
+                // inside DEFAULT field value
+                $create_query = preg_replace(
+                    "/\" date DEFAULT NULL(,)?\n/",
+                    '" datetime DEFAULT NULL$1' . "\n",
+                    $create_query
+                );
+                $create_query = preg_replace(
+                    "/\" date NOT NULL(,)?\n/",
+                    '" datetime NOT NULL$1' . "\n",
+                    $create_query
+                );
+                $create_query = preg_replace(
+                    '/" date NOT NULL DEFAULT \'([^\'])/',
+                    '" datetime NOT NULL DEFAULT \'$1',
+                    $create_query
+                );
 
-                //next we need to replace all lines ended with ') UNSIGNED ...,'
-                //last preg_replace preserve us from situation with unsigned text inside DEFAULT field value
-                $create_query = preg_replace( "/\) unsigned NOT NULL(,)?\n/", ') NOT NULL$1'."\n", $create_query);
-                $create_query = preg_replace( "/\) unsigned DEFAULT NULL(,)?\n/", ') DEFAULT NULL$1'."\n", $create_query);
-                $create_query = preg_replace( '/\) unsigned NOT NULL DEFAULT \'([^\'])/', ') NOT NULL DEFAULT \'$1', $create_query);
+                // next we need to replace all lines ended with ') UNSIGNED ...,'
+                // last preg_replace preserve us from situation with unsigned text
+                // inside DEFAULT field value
+                $create_query = preg_replace(
+                    "/\) unsigned NOT NULL(,)?\n/",
+                    ') NOT NULL$1' . "\n",
+                    $create_query
+                );
+                $create_query = preg_replace(
+                    "/\) unsigned DEFAULT NULL(,)?\n/",
+                    ') DEFAULT NULL$1' . "\n",
+                    $create_query
+                );
+                $create_query = preg_replace(
+                    '/\) unsigned NOT NULL DEFAULT \'([^\'])/',
+                    ') NOT NULL DEFAULT \'$1',
+                    $create_query
+                );
 
-                // we need to replace all lines ended with '" INT|TINYINT([0-9]{1,}) ...,'
-                //last preg_replace preserve us from situation with int([0-9]{1,}) text inside DEFAULT field value
-                $create_query = preg_replace( '/" (int|tinyint|smallint|bigint)\([0-9]+\) DEFAULT NULL(,)?\n/', '" $1 DEFAULT NULL$2'."\n", $create_query);
-                $create_query = preg_replace( '/" (int|tinyint|smallint|bigint)\([0-9]+\) NOT NULL(,)?\n/', '" $1 NOT NULL$2'."\n", $create_query);
-                $create_query = preg_replace( '/" (int|tinyint|smallint|bigint)\([0-9]+\) NOT NULL DEFAULT \'([^\'])/', '" $1 NOT NULL DEFAULT \'$2', $create_query);
+                // we need to replace all lines ended with
+                // '" INT|TINYINT([0-9]{1,}) ...,' last preg_replace preserve us
+                // from situation with int([0-9]{1,}) text inside DEFAULT field
+                // value
+                $create_query = preg_replace(
+                    '/" (int|tinyint|smallint|bigint)\([0-9]+\) DEFAULT NULL(,)?\n/',
+                    '" $1 DEFAULT NULL$2' . "\n",
+                    $create_query
+                );
+                $create_query = preg_replace(
+                    '/" (int|tinyint|smallint|bigint)\([0-9]+\) NOT NULL(,)?\n/',
+                    '" $1 NOT NULL$2' . "\n",
+                    $create_query
+                );
+                $create_query = preg_replace(
+                    '/" (int|tinyint|smallint|bigint)\([0-9]+\) NOT NULL DEFAULT \'([^\'])/',
+                    '" $1 NOT NULL DEFAULT \'$2',
+                    $create_query
+                );
 
-                // we need to replace all lines ended with '" FLOAT|DOUBLE([0-9,]{1,}) ...,'
-                //last preg_replace preserve us from situation with float([0-9,]{1,}) text inside DEFAULT field value
-                $create_query = preg_replace( '/" (float|double)(\([0-9]+,[0-9,]+\))? DEFAULT NULL(,)?\n/', '" float DEFAULT NULL$3'."\n", $create_query);
-                $create_query = preg_replace( '/" (float|double)(\([0-9,]+,[0-9,]+\))? NOT NULL(,)?\n/', '" float NOT NULL$3'."\n", $create_query);
-                $create_query = preg_replace( '/" (float|double)(\([0-9,]+,[0-9,]+\))? NOT NULL DEFAULT \'([^\'])/', '" float NOT NULL DEFAULT \'$3', $create_query);
+                // we need to replace all lines ended with
+                // '" FLOAT|DOUBLE([0-9,]{1,}) ...,'
+                // last preg_replace preserve us from situation with
+                // float([0-9,]{1,}) text inside DEFAULT field value
+                $create_query = preg_replace(
+                    '/" (float|double)(\([0-9]+,[0-9,]+\))? DEFAULT NULL(,)?\n/',
+                    '" float DEFAULT NULL$3' . "\n",
+                    $create_query
+                );
+                $create_query = preg_replace(
+                    '/" (float|double)(\([0-9,]+,[0-9,]+\))? NOT NULL(,)?\n/',
+                    '" float NOT NULL$3' . "\n",
+                    $create_query
+                );
+                $create_query = preg_replace(
+                    '/" (float|double)(\([0-9,]+,[0-9,]+\))? NOT NULL DEFAULT \'([^\'])/',
+                    '" float NOT NULL DEFAULT \'$3',
+                    $create_query
+                );
 
                 // @todo remove indexes from CREATE TABLE
             }
@@ -1152,12 +1220,15 @@ class ExportSql extends ExportPlugin
 
                     // let's do the work
                     $sql_constraints_query .= 'ALTER TABLE '
-                        . $common_functions->backquote_compat($table, $compat) . $crlf;
+                        . $common_functions->backquote_compat($table, $compat)
+                        . $crlf;
                     $sql_constraints .= 'ALTER TABLE '
-                        . $common_functions->backquote_compat($table,  $compat) . $crlf;
+                        . $common_functions->backquote_compat($table,  $compat)
+                        . $crlf;
                     $sql_drop_foreign_keys .= 'ALTER TABLE '
                         . $common_functions->backquote_compat($db, $compat) . '.'
-                        . $common_functions->backquote_compat($table, $compat) . $crlf;
+                        . $common_functions->backquote_compat($table, $compat)
+                        . $crlf;
 
                     $first = true;
                     for ($j = $i; $j < $sql_count; $j++) {
@@ -1373,7 +1444,11 @@ class ExportSql extends ExportPlugin
     ) {
 
         $common_functions = PMA_CommonFunctions::getInstance();
-        $compat = (isset($GLOBALS['sql_compatibility'])) ? $GLOBALS['sql_compatibility'] : 'NONE';
+        if (isset($GLOBALS['sql_compatibility'])) {
+            $compat = $GLOBALS['sql_compatibility'];
+        } else {
+            $compat = 'NONE';
+        }
 
         $formatted_table_name = (isset($GLOBALS['sql_backquotes']))
             ? $common_functions->backquote_compat($table, $compat) : '\'' . $table . '\'';
@@ -1459,7 +1534,11 @@ class ExportSql extends ExportPlugin
     {
         global $current_row, $sql_backquotes;
 
-        $compat = (isset($GLOBALS['sql_compatibility'])) ? $GLOBALS['sql_compatibility'] : 'NONE';
+        if (isset($GLOBALS['sql_compatibility'])) {
+            $compat = $GLOBALS['sql_compatibility'];
+        } else {
+            $compat = 'NONE';
+        }
 
         $common_functions = PMA_CommonFunctions::getInstance();
         $formatted_table_name = (isset($GLOBALS['sql_backquotes']))
