@@ -121,6 +121,7 @@ $(function() {
     var tabStatus = new Object();
     // Holds the current chart instances for each tab
     var tabChart = new Object();
+    var currentCharts = new Object();
     // Holds current live charts' timeouts
     var chart_replot_timers = new Object();
 
@@ -259,6 +260,7 @@ $(function() {
             
             setupLiveChart($tab, this, getSettings(data_points, 'traffic'));
             var set_previous = getCurrentDataSet($tab, 'traffic');
+            currentCharts[$tab.attr('id')] = $.jqplot($tab.attr('id') + '_chart_cnt', [[[0,0]],[[0,0]]], getSettings('traffic'));
             recursiveTimer($tab, 'traffic');
             if (tabstat == 'liveconnections') {
                 $tab.find('.buttonlinks a.liveconnectionsLink').html(PMA_messages['strLiveConnChart']);
@@ -281,6 +283,7 @@ $(function() {
 
             setupLiveChart($tab, this, getSettings(data_points, 'proc'));
             var set_previous = getCurrentDataSet($tab, 'proc');
+            currentCharts[$tab.attr('id')] = $.jqplot($tab.attr('id') + '_chart_cnt', [[[0,0]],[[0,0]]], getSettings('proc'));
             recursiveTimer($tab, 'proc');
             if (tabstat == 'livetraffic') {
                 $tab.find('.buttonlinks a.livetrafficLink').html(PMA_messages['strLiveTrafficChart']);
@@ -301,6 +304,7 @@ $(function() {
 
             setupLiveChart($tab, this, getSettings(data_points, 'queries'));
             var set_previous = getCurrentDataSet($tab, 'queries');
+            currentCharts[$tab.attr('id')] = $.jqplot($tab.attr('id') + '_chart_cnt', [[0,0]], getSettings('queries'));
             recursiveTimer($tab, 'queries');
             tabStatus[$tab.attr('id')] = 'livequeries';
 
@@ -361,12 +365,7 @@ $(function() {
         return retval;
     }
 
-    function getSettings(num, type) {
-        var current_time = new Date().getTime();
-        // Min X would be decided based on refresh rate and number of data points
-        var minX = current_time - (refresh_rate * num);
-        var interval = (((current_time - minX)/num) / 1000);
-        interval = (num > 20) ? (((current_time - minX)/20) / 1000) : interval;
+    function getSettings(type) {
 
         var settings = {
             axes: {
@@ -374,14 +373,10 @@ $(function() {
                     renderer: $.jqplot.DateAxisRenderer,
                     tickOptions: {
                         formatString: '%H:%M:%S'
-                    },
-                    min: minX,
-                    // Make the right boundary of chart as current time
-                    max: current_time,
-                    tickInterval: interval + " seconds"
+                    }
                 },
                 yaxis: {
-                    min:0,
+                    autoscale:true,
                     label: PMA_messages['strTotalCount'],
                     labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
                 }
@@ -423,13 +418,28 @@ $(function() {
         if(type == 'proc' || type == 'traffic') {
             series[$tab.attr('id')][0].push(data_set[0]);
             series[$tab.attr('id')][1].push(data_set[1]);
-            $.jqplot($tab.attr('id') + '_chart_cnt', [series[$tab.attr('id')][0], series[$tab.attr('id')][1]], getSettings(data_points, type)).replot();
+            // update data set
+            currentCharts[$tab.attr('id')].series[0].data = series[$tab.attr('id')][0];
+            currentCharts[$tab.attr('id')].series[1].data = series[$tab.attr('id')][1];
         }
         else if(type == 'queries') {
             // there is just one line to be plotted
             series[$tab.attr('id')][0].push(data_set[0]);
-            $.jqplot($tab.attr('id') + '_chart_cnt', [series[$tab.attr('id')][0]], getSettings(data_points, type)).replot();
+            // update data set
+            currentCharts[$tab.attr('id')].series[0].data = series[$tab.attr('id')][0];
         }
+        currentCharts[$tab.attr('id')].resetAxesScale();
+        var current_time = new Date().getTime();
+        // Min X would be decided based on refresh rate and number of data points
+        var minX = current_time - (refresh_rate * data_points);
+        var interval = (((current_time - minX)/data_points) / 1000);
+        interval = (data_points > 20) ? (((current_time - minX)/20) / 1000) : interval;
+        // update chart options
+        currentCharts[$tab.attr('id')]['axes']['xaxis']['max'] = current_time;
+        currentCharts[$tab.attr('id')]['axes']['xaxis']['min'] = minX;
+        currentCharts[$tab.attr('id')]['axes']['xaxis']['tickInterval'] = interval + " seconds";
+        // replot
+        currentCharts[$tab.attr('id')].replot();
     }
 
     function setupLiveChart($tab, link, settings) {
