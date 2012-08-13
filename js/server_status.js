@@ -244,9 +244,10 @@ $(function() {
 
     /** Realtime charting of variables **/
 
-    var previous_y_line1;
-    var previous_y_line2;
-    var series;
+    // variables to hold previous y data value to calculate difference
+    var previous_y_line1 = new Object();
+    var previous_y_line2 = new Object();
+    var series = new Object();
 
     // Live traffic charting
     $('.buttonlinks a.livetrafficLink').click(function() {
@@ -257,7 +258,7 @@ $(function() {
         if (tabstat == 'static' || tabstat == 'liveconnections') {
             
             setupLiveChart($tab, this, getSettings(data_points, 'traffic'));
-            var set_previous = getCurrentDataSet('traffic');
+            var set_previous = getCurrentDataSet($tab, 'traffic');
             recursiveTimer($tab, 'traffic');
             if (tabstat == 'liveconnections') {
                 $tab.find('.buttonlinks a.liveconnectionsLink').html(PMA_messages['strLiveConnChart']);
@@ -279,7 +280,7 @@ $(function() {
         if (tabstat == 'static' || tabstat == 'livetraffic') {
 
             setupLiveChart($tab, this, getSettings(data_points, 'proc'));
-            var set_previous = getCurrentDataSet('proc');
+            var set_previous = getCurrentDataSet($tab, 'proc');
             recursiveTimer($tab, 'proc');
             if (tabstat == 'livetraffic') {
                 $tab.find('.buttonlinks a.livetrafficLink').html(PMA_messages['strLiveTrafficChart']);
@@ -299,7 +300,7 @@ $(function() {
         if (tabStatus[$tab.attr('id')] == 'static') {
 
             setupLiveChart($tab, this, getSettings(data_points, 'queries'));
-            var set_previous = getCurrentDataSet('queries');
+            var set_previous = getCurrentDataSet($tab, 'queries');
             recursiveTimer($tab, 'queries');
             tabStatus[$tab.attr('id')] = 'livequeries';
 
@@ -316,7 +317,7 @@ $(function() {
                 recursiveTimer($tab, type) }, refresh_rate);
     }
 
-    function getCurrentDataSet(type) {
+    function getCurrentDataSet($tab, type) {
         var ret = null;
         var line1 = null;
         var line2 = null;
@@ -339,21 +340,21 @@ $(function() {
         });
         // get data based on chart type
         if(type == 'proc') {
-            line1 = [ret.x, ret.y_conn - previous_y_line1];
+            line1 = [ret.x, ret.y_conn - previous_y_line1[$tab.attr('id')]];
             line2 = [ret.x, ret.y_proc];
-            previous_y_line1 = ret.y_conn;
+            previous_y_line1[$tab.attr('id')] = ret.y_conn;
         }
         else if(type == 'queries') {
-            line1 = [ret.x, ret.y-previous_y_line1];
-            previous_y_line1 = ret.y;    
+            line1 = [ret.x, ret.y-previous_y_line1[$tab.attr('id')]];
+            previous_y_line1[$tab.attr('id')] = ret.y;
         }
         else if(type == 'traffic') {
             ret.y_sent = ret.y_sent/1024;
             ret.y_received = ret.y_received/1024;            
-            line1 = [ret.x, ret.y_sent - previous_y_line1];
-            line2 = [ret.x, ret.y_received - previous_y_line2];
-            previous_y_line1 = ret.y_sent;
-            previous_y_line2 = ret.y_received;
+            line1 = [ret.x, ret.y_sent - previous_y_line1[$tab.attr('id')]];
+            line2 = [ret.x, ret.y_received - previous_y_line2[$tab.attr('id')]];
+            previous_y_line1[$tab.attr('id')] = ret.y_sent;
+            previous_y_line2[$tab.attr('id')] = ret.y_received;
         }
 
         retval = [line1, line2];
@@ -418,16 +419,16 @@ $(function() {
     }
 
     function replotLiveChart($tab, type) {
-        var data_set = getCurrentDataSet(type);
+        var data_set = getCurrentDataSet($tab, type);
         if(type == 'proc' || type == 'traffic') {
-            series[0].push(data_set[0]);
-            series[1].push(data_set[1]);
-            $.jqplot($tab.attr('id') + '_chart_cnt', [series[0], series[1]], getSettings(data_points, type)).replot();
+            series[$tab.attr('id')][0].push(data_set[0]);
+            series[$tab.attr('id')][1].push(data_set[1]);
+            $.jqplot($tab.attr('id') + '_chart_cnt', [series[$tab.attr('id')][0], series[$tab.attr('id')][1]], getSettings(data_points, type)).replot();
         }
         else if(type == 'queries') {
             // there is just one line to be plotted
-            series[0].push(data_set[0]);
-            $.jqplot($tab.attr('id') + '_chart_cnt', [series[0]], getSettings(data_points, type)).replot();
+            series[$tab.attr('id')][0].push(data_set[0]);
+            $.jqplot($tab.attr('id') + '_chart_cnt', [series[$tab.attr('id')][0]], getSettings(data_points, type)).replot();
         }
     }
 
@@ -466,11 +467,11 @@ $(function() {
             $tab.find('.buttonlinks .refreshList').hide();
         }
         clearTimeout(chart_replot_timers[$tab.attr('id')]);
-        previous_y_line1 = 0;
-        previous_y_line2 = 0;
-        series = new Array();
-        series[0] = new Array();
-        series[1] = new Array();
+        previous_y_line1[$tab.attr('id')] = 0;
+        previous_y_line2[$tab.attr('id')] = 0;
+        series[$tab.attr('id')] = new Array();
+        series[$tab.attr('id')][0] = new Array();
+        series[$tab.attr('id')][1] = new Array();
     }
 
     /* 3 Filtering functions */
