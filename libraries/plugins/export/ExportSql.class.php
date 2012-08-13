@@ -693,12 +693,12 @@ class ExportSql extends ExportPlugin
         global $crlf;
 
         $common_functions = PMA_CommonFunctions::getInstance();
-
+        $compat = (isset($GLOBALS['sql_compatibility'])) ? $GLOBALS['sql_compatibility'] : 'NONE';
         if (isset($GLOBALS['sql_drop_database'])) {
             if (! PMA_exportOutputHandler(
                 'DROP DATABASE '
                 . (isset($GLOBALS['sql_backquotes'])
-                ? $common_functions->backquote($db) : $db)
+                ? $common_functions->backquote_compat($db, $compat) : $db)
                 . ';' . $crlf
             )) {
                 return false;
@@ -706,7 +706,7 @@ class ExportSql extends ExportPlugin
         }
         $create_query = 'CREATE DATABASE '
             . (isset($GLOBALS['sql_backquotes'])
-            ? $common_functions->backquote($db) : $db);
+            ? $common_functions->backquote_compat($db, $compat) : $db);
         $collation = PMA_getDbCollation($db);
         if (PMA_DRIZZLE) {
             $create_query .= ' COLLATE ' . $collation;
@@ -729,7 +729,7 @@ class ExportSql extends ExportPlugin
             || PMA_DRIZZLE)
         ) {
             $result = PMA_exportOutputHandler(
-                'USE ' . $common_functions->backquote($db) . ';' . $crlf
+                'USE ' . $common_functions->backquote_compat($db, $compat) . ';' . $crlf
             );
         } else {
             $result = PMA_exportOutputHandler('USE ' . $db . ';' . $crlf);
@@ -747,11 +747,12 @@ class ExportSql extends ExportPlugin
      */
     public function exportDBHeader($db)
     {
+        $compat = (isset($GLOBALS['sql_compatibility'])) ? $GLOBALS['sql_compatibility'] : 'NONE';
         $head = $this->_exportComment()
             . $this->_exportComment(
                 __('Database') . ': '
                 . (isset($GLOBALS['sql_backquotes'])
-                ? PMA_CommonFunctions::getInstance()->backquote($db)
+                ? PMA_CommonFunctions::getInstance()->backquote_compat($db, $compat)
                 : '\'' . $db . '\'')
             )
             . $this->_exportComment();
@@ -892,6 +893,8 @@ class ExportSql extends ExportPlugin
         $schema_create = '';
         $auto_increment = '';
         $new_crlf = $crlf;
+
+        $compat = (isset($GLOBALS['sql_compatibility'])) ? $GLOBALS['sql_compatibility'] : 'NONE';
 
         // need to use PMA_DBI_QUERY_STORE with PMA_DBI_num_rows() in mysqli
         $result = PMA_DBI_query(
@@ -1040,12 +1043,47 @@ class ExportSql extends ExportPlugin
             }
 
             // Should we use IF NOT EXISTS?
-            if (isset($GLOBALS['sql_if_not_exists'])) {
+            // It always must be OFF for MSSQL compatibility mode
+            if (isset($GLOBALS['sql_if_not_exists']) && $compat != 'MSSQL') {
                 $create_query = preg_replace(
                     '/^CREATE TABLE/',
                     'CREATE TABLE IF NOT EXISTS',
                     $create_query
                 );
+            }
+
+            // In MSSQL
+            // 1. DATE field doesn't exists, we will use DATETIME instead
+            // 2. UNSIGNED attribute doesn't exist
+            // 3. No length on INT, TINYINT, SMALLINT, BIGINT and no precision on FLOAT fields
+            // 4. No KEY and INDEX inside CREATE TABLE
+            // 5. DOUBLE field doesn't exists, we will use FLOAT instead
+            if ($compat == 'MSSQL') {
+                //first we need  to replace all lines ended with '" DATE ...,\n'
+                //last preg_replace preserve us from situation with date text inside DEFAULT field value
+                $create_query = preg_replace( "/\" date DEFAULT NULL(,)?\n/", '" datetime DEFAULT NULL$1'."\n", $create_query);
+                $create_query = preg_replace( "/\" date NOT NULL(,)?\n/", '" datetime NOT NULL$1'."\n", $create_query);
+                $create_query = preg_replace( '/" date NOT NULL DEFAULT \'([^\'])/', '" datetime NOT NULL DEFAULT \'$1', $create_query);
+
+                //next we need to replace all lines ended with ') UNSIGNED ...,'
+                //last preg_replace preserve us from situation with unsigned text inside DEFAULT field value
+                $create_query = preg_replace( "/\) unsigned NOT NULL(,)?\n/", ') NOT NULL$1'."\n", $create_query);
+                $create_query = preg_replace( "/\) unsigned DEFAULT NULL(,)?\n/", ') DEFAULT NULL$1'."\n", $create_query);
+                $create_query = preg_replace( '/\) unsigned NOT NULL DEFAULT \'([^\'])/', ') NOT NULL DEFAULT \'$1', $create_query);
+
+                // we need to replace all lines ended with '" INT|TINYINT([0-9]{1,}) ...,'
+                //last preg_replace preserve us from situation with int([0-9]{1,}) text inside DEFAULT field value
+                $create_query = preg_replace( '/" (int|tinyint|smallint|bigint)\([0-9]+\) DEFAULT NULL(,)?\n/', '" $1 DEFAULT NULL$2'."\n", $create_query);
+                $create_query = preg_replace( '/" (int|tinyint|smallint|bigint)\([0-9]+\) NOT NULL(,)?\n/', '" $1 NOT NULL$2'."\n", $create_query);
+                $create_query = preg_replace( '/" (int|tinyint|smallint|bigint)\([0-9]+\) NOT NULL DEFAULT \'([^\'])/', '" $1 NOT NULL DEFAULT \'$2', $create_query);
+
+                // we need to replace all lines ended with '" FLOAT|DOUBLE([0-9,]{1,}) ...,'
+                //last preg_replace preserve us from situation with float([0-9,]{1,}) text inside DEFAULT field value
+                $create_query = preg_replace( '/" (float|double)(\([0-9]+,[0-9,]+\))? DEFAULT NULL(,)?\n/', '" float DEFAULT NULL$3'."\n", $create_query);
+                $create_query = preg_replace( '/" (float|double)(\([0-9,]+,[0-9,]+\))? NOT NULL(,)?\n/', '" float NOT NULL$3'."\n", $create_query);
+                $create_query = preg_replace( '/" (float|double)(\([0-9,]+,[0-9,]+\))? NOT NULL DEFAULT \'([^\'])/', '" float NOT NULL DEFAULT \'$3', $create_query);
+
+                // @todo remove indexes from CREATE TABLE
             }
 
             // Drizzle (checked on 2011.03.13) returns ROW_FORMAT surrounded
@@ -1107,19 +1145,19 @@ class ExportSql extends ExportPlugin
                         . $this->_exportComment(
                             __('Constraints for table')
                             . ' '
-                            . $common_functions->backquote($table)
+                            . $common_functions->backquote_compat($table, $compat)
                         )
                         . $this->_exportComment();
                     }
 
                     // let's do the work
                     $sql_constraints_query .= 'ALTER TABLE '
-                        . $common_functions->backquote($table) . $crlf;
+                        . $common_functions->backquote_compat($table, $compat) . $crlf;
                     $sql_constraints .= 'ALTER TABLE '
-                        . $common_functions->backquote($table) . $crlf;
+                        . $common_functions->backquote_compat($table,  $compat) . $crlf;
                     $sql_drop_foreign_keys .= 'ALTER TABLE '
-                        . $common_functions->backquote($db) . '.'
-                        . $common_functions->backquote($table) . $crlf;
+                        . $common_functions->backquote_compat($db, $compat) . '.'
+                        . $common_functions->backquote_compat($table, $compat) . $crlf;
 
                     $first = true;
                     for ($j = $i; $j < $sql_count; $j++) {
@@ -1190,7 +1228,7 @@ class ExportSql extends ExportPlugin
             $schema_create
         );
 
-        $schema_create .= $auto_increment;
+        $schema_create .= ($compat != 'MSSQL') ? $auto_increment : '';
 
         PMA_DBI_free_result($result);
         return $schema_create . ($add_semicolon ? ';' . $crlf : '');
@@ -1335,9 +1373,10 @@ class ExportSql extends ExportPlugin
     ) {
 
         $common_functions = PMA_CommonFunctions::getInstance();
+        $compat = (isset($GLOBALS['sql_compatibility'])) ? $GLOBALS['sql_compatibility'] : 'NONE';
 
         $formatted_table_name = (isset($GLOBALS['sql_backquotes']))
-            ? $common_functions->backquote($table) : '\'' . $table . '\'';
+            ? $common_functions->backquote_compat($table, $compat) : '\'' . $table . '\'';
         $dump = $this->_possibleCRLF()
             . $this->_exportComment(str_repeat('-', 56))
             . $this->_possibleCRLF()
@@ -1420,9 +1459,11 @@ class ExportSql extends ExportPlugin
     {
         global $current_row, $sql_backquotes;
 
+        $compat = (isset($GLOBALS['sql_compatibility'])) ? $GLOBALS['sql_compatibility'] : 'NONE';
+
         $common_functions = PMA_CommonFunctions::getInstance();
         $formatted_table_name = (isset($GLOBALS['sql_backquotes']))
-            ? $common_functions->backquote($table)
+            ? $common_functions->backquote_compat($table, $compat)
             : '\'' . $table . '\'';
 
         // Do not export data for a VIEW
@@ -1469,13 +1510,15 @@ class ExportSql extends ExportPlugin
 
             for ($j = 0; $j < $fields_cnt; $j++) {
                 if (isset($analyzed_sql[0]['select_expr'][$j]['column'])) {
-                    $field_set[$j] = $common_functions->backquote(
+                    $field_set[$j] = $common_functions->backquote_compat(
                         $analyzed_sql[0]['select_expr'][$j]['column'],
+                        $compat,
                         $sql_backquotes
                     );
                 } else {
-                    $field_set[$j] = $common_functions->backquote(
+                    $field_set[$j] = $common_functions->backquote_compat(
                         $fields_meta[$j]->name,
+                        $compat,
                         $sql_backquotes
                     );
                 }
@@ -1490,8 +1533,9 @@ class ExportSql extends ExportPlugin
                     $schema_insert .= 'IGNORE ';
                 }
                 // avoid EOL blank
-                $schema_insert .= $common_functions->backquote(
+                $schema_insert .= $common_functions->backquote_compat(
                     $table,
+                    $compat,
                     $sql_backquotes
                 ) . ' SET';
             } else {
@@ -1524,8 +1568,9 @@ class ExportSql extends ExportPlugin
                     && $sql_command == 'INSERT'
                 ) {
                     $truncate = 'TRUNCATE TABLE '
-                        . $common_functions->backquote(
+                        . $common_functions->backquote_compat(
                             $table,
+                            $compat,
                             $sql_backquotes
                         ) . ";";
                     $truncatehead = $this->_possibleCRLF()
@@ -1541,18 +1586,19 @@ class ExportSql extends ExportPlugin
                 } else {
                     $truncate = '';
                 }
+
                 // scheme for inserting fields
                 if ($GLOBALS['sql_insert_syntax'] == 'complete'
                     || $GLOBALS['sql_insert_syntax'] == 'both'
                 ) {
                     $fields        = implode(', ', $field_set);
                     $schema_insert = $sql_command . $insert_delayed .' INTO '
-                        . $common_functions->backquote($table, $sql_backquotes)
+                        . $common_functions->backquote_compat($table, $compat, $sql_backquotes)
                         // avoid EOL blank
                         . ' (' . $fields . ') VALUES';
                 } else {
                     $schema_insert = $sql_command . $insert_delayed .' INTO '
-                        . $common_functions->backquote($table, $sql_backquotes)
+                        . $common_functions->backquote_compat($table, $compat, $sql_backquotes)
                         . ' VALUES';
                 }
             }
@@ -1584,6 +1630,18 @@ class ExportSql extends ExportPlugin
                         . $this->_exportComment()
                         . $crlf;
                     if (! PMA_exportOutputHandler($head)) {
+                        return false;
+                    }
+                }
+                 // We need to SET IDENTITY_INSERT ON for MSSQL
+                if (isset($GLOBALS['sql_compatibility'])
+                    && $GLOBALS['sql_compatibility'] == 'MSSQL'
+                    && $current_row == 0) {
+                    if (! PMA_exportOutputHandler('SET IDENTITY_INSERT '
+                            . $common_functions->backquote_compat(
+                                    $table,
+                                    $compat)
+                            . ' ON ;'.$crlf)) {
                         return false;
                     }
                 }
@@ -1707,11 +1765,27 @@ class ExportSql extends ExportPlugin
                 }
 
             } // end while
+
             if ($current_row > 0) {
                 if (! PMA_exportOutputHandler(';' . $crlf)) {
                     return false;
                 }
             }
+
+        // We need to SET IDENTITY_INSERT OFF for MSSQL
+        if (isset($GLOBALS['sql_compatibility'])
+             && $GLOBALS['sql_compatibility'] == 'MSSQL'
+             && $current_row > 0)
+        if (! PMA_exportOutputHandler(
+            $crlf . 'SET IDENTITY_INSERT '
+                . $common_functions->backquote_compat(
+                        $table,
+                        $compat)
+                . ' OFF;' . $crlf
+            )) {
+            return false;
+        }
+
         } // end if ($result != false)
         PMA_DBI_free_result($result);
 

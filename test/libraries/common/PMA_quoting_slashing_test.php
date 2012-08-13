@@ -114,6 +114,41 @@ class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
         $this->assertEquals($b, PMA_CommonFunctions::getInstance()->backquote($a));
     }
 
+    /**
+     * data provider for backquote_compat test
+     *
+     * @return array
+     */
+    public function backquote_compatDataProvider()
+    {
+        return array(
+            array('0', '"0"'),
+            array('test', '"test"'),
+            array('te`st', '"te`st"'),
+            array(array('test', 'te`st', '', '*'), array('"test"', '"te`st"', '', '*'))
+        );
+    }
+
+    /**
+     * backquote_compat test with different param $compatibility (NONE, MSSQL)
+     * @dataProvider backquote_compatDataProvider
+     */
+    public function testBackquote_compat($a, $b)
+    {
+        // Test bypass quoting (used by dump functions)
+        $this->assertEquals($a, PMA_CommonFunctions::getInstance()->backquote_compat($a, 'NONE', false));
+
+        // Test backquote (backquoting will be enabled only if isset $GLOBALS['sql_backquotes']
+        $this->assertEquals($a, PMA_CommonFunctions::getInstance()->backquote_compat($a, 'NONE'));
+
+        // Run tests in MSSQL compatibility mode
+        // Test bypass quoting (used by dump functions)
+        $this->assertEquals($a, PMA_CommonFunctions::getInstance()->backquote_compat($a, 'MSSQL', false));
+
+        // Test backquote
+        $this->assertEquals($b, PMA_CommonFunctions::getInstance()->backquote_compat($a, 'MSSQL'));
+    }
+
     public function testBackquoteForbidenWords()
     {
         global $PMA_SQPdata_forbidden_word;

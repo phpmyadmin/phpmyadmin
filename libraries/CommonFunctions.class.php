@@ -971,6 +971,58 @@ class PMA_CommonFunctions
 
     } // end of the 'backquote()' function
 
+    /**
+     * Adds quotes on both sides of a database, table or field name.
+     * in compatibility mode
+     *
+     * example:
+     * <code>
+     * echo backquote('owner`s db'); // `owner``s db`
+     *
+     * </code>
+     *
+     * @param mixed   $a_name the database, table or field name to "backquote"
+     *                        or array of it
+     * @param string  $compatibility string compatibility mode (used by dump
+     *                        functions)
+     * @param boolean $do_it  a flag to bypass this function (used by dump
+     *                        functions)
+     * @return mixed    the "backquoted" database, table or field name
+     *
+     * @access  public
+     */
+    public function backquote_compat($a_name, $compatibility = 'MSSQL', $do_it = true)
+    {
+
+        if (is_array($a_name)) {
+            foreach ($a_name as &$data) {
+                $data = $this->backquote_compat($data, $compatibility, $do_it);
+            }
+            return $a_name;
+        }
+
+        if (! $do_it) {
+            global $PMA_SQPdata_forbidden_word;
+
+            if (! in_array(strtoupper($a_name), $PMA_SQPdata_forbidden_word)) {
+                return $a_name;
+            }
+        }
+
+        // @todo add more compatibility cases (ORACLE for example)
+        switch ($compatibility) {
+            case 'MSSQL': $quote = '"'; break;
+            default: (isset($GLOBALS['sql_backquotes'])) ? $quote = "`" : $quote = ''; break;
+        }
+
+        // '0' is also empty for php :-(
+        if (strlen($a_name) && $a_name !== '*') {
+            return $quote . $a_name . $quote;
+        } else {
+            return $a_name;
+        }
+
+    } // end of the 'backquote_compat()' function
 
     /**
      * Defines the <CR><LF> value depending on the user OS.
