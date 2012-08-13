@@ -705,7 +705,7 @@ class ExportSql extends ExportPlugin
             }
         }
         $create_query = 'CREATE DATABASE '
-            . (isset($GLOBALS['sql_backquotes']) 
+            . (isset($GLOBALS['sql_backquotes'])
             ? $common_functions->backquote($db) : $db);
         $collation = PMA_getDbCollation($db);
         if (PMA_DRIZZLE) {
@@ -1395,7 +1395,7 @@ class ExportSql extends ExportPlugin
                 )
                 . $this->_exportComment();
             // export a stand-in definition to resolve view dependencies
-            $dump .= getTableDefStandIn($db, $table, $crlf);
+            $dump .= $this->getTableDefStandIn($db, $table, $crlf);
         } // end switch
 
         // this one is built by getTableDef() to use in table copy/move
