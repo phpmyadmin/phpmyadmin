@@ -1686,11 +1686,13 @@ function PMA_getHtmlForRowStatstableRow($odd_row, $name, $value)
  * @param string $tbl_collation table collation
  * @param boolean $is_innodb    whether table is innob or not
  * @param boolean $mergetable   Checks if current table is a merge table
+ * @param integer $avg_size     average size
+ * @param string $avg_unit      average unit
  * 
  * @return string $html_output
  */
 function getHtmlForRowStatsTable($showtable, $tbl_collation,
-    $is_innodb, $mergetable
+    $is_innodb, $mergetable, $avg_size, $avg_unit
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
     
