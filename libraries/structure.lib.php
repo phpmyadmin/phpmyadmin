@@ -1844,11 +1844,89 @@ function PMA_getHtmlDivsForStructureActionsDropdown($class, $isActionEnabled,
     return $html_output;
 }
 
+/**
+ * Get HTML snippet for more option in table structure
+ * 
+ * @param type $rownum              row numbers
+ * @param type $primary_enabled     is primary enabled
+ * @param type $url_query           url query
+ * @param type $row                 current row
+ * @param type $hidden_titles       hidden titles array
+ * @param type $unique_enabled      is unique enabled
+ * @param type $unique_enabled      is unique enabled
+ * @param type $index_enabled       is index enabled
+ * @param type $fulltext_enabled    is fulltext enabled
+ * @param type $spatial_enabled     is spatial enabled
+ * @param type $primary             primary
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForMoreOptionInTableStructure($rownum, $primary_enabled,
+    $url_query, $row, $hidden_titles, $unique_enabled, $unique_enabled,
+    $index_enabled, $fulltext_enabled, $spatial_enabled, $primary
+) {
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
+    $html_output = '<td class="more_opts" id="more_opts' . $rownum . '">';
+    $html_output .= $common_functions->getImage(
+        'more.png', __('Show more actions')
+    ) . __('More');
+    $html_output .= '<div class="structure_actions_dropdown" id="row_' . $rownum . '">';
+    
+    $class = ($GLOBALS['cfg']['AjaxEnable'] ? 'action_primary ' : '')
+        . 'replace_in_more';
+    $html_output .= PMA_getHtmlDivsForStructureActionsDropdown($class,
+        $primary_enabled, $url_query, $row, $hidden_titles['Primary'],
+        $hidden_titles['NoPrimary'], $primary, 'ADD PRIMARY KEY',
+        __('A primary key has been added on %s')
+    );
 
+    $html_output .= PMA_getHtmlDivsForStructureActionsDropdown(
+        'action_unique replace_in_more',
+        $unique_enabled, $url_query, $row, $hidden_titles['Unique'],
+        $hidden_titles['NoUnique'], false, 'ADD UNIQUE',
+        __('An index has been added on %s')
+    );
 
+    $html_output .= PMA_getHtmlDivsForStructureActionsDropdown(
+        'action_index replace_in_more',
+        $index_enabled, $url_query, $row, $hidden_titles['Index'],
+        $hidden_titles['NoIndex'], false, 'ADD INDEX',
+        __('An index has been added on %s')
+    );
+    if (!PMA_DRIZZLE) {
+        $html_output .= PMA_getHtmlDivsForStructureActionsDropdown(
+            'action_spatial replace_in_more',
+            $fulltext_enabled, $url_query, $row,
+            $hidden_titles['Spatial'],
+            $hidden_titles['NoSpatial'], false, 'ADD FULLTEXT',
+            __('An index has been added on %s')
+        );
+
+        $html_output .= PMA_getHtmlDivsForStructureActionsDropdown(
+            'action_fulltext replace_in_more',
+            $spatial_enabled, $url_query, $row,
+            $hidden_titles['IdxFulltext'],
+            $hidden_titles['NoIdxFulltext'], false, 'ADD SPATIAL',
+            __('An index has been added on %s')
+        );
         
-
-
-
+        $html_output .= '<div class="action_browse replace_in_more">';
+        $html_output .= '<a href="sql.php?' . $url_query 
+            . '&amp;sql_query=' . urlencode(
+                'SELECT COUNT(*) AS ' . $common_functions->backquote(__('Rows')) 
+                    . ', ' . $common_functions->backquote($row['Field']) 
+                    . ' FROM ' . $common_functions->backquote($GLOBALS['table']) 
+                    . ' GROUP BY ' . $common_functions->backquote($row['Field']) 
+                    . ' ORDER BY ' . $common_functions->backquote($row['Field'])) 
+                    . '&amp;browse_distinct=1">'
+            . $hidden_titles['DistinctValues']
+            . '</a>';
+        $html_output .= '</div>';
+    }
+    $html_output .= '</div></td>';
+    
+    return $html_output;
+}
 
 ?>
