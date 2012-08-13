@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-08-04 06:39+0200\n"
+"PO-Revision-Date: 2012-08-13 12:11+0200\n"
 "Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
 "Language-Team: Chinese (China) "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/zh_CN/>\n"
@@ -1574,17 +1574,15 @@ msgid "Total time:"
 msgstr "总时间:"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Profiling"
 msgid "Profiling results"
-msgstr "概要"
+msgstr "性能分析结果"
 
 #: js/messages.php:193
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
-msgstr "表"
+msgstr "表格"
 
 #: js/messages.php:194
 msgid "Chart"
@@ -2869,11 +2867,11 @@ msgstr "连接到 SQL 校验器失败！"
 
 #: libraries/common.lib.php:1171 libraries/config/messages.inc.php:485
 msgid "Explain SQL"
-msgstr "解释 SQL"
+msgstr "解析 SQL"
 
 #: libraries/common.lib.php:1175
 msgid "Skip Explain SQL"
-msgstr "略过解释 SQL"
+msgstr "略过解析 SQL"
 
 #: libraries/common.lib.php:1210
 msgid "Without PHP Code"
@@ -2907,7 +2905,7 @@ msgstr "快速编辑"
 
 #: libraries/common.lib.php:1373 sql.php:895
 msgid "Profiling"
-msgstr "概要"
+msgstr "性能分析"
 
 #. l10n: Short week day name
 #: libraries/common.lib.php:1634
