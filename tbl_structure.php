@@ -430,72 +430,48 @@ foreach ($fields as $row) {
     <td class="more_opts" id="more_opts<?php echo $rownum; ?>">
         <?php echo $common_functions->getImage('more.png', __('Show more actions')); ?> <?php echo __('More'); ?>
         <div class="structure_actions_dropdown" id="row_<?php echo $rownum; ?>">
-            <div  class="<?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'action_primary ' : ''); ?>replace_in_more">
-                <?php
-                if (isset($primary_enabled)) {
-                     if ($primary_enabled) { ?>
-                          <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . $common_functions->backquote($table) . ($primary ? ' DROP PRIMARY KEY,' : '') . ' ADD PRIMARY KEY(' . $common_functions->backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('A primary key has been added on %s'), htmlspecialchars($row['Field']))); ?>">
-                             <?php echo $hidden_titles['Primary']; ?>
-                         </a>
-                     <?php
-                     } else {
-                         echo $hidden_titles['NoPrimary'];
-                     }
-                } ?>
-            </div>
-            <div class="action_unique replace_in_more">
-                <?php
-                if (isset($unique_enabled)) {
-                     if ($unique_enabled) { ?>
-                         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . $common_functions->backquote($table) . ' ADD UNIQUE(' . $common_functions->backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
-                             <?php echo $hidden_titles['Unique']; ?>
-                         </a>
-                     <?php
-                     } else {
-                         echo $hidden_titles['NoUnique'];
-                     }
-                } ?>
-            </div>
-            <div class="action_index replace_in_more">
-               <?php
-                if (isset($index_enabled)) {
-                     if ($index_enabled) { ?>
-                         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . $common_functions->backquote($table) . ' ADD INDEX(' . $common_functions->backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
-                             <?php echo $hidden_titles['Index']; ?>
-                         </a>
-                     <?php
-                     } else {
-                         echo $hidden_titles['NoIndex'];
-                     }
-                  } ?>
-            </div>
-            <?php if (!PMA_DRIZZLE) { ?>
-            <div class="action_spatial replace_in_more">
-                <?php
-                if (isset($spatial_enabled)) {
-                    if ($spatial_enabled) { ?>
-                        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . $common_functions->backquote($table) . ' ADD SPATIAL(' . $common_functions->backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
-                            <?php echo $hidden_titles['Spatial']; ?>
-                        </a>
-                    <?php
-                    } else {
-                        echo $hidden_titles['NoSpatial'];
-                    }
-                } ?>
-            </div>
-            <div class="action_fulltext replace_in_more">
-                <?php
-                if (isset($fulltext_enabled)) {
-                     if ($fulltext_enabled) { ?>
-                         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . $common_functions->backquote($table) . ' ADD FULLTEXT(' . $common_functions->backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
-                             <?php echo $hidden_titles['IdxFulltext']; ?>
-                         </a>
-                     <?php
-                     } else {
-                         echo $hidden_titles['NoIdxFulltext'];
-                     }
-                } ?>
-            </div>
+            <?php
+            
+            $class = ($GLOBALS['cfg']['AjaxEnable'] ? 'action_primary ' : '')
+                . 'replace_in_more';
+            echo PMA_getHtmlDivsForStructureActionsDropdown($class,
+                $primary_enabled, $url_query, $row, $hidden_titles['Primary'],
+                $hidden_titles['NoPrimary'], $primary, 'ADD PRIMARY KEY',
+                __('A primary key has been added on %s')
+            );
+            
+            echo PMA_getHtmlDivsForStructureActionsDropdown(
+                'action_unique replace_in_more',
+                $unique_enabled, $url_query, $row, $hidden_titles['Unique'],
+                $hidden_titles['NoUnique'], false, 'ADD UNIQUE',
+                __('An index has been added on %s')
+            );
+            
+            echo PMA_getHtmlDivsForStructureActionsDropdown(
+                'action_index replace_in_more',
+                $index_enabled, $url_query, $row, $hidden_titles['Index'],
+                $hidden_titles['NoIndex'], false, 'ADD INDEX',
+                __('An index has been added on %s')
+            );
+            if (!PMA_DRIZZLE) {
+                echo PMA_getHtmlDivsForStructureActionsDropdown(
+                    'action_spatial replace_in_more',
+                    $fulltext_enabled, $url_query, $row,
+                    $hidden_titles['Spatial'],
+                    $hidden_titles['NoSpatial'], false, 'ADD FULLTEXT',
+                    __('An index has been added on %s')
+                );
+                
+                echo PMA_getHtmlDivsForStructureActionsDropdown(
+                    'action_fulltext replace_in_more',
+                    $spatial_enabled, $url_query, $row,
+                    $hidden_titles['IdxFulltext'],
+                    $hidden_titles['NoIdxFulltext'], false, 'ADD SPATIAL',
+                    __('An index has been added on %s')
+                );
+            }
+            
+            if (!PMA_DRIZZLE) { ?>
             <div class="action_browse replace_in_more">
                 <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT COUNT(*) AS ' . $common_functions->backquote(__('Rows')) . ', ' . $common_functions->backquote($row['Field']) . ' FROM ' . $common_functions->backquote($table) . ' GROUP BY ' . $common_functions->backquote($row['Field']) . ' ORDER BY ' . $common_functions->backquote($row['Field'])); ?>&amp;browse_distinct=1">
                     <?php echo $hidden_titles['DistinctValues']; ?>
@@ -672,7 +648,9 @@ if ($cfg['ShowStats']) {
     }
     
     echo getHtmlForRowStatsTable($showtable, $tbl_collation,
-        $is_innodb, $mergetable
+        $is_innodb, $mergetable, 
+        (isset ($avg_size) ? $avg_size : ''), 
+        (isset ($avg_unit) ? $avg_unit : '')
     );
 }
 // END - Calc Table Space

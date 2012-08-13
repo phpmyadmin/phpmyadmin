@@ -1794,4 +1794,61 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
     return $html_output;
 }
 
+/**
+ * Get HTML divs for Structure Action drop down
+ * 
+ * @param string $class             div class
+ * @param boolean $isActionEnabled  whether action is enabled or not
+ * @param string $url_query         url query
+ * @param array $row                current row
+ * @param array $hidden_titles      hidden titles if action enabled
+ * @param array $hidden_titles_no   hidden titles if action not enabled
+ * @param boolean $primary          primary or not
+ * @param string $syntax            syntax for add action
+ * @param string $message           message to be shown
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlDivsForStructureActionsDropdown($class, $isActionEnabled,
+    $url_query, $row, $hidden_titles, $hidden_titles_no, $primary, $syntax,
+    $message
+) {
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
+    $html_output = '<div  class="' . $class . '"';
+    if (!empty ($isActionEnabled)) {
+        if ($isActionEnabled) {
+            $html_output .= '<a href="sql.php?' .  $url_query 
+                . '&amp;sql_query=' 
+                . urlencode(
+                    'ALTER TABLE ' . $common_functions->backquote($GLOBALS['table']) 
+                        . ($primary ? ' DROP PRIMARY KEY,' : '') 
+                        . ' ' . $syntax . '(' 
+                        . $common_functions->backquote($row['Field']) . ');'
+                ) 
+                . '&amp;message_to_show=' . urlencode(
+                    sprintf(
+                        $message,
+                        htmlspecialchars($row['Field'])
+                    )
+                )
+                . '">'
+                . $hidden_titles
+                . '</a>';      
+        } else {
+             $html_output .= $hidden_titles_no;
+         }
+    }
+    $html_output .= '</div>';
+    
+    return $html_output;
+}
+
+
+
+        
+
+
+
+
 ?>
