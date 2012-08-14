@@ -1201,7 +1201,6 @@ function PMA_getHtmlForTableStructureHeader(
  * For "Action" Column, this function contains only HTML code for "Change" and "Drop"
  * 
  * @param array $row                        current row
- * @param boolean $odd_row                  whether current row is odd or even
  * @param string $rownum                    row number
  * @param string $checked                   checked
  * @param string $displayed_field_name      displayed field name
@@ -1222,16 +1221,14 @@ function PMA_getHtmlForTableStructureHeader(
  * 
  * @return array ($html_output, $odd_row)
  */
-function PMA_getHtmlTableStructureRow($row, $odd_row, $rownum, $checked,
+function PMA_getHtmlTableStructureRow($row, $rownum, $checked,
     $displayed_field_name, $type_nowrap, $extracted_columnspec, $type_mime,
     $field_charset, $attribute, $tbl_is_view, $db_is_information_schema,
     $url_query, $field_encoded, $titles, $table
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
     
-    $html_output = '<tr class="' . ($odd_row ? 'odd': 'even') . '">';
-    $odd_row = !$odd_row; 
-    $html_output .= '<td class="center">'
+    $html_output = '<td class="center">'
         . '<input type="checkbox" class="checkall" name="selected_fld[]" '
         . 'value="' . htmlspecialchars($row['Field']) . '" '
         . 'id="checkbox_row_' . $rownum . '"' . $checked . '/>'
@@ -1284,7 +1281,7 @@ function PMA_getHtmlTableStructureRow($row, $odd_row, $rownum, $checked,
         $titles, $table, $row
     );
 
-    return array($html_output, $odd_row);
+    return $html_output;
 }
 
 /**
@@ -1811,7 +1808,7 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
  */
 function PMA_getHtmlDivsForStructureActionsDropdown($class, $isActionEnabled,
     $url_query, $row, $hidden_titles, $hidden_titles_no, $primary, $syntax,
-    $message
+    $message, $isPrimary
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
     
@@ -1822,7 +1819,7 @@ function PMA_getHtmlDivsForStructureActionsDropdown($class, $isActionEnabled,
                 . '&amp;sql_query=' 
                 . urlencode(
                     'ALTER TABLE ' . $common_functions->backquote($GLOBALS['table']) 
-                        . ($primary ? ' DROP PRIMARY KEY,' : '') 
+                        . ($isPrimary ? ($primary ? ' DROP PRIMARY KEY,' : '') : '') 
                         . ' ' . $syntax . '(' 
                         . $common_functions->backquote($row['Field']) . ');'
                 ) 
@@ -1862,8 +1859,8 @@ function PMA_getHtmlDivsForStructureActionsDropdown($class, $isActionEnabled,
  * @return string $html_output
  */
 function PMA_getHtmlForMoreOptionInTableStructure($rownum, $primary_enabled,
-    $url_query, $row, $hidden_titles, $unique_enabled, $unique_enabled,
-    $index_enabled, $fulltext_enabled, $spatial_enabled, $primary
+    $url_query, $row, $hidden_titles, $unique_enabled, $index_enabled, 
+    $fulltext_enabled, $spatial_enabled, $primary
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
     
@@ -1878,21 +1875,21 @@ function PMA_getHtmlForMoreOptionInTableStructure($rownum, $primary_enabled,
     $html_output .= PMA_getHtmlDivsForStructureActionsDropdown($class,
         $primary_enabled, $url_query, $row, $hidden_titles['Primary'],
         $hidden_titles['NoPrimary'], $primary, 'ADD PRIMARY KEY',
-        __('A primary key has been added on %s')
+        __('A primary key has been added on %s'), true
     );
 
     $html_output .= PMA_getHtmlDivsForStructureActionsDropdown(
         'action_unique replace_in_more',
         $unique_enabled, $url_query, $row, $hidden_titles['Unique'],
         $hidden_titles['NoUnique'], false, 'ADD UNIQUE',
-        __('An index has been added on %s')
+        __('An index has been added on %s'), false
     );
 
     $html_output .= PMA_getHtmlDivsForStructureActionsDropdown(
         'action_index replace_in_more',
         $index_enabled, $url_query, $row, $hidden_titles['Index'],
         $hidden_titles['NoIndex'], false, 'ADD INDEX',
-        __('An index has been added on %s')
+        __('An index has been added on %s'), false
     );
     if (!PMA_DRIZZLE) {
         $html_output .= PMA_getHtmlDivsForStructureActionsDropdown(
@@ -1900,7 +1897,7 @@ function PMA_getHtmlForMoreOptionInTableStructure($rownum, $primary_enabled,
             $fulltext_enabled, $url_query, $row,
             $hidden_titles['Spatial'],
             $hidden_titles['NoSpatial'], false, 'ADD FULLTEXT',
-            __('An index has been added on %s')
+            __('An index has been added on %s'), false
         );
 
         $html_output .= PMA_getHtmlDivsForStructureActionsDropdown(
@@ -1908,7 +1905,7 @@ function PMA_getHtmlForMoreOptionInTableStructure($rownum, $primary_enabled,
             $spatial_enabled, $url_query, $row,
             $hidden_titles['IdxFulltext'],
             $hidden_titles['NoIdxFulltext'], false, 'ADD SPATIAL',
-            __('An index has been added on %s')
+            __('An index has been added on %s'), false
         );
         
         $html_output .= '<div class="action_browse replace_in_more">';
@@ -1925,6 +1922,226 @@ function PMA_getHtmlForMoreOptionInTableStructure($rownum, $primary_enabled,
         $html_output .= '</div>';
     }
     $html_output .= '</div></td>';
+    
+    return $html_output;
+}
+
+/**
+ * Get HTML snippet for action row in structure table,
+ * This function returns common HTML <td> for Primary, Unique, Index, Spatial actions
+ * 
+ * @param array $type                   column type
+ * @param array $tbl_storage_engine     table storage engine
+ * @param string $class                 class attribute for <td>
+ * @param boolean $hasField             has field
+ * @param boolean $hasLinkClass         has <a> the class attribute
+ * @param string $url_query             url query
+ * @param boolean $primary              primary if set, false otherwise
+ * @param string $syntax                Sql syntax
+ * @param string $message               message to show
+ * @param string $action                action
+ * @param array $titles                 titles array
+ * @param array $row                    current row
+ * @param boolean $isPrimary            is primary action
+ * 
+ * @return array $html_output, $action_enabled 
+ */
+function PMA_getHtmlForActionRowinStructureTable($type, $tbl_storage_engine,
+    $class, $hasField, $hasLinkClass, $url_query, $primary, $syntax,
+    $message, $action, $titles, $row, $isPrimary
+) {
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
+    $html_output = '<td class="'. $class .'">';
+    
+    if ($type == 'text' 
+        || $type == 'blob' 
+        || 'ARCHIVE' == $tbl_storage_engine 
+        || $hasField
+    ) {
+        $html_output .= $titles['No' . $action] . "\n";
+        $action_enabled = false;
+    } else {
+        $html_output .= "\n";
+        $html_output .= '<a ' 
+            . ($hasLinkClass ? 'class="add_primary_key_anchor" ' : '')
+            . 'href="sql.php?' . $url_query . '&amp;sql_query=' 
+            . urlencode(
+                'ALTER TABLE ' . $common_functions->backquote($GLOBALS['table'])
+                . ($isPrimary ? ($primary ? ' DROP PRIMARY KEY,' : '') : '')
+                . ' ' . $syntax . '(' 
+                . $common_functions->backquote($row['Field']) . ');'
+            )
+            . '&amp;message_to_show=' . urlencode(
+                sprintf($message,
+                htmlspecialchars($row['Field']))
+            ) . '" >'
+            . $titles[$action] . '</a>';
+        $action_enabled = true;
+    }
+    $html_output .= "\n";
+    $html_output .= '</td>';
+    
+    return array($html_output, $action_enabled);
+}
+
+/**
+ * Get HTML for fultext action,
+ * and this function returns $fulltext_enabled boolean value also
+ * 
+ * @param string $tbl_storage_engine    table storage engine
+ * @param string $type                  column type
+ * @param string $url_query             url query
+ * @param array $row                    current row
+ * @param array $titles                 titles array
+ * 
+ * @return type array $html_output, $fulltext_enabled
+ */
+function PMA_getHtmlForFulTextAction($tbl_storage_engine, $type, $url_query,
+    $row, $titles
+) {
+    $common_functions = PMA_CommonFunctions::getInstance();
+    $html_output = '<td class="fulltext replaced_by_more center nowrap">';
+    if (! empty($tbl_storage_engine) 
+    && ($tbl_storage_engine == 'MYISAM' 
+        || $tbl_storage_engine == 'ARIA' 
+        || $tbl_storage_engine == 'MARIA' 
+        || ($tbl_storage_engine == 'INNODB' 
+            && PMA_MYSQL_INT_VERSION >= 50604)
+    )
+    && (strpos(' ' . $type, 'text') || strpos(' ' . $type, 'char'))
+    ) {
+        $html_output = "\n";
+        $html_output .= '<a href="sql.php?' . $url_query . '&amp;sql_query=' 
+            . urlencode(
+                'ALTER TABLE ' . $common_functions->backquote($GLOBALS['table']) 
+                . ' ADD FULLTEXT(' . $common_functions->backquote($row['Field']) 
+                . ');') . '&amp;message_to_show=' 
+                . urlencode(sprintf(
+                    __('An index has been added on %s'),
+                    htmlspecialchars($row['Field']))
+                ) . '">';
+        $html_output .= $titles['IdxFulltext'] . '</a>';
+        $fulltext_enabled = true;
+        $html_output .= '</td>';
+    } else {
+        $html_output .= "\n";
+        $html_output .= $titles['NoIdxFulltext'] . "\n";
+        $fulltext_enabled = false;
+        $html_output .= '</td>';
+    }
+    
+    return array($html_output, $fulltext_enabled);
+}
+
+/**
+ * Get HTML snippet for "Distinc Value" action
+ * 
+ * @param string $url_query url query
+ * @param array $row        current row
+ * @param array $titles     titles array
+ * 
+ * @return string $html_output
+ */
+function PMA_getHtmlForDistincValueAction($url_query, $row, $titles)
+{
+    $common_functions = PMA_CommonFunctions::getInstance();
+    $html_output = '<td class="browse replaced_by_more center">';
+    $html_output .= '<a href="sql.php?' . $url_query . '&amp;sql_query=' 
+        . urlencode(
+            'SELECT COUNT(*) AS ' . $common_functions->backquote(__('Rows')) 
+            . ', ' . $common_functions->backquote($row['Field']) 
+            . ' FROM ' . $common_functions->backquote($GLOBALS['table']) 
+            . ' GROUP BY ' . $common_functions->backquote($row['Field']) 
+            . ' ORDER BY ' . $common_functions->backquote($row['Field'])) 
+            . '">' 
+            . $titles['DistinctValues'] 
+            . '</a>';
+    $html_output .= '</td>';
+    
+    return $html_output;
+}
+
+/**
+ * Get HTML snippet for Actions in table structure
+ * 
+ * @param string $type                      column type
+ * @param string $tbl_storage_engine        table storage engine
+ * @param boolean $primary                  primary if set, false otherwise
+ * @param string $field_name                column name
+ * @param string $url_query                 url query
+ * @param array $titles                     titles array
+ * @param array $row                        current row
+ * @param string $rownum                    row number
+ * @param array $hidden_titles              hedden titles
+ * @param array $columns_with_unique_index  columns with unique index
+ * 
+ * @return string $html_output;
+ */
+function PMA_getHtmlForActionsIntableStructure($type, $tbl_storage_engine,
+    $primary, $field_name, $url_query, $titles, $row, $rownum, $hidden_titles,
+    $columns_with_unique_index
+) {
+    $html_output = '';
+    list($primary, $primary_enabled)
+        = PMA_getHtmlForActionRowinStructureTable($type, $tbl_storage_engine,
+            'primary replaced_by_more center',
+            ($primary && $primary->hasColumn($field_name)),
+            true, $url_query, $primary,
+            'ADD PRIMARY KEY',
+            __('A primary key has been added on %s'),
+            'Primary', $titles, $row, true
+        );
+    $html_output .= $primary;
+    list($unique, $unique_enabled) 
+        = PMA_getHtmlForActionRowinStructureTable($type, $tbl_storage_engine,
+            'unique replaced_by_more center',
+            isset($columns_with_unique_index[$field_name]),
+            false, $url_query, $primary, 'ADD UNIQUE',
+            __('An index has been added on %s'),
+            'Unique', $titles, $row, false
+        );
+    $html_output .= $unique;
+    list($index, $index_enabled) 
+        = PMA_getHtmlForActionRowinStructureTable(
+            $type, $tbl_storage_engine,
+            'index replaced_by_more center', false, false, $url_query, 
+            $primary, 'ADD INDEX', __('An index has been added on %s'),
+            'Index', $titles, $row, false
+        );
+    $html_output .= $index;
+    if (!PMA_DRIZZLE) {
+        $spatial_types = array(
+            'geometry', 'point', 'linestring', 'polygon', 'multipoint',
+            'multilinestring', 'multipolygon', 'geomtrycollection'
+        );
+        list($spatial, $spatial_enabled) 
+            = PMA_getHtmlForActionRowinStructureTable(
+                $type, $tbl_storage_engine,
+                'spatial replaced_by_more center',
+                (! in_array($type, $spatial_types) || 'MYISAM' != $tbl_storage_engine),
+                false, $url_query, $primary, 'ADD SPATIAL',
+                __('An index has been added on %s'), 'Spatial', $titles, $row, false
+            );
+        $html_output .= $spatial;
+
+        // FULLTEXT is possible on TEXT, CHAR and VARCHAR
+        list ($fulltext, $fulltext_enabled) 
+            = PMA_getHtmlForFulTextAction($tbl_storage_engine, $type,
+                $url_query, $row, $titles);
+        $html_output .= $fulltext;
+    }
+    $html_output .= PMA_getHtmlForDistincValueAction($url_query, $row, $titles);
+
+    if ($GLOBALS['cfg']['PropertiesIconic'] !== true 
+        && $GLOBALS['cfg']['HideStructureActions'] === true
+    ) {
+        $html_output .= PMA_getHtmlForMoreOptionInTableStructure(
+            $rownum, $primary_enabled, $url_query, $row, $hidden_titles,
+            $unique_enabled, $index_enabled,
+            $fulltext_enabled, $spatial_enabled, $primary
+        );
+    }
     
     return $html_output;
 }

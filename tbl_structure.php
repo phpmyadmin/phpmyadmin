@@ -319,125 +319,24 @@ foreach ($fields as $row) {
     }
     echo "\n";
     
-    list($html_output, $odd_row)
-        = PMA_getHtmlTableStructureRow($row, $odd_row, $rownum, $checked,
-            $displayed_field_name, $type_nowrap, $extracted_columnspec, $type_mime,
-            $field_charset, $attribute, $tbl_is_view, $db_is_information_schema,
-            $url_query, $field_encoded, $titles, $table
-        );
+    echo '<tr class="' . ($odd_row ? 'odd': 'even') . '">';
+    $odd_row = !$odd_row;
     
-    echo $html_output;
+    echo PMA_getHtmlTableStructureRow($row, $rownum, $checked,
+        $displayed_field_name, $type_nowrap, $extracted_columnspec, $type_mime,
+        $field_charset, $attribute, $tbl_is_view, $db_is_information_schema,
+        $url_query, $field_encoded, $titles, $table
+    );
     
-    if (! $tbl_is_view && ! $db_is_information_schema) { ?>
-    <td class="primary replaced_by_more center">
-        <?php
-        if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_storage_engine || ($primary && $primary->hasColumn($field_name))) {
-            echo $titles['NoPrimary'] . "\n";
-            $primary_enabled = false;
-        } else {
-            echo "\n";
-            ?>
-        <a class="add_primary_key_anchor" href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . $common_functions->backquote($table) . ($primary ? ' DROP PRIMARY KEY,' : '') . ' ADD PRIMARY KEY(' . $common_functions->backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('A primary key has been added on %s'), htmlspecialchars($row['Field']))); ?>" >
-            <?php echo $titles['Primary']; ?></a>
-            <?php $primary_enabled = true;
-        }
-        echo "\n";
-        ?>
-    </td>
-    <td class="unique replaced_by_more center">
-        <?php
-        if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_storage_engine || isset($columns_with_unique_index[$field_name])) {
-            echo $titles['NoUnique'] . "\n";
-            $unique_enabled = false;
-        } else {
-            echo "\n";
-            ?>
-        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . $common_functions->backquote($table) . ' ADD UNIQUE(' . $common_functions->backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
-            <?php echo $titles['Unique']; ?></a>
-            <?php $unique_enabled = true;
-        }
-        echo "\n";
-        ?>
-    </td>
-    <td class="index replaced_by_more center">
-        <?php
-        if ($type == 'text' || $type == 'blob' || 'ARCHIVE' == $tbl_storage_engine) {
-            echo $titles['NoIndex'] . "\n";
-            $index_enabled = false;
-        } else {
-            echo "\n";
-            ?>
-        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . $common_functions->backquote($table) . ' ADD INDEX(' . $common_functions->backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
-            <?php echo $titles['Index']; ?></a>
-            <?php
-            $index_enabled = true;
-        }
-        echo "\n";
-        ?>
-    </td>
-        <?php
-        if (!PMA_DRIZZLE) { ?>
-    <td class="spatial replaced_by_more center">
-
-        <?php
-        $spatial_types = array(
-            'geometry', 'point', 'linestring', 'polygon', 'multipoint',
-            'multilinestring', 'multipolygon', 'geomtrycollection'
+    if (! $tbl_is_view && ! $db_is_information_schema) {
+        echo PMA_getHtmlForActionsIntableStructure($type, $tbl_storage_engine,
+            $primary, $field_name, $url_query, $titles, $row, $rownum,
+            $hidden_titles, $columns_with_unique_index
         );
-        if (! in_array($type, $spatial_types) || 'MYISAM' != $tbl_storage_engine) {
-            echo $titles['NoSpatial'] . "\n";
-            $spatial_enabled = false;
-        } else {
-            echo "\n";
-            ?>
-        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . $common_functions->backquote($table) . ' ADD SPATIAL(' . $common_functions->backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
-            <?php echo $titles['Spatial']; ?></a>
-            <?php
-            $spatial_enabled = true;
-        }
-        echo "\n";
-        ?>
-    </td>
-    <?php
-        // FULLTEXT is possible on TEXT, CHAR and VARCHAR
-        if (! empty($tbl_storage_engine) && ($tbl_storage_engine == 'MYISAM' || $tbl_storage_engine == 'ARIA' || $tbl_storage_engine == 'MARIA' || ($tbl_storage_engine == 'INNODB' && PMA_MYSQL_INT_VERSION >= 50604))
-            && (strpos(' ' . $type, 'text') || strpos(' ' . $type, 'char'))
-        ) {
-            echo "\n";
-            ?>
-    <td class="fulltext replaced_by_more center nowrap">
-        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . $common_functions->backquote($table) . ' ADD FULLTEXT(' . $common_functions->backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
-            <?php echo $titles['IdxFulltext']; ?></a>
-            <?php $fulltext_enabled = true; ?>
-    </td>
-            <?php
-        } else {
-            echo "\n";
-        ?>
-    <td class="fulltext replaced_by_more center nowrap">
-        <?php echo $titles['NoIdxFulltext'] . "\n"; ?>
-        <?php $fulltext_enabled = false; ?>
-    </td>
-        <?php
-            }
-        } // end if... else...
-?>
-    <td class="browse replaced_by_more center">
-        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT COUNT(*) AS ' . $common_functions->backquote(__('Rows')) . ', ' . $common_functions->backquote($row['Field']) . ' FROM ' . $common_functions->backquote($table) . ' GROUP BY ' . $common_functions->backquote($row['Field']) . ' ORDER BY ' . $common_functions->backquote($row['Field'])); ?>">            <?php echo $titles['DistinctValues']; ?></a>
-    </td>
-        <?php
-        if ($GLOBALS['cfg']['PropertiesIconic'] !== true 
-            && $GLOBALS['cfg']['HideStructureActions'] === true
-        ) {
-            echo PMA_getHtmlForMoreOptionInTableStructure($rownum, $primary_enabled,
-                $url_query, $row, $hidden_titles, $unique_enabled, $unique_enabled,
-                $index_enabled, $fulltext_enabled, $spatial_enabled, $primary
-            );
-        } // end if (GLOBALS['cfg']['PropertiesIconic'] !== true)
     } // end if (! $tbl_is_view && ! $db_is_information_schema)
-    ?>
-</tr>
-    <?php
+    
+    echo '</tr>';
+
     unset($field_charset);
 } // end foreach
 
