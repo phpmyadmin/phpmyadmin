@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for PMA_StorageEngine_bdb
+ * Tests for PMA_StorageEngine_ndbcluster
  *
  * @package PhpMyAdmin-test
  */
@@ -10,10 +10,10 @@
  */
 
 require_once 'libraries/StorageEngine.class.php';
-require_once 'libraries/engines/bdb.lib.php';
+require_once 'libraries/engines/ndbcluster.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
-class PMA_StorageEngine_bdb_test extends PHPUnit_Framework_TestCase
+class PMA_StorageEngine_ndbcluster_test extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected
@@ -41,7 +41,7 @@ class PMA_StorageEngine_bdb_test extends PHPUnit_Framework_TestCase
                 );
             }
         }
-        $this->object = $this->getMockForAbstractClass('PMA_StorageEngine_bdb', array('dummy'));
+        $this->object = $this->getMockForAbstractClass('PMA_StorageEngine_ndbcluster', array('dummy'));
     }
 
     /**
@@ -63,39 +63,7 @@ class PMA_StorageEngine_bdb_test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             $this->object->getVariables(),
             array(
-                'version_bdb' => array(
-                    'title' => __('Version information'),
-                ),
-                'bdb_cache_size' => array(
-                    'type'  => 1,
-                ),
-                'bdb_home' => array(
-                ),
-                'bdb_log_buffer_size' => array(
-                    'type'  => 1,
-                ),
-                'bdb_logdir' => array(
-                ),
-                'bdb_max_lock' => array(
-                    'type'  => 2,
-                ),
-                'bdb_shared_data' => array(
-                ),
-                'bdb_tmpdir' => array(
-                ),
-                'bdb_data_direct' => array(
-                ),
-                'bdb_lock_detect' => array(
-                ),
-                'bdb_log_direct' => array(
-                ),
-                'bdb_no_recover' => array(
-                ),
-                'bdb_no_sync' => array(
-                ),
-                'skip_sync_bdb_logs' => array(
-                ),
-                'sync_bdb_logs' => array(
+                'ndb_connectstring' => array(
                 ),
             )
         );
@@ -107,7 +75,7 @@ class PMA_StorageEngine_bdb_test extends PHPUnit_Framework_TestCase
     public function testGetVariablesLikePattern(){
         $this->assertEquals(
             $this->object->getVariablesLikePattern(),
-            '%bdb%'
+            'ndb\\_%'
         );
     }
 
@@ -117,7 +85,7 @@ class PMA_StorageEngine_bdb_test extends PHPUnit_Framework_TestCase
     public function testGetMysqlHelpPage(){
         $this->assertEquals(
             $this->object->getMysqlHelpPage(),
-            'bdb'
+            'ndbcluster'
         );
 
     }
