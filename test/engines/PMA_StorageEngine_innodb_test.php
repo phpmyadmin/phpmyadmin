@@ -292,14 +292,14 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
         if (! function_exists('PMA_DBI_fetch_value')) {
             function PMA_DBI_fetch_value()
             {
-                return 'status';
+                return 2;
             }
         }
 
         $this->assertEquals(
             $this->object->getPageStatus(),
             '<pre id="pre_innodb_status">' . "\n"
-                . 'status' . "\n"
+                . 2 . "\n"
                 . '</pre>' . "\n"
         );
 
@@ -316,7 +316,7 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             $this->object->getPage('Status'),
             '<pre id="pre_innodb_status">' . "\n"
-                . 'status' . "\n"
+                . 2 . "\n"
                 . '</pre>' . "\n"
         );
     }
@@ -338,7 +338,7 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
     public function testGetInnodbPluginVersion(){
         $this->assertEquals(
             $this->object->getInnodbPluginVersion(),
-            'status'
+            2
         );
 
     }
@@ -360,7 +360,7 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
     public function testGetInnodbFileFormat(){
         $this->assertEquals(
             $this->object->getInnodbFileFormat(),
-            'status'
+            2
         );
 
     }
