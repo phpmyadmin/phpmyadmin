@@ -190,6 +190,7 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
         }
 
         $properties = $plugin->getProperties();
+        $text = null;
         if ($properties != null) {
             $text = $plugin->getProperties()->getText();
         }
