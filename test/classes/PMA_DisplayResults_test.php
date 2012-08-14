@@ -1654,4 +1654,76 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     }
     
     
+    /**
+     * Data provider for testGetRowInfoForSpecialLinks
+     *
+     * @return array parameters and output
+     */
+    public function dataProviderForTestGetRowInfoForSpecialLinks()
+    {
+        $column_names = array('host', 'db', 'user', 'select_privilages');
+        $fields_mata = array();
+        
+        foreach ($column_names as $column_name) {
+            $field_meta = new stdClass();
+            $field_meta->name = $column_name;
+            $fields_mata[] = $field_meta;
+        }
+        
+        return array(
+            array(
+                $fields_mata,
+                count($fields_mata),
+                array(
+                    0 => 'localhost',
+                    1 => 'phpmyadmin',
+                    2 => 'pmauser',
+                    3 => 'Y'
+                ),
+                array(
+                    0 => '0',
+                    1 => '3',
+                    2 => '1',
+                    3 => '2'
+                ),
+                array(
+                    'host' => 'localhost',
+                    'select_privilages' => 'Y',
+                    'db' => 'phpmyadmin',
+                    'user' => 'pmauser'
+                )
+            )
+        );
+    }
+    
+    
+    /**
+     * Test _getRowInfoForSpecialLinks
+     * 
+     * @param array   $fields_meta meta information about fields
+     * @param integer $fiels_count number of fields
+     * @param array   $row         current row data
+     * @param array   $col_order   the column order
+     * @param boolean $output      output of _getRowInfoForSpecialLinks
+     * 
+     * @dataProvider dataProviderForTestGetRowInfoForSpecialLinks
+     */
+    public function testGetRowInfoForSpecialLinks(
+        $fields_meta, $fiels_count, $row, $col_order,  $output
+    ) {
+        
+        $this->object->__set('_fields_meta', $fields_meta);
+        $this->object->__set('_fields_cnt', $fiels_count);
+        
+        $this->assertEquals(
+            $output,
+            $this->_callPrivateFunction(
+                '_getRowInfoForSpecialLinks',
+                array($row, $col_order)
+            )
+        );
+        
+    }
+    
+    
 }
