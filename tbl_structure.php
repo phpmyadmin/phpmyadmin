@@ -12,6 +12,11 @@
 require_once 'libraries/common.inc.php';
 require_once 'libraries/mysql_charsets.lib.php';
 
+/**
+ * Function implementations for this script
+ */
+require_once 'libraries/structure.lib.php';
+
 $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
@@ -197,32 +202,12 @@ $i = 0;
 if ($GLOBALS['cfg']['PropertiesIconic'] === true) {
     echo ' PropertiesIconic';
 } ?>">
-<thead>
-<tr>
-    <th></th>
-    <th>#</th>
-    <th><?php echo __('Name'); ?></th>
-    <th><?php echo __('Type'); ?></th>
-    <th><?php echo __('Collation'); ?></th>
-    <th><?php echo __('Attributes'); ?></th>
-    <th><?php echo __('Null'); ?></th>
-    <th><?php echo __('Default'); ?></th>
-    <th><?php echo __('Extra'); ?></th>
-<?php if ($db_is_information_schema || $tbl_is_view) { ?>
-    <th><?php echo __('View'); ?></th>
-<?php } else { /* see tbl_structure.js, function moreOptsMenuResize() */ ?>
-    <th colspan="<?php
-    $colspan = 9;
-    if (PMA_DRIZZLE) {
-        $colspan -= 2;
-    }
-    if ($GLOBALS['cfg']['PropertiesIconic']) {
-        $colspan--;
-    }
-    echo $colspan; ?>" class="action"><?php echo __('Action'); ?></th>
-<?php } ?>
-</tr>
-</thead>
+<?php
+echo PMA_getHtmlForTableStructureHeader(
+    $db_is_information_schema,
+    $tbl_is_view
+);
+?>
 <tbody>
 
 <?php
@@ -333,41 +318,16 @@ foreach ($fields as $row) {
         $displayed_field_name = '<u>' . $field_name . '</u>';
     }
     echo "\n";
-    ?>
-<tr class="<?php echo $odd_row ? 'odd': 'even'; $odd_row = !$odd_row; ?>">
-    <td class="center">
-        <input type="checkbox" class="checkall" name="selected_fld[]" value="<?php echo htmlspecialchars($row['Field']); ?>" id="checkbox_row_<?php echo $rownum; ?>" <?php echo $checked; ?> />
-    </td>
-    <td class="right">
-        <?php echo $rownum; ?>
-    </td>
-    <th class="nowrap"><label for="checkbox_row_<?php echo $rownum; ?>"><?php echo $displayed_field_name; ?></label></th>
-    <td<?php echo $type_nowrap; ?>><bdo dir="ltr" lang="en"><?php echo $extracted_columnspec['displayed_type']; echo $type_mime; ?></bdo></td>
-    <td><?php echo (empty($field_charset) ? '' : '<dfn title="' . PMA_getCollationDescr($field_charset) . '">' . $field_charset . '</dfn>'); ?></td>
-    <td class="column_attribute nowrap"><?php echo $attribute; ?></td>
-    <td><?php echo (($row['Null'] == 'YES') ? __('Yes') : __('No')); ?></td>
-    <td class="nowrap"><?php
-    if (isset($row['Default'])) {
-        if ($extracted_columnspec['type'] == 'bit') {
-            // here, $row['Default'] contains something like b'010'
-            echo $common_functions->convertBitDefaultValue($row['Default']);
-        } else {
-            echo $row['Default'];
-        }
-    } else {
-        echo '<i>' . _pgettext('None for default', 'None') . '</i>';
-    } ?></td>
-    <td class="nowrap"><?php echo strtoupper($row['Extra']); ?></td>
-    <?php if (! $tbl_is_view && ! $db_is_information_schema) { ?>
-    <td class="edit center">
-        <a href="tbl_alter.php?<?php echo $url_query; ?>&amp;field=<?php echo $field_encoded; ?>">
-            <?php echo $titles['Change']; ?></a>
-    </td>
-    <td class="drop center">
-        <a <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="drop_column_anchor"' : ''); ?> href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . $common_functions->backquote($table) . ' DROP ' . $common_functions->backquote($row['Field']) . ';'); ?>&amp;dropped_column=<?php echo urlencode($row['Field']); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('Column %s has been dropped'), htmlspecialchars($row['Field']))); ?>" >
-            <?php echo $titles['Drop']; ?></a>
-    </td>
-    <?php }
+    
+    list($html_output, $odd_row)
+        = PMA_getHtmlTableStructureRow($row, $odd_row, $rownum, $checked,
+            $displayed_field_name, $type_nowrap, $extracted_columnspec, $type_mime,
+            $field_charset, $attribute, $tbl_is_view, $db_is_information_schema,
+            $url_query, $field_encoded, $titles, $table
+        );
+    
+    echo $html_output;
+    
     if (! $tbl_is_view && ! $db_is_information_schema) { ?>
     <td class="primary replaced_by_more center">
         <?php
@@ -466,85 +426,13 @@ foreach ($fields as $row) {
         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT COUNT(*) AS ' . $common_functions->backquote(__('Rows')) . ', ' . $common_functions->backquote($row['Field']) . ' FROM ' . $common_functions->backquote($table) . ' GROUP BY ' . $common_functions->backquote($row['Field']) . ' ORDER BY ' . $common_functions->backquote($row['Field'])); ?>">            <?php echo $titles['DistinctValues']; ?></a>
     </td>
         <?php
-        if ($GLOBALS['cfg']['PropertiesIconic'] !== true && $GLOBALS['cfg']['HideStructureActions'] === true) { ?>
-    <td class="more_opts" id="more_opts<?php echo $rownum; ?>">
-        <?php echo $common_functions->getImage('more.png', __('Show more actions')); ?> <?php echo __('More'); ?>
-        <div class="structure_actions_dropdown" id="row_<?php echo $rownum; ?>">
-            <div  class="<?php echo ($GLOBALS['cfg']['AjaxEnable'] ? 'action_primary ' : ''); ?>replace_in_more">
-                <?php
-                if (isset($primary_enabled)) {
-                     if ($primary_enabled) { ?>
-                          <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . $common_functions->backquote($table) . ($primary ? ' DROP PRIMARY KEY,' : '') . ' ADD PRIMARY KEY(' . $common_functions->backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('A primary key has been added on %s'), htmlspecialchars($row['Field']))); ?>">
-                             <?php echo $hidden_titles['Primary']; ?>
-                         </a>
-                     <?php
-                     } else {
-                         echo $hidden_titles['NoPrimary'];
-                     }
-                } ?>
-            </div>
-            <div class="action_unique replace_in_more">
-                <?php
-                if (isset($unique_enabled)) {
-                     if ($unique_enabled) { ?>
-                         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . $common_functions->backquote($table) . ' ADD UNIQUE(' . $common_functions->backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
-                             <?php echo $hidden_titles['Unique']; ?>
-                         </a>
-                     <?php
-                     } else {
-                         echo $hidden_titles['NoUnique'];
-                     }
-                } ?>
-            </div>
-            <div class="action_index replace_in_more">
-               <?php
-                if (isset($index_enabled)) {
-                     if ($index_enabled) { ?>
-                         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . $common_functions->backquote($table) . ' ADD INDEX(' . $common_functions->backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
-                             <?php echo $hidden_titles['Index']; ?>
-                         </a>
-                     <?php
-                     } else {
-                         echo $hidden_titles['NoIndex'];
-                     }
-                  } ?>
-            </div>
-            <?php if (!PMA_DRIZZLE) { ?>
-            <div class="action_spatial replace_in_more">
-                <?php
-                if (isset($spatial_enabled)) {
-                    if ($spatial_enabled) { ?>
-                        <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . $common_functions->backquote($table) . ' ADD SPATIAL(' . $common_functions->backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
-                            <?php echo $hidden_titles['Spatial']; ?>
-                        </a>
-                    <?php
-                    } else {
-                        echo $hidden_titles['NoSpatial'];
-                    }
-                } ?>
-            </div>
-            <div class="action_fulltext replace_in_more">
-                <?php
-                if (isset($fulltext_enabled)) {
-                     if ($fulltext_enabled) { ?>
-                         <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('ALTER TABLE ' . $common_functions->backquote($table) . ' ADD FULLTEXT(' . $common_functions->backquote($row['Field']) . ');'); ?>&amp;message_to_show=<?php echo urlencode(sprintf(__('An index has been added on %s'), htmlspecialchars($row['Field']))); ?>">
-                             <?php echo $hidden_titles['IdxFulltext']; ?>
-                         </a>
-                     <?php
-                     } else {
-                         echo $hidden_titles['NoIdxFulltext'];
-                     }
-                } ?>
-            </div>
-            <div class="action_browse replace_in_more">
-                <a href="sql.php?<?php echo $url_query; ?>&amp;sql_query=<?php echo urlencode('SELECT COUNT(*) AS ' . $common_functions->backquote(__('Rows')) . ', ' . $common_functions->backquote($row['Field']) . ' FROM ' . $common_functions->backquote($table) . ' GROUP BY ' . $common_functions->backquote($row['Field']) . ' ORDER BY ' . $common_functions->backquote($row['Field'])); ?>&amp;browse_distinct=1">
-                    <?php echo $hidden_titles['DistinctValues']; ?>
-                </a>
-            </div>
-            <?php } ?>
-        </div>
-    </td>
-    <?php
+        if ($GLOBALS['cfg']['PropertiesIconic'] !== true 
+            && $GLOBALS['cfg']['HideStructureActions'] === true
+        ) {
+            echo PMA_getHtmlForMoreOptionInTableStructure($rownum, $primary_enabled,
+                $url_query, $row, $hidden_titles, $unique_enabled, $unique_enabled,
+                $index_enabled, $fulltext_enabled, $spatial_enabled, $primary
+            );
         } // end if (GLOBALS['cfg']['PropertiesIconic'] !== true)
     } // end if (! $tbl_is_view && ! $db_is_information_schema)
     ?>
@@ -556,173 +444,32 @@ foreach ($fields as $row) {
 echo '</tbody>' . "\n"
     .'</table>' . "\n";
 
-$checkall_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
-?>
-
-<img class="selectallarrow" src="<?php echo $pmaThemeImage . 'arrow_' . $text_dir . '.png'; ?>"
-    width="38" height="22" alt="<?php echo __('With selected:'); ?>" />
-<input type="checkbox" id="checkall" title="<?php echo __('Check All'); ?>" />
-<label for="checkall"><?php echo __('Check All'); ?></label>
-
-<i style="margin-left: 2em"><?php echo __('With selected:'); ?></i>
-
-<?php
-echo $common_functions->getButtonOrImage(
-    'submit_mult', 'mult_submit', 'submit_mult_browse',
-    __('Browse'), 'b_browse.png', 'browse'
+echo PMA_getHtmlForCheckAlltableColumn($pmaThemeImage, $text_dir,
+    $tbl_is_view, $db_is_information_schema, $tbl_storage_engine
 );
 
-if (! $tbl_is_view && ! $db_is_information_schema) {
-    echo $common_functions->getButtonOrImage(
-        'submit_mult', 'mult_submit', 'submit_mult_change',
-        __('Change'), 'b_edit.png', 'change'
-    );
-    echo $common_functions->getButtonOrImage(
-        'submit_mult', 'mult_submit', 'submit_mult_drop',
-        __('Drop'), 'b_drop.png', 'drop'
-    );
-    if ('ARCHIVE' != $tbl_storage_engine) {
-        echo $common_functions->getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_primary',
-            __('Primary'), 'b_primary.png', 'primary'
-        );
-        echo $common_functions->getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_unique',
-            __('Unique'), 'b_unique.png', 'unique'
-        );
-        echo $common_functions->getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_index',
-            __('Index'), 'b_index.png', 'index'
-        );
-    }
+echo '</form>'
+    . '<hr />';
+echo PMA_getHtmlDivForMoveColumnsDialog();
 
-    if (! empty($tbl_storage_engine) && $tbl_storage_engine == 'MYISAM') {
-        echo $common_functions->getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_spatial',
-            __('Spatial'), 'b_spatial.png', 'spatial'
-        );
-    }
-    if (! empty($tbl_storage_engine)
-        && ($tbl_storage_engine == 'MYISAM'
-        || $tbl_storage_engine == 'ARIA'
-        || $tbl_storage_engine == 'MARIA')
-    ) {
-        echo $common_functions->getButtonOrImage(
-            'submit_mult', 'mult_submit', 'submit_mult_fulltext',
-            __('Fulltext'), 'b_ftext.png', 'ftext'
-        );
-    }
-}
-?>
-</form>
-<hr />
-
-<div id="move_columns_dialog" title="<?php echo __('Move columns'); ?>" style="display: none">
-    <p><?php echo __('Move the columns by dragging them up and down.'); ?></p>
-    <form action="tbl_alter.php">
-        <div>
-            <?php echo PMA_generate_common_hidden_inputs($db, $table); ?>
-            <ul>
-            </ul>
-        </div>
-    </form>
-</div>
-
-<?php
 /**
  * Work on the table
  */
 
 if ($tbl_is_view) {
-    $create_view = PMA_DBI_get_definition($db, 'VIEW', $table);
-    $create_view = preg_replace('@^CREATE@', 'ALTER', $create_view);
-    echo $common_functions->linkOrButton(
-        'tbl_sql.php' . PMA_generate_common_url(
-            $url_params +
-            array(
-                'sql_query' => $create_view,
-                'show_query' => '1',
-            )
-        ),
-        $common_functions->getIcon('b_edit.png', __('Edit view'), true)
-    );
+    echo PMA_getHtmlForEditView($url_params);
 }
-?>
+echo PMA_getHtmlForSomeLinks($url_query, $tbl_is_view,
+    $db_is_information_schema, $tbl_storage_engine, $cfgRelation);
 
-<a href="tbl_printview.php?<?php echo $url_query; ?>"><?php
-echo $common_functions->getIcon('b_print.png', __('Print view'), true);
-?></a>
-
-<?php
 if (! $tbl_is_view && ! $db_is_information_schema) {
-
-    // if internal relations are available, or foreign keys are supported
-    // ($tbl_storage_engine comes from libraries/tbl_info.inc.php)
-    if ($cfgRelation['relwork']
-        || $common_functions->isForeignKeySupported($tbl_storage_engine)
-    ) {
-        ?>
-<a href="tbl_relation.php?<?php echo $url_query; ?>"><?php
-        echo $common_functions->getIcon('b_relations.png', __('Relation view'), true);
-        ?></a>
-        <?php
-    }
-
-    if (!PMA_DRIZZLE) {
-        ?>
-<a href="sql.php?<?php echo $url_query; ?>&amp;session_max_rows=all&amp;sql_query=<?php echo urlencode('SELECT * FROM ' . $common_functions->backquote($table) . ' PROCEDURE ANALYSE()'); ?>"><?php
-        echo $common_functions->getIcon('b_tblanalyse.png', __('Propose table structure'), true);
-        ?></a><?php
-        echo $common_functions->showMySQLDocu('Extending_MySQL', 'procedure_analyse') . "\n";
-    }
-
-    if (PMA_Tracker::isActive()) {
-        echo '<a href="tbl_tracking.php?' . $url_query . '">';
-        echo $common_functions->getIcon('eye.png', __('Track table'), true);
-        echo '</a>';
-    }
-    ?>
-
-    <a href="#" id="move_columns_anchor"><?php
-    echo $common_functions->getIcon('b_move.png', __('Move columns'), true);
-    ?></a>
-
-    <br />
-<form method="post" action="tbl_addfield.php" id="addColumns" name="addColumns" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '');?>
-    onsubmit="return checkFormElementInRange(this, 'num_fields', '<?php echo str_replace('\'', '\\\'', __('You have to add at least one column.')); ?>', 1)">
-    <?php
-    echo PMA_generate_common_hidden_inputs($db, $table);
-    if ($cfg['PropertiesIconic']) {
-        echo $common_functions->getImage('b_insrow.png', __('Add column'));
-    }
-    echo sprintf(__('Add %s column(s)'), '<input type="text" name="num_fields" size="2" maxlength="2" value="1" onfocus="this.select()" />');
-
-    // I tried displaying the drop-down inside the label but with Firefox
-    // the drop-down was blinking
-    $column_selector = '<select name="after_field" onclick="this.form.field_where[2].checked=true" onchange="this.form.field_where[2].checked=true">';
-    foreach ($columns_list as $one_column_name) {
-        $column_selector .= '<option value="' . htmlspecialchars($one_column_name) . '">' . htmlspecialchars($one_column_name) . '</option>';
-    }
-    unset($columns_list, $one_column_name);
-    $column_selector .= '</select>';
-
-    $choices = array(
-        'last'  => __('At End of Table'),
-        'first' => __('At Beginning of Table'),
-        'after' => sprintf(__('After %s'), '')
-    );
-    echo $common_functions->getRadioFields(
-        'field_where', $choices, 'last', false
-    );
-    echo $column_selector;
-    unset($column_selector, $choices);
-    ?>
-<input type="submit" value="<?php echo __('Go'); ?>" />
-</form>
-<iframe class="IE_hack"></iframe>
-<hr />
-<div id="index_div" <?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : ''); ?> >
-    <?php
+    echo '<br />';
+    echo PMA_getHtmlForAddColumn($columns_list);
+    
+    echo '<iframe class="IE_hack"></iframe>'
+        . '<hr />';
+    echo '<div id="index_div" ' 
+        . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '') . ' >';
 }
 
 /**
@@ -733,29 +480,7 @@ if (! $tbl_is_view
     && ! $db_is_information_schema
     && 'ARCHIVE' !=  $tbl_storage_engine
 ) {
-    echo $common_functions->getDivForSliderEffect('indexes', __('Indexes'));
-
-    /**
-     * Display indexes
-     */
-    echo PMA_Index::getView($table, $db);
-    ?>
-        <fieldset class="tblFooters" style="text-align: left;">
-            <form action="tbl_indexes.php" method="post">
-                <?php
-                echo PMA_generate_common_hidden_inputs($db, $table);
-                echo sprintf(
-                    __('Create an index on &nbsp;%s&nbsp;columns'),
-                    '<input type="text" size="2" name="added_fields" value="1" />'
-                );
-                ?>
-                <input type="hidden" name="create_index" value="1" />
-                <input class="add_index<?php echo ($GLOBALS['cfg']['AjaxEnable'] ? ' ajax' : '');?>" type="submit" value="<?php echo __('Go'); ?>" />
-            </form>
-        </fieldset>
-    </div>
-</div>
-    <?php
+    echo PMA_getHtmlForDisplayIndexes();
 }
 
 /**
@@ -824,183 +549,64 @@ if ($cfg['ShowStats']) {
 
     // Displays them
     $odd_row = false;
-    ?>
 
-    <fieldset>
-    <legend><?php echo __('Information'); ?></legend>
-    <a id="showusage"></a>
-    <?php if (! $tbl_is_view && ! $db_is_information_schema) { ?>
-    <table id="tablespaceusage" class="data">
-    <caption class="tblHeaders"><?php echo __('Space usage'); ?></caption>
-    <tbody>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Data'); ?></th>
-        <td class="value"><?php echo $data_size; ?></td>
-        <td class="unit"><?php echo $data_unit; ?></td>
-    </tr>
-        <?php
+    echo '<fieldset>'
+        . '<legend>' . __('Information') . '</legend>'
+        . '<a id="showusage"></a>';
+    if (! $tbl_is_view && ! $db_is_information_schema) {
+        echo '<table id="tablespaceusage" class="data">'
+            . '<caption class="tblHeaders">' . __('Space usage') . '</caption>'
+            . '<tbody>';
+
+        echo PMA_getHtmlForSpaceUsageTableRow(
+            $odd_row, __('Data'), $data_size, $data_unit
+        );
+        $odd_row = !$odd_row;
+        
         if (isset($index_size)) {
-            ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Index'); ?></th>
-        <td class="value"><?php echo $index_size; ?></td>
-        <td class="unit"><?php echo $index_unit; ?></td>
-    </tr>
-            <?php
+            echo PMA_getHtmlForSpaceUsageTableRow(
+                $odd_row, __('Index'), $index_size, $index_unit
+            );
+            $odd_row = !$odd_row;
         }
+         
         if (isset($free_size)) {
-            ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?> error">
-        <th class="name"><?php echo __('Overhead'); ?></th>
-        <td class="value"><?php echo $free_size; ?></td>
-        <td class="unit"><?php echo $free_unit; ?></td>
-    </tr>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Effective'); ?></th>
-        <td class="value"><?php echo $effect_size; ?></td>
-        <td class="unit"><?php echo $effect_unit; ?></td>
-    </tr>
-            <?php
+            echo PMA_getHtmlForSpaceUsageTableRow(
+                $odd_row, __('Overhead'), $free_size, $free_unit
+            );
+            echo PMA_getHtmlForSpaceUsageTableRow(
+                $odd_row, __('Effective'), $effect_size, $effect_unit
+            );
+            $odd_row = !$odd_row;
         }
         if (isset($tot_size) && $mergetable == false) {
-            ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Total'); ?></th>
-        <td class="value"><?php echo $tot_size; ?></td>
-        <td class="unit"><?php echo $tot_unit; ?></td>
-    </tr>
-            <?php
+            echo PMA_getHtmlForSpaceUsageTableRow(
+                $odd_row, __('Total'), $tot_size, $tot_unit
+            );
+            $odd_row = !$odd_row;
         }
         // Optimize link if overhead
-        if (isset($free_size) && !PMA_DRIZZLE && ($tbl_storage_engine == 'MYISAM' || $tbl_storage_engine == 'ARIA' || $tbl_storage_engine == 'MARIA' || $tbl_storage_engine == 'BDB')) {
-            ?>
-    <tr class="tblFooters">
-        <td colspan="3" class="center">
-            <a href="sql.php?<?php echo $url_query; ?>&pos=0&amp;sql_query=<?php echo urlencode('OPTIMIZE TABLE ' . $common_functions->backquote($table)); ?>"><?php
-            echo $common_functions->getIcon('b_tbloptimize.png', __('Optimize table'));
-            ?></a>
-        </td>
-    </tr>
-            <?php
+        if (isset($free_size) && !PMA_DRIZZLE 
+            && ($tbl_storage_engine == 'MYISAM' 
+                || $tbl_storage_engine == 'ARIA' 
+                || $tbl_storage_engine == 'MARIA' 
+                || $tbl_storage_engine == 'BDB'
+            )
+        ) {
+            echo PMA_getHtmlForOptimizeLink($url_query);
         }
-        ?>
-    </tbody>
-    </table>
-        <?php
+        echo '</tbody>'
+            . '</table>';
     }
-    $odd_row = false;
-    ?>
-    <table id="tablerowstats" class="data">
-    <caption class="tblHeaders"><?php echo __('Row Statistics'); ?></caption>
-    <tbody>
-    <?php
-    if (isset($showtable['Row_format'])) {
-        ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Format'); ?></th>
-        <td class="value"><?php
-        if ($showtable['Row_format'] == 'Fixed') {
-            echo __('static');
-        } elseif ($showtable['Row_format'] == 'Dynamic') {
-            echo __('dynamic');
-        } else {
-            echo $showtable['Row_format'];
-        }
-        ?></td>
-    </tr>
-        <?php
-    }
-    if (! empty($showtable['Create_options'])) {
-        ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Options'); ?></th>
-        <td class="value"><?php
-        if ($showtable['Create_options'] == 'partitioned') {
-            echo __('partitioned');
-        } else {
-            echo $showtable['Create_options'];
-        }
-        ?></td>
-    </tr>
-        <?php
-    }
-    if (!empty($tbl_collation)) {
-        ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Collation'); ?></th>
-        <td class="value"><?php
-            echo '<dfn title="' . PMA_getCollationDescr($tbl_collation) . '">' . $tbl_collation . '</dfn>';
-            ?></td>
-    </tr>
-        <?php
-    }
-    if (!$is_innodb && isset($showtable['Rows'])) {
-        ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Rows'); ?></th>
-        <td class="value"><?php echo $common_functions->formatNumber($showtable['Rows'], 0); ?></td>
-    </tr>
-        <?php
-    }
-    if (!$is_innodb && isset($showtable['Avg_row_length']) && $showtable['Avg_row_length'] > 0) {
-        ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Row length'); ?> &oslash;</th>
-        <td class="value"><?php echo $common_functions->formatNumber($showtable['Avg_row_length'], 0); ?></td>
-    </tr>
-        <?php
-    }
-    if (!$is_innodb && isset($showtable['Data_length']) && $showtable['Rows'] > 0 && $mergetable == false) {
-        ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Row size'); ?> &oslash;</th>
-        <td class="value"><?php echo $avg_size . ' ' . $avg_unit; ?></td>
-    </tr>
-        <?php
-    }
-    if (isset($showtable['Auto_increment'])) {
-        ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Next autoindex'); ?></th>
-        <td class="value"><?php echo $common_functions->formatNumber($showtable['Auto_increment'], 0); ?></td>
-    </tr>
-        <?php
-    }
-    if (isset($showtable['Create_time'])) {
-        ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Creation'); ?></th>
-        <td class="value"><?php echo $common_functions->localisedDate(strtotime($showtable['Create_time'])); ?></td>
-    </tr>
-        <?php
-    }
-    if (isset($showtable['Update_time'])) {
-        ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Last update'); ?></th>
-        <td class="value"><?php echo $common_functions->localisedDate(strtotime($showtable['Update_time'])); ?></td>
-    </tr>
-        <?php
-    }
-    if (isset($showtable['Check_time'])) {
-        ?>
-    <tr class="<?php echo ($odd_row = !$odd_row) ? 'odd' : 'even'; ?>">
-        <th class="name"><?php echo __('Last check'); ?></th>
-        <td class="value"><?php echo $common_functions->localisedDate(strtotime($showtable['Check_time'])); ?></td>
-    </tr>
-        <?php
-    }
-    ?>
-    </tbody>
-    </table>
-    </fieldset>
-    <!-- close tablestatistics div -->
-    </div>
-
-    <?php
+    
+    echo getHtmlForRowStatsTable($showtable, $tbl_collation,
+        $is_innodb, $mergetable, 
+        (isset ($avg_size) ? $avg_size : ''), 
+        (isset ($avg_unit) ? $avg_unit : '')
+    );
 }
 // END - Calc Table Space
 
 echo '<div class="clearfloat"></div>' . "\n";
-
+ 
 ?>

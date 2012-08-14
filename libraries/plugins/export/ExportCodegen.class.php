@@ -87,13 +87,13 @@ class ExportCodegen extends ExportPlugin
         $exportPluginProperties->setExtension('cs');
         $exportPluginProperties->setMimeType('text/cs');
         $exportPluginProperties->setOptionsText(__('Options'));
-        
+
         // create the root group that will be the options field for
         // $exportPluginProperties
         // this will be shown as "Format specific options"
         $exportSpecificOptions = new OptionsPropertyRootGroup();
         $exportSpecificOptions->setName("Format Specific Options");
-        
+
         // general options main group
         $generalOptions = new OptionsPropertyMainGroup();
         $generalOptions->setName("general_opts");
@@ -108,7 +108,7 @@ class ExportCodegen extends ExportPlugin
         $generalOptions->addProperty($leaf);
         // add the main group to the root group
         $exportSpecificOptions->addProperty($generalOptions);
-        
+
         // set the options for the export plugin property item
         $exportPluginProperties->setOptions($exportSpecificOptions);
         $this->properties = $exportPluginProperties;
@@ -328,6 +328,7 @@ class ExportCodegen extends ExportPlugin
     private function _handleNHibernateXMLBody($db, $table, $crlf)
     {
         $lines = array();
+        $common_functions = PMA_CommonFunctions::getInstance();
         $lines[] = '<?xml version="1.0" encoding="utf-8" ?' . '>';
         $lines[] = '<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" '
             . 'namespace="' . ExportCodegen::cgMakeIdentifier($db) . '" '

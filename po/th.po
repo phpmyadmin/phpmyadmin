@@ -3371,7 +3371,7 @@ msgid ""
 msgstr ""
 
 #: libraries/Types.class.php:331 libraries/Types.class.php:729
-#, php-format
+#, php-format, fuzzy
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
@@ -3380,6 +3380,7 @@ msgstr ""
 "เพื่อสร้างอย่างใดอย่างหนึ่ง"
 
 #: libraries/Types.class.php:333
+#, fuzzy
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
