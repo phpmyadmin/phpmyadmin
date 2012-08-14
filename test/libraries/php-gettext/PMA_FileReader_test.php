@@ -107,4 +107,16 @@ class PMA_FileReader_test extends PHPUnit_Framework_TestCase
             $file->FileReader('./path/for/no/file.txt')
         );
     }
+
+    public function testForCachedFileReader(){
+        $reader = new CachedFileReader('./test/test_data/test.file');
+        $this->assertEquals(
+            $reader->CachedFileReader('./test/test_data/test.file'),
+            null
+        );
+        $this->assertFalse(
+            $reader->CachedFileReader('./path/for/no/file.txt')
+        );
+
+    }
 }
