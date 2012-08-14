@@ -311,14 +311,12 @@ class ExportLatex extends ExportPlugin
             $buffer .= ' \\caption{'
                 . $common_functions->expandUserString(
                     $GLOBALS['latex_data_caption'],
-                    'texEscape',
-                    get_class($this),
+                    get_class($this) . '->texEscape',
                     array('table' => $table, 'database' => $db)
                 )
                 . '} \\label{'
                 . $common_functions->expandUserString(
                     $GLOBALS['latex_data_label'],
-                    null,
                     null,
                     array('table' => $table, 'database' => $db)
                 )
@@ -345,8 +343,7 @@ class ExportLatex extends ExportPlugin
                     '\\caption{'
                     . $common_functions->expandUserString(
                         $GLOBALS['latex_data_continued_caption'],
-                        'texEscape',
-                        get_class($this),
+                        get_class($this) . '->texEscape',
                         array('table' => $table, 'database' => $db)
                     )
                     . '} \\\\ '
@@ -516,14 +513,12 @@ class ExportLatex extends ExportPlugin
             $buffer .= ' \\caption{'
                 . $common_functions->expandUserString(
                     $GLOBALS['latex_structure_caption'],
-                    'texEscape',
-                    get_class($this),
+                    get_class($this) . '->texEscape',
                     array('table' => $table, 'database' => $db)
                 )
                 . '} \\label{'
                 . $common_functions->expandUserString(
                     $GLOBALS['latex_structure_label'],
-                    null,
                     null,
                     array('table' => $table, 'database' => $db)
                 )
@@ -536,8 +531,7 @@ class ExportLatex extends ExportPlugin
             $buffer .= ' \\caption{'
                 . $common_functions->expandUserString(
                     $GLOBALS['latex_structure_continued_caption'],
-                    'texEscape',
-                    get_class($this),
+                    get_class($this) . '->texEscape',
                     array('table' => $table, 'database' => $db)
                 )
                 . '} \\\\ ' . $crlf;
