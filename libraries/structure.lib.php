@@ -1962,7 +1962,7 @@ function PMA_getHtmlForMoreOptionInTableStructure($rownum, $primary_enabled,
  * 
  * @return array $html_output, $action_enabled 
  */
-function PMA_getHtmlForActionRowinStructureTable($type, $tbl_storage_engine,
+function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
     $class, $hasField, $hasLinkClass, $url_query, $primary, $syntax,
     $message, $action, $titles, $row, $isPrimary
 ) {
@@ -2002,7 +2002,7 @@ function PMA_getHtmlForActionRowinStructureTable($type, $tbl_storage_engine,
 }
 
 /**
- * Get HTML for fultext action,
+ * Get HTML for fulltext action,
  * and this function returns $fulltext_enabled boolean value also
  * 
  * @param string $tbl_storage_engine    table storage engine
@@ -2013,7 +2013,7 @@ function PMA_getHtmlForActionRowinStructureTable($type, $tbl_storage_engine,
  * 
  * @return type array $html_output, $fulltext_enabled
  */
-function PMA_getHtmlForFulTextAction($tbl_storage_engine, $type, $url_query,
+function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
     $row, $titles
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
@@ -2100,7 +2100,7 @@ function PMA_getHtmlForActionsIntableStructure($type, $tbl_storage_engine,
 ) {
     $html_output = '';
     list($primary, $primary_enabled)
-        = PMA_getHtmlForActionRowinStructureTable($type, $tbl_storage_engine,
+        = PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
             'primary replaced_by_more center',
             ($primary && $primary->hasColumn($field_name)),
             true, $url_query, $primary,
@@ -2110,7 +2110,7 @@ function PMA_getHtmlForActionsIntableStructure($type, $tbl_storage_engine,
         );
     $html_output .= $primary;
     list($unique, $unique_enabled) 
-        = PMA_getHtmlForActionRowinStructureTable($type, $tbl_storage_engine,
+        = PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
             'unique replaced_by_more center',
             isset($columns_with_unique_index[$field_name]),
             false, $url_query, $primary, 'ADD UNIQUE',
@@ -2119,7 +2119,7 @@ function PMA_getHtmlForActionsIntableStructure($type, $tbl_storage_engine,
         );
     $html_output .= $unique;
     list($index, $index_enabled) 
-        = PMA_getHtmlForActionRowinStructureTable(
+        = PMA_getHtmlForActionRowInStructureTable(
             $type, $tbl_storage_engine,
             'index replaced_by_more center', false, false, $url_query, 
             $primary, 'ADD INDEX', __('An index has been added on %s'),
@@ -2132,7 +2132,7 @@ function PMA_getHtmlForActionsIntableStructure($type, $tbl_storage_engine,
             'multilinestring', 'multipolygon', 'geomtrycollection'
         );
         list($spatial, $spatial_enabled) 
-            = PMA_getHtmlForActionRowinStructureTable(
+            = PMA_getHtmlForActionRowInStructureTable(
                 $type, $tbl_storage_engine,
                 'spatial replaced_by_more center',
                 (! in_array($type, $spatial_types) 
@@ -2146,7 +2146,7 @@ function PMA_getHtmlForActionsIntableStructure($type, $tbl_storage_engine,
 
         // FULLTEXT is possible on TEXT, CHAR and VARCHAR
         list ($fulltext, $fulltext_enabled) 
-            = PMA_getHtmlForFulTextAction($tbl_storage_engine, $type,
+            = PMA_getHtmlForFullTextAction($tbl_storage_engine, $type,
                 $url_query, $row, $titles);
         $html_output .= $fulltext;
     }
