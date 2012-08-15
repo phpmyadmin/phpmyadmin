@@ -113,8 +113,6 @@ $(function() {
     var text = ''; // Holds filter text
     var queryPieChart = null;
     var monitorLoaded = false;
-    var refresh_rate = 5000;
-    var data_points = 12;
 
     /* Chart configuration */
     // Defines what the tabs are currently displaying (realtime or data)
@@ -192,14 +190,8 @@ $(function() {
         }, 0.5);
     });
 
-
-    $('.buttonlinks .dataPointsNumber').change(function() {
-        data_points = parseInt(this.value);
-    });
-
     // Handles refresh rate changing
     $('.buttonlinks .refreshRate').change(function() {
-        refresh_rate = 1000*parseInt(this.value);
 
         var chart = tabChart[$(this).parents('div.ui-tabs-panel').attr('id')];
 
@@ -258,7 +250,7 @@ $(function() {
 
         if (tabstat == 'static' || tabstat == 'liveconnections') {
             
-            setupLiveChart($tab, this, getSettings(data_points, 'traffic'));
+            setupLiveChart($tab, this, getSettings('traffic'));
             var set_previous = getCurrentDataSet($tab, 'traffic');
             currentCharts[$tab.attr('id')] = $.jqplot($tab.attr('id') + '_chart_cnt', [[[0,0]],[[0,0]]], getSettings('traffic'));
             recursiveTimer($tab, 'traffic');
@@ -281,7 +273,7 @@ $(function() {
 
         if (tabstat == 'static' || tabstat == 'livetraffic') {
 
-            setupLiveChart($tab, this, getSettings(data_points, 'proc'));
+            setupLiveChart($tab, this, getSettings('proc'));
             var set_previous = getCurrentDataSet($tab, 'proc');
             currentCharts[$tab.attr('id')] = $.jqplot($tab.attr('id') + '_chart_cnt', [[[0,0]],[[0,0]]], getSettings('proc'));
             recursiveTimer($tab, 'proc');
@@ -302,7 +294,7 @@ $(function() {
         var $tab = $(this).parents('div.ui-tabs-panel');
         if (tabStatus[$tab.attr('id')] == 'static') {
 
-            setupLiveChart($tab, this, getSettings(data_points, 'queries'));
+            setupLiveChart($tab, this, getSettings('queries'));
             var set_previous = getCurrentDataSet($tab, 'queries');
             currentCharts[$tab.attr('id')] = $.jqplot($tab.attr('id') + '_chart_cnt', [[0,0]], getSettings('queries'));
             recursiveTimer($tab, 'queries');
@@ -318,7 +310,7 @@ $(function() {
     function recursiveTimer($tab, type) {
             replotLiveChart($tab, type);
             chart_replot_timers[$tab.attr('id')] = setTimeout(function() {
-                recursiveTimer($tab, type) }, refresh_rate);
+                recursiveTimer($tab, type) }, ($('.refreshRate :selected', $tab).val() * 1000));
     }
 
     function getCurrentDataSet($tab, type) {
@@ -430,6 +422,8 @@ $(function() {
         }
         currentCharts[$tab.attr('id')].resetAxesScale();
         var current_time = new Date().getTime();
+        var data_points = $('.dataPointsNumber :selected', $tab).val();
+        var refresh_rate = $('.refreshRate :selected', $tab).val() * 1000;
         // Min X would be decided based on refresh rate and number of data points
         var minX = current_time - (refresh_rate * data_points);
         var interval = (((current_time - minX)/data_points) / 1000);
