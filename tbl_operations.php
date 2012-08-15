@@ -269,7 +269,7 @@ $response->addHTML(
         (empty($delay_key_write) ? '0' : '1'),
         ((isset($transactional) && $transactional == '0') ? '0' : '1'), 
         ((isset($page_checksum)) ? $page_checksum : ''),
-        $is_innodb, $is_pbxt, $is_aria
+        $is_innodb, $is_pbxt, $is_aria, (empty($checksum) ? '0' : '1')
     )
 );
 
