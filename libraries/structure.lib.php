@@ -285,11 +285,9 @@ function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
     $html_output .= '<label for="checkall">' .__('Check All') . '</label>';
     
     if ($overhead_check != '') {
-        $html_output .= '/';
-        $html_output .= '<a href="#" onclick="unMarkAllRows(\'tablesForm\');'
-            . $overhead_check . 'return false;">'
-            . __('Check tables having overhead')
-            . '</a>';
+        $html_output .= PMA_getHtmlForCheckTablesHavingOverheadlink(
+            $overhead_check
+        );
     }
 
     $html_output .= '<select name="submit_mult" class="autosubmit" '
@@ -333,6 +331,22 @@ function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
     
     return $html_output;
 }
+
+/**
+ * Get HTML code for "Check tables having overhead" link
+ * 
+ * @param string $overhead_check  overhead check
+ * 
+ * @return string $html_output 
+ */
+function PMA_getHtmlForCheckTablesHavingOverheadlink($overhead_check) {
+    return ' / '
+        . '<a href="#" onclick="unMarkAllRows(\'tablesForm\');'
+        . $overhead_check . 'return false;">'
+        . __('Check tables having overhead')
+        . '</a>';
+}
+
 
 /**
  * Get HTML links for "Print view" and "Data Dictionary" options
