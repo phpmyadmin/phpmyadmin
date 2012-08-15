@@ -1397,6 +1397,333 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             )
         );
     }
+    
+    
+    /**
+     * Data provider for testIsNeedToSytaxHighlight
+     *
+     * @return array parameters and output
+     */
+    public function dataProviderForTestIsNeedToSytaxHighlight()
+    {
+        return array(
+            array(
+                'information_schema',
+                'processlist',
+                array(
+                    'information_schema' => array(
+                        'processlist' => array(
+                            'info' => array(
+                                'libraries/plugins/transformations/Text_Plain_Formatted.class.php',
+                                'Text_Plain_Formatted',
+                                'Text_Plain'
+                            )
+                        )
+                    )
+                ),
+                'info',
+                true                
+            ),
+            array(
+                'incorrect_database',
+                'processlist',
+                array(
+                    'information_schema' => array(
+                        'processlist' => array(
+                            'info' => array(
+                                'libraries/plugins/transformations/Text_Plain_Formatted.class.php',
+                                'Text_Plain_Formatted',
+                                'Text_Plain'
+                            )
+                        )
+                    )
+                ),
+                'info',
+                false
+            )
+        );
+    }
+    
+    
+    /**
+     * Test _isNeedToSytaxHighlight
+     * 
+     * @param string  $db     the database name
+     * @param string  $table  the table name
+     * @param array   $data   predifined data of columns need to sytax highlighted
+     * @param string  $field  the field name
+     * @param boolean $output output of _isNeedToSytaxHighlight
+     * 
+     * @dataProvider dataProviderForTestIsNeedToSytaxHighlight
+     */
+    public function testIsNeedToSytaxHighlight($db, $table, $data, $field,  $output)
+    {
+        $this->object->__set('_db', $db);
+        $this->object->__set('_table', $table);
+        $this->object->__set('sytax_highlighting_column_info', $data);
+        
+        
+        $this->assertEquals(
+            $output,
+            $this->_callPrivateFunction(
+                '_isNeedToSytaxHighlight',
+                array($field)
+            )
+        );
+        
+    }
+    
+    
+    /**
+     * Data provider for testIsFieldNeedToLink
+     *
+     * @return array parameters and output
+     */
+    public function dataProviderForTestIsFieldNeedToLink()
+    {
+        return array(
+            array(
+                'mysql',
+                'proc',
+                'db',
+                true
+            ),
+            array(
+                'incorrect_database',
+                'processlist',
+                'info',
+                false
+            )
+        );
+    }
+    
+    
+    /**
+     * Test _isFieldNeedToLink
+     * 
+     * @param string  $db     the database name
+     * @param string  $table  the table name
+     * @param string  $field  the field name
+     * @param boolean $output output of _isFieldNeedToLink
+     * 
+     * @dataProvider dataProviderForTestIsFieldNeedToLink
+     */
+    public function testIsFieldNeedToLink($db, $table, $field,  $output)
+    {
+        
+        $GLOBALS['special_schema_links'] = array(
+            'mysql' => array(
+                'proc' => array(
+                    'db' => array(
+                        'link_param' => 'db',
+                        'default_page' => 'index.php'
+                    )
 
-
+                )
+            )
+        );
+        
+        $this->object->__set('_db', $db);
+        $this->object->__set('_table', $table);
+        
+        $this->assertEquals(
+            $output,
+            $this->_callPrivateFunction(
+                '_isFieldNeedToLink',
+                array($field)
+            )
+        );
+        
+    }
+    
+    
+    /**
+     * Data provider for testGetSpecialLinkUrl
+     *
+     * @return array parameters and output
+     */
+    public function dataProviderForTestGetSpecialLinkUrl()
+    {
+        return array(
+            array(
+                'information_schema',
+                'routines',
+                'circumference',
+                array(
+                    'routine_name' => 'circumference',
+                    'routine_schema' => 'data',
+                    'routine_type' => 'FUNCTION'
+                ),
+                'routine_name',
+                'db_routines.php?item_name=circumference&amp;db=data&amp;execute_dialog=1&amp;item_type=FUNCTION&amp;lang=en&amp;token=token'
+            ),
+            array(
+                'information_schema',
+                'routines',
+                'area',
+                array(
+                    'routine_name' => 'area',
+                    'routine_schema' => 'data',
+                    'routine_type' => 'PROCEDURE'
+                ),
+                'routine_name',
+                'db_routines.php?item_name=area&amp;db=data&amp;execute_routine=1&amp;item_type=PROCEDURE&amp;lang=en&amp;token=token'
+            ),
+            array(
+                'information_schema',
+                'columns',
+                'CHARACTER_SET_NAME',
+                array(
+                    'table_schema' => 'information_schema',
+                    'table_name' => 'CHARACTER_SETS'
+                ),
+                'column_name',
+                'index.php?sql_query=SELECT+%60CHARACTER_SET_NAME%60+FROM+%60information_schema%60.%60CHARACTER_SETS%60&amp;db=information_schema&amp;test_name=value&amp;lang=en&amp;token=token'
+            )
+        );
+    }
+    
+    
+    /**
+     * Test _getSpecialLinkUrl
+     * 
+     * @param string  $db           the database name
+     * @param string  $table        the table name
+     * @param string  $column_value column value
+     * @param array   $row_info     information about row
+     * @param string  $field_name   column name
+     * @param boolean $output       output of _getSpecialLinkUrl
+     * 
+     * @dataProvider dataProviderForTestGetSpecialLinkUrl
+     */
+    public function testGetSpecialLinkUrl(
+        $db, $table, $column_value, $row_info, $field_name,  $output
+    ) {
+        
+        $GLOBALS['special_schema_links'] = array(
+            'information_schema' => array(
+                'routines' => array(
+                    'routine_name' => array(
+                        'link_param' => 'item_name',
+                        'link_dependancy_params' => array(
+                            0 => array(
+                                'param_info' => 'db',
+                                'column_name' => 'routine_schema'                        
+                            ),
+                            1 => array(
+                                'param_info' => 'item_type',
+                                'column_name' => 'routine_type'
+                            )
+                        ),
+                        'default_page' => 'db_routines.php'
+                    )
+                ),
+                'columns' => array(
+                    'column_name' => array(
+                        'link_param' => array(
+                            'sql_query',
+                            'table_schema',
+                            'table_name'
+                        ),
+                        'link_dependancy_params' => array(
+                            0 => array(
+                                'param_info' => 'db',
+                                'column_name' => 'table_schema'     
+                            ),
+                            1 => array(
+                                'param_info' => array('test_name', 'value')
+                            )
+                        ),
+                        'default_page' => 'index.php'
+                    )
+                )
+            )
+        );
+        
+        $this->object->__set('_db', $db);
+        $this->object->__set('_table', $table);
+        
+        $this->assertEquals(
+            $output,
+            $this->_callPrivateFunction(
+                '_getSpecialLinkUrl',
+                array($column_value, $row_info, $field_name)
+            )
+        );
+        
+    }
+    
+    
+    /**
+     * Data provider for testGetRowInfoForSpecialLinks
+     *
+     * @return array parameters and output
+     */
+    public function dataProviderForTestGetRowInfoForSpecialLinks()
+    {
+        $column_names = array('host', 'db', 'user', 'select_privilages');
+        $fields_mata = array();
+        
+        foreach ($column_names as $column_name) {
+            $field_meta = new stdClass();
+            $field_meta->name = $column_name;
+            $fields_mata[] = $field_meta;
+        }
+        
+        return array(
+            array(
+                $fields_mata,
+                count($fields_mata),
+                array(
+                    0 => 'localhost',
+                    1 => 'phpmyadmin',
+                    2 => 'pmauser',
+                    3 => 'Y'
+                ),
+                array(
+                    0 => '0',
+                    1 => '3',
+                    2 => '1',
+                    3 => '2'
+                ),
+                array(
+                    'host' => 'localhost',
+                    'select_privilages' => 'Y',
+                    'db' => 'phpmyadmin',
+                    'user' => 'pmauser'
+                )
+            )
+        );
+    }
+    
+    
+    /**
+     * Test _getRowInfoForSpecialLinks
+     * 
+     * @param array   $fields_meta meta information about fields
+     * @param integer $fiels_count number of fields
+     * @param array   $row         current row data
+     * @param array   $col_order   the column order
+     * @param boolean $output      output of _getRowInfoForSpecialLinks
+     * 
+     * @dataProvider dataProviderForTestGetRowInfoForSpecialLinks
+     */
+    public function testGetRowInfoForSpecialLinks(
+        $fields_meta, $fiels_count, $row, $col_order,  $output
+    ) {
+        
+        $this->object->__set('_fields_meta', $fields_meta);
+        $this->object->__set('_fields_cnt', $fiels_count);
+        
+        $this->assertEquals(
+            $output,
+            $this->_callPrivateFunction(
+                '_getRowInfoForSpecialLinks',
+                array($row, $col_order)
+            )
+        );
+        
+    }
+    
+    
 }

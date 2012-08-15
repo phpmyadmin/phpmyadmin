@@ -307,7 +307,7 @@ $(function() {
          */
         var question =
             PMA_messages.strTruncateTableStrongWarning + ' '
-            + $.sprintf(PMA_messages.strDoYouReally, 'TRUNCATE ' + curr_table_name);
+            + $.sprintf(PMA_messages.strDoYouReally, 'TRUNCATE ' + escapeHtml(curr_table_name));
 
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function(url) {
 
@@ -366,10 +366,10 @@ $(function() {
         if (! is_view) {
             question =
                 PMA_messages.strDropTableStrongWarning + ' '
-                + $.sprintf(PMA_messages.strDoYouReally, 'DROP TABLE ' + curr_table_name);
+                + $.sprintf(PMA_messages.strDoYouReally, 'DROP TABLE ' + escapeHtml(curr_table_name));
         } else {
             question =
-                $.sprintf(PMA_messages.strDoYouReally, 'DROP VIEW ' + curr_table_name);
+                $.sprintf(PMA_messages.strDoYouReally, 'DROP VIEW ' + escapeHtml(curr_table_name));
         }
 
         $this_anchor.PMA_confirm(question, $this_anchor.attr('href'), function(url) {

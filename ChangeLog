@@ -61,6 +61,9 @@ VerboseMultiSubmit, ReplaceHelpImg
 - bug #3540922 [edit] Error searching table with many fields
 - bug #3555104 [edit] Cannot copy a DB with table & views
 
+3.5.2.2 (2012-08-12)
+- [security] Fixed XSS vulnerabilities, see PMASA-2012-4
+
 3.5.2.1 (2012-08-03)
 - [security] Fixed local path disclosure vulnerability, see PMASA-2012-3
 
@@ -177,6 +180,9 @@ VerboseMultiSubmit, ReplaceHelpImg
 + FULLTEXT support for InnoDB, starting with MySQL 5.6.4
 - bug #3497151 [interface] Duplicate inline query edit box
 - bug #3504567 [mime] Description of the transformation missing in the tooltip
+
+3.4.11.1 (2012-08-12)
+- [security] Fixed XSS vulnerabilities, see PMASA-2012-4
 
 3.4.11.0 (2012-04-14)
 - bug #3486970 [import] Exception on XML import

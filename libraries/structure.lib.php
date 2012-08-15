@@ -98,7 +98,7 @@ function PMA_getHtmlForActionLinks($current_table, $table_is_view, $tbl_url_quer
             $tracking_icon = '<a href="tbl_tracking.php?' . $url_query
                 . '&amp;table=' . $truename . '">'
                 . $common_functions->getImage(
-                    'eye.png', __('Tracking is not active.')
+                    'eye_grey.png', __('Tracking is not active.')
                 )
                 . '</a>';
         }
@@ -2264,4 +2264,5 @@ function PMA_getActionTitlesArray()
     
     return $titles;
 }
+
 ?>

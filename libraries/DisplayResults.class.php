@@ -183,7 +183,7 @@ class PMA_DisplayResults
      */
     public function __get($property)
     {
-        if(array_key_exists($property, $this->_property_array)) {
+        if (array_key_exists($property, $this->_property_array)) {
             return $this->_property_array[$property];
         }
     }
@@ -193,13 +193,13 @@ class PMA_DisplayResults
      * Set values for any property of this class
      *
      * @param string $property name of the property
-     * @param        $value    value to set
+     * @param any    $value    value to set
      *
      * @return void
      */
     public function __set($property, $value)
     {
-        if(array_key_exists($property, $this->_property_array)) {
+        if (array_key_exists($property, $this->_property_array)) {
             $this->_property_array[$property] = $value;
         }
     }
@@ -858,8 +858,8 @@ class PMA_DisplayResults
 
         $onsubmit = 'onsubmit="return '
             . ($_SESSION['tmp_user_values']['pos']
-                    + $_SESSION['tmp_user_values']['max_rows']
-                    < $this->__get('_unlim_num_rows')
+                + $_SESSION['tmp_user_values']['max_rows']
+                < $this->__get('_unlim_num_rows')
                 && $this->__get('_num_rows') >= $_SESSION['tmp_user_values']['max_rows'])
             ? 'true'
             : 'false' . '"';
@@ -951,11 +951,12 @@ class PMA_DisplayResults
     /**
      * Get the headers of the results table
      *
-     * @param array  &$is_display                 which elements to display
-     * @param array  $analyzed_sql                the analyzed query
-     * @param string $sort_expression             sort expression
-     * @param string $sort_expression_nodirection sort expression without direction
-     * @param string $sort_direction              sort direction
+     * @param array   &$is_display                 which elements to display
+     * @param array   $analyzed_sql                the analyzed query
+     * @param string  $sort_expression             sort expression
+     * @param string  $sort_expression_nodirection sort expression without direction
+     * @param string  $sort_direction              sort direction
+     * @param boolean $is_limited_display          with limited operations or not
      *
      * @return string                      html content
      *
@@ -2438,11 +2439,12 @@ class PMA_DisplayResults
     /**
      * Prepare the body of the results table
      *
-     * @param integer &$dt_result   the link id associated to the query
-     *                              which results have to be displayed
-     * @param array   &$is_display  which elements to display
-     * @param array   $map          the list of relations
-     * @param array   $analyzed_sql the analyzed query
+     * @param integer &$dt_result         the link id associated to the query
+     *                                    which results have to be displayed
+     * @param array   &$is_display        which elements to display
+     * @param array   $map                the list of relations
+     * @param array   $analyzed_sql       the analyzed query
+     * @param boolean $is_limited_display with limited operations or not
      *
      * @return string $table_body_html  html content
      *
@@ -2795,17 +2797,16 @@ class PMA_DisplayResults
             ) {
                 
                 $parsed_sql = PMA_SQP_parse($row[$i]);                
-                $row[$i] = PMA_CommonFunctions::getInstance()->formatSql($parsed_sql, $row[$i]);
+                $row[$i] = PMA_CommonFunctions::getInstance()->formatSql(
+                    $parsed_sql, $row[$i]
+                );
                 include_once $this->sytax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($meta->name)][0];
                 $transformation_plugin = new $this->sytax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($meta->name)][1](null);
                 
                 $transform_options  = PMA_transformation_getOptions(
-                    isset($mime_map[$meta->name]
-                        ['transformation_options']
-                    )
-                    ? $mime_map[$meta->name]
-                    ['transformation_options']
-                   : ''
+                    isset($mime_map[$meta->name]['transformation_options'])
+                    ? $mime_map[$meta->name]['transformation_options']
+                    : ''
                 );
 
                 $meta->mimetype = str_replace(
@@ -2822,7 +2823,9 @@ class PMA_DisplayResults
                 && ($this->_isFieldNeedToLink(strtolower($meta->name)))
             ) {
                 
-                $linking_url = $this->_getSpecialLinkUrl($row[$i], $row_info, strtolower($meta->name));
+                $linking_url = $this->_getSpecialLinkUrl(
+                    $row[$i], $row_info, strtolower($meta->name)
+                );
                 include_once "libraries/plugins/transformations/Text_Plain_Link.class.php";
                 $transformation_plugin = new Text_Plain_Link(null);
                 
@@ -3036,7 +3039,8 @@ class PMA_DisplayResults
      *
      * @return boolean 
      */
-    private function _isNeedToSytaxHighlight($field) {
+    private function _isNeedToSytaxHighlight($field)
+    {
         if (! empty($this->sytax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($field)])) {
             return true;
         }
@@ -3050,7 +3054,8 @@ class PMA_DisplayResults
      *
      * @return boolean 
      */
-    private function _isFieldNeedToLink($field) {
+    private function _isFieldNeedToLink($field)
+    {
         if (! empty($GLOBALS['special_schema_links'][strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][$field])) {
             return true;
         }
@@ -3071,14 +3076,19 @@ class PMA_DisplayResults
     {
         
         $linking_url_params = array();
-        $link_relations = $GLOBALS['special_schema_links'][strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][$field_name];
+        $link_relations = $GLOBALS['special_schema_links']
+            [strtolower($this->__get('_db'))]
+            [strtolower($this->__get('_table'))]
+            [$field_name];
         
         if (! is_array($link_relations['link_param'])) {
             $linking_url_params[$link_relations['link_param']] = $column_value;
         } else {
             // Consider only the case of creating link for column field
             // sql query need to be pass as url param
-            $sql = 'SELECT `'.$column_value.'` FROM `'. $row_info[$link_relations['link_param'][1]] .'`.`'. $row_info[$link_relations['link_param'][2]] .'`';            
+            $sql = 'SELECT `'.$column_value.'` FROM `'
+                . $row_info[$link_relations['link_param'][1]] .'`.`'
+                . $row_info[$link_relations['link_param'][2]] .'`';            
             $linking_url_params[$link_relations['link_param'][0]] = $sql;
         }
         
@@ -3090,13 +3100,16 @@ class PMA_DisplayResults
                 // If param_info is an array, set the key and value
                 // from that array
                 if (is_array($new_param['param_info'])) {
-                    $linking_url_params[$new_param['param_info'][0]] = $new_param['param_info'][1];                            
+                    $linking_url_params[$new_param['param_info'][0]]
+                        = $new_param['param_info'][1];                            
                 } else {
-                    $linking_url_params[$new_param['param_info']] = $row_info[strtolower($new_param['column_name'])];
+                    
+                    $linking_url_params[$new_param['param_info']]
+                        = $row_info[strtolower($new_param['column_name'])];
 
                     // Special case 1 - when executing routines, according
                     // to the type of the routine, url param changes
-                    if (!empty($row_info['routine_type'])){
+                    if (!empty($row_info['routine_type'])) {
                         if (strtolower($row_info['routine_type']) == self::ROUTINE_PROCEDURE) {
                             $linking_url_params['execute_routine'] = 1;
                         } else if (strtolower($row_info['routine_type']) == self::ROUTINE_FUNCTION) {
@@ -3109,7 +3122,8 @@ class PMA_DisplayResults
 
         }
         
-        return $link_relations['default_page'] . PMA_generate_common_url($linking_url_params);
+        return $link_relations['default_page']
+            . PMA_generate_common_url($linking_url_params);
         
     }
     
@@ -3644,7 +3658,6 @@ class PMA_DisplayResults
                 if ((PMA_strlen($column) > $GLOBALS['cfg']['LimitChars'])
                     && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
                     && ! $this->_isNeedToSytaxHighlight(strtolower($meta->name))
-
                 ) {
                     $column = PMA_substr($column, 0, $GLOBALS['cfg']['LimitChars'])
                         . '...';
@@ -4434,12 +4447,13 @@ class PMA_DisplayResults
      * Prepare a table of results returned by a SQL query.
      * This function is called by the "sql.php" script.
      *
-     * @param integer &$dt_result     the link id associated to the query
-     *                                which results have to be displayed
-     * @param array   &$the_disp_mode the display mode
-     * @param array   $analyzed_sql   the analyzed query
+     * @param integer &$dt_result         the link id associated to the query
+     *                                    which results have to be displayed
+     * @param array   &$the_disp_mode     the display mode
+     * @param array   $analyzed_sql       the analyzed query
+     * @param boolean $is_limited_display With limited operations or not
      *
-     * @return sting                        Generated HTML content for resulted table
+     * @return  sting   $table_html   Generated HTML content for resulted table
      *
      * @access  public
      *
@@ -5070,7 +5084,8 @@ class PMA_DisplayResults
         $links_html .= "\n";
 
         $links_html .= '<input type="hidden" name="sql_query"'
-            .' value="' . htmlspecialchars($this->__get('_sql_query')) . '" />' . "\n";
+            .' value="' . htmlspecialchars($this->__get('_sql_query')) . '" />'
+            . "\n";
 
         if (! empty($url_query)) {
             $links_html .= '<input type="hidden" name="url_query"'

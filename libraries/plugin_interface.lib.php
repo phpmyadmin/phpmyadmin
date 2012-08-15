@@ -189,7 +189,9 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
             $ret .= ' selected="selected"';
         }
 
-        if (method_exists($plugin->getProperties(), 'getText')) {
+        $properties = $plugin->getProperties();
+        $text = null;
+        if ($properties != null) {
             $text = $plugin->getProperties()->getText();
         }
         $ret .= ' value="' . $plugin_name . '">'
@@ -242,8 +244,13 @@ function PMA_pluginGetOneOption(
             // for main groups
             $ret .= '<div class="export_sub_options" id="' . $plugin_name . '_'
                 . $propertyGroup->getName() . '">';
-            if ($propertyGroup->getText() != null) {
-                $ret .= '<h4>' . PMA_getString($propertyGroup->getText()) . '</h4>';
+
+            if (method_exists($propertyGroup, 'getText')) {
+                $text = $propertyGroup->getText();
+            }
+
+            if ($text != null) {
+                $ret .= '<h4>' . PMA_getString($text) . '</h4>';
             }
             $ret .= '<ul>';
         }
@@ -447,17 +454,20 @@ function PMA_pluginGetOptions($section, &$list)
     $default = PMA_pluginGetDefault('Export', 'format');
     // Options for plugins that support them
     foreach ($list as $plugin) {
+        $properties = $plugin->getProperties();
+        if ($properties != null) {
+            $text = $properties->getText();
+            $options = $properties->getOptions();
+        }
+
         $plugin_name = strtolower(substr(get_class($plugin), strlen($section)));
         $ret .= '<div id="' . $plugin_name
             . '_options" class="format_specific_options">';
-        $ret .= '<h3>' . PMA_getString($plugin->getProperties()->getText())
-            . '</h3>';
+        $ret .= '<h3>' . PMA_getString($text) . '</h3>';
 
         $no_options = true;
-        if ($plugin->getProperties()->getOptions() != null
-            && count($plugin->getProperties()->getOptions()) > 0
-        ) {
-            foreach ($plugin->getProperties()->getOptions()->getProperties()
+        if ($options != null && count($options) > 0) {
+            foreach ($options->getProperties()
                 as $propertyMainGroup
             ) {
                 // check for hidden properties
