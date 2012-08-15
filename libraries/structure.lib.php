@@ -2146,4 +2146,103 @@ function PMA_getHtmlForActionsIntableStructure($type, $tbl_storage_engine,
     return $html_output;
 }
 
+/**
+ * Get hidden action titles (image and string)
+ * 
+ * @return array $hidden_titles
+ */
+function PMA_getHiddenTitlesArray()
+{
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
+    $hidden_titles = array();
+    $hidden_titles['DistinctValues']       
+        = $common_functions->getIcon(
+            'b_browse.png', __('Distinct values'), true
+        );
+    $hidden_titles['Primary']              
+        = $common_functions->getIcon(
+            'b_primary.png', __('Add primary key'), true
+        );
+    $hidden_titles['NoPrimary']            
+        = $common_functions->getIcon(
+            'bd_primary.png', __('Add primary key'), true
+        );
+    $hidden_titles['Index']                
+        = $common_functions->getIcon(
+            'b_index.png', __('Add index'), true
+            );
+    $hidden_titles['NoIndex']              
+        = $common_functions->getIcon(
+            'bd_index.png', __('Add index'), true
+        );
+    $hidden_titles['Unique']               
+        = $common_functions->getIcon(
+            'b_unique.png', __('Add unique index'), true
+        );
+    $hidden_titles['NoUnique']             
+        = $common_functions->getIcon(
+            'bd_unique.png', __('Add unique index'), true
+        );
+    $hidden_titles['Spatial']              
+        = $common_functions->getIcon(
+            'b_spatial.png', __('Add SPATIAL index'), true
+        );
+    $hidden_titles['NoSpatial']            
+        = $common_functions->getIcon(
+            'bd_spatial.png', __('Add SPATIAL index'), true
+        );
+    $hidden_titles['IdxFulltext']          
+        = $common_functions->getIcon(
+            'b_ftext.png', __('Add FULLTEXT index'), true
+        );
+    $hidden_titles['NoIdxFulltext']        
+        = $common_functions->getIcon(
+            'bd_ftext.png', __('Add FULLTEXT index'), true
+        );
+    
+    return $hidden_titles;
+}
+
+/**
+ * Get action titles (image or string array
+ * 
+ * @return array  $titles
+ */
+function PMA_getActionTitlesArray()
+{
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
+    $titles = array();
+    $titles['Change']               
+        = $common_functions->getIcon('b_edit.png', __('Change'));
+    $titles['Drop']                 
+        = $common_functions->getIcon('b_drop.png', __('Drop'));
+    $titles['NoDrop']               
+        = $common_functions->getIcon('b_drop.png', __('Drop'));
+    $titles['Primary']              
+        = $common_functions->getIcon('b_primary.png', __('Primary'));
+    $titles['Index']                
+        = $common_functions->getIcon('b_index.png', __('Index'));
+    $titles['Unique']               
+        = $common_functions->getIcon('b_unique.png', __('Unique'));
+    $titles['Spatial']              
+        = $common_functions->getIcon('b_spatial.png', __('Spatial'));
+    $titles['IdxFulltext']          
+        = $common_functions->getIcon('b_ftext.png', __('Fulltext'));
+    $titles['NoPrimary']            
+        = $common_functions->getIcon('bd_primary.png', __('Primary'));
+    $titles['NoIndex']              
+        = $common_functions->getIcon('bd_index.png', __('Index'));
+    $titles['NoUnique']             
+        = $common_functions->getIcon('bd_unique.png', __('Unique'));
+    $titles['NoSpatial']            
+        = $common_functions->getIcon('bd_spatial.png', __('Spatial'));
+    $titles['NoIdxFulltext']        
+        = $common_functions->getIcon('bd_ftext.png', __('Fulltext'));
+    $titles['DistinctValues']       
+        = $common_functions->getIcon('b_browse.png', __('Distinct values'));
+    
+    return $titles;
+}
 ?>
