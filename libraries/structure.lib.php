@@ -1481,7 +1481,9 @@ function PMA_getHtmlForSomeLinks($url_query, $tbl_is_view,
             || $common_functions->isForeignKeySupported($tbl_storage_engine)
         ) {
             $html_output .= '<a href="tbl_relation.php?' . $url_query . '">'
-                . $common_functions->getIcon('b_relations.png', __('Relation view'), true)
+                . $common_functions->getIcon(
+                    'b_relations.png', __('Relation view'), true
+                )
                 . '</a>';
         }
         if (!PMA_DRIZZLE) {
@@ -2119,9 +2121,12 @@ function PMA_getHtmlForActionsIntableStructure($type, $tbl_storage_engine,
             = PMA_getHtmlForActionRowinStructureTable(
                 $type, $tbl_storage_engine,
                 'spatial replaced_by_more center',
-                (! in_array($type, $spatial_types) || 'MYISAM' != $tbl_storage_engine),
+                (! in_array($type, $spatial_types) 
+                    || 'MYISAM' != $tbl_storage_engine
+                ),
                 false, $url_query, $primary, 'ADD SPATIAL',
-                __('An index has been added on %s'), 'Spatial', $titles, $row, false
+                __('An index has been added on %s'), 'Spatial',
+                $titles, $row, false
             );
         $html_output .= $spatial;
 
