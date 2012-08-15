@@ -906,9 +906,9 @@ function PMA_getHtmlForTableRow($attribute, $label, $val)
         . '<td><input type="checkbox" name="'. $attribute .'" '
         . 'id="' . $attribute .'"'
         . 'value="1"'
-        . (!empty($val) && $val == 1)
+        . ((!empty($val) && $val == 1)
             ? ' checked="checked"'
-            : ''
+            : '')
         . '/>'
         . '</td></tr>';
 }
