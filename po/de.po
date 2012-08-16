@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-10 12:59+0200\n"
-"PO-Revision-Date: 2012-08-16 15:36+0200\n"
-"Last-Translator: Jan Erik Zassenhaus <Jan.Zassenhaus@jgerman.de>\n"
+"PO-Revision-Date: 2012-08-16 22:05+0200\n"
+"Last-Translator: Jan Mienert <jan.mienert@heinze.de>\n"
 "Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -1923,7 +1923,7 @@ msgstr ", aktuelle stabile Version:"
 
 #: js/messages.php:374
 msgid "up to date"
-msgstr "auf dem neusten Stand"
+msgstr "auf dem neuesten Stand"
 
 #. l10n: Display text for calendar close link
 #: js/messages.php:393
