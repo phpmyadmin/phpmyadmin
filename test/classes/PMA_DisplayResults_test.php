@@ -1400,11 +1400,11 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     
     
     /**
-     * Data provider for testIsNeedToSytaxHighlight
+     * Data provider for testIsNeedToSyntaxHighlight
      *
      * @return array parameters and output
      */
-    public function dataProviderForTestIsNeedToSytaxHighlight()
+    public function dataProviderForTestIsNeedToSyntaxHighlight()
     {
         return array(
             array(
@@ -1446,17 +1446,17 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     
     
     /**
-     * Test _isNeedToSytaxHighlight
+     * Test _isNeedToSyntaxHighlight
      * 
      * @param string  $db     the database name
      * @param string  $table  the table name
      * @param array   $data   predifined data of columns need to sytax highlighted
      * @param string  $field  the field name
-     * @param boolean $output output of _isNeedToSytaxHighlight
+     * @param boolean $output output of _isNeedToSyntaxHighlight
      * 
-     * @dataProvider dataProviderForTestIsNeedToSytaxHighlight
+     * @dataProvider dataProviderForTestIsNeedToSyntaxHighlight
      */
-    public function testIsNeedToSytaxHighlight($db, $table, $data, $field,  $output)
+    public function testIsNeedToSyntaxHighlight($db, $table, $data, $field,  $output)
     {
         $this->object->__set('_db', $db);
         $this->object->__set('_table', $table);
@@ -1466,7 +1466,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             $output,
             $this->_callPrivateFunction(
-                '_isNeedToSytaxHighlight',
+                '_isNeedToSyntaxHighlight',
                 array($field)
             )
         );

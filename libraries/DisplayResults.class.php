@@ -2792,7 +2792,7 @@ class PMA_DisplayResults
             
             // Check whether the field needs to display with syntax highlighting
 
-            if ($this->_isNeedToSytaxHighlight($meta->name)
+            if ($this->_isNeedToSyntaxHighlight($meta->name)
                 && (trim($row[$i]) != '')
             ) {
                 
@@ -3039,7 +3039,7 @@ class PMA_DisplayResults
      *
      * @return boolean 
      */
-    private function _isNeedToSytaxHighlight($field)
+    private function _isNeedToSyntaxHighlight($field)
     {
         if (! empty($this->sytax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($field)])) {
             return true;
@@ -3657,7 +3657,7 @@ class PMA_DisplayResults
                 // replacements will be made
                 if ((PMA_strlen($column) > $GLOBALS['cfg']['LimitChars'])
                     && ($_SESSION['tmp_user_values']['display_text'] == self::DISPLAY_PARTIAL_TEXT)
-                    && ! $this->_isNeedToSytaxHighlight(strtolower($meta->name))
+                    && ! $this->_isNeedToSyntaxHighlight(strtolower($meta->name))
                 ) {
                     $column = PMA_substr($column, 0, $GLOBALS['cfg']['LimitChars'])
                         . '...';
