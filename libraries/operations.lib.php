@@ -707,7 +707,7 @@ function PMA_getHtmlForMoveTable()
  */
 function PMA_getTableOptionDiv($comment, $tbl_collation, $tbl_storage_engine,
     $is_myisam_or_aria, $is_isam, $pack_keys, $auto_increment, $delay_key_write,
-    $transactional, $page_checksum, $is_innodb, $is_pbxt, $is_aria
+    $transactional, $page_checksum, $is_innodb, $is_pbxt, $is_aria, $checksum
 ) {
     $html_output = '<div class="operations_half_width clearfloat">';
     $html_output .= '<form method="post" action="tbl_operations.php">';
@@ -719,7 +719,7 @@ function PMA_getTableOptionDiv($comment, $tbl_collation, $tbl_storage_engine,
     $html_output .= PMA_getTableOptionFieldset($comment, $tbl_collation,
         $tbl_storage_engine, $is_myisam_or_aria, $is_isam, $pack_keys,
         $delay_key_write, $auto_increment, $transactional, $page_checksum,
-        $is_innodb, $is_pbxt,$is_aria
+        $is_innodb, $is_pbxt,$is_aria, $checksum
     );
 
     $html_output .= '<fieldset class="tblFooters">'
@@ -753,7 +753,7 @@ function PMA_getTableOptionDiv($comment, $tbl_collation, $tbl_storage_engine,
 function PMA_getTableOptionFieldset($comment, $tbl_collation,
     $tbl_storage_engine, $is_myisam_or_aria, $is_isam, $pack_keys,
     $delay_key_write, $auto_increment, $transactional,
-    $page_checksum, $is_innodb, $is_pbxt, $is_aria
+    $page_checksum, $is_innodb, $is_pbxt, $is_aria, $checksum
 ) {
     $html_output = '<fieldset>'
         . '<legend>' . __('Table options') . '</legend>';
@@ -906,9 +906,9 @@ function PMA_getHtmlForTableRow($attribute, $label, $val)
         . '<td><input type="checkbox" name="'. $attribute .'" '
         . 'id="' . $attribute .'"'
         . 'value="1"'
-        . (!empty($val) && $val == 1)
+        . ((!empty($val) && $val == 1)
             ? ' checked="checked"'
-            : ''
+            : '')
         . '/>'
         . '</td></tr>';
 }
