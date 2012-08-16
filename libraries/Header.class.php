@@ -164,8 +164,7 @@ class PMA_Header
         // Append the theme id to this url to invalidate
         // the cache on a theme change
         $this->_scripts->addFile(
-            'get_image.js.php?theme='
-            . urlencode($_SESSION['PMA_Theme']->getId())
+            'get_image.js.php'
         );
         $this->_scripts->addFile('functions.js');
         $this->_scripts->addCode(

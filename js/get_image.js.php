@@ -135,3 +135,4 @@ function PMA_getImage(image, alternate, attributes) {
 
     return retval;
 };
+//
