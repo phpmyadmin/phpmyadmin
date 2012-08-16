@@ -4,15 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-10 12:59+0200\n"
-"PO-Revision-Date: 2012-06-01 22:03+0200\n"
+"PO-Revision-Date: 2012-08-16 08:11+0200\n"
 "Last-Translator: Стоян Димитров <stoyanster@gmail.com>\n"
-"Language-Team: bulgarian <bg@li.org>\n"
+"Language-Team: Bulgarian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.0\n"
+"X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:816
@@ -1728,7 +1729,6 @@ msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "За да увеличите, изберете част от диаграмата с мишката."
 
 #: js/messages.php:306
-#, fuzzy
 #| msgid "Click reset zoom link to come back to original state."
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
@@ -2581,13 +2581,13 @@ msgstr[0] "<b>Общо:</b> <i>%s</i> съвпадение"
 msgstr[1] "<b>Общо:</b> <i>%s</i> съвпадения"
 
 #: libraries/DbSearch.class.php:351
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$s match inside table <i>%2$s</i>"
 #| msgid_plural "%1$s matches inside table <i>%2$s</i>"
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s съвпадение в таблица <i>%2$s</i>"
-msgstr[1] "%1$s съвпадения в таблица <i>%2$s</i>"
+msgstr[0] "%1$s съвпадение в таблица <strong>%2$s</strong>"
+msgstr[1] "%1$s съвпадения в таблица <strong>%2$s</strong>"
 
 #: libraries/DbSearch.class.php:373
 #, php-format
@@ -2784,7 +2784,7 @@ msgstr "Операции с резултата от заявката"
 
 #: libraries/DisplayResults.class.php:5205
 msgid "Print view (with full texts)"
-msgstr "Преглед за печат (с пълните текстове)"
+msgstr "Преглед за печат (пълни текстове)"
 
 #: libraries/DisplayResults.class.php:5276 tbl_chart.php:80
 msgid "Display chart"
@@ -3468,11 +3468,10 @@ msgid "Date and time"
 msgstr "Дата и час"
 
 #: libraries/Types.class.php:651 libraries/Types.class.php:979
-#, fuzzy
 #| msgid "Linestring"
 msgctxt "string types"
 msgid "String"
-msgstr "Linestring"
+msgstr "Низ"
 
 #: libraries/Types.class.php:672
 msgctxt "spatial types"
@@ -7508,10 +7507,9 @@ msgid ""
 msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:295
-#, fuzzy
 #| msgid "Transformation options"
 msgid "Data creation options"
-msgstr "Опции на трансформацията"
+msgstr ""
 
 #: libraries/plugins/export/ExportSql.class.php:299
 #: libraries/plugins/export/ExportSql.class.php:1534
@@ -7770,7 +7768,6 @@ msgstr ""
 "първата ви опция да е установена на празен низ."
 
 #: libraries/plugins/transformations/abstract/ExternalTransformationsPlugin.class.php:31
-#, fuzzy
 #| msgid ""
 #| "LINUX ONLY: Launches an external application and feeds it the column data "
 #| "via standard input. Returns the standard output of the application. The "
@@ -7797,13 +7794,13 @@ msgstr ""
 "САМО ЗА ЛИНУКС: Стартира външното приложение и попълва данните в полетата "
 "чрез стандартния вход. Връща стандартния изход на приложението. По "
 "подразбиране е Tidy, за да покаже HTML кода. От съображения за сигурност, "
-"трябва ръчно да редактирате файла libraries/transformations/"
-"text_plain__external.inc.php и да вмъкнете програмите на които вие "
-"позволявате да бъдат стартирани. Първата опция тогава е номера на програмата "
-"която бихте искали да използвате а втората опция са параметрите за "
-"програмата. Ако третият параметър е установен в 1, ще конвертира изхода "
-"използвайки htmlspecialchars() (По подразбиране е 1). Ако четвъртият "
-"параметър е установен в 1 това ще предотврати слизане на нов ред и целия "
+"трябва ръчно да редактирате файла "
+"libraries/plugins/transformations/Text_Plain_External.class.php и да "
+"изредите програмите, на които позволявате да бъдат стартирани. Първата опция "
+"тогава е номера на програмата, която бихте искали да използвате, а втората "
+"са параметрите ѝ. Ако третият параметър е установен на 1, ще конвертира "
+"изхода използвайки htmlspecialchars() (По подразбиране е 1). Ако четвъртият "
+"параметър е установен на 1 това ще предотврати спренос на нов ред и целият "
 "изход ще бъде показан на един ред (По подразбиране е 1)."
 
 #: libraries/plugins/transformations/abstract/FormattedTransformationsPlugin.class.php:31
@@ -12087,10 +12084,9 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:70
-#, fuzzy
 #| msgid "Show query box"
 msgid "Slow query rate"
-msgstr "Показване формата за заявки"
+msgstr "Стойност на бавните заявки"
 
 #: libraries/advisory_rules.txt:73
 msgid ""
@@ -12098,21 +12094,20 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:75
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
-"Стойността на отказаните клиенти е %s, тази стойност трябва да бъде по-малка "
-"от 1 за час"
+"Стойността на бавните заявки е %s, тази стойност трябва да бъде под 1%% за "
+"час."
 
 #: libraries/advisory_rules.txt:77
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Long query time"
-msgstr "SQL заявки"
+msgstr ""
 
 #: libraries/advisory_rules.txt:80
 msgid ""
@@ -12146,16 +12141,14 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:89
-#, fuzzy
 #| msgid "slow_launch_time is set to %s"
 msgid "log_slow_queries is set to 'OFF'"
-msgstr "slow_launch_time е настроено на %s"
+msgstr "log_slow_queries е зададено на 'Изключено'"
 
 #: libraries/advisory_rules.txt:93
-#, fuzzy
 #| msgid "Select series:"
 msgid "Release Series"
-msgstr "Избор на серии:"
+msgstr ""
 
 #: libraries/advisory_rules.txt:96
 msgid "The MySQL server version less than 5.1."
@@ -12275,16 +12268,17 @@ msgstr ""
 #: libraries/advisory_rules.txt:151
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
+"query_cache_size е зададено на 0 или query_cache_type е зададено на "
+"'Изключено'"
 
 #: libraries/advisory_rules.txt:153
 msgid "Query caching method"
 msgstr "Метод за буфериране на заявки"
 
 #: libraries/advisory_rules.txt:156
-#, fuzzy
 #| msgid "Query caching method"
 msgid "Suboptimal caching method."
-msgstr "Метод за буфериране на заявки"
+msgstr "Неоптимален метод за буфериране."
 
 #: libraries/advisory_rules.txt:157
 msgid ""
@@ -12370,10 +12364,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:181
-#, fuzzy
 #| msgid "Query cache used"
 msgid "Query cache low memory prunes"
-msgstr "Използвано от буфера за заявки"
+msgstr ""
 
 #: libraries/advisory_rules.txt:184
 msgid ""
@@ -12457,27 +12450,28 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:209
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr ""
-"%s%% на всички прекъснати клиенти. Тази стойност трябва да бъде под 1%%"
+"%s%% от всички сортировки се изпълняват с временни таблици, тази стойност "
+"трябва да бъде под 10%%."
 
 #: libraries/advisory_rules.txt:211
 msgid "Rate of sorts that cause temporary tables"
 msgstr "Стойност на сортировките, изискващи временни таблици"
 
 #: libraries/advisory_rules.txt:216
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
-"Стойността на отказаните клиенти е %s, тази стойност трябва да бъде по-малка "
-"от 1 за час"
+"Средната стойност на временни таблици е %s, тази стойност трябва да бъде под "
+"1 за час."
 
 #: libraries/advisory_rules.txt:218
 msgid "Sort rows"
@@ -12515,25 +12509,23 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:231
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
-"Стойността на отказаните клиенти е %s, тази стойност трябва да бъде по-малка "
-"от 1 за час"
+"Средната стойност за JOIN на таблици e %s, тази стойност трябва да бъде под "
+"1 за час"
 
 #: libraries/advisory_rules.txt:233
-#, fuzzy
 #| msgid "Rate of joins without indexes"
 msgid "Rate of reading first index entry"
-msgstr "Стойност на JOIN без индекси"
+msgstr "Стойност на прочитане на първия индекс"
 
 #: libraries/advisory_rules.txt:236
-#, fuzzy
 #| msgid "The rate of opening files is high."
 msgid "The rate of reading the first index entry is high."
-msgstr "Стойността на отворени файлове е висока."
+msgstr "Стойността на прочитане на първия индекс е висока."
 
 #: libraries/advisory_rules.txt:237
 msgid ""
@@ -12546,25 +12538,23 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:238
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
-"Стойността на отказаните клиенти е %s, тази стойност трябва да бъде по-малка "
-"от 1 за час"
+"Стойността на отказаните клиенти е %s, тази стойност трябва да бъде под 1 за "
+"час"
 
 #: libraries/advisory_rules.txt:240
-#, fuzzy
 #| msgid "Rate of open files"
 msgid "Rate of reading fixed position"
-msgstr "Стойност на отворени файлове"
+msgstr "Стойност на прочитане на фиксирана позиция"
 
 #: libraries/advisory_rules.txt:243
-#, fuzzy
 #| msgid "The rate of opening files is high."
 msgid "The rate of reading data from a fixed position is high."
-msgstr "Стойността на отворени файлове е висока."
+msgstr "Стойността на прочитане на фиксирана позиция е висока."
 
 #: libraries/advisory_rules.txt:244
 msgid ""
@@ -12574,7 +12564,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:245
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Aborted connections rate is at %s, this value should be less than 1 per "
 #| "hour"
@@ -12582,18 +12572,17 @@ msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr ""
-"Стойността на прекъснатите клиенти е %s, тази стойност трябва да бъде по-"
-"малка от 1 за час"
+"Стойността на прекъснатите клиенти е %s, тази стойност трябва да бъде под 1 "
+"за час"
 
 #: libraries/advisory_rules.txt:247
 msgid "Rate of reading next table row"
 msgstr ""
 
 #: libraries/advisory_rules.txt:250
-#, fuzzy
 #| msgid "The rate of opening files is high."
 msgid "The rate of reading the next table row is high."
-msgstr "Стойността на отворени файлове е висока."
+msgstr "Стойността на прочитане на следващ ред от таблица е висока."
 
 #: libraries/advisory_rules.txt:251
 msgid ""
@@ -12602,14 +12591,14 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:252
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr ""
-"Стойността на отказаните клиенти е %s, тази стойност трябва да бъде по-малка "
-"от 1 за час"
+"Стойността на отказаните клиенти е %s, тази стойност трябва да бъде под 1 за "
+"час"
 
 #: libraries/advisory_rules.txt:255
 msgid "tmp_table_size vs. max_heap_table_size"
@@ -12633,10 +12622,9 @@ msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:262
-#, fuzzy
 #| msgid "Percentage of aborted clients"
 msgid "Percentage of temp tables on disk"
-msgstr "Процент прекъснати клиенти"
+msgstr "Процент на временни таблици на диска"
 
 #: libraries/advisory_rules.txt:265 libraries/advisory_rules.txt:272
 msgid ""
@@ -12656,13 +12644,14 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:267
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
-"%s%% на всички прекъснати клиенти. Тази стойност трябва да бъде под 2%%"
+"%s%% от всички временни таблици биват записвани на диска, тази стойност "
+"трябва да бъде под 25%%"
 
 #: libraries/advisory_rules.txt:269
 msgid "Temp disk rate"
@@ -12680,15 +12669,15 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:274
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
 msgstr ""
-"Стойността на отказаните клиенти е %s, тази стойност трябва да бъде по-малка "
-"от 1 за час"
+"Стойността на временните таблици записвани на диска е %s, тази стойност "
+"трябва да бъде под 1 за час"
 
 #: libraries/advisory_rules.txt:289
 msgid "MyISAM key buffer size"
@@ -12705,16 +12694,15 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:294
-#, fuzzy
 #| msgid "MyISAM key buffer size"
 msgid "key_buffer_size is 0"
-msgstr "Размер на буфера за ключове на MyISAM"
+msgstr "key_buffer_size е 0"
 
 #: libraries/advisory_rules.txt:296
-#, fuzzy, php-format
+#, php-format
 #| msgid "MyISAM key buffer size"
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "Размер на буфера за ключове на MyISAM"
+msgstr "Максимален %% от буфера за ключове на MyISAM ползван някога"
 
 #: libraries/advisory_rules.txt:299 libraries/advisory_rules.txt:307
 #, php-format
@@ -12729,32 +12717,30 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:301
-#, fuzzy, php-format
+#, php-format
 #| msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
 msgstr ""
-"Използван %% от буфера за ключове на MyISAM: %s%%, стойността трябва да е "
-"над 95%%"
+"Максималният %% от буфера за ключове на MyISAM ползван някога е %s%%, тази "
+"стойност трябва да е над 95%%"
 
 #: libraries/advisory_rules.txt:304
-#, fuzzy
 #| msgid "MyISAM key buffer size"
 msgid "Percentage of MyISAM key buffer used"
-msgstr "Размер на буфера за ключове на MyISAM"
+msgstr "Процент използван буфер за ключове на MyISAM"
 
 #: libraries/advisory_rules.txt:309
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
-"Използван %% от буфера за ключове на MyISAM: %s%%, стойността трябва да е "
-"над 95%%"
+"Използваният %% от буфера за ключове на MyISAM е %s%%, тази стойност трябва "
+"да е над 95%%"
 
 #: libraries/advisory_rules.txt:311
-#, fuzzy
 #| msgid "Percentage of slow queries"
 msgid "Percentage of index reads from memory"
-msgstr "Процент на бавните заявки"
+msgstr "Процент на прочитане на индекс от паметта"
 
 #: libraries/advisory_rules.txt:314
 #, php-format
@@ -12771,16 +12757,14 @@ msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr "Прочетени от паметта индекси: %s%%, стойността трябва да е над 95%%"
 
 #: libraries/advisory_rules.txt:320
-#, fuzzy
 #| msgid "Rate of aborted clients"
 msgid "Rate of table open"
-msgstr "Стойност прекъснати клиенти"
+msgstr "Стойност на отваряне на таблици"
 
 #: libraries/advisory_rules.txt:323
-#, fuzzy
 #| msgid "The rate of opening files is high."
 msgid "The rate of opening tables is high."
-msgstr "Стойността на отворени файлове е висока."
+msgstr "Стойността на отваряне на таблици е висока."
 
 #: libraries/advisory_rules.txt:324
 msgid ""
@@ -12789,13 +12773,13 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:325
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
-"Стойността на отказаните клиенти е %s, тази стойност трябва да бъде по-малка "
-"от 1 за час"
+"Стойността на отваряните таблици е %s, тази стойност трябва да бъде под 10 "
+"за час"
 
 #: libraries/advisory_rules.txt:327
 msgid "Percentage of used open files limit"
@@ -12814,14 +12798,15 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:332
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Max_used_connections is at %s%% of max_connections, it should be below "
 #| "80%%"
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
-"Max_used_connections е на %s%% от max_connections, трябва да бъде под 80%%"
+"Броят отворени файлове е на %s%% от ограничението, тази стойност трябва да "
+"бъде под 85%%"
 
 #: libraries/advisory_rules.txt:334
 msgid "Rate of open files"
@@ -12832,13 +12817,13 @@ msgid "The rate of opening files is high."
 msgstr "Стойността на отворени файлове е висока."
 
 #: libraries/advisory_rules.txt:339
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
-"Стойността на отказаните клиенти е %s, тази стойност трябва да бъде по-малка "
-"от 1 за час"
+"Стойността на отваряните файлове е %s, тази стойност трябва да бъде под 5 за "
+"час"
 
 #: libraries/advisory_rules.txt:341
 #, php-format
@@ -12854,23 +12839,25 @@ msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
 
 #: libraries/advisory_rules.txt:346
-#, fuzzy, php-format
+#, php-format
 #| msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr "Прочетени от паметта индекси: %s%%, стойността трябва да е над 95%%"
+msgstr ""
+"Незабавното заключване на таблици е %s%%, тази стойност трябва да бъде над "
+"95%%"
 
 #: libraries/advisory_rules.txt:348
 msgid "Table lock wait rate"
 msgstr ""
 
 #: libraries/advisory_rules.txt:353
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
-"Стойността на отказаните клиенти е %s, тази стойност трябва да бъде по-малка "
-"от 1 за час"
+"Стойността на изчакване за заключване на таблица е %s, тази стойност трябва "
+"да бъде под 1 за час"
 
 #: libraries/advisory_rules.txt:355
 msgid "Thread cache"
@@ -12888,13 +12875,13 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:360
 msgid "The thread cache is set to 0"
-msgstr "Буферът за нишки е 0"
+msgstr "Буферът за нишки е зададен на 0"
 
 #: libraries/advisory_rules.txt:362
-#, fuzzy, php-format
+#, php-format
 #| msgid "The thread cache is set to 0"
 msgid "Thread cache hit rate %%"
-msgstr "Буферът за нишки е 0"
+msgstr ""
 
 #: libraries/advisory_rules.txt:365
 msgid "Thread cache is not efficient."
@@ -12908,7 +12895,7 @@ msgstr ""
 #, fuzzy, php-format
 #| msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr "Прочетени от паметта индекси: %s%%, стойността трябва да е над 95%%"
+msgstr "Буфер за нишки .. %s%%, тази стойност трябва да бъде над 80%%"
 
 #: libraries/advisory_rules.txt:369
 msgid "Threads that are slow to launch"
@@ -12949,7 +12936,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:381
 #, php-format
 msgid "slow_launch_time is set to %s"
-msgstr "slow_launch_time е настроено на %s"
+msgstr "slow_launch_time е зададено на %s"
 
 #: libraries/advisory_rules.txt:385
 msgid "Percentage of used connections"
@@ -13001,7 +12988,7 @@ msgstr ""
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
-"%s%% на всички прекъснати клиенти. Тази стойност трябва да бъде под 1%%"
+"%s%% от всички връзки са прекъсвани, тази стойност трябва да бъде под 1%%"
 
 #: libraries/advisory_rules.txt:399
 msgid "Rate of aborted connections"
@@ -13012,8 +12999,8 @@ msgstr "Стойност прекъснати връзки"
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
-"Стойността на прекъснатите клиенти е %s, тази стойност трябва да бъде по-"
-"малка от 1 за час"
+"Стойността на прекъснатите връзки е %s, тази стойност трябва да бъде под 1 "
+"за час"
 
 #: libraries/advisory_rules.txt:406
 msgid "Percentage of aborted clients"
@@ -13037,7 +13024,7 @@ msgstr ""
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
-"%s%% на всички прекъснати клиенти. Тази стойност трябва да бъде под 2%%"
+"%s%% от всички клиенти са прекъсвани, тази стойност трябва да бъде под 2%%"
 
 #: libraries/advisory_rules.txt:413
 msgid "Rate of aborted clients"
@@ -13047,8 +13034,8 @@ msgstr "Стойност прекъснати клиенти"
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
-"Стойността на отказаните клиенти е %s, тази стойност трябва да бъде по-малка "
-"от 1 за час"
+"Стойността на прекъсваните клиенти е %s, тази стойност трябва да бъде под 1 "
+"за час"
 
 #: libraries/advisory_rules.txt:422
 msgid "Is InnoDB disabled?"
@@ -13125,10 +13112,9 @@ msgid "Your absolute InnoDB log size is %s MiB"
 msgstr ""
 
 #: libraries/advisory_rules.txt:443
-#, fuzzy
 #| msgid "Log buffer size"
 msgid "InnoDB buffer pool size"
-msgstr "Размер на буфера на дневника"
+msgstr ""
 
 #: libraries/advisory_rules.txt:446
 msgid "Your InnoDB buffer pool is fairly small."
