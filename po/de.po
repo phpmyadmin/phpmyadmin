@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 3.5.1-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-08-16 15:16+0200\n"
+"PO-Revision-Date: 2012-08-16 15:36+0200\n"
 "Last-Translator: Jan Erik Zassenhaus <Jan.Zassenhaus@jgerman.de>\n"
 "Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/3-5/de/>\n"
 "Language: de\n"
@@ -800,7 +800,7 @@ msgstr "Nicht verfolgte Tabellen"
 
 #: db_tracking.php:201 tbl_structure.php:655
 msgid "Track table"
-msgstr "Verfolge Tabelle"
+msgstr "Tabelle verfolgen"
 
 #: db_tracking.php:227
 msgid "Database Log"
@@ -1004,10 +1004,10 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
-"Es wurden keinen Daten zum importieren empfangen. Entweder wurde keine Datei "
-"ausgewählt, oder die Dateigröße hat die maximal erlaubte Größe der PHP "
-"Konfiguration überschritten. Siehe [a@./Documentation."
-"html#faq1_16@Documentation]FAQ 1.16[/a]."
+"Es wurden keinen Daten zum Importieren empfangen. Entweder wurde keine Datei "
+"ausgewählt, oder die Dateigröße hat die maximal erlaubte Größe der PHP-"
+"Konfiguration überschritten. Siehe "
+"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 
 #: import.php:366
 msgid ""
@@ -1048,7 +1048,7 @@ msgid ""
 msgstr ""
 "Allerdings wurden hierbei keine Daten eingelesen. Das bedeutet in der Regel, "
 "dass phpMyAdmin nicht in der Lage sein wird, den Import zu beenden, sofern "
-"nicht die Ausführungszeitbeschränkungen von php gelockert werden."
+"nicht die Ausführungszeitbeschränkungen von PHP gelockert werden."
 
 #: import.php:472 libraries/Message.class.php:175
 #: libraries/display_tbl.lib.php:2393 libraries/rte/rte_routines.lib.php:1205
@@ -2343,7 +2343,7 @@ msgstr "Sekunde"
 #, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr ""
-"Formatieren des Texts für Regel '%s' fehlgeschlagen. PHP Fehlermeldung: %s"
+"Formatieren des Texts für Regel '%s' fehlgeschlagen. PHP-Fehlermeldung: %s"
 
 #: libraries/Advisor.class.php:326 server_status.php:955
 msgid "per second"
@@ -4779,12 +4779,12 @@ msgstr "Benutzung von INFORMATION_SCHEMA deaktivieren"
 #: libraries/config/messages.inc.php:393
 msgid "What PHP extension to use; you should use mysqli if supported"
 msgstr ""
-"Die zu verwendente PHP Erweiterung; sie sollten mysqli verwenden wenn es "
+"Die zu verwendente PHP-Erweiterung; Sie sollten mysqli verwenden, wenn es "
 "verfügbar ist"
 
 #: libraries/config/messages.inc.php:394
 msgid "PHP extension to use"
-msgstr "PHP Erweiterung"
+msgstr "PHP-Erweiterung"
 
 #: libraries/config/messages.inc.php:395
 msgid "Hide databases matching regular expression (PCRE)"
@@ -5562,7 +5562,7 @@ msgstr "de"
 #: libraries/core.lib.php:266
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr "Die Erweiterung %s fehlt. Bitte die PHP Konfiguration überprüfen."
+msgstr "Die Erweiterung %s fehlt. Bitte die PHP-Konfiguration überprüfen."
 
 #: libraries/core.lib.php:414
 msgid "possible deep recursion attack"
@@ -6682,8 +6682,8 @@ msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
-"Kommentare anzeigen <i>(beinhaltet Informationen wie Export Zeitstempel, PHP "
-"Version und Serverversion)</i>"
+"Kommentare anzeigen <i>(beinhaltet Informationen wie Export-Zeitstempel, "
+"PHP-Version und Serverversion)</i>"
 
 #: libraries/export/sql.php:45
 msgid "Additional custom header comment (\\n splits lines):"
@@ -7787,7 +7787,7 @@ msgstr "Trigger %1$s wurde erzeugt."
 
 #: libraries/rte/rte_triggers.lib.php:161
 msgid "Edit trigger"
-msgstr "Einen Trigger bearbeiten"
+msgstr "Trigger bearbeiten"
 
 #: libraries/rte/rte_triggers.lib.php:305
 msgid "Trigger name"
@@ -7800,16 +7800,16 @@ msgstr "Zeit"
 
 #: libraries/rte/rte_triggers.lib.php:405
 msgid "You must provide a trigger name"
-msgstr "Sie müssen einen Trigger-Namen angeben"
+msgstr "Sie müssen einen Trigger-Namen eingeben"
 
 #: libraries/rte/rte_triggers.lib.php:410
 msgid "You must provide a valid timing for the trigger"
-msgstr "Sie müssen einen Trigger-Namen angeben"
+msgstr "Sie müssen eine gültige Zeit für den Trigger eingeben"
 
 #: libraries/rte/rte_triggers.lib.php:415
 msgid "You must provide a valid event for the trigger"
 msgstr ""
-"Sie müssen einen Namen und einen Typ für jeden Trigger-Parameter angeben"
+"Sie müssen einen Namen und einen Typ für jeden Trigger-Parameter eingeben"
 
 #: libraries/rte/rte_triggers.lib.php:421
 msgid "You must provide a valid table name"
@@ -7821,7 +7821,7 @@ msgstr "Sie müssen die Definition des Triggers angeben."
 
 #: libraries/rte/rte_words.lib.php:18
 msgid "Add routine"
-msgstr "Prozedur hinzufügen"
+msgstr "Routine hinzufügen"
 
 #: libraries/rte/rte_words.lib.php:20
 #, php-format
@@ -7844,11 +7844,11 @@ msgstr "Keine Prozedur mit dem Namen %1$s in der Datenbank %2$s gefunden"
 
 #: libraries/rte/rte_words.lib.php:24
 msgid "There are no routines to display."
-msgstr "Es sind keine Prozeduren zum Anzeigen vorhanden."
+msgstr "Es sind keine Routinen zum Anzeigen vorhanden."
 
 #: libraries/rte/rte_words.lib.php:30
 msgid "Add trigger"
-msgstr "Einen Trigger hinzufügen"
+msgstr "Trigger hinzufügen"
 
 #: libraries/rte/rte_words.lib.php:32
 #, php-format
@@ -7875,7 +7875,7 @@ msgstr "Es sind keine Trigger zum Anzeigen vorhanden."
 
 #: libraries/rte/rte_words.lib.php:42
 msgid "Add event"
-msgstr "Ein Ereignis hinzufügen"
+msgstr "Ereignis hinzufügen"
 
 #: libraries/rte/rte_words.lib.php:44
 #, php-format
@@ -8241,7 +8241,7 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "Bei der Initialisierung des SQL-Validators ist ein Fehler aufgetreten. Bitte "
-"überprüfen Sie, ob Sie die in der %sDokumentation%s beschriebenen php-"
+"überprüfen Sie, ob Sie die in der %sDokumentation%s beschriebenen PHP-"
 "Erweiterungen installiert haben."
 
 #: libraries/tbl_links.inc.php:118 libraries/tbl_links.inc.php:119
@@ -8424,9 +8424,9 @@ msgstr ""
 "zweite Option, um eine abweichende Datum-/Zeit-Format-Zeichenkette "
 "anzugeben. Die dritte Option bestimmt, ob Sie das lokale Datum oder das "
 "entsprechende UTC-Datum sehen wollen (\"local\" oder \"utc\" verwenden). "
-"Dementsprechend hat das Datumsformat verschiedene Werte - für \"lokal\" "
-"siehe die PHP Dokumentation für die strftime() Funktion und für \"utc\" wird "
-"es mittels der gmdate() Funktion konvertiert."
+"Dementsprechend hat das Datumsformat verschiedene Werte - für \"lokal\" siehe "
+"PHP-Dokumentation für die strftime()-Funktion und für \"utc\" wird es mittels "
+"der gmdate()-Funktion konvertiert."
 
 #: libraries/transformations/text_plain__external.inc.php:10
 msgid ""
@@ -8601,7 +8601,7 @@ msgstr "Datenbank-Client Version"
 
 #: main.php:213
 msgid "PHP extension"
-msgstr "PHP Erweiterung"
+msgstr "PHP-Erweiterung"
 
 #: main.php:221
 msgid "Show PHP information"
@@ -8652,8 +8652,8 @@ msgid ""
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
 "split strings correctly and it may result in unexpected results."
 msgstr ""
-"Die PHP-Erweiterung mbstring wurde nicht gefunden, trotzdem jedoch scheinen "
-"Sie einen Mehrbyte-Zeichensatz zu verwenden. Ohne besagte Erweiterung ist "
+"Die PHP-Erweiterung mbstring wurde nicht gefunden, trotzdem scheinen Sie "
+"einen Mehrbyte-Zeichensatz zu verwenden. Ohne besagte Erweiterung ist "
 "phpMyAdmin nicht in der Lage Zeichenketten zu trennen, was zu unerwarteten "
 "Ergebnissen führen kann."
 
@@ -8664,10 +8664,11 @@ msgid ""
 "validity configured in phpMyAdmin, because of this, your login will expire "
 "sooner than configured in phpMyAdmin."
 msgstr ""
-"Ihre PHP Einstellung [a@http://php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] ist niedriger als "
-"die in phpMyAdmin konfigurierte Cookiegültigkeit, deshalb wird Ihre "
-"Anmeldung eher ablaufen als in phpMyAdmin konfiguriert."
+"Ihre PHP-Einstellung "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] ist niedriger als die in "
+"phpMyAdmin konfigurierte Cookiegültigkeit, deshalb wird Ihre Anmeldung eher "
+"ablaufen als in phpMyAdmin konfiguriert."
 
 #: main.php:299
 msgid ""
@@ -8719,8 +8720,9 @@ msgid ""
 "Your PHP MySQL library version %s differs from your MySQL server version %s. "
 "This may cause unpredictable behavior."
 msgstr ""
-"Die Version der verwendeten PHP MySQL Bibliothek %s unterscheidet sich von "
-"der Version des MySQL Servers %s. Dies kann zu unerwartetem Verhalten führen."
+"Die Version der verwendeten PHP-MySQL-Bibliothek %s unterscheidet sich von "
+"der Version des MySQL-Servers %s. Dies kann zu unerwartetem Verhalten "
+"führen."
 
 #: main.php:378
 #, php-format
@@ -9137,7 +9139,7 @@ msgstr "Erlaubt das Verändern der Struktur bestehender Tabellen."
 #: server_privileges.php:36 server_privileges.php:303
 #: server_privileges.php:636
 msgid "Allows altering and dropping stored routines."
-msgstr "Erlaubt das Verändern und Löschen von Routinen."
+msgstr "Erlaubt das Verändern und Löschen von gespeicherten Routinen."
 
 #: server_privileges.php:37 server_privileges.php:213
 #: server_privileges.php:629
@@ -9191,7 +9193,7 @@ msgstr "Erlaubt das Anlegen von Events für den Event-Scheduler"
 #: server_privileges.php:47 server_privileges.php:311
 #: server_privileges.php:637
 msgid "Allows executing stored routines."
-msgstr "Erlaubt das Ausführen von Routinen."
+msgstr "Erlaubt das Ausführen von gespeicherten Routinen."
 
 #: server_privileges.php:48 server_privileges.php:233
 #: server_privileges.php:624
@@ -11389,7 +11391,7 @@ msgstr "ID der eingefügten Zeile: %1$d"
 
 #: sql.php:722
 msgid "Showing as PHP code"
-msgstr "Ansicht als PHP Code"
+msgstr "Ansicht als PHP-Code"
 
 #: sql.php:725 tbl_replace.php:386
 msgid "Showing SQL query"
@@ -11957,7 +11959,7 @@ msgstr "Version %s Schnappschuss (SQL code)"
 
 #: tbl_tracking.php:388
 msgid "Tracking data definition successfully deleted"
-msgstr "Verfolge erfolgreich gelöschte Datendefinitionen"
+msgstr "Verfolgungsdatendefinition erfolgreich gelöscht"
 
 #: tbl_tracking.php:390 tbl_tracking.php:407
 msgid "Query error"
@@ -11965,11 +11967,11 @@ msgstr "Abfrage-Fehler"
 
 #: tbl_tracking.php:405
 msgid "Tracking data manipulation successfully deleted"
-msgstr "Verfolge erfolgreich gelöschte Datenmanipulationen"
+msgstr "Verfolgungsdatenmanipulation erfolgreich gelöscht"
 
 #: tbl_tracking.php:417
 msgid "Tracking statements"
-msgstr "Verfolge die Befehle"
+msgstr "Befehle verfolgen"
 
 #: tbl_tracking.php:433 tbl_tracking.php:561
 #, php-format
@@ -12046,11 +12048,11 @@ msgstr "Version %s von %s.%s erzeugen"
 
 #: tbl_tracking.php:734
 msgid "Track these data definition statements:"
-msgstr "Verfolge diese Datenbeschreibungsbefehle (DDL):"
+msgstr "Diese Datenbeschreibungsbefehle (DDL) verfolgen:"
 
 #: tbl_tracking.php:742
 msgid "Track these data manipulation statements:"
-msgstr "Verfolge diese Datenbearbeitungsbefehle (DML):"
+msgstr "Diese Datenbearbeitungsbefehle (DML) verfolgen:"
 
 #: tbl_tracking.php:750
 msgid "Create version"
