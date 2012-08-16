@@ -15,7 +15,6 @@ require_once "PluginPropertyItem.class.php";
 /**
  * Defines possible options and getters and setters for them.
  *
- * @todo modify descriptions if needed, when the plug-in properties are integrated
  * @package PhpMyAdmin
  */
 class ImportPluginProperties extends PluginPropertyItem
@@ -67,7 +66,7 @@ class ImportPluginProperties extends PluginPropertyItem
      *
      * @return string
      */
-public function getItemType()
+    public function getItemType()
     {
         return "import";
     }
