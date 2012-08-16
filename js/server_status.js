@@ -373,6 +373,11 @@ $(function() {
                     labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
                 }
             },
+            seriesDefaults: {
+                rendererOptions: {
+                    smooth: true
+                }
+            },
             legend: {
                 show: true,
                 location: 's',     // compass direction, nw, n, ne, e, se, s, sw, w.
