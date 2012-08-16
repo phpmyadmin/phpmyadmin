@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-06-01 22:03+0200\n"
+"PO-Revision-Date: 2012-08-16 08:11+0200\n"
 "Last-Translator: Стоян Димитров <stoyanster@gmail.com>\n"
-"Language-Team: bulgarian <bg@li.org>\n"
+"Language-Team: Bulgarian <http://l10n.cihar.com/projects/phpmyadmin/3-5/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.0\n"
+"X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1677
@@ -5872,7 +5872,7 @@ msgstr "Операции с резултата от заявката"
 
 #: libraries/display_tbl.lib.php:2614
 msgid "Print view (with full texts)"
-msgstr "Преглед за печат (с пълните текстове)"
+msgstr "Преглед за печат (пълни текстове)"
 
 #: libraries/display_tbl.lib.php:2664 tbl_chart.php:86
 msgid "Display chart"
@@ -11531,7 +11531,7 @@ msgstr ""
 
 #: po/advisory_rules.php:20
 msgid "Slow query rate"
-msgstr ""
+msgstr "Стойност на бавните заявки"
 
 #: po/advisory_rules.php:21
 msgid ""
@@ -11544,6 +11544,8 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
+"Стойността на бавните заявки е %s, тази стойност трябва да бъде под 1%% за "
+"час."
 
 #: po/advisory_rules.php:25
 msgid "Long query time"
@@ -11582,7 +11584,7 @@ msgstr ""
 
 #: po/advisory_rules.php:33
 msgid "log_slow_queries is set to 'OFF'"
-msgstr ""
+msgstr "log_slow_queries е зададено на 'Изключено'"
 
 #: po/advisory_rules.php:35
 msgid "Release Series"
@@ -11704,6 +11706,8 @@ msgstr ""
 #: po/advisory_rules.php:73
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
+"query_cache_size е зададено на 0 или query_cache_type е зададено на "
+"'Изключено'"
 
 #: po/advisory_rules.php:75
 msgid "Query caching method"
@@ -11711,7 +11715,7 @@ msgstr "Метод за буфериране на заявки"
 
 #: po/advisory_rules.php:76
 msgid "Suboptimal caching method."
-msgstr ""
+msgstr "Неоптимален метод за буфериране."
 
 #: po/advisory_rules.php:77
 msgid ""
@@ -11887,6 +11891,8 @@ msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr ""
+"%s%% от всички сортировки се изпълняват с временни таблици, тази стойност "
+"трябва да бъде под 10%%."
 
 #: po/advisory_rules.php:115
 msgid "Rate of sorts that cause temporary tables"
@@ -11897,6 +11903,8 @@ msgstr "Стойност на сортировките, изискващи вр�
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
+"Средната стойност на временни таблици е %s, тази стойност трябва да бъде под "
+"1 за час."
 
 #: po/advisory_rules.php:120
 msgid "Sort rows"
@@ -11937,14 +11945,16 @@ msgstr ""
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
+"Средната стойност за JOIN на таблици e %s, тази стойност трябва да бъде под "
+"1 за час"
 
 #: po/advisory_rules.php:130
 msgid "Rate of reading first index entry"
-msgstr ""
+msgstr "Стойност на прочитане на първия индекс"
 
 #: po/advisory_rules.php:131
 msgid "The rate of reading the first index entry is high."
-msgstr ""
+msgstr "Стойността на прочитане на първия индекс е висока."
 
 #: po/advisory_rules.php:132
 msgid ""
@@ -11960,14 +11970,16 @@ msgstr ""
 #, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
+"Стойността на отказаните клиенти е %s, тази стойност трябва да бъде под 1 за "
+"час"
 
 #: po/advisory_rules.php:135
 msgid "Rate of reading fixed position"
-msgstr ""
+msgstr "Стойност на прочитане на фиксирана позиция"
 
 #: po/advisory_rules.php:136
 msgid "The rate of reading data from a fixed position is high."
-msgstr ""
+msgstr "Стойността на прочитане на фиксирана позиция е висока."
 
 #: po/advisory_rules.php:137
 msgid ""
@@ -11982,6 +11994,8 @@ msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr ""
+"Стойността на прекъснатите клиенти е %s, тази стойност трябва да бъде под 1 "
+"за час"
 
 #: po/advisory_rules.php:140
 msgid "Rate of reading next table row"
@@ -11989,7 +12003,7 @@ msgstr "Стойност на четене на следващ ред от та�
 
 #: po/advisory_rules.php:141
 msgid "The rate of reading the next table row is high."
-msgstr ""
+msgstr "Стойността на прочитане на следващ ред от таблица е висока."
 
 #: po/advisory_rules.php:142
 msgid ""
@@ -12002,6 +12016,8 @@ msgstr ""
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr ""
+"Стойността на отказаните клиенти е %s, тази стойност трябва да бъде под 1 за "
+"час"
 
 #: po/advisory_rules.php:145
 msgid "tmp_table_size vs. max_heap_table_size"
@@ -12026,7 +12042,7 @@ msgstr ""
 
 #: po/advisory_rules.php:150
 msgid "Percentage of temp tables on disk"
-msgstr "Процент временни таблици на диск"
+msgstr "Процент на временни таблици на диска"
 
 #: po/advisory_rules.php:151 po/advisory_rules.php:156
 msgid ""
@@ -12051,6 +12067,8 @@ msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
+"%s%% от всички временни таблици биват записвани на диска, тази стойност "
+"трябва да бъде под 25%%"
 
 #: po/advisory_rules.php:155
 msgid "Temp disk rate"
@@ -12073,6 +12091,8 @@ msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
 msgstr ""
+"Стойността на временните таблици записвани на диска е %s, тази стойност "
+"трябва да бъде под 1 за час"
 
 #: po/advisory_rules.php:160
 msgid "MyISAM key buffer size"
@@ -12090,12 +12110,12 @@ msgstr ""
 
 #: po/advisory_rules.php:163
 msgid "key_buffer_size is 0"
-msgstr "key_buffer_size e 0"
+msgstr "key_buffer_size е 0"
 
 #: po/advisory_rules.php:165
 #, php-format
 msgid "Max %% MyISAM key buffer ever used"
-msgstr "Максимално използван %% от буфера за ключове на MyISAM"
+msgstr "Максимален %% от буфера за ключове на MyISAM ползван някога"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, php-format
@@ -12114,8 +12134,8 @@ msgstr ""
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
 msgstr ""
-"Максимално използван %% от буфера за ключове на MyISAM използван някога: %s"
-"%%, стойността трябва да е над 95%%"
+"Максималният %% от буфера за ключове на MyISAM ползван някога е %s%%, тази "
+"стойност трябва да е над 95%%"
 
 #: po/advisory_rules.php:170
 msgid "Percentage of MyISAM key buffer used"
@@ -12125,12 +12145,12 @@ msgstr "Процент използван буфер за ключове на My
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
-"Използван %% от буфера за ключове на MyISAM: %s%%, стойността трябва да е "
-"над 95%%"
+"Използваният %% от буфера за ключове на MyISAM е %s%%, тази стойност трябва "
+"да е над 95%%"
 
 #: po/advisory_rules.php:175
 msgid "Percentage of index reads from memory"
-msgstr "Процент прочетени от паметта индекси"
+msgstr "Процент на прочитане на индекс от паметта"
 
 #: po/advisory_rules.php:176
 #, php-format
@@ -12148,11 +12168,11 @@ msgstr "Прочетени от паметта индекси: %s%%, стойн�
 
 #: po/advisory_rules.php:180
 msgid "Rate of table open"
-msgstr "Стойност отваряне на таблици"
+msgstr "Стойност на отваряне на таблици"
 
 #: po/advisory_rules.php:181
 msgid "The rate of opening tables is high."
-msgstr ""
+msgstr "Стойността на отваряне на таблици е висока."
 
 #: po/advisory_rules.php:182
 msgid ""
@@ -12164,6 +12184,8 @@ msgstr ""
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
+"Стойността на отваряните таблици е %s, тази стойност трябва да бъде под 10 "
+"за час"
 
 #: po/advisory_rules.php:185
 msgid "Percentage of used open files limit"
@@ -12186,6 +12208,8 @@ msgstr ""
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
+"Броят отворени файлове е на %s%% от ограничението, тази стойност трябва да "
+"бъде под 85%%"
 
 #: po/advisory_rules.php:190
 msgid "Rate of open files"
@@ -12199,6 +12223,8 @@ msgstr "Стойността на отворени файлове е висок�
 #, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
+"Стойността на отваряните файлове е %s, тази стойност трябва да бъде под 5 за "
+"час"
 
 #: po/advisory_rules.php:195
 #, php-format
@@ -12217,6 +12243,8 @@ msgstr ""
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr ""
+"Незабавното заключване на таблици е %s%%, тази стойност трябва да бъде над "
+"95%%"
 
 #: po/advisory_rules.php:200
 msgid "Table lock wait rate"
@@ -12226,6 +12254,8 @@ msgstr ""
 #, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
+"Стойността на изчакване за заключване на таблица е %s, тази стойност трябва "
+"да бъде под 1 за час"
 
 #: po/advisory_rules.php:205
 msgid "Thread cache"
@@ -12243,7 +12273,7 @@ msgstr ""
 
 #: po/advisory_rules.php:208
 msgid "The thread cache is set to 0"
-msgstr "Буферът за нишки е 0"
+msgstr "Буферът за нишки е зададен на 0"
 
 #: po/advisory_rules.php:210
 #, php-format
@@ -12259,9 +12289,9 @@ msgid "Increase {thread_cache_size}."
 msgstr ""
 
 #: po/advisory_rules.php:213
-#, php-format
+#, fuzzy, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr ""
+msgstr "Буфер за нишки .. %s%%, тази стойност трябва да бъде над 80%%"
 
 #: po/advisory_rules.php:215
 msgid "Threads that are slow to launch"
@@ -12302,7 +12332,7 @@ msgstr ""
 #: po/advisory_rules.php:223
 #, php-format
 msgid "slow_launch_time is set to %s"
-msgstr "slow_launch_time е настроено на %s"
+msgstr "slow_launch_time е зададено на %s"
 
 #: po/advisory_rules.php:225
 msgid "Percentage of used connections"
@@ -12354,7 +12384,7 @@ msgstr ""
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
-"%s%% на всички прекъснати клиенти. Тази стойност трябва да бъде под 1%%"
+"%s%% от всички връзки са прекъсвани, тази стойност трябва да бъде под 1%%"
 
 #: po/advisory_rules.php:235
 msgid "Rate of aborted connections"
@@ -12365,8 +12395,8 @@ msgstr "Стойност прекъснати връзки"
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
-"Стойността на прекъснатите клиенти е %s, тази стойност трябва да бъде по-"
-"малка от 1 за час"
+"Стойността на прекъснатите връзки е %s, тази стойност трябва да бъде под 1 "
+"за час"
 
 #: po/advisory_rules.php:240
 msgid "Percentage of aborted clients"
@@ -12390,7 +12420,7 @@ msgstr ""
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
-"%s%% на всички прекъснати клиенти. Тази стойност трябва да бъде под 2%%"
+"%s%% от всички клиенти са прекъсвани, тази стойност трябва да бъде под 2%%"
 
 #: po/advisory_rules.php:245
 msgid "Rate of aborted clients"
@@ -12400,8 +12430,8 @@ msgstr "Стойност прекъснати клиенти"
 #, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
-"Стойността на отказаните клиенти е %s, тази стойност трябва да бъде по-малка "
-"от 1 за час"
+"Стойността на прекъсваните клиенти е %s, тази стойност трябва да бъде под 1 "
+"за час"
 
 #: po/advisory_rules.php:250
 msgid "Is InnoDB disabled?"
