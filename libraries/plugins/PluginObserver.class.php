@@ -54,7 +54,9 @@ abstract class PluginObserver implements SplObserver
      */
     public function update (SplSubject $subject)
     {
-        throw new Exception('PluginObserver::update must be overridden in child classes.');
+        throw new Exception(
+            'PluginObserver::update must be overridden in child classes.'
+        );
     }
 
     

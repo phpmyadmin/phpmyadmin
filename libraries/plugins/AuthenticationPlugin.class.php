@@ -21,30 +21,30 @@ require_once "PluginObserver.class.php";
 abstract class AuthenticationPlugin extends PluginObserver
 {
     /**
+     * Displays authentication form
      *
-     *
-     * @return void
+     * @return boolean
      */
     abstract public function auth();
 
     /**
+     * Gets advanced authentication settings
      *
-     *
-     * @return void
+     * @return boolean
      */
     abstract public function authCheck();
 
     /**
+     * Set the user and password after last checkings if required
      *
-     *
-     * @return void
+     * @return boolean
      */
     abstract public function authSetUser();
 
     /**
+     * User is not allowed to login to MySQL -> authentication failed
      *
-     *
-     * @return void
+     * @return boolean
      */
     abstract public function authFails();
 }

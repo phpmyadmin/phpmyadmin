@@ -26,7 +26,7 @@ abstract class TransformationsPlugin extends PluginObserver
     /**
      * Does the actual work of each specific transformations plugin.
      *
-     * @param array  $options transformation options
+     * @param array $options transformation options
      *
      * @return void
      */

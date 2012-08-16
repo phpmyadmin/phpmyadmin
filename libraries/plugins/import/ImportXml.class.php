@@ -219,7 +219,9 @@ class ImportXml extends ImportPlugin
                      */
                     $attrs = $val2->attributes();
                     $create[] = "USE "
-                        . PMA_CommonFunctions::getInstance()->backquote($attrs["name"]);
+                        . PMA_CommonFunctions::getInstance()->backquote(
+                            $attrs["name"]
+                        );
 
                     foreach ($val2 as $val3) {
                         /**

@@ -145,10 +145,12 @@ class ImportLdi extends ImportPlugin
             $sql .= ' FIELDS TERMINATED BY \'' . $ldi_terminated . '\'';
         }
         if (strlen($ldi_enclosed) > 0) {
-            $sql .= ' ENCLOSED BY \'' . $common_functions->sqlAddSlashes($ldi_enclosed) . '\'';
+            $sql .= ' ENCLOSED BY \''
+                . $common_functions->sqlAddSlashes($ldi_enclosed) . '\'';
         }
         if (strlen($ldi_escaped) > 0) {
-            $sql .= ' ESCAPED BY \'' . $common_functions->sqlAddSlashes($ldi_escaped) . '\'';
+            $sql .= ' ESCAPED BY \''
+                . $common_functions->sqlAddSlashes($ldi_escaped) . '\'';
         }
         if (strlen($ldi_new_line) > 0) {
             if ($ldi_new_line == 'auto') {
@@ -172,7 +174,9 @@ class ImportLdi extends ImportPlugin
                     $sql .= ', ';
                 }
                 /* Trim also `, if user already included backquoted fields */
-                $sql .= $common_functions->backquote(trim($tmp[$i], " \t\r\n\0\x0B`"));
+                $sql .= $common_functions->backquote(
+                    trim($tmp[$i], " \t\r\n\0\x0B`")
+                );
             } // end for
             $sql .= ')';
         }

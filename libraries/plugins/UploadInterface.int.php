@@ -15,7 +15,8 @@ if (! defined('PHPMYADMIN')) {
  *
  * @package PhpMyAdmin
  */
-interface UploadInterface {
+interface UploadInterface
+{
     /**
      * Gets the specific upload ID Key
      *
