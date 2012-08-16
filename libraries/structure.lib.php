@@ -2265,4 +2265,146 @@ function PMA_getActionTitlesArray()
     return $titles;
 }
 
+/**
+ * Get HTML snippet for display table statistics
+ * 
+ * @param array $showtable                  full table status info            
+ * @param integer $table_info_num_rows      table info number of rows
+ * @param boolean $tbl_is_view              whether table is view or not
+ * @param boolean $db_is_information_schema whether db is information schema or not
+ * @param string $tbl_storage_engine        table storage engine
+ * @param string $url_query                 url query
+ * @param string $tbl_collation             table collation
+ * 
+ * @return string $html_output 
+ */
+function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
+    $tbl_is_view, $db_is_information_schema, $tbl_storage_engine, $url_query,
+    $tbl_collation
+) {
+    $common_functions = PMA_CommonFunctions::getInstance();
+    
+    $html_output = '<div id="tablestatistics">';
+    if (empty($showtable)) {
+        $showtable = PMA_Table::sGetStatusInfo(
+            $GLOBALS['db'], $GLOBALS['table'], null, true
+        );
+    }
+
+    $nonisam     = false;
+    $is_innodb = (isset($showtable['Type']) && $showtable['Type'] == 'InnoDB');
+    if (isset($showtable['Type'])
+        && ! preg_match('@ISAM|HEAP@i', $showtable['Type'])
+    ) {
+        $nonisam = true;
+    }
+
+    // Gets some sizes
+
+    $mergetable = PMA_Table::isMerge($GLOBALS['db'], $GLOBALS['table']);
+
+    // this is to display for example 261.2 MiB instead of 268k KiB
+    $max_digits = 3;
+    $decimals = 1;
+    list($data_size, $data_unit) = $common_functions->formatByteDown(
+        $showtable['Data_length'], $max_digits, $decimals
+    );
+    if ($mergetable == false) {
+        list($index_size, $index_unit) = $common_functions->formatByteDown(
+            $showtable['Index_length'], $max_digits, $decimals
+        );
+    }
+    // InnoDB returns a huge value in Data_free, do not use it
+    if (! $is_innodb
+        && isset($showtable['Data_free'])
+        && $showtable['Data_free'] > 0
+    ) {
+        list($free_size, $free_unit) = $common_functions->formatByteDown(
+            $showtable['Data_free'], $max_digits, $decimals
+        );
+        list($effect_size, $effect_unit) = $common_functions->formatByteDown(
+            $showtable['Data_length'] + $showtable['Index_length'] 
+                - $showtable['Data_free'],
+            $max_digits, $decimals
+        );
+    } else {
+        list($effect_size, $effect_unit) = $common_functions->formatByteDown(
+            $showtable['Data_length'] + $showtable['Index_length'],
+            $max_digits, $decimals
+        );
+    }
+    list($tot_size, $tot_unit) = $common_functions->formatByteDown(
+        $showtable['Data_length'] + $showtable['Index_length'],
+        $max_digits, $decimals
+    );
+    if ($table_info_num_rows > 0) {
+        list($avg_size, $avg_unit) = $common_functions->formatByteDown(
+            ($showtable['Data_length'] + $showtable['Index_length'])
+                / $showtable['Rows'],
+            6, 1
+        );
+    }
+
+    // Displays them
+    $odd_row = false;
+
+    $html_output .=  '<fieldset>'
+        . '<legend>' . __('Information') . '</legend>'
+        . '<a id="showusage"></a>';
+    
+    if (! $tbl_is_view && ! $db_is_information_schema) {
+        $html_output .= '<table id="tablespaceusage" class="data">'
+            . '<caption class="tblHeaders">' . __('Space usage') . '</caption>'
+            . '<tbody>';
+
+        $html_output .= PMA_getHtmlForSpaceUsageTableRow(
+           $odd_row, __('Data'), $data_size, $data_unit
+        );
+        $odd_row = !$odd_row;
+        
+        if (isset($index_size)) {
+            $html_output .= PMA_getHtmlForSpaceUsageTableRow(
+                $odd_row, __('Index'), $index_size, $index_unit
+            );
+            $odd_row = !$odd_row;
+        }
+         
+        if (isset($free_size)) {
+            $html_output .= PMA_getHtmlForSpaceUsageTableRow(
+                $odd_row, __('Overhead'), $free_size, $free_unit
+            );
+            $html_output .= PMA_getHtmlForSpaceUsageTableRow(
+                $odd_row, __('Effective'), $effect_size, $effect_unit
+            );
+            $odd_row = !$odd_row;
+        }
+        if (isset($tot_size) && $mergetable == false) {
+            $html_output .= PMA_getHtmlForSpaceUsageTableRow(
+                $odd_row, __('Total'), $tot_size, $tot_unit
+            );
+            $odd_row = !$odd_row;
+        }
+        // Optimize link if overhead
+        if (isset($free_size) && !PMA_DRIZZLE 
+            && ($tbl_storage_engine == 'MYISAM' 
+                || $tbl_storage_engine == 'ARIA' 
+                || $tbl_storage_engine == 'MARIA' 
+                || $tbl_storage_engine == 'BDB'
+            )
+        ) {
+            $html_output .= PMA_getHtmlForOptimizeLink($url_query);
+        }
+        $html_output .= '</tbody>'
+            . '</table>';
+    }
+    
+    $html_output .= getHtmlForRowStatsTable($showtable, $tbl_collation,
+        $is_innodb, $mergetable, 
+        (isset ($avg_size) ? $avg_size : ''), 
+        (isset ($avg_unit) ? $avg_unit : '')
+    );
+    
+    return $html_output;
+}
+
 ?>
