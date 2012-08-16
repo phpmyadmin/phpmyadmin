@@ -4453,7 +4453,7 @@ class PMA_DisplayResults
      * @param array   $analyzed_sql       the analyzed query
      * @param boolean $is_limited_display With limited operations or not
      *
-     * @return  sting   $table_html   Generated HTML content for resulted table
+     * @return  string   $table_html   Generated HTML content for resulted table
      *
      * @access  public
      *

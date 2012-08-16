@@ -352,7 +352,7 @@ class PMA_CommonFunctions
     /**
      * removes quotes (',",`) from a quoted string
      *
-     * checks if the sting is quoted and removes this quotes
+     * checks if the string is quoted and removes this quotes
      *
      * @param string $quoted_string string to remove quotes from
      * @param string $quote         type of quote to remove
