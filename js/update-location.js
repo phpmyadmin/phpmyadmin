@@ -41,7 +41,7 @@ function setURLHash(index, hash)
 $(function(){
     /* Check if hash contains parameters */
     if (window.location.hash.substring(0, 8) == '#PMAURL-') {
-        // FIXME: don't if the page is the same
+        // FIXME: don't reload if the page is the same
         window.location = window.location.hash.substring(
             window.location.hash.indexOf(':') + 1
         );

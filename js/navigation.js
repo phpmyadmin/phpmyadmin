@@ -1,6 +1,6 @@
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * function used in or for navigation frame
+ * function used in or for navigation panel
  *
  * @package phpMyAdmin-Navigation
  */
@@ -230,6 +230,9 @@ function PMA_reloadNavigation() {
         reload: true,
         pos: $('#pma_navigation_tree').find('a.expander:first > span.pos').text()
     };
+    // Trasverse the navigation tree backwards to generate all the actual
+    // and virtual paths, as well as the positions in the pagination at
+    // various levels, if necessary.
     var count = 0;
     $('#pma_navigation_tree').find('a.expander:visible').each(function () {
         if ($(this).find('img').is('.ic_b_minus')
@@ -273,7 +276,6 @@ function PMA_reloadNavigation() {
         }
     });
 };
-
 
 /**
  * Handles any requests to change the page in a branch of a tree
@@ -348,6 +350,13 @@ function PMA_navigationTreePagination($this)
  * @var ScrollHandler Custom object that manages the scrolling of the navigation
  */
 var ScrollHandler = {
+    /**
+     * Limits the percentage of scrolling within sane values
+     *
+     * @param double The value to be sanitised
+     *
+     * @return double
+     */
     sanitize: function (value) {
         if (value < 0) {
             value = 0;
@@ -356,6 +365,13 @@ var ScrollHandler = {
         }
         return value;
     },
+    /**
+     * Positions the scrollbar at the requested height
+     *
+     * @param double The value to set the positions of the scrollbar to
+     *
+     * @return void
+     */
     setScrollbar: function (value) {
         value = ScrollHandler.sanitize(value);
         var elms = ScrollHandler.elms;
@@ -365,6 +381,13 @@ var ScrollHandler = {
         );
         elms.$handle.css('top', offset);
     },
+    /**
+     * Positions the navigation at the requested height
+     *
+     * @param double The value to set the positions of the navigation to
+     *
+     * @return void
+     */
     setContent: function (value) {
         value = ScrollHandler.sanitize(value);
         var elms = ScrollHandler.elms;
@@ -374,6 +397,11 @@ var ScrollHandler = {
         );
         elms.$content.css('top', -offset);
     },
+    /**
+     * Shows/hides the scrollbar as necessary
+     *
+     * @return void
+     */
     displayScrollbar: function () {
         var elms = ScrollHandler.elms;
         if (elms.$content.height() > $(window).height()) {
@@ -391,6 +419,11 @@ var ScrollHandler = {
             elms.$content.css('top', 0);
         }
     },
+    /**
+     * Initialises the scrollHandler
+     *
+     * @return void
+     */
     init: function () {
         this.elms = {
             $content: $('#pma_navigation_content'),
@@ -711,8 +744,8 @@ var PMA_fastFilter = {
         return searchClause2;
     },
     /**
-     * @var hash events A list of functions that are further
-     *                  down the page bound to DOM events
+     * @var hash events A list of functions that are bound to DOM events
+     *                  at the top of this file
      */
     events: {
         focus: function (event) {
@@ -807,7 +840,7 @@ PMA_fastFilter.filter.prototype.update = function (searchClause)
     }
 };
 /**
- * After a delay of 500mS, initiates a request to retrieve search results
+ * After a delay of 250mS, initiates a request to retrieve search results
  * Multiple calls to this function will always abort the previous request
  *
  * @return void
