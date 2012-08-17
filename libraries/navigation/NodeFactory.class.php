@@ -36,7 +36,8 @@ class PMA_NodeFactory
         if ($class !== 'Node' && ! preg_match('@^Node_\w+(_\w+)?$@', $class)) {
             trigger_error(
                 sprintf(
-                    'Invalid class name "%1$s", using default of "Node"',
+                    /* l10n: The word "Node" must not be translated here */
+                    __('Invalid class name "%1$s", using default of "Node"'),
                     $class
                 ),
                 E_USER_ERROR
@@ -60,7 +61,7 @@ class PMA_NodeFactory
         if (! is_readable($path)) {
             trigger_error(
                 sprintf(
-                    'Could not include class "%1$s", file "%2$s" not found',
+                    __('Could not include class "%1$s", file "%2$s" not found'),
                     $class,
                     'Nodes/' . $class . '.class.php'
                 ),

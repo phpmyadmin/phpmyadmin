@@ -373,6 +373,9 @@ $js_messages['strMore'] = __('More');
 $js_messages['strShowPanel'] = __('Show Panel');
 $js_messages['strHidePanel'] = __('Hide Panel');
 
+/* microhistory */
+$js_messages['strInvalidPage'] = __('The requested page was not found in the history, it may have expired.');
+
 /* update */
 $js_messages['strNewerVersion'] = __('A newer version of phpMyAdmin is available and you should consider upgrading. The newest version is %s, released on %s.');
 /* l10n: Latest available phpMyAdmin version */

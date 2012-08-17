@@ -439,7 +439,8 @@ AJAX.cache = {
     goto: function (index) {
         if (typeof this.pages[index] === 'undefined') {
             PMA_ajaxShowMessage(
-                'The requested page was not found in the history' // FIXME: l10n
+                '<div class="error">' + PMA_messages['strInvalidPage'] + '</div>',
+                false
             );
         } else {
             this.update();
