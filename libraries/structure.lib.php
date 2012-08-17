@@ -1011,7 +1011,7 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename) {
  * 
  * @return array 
  */
-function PMA_getStuffForEnginetable($current_table, $db_is_information_schema,
+function PMA_getStuffForEngineTypeTable($current_table, $db_is_information_schema,
     $is_show_stats, $table_is_view, $sum_size, $overhead_size
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();

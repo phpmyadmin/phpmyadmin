@@ -167,7 +167,7 @@ foreach ($tables as $keyname => $current_table) {
     
     list($current_table, $formatted_size, $unit, $formatted_overhead,
         $overhead_unit, $overhead_size, $table_is_view, $sum_size)
-            = PMA_getStuffForEnginetable($current_table, $db_is_information_schema,
+            = PMA_getStuffForEngineTypeTable($current_table, $db_is_information_schema,
                 $is_show_stats, $table_is_view, $sum_size, $overhead_size
             );
 
