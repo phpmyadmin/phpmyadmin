@@ -311,7 +311,11 @@ class ExportLatex extends ExportPlugin
             $buffer .= ' \\caption{'
                 . $common_functions->expandUserString(
                     $GLOBALS['latex_data_caption'],
-                    get_class($this) . '->texEscape',
+                    array(
+                        'texEscape',
+                        get_class($this),
+                        'libraries/plugins/export/' . get_class($this) . ".class.php"
+                    ),
                     array('table' => $table, 'database' => $db)
                 )
                 . '} \\label{'
@@ -343,7 +347,11 @@ class ExportLatex extends ExportPlugin
                     '\\caption{'
                     . $common_functions->expandUserString(
                         $GLOBALS['latex_data_continued_caption'],
-                        get_class($this) . '->texEscape',
+                    array(
+                        'texEscape',
+                        get_class($this),
+                        'libraries/plugins/export/' . get_class($this) . ".class.php"
+                    ),
                         array('table' => $table, 'database' => $db)
                     )
                     . '} \\\\ '
@@ -513,7 +521,11 @@ class ExportLatex extends ExportPlugin
             $buffer .= ' \\caption{'
                 . $common_functions->expandUserString(
                     $GLOBALS['latex_structure_caption'],
-                    get_class($this) . '->texEscape',
+                    array(
+                        'texEscape',
+                        get_class($this),
+                        'libraries/plugins/export/' . get_class($this) . ".class.php"
+                    ),
                     array('table' => $table, 'database' => $db)
                 )
                 . '} \\label{'
@@ -531,7 +543,11 @@ class ExportLatex extends ExportPlugin
             $buffer .= ' \\caption{'
                 . $common_functions->expandUserString(
                     $GLOBALS['latex_structure_continued_caption'],
-                    get_class($this) . '->texEscape',
+                    array(
+                        'texEscape',
+                        get_class($this),
+                        'libraries/plugins/export/' . get_class($this) . ".class.php"
+                    ),
                     array('table' => $table, 'database' => $db)
                 )
                 . '} \\\\ ' . $crlf;

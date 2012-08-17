@@ -3460,6 +3460,10 @@ class PMA_CommonFunctions
      *
      * @param string   $string  Text where to do expansion.
      * @param function $escape  Function to call for escaping variable values.
+     *                          Can also be an array of:
+     *                          - the escape method name
+     *                          - the class that contains the method
+     *                          - location of the class (for inclusion)
      * @param array    $updates Array with overrides for default parameters
      *                 (obtained from GLOBALS).
      *
@@ -3507,10 +3511,19 @@ class PMA_CommonFunctions
 
         /* Optional escaping */
         if (! is_null($escape)) {
+            if (is_array($escape)) {
+                require_once $escape[2];
+                $escape_class = new $escape[1];
+                $escape_method = $escape[0];
+            }
             foreach ($replace as $key => $val) {
-                $replace[$key] = ($escape == 'backquote')
-                    ? $this->$escape($val)
-                    : $escape($val);
+                if (is_array($escape)) {
+                    $replace[$key] = $escape_class->$escape_method($val);
+                } else {
+                    $replace[$key] = ($escape == 'backquote')
+                        ? $this->$escape($val)
+                        : $escape($val);
+                }
             }
         }
 
