@@ -8,6 +8,11 @@ var AJAX = {
      */
     active: false,
     /**
+     * @var function Callback to execute after a successful request
+     *               Used by PMA_commonFunctions from common.js
+     */
+    _callback: function () {},
+    /**
      * @var bool _debug Makes noise in your Firebug console
      */
     _debug: false,
@@ -246,6 +251,11 @@ var AJAX = {
                     .insertAfter('#selflink')
                     .append(data._errors);
             }
+            
+            if (typeof AJAX._callback === 'function') {
+                AJAX._callback.call();
+            }
+            AJAX._callback = function () {};
         } else {
             PMA_ajaxShowMessage(data.error, false);
             AJAX.active = false;

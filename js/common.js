@@ -135,13 +135,14 @@ var PMA_commonActions = {
      *
      * @return void
      */
-    refreshMain: function (url) {
+    refreshMain: function (url, callback) {
         if (! url) {
             url = $('#selflink a').attr('href');
             url = url.substring(0, url.indexOf('?'));
         }
         url += PMA_commonParams.getUrlQuery();
         $('<a />', {href: url}).click();
+        AJAX._callback = callback;
     }
 };
 
