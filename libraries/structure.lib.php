@@ -1828,7 +1828,7 @@ function PMA_getHtmlDivsForStructureActionsDropdown($class, $isActionEnabled,
     $url_query, $row, $hidden_titles, $hidden_titles_no, $primary, $syntax,
     $message, $isPrimary
 ) {
-    $html_output = '<div class="replace_in_more"';
+    $html_output = '<div class="replace_in_more">';
     if ($isActionEnabled) {
         $html_output .= '<a class="' . $class . '" href="sql.php?' .  $url_query
             . '&amp;sql_query='
