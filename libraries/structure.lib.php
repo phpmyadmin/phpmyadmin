@@ -1687,7 +1687,7 @@ function PMA_getHtmlForOptimizeLink($url_query)
  * 
  * @return string $html_output
  */
-function PMA_getHtmlForRowStatstableRow($odd_row, $name, $value)
+function PMA_getHtmlForRowStatsTableRow($odd_row, $name, $value)
 {
     $common_functions = PMA_CommonFunctions::getInstance();
     
@@ -1730,7 +1730,7 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
         } else {
             $value = $showtable['Row_format'];
         }
-        $html_output .= PMA_getHtmlForRowStatstableRow(
+        $html_output .= PMA_getHtmlForRowStatsTableRow(
             $odd_row, __('Format'), $value
         );
         $odd_row = !$odd_row;
@@ -1741,7 +1741,7 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
         } else {
             $value = $showtable['Create_options'];
         }
-        $html_output .= PMA_getHtmlForRowStatstableRow(
+        $html_output .= PMA_getHtmlForRowStatsTableRow(
             $odd_row, __('Options'), $value
         );
         $odd_row = !$odd_row;
@@ -1749,13 +1749,13 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
     if (!empty($tbl_collation)) {
         $value = '<dfn title="' . PMA_getCollationDescr($tbl_collation) . '">' 
             . $tbl_collation . '</dfn>';
-        $html_output .= PMA_getHtmlForRowStatstableRow(
+        $html_output .= PMA_getHtmlForRowStatsTableRow(
             $odd_row, __('Collation'), $value
         );
         $odd_row = !$odd_row;
     }
     if (!$is_innodb && isset($showtable['Rows'])) {
-        $html_output .= PMA_getHtmlForRowStatstableRow($odd_row,
+        $html_output .= PMA_getHtmlForRowStatsTableRow($odd_row,
             __('Rows'), $common_functions->formatNumber($showtable['Rows'], 0)
         );
         $odd_row = !$odd_row;
@@ -1764,7 +1764,7 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
         && isset($showtable['Avg_row_length']) 
         && $showtable['Avg_row_length'] > 0
     ) {
-        $html_output .= PMA_getHtmlForRowStatstableRow($odd_row, 
+        $html_output .= PMA_getHtmlForRowStatsTableRow($odd_row, 
             __('Row length'),
             $common_functions->formatNumber($showtable['Avg_row_length'], 0)
         );
@@ -1775,33 +1775,33 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
         && $showtable['Rows'] > 0 
         && $mergetable == false
     ) {
-        $html_output .= PMA_getHtmlForRowStatstableRow($odd_row, 
+        $html_output .= PMA_getHtmlForRowStatsTableRow($odd_row, 
             __('Row size'), ($avg_size . ' ' . $avg_unit)
         );
         $odd_row = !$odd_row;
     }
     if (isset($showtable['Auto_increment'])) {
-        $html_output .= PMA_getHtmlForRowStatstableRow($odd_row, 
+        $html_output .= PMA_getHtmlForRowStatsTableRow($odd_row, 
             __('Next autoindex'),
             $common_functions->formatNumber($showtable['Auto_increment'], 0)
         );
         $odd_row = !$odd_row;
     }
     if (isset($showtable['Create_time'])) {
-        $html_output .= PMA_getHtmlForRowStatstableRow($odd_row, 
+        $html_output .= PMA_getHtmlForRowStatsTableRow($odd_row, 
             __('Creation'),
             $common_functions->localisedDate(strtotime($showtable['Create_time']))
         );
     }
     if (isset($showtable['Update_time'])) {
-        $html_output .= PMA_getHtmlForRowStatstableRow($odd_row, 
+        $html_output .= PMA_getHtmlForRowStatsTableRow($odd_row, 
             __('Last update'),
             $common_functions->localisedDate(strtotime($showtable['Update_time']))
         );
         $odd_row = !$odd_row;
     }
     if (isset($showtable['Check_time'])) {
-        $html_output .= PMA_getHtmlForRowStatstableRow($odd_row, 
+        $html_output .= PMA_getHtmlForRowStatsTableRow($odd_row, 
             __('Last check'),
             $common_functions->localisedDate(strtotime($showtable['Check_time']))
         );
