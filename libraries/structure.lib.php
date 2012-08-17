@@ -2101,7 +2101,7 @@ function PMA_getHtmlForDistinctValueAction($url_query, $row, $titles)
  * 
  * @return string $html_output;
  */
-function PMA_getHtmlForActionsIntableStructure($type, $tbl_storage_engine,
+function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
     $primary, $field_name, $url_query, $titles, $row, $rownum, $hidden_titles,
     $columns_with_unique_index
 ) {
