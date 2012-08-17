@@ -349,32 +349,39 @@ function PMA_getHtmlForCheckTablesHavingOverheadlink($overhead_check) {
 
 
 /**
- * Get HTML links for "Print view" and "Data Dictionary" options
+ * Get HTML links for "Print view" options
  * 
  * @param string $url_query     url query
  * 
  * @return string $html_output
  */
-function PMA_getHtmlForPrintViewAndDataDictionaryLinks($url_query)
+function PMA_getTablePrintViewLink($url_query)
 {
-    $common_functions = PMA_CommonFunctions::getInstance();
-    $html_output = '<p>'
+    return '<p>'
         . '<a href="db_printview.php?' . $url_query . '">'
-        . $common_functions->getIcon(
+        . PMA_CommonFunctions::getInstance()->getIcon(
             'b_print.png',
             __('Print view'),
             true
         ) . '</a>';
+}
 
-    $html_output .= '<a href="db_datadict.php?' . $url_query . '">'
-        . $common_functions->getIcon(
+/**
+ * Get HTML links "Data Dictionary" options
+ * 
+ * @param string $url_query     url query
+ * 
+ * @return string $html_output
+ */
+function PMA_getDataDictionaryLink($url_query)
+{
+    return '<a href="db_datadict.php?' . $url_query . '">'
+        . PMA_CommonFunctions::getInstance()->getIcon(
             'b_tblanalyse.png',
             __('Data Dictionary'),
             true
         ) . '</a>'
         . '</p>';
-    
-    return $html_output;
 }
 
 /**
@@ -756,7 +763,7 @@ function PMA_TableHeader($db_is_information_schema = false, $replication = false
         .'<thead>' . "\n"
         .'<tr><th></th>' . "\n"
         .'<th>' 
-        . PMA_SortableTableHeader(__('Table'), 'table') 
+        . PMA_sortableTableHeader(__('Table'), 'table') 
         . '</th>' . "\n";
     if ($replication) {
         $html_output .= '<th>' . "\n"
@@ -767,7 +774,7 @@ function PMA_TableHeader($db_is_information_schema = false, $replication = false
         .'        ' . __('Action') . "\n"
         .'</th>'
         // larger values are more interesting so default sort order is DESC
-        .'<th>' . PMA_SortableTableHeader(__('Rows'), 'records', 'DESC')
+        .'<th>' . PMA_sortableTableHeader(__('Rows'), 'records', 'DESC')
         . PMA_CommonFunctions::getInstance()->showHint(
             PMA_sanitize(
                 __('May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a]')
@@ -775,43 +782,43 @@ function PMA_TableHeader($db_is_information_schema = false, $replication = false
         ) . "\n"
         .'</th>' . "\n";
     if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
-        $html_output .= '<th>' . PMA_SortableTableHeader(__('Type'), 'type') 
+        $html_output .= '<th>' . PMA_sortableTableHeader(__('Type'), 'type') 
             . '</th>' . "\n";
         $cnt++;
         $html_output .= '<th>' 
-            . PMA_SortableTableHeader(__('Collation'), 'collation') 
+            . PMA_sortableTableHeader(__('Collation'), 'collation') 
             . '</th>' . "\n";
         $cnt++;
     }
     if ($GLOBALS['is_show_stats']) {
         // larger values are more interesting so default sort order is DESC
         $html_output .= '<th>' 
-            . PMA_SortableTableHeader(__('Size'), 'size', 'DESC')
+            . PMA_sortableTableHeader(__('Size'), 'size', 'DESC')
             . '</th>' . "\n"
         // larger values are more interesting so default sort order is DESC
             . '<th>' 
-            . PMA_SortableTableHeader(__('Overhead'), 'overhead', 'DESC') 
+            . PMA_sortableTableHeader(__('Overhead'), 'overhead', 'DESC') 
             . '</th>' . "\n";
         $cnt += 2;
     }
     if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
         // larger values are more interesting so default sort order is DESC
         $html_output .= '<th>' 
-            . PMA_SortableTableHeader(__('Creation'), 'creation', 'DESC')
+            . PMA_sortableTableHeader(__('Creation'), 'creation', 'DESC')
             . '</th>' . "\n";
         $cnt += 2;
     }
     if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
         // larger values are more interesting so default sort order is DESC
         $html_output .= '<th>' 
-            . PMA_SortableTableHeader(__('Last update'), 'last_update', 'DESC') 
+            . PMA_sortableTableHeader(__('Last update'), 'last_update', 'DESC') 
             . '</th>' . "\n";
         $cnt += 2;
     }
     if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
         // larger values are more interesting so default sort order is DESC
         $html_output .= '<th>' 
-            . PMA_SortableTableHeader(__('Last check'), 'last_check', 'DESC')
+            . PMA_sortableTableHeader(__('Last check'), 'last_check', 'DESC')
             . '</th>' . "\n";
         $cnt += 2;
     }
@@ -833,7 +840,7 @@ function PMA_TableHeader($db_is_information_schema = false, $replication = false
  *
  * @return string link to be displayed in the table header
  */
-function PMA_SortableTableHeader($title, $sort, $initial_sort_order = 'ASC')
+function PMA_sortableTableHeader($title, $sort, $initial_sort_order = 'ASC')
 {
     $common_functions = PMA_CommonFunctions::getInstance();
     // Set some defaults
@@ -914,7 +921,7 @@ function PMA_SortableTableHeader($title, $sort, $initial_sort_order = 'ASC')
  * 
  * @return array ($alias, $truename) 
  */
-function PMA_getAliasAndTruename($tooltip_aliasname, $current_table,
+function PMA_getAliasAndTrueName($tooltip_aliasname, $current_table,
     $tooltip_truename
 ) {
     $alias = (! empty($tooltip_aliasname) 
@@ -1004,7 +1011,7 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename) {
  * 
  * @return array 
  */
-function PMA_getStuffForEnginetable($current_table, $db_is_information_schema,
+function PMA_getStuffForEngineTypeTable($current_table, $db_is_information_schema,
     $is_show_stats, $table_is_view, $sum_size, $overhead_size
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
@@ -1351,7 +1358,7 @@ function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_information_schema,
  * 
  * @return string $html_output
  */
-function PMA_getHtmlForCheckAlltableColumn($pmaThemeImage, $text_dir,
+function PMA_getHtmlForCheckAllTableColumn($pmaThemeImage, $text_dir,
     $tbl_is_view, $db_is_information_schema, $tbl_storage_engine
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
@@ -1478,7 +1485,7 @@ function PMA_getHtmlForEditView($url_params)
  * 
  * @return string $html_output
  */
-function PMA_getHtmlForSomeLinks($url_query, $tbl_is_view,
+function PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
     $db_is_information_schema, $tbl_storage_engine, $cfgRelation
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
@@ -1680,7 +1687,7 @@ function PMA_getHtmlForOptimizeLink($url_query)
  * 
  * @return string $html_output
  */
-function PMA_getHtmlForRowStatstableRow($odd_row, $name, $value)
+function PMA_getHtmlForRowStatsTableRow($odd_row, $name, $value)
 {
     $common_functions = PMA_CommonFunctions::getInstance();
     
@@ -1723,7 +1730,7 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
         } else {
             $value = $showtable['Row_format'];
         }
-        $html_output .= PMA_getHtmlForRowStatstableRow(
+        $html_output .= PMA_getHtmlForRowStatsTableRow(
             $odd_row, __('Format'), $value
         );
         $odd_row = !$odd_row;
@@ -1734,7 +1741,7 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
         } else {
             $value = $showtable['Create_options'];
         }
-        $html_output .= PMA_getHtmlForRowStatstableRow(
+        $html_output .= PMA_getHtmlForRowStatsTableRow(
             $odd_row, __('Options'), $value
         );
         $odd_row = !$odd_row;
@@ -1742,13 +1749,13 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
     if (!empty($tbl_collation)) {
         $value = '<dfn title="' . PMA_getCollationDescr($tbl_collation) . '">' 
             . $tbl_collation . '</dfn>';
-        $html_output .= PMA_getHtmlForRowStatstableRow(
+        $html_output .= PMA_getHtmlForRowStatsTableRow(
             $odd_row, __('Collation'), $value
         );
         $odd_row = !$odd_row;
     }
     if (!$is_innodb && isset($showtable['Rows'])) {
-        $html_output .= PMA_getHtmlForRowStatstableRow($odd_row,
+        $html_output .= PMA_getHtmlForRowStatsTableRow($odd_row,
             __('Rows'), $common_functions->formatNumber($showtable['Rows'], 0)
         );
         $odd_row = !$odd_row;
@@ -1757,7 +1764,7 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
         && isset($showtable['Avg_row_length']) 
         && $showtable['Avg_row_length'] > 0
     ) {
-        $html_output .= PMA_getHtmlForRowStatstableRow($odd_row, 
+        $html_output .= PMA_getHtmlForRowStatsTableRow($odd_row, 
             __('Row length'),
             $common_functions->formatNumber($showtable['Avg_row_length'], 0)
         );
@@ -1768,33 +1775,33 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
         && $showtable['Rows'] > 0 
         && $mergetable == false
     ) {
-        $html_output .= PMA_getHtmlForRowStatstableRow($odd_row, 
+        $html_output .= PMA_getHtmlForRowStatsTableRow($odd_row, 
             __('Row size'), ($avg_size . ' ' . $avg_unit)
         );
         $odd_row = !$odd_row;
     }
     if (isset($showtable['Auto_increment'])) {
-        $html_output .= PMA_getHtmlForRowStatstableRow($odd_row, 
+        $html_output .= PMA_getHtmlForRowStatsTableRow($odd_row, 
             __('Next autoindex'),
             $common_functions->formatNumber($showtable['Auto_increment'], 0)
         );
         $odd_row = !$odd_row;
     }
     if (isset($showtable['Create_time'])) {
-        $html_output .= PMA_getHtmlForRowStatstableRow($odd_row, 
+        $html_output .= PMA_getHtmlForRowStatsTableRow($odd_row, 
             __('Creation'),
             $common_functions->localisedDate(strtotime($showtable['Create_time']))
         );
     }
     if (isset($showtable['Update_time'])) {
-        $html_output .= PMA_getHtmlForRowStatstableRow($odd_row, 
+        $html_output .= PMA_getHtmlForRowStatsTableRow($odd_row, 
             __('Last update'),
             $common_functions->localisedDate(strtotime($showtable['Update_time']))
         );
         $odd_row = !$odd_row;
     }
     if (isset($showtable['Check_time'])) {
-        $html_output .= PMA_getHtmlForRowStatstableRow($odd_row, 
+        $html_output .= PMA_getHtmlForRowStatsTableRow($odd_row, 
             __('Last check'),
             $common_functions->localisedDate(strtotime($showtable['Check_time']))
         );
@@ -1828,7 +1835,7 @@ function PMA_getHtmlDivsForStructureActionsDropdown($class, $isActionEnabled,
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
     
-    $html_output = '<div  class="' . $class . '"';
+    $html_output = '<div  class="' . $class . '">';
     if (!empty ($isActionEnabled)) {
         if ($isActionEnabled) {
             $html_output .= '<a href="sql.php?' .  $url_query 
@@ -2027,7 +2034,7 @@ function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
     )
     && (strpos(' ' . $type, 'text') || strpos(' ' . $type, 'char'))
     ) {
-        $html_output = "\n";
+        $html_output .= "\n";
         $html_output .= '<a href="sql.php?' . $url_query . '&amp;sql_query=' 
             . urlencode(
                 'ALTER TABLE ' . $common_functions->backquote($GLOBALS['table']) 
@@ -2059,7 +2066,7 @@ function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
  * 
  * @return string $html_output
  */
-function PMA_getHtmlForDistincValueAction($url_query, $row, $titles)
+function PMA_getHtmlForDistinctValueAction($url_query, $row, $titles)
 {
     $common_functions = PMA_CommonFunctions::getInstance();
     $html_output = '<td class="browse replaced_by_more center">';
@@ -2094,7 +2101,7 @@ function PMA_getHtmlForDistincValueAction($url_query, $row, $titles)
  * 
  * @return string $html_output;
  */
-function PMA_getHtmlForActionsIntableStructure($type, $tbl_storage_engine,
+function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
     $primary, $field_name, $url_query, $titles, $row, $rownum, $hidden_titles,
     $columns_with_unique_index
 ) {
@@ -2150,7 +2157,7 @@ function PMA_getHtmlForActionsIntableStructure($type, $tbl_storage_engine,
                 $url_query, $row, $titles);
         $html_output .= $fulltext;
     }
-    $html_output .= PMA_getHtmlForDistincValueAction($url_query, $row, $titles);
+    $html_output .= PMA_getHtmlForDistinctValueAction($url_query, $row, $titles);
 
     if ($GLOBALS['cfg']['PropertiesIconic'] !== true 
         && $GLOBALS['cfg']['HideStructureActions'] === true
