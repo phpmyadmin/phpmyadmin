@@ -2034,7 +2034,7 @@ function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
     )
     && (strpos(' ' . $type, 'text') || strpos(' ' . $type, 'char'))
     ) {
-        $html_output = "\n";
+        $html_output .= "\n";
         $html_output .= '<a href="sql.php?' . $url_query . '&amp;sql_query=' 
             . urlencode(
                 'ALTER TABLE ' . $common_functions->backquote($GLOBALS['table']) 
