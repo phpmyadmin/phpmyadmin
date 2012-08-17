@@ -339,7 +339,7 @@ $response->addHTML(
 );
 
 $response->addHTML(
-    PMA_getHtmlForCheckAlltableColumn($pmaThemeImage, $text_dir,
+    PMA_getHtmlForCheckAllTableColumn($pmaThemeImage, $text_dir,
         $tbl_is_view, $db_is_information_schema, $tbl_storage_engine
     )
 );

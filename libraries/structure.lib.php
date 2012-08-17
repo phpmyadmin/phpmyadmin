@@ -1358,7 +1358,7 @@ function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_information_schema,
  * 
  * @return string $html_output
  */
-function PMA_getHtmlForCheckAlltableColumn($pmaThemeImage, $text_dir,
+function PMA_getHtmlForCheckAllTableColumn($pmaThemeImage, $text_dir,
     $tbl_is_view, $db_is_information_schema, $tbl_storage_engine
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
