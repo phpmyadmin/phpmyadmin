@@ -921,7 +921,7 @@ function PMA_sortableTableHeader($title, $sort, $initial_sort_order = 'ASC')
  * 
  * @return array ($alias, $truename) 
  */
-function PMA_getAliasAndTruename($tooltip_aliasname, $current_table,
+function PMA_getAliasAndTrueName($tooltip_aliasname, $current_table,
     $tooltip_truename
 ) {
     $alias = (! empty($tooltip_aliasname) 

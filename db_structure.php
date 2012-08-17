@@ -218,7 +218,7 @@ foreach ($tables as $keyname => $current_table) {
         );
     }
 
-    list($alias, $truename) = PMA_getAliasAndTruename(
+    list($alias, $truename) = PMA_getAliasAndTrueName(
         $tooltip_aliasname, $current_table, $tooltip_truename
     );
 
