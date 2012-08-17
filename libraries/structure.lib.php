@@ -763,7 +763,7 @@ function PMA_TableHeader($db_is_information_schema = false, $replication = false
         .'<thead>' . "\n"
         .'<tr><th></th>' . "\n"
         .'<th>' 
-        . PMA_SortableTableHeader(__('Table'), 'table') 
+        . PMA_sortableTableHeader(__('Table'), 'table') 
         . '</th>' . "\n";
     if ($replication) {
         $html_output .= '<th>' . "\n"
@@ -774,7 +774,7 @@ function PMA_TableHeader($db_is_information_schema = false, $replication = false
         .'        ' . __('Action') . "\n"
         .'</th>'
         // larger values are more interesting so default sort order is DESC
-        .'<th>' . PMA_SortableTableHeader(__('Rows'), 'records', 'DESC')
+        .'<th>' . PMA_sortableTableHeader(__('Rows'), 'records', 'DESC')
         . PMA_CommonFunctions::getInstance()->showHint(
             PMA_sanitize(
                 __('May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a]')
@@ -782,43 +782,43 @@ function PMA_TableHeader($db_is_information_schema = false, $replication = false
         ) . "\n"
         .'</th>' . "\n";
     if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
-        $html_output .= '<th>' . PMA_SortableTableHeader(__('Type'), 'type') 
+        $html_output .= '<th>' . PMA_sortableTableHeader(__('Type'), 'type') 
             . '</th>' . "\n";
         $cnt++;
         $html_output .= '<th>' 
-            . PMA_SortableTableHeader(__('Collation'), 'collation') 
+            . PMA_sortableTableHeader(__('Collation'), 'collation') 
             . '</th>' . "\n";
         $cnt++;
     }
     if ($GLOBALS['is_show_stats']) {
         // larger values are more interesting so default sort order is DESC
         $html_output .= '<th>' 
-            . PMA_SortableTableHeader(__('Size'), 'size', 'DESC')
+            . PMA_sortableTableHeader(__('Size'), 'size', 'DESC')
             . '</th>' . "\n"
         // larger values are more interesting so default sort order is DESC
             . '<th>' 
-            . PMA_SortableTableHeader(__('Overhead'), 'overhead', 'DESC') 
+            . PMA_sortableTableHeader(__('Overhead'), 'overhead', 'DESC') 
             . '</th>' . "\n";
         $cnt += 2;
     }
     if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
         // larger values are more interesting so default sort order is DESC
         $html_output .= '<th>' 
-            . PMA_SortableTableHeader(__('Creation'), 'creation', 'DESC')
+            . PMA_sortableTableHeader(__('Creation'), 'creation', 'DESC')
             . '</th>' . "\n";
         $cnt += 2;
     }
     if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
         // larger values are more interesting so default sort order is DESC
         $html_output .= '<th>' 
-            . PMA_SortableTableHeader(__('Last update'), 'last_update', 'DESC') 
+            . PMA_sortableTableHeader(__('Last update'), 'last_update', 'DESC') 
             . '</th>' . "\n";
         $cnt += 2;
     }
     if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
         // larger values are more interesting so default sort order is DESC
         $html_output .= '<th>' 
-            . PMA_SortableTableHeader(__('Last check'), 'last_check', 'DESC')
+            . PMA_sortableTableHeader(__('Last check'), 'last_check', 'DESC')
             . '</th>' . "\n";
         $cnt += 2;
     }
@@ -840,7 +840,7 @@ function PMA_TableHeader($db_is_information_schema = false, $replication = false
  *
  * @return string link to be displayed in the table header
  */
-function PMA_SortableTableHeader($title, $sort, $initial_sort_order = 'ASC')
+function PMA_sortableTableHeader($title, $sort, $initial_sort_order = 'ASC')
 {
     $common_functions = PMA_CommonFunctions::getInstance();
     // Set some defaults
