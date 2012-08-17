@@ -1828,7 +1828,7 @@ function PMA_getHtmlDivsForStructureActionsDropdown($class, $isActionEnabled,
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
     
-    $html_output = '<div  class="' . $class . '"';
+    $html_output = '<div  class="' . $class . '">';
     if (!empty ($isActionEnabled)) {
         if ($isActionEnabled) {
             $html_output .= '<a href="sql.php?' .  $url_query 
