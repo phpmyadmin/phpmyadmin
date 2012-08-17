@@ -2059,7 +2059,7 @@ function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
  * 
  * @return string $html_output
  */
-function PMA_getHtmlForDistincValueAction($url_query, $row, $titles)
+function PMA_getHtmlForDistinctValueAction($url_query, $row, $titles)
 {
     $common_functions = PMA_CommonFunctions::getInstance();
     $html_output = '<td class="browse replaced_by_more center">';
@@ -2150,7 +2150,7 @@ function PMA_getHtmlForActionsIntableStructure($type, $tbl_storage_engine,
                 $url_query, $row, $titles);
         $html_output .= $fulltext;
     }
-    $html_output .= PMA_getHtmlForDistincValueAction($url_query, $row, $titles);
+    $html_output .= PMA_getHtmlForDistinctValueAction($url_query, $row, $titles);
 
     if ($GLOBALS['cfg']['PropertiesIconic'] !== true 
         && $GLOBALS['cfg']['HideStructureActions'] === true
