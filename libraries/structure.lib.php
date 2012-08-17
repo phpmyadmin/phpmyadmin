@@ -1485,7 +1485,7 @@ function PMA_getHtmlForEditView($url_params)
  * 
  * @return string $html_output
  */
-function PMA_getHtmlForSomeLinks($url_query, $tbl_is_view,
+function PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
     $db_is_information_schema, $tbl_storage_engine, $cfgRelation
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();

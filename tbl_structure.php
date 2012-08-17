@@ -360,7 +360,7 @@ if ($tbl_is_view) {
     $response->addHTML(PMA_getHtmlForEditView($url_params));
 }
 $response->addHTML(
-    PMA_getHtmlForSomeLinks($url_query, $tbl_is_view,
+    PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
         $db_is_information_schema, $tbl_storage_engine, $cfgRelation
     )
 );
