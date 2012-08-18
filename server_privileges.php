@@ -481,7 +481,7 @@ if (empty($_REQUEST['adduser'])
 } elseif (isset($_REQUEST['adduser'])) {
     // Add user
     $response->addHTML(
-        PMA_getHtmlForAddUser($random_n, (isset($dbename) ? $dbname : ''))
+        PMA_getHtmlForAddUser($random_n, (isset($dbname) ? $dbname : ''))
     );
 } else {
     // check the privileges for a particular database.
