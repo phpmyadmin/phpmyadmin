@@ -215,7 +215,9 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
         $_add_user_error = true;
     } else {
         list($create_user_real, $create_user_show, $real_sql_query, $sql_query)
-            = PMA_getSqlQueriesForDisplayAndAddUser($username, $hostname, $password);
+            = PMA_getSqlQueriesForDisplayAndAddUser(
+                $username, $hostname, (isset ($password) ? $password : '')
+            );
 
         if (empty($_REQUEST['change_copy'])) {
             $_error = false;
@@ -479,7 +481,7 @@ if (empty($_REQUEST['adduser'])
 } elseif (isset($_REQUEST['adduser'])) {
     // Add user
     $response->addHTML(
-        PMA_getHtmlForAddUser($random_n, $dbname)
+        PMA_getHtmlForAddUser($random_n, (isset($dbename) ? $dbname : ''))
     );
 } else {
     // check the privileges for a particular database.
