@@ -319,8 +319,8 @@ $response->addHTML('</div><hr />');
 /* DATABASE WORK */
 /* Printable view of a table */
 $response->addHTML(
-    PMA_getTablePrintViewLink($url_query)
-    . PMA_getDataDictionaryLink($url_query)
+    PMA_getHtmlForTablePrintViewLink($url_query)
+    . PMA_getHtmlForDataDictionaryLink($url_query)
 );
 
 if (empty($db_is_information_schema)) {
