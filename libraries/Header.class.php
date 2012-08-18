@@ -185,6 +185,12 @@ class PMA_Header
         $this->_scripts->addCode($this->getJsParamsCode());
     }
 
+    /**
+     * Returns, as an array, a list of parameters
+     * used on the client side
+     *
+     * @return array
+     */
     public function getJsParams()
     {
         return array(
@@ -210,7 +216,12 @@ class PMA_Header
         );
     }
 
-
+    /**
+     * Returns, as a string, a list of parameters
+     * used on the client side
+     *
+     * @return string
+     */
     public function getJsParamsCode()
     {
         $params = $this->getJsParams();
@@ -588,9 +599,10 @@ class PMA_Header
         if ($this->_menuEnabled && strlen($table) && $GLOBALS['cfg']['NumRecentTables'] > 0) {
             $tmp_result = PMA_RecentTable::getInstance()->add($db, $table);
             if ($tmp_result === true) {
-                $params = array('ajax_request' => true, 'recent_table' => true);
-                $url = 'index.php' . PMA_generate_common_url($params);
-                $retval = '<a class="hide" id="update_recent_tables" href="' . $url . '"></a>';
+                $params  = array('ajax_request' => true, 'recent_table' => true);
+                $url     = 'index.php' . PMA_generate_common_url($params);
+                $retval  = '<a class="hide" id="update_recent_tables"';
+                $retval .= ' href="' . $url . '"></a>';
             } else {
                 $error  = $tmp_result;
                 $retval = $error->getDisplay();

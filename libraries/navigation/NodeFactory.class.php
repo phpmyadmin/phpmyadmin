@@ -87,7 +87,8 @@ class PMA_NodeFactory
         $name = 'default',
         $type = Node::OBJECT,
         $is_group = false
-    ) {
+    )
+    {
         $class = self::_sanitizeClass($class);
         include_once sprintf(self::$_path, $class);
         return new $class($name, $type, $is_group);

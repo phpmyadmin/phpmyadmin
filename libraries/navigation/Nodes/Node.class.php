@@ -414,7 +414,7 @@ class Node
             }
             $retval = (int)PMA_DBI_fetch_value($query);
         } else {
-            $query  = "SHOW DATABASES ";
+            $query = "SHOW DATABASES ";
             if (! empty($searchClause)) {
                 $query .= "LIKE '%";
                 $query .= $this->_commonFunctions->sqlAddSlashes(

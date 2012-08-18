@@ -98,6 +98,8 @@ class PMA_Footer
     /**
      * Returns the url of the current page
      *
+     * @param mixed $encoding See PMA_generate_common_url()
+     *
      * @return string
      */
     public function getSelfUrl($encoding = null)

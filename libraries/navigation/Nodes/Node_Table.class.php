@@ -113,9 +113,10 @@ class Node_Table extends Node
      */
     public function getData($type, $pos, $searchClause = '')
     {
-        $retval = array();
-        $db     = $this->realParent()->real_name;
-        $table  = $this->real_name;
+        $maxItems = $GLOBALS['cfg']['MaxNavigationItems'];
+        $retval   = array();
+        $db       = $this->realParent()->real_name;
+        $table    = $this->real_name;
         switch ($type) {
         case 'columns':
             if (! $GLOBALS['cfg']['Servers'][$GLOBALS['server']]['DisableIS']) {
@@ -126,7 +127,7 @@ class Node_Table extends Node
                 $query .= "WHERE `TABLE_NAME`='$table' ";
                 $query .= "AND `TABLE_SCHEMA`='$db' ";
                 $query .= "ORDER BY `COLUMN_NAME` ASC ";
-                $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxNavigationItems']}";
+                $query .= "LIMIT $pos, $maxItems";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $db     = $this->_commonFunctions->backquote($db);
@@ -136,7 +137,7 @@ class Node_Table extends Node
                 if ($handle !== false) {
                     $count = 0;
                     while ($arr = PMA_DBI_fetch_array($handle)) {
-                        if ($pos <= 0 && $count < $GLOBALS['cfg']['MaxNavigationItems']) {
+                        if ($pos <= 0 && $count < $maxItems) {
                             $retval[] = $arr['Field'];
                             $count++;
                         }
@@ -154,7 +155,7 @@ class Node_Table extends Node
                 $count = 0;
                 while ($arr = PMA_DBI_fetch_array($handle)) {
                     if (! in_array($arr['Key_name'], $retval)) {
-                        if ($pos <= 0 && $count < $GLOBALS['cfg']['MaxNavigationItems']) {
+                        if ($pos <= 0 && $count < $maxItems) {
                             $retval[] = $arr['Key_name'];
                             $count++;
                         }
@@ -172,7 +173,7 @@ class Node_Table extends Node
                 $query .= "WHERE `EVENT_OBJECT_SCHEMA`='$db' ";
                 $query .= "AND `EVENT_OBJECT_TABLE`='$table' ";
                 $query .= "ORDER BY `TRIGGER_NAME` ASC ";
-                $query .= "LIMIT $pos, {$GLOBALS['cfg']['MaxNavigationItems']}";
+                $query .= "LIMIT $pos, $maxItems";
                 $retval = PMA_DBI_fetch_result($query);
             } else {
                 $db     = $this->_commonFunctions->backquote($db);
@@ -182,7 +183,7 @@ class Node_Table extends Node
                 if ($handle !== false) {
                     $count = 0;
                     while ($arr = PMA_DBI_fetch_array($handle)) {
-                        if ($pos <= 0 && $count < $GLOBALS['cfg']['MaxNavigationItems']) {
+                        if ($pos <= 0 && $count < $maxItems) {
                             $retval[] = $arr['Trigger'];
                             $count++;
                         }
@@ -215,7 +216,7 @@ class Node_Table extends Node
             $query .= "AND `TABLE_NAME`='$table' ";
             $retval = PMA_DBI_fetch_value($query);
         } else {
-            $db    = $this->_commonFunctions->backquote($db);
+            $db     = $this->_commonFunctions->backquote($db);
             $query  = "SHOW TABLE STATUS FROM $db ";
             $query .= "WHERE Name = '$table'";
             $arr = PMA_DBI_fetch_assoc(PMA_DBI_try_query($query));

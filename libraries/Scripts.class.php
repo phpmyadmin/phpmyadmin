@@ -98,8 +98,8 @@ class PMA_Scripts
     {
         $hash = md5($filename);
         if (empty($this->_files[$hash])) {
-            $has_onload = $this->eventBlacklist($filename);
-            $timestamp = null;
+            $has_onload = $this->_eventBlacklist($filename);
+            $timestamp  = null;
             if (strpos($filename, '?') === false) {
                 $timestamp = filemtime('js/' . $filename);
             }
@@ -115,11 +115,12 @@ class PMA_Scripts
     /**
      * Determines whether to fire up an onload event for a file
      *
-     * @param string $filename
+     * @param string $filename The name of the file to be checked
+     *                         against the blacklist
      *
      * @return int 1 to fire up the event, 0 not to
      */
-    private function eventBlacklist($filename)
+    private function _eventBlacklist($filename)
     {
         if (   strpos($filename, 'jquery') !== false
             || strpos($filename, 'codemirror') !== false
@@ -215,7 +216,9 @@ class PMA_Scripts
         $code = '$(function() {';
         foreach ($this->_files as $file) {
             if ($file['has_onload']) {
-                $code .= 'AJAX.fireOnload("' . PMA_escapeJsString($file['filename']) . '");';
+                $code .= 'AJAX.fireOnload("';
+                $code .= PMA_escapeJsString($file['filename']);
+                $code .= '");';
             }
         }
         $code .= '});';

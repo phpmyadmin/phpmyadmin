@@ -138,15 +138,15 @@ class PMA_NavigationHeader
         $disableAjax = false,
         $linkTarget = ''
     ) {
-        $retval  = '<a href="' . $link . '"';
+        $retval = '<a href="' . $link . '"';
         if (! empty($linkId)) {
-            $retval  .= ' id="' . $linkId . '"';
+            $retval .= ' id="' . $linkId . '"';
         }
         if (! empty($linkTarget)) {
-            $retval  .= ' target="' . $linkTarget . '"';
+            $retval .= ' target="' . $linkTarget . '"';
         }
         if ($disableAjax) {
-            $retval  .= ' class="disableAjax"';
+            $retval .= ' class="disableAjax"';
         }
         $retval .= ' title="' . $text . '">';
         if ($showIcon) {

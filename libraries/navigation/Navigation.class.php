@@ -22,8 +22,7 @@ require_once 'libraries/navigation/NavigationTree.class.php';
 class PMA_Navigation
 {
     /**
-     * Initialises the class, handles incoming requests
-     * and fires up rendering of the output
+     * Initialises the class
      *
      * @return void
      */

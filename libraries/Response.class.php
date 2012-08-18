@@ -110,7 +110,9 @@ class PMA_Response
         if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             $this->_isAjax = true;
         }
-        if (isset($_REQUEST['ajax_page_request']) && $_REQUEST['ajax_page_request'] == true) {
+        if (isset($_REQUEST['ajax_page_request'])
+            && $_REQUEST['ajax_page_request'] == true
+        ) {
             $this->_isAjaxPage = true;
         }
         $this->_header->setAjax($this->_isAjax);

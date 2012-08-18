@@ -48,10 +48,10 @@ class Node_Column extends Node
      */
     public function getComment()
     {
-        $db    = $this->_commonFunctions->sqlAddSlashes(
+        $db     = $this->_commonFunctions->sqlAddSlashes(
             $this->realParent()->realParent()->real_name
         );
-        $table = $this->_commonFunctions->sqlAddSlashes(
+        $table  = $this->_commonFunctions->sqlAddSlashes(
             $this->realParent()->real_name
         );
         $column = $this->_commonFunctions->sqlAddSlashes(
