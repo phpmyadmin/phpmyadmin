@@ -140,7 +140,7 @@ $overhead_check = '';
 $create_time_all = '';
 $update_time_all = '';
 $check_time_all = '';
-$checked        = !empty($checkall) ? ' checked="checked"' : '';
+$checked        = (!empty($checkall) ? ' checked="checked"' : '');
 $num_columns    = $cfg['PropertiesNumColumns'] > 1
     ? ceil($num_tables / $cfg['PropertiesNumColumns']) + 1
     : 0;
