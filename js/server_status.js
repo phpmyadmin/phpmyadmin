@@ -198,8 +198,19 @@ $(function() {
     // Handles refresh rate changing
     $('.buttonlinks .refreshRate').change(function() {
 
-        var chart = tabChart[$(this).parents('div.ui-tabs-panel').attr('id')];
+        var $tab = $(this).parents('div.ui-tabs-panel');
+        clearTimeout(chart_replot_timers[$tab.attr('id')]);
+        var tabstat = tabStatus[$tab.attr('id')];
 
+        if(tabstat == 'livequeries') {
+            recursiveTimer($tab, 'queries');
+        } else if(tabstat == 'livetraffic') {
+            recursiveTimer($tab, 'traffic');
+        } else if(tabstat == 'liveconnections') {
+            recursiveTimer($tab, 'proc');
+        }
+
+        var chart = tabChart[$(this).parents('div.ui-tabs-panel').attr('id')];
         // Clear current timeout and set timeout with the new refresh rate
         clearTimeout(chart_activeTimeouts[chart.options.chart.renderTo]);
         if (chart.options.realtime.postRequest) {
