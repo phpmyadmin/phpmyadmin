@@ -467,7 +467,7 @@ function PMA_getSqlQueryForCopyTable($tables_full, $sql_query, $move, $db)
 
             if (! PMA_Table::moveCopy(
                 $db, $each_table, $_REQUEST['newname'], $each_table,
-                isset($this_what) ? $this_what : 'data',
+                (isset($this_what) ? $this_what : 'data'),
                 $move, 'db_copy'
             )) {
                 $error = true;
