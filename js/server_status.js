@@ -119,7 +119,6 @@ $(function() {
     var tabStatus = new Object();
     // Holds the current chart instances for each tab
     var tabChart = new Object();
-    var currentCharts = new Object();
     // Holds current live charts' timeouts
     var chart_replot_timers = new Object();
 
@@ -252,7 +251,7 @@ $(function() {
             
             setupLiveChart($tab, this, getSettings('traffic'));
             var set_previous = getCurrentDataSet($tab, 'traffic');
-            currentCharts[$tab.attr('id')] = $.jqplot($tab.attr('id') + '_chart_cnt', [[[0,0]],[[0,0]]], getSettings('traffic'));
+            tabChart[$tab.attr('id')] = $.jqplot($tab.attr('id') + '_chart_cnt', [[[0,0]],[[0,0]]], getSettings('traffic'));
             recursiveTimer($tab, 'traffic');
             if (tabstat == 'liveconnections') {
                 $tab.find('.buttonlinks a.liveconnectionsLink').html(PMA_messages['strLiveConnChart']);
@@ -275,7 +274,7 @@ $(function() {
 
             setupLiveChart($tab, this, getSettings('proc'));
             var set_previous = getCurrentDataSet($tab, 'proc');
-            currentCharts[$tab.attr('id')] = $.jqplot($tab.attr('id') + '_chart_cnt', [[[0,0]],[[0,0]]], getSettings('proc'));
+            tabChart[$tab.attr('id')] = $.jqplot($tab.attr('id') + '_chart_cnt', [[[0,0]],[[0,0]]], getSettings('proc'));
             recursiveTimer($tab, 'proc');
             if (tabstat == 'livetraffic') {
                 $tab.find('.buttonlinks a.livetrafficLink').html(PMA_messages['strLiveTrafficChart']);
@@ -296,7 +295,7 @@ $(function() {
 
             setupLiveChart($tab, this, getSettings('queries'));
             var set_previous = getCurrentDataSet($tab, 'queries');
-            currentCharts[$tab.attr('id')] = $.jqplot($tab.attr('id') + '_chart_cnt', [[0,0]], getSettings('queries'));
+            tabChart[$tab.attr('id')] = $.jqplot($tab.attr('id') + '_chart_cnt', [[0,0]], getSettings('queries'));
             recursiveTimer($tab, 'queries');
             tabStatus[$tab.attr('id')] = 'livequeries';
 
@@ -416,16 +415,16 @@ $(function() {
             series[$tab.attr('id')][0].push(data_set[0]);
             series[$tab.attr('id')][1].push(data_set[1]);
             // update data set
-            currentCharts[$tab.attr('id')].series[0].data = series[$tab.attr('id')][0];
-            currentCharts[$tab.attr('id')].series[1].data = series[$tab.attr('id')][1];
+            tabChart[$tab.attr('id')].series[0].data = series[$tab.attr('id')][0];
+            tabChart[$tab.attr('id')].series[1].data = series[$tab.attr('id')][1];
         }
         else if(type == 'queries') {
             // there is just one line to be plotted
             series[$tab.attr('id')][0].push(data_set[0]);
             // update data set
-            currentCharts[$tab.attr('id')].series[0].data = series[$tab.attr('id')][0];
+            tabChart[$tab.attr('id')].series[0].data = series[$tab.attr('id')][0];
         }
-        currentCharts[$tab.attr('id')].resetAxesScale();
+        tabChart[$tab.attr('id')].resetAxesScale();
         var current_time = new Date().getTime();
         var data_points = $('.dataPointsNumber :selected', $tab).val();
         var refresh_rate = $('.refreshRate :selected', $tab).val() * 1000;
@@ -434,11 +433,11 @@ $(function() {
         var interval = (((current_time - minX)/data_points) / 1000);
         interval = (data_points > 20) ? (((current_time - minX)/20) / 1000) : interval;
         // update chart options
-        currentCharts[$tab.attr('id')]['axes']['xaxis']['max'] = current_time;
-        currentCharts[$tab.attr('id')]['axes']['xaxis']['min'] = minX;
-        currentCharts[$tab.attr('id')]['axes']['xaxis']['tickInterval'] = interval + " seconds";
+        tabChart[$tab.attr('id')]['axes']['xaxis']['max'] = current_time;
+        tabChart[$tab.attr('id')]['axes']['xaxis']['min'] = minX;
+        tabChart[$tab.attr('id')]['axes']['xaxis']['tickInterval'] = interval + " seconds";
         // replot
-        currentCharts[$tab.attr('id')].replot();
+        tabChart[$tab.attr('id')].replot();
     }
 
     function setupLiveChart($tab, link, settings) {
@@ -447,7 +446,7 @@ $(function() {
             if (tabStatus[$tab.attr('id')] != 'static') {
                 clearTimeout(chart_activeTimeouts[$tab.attr('id') + "_chart_cnt"]);
                 chart_activeTimeouts[$tab.attr('id') + "_chart_cnt"] = null;
-                tabChart[$tab.attr('id')].destroy();
+                delete tabChart[$tab.attr('id')];
                 // Also reset the select list
                 $tab.find('.buttonlinks select').get(0).selectedIndex = 2;
             }
@@ -470,7 +469,7 @@ $(function() {
             $tab.find('.tabInnerContent').show();
             $tab.find('div#' + $tab.attr('id') + '_chart_cnt').remove();
             tabStatus[$tab.attr('id')] = 'static';
-            tabChart[$tab.attr('id')].destroy();
+            delete tabChart[$tab.attr('id')];
             $tab.find('.buttonlinks a.tabRefresh').show();
             $tab.find('.buttonlinks select').get(0).selectedIndex = 2;
             $tab.find('.buttonlinks .refreshList').hide();
