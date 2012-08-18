@@ -1033,9 +1033,9 @@ function PMA_getHtmlForCopytable()
 
     $html_output .= '<input type="checkbox" name="switch_to_new" value="true"'
         . 'id="checkbox_switch"'
-        . (isset($pma_switch_to_new) && $pma_switch_to_new == 'true')
+        . ((isset($pma_switch_to_new) && $pma_switch_to_new == 'true')
             ? ' checked="checked"'
-            : '' . '/>';
+            : '' . '/>');
     $html_output .= '<label for="checkbox_switch">'
         . __('Switch to copied table') . '</label>'
         . '</fieldset>';
