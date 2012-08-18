@@ -148,7 +148,13 @@ $(function() {
             if (!$(ui.tab.hash).data('init-done')) {
                 initTab($(ui.tab.hash), null);
             }
-
+            // Replot on tab switching
+            if (ui.tab.hash == '#statustabs_traffic' && tabChart['statustabs_traffic'] != null) {
+                recursiveTimer($('#statustabs_traffic'), "traffic");
+            }
+            else if (ui.tab.hash == '#statustabs_queries' && tabChart['statustabs_queries'] != null) {
+                recursiveTimer($('#statustabs_queries'), "queries");
+            }
             // Load Server status monitor
             if (ui.tab.hash == '#statustabs_charting' && ! monitorLoaded) {
                 $('div#statustabs_charting').append( //PMA_messages['strLoadingMonitor'] + ' ' +
