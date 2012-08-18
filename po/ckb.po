@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-10 12:59+0200\n"
-"PO-Revision-Date: 2012-08-04 12:39+0200\n"
-"Last-Translator: renwar kurd <renwarkurd@yahoo.com>\n"
-"Language-Team: Kurdish Sorani <http://l10n.cihar.com/projects/phpmyadmin/"
-"master/ckb/>\n"
+"PO-Revision-Date: 2012-08-18 12:25+0200\n"
+"Last-Translator: Ahmed Ameen <ah.shwani@gmail.com>\n"
+"Language-Team: Kurdish Sorani "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ckb/>\n"
 "Language: ckb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -428,6 +428,8 @@ msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
 msgstr ""
+"لەم تێڕوانیینە بەلایەنی کەم ئەم ژمارە دێڕە بوونی هەیە.تکایە سەردانی %"
+"sبەڵگەسازی%s بکە ."
 
 #: db_structure.php:548 db_structure.php:582 libraries/Menu.class.php:191
 #: libraries/tbl_info.inc.php:59 tbl_structure.php:212
@@ -470,7 +472,7 @@ msgstr "پشکنینی هەموو"
 
 #: db_structure.php:693
 msgid "Check tables having overhead"
-msgstr ""
+msgstr "پشکنین بۆ ئەو خشتانە بکەن کە ژوورسەریان هەیە."
 
 #: db_structure.php:701 libraries/CommonFunctions.class.php:3608
 #: libraries/CommonFunctions.class.php:3609
@@ -510,7 +512,7 @@ msgstr "پشکنینی خشتە"
 #: db_structure.php:714 libraries/operations.lib.php:1164
 #: tbl_structure.php:880
 msgid "Optimize table"
-msgstr ""
+msgstr "چاکسازی خشتە"
 
 #: db_structure.php:716 libraries/operations.lib.php:1149
 msgid "Repair table"
@@ -612,8 +614,9 @@ msgid "Tracking report"
 msgstr "ڕاپۆرتە شوێنکەتووەکان"
 
 #: db_tracking.php:139 tbl_tracking.php:282 tbl_tracking.php:755
+#, fuzzy
 msgid "Structure snapshot"
-msgstr ""
+msgstr "وێنەی هەنووکەیی پێکهاتە"
 
 #: db_tracking.php:185
 msgid "Untracked tables"
@@ -621,44 +624,47 @@ msgstr "خشتە شوێن نەکەوتوەکان"
 
 #: db_tracking.php:204 tbl_structure.php:681
 msgid "Track table"
-msgstr ""
+msgstr "شوێنکەوتنی خشتە"
 
 #: db_tracking.php:230
 msgid "Database Log"
-msgstr ""
+msgstr "پێشینەی کارکردی بنکەی زانیاری"
 
 #: export.php:44
 msgid "Bad type!"
-msgstr ""
+msgstr "جۆری هەڵە !"
 
 #: export.php:95
 msgid "Selected export type has to be saved in file!"
 msgstr "دەستنیشانکردنی جۆری هەناردن بۆ پاشەکەوتکردنی لە پەڕگە!"
 
 #: export.php:124
+#, fuzzy
 msgid "Bad parameters!"
-msgstr ""
+msgstr "ڕاگه‌یێنە هەڵەکان!"
 
 #: export.php:195 export.php:226 export.php:782
-#, fuzzy, php-format
+#, php-format
 msgid "Insufficient space to save the file %s."
-msgstr "پاشکەوتکردنی فایل وەک"
+msgstr "شوێنی پێویست بۆ پاشەکەوت کردنی فایل %s ."
 
 #: export.php:363
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
+"فایلی %s لە ئێستادا بوونی هەیە , ناوی فایلەکە بگۆڕن وە یان ڕێکخستنەکانی "
+"لەسەرنوسین بپشکنە ."
 
 #: export.php:370 export.php:376
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr ""
+msgstr "وێبڕاژه‌كار مۆڵەتی پاشه‌كه‌وت کردنی فایلی %s نییە ."
 
 #: export.php:788
 #, php-format
 msgid "Dump has been saved to file %s."
-msgstr ""
+msgstr "زانیاری وەدەست هاتوو لە فایلی %s پاشەکەوت کرا."
 
 #: file_echo.php:21
 msgid "Invalid export type"
@@ -667,11 +673,12 @@ msgstr "هەناردنی ئەم جۆرە ڕێگەپێدراو نییە"
 #: gis_data_editor.php:75
 #, php-format
 msgid "Value for the column \"%s\""
-msgstr ""
+msgstr "نرخی ستوون \"%s\""
 
 #: gis_data_editor.php:104 tbl_gis_visualization.php:171
+#, fuzzy
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "بەکارهێنانی OpenStreetMaps وەک چینی بنچینەیی."
 
 #: gis_data_editor.php:124
 msgid "SRID"
@@ -680,7 +687,7 @@ msgstr "SRID"
 #: gis_data_editor.php:141 js/messages.php:326
 #: libraries/DisplayResults.class.php:1649
 msgid "Geometry"
-msgstr ""
+msgstr "ئەندازەزانی"
 
 #: gis_data_editor.php:161 js/messages.php:322
 msgid "Point"
@@ -689,18 +696,18 @@ msgstr "خاڵ"
 #: gis_data_editor.php:162 gis_data_editor.php:186 gis_data_editor.php:234
 #: gis_data_editor.php:286 js/messages.php:320
 msgid "X"
-msgstr ""
+msgstr "X"
 
 #: gis_data_editor.php:164 gis_data_editor.php:188 gis_data_editor.php:236
 #: gis_data_editor.php:288 js/messages.php:321
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #: gis_data_editor.php:184 gis_data_editor.php:232 gis_data_editor.php:284
 #: js/messages.php:323
 #, php-format
 msgid "Point %d"
-msgstr ""
+msgstr "خاڵ %d"
 
 #: gis_data_editor.php:193 gis_data_editor.php:239 gis_data_editor.php:291
 #: js/messages.php:329
@@ -709,31 +716,31 @@ msgstr "زیادکردنی خاڵ"
 
 #: gis_data_editor.php:209 js/messages.php:324
 msgid "Linestring"
-msgstr ""
+msgstr "ڕیزبه‌ندی هێڵی"
 
 #: gis_data_editor.php:212 gis_data_editor.php:268 js/messages.php:328
 msgid "Outer Ring"
-msgstr ""
+msgstr "ئەڵفەی دەرەکی"
 
 #: gis_data_editor.php:214 gis_data_editor.php:270 js/messages.php:327
 msgid "Inner Ring"
-msgstr ""
+msgstr "ئەڵقەی ناوەکی"
 
 #: gis_data_editor.php:241
 msgid "Add a linestring"
-msgstr ""
+msgstr "زیاد کردنی ڕیزبەندە هێڵ"
 
 #: gis_data_editor.php:241 gis_data_editor.php:293 js/messages.php:330
 msgid "Add an inner ring"
-msgstr ""
+msgstr "زیاد کردنی ئەڵقەیەکی ناوەکی"
 
 #: gis_data_editor.php:255 js/messages.php:325
 msgid "Polygon"
-msgstr ""
+msgstr "فرە گۆشە"
 
 #: gis_data_editor.php:295 js/messages.php:331
 msgid "Add a polygon"
-msgstr ""
+msgstr "زیاد کردنی فرە گۆشەیەک"
 
 #: gis_data_editor.php:299
 msgid "Add geometry"
@@ -741,13 +748,15 @@ msgstr "زیادکردنی ئەندازەگەری"
 
 #: gis_data_editor.php:306
 msgid "Output"
-msgstr "بەرهەم"
+msgstr "دەرچە"
 
 #: gis_data_editor.php:307
 msgid ""
 "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 "string into the \"Value\" field"
 msgstr ""
+"هەڵبژاردەی \"GeomFromText\" لە ستوونی \"Function\" هەڵبژێرن وە ڕیزبەنی خوارەوە "
+"لە خانەی \"نرخ(value)\" داخڵ بکەن."
 
 #: import.php:94
 #, php-format
@@ -755,14 +764,16 @@ msgid ""
 "You probably tried to upload too large file. Please refer to %sdocumentation"
 "%s for ways to workaround this limit."
 msgstr ""
+"لەوانەیە ئێوە هەوڵتان دابێت فایلێک بە قەبارەیەکی زۆر بار بکەن.تکایە بۆ ڕیگە "
+"چارەیەک بۆ ئەم سنوردار کردنە سەردانی %sبەڵگەسازی%s بکەن."
 
 #: import.php:232 import.php:485
 msgid "Showing bookmark"
-msgstr ""
+msgstr "پیشاندانی شوێندۆز"
 
 #: import.php:247 import.php:481
 msgid "The bookmark has been deleted."
-msgstr ""
+msgstr "شوێندۆز سڕایەوە"
 
 #: import.php:342 import.php:395 libraries/File.class.php:426
 #: libraries/File.class.php:517
@@ -776,38 +787,46 @@ msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
 msgstr ""
+"ئێوە فایلێک بە پەستێنەر سازێکی پاڵپشتی نەکراو بار ئەکەن (%s).لەوانەیە لە "
+"ڕێکخستنەکان ناچالاک بێت وە یان پاڵپشتی بەردەست نییە بۆ ئەم فایلە."
 
 #: import.php:400
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
-msgstr "هێنان"
+msgstr ""
+"هیچ داتایەک وەرنەگیرا بۆ هاوردە کردن. یان فایلێک دیاری نەکراوە ، یان فایلەکە "
+"لە ڕێژە دیاری کراوەکە زیاترە. سەردانی  "
+"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a] بکەن."
 
 #: import.php:418
 msgid ""
 "Cannot convert file's character set without character set conversion library"
-msgstr ""
+msgstr "ناکرێت فایلەکانی نوسە بگۆڕدرێن بە بێ نوسەى کتێبخانەی تایبەت بەم کارە"
 
 #: import.php:454 libraries/display_import.lib.php:29
 msgid "Could not load import plugins, please check your installation!"
-msgstr ""
+msgstr "هەڵە لە بارکردنی پێوەکراەکان, تکایە فۆناغەکانی دامەزراندن بپشکنن!"
 
 #: import.php:488 sql.php:1109
 #, php-format
 msgid "Bookmark %s created"
-msgstr ""
+msgstr "شوێندۆز  %s دروستکرا"
 
 #: import.php:496 import.php:502
 #, php-format
 msgid "Import has been successfully finished, %d queries executed."
-msgstr ""
+msgstr "داخڵ کردنی زانیاریەکان بە سەرکەوتوویی بە کۆتا هات، %d پرسگە دامەزرا ."
 
 #: import.php:511
 msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr ""
+"کاتی جێ بە جێ کردنی کردار بە کۆتا هاتووە، ئەگەر دەتانەوێت کردارەکە بە کۆتا "
+"بینن، فایلی مەبەست دووبارە تۆمار بکەن تاکوو درێژە بە داخڵ کردنی زانیاریەکان "
+"بدەن."
 
 #: import.php:513
 msgid ""
