@@ -128,9 +128,9 @@ function PMA_getTableDropQueryAndMessage($table_is_view, $current_table)
             $current_table['TABLE_NAME']
         );
     $drop_message = sprintf(
-        ($table_is_view || $current_table['ENGINE'] == null)
+        (($table_is_view || $current_table['ENGINE'] == null)
             ? __('View %s has been dropped')
-            : __('Table %s has been dropped'),
+            : __('Table %s has been dropped')),
         str_replace(
             ' ',
             '&nbsp;',
@@ -355,7 +355,7 @@ function PMA_getHtmlForCheckTablesHavingOverheadlink($overhead_check) {
  * 
  * @return string $html_output
  */
-function PMA_getTablePrintViewLink($url_query)
+function PMA_getHtmlForTablePrintViewLink($url_query)
 {
     return '<p>'
         . '<a href="db_printview.php?' . $url_query . '">'
@@ -373,7 +373,7 @@ function PMA_getTablePrintViewLink($url_query)
  * 
  * @return string $html_output
  */
-function PMA_getDataDictionaryLink($url_query)
+function PMA_getHtmlForDataDictionaryLink($url_query)
 {
     return '<a href="db_datadict.php?' . $url_query . '">'
         . PMA_CommonFunctions::getInstance()->getIcon(
@@ -1122,7 +1122,7 @@ function PMA_getValuesForAriaTable($db_is_information_schema, $current_table,
             list($formatted_overhead, $overhead_unit)
                 = $common_functions->formatByteDown(
                     $current_table['Data_free'], 3,
-                    ($current_table['Data_free'] > 0) ? 1 : 0
+                    (($current_table['Data_free'] > 0) ? 1 : 0)
                 );
             $overhead_size += $current_table['Data_free'];
         }
@@ -1163,7 +1163,7 @@ function PMA_getValuesForPbmsTable($current_table, $is_show_stats, $sum_size)
         $tblsize =  $current_table['Data_length'] + $current_table['Index_length'];
         $sum_size += $tblsize;
         list($formatted_size, $unit) = $common_functions->formatByteDown(
-            $tblsize, 3, ($tblsize > 0) ? 1 : 0
+            $tblsize, 3, (($tblsize > 0) ? 1 : 0)
         );
     }
     
@@ -1836,28 +1836,26 @@ function PMA_getHtmlDivsForStructureActionsDropdown($class, $isActionEnabled,
     $common_functions = PMA_CommonFunctions::getInstance();
     
     $html_output = '<div  class="' . $class . '">';
-    if (!empty ($isActionEnabled)) {
-        if ($isActionEnabled) {
-            $html_output .= '<a href="sql.php?' .  $url_query 
-                . '&amp;sql_query=' 
-                . urlencode(
-                    'ALTER TABLE ' . $common_functions->backquote($GLOBALS['table']) 
-                        . ($isPrimary ? ($primary ? ' DROP PRIMARY KEY,' : '') : '') 
-                        . ' ' . $syntax . '(' 
-                        . $common_functions->backquote($row['Field']) . ');'
-                ) 
-                . '&amp;message_to_show=' . urlencode(
-                    sprintf(
-                        $message,
-                        htmlspecialchars($row['Field'])
-                    )
+    if ($isActionEnabled) {
+        $html_output .= '<a href="sql.php?' .  $url_query 
+            . '&amp;sql_query=' 
+            . urlencode(
+                'ALTER TABLE ' . $common_functions->backquote($GLOBALS['table']) 
+                    . ($isPrimary ? ($primary ? ' DROP PRIMARY KEY,' : '') : '') 
+                    . ' ' . $syntax . '(' 
+                    . $common_functions->backquote($row['Field']) . ');'
+            ) 
+            . '&amp;message_to_show=' . urlencode(
+                sprintf(
+                    $message,
+                    htmlspecialchars($row['Field'])
                 )
-                . '">'
-                . $hidden_titles
-                . '</a>';      
-        } else {
-             $html_output .= $hidden_titles_no;
-         }
+            )
+            . '">'
+            . $hidden_titles
+            . '</a>';      
+    } else {
+         $html_output .= $hidden_titles_no;
     }
     $html_output .= '</div>';
     
@@ -1917,17 +1915,17 @@ function PMA_getHtmlForMoreOptionInTableStructure($rownum, $primary_enabled,
     if (!PMA_DRIZZLE) {
         $html_output .= PMA_getHtmlDivsForStructureActionsDropdown(
             'action_spatial replace_in_more',
-            $fulltext_enabled, $url_query, $row,
+            $spatial_enabled, $url_query, $row,
             $hidden_titles['Spatial'],
-            $hidden_titles['NoSpatial'], false, 'ADD FULLTEXT',
+            $hidden_titles['NoSpatial'], false, 'ADD SPATIAL',
             __('An index has been added on %s'), false
         );
 
         $html_output .= PMA_getHtmlDivsForStructureActionsDropdown(
             'action_fulltext replace_in_more',
-            $spatial_enabled, $url_query, $row,
+            $fulltext_enabled, $url_query, $row,
             $hidden_titles['IdxFulltext'],
-            $hidden_titles['NoIdxFulltext'], false, 'ADD SPATIAL',
+            $hidden_titles['NoIdxFulltext'], false, 'ADD FULLTEXT',
             __('An index has been added on %s'), false
         );
         

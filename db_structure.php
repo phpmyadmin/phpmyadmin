@@ -140,7 +140,7 @@ $overhead_check = '';
 $create_time_all = '';
 $update_time_all = '';
 $check_time_all = '';
-$checked        = !empty($checkall) ? ' checked="checked"' : '';
+$checked        = (!empty($checkall) ? ' checked="checked"' : '');
 $num_columns    = $cfg['PropertiesNumColumns'] > 1
     ? ceil($num_tables / $cfg['PropertiesNumColumns']) + 1
     : 0;
@@ -319,8 +319,8 @@ $response->addHTML('</div><hr />');
 /* DATABASE WORK */
 /* Printable view of a table */
 $response->addHTML(
-    PMA_getTablePrintViewLink($url_query)
-    . PMA_getDataDictionaryLink($url_query)
+    PMA_getHtmlForTablePrintViewLink($url_query)
+    . PMA_getHtmlForDataDictionaryLink($url_query)
 );
 
 if (empty($db_is_information_schema)) {
