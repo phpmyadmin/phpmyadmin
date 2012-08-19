@@ -1726,4 +1726,54 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     }
     
     
+    /**
+     * Data provider for testGetShowAllButtonForTableNavigation
+     *
+     * @return array parameters and output
+     */
+    public function dataProviderForTestGetShowAllButtonForTableNavigation()
+    {
+        return array(
+            array(
+                'mysql',
+                'user',
+                'tbl_structure.php',
+                'SELECT * FROM `user`',
+                '
+<td><form action="sql.php" method="post"><input type="hidden" name="db" value="mysql" /><input type="hidden" name="table" value="user" /><input type="hidden" name="lang" value="en" /><input type="hidden" name="token" value="token" /><input type="hidden" name="sql_query" value="SELECT * FROM `user`" /><input type="hidden" name="pos" value="0" /><input type="hidden" name="session_max_rows" value="all" /><input type="hidden" name="goto" value="tbl_structure.php" /><input type="submit" name="navig" value="Show all" /></form></td>'
+            )
+        );
+    }
+
+
+    /**
+     * Test _getShowAllButtonForTableNavigation
+     *
+     * @param string $db             the database name
+     * @param string $table          the table name
+     * @param string $goto           the URL to go back in case of errors
+     * @param string $html_sql_query the sql encoded by html special characters
+     * @param string $output         output of _getRowInfoForSpecialLinks
+     *
+     * @dataProvider dataProviderForTestGetShowAllButtonForTableNavigation
+     */
+    public function testGetShowAllButtonForTableNavigation(
+        $db, $table, $goto, $html_sql_query, $output
+    ) {
+        
+        $this->object->__set('_db', $db);
+        $this->object->__set('_table', $table);
+        $this->object->__set('_goto', $goto);
+        
+        $this->assertEquals(
+            $output,
+            $this->_callPrivateFunction(
+                '_getShowAllButtonForTableNavigation',
+                array($html_sql_query)
+            )
+        );
+        
+    }
+    
+    
 }
