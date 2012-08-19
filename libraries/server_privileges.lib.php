@@ -2841,40 +2841,40 @@ function PMA_getAddUserHtmlFieldset($conditional_class)
  * @return string $html_output
  */
 function PMA_getHtmlHeaderForDisplayUserProperties(
-    $dbname_is_wildcard, $url_dbname
+    $dbname_is_wildcard, $url_dbname, $dbname, $username, $hostname, $tablename
 ) {
     $html_output = '<h2>' . "\n"
        . PMA_CommonFunctions::getInstance()->getIcon('b_usredit.png')
        . __('Edit Privileges') . ': '
        . __('User');
 
-    if (isset($_REQUEST['dbname'])) {
+    if (isset($dbname)) {
         $html_output .= ' <i><a href="server_privileges.php?'
             . $GLOBALS['url_query']
-            . '&amp;username=' . htmlspecialchars(urlencode($_REQUEST['username']))
-            . '&amp;hostname=' . htmlspecialchars(urlencode($_REQUEST['hostname']))
-            . '&amp;dbname=&amp;tablename=">\'' . htmlspecialchars($_REQUEST['username'])
-            . '\'@\'' . htmlspecialchars($_REQUEST['hostname'])
+            . '&amp;username=' . htmlspecialchars(urlencode($username))
+            . '&amp;hostname=' . htmlspecialchars(urlencode($hostname))
+            . '&amp;dbname=&amp;tablename=">\'' . htmlspecialchars($username)
+            . '\'@\'' . htmlspecialchars($hostname)
             . '\'</a></i>' . "\n";
 
         $html_output .= ' - ' . ($dbname_is_wildcard ? __('Databases') : __('Database') );
         if (isset($_REQUEST['tablename'])) {
             $html_output .= ' <i><a href="server_privileges.php?' . $GLOBALS['url_query']
-                . '&amp;username=' . htmlspecialchars(urlencode($_REQUEST['username']))
-                . '&amp;hostname=' . htmlspecialchars(urlencode($_REQUEST['hostname']))
+                . '&amp;username=' . htmlspecialchars(urlencode($username))
+                . '&amp;hostname=' . htmlspecialchars(urlencode($hostname))
                 . '&amp;dbname=' . htmlspecialchars($url_dbname)
-                . '&amp;tablename=">' . htmlspecialchars($_REQUEST['dbname'])
+                . '&amp;tablename=">' . htmlspecialchars($dbname)
                 . '</a></i>';
 
             $html_output .= ' - ' . __('Table')
-                . ' <i>' . htmlspecialchars($_REQUEST['tablename']) . '</i>';
+                . ' <i>' . htmlspecialchars($tablename) . '</i>';
         } else {
-            $html_output .= ' <i>' . htmlspecialchars($_REQUEST['dbname']) . '</i>';
+            $html_output .= ' <i>' . htmlspecialchars($dbname) . '</i>';
         }
 
     } else {
-        $html_output .= ' <i>\'' . htmlspecialchars($_REQUEST['username'])
-            . '\'@\'' . htmlspecialchars($_REQUEST['hostname'])
+        $html_output .= ' <i>\'' . htmlspecialchars($username)
+            . '\'@\'' . htmlspecialchars($hostname)
             . '\'</i>' . "\n";
 
     }
@@ -3009,7 +3009,7 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
     $common_functions = PMA_CommonFunctions::getInstance();
     
     $html_output = PMA_getHtmlHeaderForDisplayUserProperties(
-        $dbname_is_wildcard, $url_dbname
+        $dbname_is_wildcard, $url_dbname, $dbname, $username, $hostname, $tablename
     );
 
     $sql = "SELECT '1' FROM `mysql`.`user`"
@@ -3020,10 +3020,10 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
 
     if ($user_does_not_exists) {
         $html_output .= PMA_Message::error(
-            __('The selected user was not found in the privilege table.')
-        )->getDisplay();
+                __('The selected user was not found in the privilege table.')
+            )->getDisplay();
         $html_output .= PMA_getHtmlForDisplayLoginInformationFields();
-        //exit;
+            //exit;
     }
 
     $html_output .= '<form name="usersForm" id="addUsersForm_' . $random_n . '"'
