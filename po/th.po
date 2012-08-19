@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-06-04 13:42+0200\n"
-"PO-Revision-Date: 2012-08-08 08:31+0200\n"
+"PO-Revision-Date: 2012-08-19 09:13+0200\n"
 "Last-Translator: Anusuk Sangubon <jaideejung007@gmail.com>\n"
 "Language-Team: Thai <http://l10n.cihar.com/projects/phpmyadmin/3-5/th/>\n"
 "Language: th\n"
@@ -612,7 +612,9 @@ msgstr "หยุดการติดตามแล้ว"
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
-msgstr "การแสดงผลนี้แสดงเพียงจำนวนข้อมูลเท่านี้, ดูข้อมูลเพิ่มเติมได้ที่ %sdocumentation%s"
+msgstr ""
+"การแสดงผลนี้ จะแสดงเพียงจำนวนข้อมูลนี้เท่านั้น ดูข้อมูลเพิ่มเติมได้ที่ %"
+"sdocumentation%s"
 
 #: db_structure.php:477 db_structure.php:491 libraries/header.inc.php:161
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:210
@@ -832,7 +834,7 @@ msgstr "ประเภทไม่ถูกต้อง!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
-msgstr "ชนิดการส่งออกที่ถูกเลือกต้องถูกบันทึกลงไฟล์"
+msgstr "ประเภทการส่งออกที่เลือกจะต้องมีการบันทึกไว้ในไฟล์"
 
 #: export.php:106
 msgid "Bad parameters!"
@@ -852,7 +854,7 @@ msgstr "ให้เปลี่ยนชื่อไฟล์ หรือเ�
 #: export.php:311 export.php:315
 #, php-format
 msgid "The web server does not have permission to save the file %s."
-msgstr "บันทึกไฟล์ %s ไม่ได้ เพราะเว็บเซิร์ฟเวอร์ไม่อนุญาติ"
+msgstr "บันทึกไฟล์ %s ไม่ได้ เพราะเว็บเซิร์ฟเวอร์ไม่อนุญาต"
 
 #: export.php:654
 #, php-format
