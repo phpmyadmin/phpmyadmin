@@ -5,7 +5,9 @@
  *
  * @package PhpMyAdmin
  */
-
+if (! defined('PHPMYADMIN')) {
+    exit;
+}
 
 /**
  * Misc functions used all over the scripts.
