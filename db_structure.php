@@ -140,7 +140,7 @@ $overhead_check = '';
 $create_time_all = '';
 $update_time_all = '';
 $check_time_all = '';
-$checked        = !empty($checkall) ? ' checked="checked"' : '';
+$checked        = (!empty($checkall) ? ' checked="checked"' : '');
 $num_columns    = $cfg['PropertiesNumColumns'] > 1
     ? ceil($num_tables / $cfg['PropertiesNumColumns']) + 1
     : 0;
@@ -167,7 +167,7 @@ foreach ($tables as $keyname => $current_table) {
     
     list($current_table, $formatted_size, $unit, $formatted_overhead,
         $overhead_unit, $overhead_size, $table_is_view, $sum_size)
-            = PMA_getStuffForEnginetable($current_table, $db_is_information_schema,
+            = PMA_getStuffForEngineTypeTable($current_table, $db_is_information_schema,
                 $is_show_stats, $table_is_view, $sum_size, $overhead_size
             );
 
@@ -218,7 +218,7 @@ foreach ($tables as $keyname => $current_table) {
         );
     }
 
-    list($alias, $truename) = PMA_getAliasAndTruename(
+    list($alias, $truename) = PMA_getAliasAndTrueName(
         $tooltip_aliasname, $current_table, $tooltip_truename
     );
 
@@ -318,7 +318,10 @@ $response->addHTML('</div><hr />');
  */
 /* DATABASE WORK */
 /* Printable view of a table */
-$response->addHTML(PMA_getHtmlForPrintViewAndDataDictionaryLinks($url_query));
+$response->addHTML(
+    PMA_getHtmlForTablePrintViewLink($url_query)
+    . PMA_getHtmlForDataDictionaryLink($url_query)
+);
 
 if (empty($db_is_information_schema)) {
     ob_start();

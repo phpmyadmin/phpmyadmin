@@ -321,7 +321,7 @@ foreach ($fields as $row) {
     
     if (! $tbl_is_view && ! $db_is_information_schema) {
         $response->addHTML(
-            PMA_getHtmlForActionsIntableStructure($type, $tbl_storage_engine,
+            PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
                 $primary, $field_name, $url_query, $titles, $row, $rownum,
                 $hidden_titles, $columns_with_unique_index
             )
@@ -339,7 +339,7 @@ $response->addHTML(
 );
 
 $response->addHTML(
-    PMA_getHtmlForCheckAlltableColumn($pmaThemeImage, $text_dir,
+    PMA_getHtmlForCheckAllTableColumn($pmaThemeImage, $text_dir,
         $tbl_is_view, $db_is_information_schema, $tbl_storage_engine
     )
 );
@@ -360,7 +360,7 @@ if ($tbl_is_view) {
     $response->addHTML(PMA_getHtmlForEditView($url_params));
 }
 $response->addHTML(
-    PMA_getHtmlForSomeLinks($url_query, $tbl_is_view,
+    PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
         $db_is_information_schema, $tbl_storage_engine, $cfgRelation
     )
 );
