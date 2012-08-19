@@ -73,7 +73,8 @@ if (strlen($db) && (! empty($_REQUEST['db_rename']) || ! empty($_REQUEST['db_cop
             "sql",    
             'libraries/plugins/export/',
             array(
-                'single_table' => isset($single_table)
+                'single_table' => isset($single_table),
+                'export_type'  => 'database'
             )
         );
         $GLOBALS['sql_constraints_query_full_db'] = 
