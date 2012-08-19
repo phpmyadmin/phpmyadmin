@@ -2969,10 +2969,6 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
             $html_output .= PMA_getAddUserHtmlFieldset($conditional_class);
         } // end if (display overview)
 
-        if ($GLOBALS['is_ajax_request']) {
-            exit;
-        }
-
         $flushnote = new PMA_Message(
             __('Note: phpMyAdmin gets the users\' privileges directly from MySQL\'s privilege tables. The content of these tables may differ from the privileges the server uses, if they have been changed manually. In this case, you should %sreload the privileges%s before you continue.')
             , PMA_Message::NOTICE
