@@ -1817,13 +1817,21 @@ function PMA_getStandardLinks($conditional_class)
  *
  * @param string $sql_query           sql query
  * @param string $link_edit           standard link for edit
- * @param boolean $dbname_is_wildcard whether database name is wildcard or not
  *
  * @return array $extra_data
  */
 function PMA_getExtraDataForAjaxBehavior($password, $link_export, $sql_query,
-    $link_edit, $dbname_is_wildcard, $hostname, $username
+    $link_edit, $hostname, $username
 ) {
+    if (isset($GLOBALS['dbname'])) {
+        //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
+        if (preg_match('/(?<!\\\\)(?:_|%)/i', $GLOBALS['dbname'])) {
+            $dbname_is_wildcard = true;
+        } else {
+            $dbname_is_wildcard = false;
+        }
+    }
+
     if (strlen($sql_query)) {
         $extra_data['sql_query']
             = PMA_CommonFunctions::getInstance()->getMessage(null, $sql_query);
@@ -1903,7 +1911,7 @@ function PMA_getExtraDataForAjaxBehavior($password, $link_export, $sql_query,
 
     if (isset($_POST['update_privs'])) {
         $extra_data['db_specific_privs'] = false;
-        if (empty($dbname_is_wildcard)) {
+        if (isset($dbname_is_wildcard)) {
             $extra_data['db_specific_privs'] = ! $dbname_is_wildcard;
         }
         $new_privileges = join(', ', PMA_extractPrivInfo('', true));
