@@ -1776,4 +1776,59 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     }
     
     
+    /**
+     * Data provider for testSetHighlightedColumnGlobalField
+     *
+     * @return array parameters and output
+     */
+    public function dataProviderForTestSetHighlightedColumnGlobalField()
+    {
+        return array(
+            array(
+                array(),
+                array()
+            ),
+            array(
+                array(
+                    0 => array(
+                        'where_clause_identifiers' => array(
+                            0 => '`id`',
+                            1 => '`id`',
+                            2 => '`db_name`'
+                        )
+                    )
+                ),
+                array(
+                    '`id`' => 'true',
+                    '`db_name`' => 'true'
+                )
+            )
+        );
+    }
+
+
+    /**
+     * Test _setHighlightedColumnGlobalField
+     *
+     * @param array $analyzed_sql the analyzed query
+     * @param array $output   setting value of _setHighlightedColumnGlobalField
+     *
+     * @dataProvider dataProviderForTestSetHighlightedColumnGlobalField
+     */
+    public function testSetHighlightedColumnGlobalField($analyzed_sql, $output)
+    {
+        
+        $this->_callPrivateFunction(
+            '_setHighlightedColumnGlobalField',
+            array($analyzed_sql)
+        );
+        
+        $this->assertEquals(
+            $output,
+            $this->object->__get('_highlight_columns')
+        );
+        
+    }
+    
+    
 }
