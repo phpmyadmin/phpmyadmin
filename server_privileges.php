@@ -143,11 +143,13 @@ if (isset($dbname)) {
  * Checks if the user is allowed to do what he tries to...
  */
 if (! $is_superuser) {
-    echo '<h2>' . "\n"
+    $response->addHTML(
+        '<h2>' . "\n"
        . $common_functions->getIcon('b_usrlist.png')
        . __('Privileges') . "\n"
-       . '</h2>' . "\n";
-    PMA_Message::error(__('No Privileges'))->display();
+       . '</h2>' . "\n"
+    );
+    $response->addHTML(PMA_Message::error(__('No Privileges'))->getDisplay());
     exit;
 }
 
@@ -325,7 +327,9 @@ if (isset($_REQUEST['delete'])
             $GLOBALS['reload'] = true;
 
             if ($GLOBALS['is_ajax_request'] != true) {
-                echo $common_functions->getReloadNavigationScript();
+                $response->addHTML(
+                    $common_functions->getReloadNavigationScript()
+                );
             }
         }
     }
@@ -413,11 +417,14 @@ if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
 
     // Gets the database structure
     $sub_part = '_structure';
+    ob_start();
     include 'libraries/db_info.inc.php';
-    echo "\n";
+    $content = ob_get_contents();
+    ob_end_clean();
+    $response->addHTML($content . "\n");
 } else {
     if (! empty($GLOBALS['message'])) {
-        echo $common_functions->getMessage($GLOBALS['message']);
+        $response->addHTML($common_functions->getMessage($GLOBALS['message']));
         unset($GLOBALS['message']);
     }
 }
