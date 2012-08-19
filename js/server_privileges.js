@@ -546,6 +546,7 @@ $(function() {
         $.get($(this).attr('href'), {'ajax_request' : true}, function(data) {
             // This form is not on screen when first entering Privileges
             // if there are more than 50 users
+            $("div.notice").remove();
             $("#usersForm").hide("medium").remove();
             $("#fieldset_add_user").hide("medium").remove();
             $("#initials_table")
