@@ -130,12 +130,13 @@ if (isset($dbname)) {
     $db_and_table = '*.*';
 }
 
-$dbname_is_wildcard = false;
 // check if given $dbname is a wildcard or not
 if (isset($dbname)) {
     //if (preg_match('/\\\\(?:_|%)/i', $dbname)) {
     if (preg_match('/(?<!\\\\)(?:_|%)/i', $dbname)) {
         $dbname_is_wildcard = true;
+    } else {
+        $dbname_is_wildcard = false;
     }
 }
 
@@ -143,11 +144,13 @@ if (isset($dbname)) {
  * Checks if the user is allowed to do what he tries to...
  */
 if (! $is_superuser) {
-    echo '<h2>' . "\n"
+    $response->addHTML(
+        '<h2>' . "\n"
        . $common_functions->getIcon('b_usrlist.png')
        . __('Privileges') . "\n"
-       . '</h2>' . "\n";
-    PMA_Message::error(__('No Privileges'))->display();
+       . '</h2>' . "\n"
+    );
+    $response->addHTML(PMA_Message::error(__('No Privileges'))->getDisplay());
     exit;
 }
 
@@ -325,7 +328,9 @@ if (isset($_REQUEST['delete'])
             $GLOBALS['reload'] = true;
 
             if ($GLOBALS['is_ajax_request'] != true) {
-                echo $common_functions->getReloadNavigationScript();
+                $response->addHTML(
+                    $common_functions->getReloadNavigationScript()
+                );
             }
         }
     }
@@ -382,16 +387,10 @@ if ($GLOBALS['is_ajax_request']
     && ! isset($_REQUEST['edit_user_dialog'])
     && ! isset($_REQUEST['db_specific'])
 ) {
-    $isPass = false;
-    if (isset($password)) {
-        $isPass = true;
-    }
-
     $extra_data = PMA_getExtraDataForAjaxBehavior(
-        $isPass, $link_export,
+        (isset ($password) ? $password : ''), $link_export,
         (isset($sql_query) ? $sql_query : ''),
-        $link_edit, $dbname_is_wildcard,
-        $hostname, $username
+        $link_edit, $hostname, $username
     );
 
     if ($message instanceof PMA_Message) {
@@ -413,11 +412,14 @@ if (isset($_REQUEST['viewing_mode']) && $_REQUEST['viewing_mode'] == 'db') {
 
     // Gets the database structure
     $sub_part = '_structure';
+    ob_start();
     include 'libraries/db_info.inc.php';
-    echo "\n";
+    $content = ob_get_contents();
+    ob_end_clean();
+    $response->addHTML($content . "\n");
 } else {
     if (! empty($GLOBALS['message'])) {
-        echo $common_functions->getMessage($GLOBALS['message']);
+        $response->addHTML($common_functions->getMessage($GLOBALS['message']));
         unset($GLOBALS['message']);
     }
 }
@@ -471,7 +473,8 @@ if (empty($_REQUEST['adduser'])
         );
         $response->addHTML(
             PMA_getHtmlForDisplayUserProperties(
-                $dbname_is_wildcard, $url_dbname, $random_n,
+                ((isset ($dbname_is_wildcard)) ? $dbname_is_wildcard : ''),
+                $url_dbname, $random_n,
                 $username, $hostname, $link_edit, $link_revoke,
                 (isset($dbename) ? $dbname : ''),
                 (isset($tablename) ? $tablename : '')

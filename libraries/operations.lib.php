@@ -57,7 +57,7 @@ function PMA_getHtmlForRenameDatabase($db)
         . '<form id="rename_db_form" '
         . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax" ' : '')
         . 'method="post" action="db_operations.php"'
-        . 'onsubmit="return emptyFormElements(this, ' . "'newname'" . ')">';
+        . 'onsubmit="return emptyFormElements(this, \'newname\')">';
     if (isset($_REQUEST['db_collation'])) {
         $html_output .= '<input type="hidden" name="db_collation" '
             . 'value="' . $_REQUEST['db_collation']
@@ -160,7 +160,7 @@ function PMA_getHtmlForCopyDatabase($db)
     $html_output .= '<form id="copy_db_form" '
         . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax" ' : '')
         . 'method="post" action="db_operations.php"'
-        . 'onsubmit="return emptyFormElements(this' . "'newname'" . ')">';
+        . 'onsubmit="return emptyFormElements(this, \'newname\')">';
 
     if (isset($_REQUEST['db_collation'])) {
         $html_output .= '<input type="hidden" name="db_collation" '
