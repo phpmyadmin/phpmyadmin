@@ -11,7 +11,7 @@
 
 require_once 'libraries/zip.lib.php';
 
-class PMA_Zip_test extends PHPUnit_Framework_TestCase
+class PMA_zip_test extends PHPUnit_Framework_TestCase
 {
     /**
      * @access protected
