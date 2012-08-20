@@ -240,7 +240,7 @@ $(function() {
 
         $.get($(this).attr('href'), { ajax_request: 1 }, function(data) {
             $(that).find('img').hide();
-            initTab(tab, data.message);
+            initTab(tab, data);
         });
 
         tabStatus[tab.attr('id')] = 'data';
@@ -556,40 +556,11 @@ $(function() {
                     cdata.push([key, parseInt(value)]);
                 });
 
-                queryPieChart = PMA_createChart({
-                    chart: {
-                        renderTo: 'serverstatusquerieschart'
-                    },
-                    title: {
-                        text: '',
-                        margin: 0
-                    },
-                    series: [{
-                        type: 'pie',
-                        name: PMA_messages['strChartQueryPie'],
-                        data: cdata
-                    }],
-                    plotOptions: {
-                        pie: {
-                            allowPointSelect: true,
-                            cursor: 'pointer',
-                            dataLabels: {
-                                enabled: true,
-                                formatter: function() {
-                                    return '<b>' + this.point.name +'</b><br/> ' +
-                                            Highcharts.numberFormat(this.percentage, 2) + ' %';
-                               }
-                            }
-                        }
-                    },
-                    tooltip: {
-                        formatter: function() {
-                            return '<b>' + this.point.name + '</b><br/>' +
-                                    Highcharts.numberFormat(this.y, 2) + '<br/>(' +
-                                    Highcharts.numberFormat(this.percentage, 2) + ' %)';
-                        }
-                    }
-                });
+                queryPieChart = PMA_createProfilingChartJqplot(
+                    'serverstatusquerieschart', 
+                    cdata
+                );
+
                 initTableSorter(tab.attr('id'));
                 break;
 
@@ -751,7 +722,7 @@ $(function() {
         $.get('server_status.php?' + url_query, { ajax_request: true, advisor: true }, function(data) {
             var $tbody, $tr, str, even = true;
 
-            data = $.parseJSON(data.message);
+            data = $.parseJSON(data);
 
             $cnt.html('');
 
