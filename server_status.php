@@ -1964,7 +1964,7 @@ function PMA_getRefreshList($name,
     $defaultRate = 5,
     $refreshRates = Array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600)
 ) {
-    $return = '<select name="' . $name . '" id="id_' . $name . '">';
+    $return = '<select name="' . $name . '" id="id_' . $name . '" class="refreshRate">';
     foreach ($refreshRates as $rate) {
         $selected = ($rate == $defaultRate)?' selected="selected"':'';
         $return .= '<option value="' . $rate . '"' . $selected . '>';
