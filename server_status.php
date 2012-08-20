@@ -433,6 +433,12 @@ $GLOBALS['js_include'][] = 'canvg/canvg.js';
 // for profiling chart
 $GLOBALS['js_include'][] = 'jqplot/jquery.jqplot.js';
 $GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.pieRenderer.js';
+$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.canvasTextRenderer.js';
+$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.canvasAxisLabelRenderer.js';
+$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.dateAxisRenderer.js';
+$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.highlighter.js';
+$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.cursor.js';
+$GLOBALS['js_include'][] = 'date.js';
 
 /**
  * flush status variables if requested
@@ -798,6 +804,10 @@ echo __('Runtime Information');
                     <?php echo __('Refresh'); ?>
                 </a>
                 <span class="refreshList" style="display:none;">
+                    <label for="id_trafficChartDataPointsList"><?php echo __('Number of Data Points: '); ?></label>
+                       <?php echo getDataPointsNumberList('trafficChartDataPoints'); ?>
+                </span>
+                <span class="refreshList" style="display:none;">
                     <label for="id_trafficChartRefresh"><?php echo __('Refresh rate: '); ?></label>
                     <?php refreshList('trafficChartRefresh'); ?>
                 </span>
@@ -819,6 +829,10 @@ echo __('Runtime Information');
                     <img src="<?php echo $GLOBALS['pmaThemeImage'];?>ajax_clock_small.gif" alt="ajax clock" style="display: none;" />
                     <?php echo __('Refresh'); ?>
                 </a>
+                <span class="refreshList" style="display:none;">
+                    <label for="id_queryChartDataPointsList"><?php echo __('Number of Data Points: '); ?></label>
+                       <?php echo getDataPointsNumberList('queryChartDataPoints'); ?>
+                </span>
                 <span class="refreshList" style="display:none;">
                     <label for="id_queryChartRefresh"><?php echo __('Refresh rate: '); ?></label>
                        <?php refreshList('queryChartRefresh'); ?>
@@ -1771,7 +1785,7 @@ function printMonitor()
 function refreshList($name, $defaultRate=5, $refreshRates=Array(1, 2, 5, 10, 20, 40, 60, 120, 300, 600))
 {
 ?>
-    <select name="<?php echo $name; ?>" id="id_<?php echo $name; ?>">
+    <select name="<?php echo $name; ?>" id="id_<?php echo $name; ?>" class="refreshRate">
         <?php
             foreach ($refreshRates as $rate) {
                 $selected = ($rate == $defaultRate)?' selected="selected"':'';
@@ -1785,6 +1799,21 @@ function refreshList($name, $defaultRate=5, $refreshRates=Array(1, 2, 5, 10, 20,
         ?>
     </select>
 <?php
+}
+
+/* Builds a <select> list for number of data points to be displayed */
+function getDataPointsNumberList($name, $defaultValue=12, $values=Array(8, 10, 12, 15, 20, 25, 30, 40))
+{
+    $html_output = '<select name="' . $name . '" id="id_' . $name . '" class="dataPointsNumber">';
+            foreach ($values as $number) {
+                $selected = ($number == $defaultValue)?' selected="selected"':'';
+                $html_output .= '<option value="' . $number . '"' . $selected . '>'
+                    . sprintf(_ngettext('%d second', '%d points', $number), $number)
+                    . '</option>';
+            }
+
+    $html_output .= '</select>';
+    return $html_output;
 }
 
 /**

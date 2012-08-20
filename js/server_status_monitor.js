@@ -1074,6 +1074,27 @@ $(function() {
             $.extend(true, settings, chartObj.settings);
         }
 
+        var settings1 = {
+            axes: {
+                xaxis: {
+                    renderer: $.jqplot.DateAxisRenderer,
+                    tickOptions: {
+                        formatString: '%H:%M:%S'
+                    }
+                },
+                yaxis: {
+                    autoscale:true,
+                    label: PMA_messages['strTotalCount'],
+                    labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+                }
+            },
+            seriesDefaults: {
+                rendererOptions: {
+                    smooth: true
+                }
+            }
+        };
+
         if ($('#' + settings.chart.renderTo).length == 0) {
             var numCharts = $('table#chartGrid .monitorChart').length;
 
@@ -1084,7 +1105,8 @@ $(function() {
             $('table#chartGrid tr:last').append('<td><div class="ui-state-default monitorChart" id="' + settings.chart.renderTo + '"></div></td>');
         }
 
-        chartObj.chart = PMA_createChart(settings);
+        //chartObj.chart = PMA_createChart(settings);
+        chartObj.chart = $.jqplot(settings.chart.renderTo, [[0,0]], settings1);
         chartObj.numPoints = 0;
         
         if (initialize != true) {
@@ -1217,8 +1239,7 @@ $(function() {
                         runtime.xmax += diff;
                     }
 
-                    elem.chart.xAxis[0].setExtremes(runtime.xmin, runtime.xmax, false);
-
+                    //elem.chart.xAxis[0].setExtremes(runtime.xmin, runtime.xmax, false);
                     /* Calculate y value */
                     
                     // If transform function given, use it
@@ -1249,19 +1270,25 @@ $(function() {
                     
                     // Set y value, if defined
                     if (value != undefined) {
-                        elem.chart.series[j].addPoint(
+                        /*elem.chart.series[j].addPoint(
                             { x: chartData.x, y: value },
                             false,
                             elem.numPoints >= runtime.gridMaxPoints
-                        );
+                        );*/
+                        elem.chart.series[0].data.push([chartData.x, value]);
                     }
                 }
 
+                // update chart options
+                var interval = (((runtime.xmax - runtime.xmin)/runtime.gridMaxPoints) / 1000);
+                elem.chart['axes']['xaxis']['max'] = runtime.xmax;
+                elem.chart['axes']['xaxis']['min'] = runtime.xmin;
+                elem.chart['axes']['xaxis']['tickInterval'] = interval + " seconds";
                 i++;
-
                 runtime.charts[orderKey].numPoints++;
                 if (runtime.redrawCharts) {
                     elem.chart.redraw();
+                    elem.chart.replot();
                 }
             });
 
