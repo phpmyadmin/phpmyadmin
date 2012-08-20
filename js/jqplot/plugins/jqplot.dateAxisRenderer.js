@@ -2,7 +2,8 @@
  * jqPlot
  * Pure JavaScript plotting plugin using jQuery
  *
- * Version: 1.0.0b2_r1012
+ * Version: 1.0.2
+ * Revision: 1108
  *
  * Copyright (c) 2009-2011 Chris Leonello
  * jqPlot is currently available for use in all personal or commercial projects 
@@ -334,6 +335,28 @@
         var threshold = 30;
         var insetMult = 1;
 
+        var daTickInterval = null;
+
+        // if user specified a tick interval, convert to usable.
+        if (this.tickInterval != null)
+        {
+            // if interval is a number or can be converted to one, use it.
+            // Assume it is in SECONDS!!!
+            if (Number(this.tickInterval)) {
+                daTickInterval = [Number(this.tickInterval), 'seconds'];
+            }
+            // else, parse out something we can build from.
+            else if (typeof this.tickInterval == "string") {
+                var parts = this.tickInterval.split(' ');
+                if (parts.length == 1) {
+                    daTickInterval = [1, parts[0]];
+                }
+                else if (parts.length == 2) {
+                    daTickInterval = [parts[0], parts[1]];
+                }
+            }
+        }
+
         var tickInterval = this.tickInterval;
         
         // if we already have ticks, use them.
@@ -400,9 +423,43 @@
         // We don't have any ticks yet, let's make some!
         ////////
 
+        // special case when there is only one point, make three tick marks to center the point
+        else if (this.min == null && this.max == null && db.min == db.max)
+        {
+             var onePointOpts = $.extend(true, {}, this.tickOptions, {name: this.name, value: null});
+             var delta = 300000;
+             this.min = db.min - delta;
+             this.max = db.max + delta;
+             this.numberTicks = 3;
+
+             for(var i=this.min;i<=this.max;i+= delta)
+             {
+                 onePointOpts.value = i;
+
+                 var t = new this.tickRenderer(onePointOpts);
+
+                 if (this._overrideFormatString && this._autoFormatString != '') {
+                    t.formatString = this._autoFormatString;
+                 }
+
+                 t.showLabel = false;
+                 t.showMark = false;
+
+                 this._ticks.push(t);
+             }
+
+             if(this.showTicks) {
+                 this._ticks[1].showLabel = true;
+             }
+             if(this.showTickMarks) {
+                 this._ticks[1].showTickMarks = true;
+             }                   
+        }
         // if user specified min and max are null, we set those to make best ticks.
         else if (this.min == null && this.max == null) {
+
             var opts = $.extend(true, {}, this.tickOptions, {name: this.name, value: null});
+
             // want to find a nice interval 
             var nttarget,
                 titarget;
@@ -429,7 +486,7 @@
             // tickInterval will be used before numberTicks, that is if
             // both are specified, numberTicks will be ignored.
             else if (this.tickInterval) {
-                titarget = this.tickInterval;
+                titarget = new $.jsDate(0).add(daTickInterval[0], daTickInterval[1]).getTime();
             }
 
             // if numberTicks specified, try to honor it.
@@ -445,9 +502,10 @@
                 var tempti = ret[0];
                 this._autoFormatString = ret[1];
 
-                min = Math.floor(min/tempti) * tempti;
+                //min = Math.floor(min/tempti) * tempti;
                 min = new $.jsDate(min);
-                min = min.getTime() + min.getUtcOffset();
+                //min = min.getTime() + min.getUtcOffset();
+min = Math.floor((min.getTime() - min.getUtcOffset())/tempti) * tempti + min.getUtcOffset();
 
                 nttarget = Math.ceil((max - min) / tempti) + 1;
                 this.min = min;
@@ -605,7 +663,7 @@
                 this.tickInterval = null;
             }
             
-            // if user specified a tick interval, convert to usable.
+     /*       // if user specified a tick interval, convert to usable.
             if (this.tickInterval != null)
             {
                 // if interval is a number or can be converted to one, use it.
@@ -623,8 +681,12 @@
                         this.daTickInterval = [parts[0], parts[1]];
                     }
                 }
-            }
+            }*/
             
+            if (this.tickInterval != null && daTickInterval != null) {
+                this.daTickInterval = daTickInterval;
+             }
+
             // if min and max are same, space them out a bit
             if (min == max) {
                 var adj = 24*60*60*500;  // 1/2 day

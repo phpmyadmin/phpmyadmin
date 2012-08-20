@@ -119,6 +119,8 @@ $(function() {
     var tabStatus = new Object();
     // Holds the current chart instances for each tab
     var tabChart = new Object();
+    // Holds current live charts' timeouts
+    var chart_replot_timers = new Object();
 
     /*** Table sort tooltip ***/
     PMA_createqTip($('table.sortable thead th'), PMA_messages['strSortHint']);
@@ -142,7 +144,13 @@ $(function() {
             if (!$(ui.tab.hash).data('init-done')) {
                 initTab($(ui.tab.hash), null);
             }
-
+            // Replot on tab switching
+            if (ui.tab.hash == '#statustabs_traffic' && tabChart['statustabs_traffic'] != null) {
+                recursiveTimer($('#statustabs_traffic'), "traffic");
+            }
+            else if (ui.tab.hash == '#statustabs_queries' && tabChart['statustabs_queries'] != null) {
+                recursiveTimer($('#statustabs_queries'), "queries");
+            }
             // Load Server status monitor
             if (ui.tab.hash == '#statustabs_charting' && ! monitorLoaded) {
                 $('div#statustabs_charting').append( //PMA_messages['strLoadingMonitor'] + ' ' +
@@ -186,9 +194,21 @@ $(function() {
     });
 
     // Handles refresh rate changing
-    $('div.buttonlinks select').change(function() {
-        var chart = tabChart[$(this).parents('div.ui-tabs-panel').attr('id')];
+    $('.buttonlinks .refreshRate').change(function() {
 
+        var $tab = $(this).parents('div.ui-tabs-panel');
+        clearTimeout(chart_replot_timers[$tab.attr('id')]);
+        var tabstat = tabStatus[$tab.attr('id')];
+
+        if(tabstat == 'livequeries') {
+            recursiveTimer($tab, 'queries');
+        } else if(tabstat == 'livetraffic') {
+            recursiveTimer($tab, 'traffic');
+        } else if(tabstat == 'liveconnections') {
+            recursiveTimer($tab, 'proc');
+        }
+
+        var chart = tabChart[$(this).parents('div.ui-tabs-panel').attr('id')];
         // Clear current timeout and set timeout with the new refresh rate
         clearTimeout(chart_activeTimeouts[chart.options.chart.renderTo]);
         if (chart.options.realtime.postRequest) {
@@ -231,6 +251,11 @@ $(function() {
 
     /** Realtime charting of variables **/
 
+    // variables to hold previous y data value to calculate difference
+    var previous_y_line1 = new Object();
+    var previous_y_line2 = new Object();
+    var series = new Object();
+
     // Live traffic charting
     $('div.buttonlinks a.livetrafficLink').click(function() {
         // ui-tabs-panel class is added by the jquery tabs feature
@@ -238,34 +263,12 @@ $(function() {
         var tabstat = tabStatus[$tab.attr('id')];
 
         if (tabstat == 'static' || tabstat == 'liveconnections') {
-            var settings = {
-                series: [
-                    { name: PMA_messages['strChartKBSent'], data: [] },
-                    { name: PMA_messages['strChartKBReceived'], data: [] }
-                ],
-                title: { text: PMA_messages['strChartServerTraffic'] },
-                realtime: { url: 'server_status.php?' + url_query,
-                           type: 'traffic',
-                           callback: function(chartObj, curVal, lastVal, numLoadedPoints) {
-                               if (lastVal == null) {
-                                   return;
-                                }
-                                chartObj.series[0].addPoint(
-                                    { x: curVal.x, y: (curVal.y_sent - lastVal.y_sent) / 1024 },
-                                    false,
-                                    numLoadedPoints >= chartObj.options.realtime.numMaxPoints
-                                );
-                                chartObj.series[1].addPoint(
-                                    { x: curVal.x, y: (curVal.y_received - lastVal.y_received) / 1024 },
-                                    true,
-                                    numLoadedPoints >= chartObj.options.realtime.numMaxPoints
-                                );
-                            },
-                            error: function() { serverResponseError(); }
-                         }
-            };
+            
+            setupLiveChart($tab, this, getSettings('traffic'));
+            var set_previous = getCurrentDataSet($tab, 'traffic');
+            tabChart[$tab.attr('id')] = $.jqplot($tab.attr('id') + '_chart_cnt', [[[0,0]],[[0,0]]], getSettings('traffic'));
+            recursiveTimer($tab, 'traffic');
 
-            setupLiveChart($tab, this, settings);
             if (tabstat == 'liveconnections') {
                 $tab.find('.buttonlinks a.liveconnectionsLink').html(PMA_messages['strLiveConnChart']);
             }
@@ -284,34 +287,11 @@ $(function() {
         var tabstat = tabStatus[$tab.attr('id')];
 
         if (tabstat == 'static' || tabstat == 'livetraffic') {
-            var settings = {
-                series: [
-                    { name: PMA_messages['strChartConnections'], data: [] },
-                    { name: PMA_messages['strChartProcesses'], data: [] }
-                ],
-                title: { text: PMA_messages['strChartConnectionsTitle'] },
-                realtime: { url: 'server_status.php?' + url_query,
-                           type: 'proc',
-                           callback: function(chartObj, curVal, lastVal, numLoadedPoints) {
-                                if (lastVal == null) {
-                                    return;
-                                }
-                                chartObj.series[0].addPoint(
-                                    { x: curVal.x, y: curVal.y_conn - lastVal.y_conn },
-                                    false,
-                                    numLoadedPoints >= chartObj.options.realtime.numMaxPoints
-                                );
-                                chartObj.series[1].addPoint(
-                                    { x: curVal.x, y: curVal.y_proc },
-                                    true,
-                                    numLoadedPoints >= chartObj.options.realtime.numMaxPoints
-                                );
-                            },
-                            error: function() { serverResponseError(); }
-                         }
-            };
 
-            setupLiveChart($tab, this, settings);
+            setupLiveChart($tab, this, getSettings('proc'));
+            var set_previous = getCurrentDataSet($tab, 'proc');
+            tabChart[$tab.attr('id')] = $.jqplot($tab.attr('id') + '_chart_cnt', [[[0,0]],[[0,0]]], getSettings('proc'));
+            recursiveTimer($tab, 'proc');
             if (tabstat == 'livetraffic') {
                 $tab.find('.buttonlinks a.livetrafficLink').html(PMA_messages['strLiveTrafficChart']);
             }
@@ -327,37 +307,154 @@ $(function() {
     // Live query statistics
     $('div.buttonlinks a.livequeriesLink').click(function() {
         var $tab = $(this).parents('div.ui-tabs-panel');
-        var settings = null;
-
         if (tabStatus[$tab.attr('id')] == 'static') {
-            settings = {
-                series: [ { name: PMA_messages['strChartIssuedQueries'], data: [] } ],
-                title: { text: PMA_messages['strChartIssuedQueriesTitle'] },
-                tooltip: { formatter: function() { return this.point.name; } },
-                realtime: { url: 'server_status.php?' + url_query,
-                          type: 'queries',
-                          callback: function(chartObj, curVal, lastVal, numLoadedPoints) {
-                                if (lastVal == null) { return; }
-                                chartObj.series[0].addPoint({
-                                        x: curVal.x,
-                                        y: curVal.y - lastVal.y,
-                                        name: sortedQueriesPointInfo(curVal, lastVal)
-                                    },
-                                    true,
-                                    numLoadedPoints >= chartObj.options.realtime.numMaxPoints
-                                );
-                            },
-                            error: function() { serverResponseError(); }
-                         }
-            };
+
+            setupLiveChart($tab, this, getSettings('queries'));
+            var set_previous = getCurrentDataSet($tab, 'queries');
+            tabChart[$tab.attr('id')] = $.jqplot($tab.attr('id') + '_chart_cnt', [[0,0]], getSettings('queries'));
+            recursiveTimer($tab, 'queries');
+            tabStatus[$tab.attr('id')] = 'livequeries';
+
         } else {
             $(this).html(PMA_messages['strLiveQueryChart']);
+            setupLiveChart($tab, this, null);
         }
-
-        setupLiveChart($tab, this, settings);
-        tabStatus[$tab.attr('id')] = 'livequeries';
         return false;
     });
+
+    function recursiveTimer($tab, type) {
+            replotLiveChart($tab, type);
+            chart_replot_timers[$tab.attr('id')] = setTimeout(function() {
+                recursiveTimer($tab, type) }, ($('.refreshRate :selected', $tab).val() * 1000));
+    }
+
+    function getCurrentDataSet($tab, type) {
+        var ret = null;
+        var line1 = null;
+        var line2 = null;
+        var retval = null;
+
+        $.ajax({
+            async: false,
+            url: 'server_status.php',
+            type: 'post',
+            data: {
+                'token' : window.parent.token,
+                'ajax_request' : true,
+                'chart_data' : true,
+                'type' : type
+            },
+            dataType: 'json',
+            success: function(data) {
+            ret = data;
+            }
+        });
+        // get data based on chart type
+        if(type == 'proc') {
+            line1 = [ret.x, ret.y_conn - previous_y_line1[$tab.attr('id')]];
+            line2 = [ret.x, ret.y_proc];
+            previous_y_line1[$tab.attr('id')] = ret.y_conn;
+        }
+        else if(type == 'queries') {
+            line1 = [ret.x, ret.y-previous_y_line1[$tab.attr('id')]];
+            previous_y_line1[$tab.attr('id')] = ret.y;
+        }
+        else if(type == 'traffic') {
+            ret.y_sent = ret.y_sent/1024;
+            ret.y_received = ret.y_received/1024;            
+            line1 = [ret.x, ret.y_sent - previous_y_line1[$tab.attr('id')]];
+            line2 = [ret.x, ret.y_received - previous_y_line2[$tab.attr('id')]];
+            previous_y_line1[$tab.attr('id')] = ret.y_sent;
+            previous_y_line2[$tab.attr('id')] = ret.y_received;
+        }
+
+        retval = [line1, line2];
+        return retval;
+    }
+
+    function getSettings(type) {
+
+        var settings = {
+            axes: {
+                xaxis: {
+                    renderer: $.jqplot.DateAxisRenderer,
+                    tickOptions: {
+                        formatString: '%H:%M:%S'
+                    }
+                },
+                yaxis: {
+                    autoscale:true,
+                    label: PMA_messages['strTotalCount'],
+                    labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+                }
+            },
+            seriesDefaults: {
+                rendererOptions: {
+                    smooth: true
+                }
+            },
+            legend: {
+                show: true,
+                location: 's',     // compass direction, nw, n, ne, e, se, s, sw, w.
+                xoffset: 12,        // pixel offset of the legend box from the x (or x2) axis.
+                yoffset: 12,        // pixel offset of the legend box from the y (or y2) axis.
+            }
+        };
+
+        var title_message;
+        var x_legend = new Array();
+        if(type == 'proc') {
+            title_message = PMA_messages['strChartConnectionsTitle'];
+            x_legend[0] = PMA_messages['strChartConnections'];
+            x_legend[1] = PMA_messages['strChartProcesses'];
+            settings.series = [ {label: x_legend[0]}, {label: x_legend[1]} ];
+        }
+        else if(type == 'queries') {
+            title_message = PMA_messages['strChartIssuedQueriesTitle'];
+            x_legend[0] = PMA_messages['strChartIssuedQueries'];
+            settings.series = [ {label: x_legend[0]} ];
+        }
+        else if(type == 'traffic') {
+            title_message = PMA_messages['strChartServerTraffic'];
+            x_legend[0] = PMA_messages['strChartKBSent'];
+            x_legend[1] = PMA_messages['strChartKBReceived'];
+            settings.series = [ {label: x_legend[0]}, {label: x_legend[1]} ];
+        }
+        settings.title = title_message;
+
+        return settings;
+    }
+
+    function replotLiveChart($tab, type) {
+        var data_set = getCurrentDataSet($tab, type);
+        if(type == 'proc' || type == 'traffic') {
+            series[$tab.attr('id')][0].push(data_set[0]);
+            series[$tab.attr('id')][1].push(data_set[1]);
+            // update data set
+            tabChart[$tab.attr('id')].series[0].data = series[$tab.attr('id')][0];
+            tabChart[$tab.attr('id')].series[1].data = series[$tab.attr('id')][1];
+        }
+        else if(type == 'queries') {
+            // there is just one line to be plotted
+            series[$tab.attr('id')][0].push(data_set[0]);
+            // update data set
+            tabChart[$tab.attr('id')].series[0].data = series[$tab.attr('id')][0];
+        }
+        tabChart[$tab.attr('id')].resetAxesScale();
+        var current_time = new Date().getTime();
+        var data_points = $('.dataPointsNumber :selected', $tab).val();
+        var refresh_rate = $('.refreshRate :selected', $tab).val() * 1000;
+        // Min X would be decided based on refresh rate and number of data points
+        var minX = current_time - (refresh_rate * data_points);
+        var interval = (((current_time - minX)/data_points) / 1000);
+        interval = (data_points > 20) ? (((current_time - minX)/20) / 1000) : interval;
+        // update chart options
+        tabChart[$tab.attr('id')]['axes']['xaxis']['max'] = current_time;
+        tabChart[$tab.attr('id')]['axes']['xaxis']['min'] = minX;
+        tabChart[$tab.attr('id')]['axes']['xaxis']['tickInterval'] = interval + " seconds";
+        // replot
+        tabChart[$tab.attr('id')].replot();
+    }
 
     function setupLiveChart($tab, link, settings) {
         if (settings != null) {
@@ -365,7 +462,7 @@ $(function() {
             if (tabStatus[$tab.attr('id')] != 'static') {
                 clearTimeout(chart_activeTimeouts[$tab.attr('id') + "_chart_cnt"]);
                 chart_activeTimeouts[$tab.attr('id') + "_chart_cnt"] = null;
-                tabChart[$tab.attr('id')].destroy();
+                delete tabChart[$tab.attr('id')];
                 // Also reset the select list
                 $tab.find('.buttonlinks select').get(0).selectedIndex = 2;
             }
@@ -373,9 +470,11 @@ $(function() {
             if (! settings.chart) settings.chart = {};
             settings.chart.renderTo = $tab.attr('id') + "_chart_cnt";
 
-            $tab.find('.tabInnerContent')
-                .hide()
-                .after('<div class="liveChart" id="' + $tab.attr('id') + '_chart_cnt"></div>');
+            if($('#' + $tab.attr('id') + '_chart_cnt').length == 0) {
+                $tab.find('.tabInnerContent')
+                    .hide()
+                    .after('<div class="liveChart" id="' + $tab.attr('id') + '_chart_cnt"></div>');
+            }
             tabChart[$tab.attr('id')] = PMA_createChart(settings);
             $(link).html(PMA_messages['strStaticData']);
             $tab.find('.buttonlinks a.tabRefresh').hide();
@@ -386,11 +485,17 @@ $(function() {
             $tab.find('.tabInnerContent').show();
             $tab.find('div#' + $tab.attr('id') + '_chart_cnt').remove();
             tabStatus[$tab.attr('id')] = 'static';
-            tabChart[$tab.attr('id')].destroy();
+            delete tabChart[$tab.attr('id')];
             $tab.find('.buttonlinks a.tabRefresh').show();
             $tab.find('.buttonlinks select').get(0).selectedIndex = 2;
             $tab.find('.buttonlinks .refreshList').hide();
         }
+        clearTimeout(chart_replot_timers[$tab.attr('id')]);
+        previous_y_line1[$tab.attr('id')] = 0;
+        previous_y_line2[$tab.attr('id')] = 0;
+        series[$tab.attr('id')] = new Array();
+        series[$tab.attr('id')][0] = new Array();
+        series[$tab.attr('id')][1] = new Array();
     }
 
     /* 3 Filtering functions */
