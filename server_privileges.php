@@ -280,7 +280,7 @@ if (! empty($_POST['update_privs'])) {
 if (isset($_REQUEST['revokeall'])) {
     list ($message, $sql_query) = PMA_getMessageAndSqlQueryForPrivilegesRevoke(
         $db_and_table,
-        (isset($dbename) ? $dbname : ''),
+        (isset($dbname) ? $dbname : ''),
         (isset($tablename) ? $tablename : ''),
         $username, $hostname
     );
@@ -476,7 +476,7 @@ if (empty($_REQUEST['adduser'])
                 ((isset ($dbname_is_wildcard)) ? $dbname_is_wildcard : ''),
                 $url_dbname, $random_n,
                 $username, $hostname, $link_edit, $link_revoke,
-                (isset($dbename) ? $dbname : ''),
+                (isset($dbname) ? $dbname : ''),
                 (isset($tablename) ? $tablename : '')
             )
         );
