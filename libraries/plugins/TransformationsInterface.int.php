@@ -15,7 +15,8 @@ if (! defined('PHPMYADMIN')) {
  *
  * @package PhpMyAdmin
  */
-interface TransformationsInterface {
+interface TransformationsInterface
+{
     /**
      * Gets the transformation description
      *

@@ -69,10 +69,11 @@ class ImportOds extends ImportPlugin
         $leaf = new BoolPropertyItem();
         $leaf->setName("col_names");
         $leaf->setText(
-                __('The first line of the file contains the table column names'
-                    . ' <i>(if this is unchecked, the first line will become part'
-                    . ' of the data)</i>'
-                )
+            __(
+                'The first line of the file contains the table column names'
+                . ' <i>(if this is unchecked, the first line will become part'
+                . ' of the data)</i>'
+            )
         );
         $generalOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem();
@@ -82,9 +83,9 @@ class ImportOds extends ImportPlugin
         $leaf = new BoolPropertyItem();
         $leaf->setName("recognize_percentages");
         $leaf->setText(
-             __(
+            __(
                 'Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>'
-             )
+            )
         );
         $generalOptions->addProperty($leaf);
         $leaf = new BoolPropertyItem();
