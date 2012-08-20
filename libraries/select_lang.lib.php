@@ -285,6 +285,8 @@ function PMA_langDetails($lang)
         return array('nl|dutch', 'nl', 'Nederlands');
     case 'nb':
         return array('nb|norwegian', 'nb', 'Norsk');
+    case 'pa':
+        return array('pa|punjabi', 'pa', 'ਪੰਜਾਬੀ');
     case 'pl':
         return array('pl|polish', 'pl', 'Polski');
     case 'pt_BR':
