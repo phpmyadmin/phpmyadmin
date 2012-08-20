@@ -1555,7 +1555,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                     'routine_type' => 'FUNCTION'
                 ),
                 'routine_name',
-                'db_routines.php?item_name=circumference&amp;db=data&amp;execute_dialog=1&amp;item_type=FUNCTION&amp;lang=en&amp;token=token'
+                'db_routines.php?item_name=circumference&amp;db=data&amp;execute_dialog=1&amp;item_type=FUNCTION&amp;server=0&amp;lang=en&amp;token=token'
             ),
             array(
                 'information_schema',
@@ -1567,7 +1567,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                     'routine_type' => 'PROCEDURE'
                 ),
                 'routine_name',
-                'db_routines.php?item_name=area&amp;db=data&amp;execute_routine=1&amp;item_type=PROCEDURE&amp;lang=en&amp;token=token'
+                'db_routines.php?item_name=area&amp;db=data&amp;execute_routine=1&amp;item_type=PROCEDURE&amp;server=0&amp;lang=en&amp;token=token'
             ),
             array(
                 'information_schema',
@@ -1578,7 +1578,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                     'table_name' => 'CHARACTER_SETS'
                 ),
                 'column_name',
-                'index.php?sql_query=SELECT+%60CHARACTER_SET_NAME%60+FROM+%60information_schema%60.%60CHARACTER_SETS%60&amp;db=information_schema&amp;test_name=value&amp;lang=en&amp;token=token'
+                'index.php?sql_query=SELECT+%60CHARACTER_SET_NAME%60+FROM+%60information_schema%60.%60CHARACTER_SETS%60&amp;db=information_schema&amp;test_name=value&amp;server=0&amp;lang=en&amp;token=token'
             )
         );
     }
