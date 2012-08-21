@@ -23,7 +23,7 @@ if (!defined('PHPMYADMIN')) {
  * @param string  $url_query                url query
  *
  * @return array ($browse_table, $search_table, $browse_table_label, $empty_table,
-                    $tracking_icon)
+ *                $tracking_icon)
  */
 function PMA_getHtmlForActionLinks($current_table, $table_is_view, $tbl_url_query,
     $titles, $truename, $db_is_information_schema, $url_query
@@ -460,12 +460,11 @@ function PMA_getHtmlForStructureTableRow($curr, $odd_row, $table_is_view, $curre
     $html_output = '<tr class="' . ($odd_row ? 'odd' : 'even');
     $odd_row = ! $odd_row;
     $html_output .= ($table_is_view ? ' is_view' : '')
-    .'"'
-    . 'id="row_tbl_' . $curr . '">';
+    .'" id="row_tbl_' . $curr . '">';
 
     $html_output .= '<td class="center">'
-        . '<input type="checkbox" name="selected_tbl[]" class="checkall"'
-        . 'value="' . htmlspecialchars($current_table['TABLE_NAME']) . '"'
+        . '<input type="checkbox" name="selected_tbl[]" class="checkall" '
+        . 'value="' . htmlspecialchars($current_table['TABLE_NAME']) . '" '
         . 'id="checkbox_tbl_' . $curr .'"' . $checked .' /></td>';
 
     $html_output .= '<th>'
