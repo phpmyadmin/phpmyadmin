@@ -346,7 +346,7 @@ $(function() {
             },
             dataType: 'json',
             success: function(data) {
-            ret = data;
+                ret = $.parseJSON(data.message);
             }
         });
         // get data based on chart type
