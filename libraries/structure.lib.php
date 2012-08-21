@@ -13,15 +13,15 @@ if (!defined('PHPMYADMIN')) {
 /**
  * Get the HTML links for action links
  * Actions are, Browse, Search, Browse table label, empty table
- * 
- * @param array $current_table                 current table
+ *
+ * @param array   $current_table            current table
  * @param boolean $table_is_view            Is table view or not
- * @param string $tbl_url_query             table url query
- * @param array $titles                     titles and icons for action links
- * @param string $truename                  table name
+ * @param string  $tbl_url_query            table url query
+ * @param array   $titles                   titles and icons for action links
+ * @param string  $truename                 table name
  * @param boolean $db_is_information_schema is database information schema or not
- * @param string $url_query                 url query
- * 
+ * @param string  $url_query                url query
+ *
  * @return array ($browse_table, $search_table, $browse_table_label, $empty_table,
                     $tracking_icon)
  */
@@ -30,7 +30,7 @@ function PMA_getHtmlForActionLinks($current_table, $table_is_view, $tbl_url_quer
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
     $empty_table = '';
-    
+
     if ($current_table['TABLE_ROWS'] > 0 || $table_is_view) {
         $may_have_rows = true;
     } else {
@@ -54,7 +54,7 @@ function PMA_getHtmlForActionLinks($current_table, $table_is_view, $tbl_url_quer
     $search_table .= '</a>';
 
     $browse_table_label = '<a href="sql.php?' . $tbl_url_query . '&amp;pos=0">'
-            . $truename . '</a>';
+        . $truename . '</a>';
 
     if (!$db_is_information_schema) {
         $empty_table = '<a ';
@@ -64,13 +64,14 @@ function PMA_getHtmlForActionLinks($current_table, $table_is_view, $tbl_url_quer
         $empty_table .= ' href="sql.php?' . $tbl_url_query
             . '&amp;sql_query=';
         $empty_table .= urlencode(
-            'TRUNCATE '
-                . $common_functions->backquote($current_table['TABLE_NAME'])
-            )
-            . '&amp;message_to_show='
+        	'TRUNCATE ' . $common_functions->backquote($current_table['TABLE_NAME'])
+        );
+        $empty_table .= '&amp;message_to_show='
             . urlencode(
-                sprintf(__('Table %s has been emptied'),
-                htmlspecialchars($current_table['TABLE_NAME']))
+                sprintf(
+                    __('Table %s has been emptied'),
+                    htmlspecialchars($current_table['TABLE_NAME'])
+                )
             )
             . '">';
         if ($may_have_rows) {
@@ -114,10 +115,10 @@ function PMA_getHtmlForActionLinks($current_table, $table_is_view, $tbl_url_quer
 
 /**
  * Get table drop query and drop message
- * 
- * @param boolean $table_is_view    Is table view or not
- * @param string $current_table        current table
- * 
+ *
+ * @param boolean $table_is_view Is table view or not
+ * @param string  $current_table current table
+ *
  * @return array    ($drop_query, $drop_message)
  */
 function PMA_getTableDropQueryAndMessage($table_is_view, $current_table)
@@ -142,20 +143,20 @@ function PMA_getTableDropQueryAndMessage($table_is_view, $current_table)
 
 /**
  * Get HTML body for table summery
- * 
- * @param integer $num_tables                   number of tables
- * @param boolean $server_slave_status          server slave state
- * @param boolean $db_is_information_schema     whether database is information schema or not
- * @param integer $sum_entries                  sum entries
- * @param string $db_collation                  collation of given db
- * @param boolean $is_show_stats                whether stats is show or not
- * @param double $sum_size                      sum size
- * @param double $overhead_size                 overhead size
- * @param string $create_time_all               create time
- * @param string $update_time_all               update time
- * @param string $check_time_all                check time
- * @param integer $sum_row_count_pre            sum row count pre
- * 
+ *
+ * @param integer $num_tables               number of tables
+ * @param boolean $server_slave_status      server slave state
+ * @param boolean $db_is_information_schema whether database is information schema or not
+ * @param integer $sum_entries              sum entries
+ * @param string  $db_collation             collation of given db
+ * @param boolean $is_show_stats            whether stats is show or not
+ * @param double  $sum_size                 sum size
+ * @param double  $overhead_size            overhead size
+ * @param string  $create_time_all          create time
+ * @param string  $update_time_all          update time
+ * @param string  $check_time_all           check time
+ * @param integer $sum_row_count_pre        sum row count pre
+ *
  * @return string $html_output
  */
 function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
@@ -210,27 +211,27 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
 
         if (! empty($db_collation)) {
             $html_output .= '<dfn title="'
-                . PMA_getCollationDescr($db_collation) 
-                . ' (' . __('Default') . ')">' 
+                . PMA_getCollationDescr($db_collation)
+                . ' (' . __('Default') . ')">'
                 . $db_collation
                 . '</dfn>';
         }
         $html_output .= '</th>';
     }
     if ($is_show_stats) {
-        $html_output .= '<th class="value tbl_size">' 
-            . $sum_formatted . ' ' . $unit 
+        $html_output .= '<th class="value tbl_size">'
+            . $sum_formatted . ' ' . $unit
             . '</th>';
-        $html_output .= '<th class="value tbl_overhead">' 
-            . $overhead_formatted . ' ' . $overhead_unit 
+        $html_output .= '<th class="value tbl_overhead">'
+            . $overhead_formatted . ' ' . $overhead_unit
             . '</th>';
     }
 
     if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
         $html_output .= '<th class="value tbl_creation">' . "\n"
-            . '        ' 
-            . ($create_time_all 
-                ? $common_functions->localisedDate(strtotime($create_time_all)) 
+            . '        '
+            . ($create_time_all
+                ? $common_functions->localisedDate(strtotime($create_time_all))
                 : '-'
             )
             . '</th>';
@@ -238,9 +239,9 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
 
     if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
         $html_output .= '<th class="value tbl_last_update">' . "\n"
-            . '        ' 
+            . '        '
             . ($update_time_all
-                ? $common_functions->localisedDate(strtotime($update_time_all)) 
+                ? $common_functions->localisedDate(strtotime($update_time_all))
                 : '-'
             )
             . '</th>';
@@ -248,9 +249,9 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
 
     if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
         $html_output .= '<th class="value tbl_last_check">' . "\n"
-            . '        ' 
-            . ($check_time_all 
-                ? $common_functions->localisedDate(strtotime($check_time_all)) 
+            . '        '
+            . ($check_time_all
+                ? $common_functions->localisedDate(strtotime($check_time_all))
                 : '-'
             )
             . '</th>';
@@ -263,13 +264,13 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
 
 /**
  * Get HTML for "check all" check box with "with selected" dropdown
- * 
- * @param string $pmaThemeImage             pma theme image url
- * @param string $text_dir                  url for text directory
- * @param string $overhead_check            overhead check
+ *
+ * @param string  $pmaThemeImage            pma theme image url
+ * @param string  $text_dir                 url for text directory
+ * @param string  $overhead_check           overhead check
  * @param boolean $db_is_information_schema whether database is information schema or not
- * @param string $hidden_fields             hidden fields
- * 
+ * @param string  $hidden_fields            hidden fields
+ *
  * @return string $html_output
  */
 function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
@@ -283,7 +284,7 @@ function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
     $html_output .= '<input type="checkbox" id="checkall" '
         . 'title="' . __('Check All') .'" />';
     $html_output .= '<label for="checkall">' .__('Check All') . '</label>';
-    
+
     if ($overhead_check != '') {
         $html_output .= PMA_getHtmlForCheckTablesHavingOverheadlink(
             $overhead_check
@@ -293,7 +294,7 @@ function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
     $html_output .= '<select name="submit_mult" class="autosubmit" '
         . 'style="margin: 0 3em 0 3em;">';
 
-    $html_output .= '<option value="' . __('With selected:') 
+    $html_output .= '<option value="' . __('With selected:')
         . '" selected="selected">'
         . __('With selected:') . '</option>' . "\n";
     $html_output .= '<option value="export" >'
@@ -301,7 +302,7 @@ function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
     $html_output .= '<option value="print" >'
         . __('Print view') . '</option>' . "\n";
 
-    if (!$db_is_information_schema 
+    if (!$db_is_information_schema
         && !$GLOBALS['cfg']['DisableMultiTableMaintenance']
     ) {
         $html_output .= '<option value="empty_tbl" >'
@@ -328,18 +329,19 @@ function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
     $html_output .= '</select>'
         . implode("\n", $hidden_fields) . "\n";
     $html_output .= '</div>';
-    
+
     return $html_output;
 }
 
 /**
  * Get HTML code for "Check tables having overhead" link
- * 
- * @param string $overhead_check  overhead check
- * 
- * @return string $html_output 
+ *
+ * @param string $overhead_check overhead check
+ *
+ * @return string $html_output
  */
-function PMA_getHtmlForCheckTablesHavingOverheadlink($overhead_check) {
+function PMA_getHtmlForCheckTablesHavingOverheadlink($overhead_check)
+{
     return ' / '
         . '<a href="#" onclick="unMarkAllRows(\'tablesForm\');'
         . $overhead_check . 'return false;">'
@@ -350,9 +352,9 @@ function PMA_getHtmlForCheckTablesHavingOverheadlink($overhead_check) {
 
 /**
  * Get HTML links for "Print view" options
- * 
- * @param string $url_query     url query
- * 
+ *
+ * @param string $url_query url query
+ *
  * @return string $html_output
  */
 function PMA_getHtmlForTablePrintViewLink($url_query)
@@ -368,9 +370,9 @@ function PMA_getHtmlForTablePrintViewLink($url_query)
 
 /**
  * Get HTML links "Data Dictionary" options
- * 
- * @param string $url_query     url query
- * 
+ *
+ * @param string $url_query url query
+ *
  * @return string $html_output
  */
 function PMA_getHtmlForDataDictionaryLink($url_query)
@@ -386,12 +388,12 @@ function PMA_getHtmlForDataDictionaryLink($url_query)
 
 /**
  * Get Time for Create time, update time and check time
- * 
- * @param array $current_table     current table
- * @param string $time_label    Create_time, Update_time, Check_time
- * @param integer $time_all     time
- * 
- * @return array ($time, $time_all) 
+ *
+ * @param array   $current_table current table
+ * @param string  $time_label    Create_time, Update_time, Check_time
+ * @param integer $time_all      time
+ *
+ * @return array ($time, $time_all)
  */
 function PMA_getTimeForCreateUpdateCheck($current_table, $time_label, $time_all)
 {
@@ -401,8 +403,8 @@ function PMA_getTimeForCreateUpdateCheck($current_table, $time_label, $time_all)
         null,
         true
     );
-    $time = isset($showtable[$time_label]) 
-        ? $showtable[$time_label] 
+    $time = isset($showtable[$time_label])
+        ? $showtable[$time_label]
         : false;
 
     // show oldest creation date in summary row
@@ -415,35 +417,35 @@ function PMA_getTimeForCreateUpdateCheck($current_table, $time_label, $time_all)
 /**
  * Get HTML for each table row of the database structure table,
  * And this function returns $odd_row param also
- * 
- * @param integer $curr                         current entry
- * @param boolean $odd_row                      whether row is odd or not
- * @param boolean $table_is_view                whether table is view or not
- * @param array $current_table                     current table
- * @param string $checked                       checked attribute
- * @param string $browse_table_label            browse table label action link
- * @param string $tracking_icon                 tracking icon
- * @param boolean $server_slave_status          server slave state
- * @param string $browse_table                  browse table action link
- * @param string $tbl_url_query                 table url query
- * @param string $search_table                  search table action link
- * @param boolean $db_is_information_schema     whether db is information schema or not
- * @param array $titles                         titles array
- * @param string $empty_table                   empty table action link
- * @param string $drop_query                    table dropt query
- * @param string $drop_message                  table drop message
- * @param string $collation                     collation
- * @param string $formatted_size                formatted size
- * @param string $unit                          unit
- * @param string $overhead                      overhead
- * @param string $create_time                   create time
- * @param string $update_time                   last update time
- * @param string $check_time                    last check time
- * @param boolean $is_show_stats                whether stats is show or not
- * @param boolean $ignored                      ignored
- * @param boolean $do                           do
- * @param intger $colspan_for_structure         colspan for structure
- * 
+ *
+ * @param integer $curr                     current entry
+ * @param boolean $odd_row                  whether row is odd or not
+ * @param boolean $table_is_view            whether table is view or not
+ * @param array   $current_table            current table
+ * @param string  $checked                  checked attribute
+ * @param string  $browse_table_label       browse table label action link
+ * @param string  $tracking_icon            tracking icon
+ * @param boolean $server_slave_status      server slave state
+ * @param string  $browse_table             browse table action link
+ * @param string  $tbl_url_query            table url query
+ * @param string  $search_table             search table action link
+ * @param boolean $db_is_information_schema whether db is information schema or not
+ * @param array   $titles                   titles array
+ * @param string  $empty_table              empty table action link
+ * @param string  $drop_query               table dropt query
+ * @param string  $drop_message             table drop message
+ * @param string  $collation                collation
+ * @param string  $formatted_size           formatted size
+ * @param string  $unit                     unit
+ * @param string  $overhead                 overhead
+ * @param string  $create_time              create time
+ * @param string  $update_time              last update time
+ * @param string  $check_time               last check time
+ * @param boolean $is_show_stats            whether stats is show or not
+ * @param boolean $ignored                  ignored
+ * @param boolean $do                       do
+ * @param intger  $colspan_for_structure    colspan for structure
+ *
  * @return array $html_output, $odd_row
  */
 function PMA_getHtmlForStructureTableRow($curr, $odd_row, $table_is_view, $current_table,
@@ -454,23 +456,23 @@ function PMA_getHtmlForStructureTableRow($curr, $odd_row, $table_is_view, $curre
     $check_time,$is_show_stats, $ignored, $do, $colspan_for_structure
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
-    
+
     $html_output = '<tr class="' . ($odd_row ? 'odd' : 'even');
     $odd_row = ! $odd_row;
     $html_output .= ($table_is_view ? ' is_view' : '')
     .'"'
     . 'id="row_tbl_' . $curr . '">';
-        
+
     $html_output .= '<td class="center">'
         . '<input type="checkbox" name="selected_tbl[]" class="checkall"'
         . 'value="' . htmlspecialchars($current_table['TABLE_NAME']) . '"'
         . 'id="checkbox_tbl_' . $curr .'"' . $checked .' /></td>';
-    
+
     $html_output .= '<th>'
         . $browse_table_label
         . (! empty($tracking_icon) ? $tracking_icon : '')
         . '</th>';
-    
+
     if ($server_slave_status) {
         $html_output .= '<td class="center">'
             . ($ignored
@@ -481,27 +483,27 @@ function PMA_getHtmlForStructureTableRow($curr, $odd_row, $table_is_view, $curre
                 : '')
             . '</td>';
     }
-    
+
     $html_output .= '<td class="center">' . $browse_table . '</td>';
     $html_output .= '<td class="center">'
         . '<a href="tbl_structure.php?' . $tbl_url_query . '">'
         . $titles['Structure'] . '</a></td>';
     $html_output .= '<td class="center">' . $search_table . '</td>';
-    
+
     if (! $db_is_information_schema) {
         $html_output .= PMA_getHtmlForInsertEmptyDropActionLinks(
             $tbl_url_query, $table_is_view,
             $titles, $empty_table, $current_table, $drop_query, $drop_message
         );
     } // end if (! $db_is_information_schema)
-    
+
     // there is a null value in the ENGINE
     // - when the table needs to be repaired, or
     // - when it's a view
     //  so ensure that we'll display "in use" below for a table
     //  that needs to be repaired
-    if (isset($current_table['TABLE_ROWS']) 
-        && ($current_table['ENGINE'] != null 
+    if (isset($current_table['TABLE_ROWS'])
+        && ($current_table['ENGINE'] != null
         || $table_is_view)
     ) {
         $html_output .= PMA_getHtmlForNotNullEngineViewTable(
@@ -511,35 +513,36 @@ function PMA_getHtmlForStructureTableRow($curr, $odd_row, $table_is_view, $curre
         );
     } elseif ($table_is_view) {
         $html_output .= PMA_getHtmlForViewTable($is_show_stats);
-    }  else {
-        $html_output .= PMA_getHtmlForRepairtable($colspan_for_structure,
+    } else {
+        $html_output .= PMA_getHtmlForRepairtable(
+            $colspan_for_structure,
             $db_is_information_schema
         );
     } // end if (isset($current_table['TABLE_ROWS'])) else
     $html_output .= '</tr>';
-    
+
     return array($html_output, $odd_row);
 }
 
 /**
  * Get HTML for Insert/Empty/Drop action links
- * 
- * @param string $tbl_url_query     table url query
- * @param boolean $table_is_view    whether table is view or not
- * @param array $titles             titles array
- * @param string $empty_table       HTML link for empty table
- * @param array $current_table         current table
- * @param string $drop_query        query for drop table
- * @param string $drop_message      table drop message
- * 
+ *
+ * @param string  $tbl_url_query table url query
+ * @param boolean $table_is_view whether table is view or not
+ * @param array   $titles        titles array
+ * @param string  $empty_table   HTML link for empty table
+ * @param array   $current_table current table
+ * @param string  $drop_query    query for drop table
+ * @param string  $drop_message  table drop message
+ *
  * @return string $html_output
  */
 function PMA_getHtmlForInsertEmptyDropActionLinks($tbl_url_query, $table_is_view,
     $titles, $empty_table, $current_table, $drop_query, $drop_message
 ) {
     $html_output = '<td class="insert_table center">'
-        . '<a ' 
-        . ($GLOBALS['cfg']['AjaxEnable'] ? 'class="ajax"' : '') 
+        . '<a '
+        . ($GLOBALS['cfg']['AjaxEnable'] ? 'class="ajax"' : '')
         . ' href="tbl_change.php?' . $tbl_url_query . '">'
         . $titles['Insert']
         . '</a></td>';
@@ -560,18 +563,18 @@ function PMA_getHtmlForInsertEmptyDropActionLinks($tbl_url_query, $table_is_view
         . urlencode($drop_query) . '&amp;message_to_show='
         . urlencode($drop_message) . '" >'
         . $titles['Drop'] . '</a></td>';
-    
+
     return $html_output;
 }
 
 /**
  * Get HTML for show stats
- * 
- * @param string $tbl_url_query     tabel url query
- * @param string $formatted_size    formatted size
- * @param string $unit              unit
- * @param string $overhead          overhead
- * 
+ *
+ * @param string $tbl_url_query  tabel url query
+ * @param string $formatted_size formatted size
+ * @param string $unit           unit
+ * @param string $overhead       overhead
+ *
  * @return string $html_output
  */
 function PMA_getHtmlForShowStats($tbl_url_query, $formatted_size,
@@ -583,17 +586,17 @@ function PMA_getHtmlForShowStats($tbl_url_query, $formatted_size,
         . '<span class="unit">' . $unit . '</span>'
         . '</a></td>';
     $html_output .= '<td class="value tbl_overhead">' . $overhead . '</td>';
-    
+
     return $html_output;
 }
 
 /**
  * Get HTML to show database structure creation, last update and last checkx time
- * 
- * @param string $create_time   create time 
- * @param string $update_time   last update time    
- * @param string $check_time    last check time
- * 
+ *
+ * @param string $create_time create time
+ * @param string $update_time last update time
+ * @param string $check_time  last check time
+ *
  * @return string $html_output
  */
 function PMA_getHtmlForStructureTimes($create_time, $update_time, $check_time)
@@ -601,23 +604,23 @@ function PMA_getHtmlForStructureTimes($create_time, $update_time, $check_time)
     $common_functions = PMA_CommonFunctions::getInstance();
     $html_output = '';
     if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
-        $html_output .= '<td class="value tbl_creation">' 
-            . ($create_time 
-                ? $common_functions->localisedDate(strtotime($create_time)) 
+        $html_output .= '<td class="value tbl_creation">'
+            . ($create_time
+                ? $common_functions->localisedDate(strtotime($create_time))
                 : '-' )
             . '</td>';
     } // end if
     if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
         $html_output .= '<td class="value tbl_last_update">'
-            . ($update_time 
-                ? $common_functions->localisedDate(strtotime($update_time)) 
+            . ($update_time
+                ? $common_functions->localisedDate(strtotime($update_time))
                 : '-' )
             . '</td>';
     } // end if
     if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
         $html_output .= '<td class="value tbl_last_check">'
-            . ($check_time 
-                ? $common_functions->localisedDate(strtotime($check_time)) 
+            . ($check_time
+                ? $common_functions->localisedDate(strtotime($check_time))
                 : '-' )
             . '</td>';
     }
@@ -626,20 +629,20 @@ function PMA_getHtmlForStructureTimes($create_time, $update_time, $check_time)
 
 /**
  * Get HTML for ENGINE value not null or view tables that are not empty tables
- * 
- * @param boolean $table_is_view    whether table is view
- * @param array $current_table         current table
- * @param string $collation         collation
- * @param boolean $is_show_stats    whether atats show or not
- * @param string $tbl_url_query     table url query
- * @param string $formatted_size    formatted size
- * @param string $unit              unit
- * @param string $overhead          overhead
- * @param string $create_time       create time
- * @param string $update_time       update time
- * @param string $check_time        check time
- * 
- * @return string $html_output 
+ *
+ * @param boolean $table_is_view  whether table is view
+ * @param array   $current_table  current table
+ * @param string  $collation      collation
+ * @param boolean $is_show_stats  whether atats show or not
+ * @param string  $tbl_url_query  table url query
+ * @param string  $formatted_size formatted size
+ * @param string  $unit           unit
+ * @param string  $overhead       overhead
+ * @param string  $create_time    create time
+ * @param string  $update_time    update time
+ * @param string  $check_time     check time
+ *
+ * @return string $html_output
  */
 function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $current_table,
     $collation, $is_show_stats, $tbl_url_query, $formatted_size, $unit,
@@ -667,7 +670,7 @@ function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $current_table,
                 )
             );
         }
-    } elseif ($current_table['ENGINE'] == 'InnoDB' 
+    } elseif ($current_table['ENGINE'] == 'InnoDB'
         && (! $current_table['COUNTED'])
     ) {
         // InnoDB table: we did not get an accurate row count
@@ -700,15 +703,15 @@ function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $current_table,
     $html_output .= PMA_getHtmlForStructureTimes(
         $create_time, $update_time, $check_time
     );
-    
+
     return $html_output;
 }
 
 /**
  * Get HTML snippet view table
- * 
- * @param type $is_show_stats   whether stats show or not
- * 
+ *
+ * @param type $is_show_stats whether stats show or not
+ *
  * @return string $html_output
  */
 function PMA_getHtmlForViewTable($is_show_stats)
@@ -725,11 +728,11 @@ function PMA_getHtmlForViewTable($is_show_stats)
 
 /**
  * display "in use" below for a table that needs to be repaired
- * 
- * @param integer $colspan_for_structure        colspan for structure
- * @param boolean $db_is_information_schema     whether db is information schema or not
- * 
- * @return string HTML snippet 
+ *
+ * @param integer $colspan_for_structure    colspan for structure
+ * @param boolean $db_is_information_schema whether db is information schema or not
+ *
+ * @return string HTML snippet
  */
 function PMA_getHtmlForRepairtable(
     $colspan_for_structure,
@@ -762,8 +765,8 @@ function PMA_TableHeader($db_is_information_schema = false, $replication = false
     $html_output = '<table class="data">' . "\n"
         .'<thead>' . "\n"
         .'<tr><th></th>' . "\n"
-        .'<th>' 
-        . PMA_sortableTableHeader(__('Table'), 'table') 
+        .'<th>'
+        . PMA_sortableTableHeader(__('Table'), 'table')
         . '</th>' . "\n";
     if ($replication) {
         $html_output .= '<th>' . "\n"
@@ -782,42 +785,42 @@ function PMA_TableHeader($db_is_information_schema = false, $replication = false
         ) . "\n"
         .'</th>' . "\n";
     if (!($GLOBALS['cfg']['PropertiesNumColumns'] > 1)) {
-        $html_output .= '<th>' . PMA_sortableTableHeader(__('Type'), 'type') 
+        $html_output .= '<th>' . PMA_sortableTableHeader(__('Type'), 'type')
             . '</th>' . "\n";
         $cnt++;
-        $html_output .= '<th>' 
-            . PMA_sortableTableHeader(__('Collation'), 'collation') 
+        $html_output .= '<th>'
+            . PMA_sortableTableHeader(__('Collation'), 'collation')
             . '</th>' . "\n";
         $cnt++;
     }
     if ($GLOBALS['is_show_stats']) {
         // larger values are more interesting so default sort order is DESC
-        $html_output .= '<th>' 
+        $html_output .= '<th>'
             . PMA_sortableTableHeader(__('Size'), 'size', 'DESC')
             . '</th>' . "\n"
         // larger values are more interesting so default sort order is DESC
-            . '<th>' 
-            . PMA_sortableTableHeader(__('Overhead'), 'overhead', 'DESC') 
+            . '<th>'
+            . PMA_sortableTableHeader(__('Overhead'), 'overhead', 'DESC')
             . '</th>' . "\n";
         $cnt += 2;
     }
     if ($GLOBALS['cfg']['ShowDbStructureCreation']) {
         // larger values are more interesting so default sort order is DESC
-        $html_output .= '<th>' 
+        $html_output .= '<th>'
             . PMA_sortableTableHeader(__('Creation'), 'creation', 'DESC')
             . '</th>' . "\n";
         $cnt += 2;
     }
     if ($GLOBALS['cfg']['ShowDbStructureLastUpdate']) {
         // larger values are more interesting so default sort order is DESC
-        $html_output .= '<th>' 
-            . PMA_sortableTableHeader(__('Last update'), 'last_update', 'DESC') 
+        $html_output .= '<th>'
+            . PMA_sortableTableHeader(__('Last update'), 'last_update', 'DESC')
             . '</th>' . "\n";
         $cnt += 2;
     }
     if ($GLOBALS['cfg']['ShowDbStructureLastCheck']) {
         // larger values are more interesting so default sort order is DESC
-        $html_output .= '<th>' 
+        $html_output .= '<th>'
             . PMA_sortableTableHeader(__('Last check'), 'last_check', 'DESC')
             . '</th>' . "\n";
         $cnt += 2;
@@ -826,7 +829,7 @@ function PMA_TableHeader($db_is_information_schema = false, $replication = false
     $html_output .= '</thead>' . "\n";
     $html_output .= '<tbody>' . "\n";
     $GLOBALS['colspan_for_structure'] = $cnt + $action_colspan + 3;
-    
+
     return $html_output;
 }
 
@@ -914,47 +917,52 @@ function PMA_sortableTableHeader($title, $sort, $initial_sort_order = 'ASC')
 
 /**
  * Get the alias ant truname
- * 
+ *
  * @param string $tooltip_aliasname tooltip alias name
- * @param array $current_table         current table
+ * @param array  $current_table     current table
  * @param string $tooltip_truename  tooltip true name
- * 
- * @return array ($alias, $truename) 
+ *
+ * @return array ($alias, $truename)
  */
 function PMA_getAliasAndTrueName($tooltip_aliasname, $current_table,
     $tooltip_truename
 ) {
-    $alias = (! empty($tooltip_aliasname) 
+    $alias = (! empty($tooltip_aliasname)
             && isset($tooltip_aliasname[$current_table['TABLE_NAME']])
         )
-        ? str_replace(' ', '&nbsp;',
+        ? str_replace(
+            ' ', '&nbsp;',
             htmlspecialchars($tooltip_truename[$current_table['TABLE_NAME']])
         )
-        : str_replace(' ', '&nbsp;', 
+        : str_replace(
+            ' ', '&nbsp;',
             htmlspecialchars($current_table['TABLE_NAME'])
         );
-    $truename = (! empty($tooltip_truename) 
+    $truename = (! empty($tooltip_truename)
             && isset($tooltip_truename[$current_table['TABLE_NAME']])
         )
-        ? str_replace(' ', '&nbsp;',
+        ? str_replace(
+            ' ', '&nbsp;',
             htmlspecialchars($tooltip_truename[$current_table['TABLE_NAME']])
         )
-        : str_replace(' ', '&nbsp;',
+        : str_replace(
+            ' ', '&nbsp;',
             htmlspecialchars($current_table['TABLE_NAME'])
         );
-    
+
     return array($alias, $truename);
 }
 
 /**
  * Get the server slave state
- * 
- * @param boolean $server_slave_status  server slave state
- * @param string $truename              true name
- * 
+ *
+ * @param boolean $server_slave_status server slave state
+ * @param string  $truename            true name
+ *
  * @return array ($do, $ignored)
  */
-function PMA_getServerSlaveStatus($server_slave_status, $truename) {
+function PMA_getServerSlaveStatus($server_slave_status, $truename)
+{
     $ignored = false;
     $do = false;
     include_once 'libraries/replication.inc.php';
@@ -968,10 +976,7 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename) {
         foreach ($server_slave_Wild_Do_Table as $db_table) {
             $table_part = PMA_extract_db_or_table($db_table, 'table');
             if (($GLOBALS['db'] == PMA_extract_db_or_table($db_table, 'db'))
-                && (preg_match(
-                    "@^" . substr($table_part, 0, strlen($table_part) - 1) . "@",
-                    $truename)
-                )
+                && (preg_match("@^" . substr($table_part, 0, strlen($table_part) - 1) . "@", $truename))
             ) {
                 $do = true;
             }
@@ -985,10 +990,7 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename) {
         foreach ($server_slave_Wild_Ignore_Table as $db_table) {
             $table_part = PMA_extract_db_or_table($db_table, 'table');
             if (($db == PMA_extract_db_or_table($db_table))
-                && (preg_match(
-                    "@^" . substr($table_part, 0, strlen($table_part) - 1) . "@",
-                    $truename)
-                )
+                && (preg_match("@^" . substr($table_part, 0, strlen($table_part) - 1) . "@", $truename))
             ) {
                 $ignored = true;
             }
@@ -1001,15 +1003,15 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename) {
  * Get the value set for ENGINE table,
  * $current_table, $formatted_size, $unit, $formatted_overhead,
  * $overhead_unit, $overhead_size, $table_is_view
- * 
- * @param array $current_table              current table
+ *
+ * @param array   $current_table            current table
  * @param boolean $db_is_information_schema whether db is information schema or not
  * @param boolean $is_show_stats            whether stats show or not
  * @param boolean $table_is_view            whether table is view or not
- * @param double $sum_size                  totla table size
- * @param double $overhead_size             overhead size
- * 
- * @return array 
+ * @param double  $sum_size                 totle table size
+ * @param double  $overhead_size            overhead size
+ *
+ * @return array
  */
 function PMA_getStuffForEngineTypeTable($current_table, $db_is_information_schema,
     $is_show_stats, $table_is_view, $sum_size, $overhead_size
@@ -1046,7 +1048,7 @@ function PMA_getStuffForEngineTypeTable($current_table, $db_is_information_schem
             = PMA_getValuesForPbmsTable($current_table, $is_show_stats, $sum_size);
         //$display_rows                   =  ' - ';
         break;
-    // Mysql 5.0.x (and lower) uses MRG_MyISAM 
+    // Mysql 5.0.x (and lower) uses MRG_MyISAM
     // and MySQL 5.1.x (and higher) uses MRG_MYISAM
     // Both are aliases for MERGE
     case 'MRG_MyISAM' :
@@ -1081,7 +1083,7 @@ function PMA_getStuffForEngineTypeTable($current_table, $db_is_information_schem
             $unit          =  '';
         }
     } // end switch
-    
+
     return array($current_table, $formatted_size, $unit, $formatted_overhead,
         $overhead_unit, $overhead_size, $table_is_view, $sum_size
     );
@@ -1091,14 +1093,14 @@ function PMA_getStuffForEngineTypeTable($current_table, $db_is_information_schem
  * Get values for ARIA/MARIA tables
  * $current_table, $formatted_size, $unit, $formatted_overhead,
  * $overhead_unit, $overhead_size
- * 
+ *
  * @param boolean $db_is_information_schema whether db is information schema or not
- * @param array $current_table              current table
+ * @param array   $current_table            current table
  * @param boolean $is_show_stats            whether stats show or not
- * @param double $sum_size                  sum size
- * @param double $overhead_size             overhead size
- * 
- * @return array 
+ * @param double  $sum_size                 sum size
+ * @param double  $overhead_size            overhead size
+ *
+ * @return array
  */
 function PMA_getValuesForAriaTable($db_is_information_schema, $current_table,
     $is_show_stats, $sum_size, $overhead_size, $formatted_size, $unit,
@@ -1106,13 +1108,13 @@ function PMA_getValuesForAriaTable($db_is_information_schema, $current_table,
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
     if ($db_is_information_schema) {
-            $current_table['Rows'] = PMA_Table::countRecords(
-                $GLOBALS['db'], $current_table['Name']
-            );
-        }
+        $current_table['Rows'] = PMA_Table::countRecords(
+            $GLOBALS['db'], $current_table['Name']
+        );
+    }
 
     if ($is_show_stats) {
-        $tblsize = doubleval($current_table['Data_length']) 
+        $tblsize = doubleval($current_table['Data_length'])
             + doubleval($current_table['Index_length']);
         $sum_size += $tblsize;
         list($formatted_size, $unit) = $common_functions->formatByteDown(
@@ -1135,12 +1137,12 @@ function PMA_getValuesForAriaTable($db_is_information_schema, $current_table,
 /**
  * Get valuse for PBMS table
  * $current_table, $formatted_size, $unit, $sum_size
- * 
- * @param array $current_table         current table
- * @param boolean $is_show_stats    whether stats show or not
- * @param double $sum_size          sum size
- * 
- * @return array 
+ *
+ * @param array   $current_table current table
+ * @param boolean $is_show_stats whether stats show or not
+ * @param double  $sum_size      sum size
+ *
+ * @return array
  */
 function PMA_getValuesForPbmsTable($current_table, $is_show_stats, $sum_size)
 {
@@ -1166,7 +1168,7 @@ function PMA_getValuesForPbmsTable($current_table, $is_show_stats, $sum_size)
             $tblsize, 3, (($tblsize > 0) ? 1 : 0)
         );
     }
-    
+
     return array($current_table, $formatted_size, $unit, $sum_size);
 }
 
@@ -1176,10 +1178,10 @@ function PMA_getValuesForPbmsTable($current_table, $is_show_stats, $sum_size)
 
 /**
  * Get the HTML snippet for structure table table header
- * 
- * @param type $db_is_information_schema    whether db is information schema or not
- * @param type $tbl_is_view                 whether table is view or nt
- * 
+ *
+ * @param type $db_is_information_schema whether db is information schema or not
+ * @param type $tbl_is_view              whether table is view or nt
+ *
  * @return string $html_output
  */
 function PMA_getHtmlForTableStructureHeader(
@@ -1197,10 +1199,10 @@ function PMA_getHtmlForTableStructureHeader(
         . '<th>' . __('Null') . '</th>'
         . '<th>' . __('Default') . '</th>'
         . '<th>' . __('Extra') . '</th>';
-    
+
     if ($db_is_information_schema || $tbl_is_view) {
         $html_output .= '<th>' . __('View') . '</th>';
-    }  else { /* see tbl_structure.js, function moreOptsMenuResize() */
+    } else { /* see tbl_structure.js, function moreOptsMenuResize() */
         $colspan = 9;
         if (PMA_DRIZZLE) {
             $colspan -= 2;
@@ -1209,37 +1211,37 @@ function PMA_getHtmlForTableStructureHeader(
             $colspan--;
         }
         $html_output .= '<th colspan="' . $colspan . '" '
-            . 'class="action">' . __('Action') . '</th>';   
+            . 'class="action">' . __('Action') . '</th>';
     }
     $html_output .= '</tr>'
         . '</thead>';
-    
+
     return $html_output;
 }
 
 /**
  * Get HTML for structure table's rows and return $odd_row parameter also
  * For "Action" Column, this function contains only HTML code for "Change" and "Drop"
- * 
- * @param array $row                        current row
- * @param string $rownum                    row number
- * @param string $checked                   checked
- * @param string $displayed_field_name      displayed field name
- * @param string $type_nowrap               type nowrap
- * @param array $extracted_columnspec       associative array containing type, 
- *                                          spec_in_brackets
- *                                          and possibly enum_set_values (another array)
- * @param string $type_mime                 mime type
- * @param string $field_charset             field charset
- * @param string $attribute                 attribute (BINARY, UNSIGNED, 
+ *
+ * @param array   $row                      current row
+ * @param string  $rownum                   row number
+ * @param string  $checked                  checked
+ * @param string  $displayed_field_name     displayed field name
+ * @param string  $type_nowrap              type nowrap
+ * @param array   $extracted_columnspec     associative array containing type,
+ *                                          spec_in_brackets and possibly
+ *                                          enum_set_values (another array)
+ * @param string  $type_mime                mime type
+ * @param string  $field_charset            field charset
+ * @param string  $attribute                attribute (BINARY, UNSIGNED,
  *                                          UNSIGNED ZEROFILL, on update CURRENT_TIMESTAMP)
  * @param boolean $tbl_is_view              whether tables is view or not
  * @param boolean $db_is_information_schema whether db is information schema or not
- * @param string $url_query                 url query
- * @param string $field_encoded             field encoded
- * @param array $titles                     tittles array
- * @param string $table                     table
- * 
+ * @param string  $url_query                url query
+ * @param string  $field_encoded            field encoded
+ * @param array   $titles                   tittles array
+ * @param string  $table                    table
+ *
  * @return array ($html_output, $odd_row)
  */
 function PMA_getHtmlTableStructureRow($row, $rownum, $checked,
@@ -1248,40 +1250,40 @@ function PMA_getHtmlTableStructureRow($row, $rownum, $checked,
     $url_query, $field_encoded, $titles, $table
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
-    
+
     $html_output = '<td class="center">'
         . '<input type="checkbox" class="checkall" name="selected_fld[]" '
         . 'value="' . htmlspecialchars($row['Field']) . '" '
         . 'id="checkbox_row_' . $rownum . '"' . $checked . '/>'
         . '</td>';
-    
+
     $html_output .= '<td class="right">'
         . $rownum
         . '</td>';
-    
+
     $html_output .= '<th class="nowrap">'
-        . '<label for="checkbox_row_' . $rownum . '">' 
+        . '<label for="checkbox_row_' . $rownum . '">'
         . $displayed_field_name . '</label>'
         . '</th>';
-    
-    $html_output .= '<td' . $type_nowrap . '>' 
+
+    $html_output .= '<td' . $type_nowrap . '>'
         .'<bdo dir="ltr" lang="en">'
-        . $extracted_columnspec['displayed_type'] . $type_mime 
+        . $extracted_columnspec['displayed_type'] . $type_mime
         . '</bdo></td>';
-    
-    $html_output .= '<td>' . 
-        (empty($field_charset) 
-            ? '' 
-            : '<dfn title="' . PMA_getCollationDescr($field_charset) . '">' 
+
+    $html_output .= '<td>' .
+        (empty($field_charset)
+            ? ''
+            : '<dfn title="' . PMA_getCollationDescr($field_charset) . '">'
                 . $field_charset . '</dfn>'
-        ) 
+        )
         . '</td>';
-    
+
     $html_output .= '<td class="column_attribute nowrap">'
         . $attribute . '</td>';
-    $html_output .= '<td>' 
+    $html_output .= '<td>'
         . (($row['Null'] == 'YES') ? __('Yes') : __('No')) . '  </td>';
-    
+
     $html_output .= '<td class="nowrap">';
     if (isset($row['Default'])) {
         if ($extracted_columnspec['type'] == 'bit') {
@@ -1294,11 +1296,12 @@ function PMA_getHtmlTableStructureRow($row, $rownum, $checked,
         $html_output .= '<i>' . _pgettext('None for default', 'None') . '</i>';
     }
     $html_output .= '</td>';
-    
+
     $html_output .= '<td class="nowrap">' . strtoupper($row['Extra']) . '</td>';
-    
-    $html_output .= PMA_getHtmlForDropColumn($tbl_is_view,
-        $db_is_information_schema, $url_query, $field_encoded,
+
+    $html_output .= PMA_getHtmlForDropColumn(
+        $tbl_is_view, $db_is_information_schema,
+        $url_query, $field_encoded,
         $titles, $table, $row
     );
 
@@ -1307,15 +1310,15 @@ function PMA_getHtmlTableStructureRow($row, $rownum, $checked,
 
 /**
  * Get HTML code for "Drop" Action link
- * 
+ *
  * @param boolean $tbl_is_view              whether tables is view or not
  * @param boolean $db_is_information_schema whether db is information schema or not
- * @param string $url_query                 url query
- * @param string $field_encoded             field encoded
- * @param array $titles                     tittles array
- * @param string $table                     table
- * @param array $row                        current row
- * 
+ * @param string  $url_query                url query
+ * @param string  $field_encoded            field encoded
+ * @param array   $titles                   tittles array
+ * @param string  $table                    table
+ * @param array   $row                      current row
+ *
  * @return string $html_output
  */
 function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_information_schema,
@@ -1323,57 +1326,60 @@ function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_information_schema,
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
     $html_output = '';
-    
+
     if (! $tbl_is_view && ! $db_is_information_schema) {
         $html_output .= '<td class="edit center">'
             . '<a href="tbl_alter.php?' . $url_query . '&amp;field=' . $field_encoded . '">'
             . $titles['Change'] . '</a>' . '</td>';
         $html_output .= '<td class="drop center">'
-            . '<a ' 
-            . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="drop_column_anchor"' : '') 
-            . ' href="sql.php?' . $url_query . '&amp;sql_query=' 
-            . urlencode('ALTER TABLE ' . $common_functions->backquote($table) 
+            . '<a '
+            . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="drop_column_anchor"' : '')
+            . ' href="sql.php?' . $url_query . '&amp;sql_query='
+            . urlencode(
+                'ALTER TABLE ' . $common_functions->backquote($table)
                 . ' DROP ' . $common_functions->backquote($row['Field']) . ';'
-            ) 
-            . '&amp;dropped_column=' . urlencode($row['Field']) 
-            . '&amp;message_to_show=' . urlencode(sprintf(
-                __('Column %s has been dropped'),
-                htmlspecialchars($row['Field']))
+            )
+            . '&amp;dropped_column=' . urlencode($row['Field'])
+            . '&amp;message_to_show=' . urlencode(
+                sprintf(
+                    __('Column %s has been dropped'),
+                    htmlspecialchars($row['Field'])
+                )
             ) . '" >'
             . $titles['Drop'] . '</a>'
             . '</td>';
     }
-    
+
     return $html_output;
 }
 
 /**
  * Get HTML for "check all" check box with "with selected" actions in table structure
- * 
- * @param string $pmaThemeImage             pma theme image url
- * @param string $text_dir                  test directory
+ *
+ * @param string  $pmaThemeImage            pma theme image url
+ * @param string  $text_dir                 test directory
  * @param boolean $tbl_is_view              whether table is view or not
  * @param boolean $db_is_information_schema whether db is information schema or not
- * @param string $tbl_storage_engine        table storage engine
- * 
+ * @param string  $tbl_storage_engine       table storage engine
+ *
  * @return string $html_output
  */
 function PMA_getHtmlForCheckAllTableColumn($pmaThemeImage, $text_dir,
     $tbl_is_view, $db_is_information_schema, $tbl_storage_engine
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
-    
+
     $html_output = '<img class="selectallarrow" '
         . 'src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png' . '"'
         . 'width="38" height="22" alt="' . __('With selected:') . '" />';
-    
+
     $html_output .= '<input type="checkbox" id="checkall" '
         . 'title="' . __('Check All') . '" />'
         . '<label for="checkall">' . __('Check All') . '</label>';
-    
-    $html_output .= '<i style="margin-left: 2em">' 
+
+    $html_output .= '<i style="margin-left: 2em">'
         . __('With selected:') . '</i>';
-    
+
     $html_output .= $common_functions->getButtonOrImage(
         'submit_mult', 'mult_submit', 'submit_mult_browse',
         __('Browse'), 'b_browse.png', 'browse'
@@ -1424,15 +1430,15 @@ function PMA_getHtmlForCheckAllTableColumn($pmaThemeImage, $text_dir,
 }
 
 /**
- * Get HTML for move columns dialog 
- * 
+ * Get HTML for move columns dialog
+ *
  * @return string $html_output
  */
 function PMA_getHtmlDivForMoveColumnsDialog()
 {
-    $html_output = '<div id="move_columns_dialog" ' 
+    $html_output = '<div id="move_columns_dialog" '
         . 'title="' . __('Move columns') . '" style="display: none">';
-    
+
     $html_output .= '<p>'
         . __('Move the columns by dragging them up and down.') . '</p>';
 
@@ -1443,21 +1449,21 @@ function PMA_getHtmlDivForMoveColumnsDialog()
         . '</div>'
         . '</form>'
         . '</div>';
-    
+
     return $html_output;
 }
 
 /**
  * Get HTML for edit views'
- * 
+ *
  * @param string $url_params
- * 
+ *
  * @return string $html_output
  */
 function PMA_getHtmlForEditView($url_params)
 {
     $common_functions = PMA_CommonFunctions::getInstance();
-    
+
     $create_view = PMA_DBI_get_definition($GLOBALS['db'], 'VIEW', $GLOBALS['table']);
     $create_view = preg_replace('@^CREATE@', 'ALTER', $create_view);
     $html_output = $common_functions->linkOrButton(
@@ -1476,28 +1482,28 @@ function PMA_getHtmlForEditView($url_params)
 /**
  * Get HTML links for 'Print view', 'Relation view', 'Propose table structure',
  * 'Track table' and 'Move columns'
- * 
- * @param string $url_query                 url query
+ *
+ * @param string  $url_query                url query
  * @param boolean $tbl_is_view              whether table is view or not
  * @param boolean $db_is_information_schema whether db is information schema or not
- * @param string $tbl_storage_engine        table storage engine
- * @param array $cfgRelation                current relation parameters
- * 
+ * @param string  $tbl_storage_engine       table storage engine
+ * @param array   $cfgRelation              current relation parameters
+ *
  * @return string $html_output
  */
 function PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
     $db_is_information_schema, $tbl_storage_engine, $cfgRelation
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
-    
+
     $html_output = '<a href="tbl_printview.php?' . $url_query . '">'
         . $common_functions->getIcon('b_print.png', __('Print view'), true)
         . '</a>';
-    
+
     if (! $tbl_is_view && ! $db_is_information_schema) {
         // if internal relations are available, or foreign keys are supported
         // ($tbl_storage_engine comes from libraries/tbl_info.inc.php
-        
+
         if ($cfgRelation['relwork']
             || $common_functions->isForeignKeySupported($tbl_storage_engine)
         ) {
@@ -1508,13 +1514,13 @@ function PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
                 . '</a>';
         }
         if (!PMA_DRIZZLE) {
-            $html_output .= '<a href="sql.php?' . $url_query 
+            $html_output .= '<a href="sql.php?' . $url_query
                 . '&amp;session_max_rows=all&amp;sql_query=' . urlencode(
-                    'SELECT * FROM ' . $common_functions->backquote($GLOBALS['table']) 
-                        . ' PROCEDURE ANALYSE()'
+                    'SELECT * FROM ' . $common_functions->backquote($GLOBALS['table'])
+                    . ' PROCEDURE ANALYSE()'
                 ) . '">'
                 . $common_functions->getIcon(
-                    'b_tblanalyse.png', 
+                    'b_tblanalyse.png',
                     __('Propose table structure'),
                     true
                 )
@@ -1532,31 +1538,32 @@ function PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
             . $common_functions->getIcon('b_move.png', __('Move columns'), true)
             . '</a>';
     }
-    
+
     return $html_output;
 }
 
 /**
  * Get HTML snippet for "Add column" feature in structure table
- * 
- * @param array $columns_list   column list array
- * 
+ *
+ * @param array $columns_list column list array
+ *
  * @return string $html_output
  */
 function PMA_getHtmlForAddColumn($columns_list)
 {
     $common_functions = PMA_CommonFunctions::getInstance();
-    
+
     $html_output = '<form method="post" action="tbl_addfield.php" '
-        . 'id="addColumns" name="addColumns" ' 
+        . 'id="addColumns" name="addColumns" '
         . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '')
         . 'onsubmit="return checkFormElementInRange('
-            . 'this, \'num_fields\', \'' . str_replace('\'',
+            . 'this, \'num_fields\', \'' . str_replace(
+                '\'',
                 '\\\'',
                 __('You have to add at least one column.')
             ) . ', 1)'
         . '">';
-    
+
     $html_output .= PMA_generate_common_hidden_inputs(
         $GLOBALS['db'],
         $GLOBALS['table']
@@ -1570,17 +1577,17 @@ function PMA_getHtmlForAddColumn($columns_list)
     $num_fields = '<input type="text" name="num_fields" size="2" '
         . 'maxlength="2" value="1" onfocus="this.select()" />';
     $html_output .= sprintf(__('Add %s column(s)'), $num_fields);
-    
+
     // I tried displaying the drop-down inside the label but with Firefox
     // the drop-down was blinking
-    $column_selector = '<select name="after_field" ' 
+    $column_selector = '<select name="after_field" '
         . 'onclick="this.form.field_where[2].checked=true" '
         . 'onchange="this.form.field_where[2].checked=true">';
-    
+
     foreach ($columns_list as $one_column_name) {
         $column_selector .= '<option '
-            . 'value="' . htmlspecialchars($one_column_name) . '">' 
-            . htmlspecialchars($one_column_name) 
+            . 'value="' . htmlspecialchars($one_column_name) . '">'
+            . htmlspecialchars($one_column_name)
             . '</option>';
     }
     $column_selector .= '</select>';
@@ -1596,13 +1603,13 @@ function PMA_getHtmlForAddColumn($columns_list)
     $html_output .= $column_selector;
     $html_output .= '<input type="submit" value="' . __('Go') . '" />'
         . '</form>';
-    
+
     return $html_output;
 }
 
 /**
  * Get HTML for display indexes
- * 
+ *
  * @return string $html_output
  */
 function PMA_getHtmlForDisplayIndexes()
@@ -1622,23 +1629,23 @@ function PMA_getHtmlForDisplayIndexes()
         . '<input '
         . 'class="add_index' . ($GLOBALS['cfg']['AjaxEnable'] ? ' ajax' : '')
         . '" type="submit" value="' . __('Go') . '" />';
-    
+
     $html_output .= '</form>'
         . '</fieldset>'
         . '</div>'
         . '</div>';
-    
+
     return $html_output;
 }
 
 /**
  * Get HTML snippet for table rows in the Information ->Space usage table
- * 
- * @param boolean $odd_row  whether current row is odd or even
- * @param string $name      type of usage
- * @param string $value     value of usage
- * @param string $unit      unit
- * 
+ *
+ * @param boolean $odd_row whether current row is odd or even
+ * @param string  $name    type of usage
+ * @param string  $value   value of usage
+ * @param string  $unit    unit
+ *
  * @return string $html_output
  */
 function PMA_getHtmlForSpaceUsageTableRow($odd_row, $name, $value, $unit)
@@ -1648,24 +1655,24 @@ function PMA_getHtmlForSpaceUsageTableRow($odd_row, $name, $value, $unit)
     $html_output .= '<td class="value">' . $value . '</td>';
     $html_output .= '<td class="unit">' . $unit . '</td>';
     $html_output .= '</tr>';
-    
+
     return $html_output;
 }
 
 /**
  * Get HTML for Optimize link if overhead in Information fieldset
- * 
- * @param type $url_query   URL query
- * 
+ *
+ * @param type $url_query URL query
+ *
  * @return string $html_output
  */
 function PMA_getHtmlForOptimizeLink($url_query)
 {
     $common_functions = PMA_CommonFunctions::getInstance();
-    
+
     $html_output = '<tr class="tblFooters">';
     $html_output .= '<td colspan="3" class="center">';
-    $html_output .= '<a href="sql.php?' . $url_query 
+    $html_output .= '<a href="sql.php?' . $url_query
         . '&pos=0&amp;sql_query=' . urlencode(
             'OPTIMIZE TABLE ' . $common_functions->backquote($GLOBALS['table'])
         )
@@ -1674,54 +1681,54 @@ function PMA_getHtmlForOptimizeLink($url_query)
         . '</a>';
     $html_output .= '</td>';
     $html_output .= '</tr>';
-    
+
     return $html_output;
 }
 
 /**
  * Get HTML for 'Row statistics' table row
- * 
- * @param type $odd_row     whether current row is odd or even
- * @param type $name        statement name
- * @param type $value       value
- * 
+ *
+ * @param type $odd_row whether current row is odd or even
+ * @param type $name    statement name
+ * @param type $value   value
+ *
  * @return string $html_output
  */
 function PMA_getHtmlForRowStatsTableRow($odd_row, $name, $value)
 {
     $common_functions = PMA_CommonFunctions::getInstance();
-    
+
     $html_output = '<tr class="' . (($odd_row = !$odd_row) ? 'odd' : 'even') . '">';
     $html_output .= '<th class="name">' . $name . '</th>';
     $html_output .= '<td class="value">' . $value . '</td>';
     $html_output .= '</tr>';
-    
+
     return $html_output;
 }
 
 /**
  * Get HTML snippet for display Row statistics table
- * 
- * @param array $showtable      show table array
- * @param string $tbl_collation table collation
- * @param boolean $is_innodb    whether table is innob or not
- * @param boolean $mergetable   Checks if current table is a merge table
- * @param integer $avg_size     average size
- * @param string $avg_unit      average unit
- * 
+ *
+ * @param array   $showtable     show table array
+ * @param string  $tbl_collation table collation
+ * @param boolean $is_innodb     whether table is innob or not
+ * @param boolean $mergetable    Checks if current table is a merge table
+ * @param integer $avg_size      average size
+ * @param string  $avg_unit      average unit
+ *
  * @return string $html_output
  */
 function getHtmlForRowStatsTable($showtable, $tbl_collation,
     $is_innodb, $mergetable, $avg_size, $avg_unit
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
-    
+
     $odd_row = false;
     $html_output = '<table id="tablerowstats" class="data">';
-    $html_output .= '<caption class="tblHeaders">' 
+    $html_output .= '<caption class="tblHeaders">'
         . __('Row Statistics') . '</caption>';
     $html_output .= '<tbody>';
-    
+
     if (isset($showtable['Row_format'])) {
         if ($showtable['Row_format'] == 'Fixed') {
             $value = __('static');
@@ -1747,7 +1754,7 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
         $odd_row = !$odd_row;
     }
     if (!empty($tbl_collation)) {
-        $value = '<dfn title="' . PMA_getCollationDescr($tbl_collation) . '">' 
+        $value = '<dfn title="' . PMA_getCollationDescr($tbl_collation) . '">'
             . $tbl_collation . '</dfn>';
         $html_output .= PMA_getHtmlForRowStatsTableRow(
             $odd_row, __('Collation'), $value
@@ -1755,53 +1762,62 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
         $odd_row = !$odd_row;
     }
     if (!$is_innodb && isset($showtable['Rows'])) {
-        $html_output .= PMA_getHtmlForRowStatsTableRow($odd_row,
-            __('Rows'), $common_functions->formatNumber($showtable['Rows'], 0)
+        $html_output .= PMA_getHtmlForRowStatsTableRow(
+            $odd_row,
+            __('Rows'),
+            $common_functions->formatNumber($showtable['Rows'], 0)
         );
         $odd_row = !$odd_row;
     }
-    if (!$is_innodb 
-        && isset($showtable['Avg_row_length']) 
+    if (!$is_innodb
+        && isset($showtable['Avg_row_length'])
         && $showtable['Avg_row_length'] > 0
     ) {
-        $html_output .= PMA_getHtmlForRowStatsTableRow($odd_row, 
+        $html_output .= PMA_getHtmlForRowStatsTableRow(
+            $odd_row,
             __('Row length'),
             $common_functions->formatNumber($showtable['Avg_row_length'], 0)
         );
         $odd_row = !$odd_row;
     }
-    if (!$is_innodb 
-        && isset($showtable['Data_length']) 
-        && $showtable['Rows'] > 0 
+    if (!$is_innodb
+        && isset($showtable['Data_length'])
+        && $showtable['Rows'] > 0
         && $mergetable == false
     ) {
-        $html_output .= PMA_getHtmlForRowStatsTableRow($odd_row, 
-            __('Row size'), ($avg_size . ' ' . $avg_unit)
+        $html_output .= PMA_getHtmlForRowStatsTableRow(
+            $odd_row,
+            __('Row size'),
+            ($avg_size . ' ' . $avg_unit)
         );
         $odd_row = !$odd_row;
     }
     if (isset($showtable['Auto_increment'])) {
-        $html_output .= PMA_getHtmlForRowStatsTableRow($odd_row, 
+        $html_output .= PMA_getHtmlForRowStatsTableRow(
+            $odd_row,
             __('Next autoindex'),
             $common_functions->formatNumber($showtable['Auto_increment'], 0)
         );
         $odd_row = !$odd_row;
     }
     if (isset($showtable['Create_time'])) {
-        $html_output .= PMA_getHtmlForRowStatsTableRow($odd_row, 
+        $html_output .= PMA_getHtmlForRowStatsTableRow(
+            $odd_row,
             __('Creation'),
             $common_functions->localisedDate(strtotime($showtable['Create_time']))
         );
     }
     if (isset($showtable['Update_time'])) {
-        $html_output .= PMA_getHtmlForRowStatsTableRow($odd_row, 
+        $html_output .= PMA_getHtmlForRowStatsTableRow(
+            $odd_row,
             __('Last update'),
             $common_functions->localisedDate(strtotime($showtable['Update_time']))
         );
         $odd_row = !$odd_row;
     }
     if (isset($showtable['Check_time'])) {
-        $html_output .= PMA_getHtmlForRowStatsTableRow($odd_row, 
+        $html_output .= PMA_getHtmlForRowStatsTableRow(
+            $odd_row,
             __('Last check'),
             $common_functions->localisedDate(strtotime($showtable['Check_time']))
         );
@@ -1810,23 +1826,23 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
     . '</table>'
     . '</fieldset>'
     . '</div>';
-    
+
     return $html_output;
 }
 
 /**
  * Get HTML divs for Structure Action drop down
- * 
- * @param string $class             div class
+ *
+ * @param string  $class            div class
  * @param boolean $isActionEnabled  whether action is enabled or not
- * @param string $url_query         url query
- * @param array $row                current row
- * @param array $hidden_titles      hidden titles if action enabled
- * @param array $hidden_titles_no   hidden titles if action not enabled
+ * @param string  $url_query        url query
+ * @param array   $row              current row
+ * @param array   $hidden_titles    hidden titles if action enabled
+ * @param array   $hidden_titles_no hidden titles if action not enabled
  * @param boolean $primary          primary or not
- * @param string $syntax            syntax for add action
- * @param string $message           message to be shown
- * 
+ * @param string  $syntax           syntax for add action
+ * @param string  $message          message to be shown
+ *
  * @return string $html_output
  */
 function PMA_getHtmlDivsForStructureActionsDropdown($class, $isActionEnabled,
@@ -1834,17 +1850,17 @@ function PMA_getHtmlDivsForStructureActionsDropdown($class, $isActionEnabled,
     $message, $isPrimary
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
-    
+
     $html_output = '<div  class="' . $class . '">';
     if ($isActionEnabled) {
-        $html_output .= '<a href="sql.php?' .  $url_query 
-            . '&amp;sql_query=' 
+        $html_output .= '<a href="sql.php?' .  $url_query
+            . '&amp;sql_query='
             . urlencode(
-                'ALTER TABLE ' . $common_functions->backquote($GLOBALS['table']) 
-                    . ($isPrimary ? ($primary ? ' DROP PRIMARY KEY,' : '') : '') 
-                    . ' ' . $syntax . '(' 
-                    . $common_functions->backquote($row['Field']) . ');'
-            ) 
+                'ALTER TABLE ' . $common_functions->backquote($GLOBALS['table'])
+                . ($isPrimary ? ($primary ? ' DROP PRIMARY KEY,' : '') : '')
+                . ' ' . $syntax . '('
+                . $common_functions->backquote($row['Field']) . ');'
+            )
             . '&amp;message_to_show=' . urlencode(
                 sprintf(
                     $message,
@@ -1853,48 +1869,48 @@ function PMA_getHtmlDivsForStructureActionsDropdown($class, $isActionEnabled,
             )
             . '">'
             . $hidden_titles
-            . '</a>';      
+            . '</a>';
     } else {
          $html_output .= $hidden_titles_no;
     }
     $html_output .= '</div>';
-    
+
     return $html_output;
 }
 
 /**
  * Get HTML snippet for more option in table structure
- * 
- * @param type $rownum              row numbers
- * @param type $primary_enabled     is primary enabled
- * @param type $url_query           url query
- * @param type $row                 current row
- * @param type $hidden_titles       hidden titles array
- * @param type $unique_enabled      is unique enabled
- * @param type $unique_enabled      is unique enabled
- * @param type $index_enabled       is index enabled
- * @param type $fulltext_enabled    is fulltext enabled
- * @param type $spatial_enabled     is spatial enabled
- * @param type $primary             primary
- * 
+ *
+ * @param type $rownum           row numbers
+ * @param type $primary_enabled  is primary enabled
+ * @param type $url_query        url query
+ * @param type $row              current row
+ * @param type $hidden_titles    hidden titles array
+ * @param type $unique_enabled   is unique enabled
+ * @param type $unique_enabled   is unique enabled
+ * @param type $index_enabled    is index enabled
+ * @param type $fulltext_enabled is fulltext enabled
+ * @param type $spatial_enabled  is spatial enabled
+ * @param type $primary          primary
+ *
  * @return string $html_output
  */
 function PMA_getHtmlForMoreOptionInTableStructure($rownum, $primary_enabled,
-    $url_query, $row, $hidden_titles, $unique_enabled, $index_enabled, 
+    $url_query, $row, $hidden_titles, $unique_enabled, $index_enabled,
     $fulltext_enabled, $spatial_enabled, $primary
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
-    
+
     $html_output = '<td class="more_opts" id="more_opts' . $rownum . '">';
     $html_output .= $common_functions->getImage(
         'more.png', __('Show more actions')
     ) . __('More');
     $html_output .= '<div class="structure_actions_dropdown" id="row_' . $rownum . '">';
-    
+
     $class = ($GLOBALS['cfg']['AjaxEnable'] ? 'action_primary ' : '')
         . 'replace_in_more';
-    $html_output .= PMA_getHtmlDivsForStructureActionsDropdown($class,
-        $primary_enabled, $url_query, $row, $hidden_titles['Primary'],
+    $html_output .= PMA_getHtmlDivsForStructureActionsDropdown(
+        $class, $primary_enabled, $url_query, $row, $hidden_titles['Primary'],
         $hidden_titles['NoPrimary'], $primary, 'ADD PRIMARY KEY',
         __('A primary key has been added on %s'), true
     );
@@ -1928,94 +1944,97 @@ function PMA_getHtmlForMoreOptionInTableStructure($rownum, $primary_enabled,
             $hidden_titles['NoIdxFulltext'], false, 'ADD FULLTEXT',
             __('An index has been added on %s'), false
         );
-        
+
         $html_output .= '<div class="action_browse replace_in_more">';
-        $html_output .= '<a href="sql.php?' . $url_query 
+        $html_output .= '<a href="sql.php?' . $url_query
             . '&amp;sql_query=' . urlencode(
-                'SELECT COUNT(*) AS ' . $common_functions->backquote(__('Rows')) 
-                    . ', ' . $common_functions->backquote($row['Field']) 
-                    . ' FROM ' . $common_functions->backquote($GLOBALS['table']) 
-                    . ' GROUP BY ' . $common_functions->backquote($row['Field']) 
-                    . ' ORDER BY ' . $common_functions->backquote($row['Field'])) 
-                    . '&amp;browse_distinct=1">'
+                'SELECT COUNT(*) AS ' . $common_functions->backquote(__('Rows'))
+                . ', ' . $common_functions->backquote($row['Field'])
+                . ' FROM ' . $common_functions->backquote($GLOBALS['table'])
+                . ' GROUP BY ' . $common_functions->backquote($row['Field'])
+                . ' ORDER BY ' . $common_functions->backquote($row['Field'])
+            )
+            . '&amp;browse_distinct=1">'
             . $hidden_titles['DistinctValues']
             . '</a>';
         $html_output .= '</div>';
     }
     $html_output .= '</div></td>';
-    
+
     return $html_output;
 }
 
 /**
  * Get HTML snippet for action row in structure table,
  * This function returns common HTML <td> for Primary, Unique, Index, Spatial actions
- * 
- * @param array $type                   column type
- * @param array $tbl_storage_engine     table storage engine
- * @param string $class                 class attribute for <td>
- * @param boolean $hasField             has field
- * @param boolean $hasLinkClass         has <a> the class attribute
- * @param string $url_query             url query
- * @param boolean $primary              primary if set, false otherwise
- * @param string $syntax                Sql syntax
- * @param string $message               message to show
- * @param string $action                action
- * @param array $titles                 titles array
- * @param array $row                    current row
- * @param boolean $isPrimary            is primary action
- * 
- * @return array $html_output, $action_enabled 
+ *
+ * @param array   $type               column type
+ * @param array   $tbl_storage_engine table storage engine
+ * @param string  $class              class attribute for <td>
+ * @param boolean $hasField           has field
+ * @param boolean $hasLinkClass       has <a> the class attribute
+ * @param string  $url_query          url query
+ * @param boolean $primary            primary if set, false otherwise
+ * @param string  $syntax             Sql syntax
+ * @param string  $message            message to show
+ * @param string  $action             action
+ * @param array   $titles             titles array
+ * @param array   $row                current row
+ * @param boolean $isPrimary          is primary action
+ *
+ * @return array $html_output, $action_enabled
  */
 function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
     $class, $hasField, $hasLinkClass, $url_query, $primary, $syntax,
     $message, $action, $titles, $row, $isPrimary
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
-    
+
     $html_output = '<td class="'. $class .'">';
-    
-    if ($type == 'text' 
-        || $type == 'blob' 
-        || 'ARCHIVE' == $tbl_storage_engine 
+
+    if ($type == 'text'
+        || $type == 'blob'
+        || 'ARCHIVE' == $tbl_storage_engine
         || $hasField
     ) {
         $html_output .= $titles['No' . $action] . "\n";
         $action_enabled = false;
     } else {
         $html_output .= "\n";
-        $html_output .= '<a ' 
+        $html_output .= '<a '
             . ($hasLinkClass ? 'class="add_primary_key_anchor" ' : '')
-            . 'href="sql.php?' . $url_query . '&amp;sql_query=' 
+            . 'href="sql.php?' . $url_query . '&amp;sql_query='
             . urlencode(
                 'ALTER TABLE ' . $common_functions->backquote($GLOBALS['table'])
                 . ($isPrimary ? ($primary ? ' DROP PRIMARY KEY,' : '') : '')
-                . ' ' . $syntax . '(' 
+                . ' ' . $syntax . '('
                 . $common_functions->backquote($row['Field']) . ');'
             )
             . '&amp;message_to_show=' . urlencode(
-                sprintf($message,
-                htmlspecialchars($row['Field']))
+                sprintf(
+                    $message,
+                    htmlspecialchars($row['Field'])
+                )
             ) . '" >'
             . $titles[$action] . '</a>';
         $action_enabled = true;
     }
     $html_output .= "\n";
     $html_output .= '</td>';
-    
+
     return array($html_output, $action_enabled);
 }
 
 /**
  * Get HTML for fulltext action,
  * and this function returns $fulltext_enabled boolean value also
- * 
- * @param string $tbl_storage_engine    table storage engine
- * @param string $type                  column type
- * @param string $url_query             url query
- * @param array $row                    current row
- * @param array $titles                 titles array
- * 
+ *
+ * @param string $tbl_storage_engine table storage engine
+ * @param string $type               column type
+ * @param string $url_query          url query
+ * @param array  $row                current row
+ * @param array  $titles             titles array
+ *
  * @return type array $html_output, $fulltext_enabled
  */
 function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
@@ -2023,25 +2042,28 @@ function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
     $html_output = '<td class="fulltext replaced_by_more center nowrap">';
-    if (! empty($tbl_storage_engine) 
-    && ($tbl_storage_engine == 'MYISAM' 
-        || $tbl_storage_engine == 'ARIA' 
-        || $tbl_storage_engine == 'MARIA' 
-        || ($tbl_storage_engine == 'INNODB' 
-            && PMA_MYSQL_INT_VERSION >= 50604)
-    )
-    && (strpos(' ' . $type, 'text') || strpos(' ' . $type, 'char'))
+    if (! empty($tbl_storage_engine)
+        && ($tbl_storage_engine == 'MYISAM'
+        || $tbl_storage_engine == 'ARIA'
+        || $tbl_storage_engine == 'MARIA'
+        || ($tbl_storage_engine == 'INNODB' && PMA_MYSQL_INT_VERSION >= 50604))
+        && (strpos(' ' . $type, 'text') || strpos(' ' . $type, 'char'))
     ) {
         $html_output .= "\n";
-        $html_output .= '<a href="sql.php?' . $url_query . '&amp;sql_query=' 
+        $html_output .= '<a href="sql.php?' . $url_query . '&amp;sql_query='
             . urlencode(
-                'ALTER TABLE ' . $common_functions->backquote($GLOBALS['table']) 
-                . ' ADD FULLTEXT(' . $common_functions->backquote($row['Field']) 
-                . ');') . '&amp;message_to_show=' 
-                . urlencode(sprintf(
+                'ALTER TABLE ' . $common_functions->backquote($GLOBALS['table'])
+                . ' ADD FULLTEXT(' . $common_functions->backquote($row['Field'])
+                . ');'
+            )
+            . '&amp;message_to_show='
+            . urlencode(
+                sprintf(
                     __('An index has been added on %s'),
-                    htmlspecialchars($row['Field']))
-                ) . '">';
+                    htmlspecialchars($row['Field'])
+                )
+            )
+            . '">';
         $html_output .= $titles['IdxFulltext'] . '</a>';
         $fulltext_enabled = true;
         $html_output .= '</td>';
@@ -2051,52 +2073,53 @@ function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
         $fulltext_enabled = false;
         $html_output .= '</td>';
     }
-    
+
     return array($html_output, $fulltext_enabled);
 }
 
 /**
  * Get HTML snippet for "Distinc Value" action
- * 
+ *
  * @param string $url_query url query
- * @param array $row        current row
- * @param array $titles     titles array
- * 
+ * @param array  $row       current row
+ * @param array  $titles    titles array
+ *
  * @return string $html_output
  */
 function PMA_getHtmlForDistinctValueAction($url_query, $row, $titles)
 {
     $common_functions = PMA_CommonFunctions::getInstance();
     $html_output = '<td class="browse replaced_by_more center">';
-    $html_output .= '<a href="sql.php?' . $url_query . '&amp;sql_query=' 
+    $html_output .= '<a href="sql.php?' . $url_query . '&amp;sql_query='
         . urlencode(
-            'SELECT COUNT(*) AS ' . $common_functions->backquote(__('Rows')) 
-            . ', ' . $common_functions->backquote($row['Field']) 
-            . ' FROM ' . $common_functions->backquote($GLOBALS['table']) 
-            . ' GROUP BY ' . $common_functions->backquote($row['Field']) 
-            . ' ORDER BY ' . $common_functions->backquote($row['Field'])) 
-            . '">' 
-            . $titles['DistinctValues'] 
-            . '</a>';
+            'SELECT COUNT(*) AS ' . $common_functions->backquote(__('Rows'))
+            . ', ' . $common_functions->backquote($row['Field'])
+            . ' FROM ' . $common_functions->backquote($GLOBALS['table'])
+            . ' GROUP BY ' . $common_functions->backquote($row['Field'])
+            . ' ORDER BY ' . $common_functions->backquote($row['Field'])
+        )
+        . '">'
+        . $titles['DistinctValues']
+        . '</a>';
     $html_output .= '</td>';
-    
+
     return $html_output;
 }
 
 /**
  * Get HTML snippet for Actions in table structure
- * 
- * @param string $type                      column type
- * @param string $tbl_storage_engine        table storage engine
- * @param boolean $primary                  primary if set, false otherwise
- * @param string $field_name                column name
- * @param string $url_query                 url query
- * @param array $titles                     titles array
- * @param array $row                        current row
- * @param string $rownum                    row number
- * @param array $hidden_titles              hedden titles
- * @param array $columns_with_unique_index  columns with unique index
- * 
+ *
+ * @param string  $type                      column type
+ * @param string  $tbl_storage_engine        table storage engine
+ * @param boolean $primary                   primary if set, false otherwise
+ * @param string  $field_name                column name
+ * @param string  $url_query                 url query
+ * @param array   $titles                    titles array
+ * @param array   $row                       current row
+ * @param string  $rownum                    row number
+ * @param array   $hidden_titles             hedden titles
+ * @param array   $columns_with_unique_index columns with unique index
+ *
  * @return string $html_output;
  */
 function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
@@ -2105,7 +2128,8 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
 ) {
     $html_output = '';
     list($primary, $primary_enabled)
-        = PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
+        = PMA_getHtmlForActionRowInStructureTable(
+            $type, $tbl_storage_engine,
             'primary replaced_by_more center',
             ($primary && $primary->hasColumn($field_name)),
             true, $url_query, $primary,
@@ -2114,8 +2138,9 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
             'Primary', $titles, $row, true
         );
     $html_output .= $primary;
-    list($unique, $unique_enabled) 
-        = PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
+    list($unique, $unique_enabled)
+        = PMA_getHtmlForActionRowInStructureTable(
+            $type, $tbl_storage_engine,
             'unique replaced_by_more center',
             isset($columns_with_unique_index[$field_name]),
             false, $url_query, $primary, 'ADD UNIQUE',
@@ -2123,10 +2148,10 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
             'Unique', $titles, $row, false
         );
     $html_output .= $unique;
-    list($index, $index_enabled) 
+    list($index, $index_enabled)
         = PMA_getHtmlForActionRowInStructureTable(
             $type, $tbl_storage_engine,
-            'index replaced_by_more center', false, false, $url_query, 
+            'index replaced_by_more center', false, false, $url_query,
             $primary, 'ADD INDEX', __('An index has been added on %s'),
             'Index', $titles, $row, false
         );
@@ -2136,11 +2161,11 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
             'geometry', 'point', 'linestring', 'polygon', 'multipoint',
             'multilinestring', 'multipolygon', 'geomtrycollection'
         );
-        list($spatial, $spatial_enabled) 
+        list($spatial, $spatial_enabled)
             = PMA_getHtmlForActionRowInStructureTable(
                 $type, $tbl_storage_engine,
                 'spatial replaced_by_more center',
-                (! in_array($type, $spatial_types) 
+                (! in_array($type, $spatial_types)
                     || 'MYISAM' != $tbl_storage_engine
                 ),
                 false, $url_query, $primary, 'ADD SPATIAL',
@@ -2150,14 +2175,14 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
         $html_output .= $spatial;
 
         // FULLTEXT is possible on TEXT, CHAR and VARCHAR
-        list ($fulltext, $fulltext_enabled) 
-            = PMA_getHtmlForFullTextAction($tbl_storage_engine, $type,
-                $url_query, $row, $titles);
+        list ($fulltext, $fulltext_enabled) = PMA_getHtmlForFullTextAction(
+            $tbl_storage_engine, $type, $url_query, $row, $titles
+        );
         $html_output .= $fulltext;
     }
     $html_output .= PMA_getHtmlForDistinctValueAction($url_query, $row, $titles);
 
-    if ($GLOBALS['cfg']['PropertiesIconic'] !== true 
+    if ($GLOBALS['cfg']['PropertiesIconic'] !== true
         && $GLOBALS['cfg']['HideStructureActions'] === true
     ) {
         $html_output .= PMA_getHtmlForMoreOptionInTableStructure(
@@ -2166,129 +2191,118 @@ function PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
             $fulltext_enabled, $spatial_enabled, $primary
         );
     }
-    
+
     return $html_output;
 }
 
 /**
  * Get hidden action titles (image and string)
- * 
+ *
  * @return array $hidden_titles
  */
 function PMA_getHiddenTitlesArray()
 {
     $common_functions = PMA_CommonFunctions::getInstance();
-    
+
     $hidden_titles = array();
-    $hidden_titles['DistinctValues']       
-        = $common_functions->getIcon(
-            'b_browse.png', __('Distinct values'), true
-        );
-    $hidden_titles['Primary']              
-        = $common_functions->getIcon(
-            'b_primary.png', __('Add primary key'), true
-        );
-    $hidden_titles['NoPrimary']            
-        = $common_functions->getIcon(
-            'bd_primary.png', __('Add primary key'), true
-        );
-    $hidden_titles['Index']                
-        = $common_functions->getIcon(
-            'b_index.png', __('Add index'), true
-            );
-    $hidden_titles['NoIndex']              
-        = $common_functions->getIcon(
-            'bd_index.png', __('Add index'), true
-        );
-    $hidden_titles['Unique']               
-        = $common_functions->getIcon(
-            'b_unique.png', __('Add unique index'), true
-        );
-    $hidden_titles['NoUnique']             
-        = $common_functions->getIcon(
-            'bd_unique.png', __('Add unique index'), true
-        );
-    $hidden_titles['Spatial']              
-        = $common_functions->getIcon(
-            'b_spatial.png', __('Add SPATIAL index'), true
-        );
-    $hidden_titles['NoSpatial']            
-        = $common_functions->getIcon(
-            'bd_spatial.png', __('Add SPATIAL index'), true
-        );
-    $hidden_titles['IdxFulltext']          
-        = $common_functions->getIcon(
-            'b_ftext.png', __('Add FULLTEXT index'), true
-        );
-    $hidden_titles['NoIdxFulltext']        
-        = $common_functions->getIcon(
-            'bd_ftext.png', __('Add FULLTEXT index'), true
-        );
-    
+    $hidden_titles['DistinctValues'] = $common_functions->getIcon(
+        'b_browse.png', __('Distinct values'), true
+    );
+    $hidden_titles['Primary'] = $common_functions->getIcon(
+        'b_primary.png', __('Add primary key'), true
+    );
+    $hidden_titles['NoPrimary'] = $common_functions->getIcon(
+        'bd_primary.png', __('Add primary key'), true
+    );
+    $hidden_titles['Index'] = $common_functions->getIcon(
+        'b_index.png', __('Add index'), true
+    );
+    $hidden_titles['NoIndex'] = $common_functions->getIcon(
+        'bd_index.png', __('Add index'), true
+    );
+    $hidden_titles['Unique'] = $common_functions->getIcon(
+        'b_unique.png', __('Add unique index'), true
+    );
+    $hidden_titles['NoUnique'] = $common_functions->getIcon(
+        'bd_unique.png', __('Add unique index'), true
+    );
+    $hidden_titles['Spatial'] = $common_functions->getIcon(
+        'b_spatial.png', __('Add SPATIAL index'), true
+    );
+    $hidden_titles['NoSpatial'] = $common_functions->getIcon(
+        'bd_spatial.png', __('Add SPATIAL index'), true
+    );
+    $hidden_titles['IdxFulltext'] = $common_functions->getIcon(
+        'b_ftext.png', __('Add FULLTEXT index'), true
+    );
+    $hidden_titles['NoIdxFulltext'] = $common_functions->getIcon(
+        'bd_ftext.png', __('Add FULLTEXT index'), true
+    );
+
     return $hidden_titles;
 }
 
 /**
  * Get action titles (image or string array
- * 
+ *
  * @return array  $titles
  */
 function PMA_getActionTitlesArray()
 {
     $common_functions = PMA_CommonFunctions::getInstance();
-    
+
     $titles = array();
-    $titles['Change']               
+    $titles['Change']
         = $common_functions->getIcon('b_edit.png', __('Change'));
-    $titles['Drop']                 
+    $titles['Drop']
         = $common_functions->getIcon('b_drop.png', __('Drop'));
-    $titles['NoDrop']               
+    $titles['NoDrop']
         = $common_functions->getIcon('b_drop.png', __('Drop'));
-    $titles['Primary']              
+    $titles['Primary']
         = $common_functions->getIcon('b_primary.png', __('Primary'));
-    $titles['Index']                
+    $titles['Index']
         = $common_functions->getIcon('b_index.png', __('Index'));
-    $titles['Unique']               
+    $titles['Unique']
         = $common_functions->getIcon('b_unique.png', __('Unique'));
-    $titles['Spatial']              
+    $titles['Spatial']
         = $common_functions->getIcon('b_spatial.png', __('Spatial'));
-    $titles['IdxFulltext']          
+    $titles['IdxFulltext']
         = $common_functions->getIcon('b_ftext.png', __('Fulltext'));
-    $titles['NoPrimary']            
+    $titles['NoPrimary']
         = $common_functions->getIcon('bd_primary.png', __('Primary'));
-    $titles['NoIndex']              
+    $titles['NoIndex']
         = $common_functions->getIcon('bd_index.png', __('Index'));
-    $titles['NoUnique']             
+    $titles['NoUnique']
         = $common_functions->getIcon('bd_unique.png', __('Unique'));
-    $titles['NoSpatial']            
+    $titles['NoSpatial']
         = $common_functions->getIcon('bd_spatial.png', __('Spatial'));
-    $titles['NoIdxFulltext']        
+    $titles['NoIdxFulltext']
         = $common_functions->getIcon('bd_ftext.png', __('Fulltext'));
-    $titles['DistinctValues']       
+    $titles['DistinctValues']
         = $common_functions->getIcon('b_browse.png', __('Distinct values'));
-    
+
     return $titles;
 }
 
 /**
  * Get HTML snippet for display table statistics
- * 
- * @param array $showtable                  full table status info            
+ *
+ * @param array   $showtable                full table status info
  * @param integer $table_info_num_rows      table info number of rows
  * @param boolean $tbl_is_view              whether table is view or not
  * @param boolean $db_is_information_schema whether db is information schema or not
- * @param string $tbl_storage_engine        table storage engine
- * @param string $url_query                 url query
- * @param string $tbl_collation             table collation
- * 
- * @return string $html_output 
+ * @param string  $tbl_storage_engine       table storage engine
+ * @param string  $url_query                url query
+ * @param string  $tbl_collation            table collation
+ *
+ * @return string $html_output
  */
 function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
     $tbl_is_view, $db_is_information_schema, $tbl_storage_engine, $url_query,
     $tbl_collation
 ) {
     $common_functions = PMA_CommonFunctions::getInstance();
-    
+
     $html_output = '<div id="tablestatistics">';
     if (empty($showtable)) {
         $showtable = PMA_Table::sGetStatusInfo(
@@ -2328,8 +2342,7 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
             $showtable['Data_free'], $max_digits, $decimals
         );
         list($effect_size, $effect_unit) = $common_functions->formatByteDown(
-            $showtable['Data_length'] + $showtable['Index_length'] 
-                - $showtable['Data_free'],
+            $showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free'],
             $max_digits, $decimals
         );
     } else {
@@ -2344,8 +2357,7 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
     );
     if ($table_info_num_rows > 0) {
         list($avg_size, $avg_unit) = $common_functions->formatByteDown(
-            ($showtable['Data_length'] + $showtable['Index_length'])
-                / $showtable['Rows'],
+            ($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows'],
             6, 1
         );
     }
@@ -2356,24 +2368,24 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
     $html_output .=  '<fieldset>'
         . '<legend>' . __('Information') . '</legend>'
         . '<a id="showusage"></a>';
-    
+
     if (! $tbl_is_view && ! $db_is_information_schema) {
         $html_output .= '<table id="tablespaceusage" class="data">'
             . '<caption class="tblHeaders">' . __('Space usage') . '</caption>'
             . '<tbody>';
 
         $html_output .= PMA_getHtmlForSpaceUsageTableRow(
-           $odd_row, __('Data'), $data_size, $data_unit
+            $odd_row, __('Data'), $data_size, $data_unit
         );
         $odd_row = !$odd_row;
-        
+
         if (isset($index_size)) {
             $html_output .= PMA_getHtmlForSpaceUsageTableRow(
                 $odd_row, __('Index'), $index_size, $index_unit
             );
             $odd_row = !$odd_row;
         }
-         
+
         if (isset($free_size)) {
             $html_output .= PMA_getHtmlForSpaceUsageTableRow(
                 $odd_row, __('Overhead'), $free_size, $free_unit
@@ -2390,25 +2402,25 @@ function PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
             $odd_row = !$odd_row;
         }
         // Optimize link if overhead
-        if (isset($free_size) && !PMA_DRIZZLE 
-            && ($tbl_storage_engine == 'MYISAM' 
-                || $tbl_storage_engine == 'ARIA' 
-                || $tbl_storage_engine == 'MARIA' 
-                || $tbl_storage_engine == 'BDB'
-            )
+        if (isset($free_size) && !PMA_DRIZZLE
+            && ($tbl_storage_engine == 'MYISAM'
+            || $tbl_storage_engine == 'ARIA'
+            || $tbl_storage_engine == 'MARIA'
+            || $tbl_storage_engine == 'BDB')
         ) {
             $html_output .= PMA_getHtmlForOptimizeLink($url_query);
         }
         $html_output .= '</tbody>'
             . '</table>';
     }
-    
-    $html_output .= getHtmlForRowStatsTable($showtable, $tbl_collation,
-        $is_innodb, $mergetable, 
-        (isset ($avg_size) ? $avg_size : ''), 
+
+    $html_output .= getHtmlForRowStatsTable(
+        $showtable, $tbl_collation,
+        $is_innodb, $mergetable,
+        (isset ($avg_size) ? $avg_size : ''),
         (isset ($avg_unit) ? $avg_unit : '')
     );
-    
+
     return $html_output;
 }
 
