@@ -184,11 +184,10 @@ foreach ($tables as $keyname => $current_table) {
     }
 
     if ($is_show_stats) {
-        if (isset($formatted_overhead)) {
+        if ($formatted_overhead != '') {
             $overhead = '<a href="tbl_structure.php?'
                 . $tbl_url_query . '#showusage"><span>' . $formatted_overhead
                 . '</span> <span class="unit">' . $overhead_unit . '</span></a>' . "\n";
-            unset($formatted_overhead);
             $overhead_check .=
                 "markAllRows('row_tbl_" . ($i + 1) . "');";
         } else {
