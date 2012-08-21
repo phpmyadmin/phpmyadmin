@@ -14,13 +14,13 @@ if (!defined('PHPMYADMIN')) {
  * Get the HTML links for action links
  * Actions are, Browse, Search, Browse table label, empty table
  *
- * @param array $current_table                 current table
+ * @param array   $current_table            current table
  * @param boolean $table_is_view            Is table view or not
- * @param string $tbl_url_query             table url query
- * @param array $titles                     titles and icons for action links
- * @param string $truename                  table name
+ * @param string  $tbl_url_query            table url query
+ * @param array   $titles                   titles and icons for action links
+ * @param string  $truename                 table name
  * @param boolean $db_is_information_schema is database information schema or not
- * @param string $url_query                 url query
+ * @param string  $url_query                url query
  *
  * @return array ($browse_table, $search_table, $browse_table_label, $empty_table,
                     $tracking_icon)
@@ -115,8 +115,8 @@ function PMA_getHtmlForActionLinks($current_table, $table_is_view, $tbl_url_quer
 /**
  * Get table drop query and drop message
  *
- * @param boolean $table_is_view    Is table view or not
- * @param string $current_table        current table
+ * @param boolean $table_is_view Is table view or not
+ * @param string  $current_table current table
  *
  * @return array    ($drop_query, $drop_message)
  */
@@ -143,18 +143,18 @@ function PMA_getTableDropQueryAndMessage($table_is_view, $current_table)
 /**
  * Get HTML body for table summery
  *
- * @param integer $num_tables                   number of tables
- * @param boolean $server_slave_status          server slave state
- * @param boolean $db_is_information_schema     whether database is information schema or not
- * @param integer $sum_entries                  sum entries
- * @param string $db_collation                  collation of given db
- * @param boolean $is_show_stats                whether stats is show or not
- * @param double $sum_size                      sum size
- * @param double $overhead_size                 overhead size
- * @param string $create_time_all               create time
- * @param string $update_time_all               update time
- * @param string $check_time_all                check time
- * @param integer $sum_row_count_pre            sum row count pre
+ * @param integer $num_tables               number of tables
+ * @param boolean $server_slave_status      server slave state
+ * @param boolean $db_is_information_schema whether database is information schema or not
+ * @param integer $sum_entries              sum entries
+ * @param string  $db_collation             collation of given db
+ * @param boolean $is_show_stats            whether stats is show or not
+ * @param double  $sum_size                 sum size
+ * @param double  $overhead_size            overhead size
+ * @param string  $create_time_all          create time
+ * @param string  $update_time_all          update time
+ * @param string  $check_time_all           check time
+ * @param integer $sum_row_count_pre        sum row count pre
  *
  * @return string $html_output
  */
@@ -264,11 +264,11 @@ function PMA_getHtmlBodyForTableSummary($num_tables, $server_slave_status,
 /**
  * Get HTML for "check all" check box with "with selected" dropdown
  *
- * @param string $pmaThemeImage             pma theme image url
- * @param string $text_dir                  url for text directory
- * @param string $overhead_check            overhead check
+ * @param string  $pmaThemeImage            pma theme image url
+ * @param string  $text_dir                 url for text directory
+ * @param string  $overhead_check           overhead check
  * @param boolean $db_is_information_schema whether database is information schema or not
- * @param string $hidden_fields             hidden fields
+ * @param string  $hidden_fields            hidden fields
  *
  * @return string $html_output
  */
@@ -335,7 +335,7 @@ function PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir,
 /**
  * Get HTML code for "Check tables having overhead" link
  *
- * @param string $overhead_check  overhead check
+ * @param string $overhead_check overhead check
  *
  * @return string $html_output
  */
@@ -351,7 +351,7 @@ function PMA_getHtmlForCheckTablesHavingOverheadlink($overhead_check) {
 /**
  * Get HTML links for "Print view" options
  *
- * @param string $url_query     url query
+ * @param string $url_query url query
  *
  * @return string $html_output
  */
@@ -369,7 +369,7 @@ function PMA_getHtmlForTablePrintViewLink($url_query)
 /**
  * Get HTML links "Data Dictionary" options
  *
- * @param string $url_query     url query
+ * @param string $url_query url query
  *
  * @return string $html_output
  */
@@ -387,9 +387,9 @@ function PMA_getHtmlForDataDictionaryLink($url_query)
 /**
  * Get Time for Create time, update time and check time
  *
- * @param array $current_table     current table
- * @param string $time_label    Create_time, Update_time, Check_time
- * @param integer $time_all     time
+ * @param array   $current_table current table
+ * @param string  $time_label    Create_time, Update_time, Check_time
+ * @param integer $time_all      time
  *
  * @return array ($time, $time_all)
  */
@@ -416,33 +416,33 @@ function PMA_getTimeForCreateUpdateCheck($current_table, $time_label, $time_all)
  * Get HTML for each table row of the database structure table,
  * And this function returns $odd_row param also
  *
- * @param integer $curr                         current entry
- * @param boolean $odd_row                      whether row is odd or not
- * @param boolean $table_is_view                whether table is view or not
- * @param array $current_table                     current table
- * @param string $checked                       checked attribute
- * @param string $browse_table_label            browse table label action link
- * @param string $tracking_icon                 tracking icon
- * @param boolean $server_slave_status          server slave state
- * @param string $browse_table                  browse table action link
- * @param string $tbl_url_query                 table url query
- * @param string $search_table                  search table action link
- * @param boolean $db_is_information_schema     whether db is information schema or not
- * @param array $titles                         titles array
- * @param string $empty_table                   empty table action link
- * @param string $drop_query                    table dropt query
- * @param string $drop_message                  table drop message
- * @param string $collation                     collation
- * @param string $formatted_size                formatted size
- * @param string $unit                          unit
- * @param string $overhead                      overhead
- * @param string $create_time                   create time
- * @param string $update_time                   last update time
- * @param string $check_time                    last check time
- * @param boolean $is_show_stats                whether stats is show or not
- * @param boolean $ignored                      ignored
- * @param boolean $do                           do
- * @param intger $colspan_for_structure         colspan for structure
+ * @param integer $curr                     current entry
+ * @param boolean $odd_row                  whether row is odd or not
+ * @param boolean $table_is_view            whether table is view or not
+ * @param array   $current_table            current table
+ * @param string  $checked                  checked attribute
+ * @param string  $browse_table_label       browse table label action link
+ * @param string  $tracking_icon            tracking icon
+ * @param boolean $server_slave_status      server slave state
+ * @param string  $browse_table             browse table action link
+ * @param string  $tbl_url_query            table url query
+ * @param string  $search_table             search table action link
+ * @param boolean $db_is_information_schema whether db is information schema or not
+ * @param array   $titles                   titles array
+ * @param string  $empty_table              empty table action link
+ * @param string  $drop_query               table dropt query
+ * @param string  $drop_message             table drop message
+ * @param string  $collation                collation
+ * @param string  $formatted_size           formatted size
+ * @param string  $unit                     unit
+ * @param string  $overhead                 overhead
+ * @param string  $create_time              create time
+ * @param string  $update_time              last update time
+ * @param string  $check_time               last check time
+ * @param boolean $is_show_stats            whether stats is show or not
+ * @param boolean $ignored                  ignored
+ * @param boolean $do                       do
+ * @param intger  $colspan_for_structure    colspan for structure
  *
  * @return array $html_output, $odd_row
  */
@@ -524,13 +524,13 @@ function PMA_getHtmlForStructureTableRow($curr, $odd_row, $table_is_view, $curre
 /**
  * Get HTML for Insert/Empty/Drop action links
  *
- * @param string $tbl_url_query     table url query
- * @param boolean $table_is_view    whether table is view or not
- * @param array $titles             titles array
- * @param string $empty_table       HTML link for empty table
- * @param array $current_table         current table
- * @param string $drop_query        query for drop table
- * @param string $drop_message      table drop message
+ * @param string  $tbl_url_query table url query
+ * @param boolean $table_is_view whether table is view or not
+ * @param array   $titles        titles array
+ * @param string  $empty_table   HTML link for empty table
+ * @param array   $current_table current table
+ * @param string  $drop_query    query for drop table
+ * @param string  $drop_message  table drop message
  *
  * @return string $html_output
  */
@@ -567,10 +567,10 @@ function PMA_getHtmlForInsertEmptyDropActionLinks($tbl_url_query, $table_is_view
 /**
  * Get HTML for show stats
  *
- * @param string $tbl_url_query     tabel url query
- * @param string $formatted_size    formatted size
- * @param string $unit              unit
- * @param string $overhead          overhead
+ * @param string $tbl_url_query  tabel url query
+ * @param string $formatted_size formatted size
+ * @param string $unit           unit
+ * @param string $overhead       overhead
  *
  * @return string $html_output
  */
@@ -590,9 +590,9 @@ function PMA_getHtmlForShowStats($tbl_url_query, $formatted_size,
 /**
  * Get HTML to show database structure creation, last update and last checkx time
  *
- * @param string $create_time   create time
- * @param string $update_time   last update time
- * @param string $check_time    last check time
+ * @param string $create_time create time
+ * @param string $update_time last update time
+ * @param string $check_time  last check time
  *
  * @return string $html_output
  */
@@ -627,17 +627,17 @@ function PMA_getHtmlForStructureTimes($create_time, $update_time, $check_time)
 /**
  * Get HTML for ENGINE value not null or view tables that are not empty tables
  *
- * @param boolean $table_is_view    whether table is view
- * @param array $current_table         current table
- * @param string $collation         collation
- * @param boolean $is_show_stats    whether atats show or not
- * @param string $tbl_url_query     table url query
- * @param string $formatted_size    formatted size
- * @param string $unit              unit
- * @param string $overhead          overhead
- * @param string $create_time       create time
- * @param string $update_time       update time
- * @param string $check_time        check time
+ * @param boolean $table_is_view  whether table is view
+ * @param array   $current_table  current table
+ * @param string  $collation      collation
+ * @param boolean $is_show_stats  whether atats show or not
+ * @param string  $tbl_url_query  table url query
+ * @param string  $formatted_size formatted size
+ * @param string  $unit           unit
+ * @param string  $overhead       overhead
+ * @param string  $create_time    create time
+ * @param string  $update_time    update time
+ * @param string  $check_time     check time
  *
  * @return string $html_output
  */
@@ -707,7 +707,7 @@ function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $current_table,
 /**
  * Get HTML snippet view table
  *
- * @param type $is_show_stats   whether stats show or not
+ * @param type $is_show_stats whether stats show or not
  *
  * @return string $html_output
  */
@@ -726,8 +726,8 @@ function PMA_getHtmlForViewTable($is_show_stats)
 /**
  * display "in use" below for a table that needs to be repaired
  *
- * @param integer $colspan_for_structure        colspan for structure
- * @param boolean $db_is_information_schema     whether db is information schema or not
+ * @param integer $colspan_for_structure    colspan for structure
+ * @param boolean $db_is_information_schema whether db is information schema or not
  *
  * @return string HTML snippet
  */
@@ -916,7 +916,7 @@ function PMA_sortableTableHeader($title, $sort, $initial_sort_order = 'ASC')
  * Get the alias ant truname
  *
  * @param string $tooltip_aliasname tooltip alias name
- * @param array $current_table         current table
+ * @param array  $current_table     current table
  * @param string $tooltip_truename  tooltip true name
  *
  * @return array ($alias, $truename)
@@ -949,8 +949,8 @@ function PMA_getAliasAndTrueName($tooltip_aliasname, $current_table,
 /**
  * Get the server slave state
  *
- * @param boolean $server_slave_status  server slave state
- * @param string $truename              true name
+ * @param boolean $server_slave_status server slave state
+ * @param string  $truename            true name
  *
  * @return array ($do, $ignored)
  */
@@ -1002,12 +1002,12 @@ function PMA_getServerSlaveStatus($server_slave_status, $truename) {
  * $current_table, $formatted_size, $unit, $formatted_overhead,
  * $overhead_unit, $overhead_size, $table_is_view
  *
- * @param array $current_table              current table
+ * @param array   $current_table            current table
  * @param boolean $db_is_information_schema whether db is information schema or not
  * @param boolean $is_show_stats            whether stats show or not
  * @param boolean $table_is_view            whether table is view or not
- * @param double $sum_size                  totla table size
- * @param double $overhead_size             overhead size
+ * @param double  $sum_size                 totle table size
+ * @param double  $overhead_size            overhead size
  *
  * @return array
  */
@@ -1093,10 +1093,10 @@ function PMA_getStuffForEngineTypeTable($current_table, $db_is_information_schem
  * $overhead_unit, $overhead_size
  *
  * @param boolean $db_is_information_schema whether db is information schema or not
- * @param array $current_table              current table
+ * @param array   $current_table            current table
  * @param boolean $is_show_stats            whether stats show or not
- * @param double $sum_size                  sum size
- * @param double $overhead_size             overhead size
+ * @param double  $sum_size                 sum size
+ * @param double  $overhead_size            overhead size
  *
  * @return array
  */
@@ -1136,9 +1136,9 @@ function PMA_getValuesForAriaTable($db_is_information_schema, $current_table,
  * Get valuse for PBMS table
  * $current_table, $formatted_size, $unit, $sum_size
  *
- * @param array $current_table         current table
- * @param boolean $is_show_stats    whether stats show or not
- * @param double $sum_size          sum size
+ * @param array   $current_table current table
+ * @param boolean $is_show_stats whether stats show or not
+ * @param double  $sum_size      sum size
  *
  * @return array
  */
@@ -1177,8 +1177,8 @@ function PMA_getValuesForPbmsTable($current_table, $is_show_stats, $sum_size)
 /**
  * Get the HTML snippet for structure table table header
  *
- * @param type $db_is_information_schema    whether db is information schema or not
- * @param type $tbl_is_view                 whether table is view or nt
+ * @param type $db_is_information_schema whether db is information schema or not
+ * @param type $tbl_is_view              whether table is view or nt
  *
  * @return string $html_output
  */
@@ -1221,24 +1221,24 @@ function PMA_getHtmlForTableStructureHeader(
  * Get HTML for structure table's rows and return $odd_row parameter also
  * For "Action" Column, this function contains only HTML code for "Change" and "Drop"
  *
- * @param array $row                        current row
- * @param string $rownum                    row number
- * @param string $checked                   checked
- * @param string $displayed_field_name      displayed field name
- * @param string $type_nowrap               type nowrap
- * @param array $extracted_columnspec       associative array containing type,
- *                                          spec_in_brackets
- *                                          and possibly enum_set_values (another array)
- * @param string $type_mime                 mime type
- * @param string $field_charset             field charset
- * @param string $attribute                 attribute (BINARY, UNSIGNED,
+ * @param array   $row                      current row
+ * @param string  $rownum                   row number
+ * @param string  $checked                  checked
+ * @param string  $displayed_field_name     displayed field name
+ * @param string  $type_nowrap              type nowrap
+ * @param array   $extracted_columnspec     associative array containing type,
+ *                                          spec_in_brackets and possibly
+ *                                          enum_set_values (another array)
+ * @param string  $type_mime                mime type
+ * @param string  $field_charset            field charset
+ * @param string  $attribute                attribute (BINARY, UNSIGNED,
  *                                          UNSIGNED ZEROFILL, on update CURRENT_TIMESTAMP)
  * @param boolean $tbl_is_view              whether tables is view or not
  * @param boolean $db_is_information_schema whether db is information schema or not
- * @param string $url_query                 url query
- * @param string $field_encoded             field encoded
- * @param array $titles                     tittles array
- * @param string $table                     table
+ * @param string  $url_query                url query
+ * @param string  $field_encoded            field encoded
+ * @param array   $titles                   tittles array
+ * @param string  $table                    table
  *
  * @return array ($html_output, $odd_row)
  */
@@ -1310,11 +1310,11 @@ function PMA_getHtmlTableStructureRow($row, $rownum, $checked,
  *
  * @param boolean $tbl_is_view              whether tables is view or not
  * @param boolean $db_is_information_schema whether db is information schema or not
- * @param string $url_query                 url query
- * @param string $field_encoded             field encoded
- * @param array $titles                     tittles array
- * @param string $table                     table
- * @param array $row                        current row
+ * @param string  $url_query                url query
+ * @param string  $field_encoded            field encoded
+ * @param array   $titles                   tittles array
+ * @param string  $table                    table
+ * @param array   $row                      current row
  *
  * @return string $html_output
  */
@@ -1350,11 +1350,11 @@ function PMA_getHtmlForDropColumn($tbl_is_view, $db_is_information_schema,
 /**
  * Get HTML for "check all" check box with "with selected" actions in table structure
  *
- * @param string $pmaThemeImage             pma theme image url
- * @param string $text_dir                  test directory
+ * @param string  $pmaThemeImage            pma theme image url
+ * @param string  $text_dir                 test directory
  * @param boolean $tbl_is_view              whether table is view or not
  * @param boolean $db_is_information_schema whether db is information schema or not
- * @param string $tbl_storage_engine        table storage engine
+ * @param string  $tbl_storage_engine       table storage engine
  *
  * @return string $html_output
  */
@@ -1477,11 +1477,11 @@ function PMA_getHtmlForEditView($url_params)
  * Get HTML links for 'Print view', 'Relation view', 'Propose table structure',
  * 'Track table' and 'Move columns'
  *
- * @param string $url_query                 url query
+ * @param string  $url_query                url query
  * @param boolean $tbl_is_view              whether table is view or not
  * @param boolean $db_is_information_schema whether db is information schema or not
- * @param string $tbl_storage_engine        table storage engine
- * @param array $cfgRelation                current relation parameters
+ * @param string  $tbl_storage_engine       table storage engine
+ * @param array   $cfgRelation              current relation parameters
  *
  * @return string $html_output
  */
@@ -1539,7 +1539,7 @@ function PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
 /**
  * Get HTML snippet for "Add column" feature in structure table
  *
- * @param array $columns_list   column list array
+ * @param array $columns_list column list array
  *
  * @return string $html_output
  */
@@ -1634,10 +1634,10 @@ function PMA_getHtmlForDisplayIndexes()
 /**
  * Get HTML snippet for table rows in the Information ->Space usage table
  *
- * @param boolean $odd_row  whether current row is odd or even
- * @param string $name      type of usage
- * @param string $value     value of usage
- * @param string $unit      unit
+ * @param boolean $odd_row whether current row is odd or even
+ * @param string  $name    type of usage
+ * @param string  $value   value of usage
+ * @param string  $unit    unit
  *
  * @return string $html_output
  */
@@ -1655,7 +1655,7 @@ function PMA_getHtmlForSpaceUsageTableRow($odd_row, $name, $value, $unit)
 /**
  * Get HTML for Optimize link if overhead in Information fieldset
  *
- * @param type $url_query   URL query
+ * @param type $url_query URL query
  *
  * @return string $html_output
  */
@@ -1681,9 +1681,9 @@ function PMA_getHtmlForOptimizeLink($url_query)
 /**
  * Get HTML for 'Row statistics' table row
  *
- * @param type $odd_row     whether current row is odd or even
- * @param type $name        statement name
- * @param type $value       value
+ * @param type $odd_row whether current row is odd or even
+ * @param type $name    statement name
+ * @param type $value   value
  *
  * @return string $html_output
  */
@@ -1702,12 +1702,12 @@ function PMA_getHtmlForRowStatsTableRow($odd_row, $name, $value)
 /**
  * Get HTML snippet for display Row statistics table
  *
- * @param array $showtable      show table array
- * @param string $tbl_collation table collation
- * @param boolean $is_innodb    whether table is innob or not
- * @param boolean $mergetable   Checks if current table is a merge table
- * @param integer $avg_size     average size
- * @param string $avg_unit      average unit
+ * @param array   $showtable     show table array
+ * @param string  $tbl_collation table collation
+ * @param boolean $is_innodb     whether table is innob or not
+ * @param boolean $mergetable    Checks if current table is a merge table
+ * @param integer $avg_size      average size
+ * @param string  $avg_unit      average unit
  *
  * @return string $html_output
  */
@@ -1817,15 +1817,15 @@ function getHtmlForRowStatsTable($showtable, $tbl_collation,
 /**
  * Get HTML divs for Structure Action drop down
  *
- * @param string $class             div class
+ * @param string  $class            div class
  * @param boolean $isActionEnabled  whether action is enabled or not
- * @param string $url_query         url query
- * @param array $row                current row
- * @param array $hidden_titles      hidden titles if action enabled
- * @param array $hidden_titles_no   hidden titles if action not enabled
+ * @param string  $url_query        url query
+ * @param array   $row              current row
+ * @param array   $hidden_titles    hidden titles if action enabled
+ * @param array   $hidden_titles_no hidden titles if action not enabled
  * @param boolean $primary          primary or not
- * @param string $syntax            syntax for add action
- * @param string $message           message to be shown
+ * @param string  $syntax           syntax for add action
+ * @param string  $message          message to be shown
  *
  * @return string $html_output
  */
@@ -1865,17 +1865,17 @@ function PMA_getHtmlDivsForStructureActionsDropdown($class, $isActionEnabled,
 /**
  * Get HTML snippet for more option in table structure
  *
- * @param type $rownum              row numbers
- * @param type $primary_enabled     is primary enabled
- * @param type $url_query           url query
- * @param type $row                 current row
- * @param type $hidden_titles       hidden titles array
- * @param type $unique_enabled      is unique enabled
- * @param type $unique_enabled      is unique enabled
- * @param type $index_enabled       is index enabled
- * @param type $fulltext_enabled    is fulltext enabled
- * @param type $spatial_enabled     is spatial enabled
- * @param type $primary             primary
+ * @param type $rownum           row numbers
+ * @param type $primary_enabled  is primary enabled
+ * @param type $url_query        url query
+ * @param type $row              current row
+ * @param type $hidden_titles    hidden titles array
+ * @param type $unique_enabled   is unique enabled
+ * @param type $unique_enabled   is unique enabled
+ * @param type $index_enabled    is index enabled
+ * @param type $fulltext_enabled is fulltext enabled
+ * @param type $spatial_enabled  is spatial enabled
+ * @param type $primary          primary
  *
  * @return string $html_output
  */
@@ -1951,19 +1951,19 @@ function PMA_getHtmlForMoreOptionInTableStructure($rownum, $primary_enabled,
  * Get HTML snippet for action row in structure table,
  * This function returns common HTML <td> for Primary, Unique, Index, Spatial actions
  *
- * @param array $type                   column type
- * @param array $tbl_storage_engine     table storage engine
- * @param string $class                 class attribute for <td>
- * @param boolean $hasField             has field
- * @param boolean $hasLinkClass         has <a> the class attribute
- * @param string $url_query             url query
- * @param boolean $primary              primary if set, false otherwise
- * @param string $syntax                Sql syntax
- * @param string $message               message to show
- * @param string $action                action
- * @param array $titles                 titles array
- * @param array $row                    current row
- * @param boolean $isPrimary            is primary action
+ * @param array   $type               column type
+ * @param array   $tbl_storage_engine table storage engine
+ * @param string  $class              class attribute for <td>
+ * @param boolean $hasField           has field
+ * @param boolean $hasLinkClass       has <a> the class attribute
+ * @param string  $url_query          url query
+ * @param boolean $primary            primary if set, false otherwise
+ * @param string  $syntax             Sql syntax
+ * @param string  $message            message to show
+ * @param string  $action             action
+ * @param array   $titles             titles array
+ * @param array   $row                current row
+ * @param boolean $isPrimary          is primary action
  *
  * @return array $html_output, $action_enabled
  */
@@ -2010,11 +2010,11 @@ function PMA_getHtmlForActionRowInStructureTable($type, $tbl_storage_engine,
  * Get HTML for fulltext action,
  * and this function returns $fulltext_enabled boolean value also
  *
- * @param string $tbl_storage_engine    table storage engine
- * @param string $type                  column type
- * @param string $url_query             url query
- * @param array $row                    current row
- * @param array $titles                 titles array
+ * @param string $tbl_storage_engine table storage engine
+ * @param string $type               column type
+ * @param string $url_query          url query
+ * @param array  $row                current row
+ * @param array  $titles             titles array
  *
  * @return type array $html_output, $fulltext_enabled
  */
@@ -2059,8 +2059,8 @@ function PMA_getHtmlForFullTextAction($tbl_storage_engine, $type, $url_query,
  * Get HTML snippet for "Distinc Value" action
  *
  * @param string $url_query url query
- * @param array $row        current row
- * @param array $titles     titles array
+ * @param array  $row       current row
+ * @param array  $titles    titles array
  *
  * @return string $html_output
  */
@@ -2086,16 +2086,16 @@ function PMA_getHtmlForDistinctValueAction($url_query, $row, $titles)
 /**
  * Get HTML snippet for Actions in table structure
  *
- * @param string $type                      column type
- * @param string $tbl_storage_engine        table storage engine
- * @param boolean $primary                  primary if set, false otherwise
- * @param string $field_name                column name
- * @param string $url_query                 url query
- * @param array $titles                     titles array
- * @param array $row                        current row
- * @param string $rownum                    row number
- * @param array $hidden_titles              hedden titles
- * @param array $columns_with_unique_index  columns with unique index
+ * @param string  $type                      column type
+ * @param string  $tbl_storage_engine        table storage engine
+ * @param boolean $primary                   primary if set, false otherwise
+ * @param string  $field_name                column name
+ * @param string  $url_query                 url query
+ * @param array   $titles                    titles array
+ * @param array   $row                       current row
+ * @param string  $rownum                    row number
+ * @param array   $hidden_titles             hedden titles
+ * @param array   $columns_with_unique_index columns with unique index
  *
  * @return string $html_output;
  */
@@ -2273,13 +2273,13 @@ function PMA_getActionTitlesArray()
 /**
  * Get HTML snippet for display table statistics
  *
- * @param array $showtable                  full table status info
+ * @param array   $showtable                full table status info
  * @param integer $table_info_num_rows      table info number of rows
  * @param boolean $tbl_is_view              whether table is view or not
  * @param boolean $db_is_information_schema whether db is information schema or not
- * @param string $tbl_storage_engine        table storage engine
- * @param string $url_query                 url query
- * @param string $tbl_collation             table collation
+ * @param string  $tbl_storage_engine       table storage engine
+ * @param string  $url_query                url query
+ * @param string  $tbl_collation            table collation
  *
  * @return string $html_output
  */
