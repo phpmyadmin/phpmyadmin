@@ -1507,8 +1507,10 @@ if ($GLOBALS['is_ajax_request'] && ! isset($_REQUEST['export']) && (! isset($_RE
 
     if (isset($update_privs)) {
         $extra_data['db_specific_privs'] = false;
+        $extra_data['db_wildcard_privs'] = false;
         if (isset($dbname_is_wildcard)) {
             $extra_data['db_specific_privs'] = ! $dbname_is_wildcard;
+            $extra_data['db_wildcard_privs'] = $dbname_is_wildcard;
         }
         $new_privileges = join(', ', PMA_extractPrivInfo('', true));
 
@@ -1891,7 +1893,7 @@ if (empty($_REQUEST['adduser']) && (! isset($checkprivs) || ! strlen($checkprivs
                . '<input type="hidden" name="username" value="' . htmlspecialchars($username) . '" />' . "\n"
                . '<input type="hidden" name="hostname" value="' . htmlspecialchars($hostname) . '" />' . "\n"
                . '<fieldset>' . "\n"
-               . '<legend>' . (! isset($dbname) ? __('Database-specific privileges') : __('Table-specific privileges')) . '</legend>' . "\n"
+               . '<legend>xx' . (! isset($dbname) ? __('Database-specific privileges') : __('Table-specific privileges')) . '</legend>' . "\n"
                . '<table class="data">' . "\n"
                . '<thead>' . "\n"
                . '<tr><th>' . (! isset($dbname) ? __('Database') : __('Table')) . '</th>' . "\n"

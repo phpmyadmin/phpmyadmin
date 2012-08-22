@@ -415,6 +415,9 @@ $(document).ready(function() {
                 if (data.db_specific_privs == false || (db_priv_page == data.db_specific_privs)) {
                     reload_privs = true;
                 }
+                if (data.db_wildcard_privs) {
+                    reload_privs = false;
+                }
 
                 //Change privileges, if they were edited and need to be reloaded
                 if(data.new_privileges && reload_privs) {
