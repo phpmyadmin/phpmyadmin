@@ -1911,8 +1911,10 @@ function PMA_getExtraDataForAjaxBehavior($password, $link_export, $sql_query,
 
     if (isset($_POST['update_privs'])) {
         $extra_data['db_specific_privs'] = false;
+        $extra_data['db_wildcard_privs'] = false;
         if (isset($dbname_is_wildcard)) {
             $extra_data['db_specific_privs'] = ! $dbname_is_wildcard;
+            $extra_data['db_wildcard_privs'] = $dbname_is_wildcard;
         }
         $new_privileges = join(', ', PMA_extractPrivInfo('', true));
 
