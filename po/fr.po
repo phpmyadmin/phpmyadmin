@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 13:38+0200\n"
-"PO-Revision-Date: 2012-07-01 23:12+0200\n"
+"PO-Revision-Date: 2012-08-22 16:11+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
-"Language-Team: none\n"
+"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Weblate 1.1\n"
+"X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:816
@@ -10702,10 +10702,9 @@ msgid "Advisor"
 msgstr "Conseiller"
 
 #: server_status.php:822 server_status.php:848
-#, fuzzy
 #| msgid "Number of rows:"
 msgid "Number of data points: "
-msgstr "Nombre de lignes : "
+msgstr "Nombre de points : "
 
 #: server_status.php:826 server_status.php:852
 msgid "Refresh rate: "
