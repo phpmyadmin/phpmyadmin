@@ -804,7 +804,7 @@ echo __('Runtime Information');
                     <?php echo __('Refresh'); ?>
                 </a>
                 <span class="refreshList" style="display:none;">
-                    <label for="id_trafficChartDataPointsList"><?php echo __('Number of Data Points: '); ?></label>
+                    <label for="id_trafficChartDataPointsList"><?php echo __('Number of data points: '); ?></label>
                        <?php echo getDataPointsNumberList('trafficChartDataPoints'); ?>
                 </span>
                 <span class="refreshList" style="display:none;">
@@ -830,7 +830,7 @@ echo __('Runtime Information');
                     <?php echo __('Refresh'); ?>
                 </a>
                 <span class="refreshList" style="display:none;">
-                    <label for="id_queryChartDataPointsList"><?php echo __('Number of Data Points: '); ?></label>
+                    <label for="id_queryChartDataPointsList"><?php echo __('Number of data points: '); ?></label>
                        <?php echo getDataPointsNumberList('queryChartDataPoints'); ?>
                 </span>
                 <span class="refreshList" style="display:none;">
