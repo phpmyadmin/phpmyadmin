@@ -1,21 +1,21 @@
 # Automatically generated <>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 3.5.2-dev\n"
+"Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-06-04 13:42+0200\n"
+"POT-Creation-Date: 2012-08-22 06:32-0400\n"
 "PO-Revision-Date: 2012-07-19 09:42+0200\n"
 "Last-Translator: Akos Eros <erosakos02@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
-"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.1\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
-#: libraries/display_tbl.lib.php:359 server_privileges.php:1677
+#: libraries/display_tbl.lib.php:359 server_privileges.php:1679
 msgid "Show all"
 msgstr "Összes megjelenítése"
 
@@ -47,9 +47,9 @@ msgstr "Keresés"
 
 #: browse_foreigners.php:163 db_operations.php:378 db_operations.php:418
 #: db_operations.php:528 db_operations.php:555 db_search.php:337
-#: db_structure.php:625 enum_editor.php:121 gis_data_editor.php:133
+#: db_structure.php:625 enum_editor.php:91 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:235
-#: libraries/Config.class.php:1335 libraries/Theme_Manager.class.php:309
+#: libraries/Config.class.php:1333 libraries/Theme_Manager.class.php:309
 #: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1374
 #: libraries/common.lib.php:2421 libraries/core.lib.php:513
 #: libraries/display_change_password.lib.php:72
@@ -59,7 +59,7 @@ msgstr "Keresés"
 #: libraries/replication_gui.lib.php:76 libraries/replication_gui.lib.php:375
 #: libraries/rte/rte_events.lib.php:493 libraries/rte/rte_routines.lib.php:970
 #: libraries/rte/rte_routines.lib.php:1449
-#: libraries/rte/rte_triggers.lib.php:373
+#: libraries/rte/rte_triggers.lib.php:379
 #: libraries/schema/User_Schema.class.php:147
 #: libraries/schema/User_Schema.class.php:204
 #: libraries/schema/User_Schema.class.php:446
@@ -69,13 +69,13 @@ msgstr "Keresés"
 #: libraries/tbl_properties.inc.php:574 main.php:115 navigation.php:171
 #: navigation.php:209 pmd_pdf.php:120 prefs_manage.php:263
 #: prefs_manage.php:314 server_binlog.php:109 server_privileges.php:746
-#: server_privileges.php:1788 server_privileges.php:2152
-#: server_privileges.php:2199 server_privileges.php:2242
+#: server_privileges.php:1790 server_privileges.php:2154
+#: server_privileges.php:2201 server_privileges.php:2244
 #: server_replication.php:233 server_replication.php:316
 #: server_replication.php:347 server_synchronize.php:1309 tbl_change.php:340
 #: tbl_change.php:1073 tbl_change.php:1110 tbl_indexes.php:288
 #: tbl_operations.php:284 tbl_operations.php:321 tbl_operations.php:525
-#: tbl_operations.php:587 tbl_operations.php:790 tbl_select.php:235
+#: tbl_operations.php:587 tbl_operations.php:790 tbl_select.php:237
 #: tbl_structure.php:688 tbl_structure.php:723 tbl_tracking.php:431
 #: tbl_tracking.php:569 tbl_zoom_select.php:320 view_create.php:181
 #: view_operations.php:99
@@ -89,7 +89,7 @@ msgstr "Kulcsnév"
 
 #: browse_foreigners.php:179 browse_foreigners.php:181
 #: server_collations.php:54 server_collations.php:66 server_engines.php:55
-#: server_plugins.php:147 server_status.php:1480
+#: server_plugins.php:147 server_status.php:1494
 msgid "Description"
 msgstr "Leírás"
 
@@ -157,7 +157,7 @@ msgstr "Oszlop"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1306
 #: libraries/schema/Pdf_Relation_Schema.class.php:1327
 #: libraries/tbl_properties.inc.php:93 libraries/tbl_select.lib.php:84
-#: server_privileges.php:2256 tbl_change.php:297 tbl_change.php:324
+#: server_privileges.php:2258 tbl_change.php:297 tbl_change.php:324
 #: tbl_printview.php:137 tbl_structure.php:203 tbl_tracking.php:258
 #: tbl_tracking.php:320
 msgid "Type"
@@ -212,9 +212,9 @@ msgstr "Megjegyzések"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:128
 #: server_privileges.php:1475 server_privileges.php:1485
-#: server_privileges.php:1732 server_privileges.php:1743
-#: server_privileges.php:2064 server_privileges.php:2069
-#: server_privileges.php:2373 sql.php:295 sql.php:359 tbl_printview.php:190
+#: server_privileges.php:1734 server_privileges.php:1745
+#: server_privileges.php:2066 server_privileges.php:2071
+#: server_privileges.php:2375 sql.php:292 sql.php:356 tbl_printview.php:190
 #: tbl_structure.php:359 tbl_tracking.php:281 tbl_tracking.php:336
 #: tbl_tracking.php:341
 msgid "No"
@@ -230,13 +230,13 @@ msgstr "Nem"
 #: libraries/mult_submits.inc.php:92 libraries/mult_submits.inc.php:97
 #: libraries/mult_submits.inc.php:102 libraries/mult_submits.inc.php:262
 #: libraries/mult_submits.inc.php:275 libraries/mult_submits.inc.php:284
-#: libraries/mult_submits.inc.php:291
+#: libraries/mult_submits.inc.php:292
 #: libraries/schema/Pdf_Relation_Schema.class.php:1357
 #: libraries/user_preferences.lib.php:284 prefs_manage.php:127
 #: server_databases.php:81 server_privileges.php:1473
-#: server_privileges.php:1483 server_privileges.php:1729
-#: server_privileges.php:1743 server_privileges.php:2064
-#: server_privileges.php:2067 server_privileges.php:2373 sql.php:358
+#: server_privileges.php:1483 server_privileges.php:1731
+#: server_privileges.php:1745 server_privileges.php:2066
+#: server_privileges.php:2069 server_privileges.php:2375 sql.php:355
 #: tbl_printview.php:190 tbl_structure.php:41 tbl_structure.php:359
 #: tbl_tracking.php:281 tbl_tracking.php:334 tbl_tracking.php:339
 msgid "Yes"
@@ -357,9 +357,9 @@ msgstr "Kapcsolati séma szerkesztése, exportálása"
 #: libraries/config/messages.inc.php:510 libraries/db_structure.lib.php:32
 #: libraries/export/pdf.php:98 libraries/export/xml.php:359
 #: libraries/header.inc.php:161 libraries/rte/rte_list.lib.php:59
-#: libraries/rte/rte_triggers.lib.php:310
-#: libraries/schema/User_Schema.class.php:272 server_privileges.php:1839
-#: server_privileges.php:1897 server_privileges.php:2166
+#: libraries/rte/rte_triggers.lib.php:314
+#: libraries/schema/User_Schema.class.php:272 server_privileges.php:1841
+#: server_privileges.php:1899 server_privileges.php:2168
 #: server_synchronize.php:436 server_synchronize.php:908 tbl_tracking.php:649
 msgid "Table"
 msgstr "Tábla"
@@ -426,7 +426,7 @@ msgstr "Rendezés"
 #: libraries/db_structure.lib.php:106 libraries/display_tbl.lib.php:566
 #: libraries/display_tbl.lib.php:959 libraries/display_tbl.lib.php:962
 #: server_databases.php:162 server_databases.php:179 tbl_operations.php:279
-#: tbl_select.php:222
+#: tbl_select.php:224
 msgid "Ascending"
 msgstr "Növekvő"
 
@@ -434,7 +434,7 @@ msgstr "Növekvő"
 #: libraries/db_structure.lib.php:107 libraries/display_tbl.lib.php:571
 #: libraries/display_tbl.lib.php:958 libraries/display_tbl.lib.php:963
 #: server_databases.php:162 server_databases.php:179 tbl_operations.php:280
-#: tbl_select.php:223
+#: tbl_select.php:225
 msgid "Descending"
 msgstr "Csökkenő"
 
@@ -461,7 +461,7 @@ msgstr "Törlés"
 
 #: db_qbe.php:392 db_qbe.php:473 db_qbe.php:544 db_qbe.php:575
 #: server_privileges.php:400 tbl_change.php:907 tbl_indexes.php:283
-#: tbl_select.php:196
+#: tbl_select.php:198
 msgid "Or"
 msgstr "Vagy"
 
@@ -607,22 +607,22 @@ msgstr "A(z) %s nézet eldobása kész"
 msgid "Table %s has been dropped"
 msgstr "A(z) %s tábla eldobása megtörtént"
 
-#: db_structure.php:338 tbl_create.php:281
+#: db_structure.php:338 tbl_create.php:283
 msgid "Tracking is active."
 msgstr "Nyomkövetés aktív."
 
-#: db_structure.php:343 tbl_create.php:284
+#: db_structure.php:343 tbl_create.php:286
 msgid "Tracking is not active."
 msgstr "Nyomkövetés inaktív."
 
 #: db_structure.php:461 libraries/display_tbl.lib.php:2356
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
+"This view has at least this number of rows. Please refer to %sdocumentation%"
+"s."
 msgstr ""
-"Ebben a nézetben legalább ennyi számú sor van. Kérjük, hogy nézzen utána a "
-"%sdokumentációban%s."
+"Ebben a nézetben legalább ennyi számú sor van. Kérjük, hogy nézzen utána a %"
+"sdokumentációban%s."
 
 #: db_structure.php:477 db_structure.php:491 libraries/header.inc.php:161
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:210
@@ -631,7 +631,7 @@ msgstr "Nézet"
 
 #: db_structure.php:531 libraries/db_structure.lib.php:35
 #: libraries/server_links.inc.php:90 server_replication.php:31
-#: server_replication.php:162 server_status.php:600
+#: server_replication.php:162 server_status.php:606
 msgid "Replication"
 msgstr "Többszörözés"
 
@@ -647,20 +647,20 @@ msgstr "Ezen a MySQL szerveren a(z) %s az alapértelmezett tárolómotor."
 #: db_structure.php:571 db_structure.php:588 db_structure.php:589
 #: libraries/display_tbl.lib.php:2498 libraries/display_tbl.lib.php:2503
 #: libraries/mult_submits.inc.php:15 server_databases.php:263
-#: server_databases.php:268 server_privileges.php:1760 tbl_structure.php:573
+#: server_databases.php:268 server_privileges.php:1762 tbl_structure.php:573
 #: tbl_structure.php:582
 msgid "With selected:"
 msgstr "A kijelöltekkel végzendő művelet:"
 
 #: db_structure.php:574 libraries/display_tbl.lib.php:2493
 #: server_databases.php:265 server_privileges.php:684
-#: server_privileges.php:1763 tbl_structure.php:576
+#: server_privileges.php:1765 tbl_structure.php:576
 msgid "Check All"
 msgstr "Mind kijelölése"
 
 #: db_structure.php:578 libraries/display_tbl.lib.php:2494
 #: libraries/replication_gui.lib.php:35 server_databases.php:267
-#: server_privileges.php:687 server_privileges.php:1767 tbl_structure.php:580
+#: server_privileges.php:687 server_privileges.php:1769 tbl_structure.php:580
 msgid "Uncheck All"
 msgstr "Kijelölés törlése"
 
@@ -673,7 +673,7 @@ msgstr "A felülírott táblák kijelölése"
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:79
 #: libraries/display_tbl.lib.php:2516 libraries/display_tbl.lib.php:2657
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
-#: prefs_manage.php:286 server_privileges.php:1449 server_status.php:1609
+#: prefs_manage.php:286 server_privileges.php:1449 server_status.php:1623
 #: setup/frames/menu.inc.php:21
 msgid "Export"
 msgstr "Exportálás"
@@ -688,7 +688,7 @@ msgstr "Nyomtatási nézet"
 msgid "Empty"
 msgstr "Kiürítés"
 
-#: db_structure.php:599 db_tracking.php:105 enum_editor.php:116
+#: db_structure.php:599 db_tracking.php:105 enum_editor.php:86
 #: libraries/Index.class.php:490 libraries/common.lib.php:3350
 #: libraries/common.lib.php:3351 server_databases.php:269
 #: tbl_structure.php:150 tbl_structure.php:151 tbl_structure.php:589
@@ -737,8 +737,8 @@ msgstr "Nyomon követett táblák"
 #: libraries/export/sql.php:602 libraries/export/texytext.php:66
 #: libraries/export/xml.php:292 libraries/header.inc.php:146
 #: libraries/header_printview.inc.php:60 server_databases.php:161
-#: server_privileges.php:1834 server_privileges.php:1897
-#: server_privileges.php:2160 server_status.php:1242
+#: server_privileges.php:1836 server_privileges.php:1899
+#: server_privileges.php:2162 server_status.php:1256
 #: server_synchronize.php:1277 server_synchronize.php:1281
 #: tbl_tracking.php:648
 msgid "Database"
@@ -758,15 +758,15 @@ msgstr "frissítve"
 
 #: db_tracking.php:90 js/messages.php:189 libraries/rte/rte_events.lib.php:380
 #: libraries/rte/rte_list.lib.php:67 libraries/server_links.inc.php:51
-#: server_status.php:1245 sql.php:899 tbl_tracking.php:653
+#: server_status.php:1259 sql.php:896 tbl_tracking.php:653
 msgid "Status"
 msgstr "Állapot"
 
 #: db_tracking.php:91 libraries/Index.class.php:438
 #: libraries/db_structure.lib.php:39 libraries/rte/rte_list.lib.php:52
 #: libraries/rte/rte_list.lib.php:61 libraries/rte/rte_list.lib.php:68
-#: server_databases.php:194 server_privileges.php:1706
-#: server_privileges.php:1901 server_privileges.php:2259 tbl_structure.php:221
+#: server_databases.php:194 server_privileges.php:1708
+#: server_privileges.php:1903 server_privileges.php:2261 tbl_structure.php:221
 msgid "Action"
 msgstr "Művelet"
 
@@ -824,15 +824,15 @@ msgstr "„%s” oszlop értékei"
 msgid "Enter each value in a separate field"
 msgstr "Minden értéket külön mezőben adjon meg"
 
-#: enum_editor.php:123
+#: enum_editor.php:93
 msgid "Add a value"
 msgstr "Érték hozzáadása"
 
-#: enum_editor.php:129 gis_data_editor.php:317
+#: enum_editor.php:99 gis_data_editor.php:317
 msgid "Output"
 msgstr "Kimenet"
 
-#: enum_editor.php:130
+#: enum_editor.php:100
 msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr ""
 "Másolja ki és szúrja be a csatolt értékeket a \"Hosszúságok/Értékek\" mezőbe"
@@ -964,11 +964,11 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation"
-"%s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation%"
+"s for ways to workaround this limit."
 msgstr ""
-"Ön bizonyára túl nagy fájlt próbált meg feltölteni. Kérjük, nézzen utána a "
-"%sdokumentációban%s a korlátozás feloldása végett."
+"Ön bizonyára túl nagy fájlt próbált meg feltölteni. Kérjük, nézzen utána a %"
+"sdokumentációban%s a korlátozás feloldása végett."
 
 #: import.php:170 import.php:419
 msgid "Showing bookmark"
@@ -1017,7 +1017,7 @@ msgstr ""
 "Nem lehetett betölteni az importáló beépülő modulokat. Kérjük, ellenőrizze a "
 "telepítését!"
 
-#: import.php:421 sql.php:936
+#: import.php:421 sql.php:933
 #, php-format
 msgid "Bookmark %s created"
 msgstr "A(z) %s könyvjelző elkészült"
@@ -1061,15 +1061,15 @@ msgstr "Vissza"
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr "A phpMyAdmin <b>keretkezelő</b> böngészőben használhatóbb."
 
-#: js/messages.php:27 libraries/import.lib.php:103 sql.php:252
+#: js/messages.php:27 libraries/import.lib.php:103 sql.php:249
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "A \"DROP DATABASE\" utasítást letiltották."
 
-#: js/messages.php:30 libraries/mult_submits.inc.php:280 sql.php:353
+#: js/messages.php:30 libraries/mult_submits.inc.php:280 sql.php:350
 msgid "Do you really want to "
 msgstr "Valóban a következőt akarja "
 
-#: js/messages.php:31 libraries/mult_submits.inc.php:280 sql.php:338
+#: js/messages.php:31 libraries/mult_submits.inc.php:280 sql.php:335
 msgid "You are about to DESTROY a complete database!"
 msgstr "Ön a teljes adatbázis MEGSEMMISÍTÉSÉRE készül!"
 
@@ -1144,8 +1144,8 @@ msgstr "Üres a jelszó mező!"
 msgid "The passwords aren't the same!"
 msgstr "Nem egyeznek a jelszavak!"
 
-#: js/messages.php:59 server_privileges.php:1773 server_privileges.php:1797
-#: server_privileges.php:2209 server_privileges.php:2414
+#: js/messages.php:59 server_privileges.php:1775 server_privileges.php:1799
+#: server_privileges.php:2211 server_privileges.php:2416
 msgid "Add user"
 msgstr "Felhasználó hozzáadása"
 
@@ -1170,15 +1170,15 @@ msgstr "Bezárás"
 msgid "Edit"
 msgstr "Módosítás"
 
-#: js/messages.php:66 server_status.php:806
+#: js/messages.php:66 server_status.php:816
 msgid "Live traffic chart"
 msgstr "Élő forgalomgrafikon"
 
-#: js/messages.php:67 server_status.php:809
+#: js/messages.php:67 server_status.php:819
 msgid "Live conn./process chart"
 msgstr ""
 
-#: js/messages.php:68 server_status.php:827
+#: js/messages.php:68 server_status.php:841
 #, fuzzy
 #| msgid "SQL Query box"
 msgid "Live query chart"
@@ -1191,13 +1191,13 @@ msgstr "Statikus adat"
 #. l10n: Total number of queries
 #: js/messages.php:72 libraries/build_html_for_db.lib.php:46
 #: libraries/engines/innodb.lib.php:158 server_databases.php:222
-#: server_status.php:1129 server_status.php:1190 tbl_printview.php:306
+#: server_status.php:1143 server_status.php:1204 tbl_printview.php:306
 #: tbl_structure.php:814
 msgid "Total"
 msgstr "Összesen"
 
 #. l10n: Other, small valued, queries
-#: js/messages.php:74 server_status.php:606 server_status.php:1025
+#: js/messages.php:74 server_status.php:612 server_status.php:1039
 msgid "Other"
 msgstr "Egyéb"
 
@@ -1227,7 +1227,7 @@ msgstr "Szerverforgalom (KiB-ban)"
 msgid "Connections since last refresh"
 msgstr "Kapcsolatok a legutóbbi frissítés óta"
 
-#: js/messages.php:84 js/messages.php:122 server_status.php:1238
+#: js/messages.php:84 js/messages.php:122 server_status.php:1252
 msgid "Processes"
 msgstr "Folyamatok"
 
@@ -1245,7 +1245,7 @@ msgstr "Kérdések a legutóbbi frissítés óta"
 msgid "Questions (executed statements by the server)"
 msgstr "Kérdések (a kiszolgáló által végrehajtott lekérdezések)"
 
-#: js/messages.php:91 server_status.php:788
+#: js/messages.php:91 server_status.php:794
 msgid "Query statistics"
 msgstr "Lekérdezések statisztikája"
 
@@ -1289,13 +1289,13 @@ msgstr "Rendszer lapozófájl"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1402
-#: server_status.php:1689
+#: server_status.php:1703
 msgid "MiB"
 msgstr "MB"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:105 js/messages.php:126 libraries/common.lib.php:1400
-#: server_status.php:1689
+#: server_status.php:1703
 msgid "KiB"
 msgstr "KB"
 
@@ -1347,7 +1347,7 @@ msgstr "Bájt elküldve"
 msgid "Bytes received"
 msgstr "Fogadott bájtok"
 
-#: js/messages.php:121 server_status.php:1148
+#: js/messages.php:121 server_status.php:1162
 msgid "Connections"
 msgstr "Kapcsolatok"
 
@@ -1386,12 +1386,12 @@ msgstr "%d tábla"
 msgid "Questions"
 msgstr "Kérdések"
 
-#: js/messages.php:136 server_status.php:1103
+#: js/messages.php:136 server_status.php:1117
 msgid "Traffic"
 msgstr "Forgalom"
 
 #: js/messages.php:137 libraries/server_links.inc.php:73
-#: server_status.php:1564
+#: server_status.php:1578
 msgid "Settings"
 msgstr "Beállítások"
 
@@ -1414,7 +1414,7 @@ msgstr "Legalább egy változót adjon meg a sorozathoz"
 #: js/messages.php:143 libraries/display_export.lib.php:308
 #: libraries/display_tbl.lib.php:573 libraries/export/sql.php:1093
 #: libraries/tbl_properties.inc.php:530 pmd_general.php:504
-#: server_privileges.php:2050 server_status.php:1271 server_status.php:1706
+#: server_privileges.php:2052 server_status.php:1285 server_status.php:1720
 #: tbl_zoom_select.php:158 tbl_zoom_select.php:285
 msgid "None"
 msgstr "Nincs"
@@ -1513,7 +1513,7 @@ msgstr "Beállítások megváltoztatása"
 msgid "Current settings"
 msgstr "Jelenlegi beállítások"
 
-#: js/messages.php:168 server_status.php:1654
+#: js/messages.php:168 server_status.php:1668
 msgid "Chart Title"
 msgstr "Diagramcím"
 
@@ -1592,7 +1592,7 @@ msgid "Explain output"
 msgstr "A kimenet magyarázata"
 
 #: js/messages.php:190 js/messages.php:497 libraries/rte/rte_list.lib.php:62
-#: server_status.php:1244 sql.php:900
+#: server_status.php:1258 sql.php:897
 msgid "Time"
 msgstr "Idő"
 
@@ -1689,7 +1689,7 @@ msgstr ""
 #: js/messages.php:216 libraries/config/messages.inc.php:172
 #: libraries/db_links.inc.php:82 libraries/display_import.lib.php:126
 #: libraries/server_links.inc.php:69 libraries/tbl_links.inc.php:89
-#: prefs_manage.php:229 server_status.php:1609 setup/frames/menu.inc.php:20
+#: prefs_manage.php:229 server_status.php:1623 setup/frames/menu.inc.php:20
 msgid "Import"
 msgstr "Importálás"
 
@@ -2316,16 +2316,16 @@ msgstr "másodperc"
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr ""
 
-#: libraries/Advisor.class.php:326 server_status.php:955
+#: libraries/Advisor.class.php:326 server_status.php:969
 msgid "per second"
 msgstr "másodpercenként"
 
-#: libraries/Advisor.class.php:329 server_status.php:950
+#: libraries/Advisor.class.php:329 server_status.php:964
 msgid "per minute"
 msgstr "percenként"
 
-#: libraries/Advisor.class.php:332 server_status.php:946 server_status.php:982
-#: server_status.php:1104 server_status.php:1149
+#: libraries/Advisor.class.php:332 server_status.php:960 server_status.php:996
+#: server_status.php:1118 server_status.php:1163
 msgid "per hour"
 msgstr "óránként"
 
@@ -2333,20 +2333,20 @@ msgstr "óránként"
 msgid "per day"
 msgstr "naponta"
 
-#: libraries/Config.class.php:703
+#: libraries/Config.class.php:701
 msgid "Remove \"./config\" directory before using phpMyAdmin!"
 msgstr "Távolítsa el a \"./config\" mappát a phpMyAdmin használata előtt!"
 
-#: libraries/Config.class.php:729
+#: libraries/Config.class.php:727
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "A létező beállító fájl (%s) nem olvasható."
 
-#: libraries/Config.class.php:755
+#: libraries/Config.class.php:753
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 
-#: libraries/Config.class.php:1306
+#: libraries/Config.class.php:1304
 msgid "Font size"
 msgstr "Betűméret"
 
@@ -2461,7 +2461,7 @@ msgstr ""
 
 #: libraries/List_Database.class.php:379 libraries/config/messages.inc.php:179
 #: libraries/server_links.inc.php:43 server_databases.php:104
-#: server_privileges.php:1834
+#: server_privileges.php:1836
 msgid "Databases"
 msgstr "Adatbázisok"
 
@@ -2538,36 +2538,36 @@ msgstr "Ez a MySQL szerver nem támogatja a(z) %s tárolómotort."
 msgid "unknown table status: "
 msgstr "ismeretlen táblaállapot: "
 
-#: libraries/Table.class.php:1120
+#: libraries/Table.class.php:1121
 msgid "Invalid database"
 msgstr "Érvénytelen adatbázis"
 
-#: libraries/Table.class.php:1134 tbl_get_field.php:25
+#: libraries/Table.class.php:1135 tbl_get_field.php:25
 msgid "Invalid table name"
 msgstr "Érvénytelen táblanév"
 
-#: libraries/Table.class.php:1165
+#: libraries/Table.class.php:1166
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "Hiba történt a(z) %1$s tábla %2$s névre történő átnevezésekor"
 
-#: libraries/Table.class.php:1252
+#: libraries/Table.class.php:1253
 #, php-format
 msgid "Table %s has been renamed to %s"
 msgstr "A(z) %s tábla átnevezése %s névre megtörtént"
 
-#: libraries/Table.class.php:1384
+#: libraries/Table.class.php:1385
 msgid "Could not save table UI preferences"
 msgstr ""
 
-#: libraries/Table.class.php:1407
+#: libraries/Table.class.php:1408
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: libraries/Table.class.php:1533
+#: libraries/Table.class.php:1534
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -2620,11 +2620,11 @@ msgstr "Üdvözli a %s"
 #: libraries/auth/config.auth.lib.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the "
-"%1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the %"
+"1$ssetup script%2$s to create one."
 msgstr ""
-"Ön valószínűleg nem hozta létre a konfigurációs fájlt. A "
-"%1$stelepítőszkripttel%2$s el tudja készíteni."
+"Ön valószínűleg nem hozta létre a konfigurációs fájlt. A %1"
+"$stelepítőszkripttel%2$s el tudja készíteni."
 
 #: libraries/auth/config.auth.lib.php:111
 msgid ""
@@ -2772,7 +2772,7 @@ msgstr "megosztott"
 
 #: libraries/build_html_for_db.lib.php:26
 #: libraries/config/messages.inc.php:185 libraries/export/xml.php:51
-#: server_status.php:602
+#: server_status.php:608
 msgid "Tables"
 msgstr "Táblák"
 
@@ -2823,22 +2823,22 @@ msgstr ""
 msgid "numeric key detected"
 msgstr ""
 
-#: libraries/common.inc.php:607
+#: libraries/common.inc.php:624
 msgid "Failed to read configuration file"
 msgstr "A beállítófájl olvasása meghiúsult"
 
-#: libraries/common.inc.php:608
+#: libraries/common.inc.php:625
 msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
 
-#: libraries/common.inc.php:615
+#: libraries/common.inc.php:632
 #, php-format
 msgid "Could not load default configuration from: %1$s"
 msgstr "Nem lehetett betölteni az alapértelmezett konfigurációt innen: %1$s"
 
-#: libraries/common.inc.php:620
+#: libraries/common.inc.php:637
 msgid ""
 "The <tt>$cfg['PmaAbsoluteUri']</tt> directive MUST be set in your "
 "configuration file!"
@@ -2846,27 +2846,27 @@ msgstr ""
 "A <tt>$cfg['PmaAbsoluteUri']</tt> utasítás értékét a konfigurációs fájlban "
 "KELL megadni!"
 
-#: libraries/common.inc.php:650
+#: libraries/common.inc.php:667
 #, php-format
 msgid "Invalid server index: %s"
 msgstr "Érvénytelen szerverindex: %s"
 
-#: libraries/common.inc.php:657
+#: libraries/common.inc.php:674
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
 msgstr "A(z) %1$s szerver hosztneve érvénytelen. Ellenőrizze a beállításokat."
 
-#: libraries/common.inc.php:666 libraries/config/messages.inc.php:508
-#: libraries/header.inc.php:134 main.php:171 server_status.php:787
+#: libraries/common.inc.php:683 libraries/config/messages.inc.php:508
+#: libraries/header.inc.php:134 main.php:171 server_status.php:793
 #: server_synchronize.php:1257
 msgid "Server"
 msgstr "Kiszolgáló"
 
-#: libraries/common.inc.php:849
+#: libraries/common.inc.php:866
 msgid "Invalid authentication method set in configuration:"
 msgstr "Érvénytelen hitelesítési mód került beállításra a konfigurációban:"
 
-#: libraries/common.inc.php:964
+#: libraries/common.inc.php:981
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Frissítenie kell %s %s vagy újabb verzióra."
@@ -2907,7 +2907,7 @@ msgid "Documentation"
 msgstr "Dokumentáció"
 
 #: libraries/common.lib.php:626 libraries/header_printview.inc.php:63
-#: server_status.php:589 server_status.php:1247
+#: server_status.php:595 server_status.php:1261
 msgid "SQL query"
 msgstr "SQL-lekérdezés"
 
@@ -2920,7 +2920,7 @@ msgstr "SQL-lekérdezés"
 #: libraries/rte/rte_routines.lib.php:1255
 #: libraries/rte/rte_triggers.lib.php:76 libraries/rte/rte_triggers.lib.php:81
 #: libraries/rte/rte_triggers.lib.php:91
-#: libraries/rte/rte_triggers.lib.php:104
+#: libraries/rte/rte_triggers.lib.php:108
 msgid "MySQL said: "
 msgstr "A MySQL mondta: "
 
@@ -2945,7 +2945,7 @@ msgid "Create PHP Code"
 msgstr "PHP-kód létrehozása"
 
 #: libraries/common.lib.php:1233 libraries/config/messages.inc.php:486
-#: server_status.php:798 server_status.php:820 server_status.php:839
+#: server_status.php:804 server_status.php:830 server_status.php:853
 msgid "Refresh"
 msgstr "Frissítés"
 
@@ -2966,7 +2966,7 @@ msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Belső"
 
-#: libraries/common.lib.php:1373 sql.php:895
+#: libraries/common.lib.php:1373 sql.php:892
 msgid "Profiling"
 msgstr "Adatgyűjtés"
 
@@ -5260,7 +5260,7 @@ msgstr "Szükséges az SQL Validator engedélyezése"
 #: libraries/replication_gui.lib.php:341 libraries/replication_gui.lib.php:345
 #: libraries/replication_gui.lib.php:355 server_privileges.php:879
 #: server_privileges.php:883 server_privileges.php:894
-#: server_privileges.php:1702 server_synchronize.php:1273
+#: server_privileges.php:1704 server_synchronize.php:1273
 msgid "Password"
 msgstr "Jelszó"
 
@@ -5589,7 +5589,7 @@ msgid "Designer"
 msgstr "Tervező"
 
 #: libraries/db_links.inc.php:92 server_privileges.php:121
-#: server_privileges.php:1898 server_privileges.php:2257
+#: server_privileges.php:1900 server_privileges.php:2259
 msgid "Privileges"
 msgstr "Jogok"
 
@@ -5657,7 +5657,7 @@ msgid "Create"
 msgstr "Létrehozás"
 
 #: libraries/display_create_database.lib.php:43 server_privileges.php:123
-#: server_privileges.php:1587 server_replication.php:33
+#: server_privileges.php:1589 server_replication.php:33
 msgid "No Privileges"
 msgstr "Nincs jog"
 
@@ -5771,8 +5771,8 @@ msgstr ", @TABLE@ lesz a tábla neve"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: "
-"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: %"
+"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Ennek az értéknek az értelmezése a(z) %1$sstrftime%2$s használatával "
 "történik, vagyis időformázó karakterláncokat használhat. Továbbá a következő "
@@ -5974,7 +5974,7 @@ msgstr "Kulcs szerinti rendezés"
 #: libraries/import/ldi.php:49 libraries/import/ods.php:39
 #: libraries/import/shp.php:22 libraries/import/sql.php:20
 #: libraries/import/xml.php:32 libraries/rte/rte_routines.lib.php:863
-#: tbl_select.php:175 tbl_structure.php:862
+#: tbl_select.php:177 tbl_structure.php:862
 msgid "Options"
 msgstr "Beállítások"
 
@@ -6023,7 +6023,7 @@ msgid "The row has been deleted"
 msgstr "A sor törlése megtörtént"
 
 #: libraries/display_tbl.lib.php:1445 libraries/display_tbl.lib.php:2473
-#: server_status.php:1267
+#: server_status.php:1281
 msgid "Kill"
 msgstr "Leállít"
 
@@ -6039,7 +6039,7 @@ msgstr "Megjelenített sorok:"
 msgid "total"
 msgstr "összesen"
 
-#: libraries/display_tbl.lib.php:2382 sql.php:733
+#: libraries/display_tbl.lib.php:2382 sql.php:730
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "a lekérdezés %01.4f másodpercig tartott"
@@ -6112,7 +6112,7 @@ msgstr ""
 msgid "Buffer Pool"
 msgstr "Pufferkészlet"
 
-#: libraries/engines/innodb.lib.php:131 server_status.php:650
+#: libraries/engines/innodb.lib.php:131 server_status.php:656
 msgid "InnoDB Status"
 msgstr "InnoDB állapota"
 
@@ -6507,8 +6507,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the "
-"%sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the %"
+"sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -6608,8 +6608,8 @@ msgstr "MIME-típusok megjelenítése"
 #: libraries/replication_gui.lib.php:275 libraries/replication_gui.lib.php:278
 #: libraries/replication_gui.lib.php:335 server_privileges.php:814
 #: server_privileges.php:817 server_privileges.php:873
-#: server_privileges.php:1701 server_privileges.php:2255
-#: server_status.php:1241
+#: server_privileges.php:1703 server_privileges.php:2257
+#: server_status.php:1255
 msgid "Host"
 msgstr "Hoszt"
 
@@ -6842,7 +6842,7 @@ msgid "Generated by"
 msgstr "Készítette"
 
 #: libraries/import.lib.php:157 libraries/rte/rte_routines.lib.php:1249
-#: sql.php:729 tbl_change.php:188 tbl_get_field.php:34
+#: sql.php:726 tbl_change.php:188 tbl_get_field.php:34
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "A MySQL üres eredményhalmazt adott vissza (pl. nulla sorok)."
 
@@ -7032,7 +7032,7 @@ msgstr ""
 msgid "Add prefix"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:482 tbl_replace.php:356
+#: libraries/mult_submits.inc.php:483 tbl_replace.php:356
 msgid "No change"
 msgstr "Nincs változás"
 
@@ -7369,14 +7369,14 @@ msgid "Slave status"
 msgstr "Másodlagos állapot"
 
 #: libraries/replication_gui.lib.php:118 libraries/sql_query_form.lib.php:388
-#: server_status.php:1478 server_variables.php:123
+#: server_status.php:1492 server_variables.php:123
 msgid "Variable"
 msgstr "Változó"
 
 #: libraries/replication_gui.lib.php:119
 #: libraries/rte/rte_routines.lib.php:1371 libraries/tbl_select.lib.php:87
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
-#: pmd_general.php:769 server_status.php:1479 tbl_change.php:334
+#: pmd_general.php:769 server_status.php:1493 tbl_change.php:334
 #: tbl_zoom_select.php:443
 msgid "Value"
 msgstr "Érték"
@@ -7402,7 +7402,7 @@ msgstr "Bármilyen felhasználó"
 #: libraries/replication_gui.lib.php:261 libraries/replication_gui.lib.php:329
 #: libraries/replication_gui.lib.php:352 server_privileges.php:800
 #: server_privileges.php:867 server_privileges.php:891
-#: server_privileges.php:2109 server_privileges.php:2139
+#: server_privileges.php:2111 server_privileges.php:2141
 msgid "Use text field"
 msgstr "Szöveges mező használata"
 
@@ -7440,7 +7440,7 @@ msgstr "Jelszó generálása"
 #: libraries/rte/rte_routines.lib.php:281
 #: libraries/rte/rte_routines.lib.php:1254
 #: libraries/rte/rte_triggers.lib.php:75 libraries/rte/rte_triggers.lib.php:80
-#: libraries/rte/rte_triggers.lib.php:103
+#: libraries/rte/rte_triggers.lib.php:104
 #, php-format
 msgid "The following query has failed: \"%s\""
 msgstr "A következő lekérdezés meghiúsult: \"%s\""
@@ -7465,7 +7465,7 @@ msgid "Event %1$s has been created."
 msgstr "A(z) %1$s esemény létrejött."
 
 #: libraries/rte/rte_events.lib.php:141 libraries/rte/rte_routines.lib.php:292
-#: libraries/rte/rte_triggers.lib.php:114
+#: libraries/rte/rte_triggers.lib.php:118
 msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr "<b>Egy vagy több hiba történt a kérés feldolgozása közben:</b>"
 
@@ -7476,12 +7476,12 @@ msgstr "Esemény módosítása"
 #: libraries/rte/rte_events.lib.php:212 libraries/rte/rte_routines.lib.php:370
 #: libraries/rte/rte_routines.lib.php:1276
 #: libraries/rte/rte_routines.lib.php:1312
-#: libraries/rte/rte_triggers.lib.php:187
+#: libraries/rte/rte_triggers.lib.php:191
 msgid "Error in processing request"
 msgstr "Hiba a kérés feldolgozásában"
 
 #: libraries/rte/rte_events.lib.php:371 libraries/rte/rte_routines.lib.php:828
-#: libraries/rte/rte_triggers.lib.php:302
+#: libraries/rte/rte_triggers.lib.php:306
 msgid "Details"
 msgstr "Részletek"
 
@@ -7521,7 +7521,7 @@ msgid "End"
 msgstr "Vége"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:923
-#: libraries/rte/rte_triggers.lib.php:354
+#: libraries/rte/rte_triggers.lib.php:360
 #, fuzzy
 #| msgid "Description"
 msgid "Definition"
@@ -7534,12 +7534,12 @@ msgid "On completion preserve"
 msgstr "teljes beillesztések"
 
 #: libraries/rte/rte_events.lib.php:475 libraries/rte/rte_routines.lib.php:933
-#: libraries/rte/rte_triggers.lib.php:360
+#: libraries/rte/rte_triggers.lib.php:366
 msgid "Definer"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:518 libraries/rte/rte_routines.lib.php:997
-#: libraries/rte/rte_triggers.lib.php:398
+#: libraries/rte/rte_triggers.lib.php:404
 msgid "The definer must be in the \"username@hostname\" format"
 msgstr ""
 
@@ -7559,11 +7559,11 @@ msgstr ""
 msgid "You must provide a valid type for the event."
 msgstr ""
 
-#: libraries/rte/rte_events.lib.php:572
+#: libraries/rte/rte_events.lib.php:577
 msgid "You must provide an event definition."
 msgstr ""
 
-#: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2411
+#: libraries/rte/rte_footer.lib.php:29 server_privileges.php:2413
 msgid "New"
 msgstr "Új"
 
@@ -7585,7 +7585,7 @@ msgstr ""
 msgid "Returns"
 msgstr "Típus visszaadása"
 
-#: libraries/rte/rte_list.lib.php:63 libraries/rte/rte_triggers.lib.php:340
+#: libraries/rte/rte_list.lib.php:63 libraries/rte/rte_triggers.lib.php:346
 msgid "Event"
 msgstr "Esemény"
 
@@ -7746,50 +7746,50 @@ msgstr ""
 msgid "Trigger %1$s has been modified."
 msgstr "A(z) %s oszlop eldobása megtörtént"
 
-#: libraries/rte/rte_triggers.lib.php:106
+#: libraries/rte/rte_triggers.lib.php:110
 #, fuzzy, php-format
 #| msgid "Table %1$s has been created."
 msgid "Trigger %1$s has been created."
 msgstr "A(z) %1$s tábla elkészült."
 
-#: libraries/rte/rte_triggers.lib.php:161
+#: libraries/rte/rte_triggers.lib.php:165
 #, fuzzy
 #| msgid "Add a new server"
 msgid "Edit trigger"
 msgstr "Új szerver hozzáadása"
 
-#: libraries/rte/rte_triggers.lib.php:305
+#: libraries/rte/rte_triggers.lib.php:309
 #, fuzzy
 #| msgid "Triggers"
 msgid "Trigger name"
 msgstr "Eseményindítók"
 
-#: libraries/rte/rte_triggers.lib.php:326
+#: libraries/rte/rte_triggers.lib.php:332
 #, fuzzy
 #| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
 msgstr "Idő"
 
-#: libraries/rte/rte_triggers.lib.php:405
+#: libraries/rte/rte_triggers.lib.php:411
 msgid "You must provide a trigger name"
 msgstr ""
 
-#: libraries/rte/rte_triggers.lib.php:410
+#: libraries/rte/rte_triggers.lib.php:416
 msgid "You must provide a valid timing for the trigger"
 msgstr ""
 
-#: libraries/rte/rte_triggers.lib.php:415
+#: libraries/rte/rte_triggers.lib.php:421
 msgid "You must provide a valid event for the trigger"
 msgstr ""
 
-#: libraries/rte/rte_triggers.lib.php:421
+#: libraries/rte/rte_triggers.lib.php:427
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "You must provide a valid table name"
 msgstr "Érvénytelen táblanév"
 
-#: libraries/rte/rte_triggers.lib.php:427
+#: libraries/rte/rte_triggers.lib.php:433
 msgid "You must provide a trigger definition."
 msgstr ""
 
@@ -8050,12 +8050,12 @@ msgid "Synchronize"
 msgstr ""
 
 #: libraries/server_links.inc.php:84 server_binlog.php:77
-#: server_status.php:595
+#: server_status.php:601
 msgid "Binary log"
 msgstr "Bináris napló"
 
 #: libraries/server_links.inc.php:95 server_engines.php:121
-#: server_engines.php:125 server_status.php:648
+#: server_engines.php:125 server_status.php:654
 msgid "Variables"
 msgstr "Változók"
 
@@ -8118,11 +8118,11 @@ msgstr "Törlés"
 msgid "Columns"
 msgstr "Oszlopok"
 
-#: libraries/sql_query_form.lib.php:300 sql.php:976 sql.php:993
+#: libraries/sql_query_form.lib.php:300 sql.php:973 sql.php:990
 msgid "Bookmark this SQL query"
 msgstr "Az SQL-lekérdezés hozzáadása a könyvjelzőkhöz"
 
-#: libraries/sql_query_form.lib.php:307 sql.php:987
+#: libraries/sql_query_form.lib.php:307 sql.php:984
 msgid "Let every user access this bookmark"
 msgstr ""
 "A hozzáférés ehhez a könyvjelzőhöz az összes felhasználó számára "
@@ -8222,8 +8222,8 @@ msgid ""
 "The SQL validator could not be initialized. Please check if you have "
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
-"Nem lehetett inicializálni az SQL ellenőrzőt. Ellenőrizze, hogy a "
-"%sdokumentációban%s leírtak szerint telepítette-e a szükséges PHP-"
+"Nem lehetett inicializálni az SQL ellenőrzőt. Ellenőrizze, hogy a %"
+"sdokumentációban%s leírtak szerint telepítette-e a szükséges PHP-"
 "kiterjesztést."
 
 #: libraries/tbl_links.inc.php:118 libraries/tbl_links.inc.php:119
@@ -8567,9 +8567,9 @@ msgstr "Szoftver verzió"
 msgid "Protocol version"
 msgstr "Protokoll verzió"
 
-#: main.php:179 server_privileges.php:1545 server_privileges.php:1700
-#: server_privileges.php:1824 server_privileges.php:2254
-#: server_status.php:1240
+#: main.php:179 server_privileges.php:1547 server_privileges.php:1702
+#: server_privileges.php:1826 server_privileges.php:2256
+#: server_status.php:1254
 msgid "User"
 msgstr "Felhasználó"
 
@@ -8643,11 +8643,17 @@ msgstr ""
 "vezethet."
 
 #: main.php:292
+#, fuzzy
+#| msgid ""
+#| "Your PHP parameter [a@http://php.net/manual/en/session.configuration."
+#| "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
+#| "that cookie validity configured in phpMyAdmin, because of this, your "
+#| "login will expire sooner than configured in phpMyAdmin."
 msgid ""
 "Your PHP parameter [a@http://php.net/manual/en/session.configuration.php#ini."
-"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower that cookie "
-"validity configured in phpMyAdmin, because of this, your login will expire "
-"sooner than configured in phpMyAdmin."
+"session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than "
+"cookie validity configured in phpMyAdmin, because of this, your login will "
+"expire sooner than configured in phpMyAdmin."
 msgstr ""
 "A [a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
 "maxlifetime@]session.gc_maxlifetime[/a] paraméter alacsonyabb a "
@@ -8972,8 +8978,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"További beállításokat állíthat be a config.inc.php modosításával, pl. "
-"%sBeállító parancsfájl%s használatával."
+"További beállításokat állíthat be a config.inc.php modosításával, pl. %"
+"sBeállító parancsfájl%s használatával."
 
 #: prefs_manage.php:300
 msgid "Save to browser's storage"
@@ -9015,17 +9021,17 @@ msgstr "A fájl nem létezik"
 msgid "Select binary log to view"
 msgstr "Válassza ki a megtekintendő bináris naplót"
 
-#: server_binlog.php:103 server_status.php:604
+#: server_binlog.php:103 server_status.php:610
 msgid "Files"
 msgstr "Fájlok"
 
-#: server_binlog.php:150 server_binlog.php:152 server_status.php:1251
-#: server_status.php:1253
+#: server_binlog.php:150 server_binlog.php:152 server_status.php:1265
+#: server_status.php:1267
 msgid "Truncate Shown Queries"
 msgstr "A megjelenített lekérdezések lerövidítése"
 
-#: server_binlog.php:158 server_binlog.php:160 server_status.php:1251
-#: server_status.php:1253
+#: server_binlog.php:158 server_binlog.php:160 server_status.php:1265
+#: server_status.php:1267
 msgid "Show Full Queries"
 msgstr "Teljes lekérdezések megjelenítése"
 
@@ -9331,12 +9337,12 @@ msgid "None"
 msgstr "Nincs"
 
 #: server_privileges.php:536 server_privileges.php:681
-#: server_privileges.php:1894 server_privileges.php:1900
+#: server_privileges.php:1896 server_privileges.php:1902
 msgid "Table-specific privileges"
 msgstr "Táblaspecifikus jogok"
 
 #: server_privileges.php:537 server_privileges.php:689
-#: server_privileges.php:1704
+#: server_privileges.php:1706
 msgid "Note: MySQL privilege names are expressed in English"
 msgstr "Megjegyzés: a MySQL jognevek az angolból származnak."
 
@@ -9344,11 +9350,11 @@ msgstr "Megjegyzés: a MySQL jognevek az angolból származnak."
 msgid "Administration"
 msgstr "Adminisztráció"
 
-#: server_privileges.php:678 server_privileges.php:1703
+#: server_privileges.php:678 server_privileges.php:1705
 msgid "Global privileges"
 msgstr "Globális jogok"
 
-#: server_privileges.php:680 server_privileges.php:1894
+#: server_privileges.php:680 server_privileges.php:1896
 msgid "Database-specific privileges"
 msgstr "Adatbázis-specifikus jogok"
 
@@ -9369,7 +9375,7 @@ msgstr "Bejelentkezési adatok"
 msgid "Do not change the password"
 msgstr "Nincs jelszó megváltoztatás"
 
-#: server_privileges.php:917 server_privileges.php:2397
+#: server_privileges.php:917 server_privileges.php:2399
 msgid "No user found."
 msgstr "Nem található felhasználó."
 
@@ -9418,7 +9424,7 @@ msgstr "A kiválasztott felhasználók törlése sikerült."
 msgid "The privileges were reloaded successfully."
 msgstr "A jogok újratöltése sikerült."
 
-#: server_privileges.php:1432 server_privileges.php:1823
+#: server_privileges.php:1432 server_privileges.php:1825
 msgid "Edit Privileges"
 msgstr "Jogok szerkesztése"
 
@@ -9426,136 +9432,136 @@ msgstr "Jogok szerkesztése"
 msgid "Revoke"
 msgstr "Visszavonás"
 
-#: server_privileges.php:1468 server_privileges.php:1724
-#: server_privileges.php:2347
+#: server_privileges.php:1468 server_privileges.php:1726
+#: server_privileges.php:2349
 msgid "Any"
 msgstr "Bármi"
 
-#: server_privileges.php:1565
+#: server_privileges.php:1567
 msgid "Users overview"
 msgstr "Felhasználók áttekintése"
 
-#: server_privileges.php:1705 server_privileges.php:1899
-#: server_privileges.php:2258
+#: server_privileges.php:1707 server_privileges.php:1901
+#: server_privileges.php:2260
 msgid "Grant"
 msgstr "Engedélyezés"
 
-#: server_privileges.php:1778
+#: server_privileges.php:1780
 msgid "Remove selected users"
 msgstr "A kijelölt felhasználók törlése"
 
-#: server_privileges.php:1781
+#: server_privileges.php:1783
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr "A felhasználók összes jogának visszavonása, majd törlése."
 
-#: server_privileges.php:1782 server_privileges.php:1783
-#: server_privileges.php:1784
+#: server_privileges.php:1784 server_privileges.php:1785
+#: server_privileges.php:1786
 msgid "Drop the databases that have the same names as the users."
 msgstr "A felhasználókéval azonos nevű adatbázisok eldobása."
 
-#: server_privileges.php:1805
+#: server_privileges.php:1807
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should "
-"%sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should %"
+"sreload the privileges%s before you continue."
 msgstr ""
 "Megjegyzés: a phpMyAdmin a felhasználók jogait közvetlenül a MySQL "
 "privilégium táblákból veszi. Ezen táblák tartalma eltérhet a szerver által "
-"használt jogoktól, ha a módosításuk kézzel történt. Ebben az esetben "
-"%stöltse be újra a jogokat%s a folytatás előtt."
+"használt jogoktól, ha a módosításuk kézzel történt. Ebben az esetben %"
+"stöltse be újra a jogokat%s a folytatás előtt."
 
-#: server_privileges.php:1858
+#: server_privileges.php:1860
 msgid "The selected user was not found in the privilege table."
 msgstr "Nem található a kiválasztott felhasználó a privilégium táblában."
 
-#: server_privileges.php:1900
+#: server_privileges.php:1902
 msgid "Column-specific privileges"
 msgstr "Oszlopspecifikus jogok"
 
-#: server_privileges.php:2106
+#: server_privileges.php:2108
 msgid "Add privileges on the following database"
 msgstr "Jogok hozzáadása a következő adatbázison"
 
-#: server_privileges.php:2124
+#: server_privileges.php:2126
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "A _ és a % karakterhelyettesítőt \\ jellel kell lezárni, hogy "
 "szövegkonstansként lehessen őket használni"
 
-#: server_privileges.php:2127
+#: server_privileges.php:2129
 msgid "Add privileges on the following table"
 msgstr "Jogok hozzáadása a következő táblán:"
 
-#: server_privileges.php:2184
+#: server_privileges.php:2186
 msgid "Change Login Information / Copy User"
 msgstr "Bejelentkezési adatok módosítása / Felhasználó másolása"
 
-#: server_privileges.php:2187
+#: server_privileges.php:2189
 msgid "Create a new user with the same privileges and ..."
 msgstr "Új felhasználó létrehozása ezekkel a jogokkal, és ..."
 
-#: server_privileges.php:2189
+#: server_privileges.php:2191
 msgid "... keep the old one."
 msgstr "... a régiek megőrzése."
 
-#: server_privileges.php:2190
+#: server_privileges.php:2192
 msgid "... delete the old one from the user tables."
 msgstr "... a régiek törlése a felhasználói táblákból."
 
-#: server_privileges.php:2191
+#: server_privileges.php:2193
 msgid ""
 "... revoke all active privileges from the old one and delete it afterwards."
 msgstr "... az összes aktív jog visszaállítása a régiekből, majd törlés."
 
-#: server_privileges.php:2192
+#: server_privileges.php:2194
 msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 "... a régiek törlése a felhasználói táblákból, majd a jogok újratöltése."
 
-#: server_privileges.php:2215
+#: server_privileges.php:2217
 msgid "Database for user"
 msgstr "Adatbázis a felhasználó számára"
 
-#: server_privileges.php:2219
+#: server_privileges.php:2221
 msgctxt "Create none database for user"
 msgid "None"
 msgstr "Nincs"
 
-#: server_privileges.php:2220
+#: server_privileges.php:2222
 msgid "Create database with same name and grant all privileges"
 msgstr "Azonos nevű adatbázis létrehozása, és az összes jog engedélyezése"
 
-#: server_privileges.php:2221
+#: server_privileges.php:2223
 msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr "Az összes jog engedélyezése karakterhelyettesítős néven (username\\_%)"
 
-#: server_privileges.php:2225
+#: server_privileges.php:2227
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr "Az összes jog engedélyezése a(z) &quot;%s&quot; adatbázison"
 
-#: server_privileges.php:2250
+#: server_privileges.php:2252
 #, php-format
 msgid "Users having access to &quot;%s&quot;"
 msgstr "A(z) &quot;%s&quot; adatbázishoz hozzáférhető felhasználók"
 
-#: server_privileges.php:2359
+#: server_privileges.php:2361
 msgid "global"
 msgstr "globális"
 
-#: server_privileges.php:2361
+#: server_privileges.php:2363
 msgid "database-specific"
 msgstr "adatbázis-specifikus"
 
-#: server_privileges.php:2363
+#: server_privileges.php:2365
 msgid "wildcard"
 msgstr "karakterhelyettesítő"
 
-#: server_privileges.php:2406
+#: server_privileges.php:2408
 msgid "User has been added."
 msgstr "A felhasználó hozzáadása kész."
 
@@ -9587,7 +9593,7 @@ msgstr "A jogok újratöltése sikerült."
 msgid "This server is configured as master in a replication process."
 msgstr ""
 
-#: server_replication.php:182 server_status.php:625
+#: server_replication.php:182 server_status.php:631
 #, fuzzy
 msgid "Show master status"
 msgstr "Kisegítő állapot megjelenítése"
@@ -9728,12 +9734,12 @@ msgid ""
 "like to <a href=\"%s\">configure</a> it?"
 msgstr ""
 
-#: server_status.php:458
+#: server_status.php:464
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr "Sikerült leállítani a(z) %s. szálat."
 
-#: server_status.php:460
+#: server_status.php:466
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
@@ -9741,136 +9747,142 @@ msgstr ""
 "A phpMyAdmin nem tudta leállítani a(z) %s szálat. Valószínűleg már "
 "befejeződött."
 
-#: server_status.php:592
+#: server_status.php:598
 msgid "Handler"
 msgstr "Kezelő"
 
-#: server_status.php:593
+#: server_status.php:599
 msgid "Query cache"
 msgstr "Lekérdezési gyorsítótár"
 
-#: server_status.php:594
+#: server_status.php:600
 msgid "Threads"
 msgstr "Szálak"
 
-#: server_status.php:596
+#: server_status.php:602
 msgid "Temporary data"
 msgstr "Ideiglenes adatok"
 
-#: server_status.php:597
+#: server_status.php:603
 msgid "Delayed inserts"
 msgstr "Késleltetett beszúrások"
 
-#: server_status.php:598
+#: server_status.php:604
 msgid "Key cache"
 msgstr "Kulcs gyorsítótár"
 
-#: server_status.php:599
+#: server_status.php:605
 msgid "Joins"
 msgstr "Illesztések"
 
-#: server_status.php:601
+#: server_status.php:607
 msgid "Sorting"
 msgstr "Rendezés"
 
-#: server_status.php:603
+#: server_status.php:609
 msgid "Transaction coordinator"
 msgstr "Tranzakció koordinátor"
 
-#: server_status.php:615
+#: server_status.php:621
 msgid "Flush (close) all tables"
 msgstr "Összes tábla kiírása (bezárása)"
 
-#: server_status.php:617
+#: server_status.php:623
 msgid "Show open tables"
 msgstr "Nyitott táblák megjelenítése"
 
-#: server_status.php:622
+#: server_status.php:628
 msgid "Show slave hosts"
 msgstr "Kisegítő állomások megjelenítése"
 
-#: server_status.php:628
+#: server_status.php:634
 msgid "Show slave status"
 msgstr "Kisegítő állapot megjelenítése"
 
-#: server_status.php:633
+#: server_status.php:639
 msgid "Flush query cache"
 msgstr "Lekérdezési gyorsítótár kiírása"
 
-#: server_status.php:782
+#: server_status.php:788
 msgid "Runtime Information"
 msgstr "Futtatási információk"
 
-#: server_status.php:789
+#: server_status.php:795
 msgid "All status variables"
 msgstr ""
 
-#: server_status.php:790
+#: server_status.php:796
 msgid "Monitor"
 msgstr ""
 
-#: server_status.php:791
+#: server_status.php:797
 msgid "Advisor"
 msgstr ""
 
-#: server_status.php:801 server_status.php:823
+#: server_status.php:807 server_status.php:833
+#, fuzzy
+#| msgid "Number of rows:"
+msgid "Number of data points: "
+msgstr "Sorok száma:"
+
+#: server_status.php:811 server_status.php:837
 msgid "Refresh rate: "
 msgstr "Frissítési időköz: "
 
-#: server_status.php:842 server_variables.php:115
+#: server_status.php:856 server_variables.php:115
 #, fuzzy
 msgid "Filters"
 msgstr "Szűrő"
 
-#: server_status.php:844 server_variables.php:117
+#: server_status.php:858 server_variables.php:117
 msgid "Containing the word:"
 msgstr "Tartalmazza ezt a szót:"
 
-#: server_status.php:849
+#: server_status.php:863
 msgid "Show only alert values"
 msgstr "Csak a figyelmeztető értékek megjelenítése"
 
-#: server_status.php:853
+#: server_status.php:867
 msgid "Filter by category..."
 msgstr ""
 
-#: server_status.php:867
+#: server_status.php:881
 msgid "Show unformatted values"
 msgstr "Formázatlan értékek megjelenítése"
 
-#: server_status.php:871
+#: server_status.php:885
 msgid "Related links:"
 msgstr "Kapcsolódó hivatkozások:"
 
-#: server_status.php:904
+#: server_status.php:918
 msgid "Run analyzer"
 msgstr "Elemző futtatása"
 
-#: server_status.php:905
+#: server_status.php:919
 msgid "Instructions"
 msgstr "Utasítások"
 
-#: server_status.php:912
+#: server_status.php:926
 msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
 msgstr ""
 
-#: server_status.php:914
+#: server_status.php:928
 msgid ""
 "Do note however that this system provides recommendations based on simple "
 "calculations and by rule of thumb which may not necessarily apply to your "
 "system."
 msgstr ""
 
-#: server_status.php:916
+#: server_status.php:930
 msgid ""
 "Prior to changing any of the configuration, be sure to know what you are "
 "changing (by reading the documentation) and how to undo the change. Wrong "
 "tuning can have a very negative effect on performance."
 msgstr ""
 
-#: server_status.php:918
+#: server_status.php:932
 msgid ""
 "The best way to tune your system would be to change only one setting at a "
 "time, observe or benchmark your database, and undo the change if there was "
@@ -9878,46 +9890,46 @@ msgid ""
 msgstr ""
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: server_status.php:940
+#: server_status.php:954
 #, fuzzy, php-format
 #| msgid "Customize startup page"
 msgid "Questions since startup: %s"
 msgstr "A kezdőlap testreszabása"
 
-#: server_status.php:976
+#: server_status.php:990
 msgid "Statements"
 msgstr "Utasítások"
 
 #. l10n: # = Amount of queries
-#: server_status.php:979
+#: server_status.php:993
 msgid "#"
 msgstr "#"
 
-#: server_status.php:1052
+#: server_status.php:1066
 #, php-format
 msgid "Network traffic since startup: %s"
 msgstr ""
 
-#: server_status.php:1061
+#: server_status.php:1075
 #, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
 msgstr "Ez a MySQL szerver %1$s óta fut. Indítás időpontja: %2$s."
 
-#: server_status.php:1072
+#: server_status.php:1086
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
 msgstr ""
 
-#: server_status.php:1074
+#: server_status.php:1088
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr ""
 
-#: server_status.php:1076
+#: server_status.php:1090
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
 
-#: server_status.php:1079
+#: server_status.php:1093
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=\"#replication\">replication section</a>."
@@ -9925,11 +9937,11 @@ msgstr ""
 "A szerveren lévő többszörözéses állapotról a <a href=\"#replication"
 "\">többszörözés részben</a> kaphat bővebb információt."
 
-#: server_status.php:1088
+#: server_status.php:1102
 msgid "Replication status"
 msgstr "Többszörözéses állapot"
 
-#: server_status.php:1103
+#: server_status.php:1117
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
@@ -9937,47 +9949,47 @@ msgstr ""
 "Foglalt szerveren túlfuthatnak a bájtszámlálók, ezért a MySQL által "
 "jelentett statisztikák pontatlanok lehetnek."
 
-#: server_status.php:1109
+#: server_status.php:1123
 msgid "Received"
 msgstr "Fogadott"
 
-#: server_status.php:1119
+#: server_status.php:1133
 msgid "Sent"
 msgstr "Küldött"
 
-#: server_status.php:1155
+#: server_status.php:1169
 msgid "max. concurrent connections"
 msgstr "Max. egyidejű kapcsolatok száma"
 
-#: server_status.php:1162
+#: server_status.php:1176
 msgid "Failed attempts"
 msgstr "Sikertelen próbák"
 
-#: server_status.php:1176
+#: server_status.php:1190
 msgid "Aborted"
 msgstr "Megszakítva"
 
-#: server_status.php:1239
+#: server_status.php:1253
 msgid "ID"
 msgstr "AZ"
 
-#: server_status.php:1243
+#: server_status.php:1257
 msgid "Command"
 msgstr "Parancs"
 
-#: server_status.php:1305
+#: server_status.php:1319
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr ""
 
-#: server_status.php:1306
+#: server_status.php:1320
 #, fuzzy
 #| msgid "Could not connect to MySQL server"
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "Nem lehetett kapcsolódni a MySQL-szerverhez"
 
-#: server_status.php:1307
+#: server_status.php:1321
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -9987,17 +9999,17 @@ msgstr ""
 "használt, azonban az túllépte a binlog_cache_size méretet, és ideiglenes "
 "fájlt használt az utasítások tárolásához a tranzakcióból."
 
-#: server_status.php:1308
+#: server_status.php:1322
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr ""
 "Az ideiglenes bináris naplógyorsítótár által használt tranzakciók száma."
 
-#: server_status.php:1309
+#: server_status.php:1323
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr ""
 
-#: server_status.php:1310
+#: server_status.php:1324
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -10009,11 +10021,11 @@ msgstr ""
 "nagy, akkor növelheti a tmp_table_size értékét, mely az ideiglenes táblákból "
 "memóriaalapúakat csinál a lemezalapú helyett."
 
-#: server_status.php:1311
+#: server_status.php:1325
 msgid "How many temporary files mysqld has created."
 msgstr "Ennyi ideiglenes fájlt hozott létre a mysqld."
 
-#: server_status.php:1312
+#: server_status.php:1326
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
@@ -10021,7 +10033,7 @@ msgstr ""
 "A szerver által az utasítások végrehajtásakor automatikusan létrehozott, a "
 "memóriában tárolt ideiglenes táblák száma."
 
-#: server_status.php:1313
+#: server_status.php:1327
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -10029,7 +10041,7 @@ msgstr ""
 "Az INSERT DELAYED utasítással írt sorok száma, melyeknél néhány hiba történt "
 "(valószínűleg ismétlődő kulcs)."
 
-#: server_status.php:1314
+#: server_status.php:1328
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -10037,23 +10049,23 @@ msgstr ""
 "A használatban lévő INSERT DELAYED kezelőszálak száma. Minden eltérő "
 "táblának, melyen valaki INSERT DELAYED parancsot használ, saját szála lesz."
 
-#: server_status.php:1315
+#: server_status.php:1329
 msgid "The number of INSERT DELAYED rows written."
 msgstr "A beírt INSERT DELAYED sorok száma."
 
-#: server_status.php:1316
+#: server_status.php:1330
 msgid "The number of executed FLUSH statements."
 msgstr "A végrehajtott FLUSH utasítások száma."
 
-#: server_status.php:1317
+#: server_status.php:1331
 msgid "The number of internal COMMIT statements."
 msgstr "A belső COMMIT utasítások száma."
 
-#: server_status.php:1318
+#: server_status.php:1332
 msgid "The number of times a row was deleted from a table."
 msgstr "Egy sornak a táblázatból történő törléseinek a száma."
 
-#: server_status.php:1319
+#: server_status.php:1333
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -10063,7 +10075,7 @@ msgstr ""
 "megadott nevű táblát. Ezt hívják felfedezésnek. A handler_discover jelzi a "
 "táblák felfedezésének számát."
 
-#: server_status.php:1320
+#: server_status.php:1334
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -10074,7 +10086,7 @@ msgstr ""
 "például a SELECT col1 FROM foo azt feltételezi, hogy a col1 kerül "
 "indexelésre."
 
-#: server_status.php:1321
+#: server_status.php:1335
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -10082,7 +10094,7 @@ msgstr ""
 "Egy sor kulcs alapján történő beolvasási kéréseinek száma. Ha ez magas, "
 "akkor jól mutatja, hogy a lekérdezések és a táblák megfelelően indexeltek."
 
-#: server_status.php:1322
+#: server_status.php:1336
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -10092,7 +10104,7 @@ msgstr ""
 "ha Ön tartománymegkötéses index oszlopot kérdez le, vagy ha indexvizsgálatot "
 "végez."
 
-#: server_status.php:1323
+#: server_status.php:1337
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
@@ -10100,7 +10112,7 @@ msgstr ""
 "A kulcssorrendben előző sort beolvasandó kérések száma. Ezt a beolvasási "
 "módszert főleg az ORDER BY ... DESC optimalizálásához használják."
 
-#: server_status.php:1324
+#: server_status.php:1338
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -10112,7 +10124,7 @@ msgstr ""
 "Valószínűleg sok olyan lekérdezés van, s a MySQL-nek teljes táblákat kell "
 "megvizsgálnia, vagy a kulcsokat nem megfelelően használó illesztések vannak."
 
-#: server_status.php:1325
+#: server_status.php:1339
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -10124,35 +10136,35 @@ msgstr ""
 "hogy a táblák nem megfelelően indexeltek, vagy a lekérdezések nincsenek írva "
 "az indexek kihasználása végett."
 
-#: server_status.php:1326
+#: server_status.php:1340
 msgid "The number of internal ROLLBACK statements."
 msgstr "A belső ROLLBACK utasítások száma."
 
-#: server_status.php:1327
+#: server_status.php:1341
 msgid "The number of requests to update a row in a table."
 msgstr "A kérések száma egy táblában lévő sor frissítéséhez."
 
-#: server_status.php:1328
+#: server_status.php:1342
 msgid "The number of requests to insert a row in a table."
 msgstr "A kérések száma egy táblában lévő sor beszúrásához."
 
-#: server_status.php:1329
+#: server_status.php:1343
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "Az adatokat tartalmazó lapok száma (piszkos vagy tiszta)."
 
-#: server_status.php:1330
+#: server_status.php:1344
 msgid "The number of pages currently dirty."
 msgstr "A jelenleg piszkos lapok száma."
 
-#: server_status.php:1331
+#: server_status.php:1345
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr "A pufferkészlet oldalainak száma, melyeket kiírásra kértek."
 
-#: server_status.php:1332
+#: server_status.php:1346
 msgid "The number of free pages."
 msgstr "A szabad lapok száma."
 
-#: server_status.php:1333
+#: server_status.php:1347
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -10162,7 +10174,7 @@ msgstr ""
 "írás alatt lévő oldalak, melyeket bizonyos más okok miatt nem lehet kiírni "
 "vagy eltávolítani."
 
-#: server_status.php:1334
+#: server_status.php:1348
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -10175,11 +10187,11 @@ msgstr ""
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data értékként is "
 "számolható."
 
-#: server_status.php:1335
+#: server_status.php:1349
 msgid "Total size of buffer pool, in pages."
 msgstr "A pufferkészlet teljes mérete lapokban."
 
-#: server_status.php:1336
+#: server_status.php:1350
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -10188,7 +10200,7 @@ msgstr ""
 "akkor történik, ha egy lekérdezés meg akarja vizsgálni egy tábla nagy "
 "részét, viszont véletlenszerű sorrendben."
 
-#: server_status.php:1337
+#: server_status.php:1351
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
@@ -10196,11 +10208,11 @@ msgstr ""
 "Az InnoDB által kezdeményezett sorozatos előreolvasások száma. Ez akkor "
 "történik, mikor az InnoDB sorozatos teljes táblavizsgálatot tart."
 
-#: server_status.php:1338
+#: server_status.php:1352
 msgid "The number of logical read requests InnoDB has done."
 msgstr "Az InnoDB által elvégzett logikai olvasási kérések száma."
 
-#: server_status.php:1339
+#: server_status.php:1353
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
@@ -10208,7 +10220,7 @@ msgstr ""
 "A logikai olvasások száma, melyeket az InnoDB nem tudott a pufferkészletből "
 "kielégíteni, s egyoldalas beolvasást végzett."
 
-#: server_status.php:1340
+#: server_status.php:1354
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -10223,53 +10235,53 @@ msgstr ""
 "méretét megfelelően állították be, akkor ennek az értéknek kicsinek kell "
 "lennie."
 
-#: server_status.php:1341
+#: server_status.php:1355
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "Az InnoDB pufferkészletébe történt írások száma."
 
-#: server_status.php:1342
+#: server_status.php:1356
 msgid "The number of fsync() operations so far."
 msgstr "Az fsync() műveletek eddigi száma."
 
-#: server_status.php:1343
+#: server_status.php:1357
 msgid "The current number of pending fsync() operations."
 msgstr "A folyamatban lévő fsync() műveletek száma."
 
-#: server_status.php:1344
+#: server_status.php:1358
 msgid "The current number of pending reads."
 msgstr "A folyamatban lévő olvasások száma."
 
-#: server_status.php:1345
+#: server_status.php:1359
 msgid "The current number of pending writes."
 msgstr "A folyamatban lévő írások száma."
 
-#: server_status.php:1346
+#: server_status.php:1360
 msgid "The amount of data read so far, in bytes."
 msgstr "Az eddig beolvasott adatok mennyisége bájtban."
 
-#: server_status.php:1347
+#: server_status.php:1361
 msgid "The total number of data reads."
 msgstr "Az összes beolvasott adat."
 
-#: server_status.php:1348
+#: server_status.php:1362
 msgid "The total number of data writes."
 msgstr "Az összes írott adat."
 
-#: server_status.php:1349
+#: server_status.php:1363
 msgid "The amount of data written so far, in bytes."
 msgstr "Az összes írott adat, bájtban."
 
-#: server_status.php:1350
+#: server_status.php:1364
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
 "A végrehajtott duplaírásos írások száma, s az e célból kiírt oldalak száma."
 
-#: server_status.php:1351
+#: server_status.php:1365
 msgid "The number of doublewrite operations that have been performed."
 msgstr ""
 "A végrehajtott duplaírásos írások száma, s az e célból kiírt oldalak száma."
 
-#: server_status.php:1352
+#: server_status.php:1366
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
@@ -10277,35 +10289,35 @@ msgstr ""
 "Várakozások száma, amiket a naplópuffer kis mérete okozott és folytatás "
 "előtt meg kellett várni a kiírást."
 
-#: server_status.php:1353
+#: server_status.php:1367
 msgid "The number of log write requests."
 msgstr "A naplóírási kérések száma."
 
-#: server_status.php:1354
+#: server_status.php:1368
 msgid "The number of physical writes to the log file."
 msgstr "A naplófájlba történt fizikai írások száma."
 
-#: server_status.php:1355
+#: server_status.php:1369
 msgid "The number of fsync() writes done to the log file."
 msgstr "A naplófájlba történt fsync() írások száma."
 
-#: server_status.php:1356
+#: server_status.php:1370
 msgid "The number of pending log file fsyncs."
 msgstr "A folyamatban lévő naplófájl fsync-ek száma."
 
-#: server_status.php:1357
+#: server_status.php:1371
 msgid "Pending log file writes."
 msgstr "A folyamatban lévő naplófájl írások száma."
 
-#: server_status.php:1358
+#: server_status.php:1372
 msgid "The number of bytes written to the log file."
 msgstr "A naplófájlba írt bájtok száma."
 
-#: server_status.php:1359
+#: server_status.php:1373
 msgid "The number of pages created."
 msgstr "A létrehozott lapok száma."
 
-#: server_status.php:1360
+#: server_status.php:1374
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -10314,51 +10326,51 @@ msgstr ""
 "került számolásra az oldalakban; az oldal mérete teszi lehetővé a bájtokká "
 "történő könnyű átalakítást."
 
-#: server_status.php:1361
+#: server_status.php:1375
 msgid "The number of pages read."
 msgstr "A beolvasott lapok száma."
 
-#: server_status.php:1362
+#: server_status.php:1376
 msgid "The number of pages written."
 msgstr "Az írott lapok száma."
 
-#: server_status.php:1363
+#: server_status.php:1377
 msgid "The number of row locks currently being waited for."
 msgstr "A jelenleg várakozás alatt lévő sorzárolások száma."
 
-#: server_status.php:1364
+#: server_status.php:1378
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr "A sorzároláshoz szükséges átlag időtartam, milliszekundumban."
 
-#: server_status.php:1365
+#: server_status.php:1379
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr "A sorzárolásokra fordított összes idő, milliszekundumban."
 
-#: server_status.php:1366
+#: server_status.php:1380
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr "A sorzároláshoz szükséges időtartam, milliszekundumban."
 
-#: server_status.php:1367
+#: server_status.php:1381
 msgid "The number of times a row lock had to be waited for."
 msgstr "A sorzárolásra váráshoz szükséges alkalmak száma."
 
-#: server_status.php:1368
+#: server_status.php:1382
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "Az InnoDB táblákból törölt sorok száma."
 
-#: server_status.php:1369
+#: server_status.php:1383
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "Az InnoDB táblákba beszúrt sorok száma."
 
-#: server_status.php:1370
+#: server_status.php:1384
 msgid "The number of rows read from InnoDB tables."
 msgstr "Az InnoDB táblákból beolvasott sorok száma."
 
-#: server_status.php:1371
+#: server_status.php:1385
 msgid "The number of rows updated in InnoDB tables."
 msgstr "Az InnoDB táblákban frissített sorok száma."
 
-#: server_status.php:1372
+#: server_status.php:1386
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
@@ -10366,7 +10378,7 @@ msgstr ""
 "A kulcsgyorsítótárban lévő kulcsblokkok száma, melyek megváltoztak, de még "
 "nem kerültek lemezre kiírásra. Ez Not_flushed_key_blocks néven ismert."
 
-#: server_status.php:1373
+#: server_status.php:1387
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
@@ -10374,7 +10386,7 @@ msgstr ""
 "A kulcsgyorsítótárban lévő, nem használt blokkok száma. Ezzel az értékkel "
 "állapíthatja meg, hogy mennyire van használatban a kulcsgyorsítótár."
 
-#: server_status.php:1374
+#: server_status.php:1388
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
@@ -10383,11 +10395,11 @@ msgstr ""
 "A kulcsgyorsítótárban lévő használt blokkok száma. Ez az érték egy maximális "
 "jel, mely a valamikor használatban volt blokkok számát jelzi."
 
-#: server_status.php:1375
+#: server_status.php:1389
 msgid "The number of requests to read a key block from the cache."
 msgstr "A gyorsítótárból egy kulcsblokk beolvasásához szükséges kérések száma."
 
-#: server_status.php:1376
+#: server_status.php:1390
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -10398,15 +10410,15 @@ msgstr ""
 "sikertelen találatainak aránya a Key_reads/Key_read_requests alapján "
 "számítható ki."
 
-#: server_status.php:1377
+#: server_status.php:1391
 msgid "The number of requests to write a key block to the cache."
 msgstr "A kérések száma egy kulcsblokk gyorsítótárba történő írásához."
 
-#: server_status.php:1378
+#: server_status.php:1392
 msgid "The number of physical writes of a key block to disk."
 msgstr "Egy kulcsblokk lemezre történő fizikai írásainak száma."
 
-#: server_status.php:1379
+#: server_status.php:1393
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -10417,17 +10429,17 @@ msgstr ""
 "költségének lekérdezéséhez hasznos. Az alapértelmezett 0 érték azt jelenti, "
 "hogy lekérdezés lefordítására még nem került sor."
 
-#: server_status.php:1380
+#: server_status.php:1394
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
 
-#: server_status.php:1381
+#: server_status.php:1395
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr "Az INSERT DELAYED sorokban írásra várakozó sorok száma."
 
-#: server_status.php:1382
+#: server_status.php:1396
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
@@ -10435,40 +10447,40 @@ msgstr ""
 "Az eddig megnyitott táblák száma. Ha a megnyitott táblák nagyok, akkor "
 "valószínűleg túl kicsi a táblagyorsítótár értéke."
 
-#: server_status.php:1383
+#: server_status.php:1397
 msgid "The number of files that are open."
 msgstr "A megnyitott fájlok száma."
 
-#: server_status.php:1384
+#: server_status.php:1398
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr ""
 "Az adatfolyamok száma, melyek nyitottak (főleg a naplózáshoz kerül "
 "felhasználásra)."
 
-#: server_status.php:1385
+#: server_status.php:1399
 msgid "The number of tables that are open."
 msgstr "A megnyitott táblák száma."
 
-#: server_status.php:1386
+#: server_status.php:1400
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
 
-#: server_status.php:1387
+#: server_status.php:1401
 msgid "The amount of free memory for query cache."
 msgstr "A szabad memória mérete a lekérdezési gyorsítótárhoz."
 
-#: server_status.php:1388
+#: server_status.php:1402
 msgid "The number of cache hits."
 msgstr "A gyorsítótár találatok száma."
 
-#: server_status.php:1389
+#: server_status.php:1403
 msgid "The number of queries added to the cache."
 msgstr "A gyorsítótárhoz adott lekérdezések száma."
 
-#: server_status.php:1390
+#: server_status.php:1404
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -10481,7 +10493,7 @@ msgstr ""
 "lekérdezési gyorsítótár a legrégebben használt (LRU) stratégiával dönti el, "
 "hogy mely lekérdezéseket kell eltávolítani a gyorsítótárból."
 
-#: server_status.php:1391
+#: server_status.php:1405
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -10489,19 +10501,19 @@ msgstr ""
 "A nem gyorsítótárazott lekérdezések száma (nem gyorsítótárazható, vagy nem "
 "gyorsítótárazott a query_cache_type beállítás miatt)."
 
-#: server_status.php:1392
+#: server_status.php:1406
 msgid "The number of queries registered in the cache."
 msgstr "A gyorsítótárban bejegyzett lekérdezések száma."
 
-#: server_status.php:1393
+#: server_status.php:1407
 msgid "The total number of blocks in the query cache."
 msgstr "A blokkok száma a lekérdezési gyorsítótárban."
 
-#: server_status.php:1394
+#: server_status.php:1408
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "A hibabiztos többszörözések állapota (megvalósításra vár)."
 
-#: server_status.php:1395
+#: server_status.php:1409
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -10509,11 +10521,11 @@ msgstr ""
 "Az indexeket nem használó illesztések száma. Ha ez az érték nem 0, akkor "
 "ellenőrizze körültekintően a táblák indexeit."
 
-#: server_status.php:1396
+#: server_status.php:1410
 msgid "The number of joins that used a range search on a reference table."
 msgstr "Egy hivatkozási táblán tartománykeresést használt illesztések száma."
 
-#: server_status.php:1397
+#: server_status.php:1411
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -10522,7 +10534,7 @@ msgstr ""
 "használatát ellenőrzik. (Ha ez nem 0, akkor ellenőrizze körültekintően a "
 "táblák indexeit.))"
 
-#: server_status.php:1398
+#: server_status.php:1412
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -10530,15 +10542,15 @@ msgstr ""
 "Az első táblán tartományokat használt illesztések száma. (Normál esetben ez "
 "nem súlyos, még ha túl nagy is ez.)"
 
-#: server_status.php:1399
+#: server_status.php:1413
 msgid "The number of joins that did a full scan of the first table."
 msgstr "Az első tábla teljes vizsgálatát elvégzett illesztések száma."
 
-#: server_status.php:1400
+#: server_status.php:1414
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr "A kisegítő SQL szál által épp megnyitott ideiglenes táblák száma."
 
-#: server_status.php:1401
+#: server_status.php:1415
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
@@ -10546,11 +10558,11 @@ msgstr ""
 "A többszörözésben kisegítő SQL szál (az indítás óta) ennyiszer próbálta újra "
 "a tranzakciókat."
 
-#: server_status.php:1402
+#: server_status.php:1416
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr "Ez BE, ha ez főszerverhez csatlakoztatott kisegítő szerver."
 
-#: server_status.php:1403
+#: server_status.php:1417
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
@@ -10558,14 +10570,14 @@ msgstr ""
 "A szálak száma, melyek létrehozásához slow_launch_time másodpercnél többre "
 "volt szükség."
 
-#: server_status.php:1404
+#: server_status.php:1418
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr ""
 "A lekérdezések száma, melyekhez long_query_time másodpercnél többre volt "
 "szükség."
 
-#: server_status.php:1405
+#: server_status.php:1419
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -10575,23 +10587,23 @@ msgstr ""
 "végeznie. Ha ez az érték nagy, akkor gondolja meg a sort_buffer_size "
 "rendszerváltozó értékének növelését."
 
-#: server_status.php:1406
+#: server_status.php:1420
 msgid "The number of sorts that were done with ranges."
 msgstr "A tartományokkal végzett rendezések száma."
 
-#: server_status.php:1407
+#: server_status.php:1421
 msgid "The number of sorted rows."
 msgstr "Rendezett sorok száma."
 
-#: server_status.php:1408
+#: server_status.php:1422
 msgid "The number of sorts that were done by scanning the table."
 msgstr "A tábla vizsgálatával végrehajtott rendezések száma."
 
-#: server_status.php:1409
+#: server_status.php:1423
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "Ennyiszer nem lehetett azonnal megszerezni egy táblazárolást."
 
-#: server_status.php:1410
+#: server_status.php:1424
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -10603,7 +10615,7 @@ msgstr ""
 "optimalizálja a lekérdezéseket, majd vagy ossza fel a táblát vagy táblákat, "
 "vagy használja a többszörözést."
 
-#: server_status.php:1411
+#: server_status.php:1425
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -10613,11 +10625,11 @@ msgstr ""
 "Threads_created/Connections alapján számítható ki. Ha ez az érték piros, "
 "akkor növelnie kell a thread_cache_size méretét."
 
-#: server_status.php:1412
+#: server_status.php:1426
 msgid "The number of currently open connections."
 msgstr "A jelenleg megnyitott kapcsolatok száma."
 
-#: server_status.php:1413
+#: server_status.php:1427
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -10628,60 +10640,60 @@ msgstr ""
 "nagy, akkor növelheti a thread_cache_size értékét. (Normál esetben ez nem "
 "növeli jelentősen a teljesítményt, ha jó szálmegvalósítása van.)"
 
-#: server_status.php:1414
+#: server_status.php:1428
 msgid "The number of threads that are not sleeping."
 msgstr "A nem alvó szálak száma."
 
-#: server_status.php:1560
+#: server_status.php:1574
 #, fuzzy
 #| msgid "Start"
 msgid "Start Monitor"
 msgstr "Indítás"
 
-#: server_status.php:1569
+#: server_status.php:1583
 msgid "Instructions/Setup"
 msgstr ""
 
-#: server_status.php:1574
+#: server_status.php:1588
 msgid "Done rearranging/editing charts"
 msgstr ""
 
-#: server_status.php:1581 server_status.php:1652
+#: server_status.php:1595 server_status.php:1666
 msgid "Add chart"
 msgstr "Diagram hozzáadása"
 
-#: server_status.php:1583
+#: server_status.php:1597
 msgid "Rearrange/edit charts"
 msgstr ""
 
-#: server_status.php:1587
+#: server_status.php:1601
 msgid "Refresh rate"
 msgstr "Frissítési időköz"
 
-#: server_status.php:1592
+#: server_status.php:1606
 msgid "Chart columns"
 msgstr "Diagram oszlopai"
 
-#: server_status.php:1608
+#: server_status.php:1622
 msgid "Chart arrangement"
 msgstr ""
 
-#: server_status.php:1608
+#: server_status.php:1622
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
 
-#: server_status.php:1609
+#: server_status.php:1623
 msgid "Reset to default"
 msgstr "Visszaállítás az alapértékre"
 
-#: server_status.php:1613
+#: server_status.php:1627
 #, fuzzy
 msgid "Monitor Instructions"
 msgstr "Információ"
 
-#: server_status.php:1614
+#: server_status.php:1628
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -10690,7 +10702,7 @@ msgid ""
 "increases server load by up to 15%"
 msgstr ""
 
-#: server_status.php:1619
+#: server_status.php:1633
 msgid ""
 "Unfortunately your Database server does not support logging to table, which "
 "is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
@@ -10698,18 +10710,18 @@ msgid ""
 "charting features however."
 msgstr ""
 
-#: server_status.php:1632
+#: server_status.php:1646
 msgid "Using the monitor:"
 msgstr ""
 
-#: server_status.php:1634
+#: server_status.php:1648
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
 
-#: server_status.php:1636
+#: server_status.php:1650
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -10717,11 +10729,11 @@ msgid ""
 "any occuring SELECT statements to further analyze them."
 msgstr ""
 
-#: server_status.php:1643
+#: server_status.php:1657
 msgid "Please note:"
 msgstr ""
 
-#: server_status.php:1645
+#: server_status.php:1659
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -10729,100 +10741,100 @@ msgid ""
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
 
-#: server_status.php:1657
+#: server_status.php:1671
 #, fuzzy
 #| msgid "Remove database"
 msgid "Preset chart"
 msgstr "Adatbázis eltávolítása"
 
-#: server_status.php:1661
+#: server_status.php:1675
 msgid "Status variable(s)"
 msgstr ""
 
-#: server_status.php:1663
+#: server_status.php:1677
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select series:"
 msgstr "Táblák kiválasztása"
 
-#: server_status.php:1665
+#: server_status.php:1679
 msgid "Commonly monitored"
 msgstr ""
 
-#: server_status.php:1680
+#: server_status.php:1694
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "or type variable name:"
 msgstr "Érvénytelen táblanév"
 
-#: server_status.php:1684
+#: server_status.php:1698
 msgid "Display as differential value"
 msgstr ""
 
-#: server_status.php:1686
+#: server_status.php:1700
 msgid "Apply a divisor"
 msgstr ""
 
-#: server_status.php:1693
+#: server_status.php:1707
 msgid "Append unit to data values"
 msgstr ""
 
-#: server_status.php:1699
+#: server_status.php:1713
 #, fuzzy
 #| msgid "Add a new server"
 msgid "Add this series"
 msgstr "Új szerver hozzáadása"
 
-#: server_status.php:1701
+#: server_status.php:1715
 msgid "Clear series"
 msgstr ""
 
-#: server_status.php:1704
+#: server_status.php:1718
 #, fuzzy
 #| msgid "SQL queries"
 msgid "Series in Chart:"
 msgstr "SQL-lekérdezések"
 
-#: server_status.php:1717
+#: server_status.php:1731
 msgid "Log statistics"
 msgstr "Naplóstatisztikák"
 
-#: server_status.php:1718
+#: server_status.php:1732
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Selected time range:"
 msgstr "Táblák kiválasztása"
 
-#: server_status.php:1723
+#: server_status.php:1737
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr ""
 
-#: server_status.php:1728
+#: server_status.php:1742
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 
-#: server_status.php:1733
+#: server_status.php:1747
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr ""
 
-#: server_status.php:1735
+#: server_status.php:1749
 msgid "Results are grouped by query text."
 msgstr ""
 
-#: server_status.php:1740
+#: server_status.php:1754
 #, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
 msgstr "Lekérdezés típusa"
 
-#: server_status.php:1780
+#: server_status.php:1794 server_status.php:1811
 #, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d másodperc"
 msgstr[1] "%d másodperc"
 
-#: server_status.php:1782
+#: server_status.php:1796
 #, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
@@ -11313,38 +11325,38 @@ msgstr ""
 msgid "Wrong data"
 msgstr "Hibás adat"
 
-#: sql.php:108 tbl_change.php:262 tbl_select.php:28 tbl_zoom_select.php:65
+#: sql.php:108 tbl_change.php:262 tbl_select.php:30 tbl_zoom_select.php:65
 msgid "Browse foreign values"
 msgstr "Az idegen kulcsok böngészése"
 
-#: sql.php:217
+#: sql.php:214
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: sql.php:705 tbl_replace.php:412
+#: sql.php:702 tbl_replace.php:412
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "A beszúrt sor azonosítószáma: %1$d"
 
-#: sql.php:722
+#: sql.php:719
 msgid "Showing as PHP code"
 msgstr "Megjelenítés PHP kódként"
 
-#: sql.php:725 tbl_replace.php:386
+#: sql.php:722 tbl_replace.php:386
 msgid "Showing SQL query"
 msgstr "Megjelenítés SQL lekérdezésként"
 
-#: sql.php:727
+#: sql.php:724
 msgid "Validated SQL"
 msgstr "Érvényes SQL"
 
-#: sql.php:949
+#: sql.php:946
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Probléma a(z) `%s` tábla indexeivel"
 
-#: sql.php:981
+#: sql.php:978
 msgid "Label"
 msgstr "Név"
 
@@ -11758,24 +11770,24 @@ msgstr ""
 msgid "Foreign key constraint"
 msgstr "Idegen kulcs megszorítás"
 
-#: tbl_select.php:84
+#: tbl_select.php:86
 msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr ""
 "Egy \"példa szerinti lekérdezés\" végrehajtása (karakterhelyettesítő: \"%\")"
 
-#: tbl_select.php:178
+#: tbl_select.php:180
 msgid "Select columns (at least one):"
 msgstr "Válasszon oszlopokat (legalább egyet):"
 
-#: tbl_select.php:196
+#: tbl_select.php:198
 msgid "Add search conditions (body of the \"where\" clause):"
 msgstr "adja meg a keresési feltételeket (a \"where\" feltétel törzsét):"
 
-#: tbl_select.php:203
+#: tbl_select.php:205
 msgid "Number of rows per page"
 msgstr "Sorok száma oldalanként"
 
-#: tbl_select.php:209
+#: tbl_select.php:211
 msgid "Display order:"
 msgstr "Megjelenítési sorrend:"
 
@@ -12393,8 +12405,8 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s"
-"%%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s%"
+"%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
@@ -12520,8 +12532,8 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than "
-"10%%."
+"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
+"%."
 msgstr ""
 
 #: po/advisory_rules.php:115
@@ -13306,8 +13318,8 @@ msgstr ""
 #~ "No themes support; please check your configuration and/or your themes in "
 #~ "directory %s."
 #~ msgstr ""
-#~ "Nincs téma támogatás, ellenőrizze a beállításokat és/vagy a témákat a(z) "
-#~ "%s könyvtárban."
+#~ "Nincs téma támogatás, ellenőrizze a beállításokat és/vagy a témákat a(z) %"
+#~ "s könyvtárban."
 
 #~ msgid "Switch to"
 #~ msgstr "Váltás"
