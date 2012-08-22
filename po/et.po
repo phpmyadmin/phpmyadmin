@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-08-10 12:59+0200\n"
+"POT-Creation-Date: 2012-08-22 13:38+0200\n"
 "PO-Revision-Date: 2012-05-17 23:33+0200\n"
 "Last-Translator: LiivaneLord <liivane.lord@mail.ee>\n"
 "Language-Team: estonian <et@li.org>\n"
@@ -18,16 +18,16 @@ msgstr ""
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:816
-#: libraries/server_privileges.lib.php:2494
+#: libraries/server_privileges.lib.php:2620
 msgid "Show all"
 msgstr "Näita kõiki"
 
-#: browse_foreigners.php:77 libraries/CommonFunctions.class.php:2621
+#: browse_foreigners.php:77 libraries/CommonFunctions.class.php:2675
 #: libraries/PDF.class.php:50
 #: libraries/schema/Pdf_Relation_Schema.class.php:1220
 #: libraries/schema/Pdf_Relation_Schema.class.php:1244
 #: libraries/schema/User_Schema.class.php:417
-#: libraries/select_lang.lib.php:508
+#: libraries/select_lang.lib.php:510
 msgid "Page number:"
 msgstr "Leht:"
 
@@ -40,16 +40,16 @@ msgstr ""
 "Veebilehitseja sihtakent ei saanud uuendada. Võib-olla sulgesid ülemakna või "
 "sinu veebilehitseja turvasätted blokeerivad akna värskendamist."
 
-#: browse_foreigners.php:168 libraries/CommonFunctions.class.php:3391
-#: libraries/CommonFunctions.class.php:3398
-#: libraries/CommonFunctions.class.php:3597
-#: libraries/CommonFunctions.class.php:3598 libraries/Menu.class.php:264
+#: browse_foreigners.php:168 libraries/CommonFunctions.class.php:3445
+#: libraries/CommonFunctions.class.php:3452
+#: libraries/CommonFunctions.class.php:3664
+#: libraries/CommonFunctions.class.php:3665 libraries/Menu.class.php:264
 #: libraries/Menu.class.php:353
 msgid "Search"
 msgstr "Otsi"
 
 #: browse_foreigners.php:171 gis_data_editor.php:304 js/messages.php:231
-#: libraries/DbSearch.class.php:479 libraries/DisplayResults.class.php:1665
+#: libraries/DbSearch.class.php:479 libraries/DisplayResults.class.php:1666
 #: libraries/TableSearch.class.php:1154 libraries/core.lib.php:534
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
@@ -65,23 +65,24 @@ msgstr "Otsi"
 #: libraries/rte/rte_events.lib.php:501
 #: libraries/rte/rte_routines.lib.php:1030
 #: libraries/rte/rte_routines.lib.php:1568
-#: libraries/rte/rte_triggers.lib.php:381
+#: libraries/rte/rte_triggers.lib.php:387
 #: libraries/schema/User_Schema.class.php:165
 #: libraries/schema/User_Schema.class.php:225
 #: libraries/schema/User_Schema.class.php:467
 #: libraries/schema/User_Schema.class.php:507
-#: libraries/server_privileges.lib.php:473
-#: libraries/server_privileges.lib.php:1417
-#: libraries/server_privileges.lib.php:1864
-#: libraries/server_privileges.lib.php:2440
-#: libraries/server_privileges.lib.php:2943
+#: libraries/server_privileges.lib.php:482
+#: libraries/server_privileges.lib.php:1494
+#: libraries/server_privileges.lib.php:1965
+#: libraries/server_privileges.lib.php:2562
+#: libraries/server_privileges.lib.php:3080
 #: libraries/sql_query_form.lib.php:381 libraries/sql_query_form.lib.php:438
-#: libraries/sql_query_form.lib.php:503 libraries/tbl_properties.inc.php:734
+#: libraries/sql_query_form.lib.php:503 libraries/structure.lib.php:1603
+#: libraries/structure.lib.php:1630 libraries/tbl_properties.inc.php:734
 #: pmd_pdf.php:155 prefs_manage.php:274 prefs_manage.php:324
 #: server_binlog.php:116 server_replication.php:265 server_replication.php:348
 #: server_replication.php:379 server_synchronize.php:1483 tbl_indexes.php:321
-#: tbl_structure.php:720 tbl_structure.php:753 tbl_tracking.php:497
-#: tbl_tracking.php:639 view_create.php:221 view_operations.php:96
+#: tbl_tracking.php:497 tbl_tracking.php:639 view_create.php:221
+#: view_operations.php:96
 msgid "Go"
 msgstr "Mine"
 
@@ -92,7 +93,7 @@ msgstr "Võtme nimi"
 
 #: browse_foreigners.php:187 browse_foreigners.php:189
 #: server_collations.php:39 server_collations.php:51 server_engines.php:44
-#: server_plugins.php:131 server_status.php:1541
+#: server_plugins.php:131 server_status.php:1649
 msgid "Description"
 msgstr "Kirjeldus"
 
@@ -130,7 +131,7 @@ msgstr "Tabeli kommentaarid"
 #: libraries/TableSearch.class.php:1202 libraries/insert_edit.lib.php:1586
 #: libraries/plugins/export/ExportHtmlword.class.php:275
 #: libraries/plugins/export/ExportHtmlword.class.php:390
-#: libraries/plugins/export/ExportLatex.class.php:498
+#: libraries/plugins/export/ExportLatex.class.php:503
 #: libraries/plugins/export/ExportOdt.class.php:357
 #: libraries/plugins/export/ExportOdt.class.php:455
 #: libraries/plugins/export/ExportTexytext.class.php:268
@@ -145,11 +146,11 @@ msgid "Column"
 msgstr "Veerg"
 
 #: db_datadict.php:164 db_printview.php:102 libraries/Index.class.php:464
-#: libraries/TableSearch.class.php:199 libraries/db_structure.lib.php:48
-#: libraries/insert_edit.lib.php:263 libraries/insert_edit.lib.php:267
+#: libraries/TableSearch.class.php:199 libraries/insert_edit.lib.php:263
+#: libraries/insert_edit.lib.php:267
 #: libraries/plugins/export/ExportHtmlword.class.php:278
 #: libraries/plugins/export/ExportHtmlword.class.php:393
-#: libraries/plugins/export/ExportLatex.class.php:499
+#: libraries/plugins/export/ExportLatex.class.php:504
 #: libraries/plugins/export/ExportOdt.class.php:360
 #: libraries/plugins/export/ExportOdt.class.php:458
 #: libraries/plugins/export/ExportTexytext.class.php:269
@@ -160,9 +161,9 @@ msgstr "Veerg"
 #: libraries/rte/rte_routines.lib.php:1486
 #: libraries/schema/Pdf_Relation_Schema.class.php:1392
 #: libraries/schema/Pdf_Relation_Schema.class.php:1413
-#: libraries/server_privileges.lib.php:1511
-#: libraries/tbl_properties.inc.php:87 tbl_printview.php:134
-#: tbl_structure.php:205 tbl_tracking.php:311 tbl_tracking.php:374
+#: libraries/server_privileges.lib.php:1589 libraries/structure.lib.php:787
+#: libraries/structure.lib.php:1195 libraries/tbl_properties.inc.php:87
+#: tbl_printview.php:134 tbl_tracking.php:311 tbl_tracking.php:374
 msgid "Type"
 msgstr "Tüüp"
 
@@ -170,35 +171,35 @@ msgstr "Tüüp"
 #: libraries/TableSearch.class.php:1203 libraries/insert_edit.lib.php:1595
 #: libraries/plugins/export/ExportHtmlword.class.php:281
 #: libraries/plugins/export/ExportHtmlword.class.php:396
-#: libraries/plugins/export/ExportLatex.class.php:500
+#: libraries/plugins/export/ExportLatex.class.php:505
 #: libraries/plugins/export/ExportOdt.class.php:363
 #: libraries/plugins/export/ExportOdt.class.php:461
 #: libraries/plugins/export/ExportTexytext.class.php:270
 #: libraries/plugins/export/ExportTexytext.class.php:370
 #: libraries/schema/Pdf_Relation_Schema.class.php:1394
 #: libraries/schema/Pdf_Relation_Schema.class.php:1415
-#: libraries/tbl_properties.inc.php:94 tbl_printview.php:135
-#: tbl_structure.php:208 tbl_tracking.php:313 tbl_tracking.php:380
+#: libraries/structure.lib.php:1198 libraries/tbl_properties.inc.php:94
+#: tbl_printview.php:135 tbl_tracking.php:313 tbl_tracking.php:380
 msgid "Null"
 msgstr "Null"
 
-#: db_datadict.php:167 db_structure.php:644
-#: libraries/plugins/export/ExportHtmlword.class.php:284
+#: db_datadict.php:167 libraries/plugins/export/ExportHtmlword.class.php:284
 #: libraries/plugins/export/ExportHtmlword.class.php:399
-#: libraries/plugins/export/ExportLatex.class.php:501
+#: libraries/plugins/export/ExportLatex.class.php:506
 #: libraries/plugins/export/ExportOdt.class.php:366
 #: libraries/plugins/export/ExportOdt.class.php:464
 #: libraries/plugins/export/ExportTexytext.class.php:271
 #: libraries/plugins/export/ExportTexytext.class.php:371
 #: libraries/schema/Pdf_Relation_Schema.class.php:1395
 #: libraries/schema/Pdf_Relation_Schema.class.php:1416
+#: libraries/structure.lib.php:215 libraries/structure.lib.php:1199
 #: libraries/tbl_properties.inc.php:91 tbl_printview.php:136
-#: tbl_structure.php:209 tbl_tracking.php:314
+#: tbl_tracking.php:314
 msgid "Default"
 msgstr "Vaikimisi"
 
 #: db_datadict.php:171 libraries/plugins/export/ExportHtmlword.class.php:403
-#: libraries/plugins/export/ExportLatex.class.php:503
+#: libraries/plugins/export/ExportLatex.class.php:508
 #: libraries/plugins/export/ExportOdt.class.php:468
 #: libraries/plugins/export/ExportTexytext.class.php:373
 #: libraries/schema/Pdf_Relation_Schema.class.php:1397
@@ -210,7 +211,7 @@ msgstr "Viitab aadressile"
 #: libraries/config/messages.inc.php:98 libraries/config/messages.inc.php:113
 #: libraries/config/messages.inc.php:135
 #: libraries/plugins/export/ExportHtmlword.class.php:408
-#: libraries/plugins/export/ExportLatex.class.php:506
+#: libraries/plugins/export/ExportLatex.class.php:511
 #: libraries/plugins/export/ExportOdt.class.php:473
 #: libraries/plugins/export/ExportTexytext.class.php:376
 #: libraries/schema/Pdf_Relation_Schema.class.php:1408
@@ -224,20 +225,20 @@ msgstr "Kommentaarid"
 #: libraries/config.values.php:52 libraries/config.values.php:67
 #: libraries/config/FormDisplay.tpl.php:256 libraries/mult_submits.inc.php:328
 #: libraries/plugins/export/ExportHtmlword.class.php:630
-#: libraries/plugins/export/ExportLatex.class.php:572
+#: libraries/plugins/export/ExportLatex.class.php:582
 #: libraries/plugins/export/ExportOdt.class.php:723
 #: libraries/plugins/export/ExportTexytext.class.php:565
 #: libraries/schema/Pdf_Relation_Schema.class.php:1444
-#: libraries/server_privileges.lib.php:1644
-#: libraries/server_privileges.lib.php:1764
-#: libraries/server_privileges.lib.php:1777
-#: libraries/server_privileges.lib.php:2048
-#: libraries/server_privileges.lib.php:2054
-#: libraries/server_privileges.lib.php:2366
-#: libraries/server_privileges.lib.php:2379
+#: libraries/server_privileges.lib.php:1729
+#: libraries/server_privileges.lib.php:1863
+#: libraries/server_privileges.lib.php:1876
+#: libraries/server_privileges.lib.php:2151
+#: libraries/server_privileges.lib.php:2157
+#: libraries/server_privileges.lib.php:2486
+#: libraries/server_privileges.lib.php:2500 libraries/structure.lib.php:1284
 #: libraries/user_preferences.lib.php:309 prefs_manage.php:131 sql.php:373
-#: sql.php:440 tbl_printview.php:192 tbl_structure.php:348
-#: tbl_tracking.php:334 tbl_tracking.php:390 tbl_tracking.php:395
+#: sql.php:440 tbl_printview.php:192 tbl_tracking.php:334 tbl_tracking.php:390
+#: tbl_tracking.php:395
 msgid "No"
 msgstr "Ei"
 
@@ -251,21 +252,21 @@ msgstr "Ei"
 #: libraries/mult_submits.inc.php:303 libraries/mult_submits.inc.php:327
 #: libraries/mult_submits.inc.php:335
 #: libraries/plugins/export/ExportHtmlword.class.php:631
-#: libraries/plugins/export/ExportLatex.class.php:572
+#: libraries/plugins/export/ExportLatex.class.php:582
 #: libraries/plugins/export/ExportOdt.class.php:724
 #: libraries/plugins/export/ExportTexytext.class.php:565
 #: libraries/schema/Pdf_Relation_Schema.class.php:1444
-#: libraries/server_privileges.lib.php:1644
-#: libraries/server_privileges.lib.php:1761
-#: libraries/server_privileges.lib.php:1775
-#: libraries/server_privileges.lib.php:2047
-#: libraries/server_privileges.lib.php:2052
-#: libraries/server_privileges.lib.php:2363
-#: libraries/server_privileges.lib.php:2379
+#: libraries/server_privileges.lib.php:1729
+#: libraries/server_privileges.lib.php:1860
+#: libraries/server_privileges.lib.php:1874
+#: libraries/server_privileges.lib.php:2150
+#: libraries/server_privileges.lib.php:2155
+#: libraries/server_privileges.lib.php:2483
+#: libraries/server_privileges.lib.php:2500 libraries/structure.lib.php:1284
 #: libraries/user_preferences.lib.php:307 prefs_manage.php:130
 #: server_databases.php:104 server_databases.php:111 sql.php:439
-#: tbl_printview.php:193 tbl_structure.php:45 tbl_structure.php:348
-#: tbl_tracking.php:334 tbl_tracking.php:388 tbl_tracking.php:393
+#: tbl_printview.php:193 tbl_structure.php:50 tbl_tracking.php:334
+#: tbl_tracking.php:388 tbl_tracking.php:393
 msgid "Yes"
 msgstr "Jah"
 
@@ -290,17 +291,17 @@ msgstr "Ära vali ühtegi"
 msgid "The database name is empty!"
 msgstr "Andmebaasi nimi on tühi!"
 
-#: db_operations.php:128
+#: db_operations.php:129
 #, php-format
 msgid "Database %1$s has been renamed to %2$s"
 msgstr "%1$s andmebaasi uueks nimeks on %2$s"
 
-#: db_operations.php:132
+#: db_operations.php:133
 #, php-format
 msgid "Database %1$s has been copied to %2$s"
 msgstr "%1$s andmebaas on kopeeritud kohta %2$s"
 
-#: db_operations.php:255
+#: db_operations.php:256
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
@@ -311,60 +312,60 @@ msgstr ""
 
 #: db_printview.php:100 db_tracking.php:82 db_tracking.php:190
 #: libraries/Menu.class.php:191 libraries/config/messages.inc.php:514
-#: libraries/db_structure.lib.php:32
 #: libraries/plugins/export/ExportXml.class.php:456
 #: libraries/plugins/export/PMA_ExportPdf.class.php:96
-#: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_triggers.lib.php:318
+#: libraries/rte/rte_list.lib.php:65 libraries/rte/rte_triggers.lib.php:322
 #: libraries/schema/User_Schema.class.php:293
-#: libraries/server_privileges.lib.php:1892
-#: libraries/server_privileges.lib.php:2117
-#: libraries/server_privileges.lib.php:2745 server_synchronize.php:522
-#: server_synchronize.php:1042 tbl_tracking.php:719
+#: libraries/server_privileges.lib.php:1993
+#: libraries/server_privileges.lib.php:2228
+#: libraries/server_privileges.lib.php:2877 libraries/structure.lib.php:768
+#: server_synchronize.php:522 server_synchronize.php:1042 tbl_tracking.php:719
 msgid "Table"
 msgstr "Tabel"
 
 #: db_printview.php:101 db_tables_search.php:26 db_tables_search.php:58
 #: libraries/Table.class.php:301 libraries/build_html_for_db.lib.php:31
-#: libraries/db_structure.lib.php:42 libraries/import.lib.php:179
-#: navigation.php:633 navigation.php:672 sql.php:1003 tbl_printview.php:370
-#: tbl_structure.php:466 tbl_structure.php:540 tbl_structure.php:940
+#: libraries/import.lib.php:179 libraries/structure.lib.php:779
+#: libraries/structure.lib.php:1766 libraries/structure.lib.php:1950
+#: libraries/structure.lib.php:2094 navigation.php:633 navigation.php:672
+#: sql.php:1003 tbl_printview.php:370
 msgid "Rows"
 msgstr "Ridu"
 
-#: db_printview.php:105 libraries/db_structure.lib.php:55 tbl_indexes.php:238
+#: db_printview.php:105 libraries/structure.lib.php:798 tbl_indexes.php:238
 msgid "Size"
 msgstr "Suurus"
 
-#: db_printview.php:160 db_structure.php:597
-#: libraries/plugins/export/ExportSql.class.php:1010
+#: db_printview.php:160 libraries/plugins/export/ExportSql.class.php:1026
+#: libraries/structure.lib.php:743
 msgid "in use"
 msgstr "kasutusel"
 
 #: db_printview.php:186 libraries/db_info.inc.php:81
-#: libraries/db_structure.lib.php:62
-#: libraries/plugins/export/ExportSql.class.php:936
-#: libraries/schema/Pdf_Relation_Schema.class.php:1370 tbl_printview.php:418
-#: tbl_structure.php:972
+#: libraries/plugins/export/ExportSql.class.php:952
+#: libraries/schema/Pdf_Relation_Schema.class.php:1370
+#: libraries/structure.lib.php:809 libraries/structure.lib.php:1805
+#: tbl_printview.php:418
 msgid "Creation"
 msgstr "Loodud"
 
 #: db_printview.php:195 libraries/db_info.inc.php:87
-#: libraries/db_structure.lib.php:67
-#: libraries/plugins/export/ExportSql.class.php:949
-#: libraries/schema/Pdf_Relation_Schema.class.php:1375 tbl_printview.php:432
-#: tbl_structure.php:980
+#: libraries/plugins/export/ExportSql.class.php:965
+#: libraries/schema/Pdf_Relation_Schema.class.php:1375
+#: libraries/structure.lib.php:816 libraries/structure.lib.php:1812
+#: tbl_printview.php:432
 msgid "Last update"
 msgstr "Viimati uuendatud"
 
 #: db_printview.php:204 libraries/db_info.inc.php:93
-#: libraries/db_structure.lib.php:72
-#: libraries/plugins/export/ExportSql.class.php:962
-#: libraries/schema/Pdf_Relation_Schema.class.php:1380 tbl_printview.php:446
-#: tbl_structure.php:988
+#: libraries/plugins/export/ExportSql.class.php:978
+#: libraries/schema/Pdf_Relation_Schema.class.php:1380
+#: libraries/structure.lib.php:823 libraries/structure.lib.php:1820
+#: tbl_printview.php:446
 msgid "Last check"
 msgstr "Viimane kontroll"
 
-#: db_printview.php:221 db_structure.php:620
+#: db_printview.php:221 libraries/structure.lib.php:181
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
@@ -388,152 +389,9 @@ msgstr "Mine %sgraafilisele loojale%s"
 msgid "Access denied"
 msgstr "Ligipääs keelatud"
 
-#: db_structure.php:88
+#: db_structure.php:87
 msgid "No tables found in database"
 msgstr "Andmebaasist tabeleid ei leitud"
-
-#: db_structure.php:247 libraries/mysql_charsets.lib.php:416
-#: libraries/mysql_charsets.lib.php:423
-msgid "unknown"
-msgstr "tundmatu"
-
-#: db_structure.php:372 tbl_operations.php:308
-#, php-format
-msgid "Table %s has been emptied"
-msgstr "%s tabel on tühjendatud"
-
-#: db_structure.php:389 tbl_operations.php:326
-#, php-format
-msgid "View %s has been dropped"
-msgstr "%s vaade on kustutatud"
-
-#: db_structure.php:389 tbl_operations.php:327
-#, php-format
-msgid "Table %s has been dropped"
-msgstr "%s tabel on kustutatud"
-
-#: db_structure.php:399 tbl_create.php:286
-msgid "Tracking is active."
-msgstr "Jälgimine on aktiveeritud."
-
-#: db_structure.php:404 tbl_create.php:289
-msgid "Tracking is not active."
-msgstr "Jälgimist pole aktiveeritud."
-
-#: db_structure.php:530 libraries/DisplayResults.class.php:4912
-#, php-format
-msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation"
-"%s."
-msgstr ""
-"Sellel vaatel on vähemalt nii palju ridu. Palun loe %sdokumentatsiooni%s."
-
-#: db_structure.php:548 db_structure.php:582 libraries/Menu.class.php:191
-#: libraries/tbl_info.inc.php:59 tbl_structure.php:212
-msgid "View"
-msgstr "Vaade"
-
-#: db_structure.php:627 libraries/Menu.class.php:496
-#: libraries/db_structure.lib.php:35 server_replication.php:34
-#: server_replication.php:192 server_status.php:624
-msgid "Replication"
-msgstr "Paljundamine"
-
-#: db_structure.php:631
-msgid "Sum"
-msgstr "Summa"
-
-#: db_structure.php:638 libraries/StorageEngine.class.php:352
-#, php-format
-msgid "%s is the default storage engine on this MySQL server."
-msgstr "%s on selle MySQL serveri vaikimisi varundusmootor."
-
-#: db_structure.php:686 db_structure.php:698 db_structure.php:699
-#: libraries/DisplayResults.class.php:5043
-#: libraries/DisplayResults.class.php:5049 libraries/mult_submits.inc.php:42
-#: libraries/server_privileges.lib.php:2304
-#: libraries/server_privileges.lib.php:2307 server_databases.php:298
-#: server_databases.php:301 tbl_structure.php:563 tbl_structure.php:567
-msgid "With selected:"
-msgstr "Valitutega:"
-
-#: db_structure.php:687 db_structure.php:688
-#: libraries/DisplayResults.class.php:5047
-#: libraries/DisplayResults.class.php:5048
-#: libraries/server_privileges.lib.php:754
-#: libraries/server_privileges.lib.php:2305
-#: libraries/server_privileges.lib.php:2306 server_databases.php:299
-#: server_databases.php:300 tbl_structure.php:564 tbl_structure.php:565
-msgid "Check All"
-msgstr "Vali kõik"
-
-#: db_structure.php:693
-msgid "Check tables having overhead"
-msgstr "Kontrolli ballastiga  tabeleid"
-
-#: db_structure.php:701 libraries/CommonFunctions.class.php:3608
-#: libraries/CommonFunctions.class.php:3609
-#: libraries/DisplayResults.class.php:5066
-#: libraries/DisplayResults.class.php:5263 libraries/Menu.class.php:280
-#: libraries/Menu.class.php:367 libraries/Menu.class.php:469
-#: libraries/config/messages.inc.php:168 libraries/display_export.lib.php:92
-#: libraries/server_privileges.lib.php:1719
-#: libraries/server_privileges.lib.php:2311 prefs_manage.php:297
-#: server_status.php:1679 setup/frames/menu.inc.php:22
-msgid "Export"
-msgstr "Ekspordi"
-
-#: db_structure.php:703 db_structure.php:751
-#: libraries/DisplayResults.class.php:5187 libraries/Header.class.php:261
-#: tbl_structure.php:653
-msgid "Print view"
-msgstr "Prindi vaade"
-
-#: db_structure.php:707 libraries/CommonFunctions.class.php:3604
-#: libraries/CommonFunctions.class.php:3605
-msgid "Empty"
-msgstr "Tühjenda"
-
-#: db_structure.php:709 db_tracking.php:103
-#: libraries/CommonFunctions.class.php:3602
-#: libraries/CommonFunctions.class.php:3603 libraries/Index.class.php:528
-#: server_databases.php:302 tbl_structure.php:150 tbl_structure.php:151
-#: tbl_structure.php:582
-msgid "Drop"
-msgstr "Kustuta"
-
-#: db_structure.php:711 libraries/operations.lib.php:1109
-msgid "Check table"
-msgstr "Kontrolli tabelit"
-
-#: db_structure.php:714 libraries/operations.lib.php:1164
-#: tbl_structure.php:880
-msgid "Optimize table"
-msgstr "Optimeeri tabelit"
-
-#: db_structure.php:716 libraries/operations.lib.php:1149
-msgid "Repair table"
-msgstr "Paranda tabelit"
-
-#: db_structure.php:719 libraries/operations.lib.php:1136
-msgid "Analyze table"
-msgstr "Analüüsi tabelit"
-
-#: db_structure.php:721
-msgid "Add prefix to table"
-msgstr "Lisa tabelile eesliide"
-
-#: db_structure.php:723 libraries/mult_submits.inc.php:279
-msgid "Replace table prefix"
-msgstr "Asenda tabeli eesliide"
-
-#: db_structure.php:725 libraries/mult_submits.inc.php:279
-msgid "Copy table with prefix"
-msgstr "Kopeeri tabel koos eesliitega"
-
-#: db_structure.php:754 libraries/schema/User_Schema.class.php:444
-msgid "Data Dictionary"
-msgstr "Andmesõnastik"
 
 #: db_tracking.php:76
 msgid "Tracked tables"
@@ -544,14 +402,14 @@ msgstr "Jälgitud tabelid"
 #: libraries/plugins/export/ExportHtmlword.class.php:157
 #: libraries/plugins/export/ExportLatex.class.php:250
 #: libraries/plugins/export/ExportOdt.class.php:202
-#: libraries/plugins/export/ExportSql.class.php:752
+#: libraries/plugins/export/ExportSql.class.php:762
 #: libraries/plugins/export/ExportTexytext.class.php:141
 #: libraries/plugins/export/ExportXml.class.php:389
 #: libraries/plugins/export/PMA_ExportPdf.class.php:95
-#: libraries/server_privileges.lib.php:1882
-#: libraries/server_privileges.lib.php:2117
-#: libraries/server_privileges.lib.php:2736 server_databases.php:194
-#: server_status.php:1290 server_synchronize.php:1451
+#: libraries/server_privileges.lib.php:1983
+#: libraries/server_privileges.lib.php:2228
+#: libraries/server_privileges.lib.php:2868 server_databases.php:194
+#: server_status.php:1291 server_synchronize.php:1451
 #: server_synchronize.php:1455 sql.php:997 tbl_tracking.php:718
 msgid "Database"
 msgstr "Andmebaas"
@@ -570,17 +428,16 @@ msgstr "Uuendatud"
 
 #: db_tracking.php:86 js/messages.php:185 libraries/Menu.class.php:459
 #: libraries/rte/rte_events.lib.php:388 libraries/rte/rte_list.lib.php:78
-#: server_status.php:1293 sql.php:1071 tbl_tracking.php:723
+#: server_status.php:1303 sql.php:1071 tbl_tracking.php:723
 msgid "Status"
 msgstr "Staatus"
 
 #: db_tracking.php:87 libraries/Index.class.php:461
-#: libraries/db_structure.lib.php:39 libraries/rte/rte_list.lib.php:53
-#: libraries/rte/rte_list.lib.php:67 libraries/rte/rte_list.lib.php:79
-#: libraries/server_privileges.lib.php:1514
-#: libraries/server_privileges.lib.php:2127
-#: libraries/server_privileges.lib.php:2289 server_databases.php:229
-#: tbl_structure.php:222
+#: libraries/rte/rte_list.lib.php:53 libraries/rte/rte_list.lib.php:67
+#: libraries/rte/rte_list.lib.php:79 libraries/server_privileges.lib.php:1592
+#: libraries/server_privileges.lib.php:2238
+#: libraries/server_privileges.lib.php:2407 libraries/structure.lib.php:776
+#: libraries/structure.lib.php:1213 server_databases.php:229
 msgid "Action"
 msgstr "Tegevus"
 
@@ -593,6 +450,14 @@ msgstr "Näita"
 #: db_tracking.php:98 js/messages.php:34
 msgid "Delete tracking data for this table"
 msgstr "Kustuta selle tabeli jälgimise andmed"
+
+#: db_tracking.php:103 libraries/CommonFunctions.class.php:3669
+#: libraries/CommonFunctions.class.php:3670 libraries/Index.class.php:528
+#: libraries/structure.lib.php:311 libraries/structure.lib.php:1394
+#: libraries/structure.lib.php:2257 libraries/structure.lib.php:2259
+#: server_databases.php:302
+msgid "Drop"
+msgstr "Kustuta"
 
 #: db_tracking.php:120 tbl_tracking.php:675 tbl_tracking.php:733
 msgid "active"
@@ -618,7 +483,7 @@ msgstr "Struktuuri hetkepilt"
 msgid "Untracked tables"
 msgstr "Jälgimata tabelid"
 
-#: db_tracking.php:204 tbl_structure.php:681
+#: db_tracking.php:204 libraries/structure.lib.php:1533
 msgid "Track table"
 msgstr "Jälgi tabelit"
 
@@ -679,7 +544,7 @@ msgid "SRID"
 msgstr "SRID"
 
 #: gis_data_editor.php:141 js/messages.php:326
-#: libraries/DisplayResults.class.php:1649
+#: libraries/DisplayResults.class.php:1650
 msgid "Geometry"
 msgstr "Geomeetria"
 
@@ -831,14 +696,14 @@ msgstr ""
 "phpMyAdmin ei suuda importimist lõpetada, kuni sa ei suurenda php aja "
 "piiranguid."
 
-#: import.php:541 libraries/DisplayResults.class.php:4533
+#: import.php:541 libraries/DisplayResults.class.php:4547
 #: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1335
 #: libraries/sql_query_form.lib.php:116 tbl_operations.php:184
 #: tbl_relation.php:299 tbl_row_action.php:122 view_operations.php:55
 msgid "Your SQL query has been executed successfully"
 msgstr "Sinu SQL päring teostati edukalt"
 
-#: import_status.php:101 libraries/CommonFunctions.class.php:778
+#: import_status.php:101 libraries/CommonFunctions.class.php:780
 #: libraries/schema/Export_Relation_Schema.class.php:241 user_password.php:234
 msgid "Back"
 msgstr "Tagasi"
@@ -915,20 +780,20 @@ msgstr "Hostinimi on tühi!"
 msgid "The user name is empty!"
 msgstr "Kasutajanimi on tühi!"
 
-#: js/messages.php:53 libraries/server_privileges.lib.php:1259
+#: js/messages.php:53 libraries/server_privileges.lib.php:1321
 #: user_password.php:109
 msgid "The password is empty!"
 msgstr "Parool on tühi!"
 
-#: js/messages.php:54 libraries/server_privileges.lib.php:1257
+#: js/messages.php:54 libraries/server_privileges.lib.php:1319
 #: user_password.php:112
 msgid "The passwords aren't the same!"
 msgstr "Paroolid ei kattu!"
 
-#: js/messages.php:55 libraries/server_privileges.lib.php:1380
-#: libraries/server_privileges.lib.php:1565
-#: libraries/server_privileges.lib.php:2415
-#: libraries/server_privileges.lib.php:2708
+#: js/messages.php:55 libraries/server_privileges.lib.php:1453
+#: libraries/server_privileges.lib.php:1645
+#: libraries/server_privileges.lib.php:2537
+#: libraries/server_privileges.lib.php:2839
 msgid "Add user"
 msgstr "Lisa kasutaja"
 
@@ -946,25 +811,25 @@ msgid "Close"
 msgstr "Sulge"
 
 #: js/messages.php:61 js/messages.php:284
-#: libraries/CommonFunctions.class.php:712
-#: libraries/CommonFunctions.class.php:1290
-#: libraries/CommonFunctions.class.php:3606
-#: libraries/CommonFunctions.class.php:3607
-#: libraries/DisplayResults.class.php:3299 libraries/Index.class.php:491
+#: libraries/CommonFunctions.class.php:714
+#: libraries/CommonFunctions.class.php:1344
+#: libraries/CommonFunctions.class.php:3673
+#: libraries/CommonFunctions.class.php:3674
+#: libraries/DisplayResults.class.php:3313 libraries/Index.class.php:491
 #: libraries/config/messages.inc.php:490
 #: libraries/schema/User_Schema.class.php:215 setup/frames/index.inc.php:147
 msgid "Edit"
 msgstr "Muuda"
 
-#: js/messages.php:62 server_status.php:821
+#: js/messages.php:62 server_status.php:831
 msgid "Live traffic chart"
 msgstr "Elava liikluse diagramm"
 
-#: js/messages.php:63 server_status.php:824
+#: js/messages.php:63 server_status.php:834
 msgid "Live conn./process chart"
 msgstr "Elava ühenduse/protsessi diagramm"
 
-#: js/messages.php:64 server_status.php:842
+#: js/messages.php:64 server_status.php:856
 msgid "Live query chart"
 msgstr "Elava päringu diagramm"
 
@@ -974,24 +839,24 @@ msgstr "Staatilised andmed"
 
 #. l10n: Total number of queries
 #: js/messages.php:68 libraries/build_html_for_db.lib.php:46
-#: libraries/engines/innodb.lib.php:172 server_databases.php:257
-#: server_status.php:1168 server_status.php:1237 tbl_printview.php:331
-#: tbl_structure.php:868
+#: libraries/engines/innodb.lib.php:172 libraries/structure.lib.php:2399
+#: server_databases.php:257 server_status.php:1182 server_status.php:1251
+#: tbl_printview.php:331
 msgid "Total"
 msgstr "Kokku"
 
 #. l10n: Other, small valued, queries
-#: js/messages.php:70 server_status.php:630 server_status.php:1042
+#: js/messages.php:70 server_status.php:636 server_status.php:1056
 msgid "Other"
 msgstr "Muud"
 
 #. l10n: Thousands separator
-#: js/messages.php:72 libraries/CommonFunctions.class.php:1563
+#: js/messages.php:72 libraries/CommonFunctions.class.php:1617
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:74 libraries/CommonFunctions.class.php:1565
+#: js/messages.php:74 libraries/CommonFunctions.class.php:1619
 msgid "."
 msgstr "."
 
@@ -1011,7 +876,7 @@ msgstr "Serveri liiklus (KiB'des)"
 msgid "Connections since last refresh"
 msgstr "Ühendusi pärast viimast värskendust"
 
-#: js/messages.php:80 js/messages.php:118 server_status.php:1286
+#: js/messages.php:80 js/messages.php:118 server_status.php:1351
 msgid "Processes"
 msgstr "Protsessid"
 
@@ -1029,7 +894,7 @@ msgstr "Päringuid pärast viimast värskendust"
 msgid "Questions (executed statements by the server)"
 msgstr "Päringuid (serveri poolt käivitatud käsud)"
 
-#: js/messages.php:87 server_status.php:803
+#: js/messages.php:87 server_status.php:809
 msgid "Query statistics"
 msgstr "Päringu statistika"
 
@@ -1075,13 +940,13 @@ msgstr "Süsteemisaale"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:100 js/messages.php:123
-#: libraries/CommonFunctions.class.php:1512 server_status.php:1761
+#: libraries/CommonFunctions.class.php:1566 server_status.php:1869
 msgid "MiB"
 msgstr "MiB"
 
 #. l10n: shortcuts for Kilobyte
 #: js/messages.php:101 js/messages.php:122
-#: libraries/CommonFunctions.class.php:1510 server_status.php:1761
+#: libraries/CommonFunctions.class.php:1564 server_status.php:1869
 msgid "KiB"
 msgstr "KiB"
 
@@ -1133,32 +998,32 @@ msgstr "Saadetud baidid"
 msgid "Bytes received"
 msgstr "Vastuvõetud baidid"
 
-#: js/messages.php:117 server_status.php:1191
+#: js/messages.php:117 server_status.php:1205
 msgid "Connections"
 msgstr "Ühendused"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:121 libraries/CommonFunctions.class.php:1508
+#: js/messages.php:121 libraries/CommonFunctions.class.php:1562
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:124 libraries/CommonFunctions.class.php:1514
+#: js/messages.php:124 libraries/CommonFunctions.class.php:1568
 msgid "GiB"
 msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:125 libraries/CommonFunctions.class.php:1516
+#: js/messages.php:125 libraries/CommonFunctions.class.php:1570
 msgid "TiB"
 msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:126 libraries/CommonFunctions.class.php:1518
+#: js/messages.php:126 libraries/CommonFunctions.class.php:1572
 msgid "PiB"
 msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:127 libraries/CommonFunctions.class.php:1520
+#: js/messages.php:127 libraries/CommonFunctions.class.php:1574
 msgid "EiB"
 msgstr "EiB"
 
@@ -1172,11 +1037,11 @@ msgstr "%d tabel(it)"
 msgid "Questions"
 msgstr "Päringud"
 
-#: js/messages.php:132 server_status.php:1128
+#: js/messages.php:132 server_status.php:1142
 msgid "Traffic"
 msgstr "Liiklus"
 
-#: js/messages.php:133 libraries/Menu.class.php:477 server_status.php:1630
+#: js/messages.php:133 libraries/Menu.class.php:477 server_status.php:1738
 msgid "Settings"
 msgstr "Sätted"
 
@@ -1196,13 +1061,13 @@ msgstr "Lisa diagramm ruudustikku"
 msgid "Please add at least one variable to the series"
 msgstr "Palun lisa seeriasse vähemalt üks muutuja"
 
-#: js/messages.php:139 libraries/DisplayResults.class.php:1294
+#: js/messages.php:139 libraries/DisplayResults.class.php:1295
 #: libraries/TableSearch.class.php:853 libraries/TableSearch.class.php:997
 #: libraries/display_export.lib.php:333
-#: libraries/plugins/export/ExportSql.class.php:1434
-#: libraries/server_privileges.lib.php:2026
+#: libraries/plugins/export/ExportSql.class.php:1555
+#: libraries/server_privileges.lib.php:2127
 #: libraries/tbl_properties.inc.php:652 pmd_general.php:551
-#: server_status.php:1321 server_status.php:1778
+#: server_status.php:1429 server_status.php:1886
 msgid "None"
 msgstr "Puudub"
 
@@ -1302,7 +1167,7 @@ msgstr "Muuda sätteid"
 msgid "Current settings"
 msgstr "Praegused sätted"
 
-#: js/messages.php:164 server_status.php:1726
+#: js/messages.php:164 server_status.php:1834
 msgid "Chart Title"
 msgstr "Diagrammi pealkiri"
 
@@ -1388,7 +1253,7 @@ msgstr "Selgita väljundit"
 #: libraries/plugins/export/ExportHtmlword.class.php:483
 #: libraries/plugins/export/ExportOdt.class.php:561
 #: libraries/plugins/export/ExportTexytext.class.php:434
-#: libraries/rte/rte_list.lib.php:68 server_status.php:1292 sql.php:1072
+#: libraries/rte/rte_list.lib.php:68 server_status.php:1299 sql.php:1072
 msgid "Time"
 msgstr "Aeg"
 
@@ -1484,7 +1349,7 @@ msgstr ""
 #: js/messages.php:212 libraries/Menu.class.php:289
 #: libraries/Menu.class.php:376 libraries/Menu.class.php:473
 #: libraries/config/messages.inc.php:174 libraries/display_import.lib.php:184
-#: prefs_manage.php:240 server_status.php:1679 setup/frames/menu.inc.php:21
+#: prefs_manage.php:240 server_status.php:1787 setup/frames/menu.inc.php:21
 msgid "Import"
 msgstr "Impordi"
 
@@ -1679,8 +1544,9 @@ msgstr "Näita päringu kasti"
 msgid "No rows selected"
 msgstr "Ridu pole valitud"
 
-#: js/messages.php:286 libraries/DisplayResults.class.php:5053
-#: querywindow.php:84 tbl_structure.php:149 tbl_structure.php:578
+#: js/messages.php:286 libraries/DisplayResults.class.php:5067
+#: libraries/structure.lib.php:1390 libraries/structure.lib.php:2255
+#: querywindow.php:84
 msgid "Change"
 msgstr "Muuda"
 
@@ -1764,7 +1630,7 @@ msgstr "Andmepunkti sisu"
 msgid "Ignore"
 msgstr "Ignoreeri"
 
-#: js/messages.php:319 libraries/DisplayResults.class.php:3302
+#: js/messages.php:319 libraries/DisplayResults.class.php:3316
 msgid "Copy"
 msgstr "Kopeeri"
 
@@ -1875,7 +1741,7 @@ msgstr "Genereeri"
 msgid "Change Password"
 msgstr "Muuda parooli"
 
-#: js/messages.php:368 tbl_structure.php:471
+#: js/messages.php:368 libraries/structure.lib.php:1906
 msgid "More"
 msgstr "Rohkem"
 
@@ -1966,63 +1832,63 @@ msgid "December"
 msgstr "Detsember"
 
 #. l10n: Short month name
-#: js/messages.php:427 libraries/CommonFunctions.class.php:1725
+#: js/messages.php:427 libraries/CommonFunctions.class.php:1779
 msgid "Jan"
 msgstr "Jaan"
 
 #. l10n: Short month name
-#: js/messages.php:429 libraries/CommonFunctions.class.php:1727
+#: js/messages.php:429 libraries/CommonFunctions.class.php:1781
 msgid "Feb"
 msgstr "Veebr"
 
 #. l10n: Short month name
-#: js/messages.php:431 libraries/CommonFunctions.class.php:1729
+#: js/messages.php:431 libraries/CommonFunctions.class.php:1783
 msgid "Mar"
 msgstr "Märts"
 
 #. l10n: Short month name
-#: js/messages.php:433 libraries/CommonFunctions.class.php:1731
+#: js/messages.php:433 libraries/CommonFunctions.class.php:1785
 msgid "Apr"
 msgstr "Aprill"
 
 #. l10n: Short month name
-#: js/messages.php:435 libraries/CommonFunctions.class.php:1733
+#: js/messages.php:435 libraries/CommonFunctions.class.php:1787
 msgctxt "Short month name"
 msgid "May"
 msgstr "Mai"
 
 #. l10n: Short month name
-#: js/messages.php:437 libraries/CommonFunctions.class.php:1735
+#: js/messages.php:437 libraries/CommonFunctions.class.php:1789
 msgid "Jun"
 msgstr "Juuni"
 
 #. l10n: Short month name
-#: js/messages.php:439 libraries/CommonFunctions.class.php:1737
+#: js/messages.php:439 libraries/CommonFunctions.class.php:1791
 msgid "Jul"
 msgstr "Juuli"
 
 #. l10n: Short month name
-#: js/messages.php:441 libraries/CommonFunctions.class.php:1739
+#: js/messages.php:441 libraries/CommonFunctions.class.php:1793
 msgid "Aug"
 msgstr "Aug"
 
 #. l10n: Short month name
-#: js/messages.php:443 libraries/CommonFunctions.class.php:1741
+#: js/messages.php:443 libraries/CommonFunctions.class.php:1795
 msgid "Sep"
 msgstr "Sept"
 
 #. l10n: Short month name
-#: js/messages.php:445 libraries/CommonFunctions.class.php:1743
+#: js/messages.php:445 libraries/CommonFunctions.class.php:1797
 msgid "Oct"
 msgstr "Okt"
 
 #. l10n: Short month name
-#: js/messages.php:447 libraries/CommonFunctions.class.php:1745
+#: js/messages.php:447 libraries/CommonFunctions.class.php:1799
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:449 libraries/CommonFunctions.class.php:1747
+#: js/messages.php:449 libraries/CommonFunctions.class.php:1801
 msgid "Dec"
 msgstr "Dets"
 
@@ -2060,32 +1926,32 @@ msgid "Sun"
 msgstr "Püh"
 
 #. l10n: Short week day name
-#: js/messages.php:470 libraries/CommonFunctions.class.php:1752
+#: js/messages.php:470 libraries/CommonFunctions.class.php:1806
 msgid "Mon"
 msgstr "Esm"
 
 #. l10n: Short week day name
-#: js/messages.php:472 libraries/CommonFunctions.class.php:1754
+#: js/messages.php:472 libraries/CommonFunctions.class.php:1808
 msgid "Tue"
 msgstr "Tei"
 
 #. l10n: Short week day name
-#: js/messages.php:474 libraries/CommonFunctions.class.php:1756
+#: js/messages.php:474 libraries/CommonFunctions.class.php:1810
 msgid "Wed"
 msgstr "Kol"
 
 #. l10n: Short week day name
-#: js/messages.php:476 libraries/CommonFunctions.class.php:1758
+#: js/messages.php:476 libraries/CommonFunctions.class.php:1812
 msgid "Thu"
 msgstr "Nel"
 
 #. l10n: Short week day name
-#: js/messages.php:478 libraries/CommonFunctions.class.php:1760
+#: js/messages.php:478 libraries/CommonFunctions.class.php:1814
 msgid "Fri"
 msgstr "Ree"
 
 #. l10n: Short week day name
-#: js/messages.php:480 libraries/CommonFunctions.class.php:1762
+#: js/messages.php:480 libraries/CommonFunctions.class.php:1816
 msgid "Sat"
 msgstr "Lau"
 
@@ -2198,16 +2064,16 @@ msgstr "Ootamatud sümbolid %s. real"
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
 msgstr "Ootamatu sümbol %1$s. real. Oodatud vaheleht, aga leiti \"%2$s\""
 
-#: libraries/Advisor.class.php:425 server_status.php:972
+#: libraries/Advisor.class.php:425 server_status.php:986
 msgid "per second"
 msgstr "sekundis"
 
-#: libraries/Advisor.class.php:428 server_status.php:967
+#: libraries/Advisor.class.php:428 server_status.php:981
 msgid "per minute"
 msgstr "minutis"
 
-#: libraries/Advisor.class.php:431 server_status.php:963 server_status.php:999
-#: server_status.php:1129 server_status.php:1192
+#: libraries/Advisor.class.php:431 server_status.php:977
+#: server_status.php:1013 server_status.php:1143 server_status.php:1206
 msgid "per hour"
 msgstr "tunnis"
 
@@ -2215,13 +2081,13 @@ msgstr "tunnis"
 msgid "per day"
 msgstr "päevas"
 
-#: libraries/CommonFunctions.class.php:255
+#: libraries/CommonFunctions.class.php:257
 #, php-format
 msgid "Max: %s%s"
 msgstr "Maksimaalne: %s%s"
 
-#: libraries/CommonFunctions.class.php:470
-#: libraries/CommonFunctions.class.php:562
+#: libraries/CommonFunctions.class.php:472
+#: libraries/CommonFunctions.class.php:564
 #: libraries/config/FormDisplay.tpl.php:147
 #: libraries/display_export.lib.php:248 libraries/engines/pbxt.lib.php:114
 #: libraries/relation.lib.php:90 main.php:290 server_variables.php:130
@@ -2229,36 +2095,36 @@ msgid "Documentation"
 msgstr "Dokumentatsioon"
 
 #. l10n: Please check that translation actually exists.
-#: libraries/CommonFunctions.class.php:538
+#: libraries/CommonFunctions.class.php:540
 msgctxt "MySQL 5.5 documentation language"
 msgid "en"
 msgstr "en"
 
 #. l10n: Please check that translation actually exists.
-#: libraries/CommonFunctions.class.php:542
+#: libraries/CommonFunctions.class.php:544
 msgctxt "MySQL 5.1 documentation language"
 msgid "en"
 msgstr "en"
 
 #. l10n: Please check that translation actually exists.
-#: libraries/CommonFunctions.class.php:546
+#: libraries/CommonFunctions.class.php:548
 msgctxt "MySQL 5.0 documentation language"
 msgid "en"
 msgstr "en"
 
-#: libraries/CommonFunctions.class.php:674 libraries/Message.class.php:199
+#: libraries/CommonFunctions.class.php:676 libraries/Message.class.php:199
 #: libraries/core.lib.php:217 libraries/import.lib.php:169
 #: libraries/insert_edit.lib.php:1202 tbl_operations.php:186
 #: tbl_relation.php:297 view_operations.php:55
 msgid "Error"
 msgstr "Viga"
 
-#: libraries/CommonFunctions.class.php:687 server_status.php:613
-#: server_status.php:1295 sql.php:1000
+#: libraries/CommonFunctions.class.php:689 server_status.php:619
+#: server_status.php:1307 sql.php:1000
 msgid "SQL query"
 msgstr "SQL päring"
 
-#: libraries/CommonFunctions.class.php:731
+#: libraries/CommonFunctions.class.php:733
 #: libraries/rte/rte_events.lib.php:105 libraries/rte/rte_events.lib.php:110
 #: libraries/rte/rte_events.lib.php:120 libraries/rte/rte_events.lib.php:133
 #: libraries/rte/rte_routines.lib.php:290
@@ -2268,197 +2134,214 @@ msgstr "SQL päring"
 #: libraries/rte/rte_routines.lib.php:1365
 #: libraries/rte/rte_triggers.lib.php:76 libraries/rte/rte_triggers.lib.php:81
 #: libraries/rte/rte_triggers.lib.php:91
-#: libraries/rte/rte_triggers.lib.php:104
+#: libraries/rte/rte_triggers.lib.php:108
 msgid "MySQL said: "
 msgstr "MySQL vastas: "
 
-#: libraries/CommonFunctions.class.php:1214
+#: libraries/CommonFunctions.class.php:1268
 msgid "Failed to connect to SQL validator!"
 msgstr "SQL valideerijaga ühendamine ebaõnnestus!"
 
-#: libraries/CommonFunctions.class.php:1256
+#: libraries/CommonFunctions.class.php:1310
 #: libraries/config/messages.inc.php:491
 msgid "Explain SQL"
 msgstr "Selgita SQL"
 
-#: libraries/CommonFunctions.class.php:1264
+#: libraries/CommonFunctions.class.php:1318
 msgid "Skip Explain SQL"
 msgstr "Jäta SQL selgitus vahele"
 
-#: libraries/CommonFunctions.class.php:1303
+#: libraries/CommonFunctions.class.php:1357
 msgid "Without PHP Code"
 msgstr "Ilma PHP koodita"
 
-#: libraries/CommonFunctions.class.php:1306
+#: libraries/CommonFunctions.class.php:1360
 #: libraries/config/messages.inc.php:493
 msgid "Create PHP Code"
 msgstr "Loo PHP kood"
 
-#: libraries/CommonFunctions.class.php:1318 libraries/DBQbe.class.php:1271
+#: libraries/CommonFunctions.class.php:1372 libraries/DBQbe.class.php:1271
 msgid "Submit Query"
 msgstr "Saada päring"
 
-#: libraries/CommonFunctions.class.php:1332
-#: libraries/config/messages.inc.php:492 server_status.php:813
-#: server_status.php:835 server_status.php:855
+#: libraries/CommonFunctions.class.php:1386
+#: libraries/config/messages.inc.php:492 server_status.php:819
+#: server_status.php:845 server_status.php:869
 msgid "Refresh"
 msgstr "Uuenda"
 
-#: libraries/CommonFunctions.class.php:1342
+#: libraries/CommonFunctions.class.php:1396
 msgid "Skip Validate SQL"
 msgstr "Jäta SQL'i valideerimine vahele"
 
-#: libraries/CommonFunctions.class.php:1345
+#: libraries/CommonFunctions.class.php:1399
 #: libraries/config/messages.inc.php:495
 msgid "Validate SQL"
 msgstr "Valideeri SQL"
 
-#: libraries/CommonFunctions.class.php:1407
+#: libraries/CommonFunctions.class.php:1461
 msgid "Inline edit of this query"
 msgstr "Selle päringu kiirmuutmine"
 
-#: libraries/CommonFunctions.class.php:1409
+#: libraries/CommonFunctions.class.php:1463
 msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "Kiirmuutmine"
 
-#: libraries/CommonFunctions.class.php:1480 sql.php:1067
+#: libraries/CommonFunctions.class.php:1534 sql.php:1067
 msgid "Profiling"
 msgstr "Profileerimine"
 
 #. l10n: Short week day name
-#: libraries/CommonFunctions.class.php:1750
+#: libraries/CommonFunctions.class.php:1804
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Päike"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
-#: libraries/CommonFunctions.class.php:1766
+#: libraries/CommonFunctions.class.php:1820
 #: libraries/plugins/transformations/abstract/DateFormatTransformationsPlugin.class.php:69
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%B %d, %Y kell %I:%M %p"
 
-#: libraries/CommonFunctions.class.php:2116
+#: libraries/CommonFunctions.class.php:2170
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s päeva, %s tundi, %s minutit ja %s sekundit"
 
-#: libraries/CommonFunctions.class.php:2208
+#: libraries/CommonFunctions.class.php:2262
 msgid "Missing parameter:"
 msgstr "Puudulik parameeter:"
 
-#: libraries/CommonFunctions.class.php:2632
-#: libraries/CommonFunctions.class.php:2636
+#: libraries/CommonFunctions.class.php:2686
+#: libraries/CommonFunctions.class.php:2690
 #: libraries/DisplayResults.class.php:782
 msgctxt "First page"
 msgid "Begin"
 msgstr "Algus"
 
-#: libraries/CommonFunctions.class.php:2634
-#: libraries/CommonFunctions.class.php:2637
+#: libraries/CommonFunctions.class.php:2688
+#: libraries/CommonFunctions.class.php:2691
 #: libraries/DisplayResults.class.php:785 server_binlog.php:142
 #: server_binlog.php:144
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Eelmine"
 
-#: libraries/CommonFunctions.class.php:2669
-#: libraries/CommonFunctions.class.php:2672
+#: libraries/CommonFunctions.class.php:2723
+#: libraries/CommonFunctions.class.php:2726
 #: libraries/DisplayResults.class.php:842 server_binlog.php:177
 #: server_binlog.php:179
 msgctxt "Next page"
 msgid "Next"
 msgstr "Järgmine"
 
-#: libraries/CommonFunctions.class.php:2670
-#: libraries/CommonFunctions.class.php:2673
+#: libraries/CommonFunctions.class.php:2724
+#: libraries/CommonFunctions.class.php:2727
 #: libraries/DisplayResults.class.php:870
 msgctxt "Last page"
 msgid "End"
 msgstr "Lõpp"
 
-#: libraries/CommonFunctions.class.php:2749
+#: libraries/CommonFunctions.class.php:2803
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "Mine &quot;%s&quot; andmebaasi."
 
-#: libraries/CommonFunctions.class.php:2774
+#: libraries/CommonFunctions.class.php:2828
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Seda %s funktsionaalsust mõjutas tuntud viga, vaata %s"
 
-#: libraries/CommonFunctions.class.php:2958
+#: libraries/CommonFunctions.class.php:3012
 msgid "Click to toggle"
 msgstr "Muuda"
 
-#: libraries/CommonFunctions.class.php:3389
-#: libraries/CommonFunctions.class.php:3396
-#: libraries/CommonFunctions.class.php:3601 libraries/Menu.class.php:257
+#: libraries/CommonFunctions.class.php:3443
+#: libraries/CommonFunctions.class.php:3450
+#: libraries/CommonFunctions.class.php:3668 libraries/Menu.class.php:257
 #: libraries/Menu.class.php:345 libraries/config/setup.forms.php:295
 #: libraries/config/setup.forms.php:332 libraries/config/setup.forms.php:358
 #: libraries/config/user_preferences.forms.php:196
 #: libraries/config/user_preferences.forms.php:233
 #: libraries/config/user_preferences.forms.php:259
 #: libraries/import.lib.php:1223
-#: libraries/plugins/export/ExportLatex.class.php:475
-#: libraries/server_privileges.lib.php:723
+#: libraries/plugins/export/ExportLatex.class.php:480
+#: libraries/server_privileges.lib.php:761
 #: libraries/tbl_properties.inc.php:756 pmd_general.php:179
 #: server_replication.php:345 tbl_tracking.php:306
 msgid "Structure"
 msgstr "Struktuur"
 
-#: libraries/CommonFunctions.class.php:3390
-#: libraries/CommonFunctions.class.php:3397 libraries/Menu.class.php:261
+#: libraries/CommonFunctions.class.php:3444
+#: libraries/CommonFunctions.class.php:3451 libraries/Menu.class.php:261
 #: libraries/Menu.class.php:350 libraries/Menu.class.php:455
 #: libraries/config/messages.inc.php:218 querywindow.php:61
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/CommonFunctions.class.php:3392
-#: libraries/CommonFunctions.class.php:3599
-#: libraries/CommonFunctions.class.php:3600 libraries/Menu.class.php:274
+#: libraries/CommonFunctions.class.php:3446
+#: libraries/CommonFunctions.class.php:3666
+#: libraries/CommonFunctions.class.php:3667 libraries/Menu.class.php:274
 #: libraries/sql_query_form.lib.php:307 libraries/sql_query_form.lib.php:310
 msgid "Insert"
 msgstr "Lisa"
 
-#: libraries/CommonFunctions.class.php:3393
-#: libraries/CommonFunctions.class.php:3595
-#: libraries/CommonFunctions.class.php:3596 libraries/DbSearch.class.php:366
-#: libraries/Menu.class.php:251 tbl_structure.php:572
+#: libraries/CommonFunctions.class.php:3447
+#: libraries/CommonFunctions.class.php:3662
+#: libraries/CommonFunctions.class.php:3663 libraries/DbSearch.class.php:366
+#: libraries/Menu.class.php:251 libraries/structure.lib.php:1384
 msgid "Browse"
 msgstr "Vaata"
 
-#: libraries/CommonFunctions.class.php:3399 libraries/Menu.class.php:293
+#: libraries/CommonFunctions.class.php:3453 libraries/Menu.class.php:293
 #: libraries/Menu.class.php:316 libraries/Menu.class.php:380
 #: view_operations.php:84
 msgid "Operations"
 msgstr "Tegevused"
 
-#: libraries/CommonFunctions.class.php:3510
+#: libraries/CommonFunctions.class.php:3577
 #: libraries/sql_query_form.lib.php:473 prefs_manage.php:250
 msgid "Browse your computer:"
 msgstr "Sirvi oma arvutist:"
 
-#: libraries/CommonFunctions.class.php:3538
+#: libraries/CommonFunctions.class.php:3605
 #, php-format
 msgid "Select from the web server upload directory <b>%s</b>:"
 msgstr "Vali veebiserveri üleslaadimise kataloogist <b>%s</b>:"
 
-#: libraries/CommonFunctions.class.php:3567 libraries/insert_edit.lib.php:1203
+#: libraries/CommonFunctions.class.php:3634 libraries/insert_edit.lib.php:1203
 #: libraries/sql_query_form.lib.php:482
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Valitud üleslaadimise kataloogile ei pääse ligi"
 
-#: libraries/CommonFunctions.class.php:3578
+#: libraries/CommonFunctions.class.php:3645
 msgid "There are no files to upload"
 msgstr "Seal pole faile, mida üles laadida"
 
-#: libraries/CommonFunctions.class.php:3610
-#: libraries/CommonFunctions.class.php:3611
+#: libraries/CommonFunctions.class.php:3671
+#: libraries/CommonFunctions.class.php:3672 libraries/structure.lib.php:309
+msgid "Empty"
+msgstr "Tühjenda"
+
+#: libraries/CommonFunctions.class.php:3675
+#: libraries/CommonFunctions.class.php:3676
+#: libraries/DisplayResults.class.php:5080
+#: libraries/DisplayResults.class.php:5278 libraries/Menu.class.php:280
+#: libraries/Menu.class.php:367 libraries/Menu.class.php:469
+#: libraries/config/messages.inc.php:168 libraries/display_export.lib.php:92
+#: libraries/server_privileges.lib.php:1809
+#: libraries/server_privileges.lib.php:2429 libraries/structure.lib.php:301
+#: prefs_manage.php:297 server_status.php:1787 setup/frames/menu.inc.php:22
+msgid "Export"
+msgstr "Ekspordi"
+
+#: libraries/CommonFunctions.class.php:3677
+#: libraries/CommonFunctions.class.php:3678
 msgid "Execute"
 msgstr "Teosta"
 
-#: libraries/CommonFunctions.class.php:4154
+#: libraries/CommonFunctions.class.php:4221
 msgid "Print"
 msgstr "Prindi"
 
@@ -2477,26 +2360,26 @@ msgstr ""
 msgid "Font size"
 msgstr "Fondi kõrgus"
 
-#: libraries/DBQbe.class.php:337 libraries/DisplayResults.class.php:1278
-#: libraries/DisplayResults.class.php:2019
-#: libraries/DisplayResults.class.php:2027 libraries/TableSearch.class.php:824
-#: libraries/db_structure.lib.php:117 libraries/db_structure.lib.php:126
-#: libraries/operations.lib.php:624 server_databases.php:195
+#: libraries/DBQbe.class.php:337 libraries/DisplayResults.class.php:1279
+#: libraries/DisplayResults.class.php:2020
+#: libraries/DisplayResults.class.php:2028 libraries/TableSearch.class.php:824
+#: libraries/operations.lib.php:624 libraries/structure.lib.php:872
+#: libraries/structure.lib.php:889 server_databases.php:195
 #: server_databases.php:212
 msgid "Ascending"
 msgstr "Kasvav"
 
-#: libraries/DBQbe.class.php:339 libraries/DisplayResults.class.php:1290
-#: libraries/DisplayResults.class.php:2014
-#: libraries/DisplayResults.class.php:2032 libraries/TableSearch.class.php:825
-#: libraries/db_structure.lib.php:118 libraries/db_structure.lib.php:127
-#: libraries/operations.lib.php:625 server_databases.php:195
+#: libraries/DBQbe.class.php:339 libraries/DisplayResults.class.php:1291
+#: libraries/DisplayResults.class.php:2015
+#: libraries/DisplayResults.class.php:2033 libraries/TableSearch.class.php:825
+#: libraries/operations.lib.php:625 libraries/structure.lib.php:877
+#: libraries/structure.lib.php:894 server_databases.php:195
 #: server_databases.php:212
 msgid "Descending"
 msgstr "Kahanev"
 
-#: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:2087
-#: libraries/db_structure.lib.php:110
+#: libraries/DBQbe.class.php:391 libraries/DisplayResults.class.php:2088
+#: libraries/structure.lib.php:863
 msgid "Sort"
 msgstr "Sorteeri"
 
@@ -2522,7 +2405,7 @@ msgstr "Kasuta tabeleid"
 
 #: libraries/DBQbe.class.php:623 libraries/DBQbe.class.php:718
 #: libraries/TableSearch.class.php:792 libraries/insert_edit.lib.php:1206
-#: libraries/server_privileges.lib.php:320 tbl_indexes.php:316
+#: libraries/server_privileges.lib.php:325 tbl_indexes.php:316
 msgid "Or"
 msgstr "Või"
 
@@ -2589,8 +2472,8 @@ msgstr[1] "%1$s vastet <i>%2$s</i> tabelis"
 msgid "Delete the matches for the %s table?"
 msgstr "Kustutada %s tabeli vasted?"
 
-#: libraries/DbSearch.class.php:377 libraries/DisplayResults.class.php:3370
-#: libraries/DisplayResults.class.php:5029
+#: libraries/DbSearch.class.php:377 libraries/DisplayResults.class.php:3384
+#: libraries/DisplayResults.class.php:5043
 #: libraries/schema/User_Schema.class.php:216
 #: libraries/schema/User_Schema.class.php:294
 #: libraries/schema/User_Schema.class.php:329
@@ -2663,11 +2546,11 @@ msgstr "vertikaalselt"
 msgid "Headers every %s rows"
 msgstr "Päised iga %s rea tagant"
 
-#: libraries/DisplayResults.class.php:1236
+#: libraries/DisplayResults.class.php:1237
 msgid "Sort by key"
 msgstr "Sorteeri võtme alusel"
 
-#: libraries/DisplayResults.class.php:1586 libraries/TableSearch.class.php:766
+#: libraries/DisplayResults.class.php:1587 libraries/TableSearch.class.php:766
 #: libraries/import.lib.php:1197 libraries/import.lib.php:1223
 #: libraries/plugins/export/ExportCodegen.class.php:89
 #: libraries/plugins/export/ExportCsv.class.php:79
@@ -2692,64 +2575,64 @@ msgstr "Sorteeri võtme alusel"
 #: libraries/plugins/import/ImportShp.class.php:55
 #: libraries/plugins/import/ImportSql.class.php:49
 #: libraries/plugins/import/ImportXml.class.php:56
-#: libraries/rte/rte_routines.lib.php:922 tbl_structure.php:916
+#: libraries/rte/rte_routines.lib.php:922 libraries/structure.lib.php:1751
 msgid "Options"
 msgstr "Valikud"
 
-#: libraries/DisplayResults.class.php:1592
-#: libraries/DisplayResults.class.php:1698
+#: libraries/DisplayResults.class.php:1593
+#: libraries/DisplayResults.class.php:1699
 msgid "Partial texts"
 msgstr "Osalised tekstid"
 
-#: libraries/DisplayResults.class.php:1593
-#: libraries/DisplayResults.class.php:1702
+#: libraries/DisplayResults.class.php:1594
+#: libraries/DisplayResults.class.php:1703
 msgid "Full texts"
 msgstr "Täistekstid"
 
-#: libraries/DisplayResults.class.php:1607
+#: libraries/DisplayResults.class.php:1608
 msgid "Relational key"
 msgstr "Seose võti"
 
-#: libraries/DisplayResults.class.php:1608
+#: libraries/DisplayResults.class.php:1609
 msgid "Relational display column"
 msgstr "Seose näitamise veerg"
 
-#: libraries/DisplayResults.class.php:1620
+#: libraries/DisplayResults.class.php:1621
 msgid "Show binary contents"
 msgstr "Näita binaarsisu"
 
-#: libraries/DisplayResults.class.php:1625
+#: libraries/DisplayResults.class.php:1626
 msgid "Show BLOB contents"
 msgstr "Näita BLOB sisu"
 
-#: libraries/DisplayResults.class.php:1630
+#: libraries/DisplayResults.class.php:1631
 #: libraries/config/messages.inc.php:61
 msgid "Show binary contents as HEX"
 msgstr "Näita binaarset sisu HEX-ina"
 
-#: libraries/DisplayResults.class.php:1641
+#: libraries/DisplayResults.class.php:1642
 msgid "Hide browser transformation"
 msgstr "Peida veebilehitseja transformatsioon"
 
-#: libraries/DisplayResults.class.php:1650
+#: libraries/DisplayResults.class.php:1651
 msgid "Well Known Text"
 msgstr "Well Known Text"
 
-#: libraries/DisplayResults.class.php:1651
+#: libraries/DisplayResults.class.php:1652
 msgid "Well Known Binary"
 msgstr "Well Known Binary"
 
-#: libraries/DisplayResults.class.php:3343
-#: libraries/DisplayResults.class.php:3359
+#: libraries/DisplayResults.class.php:3357
+#: libraries/DisplayResults.class.php:3373
 msgid "The row has been deleted"
 msgstr "Rida on kustutatud"
 
-#: libraries/DisplayResults.class.php:3397
-#: libraries/DisplayResults.class.php:5029 server_status.php:1317
+#: libraries/DisplayResults.class.php:3411
+#: libraries/DisplayResults.class.php:5043 server_status.php:1425
 msgid "Kill"
 msgstr "Sulge"
 
-#: libraries/DisplayResults.class.php:4479 libraries/db_structure.lib.php:44
+#: libraries/DisplayResults.class.php:4493 libraries/structure.lib.php:782
 msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
@@ -2757,44 +2640,79 @@ msgstr ""
 "Võib olla umbkaudne. Vaata [a@./Documentation.html#faq3_11@Documentation]KKK "
 "3.11[/a]"
 
-#: libraries/DisplayResults.class.php:4875
+#: libraries/DisplayResults.class.php:4889
 msgid "in query"
 msgstr "päringus"
 
-#: libraries/DisplayResults.class.php:4925
+#: libraries/DisplayResults.class.php:4926 libraries/structure.lib.php:665
+#, php-format
+msgid ""
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
+msgstr ""
+"Sellel vaatel on vähemalt nii palju ridu. Palun loe %sdokumentatsiooni%s."
+
+#: libraries/DisplayResults.class.php:4939
 msgid "Showing rows"
 msgstr "Näitan ridu"
 
-#: libraries/DisplayResults.class.php:4941
+#: libraries/DisplayResults.class.php:4955
 msgid "total"
 msgstr "kokku"
 
-#: libraries/DisplayResults.class.php:4952 sql.php:841
+#: libraries/DisplayResults.class.php:4966 sql.php:841
 #, php-format
 msgid "Query took %01.4f sec"
 msgstr "päring kestis %01.4f sekundit"
 
-#: libraries/DisplayResults.class.php:5163
+#: libraries/DisplayResults.class.php:5057
+#: libraries/DisplayResults.class.php:5063 libraries/mult_submits.inc.php:42
+#: libraries/server_privileges.lib.php:2422
+#: libraries/server_privileges.lib.php:2425 libraries/structure.lib.php:282
+#: libraries/structure.lib.php:297 libraries/structure.lib.php:299
+#: libraries/structure.lib.php:1373 libraries/structure.lib.php:1380
+#: server_databases.php:298 server_databases.php:301
+msgid "With selected:"
+msgstr "Valitutega:"
+
+#: libraries/DisplayResults.class.php:5061
+#: libraries/DisplayResults.class.php:5062
+#: libraries/server_privileges.lib.php:793
+#: libraries/server_privileges.lib.php:2423
+#: libraries/server_privileges.lib.php:2424 libraries/structure.lib.php:285
+#: libraries/structure.lib.php:286 libraries/structure.lib.php:1376
+#: libraries/structure.lib.php:1377 server_databases.php:299
+#: server_databases.php:300
+msgid "Check All"
+msgstr "Vali kõik"
+
+#: libraries/DisplayResults.class.php:5178
 msgid "Query results operations"
 msgstr "Päringu tulemuste tegevused"
 
-#: libraries/DisplayResults.class.php:5205
+#: libraries/DisplayResults.class.php:5202 libraries/Header.class.php:261
+#: libraries/structure.lib.php:303 libraries/structure.lib.php:366
+#: libraries/structure.lib.php:1499
+msgid "Print view"
+msgstr "Prindi vaade"
+
+#: libraries/DisplayResults.class.php:5220
 msgid "Print view (with full texts)"
 msgstr "Prindi vaade (täispikkade tekstidega)"
 
-#: libraries/DisplayResults.class.php:5276 tbl_chart.php:80
+#: libraries/DisplayResults.class.php:5291 tbl_chart.php:80
 msgid "Display chart"
 msgstr "Näita diagrammi"
 
-#: libraries/DisplayResults.class.php:5301
+#: libraries/DisplayResults.class.php:5316
 msgid "Visualize GIS data"
 msgstr "Visualiseeri GIS andmed"
 
-#: libraries/DisplayResults.class.php:5334 view_create.php:152
+#: libraries/DisplayResults.class.php:5349 view_create.php:152
 msgid "Create view"
 msgstr "Loo vaade"
 
-#: libraries/DisplayResults.class.php:5527
+#: libraries/DisplayResults.class.php:5542
 msgid "Link not found"
 msgstr "Linki ei leitud"
 
@@ -2873,14 +2791,14 @@ msgid "No index defined!"
 msgstr "Indeksit pole määratud!"
 
 #: libraries/Index.class.php:438 libraries/Index.class.php:451
-#: libraries/build_html_for_db.lib.php:41 tbl_structure.php:736
+#: libraries/build_html_for_db.lib.php:41 libraries/structure.lib.php:1617
 #: tbl_tracking.php:369
 msgid "Indexes"
 msgstr "Indeksid"
 
-#: libraries/Index.class.php:465 libraries/tbl_properties.inc.php:538
-#: tbl_structure.php:154 tbl_structure.php:159 tbl_structure.php:591
-#: tbl_tracking.php:375
+#: libraries/Index.class.php:465 libraries/structure.lib.php:1403
+#: libraries/structure.lib.php:2265 libraries/structure.lib.php:2275
+#: libraries/tbl_properties.inc.php:538 tbl_tracking.php:375
 msgid "Unique"
 msgstr "Ainulaadne"
 
@@ -2893,12 +2811,12 @@ msgid "Cardinality"
 msgstr "Hulk"
 
 #: libraries/Index.class.php:469 libraries/TableSearch.class.php:200
-#: libraries/build_html_for_db.lib.php:20 libraries/db_structure.lib.php:50
-#: libraries/mysql_charsets.lib.php:115 libraries/operations.lib.php:244
-#: libraries/operations.lib.php:793 libraries/tbl_properties.inc.php:92
+#: libraries/build_html_for_db.lib.php:20 libraries/mysql_charsets.lib.php:115
+#: libraries/operations.lib.php:244 libraries/operations.lib.php:793
+#: libraries/structure.lib.php:791 libraries/structure.lib.php:1196
+#: libraries/structure.lib.php:1759 libraries/tbl_properties.inc.php:92
 #: libraries/tbl_properties.inc.php:834 server_collations.php:38
-#: server_collations.php:50 tbl_structure.php:206 tbl_structure.php:930
-#: tbl_tracking.php:312 tbl_tracking.php:379
+#: server_collations.php:50 tbl_tracking.php:312 tbl_tracking.php:379
 msgid "Collation"
 msgstr "Kodeering"
 
@@ -2928,15 +2846,21 @@ msgstr ""
 
 #: libraries/List_Database.class.php:404 libraries/Menu.class.php:451
 #: libraries/config/messages.inc.php:181
-#: libraries/server_privileges.lib.php:2736 server_databases.php:133
+#: libraries/server_privileges.lib.php:2868 server_databases.php:133
 msgid "Databases"
 msgstr "Andmebaasid"
 
 #: libraries/Menu.class.php:151 libraries/common.inc.php:650
-#: libraries/config/messages.inc.php:512 main.php:196 server_status.php:802
+#: libraries/config/messages.inc.php:512 main.php:196 server_status.php:808
 #: server_synchronize.php:1431
 msgid "Server"
 msgstr "Server"
+
+#: libraries/Menu.class.php:191 libraries/structure.lib.php:689
+#: libraries/structure.lib.php:719 libraries/structure.lib.php:1203
+#: libraries/tbl_info.inc.php:59
+msgid "View"
+msgstr "Vaade"
 
 #: libraries/Menu.class.php:297 libraries/Menu.class.php:414
 #: libraries/relation.lib.php:238
@@ -2946,7 +2870,7 @@ msgstr "Jälgimine"
 #: libraries/Menu.class.php:306 libraries/Menu.class.php:408
 #: libraries/plugins/export/ExportHtmlword.class.php:562
 #: libraries/plugins/export/ExportOdt.class.php:654
-#: libraries/plugins/export/ExportSql.class.php:1362
+#: libraries/plugins/export/ExportSql.class.php:1477
 #: libraries/plugins/export/ExportTexytext.class.php:505
 #: libraries/plugins/export/ExportXml.class.php:119
 #: libraries/rte/rte_words.lib.php:41
@@ -2966,9 +2890,9 @@ msgstr "Andmebaas tundub olevat tühi!"
 msgid "Query"
 msgstr "Päring"
 
-#: libraries/Menu.class.php:388 libraries/server_privileges.lib.php:1512
-#: libraries/server_privileges.lib.php:2119
-#: libraries/server_privileges.lib.php:2669 server_privileges.php:148
+#: libraries/Menu.class.php:388 libraries/server_privileges.lib.php:1590
+#: libraries/server_privileges.lib.php:2230
+#: libraries/server_privileges.lib.php:2798 server_privileges.php:150
 msgid "Privileges"
 msgstr "Õigused"
 
@@ -2977,7 +2901,7 @@ msgid "Routines"
 msgstr "Funktsioonid"
 
 #: libraries/Menu.class.php:401
-#: libraries/plugins/export/ExportSql.class.php:803
+#: libraries/plugins/export/ExportSql.class.php:813
 #: libraries/rte/rte_words.lib.php:53
 msgid "Events"
 msgstr "Sündmused"
@@ -2995,12 +2919,18 @@ msgstr "Kasutajad"
 msgid "Synchronize"
 msgstr "Sünkroniseeri"
 
-#: libraries/Menu.class.php:490 server_binlog.php:75 server_status.php:619
+#: libraries/Menu.class.php:490 server_binlog.php:75 server_status.php:625
 msgid "Binary log"
 msgstr "Binaarne logi"
 
+#: libraries/Menu.class.php:496 libraries/structure.lib.php:187
+#: libraries/structure.lib.php:772 server_replication.php:34
+#: server_replication.php:192 server_status.php:630
+msgid "Replication"
+msgstr "Paljundamine"
+
 #: libraries/Menu.class.php:501 server_engines.php:96 server_engines.php:100
-#: server_status.php:672
+#: server_status.php:678
 msgid "Variables"
 msgstr "Muutujad"
 
@@ -3058,6 +2988,11 @@ msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr "Detailne staatuse teave antud varundusmootori kohta puudub."
 
+#: libraries/StorageEngine.class.php:352 libraries/structure.lib.php:205
+#, php-format
+msgid "%s is the default storage engine on this MySQL server."
+msgstr "%s on selle MySQL serveri vaikimisi varundusmootor."
+
 #: libraries/StorageEngine.class.php:355
 #, php-format
 msgid "%s is available on this MySQL server."
@@ -3087,29 +3022,29 @@ msgstr "Lähteandmebaasi `%s` ei leitud!"
 msgid "Target database `%s` was not found!"
 msgstr "Sihtandmebaasi `%s` ei leitud!"
 
-#: libraries/Table.class.php:1191
+#: libraries/Table.class.php:1192
 msgid "Invalid database"
 msgstr "Vigane andmebaas"
 
-#: libraries/Table.class.php:1205 tbl_get_field.php:31
+#: libraries/Table.class.php:1206 tbl_get_field.php:31
 msgid "Invalid table name"
 msgstr "Vigane tabeli nimi"
 
-#: libraries/Table.class.php:1237
+#: libraries/Table.class.php:1238
 #, php-format
 msgid "Error renaming table %1$s to %2$s"
 msgstr "Esines viga %1$s tabeli ümbernimetamisel nimeks %2$s"
 
-#: libraries/Table.class.php:1256
+#: libraries/Table.class.php:1257
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "%1$s tabeli uueks nimeks sai %2$s."
 
-#: libraries/Table.class.php:1400
+#: libraries/Table.class.php:1401
 msgid "Could not save table UI preferences"
 msgstr "Tabeli UI eelistusi ei saanud salvestada"
 
-#: libraries/Table.class.php:1424
+#: libraries/Table.class.php:1425
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -3118,7 +3053,7 @@ msgstr ""
 "Tabeli UI eelistuste puhastamine ebaõnnestus (vaata $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: libraries/Table.class.php:1562
+#: libraries/Table.class.php:1563
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -3143,7 +3078,7 @@ msgstr "Operaator"
 #: libraries/insert_edit.lib.php:1596 libraries/replication_gui.lib.php:119
 #: libraries/rte/rte_routines.lib.php:1490 pmd_general.php:517
 #: pmd_general.php:576 pmd_general.php:699 pmd_general.php:816
-#: server_status.php:1540
+#: server_status.php:1648
 msgid "Value"
 msgstr "Väärtus"
 
@@ -3591,7 +3526,7 @@ msgstr "jagatud"
 
 #: libraries/build_html_for_db.lib.php:26
 #: libraries/config/messages.inc.php:187
-#: libraries/plugins/export/ExportXml.class.php:114 server_status.php:626
+#: libraries/plugins/export/ExportXml.class.php:114 server_status.php:632
 msgid "Tables"
 msgstr "Tabelid"
 
@@ -3603,14 +3538,14 @@ msgstr "Tabelid"
 #: libraries/config/user_preferences.forms.php:264
 #: libraries/config/user_preferences.forms.php:269
 #: libraries/plugins/export/ExportLatex.class.php:301
-#: libraries/plugins/export/ExportSql.class.php:1434
-#: libraries/server_privileges.lib.php:722 server_replication.php:346
-#: tbl_printview.php:297 tbl_structure.php:837
+#: libraries/plugins/export/ExportSql.class.php:1555
+#: libraries/server_privileges.lib.php:760 libraries/structure.lib.php:2377
+#: server_replication.php:346 tbl_printview.php:297
 msgid "Data"
 msgstr "Andmed"
 
-#: libraries/build_html_for_db.lib.php:51 libraries/db_structure.lib.php:57
-#: tbl_printview.php:316 tbl_structure.php:854
+#: libraries/build_html_for_db.lib.php:51 libraries/structure.lib.php:802
+#: libraries/structure.lib.php:2390 tbl_printview.php:316
 msgid "Overhead"
 msgstr "Ballast"
 
@@ -4157,7 +4092,8 @@ msgid "Character set of the file"
 msgstr "Faili märgitabel"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:92
-#: tbl_gis_visualization.php:180 tbl_printview.php:352 tbl_structure.php:900
+#: libraries/structure.lib.php:1740 tbl_gis_visualization.php:180
+#: tbl_printview.php:352
 msgid "Format"
 msgstr "Formaat"
 
@@ -4780,7 +4716,7 @@ msgid "Column names in first row"
 msgstr "Veeru nimed esimeses reas"
 
 #: libraries/config/messages.inc.php:263
-#: libraries/plugins/import/ImportOds.class.php:80
+#: libraries/plugins/import/ImportOds.class.php:81
 msgid "Do not import empty rows"
 msgstr "Ära impordi tühje ridu"
 
@@ -5873,10 +5809,10 @@ msgstr "Nõuab, et SQL valideerija oleks lubatud"
 #: libraries/replication_gui.lib.php:62 libraries/replication_gui.lib.php:63
 #: libraries/replication_gui.lib.php:353 libraries/replication_gui.lib.php:357
 #: libraries/replication_gui.lib.php:367
-#: libraries/server_privileges.lib.php:1145
-#: libraries/server_privileges.lib.php:1149
-#: libraries/server_privileges.lib.php:1173
-#: libraries/server_privileges.lib.php:2282 server_synchronize.php:1447
+#: libraries/server_privileges.lib.php:1203
+#: libraries/server_privileges.lib.php:1207
+#: libraries/server_privileges.lib.php:1231
+#: libraries/server_privileges.lib.php:2400 server_synchronize.php:1447
 msgid "Password"
 msgstr "Parool"
 
@@ -6169,14 +6105,14 @@ msgstr "Muuda parooli"
 
 #: libraries/display_change_password.lib.php:34
 #: libraries/replication_gui.lib.php:363
-#: libraries/server_privileges.lib.php:1165
+#: libraries/server_privileges.lib.php:1223
 msgid "No Password"
 msgstr "Ilma paroolita"
 
 #: libraries/display_change_password.lib.php:45
 #: libraries/replication_gui.lib.php:371 libraries/replication_gui.lib.php:374
-#: libraries/server_privileges.lib.php:1179
-#: libraries/server_privileges.lib.php:1183
+#: libraries/server_privileges.lib.php:1238
+#: libraries/server_privileges.lib.php:1242
 msgid "Re-type"
 msgstr "Tipi uuesti"
 
@@ -6198,7 +6134,7 @@ msgid "Create"
 msgstr "Loo"
 
 #: libraries/display_create_database.lib.php:43
-#: libraries/server_privileges.lib.php:2800 server_privileges.php:150
+#: libraries/server_privileges.lib.php:2934 server_privileges.php:153
 #: server_replication.php:36
 msgid "No Privileges"
 msgstr "Ei oma õigusi"
@@ -6214,8 +6150,8 @@ msgstr "Loo tabel"
 #: libraries/plugins/export/ExportTexytext.class.php:433
 #: libraries/rte/rte_list.lib.php:52 libraries/rte/rte_list.lib.php:63
 #: libraries/rte/rte_list.lib.php:77 libraries/rte/rte_routines.lib.php:919
-#: libraries/rte/rte_routines.lib.php:1485 libraries/tbl_properties.inc.php:86
-#: setup/frames/index.inc.php:135 tbl_structure.php:204
+#: libraries/rte/rte_routines.lib.php:1485 libraries/structure.lib.php:1194
+#: libraries/tbl_properties.inc.php:86 setup/frames/index.inc.php:135
 msgid "Name"
 msgstr "Nimi"
 
@@ -6549,7 +6485,7 @@ msgstr ""
 msgid "Buffer Pool"
 msgstr "Puhvertsoon"
 
-#: libraries/engines/innodb.lib.php:142 server_status.php:674
+#: libraries/engines/innodb.lib.php:142 server_status.php:680
 msgid "InnoDB Status"
 msgstr "InnoDB staatus"
 
@@ -6989,6 +6925,14 @@ msgstr "Puudub"
 msgid "Convert to Kana"
 msgstr "Konverdi Kana'ks"
 
+#: libraries/mult_submits.inc.php:279 libraries/structure.lib.php:325
+msgid "Replace table prefix"
+msgstr "Asenda tabeli eesliide"
+
+#: libraries/mult_submits.inc.php:279 libraries/structure.lib.php:327
+msgid "Copy table with prefix"
+msgstr "Kopeeri tabel koos eesliitega"
+
 #: libraries/mult_submits.inc.php:282
 msgid "From"
 msgstr "Kohast"
@@ -7200,6 +7144,11 @@ msgstr "Kreeka"
 msgid "Czech-Slovak"
 msgstr "Tsehhi-Slovaki"
 
+#: libraries/mysql_charsets.lib.php:416 libraries/mysql_charsets.lib.php:423
+#: libraries/structure.lib.php:1081
+msgid "unknown"
+msgstr "tundmatu"
+
 #: libraries/navigation_header.inc.php:59
 #: libraries/navigation_header.inc.php:60
 msgid "Home"
@@ -7309,9 +7258,26 @@ msgstr "Mine kopeeritud tabelisse"
 msgid "Table maintenance"
 msgstr "Tabeli hooldus"
 
+#: libraries/operations.lib.php:1109 libraries/structure.lib.php:313
+msgid "Check table"
+msgstr "Kontrolli tabelit"
+
 #: libraries/operations.lib.php:1122
 msgid "Defragment table"
 msgstr "Defragmendi tabel"
+
+#: libraries/operations.lib.php:1136 libraries/structure.lib.php:321
+msgid "Analyze table"
+msgstr "Analüüsi tabelit"
+
+#: libraries/operations.lib.php:1149 libraries/structure.lib.php:318
+msgid "Repair table"
+msgstr "Paranda tabelit"
+
+#: libraries/operations.lib.php:1164 libraries/structure.lib.php:316
+#: libraries/structure.lib.php:1679
+msgid "Optimize table"
+msgstr "Optimeeri tabelit"
 
 #: libraries/operations.lib.php:1176
 #, php-format
@@ -7371,7 +7337,7 @@ msgstr "Eemalda partitsioneerimine"
 msgid "Check referential integrity:"
 msgstr "Kontrolli pärinevust:"
 
-#: libraries/plugin_interface.lib.php:481
+#: libraries/plugin_interface.lib.php:491
 msgid "This format has no options"
 msgstr "Sellel formaadil pole valikuid"
 
@@ -7534,7 +7500,7 @@ msgstr "Andmete tõmmise valikud"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:202
 #: libraries/plugins/export/ExportOdt.class.php:257
-#: libraries/plugins/export/ExportSql.class.php:1581
+#: libraries/plugins/export/ExportSql.class.php:1715
 #: libraries/plugins/export/ExportTexytext.class.php:184
 msgid "Dumping data for table"
 msgstr "Andmete tõmmistamine tabelile"
@@ -7542,7 +7508,7 @@ msgstr "Andmete tõmmistamine tabelile"
 #: libraries/plugins/export/ExportHtmlword.class.php:484
 #: libraries/plugins/export/ExportOdt.class.php:564
 #: libraries/plugins/export/ExportTexytext.class.php:435
-#: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_triggers.lib.php:348
+#: libraries/rte/rte_list.lib.php:69 libraries/rte/rte_triggers.lib.php:354
 msgid "Event"
 msgstr "Sündmus"
 
@@ -7550,27 +7516,27 @@ msgstr "Sündmus"
 #: libraries/plugins/export/ExportOdt.class.php:567
 #: libraries/plugins/export/ExportTexytext.class.php:436
 #: libraries/rte/rte_events.lib.php:473 libraries/rte/rte_routines.lib.php:983
-#: libraries/rte/rte_triggers.lib.php:362
+#: libraries/rte/rte_triggers.lib.php:368
 msgid "Definition"
 msgstr "Definitsioon"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:550
 #: libraries/plugins/export/ExportOdt.class.php:640
-#: libraries/plugins/export/ExportSql.class.php:1349
+#: libraries/plugins/export/ExportSql.class.php:1464
 #: libraries/plugins/export/ExportTexytext.class.php:495
 msgid "Table structure for table"
 msgstr "Tabeli struktuur tabelile"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:569
 #: libraries/plugins/export/ExportOdt.class.php:664
-#: libraries/plugins/export/ExportSql.class.php:1377
+#: libraries/plugins/export/ExportSql.class.php:1492
 #: libraries/plugins/export/ExportTexytext.class.php:510
 msgid "Structure for view"
 msgstr "Vaate struktuur"
 
 #: libraries/plugins/export/ExportHtmlword.class.php:578
 #: libraries/plugins/export/ExportOdt.class.php:676
-#: libraries/plugins/export/ExportSql.class.php:1394
+#: libraries/plugins/export/ExportSql.class.php:1509
 #: libraries/plugins/export/ExportTexytext.class.php:517
 msgid "Stand-in structure for view"
 msgstr "Sise-vaate struktuur"
@@ -7621,11 +7587,11 @@ msgstr "Näita MIME-tüüpe"
 #: libraries/replication_gui.lib.php:66 libraries/replication_gui.lib.php:189
 #: libraries/replication_gui.lib.php:285 libraries/replication_gui.lib.php:288
 #: libraries/replication_gui.lib.php:345
-#: libraries/server_privileges.lib.php:1046
-#: libraries/server_privileges.lib.php:1051
-#: libraries/server_privileges.lib.php:1136
-#: libraries/server_privileges.lib.php:1510
-#: libraries/server_privileges.lib.php:2281 server_status.php:1289 sql.php:996
+#: libraries/server_privileges.lib.php:1093
+#: libraries/server_privileges.lib.php:1098
+#: libraries/server_privileges.lib.php:1194
+#: libraries/server_privileges.lib.php:1588
+#: libraries/server_privileges.lib.php:2399 server_status.php:1287 sql.php:996
 msgid "Host"
 msgstr "Host"
 
@@ -7717,7 +7683,7 @@ msgid "Data creation options"
 msgstr "Objekti loomise valikud"
 
 #: libraries/plugins/export/ExportSql.class.php:299
-#: libraries/plugins/export/ExportSql.class.php:1534
+#: libraries/plugins/export/ExportSql.class.php:1659
 msgid "Truncate table before insert"
 msgstr "Kärbi tabelit enne lisamist"
 
@@ -7803,23 +7769,23 @@ msgstr "Toimingud"
 msgid "Functions"
 msgstr "Funktsioonid"
 
-#: libraries/plugins/export/ExportSql.class.php:1097
+#: libraries/plugins/export/ExportSql.class.php:1203
 msgid "Constraints for dumped tables"
 msgstr "Tõmmistatud tabelite piirangud"
 
-#: libraries/plugins/export/ExportSql.class.php:1108
+#: libraries/plugins/export/ExportSql.class.php:1214
 msgid "Constraints for table"
 msgstr "Piirangud tabelile"
 
-#: libraries/plugins/export/ExportSql.class.php:1247
+#: libraries/plugins/export/ExportSql.class.php:1356
 msgid "MIME TYPES FOR TABLE"
 msgstr "MIME TYPES FOR TABLE"
 
-#: libraries/plugins/export/ExportSql.class.php:1272
+#: libraries/plugins/export/ExportSql.class.php:1381
 msgid "RELATIONS FOR TABLE"
 msgstr "RELATIONS FOR TABLE"
 
-#: libraries/plugins/export/ExportSql.class.php:1455
+#: libraries/plugins/export/ExportSql.class.php:1576
 msgid "Error reading data:"
 msgstr "Andmete lugemisel esines viga:"
 
@@ -7836,7 +7802,7 @@ msgid "Export contents"
 msgstr "Ekspordi sisu"
 
 #: libraries/plugins/import/ImportCsv.class.php:108
-#: libraries/plugins/import/ImportOds.class.php:72
+#: libraries/plugins/import/ImportOds.class.php:73
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -7905,15 +7871,15 @@ msgstr "MediaWiki tabel"
 msgid "Invalid format of mediawiki input on line: <br />%s."
 msgstr "Vale mediawiki sisendi formaat real: <br />%s."
 
-#: libraries/plugins/import/ImportOds.class.php:86
+#: libraries/plugins/import/ImportOds.class.php:87
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr "Impordi protsendid õigete kümnendarvudena <i>(nt 12.00% -> .12)</i>"
 
-#: libraries/plugins/import/ImportOds.class.php:92
+#: libraries/plugins/import/ImportOds.class.php:93
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Impordi valuutad <i>(nt $5.00 -> 5.00)</i>"
 
-#: libraries/plugins/import/ImportOds.class.php:170
+#: libraries/plugins/import/ImportOds.class.php:171
 #: libraries/plugins/import/ImportXml.class.php:130
 #: libraries/plugins/import/ImportXml.class.php:192
 msgid ""
@@ -8203,7 +8169,7 @@ msgid "no description"
 msgstr "kirjeldus puudub"
 
 #: libraries/replication_gui.lib.php:35
-#: libraries/server_privileges.lib.php:758
+#: libraries/server_privileges.lib.php:798
 msgid "Uncheck All"
 msgstr "Ära vali ühtegi"
 
@@ -8226,9 +8192,9 @@ msgstr ""
 #: libraries/replication_gui.lib.php:58 libraries/replication_gui.lib.php:59
 #: libraries/replication_gui.lib.php:265 libraries/replication_gui.lib.php:268
 #: libraries/replication_gui.lib.php:275
-#: libraries/server_privileges.lib.php:999
-#: libraries/server_privileges.lib.php:1004
-#: libraries/server_privileges.lib.php:1032 server_synchronize.php:1443
+#: libraries/server_privileges.lib.php:1043
+#: libraries/server_privileges.lib.php:1048
+#: libraries/server_privileges.lib.php:1078 server_synchronize.php:1443
 msgid "User name"
 msgstr "Kasutajanimi"
 
@@ -8245,7 +8211,7 @@ msgid "Slave status"
 msgstr "Alluva staatus"
 
 #: libraries/replication_gui.lib.php:118 libraries/sql_query_form.lib.php:415
-#: server_status.php:1539 server_variables.php:124
+#: server_status.php:1647 server_variables.php:124
 msgid "Variable"
 msgstr "Muutuja"
 
@@ -8266,42 +8232,42 @@ msgid "Add slave replication user"
 msgstr "Lisa alluva paljundamise kasutaja"
 
 #: libraries/replication_gui.lib.php:270
-#: libraries/server_privileges.lib.php:1018
+#: libraries/server_privileges.lib.php:1062
 msgid "Any user"
 msgstr "Kõik kasutajad"
 
 #: libraries/replication_gui.lib.php:271 libraries/replication_gui.lib.php:339
 #: libraries/replication_gui.lib.php:364
-#: libraries/server_privileges.lib.php:1025
-#: libraries/server_privileges.lib.php:1129
-#: libraries/server_privileges.lib.php:1168
-#: libraries/server_privileges.lib.php:2178
-#: libraries/server_privileges.lib.php:2234
+#: libraries/server_privileges.lib.php:1071
+#: libraries/server_privileges.lib.php:1187
+#: libraries/server_privileges.lib.php:1226
+#: libraries/server_privileges.lib.php:2292
+#: libraries/server_privileges.lib.php:2349
 msgid "Use text field"
 msgstr "Kasuta tekstivälja"
 
 #: libraries/replication_gui.lib.php:318
-#: libraries/server_privileges.lib.php:1101
+#: libraries/server_privileges.lib.php:1151
 msgid "Any host"
 msgstr "Kõik hostid"
 
 #: libraries/replication_gui.lib.php:322
-#: libraries/server_privileges.lib.php:1107
+#: libraries/server_privileges.lib.php:1159
 msgid "Local"
 msgstr "Kohalik"
 
 #: libraries/replication_gui.lib.php:328
-#: libraries/server_privileges.lib.php:1114
+#: libraries/server_privileges.lib.php:1168
 msgid "This Host"
 msgstr "See host"
 
 #: libraries/replication_gui.lib.php:334
-#: libraries/server_privileges.lib.php:1122
+#: libraries/server_privileges.lib.php:1178
 msgid "Use Host Table"
 msgstr "Kasuta hosti tabelit"
 
 #: libraries/replication_gui.lib.php:348
-#: libraries/server_privileges.lib.php:1139
+#: libraries/server_privileges.lib.php:1197
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
@@ -8319,7 +8285,7 @@ msgstr "Genereeri parool"
 #: libraries/rte/rte_routines.lib.php:319
 #: libraries/rte/rte_routines.lib.php:1361
 #: libraries/rte/rte_triggers.lib.php:75 libraries/rte/rte_triggers.lib.php:80
-#: libraries/rte/rte_triggers.lib.php:103
+#: libraries/rte/rte_triggers.lib.php:104
 #, php-format
 msgid "The following query has failed: \"%s\""
 msgstr "Järgnev päring ebaõnnestus: \"%s\""
@@ -8344,7 +8310,7 @@ msgid "Event %1$s has been created."
 msgstr "%1$s sündmus on loodud."
 
 #: libraries/rte/rte_events.lib.php:143 libraries/rte/rte_routines.lib.php:337
-#: libraries/rte/rte_triggers.lib.php:114
+#: libraries/rte/rte_triggers.lib.php:118
 msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr "<b>Sinu taotluse töötlemisel esines üks või mitu viga:</b>"
 
@@ -8355,12 +8321,12 @@ msgstr "Muuda sündmust"
 #: libraries/rte/rte_events.lib.php:215 libraries/rte/rte_routines.lib.php:417
 #: libraries/rte/rte_routines.lib.php:1387
 #: libraries/rte/rte_routines.lib.php:1425
-#: libraries/rte/rte_triggers.lib.php:192
+#: libraries/rte/rte_triggers.lib.php:196
 msgid "Error in processing request"
 msgstr "Taotluse töötlemisel esines viga"
 
 #: libraries/rte/rte_events.lib.php:379 libraries/rte/rte_routines.lib.php:887
-#: libraries/rte/rte_triggers.lib.php:310
+#: libraries/rte/rte_triggers.lib.php:314
 msgid "Details"
 msgstr "Detailid"
 
@@ -8400,13 +8366,13 @@ msgid "On completion preserve"
 msgstr "Lõpetamisel säilita"
 
 #: libraries/rte/rte_events.lib.php:483 libraries/rte/rte_routines.lib.php:993
-#: libraries/rte/rte_triggers.lib.php:368
+#: libraries/rte/rte_triggers.lib.php:374
 msgid "Definer"
 msgstr "Määraja"
 
 #: libraries/rte/rte_events.lib.php:528
 #: libraries/rte/rte_routines.lib.php:1059
-#: libraries/rte/rte_triggers.lib.php:407
+#: libraries/rte/rte_triggers.lib.php:413
 msgid "The definer must be in the \"username@hostname\" format"
 msgstr "Määraja peab olema formaadis \"kasutajanimi@hostinimi\""
 
@@ -8431,7 +8397,7 @@ msgid "You must provide an event definition."
 msgstr "Sa pead andma sündmuse definitsiooni."
 
 #: libraries/rte/rte_footer.lib.php:31
-#: libraries/server_privileges.lib.php:1555
+#: libraries/server_privileges.lib.php:1634
 msgid "New"
 msgstr "Uus"
 
@@ -8596,41 +8562,41 @@ msgstr "Vabanda, meil ei õnnestunud kustutatud päästikut taastada."
 msgid "Trigger %1$s has been modified."
 msgstr "%1$s päästikut on muudetud."
 
-#: libraries/rte/rte_triggers.lib.php:106
+#: libraries/rte/rte_triggers.lib.php:110
 #, php-format
 msgid "Trigger %1$s has been created."
 msgstr "%1$s päästik on loodud."
 
-#: libraries/rte/rte_triggers.lib.php:166
+#: libraries/rte/rte_triggers.lib.php:170
 msgid "Edit trigger"
 msgstr "Muuda päästikut"
 
-#: libraries/rte/rte_triggers.lib.php:313
+#: libraries/rte/rte_triggers.lib.php:317
 msgid "Trigger name"
 msgstr "Päästiku nimi"
 
-#: libraries/rte/rte_triggers.lib.php:334
+#: libraries/rte/rte_triggers.lib.php:340
 msgctxt "Trigger action time"
 msgid "Time"
 msgstr "Aeg"
 
-#: libraries/rte/rte_triggers.lib.php:414
+#: libraries/rte/rte_triggers.lib.php:420
 msgid "You must provide a trigger name"
 msgstr "Sa pead andma päästiku nime"
 
-#: libraries/rte/rte_triggers.lib.php:419
+#: libraries/rte/rte_triggers.lib.php:425
 msgid "You must provide a valid timing for the trigger"
 msgstr "Sa pead andma päästikule õige ajastuse"
 
-#: libraries/rte/rte_triggers.lib.php:424
+#: libraries/rte/rte_triggers.lib.php:430
 msgid "You must provide a valid event for the trigger"
 msgstr "Sa pead andma päästikule õige sündmuse"
 
-#: libraries/rte/rte_triggers.lib.php:430
+#: libraries/rte/rte_triggers.lib.php:436
 msgid "You must provide a valid table name"
 msgstr "Sa pead sisestama õige tabeli nime"
 
-#: libraries/rte/rte_triggers.lib.php:436
+#: libraries/rte/rte_triggers.lib.php:442
 msgid "You must provide a trigger definition."
 msgstr "Sa pead andma päästiku definitsiooni."
 
@@ -8757,13 +8723,13 @@ msgstr "Sisu tabel"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1393
 #: libraries/schema/Pdf_Relation_Schema.class.php:1414
-#: libraries/tbl_properties.inc.php:93 tbl_structure.php:207
+#: libraries/structure.lib.php:1197 libraries/tbl_properties.inc.php:93
 msgid "Attributes"
 msgstr "Atribuudid"
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:1396
-#: libraries/schema/Pdf_Relation_Schema.class.php:1417 tbl_structure.php:210
-#: tbl_tracking.php:315
+#: libraries/schema/Pdf_Relation_Schema.class.php:1417
+#: libraries/structure.lib.php:1200 tbl_tracking.php:315
 msgid "Extra"
 msgstr "Lisaks"
 
@@ -8827,6 +8793,10 @@ msgstr "Näita tabelite mõõdet"
 msgid "Display all tables with the same width"
 msgstr "Näita kõiki tabeleid ühelaiusena"
 
+#: libraries/schema/User_Schema.class.php:444 libraries/structure.lib.php:383
+msgid "Data Dictionary"
+msgstr "Andmesõnastik"
+
 #: libraries/schema/User_Schema.class.php:446
 msgid "Only show keys"
 msgstr "Näita ainult võtmeid"
@@ -8860,12 +8830,12 @@ msgid "Toggle scratchboard"
 msgstr "Ava/sulge märkmetahvel"
 
 #. l10n: Text direction for language, use either "ltr" or "rtl"
-#: libraries/select_lang.lib.php:497
+#: libraries/select_lang.lib.php:499
 msgid "ltr"
 msgstr "ltr"
 
-#: libraries/select_lang.lib.php:515 libraries/select_lang.lib.php:524
-#: libraries/select_lang.lib.php:533
+#: libraries/select_lang.lib.php:517 libraries/select_lang.lib.php:526
+#: libraries/select_lang.lib.php:535
 #, php-format
 msgid "Unknown language: %1$s."
 msgstr "Tundmatu keel: %1$s."
@@ -8874,90 +8844,90 @@ msgstr "Tundmatu keel: %1$s."
 msgid "Current Server"
 msgstr "Praegune server"
 
-#: libraries/server_privileges.lib.php:136 server_privileges.php:98
+#: libraries/server_privileges.lib.php:137 server_privileges.php:98
 msgid "No privileges."
 msgstr "Õigused puuduvad."
 
-#: libraries/server_privileges.lib.php:146 server_privileges.php:63
+#: libraries/server_privileges.lib.php:147 server_privileges.php:63
 msgid "Includes all privileges except GRANT."
 msgstr "Sisaldab kõiki õigusi, v.a GRANT."
 
-#: libraries/server_privileges.lib.php:168
-#: libraries/server_privileges.lib.php:621
-#: libraries/server_privileges.lib.php:789 server_privileges.php:91
+#: libraries/server_privileges.lib.php:169
+#: libraries/server_privileges.lib.php:641
+#: libraries/server_privileges.lib.php:829 server_privileges.php:91
 msgid "Allows reading data."
 msgstr "Lubab lugeda andmeid."
 
-#: libraries/server_privileges.lib.php:172
-#: libraries/server_privileges.lib.php:626
-#: libraries/server_privileges.lib.php:790 server_privileges.php:80
+#: libraries/server_privileges.lib.php:173
+#: libraries/server_privileges.lib.php:646
+#: libraries/server_privileges.lib.php:830 server_privileges.php:80
 msgid "Allows inserting and replacing data."
 msgstr "Lubab lisada ja asendada andmeid."
 
-#: libraries/server_privileges.lib.php:176
-#: libraries/server_privileges.lib.php:631
-#: libraries/server_privileges.lib.php:791 server_privileges.php:97
+#: libraries/server_privileges.lib.php:177
+#: libraries/server_privileges.lib.php:651
+#: libraries/server_privileges.lib.php:831 server_privileges.php:97
 msgid "Allows changing data."
 msgstr "Lubab muuta andmeid."
 
-#: libraries/server_privileges.lib.php:180
-#: libraries/server_privileges.lib.php:792 server_privileges.php:72
+#: libraries/server_privileges.lib.php:181
+#: libraries/server_privileges.lib.php:832 server_privileges.php:72
 msgid "Allows deleting data."
 msgstr "Lubab kustutada andmeid."
 
-#: libraries/server_privileges.lib.php:184
-#: libraries/server_privileges.lib.php:818 server_privileges.php:66
+#: libraries/server_privileges.lib.php:185
+#: libraries/server_privileges.lib.php:858 server_privileges.php:66
 msgid "Allows creating new databases and tables."
 msgstr "Lubab luua uusi andmebaase ja tabeleid."
 
-#: libraries/server_privileges.lib.php:188
-#: libraries/server_privileges.lib.php:830 server_privileges.php:73
+#: libraries/server_privileges.lib.php:189
+#: libraries/server_privileges.lib.php:870 server_privileges.php:73
 msgid "Allows dropping databases and tables."
 msgstr "Lubab kustutada andmebaase ja tabeleid."
 
-#: libraries/server_privileges.lib.php:192
-#: libraries/server_privileges.lib.php:906 server_privileges.php:88
+#: libraries/server_privileges.lib.php:193
+#: libraries/server_privileges.lib.php:946 server_privileges.php:88
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr "Lubab uuesti laadida serveri sätteid ja puhastada serveri puhvreid."
 
-#: libraries/server_privileges.lib.php:196
-#: libraries/server_privileges.lib.php:910 server_privileges.php:94
+#: libraries/server_privileges.lib.php:197
+#: libraries/server_privileges.lib.php:950 server_privileges.php:94
 msgid "Allows shutting down the server."
 msgstr "Lubab serveri välja lülitada."
 
-#: libraries/server_privileges.lib.php:200
-#: libraries/server_privileges.lib.php:902 server_privileges.php:86
+#: libraries/server_privileges.lib.php:201
+#: libraries/server_privileges.lib.php:942 server_privileges.php:86
 msgid "Allows viewing processes of all users"
 msgstr "Lubab vaadata kõikide kasutajate protsesse"
 
-#: libraries/server_privileges.lib.php:204
-#: libraries/server_privileges.lib.php:798 server_privileges.php:77
+#: libraries/server_privileges.lib.php:205
+#: libraries/server_privileges.lib.php:838 server_privileges.php:77
 msgid "Allows importing data from and exporting data into files."
 msgstr "Lubab andmeid failidest importida ja failideks eksportida."
 
-#: libraries/server_privileges.lib.php:208
-#: libraries/server_privileges.lib.php:636
-#: libraries/server_privileges.lib.php:923 server_privileges.php:87
+#: libraries/server_privileges.lib.php:209
+#: libraries/server_privileges.lib.php:656
+#: libraries/server_privileges.lib.php:963 server_privileges.php:87
 msgid "Has no effect in this MySQL version."
 msgstr "Muudatusi selles MySQL versioonis ei toimunud."
 
-#: libraries/server_privileges.lib.php:212
-#: libraries/server_privileges.lib.php:826 server_privileges.php:79
+#: libraries/server_privileges.lib.php:213
+#: libraries/server_privileges.lib.php:866 server_privileges.php:79
 msgid "Allows creating and dropping indexes."
 msgstr "Lubab luua ja kustutada indekseid."
 
-#: libraries/server_privileges.lib.php:216
-#: libraries/server_privileges.lib.php:824 server_privileges.php:64
+#: libraries/server_privileges.lib.php:217
+#: libraries/server_privileges.lib.php:864 server_privileges.php:64
 msgid "Allows altering the structure of existing tables."
 msgstr "Lubab muuta olemasolevate tabelite struktuuri."
 
-#: libraries/server_privileges.lib.php:220
-#: libraries/server_privileges.lib.php:914 server_privileges.php:92
+#: libraries/server_privileges.lib.php:221
+#: libraries/server_privileges.lib.php:954 server_privileges.php:92
 msgid "Gives access to the complete list of databases."
 msgstr "Annab ligipääsu kogu andmebaaside nimekirjale."
 
-#: libraries/server_privileges.lib.php:224
-#: libraries/server_privileges.lib.php:898 server_privileges.php:95
+#: libraries/server_privileges.lib.php:225
+#: libraries/server_privileges.lib.php:938 server_privileges.php:95
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -8967,92 +8937,92 @@ msgstr ""
 "on vajalik enamike administratiivsete tegevuste jaoks, nagu näiteks "
 "globaalsete muutujate seadmiseks või teiste kasutajate lõimude sulgemiseks."
 
-#: libraries/server_privileges.lib.php:228
-#: libraries/server_privileges.lib.php:836 server_privileges.php:69
+#: libraries/server_privileges.lib.php:229
+#: libraries/server_privileges.lib.php:876 server_privileges.php:69
 msgid "Allows creating temporary tables."
 msgstr "Lubab luua ajutisi tabeleid."
 
-#: libraries/server_privileges.lib.php:232
-#: libraries/server_privileges.lib.php:919 server_privileges.php:81
+#: libraries/server_privileges.lib.php:233
+#: libraries/server_privileges.lib.php:959 server_privileges.php:81
 msgid "Allows locking tables for the current thread."
 msgstr "Lubab käesoleva lõimu jaoks tabeleid lukustada."
 
-#: libraries/server_privileges.lib.php:236
-#: libraries/server_privileges.lib.php:932 server_privileges.php:90
+#: libraries/server_privileges.lib.php:237
+#: libraries/server_privileges.lib.php:972 server_privileges.php:90
 msgid "Needed for the replication slaves."
 msgstr "Vajalik alluvate paljundamiseks."
 
-#: libraries/server_privileges.lib.php:240
-#: libraries/server_privileges.lib.php:928 server_privileges.php:89
+#: libraries/server_privileges.lib.php:241
+#: libraries/server_privileges.lib.php:968 server_privileges.php:89
 msgid "Allows the user to ask where the slaves / masters are."
 msgstr "Lubab kasutajal küsida, kus alluvad / ülemad asuvad."
 
-#: libraries/server_privileges.lib.php:244
-#: libraries/server_privileges.lib.php:257
-#: libraries/server_privileges.lib.php:856
-#: libraries/server_privileges.lib.php:863 server_privileges.php:71
+#: libraries/server_privileges.lib.php:245
+#: libraries/server_privileges.lib.php:258
+#: libraries/server_privileges.lib.php:896
+#: libraries/server_privileges.lib.php:903 server_privileges.php:71
 msgid "Allows creating new views."
 msgstr "Lubab luua uusi vaateid."
 
-#: libraries/server_privileges.lib.php:248
-#: libraries/server_privileges.lib.php:870 server_privileges.php:75
+#: libraries/server_privileges.lib.php:249
+#: libraries/server_privileges.lib.php:910 server_privileges.php:75
 msgid "Allows to set up events for the event scheduler"
 msgstr "Lubab luua sündmusi sündmuse ajastaja jaoks"
 
-#: libraries/server_privileges.lib.php:252
-#: libraries/server_privileges.lib.php:874 server_privileges.php:96
+#: libraries/server_privileges.lib.php:253
+#: libraries/server_privileges.lib.php:914 server_privileges.php:96
 msgid "Allows creating and dropping triggers"
 msgstr "Lubab luua ja kustutada päästikuid"
 
-#: libraries/server_privileges.lib.php:261
-#: libraries/server_privileges.lib.php:266
-#: libraries/server_privileges.lib.php:840 server_privileges.php:93
+#: libraries/server_privileges.lib.php:262
+#: libraries/server_privileges.lib.php:267
+#: libraries/server_privileges.lib.php:880 server_privileges.php:93
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Lubab teostada SHOW CREATE VIEW päringuid."
 
-#: libraries/server_privileges.lib.php:270
-#: libraries/server_privileges.lib.php:844 server_privileges.php:67
+#: libraries/server_privileges.lib.php:271
+#: libraries/server_privileges.lib.php:884 server_privileges.php:67
 msgid "Allows creating stored routines."
 msgstr "Lubab luua salvestatud funktsioone."
 
-#: libraries/server_privileges.lib.php:274
-#: libraries/server_privileges.lib.php:848 server_privileges.php:65
+#: libraries/server_privileges.lib.php:275
+#: libraries/server_privileges.lib.php:888 server_privileges.php:65
 msgid "Allows altering and dropping stored routines."
 msgstr "Lubab muuta ja kustutada salvestatud funktsioone."
 
-#: libraries/server_privileges.lib.php:278
-#: libraries/server_privileges.lib.php:936 server_privileges.php:70
+#: libraries/server_privileges.lib.php:279
+#: libraries/server_privileges.lib.php:976 server_privileges.php:70
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Lubab luua, kustutada ja ümber nimetada kasutajakontosid."
 
-#: libraries/server_privileges.lib.php:282
-#: libraries/server_privileges.lib.php:850 server_privileges.php:76
+#: libraries/server_privileges.lib.php:283
+#: libraries/server_privileges.lib.php:890 server_privileges.php:76
 msgid "Allows executing stored routines."
 msgstr "Lubab käivitada salvestatud funktsioone."
 
-#: libraries/server_privileges.lib.php:326
-#: libraries/server_privileges.lib.php:327
+#: libraries/server_privileges.lib.php:331
+#: libraries/server_privileges.lib.php:332
 msgctxt "None privileges"
 msgid "None"
 msgstr "Puudub"
 
-#: libraries/server_privileges.lib.php:489
+#: libraries/server_privileges.lib.php:498
 msgid "Resource limits"
 msgstr "Ressursi piirangud"
 
-#: libraries/server_privileges.lib.php:491
+#: libraries/server_privileges.lib.php:500
 msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr ""
 "Märkus: Nende valikute muutmisel väärtuseks 0 (null) eemaldab piirangu."
 
-#: libraries/server_privileges.lib.php:497
-#: libraries/server_privileges.lib.php:504 server_privileges.php:83
+#: libraries/server_privileges.lib.php:506
+#: libraries/server_privileges.lib.php:514 server_privileges.php:83
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
 "Piirab päringute hulka, mida kasutaja võib tunni aja jooksul serverile saata."
 
-#: libraries/server_privileges.lib.php:510
-#: libraries/server_privileges.lib.php:516 server_privileges.php:84
+#: libraries/server_privileges.lib.php:521
+#: libraries/server_privileges.lib.php:527 server_privileges.php:84
 msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
@@ -9060,235 +9030,235 @@ msgstr ""
 "Piirab tabelit või andmebaasi muutvate käskude hulka, mida kasutaja võib "
 "tunni aja jooksul käivitada."
 
-#: libraries/server_privileges.lib.php:523
-#: libraries/server_privileges.lib.php:528 server_privileges.php:82
+#: libraries/server_privileges.lib.php:534
+#: libraries/server_privileges.lib.php:539 server_privileges.php:82
 msgid "Limits the number of new connections the user may open per hour."
 msgstr ""
 "Piirab uute ühenduste hulka, mida kasutaja võib tunni aja jooksul avada."
 
-#: libraries/server_privileges.lib.php:534
-#: libraries/server_privileges.lib.php:539 server_privileges.php:85
+#: libraries/server_privileges.lib.php:546
+#: libraries/server_privileges.lib.php:554 server_privileges.php:85
 msgid "Limits the number of simultaneous connections the user may have."
 msgstr "Piirab samaaegsete ühenduste hulka, mida kasutajal võib olla."
 
-#: libraries/server_privileges.lib.php:589
-#: libraries/server_privileges.lib.php:750
-#: libraries/server_privileges.lib.php:2111
-#: libraries/server_privileges.lib.php:2123
+#: libraries/server_privileges.lib.php:607
+#: libraries/server_privileges.lib.php:788
+#: libraries/server_privileges.lib.php:2222
+#: libraries/server_privileges.lib.php:2234
 msgid "Table-specific privileges"
 msgstr "Tabelipõhised õigused"
 
-#: libraries/server_privileges.lib.php:591
-#: libraries/server_privileges.lib.php:761
-#: libraries/server_privileges.lib.php:2285
+#: libraries/server_privileges.lib.php:609
+#: libraries/server_privileges.lib.php:801
+#: libraries/server_privileges.lib.php:2403
 msgid "Note: MySQL privilege names are expressed in English"
 msgstr "Märkus: MySQL õigused on inglisekeelsed"
 
-#: libraries/server_privileges.lib.php:724
+#: libraries/server_privileges.lib.php:762
 msgid "Administration"
 msgstr "Administreerimine"
 
-#: libraries/server_privileges.lib.php:747
-#: libraries/server_privileges.lib.php:2283
+#: libraries/server_privileges.lib.php:785
+#: libraries/server_privileges.lib.php:2401
 msgid "Global privileges"
 msgstr "Globaalsed õigused"
 
-#: libraries/server_privileges.lib.php:749
-#: libraries/server_privileges.lib.php:2110
+#: libraries/server_privileges.lib.php:787
+#: libraries/server_privileges.lib.php:2221
 msgid "Database-specific privileges"
 msgstr "Andmebaasipõhised õigused"
 
-#: libraries/server_privileges.lib.php:819 server_privileges.php:68
+#: libraries/server_privileges.lib.php:859 server_privileges.php:68
 msgid "Allows creating new tables."
 msgstr "Lubab luua uusi tabeleid."
 
-#: libraries/server_privileges.lib.php:831 server_privileges.php:74
+#: libraries/server_privileges.lib.php:871 server_privileges.php:74
 msgid "Allows dropping tables."
 msgstr "Lubab kustutada tabeleid."
 
-#: libraries/server_privileges.lib.php:892 server_privileges.php:78
+#: libraries/server_privileges.lib.php:932 server_privileges.php:78
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr "Lubab õiguste tabelit laadimata lisada kasutajaid ja õigusi."
 
-#: libraries/server_privileges.lib.php:996
+#: libraries/server_privileges.lib.php:1040
 msgid "Login Information"
 msgstr "Sisselogimise teave"
 
-#: libraries/server_privileges.lib.php:1158
+#: libraries/server_privileges.lib.php:1216
 msgid "Do not change the password"
 msgstr "Ära muuda parooli"
 
-#: libraries/server_privileges.lib.php:1290
+#: libraries/server_privileges.lib.php:1356
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "%s parool on edukalt vahetatud."
 
-#: libraries/server_privileges.lib.php:1328
+#: libraries/server_privileges.lib.php:1399
 #, php-format
 msgid "You have revoked the privileges for %s"
 msgstr "Tühistasid %s õigused"
 
-#: libraries/server_privileges.lib.php:1388
+#: libraries/server_privileges.lib.php:1461
 msgid "Database for user"
 msgstr "Andmebaas kasutajale"
 
-#: libraries/server_privileges.lib.php:1392
+#: libraries/server_privileges.lib.php:1465
 msgid "Create database with same name and grant all privileges"
 msgstr "Loo samanimeline andmebaas ja anna kõik õigused"
 
-#: libraries/server_privileges.lib.php:1398
+#: libraries/server_privileges.lib.php:1471
 msgid "Grant all privileges on wildcard name (username\\_%)"
 msgstr "Anna kõik õigused metamärgiga nimele (kasutajanimi\\_%)"
 
-#: libraries/server_privileges.lib.php:1406
+#: libraries/server_privileges.lib.php:1479
 #, php-format
 msgid "Grant all privileges on database &quot;%s&quot;"
 msgstr "Anna kõik õigused &quot;%s&quot; andmebaasis"
 
-#: libraries/server_privileges.lib.php:1498
+#: libraries/server_privileges.lib.php:1576
 #, php-format
 msgid "Users having access to &quot;%s&quot;"
 msgstr "Kasutajad, kellel on ligipääs &quot;%s&quot; andmebaasile"
 
-#: libraries/server_privileges.lib.php:1509
-#: libraries/server_privileges.lib.php:2280
-#: libraries/server_privileges.lib.php:2683
-#: libraries/server_privileges.lib.php:2725 main.php:212
-#: server_status.php:1288
+#: libraries/server_privileges.lib.php:1587
+#: libraries/server_privileges.lib.php:2398
+#: libraries/server_privileges.lib.php:2813
+#: libraries/server_privileges.lib.php:2857 main.php:212
+#: server_status.php:1283
 msgid "User"
 msgstr "Kasutaja"
 
-#: libraries/server_privileges.lib.php:1513
-#: libraries/server_privileges.lib.php:2120
-#: libraries/server_privileges.lib.php:2288
+#: libraries/server_privileges.lib.php:1591
+#: libraries/server_privileges.lib.php:2231
+#: libraries/server_privileges.lib.php:2406
 msgid "Grant"
 msgstr "Grant"
 
-#: libraries/server_privileges.lib.php:1547
+#: libraries/server_privileges.lib.php:1626
 msgid "User has been added."
 msgstr "Kasutaja on lisatud."
 
-#: libraries/server_privileges.lib.php:1607
-#: libraries/server_privileges.lib.php:1754
-#: libraries/server_privileges.lib.php:2356
+#: libraries/server_privileges.lib.php:1690
+#: libraries/server_privileges.lib.php:1853
+#: libraries/server_privileges.lib.php:2476
 msgid "Any"
 msgstr "Kõik"
 
-#: libraries/server_privileges.lib.php:1622
+#: libraries/server_privileges.lib.php:1705
 msgid "global"
 msgstr "globaalne"
 
-#: libraries/server_privileges.lib.php:1628
+#: libraries/server_privileges.lib.php:1711
 msgid "database-specific"
 msgstr "andmebaasipõhine"
 
-#: libraries/server_privileges.lib.php:1630
+#: libraries/server_privileges.lib.php:1713
 msgid "wildcard"
 msgstr "metamärk"
 
-#: libraries/server_privileges.lib.php:1670 server_privileges.php:169
+#: libraries/server_privileges.lib.php:1760 server_privileges.php:172
 msgid "No user found."
 msgstr "Kasutajat ei leitud."
 
-#: libraries/server_privileges.lib.php:1698
-#: libraries/server_privileges.lib.php:2724
+#: libraries/server_privileges.lib.php:1788
+#: libraries/server_privileges.lib.php:2856
 msgid "Edit Privileges"
 msgstr "Muuda õigusi"
 
-#: libraries/server_privileges.lib.php:1709
+#: libraries/server_privileges.lib.php:1799
 msgid "Revoke"
 msgstr "Tühista"
 
-#: libraries/server_privileges.lib.php:1836
+#: libraries/server_privileges.lib.php:1935
 msgid "... keep the old one."
 msgstr "... hoia eelmine alles."
 
-#: libraries/server_privileges.lib.php:1837
+#: libraries/server_privileges.lib.php:1936
 msgid "... delete the old one from the user tables."
 msgstr "... kustuta eelmine kasutajate tabelist."
 
-#: libraries/server_privileges.lib.php:1838
+#: libraries/server_privileges.lib.php:1937
 msgid ""
 "... revoke all active privileges from the old one and delete it afterwards."
 msgstr "... tühista eelmise kõik aktiivsed õigused ja seejärel kustuta see."
 
-#: libraries/server_privileges.lib.php:1839
+#: libraries/server_privileges.lib.php:1938
 msgid ""
 "... delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
 "... kustuta eelmine kasutajate tabelist ja seejärel lae õigused uuesti."
 
-#: libraries/server_privileges.lib.php:1849
+#: libraries/server_privileges.lib.php:1948
 msgid "Change Login Information / Copy User"
 msgstr "Muuda sisselogimise teavet / Kopeeri kasutajat"
 
-#: libraries/server_privileges.lib.php:1855
+#: libraries/server_privileges.lib.php:1954
 msgid "Create a new user with the same privileges and ..."
 msgstr "Loo uus kasutaja samade õigustega ja ..."
 
-#: libraries/server_privileges.lib.php:2124
+#: libraries/server_privileges.lib.php:2235
 msgid "Column-specific privileges"
 msgstr "Veerupõhised õigused"
 
-#: libraries/server_privileges.lib.php:2175
+#: libraries/server_privileges.lib.php:2288
 msgid "Add privileges on the following database"
 msgstr "Lisa õigusi järgnevas andmebaasis"
 
-#: libraries/server_privileges.lib.php:2194
+#: libraries/server_privileges.lib.php:2308
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally"
 msgstr ""
 "Metamärkide % ja _ täheliseks kasutamiseks peaksid nende ette asetama "
 "kurakaldkriipsu ehk \\"
 
-#: libraries/server_privileges.lib.php:2214
+#: libraries/server_privileges.lib.php:2328
 msgid "Add privileges on the following table"
 msgstr "Lisa õigusi järgnevas tabelis"
 
-#: libraries/server_privileges.lib.php:2421
+#: libraries/server_privileges.lib.php:2543
 msgid "Remove selected users"
 msgstr "Kustuta valitud kasutajad"
 
-#: libraries/server_privileges.lib.php:2425
+#: libraries/server_privileges.lib.php:2547
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr ""
 "Tühista kasutajatelt kõik aktiivsed õigused ning seejärel kustuta need "
 "kasutajad."
 
-#: libraries/server_privileges.lib.php:2429
-#: libraries/server_privileges.lib.php:2433
-#: libraries/server_privileges.lib.php:2434
+#: libraries/server_privileges.lib.php:2551
+#: libraries/server_privileges.lib.php:2555
+#: libraries/server_privileges.lib.php:2556
 msgid "Drop the databases that have the same names as the users."
 msgstr "Kustuta kasutajatega samanimelised andmebaasid."
 
-#: libraries/server_privileges.lib.php:2559
+#: libraries/server_privileges.lib.php:2685
 msgid "No users selected for deleting!"
 msgstr "Kustutavaid kasutajaid pole valitud!"
 
-#: libraries/server_privileges.lib.php:2562
+#: libraries/server_privileges.lib.php:2688
 msgid "Reloading the privileges"
 msgstr "Õiguste uuesti laadimine"
 
-#: libraries/server_privileges.lib.php:2580
+#: libraries/server_privileges.lib.php:2707
 msgid "The selected users have been deleted successfully."
 msgstr "Valitud kasutajad on edukalt kustutatud."
 
-#: libraries/server_privileges.lib.php:2646
+#: libraries/server_privileges.lib.php:2774
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Uuendasid %s õigusi."
 
-#: libraries/server_privileges.lib.php:2675
+#: libraries/server_privileges.lib.php:2804
 #, php-format
 msgid "Privileges for %s"
 msgstr "%s õigused"
 
-#: libraries/server_privileges.lib.php:2778
+#: libraries/server_privileges.lib.php:2910
 msgid "Users overview"
 msgstr "Kasutajate ülevaade"
 
-#: libraries/server_privileges.lib.php:2849
+#: libraries/server_privileges.lib.php:2981
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
@@ -9300,11 +9270,11 @@ msgstr ""
 "Tabelite sisu võib erineda sellest, mida server kasutab, kui neid on käsitsi "
 "muudetud. Sellisel juhul peaksid enne jätkamist %sõigused uuesti laadima%s."
 
-#: libraries/server_privileges.lib.php:2891
+#: libraries/server_privileges.lib.php:3027
 msgid "The selected user was not found in the privilege table."
 msgstr "Valitud kasutajat õiguste tabelist ei leitud."
 
-#: libraries/server_privileges.lib.php:3104
+#: libraries/server_privileges.lib.php:3242
 msgid "You have added a new user."
 msgstr "Lisasid uue kasutaja."
 
@@ -9453,6 +9423,206 @@ msgstr ""
 "SQL valideerijat ei saanud käivitada. Palun kontrolli, et oled paigaldanud "
 "vajalikud PHP laiendid nagu on kirjeldatud %sdokumentatsioonis%s."
 
+#: libraries/structure.lib.php:72 tbl_operations.php:308
+#, php-format
+msgid "Table %s has been emptied"
+msgstr "%s tabel on tühjendatud"
+
+#: libraries/structure.lib.php:95 tbl_create.php:288
+msgid "Tracking is active."
+msgstr "Jälgimine on aktiveeritud."
+
+#: libraries/structure.lib.php:102 tbl_create.php:291
+msgid "Tracking is not active."
+msgstr "Jälgimist pole aktiveeritud."
+
+#: libraries/structure.lib.php:133 tbl_operations.php:326
+#, php-format
+msgid "View %s has been dropped"
+msgstr "%s vaade on kustutatud"
+
+#: libraries/structure.lib.php:134 tbl_operations.php:327
+#, php-format
+msgid "Table %s has been dropped"
+msgstr "%s tabel on kustutatud"
+
+#: libraries/structure.lib.php:190
+msgid "Sum"
+msgstr "Summa"
+
+#: libraries/structure.lib.php:323
+msgid "Add prefix to table"
+msgstr "Lisa tabelile eesliide"
+
+#: libraries/structure.lib.php:348
+msgid "Check tables having overhead"
+msgstr "Kontrolli ballastiga  tabeleid"
+
+#: libraries/structure.lib.php:1295 tbl_tracking.php:349
+msgctxt "None for default"
+msgid "None"
+msgstr "Puudub"
+
+#: libraries/structure.lib.php:1344
+#, php-format
+msgid "Column %s has been dropped"
+msgstr "%s veerg on kustutatud"
+
+#: libraries/structure.lib.php:1399 libraries/structure.lib.php:2261
+#: libraries/structure.lib.php:2271 libraries/tbl_properties.inc.php:531
+msgid "Primary"
+msgstr "Primaarne"
+
+#: libraries/structure.lib.php:1407 libraries/structure.lib.php:2263
+#: libraries/structure.lib.php:2273 libraries/structure.lib.php:2383
+#: libraries/tbl_properties.inc.php:101 libraries/tbl_properties.inc.php:545
+#: tbl_printview.php:306
+msgid "Index"
+msgstr "Indeks"
+
+#: libraries/structure.lib.php:1414 libraries/structure.lib.php:2267
+#: libraries/structure.lib.php:2277
+msgid "Spatial"
+msgstr "Ruumiline"
+
+#: libraries/structure.lib.php:1424 libraries/structure.lib.php:2269
+#: libraries/structure.lib.php:2279 libraries/tbl_properties.inc.php:553
+msgid "Fulltext"
+msgstr "Täistekst"
+
+#: libraries/structure.lib.php:1439 libraries/structure.lib.php:1537
+msgid "Move columns"
+msgstr "Liiguta veergusid"
+
+#: libraries/structure.lib.php:1442
+msgid "Move the columns by dragging them up and down."
+msgstr "Veergusid saad liigutada nende lohistamisega üles ja alla."
+
+#: libraries/structure.lib.php:1476
+msgid "Edit view"
+msgstr "Muuda vaadet"
+
+#: libraries/structure.lib.php:1511
+msgid "Relation view"
+msgstr "Seose vaade"
+
+#: libraries/structure.lib.php:1523
+msgid "Propose table structure"
+msgstr "Soovita tabeli struktuuri"
+
+#: libraries/structure.lib.php:1562 libraries/tbl_properties.inc.php:737
+msgid "You have to add at least one column."
+msgstr "Pead lisama vähemalt ühe veeru."
+
+#: libraries/structure.lib.php:1573
+msgid "Add column"
+msgstr "Lisa veerg"
+
+#: libraries/structure.lib.php:1578 libraries/tbl_properties.inc.php:729
+#, php-format
+msgid "Add %s column(s)"
+msgstr "Lisa %s veerg(u)"
+
+#: libraries/structure.lib.php:1595
+msgid "At End of Table"
+msgstr "Tabeli lõppu"
+
+#: libraries/structure.lib.php:1596
+msgid "At Beginning of Table"
+msgstr "Tabeli algusesse"
+
+#: libraries/structure.lib.php:1597
+#, php-format
+msgid "After %s"
+msgstr "Peale %s"
+
+#: libraries/structure.lib.php:1624
+#, php-format
+msgid "Create an index on &nbsp;%s&nbsp;columns"
+msgstr "Loo indeks &nbsp;%s&nbsp;veergudesse"
+
+#: libraries/structure.lib.php:1728 tbl_printview.php:346
+msgid "Row Statistics"
+msgstr "Rea statistika"
+
+#: libraries/structure.lib.php:1733 tbl_printview.php:356
+msgid "static"
+msgstr "staatiline"
+
+#: libraries/structure.lib.php:1735 tbl_printview.php:358
+msgid "dynamic"
+msgstr "dünaamiline"
+
+#: libraries/structure.lib.php:1746
+msgid "partitioned"
+msgstr "partitsioneeritud"
+
+#: libraries/structure.lib.php:1777 tbl_printview.php:382
+msgid "Row length"
+msgstr "Rea pikkus"
+
+#: libraries/structure.lib.php:1789 tbl_printview.php:396
+msgid "Row size"
+msgstr "Rea laius"
+
+#: libraries/structure.lib.php:1797 tbl_printview.php:406
+msgid "Next autoindex"
+msgstr "Järgmine automaatne indeks"
+
+#: libraries/structure.lib.php:1905
+msgid "Show more actions"
+msgstr "Näita rohkem tegevusi"
+
+#: libraries/structure.lib.php:1914 libraries/structure.lib.php:2136
+#, php-format
+msgid "A primary key has been added on %s"
+msgstr "Primaarvõti on lisatud kohas %s"
+
+#: libraries/structure.lib.php:1921 libraries/structure.lib.php:1928
+#: libraries/structure.lib.php:1936 libraries/structure.lib.php:1944
+#: libraries/structure.lib.php:2061 libraries/structure.lib.php:2146
+#: libraries/structure.lib.php:2154 libraries/structure.lib.php:2171
+#, php-format
+msgid "An index has been added on %s"
+msgstr "Indeks on lisatud kohas %s"
+
+#: libraries/structure.lib.php:2208 libraries/structure.lib.php:2281
+msgid "Distinct values"
+msgstr "Erista väärtusi"
+
+#: libraries/structure.lib.php:2211 libraries/structure.lib.php:2214
+msgid "Add primary key"
+msgstr "Lisa primaarvõti"
+
+#: libraries/structure.lib.php:2217 libraries/structure.lib.php:2220
+#: tbl_indexes.php:195
+msgid "Add index"
+msgstr "Lisa indeks"
+
+#: libraries/structure.lib.php:2223 libraries/structure.lib.php:2226
+msgid "Add unique index"
+msgstr "Lisa ainulaadne indeks"
+
+#: libraries/structure.lib.php:2229 libraries/structure.lib.php:2232
+msgid "Add SPATIAL index"
+msgstr "Lisa SPATIAL indeks"
+
+#: libraries/structure.lib.php:2235 libraries/structure.lib.php:2238
+msgid "Add FULLTEXT index"
+msgstr "Lisa FULLTEXT indeks"
+
+#: libraries/structure.lib.php:2368 server_binlog.php:192
+msgid "Information"
+msgstr "Informatsioon"
+
+#: libraries/structure.lib.php:2373 tbl_printview.php:294
+msgid "Space usage"
+msgstr "Ruumi kasutus"
+
+#: libraries/structure.lib.php:2393 tbl_printview.php:321
+msgid "Effective"
+msgstr "Efektiivne"
+
 #: libraries/tbl_common.inc.php:53
 #, php-format
 msgid "Tracking of %s is activated."
@@ -9477,12 +9647,6 @@ msgid ""
 msgstr ""
 "Vaikimisi väärtuste jaoks sisesta palun ilma kurakaldkriipsuta või "
 "jutumärkideta lihtsalt üksik väärtus, formaadis: a"
-
-#: libraries/tbl_properties.inc.php:101 libraries/tbl_properties.inc.php:545
-#: tbl_printview.php:306 tbl_structure.php:153 tbl_structure.php:158
-#: tbl_structure.php:595 tbl_structure.php:845
-msgid "Index"
-msgstr "Indeks"
 
 #: libraries/tbl_properties.inc.php:123
 msgid "Move column"
@@ -9530,16 +9694,6 @@ msgstr "Puudub"
 msgid "As defined:"
 msgstr "Nagu määratud:"
 
-#: libraries/tbl_properties.inc.php:531 tbl_structure.php:152
-#: tbl_structure.php:157 tbl_structure.php:587
-msgid "Primary"
-msgstr "Primaarne"
-
-#: libraries/tbl_properties.inc.php:553 tbl_structure.php:156
-#: tbl_structure.php:161 tbl_structure.php:612
-msgid "Fulltext"
-msgstr "Täistekst"
-
 #: libraries/tbl_properties.inc.php:603
 msgid "first"
 msgstr "esimene"
@@ -9548,15 +9702,6 @@ msgstr "esimene"
 #, php-format
 msgid "after %s"
 msgstr "peale %s"
-
-#: libraries/tbl_properties.inc.php:729 tbl_structure.php:698
-#, php-format
-msgid "Add %s column(s)"
-msgstr "Lisa %s veerg(u)"
-
-#: libraries/tbl_properties.inc.php:737 tbl_structure.php:692
-msgid "You have to add at least one column."
-msgstr "Pead lisama vähemalt ühe veeru."
 
 #: libraries/tbl_properties.inc.php:871
 msgid "PARTITION definition"
@@ -10039,17 +10184,17 @@ msgstr "Faili pole olemas"
 msgid "Select binary log to view"
 msgstr "Vali binaarne logi, mida soovid vaadata"
 
-#: server_binlog.php:108 server_status.php:628
+#: server_binlog.php:108 server_status.php:634
 msgid "Files"
 msgstr "Faili"
 
-#: server_binlog.php:157 server_binlog.php:159 server_status.php:1299
-#: server_status.php:1301
+#: server_binlog.php:157 server_binlog.php:159 server_status.php:1393
+#: server_status.php:1395
 msgid "Truncate Shown Queries"
 msgstr "Lühenda näidatavaid päringuid"
 
-#: server_binlog.php:165 server_binlog.php:167 server_status.php:1299
-#: server_status.php:1301
+#: server_binlog.php:165 server_binlog.php:167 server_status.php:1393
+#: server_status.php:1395
 msgid "Show Full Queries"
 msgstr "Näita täispikkasid päringuid"
 
@@ -10064,10 +10209,6 @@ msgstr "Asukoht"
 #: server_binlog.php:191
 msgid "Original position"
 msgstr "Algne asukoht"
-
-#: server_binlog.php:192 tbl_structure.php:830
-msgid "Information"
-msgstr "Informatsioon"
 
 #: server_collations.php:24
 msgid "Character Sets and Collations"
@@ -10149,17 +10290,17 @@ msgstr "Litsents"
 msgid "disabled"
 msgstr "keelatud"
 
-#: server_privileges.php:212
+#: server_privileges.php:215
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Kasutaja %s on juba olemas!"
 
-#: server_privileges.php:312
+#: server_privileges.php:317
 #, php-format
 msgid "Deleting %s"
 msgstr "%s kustutamine"
 
-#: server_privileges.php:361
+#: server_privileges.php:368
 msgid "The privileges were reloaded successfully."
 msgstr "Õigused on edukalt uuesti laetud."
 
@@ -10191,7 +10332,7 @@ msgstr "Ülema serveriks muudeti edukalt %s"
 msgid "This server is configured as master in a replication process."
 msgstr "See server on paljundamisel seatud ülemaks."
 
-#: server_replication.php:212 server_status.php:649
+#: server_replication.php:212 server_status.php:655
 msgid "Show master status"
 msgstr "Näita ülema staatust"
 
@@ -10337,134 +10478,140 @@ msgstr ""
 "See server ei ole paljundamisel seadistatud alluvaks. Kas soovid seda <a "
 "href=\"%s\">teha</a>?"
 
-#: server_status.php:482
+#: server_status.php:488
 #, php-format
 msgid "Thread %s was successfully killed."
 msgstr "%s lõim katkestati edukalt."
 
-#: server_status.php:484
+#: server_status.php:490
 #, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr ""
 "phpMyAdmin ei suutnud katkestada %s lõimu. Tõenäoliselt on see juba suletud."
 
-#: server_status.php:616
+#: server_status.php:622
 msgid "Handler"
 msgstr "Töötleja"
 
-#: server_status.php:617
+#: server_status.php:623
 msgid "Query cache"
 msgstr "Päringute puhver"
 
-#: server_status.php:618
+#: server_status.php:624
 msgid "Threads"
 msgstr "Lõimud"
 
-#: server_status.php:620
+#: server_status.php:626
 msgid "Temporary data"
 msgstr "Ajutised andmed"
 
-#: server_status.php:621
+#: server_status.php:627
 msgid "Delayed inserts"
 msgstr "Viivitatud lisamised"
 
-#: server_status.php:622
+#: server_status.php:628
 msgid "Key cache"
 msgstr "Võtme puhver"
 
-#: server_status.php:623
+#: server_status.php:629
 msgid "Joins"
 msgstr "Liitmised"
 
-#: server_status.php:625
+#: server_status.php:631
 msgid "Sorting"
 msgstr "Sorteerimine"
 
-#: server_status.php:627
+#: server_status.php:633
 msgid "Transaction coordinator"
 msgstr "Ülekande koordineerija"
 
-#: server_status.php:639
+#: server_status.php:645
 msgid "Flush (close) all tables"
 msgstr "Tühjenda (sulge) kõik tabelid"
 
-#: server_status.php:641
+#: server_status.php:647
 msgid "Show open tables"
 msgstr "Näita avatud tabeleid"
 
-#: server_status.php:646
+#: server_status.php:652
 msgid "Show slave hosts"
 msgstr "Näita alluvaid hoste"
 
-#: server_status.php:652
+#: server_status.php:658
 msgid "Show slave status"
 msgstr "Näita alluva staatust"
 
-#: server_status.php:657
+#: server_status.php:663
 msgid "Flush query cache"
 msgstr "Tühjenda päringute puhver"
 
-#: server_status.php:797
+#: server_status.php:803
 msgid "Runtime Information"
 msgstr "Jooksev informatsioon"
 
-#: server_status.php:804
+#: server_status.php:810
 msgid "All status variables"
 msgstr "Kõik staatuse muutujad"
 
-#: server_status.php:805
+#: server_status.php:811
 msgid "Monitor"
 msgstr "Jälgija"
 
-#: server_status.php:806
+#: server_status.php:812
 msgid "Advisor"
 msgstr "Kontrollsüsteem"
 
-#: server_status.php:816 server_status.php:838
+#: server_status.php:822 server_status.php:848
+#, fuzzy
+#| msgid "Number of rows:"
+msgid "Number of data points: "
+msgstr "Ridade hulk:"
+
+#: server_status.php:826 server_status.php:852
 msgid "Refresh rate: "
 msgstr "Värskendamissagedus: "
 
-#: server_status.php:851 server_variables.php:116
+#: server_status.php:865 server_variables.php:116
 msgid "Filters"
 msgstr "Filtrid"
 
-#: server_status.php:859 server_variables.php:118
+#: server_status.php:873 server_variables.php:118
 msgid "Containing the word:"
 msgstr "Sisaldab sõna:"
 
-#: server_status.php:864
+#: server_status.php:878
 msgid "Show only alert values"
 msgstr "Näita ainult 'alert' väärtusi"
 
-#: server_status.php:868
+#: server_status.php:882
 msgid "Filter by category..."
 msgstr "Filtreeri kategooria alusel..."
 
-#: server_status.php:881
+#: server_status.php:895
 msgid "Show unformatted values"
 msgstr "Näita vormindamata väärtusi"
 
-#: server_status.php:885
+#: server_status.php:899
 msgid "Related links:"
 msgstr "Seotud lingid:"
 
-#: server_status.php:920
+#: server_status.php:934
 msgid "Run analyzer"
 msgstr "Käivita analüüsija"
 
-#: server_status.php:921
+#: server_status.php:935
 msgid "Instructions"
 msgstr "Juhendid"
 
-#: server_status.php:928
+#: server_status.php:942
 msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
 msgstr ""
 "Kontrollsüsteem analüüsib serveri staatuse muutujaid ja annab soovitusi."
 
-#: server_status.php:930
+#: server_status.php:944
 msgid ""
 "Do note however that this system provides recommendations based on simple "
 "calculations and by rule of thumb which may not necessarily apply to your "
@@ -10473,7 +10620,7 @@ msgstr ""
 "Pane tähele, et kuigi see süsteem annab soovitusi lihtsate arvutuste alusel, "
 "on siiski rusikareegel, et need ei pruugi tingimata su süsteemile rakenduda."
 
-#: server_status.php:932
+#: server_status.php:946
 msgid ""
 "Prior to changing any of the configuration, be sure to know what you are "
 "changing (by reading the documentation) and how to undo the change. Wrong "
@@ -10483,7 +10630,7 @@ msgstr ""
 "(lugedes dokumentatsiooni) ja kuidas tehtud muudatusi tagasi võtta. Halb "
 "muudatus võib kaasa tuua jõudluse languse."
 
-#: server_status.php:934
+#: server_status.php:948
 msgid ""
 "The best way to tune your system would be to change only one setting at a "
 "time, observe or benchmark your database, and undo the change if there was "
@@ -10494,31 +10641,31 @@ msgstr ""
 "saavutatud mingit praktiliselt mõõdetavat arengut."
 
 #. l10n: Questions is the name of a MySQL Status variable
-#: server_status.php:957
+#: server_status.php:971
 #, php-format
 msgid "Questions since startup: %s"
 msgstr "Päringud alates käivitumisest: %s"
 
-#: server_status.php:993
+#: server_status.php:1007
 msgid "Statements"
 msgstr "Käsud"
 
 #. l10n: # = Amount of queries
-#: server_status.php:996
+#: server_status.php:1010
 msgid "#"
 msgstr "#"
 
-#: server_status.php:1070
+#: server_status.php:1084
 #, php-format
 msgid "Network traffic since startup: %s"
 msgstr "Võrguliiklus alates käivitumisest: %s"
 
-#: server_status.php:1086
+#: server_status.php:1100
 #, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
 msgstr "See MySQL server on töötanud %1$s. See käivitus %2$s."
 
-#: server_status.php:1097
+#: server_status.php:1111
 msgid ""
 "This MySQL server works as <b>master</b> and <b>slave</b> in <b>replication</"
 "b> process."
@@ -10526,15 +10673,15 @@ msgstr ""
 "See MySQL server töötab <b>paljundamisel</b> <b>ülemana</b> ja <b>alluvana</"
 "b>."
 
-#: server_status.php:1099
+#: server_status.php:1113
 msgid "This MySQL server works as <b>master</b> in <b>replication</b> process."
 msgstr "See MySQL server töötab <b>paljundamisel</b> <b>ülemana</b>."
 
-#: server_status.php:1101
+#: server_status.php:1115
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr "See MySQL server töötab <b>paljundamisel</b> <b>alluvana</b>."
 
-#: server_status.php:1104
+#: server_status.php:1118
 msgid ""
 "For further information about replication status on the server, please visit "
 "the <a href=\"#replication\">replication section</a>."
@@ -10542,11 +10689,11 @@ msgstr ""
 "Lisateabe saamiseks serveri paljundamise staatuse kohta, palun vaata <a "
 "href=#replication>paljundamise sektsiooni</a>."
 
-#: server_status.php:1113
+#: server_status.php:1127
 msgid "Replication status"
 msgstr "Paljundamise staatus"
 
-#: server_status.php:1128
+#: server_status.php:1142
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
@@ -10554,35 +10701,35 @@ msgstr ""
 "Hõivatud serveris võib baitide lugeja olla ülekoormatud ja seetõttu MySQL "
 "serveri poolt koostatud statistika ei pruugi õige olla."
 
-#: server_status.php:1134
+#: server_status.php:1148
 msgid "Received"
 msgstr "Vastu võetud"
 
-#: server_status.php:1151
+#: server_status.php:1165
 msgid "Sent"
 msgstr "Saadetud"
 
-#: server_status.php:1198
+#: server_status.php:1212
 msgid "max. concurrent connections"
 msgstr "Maks. paralleelühendusi"
 
-#: server_status.php:1205
+#: server_status.php:1219
 msgid "Failed attempts"
 msgstr "Ebaõnnestunud katseid"
 
-#: server_status.php:1221
+#: server_status.php:1235
 msgid "Aborted"
 msgstr "Katkestatud"
 
-#: server_status.php:1287
+#: server_status.php:1279
 msgid "ID"
 msgstr "ID"
 
-#: server_status.php:1291
+#: server_status.php:1295
 msgid "Command"
 msgstr "Käsk"
 
-#: server_status.php:1358
+#: server_status.php:1466
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
@@ -10590,11 +10737,11 @@ msgstr ""
 "Ühenduste hulk, mis katkestati seetõttu, et klient lahkus liinilt ilma "
 "ühendust korralikult sulgemata."
 
-#: server_status.php:1359
+#: server_status.php:1467
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "Ühenduste hulk, millel ei õnnestunud MySQL serveriga ühendada."
 
-#: server_status.php:1360
+#: server_status.php:1468
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -10604,17 +10751,17 @@ msgstr ""
 "ületas binlog_cache_size väärtuse ja mis kasutasid ülekannete käskude "
 "salvestamiseks ajutist faili."
 
-#: server_status.php:1361
+#: server_status.php:1469
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr "Ülekannete hulk, mis kasutasid ajutist binaarse logi puhvrit."
 
-#: server_status.php:1362
+#: server_status.php:1470
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr ""
 "Ühenduste hulk, mis üritas (edukalt või mitte) ühendada MySQL serveriga."
 
-#: server_status.php:1363
+#: server_status.php:1471
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -10626,11 +10773,11 @@ msgstr ""
 "suurendada tmp_table_size  väärtust, et ajutised tabelid oleksid "
 "mälupõhised, mitte kettapõhised."
 
-#: server_status.php:1364
+#: server_status.php:1472
 msgid "How many temporary files mysqld has created."
 msgstr "Mysqld poolt loodud ajutiste failide hulk."
 
-#: server_status.php:1365
+#: server_status.php:1473
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
@@ -10638,7 +10785,7 @@ msgstr ""
 "Mälupõhiste ajutiste tabelite hulk, mis on loodud automaatselt serveri poolt "
 "käskude täitmise ajal."
 
-#: server_status.php:1366
+#: server_status.php:1474
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -10646,7 +10793,7 @@ msgstr ""
 "INSERT DELAYED käsuga kirjutatud ridade hulk, millel esines mõni viga "
 "(tõenäoliselt korduv võti)."
 
-#: server_status.php:1367
+#: server_status.php:1475
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -10654,23 +10801,23 @@ msgstr ""
 "Kasutusel olevate INSERT DELAYED töötleja lõimude hulk. Iga erinev tabel, "
 "mis kasutab INSERT DELAYED käsku, saab endale isikliku lõimu."
 
-#: server_status.php:1368
+#: server_status.php:1476
 msgid "The number of INSERT DELAYED rows written."
 msgstr "Kirjutatud INSERT DELAYED ridade hulk."
 
-#: server_status.php:1369
+#: server_status.php:1477
 msgid "The number of executed FLUSH statements."
 msgstr "Käivitatud FLUSH käskude hulk."
 
-#: server_status.php:1370
+#: server_status.php:1478
 msgid "The number of internal COMMIT statements."
 msgstr "Sisemiste COMMIT käskude hulk."
 
-#: server_status.php:1371
+#: server_status.php:1479
 msgid "The number of times a row was deleted from a table."
 msgstr "Tabelist kustutatud ridade hulk."
 
-#: server_status.php:1372
+#: server_status.php:1480
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -10680,7 +10827,7 @@ msgstr ""
 "nimega tabelit. Seda nimetatakse avastamiseks. Handler_discover näitab, mitu "
 "korda on tabeleid avastatud."
 
-#: server_status.php:1373
+#: server_status.php:1481
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -10690,7 +10837,7 @@ msgstr ""
 "tähendada seda, et server teeb väga palju täielikke indeksite kontrolle. "
 "Näiteks SELECT veerg1 FROM tabel viitab, et veerg1 on indekseeritud."
 
-#: server_status.php:1374
+#: server_status.php:1482
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -10698,7 +10845,7 @@ msgstr ""
 "Võtmel põhineva rea lugemise taotluste hulk. Kui see on kõrge, siis on see "
 "hea näitaja, et sinu päringud ja tabelid on korralikult indekseeritud."
 
-#: server_status.php:1375
+#: server_status.php:1483
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -10707,7 +10854,7 @@ msgstr ""
 "Võtme järjekorras järgmise rea lugemise taotluste hulk. See on suurem, kui "
 "pärid kitsendatud indekseeritud veergu või teed indeksi kontrolli."
 
-#: server_status.php:1376
+#: server_status.php:1484
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY ... DESC."
@@ -10715,7 +10862,7 @@ msgstr ""
 "Võtme järjekorras eelmise rea lugemise taotluste hulk. Seda lugemise "
 "meetodit kasutatakse peamiselt ORDER BY ... DESC optimeerimiseks."
 
-#: server_status.php:1377
+#: server_status.php:1485
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -10727,7 +10874,7 @@ msgstr ""
 "palju päringuid, millega peab MySQL kontrolliga terveid tabeleid või kasutad "
 "liitmisi, mis ei kasuta võtmeid korralikult."
 
-#: server_status.php:1378
+#: server_status.php:1486
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -10739,35 +10886,35 @@ msgstr ""
 "korralikult indekseeritud või sinu päringud ei ole kirjutatud selliselt, et "
 "need kasutaksid ära indeksid, mis sul on."
 
-#: server_status.php:1379
+#: server_status.php:1487
 msgid "The number of internal ROLLBACK statements."
 msgstr "Sisemiste ROLLBACK käskude hulk."
 
-#: server_status.php:1380
+#: server_status.php:1488
 msgid "The number of requests to update a row in a table."
 msgstr "Tabeli rea uuendamise taotluste hulk."
 
-#: server_status.php:1381
+#: server_status.php:1489
 msgid "The number of requests to insert a row in a table."
 msgstr "Tabelisse rea lisamise taotluste hulk."
 
-#: server_status.php:1382
+#: server_status.php:1490
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "Andmeid (räpased või puhtad) sisaldavate lehtede hulk."
 
-#: server_status.php:1383
+#: server_status.php:1491
 msgid "The number of pages currently dirty."
 msgstr "Hetkel räpaseid andmeid sisaldavate lehtede hulk."
 
-#: server_status.php:1384
+#: server_status.php:1492
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr "Puhvertsooni lehtede hulk, mida on taotletud tühjendama."
 
-#: server_status.php:1385
+#: server_status.php:1493
 msgid "The number of free pages."
 msgstr "Vabade lehtede hulk."
 
-#: server_status.php:1386
+#: server_status.php:1494
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -10777,7 +10924,7 @@ msgstr ""
 "loetakse või kirjutatakse või mida ei saa mingil muul põhjusel tühjendada "
 "ega eemaldada."
 
-#: server_status.php:1387
+#: server_status.php:1495
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -10789,11 +10936,11 @@ msgstr ""
 "valemiga Innodb_buffer_pool_pages_total - Innodb_buffer_pool_pages_free - "
 "Innodb_buffer_pool_pages_data."
 
-#: server_status.php:1388
+#: server_status.php:1496
 msgid "Total size of buffer pool, in pages."
 msgstr "Puhvertsooni kogumaht lehtedes."
 
-#: server_status.php:1389
+#: server_status.php:1497
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -10801,7 +10948,7 @@ msgstr ""
 "InnoDB algatatud \"juhuslike\" ettelugemiste hulk. See juhtub siis, kui "
 "päring peab kontrollima palju tabeleid, aga juhuslikus järjekorras."
 
-#: server_status.php:1390
+#: server_status.php:1498
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
@@ -10809,11 +10956,11 @@ msgstr ""
 "InnoDB algatatud järjestike ettelugemiste hulk. See juhtub siis, kui InnoDB "
 "teeb järjestikulist kogu tabeli kontrolli."
 
-#: server_status.php:1391
+#: server_status.php:1499
 msgid "The number of logical read requests InnoDB has done."
 msgstr "InnoDB poolt tehtud loogiliste lugemise taotluste hulk."
 
-#: server_status.php:1392
+#: server_status.php:1500
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
@@ -10821,7 +10968,7 @@ msgstr ""
 "Loogiliste lugemiste hulk, mida InnoDB puhvertsoonist teha ei saanud ja mida "
 "pidi tegema ühelehelise lugemisena."
 
-#: server_status.php:1393
+#: server_status.php:1501
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -10835,51 +10982,51 @@ msgstr ""
 "palju veel ootama peab. Kui puhvertsooni maht on õigesti seadistatud, siis "
 "see väärtus peaks olema madal."
 
-#: server_status.php:1394
+#: server_status.php:1502
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "InnoDB puhvertsooni tehtud kirjutamiste hulk."
 
-#: server_status.php:1395
+#: server_status.php:1503
 msgid "The number of fsync() operations so far."
 msgstr "Seni tehtud fsync() operatsioonide hulk."
 
-#: server_status.php:1396
+#: server_status.php:1504
 msgid "The current number of pending fsync() operations."
 msgstr "Hetkel järjekorras olevate fsync() operatsioonide hulk."
 
-#: server_status.php:1397
+#: server_status.php:1505
 msgid "The current number of pending reads."
 msgstr "Hetkel järjekorras olevate lugemiste hulk."
 
-#: server_status.php:1398
+#: server_status.php:1506
 msgid "The current number of pending writes."
 msgstr "Hetkel järjekorras olevate kirjutamiste hulk."
 
-#: server_status.php:1399
+#: server_status.php:1507
 msgid "The amount of data read so far, in bytes."
 msgstr "Seni loetud andmete koguhulk baitides."
 
-#: server_status.php:1400
+#: server_status.php:1508
 msgid "The total number of data reads."
 msgstr "Andmete lugemiste koguhulk."
 
-#: server_status.php:1401
+#: server_status.php:1509
 msgid "The total number of data writes."
 msgstr "Andmete kirjutamiste koguhulk."
 
-#: server_status.php:1402
+#: server_status.php:1510
 msgid "The amount of data written so far, in bytes."
 msgstr "Seni kirjutatud andmete koguhulk baitides."
 
-#: server_status.php:1403
+#: server_status.php:1511
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr "Topeltkirjutamise operatsioonide jaoks kirjutatud lehtede hulk."
 
-#: server_status.php:1404
+#: server_status.php:1512
 msgid "The number of doublewrite operations that have been performed."
 msgstr "Teostatud topeltkirjutamise operatsioonide hulk."
 
-#: server_status.php:1405
+#: server_status.php:1513
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
@@ -10887,35 +11034,35 @@ msgstr ""
 "Ootamiste hulk, mida on põhjustanud väike logi puhver ja mille tõttu on enne "
 "jätkamist pidanud ootama selle tühjendamist."
 
-#: server_status.php:1406
+#: server_status.php:1514
 msgid "The number of log write requests."
 msgstr "Logi kirjutamise taotluste hulk."
 
-#: server_status.php:1407
+#: server_status.php:1515
 msgid "The number of physical writes to the log file."
 msgstr "Logi failisse füüsiliste kirjutamiste hulk."
 
-#: server_status.php:1408
+#: server_status.php:1516
 msgid "The number of fsync() writes done to the log file."
 msgstr "fsync() poolt logi failisse tehtud kirjutamiste hulk."
 
-#: server_status.php:1409
+#: server_status.php:1517
 msgid "The number of pending log file fsyncs."
 msgstr "Järjekorras olevate logifailide fsync() operatsioonide hulk."
 
-#: server_status.php:1410
+#: server_status.php:1518
 msgid "Pending log file writes."
 msgstr "Järjekorras olevad logi faili kirjutamised."
 
-#: server_status.php:1411
+#: server_status.php:1519
 msgid "The number of bytes written to the log file."
 msgstr "Logi faili kirjutatud baitide hulk."
 
-#: server_status.php:1412
+#: server_status.php:1520
 msgid "The number of pages created."
 msgstr "Loodud lehtede hulk."
 
-#: server_status.php:1413
+#: server_status.php:1521
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -10923,51 +11070,51 @@ msgstr ""
 "Sisseehitatud InnoDB lehe maht (vaikimisi 16KB). Siin lehel on loendatud "
 "mitmeid väärtusi. Lehe maht lubab neid kergesti baitidesse teisendada."
 
-#: server_status.php:1414
+#: server_status.php:1522
 msgid "The number of pages read."
 msgstr "Loetud lehtede hulk."
 
-#: server_status.php:1415
+#: server_status.php:1523
 msgid "The number of pages written."
 msgstr "Kirjutatud lehtede hulk."
 
-#: server_status.php:1416
+#: server_status.php:1524
 msgid "The number of row locks currently being waited for."
 msgstr "Hetkel ootel olevate rea lukustamiste hulk."
 
-#: server_status.php:1417
+#: server_status.php:1525
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr "Rea lukustamise saamise keskmine aeg millisekundites."
 
-#: server_status.php:1418
+#: server_status.php:1526
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr "Rea lukustamise saamiseks kulutatud aeg kokku millisekundites."
 
-#: server_status.php:1419
+#: server_status.php:1527
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr "Rea lukustamise saamise maksimaalne aeg millisekundites."
 
-#: server_status.php:1420
+#: server_status.php:1528
 msgid "The number of times a row lock had to be waited for."
 msgstr "Ootama pidanud rea lukustamised kokku."
 
-#: server_status.php:1421
+#: server_status.php:1529
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "InnoDB tabelitest kustutatud ridade hulk."
 
-#: server_status.php:1422
+#: server_status.php:1530
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "InnoDB tabelitesse lisatud ridade hulk."
 
-#: server_status.php:1423
+#: server_status.php:1531
 msgid "The number of rows read from InnoDB tables."
 msgstr "InnoDB tabelitest loetud ridade hulk."
 
-#: server_status.php:1424
+#: server_status.php:1532
 msgid "The number of rows updated in InnoDB tables."
 msgstr "InnoDB tabelites uuendatud ridade hulk."
 
-#: server_status.php:1425
+#: server_status.php:1533
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
@@ -10975,7 +11122,7 @@ msgstr ""
 "Võtme puhvris võtmeplokkide hulk, mida on küll muudetud, kuid pole veel "
 "kettale tühjendatud. Seda kasutatakse kui Not_flushed_key_blocks."
 
-#: server_status.php:1426
+#: server_status.php:1534
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
@@ -10983,7 +11130,7 @@ msgstr ""
 "Võtmepuhvris kasutamata plokkide hulk. Seda väärtust saad kasutada kasutusel "
 "oleva võtme puhvri mahu tuvastamiseks."
 
-#: server_status.php:1427
+#: server_status.php:1535
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
@@ -10993,15 +11140,15 @@ msgstr ""
 "näitab maksimaalset plokkide hulka, mis on kunagi samaaegselt kasutusel "
 "olnud."
 
-#: server_status.php:1428
+#: server_status.php:1536
 msgid "Percentage of used key cache (calculated value)"
 msgstr "Kasutatud võtme puhvri protsent (arvutatud väärtus)"
 
-#: server_status.php:1429
+#: server_status.php:1537
 msgid "The number of requests to read a key block from the cache."
 msgstr "Puhvrist võtmeploki lugemise taotluste hulk."
 
-#: server_status.php:1430
+#: server_status.php:1538
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -11011,7 +11158,7 @@ msgstr ""
 "tõenäoliselt on sinu key_buffer_size väärtus liiga väike. Puhvri puudujääki "
 "saab arvutada valemiga Key_reads/Key_read_requests."
 
-#: server_status.php:1431
+#: server_status.php:1539
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
@@ -11019,22 +11166,22 @@ msgstr ""
 "Võtme puhvri puudujäägi arvutamisel võrreldakse füüsilisi lugemisi lugemise "
 "taotlustega (arvutatud väärtus)"
 
-#: server_status.php:1432
+#: server_status.php:1540
 msgid "The number of requests to write a key block to the cache."
 msgstr "Puhvrisse võtmeploki kirjutamise taotluste hulk."
 
-#: server_status.php:1433
+#: server_status.php:1541
 msgid "The number of physical writes of a key block to disk."
 msgstr "Kettale võtmeploki füüsiliste kirjutamiste hulk."
 
-#: server_status.php:1434
+#: server_status.php:1542
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
 "Füüsiliste kirjutamiste ja kirjutamise taotluste võrdlemise protsent "
 "(arvutatud väärtus)"
 
-#: server_status.php:1435
+#: server_status.php:1543
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -11044,7 +11191,7 @@ msgstr ""
 "on kasulik erinevate päringuplaanide kulu võrdlemisel sama päringuga. "
 "Vaikimisi väärtus 0 tähendab, et ühtegi päringut pole veel koostatud."
 
-#: server_status.php:1436
+#: server_status.php:1544
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
@@ -11052,12 +11199,12 @@ msgstr ""
 "Maksimaalne ühenduste hulk, mis on korraga kasutusel olnud alates serveri "
 "käivitamisest."
 
-#: server_status.php:1437
+#: server_status.php:1545
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr ""
 "INSERT DELAYED järjekordades kirjutamisvalmis olevate ootel ridade hulk."
 
-#: server_status.php:1438
+#: server_status.php:1546
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table cache value is probably too small."
@@ -11065,19 +11212,19 @@ msgstr ""
 "Avatud tabelite hulk. Kui see on liiga suur, siis sinu tabeli puhvri väärtus "
 "on tõenäoliselt liiga väike."
 
-#: server_status.php:1439
+#: server_status.php:1547
 msgid "The number of files that are open."
 msgstr "Avatud failide hulk."
 
-#: server_status.php:1440
+#: server_status.php:1548
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr "Avatud striimide hulk (kasutatakse peamiselt sisselogimisel)."
 
-#: server_status.php:1441
+#: server_status.php:1549
 msgid "The number of tables that are open."
 msgstr "Avatud tabelite hulk."
 
-#: server_status.php:1442
+#: server_status.php:1550
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
@@ -11087,19 +11234,19 @@ msgstr ""
 "killustumise probleemidele, mida saab lahendada FLUSH QUERY CACHE käsu "
 "täitmisega."
 
-#: server_status.php:1443
+#: server_status.php:1551
 msgid "The amount of free memory for query cache."
 msgstr "Päringu puhvri jaoks vaba mälu hulk."
 
-#: server_status.php:1444
+#: server_status.php:1552
 msgid "The number of cache hits."
 msgstr "Puhvri kasutamise hulk."
 
-#: server_status.php:1445
+#: server_status.php:1553
 msgid "The number of queries added to the cache."
 msgstr "Puhvrisse lisatud päringute hulk."
 
-#: server_status.php:1446
+#: server_status.php:1554
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -11111,7 +11258,7 @@ msgstr ""
 "puhver kasutab hiljutise kasutamise (LRU) strateegiat, et otsustada, milline "
 "päring puhvrist kustutada."
 
-#: server_status.php:1447
+#: server_status.php:1555
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -11119,19 +11266,19 @@ msgstr ""
 "Puhverdamata päringute hulk (pole puhverdatav või ei puhverdatud "
 "query_cache_type sätte tõttu)."
 
-#: server_status.php:1448
+#: server_status.php:1556
 msgid "The number of queries registered in the cache."
 msgstr "Puhvris registreeritud päringute hulk."
 
-#: server_status.php:1449
+#: server_status.php:1557
 msgid "The total number of blocks in the query cache."
 msgstr "Päringu puhvris olevate plokkide koguhulk."
 
-#: server_status.php:1450
+#: server_status.php:1558
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "Töökindla paljundamise staatus (pole veel kasutusele võetud)."
 
-#: server_status.php:1451
+#: server_status.php:1559
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -11139,11 +11286,11 @@ msgstr ""
 "Indekseid mittekasutatavate liitmiste hulk. Kui see väärtus ei ole 0, siis "
 "peaksid hoolikalt kontrollima oma tabelite indekseid."
 
-#: server_status.php:1452
+#: server_status.php:1560
 msgid "The number of joins that used a range search on a reference table."
 msgstr "Viidete tabelis piirkondlikku otsimist kasutanud liitmiste hulk."
 
-#: server_status.php:1453
+#: server_status.php:1561
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -11152,7 +11299,7 @@ msgstr ""
 "rida. (Kui see ei ole 0, siis peaksid hoolikalt kontrollima oma tabelite "
 "indekseid.)"
 
-#: server_status.php:1454
+#: server_status.php:1562
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -11160,15 +11307,15 @@ msgstr ""
 "Esimeses tabelis piirkonda kasutanud liitmiste hulk. (Tavaliselt pole "
 "kriitiline, kui see on suur.)"
 
-#: server_status.php:1455
+#: server_status.php:1563
 msgid "The number of joins that did a full scan of the first table."
 msgstr "Esimeses tabelis täielikku kontrolli teinud liitmiste hulk."
 
-#: server_status.php:1456
+#: server_status.php:1564
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr "Alluva SQL lõimu poolt hetkel avatud ajutiste tabelite hulk."
 
-#: server_status.php:1457
+#: server_status.php:1565
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
@@ -11176,24 +11323,24 @@ msgstr ""
 "Paljundamisel alluva SQL lõimu poolt ülekannete kordamise hulk kokku (alates "
 "käivitusest)."
 
-#: server_status.php:1458
+#: server_status.php:1566
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr "See on ON, kui see server on alluv, mis on ühendatud ülemaga."
 
-#: server_status.php:1459
+#: server_status.php:1567
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
 msgstr ""
 "Lõimude hulk, mille loomiseks kulus rohkem, kui slow_launch_time sekundit."
 
-#: server_status.php:1460
+#: server_status.php:1568
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr ""
 "Päringute hulk, milleks kulus rohkem aega, kui long_query_time sekundit."
 
-#: server_status.php:1461
+#: server_status.php:1569
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -11203,23 +11350,23 @@ msgstr ""
 "suur, siis peaksid kaaluma süsteemi muutuja sort_buffer_size väärtuse "
 "vähendamist."
 
-#: server_status.php:1462
+#: server_status.php:1570
 msgid "The number of sorts that were done with ranges."
 msgstr "Piirkondlike sorteerimiste hulk."
 
-#: server_status.php:1463
+#: server_status.php:1571
 msgid "The number of sorted rows."
 msgstr "Sorteeritud ridade hulk."
 
-#: server_status.php:1464
+#: server_status.php:1572
 msgid "The number of sorts that were done by scanning the table."
 msgstr "Tabeli kontrollimisel tehtud sorteerimiste hulk."
 
-#: server_status.php:1465
+#: server_status.php:1573
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "Koheselt teostatud tabeli lukustamiste hulk."
 
-#: server_status.php:1466
+#: server_status.php:1574
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -11231,7 +11378,7 @@ msgstr ""
 "peaksid kõigepealt optimeerima oma päringuid ja seejärel kas poolita oma "
 "tabel või tabelid või kasuta paljundamist."
 
-#: server_status.php:1467
+#: server_status.php:1575
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -11241,11 +11388,11 @@ msgstr ""
 "valemiga Threads_created/Connections. Kui see väärtus on punane, siis "
 "peaksid vähendama oma thread_cache_size väärtust."
 
-#: server_status.php:1468
+#: server_status.php:1576
 msgid "The number of currently open connections."
 msgstr "Hetkel avatud ühenduste hulk."
 
-#: server_status.php:1469
+#: server_status.php:1577
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -11256,47 +11403,47 @@ msgstr ""
 "peaksid suurendama thread_cache_size väärtust. (Tavaliselt ei anna see "
 "märkimisväärset jõudluse kasvu, kui sul on hea lõimu kasutus.)"
 
-#: server_status.php:1470
+#: server_status.php:1578
 msgid "Thread cache hit rate (calculated value)"
 msgstr "Lõimu puhvri kasutushulk (arvutatud väärtus)"
 
-#: server_status.php:1471
+#: server_status.php:1579
 msgid "The number of threads that are not sleeping."
 msgstr "Lõimude hulk, mis ei ole jõude."
 
-#: server_status.php:1626
+#: server_status.php:1734
 msgid "Start Monitor"
 msgstr "Alusta jälgimist"
 
-#: server_status.php:1637
+#: server_status.php:1745
 msgid "Instructions/Setup"
 msgstr "Juhendid/Paigaldus"
 
-#: server_status.php:1644
+#: server_status.php:1752
 msgid "Done rearranging/editing charts"
 msgstr "Diagrammide korrastamine/muutmine on valmis"
 
-#: server_status.php:1651 server_status.php:1724
+#: server_status.php:1759 server_status.php:1832
 msgid "Add chart"
 msgstr "Lisa diagramm"
 
-#: server_status.php:1653
+#: server_status.php:1761
 msgid "Rearrange/edit charts"
 msgstr "Korrasta/muuda diagramme"
 
-#: server_status.php:1657
+#: server_status.php:1765
 msgid "Refresh rate"
 msgstr "Uuendamise sagedus"
 
-#: server_status.php:1662
+#: server_status.php:1770
 msgid "Chart columns"
 msgstr "Diagrammi veerud"
 
-#: server_status.php:1678
+#: server_status.php:1786
 msgid "Chart arrangement"
 msgstr "Diagrammi korrastus"
 
-#: server_status.php:1678
+#: server_status.php:1786
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
@@ -11304,15 +11451,15 @@ msgstr ""
 "Diagrammide korrastust säilitatakse veebilehitseja kohalikus salvestuskohas. "
 "Kui paigaldamine on keeruline, võid seda eksportida."
 
-#: server_status.php:1679
+#: server_status.php:1787
 msgid "Reset to default"
 msgstr "Lähtesta vaikimisi väärtustele"
 
-#: server_status.php:1683
+#: server_status.php:1791
 msgid "Monitor Instructions"
 msgstr "Jälgija juhendid"
 
-#: server_status.php:1684
+#: server_status.php:1792
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -11326,7 +11473,7 @@ msgstr ""
 "general_log. Pane siiski tähele, et general_log toodab palju andmeid ja "
 "suurendab serveri laadimisaega kuni 15%"
 
-#: server_status.php:1689
+#: server_status.php:1797
 msgid ""
 "Unfortunately your Database server does not support logging to table, which "
 "is a requirement for analyzing the database logs with phpMyAdmin. Logging to "
@@ -11337,11 +11484,11 @@ msgstr ""
 "andmebaasi logide analüüsimiseks phpMyAdminiga. Tabelisse logimist toetab "
 "MySQL 5.1.6 ja uuem. Siiski võid kasutada serveri diagrammi võimalust."
 
-#: server_status.php:1702
+#: server_status.php:1810
 msgid "Using the monitor:"
 msgstr "Kasuta jälgijat:"
 
-#: server_status.php:1704
+#: server_status.php:1812
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
@@ -11351,7 +11498,7 @@ msgstr ""
 "tagant. 'Sätted' all võid diagramme lisada ja muuta värskendussagedust või "
 "eemaldada diagrammi, kasutades hammasratta ikooni vastaval diagrammil."
 
-#: server_status.php:1706
+#: server_status.php:1814
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
@@ -11363,11 +11510,11 @@ msgstr ""
 "diagrammi. Kui see on kinnitatud, siis see loob rühmitatud päringute tabeli, "
 "kust võid valida edasiseks analüüsimiseks sobivad SELECT käsud."
 
-#: server_status.php:1713
+#: server_status.php:1821
 msgid "Please note:"
 msgstr "Palun pane tähele:"
 
-#: server_status.php:1715
+#: server_status.php:1823
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
@@ -11379,87 +11526,87 @@ msgstr ""
 "on soovitatav valida ainult üks lühike ajavahemik ja keela general_log ja "
 "tühjenda selle tabel, kui jälgimist pole enam tarvis."
 
-#: server_status.php:1729
+#: server_status.php:1837
 msgid "Preset chart"
 msgstr "Ettemääratud diagramm"
 
-#: server_status.php:1733
+#: server_status.php:1841
 msgid "Status variable(s)"
 msgstr "Staatuse muutuja(d)"
 
-#: server_status.php:1735
+#: server_status.php:1843
 msgid "Select series:"
 msgstr "Vali seeria:"
 
-#: server_status.php:1737
+#: server_status.php:1845
 msgid "Commonly monitored"
 msgstr "Tavaliselt jälgitav"
 
-#: server_status.php:1752
+#: server_status.php:1860
 msgid "or type variable name:"
 msgstr "või tipi muutuja nimi:"
 
-#: server_status.php:1756
+#: server_status.php:1864
 msgid "Display as differential value"
 msgstr "Näita eristatava väärtusena"
 
-#: server_status.php:1758
+#: server_status.php:1866
 msgid "Apply a divisor"
 msgstr "Kasuta jagajat"
 
-#: server_status.php:1765
+#: server_status.php:1873
 msgid "Append unit to data values"
 msgstr "Lisa andmete väärtustele ühikud"
 
-#: server_status.php:1771
+#: server_status.php:1879
 msgid "Add this series"
 msgstr "Lisa see seeria"
 
-#: server_status.php:1773
+#: server_status.php:1881
 msgid "Clear series"
 msgstr "Puhasta seeria"
 
-#: server_status.php:1776
+#: server_status.php:1884
 msgid "Series in Chart:"
 msgstr "Seeriad diagrammis:"
 
-#: server_status.php:1791
+#: server_status.php:1899
 msgid "Log statistics"
 msgstr "Logi statistika"
 
-#: server_status.php:1792
+#: server_status.php:1900
 msgid "Selected time range:"
 msgstr "Valitud ajavahemik:"
 
-#: server_status.php:1797
+#: server_status.php:1905
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr "Otsi ainult SELECT,INSERT,UPDATE ja DELETE käske"
 
-#: server_status.php:1802
+#: server_status.php:1910
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
 "Parema grupeerimise saavutamiseks kustuta INSERT käskudest muutuja andmed"
 
-#: server_status.php:1807
+#: server_status.php:1915
 msgid "Choose from which log you want the statistics to be generated from."
 msgstr "Vali logi, millest statistikat luua."
 
-#: server_status.php:1809
+#: server_status.php:1917
 msgid "Results are grouped by query text."
 msgstr "Tulemused on grupeeritud päringu teksti alusel."
 
-#: server_status.php:1814
+#: server_status.php:1922
 msgid "Query analyzer"
 msgstr "Päringu analüüsija"
 
-#: server_status.php:1865
+#: server_status.php:1972 server_status.php:1990
 #, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d sekund"
 msgstr[1] "%d sekundit"
 
-#: server_status.php:1868
+#: server_status.php:1975
 #, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
@@ -12084,10 +12231,6 @@ msgstr "Ei saa muuta indeksi nimeks PRIMARY!"
 msgid "No index parts defined!"
 msgstr "Indeksi osasid pole defineeritud!"
 
-#: tbl_indexes.php:195 tbl_structure.php:169 tbl_structure.php:170
-msgid "Add index"
-msgstr "Lisa indeks"
-
 #: tbl_indexes.php:197
 msgid "Edit index"
 msgstr "Muuda indeksit"
@@ -12136,38 +12279,6 @@ msgstr "Tabeli nimi on tühi!"
 msgid "Showing tables"
 msgstr "Tabelite näitamine"
 
-#: tbl_printview.php:294 tbl_structure.php:834
-msgid "Space usage"
-msgstr "Ruumi kasutus"
-
-#: tbl_printview.php:321 tbl_structure.php:859
-msgid "Effective"
-msgstr "Efektiivne"
-
-#: tbl_printview.php:346 tbl_structure.php:894
-msgid "Row Statistics"
-msgstr "Rea statistika"
-
-#: tbl_printview.php:356 tbl_structure.php:903
-msgid "static"
-msgstr "staatiline"
-
-#: tbl_printview.php:358 tbl_structure.php:905
-msgid "dynamic"
-msgstr "dünaamiline"
-
-#: tbl_printview.php:382 tbl_structure.php:948
-msgid "Row length"
-msgstr "Rea pikkus"
-
-#: tbl_printview.php:396 tbl_structure.php:956
-msgid "Row size"
-msgstr "Rea laius"
-
-#: tbl_printview.php:406 tbl_structure.php:964
-msgid "Next autoindex"
-msgstr "Järgmine automaatne indeks"
-
 #: tbl_relation.php:286
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
@@ -12187,102 +12298,6 @@ msgstr ""
 #: tbl_relation.php:431
 msgid "Foreign key constraint"
 msgstr "Võõrvõtme piirang"
-
-#: tbl_structure.php:155 tbl_structure.php:160 tbl_structure.php:602
-msgid "Spatial"
-msgstr "Ruumiline"
-
-#: tbl_structure.php:162 tbl_structure.php:166
-msgid "Distinct values"
-msgstr "Erista väärtusi"
-
-#: tbl_structure.php:167 tbl_structure.php:168
-msgid "Add primary key"
-msgstr "Lisa primaarvõti"
-
-#: tbl_structure.php:171 tbl_structure.php:172
-msgid "Add unique index"
-msgstr "Lisa ainulaadne indeks"
-
-#: tbl_structure.php:173 tbl_structure.php:174
-msgid "Add SPATIAL index"
-msgstr "Lisa SPATIAL indeks"
-
-#: tbl_structure.php:175 tbl_structure.php:176
-msgid "Add FULLTEXT index"
-msgstr "Lisa FULLTEXT indeks"
-
-#: tbl_structure.php:358 tbl_tracking.php:349
-msgctxt "None for default"
-msgid "None"
-msgstr "Puudub"
-
-#: tbl_structure.php:367
-#, php-format
-msgid "Column %s has been dropped"
-msgstr "%s veerg on kustutatud"
-
-#: tbl_structure.php:380 tbl_structure.php:477
-#, php-format
-msgid "A primary key has been added on %s"
-msgstr "Primaarvõti on lisatud kohas %s"
-
-#: tbl_structure.php:395 tbl_structure.php:410 tbl_structure.php:433
-#: tbl_structure.php:449 tbl_structure.php:490 tbl_structure.php:503
-#: tbl_structure.php:517 tbl_structure.php:530
-#, php-format
-msgid "An index has been added on %s"
-msgstr "Indeks on lisatud kohas %s"
-
-#: tbl_structure.php:471
-msgid "Show more actions"
-msgstr "Näita rohkem tegevusi"
-
-#: tbl_structure.php:620 tbl_structure.php:687
-msgid "Move columns"
-msgstr "Liiguta veergusid"
-
-#: tbl_structure.php:621
-msgid "Move the columns by dragging them up and down."
-msgstr "Veergusid saad liigutada nende lohistamisega üles ja alla."
-
-#: tbl_structure.php:647
-msgid "Edit view"
-msgstr "Muuda vaadet"
-
-#: tbl_structure.php:666
-msgid "Relation view"
-msgstr "Seose vaade"
-
-#: tbl_structure.php:674
-msgid "Propose table structure"
-msgstr "Soovita tabeli struktuuri"
-
-#: tbl_structure.php:696
-msgid "Add column"
-msgstr "Lisa veerg"
-
-#: tbl_structure.php:710
-msgid "At End of Table"
-msgstr "Tabeli lõppu"
-
-#: tbl_structure.php:711
-msgid "At Beginning of Table"
-msgstr "Tabeli algusesse"
-
-#: tbl_structure.php:712
-#, php-format
-msgid "After %s"
-msgstr "Peale %s"
-
-#: tbl_structure.php:748
-#, php-format
-msgid "Create an index on &nbsp;%s&nbsp;columns"
-msgstr "Loo indeks &nbsp;%s&nbsp;veergudesse"
-
-#: tbl_structure.php:919
-msgid "partitioned"
-msgstr "partitsioneeritud"
 
 #: tbl_tracking.php:132
 #, php-format
