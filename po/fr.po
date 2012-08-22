@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 13:38+0200\n"
-"PO-Revision-Date: 2012-08-22 16:11+0200\n"
+"PO-Revision-Date: 2012-08-24 18:37+0200\n"
 "Last-Translator: Marc Delisle <marc@infomarc.info>\n"
 "Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
@@ -7771,10 +7771,9 @@ msgstr ""
 "spéciaux ou des mots réservés)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:295
-#, fuzzy
 #| msgid "Object creation options"
 msgid "Data creation options"
-msgstr "Options de création d'objets"
+msgstr "Options de création de données"
 
 #: libraries/plugins/export/ExportSql.class.php:299
 #: libraries/plugins/export/ExportSql.class.php:1659
