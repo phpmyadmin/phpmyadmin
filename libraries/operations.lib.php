@@ -100,17 +100,17 @@ function PMA_getHtmlForDropDatabaseLink($db)
 
     $this_sql_query = 'DROP DATABASE ' . $common_functions->backquote($db);
     $this_url_params = array(
-            'sql_query' => $this_sql_query,
-            'back' => 'db_operations.php',
-            'goto' => 'main.php',
-            'reload' => '1',
-            'purge' => '1',
-            'message_to_show' => sprintf(
-                __('Database %s has been dropped.'),
-                htmlspecialchars($common_functions->backquote($db))
-            ),
-            'db' => null,
-        );
+        'sql_query' => $this_sql_query,
+        'back' => 'db_operations.php',
+        'goto' => 'main.php',
+        'reload' => '1',
+        'purge' => '1',
+        'message_to_show' => sprintf(
+            __('Database %s has been dropped.'),
+            htmlspecialchars($common_functions->backquote($db))
+        ),
+        'db' => null,
+    );
 
     $html_output = '<div class="operations_half_width">'
         . '<fieldset class="caution">';
@@ -915,16 +915,13 @@ function PMA_getTableOptionFieldset($comment, $tbl_collation,
  */
 function PMA_getHtmlForTableRow($attribute, $label, $val)
 {
-    return '<tr><td>'
-        . '<label for="' . $attribute . '">' . $label . '</label></td>'
-        . '<td><input type="checkbox" name="'. $attribute .'" '
-        . 'id="' . $attribute .'"'
-        . 'value="1"'
-        . ((!empty($val) && $val == 1)
-            ? ' checked="checked"'
-            : '')
-        . '/>'
-        . '</td></tr>';
+    return '<tr>'
+        . '<td><label for="' . $attribute . '">' . $label . '</label></td>'
+        . '<td><input type="checkbox" name="'. $attribute .'"'
+        . ' id="' . $attribute .'"'
+        . ' value="1"'
+        . ((!empty($val) && $val == 1) ? ' checked="checked"' : '') . '/></td>'
+        . '</tr>';
 }
 
 /**
@@ -938,27 +935,28 @@ function PMA_getPossibleRowFormat()
     // option values as keys then the dropdown option labels
 
     $possible_row_formats = array(
-         'ARIA'  => array(
+        'ARIA'  => array(
             'FIXED'     => 'FIXED',
             'DYNAMIC'   => 'DYNAMIC',
             'PAGE'      => 'PAGE'
-                ),
-         'MARIA'  => array(
+        ),
+        'MARIA'  => array(
             'FIXED'     => 'FIXED',
             'DYNAMIC'   => 'DYNAMIC',
             'PAGE'      => 'PAGE'
-                ),
-         'MYISAM' => array(
+        ),
+        'MYISAM' => array(
              'FIXED'    => 'FIXED',
              'DYNAMIC'  => 'DYNAMIC'
-         ),
-         'PBXT'   => array(
+        ),
+        'PBXT'   => array(
              'FIXED'    => 'FIXED',
              'DYNAMIC'  => 'DYNAMIC'
-         ),
-         'INNODB' => array(
+        ),
+        'INNODB' => array(
              'COMPACT'  => 'COMPACT',
-             'REDUNDANT' => 'REDUNDANT')
+             'REDUNDANT' => 'REDUNDANT'
+        )
     );
 
     $innodb_engine_plugin = PMA_StorageEngine::getEngine('innodb');
@@ -1118,7 +1116,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
                 'sql_query' => 'CHECK TABLE '
                     . $common_functions->backquote($GLOBALS['table']),
                 'table_maintenance' => 'Go',
-                );
+            );
             $html_output .= PMA_getMaintainActionlink(
                 __('Check table'),
                 $params,
@@ -1145,7 +1143,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
                 'sql_query' => 'ANALYZE TABLE '
                     . $common_functions->backquote($GLOBALS['table']),
                 'table_maintenance' => 'Go',
-                );
+            );
             $html_output .= PMA_getMaintainActionlink(
                 __('Analyze table'),
                 $params,
@@ -1158,7 +1156,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
                 'sql_query' => 'REPAIR TABLE '
                     . $common_functions->backquote($GLOBALS['table']),
                 'table_maintenance' => 'Go',
-                );
+            );
             $html_output .= PMA_getMaintainActionlink(
                 __('Repair table'),
                 $params,
@@ -1173,7 +1171,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
                 'sql_query' => 'OPTIMIZE TABLE '
                     . $common_functions->backquote($GLOBALS['table']),
                 'table_maintenance' => 'Go',
-                );
+            );
             $html_output .= PMA_getMaintainActionlink(
                 __('Optimize table'),
                 $params,
@@ -1190,7 +1188,7 @@ function PMA_getListofMaintainActionLink($is_myisam_or_aria,
             __('Table %s has been flushed'),
             htmlspecialchars($GLOBALS['table'])
         ),
-        'reload'    => 1,
+        'reload' => 1,
     );
 
     $html_output .= PMA_getMaintainActionlink(
@@ -1337,9 +1335,9 @@ function PMA_getHtmlForPartitionMaintenance($partition_names, $url_params)
         $url_params,
         array(
             'sql_query' => 'ALTER TABLE '
-                . $common_functions->backquote($GLOBALS['table'])
-                . ' REMOVE PARTITIONING;'
-            )
+            . $common_functions->backquote($GLOBALS['table'])
+            . ' REMOVE PARTITIONING;'
+        )
     );
     $html_output .= '<br /><a href="sql.php'
         . PMA_generate_common_url($this_url_params) . '">'
@@ -1420,9 +1418,9 @@ function PMA_getQueryAndResultForReorderingTable()
 {
     $common_functions = PMA_CommonFunctions::getInstance();
 
-    $sql_query = '
-        ALTER TABLE ' . $common_functions->backquote($GLOBALS['table']) . '
-        ORDER BY '
+    $sql_query = 'ALTER TABLE '
+        . $common_functions->backquote($GLOBALS['table'])
+        . ' ORDER BY '
         . $common_functions->backquote(urldecode($_REQUEST['order_field']));
     if (isset($_REQUEST['order_order'])
         && $_REQUEST['order_order'] === 'desc'
