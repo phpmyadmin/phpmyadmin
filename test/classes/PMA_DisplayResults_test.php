@@ -13,6 +13,8 @@ require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/CommonFunctions.class.php';
 require_once 'libraries/js_escape.lib.php';
+require_once 'libraries/core.lib.php';
+require_once 'libraries/Config.class.php';
 
 /**
  * Test cases for displaying results.
@@ -39,8 +41,11 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             'PMA_DisplayResults',
             array('as', '','','')
         );
+        $GLOBALS['PMA_Config'] = new PMA_Config();
+        $GLOBALS['PMA_Config']->enableBc();
         $SESSION[' PMA_Token '] = 'token';
         $GLOBALS['lang'] = 'en';
+        $GLOBALS['server'] = 0;
 
     }
 
@@ -1397,8 +1402,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             )
         );
     }
-    
-    
+
+
     /**
      * Data provider for testIsNeedToSyntaxHighlight
      *
@@ -1422,7 +1427,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                     )
                 ),
                 'info',
-                true                
+                true
             ),
             array(
                 'incorrect_database',
@@ -1443,17 +1448,17 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             )
         );
     }
-    
-    
+
+
     /**
      * Test _isNeedToSyntaxHighlight
-     * 
+     *
      * @param string  $db     the database name
      * @param string  $table  the table name
      * @param array   $data   predifined data of columns need to sytax highlighted
      * @param string  $field  the field name
      * @param boolean $output output of _isNeedToSyntaxHighlight
-     * 
+     *
      * @dataProvider dataProviderForTestIsNeedToSyntaxHighlight
      */
     public function testIsNeedToSyntaxHighlight($db, $table, $data, $field,  $output)
@@ -1461,8 +1466,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
         $this->object->__set('_db', $db);
         $this->object->__set('_table', $table);
         $this->object->__set('sytax_highlighting_column_info', $data);
-        
-        
+
+
         $this->assertEquals(
             $output,
             $this->_callPrivateFunction(
@@ -1470,10 +1475,10 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                 array($field)
             )
         );
-        
+
     }
-    
-    
+
+
     /**
      * Data provider for testIsFieldNeedToLink
      *
@@ -1496,21 +1501,21 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             )
         );
     }
-    
-    
+
+
     /**
      * Test _isFieldNeedToLink
-     * 
+     *
      * @param string  $db     the database name
      * @param string  $table  the table name
      * @param string  $field  the field name
      * @param boolean $output output of _isFieldNeedToLink
-     * 
+     *
      * @dataProvider dataProviderForTestIsFieldNeedToLink
      */
     public function testIsFieldNeedToLink($db, $table, $field,  $output)
     {
-        
+
         $GLOBALS['special_schema_links'] = array(
             'mysql' => array(
                 'proc' => array(
@@ -1522,10 +1527,10 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                 )
             )
         );
-        
+
         $this->object->__set('_db', $db);
         $this->object->__set('_table', $table);
-        
+
         $this->assertEquals(
             $output,
             $this->_callPrivateFunction(
@@ -1533,10 +1538,10 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                 array($field)
             )
         );
-        
+
     }
-    
-    
+
+
     /**
      * Data provider for testGetSpecialLinkUrl
      *
@@ -1582,24 +1587,24 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             )
         );
     }
-    
-    
+
+
     /**
      * Test _getSpecialLinkUrl
-     * 
+     *
      * @param string  $db           the database name
      * @param string  $table        the table name
      * @param string  $column_value column value
      * @param array   $row_info     information about row
      * @param string  $field_name   column name
      * @param boolean $output       output of _getSpecialLinkUrl
-     * 
+     *
      * @dataProvider dataProviderForTestGetSpecialLinkUrl
      */
     public function testGetSpecialLinkUrl(
         $db, $table, $column_value, $row_info, $field_name,  $output
     ) {
-        
+
         $GLOBALS['special_schema_links'] = array(
             'information_schema' => array(
                 'routines' => array(
@@ -1608,7 +1613,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                         'link_dependancy_params' => array(
                             0 => array(
                                 'param_info' => 'db',
-                                'column_name' => 'routine_schema'                        
+                                'column_name' => 'routine_schema'
                             ),
                             1 => array(
                                 'param_info' => 'item_type',
@@ -1628,7 +1633,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                         'link_dependancy_params' => array(
                             0 => array(
                                 'param_info' => 'db',
-                                'column_name' => 'table_schema'     
+                                'column_name' => 'table_schema'
                             ),
                             1 => array(
                                 'param_info' => array('test_name', 'value')
@@ -1639,10 +1644,10 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                 )
             )
         );
-        
+
         $this->object->__set('_db', $db);
         $this->object->__set('_table', $table);
-        
+
         $this->assertEquals(
             $output,
             $this->_callPrivateFunction(
@@ -1650,10 +1655,10 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                 array($column_value, $row_info, $field_name)
             )
         );
-        
+
     }
-    
-    
+
+
     /**
      * Data provider for testGetRowInfoForSpecialLinks
      *
@@ -1663,13 +1668,13 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     {
         $column_names = array('host', 'db', 'user', 'select_privilages');
         $fields_mata = array();
-        
+
         foreach ($column_names as $column_name) {
             $field_meta = new stdClass();
             $field_meta->name = $column_name;
             $fields_mata[] = $field_meta;
         }
-        
+
         return array(
             array(
                 $fields_mata,
@@ -1695,26 +1700,26 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
             )
         );
     }
-    
-    
+
+
     /**
      * Test _getRowInfoForSpecialLinks
-     * 
+     *
      * @param array   $fields_meta meta information about fields
      * @param integer $fiels_count number of fields
      * @param array   $row         current row data
      * @param array   $col_order   the column order
      * @param boolean $output      output of _getRowInfoForSpecialLinks
-     * 
+     *
      * @dataProvider dataProviderForTestGetRowInfoForSpecialLinks
      */
     public function testGetRowInfoForSpecialLinks(
         $fields_meta, $fiels_count, $row, $col_order,  $output
     ) {
-        
+
         $this->object->__set('_fields_meta', $fields_meta);
         $this->object->__set('_fields_cnt', $fiels_count);
-        
+
         $this->assertEquals(
             $output,
             $this->_callPrivateFunction(
@@ -1722,10 +1727,10 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                 array($row, $col_order)
             )
         );
-        
+
     }
-    
-    
+
+
     /**
      * Data provider for testGetShowAllButtonForTableNavigation
      *
@@ -1760,11 +1765,11 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     public function testGetShowAllButtonForTableNavigation(
         $db, $table, $goto, $html_sql_query, $output
     ) {
-        
+
         $this->object->__set('_db', $db);
         $this->object->__set('_table', $table);
         $this->object->__set('_goto', $goto);
-        
+
         $this->assertEquals(
             $output,
             $this->_callPrivateFunction(
@@ -1772,10 +1777,10 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
                 array($html_sql_query)
             )
         );
-        
+
     }
-    
-    
+
+
     /**
      * Data provider for testSetHighlightedColumnGlobalField
      *
@@ -1817,18 +1822,18 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      */
     public function testSetHighlightedColumnGlobalField($analyzed_sql, $output)
     {
-        
+
         $this->_callPrivateFunction(
             '_setHighlightedColumnGlobalField',
             array($analyzed_sql)
         );
-        
+
         $this->assertEquals(
             $output,
             $this->object->__get('_highlight_columns')
         );
-        
+
     }
-    
-    
+
+
 }
