@@ -183,11 +183,11 @@ function PMA_DBI_try_query($query, $link = null, $options = 0,
  * @param string $multi_query multi query statement to execute
  * @param mysqli $link  mysqli object
  *
- * @return mysqli_result collection | boolean(false) 
+ * @return mysqli_result collection | boolean(false)
  */
 function PMA_DBI_try_multi_query($multi_query = '', $link = null)
 {
-    
+
     if (empty($link)) {
         if (isset($GLOBALS['userlink'])) {
             $link = $GLOBALS['userlink'];
@@ -195,9 +195,9 @@ function PMA_DBI_try_multi_query($multi_query = '', $link = null)
             return false;
         }
     }
-    
+
     return PMA_DBI_real_multi_query($link, $multi_query);
-    
+
 }
 
 /**
@@ -386,9 +386,9 @@ function PMA_DBI_get_tables_full($database, $table = false,
     $tbl_is_group = false,  $link = null, $limit_offset = 0,
     $limit_count = false, $sort_by = 'Name', $sort_order = 'ASC'
 ) {
-    
+
     $common_functions = PMA_CommonFunctions::getInstance();
-    
+
     if (true === $limit_count) {
         $limit_count = $GLOBALS['cfg']['MaxTableList'];
     }
@@ -749,24 +749,24 @@ function PMA_DBI_get_tables_full($database, $table = false,
  *
  * @param string $db Database name to look in
  *
- * @return array $views Set of VIEWs inside the database 
+ * @return array $views Set of VIEWs inside the database
  */
 function PMA_DBI_getVirtualTables($db)
 {
-    
+
     $tables_full = PMA_DBI_get_tables_full($db);
     $views = array();
-    
+
     foreach ($tables_full as $table=>$tmp) {
-        
+
         if (PMA_Table::isView($db, $table)) {
             $views[] = $table;
         }
-        
+
     }
-    
+
     return $views;
-    
+
 }
 
 
@@ -790,7 +790,7 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
     $link = null, $sort_by = 'SCHEMA_NAME', $sort_order = 'ASC',
     $limit_offset = 0, $limit_count = false
 ) {
-    
+
     $common_functions = PMA_CommonFunctions::getInstance();
     $sort_order = strtoupper($sort_order);
 
@@ -933,7 +933,7 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
                 $res = PMA_DBI_query('SHOW TABLE STATUS FROM '
                     . $common_functions->backquote($database_name) . ';'
                 );
-                
+
                 while ($row = PMA_DBI_fetch_assoc($res)) {
                     $databases[$database_name]['SCHEMA_TABLES']++;
                     $databases[$database_name]['SCHEMA_TABLE_ROWS']
@@ -996,7 +996,7 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
 function PMA_DBI_get_columns_full($database = null, $table = null,
     $column = null, $link = null
 ) {
-    
+
     $common_functions = PMA_CommonFunctions::getInstance();
     $columns = array();
 
@@ -1171,9 +1171,9 @@ function PMA_DBI_get_columns_full($database = null, $table = null,
  */
 function PMA_DBI_get_columns_sql($database, $table, $column = null, $full = false)
 {
-    
+
     $common_functions = PMA_CommonFunctions::getInstance();
-    
+
     if (PMA_DRIZZLE) {
         // `Key` column:
         // * used in primary key => PRI
@@ -1239,7 +1239,7 @@ function PMA_DBI_get_columns_sql($database, $table, $column = null, $full = fals
 function PMA_DBI_get_columns($database, $table, $column = null, $full = false,
     $link = null
 ) {
-    
+
     $common_functions = PMA_CommonFunctions::getInstance();
     $sql = PMA_DBI_get_columns_sql($database, $table, $column, $full);
     $fields = PMA_DBI_fetch_result($sql, 'Field', null, $link);
@@ -1315,9 +1315,9 @@ function PMA_DBI_get_column_names($database, $table, $link = null)
 */
 function PMA_DBI_get_table_indexes_sql($database, $table, $where = null)
 {
-    
+
     $common_functions = PMA_CommonFunctions::getInstance();
-    
+
     if (PMA_DRIZZLE) {
         $sql = "SELECT
                 ip.table_name          AS `Table`,
@@ -1417,9 +1417,9 @@ function PMA_DBI_get_variable($var, $type = PMA_DBI_GETVAR_SESSION, $link = null
  */
 function PMA_DBI_postConnect($link, $is_controluser = false)
 {
-    
+
     $common_functions = PMA_CommonFunctions::getInstance();
-    
+
     if (! defined('PMA_MYSQL_INT_VERSION')) {
         if ($common_functions->cacheExists('PMA_MYSQL_INT_VERSION', true)) {
             define(
@@ -1820,9 +1820,9 @@ function PMA_DBI_get_warnings($link = null)
  */
 function PMA_isSuperuser()
 {
-    
+
     $common_functions = PMA_CommonFunctions::getInstance();
-    
+
     if ($common_functions->cacheExists('is_superuser', true)) {
         return $common_functions->cacheGet('is_superuser', true);
     }
@@ -1913,9 +1913,9 @@ function PMA_DBI_get_definition($db, $which, $name, $link = null)
  */
 function PMA_DBI_get_triggers($db, $table = '', $delimiter = '//')
 {
-    
+
     $common_functions = PMA_CommonFunctions::getInstance();
-    
+
     if (PMA_DRIZZLE) {
         // Drizzle doesn't support triggers
         return array();
