@@ -22,7 +22,7 @@ function PMA_getPlugin(
     $plugin_format,
     $plugins_dir,
     $plugin_param = false
-){
+) {
     $GLOBALS['plugin_param'] = $plugin_param;
     $class_name = strtoupper($plugin_type[0])
         . strtolower(substr($plugin_type, 1))
@@ -40,10 +40,10 @@ function PMA_getPlugin(
 /**
  * Reads all plugin information from directory $plugins_dir
  *
- * @param string $plugin_type   the type of the plugin (import, export, etc)
- * @param string $plugins_dir   directrory with plugins
- * @param mixed  $plugin_param  parameter to plugin by which they can
- *                              decide whether they can work
+ * @param string $plugin_type  the type of the plugin (import, export, etc)
+ * @param string $plugins_dir  directrory with plugins
+ * @param mixed  $plugin_param parameter to plugin by which they can
+ *                             decide whether they can work
  *
  * @return array list of plugin instances
  */
@@ -221,10 +221,11 @@ function PMA_pluginGetChoice($section, $name, &$list, $cfgname = null)
 /**
  * Returns single option in a list element
  *
- * @param string $section        name of config section in
+ * @param string  $section        name of config section in
  *                               $GLOBALS['cfg'][$section] for plugin
- * @param string $plugin_name    unique plugin name
- * @param array  &$propertyGroup options property main group instance
+ * @param string  $plugin_name    unique plugin name
+ * @param array   &$propertyGroup options property main group instance
+ * @param boolean $is_subgroup
  *
  * @return string  table row with option
  */
@@ -405,7 +406,7 @@ function PMA_pluginGetOneOption(
         }
     }
 
-    if (method_exists($propertyGroup, "getDoc")){
+    if (method_exists($propertyGroup, "getDoc")) {
         $doc = $propertyGroup->getDoc();
         if ($doc != null) {
             if (count($doc) == 3) {
