@@ -15,9 +15,32 @@ require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 require_once 'libraries/relation.lib.php';
 require_once 'libraries/CommonFunctions.class.php';
+require_once 'libraries/Theme.class.php';
 
 class PMA_operations_test extends PHPUnit_Framework_TestCase
 {
+    /**
+     * Set up global environment.
+     */
+    public function setup() {
+        $GLOBALS['table'] = 'table';
+        $GLOBALS['db'] = 'db';
+        $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+        $GLOBALS['cfg'] = array('MySQLManualType' => 'viewable', 'AjaxEnable' => true);
+
+        if (! function_exists('PMA_generateCharsetDropdownBox')) {
+            function PMA_generateCharsetDropdownBox()
+            {
+            }
+        }
+        if (! defined('PMA_CSDROPDOWN_CHARSET')) {
+            define('PMA_CSDROPDOWN_CHARSET', '');
+        }
+        if (! defined('PMA_CSDROPDOWN_COLLATION')) {
+            define('PMA_CSDROPDOWN_COLLATION', '');
+        }
+    }
+
     /**
      * Test for PMA_getHtmlForDatabaseComment
      */
