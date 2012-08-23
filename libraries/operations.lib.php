@@ -56,7 +56,7 @@ function PMA_getHtmlForRenameDatabase($db)
     $html_output = '<div class="operations_half_width">'
         . '<form id="rename_db_form" '
         . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax" ' : '')
-        . 'method="post" action="db_operations.php"'
+        . 'method="post" action="db_operations.php" '
         . 'onsubmit="return emptyFormElements(this, \'newname\')">';
     if (isset($_REQUEST['db_collation'])) {
         $html_output .= '<input type="hidden" name="db_collation" '
