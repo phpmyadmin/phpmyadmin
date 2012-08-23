@@ -26,8 +26,8 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
         $_SESSION[' PMA_token '] = 'token';
         $GLOBALS['cfg']['PropertiesIconic'] = true;
         $this->assertEquals(
-            PMA_getHtmlForDatabaseComment("pma"),
-            '<div class="operations_half_width"><form method="post" action="db_operations.php"><input type="hidden" name="db" value="pma" /><input type="hidden" name="server" value="x" /><input type="hidden" name="lang" value="x" /><input type="hidden" name="collation_connection" value="x" /><input type="hidden" name="token" value="token" /><fieldset><legend><img class="icon ic_b_comment" src="themes/dot.gif" alt="" />Database comment: </legend><input type="text" name="comment" class="textfield" size="30"value="" /></fieldset><fieldset class="tblFooters"><input type="submit" value="Go" /></fieldset></form></div>'
+            '<div class="operations_half_width"><form method="post" action="db_operations.php"><input type="hidden" name="db" value="pma" /><input type="hidden" name="server" value="x" /><input type="hidden" name="lang" value="x" /><input type="hidden" name="collation_connection" value="x" /><input type="hidden" name="token" value="token" /><fieldset><legend><img class="icon ic_b_comment" src="themes/dot.gif" alt="" />Database comment: </legend><input type="text" name="comment" class="textfield" size="30"value="" /></fieldset><fieldset class="tblFooters"><input type="submit" value="Go" /></fieldset></form></div>',
+            PMA_getHtmlForDatabaseComment("pma")
         );
     }
 
@@ -39,9 +39,9 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
         $_REQUEST['db_collation'] = 'db1';
         $GLOBALS['cfg']['PropertiesIconic'] = true;
         $this->assertEquals(
-            PMA_getHtmlForRenameDatabase("pma"),
             '<div class="operations_half_width"><form id="rename_db_form"  class="ajax" method="post" action="db_operations.php"onsubmit="return emptyFormElements(this, \'newname\')"><input type="hidden" name="db_collation" value="db1" />
-<input type="hidden" name="what" value="data" /><input type="hidden" name="db_rename" value="true" /><input type="hidden" name="db" value="pma" /><input type="hidden" name="server" value="x" /><input type="hidden" name="lang" value="x" /><input type="hidden" name="collation_connection" value="x" /><input type="hidden" name="token" value="token" /><fieldset><legend><img src="b_edit.png" title="" alt="" />Rename database to:</legend><input id="new_db_name" type="text" name="newname" size="30" class="textfield" value="" /></fieldset><fieldset class="tblFooters"><input id="rename_db_input" type="submit" value="Go" /></fieldset></form></div>'
+<input type="hidden" name="what" value="data" /><input type="hidden" name="db_rename" value="true" /><input type="hidden" name="db" value="pma" /><input type="hidden" name="server" value="x" /><input type="hidden" name="lang" value="x" /><input type="hidden" name="collation_connection" value="x" /><input type="hidden" name="token" value="token" /><fieldset><legend><img src="b_edit.png" title="" alt="" />Rename database to:</legend><input id="new_db_name" type="text" name="newname" size="30" class="textfield" value="" /></fieldset><fieldset class="tblFooters"><input id="rename_db_input" type="submit" value="Go" /></fieldset></form></div>',
+            PMA_getHtmlForRenameDatabase("pma")
         );
     }
 
@@ -52,8 +52,8 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['cfg']['PropertiesIconic'] = true;
         $this->assertEquals(
-            PMA_getHtmlForDropDatabaseLink("pma"),
-            '<div class="operations_half_width"><fieldset class="caution"><legend><img src="b_deltbl.png" title="" alt="" />Remove database</legend><ul><li><a href="sql.php?sql_query=DROP+DATABASE+%60pma%60&amp;back=db_operations.php&amp;goto=main.php&amp;reload=1&amp;purge=1&amp;message_to_show=Database+%60pma%60+has+been+dropped.&amp;server=x&amp;lang=x&amp;collation_connection=x&amp;token=token"id="drop_db_anchor" class="ajax">Drop the database (DROP)</a><a href="./url.php?url=http%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Fdrop-database.html&amp;server=x&amp;lang=x&amp;collation_connection=x&amp;token=token" target="mysql_doc"><img src="b_help.png" title="Documentation" alt="Documentation" /></a></li></ul></fieldset></div>'
+            '<div class="operations_half_width"><fieldset class="caution"><legend><img src="b_deltbl.png" title="" alt="" />Remove database</legend><ul><li><a href="sql.php?sql_query=DROP+DATABASE+%60pma%60&amp;back=db_operations.php&amp;goto=main.php&amp;reload=1&amp;purge=1&amp;message_to_show=Database+%60pma%60+has+been+dropped.&amp;server=x&amp;lang=x&amp;collation_connection=x&amp;token=token"id="drop_db_anchor" class="ajax">Drop the database (DROP)</a><a href="./url.php?url=http%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Fdrop-database.html&amp;server=x&amp;lang=x&amp;collation_connection=x&amp;token=token" target="mysql_doc"><img src="b_help.png" title="Documentation" alt="Documentation" /></a></li></ul></fieldset></div>',
+            PMA_getHtmlForDropDatabaseLink("pma")
         );
     }
 
@@ -65,7 +65,6 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
         $_REQUEST['db_collation'] = 'db1';
         $GLOBALS['cfg']['PropertiesIconic'] = true;
         $this->assertEquals(
-            PMA_getHtmlForCopyDatabase("pma"),
             '<div class="operations_half_width clearfloat"><form id="copy_db_form"  class="ajax" method="post" action="db_operations.php"onsubmit="return emptyFormElements(this\'newname\')"><input type="hidden" name="db_collation" value="db1" />
 <input type="hidden" name="db_copy" value="true" />
 <input type="hidden" name="db" value="pma" /><input type="hidden" name="server" value="x" /><input type="hidden" name="lang" value="x" /><input type="hidden" name="collation_connection" value="x" /><input type="hidden" name="token" value="token" /><fieldset><legend><img src="b_edit.png" title="" alt="" />Copy database to:</legend><input type="text" name="newname" size="30" class="textfield" value="" /><br /><input type="radio" name="what" id="what_structure" value="structure" />
@@ -74,7 +73,8 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
 <label for="what_data">Structure and data</label><br />
 <input type="radio" name="what" id="what_dataonly" value="dataonly" />
 <label for="what_dataonly">Data only</label><br />
-<input type="checkbox" name="create_database_before_copying" value="1" id="checkbox_create_database_before_copying"checked="checked" /><label for="checkbox_create_database_before_copying">CREATE DATABASE before copying</label><br /><input type="checkbox" name="drop_if_exists" value="true"id="checkbox_drop" /><label for="checkbox_drop">Add DROP TABLE / DROP VIEW</label><br /><input type="checkbox" name="sql_auto_increment" value="1" checked="checked" id="checkbox_auto_increment" /><label for="checkbox_auto_increment">Add AUTO_INCREMENT value</label><br /><input type="checkbox" name="add_constraints" value="1"id="checkbox_constraints" /><label for="checkbox_constraints">Add constraints</label><br /><input type="checkbox" name="switch_to_new" value="true"id="checkbox_switch"/><label for="checkbox_switch">Switch to copied database</label></fieldset><fieldset class="tblFooters"><input type="submit" name="submit_copy" value="Go" /></fieldset></form></div>'
+<input type="checkbox" name="create_database_before_copying" value="1" id="checkbox_create_database_before_copying"checked="checked" /><label for="checkbox_create_database_before_copying">CREATE DATABASE before copying</label><br /><input type="checkbox" name="drop_if_exists" value="true"id="checkbox_drop" /><label for="checkbox_drop">Add DROP TABLE / DROP VIEW</label><br /><input type="checkbox" name="sql_auto_increment" value="1" checked="checked" id="checkbox_auto_increment" /><label for="checkbox_auto_increment">Add AUTO_INCREMENT value</label><br /><input type="checkbox" name="add_constraints" value="1"id="checkbox_constraints" /><label for="checkbox_constraints">Add constraints</label><br /><input type="checkbox" name="switch_to_new" value="true"id="checkbox_switch"/><label for="checkbox_switch">Switch to copied database</label></fieldset><fieldset class="tblFooters"><input type="submit" name="submit_copy" value="Go" /></fieldset></form></div>',
+            PMA_getHtmlForCopyDatabase("pma")
         );
     }
 
@@ -86,14 +86,14 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
         $_REQUEST['db_collation'] = 'db1';
         $GLOBALS['cfg']['PropertiesIconic'] = true;
         $this->assertEquals(
-            PMA_getHtmlForChangeDatabaseCharset("pma", "bookmark"),
             '<div class="operations_half_width"><form id="change_db_charset_form"  class="ajax" method="post" action="db_operations.php"><input type="hidden" name="db" value="pma" /><input type="hidden" name="table" value="bookmark" /><input type="hidden" name="server" value="x" /><input type="hidden" name="lang" value="x" /><input type="hidden" name="collation_connection" value="x" /><input type="hidden" name="token" value="token" /><fieldset>
     <legend><img src="s_asci.png" title="" alt="" /><label for="select_db_collation">Collation:</label>
 </legend>
 </fieldset><fieldset class="tblFooters"><input type="submit" name="submitcollation" value="Go" />
 </fieldset>
 </form></div>
-'
+',
+            PMA_getHtmlForChangeDatabaseCharset("pma", "bookmark")
         );
     }
 
@@ -104,8 +104,8 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['cfg']['PropertiesIconic'] = true;
         $this->assertEquals(
-            PMA_getHtmlForExportRelationalSchemaView("id=001&name=pma"),
-            '<div class="operations_full_width"><fieldset><a href="schema_edit.php?id=001&name=pma"><img src="b_edit.png" title="" alt="" />Edit or export relational schema</a></fieldset></div>'
+            '<div class="operations_full_width"><fieldset><a href="schema_edit.php?id=001&name=pma"><img src="b_edit.png" title="" alt="" />Edit or export relational schema</a></fieldset></div>',
+            PMA_getHtmlForExportRelationalSchemaView("id=001&name=pma")
         );
     }
 
@@ -115,10 +115,10 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
     public function testPMA_getHtmlForOrderTheTable(){
 
         $this->assertEquals(
-            PMA_getHtmlForOrderTheTable(array("column1", "column2")),
             '<div class="operations_half_width"><form method="post" id="alterTableOrderby" action="tbl_operations.php"  class="ajax"><input type="hidden" name="db" value="test_db" /><input type="hidden" name="table" value="table" /><input type="hidden" name="server" value="x" /><input type="hidden" name="lang" value="x" /><input type="hidden" name="collation_connection" value="x" /><input type="hidden" name="token" value="token" /><fieldset id="fieldset_table_order"><legend>Alter table order by</legend><select name="order_field"><option value="c">c</option>
 <option value="c">c</option>
-</select> (singly)<select name="order_order"><option value="asc">Ascending</option><option value="desc">Descending</option></select></fieldset><fieldset class="tblFooters"><input type="submit" name="submitorderby" value="Go" /></fieldset></form></div>'
+</select> (singly)<select name="order_order"><option value="asc">Ascending</option><option value="desc">Descending</option></select></fieldset><fieldset class="tblFooters"><input type="submit" name="submitorderby" value="Go" /></fieldset></form></div>',
+            PMA_getHtmlForOrderTheTable(array("column1", "column2"))
         );
     }
 
@@ -128,8 +128,8 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
     public function testPMA_getHtmlForTableRow(){
 
         $this->assertEquals(
-            PMA_getHtmlForTableRow("name", "lable", "value"),
-            '<tr><td><label for="name">lable</label></td><td><input type="checkbox" name="name" id="name"value="1"/></td></tr>'
+            '<tr><td><label for="name">lable</label></td><td><input type="checkbox" name="name" id="name"value="1"/></td></tr>',
+            PMA_getHtmlForTableRow("name", "lable", "value")
         );
     }
 
@@ -139,8 +139,8 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
     public function testPMA_getMaintainActionlink(){
 
         $this->assertEquals(
-            PMA_getMaintainActionlink("post", array("name", "value"), "lable", "value"),
-            '<li><a class="maintain_action" href="tbl_operations.phpserver=x&amp;lang=x&amp;collation_connection=x&amp;token=token">post</a><a href="./url.php?url=http%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Fvalue.html&amp;server=x&amp;lang=x&amp;collation_connection=x&amp;token=token" target="mysql_doc"><img src="b_help.png" title="Documentation" alt="Documentation" /></a></li>'
+            '<li><a class="maintain_action" href="tbl_operations.phpserver=x&amp;lang=x&amp;collation_connection=x&amp;token=token">post</a><a href="./url.php?url=http%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Fvalue.html&amp;server=x&amp;lang=x&amp;collation_connection=x&amp;token=token" target="mysql_doc"><img src="b_help.png" title="Documentation" alt="Documentation" /></a></li>',
+            PMA_getMaintainActionlink("post", array("name", "value"), "lable", "value")
         );
     }
 
@@ -150,8 +150,8 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
     public function testPMA_getHtmlForDeleteDataOrTable(){
 
         $this->assertEquals(
-            PMA_getHtmlForDeleteDataOrTable(array("truncate"), array("drop")),
-            '<div class="operations_half_width"><fieldset class="caution"><legend>Delete data or table</legend><ul><li><a href="sql.php?0=truncate&amp;server=x&amp;lang=x&amp;collation_connection=x&amp;token=token"id="truncate_tbl_anchor" class="ajax">Empty the table (TRUNCATE)</a><a href="./url.php?url=http%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Ftruncate-table.html&amp;server=x&amp;lang=x&amp;collation_connection=x&amp;token=token" target="mysql_doc"><img src="b_help.png" title="Documentation" alt="Documentation" /></a></li><li><a href="sql.php?0=drop&amp;server=x&amp;lang=x&amp;collation_connection=x&amp;token=token"id="drop_tbl_anchor" class="ajax">Delete the table (DROP)</a><a href="./url.php?url=http%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Fdrop-table.html&amp;server=x&amp;lang=x&amp;collation_connection=x&amp;token=token" target="mysql_doc"><img src="b_help.png" title="Documentation" alt="Documentation" /></a></li></ul></fieldset></div>'
+            '<div class="operations_half_width"><fieldset class="caution"><legend>Delete data or table</legend><ul><li><a href="sql.php?0=truncate&amp;server=x&amp;lang=x&amp;collation_connection=x&amp;token=token"id="truncate_tbl_anchor" class="ajax">Empty the table (TRUNCATE)</a><a href="./url.php?url=http%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Ftruncate-table.html&amp;server=x&amp;lang=x&amp;collation_connection=x&amp;token=token" target="mysql_doc"><img src="b_help.png" title="Documentation" alt="Documentation" /></a></li><li><a href="sql.php?0=drop&amp;server=x&amp;lang=x&amp;collation_connection=x&amp;token=token"id="drop_tbl_anchor" class="ajax">Delete the table (DROP)</a><a href="./url.php?url=http%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Fdrop-table.html&amp;server=x&amp;lang=x&amp;collation_connection=x&amp;token=token" target="mysql_doc"><img src="b_help.png" title="Documentation" alt="Documentation" /></a></li></ul></fieldset></div>',
+            PMA_getHtmlForDeleteDataOrTable(array("truncate"), array("drop"))
         );
     }
 
