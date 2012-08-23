@@ -141,7 +141,7 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
             '<div class="operations_half_width"><form method="post" id="alterTableOrderby" action="tbl_operations.php"  class="ajax"><input type="hidden" name="db" value="test_db" /><input type="hidden" name="table" value="table" /><input type="hidden" name="server" value="x" /><input type="hidden" name="lang" value="x" /><input type="hidden" name="collation_connection" value="x" /><input type="hidden" name="token" value="token" /><fieldset id="fieldset_table_order"><legend>Alter table order by</legend><select name="order_field"><option value="c">c</option>
 <option value="c">c</option>
 </select> (singly)<select name="order_order"><option value="asc">Ascending</option><option value="desc">Descending</option></select></fieldset><fieldset class="tblFooters"><input type="submit" name="submitorderby" value="Go" /></fieldset></form></div>',
-            PMA_getHtmlForOrderTheTable(array("column1", "column2"))
+            PMA_getHtmlForOrderTheTable(array(array('Field' => "column1"), array('Field' => "column2")))
         );
     }
 
@@ -163,7 +163,7 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             '<li><a class="maintain_action" href="tbl_operations.phpserver=x&amp;lang=x&amp;collation_connection=x&amp;token=token">post</a><a href="./url.php?url=http%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Fvalue.html&amp;server=x&amp;lang=x&amp;collation_connection=x&amp;token=token" target="mysql_doc"><img src="b_help.png" title="Documentation" alt="Documentation" /></a></li>',
-            PMA_getMaintainActionlink("post", array("name", "value"), "lable", "value")
+            PMA_getMaintainActionlink("post", array("name" => 'foo', "value" => 'bar'), array(), 'doclink')
         );
     }
 
@@ -220,7 +220,7 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
     public function testPMA_getHtmlForReferentialIntegrityCheck(){
 
         $this->assertEquals(
-            PMA_getHtmlForReferentialIntegrityCheck(array("foreign1", "foreign2"), array("param1", "param2")),
+            PMA_getHtmlForReferentialIntegrityCheck(array(array('foreign_table' => "foreign1", 'foreign_field' => "foreign2")), array("param1" => 'a', "param2" => 'b')),
             '<div class="operations_half_width"><fieldset><legend>Check referential integrity:</legend><ul>"\n"<li><a href="sql.php?0=param1&amp;1=param2&amp;sql_query=SELECT+%60table%60.%2A+FROM+%60table%60+LEFT+JOIN+%60f%60+ON+%60table%60.%600%60+%3D+%60f%60.%60f%60+WHERE+%60f%60.%60f%60+IS+NULL+AND+%60table%60.%600%60+IS+NOT+NULL&amp;server=x&amp;lang=x&amp;collation_connection=x&amp;token=token">0&nbsp;->&nbsp;f.f</a></li>
 <li><a href="sql.php?0=param1&amp;1=param2&amp;sql_query=SELECT+%60table%60.%2A+FROM+%60table%60+LEFT+JOIN+%60f%60+ON+%60table%60.%601%60+%3D+%60f%60.%60f%60+WHERE+%60f%60.%60f%60+IS+NULL+AND+%60table%60.%601%60+IS+NOT+NULL&amp;server=x&amp;lang=x&amp;collation_connection=x&amp;token=token">1&nbsp;->&nbsp;f.f</a></li>
 </ul></fieldset></div>'
