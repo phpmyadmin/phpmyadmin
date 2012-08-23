@@ -56,7 +56,7 @@ function PMA_getHtmlForRenameDatabase($db)
     $html_output = '<div class="operations_half_width">'
         . '<form id="rename_db_form" '
         . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax" ' : '')
-        . 'method="post" action="db_operations.php"'
+        . 'method="post" action="db_operations.php" '
         . 'onsubmit="return emptyFormElements(this, \'newname\')">';
     if (isset($_REQUEST['db_collation'])) {
         $html_output .= '<input type="hidden" name="db_collation" '
@@ -1219,7 +1219,7 @@ function PMA_getMaintainActionlink($action, $params, $url_params, $link,
         . '<a class="maintain_action" '
         . 'href="tbl_operations.php'
         . PMA_generate_common_url(array_merge($url_params, $params)) .'">'
-        . __($action)
+        . $action
         . '</a>'
         . PMA_CommonFunctions::getInstance()->showMySQLDocu($chapter, $link)
         . '</li>';
@@ -1279,7 +1279,7 @@ function PMA_getDeleteDataOrTablelink($url_params, $syntax, $link, $id)
     return  '<li><a '
         . 'href="sql.php' . PMA_generate_common_url($url_params) . '"'
         . ($GLOBALS['cfg']['AjaxEnable']
-            ? 'id="' . $id . '" class="ajax"'
+            ? ' id="' . $id . '" class="ajax"'
             : ''
         ) . '>'
         . $link . '</a>'
