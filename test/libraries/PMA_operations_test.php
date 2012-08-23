@@ -26,10 +26,12 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
+        $_SESSION[' PMA_token '] = 'token';
         $GLOBALS['cfg'] = array(
             'MySQLManualType' => 'none',
             'AjaxEnable' => true,
             'ServerDefault' => 1,
+            'PropertiesIconic' => true,
         );
         $GLOBALS['server'] = 1;
 
@@ -51,8 +53,6 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
      */
     public function testPMA_getHtmlForDatabaseComment(){
 
-        $_SESSION[' PMA_token '] = 'token';
-        $GLOBALS['cfg']['PropertiesIconic'] = true;
         $this->assertRegExp(
             '/.*db_operations.php(.|[\n])*Database comment.*name="comment"([\n]|.)*/m',
             PMA_getHtmlForDatabaseComment("pma")
@@ -65,7 +65,6 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
     public function testPMA_getHtmlForRenameDatabase(){
 
         $_REQUEST['db_collation'] = 'db1';
-        $GLOBALS['cfg']['PropertiesIconic'] = true;
         $this->assertRegExp(
             '/.*db_operations.php(.|[\n])*db_rename([\n]|.)*Rename database to.*/m',
             PMA_getHtmlForRenameDatabase("pma")
@@ -77,7 +76,6 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
      */
     public function testPMA_getHtmlForDropDatabaseLink(){
 
-        $GLOBALS['cfg']['PropertiesIconic'] = true;
         $this->assertRegExp(
             '/.*DROP.DATABASE.*db_operations.php.*Drop the database.*/',
             PMA_getHtmlForDropDatabaseLink("pma")
@@ -90,7 +88,6 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
     public function testPMA_getHtmlForCopyDatabase(){
 
         $_REQUEST['db_collation'] = 'db1';
-        $GLOBALS['cfg']['PropertiesIconic'] = true;
         $this->assertRegExp(
             '/.*db_operations.php(.|[\n])*db_copy([\n]|.)*Copy database to.*/m',
             PMA_getHtmlForCopyDatabase("pma")
@@ -103,7 +100,6 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
     public function testPMA_getHtmlForChangeDatabaseCharset(){
 
         $_REQUEST['db_collation'] = 'db1';
-        $GLOBALS['cfg']['PropertiesIconic'] = true;
         $this->assertRegExp(
             '/.*db_operations.php(.|[\n])*select_db_collation([\n]|.)*Collation.*/m',
             PMA_getHtmlForChangeDatabaseCharset("pma", "bookmark")
@@ -115,7 +111,6 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
      */
     public function testPMA_getHtmlForExportRelationalSchemaView(){
 
-        $GLOBALS['cfg']['PropertiesIconic'] = true;
         $this->assertRegExp(
             '/.*schema_edit.php.*Edit or export relational schema<.*/',
             PMA_getHtmlForExportRelationalSchemaView("id=001&name=pma")
