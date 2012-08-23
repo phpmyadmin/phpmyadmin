@@ -128,7 +128,7 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
     public function testPMA_getHtmlForTableRow(){
 
         $this->assertEquals(
-            '<tr><td><label for="name">lable</label></td><td><input type="checkbox" name="name" id="name"value="1"/></td></tr>',
+            '<tr><td><label for="name">lable</label></td><td><input type="checkbox" name="name" id="name" value="1"/></td></tr>',
             PMA_getHtmlForTableRow("name", "lable", "value")
         );
     }
