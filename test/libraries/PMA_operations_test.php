@@ -124,7 +124,9 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
 
         $this->assertRegExp(
             '/.*tbl_operations.php(.|[\n])*Alter table order by([\n]|.)*order_order.*/m',
-            PMA_getHtmlForOrderTheTable(array(array('Field' => "column1"), array('Field' => "column2")))
+            PMA_getHtmlForOrderTheTable(
+                array(array('Field' => "column1"), array('Field' => "column2"))
+            )
         );
     }
 
@@ -146,7 +148,12 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             '<li><a class="maintain_action" href="tbl_operations.php?name=foo&amp;value=bar&amp;token=token">post</a></li>',
-            PMA_getMaintainActionlink("post", array("name" => 'foo', "value" => 'bar'), array(), 'doclink')
+            PMA_getMaintainActionlink(
+                "post",
+                array("name" => 'foo', "value" => 'bar'),
+                array(),
+                'doclink'
+            )
         );
     }
 
@@ -157,7 +164,9 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
 
         $this->assertRegExp(
             '/.*Delete data or table.*Empty the table.*Delete the table.*/m',
-            PMA_getHtmlForDeleteDataOrTable(array("truncate" => 'foo'), array("drop" => 'bar'))
+            PMA_getHtmlForDeleteDataOrTable(
+                array("truncate" => 'foo'), array("drop" => 'bar')
+            )
         );
     }
 
@@ -168,7 +177,12 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
 
         $this->assertRegExp(
             '/.*TRUNCATE.TABLE.foo.*id_truncate.*Truncate table.*/m',
-            PMA_getDeleteDataOrTablelink(array("sql" => 'TRUNCATE TABLE foo'), "TRUNCATE_TABLE", "Truncate table", "id_truncate")
+            PMA_getDeleteDataOrTablelink(
+                array("sql" => 'TRUNCATE TABLE foo'),
+                "TRUNCATE_TABLE",
+                "Truncate table",
+                "id_truncate"
+            )
         );
     }
 
@@ -179,7 +193,10 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
 
         $this->assertRegExp(
             '/.*action="tbl_operations.php"(.|[\n])*ANALYZE([\n]|.)*REBUILD([\n]|.)*/m',
-            PMA_getHtmlForPartitionMaintenance(array("partition1", "partion2"), array("param1" => 'foo', "param2" => 'bar'))
+            PMA_getHtmlForPartitionMaintenance(
+                array("partition1", "partion2"),
+                array("param1" => 'foo', "param2" => 'bar')
+            )
         );
     }
 
@@ -190,7 +207,15 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
 
         $this->assertRegExp(
             '/.*Check referential integrity.*href="sql.php(.|[\n])*/m',
-            PMA_getHtmlForReferentialIntegrityCheck(array(array('foreign_table' => "foreign1", 'foreign_field' => "foreign2")), array("param1" => 'a', "param2" => 'b'))
+            PMA_getHtmlForReferentialIntegrityCheck(
+                array(
+                    array(
+                        'foreign_table' => "foreign1",
+                        'foreign_field' => "foreign2"
+                    )
+                ),
+                array("param1" => 'a', "param2" => 'b')
+            )
         );
     }
 
