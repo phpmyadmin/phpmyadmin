@@ -1219,7 +1219,7 @@ function PMA_getMaintainActionlink($action, $params, $url_params, $link,
         . '<a class="maintain_action" '
         . 'href="tbl_operations.php'
         . PMA_generate_common_url(array_merge($url_params, $params)) .'">'
-        . __($action)
+        . $action
         . '</a>'
         . PMA_CommonFunctions::getInstance()->showMySQLDocu($chapter, $link)
         . '</li>';
