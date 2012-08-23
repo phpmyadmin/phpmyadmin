@@ -146,8 +146,8 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
      */
     public function testPMA_getMaintainActionlink(){
 
-        $this->assertEquals(
-            '<li><a class="maintain_action" href="tbl_operations.php?name=foo&amp;value=bar&amp;token=token">post</a></li>',
+        $this->assertRegExp(
+            '/.*href="tbl_operations.php.*post.*/',
             PMA_getMaintainActionlink(
                 "post",
                 array("name" => 'foo', "value" => 'bar'),
