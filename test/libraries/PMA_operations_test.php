@@ -26,7 +26,12 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
-        $GLOBALS['cfg'] = array('MySQLManualType' => 'viewable', 'AjaxEnable' => true);
+        $GLOBALS['cfg'] = array(
+            'MySQLManualType' => 'none',
+            'AjaxEnable' => true,
+            'ServerDefault' => 1,
+        );
+        $GLOBALS['server'] = 1;
 
         if (! function_exists('PMA_generateCharsetDropdownBox')) {
             function PMA_generateCharsetDropdownBox()
