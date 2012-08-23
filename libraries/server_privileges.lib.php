@@ -287,14 +287,14 @@ function PMA_getGrantsArray()
 /**
  * Displays on which column(s) a table-specific privilege is granted
  *
- * @param array  $columns           columns array
- * @param array  $row               first row from result or boolean false
- * @param string $name_for_select   privilege types - Select_priv, Insert_priv
- *                                  Update_priv, References_priv
- * @param string $priv_for_header   privilege for header
- * @param string $name              privilege name - insert, select, update, references
- * @param string $name_for_dfn      name for dfn
- * @param string $name_for_current  name for current
+ * @param array  $columns          columns array
+ * @param array  $row              first row from result or boolean false
+ * @param string $name_for_select  privilege types - Select_priv, Insert_priv
+ *                                 Update_priv, References_priv
+ * @param string $priv_for_header  privilege for header
+ * @param string $name             privilege name: insert, select, update, references
+ * @param string $name_for_dfn     name for dfn
+ * @param string $name_for_current name for current
  *
  * @return $html_output             html snippet
  */
@@ -337,10 +337,10 @@ function PMA_getHtmlForDisplayColumnPrivileges($columns, $row, $name_for_select,
 /**
  * Get sql query for display privileges table
  *
- * @param string $db      the database
- * @param string $table   the table
- * @param string $username   username for database connection
- * @param string $hostname   hostname for database connection
+ * @param string $db       the database
+ * @param string $table    the table
+ * @param string $username username for database connection
+ * @param string $hostname hostname for database connection
  *
  * @return string sql query
  */
@@ -368,9 +368,11 @@ function PMA_getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname)
 /**
  * Displays the privileges form table
  *
- * @param string  $db     the database
- * @param string  $table  the table
- * @param boolean $submit wheather to display the submit button or not
+ * @param string  $random_n a random number that will be appended
+ *                          to the id of the user forms
+ * @param string  $db       the database
+ * @param string  $table    the table
+ * @param boolean $submit   wheather to display the submit button or not
  *
  * @global  array      $cfg         the phpMyAdmin configuration
  * @global  ressource  $user_link   the database connection
@@ -378,7 +380,7 @@ function PMA_getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname)
  * @return string html snippet
  */
 function PMA_getHtmlToDisplayPrivilegesTable($random_n, $db = '*',
-     $table = '*', $submit = true
+    $table = '*', $submit = true
 ) {
     $html_output = '';
 
@@ -488,9 +490,9 @@ function PMA_getHtmlToDisplayPrivilegesTable($random_n, $db = '*',
 /**
  * Get HTML for "Resource limits"
  *
- * @param array $row    first row from result or boolean false
+ * @param array $row first row from result or boolean false
  *
- * @return string       html snippet
+ * @return string html snippet
  */
 function PMA_getHtmlForDisplayResourceLimits($row)
 {
@@ -563,11 +565,12 @@ function PMA_getHtmlForDisplayResourceLimits($row)
 /**
  * Get the HTML snippet for table specific privileges
  *
- * @param string $username  username for database connection
- * @param string $hostname  hostname for database connection
- * @param string $db        the database
- * @param string $table     the table
+ * @param string  $username username for database connection
+ * @param string  $hostname hostname for database connection
+ * @param string  $db       the database
+ * @param string  $table    the table
  * @param boolean $columns  columns array
+ * @param         $row
  *
  * @return string $html_output
  */
@@ -629,8 +632,8 @@ function PMA_getHtmlForTableSpecificPrivileges($username, $hostname, $db
 /**
  * Get HTML snippet for privileges that are attached to a specific column
  *
- * @param string $columns   columns array
- * @param array $row        first row from result or boolean false
+ * @param string $columns olumns array
+ * @param array $row      first row from result or boolean false
  *
  * @return string $html_output
  */
@@ -661,7 +664,7 @@ function PMA_getHtmlForAttachedPrivilegesToTableSpecificColumn($columns, $row)
 /**
  * Get HTML for privileges that are not attached to a specific column
  *
- * @param array $row         first row from result or boolean false
+ * @param array $row first row from result or boolean false
  *
  * @return string $html_output
  */
@@ -747,11 +750,11 @@ function PMA_getHtmlForNotAttachedPrivilegesToTableSpecificColumn($row)
 /**
  * Get HTML for global or database specific privileges
  *
- * @param string $db        the database
- * @param string $table     the table
- * @param string $row       first row from result or boolean false
- * @param string $random_n  a random number that will be appended
- *                          to the id of the user forms
+ * @param string $db       the database
+ * @param string $table    the table
+ * @param string $row      first row from result or boolean false
+ * @param string $random_n a random number that will be appended
+ *                         to the id of the user forms
  *
  * @return string $html_output
  */
@@ -819,9 +822,9 @@ function PMA_getHtmlForGlobalOrDbSpecificPrivs($db, $table, $row, $random_n)
 /**
  * Get data privilege table as an array
  *
- * @param string $db    the database
+ * @param string $db the database
  *
- * @return string       data privilege table
+ * @return string data privilege table
  */
 function PMA_getDataPrivilegeTable($db)
 {
@@ -845,9 +848,9 @@ function PMA_getDataPrivilegeTable($db)
  * Get structure privilege table as an array
  *
  * @param string $table the table
- * @param array $row    first row from result or boolean false
+ * @param array  $row   first row from result or boolean false
  *
- * @return string       structure privilege table
+ * @return string structure privilege table
  */
 function PMA_getStructurePrivilegeTable($table, $row)
 {
@@ -920,9 +923,9 @@ function PMA_getStructurePrivilegeTable($table, $row)
 /**
  * Get administration privilege table as an array
  *
- * @param string $db    the table
+ * @param string $db the table
  *
- * @return string       administration privilege table
+ * @return string administration privilege table
  */
 function PMA_getAdministrationPrivilegeTable($db)
 {
@@ -982,10 +985,10 @@ function PMA_getAdministrationPrivilegeTable($db)
 /**
  * Get HTML snippet for global privileges table with check boxes
  *
- * @param array $privTable          privileges table array
- * @param array $privTable_names    names of the privilege tables
- *                                  (Data, Structure, Administration)
- * @param array $row                first row from result or boolean false
+ * @param array $privTable       privileges table array
+ * @param array $privTable_names names of the privilege tables
+ *                               (Data, Structure, Administration)
+ * @param array $row             first row from result or boolean false
  *
  * @return string $html_output
  */
@@ -1300,9 +1303,9 @@ function PMA_getGrants($user, $host)
 /**
  * Update password and get message for password updating
  *
- * @param string $err_url   error url
- * @param string $username  username
- * @param string $hostname  hostname
+ * @param string $err_url  error url
+ * @param string $username username
+ * @param string $hostname hostname
  *
  * @return string $message  success or error message after updating password
  */
@@ -1366,11 +1369,12 @@ function PMA_getMessageForUpdatePassword($err_url, $username, $hostname)
 /**
  * Revokes privileges and get message and SQL query for privileges revokes
  *
- * @param string $db_and_table  wildcard Escaped database+table specification
- * @param string $dbname        database name
- * @param string $tablename     table name
- * @param string $username      username
- * @param string $hostname      host name
+ * @param string $db_and_table wildcard Escaped database+table specification
+ * @param string $dbname       database name
+ * @param string $tablename    table name
+ * @param string $username     username
+ * @param string $hostname     host name
+ *
  * @return array ($message, $sql_query)
  */
 function PMA_getMessageAndSqlQueryForPrivilegesRevoke($db_and_table, $dbname,
@@ -1439,7 +1443,7 @@ function PMA_getWithClauseForAddUserAndUpdatePrivs()
 /**
  * Get HTML for addUsersForm, This function call if isset($_REQUEST['adduser'])
  *
- * @param int $random_n
+ * @param int    $random_n
  * @param string $dbname
  *
  * @return string HTML for addUserForm
@@ -1502,7 +1506,7 @@ function PMA_getHtmlForAddUser($random_n, $dbname)
  * Get the list of privileges and list of compared privileges as strings
  * and return a array that contains both strings
  *
- * @return array  $list_of_privileges, $list_of_compared_privileges
+ * @return array $list_of_privileges, $list_of_compared_privileges
  */
 function PMA_getListOfPrivilegesAndComparedPrivileges()
 {
@@ -1652,12 +1656,12 @@ function PMA_getHtmlForSpecificDbPrivileges($link_edit, $conditional_class)
 /**
  * Get HTML snippet for table body of specific database privileges
  *
- * @param boolean $found        whether user found or not
- * @param array $row            array of rows from mysql,
- *                              db table with list of privileges
- * @param boolean $odd_row      whether odd or not
- * @param string $link_edit     standard link for edit
- * @param string $res           ran sql query
+ * @param boolean $found     whether user found or not
+ * @param array   $row       array of rows from mysql,
+ *                           db table with list of privileges
+ * @param boolean $odd_row   whether odd or not
+ * @param string  $link_edit standard link for edit
+ * @param string  $res       ran sql query
  *
  * @return string $html_output
  */
@@ -1770,7 +1774,7 @@ function PMA_getHtmlTableBodyForSpecificDbPrivs($found, $row, $odd_row,
  * Define some standard links
  * $link_edit, $link_revoke, $link_export
  *
- * @param string $conditional_class     if ajaxable 'Ajax' otherwise ''
+ * @param string $conditional_class if ajaxable 'Ajax' otherwise ''
  *
  * @return array with some standard links
  */
@@ -1815,8 +1819,8 @@ function PMA_getStandardLinks($conditional_class)
 /**
  * This function return the extra data array for the ajax behavior
  *
- * @param string $sql_query           sql query
- * @param string $link_edit           standard link for edit
+ * @param string $sql_query sql query
+ * @param string $link_edit standard link for edit
  *
  * @return array $extra_data
  */
@@ -1926,8 +1930,8 @@ function PMA_getExtraDataForAjaxBehavior($password, $link_export, $sql_query,
 /**
  * Get the HTML snippet for change user login information
  *
- * @param string $username  username
- * @param string $hostname  host name
+ * @param string $username username
+ * @param string $hostname host name
  *
  * @return string HTML snippet
  */
@@ -1974,9 +1978,9 @@ function PMA_getChangeLoginInformationHtmlForm($username, $hostname)
 /**
  * Provide a line with links to the relevant database and table
  *
- * @param string $url_dbname    url database name that urlencode() string
- * @param string $dbname        database name
- * @param string $tablename     table name
+ * @param string $url_dbname url database name that urlencode() string
+ * @param string $dbname     database name
+ * @param string $tablename  table name
  *
  * @return string HTML snippet
  */
@@ -2010,11 +2014,11 @@ function PMA_getLinkToDbAndTable($url_dbname, $dbname, $tablename)
  * db name was given, so we want all user specific rights for this db
  * So this function returns user rights as an array
  *
- * @param string $dbname                database name
- * @param array $tables                 tables
- * @param string $user_host_condition   a where clause that containd user's host condition
+ * @param array  $tables              tables
+ * @param string $user_host_condition a where clause that containd user's host condition
+ * @param string $dbname              database name
  *
- * @return array $db_rights             database rights
+ * @return array $db_rights database rights
  */
 function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
 {
@@ -2110,8 +2114,9 @@ function PMA_getUserSpecificRights($tables, $user_host_condition, $dbname)
 /**
  * Display user rights in table rows(Table specific or database specific privs)
  *
- * @param array $db_rights    user's database rights array
+ * @param array  $db_rights   user's database rights array
  * @param string $link_edit   standard link to edit privileges
+ * @param string $dbname      database name
  * @param string $link_revoke standard link to revoke
  * @param string $hostname    host name
  * @param string $username    username
@@ -2198,11 +2203,11 @@ function PMA_getHtmlForDisplayUserRightsInRows($db_rights, $link_edit, $dbname,
 /**
  * Get a HTML table for display user's tabel specific or database specific rights
  *
- * @param string $username      username
- * @param string $hostname      host name
- * @param string $dbname        database name
- * @param string $link_edit     standard link to edit privileges
- * @param string $link_revoke   standard link to revoke
+ * @param string $username    username
+ * @param string $hostname    host name
+ * @param string $link_edit   standard link to edit privileges
+ * @param string $link_revoke standard link to revoke
+ * @param string $dbname      database name
  *
  * @return array $html_output, $found_rows
  */
@@ -2276,7 +2281,7 @@ function PMA_getTableForDisplayAllTableSpecificRights($username, $hostname
 /**
  * Get HTML for display select db
  *
- * @param array $found_rows     isset($dbname)) ? $row['Db'] : $row['Table_name']
+ * @param array $found_rows isset($dbname)) ? $row['Db'] : $row['Table_name']
  *
  * @return string HTML snippet
  */
@@ -2315,8 +2320,8 @@ function PMA_getHTmlForDisplaySelectDbInEditPrivs($found_rows)
 /**
  * Get HTML for display table in edit privilege
  *
- * @param string $dbname    database naame
- * @param array $found_rows isset($dbname)) ? $row['Db'] : $row['Table_name']
+ * @param string $dbname     database naame
+ * @param array  $found_rows isset($dbname)) ? $row['Db'] : $row['Table_name']
  *
  * @return string HTML snippet
  */
@@ -2369,8 +2374,8 @@ function PMA_displayTablesInEditPrivs($dbname, $found_rows)
  * Get HTML for display the users overview
  * (if less than 50 users, display them immediately)
  *
- * @param array $result             ran sql query
- * @param array $db_rights          user's database rights array
+ * @param array  $result            ran sql query
+ * @param array  $db_rights         user's database rights array
  * @param string $link_edit         standard link to edit privileges
  * @param string $pmaThemeImage     a image source link
  * @param string $text_dir          text directory
@@ -2445,9 +2450,9 @@ function PMA_getUsersOverview($result, $db_rights, $link_edit, $pmaThemeImage,
 /**
  * Get table body for 'tableuserrights' table in userform
  *
- * @param array $db_rights      user's database rights array
- * @param string $link_edit     standard link to edit privileges
- * @param string $link_export   Link for export all users
+ * @param array  $db_rights   user's database rights array
+ * @param string $link_edit   standard link to edit privileges
+ * @param string $link_export Link for export all users
  *
  * @return string HTML snippet
  */
@@ -2572,7 +2577,7 @@ function PMA_getFieldsetForAddDeleteUser($conditional_class)
 /**
  * Get HTML for Displays the initials
  *
- * @param array $array_initials     array for all initials, even non A-Z
+ * @param array  $array_initials    array for all initials, even non A-Z
  * @param string $conditional_class if ajaxable 'Ajax' otherwise ''
  *
  * @return string HTML snippet
@@ -2677,7 +2682,7 @@ function PMA_getDbRightsForUserOverview()
 /**
  * Delete user and get message and sql query for delete user in privileges
  *
- * @param string $queries   queries
+ * @param string $queries queries
  *
  * @return PMA_message
  */
@@ -2716,10 +2721,10 @@ function PMA_deleteUser($queries)
 /**
  * Update the privileges and return the success or error message
  *
- * @param string $dbname        database name
- * @param string $tablename     table name
- * @param string $username      username
- * @param string $hostname      host name
+ * @param string $username  username
+ * @param string $hostname  host name
+ * @param string $tablename table name
+ * @param string $dbname    database name
  *
  * @return PMA_message success message or error message for update
  */
@@ -2785,8 +2790,8 @@ function PMA_updatePrivileges($username, $hostname, $tablename, $dbname)
 /**
  * Get title and textarea for export user definition in Privileges
  *
- * @param string $username  username
- * @param string $hostname  host name
+ * @param string $username username
+ * @param string $hostname host name
  *
  * @return array ($title, $export)
  */
@@ -2827,7 +2832,7 @@ function PMA_getHtmlForExportUserDefinition($username, $hostname)
 /**
  * Get HTML for display Add userfieldset
  *
- * @param string $conditional_class   if ajaxable 'Ajax' otherwise ''
+ * @param string $conditional_class if ajaxable 'Ajax' otherwise ''
  *
  * @return string html output
  */
@@ -2845,8 +2850,12 @@ function PMA_getAddUserHtmlFieldset($conditional_class)
 /**
  * Get HTML header for display User's properties
  *
- * @param boolean $dbname_is_wildcard   whether database name is wildcard or not
- * @param type $url_dbname              url database name that urlencode() string
+ * @param boolean $dbname_is_wildcard whether database name is wildcard or not
+ * @param string  $url_dbname         url database name that urlencode() string
+ * @param string  $dbname             database name
+ * @param string  $username           username
+ * @param string  $hostname           host name
+ * @param string  $tablename          table name
  *
  * @return string $html_output
  */
@@ -2998,14 +3007,16 @@ function PMA_getHtmlForDisplayUserOverviewPage($link_edit, $pmaThemeImage,
 /**
  * Get HTML snippet for display user properties
  *
- * @param boolean $dbname_is_wildcard   whether database name is wildcard or not
- * @param type $url_dbname              url database name that urlencode() string
- * @param integer $random_n             a random number that will be appended
- *                                      to the id of the user forms
- * @param string $username              username
- * @param string $hostname              host name
- * @param string $link_edit             standard link to edit privileges
- * @param string $link_revoke           standard link to revoke
+ * @param boolean $dbname_is_wildcard whether database name is wildcard or not
+ * @param type    $url_dbname         url database name that urlencode() string
+ * @param integer $random_n           a random number that will be appended
+ *                                    to the id of the user forms
+ * @param string  $username           username
+ * @param string  $hostname           host name
+ * @param string  $link_edit          standard link to edit privileges
+ * @param string  $link_revoke        standard link to revoke
+ * @param string  $dbname             database name
+ * @param string  $tablename          table name
  *
  * @return string $html_output
  */
@@ -3102,10 +3113,10 @@ function PMA_getHtmlForDisplayUserProperties($dbname_is_wildcard,$url_dbname,
 /**
  * Get queries for Table privileges to change or copy user
  *
- * @param string $user_host_condition   user host condition to select relevent table privileges
- * @param string $queries               queries array
- * @param string $username              username
- * @param string $hostname              host name
+ * @param string $user_host_condition user host condition to select relevent table privileges
+ * @param array  $queries             queries array
+ * @param string $username            username
+ * @param string $hostname            host name
  *
  * @return array  $queries
  */
@@ -3186,9 +3197,9 @@ function PMA_getTablePrivsQueriesForChangeOrCopyUser($user_host_condition,
 /**
  * Get queries for database specific privileges for change or copy user
  *
- * @param array $queries        queries array with string
- * @param string $username      username
- * @param string $hostname      host name
+ * @param array  $queries  queries array with string
+ * @param string $username username
+ * @param string $hostname host name
  *
  * @return array $queries
  */
@@ -3220,13 +3231,14 @@ function PMA_getDbSpecificPrivsQueriesForChangeOrCopyUser($queries, $username, $
 }
 
 /**
- * Prepares queries for adding users and also create database and return query and message
+ * Prepares queries for adding users and
+ * also create database and return query and message
  *
- * @param boolean $_error           whether user create or not
- * @param string $real_sql_query    SQL query for add a user
- * @param string $sql_query         SQL query to be displayed
- * @param string $username          username
- * @param string $hostname          host name
+ * @param boolean $_error         whether user create or not
+ * @param string  $real_sql_query SQL query for add a user
+ * @param string  $sql_query      SQL query to be displayed
+ * @param string  $username       username
+ * @param string  $hostname       host name
  *
  * @return array  $sql_query, $message
  */
@@ -3312,9 +3324,9 @@ function PMA_addUserAndCreateDatabase($_error, $real_sql_query, $sql_query,
 /**
  * Get SQL queries for Display and Add user
  *
- * @param string $username  usernam
- * @param string $hostname  host name
- * @param string $password  password
+ * @param string $username usernam
+ * @param string $hostname host name
+ * @param string $password password
  *
  * @return array ($create_user_real, $create_user_show,$real_sql_query, $sql_query)
  */
