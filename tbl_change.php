@@ -128,7 +128,7 @@ if (! empty($disp_message)) {
     if (! isset($disp_query)) {
         $disp_query     = null;
     }
-    $response->addHTML(PMA_getMessage($disp_message, $disp_query));
+    $response->addHTML($common_functions->getMessage($disp_message, $disp_query));
 }
 
 /**

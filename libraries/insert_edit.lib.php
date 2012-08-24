@@ -144,11 +144,14 @@ function PMA_showEmptyResultMessageOrSetUniqueCondition($rows, $key_id,
     // No row returned
     if (! $rows[$key_id]) {
         unset($rows[$key_id], $where_clause_array[$key_id]);
-        echo PMA_getMessage(
+        PMA_Response::getInstance()->addHtml(PMA_CommonFunctions::getInstance()->getMessage(
             __('MySQL returned an empty result set (i.e. zero rows).'),
             $local_query
-        );
-        exit;
+        ));
+    /**
+     * @todo not sure what should be done at this point, but we must not
+     * exit if we want the message to be displayed
+     */
     } else {// end if (no row returned)
         $meta = PMA_DBI_get_fields_meta($result[$key_id]);
 
