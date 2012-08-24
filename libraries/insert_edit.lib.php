@@ -1826,9 +1826,9 @@ function PMA_setSessionForEditNext($one_where_clause)
 }
 
 /**
- * set $goto_include varible for different cases and retrieve like,
+ * set $goto_include variable for different cases and retrieve like,
  * if $GLOBALS['goto'] empty, if $goto_include previously not defined
- * and new_insert, same_insert, same_insert
+ * and new_insert, same_insert, edit_next 
  *
  * @param string $goto_include store some script for include, otherwise it is
  *                             boolean false
@@ -1838,7 +1838,7 @@ function PMA_setSessionForEditNext($one_where_clause)
 function PMA_getGotoInclude($goto_include)
 {
     if (isset($_REQUEST['after_insert'])
-        && in_array($_REQUEST['after_insert'], array('new_insert', 'same_insert', 'same_insert'))
+        && in_array($_REQUEST['after_insert'], array('new_insert', 'same_insert', 'edit_next'))
     ) {
         $goto_include = 'tbl_change.php';
     } elseif (! empty($GLOBALS['goto'])) {
