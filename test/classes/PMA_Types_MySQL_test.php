@@ -38,8 +38,8 @@ class PMA_Types_MySQL_test extends PHPUnit_Framework_TestCase
      */
     public function testGetTypeDescription($type, $output){
         $this->assertEquals(
-            $this->object->getTypeDescription($type),
-            $output
+            $output,
+            $this->object->getTypeDescription($type)
         );
     }
 
@@ -222,8 +222,8 @@ class PMA_Types_MySQL_test extends PHPUnit_Framework_TestCase
      */
     public function testGetTypeClass($type, $output){
         $this->assertEquals(
-            $this->object->getTypeClass($type),
-            $output
+            $output,
+            $this->object->getTypeClass($type)
         );
     }
 
@@ -421,14 +421,14 @@ class PMA_Types_MySQL_test extends PHPUnit_Framework_TestCase
      */
     public function testGetAttributes(){
         $this->assertEquals(
-            $this->object->getAttributes(),
             array(
                 '',
                 'BINARY',
                 'UNSIGNED',
                 'UNSIGNED ZEROFILL',
                 'on update CURRENT_TIMESTAMP',
-            )
+            ),
+            $this->object->getAttributes()
         );
     }
 
@@ -437,7 +437,6 @@ class PMA_Types_MySQL_test extends PHPUnit_Framework_TestCase
      */
     public function testGetColumns(){
         $this->assertEquals(
-            $this->object->getColumns(),
             array(
                 0 => 'INT',
                 1 => 'VARCHAR',
@@ -496,7 +495,8 @@ class PMA_Types_MySQL_test extends PHPUnit_Framework_TestCase
                     'MULTIPOLYGON',
                     'GEOMETRYCOLLECTION',
                 )
-            )
+            ),
+            $this->object->getColumns()
         );
     }
 }

@@ -62,11 +62,11 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
     public function testGetStorageEngines(){
 
         $this->assertEquals(
-            $this->object->getStorageEngines(),
             array(
                 'dummy' => 'table1',
                 'engine' => 'table`2'
-            )
+            ),
+            $this->object->getStorageEngines()
         );
     }
 
@@ -78,7 +78,6 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
     public function testGetHtmlSelect(){
 
         $this->assertEquals(
-            $this->object->getHtmlSelect(),
             '<select name="engine">
     <option value="dummy" title="t">
         t
@@ -87,7 +86,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
         t
     </option>
 </select>
-'
+',
+            $this->object->getHtmlSelect()
         );
     }
 
@@ -130,8 +130,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
     public function testGetInfoPages(){
 
         $this->assertEquals(
-            $this->object->getInfoPages(),
-            array()
+            array(),
+            $this->object->getInfoPages()
         );
     }
 
@@ -151,8 +151,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
     public function testGetMysqlHelpPage(){
 
         $this->assertEquals(
-            $this->object->getMysqlHelpPage(),
-            'dummy-storage-engine'
+            'dummy-storage-engine',
+            $this->object->getMysqlHelpPage()
         );
     }
 
@@ -162,8 +162,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
     public function testGetVariables(){
 
         $this->assertEquals(
-            $this->object->getVariables(),
-            array()
+            array(),
+            $this->object->getVariables()
         );
     }
 
@@ -172,26 +172,26 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
      */
     public function testGetSupportInformationMessage(){
         $this->assertEquals(
-            $this->object->getSupportInformationMessage(),
-            'This MySQL server does not support the t storage engine.'
+            'This MySQL server does not support the t storage engine.',
+            $this->object->getSupportInformationMessage()
         );
 
         $this->object->support = 1;
         $this->assertEquals(
-            $this->object->getSupportInformationMessage(),
-            't has been disabled for this MySQL server.'
+            't has been disabled for this MySQL server.',
+            $this->object->getSupportInformationMessage()
         );
 
         $this->object->support = 2;
         $this->assertEquals(
-            $this->object->getSupportInformationMessage(),
-            't is available on this MySQL server.'
+            't is available on this MySQL server.',
+            $this->object->getSupportInformationMessage()
         );
 
         $this->object->support = 3;
         $this->assertEquals(
-            $this->object->getSupportInformationMessage(),
-            't is the default storage engine on this MySQL server.'
+            't is the default storage engine on this MySQL server.',
+            $this->object->getSupportInformationMessage()
         );
     }
 
@@ -201,8 +201,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
     public function testGetComment(){
 
         $this->assertEquals(
-            $this->object->getComment(),
-            't'
+            't',
+            $this->object->getComment()
         );
     }
 
@@ -212,8 +212,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
     public function testGetTitle(){
 
         $this->assertEquals(
-            $this->object->getTitle(),
-            't'
+            't',
+            $this->object->getTitle()
         );
     }
 
@@ -233,11 +233,11 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
     public function testResolveTypeSize(){
 
         $this->assertEquals(
-            $this->object->resolveTypeSize(12),
             array(
                 0 => 12,
                 1 => 'B'
-            )
+            ),
+            $this->object->resolveTypeSize(12)
         );
     }
 }

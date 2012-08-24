@@ -38,8 +38,8 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
      */
     public function testGetTypeDescription($type, $output){
         $this->assertEquals(
-            $this->object->getTypeDescription($type),
-            $output
+            $output,
+            $this->object->getTypeDescription($type)
         );
     }
 
@@ -130,8 +130,8 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
      */
     public function testGetTypeClass($type, $output){
         $this->assertEquals(
-            $this->object->getTypeClass($type),
-            $output
+            $output,
+            $this->object->getTypeClass($type)
         );
     }
 
@@ -178,8 +178,8 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
         }
 
         $this->assertEquals(
-            $this->object->getFunctionsClass($class),
-            $output
+            $output,
+            $this->object->getFunctionsClass($class)
         );
     }
 
@@ -308,11 +308,11 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
      */
     public function testGetAttributes(){
         $this->assertEquals(
-            $this->object->getAttributes(),
             array(
                 '',
                 'on update CURRENT_TIMESTAMP',
-            )
+            ),
+            $this->object->getAttributes()
         );
     }
 
@@ -326,7 +326,6 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
         }
 
         $this->assertEquals(
-            $this->object->getColumns(),
             array(
                 0 => 'INT',
                 1 => 'VARCHAR',
@@ -360,7 +359,8 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
                     '-',
                     'IPV6'
                 ),
- )
+            ),
+            $this->object->getColumns()
         );
     }
 }

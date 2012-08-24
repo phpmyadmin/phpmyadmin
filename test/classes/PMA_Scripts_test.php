@@ -71,11 +71,11 @@ class PMA_Scripts_test extends PHPUnit_Framework_TestCase
      */
     public function testIncludeFile($url, $timestamp, $ie_conditional, $output){
         $this->assertEquals(
+            $output,
             $this->_callPrivateFunction(
                 '_includeFile',
                 array($url, $timestamp, $ie_conditional)
-            ),
-            $output
+            )
         );
     }
 
@@ -130,10 +130,10 @@ class PMA_Scripts_test extends PHPUnit_Framework_TestCase
         $this->object->addCode('alert(\'CodeAdded\')');
 
         $this->assertEquals(
-            $this->object->getDisplay(),
             '<script type="text/javascript">// <![CDATA[
 alert(\'CodeAdded\')
-// ]]></script>'
+// ]]></script>',
+            $this->object->getDisplay()
         );
     }
 }
