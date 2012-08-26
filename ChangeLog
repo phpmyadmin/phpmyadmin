@@ -61,6 +61,7 @@ VerboseMultiSubmit, ReplaceHelpImg
 - bug #3540922 [edit] Error searching table with many fields
 - bug #3555104 [edit] Cannot copy a DB with table & views
 - bug #3559925 [privileges] Incorrect updating of the list of users
+- bug #3561224 [edit] cell edit date field with empty date fills in current date
 
 3.5.2.2 (2012-08-12)
 - [security] Fixed XSS vulnerabilities, see PMASA-2012-4
