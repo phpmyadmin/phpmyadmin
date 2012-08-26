@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 13:38+0200\n"
-"PO-Revision-Date: 2012-08-19 09:13+0200\n"
-"Last-Translator: Anusuk Sangubon <jaideejung007@gmail.com>\n"
+"PO-Revision-Date: 2012-08-26 14:53+0200\n"
+"Last-Translator: Adisorn Aeksatean <npgamer_nott@hotmail.com>\n"
 "Language-Team: Thai <http://l10n.cihar.com/projects/phpmyadmin/master/th/>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
@@ -1172,14 +1172,13 @@ msgid "From general log"
 msgstr "จากประวัติทั่วไป"
 
 #: js/messages.php:172
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "กำลังเรียกดูประวัติ"
+msgstr "กำลังวิเคราะห์ประวัติ"
 
 #: js/messages.php:173
 msgid "Analysing & loading logs. This may take a while."
-msgstr "กำลังวิเคราะห์และตรวจประวัติ จะใช้เวลาพอสมควร"
+msgstr "กำลังวิเคราะห์และตรวจประวัติ อาจจะใช้เวลาพอสมควร"
 
 #: js/messages.php:174
 msgid "Cancel request"
@@ -2317,7 +2316,7 @@ msgstr "ไม่สามารถใช้งาน ไดเรกทอร�
 
 #: libraries/CommonFunctions.class.php:3645
 msgid "There are no files to upload"
-msgstr ""
+msgstr "ไม่มีไฟล์ที่จะอัพโหลด"
 
 #: libraries/CommonFunctions.class.php:3671
 #: libraries/CommonFunctions.class.php:3672 libraries/structure.lib.php:309
@@ -3181,14 +3180,14 @@ msgid "take it"
 msgstr "ลงมือ"
 
 #: libraries/Theme_Manager.class.php:137
-#, fuzzy, php-format
+#, php-format
 msgid "Default theme %s not found!"
-msgstr "﻿เริ่มต้นชุดรูปแบบ %s ไม่พบ"
+msgstr "ไม่พบรูปแบบเริ่มต้น %s"
 
 #: libraries/Theme_Manager.class.php:194
 #, php-format
 msgid "Theme %s not found!"
-msgstr "﻿ชุดรูปแบบ %s ไม่พบ"
+msgstr "ไม่พบชุดรูปแบบ %s"
 
 #: libraries/Theme_Manager.class.php:271
 #, fuzzy, php-format
@@ -3525,18 +3524,16 @@ msgid "Overhead"
 msgstr "เกินความจำเป็น"
 
 #: libraries/build_html_for_db.lib.php:101
-#, fuzzy
 msgid "Jump to database"
-msgstr "ไม่มีฐานข้อมูล"
+msgstr "ข้ามไปยังฐานข้อมูล"
 
 #: libraries/build_html_for_db.lib.php:149
 msgid "Not replicated"
 msgstr ""
 
 #: libraries/build_html_for_db.lib.php:160
-#, fuzzy
 msgid "Replicated"
-msgstr "รีเลชัน"
+msgstr "ทำซ้ำเรียบร้อยแล้ว"
 
 #: libraries/build_html_for_db.lib.php:177
 #, php-format
@@ -3549,7 +3546,7 @@ msgstr "ตรวจสอบสิทธิ"
 
 #: libraries/common.inc.php:574
 msgid "Failed to read configuration file"
-msgstr ""
+msgstr "ไม่สามารถอ่านแฟ้มการตั้งค่าได้"
 
 #: libraries/common.inc.php:576
 msgid ""
@@ -3576,12 +3573,12 @@ msgstr ""
 #: libraries/common.inc.php:623
 #, php-format
 msgid "Invalid server index: %s"
-msgstr ""
+msgstr "ลำดับเซิฟเวอร์ไม่ถูกต้อง: %s"
 
 #: libraries/common.inc.php:634
 #, php-format
 msgid "Invalid hostname for server %1$s. Please review your configuration."
-msgstr ""
+msgstr "Hostname ไม่ถูกต้องสำหรับเซิฟเวอร์ %1$s กรุณาตรวจสอบการตั้งค่าของคุณ"
 
 #: libraries/common.inc.php:851
 msgid "Invalid authentication method set in configuration:"
@@ -3602,7 +3599,7 @@ msgstr "﻿ใช้ประโยชน์ได้"
 
 #: libraries/common.inc.php:1094
 msgid "numeric key detected"
-msgstr ""
+msgstr "ตรวจพบคีย์ตัวเลข"
 
 #: libraries/config.values.php:53 libraries/config.values.php:60
 #: libraries/config.values.php:68
@@ -3656,7 +3653,7 @@ msgstr "โครงสร้าง"
 #: libraries/plugins/export/ExportSql.class.php:198
 #: libraries/plugins/export/ExportTexytext.class.php:68
 msgid "data"
-msgstr ""
+msgstr "ข้อมูล"
 
 #: libraries/config.values.php:131
 #: libraries/plugins/export/ExportHtmlword.class.php:70
@@ -3696,7 +3693,7 @@ msgstr "แทรกหลายระเบียนในคราวเดี
 
 #: libraries/config.values.php:166
 msgid "both of the above"
-msgstr ""
+msgstr "ทั้งสองอย่าง"
 
 #: libraries/config.values.php:167
 msgid "neither of the above"
@@ -3705,7 +3702,7 @@ msgstr ""
 #: libraries/config/FormDisplay.class.php:88
 #: libraries/config/validate.lib.php:523
 msgid "Not a positive number"
-msgstr ""
+msgstr "ไม่ใช่จำนวนเต็มบวก"
 
 #: libraries/config/FormDisplay.class.php:89
 #: libraries/config/validate.lib.php:545
@@ -3721,13 +3718,13 @@ msgstr ""
 #: libraries/config/FormDisplay.class.php:586
 #: libraries/config/validate.lib.php:433 libraries/config/validate.lib.php:563
 msgid "Incorrect value"
-msgstr ""
+msgstr "ค่าไม่ถูกต้อง"
 
 #: libraries/config/FormDisplay.class.php:92
 #: libraries/config/validate.lib.php:579
 #, php-format
 msgid "Value must be equal or lower than %s"
-msgstr ""
+msgstr "ค่าควรจะเท่ากับหรือน้อยกว่า %s"
 
 #: libraries/config/FormDisplay.class.php:540
 #, php-format
@@ -3762,10 +3759,9 @@ msgid "SQL Validator is disabled"
 msgstr ""
 
 #: libraries/config/FormDisplay.class.php:811
-#, fuzzy
 #| msgid "Link not found"
 msgid "SOAP extension not found"
-msgstr "ไม่พบลิงก์"
+msgstr "ไม่พบ SOAP"
 
 #: libraries/config/FormDisplay.class.php:821
 #, php-format
@@ -3788,11 +3784,11 @@ msgstr ""
 #: libraries/config/FormDisplay.tpl.php:308
 #: libraries/config/messages.inc.php:360
 msgid "Restore default value"
-msgstr ""
+msgstr "คืนค่าเดิม"
 
 #: libraries/config/FormDisplay.tpl.php:324
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "อนุญาตให้ผู้ใช้แก้ไขค่านี้"
 
 #: libraries/config/FormDisplay.tpl.php:388 libraries/insert_edit.lib.php:1569
 #: libraries/schema/User_Schema.class.php:528 prefs_manage.php:328
@@ -3805,9 +3801,8 @@ msgid "Improves efficiency of screen refresh"
 msgstr ""
 
 #: libraries/config/messages.inc.php:18
-#, fuzzy
 msgid "Enable Ajax"
-msgstr "เปิดใช้อยู่"
+msgstr "ใช้งาน Ajax"
 
 #: libraries/config/messages.inc.php:19
 msgid ""
