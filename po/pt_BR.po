@@ -4,15 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 06:32-0400\n"
-"PO-Revision-Date: 2012-07-16 22:05+0200\n"
-"Last-Translator: Bruno Rafael <brunorafael@oi.com.br>\n"
-"Language-Team: brazilian_portuguese <pt_BR@li.org>\n"
+"PO-Revision-Date: 2012-08-26 09:00+0200\n"
+"Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://l10n.cihar.com/projects/phpmyadmin/3-5/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Weblate 1.1\n"
+"X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -6743,7 +6744,6 @@ msgstr ""
 "tbl_name (col_A,col_B) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
 #: libraries/export/sql.php:277
-#, fuzzy
 msgid ""
 "neither of the above<br /> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -6849,7 +6849,7 @@ msgstr "MySQL retornou um conjunto vazio (ex. zero registros)."
 #: libraries/import.lib.php:1100
 msgid ""
 "The following structures have either been created or altered. Here you can:"
-msgstr ""
+msgstr "As estruturas a seguir ou foram criadas, ou alteradas. Aqui você pode:"
 
 #: libraries/import.lib.php:1101
 msgid "View a structure's contents by clicking on its name"
@@ -6889,7 +6889,7 @@ msgstr "Estrutura do %s"
 #: libraries/import.lib.php:1136
 #, php-format
 msgid "Go to view: %s"
-msgstr ""
+msgstr "Vá para a visão: %s"
 
 #: libraries/import/csv.php:38 libraries/import/ods.php:33
 msgid ""
@@ -7856,7 +7856,7 @@ msgstr "Não existem eventos para serem mostrados."
 #: libraries/schema/Pdf_Relation_Schema.class.php:393
 #: libraries/schema/Svg_Relation_Schema.class.php:387
 #: libraries/schema/Visio_Relation_Schema.class.php:219
-#, fuzzy, php-format
+#, php-format
 #| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
 msgstr "A tabela \"%s\" não existe!"
@@ -7874,7 +7874,7 @@ msgstr "Configure as coordenadas para a tabela %s"
 #: libraries/schema/Pdf_Relation_Schema.class.php:836
 #: libraries/schema/Svg_Relation_Schema.class.php:803
 #: libraries/schema/Visio_Relation_Schema.class.php:537
-#, fuzzy, php-format
+#, php-format
 #| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
 msgstr "Esquema do Banco de Dados \"%s\" - Página %s"
@@ -8037,7 +8037,7 @@ msgstr "Conjuntos de caracteres"
 #: libraries/server_links.inc.php:104 server_plugins.php:47
 #: server_plugins.php:80
 msgid "Plugins"
-msgstr ""
+msgstr "Plugins"
 
 #: libraries/server_links.inc.php:108
 msgid "Engines"
@@ -8046,7 +8046,7 @@ msgstr "Motores"
 #: libraries/server_synchronize.lib.php:1301 server_synchronize.php:1186
 #, fuzzy
 msgid "Source database"
-msgstr "Procurar no Banco de Dados"
+msgstr "Banco de Dados Fonte"
 
 #: libraries/server_synchronize.lib.php:1303
 #: libraries/server_synchronize.lib.php:1311
