@@ -984,10 +984,13 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
 
                     // force to restore modified $input_field value after adding datepicker
                     // (after adding a datepicker, the input field doesn't display the time anymore, only the date)
-                    if (!is_null) {
-                        $editArea.datetimepicker('setDate', current_datetime_value);
+                    if (is_null 
+                        || current_datetime_value == '0000-00-00' 
+                        || current_datetime_value == '0000-00-00 00:00:00'
+                    ) {
+                        $input_field.val(current_datetime_value);
                     } else {
-                        $input_field.val('');
+                        $editArea.datetimepicker('setDate', current_datetime_value);                        
                     }
                     $editArea.append('<div class="cell_edit_hint">' + g.cellEditHint + '</div>');
 
