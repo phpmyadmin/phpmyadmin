@@ -77,6 +77,8 @@ $func_no_param = array(
     'CURRENT_USER',
     'CURDATE',
     'CURTIME',
+    'CURRENT_DATE',
+    'CURRENT_TIME',
     'DATABASE',
     'LAST_INSERT_ID',
     'NOW',
