@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 06:32-0400\n"
-"PO-Revision-Date: 2012-08-22 14:29+0200\n"
-"Last-Translator: Domen <dbc334@gmail.com>\n"
+"PO-Revision-Date: 2012-08-27 11:24+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/3-5/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -1543,10 +1543,9 @@ msgid "From general log"
 msgstr "Iz splošnega dnevnika"
 
 #: js/messages.php:176
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "Dnevniki nalaganja"
+msgstr "Analiziranje dnevnikov"
 
 #: js/messages.php:177
 msgid "Analysing & loading logs. This may take a while."
@@ -1585,10 +1584,9 @@ msgid "Jump to Log table"
 msgstr "Pojdi v dnevniško tabelo"
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "No data"
 msgid "No data found"
-msgstr "Brez podatkov"
+msgstr "Našel nisem nobenih podatkov"
 
 #: js/messages.php:185
 msgid "Log analysed, but no data found in this time span."
@@ -1626,16 +1624,14 @@ msgid "Chart"
 msgstr "Grafikon"
 
 #: js/messages.php:195
-#, fuzzy
 #| msgid "Add chart"
 msgid "Edit chart"
-msgstr "Dodaj grafikon"
+msgstr "Uredi grafikon"
 
 #: js/messages.php:196
-#, fuzzy
 #| msgid "Series:"
 msgid "Series"
-msgstr "Serije:"
+msgstr "Serije"
 
 #. l10n: A collection of available filters
 #: js/messages.php:199
@@ -1711,16 +1707,14 @@ msgid "Import"
 msgstr "Uvozi"
 
 #: js/messages.php:217
-#, fuzzy
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
-msgstr "Ne morem uvoziti konfiguracije"
+msgstr "Uvozi konfiguracijo nadziranja"
 
 #: js/messages.php:218
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "Prosimo, izberite primarni ključ ali unikatni ključ"
+msgstr "Prosimo, izberite datoteko, ki jo želite uvoziti"
 
 #: js/messages.php:220
 msgid "Analyse Query"
@@ -1917,7 +1911,7 @@ msgstr "Prehod z miško čez točko bo pokazalo njeno oznako."
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "Za povečanje izberite z miško del izrisa."
 
 #: js/messages.php:306
 msgid "Click reset zoom link to come back to original state."
@@ -11938,10 +11932,9 @@ msgid "How to use"
 msgstr "Kako uporabljati"
 
 #: tbl_zoom_select.php:431
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Ponastavi"
+msgstr "Ponastavi povečavo"
 
 #: themes.php:28
 msgid "Get more themes!"
