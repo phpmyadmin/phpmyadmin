@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 06:32-0400\n"
-"PO-Revision-Date: 2012-08-27 20:51+0200\n"
+"PO-Revision-Date: 2012-08-27 20:55+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/3-5/nl/>\n"
 "Language: nl\n"
@@ -1716,12 +1716,12 @@ msgstr "Importeren"
 #: js/messages.php:217
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
-msgstr "Monitor configuratie importeren"
+msgstr "Importeer monitor configuratie"
 
 #: js/messages.php:218
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "Gelieve het te importeren bestand te selecteren"
+msgstr "Selecteer het bestand dat u wil importeren"
 
 #: js/messages.php:220
 msgid "Analyse Query"
@@ -1921,7 +1921,7 @@ msgstr "Beweeg over een punt om het label te tonen."
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr "Selecteer een sectie van de grafiek met de muis om in te zoomen"
+msgstr "Selecteer een sectie van de grafiek met de muis om in te zoomen."
 
 #: js/messages.php:306
 msgid "Click reset zoom link to come back to original state."
@@ -5747,7 +5747,7 @@ msgstr "Rijen:"
 
 #: libraries/display_export.lib.php:152
 msgid "Dump some row(s)"
-msgstr "Verwijder sommige rij(en)"
+msgstr "Verwijder enkele rijen"
 
 #: libraries/display_export.lib.php:154
 msgid "Number of rows:"
