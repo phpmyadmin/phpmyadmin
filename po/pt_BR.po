@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 06:32-0400\n"
-"PO-Revision-Date: 2012-08-26 09:00+0200\n"
-"Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
+"PO-Revision-Date: 2012-08-27 11:33+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -7885,7 +7885,7 @@ msgstr "Esta página não contem todas tabelas!"
 
 #: libraries/schema/Export_Relation_Schema.class.php:228
 msgid "SCHEMA ERROR: "
-msgstr "ERRO DE ESQUEMA:"
+msgstr "ERRO DE ESQUEMA: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:858
 #: libraries/schema/Pdf_Relation_Schema.class.php:1171
