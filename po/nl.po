@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 13:38+0200\n"
-"PO-Revision-Date: 2012-04-23 16:55+0200\n"
+"PO-Revision-Date: 2012-08-27 21:20+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
-"Language-Team: dutch <nl@li.org>\n"
+"Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 0.10\n"
+"X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:816
@@ -1202,10 +1202,9 @@ msgid "From general log"
 msgstr "Uit het algemene logbestand"
 
 #: js/messages.php:172
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "Logs worden geladen"
+msgstr "Bezig met analyseren van logbestanden"
 
 #: js/messages.php:173
 msgid "Analysing & loading logs. This may take a while."
@@ -1245,10 +1244,9 @@ msgid "Jump to Log table"
 msgstr "Ga naar tabel Log"
 
 #: js/messages.php:180
-#, fuzzy
 #| msgid "No data"
 msgid "No data found"
-msgstr "Geen gegevens"
+msgstr "Geen gegevens gevonden"
 
 #: js/messages.php:181
 msgid "Log analysed, but no data found in this time span."
@@ -1289,16 +1287,14 @@ msgid "Chart"
 msgstr "Grafiek"
 
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Add chart"
 msgid "Edit chart"
-msgstr "Een grafiek toevoegen"
+msgstr "Grafiek aanpassen"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Series:"
 msgid "Series"
-msgstr "Series:"
+msgstr "Reeksen"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
@@ -1378,11 +1374,11 @@ msgstr "Importeren"
 
 #: js/messages.php:213
 msgid "Import monitor configuration"
-msgstr "Monitor configuratie importeren"
+msgstr "Importeer monitor configuratie"
 
 #: js/messages.php:214
 msgid "Please select the file you want to import"
-msgstr "Gelieve het te importeren bestand te selecteren"
+msgstr "Selecteer het bestand dat u wil importeren"
 
 #: js/messages.php:216
 msgid "Analyse Query"
@@ -1617,13 +1613,12 @@ msgstr "Beweeg over een punt om het label te tonen."
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "Selecteer een sectie van de grafiek met de muis om in te zoomen."
 
 #: js/messages.php:306
-#, fuzzy
 #| msgid "Click reset zoom link to come back to original state."
 msgid "Click reset zoom button to come back to original state."
-msgstr "Klik herstel zoom om terug te keren naar de beginpositie."
+msgstr "Klik herstel zoom om terug te keren naar de beginstand."
 
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."
@@ -2050,53 +2045,53 @@ msgstr "Seconde"
 #: libraries/Advisor.class.php:67
 #, php-format
 msgid "PHP threw following error: %s"
-msgstr ""
+msgstr "PHP gaf de volgende fout : %s"
 
 #: libraries/Advisor.class.php:89
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'"
-msgstr ""
+msgstr "Validatie van de preconditie van regel '%s' is mislukt"
 
 #: libraries/Advisor.class.php:106
 #, php-format
 msgid "Failed calculating value for rule '%s'"
-msgstr ""
+msgstr "Berekening van waarde voor regel '%s' is mislukt"
 
 #: libraries/Advisor.class.php:125
 #, php-format
 msgid "Failed running test for rule '%s'"
-msgstr ""
+msgstr "Test uitvoeren voor regel '%s' is mislukt"
 
 #: libraries/Advisor.class.php:207
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgid "Failed formatting string for rule '%s'."
-msgstr ""
-"Formatteren van tekenreeks voor regel '%s' is mislukt. PHP gaf de volgende "
-"foutmelding: %s"
+msgstr "Formatteren van tekenreeks voor regel '%s' is mislukt."
 
 #: libraries/Advisor.class.php:361
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
 msgstr ""
+"Ongeldige regeldeclaratie op lijn %1$s, lijn %2$s van de vorige regel "
+"verwacht"
 
 #: libraries/Advisor.class.php:378
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid format of CSV input on line %d."
 msgid "Invalid rule declaration on line %s"
-msgstr "Ongeldig formaat van CSV-invoer op regel %d."
+msgstr "Ongeldige regeldeclaratie op lijn %s"
 
 #: libraries/Advisor.class.php:386
 #, php-format
 msgid "Unexpected characters on line %s"
-msgstr ""
+msgstr "Onverwachte tekens op lijn %s"
 
 #: libraries/Advisor.class.php:400
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
-msgstr ""
+msgstr "Onverwacht teken op lijn %1$s. Tab verwacht, \"%2$s\" gevonden"
 
 #: libraries/Advisor.class.php:425 server_status.php:986
 msgid "per second"
@@ -2495,13 +2490,13 @@ msgstr[0] "<b>Totaal:</b> <i>%s</i> overeenkomst"
 msgstr[1] "<b>Totaal:</b> <i>%s</i> overeenkomsten"
 
 #: libraries/DbSearch.class.php:351
-#, fuzzy, php-format
+#, php-format
 #| msgid "%1$s match inside table <i>%2$s</i>"
 #| msgid_plural "%1$s matches inside table <i>%2$s</i>"
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "%1$s overeenkomst in de tabel <i>%2$s</i>"
-msgstr[1] "%1$s overeenkomsten in de tabel <i>%2$s</i>"
+msgstr[0] "%1$s overeenkomst in <strong>%2$s</strong>"
+msgstr[1] "%1$s overeenkomsten in <strong>%2$s</strong>"
 
 #: libraries/DbSearch.class.php:373
 #, php-format
@@ -2577,7 +2572,7 @@ msgid "vertical"
 msgstr "verticale"
 
 #: libraries/DisplayResults.class.php:940
-#, fuzzy, php-format
+#, php-format
 #| msgid "Headers every %s rows"
 msgid "Headers every %s rows"
 msgstr "Hoofdingen iedere %s regels"
@@ -3054,16 +3049,16 @@ msgid "unknown table status: "
 msgstr "onbekende tabelstatus: "
 
 #: libraries/Table.class.php:756
-#, fuzzy, php-format
+#, php-format
 #| msgid "Source database"
 msgid "Source database `%s` was not found!"
-msgstr "Brondatabank"
+msgstr "Brondatabank `%s` werd niet gevonden!"
 
 #: libraries/Table.class.php:764
-#, fuzzy, php-format
+#, php-format
 #| msgid "Theme %s not found!"
 msgid "Target database `%s` was not found!"
-msgstr "Thema %s niet gevonden!"
+msgstr "Doeldatabank `%s` niet gevonden!"
 
 #: libraries/Table.class.php:1192
 msgid "Invalid database"
@@ -3186,10 +3181,9 @@ msgid "How to use"
 msgstr "Hoe te gebruiken"
 
 #: libraries/TableSearch.class.php:1193
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "Herstellen"
+msgstr "Herstel zoom"
 
 #: libraries/Theme.class.php:169
 #, php-format
@@ -3257,12 +3251,17 @@ msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
 msgstr ""
+"Een getal met vaste kommapositie (M,D) - het maximum aantal cijfers (M) is "
+"65 (standaard 10), het maximum aantal decimalen (D) is 30 (standaard 0)"
 
 #: libraries/Types.class.php:307
 msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to "
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
+"Een klein getal met variabele kommapositie, toegelaten waarden zijn "
+"-3,402823466E+38 tot -1,175494351E-38, 0, en 1,175494351E-38 tot "
+"3.402823466E+38"
 
 #: libraries/Types.class.php:309
 msgid ""
@@ -3270,12 +3269,17 @@ msgid ""
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
+"Een getal met variabele kommapositie met dubbel nauwkeurigheid, toegelaten "
+"waarden zijn -1,7976931348623157E+308 tot -2,2250738585072014E-308, 0, en "
+"2,2250738585072014E-308 tot 1,7976931348623157E+308"
 
 #: libraries/Types.class.php:311
 msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
 msgstr ""
+"Synoniem voor DOUBLE (uitzondering : in REAL_AS_FLOAT SQL mode is dit een "
+"synoniem voor FLOAT)"
 
 #: libraries/Types.class.php:313
 msgid ""
@@ -6250,7 +6254,7 @@ msgstr "Rijen:"
 
 #: libraries/display_export.lib.php:165
 msgid "Dump some row(s)"
-msgstr "Verwijder sommige rij(en)"
+msgstr "Verwijder enkele rijen"
 
 #: libraries/display_export.lib.php:167
 msgid "Number of rows:"
@@ -10694,10 +10698,9 @@ msgid "Advisor"
 msgstr "Raadgever"
 
 #: server_status.php:822 server_status.php:848
-#, fuzzy
 #| msgid "Number of rows:"
 msgid "Number of data points: "
-msgstr "Aantal rijen:"
+msgstr "Aantal gegevenspunten : "
 
 #: server_status.php:826 server_status.php:852
 msgid "Refresh rate: "
