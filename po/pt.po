@@ -4,15 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 06:32-0400\n"
-"PO-Revision-Date: 2012-05-17 15:05+0200\n"
+"PO-Revision-Date: 2012-08-27 10:40+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: portuguese <pt@li.org>\n"
+"Language-Team: Portuguese "
+"<http://l10n.cihar.com/projects/phpmyadmin/3-5/pt/>\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.0\n"
+"X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -1546,10 +1547,9 @@ msgid "From general log"
 msgstr "Do registo geral"
 
 #: js/messages.php:176
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "Carregando registos"
+msgstr "Analisando os registos"
 
 #: js/messages.php:177
 msgid "Analysing & loading logs. This may take a while."
@@ -1590,10 +1590,9 @@ msgid "Jump to Log table"
 msgstr "Saltar para a tabela de registos"
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "No databases"
 msgid "No data found"
-msgstr "Sem bases de dados"
+msgstr "Sem dados"
 
 #: js/messages.php:185
 msgid "Log analysed, but no data found in this time span."
@@ -1631,9 +1630,8 @@ msgid "Chart"
 msgstr "Mapa de Resultados"
 
 #: js/messages.php:195
-#, fuzzy
 msgid "Edit chart"
-msgstr "Adiciona novo campo"
+msgstr "Editar gráfico"
 
 #: js/messages.php:196
 #, fuzzy
@@ -1714,16 +1712,14 @@ msgid "Import"
 msgstr "Importar"
 
 #: js/messages.php:217
-#, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Import monitor configuration"
-msgstr "Configuração incompatível do monitor local"
+msgstr "Importar configuração do monitor"
 
 #: js/messages.php:218
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "Por favor seleccione a chave primária ou a chave única"
+msgstr "Por favor, selecione o ficheiro que deseja importar"
 
 #: js/messages.php:220
 msgid "Analyse Query"
