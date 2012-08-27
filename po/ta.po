@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 13:38+0200\n"
-"PO-Revision-Date: 2011-12-28 11:44+0200\n"
-"Last-Translator: any anonymous user <>\n"
-"Language-Team: Tamil <ta@li.org>\n"
+"PO-Revision-Date: 2012-08-27 11:32+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Tamil <http://l10n.cihar.com/projects/phpmyadmin/master/ta/>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.1.6\n"
+"X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:816
@@ -86,7 +86,7 @@ msgstr "தேடு"
 #: tbl_tracking.php:497 tbl_tracking.php:639 view_create.php:221
 #: view_operations.php:96
 msgid "Go"
-msgstr "செல் "
+msgstr "செல்"
 
 #: browse_foreigners.php:186 browse_foreigners.php:190
 #: libraries/Index.class.php:463 tbl_tracking.php:373
