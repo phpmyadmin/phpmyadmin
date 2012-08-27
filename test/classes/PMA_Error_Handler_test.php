@@ -74,7 +74,7 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['cfg']['Error_Handler']['gather'] = true;
 
-        $this->assertEquals($this->object->handleError($errno, $errstr, $errfile, $errline), $output);
+        $this->assertEquals( $output, $this->object->handleError($errno, $errstr, $errfile, $errline));
     }
 
     /**
@@ -114,8 +114,9 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
     public function testGetDispUserErrors()
     {
 
-        $this->assertEquals($this->object->getDispUserErrors(),
-            '<div class="notice">Compile Error</div>'
+        $this->assertEquals(
+            '<div class="notice">Compile Error</div>',
+            $this->object->getDispUserErrors()
         );
     }
 
@@ -126,8 +127,9 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
     {
 
         $GLOBALS['cfg']['Error_Handler']['display'] = false;
-        $this->assertEquals($this->object->getDispUserErrors(),
-            ''
+        $this->assertEquals(
+            '',
+            $this->object->getDispUserErrors()
         );
     }
 
@@ -139,8 +141,9 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
 
         $GLOBALS['cfg']['Error_Handler']['display'] = true;
 
-        $this->assertEquals($this->object->getDispErrors(),
-            ''
+        $this->assertEquals(
+            '',
+            $this->object->getDispErrors()
         );
 
     }
@@ -173,8 +176,9 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
             ->method('getErrors')
             ->will($this->returnValue($err));
 
-        $this->assertEquals($this->object->countErrors(),
-            0
+        $this->assertEquals(
+            0,
+            $this->object->countErrors()
         );
     }
 
@@ -191,8 +195,9 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
             ->method('countErrors', 'getErrors')
             ->will($this->returnValue(1, $err));
 
-        $this->assertEquals($this->object->countUserErrors(),
-            0
+        $this->assertEquals(
+            0,
+            $this->object->countUserErrors()
         );
     }
 
@@ -218,8 +223,9 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
     public function testCountDisplayErrorsForDisplayTrue()
     {
         $GLOBALS['cfg']['Error_Handler']['display'] = true;
-        $this->assertEquals($this->object->countDisplayErrors(),
-            0
+        $this->assertEquals(
+            0,
+            $this->object->countDisplayErrors()
         );
     }
 
@@ -229,8 +235,9 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
     public function testCountDisplayErrorsForDisplayFalse()
     {
         $GLOBALS['cfg']['Error_Handler']['display'] = false;
-        $this->assertEquals($this->object->countDisplayErrors(),
-            0
+        $this->assertEquals(
+            0,
+            $this->object->countDisplayErrors()
         );
     }
 
