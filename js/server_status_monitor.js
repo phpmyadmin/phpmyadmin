@@ -66,21 +66,15 @@ $(function() {
         // Query cache efficiency
         'qce': {
             title: PMA_messages['strQueryCacheEfficiency'],
-            nodes: [ {
-                name: PMA_messages['strQueryCacheEfficiency'],
-                dataPoints: [{type: 'statusvar', name: 'Qcache_hits'}, {type: 'statusvar', name: 'Com_select'}],
-                unit: '%',
-                transformFn: 'qce'
+            series: [ {
+                label: PMA_messages['strQueryCacheEfficiency']
             } ]
         },
         // Query cache usage
         'qcu': {
             title: PMA_messages['strQueryCacheUsage'],
-            nodes: [ {
-                name: PMA_messages['strQueryCacheUsed'],
-                dataPoints: [{type: 'statusvar', name: 'Qcache_free_memory'}, {type: 'servervar', name: 'query_cache_size'}],
-                unit: '%',
-                transformFn: 'qcu'
+            series: [ {
+                label: PMA_messages['strQueryCacheUsed']
             } ]
         }
     };
@@ -91,41 +85,35 @@ $(function() {
         $.extend(presetCharts, { 
             'cpu': {
                 title: PMA_messages['strSystemCPUUsage'],
-                nodes: [ { 
-                    name: PMA_messages['strAverageLoad'], 
-                    dataPoints: [{ type: 'cpu', name: 'loadavg'}], 
-                    unit: '%'
+                series: [ { 
+                    label: PMA_messages['strAverageLoad']
                 } ]
             },
             
             'memory': {
                 title: PMA_messages['strSystemMemory'],
-                nodes: [ {
-                    name: PMA_messages['strTotalMemory'],
-                    dataPoints: [{ type: 'memory', name: 'MemTotal' }],
-                    valueDivisor: 1024,
-                    unit: PMA_messages['strMiB']
+                series: [ {
+                    label: PMA_messages['strTotalMemory'],
+                    fill:true,
+                    stackSeries: true
                 }, {
                     dataType: 'memory',
-                      name: PMA_messages['strUsedMemory'],
-                      dataPoints: [{ type: 'memory', name: 'MemUsed' }],
-                      valueDivisor: 1024,
-                      unit: PMA_messages['strMiB']
+                    label: PMA_messages['strUsedMemory'],
+                    fill:true,
+                    stackSeries: true
                 } ]
             },
             
             'swap': {
                 title: PMA_messages['strSystemSwap'],
-                nodes: [ {
-                    name: PMA_messages['strTotalSwap'],
-                    dataPoints: [{ type: 'memory', name: 'SwapTotal' }],
-                    valueDivisor: 1024,
-                    unit: PMA_messages['strMiB']
+                series: [ {
+                    label: PMA_messages['strTotalSwap'],
+                    fill:true,
+                    stackSeries: true
                 }, {
-                    name: PMA_messages['strUsedSwap'],
-                    dataPoints: [{ type: 'memory', name: 'SwapUsed' }],
-                    valueDivisor: 1024,
-                    unit: PMA_messages['strMiB']
+                    label: PMA_messages['strUsedSwap'],
+                    fill:true,
+                    stackSeries: true
                 } ]
             }
         });
@@ -135,51 +123,26 @@ $(function() {
         $.extend(presetCharts, {
             'cpu': {
                 title: PMA_messages['strSystemCPUUsage'],
-                nodes: [ {
-                    name: PMA_messages['strAverageLoad'],
-                    dataPoints: [{ type: 'cpu', name: 'irrelevant' }],
-                    unit: '%',
-                    transformFn: 'cpu-linux'
+                series: [ {
+                    label: PMA_messages['strAverageLoad']
                 } ]
             },
             'memory': {
                 title: PMA_messages['strSystemMemory'],
-                nodes: [
-                    { name: PMA_messages['strUsedMemory'], dataPoints: [{ type: 'memory', name: 'MemUsed' }], valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                    { name: PMA_messages['strCachedMemory'], dataPoints: [{ type: 'memory', name: 'Cached' }],  valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                    { name: PMA_messages['strBufferedMemory'], dataPoints: [{ type: 'memory', name: 'Buffers' }], valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                    { name: PMA_messages['strFreeMemory'], dataPoints: [{ type: 'memory', name: 'MemFree' }], valueDivisor: 1024, unit: PMA_messages['strMiB'] }
-                ],
-                settings: {
-                    chart: {
-                        type: 'area',
-                        animation: false
-                    },
-                    plotOptions: {
-                        area: {
-                            stacking: 'percent'
-                        }
-                    }
-                }
+                series: [
+                    { label: PMA_messages['strUsedMemory'], fill:true, stackSeries: true},
+                    { label: PMA_messages['strCachedMemory'], fill:true, stackSeries: true},
+                    { label: PMA_messages['strBufferedMemory'], fill:true, stackSeries: true},
+                    { label: PMA_messages['strFreeMemory'], fill:true, stackSeries: true}
+                ]
             },
             'swap': {
                 title: PMA_messages['strSystemSwap'],
-                nodes: [
-                    { name: PMA_messages['strUsedSwap'], dataPoints: [{ type: 'memory', name: 'SwapUsed' }], valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                    { name: PMA_messages['strCachedSwap'], dataPoints: [{ type: 'memory', name: 'SwapCached' }], valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                    { name: PMA_messages['strFreeSwap'], dataPoints: [{ type: 'memory', name: 'SwapFree' }], valueDivisor: 1024, unit: PMA_messages['strMiB'] }
-                ],
-                settings: {
-                    chart: {
-                        type: 'area',
-                        animation: false
-                    },
-                    plotOptions: {
-                        area: {
-                            stacking: 'percent'
-                        }
-                    }
-                }
+                series: [
+                    { label: PMA_messages['strUsedSwap'], fill:true, stackSeries: true},
+                    { label: PMA_messages['strCachedSwap'], fill:true, stackSeries: true},
+                    { label: PMA_messages['strFreeSwap'], fill:true, stackSeries: true}
+                ]
             }
         });
         break;
@@ -188,18 +151,18 @@ $(function() {
     // Default setting for the chart grid
     defaultChartGrid = {
         'c0': {  title: PMA_messages['strQuestions'],
-                 nodes: [{name: PMA_messages['strQuestions'], dataPoints: [{ type: 'statusvar', name: 'Questions' }], display: 'differential' }]
+                 series: [{label: PMA_messages['strQuestions']}]
         },
         'c1': {
                  title: PMA_messages['strChartConnectionsTitle'],
-                 nodes: [ { name: PMA_messages['strConnections'], dataPoints: [{ type: 'statusvar', name: 'Connections' }], display: 'differential' },
-                          { name: PMA_messages['strProcesses'], dataPoints: [{ type: 'proc', name: 'processes' }] } ]
+                 series: [ { label: PMA_messages['strConnections']},
+                          { label: PMA_messages['strProcesses']} ]
         },
         'c2': {
                  title: PMA_messages['strTraffic'],
-                 nodes: [
-                    { name: PMA_messages['strBytesSent'], dataPoints: [{ type: 'statusvar', name: 'Bytes_sent' }], display: 'differential', valueDivisor: 1024, unit: PMA_messages['strKiB'] },
-                    { name: PMA_messages['strBytesReceived'], dataPoints: [{ type: 'statusvar', name: 'Bytes_received' }], display: 'differential', valueDivisor: 1024, unit: PMA_messages['strKiB'] }
+                 series: [
+                    { label: PMA_messages['strBytesSent']},
+                    { label: PMA_messages['strBytesReceived']}
                  ]
          }
     };
@@ -1092,6 +1055,10 @@ $(function() {
                 rendererOptions: {
                     smooth: true
                 }
+            },
+            highlighter: {
+            show: true,
+            showTooltip: false
             }
         };
 
