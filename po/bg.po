@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 13:38+0200\n"
-"PO-Revision-Date: 2012-08-16 08:11+0200\n"
-"Last-Translator: Стоян Димитров <stoyanster@gmail.com>\n"
-"Language-Team: Bulgarian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"bg/>\n"
+"PO-Revision-Date: 2012-08-27 11:49+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Bulgarian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12554,7 +12554,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:247
 msgid "Rate of reading next table row"
-msgstr ""
+msgstr "Стойност на четене на следващ ред от таблица"
 
 #: libraries/advisory_rules.txt:250
 msgid "The rate of reading the next table row is high."
@@ -12675,7 +12675,7 @@ msgstr "Максимален %% от буфера за ключове на MyISA
 #: libraries/advisory_rules.txt:299 libraries/advisory_rules.txt:307
 #, php-format
 msgid "MyISAM key buffer (index cache) %% used is low."
-msgstr ""
+msgstr "MyISAM буфер на ключове (индекси) с нисък %% на използване."
 
 #: libraries/advisory_rules.txt:300 libraries/advisory_rules.txt:308
 msgid ""
