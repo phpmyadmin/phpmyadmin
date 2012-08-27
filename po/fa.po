@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 13:38+0200\n"
-"PO-Revision-Date: 2012-08-11 04:26+0200\n"
-"Last-Translator: Ashiyane Digital Security Team <HeXa.ashiyane@gmail.com>\n"
-"Language-Team: Persian <http://l10n.cihar.com/projects/phpmyadmin/master/fa/"
-">\n"
+"PO-Revision-Date: 2012-08-27 11:06+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Persian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2231,11 +2231,10 @@ msgstr "شروع"
 #: libraries/CommonFunctions.class.php:2691
 #: libraries/DisplayResults.class.php:785 server_binlog.php:142
 #: server_binlog.php:144
-#, fuzzy
 #| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
-msgstr "قبل"
+msgstr "قبلی"
 
 #: libraries/CommonFunctions.class.php:2723
 #: libraries/CommonFunctions.class.php:2726
