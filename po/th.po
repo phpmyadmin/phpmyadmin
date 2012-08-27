@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 13:38+0200\n"
-"PO-Revision-Date: 2012-08-26 14:53+0200\n"
-"Last-Translator: Adisorn Aeksatean <npgamer_nott@hotmail.com>\n"
+"PO-Revision-Date: 2012-08-27 11:48+0200\n"
+"Last-Translator: Anusuk Sangubon <jaideejung007@gmail.com>\n"
 "Language-Team: Thai <http://l10n.cihar.com/projects/phpmyadmin/master/th/>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
@@ -699,17 +699,17 @@ msgstr "เบราเซอร์ที่<b>ใช้เฟรมได้</b
 
 #: js/messages.php:27 libraries/import.lib.php:116 sql.php:313
 msgid "\"DROP DATABASE\" statements are disabled."
-msgstr "คำสั่ง \"ทิ้งฐานข้อมูล\" ถูกปิดไว้"
+msgstr "คำสั่ง \"DROP DATABASE\" ถูกปิดไว้"
 
 #: js/messages.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to "
 msgid "Do you really want to execute \"%s\"?"
-msgstr "คุณแน่ใจที่ต้องการจะ"
+msgstr "คุณแน่ใจที่ต้องการจะ  \"%s\"?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:310 sql.php:418
 msgid "You are about to DESTROY a complete database!"
-msgstr "คุณกำลังจะทำลายฐาข้อมูลทั้งหมด!"
+msgstr "คุณกำลังจะทำลายฐานข้อมูลทั้งหมด"
 
 #: js/messages.php:32
 msgid "You are about to DESTROY a complete table!"
@@ -3810,7 +3810,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:20
-#, fuzzy
 msgid "Allow login to any MySQL server"
 msgstr "ไม่สามารถล็อกอินเข้าเซิร์ฟเวอร์ MySQL ได้"
 
