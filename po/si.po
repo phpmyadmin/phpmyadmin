@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 06:32-0400\n"
-"PO-Revision-Date: 2012-08-01 05:43+0200\n"
-"Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
-"Language-Team: sinhala <si@li.org>\n"
+"PO-Revision-Date: 2012-08-27 10:41+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Sinhala <http://l10n.cihar.com/projects/phpmyadmin/3-5/si/>\n"
+"Language: si\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: si\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.1\n"
+"X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -1523,10 +1523,9 @@ msgid "From general log"
 msgstr "general log වෙතින්"
 
 #: js/messages.php:176
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "ලොගයන් පූරණය කෙරෙමින්"
+msgstr "ලොග විශ්ලේෂණය කෙරෙමින්"
 
 #: js/messages.php:177
 msgid "Analysing & loading logs. This may take a while."
@@ -1559,10 +1558,9 @@ msgid "Jump to Log table"
 msgstr "ලොග වගුව වෙත යන්න"
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "No data"
 msgid "No data found"
-msgstr "දත්ත නොමැත"
+msgstr "දත්ත කිසිවක් හමු නොවිණි"
 
 #: js/messages.php:185
 msgid "Log analysed, but no data found in this time span."
@@ -1601,16 +1599,14 @@ msgid "Chart"
 msgstr "ප්‍රස්ථාර"
 
 #: js/messages.php:195
-#, fuzzy
 #| msgid "Add chart"
 msgid "Edit chart"
-msgstr "ප්‍රස්ථාර එක් කරන්න"
+msgstr "ප්‍රස්ථාරය සංස්කරණය කරන්න"
 
 #: js/messages.php:196
-#, fuzzy
 #| msgid "Series:"
 msgid "Series"
-msgstr "ශ්‍රේණි:"
+msgstr "ශ්‍රේණි"
 
 #. l10n: A collection of available filters
 #: js/messages.php:199
@@ -1682,16 +1678,14 @@ msgid "Import"
 msgstr "ආනයනය"
 
 #: js/messages.php:217
-#, fuzzy
 #| msgid "Could not import configuration"
 msgid "Import monitor configuration"
-msgstr "වින්‍යාස ආනයනය අසමත් විය"
+msgstr "අධීක්ෂකයේ වින්‍යාසයන් ආනයනය"
 
 #: js/messages.php:218
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "කරුණාකර ප්‍රාථමික මූලය හෝ අනුපම මූලයක් තෝරන්න"
+msgstr "ඔබට ආනයනය කිරීමට අවශ්‍ය ගොනුව තෝරන්න"
 
 #: js/messages.php:220
 msgid "Analyse Query"
