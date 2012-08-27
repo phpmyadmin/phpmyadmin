@@ -4,15 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 13:38+0200\n"
-"PO-Revision-Date: 2012-03-27 16:57+0200\n"
+"PO-Revision-Date: 2012-08-27 11:48+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: indonesian <id@li.org>\n"
+"Language-Team: Indonesian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 0.8\n"
+"X-Generator: Weblate 1.2\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
@@ -1688,7 +1689,7 @@ msgstr ""
 
 #: js/messages.php:344
 msgid "Add an option for column "
-msgstr "Tambahkan pilihan untuk kolom"
+msgstr "Tambahkan pilihan untuk kolom "
 
 #: js/messages.php:347
 msgid "Press escape to cancel editing"
@@ -3050,7 +3051,7 @@ msgstr "Server MySQL ini tidak mendukung mesin penyimpanan %s."
 
 #: libraries/Table.class.php:345
 msgid "unknown table status: "
-msgstr "status tabel tidak diketahui:"
+msgstr "status tabel tidak diketahui: "
 
 #: libraries/Table.class.php:756
 #, fuzzy, php-format
@@ -6054,12 +6055,12 @@ msgstr "Mengekspor basis data dari server saat ini"
 #: libraries/display_export.lib.php:97
 #, php-format
 msgid "Exporting tables from \"%s\" database"
-msgstr "Mengekspor tabel dari basis data \"%s\" "
+msgstr "Mengekspor tabel dari basis data \"%s\""
 
 #: libraries/display_export.lib.php:99
 #, php-format
 msgid "Exporting rows from \"%s\" table"
-msgstr "Mengekspor baris dari tabel \"%s\" "
+msgstr "Mengekspor baris dari tabel \"%s\""
 
 #: libraries/display_export.lib.php:105
 msgid "Export Method:"
@@ -7100,7 +7101,7 @@ msgstr "Pilihan untuk tabel"
 
 #: libraries/operations.lib.php:763
 msgid "Rename table to"
-msgstr "Ubah nama tabel menjadi "
+msgstr "Ubah nama tabel menjadi"
 
 #: libraries/operations.lib.php:780 libraries/tbl_properties.inc.php:830
 #: server_engines.php:43
@@ -7662,7 +7663,7 @@ msgstr ""
 
 #: libraries/plugins/import/ImportCsv.class.php:126
 msgid "Column names: "
-msgstr "Nama kolom"
+msgstr "Nama kolom: "
 
 #: libraries/plugins/import/ImportCsv.class.php:177
 #: libraries/plugins/import/ImportCsv.class.php:192
@@ -8530,7 +8531,7 @@ msgstr ""
 
 #: libraries/schema/Export_Relation_Schema.class.php:232
 msgid "SCHEMA ERROR: "
-msgstr "GALAT SKEMA:"
+msgstr "GALAT SKEMA: "
 
 #: libraries/schema/Pdf_Relation_Schema.class.php:928
 #: libraries/schema/Pdf_Relation_Schema.class.php:1249
@@ -8611,7 +8612,7 @@ msgstr "Tampilkan ukuran dari tabel"
 
 #: libraries/schema/User_Schema.class.php:441
 msgid "Display all tables with the same width"
-msgstr "Tampilkan seluruh tabel dengan lebar yang sama?"
+msgstr "Tampilkan seluruh tabel dengan lebar yang sama"
 
 #: libraries/schema/User_Schema.class.php:444 libraries/structure.lib.php:383
 msgid "Data Dictionary"
@@ -8879,7 +8880,7 @@ msgstr "Hak akses khusus tabel"
 #: libraries/server_privileges.lib.php:801
 #: libraries/server_privileges.lib.php:2403
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "Catatan: Nama hak akses MySQL dalam bahasa Inggris "
+msgstr "Catatan: Nama hak akses MySQL dalam bahasa Inggris"
 
 #: libraries/server_privileges.lib.php:762
 msgid "Administration"
@@ -9177,7 +9178,7 @@ msgstr "Pembatas"
 
 #: libraries/sql_query_form.lib.php:368
 msgid "Show this query here again"
-msgstr "Tampilkan ulang perintah SQL "
+msgstr "Tampilkan ulang perintah SQL"
 
 #: libraries/sql_query_form.lib.php:427
 msgid "View only"
@@ -9396,7 +9397,7 @@ msgstr "Panjang baris"
 
 #: libraries/structure.lib.php:1789 tbl_printview.php:396
 msgid "Row size"
-msgstr "Besar baris "
+msgstr "Besar baris"
 
 #: libraries/structure.lib.php:1797 tbl_printview.php:406
 msgid "Next autoindex"
@@ -9888,7 +9889,7 @@ msgstr "Buat halaman dan ekspor ke dalamnya"
 
 #: pmd_pdf.php:142
 msgid "New page name: "
-msgstr "Nama halaman baru:"
+msgstr "Nama halaman baru: "
 
 #: pmd_pdf.php:145
 msgid "Export/Import to scale"
@@ -9994,7 +9995,7 @@ msgstr "Pengaturan yang ada akan ditimpa!"
 #: prefs_manage.php:331
 msgid "You can reset all your settings and restore them to default values."
 msgstr ""
-"Anda dapat mengatur ulang semua pengaturan Anda dan memulihkan nilai bawaan. "
+"Anda dapat mengatur ulang semua pengaturan Anda dan memulihkan nilai bawaan."
 
 #: querywindow.php:66
 msgid "Import files"
@@ -10399,7 +10400,7 @@ msgstr "Jumlah baris:"
 
 #: server_status.php:826 server_status.php:852
 msgid "Refresh rate: "
-msgstr "Laju penyegaran:"
+msgstr "Laju penyegaran: "
 
 #: server_status.php:865 server_variables.php:116
 #, fuzzy
@@ -12178,7 +12179,7 @@ msgstr "Nama VIEW"
 
 #: view_operations.php:88
 msgid "Rename view to"
-msgstr "Ubah nama tampilan menjadi "
+msgstr "Ubah nama tampilan menjadi"
 
 #: libraries/advisory_rules.txt:49
 msgid "Uptime below one day"
@@ -13283,7 +13284,7 @@ msgid ""
 "it should not be below 20%%"
 msgstr ""
 "Ukuran log InnoDB anda adalah %s%% terkait dengan ukuran pool InnoDB, ini "
-"harus diatas 20%% "
+"harus diatas 20%%"
 
 #: libraries/advisory_rules.txt:436
 msgid "Max InnoDB log size"
@@ -13318,7 +13319,7 @@ msgstr "Besar penampungan penyangga InnoDB"
 
 #: libraries/advisory_rules.txt:446
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr "Ukuran buffer InnoDB anda lumayan kecil "
+msgstr "Ukuran buffer InnoDB anda lumayan kecil."
 
 #: libraries/advisory_rules.txt:447
 #, php-format
