@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-08-28 14:33+0200\n"
+"POT-Creation-Date: 2012-08-28 14:48+0200\n"
 "PO-Revision-Date: 2012-08-28 14:41+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Latvian "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/lv/>\n"
+"Language-Team: Latvian <http://l10n.cihar.com/projects/phpmyadmin/master/lv/"
+">\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7091,7 +7091,7 @@ msgstr ""
 msgid "Add prefix"
 msgstr "Pievienot jaunu lauku"
 
-#: libraries/mult_submits.inc.php:312
+#: libraries/mult_submits.inc.php:312 sql.php:434
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
@@ -12247,12 +12247,6 @@ msgstr "Nav datubāzu"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: sql.php:434
-#, fuzzy
-#| msgid "Do you really want to "
-msgid "Do you really want to execute following query?"
-msgstr "Vai Jūs tiešām gribat "
-
 #: sql.php:830
 msgid "Showing as PHP code"
 msgstr ""
@@ -13804,6 +13798,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to execute following query?"
+#~ msgstr "Vai Jūs tiešām gribat "
 
 #, fuzzy
 #~| msgid "Export"

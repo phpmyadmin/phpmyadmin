@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-08-28 14:33+0200\n"
+"POT-Creation-Date: 2012-08-28 14:48+0200\n"
 "PO-Revision-Date: 2012-08-27 11:33+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Portuguese (Brazil) <http://l10n.cihar.com/projects/"
@@ -6995,7 +6995,7 @@ msgstr "Adicionar prefixo de tabela"
 msgid "Add prefix"
 msgstr "Adicionar índice"
 
-#: libraries/mult_submits.inc.php:312
+#: libraries/mult_submits.inc.php:312 sql.php:434
 #, fuzzy
 #| msgid "Do you really want to execute following query?"
 msgid "Do you really want to execute the following query?"
@@ -12246,10 +12246,6 @@ msgstr "Não existem dados"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Usando marcador \"%s\" como padrão."
 
-#: sql.php:434
-msgid "Do you really want to execute following query?"
-msgstr "Você realmente deseja executar a Query SQL a seguir?"
-
 #: sql.php:830
 msgid "Showing as PHP code"
 msgstr "Exibindo como código PHP"
@@ -13977,6 +13973,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert está com valor 0"
+
+#~ msgid "Do you really want to execute following query?"
+#~ msgstr "Você realmente deseja executar a Query SQL a seguir?"
 
 #~ msgid "DocSQL"
 #~ msgstr "DocSQL"

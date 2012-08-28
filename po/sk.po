@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-08-28 14:33+0200\n"
+"POT-Creation-Date: 2012-08-28 14:48+0200\n"
 "PO-Revision-Date: 2012-07-24 11:02+0200\n"
 "Last-Translator: Martin Lacina <martin@whistler.sk>\n"
 "Language-Team: slovak <sk@li.org>\n"
@@ -6903,7 +6903,7 @@ msgstr ""
 msgid "Add prefix"
 msgstr "Odstrániť index/indexy"
 
-#: libraries/mult_submits.inc.php:312
+#: libraries/mult_submits.inc.php:312 sql.php:434
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
@@ -12027,12 +12027,6 @@ msgstr "Žiadne dáta"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: sql.php:434
-#, fuzzy
-#| msgid "Do you really want to "
-msgid "Do you really want to execute following query?"
-msgstr "Skutočne chcete vykonať príkaz "
-
 #: sql.php:830
 msgid "Showing as PHP code"
 msgstr "Zobrazujem ako PHP kód"
@@ -13646,6 +13640,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je nastavené na 0"
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to execute following query?"
+#~ msgstr "Skutočne chcete vykonať príkaz "
 
 #, fuzzy
 #~| msgid "Export"

@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-08-28 14:33+0200\n"
+"POT-Creation-Date: 2012-08-28 14:48+0200\n"
 "PO-Revision-Date: 2012-08-28 14:41+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Uzbek (latin) "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/uz@latin/>\n"
+"Language-Team: Uzbek (latin) <http://l10n.cihar.com/projects/phpmyadmin/"
+"master/uz@latin/>\n"
 "Language: uz@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7561,7 +7561,7 @@ msgstr ""
 msgid "Add prefix"
 msgstr "Indеks(lar)ni saqlash"
 
-#: libraries/mult_submits.inc.php:312
+#: libraries/mult_submits.inc.php:312 sql.php:434
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
@@ -13171,12 +13171,6 @@ msgstr "Ma`lumotlar bazasi mavjud emas"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: sql.php:434
-#, fuzzy
-#| msgid "Do you really want to "
-msgid "Do you really want to execute following query?"
-msgstr "Haqiqatan ham so‘rovni bajarmoqchimisiz?"
-
 #: sql.php:830
 msgid "Showing as PHP code"
 msgstr "PHP-kod sifatida ko‘rsatish"
@@ -14836,6 +14830,11 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "Maksimal ulanishlar soni "
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to execute following query?"
+#~ msgstr "Haqiqatan ham so‘rovni bajarmoqchimisiz?"
 
 #~ msgid "DocSQL"
 #~ msgstr "DocSQL"

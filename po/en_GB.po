@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-08-28 14:33+0200\n"
+"POT-Creation-Date: 2012-08-28 14:48+0200\n"
 "PO-Revision-Date: 2012-07-02 11:22+0200\n"
 "Last-Translator: Robert Readman <robert_readman@hotmail.com>\n"
 "Language-Team: english-gb <en_GB@li.org>\n"
@@ -6953,7 +6953,7 @@ msgstr "Add table prefix"
 msgid "Add prefix"
 msgstr "Add prefix"
 
-#: libraries/mult_submits.inc.php:312
+#: libraries/mult_submits.inc.php:312 sql.php:434
 msgid "Do you really want to execute the following query?"
 msgstr "Do you really want to execute the following query?"
 
@@ -12067,10 +12067,6 @@ msgstr "Wrong data"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Using bookmark \"%s\" as default browse query."
 
-#: sql.php:434
-msgid "Do you really want to execute following query?"
-msgstr "Do you really want to execute following query?"
-
 #: sql.php:830
 msgid "Showing as PHP code"
 msgstr "Showing as PHP code"
@@ -13704,6 +13700,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert is set to 0"
+
+#~ msgid "Do you really want to execute following query?"
+#~ msgstr "Do you really want to execute following query?"
 
 #~ msgid "DocSQL"
 #~ msgstr "DocSQL"

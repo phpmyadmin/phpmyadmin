@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-08-28 14:33+0200\n"
+"POT-Creation-Date: 2012-08-28 14:48+0200\n"
 "PO-Revision-Date: 2012-08-27 21:20+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: Dutch <http://l10n.cihar.com/projects/phpmyadmin/master/nl/>\n"
@@ -7008,7 +7008,7 @@ msgstr "Tabelvoorvoegsel toevoegen"
 msgid "Add prefix"
 msgstr "Voorvoegsel toevoegen"
 
-#: libraries/mult_submits.inc.php:312
+#: libraries/mult_submits.inc.php:312 sql.php:434
 msgid "Do you really want to execute the following query?"
 msgstr "Weet u zeker dat u de volgende SQL-query wil uitvoeren?"
 
@@ -12245,10 +12245,6 @@ msgstr "Verkeerde gegevens"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Bladwijzer \"%s\" wordt gebruikt als standaard browsequery."
 
-#: sql.php:434
-msgid "Do you really want to execute following query?"
-msgstr "Weet u zeker dat u de volgende SQL-query wil uitvoeren?"
-
 #: sql.php:830
 msgid "Showing as PHP code"
 msgstr "Getoond als PHP-code"
@@ -13946,6 +13942,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert is ingesteld op 0"
+
+#~ msgid "Do you really want to execute following query?"
+#~ msgstr "Weet u zeker dat u de volgende SQL-query wil uitvoeren?"
 
 #~ msgid "DocSQL"
 #~ msgstr "DocSQL"

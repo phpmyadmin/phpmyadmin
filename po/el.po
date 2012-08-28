@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-08-28 14:33+0200\n"
+"POT-Creation-Date: 2012-08-28 14:48+0200\n"
 "PO-Revision-Date: 2012-08-22 14:08+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
@@ -7064,7 +7064,7 @@ msgstr "Προσθήκη προθέματος πίνακα"
 msgid "Add prefix"
 msgstr "Προσθήκη προθέματος"
 
-#: libraries/mult_submits.inc.php:312
+#: libraries/mult_submits.inc.php:312 sql.php:434
 msgid "Do you really want to execute the following query?"
 msgstr "Θέλετε να εκτελέσετε το ακόλουθο ερώτημα;"
 
@@ -12307,10 +12307,6 @@ msgstr "Εσφαλμένα δεδομένα"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Χρήση του σελιδοδείκτη «%s» ως προεπιλεγμένο ερώτημα φυλλομετρητή."
 
-#: sql.php:434
-msgid "Do you really want to execute following query?"
-msgstr "Θέλετε να εκτελέσετε το ακόλουθο ερώτημα;"
-
 #: sql.php:830
 msgid "Showing as PHP code"
 msgstr "Εμφάνιση ως κώδικά PHP"
@@ -14026,6 +14022,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "Το concurrent_insert έχει οριστεί στο 0"
+
+#~ msgid "Do you really want to execute following query?"
+#~ msgstr "Θέλετε να εκτελέσετε το ακόλουθο ερώτημα;"
 
 #~ msgid "DocSQL"
 #~ msgstr "DocSQL"

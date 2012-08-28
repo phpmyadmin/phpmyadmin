@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-08-28 14:33+0200\n"
+"POT-Creation-Date: 2012-08-28 14:48+0200\n"
 "PO-Revision-Date: 2012-07-02 11:20+0200\n"
 "Last-Translator: aitzol berasategi <aitzol76@gmail.com>\n"
 "Language-Team: basque <eu@li.org>\n"
@@ -7021,7 +7021,7 @@ msgstr ""
 msgid "Add prefix"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:312
+#: libraries/mult_submits.inc.php:312 sql.php:434
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
@@ -12158,12 +12158,6 @@ msgstr "Datu-baserik ez"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: sql.php:434
-#, fuzzy
-#| msgid "Do you really want to "
-msgid "Do you really want to execute following query?"
-msgstr "Benetan nahi al duzu "
-
 #: sql.php:830
 msgid "Showing as PHP code"
 msgstr ""
@@ -13715,6 +13709,11 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to execute following query?"
+#~ msgstr "Benetan nahi al duzu "
 
 #, fuzzy
 #~| msgid "Export"

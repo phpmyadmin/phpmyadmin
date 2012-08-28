@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-08-28 14:33+0200\n"
+"POT-Creation-Date: 2012-08-28 14:48+0200\n"
 "PO-Revision-Date: 2012-05-17 15:15+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: georgian <ka@li.org>\n"
@@ -7221,7 +7221,7 @@ msgstr ""
 msgid "Add prefix"
 msgstr "ახალი ველის დამატება"
 
-#: libraries/mult_submits.inc.php:312
+#: libraries/mult_submits.inc.php:312 sql.php:434
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
@@ -12493,12 +12493,6 @@ msgstr "მონაცემთა ბაზები არაა"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: sql.php:434
-#, fuzzy
-#| msgid "Do you really want to "
-msgid "Do you really want to execute following query?"
-msgstr "ნამდვილად გსურთ "
-
 #: sql.php:830
 msgid "Showing as PHP code"
 msgstr "PHP კოდის სახით ჩვენება"
@@ -14139,6 +14133,11 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "max. concurrent connections"
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to execute following query?"
+#~ msgstr "ნამდვილად გსურთ "
 
 #~ msgid "DocSQL"
 #~ msgstr "DocSQL"

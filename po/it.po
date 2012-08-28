@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-08-28 14:33+0200\n"
+"POT-Creation-Date: 2012-08-28 14:48+0200\n"
 "PO-Revision-Date: 2012-06-03 03:23+0200\n"
 "Last-Translator: Rouslan Placella <rouslan@placella.com>\n"
 "Language-Team: italian <it@li.org>\n"
@@ -7034,7 +7034,7 @@ msgstr "Aggiungi un prefisso alla tabella"
 msgid "Add prefix"
 msgstr "Aggiungi prefisso"
 
-#: libraries/mult_submits.inc.php:312
+#: libraries/mult_submits.inc.php:312 sql.php:434
 msgid "Do you really want to execute the following query?"
 msgstr "Sei sicuro di voler eseguire la seguente query?"
 
@@ -12274,10 +12274,6 @@ msgstr "Dati errati"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Usa il segnalibro \"%s\" come la query di navigazione predefinita."
 
-#: sql.php:434
-msgid "Do you really want to execute following query?"
-msgstr "Sei sicuro di voler eseguire la seguente query?"
-
 #: sql.php:830
 msgid "Showing as PHP code"
 msgstr "Visualizzo comel codice PHP"
@@ -13984,6 +13980,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert è impostato a 0"
+
+#~ msgid "Do you really want to execute following query?"
+#~ msgstr "Sei sicuro di voler eseguire la seguente query?"
 
 #~ msgid "DocSQL"
 #~ msgstr "DocSQL"

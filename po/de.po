@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-08-28 14:33+0200\n"
+"POT-Creation-Date: 2012-08-28 14:48+0200\n"
 "PO-Revision-Date: 2012-08-27 20:57+0200\n"
 "Last-Translator: Dieter Adriaenssens <ruleant@users.sourceforge.net>\n"
 "Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/"
@@ -7056,7 +7056,7 @@ msgstr "Tabellen-Prefix hinzufügen"
 msgid "Add prefix"
 msgstr "Prefix hinzufügen"
 
-#: libraries/mult_submits.inc.php:312
+#: libraries/mult_submits.inc.php:312 sql.php:434
 msgid "Do you really want to execute the following query?"
 msgstr "Möchten Sie die folgende Abfrage wirklich ausführen?"
 
@@ -12314,10 +12314,6 @@ msgstr "Fehlerhafte Daten"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Lesezeichen \"%s\" wird als Standard-Anzeigeabfrage verwendet."
 
-#: sql.php:434
-msgid "Do you really want to execute following query?"
-msgstr "Möchten Sie diese Abfrage wirklich ausführen?"
-
 #: sql.php:830
 msgid "Showing as PHP code"
 msgstr "Ansicht als PHP-Code"
@@ -14016,6 +14012,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert ist auf 0 gesetzt"
+
+#~ msgid "Do you really want to execute following query?"
+#~ msgstr "Möchten Sie diese Abfrage wirklich ausführen?"
 
 #~ msgid "DocSQL"
 #~ msgstr "DocSQL"

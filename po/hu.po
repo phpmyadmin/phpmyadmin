@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-08-28 14:33+0200\n"
+"POT-Creation-Date: 2012-08-28 14:48+0200\n"
 "PO-Revision-Date: 2012-07-19 09:42+0200\n"
 "Last-Translator: Akos Eros <erosakos02@gmail.com>\n"
 "Language-Team: hungarian <hu@li.org>\n"
@@ -7015,7 +7015,7 @@ msgstr ""
 msgid "Add prefix"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:312
+#: libraries/mult_submits.inc.php:312 sql.php:434
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to execute the following query?"
@@ -12266,12 +12266,6 @@ msgstr "Hibás adat"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: sql.php:434
-#, fuzzy
-#| msgid "Do you really want to "
-msgid "Do you really want to execute following query?"
-msgstr "Valóban a következőt akarja "
-
 #: sql.php:830
 msgid "Showing as PHP code"
 msgstr "Megjelenítés PHP kódként"
@@ -13876,6 +13870,11 @@ msgstr ""
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
 msgstr "Max. egyidejű kapcsolatok száma"
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to execute following query?"
+#~ msgstr "Valóban a következőt akarja "
 
 #~ msgid "DocSQL"
 #~ msgstr "DocSQL"

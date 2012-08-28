@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-08-28 14:33+0200\n"
+"POT-Creation-Date: 2012-08-28 14:48+0200\n"
 "PO-Revision-Date: 2012-08-22 15:12+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
 "Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/master/es/"
@@ -7103,7 +7103,7 @@ msgstr "Agregar prefijo a la tabla"
 msgid "Add prefix"
 msgstr "Agregar prefijo"
 
-#: libraries/mult_submits.inc.php:312
+#: libraries/mult_submits.inc.php:312 sql.php:434
 msgid "Do you really want to execute the following query?"
 msgstr "¿Realmente desea ejecutar la siguiente consulta?"
 
@@ -12344,10 +12344,6 @@ msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 "Utilizando el favorito \"%s\" como consulta predeterminada para examinar."
 
-#: sql.php:434
-msgid "Do you really want to execute following query?"
-msgstr "¿Realmente desea ejecutar la siguiente consulta?"
-
 #: sql.php:830
 msgid "Showing as PHP code"
 msgstr "Mostrar como código PHP"
@@ -14049,6 +14045,9 @@ msgstr ""
 #: libraries/advisory_rules.txt:457
 msgid "concurrent_insert is set to 0"
 msgstr "«concurrent_insert» está definido como 0"
+
+#~ msgid "Do you really want to execute following query?"
+#~ msgstr "¿Realmente desea ejecutar la siguiente consulta?"
 
 #~ msgid "DocSQL"
 #~ msgstr "DocSQL"
