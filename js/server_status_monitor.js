@@ -1038,6 +1038,7 @@ $(function() {
         }
 
         var settings1 = {
+            title: chartObj.title,
             axes: {
                 xaxis: {
                     renderer: $.jqplot.DateAxisRenderer,
@@ -1046,9 +1047,7 @@ $(function() {
                     }
                 },
                 yaxis: {
-                    autoscale:true,
-                    label: PMA_messages['strTotalCount'],
-                    labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+                    min:0
                 }
             },
             seriesDefaults: {
