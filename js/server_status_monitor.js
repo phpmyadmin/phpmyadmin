@@ -1044,7 +1044,10 @@ $(function() {
                     renderer: $.jqplot.DateAxisRenderer,
                     tickOptions: {
                         formatString: '%H:%M:%S'
-                    }
+                    },
+                    min: runtime.xmin,
+                    max: runtime.xmax,
+                    tickInterval: '10 seconds'
                 },
                 yaxis: {
                     min:0
@@ -1246,10 +1249,8 @@ $(function() {
                 }
 
                 // update chart options
-                var interval = (((runtime.xmax - runtime.xmin)/runtime.gridMaxPoints) / 1000);
                 elem.chart['axes']['xaxis']['max'] = runtime.xmax;
                 elem.chart['axes']['xaxis']['min'] = runtime.xmin;
-                elem.chart['axes']['xaxis']['tickInterval'] = interval + " seconds";
                 i++;
                 runtime.charts[orderKey].numPoints++;
                 if (runtime.redrawCharts) {
