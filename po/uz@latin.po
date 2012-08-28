@@ -4,15 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-28 14:33+0200\n"
-"PO-Revision-Date: 2012-03-14 14:57+0200\n"
+"PO-Revision-Date: 2012-08-28 14:41+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: uzbek_latin <uz@latin@li.org>\n"
+"Language-Team: Uzbek (latin) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/uz@latin/>\n"
 "Language: uz@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 0.6\n"
+"X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:816
@@ -8013,7 +8014,7 @@ msgstr "Siz xost/IP adres va bo‘sh joy qoldirib portni kiritishingiz mumkin."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:186
 msgid "Server:"
-msgstr "Server"
+msgstr "Server:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:198
 msgid "Username:"
