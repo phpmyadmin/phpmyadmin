@@ -986,7 +986,7 @@ $(function() {
 
     /* Adds a chart to the chart grid */
     function addChart(chartObj, initialize) {
-        series = [];
+/*        series = [];
         for (var j = 0; j<chartObj.nodes.length; j++)
             series.push(chartObj.nodes[j]);
 
@@ -1077,12 +1077,9 @@ $(function() {
             buttons: gridbuttons,
             title: { text: chartObj.title }
         };
+*/
 
-        if (chartObj.settings) {
-            $.extend(true, settings, chartObj.settings);
-        }
-
-        var settings1 = {
+        settings = {
             title: chartObj.title,
             axes: {
                 xaxis: {
@@ -1109,20 +1106,21 @@ $(function() {
             }
         };
 
-        if ($('#' + settings.chart.renderTo).length == 0) {
+        settings.series = chartObj.series;
+
+        if ($('#' + 'gridchart' + runtime.chartAI).length == 0) {
             var numCharts = $('table#chartGrid .monitorChart').length;
 
             if (numCharts == 0 || !( numCharts % monitorSettings.columns)) {
                 $('table#chartGrid').append('<tr></tr>');
             }
 
-            $('table#chartGrid tr:last').append('<td><div class="ui-state-default monitorChart" id="' + settings.chart.renderTo + '"></div></td>');
+            $('table#chartGrid tr:last').append('<td><div class="ui-state-default monitorChart" id="' + 'gridchart' + runtime.chartAI + '"></div></td>');
         }
 
-        //chartObj.chart = PMA_createChart(settings);
-        chartObj.chart = $.jqplot(settings.chart.renderTo, [[0,0]], settings1);
+        chartObj.chart = $.jqplot('gridchart' + runtime.chartAI, [[0,0]], settings);
         chartObj.numPoints = 0;
-        
+
         if (initialize != true) {
             runtime.charts['c' + runtime.chartAI] = chartObj;
             buildRequiredDataList();
