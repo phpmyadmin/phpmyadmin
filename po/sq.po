@@ -4,15 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-28 14:33+0200\n"
-"PO-Revision-Date: 2012-05-17 15:21+0200\n"
+"PO-Revision-Date: 2012-08-28 14:42+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: albanian <sq@li.org>\n"
+"Language-Team: Albanian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/sq/>\n"
 "Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 1.0\n"
+"X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:816
@@ -7530,7 +7531,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:186
 msgid "Server:"
-msgstr "Serveri"
+msgstr "Serveri:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:198
 msgid "Username:"
