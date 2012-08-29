@@ -69,9 +69,10 @@ $(function() {
             series: [ {
                 label: PMA_messages['strQueryCacheEfficiency']
             } ],
-            nodes: {dataPoints: [{type: 'statusvar', name: 'Qcache_hits'}, {type: 'statusvar', name: 'Com_select'}],
+            nodes: [ {
+                dataPoints: [{type: 'statusvar', name: 'Qcache_hits'}, {type: 'statusvar', name: 'Com_select'}],
                 transformFn: 'qce'
-            }
+             } ]
         },
         // Query cache usage
         'qcu': {
@@ -79,9 +80,10 @@ $(function() {
             series: [ {
                 label: PMA_messages['strQueryCacheUsed']
             } ],
-            nodes: {dataPoints: [{type: 'statusvar', name: 'Qcache_free_memory'}, {type: 'servervar', name: 'query_cache_size'}],
+            nodes: [ {
+                dataPoints: [{type: 'statusvar', name: 'Qcache_free_memory'}, {type: 'servervar', name: 'query_cache_size'}],
                 transformFn: 'qcu'
-            }
+             } ]
         }
     };
     
@@ -94,7 +96,9 @@ $(function() {
                 series: [ { 
                     label: PMA_messages['strAverageLoad']
                 } ],
-                nodes: {dataPoints: [{ type: 'cpu', name: 'loadavg'}]}
+                nodes: [ {
+                    dataPoints: [{ type: 'cpu', name: 'loadavg'}]
+                 } ]
             },
             
             'memory': {
@@ -109,10 +113,9 @@ $(function() {
                     fill:true,
                     stackSeries: true
                 } ],
-                nodes: { dataPoints: [{ type: 'memory', name: 'MemTotal' },
-                        { type: 'memory', name: 'MemUsed' }],
-                    valueDivisor: [1024, 1024]
-                }
+                nodes: [{ dataPoints: [{ type: 'memory', name: 'MemTotal' }], valueDivisor: 1024 },
+                        { dataPoints: [{ type: 'memory', name: 'MemUsed' }], valueDivisor: 1024 }
+                ]
             },
             
             'swap': {
@@ -126,9 +129,9 @@ $(function() {
                     fill:true,
                     stackSeries: true
                 } ],
-                nodes: { dataPoints: [{ type: 'memory', name: 'SwapTotal' },
-                    { type: 'memory', name: 'SwapUsed' }]
-                }
+                nodes: [{ dataPoints: [{ type: 'memory', name: 'SwapTotal' }]},
+                        { dataPoints: [{ type: 'memory', name: 'SwapUsed' }]}
+                ]
             }
         });
         break;
@@ -140,9 +143,7 @@ $(function() {
                 series: [ {
                     label: PMA_messages['strAverageLoad']
                 } ],
-                nodes: { dataPoints: [{ type: 'cpu', name: 'irrelevant' }],
-                        transformFn: 'cpu-linux'
-                }
+                nodes: [{ dataPoints: [{ type: 'cpu', name: 'irrelevant' }], transformFn: 'cpu-linux'}]
             },
             'memory': {
                 title: PMA_messages['strSystemMemory'],
@@ -152,14 +153,12 @@ $(function() {
                     { label: PMA_messages['strBufferedMemory'], fill:true, stackSeries: true},
                     { label: PMA_messages['strFreeMemory'], fill:true, stackSeries: true}
                 ],
-                nodes: {dataPoints: [{ type: 'memory', name: 'MemUsed' },
-                        { type: 'memory', name: 'Cached' },
-                        { type: 'memory', name: 'Buffers' },
-                        { type: 'memory', name: 'MemFree' }
-                    ],
-                    valueDivisor: [1024, 1024, 1024, 1024]
-                }
-                
+                nodes: [
+                    { dataPoints: [{ type: 'memory', name: 'MemUsed' }], valueDivisor: 1024 },
+                    { dataPoints: [{ type: 'memory', name: 'Cached' }],  valueDivisor: 1024 },
+                    { dataPoints: [{ type: 'memory', name: 'Buffers' }], valueDivisor: 1024 },
+                    { dataPoints: [{ type: 'memory', name: 'MemFree' }], valueDivisor: 1024 }
+                ]                
              },
             'swap': {
                 title: PMA_messages['strSystemSwap'],
@@ -168,12 +167,11 @@ $(function() {
                     { label: PMA_messages['strCachedSwap'], fill:true, stackSeries: true},
                     { label: PMA_messages['strFreeSwap'], fill:true, stackSeries: true}
                 ],
-                nodes: {dataPoints: [{ type: 'memory', name: 'SwapUsed' },
-                        { type: 'memory', name: 'SwapCached' },
-                        { type: 'memory', name: 'SwapFree' }
-                    ],
-                    valueDivisor: [1024, 1024, 1024]
-                }
+                nodes: [
+                    { dataPoints: [{ type: 'memory', name: 'SwapUsed' }], valueDivisor: 1024 },
+                    { dataPoints: [{ type: 'memory', name: 'SwapCached' }], valueDivisor: 1024 },
+                    { dataPoints: [{ type: 'memory', name: 'SwapFree' }], valueDivisor: 1024 }
+                ]
             }
         });
         break;
@@ -183,19 +181,15 @@ $(function() {
     defaultChartGrid = {
         'c0': {  title: PMA_messages['strQuestions'],
                  series: [{label: PMA_messages['strQuestions']}],
-                 nodes: {dataPoints: [{ type: 'statusvar', name: 'Questions' }],
-                     display: ['differential']
-                 }
+                 nodes: [{dataPoints: [{ type: 'statusvar', name: 'Questions' }], display: 'differential' }]
         },
         'c1': {
                  title: PMA_messages['strChartConnectionsTitle'],
                  series: [ { label: PMA_messages['strConnections']},
                           { label: PMA_messages['strProcesses']} ],
-                 nodes: {dataPoints: [{ type: 'statusvar', name: 'Connections' },
-                        { type: 'proc', name: 'processes' }
-                     ],
-                     display: ['differential', '']
-                 }
+                 nodes: [ { dataPoints: [{ type: 'statusvar', name: 'Connections' }], display: 'differential' },
+                          { dataPoints: [{ type: 'proc', name: 'processes' }] }
+                ]
         },
         'c2': {
                  title: PMA_messages['strTraffic'],
@@ -203,12 +197,10 @@ $(function() {
                     { label: PMA_messages['strBytesSent']},
                     { label: PMA_messages['strBytesReceived']}
                  ],
-                 nodes: {dataPoints: [{ type: 'statusvar', name: 'Bytes_sent' },
-                        { type: 'proc', name: 'Bytes_received' }
-                     ],
-                     valueDivisor: [1024, 1024],
-                     display: ['differential', 'differential']
-                 }
+                 nodes: [
+                    { dataPoints: [{ type: 'statusvar', name: 'Bytes_sent' }], display: 'differential', valueDivisor: 1024 },
+                    { dataPoints: [{ type: 'statusvar', name: 'Bytes_received' }], display: 'differential', valueDivisor: 1024 }
+                ]
          }
     };
 
@@ -1238,7 +1230,7 @@ $(function() {
                     return;
                 }
                 // Draw all series
-                for (var j = 0; j < elem.series.length; j++) {
+                for (var j = 0; j < elem.chart.series.length; j++) {
                     // Update x-axis
                     if (i == 0 && j == 0) {
                         if (oldChartData == null) {
@@ -1255,9 +1247,9 @@ $(function() {
                     /* Calculate y value */
                     
                     // If transform function given, use it
-                    if (elem.nodes.transformFn[j]) {
+                    if (elem.nodes[j].transformFn) {
                         value = chartValueTransform(
-                            elem.nodes.transformFn[j],
+                            elem.nodes[j].transformFn,
                             chartData[key][j],
                             // Check if first iteration (oldChartData==null), or if newly added chart oldChartData[key]==null
                             (oldChartData == null || oldChartData[key] == null ? null : oldChartData[key][j])
@@ -1268,15 +1260,15 @@ $(function() {
                     } else {
                         value = parseFloat(chartData[key][j][0].value);
 
-                        if (elem.nodes.display[j] == 'differential') {
+                        if (elem.nodes[j].display == 'differential') {
                             if (oldChartData == null || oldChartData[key] == null) { 
                                 continue;
                             }
                             value -= oldChartData[key][j][0].value;
                         }
 
-                        if (elem.nodes.valueDivisor[j]) {
-                            value = value / elem.nodes.valueDivisor[j];
+                        if (elem.nodes[j].valueDivisor) {
+                            value = value / elem.nodes[j].valueDivisor;
                         }
                     }
                     
@@ -1287,7 +1279,7 @@ $(function() {
                             false,
                             elem.numPoints >= runtime.gridMaxPoints
                         );*/
-                        elem.chart.series[0].data.push([chartData.x, value]);
+                        elem.chart.series[j].data.push([chartData.x, value]);
                     }
                 }
 
@@ -1353,8 +1345,8 @@ $(function() {
         var chartID = 0;
         $.each(runtime.charts, function(key, chart) {
             runtime.dataList[chartID] = [];
-            for(var i=0; i < chart.series.length; i++) {
-                runtime.dataList[chartID][i] = chart.nodes.dataPoints[i];
+            for(var i=0; i < chart.nodes.length; i++) {
+                runtime.dataList[chartID][i] = chart.nodes[i].dataPoints;
             }
             runtime.charts[key].chartID = chartID;
             chartID++;
