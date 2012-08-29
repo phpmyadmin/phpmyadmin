@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 06:32-0400\n"
-"PO-Revision-Date: 2012-08-27 11:33+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-08-29 21:15+0200\n"
+"Last-Translator: Alexander Luiz Marinho <apaetmk@allva.com.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -6271,7 +6271,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:40
 msgid "Repository Threshold"
-msgstr "Limite de Repositório"
+msgstr "Limite do Repositório"
 
 #: libraries/engines/pbms.lib.php:41
 msgid ""
@@ -6285,7 +6285,7 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:45
 msgid "Temp Blob Timeout"
-msgstr "Tempo de espera para Blobs temporários"
+msgstr "Blobs temporário acabou"
 
 #: libraries/engines/pbms.lib.php:46
 msgid ""
@@ -6312,15 +6312,16 @@ msgstr ""
 
 #: libraries/engines/pbms.lib.php:55
 msgid "Max Keep Alive"
-msgstr "Tempo Máximo de Atividade"
+msgstr "Tempo de Vida Máximo"
 
 #: libraries/engines/pbms.lib.php:56
 msgid ""
 "The timeout for inactive connection with the keep-alive flag set. After this "
 "time the connection will be closed. The time-out is in milliseconds (1/1000)."
 msgstr ""
-"Tempo limite para conexões inativas com keep-alive ativado. Depois deste "
-"tempo a conexão será fechada. O tempo limite deve ser em milisegundos"
+"Tempo limite para conexões inativas com o sinalizador de atividade. Depois "
+"deste tempo a conexão será fechada. O tempo limite está em milisegundos "
+"(1/1000)."
 
 #: libraries/engines/pbms.lib.php:60
 msgid "Metadata Headers"
@@ -6357,16 +6358,15 @@ msgstr "Página inicial do PrimeBase XT"
 
 #: libraries/engines/pbxt.lib.php:22
 msgid "Index cache size"
-msgstr "Tamanho de cache de índice"
+msgstr "Tamanho do indice de cache"
 
 #: libraries/engines/pbxt.lib.php:23
 msgid ""
 "This is the amount of memory allocated to the index cache. Default value is "
 "32MB. The memory allocated here is used only for caching index pages."
 msgstr ""
-"Esta é a quantidade de memória alocada para o cache de índice. O valor "
-"padrão é 32MB. A memória alocada aqui é usada apenas para cache de páginas "
-"index."
+"Esta é a quantidade de memória alocada para o cache index. O valor padrão é "
+"32MB. A memória alocada aqui é apenas usado para cache de páginas index."
 
 #: libraries/engines/pbxt.lib.php:27
 msgid "Record cache size"
@@ -6421,7 +6421,7 @@ msgstr ""
 
 #: libraries/engines/pbxt.lib.php:47
 msgid "Checkpoint frequency"
-msgstr "Frequência de ponto de verificação"
+msgstr "Frequência de checkpoint"
 
 #: libraries/engines/pbxt.lib.php:48
 msgid ""
@@ -6470,8 +6470,8 @@ msgid ""
 "required to write a data log."
 msgstr ""
 "Tamanho de buffer usado quando escreve dados no log. O padrão é 256MB. A "
-"engine aloca um buffer por thread, mas apenas se a thread requisitar escrita "
-"de dados de log."
+"máquina aloca um buffer por thread, mas apenas se a thread requisitar "
+"escrita de dados de log."
 
 #: libraries/engines/pbxt.lib.php:67
 msgid "Data file grow size"
@@ -6502,8 +6502,8 @@ msgid ""
 msgstr ""
 "Este é o número de arquivos de log de transação (pbxt/system/xlog*.xt) que o "
 "sistema irá manter. Se o número de logs exceder esse valor, os arquivos de "
-"log antigos serão deletados, ou então eles serão renomeados e terão o "
-"próximo número maior."
+"log antigos serão deletados, caso contrário eles serão renomeados e terão o "
+"número maior seguinte."
 
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
@@ -6546,8 +6546,7 @@ msgstr "Substituir NULL com:"
 
 #: libraries/export/csv.php:29 libraries/export/excel.php:24
 msgid "Remove carriage return/line feed characters within columns"
-msgstr ""
-"Remover retorno do carro/caractere de alimentação de linha dentro de colunas"
+msgstr "Remover caracteres de retorno ou alimentação de linha dentro de colunas"
 
 #: libraries/export/excel.php:33
 msgid "Excel edition:"
@@ -6667,15 +6666,15 @@ msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
-"Incluir data e hora quando bancos de dados forem criados, atualizados pela "
-"última vez e checados pela última vez."
+"Inclua um timestamp de quando os bancos de dados foram criados, última "
+"atualização e última vez."
 
 #: libraries/export/sql.php:100
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
-"Sistema de banco de dados ou servidor de MySQL antigo para maximizar saída "
-"de compatível com:"
+"Sistema de banco de dados ou servidor de MySQL antigo para maximizar "
+"compatibilidade de saída com:"
 
 #: libraries/export/sql.php:114 libraries/export/sql.php:173
 #: libraries/export/sql.php:180
@@ -6709,11 +6708,11 @@ msgstr "declarações <code>INSERT IGNORE</code>"
 
 #: libraries/export/sql.php:255
 msgid "Function to use when dumping data:"
-msgstr "Função usada quando despejar dados:"
+msgstr "Função usada quando descarregar dados:"
 
 #: libraries/export/sql.php:268
 msgid "Syntax to use when inserting data:"
-msgstr "Sintaxe para usar quando inserir dados:"
+msgstr "Sintaxe usada quando inserindo dados:"
 
 #: libraries/export/sql.php:274
 msgid ""
@@ -6810,7 +6809,7 @@ msgstr "XML"
 
 #: libraries/export/xml.php:34
 msgid "Object creation options (all are recommended)"
-msgstr "Opções de criação de objeto (todas são recomendadas)"
+msgstr "Opções para criação de objetos (tudo recomendado)"
 
 #: libraries/export/xml.php:62
 msgid "Views"
@@ -6831,7 +6830,7 @@ msgstr "Não foram encontrados dados para a visualização GIS."
 
 #: libraries/header_http.inc.php:15 libraries/header_meta_style.inc.php:15
 msgid "GLOBALS overwrite attempt"
-msgstr "Tentativa de sobrescrever GLOBALS"
+msgstr "Tentativa de sobre escrever variáveis do tipo GLOBALS"
 
 #: libraries/header_printview.inc.php:49 libraries/header_printview.inc.php:57
 msgid "SQL result"
@@ -6849,7 +6848,9 @@ msgstr "MySQL retornou um conjunto vazio (ex. zero registros)."
 #: libraries/import.lib.php:1100
 msgid ""
 "The following structures have either been created or altered. Here you can:"
-msgstr "As estruturas a seguir ou foram criadas, ou alteradas. Aqui você pode:"
+msgstr ""
+"As estruturas a seguir quer tenham sido criadas, ou alteradas. Aqui você "
+"pode:"
 
 #: libraries/import.lib.php:1101
 msgid "View a structure's contents by clicking on its name"
@@ -6864,7 +6865,7 @@ msgstr ""
 
 #: libraries/import.lib.php:1103
 msgid "Edit structure by following the \"Structure\" link"
-msgstr "Edite a estrutura clicando em \"Estrutura\""
+msgstr "Edite a estrutura seguindo o link \"Estrutura\""
 
 #: libraries/import.lib.php:1106
 #, php-format
@@ -6970,8 +6971,8 @@ msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
 msgstr ""
-"O arquivo XML especificado está mal formado ou incompleto. Favor corrigir o "
-"problema e tentar novamente."
+"O arquivo XML especificado foi mal feito ou está incompleto. Por favor, "
+"corrija o problema e tente novamente."
 
 #: libraries/import/shp.php:19
 msgid "ESRI Shape File"
@@ -8044,9 +8045,8 @@ msgid "Engines"
 msgstr "Motores"
 
 #: libraries/server_synchronize.lib.php:1301 server_synchronize.php:1186
-#, fuzzy
 msgid "Source database"
-msgstr "Banco de Dados Fonte"
+msgstr "Fonte de Banco de Dados"
 
 #: libraries/server_synchronize.lib.php:1303
 #: libraries/server_synchronize.lib.php:1311
@@ -8063,9 +8063,8 @@ msgid "Difference"
 msgstr "Diferença"
 
 #: libraries/server_synchronize.lib.php:1309 server_synchronize.php:1188
-#, fuzzy
 msgid "Target database"
-msgstr "Procurar no Banco de Dados"
+msgstr "Banco de Dados destino"
 
 #: libraries/server_synchronize.lib.php:1344
 #: libraries/server_synchronize.lib.php:1353
@@ -8088,10 +8087,9 @@ msgid "Clear"
 msgstr "Limpar"
 
 #: libraries/sql_query_form.lib.php:265
-#, fuzzy
 #| msgid "Column names"
 msgid "Columns"
-msgstr "Nome das colunas"
+msgstr "Colunas"
 
 #: libraries/sql_query_form.lib.php:300 sql.php:973 sql.php:990
 msgid "Bookmark this SQL query"
@@ -8174,7 +8172,7 @@ msgstr "FIM RAW"
 
 #: libraries/sqlparser.lib.php:382
 msgid "Automatically appended backtick to the end of query!"
-msgstr ""
+msgstr "Automaticamente adicionado contra-apóstrofo ao fim da consulta"
 
 #: libraries/sqlparser.lib.php:385
 msgid "Unclosed quote"
@@ -8204,10 +8202,9 @@ msgstr "Tabela para estar vazia!"
 #: libraries/tbl_links.inc.php:126
 #, php-format
 msgid "Tracking of %s.%s is activated."
-msgstr ""
+msgstr "Rastreamento de %s.%s está ativado."
 
 #: libraries/tbl_properties.inc.php:98
-#, fuzzy
 #| msgid ""
 #| "ld type is \"enum\" or \"set\", please enter the values using this "
 #| "mat: ,'b','c'...<br />If you ever need to put a backslash (\"\\\") a "
@@ -8219,10 +8216,10 @@ msgid ""
 "a single quote (\"'\") amongst those values, precede it with a backslash "
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
-"Se um tipo de campo é \"enum\" ou \"set\", por favor entre valores usando "
-"este formato: 'a','b','c'...<br />Se você for colocar uma barra contrária "
-"(\"\\\") ou aspas simples (\"'\") entre os valores, coloque uma barra "
-"contrária antes (por exemplo '\\\\xyz' ou 'a\\'b')."
+"Se um tipo de campo é \"enum\" ou \"set\", por favor entre com valores usando "
+"este formato: 'a','b','c'...<br />Se você mesmo precisar colocar uma barra "
+"contrária (\"\\\") ou aspas simples (\"'\") entre esses valores, coloque uma "
+"barra contrária antes (por exemplo '\\\\xyz' ou 'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:99
 msgid ""
@@ -8265,18 +8262,17 @@ msgstr ""
 
 #: libraries/tbl_properties.inc.php:321
 msgid "ENUM or SET data too long?"
-msgstr ""
+msgstr "ENUM ou conjunto de dados muito grande?"
 
 #: libraries/tbl_properties.inc.php:327
 msgid "Get more editing space"
-msgstr ""
+msgstr "Consiga mais espaço de edição"
 
 #: libraries/tbl_properties.inc.php:351
-#, fuzzy
 #| msgid "None"
 msgctxt "for default"
 msgid "None"
-msgstr "Nenhum"
+msgstr "Nenhum, nada"
 
 #: libraries/tbl_properties.inc.php:352
 msgid "As defined:"
@@ -8293,13 +8289,12 @@ msgid "Fulltext"
 msgstr "Texto completo"
 
 #: libraries/tbl_properties.inc.php:573 tbl_structure.php:668
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %s column(s)"
-msgstr "Adicionar %s campo(s)"
+msgstr "Adicionar campo(s) %s "
 
 #: libraries/tbl_properties.inc.php:575 tbl_structure.php:662
-#, fuzzy
 #| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
 msgstr "Você deve adicionar pelo menos um campo."
@@ -8307,7 +8302,7 @@ msgstr "Você deve adicionar pelo menos um campo."
 #: libraries/tbl_properties.inc.php:663 server_engines.php:54
 #: tbl_operations.php:374
 msgid "Storage Engine"
-msgstr ""
+msgstr "Mecanismo de armazenamento"
 
 #: libraries/tbl_properties.inc.php:692
 msgid "PARTITION definition"
@@ -8320,16 +8315,14 @@ msgid "Operator"
 msgstr "Operador"
 
 #: libraries/tbl_select.lib.php:103
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "Procurar"
+msgstr "Pesquisa de tabela"
 
 #: libraries/tbl_select.lib.php:175 tbl_change.php:1000
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "Inserir"
+msgstr "Inserir/Editar"
 
 #: libraries/transformations.lib.php:134
 #, php-format
@@ -8376,7 +8369,6 @@ msgid "Displays a link to download this image."
 msgstr "Mostrar o link para esta imagem (ex.: blob download direto)."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:10
-#, fuzzy
 #| msgid ""
 #| "ys a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as matted "
 #| "e. The first option is the offset (in hours) which will be ed to the "
@@ -8395,14 +8387,14 @@ msgid ""
 "documentation for PHP's strftime() function and for \"utc\" it is done using "
 "gmdate() function."
 msgstr ""
-"Exibir um TIME, TIMESTAMP, DATETIME ou campo numérico unix timestamp "
-"formatado como data. A primeira opção é o offset (em horas) que será "
-"adicionado ao timestamp (Padrão: 0). Use a segunda opção para especificar "
-"uma string de formatação data/tempo diferente. A terceira opção determina se "
-"você deseja ver data local ou UTC (use a string \"local\" ou \"utc\") para "
-"isso. De acordo com isso, o formatdo da data terá valores diferentes - para "
-"\"local\" veja a documentação do PHP para função strftime() e para \"utc\" "
-"isso é feito usando a função gmdate()."
+"Exibir um TIME, TIMESTAMP, DATETIME ou campo numérico timestamp unix "
+"formatado como data. A primeira opção é o deslocamento (em horas) que irá "
+"ser adicionado ao timestamp (Padrão: 0). Use a segunda opção para "
+"especificar uma string de formatação date/time diferente. A terceira opção "
+"determina se você deseja ver data local ou UTC (use a string \"local\" ou "
+"\"utc\") para isso. De acordo com isso, o formato date terá valores diferentes "
+"- para \"local\" veja a documentação do PHP para função strftime() e para "
+"\"utc\" isso é feito usando a função gmdate()."
 
 #: libraries/transformations/text_plain__external.inc.php:10
 msgid ""
@@ -8461,6 +8453,8 @@ msgid ""
 "Converts an (IPv4) Internet network address into a string in Internet "
 "standard dotted format."
 msgstr ""
+"Converte uma rede de Internet (IPv4) em uma string com formatada com "
+"pontuação padrão da Internet."
 
 #: libraries/transformations/text_plain__sql.inc.php:10
 msgid "Formats text as SQL query with syntax highlighting."
@@ -8481,13 +8475,11 @@ msgstr ""
 "substring retornada (Padrão: ...)."
 
 #: libraries/user_preferences.inc.php:33
-#, fuzzy
 #| msgid "General relation features"
 msgid "Manage your settings"
-msgstr "Recursos de relações gerais"
+msgstr "Gerencie suas configurações"
 
 #: libraries/user_preferences.inc.php:50 prefs_manage.php:289
-#, fuzzy
 #| msgid "Modifications have been saved"
 msgid "Configuration has been saved"
 msgstr "Modificações foram salvas"
@@ -8498,18 +8490,22 @@ msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
+"Suas preferências serão salvas somente para a atual sessão. Armazená-las "
+"permanentemente requer configuração no arquivo de configuração %sphpMyAdmin "
+"%s."
 
 #: libraries/user_preferences.lib.php:116
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save configuration"
-msgstr "Não foi possível carregar configuração padrão de: \"%1$s\""
+msgstr "A configuração não pôde ser salva"
 
 #: libraries/user_preferences.lib.php:282
 msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
 msgstr ""
+"Seu navegador tem configuração do phpMyAdmin para este domínio. Gostaria de "
+"importá-lo para a sessão atual?"
 
 #: libraries/zip_extension.lib.php:26
 msgid "No files found inside ZIP archive!"
@@ -8521,42 +8517,37 @@ msgid "Error in ZIP archive:"
 msgstr "Erro no arquivo ZIP:"
 
 #: main.php:65
-#, fuzzy
 #| msgid "General relation features"
 msgid "General Settings"
-msgstr "Recursos de relações gerais"
+msgstr "Configurações gerais"
 
 #: main.php:109
-#, fuzzy
 #| msgid "MySQL connection collation"
 msgid "Server connection collation"
-msgstr "Collation de conexão do MySQL"
+msgstr "Collation de conexão do servidor MySQL"
 
 #: main.php:124
 msgid "Appearance Settings"
-msgstr ""
+msgstr "Configurações de aparência"
 
 #: main.php:153 prefs_manage.php:272
-#, fuzzy
 #| msgid "General relation features"
 msgid "More settings"
-msgstr "Recursos de relações gerais"
+msgstr "Mais configurações"
 
 #: main.php:169
-#, fuzzy
 #| msgid "Database for user"
 msgid "Database server"
-msgstr "Banco de Dados para usuário"
+msgstr "Servidor de banco de dados"
 
 #: main.php:172
 msgid "Software"
-msgstr ""
+msgstr "Programa"
 
 #: main.php:173
-#, fuzzy
 #| msgid "Show versions"
 msgid "Software version"
-msgstr "Exibir versões"
+msgstr "Versão do programa"
 
 #: main.php:175
 msgid "Protocol version"
@@ -8569,19 +8560,17 @@ msgid "User"
 msgstr "Usuário"
 
 #: main.php:184
-#, fuzzy
 #| msgid "Server socket"
 msgid "Server charset"
-msgstr "Socket do servidor"
+msgstr "Charset do servidor"
 
 #: main.php:196
 msgid "Web server"
-msgstr ""
+msgstr "Servidor web"
 
 #: main.php:209
-#, fuzzy
 msgid "Database client version"
-msgstr "Usar versão leve"
+msgstr "Versão do cliente de banco de dados"
 
 #: main.php:213
 msgid "PHP extension"
@@ -8596,21 +8585,18 @@ msgid "Official Homepage"
 msgstr "Página Oficial do phpMyAdmin"
 
 #: main.php:242
-#, fuzzy
 #| msgid "Attributes"
 msgid "Contribute"
-msgstr "Atributos"
+msgstr "Contribuir"
 
 #: main.php:243
-#, fuzzy
 msgid "Get support"
-msgstr "Exportar"
+msgstr "Obter suporte"
 
 #: main.php:244
-#, fuzzy
 #| msgid "No change"
 msgid "List of changes"
-msgstr "Sem Mudança"
+msgstr "Lista de mudanças"
 
 #: main.php:268
 msgid ""
@@ -8651,12 +8637,20 @@ msgid ""
 "cookie validity configured in phpMyAdmin, because of this, your login will "
 "expire sooner than configured in phpMyAdmin."
 msgstr ""
+"Seu parâmetro PHP  "
+"[a@http://php.net/manual/en/session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] é inferior a validade "
+"configurada para o cookie no phpMyAdmin, por isso, o seu login expira mais "
+"cedo do que configurado no phpMyAdmin."
 
 #: main.php:299
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
 msgstr ""
+"O cookie de login armazenado é inferior a validade de um cookie configurado "
+"no phpMyAdmin, por isso, o seu login expira mais cedo do que configurado no "
+"phpMyAdmin."
 
 #: main.php:307
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -8670,9 +8664,12 @@ msgid ""
 "exists in your phpMyAdmin directory. You should remove it once phpMyAdmin "
 "has been configured."
 msgstr ""
+"Diretório [code]config[/code], que é usado pelo script de configuração, "
+"ainda existe em seu diretório phpMyAdmin. Você deve removê-lo uma vez que o "
+"phpMyAdmin tem sido foi configurado."
 
 #: main.php:321
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "pMyAdmin configuration storage has been deactivated. To find out  click "
 #| "ere%s."
@@ -8680,8 +8677,9 @@ msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
-"Os recursos adicionais para trabalhar com tabelas linkadas foram "
-"desativadas. Para descobrir o motivo clique %saqui%s."
+"O armazenamento de configuração do phpMyAdmin não está completamente "
+"configurado, alguns recursos avançados foram desativadas. Para descobrir o "
+"motivo clique %saqui%s."
 
 #: main.php:336
 msgid ""
@@ -8689,6 +8687,9 @@ msgid ""
 "functionality will be missing. For example navigation frame will not refresh "
 "automatically."
 msgstr ""
+"Suporte javascript está faltando ou está desativado em seu navegador, "
+"algumas funcionalidades do phpMyAdmin estarão ausentes. Por exemplo: o "
+"quadro de navegação não será atualizado automaticamente."
 
 #: main.php:355
 #, php-format
@@ -8713,13 +8714,11 @@ msgid "No databases"
 msgstr "Sem bases"
 
 #: navigation.php:270
-#, fuzzy
 #| msgid "Alter table order by"
 msgid "Filter tables by name"
-msgstr "Alterar tabela ordenada por"
+msgstr "Filtrar tabelas por nome"
 
 #: navigation.php:303 navigation.php:304
-#, fuzzy
 #| msgid "Create table"
 msgctxt "short form"
 msgid "Create table"
@@ -8770,20 +8769,18 @@ msgid "Toggle small/big"
 msgstr "Mudar para pequeno/grande"
 
 #: pmd_general.php:99
-#, fuzzy
 #| msgid "To select relation, click :"
 msgid "Toggle relation lines"
-msgstr "Para selecionar relacionamento, clique :"
+msgstr "Alternar linhas de relação"
 
 #: pmd_general.php:104 pmd_pdf.php:76
 msgid "Import/Export coordinates for PDF schema"
 msgstr "Importar/Exportar coordenadas para esquema PDF"
 
 #: pmd_general.php:110
-#, fuzzy
 #| msgid "Submit Query"
 msgid "Build Query"
-msgstr "Enviar consulta SQL"
+msgstr "Construir uma consulta"
 
 #: pmd_general.php:115
 msgid "Move Menu"
@@ -8810,17 +8807,15 @@ msgid "Delete relation"
 msgstr "Apagar relacionamento"
 
 #: pmd_general.php:454 pmd_general.php:513
-#, fuzzy
 #| msgid "Relation deleted"
 msgid "Relation operator"
-msgstr "Relacionamento apagado"
+msgstr "Operador de relacionamento"
 
 #: pmd_general.php:464 pmd_general.php:523 pmd_general.php:646
 #: pmd_general.php:763
-#, fuzzy
 #| msgid "Export"
 msgid "Except"
-msgstr "Exportar"
+msgstr "Exceto"
 
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769
@@ -8847,10 +8842,9 @@ msgid "Aggregate"
 msgstr "Criar"
 
 #: pmd_general.php:804
-#, fuzzy
 #| msgid "Table options"
 msgid "Active options"
-msgstr "Opções da tabela"
+msgstr "Opções ativas"
 
 #: pmd_pdf.php:30
 msgid "Page has been created"
@@ -8861,10 +8855,9 @@ msgid "Page creation failed"
 msgstr ""
 
 #: pmd_pdf.php:85
-#, fuzzy
 #| msgid "pages"
 msgid "Page"
-msgstr "páginas"
+msgstr "página"
 
 #: pmd_pdf.php:95
 #, fuzzy
@@ -8885,10 +8878,9 @@ msgid "Create a page and export to it"
 msgstr "Criar um novo índice"
 
 #: pmd_pdf.php:107
-#, fuzzy
 #| msgid "User name"
 msgid "New page name: "
-msgstr "Nome do usuário"
+msgstr "Nome da nova página"
 
 #: pmd_pdf.php:110
 msgid "Export/Import to scale"
@@ -8908,7 +8900,7 @@ msgstr "Erro: relacionamento não adicionado."
 
 #: pmd_relation_new.php:60
 msgid "FOREIGN KEY relation added"
-msgstr ""
+msgstr "Adicionado relacionamento FOREIGN KEY"
 
 #: pmd_relation_new.php:82
 msgid "Internal relation added"
@@ -8928,31 +8920,29 @@ msgstr "Modificações foram salvas"
 
 #: prefs_forms.php:78
 msgid "Cannot save settings, submitted form contains errors"
-msgstr ""
+msgstr "As configurações não podem salvas, o formulário submetido contém erros"
 
 #: prefs_manage.php:78
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not import configuration"
-msgstr "Não foi possível carregar configuração padrão de: \"%1$s\""
+msgstr "Não foi possível importar configuração de: \"%1$s\""
 
 #: prefs_manage.php:110
 msgid "Configuration contains incorrect data for some fields."
-msgstr ""
+msgstr "Configuração contém dados incorretos para alguns campos"
 
 #: prefs_manage.php:126
 msgid "Do you want to import remaining settings?"
-msgstr ""
+msgstr "Você quer importar o restante das configurações?"
 
 #: prefs_manage.php:223 prefs_manage.php:249
 msgid "Saved on: @DATE@"
-msgstr ""
+msgstr "Salvo em: @DATE@"
 
 #: prefs_manage.php:237
-#, fuzzy
 #| msgid "Import files"
 msgid "Import from file"
-msgstr "Importar arquivos"
+msgstr "Importar do arquivo"
 
 #: prefs_manage.php:243
 msgid "Import from browser's storage"
