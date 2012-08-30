@@ -1865,21 +1865,19 @@ class ExportSql extends ExportPlugin
             }
 
             // We need to SET IDENTITY_INSERT OFF for MSSQL
-        if (isset($GLOBALS['sql_compatibility'])
-            && $GLOBALS['sql_compatibility'] == 'MSSQL'
-            && $current_row > 0
-        )
-            if (! PMA_exportOutputHandler(
-                $crlf . 'SET IDENTITY_INSERT '
-                . $common_functions->backquote_compat(
-                    $table,
-                    $compat
-                )
-                . ' OFF;' . $crlf
-            )) {
-                return false;
+            if (isset($GLOBALS['sql_compatibility'])
+                && $GLOBALS['sql_compatibility'] == 'MSSQL'
+                && $current_row > 0
+            ) {
+                $outputSucceeded = PMA_exportOutputHandler(
+                    $crlf . 'SET IDENTITY_INSERT '
+                    . $common_functions->backquote_compat($table, $compat)
+                    . ' OFF;' . $crlf
+                );
+                if (! $outputSucceeded) {
+                    return false;
+                }
             }
-
         } // end if ($result != false)
         PMA_DBI_free_result($result);
 

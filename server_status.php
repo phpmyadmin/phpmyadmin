@@ -1349,7 +1349,7 @@ function printServerTraffic()
     <thead>
         <tr>
             <th><?php echo __('Processes'); ?></th>
-            <?php foreach ($sortable_columns as $column): ?>
+            <?php foreach ($sortable_columns as $column) { ?>
 
                 <?php
                     $is_sorted = !empty($_REQUEST['order_by_field'])
@@ -1374,31 +1374,31 @@ function printServerTraffic()
 
                 <th>
                     <a href="server_status.php<?php echo PMA_generate_common_url($column) ?>"
-                        <?php if ($is_sorted): ?>
+                        <?php if ($is_sorted) { ?>
                             onmouseout="$('.soimg').toggle()" onmouseover="$('.soimg').toggle()"
-                        <?php endif; ?>
+                        <?php } ?>
                     >
 
                         <?php echo $column['column_name']; ?>
 
-                        <?php if ($is_sorted): ?>
+                        <?php if ($is_sorted) { ?>
                             <img class="icon ic_s_desc soimg" alt="Descending" title="" src="themes/dot.gif" style="display: <?php echo $desc_display_style; ?>;" />
                             <img class="icon ic_s_asc soimg hide" alt="Ascending" title="" src="themes/dot.gif" style="display: <?php echo $asc_display_style; ?>;" />
-                        <?php endif; ?>
+                        <?php } ?>
 
                     </a>
 
-                    <?php if (! PMA_DRIZZLE && (0 === --$sortable_columns_count)): ?>
+                    <?php if (! PMA_DRIZZLE && (0 === --$sortable_columns_count)) { ?>
                         <a href="<?php echo $full_text_link; ?>"
                             title="<?php echo $show_full_sql ? __('Truncate Shown Queries') : __('Show Full Queries'); ?>">
                             <img src="<?php echo $GLOBALS['pmaThemeImage'] . 's_' . ($show_full_sql ? 'partial' : 'full'); ?>text.png"
                             alt="<?php echo $show_full_sql ? __('Truncate Shown Queries') : __('Show Full Queries'); ?>" />
                         </a>
-                    <?php endif; ?>
+                    <?php } ?>
 
                 </th>
 
-            <?php endforeach; ?>
+            <?php } ?>
         </tr>
     </thead>
     <tbody>
