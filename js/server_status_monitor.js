@@ -66,22 +66,24 @@ $(function() {
         // Query cache efficiency
         'qce': {
             title: PMA_messages['strQueryCacheEfficiency'],
+            series: [ {
+                label: PMA_messages['strQueryCacheEfficiency']
+            } ],
             nodes: [ {
-                name: PMA_messages['strQueryCacheEfficiency'],
                 dataPoints: [{type: 'statusvar', name: 'Qcache_hits'}, {type: 'statusvar', name: 'Com_select'}],
-                unit: '%',
                 transformFn: 'qce'
-            } ]
+             } ]
         },
         // Query cache usage
         'qcu': {
             title: PMA_messages['strQueryCacheUsage'],
+            series: [ {
+                label: PMA_messages['strQueryCacheUsed']
+            } ],
             nodes: [ {
-                name: PMA_messages['strQueryCacheUsed'],
                 dataPoints: [{type: 'statusvar', name: 'Qcache_free_memory'}, {type: 'servervar', name: 'query_cache_size'}],
-                unit: '%',
                 transformFn: 'qcu'
-            } ]
+             } ]
         }
     };
     
@@ -91,42 +93,45 @@ $(function() {
         $.extend(presetCharts, { 
             'cpu': {
                 title: PMA_messages['strSystemCPUUsage'],
-                nodes: [ { 
-                    name: PMA_messages['strAverageLoad'], 
-                    dataPoints: [{ type: 'cpu', name: 'loadavg'}], 
-                    unit: '%'
-                } ]
+                series: [ { 
+                    label: PMA_messages['strAverageLoad']
+                } ],
+                nodes: [ {
+                    dataPoints: [{ type: 'cpu', name: 'loadavg'}]
+                 } ]
             },
             
             'memory': {
                 title: PMA_messages['strSystemMemory'],
-                nodes: [ {
-                    name: PMA_messages['strTotalMemory'],
-                    dataPoints: [{ type: 'memory', name: 'MemTotal' }],
-                    valueDivisor: 1024,
-                    unit: PMA_messages['strMiB']
+                series: [ {
+                    label: PMA_messages['strTotalMemory'],
+                    fill:true,
+                    stackSeries: true
                 }, {
                     dataType: 'memory',
-                      name: PMA_messages['strUsedMemory'],
-                      dataPoints: [{ type: 'memory', name: 'MemUsed' }],
-                      valueDivisor: 1024,
-                      unit: PMA_messages['strMiB']
-                } ]
+                    label: PMA_messages['strUsedMemory'],
+                    fill:true,
+                    stackSeries: true
+                } ],
+                nodes: [{ dataPoints: [{ type: 'memory', name: 'MemTotal' }], valueDivisor: 1024 },
+                        { dataPoints: [{ type: 'memory', name: 'MemUsed' }], valueDivisor: 1024 }
+                ]
             },
             
             'swap': {
                 title: PMA_messages['strSystemSwap'],
-                nodes: [ {
-                    name: PMA_messages['strTotalSwap'],
-                    dataPoints: [{ type: 'memory', name: 'SwapTotal' }],
-                    valueDivisor: 1024,
-                    unit: PMA_messages['strMiB']
+                series: [ {
+                    label: PMA_messages['strTotalSwap'],
+                    fill:true,
+                    stackSeries: true
                 }, {
-                    name: PMA_messages['strUsedSwap'],
-                    dataPoints: [{ type: 'memory', name: 'SwapUsed' }],
-                    valueDivisor: 1024,
-                    unit: PMA_messages['strMiB']
-                } ]
+                    label: PMA_messages['strUsedSwap'],
+                    fill:true,
+                    stackSeries: true
+                } ],
+                nodes: [{ dataPoints: [{ type: 'memory', name: 'SwapTotal' }]},
+                        { dataPoints: [{ type: 'memory', name: 'SwapUsed' }]}
+                ]
             }
         });
         break;
@@ -135,51 +140,38 @@ $(function() {
         $.extend(presetCharts, {
             'cpu': {
                 title: PMA_messages['strSystemCPUUsage'],
-                nodes: [ {
-                    name: PMA_messages['strAverageLoad'],
-                    dataPoints: [{ type: 'cpu', name: 'irrelevant' }],
-                    unit: '%',
-                    transformFn: 'cpu-linux'
-                } ]
+                series: [ {
+                    label: PMA_messages['strAverageLoad']
+                } ],
+                nodes: [{ dataPoints: [{ type: 'cpu', name: 'irrelevant' }], transformFn: 'cpu-linux'}]
             },
             'memory': {
                 title: PMA_messages['strSystemMemory'],
-                nodes: [
-                    { name: PMA_messages['strUsedMemory'], dataPoints: [{ type: 'memory', name: 'MemUsed' }], valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                    { name: PMA_messages['strCachedMemory'], dataPoints: [{ type: 'memory', name: 'Cached' }],  valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                    { name: PMA_messages['strBufferedMemory'], dataPoints: [{ type: 'memory', name: 'Buffers' }], valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                    { name: PMA_messages['strFreeMemory'], dataPoints: [{ type: 'memory', name: 'MemFree' }], valueDivisor: 1024, unit: PMA_messages['strMiB'] }
+                series: [
+                    { label: PMA_messages['strUsedMemory'], fill:true, stackSeries: true},
+                    { label: PMA_messages['strCachedMemory'], fill:true, stackSeries: true},
+                    { label: PMA_messages['strBufferedMemory'], fill:true, stackSeries: true},
+                    { label: PMA_messages['strFreeMemory'], fill:true, stackSeries: true}
                 ],
-                settings: {
-                    chart: {
-                        type: 'area',
-                        animation: false
-                    },
-                    plotOptions: {
-                        area: {
-                            stacking: 'percent'
-                        }
-                    }
-                }
-            },
+                nodes: [
+                    { dataPoints: [{ type: 'memory', name: 'MemUsed' }], valueDivisor: 1024 },
+                    { dataPoints: [{ type: 'memory', name: 'Cached' }],  valueDivisor: 1024 },
+                    { dataPoints: [{ type: 'memory', name: 'Buffers' }], valueDivisor: 1024 },
+                    { dataPoints: [{ type: 'memory', name: 'MemFree' }], valueDivisor: 1024 }
+                ]                
+             },
             'swap': {
                 title: PMA_messages['strSystemSwap'],
-                nodes: [
-                    { name: PMA_messages['strUsedSwap'], dataPoints: [{ type: 'memory', name: 'SwapUsed' }], valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                    { name: PMA_messages['strCachedSwap'], dataPoints: [{ type: 'memory', name: 'SwapCached' }], valueDivisor: 1024, unit: PMA_messages['strMiB'] },
-                    { name: PMA_messages['strFreeSwap'], dataPoints: [{ type: 'memory', name: 'SwapFree' }], valueDivisor: 1024, unit: PMA_messages['strMiB'] }
+                series: [
+                    { label: PMA_messages['strUsedSwap'], fill:true, stackSeries: true},
+                    { label: PMA_messages['strCachedSwap'], fill:true, stackSeries: true},
+                    { label: PMA_messages['strFreeSwap'], fill:true, stackSeries: true}
                 ],
-                settings: {
-                    chart: {
-                        type: 'area',
-                        animation: false
-                    },
-                    plotOptions: {
-                        area: {
-                            stacking: 'percent'
-                        }
-                    }
-                }
+                nodes: [
+                    { dataPoints: [{ type: 'memory', name: 'SwapUsed' }], valueDivisor: 1024 },
+                    { dataPoints: [{ type: 'memory', name: 'SwapCached' }], valueDivisor: 1024 },
+                    { dataPoints: [{ type: 'memory', name: 'SwapFree' }], valueDivisor: 1024 }
+                ]
             }
         });
         break;
@@ -188,19 +180,27 @@ $(function() {
     // Default setting for the chart grid
     defaultChartGrid = {
         'c0': {  title: PMA_messages['strQuestions'],
-                 nodes: [{name: PMA_messages['strQuestions'], dataPoints: [{ type: 'statusvar', name: 'Questions' }], display: 'differential' }]
+                 series: [{label: PMA_messages['strQuestions']}],
+                 nodes: [{dataPoints: [{ type: 'statusvar', name: 'Questions' }], display: 'differential' }]
         },
         'c1': {
                  title: PMA_messages['strChartConnectionsTitle'],
-                 nodes: [ { name: PMA_messages['strConnections'], dataPoints: [{ type: 'statusvar', name: 'Connections' }], display: 'differential' },
-                          { name: PMA_messages['strProcesses'], dataPoints: [{ type: 'proc', name: 'processes' }] } ]
+                 series: [ { label: PMA_messages['strConnections']},
+                          { label: PMA_messages['strProcesses']} ],
+                 nodes: [ { dataPoints: [{ type: 'statusvar', name: 'Connections' }], display: 'differential' },
+                          { dataPoints: [{ type: 'proc', name: 'processes' }] }
+                ]
         },
         'c2': {
                  title: PMA_messages['strTraffic'],
+                 series: [
+                    { label: PMA_messages['strBytesSent']},
+                    { label: PMA_messages['strBytesReceived']}
+                 ],
                  nodes: [
-                    { name: PMA_messages['strBytesSent'], dataPoints: [{ type: 'statusvar', name: 'Bytes_sent' }], display: 'differential', valueDivisor: 1024, unit: PMA_messages['strKiB'] },
-                    { name: PMA_messages['strBytesReceived'], dataPoints: [{ type: 'statusvar', name: 'Bytes_received' }], display: 'differential', valueDivisor: 1024, unit: PMA_messages['strKiB'] }
-                 ]
+                    { dataPoints: [{ type: 'statusvar', name: 'Bytes_sent' }], display: 'differential', valueDivisor: 1024 },
+                    { dataPoints: [{ type: 'statusvar', name: 'Bytes_received' }], display: 'differential', valueDivisor: 1024 }
+                ]
          }
     };
 
@@ -978,7 +978,7 @@ $(function() {
 
     /* Adds a chart to the chart grid */
     function addChart(chartObj, initialize) {
-        series = [];
+/*        series = [];
         for (var j = 0; j<chartObj.nodes.length; j++)
             series.push(chartObj.nodes[j]);
 
@@ -1069,46 +1069,52 @@ $(function() {
             buttons: gridbuttons,
             title: { text: chartObj.title }
         };
+*/
 
-        if (chartObj.settings) {
-            $.extend(true, settings, chartObj.settings);
-        }
-
-        var settings1 = {
+        settings = {
+            title: chartObj.title,
             axes: {
                 xaxis: {
                     renderer: $.jqplot.DateAxisRenderer,
                     tickOptions: {
-                        formatString: '%H:%M:%S'
-                    }
+                        formatString: '%H:%M:%S',
+                        showGridline: false
+                    },
+                    min: runtime.xmin,
+                    max: runtime.xmax
                 },
                 yaxis: {
-                    autoscale:true,
-                    label: PMA_messages['strTotalCount'],
-                    labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+                    min:0,
+                    max:500,
+                    numberTicks:6
                 }
             },
             seriesDefaults: {
                 rendererOptions: {
                     smooth: true
                 }
+            },
+            highlighter: {
+            show: true,
+            showTooltip: false
             }
         };
 
-        if ($('#' + settings.chart.renderTo).length == 0) {
+        settings.series = chartObj.series;
+
+        if ($('#' + 'gridchart' + runtime.chartAI).length == 0) {
             var numCharts = $('table#chartGrid .monitorChart').length;
 
             if (numCharts == 0 || !( numCharts % monitorSettings.columns)) {
                 $('table#chartGrid').append('<tr></tr>');
             }
 
-            $('table#chartGrid tr:last').append('<td><div class="ui-state-default monitorChart" id="' + settings.chart.renderTo + '"></div></td>');
+            $('table#chartGrid tr:last').append('<td><div class="ui-state-default monitorChart" id="' + 'gridchart' + runtime.chartAI + '"></div></td>');
         }
 
-        //chartObj.chart = PMA_createChart(settings);
-        chartObj.chart = $.jqplot(settings.chart.renderTo, [[0,0]], settings1);
+        chartObj.chart = $.jqplot('gridchart' + runtime.chartAI, [[,]], settings);
         chartObj.numPoints = 0;
-        
+
         if (initialize != true) {
             runtime.charts['c' + runtime.chartAI] = chartObj;
             buildRequiredDataList();
@@ -1226,7 +1232,7 @@ $(function() {
                     return;
                 }
                 // Draw all series
-                for (var j = 0; j < elem.nodes.length; j++) {
+                for (var j = 0; j < elem.chart.series.length; j++) {
                     // Update x-axis
                     if (i == 0 && j == 0) {
                         if (oldChartData == null) {
@@ -1275,19 +1281,16 @@ $(function() {
                             false,
                             elem.numPoints >= runtime.gridMaxPoints
                         );*/
-                        elem.chart.series[0].data.push([chartData.x, value]);
+                        elem.chart.series[j].data.push([chartData.x, value]);
                     }
                 }
 
                 // update chart options
-                var interval = (((runtime.xmax - runtime.xmin)/runtime.gridMaxPoints) / 1000);
                 elem.chart['axes']['xaxis']['max'] = runtime.xmax;
                 elem.chart['axes']['xaxis']['min'] = runtime.xmin;
-                elem.chart['axes']['xaxis']['tickInterval'] = interval + " seconds";
                 i++;
                 runtime.charts[orderKey].numPoints++;
                 if (runtime.redrawCharts) {
-                    elem.chart.redraw();
                     elem.chart.replot();
                 }
             });
