@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-28 14:48+0200\n"
-"PO-Revision-Date: 2012-08-30 19:45+0200\n"
+"PO-Revision-Date: 2012-08-30 19:55+0200\n"
 "Last-Translator: مترجم حرّ <metehyi@gmail.com>\n"
 "Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/master/ar/>\n"
 "Language: ar\n"
@@ -976,24 +976,22 @@ msgid "Used memory"
 msgstr "الذاكرة المستخدمة"
 
 #: js/messages.php:110
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "مجموع كلي"
+msgstr "مجموع المقايدة"
 
 #: js/messages.php:111
 msgid "Cached Swap"
-msgstr ""
+msgstr "المقايدة في الخابية"
 
 #: js/messages.php:112
 msgid "Used Swap"
-msgstr ""
+msgstr "المقايدة المستخدمة"
 
 #: js/messages.php:113
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "صفحات حرة"
+msgstr "المقايدة الحرّة"
 
 #: js/messages.php:115
 msgid "Bytes sent"
@@ -1033,11 +1031,11 @@ msgid "EiB"
 msgstr "إكسابايت"
 
 #: js/messages.php:128
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "%d table(s)"
-msgstr "%s  جدول (جداول)"
+msgstr "%d جدول/جداول"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:131
@@ -1179,38 +1177,36 @@ msgid "Differential"
 msgstr "الفارق"
 
 #: js/messages.php:167
-#, fuzzy, php-format
+#, php-format
 #| msgid "Divided by %s:"
 msgid "Divided by %s"
-msgstr "مقسوم على %s :"
+msgstr "مقسوم على %s"
 
 #: js/messages.php:168
 msgid "Unit"
-msgstr ""
+msgstr "سعرة"
 
 #: js/messages.php:170
 msgid "From slow log"
-msgstr ""
+msgstr "من السجل البطيء"
 
 #: js/messages.php:171
 msgid "From general log"
-msgstr ""
+msgstr "من السجل العام"
 
 #: js/messages.php:172
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "تحميل السجلات"
+msgstr "تحليل السجلات"
 
 #: js/messages.php:173
 msgid "Analysing & loading logs. This may take a while."
 msgstr "تحميل وتحليل السجل . قد يستغرق بعض الوقت."
 
 #: js/messages.php:174
-#, fuzzy
 #| msgid "Cancel"
 msgid "Cancel request"
-msgstr "ألغاء"
+msgstr "ألغ الطلب"
 
 #: js/messages.php:175
 msgid ""
@@ -1235,7 +1231,6 @@ msgid "Jump to Log table"
 msgstr "قفز لجدول التسجيل"
 
 #: js/messages.php:180
-#, fuzzy
 #| msgid "No data"
 msgid "No data found"
 msgstr "لايوجد بيانات"
@@ -1248,13 +1243,12 @@ msgstr ""
 #, fuzzy
 #| msgid "Analyze"
 msgid "Analyzing..."
-msgstr "حلل"
+msgstr "تحليل ..."
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
-msgstr "شرح SQL"
+msgstr "إشرح الخرج"
 
 #: js/messages.php:186 js/messages.php:516
 #: libraries/plugins/export/ExportHtmlword.class.php:483
@@ -1265,48 +1259,41 @@ msgid "Time"
 msgstr "وقت"
 
 #: js/messages.php:187
-#, fuzzy
 #| msgid "Total:"
 msgid "Total time:"
-msgstr "المجموع:"
+msgstr "مجموع الوقت:"
 
 #: js/messages.php:188
-#, fuzzy
 #| msgid "Profiling"
 msgid "Profiling results"
-msgstr "جانبي"
+msgstr ""
 
 #: js/messages.php:189
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
-msgstr "جدول"
+msgstr "الجدول"
 
 #: js/messages.php:190
-#, fuzzy
 #| msgid "Charset"
 msgid "Chart"
-msgstr "مجموعة المحارف"
+msgstr "الرسم البياني"
 
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Add new field"
 msgid "Edit chart"
-msgstr "إضافة حقل جديد"
+msgstr "حرّر الرسم البياني"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "SQL queries"
 msgid "Series"
-msgstr "إستعلام SQL"
+msgstr "التسلسل"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
-msgstr "خيارات عرض الجداول"
+msgstr "خيارات مرشح جدول السجل"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:197
@@ -1370,10 +1357,9 @@ msgid "Import"
 msgstr "استيراد"
 
 #: js/messages.php:213
-#, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Import monitor configuration"
-msgstr "فشل قراءة ملف الإعدادات"
+msgstr ""
 
 #: js/messages.php:214
 #, fuzzy
