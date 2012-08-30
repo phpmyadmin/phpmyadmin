@@ -118,8 +118,7 @@ if (isset($_REQUEST['submitoptions'])) {
         ) = PMA_setGlobalVariablesForEngine($tbl_storage_engine);
 
         if ($is_aria) {
-            $transactional = 
-                (isset($transactional) && $transactional == '0')
+            $transactional = (isset($transactional) && $transactional == '0')
                 ? '0' 
                 : '1';
             $page_checksum = (isset($page_checksum)) ? $page_checksum : '';

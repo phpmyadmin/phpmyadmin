@@ -77,8 +77,8 @@ if (strlen($db) && (! empty($_REQUEST['db_rename']) || ! empty($_REQUEST['db_cop
                 'export_type'  => 'database'
             )
         );
-        $GLOBALS['sql_constraints_query_full_db'] = 
-            PMA_getSqlConstraintsQueryForFullDb(
+        $GLOBALS['sql_constraints_query_full_db']
+            = PMA_getSqlConstraintsQueryForFullDb(
                 $tables_full, $export_sql_plugin, $move, $db
             );
 
