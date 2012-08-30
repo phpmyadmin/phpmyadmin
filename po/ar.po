@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-28 14:48+0200\n"
-"PO-Revision-Date: 2011-09-24 21:48+0200\n"
-"Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
-"Language-Team: arabic <ar@li.org>\n"
+"PO-Revision-Date: 2012-08-30 19:45+0200\n"
+"Last-Translator: مترجم حرّ <metehyi@gmail.com>\n"
+"Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/master/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Pootle 2.0.5\n"
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:816
@@ -540,7 +540,7 @@ msgstr "قيمة العمود \"%s\""
 
 #: gis_data_editor.php:104 tbl_gis_visualization.php:171
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "إستعمل خريطة الشوارع الحرة كطبقة أساسية"
 
 #: gis_data_editor.php:124
 msgid "SRID"
@@ -582,21 +582,20 @@ msgstr "منحنى"
 
 #: gis_data_editor.php:212 gis_data_editor.php:268 js/messages.php:328
 msgid "Outer Ring"
-msgstr ""
+msgstr "الحلقة الخارجية"
 
 #: gis_data_editor.php:214 gis_data_editor.php:270 js/messages.php:327
 msgid "Inner Ring"
-msgstr ""
+msgstr "الحلقة الداخلية"
 
 #: gis_data_editor.php:241
 msgid "Add a linestring"
 msgstr "إضافة منحنى"
 
 #: gis_data_editor.php:241 gis_data_editor.php:293 js/messages.php:330
-#, fuzzy
 #| msgid "Add unique index"
 msgid "Add an inner ring"
-msgstr "إضافة فهرس مميز"
+msgstr "﻿إضافة حلقة الداخلية"
 
 #: gis_data_editor.php:255 js/messages.php:325
 msgid "Polygon"
@@ -755,22 +754,20 @@ msgid "This is not a number!"
 msgstr "هذا ليس رقم!"
 
 #: js/messages.php:42
-#, fuzzy
 #| msgid "Add index"
 msgid "Add Index"
 msgstr "إضافة فهرس"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit Index"
-msgstr "وضع التعديل"
+msgstr "حرّر الفهرس"
 
 #: js/messages.php:44 tbl_indexes.php:326
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add into comments"
 msgid "Add %d column(s) to index"
-msgstr "أضف إلى الملاحظات"
+msgstr "أضف %d عمود/عواميد إلى الفهرس"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:48
@@ -916,22 +913,19 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:93
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "Query cache efficiency"
-msgstr "التتبع غير نشط."
+msgstr "فعالية خابية المسائلة"
 
 #: js/messages.php:94
-#, fuzzy
 #| msgid "Space usage"
 msgid "Query cache usage"
-msgstr "المساحة المستخدمة"
+msgstr "إستعمال خابية المسائلة"
 
 #: js/messages.php:95
-#, fuzzy
 #| msgid "Space usage"
 msgid "Query cache used"
-msgstr "المساحة المستخدمة"
+msgstr "خابية المسائلة المستعملة"
 
 #: js/messages.php:97
 msgid "System CPU Usage"
@@ -943,7 +937,7 @@ msgstr "ذاكرة النظام"
 
 #: js/messages.php:99
 msgid "System swap"
-msgstr ""
+msgstr "المقايدة النظامية"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:100 js/messages.php:123
@@ -1542,19 +1536,17 @@ msgid "ENUM/SET editor"
 msgstr ""
 
 #: js/messages.php:273
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
-msgstr "قيم للعمود \"%s\""
+msgstr "القيم للعمود %s"
 
 #: js/messages.php:274
-#, fuzzy
 #| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
-msgstr "قيم للعمود \"%s\""
+msgstr "﻿القيم لعمود جديد"
 
 #: js/messages.php:275
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
 msgstr "أدخل كل قيمة بحقل منفصل"
