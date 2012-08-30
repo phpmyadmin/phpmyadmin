@@ -64,7 +64,7 @@ function PMA_getHtmlForActionLinks($current_table, $table_is_view, $tbl_url_quer
         $empty_table .= ' href="sql.php?' . $tbl_url_query
             . '&amp;sql_query=';
         $empty_table .= urlencode(
-        	'TRUNCATE ' . $common_functions->backquote($current_table['TABLE_NAME'])
+            'TRUNCATE ' . $common_functions->backquote($current_table['TABLE_NAME'])
         );
         $empty_table .= '&amp;message_to_show='
             . urlencode(
