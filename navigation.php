@@ -85,8 +85,8 @@ $header->disableMenu();
 $header->setBodyId('body_leftFrame');
 $scripts = $header->getScripts();
 $scripts->addFile('navigation.js');
-$scripts->addCode('
-    // INIT PMA_setFrameSize
+$scripts->addCode(
+    '// INIT PMA_setFrameSize
     var onloadCnt = 0;
     var onLoadHandler = window.onload;
     var resizeHandler = window.onresize;
@@ -113,8 +113,8 @@ $scripts->addCode('
         ) {
             PMA_saveFrameSize();
         }
-    };
-');
+    };'
+);
 
 require 'libraries/navigation_header.inc.php';
 
@@ -339,7 +339,7 @@ function PMA_displayDbList($ext_dblist, $offset, $count)
 {
     global $element_counter, $img_minus, $img_plus, $href_left,
         $db_start, $common_url_query;
-    
+
     $common_functions = PMA_CommonFunctions::getInstance();
 
     // get table list, for all databases
@@ -530,9 +530,9 @@ function PMA_displayTableList(
     $tables, $visible = false,
     $tab_group_full = '', $table_db = ''
 ) {
-    
+
     $common_functions = PMA_CommonFunctions::getInstance();
-    
+
     if (! is_array($tables) || count($tables) === 0) {
         return;
     }

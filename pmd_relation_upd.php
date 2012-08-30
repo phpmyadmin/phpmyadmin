@@ -37,9 +37,9 @@ if ($common_functions->isForeignKeySupported($type_T1)
 
     if (isset($existrel_foreign[$F2]['constraint'])) {
         $upd_query  = 'ALTER TABLE ' . $common_functions->backquote($DB2)
-                  . '.' . $common_functions->backquote($T2) . ' DROP FOREIGN KEY '
-                  . $common_functions->backquote($existrel_foreign[$F2]['constraint'])
-                  . ';';
+            . '.' . $common_functions->backquote($T2) . ' DROP FOREIGN KEY '
+            . $common_functions->backquote($existrel_foreign[$F2]['constraint'])
+            . ';';
         $upd_rs     = PMA_DBI_query($upd_query);
     } else {
         // there can be an internal relation even if InnoDB

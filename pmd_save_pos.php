@@ -76,10 +76,10 @@ function PMD_err_sav()
 }
 
 if (! empty($die_save_pos)) {
-  header("Content-Type: text/xml; charset=utf-8");
-  header("Cache-Control: no-cache");
-?>
-<root act='save_pos' return='<?php echo __('Modifications have been saved'); ?>'></root>
-<?php
+    header("Content-Type: text/xml; charset=utf-8");
+    header("Cache-Control: no-cache");
+    ?>
+    <root act='save_pos' return='<?php echo __('Modifications have been saved'); ?>'></root>
+    <?php
 }
 ?>

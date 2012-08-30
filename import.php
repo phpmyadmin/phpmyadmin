@@ -301,7 +301,7 @@ if (! empty($local_import_file) && ! empty($cfg['UploadDir'])) {
 
     $import_file = $common_functions->userDir($cfg['UploadDir'])
         . $local_import_file;
-    
+
 } elseif (empty($import_file) || ! is_uploaded_file($import_file)) {
     $import_file  = 'none';
 }
@@ -530,7 +530,9 @@ if (strlen($sql_query) <= $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
 // There was an error?
 if (isset($my_die)) {
     foreach ($my_die AS $key => $die) {
-        $common_functions->mysqlDie($die['error'], $die['sql'], '', $err_url, $error);
+        $common_functions->mysqlDie(
+            $die['error'], $die['sql'], '', $err_url, $error
+        );
     }
 }
 
