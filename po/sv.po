@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-28 14:48+0200\n"
-"PO-Revision-Date: 2012-08-30 22:36+0200\n"
+"PO-Revision-Date: 2012-08-30 22:37+0200\n"
 "Last-Translator: ProUser <stefan@inkopsforum.se>\n"
 "Language-Team: Swedish "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
@@ -10579,7 +10579,7 @@ msgstr "Handledare"
 #: server_status.php:822 server_status.php:848
 #| msgid "Number of rows:"
 msgid "Number of data points: "
-msgstr "Antalet datapunkter:"
+msgstr "Antalet datapunkter: "
 
 #: server_status.php:826 server_status.php:852
 msgid "Refresh rate: "
