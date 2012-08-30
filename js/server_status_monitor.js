@@ -1077,14 +1077,16 @@ $(function() {
                 xaxis: {
                     renderer: $.jqplot.DateAxisRenderer,
                     tickOptions: {
-                        formatString: '%H:%M:%S'
+                        formatString: '%H:%M:%S',
+                        showGridline: false
                     },
                     min: runtime.xmin,
-                    max: runtime.xmax,
-                    tickInterval: '10 seconds'
+                    max: runtime.xmax
                 },
                 yaxis: {
-                    min:0
+                    min:0,
+                    max:500,
+                    numberTicks:6
                 }
             },
             seriesDefaults: {
@@ -1110,7 +1112,7 @@ $(function() {
             $('table#chartGrid tr:last').append('<td><div class="ui-state-default monitorChart" id="' + 'gridchart' + runtime.chartAI + '"></div></td>');
         }
 
-        chartObj.chart = $.jqplot('gridchart' + runtime.chartAI, [[0,0]], settings);
+        chartObj.chart = $.jqplot('gridchart' + runtime.chartAI, [[,]], settings);
         chartObj.numPoints = 0;
 
         if (initialize != true) {
