@@ -897,7 +897,7 @@ foreach ($sections as $section_id => $section_name) {
             </fieldset>
             <div id="linkSuggestions" class="defaultLinks" style="display:none">
                 <p class="notice"><?php echo __('Related links:'); ?>
-                
+
                     <?php
                     foreach ($links as $section_name => $section_links) {
                         echo '<span class="status_' . $section_name . '"> ';
@@ -1067,7 +1067,7 @@ function printServerTraffic()
 {
     global $server_status, $PMA_PHP_SELF;
     global $server_master_status, $server_slave_status, $replication_types;
-    
+
     $common_functions = PMA_CommonFunctions::getInstance();
     $hour_factor    = 3600 / $server_status['Uptime'];
 
@@ -1271,7 +1271,7 @@ function printServerTraffic()
     } else {
         $full_text_link = 'server_status.php' . PMA_generate_common_url(array('full' => 1));
     }
-    
+
     // This array contains display name and real column name of each
     // sortable column in the table
     $sortable_columns = array(
@@ -1309,7 +1309,7 @@ function printServerTraffic()
         )
     );
     $sortable_columns_count = count($sortable_columns);
-    
+
     if (PMA_DRIZZLE) {
         $sql_query = "SELECT
                 p.id       AS Id,
@@ -1338,7 +1338,7 @@ function printServerTraffic()
                 . $_REQUEST['order_by_field'] . '` ' . $_REQUEST['sort_order'];
         }
     }
-    
+
     $result = PMA_DBI_query($sql_query);
 
     /**
@@ -1355,12 +1355,12 @@ function printServerTraffic()
                     $is_sorted = !empty($_REQUEST['order_by_field'])
                         && !empty($_REQUEST['sort_order'])
                         && ($_REQUEST['order_by_field'] == $column['order_by_field']);
-                    
+
                     $column['sort_order'] = ($is_sorted
                         && ($_REQUEST['sort_order'] == 'ASC'))
                         ? 'DESC'
                         : 'ASC';
-                    
+
                     if ($is_sorted) {
                         if ($_REQUEST['sort_order'] == 'ASC') {
                            $asc_display_style = 'inline';
@@ -1378,14 +1378,14 @@ function printServerTraffic()
                             onmouseout="$('.soimg').toggle()" onmouseover="$('.soimg').toggle()"
                         <?php endif; ?>
                     >
-                        
+
                         <?php echo $column['column_name']; ?>
-                        
+
                         <?php if ($is_sorted): ?>
                             <img class="icon ic_s_desc soimg" alt="Descending" title="" src="themes/dot.gif" style="display: <?php echo $desc_display_style; ?>;" />
                             <img class="icon ic_s_asc soimg hide" alt="Ascending" title="" src="themes/dot.gif" style="display: <?php echo $asc_display_style; ?>;" />
                         <?php endif; ?>
-                        
+
                     </a>
 
                     <?php if (! PMA_DRIZZLE && (0 === --$sortable_columns_count)): ?>
@@ -1405,7 +1405,7 @@ function printServerTraffic()
     <?php
     $odd_row = true;
     while ($process = PMA_DBI_fetch_assoc($result)) {
-    
+
         // Array keys need to modify due to the way it has used
         // to display column values
         if (!empty($_REQUEST['order_by_field'])
@@ -1417,7 +1417,7 @@ function printServerTraffic()
                 unset($process[$key]);
             }
         }
-        
+
         $url_params['kill'] = $process['Id'];
         $kill_process = 'server_status.php' . PMA_generate_common_url($url_params);
         ?>
@@ -1456,9 +1456,9 @@ function printServerTraffic()
 function printVariablesTable()
 {
     global $server_status, $server_variables, $allocationMap, $links;
-    
+
     $common_functions = PMA_CommonFunctions::getInstance();
-    
+
     /**
      * Messages are built using the message name
      */
@@ -1724,9 +1724,9 @@ function printVariablesTable()
 function printMonitor()
 {
     global $server_status, $server_db_isLocal;
-    
+
     $common_functions = PMA_CommonFunctions::getInstance();
-    
+
 ?>
     <div class="tabLinks" style="display:none;">
         <a href="#pauseCharts">
