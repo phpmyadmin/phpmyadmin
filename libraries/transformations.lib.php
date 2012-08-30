@@ -268,7 +268,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
     $transformation = strtolower($transformation);
     $transformation = str_replace(".class.php", ".inc.php", $transformation);
     $last_pos = strrpos($transformation, "_");
-    $transformation = substr($transformation , 0, $last_pos) . "_"
+    $transformation = substr($transformation, 0, $last_pos) . "_"
         . substr($transformation, $last_pos);
 
     $test_qry = '

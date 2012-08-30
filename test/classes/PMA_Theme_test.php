@@ -254,7 +254,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
             '14px'
         );
 
-        $GLOBALS['PMA_Config']->set('fontsize','12px');
+        $GLOBALS['PMA_Config']->set('fontsize', '12px');
         $this->assertEquals(
             $this->object->getFontSize(),
             '12px'

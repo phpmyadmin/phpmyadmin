@@ -324,8 +324,8 @@ if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
                     ($tbl_is_view 
                         ? __('View %s has been dropped') 
                         : __('Table %s has been dropped')
-                    )
-                    , htmlspecialchars($table)
+                    ),
+                    htmlspecialchars($table)
                 ),
                 // table name is needed to avoid running
                 // PMA_relationsCleanupDatabase() on the whole db later

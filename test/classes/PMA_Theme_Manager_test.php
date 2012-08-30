@@ -79,9 +79,9 @@ class PMA_Theme_Manager_test extends PHPUnit_Framework_TestCase
         $this->assertNull(
             $tm->makeBc()
         );
-        $this->assertEquals($GLOBALS['theme'],'pmahomme');
-        $this->assertEquals($GLOBALS['pmaThemePath'],'./themes/pmahomme');
-        $this->assertEquals($GLOBALS['pmaThemeImage'],'./themes/pmahomme/img/');
+        $this->assertEquals($GLOBALS['theme'], 'pmahomme');
+        $this->assertEquals($GLOBALS['pmaThemePath'], './themes/pmahomme');
+        $this->assertEquals($GLOBALS['pmaThemeImage'], './themes/pmahomme/img/');
 
     }
 

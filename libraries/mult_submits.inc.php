@@ -496,7 +496,7 @@ if (!empty($submit_mult) && !empty($what)) {
             } elseif ($query_type == 'drop_tbl') {
                 PMA_clearTransformations($db, $selected[$i]);
             } else if ($query_type == 'drop_fld') {
-                PMA_clearTransformations($db, $table ,$selected[$i]);
+                PMA_clearTransformations($db, $table, $selected[$i]);
             }
             
         } // end if
