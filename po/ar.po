@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 06:32-0400\n"
-"PO-Revision-Date: 2011-09-24 21:48+0200\n"
-"Last-Translator: Abdullah Al-Saedi <abdullah.10@windowslive.com>\n"
-"Language-Team: arabic <ar@li.org>\n"
+"PO-Revision-Date: 2012-08-30 19:54+0200\n"
+"Last-Translator: مترجم حرّ <metehyi@gmail.com>\n"
+"Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/3-5/ar/>\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ar\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Pootle 2.0.5\n"
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -822,28 +822,25 @@ msgid "ENUM/SET editor"
 msgstr ""
 
 #: enum_editor.php:28 js/messages.php:274
-#, fuzzy
 #| msgid "Values for the column \"%s\""
 msgid "Values for a new column"
-msgstr "قيم للعمود \"%s\""
+msgstr "﻿القيم لعمود جديد"
 
 #: enum_editor.php:30 js/messages.php:273
-#, fuzzy, php-format
+#, php-format
 #| msgid "Values for the column \"%s\""
 msgid "Values for column %s"
-msgstr "قيم للعمود \"%s\""
+msgstr "القيم للعمود %s"
 
 #: enum_editor.php:34 js/messages.php:275
-#, fuzzy
 #| msgid "Enter each value in a separate field."
 msgid "Enter each value in a separate field"
 msgstr "أدخل كل قيمة بحقل منفصل"
 
 #: enum_editor.php:93
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a value"
-msgstr "أضف مستخدم جديد"
+msgstr "أضف قيمة"
 
 #: enum_editor.php:99 gis_data_editor.php:317
 msgid "Output"
@@ -897,7 +894,7 @@ msgstr "قيمة العمود \"%s\""
 
 #: gis_data_editor.php:113 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
-msgstr ""
+msgstr "إستعمل خريطة الشوارع الحرة كطبقة أساسية"
 
 #: gis_data_editor.php:134
 msgid "SRID"
@@ -939,21 +936,20 @@ msgstr "منحنى"
 
 #: gis_data_editor.php:223 gis_data_editor.php:279 js/messages.php:328
 msgid "Outer Ring"
-msgstr ""
+msgstr "الحلقة الخارجية"
 
 #: gis_data_editor.php:225 gis_data_editor.php:281 js/messages.php:327
 msgid "Inner Ring"
-msgstr ""
+msgstr "الحلقة الداخلية"
 
 #: gis_data_editor.php:252
 msgid "Add a linestring"
 msgstr "إضافة منحنى"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:330
-#, fuzzy
 #| msgid "Add unique index"
 msgid "Add an inner ring"
-msgstr "إضافة فهرس مميز"
+msgstr "﻿إضافة حلقة الداخلية"
 
 #: gis_data_editor.php:266 js/messages.php:325
 msgid "Polygon"
@@ -1116,22 +1112,20 @@ msgid "This is not a number!"
 msgstr "هذا ليس رقم!"
 
 #: js/messages.php:46
-#, fuzzy
 #| msgid "Add index"
 msgid "Add Index"
 msgstr "إضافة فهرس"
 
 #: js/messages.php:47
-#, fuzzy
 #| msgid "Edit mode"
 msgid "Edit Index"
-msgstr "وضع التعديل"
+msgstr "حرّر الفهرس"
 
 #: js/messages.php:48 tbl_indexes.php:293
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add into comments"
 msgid "Add %d column(s) to index"
-msgstr "أضف إلى الملاحظات"
+msgstr "أضف %d عمود/عواميد إلى الفهرس"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:52
@@ -1270,22 +1264,19 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:97
-#, fuzzy
 #| msgid "Tracking is not active."
 msgid "Query cache efficiency"
-msgstr "التتبع غير نشط."
+msgstr "فعالية خابية المسائلة"
 
 #: js/messages.php:98
-#, fuzzy
 #| msgid "Space usage"
 msgid "Query cache usage"
-msgstr "المساحة المستخدمة"
+msgstr "إستعمال خابية المسائلة"
 
 #: js/messages.php:99
-#, fuzzy
 #| msgid "Space usage"
 msgid "Query cache used"
-msgstr "المساحة المستخدمة"
+msgstr "خابية المسائلة المستعملة"
 
 #: js/messages.php:101
 msgid "System CPU Usage"
@@ -1297,7 +1288,7 @@ msgstr "ذاكرة النظام"
 
 #: js/messages.php:103
 msgid "System swap"
-msgstr ""
+msgstr "المقايدة النظامية"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1402
@@ -1336,24 +1327,22 @@ msgid "Used memory"
 msgstr "الذاكرة المستخدمة"
 
 #: js/messages.php:114
-#, fuzzy
 #| msgid "Total"
 msgid "Total Swap"
-msgstr "مجموع كلي"
+msgstr "مجموع المقايدة"
 
 #: js/messages.php:115
 msgid "Cached Swap"
-msgstr ""
+msgstr "المقايدة في الخابية"
 
 #: js/messages.php:116
 msgid "Used Swap"
-msgstr ""
+msgstr "المقايدة المستخدمة"
 
 #: js/messages.php:117
-#, fuzzy
 #| msgid "Free pages"
 msgid "Free Swap"
-msgstr "صفحات حرة"
+msgstr "المقايدة الحرّة"
 
 #: js/messages.php:119
 msgid "Bytes sent"
@@ -1393,11 +1382,11 @@ msgid "EiB"
 msgstr "إكسابايت"
 
 #: js/messages.php:132
-#, fuzzy, php-format
+#, php-format
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "%d table(s)"
-msgstr "%s  جدول (جداول)"
+msgstr "%d جدول/جداول"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:135
@@ -1538,38 +1527,36 @@ msgid "Differential"
 msgstr "الفارق"
 
 #: js/messages.php:171
-#, fuzzy, php-format
+#, php-format
 #| msgid "Divided by %s:"
 msgid "Divided by %s"
-msgstr "مقسوم على %s :"
+msgstr "مقسوم على %s"
 
 #: js/messages.php:172
 msgid "Unit"
-msgstr ""
+msgstr "سعرة"
 
 #: js/messages.php:174
 msgid "From slow log"
-msgstr ""
+msgstr "من السجل البطيء"
 
 #: js/messages.php:175
 msgid "From general log"
-msgstr ""
+msgstr "من السجل العام"
 
 #: js/messages.php:176
-#, fuzzy
 #| msgid "Loading logs"
 msgid "Analysing logs"
-msgstr "تحميل السجلات"
+msgstr "تحليل السجلات"
 
 #: js/messages.php:177
 msgid "Analysing & loading logs. This may take a while."
 msgstr "تحميل وتحليل السجل . قد يستغرق بعض الوقت."
 
 #: js/messages.php:178
-#, fuzzy
 #| msgid "Cancel"
 msgid "Cancel request"
-msgstr "ألغاء"
+msgstr "ألغ الطلب"
 
 #: js/messages.php:179
 msgid ""
@@ -1594,7 +1581,6 @@ msgid "Jump to Log table"
 msgstr "قفز لجدول التسجيل"
 
 #: js/messages.php:184
-#, fuzzy
 #| msgid "No data"
 msgid "No data found"
 msgstr "لايوجد بيانات"
@@ -1607,13 +1593,12 @@ msgstr ""
 #, fuzzy
 #| msgid "Analyze"
 msgid "Analyzing..."
-msgstr "حلل"
+msgstr "تحليل ..."
 
 #: js/messages.php:188
-#, fuzzy
 #| msgid "Explain SQL"
 msgid "Explain output"
-msgstr "شرح SQL"
+msgstr "إشرح الخرج"
 
 #: js/messages.php:190 js/messages.php:497 libraries/rte/rte_list.lib.php:62
 #: server_status.php:1258 sql.php:897
@@ -1621,48 +1606,41 @@ msgid "Time"
 msgstr "وقت"
 
 #: js/messages.php:191
-#, fuzzy
 #| msgid "Total:"
 msgid "Total time:"
-msgstr "المجموع:"
+msgstr "مجموع الوقت:"
 
 #: js/messages.php:192
-#, fuzzy
 #| msgid "Profiling"
 msgid "Profiling results"
-msgstr "جانبي"
+msgstr ""
 
 #: js/messages.php:193
-#, fuzzy
 #| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
-msgstr "جدول"
+msgstr "الجدول"
 
 #: js/messages.php:194
-#, fuzzy
 #| msgid "Charset"
 msgid "Chart"
-msgstr "مجموعة المحارف"
+msgstr "الرسم البياني"
 
 #: js/messages.php:195
-#, fuzzy
 #| msgid "Add new field"
 msgid "Edit chart"
-msgstr "إضافة حقل جديد"
+msgstr "حرّر الرسم البياني"
 
 #: js/messages.php:196
-#, fuzzy
 #| msgid "Servers"
 msgid "Series"
-msgstr "خوادم"
+msgstr "التسلسل"
 
 #. l10n: A collection of available filters
 #: js/messages.php:199
-#, fuzzy
 #| msgid "Tables display options"
 msgid "Log table filter options"
-msgstr "خيارات عرض الجداول"
+msgstr "خيارات مرشح جدول السجل"
 
 #. l10n: Filter as in "Start Filtering"
 #: js/messages.php:201
