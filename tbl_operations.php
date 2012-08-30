@@ -65,7 +65,7 @@ if ($is_aria) {
     // ($transactional may have been set by libraries/tbl_info.inc.php,
     // from the $create_options)
     $transactional = (isset($transactional) && $transactional == '0')
-        ? '0' 
+        ? '0'
         : '1';
     $page_checksum = (isset($page_checksum)) ? $page_checksum : '';
 }
@@ -106,7 +106,7 @@ if (isset($_REQUEST['submitoptions'])) {
             $result = false;
         }
     }
-    
+
     if (! empty($_REQUEST['new_tbl_storage_engine'])
         && strtolower($_REQUEST['new_tbl_storage_engine'])
             !== strtolower($tbl_storage_engine)
@@ -119,12 +119,12 @@ if (isset($_REQUEST['submitoptions'])) {
 
         if ($is_aria) {
             $transactional = (isset($transactional) && $transactional == '0')
-                ? '0' 
+                ? '0'
                 : '1';
             $page_checksum = (isset($page_checksum)) ? $page_checksum : '';
         }
     }
-    
+
     $table_alters = PMA_getTableAltersArray(
         $is_myisam_or_aria, $is_isam, $pack_keys,
         (empty($checksum) ? '0' : '1'),
@@ -138,7 +138,7 @@ if (isset($_REQUEST['submitoptions'])) {
     );
 
     if (count($table_alters) > 0) {
-        $sql_query      = 'ALTER TABLE ' 
+        $sql_query      = 'ALTER TABLE '
             . $common_functions->backquote($GLOBALS['table']);
         $sql_query     .= "\r\n" . implode("\r\n", $table_alters);
         $sql_query     .= ';';
@@ -158,7 +158,7 @@ if (isset($_REQUEST['submitorderby']) && ! empty($_REQUEST['order_field'])) {
 /**
  * A partition operation has been requested by the user
  */
-if (isset($_REQUEST['submit_partition']) 
+if (isset($_REQUEST['submit_partition'])
     && ! empty($_REQUEST['partition_operation'])
 ) {
     list($sql_query, $result) = PMA_getQueryAndResultForPartition();
@@ -178,14 +178,14 @@ if (isset($result) && empty($message_to_show)) {
     // (for example, a table rename)
     $_type = 'success';
     if (empty($_message)) {
-        $_message = $result 
+        $_message = $result
             ? PMA_Message::success(
                 __('Your SQL query has been executed successfully')
             )
             : PMA_Message::error(__('Error'));
         // $result should exist, regardless of $_message
         $_type = $result ? 'success' : 'error';
-        
+
         if (isset($GLOBALS['ajax_request'])
             && $GLOBALS['ajax_request'] == true
         ) {
@@ -266,7 +266,7 @@ $response->addHTML(
         $is_myisam_or_aria, $is_isam, $pack_keys,
         $auto_increment,
         (empty($delay_key_write) ? '0' : '1'),
-        ((isset($transactional) && $transactional == '0') ? '0' : '1'), 
+        ((isset($transactional) && $transactional == '0') ? '0' : '1'),
         ((isset($page_checksum)) ? $page_checksum : ''),
         $is_innodb, $is_pbxt, $is_aria, (empty($checksum) ? '0' : '1')
     )
@@ -283,19 +283,22 @@ $response->addHTML('<br class="clearfloat"/>');
  * Table maintenance
  */
 $response->addHTML(
-    PMA_getHtmlForTableMaintenance($is_myisam_or_aria, $is_innodb,
-        $is_berkeleydb, $url_params
+    PMA_getHtmlForTableMaintenance(
+        $is_myisam_or_aria,
+        $is_innodb,
+        $is_berkeleydb,
+        $url_params
     )
 );
 
 if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
     $truncate_table_url_params = array();
     $drop_table_url_params = array();
-    
-    if (! $tbl_is_view 
+
+    if (! $tbl_is_view
         && ! (isset($db_is_information_schema) && $db_is_information_schema)
     ) {
-        $this_sql_query = 'TRUNCATE TABLE ' 
+        $this_sql_query = 'TRUNCATE TABLE '
             . $common_functions->backquote($GLOBALS['table']);
         $truncate_table_url_params = array_merge(
             $url_params,
@@ -311,7 +314,7 @@ if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
         );
     }
     if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
-        $this_sql_query = 'DROP TABLE ' 
+        $this_sql_query = 'DROP TABLE '
             . $common_functions->backquote($GLOBALS['table']);
         $drop_table_url_params = array_merge(
             $url_params,
@@ -321,8 +324,8 @@ if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
                 'reload' => '1',
                 'purge' => '1',
                 'message_to_show' => sprintf(
-                    ($tbl_is_view 
-                        ? __('View %s has been dropped') 
+                    ($tbl_is_view
+                        ? __('View %s has been dropped')
                         : __('Table %s has been dropped')
                     ),
                     htmlspecialchars($table)
