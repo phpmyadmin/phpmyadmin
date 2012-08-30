@@ -66,7 +66,7 @@ if (strlen($db) && (! empty($_REQUEST['db_rename']) || ! empty($_REQUEST['db_cop
 
         $tables_full = PMA_DBI_get_tables_full($db);
 
-        require_once "libraries/plugin_interface.lib.php";
+        include_once "libraries/plugin_interface.lib.php";
         // remove all foreign key constraints, otherwise we can get errors
         $export_sql_plugin = PMA_getPlugin(
             "export",

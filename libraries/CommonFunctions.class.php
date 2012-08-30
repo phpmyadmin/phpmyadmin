@@ -3514,7 +3514,7 @@ class PMA_CommonFunctions
         /* Optional escaping */
         if (! is_null($escape)) {
             if (is_array($escape)) {
-                require_once $escape[2];
+                include_once $escape[2];
                 $escape_class = new $escape[1];
                 $escape_method = $escape[0];
             }

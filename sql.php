@@ -773,7 +773,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         || ($analyzed_sql[0]['querytype'] == 'DROP'))
     ) {
 
-        require_once 'libraries/transformations.lib.php';
+        include_once 'libraries/transformations.lib.php';
         if ($analyzed_sql[0]['querytype'] == 'ALTER') {
 
             if (stripos($analyzed_sql[0]['unsorted_query'], 'DROP') !== false) {

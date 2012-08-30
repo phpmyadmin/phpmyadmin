@@ -64,7 +64,7 @@ if (isset($_REQUEST['createview'])) {
 
     if (PMA_DBI_try_query($sql_query)) {
         
-        require_once './libraries/tbl_views.lib.php';
+        include_once './libraries/tbl_views.lib.php';
         
         // If different column names defined for VIEW
         $view_columns = array();

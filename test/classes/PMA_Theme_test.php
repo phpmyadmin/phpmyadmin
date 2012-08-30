@@ -32,7 +32,7 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
         $GLOBALS['PMA_Config']->enableBc();
         $GLOBALS['cfg']['SQP']['fmtColor'] = array('fake' => 'red');
         $GLOBALS['text_dir'] = 'ltr';
-        require 'themes/pmahomme/layout.inc.php';
+        include 'themes/pmahomme/layout.inc.php';
         $_SESSION[' PMA_token '] = 'token';
         $GLOBALS['lang'] = 'en';
         $GLOBALS['server'] = '99';
