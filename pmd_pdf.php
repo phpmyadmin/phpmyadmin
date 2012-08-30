@@ -95,7 +95,7 @@ $header->disableMenu();
 <br>
 <div>
 <?php
-    if (!empty($message)) {
+    if (! empty($message)) {
         $message->display();
     }
 ?>

@@ -40,7 +40,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             header('Content-Type: text/html; charset=UTF-8');
             $varValue = PMA_DBI_fetch_single_row(
                 'SHOW GLOBAL VARIABLES WHERE Variable_name="'
-                . $common_functions->sqlAddSlashes($_REQUEST['varName']) . '";', 'NUM'
+                . $common_functions->sqlAddSlashes($_REQUEST['varName']) . '";',
+                'NUM'
             );
             if (isset($VARIABLE_DOC_LINKS[$_REQUEST['varName']][3])
                 && $VARIABLE_DOC_LINKS[$_REQUEST['varName']][3] == 'byte'
@@ -167,12 +168,16 @@ foreach ($serverVars as $name => $value) {
 function formatVariable($name, $value)
 {
     global $VARIABLE_DOC_LINKS;
-    
+
     $common_functions = PMA_CommonFunctions::getInstance();
 
     if (is_numeric($value)) {
-        if (isset($VARIABLE_DOC_LINKS[$name][3]) && $VARIABLE_DOC_LINKS[$name][3]=='byte') {
-            return '<abbr title="'.$common_functions->formatNumber($value, 0).'">'.implode(' ', $common_functions->formatByteDown($value, 3, 3)).'</abbr>';
+        if (isset($VARIABLE_DOC_LINKS[$name][3])
+            && $VARIABLE_DOC_LINKS[$name][3]=='byte'
+        ) {
+            return '<abbr title="' . $common_functions->formatNumber($value, 0) . '">'
+                . implode(' ', $common_functions->formatByteDown($value, 3, 3))
+                . '</abbr>';
         } else {
             return $common_functions->formatNumber($value, 0);
         }

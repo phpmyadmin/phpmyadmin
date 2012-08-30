@@ -54,13 +54,15 @@ if ($cfgRelation['designerwork']) {
             array('query' => 1)
         )
     );
-    $response->addHTML(PMA_Message::notice(
-        sprintf(
-            __('Switch to %svisual builder%s'),
-            '<a href="' . $url . '">',
-            '</a>'
+    $response->addHTML(
+        PMA_Message::notice(
+            sprintf(
+                __('Switch to %svisual builder%s'),
+                '<a href="' . $url . '">',
+                '</a>'
+            )
         )
-    ));//->display();
+    );
 }
 $response->addHTML($db_qbe->getSelectionForm($cfgRelation));
 ?>

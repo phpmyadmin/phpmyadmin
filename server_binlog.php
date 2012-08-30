@@ -137,7 +137,8 @@ if ($pos > 0) {
         $this_url_params['pos'] = $pos - $GLOBALS['cfg']['MaxRows'];
     }
 
-    echo '<a href="server_binlog.php' . PMA_generate_common_url($this_url_params) . '"';
+    echo '<a href="server_binlog.php'
+        . PMA_generate_common_url($this_url_params) . '"';
     if ($GLOBALS['cfg']['NavigationBarIconic']) {
         echo ' title="' . _pgettext('Previous page', 'Previous') . '">';
     } else {

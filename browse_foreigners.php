@@ -214,7 +214,6 @@ if (is_array($foreignData['disp_row'])) {
     $val_ordered_current_equals_data = false;
     $key_ordered_current_equals_data = false;
     foreach ($keys as $key_ordered_current_row => $value) {
-    //for ($i = 0; $i < $count; $i++) {
         $hcount++;
 
         if ($cfg['RepeatCells'] > 0 && $hcount > $cfg['RepeatCells']) {

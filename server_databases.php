@@ -113,7 +113,13 @@ if ((isset($_REQUEST['drop_selected_dbs']) || isset($_REQUEST['query_type']))
             } else {
                 $number_of_databases = 0;
             }
-            $message = PMA_Message::success(_ngettext('%1$d database has been dropped successfully.', '%1$d databases have been dropped successfully.', $number_of_databases));
+            $message = PMA_Message::success(
+                _ngettext(
+                    '%1$d database has been dropped successfully.',
+                    '%1$d databases have been dropped successfully.',
+                    $number_of_databases
+                )
+            );
             $message->addParam($number_of_databases);
         }
     }
@@ -207,10 +213,10 @@ if ($databases_count > 0) {
             $_url_params['sort_by'] = $stat_name;
             $_url_params['sort_order'] = ($sort_by == $stat_name && $sort_order == 'desc') ? 'asc' : 'desc';
             echo '    <th' . $colspan . '>'
-                .'<a href="server_databases.php' . PMA_generate_common_url($_url_params) . '">' . "\n"
-                .'            ' . $stat['disp_name'] . "\n"
-                .($sort_by == $stat_name ? '            ' . $common_functions->getImage('s_' . $sort_order . '.png', ($sort_order == 'asc' ? __('Ascending') : __('Descending'))) . "\n" : '')
-                .'        </a></th>' . "\n";
+                . '<a href="server_databases.php' . PMA_generate_common_url($_url_params) . '">' . "\n"
+                . '            ' . $stat['disp_name'] . "\n"
+                . ($sort_by == $stat_name ? '            ' . $common_functions->getImage('s_' . $sort_order . '.png', ($sort_order == 'asc' ? __('Ascending') : __('Descending'))) . "\n" : '')
+                . '        </a></th>' . "\n";
         }
     }
 
@@ -242,7 +248,15 @@ if ($databases_count > 0) {
         echo '<tr class="' . $tr_class . '">' . "\n";
         $odd_row = ! $odd_row;
 
-        list($column_order, $generated_html) = PMA_buildHtmlForDb($current, $is_superuser, (isset($checkall) ? $checkall : ''), $url_query, $column_order, $replication_types, $replication_info);
+        list($column_order, $generated_html) = PMA_buildHtmlForDb(
+            $current,
+            $is_superuser,
+            (isset($checkall) ? $checkall : ''),
+            $url_query,
+            $column_order,
+            $replication_types,
+            $replication_info
+        );
 
         echo $generated_html;
 
@@ -294,21 +308,35 @@ if ($databases_count > 0) {
     unset($column_order, $stat_name, $stat, $databases, $table_columns);
 
     if ($is_superuser || $cfg['AllowUserDropDatabase']) {
-        $common_url_query = PMA_generate_common_url(array('sort_by' => $sort_by, 'sort_order' => $sort_order, 'dbstats' => $dbstats));
-        echo '<img class="selectallarrow" src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png" width="38" height="22" alt="' . __('With selected:') . '" />' . "\n"
+        $common_url_query = PMA_generate_common_url(
+            array(
+                'sort_by' => $sort_by,
+                'sort_order' => $sort_order,
+                'dbstats' => $dbstats
+            )
+        );
+        echo '<img class="selectallarrow" src="' . $pmaThemeImage . 'arrow_' . $text_dir . '.png"'
+           . ' width="38" height="22" alt="' . __('With selected:') . '" />' . "\n"
            . '<input type="checkbox" id="checkall" title="' . __('Check All') . '" /> '
            . '<label for="checkall">' . __('Check All') . '</label> '
            . '<i style="margin-left: 2em">' . __('With selected:') . '</i>' . "\n";
-        echo $common_functions->getButtonOrImage('drop_selected_dbs', 'mult_submit' . ($cfg['AjaxEnable'] ? ' ajax' : ''), 'drop_selected_dbs', __('Drop'), 'b_deltbl.png');
+        echo $common_functions->getButtonOrImage(
+            'drop_selected_dbs',
+            'mult_submit' . ($cfg['AjaxEnable'] ? ' ajax' : ''),
+            'drop_selected_dbs',
+            __('Drop'), 'b_deltbl.png'
+        );
     }
 
     if (empty($dbstats)) {
         echo '<ul><li id="li_switch_dbstats"><strong>' . "\n";
-            echo '        <a href="server_databases.php?' . $url_query . '&amp;dbstats=1"'
-                .' title="' . __('Enable Statistics') . '">' . "\n"
-                .'            ' . __('Enable Statistics');
+            echo '<a href="server_databases.php?' . $url_query . '&amp;dbstats=1"'
+                . ' title="' . __('Enable Statistics') . '">' . "\n"
+                . '            ' . __('Enable Statistics');
         echo '</a></strong><br />' . "\n";
-        PMA_Message::notice(__('Note: Enabling the database statistics here might cause heavy traffic between the web server and the MySQL server.'))->display();
+        PMA_Message::notice(
+            __('Note: Enabling the database statistics here might cause heavy traffic between the web server and the MySQL server.')
+        )->display();
         echo '</li>' . "\n" . '</ul>' . "\n";
     }
     echo '</form>';

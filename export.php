@@ -324,7 +324,8 @@ if ($asfile) {
     $filename = PMA_sanitizeFilename($filename);
 
     // Grab basic dump extension and mime type
-    // Check if the user already added extension; get the substring where the extension would be if it was included
+    // Check if the user already added extension;
+    // get the substring where the extension would be if it was included
     $extension_start_pos = strlen($filename) - strlen(
         $export_plugin->getProperties()->getExtension()
     ) - 1;
@@ -359,22 +360,21 @@ if ($save_on_server) {
         || ($quick_export
         && $_REQUEST['quick_export_onserverover'] != 'saveitover'))
     ) {
-        $message = PMA_Message::error(__(
-            'File %s already exists on server, change filename or check'
-            . ' overwrite option.'
-        ));
+        $message = PMA_Message::error(
+            __('File %s already exists on server, change filename or check overwrite option.')
+        );
         $message->addParam($save_filename);
     } else {
         if (is_file($save_filename) && ! is_writable($save_filename)) {
-            $message = PMA_Message::error(__(
-                'The web server does not have permission to save the file %s.'
-            ));
+            $message = PMA_Message::error(
+                __('The web server does not have permission to save the file %s.')
+            );
             $message->addParam($save_filename);
         } else {
             if (! $file_handle = @fopen($save_filename, 'w')) {
-                $message = PMA_Message::error(__(
-                    'The web server does not have permission to save the file %s.'
-                ));
+                $message = PMA_Message::error(
+                    __('The web server does not have permission to save the file %s.')
+                );
                 $message->addParam($save_filename);
             }
         }
@@ -624,7 +624,9 @@ do {
             }
             // now export the triggers (needs to be done after the data because
             // triggers can modify already imported tables)
-            if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
+            if ($GLOBALS[$what . '_structure_or_data'] == 'structure'
+                || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data'
+            ) {
                 if (! $export_plugin->exportStructure(
                     $db, $table, $crlf, $err_url,
                     'triggers', $export_type,
@@ -636,7 +638,9 @@ do {
         }
         foreach ($views as $view) {
             // no data export for a view
-            if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
+            if ($GLOBALS[$what . '_structure_or_data'] == 'structure'
+                || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data'
+            ) {
                 if (! $export_plugin->exportStructure(
                     $db, $view, $crlf, $err_url,
                     'create_view', $export_type,
@@ -665,7 +669,9 @@ do {
         }
 
         $is_view = PMA_Table::isView($db, $table);
-        if ($GLOBALS[$what . '_structure_or_data'] == 'structure' || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data') {
+        if ($GLOBALS[$what . '_structure_or_data'] == 'structure'
+            || $GLOBALS[$what . '_structure_or_data'] == 'structure_and_data'
+        ) {
             if (! $export_plugin->exportStructure(
                 $db, $table, $crlf, $err_url,
                 $is_view ? 'create_view' : 'create_table', $export_type,
@@ -693,9 +699,7 @@ do {
                 $local_query  = 'SELECT * FROM ' . $common_functions->backquote($db)
                     . '.' . $common_functions->backquote($table) . $add_query;
             }
-            if (! $export_plugin->exportData($db, $table, $crlf, $err_url,
-                $local_query
-            )) {
+            if (! $export_plugin->exportData($db, $table, $crlf, $err_url, $local_query)) {
                 break;
             }
         }

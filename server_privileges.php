@@ -146,9 +146,9 @@ if (isset($dbname)) {
 if (! $is_superuser) {
     $response->addHTML(
         '<h2>' . "\n"
-       . $common_functions->getIcon('b_usrlist.png')
-       . __('Privileges') . "\n"
-       . '</h2>' . "\n"
+        . $common_functions->getIcon('b_usrlist.png')
+        . __('Privileges') . "\n"
+        . '</h2>' . "\n"
     );
     $response->addHTML(PMA_Message::error(__('No Privileges'))->getDisplay());
     exit;

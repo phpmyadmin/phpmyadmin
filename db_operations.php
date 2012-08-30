@@ -33,8 +33,9 @@ $common_functions = PMA_CommonFunctions::getInstance();
 /**
  * Rename/move or copy database
  */
-if (strlen($db) && (! empty($_REQUEST['db_rename']) || ! empty($_REQUEST['db_copy']))) {
-
+if (strlen($db)
+    && (! empty($_REQUEST['db_rename']) || ! empty($_REQUEST['db_copy']))
+) {
     if (! empty($_REQUEST['db_rename'])) {
         $move = true;
     } else {
@@ -70,7 +71,7 @@ if (strlen($db) && (! empty($_REQUEST['db_rename']) || ! empty($_REQUEST['db_cop
         // remove all foreign key constraints, otherwise we can get errors
         $export_sql_plugin = PMA_getPlugin(
             "export",
-            "sql",    
+            "sql",
             'libraries/plugins/export/',
             array(
                 'single_table' => isset($single_table),
@@ -82,7 +83,7 @@ if (strlen($db) && (! empty($_REQUEST['db_rename']) || ! empty($_REQUEST['db_cop
                 $tables_full, $export_sql_plugin, $move, $db
             );
 
-            $views = PMA_getViewsAndCreateSqlViewStandIn(
+        $views = PMA_getViewsAndCreateSqlViewStandIn(
             $tables_full, $export_sql_plugin, $db
         );
 
@@ -113,7 +114,7 @@ if (strlen($db) && (! empty($_REQUEST['db_rename']) || ! empty($_REQUEST['db_cop
 
         // Duplicate the bookmarks for this db (done once for each db)
         PMA_duplicateBookmarks($_error, $db);
-        
+
         if (! $_error && $move) {
             /**
              * cleanup pmadb stuff for this db
@@ -140,7 +141,9 @@ if (strlen($db) && (! empty($_REQUEST['db_rename']) || ! empty($_REQUEST['db_cop
         if (! $_error && $move) {
             $db = $_REQUEST['newname'];
         } elseif (! $_error) {
-            if (isset($_REQUEST['switch_to_new']) && $_REQUEST['switch_to_new'] == 'true') {
+            if (isset($_REQUEST['switch_to_new'])
+                && $_REQUEST['switch_to_new'] == 'true'
+            ) {
                 $GLOBALS['PMA_Config']->setCookie('pma_switch_to_new', 'true');
                 $db = $_REQUEST['newname'];
             } else {
@@ -213,7 +216,7 @@ if (!$is_information_schema) {
          */
         $response->addHTML(PMA_getHtmlForDatabaseComment($db));
     }
-    
+
     $response->addHTML('<div class="operations_half_width">');
     ob_start();
     include 'libraries/display_create_table.lib.php';
@@ -230,7 +233,8 @@ if (!$is_information_schema) {
     }
 
     // Drop link if allowed
-    // Don't even try to drop information_schema. You won't be able to. Believe me. You won't.
+    // Don't even try to drop information_schema.
+    // You won't be able to. Believe me. You won't.
     // Don't allow to easily drop mysql database, RFE #1327514.
     if (($is_superuser || $GLOBALS['cfg']['AllowUserDropDatabase'])
         && ! $db_is_information_schema

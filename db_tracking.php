@@ -171,8 +171,7 @@ foreach ($table_list as $key => $value) {
                 }
             }
         }
-    // If $value is a table.
-    } else {
+    } else { // If $value is a table.
         if (PMA_Tracker::getVersion($GLOBALS['db'], $value['Name']) == -1) {
             $my_tables[] = $value['Name'];
         }

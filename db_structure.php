@@ -117,7 +117,8 @@ if (isset($_REQUEST['sort_order'])) {
     $_url_params['sort_order'] = $_REQUEST['sort_order'];
 }
 
-$response->addHTML($common_functions->getListNavigator(
+$response->addHTML(
+    $common_functions->getListNavigator(
         $total_num_tables, $pos, $_url_params, 'db_structure.php',
         'frame_content', $GLOBALS['cfg']['MaxTableList']
     )
@@ -126,7 +127,7 @@ $response->addHTML($common_functions->getListNavigator(
 // tables form
 $response->addHTML(
     '<form method="post" action="db_structure.php" '
-        . 'name="tablesForm" id="tablesForm">'
+    . 'name="tablesForm" id="tablesForm">'
 );
 
 $response->addHTML(PMA_generate_common_hidden_inputs($db));
@@ -158,16 +159,17 @@ foreach ($tables as $keyname => $current_table) {
     $drop_query = '';
     $drop_message = '';
     $overhead = '';
-    
+
     $table_is_view = false;
     $table_encoded = urlencode($current_table['TABLE_NAME']);
     // Sets parameters for links
     $tbl_url_query = $url_query . '&amp;table=' . $table_encoded;
     // do not list the previous table's size info for a view
-    
+
     list($current_table, $formatted_size, $unit, $formatted_overhead,
         $overhead_unit, $overhead_size, $table_is_view, $sum_size)
-            = PMA_getStuffForEngineTypeTable($current_table, $db_is_information_schema,
+            = PMA_getStuffForEngineTypeTable(
+                $current_table, $db_is_information_schema,
                 $is_show_stats, $table_is_view, $sum_size, $overhead_size
             );
 
@@ -186,8 +188,10 @@ foreach ($tables as $keyname => $current_table) {
     if ($is_show_stats) {
         if ($formatted_overhead != '') {
             $overhead = '<a href="tbl_structure.php?'
-                . $tbl_url_query . '#showusage"><span>' . $formatted_overhead
-                . '</span> <span class="unit">' . $overhead_unit . '</span></a>' . "\n";
+                . $tbl_url_query . '#showusage">'
+                . '<span>' . $formatted_overhead . '</span>'
+                . '<span class="unit">' . $overhead_unit . '</span>'
+                . '</a>' . "\n";
             $overhead_check .=
                 "markAllRows('row_tbl_" . ($i + 1) . "');";
         } else {
@@ -240,14 +244,13 @@ foreach ($tables as $keyname => $current_table) {
      * the code easier to read without this operator.
      */
     list($browse_table, $search_table, $browse_table_label, $empty_table,
-        $tracking_icon
-    ) = PMA_getHtmlForActionLinks(
+        $tracking_icon) = PMA_getHtmlForActionLinks(
             $current_table, $table_is_view, $tbl_url_query,
             $titles, $truename, $db_is_information_schema, $url_query
         );
-    
+
     if (! $db_is_information_schema) {
-        list($drop_query, $drop_message) 
+        list($drop_query, $drop_message)
             = PMA_getTableDropQueryAndMessage($table_is_view, $current_table);
     }
 
@@ -258,9 +261,9 @@ foreach ($tables as $keyname => $current_table) {
         $row_count = 1;
         $odd_row = true;
 
-        $response->addHTML('</tr>'
-            . '</tbody>'
-            . '</table>');
+        $response->addHTML(
+            '</tr></tbody></table>'
+        );
 
         $response->addHTML(PMA_TableHeader(false, $server_slave_status));
     }
@@ -268,7 +271,7 @@ foreach ($tables as $keyname => $current_table) {
     list($do, $ignored) = PMA_getServerSlaveStatus(
         $server_slave_status, $truename
     );
-    
+
     list($html_output, $odd_row) = PMA_getHtmlForStructureTableRow(
         $i, $odd_row, $table_is_view, $current_table, $checked,
         $browse_table_label, $tracking_icon, $server_slave_status,
@@ -281,7 +284,7 @@ foreach ($tables as $keyname => $current_table) {
         $is_show_stats, $ignored, $do, $colspan_for_structure
     );
     $response->addHTML($html_output);
-    
+
 } // end foreach
 
 // Show Summary
@@ -296,8 +299,9 @@ $response->addHTML(
 $response->addHTML('</table>');
 //check all
 $response->addHTML(
-    PMA_getHtmlForCheckAllTables($pmaThemeImage, $text_dir, 
-        $overhead_check, $db_is_information_schema, $hidden_fields
+    PMA_getHtmlForCheckAllTables(
+        $pmaThemeImage, $text_dir, $overhead_check,
+        $db_is_information_schema, $hidden_fields
     )
 );
 $response->addHTML('</form>'); //end of form
