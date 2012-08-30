@@ -1275,7 +1275,7 @@ function PMA_getNewDatabase($sql, $databases)
 {
     $db = '';
     // loop through all the databases
-    foreach ($databases as $database){
+    foreach ($databases as $database) {
         if (strpos($sql,$database['SCHEMA_NAME']) !== false) {
             $db = $database;
             break;
