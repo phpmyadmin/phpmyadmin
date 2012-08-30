@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for displaing results
+ * Tests for displaying results
  *
  * @package PhpMyAdmin-test
  */
