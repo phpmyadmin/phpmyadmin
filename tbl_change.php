@@ -343,14 +343,17 @@ foreach ($rows as $row_id => $current_row) {
         $html_output .= '        <td>' . "\n";
         // Will be used by js/tbl_change.js to set the default value
         // for the "Continue insertion" feature
-        $html_output .= '<span class="default_value hide">' . $special_chars . '</span>';
+        $html_output .= '<span class="default_value hide">'
+            . $special_chars . '</span>';
         
         $html_output .= PMA_getValueColumn(
-            $column, $backup_field, $column_name_appendix, $unnullify_trigger,$tabindex,
-            $tabindex_for_value, $idindex, $data,$special_chars, $foreignData, $odd_row,
-            $paramTableDbArray,$rownumber_param, $titles, $text_dir, $special_chars_encoded,
-            $vkey,$is_upload, $biggest_max_file_size, $default_char_editing,
-            $no_support_types, $gis_data_types, $extracted_columnspec);
+            $column, $backup_field, $column_name_appendix, $unnullify_trigger,
+            $tabindex, $tabindex_for_value, $idindex, $data, $special_chars,
+            $foreignData, $odd_row, $paramTableDbArray, $rownumber_param, $titles,
+            $text_dir, $special_chars_encoded, $vkey, $is_upload,
+            $biggest_max_file_size, $default_char_editing,
+            $no_support_types, $gis_data_types, $extracted_columnspec
+        );
         
        $html_output .= '</td>'
         . '</tr>';
