@@ -3,6 +3,7 @@
 /**
  * Displays table structure infos like fields/columns, indexes, size, rows
  * and allows manipulation of indexes and columns/fields
+ *
  * @package PhpMyAdmin
  */
 
@@ -71,7 +72,7 @@ if (! empty($submit_mult) && isset($_REQUEST['selected_fld'])) {
         // what is this htmlspecialchars() for??
         //$sql_query .= ' FROM ' . backquote(htmlspecialchars($table));
         $sql_query .= ' FROM ' . $common_functions->backquote($db)
-            . '.' . $common_functions->backquote($table);
+        . '.' . $common_functions->backquote($table);
         include 'sql.php';
         exit;
     } else {
@@ -142,7 +143,7 @@ $fields = (array) PMA_DBI_get_columns($db, $table, null, true);
 
 $show_create_table = PMA_DBI_fetch_value(
     'SHOW CREATE TABLE ' . $common_functions->backquote($db) . '.'
-        . $common_functions->backquote($table),
+    . $common_functions->backquote($table),
     0, 1
 );
 $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
@@ -164,8 +165,8 @@ $hidden_titles = PMA_getHiddenTitlesArray();
 $i = 0;
 
 $html_form = '<form method="post" action="tbl_structure.php" name="fieldsForm" '
-    . 'id="fieldsForm" '
-    . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '') . '>';
+. 'id="fieldsForm" '
+. ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '') . '>';
 
 $response->addHTML($html_form);
 $response->addHTML(PMA_generate_common_hidden_inputs($db, $table));
@@ -188,7 +189,8 @@ $tablestructure .= '">';
 $response->addHTML($tablestructure);
 
 
-$response->addHTML(PMA_getHtmlForTableStructureHeader(
+$response->addHTML(
+    PMA_getHtmlForTableStructureHeader(
         $db_is_information_schema,
         $tbl_is_view
     )
@@ -255,7 +257,7 @@ foreach ($fields as $row) {
         && isset($mime_map[$row['Field']]['mimetype'])
     ) {
         $type_mime = '<br />MIME: '
-            . str_replace('_', '/', $mime_map[$row['Field']]['mimetype']);
+        . str_replace('_', '/', $mime_map[$row['Field']]['mimetype']);
     } else {
         $type_mime = '';
     }
@@ -295,14 +297,14 @@ foreach ($fields as $row) {
 
     if (isset($comments_map[$row['Field']])) {
         $displayed_field_name = '<span class="commented_column" title="'
-            . htmlspecialchars($comments_map[$row['Field']]) . '">'
-            . $field_name . '</span>';
+        . htmlspecialchars($comments_map[$row['Field']]) . '">'
+        . $field_name . '</span>';
     }
 
     if ($primary && $primary->hasColumn($field_name)) {
         $displayed_field_name = '<u>' . $field_name . '</u>';
     }
-    $response->addHTML( "\n");
+    $response->addHTML("\n");
 
     $response->addHTML(
         '<tr class="' . ($odd_row ? 'odd': 'even') . '">'
@@ -310,17 +312,19 @@ foreach ($fields as $row) {
     $odd_row = !$odd_row;
 
     $response->addHTML(
-        PMA_getHtmlTableStructureRow($row, $rownum, $checked,
-            $displayed_field_name, $type_nowrap, $extracted_columnspec,
-            $type_mime, $field_charset, $attribute, $tbl_is_view,
+        PMA_getHtmlTableStructureRow(
+            $row, $rownum, $checked, $displayed_field_name,
+            $type_nowrap, $extracted_columnspec, $type_mime,
+            $field_charset, $attribute, $tbl_is_view,
             $db_is_information_schema, $url_query, $field_encoded, $titles, $table
         )
     );
 
     if (! $tbl_is_view && ! $db_is_information_schema) {
         $response->addHTML(
-            PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
-                $primary, $field_name, $url_query, $titles, $row, $rownum,
+            PMA_getHtmlForActionsInTableStructure(
+                $type, $tbl_storage_engine, $primary,
+                $field_name, $url_query, $titles, $row, $rownum,
                 $hidden_titles, $columns_with_unique_index
             )
         );
@@ -332,19 +336,18 @@ foreach ($fields as $row) {
 } // end foreach
 
 $response->addHTML(
-    '</tbody>' . "\n"
-    .'</table>' . "\n"
+	'</tbody>' . "\n" .'</table>' . "\n"
 );
 
 $response->addHTML(
-    PMA_getHtmlForCheckAllTableColumn($pmaThemeImage, $text_dir,
-        $tbl_is_view, $db_is_information_schema, $tbl_storage_engine
+    PMA_getHtmlForCheckAllTableColumn(
+        $pmaThemeImage, $text_dir, $tbl_is_view,
+        $db_is_information_schema, $tbl_storage_engine
     )
 );
 
 $response->addHTML(
-    '</form>'
-    . '<hr />'
+    '</form><hr />'
 );
 $response->addHTML(
     PMA_getHtmlDivForMoveColumnsDialog()
@@ -358,8 +361,9 @@ if ($tbl_is_view) {
     $response->addHTML(PMA_getHtmlForEditView($url_params));
 }
 $response->addHTML(
-    PMA_getHtmlForOptionalActionLinks($url_query, $tbl_is_view,
-        $db_is_information_schema, $tbl_storage_engine, $cfgRelation
+    PMA_getHtmlForOptionalActionLinks(
+        $url_query, $tbl_is_view, $db_is_information_schema,
+        $tbl_storage_engine, $cfgRelation
     )
 );
 
@@ -368,8 +372,7 @@ if (! $tbl_is_view && ! $db_is_information_schema) {
     $response->addHTML(PMA_getHtmlForAddColumn($columns_list));
 
     $response->addHTML(
-        '<iframe class="IE_hack"></iframe>'
-        . '<hr />'
+        '<iframe class="IE_hack"></iframe><hr />'
     );
     $response->addHTML(
         '<div id="index_div" '
@@ -395,8 +398,9 @@ if (! $tbl_is_view
 // Get valid statistics whatever is the table type
 if ($cfg['ShowStats']) {
     $response->addHTML(
-        PMA_getHtmlForDisplayTableStats($showtable, $table_info_num_rows,
-            $tbl_is_view, $db_is_information_schema, $tbl_storage_engine,
+        PMA_getHtmlForDisplayTableStats(
+            $showtable, $table_info_num_rows, $tbl_is_view,
+            $db_is_information_schema, $tbl_storage_engine,
             $url_query, $tbl_collation
         )
     );
