@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-28 14:48+0200\n"
-"PO-Revision-Date: 2012-08-30 19:55+0200\n"
+"PO-Revision-Date: 2012-08-30 21:22+0200\n"
 "Last-Translator: مترجم حرّ <metehyi@gmail.com>\n"
 "Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/master/ar/>\n"
 "Language: ar\n"
@@ -28,7 +28,7 @@ msgstr "عرض الكل"
 #: libraries/schema/User_Schema.class.php:417
 #: libraries/select_lang.lib.php:510
 msgid "Page number:"
-msgstr "صفحة رقم:"
+msgstr "رقم الصفحة:"
 
 #: browse_foreigners.php:94
 msgid ""
@@ -45,7 +45,7 @@ msgstr ""
 #: libraries/CommonFunctions.class.php:3665 libraries/Menu.class.php:264
 #: libraries/Menu.class.php:353
 msgid "Search"
-msgstr "بحث"
+msgstr "إبحث"
 
 #: browse_foreigners.php:171 gis_data_editor.php:304 js/messages.php:231
 #: libraries/DbSearch.class.php:479 libraries/DisplayResults.class.php:1666
@@ -83,7 +83,7 @@ msgstr "بحث"
 #: tbl_tracking.php:497 tbl_tracking.php:639 view_create.php:221
 #: view_operations.php:96
 msgid "Go"
-msgstr "تنفيذ"
+msgstr "إنطلق"
 
 #: browse_foreigners.php:186 browse_foreigners.php:190
 #: libraries/Index.class.php:463 tbl_tracking.php:373
@@ -99,7 +99,7 @@ msgstr "الوصف"
 #: browse_foreigners.php:274 browse_foreigners.php:284
 #: browse_foreigners.php:300 browse_foreigners.php:312
 msgid "Use this value"
-msgstr "استخدم هذه القيمة"
+msgstr "إستعمل هذه القيمة"
 
 #: changelog.php:34 license.php:28
 #, php-format
@@ -276,15 +276,15 @@ msgstr "عرض بنية قاعدة البيانات"
 #: db_export.php:33 db_printview.php:93 db_tracking.php:52 export.php:415
 #: libraries/DBQbe.class.php:289 navigation.php:280
 msgid "No tables found in database."
-msgstr "لا توجد جداول في قاعدة البيانات هذه!."
+msgstr "لم يعثر على جداول في قادة البيانات."
 
 #: db_export.php:42 libraries/DbSearch.class.php:459 server_export.php:26
 msgid "Select All"
-msgstr "تحديد الكل"
+msgstr "إختر الكل"
 
 #: db_export.php:44 libraries/DbSearch.class.php:465 server_export.php:28
 msgid "Unselect All"
-msgstr "إلغاء تحديد الكل"
+msgstr "إلغاء خيار الكل"
 
 #: db_operations.php:45 tbl_create.php:22
 msgid "The database name is empty!"
@@ -322,7 +322,7 @@ msgstr ""
 #: libraries/server_privileges.lib.php:2900 libraries/structure.lib.php:768
 #: server_synchronize.php:522 server_synchronize.php:1042 tbl_tracking.php:719
 msgid "Table"
-msgstr "جدول"
+msgstr "الجدول"
 
 #: db_printview.php:101 db_tables_search.php:26 db_tables_search.php:58
 #: libraries/Table.class.php:301 libraries/build_html_for_db.lib.php:31
@@ -335,7 +335,7 @@ msgstr "صفوف"
 
 #: db_printview.php:105 libraries/structure.lib.php:798 tbl_indexes.php:238
 msgid "Size"
-msgstr "حجم"
+msgstr "الحجم"
 
 #: db_printview.php:160 libraries/plugins/export/ExportSql.class.php:1026
 #: libraries/structure.lib.php:743
@@ -356,7 +356,7 @@ msgstr "الإنشاء"
 #: libraries/structure.lib.php:816 libraries/structure.lib.php:1812
 #: tbl_printview.php:432
 msgid "Last update"
-msgstr "التحديث الأخير"
+msgstr "آخر تحديث"
 
 #: db_printview.php:204 libraries/db_info.inc.php:93
 #: libraries/plugins/export/ExportSql.class.php:978
@@ -364,7 +364,7 @@ msgstr "التحديث الأخير"
 #: libraries/structure.lib.php:823 libraries/structure.lib.php:1820
 #: tbl_printview.php:446
 msgid "Last check"
-msgstr "التحقق الأخير"
+msgstr "آخر فحص"
 
 #: db_printview.php:221 libraries/structure.lib.php:181
 #, php-format
@@ -396,7 +396,7 @@ msgstr "ممنوع الوصول"
 
 #: db_structure.php:87
 msgid "No tables found in database"
-msgstr "لا توجد جداول في قاعدة البيانات هذه!."
+msgstr "لم يعثر على جداول في قاعدة البيانات"
 
 #: db_tracking.php:76
 msgid "Tracked tables"
@@ -462,7 +462,7 @@ msgstr "حذف بيانات التتبع لهذا الجدول"
 #: libraries/structure.lib.php:2257 libraries/structure.lib.php:2259
 #: server_databases.php:302
 msgid "Drop"
-msgstr "حذف"
+msgstr "سقّط"
 
 #: db_tracking.php:120 tbl_tracking.php:675 tbl_tracking.php:733
 msgid "active"
@@ -474,7 +474,7 @@ msgstr "غير نشط"
 
 #: db_tracking.php:137
 msgid "Versions"
-msgstr "نسخ"
+msgstr "الإصدارات"
 
 #: db_tracking.php:138 tbl_tracking.php:481 tbl_tracking.php:753
 msgid "Tracking report"
@@ -498,7 +498,7 @@ msgstr "سجل قاعدة البيانات"
 
 #: export.php:44
 msgid "Bad type!"
-msgstr "نوع غير صالح!"
+msgstr "نوع غير جيد!"
 
 #: export.php:95
 msgid "Selected export type has to be saved in file!"
@@ -506,7 +506,7 @@ msgstr "نوع التصدير المحدد سيحفظ في الملف!"
 
 #: export.php:124
 msgid "Bad parameters!"
-msgstr "مدخلات غير صالحة!"
+msgstr "عوامل متغيرة غير جيدة!"
 
 #: export.php:195 export.php:226 export.php:782
 #, php-format
@@ -1362,10 +1362,9 @@ msgid "Import monitor configuration"
 msgstr ""
 
 #: js/messages.php:214
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "فضلاً أختر المفتاح الرئيسي أو المفتاح الفريد"
+msgstr "﻿الرجاء تحديد الملف الذي تريد استيراده"
 
 #: js/messages.php:216
 msgid "Analyse Query"
@@ -1373,7 +1372,7 @@ msgstr "تحليل الإستعلام"
 
 #: js/messages.php:220
 msgid "Advisor system"
-msgstr ""
+msgstr "نظام المرشد"
 
 #: js/messages.php:221
 msgid "Possible performance issues"
@@ -1538,10 +1537,10 @@ msgid "Enter each value in a separate field"
 msgstr "أدخل كل قيمة بحقل منفصل"
 
 #: js/messages.php:276
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add a new User"
 msgid "Add %d value(s)"
-msgstr "أضف مستخدم جديد"
+msgstr "﻿إضافة قيمة/قيم %d"
 
 #: js/messages.php:279
 msgid ""
@@ -1574,7 +1573,7 @@ msgstr "وقت التنفيذ الأقصى"
 #: libraries/DisplayResults.class.php:736
 #, php-format
 msgid "%d is not valid row number."
-msgstr ""
+msgstr "%d ليس رقم عمود صالح."
 
 #: js/messages.php:291 libraries/config/FormDisplay.tpl.php:387
 #: libraries/insert_edit.lib.php:1486
@@ -5953,7 +5952,7 @@ msgstr ""
 #: libraries/core.lib.php:255
 msgctxt "PHP documentation language"
 msgid "en"
-msgstr "en"
+msgstr "الإنكليزية"
 
 #: libraries/core.lib.php:276
 #, php-format
