@@ -115,11 +115,11 @@ class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * data provider for backquote_compat test
+     * data provider for backquoteCompat test
      *
      * @return array
      */
-    public function backquote_compatDataProvider()
+    public function backquoteCompatDataProvider()
     {
         return array(
             array('0', '"0"'),
@@ -130,23 +130,23 @@ class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * backquote_compat test with different param $compatibility (NONE, MSSQL)
-     * @dataProvider backquote_compatDataProvider
+     * backquoteCompat test with different param $compatibility (NONE, MSSQL)
+     * @dataProvider backquoteCompatDataProvider
      */
-    public function testBackquote_compat($a, $b)
+    public function testbackquoteCompat($a, $b)
     {
         // Test bypass quoting (used by dump functions)
-        $this->assertEquals($a, PMA_CommonFunctions::getInstance()->backquote_compat($a, 'NONE', false));
+        $this->assertEquals($a, PMA_CommonFunctions::getInstance()->backquoteCompat($a, 'NONE', false));
 
         // Test backquote (backquoting will be enabled only if isset $GLOBALS['sql_backquotes']
-        $this->assertEquals($a, PMA_CommonFunctions::getInstance()->backquote_compat($a, 'NONE'));
+        $this->assertEquals($a, PMA_CommonFunctions::getInstance()->backquoteCompat($a, 'NONE'));
 
         // Run tests in MSSQL compatibility mode
         // Test bypass quoting (used by dump functions)
-        $this->assertEquals($a, PMA_CommonFunctions::getInstance()->backquote_compat($a, 'MSSQL', false));
+        $this->assertEquals($a, PMA_CommonFunctions::getInstance()->backquoteCompat($a, 'MSSQL', false));
 
         // Test backquote
-        $this->assertEquals($b, PMA_CommonFunctions::getInstance()->backquote_compat($a, 'MSSQL'));
+        $this->assertEquals($b, PMA_CommonFunctions::getInstance()->backquoteCompat($a, 'MSSQL'));
     }
 
     public function testBackquoteForbidenWords()

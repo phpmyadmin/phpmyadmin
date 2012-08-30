@@ -994,12 +994,12 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function backquote_compat($a_name, $compatibility = 'MSSQL', $do_it = true)
+    public function backquoteCompat($a_name, $compatibility = 'MSSQL', $do_it = true)
     {
 
         if (is_array($a_name)) {
             foreach ($a_name as &$data) {
-                $data = $this->backquote_compat($data, $compatibility, $do_it);
+                $data = $this->backquoteCompat($data, $compatibility, $do_it);
             }
             return $a_name;
         }
@@ -1029,7 +1029,7 @@ class PMA_CommonFunctions
             return $a_name;
         }
 
-    } // end of the 'backquote_compat()' function
+    } // end of the 'backquoteCompat()' function
 
     /**
      * Defines the <CR><LF> value depending on the user OS.

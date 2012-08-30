@@ -702,7 +702,7 @@ class ExportSql extends ExportPlugin
             if (! PMA_exportOutputHandler(
                 'DROP DATABASE '
                 . (isset($GLOBALS['sql_backquotes'])
-                ? $common_functions->backquote_compat($db, $compat) : $db)
+                ? $common_functions->backquoteCompat($db, $compat) : $db)
                 . ';' . $crlf
             )) {
                 return false;
@@ -710,7 +710,7 @@ class ExportSql extends ExportPlugin
         }
         $create_query = 'CREATE DATABASE '
             . (isset($GLOBALS['sql_backquotes'])
-            ? $common_functions->backquote_compat($db, $compat) : $db);
+            ? $common_functions->backquoteCompat($db, $compat) : $db);
         $collation = PMA_getDbCollation($db);
         if (PMA_DRIZZLE) {
             $create_query .= ' COLLATE ' . $collation;
@@ -733,7 +733,7 @@ class ExportSql extends ExportPlugin
             || PMA_DRIZZLE)
         ) {
             $result = PMA_exportOutputHandler(
-                'USE ' . $common_functions->backquote_compat($db, $compat)
+                'USE ' . $common_functions->backquoteCompat($db, $compat)
                 . ';' . $crlf
             );
         } else {
@@ -761,7 +761,7 @@ class ExportSql extends ExportPlugin
             . $this->_exportComment(
                 __('Database') . ': '
                 . (isset($GLOBALS['sql_backquotes'])
-                ? PMA_CommonFunctions::getInstance()->backquote_compat($db, $compat)
+                ? PMA_CommonFunctions::getInstance()->backquoteCompat($db, $compat)
                 : '\'' . $db . '\'')
             )
             . $this->_exportComment();
@@ -1213,21 +1213,21 @@ class ExportSql extends ExportPlugin
                         . $this->_exportComment(
                             __('Constraints for table')
                             . ' '
-                            . $common_functions->backquote_compat($table, $compat)
+                            . $common_functions->backquoteCompat($table, $compat)
                         )
                         . $this->_exportComment();
                     }
 
                     // let's do the work
                     $sql_constraints_query .= 'ALTER TABLE '
-                        . $common_functions->backquote_compat($table, $compat)
+                        . $common_functions->backquoteCompat($table, $compat)
                         . $crlf;
                     $sql_constraints .= 'ALTER TABLE '
-                        . $common_functions->backquote_compat($table,  $compat)
+                        . $common_functions->backquoteCompat($table,  $compat)
                         . $crlf;
                     $sql_drop_foreign_keys .= 'ALTER TABLE '
-                        . $common_functions->backquote_compat($db, $compat) . '.'
-                        . $common_functions->backquote_compat($table, $compat)
+                        . $common_functions->backquoteCompat($db, $compat) . '.'
+                        . $common_functions->backquoteCompat($table, $compat)
                         . $crlf;
 
                     $first = true;
@@ -1451,7 +1451,7 @@ class ExportSql extends ExportPlugin
         }
 
         $formatted_table_name = (isset($GLOBALS['sql_backquotes']))
-            ? $common_functions->backquote_compat($table, $compat)
+            ? $common_functions->backquoteCompat($table, $compat)
             : '\'' . $table . '\'';
         $dump = $this->_possibleCRLF()
             . $this->_exportComment(str_repeat('-', 56))
@@ -1543,7 +1543,7 @@ class ExportSql extends ExportPlugin
 
         $common_functions = PMA_CommonFunctions::getInstance();
         $formatted_table_name = (isset($GLOBALS['sql_backquotes']))
-            ? $common_functions->backquote_compat($table, $compat)
+            ? $common_functions->backquoteCompat($table, $compat)
             : '\'' . $table . '\'';
 
         // Do not export data for a VIEW
@@ -1590,13 +1590,13 @@ class ExportSql extends ExportPlugin
 
             for ($j = 0; $j < $fields_cnt; $j++) {
                 if (isset($analyzed_sql[0]['select_expr'][$j]['column'])) {
-                    $field_set[$j] = $common_functions->backquote_compat(
+                    $field_set[$j] = $common_functions->backquoteCompat(
                         $analyzed_sql[0]['select_expr'][$j]['column'],
                         $compat,
                         $sql_backquotes
                     );
                 } else {
-                    $field_set[$j] = $common_functions->backquote_compat(
+                    $field_set[$j] = $common_functions->backquoteCompat(
                         $fields_meta[$j]->name,
                         $compat,
                         $sql_backquotes
@@ -1613,7 +1613,7 @@ class ExportSql extends ExportPlugin
                     $schema_insert .= 'IGNORE ';
                 }
                 // avoid EOL blank
-                $schema_insert .= $common_functions->backquote_compat(
+                $schema_insert .= $common_functions->backquoteCompat(
                     $table,
                     $compat,
                     $sql_backquotes
@@ -1648,7 +1648,7 @@ class ExportSql extends ExportPlugin
                     && $sql_command == 'INSERT'
                 ) {
                     $truncate = 'TRUNCATE TABLE '
-                        . $common_functions->backquote_compat(
+                        . $common_functions->backquoteCompat(
                             $table,
                             $compat,
                             $sql_backquotes
@@ -1673,7 +1673,7 @@ class ExportSql extends ExportPlugin
                 ) {
                     $fields        = implode(', ', $field_set);
                     $schema_insert = $sql_command . $insert_delayed .' INTO '
-                        . $common_functions->backquote_compat(
+                        . $common_functions->backquoteCompat(
                             $table,
                             $compat,
                             $sql_backquotes
@@ -1682,7 +1682,7 @@ class ExportSql extends ExportPlugin
                         . ' (' . $fields . ') VALUES';
                 } else {
                     $schema_insert = $sql_command . $insert_delayed .' INTO '
-                        . $common_functions->backquote_compat(
+                        . $common_functions->backquoteCompat(
                             $table,
                             $compat,
                             $sql_backquotes
@@ -1728,7 +1728,7 @@ class ExportSql extends ExportPlugin
                 ) {
                     if (! PMA_exportOutputHandler(
                         'SET IDENTITY_INSERT '
-                        . $common_functions->backquote_compat(
+                        . $common_functions->backquoteCompat(
                             $table,
                             $compat
                         )
@@ -1871,7 +1871,7 @@ class ExportSql extends ExportPlugin
             ) {
                 $outputSucceeded = PMA_exportOutputHandler(
                     $crlf . 'SET IDENTITY_INSERT '
-                    . $common_functions->backquote_compat($table, $compat)
+                    . $common_functions->backquoteCompat($table, $compat)
                     . ' OFF;' . $crlf
                 );
                 if (! $outputSucceeded) {
