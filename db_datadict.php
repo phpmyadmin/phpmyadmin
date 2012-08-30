@@ -124,9 +124,11 @@ foreach ($tables as $table) {
         // and SHOW CREATE TABLE says NOT NULL
         // http://bugs.mysql.com/20910.
 
+        $show_create_table_query = 'SHOW CREATE TABLE '
+            . PMA_CommonFunctions::getInstance()->backquote($db) . '.'
+            . PMA_CommonFunctions::getInstance()->backquote($table);
         $show_create_table = PMA_DBI_fetch_value(
-            'SHOW CREATE TABLE ' . PMA_CommonFunctions::getInstance()->backquote($db) . '.' . PMA_CommonFunctions::getInstance()->backquote($table),
-            0, 1
+            $show_create_table_query, 0, 1
         );
         $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
     }
@@ -185,7 +187,7 @@ foreach ($tables as $table) {
         }
         $extracted_columnspec
             = PMA_CommonFunctions::getInstance()->extractColumnSpec($row['Type']);
-        
+
         // reformat mysql query output
         // set or enum types: slashes single quotes inside options
         if ('set' == $extracted_columnspec['type'] || 'enum' == $extracted_columnspec['type']) {
