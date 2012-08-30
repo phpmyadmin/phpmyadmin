@@ -381,7 +381,7 @@ class PMA_GIS_PolygonTest extends PMA_GIS_GeomTest
                     'scale' => 2,
                     'height' => 150
                 ),
-                imagecreatetruecolor('120','150'),
+                imagecreatetruecolor('120', '150'),
                 ''
             )
 
@@ -473,7 +473,7 @@ class PMA_GIS_PolygonTest extends PMA_GIS_GeomTest
     public function testPrepareRowAsOl($spatial, $srid, $label, $line_color, $scale_data, $output)
     {
 
-        $this->assertEquals($this->object->prepareRowAsOl($spatial, $srid, $label, $line_color, $scale_data) , $output);
+        $this->assertEquals($this->object->prepareRowAsOl($spatial, $srid, $label, $line_color, $scale_data), $output);
     }
 
     public function providerForPrepareRowAsOl(){
