@@ -141,7 +141,7 @@ $fields = (array) PMA_DBI_get_columns($db, $table, null, true);
 // in MySQL 4.0.25 and 5.0.21, http://bugs.mysql.com/20910).
 
 $show_create_table = PMA_DBI_fetch_value(
-    'SHOW CREATE TABLE ' . $common_functions->backquote($db) . '.' 
+    'SHOW CREATE TABLE ' . $common_functions->backquote($db) . '.'
         . $common_functions->backquote($table),
     0, 1
 );
@@ -264,9 +264,7 @@ foreach ($fields as $row) {
 
     // MySQL 4.1.2+ TIMESTAMP options
     // (if on_update_current_timestamp is set, then it's TRUE)
-    if (isset(
-        $analyzed_sql[0]['create_table_fields'][$row['Field']]['on_update_current_timestamp'])
-    ) {
+    if (isset($analyzed_sql[0]['create_table_fields'][$row['Field']]['on_update_current_timestamp'])) {
         $attribute = 'on update CURRENT_TIMESTAMP';
     }
 
@@ -305,12 +303,12 @@ foreach ($fields as $row) {
         $displayed_field_name = '<u>' . $field_name . '</u>';
     }
     $response->addHTML( "\n");
-    
+
     $response->addHTML(
         '<tr class="' . ($odd_row ? 'odd': 'even') . '">'
     );
     $odd_row = !$odd_row;
-    
+
     $response->addHTML(
         PMA_getHtmlTableStructureRow($row, $rownum, $checked,
             $displayed_field_name, $type_nowrap, $extracted_columnspec,
@@ -318,7 +316,7 @@ foreach ($fields as $row) {
             $db_is_information_schema, $url_query, $field_encoded, $titles, $table
         )
     );
-    
+
     if (! $tbl_is_view && ! $db_is_information_schema) {
         $response->addHTML(
             PMA_getHtmlForActionsInTableStructure($type, $tbl_storage_engine,
@@ -327,7 +325,7 @@ foreach ($fields as $row) {
             )
         );
     } // end if (! $tbl_is_view && ! $db_is_information_schema)
-    
+
     $response->addHTML('</tr>');
 
     unset($field_charset);
@@ -368,13 +366,13 @@ $response->addHTML(
 if (! $tbl_is_view && ! $db_is_information_schema) {
     $response->addHTML('<br />');
     $response->addHTML(PMA_getHtmlForAddColumn($columns_list));
-    
+
     $response->addHTML(
         '<iframe class="IE_hack"></iframe>'
         . '<hr />'
     );
     $response->addHTML(
-        '<div id="index_div" ' 
+        '<div id="index_div" '
         . ($GLOBALS['cfg']['AjaxEnable'] ? ' class="ajax"' : '') . ' >'
     );
 }
@@ -408,5 +406,5 @@ if ($cfg['ShowStats']) {
 $response->addHTML(
     '<div class="clearfloat"></div>' . "\n"
 );
- 
+
 ?>

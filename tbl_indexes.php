@@ -252,10 +252,8 @@ foreach ($index->getColumns() as $column) {
             <option value="">-- <?php echo __('Ignore'); ?> --</option>
     <?php
     foreach ($fields as $field_name => $field_type) {
-        if (($index->getType() != 'FULLTEXT'
-                || preg_match('/(char|text)/i', $field_type))
-            && ($index->getType() != 'SPATIAL'
-                || in_array($field_type, $spatial_types))
+        if (($index->getType() != 'FULLTEXT' || preg_match('/(char|text)/i', $field_type))
+            && ($index->getType() != 'SPATIAL' || in_array($field_type, $spatial_types))
         ) {
             echo '<option value="' . htmlspecialchars($field_name) . '"'
                  . (($field_name == $column->getName())
