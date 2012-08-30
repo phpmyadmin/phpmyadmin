@@ -258,9 +258,9 @@ list ($url_params, $total_affected_rows, $last_messages, $warning_messages,
         = PMA_executeSqlQuery($url_params, $query);
 
 if ($is_insert && count($value_sets) > 0) {
-    $message = PMA_Message::inserted_rows($total_affected_rows);
+    $message = PMA_Message::getMessageForInsertedRows($total_affected_rows);
 } else {
-    $message = PMA_Message::affected_rows($total_affected_rows);
+    $message = PMA_Message::getMessageForAffectedRows($total_affected_rows);
 }
 
 $message->addMessages($last_messages, '<br />');
@@ -366,7 +366,7 @@ if ($response->isAjax()) {
     $extra_data['row_count'] = PMA_Table::countRecords(
         $_REQUEST['db'], $_REQUEST['table']
     );
-    
+
     $extra_data['sql_query']
         = $common_functions->getMessage($message, $GLOBALS['display_query']);
 

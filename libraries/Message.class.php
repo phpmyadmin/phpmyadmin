@@ -248,7 +248,7 @@ class PMA_Message
      * @return PMA_Message
      * @static
      */
-    static public function affected_rows($rows)
+    static public function getMessageForAffectedRows($rows)
     {
         $message = PMA_Message::success(
             _ngettext('%1$d row affected.', '%1$d rows affected.', $rows)
@@ -267,7 +267,7 @@ class PMA_Message
      * @return PMA_Message
      * @static
      */
-    static public function deleted_rows($rows)
+    static public function getMessageForDeletedRows($rows)
     {
         $message = PMA_Message::success(
             _ngettext('%1$d row deleted.', '%1$d rows deleted.', $rows)
@@ -286,7 +286,7 @@ class PMA_Message
      * @return PMA_Message
      * @static
      */
-    static public function inserted_rows($rows)
+    static public function getMessageForInsertedRows($rows)
     {
         $message = PMA_Message::success(
             _ngettext('%1$d row inserted.', '%1$d rows inserted.', $rows)
