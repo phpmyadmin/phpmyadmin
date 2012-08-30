@@ -852,9 +852,9 @@ function PMA_SQP_typeCheck($toCheck, $whatWeWant)
  */
 function PMA_SQP_analyze($arr)
 {
-    
+
     $common_functions = PMA_CommonFunctions::getInstance();
-    
+
     if ($arr == array() || ! isset($arr['len'])) {
         return array();
     }
@@ -1911,14 +1911,13 @@ function PMA_SQP_analyze($arr)
                     }
                     if (isset($clause)
                         && ($arr[$i+2]['type'] == 'alpha_reservedWord'
-
-            // ugly workaround because currently, NO is not
-            // in the list of reserved words in sqlparser.data
-            // (we got a bug report about not being able to use
-            // 'no' as an identifier)
-                       || ($arr[$i+2]['type'] == 'alpha_identifier'
-                          && strtoupper($arr[$i+2]['data'])=='NO'))
-                      ) {
+                        // ugly workaround because currently, NO is not
+                        // in the list of reserved words in sqlparser.data
+                        // (we got a bug report about not being able to use
+                        // 'no' as an identifier)
+                        || ($arr[$i+2]['type'] == 'alpha_identifier'
+                        && strtoupper($arr[$i+2]['data'])=='NO'))
+                    ) {
                         $third_upper_data = strtoupper($arr[$i+2]['data']);
                         if ($third_upper_data == 'CASCADE'
                             || $third_upper_data == 'RESTRICT'
@@ -2149,9 +2148,9 @@ function PMA_SQP_formatHtml(
     $number_of_tokens=-1
 ) {
     global $PMA_SQPdata_operators_docs, $PMA_SQPdata_functions_docs;
-    
+
     $common_functions = PMA_CommonFunctions::getInstance();
-    
+
     //DEBUG echo 'in Format<pre>'; print_r($arr); echo '</pre>';
     // then check for an array
     if (! is_array($arr)) {
@@ -2291,7 +2290,7 @@ function PMA_SQP_formatHtml(
                     && isset($keywords_with_brackets_2before[strtoupper($arr[$i - 2]['data'])]))
                 || (($typearr[1] == 'alpha_reservedWord')
                     && isset($keywords_with_brackets_1before[strtoupper($arr[$i - 1]['data'])]))
-                ) {
+            ) {
                 $functionlevel++;
                 $infunction = true;
                 $after      .= ' ';

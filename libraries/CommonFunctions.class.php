@@ -983,22 +983,23 @@ class PMA_CommonFunctions
      *
      * </code>
      *
-     * @param mixed   $a_name the database, table or field name to "backquote"
-     *                        or array of it
+     * @param mixed   $a_name        the database, table or field name to
+     *                               "backquote" or array of it
      * @param string  $compatibility string compatibility mode (used by dump
-     *                        functions)
-     * @param boolean $do_it  a flag to bypass this function (used by dump
-     *                        functions)
-     * @return mixed    the "backquoted" database, table or field name
+     *                               functions)
+     * @param boolean $do_it         a flag to bypass this function (used by dump
+     *                               functions)
+     *
+     * @return mixed the "backquoted" database, table or field name
      *
      * @access  public
      */
-    public function backquote_compat($a_name, $compatibility = 'MSSQL', $do_it = true)
+    public function backquoteCompat($a_name, $compatibility = 'MSSQL', $do_it = true)
     {
 
         if (is_array($a_name)) {
             foreach ($a_name as &$data) {
-                $data = $this->backquote_compat($data, $compatibility, $do_it);
+                $data = $this->backquoteCompat($data, $compatibility, $do_it);
             }
             return $a_name;
         }
@@ -1013,8 +1014,12 @@ class PMA_CommonFunctions
 
         // @todo add more compatibility cases (ORACLE for example)
         switch ($compatibility) {
-            case 'MSSQL': $quote = '"'; break;
-            default: (isset($GLOBALS['sql_backquotes'])) ? $quote = "`" : $quote = ''; break;
+        case 'MSSQL':
+            $quote = '"';
+            break;
+        default:
+            (isset($GLOBALS['sql_backquotes'])) ? $quote = "`" : $quote = '';
+            break;
         }
 
         // '0' is also empty for php :-(
@@ -1024,7 +1029,7 @@ class PMA_CommonFunctions
             return $a_name;
         }
 
-    } // end of the 'backquote_compat()' function
+    } // end of the 'backquoteCompat()' function
 
     /**
      * Defines the <CR><LF> value depending on the user OS.

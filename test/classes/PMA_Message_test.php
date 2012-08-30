@@ -485,7 +485,7 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * affected_rows test
+     * Test for getMessageForAffectedRows() method
      *
      * @param int    $rows   Number of rows
      * @param string $output Expected string
@@ -495,7 +495,7 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     public function testAffectedRows($rows, $output)
     {
         $this->object = new PMA_Message();
-        $msg = $this->object->affected_rows($rows);
+        $msg = $this->object->getMessageForAffectedRows($rows);
         echo $this->object->addMessage($msg);
         $this->expectOutputString($output);
         $this->object->display();
@@ -511,7 +511,7 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * inserted_rows test
+     * Test for getMessageForInsertedRows() method
      *
      * @param int    $rows   Number of rows
      * @param string $output Expected string
@@ -521,7 +521,7 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     public function testInsertedRows($rows, $output)
     {
         $this->object = new PMA_Message();
-        $msg = $this->object->inserted_rows($rows);
+        $msg = $this->object->getMessageForInsertedRows($rows);
         echo $this->object->addMessage($msg);
         $this->expectOutputString($output);
         $this->object->display();
@@ -537,7 +537,7 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * deleted_rows test
+     * Test for getMessageForDeletedRows() method
      *
      * @param int    $rows   Number of rows
      * @param string $output Expected string
@@ -547,7 +547,7 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     public function testDeletedRows($rows, $output)
     {
         $this->object = new PMA_Message();
-        $msg = $this->object->deleted_rows($rows);
+        $msg = $this->object->getMessageForDeletedRows($rows);
         echo $this->object->addMessage($msg);
         $this->expectOutputString($output);
         $this->object->display();

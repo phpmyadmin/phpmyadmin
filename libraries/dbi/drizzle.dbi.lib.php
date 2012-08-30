@@ -599,8 +599,9 @@ function PMA_DBI_field_flags($result, $i)
     // so we have to check also the type.
     // Unfortunately there is no equivalent in the mysql extension.
     if (($type == DRIZZLE_COLUMN_TYPE_DRIZZLE_BLOB
-            || $type == DRIZZLE_COLUMN_TYPE_DRIZZLE_VARCHAR)
-            && 63 == $charsetnr) {
+        || $type == DRIZZLE_COLUMN_TYPE_DRIZZLE_VARCHAR)
+        && 63 == $charsetnr
+    ) {
         $flags .= 'binary ';
     }
     if ($f & DRIZZLE_COLUMN_FLAGS_ZEROFILL) {

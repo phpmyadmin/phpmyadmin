@@ -179,7 +179,7 @@ function PMA_importRunQuery($sql = '', $full = '', $controluser = false, &$sql_d
                                 $msg .= __('Rows'). ': ' . $a_num_rows;
                                 $last_query_with_results = $import_run_buffer['sql'];
                             } elseif ($a_aff_rows > 0) {
-                                $message = PMA_Message::affected_rows($a_aff_rows);
+                                $message = PMA_Message::getMessageForAffectedRows($a_aff_rows);
                                 $msg .= $message->getMessage();
                             } else {
                                 $msg .= __('MySQL returned an empty result set (i.e. zero rows).');

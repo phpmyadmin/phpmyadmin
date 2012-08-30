@@ -41,7 +41,8 @@ $err_url = 'tbl_structure.php?' . PMA_generate_common_url($db, $table);
  */
 if (isset($_REQUEST['move_columns'])
     && is_array($_REQUEST['move_columns'])
-    && $GLOBALS['is_ajax_request']) {
+    && $GLOBALS['is_ajax_request']
+) {
     /*
      * first, load the definitions for all columns
      */
