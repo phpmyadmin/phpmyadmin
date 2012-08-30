@@ -983,13 +983,14 @@ class PMA_CommonFunctions
      *
      * </code>
      *
-     * @param mixed   $a_name the database, table or field name to "backquote"
-     *                        or array of it
+     * @param mixed   $a_name        the database, table or field name to
+     *                               "backquote" or array of it
      * @param string  $compatibility string compatibility mode (used by dump
-     *                        functions)
-     * @param boolean $do_it  a flag to bypass this function (used by dump
-     *                        functions)
-     * @return mixed    the "backquoted" database, table or field name
+     *                               functions)
+     * @param boolean $do_it         a flag to bypass this function (used by dump
+     *                               functions)
+     *
+     * @return mixed the "backquoted" database, table or field name
      *
      * @access  public
      */
@@ -1013,8 +1014,12 @@ class PMA_CommonFunctions
 
         // @todo add more compatibility cases (ORACLE for example)
         switch ($compatibility) {
-            case 'MSSQL': $quote = '"'; break;
-            default: (isset($GLOBALS['sql_backquotes'])) ? $quote = "`" : $quote = ''; break;
+        case 'MSSQL':
+            $quote = '"';
+            break;
+        default:
+            (isset($GLOBALS['sql_backquotes'])) ? $quote = "`" : $quote = '';
+            break;
         }
 
         // '0' is also empty for php :-(
