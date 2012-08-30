@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 06:32-0400\n"
-"PO-Revision-Date: 2012-08-30 19:54+0200\n"
+"PO-Revision-Date: 2012-08-30 21:22+0200\n"
 "Last-Translator: مترجم حرّ <metehyi@gmail.com>\n"
 "Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/3-5/ar/>\n"
 "Language: ar\n"
@@ -27,7 +27,7 @@ msgstr "عرض الكل"
 #: libraries/schema/User_Schema.class.php:396
 #: libraries/select_lang.lib.php:489
 msgid "Page number:"
-msgstr "صفحة رقم:"
+msgstr "رقم الصفحة:"
 
 #: browse_foreigners.php:142
 msgid ""
@@ -43,7 +43,7 @@ msgstr ""
 #: libraries/common.lib.php:3346 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
-msgstr "بحث"
+msgstr "إبحث"
 
 #: browse_foreigners.php:163 db_operations.php:378 db_operations.php:418
 #: db_operations.php:528 db_operations.php:555 db_search.php:337
@@ -80,7 +80,7 @@ msgstr "بحث"
 #: tbl_tracking.php:569 tbl_zoom_select.php:320 view_create.php:181
 #: view_operations.php:99
 msgid "Go"
-msgstr "تنفيذ"
+msgstr "إنطلق"
 
 #: browse_foreigners.php:178 browse_foreigners.php:182
 #: libraries/Index.class.php:440 tbl_tracking.php:319
@@ -96,7 +96,7 @@ msgstr "الوصف"
 #: browse_foreigners.php:259 browse_foreigners.php:268
 #: browse_foreigners.php:280 browse_foreigners.php:288
 msgid "Use this value"
-msgstr "استخدم هذه القيمة"
+msgstr "إستعمل هذه القيمة"
 
 #: bs_disp_as_mime_type.php:29 bs_play_media.php:35
 #: libraries/blobstreaming.lib.php:385
@@ -249,15 +249,15 @@ msgstr "عرض بنية قاعدة البيانات"
 #: db_export.php:30 db_printview.php:94 db_qbe.php:101 db_tracking.php:48
 #: export.php:354 navigation.php:296
 msgid "No tables found in database."
-msgstr "لا توجد جداول في قاعدة البيانات هذه!."
+msgstr "لم يعثر على جداول في قادة البيانات."
 
 #: db_export.php:40 db_search.php:319 server_export.php:26
 msgid "Select All"
-msgstr "تحديد الكل"
+msgstr "إختر الكل"
 
 #: db_export.php:42 db_search.php:322 server_export.php:28
 msgid "Unselect All"
-msgstr "إلغاء تحديد الكل"
+msgstr "إلغاء خيار الكل"
 
 #: db_operations.php:41 tbl_create.php:22
 msgid "The database name is empty!"
@@ -362,7 +362,7 @@ msgstr "بناء الارتباطات"
 #: server_privileges.php:1899 server_privileges.php:2168
 #: server_synchronize.php:436 server_synchronize.php:908 tbl_tracking.php:649
 msgid "Table"
-msgstr "جدول"
+msgstr "الجدول"
 
 #: db_printview.php:102 libraries/build_html_for_db.lib.php:31
 #: libraries/db_structure.lib.php:42 libraries/header_printview.inc.php:65
@@ -374,7 +374,7 @@ msgstr "صفوف"
 
 #: db_printview.php:106 libraries/db_structure.lib.php:53 tbl_indexes.php:214
 msgid "Size"
-msgstr "حجم"
+msgstr "الحجم"
 
 #: db_printview.php:159 db_structure.php:500 libraries/export/sql.php:791
 msgid "in use"
@@ -392,14 +392,14 @@ msgstr "الإنشاء"
 #: libraries/schema/Pdf_Relation_Schema.class.php:1289 tbl_printview.php:395
 #: tbl_structure.php:926
 msgid "Last update"
-msgstr "التحديث الأخير"
+msgstr "آخر تحديث"
 
 #: db_printview.php:202 libraries/db_info.inc.php:84
 #: libraries/export/sql.php:753
 #: libraries/schema/Pdf_Relation_Schema.class.php:1294 tbl_printview.php:405
 #: tbl_structure.php:934
 msgid "Last check"
-msgstr "التحقق الأخير"
+msgstr "آخر فحص"
 
 #: db_printview.php:219 db_structure.php:524
 #, php-format
@@ -597,7 +597,7 @@ msgstr "داخل العمود:"
 
 #: db_structure.php:68
 msgid "No tables found in database"
-msgstr "لا توجد جداول في قاعدة البيانات هذه!."
+msgstr "لم يعثر على جداول في قاعدة البيانات"
 
 #: db_structure.php:228 libraries/mysql_charsets.lib.php:409
 #: libraries/mysql_charsets.lib.php:416
@@ -703,7 +703,7 @@ msgstr "إفراغ"
 #: libraries/common.lib.php:3351 server_databases.php:269
 #: tbl_structure.php:150 tbl_structure.php:151 tbl_structure.php:589
 msgid "Drop"
-msgstr "حذف"
+msgstr "سقّط"
 
 #: db_structure.php:601 tbl_operations.php:612
 msgid "Check table"
@@ -794,7 +794,7 @@ msgstr "غير نشط"
 
 #: db_tracking.php:135
 msgid "Versions"
-msgstr "نسخ"
+msgstr "الإصدارات"
 
 #: db_tracking.php:136 tbl_tracking.php:415 tbl_tracking.php:683
 msgid "Tracking report"
@@ -852,7 +852,7 @@ msgstr "نسخ ولصق القيم المضمومة لحقل \"Length/Values\""
 
 #: export.php:29
 msgid "Bad type!"
-msgstr "نوع غير صالح!"
+msgstr "نوع غير جيد!"
 
 #: export.php:77
 msgid "Selected export type has to be saved in file!"
@@ -860,7 +860,7 @@ msgstr "نوع التصدير المحدد سيحفظ في الملف!"
 
 #: export.php:106
 msgid "Bad parameters!"
-msgstr "مدخلات غير صالحة!"
+msgstr "عوامل متغيرة غير جيدة!"
 
 #: export.php:166 export.php:191 export.php:652
 #, php-format
@@ -1704,16 +1704,14 @@ msgid "Import"
 msgstr "استيراد"
 
 #: js/messages.php:217
-#, fuzzy
 #| msgid "Local monitor configuration incompatible"
 msgid "Import monitor configuration"
-msgstr "فشل قراءة ملف الإعدادات"
+msgstr ""
 
 #: js/messages.php:218
-#, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
-msgstr "فضلاً أختر المفتاح الرئيسي أو المفتاح الفريد"
+msgstr "﻿الرجاء تحديد الملف الذي تريد استيراده"
 
 #: js/messages.php:220
 msgid "Analyse Query"
@@ -1721,7 +1719,7 @@ msgstr "تحليل الإستعلام"
 
 #: js/messages.php:224
 msgid "Advisor system"
-msgstr ""
+msgstr "نظام المرشد"
 
 #: js/messages.php:225
 msgid "Possible performance issues"
@@ -1844,10 +1842,10 @@ msgid "The definition of a stored function must contain a RETURN statement!"
 msgstr "تعريف الدالة المخزنة يجب أن تحتوي جملة RETURN !"
 
 #: js/messages.php:276
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add a new User"
 msgid "Add %d value(s)"
-msgstr "أضف مستخدم جديد"
+msgstr "﻿إضافة قيمة/قيم %d"
 
 #: js/messages.php:279
 msgid ""
@@ -1879,7 +1877,7 @@ msgstr "وقت التنفيذ الأقصى"
 #: js/messages.php:288 libraries/display_tbl.lib.php:423
 #, php-format
 msgid "%d is not valid row number."
-msgstr ""
+msgstr "%d ليس رقم عمود صالح."
 
 #: js/messages.php:291 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
@@ -5358,7 +5356,7 @@ msgstr ""
 #: libraries/core.lib.php:247
 msgctxt "PHP documentation language"
 msgid "en"
-msgstr "en"
+msgstr "الإنكليزية"
 
 #: libraries/core.lib.php:266
 #, php-format
