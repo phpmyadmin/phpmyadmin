@@ -150,8 +150,7 @@ function PMA_replication_print_status_table($type, $hidden = false, $title = tru
             'Replicate_Wild_Do_Table', 'Replicate_Wild_Ignore_Table');
         if (in_array($variable, $variables_wrap)) {
             echo str_replace(',', ', ', ${"server_{$type}_replication"}[0][$variable]);
-        }
-        else {
+        } else {
             echo ${"server_{$type}_replication"}[0][$variable];
         }
         echo '</span>';

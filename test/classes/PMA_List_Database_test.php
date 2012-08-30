@@ -135,7 +135,7 @@ class PMA_List_Database_test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['LeftFrameDBSeparator'] = array('|',',');
 
         $this->assertEquals(
-            $this->object->getHtmlListGrouped(true,5,5),
+            $this->object->getHtmlListGrouped(true, 5, 5),
             '<ul id="databaseList" lang="en" dir="ltr">
 </ul>'
         );

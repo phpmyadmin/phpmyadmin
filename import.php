@@ -442,7 +442,7 @@ $sql_data = array('valid_sql' => array(), 'valid_queries' => 0);
 
 if (! $error) {
     // Check for file existance
-    require_once("libraries/plugin_interface.lib.php");
+    include_once "libraries/plugin_interface.lib.php";
     $import_plugin = PMA_getPlugin(
         "import",
         $format,

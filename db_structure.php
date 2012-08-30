@@ -271,9 +271,9 @@ foreach ($tables as $keyname => $current_table) {
     
     list($html_output, $odd_row) = PMA_getHtmlForStructureTableRow(
         $i, $odd_row, $table_is_view, $current_table, $checked,
-        $browse_table_label, $tracking_icon,$server_slave_status,
+        $browse_table_label, $tracking_icon, $server_slave_status,
         $browse_table, $tbl_url_query, $search_table, $db_is_information_schema,
-        $titles, $empty_table,$drop_query, $drop_message, $collation,
+        $titles, $empty_table, $drop_query, $drop_message, $collation,
         $formatted_size, $unit, $overhead,
         (isset ($create_time) ? $create_time : ''),
         (isset ($update_time) ? $update_time : ''),

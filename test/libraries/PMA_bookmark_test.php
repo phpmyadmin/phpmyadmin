@@ -45,7 +45,7 @@ class PMA_bookmark_test extends PHPUnit_Framework_TestCase
         $GLOBALS['cfg']['Server']['bookmarktable'] = 'pma_bookmark';
         $GLOBALS['server'] = 1;
 
-        require_once 'libraries/bookmark.lib.php';
+        include_once 'libraries/bookmark.lib.php';
     }
     /**
      * Test for PMA_Bookmark_getParams

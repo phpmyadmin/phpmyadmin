@@ -146,7 +146,7 @@ function PMA_getTransformationDescription($file, $html_formatted = true)
     $class_name = $class_name[0];
 
     // include and instantiate the class
-    require_once 'libraries/plugins/transformations/' . $file;
+    include_once 'libraries/plugins/transformations/' . $file;
     return $class_name::getInfo();
 }
 
@@ -268,7 +268,7 @@ function PMA_setMIME($db, $table, $key, $mimetype, $transformation,
     $transformation = strtolower($transformation);
     $transformation = str_replace(".class.php", ".inc.php", $transformation);
     $last_pos = strrpos($transformation, "_");
-    $transformation = substr($transformation , 0, $last_pos) . "_"
+    $transformation = substr($transformation, 0, $last_pos) . "_"
         . substr($transformation, $last_pos);
 
     $test_qry = '
