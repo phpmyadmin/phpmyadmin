@@ -118,8 +118,7 @@ if (isset($_REQUEST['submitoptions'])) {
         ) = PMA_setGlobalVariablesForEngine($tbl_storage_engine);
 
         if ($is_aria) {
-            $transactional = 
-                (isset($transactional) && $transactional == '0')
+            $transactional = (isset($transactional) && $transactional == '0')
                 ? '0' 
                 : '1';
             $page_checksum = (isset($page_checksum)) ? $page_checksum : '';
@@ -325,8 +324,8 @@ if (! (isset($db_is_information_schema) && $db_is_information_schema)) {
                     ($tbl_is_view 
                         ? __('View %s has been dropped') 
                         : __('Table %s has been dropped')
-                    )
-                    , htmlspecialchars($table)
+                    ),
+                    htmlspecialchars($table)
                 ),
                 // table name is needed to avoid running
                 // PMA_relationsCleanupDatabase() on the whole db later

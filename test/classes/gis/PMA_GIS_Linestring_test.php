@@ -172,17 +172,20 @@ class PMA_GIS_LinestringTest extends PMA_GIS_GeomTest
      * @param type $image
      * @param type $output
      *
-     *@dataProvider providerForPrepareRowAsPng
+     * @dataProvider providerForPrepareRowAsPng
+     * @return void
      */
-    public function testPrepareRowAsPng($spatial, $label, $line_color, $scale_data, $image, $output)
-    {
-
-        $return = $this->object->prepareRowAsPng($spatial, $label, $line_color, $scale_data, $image);
+    public function testPrepareRowAsPng($spatial, $label, $line_color,
+        $scale_data, $image, $output
+    ) {
+        $return = $this->object->prepareRowAsPng(
+            $spatial, $label, $line_color, $scale_data, $image
+        );
         $this->assertTrue(true);
     }
 
-    public function providerForPrepareRowAsPng(){
-
+    public function providerForPrepareRowAsPng()
+    {
         return array(
             array(
                 'LINESTRING(12 35,48 75,69 23,25 45,14 53,35 78)',
@@ -194,10 +197,9 @@ class PMA_GIS_LinestringTest extends PMA_GIS_GeomTest
                     'scale' => 2,
                     'height' => 150
                 ),
-                imagecreatetruecolor('120','150'),
+                imagecreatetruecolor('120', '150'),
                 ''
             )
-
         );
     }
 
@@ -209,17 +211,20 @@ class PMA_GIS_LinestringTest extends PMA_GIS_GeomTest
      * @param type $scale_data
      * @param type $pdf
      *
-     *@dataProvider providerForPrepareRowAsPdf
+     * @dataProvider providerForPrepareRowAsPdf
+     * @return void
      */
-    public function testPrepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf)
-    {
-
-        $return = $this->object->prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf);
+    public function testPrepareRowAsPdf($spatial, $label, $line_color,
+        $scale_data, $pdf
+    ) {
+        $return = $this->object->prepareRowAsPdf(
+            $spatial, $label, $line_color, $scale_data, $pdf
+        );
         $this->assertTrue($return instanceof TCPDF);
     }
 
-    public function providerForPrepareRowAsPdf(){
-
+    public function providerForPrepareRowAsPdf()
+    {
         return array(
             array(
                 'LINESTRING(12 35,48 75,69 23,25 45,14 53,35 78)',
@@ -244,18 +249,20 @@ class PMA_GIS_LinestringTest extends PMA_GIS_GeomTest
      * @param type $scale_data
      * @param type $output
      *
-     *@dataProvider providerForPrepareRowAsSvg
+     * @dataProvider providerForPrepareRowAsSvg
+     * @return void
      */
-    public function testPrepareRowAsSvg($spatial, $label, $line_color, $scale_data, $output)
-    {
-
-        $string = $this->object->prepareRowAsSvg($spatial, $label, $line_color, $scale_data);
+    public function testPrepareRowAsSvg($spatial, $label, $line_color,
+        $scale_data, $output
+    ) {
+        $string = $this->object->prepareRowAsSvg(
+            $spatial, $label, $line_color, $scale_data
+        );
         $this->assertEquals(1, preg_match($output, $string));
-        //$this->assertEquals($this->object->prepareRowAsSvg($spatial, $label, $line_color, $scale_data) , $output);
     }
 
-    public function providerForPrepareRowAsSvg(){
-
+    public function providerForPrepareRowAsSvg()
+    {
         return array(
             array(
                 'LINESTRING(12 35,48 75,69 23,25 45,14 53,35 78)',
@@ -281,16 +288,22 @@ class PMA_GIS_LinestringTest extends PMA_GIS_GeomTest
      * @param type $scale_data
      * @param type $output
      *
-     *@dataProvider providerForPrepareRowAsOl
+     * @dataProvider providerForPrepareRowAsOl
+     * @return void
      */
-    public function testPrepareRowAsOl($spatial, $srid, $label, $line_color, $scale_data, $output)
-    {
-
-        $this->assertEquals($this->object->prepareRowAsOl($spatial, $srid, $label, $line_color, $scale_data) , $output);
+    public function testPrepareRowAsOl($spatial, $srid, $label,
+        $line_color, $scale_data, $output
+    ) {
+        $this->assertEquals(
+            $this->object->prepareRowAsOl(
+                $spatial, $srid, $label, $line_color, $scale_data
+            ),
+            $output
+        );
     }
 
-    public function providerForPrepareRowAsOl(){
-
+    public function providerForPrepareRowAsOl()
+    {
         return array(
             array(
                 'LINESTRING(12 35,48 75,69 23,25 45,14 53,35 78)',

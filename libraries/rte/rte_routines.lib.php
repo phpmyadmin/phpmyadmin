@@ -264,7 +264,7 @@ function PMA_RTN_parseRoutineDefiner($parsed_query)
 function PMA_RTN_handleEditor()
 {
     global $_GET, $_POST, $_REQUEST, $GLOBALS, $db, $errors;
-    
+
     $common_functions = PMA_CommonFunctions::getInstance();
 
     if (! empty($_REQUEST['editor_process_add'])
@@ -443,7 +443,7 @@ function PMA_RTN_handleEditor()
 function PMA_RTN_getDataFromRequest()
 {
     global $_REQUEST, $param_directions, $param_sqldataaccess;
-    
+
     $common_functions = PMA_CommonFunctions::getInstance();
 
     $retval = array();
@@ -689,7 +689,7 @@ function PMA_RTN_getDataFromName($name, $type, $all = true)
 function PMA_RTN_getParameterRow($routine = array(), $index = null, $class = '')
 {
     global $param_directions, $param_opts_num, $titles;
-    
+
     $common_functions = PMA_CommonFunctions::getInstance();
 
     if ($index === null) {
@@ -1045,7 +1045,7 @@ function PMA_RTN_getQueryFromRequest()
 {
     global $_REQUEST, $errors, $param_sqldataaccess, $param_directions;
 
-    $common_functions = PMA_CommonFunctions::getInstance();    
+    $common_functions = PMA_CommonFunctions::getInstance();
     $_REQUEST['item_type'] = isset($_REQUEST['item_type'])
         ? $_REQUEST['item_type'] : '';
 
@@ -1202,7 +1202,7 @@ function PMA_RTN_getQueryFromRequest()
 function PMA_RTN_handleExecute()
 {
     global $_GET, $_POST, $_REQUEST, $GLOBALS, $db;
-    
+
     $common_functions = PMA_CommonFunctions::getInstance();
 
     /**
@@ -1253,26 +1253,26 @@ function PMA_RTN_handleExecute()
                            . "(" . implode(', ', $args) . ") "
                            . "AS " . $common_functions->backquote($routine['item_name']) . ";\n";
             }
-            
+
             // Get all the queries as one SQL statement
             $multiple_query = implode("", $queries);
-            
+
             $outcome = true;
             $affected = 0;
-            
+
             // Execute query
             if (! PMA_DBI_try_multi_query($multiple_query)) {
                 $outcome = false;
             }
-            
+
             // Generate output
             if ($outcome) {
-                
+
                 // Pass the SQL queries through the "pretty printer"
                 $output  = '<code class="sql" style="margin-bottom: 1em;">';
                 $output .= PMA_SQP_formatHtml(PMA_SQP_parse(implode($queries)));
                 $output .= '</code>';
-				
+
                 // Display results
                 $output .= "<fieldset><legend>";
                 $output .= sprintf(
@@ -1280,26 +1280,26 @@ function PMA_RTN_handleExecute()
                     $common_functions->backquote(htmlspecialchars($routine['item_name']))
                 );
                 $output .= "</legend>";
-                
+
                 $num_of_rusults_set_to_display = 0;
-                
+
                 do {
-                    
+
                     $result = PMA_DBI_store_result();
                     $num_rows = PMA_DBI_num_rows($result);
-                    
+
                     if (($result !== false) && ($num_rows > 0)) {
-                        
-                        $output .= "<table><tr>";                        
+
+                        $output .= "<table><tr>";
                         foreach (PMA_DBI_get_fields_meta($result) as $key => $field) {
                             $output .= "<th>";
                             $output .= htmlspecialchars($field->name);
                             $output .= "</th>";
-                        }                        
+                        }
                         $output .= "</tr>";
-                        
+
                         $color_class = 'odd';
-                        
+
                         while ($row = PMA_DBI_fetch_assoc($result)) {
                             $output .= "<tr>";
                             foreach ($row as $key => $value) {
@@ -1313,30 +1313,30 @@ function PMA_RTN_handleExecute()
                             $output .= "</tr>";
                             $color_class = ($color_class == 'odd') ? 'even' : 'odd';
                         }
-                        
+
                         $output .= "</table>";
                         $num_of_rusults_set_to_display++;
                         $affected = $num_rows;
-                        
+
                     }
-                    
+
                     if (! PMA_DBI_more_results()) {
                         break;
                     }
-                    
+
                     $output .= "<br/>";
-                    
+
                     PMA_DBI_free_result($result);
-                    
+
                 } while (PMA_DBI_next_result());
-                
+
                 $output .= "</fieldset>";
-                
+
                 $message = __('Your SQL query has been executed successfully');
                 if ($routine['item_type'] == 'PROCEDURE') {
                     $message .= '<br />';
-                    
-                    // TODO : message need to be modified according to the 
+
+                    // TODO : message need to be modified according to the
                     // output from the routine
                     $message .= sprintf(
                         _ngettext(
@@ -1348,12 +1348,12 @@ function PMA_RTN_handleExecute()
                     );
                 }
                 $message = PMA_message::success($message);
-                
+
                 if ($num_of_rusults_set_to_display == 0) {
                     $notice = __('MySQL returned an empty result set (i.e. zero rows).');
                     $output .= PMA_message::notice($notice)->getDisplay();
                 }
-                
+
             } else {
                 $output = '';
                 $message = PMA_message::error(
@@ -1365,7 +1365,7 @@ function PMA_RTN_handleExecute()
                     . __('MySQL said: ') . PMA_DBI_getError(null)
                 );
             }
-            
+
             // Print/send output
             if ($GLOBALS['is_ajax_request']) {
                 $response = PMA_Response::getInstance();
@@ -1449,7 +1449,7 @@ function PMA_RTN_handleExecute()
 function PMA_RTN_getExecuteForm($routine)
 {
     global $db, $cfg;
-    
+
     $common_functions = PMA_CommonFunctions::getInstance();
 
     // Escape special characters

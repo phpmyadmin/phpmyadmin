@@ -292,8 +292,8 @@ if (isset($_REQUEST['snapshot'])) {
     // Print SQL code
     echo $common_functions->getMessage(
         sprintf(
-            __('Version %s snapshot (SQL code)')
-            , htmlspecialchars($_REQUEST['version'])
+            __('Version %s snapshot (SQL code)'),
+            htmlspecialchars($_REQUEST['version'])
         ),
         $drop_create_statements
     );

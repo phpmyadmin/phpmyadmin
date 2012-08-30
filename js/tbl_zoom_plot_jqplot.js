@@ -142,10 +142,10 @@ $(document).ready(function() {
             $('#tableFieldsId tr:eq(1) td:eq(1)').html(data.field_collation);
             $('#tableFieldsId tr:eq(1) td:eq(2)').html(data.field_operators);
             $('#tableFieldsId tr:eq(1) td:eq(3)').html(data.field_value);
-	    xLabel = $('#tableid_0').val();
-	    $('#types_0').val(data.field_type);
+        xLabel = $('#tableid_0').val();
+        $('#types_0').val(data.field_type);
         xType = data.field_type;
-	    $('#collations_0').val(data.field_collations);
+        $('#collations_0').val(data.field_collations);
         addDateTimePicker();
         });
     });
@@ -153,7 +153,7 @@ $(document).ready(function() {
     // second column choice corresponds to the Y axis
     $('#tableid_1').change(function() {
         //AJAX request for field type, collation, operators, and value field
-	$.post('tbl_zoom_select.php',{
+    $.post('tbl_zoom_select.php',{
             'ajax_request' : true,
             'change_tbl_info' : true,
             'db' : window.parent.db,
@@ -166,17 +166,17 @@ $(document).ready(function() {
             $('#tableFieldsId tr:eq(3) td:eq(1)').html(data.field_collation);
             $('#tableFieldsId tr:eq(3) td:eq(2)').html(data.field_operators);
             $('#tableFieldsId tr:eq(3) td:eq(3)').html(data.field_value);
-	    yLabel = $('#tableid_1').val();
-	    $('#types_1').val(data.field_type);
+        yLabel = $('#tableid_1').val();
+        $('#types_1').val(data.field_type);
         yType = data.field_type;
-	    $('#collations_1').val(data.field_collations);
+        $('#collations_1').val(data.field_collations);
         addDateTimePicker();
         });
     });
 
     $('#tableid_2').change(function() {
         //AJAX request for field type, collation, operators, and value field
-	$.post('tbl_zoom_select.php',{
+    $.post('tbl_zoom_select.php',{
             'ajax_request' : true,
             'change_tbl_info' : true,
             'db' : window.parent.db,
@@ -189,15 +189,15 @@ $(document).ready(function() {
             $('#tableFieldsId tr:eq(6) td:eq(1)').html(data.field_collation);
             $('#tableFieldsId tr:eq(6) td:eq(2)').html(data.field_operators);
             $('#tableFieldsId tr:eq(6) td:eq(3)').html(data.field_value);
-	    $('#types_2').val(data.field_type);
-	    $('#collations_2').val(data.field_collations);
+        $('#types_2').val(data.field_type);
+        $('#collations_2').val(data.field_collations);
         addDateTimePicker();
         });
     });
 
     $('#tableid_3').change(function() {
         //AJAX request for field type, collation, operators, and value field
-	$.post('tbl_zoom_select.php',{
+    $.post('tbl_zoom_select.php',{
             'ajax_request' : true,
             'change_tbl_info' : true,
             'db' : window.parent.db,
@@ -210,8 +210,8 @@ $(document).ready(function() {
             $('#tableFieldsId tr:eq(8) td:eq(1)').html(data.field_collation);
             $('#tableFieldsId tr:eq(8) td:eq(2)').html(data.field_operators);
             $('#tableFieldsId tr:eq(8) td:eq(3)').html(data.field_value);
-	    $('#types_3').val(data.field_type);
-	    $('#collations_3').val(data.field_collations);
+        $('#types_3').val(data.field_type);
+        $('#collations_3').val(data.field_collations);
         addDateTimePicker();
         });
     });

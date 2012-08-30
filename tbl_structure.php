@@ -315,7 +315,7 @@ foreach ($fields as $row) {
         PMA_getHtmlTableStructureRow($row, $rownum, $checked,
             $displayed_field_name, $type_nowrap, $extracted_columnspec,
             $type_mime, $field_charset, $attribute, $tbl_is_view,
-            $db_is_information_schema,$url_query, $field_encoded, $titles, $table
+            $db_is_information_schema, $url_query, $field_encoded, $titles, $table
         )
     );
     

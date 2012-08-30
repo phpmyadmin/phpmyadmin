@@ -773,7 +773,7 @@ if ((0 == $num_rows && 0 == $unlim_num_rows) || $is_affected) {
         || ($analyzed_sql[0]['querytype'] == 'DROP'))
     ) {
 
-        require_once 'libraries/transformations.lib.php';
+        include_once 'libraries/transformations.lib.php';
         if ($analyzed_sql[0]['querytype'] == 'ALTER') {
 
             if (stripos($analyzed_sql[0]['unsorted_query'], 'DROP') !== false) {
@@ -1275,8 +1275,8 @@ function PMA_getNewDatabase($sql, $databases)
 {
     $db = '';
     // loop through all the databases
-    foreach ($databases as $database){
-        if (strpos($sql,$database['SCHEMA_NAME']) !== false) {
+    foreach ($databases as $database) {
+        if (strpos($sql, $database['SCHEMA_NAME']) !== false) {
             $db = $database;
             break;
         }
@@ -1301,7 +1301,7 @@ function PMA_getTableNameBySQL($sql, $tables)
 
     // loop through all the tables in the database
     foreach ($tables as $tbl) {
-        if (strpos($sql,$tbl)) {
+        if (strpos($sql, $tbl)) {
             $table .= ' ' . $tbl;
         }
     }

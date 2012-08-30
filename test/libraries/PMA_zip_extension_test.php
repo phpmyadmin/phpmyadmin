@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for displaing results
+ * Tests for displaying results
  *
  * @package PhpMyAdmin-test
  */
@@ -12,16 +12,20 @@
 require_once 'libraries/zip_extension.lib.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
-class PMA_zip_extension_test extends PHPUnit_Framework_TestCase {
-
+class PMA_zip_extension_test extends PHPUnit_Framework_TestCase
+{
     /**
+     * Test zip file content
+     *
      * @param string $file           zip file
      * @param string $specific_entry regular expression to match a file
-     * @param $output
+     * @param mixed  $output         expected output
      *
      * @dataProvider providerForTestGetZipContents
+     * @return void
      */
-    public function testGetZipContents($file, $specific_entry, $output){
+    public function testGetZipContents($file, $specific_entry, $output)
+    {
         $this->assertEquals(
             PMA_getZipContents($file, $specific_entry),
             $output
@@ -30,8 +34,11 @@ class PMA_zip_extension_test extends PHPUnit_Framework_TestCase {
 
     /**
      * Provider for testGetZipContents
+     *
+     * @return array
      */
-    public function providerForTestGetZipContents(){
+    public function providerForTestGetZipContents()
+    {
         return array(
             array(
                 './test/test_data/test.zip',
@@ -53,13 +60,17 @@ class PMA_zip_extension_test extends PHPUnit_Framework_TestCase {
     }
 
     /**
+     * Test Find file in Zip Archive
+     *
      * @param string $file_regexp regular expression for the file name to match
      * @param string $file        zip archive
-     * @param $output
+     * @param mixed  $output      expected output
      *
      * @dataProvider providerForTestFindFileFromZipArchive
+     * @return void
      */
-    public function testFindFileFromZipArchive($file_regexp, $file, $output){
+    public function testFindFileFromZipArchive($file_regexp, $file, $output)
+    {
         $this->assertEquals(
             PMA_findFileFromZipArchive($file_regexp, $file),
             $output
@@ -68,8 +79,11 @@ class PMA_zip_extension_test extends PHPUnit_Framework_TestCase {
 
     /**
      * Provider for testFindFileFromZipArchive
+     *
+     * @return void
      */
-    public function providerForTestFindFileFromZipArchive(){
+    public function providerForTestFindFileFromZipArchive()
+    {
         return array(
             array(
                 '/test/',
@@ -81,8 +95,11 @@ class PMA_zip_extension_test extends PHPUnit_Framework_TestCase {
 
     /**
      * Test for PMA_getNoOfFilesInZip
+     *
+     * @return void
      */
-    public function testGetNoOfFilesInZip(){
+    public function testGetNoOfFilesInZip()
+    {
         $this->assertEquals(
             PMA_getNoOfFilesInZip('./test/test_data/test.zip'),
             1
@@ -91,10 +108,15 @@ class PMA_zip_extension_test extends PHPUnit_Framework_TestCase {
 
     /**
      * Test for PMA_zipExtract
+     *
+     * @return void
      */
-    public function testZipExtract(){
+    public function testZipExtract()
+    {
         $this->assertEquals(
-            PMA_zipExtract('./test/test_data/test.zip', './test/test_data/', 'wrongName'),
+            PMA_zipExtract(
+                './test/test_data/test.zip', './test/test_data/', 'wrongName'
+            ),
             true
         );
     }
@@ -102,12 +124,14 @@ class PMA_zip_extension_test extends PHPUnit_Framework_TestCase {
     /**
      * Test for PMA_getZipError
      *
-     * @param $code error code
-     * @param $output
+     * @param int   $code   error code
+     * @param mixed $output expected output
      *
      * @dataProvider providerForTestGetZipError
+     * @return void
      */
-    public function testGetZipError($code, $output){
+    public function testGetZipError($code, $output)
+    {
         $this->assertEquals(
             PMA_getZipError($code),
             $output
@@ -116,8 +140,11 @@ class PMA_zip_extension_test extends PHPUnit_Framework_TestCase {
 
     /**
      * Provider for testGetZipError
+     *
+     * @return array
      */
-    public function providerForTestGetZipError(){
+    public function providerForTestGetZipError()
+    {
         return array(
             array(
                 1,
