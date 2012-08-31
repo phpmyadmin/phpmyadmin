@@ -1,6 +1,8 @@
 <?php
 /**
  * Minimal config file for test
+ *
+ * @package PhpMyAdmin-test
  */
 $i = 0;
 

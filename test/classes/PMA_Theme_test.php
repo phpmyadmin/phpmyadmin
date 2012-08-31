@@ -12,6 +12,8 @@ require_once 'libraries/url_generating.lib.php';
 
 /**
  * Test class for PMA_Theme.
+ *
+ * @package PhpMyAdmin-test
  */
 class PMA_ThemeTest extends PHPUnit_Framework_TestCase
 {

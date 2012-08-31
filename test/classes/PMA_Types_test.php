@@ -13,6 +13,8 @@ require_once 'libraries/Types.class.php';
 
 /**
  * Test class for PMA_Types.
+ *
+ * @package PhpMyAdmin-test
  */
 class PMA_TypesTest extends PHPUnit_Framework_TestCase
 {

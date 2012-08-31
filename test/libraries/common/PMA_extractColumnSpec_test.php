@@ -14,6 +14,8 @@ require_once 'libraries/CommonFunctions.class.php';
 
 /**
  * Test for PMA_CommonFunctions::extractColumnSpec function.
+ *
+ * @package PhpMyAdmin-test
  */
 class PMA_extractColumnSpec_test extends PHPUnit_Framework_TestCase
 {
