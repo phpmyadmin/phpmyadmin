@@ -460,8 +460,8 @@ function PMA_sqlQueryFormUpload()
         $files = PMA_getFileSelectOptions(
             $common_functions->userDir($GLOBALS['cfg']['UploadDir']), $matcher,
             (isset($timeout_passed) && $timeout_passed && isset($local_import_file))
-                ? $local_import_file
-                : ''
+            ? $local_import_file
+            : ''
         );
     } else {
         $files = '';

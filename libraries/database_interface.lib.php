@@ -930,7 +930,8 @@ function PMA_DBI_get_databases_full($database = null, $force_stats = false,
                 $databases[$database_name]['SCHEMA_LENGTH']          = 0;
                 $databases[$database_name]['SCHEMA_DATA_FREE']       = 0;
 
-                $res = PMA_DBI_query('SHOW TABLE STATUS FROM '
+                $res = PMA_DBI_query(
+                    'SHOW TABLE STATUS FROM '
                     . $common_functions->backquote($database_name) . ';'
                 );
 

@@ -207,8 +207,16 @@ if ($GLOBALS['is_ajax_request'] != true) {
             <strong>
                 <label for="input_index_name">
                     <?php echo __('Index name:'); ?>
-                    <?php echo PMA_CommonFunctions::getInstance()->showHint(PMA_Message::notice(__(
-                    '("PRIMARY" <b>must</b> be the name of and <b>only of</b> a primary key!)'))); ?>
+                    <?php
+echo PMA_CommonFunctions::getInstance()->showHint(
+    PMA_Message::notice(
+        __(
+            '("PRIMARY" <b>must</b> be the name of'
+            . ' and <b>only of</b> a primary key!)'
+        )
+    )
+);
+                    ?>
                 </label>
             </strong>
         </div>

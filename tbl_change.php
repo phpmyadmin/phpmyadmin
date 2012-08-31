@@ -167,14 +167,18 @@ $foreigners = PMA_getForeigners($db, $table);
 
 // Retrieve form parameters for insert/edit form
 $_form_params = PMA_getFormParametersForInsertForm(
-    $db, $table, $where_clauses, $where_clause_array, $err_url);
+    $db, $table, $where_clauses, $where_clause_array, $err_url
+);
 
 /**
  * Displays the form
  */
 // autocomplete feature of IE kills the "onchange" event handler and it
 //        must be replaced by the "onpropertychange" one in this case
-$chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER >= 5 && PMA_USR_BROWSER_VER < 7)
+$chg_evt_handler = (PMA_USR_BROWSER_AGENT == 'IE'
+    && PMA_USR_BROWSER_VER >= 5
+    && PMA_USR_BROWSER_VER < 7
+)
      ? 'onpropertychange'
      : 'onchange';
 // Had to put the URI because when hosted on an https server,
@@ -306,9 +310,14 @@ foreach ($rows as $row_id => $current_row) {
         $special_chars_encoded = '';
         if (isset($current_row)) {
             // (we are editing)
-           list($real_null_value, $special_chars_encoded, $special_chars, $data, $backup_field)
-               = PMA_getSpecialCharsAndBackupFieldForExistingRow($current_row, $column, $extracted_columnspec,
-                    $real_null_value, $gis_data_types, $column_name_appendix);
+            list(
+                $real_null_value, $special_chars_encoded, $special_chars,
+                $data, $backup_field
+            )
+                = PMA_getSpecialCharsAndBackupFieldForExistingRow(
+                    $current_row, $column, $extracted_columnspec,
+                    $real_null_value, $gis_data_types, $column_name_appendix
+                );
         } else {
             // (we are inserting)
             // display default values
@@ -325,16 +334,23 @@ foreach ($rows as $row_id => $current_row) {
         // The function column
         // -------------------
         if ($cfg['ShowFunctionFields']) {
-            $html_output .= PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
+            $html_output .= PMA_getFunctionColumn(
+                $column, $is_upload, $column_name_appendix,
                 $unnullify_trigger, $no_support_types, $tabindex_for_function,
-                $tabindex, $idindex, $insert_mode);
+                $tabindex, $idindex, $insert_mode
+            );
         }
 
         // The null column
         // ---------------
-        $foreignData = PMA_getForeignData($foreigners, $column['Field'], false, '', '');
-        $html_output .= PMA_getNullColumn($column, $column_name_appendix, $real_null_value,
-            $tabindex, $tabindex_for_null, $idindex, $vkey, $foreigners, $foreignData);
+        $foreignData = PMA_getForeignData(
+            $foreigners, $column['Field'], false, '', ''
+        );
+        $html_output .= PMA_getNullColumn(
+            $column, $column_name_appendix, $real_null_value,
+            $tabindex, $tabindex_for_null, $idindex, $vkey, $foreigners,
+            $foreignData
+        );
 
         // The value column (depends on type)
         // ----------------
@@ -355,7 +371,7 @@ foreach ($rows as $row_id => $current_row) {
             $no_support_types, $gis_data_types, $extracted_columnspec
         );
         
-       $html_output .= '</td>'
+        $html_output .= '</td>'
         . '</tr>';
 
         $odd_row = !$odd_row;
@@ -374,8 +390,10 @@ if (! isset($after_insert)) {
 }
 
 //action panel
-$html_output .= PMA_getActionsPanel($where_clause, $after_insert, $tabindex,
-    $tabindex_for_value, $found_unique_key);
+$html_output .= PMA_getActionsPanel(
+    $where_clause, $after_insert, $tabindex,
+    $tabindex_for_value, $found_unique_key
+);
 
 if ($biggest_max_file_size > 0) {
     $html_output .= '        '

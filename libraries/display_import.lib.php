@@ -25,9 +25,11 @@ $import_list = PMA_getPlugins(
 
 /* Fail if we didn't find any plugin */
 if (empty($import_list)) {
-    PMA_Message::error(__(
-        'Could not load import plugins, please check your installation!'
-    ))->display();
+    PMA_Message::error(
+        __(
+            'Could not load import plugins, please check your installation!'
+        )
+    )->display();
     exit;
 }
 ?>
@@ -223,16 +225,14 @@ if ($GLOBALS['is_upload'] && !empty($cfg['UploadDir'])) { ?>
             <ul>
             <li>
                 <input type="radio" name="file_location" id="radio_import_file" />
-                <?php echo $common_functions->getBrowseUploadFileBlock(
-                        $max_upload_size
-                    );
+                <?php
+echo $common_functions->getBrowseUploadFileBlock($max_upload_size);
                 ?>
             </li>
             <li>
                 <input type="radio" name="file_location" id="radio_local_import_file" />
-                <?php echo $common_functions->getSelectUploadFileBlock(
-                        $import_list, $cfg['UploadDir']
-                    );
+                <?php
+echo $common_functions->getSelectUploadFileBlock($import_list, $cfg['UploadDir']);
                 ?>
             </li>
             </ul>

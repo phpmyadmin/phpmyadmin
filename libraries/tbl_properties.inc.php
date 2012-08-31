@@ -127,14 +127,15 @@ if ($cfgRelation['mimework'] && $cfg['BrowseMIME']) {
     $mime_map = PMA_getMIME($db, $table);
     $available_mime = PMA_getAvailableMIMEtypes();
 
-    $hint = '<br />' .
-        sprintf(
-            __('For a list of available transformation options and their MIME'
+    $hint = '<br />'
+        . sprintf(
+            __(
+                'For a list of available transformation options and their MIME'
                 . ' type transformations, click on %stransformation descriptions%s'
             ),
             '<a href="transformation_overview.php?'
-                . PMA_generate_common_url($db, $table)
-                . '" target="_blank">',
+            . PMA_generate_common_url($db, $table)
+            . '" target="_blank">',
             '</a>'
         );
 
@@ -143,12 +144,15 @@ if ($cfgRelation['mimework'] && $cfg['BrowseMIME']) {
     $header_cells[] = __('Browser transformation');
     $header_cells[] = __('Transformation options')
         . $common_functions->showHint(
-            __('Please enter the values for transformation options using this'
+            __(
+                'Please enter the values for transformation options using this'
                 . ' format: \'a\', 100, b,\'c\'...<br />If you ever need to put'
                 . ' a backslash ("\") or a single quote ("\'") amongst those'
                 . ' values, precede it with a backslash (for example \'\\\\xyz\''
                 . ' or \'a\\\'b\').'
-            ) . $hint);
+            )
+            . $hint
+        );
 }
 
 //  workaround for field_fulltext, because its submitted indizes contain

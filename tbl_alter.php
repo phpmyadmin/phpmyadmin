@@ -85,28 +85,17 @@ if (isset($_REQUEST['move_columns'])
             strtoupper($extracted_columnspec['type']),
             $extracted_columnspec['spec_in_brackets'],
             $extracted_columnspec['attribute'],
-            isset($data['Collation'])
-                ? $data['Collation']
-                : '',
-            $data['Null'] === 'YES'
-                ? 'NULL'
-                : 'NOT NULL',
+            isset($data['Collation']) ? $data['Collation'] : '',
+            $data['Null'] === 'YES' ? 'NULL' : 'NOT NULL',
             $default_type,
-            $current_timestamp
-                ? ''
-                : $data['Default'],
-            isset($data['Extra']) && $data['Extra'] !== ''
-                ? $data['Extra']
-                : false,
+            $current_timestamp ? '' : $data['Default'],
+            isset($data['Extra']) && $data['Extra'] !== '' ? $data['Extra'] : false,
             isset($data['Comments']) && $data['Comments'] !== ''
-                ? $data['Comments']
-                : false,
+            ? $data['Comments'] : false,
             $we_dont_change_keys,
             $i,
-            $i === 0
-                ? '-first'
-                : $column_names[$i - 1]
-                );
+            $i === 0 ? '-first' : $column_names[$i - 1]
+        );
         // update current column_names array, first delete old position
         for ($j = 0, $ll = count($column_names); $j < $ll; $j++) {
             if ($column_names[$j] == $column) {
