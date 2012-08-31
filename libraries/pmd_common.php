@@ -182,9 +182,9 @@ function get_all_keys($unique_only = false)
 }
 
 /**
+ * Return script to create j_tab and h_tab arrays
  *
- *
- * @return array   ???
+ * @return string
  */
 function get_script_tabs()
 {
