@@ -229,51 +229,36 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
             break;
     }
 
-    // Prevent the user from seeing the JSON code
-    //$('div#profilingchart').html('').show();
-
     var settings = {
-        //chart: {
-        //    renderTo: 'querychart'
-        //},
-        //title: {
-        //    text: '',
-        //    margin: 0
-        //},
         title: {
             text: '' 
             //margin:20
         },
-        series: series,
-        //xAxis: xaxis,
-        //yAxis: yaxis,
-        //plotOptions: {
-        //    pie: {
-        //        allowPointSelect: true,
-        //        cursor: 'pointer',
-        //        dataLabels: {
-        //            enabled: true,
-        //            distance: 35,
-        //            formatter: function() {
-                        //return '<b>'+ this.point.name +'</b><br/>'+ Highcharts.numberFormat(this.percentage, 2) +' %';
-        //           }
-        //        }
-        //    }
-        //},
-        //tooltip: {
-        //    formatter: function() {
-        //        if(this.point.name) return '<b>'+this.series.name+'</b><br/>'+this.point.name+'<br/>'+this.y;
-        //        return '<b>'+this.series.name+'</b><br/>'+this.y;
-        //    }
-        //}
+        //series: series,
     };
 
+    if (passedNonJqplotSettings.chart.type == 'bar') {
+        settings.seriesDefaults = {
+            renderer: $.jqplot.BarRenderer,
+            rendererOptions: {
+                barDirection: 'vertical',
+                highlightMouseOver: true
+            }
+        };
+        settings.axes = {
+            xaxis: {
+                renderer: $.jqplot.CategoryAxisRenderer
+            },
+            yaxis: {
+                renderer: $.jqplot.CategoryAxisRenderer
+            }
+        };
+    }
     if (passedNonJqplotSettings.chart.type == 'pie') {
         //settings.tooltip.formatter = function() { return '<b>'+columnNames[0]+'</b><br/>'+this.y; }
     }
     // Overwrite/Merge default settings with passedsettings
     $.extend(true, settings, passedSettings);
 
-    //return PMA_createChart(settings);
     $.jqplot('querychart', series[0].data, settings);
 }
