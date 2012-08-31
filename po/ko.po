@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-28 14:48+0200\n"
-"PO-Revision-Date: 2012-07-26 08:31+0200\n"
-"Last-Translator: Hyun-Sung Yun <bemax38@gmail.com>\n"
-"Language-Team: korean <ko@li.org>\n"
+"PO-Revision-Date: 2012-08-31 08:07+0200\n"
+"Last-Translator: Namuk Kang <kang@namuk.com>\n"
+"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/master/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.1\n"
+"X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
 #: libraries/DisplayResults.class.php:816
@@ -1467,16 +1467,14 @@ msgid "Foreign key check:"
 msgstr "외래 키(foreign key) 체크 사용 안함"
 
 #: js/messages.php:258 libraries/mult_submits.inc.php:324
-#, fuzzy
 #| msgid "Enabled"
 msgid "(Enabled)"
-msgstr "사용가능"
+msgstr "(사용함)"
 
 #: js/messages.php:259 libraries/mult_submits.inc.php:324
-#, fuzzy
 #| msgid "Disabled"
 msgid "(Disabled)"
-msgstr "사용불가"
+msgstr "(사용안함)"
 
 #: js/messages.php:262
 msgid "Searching"
