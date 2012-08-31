@@ -213,7 +213,7 @@ if (isset($my_tables)) {
             $my_link = '<a href="tbl_tracking.php?' . $url_query
                 . '&amp;table=' . htmlspecialchars($tablename) .'">';
             $my_link .= $common_functions->getIcon('eye.png', __('Track table'));
-            $my_link .= '</a>'
+            $my_link .= '</a>';
         ?>
             <tr class="noclick <?php echo $style;?>">
             <td><?php echo htmlspecialchars($tablename);?></td>
