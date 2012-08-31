@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-08-28 14:48+0200\n"
+"POT-Creation-Date: 2012-08-22 06:32-0400\n"
 "PO-Revision-Date: 2012-08-30 20:08+0200\n"
 "Last-Translator: Rui Simoes <ruisimoes.ouca@gmail.com>\n"
 "Language-Team: Portuguese "
@@ -1572,7 +1572,7 @@ msgstr "Tempo de execução da consulta"
 #: libraries/DisplayResults.class.php:736
 #, php-format
 msgid "%d is not valid row number."
-msgstr "não é um número de linha válido."
+msgstr "%d não é um número de linha válido."
 
 #: js/messages.php:291 libraries/config/FormDisplay.tpl.php:387
 #: libraries/insert_edit.lib.php:1486
