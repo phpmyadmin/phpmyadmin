@@ -262,7 +262,7 @@ foreach ($fields as $row) {
         $type_mime = '';
     }
 
-    $attribute     = $extracted_columnspec['attribute'];
+    $attribute = $extracted_columnspec['attribute'];
 
     // MySQL 4.1.2+ TIMESTAMP options
     // (if on_update_current_timestamp is set, then it's TRUE)
@@ -335,9 +335,7 @@ foreach ($fields as $row) {
     unset($field_charset);
 } // end foreach
 
-$response->addHTML(
-	'</tbody>' . "\n" .'</table>' . "\n"
-);
+$response->addHTML('</tbody>' . "\n" .'</table>' . "\n");
 
 $response->addHTML(
     PMA_getHtmlForCheckAllTableColumn(
