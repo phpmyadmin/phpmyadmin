@@ -22,7 +22,7 @@ $GLOBALS['now'] = gmdate('D, d M Y H:i:s') . ' GMT';
 /* Prevent against ClickJacking by allowing frames only from same origin */
 if (!$GLOBALS['cfg']['AllowThirdPartyFraming']) {
     header('X-Frame-Options: SAMEORIGIN');
-    header("X-Content-Security-Policy: allow 'self'; options inline-script eval-script; frame-ancestors 'self'; img-src 'self' data:; script-src 'self' http://www.phpmyadmin.net");
+    header("X-Content-Security-Policy: allow 'self' http://www.phpmyadmin.net; options inline-script eval-script; frame-ancestors 'self'; img-src 'self' data:");
     header("X-WebKit-CSP: allow 'self' http://www.phpmyadmin.net; options inline-script eval-script");
 }
 PMA_no_cache_header();
