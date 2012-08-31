@@ -192,11 +192,12 @@ function get_script_tabs()
         . 'var h_tabs = new Array();' . "\n" ;
     for ($i = 0, $cnt = count($GLOBALS['PMD']['TABLE_NAME']); $i < $cnt; $i++) {
         $script_tabs .= "j_tabs['" . $GLOBALS['PMD_URL']['TABLE_NAME'][$i] . "'] = '"
-            . (PMA_CommonFunctions::getInstance()->isForeignKeySupported(
-                $GLOBALS['PMD']['TABLE_TYPE'][$i]) ? '1' : '0'
+            . PMA_CommonFunctions::getInstance()->isForeignKeySupported(
+                $GLOBALS['PMD']['TABLE_TYPE'][$i]
             )
-            . "';\n";
-        $script_tabs .="h_tabs['" . $GLOBALS['PMD_URL']['TABLE_NAME'][$i] . "'] = 1;"."\n" ;
+                ? '1' : '0'
+            . "';\n"
+            . "h_tabs['" . $GLOBALS['PMD_URL']['TABLE_NAME'][$i] . "'] = 1;" . "\n";
     }
     return $script_tabs;
 }
