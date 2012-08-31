@@ -159,8 +159,12 @@ class PMA_File
     /**
      * Gets file content
      *
+     * @param boolean $as_binary whether to return content as binary
+     * @param integer $offset    starting offset
+     * @param integer $length    length
+     *
      * @return mixed   the binary file content as a string,
-     *                 or false if no content 
+     *                 or false if no content
      *
      * @access  public
      */
@@ -250,7 +254,9 @@ class PMA_File
      */
     function setUploadedFromTblChangeRequest($key, $rownumber)
     {
-        if (! isset($_FILES['fields_upload'])  || empty($_FILES['fields_upload']['name']['multi_edit'][$rownumber][$key])) {
+        if (! isset($_FILES['fields_upload'])
+            || empty($_FILES['fields_upload']['name']['multi_edit'][$rownumber][$key])
+        ) {
             return false;
         }
         $file = PMA_File::fetchUploadedFromTblChangeRequestMultiple(
@@ -408,7 +414,7 @@ class PMA_File
     /**
      * Sets named file to be read from UploadDir.
      *
-     * @param string $name
+     * @param string $name file name
      *
      * @return boolean success
      * @access  public
@@ -462,7 +468,9 @@ class PMA_File
             return true;
         }
 
-        if (empty($GLOBALS['cfg']['TempDir']) || ! is_writable($GLOBALS['cfg']['TempDir'])) {
+        if (empty($GLOBALS['cfg']['TempDir'])
+            || ! is_writable($GLOBALS['cfg']['TempDir'])
+        ) {
             // cannot create directory or access, point user to FAQ 1.11
             $this->_error_message = __('Error moving the uploaded file, see [a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]');
             return false;
@@ -548,13 +556,22 @@ class PMA_File
     }
 
     /**
-     * whether the content should be decompressed before returned
+     * Sets whether the content should be decompressed before returned
+     *
+     * @param boolean $decompress whether to decompres
+     *
+     * @return void
      */
     function setDecompressContent($decompress)
     {
         $this->_decompress = (bool) $decompress;
     }
 
+    /**
+     * Returns the file handle
+     *
+     * @return object file handle
+     */
     function getHandle()
     {
         if (null === $this->_handle) {
@@ -563,6 +580,13 @@ class PMA_File
         return $this->_handle;
     }
 
+    /**
+     * Sets the file handle
+     *
+     * @param object $handle file handle
+     *
+     * @return void
+     */
     function setHandle($handle)
     {
         $this->_handle = $handle;
@@ -571,6 +595,8 @@ class PMA_File
 
     /**
      * Sets error message for unsupported compression.
+     *
+     * @return void
      */
     function errorUnsupported()
     {
@@ -638,11 +664,23 @@ class PMA_File
         return true;
     }
 
+    /**
+     * Returns the character set of the file
+     *
+     * @return string character set of the file
+     */
     function getCharset()
     {
         return $this->_charset;
     }
 
+    /**
+     * Sets the character set of the file
+     *
+     * @param string $charset character set of the file
+     *
+     * @return void
+     */
     function setCharset($charset)
     {
         $this->_charset = $charset;
@@ -683,7 +721,7 @@ class PMA_File
      * http://bugs.php.net/bug.php?id=29532
      * bzip reads a maximum of 8192 bytes on windows systems
      *
-     * @param int $max_size
+     * @param int $max_size maximum size of the next chunk to be returned
      *
      * @return bool|string
      * @todo this function is unused
@@ -765,26 +803,53 @@ class PMA_File
         return $result;
     }
 
+    /**
+     * Returns the offset
+     *
+     * @return integer the offset
+     */
     function getOffset()
     {
         return $this->_offset;
     }
 
+    /**
+     * Returns the chunk size
+     *
+     * @return integer the chunk size
+     */
     function getChunkSize()
     {
         return $this->_chunk_size;
     }
 
+    /**
+     * Sets the chunk size
+     *
+     * @param integer $chunk_size the chunk size
+     *
+     * @return void
+     */
     function setChunkSize($chunk_size)
     {
         $this->_chunk_size = (int) $chunk_size;
     }
 
+    /**
+     * Returns the length of the content in the file
+     *
+     * @return integer the length of the file content
+     */
     function getContentLength()
     {
         return strlen($this->_content);
     }
 
+    /**
+     * Returns whether the end of the file has been reached
+     *
+     * @return boolean whether the end of the file has been reached
+     */
     function eof()
     {
         if ($this->getHandle()) {
