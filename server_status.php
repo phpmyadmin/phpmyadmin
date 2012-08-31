@@ -166,8 +166,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             // Retrieve all required status variables
             if (count($statusVars)) {
                 $statusVarValues = PMA_DBI_fetch_result(
-                    "SHOW GLOBAL STATUS
-                    WHERE Variable_name='" . implode("' OR Variable_name='", $statusVars) . "'", 0, 1
+                    "SHOW GLOBAL STATUS WHERE Variable_name='" . implode("' OR Variable_name='", $statusVars) . "'", 0, 1
                 );
             } else {
                 $statusVarValues = array();

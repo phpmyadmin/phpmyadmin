@@ -82,11 +82,16 @@ if (isset($GLOBALS['sr_take_action'])) {
         $_SESSION['replication']['sr_action_info'] = __('Unknown error');
 
         // Attempt to connect to the new master server
-        $link_to_master = PMA_replication_connect_to_master($sr['username'], $sr['pma_pw'], $sr['hostname'], $sr['port']);
+        $link_to_master = PMA_replication_connect_to_master(
+            $sr['username'], $sr['pma_pw'], $sr['hostname'], $sr['port']
+        );
 
         if (! $link_to_master) {
             $_SESSION['replication']['sr_action_status'] = 'error';
-            $_SESSION['replication']['sr_action_info'] = sprintf(__('Unable to connect to master %s.'), htmlspecialchars($sr['hostname']));
+            $_SESSION['replication']['sr_action_info'] = sprintf(
+                __('Unable to connect to master %s.'),
+                htmlspecialchars($sr['hostname'])
+            );
         } else {
             // Read the current master position
             $position = PMA_replication_slave_bin_log_master($link_to_master);
@@ -102,7 +107,10 @@ if (isset($GLOBALS['sr_take_action'])) {
                     $_SESSION['replication']['sr_action_info'] = __('Unable to change master');
                 } else {
                     $_SESSION['replication']['sr_action_status'] = 'success';
-                    $_SESSION['replication']['sr_action_info'] = sprintf(__('Master server changed successfully to %s'), htmlspecialchars($sr['hostname']));
+                    $_SESSION['replication']['sr_action_info'] = sprintf(
+                        __('Master server changed successfully to %s'),
+                        htmlspecialchars($sr['hostname'])
+                    );
                 }
             }
         }
@@ -112,7 +120,10 @@ if (isset($GLOBALS['sr_take_action'])) {
             PMA_DBI_try_query("RESET SLAVE;");
             PMA_replication_slave_control("START");
         } else {
-            PMA_replication_slave_control($GLOBALS['sr_slave_action'], $GLOBALS['sr_slave_control_parm']);
+            PMA_replication_slave_control(
+                $GLOBALS['sr_slave_action'],
+                $GLOBALS['sr_slave_control_parm']
+            );
         }
         $refresh = true;
 
@@ -127,11 +138,18 @@ if (isset($GLOBALS['sr_take_action'])) {
 
     } elseif (isset($GLOBALS['sl_sync'])) {
         // TODO username, host and port could be read from 'show slave status',
-        // when asked for a password this might work in more situations then just after changing master (where the master password is stored in session)
-        $src_link = PMA_replication_connect_to_master($_SESSION['replication']['m_username'], $_SESSION['replication']['m_password'], $_SESSION['replication']['m_hostname'], $_SESSION['replication']['m_port']);
+        // when asked for a password this might work in more situations then just
+        // after changing master (where the master password is stored in session)
+        $src_link = PMA_replication_connect_to_master(
+            $_SESSION['replication']['m_username'],
+            $_SESSION['replication']['m_password'],
+            $_SESSION['replication']['m_hostname'],
+            $_SESSION['replication']['m_port']
+        );
         $trg_link = null; // using null to indicate the current PMA server
 
-        $data = PMA_DBI_fetch_result('SHOW MASTER STATUS', null, null, $src_link); // let's find out, which databases are replicated
+        // let's find out, which databases are replicated
+        $data = PMA_DBI_fetch_result('SHOW MASTER STATUS', null, null, $src_link);
 
         $do_db     = array();
         $ignore_db = array();
@@ -155,11 +173,17 @@ if (isset($GLOBALS['sr_take_action'])) {
                 }
                 $dblist[] = $tmp_row[0];
 
-                PMA_DBI_query('CREATE DATABASE IF NOT EXISTS '.$common_functions->backquote($tmp_row[0]), $trg_link);
+                PMA_DBI_query(
+                    'CREATE DATABASE IF NOT EXISTS ' . $common_functions->backquote($tmp_row[0]),
+                    $trg_link
+                );
             } else {
                 if (array_search($tmp_row[0], $do_db) !== false) {
                     $dblist[] = $tmp_row[0];
-                    PMA_DBI_query('CREATE DATABASE IF NOT EXISTS '.  $common_functions->backquote($tmp_row[0]), $trg_link);
+                    PMA_DBI_query(
+                        'CREATE DATABASE IF NOT EXISTS ' . $common_functions->backquote($tmp_row[0]),
+                        $trg_link
+                    );
                 }
             }
         } // end while
@@ -193,7 +217,9 @@ echo     __('Replication');
 echo ' </h2>';
 
 // Display error messages
-if (isset($_SESSION['replication']['sr_action_status']) && isset($_SESSION['replication']['sr_action_info'])) {
+if (isset($_SESSION['replication']['sr_action_status'])
+    && isset($_SESSION['replication']['sr_action_info'])
+) {
     if ($_SESSION['replication']['sr_action_status'] == 'error') {
         PMA_Message::error($_SESSION['replication']['sr_action_info'])->display();
         $_SESSION['replication']['sr_action_status'] = 'unknown';
@@ -221,7 +247,8 @@ if ($server_master_status) {
         $_url_params['mr_adduser'] = true;
         $_url_params['repl_clear_scr'] = true;
 
-        echo '  <li><a href="' . PMA_generate_common_url($_url_params) . '" id="master_addslaveuser_href">' . __('Add slave replication user') . '</a></li>';
+        echo '  <li><a href="' . PMA_generate_common_url($_url_params) . '" id="master_addslaveuser_href">';
+        echo __('Add slave replication user') . '</a></li>';
     }
 
     // Display 'Add replication slave user' form

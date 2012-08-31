@@ -61,11 +61,11 @@ if ($num_tables == 0 && count($data['ddlog']) == 0) {
 
 // Prepare statement to get HEAD version
 $all_tables_query = ' SELECT table_name, MAX(version) as version FROM ' .
-             $common_functions->backquote($GLOBALS['cfg']['Server']['pmadb']) . '.' .
-             $common_functions->backquote($GLOBALS['cfg']['Server']['tracking']) .
-             ' WHERE db_name = \'' . $common_functions->sqlAddSlashes($_REQUEST['db']) . '\' ' .
-             ' GROUP BY table_name' .
-             ' ORDER BY table_name ASC';
+     $common_functions->backquote($GLOBALS['cfg']['Server']['pmadb']) . '.' .
+     $common_functions->backquote($GLOBALS['cfg']['Server']['tracking']) .
+     ' WHERE db_name = \'' . $common_functions->sqlAddSlashes($_REQUEST['db']) . '\' ' .
+     ' GROUP BY table_name' .
+     ' ORDER BY table_name ASC';
 
 $all_tables_result = PMA_queryAsControlUser($all_tables_query);
 
@@ -95,7 +95,10 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
 
     $drop_image_or_text = '';
     if (true == $GLOBALS['cfg']['PropertiesIconic']) {
-        $drop_image_or_text .= $common_functions->getImage('b_drop.png', __('Delete tracking data for this table'));
+        $drop_image_or_text .= $common_functions->getImage(
+            'b_drop.png',
+            __('Delete tracking data for this table')
+        );
     }
     if ('both' === $GLOBALS['cfg']['PropertiesIconic']
         || false === $GLOBALS['cfg']['PropertiesIconic']
@@ -124,7 +127,8 @@ if (PMA_DBI_num_rows($all_tables_result) > 0) {
         $tmp_link = 'tbl_tracking.php?' . $url_query . '&amp;table='
             . htmlspecialchars($version_data['table_name']);
         $delete_link = 'db_tracking.php?' . $url_query . '&amp;table='
-            . htmlspecialchars($version_data['table_name']) . '&amp;delete_tracking=true&amp';
+            . htmlspecialchars($version_data['table_name'])
+            . '&amp;delete_tracking=true&amp';
         ?>
         <tr class="noclick <?php echo $style;?>">
             <td><?php echo htmlspecialchars($version_data['db_name']);?></td>
@@ -161,12 +165,20 @@ $table_list = $common_functions->getTableList($GLOBALS['db']);
 // For each table try to get the tracking version
 foreach ($table_list as $key => $value) {
     // If $value is a table group.
-    if (array_key_exists(('is' . $sep . 'group'), $value) && $value['is' . $sep . 'group']) {
+    if (array_key_exists(('is' . $sep . 'group'), $value)
+        && $value['is' . $sep . 'group']
+    ) {
         foreach ($value as $temp_table) {
             // If $temp_table is a table with the value for 'Name' is set,
             // rather than a propery of the table group.
-            if (is_array($temp_table) && array_key_exists('Name', $temp_table)) {
-                if (PMA_Tracker::getVersion($GLOBALS['db'], $temp_table['Name']) == -1) {
+            if (is_array($temp_table)
+                && array_key_exists('Name', $temp_table)
+            ) {
+                $tracking_version = PMA_Tracker::getVersion(
+                    $GLOBALS['db'],
+                    $temp_table['Name']
+                );
+                if ($tracking_version == -1) {
                     $my_tables[] = $temp_table['Name'];
                 }
             }
@@ -200,7 +212,8 @@ if (isset($my_tables)) {
         if (PMA_Tracker::getVersion($GLOBALS['db'], $tablename) == -1) {
             $my_link = '<a href="tbl_tracking.php?' . $url_query
                 . '&amp;table=' . htmlspecialchars($tablename) .'">';
-            $my_link .= $common_functions->getIcon('eye.png', __('Track table')) . '</a>';
+            $my_link .= $common_functions->getIcon('eye.png', __('Track table'));
+            $my_link .= '</a>'
         ?>
             <tr class="noclick <?php echo $style;?>">
             <td><?php echo htmlspecialchars($tablename);?></td>
@@ -224,7 +237,8 @@ if (isset($my_tables)) {
 if (count($data['ddlog']) > 0) {
     $log = '';
     foreach ($data['ddlog'] as $entry) {
-        $log .= '# ' . $entry['date'] . ' ' . $entry['username'] . "\n" . $entry['statement'] . "\n";
+        $log .= '# ' . $entry['date'] . ' ' . $entry['username'] . "\n"
+            . $entry['statement'] . "\n";
     }
     echo $common_functions->getMessage(__('Database Log'), $log);
 }

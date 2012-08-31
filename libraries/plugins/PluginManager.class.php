@@ -13,9 +13,10 @@ if (! defined('PHPMYADMIN')) {
 /**
  * This class implements the SplSubject interface
  *
- * @link    http://php.net/manual/en/class.splsubject.php
  * @todo    implement all methods
  * @package PhpMyAdmin
+ * @link    http://php.net/manual/en/class.splsubject.php
+ *
  */
 class PluginManager implements SplSubject
 {

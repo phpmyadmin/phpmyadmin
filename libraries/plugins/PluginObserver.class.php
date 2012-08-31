@@ -16,8 +16,8 @@ require_once "PluginManager.class.php";
 /**
  * This class implements the SplObserver interface
  *
- * @link    http://php.net/manual/en/class.splobserver.php
  * @package PhpMyAdmin
+ * @link    http://php.net/manual/en/class.splobserver.php
  */
 abstract class PluginObserver implements SplObserver
 {
@@ -43,7 +43,7 @@ abstract class PluginObserver implements SplObserver
      * This method is called when any PluginManager to which the observer
      * is attached calls PluginManager::notify()
      *
-     * TODO Declare this function abstract, removing its body, 
+     * TODO Declare this function abstract, removing its body,
      * as soon as we drop support for PHP 5.2.x.
      * See bug #3538655.
      *
@@ -59,10 +59,10 @@ abstract class PluginObserver implements SplObserver
         );
     }
 
-    
+
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */
 
-    
+
     /**
      * Gets the PluginManager instance that contains the list with all the
      * plugins that attached to it

@@ -71,8 +71,8 @@ class PMA_Footer
     private function _addDefaultScripts()
     {
         if (empty($GLOBALS['error_message'])) {
-            $this->_scripts->addCode("
-                $(function() {
+            $this->_scripts->addCode(
+                "$(function() {
                 // updates current settings
                 if (window.parent.setAll) {
                     window.parent.setAll(
@@ -84,24 +84,24 @@ class PMA_Footer
                         '" . PMA_escapeJsString($_SESSION[' PMA_token ']) . "'
                     );
                 }
-                });
-            ");
+                });"
+            );
             if (! empty($GLOBALS['reload'])) {
-                $this->_scripts->addCode("
-                    // refresh navigation frame content
+                $this->_scripts->addCode(
+                    "// refresh navigation frame content
                     if (window.parent.refreshNavigation) {
                         window.parent.refreshNavigation();
-                    }
-                ");
+                    }"
+                );
             } else if (isset($_GET['reload_left_frame'])
                 && $_GET['reload_left_frame'] == '1'
             ) {
                 // reload left frame (used by user preferences)
-                $this->_scripts->addCode("
-                    if (window.parent && window.parent.frame_navigation) {
+                $this->_scripts->addCode(
+                    "if (window.parent && window.parent.frame_navigation) {
                         window.parent.frame_navigation.location.reload();
-                    }
-                ");
+                    }"
+                );
             }
 
             // set current db, table and sql query in the querywindow
@@ -109,28 +109,28 @@ class PMA_Footer
             if (isset($GLOBALS['sql_query']) && strlen($GLOBALS['sql_query']) > $GLOBALS['cfg']['MaxCharactersInDisplayedSQL']) {
                 $query = PMA_escapeJsString($GLOBALS['sql_query']);
             }
-            $this->_scripts->addCode("
-                if (window.parent.reload_querywindow) {
+            $this->_scripts->addCode(
+                "if (window.parent.reload_querywindow) {
                     window.parent.reload_querywindow(
                         '" . PMA_escapeJsString(PMA_ifSetOr($GLOBALS['db'], '')) . "',
                         '" . PMA_escapeJsString(PMA_ifSetOr($GLOBALS['table'], '')) . "',
                         '" . $query . "'
                     );
-                }
-            ");
+                }"
+            );
 
             if (! empty($GLOBALS['focus_querywindow'])) {
                 // set focus to the querywindow
-                $this->_scripts->addCode("
-                    if (parent.querywindow && !parent.querywindow.closed
+                $this->_scripts->addCode(
+                    "if (parent.querywindow && !parent.querywindow.closed
                         && parent.querywindow.location
                     ) {
                         self.focus();
-                    }
-                ");
+                    }"
+                );
             }
-            $this->_scripts->addCode("
-                if (window.parent.frame_content) {
+            $this->_scripts->addCode(
+                "if (window.parent.frame_content) {
                     // reset content frame name, as querywindow needs
                     // to set a unique name before submitting form data,
                     // and navigation frame needs the original name
@@ -144,8 +144,8 @@ class PMA_Footer
                     }
                     //window.parent.frame_content.setAttribute('name', 'frame_content');
                     //window.parent.frame_content.setAttribute('id', 'frame_content');
-                }
-            ");
+                }"
+            );
         }
     }
 
@@ -309,11 +309,11 @@ class PMA_Footer
                 ) {
                     $url_params['target'] = basename(PMA_getenv('SCRIPT_NAME'));
                     $url = PMA_generate_common_url($url_params, 'text', '');
-                    $this->_scripts->addCode("
-                        // Store current location in hash part
+                    $this->_scripts->addCode(
+                        "// Store current location in hash part
                         // of URL to allow direct bookmarking
-                        setURLHash('$url');
-                    ");
+                        setURLHash('$url');"
+                    );
                     $retval .= $this->_getSelfLink($url_params);
                 }
                 $retval .= $this->_getDebugMessage();
