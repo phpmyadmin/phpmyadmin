@@ -128,13 +128,13 @@ function parseVersionString (str)
 /**
  * Indicates current available version on main page.
  */
-function PMA_current_version()
+function PMA_current_version(data)
 {
     var current = parseVersionString(pmaversion);
-    var latest = parseVersionString(PMA_latest_version);
-    var version_information_message = PMA_messages['strLatestAvailable'] + ' ' + PMA_latest_version;
+    var latest = parseVersionString(data['version']);
+    var version_information_message = PMA_messages['strLatestAvailable'] + ' ' + data['version'];
     if (latest > current) {
-        var message = $.sprintf(PMA_messages['strNewerVersion'], PMA_latest_version, PMA_latest_date);
+        var message = $.sprintf(PMA_messages['strNewerVersion'], data['version'], data['date']);
         if (Math.floor(latest / 10000) == Math.floor(current / 10000)) {
             /* Security update */
             klass = 'error';
@@ -3311,7 +3311,7 @@ $(function() {
      * Load version information asynchronously.
      */
     if ($('li.jsversioncheck').length > 0) {
-        $.getScript('http://www.phpmyadmin.net/home_page/version.js', PMA_current_version);
+        $.getJSON('http://www.phpmyadmin.net/home_page/version.json', {}, PMA_current_version);
     }
 
     if (typeof is_git_revision != "undefined") {

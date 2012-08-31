@@ -342,10 +342,9 @@ class PMA_Header
                 'X-Frame-Options: SAMEORIGIN'
             );
             header(
-                "X-Content-Security-Policy: allow 'self'; "
+                "X-Content-Security-Policy: allow 'self' http://www.phpmyadmin.net; "
                 . "options inline-script eval-script; "
                 . "frame-ancestors 'self'; img-src 'self' data:; "
-                . "script-src 'self' http://www.phpmyadmin.net"
             );
             header(
                 "X-WebKit-CSP: allow 'self' http://www.phpmyadmin.net; "
