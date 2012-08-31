@@ -1884,7 +1884,7 @@ msgstr "Tempo de execução da consulta"
 #: js/messages.php:288 libraries/display_tbl.lib.php:423
 #, php-format
 msgid "%d is not valid row number."
-msgstr "não é um número de linha válido."
+msgstr "%d não é um número de linha válido."
 
 #: js/messages.php:291 libraries/config/FormDisplay.tpl.php:355
 #: libraries/schema/User_Schema.class.php:352
