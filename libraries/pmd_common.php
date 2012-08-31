@@ -153,11 +153,11 @@ function get_pk_or_unique_keys()
 }
 
 /**
- * returns all indizes
+ * returns all indices
  *
  * @param boolean whether to include ony unique ones
  *
- * @return array indizes
+ * @return array indices
  */
 function get_all_keys($unique_only = false)
 {
