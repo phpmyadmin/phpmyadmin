@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-28 14:48+0200\n"
-"PO-Revision-Date: 2012-08-30 21:22+0200\n"
+"PO-Revision-Date: 2012-09-01 23:26+0200\n"
 "Last-Translator: مترجم حرّ <metehyi@gmail.com>\n"
 "Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/master/ar/>\n"
 "Language: ar\n"
@@ -291,16 +291,16 @@ msgid "The database name is empty!"
 msgstr "إسم قاعدة البيانات خالي!"
 
 #: db_operations.php:129
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "تم إعادة تسمية قاعدة البيانات %s إلى %s"
+msgstr "تمت إعادة تسمية قاعدة البيانات %1$s إلى  %2$s"
 
 #: db_operations.php:133
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "تم نسخ قاعدة البيانات %s إلى %s"
+msgstr "تم نسخ قاعدة البيانات من %1$s إلى %2$s"
 
 #: db_operations.php:256
 #, php-format
@@ -606,10 +606,9 @@ msgid "Add a polygon"
 msgstr "إضافة مضلع"
 
 #: gis_data_editor.php:299
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add geometry"
-msgstr "أضف مستخدم جديد"
+msgstr "أضف هندسة"
 
 #: gis_data_editor.php:306
 msgid "Output"
@@ -716,10 +715,10 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "أمر \"حذف قاعدة البيانات\" معطل."
 
 #: js/messages.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to "
 msgid "Do you really want to execute \"%s\"?"
-msgstr "هل تريد حقا"
+msgstr "هل تريد فعلاً تنفيذ  \"%s\"؟"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:310 sql.php:418
 msgid "You are about to DESTROY a complete database!"
@@ -1237,13 +1236,12 @@ msgstr "لايوجد بيانات"
 
 #: js/messages.php:181
 msgid "Log analysed, but no data found in this time span."
-msgstr ""
+msgstr "تمّ تحليل سجل الوقائع، و لكن لم توجد أي بيانات في إمتداد الزمن هذا."
 
 #: js/messages.php:183
-#, fuzzy
 #| msgid "Analyze"
 msgid "Analyzing..."
-msgstr "تحليل ..."
+msgstr "جاري التحليل..."
 
 #: js/messages.php:184
 #| msgid "Explain SQL"
@@ -1481,16 +1479,15 @@ msgid "Foreign key check:"
 msgstr "تعطيل التحقق من المفتاح الغريب"
 
 #: js/messages.php:258 libraries/mult_submits.inc.php:324
-#, fuzzy
 #| msgid "Enabled"
 msgid "(Enabled)"
-msgstr "مفعل"
+msgstr "(ممكن)"
 
 #: js/messages.php:259 libraries/mult_submits.inc.php:324
 #, fuzzy
 #| msgid "Disabled"
 msgid "(Disabled)"
-msgstr "معطل"
+msgstr "(معطل)"
 
 #: js/messages.php:262
 msgid "Searching"
@@ -1606,7 +1603,7 @@ msgstr ""
 
 #: js/messages.php:304
 msgid "To zoom in, select a section of the plot with the mouse."
-msgstr ""
+msgstr "لإستعمال المقربة، إختر جزء من رسم البيانات بواسطة الفأرة."
 
 #: js/messages.php:306
 #, fuzzy
@@ -1616,11 +1613,12 @@ msgstr "إضغط إعادة للعودة إلى الوضع الأصلي."
 
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."
-msgstr ""
+msgstr "أنقر على نقطة من البيانات لمشاهدة و ربما تحرير سطر البيانات."
 
 #: js/messages.php:310
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
+"يمكن تغيير قياس الرسم البياني من خلال سحبه على طول القرنة في أسفل اليمين."
 
 #: js/messages.php:312
 msgid "Select two columns"
@@ -1631,16 +1629,14 @@ msgid "Select two different columns"
 msgstr "إختر عمودين مختلفين"
 
 #: js/messages.php:314
-#, fuzzy
 #| msgid "SQL result"
 msgid "Query results"
-msgstr "ناتج استعلام SQL"
+msgstr ""
 
 #: js/messages.php:315
-#, fuzzy
 #| msgid "Table of contents"
 msgid "Data point content"
-msgstr "جدول المحتويات"
+msgstr "محتوى نقطة البيانات"
 
 #: js/messages.php:318 tbl_change.php:244 tbl_indexes.php:252
 #: tbl_indexes.php:287
@@ -1707,7 +1703,7 @@ msgstr "إضغط لوضع علامة / إزالة علامة"
 
 #: js/messages.php:352
 msgid "Double-click to copy column name"
-msgstr ""
+msgstr "أنقر مرتين لنسخ اسم العمود"
 
 #: js/messages.php:353
 msgid "Click the drop-down arrow<br />to toggle column's visibility"
@@ -1729,20 +1725,18 @@ msgid "Go to link"
 msgstr "ذهاب للرابط"
 
 #: js/messages.php:358
-#, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
-msgstr "اسم العمود"
+msgstr "أنسخ اسم العمود"
 
 #: js/messages.php:359
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
 #: js/messages.php:360
-#, fuzzy
 #| msgid "Showing rows"
 msgid "Show data row(s)"
-msgstr "مشاهدة السجلات "
+msgstr "شاهد سطر/أسطر البيانات"
 
 #: js/messages.php:363
 msgid "Generate password"
@@ -2013,11 +2007,10 @@ msgstr "الأسبوع"
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: js/messages.php:506
 msgid "calendar-month-year"
-msgstr ""
+msgstr "التقويم-الشهر-السنة"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:508
-#, fuzzy
 #| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
@@ -2038,44 +2031,46 @@ msgstr "الثانية"
 #: libraries/Advisor.class.php:67
 #, php-format
 msgid "PHP threw following error: %s"
-msgstr ""
+msgstr "ألقى PHP بالخطأ التالي: %s"
 
 #: libraries/Advisor.class.php:89
 #, php-format
 msgid "Failed evaluating precondition for rule '%s'"
-msgstr ""
+msgstr "فشلت في تقييم مسبق للقاعدة '%s'"
 
 #: libraries/Advisor.class.php:106
 #, php-format
 msgid "Failed calculating value for rule '%s'"
-msgstr ""
+msgstr "فشلت في حساب القيمة للقاعدة '%s'"
 
 #: libraries/Advisor.class.php:125
 #, php-format
 msgid "Failed running test for rule '%s'"
-msgstr ""
+msgstr "فشلت في تشغيل الإختبار للقاعدة '%s'"
 
 #: libraries/Advisor.class.php:207
 #, php-format
 msgid "Failed formatting string for rule '%s'."
-msgstr ""
+msgstr "فشلت في تهيئة السلسلة للقاعدة '%s'."
 
 #: libraries/Advisor.class.php:361
 #, php-format
 msgid ""
 "Invalid rule declaration on line %1$s, expected line %2$s of previous rule"
 msgstr ""
+"إعلان قاعدة غير صالح على السطر %1$s، السطر المتوقع هو %2$s من القاعدة "
+"السابقة"
 
 #: libraries/Advisor.class.php:378
-#, fuzzy, php-format
+#, php-format
 #| msgid "Invalid server index: %s"
 msgid "Invalid rule declaration on line %s"
-msgstr "فهرس خادم غير صحيح: %s"
+msgstr "إعلان قاعدة غير صحيح على السطر %s"
 
 #: libraries/Advisor.class.php:386
 #, php-format
 msgid "Unexpected characters on line %s"
-msgstr ""
+msgstr "أحرف غير متوقعة على السطر %s"
 
 #: libraries/Advisor.class.php:400
 #, php-format
@@ -2097,7 +2092,7 @@ msgstr "لكل ساعة"
 
 #: libraries/Advisor.class.php:434
 msgid "per day"
-msgstr ""
+msgstr "يومياً"
 
 #: libraries/CommonFunctions.class.php:257
 #, php-format
@@ -2534,31 +2529,27 @@ msgstr "داخل العمود:"
 
 #: libraries/DisplayResults.class.php:705
 msgid "Save edited data"
-msgstr ""
+msgstr "إحفظ البيانات المغييرة"
 
 #: libraries/DisplayResults.class.php:711
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Restore column order"
-msgstr "إضافه/حذف عمود حقل"
+msgstr "استعادة ترتيب العمود"
 
 #: libraries/DisplayResults.class.php:911
-#, fuzzy
 #| msgid "Start"
 msgid "Start row"
-msgstr "ابدأ"
+msgstr "صف البداية"
 
 #: libraries/DisplayResults.class.php:915
-#, fuzzy
 #| msgid "Number of tables"
 msgid "Number of rows"
-msgstr "عدد الجداول"
+msgstr "عدد الصفوف"
 
 #: libraries/DisplayResults.class.php:924
-#, fuzzy
 #| msgid "More"
 msgid "Mode"
-msgstr "أكثر"
+msgstr ""
 
 #: libraries/DisplayResults.class.php:926
 msgid "horizontal"
@@ -2573,10 +2564,10 @@ msgid "vertical"
 msgstr "عمودي"
 
 #: libraries/DisplayResults.class.php:940
-#, fuzzy, php-format
+#, php-format
 #| msgid "Execute"
 msgid "Headers every %s rows"
-msgstr "تنفيذ"
+msgstr "رؤوس كل %s أسطر"
 
 #: libraries/DisplayResults.class.php:1237
 msgid "Sort by key"
@@ -2613,31 +2604,28 @@ msgstr "خيارات"
 
 #: libraries/DisplayResults.class.php:1593
 #: libraries/DisplayResults.class.php:1699
-#, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "نصوص جزئية"
 
 #: libraries/DisplayResults.class.php:1594
 #: libraries/DisplayResults.class.php:1703
-#, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
 msgstr "نصوص كاملة"
 
 #: libraries/DisplayResults.class.php:1608
 msgid "Relational key"
-msgstr ""
+msgstr "مفتاح العلائقية"
 
 #: libraries/DisplayResults.class.php:1609
-#, fuzzy
 #| msgid "Relational schema"
 msgid "Relational display column"
-msgstr "بناء الارتباطات"
+msgstr "عمود عرض علائقية"
 
 #: libraries/DisplayResults.class.php:1621
 msgid "Show binary contents"
-msgstr ""
+msgstr "أظهر المحتويات الثنائية"
 
 #: libraries/DisplayResults.class.php:1626
 msgid "Show BLOB contents"
@@ -2649,18 +2637,17 @@ msgid "Show binary contents as HEX"
 msgstr "عرض البيانات الثنائية بالنظام الست عشري"
 
 #: libraries/DisplayResults.class.php:1642
-#, fuzzy
 #| msgid "Browser transformation"
 msgid "Hide browser transformation"
-msgstr "تحويل المتصفح"
+msgstr ""
 
 #: libraries/DisplayResults.class.php:1651
 msgid "Well Known Text"
-msgstr ""
+msgstr "نص معروف جيداً"
 
 #: libraries/DisplayResults.class.php:1652
 msgid "Well Known Binary"
-msgstr ""
+msgstr "ثنائي معروف جيداً"
 
 #: libraries/DisplayResults.class.php:3357
 #: libraries/DisplayResults.class.php:3373
@@ -2677,6 +2664,8 @@ msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
 msgstr ""
+"ممكن أن يكون تقريبي. أنظر إلى "
+"[a@./Documentation.html#faq3_11@Documentation]الأسئلة المتكررة 3.11[/a]"
 
 #: libraries/DisplayResults.class.php:4889
 msgid "in query"
@@ -2738,20 +2727,18 @@ msgid "Print view (with full texts)"
 msgstr "عرض الطباعة (مع النصوص الكاملة)."
 
 #: libraries/DisplayResults.class.php:5291 tbl_chart.php:80
-#, fuzzy
 #| msgid "Display PDF schema"
 msgid "Display chart"
-msgstr "إظهار بناء ملف PDF"
+msgstr "عرض الرسم البياني"
 
 #: libraries/DisplayResults.class.php:5316
 msgid "Visualize GIS data"
-msgstr ""
+msgstr "إبداء بيانات نظام المعلومات الجغرافية للعيان"
 
 #: libraries/DisplayResults.class.php:5349 view_create.php:152
-#, fuzzy
 #| msgid "Create"
 msgid "Create view"
-msgstr "تكوين"
+msgstr "إنشاء عرض"
 
 #: libraries/DisplayResults.class.php:5542
 msgid "Link not found"
@@ -2759,7 +2746,7 @@ msgstr "لم يمكن إيجاد الوصلة"
 
 #: libraries/Error_Handler.class.php:65
 msgid "Too many error messages, some are not displayed."
-msgstr ""
+msgstr "كثيراً من رسائل الخطأ، لن تعرض كلها."
 
 #: libraries/File.class.php:235
 msgid "File was not an uploaded file."
@@ -2814,7 +2801,7 @@ msgstr "لايمكن قراءة الملف المرفوع."
 #: libraries/Footer.class.php:197 libraries/Footer.class.php:201
 #: libraries/Footer.class.php:204
 msgid "Open new phpMyAdmin window"
-msgstr ""
+msgstr "إفتح نافذة phpMyAdmin جديدة"
 
 #: libraries/Header.class.php:495
 #: libraries/plugins/auth/AuthenticationCookie.class.php:253
@@ -2823,10 +2810,9 @@ msgstr "يجب تفعيل دعم الكوكيز في هذه المرحلة."
 
 #: libraries/Header.class.php:500
 #: libraries/plugins/auth/AuthenticationCookie.class.php:157
-#, fuzzy
 #| msgid "Cookies must be enabled past this point."
 msgid "Javascript must be enabled past this point"
-msgstr "يجب تفعيل دعم الكوكيز في هذه المرحلة."
+msgstr "يجب تفعيل Javascript بعد هذه النقطة"
 
 #: libraries/Index.class.php:433 tbl_relation.php:551
 msgid "No index defined!"
@@ -2919,7 +2905,7 @@ msgstr ""
 
 #: libraries/Menu.class.php:320 libraries/Menu.class.php:321
 msgid "Table seems to be empty!"
-msgstr ""
+msgstr "يبدو أنّ الجدول خالي من البيانات!"
 
 #: libraries/Menu.class.php:357 libraries/Menu.class.php:364
 #: libraries/Menu.class.php:371
@@ -2948,13 +2934,12 @@ msgstr "أحداث"
 
 #: libraries/Menu.class.php:420 libraries/relation.lib.php:205
 msgid "Designer"
-msgstr ""
+msgstr "المصمم"
 
 #: libraries/Menu.class.php:464
-#, fuzzy
 #| msgid "User"
 msgid "Users"
-msgstr "المستخدم"
+msgstr "المستخدمون"
 
 #: libraries/Menu.class.php:485 server_synchronize.php:1320
 #: server_synchronize.php:1327
@@ -2982,7 +2967,7 @@ msgstr "مجموعات المحارف"
 
 #: libraries/Menu.class.php:510 server_plugins.php:33 server_plugins.php:66
 msgid "Plugins"
-msgstr ""
+msgstr "القوابس"
 
 #: libraries/Menu.class.php:514
 msgid "Engines"
@@ -3069,13 +3054,13 @@ msgstr "حالة الجدول غير معروفة:"
 #: libraries/Table.class.php:756
 #, php-format
 msgid "Source database `%s` was not found!"
-msgstr ""
+msgstr "لم يعثر على قاعدة البيانات المصدر `%s`!"
 
 #: libraries/Table.class.php:764
-#, fuzzy, php-format
+#, php-format
 #| msgid "Theme %s not found!"
 msgid "Target database `%s` was not found!"
-msgstr "المظهر %s غير موجود!"
+msgstr "لم يعثر على قاعدة البيانات الهدف `%s`!"
 
 #: libraries/Table.class.php:1192
 msgid "Invalid database"
@@ -3091,10 +3076,10 @@ msgid "Error renaming table %1$s to %2$s"
 msgstr "خطأ في إعادة تسمية الجدول %1$s إلى %2$s"
 
 #: libraries/Table.class.php:1257
-#, fuzzy, php-format
+#, php-format
 #| msgid "Table %s has been renamed to %s"
 msgid "Table %1$s has been renamed to %2$s."
-msgstr "تم إعادة تسمية الجدول %s إلى %s"
+msgstr "تمّت تسمية الجدول %1$s إلى %2$s."
 
 #: libraries/Table.class.php:1401
 msgid "Could not save table UI preferences"
@@ -3124,7 +3109,7 @@ msgstr "دالة"
 #: pmd_general.php:670 pmd_general.php:683 pmd_general.php:746
 #: pmd_general.php:800
 msgid "Operator"
-msgstr ""
+msgstr "عامل التشغيل"
 
 #: libraries/TableSearch.class.php:202 libraries/TableSearch.class.php:1204
 #: libraries/insert_edit.lib.php:1599 libraries/replication_gui.lib.php:119
@@ -3135,16 +3120,14 @@ msgid "Value"
 msgstr "القيمة"
 
 #: libraries/TableSearch.class.php:218
-#, fuzzy
 #| msgid "Search"
 msgid "Table Search"
-msgstr "بحث"
+msgstr "بحث في الجدول"
 
 #: libraries/TableSearch.class.php:247 libraries/insert_edit.lib.php:1376
-#, fuzzy
 #| msgid "Insert"
 msgid "Edit/Insert"
-msgstr "إدخال"
+msgstr "تحرير/إدخال"
 
 #: libraries/TableSearch.class.php:773
 msgid "Select columns (at least one):"
@@ -3168,7 +3151,7 @@ msgstr ""
 
 #: libraries/TableSearch.class.php:872
 msgid "Maximum rows to plot"
-msgstr ""
+msgstr "أقصى عدد الصفوف للرسم"
 
 #: libraries/TableSearch.class.php:900 libraries/TableSearch.class.php:1172
 #: sql.php:150 tbl_change.php:213
@@ -3176,10 +3159,9 @@ msgid "Browse foreign values"
 msgstr "استعرض القيم الغريبة"
 
 #: libraries/TableSearch.class.php:989
-#, fuzzy
 #| msgid "Hide search criteria"
 msgid "Additional search criteria"
-msgstr "إخفاء معايير البحث"
+msgstr "معايير بحث إضافية"
 
 #: libraries/TableSearch.class.php:1127
 #, fuzzy
@@ -3193,17 +3175,16 @@ msgstr "عمل \"استعلام بواسطة المثال\" (بدل: \"%\")"
 
 #: libraries/TableSearch.class.php:1181
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "تصفح/حرّر النقاط"
 
 #: libraries/TableSearch.class.php:1188
 msgid "How to use"
-msgstr ""
+msgstr "كيفية الإستعمال"
 
 #: libraries/TableSearch.class.php:1193
-#, fuzzy
 #| msgid "Reset"
 msgid "Reset zoom"
-msgstr "إعادة تعيين"
+msgstr "إعادة تعيين المقربة"
 
 #: libraries/Theme.class.php:169
 #, php-format
@@ -3308,15 +3289,15 @@ msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr ""
 
 #: libraries/Types.class.php:319 libraries/Types.class.php:721
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "A date, supported range is %1$s to %2$s"
-msgstr "انشئ إصدار %s  لـ %s.s%s"
+msgstr "تاريخ ما، إن النطاق المسموح به هو من %1$s إلى %2$s"
 
 #: libraries/Types.class.php:321 libraries/Types.class.php:723
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
-msgstr ""
+msgstr "تركيبة تاريخ و زمان، النطاق المسموح به هو من %1$s إلى %2$s"
 
 #: libraries/Types.class.php:323
 msgid ""
@@ -3325,10 +3306,10 @@ msgid ""
 msgstr ""
 
 #: libraries/Types.class.php:325 libraries/Types.class.php:727
-#, fuzzy, php-format
+#, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "A time, range is %1$s to %2$s"
-msgstr "خطأ في إعادة تسمية الجدول %1$s إلى %2$s"
+msgstr "زمن ما، النطاق يكون من %1$s إلى %2$s"
 
 #: libraries/Types.class.php:327
 msgid ""
@@ -3418,7 +3399,7 @@ msgstr ""
 
 #: libraries/Types.class.php:355
 msgid "A single value chosen from a set of up to 64 members"
-msgstr ""
+msgstr "قيمة واحدة مختارة من مجموعة لحد 64 أعضاء"
 
 #: libraries/Types.class.php:357
 msgid "A type that can store a geometry of any type"
@@ -3426,21 +3407,20 @@ msgstr ""
 
 #: libraries/Types.class.php:359
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "نقطة في فضاء ذات أبعاد ثنائية"
 
 #: libraries/Types.class.php:361
 msgid "A curve with linear interpolation between points"
 msgstr ""
 
 #: libraries/Types.class.php:363
-#, fuzzy
 #| msgid "Add a polygon"
 msgid "A polygon"
-msgstr "إضافة مضلع"
+msgstr "مضلع"
 
 #: libraries/Types.class.php:365
 msgid "A collection of points"
-msgstr ""
+msgstr "مجموعة من النقاط"
 
 #: libraries/Types.class.php:367
 msgid "A collection of curves with linear interpolation between points"
@@ -3448,37 +3428,34 @@ msgstr ""
 
 #: libraries/Types.class.php:369
 msgid "A collection of polygons"
-msgstr ""
+msgstr "مجموعة من المضلعات"
 
 #: libraries/Types.class.php:371
 msgid "A collection of geometry objects of any type"
-msgstr ""
+msgstr "مجموعة كائنات الهندسة من أي نوع"
 
 #: libraries/Types.class.php:623 libraries/Types.class.php:973
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "رقمية"
 
 #: libraries/Types.class.php:642 libraries/Types.class.php:976
-#, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
-msgstr "تصميم فهرسه جديده"
+msgstr "التاريخ والوقت"
 
 #: libraries/Types.class.php:651 libraries/Types.class.php:979
-#, fuzzy
 #| msgid "Linestring"
 msgctxt "string types"
 msgid "String"
-msgstr "منحنى"
+msgstr "السلسلة"
 
 #: libraries/Types.class.php:672
-#, fuzzy
 #| msgid "Total"
 msgctxt "spatial types"
 msgid "Spatial"
-msgstr "مجموع كلي"
+msgstr ""
 
 #: libraries/Types.class.php:707
 msgid "A 4-byte integer, range is -2,147,483,648 to 2,147,483,647"
@@ -3496,7 +3473,7 @@ msgstr ""
 
 #: libraries/Types.class.php:715
 msgid "True or false"
-msgstr ""
+msgstr "صحيحة أو خاطئة"
 
 #: libraries/Types.class.php:717
 msgid "An alias for BIGINT NOT NULL AUTO_INCREMENT UNIQUE"
@@ -3861,7 +3838,7 @@ msgstr "عبارة المرور السرية تستخدم لتشفير الكو�
 
 #: libraries/config/messages.inc.php:25
 msgid "Blowfish secret"
-msgstr ""
+msgstr "كلمة سر Blowfish"
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight selected rows"
@@ -3869,7 +3846,7 @@ msgstr "توضيح الصفوف المختارة"
 
 #: libraries/config/messages.inc.php:27
 msgid "Row marker"
-msgstr ""
+msgstr "علامة الصف"
 
 #: libraries/config/messages.inc.php:28
 msgid "Highlight row pointed by the mouse cursor"
@@ -3912,7 +3889,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:35
 msgid "Enable CodeMirror"
-msgstr ""
+msgstr "تمكين CodeMirror"
 
 #: libraries/config/messages.inc.php:36
 msgid ""
@@ -3921,10 +3898,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:37
-#, fuzzy
 #| msgid "Customize text input fields"
 msgid "Minimum size for input field"
-msgstr "تخصيص حقول الإدخال النصية"
+msgstr "الحد الأدنى لحجم حقل إدخال"
 
 #: libraries/config/messages.inc.php:38
 msgid ""
@@ -3933,10 +3909,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:39
-#, fuzzy
 #| msgid "Customize text input fields"
 msgid "Maximum size for input field"
-msgstr "تخصيص حقول الإدخال النصية"
+msgstr "أقصى حجم لحقل الإدخال"
 
 #: libraries/config/messages.inc.php:40
 msgid "Number of columns for CHAR/VARCHAR textareas"
@@ -4021,10 +3996,9 @@ msgid "Whether the table structure actions should be hidden"
 msgstr ""
 
 #: libraries/config/messages.inc.php:59
-#, fuzzy
 #| msgid "Propose table structure"
 msgid "Hide table structure actions"
-msgstr "اقترح بناء الجدول"
+msgstr ""
 
 #: libraries/config/messages.inc.php:60
 msgid "Show binary contents as HEX by default"
@@ -4579,20 +4553,18 @@ msgid "Customize startup page"
 msgstr "تخصيص صفحة بدء التشغيل"
 
 #: libraries/config/messages.inc.php:228
-#, fuzzy
 #| msgid "Databases"
 msgid "Database structure"
-msgstr "قاعدة بيانات"
+msgstr "بنية قاعدة البيانات"
 
 #: libraries/config/messages.inc.php:229
 msgid "Choose which details to show in the database structure (list of tables)"
 msgstr ""
 
 #: libraries/config/messages.inc.php:230
-#, fuzzy
 #| msgid "Databases"
 msgid "Table structure"
-msgstr "قاعدة بيانات"
+msgstr "بنية الجدول"
 
 #: libraries/config/messages.inc.php:231
 msgid "Settings for the table structure (list of columns)"
