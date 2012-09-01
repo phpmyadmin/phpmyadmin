@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-28 14:48+0200\n"
-"PO-Revision-Date: 2012-08-30 16:42+0200\n"
+"PO-Revision-Date: 2012-09-01 12:11+0200\n"
 "Last-Translator: gurjit dhillon <dhillon616@gmail.com>\n"
 "Language-Team: Punjabi "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pa/>\n"
@@ -113,7 +113,7 @@ msgstr ""
 #: db_create.php:74
 #, php-format
 msgid "Database %1$s has been created."
-msgstr ""
+msgstr "%1$s ਡਾਟਾਬੇਸ ਬਣ ਚੁੱਕਾ ਹੈ"
 
 #: db_datadict.php:49 libraries/operations.lib.php:32
 msgid "Database comment: "
