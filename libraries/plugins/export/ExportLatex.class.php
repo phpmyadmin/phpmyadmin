@@ -347,11 +347,11 @@ class ExportLatex extends ExportPlugin
                     '\\caption{'
                     . $common_functions->expandUserString(
                         $GLOBALS['latex_data_continued_caption'],
-                    array(
-                        'texEscape',
-                        get_class($this),
-                        'libraries/plugins/export/' . get_class($this) . ".class.php"
-                    ),
+                        array(
+                            'texEscape',
+                            get_class($this),
+                            'libraries/plugins/export/' . get_class($this) . ".class.php"
+                        ),
                         array('table' => $table, 'database' => $db)
                     )
                     . '} \\\\ '

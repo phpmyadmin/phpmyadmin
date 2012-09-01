@@ -115,7 +115,7 @@ class ImportSql extends ImportPlugin
     /**
      * Handles the whole import logic
      *
-     * @param &$sql_data array 2-element array with sql data
+     * @param array &$sql_data 2-element array with sql data
      *
      * @return void
      */

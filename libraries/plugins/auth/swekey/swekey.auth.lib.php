@@ -18,7 +18,9 @@ function Swekey_auth_check()
     $_SESSION['SWEKEY']['ENABLED'] = (! empty($confFile) && file_exists($confFile));
 
     // Load the swekey.conf file the first time
-    if ($_SESSION['SWEKEY']['ENABLED'] && empty($_SESSION['SWEKEY']['CONF_LOADED'])) {
+    if ($_SESSION['SWEKEY']['ENABLED']
+        && empty($_SESSION['SWEKEY']['CONF_LOADED'])
+    ) {
         $_SESSION['SWEKEY']['CONF_LOADED'] = true;
         $_SESSION['SWEKEY']['VALID_SWEKEYS'] = array();
         $valid_swekeys = explode("\n", @file_get_contents($confFile));
