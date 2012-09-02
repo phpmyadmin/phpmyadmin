@@ -2281,15 +2281,19 @@ function PMA_SQP_formatHtml(
         case 'punct_bracket_open_round':
             $bracketlevel++;
             $infunction = false;
+            $keyword_brackets_2before = isset(
+                $keywords_with_brackets_2before[strtoupper($arr[$i - 2]['data'])]
+            );
+            $keyword_brackets_1before = isset(
+                $keywords_with_brackets_1before[strtoupper($arr[$i - 1]['data'])]
+            );
             // Make sure this array is sorted!
             if (($typearr[1] == 'alpha_functionName')
                 || ($typearr[1] == 'alpha_columnType') || ($typearr[1] == 'punct')
                 || ($typearr[3] == 'digit_integer') || ($typearr[3] == 'digit_hex')
                 || ($typearr[3] == 'digit_float')
-                || (($typearr[0] == 'alpha_reservedWord')
-                    && isset($keywords_with_brackets_2before[strtoupper($arr[$i - 2]['data'])]))
-                || (($typearr[1] == 'alpha_reservedWord')
-                    && isset($keywords_with_brackets_1before[strtoupper($arr[$i - 1]['data'])]))
+                || ($typearr[0] == 'alpha_reservedWord' && $keyword_brackets_2before)
+                || ($typearr[1] == 'alpha_reservedWord' && $keyword_brackets_1before)
             ) {
                 $functionlevel++;
                 $infunction = true;
