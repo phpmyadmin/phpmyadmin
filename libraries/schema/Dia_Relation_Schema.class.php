@@ -67,10 +67,12 @@ class PMA_DIA extends XMLWriter
      * @return void
      *
      * @access public
-     * @see XMLWriter::startElement(),XMLWriter::writeAttribute(),XMLWriter::writeRaw()
+     * @see XMLWriter::startElement(),XMLWriter::writeAttribute(),
+     *      XMLWriter::writeRaw()
      */
-    function startDiaDoc($paper,$topMargin,$bottomMargin,$leftMargin,$rightMargin,$portrait)
-    {
+    function startDiaDoc($paper, $topMargin, $bottomMargin, $leftMargin,
+        $rightMargin, $portrait
+    ) {
         if ($portrait == 'P') {
             $isPortrait='true';
         } else {
@@ -80,66 +82,66 @@ class PMA_DIA extends XMLWriter
         $this->writeAttribute('xmlns:dia', 'http://www.lysator.liu.se/~alla/dia/');
         $this->startElement('dia:diagramdata');
         $this->writeRaw(
-        '<dia:attribute name="background">
-          <dia:color val="#ffffff"/>
-        </dia:attribute>
-        <dia:attribute name="pagebreak">
-          <dia:color val="#000099"/>
-        </dia:attribute>
-        <dia:attribute name="paper">
-          <dia:composite type="paper">
-            <dia:attribute name="name">
-              <dia:string>#' . $paper . '#</dia:string>
+            '<dia:attribute name="background">
+              <dia:color val="#ffffff"/>
             </dia:attribute>
-            <dia:attribute name="tmargin">
-              <dia:real val="' . $topMargin . '"/>
+            <dia:attribute name="pagebreak">
+              <dia:color val="#000099"/>
             </dia:attribute>
-            <dia:attribute name="bmargin">
-              <dia:real val="' . $bottomMargin . '"/>
+            <dia:attribute name="paper">
+              <dia:composite type="paper">
+                <dia:attribute name="name">
+                  <dia:string>#' . $paper . '#</dia:string>
+                </dia:attribute>
+                <dia:attribute name="tmargin">
+                  <dia:real val="' . $topMargin . '"/>
+                </dia:attribute>
+                <dia:attribute name="bmargin">
+                  <dia:real val="' . $bottomMargin . '"/>
+                </dia:attribute>
+                <dia:attribute name="lmargin">
+                  <dia:real val="' . $leftMargin . '"/>
+                </dia:attribute>
+                <dia:attribute name="rmargin">
+                  <dia:real val="' . $rightMargin . '"/>
+                </dia:attribute>
+                <dia:attribute name="is_portrait">
+                  <dia:boolean val="' . $isPortrait . '"/>
+                </dia:attribute>
+                <dia:attribute name="scaling">
+                  <dia:real val="1"/>
+                </dia:attribute>
+                <dia:attribute name="fitto">
+                  <dia:boolean val="false"/>
+                </dia:attribute>
+              </dia:composite>
             </dia:attribute>
-            <dia:attribute name="lmargin">
-              <dia:real val="' . $leftMargin . '"/>
+            <dia:attribute name="grid">
+              <dia:composite type="grid">
+                <dia:attribute name="width_x">
+                  <dia:real val="1"/>
+                </dia:attribute>
+                <dia:attribute name="width_y">
+                  <dia:real val="1"/>
+                </dia:attribute>
+                <dia:attribute name="visible_x">
+                  <dia:int val="1"/>
+                </dia:attribute>
+                <dia:attribute name="visible_y">
+                  <dia:int val="1"/>
+                </dia:attribute>
+                <dia:composite type="color"/>
+              </dia:composite>
             </dia:attribute>
-            <dia:attribute name="rmargin">
-              <dia:real val="' . $rightMargin . '"/>
+            <dia:attribute name="color">
+              <dia:color val="#d8e5e5"/>
             </dia:attribute>
-            <dia:attribute name="is_portrait">
-              <dia:boolean val="' . $isPortrait . '"/>
-            </dia:attribute>
-            <dia:attribute name="scaling">
-              <dia:real val="1"/>
-            </dia:attribute>
-            <dia:attribute name="fitto">
-              <dia:boolean val="false"/>
-            </dia:attribute>
-          </dia:composite>
-        </dia:attribute>
-        <dia:attribute name="grid">
-          <dia:composite type="grid">
-            <dia:attribute name="width_x">
-              <dia:real val="1"/>
-            </dia:attribute>
-            <dia:attribute name="width_y">
-              <dia:real val="1"/>
-            </dia:attribute>
-            <dia:attribute name="visible_x">
-              <dia:int val="1"/>
-            </dia:attribute>
-            <dia:attribute name="visible_y">
-              <dia:int val="1"/>
-            </dia:attribute>
-            <dia:composite type="color"/>
-          </dia:composite>
-        </dia:attribute>
-        <dia:attribute name="color">
-          <dia:color val="#d8e5e5"/>
-        </dia:attribute>
-        <dia:attribute name="guides">
-          <dia:composite type="guides">
-            <dia:attribute name="hguides"/>
-            <dia:attribute name="vguides"/>
-          </dia:composite>
-        </dia:attribute>'
+            <dia:attribute name="guides">
+              <dia:composite type="guides">
+                <dia:attribute name="hguides"/>
+                <dia:attribute name="vguides"/>
+              </dia:composite>
+            </dia:attribute>'
         );
         $this->endElement();
         $this->startElement('dia:layer');
@@ -256,11 +258,12 @@ class Table_Stats
         }
 
         $sql = 'SELECT x, y FROM '
-             . $common_functions->backquote($GLOBALS['cfgRelation']['db']) . '.'
-             . $common_functions->backquote($cfgRelation['table_coords'])
-             . ' WHERE db_name = \'' . $common_functions->sqlAddSlashes($db) . '\''
-             . ' AND   table_name = \'' . $common_functions->sqlAddSlashes($tableName) . '\''
-             . ' AND   pdf_page_number = ' . $pageNumber;
+            . $common_functions->backquote($GLOBALS['cfgRelation']['db']) . '.'
+            . $common_functions->backquote($cfgRelation['table_coords'])
+            . ' WHERE db_name = \'' . $common_functions->sqlAddSlashes($db) . '\''
+            . ' AND table_name = \''
+            . $common_functions->sqlAddSlashes($tableName) . '\''
+            . ' AND pdf_page_number = ' . $pageNumber;
         $result = PMA_queryAsControlUser($sql, false, PMA_DBI_QUERY_STORE);
         if (! $result || ! PMA_DBI_num_rows($result)) {
             $dia->dieSchema(
@@ -496,8 +499,9 @@ class Relation_Stats
      *
      * @see Relation_Stats::_getXy
      */
-    function __construct($master_table, $master_field, $foreign_table, $foreign_field)
-    {
+    function __construct($master_table, $master_field, $foreign_table,
+        $foreign_field
+    ) {
         $src_pos  = $this->_getXy($master_table, $master_field);
         $dest_pos = $this->_getXy($foreign_table, $foreign_field);
         $this->srcConnPointsLeft = $src_pos[0];
@@ -769,8 +773,9 @@ class PMA_Dia_Relation_Schema extends PMA_Export_Relation_Schema
      * @access private
      * @see Table_Stats::__construct(),Relation_Stats::__construct()
      */
-    private function _addRelation($masterTable, $masterField, $foreignTable, $foreignField, $showKeys)
-    {
+    private function _addRelation($masterTable, $masterField, $foreignTable,
+        $foreignField, $showKeys
+    ) {
         if (! isset($this->tables[$masterTable])) {
             $this->tables[$masterTable] = new Table_Stats(
                 $masterTable, $this->pageNumber, $showKeys

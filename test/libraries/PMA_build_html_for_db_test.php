@@ -89,8 +89,9 @@ class PMA_build_html_for_db_test extends PHPUnit_Framework_TestCase
      *
      * @group medium
      */
-    public function testPMA_buildHtmlForDb($current, $is_superuser, $checkall, $url_query,$column_order, $replication_types, $replication_info, $output){
-
+    public function testPMA_buildHtmlForDb($current, $is_superuser, $checkall,
+        $url_query, $column_order, $replication_types, $replication_info, $output
+    ) {
         if (! function_exists('PMA_is_system_schema')) {
             function PMA_is_system_schema()
             {
@@ -112,8 +113,10 @@ class PMA_build_html_for_db_test extends PHPUnit_Framework_TestCase
         $GLOBALS['pmaThemeImage'] = '';
 
         $this->assertEquals(
-            PMA_buildHtmlForDb($current, $is_superuser, $checkall, $url_query,
-                $column_order, $replication_types, $replication_info),
+            PMA_buildHtmlForDb(
+                $current, $is_superuser, $checkall, $url_query,
+                $column_order, $replication_types, $replication_info
+            ),
             $output
         );
     }
