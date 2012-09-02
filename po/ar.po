@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-28 14:48+0200\n"
-"PO-Revision-Date: 2012-09-01 23:26+0200\n"
+"PO-Revision-Date: 2012-09-03 01:09+0200\n"
 "Last-Translator: مترجم حرّ <metehyi@gmail.com>\n"
 "Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/master/ar/>\n"
 "Language: ar\n"
@@ -107,8 +107,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"الملف %s غير متوفر على هذا النظام, من فضلك قم بزيارة هذا الموقع لمزيد من "
-"المعلوماتwww.phpmyadmin.net"
+"الملف %s غير متوفر على هذا النظام، الرجاء مراجعة www.phpmyadmin.net للمزيد "
+"من المعلومات."
 
 #: db_create.php:74
 #, php-format
@@ -656,8 +656,6 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 msgstr ""
-"لايوجد أي بيانات لإستيرادها , إما انه لم يتم إرسال إسم الملف , أو أن حجم "
-"الملف أكبر من الحجم المحدد في إعدادات PHP"
 
 #: import.php:418
 msgid ""
@@ -666,7 +664,7 @@ msgstr "لاتستطيع تغيير ترميز الملفات بدون مكتب�
 
 #: import.php:454 libraries/display_import.lib.php:29
 msgid "Could not load import plugins, please check your installation!"
-msgstr "لايمكن تحميل الإضافات المستوردة ,, فضلاً تحقق من عملية التنصيب ."
+msgstr "لم أتمكن من تحميل قوابس الاستيراد، الرجاء فحص تثبيتك!"
 
 #: import.php:488 sql.php:1109
 #, php-format
@@ -683,16 +681,12 @@ msgid ""
 "Script timeout passed, if you want to finish import, please resubmit same "
 "file and import will resume."
 msgstr ""
-"إنتهى وقت التنفيذ , إذا كنت تريد إنهاء الإستيراد,  أعد إرسال نفس الملف وسوف "
-"يتم إستكمال الإستيراد"
 
 #: import.php:513
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
 msgstr ""
-"لم يتم تحليل البيانات في العملية الأخيرة ,, هذا يعني ان phpMyAdmin  لاتستطيع "
-"إنهاء الإستيراد ,, يجب زيادة المدة المحددة لتنفيذ php"
 
 #: import.php:541 libraries/DisplayResults.class.php:4547
 #: libraries/Message.class.php:180 libraries/rte/rte_routines.lib.php:1335
@@ -800,7 +794,7 @@ msgstr "إضافة مستخدم"
 
 #: js/messages.php:56
 msgid "Reloading Privileges"
-msgstr "قيد إعادة قراءة الصلاحيات."
+msgstr ""
 
 #: js/messages.php:57
 msgid "Removing Selected Users"
@@ -1059,7 +1053,7 @@ msgstr "تحرير العناوين"
 
 #: js/messages.php:136
 msgid "Add chart to grid"
-msgstr "إضافة رسم بياني "
+msgstr ""
 
 #: js/messages.php:138
 msgid "Please add at least one variable to the series"
@@ -1473,10 +1467,9 @@ msgid "Show indexes"
 msgstr "أظهار الفهارس"
 
 #: js/messages.php:257 libraries/mult_submits.inc.php:320
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Foreign key check:"
-msgstr "تعطيل التحقق من المفتاح الغريب"
+msgstr "التحقق من المفتاح الخارجي:"
 
 #: js/messages.php:258 libraries/mult_submits.inc.php:324
 #| msgid "Enabled"
@@ -1484,7 +1477,6 @@ msgid "(Enabled)"
 msgstr "(ممكن)"
 
 #: js/messages.php:259 libraries/mult_submits.inc.php:324
-#, fuzzy
 #| msgid "Disabled"
 msgid "(Disabled)"
 msgstr "(معطل)"
@@ -1606,10 +1598,9 @@ msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "لإستعمال المقربة، إختر جزء من رسم البيانات بواسطة الفأرة."
 
 #: js/messages.php:306
-#, fuzzy
 #| msgid "Click reset zoom link to come back to original state."
 msgid "Click reset zoom button to come back to original state."
-msgstr "إضغط إعادة للعودة إلى الوضع الأصلي."
+msgstr ""
 
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."
@@ -2316,7 +2307,7 @@ msgstr "عمليات"
 #: libraries/CommonFunctions.class.php:3577
 #: libraries/sql_query_form.lib.php:473 prefs_manage.php:250
 msgid "Browse your computer:"
-msgstr "تصفح كمبيوترك."
+msgstr "تصفح حاسبك:"
 
 #: libraries/CommonFunctions.class.php:3605
 #, php-format
@@ -2676,7 +2667,9 @@ msgstr "في الاستعلام"
 msgid ""
 "This view has at least this number of rows. Please refer to %sdocumentation"
 "%s."
-msgstr "هذا العرض له ما لا يقل عدد هذه الصفوف يرجى الرجوع إلى %s الوثيقة %s"
+msgstr ""
+"لدى هذا العرض على الأقل هذا العدد من الأسطر. الرجاء مراجعة الــ %"
+"sdocumentation%s."
 
 #: libraries/DisplayResults.class.php:4939
 msgid "Showing rows"
@@ -2836,7 +2829,7 @@ msgstr "محزم"
 
 #: libraries/Index.class.php:468 tbl_tracking.php:378
 msgid "Cardinality"
-msgstr "Cardinality"
+msgstr ""
 
 #: libraries/Index.class.php:469 libraries/TableSearch.class.php:200
 #: libraries/build_html_for_db.lib.php:20 libraries/mysql_charsets.lib.php:115
@@ -2846,7 +2839,7 @@ msgstr "Cardinality"
 #: libraries/tbl_properties.inc.php:834 server_collations.php:38
 #: server_collations.php:50 tbl_tracking.php:312 tbl_tracking.php:379
 msgid "Collation"
-msgstr "Collation"
+msgstr ""
 
 #: libraries/Index.class.php:471 libraries/rte/rte_events.lib.php:488
 #: libraries/rte/rte_routines.lib.php:1017 tbl_tracking.php:316
@@ -3049,7 +3042,7 @@ msgstr "خادم MySQL هذا لايدعم محرك التخزين %s ."
 
 #: libraries/Table.class.php:345
 msgid "unknown table status: "
-msgstr "حالة الجدول غير معروفة:"
+msgstr "حالة الجدول غير معروفة: "
 
 #: libraries/Table.class.php:756
 #, php-format
@@ -4170,7 +4163,7 @@ msgstr "عنوان جدول تابع"
 #: libraries/plugins/export/ExportLatex.class.php:130
 #: libraries/plugins/export/ExportLatex.class.php:175
 msgid "Label key"
-msgstr "Label key"
+msgstr ""
 
 #: libraries/config/messages.inc.php:102 libraries/config/messages.inc.php:114
 #: libraries/config/messages.inc.php:138
@@ -7111,7 +7104,7 @@ msgstr ""
 
 #: libraries/operations.lib.php:997
 msgid "Copy table to (database<b>.</b>table):"
-msgstr "نسخ الجدول إلى"
+msgstr "أنسخ الجدول إلى (database<b>.</b>table):"
 
 #: libraries/operations.lib.php:1052
 msgid "Switch to copied table"
@@ -8733,7 +8726,7 @@ msgstr "إظهار أبعاد الجداول"
 
 #: libraries/schema/User_Schema.class.php:441
 msgid "Display all tables with the same width"
-msgstr "أظهر كل الجداول بنفس العرض؟"
+msgstr "أظهر كل الجداول بنفس العرض"
 
 #: libraries/schema/User_Schema.class.php:444 libraries/structure.lib.php:383
 msgid "Data Dictionary"
@@ -13296,16 +13289,15 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:381
-#, fuzzy, php-format
+#, php-format
 #| msgid "long_query_time is set to %d second(s)."
 msgid "slow_launch_time is set to %s"
-msgstr "long_query_time محددة بـ %d ثانية."
+msgstr ""
 
 #: libraries/advisory_rules.txt:385
-#, fuzzy
 #| msgid "Connections"
 msgid "Percentage of used connections"
-msgstr "اتصالات"
+msgstr ""
 
 #: libraries/advisory_rules.txt:388
 msgid ""
@@ -13327,16 +13319,14 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:392
-#, fuzzy
 #| msgid "Connections"
 msgid "Percentage of aborted connections"
-msgstr "اتصالات"
+msgstr ""
 
 #: libraries/advisory_rules.txt:395 libraries/advisory_rules.txt:402
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many connections are aborted."
-msgstr "يسمح بإنشاء جداول مؤقتة."
+msgstr ""
 
 #: libraries/advisory_rules.txt:396 libraries/advisory_rules.txt:403
 msgid ""
@@ -13349,31 +13339,29 @@ msgstr ""
 #: libraries/advisory_rules.txt:397
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
-msgstr ""
+msgstr "%s%% من كل الإتصالات أجهضة. يجب أن تكون هذه القيمة أقل من 1%%"
 
 #: libraries/advisory_rules.txt:399
-#, fuzzy
 #| msgid "Connections"
 msgid "Rate of aborted connections"
-msgstr "اتصالات"
+msgstr "نسبة إجهاض الإتصالات"
 
 #: libraries/advisory_rules.txt:404
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"نسبة الإتصالات المجهضة هي %s، يجب أن تكون هذه القيمة أقل من واحد في الساعة"
 
 #: libraries/advisory_rules.txt:406
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of aborted clients"
-msgstr "هيئة الملفات المستوردة"
+msgstr "النسبة المئوية للزبائن المجهضين"
 
 #: libraries/advisory_rules.txt:409 libraries/advisory_rules.txt:416
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many clients are aborted."
-msgstr "يسمح بإنشاء جداول مؤقتة."
+msgstr "تم إجهاض الكثير من الزبائن."
 
 #: libraries/advisory_rules.txt:410 libraries/advisory_rules.txt:417
 msgid ""
@@ -13385,13 +13373,12 @@ msgstr ""
 #: libraries/advisory_rules.txt:411
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
-msgstr ""
+msgstr "%s%% من كل الزبائن تم إجهاضهن. يجب أن تكون هذه القيمة أقل من 2%%"
 
 #: libraries/advisory_rules.txt:413
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of aborted clients"
-msgstr "هيئة الملفات المستوردة"
+msgstr "نسبة الزبائن المجهوضين"
 
 #: libraries/advisory_rules.txt:418
 #, php-format
