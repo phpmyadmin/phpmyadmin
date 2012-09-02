@@ -60,8 +60,9 @@ if (! isset($is_db) || ! $is_db) {
  */
 if (isset($submitcollation) && !empty($db_collation)) {
     list($db_charset) = explode('_', $db_collation);
-    $sql_query        = 'ALTER DATABASE ' . PMA_CommonFunctions::getInstance()->backquote($db) . ' DEFAULT'
-        . PMA_generateCharsetQueryPart($db_collation);
+    $sql_query        = 'ALTER DATABASE '
+        . PMA_CommonFunctions::getInstance()->backquote($db)
+        . ' DEFAULT' . PMA_generateCharsetQueryPart($db_collation);
     $result           = PMA_DBI_query($sql_query);
     $message          = PMA_Message::success();
     unset($db_charset, $db_collation);
