@@ -83,8 +83,7 @@ class PMA_DbSearch
     /**
      * Public Constructor
      *
-     * @param string $db         Database name
-     *
+     * @param string $db Database name
      */
     public function __construct($db)
     {
@@ -95,7 +94,7 @@ class PMA_DbSearch
 
     /**
      * Get CommmonFunctions
-     * 
+     *
      * @return CommonFunctions object
      */
     public function getCommonFunctions()
@@ -109,6 +108,7 @@ class PMA_DbSearch
     /**
      * Sets search parameters
      *
+     * @return void
      */
     private function _setSearchParams()
     {
@@ -129,7 +129,8 @@ class PMA_DbSearch
             unset($_REQUEST['submit_search']);
         } else {
             $this->_criteriaSearchType = (int) $_REQUEST['criteriaSearchType'];
-            $this->_searchTypeDescription = $this->_searchTypes[$_REQUEST['criteriaSearchType']];
+            $this->_searchTypeDescription
+                = $this->_searchTypes[$_REQUEST['criteriaSearchType']];
         }
 
         if (empty($_REQUEST['criteriaSearchString'])
@@ -142,9 +143,13 @@ class PMA_DbSearch
         }
 
         $this->_criteriaTables = array();
-        if (empty($_REQUEST['criteriaTables']) || ! is_array($_REQUEST['criteriaTables'])) {
+        if (empty($_REQUEST['criteriaTables'])
+            || ! is_array($_REQUEST['criteriaTables'])
+        ) {
             unset($_REQUEST['submit_search']);
-        } elseif (! isset($_REQUEST['selectall']) && ! isset($_REQUEST['unselectall'])) {
+        } elseif (! isset($_REQUEST['selectall'])
+            && ! isset($_REQUEST['unselectall'])
+        ) {
             $this->_criteriaTables = array_intersect(
                 $_REQUEST['criteriaTables'], $this->_tables_names_only
             );
@@ -170,7 +175,7 @@ class PMA_DbSearch
     /**
      * Builds the SQL search query
      *
-     * @param string  $table The table name
+     * @param string $table The table name
      *
      * @return array 3 SQL querys (for count, display and delete results)
      *
@@ -208,7 +213,7 @@ class PMA_DbSearch
     /**
      * Provides where clause for bulding SQL query
      *
-     * @param string  $table The table name
+     * @param string $table The table name
      *
      * @return string The generated where clause
      */
@@ -225,11 +230,13 @@ class PMA_DbSearch
         // Usage example: If user is seaching for a literal $ in a regexp search,
         // he should enter \$ as the value.
         $this->_criteriaSearchString = $this->getCommonFunctions()->sqlAddSlashes(
-            $this->_criteriaSearchString, ($this->_criteriaSearchType == 4 ? false : true)
+            $this->_criteriaSearchString,
+            ($this->_criteriaSearchType == 4 ? false : true)
         );
         // Extract search words or pattern
         $search_words = (($this->_criteriaSearchType > 2)
-            ? array($this->_criteriaSearchString) : explode(' ', $this->_criteriaSearchString));
+            ? array($this->_criteriaSearchString)
+            : explode(' ', $this->_criteriaSearchString));
 
         foreach ($search_words as $search_word) {
             // Eliminates empty values
@@ -386,7 +393,7 @@ class PMA_DbSearch
     /**
      * Provides the main search form's html
      *
-     * @param array   $url_params           URL parameters
+     * @param array $url_params URL parameters
      *
      * @return string HTML for selection form
      */
@@ -405,8 +412,10 @@ class PMA_DbSearch
         $html_output .= '<tr>';
         $html_output .= '<td>' . __('Words or values to search for (wildcard: "%"):')
             . '</td>';
-        $html_output .= '<td><input type="text" name="criteriaSearchString" size="60"'
-            . ' value="' . htmlspecialchars($this->_criteriaSearchString) . '" /></td>';
+        $html_output .= '<td><input type="text"'
+            . ' name="criteriaSearchString" size="60"'
+            . ' value="' . htmlspecialchars($this->_criteriaSearchString) . '" />';
+        $html_output .= '</td>';
         $html_output .= '</tr>';
         // choices for types of search
         $html_output .= '<tr>';
@@ -422,17 +431,17 @@ class PMA_DbSearch
                     __('Words are separated by a space character (" ").')
                 ),
             '3' => __('the exact phrase'),
-            '4' => __('as regular expression')
-                . ' ' . $this->getCommonFunctions()->showMySQLDocu('Regexp', 'Regexp')
+            '4' => __('as regular expression') . ' '
+                . $this->getCommonFunctions()->showMySQLDocu('Regexp', 'Regexp')
         );
         // 4th parameter set to true to add line breaks
-        // 5th parameter set to false to avoid htmlspecialchars() escaping in the label
-        //  since we have some HTML in some labels
+        // 5th parameter set to false to avoid htmlspecialchars() escaping
+        // in the label since we have some HTML in some labels
         $html_output .= $this->getCommonFunctions()->getRadioFields(
             'criteriaSearchType', $choices, $this->_criteriaSearchType, true, false
         );
         $html_output .= '</td></tr>';
-        // displays table names as select options 
+        // displays table names as select options
         $html_output .= '<tr>';
         $html_output .= '<td class="right vtop">' . __('Inside tables:') . '</td>';
         $html_output .= '<td rowspan="2">';
@@ -480,7 +489,7 @@ class PMA_DbSearch
         $html_output .= '</fieldset>';
         $html_output .= '</form>';
         $html_output .= $this->_getResultDivs();
-        
+
         return $html_output;
     }
 
