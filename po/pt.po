@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 06:32-0400\n"
-"PO-Revision-Date: 2012-08-30 20:08+0200\n"
-"Last-Translator: Rui Simoes <ruisimoes.ouca@gmail.com>\n"
+"PO-Revision-Date: 2012-09-02 18:44+0200\n"
+"Last-Translator: Vitor Barbosa <vitorb79@hotmail.com>\n"
 "Language-Team: Portuguese "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/pt/>\n"
 "Language: pt\n"
@@ -1093,11 +1093,11 @@ msgstr "general_log e slow_query estão ativos."
 
 #: js/messages.php:144
 msgid "general_log is enabled."
-msgstr "general_log está ativo"
+msgstr "general_log está ativo."
 
 #: js/messages.php:145
 msgid "slow_query_log is enabled."
-msgstr "slow_query_log está ativo"
+msgstr "slow_query_log está ativo."
 
 #: js/messages.php:146
 msgid "slow_query_log and general_log are disabled."
@@ -1105,7 +1105,7 @@ msgstr "slow_query_log e general_log estão desativados."
 
 #: js/messages.php:147
 msgid "log_output is not set to TABLE."
-msgstr "log_output não está configurado para a TABELA"
+msgstr "log_output não está configurado para TABELA."
 
 #: js/messages.php:148
 msgid "log_output is set to TABLE."
@@ -1125,7 +1125,7 @@ msgstr ""
 #: js/messages.php:150
 #, php-format
 msgid "long_query_time is set to %d second(s)."
-msgstr "long_query_time está configurado para %d segundo(s)"
+msgstr "long_query_time está configurado para %d segundo(s)."
 
 #: js/messages.php:151
 msgid ""
@@ -1187,7 +1187,7 @@ msgstr "Diferencial"
 #: js/messages.php:167
 #, php-format
 msgid "Divided by %s"
-msgstr "Dividido por %s:"
+msgstr "Dividido por %s"
 
 #: js/messages.php:168
 msgid "Unit"
@@ -1250,7 +1250,7 @@ msgstr "Sem dados"
 #: js/messages.php:181
 msgid "Log analysed, but no data found in this time span."
 msgstr ""
-"Registo analisado, mas não foram encontrados dados neste período de tempo"
+"Registo analisado, mas não foram encontrados dados neste período de tempo."
 
 #: js/messages.php:183
 msgid "Analyzing..."
@@ -1290,9 +1290,8 @@ msgid "Edit chart"
 msgstr "Editar gráfico"
 
 #: js/messages.php:192
-#, fuzzy
 msgid "Series"
-msgstr "Comando SQL"
+msgstr "Grupos"
 
 #. l10n: A collection of available filters
 #: js/messages.php:195
@@ -1314,7 +1313,7 @@ msgstr "Agrupar comandos, ignorando dados variáveis em clausulas WHERE"
 
 #: js/messages.php:200
 msgid "Sum of grouped rows:"
-msgstr "Soma de linhas agrupadas"
+msgstr "Soma de linhas agrupadas:"
 
 #: js/messages.php:201
 msgid "Total:"
@@ -1534,7 +1533,7 @@ msgstr "Valores para a nova coluna"
 
 #: js/messages.php:275
 msgid "Enter each value in a separate field"
-msgstr "Introduza cada valor num campo separado."
+msgstr "Introduza cada valor num campo separado"
 
 #: js/messages.php:276
 #, php-format
@@ -1556,7 +1555,7 @@ msgstr "Mostrar Caixa do query"
 
 #: js/messages.php:285 tbl_row_action.php:21
 msgid "No rows selected"
-msgstr "Nenhum registo(linha) seleccionado."
+msgstr "Nenhum registo(linha) seleccionado"
 
 #: js/messages.php:286 libraries/DisplayResults.class.php:5067
 #: libraries/structure.lib.php:1390 libraries/structure.lib.php:2255
@@ -2434,7 +2433,7 @@ msgstr "E"
 
 #: libraries/DBQbe.class.php:680 libraries/DBQbe.class.php:756
 msgid "Ins"
-msgstr "Ins."
+msgstr "Ins"
 
 #: libraries/DBQbe.class.php:683 libraries/DBQbe.class.php:771
 msgid "Del"
@@ -2953,20 +2952,18 @@ msgid "Designer"
 msgstr ""
 
 #: libraries/Menu.class.php:464
-#, fuzzy
 #| msgid "User"
 msgid "Users"
-msgstr "Utilizador"
+msgstr "Utilizadores"
 
 #: libraries/Menu.class.php:485 server_synchronize.php:1320
 #: server_synchronize.php:1327
 msgid "Synchronize"
-msgstr ""
+msgstr "Sincronizar"
 
 #: libraries/Menu.class.php:490 server_binlog.php:75 server_status.php:625
-#, fuzzy
 msgid "Binary log"
-msgstr "Binário "
+msgstr "Registo binário"
 
 #: libraries/Menu.class.php:496 libraries/structure.lib.php:187
 #: libraries/structure.lib.php:772 server_replication.php:34
@@ -4146,7 +4143,6 @@ msgstr "Colocar os nomes das colunas na primeira linha"
 #: libraries/config/messages.inc.php:79 libraries/config/messages.inc.php:249
 #: libraries/config/messages.inc.php:256
 #: libraries/plugins/import/ImportCsv.class.php:194
-#, fuzzy
 #| msgid "Fields enclosed by"
 msgid "Columns enclosed by"
 msgstr "Campos delimitados por"
@@ -4191,9 +4187,8 @@ msgid "Database name template"
 msgstr "Modelo de nome da base de dados"
 
 #: libraries/config/messages.inc.php:90
-#, fuzzy
 msgid "Server name template"
-msgstr "Nome do ficheiro modelo"
+msgstr "Nome do servidor modelo"
 
 #: libraries/config/messages.inc.php:91
 #, fuzzy
@@ -7385,7 +7380,7 @@ msgstr "Pode digitar a nome/Endereço IP e a porta separados por um espaço."
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:186
 msgid "Server:"
-msgstr "Servidor"
+msgstr "Servidor:"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:198
 msgid "Username:"
@@ -8803,7 +8798,7 @@ msgstr "Mostrar dimensão das tabelas"
 
 #: libraries/schema/User_Schema.class.php:441
 msgid "Display all tables with the same width"
-msgstr "mostrar todas as tabelas com a mesma altura?"
+msgstr "Mostrar todas as tabelas com a mesma largura"
 
 #: libraries/schema/User_Schema.class.php:444 libraries/structure.lib.php:383
 msgid "Data Dictionary"
@@ -8822,10 +8817,9 @@ msgid "Portrait"
 msgstr "Retrato/Ao alto"
 
 #: libraries/schema/User_Schema.class.php:451
-#, fuzzy
 #| msgid "Creation"
 msgid "Orientation"
-msgstr "Criação"
+msgstr "Orientação"
 
 #: libraries/schema/User_Schema.class.php:464
 msgid "Paper size"
@@ -8844,19 +8838,18 @@ msgstr ""
 #. l10n: Text direction for language, use either "ltr" or "rtl"
 #: libraries/select_lang.lib.php:499
 msgid "ltr"
-msgstr "ltr"
+msgstr "LTR"
 
 #: libraries/select_lang.lib.php:517 libraries/select_lang.lib.php:526
 #: libraries/select_lang.lib.php:535
 #, php-format
 msgid "Unknown language: %1$s."
-msgstr ""
+msgstr "Língua desconhecida: %1$s."
 
 #: libraries/select_server.lib.php:37 libraries/select_server.lib.php:42
-#, fuzzy
 #| msgid "Server"
 msgid "Current Server"
-msgstr "Servidor"
+msgstr "Servidor atual"
 
 #: libraries/server_privileges.lib.php:137 server_privileges.php:98
 msgid "No privileges."
@@ -9384,7 +9377,7 @@ msgid ""
 msgstr ""
 "Parece haver um erro na sua consulta SQL. A mensagem de erro do servidor "
 "MySQL abaixo, isto se existir alguma, também o poderá ajudar a diagnosticar "
-"o problema."
+"o problema"
 
 #: libraries/sqlparser.lib.php:171
 msgid ""
@@ -9601,7 +9594,7 @@ msgstr "Comprimento de linha"
 
 #: libraries/structure.lib.php:1789 tbl_printview.php:396
 msgid "Row size"
-msgstr "Tamanho dos reg."
+msgstr "Tamanho dos registos"
 
 #: libraries/structure.lib.php:1797 tbl_printview.php:406
 msgid "Next autoindex"
@@ -13523,7 +13516,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:439
 msgid "The InnoDB log file size is inadequately large."
-msgstr ""
+msgstr "O tamanho do ficheiro de registo InnoDB é inadequadamente grande."
 
 #: libraries/advisory_rules.txt:440
 #, php-format
