@@ -175,7 +175,6 @@ class PMA_DbQbe
      * Public Constructor
      *
      * @param string $db Database name
-     *
      */
     public function __construct($db)
     {
@@ -1279,6 +1278,8 @@ class PMA_DbQbe
     /**
      * Provides the generated SQL query
      *
+     * @param string $cfgRelation Relation Settings
+     *
      * @return string SQL query
      */
     private function _getSQLQuery($cfgRelation)
@@ -1300,6 +1301,8 @@ class PMA_DbQbe
 
     /**
      * Provides the generated QBE form
+     *
+     * @param string $cfgRelation Relation Settings
      *
      * @return string QBE form
      */
