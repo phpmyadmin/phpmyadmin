@@ -3,9 +3,10 @@
 /**
  * Wrappers for Drizzle extension classes
  *
- * Drizzle extension exposes libdrizzle functions and requires user to have it in mind while using them.
- * This wrapper is not complete and hides a lot of original functionality, but allows for easy usage
- * of the drizzle PHP extension.
+ * Drizzle extension exposes libdrizzle functions and requires user to have it in
+ * mind while using them.
+ * This wrapper is not complete and hides a lot of original functionality,
+ * but allows for easy usage of the drizzle PHP extension.
  *
  * @package    PhpMyAdmin-DBI
  * @subpackage Drizzle
@@ -14,7 +15,8 @@ if (! defined('PHPMYADMIN')) {
     exit;
 }
 
-// TODO: drizzle module segfaults while freeing resources, often. This allows at least for some development
+// TODO: drizzle module segfaults while freeing resources, often.
+//       This allows at least for some development
 function _drizzle_shutdown_flush()
 {
     flush();
@@ -109,7 +111,8 @@ class PMA_Drizzle extends Drizzle
      * Constructor
      */
     public function __construct()
-    {_dlog();
+    {
+        _dlog();
         parent::__construct();
     }
 
@@ -126,7 +129,8 @@ class PMA_Drizzle extends Drizzle
      * @return PMA_DrizzleCon
      */
     public function addTcp($host, $port, $user, $password, $db, $options)
-    {_dlog();
+    {
+        _dlog();
         $dcon = parent::addTcp($host, $port, $user, $password, $db, $options);
         return $dcon instanceof DrizzleCon
             ? new PMA_DrizzleCon($dcon)
@@ -145,7 +149,8 @@ class PMA_Drizzle extends Drizzle
      * @return PMA_DrizzleCon
      */
     public function addUds($uds, $user, $password, $db, $options)
-    {_dlog();
+    {
+        _dlog();
         $dcon = parent::addUds($uds, $user, $password, $db, $options);
         return $dcon instanceof DrizzleCon
             ? new PMA_DrizzleCon($dcon)
@@ -180,7 +185,8 @@ class PMA_DrizzleCon
      * @param DrizzleCon $dcon
      */
     public function __construct(DrizzleCon $dcon)
-    {_dlog();
+    {
+        _dlog();
         $this->dcon = $dcon;
     }
 
@@ -188,17 +194,22 @@ class PMA_DrizzleCon
      * Executes given query. Opens database connection if not already done.
      *
      * @param string $query
-     * @param int    $bufferMode  PMA_Drizzle::BUFFER_RESULT, PMA_Drizzle::BUFFER_ROW
-     * @param int    $fetchMode   PMA_Drizzle::FETCH_ASSOC, PMA_Drizzle::FETCH_NUM or PMA_Drizzle::FETCH_BOTH
+     * @param int    $bufferMode  PMA_Drizzle::BUFFER_RESULT,PMA_Drizzle::BUFFER_ROW
+     * @param int    $fetchMode   PMA_Drizzle::FETCH_ASSOC, PMA_Drizzle::FETCH_NUM
+     *                            or PMA_Drizzle::FETCH_BOTH
      *
      * @return PMA_DrizzleResult
      */
-    public function query($query, $bufferMode = PMA_Drizzle::BUFFER_RESULT, $fetchMode = PMA_Drizzle::FETCH_ASSOC)
-    {_dlog();
+    public function query($query, $bufferMode = PMA_Drizzle::BUFFER_RESULT,
+        $fetchMode = PMA_Drizzle::FETCH_ASSOC
+    ) {
+        _dlog();
         $result = $this->dcon->query($query);
         if ($result instanceof DrizzleResult) {
-    _dlog(true);
-            $this->lastResult = new PMA_DrizzleResult($result, $bufferMode, $fetchMode);
+            _dlog(true);
+            $this->lastResult = new PMA_DrizzleResult(
+                $result, $bufferMode, $fetchMode
+            );
             return $this->lastResult;
         }
         return $result;
@@ -225,7 +236,8 @@ class PMA_DrizzleCon
      * @return mixed
      */
     public function __call($method, $args)
-    {_dlog();
+    {
+        _dlog();
         return call_user_func_array(array($this->dcon, $method), $args);
     }
 
@@ -235,7 +247,8 @@ class PMA_DrizzleCon
      * @return DrizzleCon
      */
     public function getConnectionObject()
-    {_dlog();
+    {
+        _dlog();
         return $this->dcon;
     }
 }
@@ -285,7 +298,8 @@ class PMA_DrizzleResult
      * @param int           $fetchMode
      */
     public function __construct(DrizzleResult $dresult, $bufferMode, $fetchMode)
-    {_dlog();
+    {
+        _dlog();
         $this->dresult = $dresult;
         $this->bufferMode = $bufferMode;
         $this->fetchMode = $fetchMode;
@@ -301,15 +315,18 @@ class PMA_DrizzleResult
      * @param int $fetchMode
      */
     public function setFetchMode($fetchMode)
-    {_dlog();
+    {
+        _dlog();
         $this->fetchMode = $fetchMode;
     }
 
     /**
-     * Reads information about columns contained in current result set into {@see $columns} and {@see $columnNames} arrays
+     * Reads information about columns contained in current result
+     * set into {@see $columns} and {@see $columnNames} arrays
      */
     private function _readColumns()
-    {_dlog();
+    {
+        _dlog();
         $this->columns = array();
         $this->columnNames = array();
         if ($this->bufferMode == PMA_Drizzle::BUFFER_RESULT) {
@@ -331,7 +348,8 @@ class PMA_DrizzleResult
      * @return DrizzleColumn[]
      */
     public function getColumns()
-    {_dlog();
+    {
+        _dlog();
         if (!$this->columns) {
             $this->_readColumns();
         }
@@ -344,7 +362,8 @@ class PMA_DrizzleResult
      * @return int
      */
     public function numColumns()
-    {_dlog();
+    {
+        _dlog();
         return $this->dresult->columnCount();
     }
 
@@ -361,30 +380,32 @@ class PMA_DrizzleResult
         }
 
         switch ($fetchMode) {
-            case PMA_Drizzle::FETCH_ASSOC:
-                $row = array_combine($this->columnNames, $row);
-                break;
-            case PMA_Drizzle::FETCH_BOTH:
-                $length = count($row);
-                for ($i = 0; $i < $length; $i++) {
-                    $row[$this->columnNames[$i]] = $row[$i];
-                }
-                break;
-            default:
-                break;
+        case PMA_Drizzle::FETCH_ASSOC:
+            $row = array_combine($this->columnNames, $row);
+            break;
+        case PMA_Drizzle::FETCH_BOTH:
+            $length = count($row);
+            for ($i = 0; $i < $length; $i++) {
+                $row[$this->columnNames[$i]] = $row[$i];
+            }
+            break;
+        default:
+            break;
         }
     }
 
     /**
      * Fetches next for from this result set
      *
-     * @param int $fetchMode  fetch mode to use, if none given the default one is used
+     * @param int $fetchMode fetch mode to use, if not given the default one is used
      *
      * @return array|null
      */
     public function fetchRow($fetchMode = null)
-    {_dlog();
-        // read column names on first fetch, only buffered results allow for reading it later
+    {
+        _dlog();
+        // read column names on first fetch, only buffered results
+        // allow for reading it later
         if (!$this->columns) {
             $this->_readColumns();
         }
@@ -393,12 +414,12 @@ class PMA_DrizzleResult
         }
         $row = null;
         switch ($this->bufferMode) {
-            case PMA_Drizzle::BUFFER_RESULT:
-                $row = $this->dresult->rowNext();
-                break;
-            case PMA_Drizzle::BUFFER_ROW:
-                $row = $this->dresult->rowBuffer();
-                break;
+        case PMA_Drizzle::BUFFER_RESULT:
+            $row = $this->dresult->rowNext();
+            break;
+        case PMA_Drizzle::BUFFER_ROW:
+            $row = $this->dresult->rowBuffer();
+            break;
         }
         $this->_transformResultRow($row, $fetchMode);
         return $row;
@@ -412,9 +433,12 @@ class PMA_DrizzleResult
      * @return bool
      */
     public function seek($row_index)
-    {_dlog();
+    {
+        _dlog();
         if ($this->bufferMode != PMA_Drizzle::BUFFER_RESULT) {
-            trigger_error("Can't seek in an unbuffered result set", E_USER_WARNING);
+            trigger_error(
+                __("Can't seek in an unbuffered result set"), E_USER_WARNING
+            );
             return false;
         }
         // rowSeek always returns NULL (drizzle extension v.0.5, API v.7)
@@ -431,9 +455,12 @@ class PMA_DrizzleResult
      * @return int|false
      */
     public function numRows()
-    {_dlog();
+    {
+        _dlog();
         if ($this->bufferMode != PMA_Drizzle::BUFFER_RESULT) {
-            trigger_error("Can't count rows in an unbuffered result set", E_USER_WARNING);
+            trigger_error(
+                __("Can't count rows in an unbuffered result set"), E_USER_WARNING
+            );
             return false;
         }
         return $this->dresult->rowCount();
@@ -445,7 +472,8 @@ class PMA_DrizzleResult
      * @return int|false
      */
     public function affectedRows()
-    {_dlog();
+    {
+        _dlog();
         return $this->dresult->affectedRows();
     }
 

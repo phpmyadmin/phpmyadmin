@@ -3,10 +3,13 @@
 /**
  * Interface to the Drizzle extension
  *
- * WARNING - EXPERIMENTAL, never use in production, drizzle module segfaults often and when you least expect it to
+ * WARNING - EXPERIMENTAL, never use in production,
+ * drizzle module segfaults often and when you least expect it to
  *
- * TODO: This file and drizzle-wrappers.lib.php should be devoid of any segault related hacks.
- * TODO: Crashing versions of drizzle module and/or libdrizzle should be blacklisted
+ * TODO: This file and drizzle-wrappers.lib.php should be devoid
+ *       of any segault related hacks.
+ * TODO: Crashing versions of drizzle module and/or libdrizzle
+ *       should be blacklisted
  *
  * @package    PhpMyAdmin-DBI
  * @subpackage Drizzle
@@ -39,8 +42,9 @@ if (!defined('PMA_MYSQL_CLIENT_API')) {
  *
  * @return PMA_DrizzleCon
  */
-function PMA_DBI_real_connect($drizzle, $host, $port, $uds, $user, $password, $db = null, $options = DRIZZLE_CON_NONE)
-{
+function PMA_DBI_real_connect($drizzle, $host, $port, $uds, $user, $password,
+    $db = null, $options = DRIZZLE_CON_NONE
+) {
     if ($uds) {
         $con = $drizzle->addUds($uds, $user, $password, $db, $options);
     } else {
@@ -57,12 +61,14 @@ function PMA_DBI_real_connect($drizzle, $host, $port, $uds, $user, $password, $d
  * @param string $password                drizzle user password
  * @param bool   $is_controluser
  * @param array  $server host/port/socket
- * @param bool   $auxiliary_connection    (when true, don't go back to login if connection fails)
+ * @param bool   $auxiliary_connection    when true, don't go back to
+ *                                         login if connection fails
  *
  * @return mixed false on error or a mysqli object on success
  */
-function PMA_DBI_connect($user, $password, $is_controluser = false, $server = null, $auxiliary_connection = false)
-{
+function PMA_DBI_connect($user, $password, $is_controluser = false,
+    $server = null, $auxiliary_connection = false
+) {
     global $cfg;
 
     if ($server) {
@@ -103,18 +109,35 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
     }
 
     if (!$server) {
-        $link = @PMA_DBI_real_connect($drizzle, $cfg['Server']['host'], $server_port, $server_socket, $user, $password, false, $client_flags);
+        $link = @PMA_DBI_real_connect(
+            $drizzle, $cfg['Server']['host'], $server_port, $server_socket, $user,
+            $password, false, $client_flags
+        );
         // Retry with empty password if we're allowed to
-        if ($link == false && isset($cfg['Server']['nopassword']) && $cfg['Server']['nopassword'] && !$is_controluser) {
-            $link = @PMA_DBI_real_connect($drizzle, $cfg['Server']['host'], $server_port, $server_socket, $user, null, false, $client_flags);
+        if ($link == false && isset($cfg['Server']['nopassword'])
+            && $cfg['Server']['nopassword'] && !$is_controluser
+        ) {
+            $link = @PMA_DBI_real_connect(
+                $drizzle, $cfg['Server']['host'], $server_port, $server_socket,
+                $user, null, false, $client_flags
+            );
         }
     } else {
-        $link = @PMA_DBI_real_connect($drizzle, $server['host'], $server_port, $server_socket, $user, $password);
+        $link = @PMA_DBI_real_connect(
+            $drizzle, $server['host'], $server_port, $server_socket,
+            $user, $password
+        );
     }
 
     if ($link == false) {
         if ($is_controluser) {
-            trigger_error(__('Connection for controluser as defined in your configuration failed.'), E_USER_WARNING);
+            trigger_error(
+                __(
+                    'Connection for controluser as defined'
+                    . ' in your configuration failed.'
+                ),
+                E_USER_WARNING
+            );
             return false;
         }
         // we could be calling PMA_DBI_connect() to connect to another
@@ -333,8 +356,8 @@ function PMA_DBI_getError($link = null)
         $link =& $GLOBALS['userlink'];
         // Do not stop now. We still can get the error code
         // with mysqli_connect_errno()
-//    } else {
-//        return false;
+        // } else {
+        //    return false;
     }
 
     if (null !== $link) {

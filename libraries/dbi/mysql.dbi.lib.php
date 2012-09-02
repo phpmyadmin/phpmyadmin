@@ -32,8 +32,9 @@ if (! defined('PMA_MYSQL_CLIENT_API')) {
  *
  * @return mixed   false on error or a mysql connection resource on success
  */
-function PMA_DBI_real_connect($server, $user, $password, $client_flags, $persistent = false)
-{
+function PMA_DBI_real_connect($server, $user, $password, $client_flags,
+    $persistent = false
+) {
     global $cfg;
 
     if (empty($client_flags)) {
@@ -120,22 +121,37 @@ function PMA_DBI_connect($user, $password, $is_controluser = false, $server = nu
     }
 
     if (!$server) {
-        $link = PMA_DBI_real_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, $password, empty($client_flags) ? null : $client_flags);
+        $link = PMA_DBI_real_connect(
+            $cfg['Server']['host'] . $server_port . $server_socket,
+            $user, $password, empty($client_flags) ? null : $client_flags
+        );
 
-      // Retry with empty password if we're allowed to
+        // Retry with empty password if we're allowed to
         if (empty($link) && $cfg['Server']['nopassword'] && !$is_controluser) {
-            $link = PMA_DBI_real_connect($cfg['Server']['host'] . $server_port . $server_socket, $user, '', empty($client_flags) ? null : $client_flags);
+            $link = PMA_DBI_real_connect(
+                $cfg['Server']['host'] . $server_port . $server_socket,
+                $user, '', empty($client_flags) ? null : $client_flags
+            );
         }
     } else {
         if (!isset($server['host'])) {
             $link = PMA_DBI_real_connect($server_socket, $user, $password, null);
         } else {
-            $link = PMA_DBI_real_connect($server['host'] . $server_port . $server_socket, $user, $password, null);
+            $link = PMA_DBI_real_connect(
+                $server['host'] . $server_port . $server_socket,
+                $user, $password, null
+            );
         }
     }
     if (empty($link)) {
         if ($is_controluser) {
-            trigger_error(__('Connection for controluser as defined in your configuration failed.'), E_USER_WARNING);
+            trigger_error(
+                __(
+                    'Connection for controluser as defined'
+                    . ' in your configuration failed.'
+                ),
+                E_USER_WARNING
+            );
             return false;
         }
         // we could be calling PMA_DBI_connect() to connect to another
@@ -351,10 +367,10 @@ function PMA_DBI_getError($link = null)
     if (null === $link && isset($GLOBALS['userlink'])) {
         $link =& $GLOBALS['userlink'];
 
-// Do not stop now. On the initial connection, we don't have a $link,
-// we don't have a $GLOBALS['userlink'], but we can catch the error code
-//    } else {
-//            return false;
+        // Do not stop now. On the initial connection, we don't have a $link,
+        // we don't have a $GLOBALS['userlink'], but we can catch the error code
+        //    } else {
+        //            return false;
     }
 
     if (null !== $link && false !== $link) {
