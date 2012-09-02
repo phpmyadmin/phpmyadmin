@@ -96,6 +96,15 @@ class PMA_Index
         $this->set($params);
     }
 
+    /**
+     * Creates(if not already created) and returns the corresponding Index object
+     *
+     * @param string $schema     database name
+     * @param string $table      table name
+     * @param string $index_name index name
+     *
+     * @return object corresponding Index object
+     */
     static public function singleton($schema, $table, $index_name = '')
     {
         PMA_Index::_loadIndexes($table, $schema);
@@ -193,6 +202,13 @@ class PMA_Index
         }
     }
 
+    /**
+     * Adds a list of columns to the index
+     *
+     * @param array $columns array containing details about the columns
+     *
+     * @return void
+     */
     public function addColumns($columns)
     {
         $_columns = array();
@@ -234,6 +250,13 @@ class PMA_Index
         return isset($this->_columns[$column]);
     }
 
+    /**
+     * Sets index details
+     *
+     * @param array $params index details
+     *
+     * @return void
+     */
     public function set($params)
     {
         if (isset($params['columns'])) {
@@ -276,21 +299,41 @@ class PMA_Index
         }
     }
 
+    /**
+     * Returns the number of columns of the index
+     *
+     * @return integer the number of the columns
+     */
     public function getColumnCount()
     {
         return count($this->_columns);
     }
 
+    /**
+     * Returns the index comment
+     *
+     * @return string index comment
+     */
     public function getComment()
     {
         return $this->_comment;
     }
 
+    /**
+     * Returns index remarks
+     *
+     * @return string index remarks
+     */
     public function getRemarks()
     {
         return $this->_remarks;
     }
 
+    /**
+     * Returns concatenated remarks and comment
+     *
+     * @return string concatenated remarks and comment
+     */
     public function getComments()
     {
         $comments = $this->getRemarks();
@@ -302,11 +345,21 @@ class PMA_Index
         return $comments;
     }
 
+    /**
+     * Returns index type ((BTREE, SPATIAL, FULLTEXT, HASH, RTREE)
+     *
+     * @return string index type
+     */
     public function getType()
     {
         return $this->_type;
     }
 
+    /**
+     * Returns index choice (PRIMARY, UNIQUE, INDEX, SPATIAL, FULLTEXT)
+     *
+     * @return index choice
+     */
     public function getChoice()
     {
         return $this->_choice;
@@ -328,6 +381,11 @@ class PMA_Index
         );
     }
 
+    /**
+     * Returns HTML for the index choice selector
+     *
+     * @return string HTML for the index choice selector
+     */
     public function generateIndexSelector()
     {
         $html_options = '';
@@ -348,11 +406,24 @@ class PMA_Index
         return $html_options;
     }
 
+    /**
+     * Returns how the index is packed
+     *
+     * @return string how the index is packed
+     */
     public function getPacked()
     {
         return $this->_packed;
     }
 
+    /**
+     * Returns 'No'/false if the index is not packed,
+     * how the index is packed if packed
+     *
+     * @param boolean $as_text whether to output should be in text
+     *
+     * @return mixed how index is paked
+     */
     public function isPacked($as_text = false)
     {
         if ($as_text) {
@@ -374,11 +445,23 @@ class PMA_Index
         return $this->_packed;
     }
 
+    /**
+     * Returns integer 0 if the index cannot contain duplicates, 1 if it can
+     *
+     * @return integer 0 if the index cannot contain duplicates, 1 if it can
+     */
     public function getNonUnique()
     {
         return $this->_non_unique;
     }
 
+    /**
+     * Returns whether the index is a 'Unique' index
+     *
+     * @param boolean $as_text whether to output should be in text
+     *
+     * @return mixed whether the index is a 'Unique' index
+     */
     public function isUnique($as_text = false)
     {
         if ($as_text) {
@@ -396,16 +479,33 @@ class PMA_Index
         return $r[$this->_non_unique];
     }
 
+    /**
+     * Returns the name of the index
+     *
+     * @return string the name of the index
+     */
     public function getName()
     {
         return $this->_name;
     }
 
+    /**
+     * Sets the name of the index
+     *
+     * @param string $name index name
+     *
+     * @return void
+     */
     public function setName($name)
     {
         $this->_name = (string) $name;
     }
 
+    /**
+     * Returns the columns of the index
+     *
+     * @return array the columns of the index
+     */
     public function getColumns()
     {
         return $this->_columns;
@@ -424,7 +524,7 @@ class PMA_Index
      */
     static public function getView($table, $schema, $print_mode = false)
     {
-        
+
         $common_functions = PMA_CommonFunctions::getInstance();
         $indexes = PMA_Index::getFromTable($table, $schema);
 
@@ -508,7 +608,7 @@ class PMA_Index
                     $this_params['message_to_show'] = sprintf(
                         __('Index %s has been dropped'), $index->getName()
                     );
-                    
+
                     $js_msg = PMA_jsFormat(
                         'ALTER TABLE ' . $table . ' DROP INDEX '
                         . $index->getName() . ';'

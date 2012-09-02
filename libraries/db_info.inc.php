@@ -42,9 +42,9 @@ $pos = $_SESSION['tmp_user_values']['table_limit_offset'];
  */
 function PMA_fillTooltip(&$tooltip_truename, &$tooltip_aliasname, $table)
 {
-    
+
     $common_functions = PMA_CommonFunctions::getInstance();
-    
+
     if (strstr($table['Comment'], '; InnoDB free') === false) {
         if (!strstr($table['Comment'], 'InnoDB free') === false) {
             // here we have just InnoDB generated part
@@ -169,7 +169,8 @@ if (true === $cfg['SkipLockedTables']) {
                             $sts_tmp['Type'] =& $sts_tmp['Engine'];
                         }
 
-                        if (! empty($tbl_group) && $cfg['ShowTooltipAliasTB']
+                        if (! empty($tbl_group)
+                            && $cfg['ShowTooltipAliasTB']
                             && ! preg_match('@' . preg_quote($tbl_group, '@') . '@i', $sts_tmp['Comment'])
                         ) {
                             continue;

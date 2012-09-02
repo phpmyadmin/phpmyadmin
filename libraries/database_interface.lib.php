@@ -181,7 +181,7 @@ function PMA_DBI_try_query($query, $link = null, $options = 0,
  * Run multi query statement and return results
  *
  * @param string $multi_query multi query statement to execute
- * @param mysqli $link  mysqli object
+ * @param mysqli $link        mysqli object
  *
  * @return mysqli_result collection | boolean(false)
  */

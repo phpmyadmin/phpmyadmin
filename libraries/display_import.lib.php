@@ -226,13 +226,13 @@ if ($GLOBALS['is_upload'] && !empty($cfg['UploadDir'])) { ?>
             <li>
                 <input type="radio" name="file_location" id="radio_import_file" />
                 <?php
-echo $common_functions->getBrowseUploadFileBlock($max_upload_size);
+    echo $common_functions->getBrowseUploadFileBlock($max_upload_size);
                 ?>
             </li>
             <li>
                 <input type="radio" name="file_location" id="radio_local_import_file" />
                 <?php
-echo $common_functions->getSelectUploadFileBlock($import_list, $cfg['UploadDir']);
+    echo $common_functions->getSelectUploadFileBlock($import_list, $cfg['UploadDir']);
                 ?>
             </li>
             </ul>
