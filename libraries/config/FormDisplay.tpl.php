@@ -197,37 +197,39 @@ function display_input($path, $name, $type, $value, $description = '',
         $tr_class .= ($tr_class ? ' ' : '') . 'disabled-field';
     }
     $tr_class = $tr_class ? ' class="' . $tr_class . '"' : '';
-?>
-<tr<?php echo $tr_class ?>>
-    <th>
-        <label for="<?php echo htmlspecialchars($path) ?>"><?php
-            echo $name ?></label>
-        <?php
-    if (!empty($opts['doc']) || !empty($opts['wiki'])) { ?>
-        <span class="doc">
-            <?php if (!empty($opts['doc'])) {
-                ?><a href="<?php echo $base_dir . $opts['doc']  ?>"
-                target="documentation"><?php echo $icons['help']; ?></a><?php } ?>
-            <?php if (!empty($opts['wiki'])) {
-                ?><a href="<?php echo $opts['wiki'] ?>" target="wiki"><?php
-                echo $icons['info']; ?></a><?php
-            } ?>
-        </span>
-        <?php
+
+    echo '<tr' . $tr_class . '>';
+    echo '<th>';
+    echo '<label for="' . htmlspecialchars($path) . '">' . $name . '</label>';
+
+    if (! empty($opts['doc']) || ! empty($opts['wiki'])) {
+        echo '<span class="doc">';
+        if (! empty($opts['doc'])) {
+            echo '<a href="' . $base_dir . $opts['doc']
+                . '" target="documentation">' . $icons['help'] . '</a>';
+        }
+        if (! empty($opts['wiki'])) {
+            echo '<a href="' . $opts['wiki']
+                . '" target="wiki">' . $icons['info'] . '</a>';
+        }
+        echo '</span>';
     }
+
     if ($option_is_disabled) {
-            ?>
-            <span class="disabled-notice" title="<?php echo __(
-            'This setting is disabled, it will not be applied to your configuration')
-            ?>"><?php echo __('Disabled') ?></span>
-        <?php
+        echo '<span class="disabled-notice" title="';
+        echo __(
+            'This setting is disabled, it will not be applied to your configuration'
+        );
+        echo '">' . __('Disabled') . "</span>";
     }
+
     if (!empty($description)) {
-        ?><small><?php echo $description ?></small><?php
-    } ?>
-    </th>
-    <td>
-    <?php
+        echo '<small>' . $description . '</small>';
+    }
+
+    echo '</th>';
+    echo '<td>';
+
     switch ($type) {
     case 'text':
         echo '<input type="text" size="60" ' . $name_id . $field_class
