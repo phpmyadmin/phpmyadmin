@@ -9,15 +9,13 @@
 /*
  * Include to test.
  */
-
 require_once 'libraries/CommonFunctions.class.php';
 require_once 'libraries/php-gettext/gettext.inc';
 
 class PMA_bookmark_test extends PHPUnit_Framework_TestCase
 {
-
-    public function setUp(){
-
+    public function setUp()
+    {
         if (! function_exists('PMA_getRelationsParam')) {
             function PMA_getRelationsParam()
             {
@@ -47,11 +45,14 @@ class PMA_bookmark_test extends PHPUnit_Framework_TestCase
 
         include_once 'libraries/bookmark.lib.php';
     }
+
     /**
      * Test for PMA_Bookmark_getParams
+     *
+     * @return void
      */
-    public function testPMA_Bookmark_getParams(){
-
+    public function testPMA_Bookmark_getParams()
+    {
         $this->assertEquals(
             false,
             PMA_Bookmark_getParams()
@@ -60,8 +61,11 @@ class PMA_bookmark_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Bookmark_getList
+     *
+     * @return void
      */
-    public function testPMA_Bookmark_getList(){
+    public function testPMA_Bookmark_getList()
+    {
         $this->assertEquals(
             array(),
             PMA_Bookmark_getList('phpmyadmin')
@@ -70,8 +74,11 @@ class PMA_bookmark_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Bookmark_get
+     *
+     * @return void
      */
-    public function testPMA_Bookmark_get(){
+    public function testPMA_Bookmark_get()
+    {
         if (! function_exists('PMA_DBI_fetch_value')) {
             function PMA_DBI_fetch_value()
             {
@@ -86,28 +93,35 @@ class PMA_bookmark_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for PMA_Bookmark_save
+     *
+     * @return void
      */
-    public function testPMA_Bookmark_save(){
+    public function testPMA_Bookmark_save()
+    {
         if (! function_exists('PMA_DBI_query')) {
             function PMA_DBI_query()
             {
                 return false;
             }
         }
-        $this->assertfalse(
-            PMA_Bookmark_save(array(
-                'dbase' => 'phpmyadmin',
-                'user' => 'phpmyadmin',
-                'query' => 'SELECT "phpmyadmin"',
-                'label' => 'phpmyadmin',
-            ))
+
+        $bookmark = array(
+            'dbase' => 'phpmyadmin',
+            'user' => 'phpmyadmin',
+            'query' => 'SELECT "phpmyadmin"',
+            'label' => 'phpmyadmin',
         );
+
+        $this->assertfalse(PMA_Bookmark_save($bookmark));
     }
 
     /**
      * Test for PMA_Bookmark_delete
+     *
+     * @return void
      */
-    public function testPMA_Bookmark_delete(){
+    public function testPMA_Bookmark_delete()
+    {
         if (! function_exists('PMA_DBI_try_query')) {
             function PMA_DBI_try_query()
             {

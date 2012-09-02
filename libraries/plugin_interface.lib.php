@@ -108,10 +108,10 @@ function PMA_pluginCheckboxCheck($section, $opt)
     if (isset($_GET[$opt])
         || ! isset($_GET['repopulate'])
         && ((isset($GLOBALS['timeout_passed'])
-            && $GLOBALS['timeout_passed']
-            && isset($_REQUEST[$opt]))
-            || (isset($GLOBALS['cfg'][$section][$opt])
-                && $GLOBALS['cfg'][$section][$opt]))
+        && $GLOBALS['timeout_passed']
+        && isset($_REQUEST[$opt]))
+        || (isset($GLOBALS['cfg'][$section][$opt])
+        && $GLOBALS['cfg'][$section][$opt]))
     ) {
         return ' checked="checked"';
     }
