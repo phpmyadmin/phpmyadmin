@@ -1442,7 +1442,7 @@ class PMA_Config
      *
      * @static
      */
-    static protected function _getFontsizeOptions($current_size = '82%')
+    static protected function getFontsizeOptions($current_size = '82%')
     {
         $unit = preg_replace('/[0-9.]*/', '', $current_size);
         $value = preg_replace('/[^0-9.]*/', '', $current_size);
@@ -1503,7 +1503,7 @@ class PMA_Config
      *
      * @return string html selectbox
      */
-    static protected function _getFontsizeSelection()
+    static protected function getFontsizeSelection()
     {
         $current_size = $GLOBALS['PMA_Config']->get('fontsize');
         // for the case when there is no config file (this is supported)
@@ -1514,7 +1514,7 @@ class PMA_Config
                 $current_size = '82%';
             }
         }
-        $options = PMA_Config::_getFontsizeOptions($current_size);
+        $options = PMA_Config::getFontsizeOptions($current_size);
 
         $return = '<label for="select_fontsize">' . __('Font size') . ':</label>' . "\n";
         $return .= '<select name="set_fontsize" id="select_fontsize" class="autosubmit">' . "\n";
@@ -1542,7 +1542,7 @@ class PMA_Config
         return '<form name="form_fontsize_selection" id="form_fontsize_selection"'
             . ' method="post" action="index.php" target="_parent">' . "\n"
             . PMA_generate_common_hidden_inputs() . "\n"
-            . PMA_Config::_getFontsizeSelection() . "\n"
+            . PMA_Config::getFontsizeSelection() . "\n"
             . '</form>';
     }
 
