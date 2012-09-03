@@ -81,7 +81,8 @@ $(function() {
             nodes: [ {
                 dataPoints: [{type: 'statusvar', name: 'Qcache_hits'}, {type: 'statusvar', name: 'Com_select'}],
                 transformFn: 'qce'
-             } ]
+             } ],
+            maxYLabel: []
         },
         // Query cache usage
         'qcu': {
@@ -92,7 +93,8 @@ $(function() {
             nodes: [ {
                 dataPoints: [{type: 'statusvar', name: 'Qcache_free_memory'}, {type: 'servervar', name: 'query_cache_size'}],
                 transformFn: 'qcu'
-             } ]
+             } ],
+            maxYLabel: []
         }
     };
 
@@ -107,7 +109,8 @@ $(function() {
                 } ],
                 nodes: [ {
                     dataPoints: [{ type: 'cpu', name: 'loadavg'}]
-                 } ]
+                 } ],
+                maxYLabel: []
             },
 
             'memory': {
@@ -124,7 +127,8 @@ $(function() {
                 } ],
                 nodes: [{ dataPoints: [{ type: 'memory', name: 'MemTotal' }], valueDivisor: 1024 },
                         { dataPoints: [{ type: 'memory', name: 'MemUsed' }], valueDivisor: 1024 }
-                ]
+                ],
+                maxYLabel: []
             },
 
             'swap': {
@@ -140,7 +144,8 @@ $(function() {
                 } ],
                 nodes: [{ dataPoints: [{ type: 'memory', name: 'SwapTotal' }]},
                         { dataPoints: [{ type: 'memory', name: 'SwapUsed' }]}
-                ]
+                ],
+                maxYLabel: []
             }
         });
         break;
@@ -152,7 +157,8 @@ $(function() {
                 series: [ {
                     label: PMA_messages['strAverageLoad']
                 } ],
-                nodes: [{ dataPoints: [{ type: 'cpu', name: 'irrelevant' }], transformFn: 'cpu-linux'}]
+                nodes: [{ dataPoints: [{ type: 'cpu', name: 'irrelevant' }], transformFn: 'cpu-linux'}],
+                maxYLabel: []
             },
             'memory': {
                 title: PMA_messages['strSystemMemory'],
@@ -167,7 +173,8 @@ $(function() {
                     { dataPoints: [{ type: 'memory', name: 'Cached' }],  valueDivisor: 1024 },
                     { dataPoints: [{ type: 'memory', name: 'Buffers' }], valueDivisor: 1024 },
                     { dataPoints: [{ type: 'memory', name: 'MemFree' }], valueDivisor: 1024 }
-                ]                
+                ],
+                maxYLabel: []
              },
             'swap': {
                 title: PMA_messages['strSystemSwap'],
@@ -180,7 +187,8 @@ $(function() {
                     { dataPoints: [{ type: 'memory', name: 'SwapUsed' }], valueDivisor: 1024 },
                     { dataPoints: [{ type: 'memory', name: 'SwapCached' }], valueDivisor: 1024 },
                     { dataPoints: [{ type: 'memory', name: 'SwapFree' }], valueDivisor: 1024 }
-                ]
+                ],
+                maxYLabel: []
             }
         });
         break;
@@ -190,7 +198,8 @@ $(function() {
     defaultChartGrid = {
         'c0': {  title: PMA_messages['strQuestions'],
                  series: [{label: PMA_messages['strQuestions']}],
-                 nodes: [{dataPoints: [{ type: 'statusvar', name: 'Questions' }], display: 'differential' }]
+                 nodes: [{dataPoints: [{ type: 'statusvar', name: 'Questions' }], display: 'differential' }],
+                maxYLabel: []
         },
         'c1': {
                  title: PMA_messages['strChartConnectionsTitle'],
@@ -198,7 +207,8 @@ $(function() {
                           { label: PMA_messages['strProcesses']} ],
                  nodes: [ { dataPoints: [{ type: 'statusvar', name: 'Connections' }], display: 'differential' },
                           { dataPoints: [{ type: 'proc', name: 'processes' }] }
-                ]
+                ],
+                maxYLabel: []
         },
         'c2': {
                  title: PMA_messages['strTraffic'],
@@ -209,7 +219,8 @@ $(function() {
                  nodes: [
                     { dataPoints: [{ type: 'statusvar', name: 'Bytes_sent' }], display: 'differential', valueDivisor: 1024 },
                     { dataPoints: [{ type: 'statusvar', name: 'Bytes_received' }], display: 'differential', valueDivisor: 1024 }
-                ]
+                ],
+                maxYLabel: []
          }
     };
 
@@ -843,8 +854,6 @@ $(function() {
 
     /* Initializes the monitor, called only once */
     function initGrid() {
-        var settings;
-        var series;
 
         /* Apply default values & config */
         if (window.localStorage) {
@@ -1083,7 +1092,7 @@ $(function() {
         };
 */
 
-        settings = {
+        var settings = {
             title: chartObj.title,
             axes: {
                 xaxis: {
@@ -1097,8 +1106,8 @@ $(function() {
                 },
                 yaxis: {
                     min:0,
-                    max:500,
-                    numberTicks:6
+                    max:100,
+                    tickInterval: 20
                 }
             },
             seriesDefaults: {
@@ -1124,7 +1133,12 @@ $(function() {
             $('table#chartGrid tr:last').append('<td><div class="ui-state-default monitorChart" id="' + 'gridchart' + runtime.chartAI + '"></div></td>');
         }
 
-        chartObj.chart = $.jqplot('gridchart' + runtime.chartAI, [[,]], settings);
+        var series = [];
+        for(i in chartObj.series){
+            series.push([[,]]);
+        }
+
+        chartObj.chart = $.jqplot('gridchart' + runtime.chartAI, series, settings);
         chartObj.numPoints = 0;
 
         if (initialize != true) {
@@ -1289,18 +1303,22 @@ $(function() {
 
                     // Set y value, if defined
                     if (value != undefined) {
-                        /*elem.chart.series[j].addPoint(
-                            { x: chartData.x, y: value },
-                            false,
-                            elem.numPoints >= runtime.gridMaxPoints
-                        );*/
                         elem.chart.series[j].data.push([chartData.x, value]);
+                        if(elem.maxYLabel.length == 0) {
+                            elem.maxYLabel.push([runtime.xmax, 100]);
+                        }else if(value > elem.maxYLabel[elem.maxYLabel.length - 1][1]) {
+                            elem.maxYLabel.push([chartData.x, value + 200]);
+                        } else if(elem.maxYLabel[elem.maxYLabel.length - 1][0] < runtime.xmin) {
+                            elem.maxYLabel.pop();
+                        }
                     }
                 }
 
                 // update chart options
                 elem.chart['axes']['xaxis']['max'] = runtime.xmax;
                 elem.chart['axes']['xaxis']['min'] = runtime.xmin;
+                elem.chart['axes']['yaxis']['max'] = (elem.maxYLabel.length == 0) ? 100 : elem.maxYLabel[elem.maxYLabel.length - 1][1];
+                elem.chart['axes']['yaxis']['tickInterval'] = (elem.maxYLabel.length == 0) ? 20 : Math.floor(elem.maxYLabel[elem.maxYLabel.length - 1][1]/5);
                 i++;
                 runtime.charts[orderKey].numPoints++;
                 if (runtime.redrawCharts) {
