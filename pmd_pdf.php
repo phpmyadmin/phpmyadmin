@@ -95,9 +95,9 @@ $header->disableMenu();
 <br>
 <div>
 <?php
-    if (! empty($message)) {
-        $message->display();
-    }
+if (! empty($message)) {
+    $message->display();
+}
 ?>
   <form name="form1" method="post" action="pmd_pdf.php">
 <?php
