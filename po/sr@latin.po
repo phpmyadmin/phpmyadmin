@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-28 14:48+0200\n"
-"PO-Revision-Date: 2012-08-28 14:41+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Serbian (latin) <http://l10n.cihar.com/projects/phpmyadmin/"
-"master/sr@latin/>\n"
+"PO-Revision-Date: 2012-09-03 20:00+0200\n"
+"Last-Translator: Vojislav Pavić <vpavic@gmail.com>\n"
+"Language-Team: Serbian (latin) "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/sr@latin/>\n"
 "Language: sr@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
@@ -109,6 +109,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"Datoteka %s nije dostupna na ovom sistemu, molimo vas posetite "
+"www.phpmyadmin.net za više informacija."
 
 #: db_create.php:74
 #, php-format
@@ -14053,10 +14055,9 @@ msgid ""
 msgstr "Broj upisa učinjenih u InnoDB ostavu bafera."
 
 #: libraries/advisory_rules.txt:436
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "Max InnoDB log size"
-msgstr "Veličina prihvatnika"
+msgstr "Maksimalna veličina InnoDB log-a"
 
 #: libraries/advisory_rules.txt:439
 msgid "The InnoDB log file size is inadequately large."
@@ -14118,16 +14119,15 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:452
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
-msgstr "maks. istovremenih veza"
+msgstr "MyISAM istovremenih upisivanja"
 
 #: libraries/advisory_rules.txt:455
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "Enable concurrent_insert by setting it to 1"
-msgstr "maks. istovremenih veza"
+msgstr ""
+"Omogući istovremeno umetanje tako što ćeš postaviti concurrent_insert na 1"
 
 #: libraries/advisory_rules.txt:456
 msgid ""
@@ -14135,6 +14135,10 @@ msgid ""
 "writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
+"Postavljanjem {concurrent_insert} na 1 smanjuje se nadmetanje između čitača "
+"i upisivača nad datom tabelom. Pogledajte takođe <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">MySQL "
+"Documentation</a>"
 
 #: libraries/advisory_rules.txt:457
 #, fuzzy
