@@ -118,6 +118,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Provider for testSetDisplayModeCase1
+     *
      * @return array data for testSetDisplayModeCase1
      */
     public function providerForTestSetDisplayModeCase1()
@@ -197,6 +199,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Provider for testSetDisplayModeCase2
+     *
      * @return array data for testSetDisplayModeCase2
      */
     public function providerForTestSetDisplayModeCase2()
@@ -274,6 +278,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Provider for testSetDisplayModeCase3
+     *
      * @return array data for testSetDisplayModeCase3
      */
     public function providerForTestSetDisplayModeCase3()
@@ -356,6 +362,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Provider for testGetTableNavigationButton
+     *
      * @return array array data for testGetTableNavigationButton
      */
     public function providerForTestGetTableNavigationButton()
@@ -550,8 +558,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getOperationLinksForVerticleTable - case 1
      *
-     * @param string $operation        edit/copy/delete
-     * @param string $output           output of _getOperationLinksForVerticleTable
+     * @param string $operation edit/copy/delete
+     * @param string $output    output of _getOperationLinksForVerticleTable
      *
      * @dataProvider dataProviderForTestGetOperationLinksForVerticleTableCase1
      */
@@ -604,8 +612,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getOperationLinksForVerticleTable - case 2
      *
-     * @param string $operation        edit/copy/delete
-     * @param string $output           output of _getOperationLinksForVerticleTable
+     * @param string $operation edit/copy/delete
+     * @param string $output    output of _getOperationLinksForVerticleTable
      *
      * @dataProvider dataProviderForTestGetOperationLinksForVerticleTableCase2
      */
@@ -659,8 +667,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getOperationLinksForVerticleTable - case 3
      *
-     * @param string $operation        edit/copy/delete
-     * @param string $output           output of _getOperationLinksForVerticleTable
+     * @param string $operation edit/copy/delete
+     * @param string $output    output of _getOperationLinksForVerticleTable
      *
      * @dataProvider dataProviderForTestGetOperationLinksForVerticleTableCase3
      */
@@ -711,9 +719,8 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getCheckBoxesForMultipleRowOperations
      *
-     * @param array  $vertical_display the information to display
-     * @param string $dir              _left / _right
-     * @param string $output           output of _getCheckBoxesForMultipleRowOperations
+     * @param string $dir    _left / _right
+     * @param string $output output of _getCheckBoxesForMultipleRowOperations
      *
      * @dataProvider dataProviderForGetCheckBoxesForMultipleRowOperations
      */
@@ -875,7 +882,6 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * @param string $del_query         delete query
      * @param string $id_suffix         suffix for the id
      * @param string $class             css classes for the td element
-     * @param string $output            output of _getSortParams
      * @param string $output            output of _getCheckboxForMultiRowSubmissions
      *
      * @dataProvider dataProviderForGetCheckboxForMultiRowSubmissions
@@ -1825,7 +1831,7 @@ class PMA_DisplayResults_test extends PHPUnit_Framework_TestCase
      * Test _setHighlightedColumnGlobalField
      *
      * @param array $analyzed_sql the analyzed query
-     * @param array $output   setting value of _setHighlightedColumnGlobalField
+     * @param array $output       setting value of _setHighlightedColumnGlobalField
      *
      * @dataProvider dataProviderForTestSetHighlightedColumnGlobalField
      */
