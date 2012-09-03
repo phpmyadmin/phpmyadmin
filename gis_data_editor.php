@@ -351,8 +351,8 @@ if ($geom_type == 'GEOMETRYCOLLECTION') {
             <h3><?php echo __('Output'); ?></h3>
             <p><?php
 echo __(
-    'Chose "GeomFromText" from the "Function" column and paste the'
-    . ' below string into the "Value" field'
+    'Choose "GeomFromText" from the "Function" column and paste the'
+    . ' string below into the "Value" field'
 ); 
 ?></p>
             <textarea id="gis_data_textarea" cols="95" rows="5">
