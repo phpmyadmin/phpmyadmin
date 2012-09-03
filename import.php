@@ -91,7 +91,11 @@ if (! empty($sql_query)) {
 // upload limit has been reached, let's assume the second possibility.
 ;
 if ($_POST == array() && $_GET == array()) {
-    $message = PMA_Message::error(__('You probably tried to upload too large file. Please refer to %sdocumentation%s for ways to workaround this limit.'));
+    $message = PMA_Message::error(
+        __('You probably tried to upload a file that is too large.'
+        . ' Please refer to %sdocumentation%s for a workaround for this limit.'
+        )
+    );
     $message->addParam('[a@./Documentation.html#faq1_16@_blank]');
     $message->addParam('[/a]');
 
