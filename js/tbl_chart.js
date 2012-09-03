@@ -51,9 +51,11 @@ $(document).ready(function() {
             text: $('input[name="chartTitle"]').attr('value')
             //margin:20
         },
-        //plotOptions: {
-        //    series: {}
-        //}
+        legend: {
+            show: true,
+            placement: 'outsideGrid',
+            location: 'se'
+        }
     }
 
     $('#querychart').html('');
@@ -146,9 +148,16 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
     var series = new Array();
     var xaxis = { type: 'linear' };
     var yaxis = new Object();
+    var legends = new Array();
 
     $.each(data[0],function(index,element) {
         columnNames.push(index);
+    });
+
+    $.each(columnNames, function(index, element) {
+        if (parseInt(chart_xaxis_idx) != index) {
+            legends.push(element);
+        }
     });
 
     switch(passedNonJqplotSettings.chart.type) {
@@ -156,19 +165,13 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
         case 'spline':
         case 'line':
         case 'bar':
-            //xaxis.categories = new Array();
-
             if (chart_series == 'columns') {
                 var j = 0;
                 for (var i=0; i < columnNames.length; i++)
                     if (i != chart_xaxis_idx) {
                         series[j] = new Array();
-                        //series[j].data = new Array();
-                        //series[j].name = columnNames[i];
 
                         $.each(data,function(key,value) {
-                            //series[j].data.push(parseFloat(value[columnNames[i]]));
-                            //series[j].data[0].push(parseFloat(value[columnNames[i]]));
                             series[j].push(
                                 [
                                  value[columnNames[chart_xaxis_idx]],
@@ -176,8 +179,6 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
                                  parseFloat(value[columnNames[i]])
                                 ]
                             );
-                            //if( j== 0 && chart_xaxis_idx != -1 && ! xaxis.categories[value[columnNames[chart_xaxis_idx]]])
-                                //xaxis.categories.push(value[columnNames[chart_xaxis_idx]]);
                         });
                         j++;
                     }
@@ -209,9 +210,6 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
                         xaxis.categories.push(value[columnNames[chart_xaxis_idx]]);
                 });
             }
-
-
-
             if(columnNames.length == 2)
                 yaxis.title = { text: columnNames[0] };
             break;
@@ -268,6 +266,11 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
     }
     // Overwrite/Merge default settings with passedsettings
     $.extend(true, settings, passedSettings);
+
+    settings.series = new Array();
+    for (var i = 0; i < legends.length; i++) {
+        settings.series.push({ label: legends[i] });
+    }
 
     return $.jqplot('querychart', series, settings);
 }
