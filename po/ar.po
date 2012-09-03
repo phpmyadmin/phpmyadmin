@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 06:32-0400\n"
-"PO-Revision-Date: 2012-09-03 01:09+0200\n"
+"PO-Revision-Date: 2012-09-03 16:34+0200\n"
 "Last-Translator: مترجم حرّ <metehyi@gmail.com>\n"
 "Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/3-5/ar/>\n"
 "Language: ar\n"
@@ -654,7 +654,7 @@ msgstr "المجموع"
 #: db_structure.php:542 libraries/StorageEngine.class.php:338
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr "%s هو محرك التخزين الإفتراضي لخادم MySQL"
+msgstr "%s هو محرك التخزين الغيابي على خادم الMySQL هذا."
 
 #: db_structure.php:571 db_structure.php:588 db_structure.php:589
 #: libraries/display_tbl.lib.php:2498 libraries/display_tbl.lib.php:2503
@@ -2361,13 +2361,15 @@ msgstr "خطأ غير معروف عند رفع الملف."
 
 #: libraries/File.class.php:278
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
-msgstr "حجم الملف المرفوع يتجاوز حجم الملف المسموح به في إعدادات php"
+msgstr "إنّ الملف المرفوع يتجاوز توجيهة upload_max_filesize في الملف php.ini."
 
 #: libraries/File.class.php:281
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
-msgstr "حجم الملف المرفوع يتجاوز حجم الملف المحدد به في نموذج HTML"
+msgstr ""
+"إنّ الملف المرفوع يتجاوز التوجيهة MAX_FILE_SIZE اللتي تم تحديدها في إستمارة "
+"الــHTML."
 
 #: libraries/File.class.php:284
 msgid "The uploaded file was only partially uploaded."
@@ -3067,7 +3069,7 @@ msgstr "إختر مجلد الرفع من الخادم <b>%s</b>:"
 #: libraries/common.lib.php:3321 libraries/sql_query_form.lib.php:452
 #: tbl_change.php:904
 msgid "The directory you set for upload work cannot be reached"
-msgstr "الدليل الذي حددته لتحميل عملك لا يمكن الوصول إليه."
+msgstr "لا يمكن الوصول إلى الدليل اللذي عينته لعمل التحميل"
 
 #: libraries/common.lib.php:3330
 msgid "There are no files to upload"
@@ -3275,8 +3277,6 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
 msgstr ""
-"تفعيل هذا يسمح للصفحات الموجودة في أماكن مختلفة بإستدعاء phpMyAdmin داخل "
-"إطار, وهذا من المحتمل ان يسبب ثغرة أمنية."
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
@@ -5881,7 +5881,7 @@ msgstr ""
 
 #: libraries/display_tbl.lib.php:2614
 msgid "Print view (with full texts)"
-msgstr "عرض الطباعة (مع النصوص الكاملة)."
+msgstr "عرض الطباعة (مع النصوص الكاملة)"
 
 #: libraries/display_tbl.lib.php:2664 tbl_chart.php:86
 #| msgid "Display PDF schema"
@@ -7070,7 +7070,7 @@ msgstr "تحويل المتصفح"
 #: libraries/relation.lib.php:119
 msgid ""
 "Please see the documentation on how to update your column_comments table"
-msgstr "رجاء راجع التوثيق لكيفية تحديث جدول Column_comments."
+msgstr "رجاء راجع التوثيق لكيفية تحديث جدول column_comments."
 
 #: libraries/relation.lib.php:124 libraries/sql_query_form.lib.php:376
 msgid "Bookmarked SQL query"
@@ -7399,7 +7399,7 @@ msgstr "نوع الإجراء غير صحيح: %s"
 
 #: libraries/rte/rte_routines.lib.php:266
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr "عفواً , فشل في إستعادة الإجراء المزال"
+msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:271
 #, php-format
@@ -8874,7 +8874,7 @@ msgstr "مجموعات المحارف وCollations"
 
 #: server_databases.php:69
 msgid "No databases selected."
-msgstr "لا قواعد بيانات محددة"
+msgstr ".لا قواعد بيانات محددة"
 
 #: server_databases.php:80
 #, php-format
@@ -8912,7 +8912,7 @@ msgstr ""
 
 #: server_export.php:20
 msgid "View dump (schema) of databases"
-msgstr "اعرض أو احفظ بناء قواعد البيانات."
+msgstr ""
 
 #: server_plugins.php:81
 msgid "Modules"
@@ -9224,7 +9224,7 @@ msgstr ""
 
 #: server_privileges.php:1368
 msgid "Reloading the privileges"
-msgstr "قيد إعادة قراءة الصلاحيات."
+msgstr "إعادة تحميل الأمتيازات"
 
 #: server_privileges.php:1386
 msgid "The selected users have been deleted successfully."
