@@ -83,8 +83,11 @@ $(document).ready(function() {
     });
     $('input[name="chartTitle"]').keyup(function() {
         var title = $(this).attr('value');
-        if (title.length == 0) title = ' ';
-        //currentChart.setTitle({ text: title });
+        if (title.length == 0) {
+            title = ' ';
+        }
+        currentSettings.title = $('input[name="chartTitle"]').val();
+        drawChart();
     });
     $('input[name="chartTitle"]').blur(function() {
         if ($(this).val() != temp_chart_title) {
