@@ -9926,13 +9926,13 @@ msgstr "#"
 #: server_status.php:1066
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr "Tráfico de rede desde inicialização"
+msgstr "Tráfico de rede desde inicialização: %s"
 
 #: server_status.php:1075
 #, php-format
 #| msgid "s MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr "Esse servidor MySQL está rodando por %s. Ele foi iniciado em %s."
+msgstr "Esse servidor MySQL está rodando por %1$s. Ele foi iniciado em %2$s."
 
 #: server_status.php:1086
 msgid ""
@@ -11304,7 +11304,7 @@ msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
-"%A compactação em Zip%s requer funções (%s) que não estão disponíveis neste "
+"%sA compactação em Zip%s requer funções (%s) que não estão disponíveis neste "
 "sistema."
 
 #: setup/lib/index.lib.php:296
