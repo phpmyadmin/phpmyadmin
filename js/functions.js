@@ -132,9 +132,9 @@ function PMA_current_version(data)
 {
     var current = parseVersionString(pmaversion);
     var latest = parseVersionString(data['version']);
-    var version_information_message = PMA_messages['strLatestAvailable'] + ' ' + data['version'];
+    var version_information_message = PMA_messages['strLatestAvailable'] + ' ' + escapeHtml(data['version']);
     if (latest > current) {
-        var message = $.sprintf(PMA_messages['strNewerVersion'], data['version'], data['date']);
+        var message = $.sprintf(PMA_messages['strNewerVersion'], escapeHtml(data['version']), escapeHtml(data['date']));
         if (Math.floor(latest / 10000) == Math.floor(current / 10000)) {
             /* Security update */
             klass = 'error';
