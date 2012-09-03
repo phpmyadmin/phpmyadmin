@@ -834,8 +834,6 @@ $(function() {
 
     /* Initializes the monitor, called only once */
     function initGrid() {
-        var settings;
-        var series;
 
         /* Apply default values & config */
         if (window.localStorage) {
@@ -1071,7 +1069,7 @@ $(function() {
         };
 */
 
-        settings = {
+        var settings = {
             title: chartObj.title,
             axes: {
                 xaxis: {
@@ -1112,7 +1110,12 @@ $(function() {
             $('table#chartGrid tr:last').append('<td><div class="ui-state-default monitorChart" id="' + 'gridchart' + runtime.chartAI + '"></div></td>');
         }
 
-        chartObj.chart = $.jqplot('gridchart' + runtime.chartAI, [[,]], settings);
+        var series = [];
+        for(i in chartObj.series){
+            series.push([[,]]);
+        }
+
+        chartObj.chart = $.jqplot('gridchart' + runtime.chartAI, series, settings);
         chartObj.numPoints = 0;
 
         if (initialize != true) {
