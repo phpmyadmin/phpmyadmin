@@ -636,21 +636,24 @@ EOT;
         // if all column names were selected to display, we do a 'SELECT *'
         // (more efficient and this helps prevent a problem in IE
         // if one of the rows is edited and we come back to the Select results)
-        if (isset($_POST['zoom_submit'])) {
+        if (isset($_POST['zoom_submit']) || ! empty($_POST['displayAllColumns'])) {
             $sql_query .= '* ';
         } else {
-           $sql_query .= ! empty($_POST['displayAllColumns'])
-                ? '* '
-                : implode(', ', $this->getCommonFunctions()->backquote($_POST['columnsToDisplay']));
+            $sql_query .= implode(
+                ', ',
+                $this->getCommonFunctions()->backquote($_POST['columnsToDisplay'])
+            );
         } // end if
 
-        $sql_query .= ' FROM ' . $this->getCommonFunctions()->backquote($_POST['table']);
+        $sql_query .= ' FROM '
+            . $this->getCommonFunctions()->backquote($_POST['table']);
         $whereClause = $this->_generateWhereClause();
         $sql_query .= $whereClause;
 
         // if the search results are to be ordered
         if (isset($_POST['orderByColumn']) && $_POST['orderByColumn'] != '--nil--') {
-            $sql_query .= ' ORDER BY ' . $this->getCommonFunctions()->backquote($_POST['orderByColumn'])
+            $sql_query .= ' ORDER BY '
+                . $this->getCommonFunctions()->backquote($_POST['orderByColumn'])
                 . ' ' . $_POST['order'];
         } // end if
         return $sql_query;

@@ -130,7 +130,9 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
     }
 
     /**
-     * @return array   detail pages
+     * Get information pages
+     *
+     * @return array detail pages
      */
     function getInfoPages()
     {
@@ -178,7 +180,10 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
             . ' / '
             . join(
                 '&nbsp;',
-                $common_functions->formatByteDown($status['Innodb_buffer_pool_pages_total'] * $status['Innodb_page_size'])
+                $common_functions->formatByteDown(
+                    $status['Innodb_buffer_pool_pages_total']
+                    * $status['Innodb_page_size']
+                )
             ) . "\n"
             . '            </th>' . "\n"
             . '        </tr>' . "\n"
@@ -225,75 +230,89 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
             . '</td>' . "\n"
             . '        </tr>';
 
-            // not present at least since MySQL 5.1.40
-            if (isset($status['Innodb_buffer_pool_pages_latched'])) {
-                $output .= '        <tr class="even">'
-                . '            <th>' . __('Latched pages') . '</th>'
-                . '            <td class="value">'
-                . $common_functions->formatNumber(
-                    $status['Innodb_buffer_pool_pages_latched'], 0
-                )
-                . '</td>'
-                . '        </tr>';
-            }
+        // not present at least since MySQL 5.1.40
+        if (isset($status['Innodb_buffer_pool_pages_latched'])) {
+            $output .= '        <tr class="even">'
+            . '            <th>' . __('Latched pages') . '</th>'
+            . '            <td class="value">'
+            . $common_functions->formatNumber(
+                $status['Innodb_buffer_pool_pages_latched'], 0
+            )
+            . '</td>'
+            . '        </tr>';
+        }
 
-            $output .= '    </tbody>' . "\n"
-                . '</table>' . "\n\n"
-                . '<table class="data" id="table_innodb_bufferpool_activity">' . "\n"
-                . '    <caption class="tblHeaders">' . "\n"
-                . '        ' . __('Buffer Pool Activity') . "\n"
-                . '    </caption>' . "\n"
-                . '    <tbody>' . "\n"
-                . '        <tr class="odd">' . "\n"
-                . '            <th>' . __('Read requests') . '</th>' . "\n"
-                . '            <td class="value">'
-                . $common_functions->formatNumber(
-                    $status['Innodb_buffer_pool_read_requests'], 0
-                ) . "\n"
-                . '</td>' . "\n"
-                . '        </tr>' . "\n"
-                . '        <tr class="even">' . "\n"
-                . '            <th>' . __('Write requests') . '</th>' . "\n"
-                . '            <td class="value">'
-                . $common_functions->formatNumber(
-                    $status['Innodb_buffer_pool_write_requests'], 0
-                ) . "\n"
-                . '</td>' . "\n"
-                . '        </tr>' . "\n"
-                . '        <tr class="odd">' . "\n"
-                . '            <th>' . __('Read misses') . '</th>' . "\n"
-                . '            <td class="value">'
-                . $common_functions->formatNumber(
-                    $status['Innodb_buffer_pool_reads'], 0
-                ) . "\n"
-                . '</td>' . "\n"
-                . '        </tr>' . "\n"
-                . '        <tr class="even">' . "\n"
-                . '            <th>' . __('Write waits') . '</th>' . "\n"
-                . '            <td class="value">'
-                . $common_functions->formatNumber(
-                    $status['Innodb_buffer_pool_wait_free'], 0
-                ) . "\n"
-                . '</td>' . "\n"
-                . '        </tr>' . "\n"
-                . '        <tr class="odd">' . "\n"
-                . '            <th>' . __('Read misses in %') . '</th>' . "\n"
-                . '            <td class="value">'
-                . ($status['Innodb_buffer_pool_read_requests'] == 0
-                    ? '---'
-                    : htmlspecialchars($common_functions->formatNumber($status['Innodb_buffer_pool_reads'] * 100 / $status['Innodb_buffer_pool_read_requests'], 3, 2)) . ' %') . "\n"
-                . '</td>' . "\n"
-                . '        </tr>' . "\n"
-                . '        <tr class="even">' . "\n"
-                . '            <th>' . __('Write waits in %') . '</th>' . "\n"
-                . '            <td class="value">'
-                . ($status['Innodb_buffer_pool_write_requests'] == 0
-                    ? '---'
-                    : htmlspecialchars($common_functions->formatNumber($status['Innodb_buffer_pool_wait_free'] * 100 / $status['Innodb_buffer_pool_write_requests'], 3, 2)) . ' %') . "\n"
-                . '</td>' . "\n"
-                . '        </tr>' . "\n"
-                . '    </tbody>' . "\n"
-                . '</table>' . "\n";
+        $output .= '    </tbody>' . "\n"
+            . '</table>' . "\n\n"
+            . '<table class="data" id="table_innodb_bufferpool_activity">' . "\n"
+            . '    <caption class="tblHeaders">' . "\n"
+            . '        ' . __('Buffer Pool Activity') . "\n"
+            . '    </caption>' . "\n"
+            . '    <tbody>' . "\n"
+            . '        <tr class="odd">' . "\n"
+            . '            <th>' . __('Read requests') . '</th>' . "\n"
+            . '            <td class="value">'
+            . $common_functions->formatNumber(
+                $status['Innodb_buffer_pool_read_requests'], 0
+            ) . "\n"
+            . '</td>' . "\n"
+            . '        </tr>' . "\n"
+            . '        <tr class="even">' . "\n"
+            . '            <th>' . __('Write requests') . '</th>' . "\n"
+            . '            <td class="value">'
+            . $common_functions->formatNumber(
+                $status['Innodb_buffer_pool_write_requests'], 0
+            ) . "\n"
+            . '</td>' . "\n"
+            . '        </tr>' . "\n"
+            . '        <tr class="odd">' . "\n"
+            . '            <th>' . __('Read misses') . '</th>' . "\n"
+            . '            <td class="value">'
+            . $common_functions->formatNumber(
+                $status['Innodb_buffer_pool_reads'], 0
+            ) . "\n"
+            . '</td>' . "\n"
+            . '        </tr>' . "\n"
+            . '        <tr class="even">' . "\n"
+            . '            <th>' . __('Write waits') . '</th>' . "\n"
+            . '            <td class="value">'
+            . $common_functions->formatNumber(
+                $status['Innodb_buffer_pool_wait_free'], 0
+            ) . "\n"
+            . '</td>' . "\n"
+            . '        </tr>' . "\n"
+            . '        <tr class="odd">' . "\n"
+            . '            <th>' . __('Read misses in %') . '</th>' . "\n"
+            . '            <td class="value">'
+            . ($status['Innodb_buffer_pool_read_requests'] == 0
+                ? '---'
+                : htmlspecialchars(
+                    $common_functions->formatNumber(
+                        $status['Innodb_buffer_pool_reads'] * 100
+                        / $status['Innodb_buffer_pool_read_requests'],
+                        3,
+                        2
+                    )
+                ) . ' %') . "\n"
+            . '</td>' . "\n"
+            . '        </tr>' . "\n"
+            . '        <tr class="even">' . "\n"
+            . '            <th>' . __('Write waits in %') . '</th>' . "\n"
+            . '            <td class="value">'
+            . ($status['Innodb_buffer_pool_write_requests'] == 0
+                ? '---'
+                : htmlspecialchars(
+                    $common_functions->formatNumber(
+                        $status['Innodb_buffer_pool_wait_free'] * 100
+                        / $status['Innodb_buffer_pool_write_requests'],
+                        3,
+                        2
+                    )
+                ) . ' %') . "\n"
+            . '</td>' . "\n"
+            . '        </tr>' . "\n"
+            . '    </tbody>' . "\n"
+            . '</table>' . "\n";
         return $output;
     }
 
@@ -305,15 +324,18 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
     function getPageStatus()
     {
         return '<pre id="pre_innodb_status">' . "\n"
-            . htmlspecialchars(PMA_DBI_fetch_value('SHOW INNODB STATUS;', 0, 'Status')) . "\n"
+            . htmlspecialchars(
+                PMA_DBI_fetch_value('SHOW INNODB STATUS;', 0, 'Status')
+            ) . "\n"
             . '</pre>' . "\n";
     }
 
     /**
-     * returns content for page $id
+     * Returns content for page $id
      *
-     * @param string  $id page id
-     * @return string  html output
+     * @param string $id page id
+     *
+     * @return string html output
      */
     function getPage($id)
     {
@@ -338,8 +360,8 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
     }
 
     /**
-     *
      * Gets the InnoDB plugin version number
+     *
      * http://www.innodb.com/products/innodb_plugin
      * (do not confuse this with phpMyAdmin's storage engine plugins!)
      *
@@ -351,8 +373,8 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
     }
 
     /**
-     *
      * Gets the InnoDB file format
+     *
      * (works only for the InnoDB plugin)
      * http://www.innodb.com/products/innodb_plugin
      * (do not confuse this with phpMyAdmin's storage engine plugins!)
@@ -361,12 +383,14 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
      */
     function getInnodbFileFormat()
     {
-        return PMA_DBI_fetch_value("SHOW GLOBAL VARIABLES LIKE 'innodb_file_format';", 0, 1);
+        return PMA_DBI_fetch_value(
+            "SHOW GLOBAL VARIABLES LIKE 'innodb_file_format';", 0, 1
+        );
     }
 
     /**
-     *
      * Verifies if this server supports the innodb_file_per_table feature
+     *
      * (works only for the InnoDB plugin)
      * http://www.innodb.com/products/innodb_plugin
      * (do not confuse this with phpMyAdmin's storage engine plugins!)
@@ -375,7 +399,9 @@ class PMA_StorageEngine_innodb extends PMA_StorageEngine
      */
     function supportsFilePerTable()
     {
-        $innodb_file_per_table = PMA_DBI_fetch_value("SHOW GLOBAL VARIABLES LIKE 'innodb_file_per_table';", 0, 1);
+        $innodb_file_per_table = PMA_DBI_fetch_value(
+            "SHOW GLOBAL VARIABLES LIKE 'innodb_file_per_table';", 0, 1
+        );
         if ($innodb_file_per_table == 'ON') {
             return true;
         } else {
