@@ -37,12 +37,6 @@ $(document).ready(function() {
     }
 
     var currentSettings = {
-        //xAxis: {
-        //    title: { text: $('input[name="xaxis_label"]').attr('value') }
-        //},
-        //yAxis: {
-        //    title: { text: $('input[name="yaxis_label"]').attr('value') }
-        //},
         axes: {
             xaxis: {
                 label: $('input[name="xaxis_label"]').val(),
@@ -94,7 +88,7 @@ $(document).ready(function() {
     });
     $('input[name="chartTitle"]').blur(function() {
         if ($(this).val() != temp_chart_title) {
-            drawChart(true);
+            drawChart();
         }
     });
 
@@ -110,25 +104,23 @@ $(document).ready(function() {
 
     /* Sucks, we cannot just set axis labels, we have to redraw the chart completely */
     $('input[name="xaxis_label"]').keyup(function() {
-        //currentSettings.xAxis.title.text = $(this).attr('value');
         currentSettings.axes.xaxis.label = $(this).attr('value');
-        drawChart(true);
+        drawChart();
     });
     $('input[name="yaxis_label"]').keyup(function() {
-        //currentSettings.yAxis.title.text = $(this).attr('value');
         currentSettings.axes.yaxis.label = $(this).attr('value');
-        drawChart(true);
+        drawChart();
     });
 
-    function drawChart(noAnimation) {
+    function drawChart() {
         nonJqplotSettings.chart.width = $('#resizer').width() - 20;
         nonJqplotSettings.chart.height = $('#resizer').height() - 20;
 
-        if(currentChart != null) currentChart.destroy();
-
-        //if(noAnimation) currentSettings.plotOptions.series.animation = false;
+        // todo: a better way using .replot() ?
+        if (currentChart != null) {
+            currentChart.destroy();
+        }
         currentChart = PMA_queryChart(chart_data, currentSettings, nonJqplotSettings);
-        //if(noAnimation) currentSettings.plotOptions.series.animation = true;
     }
 
     drawChart();
@@ -161,24 +153,28 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
         case 'spline':
         case 'line':
         case 'bar':
-            xaxis.categories = new Array();
+            //xaxis.categories = new Array();
 
-            if(chart_series == 'columns') {
+            if (chart_series == 'columns') {
                 var j = 0;
-                for(var i=0; i<columnNames.length; i++)
-                    if(i != chart_xaxis_idx) {
-                        series[j] = new Object();
-                        series[j].data = new Array();
-                        // for jqplot:
-                        series[j].data[0] = new Array();
-                        series[j].name = columnNames[i];
+                for (var i=0; i < columnNames.length; i++)
+                    if (i != chart_xaxis_idx) {
+                        series[j] = new Array();
+                        //series[j].data = new Array();
+                        //series[j].name = columnNames[i];
 
                         $.each(data,function(key,value) {
                             //series[j].data.push(parseFloat(value[columnNames[i]]));
-                            // jqplot needs an extra level of array here
-                            series[j].data[0].push(parseFloat(value[columnNames[i]]));
-                            if( j== 0 && chart_xaxis_idx != -1 && ! xaxis.categories[value[columnNames[chart_xaxis_idx]]])
-                                xaxis.categories.push(value[columnNames[chart_xaxis_idx]]);
+                            //series[j].data[0].push(parseFloat(value[columnNames[i]]));
+                            series[j].push(
+                                [
+                                 value[columnNames[chart_xaxis_idx]],
+                                 // todo: not always a number?
+                                 parseFloat(value[columnNames[i]])
+                                ]
+                            );
+                            //if( j== 0 && chart_xaxis_idx != -1 && ! xaxis.categories[value[columnNames[chart_xaxis_idx]]])
+                                //xaxis.categories.push(value[columnNames[chart_xaxis_idx]]);
                         });
                         j++;
                     }
@@ -233,9 +229,19 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
         title: {
             text: '' 
             //margin:20
-        },
-        //series: series,
+        }
     };
+
+    if (passedNonJqplotSettings.chart.type == 'line') {
+        settings.axes = {
+            xaxis: {
+                renderer: $.jqplot.CategoryAxisRenderer
+            },
+            yaxis: {
+                renderer: $.jqplot.CategoryAxisRenderer
+            }
+        }
+    }
 
     if (passedNonJqplotSettings.chart.type == 'bar') {
         settings.seriesDefaults = {
@@ -260,5 +266,5 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
     // Overwrite/Merge default settings with passedsettings
     $.extend(true, settings, passedSettings);
 
-    $.jqplot('querychart', series[0].data, settings);
+    return $.jqplot('querychart', series, settings);
 }
