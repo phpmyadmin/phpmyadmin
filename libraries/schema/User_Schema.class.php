@@ -1,8 +1,9 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Schema support library
  *
- * @package PhpMyAdmin
+ * @package PhpMyAdmin-schema
  */
 if (! defined('PHPMYADMIN')) {
     exit;
@@ -12,6 +13,8 @@ if (! defined('PHPMYADMIN')) {
  * This Class interacts with the user to gather the information
  * about their tables for which they want to export the relational schema
  * export options are shown to user from they can choose
+ *
+ * @package PhpMyAdmin-schema
  */
 
 class PMA_User_Schema
@@ -22,12 +25,12 @@ class PMA_User_Schema
     public $autoLayoutInternal;
     public $pageNumber;
     public $c_table_rows;
-    public $action;    
+    public $action;
     private $_common_functions;
-    
+
     /**
      * Get CommmonFunctions
-     * 
+     *
      * @return CommonFunctions object
      */
     public function getCommonFunctions()
@@ -37,12 +40,19 @@ class PMA_User_Schema
         }
         return $this->_common_functions;
     }
-    
 
+    /**
+     * Sets action to be performed with schema.
+     *
+     * @param string $value action name
+     *
+     * @return void
+     */
     public function setAction($value)
     {
         $this->action = $value;
     }
+
     /**
      * This function will process the user defined pages
      * and tables which will be exported as Relational schema
@@ -138,7 +148,9 @@ class PMA_User_Schema
         <table>
         <tr>
         <td><label for="id_newpage"><?php echo __('Page name'); ?></label></td>
-        <td><input type="text" name="newpage" id="id_newpage" size="20" maxlength="50" /></td>
+        <td>
+        <input type="text" name="newpage" id="id_newpage" size="20" maxlength="50" />
+        </td>
         </tr>
         <tr>
         <td><?php echo __('Automatic layout based on'); ?></td>
@@ -182,8 +194,10 @@ class PMA_User_Schema
             . $this->getCommonFunctions()->backquote($GLOBALS['cfgRelation']['db']) . '.'
             . $this->getCommonFunctions()->backquote($cfgRelation['pdf_pages'])
             . ' WHERE db_name = \'' . $this->getCommonFunctions()->sqlAddSlashes($db) . '\'';
-        $page_rs    = PMA_queryAsControlUser($page_query, false, PMA_DBI_QUERY_STORE);
-        
+        $page_rs    = PMA_queryAsControlUser(
+            $page_query, false, PMA_DBI_QUERY_STORE
+        );
+
         if ($page_rs && PMA_DBI_num_rows($page_rs) > 0) {
             ?>
             <form method="get" action="schema_edit.php" name="frm_select_page">
@@ -425,20 +439,27 @@ class PMA_User_Schema
                 unset($test_rs);
                 ?>
             </select><br />
-            <?php } else { ?>
+            <?php
+            } else {
+            ?>
             <input type="hidden" name="pdf_page_number" value="<?php echo htmlspecialchars($this->chosenPage); ?>" />
-            <?php } ?>
+            <?php
+            }
+            ?>
             <input type="hidden" name="do" value="process_export" />
             <input type="hidden" name="chpage" value="<?php echo $chpage; ?>" />
             <input type="checkbox" name="show_grid" id="show_grid_opt" />
             <label for="show_grid_opt"><?php echo __('Show grid'); ?></label><br />
             <input type="checkbox" name="show_color" id="show_color_opt" checked="checked" />
-            <label for="show_color_opt"><?php echo __('Show color'); ?></label><br />
+            <label for="show_color_opt"><?php echo __('Show color'); ?></label>
+            <br />
             <input type="checkbox" name="show_table_dimension" id="show_table_dim_opt" />
-            <label for="show_table_dim_opt"><?php echo __('Show dimension of tables'); ?>
+            <label for="show_table_dim_opt">
+            <?php echo __('Show dimension of tables'); ?>
             </label><br />
             <input type="checkbox" name="all_tables_same_width" id="all_tables_same_width" />
-            <label for="all_tables_same_width"><?php echo __('Display all tables with the same width'); ?>
+            <label for="all_tables_same_width">
+            <?php echo __('Display all tables with the same width'); ?>
             </label><br />
             <input type="checkbox" name="with_doc" id="with_doc" checked="checked" />
             <label for="with_doc"><?php echo __('Data Dictionary'); ?></label><br />
@@ -476,7 +497,7 @@ class PMA_User_Schema
     *
     * @param string  $db       name of database selected
     * @param integer $chpage   selected page
-    * @param array   $tabExist
+    * @param array   $tabExist array of booleans
     *
     * @return void
     * @access private
@@ -514,6 +535,8 @@ class PMA_User_Schema
     /**
      * Check if there are tables that need to be deleted in dashboard,
      * if there are, ask the user for allowance
+     *
+     * @param array $array_sh_page array of tables on page
      *
      * @return void
      * @access private
@@ -792,8 +815,9 @@ class PMA_User_Schema
      * @return void
      * @access private
      */
-    public function addRelationCoordinates($all_tables, $pageNumber, $db, $cfgRelation)
-    {
+    public function addRelationCoordinates(
+        $all_tables, $pageNumber, $db, $cfgRelation
+    ) {
         /*
          * Now generate the coordinates for the schema
          * in a clockwise spiral and add to co-ordinates table
