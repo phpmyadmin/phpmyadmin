@@ -178,9 +178,6 @@ class PMA_sysinfoSunos
         $mem['SwapUsed'] = $this->_kstat('unix:0:vminfo:swap_alloc') / 1024;
         $mem['SwapFree'] = $this->_kstat('unix:0:vminfo:swap_free') / 1024;
 
-        foreach ($mem as $idx=>$value)
-            $mem[$idx] = intval($value);
-
         return $mem;
     }
 }
