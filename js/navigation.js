@@ -849,6 +849,16 @@ PMA_fastFilter.filter.prototype.request = function ()
 {
     var that = this;
     clearTimeout(this.timeout);
+    if (that.$this.find('li.fast_filter').find('img.throbber').length == 0) {
+        that.$this.find('li.fast_filter').append(
+            $('<div class="throbber"></div>').append(
+                $('#pma_navigation_content')
+                    .find('img.throbber')
+                    .clone()
+                    .css('visibility', 'visible')
+            )
+        );
+    }
     this.timeout = setTimeout(function () {
         if (that.xhr) {
             that.xhr.abort();
@@ -869,6 +879,7 @@ PMA_fastFilter.filter.prototype.request = function ()
             data: params,
             complete: function (jqXHR) {
                 var data = $.parseJSON(jqXHR.responseText);
+                that.$this.find('li.fast_filter').find('div.throbber').remove();
                 if (data && data.results) {
                     var $listItem = $('<li />', {'class':'moreResults'})
                         .appendTo(that.$this.find('li.fast_filter'));
@@ -924,5 +935,6 @@ PMA_fastFilter.filter.prototype.restore = function (focus)
     this.searchClause = '';
     this.$this.find('.moreResults').remove();
     this.$this.find('div.pageselector').show();
+    this.$this.find('div.throbber').remove();
     ScrollHandler.displayScrollbar();
 };
