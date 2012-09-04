@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-03 19:56+0200\n"
-"PO-Revision-Date: 2012-08-28 14:41+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-09-03 21:02+0200\n"
+"Last-Translator: Vojislav Pavić <vpavic@gmail.com>\n"
 "Language-Team: Serbian (latin) <http://l10n.cihar.com/projects/phpmyadmin/"
 "master/sr@latin/>\n"
 "MIME-Version: 1.0\n"
@@ -109,6 +109,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
+"Datoteka %s nije dostupna na ovom sistemu, molimo vas posetite "
+"www.phpmyadmin.net za više informacija."
 
 #: db_create.php:74
 #, php-format
@@ -303,7 +305,7 @@ msgid "Database %1$s has been copied to %2$s"
 msgstr "Baza %s je prekopirana u %s"
 
 #: db_operations.php:260
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "ditional features for working with linked tables have been ctivated. To d "
 #| "out why click %shere%s."
@@ -311,8 +313,8 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
 msgstr ""
-"Dodatne mogućnosti za rad sa povezanim tabelama su isključene. Da biste "
-"saznali zašto, kliknite %sovde%s."
+"Konfiguraciono skladište phpMyAmin-a je deaktivirano. Da biste saznali "
+"zašto, kliknite %sovde%s."
 
 #: db_printview.php:100 db_tracking.php:82 db_tracking.php:201
 #: libraries/Menu.class.php:191 libraries/config/messages.inc.php:514
@@ -382,10 +384,10 @@ msgid "You have to choose at least one column to display"
 msgstr "Morate izabrati bar jednu kolonu za prikaz"
 
 #: db_qbe.php:60
-#, fuzzy, php-format
+#, php-format
 #| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
-msgstr "vizuelni kreator"
+msgstr "Pređi na %svizuelnu izradu%s"
 
 #: db_search.php:30 libraries/plugins/auth/AuthenticationConfig.class.php:80
 #: libraries/plugins/auth/AuthenticationConfig.class.php:95
@@ -396,15 +398,13 @@ msgid "Access denied"
 msgstr "Pristup odbijen"
 
 #: db_structure.php:87
-#, fuzzy
 #| msgid "No tables found in database."
 msgid "No tables found in database"
-msgstr "Tabele nisu pronađene u bazi."
+msgstr "Nema tabela u bazi."
 
 #: db_tracking.php:76
-#, fuzzy
 msgid "Tracked tables"
-msgstr "Proveri tabelu"
+msgstr "Praćene tabele"
 
 #: db_tracking.php:81 libraries/Menu.class.php:168
 #: libraries/config/messages.inc.php:508
@@ -424,14 +424,12 @@ msgid "Database"
 msgstr "Baza podataka"
 
 #: db_tracking.php:83
-#, fuzzy
 msgid "Last version"
-msgstr "Napravi relaciju"
+msgstr "Poslednja verzija"
 
 #: db_tracking.php:84 tbl_tracking.php:721
-#, fuzzy
 msgid "Created"
-msgstr "Napravi"
+msgstr "Kreirano"
 
 #: db_tracking.php:85 tbl_tracking.php:722
 msgid "Updated"
@@ -479,49 +477,42 @@ msgid "not active"
 msgstr ""
 
 #: db_tracking.php:141
-#, fuzzy
 msgid "Versions"
-msgstr "Persijski"
+msgstr "Verzije"
 
 #: db_tracking.php:142 tbl_tracking.php:481 tbl_tracking.php:755
 msgid "Tracking report"
 msgstr ""
 
 #: db_tracking.php:143 tbl_tracking.php:282 tbl_tracking.php:759
-#, fuzzy
 msgid "Structure snapshot"
-msgstr "Samo struktura"
+msgstr "Snimak strukture"
 
 #: db_tracking.php:196
-#, fuzzy
 msgid "Untracked tables"
-msgstr "Proveri tabelu"
+msgstr "Nepraćene tabele"
 
 #: db_tracking.php:215 libraries/structure.lib.php:1533
-#, fuzzy
 msgid "Track table"
-msgstr "Proveri tabelu"
+msgstr "Prati tabelu"
 
 #: db_tracking.php:243
-#, fuzzy
 msgid "Database Log"
-msgstr "Baza podataka"
+msgstr "Log baze podataka"
 
 #: export.php:44
-#, fuzzy
 #| msgid "Bar type"
 msgid "Bad type!"
-msgstr "Vrsta upita"
+msgstr "Pogrešan tip!"
 
 #: export.php:95
 msgid "Selected export type has to be saved in file!"
 msgstr "Odabrani tip izvoza mora biti sačuvan u datoteku!"
 
 #: export.php:124
-#, fuzzy
 #| msgid "Routines"
 msgid "Bad parameters!"
-msgstr "Rutine"
+msgstr "Pogrešni parametri!"
 
 #: export.php:195 export.php:226 export.php:786
 #, php-format
@@ -547,9 +538,8 @@ msgid "Dump has been saved to file %s."
 msgstr "Sadržaj baze je sačuvan u datoteku %s."
 
 #: file_echo.php:21
-#, fuzzy
 msgid "Invalid export type"
-msgstr "Tip izvoza"
+msgstr "Pogrešan tip izvoza"
 
 #: gis_data_editor.php:92
 #, php-format
@@ -591,16 +581,14 @@ msgstr ""
 
 #: gis_data_editor.php:220 gis_data_editor.php:270 gis_data_editor.php:332
 #: js/messages.php:329
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add a point"
-msgstr "Dodaj %s polja"
+msgstr "Dodaj tačku"
 
 #: gis_data_editor.php:237 js/messages.php:324
-#, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
-msgstr "Linije se završavaju sa"
+msgstr "Linija teksta"
 
 #: gis_data_editor.php:240 gis_data_editor.php:305 js/messages.php:328
 msgid "Outer Ring"
@@ -611,31 +599,27 @@ msgid "Inner Ring"
 msgstr ""
 
 #: gis_data_editor.php:274
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add a linestring"
-msgstr "Dodaj novog korisnika"
+msgstr "Dodaj novu liniju teksta"
 
 #: gis_data_editor.php:274 gis_data_editor.php:335 js/messages.php:330
-#, fuzzy
 #| msgid "Add a new User"
 msgid "Add an inner ring"
-msgstr "Dodaj novog korisnika"
+msgstr "Dodaj unutrašnji prsten"
 
 #: gis_data_editor.php:290 js/messages.php:325
 msgid "Polygon"
 msgstr ""
 
 #: gis_data_editor.php:338 js/messages.php:331
-#, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add a polygon"
-msgstr "Dodaj %s polja"
+msgstr "Dodaj poligon"
 
 #: gis_data_editor.php:343
-#, fuzzy
 msgid "Add geometry"
-msgstr "Dodaj novog korisnika"
+msgstr "Dodaj geometriju"
 
 #: gis_data_editor.php:351
 msgid "Output"
@@ -759,26 +743,23 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Ovim ćete UNIŠTITI kompletnu bazu podataka!"
 
 #: js/messages.php:32
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to DESTROY a complete table!"
-msgstr "Ovim ćete UNIŠTITI kompletnu bazu podataka!"
+msgstr "Ovim ćete da OBRIŠETE kompletnu tabelu!"
 
 #: js/messages.php:33
-#, fuzzy
 #| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to TRUNCATE a complete table!"
-msgstr "Ovim ćete UNIŠTITI kompletnu bazu podataka!"
+msgstr "Ovim ćete ISPRAZNITI kompletnu tabelu!"
 
 #: js/messages.php:35
-#, fuzzy
 #| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
-msgstr "Dozvoljava umetanje i zamenu podataka."
+msgstr "Brisanje podataka o praćenju"
 
 #: js/messages.php:36
 msgid "Dropping Primary Key/Index"
-msgstr ""
+msgstr "Brisanje Primarnog ključa/Indeks-a"
 
 #: js/messages.php:37
 msgid "This operation could take a long time. Proceed anyway?"
@@ -793,29 +774,26 @@ msgid "This is not a number!"
 msgstr "Ovo nije broj!"
 
 #: js/messages.php:42
-#, fuzzy
 #| msgid "Index"
 msgid "Add Index"
-msgstr "Ključ"
+msgstr "Dodaj indeks"
 
 #: js/messages.php:43
-#, fuzzy
 #| msgid "Edit next row"
 msgid "Edit Index"
-msgstr "Uredi sledeći red"
+msgstr "Izmeni indeks"
 
 #: js/messages.php:44 tbl_indexes.php:332
-#, fuzzy, php-format
+#, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %d column(s) to index"
-msgstr "Dodaj %s polja"
+msgstr "Dodaj %d kolona u indeks"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:48
-#, fuzzy
 #| msgid "Total"
 msgid "Total count"
-msgstr "Ukupno"
+msgstr "Ukupan broj"
 
 #: js/messages.php:51
 msgid "The host name is empty!"
@@ -839,22 +817,19 @@ msgstr "Lozinke nisu identične!"
 #: libraries/server_privileges.lib.php:1649
 #: libraries/server_privileges.lib.php:2557
 #: libraries/server_privileges.lib.php:2858
-#, fuzzy
 #| msgid "Any user"
 msgid "Add user"
-msgstr "Bilo koji korisnik"
+msgstr "Dodaj korisnika"
 
 #: js/messages.php:56
-#, fuzzy
 #| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
-msgstr "Ponovo učitavam privilegije"
+msgstr "Ponovono učitavanje prava pristupa"
 
 #: js/messages.php:57
-#, fuzzy
 #| msgid "Remove selected users"
 msgid "Removing Selected Users"
-msgstr "Ukloni izabrane korisnike"
+msgstr "Uklanjanje izabranih korisnika"
 
 #: js/messages.php:58 js/messages.php:137 tbl_tracking.php:282
 #: tbl_tracking.php:481
@@ -873,19 +848,17 @@ msgid "Edit"
 msgstr "Promeni"
 
 #: js/messages.php:62 server_status.php:830
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Live traffic chart"
-msgstr "Izbor servera"
+msgstr "Grafikon trenutnog saobraćaja"
 
 #: js/messages.php:63 server_status.php:833
 msgid "Live conn./process chart"
 msgstr ""
 
 #: js/messages.php:64 server_status.php:855
-#, fuzzy
 msgid "Live query chart"
-msgstr "SQL upit"
+msgstr "Grafikon upita"
 
 #: js/messages.php:66
 msgid "Static data"
@@ -923,10 +896,9 @@ msgid "KiB received since last refresh"
 msgstr ""
 
 #: js/messages.php:78
-#, fuzzy
 #| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
-msgstr "Izbor servera"
+msgstr "Količina saobraćaja na serveru (u KiB)"
 
 #: js/messages.php:79
 msgid "Connections since last refresh"
@@ -937,10 +909,9 @@ msgid "Processes"
 msgstr "Procesi"
 
 #: js/messages.php:81
-#, fuzzy
 #| msgid "Connections"
 msgid "Connections / Processes"
-msgstr "Konekcije"
+msgstr "Veze / Procesi"
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: js/messages.php:83
@@ -953,15 +924,13 @@ msgid "Questions (executed statements by the server)"
 msgstr ""
 
 #: js/messages.php:87 server_status.php:808
-#, fuzzy
 msgid "Query statistics"
-msgstr "Statistike reda"
+msgstr "Statistika upita"
 
 #: js/messages.php:90
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Local monitor configuration incompatible"
-msgstr "Ne mogu da učitam podrazumevanu konfiguraciju iz: \"%1$s\""
+msgstr "Konfiguracija lokalnog nadgledanja nije kompatibilna"
 
 #: js/messages.php:91
 msgid ""
@@ -1653,10 +1622,10 @@ msgid "ENUM/SET editor"
 msgstr ""
 
 #: js/messages.php:273
-#, fuzzy, php-format
+#, php-format
 #| msgid "Number of fields"
 msgid "Values for column %s"
-msgstr "Broj polja"
+msgstr "Vrednosti za kolonu %s"
 
 #: js/messages.php:274
 msgid "Values for a new column"
@@ -2694,10 +2663,10 @@ msgstr[1] "%s pogodaka unutar tabele <i>%s</i>"
 msgstr[2] "%s pogodaka unutar tabele <i>%s</i>"
 
 #: libraries/DbSearch.class.php:380
-#, fuzzy, php-format
+#, php-format
 #| msgid "Dumping data for table"
 msgid "Delete the matches for the %s table?"
-msgstr "Prikaz podataka tabele"
+msgstr "Obriši rezultate pretrage za %s tabelu?"
 
 #: libraries/DbSearch.class.php:384 libraries/DisplayResults.class.php:3384
 #: libraries/DisplayResults.class.php:5043
@@ -2716,7 +2685,6 @@ msgid "Search in database"
 msgstr "Pretraživanje baze"
 
 #: libraries/DbSearch.class.php:413
-#, fuzzy
 #| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Reči ili vrednosti koje se traže (džoker: \"%\"):"
@@ -2730,7 +2698,6 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Reči se odvajaju razmakom (\" \")."
 
 #: libraries/DbSearch.class.php:446
-#, fuzzy
 #| msgid "Inside table(s):"
 msgid "Inside tables:"
 msgstr "Unutar tabela:"
@@ -7192,16 +7159,14 @@ msgid "Convert to Kana"
 msgstr ""
 
 #: libraries/mult_submits.inc.php:279 libraries/structure.lib.php:325
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Replace table prefix"
-msgstr "Zameni podatke u tabeli sa podacima iz datoteke"
+msgstr "Zameni prefix tabele"
 
 #: libraries/mult_submits.inc.php:279 libraries/structure.lib.php:327
-#, fuzzy
 #| msgid "Replace table data with file"
 msgid "Copy table with prefix"
-msgstr "Zameni podatke u tabeli sa podacima iz datoteke"
+msgstr "Kopiraj tabelu sa prefiksom"
 
 #: libraries/mult_submits.inc.php:282
 #, fuzzy
@@ -9855,9 +9820,8 @@ msgid "Sum"
 msgstr "Ukupno"
 
 #: libraries/structure.lib.php:323
-#, fuzzy
 msgid "Add prefix to table"
-msgstr "Baza ne postoji"
+msgstr "Dodaj prefix tabeli"
 
 #: libraries/structure.lib.php:348
 msgid "Check tables having overhead"
@@ -13893,7 +13857,7 @@ msgstr ""
 
 #: libraries/advisory_rules.txt:376
 msgid "Slow launch time"
-msgstr ""
+msgstr "Preugo vreme pokretanja"
 
 #: libraries/advisory_rules.txt:379
 msgid "Slow_launch_threads is above 2s"
@@ -13913,16 +13877,15 @@ msgid "slow_launch_time is set to %s"
 msgstr ""
 
 #: libraries/advisory_rules.txt:385
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "Percentage of used connections"
-msgstr "maks. istovremenih veza"
+msgstr "Procenat iskorišćenih veza"
 
 #: libraries/advisory_rules.txt:388
 msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "max_connections."
-msgstr ""
+msgstr "Maksimalni broj iskorišćenih veza se bliži vrednosti max_connections."
 
 #: libraries/advisory_rules.txt:389
 msgid ""
@@ -13938,16 +13901,14 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:392
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "Percentage of aborted connections"
-msgstr "maks. istovremenih veza"
+msgstr "Procenat prekinutih veza"
 
 #: libraries/advisory_rules.txt:395 libraries/advisory_rules.txt:402
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many connections are aborted."
-msgstr "Dozvoljava kreiranje privremenih tabela.."
+msgstr "Previše veza je odbačeno."
 
 #: libraries/advisory_rules.txt:396 libraries/advisory_rules.txt:403
 msgid ""
@@ -13963,28 +13924,27 @@ msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:399
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "Rate of aborted connections"
-msgstr "maks. istovremenih veza"
+msgstr "Stopa prekinutih veza"
 
 #: libraries/advisory_rules.txt:404
 #, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
+"Stopa prekinutih veza je %s, ova vrednost bi trebala da bude manja od 1 po "
+"satu."
 
 #: libraries/advisory_rules.txt:406
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Percentage of aborted clients"
-msgstr "Format datoteka za uvoz"
+msgstr "Procenat odbačenih klijenata"
 
 #: libraries/advisory_rules.txt:409 libraries/advisory_rules.txt:416
-#, fuzzy
 #| msgid "Allows creating temporary tables."
 msgid "Too many clients are aborted."
-msgstr "Dozvoljava kreiranje privremenih tabela.."
+msgstr "Previše klijenata je odbačeno."
 
 #: libraries/advisory_rules.txt:410 libraries/advisory_rules.txt:417
 msgid ""
@@ -13999,40 +13959,39 @@ msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:413
-#, fuzzy
 #| msgid "Format of imported file"
 msgid "Rate of aborted clients"
-msgstr "Format datoteka za uvoz"
+msgstr "Stopa odbačenih klijenata"
 
 #: libraries/advisory_rules.txt:418
-#, fuzzy, php-format
+#, php-format
 #| msgid "Sort buffer size"
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
-msgstr "Veličina prihvatnika za sortiranje"
+msgstr ""
+"Kod klijenata stopa prekida je %s, ova vrednost bi trebala biti manja od 1 "
+"po satu."
 
 #: libraries/advisory_rules.txt:422
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "Da li je InnoDB isključen?"
 
 #: libraries/advisory_rules.txt:425
-#, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "You do not have InnoDB enabled."
-msgstr "Ne mogu da učitam podrazumevanu konfiguraciju iz: \"%1$s\""
+msgstr "InnoDB nije aktiviran."
 
 #: libraries/advisory_rules.txt:426
 msgid "InnoDB is usually the better choice for table engines."
-msgstr ""
+msgstr "InnoDB je obično bolji izbor."
 
 #: libraries/advisory_rules.txt:427
 msgid "have_innodb is set to 'value'"
 msgstr ""
 
 #: libraries/advisory_rules.txt:429
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "InnoDB log size"
-msgstr "Veličina prihvatnika"
+msgstr "Veličina InnoDB log-a."
 
 #: libraries/advisory_rules.txt:432
 #, fuzzy
@@ -14065,10 +14024,9 @@ msgid ""
 msgstr "Broj upisa učinjenih u InnoDB ostavu bafera."
 
 #: libraries/advisory_rules.txt:436
-#, fuzzy
 #| msgid "Buffer pool size"
 msgid "Max InnoDB log size"
-msgstr "Veličina prihvatnika"
+msgstr "Maksimalna veličina InnoDB log-a"
 
 #: libraries/advisory_rules.txt:439
 msgid "The InnoDB log file size is inadequately large."
@@ -14091,7 +14049,7 @@ msgstr ""
 #: libraries/advisory_rules.txt:441
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr ""
+msgstr "Apsolutna veličina vašeg InnoDB log-a je %s MiB"
 
 #: libraries/advisory_rules.txt:443
 #, fuzzy
@@ -14130,16 +14088,15 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules.txt:452
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
-msgstr "maks. istovremenih veza"
+msgstr "MyISAM istovremenih upisivanja"
 
 #: libraries/advisory_rules.txt:455
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "Enable concurrent_insert by setting it to 1"
-msgstr "maks. istovremenih veza"
+msgstr ""
+"Omogući istovremeno umetanje tako što ćeš postaviti concurrent_insert na 1"
 
 #: libraries/advisory_rules.txt:456
 msgid ""
@@ -14147,12 +14104,15 @@ msgid ""
 "writers for a given table. See also <a href=\"http://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
+"Postavljanjem {concurrent_insert} na 1 smanjuje se nadmetanje između čitača "
+"i upisivača nad datom tabelom. Pogledajte takođe <a "
+"href=\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">MySQL "
+"Documentation</a>"
 
 #: libraries/advisory_rules.txt:457
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "concurrent_insert is set to 0"
-msgstr "maks. istovremenih veza"
+msgstr "concurrent_insert je postavljeno na 0"
 
 #, fuzzy
 #~| msgid "Do you really want to "
