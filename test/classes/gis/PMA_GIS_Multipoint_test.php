@@ -190,7 +190,8 @@ class PMA_GIS_MultipointTest extends PMA_GIS_GeomTest
         $this->assertTrue(true);
     }
 
-    public function providerForPrepareRowAsPng(){
+    public function providerForPrepareRowAsPng()
+    {
 
         return array(
             array(
@@ -230,7 +231,8 @@ class PMA_GIS_MultipointTest extends PMA_GIS_GeomTest
         $this->assertInstanceOf('TCPDF', $return);
     }
 
-    public function providerForPrepareRowAsPdf(){
+    public function providerForPrepareRowAsPdf()
+    {
 
         return array(
             array(
@@ -268,7 +270,8 @@ class PMA_GIS_MultipointTest extends PMA_GIS_GeomTest
         $this->assertEquals(1, preg_match($output, $string));
     }
 
-    public function providerForPrepareRowAsSvg(){
+    public function providerForPrepareRowAsSvg()
+    {
 
         return array(
             array(
@@ -309,7 +312,8 @@ class PMA_GIS_MultipointTest extends PMA_GIS_GeomTest
         );
     }
 
-    public function providerForPrepareRowAsOl(){
+    public function providerForPrepareRowAsOl()
+    {
 
         return array(
             array(

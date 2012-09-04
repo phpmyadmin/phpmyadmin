@@ -21,7 +21,8 @@ class PMA_mime_test extends PHPUnit_Framework_TestCase
      *
      * @dataProvider providerForTestPMA_detectMIME
      */
-    public function testPMA_detectMIME($test, $output){
+    public function testPMA_detectMIME($test, $output)
+    {
 
         $this->assertEquals(
             PMA_detectMIME($test),
@@ -32,7 +33,8 @@ class PMA_mime_test extends PHPUnit_Framework_TestCase
     /**
      * Provider for testPMA_detectMIME
      */
-    public function providerForTestPMA_detectMIME(){
+    public function providerForTestPMA_detectMIME()
+    {
         return array(
             array(
                 'pma',

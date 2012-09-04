@@ -59,7 +59,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getStorageEngines
      */
-    public function testGetStorageEngines(){
+    public function testGetStorageEngines()
+    {
 
         $this->assertEquals(
             array(
@@ -75,7 +76,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
      *
      * @group medium
      */
-    public function testGetHtmlSelect(){
+    public function testGetHtmlSelect()
+    {
 
         $this->assertEquals(
             '<select name="engine">
@@ -94,7 +96,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getEngine
      */
-    public function testGetEngine(){
+    public function testGetEngine()
+    {
 
         $this->assertTrue(
             $this->object->getEngine('dummy') instanceof PMA_StorageEngine
@@ -104,7 +107,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
     /**
      * Test for isValid
      */
-    public function testIsValid(){
+    public function testIsValid()
+    {
 
         $this->assertTrue(
             $this->object->isValid('PBMS')
@@ -117,7 +121,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getPage
      */
-    public function testGetPage(){
+    public function testGetPage()
+    {
 
         $this->assertFalse(
             $this->object->getPage(1)
@@ -127,7 +132,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getInfoPages
      */
-    public function testGetInfoPages(){
+    public function testGetInfoPages()
+    {
 
         $this->assertEquals(
             array(),
@@ -138,7 +144,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getVariablesLikePattern
      */
-    public function testGetVariablesLikePattern(){
+    public function testGetVariablesLikePattern()
+    {
 
         $this->assertFalse(
             $this->object->getVariablesLikePattern()
@@ -148,7 +155,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getMysqlHelpPage
      */
-    public function testGetMysqlHelpPage(){
+    public function testGetMysqlHelpPage()
+    {
 
         $this->assertEquals(
             'dummy-storage-engine',
@@ -159,7 +167,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getVariables
      */
-    public function testGetVariables(){
+    public function testGetVariables()
+    {
 
         $this->assertEquals(
             array(),
@@ -170,7 +179,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getSupportInformationMessage
      */
-    public function testGetSupportInformationMessage(){
+    public function testGetSupportInformationMessage()
+    {
         $this->assertEquals(
             'This MySQL server does not support the t storage engine.',
             $this->object->getSupportInformationMessage()
@@ -198,7 +208,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getComment
      */
-    public function testGetComment(){
+    public function testGetComment()
+    {
 
         $this->assertEquals(
             't',
@@ -209,7 +220,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getTitle
      */
-    public function testGetTitle(){
+    public function testGetTitle()
+    {
 
         $this->assertEquals(
             't',
@@ -220,7 +232,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
     /**
      * Test for engine_init
      */
-    public function testEngine_init(){
+    public function testEngine_init()
+    {
 
         $this->assertNull(
             $this->object->engine_init()
@@ -230,7 +243,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
     /**
      * Test for resolveTypeSize
      */
-    public function testResolveTypeSize(){
+    public function testResolveTypeSize()
+    {
 
         $this->assertEquals(
             array(

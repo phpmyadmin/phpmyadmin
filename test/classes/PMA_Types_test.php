@@ -44,7 +44,8 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
     /**
      * Test for getUnaryOperators
      */
-    public function testGetUnaryOperators(){
+    public function testGetUnaryOperators()
+    {
         $this->assertEquals(
             array(
                 'IS NULL',
@@ -59,7 +60,8 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
     /**
      * Test for getNullOperators
      */
-    public function testGetNullOperators(){
+    public function testGetNullOperators()
+    {
         $this->assertEquals(
             array(
                 'IS NULL',
@@ -72,7 +74,8 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
     /**
      * Test for getEnumOperators
      */
-    public function testGetEnumOperators(){
+    public function testGetEnumOperators()
+    {
         $this->assertEquals(
             array(
                 '=',
@@ -85,7 +88,8 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
     /**
      * Test for getTextOperators
      */
-    public function testgetTextOperators(){
+    public function testgetTextOperators()
+    {
         $this->assertEquals(
             array(
                 'LIKE',
@@ -110,7 +114,8 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
     /**
      * Test for getNumberOperators
      */
-    public function testGetNumberOperators(){
+    public function testGetNumberOperators()
+    {
         $this->assertEquals(
             array(
                 '=',
@@ -137,7 +142,8 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
      *
      * @dataProvider providerForGetTypeOperators
      */
-    public function testGetTypeOperators($type, $null, $output){
+    public function testGetTypeOperators($type, $null, $output)
+    {
         $this->assertEquals(
           $output,
           $this->object->getTypeOperators($type, $null)
@@ -147,7 +153,8 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
     /**
      * data provider for testGetTypeOperators
      */
-    public function providerForGetTypeOperators(){
+    public function providerForGetTypeOperators()
+    {
         return array(
             array(
                 'enum',
@@ -198,7 +205,8 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
      *
      * @dataProvider providerForTestGetTypeOperatorsHtml
      */
-    public function testGetTypeOperatorsHtml($type, $null, $selectedOperator, $output){
+    public function testGetTypeOperatorsHtml($type, $null, $selectedOperator, $output)
+    {
         $this->assertEquals(
             $output,
             $this->object->getTypeOperatorsHtml($type, $null, $selectedOperator)
@@ -208,7 +216,8 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
     /**
      * Provider for testGetTypeOperatorsHtml
      */
-    public function providerForTestGetTypeOperatorsHtml(){
+    public function providerForTestGetTypeOperatorsHtml()
+    {
         return array(
             array(
                 'enum',
@@ -222,7 +231,8 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
     /**
      * Test for getTypeDescription
      */
-    public function testGetTypeDescription(){
+    public function testGetTypeDescription()
+    {
         $this->assertEquals(
             '',
             $this->object->getTypeDescription('enum')
@@ -232,7 +242,8 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
     /**
      * Test for getFunctionsClass
      */
-    public function testGetFunctionsClass(){
+    public function testGetFunctionsClass()
+    {
         $this->assertEquals(
             array(),
             $this->object->getFunctionsClass('enum')
@@ -242,7 +253,8 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
     /**
      * Test for getFunctions
      */
-    public function testGetFunctions(){
+    public function testGetFunctions()
+    {
         $this->assertEquals(
             array(),
             $this->object->getFunctions('enum')
@@ -252,7 +264,8 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
     /**
      * Test for getAllFunctions
      */
-    public function testGetAllFunctions(){
+    public function testGetAllFunctions()
+    {
         $this->assertEquals(
             array(),
             $this->object->getAllFunctions()
@@ -262,7 +275,8 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
     /**
      * Test for getAttributes
      */
-    public function testGetAttributes(){
+    public function testGetAttributes()
+    {
         $this->assertEquals(
             array(),
             $this->object->getAttributes()
@@ -272,7 +286,8 @@ class PMA_TypesTest extends PHPUnit_Framework_TestCase
     /**
      * Test for getColumns
      */
-    public function testGetColumns(){
+    public function testGetColumns()
+    {
         $this->assertEquals(
             array(
                 'INT',

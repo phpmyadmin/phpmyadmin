@@ -16,6 +16,11 @@ require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Theme.class.php';
 
+/**
+ * Tests for database search.
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
 {
     /**
@@ -129,16 +134,17 @@ class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getResultsRow
+     *
      * @param string $each_table    Tables on which search is to be performed
      * @param array  $newsearchsqls Contains SQL queries
      * @param bool   $odd_row       For displaying contrasting table rows
-     * @param $output
+     * @param string $output        Expected HTML output
      *
      * @dataProvider providerForTestGetResultsRow
      */
     public function testGetResultsRow(
         $each_table, $newsearchsqls, $odd_row, $output
-    ){
+    ) {
 
         if (! function_exists('PMA_DBI_fetch_value')) {
             function PMA_DBI_fetch_value()

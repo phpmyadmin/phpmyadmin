@@ -59,7 +59,8 @@ class PMA_StorageEngine_bdb_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getVariables
      */
-    public function testGetVariables(){
+    public function testGetVariables()
+    {
         $this->assertEquals(
             $this->object->getVariables(),
             array(
@@ -104,7 +105,8 @@ class PMA_StorageEngine_bdb_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getVariablesLikePattern
      */
-    public function testGetVariablesLikePattern(){
+    public function testGetVariablesLikePattern()
+    {
         $this->assertEquals(
             $this->object->getVariablesLikePattern(),
             '%bdb%'
@@ -114,7 +116,8 @@ class PMA_StorageEngine_bdb_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getMysqlHelpPage
      */
-    public function testGetMysqlHelpPage(){
+    public function testGetMysqlHelpPage()
+    {
         $this->assertEquals(
             $this->object->getMysqlHelpPage(),
             'bdb'

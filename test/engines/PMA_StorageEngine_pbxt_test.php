@@ -61,7 +61,8 @@ class PMA_StorageEngine_pbxt_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getVariables
      */
-    public function testGetVariables(){
+    public function testGetVariables()
+    {
         $this->assertEquals(
             $this->object->getVariables(),
             array(
@@ -135,7 +136,8 @@ class PMA_StorageEngine_pbxt_test extends PHPUnit_Framework_TestCase
      *
      * @dataProvider providerFortTestResolveTypeSize
      */
-    public function testResolveTypeSize($formatted_size, $output){
+    public function testResolveTypeSize($formatted_size, $output)
+    {
         $this->assertEquals(
             $this->object->resolveTypeSize($formatted_size),
             $output
@@ -146,7 +148,8 @@ class PMA_StorageEngine_pbxt_test extends PHPUnit_Framework_TestCase
      * Provider for testResolveTypeSize
      * @return array
      */
-    public function providerFortTestResolveTypeSize(){
+    public function providerFortTestResolveTypeSize()
+    {
         return array(
             array(
                 '8MB',
@@ -175,7 +178,8 @@ class PMA_StorageEngine_pbxt_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getInfoPages
      */
-    public function testGetInfoPages(){
+    public function testGetInfoPages()
+    {
         $this->assertEquals(
             $this->object->getInfoPages(),
             array(
@@ -187,7 +191,8 @@ class PMA_StorageEngine_pbxt_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getPage
      */
-    public function testGetPage(){
+    public function testGetPage()
+    {
         $this->assertEquals(
             $this->object->getPage('Documentation'),
             '<p>'

@@ -81,7 +81,8 @@ class PMA_Footer_test extends PHPUnit_Framework_TestCase
      *
      * @group medium
      */
-    public function testGetDebugMessage(){
+    public function testGetDebugMessage()
+    {
 
         $_SESSION['debug']['queries'] = array('SELECT * FROM `pma_bookmark` WHERE 1', 'SELECT * FROM `db` WHERE 1');
 
@@ -106,7 +107,8 @@ class PMA_Footer_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getSelfLink
      */
-    public function testGetSelfLink(){
+    public function testGetSelfLink()
+    {
 
         $GLOBALS['cfg']['NavigationBarIconic'] = false;
         $GLOBALS['cfg']['ServerDefault'] = 1;
@@ -123,7 +125,8 @@ class PMA_Footer_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getSelfLink
      */
-    public function testGetSelfLinkWithImage(){
+    public function testGetSelfLinkWithImage()
+    {
 
         $GLOBALS['cfg']['NavigationBarIconic'] = true;
         $GLOBALS['cfg']['ServerDefault'] = 1;
@@ -142,7 +145,8 @@ class PMA_Footer_test extends PHPUnit_Framework_TestCase
 //    /**
 //     * Test for disable
 //     */
-//    public function testDisable(){
+//    public function testDisable()
+//    {
 //
 //        $GLOBALS['lang'] = 'en';
 //        $GLOBALS['collation_connection'] = 'utf8_general_ci';

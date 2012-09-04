@@ -57,7 +57,8 @@ class PMA_Theme_Manager_test extends PHPUnit_Framework_TestCase
     /**
      * Test for setThemeCookie
      */
-    public function testSetThemeCookie(){
+    public function testSetThemeCookie()
+    {
         $tm = new PMA_Theme_Manager();
         $this->assertTrue(
             $tm->setThemeCookie()
@@ -67,7 +68,8 @@ class PMA_Theme_Manager_test extends PHPUnit_Framework_TestCase
     /**
      * Test for checkConfig
      */
-    public function testCheckConfig(){
+    public function testCheckConfig()
+    {
         $tm = new PMA_Theme_Manager();
         $this->assertNull(
             $tm->checkConfig()
@@ -77,7 +79,8 @@ class PMA_Theme_Manager_test extends PHPUnit_Framework_TestCase
     /**
      * Test for makeBc
      */
-    public function testMakeBc(){
+    public function testMakeBc()
+    {
         $tm = new PMA_Theme_Manager();
         $this->assertNull(
             $tm->makeBc()
@@ -91,7 +94,8 @@ class PMA_Theme_Manager_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getPrintPreviews
      */
-    public function testGetPrintPreviews(){
+    public function testGetPrintPreviews()
+    {
         $tm = new PMA_Theme_Manager();
         $this->assertEquals(
             '<div class="theme_preview"><h2>Original (2.9) </h2><p><a target="_top" class="take_theme" name="original" href="index.php?set_theme=original&amp;server=99&amp;lang=en&amp;collation_connection=utf8_general_ci&amp;token=token"><img src="./themes/original/screen.png" border="1" alt="Original" title="Original" /><br />[ <strong>take it</strong> ]</a></p></div><div class="theme_preview"><h2>pmahomme (1.1) </h2><p><a target="_top" class="take_theme" name="pmahomme" href="index.php?set_theme=pmahomme&amp;server=99&amp;lang=en&amp;collation_connection=utf8_general_ci&amp;token=token"><img src="./themes/pmahomme/screen.png" border="1" alt="pmahomme" title="pmahomme" /><br />[ <strong>take it</strong> ]</a></p></div>',
@@ -102,7 +106,8 @@ class PMA_Theme_Manager_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getFallBackTheme
      */
-    public function testGetFallBackTheme(){
+    public function testGetFallBackTheme()
+    {
         $tm = new PMA_Theme_Manager();
         $this->assertInstanceOf(
             'PMA_theme',

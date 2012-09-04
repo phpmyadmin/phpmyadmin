@@ -234,7 +234,8 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     /**
      * Test for getCssIEClearFilter
      */
-    public function testGetCssIEClearFilter(){
+    public function testGetCssIEClearFilter()
+    {
         $this->assertEquals(
             $this->object->getCssIEClearFilter(),
             ''
@@ -244,7 +245,8 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     /**
      * Test for getFontSize
      */
-    public function testGetFontSize(){
+    public function testGetFontSize()
+    {
         $this->assertEquals(
             $this->object->getFontSize(),
             '82%'
@@ -267,7 +269,8 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
     /**
      * Test for getCssGradient
      */
-    public function testgetCssGradient(){
+    public function testgetCssGradient()
+    {
         $this->assertEquals(
             $this->object->getCssGradient('12345', '54321'),
             'background-image: url(./themes/svg_gradient.php?from=12345&to=54321);
@@ -283,7 +286,8 @@ background: -o-linear-gradient(top, #12345, #54321);'
     /**
      * Test for getCssCodeMirror
      */
-    public function testGetCssCodeMirror(){
+    public function testGetCssCodeMirror()
+    {
         $this->assertEquals(
             $this->object->getCssCodeMirror(),
                 'span.cm-keyword, span.cm-statement-verb {
@@ -335,7 +339,8 @@ span.cm-number {
      *
      * @dataProvider providerForGetImgPath
      */
-    public function testGetImgPath($file, $output){
+    public function testGetImgPath($file, $output)
+    {
         $this->assertEquals(
             $this->object->getImgPath($file),
             $output
@@ -346,7 +351,8 @@ span.cm-number {
      * Provider for testGetImgPath
      * @return array
      */
-    public function providerForGetImgPath(){
+    public function providerForGetImgPath()
+    {
         return array(
             array(
                 null,
@@ -367,7 +373,8 @@ span.cm-number {
     /**
      * Test for buildSQPCssRule
      */
-    public function testBuildSQPCssRule(){
+    public function testBuildSQPCssRule()
+    {
         $this->assertEquals(
             $this->object->buildSQPCssRule('PMA_Config', 'fontSize', '12px'),
             '.PMA_Config {fontSize: 12px;}
@@ -378,7 +385,8 @@ span.cm-number {
     /**
      * Test for buildSQPCssData
      */
-    public function testBuildSQPCssData(){
+    public function testBuildSQPCssData()
+    {
         $this->assertEquals(
             $this->object->buildSQPCssData(),
             '.syntax_comment {color: #808000;}

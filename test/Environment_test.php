@@ -35,7 +35,7 @@ class Environment_test extends PHPUnit_Framework_TestCase
             //$pdo->commit();
             $this->assertEquals(0, $pdo->errorCode(), 'Error trying to show tables for database');
         }
-        catch (Exception $e){
+        catch (Exception $e) {
             $this->fail("Error: ".$e->getMessage());
         }
 

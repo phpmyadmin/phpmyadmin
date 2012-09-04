@@ -48,7 +48,8 @@ class PMA_gettext_test extends PHPUnit_Framework_TestCase
     /**
      * Test for readint
      */
-    public function testReadint(){
+    public function testReadint()
+    {
         $this->assertEquals(
             $this->object->readint(),
             1848603506
@@ -58,7 +59,8 @@ class PMA_gettext_test extends PHPUnit_Framework_TestCase
     /**
      * Test for readintarray
      */
-    public function testReadintarray(){
+    public function testReadintarray()
+    {
         $this->assertEquals(
             $this->object->readintarray(1),
             array(
@@ -70,7 +72,8 @@ class PMA_gettext_test extends PHPUnit_Framework_TestCase
     /**
      * Test for get_original_string
      */
-    public function testGet_original_string(){
+    public function testGet_original_string()
+    {
         $this->assertEquals(
             $this->object->get_original_string(1),
             ''
@@ -80,7 +83,8 @@ class PMA_gettext_test extends PHPUnit_Framework_TestCase
     /**
      * Test for get_translation_string
      */
-    public function testGet_translation_string(){
+    public function testGet_translation_string()
+    {
         $this->assertEquals(
             $this->object->get_translation_string(1),
             ''
@@ -96,14 +100,16 @@ class PMA_gettext_test extends PHPUnit_Framework_TestCase
      *
      * @dataProvider providerForTestFind_string
      */
-    public function testFind_string($string, $start, $end, $output){
+    public function testFind_string($string, $start, $end, $output)
+    {
         $this->assertEquals(
             $this->object->find_string($string, $start, $end),
             $output
         );
     }
 
-    public function providerForTestFind_string(){
+    public function providerForTestFind_string()
+    {
         return array(
             array(
                 'sample_string/string',
@@ -123,7 +129,8 @@ class PMA_gettext_test extends PHPUnit_Framework_TestCase
     /**
      * Test for translate
      */
-    public function testTranslate(){
+    public function testTranslate()
+    {
         $this->assertEquals(
             $this->object->translate('transferable_string'),
             'transferable_string'
@@ -137,14 +144,16 @@ class PMA_gettext_test extends PHPUnit_Framework_TestCase
      *
      * @dataProvider providerForTestSanitize_plural_expression
      */
-    public function testSanitize_plural_expression($expr, $output){
+    public function testSanitize_plural_expression($expr, $output)
+    {
         $this->assertEquals(
             $this->object->sanitize_plural_expression($expr),
             $output
         );
     }
 
-    public function providerForTestSanitize_plural_expression(){
+    public function providerForTestSanitize_plural_expression()
+    {
         return array(
             array(
                 'employeeId = 1',
@@ -160,7 +169,8 @@ class PMA_gettext_test extends PHPUnit_Framework_TestCase
     /**
      * Test for extract_plural_forms_header_from_po_header
      */
-    public function testExtract_plural_forms_header_from_po_header(){
+    public function testExtract_plural_forms_header_from_po_header()
+    {
         $this->assertEquals(
             $this->object->extract_plural_forms_header_from_po_header('id = 1 ? true : false'),
             'nplurals=2; plural=n == 1 ? 0 : 1;'
@@ -170,7 +180,8 @@ class PMA_gettext_test extends PHPUnit_Framework_TestCase
     /**
      * Test for pgettext
      */
-    public function testPgettext(){
+    public function testPgettext()
+    {
         $this->assertEquals(
             $this->object->pgettext('context', 'msgId'),
             'msgId'

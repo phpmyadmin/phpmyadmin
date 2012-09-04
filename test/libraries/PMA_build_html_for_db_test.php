@@ -21,7 +21,8 @@ class PMA_build_html_for_db_test extends PHPUnit_Framework_TestCase
     /**
      * Test for PMA_getColumnOrder
      */
-    public function testPMA_getColumnOrder(){
+    public function testPMA_getColumnOrder()
+    {
 
         if (! function_exists('PMA_getServerCollation')) {
             function PMA_getServerCollation()
@@ -121,7 +122,8 @@ class PMA_build_html_for_db_test extends PHPUnit_Framework_TestCase
         );
     }
 
-    public function providerForTestPMA_buildHtmlForDb(){
+    public function providerForTestPMA_buildHtmlForDb()
+    {
         return array(
             array(
                 array('SCHEMA_NAME' => 'pma'),

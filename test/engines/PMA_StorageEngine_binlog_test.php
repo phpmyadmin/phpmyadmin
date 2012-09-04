@@ -59,7 +59,8 @@ class PMA_StorageEngine_binlog_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getMysqlHelpPage
      */
-    public function testGetMysqlHelpPage(){
+    public function testGetMysqlHelpPage()
+    {
         $this->assertEquals(
             $this->object->getMysqlHelpPage(),
             'binary-log'
