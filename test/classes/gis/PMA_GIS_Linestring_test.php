@@ -181,6 +181,7 @@ class PMA_GIS_LinestringTest extends PMA_GIS_GeomTest
         $return = $this->object->prepareRowAsPng(
             $spatial, $label, $line_color, $scale_data, $image
         );
+        /* TODO: this never fails */
         $this->assertTrue(true);
     }
 
