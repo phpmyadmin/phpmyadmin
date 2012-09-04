@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-03 19:56+0200\n"
-"PO-Revision-Date: 2012-08-22 14:08+0200\n"
+"PO-Revision-Date: 2012-09-04 10:33+0200\n"
 "Last-Translator: Panagiotis Papazoglou <papaz_p@yahoo.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.2\n"
 
@@ -609,7 +609,6 @@ msgid "Output"
 msgstr "Εξαγόμενο"
 
 #: gis_data_editor.php:354
-#, fuzzy
 #| msgid ""
 #| "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 #| "string into the \"Value\" field"
@@ -617,11 +616,11 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
-"Επιλέξτε «GeomFromText» από τη στήλη «συνάρτηση» και επικολήστε το παρακάτω "
-"κείμενο στο πεδίο «Τιμή»"
+"Επιλέξτε το «GeomFromText» από τη στήλη «Function» και επικολλήστε το "
+"παρακάτω κείμενο στο πεδίο «Value»"
 
 #: import.php:95
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to %"
 #| "sdocumentation%s for ways to workaround this limit."
@@ -629,7 +628,7 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to %"
 "sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Πιθανόν προσπαθείτε να αποστείλετε πολύ μεγάλο αρχείο. Λεπτομέρειες στην %"
+"Πιθανόν προσπαθήσατε να αποστείλετε πολύ μεγάλο αρχείο. Λεπτομέρειες στην %"
 "sτεκμηρίωση%s για τρόπους αντιμετώπισης αυτού του περιορισμού."
 
 #: import.php:236 import.php:489
@@ -6194,11 +6193,12 @@ msgstr "Λεπτομέρειες..."
 
 #: libraries/dbi/drizzle-wrappers.lib.php:440
 msgid "Can't seek in an unbuffered result set"
-msgstr ""
+msgstr "Αδύνατη η αναζήτηση σε ένα σύνολο αποτελεσμάτων εκτός μνήμης"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:462
 msgid "Can't count rows in an unbuffered result set"
 msgstr ""
+"Αδύνατος ο υπολογισμός εγγραφών σε ένα σύνολο αποτελεσμάτων εκτός μνήμης"
 
 #: libraries/dbi/drizzle.dbi.lib.php:136 libraries/dbi/mysql.dbi.lib.php:150
 #: libraries/dbi/mysqli.dbi.lib.php:192
