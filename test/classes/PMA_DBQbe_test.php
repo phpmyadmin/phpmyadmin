@@ -376,10 +376,10 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
      */
     public function testGetFromClause(){
         $this->assertEquals(
-            '`table1`',
+            'table1',
             $this->_callProtectedFunction(
                 '_getFromClause',
-                array('relation')
+                array(array('relwork' => False))
             )
         );
     }
