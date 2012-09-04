@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-03 19:56+0200\n"
-"PO-Revision-Date: 2012-09-04 22:36+0200\n"
+"PO-Revision-Date: 2012-09-04 22:44+0200\n"
 "Last-Translator: Vojislav Pavić <vpavic@gmail.com>\n"
 "Language-Team: Serbian (latin) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sr@latin/>\n"
@@ -4556,11 +4556,11 @@ msgstr "Opcije prikaza baza"
 
 #: libraries/config/messages.inc.php:183 setup/frames/menu.inc.php:19
 msgid "Navigation frame"
-msgstr ""
+msgstr "Navigacioni okvir"
 
 #: libraries/config/messages.inc.php:184
 msgid "Customize appearance of the navigation frame"
-msgstr ""
+msgstr "Prilagodite izgled navigacionog okvira"
 
 #: libraries/config/messages.inc.php:185 libraries/select_server.lib.php:40
 #: setup/frames/index.inc.php:117
@@ -4577,11 +4577,11 @@ msgstr "Opcije prikaza tabela"
 
 #: libraries/config/messages.inc.php:189 setup/frames/menu.inc.php:20
 msgid "Main frame"
-msgstr ""
+msgstr "Glavni okvir"
 
 #: libraries/config/messages.inc.php:190
 msgid "Microsoft Office"
-msgstr ""
+msgstr "Majkrosoft Ofis"
 
 #: libraries/config/messages.inc.php:192
 #| msgid "Open Document Text"
@@ -4590,11 +4590,11 @@ msgstr "Otvori dokument"
 
 #: libraries/config/messages.inc.php:194
 msgid "Other core settings"
-msgstr ""
+msgstr "Ostale osnovne postavke"
 
 #: libraries/config/messages.inc.php:195
 msgid "Settings that didn't fit enywhere else"
-msgstr ""
+msgstr "Postavke koje se ne uklapaju nigde drugde"
 
 #: libraries/config/messages.inc.php:196
 #| msgid "Page number:"
@@ -4620,17 +4620,19 @@ msgstr "Prilagodi opcije prozora sa upitima"
 
 #: libraries/config/messages.inc.php:200
 msgid "Security"
-msgstr ""
+msgstr "Bezbednost"
 
 #: libraries/config/messages.inc.php:201
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
 msgstr ""
+"Imajte na umu da je phpMyAdmin samo korisnički interfejs i onjegove funkcije "
+"ne ograničavaju MySQL"
 
 #: libraries/config/messages.inc.php:202
 msgid "Basic settings"
-msgstr ""
+msgstr "Osnovne postavke"
 
 #: libraries/config/messages.inc.php:203
 #| msgid "Documentation"
@@ -4643,17 +4645,19 @@ msgstr "Podešavanje autentikacije"
 
 #: libraries/config/messages.inc.php:205
 msgid "Server configuration"
-msgstr ""
+msgstr "Konfiguracija servera"
 
 #: libraries/config/messages.inc.php:206
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for"
 msgstr ""
+"Napredna konfiguracija servera, nemojte menjati ove opcije osim ako niste "
+"sigurni čemu služe"
 
 #: libraries/config/messages.inc.php:207
 msgid "Enter server connection parameters"
-msgstr ""
+msgstr "Unesite parametre veze sa serverom"
 
 #: libraries/config/messages.inc.php:208
 msgid "Configuration storage"
