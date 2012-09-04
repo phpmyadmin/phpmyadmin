@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-03 19:56+0200\n"
-"PO-Revision-Date: 2012-09-04 15:03+0200\n"
+"PO-Revision-Date: 2012-09-04 22:36+0200\n"
 "Last-Translator: Vojislav Pavić <vpavic@gmail.com>\n"
 "Language-Team: Serbian (latin) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sr@latin/>\n"
@@ -932,7 +932,7 @@ msgstr "Statistika upita"
 #: js/messages.php:90
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Local monitor configuration incompatible"
-msgstr "Konfiguracija lokalnog nadgledanja nije kompatibilna"
+msgstr "Konfiguracija lokalnog monitoringa nije kompatibilna"
 
 #: js/messages.php:91
 msgid ""
@@ -941,6 +941,11 @@ msgid ""
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the <i>Settings</i> menu."
 msgstr ""
+"Konfiguracija uređenja grafikona u lokalnom skladištu vašeg pretraživača "
+"nije kompatibilna više sa novom verzijom monitoring prozora. Vrlo je "
+"verovatno da vaša tekuća konfiguracija neće više raditi. Molimo vas da "
+"resetujete konfiguraciju na početbe vrednosti u opciji menija "
+"<i>Podešavanja</i>."
 
 #: js/messages.php:93
 #| msgid "Query cache"
@@ -1138,11 +1143,11 @@ msgstr "slow_query_log i general_log su isključeni."
 
 #: js/messages.php:147
 msgid "log_output is not set to TABLE."
-msgstr ""
+msgstr "log_output nije postavljen na TABLE."
 
 #: js/messages.php:148
 msgid "log_output is set to TABLE."
-msgstr ""
+msgstr "log_output je postavljen na TABLE."
 
 #: js/messages.php:149
 #, php-format
@@ -1151,6 +1156,9 @@ msgid ""
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
 "depending on your system."
 msgstr ""
+"slow_query_log je omogućen, ali server upisuje u dnevnik samo upite koji se "
+"izvršavaju više od %d sekundi. Preporučljivo je da podesite long_query_time "
+"na 0-2 sekunde, u zavisnosti od vašeg sistema."
 
 #: js/messages.php:150
 #, php-format
@@ -1231,7 +1239,7 @@ msgstr "Jedinica"
 
 #: js/messages.php:170
 msgid "From slow log"
-msgstr ""
+msgstr "Iz dnevnika sporih upita"
 
 #: js/messages.php:171
 msgid "From general log"
@@ -1256,6 +1264,9 @@ msgid ""
 "However only the SQL query itself has been used as a grouping criteria, so "
 "the other attributes of queries, such as start time, may differ."
 msgstr ""
+"Ova kolona prikazuje broj identičnih upita koji su grupisani zajedno. "
+"Međutim samo sam SQL upit je iskorišćen kao kriterijum za grupisanje, tako "
+"da ostali atributi upita, kao što je vreme pokretanja, mogu da se razlikuju."
 
 #: js/messages.php:176
 msgid ""
@@ -1263,6 +1274,8 @@ msgid ""
 "same table are also being grouped together, disregarding of the inserted "
 "data."
 msgstr ""
+"Pošto je grupisanje INSERT upita izabrano, INSERT upiti u istu tabelu su "
+"takođe grupisani zajedno, bez obzira na umetnute podatke."
 
 #: js/messages.php:177
 msgid "Log data loaded. Queries executed in this time span:"
@@ -1361,7 +1374,7 @@ msgstr "Učitavanje logova"
 
 #: js/messages.php:204
 msgid "Monitor refresh failed"
-msgstr ""
+msgstr "Osvežavanje monitoringa neuspešno"
 
 #: js/messages.php:205
 msgid ""
@@ -1369,6 +1382,9 @@ msgid ""
 "This is most likely because your session expired. Reloading the page and "
 "reentering your credentials should help."
 msgstr ""
+"U toku zahteva za novim podacima za grafikon server je vratio pogrešan "
+"odgovor. To se najverovatnije desilo jer je sesija istekla. Osvežavanje "
+"stranice i ponovno prijavljivanje trebalo bi da pomogne."
 
 #: js/messages.php:206
 #| msgid "Reload"
@@ -1425,7 +1441,7 @@ msgstr "Mogući problemi sa performansama"
 
 #: js/messages.php:222
 msgid "Issue"
-msgstr ""
+msgstr "Pitanje"
 
 #: js/messages.php:223
 #| msgid "Documentation"
@@ -1443,11 +1459,11 @@ msgstr "Opravdanje"
 
 #: js/messages.php:226
 msgid "Used variable / formula"
-msgstr ""
+msgstr "Korišćene promenljiva/formula"
 
 #: js/messages.php:227
 msgid "Test"
-msgstr ""
+msgstr "Test"
 
 #: js/messages.php:232 pmd_general.php:429 pmd_general.php:466
 #: pmd_general.php:586 pmd_general.php:634 pmd_general.php:710
@@ -1781,6 +1797,9 @@ msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
 msgstr ""
+"Ova tabela ne sadrži jedinstvenu kolonu. Karakteristike koje se odnose na "
+"izmene u gridu, checkbox, Edit, Copy i Delete linkovi može da se desi da ne "
+"rade nakon snimanja."
 
 #: js/messages.php:356
 msgid ""
@@ -2251,7 +2270,7 @@ msgstr "MySQL reče: "
 
 #: libraries/CommonFunctions.class.php:1273
 msgid "Failed to connect to SQL validator!"
-msgstr ""
+msgstr "Neuspelo povezivanje na SQL validator!"
 
 #: libraries/CommonFunctions.class.php:1315
 #: libraries/config/messages.inc.php:491
@@ -2292,7 +2311,7 @@ msgstr "Proveri SQL"
 
 #: libraries/CommonFunctions.class.php:1466
 msgid "Inline edit of this query"
-msgstr ""
+msgstr "Uredi ovaj upit na licu mesta"
 
 #: libraries/CommonFunctions.class.php:1468
 #| msgid "Engines"
@@ -2372,7 +2391,7 @@ msgstr "Ova funkcionalnost %s je pogođena poznatom greškom, vidite %s"
 
 #: libraries/CommonFunctions.class.php:3017
 msgid "Click to toggle"
-msgstr ""
+msgstr "Kliknite da biste zamenili"
 
 #: libraries/CommonFunctions.class.php:3448
 #: libraries/CommonFunctions.class.php:3455
@@ -2420,7 +2439,7 @@ msgstr "Operacije"
 #: libraries/CommonFunctions.class.php:3582
 #: libraries/sql_query_form.lib.php:473 prefs_manage.php:250
 msgid "Browse your computer:"
-msgstr ""
+msgstr "Pretražite vaš kompjuter:"
 
 #: libraries/CommonFunctions.class.php:3610
 #, php-format
@@ -2737,7 +2756,7 @@ msgstr ""
 #: libraries/DisplayResults.class.php:1631
 #: libraries/config/messages.inc.php:61
 msgid "Show binary contents as HEX"
-msgstr ""
+msgstr "Prikaži binarni sadržaj kao HEX vrednosti"
 
 #: libraries/DisplayResults.class.php:1642
 #| msgid "Browser transformation"
@@ -3188,7 +3207,7 @@ msgstr "Tabeli %s promenjeno ime u %s"
 
 #: libraries/Table.class.php:1401
 msgid "Could not save table UI preferences"
-msgstr ""
+msgstr "Nije bilo moguće saćuvati podešavanja korisničkog interfejsa tabele"
 
 #: libraries/Table.class.php:1425
 #, php-format
@@ -3196,6 +3215,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
+"Neuspelo brisanje podešavanja korisničkog interfejsa tabele (pogledajte "
+"$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.class.php:1563
 #, php-format
@@ -3204,6 +3225,9 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
+"Nemoguće snimiti svojstvo korisničkog interfejsa \"%s\". Napravljene izmene "
+"neće biti trajne nakon osveženja ove strane. Molimo vas da proverite da li "
+"je struktura tabele izmenjena."
 
 #: libraries/TableSearch.class.php:194 libraries/insert_edit.lib.php:236
 #: libraries/insert_edit.lib.php:242 libraries/rte/rte_routines.lib.php:1488
@@ -3724,7 +3748,7 @@ msgstr "moguća zloupotreba"
 
 #: libraries/common.inc.php:1094
 msgid "numeric key detected"
-msgstr ""
+msgstr "otkriven numerički ključ"
 
 #: libraries/config.values.php:53 libraries/config.values.php:60
 #: libraries/config.values.php:68
@@ -3791,15 +3815,15 @@ msgstr "Struktura i podaci"
 
 #: libraries/config.values.php:134
 msgid "Quick - display only the minimal options to configure"
-msgstr ""
+msgstr "Brzo - prikazuje samo minimum opcija za konfigurisanje"
 
 #: libraries/config.values.php:135
 msgid "Custom - display all possible options to configure"
-msgstr ""
+msgstr "Prilagođeno - prikazuje sve moguće opcije za konfigurisanje"
 
 #: libraries/config.values.php:136
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr ""
+msgstr "Prilagođeno - kao iznad, ali bez izbora brzo/prilagođeno"
 
 #: libraries/config.values.php:164
 #| msgid "Complete inserts"
@@ -3941,24 +3965,30 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting attacks"
 msgstr ""
+"Omogućavanje ovoga dozvoljava da stranica koja se nalazi na drugom domenu "
+"pozove phpMyAdmin unutar frame-a, i predstavlja potencijalni "
+"[strong]bezbednosni problem[/strong] dozvoljavajući cross-frame scripting "
+"napade"
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
-msgstr ""
+msgstr "Dozvoli okvire treće strane"
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
-msgstr ""
+msgstr "Prikaži &quot;Drop database&quot; link običnim korisnicima"
 
 #: libraries/config/messages.inc.php:24
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
 msgstr ""
+"Tajna fraza koja se koristi za enkripciju kukija u [kbd]cookie[/kbd] "
+"autentikaciji"
 
 #: libraries/config/messages.inc.php:25
 msgid "Blowfish secret"
-msgstr ""
+msgstr "Blowfish tajni ključ"
 
 #: libraries/config/messages.inc.php:26
 msgid "Highlight selected rows"
@@ -3970,21 +4000,23 @@ msgstr "Oznaka reda"
 
 #: libraries/config/messages.inc.php:28
 msgid "Highlight row pointed by the mouse cursor"
-msgstr ""
+msgstr "Istakni red na koji pokazuje kursor miša"
 
 #: libraries/config/messages.inc.php:29
 msgid "Highlight pointer"
-msgstr ""
+msgstr "Pokazivač isticanja"
 
 #: libraries/config/messages.inc.php:30
 msgid ""
 "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
 "import and export operations"
 msgstr ""
+"Omogući [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] za operacije uvoza i "
+"izvoza"
 
 #: libraries/config/messages.inc.php:31
 msgid "Bzip2"
-msgstr ""
+msgstr "Bzip2"
 
 #: libraries/config/messages.inc.php:32
 msgid ""
@@ -3992,10 +4024,13 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns"
 msgstr ""
+"Definiše koji tip kontrola za uređivanje bi trebalo koristiti za CHAR i "
+"VARCHAR kolone, [kbd]input[/kbd] - dozvoljava ograničavanje dužine ulaza, "
+"[kbd]textarea[/kbd] - dozvoljava znak za novu liniju u kolonama"
 
 #: libraries/config/messages.inc.php:33
 msgid "CHAR columns editing"
-msgstr ""
+msgstr "Uređenje CHAR kolona"
 
 #: libraries/config/messages.inc.php:34
 msgid ""
@@ -4012,6 +4047,8 @@ msgid ""
 "Defines the minimum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"Definiše minimalnu veličinu polja za unos generisanih za CHAR i VARCHAR "
+"kolone"
 
 #: libraries/config/messages.inc.php:37
 msgid "Minimum size for input field"
@@ -4022,6 +4059,8 @@ msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns"
 msgstr ""
+"Definiše maksimalnu veličinu polja za unos generisanih za CHAR i VARCHAR "
+"kolone"
 
 #: libraries/config/messages.inc.php:39
 #| msgid "Maximum size for temporary sort files"
@@ -4030,52 +4069,57 @@ msgstr "Maksimalna veličina za input polje"
 
 #: libraries/config/messages.inc.php:40
 msgid "Number of columns for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Broj kolona za CHAR/VARCHAR textarea polja"
 
 #: libraries/config/messages.inc.php:41
 msgid "CHAR textarea columns"
-msgstr ""
+msgstr "CHAR textarea kolone"
 
 #: libraries/config/messages.inc.php:42
 msgid "Number of rows for CHAR/VARCHAR textareas"
-msgstr ""
+msgstr "Broj redova za CHAR/VARCHAR textarea polja"
 
 #: libraries/config/messages.inc.php:43
 msgid "CHAR textarea rows"
-msgstr ""
+msgstr "CHAR textarea redovi"
 
 #: libraries/config/messages.inc.php:44
 msgid "Check config file permissions"
-msgstr ""
+msgstr "Proveri prava pristupa knfiguracione datoteke"
 
 #: libraries/config/messages.inc.php:45
 msgid ""
 "Compress gzip/bzip2 exports on the fly without the need for much memory; if "
 "you encounter problems with created gzip/bzip2 files disable this feature"
 msgstr ""
+"Kompresuje izvezene podatke sa gzip/bzip2 u letu bez potrebe za previše "
+"memorije, ako naiđete na probleme sa kreiranim gzip/bzip2 datotekama "
+"isključite ovu opciju"
 
 #: libraries/config/messages.inc.php:46
 msgid "Compress on the fly"
-msgstr ""
+msgstr "Kompresija u letu"
 
 #: libraries/config/messages.inc.php:47 setup/frames/config.inc.php:25
 #: setup/frames/index.inc.php:176
 msgid "Configuration file"
-msgstr ""
+msgstr "Konfiguraciona datoteka"
 
 #: libraries/config/messages.inc.php:48
 msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
+"Da li upozorenje (&quot;Da li ste sigurni...&quot;) treba da bude prikazano "
+"kada ste na putu da izgubite podatke"
 
 #: libraries/config/messages.inc.php:49
 msgid "Confirm DROP queries"
-msgstr ""
+msgstr "Potvrdi DROP upite"
 
 #: libraries/config/messages.inc.php:50
 msgid "Debug SQL"
-msgstr ""
+msgstr "Debagovanje SQL-a"
 
 #: libraries/config/messages.inc.php:51
 msgid "Default display direction"
@@ -4083,7 +4127,7 @@ msgstr "Podrazumevani pravac prikaza"
 
 #: libraries/config/messages.inc.php:52
 msgid "Tab that is displayed when entering a database"
-msgstr ""
+msgstr "Kartica koja se prikazuje kada se ulazi u bazu"
 
 #: libraries/config/messages.inc.php:53
 msgid "Default database tab"
@@ -4091,7 +4135,7 @@ msgstr "Podrazumevana kartica baze"
 
 #: libraries/config/messages.inc.php:54
 msgid "Tab that is displayed when entering a server"
-msgstr ""
+msgstr "Kartica koja se prikazuje kada se ulazi u server"
 
 #: libraries/config/messages.inc.php:55
 msgid "Default server tab"
@@ -4099,7 +4143,7 @@ msgstr "Podrazumevana kartica servera"
 
 #: libraries/config/messages.inc.php:56
 msgid "Tab that is displayed when entering a table"
-msgstr ""
+msgstr "Kartica koja se prikazuje kada se ulazi u tabelu"
 
 #: libraries/config/messages.inc.php:57
 msgid "Default table tab"
@@ -4117,29 +4161,31 @@ msgstr "Predloži strukturu tabele"
 
 #: libraries/config/messages.inc.php:60
 msgid "Show binary contents as HEX by default"
-msgstr ""
+msgstr "Prikaži binarni sadržaj kao HEX vrednosti podrazumevano"
 
 #: libraries/config/messages.inc.php:62
 msgid "Show database listing as a list instead of a drop down"
-msgstr ""
+msgstr "Prikaži spisak baza u običnoj listi umesto u padajućoj"
 
 #: libraries/config/messages.inc.php:63
 msgid "Display databases as a list"
-msgstr ""
+msgstr "Prikaži baze u obliku liste"
 
 #: libraries/config/messages.inc.php:64
 msgid "Show server listing as a list instead of a drop down"
-msgstr ""
+msgstr "Prikaži spisak servera u običnoj listi umesto u padajućoj"
 
 #: libraries/config/messages.inc.php:65
 msgid "Display servers as a list"
-msgstr ""
+msgstr "Prikaži servere u obliku liste"
 
 #: libraries/config/messages.inc.php:66
 msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
 msgstr ""
+"Isključi masovne operacije održavanja tabela, kao što su optimizacija ili "
+"popravljanje izabranih tabela iz baze."
 
 #: libraries/config/messages.inc.php:67
 #| msgid "Table maintenance"
@@ -4148,7 +4194,7 @@ msgstr "Isključi multi-tabelarno održavanje"
 
 #: libraries/config/messages.inc.php:68
 msgid "Edit SQL queries in popup window"
-msgstr ""
+msgstr "Uredi SQL upite u iskačućem prozoru"
 
 #: libraries/config/messages.inc.php:69
 #| msgid "Edit next row"
@@ -4162,17 +4208,19 @@ msgstr "Prikaži greške"
 
 #: libraries/config/messages.inc.php:71
 msgid "Gather errors"
-msgstr ""
+msgstr "Prikupljanje grešaka"
 
 #: libraries/config/messages.inc.php:72
 msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
 msgstr ""
+"Postavi broj sekundi koliko je dozvoljeno da se skript izvršava "
+"([kbd]0[/kbd] za neograničeno)"
 
 #: libraries/config/messages.inc.php:73
 msgid "Maximum execution time"
-msgstr ""
+msgstr "Maksimalno vreme izvršavanja"
 
 #: libraries/config/messages.inc.php:74 prefs_manage.php:307
 msgid "Save as file"
@@ -4232,7 +4280,7 @@ msgstr "Zameni NULL sa"
 
 #: libraries/config/messages.inc.php:82 libraries/config/messages.inc.php:88
 msgid "Remove CRLF characters within columns"
-msgstr ""
+msgstr "Izbaci CRLF znakove u kolonama"
 
 #: libraries/config/messages.inc.php:83 libraries/config/messages.inc.php:253
 #: libraries/config/messages.inc.php:261
@@ -4315,7 +4363,7 @@ msgstr "Način izvoza"
 
 #: libraries/config/messages.inc.php:118 libraries/config/messages.inc.php:120
 msgid "Save on server"
-msgstr ""
+msgstr "Snimi na server"
 
 #: libraries/config/messages.inc.php:119 libraries/config/messages.inc.php:121
 #: libraries/display_export.lib.php:203 libraries/display_export.lib.php:229
@@ -4344,7 +4392,7 @@ msgstr "Mod SQL kompatibilnosti"
 #: libraries/config/messages.inc.php:126
 #: libraries/plugins/export/ExportSql.class.php:262
 msgid "<code>CREATE TABLE</code> options:"
-msgstr ""
+msgstr "<code>CREATE TABLE</code> opcije:"
 
 #: libraries/config/messages.inc.php:127
 msgid "Creation/Update/Check dates"
@@ -4376,7 +4424,7 @@ msgstr "Ignoriši duplikate pri umetanju"
 
 #: libraries/config/messages.inc.php:136
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "Sintaksa koja se koristi kod umetanja podataka"
 
 #: libraries/config/messages.inc.php:137
 #: libraries/plugins/export/ExportSql.class.php:382
@@ -4398,11 +4446,11 @@ msgstr "Izvezi vreme u UTC"
 
 #: libraries/config/messages.inc.php:152
 msgid "Force secured connection while using phpMyAdmin"
-msgstr ""
+msgstr "Obavezno uspostavite bezbednu vezu dok koristite phpMyAdmin"
 
 #: libraries/config/messages.inc.php:153
 msgid "Force SSL connection"
-msgstr ""
+msgstr "Obavezno koristi SSL vezu"
 
 #: libraries/config/messages.inc.php:154
 msgid ""
@@ -4412,23 +4460,23 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:155
 msgid "Foreign key dropdown order"
-msgstr ""
+msgstr "Redosled stranih ključeva u padajućoj listi"
 
 #: libraries/config/messages.inc.php:156
 msgid "A dropdown will be used if fewer items are present"
-msgstr ""
+msgstr "Biće korišćena padajuća lista ako je manje stavki prisutno"
 
 #: libraries/config/messages.inc.php:157
 msgid "Foreign key limit"
-msgstr ""
+msgstr "Ograničenje stranog ključa"
 
 #: libraries/config/messages.inc.php:158
 msgid "Browse mode"
-msgstr ""
+msgstr "Režim pregleda"
 
 #: libraries/config/messages.inc.php:159
 msgid "Customize browse mode"
-msgstr ""
+msgstr "Prilagodi režim pretraživanja"
 
 #: libraries/config/messages.inc.php:161 libraries/config/messages.inc.php:163
 #: libraries/config/messages.inc.php:180 libraries/config/messages.inc.php:191
@@ -4446,19 +4494,19 @@ msgstr "CSV"
 
 #: libraries/config/messages.inc.php:164
 msgid "Developer"
-msgstr ""
+msgstr "Programer"
 
 #: libraries/config/messages.inc.php:165
 msgid "Settings for phpMyAdmin developers"
-msgstr ""
+msgstr "Podešavanja za phpMyAdmin programere"
 
 #: libraries/config/messages.inc.php:166
 msgid "Edit mode"
-msgstr ""
+msgstr "Režim uređenja"
 
 #: libraries/config/messages.inc.php:167
 msgid "Customize edit mode"
-msgstr ""
+msgstr "Podešavanje režima uređenja"
 
 #: libraries/config/messages.inc.php:169
 msgid "Export defaults"
@@ -4471,7 +4519,7 @@ msgstr "Prilagodi podrazumevane opcije izvoza"
 #: libraries/config/messages.inc.php:171 libraries/config/messages.inc.php:213
 #: setup/frames/menu.inc.php:17
 msgid "Features"
-msgstr ""
+msgstr "Karakteristike"
 
 #: libraries/config/messages.inc.php:172
 #| msgid "Generate"
@@ -4480,7 +4528,7 @@ msgstr "Opšte"
 
 #: libraries/config/messages.inc.php:173
 msgid "Set some commonly used options"
-msgstr ""
+msgstr "Postavite neke najčešće korišćene opcije"
 
 #: libraries/config/messages.inc.php:175
 msgid "Import defaults"
@@ -4488,15 +4536,15 @@ msgstr "Podrazumevane opcije uvoza"
 
 #: libraries/config/messages.inc.php:176
 msgid "Customize default common import options"
-msgstr ""
+msgstr "Podešavanje podrazumevanih najčešće korišćenih opcija za uvoz"
 
 #: libraries/config/messages.inc.php:177
 msgid "Import / export"
-msgstr ""
+msgstr "Izvoz/uvoz"
 
 #: libraries/config/messages.inc.php:178
 msgid "Set import and export directories and compression options"
-msgstr ""
+msgstr "Podesite direktorijume za izvoz i uvoz i opcije za kompresiju"
 
 #: libraries/config/messages.inc.php:179
 msgid "LaTeX"
@@ -12506,7 +12554,6 @@ msgid "Available transformations"
 msgstr "Dostupne transformacije"
 
 #: transformation_overview.php:39
-#, fuzzy
 #| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
