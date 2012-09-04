@@ -389,11 +389,11 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
      */
     public function test_getSQLQuery(){
         $this->assertEquals(
-            'FROM `table1`
+            'FROM table1
 ',
             $this->_callProtectedFunction(
                 '_getSQLQuery',
-                array('relation')
+                array(array('relwork' => False))
             )
         );
     }
