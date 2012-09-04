@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 06:32-0400\n"
-"PO-Revision-Date: 2012-09-03 16:34+0200\n"
+"PO-Revision-Date: 2012-09-04 16:55+0200\n"
 "Last-Translator: مترجم حرّ <metehyi@gmail.com>\n"
 "Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/3-5/ar/>\n"
 "Language: ar\n"
@@ -1150,7 +1150,7 @@ msgstr "إضافة مستخدم"
 
 #: js/messages.php:60
 msgid "Reloading Privileges"
-msgstr ""
+msgstr "إعادة تحميل الإمتيازات"
 
 #: js/messages.php:61
 msgid "Removing Selected Users"
@@ -1929,7 +1929,7 @@ msgstr "إختر عمودين مختلفين"
 #: js/messages.php:314
 #| msgid "SQL result"
 msgid "Query results"
-msgstr ""
+msgstr "نتائج الاستعلام"
 
 #: js/messages.php:315
 #| msgid "Table of contents"
