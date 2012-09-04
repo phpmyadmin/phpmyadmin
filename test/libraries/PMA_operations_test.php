@@ -22,7 +22,8 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
     /**
      * Set up global environment.
      */
-    public function setup() {
+    public function setup()
+    {
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');
@@ -51,7 +52,8 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
     /**
      * Test for PMA_getHtmlForDatabaseComment
      */
-    public function testPMA_getHtmlForDatabaseComment(){
+    public function testPMA_getHtmlForDatabaseComment()
+    {
 
         $this->assertRegExp(
             '/.*db_operations.php(.|[\n])*Database comment.*name="comment"([\n]|.)*/m',
@@ -62,7 +64,8 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
     /**
      * Test for PMA_getHtmlForRenameDatabase
      */
-    public function testPMA_getHtmlForRenameDatabase(){
+    public function testPMA_getHtmlForRenameDatabase()
+    {
 
         $_REQUEST['db_collation'] = 'db1';
         $this->assertRegExp(
@@ -74,7 +77,8 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
     /**
      * Test for PMA_getHtmlForDropDatabaseLink
      */
-    public function testPMA_getHtmlForDropDatabaseLink(){
+    public function testPMA_getHtmlForDropDatabaseLink()
+    {
 
         $this->assertRegExp(
             '/.*DROP.DATABASE.*db_operations.php.*Drop the database.*/',
@@ -85,7 +89,8 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
     /**
      * Test for PMA_getHtmlForCopyDatabase
      */
-    public function testPMA_getHtmlForCopyDatabase(){
+    public function testPMA_getHtmlForCopyDatabase()
+    {
 
         $_REQUEST['db_collation'] = 'db1';
         $this->assertRegExp(
@@ -97,7 +102,8 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
     /**
      * Test for PMA_getHtmlForChangeDatabaseCharset
      */
-    public function testPMA_getHtmlForChangeDatabaseCharset(){
+    public function testPMA_getHtmlForChangeDatabaseCharset()
+    {
 
         $_REQUEST['db_collation'] = 'db1';
         $this->assertRegExp(
@@ -109,7 +115,8 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
     /**
      * Test for PMA_getHtmlForExportRelationalSchemaView
      */
-    public function testPMA_getHtmlForExportRelationalSchemaView(){
+    public function testPMA_getHtmlForExportRelationalSchemaView()
+    {
 
         $this->assertRegExp(
             '/.*schema_edit.php.*Edit or export relational schema<.*/',
@@ -120,7 +127,8 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
     /**
      * Test for PMA_getHtmlForOrderTheTable
      */
-    public function testPMA_getHtmlForOrderTheTable(){
+    public function testPMA_getHtmlForOrderTheTable()
+    {
 
         $this->assertRegExp(
             '/.*tbl_operations.php(.|[\n])*Alter table order by([\n]|.)*order_order.*/m',
@@ -133,7 +141,8 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
     /**
      * Test for PMA_getHtmlForTableRow
      */
-    public function testPMA_getHtmlForTableRow(){
+    public function testPMA_getHtmlForTableRow()
+    {
 
         $this->assertEquals(
             '<tr><td><label for="name">lable</label></td><td><input type="checkbox" name="name" id="name" value="1"/></td></tr>',
@@ -144,7 +153,8 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
     /**
      * Test for PMA_getMaintainActionlink
      */
-    public function testPMA_getMaintainActionlink(){
+    public function testPMA_getMaintainActionlink()
+    {
 
         $this->assertRegExp(
             '/.*href="tbl_operations.php.*post.*/',
@@ -160,7 +170,8 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
     /**
      * Test for PMA_getHtmlForDeleteDataOrTable
      */
-    public function testPMA_getHtmlForDeleteDataOrTable(){
+    public function testPMA_getHtmlForDeleteDataOrTable()
+    {
 
         $this->assertRegExp(
             '/.*Delete data or table.*Empty the table.*Delete the table.*/m',
@@ -173,7 +184,8 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
     /**
      * Test for PMA_getDeleteDataOrTablelink
      */
-    public function testPMA_getDeleteDataOrTablelink(){
+    public function testPMA_getDeleteDataOrTablelink()
+    {
 
         $this->assertRegExp(
             '/.*TRUNCATE.TABLE.foo.*id_truncate.*Truncate table.*/m',
@@ -189,7 +201,8 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
     /**
      * Test for PMA_getHtmlForPartitionMaintenance
      */
-    public function testPMA_getHtmlForPartitionMaintenance(){
+    public function testPMA_getHtmlForPartitionMaintenance()
+    {
 
         $this->assertRegExp(
             '/.*action="tbl_operations.php"(.|[\n])*ANALYZE([\n]|.)*REBUILD([\n]|.)*/m',
@@ -203,7 +216,8 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
     /**
      * Test for PMA_getHtmlForReferentialIntegrityCheck
      */
-    public function testPMA_getHtmlForReferentialIntegrityCheck(){
+    public function testPMA_getHtmlForReferentialIntegrityCheck()
+    {
 
         $this->assertRegExp(
             '/.*Check referential integrity.*href="sql.php(.|[\n])*/m',

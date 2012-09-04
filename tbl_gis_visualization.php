@@ -116,7 +116,8 @@ $visualization = PMA_GIS_visualizationResults(
     <input type="hidden" id="pmaThemeImage" value="<?php echo($GLOBALS['pmaThemeImage']); ?>" />
 
     <script language="javascript" type="text/javascript">
-        function drawOpenLayers() {
+        function drawOpenLayers()
+        {
             <?php echo (PMA_GIS_visualizationResults($data, $visualizationSettings, 'ol')); ?>
         }
     </script>

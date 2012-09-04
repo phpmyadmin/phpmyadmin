@@ -46,7 +46,8 @@ class PMA_zip_test extends PHPUnit_Framework_TestCase
     /**
      * Test for setDoWrite
      */
-    public function testSetDoWrite(){
+    public function testSetDoWrite()
+    {
         $this->object->setDoWrite();
         $this->assertTrue($this->object->doWrite);
     }
@@ -59,14 +60,16 @@ class PMA_zip_test extends PHPUnit_Framework_TestCase
      *
      * @dataProvider providerForTestUnix2DosTime
      */
-    public function testUnix2DosTime($unixTime, $output){
+    public function testUnix2DosTime($unixTime, $output)
+    {
         $this->assertEquals(
             $this->object->unix2DosTime($unixTime),
             $output
         );
     }
 
-    public function providerForTestUnix2DosTime(){
+    public function providerForTestUnix2DosTime()
+    {
         return array(
             array(
                 123456,
@@ -82,7 +85,8 @@ class PMA_zip_test extends PHPUnit_Framework_TestCase
     /**
      * Test for addFile
      */
-    public function testAddFile(){
+    public function testAddFile()
+    {
         $this->assertEquals(
             $this->object->addFile('This is test content for the file', 'Test file'),
             ''
@@ -93,7 +97,8 @@ class PMA_zip_test extends PHPUnit_Framework_TestCase
     /**
      * Test for file
      */
-    public function testFile(){
+    public function testFile()
+    {
         $file = $this->object->file();
         $this->assertTrue(
             !empty($file)

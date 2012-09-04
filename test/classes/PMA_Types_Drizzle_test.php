@@ -36,7 +36,8 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
      *
      * @dataProvider providerForTestGetTypeDescription
      */
-    public function testGetTypeDescription($type, $output){
+    public function testGetTypeDescription($type, $output)
+    {
         $this->assertEquals(
             $output,
             $this->object->getTypeDescription($type)
@@ -47,7 +48,8 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
      * Provider for testGetTypeDescription
      * @return array
      */
-    public function providerForTestGetTypeDescription(){
+    public function providerForTestGetTypeDescription()
+    {
         return array(
             array(
                 'INTEGER',
@@ -128,14 +130,16 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
      *
      * @dataProvider providerFortTestGetTypeClass
      */
-    public function testGetTypeClass($type, $output){
+    public function testGetTypeClass($type, $output)
+    {
         $this->assertEquals(
             $output,
             $this->object->getTypeClass($type)
         );
     }
 
-    public function providerFortTestGetTypeClass(){
+    public function providerFortTestGetTypeClass()
+    {
         return array(
             array(
                 'SERIAL',
@@ -168,7 +172,8 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
      *
      * @dataProvider providerFortTestGetFunctionsClass
      */
-    public function testGetFunctionsClass($class, $output){
+    public function testGetFunctionsClass($class, $output)
+    {
 
         if (! function_exists('PMA_DBI_fetch_result')) {
             function PMA_DBI_fetch_result($query)
@@ -187,7 +192,8 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
      * Provider for testGetFunctionsClass
      * @return array
      */
-    public function providerFortTestGetFunctionsClass(){
+    public function providerFortTestGetFunctionsClass()
+    {
         return array(
             array(
                 'UUID',
@@ -306,7 +312,8 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getAttributes
      */
-    public function testGetAttributes(){
+    public function testGetAttributes()
+    {
         $this->assertEquals(
             array(
                 '',
@@ -319,7 +326,8 @@ class PMA_Types_Drizzle_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getColumns
      */
-    public function testGetColumns(){
+    public function testGetColumns()
+    {
 
         if (! defined('PMA_MYSQL_INT_VERSION')) {
             define('PMA_MYSQL_INT_VERSION', 20120130);

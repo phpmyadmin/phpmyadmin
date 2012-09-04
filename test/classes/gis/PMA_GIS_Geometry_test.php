@@ -254,7 +254,8 @@ class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
      * @param type $output
      * @dataProvider providerForTestGetBoundsForOl
      */
-    public function testGetBoundsForOl($srid, $scale_data, $output){
+    public function testGetBoundsForOl($srid, $scale_data, $output)
+    {
 
         $this->assertEquals(
             $this->_callProtectedFunction(
@@ -291,7 +292,8 @@ class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
      *
      *@dataProvider providerForTestGetPolygonArrayForOpenLayers
      */
-    public function testGetPolygonArrayForOpenLayers($polygons, $srid, $output){
+    public function testGetPolygonArrayForOpenLayers($polygons, $srid, $output)
+    {
 
         $this->assertEquals(
             $this->_callProtectedFunction(
@@ -302,7 +304,8 @@ class PMA_GIS_GeometryTest extends PHPUnit_Framework_TestCase
         );
     }
 
-    public function providerForTestGetPolygonArrayForOpenLayers(){
+    public function providerForTestGetPolygonArrayForOpenLayers()
+    {
 
         return array(
             array(

@@ -58,7 +58,8 @@ class PMA_StorageEngine_mrg_myisam_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getMysqlHelpPage
      */
-    public function testGetMysqlHelpPage(){
+    public function testGetMysqlHelpPage()
+    {
         $this->assertEquals(
             $this->object->getMysqlHelpPage(),
             'merge'

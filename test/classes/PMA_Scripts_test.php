@@ -69,7 +69,8 @@ class PMA_Scripts_test extends PHPUnit_Framework_TestCase
      *
      * @dataProvider providerForTestIncludeFile
      */
-    public function testIncludeFile($url, $timestamp, $ie_conditional, $output){
+    public function testIncludeFile($url, $timestamp, $ie_conditional, $output)
+    {
         $this->assertEquals(
             $output,
             $this->_callPrivateFunction(
@@ -82,7 +83,8 @@ class PMA_Scripts_test extends PHPUnit_Framework_TestCase
     /**
      * @return array data for testIncludeFile
      */
-    public function providerForTestIncludeFile(){
+    public function providerForTestIncludeFile()
+    {
                 return array(
                     array(
                         'common.js',
@@ -106,7 +108,8 @@ class PMA_Scripts_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getDisplay
      */
-    public function testGetDisplay(){
+    public function testGetDisplay()
+    {
 
         $this->object->addFile('common.js');
         $this->object->addEvent('onClick', 'doSomething');
@@ -125,7 +128,8 @@ class PMA_Scripts_test extends PHPUnit_Framework_TestCase
     /**
      * test for addCode
      */
-    public function testAddCode(){
+    public function testAddCode()
+    {
 
         $this->object->addCode('alert(\'CodeAdded\')');
 

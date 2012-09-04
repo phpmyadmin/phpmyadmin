@@ -24,8 +24,9 @@ class PMA_JS_Escape_test extends PHPUnit_Framework_TestCase
         $array = array('1','2','3');
         $this->assertEquals("foo = [\"1\",\"2\",\"3\",];\n", PMA_getJsValue('foo', $array));
     }
-    
-    public function testPMA_jsFormat(){
+
+    public function testPMA_jsFormat()
+    {
         $this->assertEquals("`foo`", PMA_jsFormat('foo'));
     }
 

@@ -46,7 +46,8 @@ class PMA_FileReader_test extends PHPUnit_Framework_TestCase
     /**
      * Test for read
      */
-    public function testRead(){
+    public function testRead()
+    {
         $this->assertEquals(
             $this->object->read(4),
             'TEST'
@@ -61,7 +62,8 @@ class PMA_FileReader_test extends PHPUnit_Framework_TestCase
     /**
      * Test for seekto
      */
-    public function testSeekto(){
+    public function testSeekto()
+    {
         $this->assertEquals(
             $this->object->seekto(1),
             1
@@ -71,7 +73,8 @@ class PMA_FileReader_test extends PHPUnit_Framework_TestCase
     /**
      * Test for currentpos
      */
-    public function testCurrentpos(){
+    public function testCurrentpos()
+    {
         $this->assertEquals(
             $this->object->currentpos(),
             0
@@ -81,7 +84,8 @@ class PMA_FileReader_test extends PHPUnit_Framework_TestCase
     /**
      * Test for length
      */
-    public function testLength(){
+    public function testLength()
+    {
         $this->assertEquals(
             $this->object->length(),
             10
@@ -91,7 +95,8 @@ class PMA_FileReader_test extends PHPUnit_Framework_TestCase
     /**
      * Test for close
      */
-    public function testClose(){
+    public function testClose()
+    {
         $this->assertEquals(
             $this->object->close(),
             null
@@ -101,14 +106,16 @@ class PMA_FileReader_test extends PHPUnit_Framework_TestCase
     /**
      * Test for non existing file
      */
-    public function testForNonExistingFile(){
+    public function testForNonExistingFile()
+    {
         $file = new FileReader('./path/for/no/file.txt');
         $this->assertFalse(
             $file->FileReader('./path/for/no/file.txt')
         );
     }
 
-    public function testForCachedFileReader(){
+    public function testForCachedFileReader()
+    {
         $reader = new CachedFileReader('./test/test_data/test.file');
         $this->assertEquals(
             $reader->CachedFileReader('./test/test_data/test.file'),

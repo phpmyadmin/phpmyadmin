@@ -361,14 +361,19 @@ class PMA_GIS_PolygonTest extends PMA_GIS_GeomTest
      *
      *@dataProvider providerForPrepareRowAsPng
      */
-    public function testPrepareRowAsPng($spatial, $label, $line_color, $scale_data, $image, $output)
-    {
+    public function testPrepareRowAsPng(
+        $spatial, $label, $line_color, $scale_data, $image, $output
+    ) {
 
-        $return = $this->object->prepareRowAsPng($spatial, $label, $line_color, $scale_data, $image);
+        $return = $this->object->prepareRowAsPng(
+            $spatial, $label, $line_color, $scale_data, $image
+        );
+        /* TODO: this never fails */
         $this->assertTrue(true);
     }
 
-    public function providerForPrepareRowAsPng(){
+    public function providerForPrepareRowAsPng()
+    {
 
         return array(
             array(
@@ -398,14 +403,18 @@ class PMA_GIS_PolygonTest extends PMA_GIS_GeomTest
      *
      *@dataProvider providerForPrepareRowAsPdf
      */
-    public function testPrepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf)
-    {
+    public function testPrepareRowAsPdf(
+        $spatial, $label, $line_color, $scale_data, $pdf
+    ) {
 
-        $return = $this->object->prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf);
-        $this->assertTrue($return instanceof TCPDF);
+        $return = $this->object->prepareRowAsPdf(
+            $spatial, $label, $line_color, $scale_data, $pdf
+        );
+        $this->assertInstanceOf('TCPDF', $return);
     }
 
-    public function providerForPrepareRowAsPdf(){
+    public function providerForPrepareRowAsPdf()
+    {
 
         return array(
             array(
@@ -433,15 +442,18 @@ class PMA_GIS_PolygonTest extends PMA_GIS_GeomTest
      *
      *@dataProvider providerForPrepareRowAsSvg
      */
-    public function testPrepareRowAsSvg($spatial, $label, $line_color, $scale_data, $output)
-    {
+    public function testPrepareRowAsSvg(
+        $spatial, $label, $line_color, $scale_data, $output
+    ) {
 
-        $string = $this->object->prepareRowAsSvg($spatial, $label, $line_color, $scale_data);
+        $string = $this->object->prepareRowAsSvg(
+            $spatial, $label, $line_color, $scale_data
+        );
         $this->assertEquals(1, preg_match($output, $string));
-//        $this->assertEquals($this->object->prepareRowAsSvg($spatial, $label, $line_color, $scale_data) , $output);
     }
 
-    public function providerForPrepareRowAsSvg(){
+    public function providerForPrepareRowAsSvg()
+    {
 
         return array(
             array(
@@ -470,13 +482,20 @@ class PMA_GIS_PolygonTest extends PMA_GIS_GeomTest
      *
      *@dataProvider providerForPrepareRowAsOl
      */
-    public function testPrepareRowAsOl($spatial, $srid, $label, $line_color, $scale_data, $output)
-    {
+    public function testPrepareRowAsOl(
+        $spatial, $srid, $label, $line_color, $scale_data, $output
+    ) {
 
-        $this->assertEquals($this->object->prepareRowAsOl($spatial, $srid, $label, $line_color, $scale_data), $output);
+        $this->assertEquals(
+            $output,
+            $this->object->prepareRowAsOl(
+                $spatial, $srid, $label, $line_color, $scale_data
+            )
+        );
     }
 
-    public function providerForPrepareRowAsOl(){
+    public function providerForPrepareRowAsOl()
+    {
 
         return array(
             array(
@@ -508,7 +527,8 @@ class PMA_GIS_PolygonTest extends PMA_GIS_GeomTest
         $this->assertTrue($this->object->isOuterRing($ring));
     }
 
-    public function providerForIsOuterRing(){
+    public function providerForIsOuterRing()
+    {
 
         return array(
             array(

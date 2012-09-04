@@ -304,7 +304,7 @@ class PMA_EPS
 
         $modifier = 1;
         $font = strtolower($font);
-        switch($font){
+        switch ($font) {
         /*
          * no modifier for arial and sans-serif
          */

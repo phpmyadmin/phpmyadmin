@@ -16,6 +16,11 @@ require_once 'libraries/url_generating.lib.php';
 require_once 'libraries/core.lib.php';
 require_once 'libraries/Theme.class.php';
 
+/**
+ * Tests for database search.
+ *
+ * @package PhpMyAdmin-test
+ */
 class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
 {
     /**
@@ -41,7 +46,10 @@ class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
                 );
             }
         }
-        $this->object = $this->getMockForAbstractClass('PMA_DbSearch', array('pma'));
+        $this->object = $this->getMockForAbstractClass(
+            'PMA_DbSearch',
+            array('pma')
+        );
     }
 
     /**
@@ -75,14 +83,19 @@ class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getCommonFunctions
      */
-    public function testGetCommonFunctions(){
-        $this->assertTrue($this->object->getCommonFunctions() instanceof PMA_CommonFunctions);
+    public function testGetCommonFunctions()
+    {
+        $this->assertInstanceOf(
+            'PMA_CommonFunctions',
+            $this->object->getCommonFunctions()
+        );
     }
 
     /**
      * Test for _getSearchSqls
      */
-    public function testGetSearchSqls(){
+    public function testGetSearchSqls()
+    {
 
         $GLOBALS['db'] = 'pma';
         if (! function_exists('PMA_DBI_get_columns')) {
@@ -111,7 +124,8 @@ class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getSearchResults
      */
-    public function testGetSearchResults(){
+    public function testGetSearchResults()
+    {
         $this->assertEquals(
             '<br /><table class="data"><caption class="tblHeaders">Search results for "<i></i>" :</caption></table>',
             $this->object->getSearchResults()
@@ -120,14 +134,17 @@ class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
 
     /**
      * Test for _getResultsRow
+     *
      * @param string $each_table    Tables on which search is to be performed
      * @param array  $newsearchsqls Contains SQL queries
      * @param bool   $odd_row       For displaying contrasting table rows
-     * @param $output
+     * @param string $output        Expected HTML output
      *
      * @dataProvider providerForTestGetResultsRow
      */
-    public function testGetResultsRow($each_table, $newsearchsqls, $odd_row, $output){
+    public function testGetResultsRow(
+        $each_table, $newsearchsqls, $odd_row, $output
+    ) {
 
         if (! function_exists('PMA_DBI_fetch_value')) {
             function PMA_DBI_fetch_value()
@@ -148,7 +165,8 @@ class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
     /**
      * @return array provider for testGetResultsRow
      */
-    public function providerForTestGetResultsRow(){
+    public function providerForTestGetResultsRow()
+    {
         return array(
             array(
                 'table1',
@@ -168,7 +186,8 @@ class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getSelectionForm
      */
-    public function testGetSelectionForm(){
+    public function testGetSelectionForm()
+    {
         $_SESSION[' PMA_token '] = 'token';
         $_SESSION['PMA_Theme'] = new PMA_Theme();
         $GLOBALS['pmaThemeImage'] = 'themes/dot.gif';
@@ -190,7 +209,8 @@ class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getResultDivs
      */
-    public function testGetResultDivs(){
+    public function testGetResultDivs()
+    {
         $this->assertEquals(
             '<!-- These two table-image and table-link elements display the table name in browse search results  --><div id="table-info"><a class="item" id="table-link" ></a></div><div id="browse-results"><!-- this browse-results div is used to load the browse and delete results in the db search --></div><br class="clearfloat" /><div id="sqlqueryform"><!-- this sqlqueryform div is used to load the delete form in the db search --></div><!--  toggle query box link--><a id="togglequerybox"></a>',
             $this->_callProtectedFunction(

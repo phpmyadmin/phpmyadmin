@@ -72,7 +72,8 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getVariables
      */
-    public function testGetVariables(){
+    public function testGetVariables()
+    {
         $this->assertEquals(
             $this->object->getVariables(),
             array(
@@ -174,7 +175,8 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getVariablesLikePattern
      */
-    public function testGetVariablesLikePattern(){
+    public function testGetVariablesLikePattern()
+    {
         $this->assertEquals(
             $this->object->getVariablesLikePattern(),
             'innodb\\_%'
@@ -184,7 +186,8 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getInfoPages
      */
-    public function testGetInfoPages(){
+    public function testGetInfoPages()
+    {
         $this->assertEquals(
             $this->object->getInfoPages(),
             array()
@@ -202,7 +205,8 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getPageBufferpool
      */
-    public function testGetPageBufferpool(){
+    public function testGetPageBufferpool()
+    {
         $this->assertEquals(
             $this->object->getPageBufferpool(),
             '<table class="data" id="table_innodb_bufferpool_usage">
@@ -288,7 +292,8 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getPageStatus
      */
-    public function testGetPageStatus(){
+    public function testGetPageStatus()
+    {
         if (! function_exists('PMA_DBI_fetch_value')) {
             function PMA_DBI_fetch_value()
             {
@@ -308,7 +313,8 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getPage
      */
-    public function testGetPage(){
+    public function testGetPage()
+    {
         $this->assertFalse(
             $this->object->getPage('Status')
         );
@@ -324,7 +330,8 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getMysqlHelpPage
      */
-    public function testGetMysqlHelpPage(){
+    public function testGetMysqlHelpPage()
+    {
         $this->assertEquals(
             $this->object->getMysqlHelpPage(),
             'innodb'
@@ -335,7 +342,8 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getInnodbPluginVersion
      */
-    public function testGetInnodbPluginVersion(){
+    public function testGetInnodbPluginVersion()
+    {
         $this->assertEquals(
             $this->object->getInnodbPluginVersion(),
             2
@@ -346,7 +354,8 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
     /**
      * Test for supportsFilePerTable
      */
-    public function testSupportsFilePerTable(){
+    public function testSupportsFilePerTable()
+    {
         $this->assertEquals(
             $this->object->supportsFilePerTable(),
             false
@@ -357,7 +366,8 @@ class PMA_StorageEngine_innodb_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getInnodbFileFormat
      */
-    public function testGetInnodbFileFormat(){
+    public function testGetInnodbFileFormat()
+    {
         $this->assertEquals(
             $this->object->getInnodbFileFormat(),
             2

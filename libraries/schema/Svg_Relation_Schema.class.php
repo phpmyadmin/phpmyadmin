@@ -300,7 +300,7 @@ class PMA_SVG extends XMLWriter
 
         $modifier = 1;
         $font = strtolower($font);
-        switch($font){
+        switch ($font) {
         /*
          * no modifier for arial and sans-serif
          */

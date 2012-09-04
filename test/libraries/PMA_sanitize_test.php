@@ -125,7 +125,8 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
     /**
      * Test for PMA_sanitizeFilename
      */
-    public function testSanitizeFilename(){
+    public function testSanitizeFilename()
+    {
         $this->assertEquals(
             'File_name_123',
             PMA_sanitizeFilename('File_name 123')

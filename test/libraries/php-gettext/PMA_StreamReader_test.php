@@ -46,28 +46,32 @@ class PMA_StreamReader_test extends PHPUnit_Framework_TestCase
     /**
      * Test for read
      */
-    public function testRead(){
+    public function testRead()
+    {
         $this->assertFalse($this->object->read(4));
     }
 
     /**
      * Test for seekto
      */
-    public function testSeekto(){
+    public function testSeekto()
+    {
         $this->assertFalse($this->object->seekto(1));
     }
 
     /**
      * Test for currentpos
      */
-    public function testCurrentpos(){
+    public function testCurrentpos()
+    {
         $this->assertFalse($this->object->currentpos());
     }
 
     /**
      * Test for length
      */
-    public function testLength(){
+    public function testLength()
+    {
         $this->assertFalse($this->object->length());
     }
 

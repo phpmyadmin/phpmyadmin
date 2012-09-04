@@ -59,7 +59,8 @@ class PMA_StorageEngine_memory_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getVariables
      */
-    public function testGetVariables(){
+    public function testGetVariables()
+    {
         $this->assertEquals(
             $this->object->getVariables(),
             array(

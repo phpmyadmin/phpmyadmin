@@ -36,7 +36,8 @@ class PMA_Types_MySQL_test extends PHPUnit_Framework_TestCase
      *
      * @dataProvider providerForTestGetTypeDescription
      */
-    public function testGetTypeDescription($type, $output){
+    public function testGetTypeDescription($type, $output)
+    {
         $this->assertEquals(
             $output,
             $this->object->getTypeDescription($type)
@@ -47,7 +48,8 @@ class PMA_Types_MySQL_test extends PHPUnit_Framework_TestCase
      * Provider for testGetTypeDescription
      * @return array
      */
-    public function providerForTestGetTypeDescription(){
+    public function providerForTestGetTypeDescription()
+    {
         return array(
             array(
                 'TINYINT',
@@ -220,14 +222,16 @@ class PMA_Types_MySQL_test extends PHPUnit_Framework_TestCase
      *
      * @dataProvider providerFortTestGetTypeClass
      */
-    public function testGetTypeClass($type, $output){
+    public function testGetTypeClass($type, $output)
+    {
         $this->assertEquals(
             $output,
             $this->object->getTypeClass($type)
         );
     }
 
-    public function providerFortTestGetTypeClass(){
+    public function providerFortTestGetTypeClass()
+    {
         return array(
             array(
                 'SERIAL',
@@ -260,7 +264,8 @@ class PMA_Types_MySQL_test extends PHPUnit_Framework_TestCase
      *
      * @dataProvider providerFortTestGetFunctionsClass
      */
-    public function testGetFunctionsClass($class, $output){
+    public function testGetFunctionsClass($class, $output)
+    {
 
         if (! defined('PMA_MYSQL_INT_VERSION')) {
             define('PMA_MYSQL_INT_VERSION', 60000);
@@ -272,7 +277,8 @@ class PMA_Types_MySQL_test extends PHPUnit_Framework_TestCase
         );
     }
 
-    public function providerFortTestGetFunctionsClass(){
+    public function providerFortTestGetFunctionsClass()
+    {
         return array(
             array(
                 'CHAR',
@@ -419,7 +425,8 @@ class PMA_Types_MySQL_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getAttributes
      */
-    public function testGetAttributes(){
+    public function testGetAttributes()
+    {
         $this->assertEquals(
             array(
                 '',
@@ -435,7 +442,8 @@ class PMA_Types_MySQL_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getColumns
      */
-    public function testGetColumns(){
+    public function testGetColumns()
+    {
         $this->assertEquals(
             array(
                 0 => 'INT',

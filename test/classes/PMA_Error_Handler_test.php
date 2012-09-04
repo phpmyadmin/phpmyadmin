@@ -96,7 +96,8 @@ class PMA_Error_Handler_test extends PHPUnit_Framework_TestCase
     /**
      * Test for logError
      */
-//    public function testLogError(){
+//    public function testLogError()
+//    {
 //
 //        $error = new PMA_Error('2', 'Compile Error', 'error.txt', 15);
 //
