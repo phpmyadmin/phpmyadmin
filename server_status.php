@@ -137,13 +137,13 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                         case 'cpu':
                             if (!$sysinfo) {
                                 include_once 'libraries/sysinfo.lib.php';
-                                $sysinfo = getSysInfo();
+                                $sysinfo = PMA_getSysInfo();
                             }
                             if (!$cpuload) {
                                 $cpuload = $sysinfo->loadavg();
                             }
 
-                            if (PHP_OS == 'Linux') {
+                            if (PMA_getSysInfoOs() == 'Linux') {
                                 $ret[$chart_id][$node_id][$point_id]['idle'] = $cpuload['idle'];
                                 $ret[$chart_id][$node_id][$point_id]['busy'] = $cpuload['busy'];
                             } else
@@ -154,7 +154,7 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                         case 'memory':
                             if (!$sysinfo) {
                                 include_once 'libraries/sysinfo.lib.php';
-                                $sysinfo = getSysInfo();
+                                $sysinfo = PMA_getSysInfo();
                             }
                             if (!$memory) {
                                 $memory  = $sysinfo->memory();
