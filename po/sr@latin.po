@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-03 19:56+0200\n"
-"PO-Revision-Date: 2012-09-04 22:44+0200\n"
+"PO-Revision-Date: 2012-09-04 23:02+0200\n"
 "Last-Translator: Vojislav Pavić <vpavic@gmail.com>\n"
 "Language-Team: Serbian (latin) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sr@latin/>\n"
@@ -293,16 +293,16 @@ msgid "The database name is empty!"
 msgstr "Ime baze nije zadato!"
 
 #: db_operations.php:130
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "Baza %s je preimenovana u %s"
+msgstr "Baza %1$s je preimenovana u %2$s"
 
 #: db_operations.php:134
-#, fuzzy, php-format
+#, php-format
 #| msgid "Database %s has been copied to %s"
 msgid "Database %1$s has been copied to %2$s"
-msgstr "Baza %s je prekopirana u %s"
+msgstr "Baza %1$s je iskopirana u %2$s"
 
 #: db_operations.php:260
 #, php-format
@@ -735,10 +735,10 @@ msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" komanda je onemogućena."
 
 #: js/messages.php:30
-#, fuzzy, php-format
+#, php-format
 #| msgid "Do you really want to "
 msgid "Do you really want to execute \"%s\"?"
-msgstr "Da li stvarno hoćete da "
+msgstr "Da li stvarno hoćete da izvršite \"%s\"?"
 
 #: js/messages.php:31 libraries/mult_submits.inc.php:310 sql.php:435
 msgid "You are about to DESTROY a complete database!"
@@ -1547,22 +1547,19 @@ msgid "Show indexes"
 msgstr "Prikaži indekse"
 
 #: js/messages.php:257 libraries/mult_submits.inc.php:320
-#, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Foreign key check:"
-msgstr "Isključi provere stranih ključeva"
+msgstr "Provera stranog ključa:"
 
 #: js/messages.php:258 libraries/mult_submits.inc.php:324
-#, fuzzy
 #| msgid "Enabled"
 msgid "(Enabled)"
-msgstr "Omogućeno"
+msgstr "(omogućeno)"
 
 #: js/messages.php:259 libraries/mult_submits.inc.php:324
-#, fuzzy
 #| msgid "Disabled"
 msgid "(Disabled)"
-msgstr "Onemogućeno"
+msgstr "(Onemogućeno)"
 
 #: js/messages.php:262
 #| msgid "Search"
@@ -1813,20 +1810,18 @@ msgid "Go to link"
 msgstr "Idi na link"
 
 #: js/messages.php:358
-#, fuzzy
 #| msgid "Column names"
 msgid "Copy column name"
-msgstr "Imena kolona"
+msgstr "Kopiraj ime kolone"
 
 #: js/messages.php:359
 msgid "Right-click the column name to copy it to your clipboard."
 msgstr ""
 
 #: js/messages.php:360
-#, fuzzy
 #| msgid "Showing rows"
 msgid "Show data row(s)"
-msgstr "Prikaz zapisa"
+msgstr "Prikaži red(ove) podataka"
 
 #: js/messages.php:363
 #| msgid "Generate Password"
@@ -4661,7 +4656,7 @@ msgstr "Unesite parametre veze sa serverom"
 
 #: libraries/config/messages.inc.php:208
 msgid "Configuration storage"
-msgstr ""
+msgstr "Skladište konfiguracije"
 
 #: libraries/config/messages.inc.php:209
 msgid ""
@@ -4672,13 +4667,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:210
 msgid "Changes tracking"
-msgstr ""
+msgstr "Praćenje promena"
 
 #: libraries/config/messages.inc.php:211
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
+"Praćenje promena u bazi podataka. Zahteva phpMyAdmin skladište "
+"konfiguracije."
 
 #: libraries/config/messages.inc.php:212
 msgid "Customize export options"
@@ -4690,11 +4687,11 @@ msgstr "Podešavanje podrazumevanih opcija uvoza"
 
 #: libraries/config/messages.inc.php:215
 msgid "Customize navigation frame"
-msgstr ""
+msgstr "Prilagođavanje navigacionog okvira"
 
 #: libraries/config/messages.inc.php:216
 msgid "Customize main frame"
-msgstr ""
+msgstr "Prilagođavanje glavnog okvira"
 
 #: libraries/config/messages.inc.php:217 libraries/config/messages.inc.php:222
 #: setup/frames/menu.inc.php:18
@@ -4707,7 +4704,7 @@ msgstr "Okvir sa SQL upitima"
 
 #: libraries/config/messages.inc.php:220
 msgid "Customize links shown in SQL Query boxes"
-msgstr ""
+msgstr "Prilagođavanje linkova prikazanih u okvirima SQL upita"
 
 #: libraries/config/messages.inc.php:223
 msgid "SQL queries settings"
@@ -4732,7 +4729,7 @@ msgstr "Početno pokretanje"
 
 #: libraries/config/messages.inc.php:227
 msgid "Customize startup page"
-msgstr ""
+msgstr "Prilagođavanje početne strane"
 
 #: libraries/config/messages.inc.php:228
 #, fuzzy
@@ -4760,7 +4757,7 @@ msgstr "Kartice"
 
 #: libraries/config/messages.inc.php:233
 msgid "Choose how you want tabs to work"
-msgstr ""
+msgstr "Izaberite kako želite kartice da rade"
 
 #: libraries/config/messages.inc.php:234
 #| msgid "Use text field"
@@ -4773,15 +4770,15 @@ msgstr "Podešavanje text input polja"
 
 #: libraries/config/messages.inc.php:236
 msgid "Texy! text"
-msgstr ""
+msgstr "Texy! tekst"
 
 #: libraries/config/messages.inc.php:238
 msgid "Warnings"
-msgstr ""
+msgstr "Upozorenja"
 
 #: libraries/config/messages.inc.php:239
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr ""
+msgstr "Isključi neka od upozorenja koja je phpMyAdmin prikazao"
 
 #: libraries/config/messages.inc.php:240
 msgid ""
@@ -4791,21 +4788,23 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:241
 msgid "GZip"
-msgstr ""
+msgstr "GZip"
 
 #: libraries/config/messages.inc.php:242
 msgid "Extra parameters for iconv"
-msgstr ""
+msgstr "Dodatni parametri za iconv"
 
 #: libraries/config/messages.inc.php:243
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
 msgstr ""
+"Ako je uključeno, phpMyAdmin će nastaviti da izračunava više-iskazne upite "
+"čak i ako jedan od upita nije uspeo"
 
 #: libraries/config/messages.inc.php:244
 msgid "Ignore multiple statement errors"
-msgstr ""
+msgstr "Ignoriši greške kod višestrukih iskaza"
 
 #: libraries/config/messages.inc.php:245
 msgid ""
@@ -4819,11 +4818,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:246
 msgid "Partial import: allow interrupt"
-msgstr ""
+msgstr "Delimični uvoz: dozvolite prekid"
 
 #: libraries/config/messages.inc.php:251 libraries/config/messages.inc.php:258
 msgid "Do not abort on INSERT error"
-msgstr ""
+msgstr "Ne prekidaj izvršavanje ako se desi greška kod umetanja"
 
 #: libraries/config/messages.inc.php:252 libraries/config/messages.inc.php:260
 #: libraries/plugins/import/ImportCsv.class.php:77
