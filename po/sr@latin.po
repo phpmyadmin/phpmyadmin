@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-28 14:48+0200\n"
-"PO-Revision-Date: 2012-09-04 08:58+0200\n"
+"PO-Revision-Date: 2012-09-04 09:20+0200\n"
 "Last-Translator: Vojislav Pavić <vpavic@gmail.com>\n"
 "Language-Team: Serbian (latin) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sr@latin/>\n"
@@ -6825,10 +6825,9 @@ msgid "Binary"
 msgstr "Binarni"
 
 #: libraries/insert_edit.lib.php:678
-#, fuzzy
 #| msgid "ause of its length,<br /> this field might not be editable "
 msgid "Because of its length,<br /> this column might not be editable"
-msgstr "Zbog njehove veličine, polje<br />možda nećete moći da izmenite"
+msgstr "Zbog njene veličine,<br />ova kolona možda neće moći da se izmeni"
 
 #: libraries/insert_edit.lib.php:1112
 msgid "Binary - do not edit"
@@ -6839,10 +6838,10 @@ msgid "web server upload directory"
 msgstr "direktorijum za slanje veb servera"
 
 #: libraries/insert_edit.lib.php:1426
-#, fuzzy, php-format
+#, php-format
 #| msgid "Restart insertion with %s rows"
 msgid "Continue insertion with %s rows"
-msgstr "Ponovo pokreni unošenje sa %s redova"
+msgstr "Nastavi umetanje sa %s redova"
 
 #: libraries/insert_edit.lib.php:1456
 msgid "and then"
@@ -6857,9 +6856,8 @@ msgid "Insert as new row and ignore errors"
 msgstr ""
 
 #: libraries/insert_edit.lib.php:1495
-#, fuzzy
 msgid "Show insert query"
-msgstr "Prikaz kao SQL upit"
+msgstr "Prikaži insert upit"
 
 #: libraries/insert_edit.lib.php:1515
 msgid "Go back to previous page"
@@ -11626,10 +11624,9 @@ msgid "Log statistics"
 msgstr "Statistike loga"
 
 #: server_status.php:1900
-#, fuzzy
 #| msgid "Select Tables"
 msgid "Selected time range:"
-msgstr "Izaberi tabele"
+msgstr "Izaberi vremenski opseg:"
 
 #: server_status.php:1905
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
@@ -11648,28 +11645,27 @@ msgid "Results are grouped by query text."
 msgstr ""
 
 #: server_status.php:1922
-#, fuzzy
 #| msgid "Query type"
 msgid "Query analyzer"
-msgstr "Vrsta upita"
+msgstr "Analizator upita"
 
 #: server_status.php:1972 server_status.php:1990
-#, fuzzy, php-format
+#, php-format
 #| msgid "per second"
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "u sekundi"
-msgstr[1] "u sekundi"
-msgstr[2] "u sekundi"
+msgstr[0] "%d sekunda"
+msgstr[1] "%d sekundi"
+msgstr[2] "%d sekunde"
 
 #: server_status.php:1975
-#, fuzzy, php-format
+#, php-format
 #| msgid "in use"
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "se koristi"
-msgstr[1] "se koristi"
-msgstr[2] "se koristi"
+msgstr[0] "%d minut"
+msgstr[1] "%d minuta"
+msgstr[2] "%d minuta"
 
 #: server_synchronize.php:99
 msgid "Could not connect to the source"
@@ -11698,96 +11694,94 @@ msgid "not present"
 msgstr ""
 
 #: server_synchronize.php:523 server_synchronize.php:1043
-#, fuzzy
 msgid "Structure Difference"
-msgstr "Struktura za pogled (view)"
+msgstr "Strukturna razlika"
 
 #: server_synchronize.php:524 server_synchronize.php:1044
-#, fuzzy
 msgid "Data Difference"
-msgstr "Struktura za pogled (view)"
+msgstr "Razlika u podacima"
 
 #: server_synchronize.php:529 server_synchronize.php:1049
 msgid "Add column(s)"
-msgstr ""
+msgstr "Dodaj kolonu(e)"
 
 #: server_synchronize.php:530 server_synchronize.php:1050
 msgid "Remove column(s)"
-msgstr ""
+msgstr "Ukloni kolonu(e)"
 
 #: server_synchronize.php:531 server_synchronize.php:1051
 msgid "Alter column(s)"
-msgstr ""
+msgstr "Izmeni kolonu(e)"
 
 #: server_synchronize.php:532 server_synchronize.php:1052
 msgid "Remove index(s)"
-msgstr ""
+msgstr "Ukloni indeks(e)"
 
 #: server_synchronize.php:533 server_synchronize.php:1053
 msgid "Apply index(s)"
-msgstr ""
+msgstr "Primeni indeks(e)"
 
 #: server_synchronize.php:534 server_synchronize.php:1054
 msgid "Update row(s)"
-msgstr ""
+msgstr "Ažuriraj red(ove)"
 
 #: server_synchronize.php:535 server_synchronize.php:1055
 msgid "Insert row(s)"
-msgstr ""
+msgstr "Umetni red(ove)"
 
 #: server_synchronize.php:547 server_synchronize.php:1068
 msgid "Would you like to delete all the previous rows from target tables?"
-msgstr ""
+msgstr "Želite li da obrišete sve postojeće redove iz izabrane tabele?"
 
 #: server_synchronize.php:552 server_synchronize.php:1073
 msgid "Apply Selected Changes"
-msgstr ""
+msgstr "Primeni izabrane promene"
 
 #: server_synchronize.php:556 server_synchronize.php:1076
 msgid "Synchronize Databases"
-msgstr ""
+msgstr "Sinhronizuj baze"
 
 #: server_synchronize.php:570
 msgid "Selected target tables have been synchronized with source tables."
-msgstr ""
+msgstr "Izabrane odredišne tabele su sinhronizovane sa izvornim tabelama."
 
 #: server_synchronize.php:1123
 msgid "Target database has been synchronized with source database"
-msgstr ""
+msgstr "Odredišna baza je sinhronizovana sa izvornom bazom"
 
 #: server_synchronize.php:1191
-#, fuzzy
 msgid "Executed queries"
-msgstr "SQL upit"
+msgstr "Izvršeni upiti"
 
 #: server_synchronize.php:1375
 msgid "Enter manually"
-msgstr ""
+msgstr "Unesite ručno"
 
 #: server_synchronize.php:1383
-#, fuzzy
 #| msgid "max. concurrent connections"
 msgid "Current connection"
-msgstr "maks. istovremenih veza"
+msgstr "Trenutna veza"
 
 #: server_synchronize.php:1424
 #, php-format
 msgid "Configuration: %s"
-msgstr ""
+msgstr "Konfiguracija: %s"
 
 #: server_synchronize.php:1439
 msgid "Socket"
-msgstr ""
+msgstr "Soket"
 
 #: server_synchronize.php:1487
 msgid ""
 "Target database will be completely synchronized with source database. Source "
 "database will remain unchanged."
 msgstr ""
+"Odredišna baza će biti kompletno sinhronizovana sa izvornom bazom. Izvorna "
+"baza će ostati neizmenjena."
 
 #: server_variables.php:87
 msgid "Setting variable failed"
-msgstr ""
+msgstr "Neuspelo podešavanje promenljive"
 
 #: server_variables.php:100
 msgid "Server variables and settings"
@@ -11838,10 +11832,9 @@ msgid "Insecure connection"
 msgstr ""
 
 #: setup/frames/index.inc.php:98
-#, fuzzy
 #| msgid "Modifications have been saved"
 msgid "Configuration saved."
-msgstr "Izmene su sačuvane"
+msgstr "Podešavanja su sačuvana."
 
 #: setup/frames/index.inc.php:99
 msgid ""
@@ -11890,28 +11883,24 @@ msgid "Display"
 msgstr ""
 
 #: setup/frames/index.inc.php:250
-#, fuzzy
 msgid "Load"
-msgstr "Lokalni"
+msgstr "Učitavanje"
 
 #: setup/frames/index.inc.php:270
-#, fuzzy
 msgid "phpMyAdmin homepage"
-msgstr "phpMyAdmin dokumentacija"
+msgstr "phpMyAdmin početna stranica"
 
 #: setup/frames/index.inc.php:272
-#, fuzzy
 msgid "Donate"
-msgstr "Podaci"
+msgstr "Doniraj"
 
 #: setup/frames/servers.inc.php:29
 msgid "Edit server"
 msgstr ""
 
 #: setup/frames/servers.inc.php:38
-#, fuzzy
 msgid "Add a new server"
-msgstr "Dodaj novog korisnika"
+msgstr "Dodaj novi server"
 
 #: setup/index.php:22
 msgid "Wrong GET file attribute value"
@@ -11934,9 +11923,8 @@ msgid "Ignore errors"
 msgstr ""
 
 #: setup/lib/form_processing.lib.php:50
-#, fuzzy
 msgid "Show form"
-msgstr "Prikaži boju"
+msgstr "Prikaži formu"
 
 #: setup/lib/index.lib.php:133
 msgid ""
@@ -12085,10 +12073,9 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr ""
 
 #: setup/validate.php:22
-#, fuzzy
 #| msgid "No databases"
 msgid "Wrong data"
-msgstr "Baza ne postoji"
+msgstr "Pogrešan podatak"
 
 #: sql.php:275
 #, php-format
@@ -12100,10 +12087,9 @@ msgid "Showing as PHP code"
 msgstr "Prikaz kao PHP kod"
 
 #: sql.php:835
-#, fuzzy
 #| msgid "Validate SQL"
 msgid "Validated SQL"
-msgstr "Proveri SQL"
+msgstr "Validiran SQL"
 
 #: sql.php:994
 msgid "SQL result"
@@ -12123,9 +12109,9 @@ msgid "Label"
 msgstr "Naziv"
 
 #: tbl_addfield.php:190 tbl_alter.php:216 tbl_indexes.php:109
-#, fuzzy, php-format
+#, php-format
 msgid "Table %1$s has been altered successfully"
-msgstr "Izabrani korisnici su uspešno obrisani."
+msgstr "Tabela %1$s je uspešno izmenjena"
 
 #: tbl_alter.php:133
 #, fuzzy
@@ -12134,14 +12120,12 @@ msgid "The columns have been moved successfully."
 msgstr "Izabrani korisnici su uspešno obrisani."
 
 #: tbl_chart.php:83
-#, fuzzy
 #| msgid "Mar"
 msgctxt "Chart type"
 msgid "Bar"
-msgstr "mar"
+msgstr "Traka"
 
 #: tbl_chart.php:85
-#, fuzzy
 #| msgid "Column"
 msgctxt "Chart type"
 msgid "Column"
