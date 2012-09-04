@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 06:32-0400\n"
-"PO-Revision-Date: 2012-09-04 21:23+0200\n"
+"PO-Revision-Date: 2012-09-04 22:30+0200\n"
 "Last-Translator: Vojislav Pavić <vpavic@gmail.com>\n"
 "Language-Team: Serbian (latin) "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/sr@latin/>\n"
@@ -3961,7 +3961,7 @@ msgstr "Opšte"
 
 #: libraries/config/messages.inc.php:171
 msgid "Set some commonly used options"
-msgstr ""
+msgstr "Postavite neke najčešće korišćene opcije"
 
 #: libraries/config/messages.inc.php:173
 msgid "Import defaults"
@@ -3969,11 +3969,11 @@ msgstr "Podrazumevane opcije uvoza"
 
 #: libraries/config/messages.inc.php:174
 msgid "Customize default common import options"
-msgstr ""
+msgstr "Podešavanje podrazumevanih najčešće korišćenih opcija za uvoz"
 
 #: libraries/config/messages.inc.php:175
 msgid "Import / export"
-msgstr ""
+msgstr "Izvoz/uvoz"
 
 #: libraries/config/messages.inc.php:176
 msgid "Set import and export directories and compression options"
