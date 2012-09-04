@@ -410,8 +410,7 @@ class PMA_Message
     /**
      * set string (does not take effect if raw message is set)
      *
-     * @param string $string
-     *
+     * @param string  $string
      * @param boolean $sanitize whether to sanitize $string or not
      *
      * @return void
@@ -427,7 +426,7 @@ class PMA_Message
     /**
      * set message type number
      *
-     * @param integer $number
+     * @param integer $number message type number to set
      *
      * @return void
      */
