@@ -174,9 +174,9 @@ class PMA_sysinfoSunos
         $mem['MemTotal'] = $this->_kstat('unix:0:system_pages:pagestotal') * $pagesize;
         $mem['MemUsed'] = $this->_kstat('unix:0:system_pages:pageslocked') * $pagesize;
         $mem['MemFree'] = $this->_kstat('unix:0:system_pages:pagesfree') * $pagesize;
-        $mem['SwapTotal'] = $this->_kstat('unix:0:vminfo:swap_avail') * $pagesize;
-        $mem['SwapUsed'] = $this->_kstat('unix:0:vminfo:swap_alloc') * $pagesize;
-        $mem['SwapFree'] = $this->_kstat('unix:0:vminfo:swap_free') * $pagesize;
+        $mem['SwapTotal'] = $this->_kstat('unix:0:vminfo:swap_avail') / 1024;
+        $mem['SwapUsed'] = $this->_kstat('unix:0:vminfo:swap_alloc') / 1024;
+        $mem['SwapFree'] = $this->_kstat('unix:0:vminfo:swap_free') / 1024;
 
         foreach ($mem as $idx=>$value)
             $mem[$idx] = intval($value);
