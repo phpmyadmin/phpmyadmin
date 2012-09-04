@@ -183,6 +183,45 @@ $(function() {
             }
         });
         break;
+        
+    case 'SunOS':
+        $.extend(presetCharts, {
+            'cpu': {
+                title: PMA_messages['strSystemCPUUsage'],
+                series: [ { 
+                    label: PMA_messages['strAverageLoad']
+                } ],
+                nodes: [ {
+                    dataPoints: [{ type: 'cpu', name: 'loadavg'}]
+                 } ],
+                maxYLabel: []
+            },
+            'memory': {
+                title: PMA_messages['strSystemMemory'],
+                series: [
+                    { label: PMA_messages['strUsedMemory'], fill:true, stackSeries: true},
+                    { label: PMA_messages['strFreeMemory'], fill:true, stackSeries: true}
+                ],
+                nodes: [
+                    { dataPoints: [{ type: 'memory', name: 'MemUsed' }], valueDivisor: 1024 },
+                    { dataPoints: [{ type: 'memory', name: 'MemFree' }], valueDivisor: 1024 }
+                ],
+                maxYLabel: []
+             },
+            'swap': {
+                title: PMA_messages['strSystemSwap'],
+                series: [
+                    { label: PMA_messages['strUsedSwap'], fill:true, stackSeries: true},
+                    { label: PMA_messages['strFreeSwap'], fill:true, stackSeries: true}
+                ],
+                nodes: [
+                    { dataPoints: [{ type: 'memory', name: 'SwapUsed' }], valueDivisor: 1024 },
+                    { dataPoints: [{ type: 'memory', name: 'SwapFree' }], valueDivisor: 1024 }
+                ],
+                maxYLabel: []
+            }
+        });
+        break;
     }
 
     // Default setting for the chart grid
