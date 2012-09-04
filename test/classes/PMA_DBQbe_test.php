@@ -212,10 +212,10 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
     public function testGetInsDelAndOrCell(){
         $GLOBALS['cell_align_right'] = 'cellAlign';
         $this->assertEquals(
-            '<td class="cellAlign nowrap"><!-- Row controls --><table class="nospacing nopadding"><tr><td class="cellAlign nowrap"><small>Ins:</small><input type="checkbox" name="criteriaRowInsert[3]" /></td><td class="cellAlign"><strong>And:</strong></td><td><input type="radio" name="criteriaAndOrRow[3]" value="and"c /></td></tr><tr><td class="cellAlign nowrap"><small>Del:</small><input type="checkbox" name="criteriaRowDelete[3]" /></td><td class="cellAlign"><strong>Or:</strong></td><td><input type="radio" name="criteriaAndOrRow[3]" value="or"c /></td></tr></table></td>',
+            '<td class="cellAlign nowrap"><!-- Row controls --><table class="nospacing nopadding"><tr><td class="cellAlign nowrap"><small>Ins:</small><input type="checkbox" name="criteriaRowInsert[3]" /></td><td class="cellAlign"><strong>And:</strong></td><td><input type="radio" name="criteriaAndOrRow[3]" value="and" /></td></tr><tr><td class="cellAlign nowrap"><small>Del:</small><input type="checkbox" name="criteriaRowDelete[3]" /></td><td class="cellAlign"><strong>Or:</strong></td><td><input type="radio" name="criteriaAndOrRow[3]" value="or" checked="checked" /></td></tr></table></td>',
             $this->_callProtectedFunction(
                 '_getInsDelAndOrCell',
-                array(3, 'checked')
+                array(3, array('and' => '', 'or' => ' checked="checked"'))
             )
         );
     }
