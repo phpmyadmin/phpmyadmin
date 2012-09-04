@@ -48,7 +48,10 @@ class PMA_Theme_Manager_test extends PHPUnit_Framework_TestCase
     public function testHtmlSelectBox()
     {
         $tm = new PMA_Theme_Manager();
-        $this->assertContains('<option value="pmahomme" selected="selected">', $tm->getHtmlSelectBox());
+        $this->assertContains(
+            '<option value="pmahomme" selected="selected">',
+            $tm->getHtmlSelectBox()
+        );
     }
 
     /**
@@ -101,7 +104,10 @@ class PMA_Theme_Manager_test extends PHPUnit_Framework_TestCase
      */
     public function testGetFallBackTheme(){
         $tm = new PMA_Theme_Manager();
-        $this->assertTrue($tm->getFallBackTheme() instanceof PMA_Theme);
+        $this->assertInstanceOf(
+            'PMA_theme',
+            $tm->getFallBackTheme()
+        );
     }
 
 }

@@ -236,7 +236,7 @@ class PMA_GIS_Geometrycollection_test extends PHPUnit_Framework_TestCase
         $return = $this->object->prepareRowAsPdf(
             $spatial, $label, $line_color, $scale_data, $pdf
         );
-        $this->assertTrue($return instanceof TCPDF);
+        $this->assertInstanceOf('TCPDF', $return);
     }
 
     public function providerForPrepareRowAsPdf()

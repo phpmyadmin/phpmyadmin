@@ -98,14 +98,19 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
     /**
      * Test for getCommonFunctions
      */
-    public function testGetCommonFunctions(){
-        $this->assertTrue($this->object->getCommonFunctions() instanceof PMA_CommonFunctions);
+    public function testGetCommonFunctions()
+    {
+        $this->assertInstanceOf(
+            'PMA_CommonFunctions',
+            $this->object->getCommonFunctions()
+        );
     }
 
     /**
      * Test for _getSortSelectCell
      */
-    public function testGetSortSelectCell(){
+    public function testGetSortSelectCell()
+    {
         $this->assertEquals(
             '<td class="center"><select style="width: 12ex" name="criteriaSort[1]" size="1"><option value="">&nbsp;</option><option value="ASC">Ascending</option><option value="DESC">Descending</option></select></td>',
             $this->_callProtectedFunction(
@@ -118,7 +123,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getSortRow
      */
-    public function testGetSortRow(){
+    public function testGetSortRow()
+    {
         $this->assertEquals(
             '<tr class="even noclick"><th>Sort:</th><td class="center"><select style="width: 12ex" name="criteriaSort[0]" size="1"><option value="">&nbsp;</option><option value="ASC">Ascending</option><option value="DESC">Descending</option></select></td><td class="center"><select style="width: 12ex" name="criteriaSort[1]" size="1"><option value="">&nbsp;</option><option value="ASC">Ascending</option><option value="DESC">Descending</option></select></td><td class="center"><select style="width: 12ex" name="criteriaSort[2]" size="1"><option value="">&nbsp;</option><option value="ASC">Ascending</option><option value="DESC">Descending</option></select></td></tr>',
             $this->_callProtectedFunction(
@@ -131,7 +137,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getShowRow
      */
-    public function testGetShowRow(){
+    public function testGetShowRow()
+    {
         $this->assertEquals(
             '<tr class="odd noclick"><th>Show:</th><td class="center"><input type="checkbox" name="criteriaShow[0]" /></td><td class="center"><input type="checkbox" name="criteriaShow[1]" /></td><td class="center"><input type="checkbox" name="criteriaShow[2]" /></td></tr>',
             $this->_callProtectedFunction(
@@ -144,7 +151,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getCriteriaInputboxRow
      */
-    public function testGetCriteriaInputboxRow(){
+    public function testGetCriteriaInputboxRow()
+    {
         $this->assertEquals(
             '<tr class="even noclick"><th>Criteria:</th><td class="center"><input type="hidden" name="prev_criteria[0]" value="" /><input type="text" name="criteria[0]" value="" class="textfield" style="width: 12ex" size="20" /></td><td class="center"><input type="hidden" name="prev_criteria[1]" value="" /><input type="text" name="criteria[1]" value="" class="textfield" style="width: 12ex" size="20" /></td><td class="center"><input type="hidden" name="prev_criteria[2]" value="" /><input type="text" name="criteria[2]" value="" class="textfield" style="width: 12ex" size="20" /></td></tr>',
             $this->_callProtectedFunction(
@@ -157,7 +165,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getFootersOptions
      */
-    public function testGetFootersOptions(){
+    public function testGetFootersOptions()
+    {
         $this->assertEquals(
             '<div class="floatleft">Add/Delete criteria rows:<select size="1" name="criteriaRowAdd"><option value="-3">-3</option><option value="-2">-2</option><option value="-1">-1</option><option value="0" selected="selected">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div>',
             $this->_callProtectedFunction(
@@ -170,7 +179,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getTableFooters
      */
-    public function testGetTableFooters(){
+    public function testGetTableFooters()
+    {
         $this->assertEquals(
             '<fieldset class="tblFooters"><div class="floatleft">Add/Delete criteria rows:<select size="1" name="criteriaRowAdd"><option value="-3">-3</option><option value="-2">-2</option><option value="-1">-1</option><option value="0" selected="selected">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div><div class="floatleft">Add/Delete columns:<select size="1" name="criteriaColumnAdd"><option value="-3">-3</option><option value="-2">-2</option><option value="-1">-1</option><option value="0" selected="selected">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div><div class="floatleft"><input type="submit" name="modify"value="Update Query" /></div></fieldset>',
             $this->_callProtectedFunction(
@@ -183,7 +193,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getAndOrColCell
      */
-    public function testGetAndOrColCell(){
+    public function testGetAndOrColCell()
+    {
         $this->assertEquals(
             '<td class="center"><strong>Or:</strong><input type="radio" name="criteriaAndOrColumn[1]" value="or" />&nbsp;&nbsp;<strong>And:</strong><input type="radio" name="criteriaAndOrColumn[1]" value="and" /><br />Ins<input type="checkbox" name="criteriaColumnInsert[1]" />&nbsp;&nbsp;Del<input type="checkbox" name="criteriaColumnDelete[1]" /></td>',
             $this->_callProtectedFunction(
@@ -196,7 +207,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getModifyColumnsRow
      */
-    public function testGetModifyColumnsRow(){
+    public function testGetModifyColumnsRow()
+    {
         $this->assertEquals(
             '<tr class="even noclick"><th>Modify:</th><td class="center"><strong>Or:</strong><input type="radio" name="criteriaAndOrColumn[0]" value="or" />&nbsp;&nbsp;<strong>And:</strong><input type="radio" name="criteriaAndOrColumn[0]" value="and" checked="checked" /><br />Ins<input type="checkbox" name="criteriaColumnInsert[0]" />&nbsp;&nbsp;Del<input type="checkbox" name="criteriaColumnDelete[0]" /></td><td class="center"><strong>Or:</strong><input type="radio" name="criteriaAndOrColumn[1]" value="or" />&nbsp;&nbsp;<strong>And:</strong><input type="radio" name="criteriaAndOrColumn[1]" value="and" checked="checked" /><br />Ins<input type="checkbox" name="criteriaColumnInsert[1]" />&nbsp;&nbsp;Del<input type="checkbox" name="criteriaColumnDelete[1]" /></td><td class="center"><strong>Or:</strong><input type="radio" name="criteriaAndOrColumn[2]" value="or" />&nbsp;&nbsp;<strong>And:</strong><input type="radio" name="criteriaAndOrColumn[2]" value="and" checked="checked" /><br />Ins<input type="checkbox" name="criteriaColumnInsert[2]" />&nbsp;&nbsp;Del<input type="checkbox" name="criteriaColumnDelete[2]" /></td></tr>',
             $this->_callProtectedFunction(
@@ -209,13 +221,14 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getInsDelAndOrCell
      */
-    public function testGetInsDelAndOrCell(){
+    public function testGetInsDelAndOrCell()
+    {
         $GLOBALS['cell_align_right'] = 'cellAlign';
         $this->assertEquals(
-            '<td class="cellAlign nowrap"><!-- Row controls --><table class="nospacing nopadding"><tr><td class="cellAlign nowrap"><small>Ins:</small><input type="checkbox" name="criteriaRowInsert[3]" /></td><td class="cellAlign"><strong>And:</strong></td><td><input type="radio" name="criteriaAndOrRow[3]" value="and"c /></td></tr><tr><td class="cellAlign nowrap"><small>Del:</small><input type="checkbox" name="criteriaRowDelete[3]" /></td><td class="cellAlign"><strong>Or:</strong></td><td><input type="radio" name="criteriaAndOrRow[3]" value="or"c /></td></tr></table></td>',
+            '<td class="cellAlign nowrap"><!-- Row controls --><table class="nospacing nopadding"><tr><td class="cellAlign nowrap"><small>Ins:</small><input type="checkbox" name="criteriaRowInsert[3]" /></td><td class="cellAlign"><strong>And:</strong></td><td><input type="radio" name="criteriaAndOrRow[3]" value="and" /></td></tr><tr><td class="cellAlign nowrap"><small>Del:</small><input type="checkbox" name="criteriaRowDelete[3]" /></td><td class="cellAlign"><strong>Or:</strong></td><td><input type="radio" name="criteriaAndOrRow[3]" value="or" checked="checked" /></td></tr></table></td>',
             $this->_callProtectedFunction(
                 '_getInsDelAndOrCell',
-                array(3, 'checked')
+                array(3, array('and' => '', 'or' => ' checked="checked"'))
             )
         );
     }
@@ -223,7 +236,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getInputboxRow
      */
-    public function testGetInputboxRow(){
+    public function testGetInputboxRow()
+    {
         $this->assertEquals(
             '<td class="center"><input type="text" name="Or2[0]" value="" class="textfield" style="width: 12ex" size="20" /></td><td class="center"><input type="text" name="Or2[1]" value="" class="textfield" style="width: 12ex" size="20" /></td><td class="center"><input type="text" name="Or2[2]" value="" class="textfield" style="width: 12ex" size="20" /></td>',
             $this->_callProtectedFunction(
@@ -236,7 +250,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getInsDelAndOrCriteriaRows
      */
-    public function testGetInsDelAndOrCriteriaRows(){
+    public function testGetInsDelAndOrCriteriaRows()
+    {
         $this->assertEquals(
             '<tr class="odd noclick"><td class="cellAlign nowrap"><!-- Row controls --><table class="nospacing nopadding"><tr><td class="cellAlign nowrap"><small>Ins:</small><input type="checkbox" name="criteriaRowInsert[0]" /></td><td class="cellAlign"><strong>And:</strong></td><td><input type="radio" name="criteriaAndOrRow[0]" value="and" /></td></tr><tr><td class="cellAlign nowrap"><small>Del:</small><input type="checkbox" name="criteriaRowDelete[0]" /></td><td class="cellAlign"><strong>Or:</strong></td><td><input type="radio" name="criteriaAndOrRow[0]" value="or" checked="checked" /></td></tr></table></td><td class="center"><input type="text" name="Or0[0]" value="" class="textfield" style="width: 12ex" size="20" /></td><td class="center"><input type="text" name="Or0[1]" value="" class="textfield" style="width: 12ex" size="20" /></td><td class="center"><input type="text" name="Or0[2]" value="" class="textfield" style="width: 12ex" size="20" /></td></tr>',
             $this->_callProtectedFunction(
@@ -249,7 +264,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getSelectClause
      */
-    public function testGetSelectClause(){
+    public function testGetSelectClause()
+    {
         $this->assertEquals(
             '',
             $this->_callProtectedFunction(
@@ -262,7 +278,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getWhereClause
      */
-    public function testGetWhereClause(){
+    public function testGetWhereClause()
+    {
         $this->assertEquals(
             '',
             $this->_callProtectedFunction(
@@ -275,7 +292,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getOrderByClause
      */
-    public function testGetOrderByClause(){
+    public function testGetOrderByClause()
+    {
         $this->assertEquals(
             '',
             $this->_callProtectedFunction(
@@ -288,7 +306,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getIndexes
      */
-    public function testGetIndexes(){
+    public function testGetIndexes()
+    {
         if (! function_exists('PMA_DBI_get_table_indexes')) {
             function PMA_DBI_get_table_indexes()
             {
@@ -314,7 +333,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getLeftJoinColumnCandidates
      */
-    public function test_getLeftJoinColumnCandidates(){
+    public function test_getLeftJoinColumnCandidates()
+    {
         if (! function_exists('PMA_DBI_select_db')) {
             function PMA_DBI_select_db()
             {
@@ -339,7 +359,8 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getMasterTable
      */
-    public function test_getMasterTable(){
+    public function test_getMasterTable()
+    {
         $this->assertEquals(
             0,
             $this->_callProtectedFunction(
@@ -357,8 +378,14 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getWhereClauseTablesAndColumns
      */
-    public function test_getWhereClauseTablesAndColumns(){
-        $_POST['criteriaColumn'] = array('table1.id', 'table1.value', 'table1.name', 'table1.deleted');
+    public function test_getWhereClauseTablesAndColumns()
+    {
+        $_POST['criteriaColumn'] = array(
+            'table1.id',
+            'table1.value',
+            'table1.name',
+            'table1.deleted'
+        );
         $this->assertEquals(
             array(
                 'where_clause_tables' => array(),
@@ -374,12 +401,13 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getFromClause
      */
-    public function testGetFromClause(){
+    public function testGetFromClause()
+    {
         $this->assertEquals(
-            '`table1`',
+            'table1',
             $this->_callProtectedFunction(
                 '_getFromClause',
-                array('relation')
+                array(array('relwork' => False))
             )
         );
     }
@@ -387,13 +415,14 @@ class PMA_DBQbe_test extends PHPUnit_Framework_TestCase
     /**
      * Test for _getSQLQuery
      */
-    public function test_getSQLQuery(){
+    public function test_getSQLQuery()
+    {
         $this->assertEquals(
-            'FROM `table1`
+            'FROM table1
 ',
             $this->_callProtectedFunction(
                 '_getSQLQuery',
-                array('relation')
+                array(array('relwork' => False))
             )
         );
     }
