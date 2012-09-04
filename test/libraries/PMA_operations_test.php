@@ -22,7 +22,8 @@ class PMA_operations_test extends PHPUnit_Framework_TestCase
     /**
      * Set up global environment.
      */
-    public function setup() {
+    public function setup()
+    {
         $GLOBALS['table'] = 'table';
         $GLOBALS['db'] = 'db';
         $_SESSION['PMA_Theme'] = PMA_Theme::load('./themes/pmahomme');

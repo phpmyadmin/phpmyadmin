@@ -114,7 +114,8 @@ $response->disable();
 
     var frame_content = 0;
     var frame_navigation = 0;
-    function getFrames() {
+    function getFrames()
+    {
 <?php if ($GLOBALS['text_dir'] === 'ltr') { ?>
         frame_content = window.frames[1];
         frame_navigation = window.frames[0];
