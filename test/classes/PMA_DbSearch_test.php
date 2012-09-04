@@ -76,7 +76,10 @@ class PMA_DbSearch_test extends PHPUnit_Framework_TestCase
      * Test for getCommonFunctions
      */
     public function testGetCommonFunctions(){
-        $this->assertTrue($this->object->getCommonFunctions() instanceof PMA_CommonFunctions);
+        $this->assertInstanceOf(
+            'PMA_CommonFunctions',
+            $this->object->getCommonFunctions()
+        );
     }
 
     /**
