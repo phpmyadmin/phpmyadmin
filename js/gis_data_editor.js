@@ -56,10 +56,10 @@ function prepareJSVersion() {
  * @returns the HTML for a data point
  */
 function addDataPoint(pointNumber, prefix) {
-    return '<br>' + $.sprintf(PMA_messages['strPointN'], (pointNumber + 1)) + ':'
-        + '<label for="x"> ' + PMA_messages['strX'] + ' </label>'
+    return '<br>' + $.sprintf(PMA_messages['strPointN'], (pointNumber + 1)) + ': '
+        + '<label for="x">' + PMA_messages['strX'] + '</label>'
         + '<input type="text" name="' + prefix + '[' + pointNumber + '][x]" value="">'
-        + '<label for="y"> ' + PMA_messages['strY'] + ' </label>'
+        + '<label for="y">' + PMA_messages['strY'] + '</label>'
         + '<input type="text" name="' + prefix + '[' + pointNumber + '][y]" value="">';
 }
 
@@ -300,10 +300,10 @@ $(function() {
         // Add the new linesting of inner ring based on the type
         var html = '<br>';
         if (type == 'MULTILINESTRING') {
-            html += PMA_messages['strLineString'] + (noOfLines + 1) + ':';
+            html += PMA_messages['strLineString'] + ' ' + (noOfLines + 1) + ':';
             var noOfPoints = 2;
         } else {
-            html += PMA_messages['strInnerRing'] + noOfLines + ':';
+            html += PMA_messages['strInnerRing'] + ' ' + noOfLines + ':';
             var noOfPoints = 4;
         }
         html += '<input type="hidden" name="' + prefix + '[' + noOfLines + '][no_of_points]" value="' + noOfPoints + '">';
@@ -330,7 +330,7 @@ $(function() {
         var noOfPolygons = parseInt($noOfPolygonsInput.val());
 
         // Add the new polygon
-        var html = PMA_messages['strPolygon'] + (noOfPolygons + 1) + ':<br>';
+        var html = PMA_messages['strPolygon'] + ' ' + (noOfPolygons + 1) + ':<br>';
         html += '<input type="hidden" name="' + prefix + '[' + noOfPolygons + '][no_of_lines]" value="1">';
             + '<br>' + PMA_messages['strOuterRing'] + ':';
             + '<input type="hidden" name="' + prefix + '[' + noOfPolygons + '][0][no_of_points]" value="4">';
@@ -356,7 +356,7 @@ $(function() {
         var $noOfGeomsInput = $("input[name='" + prefix + "[geom_count]" + "']");
         var noOfGeoms = parseInt($noOfGeomsInput.val());
 
-        var html1 = PMA_messages['strGeometry'] + (noOfGeoms + 1) + ':<br>';
+        var html1 = PMA_messages['strGeometry'] + ' ' + (noOfGeoms + 1) + ':<br>';
         var $geomType = $("select[name='gis_data[" + (noOfGeoms - 1) + "][gis_type]']").clone();
         $geomType.attr('name', 'gis_data[' + noOfGeoms + '][gis_type]').val('POINT');
         var html2 = '<br>' + PMA_messages['strPoint'] + ' :'
