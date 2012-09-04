@@ -162,6 +162,7 @@ class PMA_Drizzle extends Drizzle
  * Wrapper around DrizzleCon class
  *
  * Its main task is to wrap results with PMA_DrizzleResult class
+ *
  * @package    PhpMyAdmin-DBI
  * @subpackage Drizzle
  */
@@ -183,6 +184,8 @@ class PMA_DrizzleCon
      * Constructor
      *
      * @param DrizzleCon $dcon
+     *
+     * @return void
      */
     public function __construct(DrizzleCon $dcon)
     {
@@ -258,6 +261,7 @@ class PMA_DrizzleCon
  *
  * Allows for reading result rows as an associative array and hides complexity
  * behind buffering.
+ *
  * @package    PhpMyAdmin-DBI
  * @subpackage Drizzle
  */
@@ -313,6 +317,8 @@ class PMA_DrizzleResult
      * Sets fetch mode
      *
      * @param int $fetchMode
+     *
+     * @return void
      */
     public function setFetchMode($fetchMode)
     {
@@ -323,6 +329,8 @@ class PMA_DrizzleResult
     /**
      * Reads information about columns contained in current result
      * set into {@see $columns} and {@see $columnNames} arrays
+     *
+     * @return void
      */
     private function _readColumns()
     {
@@ -372,6 +380,8 @@ class PMA_DrizzleResult
      *
      * @param mixed &$row
      * @param int   $fetchMode
+     *
+     * @return void
      */
     private function _transformResultRow(&$row, $fetchMode)
     {
@@ -479,6 +489,8 @@ class PMA_DrizzleResult
 
     /**
      * Frees resources taken by this result
+     *
+     * @return void
      */
     public function free()
     {_dlog();

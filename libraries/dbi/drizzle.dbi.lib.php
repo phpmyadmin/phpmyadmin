@@ -287,7 +287,7 @@ function PMA_DBI_next_result()
 /**
  * Returns a string representing the type of connection used
  *
- * @param PMA_DrizzleCon $link  connection object
+ * @param PMA_DrizzleCon $link connection object
  *
  * @return string type of connection used
  */
@@ -310,7 +310,7 @@ function PMA_DBI_get_host_info($link = null)
 /**
  * Returns the version of the Drizzle protocol used
  *
- * @param PMA_DrizzleCon $link  connection object
+ * @param PMA_DrizzleCon $link connection object
  *
  * @return int version of the Drizzle protocol used
  */
@@ -329,6 +329,7 @@ function PMA_DBI_get_proto_info($link = null)
 
 /**
  * returns a string that represents the client library version
+ *
  * @return string Drizzle client library version
  */
 function PMA_DBI_get_client_info()
