@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 06:32-0400\n"
-"PO-Revision-Date: 2012-09-04 22:30+0200\n"
+"PO-Revision-Date: 2012-09-04 22:58+0200\n"
 "Last-Translator: Vojislav Pavić <vpavic@gmail.com>\n"
 "Language-Team: Serbian (latin) "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/sr@latin/>\n"
@@ -3442,7 +3442,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
-msgstr ""
+msgstr "Dozvoli okvire treće strane"
 
 #: libraries/config/messages.inc.php:23
 msgid "Show &quot;Drop database&quot; link to normal users"
@@ -3570,6 +3570,8 @@ msgid ""
 "Whether a warning (&quot;Are your really sure...&quot;) should be displayed "
 "when you're about to lose data"
 msgstr ""
+"Da li upozorenje (&quot;Da li ste sigurni...&quot;) treba da bude prikazano "
+"kada ste na putu da izgubite podatke"
 
 #: libraries/config/messages.inc.php:47
 msgid "Confirm DROP queries"
@@ -3952,7 +3954,7 @@ msgstr "Prilagodi podrazumevane opcije izvoza"
 #: libraries/config/messages.inc.php:169 libraries/config/messages.inc.php:211
 #: setup/frames/menu.inc.php:16
 msgid "Features"
-msgstr ""
+msgstr "Karakteristike"
 
 #: libraries/config/messages.inc.php:170
 #| msgid "Generate"
@@ -3977,7 +3979,7 @@ msgstr "Izvoz/uvoz"
 
 #: libraries/config/messages.inc.php:176
 msgid "Set import and export directories and compression options"
-msgstr ""
+msgstr "Podesite direktorijume za izvoz i uvoz i opcije za kompresiju"
 
 #: libraries/config/messages.inc.php:177 libraries/export/latex.php:27
 msgid "LaTeX"
@@ -3989,11 +3991,11 @@ msgstr "Opcije prikaza baza"
 
 #: libraries/config/messages.inc.php:181 setup/frames/menu.inc.php:18
 msgid "Navigation frame"
-msgstr ""
+msgstr "Navigacioni okvir"
 
 #: libraries/config/messages.inc.php:182
 msgid "Customize appearance of the navigation frame"
-msgstr ""
+msgstr "Prilagodite izgled navigacionog okvira"
 
 #: libraries/config/messages.inc.php:183 libraries/select_server.lib.php:35
 #: setup/frames/index.inc.php:112
@@ -4010,11 +4012,11 @@ msgstr "Opcije prikaza tabela"
 
 #: libraries/config/messages.inc.php:187 setup/frames/menu.inc.php:19
 msgid "Main frame"
-msgstr ""
+msgstr "Glavni okvir"
 
 #: libraries/config/messages.inc.php:188
 msgid "Microsoft Office"
-msgstr ""
+msgstr "Majkrosoft Ofis"
 
 #: libraries/config/messages.inc.php:190
 #| msgid "Open Document Text"
@@ -4023,11 +4025,11 @@ msgstr "Otvori dokument"
 
 #: libraries/config/messages.inc.php:192
 msgid "Other core settings"
-msgstr ""
+msgstr "Ostale osnovne postavke"
 
 #: libraries/config/messages.inc.php:193
 msgid "Settings that didn't fit enywhere else"
-msgstr ""
+msgstr "Postavke koje se ne uklapaju nigde drugde"
 
 #: libraries/config/messages.inc.php:194
 #| msgid "Page number:"
@@ -4054,17 +4056,19 @@ msgstr "Prilagodi opcije prozora sa upitima"
 
 #: libraries/config/messages.inc.php:198
 msgid "Security"
-msgstr ""
+msgstr "Bezbednost"
 
 #: libraries/config/messages.inc.php:199
 msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL"
 msgstr ""
+"Imajte na umu da je phpMyAdmin samo korisnički interfejs i onjegove funkcije "
+"ne ograničavaju MySQL"
 
 #: libraries/config/messages.inc.php:200
 msgid "Basic settings"
-msgstr ""
+msgstr "Osnovne postavke"
 
 #: libraries/config/messages.inc.php:201
 #| msgid "Documentation"
@@ -4077,21 +4081,23 @@ msgstr "Podešavanje autentikacije"
 
 #: libraries/config/messages.inc.php:203
 msgid "Server configuration"
-msgstr ""
+msgstr "Konfiguracija servera"
 
 #: libraries/config/messages.inc.php:204
 msgid ""
 "Advanced server configuration, do not change these options unless you know "
 "what they are for"
 msgstr ""
+"Napredna konfiguracija servera, nemojte menjati ove opcije osim ako niste "
+"sigurni čemu služe"
 
 #: libraries/config/messages.inc.php:205
 msgid "Enter server connection parameters"
-msgstr ""
+msgstr "Unesite parametre veze sa serverom"
 
 #: libraries/config/messages.inc.php:206
 msgid "Configuration storage"
-msgstr ""
+msgstr "Skladište konfiguracije"
 
 #: libraries/config/messages.inc.php:207
 msgid ""
@@ -4102,13 +4108,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:208
 msgid "Changes tracking"
-msgstr ""
+msgstr "Praćenje promena"
 
 #: libraries/config/messages.inc.php:209
 msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
+"Praćenje promena u bazi podataka. Zahteva phpMyAdmin skladište "
+"konfiguracije."
 
 #: libraries/config/messages.inc.php:210
 msgid "Customize export options"
@@ -4120,11 +4128,11 @@ msgstr "Podešavanje podrazumevanih opcija uvoza"
 
 #: libraries/config/messages.inc.php:213
 msgid "Customize navigation frame"
-msgstr ""
+msgstr "Prilagođavanje navigacionog okvira"
 
 #: libraries/config/messages.inc.php:214
 msgid "Customize main frame"
-msgstr ""
+msgstr "Prilagođavanje glavnog okvira"
 
 #: libraries/config/messages.inc.php:215 libraries/config/messages.inc.php:220
 #: setup/frames/menu.inc.php:17
@@ -4137,7 +4145,7 @@ msgstr "Okvir sa SQL upitima"
 
 #: libraries/config/messages.inc.php:218
 msgid "Customize links shown in SQL Query boxes"
-msgstr ""
+msgstr "Prilagođavanje linkova prikazanih u okvirima SQL upita"
 
 #: libraries/config/messages.inc.php:221
 msgid "SQL queries settings"
@@ -4162,7 +4170,7 @@ msgstr "Početno pokretanje"
 
 #: libraries/config/messages.inc.php:225
 msgid "Customize startup page"
-msgstr ""
+msgstr "Prilagođavanje početne strane"
 
 #: libraries/config/messages.inc.php:226
 msgid "Tabs"
@@ -4170,7 +4178,7 @@ msgstr "Kartice"
 
 #: libraries/config/messages.inc.php:227
 msgid "Choose how you want tabs to work"
-msgstr ""
+msgstr "Izaberite kako želite kartice da rade"
 
 #: libraries/config/messages.inc.php:228
 #| msgid "Use text field"
@@ -4183,15 +4191,15 @@ msgstr "Podešavanje text input polja"
 
 #: libraries/config/messages.inc.php:230 libraries/export/texytext.php:18
 msgid "Texy! text"
-msgstr ""
+msgstr "Texy! tekst"
 
 #: libraries/config/messages.inc.php:232
 msgid "Warnings"
-msgstr ""
+msgstr "Upozorenja"
 
 #: libraries/config/messages.inc.php:233
 msgid "Disable some of the warnings shown by phpMyAdmin"
-msgstr ""
+msgstr "Isključi neka od upozorenja koja je phpMyAdmin prikazao"
 
 #: libraries/config/messages.inc.php:234
 msgid ""
@@ -4201,21 +4209,23 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:235
 msgid "GZip"
-msgstr ""
+msgstr "GZip"
 
 #: libraries/config/messages.inc.php:236
 msgid "Extra parameters for iconv"
-msgstr ""
+msgstr "Dodatni parametri za iconv"
 
 #: libraries/config/messages.inc.php:237
 msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed"
 msgstr ""
+"Ako je uključeno, phpMyAdmin će nastaviti da izračunava više-iskazne upite "
+"čak i ako jedan od upita nije uspeo"
 
 #: libraries/config/messages.inc.php:238
 msgid "Ignore multiple statement errors"
-msgstr ""
+msgstr "Ignoriši greške kod višestrukih iskaza"
 
 #: libraries/config/messages.inc.php:239
 msgid ""
@@ -4229,12 +4239,12 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:240
 msgid "Partial import: allow interrupt"
-msgstr ""
+msgstr "Delimični uvoz: dozvolite prekid"
 
 #: libraries/config/messages.inc.php:245 libraries/config/messages.inc.php:252
 #: libraries/import/csv.php:27 libraries/import/ldi.php:40
 msgid "Do not abort on INSERT error"
-msgstr ""
+msgstr "Ne prekidaj izvršavanje ako se desi greška kod umetanja"
 
 #: libraries/config/messages.inc.php:246 libraries/config/messages.inc.php:254
 #: libraries/import/csv.php:26 libraries/import/ldi.php:39
