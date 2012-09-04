@@ -33,7 +33,7 @@ class Advisor
         }
         // Add total memory to variables as well
         include_once 'libraries/sysinfo.lib.php';
-        $sysinfo = getSysInfo();
+        $sysinfo = PMA_getSysInfo();
         $memory  = $sysinfo->memory();
         $this->variables['system_memory'] = $memory['MemTotal'];
 
