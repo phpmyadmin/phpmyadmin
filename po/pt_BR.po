@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 06:32-0400\n"
-"PO-Revision-Date: 2012-09-01 02:03-0300\n"
-"Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
+"PO-Revision-Date: 2012-09-05 10:32+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -5616,7 +5616,9 @@ msgstr "Gatilhos"
 msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
-msgstr "Pode ser aproximado. Veja o FAQ 3.11"
+msgstr ""
+"Pode ser aproximado. Veja o "
+"[a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a]"
 
 #: libraries/dbi/drizzle.dbi.lib.php:114 libraries/dbi/mysql.dbi.lib.php:117
 #: libraries/dbi/mysqli.dbi.lib.php:189
@@ -8297,7 +8299,7 @@ msgstr "Texto completo"
 #, php-format
 #| msgid "Add %s field(s)"
 msgid "Add %s column(s)"
-msgstr "Adicionar campo(s) %s "
+msgstr "Adicionar campo(s) %s"
 
 #: libraries/tbl_properties.inc.php:575 tbl_structure.php:662
 #| msgid "You have to add at least one field."
@@ -8879,7 +8881,7 @@ msgstr "Criar uma página e exportar para ela"
 #: pmd_pdf.php:107
 #| msgid "User name"
 msgid "New page name: "
-msgstr "Nome da nova página"
+msgstr "Nome da nova página: "
 
 #: pmd_pdf.php:110
 msgid "Export/Import to scale"
@@ -9824,7 +9826,7 @@ msgstr "Assessoria"
 #: server_status.php:807 server_status.php:833
 #| msgid "Number of rows:"
 msgid "Number of data points: "
-msgstr "Número de pontos de dados:"
+msgstr "Número de pontos de dados: "
 
 #: server_status.php:811 server_status.php:837
 #| msgid "Refresh"
