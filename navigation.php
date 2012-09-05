@@ -16,6 +16,8 @@ require_once 'libraries/common.inc.php';
  * only to be used in navigation.php
  *
  * @access private
+ *
+ * @return void
  */
 function PMA_exitNavigationFrame()
 {

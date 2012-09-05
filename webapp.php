@@ -3,8 +3,8 @@
 /**
  * generate an WebApp file for Prism / WebRunner
  *
- * @see http://wiki.mozilla.org/Prism
  * @package PhpMyAdmin
+ * @see     http://wiki.mozilla.org/Prism
  */
 
 /**
