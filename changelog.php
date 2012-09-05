@@ -70,7 +70,7 @@ $replaces = array(
 
     // FAQ entries
     '/FAQ ([0-9]+)\.([0-9a-z]+)/i'
-    => '<a href="http://localhost/phpMyAdmin/Documentation.html#faq\\1_\\2">FAQ \\1.\\2</a>',
+    => '<a href="./Documentation.html#faq\\1_\\2">FAQ \\1.\\2</a>',
 
     // linking bugs
     '/bug\s*#?([0-9]{6,})/i'
