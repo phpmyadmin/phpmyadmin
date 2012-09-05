@@ -171,6 +171,7 @@ foreach ($the_tables as $key => $table) {
             $row['Null'] = '';
         }
 
+        echo "\n";
         echo '<tr><td>';
 
         if (isset($pk_array[$row['Field']])) {
@@ -280,6 +281,7 @@ foreach ($the_tables as $key => $table) {
                 echo '<br /><br />';
 
                 echo '<table cellspacing="0" cellpadding="0">';
+                echo "\n";
                 echo '<tr>';
 
                 // Space usage
@@ -327,10 +329,12 @@ foreach ($the_tables as $key => $table) {
                 echo '<td width="20">&nbsp;</td>';
 
                 // Rows Statistic
+                echo "\n";
                 echo '<td class="vtop">';
                 echo '<big>' . __('Row Statistics') . ':</big>';
                 echo '<table width="100%">';
                 if (isset($showtable['Row_format'])) {
+                    echo "\n";
                     echo '<tr>';
                     echo '<td>' . __('Format') . '</td>';
                     echo '<td class="' . $cell_align_left . '">';
@@ -345,6 +349,7 @@ foreach ($the_tables as $key => $table) {
                     echo '</tr>';
                 }
                 if (isset($showtable['Rows'])) {
+                    echo "\n";
                     echo '<tr>';
                     echo '<td>' . __('Rows') . '</td>';
                     echo '<td class="right">';
@@ -355,6 +360,7 @@ foreach ($the_tables as $key => $table) {
                 if (isset($showtable['Avg_row_length'])
                     && $showtable['Avg_row_length'] > 0
                 ) {
+                    echo "\n";
                     echo '<tr>';
                     echo '<td>' . __('Row length') . '&nbsp;&oslash;</td>';
                     echo '<td>';
@@ -366,6 +372,7 @@ foreach ($the_tables as $key => $table) {
                     && $showtable['Rows'] > 0
                     && $mergetable == false
                 ) {
+                    echo "\n";
                     echo '<tr>';
                     echo '<td>' . __('Row size') . '&nbsp;&oslash;</td>';
                     echo '<td class="right">';
@@ -374,6 +381,7 @@ foreach ($the_tables as $key => $table) {
                     echo '</tr>';
                 }
                 if (isset($showtable['Auto_increment'])) {
+                    echo "\n";
                     echo '<tr>';
                     echo '<td>' . __('Next autoindex'). ' </td>';
                     echo '<td class="right">';
@@ -382,6 +390,7 @@ foreach ($the_tables as $key => $table) {
                     echo '</tr>';
                 }
                 if (isset($showtable['Create_time'])) {
+                    echo "\n";
                     echo '<tr>';
                     echo '<td>' . __('Creation') . '</td>';
                     echo '<td class="right">';
@@ -390,6 +399,7 @@ foreach ($the_tables as $key => $table) {
                     echo '</tr>';
                 }
                 if (isset($showtable['Update_time'])) {
+                    echo "\n";
                     echo '<tr>';
                     echo '<td>' . __('Last update') . '</td>';
                     echo '<td class="right">';
@@ -400,6 +410,7 @@ foreach ($the_tables as $key => $table) {
                     echo '</tr>';
                 }
                 if (isset($showtable['Check_time'])) {
+                    echo "\n";
                     echo '<tr>';
                     echo '<td>' . __('Last check') . '</td>';
                     echo '<td class="right">';
@@ -410,6 +421,7 @@ foreach ($the_tables as $key => $table) {
                     echo '</tr>';
                 }
 
+                echo "\n";
                 echo '</table>';
                 echo '</td>';
                 echo '</tr>';
