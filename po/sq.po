@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-03 19:56+0200\n"
-"PO-Revision-Date: 2012-08-28 14:42+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Albanian <http://l10n.cihar.com/projects/phpmyadmin/master/sq/"
-">\n"
+"PO-Revision-Date: 2012-09-05 04:39+0200\n"
+"Last-Translator: Agron Selimaj <as9902613@gmail.com>\n"
+"Language-Team: Albanian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/sq/>\n"
+"Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sq\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.2\n"
 
@@ -722,7 +722,7 @@ msgstr "Mbrapa"
 
 #: index.php:173
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
-msgstr "phpMyAdmin funksionon më mirë me shfletues që suportojnë frames"
+msgstr "phpMyAdmin funksionon më mirë me shfletues që punon me <b>korniza</b>."
 
 #: js/messages.php:27 libraries/import.lib.php:118 sql.php:332
 msgid "\"DROP DATABASE\" statements are disabled."
@@ -3027,7 +3027,7 @@ msgstr ""
 #: libraries/tbl_properties.inc.php:838 server_collations.php:38
 #: server_collations.php:50 tbl_tracking.php:312 tbl_tracking.php:379
 msgid "Collation"
-msgstr "Collation"
+msgstr "Rradhitja"
 
 #: libraries/Index.class.php:571 libraries/rte/rte_events.lib.php:488
 #: libraries/rte/rte_routines.lib.php:1017 tbl_tracking.php:316
@@ -3285,7 +3285,7 @@ msgstr "Funksioni"
 #: pmd_general.php:670 pmd_general.php:683 pmd_general.php:746
 #: pmd_general.php:800
 msgid "Operator"
-msgstr "Operator"
+msgstr "Operatori"
 
 #: libraries/TableSearch.class.php:202 libraries/TableSearch.class.php:1207
 #: libraries/insert_edit.lib.php:1601 libraries/replication_gui.lib.php:119
@@ -4259,7 +4259,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:74 prefs_manage.php:307
 msgid "Save as file"
-msgstr "Ruaje me emër..."
+msgstr "Ruaje skedarin me emër"
 
 #: libraries/config/messages.inc.php:75 libraries/config/messages.inc.php:247
 #, fuzzy
