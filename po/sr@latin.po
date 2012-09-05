@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 06:32-0400\n"
-"PO-Revision-Date: 2012-09-05 11:24+0200\n"
+"PO-Revision-Date: 2012-09-05 13:50+0200\n"
 "Last-Translator: Vojislav Pavić <vpavic@gmail.com>\n"
 "Language-Team: Serbian (latin) "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/sr@latin/>\n"
@@ -3892,6 +3892,9 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
+"Redosled sortiranja stavki u padajućoj listi sa stranim ključevima; "
+"[kbd]content[/kbd] je referencirani podatak;  [kbd]id[/kbd] je vrednost "
+"ključa"
 
 #: libraries/config/messages.inc.php:153
 msgid "Foreign key dropdown order"
@@ -4388,6 +4391,8 @@ msgid ""
 "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
 "([kbd]new[/kbd])"
 msgstr ""
+"Otvori linkovanu stranu u glavnom prozoru ([kbd]main[/kbd]) ili u novom "
+"([kbd]new[/kbd])"
 
 #: libraries/config/messages.inc.php:287
 msgid "Logo link target"
@@ -4395,15 +4400,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:288
 msgid "Highlight server under the mouse cursor"
-msgstr ""
+msgstr "Naglasi server koji se nalazi ispod kursora miša"
 
 #: libraries/config/messages.inc.php:289
 msgid "Enable highlighting"
-msgstr ""
+msgstr "Omogući naglašavanje"
 
 #: libraries/config/messages.inc.php:290
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr ""
+msgstr "Maksimalni broj nedavno korišćenih tabela; postavite na 0 da isključite"
 
 #: libraries/config/messages.inc.php:291
 msgid "Recently used tables"
@@ -4411,11 +4416,11 @@ msgstr "Skorije korišćene tabele"
 
 #: libraries/config/messages.inc.php:292
 msgid "Use less graphically intense tabs"
-msgstr ""
+msgstr "Koristi manje grafički zahtevne kartice"
 
 #: libraries/config/messages.inc.php:293
 msgid "Light tabs"
-msgstr ""
+msgstr "Pojednostavljene kartice"
 
 #: libraries/config/messages.inc.php:294
 msgid ""
@@ -4435,7 +4440,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:297
 msgid "Delete all cookies on logout"
-msgstr ""
+msgstr "Obriši sve kukije nakon odjavljivanja"
 
 #: libraries/config/messages.inc.php:298
 msgid ""
@@ -4461,7 +4466,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:302
 msgid "Define how long (in seconds) a login cookie is valid"
-msgstr ""
+msgstr "Definiše koliko dugo (u sekundama) je kuki za prijavu validan"
 
 #: libraries/config/messages.inc.php:303
 msgid "Login cookie validity"
@@ -4477,24 +4482,24 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:306
 msgid "Use icons on main page"
-msgstr ""
+msgstr "Koristi ikonice na glavnoj strani"
 
 #: libraries/config/messages.inc.php:307
 msgid "Maximum number of characters used when a SQL query is displayed"
-msgstr ""
+msgstr "Maksimalni broj znakova koji se koristi kada se SQL upit prikazuje"
 
 #: libraries/config/messages.inc.php:308
 msgid "Maximum displayed SQL length"
-msgstr ""
+msgstr "Maksimalna dužina prikazanog SQL-a"
 
 #: libraries/config/messages.inc.php:309 libraries/config/messages.inc.php:314
 #: libraries/config/messages.inc.php:341
 msgid "Users cannot set a higher value"
-msgstr ""
+msgstr "Korisnici ne mogu da zadaju veću vrednost"
 
 #: libraries/config/messages.inc.php:310
 msgid "Maximum number of databases displayed in left frame and database list"
-msgstr ""
+msgstr "Maksimalni broj baza prikazanih u levom okviru i listi baza"
 
 #: libraries/config/messages.inc.php:311
 msgid "Maximum databases"
@@ -4509,31 +4514,35 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:313
 msgid "Maximum number of rows to display"
-msgstr ""
+msgstr "Maksimalni broj redova za prikaz"
 
 #: libraries/config/messages.inc.php:315
 msgid "Maximum number of tables displayed in table list"
-msgstr ""
+msgstr "Maksimalni broj tabela prikazanih u listi tabela"
 
 #: libraries/config/messages.inc.php:316
 msgid "Maximum tables"
-msgstr ""
+msgstr "Maksimalan broj tabela"
 
 #: libraries/config/messages.inc.php:317
 msgid ""
 "Disable the default warning that is displayed if mcrypt is missing for "
 "cookie authentication"
 msgstr ""
+"Isključi podrazumevano upozorenje koje se prikazuje ako je mcrypt nedostupan "
+"kod autentikacije uz pomoć kukija"
 
 #: libraries/config/messages.inc.php:318
 msgid "mcrypt warning"
-msgstr ""
+msgstr "mcrypt upozorenje"
 
 #: libraries/config/messages.inc.php:319
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
 msgstr ""
+"Broj bajtova koji je dozvoljen da skript zauzme, primer [kbd]32M[/kbd] "
+"([kbd]0[/kbd] nema ograničenja)"
 
 #: libraries/config/messages.inc.php:320
 msgid "Memory limit"
@@ -4545,11 +4554,11 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:322
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "Gde da se prikažu linkovi na redove tabele"
 
 #: libraries/config/messages.inc.php:323
 msgid "Use natural order for sorting table and database names"
-msgstr ""
+msgstr "Koristi prirodni poredak za sortiranje imena tabela i baza"
 
 #: libraries/config/messages.inc.php:324
 #| msgid "Alter table order by"
@@ -4558,7 +4567,7 @@ msgstr "Prirodni redosled"
 
 #: libraries/config/messages.inc.php:325 libraries/config/messages.inc.php:335
 msgid "Use only icons, only text or both"
-msgstr ""
+msgstr "Koristi samo ikonice, samo tekst ili oboje"
 
 #: libraries/config/messages.inc.php:326
 msgid "Iconic navigation bar"
@@ -4580,15 +4589,15 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:330
 msgid "Default sorting order"
-msgstr ""
+msgstr "Podrazumevani redosled sortiranja"
 
 #: libraries/config/messages.inc.php:331
 msgid "Use persistent connections to MySQL databases"
-msgstr ""
+msgstr "Uspostavi trajne veze sa MySQL bazama"
 
 #: libraries/config/messages.inc.php:332
 msgid "Persistent connections"
-msgstr ""
+msgstr "Trajne veze"
 
 #: libraries/config/messages.inc.php:333
 msgid ""
@@ -4599,7 +4608,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:334
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr ""
+msgstr "Nedostaju phpMyAdmin skladišne tabele"
 
 #: libraries/config/messages.inc.php:336
 msgid "Iconic table operations"
@@ -4611,7 +4620,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:338
 msgid "Protect binary columns"
-msgstr ""
+msgstr "Zaštiti binarne kolone"
 
 #: libraries/config/messages.inc.php:339
 msgid ""
@@ -4622,27 +4631,27 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:340
 msgid "Permanent query history"
-msgstr ""
+msgstr "Stalna istorija upita"
 
 #: libraries/config/messages.inc.php:342
 msgid "How many queries are kept in history"
-msgstr ""
+msgstr "Koliko mnogo upita se čuva u istoriji"
 
 #: libraries/config/messages.inc.php:343
 msgid "Query history length"
-msgstr ""
+msgstr "Dužina istorije upita"
 
 #: libraries/config/messages.inc.php:344
 msgid "Tab displayed when opening a new query window"
-msgstr ""
+msgstr "Koartica koja se prikazuje kada se otvori novi prozor za upite"
 
 #: libraries/config/messages.inc.php:345
 msgid "Default query window tab"
-msgstr ""
+msgstr "Podrazumevana kartica prozora za upite"
 
 #: libraries/config/messages.inc.php:346
 msgid "Query window height (in pixels)"
-msgstr ""
+msgstr "Visina prozora za upite (u pikselima)"
 
 #: libraries/config/messages.inc.php:347
 #| msgid "Query window"
