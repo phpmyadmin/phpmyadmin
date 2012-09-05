@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-03 19:56+0200\n"
-"PO-Revision-Date: 2012-08-22 15:12+0200\n"
+"PO-Revision-Date: 2012-09-05 09:42+0200\n"
 "Last-Translator: Matías Bellone <matiasbellone@gmail.com>\n"
-"Language-Team: Spanish <http://l10n.cihar.com/projects/phpmyadmin/master/es/"
-">\n"
+"Language-Team: Spanish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.2\n"
 
@@ -614,7 +614,6 @@ msgid "Output"
 msgstr "Salida"
 
 #: gis_data_editor.php:354
-#, fuzzy
 #| msgid ""
 #| "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 #| "string into the \"Value\" field"
@@ -626,7 +625,7 @@ msgstr ""
 "debajo en el campo \"Valor\""
 
 #: import.php:95
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to %"
 #| "sdocumentation%s for ways to workaround this limit."
@@ -634,8 +633,8 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to %"
 "sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Usted probablemente intentó cargar un archivo demasiado grande. Refiérase a %"
-"sla documentation%s para hallar modos de superar esta limitación."
+"Probablemente intentó cargar un archivo demasiado grande. Revise %sla "
+"documentation%s para hallar modos de superar esta limitación."
 
 #: import.php:236 import.php:489
 msgid "Showing bookmark"
@@ -6225,11 +6224,11 @@ msgstr "Detalles..."
 
 #: libraries/dbi/drizzle-wrappers.lib.php:440
 msgid "Can't seek in an unbuffered result set"
-msgstr ""
+msgstr "No se puede cambiar de posición en un resultado sin búfer"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:462
 msgid "Can't count rows in an unbuffered result set"
-msgstr ""
+msgstr "No se puede contar filas en un resultado sin búfer"
 
 #: libraries/dbi/drizzle.dbi.lib.php:136 libraries/dbi/mysql.dbi.lib.php:150
 #: libraries/dbi/mysqli.dbi.lib.php:192
