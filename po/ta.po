@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 06:32-0400\n"
-"PO-Revision-Date: 2012-08-27 11:32+0200\n"
+"PO-Revision-Date: 2012-09-05 10:01+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Tamil <http://l10n.cihar.com/projects/phpmyadmin/3-5/ta/>\n"
 "Language: ta\n"
@@ -128,7 +128,7 @@ msgstr "%1$s தரவுத்தளம் உருவாக்கப்பட
 
 #: db_datadict.php:49 db_operations.php:370
 msgid "Database comment: "
-msgstr "தரவுத்தள கருத்துரை"
+msgstr "தரவுத்தள கருத்துரை "
 
 #: db_datadict.php:153 libraries/schema/Pdf_Relation_Schema.class.php:1279
 #: libraries/tbl_properties.inc.php:661 tbl_operations.php:366
@@ -2336,12 +2336,12 @@ msgstr "ஒரு வினாடிக்கு"
 
 #: libraries/Advisor.class.php:329 server_status.php:964
 msgid "per minute"
-msgstr "ஒரு நிமிடத்திற்கு "
+msgstr "ஒரு நிமிடத்திற்கு"
 
 #: libraries/Advisor.class.php:332 server_status.php:960 server_status.php:996
 #: server_status.php:1118 server_status.php:1163
 msgid "per hour"
-msgstr "ஒரு மணி நேரத்திற்கு "
+msgstr "ஒரு மணி நேரத்திற்கு"
 
 #: libraries/Advisor.class.php:335
 msgid "per day"
@@ -2914,7 +2914,7 @@ msgstr "SQL வினவல்"
 #: libraries/rte/rte_triggers.lib.php:91
 #: libraries/rte/rte_triggers.lib.php:108
 msgid "MySQL said: "
-msgstr "MySQL சொன்னது:"
+msgstr "MySQL சொன்னது: "
 
 #: libraries/common.lib.php:1130
 msgid "Failed to connect to SQL validator!"
@@ -2951,7 +2951,7 @@ msgstr ""
 
 #: libraries/common.lib.php:1305
 msgid "Inline edit of this query"
-msgstr "வினாவிற்கான உன்வரிசை மாற்றப்பகுதி "
+msgstr "வினாவிற்கான உன்வரிசை மாற்றப்பகுதி"
 
 #: libraries/common.lib.php:1307
 msgctxt "Inline edit query"
@@ -10462,7 +10462,7 @@ msgstr ""
 
 #: setup/lib/index.lib.php:186
 msgid "No newer stable version is available"
-msgstr "புதிய நிலையான பதிப்புகள் ஒன்றும் இல்லை "
+msgstr "புதிய நிலையான பதிப்புகள் ஒன்றும் இல்லை"
 
 #: setup/lib/index.lib.php:274
 #, php-format

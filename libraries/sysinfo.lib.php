@@ -10,23 +10,42 @@
  */
 
 /**
+ * Wrap the PHP_OS constant
+ *
+ * @return string
+ */
+function PMA_getSysInfoOs()
+{
+    $php_os = PHP_OS;
+
+    // look for common UNIX-like systems
+    $unix_like = array('FreeBSD');
+    if (in_array($php_os, $unix_like)) {
+        $php_os = 'Linux';
+    }
+
+    return ucfirst($php_os);
+}
+
+/**
  * @return array
  */
-function getSysInfo()
+function PMA_getSysInfo()
 {
-    $supported = array('Linux', 'WINNT');
+    $php_os = PMA_getSysInfoOs();
+    $supported = array('Linux', 'WINNT', 'SunOS');
 
     $sysinfo = array();
 
-    if (in_array(PHP_OS, $supported)) {
-        return eval("return new ".PHP_OS."();");
+    if (in_array($php_os, $supported)) {
+        return eval("return new PMA_sysinfo".$php_os."();");
     }
 
-    return $sysinfo;
+    return new PMA_Sysinfo_Default;
 }
 
 
-class WINNT
+class PMA_sysinfoWinnt
 {
     private $_wmi;
 
@@ -104,7 +123,7 @@ class WINNT
     }
 }
 
-class Linux
+class PMA_sysinfoLinux
 {
     public $os = 'Linux';
 
@@ -125,5 +144,53 @@ class Linux
             $mem[$idx] = intval($value);
 
         return $mem;
+    }
+}
+
+class PMA_sysinfoSunos
+{
+    public $os = 'SunOS';
+
+    private function _kstat($key)
+    {
+        if ($m = shell_exec('kstat -p d '.$key)) {
+            list($key, $value) = preg_split("/\t/", trim($m), 2);
+            return $value;
+        } else {
+            return '';
+        }
+    }
+
+    public function loadavg() {
+        $load1 = $this->_kstat('unix:0:system_misc:avenrun_1min');
+
+        return array('loadavg' => $load1);
+    }
+
+    public function memory() {
+        preg_match_all('/^(MemTotal|MemFree|Cached|Buffers|SwapCached|SwapTotal|SwapFree):\s+(.*)\s*kB/im', file_get_contents('/proc/meminfo'), $matches);
+
+        $pagesize = $this->_kstat('unix:0:seg_cache:slab_size');
+        $mem['MemTotal'] = $this->_kstat('unix:0:system_pages:pagestotal') * $pagesize;
+        $mem['MemUsed'] = $this->_kstat('unix:0:system_pages:pageslocked') * $pagesize;
+        $mem['MemFree'] = $this->_kstat('unix:0:system_pages:pagesfree') * $pagesize;
+        $mem['SwapTotal'] = $this->_kstat('unix:0:vminfo:swap_avail') / 1024;
+        $mem['SwapUsed'] = $this->_kstat('unix:0:vminfo:swap_alloc') / 1024;
+        $mem['SwapFree'] = $this->_kstat('unix:0:vminfo:swap_free') / 1024;
+
+        return $mem;
+    }
+}
+
+class PMA_sysinfoDefault
+{
+    public $os = PHP_OS;
+
+    public function loadavg() {
+        return array('loadavg' => 0);
+    }
+
+    public function memory() {
+        return array();
     }
 }

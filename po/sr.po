@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 06:32-0400\n"
-"PO-Revision-Date: 2012-09-03 19:46+0200\n"
+"PO-Revision-Date: 2012-09-05 13:53+0200\n"
 "Last-Translator: Vojislav Pavić <vpavic@gmail.com>\n"
 "Language-Team: Serbian <http://l10n.cihar.com/projects/phpmyadmin/3-5/sr/>\n"
 "Language: sr\n"
@@ -475,16 +475,14 @@ msgid "Modify"
 msgstr "Промени"
 
 #: db_qbe.php:606
-#, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
-msgstr "Додај/обриши поље за критеријум"
+msgstr "Додај/обриши редове за критеријум"
 
 #: db_qbe.php:618
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "Додај/обриши колону"
+msgstr "Додај/обриши колоне"
 
 #: db_qbe.php:631 db_qbe.php:656
 msgid "Update Query"
@@ -1048,7 +1046,8 @@ msgid ""
 msgstr ""
 "Нису примљени никави подаци за увоз. Или није био наведен назив датотеке, "
 "или величина датотеке превазилази максималну величину дозвољену у вашој "
-"конфигурацији PHP-а. Погледајте. See FAQ 1.16."
+"конфигурацији PHP-а. Погледајте. See "
+"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
 
 #: import.php:366
 msgid ""
@@ -2613,7 +2612,9 @@ msgstr "Непозната грешка при слању датотеке."
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr "Грешка у премештању примљене датотеке, погледајте FAQ 1.11"
+msgstr ""
+"Грешка у премештању примљене датотеке, погледајте "
+"[a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]"
 
 #: libraries/File.class.php:508
 msgid "Error while moving uploaded file."
@@ -5770,7 +5771,9 @@ msgstr "Окидачи"
 msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
-msgstr "Може бити приближно. Видите FAQ 3.11"
+msgstr ""
+"Може бити приближно. Видите "
+"[a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a]"
 
 #: libraries/dbi/drizzle.dbi.lib.php:114 libraries/dbi/mysql.dbi.lib.php:117
 #: libraries/dbi/mysqli.dbi.lib.php:189

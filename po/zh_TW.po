@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 06:32-0400\n"
-"PO-Revision-Date: 2012-08-27 11:49+0200\n"
+"PO-Revision-Date: 2012-09-05 10:55+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Chinese (Taiwan) "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/zh_TW/>\n"
@@ -4430,7 +4430,7 @@ msgstr "mcrypt 警告"
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
-msgstr "一個指令可分配到的記憶體大小，例 [kbd]32MB[kbd] ([kbd]0[/kbd]爲不限制)"
+msgstr "一個指令可分配到的記憶體大小，例 [kbd]32MB[/kbd] ([kbd]0[/kbd]爲不限制)"
 
 #: libraries/config/messages.inc.php:320
 msgid "Memory limit"
@@ -4689,7 +4689,7 @@ msgstr "壓縮連線"
 
 #: libraries/config/messages.inc.php:380
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
-msgstr "怎樣連線到伺服器，如果不確定，請選擇 tcp"
+msgstr "怎樣連線到伺服器，如果不確定，請選擇 [kbd]tcp[/kbd]"
 
 #: libraries/config/messages.inc.php:381
 msgid "Connection type"

@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 06:32-0400\n"
-"PO-Revision-Date: 2012-08-27 11:48+0200\n"
-"Last-Translator: Anusuk Sangubon <jaideejung007@gmail.com>\n"
+"PO-Revision-Date: 2012-09-05 09:58+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Thai <http://l10n.cihar.com/projects/phpmyadmin/3-5/th/>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
@@ -1944,7 +1944,7 @@ msgstr "คุณยังไม่ได้บันทึกเลย์เอ
 
 #: js/messages.php:344
 msgid "Add an option for column "
-msgstr "เพิ่มตัวเลือกสำหรับสดมภ์"
+msgstr "เพิ่มตัวเลือกสำหรับสดมภ์ "
 
 #: js/messages.php:347
 msgid "Press escape to cancel editing"
@@ -5917,7 +5917,7 @@ msgstr "ในคำค้น"
 
 #: libraries/display_tbl.lib.php:2364
 msgid "Showing rows"
-msgstr "แสดงระเบียนที่ "
+msgstr "แสดงระเบียนที่"
 
 #: libraries/display_tbl.lib.php:2374
 msgid "total"
@@ -6884,7 +6884,7 @@ msgstr "ชุดตัวอักษร"
 #: libraries/mysql_charsets.lib.php:212 libraries/mysql_charsets.lib.php:413
 #: tbl_change.php:572
 msgid "Binary"
-msgstr "ข้อมูลไบนารี "
+msgstr "ข้อมูลไบนารี"
 
 #: libraries/mysql_charsets.lib.php:224
 msgid "Bulgarian"
@@ -8003,7 +8003,7 @@ msgstr ""
 
 #: libraries/sql_query_form.lib.php:344
 msgid "Show this query here again"
-msgstr "แสดงคำค้นนี้อีกที "
+msgstr "แสดงคำค้นนี้อีกที"
 
 #: libraries/sql_query_form.lib.php:407
 msgid "View only"
@@ -9151,7 +9151,7 @@ msgstr "สิทธิเจาะจงเฉพาะตาราง"
 #: server_privileges.php:537 server_privileges.php:689
 #: server_privileges.php:1706
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "โปรดทราบ: ชื่อของสิทธิใน MySQL จะแสดงเป็นภาษาอังกฤษ "
+msgstr "โปรดทราบ: ชื่อของสิทธิใน MySQL จะแสดงเป็นภาษาอังกฤษ"
 
 #: server_privileges.php:614
 msgid "Administration"
@@ -11007,7 +11007,7 @@ msgstr ""
 
 #: tbl_change.php:821
 msgid "Binary - do not edit"
-msgstr "ข้อมูลไบนารี - ห้ามแก้ไข "
+msgstr "ข้อมูลไบนารี - ห้ามแก้ไข"
 
 #: tbl_change.php:871
 msgid "Upload to BLOB repository"
@@ -11384,7 +11384,7 @@ msgstr "ความยาวแถว"
 
 #: tbl_printview.php:365 tbl_structure.php:902
 msgid "Row size"
-msgstr "ขนาดแถว "
+msgstr "ขนาดแถว"
 
 #: tbl_printview.php:375 tbl_structure.php:910
 msgid "Next autoindex"
