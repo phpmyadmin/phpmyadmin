@@ -657,11 +657,10 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+"[doc@faq1_16]FAQ 1.16[/doc]."
 msgstr ""
-"가져올 데이터가 없습니다. 파일이 지정되지 않았거나 파일 크기가 PHP 설정의 최"
-"대 파일 크기를 초과했을 수 있습니다. [a@./Documentation."
-"html#faq1_16@Documentation]FAQ 1.16[/a] 참조."
+"가져올 데이터가 없습니다. 파일이 지정되지 않았거나 파일 크기가 PHP 설정의 최대 파일 크기를 초과했을 수 있습니다. "
+"[doc@faq1_16]FAQ 1.16[/doc] 참조."
 
 #: import.php:422
 msgid ""
@@ -2650,9 +2649,7 @@ msgid "Kill"
 msgstr "Kill"
 
 #: libraries/DisplayResults.class.php:4493 libraries/structure.lib.php:782
-msgid ""
-"May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
-"3.11[/a]"
+msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
 msgstr ""
 
 #: libraries/DisplayResults.class.php:4889
@@ -2775,12 +2772,8 @@ msgid "Unknown error in file upload."
 msgstr "파일 업로드 중에 알 수 없는 오류가 발생했습니다."
 
 #: libraries/File.class.php:475
-msgid ""
-"Error moving the uploaded file, see [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr ""
-"업로드된 파일을 이동시킬 수 없었습니다. [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a] 참조."
+msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
+msgstr "업로드된 파일을 이동시킬 수 없었습니다. [doc@faq1_11]FAQ 1.11[/doc] 참조."
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -4443,9 +4436,9 @@ msgstr "페이지:"
 
 #: libraries/config/messages.inc.php:197
 msgid ""
-"Specify browser's title bar text. Refer to [a@Documentation."
-"html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
-"get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 
 #: libraries/config/messages.inc.php:198
@@ -4505,8 +4498,8 @@ msgstr ""
 #: libraries/config/messages.inc.php:209
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
-"features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
-"storage[/a] in documentation"
+"features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
+"documentation"
 msgstr ""
 
 #: libraries/config/messages.inc.php:210
@@ -11563,8 +11556,8 @@ msgstr ""
 #: setup/frames/index.inc.php:52
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
-"level directory as described in [a@Documentation.html#setup_script]"
-"documentation[/a]. Otherwise you will be only able to download or display it."
+"level directory as described in [doc@setup_script]documentation[/doc]. "
+"Otherwise you will be only able to download or display it."
 msgstr ""
 
 #: setup/frames/index.inc.php:60
@@ -13607,11 +13600,9 @@ msgstr ""
 #~ msgstr "권한을 다시 로딩했습니다."
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [a@./"
-#~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
-#~ msgstr ""
-#~ "업로드된 파일을 이동시킬 수 없었습니다. [a@./Documentation."
-#~ "html#faq1_11@Documentation]FAQ 1.11[/a] 참조."
+#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "6.29[/doc]"
+#~ msgstr "업로드된 파일을 이동시킬 수 없었습니다. [doc@faq1_11]FAQ 1.11[/doc] 참조."
 
 #~ msgid "Add a New User"
 #~ msgstr "새 사용자 추가"

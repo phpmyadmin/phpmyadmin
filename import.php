@@ -96,8 +96,8 @@ if ($_POST == array() && $_GET == array()) {
         . ' Please refer to %sdocumentation%s for a workaround for this limit.'
         )
     );
-    $message->addParam('[a@./Documentation.html#faq1_16@_blank]');
-    $message->addParam('[/a]');
+    $message->addParam('[doc@faq1_16]');
+    $message->addParam('[/doc]');
 
     // so we can obtain the message
     $_SESSION['Import_message']['message'] = $message->getDisplay();
@@ -401,7 +401,7 @@ if ($import_file != 'none' && ! $error) {
     }
 } elseif (! $error) {
     if (! isset($import_text) || empty($import_text)) {
-        $message = PMA_Message::error(__('No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See [a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a].'));
+        $message = PMA_Message::error(__('No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See [doc@faq1_16]FAQ 1.16[/doc].'));
         $error = true;
     }
 }

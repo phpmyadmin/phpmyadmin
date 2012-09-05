@@ -472,7 +472,7 @@ class PMA_File
             || ! is_writable($GLOBALS['cfg']['TempDir'])
         ) {
             // cannot create directory or access, point user to FAQ 1.11
-            $this->_error_message = __('Error moving the uploaded file, see [a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]');
+            $this->_error_message = __('Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]');
             return false;
         }
 

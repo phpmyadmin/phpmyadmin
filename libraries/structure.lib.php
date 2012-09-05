@@ -663,8 +663,8 @@ function PMA_getHtmlForNotNullEngineViewTable($table_is_view, $current_table,
                 PMA_sanitize(
                     sprintf(
                         __('This view has at least this number of rows. Please refer to %sdocumentation%s.'),
-                        '[a@./Documentation.html#cfg_MaxExactCountViews@_blank]',
-                        '[/a]'
+                        '[doc@cfg_MaxExactCountViews]',
+                        '[/doc]'
                     )
                 )
             );
@@ -779,7 +779,7 @@ function PMA_TableHeader($db_is_information_schema = false, $replication = false
         .'<th>' . PMA_sortableTableHeader(__('Rows'), 'records', 'DESC')
         . PMA_CommonFunctions::getInstance()->showHint(
             PMA_sanitize(
-                __('May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a]')
+                __('May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]')
             )
         ) . "\n"
         .'</th>' . "\n";

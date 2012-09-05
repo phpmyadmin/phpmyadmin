@@ -662,11 +662,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+"[doc@faq1_16]FAQ 1.16[/doc]."
 msgstr ""
 "No s'han rebut dades per importar. O bé no s'ha especificat un nom d'arxiu, "
 "o el tamany de l'arxiu es més gran que el permès per la configuració del "
-"vostre PHP. Veieu [a@./Documentation.html#faq1_16]PFC(FAQ) 1.16[/a]."
+"vostre PHP. Veieu [doc@faq1_16]PFC(FAQ) 1.16[/doc]."
 
 #: import.php:422
 msgid ""
@@ -2664,12 +2664,8 @@ msgid "Kill"
 msgstr "Finalitzar"
 
 #: libraries/DisplayResults.class.php:4493 libraries/structure.lib.php:782
-msgid ""
-"May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
-"3.11[/a]"
-msgstr ""
-"Pot ser aproximat. Veieu [a@./Documentation.html#faq3_11@Documentation]PCF -"
-"FAQ- 3.11[/a]"
+msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
+msgstr "Pot ser aproximat. Veieu [doc@faq3_11]PCF -FAQ- 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4889
 msgid "in query"
@@ -2789,12 +2785,9 @@ msgid "Unknown error in file upload."
 msgstr "Error desconegut al pujar l'arxiu."
 
 #: libraries/File.class.php:475
-msgid ""
-"Error moving the uploaded file, see [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
+msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
 msgstr ""
-"Error movent l'arxiu pujat, consulta la [a@./Documentation."
-"html#faq1_11@Documentation]PCF -FAQ- 1.11[/a]"
+"Error movent l'arxiu pujat, consulta la [doc@faq1_11]PCF -FAQ- 1.11[/doc]"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -4456,13 +4449,13 @@ msgstr "Títols de pàgina"
 
 #: libraries/config/messages.inc.php:197
 msgid ""
-"Specify browser's title bar text. Refer to [a@Documentation."
-"html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
-"get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
-"Especifica el títol del navegador. Consulta [a@Documentation."
-"html#cfg_TitleTable]la documentació[/a]  per a cadenes màgiques que poden "
-"usar-se per obtenir valors especials."
+"Especifica el títol del navegador. Consulta [doc@cfg_TitleTable]la "
+"documentació[/doc]  per a cadenes màgiques que poden usar-se per obtenir "
+"valors especials."
 
 #: libraries/config/messages.inc.php:198
 #: libraries/navigation_header.inc.php:76
@@ -4521,12 +4514,12 @@ msgstr "Infraestructura de taules enllaçades"
 #: libraries/config/messages.inc.php:209
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
-"features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
-"storage[/a] in documentation"
+"features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
+"documentation"
 msgstr ""
 "Configura la base de dades phpMyAdmin per tenir accés a característiques "
-"adiccionals, consulta [a@Documentation.html#linked-tables]infraestructura de "
-"taules enllaçades[/a] a la documentació"
+"adiccionals, consulta [doc@linked-tables]infraestructura de taules "
+"enllaçades[/doc] a la documentació"
 
 #: libraries/config/messages.inc.php:210
 msgid "Changes tracking"
@@ -11896,13 +11889,13 @@ msgstr "No es pot carregar o desar la configuració"
 #: setup/frames/index.inc.php:52
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
-"level directory as described in [a@Documentation.html#setup_script]"
-"documentation[/a]. Otherwise you will be only able to download or display it."
+"level directory as described in [doc@setup_script]documentation[/doc]. "
+"Otherwise you will be only able to download or display it."
 msgstr ""
 "Si us plau, crea una carpeta modificable pel servidor web [em]config[/em] al "
-"directori principal de phpMyAdmin tal com s'explica a la [a@Documentation."
-"html#setup_script]documentació[/a]. En cas contrari només podràs descarregar "
-"o mostrar."
+"directori principal de phpMyAdmin tal com s'explica a la "
+"[doc@setup_script]documentació[/doc]. En cas contrari només podràs "
+"descarregar o mostrar."
 
 #: setup/frames/index.inc.php:60
 msgid ""
@@ -14442,11 +14435,11 @@ msgstr "{concurrent_insert} està establert a 0"
 #~ msgstr "Gràfic generat correctament."
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [a@./"
-#~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
+#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "6.29[/doc]"
 #~ msgstr ""
-#~ "El resultat d'aquesta consuta no es pot usar per a un gràfic. See [a@./"
-#~ "Documentation.html#faq6_29@Documentation]PFC -FAQ- 6.29[/a]"
+#~ "El resultat d'aquesta consuta no es pot usar per a un gràfic. See "
+#~ "[doc@faq6_29]PFC -FAQ- 6.29[/doc]"
 
 #~ msgid "Title"
 #~ msgstr "Títol"

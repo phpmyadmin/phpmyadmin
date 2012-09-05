@@ -663,11 +663,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+"[doc@faq1_16]FAQ 1.16[/doc]."
 msgstr ""
 "Операция импорта невозможна. Причины: не выбран импортируемый файл; размер "
 "импортируемого файла превышает максимально допустимый, заданный в настройках "
-"PHP. Смотрите [a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+"PHP. Смотрите [doc@faq1_16]FAQ 1.16[/doc]."
 
 #: import.php:422
 msgid ""
@@ -2657,12 +2657,8 @@ msgid "Kill"
 msgstr "Завершить"
 
 #: libraries/DisplayResults.class.php:4493 libraries/structure.lib.php:782
-msgid ""
-"May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
-"3.11[/a]"
-msgstr ""
-"Может быть приблизительно. Смотрите [a@./Documentation."
-"html#faq3_11@Documentation]FAQ 3.11[/a]"
+msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
+msgstr "Может быть приблизительно. Смотрите [doc@faq3_11]FAQ 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4889
 msgid "in query"
@@ -2786,12 +2782,10 @@ msgid "Unknown error in file upload."
 msgstr "При время загрузке файла произошла неизвестная ошибка."
 
 #: libraries/File.class.php:475
-msgid ""
-"Error moving the uploaded file, see [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
+msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
 msgstr ""
-"Ошибка при перемещении загруженного файла, смотрите [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
+"Ошибка при перемещении загруженного файла, смотрите [doc@faq1_11]FAQ "
+"1.11[/doc]"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -4506,13 +4500,12 @@ msgstr "Заголовки страниц"
 
 #: libraries/config/messages.inc.php:197
 msgid ""
-"Specify browser's title bar text. Refer to [a@Documentation."
-"html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
-"get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "Определите текст заголовка браузера. Для ввода особых значений используйте "
-"подставные строки, которые описаны в [a@Documentation.html#cfg_TitleTable]"
-"документации[/a]."
+"подставные строки, которые описаны в [doc@cfg_TitleTable]документации[/doc]."
 
 #: libraries/config/messages.inc.php:198
 #: libraries/navigation_header.inc.php:76
@@ -4571,12 +4564,12 @@ msgstr "Хранение конфигурации"
 #: libraries/config/messages.inc.php:209
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
-"features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
-"storage[/a] in documentation"
+"features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
+"documentation"
 msgstr ""
 "Настройка phpMyAdmin для установки расширенных возможностей. Смотрите в "
-"документации раздел описывающий [a@Documentation.html#linked-tables]хранение "
-"конфигурации[/a]"
+"документации раздел описывающий [doc@linked-tables]хранение "
+"конфигурации[/doc]"
 
 #: libraries/config/messages.inc.php:210
 msgid "Changes tracking"
@@ -11930,13 +11923,13 @@ msgstr "Невозможно загрузить или сохранить нас
 #: setup/frames/index.inc.php:52
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
-"level directory as described in [a@Documentation.html#setup_script]"
-"documentation[/a]. Otherwise you will be only able to download or display it."
+"level directory as described in [doc@setup_script]documentation[/doc]. "
+"Otherwise you will be only able to download or display it."
 msgstr ""
-"Пожалуйста, создайте на сервере в корневой директории phpMyAdmin каталог [em]"
-"config[/em] и установите у него разрешение на запись, как описано в "
-"[a@Documentation.html#setup_script]документации[/a]. В противном случае вы "
-"сможете только скачать, или просмотреть его."
+"Пожалуйста, создайте на сервере в корневой директории phpMyAdmin каталог "
+"[em]config[/em] и установите у него разрешение на запись, как описано в "
+"[doc@setup_script]документации[/doc]. В противном случае вы сможете только "
+"скачать, или просмотреть его."
 
 #: setup/frames/index.inc.php:60
 msgid ""
@@ -14498,12 +14491,11 @@ msgstr "concurrent_insert установлен в 0"
 #~ msgstr "График был успешно создан."
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [a@./"
-#~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
+#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "6.29[/doc]"
 #~ msgstr ""
-#~ "Результат данного запроса не может быть использован для постройки "
-#~ "графика. Смотрите [a@./Documentation.html#faq6_29@Documentation]FAQ 6.29[/"
-#~ "a]"
+#~ "Результат данного запроса не может быть использован для постройки графика. "
+#~ "Смотрите [doc@faq6_29]FAQ 6.29[/doc]"
 
 #~ msgid "Title"
 #~ msgstr "Название"

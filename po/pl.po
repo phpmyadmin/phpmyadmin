@@ -661,12 +661,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+"[doc@faq1_16]FAQ 1.16[/doc]."
 msgstr ""
 "Nie otrzymano żadnych danych do importu. Albo nie dostarczono nazwy pliku, "
 "albo jego rozmiar przekroczył rozmiar maksymalny, dozwolony przez "
-"konfigurację PHP. Zobacz [a@./Documentation.html#faq1_16@Documentation]FAQ "
-"1.16[/a]."
+"konfigurację PHP. Zobacz [doc@faq1_16]FAQ 1.16[/doc]."
 
 #: import.php:422
 msgid ""
@@ -2653,12 +2652,8 @@ msgid "Kill"
 msgstr "Zabij"
 
 #: libraries/DisplayResults.class.php:4493 libraries/structure.lib.php:782
-msgid ""
-"May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
-"3.11[/a]"
-msgstr ""
-"Może być w przybliżeniu. Zobacz [a@./Documentation."
-"html#faq3_11@Documentation]FAQ 3.11[/a]"
+msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
+msgstr "Może być w przybliżeniu. Zobacz [doc@faq3_11]FAQ 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4889
 msgid "in query"
@@ -2779,12 +2774,10 @@ msgid "Unknown error in file upload."
 msgstr "Nieznany błąd w przesyłania pliku."
 
 #: libraries/File.class.php:475
-msgid ""
-"Error moving the uploaded file, see [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
+msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
 msgstr ""
-"Błąd podczas przenoszenia przesłanego pliku. Zobacz [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
+"Błąd podczas przenoszenia przesłanego pliku. Zobacz [doc@faq1_11]FAQ "
+"1.11[/doc]"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -4492,12 +4485,12 @@ msgstr "Tytuły stron"
 
 #: libraries/config/messages.inc.php:197
 msgid ""
-"Specify browser's title bar text. Refer to [a@Documentation."
-"html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
-"get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
-"Określ tytuł. Przeczytaj szczegóły w [a@Documentation.html#cfg_TitleTable]"
-"dokumentacji[/a], żeby dowiedzieć się więcej."
+"Określ tytuł. Przeczytaj szczegóły w [doc@cfg_TitleTable]dokumentacji[/doc], "
+"żeby dowiedzieć się więcej."
 
 #: libraries/config/messages.inc.php:198
 #: libraries/navigation_header.inc.php:76
@@ -4556,12 +4549,12 @@ msgstr "Konfiguracja magazynowania"
 #: libraries/config/messages.inc.php:209
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
-"features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
-"storage[/a] in documentation"
+"features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
+"documentation"
 msgstr ""
 "Konfiguracja pamięcimagazywnowania konfiguracji phpMyAdmin, aby uzyskać "
-"dostęp do dodatkowych opcji, patrz [a@Documentation.html#linked-"
-"tables]przechowywanie konfiguracji phpMyAdmin[/a] w dokumentacji"
+"dostęp do dodatkowych opcji, patrz [doc@linked-tables]przechowywanie "
+"konfiguracji phpMyAdmin[/doc] w dokumentacji"
 
 #: libraries/config/messages.inc.php:210
 msgid "Changes tracking"
@@ -11908,13 +11901,13 @@ msgstr "Nie udało się załadować lub zapisać konfiguracji"
 #: setup/frames/index.inc.php:52
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
-"level directory as described in [a@Documentation.html#setup_script]"
-"documentation[/a]. Otherwise you will be only able to download or display it."
+"level directory as described in [doc@setup_script]documentation[/doc]. "
+"Otherwise you will be only able to download or display it."
 msgstr ""
 "Proszę stworzyć serwer zapisu internetowej folderze [em]koniguracji[/em] w "
-"głównym katalogu phpMyAdmina w sposób opisany w [a@Documentation."
-"html#setup_script]dokumentacji (po angielsku)[/a]. W przeciwnym razie będzie "
-"tylko mogli pobrać lub wyświetlić to."
+"głównym katalogu phpMyAdmina w sposób opisany w "
+"[doc@setup_script]dokumentacji (po angielsku)[/doc]. W przeciwnym razie "
+"będzie tylko mogli pobrać lub wyświetlić to."
 
 #: setup/frames/index.inc.php:60
 msgid ""
@@ -14338,11 +14331,11 @@ msgstr "concurrent_insert jest ustawiony na 0"
 #~ msgstr "Liczba wolnych bloków pamięci w podręcznym buforze zapytań."
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [a@./"
-#~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
+#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "6.29[/doc]"
 #~ msgstr ""
-#~ "W wyniku tej kwerendy nie może być używany dla wykresu. Zobacz [a@./"
-#~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
+#~ "W wyniku tej kwerendy nie może być używany dla wykresu. Zobacz "
+#~ "[doc@faq6_29]FAQ 6.29[/doc]"
 
 #~ msgid "Theme / Style"
 #~ msgstr "Motyw / Styl"

@@ -659,11 +659,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+"[doc@faq1_16]FAQ 1.16[/doc]."
 msgstr ""
 "Nepodařilo se načíst žádná data k importu. Buďto nebyl odeslán žádný soubor, "
-"nebo jeho velikost překročila velikost povolenou v nastavení PHP. Viz [a@./"
-"Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+"nebo jeho velikost překročila velikost povolenou v nastavení PHP. Viz "
+"[doc@faq1_16]FAQ 1.16[/doc]."
 
 #: import.php:422
 msgid ""
@@ -2636,12 +2636,8 @@ msgid "Kill"
 msgstr "Ukončit"
 
 #: libraries/DisplayResults.class.php:4493 libraries/structure.lib.php:782
-msgid ""
-"May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
-"3.11[/a]"
-msgstr ""
-"Počet nemusí být přesný, viz [a@./Documentation.html#faq3_11@Documentation]"
-"FAQ 3.11[/a]"
+msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
+msgstr "Počet nemusí být přesný, viz [doc@faq3_11]FAQ 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4889
 msgid "in query"
@@ -2761,12 +2757,9 @@ msgid "Unknown error in file upload."
 msgstr "Neznámá chyba při nahrávání souboru."
 
 #: libraries/File.class.php:475
-msgid ""
-"Error moving the uploaded file, see [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
+msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
 msgstr ""
-"Chyba při přejmenování nahraného soubory, viz [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
+"Chyba při přejmenování nahraného soubory, viz [doc@faq1_11]FAQ 1.11[/doc]"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -4449,12 +4442,12 @@ msgstr "Jména stránek"
 
 #: libraries/config/messages.inc.php:197
 msgid ""
-"Specify browser's title bar text. Refer to [a@Documentation."
-"html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
-"get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
-"Zadejte titulek který zobrazí prohlížeč. V [a@Documentation."
-"html#cfg_TitleTable]dokumentaci[/a] naleznete jaké proměnné můžete použít."
+"Zadejte titulek který zobrazí prohlížeč. V "
+"[doc@cfg_TitleTable]dokumentaci[/doc] naleznete jaké proměnné můžete použít."
 
 #: libraries/config/messages.inc.php:198
 #: libraries/navigation_header.inc.php:76
@@ -4512,12 +4505,12 @@ msgstr "Úložiště nastavení"
 #: libraries/config/messages.inc.php:209
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
-"features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
-"storage[/a] in documentation"
+"features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
+"documentation"
 msgstr ""
 "Nastavení úložiště nastavení phpMyAdmina tak, aby získal přístup k "
-"dodatečným funkcím, viz sekce [a@Documentation.html#linked-tables]úložiště "
-"nastavení phpMyAdmina[/a] v dokumentaci"
+"dodatečným funkcím, viz sekce [doc@linked-tables]úložiště nastavení "
+"phpMyAdmina[/doc] v dokumentaci"
 
 #: libraries/config/messages.inc.php:210
 msgid "Changes tracking"
@@ -11745,12 +11738,12 @@ msgstr "Nelze načíst nebo uložit nastavení"
 #: setup/frames/index.inc.php:52
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
-"level directory as described in [a@Documentation.html#setup_script]"
-"documentation[/a]. Otherwise you will be only able to download or display it."
+"level directory as described in [doc@setup_script]documentation[/doc]. "
+"Otherwise you will be only able to download or display it."
 msgstr ""
 "Prosím, vytvořte adresář [em]config[/em] zapisovatelný pro web server v "
-"kořenovém adresáři phpMyAdmina, jak je popsáno v [a@Documentation."
-"html#setup_script]dokumentaci[/a]. Jinak budete moci nastavení pouze "
+"kořenovém adresáři phpMyAdmina, jak je popsáno v "
+"[doc@setup_script]dokumentaci[/doc]. Jinak budete moci nastavení pouze "
 "stáhnout nebo zobrazit."
 
 #: setup/frames/index.inc.php:60
@@ -14240,11 +14233,11 @@ msgstr "concurrent_insert je nastaveno na 0"
 #~ msgstr "Graf byl úspěšně vytvořen."
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [a@./"
-#~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
+#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "6.29[/doc]"
 #~ msgstr ""
 #~ "Výsledek tohoto dotazu nelze použít pro graf. Více informací nalezne ve "
-#~ "[a@./Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
+#~ "[doc@faq6_29]FAQ 6.29[/doc]"
 
 #~ msgid "Title"
 #~ msgstr "Název"

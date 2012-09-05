@@ -1359,7 +1359,7 @@ if (! isset($_REQUEST['submit_connect'])
             PMA_sanitize(
                 sprintf(
                     '%sAllowArbitraryServer%s',
-                    '[a@./Documentation.html#AllowArbitraryServer@_blank]', '[/a]'
+                    '[doc@AllowArbitraryServer]', '[/doc]'
                 )
             )
         );

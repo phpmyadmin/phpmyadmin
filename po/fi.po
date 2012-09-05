@@ -661,11 +661,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+"[doc@faq1_16]FAQ 1.16[/doc]."
 msgstr ""
 "Tuotavia tietoja ei ole. Tiedostonimeä ei joko annettu tai tiedoston koko "
 "ylitti PHP:n asetusten salliman enimmäiskoon. Katso "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+"[doc@faq1_16]FAQ 1.16[/doc]."
 
 #: import.php:422
 msgid ""
@@ -2642,12 +2642,8 @@ msgid "Kill"
 msgstr "Lopeta"
 
 #: libraries/DisplayResults.class.php:4493 libraries/structure.lib.php:782
-msgid ""
-"May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
-"3.11[/a]"
-msgstr ""
-"Saattaa olla summittainen. Katso "
-"[a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a]"
+msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
+msgstr "Saattaa olla summittainen. Katso [doc@faq3_11]FAQ 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4889
 msgid "in query"
@@ -2769,12 +2765,8 @@ msgid "Unknown error in file upload."
 msgstr "Tuntematon virhe tiedostoa lähetettäessä."
 
 #: libraries/File.class.php:475
-msgid ""
-"Error moving the uploaded file, see [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr ""
-"Virhe lähetettäessä tiedostoa, katso "
-"[a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]"
+msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
+msgstr "Virhe lähetettäessä tiedostoa, katso [doc@faq1_11]FAQ 1.11[/doc]"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -4426,9 +4418,9 @@ msgstr "Sivun otsikot"
 
 #: libraries/config/messages.inc.php:197
 msgid ""
-"Specify browser's title bar text. Refer to [a@Documentation."
-"html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
-"get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 
 #: libraries/config/messages.inc.php:198
@@ -4488,12 +4480,11 @@ msgstr "Asetusmuisti"
 #: libraries/config/messages.inc.php:209
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
-"features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
-"storage[/a] in documentation"
+"features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
+"documentation"
 msgstr ""
 "Määritä phpMyAdmin määritysten tallennus käyttääksesi lisäasetuksia, katso "
-"ohjeista [a@Documentation.html#linked-tables]phpMyAdmin määritysten tallennus"
-"[/a]"
+"ohjeista [doc@linked-tables]phpMyAdmin määritysten tallennus[/doc]"
 
 #: libraries/config/messages.inc.php:210
 msgid "Changes tracking"
@@ -12035,12 +12026,13 @@ msgstr "Asetuksia ei voi ladata tai tallentaa"
 #| "Otherwise you will be y able to download or display "
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
-"level directory as described in [a@Documentation.html#setup_script]"
-"documentation[/a]. Otherwise you will be only able to download or display it."
+"level directory as described in [doc@setup_script]documentation[/doc]. "
+"Otherwise you will be only able to download or display it."
 msgstr ""
-"Luo phpMyAdminin pääkansioon [a@../Documentation.html#setup_script]ohjeiden[/"
-"a] mukaisesti [em]config[/em]-niminen kansio, johon verkkopalvelin voi "
-"kirjoittaa. Muutoin asetuksia voi vain ladata ja tarkastella."
+"Luo phpMyAdminin pääkansioon "
+"[a@../Documentation.html#setup_script]ohjeiden[/a] mukaisesti "
+"[em]config[/em]-niminen kansio, johon verkkopalvelin voi kirjoittaa. Muutoin "
+"asetuksia voi vain ladata ja tarkastella."
 
 #: setup/frames/index.inc.php:60
 msgid ""
@@ -14493,8 +14485,8 @@ msgstr "Enim. yhtäaikaisia yhteyksiä"
 #~ msgstr "Käyttöoikeuksien uudelleenlataus onnistui."
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [a@./"
-#~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
+#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "6.29[/doc]"
 #~ msgstr "Saattaa olla summittainen. Katso FAQ 3.11"
 
 #~ msgid "Add a New User"

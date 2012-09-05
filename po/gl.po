@@ -660,12 +660,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+"[doc@faq1_16]FAQ 1.16[/doc]."
 msgstr ""
 "Non se recibiron datos para importar. Ou ben non se enviou o ficheiro ou ben "
 "o seu tamaño excede o máximo permitido pola súa configuración de PHP. "
-"Consulte a [a@./Documentation.html#faq1_16@Documentation]Pregunta frecuente "
-"1.16[/a]."
+"Consulte a [doc@faq1_16]Pregunta frecuente 1.16[/doc]."
 
 #: import.php:422
 msgid ""
@@ -2650,12 +2649,9 @@ msgid "Kill"
 msgstr "Matar (kill)"
 
 #: libraries/DisplayResults.class.php:4493 libraries/structure.lib.php:782
-msgid ""
-"May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
-"3.11[/a]"
+msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
 msgstr ""
-"Pode non ser exacto. Consulte a [a@./Documentation."
-"html#faq3_11@Documentation]pregunta frecuente 3.11[/a]"
+"Pode non ser exacto. Consulte a [doc@faq3_11]pregunta frecuente 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4889
 msgid "in query"
@@ -2777,12 +2773,10 @@ msgid "Unknown error in file upload."
 msgstr "Produciuse un erro descoñecido ao enviar o ficheiro."
 
 #: libraries/File.class.php:475
-msgid ""
-"Error moving the uploaded file, see [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
+msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
 msgstr ""
-"Produciuse un erro ao mover o ficheiro enviado. Consulte a [a@./"
-"Documentation.html#faq1_11@Documentation]Pregunta frecuente 1.11[/a]"
+"Produciuse un erro ao mover o ficheiro enviado. Consulte a "
+"[doc@faq1_11]Pregunta frecuente 1.11[/doc]"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -4445,13 +4439,13 @@ msgstr "Títulos de páxina"
 
 #: libraries/config/messages.inc.php:197
 msgid ""
-"Specify browser's title bar text. Refer to [a@Documentation."
-"html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
-"get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "Indique o texto da barra do título do navegador. Consulte a  "
-"[a@Documentation.html#cfg_TitleTable]documentación[/a] para coñecer as "
-"cadeas máximas que se poden empregar para obter valores especiais."
+"[doc@cfg_TitleTable]documentación[/doc] para coñecer as cadeas máximas que "
+"se poden empregar para obter valores especiais."
 
 #: libraries/config/messages.inc.php:198
 #: libraries/navigation_header.inc.php:76
@@ -4510,8 +4504,8 @@ msgstr "Almacenamento da configuración"
 #: libraries/config/messages.inc.php:209
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
-"features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
-"storage[/a] in documentation"
+"features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
+"documentation"
 msgstr ""
 "Configurar o phpMyAdmin para ter acceso a funcionalidades adicionais, vexa "
 "[a@../Documentation.html#linked-tables]infraestrutura de táboas ligadas[/a] "
@@ -11892,12 +11886,12 @@ msgstr "Non foi posíbel cargar ou gravar a configuración"
 #: setup/frames/index.inc.php:52
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
-"level directory as described in [a@Documentation.html#setup_script]"
-"documentation[/a]. Otherwise you will be only able to download or display it."
+"level directory as described in [doc@setup_script]documentation[/doc]. "
+"Otherwise you will be only able to download or display it."
 msgstr ""
 "Cree un directorio [em]config[/em] no que poida escribir no servidor web no "
-"directorio máis alto do phpMyAdmin tal e como se describe na [a@../"
-"Documentation.html#setup_script]documentación[/a]. Se non, só o poderá "
+"directorio máis alto do phpMyAdmin tal e como se describe na "
+"[a@../Documentation.html#setup_script]documentación[/a]. Se non, só o poderá "
 "descargar ou mostrar."
 
 #: setup/frames/index.inc.php:60
@@ -14278,8 +14272,8 @@ msgstr "concurrent_insert está definido como 0"
 #~ msgstr "Non houbo problemas ao recargar os privilexios."
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [a@./"
-#~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
+#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "6.29[/doc]"
 #~ msgstr "Pode non ser exacto. Consulte a FAQ 3.11"
 
 #~ msgid "Add a New User"

@@ -659,12 +659,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+"[doc@faq1_16]FAQ 1.16[/doc]."
 msgstr ""
 "Δεν ελήφθησαν δεδομένα για εισαγωγή. Είτε δεν υποβλήθηκε αρχείο είτε το "
 "μέγεθος του αρχείου υπερβαίνει το μέγιστο επιτρεπτό μέγεθος από τη ρύθμιση "
-"της ΡΗΡ. Δείτε τις [a@./Documentation.html#faq1_16@Documentation]ΣΑΕ 1.16[/"
-"a]."
+"της ΡΗΡ. Δείτε τις [doc@faq1_16]ΣΑΕ 1.16[/doc]."
 
 #: import.php:422
 msgid ""
@@ -2657,12 +2656,8 @@ msgid "Kill"
 msgstr "Τερματισμός"
 
 #: libraries/DisplayResults.class.php:4493 libraries/structure.lib.php:782
-msgid ""
-"May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
-"3.11[/a]"
-msgstr ""
-"Ίσως είναι κατά προσέγγιση. Δείτε τις [a@./Documentation."
-"html#faq3_11@Documentation]ΣΑΕ 3.11[/a]"
+msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
+msgstr "Ίσως είναι κατά προσέγγιση. Δείτε τις [doc@faq3_11]ΣΑΕ 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4889
 msgid "in query"
@@ -2784,12 +2779,10 @@ msgid "Unknown error in file upload."
 msgstr "Άγνωστο σφάλμα στην αποστολή αρχείου."
 
 #: libraries/File.class.php:475
-msgid ""
-"Error moving the uploaded file, see [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
+msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
 msgstr ""
-"Σφάλμα μετακίνησης του αρχείου αποστολής. Δείτε τις [a@./Documentation."
-"html#faq1_11@Documentation]ΣΑΕ 1.11[/a]"
+"Σφάλμα μετακίνησης του αρχείου αποστολής. Δείτε τις [doc@faq1_11]ΣΑΕ "
+"1.11[/doc]"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -4500,13 +4493,13 @@ msgstr "Τίτλοι σελίδας"
 
 #: libraries/config/messages.inc.php:197
 msgid ""
-"Specify browser's title bar text. Refer to [a@Documentation."
-"html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
-"get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "Ορίστε το κείμενο του τίτλου στο φυλλομετρητή σας. Δείτε την "
-"[a@Documentation.html#cfg_TitleTable]τεκμηρίωση[/a] για μαγικά κείμενα που "
-"μπορούν να χρησιμοποιηθούν για ειδικές τιμές."
+"[doc@cfg_TitleTable]τεκμηρίωση[/doc] για μαγικά κείμενα που μπορούν να "
+"χρησιμοποιηθούν για ειδικές τιμές."
 
 #: libraries/config/messages.inc.php:198
 #: libraries/navigation_header.inc.php:76
@@ -4565,12 +4558,12 @@ msgstr "Χώρος αποθήκευση ρυθμίσεων"
 #: libraries/config/messages.inc.php:209
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
-"features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
-"storage[/a] in documentation"
+"features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
+"documentation"
 msgstr ""
 "Προσαρμογή βάσης δεδομένων phpMyAdmin για παροχή πρόσβασης σε πρόσθετα "
-"χαρακτηριστικά. Δείτε την [a@Documentation.html#linked-tables]υποδομή "
-"συνδεδεμένων πινάκων[/a] στην τεκμηρίωση"
+"χαρακτηριστικά. Δείτε την [doc@linked-tables]υποδομή συνδεδεμένων "
+"πινάκων[/doc] στην τεκμηρίωση"
 
 #: libraries/config/messages.inc.php:210
 msgid "Changes tracking"
@@ -11991,12 +11984,12 @@ msgstr "Αδύνατη η φόρτωση ή η αποθήκευση ρυθμίσ
 #: setup/frames/index.inc.php:52
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
-"level directory as described in [a@Documentation.html#setup_script]"
-"documentation[/a]. Otherwise you will be only able to download or display it."
+"level directory as described in [doc@setup_script]documentation[/doc]. "
+"Otherwise you will be only able to download or display it."
 msgstr ""
 "Δημιουργήστε εγγράψιμο φάκελο διακομιστή ιστού [em]config[/em] στο φάκελο "
-"μέγιστου επιπέδου phpMyAdmin όπως περιγράφετε στην [a@Documentation."
-"html#setup_script]τεκμηρίωση[/a]. Διαφορετικά, θα μπορείτε μόνο να τον "
+"μέγιστου επιπέδου phpMyAdmin όπως περιγράφετε στην "
+"[doc@setup_script]τεκμηρίωση[/doc]. Διαφορετικά, θα μπορείτε μόνο να τον "
 "λάβετε ή να τον προβάλετε."
 
 #: setup/frames/index.inc.php:60
@@ -14592,11 +14585,11 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 #~ msgstr "Το διάγραμμα δημιουργήθηκε επιτυχώς."
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [a@./"
-#~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
+#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "6.29[/doc]"
 #~ msgstr ""
-#~ "Το αποτέλεσμα δεν μπορεί να χρησιμοποιηθεί σε διάγραμμα. Δείτε τις [a@./"
-#~ "Documentation.html#faq6_29@Documentation]ΣΑΕ 6.29[/a]"
+#~ "Το αποτέλεσμα δεν μπορεί να χρησιμοποιηθεί σε διάγραμμα. Δείτε τις "
+#~ "[doc@faq6_29]ΣΑΕ 6.29[/doc]"
 
 #~ msgid "Title"
 #~ msgstr "Τίτλος"

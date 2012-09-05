@@ -309,8 +309,8 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
                 '[a@./non-existing@Documentation]link</a>'
             ),
             array(
-                '[a@./Documentation.html@Documentation]link[/a]',
-                '<a href="./Documentation.html" target="Documentation">link</a>'
+                '[doc@foo]link[/doc]',
+                '<a href="./Documentation.html#foo" target="documentation">link</a>'
             ),
         );
     }
@@ -420,9 +420,9 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
      */
     public function testGetMessageWithMessageWithBBCode()
     {
-        $this->object->setMessage('[kbd]test[/kbd] [a@./Documentation.html#cfg_Example@_blank]test[/a]');
+        $this->object->setMessage('[kbd]test[/kbd] [doc@cfg_Example]test[/doc]');
         $this->assertEquals(
-            '<kbd>test</kbd> <a href="./Documentation.html#cfg_Example" target="_blank">test</a>',
+            '<kbd>test</kbd> <a href="./Documentation.html#cfg_Example" target="documentation">test</a>',
             $this->object->getMessage()
         );
     }

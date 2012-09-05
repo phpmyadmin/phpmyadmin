@@ -49,7 +49,7 @@ check_config_rw($config_readable, $config_writable, $config_exists);
 if (!$config_writable || !$config_readable) {
     messages_set(
         'error', 'config_rw', __('Cannot load or save configuration'),
-        PMA_lang(__('Please create web server writable folder [em]config[/em] in phpMyAdmin top level directory as described in [a@Documentation.html#setup_script]documentation[/a]. Otherwise you will be only able to download or display it.'))
+        PMA_lang(__('Please create web server writable folder [em]config[/em] in phpMyAdmin top level directory as described in [doc@setup_script]documentation[/doc]. Otherwise you will be only able to download or display it.'))
     );
 }
 //

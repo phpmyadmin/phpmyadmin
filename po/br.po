@@ -666,12 +666,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+"[doc@faq1_16]FAQ 1.16[/doc]."
 msgstr ""
 "N'eus bet resevet roadenn ebet da vezañ enporzhiet. Pe n'eus bet pourchaset "
 "anv restr ebet pe ez a ar vent anezhi dreist d'ar vent vrasañ aotreet gant "
-"ho kefluniadur PHP. Gwelet [a@./Documentation.html#faq1_16@Documentation]FAQ "
-"1.16[/a]."
+"ho kefluniadur PHP. Gwelet [doc@faq1_16]FAQ 1.16[/doc]."
 
 #: import.php:422
 msgid ""
@@ -2705,9 +2704,7 @@ msgid "Kill"
 msgstr ""
 
 #: libraries/DisplayResults.class.php:4493 libraries/structure.lib.php:782
-msgid ""
-"May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
-"3.11[/a]"
+msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
 msgstr ""
 
 #: libraries/DisplayResults.class.php:4889
@@ -2830,12 +2827,10 @@ msgid "Unknown error in file upload."
 msgstr "Fazi dianav en ur bellgargañ ar restr."
 
 #: libraries/File.class.php:475
-msgid ""
-"Error moving the uploaded file, see [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
+msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
 msgstr ""
-"Fazi en ur zilec'hiañ ar restr pellgarget; gwelet [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
+"Fazi en ur zilec'hiañ ar restr pellgarget; gwelet [doc@faq1_11]FAQ "
+"1.11[/doc]"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -4492,12 +4487,12 @@ msgstr "Titloù pajennoù"
 
 #: libraries/config/messages.inc.php:197
 msgid ""
-"Specify browser's title bar text. Refer to [a@Documentation."
-"html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
-"get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
-"Spisaat testenn barrenn ditl ar merdeer. En em zaveiñ d'an  [a@Documentation."
-"html#cfg_TitleTable]teuliadur[/a] evit an neudennadoù hud a c'haller ober "
+"Spisaat testenn barrenn ditl ar merdeer. En em zaveiñ d'an  "
+"[doc@cfg_TitleTable]teuliadur[/doc] evit an neudennadoù hud a c'haller ober "
 "ganto."
 
 #: libraries/config/messages.inc.php:198
@@ -4557,12 +4552,12 @@ msgstr "Mirlec'h ar c'hefluniadurioù"
 #: libraries/config/messages.inc.php:209
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
-"features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
-"storage[/a] in documentation"
+"features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
+"documentation"
 msgstr ""
 "Kefluniañ ar stokañ kefluniadurioùl phpMyAdmin evit gweredekaat perzhioù "
-"ouzhpenn, gwelet [a@Documentation.html#linked-tables]phpMyAdmin "
-"configuration storage[/a] en teuliadur"
+"ouzhpenn, gwelet [doc@linked-tables]phpMyAdmin configuration storage[/doc] "
+"en teuliadur"
 
 #: libraries/config/messages.inc.php:210
 msgid "Changes tracking"
@@ -11404,8 +11399,8 @@ msgstr ""
 #: setup/frames/index.inc.php:52
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
-"level directory as described in [a@Documentation.html#setup_script]"
-"documentation[/a]. Otherwise you will be only able to download or display it."
+"level directory as described in [doc@setup_script]documentation[/doc]. "
+"Otherwise you will be only able to download or display it."
 msgstr ""
 
 #: setup/frames/index.inc.php:60

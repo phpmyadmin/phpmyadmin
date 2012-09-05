@@ -660,11 +660,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+"[doc@faq1_16]FAQ 1.16[/doc]."
 msgstr ""
 "Importimisest andmeid vastu ei võetud. Faili nime kas ei saadetud või faili "
-"maht ületab sinu PHP seadistuses lubatud maksimaalset mahtu. Vaata [a@./"
-"Documentation.html#faq1_16@Documentation]KKK 1.16[/a]."
+"maht ületab sinu PHP seadistuses lubatud maksimaalset mahtu. Vaata "
+"[doc@faq1_16]KKK 1.16[/doc]."
 
 #: import.php:422
 msgid ""
@@ -2640,12 +2640,8 @@ msgid "Kill"
 msgstr "Sulge"
 
 #: libraries/DisplayResults.class.php:4493 libraries/structure.lib.php:782
-msgid ""
-"May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
-"3.11[/a]"
-msgstr ""
-"Võib olla umbkaudne. Vaata [a@./Documentation.html#faq3_11@Documentation]KKK "
-"3.11[/a]"
+msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
+msgstr "Võib olla umbkaudne. Vaata [doc@faq3_11]KKK 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4889
 msgid "in query"
@@ -2763,12 +2759,9 @@ msgid "Unknown error in file upload."
 msgstr "Faili üleslaadimises on tundmatu viga."
 
 #: libraries/File.class.php:475
-msgid ""
-"Error moving the uploaded file, see [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
+msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
 msgstr ""
-"Üleslaetud faili liigutamisel esines viga, vaata [a@./Documentation."
-"html#faq1_11@Documentation]KKK 1.11[/a]"
+"Üleslaetud faili liigutamisel esines viga, vaata [doc@faq1_11]KKK 1.11[/doc]"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -4462,13 +4455,13 @@ msgstr "Lehe pealkirjad"
 
 #: libraries/config/messages.inc.php:197
 msgid ""
-"Specify browser's title bar text. Refer to [a@Documentation."
-"html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
-"get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
-"Täpsusta veebilehitseja pealkirja. Vaata [a@Documentation."
-"html#cfg_TitleTable]dokumentatsioonist[/a], kuidas kasutada maagilisi sõne, "
-"mida saab kasutada eriliste väärtuste saamiseks."
+"Täpsusta veebilehitseja pealkirja. Vaata "
+"[doc@cfg_TitleTable]dokumentatsioonist[/doc], kuidas kasutada maagilisi "
+"sõne, mida saab kasutada eriliste väärtuste saamiseks."
 
 #: libraries/config/messages.inc.php:198
 #: libraries/navigation_header.inc.php:76
@@ -4527,12 +4520,12 @@ msgstr "Seadistuse salvestus"
 #: libraries/config/messages.inc.php:209
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
-"features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
-"storage[/a] in documentation"
+"features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
+"documentation"
 msgstr ""
 "Seadista phpMyAdmini seadistuse salvestust, et saada ligipääs "
-"lisavõimalustele. Vaata dokumentatsioonist [a@Documentation.html#linked-"
-"tables]phpMyAdmin configuration storage[/a]"
+"lisavõimalustele. Vaata dokumentatsioonist [doc@linked-tables]phpMyAdmin "
+"configuration storage[/doc]"
 
 #: libraries/config/messages.inc.php:210
 msgid "Changes tracking"
@@ -11772,12 +11765,13 @@ msgstr "Ei saa seadistust laadida ega salvestada"
 #: setup/frames/index.inc.php:52
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
-"level directory as described in [a@Documentation.html#setup_script]"
-"documentation[/a]. Otherwise you will be only able to download or display it."
+"level directory as described in [doc@setup_script]documentation[/doc]. "
+"Otherwise you will be only able to download or display it."
 msgstr ""
-"Palun loo phpMyAdmini juurkataloogi veebiserveri jaoks kirjutatav [em]config"
-"[/em] kaust, nagu on kirjeldatud [a@Documentation.html#setup_script]"
-"dokumentatsioonis[/a]. Muul juhul saad seda ainult alla laadida või vaadata."
+"Palun loo phpMyAdmini juurkataloogi veebiserveri jaoks kirjutatav "
+"[em]config[/em] kaust, nagu on kirjeldatud "
+"[doc@setup_script]dokumentatsioonis[/doc]. Muul juhul saad seda ainult alla "
+"laadida või vaadata."
 
 #: setup/frames/index.inc.php:60
 msgid ""
@@ -14286,11 +14280,11 @@ msgstr "concurrent_insert väärtuseks on määratud 0"
 #~ msgstr "Diagramm koostati edukalt."
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [a@./"
-#~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
+#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "6.29[/doc]"
 #~ msgstr ""
-#~ "Selle päringu tulemust ei saa kasutada diagrammis. Vaata [a@./"
-#~ "Documentation.html#faq6_29@Documentation]KKK 6.29[/a]"
+#~ "Selle päringu tulemust ei saa kasutada diagrammis. Vaata [doc@faq6_29]KKK "
+#~ "6.29[/doc]"
 
 #~ msgid "Title"
 #~ msgstr "Pealkiri"

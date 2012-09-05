@@ -659,11 +659,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+"[doc@faq1_16]FAQ 1.16[/doc]."
 msgstr ""
 "Inga data att importera mottogs. Antingen angavs inget filnamn eller så "
 "översteg filens storlek den maximalt tillåtna storleken i din PHP-"
-"konfiguration. Se [a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+"konfiguration. Se [doc@faq1_16]FAQ 1.16[/doc]."
 
 #: import.php:422
 msgid ""
@@ -2637,12 +2637,8 @@ msgid "Kill"
 msgstr "Döda"
 
 #: libraries/DisplayResults.class.php:4493 libraries/structure.lib.php:782
-msgid ""
-"May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
-"3.11[/a]"
-msgstr ""
-"Kan vara ungefärligt. Se [a@./Documentation.html#faq3_11@Documentation]FAQ "
-"3.11[/a]"
+msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
+msgstr "Kan vara ungefärligt. Se [doc@faq3_11]FAQ 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4889
 msgid "in query"
@@ -2761,12 +2757,8 @@ msgid "Unknown error in file upload."
 msgstr "Okänt fel i filuppladdning."
 
 #: libraries/File.class.php:475
-msgid ""
-"Error moving the uploaded file, see [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr ""
-"Fel vid flytt av uppladdad fil, se "
-"[a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]"
+msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
+msgstr "Fel vid flytt av uppladdad fil, se [doc@faq1_11]FAQ 1.11[/doc]"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -4466,13 +4458,12 @@ msgstr "Sidtitlar"
 
 #: libraries/config/messages.inc.php:197
 msgid ""
-"Specify browser's title bar text. Refer to [a@Documentation."
-"html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
-"get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
-"Ange webbläsarens namnlisttext. Se [a@Documentation.html#cfg_TitleTable]"
-"dokumentationen[/a] för magiska strängar som kan användas för att få "
-"speciella värden."
+"Ange webbläsarens namnlisttext. Se [doc@cfg_TitleTable]dokumentationen[/doc] "
+"för magiska strängar som kan användas för att få speciella värden."
 
 #: libraries/config/messages.inc.php:198
 #: libraries/navigation_header.inc.php:76
@@ -4531,8 +4522,8 @@ msgstr "Konfigurations lagring"
 #: libraries/config/messages.inc.php:209
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
-"features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
-"storage[/a] in documentation"
+"features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
+"documentation"
 msgstr ""
 "Konfigurera phpMyAdmin databas för att få tillgång till ytterligare "
 "funktionalitet, se [a@../Documentation.html#linked-tables]infrastruktur för "
@@ -11794,12 +11785,12 @@ msgstr "Kan inte ladda eller spara konfiguration"
 #: setup/frames/index.inc.php:52
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
-"level directory as described in [a@Documentation.html#setup_script]"
-"documentation[/a]. Otherwise you will be only able to download or display it."
+"level directory as described in [doc@setup_script]documentation[/doc]. "
+"Otherwise you will be only able to download or display it."
 msgstr ""
 "Skapa en skrivbar katalog för webbservern [em]config[/em] i phpMyAdmin:s "
-"huvudkatalog som beskrivs i [a@Documentation.html#setup_script]"
-"documentationen[/a]. Annars kommer du enbart kunna hämta eller visa den."
+"huvudkatalog som beskrivs i [doc@setup_script]documentationen[/doc]. Annars "
+"kommer du enbart kunna hämta eller visa den."
 
 #: setup/frames/index.inc.php:60
 msgid ""
@@ -14293,11 +14284,11 @@ msgstr "concurrent_insert är satt till 0"
 #~ msgstr "Diagram skapadesframgångsrikt."
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [a@./"
-#~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
+#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "6.29[/doc]"
 #~ msgstr ""
-#~ "Resultatet av denna fråga kan inte användas för ett diagram. Se [a@./"
-#~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
+#~ "Resultatet av denna fråga kan inte användas för ett diagram. Se "
+#~ "[doc@faq6_29]FAQ 6.29[/doc]"
 
 #~ msgid "Title"
 #~ msgstr "Titel"

@@ -66,7 +66,7 @@ class PMA_DisplayResults
     const TABLE_TYPE_INNO_DB = 'InnoDB';
     const ALL_ROWS = 'all';
     const QUERY_TYPE_SELECT = 'SELECT';
-    
+
     const ROUTINE_PROCEDURE = 'procedure';
     const ROUTINE_FUNCTION = 'function';
 
@@ -153,7 +153,7 @@ class PMA_DisplayResults
         /** array mime types information of fields */
         '_mime_map' => null
     );
-    
+
     /**
      * This global variable represent the columns which needs to be syntax
      * highlighted in each database tables
@@ -170,7 +170,7 @@ class PMA_DisplayResults
                 )
             )
         )
-        
+
     );
 
 
@@ -2690,9 +2690,9 @@ class PMA_DisplayResults
         $fields_meta = $this->__get('_fields_meta');
         $highlight_columns = $this->__get('_highlight_columns');
         $mime_map = $this->__get('_mime_map');
-        
+
         $row_info = $this->_getRowInfoForSpecialLinks($row, $col_order);
-        
+
         for ($j = 0; $j < $this->__get('_fields_cnt'); ++$j) {
 
             // assign $i with appropriate column order
@@ -2788,21 +2788,21 @@ class PMA_DisplayResults
             $transform_options['wrapper_link']
                 = PMA_generate_common_url($_url_params);
 
-            $vertical_display = $this->__get('_vertical_display');            
-            
+            $vertical_display = $this->__get('_vertical_display');
+
             // Check whether the field needs to display with syntax highlighting
 
             if ($this->_isNeedToSyntaxHighlight($meta->name)
                 && (trim($row[$i]) != '')
             ) {
-                
-                $parsed_sql = PMA_SQP_parse($row[$i]);                
+
+                $parsed_sql = PMA_SQP_parse($row[$i]);
                 $row[$i] = PMA_CommonFunctions::getInstance()->formatSql(
                     $parsed_sql, $row[$i]
                 );
                 include_once $this->sytax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($meta->name)][0];
                 $transformation_plugin = new $this->sytax_highlighting_column_info[strtolower($this->__get('_db'))][strtolower($this->__get('_table'))][strtolower($meta->name)][1](null);
-                
+
                 $transform_options  = PMA_transformation_getOptions(
                     isset($mime_map[$meta->name]['transformation_options'])
                     ? $mime_map[$meta->name]['transformation_options']
@@ -2815,20 +2815,20 @@ class PMA_DisplayResults
                 );
 
             }
-            
+
             // Check for the predefined fields need to show as link in schemas
             include_once 'libraries/special_schema_links.lib.php';
-            
+
             if (isset($GLOBALS['special_schema_links'])
                 && ($this->_isFieldNeedToLink(strtolower($meta->name)))
             ) {
-                
+
                 $linking_url = $this->_getSpecialLinkUrl(
                     $row[$i], $row_info, strtolower($meta->name)
                 );
                 include_once "libraries/plugins/transformations/Text_Plain_Link.class.php";
                 $transformation_plugin = new Text_Plain_Link(null);
-                
+
                 $transform_options  = array(
                     0 => $linking_url,
                     2 => true
@@ -2838,9 +2838,9 @@ class PMA_DisplayResults
                     '_', '/',
                     'Text/Plain'
                 );
-                
+
             }
-            
+
             if ($meta->numeric == 1) {
                 // n u m e r i c
 
@@ -3031,13 +3031,13 @@ class PMA_DisplayResults
 
     } // end of the '_gatherLinksForLaterOutputs()' function
 
-    
+
     /**
      * Check whether any field is marked as need to syntax highlight
      *
      * @param string $field field to check
      *
-     * @return boolean 
+     * @return boolean
      */
     private function _isNeedToSyntaxHighlight($field)
     {
@@ -3046,13 +3046,13 @@ class PMA_DisplayResults
         }
         return false;
     }
-    
+
     /**
      * Check whether the field needs to be link
      *
      * @param string $field field to check
      *
-     * @return boolean 
+     * @return boolean
      */
     private function _isFieldNeedToLink($field)
     {
@@ -3061,8 +3061,8 @@ class PMA_DisplayResults
         }
         return false;
     }
-    
-    
+
+
     /**
      * Get link for display special schema links
      *
@@ -3070,17 +3070,17 @@ class PMA_DisplayResults
      * @param array  $row_info     information about row
      * @param string $field_name   column name
      *
-     * @return string generated link 
+     * @return string generated link
      */
     private function _getSpecialLinkUrl($column_value, $row_info, $field_name)
     {
-        
+
         $linking_url_params = array();
         $link_relations = $GLOBALS['special_schema_links']
             [strtolower($this->__get('_db'))]
             [strtolower($this->__get('_table'))]
             [$field_name];
-        
+
         if (! is_array($link_relations['link_param'])) {
             $linking_url_params[$link_relations['link_param']] = $column_value;
         } else {
@@ -3088,10 +3088,10 @@ class PMA_DisplayResults
             // sql query need to be pass as url param
             $sql = 'SELECT `'.$column_value.'` FROM `'
                 . $row_info[$link_relations['link_param'][1]] .'`.`'
-                . $row_info[$link_relations['link_param'][2]] .'`';            
+                . $row_info[$link_relations['link_param'][2]] .'`';
             $linking_url_params[$link_relations['link_param'][0]] = $sql;
         }
-        
+
 
         if (! empty($link_relations['link_dependancy_params'])) {
 
@@ -3101,9 +3101,9 @@ class PMA_DisplayResults
                 // from that array
                 if (is_array($new_param['param_info'])) {
                     $linking_url_params[$new_param['param_info'][0]]
-                        = $new_param['param_info'][1];                            
+                        = $new_param['param_info'][1];
                 } else {
-                    
+
                     $linking_url_params[$new_param['param_info']]
                         = $row_info[strtolower($new_param['column_name'])];
 
@@ -3114,20 +3114,20 @@ class PMA_DisplayResults
                             $linking_url_params['execute_routine'] = 1;
                         } else if (strtolower($row_info['routine_type']) == self::ROUTINE_FUNCTION) {
                             $linking_url_params['execute_dialog'] = 1;
-                        }                                
+                        }
                     }
                 }
 
             }
 
         }
-        
+
         return $link_relations['default_page']
             . PMA_generate_common_url($linking_url_params);
-        
+
     }
-    
-    
+
+
     /**
      * Prepare row information for display special links
      *
@@ -3138,20 +3138,20 @@ class PMA_DisplayResults
      */
     private function _getRowInfoForSpecialLinks($row, $col_order)
     {
-        
+
         $row_info = array();
         $fields_meta = $this->__get('_fields_meta');
-        
+
         for ($n = 0; $n < $this->__get('_fields_cnt'); ++$n) {
             $m = $col_order ? $col_order[$n] : $n;
             $row_info[strtolower($fields_meta[$m]->name)] = $row[$m];
         }
-        
+
         return $row_info;
-        
+
     }
-    
-    
+
+
     /**
      * Get url sql query without conditions to shorten URLs
      *
@@ -4490,7 +4490,7 @@ class PMA_DisplayResults
             $pre_count = '~';
             $after_count = $this->getCommonFunctions()->showHint(
                 PMA_sanitize(
-                    __('May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a]')
+                    __('May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]')
                 )
             );
         } else {
@@ -4928,8 +4928,8 @@ class PMA_DisplayResults
                 )
             );
 
-            $message->addParam('[a@./Documentation.html#cfg_MaxExactCount@_blank]');
-            $message->addParam('[/a]');
+            $message->addParam('[doc@cfg_MaxExactCount]');
+            $message->addParam('[/doc]');
             $message_view_warning = $this->getCommonFunctions()->showHint($message);
 
         } else {

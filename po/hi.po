@@ -661,12 +661,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+"[doc@faq1_16]FAQ 1.16[/doc]."
 msgstr ""
 "कोई डेटा आयात करने के लिए प्राप्त नहीं किया गया. या तो कोई फ़ाइल नाम "
 "प्रस्तुत नहीं किया गया या फ़ाइल का आकार अधिकतम PHP विन्यास द्वारा अनुमति "
-"आकार के पार हो गई है. [a@./Documentation.html#faq1_16@Documentation] अकसर "
-"किये गए सवाल 1.16 [/a] देखें."
+"आकार के पार हो गई है. [doc@faq1_16] अकसर किये गए सवाल 1.16 [/doc] देखें."
 
 #: import.php:422
 msgid ""
@@ -2780,11 +2779,8 @@ msgid "Kill"
 msgstr ""
 
 #: libraries/DisplayResults.class.php:4493 libraries/structure.lib.php:782
-msgid ""
-"May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
-"3.11[/a]"
-msgstr ""
-"शायद अनुमानित हैं. [a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a] देखें"
+msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
+msgstr "शायद अनुमानित हैं. [doc@faq3_11]FAQ 3.11[/doc] देखें"
 
 #: libraries/DisplayResults.class.php:4889
 msgid "in query"
@@ -2902,13 +2898,10 @@ msgid "Unknown error in file upload."
 msgstr "फ़ाइल अपलोड करने में अज्ञात त्रुटि."
 
 #: libraries/File.class.php:475
-msgid ""
-"Error moving the uploaded file, see [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
+msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
 msgstr ""
-"अपलोड की गयी फाइल की जगह बदलने में त्रुटि आई है. "
-"[a@./Documentation.html#faq1_1@Documentation]अकसर किये गए सवाल 1,11[/a] "
-"देखें"
+"अपलोड की गयी फाइल की जगह बदलने में त्रुटि आई है. [doc@faq1_1]अकसर किये गए "
+"सवाल 1,11[/doc] देखें"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -4569,12 +4562,13 @@ msgstr "पृष्ठ शीर्षक"
 
 #: libraries/config/messages.inc.php:197
 msgid ""
-"Specify browser's title bar text. Refer to [a@Documentation."
-"html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
-"get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
-"निर्दिष्ट ब्राउज़र की शीर्षक पट्टी पाठ. [a@Documentation.html#cfg_TitleTable]"
-"documentation[/a]  जादू स्ट्रिंग को विशेष मान पाने के लिए इस्तेमाल किया जा सकता है."
+"निर्दिष्ट ब्राउज़र की शीर्षक पट्टी पाठ. "
+"[doc@cfg_TitleTable]documentation[/doc]  जादू स्ट्रिंग को विशेष मान पाने के "
+"लिए इस्तेमाल किया जा सकता है."
 
 #: libraries/config/messages.inc.php:198
 #: libraries/navigation_header.inc.php:76
@@ -4630,12 +4624,12 @@ msgstr "विन्यास भंडारण"
 #: libraries/config/messages.inc.php:209
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
-"features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
-"storage[/a] in documentation"
+"features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
+"documentation"
 msgstr ""
-"phpMyAdmin विन्यास भंडारण अतिरिक्त सुविधाओं तक पहुँच हासिल करने के लिए कॉन्फ़िगर करें, "
-"ज्यादा जानकारी के लिए [a@Documentation.html#linked-tables]phpMyAdmin "
-"configuration storage[/a]"
+"phpMyAdmin विन्यास भंडारण अतिरिक्त सुविधाओं तक पहुँच हासिल करने के लिए "
+"कॉन्फ़िगर करें, ज्यादा जानकारी के लिए [doc@linked-tables]phpMyAdmin "
+"configuration storage[/doc]"
 
 #: libraries/config/messages.inc.php:210
 msgid "Changes tracking"
@@ -11720,8 +11714,8 @@ msgstr "विन्यास लोड या सहेज नहीं सक�
 #: setup/frames/index.inc.php:52
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
-"level directory as described in [a@Documentation.html#setup_script]"
-"documentation[/a]. Otherwise you will be only able to download or display it."
+"level directory as described in [doc@setup_script]documentation[/doc]. "
+"Otherwise you will be only able to download or display it."
 msgstr ""
 
 #: setup/frames/index.inc.php:60
@@ -14000,11 +13994,9 @@ msgstr "अधिकतम वर्तमान कनेक्शन"
 #~ msgstr "Thread %s को सफलता से मारा गया।"
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [a@./"
-#~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
-#~ msgstr ""
-#~ "शायद अनुमानित हैं. [a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/"
-#~ "a] देखें"
+#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "6.29[/doc]"
+#~ msgstr "शायद अनुमानित हैं. [doc@faq3_11]FAQ 3.11[/doc] देखें"
 
 #~ msgid "Title"
 #~ msgstr "ऊँचाई"

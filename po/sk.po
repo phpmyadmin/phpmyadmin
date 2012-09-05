@@ -660,11 +660,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+"[doc@faq1_16]FAQ 1.16[/doc]."
 msgstr ""
 "Neboli prijaté žiadne dáta na import. Buď nebol odoslaný žiadny súbor alebo "
 "jeho veľkosť prekročila maximálnu veľkosť povolenú v PHP konfigurácii. Pozri "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+"[doc@faq1_16]FAQ 1.16[/doc]."
 
 #: import.php:422
 msgid ""
@@ -2635,12 +2635,8 @@ msgid "Kill"
 msgstr "Zabiť"
 
 #: libraries/DisplayResults.class.php:4493 libraries/structure.lib.php:782
-msgid ""
-"May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
-"3.11[/a]"
-msgstr ""
-"Môže byť nepresné. Viď [a@./Documentation.html#faq3_11@Documentation]FAQ 3.11"
-"[/a]"
+msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
+msgstr "Môže byť nepresné. Viď [doc@faq3_11]FAQ 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4889
 msgid "in query"
@@ -2761,12 +2757,8 @@ msgid "Unknown error in file upload."
 msgstr "Neznáma chyba pri nahrávaní súboru."
 
 #: libraries/File.class.php:475
-msgid ""
-"Error moving the uploaded file, see [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr ""
-"Chyba pri presune nahrávaného súboru, viď [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
+msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
+msgstr "Chyba pri presune nahrávaného súboru, viď [doc@faq1_11]FAQ 1.11[/doc]"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -4400,13 +4392,13 @@ msgstr "Mená stránok"
 
 #: libraries/config/messages.inc.php:197
 msgid ""
-"Specify browser's title bar text. Refer to [a@Documentation."
-"html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
-"get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
-"Zadajte titulku, ktorú bude zobrazovať prehliadač. V [a@Documentation."
-"html#cfg_TitleTable]documentácii[/a] nájdete špeciálne reťazce, ktoré môžete "
-"použiť na získanie špeciálnych hodnôt."
+"Zadajte titulku, ktorú bude zobrazovať prehliadač. V "
+"[doc@cfg_TitleTable]documentácii[/doc] nájdete špeciálne reťazce, ktoré "
+"môžete použiť na získanie špeciálnych hodnôt."
 
 #: libraries/config/messages.inc.php:198
 #: libraries/navigation_header.inc.php:76
@@ -4465,12 +4457,12 @@ msgstr "Miesto uloženia konfigurácie"
 #: libraries/config/messages.inc.php:209
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
-"features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
-"storage[/a] in documentation"
+"features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
+"documentation"
 msgstr ""
 "Nastavenie phpMyAdmin miesta uloženia konfigurácie tak, aby získal prístup k "
-"prídavným funkciám, viď [a@Documentation.html#linked-tables]miesto uloženia "
-"konfigurácie [/a] v dokumentácii"
+"prídavným funkciám, viď [doc@linked-tables]miesto uloženia konfigurácie "
+"[/doc] v dokumentácii"
 
 #: libraries/config/messages.inc.php:210
 msgid "Changes tracking"
@@ -11765,8 +11757,8 @@ msgstr ""
 #: setup/frames/index.inc.php:52
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
-"level directory as described in [a@Documentation.html#setup_script]"
-"documentation[/a]. Otherwise you will be only able to download or display it."
+"level directory as described in [doc@setup_script]documentation[/doc]. "
+"Otherwise you will be only able to download or display it."
 msgstr ""
 
 #: setup/frames/index.inc.php:60
@@ -14051,11 +14043,11 @@ msgstr "concurrent_insert je nastavené na 0"
 #~ msgstr "Graf bol úspešne vytvorený."
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [a@./"
-#~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
+#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "6.29[/doc]"
 #~ msgstr ""
-#~ "Výsledok tohto dopytu nemôže byť použitý pre graf. Viď [a@./Documentation."
-#~ "html#faq6_29@Documentation]FAQ 6.29[/a]"
+#~ "Výsledok tohto dopytu nemôže byť použitý pre graf. Viď [doc@faq6_29]FAQ "
+#~ "6.29[/doc]"
 
 #~ msgid "Add a New User"
 #~ msgstr "Pridať nového uživateľa"

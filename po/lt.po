@@ -664,11 +664,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+"[doc@faq1_16]FAQ 1.16[/doc]."
 msgstr ""
 "Nebuvo gauta duomenų importavimui. Arba be failo pavadinimo išsiųsta arba "
 "failo dydis viršija didžiausią leidžiamą dydį PHP konfigūracijos. Žiūrėti "
-"[a@./Documentation.html#faq1_16@Documentation]DUK 1.16[/a]."
+"[doc@faq1_16]DUK 1.16[/doc]."
 
 #: import.php:422
 msgid ""
@@ -2701,12 +2701,8 @@ msgid "Kill"
 msgstr "Stabdyti procesą"
 
 #: libraries/DisplayResults.class.php:4493 libraries/structure.lib.php:782
-msgid ""
-"May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
-"3.11[/a]"
-msgstr ""
-"Gali būti apytikslis. Žiūrėkite [a@./Documentation."
-"html#faq3_11@Documentation]DUK 3.11[/a]"
+msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
+msgstr "Gali būti apytikslis. Žiūrėkite [doc@faq3_11]DUK 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4889
 msgid "in query"
@@ -2826,12 +2822,8 @@ msgid "Unknown error in file upload."
 msgstr "Nežinoma klaida failų įkėlime."
 
 #: libraries/File.class.php:475
-msgid ""
-"Error moving the uploaded file, see [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr ""
-"Klaida perkeliant įkeltą failą, žiūrėti [a@./Documentation."
-"html#faq1_11@Documentation]DUK 1.11[/a]"
+msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
+msgstr "Klaida perkeliant įkeltą failą, žiūrėti [doc@faq1_11]DUK 1.11[/doc]"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -4488,13 +4480,13 @@ msgstr "Puslapių pavadinimai"
 
 #: libraries/config/messages.inc.php:197
 msgid ""
-"Specify browser's title bar text. Refer to [a@Documentation."
-"html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
-"get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 "Nurodykite naršyklės pavadinimo juostos tekstą. Pasinaudokite "
-"[a@Documentation.html#cfg_TitleTable]dokumentacija[/a] magiškiesiems "
-"tekstams, kurie bus paversti specialiomis reikšmėmis."
+"[doc@cfg_TitleTable]dokumentacija[/doc] magiškiesiems tekstams, kurie bus "
+"paversti specialiomis reikšmėmis."
 
 #: libraries/config/messages.inc.php:198
 #: libraries/navigation_header.inc.php:76
@@ -4553,12 +4545,12 @@ msgstr "Konfigūracijos laikmena"
 #: libraries/config/messages.inc.php:209
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
-"features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
-"storage[/a] in documentation"
+"features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
+"documentation"
 msgstr ""
 "Konfigūruoti phpMyAdmin konfigūracijos laikmeną, kad gauti priėjimą prie "
-"papildomų galimybių, žiūrėti [a@Documentation.html#linked-tables]phpMyAdmin "
-"konfigūracijos laikmena[/a] dokumentacijoje"
+"papildomų galimybių, žiūrėti [doc@linked-tables]phpMyAdmin konfigūracijos "
+"laikmena[/doc] dokumentacijoje"
 
 #: libraries/config/messages.inc.php:210
 msgid "Changes tracking"
@@ -11701,13 +11693,13 @@ msgstr "Nepavyko įkelti arba išsaugoti konfigūracijos"
 #: setup/frames/index.inc.php:52
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
-"level directory as described in [a@Documentation.html#setup_script]"
-"documentation[/a]. Otherwise you will be only able to download or display it."
+"level directory as described in [doc@setup_script]documentation[/doc]. "
+"Otherwise you will be only able to download or display it."
 msgstr ""
 "Prašome interneto serveryje phpMyAdmin pagrindiniame kataloge sukurti "
-"įrašomą [em]config[/em] katalogą kaip parašyta [a@../Documentation."
-"html#setup_script]dokumentacijoje[/a]. Kitaip Jūs galėsite jį tik "
-"parsisiųsti ir peržiūrėti."
+"įrašomą [em]config[/em] katalogą kaip parašyta "
+"[a@../Documentation.html#setup_script]dokumentacijoje[/a]. Kitaip Jūs "
+"galėsite jį tik parsisiųsti ir peržiūrėti."
 
 #: setup/frames/index.inc.php:60
 msgid ""
@@ -14024,11 +14016,11 @@ msgstr "MyISAM concurrent įterpimai"
 #~ msgstr "Diagrama sėkmingai sukurta."
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [a@./"
-#~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
+#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "6.29[/doc]"
 #~ msgstr ""
 #~ "Užklausos rezultatas negali būti naudojamas diagramai braižyti. Žiūrėti "
-#~ "[a@./Documentation.html#faq6_29@Documentation]DUK 6.29[/a]"
+#~ "[doc@faq6_29]DUK 6.29[/doc]"
 
 #~ msgid "Title"
 #~ msgstr "Pavadinimas"

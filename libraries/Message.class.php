@@ -30,8 +30,8 @@
  * // two parameters: $strSomeTooltip = 'Read the %smanual%s'
  * $hint = PMA_Message::notice('strSomeTooltip');
  * // replace %d with the following params
- * $hint->addParam('[a@./Documentation.html#cfg_Example@_blank]');
- * $hint->addParam('[/a]');
+ * $hint->addParam('[doc@cfg_Example]');
+ * $hint->addParam('[/doc]');
  * // add this hint as a tooltip
  * $hint = showHint($hint);
  *

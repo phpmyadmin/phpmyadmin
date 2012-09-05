@@ -649,11 +649,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+"[doc@faq1_16]FAQ 1.16[/doc]."
 msgstr ""
-"ไม่มีข้อมูลสำหรับการนำเข้า อาจจะไม่ได้ใส่ชื่อไฟล์ หรือขนาดไฟล์เกินขนาดสูงสุดที่ระบบตั้งไว้ "
-"กรุณาแก้ไขไฟล์ตั้งค่าของ PHP ดูเอกสารเพิ่มเติมได้ที่ [a@./Documentation."
-"html#faq1_16@Documentation]FAQ 1.16[/a]"
+"ไม่มีข้อมูลสำหรับการนำเข้า อาจจะไม่ได้ใส่ชื่อไฟล์ "
+"หรือขนาดไฟล์เกินขนาดสูงสุดที่ระบบตั้งไว้ กรุณาแก้ไขไฟล์ตั้งค่าของ PHP "
+"ดูเอกสารเพิ่มเติมได้ที่ [doc@faq1_16]FAQ 1.16[/doc]"
 
 #: import.php:422
 msgid ""
@@ -2649,9 +2649,7 @@ msgid "Kill"
 msgstr "ฆ่าทิ้ง"
 
 #: libraries/DisplayResults.class.php:4493 libraries/structure.lib.php:782
-msgid ""
-"May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
-"3.11[/a]"
+msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
 msgstr ""
 
 #: libraries/DisplayResults.class.php:4889
@@ -2771,12 +2769,8 @@ msgid "Unknown error in file upload."
 msgstr "ไม่ทราบข้อผิดพลาดของไฟล์ที่จะอัพโหลด"
 
 #: libraries/File.class.php:475
-msgid ""
-"Error moving the uploaded file, see [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr ""
-"มีข้อผิดพลาดระหว่างการอัพโหลด กรุณาดู [a@./Documentation.html#faq1_11@Documentation]"
-"FAQ 1.11[/a]"
+msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
+msgstr "มีข้อผิดพลาดระหว่างการอัพโหลด กรุณาดู [doc@faq1_11]FAQ 1.11[/doc]"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -4465,9 +4459,9 @@ msgstr "หมายเลขหน้า:"
 
 #: libraries/config/messages.inc.php:197
 msgid ""
-"Specify browser's title bar text. Refer to [a@Documentation."
-"html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
-"get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 
 #: libraries/config/messages.inc.php:198
@@ -4525,8 +4519,8 @@ msgstr ""
 #: libraries/config/messages.inc.php:209
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
-"features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
-"storage[/a] in documentation"
+"features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
+"documentation"
 msgstr ""
 
 #: libraries/config/messages.inc.php:210
@@ -11659,8 +11653,8 @@ msgstr ""
 #: setup/frames/index.inc.php:52
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
-"level directory as described in [a@Documentation.html#setup_script]"
-"documentation[/a]. Otherwise you will be only able to download or display it."
+"level directory as described in [doc@setup_script]documentation[/doc]. "
+"Otherwise you will be only able to download or display it."
 msgstr ""
 
 #: setup/frames/index.inc.php:60

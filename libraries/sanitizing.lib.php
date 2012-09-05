@@ -95,6 +95,7 @@ function PMA_sanitize($message, $escape = false, $safe = false)
     if (!$safe) {
         $message = strtr($message, array('<' => '&lt;', '>' => '&gt;'));
     }
+
     /* Interpret bb code */
     $replace_pairs = array(
         '[em]'      => '<em>',
@@ -107,24 +108,34 @@ function PMA_sanitize($message, $escape = false, $safe = false)
         '[/kbd]'    => '</kbd>',
         '[br]'      => '<br />',
         '[/a]'      => '</a>',
+        '[/doc]'      => '</a>',
         '[sup]'     => '<sup>',
         '[/sup]'    => '</sup>',
          // used in common.inc.php:
         '[conferr]' => '<iframe src="show_config_errors.php" />',
     );
+
+    $message = strtr($message, $replace_pairs);
+
     /* Adjust links for setup, which lives in subfolder */
     if (defined('PMA_SETUP')) {
-        $replace_pairs['[a@Documentation.html'] = '[a@../Documentation.html';
+        $docname = '../Documentation.html';
     } else {
-        $replace_pairs['[a@Documentation.html'] = '[a@./Documentation.html';
+        $docname = './Documentation.html';
     }
-    $message = strtr($message, $replace_pairs);
 
     /* Match links in bb code ([a@url@target], where @target is options) */
     $pattern = '/\[a@([^]"@]*)(@([^]"]*))?\]/';
 
     /* Find and replace all links */
     $message = preg_replace_callback($pattern, 'PMA_replaceBBLink', $message);
+
+    /* Replace documentation links */
+    $message = preg_replace(
+        '/\[doc@([a-zA-Z0-9_-]+)\]/',
+        '<a href="' . $docname . '#\1" target="documentation">',
+        $message
+    );
 
     /* Possibly escape result */
     if ($escape) {

@@ -489,8 +489,8 @@ if ($cfg['SuhosinDisableWarning'] == false
     trigger_error(
         sprintf(
             __('Server running with Suhosin. Please refer to %sdocumentation%s for possible issues.'),
-            '[a@./Documentation.html#faq1_38@_blank]',
-            '[/a]'
+            '[doc@faq1_38]',
+            '[/doc]'
         ),
         E_USER_WARNING
     );

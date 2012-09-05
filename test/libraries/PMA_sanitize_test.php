@@ -48,6 +48,17 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
     /**
      * Tests links to documentation.
      */
+    public function testDoc()
+    {
+        $this->assertEquals(
+            '<a href="./Documentation.html#foo" target="documentation">doclink</a>',
+            PMA_sanitize('[doc@foo]doclink[/doc]')
+        );
+    }
+
+    /**
+     * Tests links to documentation.
+     */
     public function testLinkDoc()
     {
         $this->assertEquals(

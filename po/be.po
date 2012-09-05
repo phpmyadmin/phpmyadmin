@@ -689,12 +689,11 @@ msgstr ""
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+"[doc@faq1_16]FAQ 1.16[/doc]."
 msgstr ""
 "Дадзеныя для імпартаваньня не атрыманыя. Альбо ніводны файл ня быў "
 "загружаны, альбо памер файла перавысіў максымальны памер, вызначаны "
-"канфігурацыяй PHP. Гл. [a@./Documentation.html#faq1_16@Documentation]FAQ "
-"1.16[/a]."
+"канфігурацыяй PHP. Гл. [doc@faq1_16]FAQ 1.16[/doc]."
 
 #: import.php:422
 msgid ""
@@ -2896,12 +2895,8 @@ msgid "Kill"
 msgstr "Спыніць"
 
 #: libraries/DisplayResults.class.php:4493 libraries/structure.lib.php:782
-msgid ""
-"May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
-"3.11[/a]"
-msgstr ""
-"Значэньне можа быць прыблізным. Гл. "
-"[a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a]"
+msgid "May be approximate. See [doc@faq3_11]FAQ 3.11[/doc]"
+msgstr "Значэньне можа быць прыблізным. Гл. [doc@faq3_11]FAQ 3.11[/doc]"
 
 #: libraries/DisplayResults.class.php:4889
 msgid "in query"
@@ -3026,12 +3021,10 @@ msgid "Unknown error in file upload."
 msgstr "Падчас загрузкі файла адбылася невядомая памылка."
 
 #: libraries/File.class.php:475
-msgid ""
-"Error moving the uploaded file, see [a@./Documentation."
-"html#faq1_11@Documentation]FAQ 1.11[/a]"
+msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
 msgstr ""
-"Памылка перамяшчэньня загружанага файла. Глядзіце разьдзел "
-"[a@./Documentation.html#faq1_11@Documentation]1.11 у FAQ[/a]"
+"Памылка перамяшчэньня загружанага файла. Глядзіце разьдзел [doc@faq1_11]1.11 "
+"у FAQ[/doc]"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -4749,9 +4742,9 @@ msgstr "Старонка:"
 
 #: libraries/config/messages.inc.php:197
 msgid ""
-"Specify browser's title bar text. Refer to [a@Documentation."
-"html#cfg_TitleTable]documentation[/a] for magic strings that can be used to "
-"get special values."
+"Specify browser's title bar text. Refer to "
+"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
+"to get special values."
 msgstr ""
 
 #: libraries/config/messages.inc.php:198
@@ -4810,8 +4803,8 @@ msgstr ""
 #: libraries/config/messages.inc.php:209
 msgid ""
 "Configure phpMyAdmin configuration storage to gain access to additional "
-"features, see [a@Documentation.html#linked-tables]phpMyAdmin configuration "
-"storage[/a] in documentation"
+"features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
+"documentation"
 msgstr ""
 
 #: libraries/config/messages.inc.php:210
@@ -12377,8 +12370,8 @@ msgstr ""
 #: setup/frames/index.inc.php:52
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
-"level directory as described in [a@Documentation.html#setup_script]"
-"documentation[/a]. Otherwise you will be only able to download or display it."
+"level directory as described in [doc@setup_script]documentation[/doc]. "
+"Otherwise you will be only able to download or display it."
 msgstr ""
 
 #: setup/frames/index.inc.php:60
@@ -14556,8 +14549,8 @@ msgstr "максымум адначасовых злучэньняў"
 #~ msgstr "Прывілеі былі пасьпяхова перазагружаныя."
 
 #~ msgid ""
-#~ "The result of this query can't be used for a chart. See [a@./"
-#~ "Documentation.html#faq6_29@Documentation]FAQ 6.29[/a]"
+#~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
+#~ "6.29[/doc]"
 #~ msgstr "Значэньне можа быць прыблізным. Гл. FAQ 3.11"
 
 #~ msgid "Add a New User"
