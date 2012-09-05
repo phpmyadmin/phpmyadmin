@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Server variables
  *
  * @package PhpMyAdmin
  */
@@ -46,7 +47,11 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             if (isset($VARIABLE_DOC_LINKS[$_REQUEST['varName']][3])
                 && $VARIABLE_DOC_LINKS[$_REQUEST['varName']][3] == 'byte'
             ) {
-                exit(implode(' ', $common_functions->formatByteDown($varValue[1], 3, 3)));
+                exit(
+                    implode(
+                        ' ', $common_functions->formatByteDown($varValue[1], 3, 3)
+                    )
+                );
             }
             exit($varValue[1]);
             break;
@@ -56,10 +61,24 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
             if (isset($VARIABLE_DOC_LINKS[$_REQUEST['varName']][3])
                 && $VARIABLE_DOC_LINKS[$_REQUEST['varName']][3] == 'byte'
-                && preg_match('/^\s*(\d+(\.\d+)?)\s*(mb|kb|mib|kib|gb|gib)\s*$/i', $value, $matches)
+                && preg_match(
+                    '/^\s*(\d+(\.\d+)?)\s*(mb|kb|mib|kib|gb|gib)\s*$/i',
+                    $value,
+                    $matches
+                )
             ) {
-                $exp = array('kb' => 1, 'kib' => 1, 'mb' => 2, 'mib' => 2, 'gb' => 3, 'gib' => 3);
-                $value = floatval($matches[1]) * $common_functions->pow(1024, $exp[strtolower($matches[3])]);
+                $exp = array(
+                    'kb' => 1,
+                    'kib' => 1,
+                    'mb' => 2,
+                    'mib' => 2,
+                    'gb' => 3,
+                    'gib' => 3
+                );
+                $value = floatval($matches[1]) * $common_functions->pow(
+                    1024,
+                    $exp[strtolower($matches[3])]
+                );
             } else {
                 $value = $common_functions->sqlAddSlashes($value);
             }
@@ -70,12 +89,15 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
             $response = PMA_Response::getInstance();
             if (! preg_match("/[^a-zA-Z0-9_]+/", $_REQUEST['varName'])
-                && PMA_DBI_query('SET GLOBAL ' . $_REQUEST['varName'] . ' = ' . $value)
+                && PMA_DBI_query(
+                    'SET GLOBAL ' . $_REQUEST['varName'] . ' = ' . $value
+                )
             ) {
                 // Some values are rounded down etc.
                 $varValue = PMA_DBI_fetch_single_row(
                     'SHOW GLOBAL VARIABLES WHERE Variable_name="'
-                    . $common_functions->sqlAddSlashes($_REQUEST['varName']) . '";', 'NUM'
+                    . $common_functions->sqlAddSlashes($_REQUEST['varName'])
+                    . '";', 'NUM'
                 );
                 $response->addJSON(
                     'variable',
@@ -97,10 +119,12 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 /**
  * Displays the sub-page heading
  */
-echo '<h2>' . $common_functions->getImage('s_vars.png')
-   . '' . __('Server variables and settings') . "\n"
-   . $common_functions->showMySQLDocu('server_system_variables', 'server_system_variables')
-   . '</h2>' . "\n";
+$output = '<h2>' . $common_functions->getImage('s_vars.png')
+    . '' . __('Server variables and settings') . "\n"
+    . $common_functions->showMySQLDocu(
+        'server_system_variables', 'server_system_variables'
+    )
+    . '</h2>' . "\n";
 
 /**
  * Sends the queries and buffers the results
@@ -112,59 +136,76 @@ $serverVars = PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES;', 0, 1);
 /**
  * Displays the page
  */
-?>
-<fieldset id="tableFilter" style="display:none;">
-<legend><?php echo __('Filters'); ?></legend>
-<div class="formelement">
-    <label for="filterText"><?php echo __('Containing the word:'); ?></label>
-    <input name="filterText" type="text" id="filterText" style="vertical-align: baseline;" />
-</div>
-</fieldset>
-<table id="serverVariables" class="data filteredData noclick">
-<thead>
-<tr><th><?php echo __('Variable'); ?></th>
-    <th class="valueHeader">
-<?php
-echo __('Session value') . ' / ' . __('Global value');
-?>
-    </th>
-    <th><?php echo __('Documentation'); ?></th>
-</tr>
-</thead>
-<tbody>
-<?php
+$output .= '<fieldset id="tableFilter" style="display:none;">'
+    . '<legend>' . __('Filters') . '</legend>'
+    . '<div class="formelement">'
+    . '<label for="filterText">' .  __('Containing the word:') . '</label>'
+    . '<input name="filterText" type="text" id="filterText"'
+    . ' style="vertical-align: baseline;" />'
+    . '</div>'
+    . '</fieldset>';
+
+$output .= '<table id="serverVariables" class="data filteredData noclick">'
+    . '<thead>'
+    . '<tr><th>' .  __('Variable') . '</th>'
+    . '<th class="valueHeader">'
+    . __('Session value') . ' / ' . __('Global value')
+    . '</th>'
+    . '<th>' . __('Documentation') . '</th>'
+    . '</tr>'
+    . '</thead>'
+    . '<tbody>';
+
 $odd_row = true;
 foreach ($serverVars as $name => $value) {
-    $has_session_value = isset($serverVarsSession[$name]) && $serverVarsSession[$name] != $value;
-    $row_class = ($odd_row ? 'odd' : 'even') . ' ' . ($has_session_value ? 'diffSession' : '');
-    ?>
-<tr class="<?php echo $row_class; ?>">
-    <th class="nowrap"><?php echo htmlspecialchars(str_replace('_', ' ', $name)); ?></th>
-    <td class="value"><?php echo formatVariable($name, $value); ?></td>
-    <td class="value"><?php
+    $has_session_value = isset($serverVarsSession[$name])
+        && $serverVarsSession[$name] != $value;
+    $row_class = ($odd_row ? 'odd' : 'even') . ' '
+        . ($has_session_value ? 'diffSession' : '');
+
+    $output .= '<tr class="' . $row_class . '">'
+        . '<th class="nowrap">' . htmlspecialchars(str_replace('_', ' ', $name))
+        . '</th>'
+        . '<td class="value">' . formatVariable($name, $value) . '</td>'
+        . '<td class="value">';
+
     // To display variable documentation link
     if (isset($VARIABLE_DOC_LINKS[$name])) {
-        echo $common_functions->showMySQLDocu($VARIABLE_DOC_LINKS[$name][1], $VARIABLE_DOC_LINKS[$name][1], false, $VARIABLE_DOC_LINKS[$name][2] . '_' . $VARIABLE_DOC_LINKS[$name][0]);
+        $output .= $common_functions->showMySQLDocu(
+            $VARIABLE_DOC_LINKS[$name][1],
+            $VARIABLE_DOC_LINKS[$name][1],
+            false,
+            $VARIABLE_DOC_LINKS[$name][2] . '_' . $VARIABLE_DOC_LINKS[$name][0]
+        );
     }
-    ?></td>
-    <?php
+
+    $output .= '</td>';
+
     if ($has_session_value) {
-        ?>
-</tr>
-<tr class="<?php echo $odd_row ? 'odd' : 'even'; ?> ">
-    <td>(<?php echo __('Session value'); ?>)</td>
-    <td class="value"><?php echo formatVariable($name, $serverVarsSession[$name]); ?></td>
-    <td class="value"></td>
-    <?php } ?>
-</tr>
-    <?php
+        $output .= '</tr>'
+            . '<tr class="' . ($odd_row ? 'odd' : 'even') . '">'
+            . '<td>(' . __('Session value') . ')</td>'
+            . '<td class="value">' . formatVariable($name, $serverVarsSession[$name])
+            . '</td>'
+            . '<td class="value"></td>';
+    }
+
+    $output .= '</tr>';
     $odd_row = ! $odd_row;
 }
-?>
-</tbody>
-</table>
-<?php
+$output .= '</tbody>'
+    . '</table>';
 
+$response->addHtml($output);
+
+/**
+ * Format Variable
+ *
+ * @param string  $name  variable name
+ * @param numeric $value variable value
+ *
+ * @return formatted string
+ */
 function formatVariable($name, $value)
 {
     global $VARIABLE_DOC_LINKS;
@@ -175,7 +216,8 @@ function formatVariable($name, $value)
         if (isset($VARIABLE_DOC_LINKS[$name][3])
             && $VARIABLE_DOC_LINKS[$name][3]=='byte'
         ) {
-            return '<abbr title="' . $common_functions->formatNumber($value, 0) . '">'
+            return '<abbr title="'
+                . $common_functions->formatNumber($value, 0) . '">'
                 . implode(' ', $common_functions->formatByteDown($value, 3, 3))
                 . '</abbr>';
         } else {

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-05 15:50+0200\n"
-"PO-Revision-Date: 2012-09-05 17:20+0200\n"
+"PO-Revision-Date: 2012-09-05 17:46+0200\n"
 "Last-Translator: Vojislav Pavić <vpavic@gmail.com>\n"
 "Language-Team: Serbian (latin) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sr@latin/>\n"
@@ -5086,11 +5086,11 @@ msgstr "Ponovi zaglavlja"
 
 #: libraries/config/messages.inc.php:361
 msgid "Save all edited cells at once"
-msgstr ""
+msgstr "Snimi sve izmenjene ćelije odjednom"
 
 #: libraries/config/messages.inc.php:362
 msgid "Directory where exports can be saved on server"
-msgstr ""
+msgstr "Direktorijum na serveru u koji izvezeni podaci mogu biti snimljeni"
 
 #: libraries/config/messages.inc.php:363
 msgid "Save directory"
@@ -5098,27 +5098,27 @@ msgstr "Snimi direktorijum"
 
 #: libraries/config/messages.inc.php:364
 msgid "Leave blank if not used"
-msgstr ""
+msgstr "Ostavi prazno ako se ne koristi"
 
 #: libraries/config/messages.inc.php:365
 msgid "Host authorization order"
-msgstr ""
+msgstr "Redosled autorizacije hostova"
 
 #: libraries/config/messages.inc.php:366
 msgid "Leave blank for defaults"
-msgstr ""
+msgstr "Ostavi prazno za podrazumevane vrednosti"
 
 #: libraries/config/messages.inc.php:367
 msgid "Host authorization rules"
-msgstr ""
+msgstr "Pravila autorizacije hostova"
 
 #: libraries/config/messages.inc.php:368
 msgid "Allow logins without a password"
-msgstr ""
+msgstr "Dozvoli prijavljivanje bez lozinke"
 
 #: libraries/config/messages.inc.php:369
 msgid "Allow root login"
-msgstr ""
+msgstr "Dozvoli prijavljivanje root-a"
 
 #: libraries/config/messages.inc.php:370
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
