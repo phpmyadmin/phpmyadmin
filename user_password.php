@@ -130,8 +130,11 @@ function PMA_changePassword($password, $message, $change_password_message)
     // Defines the url to return to in case of error in the sql statement
     $_url_params = array();
     $hashing_function = PMA_changePassHashingFunction();
-    $sql_query = 'SET password = ' . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
-    PMA_ChangePassUrlParamsAndSubmitQuery($password, $_url_params, $sql_query, $hashing_function);
+    $sql_query = 'SET password = '
+        . (($password == '') ? '\'\'' : $hashing_function . '(\'***\')');
+    PMA_ChangePassUrlParamsAndSubmitQuery(
+        $password, $_url_params, $sql_query, $hashing_function
+    );
 
     $new_url_params = PMA_changePassAuthType($_url_params, $password);
     PMA_getChangePassMessage($change_password_message, $sql_query);
@@ -163,15 +166,18 @@ function PMA_changePassHashingFunction()
  *
  * @return void
  */
-function PMA_ChangePassUrlParamsAndSubmitQuery($password, $_url_params, $sql_query, $hashing_function)
-{
+function PMA_ChangePassUrlParamsAndSubmitQuery(
+    $password, $_url_params, $sql_query, $hashing_function
+) {
     $common_functions = PMA_CommonFunctions::getInstance();
     $err_url = 'user_password.php' . PMA_generate_common_url($_url_params);
     $local_query = 'SET password = ' . (($password == '')
         ? '\'\''
         : $hashing_function . '(\'' . $common_functions->sqlAddSlashes($password) . '\')');
     $result = @PMA_DBI_try_query($local_query)
-            or $common_functions->mysqlDie(PMA_DBI_getError(), $sql_query, false, $err_url);
+            or $common_functions->mysqlDie(
+                PMA_DBI_getError(), $sql_query, false, $err_url
+            );
 }
 
 /**
@@ -189,12 +195,12 @@ function PMA_changePassAuthType($_url_params, $password)
      * Duration = till the browser is closed for password
      * (we don't want this to be saved)
      */
-    
+
     //    include_once "libraries/plugins/auth/AuthenticationCookie.class.php";
     //    $auth_plugin = new AuthenticationCookie();
     // the $auth_plugin is already defined in common.inc.php when this is used
     global $auth_plugin;
-    
+
     if ($GLOBALS['cfg']['Server']['auth_type'] == 'cookie') {
         $GLOBALS['PMA_Config']->setCookie(
             'pmaPass-' . $GLOBALS['server'],

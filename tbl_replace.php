@@ -44,8 +44,9 @@ $scripts->addFile('sql.js');
 // check whether insert row moode, if so include tbl_change.php
 PMA_isInsertRow();
 
+$after_insert_actions = array('new_insert', 'same_insert', 'edit_next');
 if (isset($_REQUEST['after_insert'])
-    && in_array($_REQUEST['after_insert'], array('new_insert', 'same_insert', 'edit_next'))
+    && in_array($_REQUEST['after_insert'], $after_insert_actions)
 ) {
     $url_params['after_insert'] = $_REQUEST['after_insert'];
     if (isset($_REQUEST['where_clause'])) {

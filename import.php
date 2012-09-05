@@ -92,9 +92,7 @@ if (! empty($sql_query)) {
 ;
 if ($_POST == array() && $_GET == array()) {
     $message = PMA_Message::error(
-        __('You probably tried to upload a file that is too large.'
-        . ' Please refer to %sdocumentation%s for a workaround for this limit.'
-        )
+        __('You probably tried to upload a file that is too large. Please refer to %sdocumentation%s for a workaround for this limit.')
     );
     $message->addParam('[doc@faq1_16]');
     $message->addParam('[/doc]');
@@ -351,7 +349,9 @@ if ($import_file != 'none' && ! $error) {
             if ($cfg['BZipDump'] && @function_exists('bzopen')) {
                 $import_handle = @bzopen($import_file, 'r');
             } else {
-                $message = PMA_Message::error(__('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.'));
+                $message = PMA_Message::error(
+                    __('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.')
+                );
                 $message->addParam($compression);
                 $error = true;
             }
@@ -360,7 +360,9 @@ if ($import_file != 'none' && ! $error) {
             if ($cfg['GZipDump'] && @function_exists('gzopen')) {
                 $import_handle = @gzopen($import_file, 'r');
             } else {
-                $message = PMA_Message::error(__('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.'));
+                $message = PMA_Message::error(
+                    __('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.')
+                );
                 $message->addParam($compression);
                 $error = true;
             }
@@ -379,7 +381,9 @@ if ($import_file != 'none' && ! $error) {
                     $import_text = $result['data'];
                 }
             } else {
-                $message = PMA_Message::error(__('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.'));
+                $message = PMA_Message::error(
+                    __('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.')
+                );
                 $message->addParam($compression);
                 $error = true;
             }
@@ -388,7 +392,9 @@ if ($import_file != 'none' && ! $error) {
             $import_handle = @fopen($import_file, 'r');
             break;
         default:
-            $message = PMA_Message::error(__('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.'));
+            $message = PMA_Message::error(
+                __('You attempted to load file with unsupported compression (%s). Either support for it is not implemented or disabled by your configuration.')
+            );
             $message->addParam($compression);
             $error = true;
             break;
@@ -401,7 +407,9 @@ if ($import_file != 'none' && ! $error) {
     }
 } elseif (! $error) {
     if (! isset($import_text) || empty($import_text)) {
-        $message = PMA_Message::error(__('No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See [doc@faq1_16]FAQ 1.16[/doc].'));
+        $message = PMA_Message::error(
+            __('No data was received to import. Either no file name was submitted, or the file size exceeded the maximum size permitted by your PHP configuration. See [doc@faq1_16]FAQ 1.16[/doc].')
+        );
         $error = true;
     }
 }
@@ -419,7 +427,9 @@ if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE && isset($charset_of_fil
         // Drizzle doesn't support other character sets,
         // so we can't fallback to SET NAMES - throw an error
         $error = true;
-        $message = PMA_Message::error(__('Cannot convert file\'s character set without character set conversion library'));
+        $message = PMA_Message::error(
+            __('Cannot convert file\'s character set without character set conversion library')
+        );
     } else {
         PMA_DBI_query('SET NAMES \'' . $charset_of_file . '\'');
         // We can not show query in this case, it is in different charset
@@ -497,13 +507,17 @@ if (! empty($id_bookmark) && $action_bookmark == 2) {
         $message = PMA_Message::success();
     } else {
         if ($import_notice) {
-            $message = PMA_Message::success('<em>'.__('Import has been successfully finished, %d queries executed.').'</em>');
+            $message = PMA_Message::success(
+                '<em>' . __('Import has been successfully finished, %d queries executed.') . '</em>'
+            );
             $message->addParam($executed_queries);
 
             $message->addString($import_notice);
             $message->addString('(' . $_FILES['import_file']['name'] . ')');
         } else {
-            $message = PMA_Message::success(__('Import has been successfully finished, %d queries executed.'));
+            $message = PMA_Message::success(
+                __('Import has been successfully finished, %d queries executed.')
+            );
             $message->addParam($executed_queries);
             $message->addString('(' . $_FILES['import_file']['name'] . ')');
         }
@@ -512,9 +526,13 @@ if (! empty($id_bookmark) && $action_bookmark == 2) {
 
 // Did we hit timeout? Tell it user.
 if ($timeout_passed) {
-    $message = PMA_Message::error(__('Script timeout passed, if you want to finish import, please resubmit same file and import will resume.'));
+    $message = PMA_Message::error(
+        __('Script timeout passed, if you want to finish import, please resubmit same file and import will resume.')
+    );
     if ($offset == 0 || (isset($original_skip) && $original_skip == $offset)) {
-        $message->addString(__('However on last run no data has been parsed, this usually means phpMyAdmin won\'t be able to finish this import unless you increase php time limits.'));
+        $message->addString(
+            __('However on last run no data has been parsed, this usually means phpMyAdmin won\'t be able to finish this import unless you increase php time limits.')
+        );
     }
 }
 
