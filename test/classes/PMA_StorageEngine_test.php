@@ -36,8 +36,16 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
             function PMA_DBI_fetch_result($query)
             {
                 return array(
-                    'dummy' => 'table1',
-                    'engine' => 'table`2'
+                    'dummy' => array(
+                        'Engine' => 'dummy',
+                        'Support' => 'YES',
+                        'Comment' => 'dummy comment',
+                    ),
+                    'dummy2' => array(
+                        'Engine' => 'dummy2',
+                        'Support' => 'NO',
+                        'Comment' => 'dummy2 comment',
+                    ),
                 );
             }
         }
@@ -64,8 +72,16 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             array(
-                'dummy' => 'table1',
-                'engine' => 'table`2'
+                'dummy' => array(
+                    'Engine' => 'dummy',
+                    'Support' => 'YES',
+                    'Comment' => 'dummy comment',
+                ),
+                'dummy2' => array(
+                    'Engine' => 'dummy2',
+                    'Support' => 'NO',
+                    'Comment' => 'dummy2 comment',
+                ),
             ),
             $this->object->getStorageEngines()
         );
@@ -81,11 +97,8 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(
             '<select name="engine">
-    <option value="dummy" title="t">
-        t
-    </option>
-    <option value="engine" title="t">
-        t
+    <option value="dummy" title="dummy comment">
+        dummy
     </option>
 </select>
 ',
@@ -99,8 +112,9 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
     public function testGetEngine()
     {
 
-        $this->assertTrue(
-            $this->object->getEngine('dummy') instanceof PMA_StorageEngine
+        $this->assertInstanceOf(
+            'PMA_StorageEngine',
+            $this->object->getEngine('dummy')
         );
     }
 
@@ -115,6 +129,12 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
         );
         $this->assertTrue(
             $this->object->isValid('dummy')
+        );
+        $this->assertTrue(
+            $this->object->isValid('dummy2')
+        );
+        $this->assertFalse(
+            $this->object->isValid('invalid')
         );
     }
 
@@ -182,25 +202,25 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
     public function testGetSupportInformationMessage()
     {
         $this->assertEquals(
-            'This MySQL server does not support the t storage engine.',
+            'dummy is available on this MySQL server.',
             $this->object->getSupportInformationMessage()
         );
 
         $this->object->support = 1;
         $this->assertEquals(
-            't has been disabled for this MySQL server.',
+            'dummy has been disabled for this MySQL server.',
             $this->object->getSupportInformationMessage()
         );
 
         $this->object->support = 2;
         $this->assertEquals(
-            't is available on this MySQL server.',
+            'dummy is available on this MySQL server.',
             $this->object->getSupportInformationMessage()
         );
 
         $this->object->support = 3;
         $this->assertEquals(
-            't is the default storage engine on this MySQL server.',
+            'dummy is the default storage engine on this MySQL server.',
             $this->object->getSupportInformationMessage()
         );
     }
@@ -212,7 +232,7 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
     {
 
         $this->assertEquals(
-            't',
+            'dummy comment',
             $this->object->getComment()
         );
     }
@@ -224,7 +244,7 @@ class PMA_StorageEngine_test extends PHPUnit_Framework_TestCase
     {
 
         $this->assertEquals(
-            't',
+            'dummy',
             $this->object->getTitle()
         );
     }
