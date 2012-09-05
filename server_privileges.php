@@ -213,7 +213,7 @@ if (isset($_REQUEST['adduser_submit']) || isset($_REQUEST['change_copy'])) {
         . " AND `Host` = '" . $common_functions->sqlAddSlashes($hostname) . "';";
     if (PMA_DBI_fetch_value($sql) == 1) {
         $message = PMA_Message::error(__('The user %s already exists!'));
-        $message->addParam('[i]\'' . $username . '\'@\'' . $hostname . '\'[/i]');
+        $message->addParam('[em]\'' . $username . '\'@\'' . $hostname . '\'[/em]');
         $_REQUEST['adduser'] = true;
         $_add_user_error = true;
     } else {

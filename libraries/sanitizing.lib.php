@@ -97,8 +97,6 @@ function PMA_sanitize($message, $escape = false, $safe = false)
     }
     /* Interpret bb code */
     $replace_pairs = array(
-        '[i]'       => '<em>',      // deprecated by em
-        '[/i]'      => '</em>',     // deprecated by em
         '[em]'      => '<em>',
         '[/em]'     => '</em>',
         '[b]'       => '<strong>',  // deprecated by strong
