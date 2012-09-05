@@ -573,7 +573,7 @@ $GLOBALS['PMA_Config']->checkPermissions();
 if ($GLOBALS['PMA_Config']->error_config_file) {
     $error = '[strong]' . __('Failed to read configuration file') . '[/strong]'
         . '[br][br]'
-        . _('This usually means there is a syntax error in it, please check any errors shown below.')
+        . __('This usually means there is a syntax error in it, please check any errors shown below.')
         . '[br][br]'
         . '[conferr]';
     trigger_error($error, E_USER_ERROR);
