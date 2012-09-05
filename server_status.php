@@ -134,23 +134,15 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                                 $cpuload = $sysinfo->loadavg();
                             }
 
-<<<<<<< HEAD
-                            if (PHP_OS == 'Linux') {
-                                $ret[$chart_id][$node_id][$point_id]['idle']
-                                    = $cpuload['idle'];
-                                $ret[$chart_id][$node_id][$point_id]['busy']
-                                    = $cpuload['busy'];
-                            } else {
-                                $ret[$chart_id][$node_id][$point_id]['value']
-                                    = $cpuload['loadavg'];
-                            }
-=======
                             if (PMA_getSysInfoOs() == 'Linux') {
-                                $ret[$chart_id][$node_id][$point_id]['idle'] = $cpuload['idle'];
-                                $ret[$chart_id][$node_id][$point_id]['busy'] = $cpuload['busy'];
-                            } else
-                                $ret[$chart_id][$node_id][$point_id]['value'] = $cpuload['loadavg'];
->>>>>>> QA_3_5
+                                $ret[$chart_id][$node_id][$point_id]['idle'] =
+                                    $cpuload['idle'];
+                                $ret[$chart_id][$node_id][$point_id]['busy'] =
+                                    $cpuload['busy'];
+                            } else {
+                                $ret[$chart_id][$node_id][$point_id]['value'] =
+                                    $cpuload['loadavg'];
+                            }
 
                             break;
 
