@@ -137,13 +137,14 @@ $visualization = PMA_GIS_visualizationResults(
         <td><select name="visualizationSettings[labelColumn]" id="labelColumn">
             <option value=""><?php echo __("-- None --"); ?></option>
         <?php
-            foreach ($labelCandidates as $labelCandidate) {
-                echo('<option value="' . htmlspecialchars($labelCandidate) . '"');
-                if ($labelCandidate == $visualizationSettings['labelColumn']) {
-                    echo(' selected="selected"');
-                }
-                echo('>' . htmlspecialchars($labelCandidate) . '</option>');
-            }
+
+foreach ($labelCandidates as $labelCandidate) {
+    echo('<option value="' . htmlspecialchars($labelCandidate) . '"');
+    if ($labelCandidate == $visualizationSettings['labelColumn']) {
+        echo(' selected="selected"');
+    }
+    echo('>' . htmlspecialchars($labelCandidate) . '</option>');
+}
         ?>
         </select></td>
     </tr>
@@ -151,22 +152,24 @@ $visualization = PMA_GIS_visualizationResults(
     <tr><td><label for="spatial Column"><?php echo __("Spatial column"); ?></label></td>
         <td><select name="visualizationSettings[spatialColumn]" id="spatialColumn">
         <?php
-            foreach ($spatialCandidates as $spatialCandidate) {
-                echo('<option value="' . htmlspecialchars($spatialCandidate) . '"');
-                if ($spatialCandidate == $visualizationSettings['spatialColumn']) {
-                    echo(' selected="selected"');
-                }
-                echo('>' . htmlspecialchars($spatialCandidate) . '</option>');
-            }
+
+foreach ($spatialCandidates as $spatialCandidate) {
+    echo('<option value="' . htmlspecialchars($spatialCandidate) . '"');
+    if ($spatialCandidate == $visualizationSettings['spatialColumn']) {
+        echo(' selected="selected"');
+    }
+    echo('>' . htmlspecialchars($spatialCandidate) . '</option>');
+}
         ?>
         </select></td>
     </tr>
     <tr><td class="choice" colspan="2">
         <input type="checkbox" name="visualizationSettings[choice]" id="choice" value="useBaseLayer"
         <?php
-            if (isset($visualizationSettings['choice'])) {
-                echo(' checked="checked"');
-            }
+
+if (isset($visualizationSettings['choice'])) {
+    echo(' checked="checked"');
+}
         ?>
         />
         <label for="choice"><?php echo __("Use OpenStreetMaps as Base Layer"); ?></label>
@@ -183,9 +186,10 @@ $visualization = PMA_GIS_visualizationResults(
             <option value="png">PNG</option>
             <option value="pdf">PDF</option>
             <?php
-            if ($svg_support) {
-                echo ('<option value="svg" selected="selected">SVG</option>');
-            }
+
+if ($svg_support) {
+    echo ('<option value="svg" selected="selected">SVG</option>');
+}
             ?>
         </select></td>
     </tr>

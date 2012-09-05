@@ -188,17 +188,17 @@ echo PMA_generate_common_hidden_inputs($form_params);
 <fieldset id="index_edit_fields">
 <?php
 if ($GLOBALS['is_ajax_request'] != true) {
-?>
+    ?>
     <legend>
-<?php
+    <?php
     if (isset($_REQUEST['create_index'])) {
         echo __('Add index');
     } else {
         echo __('Edit index');
     }
-?>
+    ?>
     </legend>
-<?php
+    <?php
 }
 ?>
 <div class='index_info'>
@@ -255,13 +255,16 @@ $spatial_types = array(
 );
 foreach ($index->getColumns() as $column) {
     ?>
-<tr class="<?php echo $odd_row ? 'odd' : 'even'; ?> noclick">
-    <td><select name="index[columns][names][]">
+    <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?> noclick">
+      <td>
+        <select name="index[columns][names][]">
             <option value="">-- <?php echo __('Ignore'); ?> --</option>
     <?php
     foreach ($fields as $field_name => $field_type) {
-        if (($index->getType() != 'FULLTEXT' || preg_match('/(char|text)/i', $field_type))
-            && ($index->getType() != 'SPATIAL' || in_array($field_type, $spatial_types))
+        if (($index->getType() != 'FULLTEXT'
+            || preg_match('/(char|text)/i', $field_type))
+            && ($index->getType() != 'SPATIAL'
+            || in_array($field_type, $spatial_types))
         ) {
             echo '<option value="' . htmlspecialchars($field_name) . '"'
                  . (($field_name == $column->getName())
@@ -274,22 +277,25 @@ foreach ($index->getColumns() as $column) {
     } // end foreach $fields
     ?>
         </select>
-    </td>
-    <td><input type="text" size="5" onfocus="this.select()"
+      </td>
+      <td>
+        <input type="text" size="5" onfocus="this.select()"
             name="index[columns][sub_parts][]"
             value="<?php
-            if ($index->getType() != 'SPATIAL') {
-                echo $column->getSubPart();
-            } ?>" />
-    </td>
-</tr>
+    if ($index->getType() != 'SPATIAL') {
+        echo $column->getSubPart();
+    }
+      ?>"/>
+      </td>
+    </tr>
     <?php
     $odd_row = !$odd_row;
 } // end foreach $edited_index_info['Sequences']
 for ($i = 0; $i < $add_fields; $i++) {
     ?>
-<tr class="<?php echo $odd_row ? 'odd' : 'even'; ?> noclick">
-    <td><select name="index[columns][names][]">
+    <tr class="<?php echo $odd_row ? 'odd' : 'even'; ?> noclick">
+      <td>
+        <select name="index[columns][names][]">
             <option value="">-- <?php echo __('Ignore'); ?> --</option>
     <?php
     foreach ($fields as $field_name => $field_type) {
@@ -300,11 +306,12 @@ for ($i = 0; $i < $add_fields; $i++) {
     } // end foreach $fields
     ?>
         </select>
-    </td>
-    <td><input type="text" size="5" onfocus="this.select()"
+      </td>
+      <td>
+        <input type="text" size="5" onfocus="this.select()"
             name="index[columns][sub_parts][]" value="" />
-    </td>
-</tr>
+      </td>
+    </tr>
     <?php
     $odd_row = !$odd_row;
 } // end foreach $edited_index_info['Sequences']
@@ -314,27 +321,27 @@ for ($i = 0; $i < $add_fields; $i++) {
 </fieldset>
 <fieldset class="tblFooters">
 <?php
-    if ($GLOBALS['is_ajax_request'] != true) {
-?>
+if ($GLOBALS['is_ajax_request'] != true) {
+    ?>
     <input type="submit" name="do_save_data" value="<?php echo __('Save'); ?>" />
     <span id="addMoreColumns">
-<?php
-echo __('Or') . ' ';
-printf(
-    __('Add to index &nbsp;%s&nbsp;column(s)') . "\n",
-    '<input type="text" name="added_fields" size="2" value="1" />'
-);
-echo '<input type="submit" name="add_fields" value="' . __('Go') . '" />' . "\n";
-?>
+    <?php
+    echo __('Or') . ' ';
+    printf(
+        __('Add to index &nbsp;%s&nbsp;column(s)') . "\n",
+        '<input type="text" name="added_fields" size="2" value="1" />'
+    );
+    echo '<input type="submit" name="add_fields" value="' . __('Go') . '" />' . "\n";
+    ?>
     </span>
-<?php
-    } else {
-        $btn_value = sprintf(__('Add %d column(s) to index'), 1);
-        echo '<div class="slider"></div>';
-        echo '<div class="add_fields">';
-        echo '<input type="submit" value="' . $btn_value . '" />';
-        echo '</div>';
-    }
+    <?php
+} else {
+    $btn_value = sprintf(__('Add %d column(s) to index'), 1);
+    echo '<div class="slider"></div>';
+    echo '<div class="add_fields">';
+    echo '<input type="submit" value="' . $btn_value . '" />';
+    echo '</div>';
+}
 ?>
 </fieldset>
 </form>
