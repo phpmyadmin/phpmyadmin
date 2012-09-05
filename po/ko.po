@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 06:32-0400\n"
-"PO-Revision-Date: 2012-07-26 08:31+0200\n"
-"Last-Translator: Hyun-Sung Yun <bemax38@gmail.com>\n"
-"Language-Team: korean <ko@li.org>\n"
+"PO-Revision-Date: 2012-09-05 10:01+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Korean <http://l10n.cihar.com/projects/phpmyadmin/3-5/ko/>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.1\n"
+"X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
 #: libraries/display_tbl.lib.php:359 server_privileges.php:1679
@@ -361,7 +361,7 @@ msgstr "관계 스키마를 수정 또는 내보내기"
 #: server_privileges.php:1899 server_privileges.php:2168
 #: server_synchronize.php:436 server_synchronize.php:908 tbl_tracking.php:649
 msgid "Table"
-msgstr "테이블 "
+msgstr "테이블"
 
 #: db_printview.php:102 libraries/build_html_for_db.lib.php:31
 #: libraries/db_structure.lib.php:42 libraries/header_printview.inc.php:65
@@ -404,7 +404,7 @@ msgstr "마지막 검사"
 #, php-format
 msgid "%s table"
 msgid_plural "%s tables"
-msgstr[0] "%s개 테이블 "
+msgstr[0] "%s개 테이블"
 
 #: db_qbe.php:41
 msgid "You have to choose at least one column to display"
@@ -2453,7 +2453,7 @@ msgstr ""
 #: libraries/server_links.inc.php:43 server_databases.php:104
 #: server_privileges.php:1836
 msgid "Databases"
-msgstr "데이터베이스 "
+msgstr "데이터베이스"
 
 #: libraries/Message.class.php:193 libraries/blobstreaming.lib.php:356
 #: libraries/blobstreaming.lib.php:365 libraries/common.lib.php:614
@@ -2958,7 +2958,7 @@ msgstr "일"
 #: libraries/common.lib.php:1650
 #: libraries/transformations/text_plain__dateformat.inc.php:35
 msgid "%B %d, %Y at %I:%M %p"
-msgstr "%y-%m-%d %H:%M "
+msgstr "%y-%m-%d %H:%M"
 
 #: libraries/common.lib.php:1983
 #, php-format
@@ -5504,7 +5504,7 @@ msgstr "새 데이터베이스 만들기"
 
 #: libraries/display_create_database.lib.php:33
 msgid "Create"
-msgstr "만들기 "
+msgstr "만들기"
 
 #: libraries/display_create_database.lib.php:43 server_privileges.php:123
 #: server_privileges.php:1589 server_replication.php:33
@@ -5570,11 +5570,11 @@ msgstr "데이터베이스 :"
 
 #: libraries/display_export.lib.php:134
 msgid "Table(s):"
-msgstr "테이블 : "
+msgstr "테이블 :"
 
 #: libraries/display_export.lib.php:144
 msgid "Rows:"
-msgstr "행 : "
+msgstr "행 :"
 
 #: libraries/display_export.lib.php:152
 msgid "Dump some row(s)"
@@ -5684,7 +5684,7 @@ msgstr "Format"
 
 #: libraries/display_export.lib.php:333
 msgid "Format-specific options:"
-msgstr "형식 특정 옵션 : "
+msgstr "형식 특정 옵션 :"
 
 #: libraries/display_export.lib.php:334
 msgid ""
@@ -7961,7 +7961,7 @@ msgstr ""
 
 #: libraries/sql_query_form.lib.php:344
 msgid "Show this query here again"
-msgstr "이 질의를 다시 보여줌 "
+msgstr "이 질의를 다시 보여줌"
 
 #: libraries/sql_query_form.lib.php:407
 msgid "View only"
@@ -9081,7 +9081,7 @@ msgstr "테이블에 관한 권한"
 #: server_privileges.php:537 server_privileges.php:689
 #: server_privileges.php:1706
 msgid "Note: MySQL privilege names are expressed in English"
-msgstr "주의: MySQL 권한 이름은 영어로 표기되어야 합니다. "
+msgstr "주의: MySQL 권한 이름은 영어로 표기되어야 합니다."
 
 #: server_privileges.php:614
 msgid "Administration"
@@ -10932,7 +10932,7 @@ msgstr ""
 
 #: tbl_change.php:821
 msgid "Binary - do not edit"
-msgstr "바이너리 - 편집 금지 "
+msgstr "바이너리 - 편집 금지"
 
 #: tbl_change.php:871
 msgid "Upload to BLOB repository"
