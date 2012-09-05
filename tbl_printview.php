@@ -124,17 +124,13 @@ foreach ($the_tables as $key => $table) {
     /**
      * Displays the table structure
      */
-    ?>
-
-<!-- TABLE INFORMATIONS -->
-<table style="width: 100%;">
-<thead>
-<tr>
-    <th><?php echo __('Column'); ?></th>
-    <th><?php echo __('Type'); ?></th>
-    <th><?php echo __('Null'); ?></th>
-    <th><?php echo __('Default'); ?></th>
-    <?php
+    echo '<table style="width: 100%;">';
+    echo '<thead>';
+    echo '<tr>';
+    echo '<th>' . __('Column') . '</th>';
+    echo '<th>' . __('Type') . '</th>';
+    echo '<th>' . __('Null') . '</th>';
+    echo '<th>' . __('Default') . '</th>';
     if ($have_rel) {
         echo '<th>' . __('Links to') . '</th>' . "\n";
     }
@@ -142,11 +138,9 @@ foreach ($the_tables as $key => $table) {
     if ($cfgRelation['mimework']) {
         echo '    <th>MIME</th>' . "\n";
     }
-    ?>
-</tr>
-</thead>
-<tbody>
-    <?php
+    echo '</tr>';
+    echo '</thead>';
+    echo '<tbody>';
     foreach ($columns as $row) {
         $extracted_columnspec = $common_functions->extractColumnSpec($row['Type']);
         $type             = $extracted_columnspec['print_type'];
@@ -184,20 +178,18 @@ foreach ($the_tables as $key => $table) {
         } else {
             echo '    ' . $field_name . "\n";
         }
-    ?>
-    </td>
-    <td><?php echo $type; ?><bdo dir="ltr"></bdo></td>
-    <td><?php
-    echo (($row['Null'] == '' || $row['Null'] == 'NO')
-        ? __('No')
-        : __('Yes')); ?>&nbsp;</td>
-    <td>
-    <?php
-    if (isset($row['Default'])) {
-        echo $row['Default'];
-    }
-    ?>&nbsp;</td>
-    <?php
+        echo '</td>';
+        echo '<td>' . $type. '<bdo dir="ltr"></bdo></td>';
+        echo '<td>';
+        echo (($row['Null'] == '' || $row['Null'] == 'NO')
+            ? __('No')
+            : __('Yes'));
+        echo '&nbsp;</td>';
+        echo '<td>';
+        if (isset($row['Default'])) {
+            echo $row['Default'];
+        }
+        echo '&nbsp;</td>';
         if ($have_rel) {
             echo '    <td>';
             if (isset($res_rel[$field_name])) {
@@ -225,14 +217,10 @@ foreach ($the_tables as $key => $table) {
             }
             echo '&nbsp;</td>' . "\n";
         }
-    ?>
-</tr>
-        <?php
+        echo '</tr>';
     } // end foreach
-    ?>
-</tbody>
-</table>
-    <?php
+    echo '</tbody>';
+    echo '</table>';
     if (! $tbl_is_view && !PMA_is_system_schema($db)) {
         /**
          * Displays indexes
@@ -289,75 +277,63 @@ foreach ($the_tables as $key => $table) {
                 }
 
                 // Displays them
-                ?>
-    <br /><br />
+                echo '<br /><br />';
 
-    <table cellspacing="0" cellpadding="0">
-    <tr>
+                echo '<table cellspacing="0" cellpadding="0">';
+                echo '<tr>';
 
-        <!-- Space usage -->
-        <td class="vtop">
-            <big><?php echo __('Space usage') . ':'; ?></big>
-            <table width="100%">
-            <tr>
-                <td style="padding-right: 10px"><?php echo __('Data'); ?></td>
-                <td class="right"><?php echo $data_size; ?></td>
-                <td><?php echo $data_unit; ?></td>
-            </tr>
-                <?php
+                // Space usage
+                echo '<td class="vtop">';
+                echo '<big>' . __('Space usage') . ':</big>';
+                echo '<table width="100%">';
+                echo '<tr>';
+                echo '<td style="padding-right: 10px">' . __('Data') . '</td>';
+                echo '<td class="right">' . $data_size . '</td>';
+                echo '<td>' . $data_unit . '</td>';
+                echo '</tr>';
                 if (isset($index_size)) {
                     echo "\n";
-                    ?>
-            <tr>
-                <td style="padding-right: 10px"><?php echo __('Index'); ?></td>
-                <td class="right"><?php echo $index_size; ?></td>
-                <td><?php echo $index_unit; ?></td>
-            </tr>
-                    <?php
+                    echo '<tr>';
+                    echo '<td style="padding-right: 10px">' . __('Index') . '</td>';
+                    echo '<td class="right">' . $index_size . '</td>';
+                    echo '<td>' . $index_unit. '</td>';
+                    echo '</tr>';
                 }
                 if (isset($free_size)) {
                     echo "\n";
-                    ?>
-            <tr style="color: #bb0000">
-                <td style="padding-right: 10px"><?php echo __('Overhead'); ?></td>
-                <td class="right"><?php echo $free_size; ?></td>
-                <td><?php echo $free_unit; ?></td>
-            </tr>
-            <tr>
-                <td style="padding-right: 10px"><?php echo __('Effective'); ?></td>
-                <td class="right"><?php echo $effect_size; ?></td>
-                <td><?php echo $effect_unit; ?></td>
-            </tr>
-                    <?php
+                    echo '<tr style="color: #bb0000">';
+                    echo '<td style="padding-right: 10px">' . __('Overhead') . '</td>';
+                    echo '<td class="right">' . $free_size . '</td>';
+                    echo '<td>' . $free_unit . '</td>';
+                    echo '</tr>';
+                    echo '<tr>';
+                    echo '<td style="padding-right: 10px">' . __('Effective') . '</td>';
+                    echo '<td class="right">' . $effect_size . '</td>';
+                    echo '<td>' . $effect_unit . '</td>';
+                    echo '</tr>';
                 }
                 if (isset($tot_size) && $mergetable == false) {
                     echo "\n";
-                    ?>
-            <tr>
-                <td style="padding-right: 10px"><?php echo __('Total'); ?></td>
-                <td class="right"><?php echo $tot_size; ?></td>
-                <td><?php echo $tot_unit; ?></td>
-            </tr>
-                    <?php
+                    echo '<tr>';
+                    echo '<td style="padding-right: 10px">' . __('Total') . '</td>';
+                    echo '<td class="right">' . $tot_size . '</td>';
+                    echo '<td>' . $tot_unit . '</td>';
+                    echo '</tr>';
                 }
                 echo "\n";
-                ?>
-            </table>
-        </td>
+                echo '</table>';
+                echo '</td>';
 
-        <td width="20">&nbsp;</td>
+                echo '<td width="20">&nbsp;</td>';
 
-        <!-- Rows Statistic -->
-        <td class="vtop">
-            <big><?php echo __('Row Statistics') . ':'; ?></big>
-            <table width="100%">
-                <?php
+                // Rows Statistic
+                echo '<td class="vtop">';
+                echo '<big>' . __('Row Statistics') . ':</big>';
+                echo '<table width="100%">';
                 if (isset($showtable['Row_format'])) {
-                    ?>
-            <tr>
-                <td><?php echo __('Format'); ?></td>
-                <td class="<?php echo $cell_align_left; ?>">
-                    <?php
+                    echo '<tr>';
+                    echo '<td>' . __('Format') . '</td>';
+                    echo '<td class="' . $cell_align_left . '">';
                     if ($showtable['Row_format'] == 'Fixed') {
                         echo __('static');
                     } elseif ($showtable['Row_format'] == 'Dynamic') {
@@ -365,109 +341,79 @@ foreach ($the_tables as $key => $table) {
                     } else {
                         echo $showtable['Row_format'];
                     }
-                    ?>
-                </td>
-            </tr>
-                    <?php
+                    echo '</td>';
+                    echo '</tr>';
                 }
                 if (isset($showtable['Rows'])) {
-                    ?>
-            <tr>
-                <td><?php echo __('Rows'); ?></td>
-                <td class="right">
-                    <?php echo $common_functions->formatNumber($showtable['Rows'], 0) . "\n"; ?>
-                </td>
-            </tr>
-                    <?php
+                    echo '<tr>';
+                    echo '<td>' . __('Rows') . '</td>';
+                    echo '<td class="right">';
+                    echo $common_functions->formatNumber($showtable['Rows'], 0);
+                    echo '</td>';
+                    echo '</tr>';
                 }
                 if (isset($showtable['Avg_row_length'])
                     && $showtable['Avg_row_length'] > 0
                 ) {
-                    ?>
-            <tr>
-                <td><?php echo __('Row length'); ?>&nbsp;&oslash;</td>
-                <td>
-                    <?php echo $common_functions->formatNumber($showtable['Avg_row_length'], 0)
-                        . "\n"; ?>
-                </td>
-            </tr>
-                    <?php
+                    echo '<tr>';
+                    echo '<td>' . __('Row length') . '&nbsp;&oslash;</td>';
+                    echo '<td>';
+                    echo $common_functions->formatNumber($showtable['Avg_row_length'], 0);
+                    echo '</td>';
+                    echo '</tr>';
                 }
                 if (isset($showtable['Data_length'])
                     && $showtable['Rows'] > 0
                     && $mergetable == false
                 ) {
-                    ?>
-            <tr>
-                <td><?php echo __('Row size'); ?>&nbsp;&oslash;</td>
-                <td class="right">
-                    <?php echo $avg_size . ' ' . $avg_unit . "\n"; ?>
-                </td>
-            </tr>
-                    <?php
+                    echo '<tr>';
+                    echo '<td>' . __('Row size') . '&nbsp;&oslash;</td>';
+                    echo '<td class="right">';
+                    echo $avg_size . ' ' . $avg_unit;
+                    echo '</td>';
+                    echo '</tr>';
                 }
                 if (isset($showtable['Auto_increment'])) {
-                    ?>
-            <tr>
-                <td><?php echo __('Next autoindex'); ?></td>
-                <td class="right">
-                    <?php
+                    echo '<tr>';
+                    echo '<td>' . __('Next autoindex'). ' </td>';
+                    echo '<td class="right">';
                     echo $common_functions->formatNumber($showtable['Auto_increment'], 0);
-                    ?>
-                </td>
-            </tr>
-                    <?php
+                    echo '</td>';
+                    echo '</tr>';
                 }
                 if (isset($showtable['Create_time'])) {
-                    ?>
-            <tr>
-                <td><?php echo __('Creation'); ?></td>
-                <td class="right">
-                    <?php
-                    echo $common_functions->localisedDate(
-                        strtotime($showtable['Create_time'])
-                    );
-                    ?>
-                </td>
-            </tr>
-                    <?php
+                    echo '<tr>';
+                    echo '<td>' . __('Creation') . '</td>';
+                    echo '<td class="right">';
+                    echo $common_functions->localisedDate(strtotime($showtable['Create_time']));
+                    echo '</td>';
+                    echo '</tr>';
                 }
                 if (isset($showtable['Update_time'])) {
-                    ?>
-            <tr>
-                <td><?php echo __('Last update'); ?></td>
-                <td class="right">
-                    <?php
+                    echo '<tr>';
+                    echo '<td>' . __('Last update') . '</td>';
+                    echo '<td class="right">';
                     echo $common_functions->localisedDate(
                         strtotime($showtable['Update_time'])
                     );
-                    ?>
-                </td>
-            </tr>
-                    <?php
+                    echo '</td>';
+                    echo '</tr>';
                 }
                 if (isset($showtable['Check_time'])) {
-                    ?>
-            <tr>
-                <td><?php echo __('Last check'); ?></td>
-                <td class="right">
-                    <?php
+                    echo '<tr>';
+                    echo '<td>' . __('Last check') . '</td>';
+                    echo '<td class="right">';
                     echo $common_functions->localisedDate(
                         strtotime($showtable['Check_time'])
                     );
-                    ?>
-                </td>
-            </tr>
-                    <?php
+                    echo '</td>';
+                    echo '</tr>';
                 }
-                ?>
 
-            </table>
-        </td>
-    </tr>
-    </table>
-
-                <?php
+                echo '</table>';
+                echo '</td>';
+                echo '</tr>';
+                echo '</table>';
             } // end if ($nonisam == false)
         } // end if ($cfg['ShowStats'])
     }
