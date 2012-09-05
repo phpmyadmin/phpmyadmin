@@ -1133,6 +1133,11 @@ $(function() {
 
         var settings = {
             title: chartObj.title,
+            grid: {
+                drawBorder: false,
+                shadow: false,
+                background: 'rgba(0,0,0,0)'
+            },
             axes: {
                 xaxis: {
                     renderer: $.jqplot.DateAxisRenderer,
