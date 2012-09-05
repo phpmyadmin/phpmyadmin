@@ -203,8 +203,9 @@ function PMA_securePath($path)
  *
  * @return exit
  */
-function PMA_fatalError($error_message, $message_args = null, $delete_session = true)
-{
+function PMA_fatalError(
+    $error_message, $message_args = null, $delete_session = true
+) {
     /* Use format string if applicable */
     if (is_string($message_args)) {
         $error_message = sprintf($error_message, $message_args);
@@ -277,9 +278,10 @@ function PMA_warnMissingExtension($extension, $fatal = false, $extra = '')
     } else {
         $message = 'The %s extension is missing. Please check your PHP configuration.';
     }
+    $doclink = PMA_getPHPDocLink('book.' . $extension . '.php');
     $message = sprintf(
         $message,
-        '[a@' . PMA_getPHPDocLink('book.' . $extension . '.php') . '@Documentation][em]' . $extension . '[/em][/a]'
+        '[a@' . $doclink . '@Documentation][em]' . $extension . '[/em][/a]'
     );
     if ($extra != '') {
         $message .= ' ' . $extra;
@@ -354,10 +356,6 @@ function PMA_getRealSize($size = 0)
  * always overwritten.
  *
  * array PMA_arrayMergeRecursive(array $array1[, array $array2[, array ...]])
- *
- * @param array   array to merge
- * @param array   array to merge
- * @param array   ...
  *
  * @return array   merged array
  *
