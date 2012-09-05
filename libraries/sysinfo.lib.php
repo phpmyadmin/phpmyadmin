@@ -42,7 +42,7 @@ function PMA_getSysInfo()
     $sysinfo = array();
 
     if (in_array($php_os, $supported)) {
-        return eval("return new PMA_sysinfo".$php_os."();");
+        return eval("return new PMA_sysinfo" . $php_os . "();");
     }
 
     return new PMA_Sysinfo_Default;
@@ -70,7 +70,7 @@ class PMA_sysinfoWinnt
 
         foreach ($buffer as $load) {
             $value = $load['LoadPercentage'];
-            $loadavg .= $value.' ';
+            $loadavg .= $value . ' ';
             $sum += $value;
         }
 
@@ -92,11 +92,11 @@ class PMA_sysinfoWinnt
             $arrInstance = array();
             foreach ($arrProp as $propItem) {
                 if ( empty($strValue)) {
-                    eval("\$value = \$objItem->".$propItem->Name.";");
+                    eval("\$value = \$objItem->" . $propItem->Name . ";");
                     $arrInstance[$propItem->Name] = trim($value);
                 } else {
                     if (in_array($propItem->Name, $strValue)) {
-                        eval("\$value = \$objItem->".$propItem->Name.";");
+                        eval("\$value = \$objItem->" . $propItem->Name . ";");
                         $arrInstance[$propItem->Name] = trim($value);
                     }
                 }
@@ -141,9 +141,9 @@ class PMA_sysinfoLinux
     function loadavg()
     {
         $buf = file_get_contents('/proc/stat');
-        $nums=preg_split("/\s+/", substr($buf, 0, strpos($buf, "\n")));
+        $nums = preg_split("/\s+/", substr($buf, 0, strpos($buf, "\n")));
         return Array(
-            'busy' => $nums[1]+$nums[2]+$nums[3],
+            'busy' => $nums[1] + $nums[2] + $nums[3],
             'idle' => intval($nums[4])
         );
     }
@@ -160,7 +160,7 @@ class PMA_sysinfoLinux
         $mem['MemUsed'] = $mem['MemTotal'] - $mem['MemFree'] - $mem['Cached'] - $mem['Buffers'];
         $mem['SwapUsed'] = $mem['SwapTotal'] - $mem['SwapFree'] - $mem['SwapCached'];
 
-        foreach ($mem as $idx=>$value) {
+        foreach ($mem as $idx => $value) {
             $mem[$idx] = intval($value);
         }
         return $mem;
@@ -202,7 +202,7 @@ class PMA_sysinfoSunos
         $mem['SwapUsed'] = $this->_kstat('unix:0:vminfo:swap_alloc') / 1024;
         $mem['SwapFree'] = $this->_kstat('unix:0:vminfo:swap_free') / 1024;
 
-        foreach ($mem as $idx=>$value) {
+        foreach ($mem as $idx => $value) {
             $mem[$idx] = intval($value);
         }
 
