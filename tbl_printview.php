@@ -102,7 +102,8 @@ foreach ($the_tables as $key => $table) {
     // in MySQL 4.0.25 and 5.0.21, http://bugs.mysql.com/20910).
 
     $show_create_table = PMA_DBI_fetch_value(
-        'SHOW CREATE TABLE ' . $common_functions->backquote($db) . '.' . PMA_CommonFunctions::getInstance()->backquote($table),
+        'SHOW CREATE TABLE ' . $common_functions->backquote($db) . '.'
+        . PMA_CommonFunctions::getInstance()->backquote($table),
         0, 1
     );
     $analyzed_sql = PMA_SQP_analyze(PMA_SQP_parse($show_create_table));
@@ -248,33 +249,40 @@ foreach ($the_tables as $key => $table) {
                     $showtable['Data_length']
                 );
                 if ($mergetable == false) {
-                    list($index_size, $index_unit) = $common_functions->formatByteDown(
-                        $showtable['Index_length']
-                    );
+                    list($index_size, $index_unit)
+                        = $common_functions->formatByteDown(
+                            $showtable['Index_length']
+                        );
                 }
                 if (isset($showtable['Data_free']) && $showtable['Data_free'] > 0) {
-                    list($free_size, $free_unit) = $common_functions->formatByteDown(
-                        $showtable['Data_free']
-                    );
-                    list($effect_size, $effect_unit)  = $common_functions->formatByteDown(
-                        $showtable['Data_length'] + $showtable['Index_length'] - $showtable['Data_free']
-                    );
+                    list($free_size, $free_unit)
+                        = $common_functions->formatByteDown(
+                            $showtable['Data_free']
+                        );
+                    list($effect_size, $effect_unit)
+                        = $common_functions->formatByteDown(
+                            $showtable['Data_length'] + $showtable['Index_length']
+                            - $showtable['Data_free']
+                        );
                 } else {
                     unset($free_size);
                     unset($free_unit);
-                    list($effect_size, $effect_unit) = $common_functions->formatByteDown(
-                        $showtable['Data_length'] + $showtable['Index_length']
-                    );
+                    list($effect_size, $effect_unit)
+                        = $common_functions->formatByteDown(
+                            $showtable['Data_length'] + $showtable['Index_length']
+                        );
                 }
                 list($tot_size, $tot_unit) = $common_functions->formatByteDown(
                     $showtable['Data_length'] + $showtable['Index_length']
                 );
                 if ($num_rows > 0) {
-                    list($avg_size, $avg_unit) = $common_functions->formatByteDown(
-                        ($showtable['Data_length'] + $showtable['Index_length']) / $showtable['Rows'],
-                        6,
-                        1
-                    );
+                    list($avg_size, $avg_unit)
+                        = $common_functions->formatByteDown(
+                            ($showtable['Data_length'] + $showtable['Index_length'])
+                            / $showtable['Rows'],
+                            6,
+                            1
+                        );
                 }
 
                 // Displays them
@@ -304,12 +312,16 @@ foreach ($the_tables as $key => $table) {
                 if (isset($free_size)) {
                     echo "\n";
                     echo '<tr style="color: #bb0000">';
-                    echo '<td style="padding-right: 10px">' . __('Overhead') . '</td>';
+                    echo '<td style="padding-right: 10px">';
+                    echo __('Overhead');
+                    echo '</td>';
                     echo '<td class="right">' . $free_size . '</td>';
                     echo '<td>' . $free_unit . '</td>';
                     echo '</tr>';
                     echo '<tr>';
-                    echo '<td style="padding-right: 10px">' . __('Effective') . '</td>';
+                    echo '<td style="padding-right: 10px">';
+                    echo __('Effective');
+                    echo '</td>';
                     echo '<td class="right">' . $effect_size . '</td>';
                     echo '<td>' . $effect_unit . '</td>';
                     echo '</tr>';
@@ -364,7 +376,9 @@ foreach ($the_tables as $key => $table) {
                     echo '<tr>';
                     echo '<td>' . __('Row length') . '&nbsp;&oslash;</td>';
                     echo '<td>';
-                    echo $common_functions->formatNumber($showtable['Avg_row_length'], 0);
+                    echo $common_functions->formatNumber(
+                        $showtable['Avg_row_length'], 0
+                    );
                     echo '</td>';
                     echo '</tr>';
                 }
@@ -385,7 +399,9 @@ foreach ($the_tables as $key => $table) {
                     echo '<tr>';
                     echo '<td>' . __('Next autoindex'). ' </td>';
                     echo '<td class="right">';
-                    echo $common_functions->formatNumber($showtable['Auto_increment'], 0);
+                    echo $common_functions->formatNumber(
+                        $showtable['Auto_increment'], 0
+                    );
                     echo '</td>';
                     echo '</tr>';
                 }
@@ -394,7 +410,9 @@ foreach ($the_tables as $key => $table) {
                     echo '<tr>';
                     echo '<td>' . __('Creation') . '</td>';
                     echo '<td class="right">';
-                    echo $common_functions->localisedDate(strtotime($showtable['Create_time']));
+                    echo $common_functions->localisedDate(
+                        strtotime($showtable['Create_time'])
+                    );
                     echo '</td>';
                     echo '</tr>';
                 }
