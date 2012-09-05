@@ -99,8 +99,6 @@ function PMA_sanitize($message, $escape = false, $safe = false)
     $replace_pairs = array(
         '[em]'      => '<em>',
         '[/em]'     => '</em>',
-        '[b]'       => '<strong>',  // deprecated by strong
-        '[/b]'      => '</strong>', // deprecated by strong
         '[strong]'  => '<strong>',
         '[/strong]' => '</strong>',
         '[tt]'      => '<code>',    // deprecated by CODE or KBD
