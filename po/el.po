@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-09-03 19:56+0200\n"
+"POT-Creation-Date: 2012-09-05 15:36+0200\n"
 "PO-Revision-Date: 2012-09-05 10:34+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Greek <http://l10n.cihar.com/projects/phpmyadmin/master/el/>\n"
@@ -47,7 +47,7 @@ msgstr ""
 msgid "Search"
 msgstr "Αναζήτηση"
 
-#: browse_foreigners.php:171 gis_data_editor.php:349 js/messages.php:231
+#: browse_foreigners.php:171 gis_data_editor.php:396 js/messages.php:231
 #: libraries/DbSearch.class.php:488 libraries/DisplayResults.class.php:1666
 #: libraries/TableSearch.class.php:1157 libraries/core.lib.php:534
 #: libraries/display_change_password.lib.php:75
@@ -529,89 +529,86 @@ msgstr "Το αρχείο εξόδου αποθηκεύτηκε ως %s."
 msgid "Invalid export type"
 msgstr "Μη έγκυρος τύπος εξαγωγής"
 
-#: gis_data_editor.php:92
+#: gis_data_editor.php:112
 #, php-format
 msgid "Value for the column \"%s\""
 msgstr "Τιμή για τη στήλη «%s»"
 
-#: gis_data_editor.php:127 tbl_gis_visualization.php:171
+#: gis_data_editor.php:140 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Χρήση του OpenStreetMaps ως Βασικό Επίπεδο"
 
-#: gis_data_editor.php:147
+#: gis_data_editor.php:161
 msgid "SRID"
 msgstr "SRID"
 
-#: gis_data_editor.php:167 js/messages.php:326
+#: gis_data_editor.php:184 js/messages.php:326
 #: libraries/DisplayResults.class.php:1650
 msgid "Geometry"
 msgstr "Γεωμετρία"
 
-#: gis_data_editor.php:187 js/messages.php:322
+#: gis_data_editor.php:206 js/messages.php:322
 msgid "Point"
 msgstr "Σημείο"
 
-#: gis_data_editor.php:188 gis_data_editor.php:213 gis_data_editor.php:264
-#: gis_data_editor.php:326 js/messages.php:320
+#: gis_data_editor.php:207 gis_data_editor.php:234 gis_data_editor.php:289
+#: gis_data_editor.php:362 js/messages.php:320
 msgid "X"
 msgstr "Χ"
 
-#: gis_data_editor.php:190 gis_data_editor.php:215 gis_data_editor.php:266
-#: gis_data_editor.php:328 js/messages.php:321
+#: gis_data_editor.php:210 gis_data_editor.php:238 gis_data_editor.php:293
+#: gis_data_editor.php:366 js/messages.php:321
 msgid "Y"
 msgstr "Υ"
 
-#: gis_data_editor.php:211 gis_data_editor.php:262 gis_data_editor.php:324
+#: gis_data_editor.php:232 gis_data_editor.php:287 gis_data_editor.php:360
 #: js/messages.php:323
 #, php-format
 msgid "Point %d"
 msgstr "Σημείο %d"
 
-#: gis_data_editor.php:220 gis_data_editor.php:270 gis_data_editor.php:332
+#: gis_data_editor.php:245 gis_data_editor.php:300 gis_data_editor.php:373
 #: js/messages.php:329
 msgid "Add a point"
 msgstr "Προσθήκη σημείου"
 
-#: gis_data_editor.php:237 js/messages.php:324
+#: gis_data_editor.php:262 js/messages.php:324
 msgid "Linestring"
 msgstr "Κείμενο γραμμής"
 
-#: gis_data_editor.php:240 gis_data_editor.php:305 js/messages.php:328
+#: gis_data_editor.php:265 gis_data_editor.php:341 js/messages.php:328
 msgid "Outer Ring"
 msgstr "Εξωτερικός δακτύλιος"
 
-#: gis_data_editor.php:242 gis_data_editor.php:307 js/messages.php:327
+#: gis_data_editor.php:267 gis_data_editor.php:343 js/messages.php:327
 msgid "Inner Ring"
 msgstr "Εσωτερικός δακτύλιος"
 
-#: gis_data_editor.php:274
+#: gis_data_editor.php:303
 msgid "Add a linestring"
 msgstr "Προσθήκη κειμένου γραμμής"
 
-#: gis_data_editor.php:274 gis_data_editor.php:335 js/messages.php:330
+#: gis_data_editor.php:304 gis_data_editor.php:378 js/messages.php:330
 msgid "Add an inner ring"
 msgstr "Προσθήκη εσωτερικού δακτυλίου"
 
-#: gis_data_editor.php:290 js/messages.php:325
+#: gis_data_editor.php:325 js/messages.php:325
 msgid "Polygon"
 msgstr "Πολύγωνο"
 
-#: gis_data_editor.php:338 js/messages.php:331
+#: gis_data_editor.php:384 js/messages.php:331
 msgid "Add a polygon"
 msgstr "Προσθήκη πολυγώνου"
 
-#: gis_data_editor.php:343
+#: gis_data_editor.php:390
 msgid "Add geometry"
 msgstr "Προσθήκη γεωμετρίας"
 
-#: gis_data_editor.php:351
+#: gis_data_editor.php:399
 msgid "Output"
 msgstr "Εξαγόμενο"
 
-#: gis_data_editor.php:354
-#| msgid ""
-#| "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
-#| "string into the \"Value\" field"
+#: gis_data_editor.php:402
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
@@ -621,15 +618,12 @@ msgstr ""
 
 #: import.php:95
 #, php-format
-#| msgid ""
-#| "You probably tried to upload too large file. Please refer to %"
-#| "sdocumentation%s for ways to workaround this limit."
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Πιθανόν προσπαθήσατε να αποστείλετε πολύ μεγάλο αρχείο. Λεπτομέρειες στην %"
-"sτεκμηρίωση%s για τρόπους αντιμετώπισης αυτού του περιορισμού."
+"Πιθανόν προσπαθήσατε να αποστείλετε πολύ μεγάλο αρχείο. Λεπτομέρειες στην "
+"%sτεκμηρίωση%s για τρόπους αντιμετώπισης αυτού του περιορισμού."
 
 #: import.php:236 import.php:489
 msgid "Showing bookmark"
@@ -716,7 +710,7 @@ msgstr "Η εντολή SQL εκτελέσθηκε επιτυχώς"
 msgid "Back"
 msgstr "Επιστροφή"
 
-#: index.php:173
+#: index.php:174
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr ""
 "Το phpMyAdmin είναι πιο φιλικό με έναν <b>που υποστηρίζει frames</b> "
@@ -1582,7 +1576,7 @@ msgstr "Ο αριθμός %d δεν είναι έγκυρος αριθμός γ�
 #: libraries/insert_edit.lib.php:1488
 #: libraries/schema/User_Schema.class.php:387
 #: libraries/tbl_properties.inc.php:900 setup/frames/config.inc.php:39
-#: setup/frames/index.inc.php:246 tbl_gis_visualization.php:192
+#: setup/frames/index.inc.php:246 tbl_gis_visualization.php:193
 #: tbl_indexes.php:319 tbl_relation.php:588
 msgid "Save"
 msgstr "Αποθήκευση"
@@ -2085,8 +2079,8 @@ msgstr "Μη έγκυρη χαρακτήρες στη γραμμή %s"
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
 msgstr ""
-"Μη έγκυρος χαρακτήρας στη γραμμή %1$s. Αναμενότας στηλοθέτης, αλλά βρέθηκε «%2"
-"$s»"
+"Μη έγκυρος χαρακτήρας στη γραμμή %1$s. Αναμενότας στηλοθέτης, αλλά βρέθηκε "
+"«%2$s»"
 
 #: libraries/Advisor.class.php:425 server_status.php:985
 msgid "per second"
@@ -2666,11 +2660,11 @@ msgstr "στην εντολή"
 #: libraries/DisplayResults.class.php:4926 libraries/structure.lib.php:665
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Αυτή η προβολή έχει τουλάχιστον αυτό τον αριθμό γραμμών. Λεπτομέρειες στην %"
-"sτεκμηρίωση%s."
+"Αυτή η προβολή έχει τουλάχιστον αυτό τον αριθμό γραμμών. Λεπτομέρειες στην "
+"%sτεκμηρίωση%s."
 
 #: libraries/DisplayResults.class.php:4939
 msgid "Showing rows"
@@ -2781,8 +2775,8 @@ msgstr "Άγνωστο σφάλμα στην αποστολή αρχείου."
 #: libraries/File.class.php:475
 msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
 msgstr ""
-"Σφάλμα μετακίνησης του αρχείου αποστολής. Δείτε τις [doc@faq1_11]ΣΑΕ "
-"1.11[/doc]"
+"Σφάλμα μετακίνησης του αρχείου αποστολής. Δείτε τις [doc@faq1_11]ΣΑΕ 1.11[/"
+"doc]"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -3253,21 +3247,21 @@ msgstr ""
 
 #: libraries/Types.class.php:307
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Ένας μικρός αριθμός κινητής υποδιαστολής, επιτρεπτές τιμές είναι -"
-"3.402823466E+38 έως -1.175494351E-38, 0, και 1.175494351E-38 έως 3.402823466E"
-"+38"
+"Ένας μικρός αριθμός κινητής υποδιαστολής, επιτρεπτές τιμές είναι "
+"-3.402823466E+38 έως -1.175494351E-38, 0, και 1.175494351E-38 έως "
+"3.402823466E+38"
 
 #: libraries/Types.class.php:309
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Ένας αριθμός κινητής υποδιαστολής διπλής ακρίβειας, επιτρεπτές τιμές είναι -"
-"1.7976931348623157E+308 έως -2.2250738585072014E-308, 0, και "
+"Ένας αριθμός κινητής υποδιαστολής διπλής ακρίβειας, επιτρεπτές τιμές είναι "
+"-1.7976931348623157E+308 έως -2.2250738585072014E-308, 0, και "
 "2.2250738585072014E-308 έως 1.7976931348623157E+308"
 
 #: libraries/Types.class.php:311
@@ -4130,7 +4124,7 @@ msgid "Character set of the file"
 msgstr "Σύνολο χαρακτήρων αρχείου"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:92
-#: libraries/structure.lib.php:1740 tbl_gis_visualization.php:180
+#: libraries/structure.lib.php:1740 tbl_gis_visualization.php:181
 #: tbl_printview.php:358
 msgid "Format"
 msgstr "Μορφοποίηση"
@@ -4493,9 +4487,8 @@ msgstr "Τίτλοι σελίδας"
 
 #: libraries/config/messages.inc.php:197
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
 "Ορίστε το κείμενο του τίτλου στο φυλλομετρητή σας. Δείτε την "
 "[doc@cfg_TitleTable]τεκμηρίωση[/doc] για μαγικά κείμενα που μπορούν να "
@@ -4562,8 +4555,8 @@ msgid ""
 "documentation"
 msgstr ""
 "Προσαρμογή βάσης δεδομένων phpMyAdmin για παροχή πρόσβασης σε πρόσθετα "
-"χαρακτηριστικά. Δείτε την [doc@linked-tables]υποδομή συνδεδεμένων "
-"πινάκων[/doc] στην τεκμηρίωση"
+"χαρακτηριστικά. Δείτε την [doc@linked-tables]υποδομή συνδεδεμένων πινάκων[/"
+"doc] στην τεκμηρίωση"
 
 #: libraries/config/messages.inc.php:210
 msgid "Changes tracking"
@@ -6184,11 +6177,11 @@ msgstr "Ελέξτε τα δικαιώματα του φακέλου που πε
 msgid "Details..."
 msgstr "Λεπτομέρειες..."
 
-#: libraries/dbi/drizzle-wrappers.lib.php:440
+#: libraries/dbi/drizzle-wrappers.lib.php:450
 msgid "Can't seek in an unbuffered result set"
 msgstr "Αδύνατη η αναζήτηση σε ένα σύνολο αποτελεσμάτων εκτός μνήμης"
 
-#: libraries/dbi/drizzle-wrappers.lib.php:462
+#: libraries/dbi/drizzle-wrappers.lib.php:472
 msgid "Can't count rows in an unbuffered result set"
 msgstr ""
 "Αδύνατος ο υπολογισμός εγγραφών σε ένα σύνολο αποτελεσμάτων εκτός μνήμης"
@@ -6351,8 +6344,8 @@ msgstr ", το @TABLE@ θα γίνει το όνομα του πίνακα"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Αυτή η τιμή μετατρέπεται με χρήση της συνάρτησης %1$sstrftime%2$s, έτσι "
 "μπορείτε να χρησιμοποιήσετε φράσεις μορφής χρόνου. Επιπρόσθετα, θα γίνουν "
@@ -6890,11 +6883,11 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:133
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
-"Τεκμηρίωση και περισσότερες πληροφορίες για το PBXT μπορούν να βρεθούν στην %"
-"sΙστοσελίδα του PrimeBase XT%s."
+"Τεκμηρίωση και περισσότερες πληροφορίες για το PBXT μπορούν να βρεθούν στην "
+"%sΙστοσελίδα του PrimeBase XT%s."
 
 #: libraries/engines/pbxt.lib.php:135
 msgid "Related Links"
@@ -7473,8 +7466,8 @@ msgstr "Καλωσήρθατε στο %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Πιθανή αιτία για αυτό είναι η μη δημιουργία αρχείου προσαρμογής. Ίσως θέλετε "
 "να χρησιμοποιήσετε τον %1$sκώδικα εγκατάστασηςt%2$s για να δημιουργήσετε ένα."
@@ -8084,8 +8077,8 @@ msgstr ""
 "επιλογή για να ορίσετε μια μορφή ημερομηνίας-ώρας. Η τρίτη επιλογή ορίζει αν "
 "θέλετε να δείτε την τοπική ή την παγκόσμια ώρα (χρήση «local» ή «utc» "
 "αντίστοιχα). Σύμφωνα με αυτό, η μορφή της ημερομηνίας έχει διαφορετική τιμή "
-"- για το «local» δείτε την τεκμηρίωση για τη συνάρτηση strftime() της PHP και "
-"για το «utc» γίνεται χρησιμοποιώντας τη συνάρτηση gmdate()."
+"- για το «local» δείτε την τεκμηρίωση για τη συνάρτηση strftime() της PHP "
+"και για το «utc» γίνεται χρησιμοποιώντας τη συνάρτηση gmdate()."
 
 #: libraries/plugins/transformations/abstract/DownloadTransformationsPlugin.class.php:31
 msgid ""
@@ -9407,8 +9400,8 @@ msgstr "Επισκόπηση χρηστών"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Σημείωση: Το phpMyAdmin διαβάζει τα δικαιώματα των χρηστών κατευθείαν από "
 "τους πίνακες δικαιωμάτων της MySQL. Το περιεχόμενο αυτών των πινάκων μπορεί "
@@ -10038,8 +10031,8 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "Η αποθήκευση ρυθμίσεων του phpMyAdmin δεν έχει ρυθμιστεί πλήρως. Μερικά "
-"εκτεταμένα χαρακτηριστικά έχουν απενεργοποιηθεί. Για να δείτε γιατί πατήστε %"
-"sεδώ%s."
+"εκτεταμένα χαρακτηριστικά έχουν απενεργοποιηθεί. Για να δείτε γιατί πατήστε "
+"%sεδώ%s."
 
 #: main.php:468
 #, php-format
@@ -11683,8 +11676,8 @@ msgid ""
 msgstr ""
 "Η Εποπτεία phpMyAdmin μπορεί να σας βοηθήσει να βελτιστοποιήσετε τη ρύθμιση "
 "του διακομιστή και να καταγράφει χρονοβόρα ερωτήματα. Για το τελευταίο θα "
-"χρειαστείτε να ορίσετε το log_output σε «TABLE» και να έχετε ενεργοποιήσει το "
-"slow_query_log ή το general_log. Σημειώστε, ωστόσο, ότι το general_log "
+"χρειαστείτε να ορίσετε το log_output σε «TABLE» και να έχετε ενεργοποιήσει "
+"το slow_query_log ή το general_log. Σημειώστε, ωστόσο, ότι το general_log "
 "παράγει πολλά δεδομένα και αυξάνει τη χρήση πόρων του διακομιστή μέχρι και "
 "15%"
 
@@ -11988,9 +11981,9 @@ msgid ""
 "Otherwise you will be only able to download or display it."
 msgstr ""
 "Δημιουργήστε εγγράψιμο φάκελο διακομιστή ιστού [em]config[/em] στο φάκελο "
-"μέγιστου επιπέδου phpMyAdmin όπως περιγράφετε στην "
-"[doc@setup_script]τεκμηρίωση[/doc]. Διαφορετικά, θα μπορείτε μόνο να τον "
-"λάβετε ή να τον προβάλετε."
+"μέγιστου επιπέδου phpMyAdmin όπως περιγράφετε στην [doc@setup_script]"
+"τεκμηρίωση[/doc]. Διαφορετικά, θα μπορείτε μόνο να τον λάβετε ή να τον "
+"προβάλετε."
 
 #: setup/frames/index.inc.php:60
 msgid ""
@@ -12213,8 +12206,8 @@ msgid ""
 "(currently %d)."
 msgstr ""
 "Αν η %sεγκυρότητα Σύνδεσης cookie%s είναι μεγαλύτερη από 1440 δευτερόλεπτα "
-"μπορεί να προκαλέσει τυχαία ακύρωση συνεδρίας αν το %ssession.gc_maxlifetime%"
-"s είναι μικρότερο από την τιμή της (τρέχουσα: %d)."
+"μπορεί να προκαλέσει τυχαία ακύρωση συνεδρίας αν το %ssession.gc_maxlifetime"
+"%s είναι μικρότερο από την τιμή της (τρέχουσα: %d)."
 
 #: setup/lib/index.lib.php:306
 #, php-format
@@ -12425,35 +12418,35 @@ msgstr "Εμφάνιση σκαριφήματος (σχήματος) του πί
 msgid "Display GIS Visualization"
 msgstr "Εμφάνιση Οπτικοποίησης GIS"
 
-#: tbl_gis_visualization.php:127
+#: tbl_gis_visualization.php:128
 msgid "Width"
 msgstr "Πλάτος"
 
-#: tbl_gis_visualization.php:131
+#: tbl_gis_visualization.php:132
 msgid "Height"
 msgstr "Ύψος"
 
-#: tbl_gis_visualization.php:135
+#: tbl_gis_visualization.php:136
 msgid "Label column"
 msgstr "Στήλη ετικέτας"
 
-#: tbl_gis_visualization.php:137
+#: tbl_gis_visualization.php:138
 msgid "-- None --"
 msgstr "-- Τίποτα --"
 
-#: tbl_gis_visualization.php:150
+#: tbl_gis_visualization.php:151
 msgid "Spatial column"
 msgstr "Χωρική στήλη"
 
-#: tbl_gis_visualization.php:174
+#: tbl_gis_visualization.php:175
 msgid "Redraw"
 msgstr "Επανασχεδίαση"
 
-#: tbl_gis_visualization.php:176
+#: tbl_gis_visualization.php:177
 msgid "Save to file"
 msgstr "Αποθήκευση σε αρχείο"
 
-#: tbl_gis_visualization.php:177
+#: tbl_gis_visualization.php:178
 msgid "File name"
 msgstr "Ονομασία αρχείου"
 
@@ -12998,8 +12991,8 @@ msgid ""
 msgstr ""
 "Η λανθάνουσα μνήμη ερωτήματος είναι γνωστό ότι βελτιώνει σημαντικά την "
 "απόδοση, αν ρυθμιστεί σωστά. Ενεργοποιήστε τη ορίζοντας το "
-"{query_cache_size} με μια διψήφια τιμής ΜΒ και το {query_cache_type} σε «ΟΝ». "
-"<b>Σημείωση:</b> Αν χρησιμοποιείτε memcached, αγνοήστε την πρόταση."
+"{query_cache_size} με μια διψήφια τιμής ΜΒ και το {query_cache_type} σε "
+"«ΟΝ». <b>Σημείωση:</b> Αν χρησιμοποιείτε memcached, αγνοήστε την πρόταση."
 
 #: libraries/advisory_rules.txt:151
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
@@ -13080,8 +13073,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:172
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "Η τρέχουσα αναλογία της ελεύθερης λανθάνουσας μνήμης ερωτήματος προς τη "
 "συνολική λανθάνουσα μνήμη ερωτήματος είναι %s%%. Πρέπει να είναι περισσότερο "
@@ -13158,8 +13151,8 @@ msgid ""
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
 "Ο βαθμός απομακρυσμένων ερωτημάτων προς τα εισερχόμενα ερωτήματα είναι %s%%. "
-"Όσο χαμηλότερη αυτή η τιμή, τόσο το καλύτερο (Το όριο συναγερμού είναι: 0,1%"
-"%)"
+"Όσο χαμηλότερη αυτή η τιμή, τόσο το καλύτερο (Το όριο συναγερμού είναι: "
+"0,1%%)"
 
 #: libraries/advisory_rules.txt:188
 msgid "Query cache max size"
@@ -13243,8 +13236,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:209
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "Το %s%% όλων των ταξινομήσεων προκαλεί προσωρινούς πίνακες, αυτή η τιμή "
 "πρέπει να είναι κάτω από 10%%."
@@ -13812,8 +13805,8 @@ msgstr ""
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
-"%s%% όλων των συνδέσεων ματαιώνονται. Αυτή η τιμή πρέπει να είναι κάτω από 1%"
-"%"
+"%s%% όλων των συνδέσεων ματαιώνονται. Αυτή η τιμή πρέπει να είναι κάτω από "
+"1%%"
 
 #: libraries/advisory_rules.txt:399
 msgid "Rate of aborted connections"
@@ -14202,8 +14195,8 @@ msgstr "Το concurrent_insert έχει οριστεί στο 0"
 #~ msgid ""
 #~ "Are you sure you want to disable all BLOB references for database %s?"
 #~ msgstr ""
-#~ "Θέλετε να απενεργοποιήσετε όλες τις αναφορές BLOB για τη βάση δεδομένων %"
-#~ "s;"
+#~ "Θέλετε να απενεργοποιήσετε όλες τις αναφορές BLOB για τη βάση δεδομένων "
+#~ "%s;"
 
 #~ msgid "Unknown error while uploading."
 #~ msgstr "Άγνωστο σφάλμα κατά την αποστολή αρχείου."

@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-09-03 19:56+0200\n"
+"POT-Creation-Date: 2012-09-05 15:36+0200\n"
 "PO-Revision-Date: 2012-09-04 12:09+0200\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
-"Language-Team: Turkish "
-"<http://l10n.cihar.com/projects/phpmyadmin/master/tr/>\n"
+"Language-Team: Turkish <http://l10n.cihar.com/projects/phpmyadmin/master/tr/"
+">\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Search"
 msgstr "Ara"
 
-#: browse_foreigners.php:171 gis_data_editor.php:349 js/messages.php:231
+#: browse_foreigners.php:171 gis_data_editor.php:396 js/messages.php:231
 #: libraries/DbSearch.class.php:488 libraries/DisplayResults.class.php:1666
 #: libraries/TableSearch.class.php:1157 libraries/core.lib.php:534
 #: libraries/display_change_password.lib.php:75
@@ -529,104 +529,98 @@ msgstr "Döküm, %s dosyasına kaydedildi."
 msgid "Invalid export type"
 msgstr "Geçersiz dışa aktarma türü"
 
-#: gis_data_editor.php:92
+#: gis_data_editor.php:112
 #, php-format
 msgid "Value for the column \"%s\""
 msgstr "\"%s\" sütunu için değer"
 
-#: gis_data_editor.php:127 tbl_gis_visualization.php:171
+#: gis_data_editor.php:140 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Taban Katman olarak OpenStreetMaps kullan"
 
-#: gis_data_editor.php:147
+#: gis_data_editor.php:161
 msgid "SRID"
 msgstr "SRID"
 
-#: gis_data_editor.php:167 js/messages.php:326
+#: gis_data_editor.php:184 js/messages.php:326
 #: libraries/DisplayResults.class.php:1650
 msgid "Geometry"
 msgstr "Geometri"
 
-#: gis_data_editor.php:187 js/messages.php:322
+#: gis_data_editor.php:206 js/messages.php:322
 msgid "Point"
 msgstr "Nokta"
 
-#: gis_data_editor.php:188 gis_data_editor.php:213 gis_data_editor.php:264
-#: gis_data_editor.php:326 js/messages.php:320
+#: gis_data_editor.php:207 gis_data_editor.php:234 gis_data_editor.php:289
+#: gis_data_editor.php:362 js/messages.php:320
 msgid "X"
 msgstr "X"
 
-#: gis_data_editor.php:190 gis_data_editor.php:215 gis_data_editor.php:266
-#: gis_data_editor.php:328 js/messages.php:321
+#: gis_data_editor.php:210 gis_data_editor.php:238 gis_data_editor.php:293
+#: gis_data_editor.php:366 js/messages.php:321
 msgid "Y"
 msgstr "Y"
 
-#: gis_data_editor.php:211 gis_data_editor.php:262 gis_data_editor.php:324
+#: gis_data_editor.php:232 gis_data_editor.php:287 gis_data_editor.php:360
 #: js/messages.php:323
 #, php-format
 msgid "Point %d"
 msgstr "Nokta %d"
 
-#: gis_data_editor.php:220 gis_data_editor.php:270 gis_data_editor.php:332
+#: gis_data_editor.php:245 gis_data_editor.php:300 gis_data_editor.php:373
 #: js/messages.php:329
 msgid "Add a point"
 msgstr "Nokta ekle"
 
-#: gis_data_editor.php:237 js/messages.php:324
+#: gis_data_editor.php:262 js/messages.php:324
 msgid "Linestring"
 msgstr "Satır dizgisi"
 
-#: gis_data_editor.php:240 gis_data_editor.php:305 js/messages.php:328
+#: gis_data_editor.php:265 gis_data_editor.php:341 js/messages.php:328
 msgid "Outer Ring"
 msgstr "Dış Halka"
 
-#: gis_data_editor.php:242 gis_data_editor.php:307 js/messages.php:327
+#: gis_data_editor.php:267 gis_data_editor.php:343 js/messages.php:327
 msgid "Inner Ring"
 msgstr "İç Halka"
 
-#: gis_data_editor.php:274
+#: gis_data_editor.php:303
 msgid "Add a linestring"
 msgstr "Satır dizgisi ekle"
 
-#: gis_data_editor.php:274 gis_data_editor.php:335 js/messages.php:330
+#: gis_data_editor.php:304 gis_data_editor.php:378 js/messages.php:330
 msgid "Add an inner ring"
 msgstr "İç halka ekle"
 
-#: gis_data_editor.php:290 js/messages.php:325
+#: gis_data_editor.php:325 js/messages.php:325
 msgid "Polygon"
 msgstr "Poligon"
 
-#: gis_data_editor.php:338 js/messages.php:331
+#: gis_data_editor.php:384 js/messages.php:331
 msgid "Add a polygon"
 msgstr "Poligon ekle"
 
-#: gis_data_editor.php:343
+#: gis_data_editor.php:390
 msgid "Add geometry"
 msgstr "Geometri ekle"
 
-#: gis_data_editor.php:351
+#: gis_data_editor.php:399
 msgid "Output"
 msgstr "Çıktı"
 
-#: gis_data_editor.php:354
-#| msgid ""
-#| "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
-#| "string into the \"Value\" field"
+#: gis_data_editor.php:402
 msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
-"\"Function\" sütunundan \"GeomFromText\"i seçin ve \"Value\" alanı içinde alta "
-"dizgiyi yapıştırın"
+"\"Function\" sütunundan \"GeomFromText\"i seçin ve \"Value\" alanı içinde "
+"alta dizgiyi yapıştırın"
 
 #: import.php:95
 #, php-format
-#| msgid ""
-#| "You probably tried to upload too large file. Please refer to %"
-#| "sdocumentation%s for ways to workaround this limit."
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Muhtemelen çok büyük dosya göndermeyi denediniz. Lütfen bu sınır için çözüm "
 "yolu olarak %sbelgeden%s yararlanın."
@@ -714,7 +708,7 @@ msgstr "SQL sorgunuz başarılı olarak çalıştırıldı"
 msgid "Back"
 msgstr "Geri"
 
-#: index.php:173
+#: index.php:174
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr ""
 "phpMyAdmin, <b>çerçeve-kabiliyeti</b> olan tarayıcı ile daha kullanışlıdır."
@@ -1117,8 +1111,8 @@ msgid ""
 "depending on your system."
 msgstr ""
 "slow_query_log etkinleştirildi ama sunucu sadece %d saniyeden daha uzun "
-"süren sorguları günlükler. Bu long_query_time'ın, sisteminize bağlı olarak 0-"
-"2 saniyeye ayarlanması tavsiye edilir."
+"süren sorguları günlükler. Bu long_query_time'ın, sisteminize bağlı olarak "
+"0-2 saniyeye ayarlanması tavsiye edilir."
 
 #: js/messages.php:150
 #, php-format
@@ -1574,7 +1568,7 @@ msgstr "%d geçerli bir satır sayısı değil."
 #: libraries/insert_edit.lib.php:1488
 #: libraries/schema/User_Schema.class.php:387
 #: libraries/tbl_properties.inc.php:900 setup/frames/config.inc.php:39
-#: setup/frames/index.inc.php:246 tbl_gis_visualization.php:192
+#: setup/frames/index.inc.php:246 tbl_gis_visualization.php:193
 #: tbl_indexes.php:319 tbl_relation.php:588
 msgid "Save"
 msgstr "Kaydet"
@@ -1764,8 +1758,8 @@ msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
 msgstr ""
-"phpMyAdmin'in yeni sürümü mevcut ve yükseltmeyi düşünmelisiniz. Yeni sürüm %"
-"s, %s tarihinde yayınlandı."
+"phpMyAdmin'in yeni sürümü mevcut ve yükseltmeyi düşünmelisiniz. Yeni sürüm "
+"%s, %s tarihinde yayınlandı."
 
 #. l10n: Latest available phpMyAdmin version
 #: js/messages.php:373
@@ -2652,8 +2646,8 @@ msgstr "sorgu içerisinde"
 #: libraries/DisplayResults.class.php:4926 libraries/structure.lib.php:665
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "Bu görünüm en az bu satır sayısı kadar olur. Lütfen %sbelgeden%s yararlanın."
 
@@ -3228,20 +3222,20 @@ msgstr ""
 
 #: libraries/Types.class.php:307
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "Küçük kayan noktalı bir sayı, izin verilebilir değerler -3.402823466E+38'den "
 "-1.175494351E-38'e, 0 ve 1.175494351E-38'den 3.402823466E+38'e kadardır"
 
 #: libraries/Types.class.php:309
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"Çift duyarlıklı kayan noktalı bir sayı, izin verilebilir değerler -"
-"1.7976931348623157E+308'den -2.2250738585072014E-308'e, 0 ve "
+"Çift duyarlıklı kayan noktalı bir sayı, izin verilebilir değerler "
+"-1.7976931348623157E+308'den -2.2250738585072014E-308'e, 0 ve "
 "2.2250738585072014E-308'den 1.7976931348623157E+308'e kadardır"
 
 #: libraries/Types.class.php:311
@@ -4104,7 +4098,7 @@ msgid "Character set of the file"
 msgstr "Dosyanın karakter grubu"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:92
-#: libraries/structure.lib.php:1740 tbl_gis_visualization.php:180
+#: libraries/structure.lib.php:1740 tbl_gis_visualization.php:181
 #: tbl_printview.php:358
 msgid "Format"
 msgstr "Biçim"
@@ -4467,9 +4461,8 @@ msgstr "Sayfa başlığı"
 
 #: libraries/config/messages.inc.php:197
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
 "Tarayıcının başlık çubuğu metnini belirler. Özel değerleri almakta "
 "kullanılabilecek sihirli dizgiler için [doc@cfg_TitleTable]belgeden[/doc] "
@@ -4536,8 +4529,8 @@ msgid ""
 "documentation"
 msgstr ""
 "İlave özelliklere erişim kazanmak için phpMyAdmin yapılandırma depolamasını "
-"yapılandırır, belgelerde [doc@linked-tables]phpMyAdmin yapılandırma "
-"depolama[/doc] kısmına bakın"
+"yapılandırır, belgelerde [doc@linked-tables]phpMyAdmin yapılandırma depolama"
+"[/doc] kısmına bakın"
 
 #: libraries/config/messages.inc.php:210
 msgid "Changes tracking"
@@ -6140,11 +6133,11 @@ msgstr "Lütfen veritabanını içeren dizinin yetkilerini kontrol edin."
 msgid "Details..."
 msgstr "Ayrıntılar..."
 
-#: libraries/dbi/drizzle-wrappers.lib.php:440
+#: libraries/dbi/drizzle-wrappers.lib.php:450
 msgid "Can't seek in an unbuffered result set"
 msgstr "Arabelleklenmemiş sonuç grubunda aranamıyor"
 
-#: libraries/dbi/drizzle-wrappers.lib.php:462
+#: libraries/dbi/drizzle-wrappers.lib.php:472
 msgid "Can't count rows in an unbuffered result set"
 msgstr "Arabelleklenmemiş sonuç grubunda satırlar sayılamıyor"
 
@@ -6308,8 +6301,8 @@ msgstr ", @TABLE@ tablo adı olacaktır"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Bu değer %1$sstrftime%2$s kullanılarak yorumlanır, bu yüzden zaman "
 "biçimlendirme dizgisi kullanabilirsiniz. İlave olarak aşağıdaki dönüşümler "
@@ -6841,8 +6834,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:133
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "%sPrimeBase XT Ana Sayfasında%s PBXT hakkında belge ve daha fazla bilgi "
 "bulunabilir."
@@ -7424,8 +7417,8 @@ msgstr "%s'e Hoş Geldiniz"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Muhtemelen bunun sebebi yapılandırma dosyasını oluşturmadığınız içindir. Bir "
 "tane oluşturmak için %1$skur programcığı%2$s kullanmak isteyebilirsiniz."
@@ -9334,8 +9327,8 @@ msgstr "Kullanıcılara genel bakış"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Not: phpMyAdmin kullanıcıların yetkilerini doğrudan MySQL'in yetki "
 "tablolarından alır. Bu tabloların içerikleri, eğer elle değiştirildiyse "
@@ -9963,8 +9956,8 @@ msgid ""
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "phpMyAdmin yapılandırma depolaması tamamiyle yapılandırılmadı, bazı "
-"genişletilmiş özellikler etkisizleştirildi. Nedenini öğrenmek için %sburaya%"
-"s tıklayın."
+"genişletilmiş özellikler etkisizleştirildi. Nedenini öğrenmek için %sburaya"
+"%s tıklayın."
 
 #: main.php:468
 #, php-format
@@ -10221,8 +10214,8 @@ msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
 msgstr ""
-"Config.inc.php dosyasını değiştirerek daha fazla ayar yapabilirsiniz, örn. %"
-"sKur programcığı%s kullanarak."
+"Config.inc.php dosyasını değiştirerek daha fazla ayar yapabilirsiniz, örn. "
+"%sKur programcığı%s kullanarak."
 
 #: prefs_manage.php:310
 msgid "Save to browser's storage"
@@ -12107,9 +12100,9 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Eğer bunun gerekli olduğunu düşünüyorsanız, ilave koruma ayarları kullanın- %"
-"sanamakine kimlik doğrulaması%s ayarları ve %sgüvenilir proksiler listesi%s. "
-"Ancak, IP-tabanlı koruma eğer IP'niz, sizinde dahil olduğunuz binlerce "
+"Eğer bunun gerekli olduğunu düşünüyorsanız, ilave koruma ayarları kullanın- "
+"%sanamakine kimlik doğrulaması%s ayarları ve %sgüvenilir proksiler listesi"
+"%s. Ancak, IP-tabanlı koruma eğer IP'niz, sizinde dahil olduğunuz binlerce "
 "kullanıcıya sahip ve bağlı olduğunuz bir ISS'e aitse güvenilir olmayabilir."
 
 #: setup/lib/index.lib.php:312
@@ -12124,8 +12117,8 @@ msgstr ""
 "[kbd]Yapılandırma[/kbd] kimlik doğrulaması türünü ayarladınız ve buna "
 "otomatik oturum açma için kullanıcı adı ve parola dahildir, canlı "
 "anamakineler için istenmeyen bir seçenektir. phpMyAdmin URL'nizi bilen veya "
-"tahmin eden herhangi biri doğrudan phpMyAdmin panelinize erişebilir. %"
-"sKimlik doğrulama türünü%s [kbd]tanımlama bilgisi[/kbd] ya da [kbd]http[/"
+"tahmin eden herhangi biri doğrudan phpMyAdmin panelinize erişebilir. "
+"%sKimlik doğrulama türünü%s [kbd]tanımlama bilgisi[/kbd] ya da [kbd]http[/"
 "kbd] olarak ayarlayın."
 
 #: setup/lib/index.lib.php:314
@@ -12282,35 +12275,35 @@ msgstr "Tablonun dökümünü (şemasını) göster"
 msgid "Display GIS Visualization"
 msgstr "GIS görselleştirmesini görüntüle"
 
-#: tbl_gis_visualization.php:127
+#: tbl_gis_visualization.php:128
 msgid "Width"
 msgstr "Genişlik"
 
-#: tbl_gis_visualization.php:131
+#: tbl_gis_visualization.php:132
 msgid "Height"
 msgstr "Yükseklik"
 
-#: tbl_gis_visualization.php:135
+#: tbl_gis_visualization.php:136
 msgid "Label column"
 msgstr "Etiket sütunu"
 
-#: tbl_gis_visualization.php:137
+#: tbl_gis_visualization.php:138
 msgid "-- None --"
 msgstr "-- Yok --"
 
-#: tbl_gis_visualization.php:150
+#: tbl_gis_visualization.php:151
 msgid "Spatial column"
 msgstr "Uzaysal sütun"
 
-#: tbl_gis_visualization.php:174
+#: tbl_gis_visualization.php:175
 msgid "Redraw"
 msgstr "Yeniden Çiz"
 
-#: tbl_gis_visualization.php:176
+#: tbl_gis_visualization.php:177
 msgid "Save to file"
 msgstr "Dosyaya kaydet"
 
-#: tbl_gis_visualization.php:177
+#: tbl_gis_visualization.php:178
 msgid "File name"
 msgstr "Dosya adı"
 
@@ -12918,8 +12911,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:172
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "Boş sorgu önbellek belleğinin, toplam sorgu önbelleği boyutuna şu anki oranı "
 "%%%s. Bu %%80'in üzerinde olmalıdır"
@@ -13070,8 +13063,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:209
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "Tüm sıralamaların %%%s'i geçici tablolara sebep olur, bu değer %%10'dan "
 "düşük olmalıdır."
@@ -14019,12 +14012,12 @@ msgstr "concurrent_insert 0'a ayarlı"
 #~ "Eğer D işlenirse, varsayılan 0'dır. Eğer M işlenirse, varsayılan 10'dur."
 
 #~ msgid ""
-#~ "A small (single-precision) floating-point number. Allowable values are -"
-#~ "3.402823466E+38 to -1.175494351E-38, 0, and 1.175494351E-38 to "
+#~ "A small (single-precision) floating-point number. Allowable values are "
+#~ "-3.402823466E+38 to -1.175494351E-38, 0, and 1.175494351E-38 to "
 #~ "3.402823466E+38."
 #~ msgstr ""
-#~ "Küçük (tek duyarlıklı) kayan noktalı sayı. İzin verilebilir değerler -"
-#~ "3.402823466E+38'den -1.175494351E-38'e, 0 ve 1.175494351E-38'den "
+#~ "Küçük (tek duyarlıklı) kayan noktalı sayı. İzin verilebilir değerler "
+#~ "-3.402823466E+38'den -1.175494351E-38'e, 0 ve 1.175494351E-38'den "
 #~ "3.402823466E+38'e."
 
 #~ msgid ""
@@ -14526,8 +14519,8 @@ msgstr "concurrent_insert 0'a ayarlı"
 #~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
 #~ "6.29[/doc]"
 #~ msgstr ""
-#~ "Bu sorgunun sonucu çizelge için kullanılamaz. [doc@faq6_29]SSS 6.29[/doc]'a "
-#~ "bakın"
+#~ "Bu sorgunun sonucu çizelge için kullanılamaz. [doc@faq6_29]SSS 6.29[/"
+#~ "doc]'a bakın"
 
 #~ msgid "Title"
 #~ msgstr "Başlık"

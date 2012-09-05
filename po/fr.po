@@ -3,10 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-09-03 19:56+0200\n"
+"POT-Creation-Date: 2012-09-05 15:36+0200\n"
 "PO-Revision-Date: 2012-09-05 10:56+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
+"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/"
+">\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,7 +49,7 @@ msgstr ""
 msgid "Search"
 msgstr "Rechercher"
 
-#: browse_foreigners.php:171 gis_data_editor.php:349 js/messages.php:231
+#: browse_foreigners.php:171 gis_data_editor.php:396 js/messages.php:231
 #: libraries/DbSearch.class.php:488 libraries/DisplayResults.class.php:1666
 #: libraries/TableSearch.class.php:1157 libraries/core.lib.php:534
 #: libraries/display_change_password.lib.php:75
@@ -532,86 +533,86 @@ msgstr "Le fichier d'exportation a été sauvegardé sous %s."
 msgid "Invalid export type"
 msgstr "Type d'exportation invalide"
 
-#: gis_data_editor.php:92
+#: gis_data_editor.php:112
 #, php-format
 msgid "Value for the column \"%s\""
 msgstr "Valeur pour la colonne «%s»"
 
-#: gis_data_editor.php:127 tbl_gis_visualization.php:171
+#: gis_data_editor.php:140 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "Utiliser OpenStreetMaps comme couche de base"
 
-#: gis_data_editor.php:147
+#: gis_data_editor.php:161
 msgid "SRID"
 msgstr "SRID"
 
-#: gis_data_editor.php:167 js/messages.php:326
+#: gis_data_editor.php:184 js/messages.php:326
 #: libraries/DisplayResults.class.php:1650
 msgid "Geometry"
 msgstr "Géométrie"
 
-#: gis_data_editor.php:187 js/messages.php:322
+#: gis_data_editor.php:206 js/messages.php:322
 msgid "Point"
 msgstr "Point"
 
-#: gis_data_editor.php:188 gis_data_editor.php:213 gis_data_editor.php:264
-#: gis_data_editor.php:326 js/messages.php:320
+#: gis_data_editor.php:207 gis_data_editor.php:234 gis_data_editor.php:289
+#: gis_data_editor.php:362 js/messages.php:320
 msgid "X"
 msgstr "X"
 
-#: gis_data_editor.php:190 gis_data_editor.php:215 gis_data_editor.php:266
-#: gis_data_editor.php:328 js/messages.php:321
+#: gis_data_editor.php:210 gis_data_editor.php:238 gis_data_editor.php:293
+#: gis_data_editor.php:366 js/messages.php:321
 msgid "Y"
 msgstr "Y"
 
-#: gis_data_editor.php:211 gis_data_editor.php:262 gis_data_editor.php:324
+#: gis_data_editor.php:232 gis_data_editor.php:287 gis_data_editor.php:360
 #: js/messages.php:323
 #, php-format
 msgid "Point %d"
 msgstr "Point %d"
 
-#: gis_data_editor.php:220 gis_data_editor.php:270 gis_data_editor.php:332
+#: gis_data_editor.php:245 gis_data_editor.php:300 gis_data_editor.php:373
 #: js/messages.php:329
 msgid "Add a point"
 msgstr "Ajouter un point"
 
-#: gis_data_editor.php:237 js/messages.php:324
+#: gis_data_editor.php:262 js/messages.php:324
 msgid "Linestring"
 msgstr "Ligne"
 
-#: gis_data_editor.php:240 gis_data_editor.php:305 js/messages.php:328
+#: gis_data_editor.php:265 gis_data_editor.php:341 js/messages.php:328
 msgid "Outer Ring"
 msgstr "Anneau extérieur"
 
-#: gis_data_editor.php:242 gis_data_editor.php:307 js/messages.php:327
+#: gis_data_editor.php:267 gis_data_editor.php:343 js/messages.php:327
 msgid "Inner Ring"
 msgstr "Anneau intérieur"
 
-#: gis_data_editor.php:274
+#: gis_data_editor.php:303
 msgid "Add a linestring"
 msgstr "Ajouter une ligne"
 
-#: gis_data_editor.php:274 gis_data_editor.php:335 js/messages.php:330
+#: gis_data_editor.php:304 gis_data_editor.php:378 js/messages.php:330
 msgid "Add an inner ring"
 msgstr "Ajouter un anneau intérieur"
 
-#: gis_data_editor.php:290 js/messages.php:325
+#: gis_data_editor.php:325 js/messages.php:325
 msgid "Polygon"
 msgstr "Polygone"
 
-#: gis_data_editor.php:338 js/messages.php:331
+#: gis_data_editor.php:384 js/messages.php:331
 msgid "Add a polygon"
 msgstr "Ajouter un polygone"
 
-#: gis_data_editor.php:343
+#: gis_data_editor.php:390
 msgid "Add geometry"
 msgstr "Ajouter géométrie"
 
-#: gis_data_editor.php:351
+#: gis_data_editor.php:399
 msgid "Output"
 msgstr "Résultat"
 
-#: gis_data_editor.php:354
+#: gis_data_editor.php:402
 #, fuzzy
 #| msgid ""
 #| "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
@@ -620,17 +621,17 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
-"Choisissez «GeomFromText» dans la colonne «Fonction» et collez la chaîne dans "
-"le champ «Valeur»"
+"Choisissez «GeomFromText» dans la colonne «Fonction» et collez la chaîne "
+"dans le champ «Valeur»"
 
 #: import.php:95
 #, fuzzy, php-format
 #| msgid ""
-#| "You probably tried to upload too large file. Please refer to %"
-#| "sdocumentation%s for ways to workaround this limit."
+#| "You probably tried to upload too large file. Please refer to "
+#| "%sdocumentation%s for ways to workaround this limit."
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Vous avez probablement tenté de télécharger un fichier trop volumineux. "
 "Veuillez vous référer à la %sdocumentation%s pour des façons de contourner "
@@ -719,7 +720,7 @@ msgstr "Votre requête SQL a été exécutée avec succès"
 msgid "Back"
 msgstr "Retour"
 
-#: index.php:173
+#: index.php:174
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr ""
 "phpMyAdmin est plus convivial avec un navigateur <b>supportant les cadres</"
@@ -1579,7 +1580,7 @@ msgstr "%d n'est pas un numéro de ligne valable."
 #: libraries/insert_edit.lib.php:1488
 #: libraries/schema/User_Schema.class.php:387
 #: libraries/tbl_properties.inc.php:900 setup/frames/config.inc.php:39
-#: setup/frames/index.inc.php:246 tbl_gis_visualization.php:192
+#: setup/frames/index.inc.php:246 tbl_gis_visualization.php:193
 #: tbl_indexes.php:319 tbl_relation.php:588
 msgid "Save"
 msgstr "Sauvegarder"
@@ -2082,8 +2083,8 @@ msgstr "Caractères imprévus à la ligne %s"
 #, php-format
 msgid "Unexpected character on line %1$s. Expected tab, but found \"%2$s\""
 msgstr ""
-"Caractère imprévue à la ligne %1$s. Une tabulation était attendue, mais \"%2"
-"$s\" a été trouvé"
+"Caractère imprévue à la ligne %1$s. Une tabulation était attendue, mais "
+"\"%2$s\" a été trouvé"
 
 #: libraries/Advisor.class.php:425 server_status.php:985
 msgid "per second"
@@ -2662,11 +2663,11 @@ msgstr "dans la requête"
 #: libraries/DisplayResults.class.php:4926 libraries/structure.lib.php:665
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Cette vue contient au moins ce nombre de lignes. Veuillez référer à %"
-"sdocumentation%s."
+"Cette vue contient au moins ce nombre de lignes. Veuillez référer à "
+"%sdocumentation%s."
 
 #: libraries/DisplayResults.class.php:4939
 msgid "Showing rows"
@@ -2778,8 +2779,8 @@ msgstr "Erreur inconnue durant le téléchargement."
 #: libraries/File.class.php:475
 msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
 msgstr ""
-"Erreur lors du déplacement du fichier téléchargé, voir [doc@faq1_11]FAQ "
-"1.11[/doc]"
+"Erreur lors du déplacement du fichier téléchargé, voir [doc@faq1_11]FAQ 1.11"
+"[/doc]"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -3202,16 +3203,16 @@ msgstr "Thème"
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
-"Un nombre entier de 1 octet. La fourchette des nombres avec signe est de -"
-"128 à 127. Pour les nombres sans signe, c'est de 0 à 255"
+"Un nombre entier de 1 octet. La fourchette des nombres avec signe est de "
+"-128 à 127. Pour les nombres sans signe, c'est de 0 à 255"
 
 #: libraries/Types.class.php:297
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
-"Un nombre entier de 2 octets. La fourchette des nombres avec signe est de -"
-"32 768 à 32 767. Pour les nombres sans signe, c'est de 0 à 65 535"
+"Un nombre entier de 2 octets. La fourchette des nombres avec signe est de "
+"-32 768 à 32 767. Pour les nombres sans signe, c'est de 0 à 65 535"
 
 #: libraries/Types.class.php:299
 msgid ""
@@ -3250,16 +3251,16 @@ msgstr ""
 
 #: libraries/Types.class.php:307
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
-"Un petit nombre en virgule flottante, la fourchette des valeurs est -"
-"3.402823466E+38 à -1.175494351E-38, 0, et 1.175494351E-38 à 3.402823466E+38"
+"Un petit nombre en virgule flottante, la fourchette des valeurs est "
+"-3.402823466E+38 à -1.175494351E-38, 0, et 1.175494351E-38 à 3.402823466E+38"
 
 #: libraries/Types.class.php:309
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 "Un nombre en virgule flottante double-précision, la fourchette des valeurs "
@@ -3309,9 +3310,9 @@ msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Un type d'horodatage, la fourchette est de «1970-01-01 00:00:01» UTC à «2038-"
-"01-09 03:14:07» UTC, en nombre de secondes depuis le moment de référence "
-"(«1970-01-01 00:00:00» UTC)"
+"Un type d'horodatage, la fourchette est de «1970-01-01 00:00:01» UTC à "
+"«2038-01-09 03:14:07» UTC, en nombre de secondes depuis le moment de "
+"référence («1970-01-01 00:00:00» UTC)"
 
 #: libraries/Types.class.php:325 libraries/Types.class.php:727
 #, php-format
@@ -4133,7 +4134,7 @@ msgid "Character set of the file"
 msgstr "Jeu de caractères du fichier"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:92
-#: libraries/structure.lib.php:1740 tbl_gis_visualization.php:180
+#: libraries/structure.lib.php:1740 tbl_gis_visualization.php:181
 #: tbl_printview.php:358
 msgid "Format"
 msgstr "Format"
@@ -4500,9 +4501,8 @@ msgstr "Titres de page"
 
 #: libraries/config/messages.inc.php:197
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
 "Spécifier le texte de la barre de titre du navigateur. Se référer à la "
 "[doc@cfg_TitleTable]documentation[/doc] pour les chaînes magiques pouvant "
@@ -5429,10 +5429,10 @@ msgid ""
 msgstr ""
 "Vous pouvez utiliser ces caractères passepartout MySQL (% et _), avec un "
 "caractère d'échappement si vous les employez de manière littérale, par "
-"exemple [kbd]'ma\\_base'[/kbd] et non [kbd]'ma_base'[/kbd]. Ainsi vous pouvez "
-"trier la liste des bases de données en entrant leurs noms et en utilisant "
-"[kbd]*[/kbd] en fin de liste pour montrer le reste des noms de base de "
-"données en ordre alphabétique."
+"exemple [kbd]'ma\\_base'[/kbd] et non [kbd]'ma_base'[/kbd]. Ainsi vous "
+"pouvez trier la liste des bases de données en entrant leurs noms et en "
+"utilisant [kbd]*[/kbd] en fin de liste pour montrer le reste des noms de "
+"base de données en ordre alphabétique."
 
 #: libraries/config/messages.inc.php:409
 msgid "Show only listed databases"
@@ -6163,11 +6163,11 @@ msgstr ""
 msgid "Details..."
 msgstr "Détails..."
 
-#: libraries/dbi/drizzle-wrappers.lib.php:440
+#: libraries/dbi/drizzle-wrappers.lib.php:450
 msgid "Can't seek in an unbuffered result set"
 msgstr ""
 
-#: libraries/dbi/drizzle-wrappers.lib.php:462
+#: libraries/dbi/drizzle-wrappers.lib.php:472
 msgid "Can't count rows in an unbuffered result set"
 msgstr ""
 
@@ -6329,8 +6329,8 @@ msgstr ", @TABLE@ sera remplacé par le nom de la table"
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Cette valeur est interprétée avec %1$sstrftime%2$s, vous pouvez donc "
 "utiliser des chaînes de format d'heure. Ces transformations additionnelles "
@@ -6868,8 +6868,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:133
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 "La documentation de PBXT et des informations additionnelles sont disponibles "
 "sur %sle site de PrimeBase XT%s."
@@ -7453,8 +7453,8 @@ msgstr "Bienvenue dans %s"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "La raison probable est que vous n'avez pas créé de fichier de configuration. "
 "Vous pouvez utiliser le %1$sscript de configuration%2$s dans ce but."
@@ -9390,8 +9390,8 @@ msgstr "Survol des utilisateurs"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Note: phpMyAdmin obtient la liste des privilèges directement à partir des "
 "tables MySQL. Le contenu de ces tables peut être différent des privilèges "
@@ -9549,8 +9549,8 @@ msgid ""
 "installed the necessary PHP extensions as described in the %sdocumentation%s."
 msgstr ""
 "Le validateur SQL n'a pas pu être initialisé. Vérifiez que les extensions "
-"PHP nécessaires ont bien été installées tel que décrit dans la %"
-"sdocumentation%s."
+"PHP nécessaires ont bien été installées tel que décrit dans la "
+"%sdocumentation%s."
 
 #: libraries/structure.lib.php:72 tbl_operations.php:310
 #, php-format
@@ -12097,8 +12097,8 @@ msgid ""
 msgstr ""
 "Cette %soption%s ne devrait pas être activée car elle permet à un attaquant "
 "de tenter de forcer l'entrée sur tout serveur MySQL. Si vous en avez "
-"réellement besoin, utilisez la %sliste des serveurs mandataires de confiance%"
-"s."
+"réellement besoin, utilisez la %sliste des serveurs mandataires de confiance"
+"%s."
 
 #: setup/lib/index.lib.php:296
 msgid ""
@@ -12150,8 +12150,8 @@ msgid ""
 msgstr ""
 "Le paramètre %sLogin cookie validity%s avec une valeur de plus de 1440 "
 "secondes peut causer des interruptions de la session de travail si le "
-"paramètre %ssession.gc_maxlifetime%s a une plus petite valeur (actuellement %"
-"d)."
+"paramètre %ssession.gc_maxlifetime%s a une plus petite valeur (actuellement "
+"%d)."
 
 #: setup/lib/index.lib.php:306
 #, php-format
@@ -12170,8 +12170,8 @@ msgid ""
 "cookie validity%s must be set to a value less or equal to it."
 msgstr ""
 "Si vous utilisez l'authentification cookie et que le paramètre %sLogin "
-"cookie store%s n'a pas une valeur de 0, le paramètre %sLogin cookie validity%"
-"s doit avoir une valeur plus petite ou égale à celui-ci."
+"cookie store%s n'a pas une valeur de 0, le paramètre %sLogin cookie validity"
+"%s doit avoir une valeur plus petite ou égale à celui-ci."
 
 #: setup/lib/index.lib.php:310
 #, php-format
@@ -12181,8 +12181,8 @@ msgid ""
 "protection may not be reliable if your IP belongs to an ISP where thousands "
 "of users, including you, are connected to."
 msgstr ""
-"Si vous l'estimez nécessaire, utilisez des paramètres de protection - %"
-"sauthentification du serveur%s et %sserveurs mandataires de confiance%s. "
+"Si vous l'estimez nécessaire, utilisez des paramètres de protection - "
+"%sauthentification du serveur%s et %sserveurs mandataires de confiance%s. "
 "Cependant, la protection par adresse IP peut ne pas être fiable si votre IP "
 "appartient à un fournisseur via lequel des milliers d'utilisateurs, vous y "
 "compris, sont connectés."
@@ -12360,35 +12360,35 @@ msgstr "<b>Afficher le schéma</b> de la table"
 msgid "Display GIS Visualization"
 msgstr "Visualiser en GIS"
 
-#: tbl_gis_visualization.php:127
+#: tbl_gis_visualization.php:128
 msgid "Width"
 msgstr "Largeur"
 
-#: tbl_gis_visualization.php:131
+#: tbl_gis_visualization.php:132
 msgid "Height"
 msgstr "Hauteur"
 
-#: tbl_gis_visualization.php:135
+#: tbl_gis_visualization.php:136
 msgid "Label column"
 msgstr "Colonne pour étiquette"
 
-#: tbl_gis_visualization.php:137
+#: tbl_gis_visualization.php:138
 msgid "-- None --"
 msgstr "-- Aucun --"
 
-#: tbl_gis_visualization.php:150
+#: tbl_gis_visualization.php:151
 msgid "Spatial column"
 msgstr "Colonne pour donnée spatiale"
 
-#: tbl_gis_visualization.php:174
+#: tbl_gis_visualization.php:175
 msgid "Redraw"
 msgstr "Dessiner à nouveau"
 
-#: tbl_gis_visualization.php:176
+#: tbl_gis_visualization.php:177
 msgid "Save to file"
 msgstr "Sauvegarder dans un fichier"
 
-#: tbl_gis_visualization.php:177
+#: tbl_gis_visualization.php:178
 msgid "File name"
 msgstr "Nom du fichier"
 
@@ -13008,8 +13008,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:172
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 "Le ratio actuel de mémoire libre pour la cache de requêtes par rapport à la "
 "mémoire totale de la cache est de %s%%. Il devrait se situer à plus de 80%%"
@@ -13080,9 +13080,9 @@ msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
-"Le ratio des requêtes enlevées par rapport aux requêtes ajoutées est de %s%"
-"%. Il est souhaitable que cette valeur soit faible (Limite pour cette règle: "
-"0.1%%)"
+"Le ratio des requêtes enlevées par rapport aux requêtes ajoutées est de %s"
+"%%. Il est souhaitable que cette valeur soit faible (Limite pour cette "
+"règle: 0.1%%)"
 
 #: libraries/advisory_rules.txt:188
 msgid "Query cache max size"
@@ -13161,8 +13161,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:209
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 "%s%% de tous les tris causent la création de tables temporaires, cette "
 "valeur devrait être sous les 10%%."
@@ -13693,8 +13693,8 @@ msgstr ""
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
-"Max_used_connections est à %s%% de max_connections, devrait être sous les 80%"
-"%"
+"Max_used_connections est à %s%% de max_connections, devrait être sous les "
+"80%%"
 
 #: libraries/advisory_rules.txt:392
 msgid "Percentage of aborted connections"

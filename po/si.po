@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-09-03 19:56+0200\n"
+"POT-Creation-Date: 2012-09-05 15:36+0200\n"
 "PO-Revision-Date: 2012-08-01 05:43+0200\n"
 "Last-Translator: Madhura Jayaratne <madhura.cj@gmail.com>\n"
 "Language-Team: sinhala <si@li.org>\n"
+"Language: si\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: si\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.1\n"
 
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Search"
 msgstr "සෙවීම"
 
-#: browse_foreigners.php:171 gis_data_editor.php:349 js/messages.php:231
+#: browse_foreigners.php:171 gis_data_editor.php:396 js/messages.php:231
 #: libraries/DbSearch.class.php:488 libraries/DisplayResults.class.php:1666
 #: libraries/TableSearch.class.php:1157 libraries/core.lib.php:534
 #: libraries/display_change_password.lib.php:75
@@ -527,86 +527,86 @@ msgstr "%s ගොනුවට නික්ෂේප දත්ත සුරකි
 msgid "Invalid export type"
 msgstr "වැරදි අපනයන වර්ගයකි"
 
-#: gis_data_editor.php:92
+#: gis_data_editor.php:112
 #, php-format
 msgid "Value for the column \"%s\""
 msgstr "\"%s\" තීරය සඳහා අගයන්"
 
-#: gis_data_editor.php:127 tbl_gis_visualization.php:171
+#: gis_data_editor.php:140 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "මූලික ස්ථරය ලෙස OpenStreetMaps භාවිතා කරන්න"
 
-#: gis_data_editor.php:147
+#: gis_data_editor.php:161
 msgid "SRID"
 msgstr "SRID"
 
-#: gis_data_editor.php:167 js/messages.php:326
+#: gis_data_editor.php:184 js/messages.php:326
 #: libraries/DisplayResults.class.php:1650
 msgid "Geometry"
 msgstr "ජ්‍යාමිතිය"
 
-#: gis_data_editor.php:187 js/messages.php:322
+#: gis_data_editor.php:206 js/messages.php:322
 msgid "Point"
 msgstr "ලක්ෂ්‍යය"
 
-#: gis_data_editor.php:188 gis_data_editor.php:213 gis_data_editor.php:264
-#: gis_data_editor.php:326 js/messages.php:320
+#: gis_data_editor.php:207 gis_data_editor.php:234 gis_data_editor.php:289
+#: gis_data_editor.php:362 js/messages.php:320
 msgid "X"
 msgstr "X"
 
-#: gis_data_editor.php:190 gis_data_editor.php:215 gis_data_editor.php:266
-#: gis_data_editor.php:328 js/messages.php:321
+#: gis_data_editor.php:210 gis_data_editor.php:238 gis_data_editor.php:293
+#: gis_data_editor.php:366 js/messages.php:321
 msgid "Y"
 msgstr "Y"
 
-#: gis_data_editor.php:211 gis_data_editor.php:262 gis_data_editor.php:324
+#: gis_data_editor.php:232 gis_data_editor.php:287 gis_data_editor.php:360
 #: js/messages.php:323
 #, php-format
 msgid "Point %d"
 msgstr "%dවන ලක්ෂ්‍යය"
 
-#: gis_data_editor.php:220 gis_data_editor.php:270 gis_data_editor.php:332
+#: gis_data_editor.php:245 gis_data_editor.php:300 gis_data_editor.php:373
 #: js/messages.php:329
 msgid "Add a point"
 msgstr "ලක්ෂ්‍යයක් එක් කරන්න"
 
-#: gis_data_editor.php:237 js/messages.php:324
+#: gis_data_editor.php:262 js/messages.php:324
 msgid "Linestring"
 msgstr "රේඛාව"
 
-#: gis_data_editor.php:240 gis_data_editor.php:305 js/messages.php:328
+#: gis_data_editor.php:265 gis_data_editor.php:341 js/messages.php:328
 msgid "Outer Ring"
 msgstr "පිටත කවය"
 
-#: gis_data_editor.php:242 gis_data_editor.php:307 js/messages.php:327
+#: gis_data_editor.php:267 gis_data_editor.php:343 js/messages.php:327
 msgid "Inner Ring"
 msgstr "ඇතුලත කවය"
 
-#: gis_data_editor.php:274
+#: gis_data_editor.php:303
 msgid "Add a linestring"
 msgstr "රේඛාවක් එක් කරන්න"
 
-#: gis_data_editor.php:274 gis_data_editor.php:335 js/messages.php:330
+#: gis_data_editor.php:304 gis_data_editor.php:378 js/messages.php:330
 msgid "Add an inner ring"
 msgstr "ඇතුල් කවයක් එක් කරන්න"
 
-#: gis_data_editor.php:290 js/messages.php:325
+#: gis_data_editor.php:325 js/messages.php:325
 msgid "Polygon"
 msgstr "බහු අස්‍රය"
 
-#: gis_data_editor.php:338 js/messages.php:331
+#: gis_data_editor.php:384 js/messages.php:331
 msgid "Add a polygon"
 msgstr "බහු අස්‍රයක් එක් කරන්න"
 
-#: gis_data_editor.php:343
+#: gis_data_editor.php:390
 msgid "Add geometry"
 msgstr "ජ්‍යාමිතියක් එක් කරන්න"
 
-#: gis_data_editor.php:351
+#: gis_data_editor.php:399
 msgid "Output"
 msgstr "ප්‍රතිදානය"
 
-#: gis_data_editor.php:354
+#: gis_data_editor.php:402
 #, fuzzy
 #| msgid ""
 #| "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
@@ -620,14 +620,14 @@ msgstr ""
 #: import.php:95
 #, fuzzy, php-format
 #| msgid ""
-#| "You probably tried to upload too large file. Please refer to %"
-#| "sdocumentation%s for ways to workaround this limit."
+#| "You probably tried to upload too large file. Please refer to "
+#| "%sdocumentation%s for ways to workaround this limit."
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"ඔබ උඩුගත කරන ගොනුව විශාල වැඩි විය හැක. මෙම සීමාවන් ඉක්මවීමේ ක්‍රම සඳහා කරුණාකර %sලියකියවිලි%"
-"s බලන්න."
+"ඔබ උඩුගත කරන ගොනුව විශාල වැඩි විය හැක. මෙම සීමාවන් ඉක්මවීමේ ක්‍රම සඳහා කරුණාකර %sලියකියවිලි"
+"%s බලන්න."
 
 #: import.php:236 import.php:489
 msgid "Showing bookmark"
@@ -656,9 +656,9 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1_16]FAQ 1.16[/doc]."
 msgstr ""
-"ආනයනය සඳහා දත්ත කිසිවක් නොලැබුණි. ගොනුව ආනයනය සඳහා යොමු නොකිරීම හෝ යොමු කල "
-"ගොනුවේ විශාලත්වය PHP වින්‍යාසයන්හි අනුමත ප්‍රමාණයට වැඩ විශාල වීම මීට හේතු "
-"විය හැකිය. [doc@faq1_16]FAQ 1.16[/doc] බලන්න."
+"ආනයනය සඳහා දත්ත කිසිවක් නොලැබුණි. ගොනුව ආනයනය සඳහා යොමු නොකිරීම හෝ යොමු කල ගොනුවේ "
+"විශාලත්වය PHP වින්‍යාසයන්හි අනුමත ප්‍රමාණයට වැඩ විශාල වීම මීට හේතු විය හැකිය. [doc@faq1_16]"
+"FAQ 1.16[/doc] බලන්න."
 
 #: import.php:422
 msgid ""
@@ -707,7 +707,7 @@ msgstr "ඔබගේ SQL විමසුම සාර්ථකව ක්‍ර�
 msgid "Back"
 msgstr "ආපසු"
 
-#: index.php:173
+#: index.php:174
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr "<b >frame සහය ඇති</b> බ්‍රව්සර සමග phpMyAdmin වඩා හොඳින් ක්‍රියා කරයි."
 
@@ -1554,7 +1554,7 @@ msgstr "%d වලංගු පේළි අංකයක් නොවේ."
 #: libraries/insert_edit.lib.php:1488
 #: libraries/schema/User_Schema.class.php:387
 #: libraries/tbl_properties.inc.php:900 setup/frames/config.inc.php:39
-#: setup/frames/index.inc.php:246 tbl_gis_visualization.php:192
+#: setup/frames/index.inc.php:246 tbl_gis_visualization.php:193
 #: tbl_indexes.php:319 tbl_relation.php:588
 msgid "Save"
 msgstr "සුරකින්න"
@@ -2623,8 +2623,8 @@ msgstr "විමසුම තුල"
 #: libraries/DisplayResults.class.php:4926 libraries/structure.lib.php:665
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
 "මෙම දසුනේ අවම වශයෙන් පේළි මෙතරම් සංඛයාවක් ඇත. කරුණාකර %s ලේඛනය %s අධ්‍යනය කරන්න."
 
@@ -2732,9 +2732,7 @@ msgstr "ගොනුව උඩුගත කිරීමේදී දෝෂයක
 
 #: libraries/File.class.php:475
 msgid "Error moving the uploaded file, see [doc@faq1_11]FAQ 1.11[/doc]"
-msgstr ""
-"උඩුගත කෙරුණු ගොනුව ගෙන යාමේදී දෝෂයක් ඇති විය, [doc@faq1_11]FAQ 1.11[/doc] "
-"බලන්න"
+msgstr "උඩුගත කෙරුණු ගොනුව ගෙන යාමේදී දෝෂයක් ඇති විය, [doc@faq1_11]FAQ 1.11[/doc] බලන්න"
 
 #: libraries/File.class.php:493
 msgid "Error while moving uploaded file."
@@ -3192,21 +3190,21 @@ msgstr ""
 
 #: libraries/Types.class.php:307
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 "කුඩා දශම සංඛ්‍යාවකි, ලබා දිය හැකි අගයන් වන්නේ -3.402823466E+38 සිට -1.175494351E-38, "
 "0, හා 1.175494351E-38 සිට 3.402823466E+38"
 
 #: libraries/Types.class.php:309
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
-"ද්වී-නියත දශම සංඛ්‍යාවකි, ලබා දිය හැකි අගයන් වන්නේ -1.7976931348623157E+308 විට -"
-"2.2250738585072014E-308, 0, හා 2.2250738585072014E-308 සිට 1.7976931348623157E"
-"+308"
+"ද්වී-නියත දශම සංඛ්‍යාවකි, ලබා දිය හැකි අගයන් වන්නේ -1.7976931348623157E+308 විට "
+"-2.2250738585072014E-308, 0, හා 2.2250738585072014E-308 සිට "
+"1.7976931348623157E+308"
 
 #: libraries/Types.class.php:311
 msgid ""
@@ -4040,7 +4038,7 @@ msgid "Character set of the file"
 msgstr "ගොනුවේ අක්ෂර කට්ටලය"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:92
-#: libraries/structure.lib.php:1740 tbl_gis_visualization.php:180
+#: libraries/structure.lib.php:1740 tbl_gis_visualization.php:181
 #: tbl_printview.php:358
 msgid "Format"
 msgstr "ආකෘතිය"
@@ -4403,12 +4401,11 @@ msgstr "පිටු නාම"
 
 #: libraries/config/messages.inc.php:197
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
-"බව්සරයේ මාතෘකා පටියේ දැක්වෙන පෙළ සඳහන් කරයි. මේ සඳහා යොදාගත හැකි විශේෂ අගයන් "
-"ගෙනදෙන වචන දැනගැනීමට [doc@cfg_TitleTable]ලියකියවිලි[/doc] බලන්න."
+"බව්සරයේ මාතෘකා පටියේ දැක්වෙන පෙළ සඳහන් කරයි. මේ සඳහා යොදාගත හැකි විශේෂ අගයන් ගෙනදෙන "
+"වචන දැනගැනීමට [doc@cfg_TitleTable]ලියකියවිලි[/doc] බලන්න."
 
 #: libraries/config/messages.inc.php:198
 #: libraries/navigation_header.inc.php:76
@@ -4468,8 +4465,8 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation"
 msgstr ""
-"අමතර විශේෂාංග භාවිතා කිරීම සඳහා phpMyAdmin වින්‍යාස ගබඩාව සකසන්න. ලියකියවිලි "
-"වල [doc@linked-tables]phpMyAdmin වින්‍යාස ගබඩාව[/doc] බලන්න"
+"අමතර විශේෂාංග භාවිතා කිරීම සඳහා phpMyAdmin වින්‍යාස ගබඩාව සකසන්න. ලියකියවිලි වල "
+"[doc@linked-tables]phpMyAdmin වින්‍යාස ගබඩාව[/doc] බලන්න"
 
 #: libraries/config/messages.inc.php:210
 msgid "Changes tracking"
@@ -5972,11 +5969,11 @@ msgstr "කරුණාකර දත්තගබඩාව අඩංගු ඩි
 msgid "Details..."
 msgstr "තොරතුරු..."
 
-#: libraries/dbi/drizzle-wrappers.lib.php:440
+#: libraries/dbi/drizzle-wrappers.lib.php:450
 msgid "Can't seek in an unbuffered result set"
 msgstr ""
 
-#: libraries/dbi/drizzle-wrappers.lib.php:462
+#: libraries/dbi/drizzle-wrappers.lib.php:472
 msgid "Can't count rows in an unbuffered result set"
 msgstr ""
 
@@ -6141,12 +6138,12 @@ msgstr ", @TABLE@ වගුවේ නාමයෙන් ප්‍රතිස්
 #| "will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 
 #: libraries/display_export.lib.php:295
 msgid "use this for future exports"
@@ -6621,8 +6618,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:133
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:135
@@ -7200,8 +7197,8 @@ msgstr "%s වෙත ආයුබෝවන්"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "ඔබ වින්‍යාස ගොනුවක් නොසෑදුවා විය යුතුය. වින්‍යාස ගොනුවක් සෑදීමට %1$sපිහිටුවීමේ විධානාවලිය%2$s "
 "භාවිතා කිරීම අවශ්‍ය විය හැකිය."
@@ -9058,8 +9055,8 @@ msgstr "භාවිතා කරන්නන් පිළිබඳ දළ ව�
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "සටහන: phpMyAdmin භාවිත කරන්නන්ගේ වරප්‍රසාද ලබාගනුයේ MySQL හි වරප්‍රසාද වගුවෙනි. "
 "සේවාදායකයේ වරප්‍රසාද වෙනම ම වෙනස් කර ඇත්නම් ඉහත වගුවේ දත්ත සේවාදායකයේ වරප්‍රසාද වලට "
@@ -9501,8 +9498,8 @@ msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
-"මෙම සැසිය සඳහා පමණක් ඔබගේ තෝරාගැනීම් සුරැකේ. තෝරාගැනීම් ස්ථාවරව සුරැකීම සඳහා %"
-"sphpMyAdmin වින්‍යාස ගබඩාව%s අවශ්‍යය."
+"මෙම සැසිය සඳහා පමණක් ඔබගේ තෝරාගැනීම් සුරැකේ. තෝරාගැනීම් ස්ථාවරව සුරැකීම සඳහා "
+"%sphpMyAdmin වින්‍යාස ගබඩාව%s අවශ්‍යය."
 
 #: libraries/user_preferences.lib.php:126
 msgid "Could not save configuration"
@@ -11793,35 +11790,35 @@ msgstr ""
 msgid "Display GIS Visualization"
 msgstr "ජ්‍යාමිතික දත්ත නිරූපණය"
 
-#: tbl_gis_visualization.php:127
+#: tbl_gis_visualization.php:128
 msgid "Width"
 msgstr "පළල"
 
-#: tbl_gis_visualization.php:131
+#: tbl_gis_visualization.php:132
 msgid "Height"
 msgstr "උස"
 
-#: tbl_gis_visualization.php:135
+#: tbl_gis_visualization.php:136
 msgid "Label column"
 msgstr "ලේබල තීරුව"
 
-#: tbl_gis_visualization.php:137
+#: tbl_gis_visualization.php:138
 msgid "-- None --"
 msgstr "- කිසිවක් නොමැත -"
 
-#: tbl_gis_visualization.php:150
+#: tbl_gis_visualization.php:151
 msgid "Spatial column"
 msgstr "ජ්‍යාමිතික තීරුව"
 
-#: tbl_gis_visualization.php:174
+#: tbl_gis_visualization.php:175
 msgid "Redraw"
 msgstr "නැවත අඳින්න"
 
-#: tbl_gis_visualization.php:176
+#: tbl_gis_visualization.php:177
 msgid "Save to file"
 msgstr "ගොනුවකට සුරකින්න"
 
-#: tbl_gis_visualization.php:177
+#: tbl_gis_visualization.php:178
 msgid "File name"
 msgstr "ගොනුවේ නම"
 
@@ -12381,8 +12378,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:172
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:174
@@ -12510,8 +12507,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:209
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:211
@@ -13584,8 +13581,8 @@ msgstr "concurrent_insert ශුන්‍යයට සිටුවා ඇත"
 #~ "The result of this query can't be used for a chart. See [doc@faq6_29]FAQ "
 #~ "6.29[/doc]"
 #~ msgstr ""
-#~ "මෙම විමසුම් ප්‍රතිඑලය ප්‍රස්තාරයක් ඇඳීමට භාවිතා කල නොහැක. [doc@faq6_29]FAQ "
-#~ "6.29[/doc] බලන්න"
+#~ "මෙම විමසුම් ප්‍රතිඑලය ප්‍රස්තාරයක් ඇඳීමට භාවිතා කල නොහැක. [doc@faq6_29]FAQ 6.29[/doc] "
+#~ "බලන්න"
 
 #~ msgid "Title"
 #~ msgstr "මාතෘකාව"

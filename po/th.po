@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-09-03 19:56+0200\n"
+"POT-Creation-Date: 2012-09-05 15:36+0200\n"
 "PO-Revision-Date: 2012-09-05 09:58+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Thai <http://l10n.cihar.com/projects/phpmyadmin/master/th/>\n"
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Search"
 msgstr "ค้นหา"
 
-#: browse_foreigners.php:171 gis_data_editor.php:349 js/messages.php:231
+#: browse_foreigners.php:171 gis_data_editor.php:396 js/messages.php:231
 #: libraries/DbSearch.class.php:488 libraries/DisplayResults.class.php:1666
 #: libraries/TableSearch.class.php:1157 libraries/core.lib.php:534
 #: libraries/display_change_password.lib.php:75
@@ -521,86 +521,86 @@ msgstr "ข้อมูลที่ส่งออกถูกบันทึก
 msgid "Invalid export type"
 msgstr "ประเภทที่ส่งออกไม่ถูกต้อง!"
 
-#: gis_data_editor.php:92
+#: gis_data_editor.php:112
 #, php-format
 msgid "Value for the column \"%s\""
 msgstr "ค่าสำหรับคอลัมน์ \"%s\""
 
-#: gis_data_editor.php:127 tbl_gis_visualization.php:171
+#: gis_data_editor.php:140 tbl_gis_visualization.php:172
 msgid "Use OpenStreetMaps as Base Layer"
 msgstr "ใช้ OpenStreetMaps เป็นชั้นพื้นฐาน"
 
-#: gis_data_editor.php:147
+#: gis_data_editor.php:161
 msgid "SRID"
 msgstr "SRID"
 
-#: gis_data_editor.php:167 js/messages.php:326
+#: gis_data_editor.php:184 js/messages.php:326
 #: libraries/DisplayResults.class.php:1650
 msgid "Geometry"
 msgstr "เรขาคณิต"
 
-#: gis_data_editor.php:187 js/messages.php:322
+#: gis_data_editor.php:206 js/messages.php:322
 msgid "Point"
 msgstr "จุด"
 
-#: gis_data_editor.php:188 gis_data_editor.php:213 gis_data_editor.php:264
-#: gis_data_editor.php:326 js/messages.php:320
+#: gis_data_editor.php:207 gis_data_editor.php:234 gis_data_editor.php:289
+#: gis_data_editor.php:362 js/messages.php:320
 msgid "X"
 msgstr "X"
 
-#: gis_data_editor.php:190 gis_data_editor.php:215 gis_data_editor.php:266
-#: gis_data_editor.php:328 js/messages.php:321
+#: gis_data_editor.php:210 gis_data_editor.php:238 gis_data_editor.php:293
+#: gis_data_editor.php:366 js/messages.php:321
 msgid "Y"
 msgstr "Y"
 
-#: gis_data_editor.php:211 gis_data_editor.php:262 gis_data_editor.php:324
+#: gis_data_editor.php:232 gis_data_editor.php:287 gis_data_editor.php:360
 #: js/messages.php:323
 #, php-format
 msgid "Point %d"
 msgstr "จุด %d"
 
-#: gis_data_editor.php:220 gis_data_editor.php:270 gis_data_editor.php:332
+#: gis_data_editor.php:245 gis_data_editor.php:300 gis_data_editor.php:373
 #: js/messages.php:329
 msgid "Add a point"
 msgstr "เพิ่มจุด"
 
-#: gis_data_editor.php:237 js/messages.php:324
+#: gis_data_editor.php:262 js/messages.php:324
 msgid "Linestring"
 msgstr "แถวข้อความ"
 
-#: gis_data_editor.php:240 gis_data_editor.php:305 js/messages.php:328
+#: gis_data_editor.php:265 gis_data_editor.php:341 js/messages.php:328
 msgid "Outer Ring"
 msgstr "ด้านนอก"
 
-#: gis_data_editor.php:242 gis_data_editor.php:307 js/messages.php:327
+#: gis_data_editor.php:267 gis_data_editor.php:343 js/messages.php:327
 msgid "Inner Ring"
 msgstr "ด้านใน"
 
-#: gis_data_editor.php:274
+#: gis_data_editor.php:303
 msgid "Add a linestring"
 msgstr "เพิ่มข้อความ"
 
-#: gis_data_editor.php:274 gis_data_editor.php:335 js/messages.php:330
+#: gis_data_editor.php:304 gis_data_editor.php:378 js/messages.php:330
 msgid "Add an inner ring"
 msgstr "เพิ่มด้านใน"
 
-#: gis_data_editor.php:290 js/messages.php:325
+#: gis_data_editor.php:325 js/messages.php:325
 msgid "Polygon"
 msgstr "รูปหลายเหลี่ยม"
 
-#: gis_data_editor.php:338 js/messages.php:331
+#: gis_data_editor.php:384 js/messages.php:331
 msgid "Add a polygon"
 msgstr "เพิ่มรูปหลายเหลี่ยม"
 
-#: gis_data_editor.php:343
+#: gis_data_editor.php:390
 msgid "Add geometry"
 msgstr "เพิ่มเรขาคณิต"
 
-#: gis_data_editor.php:351
+#: gis_data_editor.php:399
 msgid "Output"
 msgstr "ส่งออก"
 
-#: gis_data_editor.php:354
+#: gis_data_editor.php:402
 #, fuzzy
 #| msgid ""
 #| "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
@@ -613,11 +613,11 @@ msgstr "เลือก \"GeomFromText\" จากแถวฟังก์ชั
 #: import.php:95
 #, fuzzy, php-format
 #| msgid ""
-#| "You probably tried to upload too large file. Please refer to %"
-#| "sdocumentation%s for ways to workaround this limit."
+#| "You probably tried to upload too large file. Please refer to "
+#| "%sdocumentation%s for ways to workaround this limit."
 msgid ""
-"You probably tried to upload a file that is too large. Please refer to %"
-"sdocumentation%s for a workaround for this limit."
+"You probably tried to upload a file that is too large. Please refer to "
+"%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "คุณพยายามที่จะอับโหลดไฟล์ที่มีขนาดใหญ่เกินไป กรุณาดูที่ %sdocumentation%s เอกสารช่วยเหลือ "
 "เพื่อแก้ไขปัญหาดังกล่าวนี้ "
@@ -651,9 +651,8 @@ msgid ""
 "file size exceeded the maximum size permitted by your PHP configuration. See "
 "[doc@faq1_16]FAQ 1.16[/doc]."
 msgstr ""
-"ไม่มีข้อมูลสำหรับการนำเข้า อาจจะไม่ได้ใส่ชื่อไฟล์ "
-"หรือขนาดไฟล์เกินขนาดสูงสุดที่ระบบตั้งไว้ กรุณาแก้ไขไฟล์ตั้งค่าของ PHP "
-"ดูเอกสารเพิ่มเติมได้ที่ [doc@faq1_16]FAQ 1.16[/doc]"
+"ไม่มีข้อมูลสำหรับการนำเข้า อาจจะไม่ได้ใส่ชื่อไฟล์ หรือขนาดไฟล์เกินขนาดสูงสุดที่ระบบตั้งไว้ "
+"กรุณาแก้ไขไฟล์ตั้งค่าของ PHP ดูเอกสารเพิ่มเติมได้ที่ [doc@faq1_16]FAQ 1.16[/doc]"
 
 #: import.php:422
 msgid ""
@@ -700,7 +699,7 @@ msgstr "ทำคำค้นเสร็จเรียบร้อยแล้
 msgid "Back"
 msgstr "ย้อนกลับ"
 
-#: index.php:173
+#: index.php:174
 msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
 msgstr "เบราเซอร์ที่<b>ใช้เฟรมได้</b> จะช่วยให้ใช้ phpMyAdmin ได้ง่ายขึ้น"
 
@@ -1557,7 +1556,7 @@ msgstr "﻿%d ไม่ใช่หมายเลขแถวที่ถูก
 #: libraries/insert_edit.lib.php:1488
 #: libraries/schema/User_Schema.class.php:387
 #: libraries/tbl_properties.inc.php:900 setup/frames/config.inc.php:39
-#: setup/frames/index.inc.php:246 tbl_gis_visualization.php:192
+#: setup/frames/index.inc.php:246 tbl_gis_visualization.php:193
 #: tbl_indexes.php:319 tbl_relation.php:588
 msgid "Save"
 msgstr "บันทึก"
@@ -2659,8 +2658,8 @@ msgstr "ในคำค้น"
 #: libraries/DisplayResults.class.php:4926 libraries/structure.lib.php:665
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr "การแสดงผลนี้ จะแสดงเพียงจำนวนข้อมูลนี้เท่านั้น ดูข้อมูลเพิ่มเติมได้ที่ %sdocumentation%s"
 
 #: libraries/DisplayResults.class.php:4939
@@ -3234,14 +3233,14 @@ msgstr ""
 
 #: libraries/Types.class.php:307
 msgid ""
-"A small floating-point number, allowable values are -3.402823466E+38 to -"
-"1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
+"A small floating-point number, allowable values are -3.402823466E+38 to "
+"-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
 #: libraries/Types.class.php:309
 msgid ""
-"A double-precision floating-point number, allowable values are -"
-"1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
+"A double-precision floating-point number, allowable values are "
+"-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
@@ -4066,7 +4065,7 @@ msgid "Character set of the file"
 msgstr "ชุดอักขระของไฟล์ (character set):"
 
 #: libraries/config/messages.inc.php:76 libraries/config/messages.inc.php:92
-#: libraries/structure.lib.php:1740 tbl_gis_visualization.php:180
+#: libraries/structure.lib.php:1740 tbl_gis_visualization.php:181
 #: tbl_printview.php:358
 msgid "Format"
 msgstr "รูปแบบ"
@@ -4459,9 +4458,8 @@ msgstr "หมายเลขหน้า:"
 
 #: libraries/config/messages.inc.php:197
 msgid ""
-"Specify browser's title bar text. Refer to "
-"[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be used "
-"to get special values."
+"Specify browser's title bar text. Refer to [doc@cfg_TitleTable]documentation"
+"[/doc] for magic strings that can be used to get special values."
 msgstr ""
 
 #: libraries/config/messages.inc.php:198
@@ -6019,11 +6017,11 @@ msgstr ""
 msgid "Details..."
 msgstr ""
 
-#: libraries/dbi/drizzle-wrappers.lib.php:440
+#: libraries/dbi/drizzle-wrappers.lib.php:450
 msgid "Can't seek in an unbuffered result set"
 msgstr ""
 
-#: libraries/dbi/drizzle-wrappers.lib.php:462
+#: libraries/dbi/drizzle-wrappers.lib.php:472
 msgid "Can't count rows in an unbuffered result set"
 msgstr ""
 
@@ -6207,8 +6205,8 @@ msgstr ""
 #, php-format
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 
 #: libraries/display_export.lib.php:295
@@ -6696,8 +6694,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:133
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:135
@@ -7296,8 +7294,8 @@ msgstr "%s ยินดีต้อนรับ"
 #: libraries/plugins/auth/AuthenticationConfig.class.php:101
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "﻿คุณคงไม่ได้สร้างแฟ้มการกำหนดค่า คุณอาจต้องการใช้ %1$ssetup script%2$s "
 "เพื่อสร้างอย่างใดอย่างหนึ่ง"
@@ -9220,8 +9218,8 @@ msgstr "ข้อมูลทั่วไปของผู้ใช้"
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 
 #: libraries/server_privileges.lib.php:3054
@@ -12054,39 +12052,39 @@ msgstr "ดูโครงสร้างของตาราง"
 msgid "Display GIS Visualization"
 msgstr ""
 
-#: tbl_gis_visualization.php:127
+#: tbl_gis_visualization.php:128
 msgid "Width"
 msgstr ""
 
-#: tbl_gis_visualization.php:131
+#: tbl_gis_visualization.php:132
 msgid "Height"
 msgstr ""
 
-#: tbl_gis_visualization.php:135
+#: tbl_gis_visualization.php:136
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Label column"
 msgstr "เพิ่ม/ลบ คอลัมน์ (ฟิลด์)"
 
-#: tbl_gis_visualization.php:137
+#: tbl_gis_visualization.php:138
 msgid "-- None --"
 msgstr ""
 
-#: tbl_gis_visualization.php:150
+#: tbl_gis_visualization.php:151
 #, fuzzy
 #| msgid "Total"
 msgid "Spatial column"
 msgstr "รวม"
 
-#: tbl_gis_visualization.php:174
+#: tbl_gis_visualization.php:175
 msgid "Redraw"
 msgstr ""
 
-#: tbl_gis_visualization.php:176
+#: tbl_gis_visualization.php:177
 msgid "Save to file"
 msgstr "บันทึกลงเป็นไฟล์"
 
-#: tbl_gis_visualization.php:177
+#: tbl_gis_visualization.php:178
 #, fuzzy
 #| msgid "User name"
 msgid "File name"
@@ -12681,8 +12679,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:172
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: libraries/advisory_rules.txt:174
@@ -12814,8 +12812,8 @@ msgstr ""
 #: libraries/advisory_rules.txt:209
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: libraries/advisory_rules.txt:211
@@ -13521,8 +13519,8 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
-"คุณกำลังใช้ %s%% ของหน่วยความจำของคุณสำหรับการบัฟเฟอร์ InnoDB ถ้าคุณกำลังกำหนดน้อยกว่า 60%"
-"% อย่างไรก็ตาม ที่นี้อาจไม่สมบูรณ์เพียงพอสำหรับระบบของคุณ ถ้าคุณไม่มีตาราง InnoDB "
+"คุณกำลังใช้ %s%% ของหน่วยความจำของคุณสำหรับการบัฟเฟอร์ InnoDB ถ้าคุณกำลังกำหนดน้อยกว่า "
+"60%% อย่างไรก็ตาม ที่นี้อาจไม่สมบูรณ์เพียงพอสำหรับระบบของคุณ ถ้าคุณไม่มีตาราง InnoDB "
 "มากหรือบริการอื่นๆ ที่ทำงานบนเครื่องเดียวกัน"
 
 #: libraries/advisory_rules.txt:452
@@ -13792,8 +13790,8 @@ msgstr "concurrent_insert ตั้งค่าไว้ที่ 0"
 #~ "The additional features for working with linked tables have been "
 #~ "deactivated. To find out why click %shere%s."
 #~ msgstr ""
-#~ "ความสามารถเพิ่มเติมสำหรับ linked Tables ได้ถูกระงับเอาไว้ ตามเหตุผลที่แจ้งไว้ใน %shere%"
-#~ "s"
+#~ "ความสามารถเพิ่มเติมสำหรับ linked Tables ได้ถูกระงับเอาไว้ ตามเหตุผลที่แจ้งไว้ใน %shere"
+#~ "%s"
 
 #~ msgid "No tables"
 #~ msgstr "ไม่มีตาราง"
