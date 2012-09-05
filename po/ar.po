@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-05 15:50+0200\n"
-"PO-Revision-Date: 2012-09-04 16:55+0200\n"
+"PO-Revision-Date: 2012-09-05 21:37+0200\n"
 "Last-Translator: مترجم حرّ <metehyi@gmail.com>\n"
-"Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/master/ar/"
-">\n"
+"Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/master/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -951,7 +950,7 @@ msgstr "الذاكرة المؤقتة"
 
 #: js/messages.php:106
 msgid "Buffered memory"
-msgstr ""
+msgstr "الذاكرة الوسيطة"
 
 #: js/messages.php:107
 msgid "Free memory"
@@ -1042,7 +1041,7 @@ msgstr "تحرير العناوين"
 
 #: js/messages.php:136
 msgid "Add chart to grid"
-msgstr ""
+msgstr "أضف تخطيط إلى المشبكة"
 
 #: js/messages.php:138
 msgid "Please add at least one variable to the series"
@@ -1204,6 +1203,7 @@ msgstr ""
 #: js/messages.php:177
 msgid "Log data loaded. Queries executed in this time span:"
 msgstr ""
+"تم تحميل بيانات سجلّ الوقائع. الإستعلامات المنفذة في الفترة الزمنية هذه:"
 
 #: js/messages.php:179
 msgid "Jump to Log table"
@@ -7906,7 +7906,7 @@ msgstr "تحويل المتصفح"
 #: libraries/relation.lib.php:173
 msgid ""
 "Please see the documentation on how to update your column_comments table"
-msgstr "رجاء راجع التوثيق لكيفية تحديث جدول column_comments."
+msgstr "رجاء راجع التوثيق لكيفية تحديث جدول column_comments"
 
 #: libraries/relation.lib.php:183 libraries/sql_query_form.lib.php:403
 msgid "Bookmarked SQL query"
@@ -8248,7 +8248,7 @@ msgstr ""
 #: libraries/rte/rte_routines.lib.php:308
 #, php-format
 msgid "Routine %1$s has been modified."
-msgstr "تم تعديل الإجراء %1$s"
+msgstr "تم تعديل الإجراء %1$s."
 
 #: libraries/rte/rte_routines.lib.php:325
 #, php-format
