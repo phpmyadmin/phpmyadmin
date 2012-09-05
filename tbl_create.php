@@ -19,7 +19,9 @@ $common_functions->checkParameters(array('db'));
 
 /* Check if database name is empty */
 if (strlen($db) == 0) {
-    $common_functions->mysqlDie(__('The database name is empty!'), '', '', 'main.php');
+    $common_functions->mysqlDie(
+        __('The database name is empty!'), '', '', 'main.php'
+    );
 }
 
 /**
@@ -84,7 +86,9 @@ if (isset($_REQUEST['do_save_data'])) {
     // Builds the fields creation statements
     for ($i = 0; $i < $field_cnt; $i++) {
         // '0' is also empty for php :-(
-        if (empty($_REQUEST['field_name'][$i]) && $_REQUEST['field_name'][$i] != '0') {
+        if (empty($_REQUEST['field_name'][$i])
+            && $_REQUEST['field_name'][$i] != '0'
+        ) {
             continue;
         }
 
@@ -123,7 +127,9 @@ if (isset($_REQUEST['do_save_data'])) {
     $primary_cnt = (isset($field_primary) ? count($field_primary) : 0);
     for ($i = 0; $i < $primary_cnt; $i++) {
         $j = $field_primary[$i];
-        if (isset($_REQUEST['field_name'][$j]) && strlen($_REQUEST['field_name'][$j])) {
+        if (isset($_REQUEST['field_name'][$j])
+            && strlen($_REQUEST['field_name'][$j])
+        ) {
             $primary .= $common_functions->backquote($_REQUEST['field_name'][$j]) . ', ';
         }
     } // end for
@@ -139,7 +145,9 @@ if (isset($_REQUEST['do_save_data'])) {
     $index_cnt = (isset($field_index) ? count($field_index) : 0);
     for ($i = 0;$i < $index_cnt; $i++) {
         $j = $field_index[$i];
-        if (isset($_REQUEST['field_name'][$j]) && strlen($_REQUEST['field_name'][$j])) {
+        if (isset($_REQUEST['field_name'][$j])
+            && strlen($_REQUEST['field_name'][$j])
+        ) {
             $index .= $common_functions->backquote($_REQUEST['field_name'][$j]) . ', ';
         }
     } // end for
@@ -155,8 +163,10 @@ if (isset($_REQUEST['do_save_data'])) {
     $unique_cnt = (isset($field_unique) ? count($field_unique) : 0);
     for ($i = 0; $i < $unique_cnt; $i++) {
         $j = $field_unique[$i];
-        if (isset($_REQUEST['field_name'][$j]) && strlen($_REQUEST['field_name'][$j])) {
-           $unique .= $common_functions->backquote($_REQUEST['field_name'][$j]) . ', ';
+        if (isset($_REQUEST['field_name'][$j])
+            && strlen($_REQUEST['field_name'][$j])
+        ) {
+            $unique .= $common_functions->backquote($_REQUEST['field_name'][$j]) . ', ';
         }
     } // end for
     unset($unique_cnt);
@@ -171,8 +181,10 @@ if (isset($_REQUEST['do_save_data'])) {
     $fulltext_cnt = (isset($field_fulltext) ? count($field_fulltext) : 0);
     for ($i = 0; $i < $fulltext_cnt; $i++) {
         $j = $field_fulltext[$i];
-        if (isset($_REQUEST['field_name'][$j]) && strlen($_REQUEST['field_name'][$j])) {
-           $fulltext .= $common_functions->backquote($_REQUEST['field_name'][$j]) . ', ';
+        if (isset($_REQUEST['field_name'][$j])
+            && strlen($_REQUEST['field_name'][$j])
+        ) {
+            $fulltext .= $common_functions->backquote($_REQUEST['field_name'][$j]) . ', ';
         }
     } // end for
 
@@ -183,21 +195,26 @@ if (isset($_REQUEST['do_save_data'])) {
     unset($fulltext);
 
     // Builds the 'create table' statement
-    $sql_query = 'CREATE TABLE ' . $common_functions->backquote($db) . '.' . PMA_CommonFunctions::getInstance()->backquote($table)
-     . ' (' . $sql_query . ')';
+    $sql_query = 'CREATE TABLE ' . $common_functions->backquote($db) . '.'
+        . $common_functions->backquote($table) . ' (' . $sql_query . ')';
 
     // Adds table type, character set, comments and partition definition
-    if (!empty($_REQUEST['tbl_storage_engine']) && ($_REQUEST['tbl_storage_engine'] != 'Default')) {
+    if (!empty($_REQUEST['tbl_storage_engine'])
+        && ($_REQUEST['tbl_storage_engine'] != 'Default')
+    ) {
         $sql_query .= ' ENGINE = ' . $_REQUEST['tbl_storage_engine'];
     }
     if (!empty($_REQUEST['tbl_collation'])) {
         $sql_query .= PMA_generateCharsetQueryPart($_REQUEST['tbl_collation']);
     }
     if (!empty($_REQUEST['comment'])) {
-        $sql_query .= ' COMMENT = \'' . $common_functions->sqlAddSlashes($_REQUEST['comment']) . '\'';
+        $sql_query .= ' COMMENT = \''
+            . $common_functions->sqlAddSlashes($_REQUEST['comment']) . '\'';
     }
     if (!empty($_REQUEST['partition_definition'])) {
-        $sql_query .= ' ' . $common_functions->sqlAddSlashes($_REQUEST['partition_definition']);
+        $sql_query .= ' ' . $common_functions->sqlAddSlashes(
+            $_REQUEST['partition_definition']
+        );
     }
     $sql_query .= ';';
 
@@ -228,7 +245,9 @@ if (isset($_REQUEST['do_save_data'])) {
         }
 
         $message = PMA_Message::success(__('Table %1$s has been created.'));
-        $message->addParam($common_functions->backquote($db) . '.' . PMA_CommonFunctions::getInstance()->backquote($table));
+        $message->addParam(
+            $common_functions->backquote($db) . '.' . $common_functions->backquote($table)
+        );
 
         if ($GLOBALS['is_ajax_request'] == true) {
 
@@ -257,24 +276,37 @@ if (isset($_REQUEST['do_save_data'])) {
                 $overhead_size  = (double) 0;
                 $overhead_check = '';
 
-                $tblsize                    =  doubleval($tbl_stats['Data_length']) + doubleval($tbl_stats['Index_length']);
-                $sum_size                   += $tblsize;
-                list($formatted_size, $unit) =  $common_functions->formatByteDown($tblsize, 3, ($tblsize > 0) ? 1 : 0);
+                $tblsize = doubleval($tbl_stats['Data_length'])
+                    + doubleval($tbl_stats['Index_length']);
+                $sum_size += $tblsize;
+                list($formatted_size, $unit) = $common_functions->formatByteDown(
+                    $tblsize,
+                    3,
+                    ($tblsize > 0) ? 1 : 0
+                );
                 if (isset($tbl_stats['Data_free']) && $tbl_stats['Data_free'] > 0) {
-                    list($formatted_overhead, $overhead_unit)     = $common_functions->formatByteDown($tbl_stats['Data_free'], 3, ($tbl_stats['Data_free'] > 0) ? 1 : 0);
-                    $overhead_size           += $tbl_stats['Data_free'];
+                    list($formatted_overhead, $overhead_unit) = $common_functions->formatByteDown(
+                        $tbl_stats['Data_free'],
+                        3,
+                        ($tbl_stats['Data_free'] > 0) ? 1 : 0
+                    );
+                    $overhead_size += $tbl_stats['Data_free'];
                 }
 
                 if (isset($formatted_overhead)) {
-                        $overhead = '<span>' . $formatted_overhead . '</span> <span class="unit">' . $overhead_unit . '</span>';
-                        unset($formatted_overhead);
-                    } else {
-                        $overhead = '-';
+                    $overhead = '<span>' . $formatted_overhead . '</span>'
+                        . '<span class="unit">' . $overhead_unit . '</span>';
+                    unset($formatted_overhead);
+                } else {
+                    $overhead = '-';
                 }
-           }
+            }
 
             $new_table_string = '<tr>' . "\n";
-            $new_table_string .= '<td class="center"> <input type="checkbox" id="checkbox_tbl_" name="selected_tbl[]" value="'.htmlspecialchars($table).'" /> </td>' . "\n";
+            $new_table_string .= '<td class="center">'
+                . '<input type="checkbox" id="checkbox_tbl_"'
+                . ' name="selected_tbl[]" value="'.htmlspecialchars($table).'" />'
+                . '</td>' . "\n";
 
             $new_table_string .= '<th>';
             $new_table_string .= '<a href="sql.php'
@@ -284,11 +316,17 @@ if (isset($_REQUEST['do_save_data'])) {
             if (PMA_Tracker::isActive()) {
                 $truename = str_replace(' ', '&nbsp;', htmlspecialchars($table));
                 if (PMA_Tracker::isTracked($db, $truename)) {
-                    $new_table_string .= '<a href="tbl_tracking.php' . PMA_generate_common_url($tbl_url_params) . '">';
-                    $new_table_string .= $common_functions->getImage('eye.png', __('Tracking is active.'));
+                    $new_table_string .= '<a href="tbl_tracking.php'
+                        . PMA_generate_common_url($tbl_url_params) . '">';
+                    $new_table_string .= $common_functions->getImage(
+                        'eye.png', __('Tracking is active.')
+                    );
                 } elseif (PMA_Tracker::getVersion($db, $truename) > 0) {
-                    $new_table_string .= '<a href="tbl_tracking.php' . PMA_generate_common_url($tbl_url_params) . '">';
-                    $new_table_string .= $common_functions->getImage('eye_grey.png', __('Tracking is not active.'));
+                    $new_table_string .= '<a href="tbl_tracking.php'
+                       . PMA_generate_common_url($tbl_url_params) . '">';
+                    $new_table_string .= $common_functions->getImage(
+                        'eye_grey.png', __('Tracking is not active.')
+                    );
                 }
                 unset($truename);
             }
@@ -296,29 +334,58 @@ if (isset($_REQUEST['do_save_data'])) {
 
             $new_table_string .= '<td>' . $titles['NoBrowse'] . '</td>' . "\n";
 
-            $new_table_string .= '<td><a href="tbl_structure.php' . PMA_generate_common_url($tbl_url_params) . '">' . $titles['Structure'] . '</a></td>' . "\n";
+            $new_table_string .= '<td>'
+                . '<a href="tbl_structure.php'
+                . PMA_generate_common_url($tbl_url_params) . '">'
+                . $titles['Structure']
+                . '</a>'
+                . '</td>' . "\n";
 
             $new_table_string .= '<td>' . $titles['NoSearch'] . '</td>' . "\n";
 
-            $new_table_string .= '<td><a href="tbl_change.php' . PMA_generate_common_url($tbl_url_params) . '">' . $titles['Insert'] . '</a></td>' . "\n";
+            $new_table_string .= '<td>'
+                . '<a href="tbl_change.php'
+                . PMA_generate_common_url($tbl_url_params) . '">'
+                . $titles['Insert']
+                . '</a>'
+                . '</td>' . "\n";
 
             $new_table_string .= '<td>' . $titles['NoEmpty'] . '</td>' . "\n";
 
-            $new_table_string .= '<td><a class="drop_table_anchor" href="sql.php' . PMA_generate_common_url($tbl_url_params) . '&amp;sql_query=';
-            $new_table_string .= urlencode('DROP TABLE ' . $common_functions->backquote($table));
-            $new_table_string .= '">';
-            $new_table_string .= $titles['Drop'];
-            $new_table_string .= '</a></td>' . "\n";
+            $new_table_string .= '<td>'
+                . '<a class="drop_table_anchor" href="sql.php'
+                . PMA_generate_common_url($tbl_url_params) . '&amp;sql_query='
+                . urlencode('DROP TABLE ' . $common_functions->backquote($table)) . '">'
+                . $titles['Drop']
+                . '</a>'
+                . '</td>' . "\n";
 
-            $new_table_string .= '<td class="value">' . $tbl_stats['Rows'] . '</td>' . "\n";
+            $new_table_string .= '<td class="value">'
+                . $tbl_stats['Rows']
+                . '</td>' . "\n";
 
-            $new_table_string .= '<td class="nowrap">' . $tbl_stats['Engine'] . '</td>' . "\n";
+            $new_table_string .= '<td class="nowrap">'
+                . $tbl_stats['Engine']
+                . '</td>' . "\n";
 
-            $new_table_string .= '<td> <dfn title="' . PMA_getCollationDescr($tbl_stats['Collation']) . '">'. $tbl_stats['Collation'] .'</dfn></td>' . "\n";
+            $new_table_string .= '<td>'
+                . '<dfn title="' . PMA_getCollationDescr($tbl_stats['Collation']) . '">'
+                . $tbl_stats['Collation']
+                .'</dfn>'
+                . '</td>' . "\n";
 
             if ($is_show_stats) {
-                $new_table_string .= '<td class="value tbl_size"> <a href="tbl_structure.php' . PMA_generate_common_url($tbl_url_params) . '#showusage" ><span>' . $formatted_size . '</span> <span class="unit">' . $unit . '</class></a> </td>' . "\n" ;
-                $new_table_string .= '<td class="value tbl_overhead">' . $overhead . '</td>' . "\n" ;
+                $new_table_string .= '<td class="value tbl_size">'
+                    . '<a href="tbl_structure.php'
+                    . PMA_generate_common_url($tbl_url_params) . '#showusage" >'
+                    . '<span>' . $formatted_size . '</span>'
+                    . '<span class="unit">' . $unit . '</span>'
+                    . '</a>'
+                    . '</td>' . "\n" ;
+
+                $new_table_string .= '<td class="value tbl_overhead">'
+                    . $overhead
+                    . '</td>' . "\n" ;
             }
 
             $new_table_string .= '</tr>' . "\n";
@@ -336,7 +403,8 @@ if (isset($_REQUEST['do_save_data'])) {
             $reread_info = true;
             include 'libraries/tbl_info.inc.php';
 
-            // do not switch to sql.php - as there is no row to be displayed on a new table
+            // do not switch to sql.php
+            // as there is no row to be displayed on a new table
             if ($cfg['DefaultTabTable'] === 'sql.php') {
                 include 'tbl_structure.php';
             } else {
@@ -351,8 +419,9 @@ if (isset($_REQUEST['do_save_data'])) {
         } else {
             $common_functions->mysqlDie('', '', '', $err_url, false);
             // An error happened while inserting/updating a table definition.
-            // to prevent total loss of that data, we embed the form once again.
-            // The variable $regenerate will be used to restore data in libraries/tbl_properties.inc.php
+            // To prevent total loss of that data, we embed the form once again.
+            // The variable $regenerate will be used to restore data in
+            // libraries/tbl_properties.inc.php
             $num_fields = $_REQUEST['orig_num_fields'];
             $regenerate = true;
         }
@@ -364,7 +433,8 @@ if (isset($_REQUEST['do_save_data'])) {
  * Displays the form used to define the structure of the table
  */
 
-// This div is used to show the content(eg: create table form with more columns) fetched with AJAX subsequently.
+// This div is used to show the content(eg: create table form with more columns)
+// fetched with AJAX subsequently.
 if ($GLOBALS['is_ajax_request'] != true) {
     echo('<div id="create_table_div">');
 }
