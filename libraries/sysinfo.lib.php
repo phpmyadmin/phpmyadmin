@@ -181,13 +181,15 @@ class PMA_sysinfoSunos
         }
     }
 
-    public function loadavg() {
+    public function loadavg()
+    {
         $load1 = $this->_kstat('unix:0:system_misc:avenrun_1min');
 
         return array('loadavg' => $load1);
     }
 
-    public function memory() {
+    public function memory()
+    {
         preg_match_all(
             '/^(MemTotal|MemFree|Cached|Buffers|SwapCached|SwapTotal|SwapFree):\s+(.*)\s*kB/im',
             file_get_contents('/proc/meminfo'),
@@ -214,11 +216,13 @@ class PMA_sysinfoDefault
 {
     public $os = PHP_OS;
 
-    public function loadavg() {
+    public function loadavg()
+    {
         return array('loadavg' => 0);
     }
 
-    public function memory() {
+    public function memory()
+    {
         return array();
     }
 }
