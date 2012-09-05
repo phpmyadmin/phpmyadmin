@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 06:32-0400\n"
-"PO-Revision-Date: 2012-08-28 14:42+0200\n"
+"PO-Revision-Date: 2012-09-05 10:57+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Belarusian "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/be/>\n"
@@ -1060,7 +1060,8 @@ msgid ""
 msgstr ""
 "Дадзеныя для імпартаваньня не атрыманыя. Альбо ніводны файл ня быў "
 "загружаны, альбо памер файла перавысіў максымальны памер, вызначаны "
-"канфігурацыяй PHP. Гл. FAQ 1.16."
+"канфігурацыяй PHP. Гл. [a@./Documentation.html#faq1_16@Documentation]FAQ "
+"1.16[/a]."
 
 #: import.php:366
 msgid ""
@@ -2631,7 +2632,9 @@ msgstr "Падчас загрузкі файла адбылася невядом
 msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
-msgstr "Памылка перамяшчэньня загружанага файла. Глядзіце разьдзел 1.11 у FAQ"
+msgstr ""
+"Памылка перамяшчэньня загружанага файла. Глядзіце разьдзел "
+"[a@./Documentation.html#faq1_11@Documentation]1.11 у FAQ[/a]"
 
 #: libraries/File.class.php:508
 msgid "Error while moving uploaded file."
@@ -5804,7 +5807,9 @@ msgstr "Трыгеры"
 msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
-msgstr "Значэньне можа быць прыблізным. Гл. FAQ 3.11"
+msgstr ""
+"Значэньне можа быць прыблізным. Гл. "
+"[a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a]"
 
 #: libraries/dbi/drizzle.dbi.lib.php:114 libraries/dbi/mysql.dbi.lib.php:117
 #: libraries/dbi/mysqli.dbi.lib.php:189
