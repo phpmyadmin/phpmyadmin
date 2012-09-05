@@ -164,7 +164,7 @@ if (isset($rownumber)) {
 }
 $output .= '<span class="formelement">'
     . '<label for="input_foreign_filter">' . __('Search') . ':' . '</label>'
-    . '<input type="text" name="foreign_filter" id="input_foreign_filter" value="' 
+    . '<input type="text" name="foreign_filter" id="input_foreign_filter" value="'
     . (isset($foreign_filter) ? htmlspecialchars($foreign_filter) : '') . '" />'
     . '<input type="submit" name="submit_foreign_filter" value="'
     .  __('Go') . '" />'
@@ -302,7 +302,7 @@ if (is_array($foreignData['disp_row'])) {
             . $val_ordered_current_val . '</a>'
             . ($val_ordered_current_equals_data ? '</strong>' : '')
             . '</td>';
-    
+
         $output .= '<td class="nowrap">'
             . ($val_ordered_current_equals_data ? '<strong>' : '')
             . '<a href="#" title="' . __('Use this value')

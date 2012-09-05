@@ -178,7 +178,7 @@ foreach ($serverVars as $name => $value) {
             $VARIABLE_DOC_LINKS[$name][2] . '_' . $VARIABLE_DOC_LINKS[$name][0]
         );
     }
-    
+
     $output .= '</td>';
 
     if ($has_session_value) {
