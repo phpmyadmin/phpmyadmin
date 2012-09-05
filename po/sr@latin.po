@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-03 19:56+0200\n"
-"PO-Revision-Date: 2012-09-05 11:24+0200\n"
-"Last-Translator: Vojislav Pavić <vpavic@gmail.com>\n"
+"PO-Revision-Date: 2012-09-05 11:29+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Serbian (latin) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sr@latin/>\n"
 "Language: sr@latin\n"
@@ -4860,7 +4860,7 @@ msgstr "Ne uvozi prazne redove"
 
 #: libraries/config/messages.inc.php:264
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr "Uvezi valute ($5.00 to 5.00)"
+msgstr "Uvezi valute ($5.00 do 5.00)"
 
 #: libraries/config/messages.inc.php:265
 msgid "Import percentages as proper decimals (12.00% to .12)"
