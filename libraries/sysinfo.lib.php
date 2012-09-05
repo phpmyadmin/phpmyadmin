@@ -109,7 +109,10 @@ class PMA_sysinfoWinnt
 
     function memory()
     {
-        $buffer = $this->_getWMI("Win32_OperatingSystem", array('TotalVisibleMemorySize', 'FreePhysicalMemory'));
+        $buffer = $this->_getWMI(
+            "Win32_OperatingSystem",
+            array('TotalVisibleMemorySize', 'FreePhysicalMemory')
+        );
         $mem = Array();
         $mem['MemTotal'] = $buffer[0]['TotalVisibleMemorySize'];
         $mem['MemFree'] = $buffer[0]['FreePhysicalMemory'];
@@ -139,12 +142,19 @@ class PMA_sysinfoLinux
     {
         $buf = file_get_contents('/proc/stat');
         $nums=preg_split("/\s+/", substr($buf, 0, strpos($buf, "\n")));
-        return Array('busy' => $nums[1]+$nums[2]+$nums[3], 'idle' => intval($nums[4]));
+        return Array(
+            'busy' => $nums[1]+$nums[2]+$nums[3],
+            'idle' => intval($nums[4])
+        );
     }
 
     function memory()
     {
-        preg_match_all('/^(MemTotal|MemFree|Cached|Buffers|SwapCached|SwapTotal|SwapFree):\s+(.*)\s*kB/im', file_get_contents('/proc/meminfo'), $matches);
+        preg_match_all(
+            '/^(MemTotal|MemFree|Cached|Buffers|SwapCached|SwapTotal|SwapFree):\s+(.*)\s*kB/im',
+            file_get_contents('/proc/meminfo'),
+            $matches
+        );
 
         $mem = array_combine($matches[1], $matches[2]);
         $mem['MemUsed'] = $mem['MemTotal'] - $mem['MemFree'] - $mem['Cached'] - $mem['Buffers'];
@@ -178,7 +188,11 @@ class PMA_sysinfoSunos
     }
 
     public function memory() {
-        preg_match_all('/^(MemTotal|MemFree|Cached|Buffers|SwapCached|SwapTotal|SwapFree):\s+(.*)\s*kB/im', file_get_contents('/proc/meminfo'), $matches);
+        preg_match_all(
+            '/^(MemTotal|MemFree|Cached|Buffers|SwapCached|SwapTotal|SwapFree):\s+(.*)\s*kB/im',
+            file_get_contents('/proc/meminfo'),
+            $matches
+        );
 
         $pagesize = $this->_kstat('unix:0:seg_cache:slab_size');
         $mem['MemTotal'] = $this->_kstat('unix:0:system_pages:pagestotal') * $pagesize;
