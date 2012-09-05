@@ -35,6 +35,7 @@ class PMA_SQL_parser_test extends PHPUnit_Framework_TestCase
      * @return void
      *
      * @dataProvider parserData
+     * @group medium
      */
     public function testParser($sql, $expected, $error = '')
     {
