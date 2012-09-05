@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-05 15:50+0200\n"
-"PO-Revision-Date: 2012-09-05 16:37+0200\n"
+"PO-Revision-Date: 2012-09-05 17:20+0200\n"
 "Last-Translator: Vojislav Pavić <vpavic@gmail.com>\n"
 "Language-Team: Serbian (latin) "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sr@latin/>\n"
@@ -5061,7 +5061,7 @@ msgstr "Dužina prozora za upite"
 
 #: libraries/config/messages.inc.php:354
 msgid "Select which functions will be used for character set conversion"
-msgstr ""
+msgstr "Izaberite koje funcije će biti korišćene za konverziju seta znakova"
 
 #: libraries/config/messages.inc.php:355
 msgid "Recoding engine"
@@ -5069,7 +5069,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:356
 msgid "When browsing tables, the sorting of each table is remembered"
-msgstr ""
+msgstr "Kada pregledate tabele, sortiranje svake tabele je upamćeno"
 
 #: libraries/config/messages.inc.php:357
 msgid "Remember table's sorting"
@@ -5078,6 +5078,7 @@ msgstr "Zapamti način sortiranja u tabeli"
 #: libraries/config/messages.inc.php:358
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr ""
+"Ponovi zaglavlje nakon svakih X ćelija, [kbd]0[/kbd] isključuje ovu funkciju"
 
 #: libraries/config/messages.inc.php:359
 msgid "Repeat headers"
