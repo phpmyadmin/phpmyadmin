@@ -105,11 +105,10 @@ class PMA_ThemeTest extends PHPUnit_Framework_TestCase
      */
     public function testCheckImgPathBad()
     {
-        $prevConfPath = $GLOBALS['cfg']['ThemePath'];
         $GLOBALS['cfg']['ThemePath'] = 'nowhere';
         $this->object->setPath('path/to/nowhere');
 
-        $this->object->checkImgPath();
+        $this->assertFalse($this->object->checkImgPath());
     }
 
     public function testCheckImgPath()
