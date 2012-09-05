@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-09-05 15:36+0200\n"
+"POT-Creation-Date: 2012-09-05 15:50+0200\n"
 "PO-Revision-Date: 2012-09-04 10:46+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <http://l10n.cihar.com/projects/phpmyadmin/master/cs/>\n"
@@ -51,7 +51,7 @@ msgstr "Vyhledávání"
 
 #: browse_foreigners.php:171 gis_data_editor.php:396 js/messages.php:231
 #: libraries/DbSearch.class.php:488 libraries/DisplayResults.class.php:1666
-#: libraries/TableSearch.class.php:1157 libraries/core.lib.php:534
+#: libraries/TableSearch.class.php:1157 libraries/core.lib.php:532
 #: libraries/display_change_password.lib.php:75
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:378 libraries/display_import.lib.php:334
@@ -103,7 +103,7 @@ msgstr "Popis"
 msgid "Use this value"
 msgstr "Použít tuto hodnotu"
 
-#: changelog.php:34 license.php:28
+#: changelog.php:35 license.php:28
 #, php-format
 msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
@@ -2111,7 +2111,7 @@ msgid "en"
 msgstr "en"
 
 #: libraries/CommonFunctions.class.php:676 libraries/Message.class.php:199
-#: libraries/core.lib.php:217 libraries/import.lib.php:171
+#: libraries/core.lib.php:218 libraries/import.lib.php:171
 #: libraries/insert_edit.lib.php:1207 tbl_operations.php:185
 #: tbl_relation.php:297 view_operations.php:55
 msgid "Error"
@@ -6036,17 +6036,17 @@ msgid "Incorrect IP address: %s"
 msgstr "Nesprávná IP adresa: %s"
 
 #. l10n: Please check that translation actually exists.
-#: libraries/core.lib.php:255
+#: libraries/core.lib.php:256
 msgctxt "PHP documentation language"
 msgid "en"
 msgstr "en"
 
-#: libraries/core.lib.php:276
+#: libraries/core.lib.php:277
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Chybí rozšíření %s. Prosím zkontrolujte nastavení PHP."
 
-#: libraries/core.lib.php:430
+#: libraries/core.lib.php:428
 msgid "possible deep recursion attack"
 msgstr "možný útok rekurzí"
 
