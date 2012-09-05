@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-03 19:56+0200\n"
-"PO-Revision-Date: 2012-08-18 12:25+0200\n"
-"Last-Translator: Ahmed Ameen <ah.shwani@gmail.com>\n"
-"Language-Team: Kurdish Sorani <http://l10n.cihar.com/projects/phpmyadmin/"
-"master/ckb/>\n"
+"PO-Revision-Date: 2012-09-05 10:00+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Kurdish Sorani "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/ckb/>\n"
+"Language: ckb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ckb\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.2\n"
 
@@ -121,7 +121,7 @@ msgstr "بنکەی دراوەی %1$s درووستکرا."
 
 #: db_datadict.php:49 libraries/operations.lib.php:32
 msgid "Database comment: "
-msgstr ":تێبینی بنکەی دراوە"
+msgstr ":تێبینی بنکەی دراوە "
 
 #: db_datadict.php:156 libraries/operations.lib.php:785
 #: libraries/schema/Pdf_Relation_Schema.class.php:1365
@@ -12668,8 +12668,7 @@ msgstr ""
 msgid "You do not have InnoDB enabled."
 msgstr ""
 "InnoDB\n"
-" که ت چالاک نه کردوه\n"
-" "
+" که ت چالاک نه کردوه"
 
 #: libraries/advisory_rules.txt:426
 msgid "InnoDB is usually the better choice for table engines."
