@@ -14,6 +14,18 @@ require_once 'libraries/sqlparser.lib.php';
 class PMA_SQL_parser_test extends PHPUnit_Framework_TestCase
 {
     /**
+     * Prepares environment for the test.
+     *
+     * @return void
+     */
+    public function setUp()
+    {
+        if (function_exists('mb_internal_encoding')) {
+            mb_internal_encoding('utf-8');
+        }
+    }
+
+    /**
      * Testing of SQL parser.
      *
      * @param string $sql      SQL query to parse
@@ -23,6 +35,7 @@ class PMA_SQL_parser_test extends PHPUnit_Framework_TestCase
      * @return void
      *
      * @dataProvider parserData
+     * @group medium
      */
     public function testParser($sql, $expected, $error = '')
     {
