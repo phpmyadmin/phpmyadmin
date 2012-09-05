@@ -42,7 +42,7 @@ function PMA_getSysInfo()
     $sysinfo = array();
 
     if (in_array($php_os, $supported)) {
-        return eval("return new PMA_sysinfo".$php_os."();");
+        return eval("return new PMA_sysinfo" . $php_os . "();");
     }
 
     return new PMA_Sysinfo_Default;
@@ -70,7 +70,7 @@ class PMA_sysinfoWinnt
 
         foreach ($buffer as $load) {
             $value = $load['LoadPercentage'];
-            $loadavg .= $value.' ';
+            $loadavg .= $value . ' ';
             $sum += $value;
         }
 
@@ -92,11 +92,11 @@ class PMA_sysinfoWinnt
             $arrInstance = array();
             foreach ($arrProp as $propItem) {
                 if ( empty($strValue)) {
-                    eval("\$value = \$objItem->".$propItem->Name.";");
+                    eval("\$value = \$objItem->" . $propItem->Name . ";");
                     $arrInstance[$propItem->Name] = trim($value);
                 } else {
                     if (in_array($propItem->Name, $strValue)) {
-                        eval("\$value = \$objItem->".$propItem->Name.";");
+                        eval("\$value = \$objItem->" . $propItem->Name . ";");
                         $arrInstance[$propItem->Name] = trim($value);
                     }
                 }
@@ -109,7 +109,10 @@ class PMA_sysinfoWinnt
 
     function memory()
     {
-        $buffer = $this->_getWMI("Win32_OperatingSystem", array('TotalVisibleMemorySize', 'FreePhysicalMemory'));
+        $buffer = $this->_getWMI(
+            "Win32_OperatingSystem",
+            array('TotalVisibleMemorySize', 'FreePhysicalMemory')
+        );
         $mem = Array();
         $mem['MemTotal'] = $buffer[0]['TotalVisibleMemorySize'];
         $mem['MemFree'] = $buffer[0]['FreePhysicalMemory'];
@@ -138,19 +141,26 @@ class PMA_sysinfoLinux
     function loadavg()
     {
         $buf = file_get_contents('/proc/stat');
-        $nums=preg_split("/\s+/", substr($buf, 0, strpos($buf, "\n")));
-        return Array('busy' => $nums[1]+$nums[2]+$nums[3], 'idle' => intval($nums[4]));
+        $nums = preg_split("/\s+/", substr($buf, 0, strpos($buf, "\n")));
+        return Array(
+            'busy' => $nums[1] + $nums[2] + $nums[3],
+            'idle' => intval($nums[4])
+        );
     }
 
     function memory()
     {
-        preg_match_all('/^(MemTotal|MemFree|Cached|Buffers|SwapCached|SwapTotal|SwapFree):\s+(.*)\s*kB/im', file_get_contents('/proc/meminfo'), $matches);
+        preg_match_all(
+            '/^(MemTotal|MemFree|Cached|Buffers|SwapCached|SwapTotal|SwapFree):\s+(.*)\s*kB/im',
+            file_get_contents('/proc/meminfo'),
+            $matches
+        );
 
         $mem = array_combine($matches[1], $matches[2]);
         $mem['MemUsed'] = $mem['MemTotal'] - $mem['MemFree'] - $mem['Cached'] - $mem['Buffers'];
         $mem['SwapUsed'] = $mem['SwapTotal'] - $mem['SwapFree'] - $mem['SwapCached'];
 
-        foreach ($mem as $idx=>$value) {
+        foreach ($mem as $idx => $value) {
             $mem[$idx] = intval($value);
         }
         return $mem;
@@ -171,14 +181,20 @@ class PMA_sysinfoSunos
         }
     }
 
-    public function loadavg() {
+    public function loadavg()
+    {
         $load1 = $this->_kstat('unix:0:system_misc:avenrun_1min');
 
         return array('loadavg' => $load1);
     }
 
-    public function memory() {
-        preg_match_all('/^(MemTotal|MemFree|Cached|Buffers|SwapCached|SwapTotal|SwapFree):\s+(.*)\s*kB/im', file_get_contents('/proc/meminfo'), $matches);
+    public function memory()
+    {
+        preg_match_all(
+            '/^(MemTotal|MemFree|Cached|Buffers|SwapCached|SwapTotal|SwapFree):\s+(.*)\s*kB/im',
+            file_get_contents('/proc/meminfo'),
+            $matches
+        );
 
         $pagesize = $this->_kstat('unix:0:seg_cache:slab_size');
         $mem['MemTotal'] = $this->_kstat('unix:0:system_pages:pagestotal') * $pagesize;
@@ -188,8 +204,9 @@ class PMA_sysinfoSunos
         $mem['SwapUsed'] = $this->_kstat('unix:0:vminfo:swap_alloc') / 1024;
         $mem['SwapFree'] = $this->_kstat('unix:0:vminfo:swap_free') / 1024;
 
-        foreach ($mem as $idx=>$value)
+        foreach ($mem as $idx => $value) {
             $mem[$idx] = intval($value);
+        }
 
         return $mem;
     }
@@ -199,11 +216,13 @@ class PMA_sysinfoDefault
 {
     public $os = PHP_OS;
 
-    public function loadavg() {
+    public function loadavg()
+    {
         return array('loadavg' => 0);
     }
 
-    public function memory() {
+    public function memory()
+    {
         return array();
     }
 }
