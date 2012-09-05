@@ -1293,6 +1293,7 @@ $(function() {
             /* Update values in each graph */
             $.each(runtime.charts, function(orderKey, elem) {
                 var key = elem.chartID;
+                var maxVal = 1;
                 // If newly added chart, we have no data for it yet
                 if (! chartData[key]) {
                     return;
@@ -1343,21 +1344,30 @@ $(function() {
                     // Set y value, if defined
                     if (value != undefined) {
                         elem.chart.series[j].data.push([chartData.x, value]);
-                        if(elem.maxYLabel.length == 0) {
-                            elem.maxYLabel.push([runtime.xmax, 100]);
-                        }else if(value > elem.maxYLabel[elem.maxYLabel.length - 1][1]) {
-                            elem.maxYLabel.push([chartData.x, value + 200]);
-                        } else if(elem.maxYLabel[elem.maxYLabel.length - 1][0] < runtime.xmin) {
-                            elem.maxYLabel.pop();
-                        }
+                        maxVal = (maxVal > value) ? maxVal : value;
                     }
                 }
+                if(elem.maxYLabel.length == 0) {
+                    elem.maxYLabel.push([runtime.xmax, 1]);
+                }
 
+                if(maxVal > elem.maxYLabel[elem.maxYLabel.length - 1][1]) {
+                    elem.maxYLabel.push([chartData.x, (Math.ceil(maxVal*1.2))]);
+                } else if(maxVal > elem.maxYLabel[0][1]) {
+                    elem.maxYLabel.splice(1,0,[chartData.x, (Math.ceil(maxVal*1.2))]);
+                }
+
+                if(elem.maxYLabel.length > 1
+                    && elem.maxYLabel[elem.maxYLabel.length - 1][0] < runtime.xmin
+                ) {
+                    elem.maxYLabel.pop();
+                    elem.maxYLabel.sort(function(a,b){return a[1]-b[1]});
+                }
                 // update chart options
                 elem.chart['axes']['xaxis']['max'] = runtime.xmax;
                 elem.chart['axes']['xaxis']['min'] = runtime.xmin;
-                elem.chart['axes']['yaxis']['max'] = (elem.maxYLabel.length == 0) ? 100 : elem.maxYLabel[elem.maxYLabel.length - 1][1];
-                elem.chart['axes']['yaxis']['tickInterval'] = (elem.maxYLabel.length == 0) ? 20 : Math.floor(elem.maxYLabel[elem.maxYLabel.length - 1][1]/5);
+                elem.chart['axes']['yaxis']['max'] = elem.maxYLabel[elem.maxYLabel.length - 1][1];
+                elem.chart['axes']['yaxis']['tickInterval'] = elem.maxYLabel[elem.maxYLabel.length - 1][1]/5;
                 i++;
                 runtime.charts[orderKey].numPoints++;
                 if (runtime.redrawCharts) {
