@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-03 19:56+0200\n"
-"PO-Revision-Date: 2012-09-05 06:48+0200\n"
-"Last-Translator: Gabor Droszler <droszler.gabor@gmail.com>\n"
+"PO-Revision-Date: 2012-09-05 10:47+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Hungarian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/hu/>\n"
 "Language: hu\n"
@@ -295,7 +295,7 @@ msgstr "Üres az adatbázis neve!"
 #, php-format
 #| msgid "Database %s has been renamed to %s"
 msgid "Database %1$s has been renamed to %2$s"
-msgstr "A(z) %s adatbázis átnevezése %s névre megtörtént"
+msgstr "A(z) %1$s adatbázis átnevezése %2$s névre megtörtént"
 
 #: db_operations.php:134
 #, fuzzy, php-format
@@ -5265,7 +5265,8 @@ msgstr "A kapcsolat tömörítése"
 #: libraries/config/messages.inc.php:382
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
 msgstr ""
-"A szerverhez csatlakozás módja, hagyja meg a tcp értéket, ha nem biztos benne"
+"A szerverhez csatlakozás módja, hagyja meg a [kbd]tcp[/kbd] értéket, ha nem "
+"biztos benne"
 
 #: libraries/config/messages.inc.php:383
 msgid "Connection type"
@@ -5403,10 +5404,11 @@ msgid ""
 "alphabetical order."
 msgstr ""
 "Használhatja a MySQL-karakterhelyettesítőket (% és _), vezérelheti őket, ha "
-"akarja, a literális példányaik használatához, pl. használja a 'my\\_db' "
-"alakot, s ne a 'my_db' alakot. Ezt a lehetőséget választva rendezhet "
-"adatbázislistákat, beírva a nevüket sorrendben és használja a [kbd]*[/kbd]-t "
-"a végén, hogy a többi abc-sorrendben jelenjen meg."
+"akarja, a literális példányaik használatához, pl. használja a "
+"[kbd]'my\\_db'[/kbd] alakot, s ne a [kbd]'my_db'[/kbd] alakot. Ezt a "
+"lehetőséget választva rendezhet adatbázislistákat, beírva a nevüket "
+"sorrendben és használja a [kbd]*[/kbd]-t a végén, hogy a többi abc-"
+"sorrendben jelenjen meg."
 
 #: libraries/config/messages.inc.php:409
 msgid "Show only listed databases"
