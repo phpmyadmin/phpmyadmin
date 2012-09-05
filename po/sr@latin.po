@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 06:32-0400\n"
-"PO-Revision-Date: 2012-09-05 13:50+0200\n"
+"PO-Revision-Date: 2012-09-05 17:46+0200\n"
 "Last-Translator: Vojislav Pavić <vpavic@gmail.com>\n"
 "Language-Team: Serbian (latin) "
 "<http://l10n.cihar.com/projects/phpmyadmin/3-5/sr@latin/>\n"
@@ -4260,6 +4260,8 @@ msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available"
 msgstr ""
+"Podrazumevani format; budite svesni da ova lista zavisi od lokacije (baza, "
+"tabela) i samo SQL je uvek na raspolaganju"
 
 #: libraries/config/messages.inc.php:249
 msgid "Format of imported file"
@@ -4285,7 +4287,7 @@ msgstr "Uvezi valute ($5.00 do 5.00)"
 
 #: libraries/config/messages.inc.php:259
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr ""
+msgstr "Uvezi procente kao prave decimalne brojeve (12.00% kao .12)"
 
 #: libraries/config/messages.inc.php:260
 #| msgid "Number of records (queries) to skip from start"
@@ -4429,7 +4431,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:295
 msgid "Limit column characters"
-msgstr ""
+msgstr "Ograničenje znakova kolone"
 
 #: libraries/config/messages.inc.php:296
 msgid ""
@@ -4450,7 +4452,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:299
 msgid "Recall user name"
-msgstr ""
+msgstr "Opozovi ime korisnika"
 
 #: libraries/config/messages.inc.php:300
 msgid ""
@@ -4605,6 +4607,9 @@ msgid ""
 "Structure page if any of the required tables for the phpMyAdmin "
 "configuration storage could not be found"
 msgstr ""
+"Onemogući podrazumevano upozorenje koje se prikazuje na stranici sa "
+"detaljima strukture baze podataka ako bilo koju od neophodnih tabela za "
+"skladištenje phpMyAdmin konfiguracije nije bilo moguće pronaći"
 
 #: libraries/config/messages.inc.php:334
 msgid "Missing phpMyAdmin configuration storage tables"
@@ -4670,7 +4675,7 @@ msgstr "Dužina prozora za upite"
 
 #: libraries/config/messages.inc.php:350
 msgid "Select which functions will be used for character set conversion"
-msgstr ""
+msgstr "Izaberite koje funcije će biti korišćene za konverziju seta znakova"
 
 #: libraries/config/messages.inc.php:351
 msgid "Recoding engine"
@@ -4678,7 +4683,7 @@ msgstr ""
 
 #: libraries/config/messages.inc.php:352
 msgid "When browsing tables, the sorting of each table is remembered"
-msgstr ""
+msgstr "Kada pregledate tabele, sortiranje svake tabele je upamćeno"
 
 #: libraries/config/messages.inc.php:353
 #| msgid "Rename table to"
@@ -4688,6 +4693,7 @@ msgstr "Zapamti način sortiranja u tabeli"
 #: libraries/config/messages.inc.php:354
 msgid "Repeat the headers every X cells, [kbd]0[/kbd] deactivates this feature"
 msgstr ""
+"Ponovi zaglavlje nakon svakih X ćelija, [kbd]0[/kbd] isključuje ovu funkciju"
 
 #: libraries/config/messages.inc.php:355
 #| msgid "Repair threads"
@@ -4696,19 +4702,19 @@ msgstr "Ponovi zaglavlja"
 
 #: libraries/config/messages.inc.php:356
 msgid "Show help button instead of Documentation text"
-msgstr ""
+msgstr "Prikaži dugme za pomoć umesto teksta dokumentacije"
 
 #: libraries/config/messages.inc.php:357
 msgid "Show help button"
-msgstr ""
+msgstr "Prikaži dugme za pomoć"
 
 #: libraries/config/messages.inc.php:359
 msgid "Save all edited cells at once"
-msgstr ""
+msgstr "Snimi sve izmenjene ćelije odjednom"
 
 #: libraries/config/messages.inc.php:360
 msgid "Directory where exports can be saved on server"
-msgstr ""
+msgstr "Direktorijum na serveru u koji izvezeni podaci mogu biti snimljeni"
 
 #: libraries/config/messages.inc.php:361
 msgid "Save directory"
@@ -4716,27 +4722,27 @@ msgstr "Snimi direktorijum"
 
 #: libraries/config/messages.inc.php:362
 msgid "Leave blank if not used"
-msgstr ""
+msgstr "Ostavi prazno ako se ne koristi"
 
 #: libraries/config/messages.inc.php:363
 msgid "Host authorization order"
-msgstr ""
+msgstr "Redosled autorizacije hostova"
 
 #: libraries/config/messages.inc.php:364
 msgid "Leave blank for defaults"
-msgstr ""
+msgstr "Ostavi prazno za podrazumevane vrednosti"
 
 #: libraries/config/messages.inc.php:365
 msgid "Host authorization rules"
-msgstr ""
+msgstr "Pravila autorizacije hostova"
 
 #: libraries/config/messages.inc.php:366
 msgid "Allow logins without a password"
-msgstr ""
+msgstr "Dozvoli prijavljivanje bez lozinke"
 
 #: libraries/config/messages.inc.php:367
 msgid "Allow root login"
-msgstr ""
+msgstr "Dozvoli prijavljivanje root-a"
 
 #: libraries/config/messages.inc.php:368
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth"
