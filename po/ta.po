@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-03 19:56+0200\n"
-"PO-Revision-Date: 2012-08-27 11:32+0200\n"
+"PO-Revision-Date: 2012-09-05 10:00+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Tamil <http://l10n.cihar.com/projects/phpmyadmin/master/ta/>\n"
+"Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ta\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Weblate 1.2\n"
 
@@ -118,7 +118,7 @@ msgstr "%1$s தரவுத்தளம் உருவாக்கப்பட
 
 #: db_datadict.php:49 libraries/operations.lib.php:32
 msgid "Database comment: "
-msgstr "தரவுத்தள கருத்துரை"
+msgstr "தரவுத்தள கருத்துரை "
 
 #: db_datadict.php:156 libraries/operations.lib.php:785
 #: libraries/schema/Pdf_Relation_Schema.class.php:1365
@@ -2092,12 +2092,12 @@ msgstr "ஒரு வினாடிக்கு"
 
 #: libraries/Advisor.class.php:428 server_status.php:980
 msgid "per minute"
-msgstr "ஒரு நிமிடத்திற்கு "
+msgstr "ஒரு நிமிடத்திற்கு"
 
 #: libraries/Advisor.class.php:431 server_status.php:976
 #: server_status.php:1012 server_status.php:1142 server_status.php:1205
 msgid "per hour"
-msgstr "ஒரு மணி நேரத்திற்கு "
+msgstr "ஒரு மணி நேரத்திற்கு"
 
 #: libraries/Advisor.class.php:434
 msgid "per day"
@@ -2158,7 +2158,7 @@ msgstr "SQL வினவல்"
 #: libraries/rte/rte_triggers.lib.php:91
 #: libraries/rte/rte_triggers.lib.php:108
 msgid "MySQL said: "
-msgstr "MySQL சொன்னது:"
+msgstr "MySQL சொன்னது: "
 
 #: libraries/CommonFunctions.class.php:1273
 msgid "Failed to connect to SQL validator!"
@@ -2203,7 +2203,7 @@ msgstr ""
 
 #: libraries/CommonFunctions.class.php:1466
 msgid "Inline edit of this query"
-msgstr "வினாவிற்கான உன்வரிசை மாற்றப்பகுதி "
+msgstr "வினாவிற்கான உன்வரிசை மாற்றப்பகுதி"
 
 #: libraries/CommonFunctions.class.php:1468
 msgctxt "Inline edit query"
@@ -11379,7 +11379,7 @@ msgstr ""
 
 #: setup/lib/index.lib.php:203
 msgid "No newer stable version is available"
-msgstr "புதிய நிலையான பதிப்புகள் ஒன்றும் இல்லை "
+msgstr "புதிய நிலையான பதிப்புகள் ஒன்றும் இல்லை"
 
 #: setup/lib/index.lib.php:294
 #, php-format
