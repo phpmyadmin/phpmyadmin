@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-03 19:56+0200\n"
-"PO-Revision-Date: 2012-09-05 10:38+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2012-09-05 13:53+0200\n"
+"Last-Translator: Vojislav Pavić <vpavic@gmail.com>\n"
 "Language-Team: Serbian "
 "<http://l10n.cihar.com/projects/phpmyadmin/master/sr/>\n"
 "Language: sr\n"
@@ -2614,16 +2614,14 @@ msgid "Criteria"
 msgstr "Критеријум"
 
 #: libraries/DBQbe.class.php:594
-#, fuzzy
 #| msgid "Add/Delete Criteria Row"
 msgid "Add/Delete criteria rows"
-msgstr "Додај/обриши поље за критеријум"
+msgstr "Додај/обриши редове за критеријум"
 
 #: libraries/DBQbe.class.php:594
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Add/Delete columns"
-msgstr "Додај/обриши колону"
+msgstr "Додај/обриши колоне"
 
 #: libraries/DBQbe.class.php:621 libraries/DBQbe.class.php:653
 msgid "Update Query"
