@@ -293,7 +293,7 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
                 '<strong>test</strong><strong>test</strong>'
             ),
             array(
-                '[tt]test[/tt][code]test[/code]',
+                '[code]test[/code][code]test[/code]',
                 '<code>test</code><code>test</code>'
             ),
             array(

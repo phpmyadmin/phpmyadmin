@@ -101,8 +101,6 @@ function PMA_sanitize($message, $escape = false, $safe = false)
         '[/em]'     => '</em>',
         '[strong]'  => '<strong>',
         '[/strong]' => '</strong>',
-        '[tt]'      => '<code>',    // deprecated by CODE or KBD
-        '[/tt]'     => '</code>',   // deprecated by CODE or KBD
         '[code]'    => '<code>',
         '[/code]'   => '</code>',
         '[kbd]'     => '<kbd>',
