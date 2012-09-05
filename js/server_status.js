@@ -379,7 +379,8 @@ $(function() {
                 xaxis: {
                     renderer: $.jqplot.DateAxisRenderer,
                     tickOptions: {
-                        formatString: '%H:%M:%S'
+                        formatString: '%H:%M:%S',
+                        showGridline: false
                     }
                 },
                 yaxis: {
