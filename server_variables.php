@@ -97,10 +97,12 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 /**
  * Displays the sub-page heading
  */
-echo '<h2>' . $common_functions->getImage('s_vars.png')
-   . '' . __('Server variables and settings') . "\n"
-   . $common_functions->showMySQLDocu('server_system_variables', 'server_system_variables')
-   . '</h2>' . "\n";
+$output = '<h2>' . $common_functions->getImage('s_vars.png')
+    . '' . __('Server variables and settings') . "\n"
+    . $common_functions->showMySQLDocu(
+        'server_system_variables', 'server_system_variables'
+    )
+    . '</h2>' . "\n";
 
 /**
  * Sends the queries and buffers the results
@@ -112,58 +114,67 @@ $serverVars = PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES;', 0, 1);
 /**
  * Displays the page
  */
-?>
-<fieldset id="tableFilter" style="display:none;">
-<legend><?php echo __('Filters'); ?></legend>
-<div class="formelement">
-    <label for="filterText"><?php echo __('Containing the word:'); ?></label>
-    <input name="filterText" type="text" id="filterText" style="vertical-align: baseline;" />
-</div>
-</fieldset>
-<table id="serverVariables" class="data filteredData noclick">
-<thead>
-<tr><th><?php echo __('Variable'); ?></th>
-    <th class="valueHeader">
-<?php
-echo __('Session value') . ' / ' . __('Global value');
-?>
-    </th>
-    <th><?php echo __('Documentation'); ?></th>
-</tr>
-</thead>
-<tbody>
-<?php
+$output .= '<fieldset id="tableFilter" style="display:none;">'
+    . '<legend>' . __('Filters') . '</legend>'
+    . '<div class="formelement">'
+    . '<label for="filterText">' .  __('Containing the word:') . '</label>'
+    . '<input name="filterText" type="text" id="filterText"'
+    . ' style="vertical-align: baseline;" />'
+    . '</div>'
+    . '</fieldset>';
+
+$output .= '<table id="serverVariables" class="data filteredData noclick">'
+    . '<thead>'
+    . '<tr><th>' .  __('Variable') . '</th>'
+    . '<th class="valueHeader">'
+    . __('Session value') . ' / ' . __('Global value')
+    . '</th>'
+    . '<th>' . __('Documentation') . '</th>'
+    . '</tr>'
+    . '</thead>'
+    . '<tbody>';
+
 $odd_row = true;
 foreach ($serverVars as $name => $value) {
-    $has_session_value = isset($serverVarsSession[$name]) && $serverVarsSession[$name] != $value;
-    $row_class = ($odd_row ? 'odd' : 'even') . ' ' . ($has_session_value ? 'diffSession' : '');
-    ?>
-<tr class="<?php echo $row_class; ?>">
-    <th class="nowrap"><?php echo htmlspecialchars(str_replace('_', ' ', $name)); ?></th>
-    <td class="value"><?php echo formatVariable($name, $value); ?></td>
-    <td class="value"><?php
+    $has_session_value = isset($serverVarsSession[$name])
+        && $serverVarsSession[$name] != $value;
+    $row_class = ($odd_row ? 'odd' : 'even') . ' '
+        . ($has_session_value ? 'diffSession' : '');
+
+    $output .= '<tr class="' . $row_class . '">'
+        . '<th class="nowrap">' . htmlspecialchars(str_replace('_', ' ', $name))
+        . '</th>'
+        . '<td class="value">' . formatVariable($name, $value) . '</td>'
+        . '<td class="value">';
+
     // To display variable documentation link
     if (isset($VARIABLE_DOC_LINKS[$name])) {
-        echo $common_functions->showMySQLDocu($VARIABLE_DOC_LINKS[$name][1], $VARIABLE_DOC_LINKS[$name][1], false, $VARIABLE_DOC_LINKS[$name][2] . '_' . $VARIABLE_DOC_LINKS[$name][0]);
+        $output .= $common_functions->showMySQLDocu(
+            $VARIABLE_DOC_LINKS[$name][1],
+            $VARIABLE_DOC_LINKS[$name][1],
+            false,
+            $VARIABLE_DOC_LINKS[$name][2] . '_' . $VARIABLE_DOC_LINKS[$name][0]
+        );
     }
-    ?></td>
-    <?php
+    
+    $output .= '</td>';
+
     if ($has_session_value) {
-        ?>
-</tr>
-<tr class="<?php echo $odd_row ? 'odd' : 'even'; ?> ">
-    <td>(<?php echo __('Session value'); ?>)</td>
-    <td class="value"><?php echo formatVariable($name, $serverVarsSession[$name]); ?></td>
-    <td class="value"></td>
-    <?php } ?>
-</tr>
-    <?php
+        $output .= '</tr>'
+            . '<tr class="' . ($odd_row ? 'odd' : 'even') . '">'
+            . '<td>(' . __('Session value') . ')</td>'
+            . '<td class="value">' . formatVariable($name, $serverVarsSession[$name])
+            . '</td>'
+            . '<td class="value"></td>';
+    }
+
+    $output .= '</tr>';
     $odd_row = ! $odd_row;
 }
-?>
-</tbody>
-</table>
-<?php
+$output .= '</tbody>'
+    . '</table>';
+
+$response->addHtml($output);
 
 function formatVariable($name, $value)
 {
