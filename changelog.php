@@ -31,7 +31,10 @@ if (is_readable($filename)) {
         $changelog = file_get_contents($filename);
     }
 } else {
-    printf(__('The %s file is not available on this system, please visit www.phpmyadmin.net for more information.'), $filename);
+    printf(
+        __('The %s file is not available on this system, please visit www.phpmyadmin.net for more information.'),
+        $filename
+    );
     exit;
 }
 
@@ -39,6 +42,9 @@ if (is_readable($filename)) {
  * Whole changelog in variable.
  */
 $changelog = htmlspecialchars($changelog);
+
+$tracker_url = 'https://sourceforge.net/support/tracker.php?aid=\\1';
+$github_url = 'https://github.com/phpmyadmin/phpmyadmin/';
 
 $replaces = array(
     '@(http://[./a-zA-Z0-9.-_-]*[/a-zA-Z0-9_])@'
@@ -58,7 +64,7 @@ $replaces = array(
 
     // linking patches
     '/patch\s*#?([0-9]{6,})/i'
-    => '<a href="https://sourceforge.net/support/tracker.php?aid=\\1">patch #\\1</a>',
+    => '<a href="' . $tracker_url . '">patch #\\1</a>',
 
     // linking RFE
     '/(?:rfe|feature)\s*#?([0-9]{6,})/i'
@@ -66,7 +72,7 @@ $replaces = array(
 
     // linking files
     '/(\s+)([\\/a-z_0-9\.]+\.(?:php3?|html|pl|js|sh))/i'
-    => '\\1<a href="https://github.com/phpmyadmin/phpmyadmin/commits/HEAD/\\2">\\2</a>',
+    => '\\1<a href="' . $github_url . 'commits/HEAD/\\2">\\2</a>',
 
     // FAQ entries
     '/FAQ ([0-9]+)\.([0-9a-z]+)/i'
@@ -78,7 +84,7 @@ $replaces = array(
 
     // all other 6+ digit numbers are treated as bugs
     '/(?<!bug|RFE|patch) #?([0-9]{6,})/i'
-    => ' <a href="https://sourceforge.net/support/tracker.php?aid=\\1">bug #\\1</a>',
+    => '<a href="' . $tracker_url . '">bug #\\1</a>',
 
     // CVE/CAN entries
     '/((CAN|CVE)-[0-9]+-[0-9]+)/'
@@ -90,9 +96,13 @@ $replaces = array(
 
     // Highlight releases (with links)
     '/([0-9]+)\.([0-9]+)\.([0-9]+)\.0 (\([0-9-]+\))/'
-    => '<a name="\\1_\\2_\\3"></a><a href="https://github.com/phpmyadmin/phpmyadmin/commits/RELEASE_\\1_\\2_\\3">\\1.\\2.\\3.0 \\4</a>',
+    => '<a name="\\1_\\2_\\3"></a>'
+        . '<a href="' . $github_url . 'commits/RELEASE_\\1_\\2_\\3">'
+        . '\\1.\\2.\\3.0 \\4</a>',
     '/([0-9]+)\.([0-9]+)\.([0-9]+)\.([1-9][0-9]*) (\([0-9-]+\))/'
-    => '<a name="\\1_\\2_\\3_\\4"></a><a href="https://github.com/phpmyadmin/phpmyadmin/commits/RELEASE_\\1_\\2_\\3_\\4">\\1.\\2.\\3.\\4 \\5</a>',
+    => '<a name="\\1_\\2_\\3_\\4"></a>'
+        . '<a href="' . $github_url . 'commits/RELEASE_\\1_\\2_\\3_\\4">'
+        . '\\1.\\2.\\3.\\4 \\5</a>',
 
     // Highlight releases (not linkable)
     '/(    ### )(.*)/'
