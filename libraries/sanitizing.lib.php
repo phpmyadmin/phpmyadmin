@@ -97,16 +97,10 @@ function PMA_sanitize($message, $escape = false, $safe = false)
     }
     /* Interpret bb code */
     $replace_pairs = array(
-        '[i]'       => '<em>',      // deprecated by em
-        '[/i]'      => '</em>',     // deprecated by em
         '[em]'      => '<em>',
         '[/em]'     => '</em>',
-        '[b]'       => '<strong>',  // deprecated by strong
-        '[/b]'      => '</strong>', // deprecated by strong
         '[strong]'  => '<strong>',
         '[/strong]' => '</strong>',
-        '[tt]'      => '<code>',    // deprecated by CODE or KBD
-        '[/tt]'     => '</code>',   // deprecated by CODE or KBD
         '[code]'    => '<code>',
         '[/code]'   => '</code>',
         '[kbd]'     => '<kbd>',
@@ -115,7 +109,8 @@ function PMA_sanitize($message, $escape = false, $safe = false)
         '[/a]'      => '</a>',
         '[sup]'     => '<sup>',
         '[/sup]'    => '</sup>',
-        '[conferr]' => '<iframe src="show_config_errors.php" />' // used in common.inc.php
+         // used in common.inc.php:
+        '[conferr]' => '<iframe src="show_config_errors.php" />',
     );
     /* Adjust links for setup, which lives in subfolder */
     if (defined('PMA_SETUP')) {

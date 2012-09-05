@@ -285,15 +285,15 @@ class PMA_Message_test extends PHPUnit_Framework_TestCase
     {
         return array(
             array(
-                '[i]test[/i][i]aa[i/][em]test[/em]',
-                '<em>test</em><em>aa[i/]<em>test</em>'
+                '[em]test[/em][em]aa[em/][em]test[/em]',
+                '<em>test</em><em>aa[em/]<em>test</em>'
             ),
             array(
-                '[b]test[/b][strong]test[/strong]',
+                '[strong]test[/strong][strong]test[/strong]',
                 '<strong>test</strong><strong>test</strong>'
             ),
             array(
-                '[tt]test[/tt][code]test[/code]',
+                '[code]test[/code][code]test[/code]',
                 '<code>test</code><code>test</code>'
             ),
             array(

@@ -107,7 +107,7 @@ class PMA_sanitize_test extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals(
             '<strong>strong</strong>',
-            PMA_sanitize('[b]strong[/b]')
+            PMA_sanitize('[strong]strong[/strong]')
         );
     }
 
