@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-08-22 06:32-0400\n"
-"PO-Revision-Date: 2012-08-13 12:11+0200\n"
-"Last-Translator: shanyan baishui <Siramizu@gmail.com>\n"
-"Language-Team: Chinese (China) <http://l10n.cihar.com/projects/phpmyadmin/3-"
-"5/zh_CN/>\n"
+"PO-Revision-Date: 2012-09-05 10:55+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Chinese (China) "
+"<http://l10n.cihar.com/projects/phpmyadmin/3-5/zh_CN/>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.2\n"
 
@@ -4279,7 +4279,7 @@ msgstr "mcrypt 警告"
 msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
-msgstr "一个脚本可分配到的内存大小，例 [kbd]32MB[kbd] ([kbd]0[/kbd]为不限制)"
+msgstr "一个脚本可分配到的内存大小，例 [kbd]32MB[/kbd] ([kbd]0[/kbd]为不限制)"
 
 #: libraries/config/messages.inc.php:320
 msgid "Memory limit"
@@ -4534,7 +4534,7 @@ msgstr "压缩连接"
 
 #: libraries/config/messages.inc.php:380
 msgid "How to connect to server, keep [kbd]tcp[/kbd] if unsure"
-msgstr "怎样连接到服务器，如果不确定，请选择 tcp"
+msgstr "怎样连接到服务器，如果不确定，请选择 [kbd]tcp[/kbd]"
 
 #: libraries/config/messages.inc.php:381
 msgid "Connection type"
