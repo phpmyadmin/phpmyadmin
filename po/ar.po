@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-06 11:49+0200\n"
-"PO-Revision-Date: 2012-09-05 21:37+0200\n"
+"PO-Revision-Date: 2012-09-06 14:28+0200\n"
 "Last-Translator: مترجم حرّ <metehyi@gmail.com>\n"
-"Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/master/ar/"
-">\n"
+"Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/master/ar/>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2197,7 +2196,7 @@ msgstr "الذهاب إلى قاعدة البيانات &quot;%s&quot;."
 #: libraries/CommonFunctions.class.php:2829
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
-msgstr ""
+msgstr "إنّ ال %s الوظيفية هي مصابة بعطل معروف، أنظر إلى %s"
 
 #: libraries/CommonFunctions.class.php:3013
 msgid "Click to toggle"
@@ -2602,7 +2601,7 @@ msgstr ""
 
 #: libraries/DisplayResults.class.php:4939
 msgid "Showing rows"
-msgstr "مشاهدة السجلات "
+msgstr "مشاهدة الأسطر "
 
 #: libraries/DisplayResults.class.php:4955
 msgid "total"
@@ -3736,7 +3735,9 @@ msgstr "عرض رابط &quot;إزالة قاعدة البيانات&quot للم
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
-msgstr "عبارة المرور السرية تستخدم لتشفير الكوكيز في المصادقة"
+msgstr ""
+"عبارة المرور السرية تستخدم لتشفير كعكة الإنترنت في[kbd]cookie[/kbd]  "
+"المصادقة"
 
 #: libraries/config/messages.inc.php:25
 msgid "Blowfish secret"
@@ -4107,7 +4108,7 @@ msgstr "أضف قيمة AUTO_INCREMENT"
 
 #: libraries/config/messages.inc.php:124
 msgid "Enclose table and column names with backquotes"
-msgstr "حماية أسماء الجداول و الحقول ب \"`\" "
+msgstr "محاصرة أسماء الجداول و العواميد ب \"`\" "
 
 #: libraries/config/messages.inc.php:125 libraries/config/messages.inc.php:268
 #: libraries/display_export.lib.php:375
@@ -7135,7 +7136,7 @@ msgstr ""
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:42
 msgid "Failed to use Blowfish from mcrypt!"
-msgstr ""
+msgstr "فشلت من إستعمال Blowfish من mcrypt!"
 
 #: libraries/plugins/auth/AuthenticationCookie.class.php:86
 msgid "Your session has expired. Please login again."
@@ -9193,7 +9194,7 @@ msgstr ""
 
 #: libraries/sql_query_form.lib.php:368
 msgid "Show this query here again"
-msgstr "عرض هذا الاستعلام هنا مرة أخرى "
+msgstr "أعرض هذا الاستعلام هنا مرة أخرى"
 
 #: libraries/sql_query_form.lib.php:427
 msgid "View only"
