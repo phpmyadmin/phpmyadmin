@@ -540,6 +540,8 @@ class PMA_CommonFunctions
                     $mysql = '5.5';
                 } else if (PMA_MYSQL_INT_VERSION >= 50100) {
                     $mysql = '5.1';
+                } else {
+                    $mysql = '5.0';
                 }
             }
             $url = $cfg['MySQLManualBase']
