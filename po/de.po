@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-06 11:49+0200\n"
-"PO-Revision-Date: 2012-09-05 10:34+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/"
-">\n"
+"PO-Revision-Date: 2012-09-06 21:15+0200\n"
+"Last-Translator: مترجم حرّ <metehyi@gmail.com>\n"
+"Language-Team: German <http://l10n.cihar.com/projects/phpmyadmin/master/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -628,7 +627,7 @@ msgstr ""
 "Text in das Feld \"Wert\""
 
 #: import.php:95
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to "
 #| "%sdocumentation%s for ways to workaround this limit."
@@ -636,8 +635,8 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Möglicherweise wurde eine zu große Datei hochgeladen. Bitte lesen Sie die "
-"%sDokumentation%s zur Lösung diese Problems."
+"Möglicherweise wurde eine zu große Datei hochgeladen. Bitte lesen Sie die %"
+"sDokumentation%s zur Lösung diese Problems."
 
 #: import.php:234 import.php:499
 msgid "Showing bookmark"
@@ -1378,7 +1377,6 @@ msgid "Import"
 msgstr "Importieren"
 
 #: js/messages.php:213
-#, fuzzy
 msgid "Import monitor configuration"
 msgstr "Konfiguration des Importmonitors"
 
@@ -6155,11 +6153,11 @@ msgstr "Details..."
 
 #: libraries/dbi/drizzle-wrappers.lib.php:450
 msgid "Can't seek in an unbuffered result set"
-msgstr ""
+msgstr "﻿Kann nicht suchen in einer ungepufferten Ergebnismenge"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:472
 msgid "Can't count rows in an unbuffered result set"
-msgstr ""
+msgstr "﻿Kann nicht Zeilen zählen in einer ungepufferten Ergebnismenge"
 
 #: libraries/dbi/drizzle.dbi.lib.php:136 libraries/dbi/mysql.dbi.lib.php:150
 #: libraries/dbi/mysqli.dbi.lib.php:192
@@ -7773,10 +7771,9 @@ msgstr ""
 "Tabellennamen, die aus Sonderzeichen oder reservierten Wörtern bestehen)</i>"
 
 #: libraries/plugins/export/ExportSql.class.php:295
-#, fuzzy
 #| msgid "Object creation options"
 msgid "Data creation options"
-msgstr "Objekterstellungsoptionen"
+msgstr "Datenterstellungsoptionen"
 
 #: libraries/plugins/export/ExportSql.class.php:299
 #: libraries/plugins/export/ExportSql.class.php:1659
@@ -10719,10 +10716,9 @@ msgid "Advisor"
 msgstr "Ratgeber"
 
 #: server_status.php:821 server_status.php:847
-#, fuzzy
 #| msgid "Number of rows:"
 msgid "Number of data points: "
-msgstr "Anzahl der Datensätze:"
+msgstr "Anzahl der Datenpunkte: "
 
 #: server_status.php:825 server_status.php:851
 msgid "Refresh rate: "
