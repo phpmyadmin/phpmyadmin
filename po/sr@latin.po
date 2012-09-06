@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
-"POT-Creation-Date: 2012-08-22 06:32-0400\n"
+"POT-Creation-Date: 2012-09-06 11:49+0200\n"
 "PO-Revision-Date: 2012-09-05 23:00+0200\n"
 "Last-Translator: Vojislav Pavić <vpavic@gmail.com>\n"
-"Language-Team: Serbian (latin) "
-"<http://l10n.cihar.com/projects/phpmyadmin/3-5/sr@latin/>\n"
+"Language-Team: Serbian (latin) <http://l10n.cihar.com/projects/"
+"phpmyadmin/3-5/sr@latin/>\n"
 "Language: sr@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:35 browse_foreigners.php:53 js/messages.php:353
@@ -22,7 +22,7 @@ msgid "Show all"
 msgstr "Prikaži sve"
 
 #: browse_foreigners.php:70 libraries/PDF.class.php:42
-#: libraries/common.lib.php:2448
+#: libraries/common.lib.php:2444
 #: libraries/schema/Pdf_Relation_Schema.class.php:1142
 #: libraries/schema/Pdf_Relation_Schema.class.php:1166
 #: libraries/schema/User_Schema.class.php:396
@@ -40,9 +40,9 @@ msgstr ""
 "zatvorili matični prozor, ili vaš pretraživač onemogućava ažuriranje među "
 "prozorima zbog sigurnosnih podešavanja."
 
-#: browse_foreigners.php:160 libraries/common.lib.php:3129
-#: libraries/common.lib.php:3136 libraries/common.lib.php:3345
-#: libraries/common.lib.php:3346 libraries/db_links.inc.php:60
+#: browse_foreigners.php:160 libraries/common.lib.php:3125
+#: libraries/common.lib.php:3132 libraries/common.lib.php:3341
+#: libraries/common.lib.php:3342 libraries/db_links.inc.php:60
 #: libraries/tbl_links.inc.php:68
 msgid "Search"
 msgstr "Pretraživanje"
@@ -52,8 +52,8 @@ msgstr "Pretraživanje"
 #: db_structure.php:625 enum_editor.php:91 gis_data_editor.php:133
 #: gis_data_editor.php:166 gis_data_editor.php:315 js/messages.php:235
 #: libraries/Config.class.php:1333 libraries/Theme_Manager.class.php:309
-#: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1374
-#: libraries/common.lib.php:2421 libraries/core.lib.php:513
+#: libraries/auth/cookie.auth.lib.php:245 libraries/common.lib.php:1370
+#: libraries/common.lib.php:2417 libraries/core.lib.php:515
 #: libraries/display_change_password.lib.php:72
 #: libraries/display_create_table.lib.php:61
 #: libraries/display_export.lib.php:349 libraries/display_import.lib.php:267
@@ -106,7 +106,6 @@ msgid "No blob streaming server configured!"
 msgstr "Nema konfigurisanih blob streaming servera!"
 
 #: bs_disp_as_mime_type.php:35
-#| msgid "Failed to write file to disk."
 msgid "Failed to fetch headers"
 msgstr "Neuspelo preuzimanje zaglavlja"
 
@@ -120,8 +119,8 @@ msgid ""
 "The %s file is not available on this system, please visit www.phpmyadmin.net "
 "for more information."
 msgstr ""
-"Datoteka %s nije dostupna na ovom sistemu, molimo vas posetite "
-"www.phpmyadmin.net za više informacija."
+"Datoteka %s nije dostupna na ovom sistemu, molimo vas posetite www."
+"phpmyadmin.net za više informacija."
 
 #: db_create.php:60
 #, php-format
@@ -345,9 +344,6 @@ msgstr "Sortiranje"
 
 #: db_operations.php:561
 #, php-format
-#| msgid ""
-#| "ditional features for working with linked tables have been ctivated. To d "
-#| "out why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. To find out why "
 "click %shere%s."
@@ -421,7 +417,6 @@ msgstr "Morate izabrati bar jednu kolonu za prikaz"
 
 #: db_qbe.php:186
 #, php-format
-#| msgid "visual builder"
 msgid "Switch to %svisual builder%s"
 msgstr "Pređi na %svizuelnu izradu%s"
 
@@ -498,7 +493,7 @@ msgstr "Koristi tabele"
 msgid "SQL query on database <b>%s</b>:"
 msgstr "SQL upit na bazi <b>%s</b>:"
 
-#: db_qbe.php:955 libraries/common.lib.php:1221
+#: db_qbe.php:955 libraries/common.lib.php:1217
 msgid "Submit Query"
 msgstr "Izvrši SQL upit"
 
@@ -532,22 +527,20 @@ msgstr "Rezultati pretrage za \"<i>%s</i>\" %s:"
 
 #: db_search.php:227
 #, php-format
-#| msgid "%s match(es) inside table <i>%s</i>"
 msgid "%s match inside table <i>%s</i>"
 msgid_plural "%s matches inside table <i>%s</i>"
 msgstr[0] "%s pogodak unutar tabele <i>%s</i>"
 msgstr[1] "%s pogodaka unutar tabele <i>%s</i>"
 msgstr[2] "%s pogodaka unutar tabele <i>%s</i>"
 
-#: db_search.php:234 libraries/common.lib.php:3131
-#: libraries/common.lib.php:3343 libraries/common.lib.php:3344
+#: db_search.php:234 libraries/common.lib.php:3127
+#: libraries/common.lib.php:3339 libraries/common.lib.php:3340
 #: libraries/tbl_links.inc.php:55 tbl_structure.php:585
 msgid "Browse"
 msgstr "Pregled"
 
 #: db_search.php:239
 #, php-format
-#| msgid "Dumping data for table"
 msgid "Delete the matches for the %s table?"
 msgstr "Obriši rezultate pretrage za %s tabelu?"
 
@@ -576,7 +569,6 @@ msgid "Search in database"
 msgstr "Pretraživanje baze"
 
 #: db_search.php:277
-#| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
 msgid "Words or values to search for (wildcard: \"%\"):"
 msgstr "Reči ili vrednosti koje se traže (džoker: \"%\"):"
 
@@ -589,7 +581,6 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "Reči se odvajaju razmakom (\" \")."
 
 #: db_search.php:300
-#| msgid "Inside table(s):"
 msgid "Inside tables:"
 msgstr "Unutar tabela:"
 
@@ -598,7 +589,6 @@ msgid "Inside column:"
 msgstr "Unutar kolone::"
 
 #: db_structure.php:68
-#| msgid "No tables found in database."
 msgid "No tables found in database"
 msgstr "Nema tabela u bazi"
 
@@ -633,11 +623,11 @@ msgstr "Praćenje nije aktivno."
 #: db_structure.php:461 libraries/display_tbl.lib.php:2356
 #, php-format
 msgid ""
-"This view has at least this number of rows. Please refer to %sdocumentation%"
-"s."
+"This view has at least this number of rows. Please refer to %sdocumentation"
+"%s."
 msgstr ""
-"Ovaj pogled ima najmanje ovaj broj redova. Molimo vas pogledajte %"
-"sdokumentaciju%s."
+"Ovaj pogled ima najmanje ovaj broj redova. Molimo vas pogledajte "
+"%sdokumentaciju%s."
 
 #: db_structure.php:477 db_structure.php:491 libraries/header.inc.php:161
 #: libraries/tbl_info.inc.php:60 tbl_structure.php:210
@@ -683,8 +673,8 @@ msgstr "nijedno"
 msgid "Check tables having overhead"
 msgstr "Proveri tabele koje imaju prekoračenja"
 
-#: db_structure.php:591 libraries/common.lib.php:3356
-#: libraries/common.lib.php:3357 libraries/config/messages.inc.php:166
+#: db_structure.php:591 libraries/common.lib.php:3352
+#: libraries/common.lib.php:3353 libraries/config/messages.inc.php:166
 #: libraries/db_links.inc.php:56 libraries/display_export.lib.php:79
 #: libraries/display_tbl.lib.php:2516 libraries/display_tbl.lib.php:2657
 #: libraries/server_links.inc.php:65 libraries/tbl_links.inc.php:80
@@ -698,14 +688,14 @@ msgstr "Izvoz"
 msgid "Print view"
 msgstr "Za štampu"
 
-#: db_structure.php:597 libraries/common.lib.php:3352
-#: libraries/common.lib.php:3353
+#: db_structure.php:597 libraries/common.lib.php:3348
+#: libraries/common.lib.php:3349
 msgid "Empty"
 msgstr "Isprazni"
 
 #: db_structure.php:599 db_tracking.php:105 enum_editor.php:86
-#: libraries/Index.class.php:490 libraries/common.lib.php:3350
-#: libraries/common.lib.php:3351 server_databases.php:269
+#: libraries/Index.class.php:490 libraries/common.lib.php:3346
+#: libraries/common.lib.php:3347 server_databases.php:269
 #: tbl_structure.php:150 tbl_structure.php:151 tbl_structure.php:589
 msgid "Drop"
 msgstr "Odbaci"
@@ -731,12 +721,10 @@ msgid "Add prefix to table"
 msgstr "Dodaj prefix tabeli"
 
 #: db_structure.php:613 libraries/mult_submits.inc.php:251
-#| msgid "Replace table data with file"
 msgid "Replace table prefix"
 msgstr "Zameni prefix tabele"
 
 #: db_structure.php:615 libraries/mult_submits.inc.php:251
-#| msgid "Replace table data with file"
 msgid "Copy table with prefix"
 msgstr "Kopiraj tabelu sa prefiksom"
 
@@ -834,7 +822,6 @@ msgstr "Vrednosti za novu kolonu"
 
 #: enum_editor.php:30 js/messages.php:273
 #, php-format
-#| msgid "Number of fields"
 msgid "Values for column %s"
 msgstr "Vrednosti za kolonu %s"
 
@@ -855,7 +842,6 @@ msgid "Copy and paste the joined values into the \"Length/Values\" field"
 msgstr "Kopiraj i nalepi spojene vrednosti u \"Dužina/Vrednosti\" polje"
 
 #: export.php:29
-#| msgid "Bar type"
 msgid "Bad type!"
 msgstr "Pogrešan tip!"
 
@@ -864,7 +850,6 @@ msgid "Selected export type has to be saved in file!"
 msgstr "Odabrani tip izvoza mora biti sačuvan u datoteku!"
 
 #: export.php:106
-#| msgid "Routines"
 msgid "Bad parameters!"
 msgstr "Pogrešni parametri!"
 
@@ -935,12 +920,10 @@ msgstr "Tačka %d"
 
 #: gis_data_editor.php:204 gis_data_editor.php:250 gis_data_editor.php:302
 #: js/messages.php:329
-#| msgid "Add %s field(s)"
 msgid "Add a point"
 msgstr "Dodaj tačku"
 
 #: gis_data_editor.php:220 js/messages.php:324
-#| msgid "Lines terminated by"
 msgid "Linestring"
 msgstr "Linija teksta"
 
@@ -953,12 +936,10 @@ msgid "Inner Ring"
 msgstr "Unutrašnji prsten"
 
 #: gis_data_editor.php:252
-#| msgid "Add a new User"
 msgid "Add a linestring"
 msgstr "Dodaj novu liniju teksta"
 
 #: gis_data_editor.php:252 gis_data_editor.php:304 js/messages.php:330
-#| msgid "Add a new User"
 msgid "Add an inner ring"
 msgstr "Dodaj unutrašnji prsten"
 
@@ -967,7 +948,6 @@ msgid "Polygon"
 msgstr "Poligon"
 
 #: gis_data_editor.php:306 js/messages.php:331
-#| msgid "Add %s field(s)"
 msgid "Add a polygon"
 msgstr "Dodaj poligon"
 
@@ -986,11 +966,11 @@ msgstr ""
 #: import.php:57
 #, php-format
 msgid ""
-"You probably tried to upload too large file. Please refer to %sdocumentation%"
-"s for ways to workaround this limit."
+"You probably tried to upload too large file. Please refer to %sdocumentation"
+"%s for ways to workaround this limit."
 msgstr ""
-"Verovatno ste pokušali da uvezete preveliku datoteku. Molimo pogledajte %"
-"sdokumentaciju%s za načine prevazilaženja ovog ograničenja."
+"Verovatno ste pokušali da uvezete preveliku datoteku. Molimo pogledajte "
+"%sdokumentaciju%s za načine prevazilaženja ovog ograničenja."
 
 #: import.php:170 import.php:419
 msgid "Showing bookmark"
@@ -1024,13 +1004,14 @@ msgid ""
 msgstr ""
 "Nisu primljeni nikavi podaci za uvoz. Ili nije bio naveden naziv datoteke, "
 "ili veličina datoteke prevazilazi maksimalnu veličinu dozvoljenu u vašoj "
-"konfiguraciji PHP-a. Pogledajte. See "
-"[a@./Documentation.html#faq1_16@Documentation]FAQ 1.16[/a]."
+"konfiguraciji PHP-a. Pogledajte. See [a@./Documentation."
+"html#faq1_16@Documentation]FAQ 1.16[/a]."
 
 #: import.php:366
 msgid ""
 "Cannot convert file's character set without character set conversion library"
-msgstr "Nije moguće promeniti set znakova datoteke bez biblioteke za konverziju"
+msgstr ""
+"Nije moguće promeniti set znakova datoteke bez biblioteke za konverziju"
 
 #: import.php:390 libraries/display_import.lib.php:23
 msgid "Could not load import plugins, please check your installation!"
@@ -1070,7 +1051,7 @@ msgstr ""
 msgid "Your SQL query has been executed successfully"
 msgstr "Vaš SQL upit je uspešno izvršen"
 
-#: import_status.php:29 libraries/common.lib.php:709
+#: import_status.php:29 libraries/common.lib.php:705
 #: libraries/schema/Export_Relation_Schema.class.php:237 user_password.php:109
 msgid "Back"
 msgstr "Nazad"
@@ -1092,17 +1073,14 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Ovim ćete UNIŠTITI kompletnu bazu podataka!"
 
 #: js/messages.php:32
-#| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to DESTROY a complete table!"
 msgstr "Ovim ćete da OBRIŠETE kompletnu tabelu!"
 
 #: js/messages.php:33
-#| msgid "You are about to DESTROY a complete database!"
 msgid "You are about to TRUNCATE a complete table!"
 msgstr "Ovim ćete ISPRAZNITI kompletnu tabelu!"
 
 #: js/messages.php:35
-#| msgid "Allows inserting and replacing data."
 msgid "Deleting tracking data"
 msgstr "Brisanje podataka o praćenju"
 
@@ -1132,24 +1110,20 @@ msgid "This is not a number!"
 msgstr "Ovo nije broj!"
 
 #: js/messages.php:46
-#| msgid "Index"
 msgid "Add Index"
 msgstr "Dodaj indeks"
 
 #: js/messages.php:47
-#| msgid "Edit next row"
 msgid "Edit Index"
 msgstr "Izmeni indeks"
 
 #: js/messages.php:48 tbl_indexes.php:293
 #, php-format
-#| msgid "Add %s field(s)"
 msgid "Add %d column(s) to index"
 msgstr "Dodaj %d kolona u indeks"
 
 #. l10n: Default description for the y-Axis of Charts
 #: js/messages.php:52
-#| msgid "Total"
 msgid "Total count"
 msgstr "Ukupan broj"
 
@@ -1171,17 +1145,14 @@ msgstr "Lozinke nisu identične!"
 
 #: js/messages.php:59 server_privileges.php:1775 server_privileges.php:1799
 #: server_privileges.php:2211 server_privileges.php:2416
-#| msgid "Any user"
 msgid "Add user"
 msgstr "Dodaj korisnika"
 
 #: js/messages.php:60
-#| msgid "Reloading the privileges"
 msgid "Reloading Privileges"
 msgstr "Ponovono učitavanje prava pristupa"
 
 #: js/messages.php:61
-#| msgid "Remove selected users"
 msgid "Removing Selected Users"
 msgstr "Uklanjanje izabranih korisnika"
 
@@ -1191,15 +1162,14 @@ msgid "Close"
 msgstr "Zatvori"
 
 #: js/messages.php:65 js/messages.php:284 libraries/Index.class.php:468
-#: libraries/common.lib.php:648 libraries/common.lib.php:1197
-#: libraries/common.lib.php:3354 libraries/common.lib.php:3355
+#: libraries/common.lib.php:644 libraries/common.lib.php:1193
+#: libraries/common.lib.php:3350 libraries/common.lib.php:3351
 #: libraries/config/messages.inc.php:484 libraries/display_tbl.lib.php:1390
 #: libraries/schema/User_Schema.class.php:196 setup/frames/index.inc.php:139
 msgid "Edit"
 msgstr "Promeni"
 
 #: js/messages.php:66 server_status.php:816
-#| msgid "Server Choice"
 msgid "Live traffic chart"
 msgstr "Grafikon trenutnog saobraćaja"
 
@@ -1229,12 +1199,12 @@ msgid "Other"
 msgstr "Ostalo"
 
 #. l10n: Thousands separator
-#: js/messages.php:76 libraries/common.lib.php:1452
+#: js/messages.php:76 libraries/common.lib.php:1448
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: js/messages.php:78 libraries/common.lib.php:1454
+#: js/messages.php:78 libraries/common.lib.php:1450
 msgid "."
 msgstr "."
 
@@ -1247,7 +1217,6 @@ msgid "KiB received since last refresh"
 msgstr "KB primljeno od poslednjeg osvežavanja"
 
 #: js/messages.php:82
-#| msgid "Server Choice"
 msgid "Server traffic (in KiB)"
 msgstr "Količina saobraćaja na serveru (u KiB)"
 
@@ -1260,7 +1229,6 @@ msgid "Processes"
 msgstr "Procesi"
 
 #: js/messages.php:85
-#| msgid "Connections"
 msgid "Connections / Processes"
 msgstr "Veze / Procesi"
 
@@ -1279,7 +1247,6 @@ msgid "Query statistics"
 msgstr "Statistika upita"
 
 #: js/messages.php:94
-#| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Local monitor configuration incompatible"
 msgstr "Konfiguracija lokalnog monitoringa nije kompatibilna"
 
@@ -1297,17 +1264,14 @@ msgstr ""
 "<i>Podešavanja</i>."
 
 #: js/messages.php:97
-#| msgid "Query cache"
 msgid "Query cache efficiency"
 msgstr "Efikasnost query cache-a"
 
 #: js/messages.php:98
-#| msgid "Query cache"
 msgid "Query cache usage"
 msgstr "Upotreba query cache-a"
 
 #: js/messages.php:99
-#| msgid "Query cache"
 msgid "Query cache used"
 msgstr "Iskorišćeno query cache-a"
 
@@ -1324,13 +1288,13 @@ msgid "System swap"
 msgstr "Sistemski svop"
 
 #. l10n: shortcuts for Megabyte
-#: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1402
+#: js/messages.php:104 js/messages.php:127 libraries/common.lib.php:1398
 #: server_status.php:1703
 msgid "MiB"
 msgstr "MB"
 
 #. l10n: shortcuts for Kilobyte
-#: js/messages.php:105 js/messages.php:126 libraries/common.lib.php:1400
+#: js/messages.php:105 js/messages.php:126 libraries/common.lib.php:1396
 #: server_status.php:1703
 msgid "KiB"
 msgstr "KB"
@@ -1340,7 +1304,6 @@ msgid "Average load"
 msgstr "Prosečno opterećenje"
 
 #: js/messages.php:108
-#| msgid "Total"
 msgid "Total memory"
 msgstr "Ukupno memorije"
 
@@ -1349,7 +1312,6 @@ msgid "Cached memory"
 msgstr "Keširana memorija"
 
 #: js/messages.php:110
-#| msgid "Buffer Pool"
 msgid "Buffered memory"
 msgstr "Baferisana memorija"
 
@@ -1362,7 +1324,6 @@ msgid "Used memory"
 msgstr "Iskorišćena memorija"
 
 #: js/messages.php:114
-#| msgid "Total"
 msgid "Total Swap"
 msgstr "Ukupno Swap"
 
@@ -1375,7 +1336,6 @@ msgid "Used Swap"
 msgstr "Iskorišćeni svop"
 
 #: js/messages.php:117
-#| msgid "Free pages"
 msgid "Free Swap"
 msgstr "Slobodno Swap"
 
@@ -1384,7 +1344,6 @@ msgid "Bytes sent"
 msgstr "Poslato bajtova"
 
 #: js/messages.php:120
-#| msgid "Received"
 msgid "Bytes received"
 msgstr "Primljeno bajtova"
 
@@ -1393,34 +1352,32 @@ msgid "Connections"
 msgstr "Veze"
 
 #. l10n: shortcuts for Byte
-#: js/messages.php:125 libraries/common.lib.php:1398
+#: js/messages.php:125 libraries/common.lib.php:1394
 msgid "B"
 msgstr "B"
 
 #. l10n: shortcuts for Gigabyte
-#: js/messages.php:128 libraries/common.lib.php:1404
+#: js/messages.php:128 libraries/common.lib.php:1400
 msgid "GiB"
 msgstr "GB"
 
 #. l10n: shortcuts for Terabyte
-#: js/messages.php:129 libraries/common.lib.php:1406
+#: js/messages.php:129 libraries/common.lib.php:1402
 msgid "TiB"
 msgstr "TB"
 
 #. l10n: shortcuts for Petabyte
-#: js/messages.php:130 libraries/common.lib.php:1408
+#: js/messages.php:130 libraries/common.lib.php:1404
 msgid "PiB"
 msgstr "PB"
 
 #. l10n: shortcuts for Exabyte
-#: js/messages.php:131 libraries/common.lib.php:1410
+#: js/messages.php:131 libraries/common.lib.php:1406
 msgid "EiB"
 msgstr "EB"
 
 #: js/messages.php:132
 #, php-format
-#| msgid "%s table"
-#| msgid_plural "%s tables"
 msgid "%d table(s)"
 msgstr "%d tabela"
 
@@ -1435,12 +1392,10 @@ msgstr "Saobraćaj"
 
 #: js/messages.php:137 libraries/server_links.inc.php:73
 #: server_status.php:1578
-#| msgid "General relation features"
 msgid "Settings"
 msgstr "Podešavanja"
 
 #: js/messages.php:138
-#| msgid "Remove database"
 msgid "Remove chart"
 msgstr "Ukloni grafikon"
 
@@ -1449,7 +1404,6 @@ msgid "Edit title and labels"
 msgstr "Uredi naslov i opise"
 
 #: js/messages.php:140
-#| msgid "Snap to grid"
 msgid "Add chart to grid"
 msgstr "Dodaj grafikon na grid"
 
@@ -1524,21 +1478,18 @@ msgstr ""
 #. l10n: %s is FILE or TABLE
 #: js/messages.php:157
 #, php-format
-#| msgid "Save as file"
 msgid "Set log_output to %s"
 msgstr "Postavi log_output na %s"
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: js/messages.php:159
 #, php-format
-#| msgid "Enabled"
 msgid "Enable %s"
 msgstr "Omogući %s"
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: js/messages.php:161
 #, php-format
-#| msgid "Disabled"
 msgid "Disable %s"
 msgstr "Onemogući %s"
 
@@ -1557,17 +1508,14 @@ msgstr ""
 "root ili kontaktirajte vašeg administratora baze."
 
 #: js/messages.php:165
-#| msgid "General relation features"
 msgid "Change settings"
 msgstr "Izmeni podešavanja"
 
 #: js/messages.php:166
-#| msgid "General relation features"
 msgid "Current settings"
 msgstr "Trenutna podešavanja"
 
 #: js/messages.php:168 server_status.php:1668
-#| msgid "Report title"
 msgid "Chart Title"
 msgstr "Naslov grafikona"
 
@@ -1602,7 +1550,6 @@ msgid "Analysing & loading logs. This may take a while."
 msgstr "Analiziranje i učitavanje dnevnika. Ovo može da potraje neko vreme."
 
 #: js/messages.php:178
-#| msgid "Read requests"
 msgid "Cancel request"
 msgstr "Otkaži zahtev"
 
@@ -1634,20 +1581,19 @@ msgid "Jump to Log table"
 msgstr "Preskoči na Log tabelu"
 
 #: js/messages.php:184
-#| msgid "No databases"
 msgid "No data found"
 msgstr "Nema podataka"
 
 #: js/messages.php:185
 msgid "Log analysed, but no data found in this time span."
-msgstr "Dnevnik analiziran, ali ništa nije pronađeno u ovom vremenskom razmaku."
+msgstr ""
+"Dnevnik analiziran, ali ništa nije pronađeno u ovom vremenskom razmaku."
 
 #: js/messages.php:187
 msgid "Analyzing..."
 msgstr "Aniliziram..."
 
 #: js/messages.php:188
-#| msgid "Explain SQL"
 msgid "Explain output"
 msgstr "Objasni izlaz"
 
@@ -1657,28 +1603,23 @@ msgid "Time"
 msgstr "Vreme"
 
 #: js/messages.php:191
-#| msgid "Total"
 msgid "Total time:"
 msgstr "Ukupno vreme:"
 
 #: js/messages.php:192
-#| msgid "Profiling"
 msgid "Profiling results"
 msgstr "Rezultat profilisanja"
 
 #: js/messages.php:193
-#| msgid "Table"
 msgctxt "Display format"
 msgid "Table"
 msgstr "Tabela"
 
 #: js/messages.php:194
-#| msgid "Charset"
 msgid "Chart"
 msgstr "Grafikon"
 
 #: js/messages.php:195
-#| msgid "Add %s field(s)"
 msgid "Edit chart"
 msgstr "Izmeni grafikon"
 
@@ -1709,7 +1650,6 @@ msgid "Sum of grouped rows:"
 msgstr "Suma grupisanih redova:"
 
 #: js/messages.php:205
-#| msgid "Total"
 msgid "Total:"
 msgstr "Ukupno:"
 
@@ -1732,7 +1672,6 @@ msgstr ""
 "stranice i ponovno prijavljivanje trebalo bi da pomogne."
 
 #: js/messages.php:210
-#| msgid "Reload"
 msgid "Reload page"
 msgstr "Ponovo učitaj stranu"
 
@@ -1762,17 +1701,14 @@ msgid "Import"
 msgstr "Uvoz"
 
 #: js/messages.php:217
-#| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Import monitor configuration"
 msgstr "Podešavanje Import monitor-a"
 
 #: js/messages.php:218
-#| msgid "Please select the primary key or a unique key"
 msgid "Please select the file you want to import"
 msgstr "Molimo izaberite datoteku koju želite da uvezete"
 
 #: js/messages.php:220
-#| msgid "Update Query"
 msgid "Analyse Query"
 msgstr "Analiza upita"
 
@@ -1789,7 +1725,6 @@ msgid "Issue"
 msgstr "Pitanje"
 
 #: js/messages.php:227
-#| msgid "Documentation"
 msgid "Recommendation"
 msgstr "Preporuka"
 
@@ -1798,7 +1733,6 @@ msgid "Rule details"
 msgstr "Detalji pravila"
 
 #: js/messages.php:229
-#| msgid "Documentation"
 msgid "Justification"
 msgstr "Opravdanje"
 
@@ -1821,7 +1755,6 @@ msgid "Loading"
 msgstr "Učitavanje"
 
 #: js/messages.php:240
-#| msgid "Processes"
 msgid "Processing Request"
 msgstr "Obrada zahteva"
 
@@ -1848,47 +1781,38 @@ msgid "Click to dismiss this notification"
 msgstr "Kliknite da bi ste zatvorili ovo obaveštenje"
 
 #: js/messages.php:248
-#| msgid "Rename database to"
 msgid "Renaming Databases"
 msgstr "Preimenovanje baza podataka"
 
 #: js/messages.php:249
-#| msgid "Remove database"
 msgid "Reload Database"
 msgstr "Ponovno učitavanje baze"
 
 #: js/messages.php:250
-#| msgid "Copy database to"
 msgid "Copying Database"
 msgstr "Kopiranje baze"
 
 #: js/messages.php:251
-#| msgid "Charset"
 msgid "Changing Charset"
 msgstr "Izmena seta znakova"
 
 #: js/messages.php:252
-#| msgid "Table must have at least one field."
 msgid "Table must have at least one column"
 msgstr "Tabela mora imati bar jednu kolonu"
 
 #: js/messages.php:257
-#| msgid "Use Tables"
 msgid "Insert Table"
 msgstr "Umetni tabelu"
 
 #: js/messages.php:258
-#| msgid "Indexes"
 msgid "Hide indexes"
 msgstr "Sakrij indekse"
 
 #: js/messages.php:259
-#| msgid "Show grid"
 msgid "Show indexes"
 msgstr "Prikaži indekse"
 
 #: js/messages.php:262
-#| msgid "Search"
 msgid "Searching"
 msgstr "Pretraga"
 
@@ -1901,12 +1825,10 @@ msgid "Show search results"
 msgstr "Prikaži rezultate pretrage"
 
 #: js/messages.php:265
-#| msgid "Browse"
 msgid "Browsing"
 msgstr "Pregledanje"
 
 #: js/messages.php:266
-#| msgid "Deleting %s"
 msgid "Deleting"
 msgstr "Brisanje"
 
@@ -1938,7 +1860,7 @@ msgstr "Prikažiokvir sa upitima"
 msgid "No rows selected"
 msgstr "Nema odabranih redova"
 
-#: js/messages.php:286 libraries/common.lib.php:2746
+#: js/messages.php:286 libraries/common.lib.php:2742
 #: libraries/display_tbl.lib.php:2507 querywindow.php:87 tbl_structure.php:149
 #: tbl_structure.php:588
 msgid "Change"
@@ -1970,7 +1892,6 @@ msgid "Show search criteria"
 msgstr "Prikaži kriterijume za pretragu"
 
 #: js/messages.php:298 libraries/tbl_select.lib.php:110
-#| msgid "Search"
 msgid "Zoom Search"
 msgstr "Uvećaj polje za pretragu"
 
@@ -2002,7 +1923,6 @@ msgstr ""
 "donjem desnom uglu."
 
 #: js/messages.php:312
-#| msgid "Add/Delete columns"
 msgid "Select two columns"
 msgstr "Izaberi dve kolone"
 
@@ -2011,12 +1931,10 @@ msgid "Select two different columns"
 msgstr "Izaberite dve različite kolone"
 
 #: js/messages.php:314
-#| msgid "Query results operations"
 msgid "Query results"
 msgstr "Rezultat upita"
 
 #: js/messages.php:315
-#| msgid "Data pointer size"
 msgid "Data point content"
 msgstr "Sadržaj tačke podataka"
 
@@ -2030,7 +1948,6 @@ msgid "Copy"
 msgstr "Kopiraj"
 
 #: js/messages.php:334
-#| msgid "Add %s field(s)"
 msgid "Add columns"
 msgstr "Dodaj kolone"
 
@@ -2047,7 +1964,6 @@ msgid "Please select the primary key or a unique key"
 msgstr "Molimo izaberite primarni ili jedinstveni ključ"
 
 #: js/messages.php:340 pmd_general.php:77 tbl_relation.php:541
-#| msgid "Choose field to display"
 msgid "Choose column to display"
 msgstr "Izaberi kolonu za prikaz"
 
@@ -2112,7 +2028,6 @@ msgid "Go to link"
 msgstr "Idi na link"
 
 #: js/messages.php:359
-#| msgid "Generate Password"
 msgid "Generate password"
 msgstr "Generiši lozinku"
 
@@ -2121,12 +2036,10 @@ msgid "Generate"
 msgstr "Generiši"
 
 #: js/messages.php:361
-#| msgid "Change password"
 msgid "Change Password"
 msgstr "Promeni lozinku"
 
 #: js/messages.php:364 tbl_structure.php:480
-#| msgid "Mon"
 msgid "More"
 msgstr "Još"
 
@@ -2154,25 +2067,21 @@ msgid "Done"
 msgstr "Gotovo"
 
 #: js/messages.php:393
-#| msgid "Previous"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Prethodni"
 
 #: js/messages.php:398
-#| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
 msgstr "Sledeći"
 
 #. l10n: Display text for current month link in calendar
 #: js/messages.php:401
-#| msgid "Total"
 msgid "Today"
 msgstr "Danas"
 
 #: js/messages.php:404
-#| msgid "Binary"
 msgid "January"
 msgstr "Januar"
 
@@ -2181,12 +2090,10 @@ msgid "February"
 msgstr "Februar"
 
 #: js/messages.php:406
-#| msgid "Mar"
 msgid "March"
 msgstr "Mart"
 
 #: js/messages.php:407
-#| msgid "Apr"
 msgid "April"
 msgstr "April"
 
@@ -2195,17 +2102,14 @@ msgid "May"
 msgstr "Maj"
 
 #: js/messages.php:409
-#| msgid "Jun"
 msgid "June"
 msgstr "Jun"
 
 #: js/messages.php:410
-#| msgid "Jul"
 msgid "July"
 msgstr "Jul"
 
 #: js/messages.php:411
-#| msgid "Aug"
 msgid "August"
 msgstr "Avgust"
 
@@ -2214,7 +2118,6 @@ msgid "September"
 msgstr "Septembar"
 
 #: js/messages.php:413
-#| msgid "Oct"
 msgid "October"
 msgstr "Oktobar"
 
@@ -2227,79 +2130,75 @@ msgid "December"
 msgstr "Decembar"
 
 #. l10n: Short month name
-#: js/messages.php:419 libraries/common.lib.php:1609
+#: js/messages.php:419 libraries/common.lib.php:1605
 msgid "Jan"
 msgstr "Jan"
 
 #. l10n: Short month name
-#: js/messages.php:421 libraries/common.lib.php:1611
+#: js/messages.php:421 libraries/common.lib.php:1607
 msgid "Feb"
 msgstr "Feb"
 
 #. l10n: Short month name
-#: js/messages.php:423 libraries/common.lib.php:1613
+#: js/messages.php:423 libraries/common.lib.php:1609
 msgid "Mar"
 msgstr "Mar"
 
 #. l10n: Short month name
-#: js/messages.php:425 libraries/common.lib.php:1615
+#: js/messages.php:425 libraries/common.lib.php:1611
 msgid "Apr"
 msgstr "Apr"
 
 #. l10n: Short month name
-#: js/messages.php:427 libraries/common.lib.php:1617
-#| msgid "May"
+#: js/messages.php:427 libraries/common.lib.php:1613
 msgctxt "Short month name"
 msgid "May"
 msgstr "Maj"
 
 #. l10n: Short month name
-#: js/messages.php:429 libraries/common.lib.php:1619
+#: js/messages.php:429 libraries/common.lib.php:1615
 msgid "Jun"
 msgstr "Jun"
 
 #. l10n: Short month name
-#: js/messages.php:431 libraries/common.lib.php:1621
+#: js/messages.php:431 libraries/common.lib.php:1617
 msgid "Jul"
 msgstr "Jul"
 
 #. l10n: Short month name
-#: js/messages.php:433 libraries/common.lib.php:1623
+#: js/messages.php:433 libraries/common.lib.php:1619
 msgid "Aug"
 msgstr "Avg"
 
 #. l10n: Short month name
-#: js/messages.php:435 libraries/common.lib.php:1625
+#: js/messages.php:435 libraries/common.lib.php:1621
 msgid "Sep"
 msgstr "Sep"
 
 #. l10n: Short month name
-#: js/messages.php:437 libraries/common.lib.php:1627
+#: js/messages.php:437 libraries/common.lib.php:1623
 msgid "Oct"
 msgstr "Okt"
 
 #. l10n: Short month name
-#: js/messages.php:439 libraries/common.lib.php:1629
+#: js/messages.php:439 libraries/common.lib.php:1625
 msgid "Nov"
 msgstr "Nov"
 
 #. l10n: Short month name
-#: js/messages.php:441 libraries/common.lib.php:1631
+#: js/messages.php:441 libraries/common.lib.php:1627
 msgid "Dec"
 msgstr "Dec"
 
 #: js/messages.php:444
-#| msgid "Sun"
 msgid "Sunday"
 msgstr "Nedelja"
 
 #: js/messages.php:445
-#| msgid "Mon"
 msgid "Monday"
 msgstr "Ponedeljak"
 
 #: js/messages.php:446
-#| msgid "Tue"
 msgid "Tuesday"
 msgstr "Utorak"
 
@@ -2312,7 +2211,6 @@ msgid "Thursday"
 msgstr "Četvrtak"
 
 #: js/messages.php:449
-#| msgid "Fri"
 msgid "Friday"
 msgstr "Petak"
 
@@ -2322,80 +2220,71 @@ msgstr "Subota"
 
 #. l10n: Short week day name
 #: js/messages.php:454
-#| msgctxt "Short week day name"
-#| msgid "Sun"
 msgid "Sun"
 msgstr "Ned"
 
 #. l10n: Short week day name
-#: js/messages.php:456 libraries/common.lib.php:1636
+#: js/messages.php:456 libraries/common.lib.php:1632
 msgid "Mon"
 msgstr "Pon"
 
 #. l10n: Short week day name
-#: js/messages.php:458 libraries/common.lib.php:1638
+#: js/messages.php:458 libraries/common.lib.php:1634
 msgid "Tue"
 msgstr "Uto"
 
 #. l10n: Short week day name
-#: js/messages.php:460 libraries/common.lib.php:1640
+#: js/messages.php:460 libraries/common.lib.php:1636
 msgid "Wed"
 msgstr "Sre"
 
 #. l10n: Short week day name
-#: js/messages.php:462 libraries/common.lib.php:1642
+#: js/messages.php:462 libraries/common.lib.php:1638
 msgid "Thu"
 msgstr "Čet"
 
 #. l10n: Short week day name
-#: js/messages.php:464 libraries/common.lib.php:1644
+#: js/messages.php:464 libraries/common.lib.php:1640
 msgid "Fri"
 msgstr "Pet"
 
 #. l10n: Short week day name
-#: js/messages.php:466 libraries/common.lib.php:1646
+#: js/messages.php:466 libraries/common.lib.php:1642
 msgid "Sat"
 msgstr "Sub"
 
 #. l10n: Minimal week day name
 #: js/messages.php:470
-#| msgid "Sun"
 msgid "Su"
 msgstr "Ne"
 
 #. l10n: Minimal week day name
 #: js/messages.php:472
-#| msgid "Mon"
 msgid "Mo"
 msgstr "Po"
 
 #. l10n: Minimal week day name
 #: js/messages.php:474
-#| msgid "Tue"
 msgid "Tu"
 msgstr "Ut"
 
 #. l10n: Minimal week day name
 #: js/messages.php:476
-#| msgid "Wed"
 msgid "We"
 msgstr "Sr"
 
 #. l10n: Minimal week day name
 #: js/messages.php:478
-#| msgid "Thu"
 msgid "Th"
 msgstr "Če"
 
 #. l10n: Minimal week day name
 #: js/messages.php:480
-#| msgid "Fri"
 msgid "Fr"
 msgstr "Pe"
 
 #. l10n: Minimal week day name
 #: js/messages.php:482
-#| msgid "Sat"
 msgid "Sa"
 msgstr "Su"
 
@@ -2411,7 +2300,6 @@ msgstr "kalendar-mesec-godina"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: js/messages.php:489
-#| msgid "None"
 msgctxt "Year suffix"
 msgid "none"
 msgstr "nema"
@@ -2421,12 +2309,10 @@ msgid "Hour"
 msgstr "Čas"
 
 #: js/messages.php:499
-#| msgid "in use"
 msgid "Minute"
 msgstr "Minut"
 
 #: js/messages.php:500
-#| msgid "per second"
 msgid "Second"
 msgstr "Sekund"
 
@@ -2434,8 +2320,7 @@ msgstr "Sekund"
 #, php-format
 msgid "Failed formatting string for rule '%s'. PHP threw following error: %s"
 msgstr ""
-"Neuspelo formatiranje stringa za pravilo '%s'. PHP izbacio sledeću grešku: %"
-"s"
+"Neuspelo formatiranje stringa za pravilo '%s'. PHP izbacio sledeću grešku: %s"
 
 #: libraries/Advisor.class.php:326 server_status.php:969
 msgid "per second"
@@ -2482,15 +2367,14 @@ msgid "File was not an uploaded file."
 msgstr "Datoteka nije upload-ovana datoteka."
 
 #: libraries/File.class.php:260 libraries/File.class.php:389
-#| msgid "Unknown error in file upload."
 msgid "Unknown error while uploading."
 msgstr "Nepoznata greška pri slanju datoteke."
 
 #: libraries/File.class.php:278
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
-"Poslata datoteka prevazilazi vrednost promenljive upload_max_filesize u "
-"php.ini."
+"Poslata datoteka prevazilazi vrednost promenljive upload_max_filesize u php."
+"ini."
 
 #: libraries/File.class.php:281
 msgid ""
@@ -2525,8 +2409,8 @@ msgid ""
 "Error moving the uploaded file, see [a@./Documentation."
 "html#faq1_11@Documentation]FAQ 1.11[/a]"
 msgstr ""
-"Greška u premeštanju primljene datoteke, pogledajte "
-"[a@./Documentation.html#faq1_11@Documentation]FAQ 1.11[/a]"
+"Greška u premeštanju primljene datoteke, pogledajte [a@./Documentation."
+"html#faq1_11@Documentation]FAQ 1.11[/a]"
 
 #: libraries/File.class.php:508
 msgid "Error while moving uploaded file."
@@ -2590,7 +2474,7 @@ msgid "Databases"
 msgstr "Baze"
 
 #: libraries/Message.class.php:193 libraries/blobstreaming.lib.php:356
-#: libraries/blobstreaming.lib.php:365 libraries/common.lib.php:614
+#: libraries/blobstreaming.lib.php:365 libraries/common.lib.php:610
 #: libraries/core.lib.php:210 libraries/import.lib.php:140 tbl_change.php:903
 #: tbl_operations.php:229 tbl_relation.php:282 view_operations.php:60
 msgid "Error"
@@ -2606,7 +2490,6 @@ msgstr[2] "%1$d redova zahvaćeno."
 
 #: libraries/Message.class.php:257
 #, php-format
-#| msgid "No rows selected"
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] "%1$d red obrisan."
@@ -2615,7 +2498,6 @@ msgstr[2] "%1$d redova obrisano."
 
 #: libraries/Message.class.php:273
 #, php-format
-#| msgid "No rows selected"
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] "%1$d red umetnut."
@@ -2623,12 +2505,10 @@ msgstr[1] "%1$d redova umetnuto."
 msgstr[2] "%1$d redova umetnuto."
 
 #: libraries/PDF.class.php:81
-#| msgid "Allows reading data."
 msgid "Error while creating PDF:"
 msgstr "Greška prilikom kreiranja PDF-a:"
 
 #: libraries/RecentTable.class.php:107
-#| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save recent table"
 msgstr "Nije moguće sačuvati poslednju tabelu"
 
@@ -2661,7 +2541,6 @@ msgid "This MySQL server does not support the %s storage engine."
 msgstr "Ovaj MySQL server ne podržava %s pogon skladištenja."
 
 #: libraries/Table.class.php:329
-#| msgid "Show slave status"
 msgid "unknown table status: "
 msgstr "Nepoznat status tabele: "
 
@@ -2693,8 +2572,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
-"Neuspelo brisanje podešavanja korisničkog interfejsa tabele (pogledajte "
-"$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
+"Neuspelo brisanje podešavanja korisničkog interfejsa tabele (pogledajte $cfg"
+"['Servers'][$i]['MaxTableUiprefs'] %s)"
 
 #: libraries/Table.class.php:1534
 #, php-format
@@ -2752,8 +2631,8 @@ msgstr "Dobrodošli na %s"
 #: libraries/auth/config.auth.lib.php:102
 #, php-format
 msgid ""
-"You probably did not create a configuration file. You might want to use the %"
-"1$ssetup script%2$s to create one."
+"You probably did not create a configuration file. You might want to use the "
+"%1$ssetup script%2$s to create one."
 msgstr ""
 "Verovatan razlog za ovo je da niste napravili konfiguracionu datoteku. "
 "Možete koristiti %1$sskript za instalaciju%2$s da biste je napravili."
@@ -2862,7 +2741,6 @@ msgid "PBMS error"
 msgstr "Greška u PBMS-u"
 
 #: libraries/blobstreaming.lib.php:306
-#| msgid "MySQL connection collation"
 msgid "PBMS connection failed:"
 msgstr "PBMS veza neuspešna:"
 
@@ -2932,7 +2810,6 @@ msgid "Not replicated"
 msgstr "Nije replikovano"
 
 #: libraries/build_html_for_db.lib.php:137
-#| msgid "Replication"
 msgid "Replicated"
 msgstr "Replikovano"
 
@@ -2954,7 +2831,6 @@ msgid "numeric key detected"
 msgstr "otkriven numerički ključ"
 
 #: libraries/common.inc.php:624
-#| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Failed to read configuration file"
 msgstr "Neuspelo čitanje iz konfiguracione datoteke"
 
@@ -2968,7 +2844,6 @@ msgstr ""
 
 #: libraries/common.inc.php:632
 #, php-format
-#| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not load default configuration from: %1$s"
 msgstr "Ne mogu da učitam podrazumevanu konfiguraciju iz: \"%1$s\""
 
@@ -2982,7 +2857,6 @@ msgstr ""
 
 #: libraries/common.inc.php:667
 #, php-format
-#| msgid "Invalid server index: \"%s\""
 msgid "Invalid server index: %s"
 msgstr "Neispravan indeks servera: %s"
 
@@ -3011,28 +2885,10 @@ msgstr "Trebalo bi da unapredite vaš %s server na verziju %s ili noviju."
 msgid "Max: %s%s"
 msgstr "Maksimalna veličina: %s%s"
 
-#. l10n: Please check that translation actually exists.
-#: libraries/common.lib.php:450
-msgctxt "MySQL 5.5 documentation language"
-msgid "en"
-msgstr "en"
-
-#. l10n: Please check that translation actually exists.
-#: libraries/common.lib.php:454
-msgctxt "MySQL 5.1 documentation language"
-msgid "en"
-msgstr "en"
-
-#. l10n: Please check that translation actually exists.
-#: libraries/common.lib.php:458
-msgctxt "MySQL 5.0 documentation language"
-msgid "en"
-msgstr "en"
-
-#: libraries/common.lib.php:472 libraries/common.lib.php:474
-#: libraries/common.lib.php:476 libraries/common.lib.php:494
-#: libraries/common.lib.php:498 libraries/common.lib.php:517
-#: libraries/common.lib.php:520 libraries/config/FormDisplay.tpl.php:140
+#: libraries/common.lib.php:468 libraries/common.lib.php:470
+#: libraries/common.lib.php:472 libraries/common.lib.php:490
+#: libraries/common.lib.php:494 libraries/common.lib.php:513
+#: libraries/common.lib.php:516 libraries/config/FormDisplay.tpl.php:140
 #: libraries/display_export.lib.php:234 libraries/engines/pbms.lib.php:71
 #: libraries/engines/pbxt.lib.php:106 libraries/navigation_header.inc.php:106
 #: libraries/navigation_header.inc.php:107 libraries/relation.lib.php:78
@@ -3041,12 +2897,12 @@ msgstr "en"
 msgid "Documentation"
 msgstr "Dokumentacija"
 
-#: libraries/common.lib.php:626 libraries/header_printview.inc.php:63
+#: libraries/common.lib.php:622 libraries/header_printview.inc.php:63
 #: server_status.php:595 server_status.php:1261
 msgid "SQL query"
 msgstr "SQL upit"
 
-#: libraries/common.lib.php:667 libraries/rte/rte_events.lib.php:103
+#: libraries/common.lib.php:663 libraries/rte/rte_events.lib.php:103
 #: libraries/rte/rte_events.lib.php:108 libraries/rte/rte_events.lib.php:118
 #: libraries/rte/rte_events.lib.php:131 libraries/rte/rte_routines.lib.php:253
 #: libraries/rte/rte_routines.lib.php:258
@@ -3059,121 +2915,115 @@ msgstr "SQL upit"
 msgid "MySQL said: "
 msgstr "MySQL reče: "
 
-#: libraries/common.lib.php:1130
+#: libraries/common.lib.php:1126
 msgid "Failed to connect to SQL validator!"
 msgstr "Neuspelo povezivanje na SQL validator!"
 
-#: libraries/common.lib.php:1171 libraries/config/messages.inc.php:485
+#: libraries/common.lib.php:1167 libraries/config/messages.inc.php:485
 msgid "Explain SQL"
 msgstr "Objasni SQL"
 
-#: libraries/common.lib.php:1175
+#: libraries/common.lib.php:1171
 msgid "Skip Explain SQL"
 msgstr "Preskoči objašnjavanje SQL-a"
 
-#: libraries/common.lib.php:1210
+#: libraries/common.lib.php:1206
 msgid "Without PHP Code"
 msgstr "bez PHP koda"
 
-#: libraries/common.lib.php:1213 libraries/config/messages.inc.php:487
+#: libraries/common.lib.php:1209 libraries/config/messages.inc.php:487
 msgid "Create PHP Code"
 msgstr "Napravi PHP kod"
 
-#: libraries/common.lib.php:1233 libraries/config/messages.inc.php:486
+#: libraries/common.lib.php:1229 libraries/config/messages.inc.php:486
 #: server_status.php:804 server_status.php:830 server_status.php:853
 msgid "Refresh"
 msgstr "Osveži"
 
-#: libraries/common.lib.php:1243
+#: libraries/common.lib.php:1239
 msgid "Skip Validate SQL"
 msgstr "Preskoči proveru SQL-a"
 
-#: libraries/common.lib.php:1246 libraries/config/messages.inc.php:489
+#: libraries/common.lib.php:1242 libraries/config/messages.inc.php:489
 msgid "Validate SQL"
 msgstr "Proveri SQL"
 
-#: libraries/common.lib.php:1305
+#: libraries/common.lib.php:1301
 msgid "Inline edit of this query"
 msgstr "Uredi ovaj upit na licu mesta"
 
-#: libraries/common.lib.php:1307
-#| msgid "Engines"
+#: libraries/common.lib.php:1303
 msgctxt "Inline edit query"
 msgid "Inline"
 msgstr "u liniji"
 
-#: libraries/common.lib.php:1373 sql.php:892
+#: libraries/common.lib.php:1369 sql.php:892
 msgid "Profiling"
 msgstr "Profilisanje"
 
 #. l10n: Short week day name
-#: libraries/common.lib.php:1634
+#: libraries/common.lib.php:1630
 msgctxt "Short week day name"
 msgid "Sun"
 msgstr "Ned"
 
 #. l10n: See http://www.php.net/manual/en/function.strftime.php
-#: libraries/common.lib.php:1650
+#: libraries/common.lib.php:1646
 #: libraries/transformations/text_plain__dateformat.inc.php:35
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d. %B %Y. u %H:%M"
 
-#: libraries/common.lib.php:1983
+#: libraries/common.lib.php:1979
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s dana, %s sati, %s minuta i %s sekundi"
 
-#: libraries/common.lib.php:2074
-#| msgid "Routines"
+#: libraries/common.lib.php:2070
 msgid "Missing parameter:"
 msgstr "Nedostaje parametar:"
 
-#: libraries/common.lib.php:2457 libraries/common.lib.php:2460
+#: libraries/common.lib.php:2453 libraries/common.lib.php:2456
 #: libraries/display_tbl.lib.php:306
-#| msgid "Begin"
 msgctxt "First page"
 msgid "Begin"
 msgstr "Početak"
 
-#: libraries/common.lib.php:2458 libraries/common.lib.php:2461
+#: libraries/common.lib.php:2454 libraries/common.lib.php:2457
 #: libraries/display_tbl.lib.php:307 server_binlog.php:135
 #: server_binlog.php:137
-#| msgid "Previous"
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Prethodna"
 
-#: libraries/common.lib.php:2488 libraries/common.lib.php:2491
+#: libraries/common.lib.php:2484 libraries/common.lib.php:2487
 #: libraries/display_tbl.lib.php:373 server_binlog.php:170
 #: server_binlog.php:172
-#| msgid "Next"
 msgctxt "Next page"
 msgid "Next"
 msgstr "Sledeća"
 
-#: libraries/common.lib.php:2489 libraries/common.lib.php:2492
+#: libraries/common.lib.php:2485 libraries/common.lib.php:2488
 #: libraries/display_tbl.lib.php:390
-#| msgid "End"
 msgctxt "Last page"
 msgid "End"
 msgstr "Kraj"
 
-#: libraries/common.lib.php:2559
+#: libraries/common.lib.php:2555
 #, php-format
 msgid "Jump to database &quot;%s&quot;."
 msgstr "Pređi na bazu &quot;%s&quot;."
 
-#: libraries/common.lib.php:2579
+#: libraries/common.lib.php:2575
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr "Ova funkcionalnost %s je pogođena poznatom greškom, vidite %s"
 
-#: libraries/common.lib.php:2753
+#: libraries/common.lib.php:2749
 msgid "Click to toggle"
 msgstr "Kliknite da biste zamenili"
 
-#: libraries/common.lib.php:3127 libraries/common.lib.php:3134
-#: libraries/common.lib.php:3349 libraries/config/setup.forms.php:296
+#: libraries/common.lib.php:3123 libraries/common.lib.php:3130
+#: libraries/common.lib.php:3345 libraries/config/setup.forms.php:296
 #: libraries/config/setup.forms.php:333 libraries/config/setup.forms.php:359
 #: libraries/config/user_preferences.forms.php:194
 #: libraries/config/user_preferences.forms.php:231
@@ -3185,7 +3035,7 @@ msgstr "Kliknite da biste zamenili"
 msgid "Structure"
 msgstr "Struktura"
 
-#: libraries/common.lib.php:3128 libraries/common.lib.php:3135
+#: libraries/common.lib.php:3124 libraries/common.lib.php:3131
 #: libraries/config/messages.inc.php:216 libraries/db_links.inc.php:53
 #: libraries/export/sql.php:25 libraries/import/sql.php:18
 #: libraries/server_links.inc.php:47 libraries/tbl_links.inc.php:65
@@ -3193,43 +3043,43 @@ msgstr "Struktura"
 msgid "SQL"
 msgstr "SQL"
 
-#: libraries/common.lib.php:3130 libraries/common.lib.php:3347
-#: libraries/common.lib.php:3348 libraries/sql_query_form.lib.php:282
+#: libraries/common.lib.php:3126 libraries/common.lib.php:3343
+#: libraries/common.lib.php:3344 libraries/sql_query_form.lib.php:282
 #: libraries/sql_query_form.lib.php:285 libraries/tbl_links.inc.php:74
 msgid "Insert"
 msgstr "Novi zapis"
 
-#: libraries/common.lib.php:3137 libraries/db_links.inc.php:85
+#: libraries/common.lib.php:3133 libraries/db_links.inc.php:85
 #: libraries/tbl_links.inc.php:93 libraries/tbl_links.inc.php:114
 #: view_operations.php:87
 msgid "Operations"
 msgstr "Operacije"
 
-#: libraries/common.lib.php:3281 libraries/sql_query_form.lib.php:443
+#: libraries/common.lib.php:3277 libraries/sql_query_form.lib.php:443
 #: prefs_manage.php:239
 msgid "Browse your computer:"
 msgstr "Pretražite vaš kompjuter:"
 
-#: libraries/common.lib.php:3300
+#: libraries/common.lib.php:3296
 #, php-format
-#| msgid "web server upload directory"
 msgid "Select from the web server upload directory <b>%s</b>:"
-msgstr "Izaberi iz direkorijuma otpremljenih datoteka <b>%s</b> na web serveru:"
+msgstr ""
+"Izaberi iz direkorijuma otpremljenih datoteka <b>%s</b> na web serveru:"
 
-#: libraries/common.lib.php:3321 libraries/sql_query_form.lib.php:452
+#: libraries/common.lib.php:3317 libraries/sql_query_form.lib.php:452
 #: tbl_change.php:904
 msgid "The directory you set for upload work cannot be reached"
 msgstr "Direktorijum koji ste izabrali za slanje nije dostupan"
 
-#: libraries/common.lib.php:3330
+#: libraries/common.lib.php:3326
 msgid "There are no files to upload"
 msgstr "Nema datoteka za otpremanje"
 
-#: libraries/common.lib.php:3358 libraries/common.lib.php:3359
+#: libraries/common.lib.php:3354 libraries/common.lib.php:3355
 msgid "Execute"
 msgstr "Izvrši"
 
-#: libraries/common.lib.php:3839
+#: libraries/common.lib.php:3835
 msgid "Print"
 msgstr "Štampaj"
 
@@ -3255,7 +3105,6 @@ msgid "Open"
 msgstr "Otvori"
 
 #: libraries/config.values.php:77
-#| msgid "Unclosed quote"
 msgid "Closed"
 msgstr "Zatvoreno"
 
@@ -3280,7 +3129,6 @@ msgstr "podatak"
 #: libraries/config.values.php:101 libraries/export/htmlword.php:25
 #: libraries/export/latex.php:42 libraries/export/odt.php:34
 #: libraries/export/sql.php:131 libraries/export/texytext.php:24
-#| msgid "Structure and data"
 msgid "structure and data"
 msgstr "Struktura i podaci"
 
@@ -3297,12 +3145,10 @@ msgid "Custom - like above, but without the quick/custom choice"
 msgstr "Prilagođeno - kao iznad, ali bez izbora brzo/prilagođeno"
 
 #: libraries/config.values.php:123
-#| msgid "Complete inserts"
 msgid "complete inserts"
 msgstr "Kompletan INSERT"
 
 #: libraries/config.values.php:124
-#| msgid "Extended inserts"
 msgid "extended inserts"
 msgstr "Prošireni INSERT"
 
@@ -3348,7 +3194,6 @@ msgstr "Nedostaju podaci za %s"
 
 #: libraries/config/FormDisplay.class.php:708
 #: libraries/config/FormDisplay.class.php:712
-#| msgid "Variable"
 msgid "unavailable"
 msgstr "Nedostupno"
 
@@ -3415,7 +3260,6 @@ msgid "Improves efficiency of screen refresh"
 msgstr "Povećava efikasnost osvežavanja ekrana"
 
 #: libraries/config/messages.inc.php:18
-#| msgid "Enabled"
 msgid "Enable Ajax"
 msgstr "Omogući Ajax"
 
@@ -3437,9 +3281,8 @@ msgid ""
 "cross-frame scripting attacks"
 msgstr ""
 "Omogućavanje ovoga dozvoljava da stranica koja se nalazi na drugom domenu "
-"pozove phpMyAdmin unutar frame-a, i predstavlja potencijalni "
-"[strong]bezbednosni problem[/strong] dozvoljavajući cross-frame scripting "
-"napade"
+"pozove phpMyAdmin unutar frame-a, i predstavlja potencijalni [strong]"
+"bezbednosni problem[/strong] dozvoljavajući cross-frame scripting napade"
 
 #: libraries/config/messages.inc.php:22
 msgid "Allow third party framing"
@@ -3524,7 +3367,6 @@ msgstr ""
 "kolone"
 
 #: libraries/config/messages.inc.php:37
-#| msgid "Maximum size for temporary sort files"
 msgid "Maximum size for input field"
 msgstr "Maksimalna veličina za input polje"
 
@@ -3643,7 +3485,6 @@ msgstr ""
 "popravljanje izabranih tabela iz baze."
 
 #: libraries/config/messages.inc.php:63
-#| msgid "Table maintenance"
 msgid "Disable multi table maintenance"
 msgstr "Isključi multi-tabelarno održavanje"
 
@@ -3652,12 +3493,10 @@ msgid "Edit SQL queries in popup window"
 msgstr "Uredi SQL upite u iskačućem prozoru"
 
 #: libraries/config/messages.inc.php:65
-#| msgid "Edit next row"
 msgid "Edit in window"
 msgstr "Uredi u prozoru"
 
 #: libraries/config/messages.inc.php:66
-#| msgid "Display Features"
 msgid "Display errors"
 msgstr "Prikaži greške"
 
@@ -3678,8 +3517,8 @@ msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)"
 msgstr ""
-"Postavi broj sekundi koliko je dozvoljeno da se skript izvršava "
-"([kbd]0[/kbd] za neograničeno)"
+"Postavi broj sekundi koliko je dozvoljeno da se skript izvršava ([kbd]0[/"
+"kbd] za neograničeno)"
 
 #: libraries/config/messages.inc.php:71
 msgid "Maximum execution time"
@@ -3710,21 +3549,18 @@ msgstr "Kompresija"
 #: libraries/export/excel.php:25 libraries/export/htmlword.php:30
 #: libraries/export/latex.php:72 libraries/export/ods.php:25
 #: libraries/export/odt.php:58 libraries/export/texytext.php:28
-#| msgid "Put fields names in the first row"
 msgid "Put columns names in the first row"
 msgstr "Stavi imena kolona u prvi red"
 
 #: libraries/config/messages.inc.php:77 libraries/config/messages.inc.php:243
 #: libraries/config/messages.inc.php:250 libraries/import/csv.php:76
 #: libraries/import/ldi.php:42
-#| msgid "Fields enclosed by"
 msgid "Columns enclosed by"
 msgstr "Kolone okružene sa"
 
 #: libraries/config/messages.inc.php:78 libraries/config/messages.inc.php:244
 #: libraries/config/messages.inc.php:251 libraries/import/csv.php:81
 #: libraries/import/ldi.php:43
-#| msgid "Fields escaped by"
 msgid "Columns escaped by"
 msgstr "Kolone preskočene sa"
 
@@ -3743,7 +3579,6 @@ msgstr "Izbaci CRLF znakove u kolonama"
 #: libraries/config/messages.inc.php:81 libraries/config/messages.inc.php:247
 #: libraries/config/messages.inc.php:255 libraries/import/csv.php:63
 #: libraries/import/ldi.php:41
-#| msgid "Lines terminated by"
 msgid "Columns terminated by"
 msgstr "Kolone se završavaju sa"
 
@@ -3753,7 +3588,6 @@ msgid "Lines terminated by"
 msgstr "Linije se završavaju sa"
 
 #: libraries/config/messages.inc.php:84
-#| msgid "Excel edition"
 msgid "Excel edition"
 msgstr "Excel izdanje"
 
@@ -3774,7 +3608,6 @@ msgstr "Šablon imena tabele"
 #: libraries/config/messages.inc.php:145 libraries/export/htmlword.php:24
 #: libraries/export/latex.php:40 libraries/export/odt.php:32
 #: libraries/export/sql.php:123 libraries/export/texytext.php:23
-#| msgid "%s table(s)"
 msgid "Dump table"
 msgstr "Obriši tabelu"
 
@@ -3808,7 +3641,6 @@ msgid "Relations"
 msgstr "Relacije"
 
 #: libraries/config/messages.inc.php:107
-#| msgid "Export type"
 msgid "Export method"
 msgstr "Način izvoza"
 
@@ -3826,7 +3658,6 @@ msgid "Remember file name template"
 msgstr "Zapamti šablon imena datoteke"
 
 #: libraries/config/messages.inc.php:122
-#| msgid "Enclose table and field names with backquotes"
 msgid "Enclose table and column names with backquotes"
 msgstr "Stavi imena tabela i kolona u komentar"
 
@@ -3892,9 +3723,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value"
 msgstr ""
-"Redosled sortiranja stavki u padajućoj listi sa stranim ključevima; "
-"[kbd]content[/kbd] je referencirani podatak;  [kbd]id[/kbd] je vrednost "
-"ključa"
+"Redosled sortiranja stavki u padajućoj listi sa stranim ključevima; [kbd]"
+"content[/kbd] je referencirani podatak;  [kbd]id[/kbd] je vrednost ključa"
 
 #: libraries/config/messages.inc.php:153
 msgid "Foreign key dropdown order"
@@ -3961,7 +3791,6 @@ msgid "Features"
 msgstr "Karakteristike"
 
 #: libraries/config/messages.inc.php:170
-#| msgid "Generate"
 msgid "General"
 msgstr "Opšte"
 
@@ -4023,7 +3852,6 @@ msgid "Microsoft Office"
 msgstr "Majkrosoft Ofis"
 
 #: libraries/config/messages.inc.php:190
-#| msgid "Open Document Text"
 msgid "Open Document"
 msgstr "Otvori dokument"
 
@@ -4036,7 +3864,6 @@ msgid "Settings that didn't fit enywhere else"
 msgstr "Postavke koje se ne uklapaju nigde drugde"
 
 #: libraries/config/messages.inc.php:194
-#| msgid "Page number:"
 msgid "Page titles"
 msgstr "Naslovi strana"
 
@@ -4075,7 +3902,6 @@ msgid "Basic settings"
 msgstr "Osnovne postavke"
 
 #: libraries/config/messages.inc.php:201
-#| msgid "Documentation"
 msgid "Authentication"
 msgstr "Autentikacija"
 
@@ -4119,8 +3945,7 @@ msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
-"Praćenje promena u bazi podataka. Zahteva phpMyAdmin skladište "
-"konfiguracije."
+"Praćenje promena u bazi podataka. Zahteva phpMyAdmin skladište konfiguracije."
 
 #: libraries/config/messages.inc.php:210
 msgid "Customize export options"
@@ -4156,7 +3981,6 @@ msgid "SQL queries settings"
 msgstr "Podešavanje SQL upita"
 
 #: libraries/config/messages.inc.php:222
-#| msgid "SQL history"
 msgid "SQL Validator"
 msgstr "SQL validator"
 
@@ -4185,7 +4009,6 @@ msgid "Choose how you want tabs to work"
 msgstr "Izaberite kako želite kartice da rade"
 
 #: libraries/config/messages.inc.php:228
-#| msgid "Use text field"
 msgid "Text fields"
 msgstr "Tekstualna polja"
 
@@ -4275,7 +4098,6 @@ msgstr "Koristi ključnu reč LOCAL"
 
 #: libraries/config/messages.inc.php:256 libraries/config/messages.inc.php:264
 #: libraries/config/messages.inc.php:265
-#| msgid "Put fields names in the first row"
 msgid "Column names in first row"
 msgstr "Imena kolona u prvom redu"
 
@@ -4292,7 +4114,6 @@ msgid "Import percentages as proper decimals (12.00% to .12)"
 msgstr "Uvezi procente kao prave decimalne brojeve (12.00% kao .12)"
 
 #: libraries/config/messages.inc.php:260
-#| msgid "Number of records (queries) to skip from start"
 msgid "Number of queries to skip from start"
 msgstr "Broj upita za preskakanje od starta"
 
@@ -4301,7 +4122,6 @@ msgid "Partial import: skip queries"
 msgstr "Delimični uvoz: preskoči upite"
 
 #: libraries/config/messages.inc.php:263
-#| msgid "Add AUTO_INCREMENT value"
 msgid "Do not use AUTO_INCREMENT for zero values"
 msgstr "Ne koristi AUTO_INCREMENT za nulte vrednosti"
 
@@ -4338,7 +4158,6 @@ msgid "Display servers selection"
 msgstr "Prikaži izbor servera"
 
 #: libraries/config/messages.inc.php:274
-#| msgid "The number of tables that are open."
 msgid "Minimum number of tables to display the table filter box"
 msgstr "Minimalni broj tabela za prikaz okvira za filter tabela"
 
@@ -4412,7 +4231,8 @@ msgstr "Omogući naglašavanje"
 
 #: libraries/config/messages.inc.php:290
 msgid "Maximum number of recently used tables; set 0 to disable"
-msgstr "Maksimalni broj nedavno korišćenih tabela; postavite na 0 da isključite"
+msgstr ""
+"Maksimalni broj nedavno korišćenih tabela; postavite na 0 da isključite"
 
 #: libraries/config/messages.inc.php:291
 msgid "Recently used tables"
@@ -4545,8 +4365,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
 "([kbd]0[/kbd] for no limit)"
 msgstr ""
-"Broj bajtova koji je dozvoljen da skript zauzme, primer [kbd]32M[/kbd] "
-"([kbd]0[/kbd] nema ograničenja)"
+"Broj bajtova koji je dozvoljen da skript zauzme, primer [kbd]32M[/kbd] ([kbd]"
+"0[/kbd] nema ograničenja)"
 
 #: libraries/config/messages.inc.php:320
 msgid "Memory limit"
@@ -4565,7 +4385,6 @@ msgid "Use natural order for sorting table and database names"
 msgstr "Koristi prirodni poredak za sortiranje imena tabela i baza"
 
 #: libraries/config/messages.inc.php:324
-#| msgid "Alter table order by"
 msgid "Natural order"
 msgstr "Prirodni redosled"
 
@@ -4661,17 +4480,14 @@ msgid "Query window height (in pixels)"
 msgstr "Visina prozora za upite (u pikselima)"
 
 #: libraries/config/messages.inc.php:347
-#| msgid "Query window"
 msgid "Query window height"
 msgstr "Visina prozora za upite"
 
 #: libraries/config/messages.inc.php:348
-#| msgid "Query window"
 msgid "Query window width (in pixels)"
 msgstr "Dužina prozora za upite (u pikselima)"
 
 #: libraries/config/messages.inc.php:349
-#| msgid "Query window"
 msgid "Query window width"
 msgstr "Dužina prozora za upite"
 
@@ -4688,7 +4504,6 @@ msgid "When browsing tables, the sorting of each table is remembered"
 msgstr "Kada pregledate tabele, sortiranje svake tabele je upamćeno"
 
 #: libraries/config/messages.inc.php:353
-#| msgid "Rename table to"
 msgid "Remember table's sorting"
 msgstr "Zapamti način sortiranja u tabeli"
 
@@ -4698,7 +4513,6 @@ msgstr ""
 "Ponovi zaglavlje nakon svakih X ćelija, [kbd]0[/kbd] isključuje ovu funkciju"
 
 #: libraries/config/messages.inc.php:355
-#| msgid "Repair threads"
 msgid "Repeat headers"
 msgstr "Ponovi zaglavlja"
 
@@ -4830,7 +4644,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:386
-#| msgid "Any host"
 msgid "Control host"
 msgstr "Kontrolni domaćin"
 
@@ -4956,7 +4769,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:413
-#| msgid "database name"
 msgid "Database name"
 msgstr "Naziv baze"
 
@@ -4975,7 +4787,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:417
-#| msgid "Analyze table"
 msgid "Recently used table"
 msgstr "Skorašnje korišćena tabela"
 
@@ -5043,7 +4854,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:432
-#| msgid "Displaying Column Comments"
 msgid "Display columns table"
 msgstr "Prikaži kolone tabele"
 
@@ -5054,7 +4864,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:434
-#| msgid "Defragment table"
 msgid "UI preferences table"
 msgstr "Tabela podešavanja korisničkog interfejsa"
 
@@ -5093,7 +4902,6 @@ msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
 #: libraries/config/messages.inc.php:442
-#| msgid "Statements"
 msgid "Statements to track"
 msgstr "Praćenje komandi"
 
@@ -5114,7 +4922,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:446
-#| msgid "Automatic recovery mode"
 msgid "Automatically create versions"
 msgstr "Automatski kreiraj verzije"
 
@@ -5192,7 +4999,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:463
-#| msgid "Show open tables"
 msgid "Show field types"
 msgstr "Prikaži tipove polja"
 
@@ -5209,7 +5015,6 @@ msgid "Whether to show hint or not"
 msgstr ""
 
 #: libraries/config/messages.inc.php:467
-#| msgid "Show grid"
 msgid "Show hint"
 msgstr "Prikaži savet"
 
@@ -5347,7 +5152,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:500
-#| msgid "Add/Delete Field Columns"
 msgid "Textarea columns"
 msgstr "Kolone tekstulanih polja"
 
@@ -5553,23 +5357,16 @@ msgstr ""
 msgid "Incorrect IP address: %s"
 msgstr ""
 
-#. l10n: Please check that translation actually exists.
-#: libraries/core.lib.php:247
-msgctxt "PHP documentation language"
-msgid "en"
-msgstr "en"
-
-#: libraries/core.lib.php:266
+#: libraries/core.lib.php:268
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
 
-#: libraries/core.lib.php:414
+#: libraries/core.lib.php:416
 msgid "possible deep recursion attack"
 msgstr ""
 
 #: libraries/database_interface.lib.php:1813
-#| msgid " the local MySQL server's socket is not correctly configured)"
 msgid ""
 "The server is not responding (or the local server's socket is not correctly "
 "configured)."
@@ -5578,7 +5375,6 @@ msgstr ""
 "podešen)."
 
 #: libraries/database_interface.lib.php:1816
-#| msgid "The server is not responding"
 msgid "The server is not responding."
 msgstr "Server ne odgovara."
 
@@ -5633,8 +5429,8 @@ msgid ""
 "May be approximate. See [a@./Documentation.html#faq3_11@Documentation]FAQ "
 "3.11[/a]"
 msgstr ""
-"Može biti približno. Vidite "
-"[a@./Documentation.html#faq3_11@Documentation]FAQ 3.11[/a]"
+"Može biti približno. Vidite [a@./Documentation.html#faq3_11@Documentation]"
+"FAQ 3.11[/a]"
 
 #: libraries/dbi/drizzle.dbi.lib.php:114 libraries/dbi/mysql.dbi.lib.php:117
 #: libraries/dbi/mysqli.dbi.lib.php:189
@@ -5664,13 +5460,11 @@ msgid "Password Hashing"
 msgstr "Heširanje lozinke"
 
 #: libraries/display_change_password.lib.php:65
-#| msgid "MySQL&nbsp;4.0 compatible"
 msgid "MySQL 4.0 compatible"
 msgstr "MySQL 4.0 kompatibilno"
 
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
-#| msgid "Create new database"
 msgid "Create database"
 msgstr "Napravi bazu"
 
@@ -5697,7 +5491,6 @@ msgid "Name"
 msgstr "Ime"
 
 #: libraries/display_create_table.lib.php:55
-#| msgid "Number of fields"
 msgid "Number of columns"
 msgstr "Broj kolona"
 
@@ -5707,24 +5500,20 @@ msgstr ""
 "Nije moguće učitati dodatke za izvoz, molimo proverite svoju instalaciju!"
 
 #: libraries/display_export.lib.php:82
-#| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases from the current server"
 msgstr "Izvoz baza sa tekućeg servera"
 
 #: libraries/display_export.lib.php:84
 #, php-format
-#| msgid "Create table on database %s"
 msgid "Exporting tables from \"%s\" database"
 msgstr "Izvoz tabela iz \"%s\" baze"
 
 #: libraries/display_export.lib.php:86
 #, php-format
-#| msgid "Create table on database %s"
 msgid "Exporting rows from \"%s\" table"
 msgstr "Izvoz redova iz \"%s\" tabele"
 
 #: libraries/display_export.lib.php:92
-#| msgid "Export type"
 msgid "Export Method:"
 msgstr "Način izvoza:"
 
@@ -5737,17 +5526,14 @@ msgid "Custom - display all possible options"
 msgstr "Prilagođeni prikaz svih mogućih opcija"
 
 #: libraries/display_export.lib.php:132
-#| msgid "Databases"
 msgid "Database(s):"
 msgstr "Baza(e):"
 
 #: libraries/display_export.lib.php:134
-#| msgid "Tables"
 msgid "Table(s):"
 msgstr "Tabela(e):"
 
 #: libraries/display_export.lib.php:144
-#| msgid "Rows"
 msgid "Rows:"
 msgstr "Redovi:"
 
@@ -5756,7 +5542,6 @@ msgid "Dump some row(s)"
 msgstr "Izbaci neke redove"
 
 #: libraries/display_export.lib.php:154
-#| msgid "Number of fields"
 msgid "Number of rows:"
 msgstr "Broj redova:"
 
@@ -5774,17 +5559,14 @@ msgstr ""
 
 #: libraries/display_export.lib.php:183 libraries/display_export.lib.php:209
 #, php-format
-#| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <b>%s</b>"
 msgstr "Sačuvaj na server u direktorijum <b>%s</b>"
 
 #: libraries/display_export.lib.php:201
-#| msgid "Save as file"
 msgid "Save output to a file"
 msgstr "Sačuvaj izlaz u datoteku"
 
 #: libraries/display_export.lib.php:222
-#| msgid "File name template"
 msgid "File name template:"
 msgstr "Šablon imena datoteke:"
 
@@ -5802,14 +5584,10 @@ msgstr ""
 
 #: libraries/display_export.lib.php:232
 #, php-format
-#| msgid ""
-#| "alue is interpreted using %1$sstrftime%2$s, so you can use time matting "
-#| "ings. Additionally the following transformations will pen: %3$s. Other t "
-#| "will be kept as is."
 msgid ""
 "This value is interpreted using %1$sstrftime%2$s, so you can use time "
-"formatting strings. Additionally the following transformations will happen: %"
-"3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
+"formatting strings. Additionally the following transformations will happen: "
+"%3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details."
 msgstr ""
 "Ova vrednost se interpretira korišćenjem %1$sstrftime%2$s, tako da možete da "
 "koristite stringove za formatiranje vremena. Takođe će se desiti i sledeće "
@@ -5826,38 +5604,31 @@ msgid "Character set of the file:"
 msgstr "Karakter set datoteke:"
 
 #: libraries/display_export.lib.php:306
-#| msgid "Compression"
 msgid "Compression:"
 msgstr "Kompresija:"
 
 #: libraries/display_export.lib.php:310
-#| msgid "\"zipped\""
 msgid "zipped"
 msgstr "zipovano"
 
 #: libraries/display_export.lib.php:312
-#| msgid "\"gzipped\""
 msgid "gzipped"
 msgstr "spakovano gzip-om"
 
 #: libraries/display_export.lib.php:314
-#| msgid "\"bzipped\""
 msgid "bzipped"
 msgstr "spakovano bzip-om"
 
 #: libraries/display_export.lib.php:323
-#| msgid "Save as file"
 msgid "View output as text"
 msgstr "Pogledaj izlaz kao tekst"
 
 #: libraries/display_export.lib.php:328 libraries/display_import.lib.php:244
 #: libraries/export/codegen.php:38
-#| msgid "Format"
 msgid "Format:"
 msgstr "Format:"
 
 #: libraries/display_export.lib.php:333
-#| msgid "Transformation options"
 msgid "Format-specific options:"
 msgstr "Opcije specifične za format:"
 
@@ -5889,7 +5660,6 @@ msgid ""
 msgstr ""
 
 #: libraries/display_import.lib.php:129
-#| msgid "Cannot log in to the MySQL server"
 msgid "Importing into the current server"
 msgstr "Uvoz na trenutni server"
 
@@ -5904,7 +5674,6 @@ msgid "Importing into the table \"%s\""
 msgstr "Uvoz u tabelu \"%s\""
 
 #: libraries/display_import.lib.php:139
-#| msgid "File to import"
 msgid "File to Import:"
 msgstr "Datoteka za uvoz:"
 
@@ -5924,7 +5693,6 @@ msgid "File uploads are not allowed on this server."
 msgstr "Slanje datoteka na ovaj server nije dozvoljeno."
 
 #: libraries/display_import.lib.php:208
-#| msgid "Partial import"
 msgid "Partial Import:"
 msgstr "Delimični uvoz:"
 
@@ -5937,10 +5705,6 @@ msgstr ""
 "pozicije %d."
 
 #: libraries/display_import.lib.php:221
-#| msgid ""
-#| "the interruption of an import in case the script detects it is se to the  "
-#| "timeout limit. This might be good way to import large es, however it "
-#| "caneak transactions."
 msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit. <i>(This might be good way to import large files, "
@@ -5951,7 +5715,6 @@ msgstr ""
 "može dovesti do prekida transakcije.)</i>"
 
 #: libraries/display_import.lib.php:228
-#| msgid "Number of records (queries) to skip from start"
 msgid "Number of rows to skip, starting from the first row:"
 msgstr "Broj redova za preskakanje, počev od prvog reda:"
 
@@ -5969,22 +5732,18 @@ msgid "Save edited data"
 msgstr "Snimi izmenjene podatke"
 
 #: libraries/display_tbl.lib.php:412
-#| msgid "Add/Delete Field Columns"
 msgid "Restore column order"
 msgstr "Vrati redosled kolone"
 
 #: libraries/display_tbl.lib.php:428
-#| msgid "Start"
 msgid "Start row"
 msgstr "Početni red"
 
 #: libraries/display_tbl.lib.php:430
-#| msgid "Number of fields"
 msgid "Number of rows"
 msgstr "Broj redova"
 
 #: libraries/display_tbl.lib.php:435
-#| msgid "Mon"
 msgid "Mode"
 msgstr "Režim"
 
@@ -6027,12 +5786,10 @@ msgid "Options"
 msgstr "Opcije"
 
 #: libraries/display_tbl.lib.php:632 libraries/display_tbl.lib.php:650
-#| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Parcijalni tekstovi"
 
 #: libraries/display_tbl.lib.php:633 libraries/display_tbl.lib.php:654
-#| msgid "Full Texts"
 msgid "Full texts"
 msgstr "Potpuni tekstovi"
 
@@ -6041,7 +5798,6 @@ msgid "Relational key"
 msgstr "Relacioni ključ"
 
 #: libraries/display_tbl.lib.php:668
-#| msgid "Relational schema"
 msgid "Relational display column"
 msgstr "Relacioni prikaz kolone"
 
@@ -6054,7 +5810,6 @@ msgid "Show BLOB contents"
 msgstr ""
 
 #: libraries/display_tbl.lib.php:687
-#| msgid "Browser transformation"
 msgid "Hide browser transformation"
 msgstr "Sakrij transformacije pregledača"
 
@@ -6101,7 +5856,6 @@ msgid "Print view (with full texts)"
 msgstr "Pogled za štampu (sa punim tekstom)"
 
 #: libraries/display_tbl.lib.php:2664 tbl_chart.php:86
-#| msgid "Display PDF schema"
 msgid "Display chart"
 msgstr "Prikaži grafikon"
 
@@ -6381,7 +6135,6 @@ msgid ""
 msgstr ""
 
 #: libraries/engines/pbms.lib.php:96 libraries/engines/pbxt.lib.php:127
-#| msgid "Relations"
 msgid "Related Links"
 msgstr "Srodne veze"
 
@@ -6518,8 +6271,8 @@ msgstr ""
 #: libraries/engines/pbxt.lib.php:125
 #, php-format
 msgid ""
-"Documentation and further information about PBXT can be found on the %"
-"sPrimeBase XT Home Page%s."
+"Documentation and further information about PBXT can be found on the "
+"%sPrimeBase XT Home Page%s."
 msgstr ""
 
 #: libraries/engines/pbxt.lib.php:129
@@ -6531,29 +6284,24 @@ msgid "The PrimeBase Media Streaming (PBMS) home page"
 msgstr ""
 
 #: libraries/export/csv.php:24 libraries/import/csv.php:28
-#| msgid "Lines terminated by"
 msgid "Columns separated with:"
 msgstr "Kolone razdvojene sa:"
 
 #: libraries/export/csv.php:25 libraries/import/csv.php:29
-#| msgid "Fields enclosed by"
 msgid "Columns enclosed with:"
 msgstr "Kolone uokvirene sa:"
 
 #: libraries/export/csv.php:26 libraries/import/csv.php:30
-#| msgid "Fields escaped by"
 msgid "Columns escaped with:"
 msgstr "Kolone eskejpovane sa:"
 
 #: libraries/export/csv.php:27 libraries/import/csv.php:31
-#| msgid "Lines terminated by"
 msgid "Lines terminated with:"
 msgstr "Linije se završavaju sa:"
 
 #: libraries/export/csv.php:28 libraries/export/excel.php:23
 #: libraries/export/htmlword.php:29 libraries/export/latex.php:80
 #: libraries/export/ods.php:24 libraries/export/odt.php:60
-#| msgid "Replace NULL by"
 msgid "Replace NULL with:"
 msgstr "Zameni NULL sa:"
 
@@ -6562,7 +6310,6 @@ msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
 
 #: libraries/export/excel.php:33
-#| msgid "Excel edition"
 msgid "Excel edition:"
 msgstr "Excel izdanje:"
 
@@ -6596,29 +6343,24 @@ msgstr "Struktura tabele @TABLE@"
 
 #: libraries/export/latex.php:48 libraries/export/odt.php:40
 #: libraries/export/sql.php:142
-#| msgid "Transformation options"
 msgid "Object creation options"
 msgstr "Opcije kreiranja objekata"
 
 #: libraries/export/latex.php:52 libraries/export/latex.php:76
-#| msgid "Table caption"
 msgid "Table caption (continued)"
 msgstr "Naslov tabele (nastavljeno)"
 
 #: libraries/export/latex.php:57 libraries/export/odt.php:43
 #: libraries/export/sql.php:56
-#| msgid "Disable foreign key checks"
 msgid "Display foreign key relationships"
 msgstr "Prikaži relacije stranih ključeva"
 
 #: libraries/export/latex.php:60 libraries/export/odt.php:46
-#| msgid "Displaying Column Comments"
 msgid "Display comments"
 msgstr "Prikaži komentare"
 
 #: libraries/export/latex.php:63 libraries/export/odt.php:49
 #: libraries/export/sql.php:63
-#| msgid "Available MIME types"
 msgid "Display MIME types"
 msgstr "Prikaži MIME tipove"
 
@@ -6661,7 +6403,6 @@ msgid "(Generates a report containing the data of a single table)"
 msgstr "(Pravi izveštaj koji sadrži podatke jedne tabele)"
 
 #: libraries/export/pdf.php:25
-#| msgid "Report title"
 msgid "Report title:"
 msgstr "Naslov izveštaja:"
 
@@ -6676,7 +6417,6 @@ msgid ""
 msgstr ""
 
 #: libraries/export/sql.php:45
-#| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr "Dodatni komentar prilagođenog zaglavlja (\\n deli linije):"
 
@@ -6694,12 +6434,10 @@ msgstr ""
 #: libraries/export/sql.php:114 libraries/export/sql.php:173
 #: libraries/export/sql.php:180
 #, php-format
-#| msgid "Statements"
 msgid "Add %s statement"
 msgstr "Dodaj %s iskaz"
 
 #: libraries/export/sql.php:152
-#| msgid "Statements"
 msgid "Add statements:"
 msgstr "Dodaj iskaze:"
 
@@ -6800,7 +6538,6 @@ msgid "Stand-in structure for view"
 msgstr "Struktura koja zamenjuje pogled"
 
 #: libraries/export/sql.php:1112
-#| msgid "Allows reading data."
 msgid "Error reading data:"
 msgstr "Greška kod čitanja podataka:"
 
@@ -6813,7 +6550,6 @@ msgid "Object creation options (all are recommended)"
 msgstr ""
 
 #: libraries/export/xml.php:62
-#| msgid "View"
 msgid "Views"
 msgstr "Pogledi"
 
@@ -6882,7 +6618,6 @@ msgstr "Idi na tabelu: %s"
 
 #: libraries/import.lib.php:1130
 #, php-format
-#| msgid "Structure only"
 msgid "Structure of %s"
 msgstr "Struktura %s"
 
@@ -6905,7 +6640,6 @@ msgid ""
 msgstr ""
 
 #: libraries/import/csv.php:42
-#| msgid "Column names"
 msgid "Column names: "
 msgstr "Imena kolona: "
 
@@ -6929,7 +6663,6 @@ msgstr "Neispravan format CSV ulaza na liniji %d."
 
 #: libraries/import/csv.php:337
 #, php-format
-#| msgid "Invalid field count in CSV input on line %d."
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Neispravan broj kolona u CSV ulazu na liniji %d."
 
@@ -6991,7 +6724,6 @@ msgid "The imported file does not contain any data"
 msgstr ""
 
 #: libraries/import/sql.php:33
-#| msgid "SQL compatibility mode"
 msgid "SQL compatibility mode:"
 msgstr "SQL komaptibilni mod:"
 
@@ -7000,7 +6732,6 @@ msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr ""
 
 #: libraries/kanji-encoding.lib.php:147
-#| msgid "None"
 msgctxt "None encoding conversion"
 msgid "None"
 msgstr "Nema"
@@ -7011,7 +6742,6 @@ msgid "Convert to Kana"
 msgstr ""
 
 #: libraries/mult_submits.inc.php:254
-#| msgid "Fri"
 msgid "From"
 msgstr "Iz"
 
@@ -7032,7 +6762,7 @@ msgstr ""
 msgid "Add prefix"
 msgstr ""
 
-#: libraries/mult_submits.inc.php:483 tbl_replace.php:356
+#: libraries/mult_submits.inc.php:483 tbl_replace.php:358
 msgid "No change"
 msgstr "Nema izmena"
 
@@ -7242,7 +6972,6 @@ msgid "Reload navigation frame"
 msgstr ""
 
 #: libraries/plugin_interface.lib.php:309
-#| msgid "This format has no options"
 msgid "This format has no options"
 msgstr "Ovaj format nema opcije"
 
@@ -7445,7 +7174,6 @@ msgstr ""
 
 #: libraries/rte/rte_events.lib.php:121
 #, php-format
-#| msgid "Table %s has been dropped"
 msgid "Event %1$s has been modified."
 msgstr "Događaj %1$s je izmenjen."
 
@@ -7460,7 +7188,6 @@ msgid "<b>One or more errors have occured while processing your request:</b>"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:185
-#| msgid "Event"
 msgid "Edit event"
 msgstr "Izmeni događaj"
 
@@ -7468,7 +7195,6 @@ msgstr "Izmeni događaj"
 #: libraries/rte/rte_routines.lib.php:1276
 #: libraries/rte/rte_routines.lib.php:1312
 #: libraries/rte/rte_triggers.lib.php:191
-#| msgid "Processes"
 msgid "Error in processing request"
 msgstr "Greška u procesiranju zahteva"
 
@@ -7478,7 +7204,6 @@ msgid "Details"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:374
-#| msgid "Event type"
 msgid "Event name"
 msgstr "Ime događaja"
 
@@ -7488,7 +7213,6 @@ msgstr "Vrsta događaja"
 
 #: libraries/rte/rte_events.lib.php:416 libraries/rte/rte_routines.lib.php:849
 #, php-format
-#| msgid "Change"
 msgid "Change to %s"
 msgstr "Promeni u %s"
 
@@ -7497,7 +7221,6 @@ msgid "Execute at"
 msgstr ""
 
 #: libraries/rte/rte_events.lib.php:430
-#| msgid "Execute bookmarked query"
 msgid "Execute every"
 msgstr "Izvrrši svaki"
 
@@ -7507,19 +7230,16 @@ msgid "Start"
 msgstr "Početak"
 
 #: libraries/rte/rte_events.lib.php:457
-#| msgid "End"
 msgctxt "End of recurring event"
 msgid "End"
 msgstr "Kraj"
 
 #: libraries/rte/rte_events.lib.php:465 libraries/rte/rte_routines.lib.php:923
 #: libraries/rte/rte_triggers.lib.php:360
-#| msgid "Description"
 msgid "Definition"
 msgstr "Definicija"
 
 #: libraries/rte/rte_events.lib.php:471
-#| msgid "Complete inserts"
 msgid "On completion preserve"
 msgstr "Po okončanju sačuvaj"
 
@@ -7570,7 +7290,6 @@ msgid "Event scheduler status"
 msgstr ""
 
 #: libraries/rte/rte_list.lib.php:54
-#| msgid "Return type"
 msgid "Returns"
 msgstr "Vraća"
 
@@ -7588,7 +7307,6 @@ msgstr ""
 #: libraries/rte/rte_routines.lib.php:245
 #: libraries/rte/rte_routines.lib.php:1005
 #, php-format
-#| msgid "Invalid server index: \"%s\""
 msgid "Invalid routine type: \"%s\""
 msgstr "Neispravan tip rutine: \"%s\""
 
@@ -7598,7 +7316,6 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:271
 #, php-format
-#| msgid "Table %s has been dropped"
 msgid "Routine %1$s has been modified."
 msgstr "Routina %1$s je modifikovana."
 
@@ -7608,12 +7325,10 @@ msgid "Routine %1$s has been created."
 msgstr "Routina %1$s je kreirana."
 
 #: libraries/rte/rte_routines.lib.php:344
-#| msgid "Routines"
 msgid "Edit routine"
 msgstr "Izmena rutine"
 
 #: libraries/rte/rte_routines.lib.php:831
-#| msgid "Routines"
 msgid "Routine name"
 msgstr "Ime rutine"
 
@@ -7622,7 +7337,6 @@ msgid "Parameters"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:859
-#| msgid "Direct links"
 msgid "Direction"
 msgstr "Pravac"
 
@@ -7635,7 +7349,6 @@ msgid "Add parameter"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:881
-#| msgid "Remove database"
 msgid "Remove last parameter"
 msgstr "Ukloni poslednji parametar"
 
@@ -7644,12 +7357,10 @@ msgid "Return type"
 msgstr "Povratni tip"
 
 #: libraries/rte/rte_routines.lib.php:892
-#| msgid "Length/Values"
 msgid "Return length/values"
 msgstr "Vrati dužina/vrednosti"
 
 #: libraries/rte/rte_routines.lib.php:898
-#| msgid "Table options"
 msgid "Return options"
 msgstr "Povratne opcije"
 
@@ -7658,7 +7369,6 @@ msgid "Is deterministic"
 msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:938
-#| msgid "Query type"
 msgid "Security type"
 msgstr "Tip sigurnosti"
 
@@ -7704,7 +7414,6 @@ msgstr[2] ""
 
 #: libraries/rte/rte_routines.lib.php:1226
 #, php-format
-#| msgid "Allows executing stored routines."
 msgid "Execution results of routine %s"
 msgstr "Rezultat izvršavanja rutine %s"
 
@@ -7715,7 +7424,6 @@ msgstr ""
 
 #: libraries/rte/rte_routines.lib.php:1359
 #: libraries/rte/rte_routines.lib.php:1362
-#| msgid "Routines"
 msgid "Routine parameters"
 msgstr "Parametri rutine"
 
@@ -7730,7 +7438,6 @@ msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:94
 #, php-format
-#| msgid "Table %s has been dropped"
 msgid "Trigger %1$s has been modified."
 msgstr "Okidač %1$s je modifikovan."
 
@@ -7744,12 +7451,10 @@ msgid "Edit trigger"
 msgstr "Izmeni okidač"
 
 #: libraries/rte/rte_triggers.lib.php:309
-#| msgid "Triggers"
 msgid "Trigger name"
 msgstr "Ime okidača"
 
 #: libraries/rte/rte_triggers.lib.php:332
-#| msgid "Time"
 msgctxt "Trigger action time"
 msgid "Time"
 msgstr "Vreme"
@@ -7767,7 +7472,6 @@ msgid "You must provide a valid event for the trigger"
 msgstr ""
 
 #: libraries/rte/rte_triggers.lib.php:427
-#| msgid "Invalid table name"
 msgid "You must provide a valid table name"
 msgstr "Morate uneti ispravno ime tabele"
 
@@ -7776,7 +7480,6 @@ msgid "You must provide a trigger definition."
 msgstr ""
 
 #: libraries/rte/rte_words.lib.php:18
-#| msgid "Add %s field(s)"
 msgid "Add routine"
 msgstr "Dodaj rutinu"
 
@@ -7786,18 +7489,15 @@ msgid "Export of routine %s"
 msgstr "Izvoz rutine %s"
 
 #: libraries/rte/rte_words.lib.php:21
-#| msgid "Routines"
 msgid "routine"
 msgstr "rutina"
 
 #: libraries/rte/rte_words.lib.php:22
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a routine"
 msgstr "Nemate neophodna prva pristupa da bi ste kreirali rutinu"
 
 #: libraries/rte/rte_words.lib.php:23
 #, php-format
-#| msgid "No tables found in database."
 msgid "No routine with name %1$s found in database %2$s"
 msgstr "Rutina sa imenom %1$s nije pronađena u bazi %2$s"
 
@@ -7815,18 +7515,15 @@ msgid "Export of trigger %s"
 msgstr "Izvoz okidača %s"
 
 #: libraries/rte/rte_words.lib.php:33
-#| msgid "Triggers"
 msgid "trigger"
 msgstr "okidač"
 
 #: libraries/rte/rte_words.lib.php:34
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create a trigger"
 msgstr "Nemate neophodna prava pristupa da bi ste kreirali okidač"
 
 #: libraries/rte/rte_words.lib.php:35
 #, php-format
-#| msgid "No tables found in database."
 msgid "No trigger with name %1$s found in database %2$s"
 msgstr "Okidač sa imenom %1$s nije pronađen u bazi %2$s"
 
@@ -7844,18 +7541,15 @@ msgid "Export of event %s"
 msgstr "Izvoz događaja %s"
 
 #: libraries/rte/rte_words.lib.php:45
-#| msgid "Event"
 msgid "event"
 msgstr "događaj"
 
 #: libraries/rte/rte_words.lib.php:46
-#| msgid "You don't have sufficient privileges to be here right now!"
 msgid "You do not have the necessary privileges to create an event"
 msgstr "Nemate neophodna prava pristupa da bi ste kreirali događaj"
 
 #: libraries/rte/rte_words.lib.php:47
 #, php-format
-#| msgid "No tables found in database."
 msgid "No event with name %1$s found in database %2$s"
 msgstr "Događaj sa imenom %1$s nije pronađen u bazi %2$s"
 
@@ -7869,7 +7563,6 @@ msgstr "Nema događaja za prikaz."
 #: libraries/schema/Svg_Relation_Schema.class.php:387
 #: libraries/schema/Visio_Relation_Schema.class.php:219
 #, php-format
-#| msgid "The \"%s\" table doesn't exist!"
 msgid "The %s table doesn't exist!"
 msgstr "Tabela %s ne postoji!"
 
@@ -7887,7 +7580,6 @@ msgstr "Podesite koordinate za tabelu %s"
 #: libraries/schema/Svg_Relation_Schema.class.php:803
 #: libraries/schema/Visio_Relation_Schema.class.php:537
 #, php-format
-#| msgid "Schema of the \"%s\" database - Page %s"
 msgid "Schema of the %s database - Page %s"
 msgstr "Shema baze %s - Strana %s"
 
@@ -7925,12 +7617,10 @@ msgid "Create a page"
 msgstr "Napravi novu stranu"
 
 #: libraries/schema/User_Schema.class.php:122
-#| msgid "Page number:"
 msgid "Page name"
 msgstr "Ime strane"
 
 #: libraries/schema/User_Schema.class.php:126
-#| msgid "Automatic layout"
 msgid "Automatic layout based on"
 msgstr "Automatski raspored zasnovan na"
 
@@ -7947,7 +7637,6 @@ msgid "Please choose a page to edit"
 msgstr "Izaberite stranu koju menjate"
 
 #: libraries/schema/User_Schema.class.php:178
-#| msgid "Select Tables"
 msgid "Select page"
 msgstr "Izaberi stranu"
 
@@ -7956,7 +7645,6 @@ msgid "Select Tables"
 msgstr "Izaberi tabele"
 
 #: libraries/schema/User_Schema.class.php:382
-#| msgid "Relational schema"
 msgid "Display relational schema"
 msgstr "Prikaži relacionu šemu"
 
@@ -7993,7 +7681,6 @@ msgid "Portrait"
 msgstr "Uspravno"
 
 #: libraries/schema/User_Schema.class.php:430
-#| msgid "Creation"
 msgid "Orientation"
 msgstr "Orijentacija"
 
@@ -8025,12 +7712,10 @@ msgid "Unknown language: %1$s."
 msgstr "Nepoznat jezik: %1$s."
 
 #: libraries/select_server.lib.php:32 libraries/select_server.lib.php:37
-#| msgid "Server"
 msgid "Current Server"
 msgstr "Trenutni server"
 
 #: libraries/server_links.inc.php:60
-#| msgid "User"
 msgid "Users"
 msgstr "Korisnici"
 
@@ -8105,7 +7790,6 @@ msgid "Clear"
 msgstr "Obriši"
 
 #: libraries/sql_query_form.lib.php:265
-#| msgid "Column names"
 msgid "Columns"
 msgstr "Kolone"
 
@@ -8222,11 +7906,6 @@ msgid "Tracking of %s.%s is activated."
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:98
-#| msgid ""
-#| "ld type is \"enum\" or \"set\", please enter the values using this "
-#| "mat: ,'b','c'...<br />If you ever need to put a backslash (\"\\\") a "
-#| "single te (\"'\") amongst those values, precede it with a kslash (for "
-#| "example xyz' or 'a\\'b')."
 msgid ""
 "If column type is \"enum\" or \"set\", please enter the values using this "
 "format: 'a','b','c'...<br />If you ever need to put a backslash (\"\\\") or "
@@ -8234,8 +7913,9 @@ msgid ""
 "(for example '\\\\xyz' or 'a\\'b')."
 msgstr ""
 "Ako je polje \"enum\" ili \"set\", unesite vrednosti u formatu: "
-"'a','b','c'...<br />Ako vam treba obrnuta kosa crta (\"\\\") ili apostrof (\"'\") "
-"koristite ih u izbegnutom (escaped) obliku (na primer '\\\\xyz' ili 'a\\'b')."
+"'a','b','c'...<br />Ako vam treba obrnuta kosa crta (\"\\\") ili apostrof "
+"(\"'\") koristite ih u izbegnutom (escaped) obliku (na primer '\\\\xyz' ili "
+"'a\\'b')."
 
 #: libraries/tbl_properties.inc.php:99
 msgid ""
@@ -8285,7 +7965,6 @@ msgid "Get more editing space"
 msgstr ""
 
 #: libraries/tbl_properties.inc.php:351
-#| msgid "None"
 msgctxt "for default"
 msgid "None"
 msgstr "Nema"
@@ -8306,12 +7985,10 @@ msgstr "Tekst ključ"
 
 #: libraries/tbl_properties.inc.php:573 tbl_structure.php:668
 #, php-format
-#| msgid "Add %s field(s)"
 msgid "Add %s column(s)"
 msgstr "Dodaj %s kolona"
 
 #: libraries/tbl_properties.inc.php:575 tbl_structure.php:662
-#| msgid "You have to add at least one field."
 msgid "You have to add at least one column."
 msgstr "Morate dodati barem jednu kolonu."
 
@@ -8331,12 +8008,10 @@ msgid "Operator"
 msgstr "Operator"
 
 #: libraries/tbl_select.lib.php:103
-#| msgid "Search"
 msgid "Table Search"
 msgstr "Pretraga tabele"
 
 #: libraries/tbl_select.lib.php:175 tbl_change.php:1000
-#| msgid "Insert"
 msgid "Edit/Insert"
 msgstr "Uredi/Umetni"
 
@@ -8349,11 +8024,6 @@ msgstr ""
 "Nema opisa za ovu transformaciju.<br />Molimo pitajte autora šta %s radi."
 
 #: libraries/transformations/application_octetstream__download.inc.php:10
-#| msgid ""
-#| "ys a link to download the binary data of the field. You can use the st "
-#| "ion to specify the filename, or use the second option as the e of a "
-#| "fieldich contains the filename. If you use the second ion, you need to "
-#| "set therst option to the empty string."
 msgid ""
 "Displays a link to download the binary data of the column. You can use the "
 "first option to specify the filename, or use the second option as the name "
@@ -8387,14 +8057,6 @@ msgid "Displays a link to download this image."
 msgstr "Prikazuje link ka ovoj snimci (npr. direktno preuzimanje iz BLOB-a)."
 
 #: libraries/transformations/text_plain__dateformat.inc.php:10
-#| msgid ""
-#| "ys a TIME, TIMESTAMP, DATETIME or numeric unix timestamp field as matted "
-#| "e. The first option is the offset (in hours) which will be ed to the "
-#| "estamp (Default: 0). Use second option to specify a ferent date/time mat "
-#| "string. Third option determines whether you t to see local date or  one "
-#| "(use \"local\" or \"utc\" strings) for t. According to that, date mat has "
-#| "different value - for \"local\"  the documentation for PHP's ftime() "
-#| "function and for \"utc\" it is e using gmdate() function."
 msgid ""
 "Displays a TIME, TIMESTAMP, DATETIME or numeric unix timestamp column as "
 "formatted date. The first option is the offset (in hours) which will be "
@@ -8415,16 +8077,6 @@ msgstr ""
 "gmdate()."
 
 #: libraries/transformations/text_plain__external.inc.php:10
-#| msgid ""
-#| "ONLY: Launches an external application and feeds it the field data  ndard "
-#| "input. Returns the standard output of the application. The ault is y, to "
-#| "pretty-print HTML code. For security reasons, you e to manually t the "
-#| "file libraries/transformations/t_plain__external.inc.php and list  tools "
-#| "you want to make ilable. The first option is then the number of  program "
-#| "you want to  and the second option is the parameters for the gram. The "
-#| "third ion, if set to 1, will convert the output using lspecialchars() "
-#| "fault 1). The fourth option, if set to 1, will prevent pping and ure that "
-#| "the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -8449,21 +8101,14 @@ msgstr ""
 "(podrazumevano 1)."
 
 #: libraries/transformations/text_plain__formatted.inc.php:10
-#| msgid ""
-#| "ys the contents of the field as-is, without running it through ecialchars"
-#| "(). That is, the field is assumed to contain valid HTML."
 msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
 msgstr ""
-"Prikazuje sadžaj kolone kakva je, bez propuštanja kroz htmlspecialchars(). "
-"T.j. podrazumeva se da kolona sadrži ispravan HTML."
+"Prikazuje sadžaj kolone kakva je, bez propuštanja kroz htmlspecialchars(). T."
+"j. podrazumeva se da kolona sadrži ispravan HTML."
 
 #: libraries/transformations/text_plain__imagelink.inc.php:10
-#| msgid ""
-#| "ys an image and a link; the field contains the filename. The first ion "
-#| "isURL prefix like \"http://www.example.com/\". The second and rd options  "
-#| "the width and the height in pixels."
 msgid ""
 "Displays an image and a link; the column contains the filename. The first "
 "option is a URL prefix like \"http://www.example.com/\". The second and "
@@ -8474,10 +8119,6 @@ msgstr ""
 "dužina u pikselima."
 
 #: libraries/transformations/text_plain__link.inc.php:10
-#| msgid ""
-#| "ys a link; the field contains the filename. The first option is a  "
-#| "prefixke \"http://www.example.com/\". The second option is a title  the "
-#| "link."
 msgid ""
 "Displays a link; the column contains the filename. The first option is a URL "
 "prefix like \"http://www.example.com/\". The second option is a title for "
@@ -8510,12 +8151,10 @@ msgstr ""
 "kada dođe do odsecanja (podrazumevano: ...) ."
 
 #: libraries/user_preferences.inc.php:33
-#| msgid "General relation features"
 msgid "Manage your settings"
 msgstr "Upravljanje podešavanjima"
 
 #: libraries/user_preferences.inc.php:50 prefs_manage.php:289
-#| msgid "Modifications have been saved"
 msgid "Configuration has been saved"
 msgstr "Konfiguracija je sačuvana"
 
@@ -8527,7 +8166,6 @@ msgid ""
 msgstr ""
 
 #: libraries/user_preferences.lib.php:116
-#| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save configuration"
 msgstr "Nije moguće snimiti konfiguraciju"
 
@@ -8547,12 +8185,10 @@ msgid "Error in ZIP archive:"
 msgstr "Greška u ZIP arhivi:"
 
 #: main.php:65
-#| msgid "General relation features"
 msgid "General Settings"
 msgstr "Opšta podešavanja"
 
 #: main.php:109
-#| msgid "MySQL connection collation"
 msgid "Server connection collation"
 msgstr "Način poređenja kod veze na server"
 
@@ -8561,12 +8197,10 @@ msgid "Appearance Settings"
 msgstr ""
 
 #: main.php:153 prefs_manage.php:272
-#| msgid "General relation features"
 msgid "More settings"
 msgstr "Dodatna podešavanja"
 
 #: main.php:169
-#| msgid "Database for user"
 msgid "Database server"
 msgstr "Server baze podataka"
 
@@ -8575,7 +8209,6 @@ msgid "Software"
 msgstr ""
 
 #: main.php:173
-#| msgid "Server version"
 msgid "Software version"
 msgstr "Verzija softvera"
 
@@ -8614,7 +8247,6 @@ msgid "Official Homepage"
 msgstr "phpMyAdmin veb sajt"
 
 #: main.php:242
-#| msgid "Attributes"
 msgid "Contribute"
 msgstr "Doprinesi"
 
@@ -8623,7 +8255,6 @@ msgid "Get support"
 msgstr ""
 
 #: main.php:244
-#| msgid "No change"
 msgid "List of changes"
 msgstr "Lista izmena"
 
@@ -8686,16 +8317,13 @@ msgstr ""
 
 #: main.php:321
 #, php-format
-#| msgid ""
-#| "ditional features for working with linked tables have been ctivated. To d "
-#| "out why click %shere%s."
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. To find out why click %shere%s."
 msgstr ""
 "Skladište konfiguracije za phpMyAdmin nije kompletno konfigurisano, neke "
-"dodatne mogućnosti su deaktivirane. Da bi ste saznali zašto kliknite %sovde%"
-"s."
+"dodatne mogućnosti su deaktivirane. Da bi ste saznali zašto kliknite %sovde"
+"%s."
 
 #: main.php:336
 msgid ""
@@ -8725,12 +8353,10 @@ msgid "No databases"
 msgstr "Baza ne postoji"
 
 #: navigation.php:270
-#| msgid "table name"
 msgid "Filter tables by name"
 msgstr "Filtriraj tabele po imenu"
 
 #: navigation.php:303 navigation.php:304
-#| msgid "Create table"
 msgctxt "short form"
 msgid "Create table"
 msgstr "Kreiraj tabelu"
@@ -8780,7 +8406,6 @@ msgid "Toggle small/big"
 msgstr "Promeni malo/veliko"
 
 #: pmd_general.php:99
-#| msgid "To select relation, click :"
 msgid "Toggle relation lines"
 msgstr "Zameni linije relacije"
 
@@ -8789,7 +8414,6 @@ msgid "Import/Export coordinates for PDF schema"
 msgstr "Izvoz/uvoz koordinata za PDF shemu"
 
 #: pmd_general.php:110
-#| msgid "Submit Query"
 msgid "Build Query"
 msgstr "Napravi upit"
 
@@ -8818,19 +8442,16 @@ msgid "Delete relation"
 msgstr "Obriši relaciju"
 
 #: pmd_general.php:454 pmd_general.php:513
-#| msgid "Relation deleted"
 msgid "Relation operator"
 msgstr "Operator relacije"
 
 #: pmd_general.php:464 pmd_general.php:523 pmd_general.php:646
 #: pmd_general.php:763
-#| msgid "Export"
 msgid "Except"
 msgstr "Izuzev"
 
 #: pmd_general.php:470 pmd_general.php:529 pmd_general.php:652
 #: pmd_general.php:769
-#| msgid "in query"
 msgid "subquery"
 msgstr "podupit"
 
@@ -8839,17 +8460,14 @@ msgid "Rename to"
 msgstr "Promeni ime u"
 
 #: pmd_general.php:476 pmd_general.php:575
-#| msgid "User name"
 msgid "New name"
 msgstr "Novo ime"
 
 #: pmd_general.php:479 pmd_general.php:694
-#| msgid "Create"
 msgid "Aggregate"
 msgstr "Sakupi"
 
 #: pmd_general.php:804
-#| msgid "Table options"
 msgid "Active options"
 msgstr "Aktivne opcije"
 
@@ -8862,27 +8480,22 @@ msgid "Page creation failed"
 msgstr ""
 
 #: pmd_pdf.php:85
-#| msgid "pages"
 msgid "Page"
 msgstr "Strana"
 
 #: pmd_pdf.php:95
-#| msgid "Import files"
 msgid "Import from selected page"
 msgstr "Uvezi sa izabrane strane"
 
 #: pmd_pdf.php:96
-#| msgid "Export/Import to scale"
 msgid "Export to selected page"
 msgstr "Izvezi na izabranu stranu"
 
 #: pmd_pdf.php:98
-#| msgid "Create a new index"
 msgid "Create a page and export to it"
 msgstr "Kreiraj stranu i izvezi na nju"
 
 #: pmd_pdf.php:107
-#| msgid "User name"
 msgid "New page name: "
 msgstr "Ime nove strane: "
 
@@ -8927,7 +8540,6 @@ msgid "Cannot save settings, submitted form contains errors"
 msgstr ""
 
 #: prefs_manage.php:78
-#| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not import configuration"
 msgstr "Nije moguće uvesti konfiguraciju"
 
@@ -8944,7 +8556,6 @@ msgid "Saved on: @DATE@"
 msgstr ""
 
 #: prefs_manage.php:237
-#| msgid "Import files"
 msgid "Import from file"
 msgstr "Uvoz iz datoteke"
 
@@ -9005,7 +8616,6 @@ msgid "<b>%s</b> table not found or not set in %s"
 msgstr "<b>%s</b> tabela nije pronađena ili nije postavljena u %s"
 
 #: schema_export.php:39
-#| msgid "The \"%s\" table doesn't exist!"
 msgid "File doesn't exist"
 msgstr "Datoteka ne postoji"
 
@@ -9122,7 +8732,6 @@ msgid "License"
 msgstr ""
 
 #: server_plugins.php:182
-#| msgid "Disabled"
 msgid "disabled"
 msgstr "onemogućeno"
 
@@ -9317,7 +8926,6 @@ msgid "No privileges."
 msgstr "Nema privilegija."
 
 #: server_privileges.php:405 server_privileges.php:406
-#| msgid "None"
 msgctxt "None privileges"
 msgid "None"
 msgstr "Nema"
@@ -9361,7 +8969,6 @@ msgid "Do not change the password"
 msgstr "Nemoj da menjaš lozinku"
 
 #: server_privileges.php:917 server_privileges.php:2399
-#| msgid "No user(s) found."
 msgid "No user found."
 msgstr "Ni jedan korisnik nije pronađen."
 
@@ -9424,7 +9031,6 @@ msgid "Any"
 msgstr "Bilo koji"
 
 #: server_privileges.php:1567
-#| msgid "User overview"
 msgid "Users overview"
 msgstr "Pregled korisnika"
 
@@ -9451,8 +9057,8 @@ msgstr "Odbaci baze koje se zovu isto kao korisnici."
 msgid ""
 "Note: phpMyAdmin gets the users' privileges directly from MySQL's privilege "
 "tables. The content of these tables may differ from the privileges the "
-"server uses, if they have been changed manually. In this case, you should %"
-"sreload the privileges%s before you continue."
+"server uses, if they have been changed manually. In this case, you should "
+"%sreload the privileges%s before you continue."
 msgstr ""
 "Napomena: phpMyAdmin uzima privilegije korisnika direktno iz MySQL tabela "
 "privilegija. Sadržaj ove tabele može se razlikovati od privilegija koje "
@@ -9512,7 +9118,6 @@ msgid "Database for user"
 msgstr "Baza za korisnika"
 
 #: server_privileges.php:2221
-#| msgid "None"
 msgctxt "Create none database for user"
 msgid "None"
 msgstr "Nijedna"
@@ -9548,7 +9153,6 @@ msgid "wildcard"
 msgstr "džoker"
 
 #: server_privileges.php:2408
-#| msgid "View %s has been dropped"
 msgid "User has been added."
 msgstr "Korisnik je dodat."
 
@@ -9572,7 +9176,6 @@ msgstr ""
 
 #: server_replication.php:72
 #, php-format
-#| msgid "The privileges were reloaded successfully."
 msgid "Master server changed successfully to %s"
 msgstr "Master server uspešno promenjen u %s"
 
@@ -9671,7 +9274,6 @@ msgid "Reset slave"
 msgstr ""
 
 #: server_replication.php:326
-#| msgid "Structure only"
 msgid "Start SQL Thread only"
 msgstr "Pokreni samo SQL nit"
 
@@ -9680,7 +9282,6 @@ msgid "Stop SQL Thread only"
 msgstr ""
 
 #: server_replication.php:331
-#| msgid "Structure only"
 msgid "Start IO Thread only"
 msgstr "Pokreni samo UI nit"
 
@@ -9799,12 +9400,10 @@ msgid "Advisor"
 msgstr ""
 
 #: server_status.php:807 server_status.php:833
-#| msgid "Number of fields"
 msgid "Number of data points: "
 msgstr "Broj tačaka podataka: "
 
 #: server_status.php:811 server_status.php:837
-#| msgid "Refresh"
 msgid "Refresh rate: "
 msgstr "Interval osvežavanja: "
 
@@ -9813,12 +9412,10 @@ msgid "Filters"
 msgstr "Filteri"
 
 #: server_status.php:858 server_variables.php:117
-#| msgid "Do not change the password"
 msgid "Containing the word:"
 msgstr "Sadrži reč:"
 
 #: server_status.php:863
-#| msgid "Show open tables"
 msgid "Show only alert values"
 msgstr "Prikaži samo vrednosti upozorenja"
 
@@ -9827,22 +9424,18 @@ msgid "Filter by category..."
 msgstr ""
 
 #: server_status.php:881
-#| msgid "Show open tables"
 msgid "Show unformatted values"
 msgstr "Prikaži neformatirane vrednosti"
 
 #: server_status.php:885
-#| msgid "Relations"
 msgid "Related links:"
 msgstr "ovezani linkovi:"
 
 #: server_status.php:918
-#| msgid "Query type"
 msgid "Run analyzer"
 msgstr "Pokreni analizator"
 
 #: server_status.php:919
-#| msgid "Functions"
 msgid "Instructions"
 msgstr "Instrukcije"
 
@@ -9895,7 +9488,6 @@ msgstr ""
 
 #: server_status.php:1075
 #, php-format
-#| msgid "s MySQL server has been running for %s. It started up on %s."
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
 msgstr "Ovaj MySQL server radi %1$s. Pokrenut je %2$s."
 
@@ -9966,7 +9558,6 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1320
-#| msgid "The number of fsync() writes done to the log file."
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "Broj neuspelih pokušaja povezivanja na MySQL server."
 
@@ -10620,7 +10211,6 @@ msgid "The number of threads that are not sleeping."
 msgstr "Broj niti koje nisu uspavane."
 
 #: server_status.php:1574
-#| msgid "Start"
 msgid "Start Monitor"
 msgstr "Pokreni monitor"
 
@@ -10633,7 +10223,6 @@ msgid "Done rearranging/editing charts"
 msgstr ""
 
 #: server_status.php:1595 server_status.php:1666
-#| msgid "Add %s field(s)"
 msgid "Add chart"
 msgstr "Dodaj grafikon"
 
@@ -10646,7 +10235,6 @@ msgid "Refresh rate"
 msgstr "Interval osvežavanja"
 
 #: server_status.php:1606
-#| msgid "Add/Delete Field Columns"
 msgid "Chart columns"
 msgstr "Kolone grafikona"
 
@@ -10717,7 +10305,6 @@ msgid ""
 msgstr ""
 
 #: server_status.php:1671
-#| msgid "Remove database"
 msgid "Preset chart"
 msgstr "Unapred podesi grafikon"
 
@@ -10726,7 +10313,6 @@ msgid "Status variable(s)"
 msgstr ""
 
 #: server_status.php:1677
-#| msgid "Select Tables"
 msgid "Select series:"
 msgstr "Izaberite seriju podataka:"
 
@@ -10735,7 +10321,6 @@ msgid "Commonly monitored"
 msgstr ""
 
 #: server_status.php:1694
-#| msgid "Invalid table name"
 msgid "or type variable name:"
 msgstr "ili unesite ime promenljive:"
 
@@ -10768,7 +10353,6 @@ msgid "Log statistics"
 msgstr "Statistike loga"
 
 #: server_status.php:1732
-#| msgid "Select Tables"
 msgid "Selected time range:"
 msgstr "Izaberi vremenski opseg:"
 
@@ -10789,13 +10373,11 @@ msgid "Results are grouped by query text."
 msgstr ""
 
 #: server_status.php:1754
-#| msgid "Query type"
 msgid "Query analyzer"
 msgstr "Analizator upita"
 
 #: server_status.php:1794 server_status.php:1811
 #, php-format
-#| msgid "per second"
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d sekunda"
@@ -10804,7 +10386,6 @@ msgstr[2] "%d sekunde"
 
 #: server_status.php:1796
 #, php-format
-#| msgid "in use"
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d minut"
@@ -10902,7 +10483,6 @@ msgid "Enter manually"
 msgstr "Unesite ručno"
 
 #: server_synchronize.php:1210
-#| msgid "max. concurrent connections"
 msgid "Current connection"
 msgstr "Trenutna veza"
 
@@ -10976,7 +10556,6 @@ msgid "Insecure connection"
 msgstr ""
 
 #: setup/frames/index.inc.php:94
-#| msgid "Modifications have been saved"
 msgid "Configuration saved."
 msgstr "Podešavanja su sačuvana."
 
@@ -11217,7 +10796,6 @@ msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr ""
 
 #: setup/validate.php:22
-#| msgid "No databases"
 msgid "Wrong data"
 msgstr "Pogrešan podatak"
 
@@ -11230,7 +10808,7 @@ msgstr "Pregledaj strane vrednosti"
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: sql.php:702 tbl_replace.php:412
+#: sql.php:702 tbl_replace.php:414
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -11239,12 +10817,11 @@ msgstr ""
 msgid "Showing as PHP code"
 msgstr "Prikaz kao PHP kod"
 
-#: sql.php:722 tbl_replace.php:386
+#: sql.php:722 tbl_replace.php:388
 msgid "Showing SQL query"
 msgstr "Prikaz kao SQL upit"
 
 #: sql.php:724
-#| msgid "Validate SQL"
 msgid "Validated SQL"
 msgstr "Validiran SQL"
 
@@ -11263,7 +10840,6 @@ msgid "Table %1$s has been altered successfully"
 msgstr "Tabela %1$s je uspešno izmenjena"
 
 #: tbl_change.php:699
-#| msgid "ause of its length,<br /> this field might not be editable "
 msgid "Because of its length,<br /> this column might not be editable"
 msgstr "Zbog njene veličine,<br />ova kolona možda neće moći da se izmeni"
 
@@ -11320,18 +10896,15 @@ msgstr ""
 
 #: tbl_change.php:1108
 #, php-format
-#| msgid "Restart insertion with %s rows"
 msgid "Continue insertion with %s rows"
 msgstr "Nastavi umetanje sa %s redova"
 
 #: tbl_chart.php:89
-#| msgid "Mar"
 msgctxt "Chart type"
 msgid "Bar"
 msgstr "Traka"
 
 #: tbl_chart.php:91
-#| msgid "Column"
 msgctxt "Chart type"
 msgid "Column"
 msgstr "Kolona"
@@ -11342,13 +10915,11 @@ msgid "Line"
 msgstr ""
 
 #: tbl_chart.php:95
-#| msgid "Engines"
 msgctxt "Chart type"
 msgid "Spline"
 msgstr "Kriva"
 
 #: tbl_chart.php:97
-#| msgid "PiB"
 msgctxt "Chart type"
 msgid "Pie"
 msgstr "Kružni grafikon"
@@ -11358,7 +10929,6 @@ msgid "Stacked"
 msgstr ""
 
 #: tbl_chart.php:103
-#| msgid "Report title"
 msgid "Chart title"
 msgstr "Naslov grafikona"
 
@@ -11371,7 +10941,6 @@ msgid "Series:"
 msgstr "Serije podataka:"
 
 #: tbl_chart.php:126
-#| msgid "Add/Delete Field Columns"
 msgid "The remaining columns"
 msgstr "Preostale kolone"
 
@@ -11380,7 +10949,6 @@ msgid "X-Axis label:"
 msgstr ""
 
 #: tbl_chart.php:141
-#| msgid "Value"
 msgid "X Values"
 msgstr "X vrednosti"
 
@@ -11389,7 +10957,6 @@ msgid "Y-Axis label:"
 msgstr ""
 
 #: tbl_chart.php:143
-#| msgid "Value"
 msgid "Y Values"
 msgstr "Y vrednosti"
 
@@ -11420,7 +10987,6 @@ msgid "Height"
 msgstr ""
 
 #: tbl_gis_visualization.php:136
-#| msgid "Add/Delete Field Columns"
 msgid "Label column"
 msgstr "Označi kolonu"
 
@@ -11429,7 +10995,6 @@ msgid "-- None --"
 msgstr ""
 
 #: tbl_gis_visualization.php:151
-#| msgid "Total"
 msgid "Spatial column"
 msgstr "Prostorna kolona"
 
@@ -11438,12 +11003,10 @@ msgid "Redraw"
 msgstr ""
 
 #: tbl_gis_visualization.php:177
-#| msgid "Save as file"
 msgid "Save to file"
 msgstr "Sačuvaj u datoteku"
 
 #: tbl_gis_visualization.php:178
-#| msgid "Table name"
 msgid "File name"
 msgstr "Naziv datoteke"
 
@@ -11464,7 +11027,6 @@ msgid "Add index"
 msgstr ""
 
 #: tbl_indexes.php:175
-#| msgid "Print view"
 msgid "Edit index"
 msgstr "Uredi indeks"
 
@@ -11550,12 +11112,10 @@ msgid "Table %s has been flushed"
 msgstr "Tabela %s je osvežena"
 
 #: tbl_operations.php:688
-#| msgid "Flush the table (\"FLUSH\")"
 msgid "Flush the table (FLUSH)"
 msgstr "Snimi sve baferovane izmene nad tabelom (FLUSH)"
 
 #: tbl_operations.php:697
-#| msgid "Dumping data for table"
 msgid "Delete data or table"
 msgstr "Brisanje podataka ili tabele"
 
@@ -11605,7 +11165,6 @@ msgid "Check referential integrity:"
 msgstr "Proveri referencijalni integritet:"
 
 #: tbl_printview.php:72
-#| msgid "Show tables"
 msgid "Showing tables"
 msgstr "Prikazivanje tabela"
 
@@ -11647,7 +11206,6 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 
 #: tbl_relation.php:398
-#| msgid "Internal relations"
 msgid "Internal relation"
 msgstr "Unutrašnja relacija"
 
@@ -11666,7 +11224,6 @@ msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgstr "Napravi \"upit po primeru\" (džoker: \"%\")"
 
 #: tbl_select.php:180
-#| msgid "Select fields (at least one):"
 msgid "Select columns (at least one):"
 msgstr "Izaberi kolone (najmanje jednu):"
 
@@ -11707,14 +11264,12 @@ msgid "Add FULLTEXT index"
 msgstr ""
 
 #: tbl_structure.php:369 tbl_tracking.php:295
-#| msgid "None"
 msgctxt "None for default"
 msgid "None"
 msgstr "Ništa"
 
 #: tbl_structure.php:378
 #, php-format
-#| msgid "Table %s has been dropped"
 msgid "Column %s has been dropped"
 msgstr "Kolona %s je obrisana"
 
@@ -11731,12 +11286,10 @@ msgid "An index has been added on %s"
 msgstr "Ključ je upravo dodat %s"
 
 #: tbl_structure.php:480
-#| msgid "Show PHP information"
 msgid "Show more actions"
 msgstr "Pikaži još akcija"
 
 #: tbl_structure.php:623
-#| msgid "Print view"
 msgid "Edit view"
 msgstr "Uredi pogled"
 
@@ -11749,7 +11302,6 @@ msgid "Propose table structure"
 msgstr "Predloži strukturu tabele"
 
 #: tbl_structure.php:666
-#| msgid "Add %s field(s)"
 msgid "Add column"
 msgstr "Dodaj kolonu"
 
@@ -11768,7 +11320,6 @@ msgstr "Posle %s"
 
 #: tbl_structure.php:719
 #, php-format
-#| msgid "Create an index on&nbsp;%s&nbsp;columns"
 msgid "Create an index on &nbsp;%s&nbsp;columns"
 msgstr "Kreiraj indeks na &nbsp;%s&nbsp;kolonama"
 
@@ -11824,7 +11375,6 @@ msgid "Tracking data definition successfully deleted"
 msgstr ""
 
 #: tbl_tracking.php:390 tbl_tracking.php:407
-#| msgid "Query type"
 msgid "Query error"
 msgstr "Greška u upitu"
 
@@ -11842,12 +11392,10 @@ msgid "Show %s with dates from %s to %s by user %s %s"
 msgstr ""
 
 #: tbl_tracking.php:438
-#| msgid "Allows inserting and replacing data."
 msgid "Delete tracking data row from report"
 msgstr "Obriši red sa podacima o praćenju iz izveštaja"
 
 #: tbl_tracking.php:449
-#| msgid "No databases"
 msgid "No data"
 msgstr "Nema podataka"
 
@@ -11924,7 +11472,6 @@ msgid "Create version"
 msgstr "Kreiraj verziju"
 
 #: tbl_zoom_select.php:142
-#| msgid "Do a \"query by example\" (wildcard: \"%\")"
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr "Napravi \"upit po primeru\" (džoker: \"%\") za dve različite kolone"
 
@@ -11949,7 +11496,6 @@ msgid "How to use"
 msgstr "Kako se koristi"
 
 #: tbl_zoom_select.php:431
-#| msgid "Reset"
 msgid "Reset zoom"
 msgstr "Poništi zumiranje"
 
@@ -11964,14 +11510,14 @@ msgstr "Dostupni MIME-tipovi"
 #: transformation_overview.php:37
 msgid ""
 "MIME types printed in italics do not have a separate transformation function"
-msgstr "MIME-tipovi prikazani u kurzivu nemaju odvojene funkcije transformacije"
+msgstr ""
+"MIME-tipovi prikazani u kurzivu nemaju odvojene funkcije transformacije"
 
 #: transformation_overview.php:42
 msgid "Available transformations"
 msgstr "Dostupne transformacije"
 
 #: transformation_overview.php:47
-#| msgid "Description"
 msgctxt "for MIME transformation"
 msgid "Description"
 msgstr "Opis"
@@ -12029,7 +11575,6 @@ msgstr ""
 
 #: po/advisory_rules.php:13
 #, php-format
-#| msgid "max. concurrent connections"
 msgid "Current amount of Questions: %s"
 msgstr "Trenutna količina pitanja: %s"
 
@@ -12054,7 +11599,6 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 
 #: po/advisory_rules.php:20
-#| msgid "Flush query cache"
 msgid "Slow query rate"
 msgstr "Stopa sporih upita"
 
@@ -12110,7 +11654,6 @@ msgid "log_slow_queries is set to 'OFF'"
 msgstr ""
 
 #: po/advisory_rules.php:35
-#| msgid "Select Tables"
 msgid "Release Series"
 msgstr "Oslobodi serije podataka"
 
@@ -12148,12 +11691,10 @@ msgid "Version less than 5.5.8 (the first GA release of 5.5)."
 msgstr ""
 
 #: po/advisory_rules.php:47
-#| msgid "You should upgrade to %s %s or later."
 msgid "You should upgrade, to a stable version of MySQL 5.5"
 msgstr "Trebalo bi da pređete na stabilnu verziju MySQL-a 5.5"
 
 #: po/advisory_rules.php:50 po/advisory_rules.php:55 po/advisory_rules.php:60
-#| msgid "Description"
 msgid "Distribution"
 msgstr "Distribucija"
 
@@ -12194,7 +11735,6 @@ msgid "Version string (%s) matches Drizzle versioning scheme"
 msgstr ""
 
 #: po/advisory_rules.php:65
-#| msgid "MySQL charset"
 msgid "MySQL Architecture"
 msgstr "Arhitektura MySQL-a"
 
@@ -12215,12 +11755,10 @@ msgid "Available memory on this host: %s"
 msgstr ""
 
 #: po/advisory_rules.php:70
-#| msgid "Query cache"
 msgid "Query cache disabled"
 msgstr "Keš upita isključen"
 
 #: po/advisory_rules.php:71
-#| msgid "The server is not responding"
 msgid "The query cache is not enabled."
 msgstr "Keš upita nije omogućen."
 
@@ -12237,7 +11775,6 @@ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 
 #: po/advisory_rules.php:75
-#| msgid "Query cache"
 msgid "Query caching method"
 msgstr "Način keširanja upita"
 
@@ -12262,7 +11799,6 @@ msgstr ""
 
 #: po/advisory_rules.php:80
 #, php-format
-#| msgid "Query cache"
 msgid "Query cache efficiency (%%)"
 msgstr "Efikasnost keša upita (%%)"
 
@@ -12297,12 +11833,11 @@ msgstr ""
 #: po/advisory_rules.php:88
 #, php-format
 msgid ""
-"The current ratio of free query cache memory to total query cache size is %s%"
-"%. It should be above 80%%"
+"The current ratio of free query cache memory to total query cache size is %s"
+"%%. It should be above 80%%"
 msgstr ""
 
 #: po/advisory_rules.php:90
-#| msgid "Query cache"
 msgid "Query cache fragmentation"
 msgstr "Fragmentacija keša upita"
 
@@ -12335,7 +11870,6 @@ msgid "Query cache low memory prunes"
 msgstr ""
 
 #: po/advisory_rules.php:96
-#| msgid "The amount of free memory for query cache."
 msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
@@ -12356,7 +11890,6 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:100
-#| msgid "Query cache"
 msgid "Query cache max size"
 msgstr "Maksimalna veličina keša upita"
 
@@ -12378,7 +11911,6 @@ msgid "Current query cache size: %s"
 msgstr ""
 
 #: po/advisory_rules.php:105
-#| msgid "Query results"
 msgid "Query cache min result size"
 msgstr "Minimalna veličina keša upita"
 
@@ -12404,12 +11936,10 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
 
 #: po/advisory_rules.php:110
-#| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
 msgstr "Procenat sortiranja koja dovode do kreiranja privremenih tabela"
 
 #: po/advisory_rules.php:111 po/advisory_rules.php:116
-#| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
 msgstr "Previše sortiranja dovodi do kreiranja privremenih tabela."
 
@@ -12422,12 +11952,11 @@ msgstr ""
 #: po/advisory_rules.php:113
 #, php-format
 msgid ""
-"%s%% of all sorts cause temporary tables, this value should be lower than 10%"
-"%."
+"%s%% of all sorts cause temporary tables, this value should be lower than "
+"10%%."
 msgstr ""
 
 #: po/advisory_rules.php:115
-#| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
 msgstr "Stopa sortiranja koja dovode do kreiranja privremenih tabela"
 
@@ -12438,7 +11967,6 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:120
-#| msgid "Start"
 msgid "Sort rows"
 msgstr "Redovi za sortiranje"
 
@@ -12593,8 +12121,6 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:155
-#| msgid "%s table"
-#| msgid_plural "%s tables"
 msgid "Temp disk rate"
 msgstr "Stopa upotrebe privremenog diska"
 
@@ -12617,7 +12143,6 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:160
-#| msgid "Sort buffer size"
 msgid "MyISAM key buffer size"
 msgstr "Veličina bafera za MyISAM ključeve"
 
@@ -12637,13 +12162,11 @@ msgstr ""
 
 #: po/advisory_rules.php:165
 #, php-format
-#| msgid "Sort buffer size"
 msgid "Max %% MyISAM key buffer ever used"
 msgstr "Maksimalan %% MyISAM bafera za ključeve je ikad korišćeno"
 
 #: po/advisory_rules.php:166 po/advisory_rules.php:171
 #, php-format
-#| msgid "Sort buffer size"
 msgid "MyISAM key buffer (index cache) %% used is low."
 msgstr "Upotreba MyISAM bafer ključeva (keš indeksa) %% je niska."
 
@@ -12656,7 +12179,6 @@ msgstr ""
 
 #: po/advisory_rules.php:168
 #, php-format
-#| msgid "Sort buffer size"
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
 msgstr ""
@@ -12664,7 +12186,6 @@ msgstr ""
 "bi trebala da bude iznad 95%%"
 
 #: po/advisory_rules.php:170
-#| msgid "Sort buffer size"
 msgid "Percentage of MyISAM key buffer used"
 msgstr "Procenat iskorišćenosti MyISAM bafera za ključeve"
 
@@ -12692,12 +12213,10 @@ msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
 
 #: po/advisory_rules.php:180
-#| msgid "Create table"
 msgid "Rate of table open"
 msgstr "Stopa otvorenih tabela"
 
 #: po/advisory_rules.php:181
-#| msgid "The current number of pending writes."
 msgid "The rate of opening tables is high."
 msgstr "Stopa otvaranja tabela je visoka."
 
@@ -12713,7 +12232,6 @@ msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 
 #: po/advisory_rules.php:185
-#| msgid "Format of imported file"
 msgid "Percentage of used open files limit"
 msgstr "Procenat iskorišćenosti limita otvorenih datoteka"
 
@@ -12736,12 +12254,10 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:190
-#| msgid "Format of imported file"
 msgid "Rate of open files"
 msgstr "Stopa otvorenih datoteka"
 
 #: po/advisory_rules.php:191
-#| msgid "The number of pending log file fsyncs."
 msgid "The rate of opening files is high."
 msgstr "Stopa otvaranja datoteka je visoka."
 
@@ -12752,12 +12268,10 @@ msgstr ""
 
 #: po/advisory_rules.php:195
 #, php-format
-#| msgid "Create table on database %s"
 msgid "Immediate table locks %%"
 msgstr "%% neposrednog zaključavanja tabela"
 
 #: po/advisory_rules.php:196 po/advisory_rules.php:201
-#| msgid " number of times that a table lock was acquired immediately."
 msgid "Too many table locks were not granted immediately."
 msgstr "Previše zaključavanja tabela nije odmah neposredno dozvoljeno."
 
@@ -12786,7 +12300,6 @@ msgstr ""
 "satu"
 
 #: po/advisory_rules.php:205
-#| msgid "Key cache"
 msgid "Thread cache"
 msgstr "Keš niti"
 
@@ -12808,12 +12321,10 @@ msgstr "Keš niti je postavljen na 0"
 
 #: po/advisory_rules.php:210
 #, php-format
-#| msgid "Tracking is not active."
 msgid "Thread cache hit rate %%"
 msgstr "%% pristupanja kešu niti"
 
 #: po/advisory_rules.php:211
-#| msgid "Tracking is not active."
 msgid "Thread cache is not efficient."
 msgstr "Keš niti nije efikasan."
 
@@ -12825,15 +12336,13 @@ msgstr "Povećaj {thread_cache_size}."
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
-"Stopa pristupanja kešu niti: %s%%, ova vrednost bi trebalo da bude iznad 80%"
-"%"
+"Stopa pristupanja kešu niti: %s%%, ova vrednost bi trebalo da bude iznad 80%%"
 
 #: po/advisory_rules.php:215
 msgid "Threads that are slow to launch"
 msgstr "Niti koje se sporo pokreću"
 
 #: po/advisory_rules.php:216
-#| msgid "The number of threads that are not sleeping."
 msgid "There are too many threads that are slow to launch."
 msgstr "Ima previše niti koje se sporo pokreću."
 
@@ -12875,7 +12384,6 @@ msgid "slow_launch_time is set to %s"
 msgstr "slow_launch_time je postavljeno na %s"
 
 #: po/advisory_rules.php:225
-#| msgid "max. concurrent connections"
 msgid "Percentage of used connections"
 msgstr "Procenat iskorišćenih veza"
 
@@ -12899,7 +12407,6 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:230
-#| msgid "max. concurrent connections"
 msgid "Percentage of aborted connections"
 msgstr "Procenat prekinutih veza"
 
@@ -12921,7 +12428,6 @@ msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 
 #: po/advisory_rules.php:235
-#| msgid "max. concurrent connections"
 msgid "Rate of aborted connections"
 msgstr "Stopa prekinutih veza"
 
@@ -12934,7 +12440,6 @@ msgstr ""
 "satu"
 
 #: po/advisory_rules.php:240
-#| msgid "Format of imported file"
 msgid "Percentage of aborted clients"
 msgstr "Procenat odbačenih klijenata"
 
@@ -12955,7 +12460,6 @@ msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 
 #: po/advisory_rules.php:245
-#| msgid "Format of imported file"
 msgid "Rate of aborted clients"
 msgstr "Stopa odbačenih klijenata"
 
@@ -12971,7 +12475,6 @@ msgid "Is InnoDB disabled?"
 msgstr "Da li je InnoDB isključen?"
 
 #: po/advisory_rules.php:251
-#| msgid "Could not load default configuration from: \"%1$s\""
 msgid "You do not have InnoDB enabled."
 msgstr "InnoDB nije aktiviran."
 
@@ -12984,12 +12487,10 @@ msgid "have_innodb is set to 'value'"
 msgstr ""
 
 #: po/advisory_rules.php:255
-#| msgid "Buffer pool size"
 msgid "InnoDB log size"
 msgstr "Veličina InnoDB log-a"
 
 #: po/advisory_rules.php:256
-#| msgid "The number writes done to the InnoDB buffer pool."
 msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
@@ -13046,7 +12547,6 @@ msgid "Your absolute InnoDB log size is %s MiB"
 msgstr "Apsolutna veličina vašeg InnoDB log-a je %s MiB"
 
 #: po/advisory_rules.php:265
-#| msgid "Buffer pool size"
 msgid "InnoDB buffer pool size"
 msgstr "Veličina InnoDB prostora za bafere"
 
@@ -13079,7 +12579,6 @@ msgid ""
 msgstr ""
 
 #: po/advisory_rules.php:270
-#| msgid "max. concurrent connections"
 msgid "MyISAM concurrent inserts"
 msgstr "MyISAM istovremenih upisivanja"
 
@@ -13095,13 +12594,28 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "Postavljanjem {concurrent_insert} na 1 smanjuje se nadmetanje između čitača "
-"i upisivača nad datom tabelom. Pogledajte takođe <a "
-"href=\"http://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">MySQL "
-"Documentation</a>"
+"i upisivača nad datom tabelom. Pogledajte takođe <a href=\"http://dev.mysql."
+"com/doc/refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 
 #: po/advisory_rules.php:273
 msgid "concurrent_insert is set to 0"
 msgstr "concurrent_insert je postavljeno na 0"
+
+#~ msgctxt "MySQL 5.5 documentation language"
+#~ msgid "en"
+#~ msgstr "en"
+
+#~ msgctxt "MySQL 5.1 documentation language"
+#~ msgid "en"
+#~ msgstr "en"
+
+#~ msgctxt "MySQL 5.0 documentation language"
+#~ msgid "en"
+#~ msgstr "en"
+
+#~ msgctxt "PHP documentation language"
+#~ msgid "en"
+#~ msgstr "en"
 
 #~ msgid "Usage"
 #~ msgstr "Zauzeće"
