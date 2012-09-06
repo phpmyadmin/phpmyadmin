@@ -4,10 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-06 11:49+0200\n"
-"PO-Revision-Date: 2012-09-05 10:56+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/"
-">\n"
+"PO-Revision-Date: 2012-09-06 21:11+0200\n"
+"Last-Translator: مترجم حرّ <metehyi@gmail.com>\n"
+"Language-Team: French <http://l10n.cihar.com/projects/phpmyadmin/master/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -613,7 +612,6 @@ msgid "Output"
 msgstr "Résultat"
 
 #: gis_data_editor.php:402
-#, fuzzy
 #| msgid ""
 #| "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 #| "string into the \"Value\" field"
@@ -621,11 +619,11 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
-"Choisissez «GeomFromText» dans la colonne «Fonction» et collez la chaîne "
-"dans le champ «Valeur»"
+"Choisissez «GeomFromText» depuis la colonne «Fonction» et collez la chaîne "
+"ci dessous dans le champ «Valeur»"
 
 #: import.php:95
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to "
 #| "%sdocumentation%s for ways to workaround this limit."
@@ -634,8 +632,8 @@ msgid ""
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
 "Vous avez probablement tenté de télécharger un fichier trop volumineux. "
-"Veuillez vous référer à la %sdocumentation%s pour des façons de contourner "
-"cette limite."
+"Veuillez vous référer à la %sdocumentation%s pour trouver le moyen de "
+"contourner cette limite."
 
 #: import.php:234 import.php:499
 msgid "Showing bookmark"
@@ -6141,11 +6139,11 @@ msgstr "Détails..."
 
 #: libraries/dbi/drizzle-wrappers.lib.php:450
 msgid "Can't seek in an unbuffered result set"
-msgstr ""
+msgstr "﻿Ne peut pas piocher dans un jeu de resultat non tamponisé"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:472
 msgid "Can't count rows in an unbuffered result set"
-msgstr ""
+msgstr "﻿Ne peut pas compter des lignes dans un jeu de résultats non tamponnés"
 
 #: libraries/dbi/drizzle.dbi.lib.php:136 libraries/dbi/mysql.dbi.lib.php:150
 #: libraries/dbi/mysqli.dbi.lib.php:192
