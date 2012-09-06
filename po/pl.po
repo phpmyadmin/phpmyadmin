@@ -2118,19 +2118,19 @@ msgstr "Dokumentacja"
 #: libraries/CommonFunctions.class.php:540
 msgctxt "MySQL 5.5 documentation language"
 msgid "en"
-msgstr "ang."
+msgstr "en"
 
 #. l10n: Please check that translation actually exists.
 #: libraries/CommonFunctions.class.php:544
 msgctxt "MySQL 5.1 documentation language"
 msgid "en"
-msgstr "ang."
+msgstr "en"
 
 #. l10n: Please check that translation actually exists.
 #: libraries/CommonFunctions.class.php:548
 msgctxt "MySQL 5.0 documentation language"
 msgid "en"
-msgstr "ang."
+msgstr "en"
 
 #: libraries/CommonFunctions.class.php:676 libraries/Message.class.php:199
 #: libraries/core.lib.php:218 libraries/import.lib.php:171
@@ -6132,7 +6132,7 @@ msgstr "Nieprawidłowy adres IP: %s"
 #: libraries/core.lib.php:256
 msgctxt "PHP documentation language"
 msgid "en"
-msgstr "ang."
+msgstr "en"
 
 #: libraries/core.lib.php:277
 #, php-format
