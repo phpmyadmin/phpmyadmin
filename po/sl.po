@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-06 11:49+0200\n"
-"PO-Revision-Date: 2012-09-05 10:45+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Slovenian <http://l10n.cihar.com/projects/phpmyadmin/master/"
-"sl/>\n"
+"PO-Revision-Date: 2012-09-06 13:15+0200\n"
+"Last-Translator: Domen <dbc334@gmail.com>\n"
+"Language-Team: Slovenian "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Weblate 1.2\n"
 
 #: browse_foreigners.php:36 browse_foreigners.php:60 js/messages.php:354
@@ -612,7 +612,6 @@ msgid "Output"
 msgstr "Izhod"
 
 #: gis_data_editor.php:402
-#, fuzzy
 #| msgid ""
 #| "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 #| "string into the \"Value\" field"
@@ -620,11 +619,11 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
-"Izberite \"GeomFromText\" iz stolpca \"Funkcija\" in prilepite spodnji niz v "
+"Izberite \"GeomFromText\" v stolpcu \"Funkcija\" in prilepite niz v spodnje "
 "polje \"Vrednost\""
 
 #: import.php:95
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to "
 #| "%sdocumentation%s for ways to workaround this limit."
@@ -632,8 +631,8 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Najverjetneje ste poskušali naložiti preveliko datoteko. Prosimo, oglejte si "
-"%sdokumentacijo%s za načine, kako obiti to omejitev."
+"Najverjetneje ste poskušali naložiti preveliko datoteko. Prosimo, da si v %"
+"sdokumentaciji%s ogledate načine, kako obiti omejitev."
 
 #: import.php:234 import.php:499
 msgid "Showing bookmark"
@@ -6103,11 +6102,11 @@ msgstr "Podrobnosti ..."
 
 #: libraries/dbi/drizzle-wrappers.lib.php:450
 msgid "Can't seek in an unbuffered result set"
-msgstr ""
+msgstr "Ne morem iskati v nemedpomnjeni množici rezultatov"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:472
 msgid "Can't count rows in an unbuffered result set"
-msgstr ""
+msgstr "Ne morem prešteti vrstic v nemedpomnjeni množici rezultatov"
 
 #: libraries/dbi/drizzle.dbi.lib.php:136 libraries/dbi/mysql.dbi.lib.php:150
 #: libraries/dbi/mysqli.dbi.lib.php:192
