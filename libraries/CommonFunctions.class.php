@@ -534,7 +534,9 @@ class PMA_CommonFunctions
             $mysql = '5.0';
             $lang = 'en';
             if (defined('PMA_MYSQL_INT_VERSION')) {
-                if (PMA_MYSQL_INT_VERSION >= 50500) {
+                if (PMA_MYSQL_INT_VERSION >= 50600) {
+                    $mysql = '5.6';
+                } else if (PMA_MYSQL_INT_VERSION >= 50500) {
                     $mysql = '5.5';
                 } else if (PMA_MYSQL_INT_VERSION >= 50100) {
                     $mysql = '5.1';
