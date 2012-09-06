@@ -531,7 +531,7 @@ class PMA_CommonFunctions
             if (empty($link)) {
                 $link = 'index';
             }
-            $mysql = '5.0';
+            $mysql = '5.5';
             $lang = 'en';
             if (defined('PMA_MYSQL_INT_VERSION')) {
                 if (PMA_MYSQL_INT_VERSION >= 50600) {
@@ -540,8 +540,6 @@ class PMA_CommonFunctions
                     $mysql = '5.5';
                 } else if (PMA_MYSQL_INT_VERSION >= 50100) {
                     $mysql = '5.1';
-                } else {
-                    $mysql = '5.0';
                 }
             }
             $url = $cfg['MySQLManualBase']
