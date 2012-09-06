@@ -9800,7 +9800,7 @@ msgstr "Ratgeber"
 #: server_status.php:807 server_status.php:833
 #| msgid "Number of rows:"
 msgid "Number of data points: "
-msgstr "Anzahl der Datenpunkte:"
+msgstr "Anzahl der Datenpunkte: "
 
 #: server_status.php:811 server_status.php:837
 msgid "Refresh rate: "
