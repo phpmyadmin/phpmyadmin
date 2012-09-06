@@ -546,14 +546,14 @@ $(function() {
         switch(tab.attr('id')) {
             case 'statustabs_traffic':
                 if (data != null) {
-                    tab.find('.tabInnerContent').html(data);
+                    tab.find('.tabInnerContent').html(data.message);
                 }
                 PMA_showHints();
                 break;
             case 'statustabs_queries':
                 if (data != null) {
                     queryPieChart.destroy();
-                    tab.find('.tabInnerContent').html(data);
+                    tab.find('.tabInnerContent').html(data.message);
                 }
 
                 // Build query statistics chart
@@ -572,7 +572,7 @@ $(function() {
 
             case 'statustabs_allvars':
                 if (data != null) {
-                    tab.find('.tabInnerContent').html(data);
+                    tab.find('.tabInnerContent').html(data.message);
                     filterVariables();
                 }
                 initTableSorter(tab.attr('id'));
