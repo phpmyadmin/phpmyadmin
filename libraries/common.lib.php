@@ -441,7 +441,7 @@ function PMA_showMySQLDocu($chapter, $link, $big_icon = false, $anchor = '', $ju
         if (empty($link)) {
             $link = 'index';
         }
-        $mysql = '5.0';
+        $mysql = '5.5';
         $lang = 'en';
         if (defined('PMA_MYSQL_INT_VERSION')) {
             if (PMA_MYSQL_INT_VERSION >= 50600) {
