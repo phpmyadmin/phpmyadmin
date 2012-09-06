@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-06 11:49+0200\n"
-"PO-Revision-Date: 2012-09-05 21:37+0200\n"
+"PO-Revision-Date: 2012-09-06 14:28+0200\n"
 "Last-Translator: مترجم حرّ <metehyi@gmail.com>\n"
 "Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/3-5/ar/>\n"
 "Language: ar\n"
@@ -2603,7 +2603,7 @@ msgstr ""
 
 #: libraries/auth/cookie.auth.lib.php:35
 msgid "Failed to use Blowfish from mcrypt!"
-msgstr ""
+msgstr "فشلت من إستعمال Blowfish من mcrypt!"
 
 #: libraries/auth/cookie.auth.lib.php:197
 msgid "Log in"
@@ -2965,7 +2965,7 @@ msgstr "الذهاب إلى قاعدة البيانات &quot;%s&quot;."
 #: libraries/common.lib.php:2575
 #, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
-msgstr ""
+msgstr "إنّ ال %s الوظيفية هي مصابة بعطل معروف، أنظر إلى %s"
 
 #: libraries/common.lib.php:2749
 msgid "Click to toggle"
@@ -3238,7 +3238,9 @@ msgstr "عرض رابط &quot;إزالة قاعدة البيانات&quot للم
 msgid ""
 "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
 "authentication"
-msgstr "عبارة المرور السرية تستخدم لتشفير الكوكيز في المصادقة"
+msgstr ""
+"عبارة المرور السرية تستخدم لتشفير كعكة الإنترنت في[kbd]cookie[/kbd]  "
+"المصادقة"
 
 #: libraries/config/messages.inc.php:25
 msgid "Blowfish secret"
@@ -3586,7 +3588,7 @@ msgstr "تذكر إسم قالب الملف"
 
 #: libraries/config/messages.inc.php:122
 msgid "Enclose table and column names with backquotes"
-msgstr "حماية أسماء الجداول و الحقول ب \"`\" "
+msgstr "محاصرة أسماء الجداول و العواميد ب \"`\" "
 
 #: libraries/config/messages.inc.php:123 libraries/config/messages.inc.php:262
 #: libraries/display_export.lib.php:348
@@ -5796,7 +5798,7 @@ msgstr "في الاستعلام"
 
 #: libraries/display_tbl.lib.php:2364
 msgid "Showing rows"
-msgstr "مشاهدة السجلات "
+msgstr "مشاهدة الأسطر "
 
 #: libraries/display_tbl.lib.php:2374
 msgid "total"
@@ -7896,7 +7898,7 @@ msgstr ""
 
 #: libraries/sql_query_form.lib.php:344
 msgid "Show this query here again"
-msgstr "عرض هذا الاستعلام هنا مرة أخرى "
+msgstr "أعرض هذا الاستعلام هنا مرة أخرى"
 
 #: libraries/sql_query_form.lib.php:407
 msgid "View only"
