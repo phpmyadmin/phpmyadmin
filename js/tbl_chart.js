@@ -154,6 +154,7 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
         columnNames.push(index);
     });
 
+    // todo: this does not work for "pie" ?
     $.each(columnNames, function(index, element) {
         if (parseInt(chart_xaxis_idx) != index) {
             legends.push(element);
@@ -165,6 +166,7 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
         case 'spline':
         case 'line':
         case 'bar':
+            // "The remaining columns"
             if (chart_series == 'columns') {
                 var j = 0;
                 for (var i=0; i < columnNames.length; i++)
@@ -183,6 +185,7 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
                         j++;
                     }
             } else {
+            // a specific column
                 var j=0;
                 var seriesIndex = new Object();
                 // Get series types and build series object from the query data
@@ -215,15 +218,20 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
             break;
 
         case 'pie':
-            series[0] = new Object();
-            series[0].data = new Array();
-            $.each(data,function(key,value) {
-                    series[0].data.push({
-                        name: value[columnNames[chart_xaxis_idx]],
-                        y: parseFloat(value[columnNames[0]])
-                    });
+            // only available for a specific column
+            // todo: warn the user about this
+            if (chart_series != 'columns') {
+                series[0] = new Array();
+                $.each(data,function(key,value) {
+                    series[0].push(
+                        [
+                        value[columnNames[chart_xaxis_idx]],
+                        parseFloat(value[chart_series])
+                        ]
+                     );
                 });
-            break;
+                break;
+            }
     }
 
     var settings = {
@@ -262,7 +270,15 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
         };
     }
     if (passedNonJqplotSettings.chart.type == 'pie') {
-        //settings.tooltip.formatter = function() { return '<b>'+columnNames[0]+'</b><br/>'+this.y; }
+        settings.seriesDefaults = {
+            renderer: $.jqplot.PieRenderer,
+            rendererOptions: {
+                showDataLabels: true,
+                highlightMouseOver: true,
+                showDataLabels: true,
+                dataLabels: 'value'
+            }
+        };
     }
     // Overwrite/Merge default settings with passedsettings
     $.extend(true, settings, passedSettings);
