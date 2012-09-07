@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 3.5.3-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-06 11:49+0200\n"
-"PO-Revision-Date: 2012-09-06 14:28+0200\n"
+"PO-Revision-Date: 2012-09-07 17:30+0200\n"
 "Last-Translator: مترجم حرّ <metehyi@gmail.com>\n"
 "Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/3-5/ar/>\n"
 "Language: ar\n"
@@ -4553,10 +4553,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:386
-#, fuzzy
 #| msgid "Any host"
 msgid "Control host"
-msgstr "أي مزود"
+msgstr "مضيف التحكم"
 
 #: libraries/config/messages.inc.php:387
 msgid "Count tables when showing database list"
@@ -4680,7 +4679,6 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:413
-#, fuzzy
 #| msgid "database name"
 msgid "Database name"
 msgstr "اسم قاعدة البيانات"
@@ -4700,10 +4698,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:417
-#, fuzzy
 #| msgid "Analyze table"
 msgid "Recently used table"
-msgstr "تحليل الجدول"
+msgstr "الجدول المستخدم مؤخرا"
 
 #: libraries/config/messages.inc.php:418
 msgid ""
@@ -4769,10 +4766,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:432
-#, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "Display columns table"
-msgstr "إظهار تعليقات العمود"
+msgstr ""
 
 #: libraries/config/messages.inc.php:433
 msgid ""
@@ -4819,10 +4815,9 @@ msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
 
 #: libraries/config/messages.inc.php:442
-#, fuzzy
 #| msgid "Statements"
 msgid "Statements to track"
-msgstr "أوامر"
+msgstr ""
 
 #: libraries/config/messages.inc.php:443
 msgid ""
@@ -4908,10 +4903,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:461
-#, fuzzy
 #| msgid "Default display direction"
 msgid "Show display direction"
-msgstr "إتجاه العرض الإفتراضي"
+msgstr "أظهر جهة العرض"
 
 #: libraries/config/messages.inc.php:462
 msgid ""
@@ -4936,10 +4930,9 @@ msgid "Whether to show hint or not"
 msgstr ""
 
 #: libraries/config/messages.inc.php:467
-#, fuzzy
 #| msgid "Show grid"
 msgid "Show hint"
-msgstr "أظهر تخطيط الجدول"
+msgstr "أعرض نصيحة"
 
 #: libraries/config/messages.inc.php:468
 msgid ""
@@ -4969,10 +4962,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:474 libraries/sql_query_form.lib.php:352
-#, fuzzy
 #| msgid "Hide query box"
 msgid "Retain query box"
-msgstr "إخفاء صندوق الإستعلام"
+msgstr "إحتفظ بصندوق الإستعلام"
 
 #: libraries/config/messages.inc.php:475
 msgid "Allow to display database and table statistics (eg. space usage)"
@@ -5077,10 +5069,9 @@ msgid ""
 msgstr ""
 
 #: libraries/config/messages.inc.php:500
-#, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Textarea columns"
-msgstr "إضافه/حذف عمود حقل"
+msgstr "عواميد منطقة النص"
 
 #: libraries/config/messages.inc.php:501
 msgid ""
@@ -5101,10 +5092,9 @@ msgid "Title of browser window when nothing is selected"
 msgstr ""
 
 #: libraries/config/messages.inc.php:506
-#, fuzzy
 #| msgid "Default"
 msgid "Default title"
-msgstr "افتراضي"
+msgstr "العنوان الغيابي"
 
 #: libraries/config/messages.inc.php:507
 msgid "Title of browser window when a server is selected"
@@ -5229,7 +5219,6 @@ msgstr ""
 
 #: libraries/config/setup.forms.php:292
 #: libraries/config/user_preferences.forms.php:190
-#, fuzzy
 #| msgid "Database export options"
 msgid "Database export options"
 msgstr "خيارات تصدير قاعدة بيانات"
@@ -5256,10 +5245,9 @@ msgid "Could not initialize Drizzle connection library"
 msgstr ""
 
 #: libraries/config/validate.lib.php:205 libraries/config/validate.lib.php:212
-#, fuzzy
 #| msgid "Could not open file: %s"
 msgid "Could not connect to Drizzle server"
-msgstr "لايمكن فتح الملف : %s"
+msgstr "لا يمكن الاتصال بالخادم Drizzle"
 
 #: libraries/config/validate.lib.php:223 libraries/config/validate.lib.php:230
 msgid "Could not connect to MySQL server"
@@ -5394,10 +5382,9 @@ msgstr ""
 
 #: libraries/display_create_database.lib.php:21
 #: libraries/display_create_database.lib.php:39
-#, fuzzy
 #| msgid "Create new database"
 msgid "Create database"
-msgstr "تكوين قاعدة بيانات جديدة"
+msgstr "أنشئ قاعدة معطيات"
 
 #: libraries/display_create_database.lib.php:33
 msgid "Create"
@@ -5422,38 +5409,35 @@ msgid "Name"
 msgstr "الاسم"
 
 #: libraries/display_create_table.lib.php:55
-#, fuzzy
 #| msgid "Number of tables"
 msgid "Number of columns"
-msgstr "عدد الجداول"
+msgstr "عدد العواميد"
 
 #: libraries/display_export.lib.php:37
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 
 #: libraries/display_export.lib.php:82
-#, fuzzy
 #| msgid "Allows locking tables for the current thread."
 msgid "Exporting databases from the current server"
-msgstr "يسمح بقفل الجداول للعملية الحالية."
+msgstr "تصدير قواعد المعطيات من الخادم الحالي"
 
 #: libraries/display_export.lib.php:84
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting tables from \"%s\" database"
-msgstr "تكوين جدول جديد في قاعدة البيانات %s"
+msgstr "تصدير الجداول من قاعدة المعطيات \"%s\""
 
 #: libraries/display_export.lib.php:86
-#, fuzzy, php-format
+#, php-format
 #| msgid "Create table on database %s"
 msgid "Exporting rows from \"%s\" table"
-msgstr "تكوين جدول جديد في قاعدة البيانات %s"
+msgstr "تصدير الأسطر من الجدول \"%s\""
 
 #: libraries/display_export.lib.php:92
-#, fuzzy
 #| msgid "Export type"
 msgid "Export Method:"
-msgstr "نوع التصدير"
+msgstr "منهج التصدير:"
 
 #: libraries/display_export.lib.php:108
 msgid "Quick - display only the minimal options"
@@ -5464,32 +5448,28 @@ msgid "Custom - display all possible options"
 msgstr ""
 
 #: libraries/display_export.lib.php:132
-#, fuzzy
 #| msgid "Databases"
 msgid "Database(s):"
-msgstr "قاعدة بيانات"
+msgstr "قاعدة/قواعد البيانات:"
 
 #: libraries/display_export.lib.php:134
-#, fuzzy
 #| msgid "Tables"
 msgid "Table(s):"
-msgstr "جداول"
+msgstr "الجدول/الجداول:"
 
 #: libraries/display_export.lib.php:144
-#, fuzzy
 #| msgid "Rows"
 msgid "Rows:"
-msgstr "صفوف"
+msgstr "الأسطر:"
 
 #: libraries/display_export.lib.php:152
 msgid "Dump some row(s)"
 msgstr ""
 
 #: libraries/display_export.lib.php:154
-#, fuzzy
 #| msgid "Number of tables"
 msgid "Number of rows:"
-msgstr "عدد الجداول"
+msgstr "عدد الأسطر:"
 
 #: libraries/display_export.lib.php:157
 msgid "Row to begin at:"
@@ -5504,22 +5484,20 @@ msgid "Output:"
 msgstr ""
 
 #: libraries/display_export.lib.php:183 libraries/display_export.lib.php:209
-#, fuzzy, php-format
+#, php-format
 #| msgid "Save on server in %s directory"
 msgid "Save on server in the directory <b>%s</b>"
-msgstr "احفظ على الخادم في الدليل %s"
+msgstr "إحفظ على الخادم في الدليل <b>%s</b>"
 
 #: libraries/display_export.lib.php:201
-#, fuzzy
 #| msgid "Save as file"
 msgid "Save output to a file"
-msgstr "حفظ كملف"
+msgstr "إحفظ الخرج في ملف"
 
 #: libraries/display_export.lib.php:222
-#, fuzzy
 #| msgid "File name template"
 msgid "File name template:"
-msgstr "قالب اسم الملف"
+msgstr "قالب اسم الملف:"
 
 #: libraries/display_export.lib.php:224
 msgid "@SERVER@ will become the server name"
@@ -5551,16 +5529,14 @@ msgid "Character set of the file:"
 msgstr "شيفرة أحرف الملف:"
 
 #: libraries/display_export.lib.php:306
-#, fuzzy
 #| msgid "Compression"
 msgid "Compression:"
-msgstr "الضغط"
+msgstr "الضغظ:"
 
 #: libraries/display_export.lib.php:310
-#, fuzzy
 #| msgid "\"zipped\""
 msgid "zipped"
-msgstr "\"مضغوط\""
+msgstr "مضغوط"
 
 #: libraries/display_export.lib.php:312
 #, fuzzy
