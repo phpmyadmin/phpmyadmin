@@ -214,10 +214,8 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
     if (passedNonJqplotSettings.chart.type == 'line') {
         settings.axes = {
             xaxis: {
-                renderer: $.jqplot.CategoryAxisRenderer
             },
             yaxis: {
-                renderer: $.jqplot.CategoryAxisRenderer
             }
         }
     }
@@ -235,7 +233,6 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
                 renderer: $.jqplot.CategoryAxisRenderer
             },
             yaxis: {
-                renderer: $.jqplot.CategoryAxisRenderer
             }
         };
     }
