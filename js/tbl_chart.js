@@ -73,9 +73,9 @@ $(document).ready(function() {
 
     $('input[name="barStacked"]').click(function() {
         if(this.checked) {
-            //$.extend(true,currentSettings,{ plotOptions: { series: { stacking:'normal' } } });
+            $.extend(true,currentSettings,{ stackSeries: true });
         } else {
-            //$.extend(true,currentSettings,{ plotOptions: { series: { stacking:null } } });
+            $.extend(true,currentSettings,{ stackSeries: false });
         }
         drawChart();
     });
