@@ -148,16 +148,9 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
     var series = new Array();
     var xaxis = { type: 'linear' };
     var yaxis = new Object();
-    var legends = new Array();
 
     $.each(data[0],function(index,element) {
         columnNames.push(index);
-    });
-
-    $.each(columnNames, function(index, element) {
-        if (parseInt(chart_xaxis_idx) != index) {
-            legends.push(element);
-        }
     });
 
     switch(passedNonJqplotSettings.chart.type) {
@@ -251,8 +244,12 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
     $.extend(true, settings, passedSettings);
 
     settings.series = new Array();
-    for (var i = 0; i < legends.length; i++) {
-        settings.series.push({ label: legends[i] });
+    for (var i = 0; i < columnNames.length; i++) {
+        if (parseInt(chart_xaxis_idx) != i) {
+            if (chart_series == 'columns' || chart_series == columnNames[i]) {
+                settings.series.push({ label: columnNames[i] });
+            }
+        }
     }
 
     return $.jqplot('querychart', series, settings);
