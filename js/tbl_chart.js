@@ -165,52 +165,23 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
         case 'spline':
         case 'line':
         case 'bar':
-            // "The remaining columns"
-            if (chart_series == 'columns') {
-                var j = 0;
-                for (var i=0; i < columnNames.length; i++)
-                    if (i != chart_xaxis_idx) {
-                        series[j] = new Array();
-
+            var j = 0;
+            for (var i = 0; i < columnNames.length; i++) {
+                if (i != chart_xaxis_idx) {
+                    series[j] = new Array();
+                    if (chart_series == 'columns' || chart_series == columnNames[i]) {
                         $.each(data,function(key,value) {
                             series[j].push(
                                 [
-                                 value[columnNames[chart_xaxis_idx]],
-                                 // todo: not always a number?
-                                 parseFloat(value[columnNames[i]])
+                                value[columnNames[chart_xaxis_idx]],
+                                // todo: not always a number?
+                                parseFloat(value[columnNames[i]])
                                 ]
                             );
                         });
                         j++;
                     }
-            } else {
-            // a specific column
-                var j=0;
-                var seriesIndex = new Object();
-                // Get series types and build series object from the query data
-                $.each(data,function(index,element) {
-                    var contains = false;
-                    for(var i=0; i < series.length; i++)
-                        if(series[i].name == element[chart_series]) contains = true;
-
-                    if(!contains) {
-                        seriesIndex[element[chart_series]] = j;
-                        series[j] = new Object();
-                        series[j].data = new Array();
-                        series[j].name = element[chart_series]; // columnNames[i];
-                        j++;
-                    }
-                });
-
-                var type;
-                // Get series points from query data
-                $.each(data,function(key,value) {
-                    type = value[chart_series];
-                    series[seriesIndex[type]].data.push(parseFloat(value[columnNames[0]]));
-
-                    if( !in_array(value[columnNames[chart_xaxis_idx]],xaxis.categories))
-                        xaxis.categories.push(value[columnNames[chart_xaxis_idx]]);
-                });
+                }
             }
             if(columnNames.length == 2)
                 yaxis.title = { text: columnNames[0] };
