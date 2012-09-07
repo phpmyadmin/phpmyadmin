@@ -154,7 +154,6 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
         columnNames.push(index);
     });
 
-    // todo: this does not work for "pie" ?
     $.each(columnNames, function(index, element) {
         if (parseInt(chart_xaxis_idx) != index) {
             legends.push(element);
