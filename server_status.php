@@ -135,13 +135,13 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                             }
 
                             if (PMA_getSysInfoOs() == 'Linux') {
-                                $ret[$chart_id][$node_id][$point_id]['idle'] =
-                                    $cpuload['idle'];
-                                $ret[$chart_id][$node_id][$point_id]['busy'] =
-                                    $cpuload['busy'];
+                                $ret[$chart_id][$node_id][$point_id]['idle']
+                                    = $cpuload['idle'];
+                                $ret[$chart_id][$node_id][$point_id]['busy']
+                                    = $cpuload['busy'];
                             } else {
-                                $ret[$chart_id][$node_id][$point_id]['value'] =
-                                    $cpuload['loadavg'];
+                                $ret[$chart_id][$node_id][$point_id]['value']
+                                    = $cpuload['loadavg'];
                             }
 
                             break;
@@ -166,7 +166,10 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             // Retrieve all required status variables
             if (count($statusVars)) {
                 $statusVarValues = PMA_DBI_fetch_result(
-                    "SHOW GLOBAL STATUS WHERE Variable_name='" . implode("' OR Variable_name='", $statusVars) . "'", 0, 1
+                    "SHOW GLOBAL STATUS WHERE Variable_name='"
+                    . implode("' OR Variable_name='", $statusVars) . "'",
+                    0,
+                    1
                 );
             } else {
                 $statusVarValues = array();
@@ -175,8 +178,10 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
             // Retrieve all required server variables
             if (count($serverVars)) {
                 $serverVarValues = PMA_DBI_fetch_result(
-                    "SHOW GLOBAL VARIABLES
-                    WHERE Variable_name='" . implode("' OR Variable_name='", $serverVars) . "'", 0, 1
+                    "SHOW GLOBAL VARIABLES WHERE Variable_name='"
+                    . implode("' OR Variable_name='", $serverVars) . "'",
+                    0,
+                    1
                 );
             } else {
                 $serverVarValues = array();
@@ -304,15 +309,23 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                 switch($type) {
                 case 'insert':
                     // Group inserts if selected
-                    if ($removeVars && preg_match('/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i', $row['argument'], $matches)) {
+                    if ($removeVars
+                        && preg_match(
+                            '/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i',
+                            $row['argument'], $matches
+                        )
+                    ) {
                         $insertTables[$matches[2]]++;
                         if ($insertTables[$matches[2]] > 1) {
                             $return['rows'][$insertTablesFirst]['#']
                                 = $insertTables[$matches[2]];
 
-                            // Add a ... to the end of this query to indicate that there's been other queries
-                            if ($return['rows'][$insertTablesFirst]['argument'][strlen($return['rows'][$insertTablesFirst]['argument'])-1] != '.') {
-                                $return['rows'][$insertTablesFirst]['argument'] .= '<br/>...';
+                            // Add a ... to the end of this query to indicate that
+                            // there's been other queries
+                            $temp = $return['rows'][$insertTablesFirst]['argument'];
+                            if ($temp[strlen($temp) - 1] != '.') {
+                                $return['rows'][$insertTablesFirst]['argument']
+                                    .= '<br/>...';
                             }
 
                             // Group this value, thus do not add to the result list
@@ -325,7 +338,8 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
                     // No break here
 
                 case 'update':
-                    // Cut off big inserts and updates, but append byte count therefor
+                    // Cut off big inserts and updates,
+                    // but append byte count therefor
                     if (strlen($row['argument']) > 220) {
                         $row['argument'] = substr($row['argument'], 0, 200)
                             . '... ['
@@ -371,7 +385,12 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
         }
 
-        $loggingVars = PMA_DBI_fetch_result('SHOW GLOBAL VARIABLES WHERE Variable_name IN ("general_log","slow_query_log","long_query_time","log_output")', 0, 1);
+        $loggingVars = PMA_DBI_fetch_result(
+            'SHOW GLOBAL VARIABLES WHERE Variable_name IN'
+            . ' ("general_log","slow_query_log","long_query_time","log_output")',
+            0,
+            1
+        );
         exit(json_encode($loggingVars));
     }
 
@@ -387,7 +406,11 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
         }
 
         // Do not cache query
-        $query = preg_replace('/^(\s*SELECT)/i', '\\1 SQL_NO_CACHE', $_REQUEST['query']);
+        $query = preg_replace(
+            '/^(\s*SELECT)/i',
+            '\\1 SQL_NO_CACHE',
+            $_REQUEST['query']
+        );
 
         $result = PMA_DBI_try_query($query);
         $return['affectedRows'] = $GLOBALS['cached_affected_rows'];
@@ -404,7 +427,10 @@ if (isset($_REQUEST['ajax_request']) && $_REQUEST['ajax_request'] == true) {
 
         if ($profiling) {
             $return['profiling'] = array();
-            $result = PMA_DBI_try_query('SELECT seq,state,duration FROM INFORMATION_SCHEMA.PROFILING WHERE QUERY_ID=1 ORDER BY seq');
+            $result = PMA_DBI_try_query(
+                'SELECT seq,state,duration FROM INFORMATION_SCHEMA.PROFILING'
+                . ' WHERE QUERY_ID=1 ORDER BY seq'
+            );
             while ($row = PMA_DBI_fetch_assoc($result)) {
                 $return['profiling'][]= $row;
             }
@@ -486,7 +512,12 @@ if (! empty($_REQUEST['kill'])) {
     if (PMA_DBI_try_query('KILL ' . $_REQUEST['kill'] . ';')) {
         $message = PMA_Message::success(__('Thread %s was successfully killed.'));
     } else {
-        $message = PMA_Message::error(__('phpMyAdmin was unable to kill thread %s. It probably has already been closed.'));
+        $message = PMA_Message::error(
+            __(
+                'phpMyAdmin was unable to kill thread %s.'
+                . ' It probably has already been closed.'
+            )
+        );
     }
     $message->addParam($_REQUEST['kill']);
     //$message->display();
@@ -543,14 +574,16 @@ if (isset($server_status['Key_writes'])
     && isset($server_status['Key_write_requests'])
     && $server_status['Key_write_requests'] > 0
 ) {
-    $server_status['Key_write_ratio_%'] = 100 * $server_status['Key_writes'] / $server_status['Key_write_requests'];
+    $server_status['Key_write_ratio_%']
+        = 100 * $server_status['Key_writes'] / $server_status['Key_write_requests'];
 }
 
 if (isset($server_status['Key_reads'])
     && isset($server_status['Key_read_requests'])
     && $server_status['Key_read_requests'] > 0
 ) {
-    $server_status['Key_read_ratio_%'] = 100 * $server_status['Key_reads'] / $server_status['Key_read_requests'];
+    $server_status['Key_read_ratio_%']
+        = 100 * $server_status['Key_reads'] / $server_status['Key_read_requests'];
 }
 
 // Threads_cache_hitrate
@@ -560,7 +593,8 @@ if (isset($server_status['Threads_created'])
 ) {
 
     $server_status['Threads_cache_hitrate_%']
-        = 100 - $server_status['Threads_created'] / $server_status['Connections'] * 100;
+        = 100 - $server_status['Threads_created']
+        / $server_status['Connections'] * 100;
 }
 
 /**
@@ -775,7 +809,9 @@ PMA_addJSVar(
 );
 PMA_addJSVar(
     'profiling_docu',
-    $common_functions->showMySQLDocu('general-thread-states', 'general-thread-states')
+    $common_functions->showMySQLDocu(
+        'general-thread-states', 'general-thread-states'
+    )
 );
 PMA_addJSVar(
     'explain_docu',
