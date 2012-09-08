@@ -10,7 +10,7 @@ $(function() {
     var currentChart = null;
     chart_series = $('select[name="chartSeries"]').val();
     // If no series is selected null is returned. 
-    // In such case nitialize chart_series to empty array.
+    // In such case initialize chart_series to empty array.
     if (chart_series == null) {
         chart_series = new Array();
     }
@@ -201,7 +201,7 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
             for (var i = 0; i < columnNames.length; i++) {
                 if (i != chart_xaxis_idx) {
                     series[j] = new Array();
-                    if (chart_series == 'columns' || chart_series == columnNames[i]) {
+                    if ($.inArray(columnNames[i], chart_series) != -1) {
                         $.each(data,function(key,value) {
                             series[j].push(
                                 [
@@ -222,7 +222,7 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
         case 'pie':
             // only available for a specific column
             // todo: warn the user about this
-            if (chart_series != 'columns') {
+            if (chart_series.length == 1) {
                 series[0] = new Array();
                 $.each(data,function(key,value) {
                     series[0].push(
@@ -294,7 +294,7 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
     settings.series = new Array();
     for (var i = 0; i < columnNames.length; i++) {
         if (parseInt(chart_xaxis_idx) != i) {
-            if (chart_series == 'columns' || chart_series == columnNames[i]) {
+            if ($.inArray(columnNames[i], chart_series) != -1) {
                 settings.series.push({ label: columnNames[i] });
             }
         }
