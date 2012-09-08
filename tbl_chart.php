@@ -20,14 +20,20 @@ if (! defined('PMA_NO_VARIABLES_IMPORT')) {
 require_once './libraries/common.inc.php';
 
 $GLOBALS['js_include'][] = 'tbl_chart.js';
-$GLOBALS['js_include'][] = 'highcharts/highcharts.js';
-/* Files required for chart exporting */
-$GLOBALS['js_include'][] = 'highcharts/exporting.js';
+$GLOBALS['js_include'][] = 'jqplot/jquery.jqplot.js';
+$GLOBALS['js_include'][] = 'jquery/jquery-ui-1.8.16.custom.js';
+$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.barRenderer.js';
+$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.canvasAxisLabelRenderer.js';
+$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.canvasTextRenderer.js';
+$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.categoryAxisRenderer.js';
+$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.pointLabels.js';
+$GLOBALS['js_include'][] = 'jqplot/plugins/jqplot.pieRenderer.js';
+
 /* < IE 9 doesn't support canvas natively */
 if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
     $GLOBALS['js_include'][] = 'canvg/flashcanvas.js';
 }
-$GLOBALS['js_include'][] = 'canvg/canvg.js';
+//$GLOBALS['js_include'][] = 'canvg/canvg.js';
 
 /**
  * Runs common work
@@ -144,8 +150,7 @@ url_query = '<?php echo $url_query;?>';
     </div>
     <p style="clear:both;">&nbsp;</p>
     <div id="resizer" style="width:600px; height:400px;">
-        <div id="inner-resizer">
-            <div id="querychart" style="display:none;">
+        <div id="querychart">
 <?php
 $sanitized_data = array();
 foreach ($data as $data_row_number => $data_row) {
@@ -158,7 +163,6 @@ foreach ($data as $data_row_number => $data_row) {
 echo json_encode($sanitized_data); 
 unset($sanitized_data);
 ?>
-            </div>
         </div>
     </div>
 </fieldset>
