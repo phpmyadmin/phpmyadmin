@@ -114,9 +114,9 @@ $(function() {
             var yaxis_title = $(this).children('option:selected').text();            
         } else {
             $('span.span_pie').hide();
-            if (currentSettings.chart.type == 'pie') {
+            if (nonJqplotSettings.chart.type == 'pie') {
                 $('input#radio_line').prop('checked', true);
-                currentSettings.chart.type = 'line';
+                nonJqplotSettings.chart.type = 'line';
             }
             var yaxis_title = y_values_text;        
         }
