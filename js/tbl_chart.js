@@ -225,6 +225,15 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
             }
         };
     }
+
+    if (passedNonJqplotSettings.chart.type == 'spline') {
+        settings.seriesDefaults = {
+            rendererOptions: {
+                smooth: true 
+            }
+        };
+    }
+
     if (passedNonJqplotSettings.chart.type == 'pie') {
         settings.seriesDefaults = {
             renderer: $.jqplot.PieRenderer,
