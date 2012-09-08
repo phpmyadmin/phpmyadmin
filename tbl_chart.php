@@ -15,14 +15,18 @@ $response = PMA_Response::getInstance();
 $header   = $response->getHeader();
 $scripts  = $header->getScripts();
 $scripts->addFile('tbl_chart.js');
-$scripts->addFile('highcharts/highcharts.js');
-/* Files required for chart exporting */
-$scripts->addFile('highcharts/exporting.js');
+$scripts->addFile('jqplot/jquery.jqplot.js');
+$scripts->addFile('jquery/jquery-ui-1.8.16.custom.js');
+$scripts->addFile('jqplot/plugins/jqplot.barRenderer.js');
+$scripts->addFile('jqplot/plugins/jqplot.canvasAxisLabelRenderer.js');
+$scripts->addFile('jqplot/plugins/jqplot.canvasTextRenderer.js');
+$scripts->addFile('jqplot/plugins/jqplot.categoryAxisRenderer.js');
+$scripts->addFile('jqplot/plugins/jqplot.pointLabels.js');
+$scripts->addFile('jqplot/plugins/jqplot.pieRenderer.js');
 /* < IE 9 doesn't support canvas natively */
 if (PMA_USR_BROWSER_AGENT == 'IE' && PMA_USR_BROWSER_VER < 9) {
     $scripts->addFile('canvg/flashcanvas.js');
 }
-$scripts->addFile('canvg/canvg.js');
 
 /**
  * Runs common work
@@ -146,8 +150,19 @@ url_query = '<?php echo $url_query;?>';
     </div>
     <p style="clear:both;">&nbsp;</p>
     <div id="resizer" style="width:600px; height:400px;">
-        <div id="inner-resizer">
-            <div id="querychart" style="display:none;"></div>
+        <div id="querychart">
+<?php
+$sanitized_data = array();
+foreach ($data as $data_row_number => $data_row) {
+    $tmp_row = array();
+    foreach ($data_row as $data_column => $data_value) {
+        $tmp_row[htmlspecialchars($data_column)] = htmlspecialchars($data_value);
+    }
+    $sanitized_data[] = $tmp_row;
+} 
+echo json_encode($sanitized_data); 
+unset($sanitized_data);
+?>
         </div>
     </div>
 </fieldset>
