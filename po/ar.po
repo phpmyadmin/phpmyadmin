@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-06 11:49+0200\n"
-"PO-Revision-Date: 2012-09-07 17:30+0200\n"
+"PO-Revision-Date: 2012-09-08 20:40+0200\n"
 "Last-Translator: مترجم حرّ <metehyi@gmail.com>\n"
 "Language-Team: Arabic <http://l10n.cihar.com/projects/phpmyadmin/master/ar/>\n"
 "Language: ar\n"
@@ -617,7 +617,7 @@ msgid ""
 msgstr ""
 
 #: import.php:95
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to "
 #| "%sdocumentation%s for ways to workaround this limit."
@@ -625,8 +625,8 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"يبدو أنك تحاول رفع ملف كبير الحجم , فضلاً راجع المستند %sdocumentation%s لحل "
-"المشكلة."
+"من المحتمل أنك قد حاولت رفع ملف كبير الحجم. الرجاء مراجعة %sdocumentation%s "
+"لإيجاد حلّ بديل لتغيير هذا الحد."
 
 #: import.php:234 import.php:499
 msgid "Showing bookmark"
@@ -1326,7 +1326,7 @@ msgstr "استيراد"
 
 #: js/messages.php:213
 msgid "Import monitor configuration"
-msgstr ""
+msgstr "تشكيل مراقب الواردات"
 
 #: js/messages.php:214
 msgid "Please select the file you want to import"
@@ -1566,7 +1566,7 @@ msgstr "لإستعمال المقربة، إختر جزء من رسم البيا
 
 #: js/messages.php:306
 msgid "Click reset zoom button to come back to original state."
-msgstr ""
+msgstr "أنقر زر الإسعادة للمقربة للرجوع إلى الحالة الأصلية."
 
 #: js/messages.php:308
 msgid "Click a data point to view and possibly edit the data row."
@@ -2477,7 +2477,7 @@ msgstr "عدد الصفوف"
 
 #: libraries/DisplayResults.class.php:924
 msgid "Mode"
-msgstr ""
+msgstr "النمط"
 
 #: libraries/DisplayResults.class.php:926
 msgid "horizontal"
@@ -2553,7 +2553,7 @@ msgstr "أظهر المحتويات الثنائية"
 
 #: libraries/DisplayResults.class.php:1626
 msgid "Show BLOB contents"
-msgstr ""
+msgstr "عرض المحتويات BLOB"
 
 #: libraries/DisplayResults.class.php:1631
 #: libraries/config/messages.inc.php:61
