@@ -148,6 +148,9 @@ $(function() {
     }
 
     drawChart();
+    $('div#querychart').height($('div#resizer').height() * 0.96);
+    $('div#querychart').width($('div#resizer').width() * 0.96);
+    currentChart.replot( {resetAxes: true})
     $('#querychart').show();
 });
 
@@ -210,8 +213,6 @@ function PMA_queryChart(data, passedSettings, passedNonJqplotSettings)
             break;
 
         case 'pie':
-            // only available for a specific column
-            // todo: warn the user about this
             if (chart_series.length == 1) {
                 series[0] = new Array();
                 $.each(data,function(key,value) {
