@@ -150,8 +150,7 @@ url_query = '<?php echo $url_query;?>';
     </div>
     <p style="clear:both;">&nbsp;</p>
     <div id="resizer" style="width:600px; height:400px;">
-        <div id="inner-resizer">
-            <div id="querychart">
+        <div id="querychart">
 <?php
 $sanitized_data = array();
 foreach ($data as $data_row_number => $data_row) {
@@ -164,7 +163,6 @@ foreach ($data as $data_row_number => $data_row) {
 echo json_encode($sanitized_data); 
 unset($sanitized_data);
 ?>
-            </div>
         </div>
     </div>
 </fieldset>

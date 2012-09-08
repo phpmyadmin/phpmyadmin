@@ -12,27 +12,23 @@ $(document).ready(function() {
     chart_xaxis_idx = $('select[name="chartXAxis"]').attr('value');
 
     // from jQuery UI
-    $('#resizer').resizable({
+    $('div#resizer').resizable({
         minHeight:240,
-        minWidth:300,
-        // On resize, set the chart size to that of the
-        // resizer minus padding. If your chart has a lot of data or other
-        // content, the redrawing might be slow. In that case, we recommend
-        // that you use the 'stop' event instead of 'resize'.
-        resize: function() {
-            //currentChart.setSize(
-            //    this.offsetWidth - 20,
-            //    this.offsetHeight - 20,
-            //    false
-            //);
-        }
+        minWidth:300
+    });
+
+    $('div#resizer').bind('resizestop', function(event,ui) {
+        // make room so that the handle will still appear
+        $('div#querychart').height($('div#resizer').height() * 0.96);
+        $('div#querychart').width($('div#resizer').width() * 0.96);
+        currentChart.replot( {resetAxes: true})
     });
 
     var nonJqplotSettings = {
         chart: {
             type: 'line',
-            width: $('#resizer').width() - 20,
-            height: $('#resizer').height() - 20
+            width: $('div#resizer').width() - 20,
+            height: $('div#resizer').height() - 20
         }
     }
 
@@ -118,8 +114,8 @@ $(document).ready(function() {
     });
 
     function drawChart() {
-        nonJqplotSettings.chart.width = $('#resizer').width() - 20;
-        nonJqplotSettings.chart.height = $('#resizer').height() - 20;
+        nonJqplotSettings.chart.width = $('div#resizer').width() - 20;
+        nonJqplotSettings.chart.height = $('div#resizer').height() - 20;
 
         // todo: a better way using .replot() ?
         if (currentChart != null) {
