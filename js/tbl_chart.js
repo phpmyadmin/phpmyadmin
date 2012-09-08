@@ -103,7 +103,7 @@ $(function() {
         chart_xaxis_idx = $(this).val();
         var xaxis_title = $(this).children('option:selected').text();
         $('input[name="xaxis_label"]').val(xaxis_title);
-        currentSettings.xAxis.title.text = xaxis_title;
+        currentSettings.axes.xaxis.label = xaxis_title;
         drawChart();
     });
     $('select[name="chartSeries"]').change(function() {
@@ -121,7 +121,7 @@ $(function() {
             var yaxis_title = y_values_text;        
         }
         $('input[name="yaxis_label"]').val(yaxis_title);
-        currentSettings.yAxis.title.text = yaxis_title;
+        currentSettings.axes.yaxis.label = yaxis_title;
 
         drawChart();
     });
