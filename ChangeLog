@@ -21,6 +21,7 @@ phpMyAdmin - ChangeLog
 - bug #3559955 [edit] current_date from function drop down fails on update
 - bug #3562472 add support for Solaris and FreeBSD system load and memory display in server status
 - bug #3553068 [import] Table import from XML file fails
+- replace Highcharts with jqplot for Display chart 
 
 3.5.2.2 (2012-08-12)
 - [security] Fixed XSS vulnerabilities, see PMASA-2012-4
