@@ -151,16 +151,6 @@ $(function() {
     $('#querychart').show();
 });
 
-function in_array(element, array)
-{
-    for (var i = 0, l = array.length; i < l; i++) {
-        if (array[i] == element) {
-            return true;
-        }
-    }
-    return false;
-}
-
 function isColumnNumeric(columnName)
 {
     var first = true; 
