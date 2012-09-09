@@ -789,7 +789,7 @@ class PMA_Table
                 "sql",
                 'libraries/plugins/export/',
                 array(
-                    'export_type' => $export_type,
+                    'export_type' => 'table',
                     'single_table' => isset($single_table)
                 )
             );
