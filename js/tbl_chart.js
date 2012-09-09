@@ -47,7 +47,7 @@ $(function() {
             yaxis: {
                 label: $('input[name="yaxis_label"]').val(),
                 labelRenderer: $.jqplot.CanvasAxisLabelRenderer
-            },
+            }
         },
         title: {
             text: $('input[name="chartTitle"]').attr('value')
