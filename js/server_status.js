@@ -392,7 +392,7 @@ $(function() {
                 yaxis: {
                     autoscale:true,
                     label: PMA_messages['strTotalCount'],
-                    labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+                    labelRenderer: $.jqplot.CanvasAxisLabelRenderer
                 }
             },
             seriesDefaults: {
@@ -404,7 +404,7 @@ $(function() {
                 show: true,
                 location: 's',     // compass direction, nw, n, ne, e, se, s, sw, w.
                 xoffset: 12,        // pixel offset of the legend box from the x (or x2) axis.
-                yoffset: 12,        // pixel offset of the legend box from the y (or y2) axis.
+                yoffset: 12        // pixel offset of the legend box from the y (or y2) axis.
             }
         };
 
