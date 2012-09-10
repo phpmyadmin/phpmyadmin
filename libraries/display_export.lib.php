@@ -1,6 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
+ * Displays export tab.
  *
  * @package PhpMyAdmin
  */
@@ -19,16 +20,16 @@ if (isset($_REQUEST['single_table'])) {
 require_once './libraries/file_listing.php';
 require_once './libraries/plugin_interface.lib.php';
 
+/**
+ * Outputs appropriate checked statement for checkbox.
+ *
+ * @param string $str option name
+ *
+ * @return void
+ */
 function PMA_exportCheckboxCheck($str)
 {
     if (isset($GLOBALS['cfg']['Export'][$str]) && $GLOBALS['cfg']['Export'][$str]) {
-        echo ' checked="checked"';
-    }
-}
-
-function PMA_exportIsActive($what, $val)
-{
-    if (isset($GLOBALS['cfg']['Export'][$what]) &&  $GLOBALS['cfg']['Export'][$what] == $val) {
         echo ' checked="checked"';
     }
 }
@@ -50,11 +51,9 @@ if (empty($export_list)) {
     )->display();
     exit;
 }
-?>
 
-<form method="post" action="export.php" name="dump">
+echo '<form method="post" action="export.php" name="dump">';
 
-<?php
 if ($export_type == 'server') {
     echo PMA_generate_common_hidden_inputs('', '', 1);
 } elseif ($export_type == 'database') {
@@ -63,12 +62,14 @@ if ($export_type == 'server') {
     echo PMA_generate_common_hidden_inputs($db, $table, 1);
 }
 
-// just to keep this value for possible next display of this form after saving on server
+// just to keep this value for possible next display of this form after saving
+// on server
 if (isset($single_table)) {
     echo '<input type="hidden" name="single_table" value="TRUE" />' . "\n";
 }
 
-echo '<input type="hidden" name="export_type" value="' . $export_type . '" />' . "\n";
+echo '<input type="hidden" name="export_type" value="' . $export_type . '" />';
+echo "\n";
 
 // If the export method was not set, the default is quick
 if (isset($_GET['export_method'])) {
@@ -77,134 +78,151 @@ if (isset($_GET['export_method'])) {
     $cfg['Export']['method'] = 'quick';
 }
 // The export method (quick, custom or custom-no-form)
-echo '<input type="hidden" name="export_method" value="' . htmlspecialchars($cfg['Export']['method']) . '" />';
+echo '<input type="hidden" name="export_method" value="'
+    . htmlspecialchars($cfg['Export']['method']) . '" />';
 
 
 if (isset($_GET['sql_query'])) {
-    echo '<input type="hidden" name="sql_query" value="' . htmlspecialchars($_GET['sql_query']) . '" />' . "\n";
+    echo '<input type="hidden" name="sql_query" value="'
+        . htmlspecialchars($_GET['sql_query']) . '" />' . "\n";
 } elseif (! empty($sql_query)) {
-    echo '<input type="hidden" name="sql_query" value="' . htmlspecialchars($sql_query) . '" />' . "\n";
+    echo '<input type="hidden" name="sql_query" value="'
+        . htmlspecialchars($sql_query) . '" />' . "\n";
 }
-?>
 
-<div class="exportoptions" id="header">
-    <h2>
-        <?php echo $common_functions->getImage('b_export.png', __('Export')); ?>
-        <?php
-        if ($export_type == 'server') {
-            echo __('Exporting databases from the current server');
-        } elseif ($export_type == 'database') {
-            printf(__('Exporting tables from "%s" database'), htmlspecialchars($db));
-        } else {
-            printf(__('Exporting rows from "%s" table'), htmlspecialchars($table));
-        }?>
-    </h2>
-</div>
+echo '<div class="exportoptions" id="header">';
+echo '<h2>';
+echo $common_functions->getImage('b_export.png', __('Export'));
+if ($export_type == 'server') {
+    echo __('Exporting databases from the current server');
+} elseif ($export_type == 'database') {
+    printf(__('Exporting tables from "%s" database'), htmlspecialchars($db));
+} else {
+    printf(__('Exporting rows from "%s" table'), htmlspecialchars($table));
+}
+echo '</h2>';
+echo '</div>';
 
-<div class="exportoptions" id="quick_or_custom">
-    <h3><?php echo __('Export Method:'); ?></h3>
-    <ul>
-        <li>
-            <?php echo '<input type="radio" name="quick_or_custom" value="quick" id="radio_quick_export"';
-            if (isset($_GET['quick_or_custom'])) {
-                $export_method = $_GET['quick_or_custom'];
-                if ($export_method == 'custom' || $export_method == 'custom_no_form') {
-                    echo ' />';
-                } else {
-                    echo ' checked="checked" />';
-                }
-            } elseif ($cfg['Export']['method'] == 'custom' || $cfg['Export']['method'] == 'custom-no-form') {
-                echo ' />';
-            } else {
-                echo ' checked="checked" />';
-            }
-            echo '<label for ="radio_quick_export">' . __('Quick - display only the minimal options') . '</label>'; ?>
-        </li>
-        <li>
-            <?php echo '<input type="radio" name="quick_or_custom" value="custom" id="radio_custom_export"';
-            if (isset($_GET['quick_or_custom'])) {
-                $export_method = $_GET['quick_or_custom'];
-                if ($export_method == 'custom' || $export_method == 'custom_no_form') {
-                    echo ' checked="checked" />';
-                } else {
-                    echo ' />';
-                }
-            } elseif ($cfg['Export']['method'] == 'custom' || $cfg['Export']['method'] == 'custom-no-form') {
-                echo ' checked="checked" />';
-            } else {
-                echo ' />';
-            }
-            echo '<label for="radio_custom_export">' . __('Custom - display all possible options') . '</label>';?>
-        </li>
-    </ul>
-</div>
+if (isset($_GET['quick_or_custom'])) {
+    $export_method = $_GET['quick_or_custom'];
+} else {
+    $export_method = $cfg['Export']['method'];
+}
 
-<div class="exportoptions" id="databases_and_tables">
-    <?php
-        if ($export_type == 'server') {
-            echo '<h3>' . __('Database(s):') . '</h3>';
-        } else if ($export_type == 'database') {
-            echo '<h3>' . __('Table(s):') . '</h3>';
-        }
-        if (! empty($multi_values)) {
-            echo $multi_values;
-        }
-    ?>
-</div>
+echo '<div class="exportoptions" id="quick_or_custom">';
+echo '<h3>' . __('Export Method:') . '</h3>';
+echo '<ul>';
+echo '<li>';
+echo '<input type="radio" name="quick_or_custom" value="quick" id="radio_quick_export"';
+if ($export_method == 'quick' || $export_method == 'quick_no_form') {
+    echo ' checked="checked"';
+}
+echo ' />';
+echo '<label for ="radio_quick_export">';
+echo __('Quick - display only the minimal options');
+echo '</label>';
+echo '</li>';
 
-<?php if (strlen($table) && ! isset($num_tables) && ! PMA_Table::isMerge($db, $table)) { ?>
-    <div class="exportoptions" id="rows">
-        <h3><?php echo __('Rows:'); ?></h3>
-        <ul>
-            <li>
-                <?php if (isset($_GET['allrows']) && $_GET['allrows'] == 1) {
-                        echo '<input type="radio" name="allrows" value="0" id="radio_allrows_0" />';
-                    } else {
-                        echo '<input type="radio" name="allrows" value="0" id="radio_allrows_0" checked="checked" />';
-                    }
-                    echo '<label for ="radio_allrows_0">' . __('Dump some row(s)') . '</label>'; ?>
-                <ul>
-                    <li><label for="limit_to"><?php echo __('Number of rows:') . '</label> <input type="text" id="limit_to" name="limit_to" size="5" value="'
-                . ((isset($_GET['limit_to'])) ? htmlspecialchars($_GET['limit_to']) : ((isset($unlim_num_rows) ? $unlim_num_rows : PMA_Table::countRecords($db, $table))))
-                . '" onfocus="this.select()" />' ?></li>
-                    <li><label for="limit_from"><?php echo __('Row to begin at:') . '</label> <input type="text" id="limit_from" name="limit_from" value="'
-                 . ((isset($_GET['limit_from'])) ? htmlspecialchars($_GET['limit_from']) : '0')
-                 . '" size="5" onfocus="this.select()" />'; ?></li>
-                </ul>
-            </li>
-            <li>
-                <?php if (isset($_GET['allrows']) && $_GET['allrows'] == 0) {
-                    echo '<input type="radio" name="allrows" value="1" id="radio_allrows_1" />';
-                } else {
-                    echo '<input type="radio" name="allrows" value="1" id="radio_allrows_1" checked="checked" />';
-                }
-                echo ' <label for="radio_allrows_1">' . __('Dump all rows') . '</label>';?>
-            </li>
-        </ul>
-     </div>
-<?php } ?>
+echo '<li>';
+echo '<input type="radio" name="quick_or_custom" value="custom" id="radio_custom_export"';
+if ($export_method == 'custom' || $export_method == 'custom_no_form') {
+    echo ' checked="checked"';
+}
+echo ' />';
+echo '<label for="radio_custom_export">';
+echo __('Custom - display all possible options');
+echo '</label>';
+echo '</li>';
 
-<?php if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) { ?>
-    <div class="exportoptions" id="output_quick_export">
-        <h3><?php echo __('Output:'); ?></h3>
-        <ul>
-            <li>
-                <input type="checkbox" name="quick_export_onserver" value="saveit"
-                    id="checkbox_quick_dump_onserver"
-                    <?php PMA_exportCheckboxCheck('quick_export_onserver'); ?> />
-                <label for="checkbox_quick_dump_onserver">
-                    <?php echo sprintf(__('Save on server in the directory <b>%s</b>'), htmlspecialchars($common_functions->userDir($cfg['SaveDir']))); ?>
-                </label>
-            </li>
-            <li>
-                <input type="checkbox" name="quick_export_onserverover" value="saveitover"
-                id="checkbox_quick_dump_onserverover"
-                <?php PMA_exportCheckboxCheck('quick_export_onserver_overwrite'); ?> />
-                <label for="checkbox_quick_dump_onserverover"><?php echo __('Overwrite existing file(s)'); ?></label>
-            </li>
-        </ul>
-    </div>
-<?php } ?>
+echo '</ul>';
+echo '</div>';
+
+echo '<div class="exportoptions" id="databases_and_tables">';
+if ($export_type == 'server') {
+    echo '<h3>' . __('Database(s):') . '</h3>';
+} else if ($export_type == 'database') {
+    echo '<h3>' . __('Table(s):') . '</h3>';
+}
+if (! empty($multi_values)) {
+    echo $multi_values;
+}
+echo '</div>';
+
+if (strlen($table) && ! isset($num_tables) && ! PMA_Table::isMerge($db, $table)) {
+    echo '<div class="exportoptions" id="rows">';
+    echo '<h3>' . __('Rows:') . '</h3>';
+    echo '<ul>';
+    echo '<li>';
+    echo '<input type="radio" name="allrows" value="0" id="radio_allrows_0"';
+    if (isset($_GET['allrows']) && $_GET['allrows'] == 0) {
+        echo ' checked="checked"';
+    }
+    echo '/>';
+    echo '<label for ="radio_allrows_0">' . __('Dump some row(s)') . '</label>';
+    echo '<ul>';
+    echo '<li>';
+    echo '<label for="limit_to">' . __('Number of rows:') . '</label>';
+    echo '<input type="text" id="limit_to" name="limit_to" size="5" value="';
+    if (isset($_GET['limit_to'])) {
+        echo htmlspecialchars($_GET['limit_to']);
+    } elseif (isset($unlim_num_rows)) {
+        echo $unlim_num_rows;
+    } else {
+        echo PMA_Table::countRecords($db, $table);
+    }
+    echo '" onfocus="this.select()" />';
+    echo '</li>';
+    echo '<li>';
+    echo '<label for="limit_from">' . __('Row to begin at:') . '</label>';
+    echo '<input type="text" id="limit_from" name="limit_from" value="';
+    if (isset($_GET['limit_from'])) {
+        echo htmlspecialchars($_GET['limit_from']);
+    } else {
+        echo '0';
+    }
+    echo '" size="5" onfocus="this.select()" />';
+    echo '</li>';
+    echo '</ul>';
+    echo '</li>';
+    echo '<li>';
+    echo '<input type="radio" name="allrows" value="1" id="radio_allrows_1"';
+    if (isset($_GET['allrows']) && $_GET['allrows'] == 1) {
+        echo ' checked="checked"';
+    }
+    echo '/>';
+    echo ' <label for="radio_allrows_1">' . __('Dump all rows') . '</label>';
+    echo '</li>';
+    echo '</ul>';
+    echo '</div>';
+}
+
+if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) {
+    echo '<div class="exportoptions" id="output_quick_export">';
+    echo '<h3>' . __('Output:') . '</h3>';
+    echo '<ul>';
+    echo '<li>';
+    echo '<input type="checkbox" name="quick_export_onserver" value="saveit" ';
+    echo 'id="checkbox_quick_dump_onserver" ';
+    PMA_exportCheckboxCheck('quick_export_onserver');
+    echo '/>';
+    echo '<label for="checkbox_quick_dump_onserver">';
+    printf(
+        __('Save on server in the directory <b>%s</b>'),
+        htmlspecialchars($common_functions->userDir($cfg['SaveDir']))
+    );
+    echo '</label>';
+    echo '</li>';
+    echo '<li>';
+    echo '<input type="checkbox" name="quick_export_onserverover" ';
+    echo 'value="saveitover" id="checkbox_quick_dump_onserverover" ';
+    PMA_exportCheckboxCheck('quick_export_onserver_overwrite');
+    echo '<label for="checkbox_quick_dump_onserverover">';
+    echo __('Overwrite existing file(s)');
+    echo '</label>';
+    echo '</li>';
+    echo '</ul>';
+    echo '</div>';
+} ?>
 
 <div class="exportoptions" id="output">
     <h3><?php echo __('Output:'); ?></h3>
