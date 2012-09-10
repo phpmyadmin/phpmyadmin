@@ -222,177 +222,217 @@ if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) {
     echo '</li>';
     echo '</ul>';
     echo '</div>';
-} ?>
+}
 
-<div class="exportoptions" id="output">
-    <h3><?php echo __('Output:'); ?></h3>
-    <ul id="ul_output">
-        <li>
-            <input type="radio" name="output_format" value="sendit" id="radio_dump_asfile" <?php isset($_GET['repopulate']) ? '' : PMA_exportCheckboxCheck('asfile'); ?> />
-            <label for="radio_dump_asfile"><?php echo __('Save output to a file'); ?></label>
-            <ul id="ul_save_asfile">
-                <?php if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) { ?>
-                <li>
-                    <input type="checkbox" name="onserver" value="saveit"
-                        id="checkbox_dump_onserver"
-                        <?php PMA_exportCheckboxCheck('onserver'); ?> />
-                    <label for="checkbox_dump_onserver">
-                        <?php echo sprintf(__('Save on server in the directory <b>%s</b>'), htmlspecialchars($common_functions->userDir($cfg['SaveDir']))); ?>
-                    </label>
-                </li>
-                <li>
-                    <input type="checkbox" name="onserverover" value="saveitover"
-                    id="checkbox_dump_onserverover"
-                    <?php PMA_exportCheckboxCheck('onserver_overwrite'); ?> />
-                    <label for="checkbox_dump_onserverover"><?php echo __('Overwrite existing file(s)'); ?></label>
-                </li>
-                <?php } ?>
-                <li>
-                    <label for="filename_template" class="desc">
-                    <?php
-                    echo __('File name template:');
-                    $trans = new PMA_Message;
-                    $trans->addMessage(__('@SERVER@ will become the server name'));
-                    if ($export_type == 'database' || $export_type == 'table') {
-                        $trans->addMessage(__(', @DATABASE@ will become the database name'));
-                        if ($export_type == 'table') {
-                            $trans->addMessage(__(', @TABLE@ will become the table name'));
-                        }
-                    }
+echo '<div class="exportoptions" id="output">';
+echo '<h3>' . __('Output:') . '</h3>';
+echo '<ul id="ul_output">';
+echo '<li>';
+echo '<input type="radio" name="output_format" value="sendit" ';
+echo 'id="radio_dump_asfile" ';
+if (!isset($_GET['repopulate'])) {
+    PMA_exportCheckboxCheck('asfile');
+}
+echo '/>';
+echo '<label for="radio_dump_asfile">' . __('Save output to a file') . '</label>';
+echo '<ul id="ul_save_asfile">';
+if (isset($cfg['SaveDir']) && !empty($cfg['SaveDir'])) {
+    echo '<li>';
+    echo '<input type="checkbox" name="onserver" value="saveit" ';
+    echo 'id="checkbox_dump_onserver" ';
+    PMA_exportCheckboxCheck('onserver');
+    echo '/>';
+    echo '<label for="checkbox_dump_onserver">';
+    printf(
+        __('Save on server in the directory <b>%s</b>'),
+        htmlspecialchars($common_functions->userDir($cfg['SaveDir']))
+    );
+    echo '</label>';
+    echo '</li>';
+    echo '<li>';
+    echo '<input type="checkbox" name="onserverover" value="saveitover"';
+    echo ' id="checkbox_dump_onserverover" ';
+    PMA_exportCheckboxCheck('onserver_overwrite');
+    echo '/>';
+    echo '<label for="checkbox_dump_onserverover">';
+    echo __('Overwrite existing file(s)');
+    echo '</label>';
+    echo '</li>';
+}
+echo '<li>';
+echo '<label for="filename_template" class="desc">';
+echo __('File name template:');
+$trans = new PMA_Message;
+$trans->addMessage(__('@SERVER@ will become the server name'));
+if ($export_type == 'database' || $export_type == 'table') {
+    $trans->addMessage(__(', @DATABASE@ will become the database name'));
+    if ($export_type == 'table') {
+        $trans->addMessage(__(', @TABLE@ will become the table name'));
+    }
+}
 
-                    $msg = new PMA_Message(__('This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally the following transformations will happen: %3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details.'));
-                    $msg->addParam(
-                        '<a href="' . PMA_linkURL(PMA_getPHPDocLink('function.strftime.php'))
-                        . '" target="documentation" title="' . __('Documentation') . '">',
-                        false
-                    );
-                    $msg->addParam('</a>', false);
-                    $msg->addParam($trans);
-                    $msg->addParam('<a href="Documentation.html#faq6_27" target="documentation">', false);
-                    $msg->addParam('</a>', false);
+$msg = new PMA_Message(
+    __('This value is interpreted using %1$sstrftime%2$s, so you can use time formatting strings. Additionally the following transformations will happen: %3$s. Other text will be kept as is. See the %4$sFAQ%5$s for details.')
+);
+$msg->addParam(
+    '<a href="' . PMA_linkURL(PMA_getPHPDocLink('function.strftime.php'))
+    . '" target="documentation" title="' . __('Documentation') . '">',
+    false
+);
+$msg->addParam('</a>', false);
+$msg->addParam($trans);
+$msg->addParam(
+    '<a href="Documentation.html#faq6_27" target="documentation">',
+    false
+);
+$msg->addParam('</a>', false);
 
-                    echo $common_functions->showHint($msg);
-                    ?>
-                    </label>
-                    <input type="text" name="filename_template" id="filename_template"
-                    <?php
-                        echo ' value="';
-                        if (isset($_GET['filename_template'])) {
-                            echo htmlspecialchars($_GET['filename_template']);
-                        } else {
-                            if ($export_type == 'database') {
-                                echo htmlspecialchars(
-                                    $GLOBALS['PMA_Config']->getUserValue(
-                                        'pma_db_filename_template',
-                                        $GLOBALS['cfg']['Export']['file_template_database']
-                                    )
-                                );
-                            } elseif ($export_type == 'table') {
-                                echo htmlspecialchars(
-                                    $GLOBALS['PMA_Config']->getUserValue(
-                                        'pma_table_filename_template',
-                                        $GLOBALS['cfg']['Export']['file_template_table']
-                                    )
-                                );
-                            } else {
-                                echo htmlspecialchars(
-                                    $GLOBALS['PMA_Config']->getUserValue(
-                                        'pma_server_filename_template',
-                                        $GLOBALS['cfg']['Export']['file_template_server']
-                                    )
-                                );
-                            }
-                    }
-                        echo '"';
-                    ?>
-                    />
-                    <input type="checkbox" name="remember_template"
-                        id="checkbox_remember_template"
-                        <?php PMA_exportCheckboxCheck('remember_file_template'); ?> />
-                    <label for="checkbox_remember_template">
-                        <?php echo __('use this for future exports'); ?></label>
-                </li>
-                <?php
-                // charset of file
-                if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE) {
-                    echo '        <li><label for="select_charset_of_file" class="desc">'
-                        . __('Character set of the file:') . '</label>' . "\n";
-                    reset($cfg['AvailableCharsets']);
-                    echo '<select id="select_charset_of_file" name="charset_of_file" size="1">';
-                    foreach ($cfg['AvailableCharsets'] as $temp_charset) {
-                        echo '<option value="' . $temp_charset . '"';
-                        if (isset($_GET['charset_of_file']) && ($_GET['charset_of_file'] != $temp_charset)) {
-                            echo '';
-                        } elseif ((empty($cfg['Export']['charset']) && $temp_charset == 'utf-8')
-                          || $temp_charset == $cfg['Export']['charset']) {
-                            echo ' selected="selected"';
-                        }
-                        echo '>' . $temp_charset . '</option>';
-                    } // end foreach
-                    echo '</select></li>';
-                } // end if
-                ?>
-                 <?php
-                if (isset($_GET['compression'])) {
-                    $selected_compression = $_GET['compression'];
-                } elseif (isset($cfg['Export']['compression'])) {
-                    $selected_compression = $cfg['Export']['compression'];
-                } else {
-                    $selected_compression = "none";
-                }
-                // zip, gzip and bzip2 encode features
-                $is_zip  = ($cfg['ZipDump']  && @function_exists('gzcompress'));
-                $is_gzip = ($cfg['GZipDump'] && @function_exists('gzencode'));
-                $is_bzip2 = ($cfg['BZipDump'] && @function_exists('bzcompress'));
-                if ($is_zip || $is_gzip || $is_bzip2) { ?>
-                    <li>
-                    <label for="compression" class="desc"><?php echo __('Compression:'); ?></label>
-                    <select id="compression" name="compression">
-                        <option value="none"><?php echo __('None'); ?></option>
-                        <?php if ($is_zip) { ?>
-                            <option value="zip" <?php echo ($selected_compression == "zip") ? 'selected="selected"' : ''; ?>><?php echo __('zipped'); ?></option>
-                        <?php } if ($is_gzip) { ?>
-                            <option value="gzip" <?php echo ($selected_compression == "gzip") ? 'selected="selected"' : ''; ?>><?php echo __('gzipped'); ?></option>
-                        <?php } if ($is_bzip2) { ?>
-                            <option value="bzip2" <?php echo ($selected_compression == "bzip2") ? 'selected="selected"' : ''; ?>><?php echo __('bzipped'); ?></option>
-                        <?php } ?>
-                    </select>
-                    </li>
-                <?php } else { ?>
-                    <input type="hidden" name="compression" value="<?php echo $selected_compression; ?>" />
-                <?php } ?>
-             </ul>
-        </li>
-        <li><input type="radio" id="radio_view_as_text" name="output_format" value="astext" <?php echo (isset($_GET['repopulate']) || $GLOBALS['cfg']['Export']['asfile'] == false) ? 'checked="checked"' : '' ?>/><label for="radio_view_as_text"><?php echo __('View output as text'); ?></label></li>
-    </ul>
- </div>
+echo $common_functions->showHint($msg);
+echo '</label>';
+echo '<input type="text" name="filename_template" id="filename_template" ';
+echo ' value="';
+if (isset($_GET['filename_template'])) {
+    echo htmlspecialchars($_GET['filename_template']);
+} else {
+    if ($export_type == 'database') {
+        echo htmlspecialchars(
+            $GLOBALS['PMA_Config']->getUserValue(
+                'pma_db_filename_template',
+                $GLOBALS['cfg']['Export']['file_template_database']
+            )
+        );
+    } elseif ($export_type == 'table') {
+        echo htmlspecialchars(
+            $GLOBALS['PMA_Config']->getUserValue(
+                'pma_table_filename_template',
+                $GLOBALS['cfg']['Export']['file_template_table']
+            )
+        );
+    } else {
+        echo htmlspecialchars(
+            $GLOBALS['PMA_Config']->getUserValue(
+                'pma_server_filename_template',
+                $GLOBALS['cfg']['Export']['file_template_server']
+            )
+        );
+    }
+}
+echo '"';
+echo '/>';
+echo '<input type="checkbox" name="remember_template" ';
+echo 'id="checkbox_remember_template" ';
+PMA_exportCheckboxCheck('remember_file_template');
+echo '/>';
+echo '<label for="checkbox_remember_template">';
+echo __('use this for future exports');
+echo '</label>';
+echo '</li>';
+// charset of file
+if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE) {
+    echo '        <li><label for="select_charset_of_file" class="desc">'
+        . __('Character set of the file:') . '</label>' . "\n";
+    reset($cfg['AvailableCharsets']);
+    echo '<select id="select_charset_of_file" name="charset_of_file" size="1">';
+    foreach ($cfg['AvailableCharsets'] as $temp_charset) {
+        echo '<option value="' . $temp_charset . '"';
+        if (isset($_GET['charset_of_file']) && ($_GET['charset_of_file'] != $temp_charset)) {
+            echo '';
+        } elseif ((empty($cfg['Export']['charset']) && $temp_charset == 'utf-8')
+            || $temp_charset == $cfg['Export']['charset']
+        ) {
+            echo ' selected="selected"';
+        }
+        echo '>' . $temp_charset . '</option>';
+    } // end foreach
+    echo '</select></li>';
+} // end if
 
-<div class="exportoptions" id="format">
-    <h3><?php echo __('Format:'); ?></h3>
-    <?php echo PMA_pluginGetChoice('Export', 'what', $export_list, 'format'); ?>
-</div>
+if (isset($_GET['compression'])) {
+    $selected_compression = $_GET['compression'];
+} elseif (isset($cfg['Export']['compression'])) {
+    $selected_compression = $cfg['Export']['compression'];
+} else {
+    $selected_compression = "none";
+}
 
-<div class="exportoptions" id="format_specific_opts">
-    <h3><?php echo __('Format-specific options:'); ?></h3>
-    <p class="no_js_msg" id="scroll_to_options_msg"><?php echo __('Scroll down to fill in the options for the selected format and ignore the options for other formats.'); ?></p>
-    <?php echo PMA_pluginGetOptions('Export', $export_list); ?>
-</div>
+// zip, gzip and bzip2 encode features
+$is_zip  = ($cfg['ZipDump']  && @function_exists('gzcompress'));
+$is_gzip = ($cfg['GZipDump'] && @function_exists('gzencode'));
+$is_bzip2 = ($cfg['BZipDump'] && @function_exists('bzcompress'));
+if ($is_zip || $is_gzip || $is_bzip2) {
+    echo '<li>';
+    echo '<label for="compression" class="desc">' . __('Compression:') . '</label>';
+    echo '<select id="compression" name="compression">';
+    echo '<option value="none">' . __('None') . '</option>';
+    if ($is_zip) {
+        echo '<option value="zip" ';
+        if ($selected_compression == "zip") {
+            echo 'selected="selected"';
+        }
+        echo '>' . __('zipped') . '</option>';
+    }
+    if ($is_gzip) {
+        echo '<option value="gzip" ';
+        if ($selected_compression == "gzip") {
+            echo 'selected="selected"';
+        }
+        echo '>' . __('gzipped') . '</option>';
+    }
+    if ($is_bzip2) {
+        echo '<option value="bzip2" ';
+        if ($selected_compression == "bzip2") {
+            echo 'selected="selected"';
+        }
+        echo '>' . __('bzipped') . '</option>';
+    }
+    echo '</select>';
+    echo '</li>';
+} else {
+    echo '<input type="hidden" name="compression" value="'
+        . htmlspecialchars($selected_compression) . '" />';
+}
+echo '</ul>';
+echo '</li>';
+echo '<li>';
+echo '<input type="radio" id="radio_view_as_text" name="output_format" '
+    . 'value="astext" ';
+if (isset($_GET['repopulate']) || $GLOBALS['cfg']['Export']['asfile'] == false) {
+    echo 'checked="checked"';
+}
+echo '/>';
+echo '<label for="radio_view_as_text">'
+    . __('View output as text') . '</label></li>';
+echo '</ul>';
+echo '</div>';
 
-<?php if (function_exists('PMA_set_enc_form')) { ?>
-<!-- Encoding setting form appended by Y.Kawada -->
-<!-- Japanese encoding setting -->
-    <div class="exportoptions" id="kanji_encoding">
-        <h3><?php echo __('Encoding Conversion:'); ?></h3>
-        <?php echo PMA_set_enc_form('            '); ?>
-    </div>
-<?php } ?>
+echo '<div class="exportoptions" id="format">';
+echo '<h3>' . __('Format:') . '</h3>';
+echo PMA_pluginGetChoice('Export', 'what', $export_list, 'format');
+echo '</div>';
 
-<div class="exportoptions" id="submit">
-<?php
+echo '<div class="exportoptions" id="format_specific_opts">';
+echo '<h3>' . __('Format-specific options:') . '</h3>';
+echo '<p class="no_js_msg" id="scroll_to_options_msg">';
+echo __('Scroll down to fill in the options for the selected format and ignore the options for other formats.');
+echo '</p>';
+echo PMA_pluginGetOptions('Export', $export_list);
+echo '</div>';
+
+if (function_exists('PMA_set_enc_form')) {
+    // Encoding setting form appended by Y.Kawada
+    // Japanese encoding setting
+    echo '<div class="exportoptions" id="kanji_encoding">';
+    echo '<h3>' . __('Encoding Conversion:') . '</h3>';
+    echo PMA_set_enc_form('            ');
+    echo '</div>';
+}
+
+echo '<div class="exportoptions" id="submit">';
+
 echo $common_functions->getExternalBug(
     __('SQL compatibility mode'), 'mysql', '50027', '14515'
 );
-?>
-    <input type="submit" value="<?php echo __('Go'); ?>" id="buttonGo" />
-</div>
-</form>
+
+echo '<input type="submit" value="' . __('Go') . '" id="buttonGo" />';
+echo '</div>';
+echo '</form>';
