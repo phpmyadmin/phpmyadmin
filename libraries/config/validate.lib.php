@@ -67,7 +67,7 @@ function PMA_config_get_validators()
  * o false - when no validators match name(s) given by $validator_id
  *
  * @param string|array $validator_id ID of validator(s) to run
- * @param array        $values       Values to validate
+ * @param array        &$values      Values to validate
  * @param bool         $isPostSource tells whether $values are directly from
  *                                   POST request
  *
@@ -152,6 +152,8 @@ function PMA_null_error_handler()
  * html_errors and track_errors.
  *
  * @param boolean $start Whether to start buffering
+ *
+ * @return void
  */
 function test_php_errormsg($start = true)
 {
@@ -182,12 +184,12 @@ function test_php_errormsg($start = true)
  *
  * @param string $extension    'drizzle', 'mysql' or 'mysqli'
  * @param string $connect_type 'tcp' or 'socket'
- * @param string $host
- * @param string $port
- * @param string $socket
- * @param string $user
- * @param string $pass
- * @param string $error_key
+ * @param string $host         host name
+ * @param string $port         tcp port to use
+ * @param string $socket       socket to use
+ * @param string $user         username to use
+ * @param string $pass         password to use
+ * @param string $error_key    key to use in return array
  *
  * @return bool|array
  */
@@ -259,8 +261,8 @@ function test_db_connection(
 /**
  * Validate server config
  *
- * @param string $path
- * @param array  $values
+ * @param string $path   path to config, not used
+ * @param array  $values config values
  *
  * @return array
  */
@@ -320,8 +322,8 @@ function validate_server($path, $values)
 /**
  * Validate pmadb config
  *
- * @param string $path
- * @param array  $values
+ * @param string $path   path to config, not used
+ * @param array  $values config values
  *
  * @return array
  */
@@ -367,8 +369,8 @@ function validate_pmadb($path, $values)
 /**
  * Validates regular expression
  *
- * @param string $path
- * @param array  $values
+ * @param string $path   path to config
+ * @param array  $values config values
  *
  * @return array
  */
@@ -400,8 +402,8 @@ function validate_regex($path, $values)
 /**
  * Validates TrustedProxies field
  *
- * @param string $path
- * @param array  $values
+ * @param string $path   path to config
+ * @param array  $values config values
  *
  * @return array
  */
@@ -449,12 +451,13 @@ function validate_trusted_proxies($path, $values)
 /**
  * Tests integer value
  *
- * @param string $path
- * @param array  $values
- * @param bool   $allow_neg       allow negative values
- * @param bool   $allow_zero      allow zero
- * @param int    $max_value       max allowed value
- * @param string $error_string    error message key: $GLOBALS["strConfig$error_lang_key"]
+ * @param string $path         path to config
+ * @param array  $values       config values
+ * @param bool   $allow_neg    allow negative values
+ * @param bool   $allow_zero   allow zero
+ * @param int    $max_value    max allowed value
+ * @param string $error_string error message key:
+ *                             $GLOBALS["strConfig$error_lang_key"]
  *
  * @return string  empty string if test is successful
  */
@@ -484,8 +487,8 @@ function test_number(
 /**
  * Validates port number
  *
- * @param string $path
- * @param array  $values
+ * @param string $path   path to config
+ * @param array  $values config values
  *
  * @return array
  */
@@ -506,8 +509,8 @@ function validate_port_number($path, $values)
 /**
  * Validates positive number
  *
- * @param string $path
- * @param array  $values
+ * @param string $path   path to config
+ * @param array  $values config values
  *
  * @return array
  */
@@ -528,8 +531,8 @@ function validate_positive_number($path, $values)
 /**
  * Validates non-negative number
  *
- * @param string $path
- * @param array  $values
+ * @param string $path   path to config
+ * @param array  $values config values
  *
  * @return array
  */
@@ -551,9 +554,9 @@ function validate_non_negative_number($path, $values)
  * Validates value according to given regular expression
  * Pattern and modifiers must be a valid for PCRE <b>and</b> JavaScript RegExp
  *
- * @param string $path
- * @param array  $values
- * @param string $regex
+ * @param string $path   path to config
+ * @param array  $values config values
+ * @param string $regex  regullar expression to match
  *
  * @return void
  */
@@ -566,9 +569,9 @@ function validate_by_regex($path, $values, $regex)
 /**
  * Validates upper bound for numeric inputs
  *
- * @param string $path
- * @param array  $values
- * @param int    $max_value
+ * @param string $path      path to config
+ * @param array  $values    config values
+ * @param int    $max_value maximal allowed value
  *
  * @return array
  */
