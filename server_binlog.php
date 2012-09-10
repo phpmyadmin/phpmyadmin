@@ -152,17 +152,18 @@ if ($pos > 0) {
 }
 if ($dontlimitchars) {
     unset($this_url_params['dontlimitchars']);
-    echo '<a href="server_binlog.php' . PMA_generate_common_url($this_url_params)
-        . '" title="' . __('Truncate Shown Queries') . '">'
-        . '<img src="' . $pmaThemeImage . 's_partialtext.png"'
-        . 'alt="' . __('Truncate Shown Queries') . '" /></a>';
+    $tempTitle = __('Truncate Shown Queries');
+    $tempImgMode = 'partial';
 } else {
     $this_url_params['dontlimitchars'] = 1;
-    echo '<a href="server_binlog.php' . PMA_generate_common_url($this_url_params)
-        . '" title="' . __('Show Full Queries') . '">'
-        . '<img src="' . $pmaThemeImage . 's_fulltext.png"'
-        . 'alt="' .  __('Show Full Queries') . '" /></a>';
+    $tempTitle = __('Show Full Queries');
+    $tempImgMode = 'full';
 }
+echo '<a href="server_binlog.php' . PMA_generate_common_url($this_url_params)
+    . '" title="' . $tempTitle . '">'
+    . '<img src="' .$pmaThemeImage . 's_' . $tmpImgMode . 'text.png"'
+    . 'alt="' . $tempTitle . '" /></a>';
+
 // we do not now how much rows are in the binlog
 // so we can just force 'NEXT' button
 if ($num_rows >= $GLOBALS['cfg']['MaxRows']) {
