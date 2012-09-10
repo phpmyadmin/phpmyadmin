@@ -113,7 +113,8 @@ echo '<div class="exportoptions" id="quick_or_custom">';
 echo '<h3>' . __('Export Method:') . '</h3>';
 echo '<ul>';
 echo '<li>';
-echo '<input type="radio" name="quick_or_custom" value="quick" id="radio_quick_export"';
+echo '<input type="radio" name="quick_or_custom" value="quick" '
+    . ' id="radio_quick_export"';
 if ($export_method == 'quick' || $export_method == 'quick_no_form') {
     echo ' checked="checked"';
 }
@@ -124,7 +125,8 @@ echo '</label>';
 echo '</li>';
 
 echo '<li>';
-echo '<input type="radio" name="quick_or_custom" value="custom" id="radio_custom_export"';
+echo '<input type="radio" name="quick_or_custom" value="custom" '
+    . ' id="radio_custom_export"';
 if ($export_method == 'custom' || $export_method == 'custom_no_form') {
     echo ' checked="checked"';
 }
@@ -335,7 +337,9 @@ if ($GLOBALS['PMA_recoding_engine'] != PMA_CHARSET_NONE) {
     echo '<select id="select_charset_of_file" name="charset_of_file" size="1">';
     foreach ($cfg['AvailableCharsets'] as $temp_charset) {
         echo '<option value="' . $temp_charset . '"';
-        if (isset($_GET['charset_of_file']) && ($_GET['charset_of_file'] != $temp_charset)) {
+        if (isset($_GET['charset_of_file'])
+            && ($_GET['charset_of_file'] != $temp_charset)
+        ) {
             echo '';
         } elseif ((empty($cfg['Export']['charset']) && $temp_charset == 'utf-8')
             || $temp_charset == $cfg['Export']['charset']
