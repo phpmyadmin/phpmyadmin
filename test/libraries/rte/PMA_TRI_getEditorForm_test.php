@@ -146,6 +146,7 @@ class PMA_TRI_getEditorForm_test extends PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider provider_edit
+     * @group medium
      */
     public function testgetEditorForm_edit($data, $matcher)
     {
