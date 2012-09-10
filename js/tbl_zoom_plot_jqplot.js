@@ -363,6 +363,11 @@ $(document).ready(function() {
                 // for a scatter plot
                 { showLine: false }
             ],
+            grid: {
+                drawBorder: false,
+                shadow: false,
+                background: 'rgba(0,0,0,0)'
+            },
             axes: {
                 xaxis: {
                     label: $('#tableid_0').val(),
