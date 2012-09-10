@@ -1291,7 +1291,7 @@ $(function() {
                     return;
                 }
                 // Draw all series
-                for (var j = 0; j < elem.chart.series.length; j++) {
+                for (var j = 0; j < elem.nodes.length; j++) {
                     // Update x-axis
                     if (i == 0 && j == 0) {
                         if (oldChartData == null) {
