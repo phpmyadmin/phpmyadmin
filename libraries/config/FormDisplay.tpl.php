@@ -272,10 +272,14 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
             $selected = is_bool($value)
                 ? (int) $value === $opt_value_key
                 : $opt_value_key === $value;
-            echo '<option value="' . $display_value . '"'
-                . ($selected ? ' selected="selected"' : '')
-                . (isset($values_disabled[$opt_value_key]) ? ' disabled="disabled"' : '')
-                . '>' . $display . '</option>';
+            echo '<option value="' . $display_value . '"';
+            if ($selected) {
+                echo ' selected="selected"';
+            }
+            if (isset($values_disabled[$opt_value_key])) {
+                echo ' disabled="disabled"';
+            }
+            echo '>' . $display . '</option>';
         }
         echo '</select>';
         break;
