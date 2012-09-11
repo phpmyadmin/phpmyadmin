@@ -119,7 +119,7 @@ messages_show_html();
 //
 // Display server list
 //
-display_form_top(
+PMA_displayFormTop(
     'index.php', 'get',
     array(
         'page' => 'servers',
@@ -169,7 +169,7 @@ display_form_top(
 </table>
 </div>
 <?php
-display_form_bottom();
+PMA_displayFormBottom();
 ?>
 </fieldset>
 
@@ -180,7 +180,7 @@ display_form_bottom();
 //
 $form_display = new FormDisplay();
 
-display_form_top('config.php');
+PMA_displayFormTop('config.php');
 ?>
 <table width="100%" cellspacing="0">
 <?php
@@ -195,7 +195,7 @@ foreach ($all_languages as $each_lang_key => $each_lang) {
     $lang_name = PMA_langName($each_lang);
     $opts['values'][$each_lang_key] = $lang_name;
 }
-display_input(
+PMA_displayInput(
     'DefaultLang', __('Default language'), 'select',
     $cf->getValue('DefaultLang'), '', true, $opts
 );
@@ -221,7 +221,7 @@ if ($cf->getServerCount() > 0) {
     $opts['values']['1'] = __('- none -');
     $opts['values_escaped'] = true;
 }
-display_input(
+PMA_displayInput(
     'ServerDefault', __('Default server'), 'select',
     $cf->getValue('ServerDefault'), '', true, $opts
 );
@@ -233,7 +233,7 @@ $opts = array(
         'win' => 'Windows (\r\n)'),
     'values_escaped' => true);
 $eol = PMA_ifSetOr($_SESSION['eol'], (PMA_IS_WINDOWS ? 'win' : 'unix'));
-display_input(
+PMA_displayInput(
     'eol', __('End of line'), 'select',
     $eol, '', true, $opts
 );
@@ -263,7 +263,7 @@ if (!$config_exists || !$config_writable) {
 </tr>
 </table>
 <?php
-display_form_bottom();
+PMA_displayFormBottom();
 ?>
 </fieldset>
 <div id="footer">

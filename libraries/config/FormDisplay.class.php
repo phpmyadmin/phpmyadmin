@@ -199,14 +199,14 @@ class FormDisplay
         $tabbed_form = $tabbed_form && (count($this->_forms) > 1);
         $validators = PMA_config_get_validators();
 
-        display_form_top();
+        PMA_displayFormTop();
 
         if ($tabbed_form) {
             $tabs = array();
             foreach ($this->_forms as $form) {
                 $tabs[$form->name] = PMA_lang("Form_$form->name");
             }
-            display_tabs_top($tabs);
+            PMA_displayTabsTop($tabs);
         }
 
         // valdiate only when we aren't displaying a "new server" form
@@ -233,7 +233,7 @@ class FormDisplay
                 : '';
             $form_errors = isset($this->_errors[$form->name])
                 ? $this->_errors[$form->name] : null;
-            display_fieldset_top(
+            PMA_displayFieldsetTop(
                 PMA_lang("Form_$form->name"),
                 $form_desc,
                 $form_errors,
@@ -261,16 +261,16 @@ class FormDisplay
                 );
                 // register JS validators for this field
                 if (isset($validators[$path])) {
-                    js_validate($translated_path, $validators[$path], $js);
+                    PMA_addJsValidate($translated_path, $validators[$path], $js);
                 }
             }
-            display_fieldset_bottom();
+            PMA_displayFieldsetBottom();
         }
 
         if ($tabbed_form) {
-            display_tabs_bottom();
+            PMA_displayTabsBottom();
         }
-        display_form_bottom();
+        PMA_displayFormBottom();
 
         // if not already done, send strings used for valdiation to JavaScript
         if (!$js_lang_sent) {
@@ -283,7 +283,7 @@ class FormDisplay
         }
 
         $js[] = "$.extend(defaultValues, {\n\t" . implode(",\n\t", $js_default) . '})';
-        display_js($js);
+        PMA_displayJavascript($js);
     }
 
     /**
@@ -360,9 +360,9 @@ class FormDisplay
         case 'group':
             // :group:end is changed to :group:end:{unique id} in Form class
             if (substr($field, 7, 4) != 'end:') {
-                display_group_header(substr($field, 7));
+                PMA_displayGroupHeader(substr($field, 7));
             } else {
-                display_group_footer();
+                PMA_displayGroupFooter();
             }
             return;
         case 'NULL':
@@ -404,7 +404,7 @@ class FormDisplay
         }
         $js_default[] = $js_line;
 
-        display_input(
+        PMA_displayInput(
             $translated_path, $name, $type, $value,
             $description, $value_is_default, $opts
         );
@@ -429,7 +429,7 @@ class FormDisplay
             } else {
                 $name = $GLOBALS["strConfigForm_$system_path"];
             }
-            display_errors($name, $error_list);
+            PMA_displayErrors($name, $error_list);
         }
     }
 

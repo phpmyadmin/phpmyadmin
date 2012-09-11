@@ -15,7 +15,7 @@
  *
  * @return void
  */
-function display_form_top($action = null, $method = 'post', $hidden_fields = null)
+function PMA_displayFormTop($action = null, $method = 'post', $hidden_fields = null)
 {
     static $has_check_page_refresh = false;
 
@@ -42,13 +42,13 @@ function display_form_top($action = null, $method = 'post', $hidden_fields = nul
 
 /**
  * Displays form tabs which are given by an array indexed by fieldset id
- * ({@link display_fieldset_top}), with values being tab titles.
+ * ({@link PMA_displayFieldsetTop}), with values being tab titles.
  *
  * @param array $tabs tab names
  *
  * @return void
  */
-function display_tabs_top($tabs)
+function PMA_displayTabsTop($tabs)
 {
 ?>
 <ul class="tabs">
@@ -70,7 +70,7 @@ function display_tabs_top($tabs)
  * @param array  $errors
  * @param array  $attributes
  */
-function display_fieldset_top($title = '', $description = '', $errors = null,
+function PMA_displayFieldsetTop($title = '', $description = '', $errors = null,
     $attributes = array()
 ) {
     global $_FormDisplayGroup;
@@ -127,7 +127,7 @@ function display_fieldset_top($title = '', $description = '', $errors = null,
  * @param bool   $value_is_default
  * @param array  $opts
  */
-function display_input($path, $name, $type, $value, $description = '',
+function PMA_displayInput($path, $name, $type, $value, $description = '',
     $value_is_default = true, $opts = null
 ) {
     global $_FormDisplayGroup;
@@ -343,7 +343,7 @@ function display_input($path, $name, $type, $value, $description = '',
  *
  * @param string $header_text
  */
-function display_group_header($header_text)
+function PMA_displayGroupHeader($header_text)
 {
     global $_FormDisplayGroup;
 
@@ -367,7 +367,7 @@ function display_group_header($header_text)
  * Display group footer
  *
  */
-function display_group_footer()
+function PMA_displayGroupFooter()
 {
     global $_FormDisplayGroup;
 
@@ -377,7 +377,7 @@ function display_group_footer()
 /**
  * Displays bottom part of a fieldset
  */
-function display_fieldset_bottom()
+function PMA_displayFieldsetBottom()
 {
     $colspan = 2;
     if (defined('PMA_SETUP')) {
@@ -399,7 +399,7 @@ function display_fieldset_bottom()
 /**
  * Displays simple bottom part of a fieldset (without submit buttons)
  */
-function display_fieldset_bottom_simple()
+function PMA_displayFieldsetBottomSimple()
 {
 ?>
 </table>
@@ -411,7 +411,7 @@ function display_fieldset_bottom_simple()
 /**
  * Closes form tabs
  */
-function display_tabs_bottom()
+function PMA_displayTabsBottom()
 {
     echo "</div>\n";
 }
@@ -419,7 +419,7 @@ function display_tabs_bottom()
 /**
  * Displays bottom part of the form
  */
-function display_form_bottom()
+function PMA_displayFormBottom()
 {
     echo "</form>\n";
 }
@@ -431,7 +431,7 @@ function display_form_bottom()
  * @param string|array $validator
  * @param array        $js_array
  */
-function js_validate($field_id, $validators, &$js_array)
+function PMA_addJsValidate($field_id, $validators, &$js_array)
 {
     foreach ((array)$validators as $validator) {
         $validator = (array)$validator;
@@ -450,7 +450,7 @@ function js_validate($field_id, $validators, &$js_array)
  *
  * @param array $js_array
  */
-function display_js($js_array)
+function PMA_displayJavascript($js_array)
 {
     if (empty($js_array)) {
         return;
@@ -468,7 +468,7 @@ function display_js($js_array)
  * @param string $name
  * @param array  $error_list
  */
-function display_errors($name, $error_list)
+function PMA_displayErrors($name, $error_list)
 {
     echo '<dl>';
     echo '<dt>' . htmlspecialchars($name) . '</dt>';
