@@ -25,16 +25,15 @@ function PMA_displayFormTop($action = null, $method = 'post', $hidden_fields = n
     if ($method != 'post') {
         $method = 'get';
     }
-?>
-<form method="<?php echo $method ?>" action="<?php echo htmlspecialchars($action) ?>" class="config-form">
-<input type="hidden" name="tab_hash" value="" />
-<?php
+    echo '<form method="' . $method . '" action="'
+        . htmlspecialchars($action) . '" class="config-form">';
+    echo '<input type="hidden" name="tab_hash" value="" />';
     // we do validation on page refresh when browser remembers field values,
     // add a field with known value which will be used for checks
     if (!$has_check_page_refresh) {
         $has_check_page_refresh = true;
-        echo '<input type="hidden" name="check_page_refresh" id="check_page_refresh"'
-            . ' value="" />' . "\n";
+        echo '<input type="hidden" name="check_page_refresh" '
+            . ' id="check_page_refresh" value="" />' . "\n";
     }
     echo PMA_generate_common_hidden_inputs('', '', 0, 'server') . "\n";
     echo PMA_getHiddenFields((array)$hidden_fields);
@@ -50,15 +49,14 @@ function PMA_displayFormTop($action = null, $method = 'post', $hidden_fields = n
  */
 function PMA_displayTabsTop($tabs)
 {
-?>
-<ul class="tabs">
-<?php foreach ($tabs as $tab_id => $tab_name) { ?>
-    <li><a href="#<?php echo $tab_id ?>"><?php echo htmlspecialchars($tab_name); ?></a></li>
-<?php } ?>
-</ul>
-<br clear="right" />
-<div class="tabs_contents">
-<?php
+    echo '<ul class="tabs">';
+    foreach ($tabs as $tab_id => $tab_name) {
+        echo '<li><a href="#' . $tab_id . '">'
+            . htmlspecialchars($tab_name) . '</a></li>';
+    }
+    echo '</ul>';
+    echo '<br clear="right" />';
+    echo '<div class="tabs_contents">';
 }
 
 
@@ -95,9 +93,7 @@ function PMA_displayFieldsetTop($title = '', $description = '', $errors = null,
         }
         echo '</dl>';
     }
-?>
-<table width="100%" cellspacing="0">
-<?php
+    echo '<table width="100%" cellspacing="0">';
 }
 
 /**
@@ -207,10 +203,12 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
         if (! empty($opts['doc'])) {
             echo '<a href="' . $base_dir . $opts['doc']
                 . '" target="documentation">' . $icons['help'] . '</a>';
+            echo "\n";
         }
         if (! empty($opts['wiki'])) {
             echo '<a href="' . $opts['wiki']
                 . '" target="wiki">' . $icons['info'] . '</a>';
+            echo "\n";
         }
         echo '</span>';
     }
@@ -288,27 +286,27 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
         if (isset($opts['comment_warning']) && $opts['comment_warning']) {
             $class .= ' field-comment-warning';
         }
-        ?>
-        <span class="<?php echo $class ?>" title="<?php echo htmlspecialchars($opts['comment']) ?>">i</span>
-        <?php
+        echo '<span class="' . $class . '" title="'
+            . htmlspecialchars($opts['comment']) . '">i</span>';
     }
     if ($is_setup_script
         && isset($opts['userprefs_comment'])
         && $opts['userprefs_comment']
     ) {
-        ?>
-        <a class="userprefs-comment" title="<?php echo htmlspecialchars($opts['userprefs_comment']) ?>"><?php echo $icons['tblops']; ?></a>
-        <?php
+        echo '<a class="userprefs-comment" title="'
+            . htmlspecialchars($opts['userprefs_comment']) . '">'
+            . $icons['tblops'] . '</a>';
     }
     if (isset($opts['setvalue']) && $opts['setvalue']) {
-        ?>
-        <a class="set-value" href="#<?php echo htmlspecialchars("$path={$opts['setvalue']}") ?>" title="<?php echo sprintf(__('Set value: %s'), htmlspecialchars($opts['setvalue'])) ?>" style="display:none"><?php echo $icons['edit']; ?></a>
-        <?php
+        echo '<a class="set-value" href="#'
+            . htmlspecialchars("$path={$opts['setvalue']}") . '" title="'
+            . sprintf(__('Set value: %s'), htmlspecialchars($opts['setvalue']))
+            . '" style="display:none">' . $icons['edit'] . '</a>';
     }
     if (isset($opts['show_restore_default']) && $opts['show_restore_default']) {
-        ?>
-        <a class="restore-default" href="#<?php echo $path ?>" title="<?php echo __('Restore default value') ?>" style="display:none"><?php echo $icons['reload']; ?></a>
-        <?php
+        echo '<a class="restore-default" href="#' . $path . '" title="'
+            .  __('Restore default value') . '" style="display:none">'
+            . $icons['reload'] . '</a>';
     }
     // this must match with displayErrors() in scripts/config.js
     if ($has_errors) {
@@ -318,24 +316,20 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
         }
         echo '</dl>';
     }
-    ?>
-    </td>
-    <?php
+    echo '</td>';
     if ($is_setup_script && isset($opts['userprefs_allow'])) {
-    ?>
-    <td class="userprefs-allow" title="<?php echo __('Allow users to customize this value') ?>">
-        <input type="checkbox" name="<?php echo $path ?>-userprefs-allow" <?php
+        echo '<td class="userprefs-allow" title="' .
+            __('Allow users to customize this value') . '">';
+        echo '<input type="checkbox" name="' . $path . '>-userprefs-allow" ';
         if ($opts['userprefs_allow']) {
             echo 'checked="checked"';
-        }; ?> />
-    </td>
-    <?php
+        };
+        echo '/>';
+        echo '</td>';
     } else if ($is_setup_script) {
         echo '<td>&nbsp;</td>';
     }
-    ?>
-</tr>
-<?php
+    echo '</tr>';
 }
 
 /**
@@ -354,13 +348,11 @@ function PMA_displayGroupHeader($header_text)
     $colspan = defined('PMA_SETUP')
         ? 3
         : 2;
-?>
-<tr class="group-header group-header-<?php echo $_FormDisplayGroup ?>">
-    <th colspan="<?php echo $colspan ?>">
-        <?php echo $header_text ?>
-    </th>
-</tr>
-<?php
+    echo '<tr class="group-header group-header-' . $_FormDisplayGroup . '">';
+    echo '<th colspan="' . $colspan . '">';
+    echo $header_text;
+    echo '</th>';
+    echo '</tr>';
 }
 
 /**
@@ -383,17 +375,16 @@ function PMA_displayFieldsetBottom()
     if (defined('PMA_SETUP')) {
         $colspan++;
     }
-?>
-<tr>
-    <td colspan="<?php echo $colspan ?>" class="lastrow">
-        <input type="submit" name="submit_save" value="<?php echo __('Save') ?>" class="green" />
-        <input type="button" name="submit_reset" value="<?php echo __('Reset') ?>" />
-    </td>
-</tr>
-</table>
-</fieldset>
-
-<?php
+    echo '<tr>';
+    echo '<td colspan="' . $colspan . '" class="lastrow">';
+    echo '<input type="submit" name="submit_save" value="'
+        . __('Save') . '" class="green" />';
+    echo '<input type="button" name="submit_reset" value="'
+        . __('Reset') . '" />';
+    echo '</td>';
+    echo '</tr>';
+    echo '</table>';
+    echo '</fieldset>';
 }
 
 /**
@@ -401,11 +392,8 @@ function PMA_displayFieldsetBottom()
  */
 function PMA_displayFieldsetBottomSimple()
 {
-?>
-</table>
-</fieldset>
-
-<?php
+    echo '</table>';
+    echo '</fieldset>';
 }
 
 /**
@@ -455,11 +443,9 @@ function PMA_displayJavascript($js_array)
     if (empty($js_array)) {
         return;
     }
-?>
-<script type="text/javascript">
-<?php echo implode(";\n", $js_array) . ";\n" ?>
-</script>
-<?php
+    echo '<script type="text/javascript">' . "\n";
+    echo implode(";\n", $js_array) . ";\n";
+    echo '</script>' . "\n";
 }
 
 /**
