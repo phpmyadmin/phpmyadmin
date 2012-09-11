@@ -63,10 +63,12 @@ function PMA_displayTabsTop($tabs)
 /**
  * Displays top part of a fieldset
  *
- * @param string $title
- * @param string $description
- * @param array  $errors
- * @param array  $attributes
+ * @param string $title       title of fieldset
+ * @param string $description description shown on top of fieldset
+ * @param array  $errors      error messages to display
+ * @param array  $attributes  optional extra attributes of fieldset
+ *
+ * @return void
  */
 function PMA_displayFieldsetTop($title = '', $description = '', $errors = null,
     $attributes = array()
@@ -115,13 +117,15 @@ function PMA_displayFieldsetTop($title = '', $description = '', $errors = null,
  * o comment_warning - (bool) whether this comments warns about something
  * o wiki - (string) wiki link
  *
- * @param string $path
- * @param string $name
- * @param string $type
- * @param mixed  $value
- * @param string $description
- * @param bool   $value_is_default
- * @param array  $opts
+ * @param string $path             config option path
+ * @param string $name             config option name
+ * @param string $type             type of config option
+ * @param mixed  $value            current value
+ * @param string $description      verbose description
+ * @param bool   $value_is_default whether value is default
+ * @param array  $opts             see above description
+ *
+ * @return void
  */
 function PMA_displayInput($path, $name, $type, $value, $description = '',
     $value_is_default = true, $opts = null
@@ -335,7 +339,9 @@ function PMA_displayInput($path, $name, $type, $value, $description = '',
 /**
  * Display group header
  *
- * @param string $header_text
+ * @param string $header_text Text of header
+ *
+ * @return void
  */
 function PMA_displayGroupHeader($header_text)
 {
@@ -358,6 +364,7 @@ function PMA_displayGroupHeader($header_text)
 /**
  * Display group footer
  *
+ * @return void
  */
 function PMA_displayGroupFooter()
 {
@@ -368,6 +375,8 @@ function PMA_displayGroupFooter()
 
 /**
  * Displays bottom part of a fieldset
+ *
+ * @return void
  */
 function PMA_displayFieldsetBottom()
 {
@@ -389,6 +398,8 @@ function PMA_displayFieldsetBottom()
 
 /**
  * Displays simple bottom part of a fieldset (without submit buttons)
+ *
+ * @return void
  */
 function PMA_displayFieldsetBottomSimple()
 {
@@ -398,6 +409,8 @@ function PMA_displayFieldsetBottomSimple()
 
 /**
  * Closes form tabs
+ *
+ * @return void
  */
 function PMA_displayTabsBottom()
 {
@@ -406,6 +419,8 @@ function PMA_displayTabsBottom()
 
 /**
  * Displays bottom part of the form
+ *
+ * @return void
  */
 function PMA_displayFormBottom()
 {
@@ -415,9 +430,11 @@ function PMA_displayFormBottom()
 /**
  * Appends JS validation code to $js_array
  *
- * @param string       $field_id
- * @param string|array $validator
- * @param array        $js_array
+ * @param string       $field_id   ID of field to validate
+ * @param string|array $validators validators callback
+ * @param array        &$js_array  will be updated with javascript code
+ *
+ * @return void
  */
 function PMA_addJsValidate($field_id, $validators, &$js_array)
 {
@@ -436,7 +453,9 @@ function PMA_addJsValidate($field_id, $validators, &$js_array)
 /**
  * Displays JavaScript code
  *
- * @param array $js_array
+ * @param array $js_array lines of javascript code
+ *
+ * @return void
  */
 function PMA_displayJavascript($js_array)
 {
@@ -451,8 +470,10 @@ function PMA_displayJavascript($js_array)
 /**
  * Displays error list
  *
- * @param string $name
- * @param array  $error_list
+ * @param string $name       name of item with errors
+ * @param array  $error_list list of errors to show
+ *
+ * @return void
  */
 function PMA_displayErrors($name, $error_list)
 {
