@@ -477,7 +477,8 @@ $(function() {
         runtime.xmax = new Date().getTime() - server_time_diff + monitorSettings.gridRefresh;
 
         $.each(runtime.charts, function(key, value) {
-            value.chart.xAxis[0].setExtremes(runtime.xmin, runtime.xmax, false);
+            value.chart['axes']['xaxis']['max'] = runtime.xmax;
+            value.chart['axes']['xaxis']['min'] = runtime.xmin;
         });
 
         runtime.refreshTimeout = setTimeout(refreshChartGrid, monitorSettings.gridRefresh);
