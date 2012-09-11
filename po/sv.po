@@ -4,10 +4,10 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-11 10:37+0200\n"
-"PO-Revision-Date: 2012-09-05 15:33+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Swedish <http://l10n.cihar.com/projects/phpmyadmin/master/sv/"
-">\n"
+"PO-Revision-Date: 2012-09-11 21:22+0200\n"
+"Last-Translator: ProUser <stefan@inkopsforum.se>\n"
+"Language-Team: Swedish "
+"<http://l10n.cihar.com/projects/phpmyadmin/master/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -609,7 +609,6 @@ msgid "Output"
 msgstr "Utdata"
 
 #: gis_data_editor.php:402
-#, fuzzy
 #| msgid ""
 #| "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
 #| "string into the \"Value\" field"
@@ -617,11 +616,11 @@ msgid ""
 "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field"
 msgstr ""
-"Välj \"GeomFromText\" från \"Funktions\"-kolumnen och klistra in "
-"nedanstående sträng i \"Value\"-fältet"
+"Välj \"GeomFromText\" i \"Funktions\" kolumnen och klistra in strängen i \"Value\" "
+"fältet"
 
 #: import.php:95
-#, fuzzy, php-format
+#, php-format
 #| msgid ""
 #| "You probably tried to upload too large file. Please refer to "
 #| "%sdocumentation%s for ways to workaround this limit."
@@ -629,8 +628,8 @@ msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
 msgstr ""
-"Du försökte förmodligen ladda upp en för stor fil. Se %sdokumentationen%s "
-"för att gå runt denna begränsning."
+"Du försökte ladda upp en fil som är för stor. Se %sdocumentation%s för att "
+"gå runt denna begränsning."
 
 #: import.php:234 import.php:499
 msgid "Showing bookmark"
@@ -6076,11 +6075,11 @@ msgstr "Detaljer..."
 
 #: libraries/dbi/drizzle-wrappers.lib.php:450
 msgid "Can't seek in an unbuffered result set"
-msgstr ""
+msgstr "Det går inte att söka i en obuffrad resultatmängd"
 
 #: libraries/dbi/drizzle-wrappers.lib.php:472
 msgid "Can't count rows in an unbuffered result set"
-msgstr ""
+msgstr "Kan inte räkna rader i en obuffrad resultatmängd"
 
 #: libraries/dbi/drizzle.dbi.lib.php:136 libraries/dbi/mysql.dbi.lib.php:150
 #: libraries/dbi/mysqli.dbi.lib.php:192
