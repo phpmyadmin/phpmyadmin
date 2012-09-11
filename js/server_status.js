@@ -482,7 +482,6 @@ $(function() {
                     .hide()
                     .after('<div class="liveChart" id="' + $tab.attr('id') + '_chart_cnt"></div>');
             }
-            tabChart[$tab.attr('id')] = PMA_createChart(settings);
             $(link).html(PMA_messages['strStaticData']);
             $tab.find('.buttonlinks a.tabRefresh').hide();
             $tab.find('.buttonlinks .refreshList').show();
