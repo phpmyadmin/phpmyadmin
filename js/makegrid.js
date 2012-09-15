@@ -768,6 +768,12 @@ function PMA_makegrid(t, enableResize, enableReorder, enableVisib, enableGridEdi
                         $(g.cEdit).find('.edit_box').live('keypress change', function(e) {
                             $checkbox.prop('checked', false);
                         });
+                        // Capture ctrl+v (on IE and Chrome)
+                        $(g.cEdit).find('.edit_box').live('keydown', function(e) {
+                            if (e.ctrlKey && e.which == 86) {
+                                $checkbox.prop('checked', false);
+                            }
+                        });
                         $editArea.find('textarea').live('keydown', function(e) {
                             $checkbox.prop('checked', false);
                         });
