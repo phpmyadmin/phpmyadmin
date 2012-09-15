@@ -56,7 +56,7 @@ class PMA_CommonFunctions
      *
      * @return string Function name.
      */
-    public function detectPow()
+    public static function detectPow()
     {
         if (function_exists('bcpow')) {
             // BCMath Arbitrary Precision Mathematics Function
@@ -80,7 +80,7 @@ class PMA_CommonFunctions
      *
      * @return mixed string or float
      */
-    public function pow($base, $exp, $use_function = false)
+    public static function pow($base, $exp, $use_function = false)
     {
         static $pow_function = null;
 
@@ -130,7 +130,7 @@ class PMA_CommonFunctions
      *
      * @return string an html snippet
      */
-    public function getIcon($icon, $alternate = '', $force_text = false)
+    public static function getIcon($icon, $alternate = '', $force_text = false)
     {
         // $cfg['PropertiesIconic'] is true or both
         $include_icon = ($GLOBALS['cfg']['PropertiesIconic'] !== false);
@@ -167,7 +167,7 @@ class PMA_CommonFunctions
      *
      * @return string an html IMG tag
      */
-    public function getImage($image, $alternate = '', $attributes = array())
+    public static function getImage($image, $alternate = '', $attributes = array())
     {
         static $sprites; // cached list of available sprites (if any)
         if (defined('TESTSUITE')) {
@@ -249,7 +249,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function getFormattedMaximumUploadSize($max_upload_size)
+    public static function getFormattedMaximumUploadSize($max_upload_size)
     {
         // I have to reduce the second parameter (sensitiveness) from 6 to 4
         // to avoid weird results like 512 kKib
@@ -268,7 +268,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function generateHiddenMaxFileSize($max_size)
+    public static function generateHiddenMaxFileSize($max_size)
     {
         return '<input type="hidden" name="MAX_FILE_SIZE" value="'
             . $max_size . '" />';
@@ -291,7 +291,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function sqlAddSlashes(
+    public static function sqlAddSlashes(
         $a_string = '', $is_like = false, $crlf = false, $php_code = false
     ) {
 
@@ -329,7 +329,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function escapeMysqlWildcards($name)
+    public static function escapeMysqlWildcards($name)
     {
         return strtr($name, array('_' => '\\_', '%' => '\\%'));
     } // end of the 'escapeMysqlWildcards()' function
@@ -345,7 +345,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function unescapeMysqlWildcards($name)
+    public static function unescapeMysqlWildcards($name)
     {
         return strtr($name, array('\\_' => '_', '\\%' => '%'));
     } // end of the 'unescapeMysqlWildcards()' function
@@ -361,7 +361,7 @@ class PMA_CommonFunctions
      *
      * @return string unqoted string
      */
-    public function unQuote($quoted_string, $quote = null)
+    public static function unQuote($quoted_string, $quote = null)
     {
         $quotes = array();
 
@@ -406,7 +406,7 @@ class PMA_CommonFunctions
      * @access  public
      * @todo    move into PMA_Sql
      */
-    public function formatSql($parsed_sql, $unparsed_sql = '')
+    public static function formatSql($parsed_sql, $unparsed_sql = '')
     {
         global $cfg;
 
@@ -466,7 +466,7 @@ class PMA_CommonFunctions
      *
      * @access public
      */
-    public function showDocLink($link, $target = 'documentation')
+    public static function showDocLink($link, $target = 'documentation')
     {
         return '<a href="' . $link . '" target="' . $target . '">'
             . $this->getImage('b_help.png', __('Documentation'))
@@ -487,7 +487,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function showMySQLDocu(
+    public static function showMySQLDocu(
         $chapter, $link, $big_icon = false, $anchor = '', $just_open = false
     ) {
 
@@ -574,7 +574,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function showDocu($anchor)
+    public static function showDocu($anchor)
     {
         return $this->showDocLink('Documentation.html#' . $anchor);
     } // end of the 'showDocu()' function
@@ -589,7 +589,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function showPHPDocu($target)
+    public static function showPHPDocu($target)
     {
         $url = PMA_getPHPDocLink($target);
 
@@ -606,7 +606,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function showHint($message)
+    public static function showHint($message)
     {
         return '<span class="pma_hint">'
             . $this->getImage('b_help.png')
@@ -631,7 +631,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function mysqlDie(
+    public static function mysqlDie(
         $error_message = '', $the_query = '',
         $is_modify_link = true, $back_url = '', $exit = true
     ) {
@@ -795,7 +795,7 @@ class PMA_CommonFunctions
      *
      * @return array    (recursive) grouped table list
      */
-    public function getTableList(
+    public static function getTableList(
         $db, $tables = null, $limit_offset = 0, $limit_count = false
     ) {
         $sep = $GLOBALS['cfg']['LeftFrameTableSeparator'];
@@ -942,7 +942,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function backquote($a_name, $do_it = true)
+    public static function backquote($a_name, $do_it = true)
     {
 
         if (is_array($a_name)) {
@@ -990,8 +990,9 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function backquoteCompat($a_name, $compatibility = 'MSSQL', $do_it = true)
-    {
+    public static function backquoteCompat(
+        $a_name, $compatibility = 'MSSQL', $do_it = true
+    ) {
 
         if (is_array($a_name)) {
             foreach ($a_name as &$data) {
@@ -1034,7 +1035,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function whichCrlf()
+    public static function whichCrlf()
     {
         // The 'PMA_USR_OS' constant is defined in "libraries/Config.class.php"
         // Win case
@@ -1058,7 +1059,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function getReloadNavigationScript($jsonly = false)
+    public static function getReloadNavigationScript($jsonly = false)
     {
         $retval = '';
         // Reloads the navigation frame via JavaScript if required
@@ -1109,7 +1110,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function getMessage(
+    public static function getMessage(
         $message, $sql_query = null, $type = 'notice', $is_view = false
     ) {
 
@@ -1488,7 +1489,7 @@ class PMA_CommonFunctions
      *
      * @return boolean whether profiling is supported
      */
-    public function profilingSupported()
+    public static function profilingSupported()
     {
         if (!$this->cacheExists('profiling_supported', true)) {
             // 5.0.37 has profiling but for example, 5.1.20 does not
@@ -1517,7 +1518,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function getProfilingForm($sql_query)
+    public static function getProfilingForm($sql_query)
     {
         $retval = '';
         if ($this->profilingSupported()) {
@@ -1552,7 +1553,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function formatByteDown($value, $limes = 6, $comma = 0)
+    public static function formatByteDown($value, $limes = 6, $comma = 0)
     {
         if ($value === null) {
             return null;
@@ -1609,7 +1610,7 @@ class PMA_CommonFunctions
      *
      * @return string
      */
-    public function localizeNumber($value)
+    public static function localizeNumber($value)
     {
         return str_replace(
             array(',', '.'),
@@ -1650,7 +1651,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function formatNumber(
+    public static function formatNumber(
         $value, $digits_left = 3, $digits_right = 0,
         $only_down = false, $noTrailingZero = true
     ) {
@@ -1748,7 +1749,7 @@ class PMA_CommonFunctions
      *
      * @return integer  The numerical part of the expression (for example 8)
      */
-    public function extractValueFromFormattedSize($formatted_size)
+    public static function extractValueFromFormattedSize($formatted_size)
     {
         $return_value = -1;
 
@@ -1773,7 +1774,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function localisedDate($timestamp = -1, $format = '')
+    public static function localisedDate($timestamp = -1, $format = '')
     {
         $month = array(
             /* l10n: Short month name */
@@ -1851,7 +1852,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function getHtmlTab($tab, $url_params = array())
+    public static function getHtmlTab($tab, $url_params = array())
     {
         // default values
         $defaults = array(
@@ -1955,7 +1956,7 @@ class PMA_CommonFunctions
      *
      * @return string  html-code for tab-navigation
      */
-    public function getHtmlTabs($tabs, $url_params, $menu_id = 'topmenu')
+    public static function getHtmlTabs($tabs, $url_params, $menu_id = 'topmenu')
     {
         $tab_navigation = '<div id="' . htmlentities($menu_id)
             . 'container" class="menucontainer">'
@@ -1989,7 +1990,7 @@ class PMA_CommonFunctions
      *
      * @return string  the results to be echoed or saved in an array
      */
-    public function linkOrButton(
+    public static function linkOrButton(
         $url, $message, $tag_params = array(),
         $new_form = true, $strip_img = false, $target = ''
     ) {
@@ -2123,7 +2124,7 @@ class PMA_CommonFunctions
      *
      * @return array  the parameter/value pairs, for example [0] db=sakila
      */
-    public function splitURLQuery($url)
+    public static function splitURLQuery($url)
     {
         // decode encoded url separators
         $separator = PMA_get_arg_separator();
@@ -2150,7 +2151,7 @@ class PMA_CommonFunctions
      *
      * @return string  the formatted value
      */
-    public function timespanFormat($seconds)
+    public static function timespanFormat($seconds)
     {
         $days = floor($seconds / 86400);
         if ($days > 0) {
@@ -2189,7 +2190,7 @@ class PMA_CommonFunctions
      *
      * @return string      The flipped string
      */
-    public function flipstring($string, $Separator = "<br />\n")
+    public static function flipstring($string, $Separator = "<br />\n")
     {
         $format_string = '';
         $charbuff = false;
@@ -2241,7 +2242,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function checkParameters($params, $request = true)
+    public static function checkParameters($params, $request = true)
     {
         global $checked_special;
 
@@ -2286,7 +2287,7 @@ class PMA_CommonFunctions
      *
      * @return array     the calculated condition and whether condition is unique
      */
-    public function getUniqueCondition(
+    public static function getUniqueCondition(
         $handle, $fields_cnt, $fields_meta, $row, $force_unique = false
     ) {
 
@@ -2469,7 +2470,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function getButtonOrImage(
+    public static function getButtonOrImage(
         $button_name, $button_class, $image_name, $text, $image, $value = ''
     ) {
 
@@ -2524,7 +2525,7 @@ class PMA_CommonFunctions
      *
      * @access  public
      */
-    public function pageselector(
+    public static function pageselector(
         $rows, $pageNow = 1, $nbTotalPage = 1, $showAll = 200, $sliceStart = 5,
         $sliceEnd = 5, $percent = 20, $range = 10, $prompt = ''
     ) {
@@ -2661,7 +2662,7 @@ class PMA_CommonFunctions
      *
      * @todo    use $pos from $_url_params
      */
-    public function getListNavigator(
+    public static function getListNavigator(
         $count, $pos, $_url_params, $script, $frame, $max_count
     ) {
 
@@ -2769,7 +2770,7 @@ class PMA_CommonFunctions
      *
      * @return string  per user directory
      */
-    public function userDir($dir)
+    public static function userDir($dir)
     {
         // add trailing slash
         if (substr($dir, -1) != '/') {
@@ -2787,7 +2788,7 @@ class PMA_CommonFunctions
      *
      * @return string  html link to default db page
      */
-    public function getDbLink($database = null)
+    public static function getDbLink($database = null)
     {
         if (! strlen($database)) {
             if (! strlen($GLOBALS['db'])) {
@@ -2819,7 +2820,7 @@ class PMA_CommonFunctions
      *
      * @return void
      */
-    public function getExternalBug(
+    public static function getExternalBug(
         $functionality, $component, $minimum_version, $bugref
     ) {
         $ext_but_html = '';
@@ -2846,7 +2847,7 @@ class PMA_CommonFunctions
      *
      * @return string                  HTML for the checkbox
      */
-    public function getCheckbox($html_field_name, $label, $checked, $onclick)
+    public static function getCheckbox($html_field_name, $label, $checked, $onclick)
     {
         return '<input type="checkbox" name="' . $html_field_name . '" id="'
             . $html_field_name . '"' . ($checked ? ' checked="checked"' : '')
@@ -2867,7 +2868,7 @@ class PMA_CommonFunctions
      *
      * @return string                  set of html radio fiels
      */
-    public function getRadioFields(
+    public static function getRadioFields(
         $html_field_name, $choices, $checked_choice = '',
         $line_break = true, $escape_label = true, $class = ''
     ) {
@@ -2925,7 +2926,7 @@ class PMA_CommonFunctions
      *
      * @todo    support titles
      */
-    public function getDropdown($select_name, $choices, $active_choice, $id)
+    public static function getDropdown($select_name, $choices, $active_choice, $id)
     {
         $result = '<select name="' . htmlspecialchars($select_name) . '" id="'
             . htmlspecialchars($id) . '">';
@@ -2956,7 +2957,7 @@ class PMA_CommonFunctions
      * @return string         html div element
      *
      */
-    public function getDivForSliderEffect($id, $message)
+    public static function getDivForSliderEffect($id, $message)
     {
         if ($GLOBALS['cfg']['InitialSlidersState'] == 'disabled') {
             return '<div id="' . $id . '">';
@@ -2991,7 +2992,7 @@ class PMA_CommonFunctions
      *
      * @return string   HTML code for the toggle button
      */
-    public function toggleButton($action, $select_name, $options, $callback)
+    public static function toggleButton($action, $select_name, $options, $callback)
     {
         // Do the logic first
         $link = "$action&amp;" . urlencode($select_name) . "=";
@@ -3050,7 +3051,7 @@ class PMA_CommonFunctions
      *
      * @return void
      */
-    public function clearUserCache()
+    public static function clearUserCache()
     {
         $this->cacheUnset('is_superuser', true);
     }
@@ -3064,7 +3065,7 @@ class PMA_CommonFunctions
      *
      * @return boolean
      */
-    public function cacheExists($var, $server = 0)
+    public static function cacheExists($var, $server = 0)
     {
         if ($server === true) {
             $server = $GLOBALS['server'];
@@ -3081,7 +3082,7 @@ class PMA_CommonFunctions
      *
      * @return mixed
      */
-    public function cacheGet($var, $server = 0)
+    public static function cacheGet($var, $server = 0)
     {
         if ($server === true) {
             $server = $GLOBALS['server'];
@@ -3103,7 +3104,7 @@ class PMA_CommonFunctions
      *
      * @return mixed
      */
-    public function cacheSet($var, $val = null, $server = 0)
+    public static function cacheSet($var, $val = null, $server = 0)
     {
         if ($server === true) {
             $server = $GLOBALS['server'];
@@ -3120,7 +3121,7 @@ class PMA_CommonFunctions
      *
      * @return void
      */
-    public function cacheUnset($var, $server = 0)
+    public static function cacheUnset($var, $server = 0)
     {
         if ($server === true) {
             $server = $GLOBALS['server'];
@@ -3139,7 +3140,7 @@ class PMA_CommonFunctions
      *
      * @return string  the printable value
      */
-    public function printableBitValue($value, $length)
+    public static function printableBitValue($value, $length)
     {
         $printable = '';
         for ($i = 0, $len_ceiled = ceil($length / 8); $i < $len_ceiled; $i++) {
@@ -3157,7 +3158,7 @@ class PMA_CommonFunctions
      *
      * @return boolean
      */
-    public function containsNonPrintableAscii($value)
+    public static function containsNonPrintableAscii($value)
     {
         return preg_match('@[^[:print:]]@', $value);
     }
@@ -3171,7 +3172,7 @@ class PMA_CommonFunctions
      *
      * @return string the converted value
      */
-    public function convertBitDefaultValue($bit_default_value)
+    public static function convertBitDefaultValue($bit_default_value)
     {
         return strtr($bit_default_value, array("b" => "", "'" => ""));
     }
@@ -3185,7 +3186,7 @@ class PMA_CommonFunctions
      * @return array associative array containing type, spec_in_brackets
      *          and possibly enum_set_values (another array)
      */
-    public function extractColumnSpec($columnspec)
+    public static function extractColumnSpec($columnspec)
     {
         $first_bracket_pos = strpos($columnspec, '(');
         if ($first_bracket_pos) {
@@ -3351,7 +3352,7 @@ class PMA_CommonFunctions
      *
      * @return boolean
      */
-    public function isForeignKeySupported($engine)
+    public static function isForeignKeySupported($engine)
     {
         $engine = strtoupper($engine);
         if (($engine == 'INNODB') || ($engine == 'PBXT')) {
@@ -3369,7 +3370,7 @@ class PMA_CommonFunctions
      *
      * @return string the content with characters replaced
      */
-    public function replaceBinaryContents($content)
+    public static function replaceBinaryContents($content)
     {
         $result = str_replace("\x00", '\0', $content);
         $result = str_replace("\x08", '\b', $result);
@@ -3388,7 +3389,7 @@ class PMA_CommonFunctions
      *
      * @return string GIS data in Well Know Text format
      */
-    public function asWKT($data, $includeSRID = false)
+    public static function asWKT($data, $includeSRID = false)
     {
         // Convert to WKT format
         $hex = bin2hex($data);
@@ -3418,7 +3419,7 @@ class PMA_CommonFunctions
      *
      * @return string with the chars replaced
      */
-    public function duplicateFirstNewline($string)
+    public static function duplicateFirstNewline($string)
     {
         $first_occurence = strpos($string, "\r\n");
         if ($first_occurence === 0) {
@@ -3437,7 +3438,7 @@ class PMA_CommonFunctions
      *
      * @return array
      */
-    public function getTitleForTarget($target)
+    public static function getTitleForTarget($target)
     {
         $mapping = array(
             // Values for $cfg['DefaultTabTable']
@@ -3472,8 +3473,9 @@ class PMA_CommonFunctions
      *
      * @return string
      */
-    public function expandUserString($string, $escape = null, $updates = array())
-    {
+    public static function expandUserString(
+        $string, $escape = null, $updates = array()
+    ) {
         /* Content */
         $vars['http_host'] = PMA_getenv('HTTP_HOST');
         $vars['server_name'] = $GLOBALS['cfg']['Server']['host'];
@@ -3564,7 +3566,7 @@ class PMA_CommonFunctions
      *
      * @return void
      */
-    public function getBrowseUploadFileBlock($max_upload_size)
+    public static function getBrowseUploadFileBlock($max_upload_size)
     {
 
         $block_html = '';
@@ -3596,7 +3598,7 @@ class PMA_CommonFunctions
      *
      * @return void
      */
-    public function getSelectUploadFileBlock($import_list, $uploaddir)
+    public static function getSelectUploadFileBlock($import_list, $uploaddir)
     {
 
         $block_html = '';
@@ -3656,7 +3658,7 @@ class PMA_CommonFunctions
      *
      * @return array   the action titles
      */
-    public function buildActionTitles()
+    public static function buildActionTitles()
     {
         $titles = array();
 
@@ -3694,7 +3696,7 @@ class PMA_CommonFunctions
      * @return mixed   An HTML snippet or an array of datatypes.
      *
      */
-    public function getSupportedDatatypes($html = false, $selected = '')
+    public static function getSupportedDatatypes($html = false, $selected = '')
     {
         if ($html) {
 
@@ -3776,7 +3778,7 @@ class PMA_CommonFunctions
      *
      * @return array   list of datatypes
      */
-    public function unsupportedDatatypes()
+    public static function unsupportedDatatypes()
     {
         $no_support_types = array();
         return $no_support_types;
@@ -3790,7 +3792,7 @@ class PMA_CommonFunctions
      *
      * @return array GIS data types
      */
-    public function getGISDatatypes($upper_case = false)
+    public static function getGISDatatypes($upper_case = false)
     {
         $gis_data_types = array(
             'geometry',
@@ -3818,7 +3820,7 @@ class PMA_CommonFunctions
      *
      * @return string GIS data enclosed in 'GeomFromText' function
      */
-    public function createGISData($gis_string)
+    public static function createGISData($gis_string)
     {
         $gis_string = trim($gis_string);
         $geom_types = '(POINT|MULTIPOINT|LINESTRING|MULTILINESTRING|'
@@ -3847,7 +3849,7 @@ class PMA_CommonFunctions
      * @return array names and details of the functions that can be applied on
      *               geometry data typess.
      */
-    public function getGISFunctions(
+    public static function getGISFunctions(
         $geom_type = null, $binary = true, $display = false
     ) {
         $funcs = array();
@@ -3961,7 +3963,7 @@ class PMA_CommonFunctions
      * @return string   An HTML snippet of a dropdown list with function
      *                    names appropriate for the requested column.
      */
-    public function getDefaultFunctionForField($field, $insert_mode)
+    public static function getDefaultFunctionForField($field, $insert_mode)
     {
         global $cfg, $analyzed_sql, $data;
 
@@ -4027,7 +4029,7 @@ class PMA_CommonFunctions
      * @return string   An HTML snippet of a dropdown list with function
      *                    names appropriate for the requested column.
      */
-    public function getFunctionsForField($field, $insert_mode)
+    public static function getFunctionsForField($field, $insert_mode)
     {
         $default_function = $this->getDefaultFunctionForField($field, $insert_mode);
         $dropdown_built = array();
@@ -4091,7 +4093,7 @@ class PMA_CommonFunctions
      *
      * @return bool
      */
-    public function currentUserHasPrivilege($priv, $db = null, $tbl = null)
+    public static function currentUserHasPrivilege($priv, $db = null, $tbl = null)
     {
         // Get the username for the current user in the format
         // required to use in the information schema database.
@@ -4179,7 +4181,7 @@ class PMA_CommonFunctions
      *
      * @return string
      */
-    public function getServerType()
+    public static function getServerType()
     {
         $server_type = 'MySQL';
         if (PMA_DRIZZLE) {
@@ -4200,7 +4202,7 @@ class PMA_CommonFunctions
      *
      * @return array Start and length attributes of the limit clause
      */
-    public function analyzeLimitClause($limit_clause)
+    public static function analyzeLimitClause($limit_clause)
     {
         $start_and_length = explode(',', str_ireplace('LIMIT', '', $limit_clause));
         return array(
@@ -4215,7 +4217,7 @@ class PMA_CommonFunctions
      *
      * @return void
      */
-    public function getButton()
+    public static function getButton()
     {
         return '<p class="print_ignore">'
             . '<input type="button" class="button" id="print" value="'
@@ -4232,7 +4234,7 @@ class PMA_CommonFunctions
      *
      * @return array
      */
-    public function parseEnumSetValues($definition)
+    public static function parseEnumSetValues($definition)
     {
         $values_string = htmlentities($definition);
         // There is a JS port of the below parser in functions.js
