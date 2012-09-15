@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: phpmyadmin-devel@lists.sourceforge.net\n"
 "POT-Creation-Date: 2012-09-11 10:37+0200\n"
-"PO-Revision-Date: 2012-09-12 23:27+0200\n"
+"PO-Revision-Date: 2012-09-12 23:38+0200\n"
 "Last-Translator: Aputsiaq Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish <http://l10n.cihar.com/projects/phpmyadmin/master/da/>\n"
 "Language: da\n"
@@ -10578,7 +10578,7 @@ msgstr "Rådgiver"
 #: server_status.php:857 server_status.php:883
 #| msgid "Number of rows:"
 msgid "Number of data points: "
-msgstr "Antal datapunkter:"
+msgstr "Antal datapunkter: "
 
 #: server_status.php:861 server_status.php:887
 msgid "Refresh rate: "
