@@ -937,8 +937,7 @@ function PMA_RTN_getEditorForm($mode, $operation, $routine)
     $retval .= "<tr class='routine_return_row$isfunction_class'>\n";
     $retval .= "    <td>" . __('Return type') . "</td>\n";
     $retval .= "    <td><select name='item_returntype'>\n";
-    $retval .= PMA_CommonFunctions::getInstance()
-        ->getSupportedDatatypes(true, $routine['item_returntype']) . "\n";
+    $retval .= PMA_Util::getSupportedDatatypes(true, $routine['item_returntype']) . "\n";
     $retval .= "    </select></td>\n";
     $retval .= "</tr>\n";
     $retval .= "<tr class='routine_return_row$isfunction_class'>\n";

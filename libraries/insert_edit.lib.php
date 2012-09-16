@@ -495,8 +495,7 @@ function PMA_getFunctionColumn($column, $is_upload, $column_name_appendix,
             . ' ' . $unnullify_trigger
             . ' tabindex="' . ($tabindex + $tabindex_for_function) . '"'
             . ' id="field_' . $idindex . '_1">';
-        $html_output .= PMA_CommonFunctions::getInstance()
-            ->getFunctionsForField($column, $insert_mode) . "\n";
+        $html_output .= PMA_Util::getFunctionsForField($column, $insert_mode) . "\n";
 
         $html_output .= '</select>' .  "\n";
         $html_output .= '</td>' .  "\n";
@@ -1730,8 +1729,7 @@ function PMA_getSpecialCharsAndBackupFieldForInsertingMode(
         $special_chars = htmlspecialchars($column['Default']);
     }
     $backup_field = '';
-    $special_chars_encoded = PMA_CommonFunctions::getInstance()
-        ->duplicateFirstNewline($special_chars);
+    $special_chars_encoded = PMA_Util::duplicateFirstNewline($special_chars);
     // this will select the UNHEX function while inserting
     if (($column['is_binary'] || ($column['is_blob'] && ! $GLOBALS['cfg']['ProtectBinary']))
         && (isset($_SESSION['tmp_user_values']['display_binary_as_hex'])

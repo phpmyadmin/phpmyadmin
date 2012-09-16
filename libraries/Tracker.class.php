@@ -450,7 +450,7 @@ class PMA_Tracker
     static private function _changeTracking($dbname, $tablename,
         $version, $new_state
     ) {
-        $common_functions= PMA_CommonFunctions::getInstance();
+        
         $sql_query = " UPDATE " . self::$pma_table .
         " SET `tracking_active` = '" . $new_state . "' " .
         " WHERE `db_name` = '" . PMA_Util::sqlAddSlashes($dbname) . "' " .

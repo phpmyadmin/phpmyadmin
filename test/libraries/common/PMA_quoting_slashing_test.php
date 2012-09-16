@@ -22,16 +22,15 @@ class PMA_quoting_slashing_test extends PHPUnit_Framework_TestCase
     public function testAddSlashes()
     {
         $string = "\'test''\''\'\r\t\n";
-        $common = PMA_CommonFunctions::getInstance();
-
-        $this->assertEquals("\\\\\\\\\'test\'\'\\\\\\\\\'\'\\\\\\\\\'\\r\\t\\n", $common->sqlAddSlashes($string, true, true, true));
-        $this->assertEquals("\\\\\\\\''test''''\\\\\\\\''''\\\\\\\\''\\r\\t\\n", $common->sqlAddSlashes($string, true, true, false));
-        $this->assertEquals("\\\\\\\\\'test\'\'\\\\\\\\\'\'\\\\\\\\\'\r\t\n", $common->sqlAddSlashes($string, true, false, true));
-        $this->assertEquals("\\\\\\\\''test''''\\\\\\\\''''\\\\\\\\''\r\t\n", $common->sqlAddSlashes($string, true, false, false));
-        $this->assertEquals("\\\\\'test\'\'\\\\\'\'\\\\\'\\r\\t\\n", $common->sqlAddSlashes($string, false, true, true));
-        $this->assertEquals("\\\\''test''''\\\\''''\\\\''\\r\\t\\n", $common->sqlAddSlashes($string, false, true, false));
-        $this->assertEquals("\\\\\'test\'\'\\\\\'\'\\\\\'\r\t\n", $common->sqlAddSlashes($string, false, false, true));
-        $this->assertEquals("\\\\''test''''\\\\''''\\\\''\r\t\n", $common->sqlAddSlashes($string, false, false, false));
+        
+        $this->assertEquals("\\\\\\\\\'test\'\'\\\\\\\\\'\'\\\\\\\\\'\\r\\t\\n", PMA_Util::sqlAddSlashes($string, true, true, true));
+        $this->assertEquals("\\\\\\\\''test''''\\\\\\\\''''\\\\\\\\''\\r\\t\\n", PMA_Util::sqlAddSlashes($string, true, true, false));
+        $this->assertEquals("\\\\\\\\\'test\'\'\\\\\\\\\'\'\\\\\\\\\'\r\t\n", PMA_Util::sqlAddSlashes($string, true, false, true));
+        $this->assertEquals("\\\\\\\\''test''''\\\\\\\\''''\\\\\\\\''\r\t\n", PMA_Util::sqlAddSlashes($string, true, false, false));
+        $this->assertEquals("\\\\\'test\'\'\\\\\'\'\\\\\'\\r\\t\\n", PMA_Util::sqlAddSlashes($string, false, true, true));
+        $this->assertEquals("\\\\''test''''\\\\''''\\\\''\\r\\t\\n", PMA_Util::sqlAddSlashes($string, false, true, false));
+        $this->assertEquals("\\\\\'test\'\'\\\\\'\'\\\\\'\r\t\n", PMA_Util::sqlAddSlashes($string, false, false, true));
+        $this->assertEquals("\\\\''test''''\\\\''''\\\\''\r\t\n", PMA_Util::sqlAddSlashes($string, false, false, false));
     }
 
     /**
