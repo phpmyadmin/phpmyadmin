@@ -1,3 +1,4 @@
+/* vim: set expandtab sw=4 ts=4 sts=4: */
 $(function() {
     // Show tab links
     $('div#statustabs_charting div.tabLinks').show();
@@ -88,6 +89,10 @@ $(function() {
             maxYLabel: []
         }
     };
+
+    // time span selection
+    var selectionTimeDiff = new Array();
+    var selectionStartX, selectionStartY, selectionEndX, selectionEndY;
     
     /* Add OS specific system info charts to the preset chart list */
     switch(server_os) {
@@ -1178,6 +1183,42 @@ $(function() {
             runtime.charts['c' + runtime.chartAI] = chartObj;
             buildRequiredDataList();
         }
+
+        // time span selection
+        $('#gridchart' + runtime.chartAI).bind('jqplotMouseDown', function(ev, gridpos, datapos, neighbor, plot) {
+		    selectionTimeDiff.push(datapos.xaxis);
+            $('#selection_box').remove();
+            selectionBox = $('<div style="border:1px #FF00FF solid; position:fixed;">').hide();
+            $(document.body).append(selectionBox);
+            selectionStartX = gridpos.x;
+            selectionStartY = gridpos.y;
+            selectionBox
+                .attr({id: 'selection_box'})
+                .css({
+                    top: selectionStartY,
+                    left: selectionStartX
+                })
+                .fadeIn();
+	    });
+
+        $('#gridchart' + runtime.chartAI).bind('jqplotMouseUp', function(ev, gridpos, datapos, neighbor, plot) {
+		    selectionTimeDiff.push(datapos.xaxis);
+            //get date from timestamp
+            alert(new Date(Math.ceil(selectionTimeDiff[0])) + " \n to \n " + new Date(Math.ceil(selectionTimeDiff[1])));
+            selectionTimeDiff = [];
+            $('#selection_box').attr({ id: '' });
+	    });
+
+        $('#gridchart' + runtime.chartAI).bind('jqplotMouseMove', function(ev, gridpos, datapos, neighbor, plot) {
+            if (selectionStartX != undefined) {
+                $('#selection_box')
+                    .css({
+                        width: Math.abs(gridpos.x - selectionStartX), 
+                        height: Math.abs(gridpos.y - selectionStartY), 
+                    })
+                    .fadeIn();
+            }
+	    });
 
         // Edit, Print icon only in edit mode
         $('table#chartGrid div svg').find('*[zIndex=20], *[zIndex=21], *[zIndex=19]').toggle(editMode)
