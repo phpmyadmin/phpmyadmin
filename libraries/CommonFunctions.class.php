@@ -1,7 +1,7 @@
 <?php
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
- * Hold the PMA_CommonFunctions class
+ * Hold the PMA_Util class
  *
  * @package PhpMyAdmin
  */
@@ -14,42 +14,8 @@ if (! defined('PHPMYADMIN')) {
  *
  * @package PhpMyAdmin
  */
-class PMA_CommonFunctions
+class PMA_Util
 {
-
-    /**
-     * PMA_CommonFunctions instance
-     *
-     * @access private
-     * @static
-     * @var object
-     */
-    private static $_instance;
-
-
-    /**
-     * Creates a new class instance
-     *
-     * @return PMA_CommonFunctions object
-     */
-    private function __construct()
-    {
-    }
-
-
-    /**
-     * Returns the singleton PMA_CommonFunctions object
-     *
-     * @return PMA_CommonFunctions object
-     */
-    public static function getInstance()
-    {
-        if (empty(self::$_instance)) {
-            self::$_instance = new PMA_CommonFunctions();
-        }
-        return self::$_instance;
-    }
-
 
     /**
      * Detects which function to use for pow.
